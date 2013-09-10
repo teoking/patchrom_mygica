@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/wifi/WifiStateMachine;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -42,7 +42,7 @@
 .end method
 
 .method private setScanAlarm(Z)V
-    .registers 9
+    .locals 7
     .parameter "enabled"
 
     .prologue
@@ -51,16 +51,16 @@
     .line 3377
     iget-boolean v0, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->mAlarmEnabled:Z
 
-    if-ne p1, v0, :cond_6
+    if-ne p1, v0, :cond_1
 
     .line 3390
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return-void
 
     .line 3378
-    :cond_6
-    if-eqz p1, :cond_2c
+    :cond_1
+    if-eqz p1, :cond_2
 
     .line 3379
     iget-wide v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->mFrameworkScanIntervalMs:J
@@ -69,11 +69,12 @@
 
     cmp-long v0, v2, v4
 
-    if-lez v0, :cond_5
+    if-lez v0, :cond_0
 
     .line 3380
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mAlarmManager:Landroid/app/AlarmManager;
     invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$9400(Landroid/net/wifi/WifiStateMachine;)Landroid/app/AlarmManager;
 
     move-result-object v0
@@ -90,6 +91,7 @@
 
     iget-object v6, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mScanIntent:Landroid/app/PendingIntent;
     invoke-static {v6}, Landroid/net/wifi/WifiStateMachine;->access$14100(Landroid/net/wifi/WifiStateMachine;)Landroid/app/PendingIntent;
 
     move-result-object v6
@@ -101,18 +103,20 @@
 
     iput-boolean v0, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->mAlarmEnabled:Z
 
-    goto :goto_5
+    goto :goto_0
 
     .line 3387
-    :cond_2c
+    :cond_2
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mAlarmManager:Landroid/app/AlarmManager;
     invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$9400(Landroid/net/wifi/WifiStateMachine;)Landroid/app/AlarmManager;
 
     move-result-object v0
 
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mScanIntent:Landroid/app/PendingIntent;
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$14100(Landroid/net/wifi/WifiStateMachine;)Landroid/app/PendingIntent;
 
     move-result-object v2
@@ -122,13 +126,13 @@
     .line 3388
     iput-boolean v1, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->mAlarmEnabled:Z
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public enter()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v4, 0x1
@@ -145,6 +149,7 @@
     .line 3397
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mContext:Landroid/content/Context;
     invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$1900(Landroid/net/wifi/WifiStateMachine;)Landroid/content/Context;
 
     move-result-object v0
@@ -157,6 +162,7 @@
 
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mDefaultFrameworkScanIntervalMs:I
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$14200(Landroid/net/wifi/WifiStateMachine;)I
 
     move-result v2
@@ -172,24 +178,27 @@
     .line 3405
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mEnableBackgroundScan:Z
     invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$900(Landroid/net/wifi/WifiStateMachine;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6a
+    if-eqz v0, :cond_2
 
     .line 3412
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mScanResultIsPending:Z
     invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$6500(Landroid/net/wifi/WifiStateMachine;)Z
 
     move-result v0
 
-    if-nez v0, :cond_3e
+    if-nez v0, :cond_0
 
     .line 3413
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
     invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$1300(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiNative;
 
     move-result-object v0
@@ -197,10 +206,11 @@
     invoke-virtual {v0, v4}, Landroid/net/wifi/WifiNative;->enableBackgroundScan(Z)V
 
     .line 3424
-    :cond_3e
-    :goto_3e
+    :cond_0
+    :goto_0
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiConfigStore:Landroid/net/wifi/WifiConfigStore;
     invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$4900(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiConfigStore;
 
     move-result-object v0
@@ -213,7 +223,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_69
+    if-nez v0, :cond_1
 
     .line 3425
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
@@ -236,6 +246,7 @@
 
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mSupplicantScanIntervalMs:J
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$5800(Landroid/net/wifi/WifiStateMachine;)J
 
     move-result-wide v2
@@ -243,18 +254,18 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/net/wifi/WifiStateMachine;->sendMessageDelayed(Landroid/os/Message;J)V
 
     .line 3428
-    :cond_69
+    :cond_1
     return-void
 
     .line 3416
-    :cond_6a
+    :cond_2
     invoke-direct {p0, v4}, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->setScanAlarm(Z)V
 
-    goto :goto_3e
+    goto :goto_0
 .end method
 
 .method public exit()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -262,15 +273,17 @@
     .line 3504
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mEnableBackgroundScan:Z
     invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$900(Landroid/net/wifi/WifiStateMachine;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 3505
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
     invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$1300(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiNative;
 
     move-result-object v0
@@ -278,7 +291,7 @@
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiNative;->enableBackgroundScan(Z)V
 
     .line 3507
-    :cond_12
+    :cond_0
     invoke-direct {p0, v1}, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->setScanAlarm(Z)V
 
     .line 3508
@@ -286,7 +299,7 @@
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
-    .registers 9
+    .locals 7
     .parameter "message"
 
     .prologue
@@ -303,31 +316,33 @@
     .local v0, ret:Z
     iget v2, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v2, :sswitch_data_fc
+    sparse-switch v2, :sswitch_data_0
 
     .line 3496
     const/4 v0, 0x0
 
     .line 3498
-    :cond_c
-    :goto_c
-    :sswitch_c
+    :cond_0
+    :goto_0
+    :sswitch_0
     return v0
 
     .line 3435
-    :sswitch_d
+    :sswitch_1
     iget v2, p1, Landroid/os/Message;->arg1:I
 
     iget-object v3, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mPeriodicScanToken:I
     invoke-static {v3}, Landroid/net/wifi/WifiStateMachine;->access$14300(Landroid/net/wifi/WifiStateMachine;)I
 
     move-result v3
 
-    if-ne v2, v3, :cond_c
+    if-ne v2, v3, :cond_0
 
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiConfigStore:Landroid/net/wifi/WifiConfigStore;
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$4900(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiConfigStore;
 
     move-result-object v2
@@ -340,7 +355,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_c
+    if-nez v2, :cond_0
 
     .line 3437
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
@@ -366,16 +381,17 @@
 
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mSupplicantScanIntervalMs:J
     invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$5800(Landroid/net/wifi/WifiStateMachine;)J
 
     move-result-wide v4
 
     invoke-virtual {v2, v3, v4, v5}, Landroid/net/wifi/WifiStateMachine;->sendMessageDelayed(Landroid/os/Message;J)V
 
-    goto :goto_c
+    goto :goto_0
 
     .line 3447
-    :sswitch_47
+    :sswitch_2
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     iget-object v3, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
@@ -392,6 +408,7 @@
 
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mSupplicantScanIntervalMs:J
     invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$5800(Landroid/net/wifi/WifiStateMachine;)J
 
     move-result-wide v4
@@ -402,19 +419,20 @@
     const/4 v0, 0x0
 
     .line 3450
-    goto :goto_c
+    goto :goto_0
 
     .line 3452
-    :sswitch_60
+    :sswitch_3
     iget v2, p1, Landroid/os/Message;->arg1:I
 
     const/4 v4, 0x2
 
-    if-ne v2, v4, :cond_c
+    if-ne v2, v4, :cond_0
 
     .line 3453
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$1300(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiNative;
 
     move-result-object v2
@@ -426,6 +444,7 @@
     .line 3455
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$1300(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiNative;
 
     move-result-object v2
@@ -435,6 +454,7 @@
     .line 3456
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #setter for: Landroid/net/wifi/WifiStateMachine;->mIsScanMode:Z
     invoke-static {v2, v3}, Landroid/net/wifi/WifiStateMachine;->access$5602(Landroid/net/wifi/WifiStateMachine;Z)Z
 
     .line 3457
@@ -442,39 +462,44 @@
 
     iget-object v3, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mScanModeState:Lcom/android/internal/util/State;
     invoke-static {v3}, Landroid/net/wifi/WifiStateMachine;->access$8400(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
 
     move-result-object v3
 
+    #calls: Landroid/net/wifi/WifiStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v2, v3}, Landroid/net/wifi/WifiStateMachine;->access$14400(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
 
-    goto :goto_c
+    goto :goto_0
 
     .line 3461
-    :sswitch_8a
+    :sswitch_4
     iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     iget v2, p1, Landroid/os/Message;->arg1:I
 
-    if-ne v2, v3, :cond_aa
+    if-ne v2, v3, :cond_1
 
     move v2, v3
 
-    :goto_91
+    :goto_1
+    #setter for: Landroid/net/wifi/WifiStateMachine;->mEnableBackgroundScan:Z
     invoke-static {v5, v2}, Landroid/net/wifi/WifiStateMachine;->access$902(Landroid/net/wifi/WifiStateMachine;Z)Z
 
     .line 3462
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mEnableBackgroundScan:Z
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$900(Landroid/net/wifi/WifiStateMachine;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_ac
+    if-eqz v2, :cond_2
 
     .line 3463
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$1300(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiNative;
 
     move-result-object v2
@@ -484,18 +509,19 @@
     .line 3464
     invoke-direct {p0, v4}, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->setScanAlarm(Z)V
 
-    goto/16 :goto_c
+    goto/16 :goto_0
 
-    :cond_aa
+    :cond_1
     move v2, v4
 
     .line 3461
-    goto :goto_91
+    goto :goto_1
 
     .line 3466
-    :cond_ac
+    :cond_2
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$1300(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiNative;
 
     move-result-object v2
@@ -505,10 +531,10 @@
     .line 3467
     invoke-direct {p0, v3}, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->setScanAlarm(Z)V
 
-    goto/16 :goto_c
+    goto/16 :goto_0
 
     .line 3474
-    :sswitch_ba
+    :sswitch_5
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/net/wifi/StateChangeResult;
@@ -523,28 +549,31 @@
 
     move-result-object v3
 
+    #calls: Landroid/net/wifi/WifiStateMachine;->setNetworkDetailedState(Landroid/net/NetworkInfo$DetailedState;)V
     invoke-static {v2, v3}, Landroid/net/wifi/WifiStateMachine;->access$8100(Landroid/net/wifi/WifiStateMachine;Landroid/net/NetworkInfo$DetailedState;)V
 
     .line 3477
     const/4 v0, 0x0
 
     .line 3478
-    goto/16 :goto_c
+    goto/16 :goto_0
 
     .line 3481
     .end local v1           #stateChangeResult:Landroid/net/wifi/StateChangeResult;
-    :sswitch_cc
+    :sswitch_6
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mEnableBackgroundScan:Z
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$900(Landroid/net/wifi/WifiStateMachine;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_dd
+    if-eqz v2, :cond_3
 
     .line 3482
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$1300(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiNative;
 
     move-result-object v2
@@ -552,33 +581,36 @@
     invoke-virtual {v2, v4}, Landroid/net/wifi/WifiNative;->enableBackgroundScan(Z)V
 
     .line 3485
-    :cond_dd
+    :cond_3
     const/4 v0, 0x0
 
     .line 3486
-    goto/16 :goto_c
+    goto/16 :goto_0
 
     .line 3489
-    :sswitch_e0
+    :sswitch_7
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mEnableBackgroundScan:Z
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$900(Landroid/net/wifi/WifiStateMachine;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_f9
+    if-eqz v2, :cond_4
 
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mScanResultIsPending:Z
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$6500(Landroid/net/wifi/WifiStateMachine;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_f9
+    if-eqz v2, :cond_4
 
     .line 3490
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DisconnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$1300(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiNative;
 
     move-result-object v2
@@ -586,23 +618,23 @@
     invoke-virtual {v2, v3}, Landroid/net/wifi/WifiNative;->enableBackgroundScan(Z)V
 
     .line 3493
-    :cond_f9
+    :cond_4
     const/4 v0, 0x0
 
     .line 3494
-    goto/16 :goto_c
+    goto/16 :goto_0
 
     .line 3433
-    :sswitch_data_fc
+    :sswitch_data_0
     .sparse-switch
-        0x20035 -> :sswitch_47
-        0x20047 -> :sswitch_cc
-        0x20048 -> :sswitch_60
-        0x20058 -> :sswitch_d
-        0x2005b -> :sswitch_8a
-        0x24004 -> :sswitch_c
-        0x24005 -> :sswitch_e0
-        0x24006 -> :sswitch_ba
-        0x25004 -> :sswitch_47
+        0x20035 -> :sswitch_2
+        0x20047 -> :sswitch_6
+        0x20048 -> :sswitch_3
+        0x20058 -> :sswitch_1
+        0x2005b -> :sswitch_4
+        0x24004 -> :sswitch_0
+        0x24005 -> :sswitch_7
+        0x24006 -> :sswitch_5
+        0x25004 -> :sswitch_2
     .end sparse-switch
 .end method

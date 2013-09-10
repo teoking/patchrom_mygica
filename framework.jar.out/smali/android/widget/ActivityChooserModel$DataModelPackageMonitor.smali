@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/ActivityChooserModel;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/ActivityChooserModel;Landroid/widget/ActivityChooserModel$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public onSomePackagesChanged()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1116
@@ -55,6 +55,7 @@
 
     const/4 v1, 0x1
 
+    #setter for: Landroid/widget/ActivityChooserModel;->mReloadActivities:Z
     invoke-static {v0, v1}, Landroid/widget/ActivityChooserModel;->access$702(Landroid/widget/ActivityChooserModel;Z)Z
 
     .line 1117

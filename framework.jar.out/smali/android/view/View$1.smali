@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -45,17 +45,17 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 10
+    .locals 8
     .parameter "v"
 
     .prologue
     .line 3569
     iget-object v3, p0, Landroid/view/View$1;->mHandler:Ljava/lang/reflect/Method;
 
-    if-nez v3, :cond_1e
+    if-nez v3, :cond_0
 
     .line 3571
-    :try_start_4
+    :try_start_0
     iget-object v3, p0, Landroid/view/View$1;->this$0:Landroid/view/View;
 
     invoke-virtual {v3}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -83,12 +83,12 @@
     move-result-object v3
 
     iput-object v3, p0, Landroid/view/View$1;->mHandler:Ljava/lang/reflect/Method;
-    :try_end_1e
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_4 .. :try_end_1e} :catch_32
+    :try_end_0
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 3586
-    :cond_1e
-    :try_start_1e
+    :cond_0
+    :try_start_1
     iget-object v3, p0, Landroid/view/View$1;->mHandler:Ljava/lang/reflect/Method;
 
     iget-object v4, p0, Landroid/view/View$1;->this$0:Landroid/view/View;
@@ -108,15 +108,15 @@
     aput-object v7, v5, v6
 
     invoke-virtual {v3, v4, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_31
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1e .. :try_end_31} :catch_af
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1e .. :try_end_31} :catch_b8
+    :try_end_1
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_2
 
     .line 3594
     return-void
 
     .line 3573
-    :catch_32
+    :catch_0
     move-exception v0
 
     .line 3574
@@ -131,13 +131,13 @@
     .local v1, id:I
     const/4 v3, -0x1
 
-    if-ne v1, v3, :cond_87
+    if-ne v1, v3, :cond_1
 
     const-string v2, ""
 
     .line 3578
     .local v2, idText:Ljava/lang/String;
-    :goto_3e
+    :goto_0
     new-instance v3, Ljava/lang/IllegalStateException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -212,7 +212,7 @@
 
     .line 3575
     .end local v2           #idText:Ljava/lang/String;
-    :cond_87
+    :cond_1
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -251,12 +251,12 @@
 
     move-result-object v2
 
-    goto :goto_3e
+    goto :goto_0
 
     .line 3587
     .end local v0           #e:Ljava/lang/NoSuchMethodException;
     .end local v1           #id:I
-    :catch_af
+    :catch_1
     move-exception v0
 
     .line 3588
@@ -271,7 +271,7 @@
 
     .line 3590
     .end local v0           #e:Ljava/lang/IllegalAccessException;
-    :catch_b8
+    :catch_2
     move-exception v0
 
     .line 3591

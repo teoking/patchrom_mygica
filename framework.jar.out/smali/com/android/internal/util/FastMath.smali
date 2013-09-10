@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 22
@@ -15,7 +15,7 @@
 .end method
 
 .method public static round(F)I
-    .registers 6
+    .locals 5
     .parameter "value"
 
     .prologue

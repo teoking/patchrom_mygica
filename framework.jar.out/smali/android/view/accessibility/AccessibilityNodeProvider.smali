@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 70
@@ -17,7 +17,7 @@
 
 # virtual methods
 .method public accessibilityFocusSearch(II)Landroid/view/accessibility/AccessibilityNodeInfo;
-    .registers 4
+    .locals 1
     .parameter "direction"
     .parameter "virtualViewId"
 
@@ -29,7 +29,7 @@
 .end method
 
 .method public createAccessibilityNodeInfo(I)Landroid/view/accessibility/AccessibilityNodeInfo;
-    .registers 3
+    .locals 1
     .parameter "virtualViewId"
 
     .prologue
@@ -40,7 +40,7 @@
 .end method
 
 .method public findAccessibilityFocus(I)Landroid/view/accessibility/AccessibilityNodeInfo;
-    .registers 3
+    .locals 1
     .parameter "virtualViewId"
 
     .prologue
@@ -51,7 +51,7 @@
 .end method
 
 .method public findAccessibilityNodeInfosByText(Ljava/lang/String;I)Ljava/util/List;
-    .registers 4
+    .locals 1
     .parameter "text"
     .parameter "virtualViewId"
     .annotation system Ldalvik/annotation/Signature;
@@ -74,7 +74,7 @@
 .end method
 
 .method public performAction(IILandroid/os/Bundle;)Z
-    .registers 5
+    .locals 1
     .parameter "virtualViewId"
     .parameter "action"
     .parameter "arguments"

@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/sax/RootElement;)V
-    .registers 4
+    .locals 2
     .parameter
 
     .prologue
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public characters([CII)V
-    .registers 5
+    .locals 1
     .parameter "buffer"
     .parameter "start"
     .parameter "length"
@@ -70,7 +70,7 @@
     .line 172
     iget-object v0, p0, Landroid/sax/RootElement$Handler;->bodyBuilder:Ljava/lang/StringBuilder;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 173
     iget-object v0, p0, Landroid/sax/RootElement$Handler;->bodyBuilder:Ljava/lang/StringBuilder;
@@ -78,12 +78,12 @@
     invoke-virtual {v0, p1, p2, p3}, Ljava/lang/StringBuilder;->append([CII)Ljava/lang/StringBuilder;
 
     .line 175
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public endElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 8
+    .locals 4
     .parameter "uri"
     .parameter "localName"
     .parameter "qName"
@@ -103,7 +103,7 @@
 
     iget v3, v1, Landroid/sax/Element;->depth:I
 
-    if-ne v2, v3, :cond_2c
+    if-ne v2, v3, :cond_2
 
     .line 184
     iget-object v2, p0, Landroid/sax/RootElement$Handler;->locator:Lorg/xml/sax/Locator;
@@ -113,7 +113,7 @@
     .line 187
     iget-object v2, v1, Landroid/sax/Element;->endElementListener:Landroid/sax/EndElementListener;
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_0
 
     .line 188
     iget-object v2, v1, Landroid/sax/Element;->endElementListener:Landroid/sax/EndElementListener;
@@ -121,10 +121,10 @@
     invoke-interface {v2}, Landroid/sax/EndElementListener;->end()V
 
     .line 192
-    :cond_16
+    :cond_0
     iget-object v2, p0, Landroid/sax/RootElement$Handler;->bodyBuilder:Ljava/lang/StringBuilder;
 
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_1
 
     .line 193
     iget-object v2, p0, Landroid/sax/RootElement$Handler;->bodyBuilder:Ljava/lang/StringBuilder;
@@ -146,13 +146,13 @@
 
     .line 201
     .end local v0           #body:Ljava/lang/String;
-    :cond_28
+    :cond_1
     iget-object v2, v1, Landroid/sax/Element;->parent:Landroid/sax/Element;
 
     iput-object v2, p0, Landroid/sax/RootElement$Handler;->current:Landroid/sax/Element;
 
     .line 204
-    :cond_2c
+    :cond_2
     iget v2, p0, Landroid/sax/RootElement$Handler;->depth:I
 
     add-int/lit8 v2, v2, -0x1
@@ -164,7 +164,7 @@
 .end method
 
 .method public setDocumentLocator(Lorg/xml/sax/Locator;)V
-    .registers 2
+    .locals 0
     .parameter "locator"
 
     .prologue
@@ -176,7 +176,7 @@
 .end method
 
 .method start(Landroid/sax/Element;Lorg/xml/sax/Attributes;)V
-    .registers 4
+    .locals 1
     .parameter "e"
     .parameter "attributes"
 
@@ -187,7 +187,7 @@
     .line 157
     iget-object v0, p1, Landroid/sax/Element;->startElementListener:Landroid/sax/StartElementListener;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 158
     iget-object v0, p1, Landroid/sax/Element;->startElementListener:Landroid/sax/StartElementListener;
@@ -195,10 +195,10 @@
     invoke-interface {v0, p2}, Landroid/sax/StartElementListener;->start(Lorg/xml/sax/Attributes;)V
 
     .line 161
-    :cond_b
+    :cond_0
     iget-object v0, p1, Landroid/sax/Element;->endTextElementListener:Landroid/sax/EndTextElementListener;
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_1
 
     .line 162
     new-instance v0, Ljava/lang/StringBuilder;
@@ -208,7 +208,7 @@
     iput-object v0, p0, Landroid/sax/RootElement$Handler;->bodyBuilder:Ljava/lang/StringBuilder;
 
     .line 165
-    :cond_16
+    :cond_1
     invoke-virtual {p1}, Landroid/sax/Element;->resetRequiredChildren()V
 
     .line 166
@@ -221,7 +221,7 @@
 .end method
 
 .method public startElement(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V
-    .registers 11
+    .locals 6
     .parameter "uri"
     .parameter "localName"
     .parameter "qName"
@@ -242,21 +242,21 @@
 
     .line 114
     .local v2, depth:I
-    if-nez v2, :cond_c
+    if-nez v2, :cond_1
 
     .line 116
     invoke-virtual {p0, p1, p2, p4}, Landroid/sax/RootElement$Handler;->startRoot(Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V
 
     .line 138
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return-void
 
     .line 121
-    :cond_c
+    :cond_1
     iget-object v3, p0, Landroid/sax/RootElement$Handler;->bodyBuilder:Ljava/lang/StringBuilder;
 
-    if-eqz v3, :cond_33
+    if-eqz v3, :cond_2
 
     .line 122
     new-instance v3, Landroid/sax/BadXmlException;
@@ -294,14 +294,14 @@
     throw v3
 
     .line 128
-    :cond_33
+    :cond_2
     iget-object v3, p0, Landroid/sax/RootElement$Handler;->current:Landroid/sax/Element;
 
     iget v3, v3, Landroid/sax/Element;->depth:I
 
     add-int/lit8 v3, v3, 0x1
 
-    if-ne v2, v3, :cond_b
+    if-ne v2, v3, :cond_0
 
     .line 130
     iget-object v3, p0, Landroid/sax/RootElement$Handler;->current:Landroid/sax/Element;
@@ -310,7 +310,7 @@
 
     .line 131
     .local v1, children:Landroid/sax/Children;
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
     .line 132
     invoke-virtual {v1, p1, p2}, Landroid/sax/Children;->get(Ljava/lang/String;Ljava/lang/String;)Landroid/sax/Element;
@@ -319,16 +319,16 @@
 
     .line 133
     .local v0, child:Landroid/sax/Element;
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 134
     invoke-virtual {p0, v0, p4}, Landroid/sax/RootElement$Handler;->start(Landroid/sax/Element;Lorg/xml/sax/Attributes;)V
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method startRoot(Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V
-    .registers 8
+    .locals 4
     .parameter "uri"
     .parameter "localName"
     .parameter "attributes"
@@ -350,7 +350,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_12
+    if-nez v1, :cond_0
 
     iget-object v1, v0, Landroid/sax/Element;->localName:Ljava/lang/String;
 
@@ -358,10 +358,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3b
+    if-eqz v1, :cond_1
 
     .line 145
-    :cond_12
+    :cond_0
     new-instance v1, Landroid/sax/BadXmlException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -403,7 +403,7 @@
     throw v1
 
     .line 150
-    :cond_3b
+    :cond_1
     invoke-virtual {p0, v0, p3}, Landroid/sax/RootElement$Handler;->start(Landroid/sax/Element;Lorg/xml/sax/Attributes;)V
 
     .line 151

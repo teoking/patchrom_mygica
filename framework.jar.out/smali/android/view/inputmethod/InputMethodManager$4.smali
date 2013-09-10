@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/inputmethod/InputMethodManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0

@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/CursorAdapter;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public deliverSelfNotifications()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 454
@@ -51,7 +51,7 @@
 .end method
 
 .method public onChange(Z)V
-    .registers 3
+    .locals 1
     .parameter "selfChange"
 
     .prologue

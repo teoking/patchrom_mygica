@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/ParcelFileDescriptor;)V
-    .registers 3
+    .locals 1
     .parameter "fd"
 
     .prologue
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public close()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -54,8 +54,8 @@
     iget-object v0, p0, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;->mFd:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_5
-    .catchall {:try_start_0 .. :try_end_5} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 342
     invoke-super {p0}, Ljava/io/FileInputStream;->close()V
@@ -64,7 +64,7 @@
     return-void
 
     .line 342
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/io/FileInputStream;->close()V

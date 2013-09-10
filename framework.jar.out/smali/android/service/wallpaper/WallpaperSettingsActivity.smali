@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 29
@@ -21,7 +21,7 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 2
+    .locals 0
     .parameter "icicle"
 
     .prologue

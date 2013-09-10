@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/app/ActivityThread;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "mainThread"
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method protected acquireExistingProvider(Landroid/content/Context;Ljava/lang/String;)Landroid/content/IContentProvider;
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "name"
 
@@ -56,7 +56,7 @@
 .end method
 
 .method protected acquireProvider(Landroid/content/Context;Ljava/lang/String;)Landroid/content/IContentProvider;
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "name"
 
@@ -74,7 +74,7 @@
 .end method
 
 .method protected acquireUnstableProvider(Landroid/content/Context;Ljava/lang/String;)Landroid/content/IContentProvider;
-    .registers 5
+    .locals 2
     .parameter "c"
     .parameter "name"
 
@@ -92,7 +92,7 @@
 .end method
 
 .method public releaseProvider(Landroid/content/IContentProvider;)Z
-    .registers 4
+    .locals 2
     .parameter "provider"
 
     .prologue
@@ -109,7 +109,7 @@
 .end method
 
 .method public releaseUnstableProvider(Landroid/content/IContentProvider;)Z
-    .registers 4
+    .locals 2
     .parameter "icp"
 
     .prologue
@@ -126,7 +126,7 @@
 .end method
 
 .method public unstableProviderDied(Landroid/content/IContentProvider;)V
-    .registers 5
+    .locals 3
     .parameter "icp"
 
     .prologue

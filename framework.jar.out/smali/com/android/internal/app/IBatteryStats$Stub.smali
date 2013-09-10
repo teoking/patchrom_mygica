@@ -113,7 +113,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 14
@@ -129,22 +129,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IBatteryStats;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 23
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 24
     const/4 v0, 0x0
 
     .line 30
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 26
-    :cond_4
+    :cond_0
     const-string v1, "com.android.internal.app.IBatteryStats"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -153,31 +153,31 @@
 
     .line 27
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/app/IBatteryStats;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 28
     check-cast v0, Lcom/android/internal/app/IBatteryStats;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 30
-    :cond_13
+    :cond_1
     new-instance v0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 34
@@ -185,7 +185,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 15
+    .locals 10
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -200,26 +200,26 @@
     const/4 v9, 0x1
 
     .line 38
-    sparse-switch p1, :sswitch_data_3ae
+    sparse-switch p1, :sswitch_data_0
 
     .line 514
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v9
 
-    :goto_8
+    :goto_0
     return v9
 
     .line 42
-    :sswitch_9
+    :sswitch_0
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 47
-    :sswitch_f
+    :sswitch_1
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -236,11 +236,11 @@
     .line 50
     invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 55
     .end local v7           #_result:[B
-    :sswitch_1f
+    :sswitch_2
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -275,14 +275,14 @@
     .line 65
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 70
     .end local v1           #_arg0:I
     .end local v2           #_arg1:I
     .end local v3           #_arg2:Ljava/lang/String;
     .end local v4           #_arg3:I
-    :sswitch_3b
+    :sswitch_3
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -317,14 +317,14 @@
     .line 80
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 85
     .end local v1           #_arg0:I
     .end local v2           #_arg1:I
     .end local v3           #_arg2:Ljava/lang/String;
     .end local v4           #_arg3:I
-    :sswitch_57
+    :sswitch_4
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -347,12 +347,12 @@
     .line 91
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 96
     .end local v1           #_arg0:I
     .end local v2           #_arg1:I
-    :sswitch_6b
+    :sswitch_5
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -375,12 +375,12 @@
     .line 102
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 107
     .end local v1           #_arg0:I
     .end local v2           #_arg1:I
-    :sswitch_7f
+    :sswitch_6
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -390,7 +390,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a6
+    if-eqz v0, :cond_0
 
     .line 110
     sget-object v0, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -403,7 +403,7 @@
 
     .line 116
     .local v1, _arg0:Landroid/os/WorkSource;
-    :goto_92
+    :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -427,22 +427,22 @@
     .line 122
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 113
     .end local v1           #_arg0:Landroid/os/WorkSource;
     .end local v2           #_arg1:I
     .end local v3           #_arg2:Ljava/lang/String;
     .end local v4           #_arg3:I
-    :cond_a6
+    :cond_0
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    goto :goto_92
+    goto :goto_1
 
     .line 127
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :sswitch_a8
+    :sswitch_7
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -452,7 +452,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_cf
+    if-eqz v0, :cond_1
 
     .line 130
     sget-object v0, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -465,7 +465,7 @@
 
     .line 136
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    :goto_bb
+    :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -489,22 +489,22 @@
     .line 142
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 133
     .end local v1           #_arg0:Landroid/os/WorkSource;
     .end local v2           #_arg1:I
     .end local v3           #_arg2:Ljava/lang/String;
     .end local v4           #_arg3:I
-    :cond_cf
+    :cond_1
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    goto :goto_bb
+    goto :goto_2
 
     .line 147
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :sswitch_d1
+    :sswitch_8
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -521,11 +521,11 @@
     .line 151
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 156
     .end local v1           #_arg0:I
-    :sswitch_e2
+    :sswitch_9
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -542,11 +542,11 @@
     .line 160
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 165
     .end local v1           #_arg0:I
-    :sswitch_f3
+    :sswitch_a
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -557,10 +557,10 @@
     .line 167
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 172
-    :sswitch_100
+    :sswitch_b
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -577,11 +577,11 @@
     .line 176
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 181
     .end local v1           #_arg0:I
-    :sswitch_111
+    :sswitch_c
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -592,10 +592,10 @@
     .line 183
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 188
-    :sswitch_11e
+    :sswitch_d
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -606,10 +606,10 @@
     .line 190
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 195
-    :sswitch_12b
+    :sswitch_e
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -632,12 +632,12 @@
     .line 201
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 206
     .end local v1           #_arg0:I
     .end local v2           #_arg1:I
-    :sswitch_140
+    :sswitch_f
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -648,10 +648,10 @@
     .line 208
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 213
-    :sswitch_14d
+    :sswitch_10
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -662,10 +662,10 @@
     .line 215
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 220
-    :sswitch_15a
+    :sswitch_11
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -675,7 +675,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_175
+    if-eqz v0, :cond_2
 
     .line 223
     sget-object v0, Landroid/telephony/SignalStrength;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -688,25 +688,25 @@
 
     .line 228
     .local v1, _arg0:Landroid/telephony/SignalStrength;
-    :goto_16d
+    :goto_3
     invoke-virtual {p0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->notePhoneSignalStrength(Landroid/telephony/SignalStrength;)V
 
     .line 229
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 226
     .end local v1           #_arg0:Landroid/telephony/SignalStrength;
-    :cond_175
+    :cond_2
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/telephony/SignalStrength;
-    goto :goto_16d
+    goto :goto_3
 
     .line 234
     .end local v1           #_arg0:Landroid/telephony/SignalStrength;
-    :sswitch_177
+    :sswitch_12
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -722,30 +722,30 @@
 
     move-result v0
 
-    if-eqz v0, :cond_18f
+    if-eqz v0, :cond_3
 
     move v2, v9
 
     .line 239
     .local v2, _arg1:Z
-    :goto_187
+    :goto_4
     invoke-virtual {p0, v1, v2}, Lcom/android/internal/app/IBatteryStats$Stub;->notePhoneDataConnectionState(IZ)V
 
     .line 240
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 238
     .end local v2           #_arg1:Z
-    :cond_18f
+    :cond_3
     const/4 v2, 0x0
 
-    goto :goto_187
+    goto :goto_4
 
     .line 245
     .end local v1           #_arg0:I
-    :sswitch_191
+    :sswitch_13
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -762,11 +762,11 @@
     .line 249
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 254
     .end local v1           #_arg0:I
-    :sswitch_1a2
+    :sswitch_14
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -777,10 +777,10 @@
     .line 256
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 261
-    :sswitch_1af
+    :sswitch_15
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -791,10 +791,10 @@
     .line 263
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 268
-    :sswitch_1bc
+    :sswitch_16
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -804,7 +804,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1d7
+    if-eqz v0, :cond_4
 
     .line 271
     sget-object v0, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -817,25 +817,25 @@
 
     .line 276
     .local v1, _arg0:Landroid/os/WorkSource;
-    :goto_1cf
+    :goto_5
     invoke-virtual {p0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiRunning(Landroid/os/WorkSource;)V
 
     .line 277
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 274
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :cond_1d7
+    :cond_4
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    goto :goto_1cf
+    goto :goto_5
 
     .line 282
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :sswitch_1d9
+    :sswitch_17
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -845,7 +845,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_202
+    if-eqz v0, :cond_5
 
     .line 285
     sget-object v0, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -858,12 +858,12 @@
 
     .line 291
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    :goto_1ec
+    :goto_6
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_204
+    if-eqz v0, :cond_6
 
     .line 292
     sget-object v0, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -876,34 +876,34 @@
 
     .line 297
     .local v2, _arg1:Landroid/os/WorkSource;
-    :goto_1fa
+    :goto_7
     invoke-virtual {p0, v1, v2}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiRunningChanged(Landroid/os/WorkSource;Landroid/os/WorkSource;)V
 
     .line 298
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 288
     .end local v1           #_arg0:Landroid/os/WorkSource;
     .end local v2           #_arg1:Landroid/os/WorkSource;
-    :cond_202
+    :cond_5
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    goto :goto_1ec
+    goto :goto_6
 
     .line 295
-    :cond_204
+    :cond_6
     const/4 v2, 0x0
 
     .restart local v2       #_arg1:Landroid/os/WorkSource;
-    goto :goto_1fa
+    goto :goto_7
 
     .line 303
     .end local v1           #_arg0:Landroid/os/WorkSource;
     .end local v2           #_arg1:Landroid/os/WorkSource;
-    :sswitch_206
+    :sswitch_18
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -913,7 +913,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_221
+    if-eqz v0, :cond_7
 
     .line 306
     sget-object v0, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -926,25 +926,25 @@
 
     .line 311
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    :goto_219
+    :goto_8
     invoke-virtual {p0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiStopped(Landroid/os/WorkSource;)V
 
     .line 312
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 309
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :cond_221
+    :cond_7
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    goto :goto_219
+    goto :goto_8
 
     .line 317
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :sswitch_223
+    :sswitch_19
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -955,10 +955,10 @@
     .line 319
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 324
-    :sswitch_230
+    :sswitch_1a
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -969,10 +969,10 @@
     .line 326
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 331
-    :sswitch_23d
+    :sswitch_1b
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -989,11 +989,11 @@
     .line 335
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 340
     .end local v1           #_arg0:I
-    :sswitch_24e
+    :sswitch_1c
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1010,11 +1010,11 @@
     .line 344
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 349
     .end local v1           #_arg0:I
-    :sswitch_25f
+    :sswitch_1d
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1031,11 +1031,11 @@
     .line 353
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 358
     .end local v1           #_arg0:I
-    :sswitch_270
+    :sswitch_1e
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1052,11 +1052,11 @@
     .line 362
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 367
     .end local v1           #_arg0:I
-    :sswitch_281
+    :sswitch_1f
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1073,11 +1073,11 @@
     .line 371
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 376
     .end local v1           #_arg0:I
-    :sswitch_292
+    :sswitch_20
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1094,11 +1094,11 @@
     .line 380
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 385
     .end local v1           #_arg0:I
-    :sswitch_2a3
+    :sswitch_21
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1108,7 +1108,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2be
+    if-eqz v0, :cond_8
 
     .line 388
     sget-object v0, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1121,25 +1121,25 @@
 
     .line 393
     .local v1, _arg0:Landroid/os/WorkSource;
-    :goto_2b6
+    :goto_9
     invoke-virtual {p0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteFullWifiLockAcquiredFromSource(Landroid/os/WorkSource;)V
 
     .line 394
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 391
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :cond_2be
+    :cond_8
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    goto :goto_2b6
+    goto :goto_9
 
     .line 399
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :sswitch_2c0
+    :sswitch_22
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1149,7 +1149,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2db
+    if-eqz v0, :cond_9
 
     .line 402
     sget-object v0, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1162,25 +1162,25 @@
 
     .line 407
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    :goto_2d3
+    :goto_a
     invoke-virtual {p0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteFullWifiLockReleasedFromSource(Landroid/os/WorkSource;)V
 
     .line 408
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 405
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :cond_2db
+    :cond_9
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    goto :goto_2d3
+    goto :goto_a
 
     .line 413
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :sswitch_2dd
+    :sswitch_23
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1190,7 +1190,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2f8
+    if-eqz v0, :cond_a
 
     .line 416
     sget-object v0, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1203,25 +1203,25 @@
 
     .line 421
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    :goto_2f0
+    :goto_b
     invoke-virtual {p0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteScanWifiLockAcquiredFromSource(Landroid/os/WorkSource;)V
 
     .line 422
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 419
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :cond_2f8
+    :cond_a
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    goto :goto_2f0
+    goto :goto_b
 
     .line 427
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :sswitch_2fa
+    :sswitch_24
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1231,7 +1231,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_315
+    if-eqz v0, :cond_b
 
     .line 430
     sget-object v0, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1244,25 +1244,25 @@
 
     .line 435
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    :goto_30d
+    :goto_c
     invoke-virtual {p0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteScanWifiLockReleasedFromSource(Landroid/os/WorkSource;)V
 
     .line 436
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 433
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :cond_315
+    :cond_b
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    goto :goto_30d
+    goto :goto_c
 
     .line 441
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :sswitch_317
+    :sswitch_25
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1272,7 +1272,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_332
+    if-eqz v0, :cond_c
 
     .line 444
     sget-object v0, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1285,25 +1285,25 @@
 
     .line 449
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    :goto_32a
+    :goto_d
     invoke-virtual {p0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiMulticastEnabledFromSource(Landroid/os/WorkSource;)V
 
     .line 450
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 447
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :cond_332
+    :cond_c
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    goto :goto_32a
+    goto :goto_d
 
     .line 455
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :sswitch_334
+    :sswitch_26
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1313,7 +1313,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_34f
+    if-eqz v0, :cond_d
 
     .line 458
     sget-object v0, Landroid/os/WorkSource;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1326,25 +1326,25 @@
 
     .line 463
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    :goto_347
+    :goto_e
     invoke-virtual {p0, v1}, Lcom/android/internal/app/IBatteryStats$Stub;->noteWifiMulticastDisabledFromSource(Landroid/os/WorkSource;)V
 
     .line 464
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 461
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :cond_34f
+    :cond_d
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/os/WorkSource;
-    goto :goto_347
+    goto :goto_e
 
     .line 469
     .end local v1           #_arg0:Landroid/os/WorkSource;
-    :sswitch_351
+    :sswitch_27
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1367,12 +1367,12 @@
     .line 475
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 480
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:I
-    :sswitch_366
+    :sswitch_28
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1421,7 +1421,7 @@
     .line 494
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 499
     .end local v1           #_arg0:I
@@ -1430,7 +1430,7 @@
     .end local v4           #_arg3:I
     .end local v5           #_arg4:I
     .end local v6           #_arg5:I
-    :sswitch_38c
+    :sswitch_29
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1447,11 +1447,11 @@
     .line 502
     invoke-virtual {p3, v7, v8}, Landroid/os/Parcel;->writeLong(J)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 507
     .end local v7           #_result:J
-    :sswitch_39d
+    :sswitch_2a
     const-string v0, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1468,53 +1468,53 @@
     .line 510
     invoke-virtual {p3, v7, v8}, Landroid/os/Parcel;->writeLong(J)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 38
-    :sswitch_data_3ae
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_f
-        0x2 -> :sswitch_1f
-        0x3 -> :sswitch_3b
-        0x4 -> :sswitch_57
-        0x5 -> :sswitch_6b
-        0x6 -> :sswitch_7f
-        0x7 -> :sswitch_a8
-        0x8 -> :sswitch_d1
-        0x9 -> :sswitch_e2
-        0xa -> :sswitch_f3
-        0xb -> :sswitch_100
-        0xc -> :sswitch_111
-        0xd -> :sswitch_11e
-        0xe -> :sswitch_12b
-        0xf -> :sswitch_140
-        0x10 -> :sswitch_14d
-        0x11 -> :sswitch_15a
-        0x12 -> :sswitch_177
-        0x13 -> :sswitch_191
-        0x14 -> :sswitch_1a2
-        0x15 -> :sswitch_1af
-        0x16 -> :sswitch_1bc
-        0x17 -> :sswitch_1d9
-        0x18 -> :sswitch_206
-        0x19 -> :sswitch_223
-        0x1a -> :sswitch_230
-        0x1b -> :sswitch_23d
-        0x1c -> :sswitch_24e
-        0x1d -> :sswitch_25f
-        0x1e -> :sswitch_270
-        0x1f -> :sswitch_281
-        0x20 -> :sswitch_292
-        0x21 -> :sswitch_2a3
-        0x22 -> :sswitch_2c0
-        0x23 -> :sswitch_2dd
-        0x24 -> :sswitch_2fa
-        0x25 -> :sswitch_317
-        0x26 -> :sswitch_334
-        0x27 -> :sswitch_351
-        0x28 -> :sswitch_366
-        0x29 -> :sswitch_38c
-        0x2a -> :sswitch_39d
-        0x5f4e5446 -> :sswitch_9
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
+        0x8 -> :sswitch_8
+        0x9 -> :sswitch_9
+        0xa -> :sswitch_a
+        0xb -> :sswitch_b
+        0xc -> :sswitch_c
+        0xd -> :sswitch_d
+        0xe -> :sswitch_e
+        0xf -> :sswitch_f
+        0x10 -> :sswitch_10
+        0x11 -> :sswitch_11
+        0x12 -> :sswitch_12
+        0x13 -> :sswitch_13
+        0x14 -> :sswitch_14
+        0x15 -> :sswitch_15
+        0x16 -> :sswitch_16
+        0x17 -> :sswitch_17
+        0x18 -> :sswitch_18
+        0x19 -> :sswitch_19
+        0x1a -> :sswitch_1a
+        0x1b -> :sswitch_1b
+        0x1c -> :sswitch_1c
+        0x1d -> :sswitch_1d
+        0x1e -> :sswitch_1e
+        0x1f -> :sswitch_1f
+        0x20 -> :sswitch_20
+        0x21 -> :sswitch_21
+        0x22 -> :sswitch_22
+        0x23 -> :sswitch_23
+        0x24 -> :sswitch_24
+        0x25 -> :sswitch_25
+        0x26 -> :sswitch_26
+        0x27 -> :sswitch_27
+        0x28 -> :sswitch_28
+        0x29 -> :sswitch_29
+        0x2a -> :sswitch_2a
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

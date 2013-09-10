@@ -52,7 +52,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 8432
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public getSharedUser()Lcom/android/server/pm/SharedUserSetting;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 8500
@@ -74,7 +74,7 @@
 .end method
 
 .method public getTitlePrinted()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 8492
@@ -84,7 +84,7 @@
 .end method
 
 .method public isDumping(I)Z
-    .registers 4
+    .locals 2
     .parameter "type"
 
     .prologue
@@ -93,31 +93,31 @@
     .line 8466
     iget v1, p0, Lcom/android/server/pm/PackageManagerService$DumpState;->mTypes:I
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_1
 
     const/16 v1, 0x400
 
-    if-eq p1, v1, :cond_a
+    if-eq p1, v1, :cond_1
 
     .line 8470
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_1
     iget v1, p0, Lcom/android/server/pm/PackageManagerService$DumpState;->mTypes:I
 
     and-int/2addr v1, p1
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_0
 
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public isOptionEnabled(I)Z
-    .registers 3
+    .locals 1
     .parameter "option"
 
     .prologue
@@ -126,21 +126,21 @@
 
     and-int/2addr v0, p1
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public onTitlePrinted()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 8486
@@ -157,7 +157,7 @@
 .end method
 
 .method public setDump(I)V
-    .registers 3
+    .locals 1
     .parameter "type"
 
     .prologue
@@ -173,7 +173,7 @@
 .end method
 
 .method public setOptionEnabled(I)V
-    .registers 3
+    .locals 1
     .parameter "option"
 
     .prologue
@@ -189,7 +189,7 @@
 .end method
 
 .method public setSharedUser(Lcom/android/server/pm/SharedUserSetting;)V
-    .registers 2
+    .locals 0
     .parameter "user"
 
     .prologue
@@ -201,7 +201,7 @@
 .end method
 
 .method public setTitlePrinted(Z)V
-    .registers 2
+    .locals 0
     .parameter "enabled"
 
     .prologue

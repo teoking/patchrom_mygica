@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 93
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public addObserver(Ljava/lang/String;Landroid/os/UEventObserver;)V
-    .registers 5
+    .locals 2
     .parameter "match"
     .parameter "observer"
 
@@ -62,7 +62,7 @@
     monitor-enter v1
 
     .line 118
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -79,18 +79,18 @@
     return-void
 
     .line 120
-    :catchall_f
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_11
-    .catchall {:try_start_3 .. :try_end_11} :catchall_f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public removeObserver(Landroid/os/UEventObserver;)V
-    .registers 7
+    .locals 5
     .parameter "observer"
 
     .prologue
@@ -104,9 +104,9 @@
 
     .line 126
     .local v0, found:Z
-    :cond_4
-    :goto_4
-    if-eqz v0, :cond_2b
+    :cond_0
+    :goto_0
+    if-eqz v0, :cond_2
 
     .line 127
     const/4 v0, 0x0
@@ -115,15 +115,15 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_8
-    :try_start_8
+    :goto_1
+    :try_start_0
     iget-object v2, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_4
+    if-ge v1, v2, :cond_0
 
     .line 129
     iget-object v2, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
@@ -134,7 +134,7 @@
 
     move-result-object v2
 
-    if-ne v2, p1, :cond_28
+    if-ne v2, p1, :cond_1
 
     .line 130
     iget-object v2, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
@@ -152,38 +152,39 @@
     const/4 v0, 0x1
 
     .line 133
-    goto :goto_4
+    goto :goto_0
 
     .line 128
-    :cond_28
+    :cond_1
     add-int/lit8 v1, v1, 0x2
 
-    goto :goto_8
+    goto :goto_1
 
     .line 137
     .end local v1           #i:I
-    :cond_2b
+    :cond_2
     monitor-exit v3
 
     .line 138
     return-void
 
     .line 137
-    :catchall_2d
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_2f
-    .catchall {:try_start_8 .. :try_end_2f} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method
 
 .method public run()V
-    .registers 8
+    .locals 7
 
     .prologue
     .line 97
+    #calls: Landroid/os/UEventObserver;->native_setup()V
     invoke-static {}, Landroid/os/UEventObserver;->access$000()V
 
     .line 99
@@ -193,15 +194,16 @@
 
     .line 102
     .local v0, buffer:[B
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
+    #calls: Landroid/os/UEventObserver;->next_event([B)I
     invoke-static {v0}, Landroid/os/UEventObserver;->access$100([B)I
 
     move-result v3
 
     .line 103
     .local v3, len:I
-    if-lez v3, :cond_7
+    if-lez v3, :cond_0
 
     .line 104
     new-instance v1, Ljava/lang/String;
@@ -220,15 +222,15 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_17
-    :try_start_17
+    :goto_1
+    :try_start_0
     iget-object v4, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
     move-result v4
 
-    if-ge v2, v4, :cond_43
+    if-ge v2, v4, :cond_2
 
     .line 107
     iget-object v4, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
@@ -245,7 +247,7 @@
 
     const/4 v6, -0x1
 
-    if-eq v4, v6, :cond_40
+    if-eq v4, v6, :cond_1
 
     .line 108
     iget-object v4, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
@@ -265,23 +267,23 @@
     invoke-virtual {v4, v6}, Landroid/os/UEventObserver;->onUEvent(Landroid/os/UEventObserver$UEvent;)V
 
     .line 106
-    :cond_40
+    :cond_1
     add-int/lit8 v2, v2, 0x2
 
-    goto :goto_17
+    goto :goto_1
 
     .line 112
-    :cond_43
+    :cond_2
     monitor-exit v5
 
-    goto :goto_7
+    goto :goto_0
 
-    :catchall_45
+    :catchall_0
     move-exception v4
 
     monitor-exit v5
-    :try_end_47
-    .catchall {:try_start_17 .. :try_end_47} :catchall_45
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v4
 .end method

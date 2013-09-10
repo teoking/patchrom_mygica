@@ -14,7 +14,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 46
@@ -30,7 +30,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 76
@@ -40,7 +40,7 @@
 .end method
 
 .method public static getAudioDecoders()Ljava/util/List;
-    .registers 5
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -68,8 +68,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_a
-    if-ge v1, v2, :cond_1c
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     .line 71
     invoke-static {}, Landroid/media/DecoderCapabilities$AudioDecoder;->values()[Landroid/media/DecoderCapabilities$AudioDecoder;
@@ -87,15 +87,15 @@
     .line 70
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 73
-    :cond_1c
+    :cond_0
     return-object v0
 .end method
 
 .method public static getVideoDecoders()Ljava/util/List;
-    .registers 5
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -123,8 +123,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_a
-    if-ge v1, v2, :cond_1c
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     .line 58
     invoke-static {}, Landroid/media/DecoderCapabilities$VideoDecoder;->values()[Landroid/media/DecoderCapabilities$VideoDecoder;
@@ -142,10 +142,10 @@
     .line 57
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 60
-    :cond_1c
+    :cond_0
     return-object v0
 .end method
 

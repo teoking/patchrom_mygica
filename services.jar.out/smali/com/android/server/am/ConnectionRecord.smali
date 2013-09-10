@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/AppBindRecord;Lcom/android/server/am/ActivityRecord;Landroid/app/IServiceConnection;IILandroid/app/PendingIntent;)V
-    .registers 7
+    .locals 0
     .parameter "_binding"
     .parameter "_activity"
     .parameter "_conn"
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "pw"
     .parameter "prefix"
 
@@ -95,7 +95,7 @@
     .line 39
     iget-object v0, p0, Lcom/android/server/am/ConnectionRecord;->activity:Lcom/android/server/am/ActivityRecord;
 
-    if-eqz v0, :cond_3c
+    if-eqz v0, :cond_0
 
     .line 40
     new-instance v0, Ljava/lang/StringBuilder;
@@ -125,7 +125,7 @@
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 42
-    :cond_3c
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -177,23 +177,23 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 58
     iget-object v1, p0, Lcom/android/server/am/ConnectionRecord;->stringName:Ljava/lang/String;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_0
 
     .line 59
     iget-object v1, p0, Lcom/android/server/am/ConnectionRecord;->stringName:Ljava/lang/String;
 
     .line 72
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 61
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x80
@@ -225,7 +225,7 @@
     .line 65
     iget-boolean v1, p0, Lcom/android/server/am/ConnectionRecord;->serviceDead:Z
 
-    if-eqz v1, :cond_2c
+    if-eqz v1, :cond_1
 
     .line 66
     const-string v1, "DEAD "
@@ -233,7 +233,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 68
-    :cond_2c
+    :cond_1
     iget-object v1, p0, Lcom/android/server/am/ConnectionRecord;->binding:Lcom/android/server/am/AppBindRecord;
 
     iget-object v1, v1, Lcom/android/server/am/AppBindRecord;->service:Lcom/android/server/am/ServiceRecord;
@@ -276,5 +276,5 @@
 
     iput-object v1, p0, Lcom/android/server/am/ConnectionRecord;->stringName:Ljava/lang/String;
 
-    goto :goto_6
+    goto :goto_0
 .end method

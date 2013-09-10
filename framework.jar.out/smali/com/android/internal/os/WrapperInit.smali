@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 42
@@ -20,7 +20,7 @@
 .end method
 
 .method public static execApplication(Ljava/lang/String;Ljava/lang/String;ILjava/io/FileDescriptor;[Ljava/lang/String;)V
-    .registers 8
+    .locals 3
     .parameter "invokeWith"
     .parameter "niceName"
     .parameter "targetSdkVersion"
@@ -40,7 +40,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 104
-    if-eqz p1, :cond_1b
+    if-eqz p1, :cond_0
 
     .line 105
     const-string v1, " \'--nice-name="
@@ -58,19 +58,19 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 107
-    :cond_1b
+    :cond_0
     const-string v1, " com.android.internal.os.WrapperInit "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 108
-    if-eqz p3, :cond_3c
+    if-eqz p3, :cond_1
 
     invoke-virtual {p3}, Ljava/io/FileDescriptor;->getInt$()I
 
     move-result v1
 
-    :goto_26
+    :goto_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 109
@@ -95,14 +95,14 @@
     return-void
 
     .line 108
-    :cond_3c
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_26
+    goto :goto_0
 .end method
 
 .method public static execStandalone(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
-    .registers 6
+    .locals 2
     .parameter "invokeWith"
     .parameter "classPath"
     .parameter "className"
@@ -148,14 +148,14 @@
 .end method
 
 .method public static main([Ljava/lang/String;)V
-    .registers 11
+    .locals 10
     .parameter "args"
 
     .prologue
     .line 61
     const/4 v7, 0x0
 
-    :try_start_1
+    :try_start_0
     aget-object v7, p0, v7
 
     const/16 v8, 0xa
@@ -173,17 +173,17 @@
     const/16 v8, 0xa
 
     invoke-static {v7, v8}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
-    :try_end_11
-    .catch Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller; {:try_start_1 .. :try_end_11} :catch_4a
+    :try_end_0
+    .catch Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result v6
 
     .line 66
     .local v6, targetSdkVersion:I
-    if-eqz v3, :cond_2f
+    if-eqz v3, :cond_0
 
     .line 68
-    :try_start_14
+    :try_start_1
     invoke-static {v3}, Lcom/android/internal/os/ZygoteInit;->createFileDescriptor(I)Ljava/io/FileDescriptor;
 
     move-result-object v2
@@ -211,16 +211,16 @@
 
     .line 72
     invoke-static {v2}, Llibcore/io/IoUtils;->closeQuietly(Ljava/io/FileDescriptor;)V
-    :try_end_2f
-    .catch Ljava/io/IOException; {:try_start_14 .. :try_end_2f} :catch_41
-    .catch Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller; {:try_start_14 .. :try_end_2f} :catch_4a
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 79
     .end local v2           #fd:Ljava/io/FileDescriptor;
     .end local v4           #os:Ljava/io/DataOutputStream;
-    :cond_2f
-    :goto_2f
-    :try_start_2f
+    :cond_0
+    :goto_0
+    :try_start_2
     invoke-static {}, Lcom/android/internal/os/ZygoteInit;->preload()V
 
     .line 82
@@ -247,13 +247,13 @@
     .end local v3           #fdNum:I
     .end local v5           #runtimeArgs:[Ljava/lang/String;
     .end local v6           #targetSdkVersion:I
-    :goto_40
+    :goto_1
     return-void
 
     .line 73
     .restart local v3       #fdNum:I
     .restart local v6       #targetSdkVersion:I
-    :catch_41
+    :catch_0
     move-exception v1
 
     .line 74
@@ -263,21 +263,21 @@
     const-string v8, "Could not write pid of wrapped process to Zygote pipe."
 
     invoke-static {v7, v8, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_49
-    .catch Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller; {:try_start_2f .. :try_end_49} :catch_4a
+    :try_end_2
+    .catch Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller; {:try_start_2 .. :try_end_2} :catch_1
 
-    goto :goto_2f
+    goto :goto_0
 
     .line 85
     .end local v1           #ex:Ljava/io/IOException;
     .end local v3           #fdNum:I
     .end local v6           #targetSdkVersion:I
-    :catch_4a
+    :catch_1
     move-exception v0
 
     .line 86
     .local v0, caller:Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller;
     invoke-virtual {v0}, Lcom/android/internal/os/ZygoteInit$MethodAndArgsCaller;->run()V
 
-    goto :goto_40
+    goto :goto_1
 .end method

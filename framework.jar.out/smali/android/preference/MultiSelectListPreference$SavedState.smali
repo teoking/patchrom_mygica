@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 264
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 7
+    .locals 5
     .parameter "source"
 
     .prologue
@@ -84,8 +84,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_10
-    if-ge v0, v1, :cond_1c
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 250
     iget-object v3, p0, Landroid/preference/MultiSelectListPreference$SavedState;->values:Ljava/util/Set;
@@ -97,15 +97,15 @@
     .line 249
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 252
-    :cond_1c
+    :cond_0
     return-void
 .end method
 
 .method public constructor <init>(Landroid/os/Parcelable;)V
-    .registers 2
+    .locals 0
     .parameter "superState"
 
     .prologue
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 

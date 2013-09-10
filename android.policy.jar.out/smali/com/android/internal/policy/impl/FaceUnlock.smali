@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/policy/impl/KeyguardScreenCallback;)V
-    .registers 7
+    .locals 2
     .parameter "context"
     .parameter "updateMonitor"
     .parameter "lockPatternUtils"
@@ -184,7 +184,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/android/internal/policy/impl/FaceUnlock;Lcom/android/internal/policy/IFaceLockInterface;)Lcom/android/internal/policy/IFaceLockInterface;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -196,7 +196,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/internal/policy/impl/FaceUnlock;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -207,7 +207,7 @@
 .end method
 
 .method private removeDisplayMessages()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 425
@@ -229,7 +229,7 @@
 .end method
 
 .method private startUi(Landroid/os/IBinder;IIII)V
-    .registers 15
+    .locals 9
     .parameter "windowToken"
     .parameter "x"
     .parameter "y"
@@ -243,10 +243,10 @@
     monitor-enter v8
 
     .line 459
-    :try_start_3
+    :try_start_0
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mServiceRunning:Z
 
-    if-nez v0, :cond_45
+    if-nez v0, :cond_0
 
     .line 460
     const-string v0, "FULLockscreen"
@@ -254,11 +254,11 @@
     const-string v1, "Starting Face Unlock"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_e
-    .catchall {:try_start_3 .. :try_end_e} :catchall_42
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 462
-    :try_start_e
+    :try_start_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mService:Lcom/android/internal/policy/IFaceLockInterface;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
@@ -278,26 +278,26 @@
     move v5, p5
 
     invoke-interface/range {v0 .. v6}, Lcom/android/internal/policy/IFaceLockInterface;->startUi(Landroid/os/IBinder;IIIIZ)V
-    :try_end_1e
-    .catchall {:try_start_e .. :try_end_1e} :catchall_42
-    .catch Landroid/os/RemoteException; {:try_start_e .. :try_end_1e} :catch_23
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 468
     const/4 v0, 0x1
 
-    :try_start_1f
+    :try_start_2
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mServiceRunning:Z
 
     .line 472
-    :goto_21
+    :goto_0
     monitor-exit v8
 
     .line 473
-    :goto_22
+    :goto_1
     return-void
 
     .line 464
-    :catch_23
+    :catch_0
     move-exception v7
 
     .line 465
@@ -331,35 +331,35 @@
     .line 466
     monitor-exit v8
 
-    goto :goto_22
+    goto :goto_1
 
     .line 472
     .end local v7           #e:Landroid/os/RemoteException;
-    :catchall_42
+    :catchall_0
     move-exception v0
 
     monitor-exit v8
-    :try_end_44
-    .catchall {:try_start_1f .. :try_end_44} :catchall_42
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v0
 
     .line 470
-    :cond_45
-    :try_start_45
+    :cond_0
+    :try_start_3
     const-string v0, "FULLockscreen"
 
     const-string v1, "startUi() attempted while running"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_4c
-    .catchall {:try_start_45 .. :try_end_4c} :catchall_42
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto :goto_21
+    goto :goto_0
 .end method
 
 .method private stopUi()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 483
@@ -368,10 +368,10 @@
     monitor-enter v2
 
     .line 484
-    :try_start_3
+    :try_start_0
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mServiceRunning:Z
 
-    if-eqz v1, :cond_16
+    if-eqz v1, :cond_0
 
     .line 485
     const-string v1, "FULLockscreen"
@@ -379,34 +379,34 @@
     const-string v3, "Stopping Face Unlock"
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_e
-    .catchall {:try_start_3 .. :try_end_e} :catchall_36
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 487
-    :try_start_e
+    :try_start_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mService:Lcom/android/internal/policy/IFaceLockInterface;
 
     invoke-interface {v1}, Lcom/android/internal/policy/IFaceLockInterface;->stopUi()V
-    :try_end_13
-    .catchall {:try_start_e .. :try_end_13} :catchall_36
-    .catch Landroid/os/RemoteException; {:try_start_e .. :try_end_13} :catch_18
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 491
-    :goto_13
+    :goto_0
     const/4 v1, 0x0
 
-    :try_start_14
+    :try_start_2
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mServiceRunning:Z
 
     .line 498
-    :cond_16
+    :cond_0
     monitor-exit v2
 
     .line 499
     return-void
 
     .line 488
-    :catch_18
+    :catch_0
     move-exception v0
 
     .line 489
@@ -437,16 +437,16 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_13
+    goto :goto_0
 
     .line 498
     .end local v0           #e:Landroid/os/RemoteException;
-    :catchall_36
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_38
-    .catchall {:try_start_14 .. :try_end_38} :catchall_36
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v1
 .end method
@@ -454,26 +454,26 @@
 
 # virtual methods
 .method public cleanUp()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 214
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mService:Lcom/android/internal/policy/IFaceLockInterface;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 216
-    :try_start_4
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mService:Lcom/android/internal/policy/IFaceLockInterface;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockCallback:Lcom/android/internal/policy/IFaceLockCallback;
 
     invoke-interface {v0, v1}, Lcom/android/internal/policy/IFaceLockInterface;->unregisterCallback(Lcom/android/internal/policy/IFaceLockCallback;)V
-    :try_end_b
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_b} :catch_12
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 220
-    :goto_b
+    :goto_0
     invoke-direct {p0}, Lcom/android/internal/policy/impl/FaceUnlock;->stopUi()V
 
     .line 221
@@ -482,18 +482,18 @@
     iput-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mService:Lcom/android/internal/policy/IFaceLockInterface;
 
     .line 223
-    :cond_11
+    :cond_0
     return-void
 
     .line 217
-    :catch_12
+    :catch_0
     move-exception v0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public getQuality()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 229
@@ -503,13 +503,13 @@
 .end method
 
 .method handleCancel()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 382
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockView:Landroid/view/View;
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 383
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockView:Landroid/view/View;
@@ -519,7 +519,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 387
-    :goto_a
+    :goto_0
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/FaceUnlock;->stop()Z
 
     .line 388
@@ -533,24 +533,24 @@
     return-void
 
     .line 385
-    :cond_15
+    :cond_0
     const-string v0, "FULLockscreen"
 
     const-string v1, "mFaceUnlockView is null in handleCancel()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method handleExposeFallback()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 406
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockView:Landroid/view/View;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 407
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockView:Landroid/view/View;
@@ -560,28 +560,28 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 411
-    :goto_a
+    :goto_0
     return-void
 
     .line 409
-    :cond_b
+    :cond_0
     const-string v0, "FULLockscreen"
 
     const-string v1, "mFaceUnlockView is null in handleExposeFallback()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method handleHideFaceUnlockView()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 291
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockView:Landroid/view/View;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 292
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockView:Landroid/view/View;
@@ -591,29 +591,29 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 296
-    :goto_a
+    :goto_0
     return-void
 
     .line 294
-    :cond_b
+    :cond_0
     const-string v0, "FULLockscreen"
 
     const-string v1, "mFaceUnlockView is null in handleHideFaceUnlockView()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public handleMessage(Landroid/os/Message;)Z
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
     .line 239
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_36
+    packed-switch v0, :pswitch_data_0
 
     .line 268
     const-string v0, "FULLockscreen"
@@ -626,88 +626,88 @@
     const/4 v0, 0x0
 
     .line 271
-    :goto_d
+    :goto_0
     return v0
 
     .line 241
-    :pswitch_e
+    :pswitch_0
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/FaceUnlock;->handleShowFaceUnlockView()V
 
     .line 271
-    :goto_11
+    :goto_1
     const/4 v0, 0x1
 
-    goto :goto_d
+    goto :goto_0
 
     .line 244
-    :pswitch_13
+    :pswitch_1
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/FaceUnlock;->handleHideFaceUnlockView()V
 
-    goto :goto_11
+    goto :goto_1
 
     .line 247
-    :pswitch_17
+    :pswitch_2
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/FaceUnlock;->handleServiceConnected()V
 
-    goto :goto_11
+    goto :goto_1
 
     .line 250
-    :pswitch_1b
+    :pswitch_3
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/FaceUnlock;->handleServiceDisconnected()V
 
-    goto :goto_11
+    goto :goto_1
 
     .line 253
-    :pswitch_1f
+    :pswitch_4
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/FaceUnlock;->handleUnlock()V
 
-    goto :goto_11
+    goto :goto_1
 
     .line 256
-    :pswitch_23
+    :pswitch_5
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/FaceUnlock;->handleCancel()V
 
-    goto :goto_11
+    goto :goto_1
 
     .line 259
-    :pswitch_27
+    :pswitch_6
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/FaceUnlock;->handleReportFailedAttempt()V
 
-    goto :goto_11
+    goto :goto_1
 
     .line 262
-    :pswitch_2b
+    :pswitch_7
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/FaceUnlock;->handleExposeFallback()V
 
-    goto :goto_11
+    goto :goto_1
 
     .line 265
-    :pswitch_2f
+    :pswitch_8
     iget v0, p1, Landroid/os/Message;->arg1:I
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/FaceUnlock;->handlePokeWakelock(I)V
 
-    goto :goto_11
+    goto :goto_1
 
     .line 239
     nop
 
-    :pswitch_data_36
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_e
-        :pswitch_13
-        :pswitch_17
-        :pswitch_1b
-        :pswitch_1f
-        :pswitch_23
-        :pswitch_27
-        :pswitch_2b
-        :pswitch_2f
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
     .end packed-switch
 .end method
 
 .method handlePokeWakelock(I)V
-    .registers 3
+    .locals 1
     .parameter "millis"
 
     .prologue
@@ -721,7 +721,7 @@
 .end method
 
 .method handleReportFailedAttempt()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 396
@@ -734,7 +734,7 @@
 .end method
 
 .method handleServiceConnected()V
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v4, 0x0
@@ -749,7 +749,7 @@
     .line 310
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mBoundToService:Z
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_1
 
     .line 311
     const-string v0, "FULLockscreen"
@@ -759,25 +759,25 @@
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 342
-    :cond_13
-    :goto_13
+    :cond_0
+    :goto_0
     return-void
 
     .line 316
-    :cond_14
-    :try_start_14
+    :cond_1
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mService:Lcom/android/internal/policy/IFaceLockInterface;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockCallback:Lcom/android/internal/policy/IFaceLockCallback;
 
     invoke-interface {v0, v2}, Lcom/android/internal/policy/IFaceLockInterface;->registerCallback(Lcom/android/internal/policy/IFaceLockCallback;)V
-    :try_end_1b
-    .catch Landroid/os/RemoteException; {:try_start_14 .. :try_end_1b} :catch_4a
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 325
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockView:Landroid/view/View;
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 326
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockView:Landroid/view/View;
@@ -788,7 +788,7 @@
 
     .line 327
     .local v1, windowToken:Landroid/os/IBinder;
-    if-eqz v1, :cond_6f
+    if-eqz v1, :cond_2
 
     .line 331
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mKeyguardScreenCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -829,12 +829,12 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/internal/policy/impl/FaceUnlock;->startUi(Landroid/os/IBinder;IIII)V
 
-    goto :goto_13
+    goto :goto_0
 
     .line 317
     .end local v1           #windowToken:Landroid/os/IBinder;
     .end local v7           #position:[I
-    :catch_4a
+    :catch_0
     move-exception v6
 
     .line 318
@@ -876,23 +876,23 @@
     .line 321
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mIsRunning:Z
 
-    goto :goto_13
+    goto :goto_0
 
     .line 339
     .end local v6           #e:Landroid/os/RemoteException;
     .restart local v1       #windowToken:Landroid/os/IBinder;
-    :cond_6f
+    :cond_2
     const-string v0, "FULLockscreen"
 
     const-string v2, "windowToken is null in handleServiceConnected()"
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method handleServiceDisconnected()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -912,7 +912,7 @@
     .line 353
     const/4 v0, 0x0
 
-    :try_start_c
+    :try_start_0
     iput-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mService:Lcom/android/internal/policy/IFaceLockInterface;
 
     .line 354
@@ -922,8 +922,8 @@
 
     .line 355
     monitor-exit v1
-    :try_end_12
-    .catchall {:try_start_c .. :try_end_12} :catchall_17
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 356
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mBoundToService:Z
@@ -935,25 +935,25 @@
     return-void
 
     .line 355
-    :catchall_17
+    :catchall_0
     move-exception v0
 
-    :try_start_18
+    :try_start_1
     monitor-exit v1
-    :try_end_19
-    .catchall {:try_start_18 .. :try_end_19} :catchall_17
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method
 
 .method handleShowFaceUnlockView()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 279
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockView:Landroid/view/View;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 280
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockView:Landroid/view/View;
@@ -963,22 +963,22 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 284
-    :goto_a
+    :goto_0
     return-void
 
     .line 282
-    :cond_b
+    :cond_0
     const-string v0, "FULLockscreen"
 
     const-string v1, "mFaceUnlockView is null in handleShowFaceUnlockView()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method handleUnlock()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 366
@@ -987,7 +987,7 @@
     .line 367
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockView:Landroid/view/View;
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     .line 368
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockView:Landroid/view/View;
@@ -997,7 +997,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 372
-    :goto_d
+    :goto_0
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/FaceUnlock;->stop()Z
 
     .line 373
@@ -1016,18 +1016,18 @@
     return-void
 
     .line 370
-    :cond_1c
+    :cond_0
     const-string v0, "FULLockscreen"
 
     const-string v1, "mFaceUnlockView is null in handleUnlock()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public hide()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 138
@@ -1045,7 +1045,7 @@
 .end method
 
 .method public initializeView(Landroid/view/View;)V
-    .registers 4
+    .locals 2
     .parameter "biometricUnlockView"
 
     .prologue
@@ -1064,7 +1064,7 @@
 .end method
 
 .method public isRunning()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 110
@@ -1074,7 +1074,7 @@
 .end method
 
 .method public show(J)V
-    .registers 5
+    .locals 2
     .parameter "timeoutMillis"
 
     .prologue
@@ -1089,7 +1089,7 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_13
+    if-eq v0, v1, :cond_0
 
     .line 120
     const-string v0, "FULLockscreen"
@@ -1099,13 +1099,13 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 123
-    :cond_13
+    :cond_0
     invoke-direct {p0}, Lcom/android/internal/policy/impl/FaceUnlock;->removeDisplayMessages()V
 
     .line 124
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockView:Landroid/view/View;
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1
 
     .line 125
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockView:Landroid/view/View;
@@ -1115,12 +1115,12 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 127
-    :cond_20
+    :cond_1
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
-    if-lez v0, :cond_2c
+    if-lez v0, :cond_2
 
     .line 128
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mHandler:Landroid/os/Handler;
@@ -1130,12 +1130,12 @@
     invoke-virtual {v0, v1, p1, p2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
     .line 130
-    :cond_2c
+    :cond_2
     return-void
 .end method
 
 .method public start()Z
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v4, 0x1
@@ -1151,7 +1151,7 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_14
+    if-eq v0, v1, :cond_0
 
     .line 150
     const-string v0, "FULLockscreen"
@@ -1161,10 +1161,10 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 153
-    :cond_14
+    :cond_0
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mIsRunning:Z
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_1
 
     .line 154
     const-string v0, "FULLockscreen"
@@ -1174,7 +1174,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 160
-    :cond_1f
+    :cond_1
     const-wide/16 v0, 0xbb8
 
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/policy/impl/FaceUnlock;->show(J)V
@@ -1182,7 +1182,7 @@
     .line 161
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mBoundToService:Z
 
-    if-nez v0, :cond_4c
+    if-nez v0, :cond_2
 
     .line 162
     const-string v0, "FULLockscreen"
@@ -1218,25 +1218,25 @@
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mBoundToService:Z
 
     .line 172
-    :goto_49
+    :goto_0
     iput-boolean v4, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mIsRunning:Z
 
     .line 173
     return v4
 
     .line 169
-    :cond_4c
+    :cond_2
     const-string v0, "FULLockscreen"
 
     const-string v1, "Attempt to bind to Face Unlock when already bound"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_49
+    goto :goto_0
 .end method
 
 .method public stop()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x0
@@ -1252,7 +1252,7 @@
 
     move-result-object v2
 
-    if-eq v1, v2, :cond_14
+    if-eq v1, v2, :cond_0
 
     .line 182
     const-string v1, "FULLockscreen"
@@ -1262,7 +1262,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 185
-    :cond_14
+    :cond_0
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mIsRunning:Z
 
     .line 186
@@ -1272,26 +1272,26 @@
     .line 188
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mBoundToService:Z
 
-    if-eqz v1, :cond_38
+    if-eqz v1, :cond_2
 
     .line 189
     iget-object v1, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mService:Lcom/android/internal/policy/IFaceLockInterface;
 
-    if-eqz v1, :cond_28
+    if-eqz v1, :cond_1
 
     .line 191
-    :try_start_21
+    :try_start_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mService:Lcom/android/internal/policy/IFaceLockInterface;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mFaceUnlockCallback:Lcom/android/internal/policy/IFaceLockCallback;
 
     invoke-interface {v1, v2}, Lcom/android/internal/policy/IFaceLockInterface;->unregisterCallback(Lcom/android/internal/policy/IFaceLockCallback;)V
-    :try_end_28
-    .catch Landroid/os/RemoteException; {:try_start_21 .. :try_end_28} :catch_3b
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 196
-    :cond_28
-    :goto_28
+    :cond_1
+    :goto_0
     const-string v1, "FULLockscreen"
 
     const-string v2, "Unbinding from Face Unlock service"
@@ -1309,15 +1309,15 @@
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mBoundToService:Z
 
     .line 205
-    :cond_38
+    :cond_2
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/FaceUnlock;->mIsRunning:Z
 
     .line 206
     return v0
 
     .line 192
-    :catch_3b
+    :catch_0
     move-exception v1
 
-    goto :goto_28
+    goto :goto_0
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/ViewManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 274
@@ -46,11 +46,13 @@
 
     const/4 v3, 0x1
 
+    #setter for: Landroid/webkit/ViewManager;->mReadyToDraw:Z
     invoke-static {v2, v3}, Landroid/webkit/ViewManager;->access$402(Landroid/webkit/ViewManager;Z)Z
 
     .line 275
     iget-object v2, p0, Landroid/webkit/ViewManager$3;->this$0:Landroid/webkit/ViewManager;
 
+    #getter for: Landroid/webkit/ViewManager;->mChildren:Ljava/util/ArrayList;
     invoke-static {v2}, Landroid/webkit/ViewManager;->access$300(Landroid/webkit/ViewManager;)Ljava/util/ArrayList;
 
     move-result-object v2
@@ -60,12 +62,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_10
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_23
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -81,10 +83,10 @@
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_10
+    goto :goto_0
 
     .line 278
     .end local v1           #v:Landroid/webkit/ViewManager$ChildView;
-    :cond_23
+    :cond_0
     return-void
 .end method

@@ -52,7 +52,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;IIIILjava/lang/CharSequence;)V
-    .registers 8
+    .locals 1
     .parameter "context"
     .parameter "group"
     .parameter "id"
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method public collapseActionView()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 264
@@ -109,7 +109,7 @@
 .end method
 
 .method public expandActionView()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 259
@@ -119,7 +119,7 @@
 .end method
 
 .method public getActionProvider()Landroid/view/ActionProvider;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 243
@@ -129,7 +129,7 @@
 .end method
 
 .method public getActionView()Landroid/view/View;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 233
@@ -139,7 +139,7 @@
 .end method
 
 .method public getAlphabeticShortcut()C
-    .registers 2
+    .locals 1
 
     .prologue
     .line 70
@@ -149,7 +149,7 @@
 .end method
 
 .method public getGroupId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 74
@@ -159,7 +159,7 @@
 .end method
 
 .method public getIcon()Landroid/graphics/drawable/Drawable;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 78
@@ -169,7 +169,7 @@
 .end method
 
 .method public getIntent()Landroid/content/Intent;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 82
@@ -179,7 +179,7 @@
 .end method
 
 .method public getItemId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 86
@@ -189,7 +189,7 @@
 .end method
 
 .method public getMenuInfo()Landroid/view/ContextMenu$ContextMenuInfo;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 90
@@ -199,7 +199,7 @@
 .end method
 
 .method public getNumericShortcut()C
-    .registers 2
+    .locals 1
 
     .prologue
     .line 94
@@ -209,7 +209,7 @@
 .end method
 
 .method public getOrder()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 98
@@ -219,7 +219,7 @@
 .end method
 
 .method public getSubMenu()Landroid/view/SubMenu;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 102
@@ -229,7 +229,7 @@
 .end method
 
 .method public getTitle()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 106
@@ -239,7 +239,7 @@
 .end method
 
 .method public getTitleCondensed()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 110
@@ -249,7 +249,7 @@
 .end method
 
 .method public hasSubMenu()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 114
@@ -259,7 +259,7 @@
 .end method
 
 .method public invoke()Z
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v0, 0x1
@@ -267,7 +267,7 @@
     .line 212
     iget-object v1, p0, Lcom/android/internal/view/menu/ActionMenuItem;->mClickListener:Landroid/view/MenuItem$OnMenuItemClickListener;
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/android/internal/view/menu/ActionMenuItem;->mClickListener:Landroid/view/MenuItem$OnMenuItemClickListener;
 
@@ -275,17 +275,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_0
 
     .line 221
-    :goto_d
+    :goto_0
     return v0
 
     .line 216
-    :cond_e
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/view/menu/ActionMenuItem;->mIntent:Landroid/content/Intent;
 
-    if-eqz v1, :cond_1a
+    if-eqz v1, :cond_1
 
     .line 217
     iget-object v1, p0, Lcom/android/internal/view/menu/ActionMenuItem;->mContext:Landroid/content/Context;
@@ -294,17 +294,17 @@
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    goto :goto_d
+    goto :goto_0
 
     .line 221
-    :cond_1a
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public isActionViewExpanded()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 269
@@ -314,7 +314,7 @@
 .end method
 
 .method public isCheckable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 118
@@ -322,21 +322,21 @@
 
     and-int/lit8 v0, v0, 0x1
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public isChecked()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 122
@@ -344,21 +344,21 @@
 
     and-int/lit8 v0, v0, 0x2
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public isEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 126
@@ -366,21 +366,21 @@
 
     and-int/lit8 v0, v0, 0x10
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public isVisible()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 130
@@ -388,21 +388,21 @@
 
     and-int/lit8 v0, v0, 0x8
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setActionProvider(Landroid/view/ActionProvider;)Landroid/view/MenuItem;
-    .registers 3
+    .locals 1
     .parameter "actionProvider"
 
     .prologue
@@ -415,7 +415,7 @@
 .end method
 
 .method public setActionView(I)Landroid/view/MenuItem;
-    .registers 3
+    .locals 1
     .parameter "resId"
 
     .prologue
@@ -428,7 +428,7 @@
 .end method
 
 .method public setActionView(Landroid/view/View;)Landroid/view/MenuItem;
-    .registers 3
+    .locals 1
     .parameter "actionView"
 
     .prologue
@@ -441,7 +441,7 @@
 .end method
 
 .method public setAlphabeticShortcut(C)Landroid/view/MenuItem;
-    .registers 2
+    .locals 0
     .parameter "alphaChar"
 
     .prologue
@@ -453,7 +453,7 @@
 .end method
 
 .method public setCheckable(Z)Landroid/view/MenuItem;
-    .registers 4
+    .locals 2
     .parameter "checkable"
 
     .prologue
@@ -462,11 +462,11 @@
 
     and-int/lit8 v1, v0, -0x2
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     or-int/2addr v0, v1
 
     iput v0, p0, Lcom/android/internal/view/menu/ActionMenuItem;->mFlags:I
@@ -475,14 +475,14 @@
     return-object p0
 
     .line 139
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setChecked(Z)Landroid/view/MenuItem;
-    .registers 4
+    .locals 2
     .parameter "checked"
 
     .prologue
@@ -491,11 +491,11 @@
 
     and-int/lit8 v1, v0, -0x3
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x2
 
-    :goto_7
+    :goto_0
     or-int/2addr v0, v1
 
     iput v0, p0, Lcom/android/internal/view/menu/ActionMenuItem;->mFlags:I
@@ -504,14 +504,14 @@
     return-object p0
 
     .line 149
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setEnabled(Z)Landroid/view/MenuItem;
-    .registers 4
+    .locals 2
     .parameter "enabled"
 
     .prologue
@@ -520,11 +520,11 @@
 
     and-int/lit8 v1, v0, -0x11
 
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_0
 
     const/16 v0, 0x10
 
-    :goto_8
+    :goto_0
     or-int/2addr v0, v1
 
     iput v0, p0, Lcom/android/internal/view/menu/ActionMenuItem;->mFlags:I
@@ -533,14 +533,14 @@
     return-object p0
 
     .line 154
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setExclusiveCheckable(Z)Lcom/android/internal/view/menu/ActionMenuItem;
-    .registers 4
+    .locals 2
     .parameter "exclusive"
 
     .prologue
@@ -549,11 +549,11 @@
 
     and-int/lit8 v1, v0, -0x5
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x4
 
-    :goto_7
+    :goto_0
     or-int/2addr v0, v1
 
     iput v0, p0, Lcom/android/internal/view/menu/ActionMenuItem;->mFlags:I
@@ -562,14 +562,14 @@
     return-object p0
 
     .line 144
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setIcon(I)Landroid/view/MenuItem;
-    .registers 3
+    .locals 1
     .parameter "iconRes"
 
     .prologue
@@ -594,7 +594,7 @@
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;
-    .registers 3
+    .locals 1
     .parameter "icon"
 
     .prologue
@@ -611,7 +611,7 @@
 .end method
 
 .method public setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
-    .registers 2
+    .locals 0
     .parameter "intent"
 
     .prologue
@@ -623,7 +623,7 @@
 .end method
 
 .method public setNumericShortcut(C)Landroid/view/MenuItem;
-    .registers 2
+    .locals 0
     .parameter "numericChar"
 
     .prologue
@@ -635,7 +635,7 @@
 .end method
 
 .method public setOnActionExpandListener(Landroid/view/MenuItem$OnActionExpandListener;)Landroid/view/MenuItem;
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue
@@ -644,7 +644,7 @@
 .end method
 
 .method public setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
-    .registers 2
+    .locals 0
     .parameter "menuItemClickListener"
 
     .prologue
@@ -656,7 +656,7 @@
 .end method
 
 .method public setShortcut(CC)Landroid/view/MenuItem;
-    .registers 3
+    .locals 0
     .parameter "numericChar"
     .parameter "alphaChar"
 
@@ -672,7 +672,7 @@
 .end method
 
 .method public setShowAsAction(I)V
-    .registers 2
+    .locals 0
     .parameter "show"
 
     .prologue
@@ -681,7 +681,7 @@
 .end method
 
 .method public setShowAsActionFlags(I)Landroid/view/MenuItem;
-    .registers 2
+    .locals 0
     .parameter "actionEnum"
 
     .prologue
@@ -693,7 +693,7 @@
 .end method
 
 .method public setTitle(I)Landroid/view/MenuItem;
-    .registers 3
+    .locals 1
     .parameter "title"
 
     .prologue
@@ -715,7 +715,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
-    .registers 2
+    .locals 0
     .parameter "title"
 
     .prologue
@@ -727,7 +727,7 @@
 .end method
 
 .method public setTitleCondensed(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
-    .registers 2
+    .locals 0
     .parameter "title"
 
     .prologue
@@ -739,7 +739,7 @@
 .end method
 
 .method public setVisible(Z)Landroid/view/MenuItem;
-    .registers 4
+    .locals 2
     .parameter "visible"
 
     .prologue
@@ -748,11 +748,11 @@
 
     and-int/lit8 v1, v0, 0x8
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_7
+    :goto_0
     or-int/2addr v0, v1
 
     iput v0, p0, Lcom/android/internal/view/menu/ActionMenuItem;->mFlags:I
@@ -761,8 +761,8 @@
     return-object p0
 
     .line 207
-    :cond_b
+    :cond_0
     const/16 v0, 0x8
 
-    goto :goto_7
+    goto :goto_0
 .end method

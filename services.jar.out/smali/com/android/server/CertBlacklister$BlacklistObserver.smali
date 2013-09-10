@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentResolver;)V
-    .registers 7
+    .locals 2
     .parameter "key"
     .parameter "name"
     .parameter "path"
@@ -70,7 +70,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/server/CertBlacklister$BlacklistObserver;)Ljava/io/File;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/server/CertBlacklister$BlacklistObserver;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -92,7 +92,7 @@
 .end method
 
 .method private writeBlacklist()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 77
@@ -111,7 +111,7 @@
 
 # virtual methods
 .method public getValue()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 73
@@ -127,7 +127,7 @@
 .end method
 
 .method public onChange(Z)V
-    .registers 2
+    .locals 0
     .parameter "selfChange"
 
     .prologue

@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 5
+    .locals 5
 
     .prologue
     const/16 v4, 0xb
@@ -39,7 +39,7 @@
 
     new-array v2, v2, [C
 
-    fill-array-data v2, :array_30
+    fill-array-data v2, :array_0
 
     aput-object v2, v0, v1
 
@@ -47,7 +47,7 @@
 
     new-array v2, v4, [C
 
-    fill-array-data v2, :array_3e
+    fill-array-data v2, :array_1
 
     aput-object v2, v0, v1
 
@@ -55,7 +55,7 @@
 
     new-array v2, v4, [C
 
-    fill-array-data v2, :array_4e
+    fill-array-data v2, :array_2
 
     aput-object v2, v0, v1
 
@@ -65,7 +65,7 @@
 
     new-array v2, v2, [C
 
-    fill-array-data v2, :array_5e
+    fill-array-data v2, :array_3
 
     aput-object v2, v0, v1
 
@@ -79,7 +79,7 @@
     return-void
 
     .line 52
-    :array_30
+    :array_0
     .array-data 0x2
         0x30t 0x0t
         0x31t 0x0t
@@ -93,7 +93,7 @@
         0x39t 0x0t
     .end array-data
 
-    :array_3e
+    :array_1
     .array-data 0x2
         0x30t 0x0t
         0x31t 0x0t
@@ -110,7 +110,7 @@
 
     nop
 
-    :array_4e
+    :array_2
     .array-data 0x2
         0x30t 0x0t
         0x31t 0x0t
@@ -127,7 +127,7 @@
 
     nop
 
-    :array_5e
+    :array_3
     .array-data 0x2
         0x30t 0x0t
         0x31t 0x0t
@@ -145,7 +145,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -158,7 +158,7 @@
 .end method
 
 .method public constructor <init>(ZZ)V
-    .registers 6
+    .locals 3
     .parameter "sign"
     .parameter "decimal"
 
@@ -175,16 +175,16 @@
     iput-boolean p2, p0, Landroid/text/method/DigitsKeyListener;->mDecimal:Z
 
     .line 75
-    if-eqz p1, :cond_17
+    if-eqz p1, :cond_1
 
     const/4 v2, 0x1
 
-    :goto_b
-    if-eqz p2, :cond_e
+    :goto_0
+    if-eqz p2, :cond_0
 
     const/4 v1, 0x2
 
-    :cond_e
+    :cond_0
     or-int v0, v2, v1
 
     .line 76
@@ -199,15 +199,15 @@
     return-void
 
     .end local v0           #kind:I
-    :cond_17
+    :cond_1
     move v2, v1
 
     .line 75
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public static getInstance()Landroid/text/method/DigitsKeyListener;
-    .registers 1
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -221,7 +221,7 @@
 .end method
 
 .method public static getInstance(Ljava/lang/String;)Landroid/text/method/DigitsKeyListener;
-    .registers 5
+    .locals 4
     .parameter "accepted"
 
     .prologue
@@ -256,7 +256,7 @@
 .end method
 
 .method public static getInstance(ZZ)Landroid/text/method/DigitsKeyListener;
-    .registers 5
+    .locals 3
     .parameter "sign"
     .parameter "decimal"
 
@@ -264,16 +264,16 @@
     const/4 v1, 0x0
 
     .line 92
-    if-eqz p0, :cond_14
+    if-eqz p0, :cond_1
 
     const/4 v2, 0x1
 
-    :goto_4
-    if-eqz p1, :cond_7
+    :goto_0
+    if-eqz p1, :cond_0
 
     const/4 v1, 0x2
 
-    :cond_7
+    :cond_0
     or-int v0, v2, v1
 
     .line 94
@@ -282,7 +282,7 @@
 
     aget-object v1, v1, v0
 
-    if-eqz v1, :cond_16
+    if-eqz v1, :cond_2
 
     .line 95
     sget-object v1, Landroid/text/method/DigitsKeyListener;->sInstance:[Landroid/text/method/DigitsKeyListener;
@@ -290,19 +290,19 @@
     aget-object v1, v1, v0
 
     .line 98
-    :goto_13
+    :goto_1
     return-object v1
 
     .end local v0           #kind:I
-    :cond_14
+    :cond_1
     move v2, v1
 
     .line 92
-    goto :goto_4
+    goto :goto_0
 
     .line 97
     .restart local v0       #kind:I
-    :cond_16
+    :cond_2
     sget-object v1, Landroid/text/method/DigitsKeyListener;->sInstance:[Landroid/text/method/DigitsKeyListener;
 
     new-instance v2, Landroid/text/method/DigitsKeyListener;
@@ -316,13 +316,13 @@
 
     aget-object v1, v1, v0
 
-    goto :goto_13
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public filter(Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
-    .registers 17
+    .locals 10
     .parameter "source"
     .parameter "start"
     .parameter "end"
@@ -340,22 +340,22 @@
     .local v4, out:Ljava/lang/CharSequence;
     iget-boolean v8, p0, Landroid/text/method/DigitsKeyListener;->mSign:Z
 
-    if-nez v8, :cond_d
+    if-nez v8, :cond_1
 
     iget-boolean v8, p0, Landroid/text/method/DigitsKeyListener;->mDecimal:Z
 
-    if-nez v8, :cond_d
+    if-nez v8, :cond_1
 
     .line 217
     .end local v4           #out:Ljava/lang/CharSequence;
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     return-object v4
 
     .line 137
     .restart local v4       #out:Ljava/lang/CharSequence;
-    :cond_d
-    if-eqz v4, :cond_15
+    :cond_1
+    if-eqz v4, :cond_2
 
     .line 138
     move-object p1, v4
@@ -369,7 +369,7 @@
     move-result p3
 
     .line 143
-    :cond_15
+    :cond_2
     const/4 v5, -0x1
 
     .line 144
@@ -387,8 +387,8 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_1c
-    if-ge v3, p5, :cond_30
+    :goto_1
+    if-ge v3, p5, :cond_5
 
     .line 152
     invoke-interface {p4, v3}, Landroid/text/Spanned;->charAt(I)C
@@ -399,36 +399,36 @@
     .local v0, c:C
     const/16 v8, 0x2d
 
-    if-ne v0, v8, :cond_2a
+    if-ne v0, v8, :cond_4
 
     .line 155
     move v5, v3
 
     .line 151
-    :cond_27
-    :goto_27
+    :cond_3
+    :goto_2
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1c
+    goto :goto_1
 
     .line 156
-    :cond_2a
+    :cond_4
     const/16 v8, 0x2e
 
-    if-ne v0, v8, :cond_27
+    if-ne v0, v8, :cond_3
 
     .line 157
     move v1, v3
 
-    goto :goto_27
+    goto :goto_2
 
     .line 160
     .end local v0           #c:C
-    :cond_30
+    :cond_5
     move/from16 v3, p6
 
-    :goto_32
-    if-ge v3, v2, :cond_47
+    :goto_3
+    if-ge v3, v2, :cond_8
 
     .line 161
     invoke-interface {p4, v3}, Landroid/text/Spanned;->charAt(I)C
@@ -439,39 +439,39 @@
     .restart local v0       #c:C
     const/16 v8, 0x2d
 
-    if-ne v0, v8, :cond_3f
+    if-ne v0, v8, :cond_6
 
     .line 164
     const-string v4, ""
 
-    goto :goto_c
+    goto :goto_0
 
     .line 165
-    :cond_3f
+    :cond_6
     const/16 v8, 0x2e
 
-    if-ne v0, v8, :cond_44
+    if-ne v0, v8, :cond_7
 
     .line 166
     move v1, v3
 
     .line 160
-    :cond_44
+    :cond_7
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_32
+    goto :goto_3
 
     .line 177
     .end local v0           #c:C
-    :cond_47
+    :cond_8
     const/4 v7, 0x0
 
     .line 179
     .local v7, stripped:Landroid/text/SpannableStringBuilder;
     add-int/lit8 v3, p3, -0x1
 
-    :goto_4a
-    if-lt v3, p2, :cond_85
+    :goto_4
+    if-lt v3, p2, :cond_12
 
     .line 180
     invoke-interface {p1, v3}, Ljava/lang/CharSequence;->charAt(I)C
@@ -486,70 +486,70 @@
     .local v6, strip:Z
     const/16 v8, 0x2d
 
-    if-ne v0, v8, :cond_69
+    if-ne v0, v8, :cond_d
 
     .line 184
-    if-ne v3, p2, :cond_59
+    if-ne v3, p2, :cond_9
 
-    if-eqz p5, :cond_63
+    if-eqz p5, :cond_b
 
     .line 185
-    :cond_59
+    :cond_9
     const/4 v6, 0x1
 
     .line 199
-    :cond_5a
-    :goto_5a
-    if-eqz v6, :cond_82
+    :cond_a
+    :goto_5
+    if-eqz v6, :cond_11
 
     .line 200
     add-int/lit8 v8, p2, 0x1
 
-    if-ne p3, v8, :cond_73
+    if-ne p3, v8, :cond_f
 
     .line 201
     const-string v4, ""
 
-    goto :goto_c
+    goto :goto_0
 
     .line 186
-    :cond_63
-    if-ltz v5, :cond_67
+    :cond_b
+    if-ltz v5, :cond_c
 
     .line 187
     const/4 v6, 0x1
 
-    goto :goto_5a
+    goto :goto_5
 
     .line 189
-    :cond_67
+    :cond_c
     move v5, v3
 
-    goto :goto_5a
+    goto :goto_5
 
     .line 191
-    :cond_69
+    :cond_d
     const/16 v8, 0x2e
 
-    if-ne v0, v8, :cond_5a
+    if-ne v0, v8, :cond_a
 
     .line 192
-    if-ltz v1, :cond_71
+    if-ltz v1, :cond_e
 
     .line 193
     const/4 v6, 0x1
 
-    goto :goto_5a
+    goto :goto_5
 
     .line 195
-    :cond_71
+    :cond_e
     move v1, v3
 
-    goto :goto_5a
+    goto :goto_5
 
     .line 204
-    :cond_73
-    if-nez v7, :cond_7a
+    :cond_f
+    if-nez v7, :cond_10
 
     .line 205
     new-instance v7, Landroid/text/SpannableStringBuilder;
@@ -559,7 +559,7 @@
 
     .line 208
     .restart local v7       #stripped:Landroid/text/SpannableStringBuilder;
-    :cond_7a
+    :cond_10
     sub-int v8, v3, p2
 
     add-int/lit8 v9, v3, 0x1
@@ -569,34 +569,34 @@
     invoke-virtual {v7, v8, v9}, Landroid/text/SpannableStringBuilder;->delete(II)Landroid/text/SpannableStringBuilder;
 
     .line 179
-    :cond_82
+    :cond_11
     add-int/lit8 v3, v3, -0x1
 
-    goto :goto_4a
+    goto :goto_4
 
     .line 212
     .end local v0           #c:C
     .end local v6           #strip:Z
-    :cond_85
-    if-eqz v7, :cond_89
+    :cond_12
+    if-eqz v7, :cond_13
 
     move-object v4, v7
 
     .line 213
-    goto :goto_c
+    goto :goto_0
 
     .line 214
-    :cond_89
-    if-nez v4, :cond_c
+    :cond_13
+    if-nez v4, :cond_0
 
     .line 217
     const/4 v4, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method protected getAcceptedChars()[C
-    .registers 2
+    .locals 1
 
     .prologue
     .line 43
@@ -606,7 +606,7 @@
 .end method
 
 .method public getInputType()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 118
@@ -616,21 +616,21 @@
     .local v0, contentType:I
     iget-boolean v1, p0, Landroid/text/method/DigitsKeyListener;->mSign:Z
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_0
 
     .line 120
     or-int/lit16 v0, v0, 0x1000
 
     .line 122
-    :cond_7
+    :cond_0
     iget-boolean v1, p0, Landroid/text/method/DigitsKeyListener;->mDecimal:Z
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_1
 
     .line 123
     or-int/lit16 v0, v0, 0x2000
 
     .line 125
-    :cond_d
+    :cond_1
     return v0
 .end method

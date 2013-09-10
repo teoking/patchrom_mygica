@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/WifiService;ILjava/lang/String;Landroid/os/IBinder;Landroid/os/WorkSource;)V
-    .registers 9
+    .locals 3
     .parameter
     .parameter "mode"
     .parameter "tag"
@@ -58,34 +58,34 @@
     iput-object p5, p0, Lcom/android/server/WifiService$DeathRecipient;->mWorkSource:Landroid/os/WorkSource;
 
     .line 1492
-    :try_start_d
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/WifiService$DeathRecipient;->mBinder:Landroid/os/IBinder;
 
     const/4 v2, 0x0
 
     invoke-interface {v1, p0, v2}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
-    :try_end_13
-    .catch Landroid/os/RemoteException; {:try_start_d .. :try_end_13} :catch_14
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1496
-    :goto_13
+    :goto_0
     return-void
 
     .line 1493
-    :catch_14
+    :catch_0
     move-exception v0
 
     .line 1494
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {p0}, Lcom/android/server/WifiService$DeathRecipient;->binderDied()V
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method unlinkDeathRecipient()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1499

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/KeyguardViewBase;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .registers 4
+    .locals 2
     .parameter "canvas"
 
     .prologue
@@ -51,7 +51,7 @@
 .end method
 
 .method public getOpacity()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -61,7 +61,7 @@
 .end method
 
 .method public setAlpha(I)V
-    .registers 2
+    .locals 0
     .parameter "alpha"
 
     .prologue
@@ -70,7 +70,7 @@
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
-    .registers 2
+    .locals 0
     .parameter "cf"
 
     .prologue

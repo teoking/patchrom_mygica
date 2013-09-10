@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService$PerformFullRestoreTask;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public packageDeleted(Ljava/lang/String;I)V
-    .registers 6
+    .locals 3
     .parameter "packageName"
     .parameter "returnCode"
     .annotation system Ldalvik/annotation/Throws;
@@ -62,7 +62,7 @@
     monitor-enter v1
 
     .line 3516
-    :try_start_3
+    :try_start_0
     iput p2, p0, Lcom/android/server/BackupManagerService$PerformFullRestoreTask$RestoreDeleteObserver;->mResult:I
 
     .line 3517
@@ -84,18 +84,18 @@
     return-void
 
     .line 3519
-    :catchall_12
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_14
-    .catchall {:try_start_3 .. :try_end_14} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public reset()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 3498
@@ -104,7 +104,7 @@
     monitor-enter v1
 
     .line 3499
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/BackupManagerService$PerformFullRestoreTask$RestoreDeleteObserver;->mDone:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v2, 0x0
@@ -118,18 +118,18 @@
     return-void
 
     .line 3500
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_d
-    .catchall {:try_start_3 .. :try_end_d} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public waitForCompletion()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3504
@@ -138,50 +138,50 @@
     monitor-enter v1
 
     .line 3505
-    :goto_3
-    :try_start_3
+    :goto_0
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/BackupManagerService$PerformFullRestoreTask$RestoreDeleteObserver;->mDone:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
-    :try_end_8
-    .catchall {:try_start_3 .. :try_end_8} :catchall_15
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     .line 3507
-    :try_start_b
+    :try_start_1
     iget-object v0, p0, Lcom/android/server/BackupManagerService$PerformFullRestoreTask$RestoreDeleteObserver;->mDone:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v0}, Ljava/lang/Object;->wait()V
-    :try_end_10
-    .catchall {:try_start_b .. :try_end_10} :catchall_15
-    .catch Ljava/lang/InterruptedException; {:try_start_b .. :try_end_10} :catch_11
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_3
+    goto :goto_0
 
     .line 3508
-    :catch_11
+    :catch_0
     move-exception v0
 
-    goto :goto_3
+    goto :goto_0
 
     .line 3510
-    :cond_13
-    :try_start_13
+    :cond_0
+    :try_start_2
     monitor-exit v1
 
     .line 3511
     return-void
 
     .line 3510
-    :catchall_15
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_17
-    .catchall {:try_start_13 .. :try_end_17} :catchall_15
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v0
 .end method

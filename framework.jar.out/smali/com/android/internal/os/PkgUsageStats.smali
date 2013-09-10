@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 36
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 9
+    .locals 7
     .parameter "source"
 
     .prologue
@@ -100,8 +100,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_21
-    if-ge v2, v0, :cond_37
+    :goto_0
+    if-ge v2, v0, :cond_0
 
     .line 67
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -127,17 +127,17 @@
     .line 66
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_21
+    goto :goto_0
 
     .line 71
     .end local v1           #component:Ljava/lang/String;
     .end local v3           #lastResumeTime:J
-    :cond_37
+    :cond_0
     return-void
 .end method
 
 .method public constructor <init>(Lcom/android/internal/os/PkgUsageStats;)V
-    .registers 4
+    .locals 2
     .parameter "pStats"
 
     .prologue
@@ -173,7 +173,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;IJLjava/util/Map;)V
-    .registers 7
+    .locals 1
     .parameter "pkgName"
     .parameter "count"
     .parameter "time"
@@ -219,7 +219,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -229,7 +229,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 48
@@ -281,7 +281,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 7
+    .locals 4
     .parameter "dest"
     .parameter "parcelableFlags"
 
@@ -322,12 +322,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_22
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_45
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -358,10 +358,10 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    goto :goto_22
+    goto :goto_0
 
     .line 93
     .end local v0           #ent:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;"
-    :cond_45
+    :cond_0
     return-void
 .end method

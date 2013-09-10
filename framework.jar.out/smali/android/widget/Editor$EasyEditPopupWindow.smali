@@ -31,7 +31,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/Editor;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -44,7 +44,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/Editor;Landroid/widget/Editor$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -56,7 +56,7 @@
 .end method
 
 .method static synthetic access$800(Landroid/widget/Editor$EasyEditPopupWindow;)Landroid/text/style/EasyEditSpan;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method protected clipVertically(I)I
-    .registers 2
+    .locals 0
     .parameter "positionY"
 
     .prologue
@@ -78,7 +78,7 @@
 .end method
 
 .method protected createPopupWindow()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 1918
@@ -86,6 +86,7 @@
 
     iget-object v1, p0, Landroid/widget/Editor$EasyEditPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v1}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -121,12 +122,13 @@
 .end method
 
 .method protected getTextOffset()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1964
     iget-object v1, p0, Landroid/widget/Editor$EasyEditPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v1}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -149,13 +151,14 @@
 .end method
 
 .method protected getVerticalLocalPosition(I)I
-    .registers 3
+    .locals 1
     .parameter "line"
 
     .prologue
     .line 1970
     iget-object v0, p0, Landroid/widget/Editor$EasyEditPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -172,7 +175,7 @@
 .end method
 
 .method protected initContentView()V
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v5, -0x2
@@ -182,6 +185,7 @@
 
     iget-object v3, p0, Landroid/widget/Editor$EasyEditPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v3}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -211,6 +215,7 @@
     .line 1932
     iget-object v3, p0, Landroid/widget/Editor$EasyEditPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v3}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -276,18 +281,19 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .registers 6
+    .locals 4
     .parameter "view"
 
     .prologue
     .line 1951
     iget-object v3, p0, Landroid/widget/Editor$EasyEditPopupWindow;->mDeleteTextView:Landroid/widget/TextView;
 
-    if-ne p1, v3, :cond_29
+    if-ne p1, v3, :cond_0
 
     .line 1952
     iget-object v3, p0, Landroid/widget/Editor$EasyEditPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v3}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -316,13 +322,14 @@
 
     .line 1955
     .local v1, end:I
-    if-ltz v2, :cond_29
+    if-ltz v2, :cond_0
 
-    if-ltz v1, :cond_29
+    if-ltz v1, :cond_0
 
     .line 1956
     iget-object v3, p0, Landroid/widget/Editor$EasyEditPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v3}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -333,12 +340,12 @@
     .end local v0           #editable:Landroid/text/Editable;
     .end local v1           #end:I
     .end local v2           #start:I
-    :cond_29
+    :cond_0
     return-void
 .end method
 
 .method public setEasyEditSpan(Landroid/text/style/EasyEditSpan;)V
-    .registers 2
+    .locals 0
     .parameter "easyEditSpan"
 
     .prologue

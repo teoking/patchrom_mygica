@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/media/effect/EffectContext;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V
-    .registers 7
+    .locals 0
     .parameter "context"
     .parameter "name"
     .parameter "graphString"
@@ -50,7 +50,7 @@
 .end method
 
 .method private createGraph(Ljava/lang/String;)V
-    .registers 8
+    .locals 6
     .parameter "graphString"
 
     .prologue
@@ -61,19 +61,19 @@
 
     .line 75
     .local v1, reader:Landroid/filterfw/io/GraphReader;
-    :try_start_5
+    :try_start_0
     invoke-virtual {v1, p1}, Landroid/filterfw/io/GraphReader;->readGraphString(Ljava/lang/String;)Landroid/filterfw/core/FilterGraph;
 
     move-result-object v2
 
     iput-object v2, p0, Landroid/media/effect/FilterGraphEffect;->mGraph:Landroid/filterfw/core/FilterGraph;
-    :try_end_b
-    .catch Landroid/filterfw/io/GraphIOException; {:try_start_5 .. :try_end_b} :catch_17
+    :try_end_0
+    .catch Landroid/filterfw/io/GraphIOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 80
     iget-object v2, p0, Landroid/media/effect/FilterGraphEffect;->mGraph:Landroid/filterfw/core/FilterGraph;
 
-    if-nez v2, :cond_20
+    if-nez v2, :cond_0
 
     .line 81
     new-instance v2, Ljava/lang/RuntimeException;
@@ -85,7 +85,7 @@
     throw v2
 
     .line 76
-    :catch_17
+    :catch_0
     move-exception v0
 
     .line 77
@@ -100,7 +100,7 @@
 
     .line 83
     .end local v0           #e:Landroid/filterfw/io/GraphIOException;
-    :cond_20
+    :cond_0
     new-instance v2, Landroid/filterfw/core/SyncRunner;
 
     invoke-virtual {p0}, Landroid/media/effect/FilterGraphEffect;->getFilterContext()Landroid/filterfw/core/FilterContext;
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public apply(IIII)V
-    .registers 10
+    .locals 5
     .parameter "inputTexId"
     .parameter "width"
     .parameter "height"
@@ -143,7 +143,7 @@
 
     .line 90
     .local v2, src:Landroid/filterfw/core/Filter;
-    if-eqz v2, :cond_44
+    if-eqz v2, :cond_0
 
     .line 91
     const-string v3, "texId"
@@ -183,7 +183,7 @@
 
     .line 98
     .local v0, dest:Landroid/filterfw/core/Filter;
-    if-eqz v0, :cond_4c
+    if-eqz v0, :cond_1
 
     .line 99
     const-string v3, "texId"
@@ -195,12 +195,12 @@
     invoke-virtual {v0, v3, v4}, Landroid/filterfw/core/Filter;->setInputValue(Ljava/lang/String;Ljava/lang/Object;)V
 
     .line 104
-    :try_start_3b
+    :try_start_0
     iget-object v3, p0, Landroid/media/effect/FilterGraphEffect;->mRunner:Landroid/filterfw/core/GraphRunner;
 
     invoke-virtual {v3}, Landroid/filterfw/core/GraphRunner;->run()V
-    :try_end_40
-    .catch Ljava/lang/RuntimeException; {:try_start_3b .. :try_end_40} :catch_54
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 108
     invoke-virtual {p0}, Landroid/media/effect/FilterGraphEffect;->endGLEffect()V
@@ -210,7 +210,7 @@
 
     .line 95
     .end local v0           #dest:Landroid/filterfw/core/Filter;
-    :cond_44
+    :cond_0
     new-instance v3, Ljava/lang/RuntimeException;
 
     const-string v4, "Internal error applying effect"
@@ -221,7 +221,7 @@
 
     .line 101
     .restart local v0       #dest:Landroid/filterfw/core/Filter;
-    :cond_4c
+    :cond_1
     new-instance v3, Ljava/lang/RuntimeException;
 
     const-string v4, "Internal error applying effect"
@@ -231,7 +231,7 @@
     throw v3
 
     .line 105
-    :catch_54
+    :catch_0
     move-exception v1
 
     .line 106
@@ -246,7 +246,7 @@
 .end method
 
 .method public release()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 117
@@ -268,7 +268,7 @@
 .end method
 
 .method public setParameter(Ljava/lang/String;Ljava/lang/Object;)V
-    .registers 3
+    .locals 0
     .parameter "parameterKey"
     .parameter "value"
 

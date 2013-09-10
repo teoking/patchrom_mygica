@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/android/mms/InvalidHeaderValueException;
@@ -26,7 +26,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/android/mms/pdu/PduHeaders;)V
-    .registers 2
+    .locals 0
     .parameter "headers"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public getMessageId()[B
-    .registers 3
+    .locals 2
 
     .prologue
     .line 51
@@ -56,7 +56,7 @@
 .end method
 
 .method public getResponseStatus()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 70
@@ -72,7 +72,7 @@
 .end method
 
 .method public getTransactionId()[B
-    .registers 3
+    .locals 2
 
     .prologue
     .line 89
@@ -88,7 +88,7 @@
 .end method
 
 .method public setMessageId([B)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -104,7 +104,7 @@
 .end method
 
 .method public setResponseStatus(I)V
-    .registers 4
+    .locals 2
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -125,7 +125,7 @@
 .end method
 
 .method public setTransactionId([B)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue

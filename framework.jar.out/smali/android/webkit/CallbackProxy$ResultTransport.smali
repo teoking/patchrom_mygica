@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public declared-synchronized getResult()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -71,16 +71,16 @@
     .local p0, this:Landroid/webkit/CallbackProxy$ResultTransport;,"Landroid/webkit/CallbackProxy$ResultTransport<TE;>;"
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/webkit/CallbackProxy$ResultTransport;->mResult:Ljava/lang/Object;
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -89,7 +89,7 @@
 .end method
 
 .method public declared-synchronized setResult(Ljava/lang/Object;)V
-    .registers 3
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -103,10 +103,10 @@
     .local p1, result:Ljava/lang/Object;,"TE;"
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iput-object p1, p0, Landroid/webkit/CallbackProxy$ResultTransport;->mResult:Ljava/lang/Object;
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 143
     monitor-exit p0
@@ -114,7 +114,7 @@
     return-void
 
     .line 142
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0

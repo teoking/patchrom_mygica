@@ -71,7 +71,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 65
@@ -87,7 +87,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 8
+    .locals 6
     .parameter "audioSession"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -144,7 +144,7 @@
     .line 190
     const/4 v2, 0x0
 
-    :try_start_22
+    :try_start_0
     iput v2, p0, Landroid/media/audiofx/Visualizer;->mState:I
 
     .line 192
@@ -158,11 +158,11 @@
 
     .line 193
     .local v1, result:I
-    if-eqz v1, :cond_77
+    if-eqz v1, :cond_0
 
     const/4 v2, -0x2
 
-    if-eq v1, v2, :cond_77
+    if-eq v1, v2, :cond_0
 
     .line 194
     const-string v2, "Visualizer-JAVA"
@@ -194,7 +194,7 @@
     invoke-static {v2, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 195
-    packed-switch v1, :pswitch_data_8c
+    packed-switch v1, :pswitch_data_0
 
     .line 199
     new-instance v2, Ljava/lang/RuntimeException;
@@ -223,19 +223,19 @@
 
     .line 209
     .end local v1           #result:I
-    :catchall_6c
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_6e
-    .catchall {:try_start_22 .. :try_end_6e} :catchall_6c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 
     .line 197
     .restart local v1       #result:I
-    :pswitch_6f
-    :try_start_6f
+    :pswitch_0
+    :try_start_1
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
     const-string v4, "Effect library not loaded"
@@ -245,7 +245,7 @@
     throw v2
 
     .line 203
-    :cond_77
+    :cond_0
     const/4 v2, 0x0
 
     aget v2, v0, v2
@@ -257,7 +257,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_87
+    if-eqz v2, :cond_1
 
     .line 205
     const/4 v2, 0x2
@@ -265,33 +265,33 @@
     iput v2, p0, Landroid/media/audiofx/Visualizer;->mState:I
 
     .line 209
-    :goto_85
+    :goto_0
     monitor-exit v3
 
     .line 210
     return-void
 
     .line 207
-    :cond_87
+    :cond_1
     const/4 v2, 0x1
 
     iput v2, p0, Landroid/media/audiofx/Visualizer;->mState:I
-    :try_end_8a
-    .catchall {:try_start_6f .. :try_end_8a} :catchall_6c
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_85
+    goto :goto_0
 
     .line 195
     nop
 
-    :pswitch_data_8c
+    :pswitch_data_0
     .packed-switch -0x5
-        :pswitch_6f
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method static synthetic access$000(Landroid/media/audiofx/Visualizer;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -302,7 +302,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/media/audiofx/Visualizer;)Landroid/media/audiofx/Visualizer$OnDataCaptureListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -313,7 +313,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/media/audiofx/Visualizer;)Landroid/media/audiofx/Visualizer$OnServerDiedListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -372,7 +372,7 @@
 .end method
 
 .method private static postEventFromNative(Ljava/lang/Object;IIILjava/lang/Object;)V
-    .registers 8
+    .locals 3
     .parameter "effect_ref"
     .parameter "what"
     .parameter "arg1"
@@ -392,18 +392,18 @@
 
     .line 658
     .local v1, visu:Landroid/media/audiofx/Visualizer;
-    if-nez v1, :cond_b
+    if-nez v1, :cond_1
 
     .line 667
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return-void
 
     .line 662
-    :cond_b
+    :cond_1
     iget-object v2, v1, Landroid/media/audiofx/Visualizer;->mNativeEventHandler:Landroid/media/audiofx/Visualizer$NativeEventHandler;
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_0
 
     .line 663
     iget-object v2, v1, Landroid/media/audiofx/Visualizer;->mNativeEventHandler:Landroid/media/audiofx/Visualizer$NativeEventHandler;
@@ -418,13 +418,13 @@
 
     invoke-virtual {v2, v0}, Landroid/media/audiofx/Visualizer$NativeEventHandler;->sendMessage(Landroid/os/Message;)Z
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected finalize()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 225
@@ -435,7 +435,7 @@
 .end method
 
 .method public getCaptureSize()I
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -449,10 +449,10 @@
     monitor-enter v1
 
     .line 309
-    :try_start_3
+    :try_start_0
     iget v0, p0, Landroid/media/audiofx/Visualizer;->mState:I
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 310
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -482,31 +482,31 @@
     throw v0
 
     .line 313
-    :catchall_22
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_24
-    .catchall {:try_start_3 .. :try_end_24} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 312
-    :cond_25
-    :try_start_25
+    :cond_0
+    :try_start_1
     invoke-direct {p0}, Landroid/media/audiofx/Visualizer;->native_getCaptureSize()I
 
     move-result v0
 
     monitor-exit v1
-    :try_end_2a
-    .catchall {:try_start_25 .. :try_end_2a} :catchall_22
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     return v0
 .end method
 
 .method public getEnabled()Z
-    .registers 5
+    .locals 4
 
     .prologue
     .line 259
@@ -515,10 +515,10 @@
     monitor-enter v1
 
     .line 260
-    :try_start_3
+    :try_start_0
     iget v0, p0, Landroid/media/audiofx/Visualizer;->mState:I
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 261
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -548,31 +548,31 @@
     throw v0
 
     .line 264
-    :catchall_22
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_24
-    .catchall {:try_start_3 .. :try_end_24} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 263
-    :cond_25
-    :try_start_25
+    :cond_0
+    :try_start_1
     invoke-direct {p0}, Landroid/media/audiofx/Visualizer;->native_getEnabled()Z
 
     move-result v0
 
     monitor-exit v1
-    :try_end_2a
-    .catchall {:try_start_25 .. :try_end_2a} :catchall_22
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     return v0
 .end method
 
 .method public getFft([B)I
-    .registers 6
+    .locals 4
     .parameter "fft"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -587,12 +587,12 @@
     monitor-enter v1
 
     .line 433
-    :try_start_3
+    :try_start_0
     iget v0, p0, Landroid/media/audiofx/Visualizer;->mState:I
 
     const/4 v2, 0x2
 
-    if-eq v0, v2, :cond_26
+    if-eq v0, v2, :cond_0
 
     .line 434
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -622,31 +622,31 @@
     throw v0
 
     .line 437
-    :catchall_23
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_25
-    .catchall {:try_start_3 .. :try_end_25} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 436
-    :cond_26
-    :try_start_26
+    :cond_0
+    :try_start_1
     invoke-direct {p0, p1}, Landroid/media/audiofx/Visualizer;->native_getFft([B)I
 
     move-result v0
 
     monitor-exit v1
-    :try_end_2b
-    .catchall {:try_start_26 .. :try_end_2b} :catchall_23
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     return v0
 .end method
 
 .method public getSamplingRate()I
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -660,10 +660,10 @@
     monitor-enter v1
 
     .line 359
-    :try_start_3
+    :try_start_0
     iget v0, p0, Landroid/media/audiofx/Visualizer;->mState:I
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 360
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -693,31 +693,31 @@
     throw v0
 
     .line 363
-    :catchall_22
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_24
-    .catchall {:try_start_3 .. :try_end_24} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 362
-    :cond_25
-    :try_start_25
+    :cond_0
+    :try_start_1
     invoke-direct {p0}, Landroid/media/audiofx/Visualizer;->native_getSamplingRate()I
 
     move-result v0
 
     monitor-exit v1
-    :try_end_2a
-    .catchall {:try_start_25 .. :try_end_2a} :catchall_22
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     return v0
 .end method
 
 .method public getScalingMode()I
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -731,10 +731,10 @@
     monitor-enter v1
 
     .line 344
-    :try_start_3
+    :try_start_0
     iget v0, p0, Landroid/media/audiofx/Visualizer;->mState:I
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 345
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -764,31 +764,31 @@
     throw v0
 
     .line 349
-    :catchall_22
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_24
-    .catchall {:try_start_3 .. :try_end_24} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 348
-    :cond_25
-    :try_start_25
+    :cond_0
+    :try_start_1
     invoke-direct {p0}, Landroid/media/audiofx/Visualizer;->native_getScalingMode()I
 
     move-result v0
 
     monitor-exit v1
-    :try_end_2a
-    .catchall {:try_start_25 .. :try_end_2a} :catchall_22
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     return v0
 .end method
 
 .method public getWaveForm([B)I
-    .registers 6
+    .locals 4
     .parameter "waveform"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -803,12 +803,12 @@
     monitor-enter v1
 
     .line 380
-    :try_start_3
+    :try_start_0
     iget v0, p0, Landroid/media/audiofx/Visualizer;->mState:I
 
     const/4 v2, 0x2
 
-    if-eq v0, v2, :cond_26
+    if-eq v0, v2, :cond_0
 
     .line 381
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -838,31 +838,31 @@
     throw v0
 
     .line 384
-    :catchall_23
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_25
-    .catchall {:try_start_3 .. :try_end_25} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 383
-    :cond_26
-    :try_start_26
+    :cond_0
+    :try_start_1
     invoke-direct {p0, p1}, Landroid/media/audiofx/Visualizer;->native_getWaveForm([B)I
 
     move-result v0
 
     monitor-exit v1
-    :try_end_2b
-    .catchall {:try_start_26 .. :try_end_2b} :catchall_23
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     return v0
 .end method
 
 .method public release()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 217
@@ -871,7 +871,7 @@
     monitor-enter v1
 
     .line 218
-    :try_start_3
+    :try_start_0
     invoke-direct {p0}, Landroid/media/audiofx/Visualizer;->native_release()V
 
     .line 219
@@ -886,18 +886,18 @@
     return-void
 
     .line 220
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_d
-    .catchall {:try_start_3 .. :try_end_d} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setCaptureSize(I)I
-    .registers 6
+    .locals 4
     .parameter "size"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -912,12 +912,12 @@
     monitor-enter v1
 
     .line 295
-    :try_start_3
+    :try_start_0
     iget v0, p0, Landroid/media/audiofx/Visualizer;->mState:I
 
     const/4 v2, 0x1
 
-    if-eq v0, v2, :cond_26
+    if-eq v0, v2, :cond_0
 
     .line 296
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -947,31 +947,31 @@
     throw v0
 
     .line 299
-    :catchall_23
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_25
-    .catchall {:try_start_3 .. :try_end_25} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 298
-    :cond_26
-    :try_start_26
+    :cond_0
+    :try_start_1
     invoke-direct {p0, p1}, Landroid/media/audiofx/Visualizer;->native_setCaptureSize(I)I
 
     move-result v0
 
     monitor-exit v1
-    :try_end_2b
-    .catchall {:try_start_26 .. :try_end_2b} :catchall_23
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     return v0
 .end method
 
 .method public setDataCaptureListener(Landroid/media/audiofx/Visualizer$OnDataCaptureListener;IZZ)I
-    .registers 9
+    .locals 4
     .parameter "listener"
     .parameter "rate"
     .parameter "waveform"
@@ -984,16 +984,16 @@
     monitor-enter v3
 
     .line 489
-    :try_start_3
+    :try_start_0
     iput-object p1, p0, Landroid/media/audiofx/Visualizer;->mCaptureListener:Landroid/media/audiofx/Visualizer$OnDataCaptureListener;
 
     .line 490
     monitor-exit v3
-    :try_end_6
-    .catchall {:try_start_3 .. :try_end_6} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 491
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 493
     const/4 p3, 0x0
@@ -1002,21 +1002,21 @@
     const/4 p4, 0x0
 
     .line 496
-    :cond_a
+    :cond_0
     invoke-direct {p0, p2, p3, p4}, Landroid/media/audiofx/Visualizer;->native_setPeriodicCapture(IZZ)I
 
     move-result v1
 
     .line 497
     .local v1, status:I
-    if-nez v1, :cond_23
+    if-nez v1, :cond_1
 
     .line 498
-    if-eqz p1, :cond_23
+    if-eqz p1, :cond_1
 
     iget-object v2, p0, Landroid/media/audiofx/Visualizer;->mNativeEventHandler:Landroid/media/audiofx/Visualizer$NativeEventHandler;
 
-    if-nez v2, :cond_23
+    if-nez v2, :cond_1
 
     .line 500
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
@@ -1024,7 +1024,7 @@
     move-result-object v0
 
     .local v0, looper:Landroid/os/Looper;
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_2
 
     .line 501
     new-instance v2, Landroid/media/audiofx/Visualizer$NativeEventHandler;
@@ -1035,31 +1035,31 @@
 
     .line 510
     .end local v0           #looper:Landroid/os/Looper;
-    :cond_23
-    :goto_23
+    :cond_1
+    :goto_0
     return v1
 
     .line 490
     .end local v1           #status:I
-    :catchall_24
+    :catchall_0
     move-exception v2
 
-    :try_start_25
+    :try_start_1
     monitor-exit v3
-    :try_end_26
-    .catchall {:try_start_25 .. :try_end_26} :catchall_24
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v2
 
     .line 502
     .restart local v0       #looper:Landroid/os/Looper;
     .restart local v1       #status:I
-    :cond_27
+    :cond_2
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v0
 
-    if-eqz v0, :cond_35
+    if-eqz v0, :cond_3
 
     .line 503
     new-instance v2, Landroid/media/audiofx/Visualizer$NativeEventHandler;
@@ -1068,10 +1068,10 @@
 
     iput-object v2, p0, Landroid/media/audiofx/Visualizer;->mNativeEventHandler:Landroid/media/audiofx/Visualizer$NativeEventHandler;
 
-    goto :goto_23
+    goto :goto_0
 
     .line 505
-    :cond_35
+    :cond_3
     const/4 v2, 0x0
 
     iput-object v2, p0, Landroid/media/audiofx/Visualizer;->mNativeEventHandler:Landroid/media/audiofx/Visualizer$NativeEventHandler;
@@ -1079,11 +1079,11 @@
     .line 506
     const/4 v1, -0x3
 
-    goto :goto_23
+    goto :goto_0
 .end method
 
 .method public setEnabled(Z)I
-    .registers 7
+    .locals 5
     .parameter "enabled"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1102,10 +1102,10 @@
     monitor-enter v3
 
     .line 238
-    :try_start_5
+    :try_start_0
     iget v4, p0, Landroid/media/audiofx/Visualizer;->mState:I
 
-    if-nez v4, :cond_27
+    if-nez v4, :cond_0
 
     .line 239
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -1135,67 +1135,67 @@
     throw v1
 
     .line 250
-    :catchall_24
+    :catchall_0
     move-exception v1
 
     monitor-exit v3
-    :try_end_26
-    .catchall {:try_start_5 .. :try_end_26} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 
     .line 241
-    :cond_27
+    :cond_0
     const/4 v0, 0x0
 
     .line 242
     .local v0, status:I
-    if-eqz p1, :cond_2e
+    if-eqz p1, :cond_1
 
-    :try_start_2a
+    :try_start_1
     iget v4, p0, Landroid/media/audiofx/Visualizer;->mState:I
 
-    if-eq v4, v2, :cond_34
+    if-eq v4, v2, :cond_2
 
-    :cond_2e
-    if-nez p1, :cond_3e
+    :cond_1
+    if-nez p1, :cond_3
 
     iget v4, p0, Landroid/media/audiofx/Visualizer;->mState:I
 
-    if-ne v4, v1, :cond_3e
+    if-ne v4, v1, :cond_3
 
     .line 244
-    :cond_34
+    :cond_2
     invoke-direct {p0, p1}, Landroid/media/audiofx/Visualizer;->native_setEnabled(Z)I
 
     move-result v0
 
     .line 245
-    if-nez v0, :cond_3e
+    if-nez v0, :cond_3
 
     .line 246
-    if-eqz p1, :cond_40
+    if-eqz p1, :cond_4
 
-    :goto_3c
+    :goto_0
     iput v1, p0, Landroid/media/audiofx/Visualizer;->mState:I
 
     .line 249
-    :cond_3e
+    :cond_3
     monitor-exit v3
-    :try_end_3f
-    .catchall {:try_start_2a .. :try_end_3f} :catchall_24
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     return v0
 
-    :cond_40
+    :cond_4
     move v1, v2
 
     .line 246
-    goto :goto_3c
+    goto :goto_0
 .end method
 
 .method public setScalingMode(I)I
-    .registers 6
+    .locals 4
     .parameter "mode"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1210,10 +1210,10 @@
     monitor-enter v1
 
     .line 327
-    :try_start_3
+    :try_start_0
     iget v0, p0, Landroid/media/audiofx/Visualizer;->mState:I
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 328
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -1243,31 +1243,31 @@
     throw v0
 
     .line 332
-    :catchall_22
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_24
-    .catchall {:try_start_3 .. :try_end_24} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 331
-    :cond_25
-    :try_start_25
+    :cond_0
+    :try_start_1
     invoke-direct {p0, p1}, Landroid/media/audiofx/Visualizer;->native_setScalingMode(I)I
 
     move-result v0
 
     monitor-exit v1
-    :try_end_2a
-    .catchall {:try_start_25 .. :try_end_2a} :catchall_22
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     return v0
 .end method
 
 .method public setServerDiedListener(Landroid/media/audiofx/Visualizer$OnServerDiedListener;)I
-    .registers 4
+    .locals 2
     .parameter "listener"
 
     .prologue
@@ -1277,7 +1277,7 @@
     monitor-enter v1
 
     .line 545
-    :try_start_3
+    :try_start_0
     iput-object p1, p0, Landroid/media/audiofx/Visualizer;->mServerDiedListener:Landroid/media/audiofx/Visualizer$OnServerDiedListener;
 
     .line 546
@@ -1289,12 +1289,12 @@
     return v0
 
     .line 546
-    :catchall_8
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_a
-    .catchall {:try_start_3 .. :try_end_a} :catchall_8
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

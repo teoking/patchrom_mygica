@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 102
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 106
@@ -60,7 +60,7 @@
 .end method
 
 .method public registerCallback(Lcom/android/internal/policy/IFaceLockCallback;)V
-    .registers 7
+    .locals 5
     .parameter "cb"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -82,19 +82,19 @@
 
     .line 147
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.policy.IFaceLockInterface"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 148
-    if-eqz p1, :cond_27
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Lcom/android/internal/policy/IFaceLockCallback;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 149
@@ -108,8 +108,8 @@
 
     .line 150
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 153
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -121,13 +121,13 @@
     return-void
 
     .line 148
-    :cond_27
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 153
-    :catchall_29
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -140,7 +140,7 @@
 .end method
 
 .method public startUi(Landroid/os/IBinder;IIIIZ)V
-    .registers 12
+    .locals 5
     .parameter "containingWindowToken"
     .parameter "x"
     .parameter "y"
@@ -171,7 +171,7 @@
 
     .line 113
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "com.android.internal.policy.IFaceLockInterface"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -192,9 +192,9 @@
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 119
-    if-eqz p6, :cond_34
+    if-eqz p6, :cond_0
 
-    :goto_20
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 120
@@ -208,8 +208,8 @@
 
     .line 121
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_2d
-    .catchall {:try_start_a .. :try_end_2d} :catchall_36
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 124
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -220,14 +220,14 @@
     .line 127
     return-void
 
-    :cond_34
+    :cond_0
     move v2, v3
 
     .line 119
-    goto :goto_20
+    goto :goto_0
 
     .line 124
-    :catchall_36
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -240,7 +240,7 @@
 .end method
 
 .method public stopUi()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -261,7 +261,7 @@
 
     .line 133
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.policy.IFaceLockInterface"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -277,8 +277,8 @@
 
     .line 135
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_17
-    .catchall {:try_start_8 .. :try_end_17} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 138
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -290,7 +290,7 @@
     return-void
 
     .line 138
-    :catchall_1e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -303,7 +303,7 @@
 .end method
 
 .method public unregisterCallback(Lcom/android/internal/policy/IFaceLockCallback;)V
-    .registers 7
+    .locals 5
     .parameter "cb"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -325,19 +325,19 @@
 
     .line 162
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.policy.IFaceLockInterface"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 163
-    if-eqz p1, :cond_27
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Lcom/android/internal/policy/IFaceLockCallback;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 164
@@ -351,8 +351,8 @@
 
     .line 165
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 168
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -364,13 +364,13 @@
     return-void
 
     .line 163
-    :cond_27
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 168
-    :catchall_29
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

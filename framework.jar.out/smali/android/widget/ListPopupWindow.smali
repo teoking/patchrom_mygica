@@ -96,7 +96,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 5
+    .locals 3
     .parameter "context"
 
     .prologue
@@ -114,7 +114,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "attrs"
 
@@ -131,7 +131,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 5
+    .locals 1
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyleAttr"
@@ -147,7 +147,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .registers 8
+    .locals 3
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyleAttr"
@@ -247,7 +247,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/widget/ListPopupWindow;)Landroid/widget/ListPopupWindow$DropDownListView;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -258,7 +258,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/widget/ListPopupWindow;)Landroid/widget/PopupWindow;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -269,7 +269,7 @@
 .end method
 
 .method static synthetic access$800(Landroid/widget/ListPopupWindow;)Landroid/widget/ListPopupWindow$ResizePopupRunnable;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -280,7 +280,7 @@
 .end method
 
 .method static synthetic access$900(Landroid/widget/ListPopupWindow;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -291,7 +291,7 @@
 .end method
 
 .method private buildDropDown()I
-    .registers 22
+    .locals 21
 
     .prologue
     .line 965
@@ -303,7 +303,7 @@
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
 
-    if-nez v1, :cond_161
+    if-nez v1, :cond_7
 
     .line 968
     move-object/from16 v0, p0
@@ -329,11 +329,11 @@
 
     iget-boolean v1, v0, Landroid/widget/ListPopupWindow;->mModal:Z
 
-    if-nez v1, :cond_14e
+    if-nez v1, :cond_6
 
     const/4 v1, 0x1
 
-    :goto_20
+    :goto_0
     invoke-direct {v3, v8, v1}, Landroid/widget/ListPopupWindow$DropDownListView;-><init>(Landroid/content/Context;Z)V
 
     move-object/from16 v0, p0
@@ -345,7 +345,7 @@
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mDropDownListHighlight:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v1, :cond_38
+    if-eqz v1, :cond_0
 
     .line 988
     move-object/from16 v0, p0
@@ -359,7 +359,7 @@
     invoke-virtual {v1, v3}, Landroid/widget/ListPopupWindow$DropDownListView;->setSelector(Landroid/graphics/drawable/Drawable;)V
 
     .line 990
-    :cond_38
+    :cond_0
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
@@ -428,7 +428,7 @@
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mItemSelectedListener:Landroid/widget/AdapterView$OnItemSelectedListener;
 
-    if-eqz v1, :cond_88
+    if-eqz v1, :cond_1
 
     .line 1013
     move-object/from16 v0, p0
@@ -442,7 +442,7 @@
     invoke-virtual {v1, v3}, Landroid/widget/ListPopupWindow$DropDownListView;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
     .line 1016
-    :cond_88
+    :cond_1
     move-object/from16 v0, p0
 
     iget-object v9, v0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
@@ -455,7 +455,7 @@
 
     .line 1019
     .local v13, hintView:Landroid/view/View;
-    if-eqz v13, :cond_e9
+    if-eqz v13, :cond_2
 
     .line 1022
     new-instance v11, Landroid/widget/LinearLayout;
@@ -485,7 +485,7 @@
 
     iget v1, v0, Landroid/widget/ListPopupWindow;->mPromptPosition:I
 
-    packed-switch v1, :pswitch_data_1fc
+    packed-switch v1, :pswitch_data_0
 
     .line 1041
     const-string v1, "ListPopupWindow"
@@ -515,7 +515,7 @@
     invoke-static {v1, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1047
-    :goto_c7
+    :goto_1
     move-object/from16 v0, p0
 
     iget v1, v0, Landroid/widget/ListPopupWindow;->mDropDownWidth:I
@@ -566,7 +566,7 @@
     .end local v11           #hintContainer:Landroid/widget/LinearLayout;
     .end local v12           #hintParams:Landroid/widget/LinearLayout$LayoutParams;
     .end local v20           #widthSpec:I
-    :cond_e9
+    :cond_2
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
@@ -576,8 +576,8 @@
     .line 1072
     .end local v8           #context:Landroid/content/Context;
     .end local v13           #hintView:Landroid/view/View;
-    :cond_f0
-    :goto_f0
+    :cond_3
+    :goto_2
     const/16 v18, 0x0
 
     .line 1073
@@ -592,7 +592,7 @@
 
     .line 1074
     .local v7, background:Landroid/graphics/drawable/Drawable;
-    if-eqz v7, :cond_186
+    if-eqz v7, :cond_8
 
     .line 1075
     move-object/from16 v0, p0
@@ -621,7 +621,7 @@
 
     iget-boolean v1, v0, Landroid/widget/ListPopupWindow;->mDropDownVerticalOffsetSet:Z
 
-    if-nez v1, :cond_122
+    if-nez v1, :cond_4
 
     .line 1081
     move-object/from16 v0, p0
@@ -637,8 +637,8 @@
     iput v1, v0, Landroid/widget/ListPopupWindow;->mDropDownVerticalOffset:I
 
     .line 1088
-    :cond_122
-    :goto_122
+    :cond_4
+    :goto_3
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
@@ -649,13 +649,13 @@
 
     const/4 v3, 0x2
 
-    if-ne v1, v3, :cond_18e
+    if-ne v1, v3, :cond_9
 
     const/4 v14, 0x1
 
     .line 1090
     .local v14, ignoreBottomDecorations:Z
-    :goto_12e
+    :goto_4
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
@@ -678,7 +678,7 @@
 
     iget-boolean v1, v0, Landroid/widget/ListPopupWindow;->mDropDownAlwaysVisible:Z
 
-    if-nez v1, :cond_14b
+    if-nez v1, :cond_5
 
     move-object/from16 v0, p0
 
@@ -686,14 +686,14 @@
 
     const/4 v3, -0x1
 
-    if-ne v1, v3, :cond_190
+    if-ne v1, v3, :cond_a
 
     .line 1094
-    :cond_14b
+    :cond_5
     add-int v1, v16, v18
 
     .line 1121
-    :goto_14d
+    :goto_5
     return v1
 
     .line 986
@@ -703,32 +703,32 @@
     .end local v16           #maxHeight:I
     .end local v18           #padding:I
     .restart local v8       #context:Landroid/content/Context;
-    :cond_14e
+    :cond_6
     const/4 v1, 0x0
 
-    goto/16 :goto_20
+    goto/16 :goto_0
 
     .line 1031
     .restart local v9       #dropDownView:Landroid/view/ViewGroup;
     .restart local v11       #hintContainer:Landroid/widget/LinearLayout;
     .restart local v12       #hintParams:Landroid/widget/LinearLayout$LayoutParams;
     .restart local v13       #hintView:Landroid/view/View;
-    :pswitch_151
+    :pswitch_0
     invoke-virtual {v11, v9, v12}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 1032
     invoke-virtual {v11, v13}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    goto/16 :goto_c7
+    goto/16 :goto_1
 
     .line 1036
-    :pswitch_159
+    :pswitch_1
     invoke-virtual {v11, v13}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     .line 1037
     invoke-virtual {v11, v9, v12}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    goto/16 :goto_c7
+    goto/16 :goto_1
 
     .line 1060
     .end local v8           #context:Landroid/content/Context;
@@ -736,7 +736,7 @@
     .end local v11           #hintContainer:Landroid/widget/LinearLayout;
     .end local v12           #hintParams:Landroid/widget/LinearLayout$LayoutParams;
     .end local v13           #hintView:Landroid/view/View;
-    :cond_161
+    :cond_7
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
@@ -757,7 +757,7 @@
 
     .line 1062
     .local v19, view:Landroid/view/View;
-    if-eqz v19, :cond_f0
+    if-eqz v19, :cond_3
 
     .line 1063
     invoke-virtual/range {v19 .. v19}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -780,37 +780,37 @@
 
     add-int v17, v1, v3
 
-    goto/16 :goto_f0
+    goto/16 :goto_2
 
     .line 1084
     .end local v12           #hintParams:Landroid/widget/LinearLayout$LayoutParams;
     .end local v19           #view:Landroid/view/View;
     .restart local v7       #background:Landroid/graphics/drawable/Drawable;
     .restart local v18       #padding:I
-    :cond_186
+    :cond_8
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mTempRect:Landroid/graphics/Rect;
 
     invoke-virtual {v1}, Landroid/graphics/Rect;->setEmpty()V
 
-    goto :goto_122
+    goto :goto_3
 
     .line 1088
-    :cond_18e
+    :cond_9
     const/4 v14, 0x0
 
-    goto :goto_12e
+    goto :goto_4
 
     .line 1098
     .restart local v14       #ignoreBottomDecorations:Z
     .restart local v16       #maxHeight:I
-    :cond_190
+    :cond_a
     move-object/from16 v0, p0
 
     iget v1, v0, Landroid/widget/ListPopupWindow;->mDropDownWidth:I
 
-    packed-switch v1, :pswitch_data_204
+    packed-switch v1, :pswitch_data_1
 
     .line 1112
     move-object/from16 v0, p0
@@ -825,7 +825,7 @@
 
     .line 1115
     .local v2, childWidthSpec:I
-    :goto_1a1
+    :goto_6
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
@@ -844,20 +844,20 @@
 
     .line 1119
     .local v15, listContent:I
-    if-lez v15, :cond_1b2
+    if-lez v15, :cond_b
 
     add-int v17, v17, v18
 
     .line 1121
-    :cond_1b2
+    :cond_b
     add-int v1, v15, v17
 
-    goto :goto_14d
+    goto :goto_5
 
     .line 1100
     .end local v2           #childWidthSpec:I
     .end local v15           #listContent:I
-    :pswitch_1b5
+    :pswitch_2
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mContext:Landroid/content/Context;
@@ -896,11 +896,11 @@
 
     .line 1104
     .restart local v2       #childWidthSpec:I
-    goto :goto_1a1
+    goto :goto_6
 
     .line 1106
     .end local v2           #childWidthSpec:I
-    :pswitch_1d8
+    :pswitch_3
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/widget/ListPopupWindow;->mContext:Landroid/content/Context;
@@ -939,33 +939,33 @@
 
     .line 1110
     .restart local v2       #childWidthSpec:I
-    goto :goto_1a1
+    goto :goto_6
 
     .line 1029
     nop
 
-    :pswitch_data_1fc
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_159
-        :pswitch_151
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 
     .line 1098
-    :pswitch_data_204
+    :pswitch_data_1
     .packed-switch -0x2
-        :pswitch_1b5
-        :pswitch_1d8
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method private removePromptView()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 629
     iget-object v2, p0, Landroid/widget/ListPopupWindow;->mPromptView:Landroid/view/View;
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_0
 
     .line 630
     iget-object v2, p0, Landroid/widget/ListPopupWindow;->mPromptView:Landroid/view/View;
@@ -978,7 +978,7 @@
     .local v1, parent:Landroid/view/ViewParent;
     instance-of v2, v1, Landroid/view/ViewGroup;
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_0
 
     move-object v0, v1
 
@@ -994,14 +994,14 @@
     .line 636
     .end local v0           #group:Landroid/view/ViewGroup;
     .end local v1           #parent:Landroid/view/ViewParent;
-    :cond_16
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public clearListSelection()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 685
@@ -1009,11 +1009,12 @@
 
     .line 686
     .local v0, list:Landroid/widget/ListPopupWindow$DropDownListView;
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 688
     const/4 v1, 0x1
 
+    #setter for: Landroid/widget/ListPopupWindow$DropDownListView;->mListSelectionHidden:Z
     invoke-static {v0, v1}, Landroid/widget/ListPopupWindow$DropDownListView;->access$502(Landroid/widget/ListPopupWindow$DropDownListView;Z)Z
 
     .line 689
@@ -1023,12 +1024,12 @@
     invoke-virtual {v0}, Landroid/widget/ListPopupWindow$DropDownListView;->requestLayout()V
 
     .line 692
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public dismiss()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -1061,7 +1062,7 @@
 .end method
 
 .method public getAnchorView()Landroid/view/View;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 375
@@ -1071,7 +1072,7 @@
 .end method
 
 .method public getAnimationStyle()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 366
@@ -1085,7 +1086,7 @@
 .end method
 
 .method public getBackground()Landroid/graphics/drawable/Drawable;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 338
@@ -1099,7 +1100,7 @@
 .end method
 
 .method public getHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 461
@@ -1109,7 +1110,7 @@
 .end method
 
 .method public getHorizontalOffset()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 392
@@ -1119,7 +1120,7 @@
 .end method
 
 .method public getInputMethodMode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 660
@@ -1133,7 +1134,7 @@
 .end method
 
 .method public getListView()Landroid/widget/ListView;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 783
@@ -1143,7 +1144,7 @@
 .end method
 
 .method public getPromptPosition()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 240
@@ -1153,7 +1154,7 @@
 .end method
 
 .method public getSelectedItem()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 733
@@ -1161,27 +1162,27 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     .line 734
     const/4 v0, 0x0
 
     .line 736
-    :goto_7
+    :goto_0
     return-object v0
 
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
 
     invoke-virtual {v0}, Landroid/widget/ListPopupWindow$DropDownListView;->getSelectedItem()Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getSelectedItemId()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 759
@@ -1189,27 +1190,27 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     .line 760
     const-wide/high16 v0, -0x8000
 
     .line 762
-    :goto_8
+    :goto_0
     return-wide v0
 
-    :cond_9
+    :cond_0
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
 
     invoke-virtual {v0}, Landroid/widget/ListPopupWindow$DropDownListView;->getSelectedItemId()J
 
     move-result-wide v0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getSelectedItemPosition()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 746
@@ -1217,27 +1218,27 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     .line 747
     const/4 v0, -0x1
 
     .line 749
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
 
     invoke-virtual {v0}, Landroid/widget/ListPopupWindow$DropDownListView;->getSelectedItemPosition()I
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getSelectedView()Landroid/view/View;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 772
@@ -1245,27 +1246,27 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     .line 773
     const/4 v0, 0x0
 
     .line 775
-    :goto_7
+    :goto_0
     return-object v0
 
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
 
     invoke-virtual {v0}, Landroid/widget/ListPopupWindow$DropDownListView;->getSelectedView()Landroid/view/View;
 
     move-result-object v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getSoftInputMode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 322
@@ -1279,29 +1280,29 @@
 .end method
 
 .method public getVerticalOffset()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 408
     iget-boolean v0, p0, Landroid/widget/ListPopupWindow;->mDropDownVerticalOffsetSet:Z
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     .line 409
     const/4 v0, 0x0
 
     .line 411
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     iget v0, p0, Landroid/widget/ListPopupWindow;->mDropDownVerticalOffset:I
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public getWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 428
@@ -1311,7 +1312,7 @@
 .end method
 
 .method public isDropDownAlwaysVisible()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 298
@@ -1321,7 +1322,7 @@
 .end method
 
 .method public isInputMethodNotNeeded()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 706
@@ -1333,21 +1334,21 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_b
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public isModal()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 263
@@ -1357,7 +1358,7 @@
 .end method
 
 .method public isShowing()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 698
@@ -1371,7 +1372,7 @@
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .registers 16
+    .locals 13
     .parameter "keyCode"
     .parameter "event"
 
@@ -1389,12 +1390,12 @@
 
     move-result v9
 
-    if-eqz v9, :cond_93
+    if-eqz v9, :cond_8
 
     .line 814
     const/16 v9, 0x3e
 
-    if-eq p1, v9, :cond_93
+    if-eq p1, v9, :cond_8
 
     iget-object v9, p0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
 
@@ -1402,18 +1403,18 @@
 
     move-result v9
 
-    if-gez v9, :cond_20
+    if-gez v9, :cond_0
 
     const/16 v9, 0x42
 
-    if-eq p1, v9, :cond_93
+    if-eq p1, v9, :cond_8
 
     const/16 v9, 0x17
 
-    if-eq p1, v9, :cond_93
+    if-eq p1, v9, :cond_8
 
     .line 818
-    :cond_20
+    :cond_0
     iget-object v9, p0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
 
     invoke-virtual {v9}, Landroid/widget/ListPopupWindow$DropDownListView;->getSelectedItemPosition()I
@@ -1428,13 +1429,13 @@
 
     move-result v9
 
-    if-nez v9, :cond_5f
+    if-nez v9, :cond_4
 
     move v2, v7
 
     .line 823
     .local v2, below:Z
-    :goto_2f
+    :goto_0
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mAdapter:Landroid/widget/ListAdapter;
 
     .line 826
@@ -1447,7 +1448,7 @@
 
     .line 829
     .local v6, lastItem:I
-    if-eqz v0, :cond_47
+    if-eqz v0, :cond_1
 
     .line 830
     invoke-interface {v0}, Landroid/widget/ListAdapter;->areAllItemsEnabled()Z
@@ -1456,13 +1457,13 @@
 
     .line 831
     .local v1, allEnabled:Z
-    if-eqz v1, :cond_61
+    if-eqz v1, :cond_5
 
     move v5, v8
 
     .line 833
-    :goto_3f
-    if-eqz v1, :cond_68
+    :goto_1
+    if-eqz v1, :cond_6
 
     invoke-interface {v0}, Landroid/widget/ListAdapter;->getCount()I
 
@@ -1472,23 +1473,23 @@
 
     .line 837
     .end local v1           #allEnabled:Z
-    :cond_47
-    :goto_47
-    if-eqz v2, :cond_4d
+    :cond_1
+    :goto_2
+    if-eqz v2, :cond_2
 
-    if-ne p1, v11, :cond_4d
+    if-ne p1, v11, :cond_2
 
-    if-le v4, v5, :cond_53
+    if-le v4, v5, :cond_3
 
-    :cond_4d
-    if-nez v2, :cond_75
+    :cond_2
+    if-nez v2, :cond_7
 
-    if-ne p1, v12, :cond_75
+    if-ne p1, v12, :cond_7
 
-    if-lt v4, v6, :cond_75
+    if-lt v4, v6, :cond_7
 
     .line 841
-    :cond_53
+    :cond_3
     invoke-virtual {p0}, Landroid/widget/ListPopupWindow;->clearListSelection()V
 
     .line 842
@@ -1505,16 +1506,16 @@
     .end local v4           #curIndex:I
     .end local v5           #firstItem:I
     .end local v6           #lastItem:I
-    :goto_5e
-    :sswitch_5e
+    :goto_3
+    :sswitch_0
     return v7
 
     .restart local v4       #curIndex:I
-    :cond_5f
+    :cond_4
     move v2, v8
 
     .line 821
-    goto :goto_2f
+    goto :goto_0
 
     .line 831
     .restart local v0       #adapter:Landroid/widget/ListAdapter;
@@ -1522,17 +1523,17 @@
     .restart local v2       #below:Z
     .restart local v5       #firstItem:I
     .restart local v6       #lastItem:I
-    :cond_61
+    :cond_5
     iget-object v9, p0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
 
     invoke-virtual {v9, v8, v7}, Landroid/widget/ListPopupWindow$DropDownListView;->lookForSelectablePosition(IZ)I
 
     move-result v5
 
-    goto :goto_3f
+    goto :goto_1
 
     .line 833
-    :cond_68
+    :cond_6
     iget-object v9, p0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
 
     invoke-interface {v0}, Landroid/widget/ListAdapter;->getCount()I
@@ -1545,13 +1546,14 @@
 
     move-result v6
 
-    goto :goto_47
+    goto :goto_2
 
     .line 848
     .end local v1           #allEnabled:Z
-    :cond_75
+    :cond_7
     iget-object v9, p0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
 
+    #setter for: Landroid/widget/ListPopupWindow$DropDownListView;->mListSelectionHidden:Z
     invoke-static {v9, v8}, Landroid/widget/ListPopupWindow$DropDownListView;->access$502(Landroid/widget/ListPopupWindow$DropDownListView;Z)Z
 
     .line 851
@@ -1563,7 +1565,7 @@
 
     .line 854
     .local v3, consumed:Z
-    if-eqz v3, :cond_95
+    if-eqz v3, :cond_9
 
     .line 857
     iget-object v9, p0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
@@ -1581,7 +1583,7 @@
     invoke-virtual {p0}, Landroid/widget/ListPopupWindow;->show()V
 
     .line 865
-    sparse-switch p1, :sswitch_data_a4
+    sparse-switch p1, :sswitch_data_0
 
     .end local v0           #adapter:Landroid/widget/ListAdapter;
     .end local v2           #below:Z
@@ -1589,11 +1591,11 @@
     .end local v4           #curIndex:I
     .end local v5           #firstItem:I
     .end local v6           #lastItem:I
-    :cond_93
+    :cond_8
     move v7, v8
 
     .line 889
-    goto :goto_5e
+    goto :goto_3
 
     .line 875
     .restart local v0       #adapter:Landroid/widget/ListAdapter;
@@ -1602,40 +1604,40 @@
     .restart local v4       #curIndex:I
     .restart local v5       #firstItem:I
     .restart local v6       #lastItem:I
-    :cond_95
-    if-eqz v2, :cond_9c
+    :cond_9
+    if-eqz v2, :cond_a
 
-    if-ne p1, v12, :cond_9c
+    if-ne p1, v12, :cond_a
 
     .line 878
-    if-ne v4, v6, :cond_93
+    if-ne v4, v6, :cond_8
 
-    goto :goto_5e
+    goto :goto_3
 
     .line 881
-    :cond_9c
-    if-nez v2, :cond_93
+    :cond_a
+    if-nez v2, :cond_8
 
-    if-ne p1, v11, :cond_93
+    if-ne p1, v11, :cond_8
 
-    if-ne v4, v5, :cond_93
+    if-ne v4, v5, :cond_8
 
-    goto :goto_5e
+    goto :goto_3
 
     .line 865
     nop
 
-    :sswitch_data_a4
+    :sswitch_data_0
     .sparse-switch
-        0x13 -> :sswitch_5e
-        0x14 -> :sswitch_5e
-        0x17 -> :sswitch_5e
-        0x42 -> :sswitch_5e
+        0x13 -> :sswitch_0
+        0x14 -> :sswitch_0
+        0x17 -> :sswitch_0
+        0x42 -> :sswitch_0
     .end sparse-switch
 .end method
 
 .method public onKeyPreIme(ILandroid/view/KeyEvent;)Z
-    .registers 7
+    .locals 4
     .parameter "keyCode"
     .parameter "event"
 
@@ -1645,13 +1647,13 @@
     .line 933
     const/4 v3, 0x4
 
-    if-ne p1, v3, :cond_41
+    if-ne p1, v3, :cond_3
 
     invoke-virtual {p0}, Landroid/widget/ListPopupWindow;->isShowing()Z
 
     move-result v3
 
-    if-eqz v3, :cond_41
+    if-eqz v3, :cond_3
 
     .line 936
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mDropDownAnchorView:Landroid/view/View;
@@ -1662,13 +1664,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_22
+    if-nez v3, :cond_1
 
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getRepeatCount()I
 
     move-result v3
 
-    if-nez v3, :cond_22
+    if-nez v3, :cond_1
 
     .line 938
     invoke-virtual {v0}, Landroid/view/View;->getKeyDispatcherState()Landroid/view/KeyEvent$DispatcherState;
@@ -1677,7 +1679,7 @@
 
     .line 939
     .local v1, state:Landroid/view/KeyEvent$DispatcherState;
-    if-eqz v1, :cond_21
+    if-eqz v1, :cond_0
 
     .line 940
     invoke-virtual {v1, p2, p0}, Landroid/view/KeyEvent$DispatcherState;->startTracking(Landroid/view/KeyEvent;Ljava/lang/Object;)V
@@ -1685,18 +1687,18 @@
     .line 954
     .end local v0           #anchorView:Landroid/view/View;
     .end local v1           #state:Landroid/view/KeyEvent$DispatcherState;
-    :cond_21
-    :goto_21
+    :cond_0
+    :goto_0
     return v2
 
     .line 943
     .restart local v0       #anchorView:Landroid/view/View;
-    :cond_22
+    :cond_1
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v3
 
-    if-ne v3, v2, :cond_41
+    if-ne v3, v2, :cond_3
 
     .line 944
     invoke-virtual {v0}, Landroid/view/View;->getKeyDispatcherState()Landroid/view/KeyEvent$DispatcherState;
@@ -1705,41 +1707,41 @@
 
     .line 945
     .restart local v1       #state:Landroid/view/KeyEvent$DispatcherState;
-    if-eqz v1, :cond_31
+    if-eqz v1, :cond_2
 
     .line 946
     invoke-virtual {v1, p2}, Landroid/view/KeyEvent$DispatcherState;->handleUpEvent(Landroid/view/KeyEvent;)V
 
     .line 948
-    :cond_31
+    :cond_2
     invoke-virtual {p2}, Landroid/view/KeyEvent;->isTracking()Z
 
     move-result v3
 
-    if-eqz v3, :cond_41
+    if-eqz v3, :cond_3
 
     invoke-virtual {p2}, Landroid/view/KeyEvent;->isCanceled()Z
 
     move-result v3
 
-    if-nez v3, :cond_41
+    if-nez v3, :cond_3
 
     .line 949
     invoke-virtual {p0}, Landroid/widget/ListPopupWindow;->dismiss()V
 
-    goto :goto_21
+    goto :goto_0
 
     .line 954
     .end local v0           #anchorView:Landroid/view/View;
     .end local v1           #state:Landroid/view/KeyEvent$DispatcherState;
-    :cond_41
+    :cond_3
     const/4 v2, 0x0
 
-    goto :goto_21
+    goto :goto_0
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .registers 5
+    .locals 2
     .parameter "keyCode"
     .parameter "event"
 
@@ -1749,7 +1751,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
 
@@ -1757,7 +1759,7 @@
 
     move-result v1
 
-    if-ltz v1, :cond_1e
+    if-ltz v1, :cond_1
 
     .line 904
     iget-object v1, p0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
@@ -1768,41 +1770,41 @@
 
     .line 905
     .local v0, consumed:Z
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     .line 906
-    sparse-switch p1, :sswitch_data_20
+    sparse-switch p1, :sswitch_data_0
 
     .line 918
     .end local v0           #consumed:Z
-    :cond_19
-    :goto_19
+    :cond_0
+    :goto_0
     return v0
 
     .line 912
     .restart local v0       #consumed:Z
-    :sswitch_1a
+    :sswitch_0
     invoke-virtual {p0}, Landroid/widget/ListPopupWindow;->dismiss()V
 
-    goto :goto_19
+    goto :goto_0
 
     .line 918
     .end local v0           #consumed:Z
-    :cond_1e
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 906
-    :sswitch_data_20
+    :sswitch_data_0
     .sparse-switch
-        0x17 -> :sswitch_1a
-        0x42 -> :sswitch_1a
+        0x17 -> :sswitch_0
+        0x42 -> :sswitch_0
     .end sparse-switch
 .end method
 
 .method public performItemClick(I)Z
-    .registers 9
+    .locals 7
     .parameter "position"
 
     .prologue
@@ -1811,12 +1813,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_26
+    if-eqz v0, :cond_1
 
     .line 718
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mItemClickListener:Landroid/widget/AdapterView$OnItemClickListener;
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_0
 
     .line 719
     iget-object v1, p0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
@@ -1855,21 +1857,21 @@
     .end local v1           #list:Landroid/widget/ListPopupWindow$DropDownListView;
     .end local v2           #child:Landroid/view/View;
     .end local v6           #adapter:Landroid/widget/ListAdapter;
-    :cond_24
+    :cond_0
     const/4 v0, 0x1
 
     .line 726
-    :goto_25
+    :goto_0
     return v0
 
-    :cond_26
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_25
+    goto :goto_0
 .end method
 
 .method public postShow()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 516
@@ -1884,14 +1886,14 @@
 .end method
 
 .method public setAdapter(Landroid/widget/ListAdapter;)V
-    .registers 4
+    .locals 2
     .parameter "adapter"
 
     .prologue
     .line 205
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mObserver:Landroid/database/DataSetObserver;
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_3
 
     .line 206
     new-instance v0, Landroid/widget/ListPopupWindow$PopupDataSetObserver;
@@ -1903,14 +1905,14 @@
     iput-object v0, p0, Landroid/widget/ListPopupWindow;->mObserver:Landroid/database/DataSetObserver;
 
     .line 210
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     iput-object p1, p0, Landroid/widget/ListPopupWindow;->mAdapter:Landroid/widget/ListAdapter;
 
     .line 211
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mAdapter:Landroid/widget/ListAdapter;
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_1
 
     .line 212
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mObserver:Landroid/database/DataSetObserver;
@@ -1918,10 +1920,10 @@
     invoke-interface {p1, v0}, Landroid/widget/ListAdapter;->registerDataSetObserver(Landroid/database/DataSetObserver;)V
 
     .line 215
-    :cond_17
+    :cond_1
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_2
 
     .line 216
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
@@ -1931,14 +1933,14 @@
     invoke-virtual {v0, v1}, Landroid/widget/ListPopupWindow$DropDownListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     .line 218
-    :cond_22
+    :cond_2
     return-void
 
     .line 207
-    :cond_23
+    :cond_3
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mAdapter:Landroid/widget/ListAdapter;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 208
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mAdapter:Landroid/widget/ListAdapter;
@@ -1947,11 +1949,11 @@
 
     invoke-interface {v0, v1}, Landroid/widget/ListAdapter;->unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public setAnchorView(Landroid/view/View;)V
-    .registers 2
+    .locals 0
     .parameter "anchor"
 
     .prologue
@@ -1963,7 +1965,7 @@
 .end method
 
 .method public setAnimationStyle(I)V
-    .registers 3
+    .locals 1
     .parameter "animationStyle"
 
     .prologue
@@ -1977,7 +1979,7 @@
 .end method
 
 .method public setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-    .registers 3
+    .locals 1
     .parameter "d"
 
     .prologue
@@ -1991,7 +1993,7 @@
 .end method
 
 .method public setContentWidth(I)V
-    .registers 5
+    .locals 3
     .parameter "width"
 
     .prologue
@@ -2004,7 +2006,7 @@
 
     .line 449
     .local v0, popupBackground:Landroid/graphics/drawable/Drawable;
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     .line 450
     iget-object v1, p0, Landroid/widget/ListPopupWindow;->mTempRect:Landroid/graphics/Rect;
@@ -2027,18 +2029,18 @@
     iput v1, p0, Landroid/widget/ListPopupWindow;->mDropDownWidth:I
 
     .line 455
-    :goto_19
+    :goto_0
     return-void
 
     .line 453
-    :cond_1a
+    :cond_0
     invoke-virtual {p0, p1}, Landroid/widget/ListPopupWindow;->setWidth(I)V
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public setDropDownAlwaysVisible(Z)V
-    .registers 2
+    .locals 0
     .parameter "dropDownAlwaysVisible"
 
     .prologue
@@ -2050,7 +2052,7 @@
 .end method
 
 .method public setForceIgnoreOutsideTouch(Z)V
-    .registers 2
+    .locals 0
     .parameter "forceIgnoreOutsideTouch"
 
     .prologue
@@ -2062,7 +2064,7 @@
 .end method
 
 .method public setHeight(I)V
-    .registers 2
+    .locals 0
     .parameter "height"
 
     .prologue
@@ -2074,7 +2076,7 @@
 .end method
 
 .method public setHorizontalOffset(I)V
-    .registers 2
+    .locals 0
     .parameter "offset"
 
     .prologue
@@ -2086,7 +2088,7 @@
 .end method
 
 .method public setInputMethodMode(I)V
-    .registers 3
+    .locals 1
     .parameter "mode"
 
     .prologue
@@ -2100,7 +2102,7 @@
 .end method
 
 .method setListItemExpandMax(I)V
-    .registers 2
+    .locals 0
     .parameter "max"
 
     .prologue
@@ -2112,7 +2114,7 @@
 .end method
 
 .method public setListSelector(Landroid/graphics/drawable/Drawable;)V
-    .registers 2
+    .locals 0
     .parameter "selector"
 
     .prologue
@@ -2124,7 +2126,7 @@
 .end method
 
 .method public setModal(Z)V
-    .registers 3
+    .locals 1
     .parameter "modal"
 
     .prologue
@@ -2143,7 +2145,7 @@
 .end method
 
 .method public setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
@@ -2157,7 +2159,7 @@
 .end method
 
 .method public setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
-    .registers 2
+    .locals 0
     .parameter "clickListener"
 
     .prologue
@@ -2169,7 +2171,7 @@
 .end method
 
 .method public setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
-    .registers 2
+    .locals 0
     .parameter "selectedListener"
 
     .prologue
@@ -2181,7 +2183,7 @@
 .end method
 
 .method public setPromptPosition(I)V
-    .registers 2
+    .locals 0
     .parameter "position"
 
     .prologue
@@ -2193,7 +2195,7 @@
 .end method
 
 .method public setPromptView(Landroid/view/View;)V
-    .registers 3
+    .locals 1
     .parameter "prompt"
 
     .prologue
@@ -2204,28 +2206,28 @@
 
     .line 503
     .local v0, showing:Z
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 504
     invoke-direct {p0}, Landroid/widget/ListPopupWindow;->removePromptView()V
 
     .line 506
-    :cond_9
+    :cond_0
     iput-object p1, p0, Landroid/widget/ListPopupWindow;->mPromptView:Landroid/view/View;
 
     .line 507
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_1
 
     .line 508
     invoke-virtual {p0}, Landroid/widget/ListPopupWindow;->show()V
 
     .line 510
-    :cond_10
+    :cond_1
     return-void
 .end method
 
 .method public setSelection(I)V
-    .registers 4
+    .locals 2
     .parameter "position"
 
     .prologue
@@ -2238,13 +2240,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_0
 
     .line 672
     const/4 v1, 0x0
 
+    #setter for: Landroid/widget/ListPopupWindow$DropDownListView;->mListSelectionHidden:Z
     invoke-static {v0, v1}, Landroid/widget/ListPopupWindow$DropDownListView;->access$502(Landroid/widget/ListPopupWindow$DropDownListView;Z)Z
 
     .line 673
@@ -2255,7 +2258,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_0
 
     .line 675
     const/4 v1, 0x1
@@ -2263,12 +2266,12 @@
     invoke-virtual {v0, p1, v1}, Landroid/widget/ListPopupWindow$DropDownListView;->setItemChecked(IZ)V
 
     .line 678
-    :cond_1b
+    :cond_0
     return-void
 .end method
 
 .method public setSoftInputMode(I)V
-    .registers 3
+    .locals 1
     .parameter "mode"
 
     .prologue
@@ -2282,7 +2285,7 @@
 .end method
 
 .method public setVerticalOffset(I)V
-    .registers 3
+    .locals 1
     .parameter "offset"
 
     .prologue
@@ -2299,7 +2302,7 @@
 .end method
 
 .method public setWidth(I)V
-    .registers 2
+    .locals 0
     .parameter "width"
 
     .prologue
@@ -2311,7 +2314,7 @@
 .end method
 
 .method public show()V
-    .registers 11
+    .locals 10
 
     .prologue
     const/4 v1, 0x1
@@ -2345,11 +2348,11 @@
     .local v7, noInputMethod:Z
     iget-object v8, p0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
-    if-nez v7, :cond_51
+    if-nez v7, :cond_1
 
     move v0, v1
 
-    :goto_13
+    :goto_0
     invoke-virtual {v8, v0}, Landroid/widget/PopupWindow;->setAllowScrollingAnchorParent(Z)V
 
     .line 532
@@ -2359,56 +2362,56 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7f
+    if-eqz v0, :cond_b
 
     .line 533
     iget v0, p0, Landroid/widget/ListPopupWindow;->mDropDownWidth:I
 
-    if-ne v0, v3, :cond_53
+    if-ne v0, v3, :cond_2
 
     .line 536
     const/4 v4, -0x1
 
     .line 543
-    :goto_23
+    :goto_1
     iget v0, p0, Landroid/widget/ListPopupWindow;->mDropDownHeight:I
 
-    if-ne v0, v3, :cond_74
+    if-ne v0, v3, :cond_8
 
     .line 546
-    if-eqz v7, :cond_63
+    if-eqz v7, :cond_4
 
     move v5, v6
 
     .line 547
-    :goto_2a
-    if-eqz v7, :cond_67
+    :goto_2
+    if-eqz v7, :cond_6
 
     .line 548
     iget-object v8, p0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
     iget v0, p0, Landroid/widget/ListPopupWindow;->mDropDownWidth:I
 
-    if-ne v0, v3, :cond_65
+    if-ne v0, v3, :cond_5
 
     move v0, v3
 
-    :goto_33
+    :goto_3
     invoke-virtual {v8, v0, v2}, Landroid/widget/PopupWindow;->setWindowLayoutMode(II)V
 
     .line 563
-    :goto_36
+    :goto_4
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
     iget-boolean v3, p0, Landroid/widget/ListPopupWindow;->mForceIgnoreOutsideTouch:Z
 
-    if-nez v3, :cond_7d
+    if-nez v3, :cond_a
 
     iget-boolean v3, p0, Landroid/widget/ListPopupWindow;->mDropDownAlwaysVisible:Z
 
-    if-nez v3, :cond_7d
+    if-nez v3, :cond_a
 
-    :goto_40
+    :goto_5
     invoke-virtual {v0, v1}, Landroid/widget/PopupWindow;->setOutsideTouchable(Z)V
 
     .line 565
@@ -2425,21 +2428,21 @@
     invoke-virtual/range {v0 .. v5}, Landroid/widget/PopupWindow;->update(Landroid/view/View;IIII)V
 
     .line 606
-    :cond_50
-    :goto_50
+    :cond_0
+    :goto_6
     return-void
 
-    :cond_51
+    :cond_1
     move v0, v2
 
     .line 530
-    goto :goto_13
+    goto :goto_0
 
     .line 537
-    :cond_53
+    :cond_2
     iget v0, p0, Landroid/widget/ListPopupWindow;->mDropDownWidth:I
 
-    if-ne v0, v9, :cond_60
+    if-ne v0, v9, :cond_3
 
     .line 538
     invoke-virtual {p0}, Landroid/widget/ListPopupWindow;->getAnchorView()Landroid/view/View;
@@ -2450,89 +2453,89 @@
 
     move-result v4
 
-    goto :goto_23
+    goto :goto_1
 
     .line 540
-    :cond_60
+    :cond_3
     iget v4, p0, Landroid/widget/ListPopupWindow;->mDropDownWidth:I
 
-    goto :goto_23
+    goto :goto_1
 
-    :cond_63
+    :cond_4
     move v5, v3
 
     .line 546
-    goto :goto_2a
+    goto :goto_2
 
-    :cond_65
+    :cond_5
     move v0, v2
 
     .line 548
-    goto :goto_33
+    goto :goto_3
 
     .line 552
-    :cond_67
+    :cond_6
     iget-object v8, p0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
     iget v0, p0, Landroid/widget/ListPopupWindow;->mDropDownWidth:I
 
-    if-ne v0, v3, :cond_72
+    if-ne v0, v3, :cond_7
 
     move v0, v3
 
-    :goto_6e
+    :goto_7
     invoke-virtual {v8, v0, v3}, Landroid/widget/PopupWindow;->setWindowLayoutMode(II)V
 
-    goto :goto_36
+    goto :goto_4
 
-    :cond_72
+    :cond_7
     move v0, v2
 
-    goto :goto_6e
+    goto :goto_7
 
     .line 557
-    :cond_74
+    :cond_8
     iget v0, p0, Landroid/widget/ListPopupWindow;->mDropDownHeight:I
 
-    if-ne v0, v9, :cond_7a
+    if-ne v0, v9, :cond_9
 
     .line 558
     move v5, v6
 
-    goto :goto_36
+    goto :goto_4
 
     .line 560
-    :cond_7a
+    :cond_9
     iget v5, p0, Landroid/widget/ListPopupWindow;->mDropDownHeight:I
 
-    goto :goto_36
+    goto :goto_4
 
-    :cond_7d
+    :cond_a
     move v1, v2
 
     .line 563
-    goto :goto_40
+    goto :goto_5
 
     .line 568
-    :cond_7f
+    :cond_b
     iget v0, p0, Landroid/widget/ListPopupWindow;->mDropDownWidth:I
 
-    if-ne v0, v3, :cond_d5
+    if-ne v0, v3, :cond_e
 
     .line 569
     const/4 v4, -0x1
 
     .line 578
-    :goto_84
+    :goto_8
     iget v0, p0, Landroid/widget/ListPopupWindow;->mDropDownHeight:I
 
-    if-ne v0, v3, :cond_ef
+    if-ne v0, v3, :cond_10
 
     .line 579
     const/4 v5, -0x1
 
     .line 588
-    :goto_89
+    :goto_9
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
     invoke-virtual {v0, v4, v5}, Landroid/widget/PopupWindow;->setWindowLayoutMode(II)V
@@ -2547,13 +2550,13 @@
 
     iget-boolean v8, p0, Landroid/widget/ListPopupWindow;->mForceIgnoreOutsideTouch:Z
 
-    if-nez v8, :cond_101
+    if-nez v8, :cond_12
 
     iget-boolean v8, p0, Landroid/widget/ListPopupWindow;->mDropDownAlwaysVisible:Z
 
-    if-nez v8, :cond_101
+    if-nez v8, :cond_12
 
-    :goto_9d
+    :goto_a
     invoke-virtual {v0, v1}, Landroid/widget/PopupWindow;->setOutsideTouchable(Z)V
 
     .line 594
@@ -2584,7 +2587,7 @@
     .line 599
     iget-boolean v0, p0, Landroid/widget/ListPopupWindow;->mModal:Z
 
-    if-eqz v0, :cond_c5
+    if-eqz v0, :cond_c
 
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
 
@@ -2592,17 +2595,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c8
+    if-eqz v0, :cond_d
 
     .line 600
-    :cond_c5
+    :cond_c
     invoke-virtual {p0}, Landroid/widget/ListPopupWindow;->clearListSelection()V
 
     .line 602
-    :cond_c8
+    :cond_d
     iget-boolean v0, p0, Landroid/widget/ListPopupWindow;->mModal:Z
 
-    if-nez v0, :cond_50
+    if-nez v0, :cond_0
 
     .line 603
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mHandler:Landroid/os/Handler;
@@ -2611,13 +2614,13 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    goto/16 :goto_50
+    goto/16 :goto_6
 
     .line 571
-    :cond_d5
+    :cond_e
     iget v0, p0, Landroid/widget/ListPopupWindow;->mDropDownWidth:I
 
-    if-ne v0, v9, :cond_e7
+    if-ne v0, v9, :cond_f
 
     .line 572
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
@@ -2632,44 +2635,44 @@
 
     invoke-virtual {v0, v8}, Landroid/widget/PopupWindow;->setWidth(I)V
 
-    goto :goto_84
+    goto :goto_8
 
     .line 574
-    :cond_e7
+    :cond_f
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
     iget v8, p0, Landroid/widget/ListPopupWindow;->mDropDownWidth:I
 
     invoke-virtual {v0, v8}, Landroid/widget/PopupWindow;->setWidth(I)V
 
-    goto :goto_84
+    goto :goto_8
 
     .line 581
-    :cond_ef
+    :cond_10
     iget v0, p0, Landroid/widget/ListPopupWindow;->mDropDownHeight:I
 
-    if-ne v0, v9, :cond_f9
+    if-ne v0, v9, :cond_11
 
     .line 582
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
     invoke-virtual {v0, v6}, Landroid/widget/PopupWindow;->setHeight(I)V
 
-    goto :goto_89
+    goto :goto_9
 
     .line 584
-    :cond_f9
+    :cond_11
     iget-object v0, p0, Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
     iget v8, p0, Landroid/widget/ListPopupWindow;->mDropDownHeight:I
 
     invoke-virtual {v0, v8}, Landroid/widget/PopupWindow;->setHeight(I)V
 
-    goto :goto_89
+    goto :goto_9
 
-    :cond_101
+    :cond_12
     move v1, v2
 
     .line 593
-    goto :goto_9d
+    goto :goto_a
 .end method

@@ -167,7 +167,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 14
+    .locals 12
     .parameter "name"
 
     .prologue
@@ -313,7 +313,7 @@
 .end method
 
 .method private startRecording(Landroid/filterfw/core/FilterContext;)V
-    .registers 13
+    .locals 11
     .parameter "context"
 
     .prologue
@@ -324,7 +324,7 @@
     .line 298
     iget-boolean v5, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLogVerbose:Z
 
-    if-eqz v5, :cond_d
+    if-eqz v5, :cond_0
 
     const-string v5, "MediaEncoderFilter"
 
@@ -333,7 +333,7 @@
     invoke-static {v5, v8}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 301
-    :cond_d
+    :cond_0
     new-instance v2, Landroid/filterfw/core/MutableFrameFormat;
 
     const/4 v5, 0x2
@@ -351,22 +351,22 @@
     .line 306
     iget v5, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mWidth:I
 
-    if-lez v5, :cond_72
+    if-lez v5, :cond_2
 
     iget v5, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mHeight:I
 
-    if-lez v5, :cond_72
+    if-lez v5, :cond_2
 
     move v4, v6
 
     .line 309
     .local v4, widthHeightSpecified:Z
-    :goto_21
+    :goto_0
     iget-object v5, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mProfile:Landroid/media/CamcorderProfile;
 
-    if-eqz v5, :cond_74
+    if-eqz v5, :cond_3
 
-    if-nez v4, :cond_74
+    if-nez v4, :cond_3
 
     .line 310
     iget-object v5, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mProfile:Landroid/media/CamcorderProfile;
@@ -381,7 +381,7 @@
 
     .line 316
     .local v1, height:I
-    :goto_2f
+    :goto_1
     invoke-virtual {v2, v3, v1}, Landroid/filterfw/core/MutableFrameFormat;->setDimensions(II)V
 
     .line 317
@@ -412,14 +412,14 @@
     invoke-direct {p0}, Landroid/filterpacks/videosink/MediaEncoderFilter;->updateMediaRecorderParams()V
 
     .line 326
-    :try_start_4c
+    :try_start_0
     iget-object v5, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     invoke-virtual {v5}, Landroid/media/MediaRecorder;->prepare()V
-    :try_end_51
-    .catch Ljava/lang/IllegalStateException; {:try_start_4c .. :try_end_51} :catch_79
-    .catch Ljava/io/IOException; {:try_start_4c .. :try_end_51} :catch_7b
-    .catch Ljava/lang/Exception; {:try_start_4c .. :try_end_51} :catch_84
+    :try_end_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
 
     .line 339
     iget-object v5, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
@@ -429,7 +429,7 @@
     .line 340
     iget-boolean v5, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLogVerbose:Z
 
-    if-eqz v5, :cond_61
+    if-eqz v5, :cond_1
 
     const-string v5, "MediaEncoderFilter"
 
@@ -438,7 +438,7 @@
     invoke-static {v5, v8}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 341
-    :cond_61
+    :cond_1
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getGLEnvironment()Landroid/filterfw/core/GLEnvironment;
 
     move-result-object v5
@@ -463,15 +463,15 @@
     .end local v1           #height:I
     .end local v3           #width:I
     .end local v4           #widthHeightSpecified:Z
-    :cond_72
+    :cond_2
     move v4, v7
 
     .line 306
-    goto :goto_21
+    goto :goto_0
 
     .line 313
     .restart local v4       #widthHeightSpecified:Z
-    :cond_74
+    :cond_3
     iget v3, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mWidth:I
 
     .line 314
@@ -479,10 +479,10 @@
     iget v1, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mHeight:I
 
     .restart local v1       #height:I
-    goto :goto_2f
+    goto :goto_1
 
     .line 327
-    :catch_79
+    :catch_0
     move-exception v0
 
     .line 328
@@ -491,7 +491,7 @@
 
     .line 329
     .end local v0           #e:Ljava/lang/IllegalStateException;
-    :catch_7b
+    :catch_1
     move-exception v0
 
     .line 330
@@ -506,7 +506,7 @@
 
     .line 332
     .end local v0           #e:Ljava/io/IOException;
-    :catch_84
+    :catch_2
     move-exception v0
 
     .line 333
@@ -521,7 +521,7 @@
 .end method
 
 .method private stopRecording(Landroid/filterfw/core/FilterContext;)V
-    .registers 10
+    .locals 8
     .parameter "context"
 
     .prologue
@@ -532,7 +532,7 @@
     .line 424
     iget-boolean v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLogVerbose:Z
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_0
 
     const-string v2, "MediaEncoderFilter"
 
@@ -541,7 +541,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 426
-    :cond_d
+    :cond_0
     iput-boolean v6, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mRecordingActive:Z
 
     .line 427
@@ -556,7 +556,7 @@
     .local v1, glEnv:Landroid/filterfw/core/GLEnvironment;
     iget-boolean v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLogVerbose:Z
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_1
 
     const-string v2, "MediaEncoderFilter"
 
@@ -581,18 +581,18 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 435
-    :cond_2f
+    :cond_1
     iget v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mSurfaceId:I
 
     invoke-virtual {v1, v2}, Landroid/filterfw/core/GLEnvironment;->unregisterSurfaceId(I)V
 
     .line 437
-    :try_start_34
+    :try_start_0
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     invoke-virtual {v2}, Landroid/media/MediaRecorder;->stop()V
-    :try_end_39
-    .catch Ljava/lang/RuntimeException; {:try_start_34 .. :try_end_39} :catch_51
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 441
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
@@ -613,7 +613,7 @@
     .line 450
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mRecordingDoneListener:Landroid/filterpacks/videosink/MediaEncoderFilter$OnRecordingDoneListener;
 
-    if-eqz v2, :cond_50
+    if-eqz v2, :cond_2
 
     .line 451
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mRecordingDoneListener:Landroid/filterpacks/videosink/MediaEncoderFilter$OnRecordingDoneListener;
@@ -621,11 +621,11 @@
     invoke-interface {v2}, Landroid/filterpacks/videosink/MediaEncoderFilter$OnRecordingDoneListener;->onRecordingDone()V
 
     .line 453
-    :cond_50
+    :cond_2
     return-void
 
     .line 438
-    :catch_51
+    :catch_0
     move-exception v0
 
     .line 439
@@ -640,7 +640,7 @@
 .end method
 
 .method private updateMediaRecorderParams()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 239
@@ -650,11 +650,11 @@
 
     cmp-long v2, v2, v4
 
-    if-lez v2, :cond_73
+    if-lez v2, :cond_2
 
     const/4 v2, 0x1
 
-    :goto_9
+    :goto_0
     iput-boolean v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mCaptureTimeLapse:Z
 
     .line 240
@@ -671,13 +671,13 @@
     .line 242
     iget-boolean v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mCaptureTimeLapse:Z
 
-    if-nez v2, :cond_22
+    if-nez v2, :cond_0
 
     iget v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mAudioSource:I
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_22
+    if-eq v2, v3, :cond_0
 
     .line 243
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
@@ -687,10 +687,10 @@
     invoke-virtual {v2, v3}, Landroid/media/MediaRecorder;->setAudioSource(I)V
 
     .line 245
-    :cond_22
+    :cond_0
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mProfile:Landroid/media/CamcorderProfile;
 
-    if-eqz v2, :cond_75
+    if-eqz v2, :cond_3
 
     .line 246
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
@@ -709,11 +709,11 @@
     .line 250
     iget v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mWidth:I
 
-    if-lez v2, :cond_44
+    if-lez v2, :cond_1
 
     iget v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mHeight:I
 
-    if-lez v2, :cond_44
+    if-lez v2, :cond_1
 
     .line 251
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
@@ -725,8 +725,8 @@
     invoke-virtual {v2, v3, v4}, Landroid/media/MediaRecorder;->setVideoSize(II)V
 
     .line 259
-    :cond_44
-    :goto_44
+    :cond_1
+    :goto_1
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     iget v3, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mOrientationHint:I
@@ -750,7 +750,7 @@
     .line 262
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mFd:Ljava/io/FileDescriptor;
 
-    if-eqz v2, :cond_94
+    if-eqz v2, :cond_4
 
     .line 263
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
@@ -760,18 +760,18 @@
     invoke-virtual {v2, v3}, Landroid/media/MediaRecorder;->setOutputFile(Ljava/io/FileDescriptor;)V
 
     .line 268
-    :goto_64
-    :try_start_64
+    :goto_2
+    :try_start_0
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     iget-wide v3, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMaxFileSize:J
 
     invoke-virtual {v2, v3, v4}, Landroid/media/MediaRecorder;->setMaxFileSize(J)V
-    :try_end_6b
-    .catch Ljava/lang/Exception; {:try_start_64 .. :try_end_6b} :catch_9c
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 278
-    :goto_6b
+    :goto_3
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     iget v3, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMaxDurationMs:I
@@ -783,14 +783,14 @@
 
     .line 239
     .end local v0           #GRALLOC_BUFFER:I
-    :cond_73
+    :cond_2
     const/4 v2, 0x0
 
-    goto :goto_9
+    goto :goto_0
 
     .line 254
     .restart local v0       #GRALLOC_BUFFER:I
-    :cond_75
+    :cond_3
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     iget v3, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mOutputFormat:I
@@ -820,20 +820,20 @@
 
     invoke-virtual {v2, v3}, Landroid/media/MediaRecorder;->setVideoFrameRate(I)V
 
-    goto :goto_44
+    goto :goto_1
 
     .line 265
-    :cond_94
+    :cond_4
     iget-object v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     iget-object v3, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mOutputFile:Ljava/lang/String;
 
     invoke-virtual {v2, v3}, Landroid/media/MediaRecorder;->setOutputFile(Ljava/lang/String;)V
 
-    goto :goto_64
+    goto :goto_2
 
     .line 269
-    :catch_9c
+    :catch_0
     move-exception v1
 
     .line 275
@@ -864,11 +864,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_6b
+    goto :goto_3
 .end method
 
 .method private updateSourceRegion()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 227
@@ -917,14 +917,14 @@
 
 # virtual methods
 .method public close(Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
     .line 457
     iget-boolean v0, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLogVerbose:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     const-string v0, "MediaEncoderFilter"
 
@@ -933,20 +933,20 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 458
-    :cond_b
+    :cond_0
     iget-boolean v0, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mRecordingActive:Z
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_1
 
     invoke-direct {p0, p1}, Landroid/filterpacks/videosink/MediaEncoderFilter;->stopRecording(Landroid/filterfw/core/FilterContext;)V
 
     .line 459
-    :cond_12
+    :cond_1
     return-void
 .end method
 
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
-    .registers 6
+    .locals 3
     .parameter "name"
     .parameter "context"
 
@@ -954,7 +954,7 @@
     .line 211
     iget-boolean v0, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLogVerbose:Z
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_0
 
     const-string v0, "MediaEncoderFilter"
 
@@ -985,52 +985,52 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 212
-    :cond_22
+    :cond_0
     const-string/jumbo v0, "recording"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_2
 
     .line 223
-    :cond_2b
-    :goto_2b
+    :cond_1
+    :goto_0
     return-void
 
     .line 213
-    :cond_2c
+    :cond_2
     const-string v0, "inputRegion"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3e
+    if-eqz v0, :cond_3
 
     .line 214
     invoke-virtual {p0}, Landroid/filterpacks/videosink/MediaEncoderFilter;->isOpen()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_1
 
     invoke-direct {p0}, Landroid/filterpacks/videosink/MediaEncoderFilter;->updateSourceRegion()V
 
-    goto :goto_2b
+    goto :goto_0
 
     .line 219
-    :cond_3e
+    :cond_3
     invoke-virtual {p0}, Landroid/filterpacks/videosink/MediaEncoderFilter;->isOpen()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_1
 
     iget-boolean v0, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mRecordingActive:Z
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_1
 
     .line 220
     new-instance v0, Ljava/lang/RuntimeException;
@@ -1043,14 +1043,14 @@
 .end method
 
 .method public open(Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
     .line 292
     iget-boolean v0, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLogVerbose:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     const-string v0, "MediaEncoderFilter"
 
@@ -1059,30 +1059,30 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 293
-    :cond_b
+    :cond_0
     invoke-direct {p0}, Landroid/filterpacks/videosink/MediaEncoderFilter;->updateSourceRegion()V
 
     .line 294
     iget-boolean v0, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mRecording:Z
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_1
 
     invoke-direct {p0, p1}, Landroid/filterpacks/videosink/MediaEncoderFilter;->startRecording(Landroid/filterfw/core/FilterContext;)V
 
     .line 295
-    :cond_15
+    :cond_1
     return-void
 .end method
 
 .method public prepare(Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
     .line 283
     iget-boolean v0, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLogVerbose:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     const-string v0, "MediaEncoderFilter"
 
@@ -1091,7 +1091,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 285
-    :cond_b
+    :cond_0
     invoke-static {p1}, Landroid/filterfw/core/ShaderProgram;->createIdentity(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/ShaderProgram;
 
     move-result-object v0
@@ -1108,7 +1108,7 @@
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
@@ -1129,44 +1129,44 @@
     .local v1, input:Landroid/filterfw/core/Frame;
     iget-boolean v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mRecordingActive:Z
 
-    if-nez v2, :cond_16
+    if-nez v2, :cond_0
 
     iget-boolean v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mRecording:Z
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_0
 
     .line 393
     invoke-direct {p0, p1}, Landroid/filterpacks/videosink/MediaEncoderFilter;->startRecording(Landroid/filterfw/core/FilterContext;)V
 
     .line 396
-    :cond_16
+    :cond_0
     iget-boolean v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mRecordingActive:Z
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_1
 
     iget-boolean v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mRecording:Z
 
-    if-nez v2, :cond_21
+    if-nez v2, :cond_1
 
     .line 397
     invoke-direct {p0, p1}, Landroid/filterpacks/videosink/MediaEncoderFilter;->stopRecording(Landroid/filterfw/core/FilterContext;)V
 
     .line 400
-    :cond_21
+    :cond_1
     iget-boolean v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mRecordingActive:Z
 
-    if-nez v2, :cond_26
+    if-nez v2, :cond_3
 
     .line 421
-    :cond_25
-    :goto_25
+    :cond_2
+    :goto_0
     return-void
 
     .line 402
-    :cond_26
+    :cond_3
     iget-boolean v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mCaptureTimeLapse:Z
 
-    if-eqz v2, :cond_4f
+    if-eqz v2, :cond_4
 
     .line 403
     invoke-virtual {v1}, Landroid/filterfw/core/Frame;->getTimestamp()J
@@ -1177,10 +1177,10 @@
 
     move-result v2
 
-    if-nez v2, :cond_25
+    if-nez v2, :cond_2
 
     .line 411
-    :goto_34
+    :goto_1
     iget v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mSurfaceId:I
 
     invoke-virtual {v0, v2}, Landroid/filterfw/core/GLEnvironment;->activateSurfaceWithId(I)V
@@ -1207,21 +1207,21 @@
 
     iput v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mNumFramesEncoded:I
 
-    goto :goto_25
+    goto :goto_0
 
     .line 407
-    :cond_4f
+    :cond_4
     invoke-virtual {v1}, Landroid/filterfw/core/Frame;->getTimestamp()J
 
     move-result-wide v2
 
     iput-wide v2, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mTimestampNs:J
 
-    goto :goto_34
+    goto :goto_1
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x3
@@ -1240,7 +1240,7 @@
 .end method
 
 .method public skipFrameAndModifyTimestamp(J)Z
-    .registers 12
+    .locals 9
     .parameter "timestampNs"
 
     .prologue
@@ -1251,7 +1251,7 @@
     .line 349
     iget v1, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mNumFramesEncoded:I
 
-    if-nez v1, :cond_38
+    if-nez v1, :cond_1
 
     .line 350
     iput-wide p1, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLastTimeLapseFrameRealTimestampNs:J
@@ -1262,7 +1262,7 @@
     .line 352
     iget-boolean v1, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLogVerbose:Z
 
-    if-eqz v1, :cond_37
+    if-eqz v1, :cond_0
 
     const-string v1, "MediaEncoderFilter"
 
@@ -1301,17 +1301,17 @@
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 381
-    :cond_37
-    :goto_37
+    :cond_0
+    :goto_0
     return v0
 
     .line 361
-    :cond_38
+    :cond_1
     iget v1, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mNumFramesEncoded:I
 
     const/4 v2, 0x2
 
-    if-lt v1, v2, :cond_57
+    if-lt v1, v2, :cond_3
 
     iget-wide v1, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLastTimeLapseFrameRealTimestampNs:J
 
@@ -1325,12 +1325,12 @@
 
     cmp-long v1, p1, v1
 
-    if-gez v1, :cond_57
+    if-gez v1, :cond_3
 
     .line 366
     iget-boolean v0, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLogVerbose:Z
 
-    if-eqz v0, :cond_55
+    if-eqz v0, :cond_2
 
     const-string v0, "MediaEncoderFilter"
 
@@ -1339,16 +1339,16 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 367
-    :cond_55
+    :cond_2
     const/4 v0, 0x1
 
-    goto :goto_37
+    goto :goto_0
 
     .line 373
-    :cond_57
+    :cond_3
     iget-boolean v1, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLogVerbose:Z
 
-    if-eqz v1, :cond_8c
+    if-eqz v1, :cond_4
 
     const-string v1, "MediaEncoderFilter"
 
@@ -1397,7 +1397,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 376
-    :cond_8c
+    :cond_4
     iput-wide p1, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLastTimeLapseFrameRealTimestampNs:J
 
     .line 377
@@ -1416,7 +1416,7 @@
     .line 378
     iget-boolean v1, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mLogVerbose:Z
 
-    if-eqz v1, :cond_37
+    if-eqz v1, :cond_0
 
     const-string v1, "MediaEncoderFilter"
 
@@ -1470,18 +1470,18 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_37
+    goto/16 :goto_0
 .end method
 
 .method public tearDown(Landroid/filterfw/core/FilterContext;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
     .line 465
     iget-object v0, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 466
     iget-object v0, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mMediaRecorder:Landroid/media/MediaRecorder;
@@ -1489,10 +1489,10 @@
     invoke-virtual {v0}, Landroid/media/MediaRecorder;->release()V
 
     .line 468
-    :cond_9
+    :cond_0
     iget-object v0, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mScreen:Landroid/filterfw/core/GLFrame;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_1
 
     .line 469
     iget-object v0, p0, Landroid/filterpacks/videosink/MediaEncoderFilter;->mScreen:Landroid/filterfw/core/GLFrame;
@@ -1500,6 +1500,6 @@
     invoke-virtual {v0}, Landroid/filterfw/core/GLFrame;->release()Landroid/filterfw/core/Frame;
 
     .line 472
-    :cond_12
+    :cond_1
     return-void
 .end method

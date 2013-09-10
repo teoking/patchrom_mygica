@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;)V
-    .registers 3
+    .locals 1
     .parameter "realDrawable"
 
     .prologue
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .registers 5
+    .locals 3
     .parameter "canvas"
 
     .prologue
@@ -73,7 +73,7 @@
 .end method
 
 .method public getAlpha()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 59
@@ -83,7 +83,7 @@
 .end method
 
 .method public getOpacity()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 75
@@ -97,7 +97,7 @@
 .end method
 
 .method public setAlpha(F)V
-    .registers 2
+    .locals 0
     .parameter "alpha"
 
     .prologue
@@ -109,7 +109,7 @@
 .end method
 
 .method public setAlpha(I)V
-    .registers 3
+    .locals 1
     .parameter "alpha"
 
     .prologue
@@ -123,7 +123,7 @@
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
-    .registers 3
+    .locals 1
     .parameter "cf"
 
     .prologue

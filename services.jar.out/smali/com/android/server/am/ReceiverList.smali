@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessRecord;IILandroid/content/IIntentReceiver;)V
-    .registers 7
+    .locals 1
     .parameter "_owner"
     .parameter "_app"
     .parameter "_pid"
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 65
@@ -101,7 +101,7 @@
 .end method
 
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .registers 10
+    .locals 7
     .parameter "pw"
     .parameter "prefix"
 
@@ -145,8 +145,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_20
-    if-ge v2, v0, :cond_4e
+    :goto_0
+    if-ge v2, v0, :cond_0
 
     .line 84
     invoke-virtual {p0, v2}, Lcom/android/server/am/ReceiverList;->get(I)Ljava/lang/Object;
@@ -192,16 +192,16 @@
     .line 83
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_20
+    goto :goto_0
 
     .line 91
     .end local v1           #bf:Lcom/android/server/am/BroadcastFilter;
-    :cond_4e
+    :cond_0
     return-void
 .end method
 
 .method dumpLocal(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "pw"
     .parameter "prefix"
 
@@ -237,14 +237,14 @@
     .line 72
     iget-object v0, p0, Lcom/android/server/am/ReceiverList;->curBroadcast:Lcom/android/server/am/BroadcastRecord;
 
-    if-nez v0, :cond_29
+    if-nez v0, :cond_0
 
     iget-boolean v0, p0, Lcom/android/server/am/ReceiverList;->linkedToDeath:Z
 
-    if-eqz v0, :cond_40
+    if-eqz v0, :cond_1
 
     .line 73
-    :cond_29
+    :cond_0
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v0, "curBroadcast="
@@ -265,31 +265,31 @@
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
 
     .line 76
-    :cond_40
+    :cond_1
     return-void
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 3
+    .locals 1
     .parameter "o"
 
     .prologue
     .line 58
-    if-ne p0, p1, :cond_4
+    if-ne p0, p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_3
+    :goto_0
     return v0
 
-    :cond_4
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 61
@@ -301,7 +301,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     const/16 v2, 0x20
@@ -309,17 +309,17 @@
     .line 94
     iget-object v1, p0, Lcom/android/server/am/ReceiverList;->stringName:Ljava/lang/String;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_0
 
     .line 95
     iget-object v1, p0, Lcom/android/server/am/ReceiverList;->stringName:Ljava/lang/String;
 
     .line 109
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 97
-    :cond_9
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x80
@@ -357,13 +357,13 @@
     .line 103
     iget-object v1, p0, Lcom/android/server/am/ReceiverList;->app:Lcom/android/server/am/ProcessRecord;
 
-    if-eqz v1, :cond_6c
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/server/am/ReceiverList;->app:Lcom/android/server/am/ProcessRecord;
 
     iget-object v1, v1, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    :goto_33
+    :goto_1
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 104
@@ -385,11 +385,11 @@
 
     instance-of v1, v1, Landroid/os/Binder;
 
-    if-eqz v1, :cond_6f
+    if-eqz v1, :cond_2
 
     const-string v1, " local:"
 
-    :goto_4c
+    :goto_2
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 107
@@ -421,17 +421,17 @@
 
     iput-object v1, p0, Lcom/android/server/am/ReceiverList;->stringName:Ljava/lang/String;
 
-    goto :goto_8
+    goto :goto_0
 
     .line 103
-    :cond_6c
+    :cond_1
     const-string v1, "(unknown name)"
 
-    goto :goto_33
+    goto :goto_1
 
     .line 106
-    :cond_6f
+    :cond_2
     const-string v1, " remote:"
 
-    goto :goto_4c
+    goto :goto_2
 .end method

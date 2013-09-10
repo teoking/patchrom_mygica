@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/service/dreams/Dream;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public attach(Landroid/os/IBinder;)V
-    .registers 3
+    .locals 1
     .parameter "windowToken"
 
     .prologue

@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "ctx"
 
     .prologue
@@ -64,7 +64,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/server/location/LocationBasedCountryDetector;Landroid/location/Location;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -76,36 +76,36 @@
 .end method
 
 .method private declared-synchronized queryCountryCode(Landroid/location/Location;)V
-    .registers 4
+    .locals 2
     .parameter "location"
 
     .prologue
     .line 220
     monitor-enter p0
 
-    if-nez p1, :cond_9
+    if-nez p1, :cond_1
 
     .line 221
     const/4 v0, 0x0
 
-    :try_start_4
+    :try_start_0
     invoke-virtual {p0, v0}, Lcom/android/server/location/LocationBasedCountryDetector;->notifyListener(Landroid/location/Country;)V
-    :try_end_7
-    .catchall {:try_start_4 .. :try_end_7} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 242
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     monitor-exit p0
 
     return-void
 
     .line 224
-    :cond_9
-    :try_start_9
+    :cond_1
+    :try_start_1
     iget-object v0, p0, Lcom/android/server/location/LocationBasedCountryDetector;->mQueryThread:Ljava/lang/Thread;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 225
     new-instance v0, Ljava/lang/Thread;
@@ -122,13 +122,13 @@
     iget-object v0, p0, Lcom/android/server/location/LocationBasedCountryDetector;->mQueryThread:Ljava/lang/Thread;
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
-    :try_end_1e
-    .catchall {:try_start_9 .. :try_end_1e} :catchall_1f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 220
-    :catchall_1f
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -139,16 +139,16 @@
 
 # virtual methods
 .method public declared-synchronized detectCountry()Landroid/location/Country;
-    .registers 10
+    .locals 9
 
     .prologue
     .line 147
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v5, p0, Lcom/android/server/location/LocationBasedCountryDetector;->mLocationListeners:Ljava/util/List;
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_0
 
     .line 148
     new-instance v5, Ljava/lang/IllegalStateException;
@@ -156,11 +156,11 @@
     invoke-direct {v5}, Ljava/lang/IllegalStateException;-><init>()V
 
     throw v5
-    :try_end_b
-    .catchall {:try_start_1 .. :try_end_b} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 147
-    :catchall_b
+    :catchall_0
     move-exception v5
 
     monitor-exit p0
@@ -168,8 +168,8 @@
     throw v5
 
     .line 151
-    :cond_e
-    :try_start_e
+    :cond_0
+    :try_start_1
     invoke-virtual {p0}, Lcom/android/server/location/LocationBasedCountryDetector;->getEnabledProviders()Ljava/util/List;
 
     move-result-object v0
@@ -182,7 +182,7 @@
 
     .line 153
     .local v4, totalProviders:I
-    if-lez v4, :cond_57
+    if-lez v4, :cond_3
 
     .line 154
     new-instance v5, Ljava/util/ArrayList;
@@ -195,8 +195,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_20
-    if-ge v1, v4, :cond_3e
+    :goto_0
+    if-ge v1, v4, :cond_2
 
     .line 156
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -211,7 +211,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3b
+    if-eqz v5, :cond_1
 
     .line 158
     new-instance v2, Lcom/android/server/location/LocationBasedCountryDetector$1;
@@ -229,14 +229,14 @@
 
     .line 155
     .end local v2           #listener:Landroid/location/LocationListener;
-    :cond_3b
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_20
+    goto :goto_0
 
     .line 181
     .end local v3           #provider:Ljava/lang/String;
-    :cond_3e
+    :cond_2
     new-instance v5, Ljava/util/Timer;
 
     invoke-direct {v5}, Ljava/util/Timer;-><init>()V
@@ -258,31 +258,31 @@
 
     .line 196
     .end local v1           #i:I
-    :goto_53
+    :goto_1
     iget-object v5, p0, Lcom/android/server/location/CountryDetectorBase;->mDetectedCountry:Landroid/location/Country;
-    :try_end_55
-    .catchall {:try_start_e .. :try_end_55} :catchall_b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit p0
 
     return-object v5
 
     .line 194
-    :cond_57
-    :try_start_57
+    :cond_3
+    :try_start_2
     invoke-virtual {p0}, Lcom/android/server/location/LocationBasedCountryDetector;->getLastKnownLocation()Landroid/location/Location;
 
     move-result-object v5
 
     invoke-direct {p0, v5}, Lcom/android/server/location/LocationBasedCountryDetector;->queryCountryCode(Landroid/location/Location;)V
-    :try_end_5e
-    .catchall {:try_start_57 .. :try_end_5e} :catchall_b
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_53
+    goto :goto_1
 .end method
 
 .method protected getCountryFromLocation(Landroid/location/Location;)Ljava/lang/String;
-    .registers 11
+    .locals 9
     .parameter "location"
 
     .prologue
@@ -299,7 +299,7 @@
 
     .line 78
     .local v0, geoCoder:Landroid/location/Geocoder;
-    :try_start_8
+    :try_start_0
     invoke-virtual {p1}, Landroid/location/Location;->getLatitude()D
 
     move-result-wide v1
@@ -316,13 +316,13 @@
 
     .line 80
     .local v6, addresses:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
-    if-eqz v6, :cond_28
+    if-eqz v6, :cond_0
 
     invoke-interface {v6}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-lez v1, :cond_28
+    if-lez v1, :cond_0
 
     .line 81
     const/4 v1, 0x0
@@ -334,19 +334,19 @@
     check-cast v1, Landroid/location/Address;
 
     invoke-virtual {v1}, Landroid/location/Address;->getCountryCode()Ljava/lang/String;
-    :try_end_27
-    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_27} :catch_29
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v7
 
     .line 86
     .end local v6           #addresses:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
-    :cond_28
-    :goto_28
+    :cond_0
+    :goto_0
     return-object v7
 
     .line 83
-    :catch_29
+    :catch_0
     move-exception v8
 
     .line 84
@@ -357,11 +357,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_28
+    goto :goto_0
 .end method
 
 .method protected getEnabledProviders()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -376,7 +376,7 @@
     .line 133
     iget-object v0, p0, Lcom/android/server/location/LocationBasedCountryDetector;->mEnabledProviders:Ljava/util/List;
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 134
     iget-object v0, p0, Lcom/android/server/location/LocationBasedCountryDetector;->mLocationManager:Landroid/location/LocationManager;
@@ -390,14 +390,14 @@
     iput-object v0, p0, Lcom/android/server/location/LocationBasedCountryDetector;->mEnabledProviders:Ljava/util/List;
 
     .line 136
-    :cond_d
+    :cond_0
     iget-object v0, p0, Lcom/android/server/location/LocationBasedCountryDetector;->mEnabledProviders:Ljava/util/List;
 
     return-object v0
 .end method
 
 .method protected getLastKnownLocation()Landroid/location/Location;
-    .registers 10
+    .locals 9
 
     .prologue
     .line 112
@@ -418,13 +418,13 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2f
+    if-eqz v5, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -442,10 +442,10 @@
 
     .line 116
     .local v2, lastKnownLocation:Landroid/location/Location;
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_0
 
     .line 117
-    if-eqz v0, :cond_2d
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/location/Location;->getTime()J
 
@@ -457,23 +457,23 @@
 
     cmp-long v5, v5, v7
 
-    if-gez v5, :cond_b
+    if-gez v5, :cond_0
 
     .line 118
-    :cond_2d
+    :cond_1
     move-object v0, v2
 
-    goto :goto_b
+    goto :goto_0
 
     .line 122
     .end local v2           #lastKnownLocation:Landroid/location/Location;
     .end local v3           #provider:Ljava/lang/String;
-    :cond_2f
+    :cond_2
     return-object v0
 .end method
 
 .method protected getQueryLocationTimeout()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 129
@@ -483,7 +483,7 @@
 .end method
 
 .method protected isAcceptableProvider(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "provider"
 
     .prologue
@@ -498,7 +498,7 @@
 .end method
 
 .method protected registerListener(Ljava/lang/String;Landroid/location/LocationListener;)V
-    .registers 9
+    .locals 6
     .parameter "provider"
     .parameter "listener"
 
@@ -521,16 +521,16 @@
 .end method
 
 .method public declared-synchronized stop()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 204
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v2, p0, Lcom/android/server/location/LocationBasedCountryDetector;->mLocationListeners:Ljava/util/List;
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_1
 
     .line 205
     iget-object v2, p0, Lcom/android/server/location/LocationBasedCountryDetector;->mLocationListeners:Ljava/util/List;
@@ -540,12 +540,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_b
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1e
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -556,15 +556,15 @@
     .line 206
     .local v1, listener:Landroid/location/LocationListener;
     invoke-virtual {p0, v1}, Lcom/android/server/location/LocationBasedCountryDetector;->unregisterListener(Landroid/location/LocationListener;)V
-    :try_end_1a
-    .catchall {:try_start_1 .. :try_end_1a} :catchall_1b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_b
+    goto :goto_0
 
     .line 204
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #listener:Landroid/location/LocationListener;
-    :catchall_1b
+    :catchall_0
     move-exception v2
 
     monitor-exit p0
@@ -573,18 +573,18 @@
 
     .line 208
     .restart local v0       #i$:Ljava/util/Iterator;
-    :cond_1e
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_1f
+    :try_start_1
     iput-object v2, p0, Lcom/android/server/location/LocationBasedCountryDetector;->mLocationListeners:Ljava/util/List;
 
     .line 210
     .end local v0           #i$:Ljava/util/Iterator;
-    :cond_21
+    :cond_1
     iget-object v2, p0, Lcom/android/server/location/LocationBasedCountryDetector;->mTimer:Ljava/util/Timer;
 
-    if-eqz v2, :cond_2d
+    if-eqz v2, :cond_2
 
     .line 211
     iget-object v2, p0, Lcom/android/server/location/LocationBasedCountryDetector;->mTimer:Ljava/util/Timer;
@@ -595,18 +595,18 @@
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/android/server/location/LocationBasedCountryDetector;->mTimer:Ljava/util/Timer;
-    :try_end_2d
-    .catchall {:try_start_1f .. :try_end_2d} :catchall_1b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 214
-    :cond_2d
+    :cond_2
     monitor-exit p0
 
     return-void
 .end method
 
 .method protected unregisterListener(Landroid/location/LocationListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue

@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/database/Cursor;)V
-    .registers 2
+    .locals 0
     .parameter "cursor"
 
     .prologue
@@ -22,7 +22,7 @@
 
 # virtual methods
 .method public fillWindow(ILandroid/database/CursorWindow;)V
-    .registers 5
+    .locals 2
     .parameter "position"
     .parameter "window"
 
@@ -32,7 +32,7 @@
 
     instance-of v1, v1, Landroid/database/CrossProcessCursor;
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_0
 
     .line 48
     iget-object v0, p0, Landroid/database/CursorWrapper;->mCursor:Landroid/database/Cursor;
@@ -45,20 +45,20 @@
 
     .line 54
     .end local v0           #crossProcessCursor:Landroid/database/CrossProcessCursor;
-    :goto_d
+    :goto_0
     return-void
 
     .line 53
-    :cond_e
+    :cond_0
     iget-object v1, p0, Landroid/database/CursorWrapper;->mCursor:Landroid/database/Cursor;
 
     invoke-static {v1, p1, p2}, Landroid/database/DatabaseUtils;->cursorFillWindow(Landroid/database/Cursor;ILandroid/database/CursorWindow;)V
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public getWindow()Landroid/database/CursorWindow;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 58
@@ -66,7 +66,7 @@
 
     instance-of v1, v1, Landroid/database/CrossProcessCursor;
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_0
 
     .line 59
     iget-object v0, p0, Landroid/database/CursorWrapper;->mCursor:Landroid/database/Cursor;
@@ -81,17 +81,17 @@
 
     .line 63
     .end local v0           #crossProcessCursor:Landroid/database/CrossProcessCursor;
-    :goto_e
+    :goto_0
     return-object v1
 
-    :cond_f
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public onMove(II)Z
-    .registers 5
+    .locals 2
     .parameter "oldPosition"
     .parameter "newPosition"
 
@@ -101,7 +101,7 @@
 
     instance-of v1, v1, Landroid/database/CrossProcessCursor;
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_0
 
     .line 69
     iget-object v0, p0, Landroid/database/CursorWrapper;->mCursor:Landroid/database/Cursor;
@@ -116,11 +116,11 @@
 
     .line 73
     .end local v0           #crossProcessCursor:Landroid/database/CrossProcessCursor;
-    :goto_e
+    :goto_0
     return v1
 
-    :cond_f
+    :cond_0
     const/4 v1, 0x1
 
-    goto :goto_e
+    goto :goto_0
 .end method

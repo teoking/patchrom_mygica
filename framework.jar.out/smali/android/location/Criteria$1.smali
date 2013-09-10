@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 328
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/location/Criteria;
-    .registers 6
+    .locals 4
     .parameter "in"
 
     .prologue
@@ -60,6 +60,7 @@
 
     move-result v1
 
+    #setter for: Landroid/location/Criteria;->mHorizontalAccuracy:I
     invoke-static {v0, v1}, Landroid/location/Criteria;->access$002(Landroid/location/Criteria;I)I
 
     .line 332
@@ -67,6 +68,7 @@
 
     move-result v1
 
+    #setter for: Landroid/location/Criteria;->mVerticalAccuracy:I
     invoke-static {v0, v1}, Landroid/location/Criteria;->access$102(Landroid/location/Criteria;I)I
 
     .line 333
@@ -74,6 +76,7 @@
 
     move-result v1
 
+    #setter for: Landroid/location/Criteria;->mSpeedAccuracy:I
     invoke-static {v0, v1}, Landroid/location/Criteria;->access$202(Landroid/location/Criteria;I)I
 
     .line 334
@@ -81,6 +84,7 @@
 
     move-result v1
 
+    #setter for: Landroid/location/Criteria;->mBearingAccuracy:I
     invoke-static {v0, v1}, Landroid/location/Criteria;->access$302(Landroid/location/Criteria;I)I
 
     .line 335
@@ -88,6 +92,7 @@
 
     move-result v1
 
+    #setter for: Landroid/location/Criteria;->mPowerRequirement:I
     invoke-static {v0, v1}, Landroid/location/Criteria;->access$402(Landroid/location/Criteria;I)I
 
     .line 336
@@ -95,11 +100,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_52
+    if-eqz v1, :cond_0
 
     move v1, v2
 
-    :goto_31
+    :goto_0
+    #setter for: Landroid/location/Criteria;->mAltitudeRequired:Z
     invoke-static {v0, v1}, Landroid/location/Criteria;->access$502(Landroid/location/Criteria;Z)Z
 
     .line 337
@@ -107,11 +113,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_54
+    if-eqz v1, :cond_1
 
     move v1, v2
 
-    :goto_3b
+    :goto_1
+    #setter for: Landroid/location/Criteria;->mBearingRequired:Z
     invoke-static {v0, v1}, Landroid/location/Criteria;->access$602(Landroid/location/Criteria;Z)Z
 
     .line 338
@@ -119,11 +126,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_56
+    if-eqz v1, :cond_2
 
     move v1, v2
 
-    :goto_45
+    :goto_2
+    #setter for: Landroid/location/Criteria;->mSpeedRequired:Z
     invoke-static {v0, v1}, Landroid/location/Criteria;->access$702(Landroid/location/Criteria;Z)Z
 
     .line 339
@@ -131,41 +139,42 @@
 
     move-result v1
 
-    if-eqz v1, :cond_58
+    if-eqz v1, :cond_3
 
-    :goto_4e
+    :goto_3
+    #setter for: Landroid/location/Criteria;->mCostAllowed:Z
     invoke-static {v0, v2}, Landroid/location/Criteria;->access$802(Landroid/location/Criteria;Z)Z
 
     .line 340
     return-object v0
 
-    :cond_52
+    :cond_0
     move v1, v3
 
     .line 336
-    goto :goto_31
+    goto :goto_0
 
-    :cond_54
+    :cond_1
     move v1, v3
 
     .line 337
-    goto :goto_3b
+    goto :goto_1
 
-    :cond_56
+    :cond_2
     move v1, v3
 
     .line 338
-    goto :goto_45
+    goto :goto_2
 
-    :cond_58
+    :cond_3
     move v2, v3
 
     .line 339
-    goto :goto_4e
+    goto :goto_3
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -178,7 +187,7 @@
 .end method
 
 .method public newArray(I)[Landroid/location/Criteria;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -189,7 +198,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

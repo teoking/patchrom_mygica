@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/server/BluetoothBondState;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,21 +35,21 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
     .prologue
     .line 487
-    if-nez p2, :cond_3
+    if-nez p2, :cond_1
 
     .line 495
-    :cond_2
-    :goto_2
+    :cond_0
+    :goto_0
     return-void
 
     .line 489
-    :cond_3
+    :cond_1
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -62,7 +62,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_0
 
     .line 491
     const-string v3, "android.bluetooth.device.extra.DEVICE"
@@ -83,11 +83,12 @@
     .local v1, address:Ljava/lang/String;
     iget-object v3, p0, Landroid/server/BluetoothBondState$2;->this$0:Landroid/server/BluetoothBondState;
 
+    #getter for: Landroid/server/BluetoothBondState;->mPairingRequestRcvd:Ljava/util/ArrayList;
     invoke-static {v3}, Landroid/server/BluetoothBondState;->access$200(Landroid/server/BluetoothBondState;)Ljava/util/ArrayList;
 
     move-result-object v3
 
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_0
 .end method

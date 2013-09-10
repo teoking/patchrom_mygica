@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;Landroid/graphics/Typeface;)V
-    .registers 5
+    .locals 2
     .parameter "parent"
     .parameter "tf"
 
@@ -35,9 +35,9 @@
     .line 111
     iget-object v1, p0, Lcom/android/internal/widget/DigitalClock$AmPm;->mAmPmTextView:Landroid/widget/TextView;
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_0
 
-    if-eqz p2, :cond_e
+    if-eqz p2, :cond_0
 
     .line 112
     iget-object v1, p0, Lcom/android/internal/widget/DigitalClock$AmPm;->mAmPmTextView:Landroid/widget/TextView;
@@ -45,7 +45,7 @@
     invoke-virtual {v1, p2}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     .line 115
-    :cond_e
+    :cond_0
     new-instance v1, Ljava/text/DateFormatSymbols;
 
     invoke-direct {v1}, Ljava/text/DateFormatSymbols;-><init>()V
@@ -76,63 +76,63 @@
 
 # virtual methods
 .method setIsMorning(Z)V
-    .registers 4
+    .locals 2
     .parameter "isMorning"
 
     .prologue
     .line 127
     iget-object v0, p0, Lcom/android/internal/widget/DigitalClock$AmPm;->mAmPmTextView:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 128
     iget-object v1, p0, Lcom/android/internal/widget/DigitalClock$AmPm;->mAmPmTextView:Landroid/widget/TextView;
 
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_1
 
     iget-object v0, p0, Lcom/android/internal/widget/DigitalClock$AmPm;->mAmString:Ljava/lang/String;
 
-    :goto_a
+    :goto_0
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 130
-    :cond_d
+    :cond_0
     return-void
 
     .line 128
-    :cond_e
+    :cond_1
     iget-object v0, p0, Lcom/android/internal/widget/DigitalClock$AmPm;->mPmString:Ljava/lang/String;
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method setShowAmPm(Z)V
-    .registers 4
+    .locals 2
     .parameter "show"
 
     .prologue
     .line 121
     iget-object v0, p0, Lcom/android/internal/widget/DigitalClock$AmPm;->mAmPmTextView:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 122
     iget-object v1, p0, Lcom/android/internal/widget/DigitalClock$AmPm;->mAmPmTextView:Landroid/widget/TextView;
 
-    if-eqz p1, :cond_d
+    if-eqz p1, :cond_1
 
     const/4 v0, 0x0
 
-    :goto_9
+    :goto_0
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 124
-    :cond_c
+    :cond_0
     return-void
 
     .line 122
-    :cond_d
+    :cond_1
     const/16 v0, 0x8
 
-    goto :goto_9
+    goto :goto_0
 .end method

@@ -5,14 +5,14 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 34
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 37
-    :try_start_3
+    :try_start_0
     const-string v2, ""
 
     invoke-static {v2}, Ljava/util/logging/Logger;->getLogger(Ljava/lang/String;)Ljava/util/logging/Logger;
@@ -42,21 +42,21 @@
     sget-object v3, Ljava/util/logging/Level;->WARNING:Ljava/util/logging/Level;
 
     invoke-virtual {v2, v3}, Ljava/util/logging/Logger;->setLevel(Ljava/util/logging/Level;)V
-    :try_end_22
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_22} :catch_23
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 46
     .end local v1           #rootLogger:Ljava/util/logging/Logger;
-    :goto_22
+    :goto_0
     return-void
 
     .line 43
-    :catch_23
+    :catch_0
     move-exception v0
 
     .line 44
     .local v0, ex:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_22
+    goto :goto_0
 .end method

@@ -107,7 +107,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 4
+    .locals 4
 
     .prologue
     const/4 v3, 0x1
@@ -150,7 +150,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -271,7 +271,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/net/wifi/p2p/WifiP2pService;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -282,7 +282,7 @@
 .end method
 
 .method static synthetic access$10000(Landroid/net/wifi/p2p/WifiP2pService;)Landroid/os/Messenger;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -293,7 +293,7 @@
 .end method
 
 .method static synthetic access$10002(Landroid/net/wifi/p2p/WifiP2pService;Landroid/os/Messenger;)Landroid/os/Messenger;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -305,7 +305,7 @@
 .end method
 
 .method static synthetic access$10100(Landroid/net/wifi/p2p/WifiP2pService;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -316,7 +316,7 @@
 .end method
 
 .method static synthetic access$10102(Landroid/net/wifi/p2p/WifiP2pService;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -328,7 +328,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/net/wifi/p2p/WifiP2pService;Lcom/android/internal/util/AsyncChannel;)Lcom/android/internal/util/AsyncChannel;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -340,7 +340,7 @@
 .end method
 
 .method static synthetic access$10200(Landroid/net/wifi/p2p/WifiP2pService;)Landroid/app/ActivityManager;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -351,7 +351,7 @@
 .end method
 
 .method static synthetic access$2300(Landroid/net/wifi/p2p/WifiP2pService;)Landroid/net/NetworkInfo;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -362,7 +362,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/net/wifi/p2p/WifiP2pService;)Landroid/content/Context;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -373,7 +373,7 @@
 .end method
 
 .method static synthetic access$3300(Landroid/net/wifi/p2p/WifiP2pService;)Landroid/net/wifi/p2p/WifiP2pDevice;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -384,7 +384,7 @@
 .end method
 
 .method static synthetic access$4100(Landroid/net/wifi/p2p/WifiP2pService;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -395,7 +395,7 @@
 .end method
 
 .method static synthetic access$4102(Landroid/net/wifi/p2p/WifiP2pService;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -407,7 +407,7 @@
 .end method
 
 .method static synthetic access$4300()Ljava/lang/Boolean;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 102
@@ -417,7 +417,7 @@
 .end method
 
 .method static synthetic access$4500()Ljava/lang/Boolean;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 102
@@ -427,7 +427,7 @@
 .end method
 
 .method static synthetic access$5200(Landroid/net/wifi/p2p/WifiP2pService;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -438,7 +438,7 @@
 .end method
 
 .method static synthetic access$5202(Landroid/net/wifi/p2p/WifiP2pService;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -450,7 +450,7 @@
 .end method
 
 .method static synthetic access$5700(Landroid/net/wifi/p2p/WifiP2pService;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -461,7 +461,7 @@
 .end method
 
 .method static synthetic access$5702(Landroid/net/wifi/p2p/WifiP2pService;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -473,7 +473,7 @@
 .end method
 
 .method static synthetic access$6100()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 102
@@ -483,7 +483,7 @@
 .end method
 
 .method static synthetic access$6104()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 102
@@ -497,7 +497,7 @@
 .end method
 
 .method static synthetic access$7500(Landroid/net/wifi/p2p/WifiP2pService;)Landroid/net/DhcpStateMachine;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -508,7 +508,7 @@
 .end method
 
 .method static synthetic access$7502(Landroid/net/wifi/p2p/WifiP2pService;Landroid/net/DhcpStateMachine;)Landroid/net/DhcpStateMachine;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -520,7 +520,7 @@
 .end method
 
 .method static synthetic access$9100(Landroid/net/wifi/p2p/WifiP2pService;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -531,7 +531,7 @@
 .end method
 
 .method static synthetic access$9102(Landroid/net/wifi/p2p/WifiP2pService;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -543,7 +543,7 @@
 .end method
 
 .method static synthetic access$9200()[Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 102
@@ -553,7 +553,7 @@
 .end method
 
 .method static synthetic access$9300(Landroid/net/wifi/p2p/WifiP2pService;)Ljava/util/HashMap;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -564,7 +564,7 @@
 .end method
 
 .method static synthetic access$9400(Landroid/net/wifi/p2p/WifiP2pService;)B
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -575,7 +575,7 @@
 .end method
 
 .method static synthetic access$9402(Landroid/net/wifi/p2p/WifiP2pService;B)B
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -587,7 +587,7 @@
 .end method
 
 .method static synthetic access$9404(Landroid/net/wifi/p2p/WifiP2pService;)B
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -604,7 +604,7 @@
 .end method
 
 .method static synthetic access$9500(Landroid/net/wifi/p2p/WifiP2pService;)Lcom/android/internal/util/AsyncChannel;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -615,7 +615,7 @@
 .end method
 
 .method private enforceAccessPermission()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 224
@@ -632,7 +632,7 @@
 .end method
 
 .method private enforceChangePermission()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 229
@@ -651,7 +651,7 @@
 
 # virtual methods
 .method public connectivityServiceReady()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 218
@@ -693,7 +693,7 @@
 .end method
 
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 6
+    .locals 2
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -708,7 +708,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_0
 
     .line 247
     new-instance v0, Ljava/lang/StringBuilder;
@@ -750,12 +750,12 @@
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 252
-    :cond_32
+    :cond_0
     return-void
 .end method
 
 .method public getMessenger()Landroid/os/Messenger;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 238

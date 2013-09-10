@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(FF)V
-    .registers 4
+    .locals 1
     .parameter "segmentLength"
     .parameter "deviation"
 

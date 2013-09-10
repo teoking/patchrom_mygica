@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/RemoteControlService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 12
+    .locals 10
     .parameter "msg"
 
     .prologue
@@ -88,11 +88,12 @@
     .local v0, action:[Ljava/lang/String;
     iget-object v5, p0, Lcom/android/server/RemoteControlService$2;->this$0:Lcom/android/server/RemoteControlService;
 
+    #getter for: Lcom/android/server/RemoteControlService;->mContext:Landroid/content/Context;
     invoke-static {v5}, Lcom/android/server/RemoteControlService;->access$100(Lcom/android/server/RemoteControlService;)Landroid/content/Context;
 
     move-result-object v5
 
-    if-nez v5, :cond_34
+    if-nez v5, :cond_0
 
     .line 196
     const-string v5, "RemoteControlService"
@@ -102,28 +103,28 @@
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 199
-    :cond_34
+    :cond_0
     iget v5, p1, Landroid/os/Message;->what:I
 
-    if-eq v8, v5, :cond_3e
+    if-eq v8, v5, :cond_1
 
     const/16 v5, 0x81
 
     iget v6, p1, Landroid/os/Message;->what:I
 
-    if-ne v5, v6, :cond_74
+    if-ne v5, v6, :cond_3
 
     .line 201
-    :cond_3e
+    :cond_1
     iget v5, p1, Landroid/os/Message;->what:I
 
-    if-ne v8, v5, :cond_71
+    if-ne v8, v5, :cond_2
 
     const-string v2, "com.bestv.msg.phone.connect"
 
     .line 202
     .local v2, connectAction:Ljava/lang/String;
-    :goto_44
+    :goto_0
     new-instance v4, Landroid/content/Intent;
 
     invoke-direct {v4, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
@@ -135,6 +136,7 @@
     .line 204
     iget-object v5, p0, Lcom/android/server/RemoteControlService$2;->this$0:Lcom/android/server/RemoteControlService;
 
+    #getter for: Lcom/android/server/RemoteControlService;->mContext:Landroid/content/Context;
     invoke-static {v5}, Lcom/android/server/RemoteControlService;->access$100(Lcom/android/server/RemoteControlService;)Landroid/content/Context;
 
     move-result-object v5
@@ -167,23 +169,23 @@
     .line 222
     .end local v2           #connectAction:Ljava/lang/String;
     .end local v4           #it:Landroid/content/Intent;
-    :goto_6d
+    :goto_1
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
     .line 223
     return-void
 
     .line 201
-    :cond_71
+    :cond_2
     const-string v2, "com.bestv.msg.phone.disconnect"
 
-    goto :goto_44
+    goto :goto_0
 
     .line 208
-    :cond_74
+    :cond_3
     iget v5, p1, Landroid/os/Message;->what:I
 
-    if-le v5, v7, :cond_80
+    if-le v5, v7, :cond_4
 
     .line 209
     const-string v5, "RemoteControlService"
@@ -192,10 +194,10 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_6d
+    goto :goto_1
 
     .line 212
-    :cond_80
+    :cond_4
     new-instance v3, Landroid/content/Intent;
 
     iget v5, p1, Landroid/os/Message;->what:I
@@ -229,6 +231,7 @@
     .line 217
     iget-object v5, p0, Lcom/android/server/RemoteControlService$2;->this$0:Lcom/android/server/RemoteControlService;
 
+    #getter for: Lcom/android/server/RemoteControlService;->mContext:Landroid/content/Context;
     invoke-static {v5}, Lcom/android/server/RemoteControlService;->access$100(Lcom/android/server/RemoteControlService;)Landroid/content/Context;
 
     move-result-object v5
@@ -258,5 +261,5 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_6d
+    goto :goto_1
 .end method

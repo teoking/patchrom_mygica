@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
-    .registers 3
+    .locals 0
     .parameter "id"
     .parameter "rs"
 
@@ -28,21 +28,21 @@
 
 # virtual methods
 .method public getInput(I)Landroid/renderscript/Element;
-    .registers 4
+    .locals 2
     .parameter "slot"
 
     .prologue
     .line 72
-    if-ltz p1, :cond_7
+    if-ltz p1, :cond_0
 
     iget-object v0, p0, Landroid/renderscript/Program;->mInputs:[Landroid/renderscript/Element;
 
     array-length v0, v0
 
-    if-lt p1, v0, :cond_f
+    if-lt p1, v0, :cond_1
 
     .line 73
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Slot ID out of range."
@@ -52,7 +52,7 @@
     throw v0
 
     .line 75
-    :cond_f
+    :cond_1
     iget-object v0, p0, Landroid/renderscript/Program;->mInputs:[Landroid/renderscript/Element;
 
     aget-object v0, v0, p1
@@ -61,23 +61,23 @@
 .end method
 
 .method public getInputCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 63
     iget-object v0, p0, Landroid/renderscript/Program;->mInputs:[Landroid/renderscript/Element;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/renderscript/Program;->mInputs:[Landroid/renderscript/Element;
 
     array-length v0, v0
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method

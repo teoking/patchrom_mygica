@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 25
@@ -47,14 +47,14 @@
 
 # virtual methods
 .method public addListener(Landroid/animation/Animator$AnimatorListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
     .line 143
     iget-object v0, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 144
     new-instance v0, Ljava/util/ArrayList;
@@ -64,7 +64,7 @@
     iput-object v0, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
     .line 146
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -74,7 +74,7 @@
 .end method
 
 .method public cancel()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 59
@@ -82,7 +82,7 @@
 .end method
 
 .method public clone()Landroid/animation/Animator;
-    .registers 8
+    .locals 7
 
     .prologue
     .line 190
@@ -97,7 +97,7 @@
     .local v0, anim:Landroid/animation/Animator;
     iget-object v5, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
-    if-eqz v5, :cond_2d
+    if-eqz v5, :cond_0
 
     .line 192
     iget-object v4, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
@@ -120,8 +120,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_18
-    if-ge v2, v3, :cond_2d
+    :goto_0
+    if-ge v2, v3, :cond_0
 
     .line 196
     iget-object v5, v0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
@@ -131,20 +131,20 @@
     move-result-object v6
 
     invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_23
-    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_23} :catch_26
+    :try_end_0
+    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 195
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_18
+    goto :goto_0
 
     .line 200
     .end local v0           #anim:Landroid/animation/Animator;
     .end local v2           #i:I
     .end local v3           #numListeners:I
     .end local v4           #oldListeners:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorListener;>;"
-    :catch_26
+    :catch_0
     move-exception v1
 
     .line 201
@@ -158,12 +158,12 @@
     .line 199
     .end local v1           #e:Ljava/lang/CloneNotSupportedException;
     .restart local v0       #anim:Landroid/animation/Animator;
-    :cond_2d
+    :cond_0
     return-object v0
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -180,7 +180,7 @@
 .end method
 
 .method public end()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 70
@@ -191,7 +191,7 @@
 .end method
 
 .method public getListeners()Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -216,7 +216,7 @@
 .end method
 
 .method public isStarted()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 133
@@ -228,13 +228,13 @@
 .end method
 
 .method public removeAllListeners()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 181
     iget-object v0, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 182
     iget-object v0, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
@@ -247,27 +247,27 @@
     iput-object v0, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
     .line 185
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public removeListener(Landroid/animation/Animator$AnimatorListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
     .line 156
     iget-object v0, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_1
 
     .line 163
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-void
 
     .line 159
-    :cond_5
+    :cond_1
     iget-object v0, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
@@ -279,14 +279,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_0
 
     .line 161
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public abstract setDuration(J)Landroid/animation/Animator;
@@ -299,7 +299,7 @@
 .end method
 
 .method public setTarget(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "target"
 
     .prologue
@@ -308,7 +308,7 @@
 .end method
 
 .method public setupEndValues()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 227
@@ -316,7 +316,7 @@
 .end method
 
 .method public setupStartValues()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 215
@@ -324,7 +324,7 @@
 .end method
 
 .method public start()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 47

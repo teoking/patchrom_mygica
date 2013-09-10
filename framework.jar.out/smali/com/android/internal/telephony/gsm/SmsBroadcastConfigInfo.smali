@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(IIIIZ)V
-    .registers 6
+    .locals 0
     .parameter "fromId"
     .parameter "toId"
     .parameter "fromScheme"
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public getFromCodeScheme()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 95
@@ -60,7 +60,7 @@
 .end method
 
 .method public getFromServiceId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 67
@@ -70,7 +70,7 @@
 .end method
 
 .method public getToCodeScheme()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 109
@@ -80,7 +80,7 @@
 .end method
 
 .method public getToServiceId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -90,7 +90,7 @@
 .end method
 
 .method public isSelected()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 123
@@ -100,7 +100,7 @@
 .end method
 
 .method public setFromCodeScheme(I)V
-    .registers 2
+    .locals 0
     .parameter "fromCodeScheme"
 
     .prologue
@@ -112,7 +112,7 @@
 .end method
 
 .method public setFromServiceId(I)V
-    .registers 2
+    .locals 0
     .parameter "fromServiceId"
 
     .prologue
@@ -124,7 +124,7 @@
 .end method
 
 .method public setSelected(Z)V
-    .registers 2
+    .locals 0
     .parameter "selected"
 
     .prologue
@@ -136,7 +136,7 @@
 .end method
 
 .method public setToCodeScheme(I)V
-    .registers 2
+    .locals 0
     .parameter "toCodeScheme"
 
     .prologue
@@ -148,7 +148,7 @@
 .end method
 
 .method public setToServiceId(I)V
-    .registers 2
+    .locals 0
     .parameter "toServiceId"
 
     .prologue
@@ -160,7 +160,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     const/16 v2, 0x2c
@@ -222,11 +222,11 @@
 
     iget-boolean v0, p0, Lcom/android/internal/telephony/gsm/SmsBroadcastConfigInfo;->selected:Z
 
-    if-eqz v0, :cond_48
+    if-eqz v0, :cond_0
 
     const-string v0, "ENABLED"
 
-    :goto_3f
+    :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -237,8 +237,8 @@
 
     return-object v0
 
-    :cond_48
+    :cond_0
     const-string v0, "DISABLED"
 
-    goto :goto_3f
+    goto :goto_0
 .end method

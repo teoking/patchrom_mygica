@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/ChooseAccountActivity;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 12
+    .locals 6
     .parameter
     .parameter "v"
     .parameter "position"

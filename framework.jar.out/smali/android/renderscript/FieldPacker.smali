@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "len"
 
     .prologue
@@ -40,16 +40,16 @@
 
 # virtual methods
 .method public addBoolean(Z)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
     .line 331
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_3
+    :goto_0
     int-to-byte v0, v0
 
     invoke-virtual {p0, v0}, Landroid/renderscript/FieldPacker;->addI8(B)V
@@ -58,14 +58,14 @@
     return-void
 
     .line 331
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public addF32(F)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -81,7 +81,7 @@
 .end method
 
 .method public addF32(Landroid/renderscript/Float2;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -100,7 +100,7 @@
 .end method
 
 .method public addF32(Landroid/renderscript/Float3;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -124,7 +124,7 @@
 .end method
 
 .method public addF32(Landroid/renderscript/Float4;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -153,7 +153,7 @@
 .end method
 
 .method public addF64(D)V
-    .registers 5
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -169,7 +169,7 @@
 .end method
 
 .method public addF64(Landroid/renderscript/Double2;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -188,7 +188,7 @@
 .end method
 
 .method public addF64(Landroid/renderscript/Double3;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -212,7 +212,7 @@
 .end method
 
 .method public addF64(Landroid/renderscript/Double4;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -241,7 +241,7 @@
 .end method
 
 .method public addI16(Landroid/renderscript/Short2;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -260,7 +260,7 @@
 .end method
 
 .method public addI16(Landroid/renderscript/Short3;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -284,7 +284,7 @@
 .end method
 
 .method public addI16(Landroid/renderscript/Short4;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -313,7 +313,7 @@
 .end method
 
 .method public addI16(S)V
-    .registers 5
+    .locals 3
     .parameter "v"
 
     .prologue
@@ -357,7 +357,7 @@
 .end method
 
 .method public addI32(I)V
-    .registers 5
+    .locals 3
     .parameter "v"
 
     .prologue
@@ -437,7 +437,7 @@
 .end method
 
 .method public addI32(Landroid/renderscript/Int2;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -456,7 +456,7 @@
 .end method
 
 .method public addI32(Landroid/renderscript/Int3;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -480,7 +480,7 @@
 .end method
 
 .method public addI32(Landroid/renderscript/Int4;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -509,7 +509,7 @@
 .end method
 
 .method public addI64(J)V
-    .registers 10
+    .locals 7
     .parameter "v"
 
     .prologue
@@ -687,7 +687,7 @@
 .end method
 
 .method public addI64(Landroid/renderscript/Long2;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -706,7 +706,7 @@
 .end method
 
 .method public addI64(Landroid/renderscript/Long3;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -730,7 +730,7 @@
 .end method
 
 .method public addI64(Landroid/renderscript/Long4;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -759,7 +759,7 @@
 .end method
 
 .method public addI8(B)V
-    .registers 5
+    .locals 3
     .parameter "v"
 
     .prologue
@@ -779,7 +779,7 @@
 .end method
 
 .method public addI8(Landroid/renderscript/Byte2;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -798,7 +798,7 @@
 .end method
 
 .method public addI8(Landroid/renderscript/Byte3;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -822,7 +822,7 @@
 .end method
 
 .method public addI8(Landroid/renderscript/Byte4;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -851,7 +851,7 @@
 .end method
 
 .method public addMatrix(Landroid/renderscript/Matrix2f;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -859,12 +859,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v1, p1, Landroid/renderscript/Matrix2f;->mMat:[F
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_10
+    if-ge v0, v1, :cond_0
 
     .line 326
     iget-object v1, p1, Landroid/renderscript/Matrix2f;->mMat:[F
@@ -876,15 +876,15 @@
     .line 325
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 328
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method public addMatrix(Landroid/renderscript/Matrix3f;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -892,12 +892,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v1, p1, Landroid/renderscript/Matrix3f;->mMat:[F
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_10
+    if-ge v0, v1, :cond_0
 
     .line 320
     iget-object v1, p1, Landroid/renderscript/Matrix3f;->mMat:[F
@@ -909,15 +909,15 @@
     .line 319
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 322
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method public addMatrix(Landroid/renderscript/Matrix4f;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -925,12 +925,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v1, p1, Landroid/renderscript/Matrix4f;->mMat:[F
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_10
+    if-ge v0, v1, :cond_0
 
     .line 314
     iget-object v1, p1, Landroid/renderscript/Matrix4f;->mMat:[F
@@ -942,20 +942,20 @@
     .line 313
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 316
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method public addObj(Landroid/renderscript/BaseObj;)V
-    .registers 3
+    .locals 1
     .parameter "obj"
 
     .prologue
     .line 145
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_0
 
     .line 146
     const/4 v0, 0x0
@@ -967,32 +967,32 @@
     invoke-virtual {p0, v0}, Landroid/renderscript/FieldPacker;->addI32(I)V
 
     .line 150
-    :goto_a
+    :goto_0
     return-void
 
     .line 148
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/renderscript/FieldPacker;->addI32(I)V
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public addU16(I)V
-    .registers 5
+    .locals 3
     .parameter "v"
 
     .prologue
     .line 99
-    if-ltz p1, :cond_7
+    if-ltz p1, :cond_0
 
     const v0, 0xffff
 
-    if-le p1, v0, :cond_2e
+    if-le p1, v0, :cond_1
 
     .line 100
-    :cond_7
+    :cond_0
     const-string/jumbo v0, "rs"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1031,7 +1031,7 @@
     throw v0
 
     .line 103
-    :cond_2e
+    :cond_1
     const/4 v0, 0x2
 
     invoke-virtual {p0, v0}, Landroid/renderscript/FieldPacker;->align(I)V
@@ -1071,7 +1071,7 @@
 .end method
 
 .method public addU16(Landroid/renderscript/Int2;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -1090,7 +1090,7 @@
 .end method
 
 .method public addU16(Landroid/renderscript/Int3;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -1114,7 +1114,7 @@
 .end method
 
 .method public addU16(Landroid/renderscript/Int4;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -1143,7 +1143,7 @@
 .end method
 
 .method public addU32(J)V
-    .registers 9
+    .locals 6
     .parameter "v"
 
     .prologue
@@ -1154,16 +1154,16 @@
 
     cmp-long v0, p1, v0
 
-    if-ltz v0, :cond_11
+    if-ltz v0, :cond_0
 
     const-wide v0, 0xffffffffL
 
     cmp-long v0, p1, v0
 
-    if-lez v0, :cond_38
+    if-lez v0, :cond_1
 
     .line 110
-    :cond_11
+    :cond_0
     const-string/jumbo v0, "rs"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1202,7 +1202,7 @@
     throw v0
 
     .line 113
-    :cond_38
+    :cond_1
     const/4 v0, 0x4
 
     invoke-virtual {p0, v0}, Landroid/renderscript/FieldPacker;->align(I)V
@@ -1292,7 +1292,7 @@
 .end method
 
 .method public addU32(Landroid/renderscript/Long2;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -1311,7 +1311,7 @@
 .end method
 
 .method public addU32(Landroid/renderscript/Long3;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -1335,7 +1335,7 @@
 .end method
 
 .method public addU32(Landroid/renderscript/Long4;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -1364,7 +1364,7 @@
 .end method
 
 .method public addU64(J)V
-    .registers 10
+    .locals 7
     .parameter "v"
 
     .prologue
@@ -1377,7 +1377,7 @@
 
     cmp-long v0, p1, v0
 
-    if-gez v0, :cond_31
+    if-gez v0, :cond_0
 
     .line 122
     const-string/jumbo v0, "rs"
@@ -1418,7 +1418,7 @@
     throw v0
 
     .line 125
-    :cond_31
+    :cond_0
     invoke-virtual {p0, v6}, Landroid/renderscript/FieldPacker;->align(I)V
 
     .line 126
@@ -1588,7 +1588,7 @@
 .end method
 
 .method public addU64(Landroid/renderscript/Long2;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -1607,7 +1607,7 @@
 .end method
 
 .method public addU64(Landroid/renderscript/Long3;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -1631,7 +1631,7 @@
 .end method
 
 .method public addU64(Landroid/renderscript/Long4;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -1660,7 +1660,7 @@
 .end method
 
 .method public addU8(Landroid/renderscript/Short2;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -1679,7 +1679,7 @@
 .end method
 
 .method public addU8(Landroid/renderscript/Short3;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -1703,7 +1703,7 @@
 .end method
 
 .method public addU8(Landroid/renderscript/Short4;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -1732,19 +1732,19 @@
 .end method
 
 .method public addU8(S)V
-    .registers 5
+    .locals 3
     .parameter "v"
 
     .prologue
     .line 91
-    if-ltz p1, :cond_6
+    if-ltz p1, :cond_0
 
     const/16 v0, 0xff
 
-    if-le p1, v0, :cond_2d
+    if-le p1, v0, :cond_1
 
     .line 92
-    :cond_6
+    :cond_0
     const-string/jumbo v0, "rs"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1783,7 +1783,7 @@
     throw v0
 
     .line 95
-    :cond_2d
+    :cond_1
     iget-object v0, p0, Landroid/renderscript/FieldPacker;->mData:[B
 
     iget v1, p0, Landroid/renderscript/FieldPacker;->mPos:I
@@ -1801,21 +1801,21 @@
 .end method
 
 .method public align(I)V
-    .registers 5
+    .locals 3
     .parameter "v"
 
     .prologue
     .line 33
-    if-lez p1, :cond_7
+    if-lez p1, :cond_0
 
     add-int/lit8 v0, p1, -0x1
 
     and-int/2addr v0, p1
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1
 
     .line 34
-    :cond_7
+    :cond_0
     new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1841,15 +1841,15 @@
     throw v0
 
     .line 37
-    :cond_20
-    :goto_20
+    :cond_1
+    :goto_0
     iget v0, p0, Landroid/renderscript/FieldPacker;->mPos:I
 
     add-int/lit8 v1, p1, -0x1
 
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_2
 
     .line 38
     iget-object v0, p0, Landroid/renderscript/FieldPacker;->mData:[B
@@ -1864,15 +1864,15 @@
 
     aput-byte v2, v0, v1
 
-    goto :goto_20
+    goto :goto_0
 
     .line 40
-    :cond_33
+    :cond_2
     return-void
 .end method
 
 .method public final getData()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 335
@@ -1882,7 +1882,7 @@
 .end method
 
 .method public reset()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 43
@@ -1895,19 +1895,19 @@
 .end method
 
 .method public reset(I)V
-    .registers 5
+    .locals 3
     .parameter "i"
 
     .prologue
     .line 46
-    if-ltz p1, :cond_6
+    if-ltz p1, :cond_0
 
     iget v0, p0, Landroid/renderscript/FieldPacker;->mLen:I
 
-    if-lt p1, v0, :cond_20
+    if-lt p1, v0, :cond_1
 
     .line 47
-    :cond_6
+    :cond_0
     new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1933,7 +1933,7 @@
     throw v0
 
     .line 49
-    :cond_20
+    :cond_1
     iput p1, p0, Landroid/renderscript/FieldPacker;->mPos:I
 
     .line 50
@@ -1941,7 +1941,7 @@
 .end method
 
 .method public skip(I)V
-    .registers 6
+    .locals 4
     .parameter "i"
 
     .prologue
@@ -1952,14 +1952,14 @@
 
     .line 54
     .local v0, res:I
-    if-ltz v0, :cond_a
+    if-ltz v0, :cond_0
 
     iget v1, p0, Landroid/renderscript/FieldPacker;->mLen:I
 
-    if-le v0, v1, :cond_24
+    if-le v0, v1, :cond_1
 
     .line 55
-    :cond_a
+    :cond_0
     new-instance v1, Landroid/renderscript/RSIllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1985,7 +1985,7 @@
     throw v1
 
     .line 57
-    :cond_24
+    :cond_1
     iput v0, p0, Landroid/renderscript/FieldPacker;->mPos:I
 
     .line 58

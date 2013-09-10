@@ -61,7 +61,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 63
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/net/sip/SipProfile;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "localProfile"
 
@@ -128,7 +128,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 62
@@ -138,7 +138,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/net/sip/SipAudioCall;)Landroid/net/sip/SipAudioCall$Listener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -149,7 +149,7 @@
 .end method
 
 .method static synthetic access$1000(Landroid/net/sip/SipAudioCall;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -160,7 +160,7 @@
 .end method
 
 .method static synthetic access$1002(Landroid/net/sip/SipAudioCall;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -172,7 +172,7 @@
 .end method
 
 .method static synthetic access$1102(Landroid/net/sip/SipAudioCall;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -184,7 +184,7 @@
 .end method
 
 .method static synthetic access$1200(Landroid/net/sip/SipAudioCall;ILjava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -197,7 +197,7 @@
 .end method
 
 .method static synthetic access$1300(Landroid/net/sip/SipAudioCall;)Landroid/net/sip/SimpleSessionDescription;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -210,7 +210,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/net/sip/SipAudioCall;)Landroid/net/sip/SipSession;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -221,7 +221,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/net/sip/SipAudioCall;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -232,7 +232,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/net/sip/SipAudioCall;Ljava/lang/String;)Landroid/net/sip/SimpleSessionDescription;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -246,7 +246,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/net/sip/SipAudioCall;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -257,7 +257,7 @@
 .end method
 
 .method static synthetic access$502(Landroid/net/sip/SipAudioCall;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -269,7 +269,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/net/sip/SipAudioCall;)Landroid/net/sip/SipSession;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -280,7 +280,7 @@
 .end method
 
 .method static synthetic access$602(Landroid/net/sip/SipAudioCall;Landroid/net/sip/SipSession;)Landroid/net/sip/SipSession;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -292,7 +292,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/net/sip/SipAudioCall;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -303,7 +303,7 @@
 .end method
 
 .method static synthetic access$800(Landroid/net/sip/SipAudioCall;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -314,7 +314,7 @@
 .end method
 
 .method static synthetic access$900(Landroid/net/sip/SipAudioCall;Z)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -326,22 +326,22 @@
 .end method
 
 .method private declared-synchronized close(Z)V
-    .registers 4
+    .locals 2
     .parameter "closeRtp"
 
     .prologue
     .line 298
     monitor-enter p0
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x1
 
-    :try_start_4
+    :try_start_0
     invoke-direct {p0, v0}, Landroid/net/sip/SipAudioCall;->stopCall(Z)V
 
     .line 300
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/net/sip/SipAudioCall;->mInCall:Z
@@ -371,7 +371,7 @@
     .line 306
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
 
-    if-eqz v0, :cond_26
+    if-eqz v0, :cond_1
 
     .line 307
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
@@ -384,17 +384,17 @@
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
-    :try_end_26
-    .catchall {:try_start_4 .. :try_end_26} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 310
-    :cond_26
+    :cond_1
     monitor-exit p0
 
     return-void
 
     .line 298
-    :catchall_28
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -403,7 +403,7 @@
 .end method
 
 .method private createAnswer(Ljava/lang/String;)Landroid/net/sip/SimpleSessionDescription;
-    .registers 24
+    .locals 22
     .parameter "offerSd"
 
     .prologue
@@ -412,18 +412,18 @@
 
     move-result v18
 
-    if-eqz v18, :cond_b
+    if-eqz v18, :cond_1
 
     invoke-direct/range {p0 .. p0}, Landroid/net/sip/SipAudioCall;->createOffer()Landroid/net/sip/SimpleSessionDescription;
 
     move-result-object v4
 
     .line 803
-    :cond_a
+    :cond_0
     return-object v4
 
     .line 748
-    :cond_b
+    :cond_1
     new-instance v14, Landroid/net/sip/SimpleSessionDescription;
 
     move-object/from16 v0, p1
@@ -473,20 +473,20 @@
     .end local v9           #i$:I
     .end local v11           #len$:I
     .local v10, i$:I
-    :goto_2d
-    if-ge v10, v11, :cond_16f
+    :goto_0
+    if-ge v10, v11, :cond_b
 
     aget-object v13, v5, v10
 
     .line 754
     .local v13, media:Landroid/net/sip/SimpleSessionDescription$Media;
-    if-nez v7, :cond_143
+    if-nez v7, :cond_a
 
     invoke-virtual {v13}, Landroid/net/sip/SimpleSessionDescription$Media;->getPort()I
 
     move-result v18
 
-    if-lez v18, :cond_143
+    if-lez v18, :cond_a
 
     const-string v18, "audio"
 
@@ -498,7 +498,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_143
+    if-eqz v18, :cond_a
 
     const-string v18, "RTP/AVP"
 
@@ -510,7 +510,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_143
+    if-eqz v18, :cond_a
 
     .line 758
     invoke-virtual {v13}, Landroid/net/sip/SimpleSessionDescription$Media;->getRtpPayloadTypes()[I
@@ -525,8 +525,8 @@
 
     .end local v10           #i$:I
     .restart local v9       #i$:I
-    :goto_57
-    if-ge v9, v12, :cond_6d
+    :goto_1
+    if-ge v9, v12, :cond_2
 
     aget v17, v6, v9
 
@@ -549,12 +549,12 @@
     move-result-object v7
 
     .line 761
-    if-eqz v7, :cond_db
+    if-eqz v7, :cond_4
 
     .line 765
     .end local v17           #type:I
-    :cond_6d
-    if-eqz v7, :cond_143
+    :cond_2
+    if-eqz v7, :cond_a
 
     .line 766
     const-string v18, "audio"
@@ -616,8 +616,8 @@
 
     const/4 v9, 0x0
 
-    :goto_a6
-    if-ge v9, v12, :cond_df
+    :goto_2
+    if-ge v9, v12, :cond_5
 
     aget v17, v6, v9
 
@@ -639,9 +639,9 @@
 
     move/from16 v1, v18
 
-    if-eq v0, v1, :cond_d8
+    if-eq v0, v1, :cond_3
 
-    if-eqz v16, :cond_d8
+    if-eqz v16, :cond_3
 
     const-string/jumbo v18, "telephone-event"
 
@@ -653,7 +653,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_d8
+    if-eqz v18, :cond_3
 
     .line 775
     move/from16 v0, v17
@@ -671,23 +671,23 @@
     invoke-virtual {v15, v0, v1, v2}, Landroid/net/sip/SimpleSessionDescription$Media;->setRtpPayload(ILjava/lang/String;Ljava/lang/String;)V
 
     .line 771
-    :cond_d8
+    :cond_3
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_a6
+    goto :goto_2
 
     .line 758
     .end local v15           #reply:Landroid/net/sip/SimpleSessionDescription$Media;
     .end local v16           #rtpmap:Ljava/lang/String;
-    :cond_db
+    :cond_4
     add-int/lit8 v9, v9, 0x1
 
-    goto/16 :goto_57
+    goto/16 :goto_1
 
     .line 781
     .end local v17           #type:I
     .restart local v15       #reply:Landroid/net/sip/SimpleSessionDescription$Media;
-    :cond_df
+    :cond_5
     const-string/jumbo v18, "recvonly"
 
     move-object/from16 v0, v18
@@ -696,7 +696,7 @@
 
     move-result-object v18
 
-    if-eqz v18, :cond_fb
+    if-eqz v18, :cond_7
 
     .line 782
     const-string/jumbo v18, "sendonly"
@@ -711,21 +711,21 @@
 
     .line 753
     .end local v6           #arr$:[I
-    :cond_f6
-    :goto_f6
+    :cond_6
+    :goto_3
     add-int/lit8 v9, v10, 0x1
 
     move v10, v9
 
     .end local v9           #i$:I
     .restart local v10       #i$:I
-    goto/16 :goto_2d
+    goto/16 :goto_0
 
     .line 783
     .end local v10           #i$:I
     .restart local v6       #arr$:[I
     .restart local v9       #i$:I
-    :cond_fb
+    :cond_7
     const-string/jumbo v18, "sendonly"
 
     move-object/from16 v0, v18
@@ -734,7 +734,7 @@
 
     move-result-object v18
 
-    if-eqz v18, :cond_113
+    if-eqz v18, :cond_8
 
     .line 784
     const-string/jumbo v18, "recvonly"
@@ -747,10 +747,10 @@
 
     invoke-virtual {v4, v0, v1}, Landroid/net/sip/SimpleSessionDescription;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_f6
+    goto :goto_3
 
     .line 785
-    :cond_113
+    :cond_8
     const-string/jumbo v18, "recvonly"
 
     move-object/from16 v0, v18
@@ -759,7 +759,7 @@
 
     move-result-object v18
 
-    if-eqz v18, :cond_12b
+    if-eqz v18, :cond_9
 
     .line 786
     const-string/jumbo v18, "sendonly"
@@ -772,10 +772,10 @@
 
     invoke-virtual {v4, v0, v1}, Landroid/net/sip/SimpleSessionDescription;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_f6
+    goto :goto_3
 
     .line 787
-    :cond_12b
+    :cond_9
     const-string/jumbo v18, "sendonly"
 
     move-object/from16 v0, v18
@@ -784,7 +784,7 @@
 
     move-result-object v18
 
-    if-eqz v18, :cond_f6
+    if-eqz v18, :cond_6
 
     .line 788
     const-string/jumbo v18, "recvonly"
@@ -797,14 +797,14 @@
 
     invoke-virtual {v4, v0, v1}, Landroid/net/sip/SimpleSessionDescription;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_f6
+    goto :goto_3
 
     .line 794
     .end local v6           #arr$:[I
     .end local v9           #i$:I
     .end local v12           #len$:I
     .end local v15           #reply:Landroid/net/sip/SimpleSessionDescription$Media;
-    :cond_143
+    :cond_a
     invoke-virtual {v13}, Landroid/net/sip/SimpleSessionDescription$Media;->getType()Ljava/lang/String;
 
     move-result-object v18
@@ -842,8 +842,8 @@
     const/4 v9, 0x0
 
     .restart local v9       #i$:I
-    :goto_161
-    if-ge v9, v12, :cond_f6
+    :goto_4
+    if-ge v9, v12, :cond_6
 
     aget-object v8, v6, v9
 
@@ -858,7 +858,7 @@
     .line 796
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_161
+    goto :goto_4
 
     .line 800
     .end local v6           #arr$:[Ljava/lang/String;
@@ -868,8 +868,8 @@
     .end local v13           #media:Landroid/net/sip/SimpleSessionDescription$Media;
     .end local v15           #reply:Landroid/net/sip/SimpleSessionDescription$Media;
     .restart local v10       #i$:I
-    :cond_16f
-    if-nez v7, :cond_a
+    :cond_b
+    if-nez v7, :cond_0
 
     .line 801
     new-instance v18, Ljava/lang/IllegalStateException;
@@ -882,7 +882,7 @@
 .end method
 
 .method private createContinueOffer()Landroid/net/sip/SimpleSessionDescription;
-    .registers 9
+    .locals 8
 
     .prologue
     .line 813
@@ -943,7 +943,7 @@
     .local v1, dtmfType:I
     const/4 v4, -0x1
 
-    if-eq v1, v4, :cond_3a
+    if-eq v1, v4, :cond_0
 
     .line 821
     const-string/jumbo v4, "telephone-event/8000"
@@ -953,12 +953,12 @@
     invoke-virtual {v2, v1, v4, v5}, Landroid/net/sip/SimpleSessionDescription$Media;->setRtpPayload(ILjava/lang/String;Ljava/lang/String;)V
 
     .line 823
-    :cond_3a
+    :cond_0
     return-object v3
 .end method
 
 .method private createHoldOffer()Landroid/net/sip/SimpleSessionDescription;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 807
@@ -979,7 +979,7 @@
 .end method
 
 .method private createListener()Landroid/net/sip/SipSession$Listener;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 382
@@ -991,7 +991,7 @@
 .end method
 
 .method private createOffer()Landroid/net/sip/SimpleSessionDescription;
-    .registers 12
+    .locals 11
 
     .prologue
     .line 734
@@ -1042,8 +1042,8 @@
     const/4 v3, 0x0
 
     .local v3, i$:I
-    :goto_24
-    if-ge v3, v4, :cond_34
+    :goto_0
+    if-ge v3, v4, :cond_0
 
     aget-object v1, v0, v3
 
@@ -1060,11 +1060,11 @@
     .line 739
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_24
+    goto :goto_0
 
     .line 742
     .end local v1           #codec:Landroid/net/rtp/AudioCodec;
-    :cond_34
+    :cond_0
     const/16 v7, 0x7f
 
     const-string/jumbo v8, "telephone-event/8000"
@@ -1078,7 +1078,7 @@
 .end method
 
 .method private getLocalIp()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1112
@@ -1092,7 +1092,7 @@
 .end method
 
 .method private getPeerProfile(Landroid/net/sip/SipSession;)Landroid/net/sip/SipProfile;
-    .registers 3
+    .locals 1
     .parameter "session"
 
     .prologue
@@ -1105,13 +1105,13 @@
 .end method
 
 .method private grabWifiHighPerfLock()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 827
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mWifiHighPerfLock:Landroid/net/wifi/WifiManager$WifiLock;
 
-    if-nez v0, :cond_24
+    if-nez v0, :cond_0
 
     .line 828
     sget-object v0, Landroid/net/sip/SipAudioCall;->TAG:Ljava/lang/String;
@@ -1147,12 +1147,12 @@
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager$WifiLock;->acquire()V
 
     .line 834
-    :cond_24
+    :cond_0
     return-void
 .end method
 
 .method private isSpeakerOn()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 883
@@ -1174,7 +1174,7 @@
 .end method
 
 .method private isWifiOn()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 845
@@ -1188,21 +1188,21 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x1
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method private onError(ILjava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "errorCode"
     .parameter "message"
 
@@ -1255,48 +1255,48 @@
 
     .line 570
     .local v0, listener:Landroid/net/sip/SipAudioCall$Listener;
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_0
 
     .line 572
-    :try_start_2f
+    :try_start_0
     invoke-virtual {v0, p0, p1, p2}, Landroid/net/sip/SipAudioCall$Listener;->onError(Landroid/net/sip/SipAudioCall;ILjava/lang/String;)V
-    :try_end_32
-    .catch Ljava/lang/Throwable; {:try_start_2f .. :try_end_32} :catch_43
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 577
-    :cond_32
-    :goto_32
+    :cond_0
+    :goto_0
     monitor-enter p0
 
     .line 578
     const/16 v2, -0xa
 
-    if-eq p1, v2, :cond_3d
+    if-eq p1, v2, :cond_1
 
-    :try_start_37
+    :try_start_1
     invoke-virtual {p0}, Landroid/net/sip/SipAudioCall;->isInCall()Z
 
     move-result v2
 
-    if-nez v2, :cond_41
+    if-nez v2, :cond_2
 
     .line 580
-    :cond_3d
+    :cond_1
     const/4 v2, 0x1
 
     invoke-direct {p0, v2}, Landroid/net/sip/SipAudioCall;->close(Z)V
 
     .line 582
-    :cond_41
+    :cond_2
     monitor-exit p0
-    :try_end_42
-    .catchall {:try_start_37 .. :try_end_42} :catchall_5e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 583
     return-void
 
     .line 573
-    :catch_43
+    :catch_0
     move-exception v1
 
     .line 574
@@ -1323,29 +1323,29 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_32
+    goto :goto_0
 
     .line 582
     .end local v1           #t:Ljava/lang/Throwable;
-    :catchall_5e
+    :catchall_0
     move-exception v2
 
-    :try_start_5f
+    :try_start_2
     monitor-exit p0
-    :try_end_60
-    .catchall {:try_start_5f .. :try_end_60} :catchall_5e
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v2
 .end method
 
 .method private releaseWifiHighPerfLock()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 837
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mWifiHighPerfLock:Landroid/net/wifi/WifiManager$WifiLock;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 838
     sget-object v0, Landroid/net/sip/SipAudioCall;->TAG:Ljava/lang/String;
@@ -1365,12 +1365,12 @@
     iput-object v0, p0, Landroid/net/sip/SipAudioCall;->mWifiHighPerfLock:Landroid/net/wifi/WifiManager$WifiLock;
 
     .line 842
-    :cond_14
+    :cond_0
     return-void
 .end method
 
 .method private setAudioGroupMode()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1084
@@ -1380,12 +1380,12 @@
 
     .line 1085
     .local v0, audioGroup:Landroid/net/rtp/AudioGroup;
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 1086
     iget-boolean v1, p0, Landroid/net/sip/SipAudioCall;->mHold:Z
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_1
 
     .line 1087
     const/4 v1, 0x0
@@ -1393,49 +1393,49 @@
     invoke-virtual {v0, v1}, Landroid/net/rtp/AudioGroup;->setMode(I)V
 
     .line 1096
-    :cond_e
-    :goto_e
+    :cond_0
+    :goto_0
     return-void
 
     .line 1088
-    :cond_f
+    :cond_1
     iget-boolean v1, p0, Landroid/net/sip/SipAudioCall;->mMuted:Z
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_2
 
     .line 1089
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/net/rtp/AudioGroup;->setMode(I)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 1090
-    :cond_18
+    :cond_2
     invoke-direct {p0}, Landroid/net/sip/SipAudioCall;->isSpeakerOn()Z
 
     move-result v1
 
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_3
 
     .line 1091
     const/4 v1, 0x3
 
     invoke-virtual {v0, v1}, Landroid/net/rtp/AudioGroup;->setMode(I)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 1093
-    :cond_23
+    :cond_3
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1}, Landroid/net/rtp/AudioGroup;->setMode(I)V
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method private declared-synchronized startAudioInternal()V
-    .registers 18
+    .locals 17
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/UnknownHostException;
@@ -1446,12 +1446,12 @@
     .line 1000
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     move-object/from16 v0, p0
 
     iget-object v15, v0, Landroid/net/sip/SipAudioCall;->mPeerSd:Ljava/lang/String;
 
-    if-nez v15, :cond_1b
+    if-nez v15, :cond_0
 
     .line 1001
     sget-object v15, Landroid/net/sip/SipAudioCall;->TAG:Ljava/lang/String;
@@ -1468,11 +1468,11 @@
     invoke-direct/range {v15 .. v16}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v15
-    :try_end_18
-    .catchall {:try_start_1 .. :try_end_18} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1000
-    :catchall_18
+    :catchall_0
     move-exception v15
 
     monitor-exit p0
@@ -1480,10 +1480,10 @@
     throw v15
 
     .line 1005
-    :cond_1b
+    :cond_0
     const/4 v15, 0x0
 
-    :try_start_1c
+    :try_start_1
     move-object/from16 v0, p0
 
     invoke-direct {v0, v15}, Landroid/net/sip/SipAudioCall;->stopCall(Z)V
@@ -1533,20 +1533,20 @@
     .end local v6           #i$:I
     .end local v8           #len$:I
     .local v7, i$:I
-    :goto_3b
-    if-ge v7, v8, :cond_c7
+    :goto_0
+    if-ge v7, v8, :cond_6
 
     aget-object v10, v2, v7
 
     .line 1014
     .local v10, media:Landroid/net/sip/SimpleSessionDescription$Media;
-    if-nez v5, :cond_10e
+    if-nez v5, :cond_c
 
     invoke-virtual {v10}, Landroid/net/sip/SimpleSessionDescription$Media;->getPort()I
 
     move-result v15
 
-    if-lez v15, :cond_10e
+    if-lez v15, :cond_c
 
     const-string v15, "audio"
 
@@ -1558,7 +1558,7 @@
 
     move-result v15
 
-    if-eqz v15, :cond_10e
+    if-eqz v15, :cond_c
 
     const-string v15, "RTP/AVP"
 
@@ -1570,7 +1570,7 @@
 
     move-result v15
 
-    if-eqz v15, :cond_10e
+    if-eqz v15, :cond_c
 
     .line 1018
     invoke-virtual {v10}, Landroid/net/sip/SimpleSessionDescription$Media;->getRtpPayloadTypes()[I
@@ -1585,8 +1585,8 @@
 
     .end local v7           #i$:I
     .restart local v6       #i$:I
-    :goto_65
-    if-ge v6, v9, :cond_77
+    :goto_1
+    if-ge v6, v9, :cond_1
 
     aget v14, v3, v6
 
@@ -1605,12 +1605,12 @@
     move-result-object v5
 
     .line 1021
-    if-eqz v5, :cond_ba
+    if-eqz v5, :cond_4
 
     .line 1026
     .end local v14           #type:I
-    :cond_77
-    if-eqz v5, :cond_10e
+    :cond_1
+    if-eqz v5, :cond_c
 
     .line 1028
     invoke-virtual {v10}, Landroid/net/sip/SimpleSessionDescription$Media;->getAddress()Ljava/lang/String;
@@ -1619,7 +1619,7 @@
 
     .line 1029
     .local v1, address:Ljava/lang/String;
-    if-nez v1, :cond_83
+    if-nez v1, :cond_2
 
     .line 1030
     invoke-virtual {v11}, Landroid/net/sip/SimpleSessionDescription;->getAddress()Ljava/lang/String;
@@ -1627,7 +1627,7 @@
     move-result-object v1
 
     .line 1032
-    :cond_83
+    :cond_2
     invoke-static {v1}, Ljava/net/InetAddress;->getByName(Ljava/lang/String;)Ljava/net/InetAddress;
 
     move-result-object v15
@@ -1661,8 +1661,8 @@
     .restart local v8       #len$:I
     const/4 v6, 0x0
 
-    :goto_9d
-    if-ge v6, v8, :cond_bd
+    :goto_2
+    if-ge v6, v8, :cond_5
 
     aget v14, v2, v6
 
@@ -1676,9 +1676,9 @@
     .local v12, rtpmap:Ljava/lang/String;
     iget v15, v5, Landroid/net/rtp/AudioCodec;->type:I
 
-    if-eq v14, v15, :cond_b7
+    if-eq v14, v15, :cond_3
 
-    if-eqz v12, :cond_b7
+    if-eqz v12, :cond_3
 
     const-string/jumbo v15, "telephone-event"
 
@@ -1686,16 +1686,16 @@
 
     move-result v15
 
-    if-eqz v15, :cond_b7
+    if-eqz v15, :cond_3
 
     .line 1042
     invoke-virtual {v13, v14}, Landroid/net/rtp/AudioStream;->setDtmfType(I)V
 
     .line 1038
-    :cond_b7
+    :cond_3
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_9d
+    goto :goto_2
 
     .line 1018
     .end local v1           #address:Ljava/lang/String;
@@ -1704,10 +1704,10 @@
     .end local v12           #rtpmap:Ljava/lang/String;
     .restart local v3       #arr$:[I
     .restart local v9       #len$:I
-    :cond_ba
+    :cond_4
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_65
+    goto :goto_1
 
     .line 1047
     .end local v3           #arr$:[I
@@ -1716,12 +1716,12 @@
     .restart local v1       #address:Ljava/lang/String;
     .restart local v2       #arr$:[I
     .restart local v8       #len$:I
-    :cond_bd
+    :cond_5
     move-object/from16 v0, p0
 
     iget-boolean v15, v0, Landroid/net/sip/SipAudioCall;->mHold:Z
 
-    if-eqz v15, :cond_d1
+    if-eqz v15, :cond_7
 
     .line 1048
     const/4 v15, 0x0
@@ -1734,9 +1734,9 @@
     .end local v6           #i$:I
     .end local v8           #len$:I
     .end local v10           #media:Landroid/net/sip/SimpleSessionDescription$Media;
-    :cond_c7
-    :goto_c7
-    if-nez v5, :cond_113
+    :cond_6
+    :goto_3
+    if-nez v5, :cond_d
 
     .line 1065
     new-instance v15, Ljava/lang/IllegalStateException;
@@ -1753,87 +1753,87 @@
     .restart local v6       #i$:I
     .restart local v8       #len$:I
     .restart local v10       #media:Landroid/net/sip/SimpleSessionDescription$Media;
-    :cond_d1
+    :cond_7
     const-string/jumbo v15, "recvonly"
 
     invoke-virtual {v10, v15}, Landroid/net/sip/SimpleSessionDescription$Media;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v15
 
-    if-eqz v15, :cond_df
+    if-eqz v15, :cond_8
 
     .line 1050
     const/4 v15, 0x1
 
     invoke-virtual {v13, v15}, Landroid/net/rtp/AudioStream;->setMode(I)V
 
-    goto :goto_c7
+    goto :goto_3
 
     .line 1051
-    :cond_df
+    :cond_8
     const-string/jumbo v15, "sendonly"
 
     invoke-virtual {v10, v15}, Landroid/net/sip/SimpleSessionDescription$Media;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v15
 
-    if-eqz v15, :cond_ed
+    if-eqz v15, :cond_9
 
     .line 1052
     const/4 v15, 0x2
 
     invoke-virtual {v13, v15}, Landroid/net/rtp/AudioStream;->setMode(I)V
 
-    goto :goto_c7
+    goto :goto_3
 
     .line 1053
-    :cond_ed
+    :cond_9
     const-string/jumbo v15, "recvonly"
 
     invoke-virtual {v11, v15}, Landroid/net/sip/SimpleSessionDescription;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v15
 
-    if-eqz v15, :cond_fb
+    if-eqz v15, :cond_a
 
     .line 1054
     const/4 v15, 0x1
 
     invoke-virtual {v13, v15}, Landroid/net/rtp/AudioStream;->setMode(I)V
 
-    goto :goto_c7
+    goto :goto_3
 
     .line 1055
-    :cond_fb
+    :cond_a
     const-string/jumbo v15, "sendonly"
 
     invoke-virtual {v11, v15}, Landroid/net/sip/SimpleSessionDescription;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v15
 
-    if-eqz v15, :cond_109
+    if-eqz v15, :cond_b
 
     .line 1056
     const/4 v15, 0x2
 
     invoke-virtual {v13, v15}, Landroid/net/rtp/AudioStream;->setMode(I)V
 
-    goto :goto_c7
+    goto :goto_3
 
     .line 1058
-    :cond_109
+    :cond_b
     const/4 v15, 0x0
 
     invoke-virtual {v13, v15}, Landroid/net/rtp/AudioStream;->setMode(I)V
 
-    goto :goto_c7
+    goto :goto_3
 
     .line 1013
     .end local v1           #address:Ljava/lang/String;
     .end local v2           #arr$:[I
     .end local v6           #i$:I
     .end local v8           #len$:I
-    :cond_10e
+    :cond_c
     add-int/lit8 v6, v7, 0x1
 
     .restart local v6       #i$:I
@@ -1841,22 +1841,22 @@
 
     .end local v6           #i$:I
     .restart local v7       #i$:I
-    goto/16 :goto_3b
+    goto/16 :goto_0
 
     .line 1068
     .end local v7           #i$:I
     .end local v10           #media:Landroid/net/sip/SimpleSessionDescription$Media;
-    :cond_113
+    :cond_d
     invoke-direct/range {p0 .. p0}, Landroid/net/sip/SipAudioCall;->isWifiOn()Z
 
     move-result v15
 
-    if-eqz v15, :cond_11c
+    if-eqz v15, :cond_e
 
     invoke-direct/range {p0 .. p0}, Landroid/net/sip/SipAudioCall;->grabWifiHighPerfLock()V
 
     .line 1071
-    :cond_11c
+    :cond_e
     invoke-virtual/range {p0 .. p0}, Landroid/net/sip/SipAudioCall;->getAudioGroup()Landroid/net/rtp/AudioGroup;
 
     move-result-object v4
@@ -1867,13 +1867,13 @@
 
     iget-boolean v15, v0, Landroid/net/sip/SipAudioCall;->mHold:Z
 
-    if-eqz v15, :cond_12b
+    if-eqz v15, :cond_f
 
     .line 1079
-    :goto_126
+    :goto_4
     invoke-direct/range {p0 .. p0}, Landroid/net/sip/SipAudioCall;->setAudioGroupMode()V
-    :try_end_129
-    .catchall {:try_start_1c .. :try_end_129} :catchall_18
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 1080
     monitor-exit p0
@@ -1881,10 +1881,10 @@
     return-void
 
     .line 1076
-    :cond_12b
-    if-nez v4, :cond_132
+    :cond_f
+    if-nez v4, :cond_10
 
-    :try_start_12d
+    :try_start_2
     new-instance v4, Landroid/net/rtp/AudioGroup;
 
     .end local v4           #audioGroup:Landroid/net/rtp/AudioGroup;
@@ -1892,16 +1892,16 @@
 
     .line 1077
     .restart local v4       #audioGroup:Landroid/net/rtp/AudioGroup;
-    :cond_132
+    :cond_10
     invoke-virtual {v13, v4}, Landroid/net/rtp/AudioStream;->join(Landroid/net/rtp/AudioGroup;)V
-    :try_end_135
-    .catchall {:try_start_12d .. :try_end_135} :catchall_18
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_126
+    goto :goto_4
 .end method
 
 .method private stopCall(Z)V
-    .registers 5
+    .locals 3
     .parameter "releaseSocket"
 
     .prologue
@@ -1920,7 +1920,7 @@
     .line 1101
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mAudioStream:Landroid/net/rtp/AudioStream;
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_0
 
     .line 1102
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mAudioStream:Landroid/net/rtp/AudioStream;
@@ -1928,7 +1928,7 @@
     invoke-virtual {v0, v2}, Landroid/net/rtp/AudioStream;->join(Landroid/net/rtp/AudioGroup;)V
 
     .line 1104
-    if-eqz p1, :cond_1e
+    if-eqz p1, :cond_0
 
     .line 1105
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mAudioStream:Landroid/net/rtp/AudioStream;
@@ -1939,12 +1939,12 @@
     iput-object v2, p0, Landroid/net/sip/SipAudioCall;->mAudioStream:Landroid/net/rtp/AudioStream;
 
     .line 1109
-    :cond_1e
+    :cond_0
     return-void
 .end method
 
 .method private throwSipException(Ljava/lang/Throwable;)V
-    .registers 4
+    .locals 2
     .parameter "throwable"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1956,7 +1956,7 @@
     .line 1116
     instance-of v0, p1, Landroid/net/sip/SipException;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 1117
     check-cast p1, Landroid/net/sip/SipException;
@@ -1966,7 +1966,7 @@
 
     .line 1119
     .restart local p1
-    :cond_7
+    :cond_0
     new-instance v0, Landroid/net/sip/SipException;
 
     const-string v1, ""
@@ -1977,28 +1977,28 @@
 .end method
 
 .method private declared-synchronized transferToNewSession()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 361
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v2, p0, Landroid/net/sip/SipAudioCall;->mTransferringSession:Landroid/net/sip/SipSession;
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_0
 
     .line 379
-    :goto_5
+    :goto_0
     monitor-exit p0
 
     return-void
 
     .line 362
-    :cond_7
-    :try_start_7
+    :cond_0
+    :try_start_1
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
 
     .line 363
@@ -2015,7 +2015,7 @@
     .line 367
     iget-object v2, p0, Landroid/net/sip/SipAudioCall;->mAudioStream:Landroid/net/rtp/AudioStream;
 
-    if-eqz v2, :cond_26
+    if-eqz v2, :cond_2
 
     .line 368
     iget-object v2, p0, Landroid/net/sip/SipAudioCall;->mAudioStream:Landroid/net/rtp/AudioStream;
@@ -2025,22 +2025,22 @@
     invoke-virtual {v2, v3}, Landroid/net/rtp/AudioStream;->join(Landroid/net/rtp/AudioGroup;)V
 
     .line 377
-    :goto_1a
-    if-eqz v0, :cond_1f
+    :goto_1
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/net/sip/SipSession;->endCall()V
 
     .line 378
-    :cond_1f
+    :cond_1
     invoke-virtual {p0}, Landroid/net/sip/SipAudioCall;->startAudio()V
-    :try_end_22
-    .catchall {:try_start_7 .. :try_end_22} :catchall_23
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_5
+    goto :goto_0
 
     .line 361
     .end local v0           #origin:Landroid/net/sip/SipSession;
-    :catchall_23
+    :catchall_0
     move-exception v2
 
     monitor-exit p0
@@ -2049,8 +2049,8 @@
 
     .line 371
     .restart local v0       #origin:Landroid/net/sip/SipSession;
-    :cond_26
-    :try_start_26
+    :cond_2
+    :try_start_2
     new-instance v2, Landroid/net/rtp/AudioStream;
 
     invoke-direct {p0}, Landroid/net/sip/SipAudioCall;->getLocalIp()Ljava/lang/String;
@@ -2064,19 +2064,19 @@
     invoke-direct {v2, v3}, Landroid/net/rtp/AudioStream;-><init>(Ljava/net/InetAddress;)V
 
     iput-object v2, p0, Landroid/net/sip/SipAudioCall;->mAudioStream:Landroid/net/rtp/AudioStream;
-    :try_end_35
-    .catchall {:try_start_26 .. :try_end_35} :catchall_23
-    .catch Ljava/lang/Throwable; {:try_start_26 .. :try_end_35} :catch_36
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto :goto_1a
+    goto :goto_1
 
     .line 373
-    :catch_36
+    :catch_0
     move-exception v1
 
     .line 374
     .local v1, t:Ljava/lang/Throwable;
-    :try_start_37
+    :try_start_3
     sget-object v2, Landroid/net/sip/SipAudioCall;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2098,16 +2098,16 @@
     move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_50
-    .catchall {:try_start_37 .. :try_end_50} :catchall_23
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto :goto_1a
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public answerCall(I)V
-    .registers 5
+    .locals 3
     .parameter "timeout"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2120,10 +2120,10 @@
     monitor-enter p0
 
     .line 699
-    :try_start_1
+    :try_start_0
     iget-object v1, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_0
 
     .line 700
     new-instance v1, Landroid/net/sip/SipException;
@@ -2135,18 +2135,18 @@
     throw v1
 
     .line 709
-    :catchall_d
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
-    :try_end_f
-    .catchall {:try_start_1 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 
     .line 703
-    :cond_10
-    :try_start_10
+    :cond_0
+    :try_start_1
     new-instance v1, Landroid/net/rtp/AudioStream;
 
     invoke-direct {p0}, Landroid/net/sip/SipAudioCall;->getLocalIp()Ljava/lang/String;
@@ -2175,19 +2175,19 @@
     move-result-object v2
 
     invoke-virtual {v1, v2, p1}, Landroid/net/sip/SipSession;->answerCall(Ljava/lang/String;I)V
-    :try_end_2e
-    .catchall {:try_start_10 .. :try_end_2e} :catchall_d
-    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_2e} :catch_30
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 709
-    :try_start_2e
+    :try_start_2
     monitor-exit p0
 
     .line 710
     return-void
 
     .line 706
-    :catch_30
+    :catch_0
     move-exception v0
 
     .line 707
@@ -2199,12 +2199,12 @@
     invoke-direct {v1, v2, v0}, Landroid/net/sip/SipException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v1
-    :try_end_39
-    .catchall {:try_start_2e .. :try_end_39} :catchall_d
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 .end method
 
 .method public attachCall(Landroid/net/sip/SipSession;Ljava/lang/String;)V
-    .registers 7
+    .locals 4
     .parameter "session"
     .parameter "sessionDescription"
     .annotation system Ldalvik/annotation/Throws;
@@ -2221,7 +2221,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_0
 
     .line 597
     new-instance v1, Landroid/net/sip/SipException;
@@ -2233,11 +2233,11 @@
     throw v1
 
     .line 600
-    :cond_10
+    :cond_0
     monitor-enter p0
 
     .line 601
-    :try_start_11
+    :try_start_0
     iput-object p1, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
 
     .line 602
@@ -2267,30 +2267,30 @@
     move-result-object v2
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2f
-    .catchall {:try_start_11 .. :try_end_2f} :catchall_44
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 605
-    :try_start_2f
+    :try_start_1
     invoke-direct {p0}, Landroid/net/sip/SipAudioCall;->createListener()Landroid/net/sip/SipSession$Listener;
 
     move-result-object v1
 
     invoke-virtual {p1, v1}, Landroid/net/sip/SipSession;->setListener(Landroid/net/sip/SipSession$Listener;)V
-    :try_end_36
-    .catchall {:try_start_2f .. :try_end_36} :catchall_44
-    .catch Ljava/lang/Throwable; {:try_start_2f .. :try_end_36} :catch_38
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 610
-    :goto_36
-    :try_start_36
+    :goto_0
+    :try_start_2
     monitor-exit p0
 
     .line 611
     return-void
 
     .line 606
-    :catch_38
+    :catch_0
     move-exception v0
 
     .line 607
@@ -2304,22 +2304,22 @@
     .line 608
     invoke-direct {p0, v0}, Landroid/net/sip/SipAudioCall;->throwSipException(Ljava/lang/Throwable;)V
 
-    goto :goto_36
+    goto :goto_0
 
     .line 610
     .end local v0           #e:Ljava/lang/Throwable;
-    :catchall_44
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
-    :try_end_46
-    .catchall {:try_start_36 .. :try_end_46} :catchall_44
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v1
 .end method
 
 .method public close()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 294
@@ -2332,7 +2332,7 @@
 .end method
 
 .method public continueCall(I)V
-    .registers 4
+    .locals 2
     .parameter "timeout"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2345,19 +2345,19 @@
     monitor-enter p0
 
     .line 726
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/net/sip/SipAudioCall;->mHold:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     monitor-exit p0
 
     .line 731
-    :goto_6
+    :goto_0
     return-void
 
     .line 727
-    :cond_7
+    :cond_0
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
 
     invoke-direct {p0}, Landroid/net/sip/SipAudioCall;->createContinueOffer()Landroid/net/sip/SimpleSessionDescription;
@@ -2381,20 +2381,20 @@
     .line 730
     monitor-exit p0
 
-    goto :goto_6
+    goto :goto_0
 
-    :catchall_1c
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_1e
-    .catchall {:try_start_1 .. :try_end_1e} :catchall_1c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public endCall()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/net/sip/SipException;
@@ -2408,7 +2408,7 @@
     .line 654
     const/4 v0, 0x1
 
-    :try_start_2
+    :try_start_0
     invoke-direct {p0, v0}, Landroid/net/sip/SipAudioCall;->stopCall(Z)V
 
     .line 655
@@ -2419,96 +2419,96 @@
     .line 658
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
 
     invoke-virtual {v0}, Landroid/net/sip/SipSession;->endCall()V
 
     .line 659
-    :cond_11
+    :cond_0
     monitor-exit p0
 
     .line 660
     return-void
 
     .line 659
-    :catchall_13
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_15
-    .catchall {:try_start_2 .. :try_end_15} :catchall_13
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public getAudioGroup()Landroid/net/rtp/AudioGroup;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 954
     monitor-enter p0
 
     .line 955
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mAudioGroup:Landroid/net/rtp/AudioGroup;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mAudioGroup:Landroid/net/rtp/AudioGroup;
 
     monitor-exit p0
 
     .line 956
-    :goto_8
+    :goto_0
     return-object v0
 
-    :cond_9
+    :cond_0
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mAudioStream:Landroid/net/rtp/AudioStream;
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_1
 
     const/4 v0, 0x0
 
-    :goto_e
+    :goto_1
     monitor-exit p0
 
-    goto :goto_8
+    goto :goto_0
 
     .line 957
-    :catchall_10
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_12
-    .catchall {:try_start_1 .. :try_end_12} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 956
-    :cond_13
-    :try_start_13
+    :cond_1
+    :try_start_1
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mAudioStream:Landroid/net/rtp/AudioStream;
 
     invoke-virtual {v0}, Landroid/net/rtp/AudioStream;->getGroup()Landroid/net/rtp/AudioGroup;
-    :try_end_18
-    .catchall {:try_start_13 .. :try_end_18} :catchall_10
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v0
 
-    goto :goto_e
+    goto :goto_1
 .end method
 
 .method public getAudioStream()Landroid/net/rtp/AudioStream;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 934
     monitor-enter p0
 
     .line 935
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mAudioStream:Landroid/net/rtp/AudioStream;
 
     monitor-exit p0
@@ -2516,25 +2516,25 @@
     return-object v0
 
     .line 936
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public getLocalProfile()Landroid/net/sip/SipProfile;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 318
     monitor-enter p0
 
     .line 319
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mLocalProfile:Landroid/net/sip/SipProfile;
 
     monitor-exit p0
@@ -2542,65 +2542,65 @@
     return-object v0
 
     .line 320
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public getPeerProfile()Landroid/net/sip/SipProfile;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 329
     monitor-enter p0
 
     .line 330
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_6
+    :goto_0
     monitor-exit p0
 
     return-object v0
 
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
 
     invoke-virtual {v0}, Landroid/net/sip/SipSession;->getPeerProfile()Landroid/net/sip/SipProfile;
 
     move-result-object v0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 331
-    :catchall_f
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_11
-    .catchall {:try_start_1 .. :try_end_11} :catchall_f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public getSipSession()Landroid/net/sip/SipSession;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 355
     monitor-enter p0
 
     .line 356
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
 
     monitor-exit p0
@@ -2608,38 +2608,38 @@
     return-object v0
 
     .line 357
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public getState()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 341
     monitor-enter p0
 
     .line 342
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
     monitor-exit p0
 
     .line 343
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
 
     invoke-virtual {v0}, Landroid/net/sip/SipSession;->getState()I
@@ -2648,21 +2648,21 @@
 
     monitor-exit p0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 344
-    :catchall_10
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_12
-    .catchall {:try_start_1 .. :try_end_12} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public holdCall(I)V
-    .registers 4
+    .locals 2
     .parameter "timeout"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2675,22 +2675,22 @@
     monitor-enter p0
 
     .line 676
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/net/sip/SipAudioCall;->mHold:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     monitor-exit p0
 
     .line 684
-    :goto_6
+    :goto_0
     return-void
 
     .line 677
-    :cond_7
+    :cond_0
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_1
 
     .line 678
     new-instance v0, Landroid/net/sip/SipException;
@@ -2702,18 +2702,18 @@
     throw v0
 
     .line 683
-    :catchall_13
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_15
-    .catchall {:try_start_1 .. :try_end_15} :catchall_13
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 680
-    :cond_16
-    :try_start_16
+    :cond_1
+    :try_start_1
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
 
     invoke-direct {p0}, Landroid/net/sip/SipAudioCall;->createHoldOffer()Landroid/net/sip/SimpleSessionDescription;
@@ -2736,21 +2736,21 @@
 
     .line 683
     monitor-exit p0
-    :try_end_2a
-    .catchall {:try_start_16 .. :try_end_2a} :catchall_13
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public isInCall()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 274
     monitor-enter p0
 
     .line 275
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/net/sip/SipAudioCall;->mInCall:Z
 
     monitor-exit p0
@@ -2758,25 +2758,25 @@
     return v0
 
     .line 276
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public isMuted()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 862
     monitor-enter p0
 
     .line 863
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/net/sip/SipAudioCall;->mMuted:Z
 
     monitor-exit p0
@@ -2784,25 +2784,25 @@
     return v0
 
     .line 864
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public isOnHold()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 285
     monitor-enter p0
 
     .line 286
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/net/sip/SipAudioCall;->mHold:Z
 
     monitor-exit p0
@@ -2810,18 +2810,18 @@
     return v0
 
     .line 287
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public makeCall(Landroid/net/sip/SipProfile;Landroid/net/sip/SipSession;I)V
-    .registers 7
+    .locals 3
     .parameter "peerProfile"
     .parameter "sipSession"
     .parameter "timeout"
@@ -2839,7 +2839,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_0
 
     .line 631
     new-instance v1, Landroid/net/sip/SipException;
@@ -2851,17 +2851,17 @@
     throw v1
 
     .line 634
-    :cond_10
+    :cond_0
     monitor-enter p0
 
     .line 635
-    :try_start_11
+    :try_start_0
     iput-object p2, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
-    :try_end_13
-    .catchall {:try_start_11 .. :try_end_13} :catchall_40
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 637
-    :try_start_13
+    :try_start_1
     new-instance v1, Landroid/net/rtp/AudioStream;
 
     invoke-direct {p0}, Landroid/net/sip/SipAudioCall;->getLocalIp()Ljava/lang/String;
@@ -2893,19 +2893,19 @@
     move-result-object v1
 
     invoke-virtual {p2, p1, v1, p3}, Landroid/net/sip/SipSession;->makeCall(Landroid/net/sip/SipProfile;Ljava/lang/String;I)V
-    :try_end_34
-    .catchall {:try_start_13 .. :try_end_34} :catchall_40
-    .catch Ljava/io/IOException; {:try_start_13 .. :try_end_34} :catch_36
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 645
-    :try_start_34
+    :try_start_2
     monitor-exit p0
 
     .line 646
     return-void
 
     .line 642
-    :catch_36
+    :catch_0
     move-exception v0
 
     .line 643
@@ -2920,18 +2920,18 @@
 
     .line 645
     .end local v0           #e:Ljava/io/IOException;
-    :catchall_40
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
-    :try_end_42
-    .catchall {:try_start_34 .. :try_end_42} :catchall_40
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v1
 .end method
 
 .method public sendDtmf(I)V
-    .registers 3
+    .locals 1
     .parameter "code"
 
     .prologue
@@ -2945,7 +2945,7 @@
 .end method
 
 .method public sendDtmf(ILandroid/os/Message;)V
-    .registers 7
+    .locals 4
     .parameter "code"
     .parameter "result"
 
@@ -2954,18 +2954,18 @@
     monitor-enter p0
 
     .line 912
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0}, Landroid/net/sip/SipAudioCall;->getAudioGroup()Landroid/net/rtp/AudioGroup;
 
     move-result-object v0
 
     .line 913
     .local v0, audioGroup:Landroid/net/rtp/AudioGroup;
-    if-eqz v0, :cond_2f
+    if-eqz v0, :cond_0
 
     iget-object v1, p0, Landroid/net/sip/SipAudioCall;->mSipSession:Landroid/net/sip/SipSession;
 
-    if-eqz v1, :cond_2f
+    if-eqz v1, :cond_0
 
     const/16 v1, 0x8
 
@@ -2973,7 +2973,7 @@
 
     move-result v2
 
-    if-ne v1, v2, :cond_2f
+    if-ne v1, v2, :cond_0
 
     .line 915
     sget-object v1, Landroid/net/sip/SipAudioCall;->TAG:Ljava/lang/String;
@@ -3002,13 +3002,13 @@
     invoke-virtual {v0, p1}, Landroid/net/rtp/AudioGroup;->sendDtmf(I)V
 
     .line 918
-    :cond_2f
-    if-eqz p2, :cond_34
+    :cond_0
+    if-eqz p2, :cond_1
 
     invoke-virtual {p2}, Landroid/os/Message;->sendToTarget()V
 
     .line 919
-    :cond_34
+    :cond_1
     monitor-exit p0
 
     .line 920
@@ -3016,18 +3016,18 @@
 
     .line 919
     .end local v0           #audioGroup:Landroid/net/rtp/AudioGroup;
-    :catchall_36
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
-    :try_end_38
-    .catchall {:try_start_1 .. :try_end_38} :catchall_36
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public setAudioGroup(Landroid/net/rtp/AudioGroup;)V
-    .registers 3
+    .locals 1
     .parameter "group"
 
     .prologue
@@ -3035,10 +3035,10 @@
     monitor-enter p0
 
     .line 974
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mAudioStream:Landroid/net/rtp/AudioStream;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mAudioStream:Landroid/net/rtp/AudioStream;
 
@@ -3046,7 +3046,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 975
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mAudioStream:Landroid/net/rtp/AudioStream;
@@ -3054,7 +3054,7 @@
     invoke-virtual {v0, p1}, Landroid/net/rtp/AudioStream;->join(Landroid/net/rtp/AudioGroup;)V
 
     .line 977
-    :cond_12
+    :cond_0
     iput-object p1, p0, Landroid/net/sip/SipAudioCall;->mAudioGroup:Landroid/net/rtp/AudioGroup;
 
     .line 978
@@ -3064,18 +3064,18 @@
     return-void
 
     .line 978
-    :catchall_16
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_18
-    .catchall {:try_start_1 .. :try_end_18} :catchall_16
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setListener(Landroid/net/sip/SipAudioCall$Listener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
@@ -3089,7 +3089,7 @@
 .end method
 
 .method public setListener(Landroid/net/sip/SipAudioCall$Listener;Z)V
-    .registers 7
+    .locals 4
     .parameter "listener"
     .parameter "callbackImmediately"
 
@@ -3098,21 +3098,21 @@
     iput-object p1, p0, Landroid/net/sip/SipAudioCall;->mListener:Landroid/net/sip/SipAudioCall$Listener;
 
     .line 236
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_0
 
-    if-nez p2, :cond_7
+    if-nez p2, :cond_1
 
     .line 266
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return-void
 
     .line 238
-    :cond_7
-    :try_start_7
+    :cond_1
+    :try_start_0
     iget v2, p0, Landroid/net/sip/SipAudioCall;->mErrorCode:I
 
-    if-eqz v2, :cond_1d
+    if-eqz v2, :cond_2
 
     .line 239
     iget v2, p0, Landroid/net/sip/SipAudioCall;->mErrorCode:I
@@ -3120,13 +3120,13 @@
     iget-object v3, p0, Landroid/net/sip/SipAudioCall;->mErrorMessage:Ljava/lang/String;
 
     invoke-virtual {p1, p0, v2, v3}, Landroid/net/sip/SipAudioCall$Listener;->onError(Landroid/net/sip/SipAudioCall;ILjava/lang/String;)V
-    :try_end_12
-    .catch Ljava/lang/Throwable; {:try_start_7 .. :try_end_12} :catch_13
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 263
-    :catch_13
+    :catch_0
     move-exception v1
 
     .line 264
@@ -3137,92 +3137,92 @@
 
     invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_6
+    goto :goto_0
 
     .line 240
     .end local v1           #t:Ljava/lang/Throwable;
-    :cond_1d
-    :try_start_1d
+    :cond_2
+    :try_start_1
     iget-boolean v2, p0, Landroid/net/sip/SipAudioCall;->mInCall:Z
 
-    if-eqz v2, :cond_2d
+    if-eqz v2, :cond_4
 
     .line 241
     iget-boolean v2, p0, Landroid/net/sip/SipAudioCall;->mHold:Z
 
-    if-eqz v2, :cond_29
+    if-eqz v2, :cond_3
 
     .line 242
     invoke-virtual {p1, p0}, Landroid/net/sip/SipAudioCall$Listener;->onCallHeld(Landroid/net/sip/SipAudioCall;)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 244
-    :cond_29
+    :cond_3
     invoke-virtual {p1, p0}, Landroid/net/sip/SipAudioCall$Listener;->onCallEstablished(Landroid/net/sip/SipAudioCall;)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 247
-    :cond_2d
+    :cond_4
     invoke-virtual {p0}, Landroid/net/sip/SipAudioCall;->getState()I
 
     move-result v0
 
     .line 248
     .local v0, state:I
-    packed-switch v0, :pswitch_data_4a
+    packed-switch v0, :pswitch_data_0
 
-    :pswitch_34
-    goto :goto_6
+    :pswitch_0
+    goto :goto_0
 
     .line 250
-    :pswitch_35
+    :pswitch_1
     invoke-virtual {p1, p0}, Landroid/net/sip/SipAudioCall$Listener;->onReadyToCall(Landroid/net/sip/SipAudioCall;)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 253
-    :pswitch_39
+    :pswitch_2
     invoke-virtual {p0}, Landroid/net/sip/SipAudioCall;->getPeerProfile()Landroid/net/sip/SipProfile;
 
     move-result-object v2
 
     invoke-virtual {p1, p0, v2}, Landroid/net/sip/SipAudioCall$Listener;->onRinging(Landroid/net/sip/SipAudioCall;Landroid/net/sip/SipProfile;)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 256
-    :pswitch_41
+    :pswitch_3
     invoke-virtual {p1, p0}, Landroid/net/sip/SipAudioCall$Listener;->onCalling(Landroid/net/sip/SipAudioCall;)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 259
-    :pswitch_45
+    :pswitch_4
     invoke-virtual {p1, p0}, Landroid/net/sip/SipAudioCall$Listener;->onRingingBack(Landroid/net/sip/SipAudioCall;)V
-    :try_end_48
-    .catch Ljava/lang/Throwable; {:try_start_1d .. :try_end_48} :catch_13
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 248
     nop
 
-    :pswitch_data_4a
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_35
-        :pswitch_34
-        :pswitch_34
-        :pswitch_39
-        :pswitch_34
-        :pswitch_41
-        :pswitch_45
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_2
+        :pswitch_0
+        :pswitch_3
+        :pswitch_4
     .end packed-switch
 .end method
 
 .method public setSpeakerMode(Z)V
-    .registers 4
+    .locals 2
     .parameter "speakerMode"
 
     .prologue
@@ -3230,7 +3230,7 @@
     monitor-enter p0
 
     .line 876
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/net/sip/SipAudioCall;->mContext:Landroid/content/Context;
 
     const-string v1, "audio"
@@ -3253,33 +3253,33 @@
     return-void
 
     .line 879
-    :catchall_13
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_15
-    .catchall {:try_start_1 .. :try_end_15} :catchall_13
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public startAudio()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 991
     :try_start_0
     invoke-direct {p0}, Landroid/net/sip/SipAudioCall;->startAudioInternal()V
-    :try_end_3
-    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_3} :catch_4
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_3} :catch_e
+    :try_end_0
+    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 997
-    :goto_3
+    :goto_0
     return-void
 
     .line 992
-    :catch_4
+    :catch_0
     move-exception v0
 
     .line 993
@@ -3292,11 +3292,11 @@
 
     invoke-direct {p0, v1, v2}, Landroid/net/sip/SipAudioCall;->onError(ILjava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_0
 
     .line 994
     .end local v0           #e:Ljava/net/UnknownHostException;
-    :catch_e
+    :catch_1
     move-exception v0
 
     .line 995
@@ -3309,25 +3309,25 @@
 
     invoke-direct {p0, v1, v2}, Landroid/net/sip/SipAudioCall;->onError(ILjava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public toggleMute()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 850
     monitor-enter p0
 
     .line 851
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/net/sip/SipAudioCall;->mMuted:Z
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     iput-boolean v0, p0, Landroid/net/sip/SipAudioCall;->mMuted:Z
 
     .line 852
@@ -3340,18 +3340,18 @@
     return-void
 
     .line 851
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 853
-    :catchall_f
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_11
-    .catchall {:try_start_1 .. :try_end_11} :catchall_f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

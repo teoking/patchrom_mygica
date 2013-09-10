@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 59
@@ -42,7 +42,7 @@
 .end method
 
 .method constructor <init>(Ljava/net/InetAddress;)V
-    .registers 4
+    .locals 2
     .parameter "address"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method public associate(Ljava/net/InetAddress;I)V
-    .registers 5
+    .locals 2
     .parameter "address"
     .parameter "port"
 
@@ -109,7 +109,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 155
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -121,30 +121,30 @@
     throw v0
 
     .line 157
-    :cond_e
+    :cond_0
     instance-of v0, p1, Ljava/net/Inet4Address;
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Landroid/net/rtp/RtpStream;->mLocalAddress:Ljava/net/InetAddress;
 
     instance-of v0, v0, Ljava/net/Inet4Address;
 
-    if-nez v0, :cond_2a
+    if-nez v0, :cond_3
 
-    :cond_18
+    :cond_1
     instance-of v0, p1, Ljava/net/Inet6Address;
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Landroid/net/rtp/RtpStream;->mLocalAddress:Ljava/net/InetAddress;
 
     instance-of v0, v0, Ljava/net/Inet6Address;
 
-    if-nez v0, :cond_2a
+    if-nez v0, :cond_3
 
     .line 159
-    :cond_22
+    :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Unsupported address"
@@ -154,15 +154,15 @@
     throw v0
 
     .line 161
-    :cond_2a
-    if-ltz p2, :cond_31
+    :cond_3
+    if-ltz p2, :cond_4
 
     const v0, 0xffff
 
-    if-le p2, v0, :cond_39
+    if-le p2, v0, :cond_5
 
     .line 162
-    :cond_31
+    :cond_4
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid port"
@@ -172,7 +172,7 @@
     throw v0
 
     .line 164
-    :cond_39
+    :cond_5
     iput-object p1, p0, Landroid/net/rtp/RtpStream;->mRemoteAddress:Ljava/net/InetAddress;
 
     .line 165
@@ -183,7 +183,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -202,7 +202,7 @@
 .end method
 
 .method public getLocalAddress()Ljava/net/InetAddress;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -212,7 +212,7 @@
 .end method
 
 .method public getLocalPort()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 88
@@ -222,7 +222,7 @@
 .end method
 
 .method public getMode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 120
@@ -232,7 +232,7 @@
 .end method
 
 .method public getRemoteAddress()Ljava/net/InetAddress;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 96
@@ -242,7 +242,7 @@
 .end method
 
 .method public getRemotePort()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 104
@@ -252,7 +252,7 @@
 .end method
 
 .method getSocket()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 169
@@ -262,7 +262,7 @@
 .end method
 
 .method public isBusy()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 113
@@ -272,19 +272,19 @@
 .end method
 
 .method public release()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 180
     monitor-enter p0
 
     .line 181
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0}, Landroid/net/rtp/RtpStream;->isBusy()Z
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 182
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -296,31 +296,31 @@
     throw v0
 
     .line 185
-    :catchall_f
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_11
-    .catchall {:try_start_1 .. :try_end_11} :catchall_f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 184
-    :cond_12
-    :try_start_12
+    :cond_0
+    :try_start_1
     invoke-direct {p0}, Landroid/net/rtp/RtpStream;->close()V
 
     .line 185
     monitor-exit p0
-    :try_end_16
-    .catchall {:try_start_12 .. :try_end_16} :catchall_f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 186
     return-void
 .end method
 
 .method public setMode(I)V
-    .registers 4
+    .locals 2
     .parameter "mode"
 
     .prologue
@@ -329,7 +329,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 134
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -341,15 +341,15 @@
     throw v0
 
     .line 136
-    :cond_e
-    if-ltz p1, :cond_13
+    :cond_0
+    if-ltz p1, :cond_1
 
     const/4 v0, 0x2
 
-    if-le p1, v0, :cond_1b
+    if-le p1, v0, :cond_2
 
     .line 137
-    :cond_13
+    :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid mode"
@@ -359,7 +359,7 @@
     throw v0
 
     .line 139
-    :cond_1b
+    :cond_2
     iput p1, p0, Landroid/net/rtp/RtpStream;->mMode:I
 
     .line 140

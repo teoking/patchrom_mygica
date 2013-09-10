@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ILandroid/webkit/ConsoleMessage$MessageLevel;)V
-    .registers 5
+    .locals 0
     .parameter "message"
     .parameter "sourceId"
     .parameter "lineNumber"
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public lineNumber()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 62
@@ -62,7 +62,7 @@
 .end method
 
 .method public message()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 54
@@ -72,7 +72,7 @@
 .end method
 
 .method public messageLevel()Landroid/webkit/ConsoleMessage$MessageLevel;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 50
@@ -82,7 +82,7 @@
 .end method
 
 .method public sourceId()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 58

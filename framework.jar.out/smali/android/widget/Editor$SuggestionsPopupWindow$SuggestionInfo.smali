@@ -32,7 +32,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/Editor$SuggestionsPopupWindow;)V
-    .registers 5
+    .locals 3
     .parameter
 
     .prologue
@@ -55,6 +55,7 @@
 
     iget-object v1, v1, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v1}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -73,7 +74,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/Editor$SuggestionsPopupWindow;Landroid/widget/Editor$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

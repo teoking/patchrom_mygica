@@ -31,7 +31,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/Editor;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -44,7 +44,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/Editor;Landroid/widget/Editor$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -58,12 +58,12 @@
 
 # virtual methods
 .method protected clipVertically(I)I
-    .registers 8
+    .locals 6
     .parameter "positionY"
 
     .prologue
     .line 2844
-    if-gez p1, :cond_40
+    if-gez p1, :cond_0
 
     .line 2845
     invoke-virtual {p0}, Landroid/widget/Editor$ActionPopupWindow;->getTextOffset()I
@@ -74,6 +74,7 @@
     .local v3, offset:I
     iget-object v4, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v4}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v4
@@ -114,6 +115,7 @@
     .line 2852
     iget-object v4, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v4}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v4
@@ -124,6 +126,7 @@
 
     iget-object v5, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v5}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v5
@@ -147,12 +150,12 @@
     .end local v1           #layout:Landroid/text/Layout;
     .end local v2           #line:I
     .end local v3           #offset:I
-    :cond_40
+    :cond_0
     return p1
 .end method
 
 .method protected createPopupWindow()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 2775
@@ -160,6 +163,7 @@
 
     iget-object v1, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v1}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -188,12 +192,13 @@
 .end method
 
 .method protected getTextOffset()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2834
     iget-object v0, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -204,6 +209,7 @@
 
     iget-object v1, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v1}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -220,13 +226,14 @@
 .end method
 
 .method protected getVerticalLocalPosition(I)I
-    .registers 4
+    .locals 2
     .parameter "line"
 
     .prologue
     .line 2839
     iget-object v0, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -251,7 +258,7 @@
 .end method
 
 .method protected initContentView()V
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v7, 0x0
@@ -265,6 +272,7 @@
 
     iget-object v3, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v3}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -294,6 +302,7 @@
     .line 2788
     iget-object v3, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v3}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -388,17 +397,18 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .registers 5
+    .locals 3
     .parameter "view"
 
     .prologue
     .line 2821
     iget-object v1, p0, Landroid/widget/Editor$ActionPopupWindow;->mPasteTextView:Landroid/widget/TextView;
 
-    if-ne p1, v1, :cond_20
+    if-ne p1, v1, :cond_1
 
     iget-object v1, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v1}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -407,11 +417,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_20
+    if-eqz v1, :cond_1
 
     .line 2822
     iget-object v1, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v1}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -424,19 +435,20 @@
     invoke-virtual {p0}, Landroid/widget/Editor$ActionPopupWindow;->hide()V
 
     .line 2830
-    :cond_1f
-    :goto_1f
+    :cond_0
+    :goto_0
     return-void
 
     .line 2824
-    :cond_20
+    :cond_1
     iget-object v1, p0, Landroid/widget/Editor$ActionPopupWindow;->mReplaceTextView:Landroid/widget/TextView;
 
-    if-ne p1, v1, :cond_1f
+    if-ne p1, v1, :cond_0
 
     .line 2825
     iget-object v1, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v1}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -447,6 +459,7 @@
 
     iget-object v2, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v2}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v2
@@ -468,6 +481,7 @@
     .line 2827
     iget-object v1, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v1}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -485,11 +499,11 @@
 
     invoke-virtual {v1}, Landroid/widget/Editor;->showSuggestions()V
 
-    goto :goto_1f
+    goto :goto_0
 .end method
 
 .method public show()V
-    .registers 7
+    .locals 6
 
     .prologue
     const/16 v4, 0x8
@@ -499,6 +513,7 @@
     .line 2809
     iget-object v3, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v3}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -511,6 +526,7 @@
     .local v0, canPaste:Z
     iget-object v3, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v3}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -519,70 +535,71 @@
 
     move-result v3
 
-    if-eqz v3, :cond_36
+    if-eqz v3, :cond_0
 
     iget-object v3, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #calls: Landroid/widget/Editor;->isCursorInsideSuggestionSpan()Z
     invoke-static {v3}, Landroid/widget/Editor;->access$2100(Landroid/widget/Editor;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_36
+    if-eqz v3, :cond_0
 
     const/4 v1, 0x1
 
     .line 2811
     .local v1, canSuggest:Z
-    :goto_22
+    :goto_0
     iget-object v5, p0, Landroid/widget/Editor$ActionPopupWindow;->mPasteTextView:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_38
+    if-eqz v0, :cond_1
 
     move v3, v2
 
-    :goto_27
+    :goto_1
     invoke-virtual {v5, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 2812
     iget-object v3, p0, Landroid/widget/Editor$ActionPopupWindow;->mReplaceTextView:Landroid/widget/TextView;
 
-    if-eqz v1, :cond_3a
+    if-eqz v1, :cond_2
 
-    :goto_2e
+    :goto_2
     invoke-virtual {v3, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 2814
-    if-nez v0, :cond_3c
+    if-nez v0, :cond_3
 
-    if-nez v1, :cond_3c
+    if-nez v1, :cond_3
 
     .line 2817
-    :goto_35
+    :goto_3
     return-void
 
     .end local v1           #canSuggest:Z
-    :cond_36
+    :cond_0
     move v1, v2
 
     .line 2810
-    goto :goto_22
+    goto :goto_0
 
     .restart local v1       #canSuggest:Z
-    :cond_38
+    :cond_1
     move v3, v4
 
     .line 2811
-    goto :goto_27
+    goto :goto_1
 
-    :cond_3a
+    :cond_2
     move v2, v4
 
     .line 2812
-    goto :goto_2e
+    goto :goto_2
 
     .line 2816
-    :cond_3c
+    :cond_3
     invoke-super {p0}, Landroid/widget/Editor$PinnedPopupWindow;->show()V
 
-    goto :goto_35
+    goto :goto_3
 .end method

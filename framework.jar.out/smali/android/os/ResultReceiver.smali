@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 121
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "handler"
 
     .prologue
@@ -72,7 +72,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 103
@@ -117,7 +117,7 @@
 .end method
 
 .method protected onReceiveResult(ILandroid/os/Bundle;)V
-    .registers 3
+    .locals 0
     .parameter "resultCode"
     .parameter "resultData"
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public send(ILandroid/os/Bundle;)V
-    .registers 5
+    .locals 2
     .parameter "resultCode"
     .parameter "resultData"
 
@@ -135,12 +135,12 @@
     .line 75
     iget-boolean v0, p0, Landroid/os/ResultReceiver;->mLocal:Z
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_2
 
     .line 76
     iget-object v0, p0, Landroid/os/ResultReceiver;->mHandler:Landroid/os/Handler;
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     .line 77
     iget-object v0, p0, Landroid/os/ResultReceiver;->mHandler:Landroid/os/Handler;
@@ -152,41 +152,41 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     .line 90
-    :cond_12
-    :goto_12
+    :cond_0
+    :goto_0
     return-void
 
     .line 79
-    :cond_13
+    :cond_1
     invoke-virtual {p0, p1, p2}, Landroid/os/ResultReceiver;->onReceiveResult(ILandroid/os/Bundle;)V
 
-    goto :goto_12
+    goto :goto_0
 
     .line 84
-    :cond_17
+    :cond_2
     iget-object v0, p0, Landroid/os/ResultReceiver;->mReceiver:Lcom/android/internal/os/IResultReceiver;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 86
-    :try_start_1b
+    :try_start_0
     iget-object v0, p0, Landroid/os/ResultReceiver;->mReceiver:Lcom/android/internal/os/IResultReceiver;
 
     invoke-interface {v0, p1, p2}, Lcom/android/internal/os/IResultReceiver;->send(ILandroid/os/Bundle;)V
-    :try_end_20
-    .catch Landroid/os/RemoteException; {:try_start_1b .. :try_end_20} :catch_21
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_12
+    goto :goto_0
 
     .line 87
-    :catch_21
+    :catch_0
     move-exception v0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 
@@ -195,10 +195,10 @@
     monitor-enter p0
 
     .line 108
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/os/ResultReceiver;->mReceiver:Lcom/android/internal/os/IResultReceiver;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 109
     new-instance v0, Landroid/os/ResultReceiver$MyResultReceiver;
@@ -208,7 +208,7 @@
     iput-object v0, p0, Landroid/os/ResultReceiver;->mReceiver:Lcom/android/internal/os/IResultReceiver;
 
     .line 111
-    :cond_c
+    :cond_0
     iget-object v0, p0, Landroid/os/ResultReceiver;->mReceiver:Lcom/android/internal/os/IResultReceiver;
 
     invoke-interface {v0}, Lcom/android/internal/os/IResultReceiver;->asBinder()Landroid/os/IBinder;
@@ -224,12 +224,12 @@
     return-void
 
     .line 112
-    :catchall_17
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_19
-    .catchall {:try_start_1 .. :try_end_19} :catchall_17
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

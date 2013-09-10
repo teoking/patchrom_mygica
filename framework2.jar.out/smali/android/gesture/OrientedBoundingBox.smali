@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>(FFFFF)V
-    .registers 9
+    .locals 3
     .parameter "angle"
     .parameter "cx"
     .parameter "cy"
@@ -54,7 +54,7 @@
     .local v0, ratio:F
     cmpl-float v1, v0, v2
 
-    if-lez v1, :cond_1a
+    if-lez v1, :cond_0
 
     .line 44
     div-float v1, v2, v0
@@ -62,20 +62,20 @@
     iput v1, p0, Landroid/gesture/OrientedBoundingBox;->squareness:F
 
     .line 48
-    :goto_19
+    :goto_0
     return-void
 
     .line 46
-    :cond_1a
+    :cond_0
     iput v0, p0, Landroid/gesture/OrientedBoundingBox;->squareness:F
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public toPath()Landroid/graphics/Path;
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v7, 0x1

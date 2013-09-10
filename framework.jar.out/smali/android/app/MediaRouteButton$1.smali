@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/MediaRouteButton;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onDetached(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)V
-    .registers 4
+    .locals 2
     .parameter "detachedFragment"
 
     .prologue
@@ -47,6 +47,7 @@
 
     const/4 v1, 0x0
 
+    #setter for: Landroid/app/MediaRouteButton;->mDialogFragment:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
     invoke-static {v0, v1}, Landroid/app/MediaRouteButton;->access$102(Landroid/app/MediaRouteButton;Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
     .line 338

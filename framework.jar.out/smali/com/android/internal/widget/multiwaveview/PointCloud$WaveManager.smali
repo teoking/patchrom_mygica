@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/widget/multiwaveview/PointCloud;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -54,7 +54,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/android/internal/widget/multiwaveview/PointCloud$WaveManager;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -65,7 +65,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/android/internal/widget/multiwaveview/PointCloud$WaveManager;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -76,7 +76,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/android/internal/widget/multiwaveview/PointCloud$WaveManager;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public getAlpha()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 63
@@ -99,7 +99,7 @@
 .end method
 
 .method public getRadius()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 55
@@ -109,7 +109,7 @@
 .end method
 
 .method public setAlpha(F)V
-    .registers 2
+    .locals 0
     .parameter "a"
 
     .prologue
@@ -121,7 +121,7 @@
 .end method
 
 .method public setRadius(F)V
-    .registers 2
+    .locals 0
     .parameter "r"
 
     .prologue

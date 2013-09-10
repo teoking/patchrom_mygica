@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 134
@@ -53,7 +53,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/telephony/OperatorInfo$State;)V
-    .registers 6
+    .locals 1
     .parameter "operatorAlphaLong"
     .parameter "operatorAlphaShort"
     .parameter "operatorNumeric"
@@ -85,7 +85,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 6
+    .locals 1
     .parameter "operatorAlphaLong"
     .parameter "operatorAlphaShort"
     .parameter "operatorNumeric"
@@ -104,7 +104,7 @@
 .end method
 
 .method private static rilStateToState(Ljava/lang/String;)Lcom/android/internal/telephony/OperatorInfo$State;
-    .registers 4
+    .locals 3
     .parameter "s"
 
     .prologue
@@ -115,62 +115,62 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 86
     sget-object v0, Lcom/android/internal/telephony/OperatorInfo$State;->UNKNOWN:Lcom/android/internal/telephony/OperatorInfo$State;
 
     .line 92
-    :goto_b
+    :goto_0
     return-object v0
 
     .line 87
-    :cond_c
+    :cond_0
     const-string v0, "available"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_1
 
     .line 88
     sget-object v0, Lcom/android/internal/telephony/OperatorInfo$State;->AVAILABLE:Lcom/android/internal/telephony/OperatorInfo$State;
 
-    goto :goto_b
+    goto :goto_0
 
     .line 89
-    :cond_17
+    :cond_1
     const-string v0, "current"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_2
 
     .line 90
     sget-object v0, Lcom/android/internal/telephony/OperatorInfo$State;->CURRENT:Lcom/android/internal/telephony/OperatorInfo$State;
 
-    goto :goto_b
+    goto :goto_0
 
     .line 91
-    :cond_22
+    :cond_2
     const-string v0, "forbidden"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2d
+    if-eqz v0, :cond_3
 
     .line 92
     sget-object v0, Lcom/android/internal/telephony/OperatorInfo$State;->FORBIDDEN:Lcom/android/internal/telephony/OperatorInfo$State;
 
-    goto :goto_b
+    goto :goto_0
 
     .line 94
-    :cond_2d
+    :cond_3
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -205,7 +205,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 116
@@ -215,7 +215,7 @@
 .end method
 
 .method public getOperatorAlphaLong()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 42
@@ -225,7 +225,7 @@
 .end method
 
 .method public getOperatorAlphaShort()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 47
@@ -235,7 +235,7 @@
 .end method
 
 .method public getOperatorNumeric()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 52
@@ -245,7 +245,7 @@
 .end method
 
 .method public getState()Lcom/android/internal/telephony/OperatorInfo$State;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 57
@@ -255,7 +255,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 101
@@ -319,7 +319,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

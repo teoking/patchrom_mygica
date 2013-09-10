@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 32
@@ -21,7 +21,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 38
@@ -31,7 +31,7 @@
 .end method
 
 .method public getSpanTypeId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 48
@@ -41,7 +41,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 3
+    .locals 0
     .parameter "dest"
     .parameter "flags"
 

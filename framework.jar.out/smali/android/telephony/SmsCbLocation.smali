@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 181
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, -0x1
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -100,7 +100,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "plmn"
 
     .prologue
@@ -123,7 +123,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
     .parameter "plmn"
     .parameter "lac"
     .parameter "cid"
@@ -148,7 +148,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 200
@@ -158,7 +158,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "o"
 
     .prologue
@@ -167,28 +167,28 @@
     const/4 v2, 0x0
 
     .line 113
-    if-ne p1, p0, :cond_5
+    if-ne p1, p0, :cond_1
 
     .line 120
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 116
-    :cond_5
-    if-eqz p1, :cond_b
+    :cond_1
+    if-eqz p1, :cond_2
 
     instance-of v3, p1, Landroid/telephony/SmsCbLocation;
 
-    if-nez v3, :cond_d
+    if-nez v3, :cond_3
 
-    :cond_b
+    :cond_2
     move v1, v2
 
     .line 117
-    goto :goto_4
+    goto :goto_0
 
-    :cond_d
+    :cond_3
     move-object v0, p1
 
     .line 119
@@ -204,28 +204,28 @@
 
     move-result v3
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_4
 
     iget v3, p0, Landroid/telephony/SmsCbLocation;->mLac:I
 
     iget v4, v0, Landroid/telephony/SmsCbLocation;->mLac:I
 
-    if-ne v3, v4, :cond_26
+    if-ne v3, v4, :cond_4
 
     iget v3, p0, Landroid/telephony/SmsCbLocation;->mCid:I
 
     iget v4, v0, Landroid/telephony/SmsCbLocation;->mCid:I
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_0
 
-    :cond_26
+    :cond_4
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public getCid()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 100
@@ -235,7 +235,7 @@
 .end method
 
 .method public getLac()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 92
@@ -245,7 +245,7 @@
 .end method
 
 .method public getPlmn()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84
@@ -255,7 +255,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 105
@@ -285,7 +285,7 @@
 .end method
 
 .method public isInLocationArea(Landroid/telephony/SmsCbLocation;)Z
-    .registers 6
+    .locals 4
     .parameter "area"
 
     .prologue
@@ -296,33 +296,33 @@
     .line 135
     iget v1, p0, Landroid/telephony/SmsCbLocation;->mCid:I
 
-    if-eq v1, v3, :cond_d
+    if-eq v1, v3, :cond_1
 
     iget v1, p0, Landroid/telephony/SmsCbLocation;->mCid:I
 
     iget v2, p1, Landroid/telephony/SmsCbLocation;->mCid:I
 
-    if-eq v1, v2, :cond_d
+    if-eq v1, v2, :cond_1
 
     .line 141
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     return v0
 
     .line 138
-    :cond_d
+    :cond_1
     iget v1, p0, Landroid/telephony/SmsCbLocation;->mLac:I
 
-    if-eq v1, v3, :cond_17
+    if-eq v1, v3, :cond_2
 
     iget v1, p0, Landroid/telephony/SmsCbLocation;->mLac:I
 
     iget v2, p1, Landroid/telephony/SmsCbLocation;->mLac:I
 
-    if-ne v1, v2, :cond_c
+    if-ne v1, v2, :cond_0
 
     .line 141
-    :cond_17
+    :cond_2
     iget-object v0, p0, Landroid/telephony/SmsCbLocation;->mPlmn:Ljava/lang/String;
 
     iget-object v1, p1, Landroid/telephony/SmsCbLocation;->mPlmn:Ljava/lang/String;
@@ -331,11 +331,11 @@
 
     move-result v0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public isInLocationArea(Ljava/lang/String;II)Z
-    .registers 7
+    .locals 3
     .parameter "plmn"
     .parameter "lac"
     .parameter "cid"
@@ -352,42 +352,42 @@
 
     move-result v1
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_1
 
     .line 165
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return v0
 
     .line 157
-    :cond_b
+    :cond_1
     iget v1, p0, Landroid/telephony/SmsCbLocation;->mLac:I
 
-    if-eq v1, v2, :cond_13
+    if-eq v1, v2, :cond_2
 
     iget v1, p0, Landroid/telephony/SmsCbLocation;->mLac:I
 
-    if-ne v1, p2, :cond_a
+    if-ne v1, p2, :cond_0
 
     .line 161
-    :cond_13
+    :cond_2
     iget v1, p0, Landroid/telephony/SmsCbLocation;->mCid:I
 
-    if-eq v1, v2, :cond_1b
+    if-eq v1, v2, :cond_3
 
     iget v1, p0, Landroid/telephony/SmsCbLocation;->mCid:I
 
-    if-ne v1, p3, :cond_a
+    if-ne v1, p3, :cond_0
 
     .line 165
-    :cond_1b
+    :cond_3
     const/4 v0, 0x1
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     const/16 v2, 0x2c
@@ -443,7 +443,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

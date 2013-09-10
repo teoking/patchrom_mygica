@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 181
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/LinkAddress;Ljava/net/InetAddress;)V
-    .registers 6
+    .locals 3
     .parameter "destination"
     .parameter "gateway"
 
@@ -56,15 +56,15 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 49
-    if-nez p1, :cond_13
+    if-nez p1, :cond_0
 
     .line 50
-    if-eqz p2, :cond_4d
+    if-eqz p2, :cond_3
 
     .line 51
     instance-of v0, p2, Ljava/net/Inet4Address;
 
-    if-eqz v0, :cond_45
+    if-eqz v0, :cond_2
 
     .line 52
     new-instance p1, Landroid/net/LinkAddress;
@@ -76,9 +76,9 @@
 
     .line 61
     .restart local p1
-    :cond_13
-    :goto_13
-    if-nez p2, :cond_1f
+    :cond_0
+    :goto_0
+    if-nez p2, :cond_1
 
     .line 62
     invoke-virtual {p1}, Landroid/net/LinkAddress;->getAddress()Ljava/net/InetAddress;
@@ -87,14 +87,14 @@
 
     instance-of v0, v0, Ljava/net/Inet4Address;
 
-    if-eqz v0, :cond_55
+    if-eqz v0, :cond_4
 
     .line 63
     sget-object p2, Ljava/net/Inet4Address;->ANY:Ljava/net/InetAddress;
 
     .line 68
-    :cond_1f
-    :goto_1f
+    :cond_1
+    :goto_1
     new-instance v0, Landroid/net/LinkAddress;
 
     invoke-virtual {p1}, Landroid/net/LinkAddress;->getAddress()Ljava/net/InetAddress;
@@ -138,7 +138,7 @@
     return-void
 
     .line 54
-    :cond_45
+    :cond_2
     new-instance p1, Landroid/net/LinkAddress;
 
     .end local p1
@@ -147,10 +147,10 @@
     invoke-direct {p1, v0, v1}, Landroid/net/LinkAddress;-><init>(Ljava/net/InetAddress;I)V
 
     .restart local p1
-    goto :goto_13
+    goto :goto_0
 
     .line 58
-    :cond_4d
+    :cond_3
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Invalid arguments passed in."
@@ -160,14 +160,14 @@
     throw v0
 
     .line 65
-    :cond_55
+    :cond_4
     sget-object p2, Ljava/net/Inet6Address;->ANY:Ljava/net/InetAddress;
 
-    goto :goto_1f
+    goto :goto_1
 .end method
 
 .method public constructor <init>(Ljava/net/InetAddress;)V
-    .registers 3
+    .locals 1
     .parameter "gateway"
 
     .prologue
@@ -181,7 +181,7 @@
 .end method
 
 .method private isDefault()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v2, 0x1
@@ -195,19 +195,19 @@
     .local v0, val:Z
     iget-object v3, p0, Landroid/net/RouteInfo;->mGateway:Ljava/net/InetAddress;
 
-    if-eqz v3, :cond_1a
+    if-eqz v3, :cond_1
 
     .line 100
     iget-object v3, p0, Landroid/net/RouteInfo;->mGateway:Ljava/net/InetAddress;
 
     instance-of v3, v3, Ljava/net/Inet4Address;
 
-    if-eqz v3, :cond_1d
+    if-eqz v3, :cond_3
 
     .line 101
     iget-object v3, p0, Landroid/net/RouteInfo;->mDestination:Landroid/net/LinkAddress;
 
-    if-eqz v3, :cond_19
+    if-eqz v3, :cond_0
 
     iget-object v3, p0, Landroid/net/RouteInfo;->mDestination:Landroid/net/LinkAddress;
 
@@ -215,27 +215,27 @@
 
     move-result v3
 
-    if-nez v3, :cond_1b
+    if-nez v3, :cond_2
 
-    :cond_19
+    :cond_0
     move v0, v2
 
     .line 106
-    :cond_1a
-    :goto_1a
+    :cond_1
+    :goto_0
     return v0
 
-    :cond_1b
+    :cond_2
     move v0, v1
 
     .line 101
-    goto :goto_1a
+    goto :goto_0
 
     .line 103
-    :cond_1d
+    :cond_3
     iget-object v3, p0, Landroid/net/RouteInfo;->mDestination:Landroid/net/LinkAddress;
 
-    if-eqz v3, :cond_29
+    if-eqz v3, :cond_4
 
     iget-object v3, p0, Landroid/net/RouteInfo;->mDestination:Landroid/net/LinkAddress;
 
@@ -243,22 +243,22 @@
 
     move-result v3
 
-    if-nez v3, :cond_2b
+    if-nez v3, :cond_5
 
-    :cond_29
+    :cond_4
     move v0, v2
 
-    :goto_2a
-    goto :goto_1a
+    :goto_1
+    goto :goto_0
 
-    :cond_2b
+    :cond_5
     move v0, v1
 
-    goto :goto_2a
+    goto :goto_1
 .end method
 
 .method private isHost()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 94
@@ -270,7 +270,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/net/RouteInfo;->mGateway:Ljava/net/InetAddress;
 
@@ -280,22 +280,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_1
 
-    :cond_14
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_15
+    :goto_0
     return v0
 
-    :cond_16
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public static makeHostRoute(Ljava/net/InetAddress;)Landroid/net/RouteInfo;
-    .registers 2
+    .locals 1
     .parameter "host"
 
     .prologue
@@ -310,25 +310,25 @@
 .end method
 
 .method public static makeHostRoute(Ljava/net/InetAddress;Ljava/net/InetAddress;)Landroid/net/RouteInfo;
-    .registers 5
+    .locals 3
     .parameter "host"
     .parameter "gateway"
 
     .prologue
     .line 84
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     const/4 v0, 0x0
 
     .line 89
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 86
-    :cond_4
+    :cond_0
     instance-of v0, p0, Ljava/net/Inet4Address;
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_1
 
     .line 87
     new-instance v0, Landroid/net/RouteInfo;
@@ -341,10 +341,10 @@
 
     invoke-direct {v0, v1, p1}, Landroid/net/RouteInfo;-><init>(Landroid/net/LinkAddress;Ljava/net/InetAddress;)V
 
-    goto :goto_3
+    goto :goto_0
 
     .line 89
-    :cond_15
+    :cond_1
     new-instance v0, Landroid/net/RouteInfo;
 
     new-instance v1, Landroid/net/LinkAddress;
@@ -355,37 +355,37 @@
 
     invoke-direct {v0, v1, p1}, Landroid/net/RouteInfo;-><init>(Landroid/net/LinkAddress;Ljava/net/InetAddress;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method private matches(Ljava/net/InetAddress;)Z
-    .registers 4
+    .locals 2
     .parameter "destination"
 
     .prologue
     .line 220
-    if-nez p1, :cond_4
+    if-nez p1, :cond_0
 
     const/4 v1, 0x0
 
     .line 230
-    :goto_3
+    :goto_0
     return v1
 
     .line 224
-    :cond_4
+    :cond_0
     invoke-direct {p0}, Landroid/net/RouteInfo;->isDefault()Z
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_1
 
     const/4 v1, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 227
-    :cond_c
+    :cond_1
     iget-object v1, p0, Landroid/net/RouteInfo;->mDestination:Landroid/net/LinkAddress;
 
     invoke-virtual {v1}, Landroid/net/LinkAddress;->getNetworkPrefixLength()I
@@ -408,11 +408,11 @@
 
     move-result v1
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public static selectBestRoute(Ljava/util/Collection;Ljava/net/InetAddress;)Landroid/net/RouteInfo;
-    .registers 7
+    .locals 5
     .parameter
     .parameter "dest"
     .annotation system Ldalvik/annotation/Signature;
@@ -431,19 +431,19 @@
     .prologue
     .line 241
     .local p0, routes:Ljava/util/Collection;,"Ljava/util/Collection<Landroid/net/RouteInfo;>;"
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_0
 
-    if-nez p1, :cond_6
+    if-nez p1, :cond_2
 
-    :cond_4
+    :cond_0
     const/4 v0, 0x0
 
     .line 255
-    :cond_5
+    :cond_1
     return-object v0
 
     .line 243
-    :cond_6
+    :cond_2
     const/4 v0, 0x0
 
     .line 245
@@ -453,13 +453,13 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :cond_b
-    :goto_b
+    :cond_3
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -479,10 +479,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_3
 
     .line 247
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_4
 
     iget-object v3, v0, Landroid/net/RouteInfo;->mDestination:Landroid/net/LinkAddress;
 
@@ -496,25 +496,25 @@
 
     move-result v4
 
-    if-ge v3, v4, :cond_b
+    if-ge v3, v4, :cond_3
 
     .line 252
-    :cond_33
+    :cond_4
     invoke-direct {v2, p1}, Landroid/net/RouteInfo;->matches(Ljava/net/InetAddress;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_3
 
     move-object v0, v2
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 134
@@ -524,7 +524,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 9
+    .locals 7
     .parameter "obj"
 
     .prologue
@@ -533,24 +533,24 @@
     const/4 v4, 0x0
 
     .line 156
-    if-ne p0, p1, :cond_5
+    if-ne p0, p1, :cond_1
 
     .line 170
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v3
 
     .line 158
-    :cond_5
+    :cond_1
     instance-of v5, p1, Landroid/net/RouteInfo;
 
-    if-nez v5, :cond_b
+    if-nez v5, :cond_2
 
     move v3, v4
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_b
+    :cond_2
     move-object v2, p1
 
     .line 160
@@ -560,58 +560,58 @@
     .local v2, target:Landroid/net/RouteInfo;
     iget-object v5, p0, Landroid/net/RouteInfo;->mDestination:Landroid/net/LinkAddress;
 
-    if-nez v5, :cond_32
+    if-nez v5, :cond_5
 
     invoke-virtual {v2}, Landroid/net/RouteInfo;->getDestination()Landroid/net/LinkAddress;
 
     move-result-object v5
 
-    if-nez v5, :cond_30
+    if-nez v5, :cond_4
 
     move v1, v3
 
     .line 166
     .local v1, sameDestination:Z
-    :goto_19
+    :goto_1
     iget-object v5, p0, Landroid/net/RouteInfo;->mGateway:Ljava/net/InetAddress;
 
-    if-nez v5, :cond_3f
+    if-nez v5, :cond_7
 
     invoke-virtual {v2}, Landroid/net/RouteInfo;->getGateway()Ljava/net/InetAddress;
 
     move-result-object v5
 
-    if-nez v5, :cond_3d
+    if-nez v5, :cond_6
 
     move v0, v3
 
     .line 170
     .local v0, sameAddress:Z
-    :goto_24
-    if-eqz v1, :cond_2e
+    :goto_2
+    if-eqz v1, :cond_3
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_3
 
     iget-boolean v5, p0, Landroid/net/RouteInfo;->mIsDefault:Z
 
     iget-boolean v6, v2, Landroid/net/RouteInfo;->mIsDefault:Z
 
-    if-eq v5, v6, :cond_4
+    if-eq v5, v6, :cond_0
 
-    :cond_2e
+    :cond_3
     move v3, v4
 
-    goto :goto_4
+    goto :goto_0
 
     .end local v0           #sameAddress:Z
     .end local v1           #sameDestination:Z
-    :cond_30
+    :cond_4
     move v1, v4
 
     .line 162
-    goto :goto_19
+    goto :goto_1
 
-    :cond_32
+    :cond_5
     iget-object v5, p0, Landroid/net/RouteInfo;->mDestination:Landroid/net/LinkAddress;
 
     invoke-virtual {v2}, Landroid/net/RouteInfo;->getDestination()Landroid/net/LinkAddress;
@@ -622,16 +622,16 @@
 
     move-result v1
 
-    goto :goto_19
+    goto :goto_1
 
     .restart local v1       #sameDestination:Z
-    :cond_3d
+    :cond_6
     move v0, v4
 
     .line 166
-    goto :goto_24
+    goto :goto_2
 
-    :cond_3f
+    :cond_7
     iget-object v5, p0, Landroid/net/RouteInfo;->mGateway:Ljava/net/InetAddress;
 
     invoke-virtual {v2}, Landroid/net/RouteInfo;->getGateway()Ljava/net/InetAddress;
@@ -642,11 +642,11 @@
 
     move-result v0
 
-    goto :goto_24
+    goto :goto_2
 .end method
 
 .method public getDestination()Landroid/net/LinkAddress;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 111
@@ -656,7 +656,7 @@
 .end method
 
 .method public getGateway()Ljava/net/InetAddress;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 115
@@ -666,7 +666,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v1, 0x0
@@ -674,55 +674,55 @@
     .line 176
     iget-object v0, p0, Landroid/net/RouteInfo;->mDestination:Landroid/net/LinkAddress;
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     move v0, v1
 
-    :goto_6
+    :goto_0
     iget-object v2, p0, Landroid/net/RouteInfo;->mGateway:Ljava/net/InetAddress;
 
-    if-nez v2, :cond_19
+    if-nez v2, :cond_1
 
-    :goto_a
+    :goto_1
     add-int/2addr v1, v0
 
     iget-boolean v0, p0, Landroid/net/RouteInfo;->mIsDefault:Z
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_2
 
     const/4 v0, 0x3
 
-    :goto_10
+    :goto_2
     add-int/2addr v0, v1
 
     return v0
 
-    :cond_12
+    :cond_0
     iget-object v0, p0, Landroid/net/RouteInfo;->mDestination:Landroid/net/LinkAddress;
 
     invoke-virtual {v0}, Landroid/net/LinkAddress;->hashCode()I
 
     move-result v0
 
-    goto :goto_6
+    goto :goto_0
 
-    :cond_19
+    :cond_1
     iget-object v1, p0, Landroid/net/RouteInfo;->mGateway:Ljava/net/InetAddress;
 
     invoke-virtual {v1}, Ljava/net/InetAddress;->hashCode()I
 
     move-result v1
 
-    goto :goto_a
+    goto :goto_1
 
-    :cond_20
+    :cond_2
     const/4 v0, 0x7
 
-    goto :goto_10
+    goto :goto_2
 .end method
 
 .method public isDefaultRoute()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 119
@@ -732,7 +732,7 @@
 .end method
 
 .method public isHostRoute()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 123
@@ -742,7 +742,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 127
@@ -752,7 +752,7 @@
     .local v0, val:Ljava/lang/String;
     iget-object v1, p0, Landroid/net/RouteInfo;->mDestination:Landroid/net/LinkAddress;
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/net/RouteInfo;->mDestination:Landroid/net/LinkAddress;
 
@@ -761,10 +761,10 @@
     move-result-object v0
 
     .line 129
-    :cond_c
+    :cond_0
     iget-object v1, p0, Landroid/net/RouteInfo;->mGateway:Ljava/net/InetAddress;
 
-    if-eqz v1, :cond_2d
+    if-eqz v1, :cond_1
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -795,12 +795,12 @@
     move-result-object v0
 
     .line 130
-    :cond_2d
+    :cond_1
     return-object v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "dest"
     .parameter "flags"
 
@@ -812,26 +812,26 @@
     .line 138
     iget-object v0, p0, Landroid/net/RouteInfo;->mDestination:Landroid/net/LinkAddress;
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 139
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeByte(B)V
 
     .line 146
-    :goto_9
+    :goto_0
     iget-object v0, p0, Landroid/net/RouteInfo;->mGateway:Ljava/net/InetAddress;
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_1
 
     .line 147
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeByte(B)V
 
     .line 152
-    :goto_10
+    :goto_1
     return-void
 
     .line 141
-    :cond_11
+    :cond_0
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeByte(B)V
 
     .line 142
@@ -856,10 +856,10 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 149
-    :cond_2b
+    :cond_1
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeByte(B)V
 
     .line 150
@@ -871,5 +871,5 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    goto :goto_10
+    goto :goto_1
 .end method

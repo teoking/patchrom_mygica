@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 81
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/p2p/WifiP2pInfo;
-    .registers 6
+    .locals 4
     .parameter "in"
 
     .prologue
@@ -60,11 +60,11 @@
 
     move-result v1
 
-    if-ne v1, v2, :cond_2a
+    if-ne v1, v2, :cond_2
 
     move v1, v2
 
-    :goto_e
+    :goto_0
     iput-boolean v1, v0, Landroid/net/wifi/p2p/WifiP2pInfo;->groupFormed:Z
 
     .line 85
@@ -72,11 +72,11 @@
 
     move-result v1
 
-    if-ne v1, v2, :cond_17
+    if-ne v1, v2, :cond_0
 
     move v3, v2
 
-    :cond_17
+    :cond_0
     iput-boolean v3, v0, Landroid/net/wifi/p2p/WifiP2pInfo;->isGroupOwner:Z
 
     .line 86
@@ -84,10 +84,10 @@
 
     move-result v1
 
-    if-ne v1, v2, :cond_29
+    if-ne v1, v2, :cond_1
 
     .line 88
-    :try_start_1f
+    :try_start_0
     invoke-virtual {p1}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v1
@@ -97,29 +97,29 @@
     move-result-object v1
 
     iput-object v1, v0, Landroid/net/wifi/p2p/WifiP2pInfo;->groupOwnerAddress:Ljava/net/InetAddress;
-    :try_end_29
-    .catch Ljava/net/UnknownHostException; {:try_start_1f .. :try_end_29} :catch_2c
+    :try_end_0
+    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 91
-    :cond_29
-    :goto_29
+    :cond_1
+    :goto_1
     return-object v0
 
-    :cond_2a
+    :cond_2
     move v1, v3
 
     .line 84
-    goto :goto_e
+    goto :goto_0
 
     .line 89
-    :catch_2c
+    :catch_0
     move-exception v1
 
-    goto :goto_29
+    goto :goto_1
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -132,7 +132,7 @@
 .end method
 
 .method public newArray(I)[Landroid/net/wifi/p2p/WifiP2pInfo;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -143,7 +143,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 78
@@ -45,7 +45,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -82,7 +82,7 @@
 .end method
 
 .method public constructor <init>(Lcom/android/internal/view/IInputMethodSession;Ljava/lang/String;I)V
-    .registers 4
+    .locals 0
     .parameter "_method"
     .parameter "_id"
     .parameter "_sequence"
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 89
@@ -117,7 +117,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 59
@@ -175,7 +175,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/location/ComprehensiveCountryDetector;Landroid/location/Country;Landroid/location/Country;ZZ)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 287

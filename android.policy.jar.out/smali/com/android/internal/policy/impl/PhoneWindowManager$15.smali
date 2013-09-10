@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "intent"
 
@@ -53,7 +53,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1a
+    if-eqz v1, :cond_1
 
     .line 4212
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -64,14 +64,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_0
 
     const/4 v0, 0x1
 
-    :cond_18
+    :cond_0
     iput-boolean v0, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPluggedIn:Z
 
     .line 4215
-    :cond_1a
+    :cond_1
     return-void
 .end method

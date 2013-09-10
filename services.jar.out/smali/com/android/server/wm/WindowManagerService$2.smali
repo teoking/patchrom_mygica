@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 8
+    .locals 5
     .parameter "context"
     .parameter "intent"
 
@@ -55,7 +55,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_1
 
     .line 319
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
@@ -72,11 +72,12 @@
     monitor-enter v1
 
     .line 322
-    :try_start_1a
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     const/4 v2, -0x1
 
+    #setter for: Lcom/android/server/wm/WindowManagerService;->mAllowDisableKeyguard:I
     invoke-static {v0, v2}, Lcom/android/server/wm/WindowManagerService;->access$202(Lcom/android/server/wm/WindowManagerService;I)I
 
     .line 323
@@ -84,28 +85,29 @@
 
     const/4 v2, 0x0
 
+    #setter for: Lcom/android/server/wm/WindowManagerService;->mKeyguardDisabled:Z
     invoke-static {v0, v2}, Lcom/android/server/wm/WindowManagerService;->access$102(Lcom/android/server/wm/WindowManagerService;Z)Z
 
     .line 324
     monitor-exit v1
 
     .line 341
-    :cond_27
-    :goto_27
+    :cond_0
+    :goto_0
     return-void
 
     .line 324
-    :catchall_28
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_2a
-    .catchall {:try_start_1a .. :try_end_2a} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 325
-    :cond_2b
+    :cond_1
     const-string v0, "android.intent.action.HDMI_PLUGGED"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -116,7 +118,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_0
 
     .line 326
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
@@ -127,6 +129,7 @@
 
     move-result v1
 
+    #setter for: Lcom/android/server/wm/WindowManagerService;->mTVOutOn:Z
     invoke-static {v0, v1}, Lcom/android/server/wm/WindowManagerService;->access$302(Lcom/android/server/wm/WindowManagerService;Z)Z
 
     .line 327
@@ -144,6 +147,7 @@
 
     iget-object v2, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
 
+    #getter for: Lcom/android/server/wm/WindowManagerService;->mTVOutOn:Z
     invoke-static {v2}, Lcom/android/server/wm/WindowManagerService;->access$300(Lcom/android/server/wm/WindowManagerService;)Z
 
     move-result v2
@@ -165,7 +169,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_78
+    if-nez v0, :cond_2
 
     const-string v0, "ro.vout.dualdisplay2"
 
@@ -173,7 +177,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_78
+    if-nez v0, :cond_2
 
     const-string v0, "ro.vout.dualdisplay3"
 
@@ -181,10 +185,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9e
+    if-eqz v0, :cond_4
 
     .line 331
-    :cond_78
+    :cond_2
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
@@ -199,7 +203,7 @@
 
     move-result v0
 
-    if-ne v0, v4, :cond_90
+    if-ne v0, v4, :cond_3
 
     .line 333
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
@@ -208,37 +212,39 @@
 
     invoke-virtual {v0, v3}, Lcom/android/server/input/InputManagerService;->setTvOutStatus(Z)V
 
-    goto :goto_27
+    goto :goto_0
 
     .line 335
-    :cond_90
+    :cond_3
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mInputManager:Lcom/android/server/input/InputManagerService;
 
     iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
 
+    #getter for: Lcom/android/server/wm/WindowManagerService;->mTVOutOn:Z
     invoke-static {v1}, Lcom/android/server/wm/WindowManagerService;->access$300(Lcom/android/server/wm/WindowManagerService;)Z
 
     move-result v1
 
     invoke-virtual {v0, v1}, Lcom/android/server/input/InputManagerService;->setTvOutStatus(Z)V
 
-    goto :goto_27
+    goto :goto_0
 
     .line 338
-    :cond_9e
+    :cond_4
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mInputManager:Lcom/android/server/input/InputManagerService;
 
     iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$2;->this$0:Lcom/android/server/wm/WindowManagerService;
 
+    #getter for: Lcom/android/server/wm/WindowManagerService;->mTVOutOn:Z
     invoke-static {v1}, Lcom/android/server/wm/WindowManagerService;->access$300(Lcom/android/server/wm/WindowManagerService;)Z
 
     move-result v1
 
     invoke-virtual {v0, v1}, Lcom/android/server/input/InputManagerService;->setTvOutStatus(Z)V
 
-    goto/16 :goto_27
+    goto/16 :goto_0
 .end method

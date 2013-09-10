@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/SharedPreferencesImpl$EditorImpl;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 344
@@ -53,16 +53,16 @@
     iget-object v0, v0, Landroid/app/SharedPreferencesImpl$MemoryCommitResult;->writtenToDiskLatch:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->await()V
-    :try_end_7
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 347
-    :goto_7
+    :goto_0
     return-void
 
     .line 345
-    :catch_8
+    :catch_0
     move-exception v0
 
-    goto :goto_7
+    goto :goto_0
 .end method

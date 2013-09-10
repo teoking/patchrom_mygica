@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 80
@@ -60,7 +60,7 @@
 .end method
 
 .method public getMessenger()Landroid/os/Messenger;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -81,7 +81,7 @@
 
     .line 88
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.net.wifi.p2p.IWifiP2pManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -103,7 +103,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2c
+    if-eqz v3, :cond_0
 
     .line 92
     sget-object v3, Landroid/os/Messenger;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -113,12 +113,12 @@
     move-result-object v2
 
     check-cast v2, Landroid/os/Messenger;
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 99
     .local v2, _result:Landroid/os/Messenger;
-    :goto_25
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 100
@@ -129,15 +129,15 @@
 
     .line 95
     .end local v2           #_result:Landroid/os/Messenger;
-    :cond_2c
+    :cond_0
     const/4 v2, 0x0
 
     .restart local v2       #_result:Landroid/os/Messenger;
-    goto :goto_25
+    goto :goto_0
 
     .line 99
     .end local v2           #_result:Landroid/os/Messenger;
-    :catchall_2e
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

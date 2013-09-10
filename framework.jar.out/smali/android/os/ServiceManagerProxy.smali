@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public addService(Ljava/lang/String;Landroid/os/IBinder;Z)V
-    .registers 9
+    .locals 5
     .parameter "name"
     .parameter "service"
     .parameter "allowIsolated"
@@ -66,11 +66,11 @@
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 149
-    if-eqz p3, :cond_27
+    if-eqz p3, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_17
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 150
@@ -89,15 +89,15 @@
     .line 153
     return-void
 
-    :cond_27
+    :cond_0
     move v2, v3
 
     .line 149
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 115
@@ -107,7 +107,7 @@
 .end method
 
 .method public checkService(Ljava/lang/String;)Landroid/os/IBinder;
-    .registers 8
+    .locals 6
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -162,7 +162,7 @@
 .end method
 
 .method public getService(Ljava/lang/String;)Landroid/os/IBinder;
-    .registers 8
+    .locals 6
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -217,7 +217,7 @@
 .end method
 
 .method public listServices()[Ljava/lang/String;
-    .registers 11
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -236,7 +236,7 @@
 
     .line 159
     .local v3, n:I
-    :goto_6
+    :goto_0
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
@@ -260,7 +260,7 @@
     add-int/lit8 v3, v3, 0x1
 
     .line 165
-    :try_start_18
+    :try_start_0
     iget-object v7, p0, Landroid/os/ServiceManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v8, 0x4
@@ -268,18 +268,18 @@
     const/4 v9, 0x0
 
     invoke-interface {v7, v8, v1, v4, v9}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1f
-    .catch Ljava/lang/RuntimeException; {:try_start_18 .. :try_end_1f} :catch_2c
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v5
 
     .line 166
     .local v5, res:Z
-    if-nez v5, :cond_2e
+    if-nez v5, :cond_0
 
     .line 179
     .end local v5           #res:Z
-    :goto_22
+    :goto_1
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
 
     move-result v7
@@ -295,17 +295,17 @@
 
     .line 169
     .end local v0           #array:[Ljava/lang/String;
-    :catch_2c
+    :catch_0
     move-exception v2
 
     .line 173
     .local v2, e:Ljava/lang/RuntimeException;
-    goto :goto_22
+    goto :goto_1
 
     .line 175
     .end local v2           #e:Ljava/lang/RuntimeException;
     .restart local v5       #res:Z
-    :cond_2e
+    :cond_0
     invoke-virtual {v4}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v7
@@ -318,11 +318,11 @@
     .line 177
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public setPermissionController(Landroid/os/IPermissionController;)V
-    .registers 7
+    .locals 5
     .parameter "controller"
     .annotation system Ldalvik/annotation/Throws;
         value = {

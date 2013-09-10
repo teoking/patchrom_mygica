@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/DockObserver;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 16
+    .locals 14
     .parameter "msg"
 
     .prologue
@@ -50,18 +50,18 @@
     .line 133
     iget v7, p1, Landroid/os/Message;->what:I
 
-    packed-switch v7, :pswitch_data_114
+    packed-switch v7, :pswitch_data_0
 
     .line 199
-    :goto_9
+    :goto_0
     return-void
 
     .line 135
-    :pswitch_a
+    :pswitch_0
     monitor-enter p0
 
     .line 136
-    :try_start_b
+    :try_start_0
     invoke-static {}, Lcom/android/server/DockObserver;->access$000()Ljava/lang/String;
 
     move-result-object v7
@@ -78,6 +78,7 @@
 
     iget-object v9, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
+    #getter for: Lcom/android/server/DockObserver;->mDockState:I
     invoke-static {v9}, Lcom/android/server/DockObserver;->access$100(Lcom/android/server/DockObserver;)I
 
     move-result v9
@@ -95,6 +96,7 @@
     .line 138
     iget-object v7, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
+    #getter for: Lcom/android/server/DockObserver;->mContext:Landroid/content/Context;
     invoke-static {v7}, Lcom/android/server/DockObserver;->access$200(Lcom/android/server/DockObserver;)Landroid/content/Context;
 
     move-result-object v7
@@ -113,7 +115,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_4c
+    if-nez v7, :cond_0
 
     .line 142
     invoke-static {}, Lcom/android/server/DockObserver;->access$000()Ljava/lang/String;
@@ -127,23 +129,23 @@
     .line 143
     monitor-exit p0
 
-    goto :goto_9
+    goto :goto_0
 
     .line 196
     .end local v1           #cr:Landroid/content/ContentResolver;
-    :catchall_49
+    :catchall_0
     move-exception v7
 
     monitor-exit p0
-    :try_end_4b
-    .catchall {:try_start_b .. :try_end_4b} :catchall_49
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v7
 
     .line 146
     .restart local v1       #cr:Landroid/content/ContentResolver;
-    :cond_4c
-    :try_start_4c
+    :cond_0
+    :try_start_1
     new-instance v2, Landroid/content/Intent;
 
     const-string v7, "android.intent.action.DOCK_EVENT"
@@ -161,6 +163,7 @@
 
     iget-object v8, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
+    #getter for: Lcom/android/server/DockObserver;->mDockState:I
     invoke-static {v8}, Lcom/android/server/DockObserver;->access$100(Lcom/android/server/DockObserver;)I
 
     move-result v8
@@ -174,7 +177,7 @@
 
     .line 152
     .local v0, address:Ljava/lang/String;
-    if-eqz v0, :cond_76
+    if-eqz v0, :cond_1
 
     .line 153
     const-string v7, "android.bluetooth.device.extra.DEVICE"
@@ -190,7 +193,7 @@
     invoke-virtual {v2, v7, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
     .line 158
-    :cond_76
+    :cond_1
     const-string v7, "dock_sounds_enabled"
 
     const/4 v8, 0x1
@@ -199,7 +202,7 @@
 
     move-result v7
 
-    if-ne v7, v10, :cond_d6
+    if-ne v7, v10, :cond_4
 
     .line 161
     const/4 v6, 0x0
@@ -208,45 +211,49 @@
     .local v6, whichSound:Ljava/lang/String;
     iget-object v7, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
+    #getter for: Lcom/android/server/DockObserver;->mDockState:I
     invoke-static {v7}, Lcom/android/server/DockObserver;->access$100(Lcom/android/server/DockObserver;)I
 
     move-result v7
 
-    if-nez v7, :cond_ed
+    if-nez v7, :cond_6
 
     .line 163
     iget-object v7, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
+    #getter for: Lcom/android/server/DockObserver;->mPreviousDockState:I
     invoke-static {v7}, Lcom/android/server/DockObserver;->access$300(Lcom/android/server/DockObserver;)I
 
     move-result v7
 
-    if-eq v7, v10, :cond_a0
+    if-eq v7, v10, :cond_2
 
     iget-object v7, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
+    #getter for: Lcom/android/server/DockObserver;->mPreviousDockState:I
     invoke-static {v7}, Lcom/android/server/DockObserver;->access$300(Lcom/android/server/DockObserver;)I
 
     move-result v7
 
-    if-eq v7, v12, :cond_a0
+    if-eq v7, v12, :cond_2
 
     iget-object v7, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
+    #getter for: Lcom/android/server/DockObserver;->mPreviousDockState:I
     invoke-static {v7}, Lcom/android/server/DockObserver;->access$300(Lcom/android/server/DockObserver;)I
 
     move-result v7
 
-    if-ne v7, v13, :cond_e2
+    if-ne v7, v13, :cond_5
 
     .line 166
-    :cond_a0
+    :cond_2
     const-string v6, "desk_undock_sound"
 
     .line 180
-    :cond_a2
-    :goto_a2
-    if-eqz v6, :cond_d6
+    :cond_3
+    :goto_1
+    if-eqz v6, :cond_4
 
     .line 181
     invoke-static {v1, v6}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
@@ -255,7 +262,7 @@
 
     .line 182
     .local v4, soundPath:Ljava/lang/String;
-    if-eqz v4, :cond_d6
+    if-eqz v4, :cond_4
 
     .line 183
     new-instance v7, Ljava/lang/StringBuilder;
@@ -282,11 +289,12 @@
 
     .line 184
     .local v5, soundUri:Landroid/net/Uri;
-    if-eqz v5, :cond_d6
+    if-eqz v5, :cond_4
 
     .line 185
     iget-object v7, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
+    #getter for: Lcom/android/server/DockObserver;->mContext:Landroid/content/Context;
     invoke-static {v7}, Lcom/android/server/DockObserver;->access$200(Lcom/android/server/DockObserver;)Landroid/content/Context;
 
     move-result-object v7
@@ -297,7 +305,7 @@
 
     .line 186
     .local v3, sfx:Landroid/media/Ringtone;
-    if-eqz v3, :cond_d6
+    if-eqz v3, :cond_4
 
     .line 187
     const/4 v7, 0x1
@@ -312,9 +320,10 @@
     .end local v4           #soundPath:Ljava/lang/String;
     .end local v5           #soundUri:Landroid/net/Uri;
     .end local v6           #whichSound:Ljava/lang/String;
-    :cond_d6
+    :cond_4
     iget-object v7, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
+    #getter for: Lcom/android/server/DockObserver;->mContext:Landroid/content/Context;
     invoke-static {v7}, Lcom/android/server/DockObserver;->access$200(Lcom/android/server/DockObserver;)Landroid/content/Context;
 
     move-result-object v7
@@ -324,78 +333,83 @@
     .line 196
     monitor-exit p0
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 167
     .restart local v6       #whichSound:Ljava/lang/String;
-    :cond_e2
+    :cond_5
     iget-object v7, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
+    #getter for: Lcom/android/server/DockObserver;->mPreviousDockState:I
     invoke-static {v7}, Lcom/android/server/DockObserver;->access$300(Lcom/android/server/DockObserver;)I
 
     move-result v7
 
-    if-ne v7, v11, :cond_a2
+    if-ne v7, v11, :cond_3
 
     .line 168
     const-string v6, "car_undock_sound"
 
-    goto :goto_a2
+    goto :goto_1
 
     .line 171
-    :cond_ed
+    :cond_6
     iget-object v7, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
+    #getter for: Lcom/android/server/DockObserver;->mDockState:I
     invoke-static {v7}, Lcom/android/server/DockObserver;->access$100(Lcom/android/server/DockObserver;)I
 
     move-result v7
 
-    if-eq v7, v10, :cond_105
+    if-eq v7, v10, :cond_7
 
     iget-object v7, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
+    #getter for: Lcom/android/server/DockObserver;->mDockState:I
     invoke-static {v7}, Lcom/android/server/DockObserver;->access$100(Lcom/android/server/DockObserver;)I
 
     move-result v7
 
-    if-eq v7, v12, :cond_105
+    if-eq v7, v12, :cond_7
 
     iget-object v7, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
+    #getter for: Lcom/android/server/DockObserver;->mDockState:I
     invoke-static {v7}, Lcom/android/server/DockObserver;->access$100(Lcom/android/server/DockObserver;)I
 
     move-result v7
 
-    if-ne v7, v13, :cond_108
+    if-ne v7, v13, :cond_8
 
     .line 174
-    :cond_105
+    :cond_7
     const-string v6, "desk_dock_sound"
 
-    goto :goto_a2
+    goto :goto_1
 
     .line 175
-    :cond_108
+    :cond_8
     iget-object v7, p0, Lcom/android/server/DockObserver$1;->this$0:Lcom/android/server/DockObserver;
 
+    #getter for: Lcom/android/server/DockObserver;->mDockState:I
     invoke-static {v7}, Lcom/android/server/DockObserver;->access$100(Lcom/android/server/DockObserver;)I
 
     move-result v7
 
-    if-ne v7, v11, :cond_a2
+    if-ne v7, v11, :cond_3
 
     .line 176
     const-string v6, "car_dock_sound"
-    :try_end_112
-    .catchall {:try_start_4c .. :try_end_112} :catchall_49
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_a2
+    goto :goto_1
 
     .line 133
     nop
 
-    :pswitch_data_114
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_a
+        :pswitch_0
     .end packed-switch
 .end method

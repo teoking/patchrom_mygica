@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager$Future2Task;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1534

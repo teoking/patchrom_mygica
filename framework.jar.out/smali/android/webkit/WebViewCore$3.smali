@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/WebViewCore;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public bridge synthetic onReceiveValue(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -62,7 +62,7 @@
 .end method
 
 .method public onReceiveValue([Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/util/Pair;Landroid/os/IBinder;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "connectionCb"
     .annotation system Ldalvik/annotation/Signature;
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public disconnect()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 147
@@ -66,28 +66,28 @@
 
     .line 150
     .local v0, cb:Lcom/android/internal/widget/IRemoteViewsAdapterConnection;
-    :try_start_6
+    :try_start_0
     invoke-interface {v0}, Lcom/android/internal/widget/IRemoteViewsAdapterConnection;->onServiceDisconnected()V
-    :try_end_9
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_9} :catch_a
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 154
-    :goto_9
+    :goto_0
     return-void
 
     .line 151
-    :catch_a
+    :catch_0
     move-exception v1
 
     .line 152
     .local v1, e:Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 6
+    .locals 3
     .parameter "name"
     .parameter "service"
 
@@ -101,28 +101,28 @@
 
     .line 136
     .local v0, cb:Lcom/android/internal/widget/IRemoteViewsAdapterConnection;
-    :try_start_6
+    :try_start_0
     invoke-interface {v0, p2}, Lcom/android/internal/widget/IRemoteViewsAdapterConnection;->onServiceConnected(Landroid/os/IBinder;)V
-    :try_end_9
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_9} :catch_a
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 140
-    :goto_9
+    :goto_0
     return-void
 
     .line 137
-    :catch_a
+    :catch_0
     move-exception v1
 
     .line 138
     .local v1, e:Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .registers 2
+    .locals 0
     .parameter "name"
 
     .prologue

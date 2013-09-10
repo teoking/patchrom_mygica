@@ -11,7 +11,7 @@
 
 # direct methods
 .method private constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "lbm"
 
     .prologue
@@ -31,14 +31,14 @@
 .end method
 
 .method private checkRecycled(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "errorMessage"
 
     .prologue
     .line 113
     iget-boolean v0, p0, Landroid/graphics/LargeBitmap;->mRecycled:Z
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 114
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -48,7 +48,7 @@
     throw v0
 
     .line 116
-    :cond_a
+    :cond_0
     return-void
 .end method
 
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public decodeRegion(Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
-    .registers 9
+    .locals 6
     .parameter "rect"
     .parameter "options"
 
@@ -80,11 +80,11 @@
     .line 64
     iget v0, p1, Landroid/graphics/Rect;->left:I
 
-    if-ltz v0, :cond_1d
+    if-ltz v0, :cond_0
 
     iget v0, p1, Landroid/graphics/Rect;->top:I
 
-    if-ltz v0, :cond_1d
+    if-ltz v0, :cond_0
 
     iget v0, p1, Landroid/graphics/Rect;->right:I
 
@@ -92,7 +92,7 @@
 
     move-result v1
 
-    if-gt v0, v1, :cond_1d
+    if-gt v0, v1, :cond_0
 
     iget v0, p1, Landroid/graphics/Rect;->bottom:I
 
@@ -100,10 +100,10 @@
 
     move-result v1
 
-    if-le v0, v1, :cond_26
+    if-le v0, v1, :cond_1
 
     .line 65
-    :cond_1d
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "rectangle is not inside the image"
@@ -113,7 +113,7 @@
     throw v0
 
     .line 66
-    :cond_26
+    :cond_1
     iget v0, p0, Landroid/graphics/LargeBitmap;->mNativeLargeBitmap:I
 
     iget v1, p1, Landroid/graphics/Rect;->left:I
@@ -142,7 +142,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 119
@@ -153,7 +153,7 @@
 .end method
 
 .method public getHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 78
@@ -172,7 +172,7 @@
 .end method
 
 .method public getWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 72
@@ -191,7 +191,7 @@
 .end method
 
 .method public final isRecycled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 105
@@ -201,13 +201,13 @@
 .end method
 
 .method public recycle()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 92
     iget-boolean v0, p0, Landroid/graphics/LargeBitmap;->mRecycled:Z
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 93
     iget v0, p0, Landroid/graphics/LargeBitmap;->mNativeLargeBitmap:I
@@ -220,6 +220,6 @@
     iput-boolean v0, p0, Landroid/graphics/LargeBitmap;->mRecycled:Z
 
     .line 96
-    :cond_c
+    :cond_0
     return-void
 .end method

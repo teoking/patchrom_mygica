@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 501
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public getService(Landroid/app/ContextImpl;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "ctx"
 
     .prologue

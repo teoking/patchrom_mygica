@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/WebViewCore;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public invoke(Ljava/lang/String;ZZ)V
-    .registers 7
+    .locals 3
     .parameter "origin"
     .parameter "allow"
     .parameter "remember"

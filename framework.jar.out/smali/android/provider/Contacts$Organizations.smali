@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1787
@@ -56,7 +56,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1756
@@ -66,7 +66,7 @@
 .end method
 
 .method public static final getDisplayLabel(Landroid/content/Context;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .registers 8
+    .locals 5
     .parameter "context"
     .parameter "type"
     .parameter "label"
@@ -79,7 +79,7 @@
 
     .line 1766
     .local v0, display:Ljava/lang/CharSequence;
-    if-eqz p1, :cond_19
+    if-eqz p1, :cond_1
 
     .line 1767
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -96,20 +96,20 @@
     .local v2, labels:[Ljava/lang/CharSequence;
     add-int/lit8 v3, p1, -0x1
 
-    :try_start_11
+    :try_start_0
     aget-object v0, v2, v3
-    :try_end_13
-    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_11 .. :try_end_13} :catch_14
+    :try_end_0
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1779
     .end local v2           #labels:[Ljava/lang/CharSequence;
-    :cond_13
-    :goto_13
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 1771
     .restart local v2       #labels:[Ljava/lang/CharSequence;
-    :catch_14
+    :catch_0
     move-exception v1
 
     .line 1772
@@ -118,20 +118,20 @@
 
     aget-object v0, v2, v3
 
-    goto :goto_13
+    goto :goto_0
 
     .line 1775
     .end local v1           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
     .end local v2           #labels:[Ljava/lang/CharSequence;
-    :cond_19
+    :cond_1
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_13
+    if-nez v3, :cond_0
 
     .line 1776
     move-object v0, p2
 
-    goto :goto_13
+    goto :goto_0
 .end method

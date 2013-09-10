@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 580
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 6
+    .locals 3
     .parameter "o1"
     .parameter "o2"
 
@@ -55,22 +55,22 @@
 
     .line 584
     .local v1, q2:I
-    if-le v0, v1, :cond_10
+    if-le v0, v1, :cond_0
 
     const/4 v2, -0x1
 
-    :goto_f
+    :goto_0
     return v2
 
-    :cond_10
-    if-ge v0, v1, :cond_14
+    :cond_0
+    if-ge v0, v1, :cond_1
 
     const/4 v2, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
-    :cond_14
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method

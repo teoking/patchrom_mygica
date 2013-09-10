@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/nfc/Tag;I)V
-    .registers 3
+    .locals 0
     .parameter "tag"
     .parameter "tech"
     .annotation system Ldalvik/annotation/Throws;
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method checkConnected()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 50
@@ -58,7 +58,7 @@
 
     iget v1, p0, Landroid/nfc/tech/BasicTagTechnology;->mSelectedTechnology:I
 
-    if-ne v0, v1, :cond_13
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
 
@@ -68,10 +68,10 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_1b
+    if-ne v0, v1, :cond_1
 
     .line 52
-    :cond_13
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Call connect() first!"
@@ -81,12 +81,12 @@
     throw v0
 
     .line 54
-    :cond_1b
+    :cond_1
     return-void
 .end method
 
 .method public close()V
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -97,7 +97,7 @@
     const/4 v3, 0x0
 
     .line 122
-    :try_start_1
+    :try_start_0
     iget-object v1, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v1}, Landroid/nfc/Tag;->getTagService()Landroid/nfc/INfcTag;
@@ -120,9 +120,9 @@
     move-result v2
 
     invoke-interface {v1, v2}, Landroid/nfc/INfcTag;->reconnect(I)I
-    :try_end_19
-    .catchall {:try_start_1 .. :try_end_19} :catchall_31
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_19} :catch_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 127
     iput-boolean v3, p0, Landroid/nfc/tech/BasicTagTechnology;->mIsConnected:Z
@@ -133,23 +133,23 @@
     invoke-virtual {v1}, Landroid/nfc/Tag;->setTechnologyDisconnected()V
 
     .line 130
-    :goto_20
+    :goto_0
     return-void
 
     .line 124
-    :catch_21
+    :catch_0
     move-exception v0
 
     .line 125
     .local v0, e:Landroid/os/RemoteException;
-    :try_start_22
+    :try_start_1
     const-string v1, "NFC"
 
     const-string v2, "NFC service dead"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_29
-    .catchall {:try_start_22 .. :try_end_29} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 127
     iput-boolean v3, p0, Landroid/nfc/tech/BasicTagTechnology;->mIsConnected:Z
@@ -159,11 +159,11 @@
 
     invoke-virtual {v1}, Landroid/nfc/Tag;->setTechnologyDisconnected()V
 
-    goto :goto_20
+    goto :goto_0
 
     .line 127
     .end local v0           #e:Landroid/os/RemoteException;
-    :catchall_31
+    :catchall_0
     move-exception v1
 
     iput-boolean v3, p0, Landroid/nfc/tech/BasicTagTechnology;->mIsConnected:Z
@@ -177,7 +177,7 @@
 .end method
 
 .method public connect()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -207,7 +207,7 @@
 
     .line 76
     .local v1, errorCode:I
-    if-nez v1, :cond_1f
+    if-nez v1, :cond_0
 
     .line 78
     iget-object v2, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
@@ -225,10 +225,10 @@
     return-void
 
     .line 80
-    :cond_1f
+    :cond_0
     const/16 v2, -0x15
 
-    if-ne v1, v2, :cond_3b
+    if-ne v1, v2, :cond_1
 
     .line 81
     new-instance v2, Ljava/lang/UnsupportedOperationException;
@@ -238,12 +238,12 @@
     invoke-direct {v2, v3}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
     throw v2
-    :try_end_2b
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_2b} :catch_2b
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 87
     .end local v1           #errorCode:I
-    :catch_2b
+    :catch_0
     move-exception v0
 
     .line 88
@@ -266,19 +266,19 @@
     .line 85
     .end local v0           #e:Landroid/os/RemoteException;
     .restart local v1       #errorCode:I
-    :cond_3b
-    :try_start_3b
+    :cond_1
+    :try_start_1
     new-instance v2, Ljava/io/IOException;
 
     invoke-direct {v2}, Ljava/io/IOException;-><init>()V
 
     throw v2
-    :try_end_41
-    .catch Landroid/os/RemoteException; {:try_start_3b .. :try_end_41} :catch_2b
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 .end method
 
 .method getMaxTransceiveLengthInternal()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 135
@@ -292,17 +292,17 @@
     iget v2, p0, Landroid/nfc/tech/BasicTagTechnology;->mSelectedTechnology:I
 
     invoke-interface {v1, v2}, Landroid/nfc/INfcTag;->getMaxTransceiveLength(I)I
-    :try_end_b
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_b} :catch_d
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 138
-    :goto_c
+    :goto_0
     return v1
 
     .line 136
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 137
@@ -316,11 +316,11 @@
     .line 138
     const/4 v1, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public getTag()Landroid/nfc/Tag;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 45
@@ -330,7 +330,7 @@
 .end method
 
 .method public isConnected()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x0
@@ -338,15 +338,15 @@
     .line 58
     iget-boolean v2, p0, Landroid/nfc/tech/BasicTagTechnology;->mIsConnected:Z
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_0
 
     .line 66
-    :goto_5
+    :goto_0
     return v1
 
     .line 63
-    :cond_6
-    :try_start_6
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v2}, Landroid/nfc/Tag;->getTagService()Landroid/nfc/INfcTag;
@@ -360,15 +360,15 @@
     move-result v3
 
     invoke-interface {v2, v3}, Landroid/nfc/INfcTag;->isPresent(I)Z
-    :try_end_15
-    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_15} :catch_17
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 64
-    :catch_17
+    :catch_0
     move-exception v0
 
     .line 65
@@ -379,11 +379,11 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public reconnect()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -396,7 +396,7 @@
     .line 96
     iget-boolean v2, p0, Landroid/nfc/tech/BasicTagTechnology;->mIsConnected:Z
 
-    if-nez v2, :cond_d
+    if-nez v2, :cond_0
 
     .line 97
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -408,8 +408,8 @@
     throw v2
 
     .line 101
-    :cond_d
-    :try_start_d
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v2}, Landroid/nfc/Tag;->getTagService()Landroid/nfc/INfcTag;
@@ -428,7 +428,7 @@
 
     .line 103
     .local v1, errorCode:I
-    if-eqz v1, :cond_44
+    if-eqz v1, :cond_1
 
     .line 104
     const/4 v2, 0x0
@@ -446,12 +446,12 @@
     invoke-direct {v2}, Ljava/io/IOException;-><init>()V
 
     throw v2
-    :try_end_2d
-    .catch Landroid/os/RemoteException; {:try_start_d .. :try_end_2d} :catch_2d
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 108
     .end local v1           #errorCode:I
-    :catch_2d
+    :catch_0
     move-exception v0
 
     .line 109
@@ -482,12 +482,12 @@
     .line 114
     .end local v0           #e:Landroid/os/RemoteException;
     .restart local v1       #errorCode:I
-    :cond_44
+    :cond_1
     return-void
 .end method
 
 .method transceive([BZ)[B
-    .registers 7
+    .locals 4
     .parameter "data"
     .parameter "raw"
     .annotation system Ldalvik/annotation/Throws;
@@ -501,7 +501,7 @@
     invoke-virtual {p0}, Landroid/nfc/tech/BasicTagTechnology;->checkConnected()V
 
     .line 146
-    :try_start_3
+    :try_start_0
     iget-object v2, p0, Landroid/nfc/tech/BasicTagTechnology;->mTag:Landroid/nfc/Tag;
 
     invoke-virtual {v2}, Landroid/nfc/Tag;->getTagService()Landroid/nfc/INfcTag;
@@ -520,7 +520,7 @@
 
     .line 148
     .local v1, result:Landroid/nfc/TransceiveResult;
-    if-nez v1, :cond_2e
+    if-nez v1, :cond_0
 
     .line 149
     new-instance v2, Ljava/io/IOException;
@@ -530,12 +530,12 @@
     invoke-direct {v2, v3}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v2
-    :try_end_1e
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_1e} :catch_1e
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 153
     .end local v1           #result:Landroid/nfc/TransceiveResult;
-    :catch_1e
+    :catch_0
     move-exception v0
 
     .line 154
@@ -558,11 +558,11 @@
     .line 151
     .end local v0           #e:Landroid/os/RemoteException;
     .restart local v1       #result:Landroid/nfc/TransceiveResult;
-    :cond_2e
-    :try_start_2e
+    :cond_0
+    :try_start_1
     invoke-virtual {v1}, Landroid/nfc/TransceiveResult;->getResponseOrThrow()[B
-    :try_end_31
-    .catch Landroid/os/RemoteException; {:try_start_2e .. :try_end_31} :catch_1e
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result-object v2
 

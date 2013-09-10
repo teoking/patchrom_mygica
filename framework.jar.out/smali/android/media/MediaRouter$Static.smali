@@ -69,7 +69,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .registers 7
+    .locals 5
     .parameter "appContext"
 
     .prologue
@@ -164,7 +164,7 @@
 
 # virtual methods
 .method startMonitoringRoutes(Landroid/content/Context;)V
-    .registers 6
+    .locals 4
     .parameter "appContext"
 
     .prologue
@@ -214,37 +214,37 @@
 
     .line 104
     .local v0, newRoutes:Landroid/media/AudioRoutesInfo;
-    :try_start_2a
+    :try_start_0
     iget-object v1, p0, Landroid/media/MediaRouter$Static;->mAudioService:Landroid/media/IAudioService;
 
     iget-object v2, p0, Landroid/media/MediaRouter$Static;->mRoutesObserver:Landroid/media/IAudioRoutesObserver$Stub;
 
     invoke-interface {v1, v2}, Landroid/media/IAudioService;->startWatchingRoutes(Landroid/media/IAudioRoutesObserver;)Landroid/media/AudioRoutesInfo;
-    :try_end_31
-    .catch Landroid/os/RemoteException; {:try_start_2a .. :try_end_31} :catch_38
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
     .line 107
-    :goto_32
-    if-eqz v0, :cond_37
+    :goto_0
+    if-eqz v0, :cond_0
 
     .line 108
     invoke-virtual {p0, v0}, Landroid/media/MediaRouter$Static;->updateRoutes(Landroid/media/AudioRoutesInfo;)V
 
     .line 110
-    :cond_37
+    :cond_0
     return-void
 
     .line 105
-    :catch_38
+    :catch_0
     move-exception v1
 
-    goto :goto_32
+    goto :goto_0
 .end method
 
 .method updateRoutes(Landroid/media/AudioRoutesInfo;)V
-    .registers 9
+    .locals 7
     .parameter "newRoutes"
 
     .prologue
@@ -257,7 +257,7 @@
 
     iget v5, v5, Landroid/media/AudioRoutesInfo;->mMainType:I
 
-    if-eq v4, v5, :cond_2b
+    if-eq v4, v5, :cond_1
 
     .line 114
     iget-object v4, p0, Landroid/media/MediaRouter$Static;->mCurRoutesInfo:Landroid/media/AudioRoutesInfo;
@@ -271,21 +271,21 @@
 
     and-int/lit8 v4, v4, 0x2
 
-    if-nez v4, :cond_1b
+    if-nez v4, :cond_0
 
     iget v4, p1, Landroid/media/AudioRoutesInfo;->mMainType:I
 
     and-int/lit8 v4, v4, 0x1
 
-    if-eqz v4, :cond_81
+    if-eqz v4, :cond_4
 
     .line 118
-    :cond_1b
+    :cond_0
     const v3, 0x104051e
 
     .line 126
     .local v3, name:I
-    :goto_1e
+    :goto_0
     sget-object v4, Landroid/media/MediaRouter;->sStatic:Landroid/media/MediaRouter$Static;
 
     iget-object v4, v4, Landroid/media/MediaRouter$Static;->mDefaultAudio:Landroid/media/MediaRouter$RouteInfo;
@@ -301,19 +301,19 @@
 
     .line 132
     .end local v3           #name:I
-    :cond_2b
-    :try_start_2b
+    :cond_1
+    :try_start_0
     iget-object v4, p0, Landroid/media/MediaRouter$Static;->mAudioService:Landroid/media/IAudioService;
 
     invoke-interface {v4}, Landroid/media/IAudioService;->isBluetoothA2dpOn()Z
-    :try_end_30
-    .catch Landroid/os/RemoteException; {:try_start_2b .. :try_end_30} :catch_99
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v0
 
     .line 138
     .local v0, a2dpEnabled:Z
-    :goto_31
+    :goto_1
     iget-object v4, p1, Landroid/media/AudioRoutesInfo;->mBluetoothName:Ljava/lang/CharSequence;
 
     iget-object v5, p0, Landroid/media/MediaRouter$Static;->mCurRoutesInfo:Landroid/media/AudioRoutesInfo;
@@ -324,7 +324,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_6b
+    if-nez v4, :cond_2
 
     .line 139
     iget-object v4, p0, Landroid/media/MediaRouter$Static;->mCurRoutesInfo:Landroid/media/AudioRoutesInfo;
@@ -338,14 +338,14 @@
 
     iget-object v4, v4, Landroid/media/AudioRoutesInfo;->mBluetoothName:Ljava/lang/CharSequence;
 
-    if-eqz v4, :cond_b5
+    if-eqz v4, :cond_8
 
     .line 141
     sget-object v4, Landroid/media/MediaRouter;->sStatic:Landroid/media/MediaRouter$Static;
 
     iget-object v4, v4, Landroid/media/MediaRouter$Static;->mBluetoothA2dpRoute:Landroid/media/MediaRouter$RouteInfo;
 
-    if-nez v4, :cond_a3
+    if-nez v4, :cond_7
 
     .line 142
     new-instance v2, Landroid/media/MediaRouter$RouteInfo;
@@ -381,24 +381,24 @@
 
     .line 157
     .end local v2           #info:Landroid/media/MediaRouter$RouteInfo;
-    :cond_6b
-    :goto_6b
+    :cond_2
+    :goto_2
     iget-object v4, p0, Landroid/media/MediaRouter$Static;->mBluetoothA2dpRoute:Landroid/media/MediaRouter$RouteInfo;
 
-    if-eqz v4, :cond_80
+    if-eqz v4, :cond_3
 
     .line 158
     iget-object v4, p0, Landroid/media/MediaRouter$Static;->mCurRoutesInfo:Landroid/media/AudioRoutesInfo;
 
     iget v4, v4, Landroid/media/AudioRoutesInfo;->mMainType:I
 
-    if-eqz v4, :cond_c8
+    if-eqz v4, :cond_9
 
     iget-object v4, p0, Landroid/media/MediaRouter$Static;->mSelectedRoute:Landroid/media/MediaRouter$RouteInfo;
 
     iget-object v5, p0, Landroid/media/MediaRouter$Static;->mBluetoothA2dpRoute:Landroid/media/MediaRouter$RouteInfo;
 
-    if-ne v4, v5, :cond_c8
+    if-ne v4, v5, :cond_9
 
     .line 160
     iget-object v4, p0, Landroid/media/MediaRouter$Static;->mDefaultAudio:Landroid/media/MediaRouter$RouteInfo;
@@ -406,51 +406,51 @@
     invoke-static {v6, v4}, Landroid/media/MediaRouter;->selectRouteStatic(ILandroid/media/MediaRouter$RouteInfo;)V
 
     .line 166
-    :cond_80
-    :goto_80
+    :cond_3
+    :goto_3
     return-void
 
     .line 119
     .end local v0           #a2dpEnabled:Z
-    :cond_81
+    :cond_4
     iget v4, p1, Landroid/media/AudioRoutesInfo;->mMainType:I
 
     and-int/lit8 v4, v4, 0x4
 
-    if-eqz v4, :cond_8b
+    if-eqz v4, :cond_5
 
     .line 120
     const v3, 0x104051f
 
     .restart local v3       #name:I
-    goto :goto_1e
+    goto :goto_0
 
     .line 121
     .end local v3           #name:I
-    :cond_8b
+    :cond_5
     iget v4, p1, Landroid/media/AudioRoutesInfo;->mMainType:I
 
     and-int/lit8 v4, v4, 0x8
 
-    if-eqz v4, :cond_95
+    if-eqz v4, :cond_6
 
     .line 122
     const v3, 0x1040520
 
     .restart local v3       #name:I
-    goto :goto_1e
+    goto :goto_0
 
     .line 124
     .end local v3           #name:I
-    :cond_95
+    :cond_6
     const v3, 0x104051d
 
     .restart local v3       #name:I
-    goto :goto_1e
+    goto :goto_0
 
     .line 133
     .end local v3           #name:I
-    :catch_99
+    :catch_0
     move-exception v1
 
     .line 134
@@ -465,11 +465,11 @@
     const/4 v0, 0x0
 
     .restart local v0       #a2dpEnabled:Z
-    goto :goto_31
+    goto :goto_1
 
     .line 148
     .end local v1           #e:Landroid/os/RemoteException;
-    :cond_a3
+    :cond_7
     sget-object v4, Landroid/media/MediaRouter;->sStatic:Landroid/media/MediaRouter$Static;
 
     iget-object v4, v4, Landroid/media/MediaRouter$Static;->mBluetoothA2dpRoute:Landroid/media/MediaRouter$RouteInfo;
@@ -487,15 +487,15 @@
 
     invoke-static {v4}, Landroid/media/MediaRouter;->dispatchRouteChanged(Landroid/media/MediaRouter$RouteInfo;)V
 
-    goto :goto_6b
+    goto :goto_2
 
     .line 151
-    :cond_b5
+    :cond_8
     sget-object v4, Landroid/media/MediaRouter;->sStatic:Landroid/media/MediaRouter$Static;
 
     iget-object v4, v4, Landroid/media/MediaRouter$Static;->mBluetoothA2dpRoute:Landroid/media/MediaRouter$RouteInfo;
 
-    if-eqz v4, :cond_6b
+    if-eqz v4, :cond_2
 
     .line 152
     sget-object v4, Landroid/media/MediaRouter;->sStatic:Landroid/media/MediaRouter$Static;
@@ -511,28 +511,28 @@
 
     iput-object v5, v4, Landroid/media/MediaRouter$Static;->mBluetoothA2dpRoute:Landroid/media/MediaRouter$RouteInfo;
 
-    goto :goto_6b
+    goto :goto_2
 
     .line 161
-    :cond_c8
+    :cond_9
     iget-object v4, p0, Landroid/media/MediaRouter$Static;->mCurRoutesInfo:Landroid/media/AudioRoutesInfo;
 
     iget v4, v4, Landroid/media/AudioRoutesInfo;->mMainType:I
 
-    if-nez v4, :cond_80
+    if-nez v4, :cond_3
 
     iget-object v4, p0, Landroid/media/MediaRouter$Static;->mSelectedRoute:Landroid/media/MediaRouter$RouteInfo;
 
     iget-object v5, p0, Landroid/media/MediaRouter$Static;->mDefaultAudio:Landroid/media/MediaRouter$RouteInfo;
 
-    if-ne v4, v5, :cond_80
+    if-ne v4, v5, :cond_3
 
-    if-eqz v0, :cond_80
+    if-eqz v0, :cond_3
 
     .line 163
     iget-object v4, p0, Landroid/media/MediaRouter$Static;->mBluetoothA2dpRoute:Landroid/media/MediaRouter$RouteInfo;
 
     invoke-static {v6, v4}, Landroid/media/MediaRouter;->selectRouteStatic(ILandroid/media/MediaRouter$RouteInfo;)V
 
-    goto :goto_80
+    goto :goto_3
 .end method

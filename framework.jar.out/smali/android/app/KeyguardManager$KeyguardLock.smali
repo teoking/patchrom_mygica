@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/KeyguardManager;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "tag"
 
@@ -51,13 +51,14 @@
 
 # virtual methods
 .method public disableKeyguard()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 72
     :try_start_0
     iget-object v0, p0, Landroid/app/KeyguardManager$KeyguardLock;->this$0:Landroid/app/KeyguardManager;
 
+    #getter for: Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
     invoke-static {v0}, Landroid/app/KeyguardManager;->access$000(Landroid/app/KeyguardManager;)Landroid/view/IWindowManager;
 
     move-result-object v0
@@ -67,28 +68,29 @@
     iget-object v2, p0, Landroid/app/KeyguardManager$KeyguardLock;->mTag:Ljava/lang/String;
 
     invoke-interface {v0, v1, v2}, Landroid/view/IWindowManager;->disableKeyguard(Landroid/os/IBinder;Ljava/lang/String;)V
-    :try_end_d
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_d} :catch_e
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 75
-    :goto_d
+    :goto_0
     return-void
 
     .line 73
-    :catch_e
+    :catch_0
     move-exception v0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public reenableKeyguard()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 93
     :try_start_0
     iget-object v0, p0, Landroid/app/KeyguardManager$KeyguardLock;->this$0:Landroid/app/KeyguardManager;
 
+    #getter for: Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
     invoke-static {v0}, Landroid/app/KeyguardManager;->access$000(Landroid/app/KeyguardManager;)Landroid/view/IWindowManager;
 
     move-result-object v0
@@ -96,16 +98,16 @@
     iget-object v1, p0, Landroid/app/KeyguardManager$KeyguardLock;->mToken:Landroid/os/IBinder;
 
     invoke-interface {v0, v1}, Landroid/view/IWindowManager;->reenableKeyguard(Landroid/os/IBinder;)V
-    :try_end_b
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_b} :catch_c
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 96
-    :goto_b
+    :goto_0
     return-void
 
     .line 94
-    :catch_c
+    :catch_0
     move-exception v0
 
-    goto :goto_b
+    goto :goto_0
 .end method

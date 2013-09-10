@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/textservice/SpellCheckerSession;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,21 +35,21 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
     .line 111
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_1e
+    packed-switch v0, :pswitch_data_0
 
     .line 119
-    :goto_5
+    :goto_0
     return-void
 
     .line 113
-    :pswitch_6
+    :pswitch_0
     iget-object v1, p0, Landroid/view/textservice/SpellCheckerSession$1;->this$0:Landroid/view/textservice/SpellCheckerSession;
 
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -58,12 +58,13 @@
 
     check-cast v0, [Landroid/view/textservice/SuggestionsInfo;
 
+    #calls: Landroid/view/textservice/SpellCheckerSession;->handleOnGetSuggestionsMultiple([Landroid/view/textservice/SuggestionsInfo;)V
     invoke-static {v1, v0}, Landroid/view/textservice/SpellCheckerSession;->access$000(Landroid/view/textservice/SpellCheckerSession;[Landroid/view/textservice/SuggestionsInfo;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 116
-    :pswitch_12
+    :pswitch_1
     iget-object v1, p0, Landroid/view/textservice/SpellCheckerSession$1;->this$0:Landroid/view/textservice/SpellCheckerSession;
 
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -72,14 +73,15 @@
 
     check-cast v0, [Landroid/view/textservice/SentenceSuggestionsInfo;
 
+    #calls: Landroid/view/textservice/SpellCheckerSession;->handleOnGetSentenceSuggestionsMultiple([Landroid/view/textservice/SentenceSuggestionsInfo;)V
     invoke-static {v1, v0}, Landroid/view/textservice/SpellCheckerSession;->access$100(Landroid/view/textservice/SpellCheckerSession;[Landroid/view/textservice/SentenceSuggestionsInfo;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 111
-    :pswitch_data_1e
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_12
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

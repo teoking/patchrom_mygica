@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/BufferedReader;)V
-    .registers 2
+    .locals 0
     .parameter "input"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public get(I)Landroid/util/EventLogTags$Description;
-    .registers 3
+    .locals 1
     .parameter "tag"
 
     .prologue
@@ -60,7 +60,7 @@
 .end method
 
 .method public get(Ljava/lang/String;)Landroid/util/EventLogTags$Description;
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue

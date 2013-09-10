@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 7
+    .locals 7
 
     .prologue
     const/4 v6, 0x3
@@ -142,7 +142,7 @@
 .end method
 
 .method public constructor <init>(Landroid/database/Cursor;Landroid/content/ContentProviderClient;)V
-    .registers 4
+    .locals 1
     .parameter "cursor"
     .parameter "provider"
 
@@ -163,7 +163,7 @@
 .end method
 
 .method public constructor <init>(Landroid/database/Cursor;Landroid/content/ContentResolver;)V
-    .registers 4
+    .locals 1
     .parameter "cursor"
     .parameter "resolver"
 
@@ -186,7 +186,7 @@
 
 # virtual methods
 .method public getEntityAndIncrementCursor(Landroid/database/Cursor;)Landroid/content/Entity;
-    .registers 18
+    .locals 16
     .parameter "cursor"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -629,7 +629,7 @@
 
     iget-object v1, v0, Landroid/provider/CalendarContract$EventsEntity$EntityIteratorImpl;->mResolver:Landroid/content/ContentResolver;
 
-    if-eqz v1, :cond_20f
+    if-eqz v1, :cond_0
 
     .line 1399
     move-object/from16 v0, p0
@@ -662,13 +662,13 @@
 
     .line 1410
     .local v14, subCursor:Landroid/database/Cursor;
-    :goto_1db
-    :try_start_1db
+    :goto_0
+    :try_start_0
     invoke-interface {v14}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_229
+    if-eqz v1, :cond_1
 
     .line 1411
     new-instance v13, Landroid/content/ContentValues;
@@ -710,14 +710,14 @@
     sget-object v1, Landroid/provider/CalendarContract$Reminders;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {v9, v1, v13}, Landroid/content/Entity;->addSubValue(Landroid/net/Uri;Landroid/content/ContentValues;)V
-    :try_end_209
-    .catchall {:try_start_1db .. :try_end_209} :catchall_20a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_1db
+    goto :goto_0
 
     .line 1417
     .end local v13           #reminderValues:Landroid/content/ContentValues;
-    :catchall_20a
+    :catchall_0
     move-exception v1
 
     invoke-interface {v14}, Landroid/database/Cursor;->close()V
@@ -726,7 +726,7 @@
 
     .line 1404
     .end local v14           #subCursor:Landroid/database/Cursor;
-    :cond_20f
+    :cond_0
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/provider/CalendarContract$EventsEntity$EntityIteratorImpl;->mProvider:Landroid/content/ContentProviderClient;
@@ -756,10 +756,10 @@
     move-result-object v14
 
     .restart local v14       #subCursor:Landroid/database/Cursor;
-    goto :goto_1db
+    goto :goto_0
 
     .line 1417
-    :cond_229
+    :cond_1
     invoke-interface {v14}, Landroid/database/Cursor;->close()V
 
     .line 1420
@@ -767,7 +767,7 @@
 
     iget-object v1, v0, Landroid/provider/CalendarContract$EventsEntity$EntityIteratorImpl;->mResolver:Landroid/content/ContentResolver;
 
-    if-eqz v1, :cond_2b3
+    if-eqz v1, :cond_2
 
     .line 1421
     move-object/from16 v0, p0
@@ -799,13 +799,13 @@
     move-result-object v14
 
     .line 1432
-    :goto_24b
-    :try_start_24b
+    :goto_1
+    :try_start_1
     invoke-interface {v14}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2ce
+    if-eqz v1, :cond_3
 
     .line 1433
     new-instance v7, Landroid/content/ContentValues;
@@ -906,14 +906,14 @@
     sget-object v1, Landroid/provider/CalendarContract$Attendees;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {v9, v1, v7}, Landroid/content/Entity;->addSubValue(Landroid/net/Uri;Landroid/content/ContentValues;)V
-    :try_end_2ad
-    .catchall {:try_start_24b .. :try_end_2ad} :catchall_2ae
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    goto :goto_24b
+    goto :goto_1
 
     .line 1451
     .end local v7           #attendeeValues:Landroid/content/ContentValues;
-    :catchall_2ae
+    :catchall_1
     move-exception v1
 
     invoke-interface {v14}, Landroid/database/Cursor;->close()V
@@ -921,7 +921,7 @@
     throw v1
 
     .line 1426
-    :cond_2b3
+    :cond_2
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/provider/CalendarContract$EventsEntity$EntityIteratorImpl;->mProvider:Landroid/content/ContentProviderClient;
@@ -950,10 +950,10 @@
 
     move-result-object v14
 
-    goto/16 :goto_24b
+    goto/16 :goto_1
 
     .line 1451
-    :cond_2ce
+    :cond_3
     invoke-interface {v14}, Landroid/database/Cursor;->close()V
 
     .line 1454
@@ -961,7 +961,7 @@
 
     iget-object v1, v0, Landroid/provider/CalendarContract$EventsEntity$EntityIteratorImpl;->mResolver:Landroid/content/ContentResolver;
 
-    if-eqz v1, :cond_326
+    if-eqz v1, :cond_4
 
     .line 1455
     move-object/from16 v0, p0
@@ -993,13 +993,13 @@
     move-result-object v14
 
     .line 1466
-    :goto_2f0
-    :try_start_2f0
+    :goto_2
+    :try_start_2
     invoke-interface {v14}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_340
+    if-eqz v1, :cond_5
 
     .line 1467
     new-instance v12, Landroid/content/ContentValues;
@@ -1044,14 +1044,14 @@
     sget-object v1, Landroid/provider/CalendarContract$ExtendedProperties;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {v9, v1, v12}, Landroid/content/Entity;->addSubValue(Landroid/net/Uri;Landroid/content/ContentValues;)V
-    :try_end_320
-    .catchall {:try_start_2f0 .. :try_end_320} :catchall_321
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
-    goto :goto_2f0
+    goto :goto_2
 
     .line 1477
     .end local v12           #extendedValues:Landroid/content/ContentValues;
-    :catchall_321
+    :catchall_2
     move-exception v1
 
     invoke-interface {v14}, Landroid/database/Cursor;->close()V
@@ -1059,7 +1059,7 @@
     throw v1
 
     .line 1460
-    :cond_326
+    :cond_4
     move-object/from16 v0, p0
 
     iget-object v1, v0, Landroid/provider/CalendarContract$EventsEntity$EntityIteratorImpl;->mProvider:Landroid/content/ContentProviderClient;
@@ -1088,10 +1088,10 @@
 
     move-result-object v14
 
-    goto :goto_2f0
+    goto :goto_2
 
     .line 1477
-    :cond_340
+    :cond_5
     invoke-interface {v14}, Landroid/database/Cursor;->close()V
 
     .line 1480

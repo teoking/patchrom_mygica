@@ -253,7 +253,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 150
@@ -264,7 +264,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -445,7 +445,7 @@
 .end method
 
 .method public static glPointSizePointerOES(IILjava/nio/Buffer;)V
-    .registers 4
+    .locals 1
     .parameter "type"
     .parameter "stride"
     .parameter "pointer"
@@ -461,20 +461,20 @@
     .line 618
     const/16 v0, 0x1406
 
-    if-eq p0, v0, :cond_f
+    if-eq p0, v0, :cond_0
 
     const/16 v0, 0x140c
 
-    if-ne p0, v0, :cond_13
+    if-ne p0, v0, :cond_1
 
-    :cond_f
-    if-ltz p1, :cond_13
+    :cond_0
+    if-ltz p1, :cond_1
 
     .line 621
     sput-object p2, Landroid/opengl/GLES11;->_pointSizePointerOES:Ljava/nio/Buffer;
 
     .line 623
-    :cond_13
+    :cond_1
     return-void
 .end method
 

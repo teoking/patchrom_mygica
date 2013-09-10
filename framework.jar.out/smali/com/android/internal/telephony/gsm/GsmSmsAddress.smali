@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>([BII)V
-    .registers 12
+    .locals 8
     .parameter "data"
     .parameter "offset"
     .parameter "length"
@@ -64,7 +64,7 @@
 
     const/16 v5, 0x80
 
-    if-eq v4, v5, :cond_2e
+    if-eq v4, v5, :cond_0
 
     .line 52
     new-instance v4, Ljava/lang/RuntimeException;
@@ -76,12 +76,12 @@
     throw v4
 
     .line 55
-    :cond_2e
+    :cond_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->isAlphanumeric()Z
 
     move-result v4
 
-    if-eqz v4, :cond_42
+    if-eqz v4, :cond_1
 
     .line 57
     mul-int/lit8 v4, v0, 0x4
@@ -102,11 +102,11 @@
 
     .line 78
     .end local v1           #countSeptets:I
-    :goto_41
+    :goto_0
     return-void
 
     .line 66
-    :cond_42
+    :cond_1
     iget-object v4, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     add-int/lit8 v5, p3, -0x1
@@ -117,7 +117,7 @@
     .local v2, lastByte:B
     and-int/lit8 v4, v0, 0x1
 
-    if-ne v4, v7, :cond_57
+    if-ne v4, v7, :cond_2
 
     .line 70
     iget-object v4, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
@@ -133,7 +133,7 @@
     aput-byte v6, v4, v5
 
     .line 72
-    :cond_57
+    :cond_2
     iget-object v4, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     add-int/lit8 v5, p3, -0x1
@@ -151,13 +151,13 @@
 
     aput-byte v2, v4, v5
 
-    goto :goto_41
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getAddressString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -167,7 +167,7 @@
 .end method
 
 .method public isAlphanumeric()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 88
@@ -175,21 +175,21 @@
 
     const/4 v1, 0x5
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public isCphsVoiceMessageClear()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 144
@@ -197,7 +197,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
@@ -209,21 +209,21 @@
 
     const/16 v1, 0x10
 
-    if-ne v0, v1, :cond_13
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_12
+    :goto_0
     return v0
 
-    :cond_13
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public isCphsVoiceMessageIndicatorAddress()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v0, 0x1
@@ -239,13 +239,13 @@
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_1a
+    if-ne v2, v3, :cond_0
 
     invoke-virtual {p0}, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->isAlphanumeric()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
@@ -253,19 +253,19 @@
 
     and-int/lit8 v2, v2, 0xf
 
-    if-nez v2, :cond_1a
+    if-nez v2, :cond_0
 
-    :goto_19
+    :goto_0
     return v0
 
-    :cond_1a
+    :cond_0
     move v0, v1
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public isCphsVoiceMessageSet()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 132
@@ -273,7 +273,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
@@ -285,21 +285,21 @@
 
     const/16 v1, 0x11
 
-    if-ne v0, v1, :cond_13
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_12
+    :goto_0
     return v0
 
-    :cond_13
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public isNetworkSpecific()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 92
@@ -307,15 +307,15 @@
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method

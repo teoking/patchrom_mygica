@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 160
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public format(I)Ljava/lang/String;
-    .registers 5
+    .locals 3
     .parameter "value"
 
     .prologue

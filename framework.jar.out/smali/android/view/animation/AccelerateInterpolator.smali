@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 32
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(F)V
-    .registers 4
+    .locals 2
     .parameter "factor"
 
     .prologue
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "attrs"
 
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method public getInterpolation(F)F
-    .registers 6
+    .locals 4
     .parameter "input"
 
     .prologue
@@ -120,16 +120,16 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 62
     mul-float v0, p1, p1
 
     .line 64
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     float-to-double v0, p1
 
     iget-wide v2, p0, Landroid/view/animation/AccelerateInterpolator;->mDoubleFactor:D
@@ -140,5 +140,5 @@
 
     double-to-float v0, v0
 
-    goto :goto_a
+    goto :goto_0
 .end method

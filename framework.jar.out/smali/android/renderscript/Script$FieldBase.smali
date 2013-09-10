@@ -22,7 +22,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 207
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public getAllocation()Landroid/renderscript/Allocation;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 219
@@ -45,7 +45,7 @@
 .end method
 
 .method public getElement()Landroid/renderscript/Element;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 211
@@ -55,7 +55,7 @@
 .end method
 
 .method public getType()Landroid/renderscript/Type;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 215
@@ -69,7 +69,7 @@
 .end method
 
 .method protected init(Landroid/renderscript/RenderScript;I)V
-    .registers 5
+    .locals 2
     .parameter "rs"
     .parameter "dimx"
 
@@ -90,7 +90,7 @@
 .end method
 
 .method protected init(Landroid/renderscript/RenderScript;II)V
-    .registers 6
+    .locals 2
     .parameter "rs"
     .parameter "dimx"
     .parameter "usages"
@@ -112,7 +112,7 @@
 .end method
 
 .method public updateAllocation()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 224

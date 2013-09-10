@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/media/audiofx/Virtualizer;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -37,7 +37,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/media/audiofx/Virtualizer;Landroid/media/audiofx/Virtualizer$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public onParameterChange(Landroid/media/audiofx/AudioEffect;I[B[B)V
-    .registers 12
+    .locals 7
     .parameter "effect"
     .parameter "status"
     .parameter "param"
@@ -69,6 +69,7 @@
     .local v0, l:Landroid/media/audiofx/Virtualizer$OnParameterChangeListener;
     iget-object v3, p0, Landroid/media/audiofx/Virtualizer$BaseParameterListener;->this$0:Landroid/media/audiofx/Virtualizer;
 
+    #getter for: Landroid/media/audiofx/Virtualizer;->mParamListenerLock:Ljava/lang/Object;
     invoke-static {v3}, Landroid/media/audiofx/Virtualizer;->access$000(Landroid/media/audiofx/Virtualizer;)Ljava/lang/Object;
 
     move-result-object v4
@@ -76,30 +77,32 @@
     monitor-enter v4
 
     .line 183
-    :try_start_a
+    :try_start_0
     iget-object v3, p0, Landroid/media/audiofx/Virtualizer$BaseParameterListener;->this$0:Landroid/media/audiofx/Virtualizer;
 
+    #getter for: Landroid/media/audiofx/Virtualizer;->mParamListener:Landroid/media/audiofx/Virtualizer$OnParameterChangeListener;
     invoke-static {v3}, Landroid/media/audiofx/Virtualizer;->access$100(Landroid/media/audiofx/Virtualizer;)Landroid/media/audiofx/Virtualizer$OnParameterChangeListener;
 
     move-result-object v3
 
-    if-eqz v3, :cond_18
+    if-eqz v3, :cond_0
 
     .line 184
     iget-object v3, p0, Landroid/media/audiofx/Virtualizer$BaseParameterListener;->this$0:Landroid/media/audiofx/Virtualizer;
 
+    #getter for: Landroid/media/audiofx/Virtualizer;->mParamListener:Landroid/media/audiofx/Virtualizer$OnParameterChangeListener;
     invoke-static {v3}, Landroid/media/audiofx/Virtualizer;->access$100(Landroid/media/audiofx/Virtualizer;)Landroid/media/audiofx/Virtualizer$OnParameterChangeListener;
 
     move-result-object v0
 
     .line 186
-    :cond_18
+    :cond_0
     monitor-exit v4
-    :try_end_19
-    .catchall {:try_start_a .. :try_end_19} :catchall_3b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 187
-    if-eqz v0, :cond_3a
+    if-eqz v0, :cond_3
 
     .line 188
     const/4 v1, -0x1
@@ -114,7 +117,7 @@
 
     const/4 v4, 0x4
 
-    if-ne v3, v4, :cond_27
+    if-ne v3, v4, :cond_1
 
     .line 192
     iget-object v3, p0, Landroid/media/audiofx/Virtualizer$BaseParameterListener;->this$0:Landroid/media/audiofx/Virtualizer;
@@ -124,12 +127,12 @@
     move-result v1
 
     .line 194
-    :cond_27
+    :cond_1
     array-length v3, p4
 
     const/4 v4, 0x2
 
-    if-ne v3, v4, :cond_31
+    if-ne v3, v4, :cond_2
 
     .line 195
     iget-object v3, p0, Landroid/media/audiofx/Virtualizer$BaseParameterListener;->this$0:Landroid/media/audiofx/Virtualizer;
@@ -139,10 +142,10 @@
     move-result v2
 
     .line 197
-    :cond_31
-    if-eq v1, v5, :cond_3a
+    :cond_2
+    if-eq v1, v5, :cond_3
 
-    if-eq v2, v5, :cond_3a
+    if-eq v2, v5, :cond_3
 
     .line 198
     iget-object v3, p0, Landroid/media/audiofx/Virtualizer$BaseParameterListener;->this$0:Landroid/media/audiofx/Virtualizer;
@@ -152,17 +155,17 @@
     .line 201
     .end local v1           #p:I
     .end local v2           #v:S
-    :cond_3a
+    :cond_3
     return-void
 
     .line 186
-    :catchall_3b
+    :catchall_0
     move-exception v3
 
-    :try_start_3c
+    :try_start_1
     monitor-exit v4
-    :try_end_3d
-    .catchall {:try_start_3c .. :try_end_3d} :catchall_3b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v3
 .end method

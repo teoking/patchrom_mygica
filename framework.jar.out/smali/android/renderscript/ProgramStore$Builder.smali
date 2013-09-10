@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
-    .registers 5
+    .locals 3
     .parameter "rs"
 
     .prologue
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public create()Landroid/renderscript/ProgramStore;
-    .registers 13
+    .locals 12
 
     .prologue
     .line 431
@@ -192,7 +192,7 @@
 .end method
 
 .method public setBlendFunc(Landroid/renderscript/ProgramStore$BlendSrcFunc;Landroid/renderscript/ProgramStore$BlendDstFunc;)Landroid/renderscript/ProgramStore$Builder;
-    .registers 3
+    .locals 0
     .parameter "src"
     .parameter "dst"
 
@@ -208,7 +208,7 @@
 .end method
 
 .method public setColorMaskEnabled(ZZZZ)Landroid/renderscript/ProgramStore$Builder;
-    .registers 7
+    .locals 2
     .parameter "r"
     .parameter "g"
     .parameter "b"
@@ -236,7 +236,7 @@
 
     const/16 v1, 0x20
 
-    if-lt v0, v1, :cond_1a
+    if-lt v0, v1, :cond_0
 
     .line 388
     const/4 v0, 0x0
@@ -246,25 +246,25 @@
     .line 390
     const-wide/16 v0, 0x64
 
-    :try_start_17
+    :try_start_0
     invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_1a
-    .catch Ljava/lang/InterruptedException; {:try_start_17 .. :try_end_1a} :catch_1b
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 394
-    :cond_1a
-    :goto_1a
+    :cond_0
+    :goto_0
     return-object p0
 
     .line 391
-    :catch_1b
+    :catch_0
     move-exception v0
 
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 .method public setDepthFunc(Landroid/renderscript/ProgramStore$DepthFunc;)Landroid/renderscript/ProgramStore$Builder;
-    .registers 2
+    .locals 0
     .parameter "func"
 
     .prologue
@@ -276,7 +276,7 @@
 .end method
 
 .method public setDepthMaskEnabled(Z)Landroid/renderscript/ProgramStore$Builder;
-    .registers 2
+    .locals 0
     .parameter "enable"
 
     .prologue
@@ -288,7 +288,7 @@
 .end method
 
 .method public setDitherEnabled(Z)Landroid/renderscript/ProgramStore$Builder;
-    .registers 2
+    .locals 0
     .parameter "enable"
 
     .prologue

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 727
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 727
@@ -51,7 +51,7 @@
 .end method
 
 .method protected initialValue()Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

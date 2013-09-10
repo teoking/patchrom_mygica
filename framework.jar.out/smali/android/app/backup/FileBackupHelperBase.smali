@@ -17,7 +17,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -45,7 +45,7 @@
 .end method
 
 .method static performBackup_checked(Landroid/os/ParcelFileDescriptor;Landroid/app/backup/BackupDataOutput;Landroid/os/ParcelFileDescriptor;[Ljava/lang/String;[Ljava/lang/String;)V
-    .registers 15
+    .locals 10
     .parameter "oldState"
     .parameter "data"
     .parameter "newState"
@@ -56,14 +56,14 @@
     .line 55
     array-length v7, p3
 
-    if-nez v7, :cond_4
+    if-nez v7, :cond_1
 
     .line 82
-    :cond_3
+    :cond_0
     return-void
 
     .line 59
-    :cond_4
+    :cond_1
     move-object v0, p3
 
     .local v0, arr$:[Ljava/lang/String;
@@ -73,8 +73,8 @@
     const/4 v3, 0x0
 
     .local v3, i$:I
-    :goto_7
-    if-ge v3, v4, :cond_30
+    :goto_0
+    if-ge v3, v4, :cond_3
 
     aget-object v2, v0, v3
 
@@ -88,7 +88,7 @@
 
     const/16 v8, 0x2f
 
-    if-eq v7, v8, :cond_2d
+    if-eq v7, v8, :cond_2
 
     .line 61
     new-instance v7, Ljava/lang/RuntimeException;
@@ -116,19 +116,19 @@
     throw v7
 
     .line 59
-    :cond_2d
+    :cond_2
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 65
     .end local v2           #f:Ljava/lang/String;
-    :cond_30
+    :cond_3
     array-length v7, p3
 
     array-length v8, p4
 
-    if-eq v7, v8, :cond_59
+    if-eq v7, v8, :cond_4
 
     .line 66
     new-instance v7, Ljava/lang/RuntimeException;
@@ -170,8 +170,8 @@
     throw v7
 
     .line 70
-    :cond_59
-    if-eqz p0, :cond_6b
+    :cond_4
+    if-eqz p0, :cond_5
 
     invoke-virtual {p0}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
@@ -179,14 +179,14 @@
 
     .line 71
     .local v6, oldStateFd:Ljava/io/FileDescriptor;
-    :goto_5f
+    :goto_1
     invoke-virtual {p2}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v5
 
     .line 72
     .local v5, newStateFd:Ljava/io/FileDescriptor;
-    if-nez v5, :cond_6d
+    if-nez v5, :cond_6
 
     .line 73
     new-instance v7, Ljava/lang/NullPointerException;
@@ -198,15 +198,15 @@
     .line 70
     .end local v5           #newStateFd:Ljava/io/FileDescriptor;
     .end local v6           #oldStateFd:Ljava/io/FileDescriptor;
-    :cond_6b
+    :cond_5
     const/4 v6, 0x0
 
-    goto :goto_5f
+    goto :goto_1
 
     .line 76
     .restart local v5       #newStateFd:Ljava/io/FileDescriptor;
     .restart local v6       #oldStateFd:Ljava/io/FileDescriptor;
-    :cond_6d
+    :cond_6
     iget v7, p1, Landroid/app/backup/BackupDataOutput;->mBackupWriter:I
 
     invoke-static {v6, v7, v5, p3, p4}, Landroid/app/backup/FileBackupHelperBase;->performBackup_native(Ljava/io/FileDescriptor;ILjava/io/FileDescriptor;[Ljava/lang/String;[Ljava/lang/String;)I
@@ -215,7 +215,7 @@
 
     .line 78
     .local v1, err:I
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_0
 
     .line 80
     new-instance v7, Ljava/lang/RuntimeException;
@@ -259,7 +259,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -272,8 +272,8 @@
     iget v0, p0, Landroid/app/backup/FileBackupHelperBase;->mPtr:I
 
     invoke-static {v0}, Landroid/app/backup/FileBackupHelperBase;->dtor(I)V
-    :try_end_5
-    .catchall {:try_start_0 .. :try_end_5} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 45
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -282,7 +282,7 @@
     return-void
 
     .line 45
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -291,7 +291,7 @@
 .end method
 
 .method isKeyInList(Ljava/lang/String;[Ljava/lang/String;)Z
-    .registers 8
+    .locals 5
     .parameter "key"
     .parameter "list"
 
@@ -306,8 +306,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_3
-    if-ge v1, v2, :cond_12
+    :goto_0
+    if-ge v1, v2, :cond_1
 
     aget-object v3, v0, v1
 
@@ -317,33 +317,33 @@
 
     move-result v4
 
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_0
 
     .line 112
     const/4 v4, 0x1
 
     .line 115
     .end local v3           #s:Ljava/lang/String;
-    :goto_e
+    :goto_1
     return v4
 
     .line 110
     .restart local v3       #s:Ljava/lang/String;
-    :cond_f
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 115
     .end local v3           #s:Ljava/lang/String;
-    :cond_12
+    :cond_1
     const/4 v4, 0x0
 
-    goto :goto_e
+    goto :goto_1
 .end method
 
 .method writeFile(Ljava/io/File;Landroid/app/backup/BackupDataInputStream;)Z
-    .registers 9
+    .locals 6
     .parameter "f"
     .parameter "in"
 
@@ -379,12 +379,12 @@
     move-result v1
 
     .line 92
-    if-eqz v1, :cond_55
+    if-eqz v1, :cond_0
 
     .line 94
     iget-boolean v3, p0, Landroid/app/backup/FileBackupHelperBase;->mExceptionLogged:Z
 
-    if-nez v3, :cond_55
+    if-nez v3, :cond_0
 
     .line 95
     const-string v3, "FileBackupHelperBase"
@@ -443,20 +443,20 @@
     iput-boolean v2, p0, Landroid/app/backup/FileBackupHelperBase;->mExceptionLogged:Z
 
     .line 101
-    :cond_55
-    if-nez v1, :cond_58
+    :cond_0
+    if-nez v1, :cond_1
 
-    :goto_57
+    :goto_0
     return v2
 
-    :cond_58
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_57
+    goto :goto_0
 .end method
 
 .method public writeNewStateDescription(Landroid/os/ParcelFileDescriptor;)V
-    .registers 5
+    .locals 3
     .parameter "fd"
 
     .prologue

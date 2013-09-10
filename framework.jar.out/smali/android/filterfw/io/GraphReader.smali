@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 33
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public addReference(Ljava/lang/String;Ljava/lang/Object;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "object"
 
@@ -43,7 +43,7 @@
 .end method
 
 .method public varargs addReferencesByKeysAndValues([Ljava/lang/Object;)V
-    .registers 3
+    .locals 1
     .parameter "references"
 
     .prologue
@@ -57,7 +57,7 @@
 .end method
 
 .method public addReferencesByMap(Landroid/filterfw/core/KeyValueMap;)V
-    .registers 3
+    .locals 1
     .parameter "refs"
 
     .prologue
@@ -71,7 +71,7 @@
 .end method
 
 .method public readGraphResource(Landroid/content/Context;I)Landroid/filterfw/core/FilterGraph;
-    .registers 11
+    .locals 8
     .parameter "context"
     .parameter "resourceId"
     .annotation system Ldalvik/annotation/Throws;
@@ -110,31 +110,31 @@
 
     .line 48
     .local v0, buffer:[C
-    :goto_16
+    :goto_0
     const/4 v6, 0x0
 
     const/16 v7, 0x400
 
-    :try_start_19
+    :try_start_0
     invoke-virtual {v4, v0, v6, v7}, Ljava/io/InputStreamReader;->read([CII)I
 
     move-result v1
 
     .local v1, bytesRead:I
-    if-lez v1, :cond_2d
+    if-lez v1, :cond_0
 
     .line 49
     const/4 v6, 0x0
 
     invoke-virtual {v5, v0, v6, v1}, Ljava/io/StringWriter;->write([CII)V
-    :try_end_23
-    .catch Ljava/io/IOException; {:try_start_19 .. :try_end_23} :catch_24
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 51
     .end local v1           #bytesRead:I
-    :catch_24
+    :catch_0
     move-exception v2
 
     .line 52
@@ -150,7 +150,7 @@
     .line 54
     .end local v2           #e:Ljava/io/IOException;
     .restart local v1       #bytesRead:I
-    :cond_2d
+    :cond_0
     invoke-virtual {v5}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 
     move-result-object v6

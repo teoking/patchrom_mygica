@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 366
@@ -41,7 +41,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/CharSequence;II)V
-    .registers 14
+    .locals 10
     .parameter "source"
     .parameter "start"
     .parameter "end"
@@ -51,13 +51,13 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 27
-    if-nez p2, :cond_55
+    if-nez p2, :cond_2
 
     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v7
 
-    if-ne p3, v7, :cond_55
+    if-ne p3, v7, :cond_2
 
     .line 28
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -67,7 +67,7 @@
     iput-object v7, p0, Landroid/text/SpannableStringInternal;->mText:Ljava/lang/String;
 
     .line 32
-    :goto_11
+    :goto_0
     const/4 v7, 0x0
 
     invoke-static {v7}, Lcom/android/internal/util/ArrayUtils;->idealIntArraySize(I)I
@@ -90,7 +90,7 @@
     .line 36
     instance-of v7, p1, Landroid/text/Spanned;
 
-    if-eqz v7, :cond_60
+    if-eqz v7, :cond_3
 
     move-object v4, p1
 
@@ -110,10 +110,10 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_2e
+    :goto_1
     array-length v7, v5
 
-    if-ge v2, v7, :cond_60
+    if-ge v2, v7, :cond_3
 
     .line 41
     aget-object v7, v5, v2
@@ -140,20 +140,20 @@
 
     .line 45
     .local v1, fl:I
-    if-ge v6, p2, :cond_46
+    if-ge v6, p2, :cond_0
 
     .line 46
     move v6, p2
 
     .line 47
-    :cond_46
-    if-le v0, p3, :cond_49
+    :cond_0
+    if-le v0, p3, :cond_1
 
     .line 48
     move v0, p3
 
     .line 50
-    :cond_49
+    :cond_1
     aget-object v7, v5, v2
 
     sub-int v8, v6, p2
@@ -165,7 +165,7 @@
     .line 40
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2e
+    goto :goto_1
 
     .line 30
     .end local v0           #en:I
@@ -175,7 +175,7 @@
     .end local v4           #sp:Landroid/text/Spanned;
     .end local v5           #spans:[Ljava/lang/Object;
     .end local v6           #st:I
-    :cond_55
+    :cond_2
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v7
@@ -186,23 +186,23 @@
 
     iput-object v7, p0, Landroid/text/SpannableStringInternal;->mText:Ljava/lang/String;
 
-    goto :goto_11
+    goto :goto_0
 
     .line 53
     .restart local v3       #initial:I
-    :cond_60
+    :cond_3
     return-void
 .end method
 
 .method private checkRange(Ljava/lang/String;II)V
-    .registers 8
+    .locals 4
     .parameter "operation"
     .parameter "start"
     .parameter "end"
 
     .prologue
     .line 340
-    if-ge p3, p2, :cond_29
+    if-ge p3, p2, :cond_0
 
     .line 341
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
@@ -244,19 +244,19 @@
     throw v1
 
     .line 346
-    :cond_29
+    :cond_0
     invoke-virtual {p0}, Landroid/text/SpannableStringInternal;->length()I
 
     move-result v0
 
     .line 348
     .local v0, len:I
-    if-gt p2, v0, :cond_31
+    if-gt p2, v0, :cond_1
 
-    if-le p3, v0, :cond_5c
+    if-le p3, v0, :cond_2
 
     .line 349
-    :cond_31
+    :cond_1
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -300,13 +300,13 @@
     throw v1
 
     .line 354
-    :cond_5c
-    if-ltz p2, :cond_60
+    :cond_2
+    if-ltz p2, :cond_3
 
-    if-gez p3, :cond_87
+    if-gez p3, :cond_4
 
     .line 355
-    :cond_60
+    :cond_3
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -346,12 +346,12 @@
     throw v1
 
     .line 359
-    :cond_87
+    :cond_4
     return-void
 .end method
 
 .method private static region(II)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "start"
     .parameter "end"
 
@@ -395,7 +395,7 @@
 .end method
 
 .method private sendSpanAdded(Ljava/lang/Object;II)V
-    .registers 9
+    .locals 5
     .parameter "what"
     .parameter "start"
     .parameter "end"
@@ -419,8 +419,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_a
-    if-ge v0, v1, :cond_17
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 312
     aget-object v4, v2, v0
@@ -434,15 +434,15 @@
     .line 311
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 314
-    :cond_17
+    :cond_0
     return-void
 .end method
 
 .method private sendSpanChanged(Ljava/lang/Object;IIII)V
-    .registers 16
+    .locals 10
     .parameter "what"
     .parameter "s"
     .parameter "e"
@@ -476,8 +476,8 @@
     const/4 v7, 0x0
 
     .local v7, i:I
-    :goto_12
-    if-ge v7, v8, :cond_24
+    :goto_0
+    if-ge v7, v8, :cond_0
 
     .line 331
     aget-object v0, v9, v7
@@ -501,15 +501,15 @@
     .line 330
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_12
+    goto :goto_0
 
     .line 333
-    :cond_24
+    :cond_0
     return-void
 .end method
 
 .method private sendSpanRemoved(Ljava/lang/Object;II)V
-    .registers 9
+    .locals 5
     .parameter "what"
     .parameter "start"
     .parameter "end"
@@ -533,8 +533,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_a
-    if-ge v0, v1, :cond_17
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 321
     aget-object v4, v2, v0
@@ -548,17 +548,17 @@
     .line 320
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 323
-    :cond_17
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public final charAt(I)C
-    .registers 3
+    .locals 1
     .parameter "i"
 
     .prologue
@@ -573,7 +573,7 @@
 .end method
 
 .method public final getChars(II[CI)V
-    .registers 6
+    .locals 1
     .parameter "start"
     .parameter "end"
     .parameter "dest"
@@ -590,7 +590,7 @@
 .end method
 
 .method public getSpanEnd(Ljava/lang/Object;)I
-    .registers 7
+    .locals 5
     .parameter "what"
 
     .prologue
@@ -610,13 +610,13 @@
     add-int/lit8 v2, v0, -0x1
 
     .local v2, i:I
-    :goto_8
-    if-ltz v2, :cond_18
+    :goto_0
+    if-ltz v2, :cond_1
 
     .line 183
     aget-object v4, v3, v2
 
-    if-ne v4, p1, :cond_15
+    if-ne v4, p1, :cond_0
 
     .line 184
     mul-int/lit8 v4, v2, 0x3
@@ -626,24 +626,24 @@
     aget v4, v1, v4
 
     .line 188
-    :goto_14
+    :goto_1
     return v4
 
     .line 182
-    :cond_15
+    :cond_0
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 188
-    :cond_18
+    :cond_1
     const/4 v4, -0x1
 
-    goto :goto_14
+    goto :goto_1
 .end method
 
 .method public getSpanFlags(Ljava/lang/Object;)I
-    .registers 7
+    .locals 5
     .parameter "what"
 
     .prologue
@@ -663,13 +663,13 @@
     add-int/lit8 v2, v0, -0x1
 
     .local v2, i:I
-    :goto_8
-    if-ltz v2, :cond_18
+    :goto_0
+    if-ltz v2, :cond_1
 
     .line 197
     aget-object v4, v3, v2
 
-    if-ne v4, p1, :cond_15
+    if-ne v4, p1, :cond_0
 
     .line 198
     mul-int/lit8 v4, v2, 0x3
@@ -679,24 +679,24 @@
     aget v4, v1, v4
 
     .line 202
-    :goto_14
+    :goto_1
     return v4
 
     .line 196
-    :cond_15
+    :cond_0
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 202
-    :cond_18
+    :cond_1
     const/4 v4, 0x0
 
-    goto :goto_14
+    goto :goto_1
 .end method
 
 .method public getSpanStart(Ljava/lang/Object;)I
-    .registers 7
+    .locals 5
     .parameter "what"
 
     .prologue
@@ -716,13 +716,13 @@
     add-int/lit8 v2, v0, -0x1
 
     .local v2, i:I
-    :goto_8
-    if-ltz v2, :cond_18
+    :goto_0
+    if-ltz v2, :cond_1
 
     .line 169
     aget-object v4, v3, v2
 
-    if-ne v4, p1, :cond_15
+    if-ne v4, p1, :cond_0
 
     .line 170
     mul-int/lit8 v4, v2, 0x3
@@ -732,24 +732,24 @@
     aget v4, v1, v4
 
     .line 174
-    :goto_14
+    :goto_1
     return v4
 
     .line 168
-    :cond_15
+    :cond_0
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 174
-    :cond_18
+    :cond_1
     const/4 v4, -0x1
 
-    goto :goto_14
+    goto :goto_1
 .end method
 
 .method public getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
-    .registers 22
+    .locals 18
     .parameter "queryStart"
     .parameter "queryEnd"
     .parameter
@@ -804,11 +804,11 @@
     .end local v2           #count:I
     .end local v11           #ret1:Ljava/lang/Object;
     .local v3, count:I
-    :goto_11
-    if-ge v5, v12, :cond_b2
+    :goto_0
+    if-ge v5, v12, :cond_a
 
     .line 215
-    if-eqz p3, :cond_26
+    if-eqz p3, :cond_0
 
     aget-object v16, v15, v5
 
@@ -820,24 +820,24 @@
 
     move-result v16
 
-    if-nez v16, :cond_26
+    if-nez v16, :cond_0
 
     move v2, v3
 
     .line 214
     .end local v3           #count:I
     .restart local v2       #count:I
-    :goto_22
+    :goto_1
     add-int/lit8 v5, v5, 0x1
 
     move v3, v2
 
     .end local v2           #count:I
     .restart local v3       #count:I
-    goto :goto_11
+    goto :goto_0
 
     .line 219
-    :cond_26
+    :cond_0
     mul-int/lit8 v16, v5, 0x3
 
     add-int/lit8 v16, v16, 0x0
@@ -856,74 +856,74 @@
     .local v13, spanEnd:I
     move/from16 v0, p2
 
-    if-le v14, v0, :cond_38
+    if-le v14, v0, :cond_1
 
     move v2, v3
 
     .line 223
     .end local v3           #count:I
     .restart local v2       #count:I
-    goto :goto_22
+    goto :goto_1
 
     .line 225
     .end local v2           #count:I
     .restart local v3       #count:I
-    :cond_38
+    :cond_1
     move/from16 v0, p1
 
-    if-ge v13, v0, :cond_3e
+    if-ge v13, v0, :cond_2
 
     move v2, v3
 
     .line 226
     .end local v3           #count:I
     .restart local v2       #count:I
-    goto :goto_22
+    goto :goto_1
 
     .line 229
     .end local v2           #count:I
     .restart local v3       #count:I
-    :cond_3e
-    if-eq v14, v13, :cond_52
+    :cond_2
+    if-eq v14, v13, :cond_4
 
     move/from16 v0, p1
 
     move/from16 v1, p2
 
-    if-eq v0, v1, :cond_52
+    if-eq v0, v1, :cond_4
 
     .line 230
     move/from16 v0, p2
 
-    if-ne v14, v0, :cond_4c
+    if-ne v14, v0, :cond_3
 
     move v2, v3
 
     .line 231
     .end local v3           #count:I
     .restart local v2       #count:I
-    goto :goto_22
+    goto :goto_1
 
     .line 233
     .end local v2           #count:I
     .restart local v3       #count:I
-    :cond_4c
+    :cond_3
     move/from16 v0, p1
 
-    if-ne v13, v0, :cond_52
+    if-ne v13, v0, :cond_4
 
     move v2, v3
 
     .line 234
     .end local v3           #count:I
     .restart local v2       #count:I
-    goto :goto_22
+    goto :goto_1
 
     .line 238
     .end local v2           #count:I
     .restart local v3       #count:I
-    :cond_52
-    if-nez v3, :cond_59
+    :cond_4
+    if-nez v3, :cond_5
 
     .line 239
     aget-object v11, v15, v5
@@ -934,18 +934,18 @@
 
     .end local v3           #count:I
     .restart local v2       #count:I
-    goto :goto_22
+    goto :goto_1
 
     .line 242
     .end local v2           #count:I
     .end local v11           #ret1:Ljava/lang/Object;
     .restart local v3       #count:I
-    :cond_59
+    :cond_5
     const/16 v16, 0x1
 
     move/from16 v0, v16
 
-    if-ne v3, v0, :cond_75
+    if-ne v3, v0, :cond_6
 
     .line 243
     sub-int v16, v12, v5
@@ -972,7 +972,7 @@
     aput-object v11, v10, v16
 
     .line 247
-    :cond_75
+    :cond_6
     mul-int/lit8 v16, v5, 0x3
 
     add-int/lit8 v16, v16, 0x2
@@ -985,14 +985,14 @@
 
     .line 248
     .local v9, prio:I
-    if-eqz v9, :cond_aa
+    if-eqz v9, :cond_9
 
     .line 251
     const/4 v6, 0x0
 
     .local v6, j:I
-    :goto_82
-    if-ge v6, v3, :cond_94
+    :goto_2
+    if-ge v6, v3, :cond_7
 
     .line 252
     aget-object v16, v10, v6
@@ -1011,11 +1011,11 @@
 
     .line 254
     .local v8, p:I
-    if-le v9, v8, :cond_a7
+    if-le v9, v8, :cond_8
 
     .line 259
     .end local v8           #p:I
-    :cond_94
+    :cond_7
     add-int/lit8 v16, v6, 0x1
 
     sub-int v17, v3, v6
@@ -1037,21 +1037,21 @@
     .line 262
     .end local v3           #count:I
     .restart local v2       #count:I
-    goto/16 :goto_22
+    goto/16 :goto_1
 
     .line 251
     .end local v2           #count:I
     .restart local v3       #count:I
     .restart local v8       #p:I
-    :cond_a7
+    :cond_8
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_82
+    goto :goto_2
 
     .line 263
     .end local v6           #j:I
     .end local v8           #p:I
-    :cond_aa
+    :cond_9
     add-int/lit8 v2, v3, 0x1
 
     .end local v3           #count:I
@@ -1060,7 +1060,7 @@
 
     aput-object v16, v10, v3
 
-    goto/16 :goto_22
+    goto/16 :goto_1
 
     .line 268
     .end local v2           #count:I
@@ -1068,8 +1068,8 @@
     .end local v13           #spanEnd:I
     .end local v14           #spanStart:I
     .restart local v3       #count:I
-    :cond_b2
-    if-nez v3, :cond_bb
+    :cond_a
+    if-nez v3, :cond_b
 
     .line 269
     invoke-static/range {p3 .. p3}, Lcom/android/internal/util/ArrayUtils;->emptyArray(Ljava/lang/Class;)[Ljava/lang/Object;
@@ -1079,16 +1079,16 @@
     check-cast v16, [Ljava/lang/Object;
 
     .line 282
-    :goto_ba
+    :goto_3
     return-object v16
 
     .line 271
-    :cond_bb
+    :cond_b
     const/16 v16, 0x1
 
     move/from16 v0, v16
 
-    if-ne v3, v0, :cond_da
+    if-ne v3, v0, :cond_c
 
     .line 272
     const/16 v16, 0x1
@@ -1117,27 +1117,27 @@
     .line 274
     check-cast v16, [Ljava/lang/Object;
 
-    goto :goto_ba
+    goto :goto_3
 
     .line 276
-    :cond_da
+    :cond_c
     array-length v0, v10
 
     move/from16 v16, v0
 
     move/from16 v0, v16
 
-    if-ne v3, v0, :cond_e6
+    if-ne v3, v0, :cond_d
 
     move-object/from16 v16, v10
 
     .line 277
     check-cast v16, [Ljava/lang/Object;
 
-    goto :goto_ba
+    goto :goto_3
 
     .line 280
-    :cond_e6
+    :cond_d
     move-object/from16 v0, p3
 
     invoke-static {v0, v3}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
@@ -1168,11 +1168,11 @@
     .end local v7           #nret:[Ljava/lang/Object;
     move-object/from16 v16, v7
 
-    goto :goto_ba
+    goto :goto_3
 .end method
 
 .method public final length()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 56
@@ -1186,7 +1186,7 @@
 .end method
 
 .method public nextSpanTransition(IILjava/lang/Class;)I
-    .registers 11
+    .locals 7
     .parameter "start"
     .parameter "limit"
     .parameter "kind"
@@ -1205,18 +1205,18 @@
 
     .line 290
     .local v1, data:[I
-    if-nez p3, :cond_a
+    if-nez p3, :cond_0
 
     .line 291
     const-class p3, Ljava/lang/Object;
 
     .line 294
-    :cond_a
+    :cond_0
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_b
-    if-ge v3, v0, :cond_36
+    :goto_0
+    if-ge v3, v0, :cond_3
 
     .line 295
     mul-int/lit8 v6, v3, 0x3
@@ -1235,9 +1235,9 @@
 
     .line 298
     .local v2, en:I
-    if-le v5, p1, :cond_26
+    if-le v5, p1, :cond_1
 
-    if-ge v5, p2, :cond_26
+    if-ge v5, p2, :cond_1
 
     aget-object v6, v4, v3
 
@@ -1245,16 +1245,16 @@
 
     move-result v6
 
-    if-eqz v6, :cond_26
+    if-eqz v6, :cond_1
 
     .line 299
     move p2, v5
 
     .line 300
-    :cond_26
-    if-le v2, p1, :cond_33
+    :cond_1
+    if-le v2, p1, :cond_2
 
-    if-ge v2, p2, :cond_33
+    if-ge v2, p2, :cond_2
 
     aget-object v6, v4, v3
 
@@ -1262,26 +1262,26 @@
 
     move-result v6
 
-    if-eqz v6, :cond_33
+    if-eqz v6, :cond_2
 
     .line 301
     move p2, v2
 
     .line 294
-    :cond_33
+    :cond_2
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 304
     .end local v2           #en:I
     .end local v5           #st:I
-    :cond_36
+    :cond_3
     return p2
 .end method
 
 .method removeSpan(Ljava/lang/Object;)V
-    .registers 12
+    .locals 10
     .parameter "what"
 
     .prologue
@@ -1301,13 +1301,13 @@
     add-int/lit8 v3, v1, -0x1
 
     .local v3, i:I
-    :goto_8
-    if-ltz v3, :cond_37
+    :goto_0
+    if-ltz v3, :cond_0
 
     .line 145
     aget-object v7, v6, v3
 
-    if-ne v7, p1, :cond_38
+    if-ne v7, p1, :cond_1
 
     .line 146
     mul-int/lit8 v7, v3, 0x3
@@ -1361,18 +1361,18 @@
     .end local v0           #c:I
     .end local v4           #oend:I
     .end local v5           #ostart:I
-    :cond_37
+    :cond_0
     return-void
 
     .line 144
-    :cond_38
+    :cond_1
     add-int/lit8 v3, v3, -0x1
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method setSpan(Ljava/lang/Object;III)V
-    .registers 24
+    .locals 19
     .parameter "what"
     .parameter "start"
     .parameter "end"
@@ -1403,10 +1403,10 @@
 
     const/16 v4, 0x33
 
-    if-ne v3, v4, :cond_a4
+    if-ne v3, v4, :cond_1
 
     .line 80
-    if-eqz p2, :cond_5d
+    if-eqz p2, :cond_0
 
     invoke-virtual/range {p0 .. p0}, Landroid/text/SpannableStringInternal;->length()I
 
@@ -1414,7 +1414,7 @@
 
     move/from16 v0, p2
 
-    if-eq v0, v3, :cond_5d
+    if-eq v0, v3, :cond_0
 
     .line 81
     add-int/lit8 v3, p2, -0x1
@@ -1429,7 +1429,7 @@
     .local v9, c:C
     const/16 v3, 0xa
 
-    if-eq v9, v3, :cond_5d
+    if-eq v9, v3, :cond_0
 
     .line 84
     new-instance v3, Ljava/lang/RuntimeException;
@@ -1482,8 +1482,8 @@
 
     .line 89
     .end local v9           #c:C
-    :cond_5d
-    if-eqz p3, :cond_a4
+    :cond_0
+    if-eqz p3, :cond_1
 
     invoke-virtual/range {p0 .. p0}, Landroid/text/SpannableStringInternal;->length()I
 
@@ -1491,7 +1491,7 @@
 
     move/from16 v0, p3
 
-    if-eq v0, v3, :cond_a4
+    if-eq v0, v3, :cond_1
 
     .line 90
     add-int/lit8 v3, p3, -0x1
@@ -1506,7 +1506,7 @@
     .restart local v9       #c:C
     const/16 v3, 0xa
 
-    if-eq v9, v3, :cond_a4
+    if-eq v9, v3, :cond_1
 
     .line 93
     new-instance v3, Ljava/lang/RuntimeException;
@@ -1559,7 +1559,7 @@
 
     .line 99
     .end local v9           #c:C
-    :cond_a4
+    :cond_1
     move-object/from16 v0, p0
 
     iget v10, v0, Landroid/text/SpannableStringInternal;->mSpanCount:I
@@ -1583,15 +1583,15 @@
     const/4 v12, 0x0
 
     .local v12, i:I
-    :goto_b3
-    if-ge v12, v10, :cond_e4
+    :goto_0
+    if-ge v12, v10, :cond_4
 
     .line 104
     aget-object v3, v16, v12
 
     move-object/from16 v0, p1
 
-    if-ne v3, v0, :cond_e1
+    if-ne v3, v0, :cond_3
 
     .line 105
     mul-int/lit8 v3, v12, 0x3
@@ -1640,18 +1640,18 @@
     .line 137
     .end local v5           #ostart:I
     .end local v6           #oend:I
-    :cond_e0
-    :goto_e0
+    :cond_2
+    :goto_1
     return-void
 
     .line 103
-    :cond_e1
+    :cond_3
     add-int/lit8 v12, v12, 0x1
 
-    goto :goto_b3
+    goto :goto_0
 
     .line 117
-    :cond_e4
+    :cond_4
     move-object/from16 v0, p0
 
     iget v3, v0, Landroid/text/SpannableStringInternal;->mSpanCount:I
@@ -1664,7 +1664,7 @@
 
     array-length v4, v4
 
-    if-lt v3, v4, :cond_133
+    if-lt v3, v4, :cond_5
 
     .line 118
     move-object/from16 v0, p0
@@ -1746,7 +1746,7 @@
     .end local v13           #newdata:[I
     .end local v14           #newsize:I
     .end local v15           #newtags:[Ljava/lang/Object;
-    :cond_133
+    :cond_5
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/text/SpannableStringInternal;->mSpans:[Ljava/lang/Object;
@@ -1818,7 +1818,7 @@
 
     instance-of v3, v0, Landroid/text/Spannable;
 
-    if-eqz v3, :cond_e0
+    if-eqz v3, :cond_2
 
     .line 136
     move-object/from16 v0, p0
@@ -1827,11 +1827,11 @@
 
     invoke-direct {v0, v1, v7, v8}, Landroid/text/SpannableStringInternal;->sendSpanAdded(Ljava/lang/Object;II)V
 
-    goto/16 :goto_e0
+    goto/16 :goto_1
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 64

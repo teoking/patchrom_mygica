@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;Ljava/lang/String;JJ)V
-    .registers 20
+    .locals 13
     .parameter "basePath"
     .parameter "prefix"
     .parameter "rotateAgeMillis"
@@ -93,8 +93,8 @@
     const/4 v5, 0x0
 
     .local v5, i$:I
-    :goto_28
-    if-ge v5, v6, :cond_8e
+    :goto_0
+    if-ge v5, v6, :cond_3
 
     aget-object v7, v2, v5
 
@@ -106,24 +106,24 @@
 
     move-result v9
 
-    if-nez v9, :cond_37
+    if-nez v9, :cond_1
 
     .line 108
-    :cond_34
-    :goto_34
+    :cond_0
+    :goto_1
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_28
+    goto :goto_0
 
     .line 111
-    :cond_37
+    :cond_1
     const-string v9, ".backup"
 
     invoke-virtual {v7, v9}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_61
+    if-eqz v9, :cond_2
 
     .line 114
     new-instance v3, Ljava/io/File;
@@ -162,19 +162,19 @@
     .local v4, file:Ljava/io/File;
     invoke-virtual {v3, v4}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
-    goto :goto_34
+    goto :goto_1
 
     .line 121
     .end local v3           #backupFile:Ljava/io/File;
     .end local v4           #file:Ljava/io/File;
-    :cond_61
+    :cond_2
     const-string v9, ".no_backup"
 
     invoke-virtual {v7, v9}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_34
+    if-eqz v9, :cond_0
 
     .line 124
     new-instance v8, Ljava/io/File;
@@ -216,18 +216,18 @@
     .line 130
     invoke-virtual {v4}, Ljava/io/File;->delete()Z
 
-    goto :goto_34
+    goto :goto_1
 
     .line 133
     .end local v4           #file:Ljava/io/File;
     .end local v7           #name:Ljava/lang/String;
     .end local v8           #noBackupFile:Ljava/io/File;
-    :cond_8e
+    :cond_3
     return-void
 .end method
 
 .method private getActiveName(J)Ljava/lang/String;
-    .registers 13
+    .locals 10
     .parameter "currentTimeMillis"
 
     .prologue
@@ -261,8 +261,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_15
-    if-ge v1, v3, :cond_38
+    :goto_0
+    if-ge v1, v3, :cond_2
 
     aget-object v4, v0, v1
 
@@ -272,34 +272,34 @@
 
     move-result v8
 
-    if-nez v8, :cond_22
+    if-nez v8, :cond_1
 
     .line 309
-    :cond_1f
-    :goto_1f
+    :cond_0
+    :goto_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_15
+    goto :goto_0
 
     .line 313
-    :cond_22
+    :cond_1
     invoke-virtual {v2}, Lcom/android/internal/util/FileRotator$FileInfo;->isActive()Z
 
     move-result v8
 
-    if-eqz v8, :cond_1f
+    if-eqz v8, :cond_0
 
     iget-wide v8, v2, Lcom/android/internal/util/FileRotator$FileInfo;->startMillis:J
 
     cmp-long v8, v8, p1
 
-    if-gez v8, :cond_1f
+    if-gez v8, :cond_0
 
     iget-wide v8, v2, Lcom/android/internal/util/FileRotator$FileInfo;->startMillis:J
 
     cmp-long v8, v8, v6
 
-    if-gez v8, :cond_1f
+    if-gez v8, :cond_0
 
     .line 315
     move-object v5, v4
@@ -307,21 +307,21 @@
     .line 316
     iget-wide v6, v2, Lcom/android/internal/util/FileRotator$FileInfo;->startMillis:J
 
-    goto :goto_1f
+    goto :goto_1
 
     .line 320
     .end local v4           #name:Ljava/lang/String;
-    :cond_38
-    if-eqz v5, :cond_3b
+    :cond_2
+    if-eqz v5, :cond_3
 
     .line 326
     .end local v5           #oldestActiveName:Ljava/lang/String;
-    :goto_3a
+    :goto_2
     return-object v5
 
     .line 324
     .restart local v5       #oldestActiveName:Ljava/lang/String;
-    :cond_3b
+    :cond_3
     iput-wide p1, v2, Lcom/android/internal/util/FileRotator$FileInfo;->startMillis:J
 
     .line 325
@@ -334,11 +334,11 @@
 
     move-result-object v5
 
-    goto :goto_3a
+    goto :goto_2
 .end method
 
 .method private static readFile(Ljava/io/File;Lcom/android/internal/util/FileRotator$Reader;)V
-    .registers 5
+    .locals 3
     .parameter "file"
     .parameter "reader"
     .annotation system Ldalvik/annotation/Throws;
@@ -361,10 +361,10 @@
 
     .line 367
     .local v0, bis:Ljava/io/BufferedInputStream;
-    :try_start_a
+    :try_start_0
     invoke-interface {p1, v0}, Lcom/android/internal/util/FileRotator$Reader;->read(Ljava/io/InputStream;)V
-    :try_end_d
-    .catchall {:try_start_a .. :try_end_d} :catchall_11
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 369
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
@@ -373,7 +373,7 @@
     return-void
 
     .line 369
-    :catchall_11
+    :catchall_0
     move-exception v2
 
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
@@ -382,7 +382,7 @@
 .end method
 
 .method private static rethrowAsIoException(Ljava/lang/Throwable;)Ljava/io/IOException;
-    .registers 3
+    .locals 2
     .parameter "t"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -394,7 +394,7 @@
     .line 386
     instance-of v0, p0, Ljava/io/IOException;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 387
     check-cast p0, Ljava/io/IOException;
@@ -404,7 +404,7 @@
 
     .line 389
     .restart local p0
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/io/IOException;
 
     invoke-virtual {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
@@ -417,7 +417,7 @@
 .end method
 
 .method private rewriteSingle(Lcom/android/internal/util/FileRotator$Rewriter;Ljava/lang/String;)V
-    .registers 9
+    .locals 6
     .parameter "rewriter"
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
@@ -443,7 +443,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4a
+    if-eqz v3, :cond_1
 
     .line 242
     invoke-static {v1, p1}, Lcom/android/internal/util/FileRotator;->readFile(Ljava/io/File;Lcom/android/internal/util/FileRotator$Reader;)V
@@ -453,14 +453,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_1a
+    if-nez v3, :cond_0
 
     .line 280
-    :goto_19
+    :goto_0
     return-void
 
     .line 248
-    :cond_1a
+    :cond_0
     new-instance v0, Ljava/io/File;
 
     iget-object v3, p0, Lcom/android/internal/util/FileRotator;->mBasePath:Ljava/io/File;
@@ -490,18 +490,18 @@
     invoke-virtual {v1, v0}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
     .line 252
-    :try_start_37
+    :try_start_0
     invoke-static {v1, p1}, Lcom/android/internal/util/FileRotator;->writeFile(Ljava/io/File;Lcom/android/internal/util/FileRotator$Writer;)V
 
     .line 255
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
-    :try_end_3d
-    .catch Ljava/lang/Throwable; {:try_start_37 .. :try_end_3d} :catch_3e
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 256
-    :catch_3e
+    :catch_0
     move-exception v2
 
     .line 258
@@ -521,7 +521,7 @@
     .line 265
     .end local v0           #backupFile:Ljava/io/File;
     .end local v2           #t:Ljava/lang/Throwable;
-    :cond_4a
+    :cond_1
     new-instance v0, Ljava/io/File;
 
     iget-object v3, p0, Lcom/android/internal/util/FileRotator;->mBasePath:Ljava/io/File;
@@ -551,18 +551,18 @@
     invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z
 
     .line 269
-    :try_start_67
+    :try_start_1
     invoke-static {v1, p1}, Lcom/android/internal/util/FileRotator;->writeFile(Ljava/io/File;Lcom/android/internal/util/FileRotator$Writer;)V
 
     .line 272
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
-    :try_end_6d
-    .catch Ljava/lang/Throwable; {:try_start_67 .. :try_end_6d} :catch_6e
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto :goto_19
+    goto :goto_0
 
     .line 273
-    :catch_6e
+    :catch_1
     move-exception v2
 
     .line 275
@@ -581,7 +581,7 @@
 .end method
 
 .method private static writeFile(Ljava/io/File;Lcom/android/internal/util/FileRotator$Writer;)V
-    .registers 5
+    .locals 3
     .parameter "file"
     .parameter "writer"
     .annotation system Ldalvik/annotation/Throws;
@@ -604,13 +604,13 @@
 
     .line 377
     .local v0, bos:Ljava/io/BufferedOutputStream;
-    :try_start_a
+    :try_start_0
     invoke-interface {p1, v0}, Lcom/android/internal/util/FileRotator$Writer;->write(Ljava/io/OutputStream;)V
 
     .line 378
     invoke-virtual {v0}, Ljava/io/BufferedOutputStream;->flush()V
-    :try_end_10
-    .catchall {:try_start_a .. :try_end_10} :catchall_17
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 380
     invoke-static {v1}, Landroid/os/FileUtils;->sync(Ljava/io/FileOutputStream;)Z
@@ -622,7 +622,7 @@
     return-void
 
     .line 380
-    :catchall_17
+    :catchall_0
     move-exception v2
 
     invoke-static {v1}, Landroid/os/FileUtils;->sync(Ljava/io/FileOutputStream;)Z
@@ -636,7 +636,7 @@
 
 # virtual methods
 .method public combineActive(Lcom/android/internal/util/FileRotator$Reader;Lcom/android/internal/util/FileRotator$Writer;J)V
-    .registers 6
+    .locals 1
     .parameter "reader"
     .parameter "writer"
     .parameter "currentTimeMillis"
@@ -662,7 +662,7 @@
 .end method
 
 .method public deleteAll()V
-    .registers 8
+    .locals 7
 
     .prologue
     .line 139
@@ -687,8 +687,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_f
-    if-ge v1, v3, :cond_26
+    :goto_0
+    if-ge v1, v3, :cond_1
 
     aget-object v4, v0, v1
 
@@ -698,7 +698,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_23
+    if-eqz v5, :cond_0
 
     .line 143
     new-instance v5, Ljava/io/File;
@@ -710,19 +710,19 @@
     invoke-virtual {v5}, Ljava/io/File;->delete()Z
 
     .line 140
-    :cond_23
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 146
     .end local v4           #name:Ljava/lang/String;
-    :cond_26
+    :cond_1
     return-void
 .end method
 
 .method public dumpAll(Ljava/io/OutputStream;)V
-    .registers 12
+    .locals 10
     .parameter "os"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -738,7 +738,7 @@
 
     .line 154
     .local v8, zos:Ljava/util/zip/ZipOutputStream;
-    :try_start_5
+    :try_start_0
     new-instance v4, Lcom/android/internal/util/FileRotator$FileInfo;
 
     iget-object v9, p0, Lcom/android/internal/util/FileRotator;->mPrefix:Ljava/lang/String;
@@ -760,8 +760,8 @@
     const/4 v3, 0x0
 
     .local v3, i$:I
-    :goto_14
-    if-ge v3, v6, :cond_48
+    :goto_0
+    if-ge v3, v6, :cond_1
 
     aget-object v7, v0, v3
 
@@ -771,7 +771,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_3b
+    if-eqz v9, :cond_0
 
     .line 157
     new-instance v1, Ljava/util/zip/ZipEntry;
@@ -794,18 +794,18 @@
     new-instance v5, Ljava/io/FileInputStream;
 
     invoke-direct {v5, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
-    :try_end_32
-    .catchall {:try_start_5 .. :try_end_32} :catchall_43
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 163
     .local v5, is:Ljava/io/FileInputStream;
-    :try_start_32
+    :try_start_1
     invoke-static {v5, v8}, Llibcore/io/Streams;->copy(Ljava/io/InputStream;Ljava/io/OutputStream;)I
-    :try_end_35
-    .catchall {:try_start_32 .. :try_end_35} :catchall_3e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 165
-    :try_start_35
+    :try_start_2
     invoke-static {v5}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     .line 168
@@ -815,23 +815,23 @@
     .end local v1           #entry:Ljava/util/zip/ZipEntry;
     .end local v2           #file:Ljava/io/File;
     .end local v5           #is:Ljava/io/FileInputStream;
-    :cond_3b
+    :cond_0
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_14
+    goto :goto_0
 
     .line 165
     .restart local v1       #entry:Ljava/util/zip/ZipEntry;
     .restart local v2       #file:Ljava/io/File;
     .restart local v5       #is:Ljava/io/FileInputStream;
-    :catchall_3e
+    :catchall_0
     move-exception v9
 
     invoke-static {v5}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     throw v9
-    :try_end_43
-    .catchall {:try_start_35 .. :try_end_43} :catchall_43
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 172
     .end local v0           #arr$:[Ljava/lang/String;
@@ -842,7 +842,7 @@
     .end local v5           #is:Ljava/io/FileInputStream;
     .end local v6           #len$:I
     .end local v7           #name:Ljava/lang/String;
-    :catchall_43
+    :catchall_1
     move-exception v9
 
     invoke-static {v8}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
@@ -853,7 +853,7 @@
     .restart local v3       #i$:I
     .restart local v4       #info:Lcom/android/internal/util/FileRotator$FileInfo;
     .restart local v6       #len$:I
-    :cond_48
+    :cond_1
     invoke-static {v8}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     .line 174
@@ -861,7 +861,7 @@
 .end method
 
 .method public maybeRotate(J)V
-    .registers 16
+    .locals 13
     .parameter "currentTimeMillis"
 
     .prologue
@@ -899,8 +899,8 @@
     const/4 v5, 0x0
 
     .local v5, i$:I
-    :goto_17
-    if-ge v5, v7, :cond_59
+    :goto_0
+    if-ge v5, v7, :cond_3
 
     aget-object v8, v0, v5
 
@@ -910,29 +910,29 @@
 
     move-result v11
 
-    if-nez v11, :cond_24
+    if-nez v11, :cond_1
 
     .line 339
-    :cond_21
-    :goto_21
+    :cond_0
+    :goto_1
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_17
+    goto :goto_0
 
     .line 342
-    :cond_24
+    :cond_1
     invoke-virtual {v6}, Lcom/android/internal/util/FileRotator$FileInfo;->isActive()Z
 
     move-result v11
 
-    if-eqz v11, :cond_48
+    if-eqz v11, :cond_2
 
     .line 343
     iget-wide v11, v6, Lcom/android/internal/util/FileRotator$FileInfo;->startMillis:J
 
     cmp-long v11, v11, v9
 
-    if-gtz v11, :cond_21
+    if-gtz v11, :cond_0
 
     .line 347
     iput-wide p1, v6, Lcom/android/internal/util/FileRotator$FileInfo;->endMillis:J
@@ -960,17 +960,17 @@
     .local v3, destFile:Ljava/io/File;
     invoke-virtual {v4, v3}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
-    goto :goto_21
+    goto :goto_1
 
     .line 353
     .end local v3           #destFile:Ljava/io/File;
     .end local v4           #file:Ljava/io/File;
-    :cond_48
+    :cond_2
     iget-wide v11, v6, Lcom/android/internal/util/FileRotator$FileInfo;->endMillis:J
 
     cmp-long v11, v11, v1
 
-    if-gtz v11, :cond_21
+    if-gtz v11, :cond_0
 
     .line 357
     new-instance v4, Ljava/io/File;
@@ -983,17 +983,17 @@
     .restart local v4       #file:Ljava/io/File;
     invoke-virtual {v4}, Ljava/io/File;->delete()Z
 
-    goto :goto_21
+    goto :goto_1
 
     .line 361
     .end local v4           #file:Ljava/io/File;
     .end local v8           #name:Ljava/lang/String;
-    :cond_59
+    :cond_3
     return-void
 .end method
 
 .method public readMatching(Lcom/android/internal/util/FileRotator$Reader;JJ)V
-    .registers 14
+    .locals 8
     .parameter "reader"
     .parameter "matchStartMillis"
     .parameter "matchEndMillis"
@@ -1026,8 +1026,8 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_f
-    if-ge v2, v4, :cond_33
+    :goto_0
+    if-ge v2, v4, :cond_2
 
     aget-object v5, v0, v2
 
@@ -1037,28 +1037,28 @@
 
     move-result v6
 
-    if-nez v6, :cond_1c
+    if-nez v6, :cond_1
 
     .line 288
-    :cond_19
-    :goto_19
+    :cond_0
+    :goto_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 292
-    :cond_1c
+    :cond_1
     iget-wide v6, v3, Lcom/android/internal/util/FileRotator$FileInfo;->startMillis:J
 
     cmp-long v6, v6, p4
 
-    if-gtz v6, :cond_19
+    if-gtz v6, :cond_0
 
     iget-wide v6, v3, Lcom/android/internal/util/FileRotator$FileInfo;->endMillis:J
 
     cmp-long v6, p2, v6
 
-    if-gtz v6, :cond_19
+    if-gtz v6, :cond_0
 
     .line 295
     new-instance v1, Ljava/io/File;
@@ -1071,17 +1071,17 @@
     .local v1, file:Ljava/io/File;
     invoke-static {v1, p1}, Lcom/android/internal/util/FileRotator;->readFile(Ljava/io/File;Lcom/android/internal/util/FileRotator$Reader;)V
 
-    goto :goto_19
+    goto :goto_1
 
     .line 299
     .end local v1           #file:Ljava/io/File;
     .end local v5           #name:Ljava/lang/String;
-    :cond_33
+    :cond_2
     return-void
 .end method
 
 .method public rewriteActive(Lcom/android/internal/util/FileRotator$Rewriter;J)V
-    .registers 5
+    .locals 1
     .parameter "rewriter"
     .parameter "currentTimeMillis"
     .annotation system Ldalvik/annotation/Throws;
@@ -1105,7 +1105,7 @@
 .end method
 
 .method public rewriteAll(Lcom/android/internal/util/FileRotator$Rewriter;)V
-    .registers 8
+    .locals 6
     .parameter "rewriter"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1136,8 +1136,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_f
-    if-ge v1, v3, :cond_20
+    :goto_0
+    if-ge v1, v3, :cond_1
 
     aget-object v4, v0, v1
 
@@ -1147,22 +1147,22 @@
 
     move-result v5
 
-    if-nez v5, :cond_1c
+    if-nez v5, :cond_0
 
     .line 219
-    :goto_19
+    :goto_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 223
-    :cond_1c
+    :cond_0
     invoke-direct {p0, p1, v4}, Lcom/android/internal/util/FileRotator;->rewriteSingle(Lcom/android/internal/util/FileRotator$Rewriter;Ljava/lang/String;)V
 
-    goto :goto_19
+    goto :goto_1
 
     .line 225
     .end local v4           #name:Ljava/lang/String;
-    :cond_20
+    :cond_1
     return-void
 .end method

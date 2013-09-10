@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/InputChannel;)V
-    .registers 2
+    .locals 0
     .parameter "channel"
 
     .prologue
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public getInputChannel()Landroid/view/InputChannel;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 51

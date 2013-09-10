@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 21
@@ -53,22 +53,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/app/IBackupAgent;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 30
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 31
     const/4 v0, 0x0
 
     .line 37
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 33
-    :cond_4
+    :cond_0
     const-string v1, "android.app.IBackupAgent"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -77,31 +77,31 @@
 
     .line 34
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/app/IBackupAgent;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 35
     check-cast v0, Landroid/app/IBackupAgent;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 37
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/app/IBackupAgent$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/app/IBackupAgent$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 41
@@ -109,7 +109,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 25
+    .locals 20
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -122,18 +122,18 @@
 
     .prologue
     .line 45
-    sparse-switch p1, :sswitch_data_11a
+    sparse-switch p1, :sswitch_data_0
 
     .line 156
     invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v1
 
-    :goto_7
+    :goto_0
     return v1
 
     .line 49
-    :sswitch_8
+    :sswitch_0
     const-string v1, "android.app.IBackupAgent"
 
     move-object/from16 v0, p3
@@ -143,10 +143,10 @@
     .line 50
     const/4 v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 54
-    :sswitch_11
+    :sswitch_1
     const-string v1, "android.app.IBackupAgent"
 
     move-object/from16 v0, p2
@@ -158,7 +158,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5b
+    if-eqz v1, :cond_0
 
     .line 57
     sget-object v1, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -173,12 +173,12 @@
 
     .line 63
     .local v2, _arg0:Landroid/os/ParcelFileDescriptor;
-    :goto_28
+    :goto_1
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    if-eqz v1, :cond_5d
+    if-eqz v1, :cond_1
 
     .line 64
     sget-object v1, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -193,12 +193,12 @@
 
     .line 70
     .local v3, _arg1:Landroid/os/ParcelFileDescriptor;
-    :goto_38
+    :goto_2
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    if-eqz v1, :cond_5f
+    if-eqz v1, :cond_2
 
     .line 71
     sget-object v1, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -213,7 +213,7 @@
 
     .line 77
     .local v4, _arg2:Landroid/os/ParcelFileDescriptor;
-    :goto_48
+    :goto_3
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
@@ -237,7 +237,7 @@
     .line 81
     const/4 v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 60
     .end local v2           #_arg0:Landroid/os/ParcelFileDescriptor;
@@ -245,31 +245,31 @@
     .end local v4           #_arg2:Landroid/os/ParcelFileDescriptor;
     .end local v5           #_arg3:I
     .end local v6           #_arg4:Landroid/app/backup/IBackupManager;
-    :cond_5b
+    :cond_0
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/os/ParcelFileDescriptor;
-    goto :goto_28
+    goto :goto_1
 
     .line 67
-    :cond_5d
+    :cond_1
     const/4 v3, 0x0
 
     .restart local v3       #_arg1:Landroid/os/ParcelFileDescriptor;
-    goto :goto_38
+    goto :goto_2
 
     .line 74
-    :cond_5f
+    :cond_2
     const/4 v4, 0x0
 
     .restart local v4       #_arg2:Landroid/os/ParcelFileDescriptor;
-    goto :goto_48
+    goto :goto_3
 
     .line 85
     .end local v2           #_arg0:Landroid/os/ParcelFileDescriptor;
     .end local v3           #_arg1:Landroid/os/ParcelFileDescriptor;
     .end local v4           #_arg2:Landroid/os/ParcelFileDescriptor;
-    :sswitch_61
+    :sswitch_2
     const-string v1, "android.app.IBackupAgent"
 
     move-object/from16 v0, p2
@@ -281,7 +281,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_a0
+    if-eqz v1, :cond_3
 
     .line 88
     sget-object v1, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -296,7 +296,7 @@
 
     .line 94
     .restart local v2       #_arg0:Landroid/os/ParcelFileDescriptor;
-    :goto_78
+    :goto_4
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -307,7 +307,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_a2
+    if-eqz v1, :cond_4
 
     .line 97
     sget-object v1, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -322,7 +322,7 @@
 
     .line 103
     .restart local v4       #_arg2:Landroid/os/ParcelFileDescriptor;
-    :goto_8c
+    :goto_5
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
@@ -346,7 +346,7 @@
     .line 107
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 91
     .end local v2           #_arg0:Landroid/os/ParcelFileDescriptor;
@@ -354,25 +354,25 @@
     .end local v4           #_arg2:Landroid/os/ParcelFileDescriptor;
     .end local v5           #_arg3:I
     .end local v6           #_arg4:Landroid/app/backup/IBackupManager;
-    :cond_a0
+    :cond_3
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/os/ParcelFileDescriptor;
-    goto :goto_78
+    goto :goto_4
 
     .line 100
     .restart local v3       #_arg1:I
-    :cond_a2
+    :cond_4
     const/4 v4, 0x0
 
     .restart local v4       #_arg2:Landroid/os/ParcelFileDescriptor;
-    goto :goto_8c
+    goto :goto_5
 
     .line 111
     .end local v2           #_arg0:Landroid/os/ParcelFileDescriptor;
     .end local v3           #_arg1:I
     .end local v4           #_arg2:Landroid/os/ParcelFileDescriptor;
-    :sswitch_a4
+    :sswitch_3
     const-string v1, "android.app.IBackupAgent"
 
     move-object/from16 v0, p2
@@ -384,7 +384,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_cf
+    if-eqz v1, :cond_5
 
     .line 114
     sget-object v1, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -399,7 +399,7 @@
 
     .line 120
     .restart local v2       #_arg0:Landroid/os/ParcelFileDescriptor;
-    :goto_bb
+    :goto_6
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -423,21 +423,21 @@
     .line 124
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 117
     .end local v2           #_arg0:Landroid/os/ParcelFileDescriptor;
     .end local v3           #_arg1:I
     .end local v4           #_arg2:Landroid/app/backup/IBackupManager;
-    :cond_cf
+    :cond_5
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/os/ParcelFileDescriptor;
-    goto :goto_bb
+    goto :goto_6
 
     .line 128
     .end local v2           #_arg0:Landroid/os/ParcelFileDescriptor;
-    :sswitch_d1
+    :sswitch_4
     const-string v1, "android.app.IBackupAgent"
 
     move-object/from16 v0, p2
@@ -449,7 +449,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_118
+    if-eqz v1, :cond_6
 
     .line 131
     sget-object v1, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -464,7 +464,7 @@
 
     .line 137
     .restart local v2       #_arg0:Landroid/os/ParcelFileDescriptor;
-    :goto_e8
+    :goto_7
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v9
@@ -532,7 +532,7 @@
     .line 153
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 134
     .end local v2           #_arg0:Landroid/os/ParcelFileDescriptor;
@@ -544,19 +544,19 @@
     .end local v16           #_arg6:J
     .end local v18           #_arg7:I
     .end local v19           #_arg8:Landroid/app/backup/IBackupManager;
-    :cond_118
+    :cond_6
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/os/ParcelFileDescriptor;
-    goto :goto_e8
+    goto :goto_7
 
     .line 45
-    :sswitch_data_11a
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_11
-        0x2 -> :sswitch_61
-        0x3 -> :sswitch_a4
-        0x4 -> :sswitch_d1
-        0x5f4e5446 -> :sswitch_8
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

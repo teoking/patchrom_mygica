@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(IILandroid/drm/ProcessedData;Ljava/lang/String;)V
-    .registers 8
+    .locals 3
     .parameter "statusCode"
     .parameter "infoType"
     .parameter "data"
@@ -36,7 +36,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_0
 
     .line 76
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -64,12 +64,12 @@
     throw v0
 
     .line 79
-    :cond_22
+    :cond_0
     invoke-direct {p0, p1}, Landroid/drm/DrmInfoStatus;->isValidStatusCode(I)Z
 
     move-result v0
 
-    if-nez v0, :cond_41
+    if-nez v0, :cond_1
 
     .line 80
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -97,15 +97,15 @@
     throw v0
 
     .line 83
-    :cond_41
-    if-eqz p4, :cond_47
+    :cond_1
+    if-eqz p4, :cond_2
 
     const-string v0, ""
 
-    if-ne p4, v0, :cond_50
+    if-ne p4, v0, :cond_3
 
     .line 84
-    :cond_47
+    :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "mimeType is null or an empty string"
@@ -115,7 +115,7 @@
     throw v0
 
     .line 87
-    :cond_50
+    :cond_3
     iput p1, p0, Landroid/drm/DrmInfoStatus;->statusCode:I
 
     .line 88
@@ -132,25 +132,25 @@
 .end method
 
 .method private isValidStatusCode(I)Z
-    .registers 4
+    .locals 2
     .parameter "statusCode"
 
     .prologue
     const/4 v0, 0x1
 
     .line 94
-    if-eq p1, v0, :cond_6
+    if-eq p1, v0, :cond_0
 
     const/4 v1, 0x2
 
-    if-ne p1, v1, :cond_7
+    if-ne p1, v1, :cond_1
 
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method

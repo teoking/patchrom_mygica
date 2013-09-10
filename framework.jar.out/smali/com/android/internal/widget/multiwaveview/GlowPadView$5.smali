@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/multiwaveview/GlowPadView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .registers 4
+    .locals 2
     .parameter "animator"
 
     .prologue
@@ -44,6 +44,7 @@
     .line 701
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView$5;->this$0:Lcom/android/internal/widget/multiwaveview/GlowPadView;
 
+    #getter for: Lcom/android/internal/widget/multiwaveview/GlowPadView;->mPointCloud:Lcom/android/internal/widget/multiwaveview/PointCloud;
     invoke-static {v0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->access$900(Lcom/android/internal/widget/multiwaveview/GlowPadView;)Lcom/android/internal/widget/multiwaveview/PointCloud;
 
     move-result-object v0
@@ -55,6 +56,7 @@
     .line 702
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView$5;->this$0:Lcom/android/internal/widget/multiwaveview/GlowPadView;
 
+    #getter for: Lcom/android/internal/widget/multiwaveview/GlowPadView;->mPointCloud:Lcom/android/internal/widget/multiwaveview/PointCloud;
     invoke-static {v0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->access$900(Lcom/android/internal/widget/multiwaveview/GlowPadView;)Lcom/android/internal/widget/multiwaveview/PointCloud;
 
     move-result-object v0

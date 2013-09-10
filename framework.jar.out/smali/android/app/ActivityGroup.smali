@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 43
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Z)V
-    .registers 3
+    .locals 1
     .parameter "singleActivityMode"
 
     .prologue
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method dispatchActivityResult(Ljava/lang/String;IILandroid/content/Intent;)V
-    .registers 7
+    .locals 2
     .parameter "who"
     .parameter "requestCode"
     .parameter "resultCode"
@@ -62,7 +62,7 @@
 
     .prologue
     .line 113
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_0
 
     .line 114
     iget-object v1, p0, Landroid/app/ActivityGroup;->mLocalActivityManager:Landroid/app/LocalActivityManager;
@@ -73,25 +73,25 @@
 
     .line 121
     .local v0, act:Landroid/app/Activity;
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 122
     invoke-virtual {v0, p2, p3, p4}, Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
 
     .line 127
     .end local v0           #act:Landroid/app/Activity;
-    :goto_d
+    :goto_0
     return-void
 
     .line 126
-    :cond_e
+    :cond_0
     invoke-super {p0, p1, p2, p3, p4}, Landroid/app/Activity;->dispatchActivityResult(Ljava/lang/String;IILandroid/content/Intent;)V
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public getCurrentActivity()Landroid/app/Activity;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 103
@@ -105,7 +105,7 @@
 .end method
 
 .method public final getLocalActivityManager()Landroid/app/LocalActivityManager;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 107
@@ -115,7 +115,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
     .parameter "savedInstanceState"
 
     .prologue
@@ -123,7 +123,7 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 53
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     const-string v1, "android:states"
 
@@ -133,7 +133,7 @@
 
     .line 55
     .local v0, states:Landroid/os/Bundle;
-    :goto_b
+    :goto_0
     iget-object v1, p0, Landroid/app/ActivityGroup;->mLocalActivityManager:Landroid/app/LocalActivityManager;
 
     invoke-virtual {v1, v0}, Landroid/app/LocalActivityManager;->dispatchCreate(Landroid/os/Bundle;)V
@@ -143,14 +143,14 @@
 
     .line 53
     .end local v0           #states:Landroid/os/Bundle;
-    :cond_11
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method protected onDestroy()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 87
@@ -170,7 +170,7 @@
 .end method
 
 .method protected onPause()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 75
@@ -190,7 +190,7 @@
 .end method
 
 .method protected onResume()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60
@@ -206,7 +206,7 @@
 .end method
 
 .method public onRetainNonConfigurationChildInstances()Ljava/util/HashMap;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -230,7 +230,7 @@
 .end method
 
 .method protected onSaveInstanceState(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
     .parameter "outState"
 
     .prologue
@@ -246,7 +246,7 @@
 
     .line 68
     .local v0, state:Landroid/os/Bundle;
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 69
     const-string v1, "android:states"
@@ -254,12 +254,12 @@
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 71
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method protected onStop()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81

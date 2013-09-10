@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/DevicePolicyManagerService;Lcom/android/server/DevicePolicyManagerService$ActiveAdmin;Landroid/content/ComponentName;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
@@ -56,7 +56,7 @@
     monitor-enter v2
 
     .line 601
-    :try_start_3
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/DevicePolicyManagerService$2;->val$admin:Lcom/android/server/DevicePolicyManagerService$ActiveAdmin;
 
     iget-object v1, v1, Lcom/android/server/DevicePolicyManagerService$ActiveAdmin;->info:Landroid/app/admin/DeviceAdminInfo;
@@ -97,17 +97,19 @@
     invoke-virtual {v1}, Lcom/android/server/DevicePolicyManagerService;->syncDeviceCapabilitiesLocked()V
 
     .line 607
-    if-eqz v0, :cond_2f
+    if-eqz v0, :cond_0
 
     .line 608
     iget-object v1, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
+    #calls: Lcom/android/server/DevicePolicyManagerService;->resetGlobalProxyLocked()V
     invoke-static {v1}, Lcom/android/server/DevicePolicyManagerService;->access$200(Lcom/android/server/DevicePolicyManagerService;)V
 
     .line 610
-    :cond_2f
+    :cond_0
     iget-object v1, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
+    #calls: Lcom/android/server/DevicePolicyManagerService;->saveSettingsLocked()V
     invoke-static {v1}, Lcom/android/server/DevicePolicyManagerService;->access$100(Lcom/android/server/DevicePolicyManagerService;)V
 
     .line 611
@@ -123,12 +125,12 @@
 
     .line 612
     .end local v0           #doProxyCleanup:Z
-    :catchall_3b
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_3d
-    .catchall {:try_start_3 .. :try_end_3d} :catchall_3b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method

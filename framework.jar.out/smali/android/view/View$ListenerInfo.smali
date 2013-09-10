@@ -60,7 +60,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 2942
@@ -70,7 +70,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/view/View$ListenerInfo;)Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/view/View$ListenerInfo;Ljava/util/ArrayList;)Ljava/util/ArrayList;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -93,7 +93,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/view/View$ListenerInfo;)Ljava/util/concurrent/CopyOnWriteArrayList;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -104,7 +104,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/view/View$ListenerInfo;Ljava/util/concurrent/CopyOnWriteArrayList;)Ljava/util/concurrent/CopyOnWriteArrayList;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -116,7 +116,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/view/View$ListenerInfo;)Landroid/view/View$OnKeyListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -127,7 +127,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/view/View$ListenerInfo;Landroid/view/View$OnKeyListener;)Landroid/view/View$OnKeyListener;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -139,7 +139,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/view/View$ListenerInfo;)Landroid/view/View$OnTouchListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -150,7 +150,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/view/View$ListenerInfo;Landroid/view/View$OnTouchListener;)Landroid/view/View$OnTouchListener;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -162,7 +162,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/view/View$ListenerInfo;)Landroid/view/View$OnGenericMotionListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -173,7 +173,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/view/View$ListenerInfo;Landroid/view/View$OnGenericMotionListener;)Landroid/view/View$OnGenericMotionListener;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -185,7 +185,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/view/View$ListenerInfo;)Landroid/view/View$OnHoverListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -196,7 +196,7 @@
 .end method
 
 .method static synthetic access$502(Landroid/view/View$ListenerInfo;Landroid/view/View$OnHoverListener;)Landroid/view/View$OnHoverListener;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -208,7 +208,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/view/View$ListenerInfo;)Landroid/view/View$OnDragListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -219,7 +219,7 @@
 .end method
 
 .method static synthetic access$602(Landroid/view/View$ListenerInfo;Landroid/view/View$OnDragListener;)Landroid/view/View$OnDragListener;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -231,7 +231,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/view/View$ListenerInfo;)Landroid/view/View$OnSystemUiVisibilityChangeListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -242,7 +242,7 @@
 .end method
 
 .method static synthetic access$702(Landroid/view/View$ListenerInfo;Landroid/view/View$OnSystemUiVisibilityChangeListener;)Landroid/view/View$OnSystemUiVisibilityChangeListener;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

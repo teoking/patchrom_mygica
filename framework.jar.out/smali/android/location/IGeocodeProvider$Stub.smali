@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 19
@@ -49,22 +49,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/location/IGeocodeProvider;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 28
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 29
     const/4 v0, 0x0
 
     .line 35
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 31
-    :cond_4
+    :cond_0
     const-string v1, "android.location.IGeocodeProvider"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -73,31 +73,31 @@
 
     .line 32
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/location/IGeocodeProvider;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 33
     check-cast v0, Landroid/location/IGeocodeProvider;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 35
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/location/IGeocodeProvider$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/location/IGeocodeProvider$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 39
@@ -105,7 +105,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 29
+    .locals 24
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -118,18 +118,18 @@
 
     .prologue
     .line 43
-    sparse-switch p1, :sswitch_data_a6
+    sparse-switch p1, :sswitch_data_0
 
     .line 105
     invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
 
-    :goto_7
+    :goto_0
     return v2
 
     .line 47
-    :sswitch_8
+    :sswitch_0
     const-string v2, "android.location.IGeocodeProvider"
 
     move-object/from16 v0, p3
@@ -139,10 +139,10 @@
     .line 48
     const/4 v2, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 52
-    :sswitch_11
+    :sswitch_1
     const-string v2, "android.location.IGeocodeProvider"
 
     move-object/from16 v0, p2
@@ -172,7 +172,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_50
+    if-eqz v2, :cond_0
 
     .line 61
     sget-object v2, Landroid/location/GeocoderParams;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -187,7 +187,7 @@
 
     .line 67
     .local v8, _arg3:Landroid/location/GeocoderParams;
-    :goto_34
+    :goto_1
     new-instance v9, Ljava/util/ArrayList;
 
     invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
@@ -219,24 +219,24 @@
     .line 72
     const/4 v2, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 64
     .end local v8           #_arg3:Landroid/location/GeocoderParams;
     .end local v9           #_arg4:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
     .end local v23           #_result:Ljava/lang/String;
-    :cond_50
+    :cond_0
     const/4 v8, 0x0
 
     .restart local v8       #_arg3:Landroid/location/GeocoderParams;
-    goto :goto_34
+    goto :goto_1
 
     .line 76
     .end local v3           #_arg0:D
     .end local v5           #_arg1:D
     .end local v7           #_arg2:I
     .end local v8           #_arg3:Landroid/location/GeocoderParams;
-    :sswitch_52
+    :sswitch_2
     const-string v2, "android.location.IGeocodeProvider"
 
     move-object/from16 v0, p2
@@ -284,7 +284,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_a2
+    if-eqz v2, :cond_1
 
     .line 91
     sget-object v2, Landroid/location/GeocoderParams;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -299,7 +299,7 @@
 
     .line 97
     .local v21, _arg6:Landroid/location/GeocoderParams;
-    :goto_81
+    :goto_2
     new-instance v22, Ljava/util/ArrayList;
 
     invoke-direct/range {v22 .. v22}, Ljava/util/ArrayList;-><init>()V
@@ -337,25 +337,25 @@
     .line 102
     const/4 v2, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 94
     .end local v21           #_arg6:Landroid/location/GeocoderParams;
     .end local v22           #_arg7:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
     .end local v23           #_result:Ljava/lang/String;
-    :cond_a2
+    :cond_1
     const/16 v21, 0x0
 
     .restart local v21       #_arg6:Landroid/location/GeocoderParams;
-    goto :goto_81
+    goto :goto_2
 
     .line 43
     nop
 
-    :sswitch_data_a6
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_11
-        0x2 -> :sswitch_52
-        0x5f4e5446 -> :sswitch_8
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

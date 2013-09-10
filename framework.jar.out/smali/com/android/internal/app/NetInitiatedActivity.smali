@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, -0x1
@@ -76,7 +76,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/app/NetInitiatedActivity;Landroid/content/Intent;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -88,7 +88,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/internal/app/NetInitiatedActivity;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -99,7 +99,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/internal/app/NetInitiatedActivity;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -110,7 +110,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/internal/app/NetInitiatedActivity;I)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -122,7 +122,7 @@
 .end method
 
 .method private handleNIVerify(Landroid/content/Intent;)V
-    .registers 6
+    .locals 4
     .parameter "intent"
 
     .prologue
@@ -171,7 +171,7 @@
 .end method
 
 .method private sendUserResponse(I)V
-    .registers 6
+    .locals 4
     .parameter "response"
 
     .prologue
@@ -218,7 +218,7 @@
 .end method
 
 .method private showNIError()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 153
@@ -239,7 +239,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 5
+    .locals 2
     .parameter "dialog"
     .parameter "which"
 
@@ -247,7 +247,7 @@
     const/4 v1, -0x1
 
     .line 125
-    if-ne p2, v1, :cond_7
+    if-ne p2, v1, :cond_0
 
     .line 126
     const/4 v0, 0x1
@@ -255,10 +255,10 @@
     invoke-direct {p0, v0}, Lcom/android/internal/app/NetInitiatedActivity;->sendUserResponse(I)V
 
     .line 128
-    :cond_7
+    :cond_0
     const/4 v0, -0x2
 
-    if-ne p2, v0, :cond_e
+    if-ne p2, v0, :cond_1
 
     .line 129
     const/4 v0, 0x2
@@ -266,7 +266,7 @@
     invoke-direct {p0, v0}, Lcom/android/internal/app/NetInitiatedActivity;->sendUserResponse(I)V
 
     .line 133
-    :cond_e
+    :cond_1
     invoke-virtual {p0}, Lcom/android/internal/app/NetInitiatedActivity;->finish()V
 
     .line 134
@@ -277,7 +277,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 9
+    .locals 7
     .parameter "savedInstanceState"
 
     .prologue
@@ -468,7 +468,7 @@
 .end method
 
 .method protected onPause()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 116
@@ -491,7 +491,7 @@
 .end method
 
 .method protected onResume()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 109

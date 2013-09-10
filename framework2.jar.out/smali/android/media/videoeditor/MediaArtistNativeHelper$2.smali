@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/videoeditor/MediaArtistNativeHelper;IILjava/nio/IntBuffer;[IIZLandroid/graphics/Bitmap;IIILandroid/media/videoeditor/MediaItem$GetThumbnailListCallback;)V
-    .registers 13
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public onThumbnail(I)V
-    .registers 13
+    .locals 11
     .parameter "index"
 
     .prologue
@@ -132,7 +132,7 @@
     .line 3838
     iget-boolean v5, p0, Landroid/media/videoeditor/MediaArtistNativeHelper$2;->val$needToMassage:Z
 
-    if-nez v5, :cond_2c
+    if-nez v5, :cond_0
 
     .line 3840
     iget-object v5, p0, Landroid/media/videoeditor/MediaArtistNativeHelper$2;->val$decBuffer:Ljava/nio/IntBuffer;
@@ -140,7 +140,7 @@
     invoke-virtual {v2, v5}, Landroid/graphics/Bitmap;->copyPixelsFromBuffer(Ljava/nio/Buffer;)V
 
     .line 3858
-    :goto_26
+    :goto_0
     iget-object v5, p0, Landroid/media/videoeditor/MediaArtistNativeHelper$2;->val$callback:Landroid/media/videoeditor/MediaItem$GetThumbnailListCallback;
 
     invoke-interface {v5, v2, p1}, Landroid/media/videoeditor/MediaItem$GetThumbnailListCallback;->onThumbnail(Landroid/graphics/Bitmap;I)V
@@ -149,7 +149,7 @@
     return-void
 
     .line 3843
-    :cond_2c
+    :cond_0
     iget-object v5, p0, Landroid/media/videoeditor/MediaArtistNativeHelper$2;->val$tmpBitmap:Landroid/graphics/Bitmap;
 
     iget-object v6, p0, Landroid/media/videoeditor/MediaArtistNativeHelper$2;->val$decBuffer:Ljava/nio/IntBuffer;
@@ -214,5 +214,5 @@
 
     invoke-virtual {v0, v5, v1, v6}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Matrix;Landroid/graphics/Paint;)V
 
-    goto :goto_26
+    goto :goto_0
 .end method

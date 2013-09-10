@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/filterfw/core/SyncRunner;Landroid/filterfw/core/Filter;Landroid/os/ConditionVariable;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 184

@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageManagerService$InstallArgs;Landroid/content/pm/IPackageMoveObserver;ILjava/lang/String;Ljava/lang/String;I)V
-    .registers 11
+    .locals 3
     .parameter
     .parameter "srcArgs"
     .parameter "observer"
@@ -67,7 +67,7 @@
     iput p7, p0, Lcom/android/server/pm/PackageManagerService$MoveParams;->uid:I
 
     .line 6073
-    if-eqz p2, :cond_26
+    if-eqz p2, :cond_0
 
     .line 6074
     new-instance v1, Ljava/io/File;
@@ -84,6 +84,7 @@
 
     .line 6075
     .local v0, packageUri:Landroid/net/Uri;
+    #calls: Lcom/android/server/pm/PackageManagerService;->createInstallArgs(Landroid/net/Uri;ILjava/lang/String;Ljava/lang/String;)Lcom/android/server/pm/PackageManagerService$InstallArgs;
     invoke-static {p1, v0, p4, p5, p6}, Lcom/android/server/pm/PackageManagerService;->access$2800(Lcom/android/server/pm/PackageManagerService;Landroid/net/Uri;ILjava/lang/String;Ljava/lang/String;)Lcom/android/server/pm/PackageManagerService$InstallArgs;
 
     move-result-object v1
@@ -92,20 +93,20 @@
 
     .line 6079
     .end local v0           #packageUri:Landroid/net/Uri;
-    :goto_25
+    :goto_0
     return-void
 
     .line 6077
-    :cond_26
+    :cond_0
     iput-object v1, p0, Lcom/android/server/pm/PackageManagerService$MoveParams;->targetArgs:Lcom/android/server/pm/PackageManagerService$InstallArgs;
 
-    goto :goto_25
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method handleReturnCode()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 6126
@@ -126,37 +127,38 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_16
+    if-ne v1, v2, :cond_1
 
     .line 6129
     const/4 v0, 0x1
 
     .line 6133
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$MoveParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
+    #calls: Lcom/android/server/pm/PackageManagerService;->processPendingMove(Lcom/android/server/pm/PackageManagerService$MoveParams;I)V
     invoke-static {v1, p0, v0}, Lcom/android/server/pm/PackageManagerService;->access$2900(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageManagerService$MoveParams;I)V
 
     .line 6134
     return-void
 
     .line 6130
-    :cond_16
+    :cond_1
     iget v1, p0, Lcom/android/server/pm/PackageManagerService$MoveParams;->mRet:I
 
     const/4 v2, -0x4
 
-    if-ne v1, v2, :cond_10
+    if-ne v1, v2, :cond_0
 
     .line 6131
     const/4 v0, -0x1
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method handleServiceError()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 6138
@@ -169,7 +171,7 @@
 .end method
 
 .method public handleStartCopy()V
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -189,6 +191,7 @@
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$MoveParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
+    #getter for: Lcom/android/server/pm/PackageManagerService;->mContainerService:Lcom/android/internal/app/IMediaContainerService;
     invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$300(Lcom/android/server/pm/PackageManagerService;)Lcom/android/internal/app/IMediaContainerService;
 
     move-result-object v1
@@ -197,7 +200,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_1
 
     .line 6085
     const-string v0, "PackageManager"
@@ -207,12 +210,12 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 6122
-    :cond_19
-    :goto_19
+    :cond_0
+    :goto_0
     return-void
 
     .line 6089
-    :cond_1a
+    :cond_1
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$MoveParams;->srcArgs:Lcom/android/server/pm/PackageManagerService$InstallArgs;
 
     invoke-virtual {v0}, Lcom/android/server/pm/PackageManagerService$InstallArgs;->doPreCopy()I
@@ -224,13 +227,14 @@
     .line 6090
     iget v0, p0, Lcom/android/server/pm/PackageManagerService$MoveParams;->mRet:I
 
-    if-ne v0, v3, :cond_19
+    if-ne v0, v3, :cond_0
 
     .line 6094
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$MoveParams;->targetArgs:Lcom/android/server/pm/PackageManagerService$InstallArgs;
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$MoveParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
+    #getter for: Lcom/android/server/pm/PackageManagerService;->mContainerService:Lcom/android/internal/app/IMediaContainerService;
     invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$300(Lcom/android/server/pm/PackageManagerService;)Lcom/android/internal/app/IMediaContainerService;
 
     move-result-object v1
@@ -246,7 +250,7 @@
     .line 6095
     iget v0, p0, Lcom/android/server/pm/PackageManagerService$MoveParams;->mRet:I
 
-    if-eq v0, v3, :cond_41
+    if-eq v0, v3, :cond_2
 
     .line 6096
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$MoveParams;->srcArgs:Lcom/android/server/pm/PackageManagerService$InstallArgs;
@@ -255,10 +259,10 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/pm/PackageManagerService$InstallArgs;->doPostCopy(I)I
 
-    goto :goto_19
+    goto :goto_0
 
     .line 6100
-    :cond_41
+    :cond_2
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$MoveParams;->srcArgs:Lcom/android/server/pm/PackageManagerService$InstallArgs;
 
     iget v1, p0, Lcom/android/server/pm/PackageManagerService$MoveParams;->uid:I
@@ -272,7 +276,7 @@
     .line 6101
     iget v0, p0, Lcom/android/server/pm/PackageManagerService$MoveParams;->mRet:I
 
-    if-ne v0, v3, :cond_19
+    if-ne v0, v3, :cond_0
 
     .line 6105
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$MoveParams;->targetArgs:Lcom/android/server/pm/PackageManagerService$InstallArgs;
@@ -288,7 +292,7 @@
     .line 6106
     iget v0, p0, Lcom/android/server/pm/PackageManagerService$MoveParams;->mRet:I
 
-    if-eq v0, v3, :cond_19
+    if-eq v0, v3, :cond_0
 
-    goto :goto_19
+    goto :goto_0
 .end method

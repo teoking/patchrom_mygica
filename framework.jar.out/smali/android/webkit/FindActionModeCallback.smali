@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .registers 5
+    .locals 3
     .parameter "context"
 
     .prologue
@@ -148,14 +148,14 @@
 .end method
 
 .method private findNext(Z)V
-    .registers 4
+    .locals 2
     .parameter "next"
 
     .prologue
     .line 104
     iget-object v0, p0, Landroid/webkit/FindActionModeCallback;->mWebView:Landroid/webkit/WebViewClassic;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 105
     new-instance v0, Ljava/lang/AssertionError;
@@ -167,24 +167,24 @@
     throw v0
 
     .line 108
-    :cond_c
+    :cond_0
     iget-boolean v0, p0, Landroid/webkit/FindActionModeCallback;->mMatchesFound:Z
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_2
 
     .line 109
     invoke-virtual {p0}, Landroid/webkit/FindActionModeCallback;->findAll()V
 
     .line 119
-    :cond_13
-    :goto_13
+    :cond_1
+    :goto_0
     return-void
 
     .line 112
-    :cond_14
+    :cond_2
     iget v0, p0, Landroid/webkit/FindActionModeCallback;->mNumberOfMatches:I
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     .line 117
     iget-object v0, p0, Landroid/webkit/FindActionModeCallback;->mWebView:Landroid/webkit/WebViewClassic;
@@ -194,11 +194,11 @@
     .line 118
     invoke-direct {p0}, Landroid/webkit/FindActionModeCallback;->updateMatchesString()V
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method private updateMatchesString()V
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v7, 0x0
@@ -206,7 +206,7 @@
     .line 165
     iget v0, p0, Landroid/webkit/FindActionModeCallback;->mNumberOfMatches:I
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     .line 166
     iget-object v0, p0, Landroid/webkit/FindActionModeCallback;->mMatches:Landroid/widget/TextView;
@@ -216,7 +216,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     .line 172
-    :goto_d
+    :goto_0
     iget-object v0, p0, Landroid/webkit/FindActionModeCallback;->mMatches:Landroid/widget/TextView;
 
     invoke-virtual {v0, v7}, Landroid/widget/TextView;->setVisibility(I)V
@@ -225,7 +225,7 @@
     return-void
 
     .line 168
-    :cond_13
+    :cond_0
     iget-object v0, p0, Landroid/webkit/FindActionModeCallback;->mMatches:Landroid/widget/TextView;
 
     iget-object v1, p0, Landroid/webkit/FindActionModeCallback;->mResources:Landroid/content/res/Resources;
@@ -264,13 +264,13 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .registers 2
+    .locals 0
     .parameter "s"
 
     .prologue
@@ -279,7 +279,7 @@
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 5
+    .locals 0
     .parameter "s"
     .parameter "start"
     .parameter "count"
@@ -291,7 +291,7 @@
 .end method
 
 .method findAll()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x0
@@ -299,7 +299,7 @@
     .line 125
     iget-object v1, p0, Landroid/webkit/FindActionModeCallback;->mWebView:Landroid/webkit/WebViewClassic;
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_0
 
     .line 126
     new-instance v1, Ljava/lang/AssertionError;
@@ -311,7 +311,7 @@
     throw v1
 
     .line 129
-    :cond_d
+    :cond_0
     iget-object v1, p0, Landroid/webkit/FindActionModeCallback;->mEditText:Landroid/widget/EditText;
 
     invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -324,7 +324,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2e
+    if-nez v1, :cond_1
 
     .line 131
     iget-object v1, p0, Landroid/webkit/FindActionModeCallback;->mWebView:Landroid/webkit/WebViewClassic;
@@ -349,11 +349,11 @@
     invoke-virtual {v1, v2}, Landroid/webkit/WebViewClassic;->findAll(Ljava/lang/String;)I
 
     .line 141
-    :goto_2d
+    :goto_0
     return-void
 
     .line 136
-    :cond_2e
+    :cond_1
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/webkit/FindActionModeCallback;->mMatchesFound:Z
@@ -377,11 +377,11 @@
 
     invoke-virtual {v1, v2}, Landroid/webkit/WebViewClassic;->findAllAsync(Ljava/lang/String;)V
 
-    goto :goto_2d
+    goto :goto_0
 .end method
 
 .method finish()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 65
@@ -394,23 +394,23 @@
 .end method
 
 .method public getActionModeGlobalBottom()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 265
     iget-object v1, p0, Landroid/webkit/FindActionModeCallback;->mActionMode:Landroid/view/ActionMode;
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_0
 
     .line 266
     const/4 v1, 0x0
 
     .line 273
-    :goto_5
+    :goto_0
     return v1
 
     .line 268
-    :cond_6
+    :cond_0
     iget-object v1, p0, Landroid/webkit/FindActionModeCallback;->mCustomView:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -421,13 +421,13 @@
 
     .line 269
     .local v0, view:Landroid/view/View;
-    if-nez v0, :cond_12
+    if-nez v0, :cond_1
 
     .line 270
     iget-object v0, p0, Landroid/webkit/FindActionModeCallback;->mCustomView:Landroid/view/View;
 
     .line 272
-    :cond_12
+    :cond_1
     iget-object v1, p0, Landroid/webkit/FindActionModeCallback;->mGlobalVisibleRect:Landroid/graphics/Rect;
 
     iget-object v2, p0, Landroid/webkit/FindActionModeCallback;->mGlobalVisibleOffset:Landroid/graphics/Point;
@@ -439,11 +439,11 @@
 
     iget v1, v1, Landroid/graphics/Rect;->bottom:I
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public onActionItemClicked(Landroid/view/ActionMode;Landroid/view/MenuItem;)Z
-    .registers 7
+    .locals 4
     .parameter "mode"
     .parameter "item"
 
@@ -455,7 +455,7 @@
     .line 221
     iget-object v2, p0, Landroid/webkit/FindActionModeCallback;->mWebView:Landroid/webkit/WebViewClassic;
 
-    if-nez v2, :cond_e
+    if-nez v2, :cond_0
 
     .line 222
     new-instance v0, Ljava/lang/AssertionError;
@@ -467,7 +467,7 @@
     throw v0
 
     .line 225
-    :cond_e
+    :cond_0
     iget-object v2, p0, Landroid/webkit/FindActionModeCallback;->mInput:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v3, p0, Landroid/webkit/FindActionModeCallback;->mWebView:Landroid/webkit/WebViewClassic;
@@ -487,38 +487,38 @@
 
     move-result v2
 
-    packed-switch v2, :pswitch_data_2e
+    packed-switch v2, :pswitch_data_0
 
     .line 236
-    :goto_24
+    :goto_0
     return v0
 
     .line 228
-    :pswitch_25
+    :pswitch_0
     invoke-direct {p0, v0}, Landroid/webkit/FindActionModeCallback;->findNext(Z)V
 
-    :goto_28
+    :goto_1
     move v0, v1
 
     .line 236
-    goto :goto_24
+    goto :goto_0
 
     .line 231
-    :pswitch_2a
+    :pswitch_1
     invoke-direct {p0, v1}, Landroid/webkit/FindActionModeCallback;->findNext(Z)V
 
-    goto :goto_28
+    goto :goto_1
 
     .line 226
-    :pswitch_data_2e
+    :pswitch_data_0
     .packed-switch 0x102039e
-        :pswitch_25
-        :pswitch_2a
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .registers 3
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -532,7 +532,7 @@
 .end method
 
 .method public onCreateActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
-    .registers 7
+    .locals 4
     .parameter "mode"
     .parameter "menu"
 
@@ -544,14 +544,14 @@
 
     move-result v2
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_0
 
     .line 204
-    :goto_7
+    :goto_0
     return v1
 
     .line 194
-    :cond_8
+    :cond_0
     iget-object v2, p0, Landroid/webkit/FindActionModeCallback;->mCustomView:Landroid/view/View;
 
     invoke-virtual {p1, v2}, Landroid/view/ActionMode;->setCustomView(Landroid/view/View;)V
@@ -608,11 +608,11 @@
     .line 204
     const/4 v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public onDestroyActionMode(Landroid/view/ActionMode;)V
-    .registers 5
+    .locals 3
     .parameter "mode"
 
     .prologue
@@ -648,7 +648,7 @@
 .end method
 
 .method public onPrepareActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
-    .registers 4
+    .locals 1
     .parameter "mode"
     .parameter "menu"
 
@@ -660,7 +660,7 @@
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 5
+    .locals 0
     .parameter "s"
     .parameter "start"
     .parameter "before"
@@ -675,7 +675,7 @@
 .end method
 
 .method setText(Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "text"
 
     .prologue
@@ -716,12 +716,12 @@
 .end method
 
 .method setWebView(Landroid/webkit/WebViewClassic;)V
-    .registers 4
+    .locals 2
     .parameter "webView"
 
     .prologue
     .line 91
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 92
     new-instance v0, Ljava/lang/AssertionError;
@@ -733,7 +733,7 @@
     throw v0
 
     .line 95
-    :cond_a
+    :cond_0
     iput-object p1, p0, Landroid/webkit/FindActionModeCallback;->mWebView:Landroid/webkit/WebViewClassic;
 
     .line 96
@@ -741,7 +741,7 @@
 .end method
 
 .method public showSoftInput()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 144
@@ -776,14 +776,14 @@
 .end method
 
 .method public updateMatchCount(IIZ)V
-    .registers 6
+    .locals 2
     .parameter "matchIndex"
     .parameter "matchCount"
     .parameter "isEmptyFind"
 
     .prologue
     .line 150
-    if-nez p3, :cond_a
+    if-nez p3, :cond_0
 
     .line 151
     iput p2, p0, Landroid/webkit/FindActionModeCallback;->mNumberOfMatches:I
@@ -795,11 +795,11 @@
     invoke-direct {p0}, Landroid/webkit/FindActionModeCallback;->updateMatchesString()V
 
     .line 158
-    :goto_9
+    :goto_0
     return-void
 
     .line 155
-    :cond_a
+    :cond_0
     iget-object v0, p0, Landroid/webkit/FindActionModeCallback;->mMatches:Landroid/widget/TextView;
 
     const/4 v1, 0x4
@@ -811,5 +811,5 @@
 
     iput v0, p0, Landroid/webkit/FindActionModeCallback;->mNumberOfMatches:I
 
-    goto :goto_9
+    goto :goto_0
 .end method

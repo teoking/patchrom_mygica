@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -39,7 +39,7 @@
 .end method
 
 .method private constructor <init>(Landroid/graphics/drawable/AnimationDrawable$AnimationState;Landroid/content/res/Resources;)V
-    .registers 6
+    .locals 3
     .parameter "state"
     .parameter "res"
 
@@ -67,7 +67,7 @@
     invoke-virtual {p0, v0}, Landroid/graphics/drawable/AnimationDrawable;->setConstantState(Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;)V
 
     .line 360
-    if-eqz p1, :cond_17
+    if-eqz p1, :cond_0
 
     .line 361
     const/4 v1, 0x1
@@ -75,12 +75,12 @@
     invoke-direct {p0, v2, v1, v2}, Landroid/graphics/drawable/AnimationDrawable;->setFrame(IZZ)V
 
     .line 363
-    :cond_17
+    :cond_0
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/graphics/drawable/AnimationDrawable$AnimationState;Landroid/content/res/Resources;Landroid/graphics/drawable/AnimationDrawable$1;)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -93,7 +93,7 @@
 .end method
 
 .method private nextFrame(Z)V
-    .registers 5
+    .locals 3
     .parameter "unschedule"
 
     .prologue
@@ -112,43 +112,44 @@
 
     .line 213
     .local v0, N:I
-    if-lt v1, v0, :cond_d
+    if-lt v1, v0, :cond_0
 
     .line 214
     const/4 v1, 0x0
 
     .line 216
-    :cond_d
+    :cond_0
     iget-object v2, p0, Landroid/graphics/drawable/AnimationDrawable;->mAnimationState:Landroid/graphics/drawable/AnimationDrawable$AnimationState;
 
+    #getter for: Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mOneShot:Z
     invoke-static {v2}, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->access$100(Landroid/graphics/drawable/AnimationDrawable$AnimationState;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_19
+    if-eqz v2, :cond_1
 
     add-int/lit8 v2, v0, -0x1
 
-    if-ge v1, v2, :cond_1e
+    if-ge v1, v2, :cond_2
 
-    :cond_19
+    :cond_1
     const/4 v2, 0x1
 
-    :goto_1a
+    :goto_0
     invoke-direct {p0, v1, p1, v2}, Landroid/graphics/drawable/AnimationDrawable;->setFrame(IZZ)V
 
     .line 217
     return-void
 
     .line 216
-    :cond_1e
+    :cond_2
     const/4 v2, 0x0
 
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 .method private setFrame(IZZ)V
-    .registers 8
+    .locals 4
     .parameter "frame"
     .parameter "unschedule"
     .parameter "animate"
@@ -161,29 +162,29 @@
 
     move-result v0
 
-    if-lt p1, v0, :cond_9
+    if-lt p1, v0, :cond_1
 
     .line 233
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     return-void
 
     .line 223
-    :cond_9
+    :cond_1
     iput p1, p0, Landroid/graphics/drawable/AnimationDrawable;->mCurFrame:I
 
     .line 224
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/AnimationDrawable;->selectDrawable(I)Z
 
     .line 225
-    if-eqz p2, :cond_13
+    if-eqz p2, :cond_2
 
     .line 226
     invoke-virtual {p0, p0}, Landroid/graphics/drawable/AnimationDrawable;->unscheduleSelf(Ljava/lang/Runnable;)V
 
     .line 228
-    :cond_13
-    if-eqz p3, :cond_8
+    :cond_2
+    if-eqz p3, :cond_0
 
     .line 230
     iput p1, p0, Landroid/graphics/drawable/AnimationDrawable;->mCurFrame:I
@@ -195,6 +196,7 @@
 
     iget-object v2, p0, Landroid/graphics/drawable/AnimationDrawable;->mAnimationState:Landroid/graphics/drawable/AnimationDrawable$AnimationState;
 
+    #getter for: Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mDurations:[I
     invoke-static {v2}, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->access$000(Landroid/graphics/drawable/AnimationDrawable$AnimationState;)[I
 
     move-result-object v2
@@ -207,13 +209,13 @@
 
     invoke-virtual {p0, p0, v0, v1}, Landroid/graphics/drawable/AnimationDrawable;->scheduleSelf(Ljava/lang/Runnable;J)V
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public addFrame(Landroid/graphics/drawable/Drawable;I)V
-    .registers 5
+    .locals 2
     .parameter "frame"
     .parameter "duration"
 
@@ -228,7 +230,7 @@
     .line 205
     iget v0, p0, Landroid/graphics/drawable/AnimationDrawable;->mCurFrame:I
 
-    if-gez v0, :cond_e
+    if-gez v0, :cond_0
 
     .line 206
     const/4 v0, 0x1
@@ -236,18 +238,19 @@
     invoke-direct {p0, v1, v0, v1}, Landroid/graphics/drawable/AnimationDrawable;->setFrame(IZZ)V
 
     .line 208
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public getDuration(I)I
-    .registers 3
+    .locals 1
     .parameter "i"
 
     .prologue
     .line 178
     iget-object v0, p0, Landroid/graphics/drawable/AnimationDrawable;->mAnimationState:Landroid/graphics/drawable/AnimationDrawable$AnimationState;
 
+    #getter for: Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mDurations:[I
     invoke-static {v0}, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->access$000(Landroid/graphics/drawable/AnimationDrawable$AnimationState;)[I
 
     move-result-object v0
@@ -258,7 +261,7 @@
 .end method
 
 .method public getFrame(I)Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -275,7 +278,7 @@
 .end method
 
 .method public getNumberOfFrames()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 163
@@ -289,7 +292,7 @@
 .end method
 
 .method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)V
-    .registers 16
+    .locals 12
     .parameter "r"
     .parameter "parser"
     .parameter "attrs"
@@ -334,6 +337,7 @@
 
     move-result v8
 
+    #setter for: Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mOneShot:Z
     invoke-static {v7, v8}, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->access$102(Landroid/graphics/drawable/AnimationDrawable$AnimationState;Z)Z
 
     .line 251
@@ -348,32 +352,32 @@
 
     .line 257
     .local v5, innerDepth:I
-    :cond_27
-    :goto_27
+    :cond_0
+    :goto_0
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v6
 
     .local v6, type:I
-    if-eq v6, v10, :cond_b9
+    if-eq v6, v10, :cond_5
 
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v1
 
     .local v1, depth:I
-    if-ge v1, v5, :cond_36
+    if-ge v1, v5, :cond_1
 
     const/4 v7, 0x3
 
-    if-eq v6, v7, :cond_b9
+    if-eq v6, v7, :cond_5
 
     .line 259
-    :cond_36
-    if-ne v6, v11, :cond_27
+    :cond_1
+    if-ne v6, v11, :cond_0
 
     .line 263
-    if-gt v1, v5, :cond_27
+    if-gt v1, v5, :cond_0
 
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
@@ -385,7 +389,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_27
+    if-eqz v7, :cond_0
 
     .line 267
     sget-object v7, Lcom/android/internal/R$styleable;->AnimationDrawableItem:[I
@@ -403,7 +407,7 @@
 
     .line 270
     .local v4, duration:I
-    if-gez v4, :cond_70
+    if-gez v4, :cond_2
 
     .line 271
     new-instance v7, Lorg/xmlpull/v1/XmlPullParserException;
@@ -435,7 +439,7 @@
     throw v7
 
     .line 275
-    :cond_70
+    :cond_2
     invoke-virtual {v0, v10, v9}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v3
@@ -445,7 +449,7 @@
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 281
-    if-eqz v3, :cond_88
+    if-eqz v3, :cond_3
 
     .line 282
     invoke-virtual {p1, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -454,32 +458,32 @@
 
     .line 295
     .local v2, dr:Landroid/graphics/drawable/Drawable;
-    :goto_7d
+    :goto_1
     iget-object v7, p0, Landroid/graphics/drawable/AnimationDrawable;->mAnimationState:Landroid/graphics/drawable/AnimationDrawable$AnimationState;
 
     invoke-virtual {v7, v2, v4}, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->addFrame(Landroid/graphics/drawable/Drawable;I)V
 
     .line 296
-    if-eqz v2, :cond_27
+    if-eqz v2, :cond_0
 
     .line 297
     invoke-virtual {v2, p0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
-    goto :goto_27
+    goto :goto_0
 
     .line 284
     .end local v2           #dr:Landroid/graphics/drawable/Drawable;
-    :cond_88
+    :cond_3
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v6
 
     const/4 v7, 0x4
 
-    if-eq v6, v7, :cond_88
+    if-eq v6, v7, :cond_3
 
     .line 287
-    if-eq v6, v11, :cond_b4
+    if-eq v6, v11, :cond_4
 
     .line 288
     new-instance v7, Lorg/xmlpull/v1/XmlPullParserException;
@@ -517,20 +521,20 @@
     throw v7
 
     .line 292
-    :cond_b4
+    :cond_4
     invoke-static {p1, p2, p3}, Landroid/graphics/drawable/Drawable;->createFromXmlInner(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
     .restart local v2       #dr:Landroid/graphics/drawable/Drawable;
-    goto :goto_7d
+    goto :goto_1
 
     .line 301
     .end local v1           #depth:I
     .end local v2           #dr:Landroid/graphics/drawable/Drawable;
     .end local v3           #drawableRes:I
     .end local v4           #duration:I
-    :cond_b9
+    :cond_5
     invoke-direct {p0, v9, v10, v9}, Landroid/graphics/drawable/AnimationDrawable;->setFrame(IZZ)V
 
     .line 302
@@ -538,12 +542,13 @@
 .end method
 
 .method public isOneShot()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 185
     iget-object v0, p0, Landroid/graphics/drawable/AnimationDrawable;->mAnimationState:Landroid/graphics/drawable/AnimationDrawable$AnimationState;
 
+    #getter for: Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mOneShot:Z
     invoke-static {v0}, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->access$100(Landroid/graphics/drawable/AnimationDrawable$AnimationState;)Z
 
     move-result v0
@@ -552,7 +557,7 @@
 .end method
 
 .method public isRunning()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 140
@@ -560,39 +565,40 @@
 
     const/4 v1, -0x1
 
-    if-le v0, v1, :cond_7
+    if-le v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public mutate()Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 306
     iget-boolean v0, p0, Landroid/graphics/drawable/AnimationDrawable;->mMutated:Z
 
-    if-nez v0, :cond_1e
+    if-nez v0, :cond_0
 
     invoke-super {p0}, Landroid/graphics/drawable/DrawableContainer;->mutate()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    if-ne v0, p0, :cond_1e
+    if-ne v0, p0, :cond_0
 
     .line 307
     iget-object v1, p0, Landroid/graphics/drawable/AnimationDrawable;->mAnimationState:Landroid/graphics/drawable/AnimationDrawable$AnimationState;
 
     iget-object v0, p0, Landroid/graphics/drawable/AnimationDrawable;->mAnimationState:Landroid/graphics/drawable/AnimationDrawable$AnimationState;
 
+    #getter for: Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mDurations:[I
     invoke-static {v0}, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->access$000(Landroid/graphics/drawable/AnimationDrawable$AnimationState;)[I
 
     move-result-object v0
@@ -603,6 +609,7 @@
 
     check-cast v0, [I
 
+    #setter for: Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mDurations:[I
     invoke-static {v1, v0}, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->access$002(Landroid/graphics/drawable/AnimationDrawable$AnimationState;[I)[I
 
     .line 308
@@ -611,12 +618,12 @@
     iput-boolean v0, p0, Landroid/graphics/drawable/AnimationDrawable;->mMutated:Z
 
     .line 310
-    :cond_1e
+    :cond_0
     return-object p0
 .end method
 
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 150
@@ -629,13 +636,14 @@
 .end method
 
 .method public setOneShot(Z)V
-    .registers 3
+    .locals 1
     .parameter "oneShot"
 
     .prologue
     .line 194
     iget-object v0, p0, Landroid/graphics/drawable/AnimationDrawable;->mAnimationState:Landroid/graphics/drawable/AnimationDrawable$AnimationState;
 
+    #setter for: Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mOneShot:Z
     invoke-static {v0, p1}, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->access$102(Landroid/graphics/drawable/AnimationDrawable$AnimationState;Z)Z
 
     .line 195
@@ -643,7 +651,7 @@
 .end method
 
 .method public setVisible(ZZ)Z
-    .registers 6
+    .locals 3
     .parameter "visible"
     .parameter "restart"
 
@@ -657,33 +665,33 @@
 
     .line 93
     .local v0, changed:Z
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_2
 
     .line 94
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
-    if-eqz p2, :cond_f
+    if-eqz p2, :cond_1
 
     .line 95
-    :cond_b
+    :cond_0
     const/4 v1, 0x0
 
     invoke-direct {p0, v1, v2, v2}, Landroid/graphics/drawable/AnimationDrawable;->setFrame(IZZ)V
 
     .line 100
-    :cond_f
-    :goto_f
+    :cond_1
+    :goto_0
     return v0
 
     .line 98
-    :cond_10
+    :cond_2
     invoke-virtual {p0, p0}, Landroid/graphics/drawable/AnimationDrawable;->unscheduleSelf(Ljava/lang/Runnable;)V
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public start()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 116
@@ -691,18 +699,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     .line 117
     invoke-virtual {p0}, Landroid/graphics/drawable/AnimationDrawable;->run()V
 
     .line 119
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public stop()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 129
@@ -710,18 +718,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 130
     invoke-virtual {p0, p0}, Landroid/graphics/drawable/AnimationDrawable;->unscheduleSelf(Ljava/lang/Runnable;)V
 
     .line 132
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public unscheduleSelf(Ljava/lang/Runnable;)V
-    .registers 3
+    .locals 1
     .parameter "what"
 
     .prologue

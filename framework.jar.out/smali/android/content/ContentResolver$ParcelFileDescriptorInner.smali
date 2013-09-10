@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/ContentResolver;Landroid/os/ParcelFileDescriptor;Landroid/content/IContentProvider;)V
-    .registers 5
+    .locals 1
     .parameter
     .parameter "pfd"
     .parameter "icp"
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public close()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -62,7 +62,7 @@
     .line 1879
     iget-boolean v0, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->mReleaseProviderFlag:Z
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 1880
     invoke-super {p0}, Landroid/os/ParcelFileDescriptor;->close()V
@@ -80,12 +80,12 @@
     iput-boolean v0, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->mReleaseProviderFlag:Z
 
     .line 1884
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -96,12 +96,12 @@
     .line 1888
     iget-boolean v0, p0, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->mReleaseProviderFlag:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 1889
     invoke-virtual {p0}, Landroid/content/ContentResolver$ParcelFileDescriptorInner;->close()V
 
     .line 1891
-    :cond_7
+    :cond_0
     return-void
 .end method

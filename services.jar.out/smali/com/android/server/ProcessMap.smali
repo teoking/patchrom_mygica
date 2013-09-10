@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 23
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public get(Ljava/lang/String;I)Ljava/lang/Object;
-    .registers 5
+    .locals 2
     .parameter "name"
     .parameter "uid"
     .annotation system Ldalvik/annotation/Signature;
@@ -74,24 +74,24 @@
 
     .line 29
     .local v0, uids:Landroid/util/SparseArray;,"Landroid/util/SparseArray<TE;>;"
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     const/4 v1, 0x0
 
     .line 30
-    :goto_b
+    :goto_0
     return-object v1
 
-    :cond_c
+    :cond_0
     invoke-virtual {v0, p2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public getMap()Ljava/util/HashMap;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -112,7 +112,7 @@
 .end method
 
 .method public put(Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/Object;
-    .registers 6
+    .locals 2
     .parameter "name"
     .parameter "uid"
     .parameter
@@ -138,7 +138,7 @@
 
     .line 35
     .local v0, uids:Landroid/util/SparseArray;,"Landroid/util/SparseArray<TE;>;"
-    if-nez v0, :cond_15
+    if-nez v0, :cond_0
 
     .line 36
     new-instance v0, Landroid/util/SparseArray;
@@ -155,7 +155,7 @@
     invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 39
-    :cond_15
+    :cond_0
     invoke-virtual {v0, p2, p3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 40
@@ -163,7 +163,7 @@
 .end method
 
 .method public remove(Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
     .parameter "name"
     .parameter "uid"
 
@@ -180,7 +180,7 @@
 
     .line 45
     .local v0, uids:Landroid/util/SparseArray;,"Landroid/util/SparseArray<TE;>;"
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
     .line 46
     invoke-virtual {v0, p2}, Landroid/util/SparseArray;->remove(I)V
@@ -190,7 +190,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_18
+    if-nez v1, :cond_0
 
     .line 48
     iget-object v1, p0, Lcom/android/server/ProcessMap;->mMap:Ljava/util/HashMap;
@@ -198,6 +198,6 @@
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 51
-    :cond_18
+    :cond_0
     return-void
 .end method

@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 14
+    .locals 12
     .parameter "context"
 
     .prologue
@@ -209,7 +209,7 @@
 .end method
 
 .method private beginningOfDay(Ljava/util/Calendar;)V
-    .registers 4
+    .locals 2
     .parameter "c"
 
     .prologue
@@ -242,7 +242,7 @@
 
 # virtual methods
 .method public getBoundary(I)J
-    .registers 5
+    .locals 3
     .parameter "index"
 
     .prologue
@@ -251,33 +251,33 @@
 
     .line 108
     .local v0, lastDay:I
-    if-ltz p1, :cond_5
+    if-ltz p1, :cond_0
 
-    if-le p1, v0, :cond_6
+    if-le p1, v0, :cond_1
 
-    :cond_5
+    :cond_0
     const/4 p1, 0x0
 
     .line 111
-    :cond_6
-    if-ne p1, v0, :cond_b
+    :cond_1
+    if-ne p1, v0, :cond_2
 
     const-wide/high16 v1, -0x8000
 
     .line 112
-    :goto_a
+    :goto_0
     return-wide v1
 
-    :cond_b
+    :cond_2
     iget-object v1, p0, Landroid/webkit/DateSorter;->mBins:[J
 
     aget-wide v1, v1, p1
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getIndex(J)I
-    .registers 7
+    .locals 4
     .parameter "time"
 
     .prologue
@@ -289,8 +289,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_2
-    if-ge v0, v1, :cond_10
+    :goto_0
+    if-ge v0, v1, :cond_1
 
     .line 86
     iget-object v2, p0, Landroid/webkit/DateSorter;->mBins:[J
@@ -299,50 +299,50 @@
 
     cmp-long v2, p1, v2
 
-    if-lez v2, :cond_d
+    if-lez v2, :cond_0
 
     .line 88
     .end local v0           #i:I
-    :goto_c
+    :goto_1
     return v0
 
     .line 85
     .restart local v0       #i:I
-    :cond_d
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
-    :cond_10
+    :cond_1
     move v0, v1
 
     .line 88
-    goto :goto_c
+    goto :goto_1
 .end method
 
 .method public getLabel(I)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
     .line 96
-    if-ltz p1, :cond_5
+    if-ltz p1, :cond_0
 
     const/4 v0, 0x5
 
-    if-lt p1, v0, :cond_8
+    if-lt p1, v0, :cond_1
 
-    :cond_5
+    :cond_0
     const-string v0, ""
 
     .line 97
-    :goto_7
+    :goto_0
     return-object v0
 
-    :cond_8
+    :cond_1
     iget-object v0, p0, Landroid/webkit/DateSorter;->mLabels:[Ljava/lang/String;
 
     aget-object v0, v0, p1
 
-    goto :goto_7
+    goto :goto_0
 .end method

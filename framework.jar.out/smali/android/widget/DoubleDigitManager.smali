@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(JLandroid/widget/DoubleDigitManager$CallBack;)V
-    .registers 4
+    .locals 0
     .parameter "timeoutInMillis"
     .parameter "callBack"
 
@@ -40,7 +40,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/widget/DoubleDigitManager;)Ljava/lang/Integer;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -51,7 +51,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/widget/DoubleDigitManager;Ljava/lang/Integer;)Ljava/lang/Integer;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -63,7 +63,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/widget/DoubleDigitManager;)Landroid/widget/DoubleDigitManager$CallBack;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public reportDigit(I)V
-    .registers 7
+    .locals 5
     .parameter "digit"
 
     .prologue
@@ -85,7 +85,7 @@
     .line 49
     iget-object v0, p0, Landroid/widget/DoubleDigitManager;->intermediateDigit:Ljava/lang/Integer;
 
-    if-nez v0, :cond_2a
+    if-nez v0, :cond_1
 
     .line 50
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -114,7 +114,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_29
+    if-nez v0, :cond_0
 
     .line 66
     iput-object v4, p0, Landroid/widget/DoubleDigitManager;->intermediateDigit:Ljava/lang/Integer;
@@ -125,12 +125,12 @@
     invoke-interface {v0, p1}, Landroid/widget/DoubleDigitManager$CallBack;->singleDigitFinal(I)V
 
     .line 72
-    :cond_29
-    :goto_29
+    :cond_0
+    :goto_0
     return-void
 
     .line 69
-    :cond_2a
+    :cond_1
     iget-object v0, p0, Landroid/widget/DoubleDigitManager;->mCallBack:Landroid/widget/DoubleDigitManager$CallBack;
 
     iget-object v1, p0, Landroid/widget/DoubleDigitManager;->intermediateDigit:Ljava/lang/Integer;
@@ -143,10 +143,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_29
+    if-eqz v0, :cond_0
 
     .line 70
     iput-object v4, p0, Landroid/widget/DoubleDigitManager;->intermediateDigit:Ljava/lang/Integer;
 
-    goto :goto_29
+    goto :goto_0
 .end method

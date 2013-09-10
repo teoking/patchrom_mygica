@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 111
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public onCallBusy(Landroid/net/sip/SipSession;)V
-    .registers 2
+    .locals 0
     .parameter "session"
 
     .prologue
@@ -37,7 +37,7 @@
 .end method
 
 .method public onCallChangeFailed(Landroid/net/sip/SipSession;ILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "session"
     .parameter "errorCode"
     .parameter "errorMessage"
@@ -48,7 +48,7 @@
 .end method
 
 .method public onCallEnded(Landroid/net/sip/SipSession;)V
-    .registers 2
+    .locals 0
     .parameter "session"
 
     .prologue
@@ -57,7 +57,7 @@
 .end method
 
 .method public onCallEstablished(Landroid/net/sip/SipSession;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "session"
     .parameter "sessionDescription"
 
@@ -67,7 +67,7 @@
 .end method
 
 .method public onCallTransferring(Landroid/net/sip/SipSession;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "newSession"
     .parameter "sessionDescription"
 
@@ -77,7 +77,7 @@
 .end method
 
 .method public onCalling(Landroid/net/sip/SipSession;)V
-    .registers 2
+    .locals 0
     .parameter "session"
 
     .prologue
@@ -86,7 +86,7 @@
 .end method
 
 .method public onError(Landroid/net/sip/SipSession;ILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "session"
     .parameter "errorCode"
     .parameter "errorMessage"
@@ -97,7 +97,7 @@
 .end method
 
 .method public onRegistering(Landroid/net/sip/SipSession;)V
-    .registers 2
+    .locals 0
     .parameter "session"
 
     .prologue
@@ -106,7 +106,7 @@
 .end method
 
 .method public onRegistrationDone(Landroid/net/sip/SipSession;I)V
-    .registers 3
+    .locals 0
     .parameter "session"
     .parameter "duration"
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public onRegistrationFailed(Landroid/net/sip/SipSession;ILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "session"
     .parameter "errorCode"
     .parameter "errorMessage"
@@ -127,7 +127,7 @@
 .end method
 
 .method public onRegistrationTimeout(Landroid/net/sip/SipSession;)V
-    .registers 2
+    .locals 0
     .parameter "session"
 
     .prologue
@@ -136,7 +136,7 @@
 .end method
 
 .method public onRinging(Landroid/net/sip/SipSession;Landroid/net/sip/SipProfile;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "session"
     .parameter "caller"
     .parameter "sessionDescription"
@@ -147,7 +147,7 @@
 .end method
 
 .method public onRingingBack(Landroid/net/sip/SipSession;)V
-    .registers 2
+    .locals 0
     .parameter "session"
 
     .prologue

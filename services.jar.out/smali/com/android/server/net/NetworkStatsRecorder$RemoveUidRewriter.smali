@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(JI)V
-    .registers 5
+    .locals 1
     .parameter "bucketDuration"
     .parameter "uid"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public read(Ljava/io/InputStream;)V
-    .registers 4
+    .locals 2
     .parameter "in"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -81,7 +81,7 @@
 .end method
 
 .method public reset()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 305
@@ -94,7 +94,7 @@
 .end method
 
 .method public shouldWrite()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 317
@@ -108,7 +108,7 @@
 .end method
 
 .method public write(Ljava/io/OutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
         value = {

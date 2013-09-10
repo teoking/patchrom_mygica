@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 113
@@ -85,7 +85,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 109
@@ -96,7 +96,7 @@
 .end method
 
 .method public static buildSourceUri(Ljava/lang/String;)Landroid/net/Uri;
-    .registers 3
+    .locals 2
     .parameter "packageName"
 
     .prologue

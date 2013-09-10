@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 10
+    .locals 9
 
     .prologue
     const-wide/16 v3, 0x0
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Landroid/media/videoeditor/MediaItem;Ljava/lang/String;JJII)V
-    .registers 12
+    .locals 3
     .parameter "mediaItem"
     .parameter "effectId"
     .parameter "startTimeMs"
@@ -67,7 +67,7 @@
     invoke-direct/range {p0 .. p6}, Landroid/media/videoeditor/Effect;-><init>(Landroid/media/videoeditor/MediaItem;Ljava/lang/String;JJ)V
 
     .line 96
-    packed-switch p7, :pswitch_data_44
+    packed-switch p7, :pswitch_data_0
 
     .line 119
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -95,8 +95,8 @@
     throw v0
 
     .line 99
-    :pswitch_1f
-    sparse-switch p8, :sswitch_data_52
+    :pswitch_0
+    sparse-switch p8, :sswitch_data_0
 
     .line 107
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -124,47 +124,47 @@
     throw v0
 
     .line 103
-    :sswitch_3b
+    :sswitch_0
     iput p8, p0, Landroid/media/videoeditor/EffectColor;->mColor:I
 
     .line 122
-    :goto_3d
+    :goto_0
     iput p7, p0, Landroid/media/videoeditor/EffectColor;->mType:I
 
     .line 123
     return-void
 
     .line 114
-    :pswitch_40
+    :pswitch_1
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/media/videoeditor/EffectColor;->mColor:I
 
-    goto :goto_3d
+    goto :goto_0
 
     .line 96
-    :pswitch_data_44
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_1f
-        :pswitch_1f
-        :pswitch_40
-        :pswitch_40
-        :pswitch_40
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
     .end packed-switch
 
     .line 99
-    :sswitch_data_52
+    :sswitch_data_0
     .sparse-switch
-        0xff00 -> :sswitch_3b
-        0x7f7f7f -> :sswitch_3b
-        0xff66cc -> :sswitch_3b
+        0xff00 -> :sswitch_0
+        0x7f7f7f -> :sswitch_0
+        0xff66cc -> :sswitch_0
     .end sparse-switch
 .end method
 
 
 # virtual methods
 .method public getColor()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 140
@@ -174,7 +174,7 @@
 .end method
 
 .method public getType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 131

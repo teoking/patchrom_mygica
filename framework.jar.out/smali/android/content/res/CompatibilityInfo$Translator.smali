@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/res/CompatibilityInfo;)V
-    .registers 4
+    .locals 2
     .parameter
 
     .prologue
@@ -46,7 +46,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/res/CompatibilityInfo;FF)V
-    .registers 5
+    .locals 1
     .parameter
     .parameter "applicationScale"
     .parameter "applicationInvertedScale"
@@ -81,14 +81,14 @@
 
 # virtual methods
 .method public getTranslatedContentInsets(Landroid/graphics/Rect;)Landroid/graphics/Rect;
-    .registers 3
+    .locals 1
     .parameter "contentInsets"
 
     .prologue
     .line 402
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mContentInsetsBuffer:Landroid/graphics/Rect;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     new-instance v0, Landroid/graphics/Rect;
 
@@ -97,7 +97,7 @@
     iput-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mContentInsetsBuffer:Landroid/graphics/Rect;
 
     .line 403
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mContentInsetsBuffer:Landroid/graphics/Rect;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
@@ -114,14 +114,14 @@
 .end method
 
 .method public getTranslatedTouchableArea(Landroid/graphics/Region;)Landroid/graphics/Region;
-    .registers 4
+    .locals 2
     .parameter "touchableArea"
 
     .prologue
     .line 424
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mTouchableAreaBuffer:Landroid/graphics/Region;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     new-instance v0, Landroid/graphics/Region;
 
@@ -130,7 +130,7 @@
     iput-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mTouchableAreaBuffer:Landroid/graphics/Region;
 
     .line 425
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mTouchableAreaBuffer:Landroid/graphics/Region;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Region;->set(Landroid/graphics/Region;)Z
@@ -149,14 +149,14 @@
 .end method
 
 .method public getTranslatedVisibleInsets(Landroid/graphics/Rect;)Landroid/graphics/Rect;
-    .registers 3
+    .locals 1
     .parameter "visibleInsets"
 
     .prologue
     .line 413
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mVisibleInsetsBuffer:Landroid/graphics/Rect;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     new-instance v0, Landroid/graphics/Rect;
 
@@ -165,7 +165,7 @@
     iput-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mVisibleInsetsBuffer:Landroid/graphics/Rect;
 
     .line 414
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/content/res/CompatibilityInfo$Translator;->mVisibleInsetsBuffer:Landroid/graphics/Rect;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
@@ -182,7 +182,7 @@
 .end method
 
 .method public translateCanvas(Landroid/graphics/Canvas;)V
-    .registers 6
+    .locals 4
     .parameter "canvas"
 
     .prologue
@@ -195,7 +195,7 @@
 
     cmpl-float v1, v1, v2
 
-    if-nez v1, :cond_11
+    if-nez v1, :cond_0
 
     .line 343
     const v0, 0x3b2b5601
@@ -206,7 +206,7 @@
 
     .line 346
     .end local v0           #tinyOffset:F
-    :cond_11
+    :cond_0
     iget v1, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
 
     iget v2, p0, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
@@ -218,7 +218,7 @@
 .end method
 
 .method public translateEventInScreenToAppWindow(Landroid/view/MotionEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -232,7 +232,7 @@
 .end method
 
 .method public translateLayoutParamsInAppWindowToScreen(Landroid/view/WindowManager$LayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "params"
 
     .prologue
@@ -246,7 +246,7 @@
 .end method
 
 .method public translatePointInScreenToAppWindow(Landroid/graphics/PointF;)V
-    .registers 4
+    .locals 2
     .parameter "point"
 
     .prologue
@@ -259,7 +259,7 @@
 
     cmpl-float v1, v0, v1
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_0
 
     .line 384
     iget v1, p1, Landroid/graphics/PointF;->x:F
@@ -276,12 +276,12 @@
     iput v1, p1, Landroid/graphics/PointF;->y:F
 
     .line 387
-    :cond_12
+    :cond_0
     return-void
 .end method
 
 .method public translateRectInAppWindowToScreen(Landroid/graphics/Rect;)V
-    .registers 3
+    .locals 1
     .parameter "rect"
 
     .prologue
@@ -295,7 +295,7 @@
 .end method
 
 .method public translateRectInScreenToAppWinFrame(Landroid/graphics/Rect;)V
-    .registers 3
+    .locals 1
     .parameter "rect"
 
     .prologue
@@ -309,7 +309,7 @@
 .end method
 
 .method public translateRectInScreenToAppWindow(Landroid/graphics/Rect;)V
-    .registers 3
+    .locals 1
     .parameter "rect"
 
     .prologue
@@ -323,7 +323,7 @@
 .end method
 
 .method public translateRegionInWindowToScreen(Landroid/graphics/Region;)V
-    .registers 3
+    .locals 1
     .parameter "transparentRegion"
 
     .prologue
@@ -337,7 +337,7 @@
 .end method
 
 .method public translateWindowLayout(Landroid/view/WindowManager$LayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "params"
 
     .prologue

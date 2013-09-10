@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/webkit/HTML5Audio;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/webkit/HTML5Audio;Landroid/webkit/HTML5Audio$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 87

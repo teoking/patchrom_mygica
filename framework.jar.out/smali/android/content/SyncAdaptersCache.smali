@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 40
@@ -48,7 +48,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;)V
-    .registers 8
+    .locals 6
     .parameter "context"
 
     .prologue
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public parseServiceAttributes(Landroid/content/res/Resources;Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/content/SyncAdapterType;
-    .registers 14
+    .locals 10
     .parameter "res"
     .parameter "packageName"
     .parameter "attrs"
@@ -91,7 +91,7 @@
     .local v8, sa:Landroid/content/res/TypedArray;
     const/4 v0, 0x2
 
-    :try_start_7
+    :try_start_0
     invoke-virtual {v8, v0}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v1
@@ -101,34 +101,34 @@
     const/4 v0, 0x1
 
     invoke-virtual {v8, v0}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
-    :try_end_f
-    .catchall {:try_start_7 .. :try_end_f} :catchall_3f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
     .line 55
     .local v2, accountType:Ljava/lang/String;
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_0
 
-    if-nez v2, :cond_19
+    if-nez v2, :cond_1
 
     .line 56
-    :cond_14
+    :cond_0
     const/4 v0, 0x0
 
     .line 75
     invoke-virtual {v8}, Landroid/content/res/TypedArray;->recycle()V
 
-    :goto_18
+    :goto_0
     return-object v0
 
     .line 58
-    :cond_19
+    :cond_1
     const/4 v0, 0x3
 
     const/4 v9, 0x1
 
-    :try_start_1b
+    :try_start_1
     invoke-virtual {v8, v0, v9}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v3
@@ -176,13 +176,13 @@
     new-instance v0, Landroid/content/SyncAdapterType;
 
     invoke-direct/range {v0 .. v7}, Landroid/content/SyncAdapterType;-><init>(Ljava/lang/String;Ljava/lang/String;ZZZZLjava/lang/String;)V
-    :try_end_3b
-    .catchall {:try_start_1b .. :try_end_3b} :catchall_3f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 75
     invoke-virtual {v8}, Landroid/content/res/TypedArray;->recycle()V
 
-    goto :goto_18
+    goto :goto_0
 
     .end local v1           #authority:Ljava/lang/String;
     .end local v2           #accountType:Ljava/lang/String;
@@ -191,7 +191,7 @@
     .end local v5           #isAlwaysSyncable:Z
     .end local v6           #allowParallelSyncs:Z
     .end local v7           #settingsActivity:Ljava/lang/String;
-    :catchall_3f
+    :catchall_0
     move-exception v0
 
     invoke-virtual {v8}, Landroid/content/res/TypedArray;->recycle()V
@@ -200,7 +200,7 @@
 .end method
 
 .method public bridge synthetic parseServiceAttributes(Landroid/content/res/Resources;Ljava/lang/String;Landroid/util/AttributeSet;)Ljava/lang/Object;
-    .registers 5
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"

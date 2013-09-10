@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 2028
@@ -26,7 +26,7 @@
 .end method
 
 .method public static readBooleanAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "in"
     .parameter "name"
 
@@ -48,7 +48,7 @@
 .end method
 
 .method public static readIntAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)I
-    .registers 7
+    .locals 5
     .parameter "in"
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
@@ -67,17 +67,17 @@
 
     .line 2032
     .local v1, value:Ljava/lang/String;
-    :try_start_5
+    :try_start_0
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_8
-    .catch Ljava/lang/NumberFormatException; {:try_start_5 .. :try_end_8} :catch_a
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v2
 
     return v2
 
     .line 2033
-    :catch_a
+    :catch_0
     move-exception v0
 
     .line 2034
@@ -124,7 +124,7 @@
 .end method
 
 .method public static readLongAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)J
-    .registers 7
+    .locals 5
     .parameter "in"
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
@@ -143,17 +143,17 @@
 
     .line 2046
     .local v1, value:Ljava/lang/String;
-    :try_start_5
+    :try_start_0
     invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-    :try_end_8
-    .catch Ljava/lang/NumberFormatException; {:try_start_5 .. :try_end_8} :catch_a
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-wide v2
 
     return-wide v2
 
     .line 2047
-    :catch_a
+    :catch_0
     move-exception v0
 
     .line 2048
@@ -200,7 +200,7 @@
 .end method
 
 .method public static writeBooleanAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;Z)V
-    .registers 5
+    .locals 2
     .parameter "out"
     .parameter "name"
     .parameter "value"
@@ -225,7 +225,7 @@
 .end method
 
 .method public static writeIntAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
     .parameter "out"
     .parameter "name"
     .parameter "value"
@@ -250,7 +250,7 @@
 .end method
 
 .method public static writeLongAttribute(Lorg/xmlpull/v1/XmlSerializer;Ljava/lang/String;J)V
-    .registers 6
+    .locals 2
     .parameter "out"
     .parameter "name"
     .parameter "value"

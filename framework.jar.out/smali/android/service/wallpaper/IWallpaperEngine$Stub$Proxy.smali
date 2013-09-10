@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 118
@@ -50,7 +50,7 @@
 .end method
 
 .method public destroy()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,7 +65,7 @@
 
     .line 193
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.service.wallpaper.IWallpaperEngine"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -80,8 +80,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_11
-    .catchall {:try_start_4 .. :try_end_11} :catchall_15
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 197
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -90,7 +90,7 @@
     return-void
 
     .line 197
-    :catchall_15
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -99,7 +99,7 @@
 .end method
 
 .method public dispatchPointer(Landroid/view/MotionEvent;)V
-    .registers 7
+    .locals 5
     .parameter "event"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -115,13 +115,13 @@
 
     .line 153
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.service.wallpaper.IWallpaperEngine"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 154
-    if-eqz p1, :cond_1f
+    if-eqz p1, :cond_0
 
     .line 155
     const/4 v1, 0x1
@@ -134,7 +134,7 @@
     invoke-virtual {p1, v0, v1}, Landroid/view/MotionEvent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 161
-    :goto_13
+    :goto_0
     iget-object v1, p0, Landroid/service/wallpaper/IWallpaperEngine$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x3
@@ -144,8 +144,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1b
-    .catchall {:try_start_4 .. :try_end_1b} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 164
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -154,18 +154,18 @@
     return-void
 
     .line 159
-    :cond_1f
+    :cond_0
     const/4 v1, 0x0
 
-    :try_start_20
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_23
-    .catchall {:try_start_20 .. :try_end_23} :catchall_24
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 164
-    :catchall_24
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -174,7 +174,7 @@
 .end method
 
 .method public dispatchWallpaperCommand(Ljava/lang/String;IIILandroid/os/Bundle;)V
-    .registers 11
+    .locals 5
     .parameter "action"
     .parameter "x"
     .parameter "y"
@@ -194,7 +194,7 @@
 
     .line 171
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.service.wallpaper.IWallpaperEngine"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -212,7 +212,7 @@
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 176
-    if-eqz p5, :cond_2b
+    if-eqz p5, :cond_0
 
     .line 177
     const/4 v1, 0x1
@@ -225,7 +225,7 @@
     invoke-virtual {p5, v0, v1}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 183
-    :goto_1f
+    :goto_0
     iget-object v1, p0, Landroid/service/wallpaper/IWallpaperEngine$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x4
@@ -235,8 +235,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_27
-    .catchall {:try_start_4 .. :try_end_27} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 186
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -245,18 +245,18 @@
     return-void
 
     .line 181
-    :cond_2b
+    :cond_0
     const/4 v1, 0x0
 
-    :try_start_2c
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2f
-    .catchall {:try_start_2c .. :try_end_2f} :catchall_30
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 186
-    :catchall_30
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -265,7 +265,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 122
@@ -275,7 +275,7 @@
 .end method
 
 .method public setDesiredSize(II)V
-    .registers 8
+    .locals 5
     .parameter "width"
     .parameter "height"
     .annotation system Ldalvik/annotation/Throws;
@@ -292,7 +292,7 @@
 
     .line 128
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.service.wallpaper.IWallpaperEngine"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -313,8 +313,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_17
-    .catchall {:try_start_4 .. :try_end_17} :catchall_1b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 134
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -323,7 +323,7 @@
     return-void
 
     .line 134
-    :catchall_1b
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -332,7 +332,7 @@
 .end method
 
 .method public setVisibility(Z)V
-    .registers 7
+    .locals 5
     .parameter "visible"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -350,15 +350,15 @@
 
     .line 141
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "android.service.wallpaper.IWallpaperEngine"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 142
-    if-eqz p1, :cond_1b
+    if-eqz p1, :cond_0
 
-    :goto_c
+    :goto_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 143
@@ -371,8 +371,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_17
-    .catchall {:try_start_5 .. :try_end_17} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 146
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -381,13 +381,13 @@
     return-void
 
     .line 142
-    :cond_1b
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_c
+    goto :goto_0
 
     .line 146
-    :catchall_1d
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V

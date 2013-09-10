@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeech;Ljava/util/Locale;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Integer;
-    .registers 8
+    .locals 6
     .parameter "service"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -65,7 +65,7 @@
     .line 1024
     iget-object v4, p0, Landroid/speech/tts/TextToSpeech$8;->val$loc:Ljava/util/Locale;
 
-    if-nez v4, :cond_a
+    if-nez v4, :cond_0
 
     .line 1025
     const/4 v4, -0x2
@@ -75,11 +75,11 @@
     move-result-object v4
 
     .line 1046
-    :goto_9
+    :goto_0
     return-object v4
 
     .line 1027
-    :cond_a
+    :cond_0
     iget-object v4, p0, Landroid/speech/tts/TextToSpeech$8;->val$loc:Ljava/util/Locale;
 
     invoke-virtual {v4}, Ljava/util/Locale;->getISO3Language()Ljava/lang/String;
@@ -110,12 +110,12 @@
 
     .line 1035
     .local v2, result:I
-    if-ltz v2, :cond_4e
+    if-ltz v2, :cond_2
 
     .line 1036
     const/4 v4, 0x2
 
-    if-ge v2, v4, :cond_2c
+    if-ge v2, v4, :cond_1
 
     .line 1037
     const-string v3, ""
@@ -123,15 +123,16 @@
     .line 1038
     const/4 v4, 0x1
 
-    if-ge v2, v4, :cond_2c
+    if-ge v2, v4, :cond_1
 
     .line 1039
     const-string v0, ""
 
     .line 1042
-    :cond_2c
+    :cond_1
     iget-object v4, p0, Landroid/speech/tts/TextToSpeech$8;->this$0:Landroid/speech/tts/TextToSpeech;
 
+    #getter for: Landroid/speech/tts/TextToSpeech;->mParams:Landroid/os/Bundle;
     invoke-static {v4}, Landroid/speech/tts/TextToSpeech;->access$700(Landroid/speech/tts/TextToSpeech;)Landroid/os/Bundle;
 
     move-result-object v4
@@ -143,6 +144,7 @@
     .line 1043
     iget-object v4, p0, Landroid/speech/tts/TextToSpeech$8;->this$0:Landroid/speech/tts/TextToSpeech;
 
+    #getter for: Landroid/speech/tts/TextToSpeech;->mParams:Landroid/os/Bundle;
     invoke-static {v4}, Landroid/speech/tts/TextToSpeech;->access$700(Landroid/speech/tts/TextToSpeech;)Landroid/os/Bundle;
 
     move-result-object v4
@@ -154,6 +156,7 @@
     .line 1044
     iget-object v4, p0, Landroid/speech/tts/TextToSpeech$8;->this$0:Landroid/speech/tts/TextToSpeech;
 
+    #getter for: Landroid/speech/tts/TextToSpeech;->mParams:Landroid/os/Bundle;
     invoke-static {v4}, Landroid/speech/tts/TextToSpeech;->access$700(Landroid/speech/tts/TextToSpeech;)Landroid/os/Bundle;
 
     move-result-object v4
@@ -163,16 +166,16 @@
     invoke-virtual {v4, v5, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1046
-    :cond_4e
+    :cond_2
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public bridge synthetic run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .annotation system Ldalvik/annotation/Throws;
         value = {

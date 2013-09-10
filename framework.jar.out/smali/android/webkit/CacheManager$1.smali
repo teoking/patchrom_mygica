@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 434
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 438
@@ -46,16 +46,16 @@
 
     .line 440
     .local v1, files:[Ljava/lang/String;
-    if-eqz v1, :cond_3f
+    if-eqz v1, :cond_1
 
     .line 441
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_b
+    :goto_0
     array-length v3, v1
 
-    if-ge v2, v3, :cond_3f
+    if-ge v2, v3, :cond_1
 
     .line 442
     new-instance v0, Ljava/io/File;
@@ -74,7 +74,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_3b
+    if-nez v3, :cond_0
 
     .line 444
     const-string v3, "cache"
@@ -102,23 +102,23 @@
     move-result-object v4
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_3b
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_3b} :catch_3e
+    :try_end_0
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 441
-    :cond_3b
+    :cond_0
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 448
     .end local v0           #f:Ljava/io/File;
     .end local v1           #files:[Ljava/lang/String;
     .end local v2           #i:I
-    :catch_3e
+    :catch_0
     move-exception v3
 
     .line 451
-    :cond_3f
+    :cond_1
     return-void
 .end method

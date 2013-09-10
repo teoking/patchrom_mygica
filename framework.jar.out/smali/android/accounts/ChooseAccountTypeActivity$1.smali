@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/ChooseAccountTypeActivity;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 8
+    .locals 2
     .parameter
     .parameter "v"
     .parameter "position"
@@ -60,6 +60,7 @@
 
     iget-object v0, p0, Landroid/accounts/ChooseAccountTypeActivity$1;->this$0:Landroid/accounts/ChooseAccountTypeActivity;
 
+    #getter for: Landroid/accounts/ChooseAccountTypeActivity;->mAuthenticatorInfosToDisplay:Ljava/util/ArrayList;
     invoke-static {v0}, Landroid/accounts/ChooseAccountTypeActivity;->access$000(Landroid/accounts/ChooseAccountTypeActivity;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -74,6 +75,7 @@
 
     iget-object v0, v0, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
 
+    #calls: Landroid/accounts/ChooseAccountTypeActivity;->setResultAndFinish(Ljava/lang/String;)V
     invoke-static {v1, v0}, Landroid/accounts/ChooseAccountTypeActivity;->access$100(Landroid/accounts/ChooseAccountTypeActivity;Ljava/lang/String;)V
 
     .line 111

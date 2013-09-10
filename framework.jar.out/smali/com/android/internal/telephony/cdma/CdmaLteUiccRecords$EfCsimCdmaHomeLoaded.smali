@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public getEfName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 207
@@ -60,7 +60,7 @@
 .end method
 
 .method public onRecordLoaded(Landroid/os/AsyncResult;)V
-    .registers 13
+    .locals 11
     .parameter "ar"
 
     .prologue
@@ -104,14 +104,14 @@
 
     move-result v7
 
-    if-eqz v7, :cond_29
+    if-eqz v7, :cond_0
 
     .line 234
-    :goto_28
+    :goto_0
     return-void
 
     .line 217
-    :cond_29
+    :cond_0
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -129,13 +129,13 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :cond_37
-    :goto_37
+    :cond_1
+    :goto_1
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_72
+    if-eqz v7, :cond_2
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -149,7 +149,7 @@
 
     const/4 v8, 0x5
 
-    if-ne v7, v8, :cond_37
+    if-ne v7, v8, :cond_1
 
     .line 222
     const/4 v7, 0x1
@@ -201,13 +201,13 @@
 
     invoke-virtual {v7, v10}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_37
+    goto :goto_1
 
     .line 229
     .end local v0           #data:[B
     .end local v3           #nid:I
     .end local v5           #sid:I
-    :cond_72
+    :cond_2
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->length()I
 
     move-result v7
@@ -232,6 +232,7 @@
 
     move-result-object v8
 
+    #setter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mHomeSystemId:Ljava/lang/String;
     invoke-static {v7, v8}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$1102(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Ljava/lang/String;)Ljava/lang/String;
 
     .line 233
@@ -241,7 +242,8 @@
 
     move-result-object v8
 
+    #setter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mHomeNetworkId:Ljava/lang/String;
     invoke-static {v7, v8}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$1202(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Ljava/lang/String;)Ljava/lang/String;
 
-    goto :goto_28
+    goto :goto_0
 .end method

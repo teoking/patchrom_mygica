@@ -76,7 +76,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 78
@@ -92,7 +92,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/View;)V
-    .registers 4
+    .locals 2
     .parameter "ownerView"
 
     .prologue
@@ -221,7 +221,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/widget/ZoomButtonsController;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -232,7 +232,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/widget/ZoomButtonsController;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -243,7 +243,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/widget/ZoomButtonsController;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -254,7 +254,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/widget/ZoomButtonsController;)Landroid/view/View;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -265,7 +265,7 @@
 .end method
 
 .method static synthetic access$400()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 74
@@ -275,7 +275,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/widget/ZoomButtonsController;I)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -287,7 +287,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/widget/ZoomButtonsController;)Landroid/widget/ZoomButtonsController$OnZoomListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -298,7 +298,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/widget/ZoomButtonsController;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -309,7 +309,7 @@
 .end method
 
 .method static synthetic access$800(Landroid/widget/ZoomButtonsController;Landroid/view/KeyEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -323,7 +323,7 @@
 .end method
 
 .method private createContainer()Landroid/widget/FrameLayout;
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v4, -0x2
@@ -437,7 +437,7 @@
 .end method
 
 .method private dismissControlsDelayed(I)V
-    .registers 6
+    .locals 4
     .parameter "delay"
 
     .prologue
@@ -446,7 +446,7 @@
     .line 440
     iget-boolean v0, p0, Landroid/widget/ZoomButtonsController;->mAutoDismissControls:Z
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 441
     iget-object v0, p0, Landroid/widget/ZoomButtonsController;->mHandler:Landroid/os/Handler;
@@ -461,12 +461,12 @@
     invoke-virtual {v0, v3, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
     .line 444
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method private findViewForTouch(II)Landroid/view/View;
-    .registers 15
+    .locals 12
     .parameter "rawX"
     .parameter "rawY"
 
@@ -513,8 +513,8 @@
     add-int/lit8 v9, v10, -0x1
 
     .local v9, i:I
-    :goto_1c
-    if-ltz v9, :cond_80
+    :goto_0
+    if-ltz v9, :cond_5
 
     .line 623
     iget-object v10, p0, Landroid/widget/ZoomButtonsController;->mContainer:Landroid/widget/FrameLayout;
@@ -529,17 +529,17 @@
 
     move-result v10
 
-    if-eqz v10, :cond_2d
+    if-eqz v10, :cond_1
 
     .line 622
-    :cond_2a
-    :goto_2a
+    :cond_0
+    :goto_1
     add-int/lit8 v9, v9, -0x1
 
-    goto :goto_1c
+    goto :goto_0
 
     .line 628
-    :cond_2d
+    :cond_1
     invoke-virtual {v0, v8}, Landroid/view/View;->getHitRect(Landroid/graphics/Rect;)V
 
     .line 629
@@ -547,44 +547,44 @@
 
     move-result v10
 
-    if-eqz v10, :cond_37
+    if-eqz v10, :cond_2
 
     .line 656
     .end local v0           #child:Landroid/view/View;
-    :goto_36
+    :goto_2
     return-object v0
 
     .line 634
     .restart local v0       #child:Landroid/view/View;
-    :cond_37
+    :cond_2
     iget v10, v8, Landroid/graphics/Rect;->left:I
 
-    if-lt v3, v10, :cond_58
+    if-lt v3, v10, :cond_3
 
     iget v10, v8, Landroid/graphics/Rect;->right:I
 
-    if-gt v3, v10, :cond_58
+    if-gt v3, v10, :cond_3
 
     .line 635
     const/4 v6, 0x0
 
     .line 641
     .local v6, distanceX:I
-    :goto_40
+    :goto_3
     iget v10, v8, Landroid/graphics/Rect;->top:I
 
-    if-lt v4, v10, :cond_6c
+    if-lt v4, v10, :cond_4
 
     iget v10, v8, Landroid/graphics/Rect;->bottom:I
 
-    if-gt v4, v10, :cond_6c
+    if-gt v4, v10, :cond_4
 
     .line 642
     const/4 v7, 0x0
 
     .line 647
     .local v7, distanceY:I
-    :goto_49
+    :goto_4
     mul-int v10, v6, v6
 
     mul-int v11, v7, v7
@@ -595,9 +595,9 @@
     .local v5, distanceSq:I
     iget v10, p0, Landroid/widget/ZoomButtonsController;->mTouchPaddingScaledSq:I
 
-    if-ge v5, v10, :cond_2a
+    if-ge v5, v10, :cond_0
 
-    if-ge v5, v2, :cond_2a
+    if-ge v5, v2, :cond_0
 
     .line 651
     move-object v1, v0
@@ -605,13 +605,13 @@
     .line 652
     move v2, v5
 
-    goto :goto_2a
+    goto :goto_1
 
     .line 637
     .end local v5           #distanceSq:I
     .end local v6           #distanceX:I
     .end local v7           #distanceY:I
-    :cond_58
+    :cond_3
     iget v10, v8, Landroid/graphics/Rect;->left:I
 
     sub-int/2addr v10, v3
@@ -633,10 +633,10 @@
     move-result v6
 
     .restart local v6       #distanceX:I
-    goto :goto_40
+    goto :goto_3
 
     .line 644
-    :cond_6c
+    :cond_4
     iget v10, v8, Landroid/graphics/Rect;->top:I
 
     sub-int/2addr v10, v4
@@ -658,55 +658,55 @@
     move-result v7
 
     .restart local v7       #distanceY:I
-    goto :goto_49
+    goto :goto_4
 
     .end local v0           #child:Landroid/view/View;
     .end local v6           #distanceX:I
     .end local v7           #distanceY:I
-    :cond_80
+    :cond_5
     move-object v0, v1
 
     .line 656
-    goto :goto_36
+    goto :goto_2
 .end method
 
 .method private isInterestingKey(I)Z
-    .registers 3
+    .locals 1
     .parameter "keyCode"
 
     .prologue
     .line 515
-    sparse-switch p1, :sswitch_data_8
+    sparse-switch p1, :sswitch_data_0
 
     .line 525
     const/4 v0, 0x0
 
-    :goto_4
+    :goto_0
     return v0
 
     .line 523
-    :sswitch_5
+    :sswitch_0
     const/4 v0, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 515
     nop
 
-    :sswitch_data_8
+    :sswitch_data_0
     .sparse-switch
-        0x4 -> :sswitch_5
-        0x13 -> :sswitch_5
-        0x14 -> :sswitch_5
-        0x15 -> :sswitch_5
-        0x16 -> :sswitch_5
-        0x17 -> :sswitch_5
-        0x42 -> :sswitch_5
+        0x4 -> :sswitch_0
+        0x13 -> :sswitch_0
+        0x14 -> :sswitch_0
+        0x15 -> :sswitch_0
+        0x16 -> :sswitch_0
+        0x17 -> :sswitch_0
+        0x42 -> :sswitch_0
     .end sparse-switch
 .end method
 
 .method private onContainerKey(Landroid/view/KeyEvent;)Z
-    .registers 8
+    .locals 6
     .parameter "event"
 
     .prologue
@@ -725,30 +725,30 @@
 
     move-result v5
 
-    if-eqz v5, :cond_48
+    if-eqz v5, :cond_4
 
     .line 479
     const/4 v5, 0x4
 
-    if-ne v1, v5, :cond_41
+    if-ne v1, v5, :cond_2
 
     .line 480
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v5
 
-    if-nez v5, :cond_2b
+    if-nez v5, :cond_1
 
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getRepeatCount()I
 
     move-result v5
 
-    if-nez v5, :cond_2b
+    if-nez v5, :cond_1
 
     .line 482
     iget-object v4, p0, Landroid/widget/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
-    if-eqz v4, :cond_2a
+    if-eqz v4, :cond_0
 
     .line 483
     iget-object v4, p0, Landroid/widget/ZoomButtonsController;->mOwnerView:Landroid/view/View;
@@ -759,56 +759,56 @@
 
     .line 484
     .local v0, ds:Landroid/view/KeyEvent$DispatcherState;
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_0
 
     .line 485
     invoke-virtual {v0, p1, p0}, Landroid/view/KeyEvent$DispatcherState;->startTracking(Landroid/view/KeyEvent;Ljava/lang/Object;)V
 
     .line 510
     .end local v0           #ds:Landroid/view/KeyEvent$DispatcherState;
-    :cond_2a
-    :goto_2a
+    :cond_0
+    :goto_0
     return v3
 
     .line 489
-    :cond_2b
+    :cond_1
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v5
 
-    if-ne v5, v3, :cond_46
+    if-ne v5, v3, :cond_3
 
     invoke-virtual {p1}, Landroid/view/KeyEvent;->isTracking()Z
 
     move-result v5
 
-    if-eqz v5, :cond_46
+    if-eqz v5, :cond_3
 
     invoke-virtual {p1}, Landroid/view/KeyEvent;->isCanceled()Z
 
     move-result v5
 
-    if-nez v5, :cond_46
+    if-nez v5, :cond_3
 
     .line 491
     invoke-virtual {p0, v4}, Landroid/widget/ZoomButtonsController;->setVisible(Z)V
 
-    goto :goto_2a
+    goto :goto_0
 
     .line 496
-    :cond_41
+    :cond_2
     sget v3, Landroid/widget/ZoomButtonsController;->ZOOM_CONTROLS_TIMEOUT:I
 
     invoke-direct {p0, v3}, Landroid/widget/ZoomButtonsController;->dismissControlsDelayed(I)V
 
-    :cond_46
+    :cond_3
     move v3, v4
 
     .line 500
-    goto :goto_2a
+    goto :goto_0
 
     .line 504
-    :cond_48
+    :cond_4
     iget-object v4, p0, Landroid/widget/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
     invoke-virtual {v4}, Landroid/view/View;->getViewRootImpl()Landroid/view/ViewRootImpl;
@@ -817,16 +817,16 @@
 
     .line 505
     .local v2, viewRoot:Landroid/view/ViewRootImpl;
-    if-eqz v2, :cond_2a
+    if-eqz v2, :cond_0
 
     .line 506
     invoke-virtual {v2, p1}, Landroid/view/ViewRootImpl;->dispatchKey(Landroid/view/KeyEvent;)V
 
-    goto :goto_2a
+    goto :goto_0
 .end method
 
 .method private onPostConfigurationChanged()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 660
@@ -842,7 +842,7 @@
 .end method
 
 .method private refreshPositioningVariables()V
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v7, 0x1
@@ -856,15 +856,15 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_b
+    if-nez v4, :cond_1
 
     .line 472
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return-void
 
     .line 451
-    :cond_b
+    :cond_1
     iget-object v4, p0, Landroid/widget/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
     invoke-virtual {v4}, Landroid/view/View;->getHeight()I
@@ -950,7 +950,7 @@
     .line 468
     iget-boolean v4, p0, Landroid/widget/ZoomButtonsController;->mIsVisible:Z
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_0
 
     .line 469
     iget-object v4, p0, Landroid/widget/ZoomButtonsController;->mWindowManager:Landroid/view/WindowManager;
@@ -961,11 +961,11 @@
 
     invoke-interface {v4, v5, v6}, Landroid/view/WindowManager;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method private setTouchTargetView(Landroid/view/View;)V
-    .registers 3
+    .locals 1
     .parameter "view"
 
     .prologue
@@ -973,7 +973,7 @@
     iput-object p1, p0, Landroid/widget/ZoomButtonsController;->mTouchTargetView:Landroid/view/View;
 
     .line 601
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
     .line 602
     iget-object v0, p0, Landroid/widget/ZoomButtonsController;->mTouchTargetWindowLocation:[I
@@ -981,14 +981,14 @@
     invoke-virtual {p1, v0}, Landroid/view/View;->getLocationInWindow([I)V
 
     .line 604
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public getContainer()Landroid/view/ViewGroup;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 427
@@ -998,7 +998,7 @@
 .end method
 
 .method public getZoomControls()Landroid/view/View;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 436
@@ -1008,7 +1008,7 @@
 .end method
 
 .method public isAutoDismissed()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 317
@@ -1018,7 +1018,7 @@
 .end method
 
 .method public isVisible()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 335
@@ -1028,7 +1028,7 @@
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .registers 16
+    .locals 13
     .parameter "v"
     .parameter "event"
 
@@ -1054,28 +1054,28 @@
 
     move-result v9
 
-    if-le v9, v8, :cond_11
+    if-le v9, v8, :cond_1
 
     .line 595
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     return v4
 
     .line 541
-    :cond_11
+    :cond_1
     iget-boolean v9, p0, Landroid/widget/ZoomButtonsController;->mReleaseTouchListenerOnUp:Z
 
-    if-eqz v9, :cond_26
+    if-eqz v9, :cond_4
 
     .line 543
-    if-eq v0, v8, :cond_1a
+    if-eq v0, v8, :cond_2
 
     const/4 v9, 0x3
 
-    if-ne v0, v9, :cond_24
+    if-ne v0, v9, :cond_3
 
     .line 544
-    :cond_1a
+    :cond_2
     iget-object v9, p0, Landroid/widget/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
     invoke-virtual {v9, v10}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
@@ -1086,14 +1086,14 @@
     .line 546
     iput-boolean v4, p0, Landroid/widget/ZoomButtonsController;->mReleaseTouchListenerOnUp:Z
 
-    :cond_24
+    :cond_3
     move v4, v8
 
     .line 550
-    goto :goto_10
+    goto :goto_0
 
     .line 553
-    :cond_26
+    :cond_4
     sget v9, Landroid/widget/ZoomButtonsController;->ZOOM_CONTROLS_TIMEOUT:I
 
     invoke-direct {p0, v9}, Landroid/widget/ZoomButtonsController;->dismissControlsDelayed(I)V
@@ -1103,12 +1103,12 @@
 
     .line 557
     .local v5, targetView:Landroid/view/View;
-    packed-switch v0, :pswitch_data_98
+    packed-switch v0, :pswitch_data_0
 
     .line 569
-    :goto_30
-    :pswitch_30
-    if-eqz v5, :cond_10
+    :goto_1
+    :pswitch_0
+    if-eqz v5, :cond_0
 
     .line 571
     iget-object v9, p0, Landroid/widget/ZoomButtonsController;->mContainerRawLocation:[I
@@ -1174,11 +1174,11 @@
     .local v3, containerY:F
     cmpg-float v8, v2, v11
 
-    if-gez v8, :cond_6d
+    if-gez v8, :cond_5
 
     cmpl-float v8, v2, v12
 
-    if-lez v8, :cond_6d
+    if-lez v8, :cond_5
 
     .line 585
     neg-float v8, v2
@@ -1186,14 +1186,14 @@
     invoke-virtual {v1, v8, v11}, Landroid/view/MotionEvent;->offsetLocation(FF)V
 
     .line 587
-    :cond_6d
+    :cond_5
     cmpg-float v8, v3, v11
 
-    if-gez v8, :cond_79
+    if-gez v8, :cond_6
 
     cmpl-float v8, v3, v12
 
-    if-lez v8, :cond_79
+    if-lez v8, :cond_6
 
     .line 588
     neg-float v8, v3
@@ -1201,7 +1201,7 @@
     invoke-virtual {v1, v11, v8}, Landroid/view/MotionEvent;->offsetLocation(FF)V
 
     .line 590
-    :cond_79
+    :cond_6
     invoke-virtual {v5, v1}, Landroid/view/View;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v4
@@ -1210,7 +1210,7 @@
     .local v4, retValue:Z
     invoke-virtual {v1}, Landroid/view/MotionEvent;->recycle()V
 
-    goto :goto_10
+    goto :goto_0
 
     .line 559
     .end local v1           #containerEvent:Landroid/view/MotionEvent;
@@ -1219,7 +1219,7 @@
     .end local v4           #retValue:Z
     .end local v6           #targetViewRawX:I
     .end local v7           #targetViewRawY:I
-    :pswitch_81
+    :pswitch_1
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v9
@@ -1239,49 +1239,49 @@
     .line 560
     invoke-direct {p0, v5}, Landroid/widget/ZoomButtonsController;->setTouchTargetView(Landroid/view/View;)V
 
-    goto :goto_30
+    goto :goto_1
 
     .line 565
-    :pswitch_93
+    :pswitch_2
     invoke-direct {p0, v10}, Landroid/widget/ZoomButtonsController;->setTouchTargetView(Landroid/view/View;)V
 
-    goto :goto_30
+    goto :goto_1
 
     .line 557
     nop
 
-    :pswitch_data_98
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_81
-        :pswitch_93
-        :pswitch_30
-        :pswitch_93
+        :pswitch_1
+        :pswitch_2
+        :pswitch_0
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public setAutoDismissed(Z)V
-    .registers 3
+    .locals 1
     .parameter "autoDismiss"
 
     .prologue
     .line 325
     iget-boolean v0, p0, Landroid/widget/ZoomButtonsController;->mAutoDismissControls:Z
 
-    if-ne v0, p1, :cond_5
+    if-ne v0, p1, :cond_0
 
     .line 327
-    :goto_4
+    :goto_0
     return-void
 
     .line 326
-    :cond_5
+    :cond_0
     iput-boolean p1, p0, Landroid/widget/ZoomButtonsController;->mAutoDismissControls:Z
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public setFocusable(Z)V
-    .registers 6
+    .locals 4
     .parameter "focusable"
 
     .prologue
@@ -1292,7 +1292,7 @@
 
     .line 300
     .local v0, oldFlags:I
-    if-eqz p1, :cond_22
+    if-eqz p1, :cond_1
 
     .line 301
     iget-object v1, p0, Landroid/widget/ZoomButtonsController;->mContainerLayoutParams:Landroid/view/WindowManager$LayoutParams;
@@ -1304,16 +1304,16 @@
     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     .line 306
-    :goto_e
+    :goto_0
     iget-object v1, p0, Landroid/widget/ZoomButtonsController;->mContainerLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
     iget v1, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    if-eq v1, v0, :cond_21
+    if-eq v1, v0, :cond_0
 
     iget-boolean v1, p0, Landroid/widget/ZoomButtonsController;->mIsVisible:Z
 
-    if-eqz v1, :cond_21
+    if-eqz v1, :cond_0
 
     .line 307
     iget-object v1, p0, Landroid/widget/ZoomButtonsController;->mWindowManager:Landroid/view/WindowManager;
@@ -1325,11 +1325,11 @@
     invoke-interface {v1, v2, v3}, Landroid/view/WindowManager;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 309
-    :cond_21
+    :cond_0
     return-void
 
     .line 303
-    :cond_22
+    :cond_1
     iget-object v1, p0, Landroid/widget/ZoomButtonsController;->mContainerLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
     iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
@@ -1338,11 +1338,11 @@
 
     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public setOnZoomListener(Landroid/widget/ZoomButtonsController$OnZoomListener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue
@@ -1354,7 +1354,7 @@
 .end method
 
 .method public setVisible(Z)V
-    .registers 6
+    .locals 4
     .parameter "visible"
 
     .prologue
@@ -1363,7 +1363,7 @@
     const/4 v3, 0x0
 
     .line 345
-    if-eqz p1, :cond_1f
+    if-eqz p1, :cond_2
 
     .line 346
     iget-object v0, p0, Landroid/widget/ZoomButtonsController;->mOwnerView:Landroid/view/View;
@@ -1372,7 +1372,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_1
 
     .line 352
     iget-object v0, p0, Landroid/widget/ZoomButtonsController;->mHandler:Landroid/os/Handler;
@@ -1381,7 +1381,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_0
 
     .line 353
     iget-object v0, p0, Landroid/widget/ZoomButtonsController;->mHandler:Landroid/os/Handler;
@@ -1389,34 +1389,34 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     .line 415
-    :cond_19
-    :goto_19
+    :cond_0
+    :goto_0
     return-void
 
     .line 358
-    :cond_1a
+    :cond_1
     sget v0, Landroid/widget/ZoomButtonsController;->ZOOM_CONTROLS_TIMEOUT:I
 
     invoke-direct {p0, v0}, Landroid/widget/ZoomButtonsController;->dismissControlsDelayed(I)V
 
     .line 361
-    :cond_1f
+    :cond_2
     iget-boolean v0, p0, Landroid/widget/ZoomButtonsController;->mIsVisible:Z
 
-    if-eq v0, p1, :cond_19
+    if-eq v0, p1, :cond_0
 
     .line 364
     iput-boolean p1, p0, Landroid/widget/ZoomButtonsController;->mIsVisible:Z
 
     .line 366
-    if-eqz p1, :cond_63
+    if-eqz p1, :cond_5
 
     .line 367
     iget-object v0, p0, Landroid/widget/ZoomButtonsController;->mContainerLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
     iget-object v0, v0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    if-nez v0, :cond_37
+    if-nez v0, :cond_3
 
     .line 368
     iget-object v0, p0, Landroid/widget/ZoomButtonsController;->mContainerLayoutParams:Landroid/view/WindowManager$LayoutParams;
@@ -1430,7 +1430,7 @@
     iput-object v1, v0, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
     .line 371
-    :cond_37
+    :cond_3
     iget-object v0, p0, Landroid/widget/ZoomButtonsController;->mWindowManager:Landroid/view/WindowManager;
 
     iget-object v1, p0, Landroid/widget/ZoomButtonsController;->mContainer:Landroid/widget/FrameLayout;
@@ -1442,7 +1442,7 @@
     .line 373
     iget-object v0, p0, Landroid/widget/ZoomButtonsController;->mPostedVisibleInitializer:Ljava/lang/Runnable;
 
-    if-nez v0, :cond_4b
+    if-nez v0, :cond_4
 
     .line 374
     new-instance v0, Landroid/widget/ZoomButtonsController$5;
@@ -1452,7 +1452,7 @@
     iput-object v0, p0, Landroid/widget/ZoomButtonsController;->mPostedVisibleInitializer:Ljava/lang/Runnable;
 
     .line 385
-    :cond_4b
+    :cond_4
     iget-object v0, p0, Landroid/widget/ZoomButtonsController;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Landroid/widget/ZoomButtonsController;->mPostedVisibleInitializer:Ljava/lang/Runnable;
@@ -1476,13 +1476,13 @@
     .line 392
     iput-boolean v3, p0, Landroid/widget/ZoomButtonsController;->mReleaseTouchListenerOnUp:Z
 
-    goto :goto_19
+    goto :goto_0
 
     .line 396
-    :cond_63
+    :cond_5
     iget-object v0, p0, Landroid/widget/ZoomButtonsController;->mTouchTargetView:Landroid/view/View;
 
-    if-eqz v0, :cond_89
+    if-eqz v0, :cond_6
 
     .line 399
     const/4 v0, 0x1
@@ -1490,7 +1490,7 @@
     iput-boolean v0, p0, Landroid/widget/ZoomButtonsController;->mReleaseTouchListenerOnUp:Z
 
     .line 405
-    :goto_6a
+    :goto_1
     iget-object v0, p0, Landroid/widget/ZoomButtonsController;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Landroid/widget/ZoomButtonsController;->mConfigurationChangedReceiver:Landroid/content/BroadcastReceiver;
@@ -1514,28 +1514,28 @@
     .line 410
     iget-object v0, p0, Landroid/widget/ZoomButtonsController;->mCallback:Landroid/widget/ZoomButtonsController$OnZoomListener;
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     .line 411
     iget-object v0, p0, Landroid/widget/ZoomButtonsController;->mCallback:Landroid/widget/ZoomButtonsController$OnZoomListener;
 
     invoke-interface {v0, v3}, Landroid/widget/ZoomButtonsController$OnZoomListener;->onVisibilityChanged(Z)V
 
-    goto :goto_19
+    goto :goto_0
 
     .line 401
-    :cond_89
+    :cond_6
     iget-object v0, p0, Landroid/widget/ZoomButtonsController;->mOwnerView:Landroid/view/View;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    goto :goto_6a
+    goto :goto_1
 .end method
 
 .method public setZoomInEnabled(Z)V
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
@@ -1549,7 +1549,7 @@
 .end method
 
 .method public setZoomOutEnabled(Z)V
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
@@ -1563,7 +1563,7 @@
 .end method
 
 .method public setZoomSpeed(J)V
-    .registers 4
+    .locals 1
     .parameter "speed"
 
     .prologue

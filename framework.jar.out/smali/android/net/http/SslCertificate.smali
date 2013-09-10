@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 50
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 11
+    .locals 6
     .parameter "issuedTo"
     .parameter "issuedBy"
     .parameter "validNotBefore"
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/Date;Ljava/util/Date;)V
-    .registers 11
+    .locals 6
     .parameter "issuedTo"
     .parameter "issuedBy"
     .parameter "validNotBefore"
@@ -113,7 +113,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/Date;Ljava/util/Date;Ljava/security/cert/X509Certificate;)V
-    .registers 7
+    .locals 1
     .parameter "issuedTo"
     .parameter "issuedBy"
     .parameter "validNotBefore"
@@ -160,7 +160,7 @@
 .end method
 
 .method public constructor <init>(Ljava/security/cert/X509Certificate;)V
-    .registers 8
+    .locals 6
     .parameter "certificate"
 
     .prologue
@@ -200,47 +200,47 @@
 .end method
 
 .method private static cloneDate(Ljava/util/Date;)Ljava/util/Date;
-    .registers 2
+    .locals 1
     .parameter "date"
 
     .prologue
     .line 329
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 330
     const/4 v0, 0x0
 
     .line 332
-    :goto_3
+    :goto_0
     return-object v0
 
-    :cond_4
+    :cond_0
     invoke-virtual {p0}, Ljava/util/Date;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/util/Date;
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method private static final fingerprint([B)Ljava/lang/String;
-    .registers 6
+    .locals 5
     .parameter "bytes"
 
     .prologue
     .line 282
-    if-nez p0, :cond_5
+    if-nez p0, :cond_0
 
     .line 283
     const-string v3, ""
 
     .line 293
-    :goto_4
+    :goto_0
     return-object v3
 
     .line 285
-    :cond_5
+    :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -250,10 +250,10 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_b
+    :goto_1
     array-length v3, p0
 
-    if-ge v1, v3, :cond_21
+    if-ge v1, v3, :cond_2
 
     .line 287
     aget-byte v0, p0, v1
@@ -269,7 +269,7 @@
 
     array-length v4, p0
 
-    if-eq v3, v4, :cond_1e
+    if-eq v3, v4, :cond_1
 
     .line 290
     const/16 v3, 0x3a
@@ -277,38 +277,38 @@
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 286
-    :cond_1e
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_b
+    goto :goto_1
 
     .line 293
     .end local v0           #b:B
-    :cond_21
+    :cond_2
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method private formatCertificateDate(Landroid/content/Context;Ljava/util/Date;)Ljava/lang/String;
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "certificateDate"
 
     .prologue
     .line 489
-    if-nez p2, :cond_5
+    if-nez p2, :cond_0
 
     .line 490
     const-string v0, ""
 
     .line 492
-    :goto_4
+    :goto_0
     return-object v0
 
-    :cond_5
+    :cond_0
     invoke-static {p1}, Landroid/text/format/DateFormat;->getDateFormat(Landroid/content/Context;)Ljava/text/DateFormat;
 
     move-result-object v0
@@ -317,25 +317,25 @@
 
     move-result-object v0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method private static formatDate(Ljava/util/Date;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "date"
 
     .prologue
     .line 319
-    if-nez p0, :cond_5
+    if-nez p0, :cond_0
 
     .line 320
     const-string v0, ""
 
     .line 322
-    :goto_4
+    :goto_0
     return-object v0
 
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/text/SimpleDateFormat;
 
     sget-object v1, Landroid/net/http/SslCertificate;->ISO_8601_DATE_FORMAT:Ljava/lang/String;
@@ -346,28 +346,28 @@
 
     move-result-object v0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method private static getDigest(Ljava/security/cert/X509Certificate;Ljava/lang/String;)Ljava/lang/String;
-    .registers 7
+    .locals 5
     .parameter "x509Certificate"
     .parameter "algorithm"
 
     .prologue
     .line 266
-    if-nez p0, :cond_5
+    if-nez p0, :cond_0
 
     .line 267
     const-string v4, ""
 
     .line 277
-    :goto_4
+    :goto_0
     return-object v4
 
     .line 270
-    :cond_5
-    :try_start_5
+    :cond_0
+    :try_start_0
     invoke-virtual {p0}, Ljava/security/cert/X509Certificate;->getEncoded()[B
 
     move-result-object v0
@@ -387,71 +387,71 @@
     .line 273
     .local v1, digest:[B
     invoke-static {v1}, Landroid/net/http/SslCertificate;->fingerprint([B)Ljava/lang/String;
-    :try_end_14
-    .catch Ljava/security/cert/CertificateEncodingException; {:try_start_5 .. :try_end_14} :catch_16
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_5 .. :try_end_14} :catch_1a
+    :try_end_0
+    .catch Ljava/security/cert/CertificateEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v4
 
-    goto :goto_4
+    goto :goto_0
 
     .line 274
     .end local v0           #bytes:[B
     .end local v1           #digest:[B
     .end local v3           #md:Ljava/security/MessageDigest;
-    :catch_16
+    :catch_0
     move-exception v2
 
     .line 275
     .local v2, ignored:Ljava/security/cert/CertificateEncodingException;
     const-string v4, ""
 
-    goto :goto_4
+    goto :goto_0
 
     .line 276
     .end local v2           #ignored:Ljava/security/cert/CertificateEncodingException;
-    :catch_1a
+    :catch_1
     move-exception v2
 
     .line 277
     .local v2, ignored:Ljava/security/NoSuchAlgorithmException;
     const-string v4, ""
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method private static getSerialNumber(Ljava/security/cert/X509Certificate;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "x509Certificate"
 
     .prologue
     .line 252
-    if-nez p0, :cond_5
+    if-nez p0, :cond_0
 
     .line 253
     const-string v1, ""
 
     .line 259
-    :goto_4
+    :goto_0
     return-object v1
 
     .line 255
-    :cond_5
+    :cond_0
     invoke-virtual {p0}, Ljava/security/cert/X509Certificate;->getSerialNumber()Ljava/math/BigInteger;
 
     move-result-object v0
 
     .line 256
     .local v0, serialNumber:Ljava/math/BigInteger;
-    if-nez v0, :cond_e
+    if-nez v0, :cond_1
 
     .line 257
     const-string v1, ""
 
-    goto :goto_4
+    goto :goto_0
 
     .line 259
-    :cond_e
+    :cond_1
     invoke-virtual {v0}, Ljava/math/BigInteger;->toByteArray()[B
 
     move-result-object v1
@@ -460,11 +460,11 @@
 
     move-result-object v1
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method private static parseDate(Ljava/lang/String;)Ljava/util/Date;
-    .registers 4
+    .locals 3
     .parameter "string"
 
     .prologue
@@ -477,43 +477,43 @@
     invoke-direct {v1, v2}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v1, p0}, Ljava/text/SimpleDateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
-    :try_end_a
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_a} :catch_c
+    :try_end_0
+    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 311
-    :goto_b
+    :goto_0
     return-object v1
 
     .line 310
-    :catch_c
+    :catch_0
     move-exception v0
 
     .line 311
     .local v0, e:Ljava/text/ParseException;
     const/4 v1, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public static restoreState(Landroid/os/Bundle;)Landroid/net/http/SslCertificate;
-    .registers 12
+    .locals 11
     .parameter "bundle"
 
     .prologue
     .line 120
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 121
     const/4 v1, 0x0
 
     .line 136
-    :goto_3
+    :goto_0
     return-object v1
 
     .line 124
-    :cond_4
+    :cond_0
     const-string/jumbo v1, "x509-certificate"
 
     invoke-virtual {p0, v1}, Landroid/os/Bundle;->getByteArray(Ljava/lang/String;)[B
@@ -522,14 +522,14 @@
 
     .line 125
     .local v7, bytes:[B
-    if-nez v7, :cond_36
+    if-nez v7, :cond_1
 
     .line 126
     const/4 v6, 0x0
 
     .line 136
     .local v6, x509Certificate:Ljava/security/cert/X509Certificate;
-    :goto_e
+    :goto_1
     new-instance v1, Landroid/net/http/SslCertificate;
 
     const-string v2, "issued-to"
@@ -566,12 +566,12 @@
 
     invoke-direct/range {v1 .. v6}, Landroid/net/http/SslCertificate;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/Date;Ljava/util/Date;Ljava/security/cert/X509Certificate;)V
 
-    goto :goto_3
+    goto :goto_0
 
     .line 129
     .end local v6           #x509Certificate:Ljava/security/cert/X509Certificate;
-    :cond_36
-    :try_start_36
+    :cond_1
+    :try_start_0
     const-string v1, "X.509"
 
     invoke-static {v1}, Ljava/security/cert/CertificateFactory;->getInstance(Ljava/lang/String;)Ljava/security/cert/CertificateFactory;
@@ -595,17 +595,17 @@
     check-cast v0, Ljava/security/cert/X509Certificate;
 
     move-object v6, v0
-    :try_end_49
-    .catch Ljava/security/cert/CertificateException; {:try_start_36 .. :try_end_49} :catch_4a
+    :try_end_0
+    .catch Ljava/security/cert/CertificateException; {:try_start_0 .. :try_end_0} :catch_0
 
     .restart local v6       #x509Certificate:Ljava/security/cert/X509Certificate;
-    goto :goto_e
+    goto :goto_1
 
     .line 132
     .end local v6           #x509Certificate:Ljava/security/cert/X509Certificate;
     .end local v8           #cert:Ljava/security/cert/Certificate;
     .end local v9           #certFactory:Ljava/security/cert/CertificateFactory;
-    :catch_4a
+    :catch_0
     move-exception v10
 
     .line 133
@@ -613,27 +613,27 @@
     const/4 v6, 0x0
 
     .restart local v6       #x509Certificate:Ljava/security/cert/X509Certificate;
-    goto :goto_e
+    goto :goto_1
 .end method
 
 .method public static saveState(Landroid/net/http/SslCertificate;)Landroid/os/Bundle;
-    .registers 5
+    .locals 4
     .parameter "certificate"
 
     .prologue
     .line 96
-    if-nez p0, :cond_4
+    if-nez p0, :cond_1
 
     .line 97
     const/4 v0, 0x0
 
     .line 111
-    :cond_3
-    :goto_3
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 99
-    :cond_4
+    :cond_1
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
@@ -688,10 +688,10 @@
 
     .line 105
     .local v1, x509Certificate:Ljava/security/cert/X509Certificate;
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_0
 
     .line 107
-    :try_start_3b
+    :try_start_0
     const-string/jumbo v2, "x509-certificate"
 
     invoke-virtual {v1}, Ljava/security/cert/X509Certificate;->getEncoded()[B
@@ -699,22 +699,22 @@
     move-result-object v3
 
     invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putByteArray(Ljava/lang/String;[B)V
-    :try_end_45
-    .catch Ljava/security/cert/CertificateEncodingException; {:try_start_3b .. :try_end_45} :catch_46
+    :try_end_0
+    .catch Ljava/security/cert/CertificateEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_3
+    goto :goto_0
 
     .line 108
-    :catch_46
+    :catch_0
     move-exception v2
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getIssuedBy()Landroid/net/http/SslCertificate$DName;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 245
@@ -724,7 +724,7 @@
 .end method
 
 .method public getIssuedTo()Landroid/net/http/SslCertificate$DName;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 238
@@ -734,7 +734,7 @@
 .end method
 
 .method public getValidNotAfter()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -750,7 +750,7 @@
 .end method
 
 .method public getValidNotAfterDate()Ljava/util/Date;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 220
@@ -764,7 +764,7 @@
 .end method
 
 .method public getValidNotBefore()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -780,7 +780,7 @@
 .end method
 
 .method public getValidNotBeforeDate()Ljava/util/Date;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 201
@@ -794,7 +794,7 @@
 .end method
 
 .method public inflateCertificateView(Landroid/content/Context;)Landroid/view/View;
-    .registers 11
+    .locals 9
     .parameter "context"
 
     .prologue
@@ -821,7 +821,7 @@
 
     .line 441
     .local v5, issuedTo:Landroid/net/http/SslCertificate$DName;
-    if-eqz v5, :cond_42
+    if-eqz v5, :cond_0
 
     .line 442
     const v6, 0x102035f
@@ -869,7 +869,7 @@
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 450
-    :cond_42
+    :cond_0
     const v6, 0x1020365
 
     invoke-virtual {v0, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -893,7 +893,7 @@
 
     .line 455
     .local v3, issuedBy:Landroid/net/http/SslCertificate$DName;
-    if-eqz v3, :cond_8a
+    if-eqz v3, :cond_1
 
     .line 456
     const v6, 0x1020367
@@ -941,7 +941,7 @@
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 465
-    :cond_8a
+    :cond_1
     invoke-virtual {p0}, Landroid/net/http/SslCertificate;->getValidNotBeforeDate()Ljava/util/Date;
 
     move-result-object v6
@@ -1026,7 +1026,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 300

@@ -79,7 +79,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 5
+    .locals 5
 
     .prologue
     const/4 v4, 0x1
@@ -109,35 +109,35 @@
     .line 185
     new-array v0, v2, [B
 
-    fill-array-data v0, :array_12a
+    fill-array-data v0, :array_0
 
     sput-object v0, Landroid/nfc/NdefRecord;->RTD_SMART_POSTER:[B
 
     .line 191
     new-array v0, v2, [B
 
-    fill-array-data v0, :array_130
+    fill-array-data v0, :array_1
 
     sput-object v0, Landroid/nfc/NdefRecord;->RTD_ALTERNATIVE_CARRIER:[B
 
     .line 197
     new-array v0, v2, [B
 
-    fill-array-data v0, :array_136
+    fill-array-data v0, :array_2
 
     sput-object v0, Landroid/nfc/NdefRecord;->RTD_HANDOVER_CARRIER:[B
 
     .line 203
     new-array v0, v2, [B
 
-    fill-array-data v0, :array_13c
+    fill-array-data v0, :array_3
 
     sput-object v0, Landroid/nfc/NdefRecord;->RTD_HANDOVER_REQUEST:[B
 
     .line 209
     new-array v0, v2, [B
 
-    fill-array-data v0, :array_142
+    fill-array-data v0, :array_4
 
     sput-object v0, Landroid/nfc/NdefRecord;->RTD_HANDOVER_SELECT:[B
 
@@ -376,7 +376,7 @@
     return-void
 
     .line 185
-    :array_12a
+    :array_0
     .array-data 0x1
         0x53t
         0x70t
@@ -385,7 +385,7 @@
     .line 191
     nop
 
-    :array_130
+    :array_1
     .array-data 0x1
         0x61t
         0x63t
@@ -394,7 +394,7 @@
     .line 197
     nop
 
-    :array_136
+    :array_2
     .array-data 0x1
         0x48t
         0x63t
@@ -403,7 +403,7 @@
     .line 203
     nop
 
-    :array_13c
+    :array_3
     .array-data 0x1
         0x48t
         0x72t
@@ -412,7 +412,7 @@
     .line 209
     nop
 
-    :array_142
+    :array_4
     .array-data 0x1
         0x48t
         0x73t
@@ -420,7 +420,7 @@
 .end method
 
 .method public constructor <init>(S[B[B[B)V
-    .registers 7
+    .locals 2
     .parameter "tnf"
     .parameter "type"
     .parameter "id"
@@ -431,31 +431,31 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 517
-    if-nez p2, :cond_7
+    if-nez p2, :cond_0
 
     sget-object p2, Landroid/nfc/NdefRecord;->EMPTY_BYTE_ARRAY:[B
 
     .line 518
-    :cond_7
-    if-nez p3, :cond_b
+    :cond_0
+    if-nez p3, :cond_1
 
     sget-object p3, Landroid/nfc/NdefRecord;->EMPTY_BYTE_ARRAY:[B
 
     .line 519
-    :cond_b
-    if-nez p4, :cond_f
+    :cond_1
+    if-nez p4, :cond_2
 
     sget-object p4, Landroid/nfc/NdefRecord;->EMPTY_BYTE_ARRAY:[B
 
     .line 521
-    :cond_f
+    :cond_2
     invoke-static {p1, p2, p3, p4}, Landroid/nfc/NdefRecord;->validateTnf(S[B[B[B)Ljava/lang/String;
 
     move-result-object v0
 
     .line 522
     .local v0, message:Ljava/lang/String;
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_3
 
     .line 523
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -465,7 +465,7 @@
     throw v1
 
     .line 526
-    :cond_1b
+    :cond_3
     iput-short p1, p0, Landroid/nfc/NdefRecord;->mTnf:S
 
     .line 527
@@ -482,7 +482,7 @@
 .end method
 
 .method public constructor <init>([B)V
-    .registers 6
+    .locals 4
     .parameter "data"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -518,7 +518,7 @@
 
     move-result v2
 
-    if-lez v2, :cond_1b
+    if-lez v2, :cond_0
 
     .line 553
     new-instance v2, Landroid/nfc/FormatException;
@@ -530,7 +530,7 @@
     throw v2
 
     .line 556
-    :cond_1b
+    :cond_0
     aget-object v2, v1, v3
 
     iget-short v2, v2, Landroid/nfc/NdefRecord;->mTnf:S
@@ -563,7 +563,7 @@
 .end method
 
 .method private static bytesToString([B)Ljava/lang/StringBuilder;
-    .registers 10
+    .locals 9
     .parameter "bs"
 
     .prologue
@@ -583,8 +583,8 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_8
-    if-ge v2, v3, :cond_22
+    :goto_0
+    if-ge v2, v3, :cond_0
 
     aget-byte v1, v0, v2
 
@@ -613,21 +613,21 @@
     .line 1009
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1012
     .end local v1           #b:B
-    :cond_22
+    :cond_0
     return-object v4
 .end method
 
 .method public static createApplicationRecord(Ljava/lang/String;)Landroid/nfc/NdefRecord;
-    .registers 6
+    .locals 5
     .parameter "packageName"
 
     .prologue
     .line 310
-    if-nez p0, :cond_b
+    if-nez p0, :cond_0
 
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -638,12 +638,12 @@
     throw v0
 
     .line 311
-    :cond_b
+    :cond_0
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_1
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -654,7 +654,7 @@
     throw v0
 
     .line 313
-    :cond_1a
+    :cond_1
     new-instance v0, Landroid/nfc/NdefRecord;
 
     const/4 v1, 0x4
@@ -675,7 +675,7 @@
 .end method
 
 .method public static createExternal(Ljava/lang/String;Ljava/lang/String;[B)Landroid/nfc/NdefRecord;
-    .registers 9
+    .locals 6
     .parameter "domain"
     .parameter "type"
     .parameter "data"
@@ -684,7 +684,7 @@
     const/4 v5, 0x0
 
     .line 456
-    if-nez p0, :cond_b
+    if-nez p0, :cond_0
 
     new-instance v3, Ljava/lang/NullPointerException;
 
@@ -695,8 +695,8 @@
     throw v3
 
     .line 457
-    :cond_b
-    if-nez p1, :cond_16
+    :cond_0
+    if-nez p1, :cond_1
 
     new-instance v3, Ljava/lang/NullPointerException;
 
@@ -707,7 +707,7 @@
     throw v3
 
     .line 459
-    :cond_16
+    :cond_1
     invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v3
@@ -734,7 +734,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_38
+    if-nez v3, :cond_2
 
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
@@ -745,12 +745,12 @@
     throw v3
 
     .line 463
-    :cond_38
+    :cond_2
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    if-nez v3, :cond_47
+    if-nez v3, :cond_3
 
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
@@ -761,7 +761,7 @@
     throw v3
 
     .line 465
-    :cond_47
+    :cond_3
     sget-object v3, Ljava/nio/charset/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
     invoke-virtual {p0, v3}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
@@ -823,13 +823,13 @@
 .end method
 
 .method public static createMime(Ljava/lang/String;[B)Landroid/nfc/NdefRecord;
-    .registers 7
+    .locals 5
     .parameter "mimeType"
     .parameter "mimeData"
 
     .prologue
     .line 410
-    if-nez p0, :cond_b
+    if-nez p0, :cond_0
 
     new-instance v2, Ljava/lang/NullPointerException;
 
@@ -840,7 +840,7 @@
     throw v2
 
     .line 415
-    :cond_b
+    :cond_0
     invoke-static {p0}, Landroid/content/Intent;->normalizeMimeType(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -850,7 +850,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1e
+    if-nez v2, :cond_1
 
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -861,7 +861,7 @@
     throw v2
 
     .line 417
-    :cond_1e
+    :cond_1
     const/16 v2, 0x2f
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->indexOf(I)I
@@ -870,7 +870,7 @@
 
     .line 418
     .local v0, slashIndex:I
-    if-nez v0, :cond_2f
+    if-nez v0, :cond_2
 
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -881,14 +881,14 @@
     throw v2
 
     .line 419
-    :cond_2f
+    :cond_2
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
 
     add-int/lit8 v2, v2, -0x1
 
-    if-ne v0, v2, :cond_40
+    if-ne v0, v2, :cond_3
 
     .line 420
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -900,7 +900,7 @@
     throw v2
 
     .line 425
-    :cond_40
+    :cond_3
     sget-object v2, Ljava/nio/charset/Charsets;->US_ASCII:Ljava/nio/charset/Charset;
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
@@ -921,7 +921,7 @@
 .end method
 
 .method public static createUri(Landroid/net/Uri;)Landroid/nfc/NdefRecord;
-    .registers 10
+    .locals 9
     .parameter "uri"
 
     .prologue
@@ -930,7 +930,7 @@
     const/4 v6, 0x0
 
     .line 339
-    if-nez p0, :cond_d
+    if-nez p0, :cond_0
 
     new-instance v5, Ljava/lang/NullPointerException;
 
@@ -941,7 +941,7 @@
     throw v5
 
     .line 341
-    :cond_d
+    :cond_0
     invoke-virtual {p0}, Landroid/net/Uri;->normalizeScheme()Landroid/net/Uri;
 
     move-result-object p0
@@ -957,7 +957,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_24
+    if-nez v5, :cond_1
 
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
@@ -968,7 +968,7 @@
     throw v5
 
     .line 345
-    :cond_24
+    :cond_1
     const/4 v1, 0x0
 
     .line 346
@@ -976,12 +976,12 @@
     const/4 v0, 0x1
 
     .local v0, i:I
-    :goto_26
+    :goto_0
     sget-object v5, Landroid/nfc/NdefRecord;->URI_PREFIX_MAP:[Ljava/lang/String;
 
     array-length v5, v5
 
-    if-ge v0, v5, :cond_42
+    if-ge v0, v5, :cond_2
 
     .line 347
     sget-object v5, Landroid/nfc/NdefRecord;->URI_PREFIX_MAP:[Ljava/lang/String;
@@ -992,7 +992,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5c
+    if-eqz v5, :cond_3
 
     .line 348
     int-to-byte v1, v0
@@ -1011,7 +1011,7 @@
     move-result-object v4
 
     .line 353
-    :cond_42
+    :cond_2
     sget-object v5, Ljava/nio/charset/Charsets;->UTF_8:Ljava/nio/charset/Charset;
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
@@ -1049,14 +1049,14 @@
     .line 346
     .end local v2           #recordBytes:[B
     .end local v3           #uriBytes:[B
-    :cond_5c
+    :cond_3
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_26
+    goto :goto_0
 .end method
 
 .method public static createUri(Ljava/lang/String;)Landroid/nfc/NdefRecord;
-    .registers 2
+    .locals 1
     .parameter "uriString"
 
     .prologue
@@ -1073,7 +1073,7 @@
 .end method
 
 .method private static ensureSanePayloadSize(J)V
-    .registers 5
+    .locals 3
     .parameter "size"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1087,7 +1087,7 @@
 
     cmp-long v0, p0, v0
 
-    if-lez v0, :cond_2d
+    if-lez v0, :cond_0
 
     .line 847
     new-instance v0, Landroid/nfc/FormatException;
@@ -1127,12 +1127,12 @@
     throw v0
 
     .line 850
-    :cond_2d
+    :cond_0
     return-void
 .end method
 
 .method static parse(Ljava/nio/ByteBuffer;Z)[Landroid/nfc/NdefRecord;
-    .registers 33
+    .locals 31
     .parameter "buffer"
     .parameter "ignoreMbMe"
     .annotation system Ldalvik/annotation/Throws;
@@ -1161,7 +1161,7 @@
 
     .line 749
     .local v19, payload:[B
-    :try_start_a
+    :try_start_0
     new-instance v6, Ljava/util/ArrayList;
 
     invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
@@ -1180,9 +1180,9 @@
 
     .line 754
     .local v17, me:Z
-    :cond_13
-    :goto_13
-    if-nez v17, :cond_1de
+    :cond_0
+    :goto_0
+    if-nez v17, :cond_1b
 
     .line 755
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->get()B
@@ -1193,48 +1193,48 @@
     .local v9, flag:B
     and-int/lit8 v27, v9, -0x80
 
-    if-eqz v27, :cond_5d
+    if-eqz v27, :cond_1
 
     const/16 v16, 0x1
 
     .line 758
     .local v16, mb:Z
-    :goto_1f
+    :goto_1
     and-int/lit8 v27, v9, 0x40
 
-    if-eqz v27, :cond_60
+    if-eqz v27, :cond_2
 
     const/16 v17, 0x1
 
     .line 759
-    :goto_25
+    :goto_2
     and-int/lit8 v27, v9, 0x20
 
-    if-eqz v27, :cond_63
+    if-eqz v27, :cond_3
 
     const/4 v4, 0x1
 
     .line 760
     .local v4, cf:Z
-    :goto_2a
+    :goto_3
     and-int/lit8 v27, v9, 0x10
 
-    if-eqz v27, :cond_65
+    if-eqz v27, :cond_4
 
     const/16 v23, 0x1
 
     .line 761
     .local v23, sr:Z
-    :goto_30
+    :goto_4
     and-int/lit8 v27, v9, 0x8
 
-    if-eqz v27, :cond_68
+    if-eqz v27, :cond_5
 
     const/4 v14, 0x1
 
     .line 762
     .local v14, il:Z
-    :goto_35
+    :goto_5
     and-int/lit8 v27, v9, 0x7
 
     move/from16 v0, v27
@@ -1245,17 +1245,17 @@
 
     .line 764
     .local v24, tnf:S
-    if-nez v16, :cond_6a
+    if-nez v16, :cond_6
 
     invoke-interface/range {v22 .. v22}, Ljava/util/List;->size()I
 
     move-result v27
 
-    if-nez v27, :cond_6a
+    if-nez v27, :cond_6
 
-    if-nez v15, :cond_6a
+    if-nez v15, :cond_6
 
-    if-nez p1, :cond_6a
+    if-nez p1, :cond_6
 
     .line 765
     new-instance v27, Landroid/nfc/FormatException;
@@ -1265,8 +1265,8 @@
     invoke-direct/range {v27 .. v28}, Landroid/nfc/FormatException;-><init>(Ljava/lang/String;)V
 
     throw v27
-    :try_end_50
-    .catch Ljava/nio/BufferUnderflowException; {:try_start_a .. :try_end_50} :catch_50
+    :try_end_0
+    .catch Ljava/nio/BufferUnderflowException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 839
     .end local v4           #cf:Z
@@ -1279,7 +1279,7 @@
     .end local v17           #me:Z
     .end local v23           #sr:Z
     .end local v24           #tnf:S
-    :catch_50
+    :catch_0
     move-exception v7
 
     .line 840
@@ -1303,52 +1303,52 @@
     .restart local v9       #flag:B
     .restart local v15       #inChunk:Z
     .restart local v17       #me:Z
-    :cond_5d
+    :cond_1
     const/16 v16, 0x0
 
-    goto :goto_1f
+    goto :goto_1
 
     .line 758
     .restart local v16       #mb:Z
-    :cond_60
+    :cond_2
     const/16 v17, 0x0
 
-    goto :goto_25
+    goto :goto_2
 
     .line 759
-    :cond_63
+    :cond_3
     const/4 v4, 0x0
 
-    goto :goto_2a
+    goto :goto_3
 
     .line 760
     .restart local v4       #cf:Z
-    :cond_65
+    :cond_4
     const/16 v23, 0x0
 
-    goto :goto_30
+    goto :goto_4
 
     .line 761
     .restart local v23       #sr:Z
-    :cond_68
+    :cond_5
     const/4 v14, 0x0
 
-    goto :goto_35
+    goto :goto_5
 
     .line 766
     .restart local v14       #il:Z
     .restart local v24       #tnf:S
-    :cond_6a
-    if-eqz v16, :cond_7d
+    :cond_6
+    if-eqz v16, :cond_7
 
-    :try_start_6c
+    :try_start_1
     invoke-interface/range {v22 .. v22}, Ljava/util/List;->size()I
 
     move-result v27
 
-    if-eqz v27, :cond_7d
+    if-eqz v27, :cond_7
 
-    if-nez p1, :cond_7d
+    if-nez p1, :cond_7
 
     .line 767
     new-instance v27, Landroid/nfc/FormatException;
@@ -1360,10 +1360,10 @@
     throw v27
 
     .line 768
-    :cond_7d
-    if-eqz v15, :cond_8a
+    :cond_7
+    if-eqz v15, :cond_8
 
-    if-eqz v14, :cond_8a
+    if-eqz v14, :cond_8
 
     .line 769
     new-instance v27, Landroid/nfc/FormatException;
@@ -1375,10 +1375,10 @@
     throw v27
 
     .line 770
-    :cond_8a
-    if-eqz v4, :cond_97
+    :cond_8
+    if-eqz v4, :cond_9
 
-    if-eqz v17, :cond_97
+    if-eqz v17, :cond_9
 
     .line 771
     new-instance v27, Landroid/nfc/FormatException;
@@ -1390,8 +1390,8 @@
     throw v27
 
     .line 772
-    :cond_97
-    if-eqz v15, :cond_a9
+    :cond_9
+    if-eqz v15, :cond_a
 
     const/16 v27, 0x6
 
@@ -1399,7 +1399,7 @@
 
     move/from16 v1, v27
 
-    if-eq v0, v1, :cond_a9
+    if-eq v0, v1, :cond_a
 
     .line 773
     new-instance v27, Landroid/nfc/FormatException;
@@ -1411,8 +1411,8 @@
     throw v27
 
     .line 774
-    :cond_a9
-    if-nez v15, :cond_bc
+    :cond_a
+    if-nez v15, :cond_b
 
     const/16 v27, 0x6
 
@@ -1420,7 +1420,7 @@
 
     move/from16 v1, v27
 
-    if-ne v0, v1, :cond_bc
+    if-ne v0, v1, :cond_b
 
     .line 775
     new-instance v27, Landroid/nfc/FormatException;
@@ -1432,7 +1432,7 @@
     throw v27
 
     .line 779
-    :cond_bc
+    :cond_b
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v27
@@ -1445,7 +1445,7 @@
 
     .line 780
     .local v26, typeLength:I
-    if-eqz v23, :cond_ed
+    if-eqz v23, :cond_c
 
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->get()B
 
@@ -1465,8 +1465,8 @@
 
     .line 781
     .local v20, payloadLength:J
-    :goto_d7
-    if-eqz v14, :cond_fe
+    :goto_6
+    if-eqz v14, :cond_d
 
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->get()B
 
@@ -1478,10 +1478,10 @@
 
     .line 783
     .local v13, idLength:I
-    :goto_e1
-    if-eqz v15, :cond_100
+    :goto_7
+    if-eqz v15, :cond_e
 
-    if-eqz v26, :cond_100
+    if-eqz v26, :cond_e
 
     .line 784
     new-instance v27, Landroid/nfc/FormatException;
@@ -1495,7 +1495,7 @@
     .line 780
     .end local v13           #idLength:I
     .end local v20           #payloadLength:J
-    :cond_ed
+    :cond_c
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v27
@@ -1510,22 +1510,22 @@
 
     and-long v20, v27, v29
 
-    goto :goto_d7
+    goto :goto_6
 
     .line 781
     .restart local v20       #payloadLength:J
-    :cond_fe
+    :cond_d
     const/4 v13, 0x0
 
-    goto :goto_e1
+    goto :goto_7
 
     .line 787
     .restart local v13       #idLength:I
-    :cond_100
-    if-nez v15, :cond_11a
+    :cond_e
+    if-nez v15, :cond_f
 
     .line 788
-    if-lez v26, :cond_16a
+    if-lez v26, :cond_13
 
     move/from16 v0, v26
 
@@ -1534,13 +1534,13 @@
     move-object/from16 v25, v0
 
     .line 789
-    :goto_10a
-    if-lez v13, :cond_16d
+    :goto_8
+    if-lez v13, :cond_14
 
     new-array v12, v13, [B
 
     .line 790
-    :goto_10e
+    :goto_9
     move-object/from16 v0, p0
 
     move-object/from16 v1, v25
@@ -1553,7 +1553,7 @@
     invoke-virtual {v0, v12}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
     .line 794
-    :cond_11a
+    :cond_f
     invoke-static/range {v20 .. v21}, Landroid/nfc/NdefRecord;->ensureSanePayloadSize(J)V
 
     .line 795
@@ -1561,7 +1561,7 @@
 
     cmp-long v27, v20, v27
 
-    if-lez v27, :cond_170
+    if-lez v27, :cond_15
 
     move-wide/from16 v0, v20
 
@@ -1576,7 +1576,7 @@
     move-object/from16 v19, v0
 
     .line 796
-    :goto_12e
+    :goto_a
     move-object/from16 v0, p0
 
     move-object/from16 v1, v19
@@ -1584,9 +1584,9 @@
     invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
     .line 798
-    if-eqz v4, :cond_13e
+    if-eqz v4, :cond_10
 
-    if-nez v15, :cond_13e
+    if-nez v15, :cond_10
 
     .line 800
     invoke-virtual {v6}, Ljava/util/ArrayList;->clear()V
@@ -1595,22 +1595,22 @@
     move/from16 v5, v24
 
     .line 803
-    :cond_13e
-    if-nez v4, :cond_142
+    :cond_10
+    if-nez v4, :cond_11
 
-    if-eqz v15, :cond_147
+    if-eqz v15, :cond_12
 
     .line 805
-    :cond_142
+    :cond_11
     move-object/from16 v0, v19
 
     invoke-virtual {v6, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 807
-    :cond_147
-    if-nez v4, :cond_1ae
+    :cond_12
+    if-nez v4, :cond_18
 
-    if-eqz v15, :cond_1ae
+    if-eqz v15, :cond_18
 
     .line 809
     const-wide/16 v20, 0x0
@@ -1621,12 +1621,12 @@
     move-result-object v11
 
     .local v11, i$:Ljava/util/Iterator;
-    :goto_151
+    :goto_b
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v27
 
-    if-eqz v27, :cond_173
+    if-eqz v27, :cond_16
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1650,31 +1650,31 @@
 
     add-long v20, v20, v27
 
-    goto :goto_151
+    goto :goto_b
 
     .line 788
     .end local v11           #i$:Ljava/util/Iterator;
     .end local v18           #p:[B
-    :cond_16a
+    :cond_13
     sget-object v25, Landroid/nfc/NdefRecord;->EMPTY_BYTE_ARRAY:[B
 
-    goto :goto_10a
+    goto :goto_8
 
     .line 789
-    :cond_16d
+    :cond_14
     sget-object v12, Landroid/nfc/NdefRecord;->EMPTY_BYTE_ARRAY:[B
 
-    goto :goto_10e
+    goto :goto_9
 
     .line 795
-    :cond_170
+    :cond_15
     sget-object v19, Landroid/nfc/NdefRecord;->EMPTY_BYTE_ARRAY:[B
 
-    goto :goto_12e
+    goto :goto_a
 
     .line 813
     .restart local v11       #i$:Ljava/util/Iterator;
-    :cond_173
+    :cond_16
     invoke-static/range {v20 .. v21}, Landroid/nfc/NdefRecord;->ensureSanePayloadSize(J)V
 
     .line 814
@@ -1699,12 +1699,12 @@
 
     move-result-object v11
 
-    :goto_186
+    :goto_c
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v27
 
-    if-eqz v27, :cond_1ac
+    if-eqz v27, :cond_17
 
     invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1741,27 +1741,27 @@
 
     add-int v10, v10, v27
 
-    goto :goto_186
+    goto :goto_c
 
     .line 820
     .end local v18           #p:[B
-    :cond_1ac
+    :cond_17
     move/from16 v24, v5
 
     .line 822
     .end local v10           #i:I
     .end local v11           #i$:Ljava/util/Iterator;
-    :cond_1ae
-    if-eqz v4, :cond_1b3
+    :cond_18
+    if-eqz v4, :cond_19
 
     .line 824
     const/4 v15, 0x1
 
     .line 825
-    goto/16 :goto_13
+    goto/16 :goto_0
 
     .line 827
-    :cond_1b3
+    :cond_19
     const/4 v15, 0x0
 
     .line 830
@@ -1777,7 +1777,7 @@
 
     .line 831
     .local v8, error:Ljava/lang/String;
-    if-eqz v8, :cond_1c8
+    if-eqz v8, :cond_1a
 
     .line 832
     new-instance v27, Landroid/nfc/FormatException;
@@ -1789,7 +1789,7 @@
     throw v27
 
     .line 834
-    :cond_1c8
+    :cond_1a
     new-instance v27, Landroid/nfc/NdefRecord;
 
     move-object/from16 v0, v27
@@ -1807,11 +1807,11 @@
     move-object/from16 v1, v27
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_1dc
-    .catch Ljava/nio/BufferUnderflowException; {:try_start_6c .. :try_end_1dc} :catch_50
+    :try_end_1
+    .catch Ljava/nio/BufferUnderflowException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 835
-    if-eqz p1, :cond_13
+    if-eqz p1, :cond_0
 
     .line 842
     .end local v4           #cf:Z
@@ -1824,7 +1824,7 @@
     .end local v23           #sr:Z
     .end local v24           #tnf:S
     .end local v26           #typeLength:I
-    :cond_1de
+    :cond_1b
     invoke-interface/range {v22 .. v22}, Ljava/util/List;->size()I
 
     move-result v27
@@ -1849,7 +1849,7 @@
 .end method
 
 .method private parseWktUri()Landroid/net/Uri;
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v3, 0x0
@@ -1861,15 +1861,15 @@
 
     const/4 v5, 0x2
 
-    if-ge v4, v5, :cond_8
+    if-ge v4, v5, :cond_1
 
     .line 726
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     return-object v3
 
     .line 719
-    :cond_8
+    :cond_1
     iget-object v4, p0, Landroid/nfc/NdefRecord;->mPayload:[B
 
     const/4 v5, 0x0
@@ -1880,13 +1880,13 @@
 
     .line 720
     .local v1, prefixIndex:I
-    if-ltz v1, :cond_7
+    if-ltz v1, :cond_0
 
     sget-object v4, Landroid/nfc/NdefRecord;->URI_PREFIX_MAP:[Ljava/lang/String;
 
     array-length v4, v4
 
-    if-ge v1, v4, :cond_7
+    if-ge v1, v4, :cond_0
 
     .line 723
     sget-object v3, Landroid/nfc/NdefRecord;->URI_PREFIX_MAP:[Ljava/lang/String;
@@ -1935,31 +1935,31 @@
 
     move-result-object v3
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method private toUri(Z)Landroid/net/Uri;
-    .registers 12
+    .locals 10
     .parameter "inSmartPoster"
 
     .prologue
     .line 677
     iget-short v6, p0, Landroid/nfc/NdefRecord;->mTnf:S
 
-    packed-switch v6, :pswitch_data_7a
+    packed-switch v6, :pswitch_data_0
 
     .line 705
-    :cond_5
-    :goto_5
-    :pswitch_5
+    :cond_0
+    :goto_0
+    :pswitch_0
     const/4 v5, 0x0
 
-    :cond_6
-    :goto_6
+    :cond_1
+    :goto_1
     return-object v5
 
     .line 679
-    :pswitch_7
+    :pswitch_1
     iget-object v6, p0, Landroid/nfc/NdefRecord;->mType:[B
 
     sget-object v7, Landroid/nfc/NdefRecord;->RTD_SMART_POSTER:[B
@@ -1968,12 +1968,12 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2e
+    if-eqz v6, :cond_2
 
-    if-nez p1, :cond_2e
+    if-nez p1, :cond_2
 
     .line 682
-    :try_start_13
+    :try_start_0
     new-instance v3, Landroid/nfc/NdefMessage;
 
     iget-object v6, p0, Landroid/nfc/NdefRecord;->mPayload:[B
@@ -1993,8 +1993,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_20
-    if-ge v1, v2, :cond_5
+    :goto_2
+    if-ge v1, v2, :cond_0
 
     aget-object v4, v0, v1
 
@@ -2003,19 +2003,19 @@
     const/4 v6, 0x1
 
     invoke-direct {v4, v6}, Landroid/nfc/NdefRecord;->toUri(Z)Landroid/net/Uri;
-    :try_end_28
-    .catch Landroid/nfc/FormatException; {:try_start_13 .. :try_end_28} :catch_77
+    :try_end_0
+    .catch Landroid/nfc/FormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v5
 
     .line 685
     .local v5, uri:Landroid/net/Uri;
-    if-nez v5, :cond_6
+    if-nez v5, :cond_1
 
     .line 683
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_20
+    goto :goto_2
 
     .line 690
     .end local v0           #arr$:[Landroid/nfc/NdefRecord;
@@ -2024,7 +2024,7 @@
     .end local v3           #nestedMessage:Landroid/nfc/NdefMessage;
     .end local v4           #nestedRecord:Landroid/nfc/NdefRecord;
     .end local v5           #uri:Landroid/net/Uri;
-    :cond_2e
+    :cond_2
     iget-object v6, p0, Landroid/nfc/NdefRecord;->mType:[B
 
     sget-object v7, Landroid/nfc/NdefRecord;->RTD_URI:[B
@@ -2033,7 +2033,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_0
 
     .line 691
     invoke-direct {p0}, Landroid/nfc/NdefRecord;->parseWktUri()Landroid/net/Uri;
@@ -2044,10 +2044,10 @@
 
     move-result-object v5
 
-    goto :goto_6
+    goto :goto_1
 
     .line 696
-    :pswitch_41
+    :pswitch_2
     new-instance v6, Ljava/lang/String;
 
     iget-object v7, p0, Landroid/nfc/NdefRecord;->mType:[B
@@ -2066,12 +2066,12 @@
 
     move-result-object v5
 
-    goto :goto_6
+    goto :goto_1
 
     .line 700
     .end local v5           #uri:Landroid/net/Uri;
-    :pswitch_53
-    if-nez p1, :cond_5
+    :pswitch_3
+    if-nez p1, :cond_0
 
     .line 703
     new-instance v6, Ljava/lang/StringBuilder;
@@ -2104,28 +2104,28 @@
 
     move-result-object v5
 
-    goto :goto_6
+    goto :goto_1
 
     .line 689
-    :catch_77
+    :catch_0
     move-exception v6
 
-    goto :goto_5
+    goto :goto_0
 
     .line 677
     nop
 
-    :pswitch_data_7a
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_7
-        :pswitch_5
-        :pswitch_41
-        :pswitch_53
+        :pswitch_1
+        :pswitch_0
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method static validateTnf(S[B[B[B)Ljava/lang/String;
-    .registers 8
+    .locals 4
     .parameter "tnf"
     .parameter "type"
     .parameter "id"
@@ -2135,7 +2135,7 @@
     const/4 v0, 0x0
 
     .line 865
-    packed-switch p0, :pswitch_data_2e
+    packed-switch p0, :pswitch_data_0
 
     .line 885
     const-string/jumbo v0, "unexpected tnf value: 0x%02x"
@@ -2156,66 +2156,66 @@
 
     move-result-object v0
 
-    :cond_15
-    :goto_15
-    :pswitch_15
+    :cond_0
+    :goto_0
+    :pswitch_0
     return-object v0
 
     .line 867
-    :pswitch_16
+    :pswitch_1
     array-length v1, p1
 
-    if-nez v1, :cond_1f
+    if-nez v1, :cond_1
 
     array-length v1, p2
 
-    if-nez v1, :cond_1f
+    if-nez v1, :cond_1
 
     array-length v1, p3
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_0
 
     .line 868
-    :cond_1f
+    :cond_1
     const-string/jumbo v0, "unexpected data in TNF_EMPTY record"
 
-    goto :goto_15
+    goto :goto_0
 
     .line 878
-    :pswitch_23
+    :pswitch_2
     array-length v1, p1
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_0
 
     .line 879
     const-string/jumbo v0, "unexpected type field in TNF_UNKNOWN or TNF_RESERVEd record"
 
-    goto :goto_15
+    goto :goto_0
 
     .line 883
-    :pswitch_2a
+    :pswitch_3
     const-string/jumbo v0, "unexpected TNF_UNCHANGED in first chunk or logical record"
 
-    goto :goto_15
+    goto :goto_0
 
     .line 865
-    :pswitch_data_2e
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_16
-        :pswitch_15
-        :pswitch_15
-        :pswitch_15
-        :pswitch_15
-        :pswitch_23
-        :pswitch_2a
-        :pswitch_23
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_2
+        :pswitch_3
+        :pswitch_2
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 934
@@ -2225,25 +2225,25 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
     .parameter "obj"
 
     .prologue
     const/4 v1, 0x0
 
     .line 988
-    if-ne p0, p1, :cond_5
+    if-ne p0, p1, :cond_1
 
     const/4 v1, 0x1
 
     .line 995
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 989
-    :cond_5
-    if-eqz p1, :cond_4
+    :cond_1
+    if-eqz p1, :cond_0
 
     .line 990
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -2254,7 +2254,7 @@
 
     move-result-object v3
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_0
 
     move-object v0, p1
 
@@ -2271,7 +2271,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_0
 
     .line 993
     iget-object v2, p0, Landroid/nfc/NdefRecord;->mPayload:[B
@@ -2282,14 +2282,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_0
 
     .line 994
     iget-short v2, p0, Landroid/nfc/NdefRecord;->mTnf:S
 
     iget-short v3, v0, Landroid/nfc/NdefRecord;->mTnf:S
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_0
 
     .line 995
     iget-object v1, p0, Landroid/nfc/NdefRecord;->mType:[B
@@ -2300,11 +2300,11 @@
 
     move-result v1
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method getByteLength()I
-    .registers 8
+    .locals 7
 
     .prologue
     const/4 v3, 0x1
@@ -2338,56 +2338,56 @@
 
     const/16 v6, 0x100
 
-    if-ge v5, v6, :cond_27
+    if-ge v5, v6, :cond_2
 
     move v2, v3
 
     .line 924
     .local v2, sr:Z
-    :goto_18
+    :goto_0
     iget-object v5, p0, Landroid/nfc/NdefRecord;->mId:[B
 
     array-length v5, v5
 
-    if-lez v5, :cond_29
+    if-lez v5, :cond_3
 
     move v0, v3
 
     .line 926
     .local v0, il:Z
-    :goto_1e
-    if-nez v2, :cond_22
+    :goto_1
+    if-nez v2, :cond_0
 
     add-int/lit8 v1, v1, 0x3
 
     .line 927
-    :cond_22
-    if-eqz v0, :cond_26
+    :cond_0
+    if-eqz v0, :cond_1
 
     add-int/lit8 v1, v1, 0x1
 
     .line 929
-    :cond_26
+    :cond_1
     return v1
 
     .end local v0           #il:Z
     .end local v2           #sr:Z
-    :cond_27
+    :cond_2
     move v2, v4
 
     .line 923
-    goto :goto_18
+    goto :goto_0
 
     .restart local v2       #sr:Z
-    :cond_29
+    :cond_3
     move v0, v4
 
     .line 924
-    goto :goto_1e
+    goto :goto_1
 .end method
 
 .method public getId()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 591
@@ -2403,7 +2403,7 @@
 .end method
 
 .method public getPayload()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 601
@@ -2419,7 +2419,7 @@
 .end method
 
 .method public getTnf()S
-    .registers 2
+    .locals 1
 
     .prologue
     .line 568
@@ -2429,7 +2429,7 @@
 .end method
 
 .method public getType()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 581
@@ -2445,7 +2445,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 5
+    .locals 4
 
     .prologue
     .line 973
@@ -2499,7 +2499,7 @@
 .end method
 
 .method public toByteArray()[B
-    .registers 4
+    .locals 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2528,23 +2528,23 @@
 .end method
 
 .method public toMimeType()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 639
     iget-short v1, p0, Landroid/nfc/NdefRecord;->mTnf:S
 
-    packed-switch v1, :pswitch_data_24
+    packed-switch v1, :pswitch_data_0
 
     .line 649
-    :cond_5
+    :cond_0
     const/4 v1, 0x0
 
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 641
-    :pswitch_7
+    :pswitch_0
     iget-object v1, p0, Landroid/nfc/NdefRecord;->mType:[B
 
     sget-object v2, Landroid/nfc/NdefRecord;->RTD_TEXT:[B
@@ -2553,15 +2553,15 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_0
 
     .line 642
     const-string/jumbo v1, "text/plain"
 
-    goto :goto_6
+    goto :goto_0
 
     .line 646
-    :pswitch_15
+    :pswitch_1
     new-instance v0, Ljava/lang/String;
 
     iget-object v1, p0, Landroid/nfc/NdefRecord;->mType:[B
@@ -2576,20 +2576,20 @@
 
     move-result-object v1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 639
     nop
 
-    :pswitch_data_24
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_7
-        :pswitch_15
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 1000
@@ -2623,7 +2623,7 @@
 
     array-length v1, v1
 
-    if-lez v1, :cond_2b
+    if-lez v1, :cond_0
 
     const-string v1, " type="
 
@@ -2640,12 +2640,12 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
     .line 1002
-    :cond_2b
+    :cond_0
     iget-object v1, p0, Landroid/nfc/NdefRecord;->mId:[B
 
     array-length v1, v1
 
-    if-lez v1, :cond_3f
+    if-lez v1, :cond_1
 
     const-string v1, " id="
 
@@ -2662,12 +2662,12 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
     .line 1003
-    :cond_3f
+    :cond_1
     iget-object v1, p0, Landroid/nfc/NdefRecord;->mPayload:[B
 
     array-length v1, v1
 
-    if-lez v1, :cond_53
+    if-lez v1, :cond_2
 
     const-string v1, " payload="
 
@@ -2684,7 +2684,7 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
     .line 1004
-    :cond_53
+    :cond_2
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -2693,7 +2693,7 @@
 .end method
 
 .method public toUri()Landroid/net/Uri;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 673
@@ -2707,7 +2707,7 @@
 .end method
 
 .method writeToByteBuffer(Ljava/nio/ByteBuffer;ZZ)V
-    .registers 11
+    .locals 7
     .parameter "buffer"
     .parameter "mb"
     .parameter "me"
@@ -2724,50 +2724,50 @@
 
     const/16 v6, 0x100
 
-    if-ge v5, v6, :cond_54
+    if-ge v5, v6, :cond_2
 
     move v2, v3
 
     .line 896
     .local v2, sr:Z
-    :goto_a
+    :goto_0
     iget-object v5, p0, Landroid/nfc/NdefRecord;->mId:[B
 
     array-length v5, v5
 
-    if-lez v5, :cond_56
+    if-lez v5, :cond_3
 
     move v1, v3
 
     .line 898
     .local v1, il:Z
-    :goto_10
-    if-eqz p2, :cond_58
+    :goto_1
+    if-eqz p2, :cond_4
 
     const/16 v3, -0x80
 
     move v5, v3
 
-    :goto_15
-    if-eqz p3, :cond_5a
+    :goto_2
+    if-eqz p3, :cond_5
 
     const/16 v3, 0x40
 
-    :goto_19
+    :goto_3
     or-int/2addr v5, v3
 
-    if-eqz v2, :cond_5c
+    if-eqz v2, :cond_6
 
     const/16 v3, 0x10
 
-    :goto_1e
+    :goto_4
     or-int/2addr v3, v5
 
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_0
 
     const/16 v4, 0x8
 
-    :cond_23
+    :cond_0
     or-int/2addr v3, v4
 
     iget-short v4, p0, Landroid/nfc/NdefRecord;->mTnf:S
@@ -2790,7 +2790,7 @@
     invoke-virtual {p1, v3}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
     .line 903
-    if-eqz v2, :cond_5e
+    if-eqz v2, :cond_7
 
     .line 904
     iget-object v3, p0, Landroid/nfc/NdefRecord;->mPayload:[B
@@ -2802,8 +2802,8 @@
     invoke-virtual {p1, v3}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
     .line 908
-    :goto_3b
-    if-eqz v1, :cond_44
+    :goto_5
+    if-eqz v1, :cond_1
 
     .line 909
     iget-object v3, p0, Landroid/nfc/NdefRecord;->mId:[B
@@ -2815,7 +2815,7 @@
     invoke-virtual {p1, v3}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
     .line 912
-    :cond_44
+    :cond_1
     iget-object v3, p0, Landroid/nfc/NdefRecord;->mType:[B
 
     invoke-virtual {p1, v3}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
@@ -2836,50 +2836,50 @@
     .end local v0           #flags:B
     .end local v1           #il:Z
     .end local v2           #sr:Z
-    :cond_54
+    :cond_2
     move v2, v4
 
     .line 895
-    goto :goto_a
+    goto :goto_0
 
     .restart local v2       #sr:Z
-    :cond_56
+    :cond_3
     move v1, v4
 
     .line 896
-    goto :goto_10
+    goto :goto_1
 
     .restart local v1       #il:Z
-    :cond_58
+    :cond_4
     move v5, v4
 
     .line 898
-    goto :goto_15
+    goto :goto_2
 
-    :cond_5a
+    :cond_5
     move v3, v4
 
-    goto :goto_19
+    goto :goto_3
 
-    :cond_5c
+    :cond_6
     move v3, v4
 
-    goto :goto_1e
+    goto :goto_4
 
     .line 906
     .restart local v0       #flags:B
-    :cond_5e
+    :cond_7
     iget-object v3, p0, Landroid/nfc/NdefRecord;->mPayload:[B
 
     array-length v3, v3
 
     invoke-virtual {p1, v3}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    goto :goto_3b
+    goto :goto_5
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

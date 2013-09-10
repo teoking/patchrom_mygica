@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
@@ -73,7 +73,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/server/search/SearchManagerService;)Landroid/content/Context;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -84,7 +84,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/server/search/SearchManagerService;)Landroid/server/search/Searchables;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -97,16 +97,16 @@
 .end method
 
 .method private declared-synchronized getSearchables()Landroid/server/search/Searchables;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 70
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/server/search/SearchManagerService;->mSearchables:Landroid/server/search/Searchables;
 
-    if-nez v0, :cond_26
+    if-nez v0, :cond_0
 
     .line 71
     const-string v0, "SearchManagerService"
@@ -143,17 +143,17 @@
     invoke-virtual {v0}, Landroid/server/search/Searchables;->buildSearchableList()V
 
     .line 76
-    :cond_26
+    :cond_0
     iget-object v0, p0, Landroid/server/search/SearchManagerService;->mSearchables:Landroid/server/search/Searchables;
-    :try_end_28
-    .catchall {:try_start_1 .. :try_end_28} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
     .line 70
-    :catchall_2a
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -164,7 +164,7 @@
 
 # virtual methods
 .method public getGlobalSearchActivities()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -189,7 +189,7 @@
 .end method
 
 .method public getGlobalSearchActivity()Landroid/content/ComponentName;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 177
@@ -205,12 +205,12 @@
 .end method
 
 .method public getSearchableInfo(Landroid/content/ComponentName;)Landroid/app/SearchableInfo;
-    .registers 4
+    .locals 2
     .parameter "launchActivity"
 
     .prologue
     .line 155
-    if-nez p1, :cond_b
+    if-nez p1, :cond_0
 
     .line 156
     const-string v0, "SearchManagerService"
@@ -223,10 +223,10 @@
     const/4 v0, 0x0
 
     .line 159
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     invoke-direct {p0}, Landroid/server/search/SearchManagerService;->getSearchables()Landroid/server/search/Searchables;
 
     move-result-object v0
@@ -235,11 +235,11 @@
 
     move-result-object v0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getSearchablesInGlobalSearch()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -264,7 +264,7 @@
 .end method
 
 .method public getWebSearchActivity()Landroid/content/ComponentName;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 184

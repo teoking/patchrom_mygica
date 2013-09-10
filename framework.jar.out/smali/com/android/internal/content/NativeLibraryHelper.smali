@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 29
@@ -21,7 +21,7 @@
 .end method
 
 .method public static copyNativeBinariesIfNeededLI(Ljava/io/File;Ljava/io/File;)I
-    .registers 6
+    .locals 4
     .parameter "apkFile"
     .parameter "sharedLibraryDir"
 
@@ -57,7 +57,7 @@
 .end method
 
 .method public static removeNativeBinariesFromDirLI(Ljava/io/File;)Z
-    .registers 7
+    .locals 6
     .parameter "nativeLibraryDir"
 
     .prologue
@@ -70,7 +70,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3c
+    if-eqz v3, :cond_1
 
     .line 86
     invoke-virtual {p0}, Ljava/io/File;->listFiles()[Ljava/io/File;
@@ -79,16 +79,16 @@
 
     .line 87
     .local v0, binaries:[Ljava/io/File;
-    if-eqz v0, :cond_3c
+    if-eqz v0, :cond_1
 
     .line 88
     const/4 v2, 0x0
 
     .local v2, nn:I
-    :goto_e
+    :goto_0
     array-length v3, v0
 
-    if-ge v2, v3, :cond_3c
+    if-ge v2, v3, :cond_1
 
     .line 93
     aget-object v3, v0, v2
@@ -97,7 +97,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_3a
+    if-nez v3, :cond_0
 
     .line 94
     const-string v3, "NativeHelper"
@@ -129,26 +129,26 @@
     invoke-static {v3, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 88
-    :goto_37
+    :goto_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 96
-    :cond_3a
+    :cond_0
     const/4 v1, 0x1
 
-    goto :goto_37
+    goto :goto_1
 
     .line 104
     .end local v0           #binaries:[Ljava/io/File;
     .end local v2           #nn:I
-    :cond_3c
+    :cond_1
     return v1
 .end method
 
 .method public static removeNativeBinariesLI(Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
     .parameter "nativeLibraryPath"
 
     .prologue
@@ -165,7 +165,7 @@
 .end method
 
 .method public static sumNativeBinariesLI(Ljava/io/File;)J
-    .registers 5
+    .locals 4
     .parameter "apkFile"
 
     .prologue

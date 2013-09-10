@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 69
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>(Landroid/accounts/IAccountManagerResponse;)V
-    .registers 2
+    .locals 0
     .parameter "response"
 
     .prologue
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "parcel"
 
     .prologue
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60
@@ -89,7 +89,7 @@
 .end method
 
 .method public onError(ILjava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "errorCode"
     .parameter "errorMessage"
 
@@ -99,22 +99,22 @@
     iget-object v0, p0, Landroid/accounts/AccountManagerResponse;->mResponse:Landroid/accounts/IAccountManagerResponse;
 
     invoke-interface {v0, p1, p2}, Landroid/accounts/IAccountManagerResponse;->onError(ILjava/lang/String;)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 56
-    :goto_5
+    :goto_0
     return-void
 
     .line 53
-    :catch_6
+    :catch_0
     move-exception v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public onResult(Landroid/os/Bundle;)V
-    .registers 3
+    .locals 1
     .parameter "result"
 
     .prologue
@@ -123,22 +123,22 @@
     iget-object v0, p0, Landroid/accounts/AccountManagerResponse;->mResponse:Landroid/accounts/IAccountManagerResponse;
 
     invoke-interface {v0, p1}, Landroid/accounts/IAccountManagerResponse;->onResult(Landroid/os/Bundle;)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 48
-    :goto_5
+    :goto_0
     return-void
 
     .line 45
-    :catch_6
+    :catch_0
     move-exception v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

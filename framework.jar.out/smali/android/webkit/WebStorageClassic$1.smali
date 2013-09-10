@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/WebStorageClassic;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,21 +35,21 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 7
+    .locals 5
     .parameter "msg"
 
     .prologue
     .line 67
     iget v4, p1, Landroid/os/Message;->what:I
 
-    packed-switch v4, :pswitch_data_52
+    packed-switch v4, :pswitch_data_0
 
     .line 87
-    :goto_5
+    :goto_0
     return-void
 
     .line 69
-    :pswitch_6
+    :pswitch_0
     iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v3, Ljava/util/Map;
@@ -78,13 +78,13 @@
     .local v1, callback:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/util/Map;>;"
     invoke-interface {v1, v2}, Landroid/webkit/ValueCallback;->onReceiveValue(Ljava/lang/Object;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 76
     .end local v1           #callback:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/util/Map;>;"
     .end local v2           #origins:Ljava/util/Map;
     .end local v3           #values:Ljava/util/Map;
-    :pswitch_1f
+    :pswitch_1
     iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v3, Ljava/util/Map;
@@ -111,12 +111,12 @@
 
     invoke-interface {v0, v4}, Landroid/webkit/ValueCallback;->onReceiveValue(Ljava/lang/Object;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 82
     .end local v0           #callback:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/lang/Long;>;"
     .end local v3           #values:Ljava/util/Map;
-    :pswitch_38
+    :pswitch_2
     iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v3, Ljava/util/Map;
@@ -143,15 +143,15 @@
 
     invoke-interface {v0, v4}, Landroid/webkit/ValueCallback;->onReceiveValue(Ljava/lang/Object;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 67
     nop
 
-    :pswitch_data_52
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_6
-        :pswitch_1f
-        :pswitch_38
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

@@ -73,7 +73,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/Editor;)V
-    .registers 4
+    .locals 2
     .parameter
 
     .prologue
@@ -113,7 +113,7 @@
 .end method
 
 .method static synthetic access$1200(Landroid/widget/Editor$SuggestionsPopupWindow;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -124,7 +124,7 @@
 .end method
 
 .method static synthetic access$1600(Landroid/widget/Editor$SuggestionsPopupWindow;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -135,7 +135,7 @@
 .end method
 
 .method static synthetic access$1700(Landroid/widget/Editor$SuggestionsPopupWindow;)[Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -146,7 +146,7 @@
 .end method
 
 .method static synthetic access$1800(Landroid/widget/Editor$SuggestionsPopupWindow;)Ljava/util/HashMap;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -157,12 +157,13 @@
 .end method
 
 .method private getSuggestionSpans()[Landroid/text/style/SuggestionSpan;
-    .registers 12
+    .locals 11
 
     .prologue
     .line 2324
     iget-object v9, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v9}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v9
@@ -175,6 +176,7 @@
     .local v4, pos:I
     iget-object v9, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v9}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v9
@@ -211,8 +213,8 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_26
-    if-ge v2, v3, :cond_40
+    :goto_0
+    if-ge v2, v3, :cond_0
 
     aget-object v7, v0, v2
 
@@ -243,13 +245,13 @@
     .line 2329
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_26
+    goto :goto_0
 
     .line 2337
     .end local v1           #end:I
     .end local v6           #start:I
     .end local v7           #suggestionSpan:Landroid/text/style/SuggestionSpan;
-    :cond_40
+    :cond_0
     iget-object v9, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->mSuggestionSpanComparator:Ljava/util/Comparator;
 
     invoke-static {v8, v9}, Ljava/util/Arrays;->sort([Ljava/lang/Object;Ljava/util/Comparator;)V
@@ -259,7 +261,7 @@
 .end method
 
 .method private highlightTextDifferences(Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;II)V
-    .registers 13
+    .locals 9
     .parameter "suggestionInfo"
     .parameter "unionStart"
     .parameter "unionEnd"
@@ -270,6 +272,7 @@
     .line 2520
     iget-object v4, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v4}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v4
@@ -359,7 +362,7 @@
 .end method
 
 .method private updateSuggestions()Z
-    .registers 36
+    .locals 35
 
     .prologue
     .line 2407
@@ -369,6 +372,7 @@
 
     move-object/from16 v30, v0
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static/range {v30 .. v30}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v30
@@ -393,16 +397,16 @@
 
     .line 2412
     .local v10, nbSpans:I
-    if-nez v10, :cond_1c
+    if-nez v10, :cond_0
 
     const/16 v30, 0x0
 
     .line 2515
-    :goto_1b
+    :goto_0
     return v30
 
     .line 2414
-    :cond_1c
+    :cond_0
     const/16 v30, 0x0
 
     move/from16 v0, v30
@@ -418,6 +422,7 @@
 
     move-object/from16 v30, v0
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static/range {v30 .. v30}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v30
@@ -447,10 +452,10 @@
     const/16 v17, 0x0
 
     .local v17, spanIndex:I
-    :goto_3d
+    :goto_1
     move/from16 v0, v17
 
-    if-ge v0, v10, :cond_130
+    if-ge v0, v10, :cond_7
 
     .line 2422
     aget-object v26, v27, v17
@@ -501,21 +506,21 @@
 
     and-int/lit8 v30, v30, 0x2
 
-    if-eqz v30, :cond_6d
+    if-eqz v30, :cond_1
 
     .line 2429
     move-object/from16 v8, v26
 
     .line 2433
-    :cond_6d
-    if-nez v17, :cond_73
+    :cond_1
+    if-nez v17, :cond_2
 
     invoke-virtual/range {v26 .. v26}, Landroid/text/style/SuggestionSpan;->getUnderlineColor()I
 
     move-result v29
 
     .line 2435
-    :cond_73
+    :cond_2
     invoke-virtual/range {v26 .. v26}, Landroid/text/style/SuggestionSpan;->getSuggestions()[Ljava/lang/String;
 
     move-result-object v28
@@ -531,10 +536,10 @@
     const/16 v23, 0x0
 
     .local v23, suggestionIndex:I
-    :goto_7c
+    :goto_2
     move/from16 v0, v23
 
-    if-ge v0, v11, :cond_124
+    if-ge v0, v11, :cond_4
 
     .line 2438
     aget-object v22, v28, v23
@@ -548,7 +553,7 @@
     const/4 v6, 0x0
 
     .local v6, i:I
-    :goto_85
+    :goto_3
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/Editor$SuggestionsPopupWindow;->mNumberOfSuggestions:I
@@ -557,7 +562,7 @@
 
     move/from16 v0, v30
 
-    if-ge v6, v0, :cond_cd
+    if-ge v6, v0, :cond_3
 
     .line 2442
     move-object/from16 v0, p0
@@ -586,7 +591,7 @@
 
     move-result v30
 
-    if-eqz v30, :cond_128
+    if-eqz v30, :cond_5
 
     .line 2443
     move-object/from16 v0, p0
@@ -621,11 +626,11 @@
     .local v13, otherSpanEnd:I
     move/from16 v0, v18
 
-    if-ne v0, v14, :cond_128
+    if-ne v0, v14, :cond_5
 
     move/from16 v0, v16
 
-    if-ne v0, v13, :cond_128
+    if-ne v0, v13, :cond_5
 
     .line 2447
     const/16 v25, 0x1
@@ -634,8 +639,8 @@
     .end local v13           #otherSpanEnd:I
     .end local v14           #otherSpanStart:I
     .end local v15           #otherSuggestionSpan:Landroid/text/style/SuggestionSpan;
-    :cond_cd
-    if-nez v25, :cond_12c
+    :cond_3
+    if-nez v25, :cond_6
 
     .line 2454
     move-object/from16 v0, p0
@@ -724,7 +729,7 @@
 
     move/from16 v1, v31
 
-    if-ne v0, v1, :cond_12c
+    if-ne v0, v1, :cond_6
 
     .line 2463
     move/from16 v17, v10
@@ -734,25 +739,25 @@
     .end local v22           #suggestion:Ljava/lang/String;
     .end local v24           #suggestionInfo:Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;
     .end local v25           #suggestionIsDuplicate:Z
-    :cond_124
+    :cond_4
     add-int/lit8 v17, v17, 0x1
 
-    goto/16 :goto_3d
+    goto/16 :goto_1
 
     .line 2441
     .restart local v6       #i:I
     .restart local v22       #suggestion:Ljava/lang/String;
     .restart local v25       #suggestionIsDuplicate:Z
-    :cond_128
+    :cond_5
     add-int/lit8 v6, v6, 0x1
 
-    goto/16 :goto_85
+    goto/16 :goto_3
 
     .line 2437
-    :cond_12c
+    :cond_6
     add-int/lit8 v23, v23, 0x1
 
-    goto/16 :goto_7c
+    goto/16 :goto_2
 
     .line 2470
     .end local v6           #i:I
@@ -764,11 +769,11 @@
     .end local v25           #suggestionIsDuplicate:Z
     .end local v26           #suggestionSpan:Landroid/text/style/SuggestionSpan;
     .end local v28           #suggestions:[Ljava/lang/String;
-    :cond_130
+    :cond_7
     const/4 v6, 0x0
 
     .restart local v6       #i:I
-    :goto_131
+    :goto_4
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/Editor$SuggestionsPopupWindow;->mNumberOfSuggestions:I
@@ -777,7 +782,7 @@
 
     move/from16 v0, v30
 
-    if-ge v6, v0, :cond_151
+    if-ge v6, v0, :cond_8
 
     .line 2471
     move-object/from16 v0, p0
@@ -801,11 +806,11 @@
     .line 2470
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_131
+    goto :goto_4
 
     .line 2475
-    :cond_151
-    if-eqz v8, :cond_1ca
+    :cond_8
+    if-eqz v8, :cond_9
 
     .line 2476
     move-object/from16 v0, v21
@@ -824,9 +829,9 @@
 
     .line 2478
     .local v7, misspelledEnd:I
-    if-ltz v9, :cond_1ca
+    if-ltz v9, :cond_9
 
-    if-le v7, v9, :cond_1ca
+    if-le v7, v9, :cond_9
 
     .line 2479
     move-object/from16 v0, p0
@@ -883,6 +888,7 @@
 
     move-object/from16 v33, v0
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static/range {v33 .. v33}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v33
@@ -939,7 +945,7 @@
     .end local v7           #misspelledEnd:I
     .end local v9           #misspelledStart:I
     .end local v24           #suggestionInfo:Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;
-    :cond_1ca
+    :cond_9
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/Editor$SuggestionsPopupWindow;->mSuggestionInfos:[Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;
@@ -998,6 +1004,7 @@
 
     move-object/from16 v33, v0
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static/range {v33 .. v33}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v33
@@ -1063,7 +1070,7 @@
 
     move-object/from16 v30, v0
 
-    if-nez v30, :cond_254
+    if-nez v30, :cond_a
 
     move-object/from16 v0, p0
 
@@ -1082,8 +1089,8 @@
     iput-object v0, v1, Landroid/widget/Editor;->mSuggestionRangeSpan:Landroid/text/style/SuggestionRangeSpan;
 
     .line 2502
-    :cond_254
-    if-nez v29, :cond_29d
+    :cond_a
+    if-nez v29, :cond_b
 
     .line 2504
     move-object/from16 v0, p0
@@ -1104,6 +1111,7 @@
 
     move-object/from16 v31, v0
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static/range {v31 .. v31}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v31
@@ -1117,7 +1125,7 @@
     invoke-virtual/range {v30 .. v31}, Landroid/text/style/SuggestionRangeSpan;->setBackgroundColor(I)V
 
     .line 2511
-    :goto_275
+    :goto_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
@@ -1156,10 +1164,10 @@
     .line 2515
     const/16 v30, 0x1
 
-    goto/16 :goto_1b
+    goto/16 :goto_0
 
     .line 2506
-    :cond_29d
+    :cond_b
     const v5, 0x3ecccccd
 
     .line 2507
@@ -1206,13 +1214,13 @@
 
     invoke-virtual/range {v30 .. v31}, Landroid/text/style/SuggestionRangeSpan;->setBackgroundColor(I)V
 
-    goto :goto_275
+    goto :goto_5
 .end method
 
 
 # virtual methods
 .method protected clipVertically(I)I
-    .registers 5
+    .locals 3
     .parameter "positionY"
 
     .prologue
@@ -1227,6 +1235,7 @@
     .local v1, height:I
     iget-object v2, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v2}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v2
@@ -1253,7 +1262,7 @@
 .end method
 
 .method protected createPopupWindow()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 2215
@@ -1261,6 +1270,7 @@
 
     iget-object v1, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v1}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -1301,12 +1311,13 @@
 .end method
 
 .method protected getTextOffset()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2386
     iget-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -1319,13 +1330,14 @@
 .end method
 
 .method protected getVerticalLocalPosition(I)I
-    .registers 3
+    .locals 1
     .parameter "line"
 
     .prologue
     .line 2391
     iget-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -1342,7 +1354,7 @@
 .end method
 
 .method public hide()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 2403
@@ -1353,7 +1365,7 @@
 .end method
 
 .method protected initContentView()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v4, 0x0
@@ -1363,6 +1375,7 @@
 
     iget-object v2, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v2}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v2
@@ -1403,12 +1416,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_27
+    :goto_0
     iget-object v2, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->mSuggestionInfos:[Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;
 
     array-length v2, v2
 
-    if-ge v0, v2, :cond_38
+    if-ge v0, v2, :cond_0
 
     .line 2233
     iget-object v2, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->mSuggestionInfos:[Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;
@@ -1422,15 +1435,15 @@
     .line 2232
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_27
+    goto :goto_0
 
     .line 2235
-    :cond_38
+    :cond_0
     return-void
 .end method
 
 .method public isShowingUp()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2238
@@ -1440,7 +1453,7 @@
 .end method
 
 .method protected measureContent()V
-    .registers 10
+    .locals 9
 
     .prologue
     const/high16 v8, -0x8000
@@ -1448,6 +1461,7 @@
     .line 2355
     iget-object v7, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v7}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v7
@@ -1489,10 +1503,10 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_1f
+    :goto_0
     iget v7, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->mNumberOfSuggestions:I
 
-    if-ge v2, v7, :cond_40
+    if-ge v2, v7, :cond_0
 
     .line 2364
     iget-object v7, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->mSuggestionsAdapter:Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;
@@ -1527,10 +1541,10 @@
     .line 2363
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 2371
-    :cond_40
+    :cond_0
     iget-object v7, p0, Landroid/widget/Editor$PinnedPopupWindow;->mContentView:Landroid/view/ViewGroup;
 
     const/high16 v8, 0x4000
@@ -1550,16 +1564,17 @@
 
     .line 2376
     .local v3, popupBackground:Landroid/graphics/drawable/Drawable;
-    if-eqz v3, :cond_80
+    if-eqz v3, :cond_2
 
     .line 2377
     iget-object v7, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTempRect:Landroid/graphics/Rect;
     invoke-static {v7}, Landroid/widget/Editor;->access$1900(Landroid/widget/Editor;)Landroid/graphics/Rect;
 
     move-result-object v7
 
-    if-nez v7, :cond_65
+    if-nez v7, :cond_1
 
     iget-object v7, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
@@ -1567,12 +1582,14 @@
 
     invoke-direct {v8}, Landroid/graphics/Rect;-><init>()V
 
+    #setter for: Landroid/widget/Editor;->mTempRect:Landroid/graphics/Rect;
     invoke-static {v7, v8}, Landroid/widget/Editor;->access$1902(Landroid/widget/Editor;Landroid/graphics/Rect;)Landroid/graphics/Rect;
 
     .line 2378
-    :cond_65
+    :cond_1
     iget-object v7, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTempRect:Landroid/graphics/Rect;
     invoke-static {v7}, Landroid/widget/Editor;->access$1900(Landroid/widget/Editor;)Landroid/graphics/Rect;
 
     move-result-object v7
@@ -1582,6 +1599,7 @@
     .line 2379
     iget-object v7, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTempRect:Landroid/graphics/Rect;
     invoke-static {v7}, Landroid/widget/Editor;->access$1900(Landroid/widget/Editor;)Landroid/graphics/Rect;
 
     move-result-object v7
@@ -1590,6 +1608,7 @@
 
     iget-object v8, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTempRect:Landroid/graphics/Rect;
     invoke-static {v8}, Landroid/widget/Editor;->access$1900(Landroid/widget/Editor;)Landroid/graphics/Rect;
 
     move-result-object v8
@@ -1601,7 +1620,7 @@
     add-int/2addr v6, v7
 
     .line 2381
-    :cond_80
+    :cond_2
     iget-object v7, p0, Landroid/widget/Editor$PinnedPopupWindow;->mPopupWindow:Landroid/widget/PopupWindow;
 
     invoke-virtual {v7, v6}, Landroid/widget/PopupWindow;->setWidth(I)V
@@ -1611,7 +1630,7 @@
 .end method
 
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 36
+    .locals 30
     .parameter
     .parameter "view"
     .parameter "position"
@@ -1635,6 +1654,7 @@
 
     move-object/from16 v25, v0
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static/range {v25 .. v25}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v25
@@ -1669,7 +1689,7 @@
 
     move/from16 v1, v26
 
-    if-ne v0, v1, :cond_85
+    if-ne v0, v1, :cond_3
 
     .line 2544
     move-object/from16 v0, p0
@@ -1712,9 +1732,9 @@
 
     .line 2546
     .local v12, spanUnionEnd:I
-    if-ltz v13, :cond_81
+    if-ltz v13, :cond_2
 
-    if-le v12, v13, :cond_81
+    if-le v12, v13, :cond_2
 
     .line 2548
     invoke-interface {v2}, Landroid/text/Editable;->length()I
@@ -1723,7 +1743,7 @@
 
     move/from16 v0, v25
 
-    if-ge v12, v0, :cond_72
+    if-ge v12, v0, :cond_1
 
     invoke-interface {v2, v12}, Landroid/text/Editable;->charAt(I)C
 
@@ -1733,9 +1753,9 @@
 
     move-result v25
 
-    if-eqz v25, :cond_72
+    if-eqz v25, :cond_1
 
-    if-eqz v13, :cond_70
+    if-eqz v13, :cond_0
 
     add-int/lit8 v25, v13, -0x1
 
@@ -1749,20 +1769,21 @@
 
     move-result v25
 
-    if-eqz v25, :cond_72
+    if-eqz v25, :cond_1
 
     .line 2552
-    :cond_70
+    :cond_0
     add-int/lit8 v12, v12, 0x1
 
     .line 2554
-    :cond_72
+    :cond_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
     move-object/from16 v25, v0
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static/range {v25 .. v25}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v25
@@ -1772,17 +1793,17 @@
     invoke-virtual {v0, v13, v12}, Landroid/widget/TextView;->deleteText_internal(II)V
 
     .line 2556
-    :cond_81
+    :cond_2
     invoke-virtual/range {p0 .. p0}, Landroid/widget/Editor$SuggestionsPopupWindow;->hide()V
 
     .line 2643
     .end local v12           #spanUnionEnd:I
     .end local v13           #spanUnionStart:I
-    :goto_84
+    :goto_0
     return-void
 
     .line 2560
-    :cond_85
+    :cond_3
     move-object/from16 v0, v16
 
     iget-object v0, v0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;->suggestionSpan:Landroid/text/style/SuggestionSpan;
@@ -1811,18 +1832,18 @@
 
     .line 2562
     .local v10, spanEnd:I
-    if-ltz v11, :cond_a1
+    if-ltz v11, :cond_4
 
-    if-gt v10, v11, :cond_a5
+    if-gt v10, v11, :cond_5
 
     .line 2564
-    :cond_a1
+    :cond_4
     invoke-virtual/range {p0 .. p0}, Landroid/widget/Editor$SuggestionsPopupWindow;->hide()V
 
-    goto :goto_84
+    goto :goto_0
 
     .line 2568
-    :cond_a5
+    :cond_5
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v25
@@ -1847,7 +1868,7 @@
 
     move/from16 v1, v26
 
-    if-ne v0, v1, :cond_12b
+    if-ne v0, v1, :cond_6
 
     .line 2571
     new-instance v5, Landroid/content/Intent;
@@ -1875,6 +1896,7 @@
 
     move-object/from16 v26, v0
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static/range {v26 .. v26}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v26
@@ -1913,6 +1935,7 @@
 
     move-object/from16 v25, v0
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static/range {v25 .. v25}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v25
@@ -1952,17 +1975,18 @@
 
     move/from16 v1, v26
 
+    #calls: Landroid/widget/Editor;->updateSpellCheckSpans(IIZ)V
     invoke-static {v0, v11, v10, v1}, Landroid/widget/Editor;->access$2000(Landroid/widget/Editor;IIZ)V
 
     .line 2642
     .end local v5           #intent:Landroid/content/Intent;
-    :goto_126
+    :goto_1
     invoke-virtual/range {p0 .. p0}, Landroid/widget/Editor$SuggestionsPopupWindow;->hide()V
 
-    goto/16 :goto_84
+    goto/16 :goto_0
 
     .line 2583
-    :cond_12b
+    :cond_6
     const-class v25, Landroid/text/style/SuggestionSpan;
 
     move-object/from16 v0, v25
@@ -2002,8 +2026,8 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_145
-    if-ge v3, v6, :cond_173
+    :goto_2
+    if-ge v3, v6, :cond_8
 
     .line 2590
     aget-object v17, v19, v3
@@ -2045,7 +2069,7 @@
     .local v18, suggestionSpanFlags:I
     and-int/lit8 v25, v18, 0x2
 
-    if-lez v25, :cond_170
+    if-lez v25, :cond_7
 
     .line 2598
     and-int/lit8 v18, v18, -0x3
@@ -2057,15 +2081,15 @@
     invoke-virtual/range {v17 .. v18}, Landroid/text/style/SuggestionSpan;->setFlags(I)V
 
     .line 2589
-    :cond_170
+    :cond_7
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_145
+    goto :goto_2
 
     .line 2604
     .end local v17           #suggestionSpan:Landroid/text/style/SuggestionSpan;
     .end local v18           #suggestionSpanFlags:I
-    :cond_173
+    :cond_8
     move-object/from16 v0, v16
 
     iget v0, v0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;->suggestionStart:I
@@ -2106,6 +2130,7 @@
 
     move-object/from16 v25, v0
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static/range {v25 .. v25}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v25
@@ -2129,7 +2154,7 @@
 
     move-result v25
 
-    if-nez v25, :cond_1c7
+    if-nez v25, :cond_9
 
     .line 2613
     invoke-static {}, Landroid/view/inputmethod/InputMethodManager;->peekInstance()Landroid/view/inputmethod/InputMethodManager;
@@ -2138,7 +2163,7 @@
 
     .line 2614
     .local v4, imm:Landroid/view/inputmethod/InputMethodManager;
-    if-eqz v4, :cond_1c7
+    if-eqz v4, :cond_9
 
     .line 2615
     move-object/from16 v0, v16
@@ -2161,7 +2186,7 @@
 
     .line 2621
     .end local v4           #imm:Landroid/view/inputmethod/InputMethodManager;
-    :cond_1c7
+    :cond_9
     move-object/from16 v0, v16
 
     iget-object v0, v0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;->suggestionSpan:Landroid/text/style/SuggestionSpan;
@@ -2195,21 +2220,21 @@
     .local v7, lengthDifference:I
     const/4 v3, 0x0
 
-    :goto_1e2
-    if-ge v3, v6, :cond_20a
+    :goto_3
+    if-ge v3, v6, :cond_b
 
     .line 2630
     aget v25, v22, v3
 
     move/from16 v0, v25
 
-    if-gt v0, v11, :cond_207
+    if-gt v0, v11, :cond_a
 
     aget v25, v20, v3
 
     move/from16 v0, v25
 
-    if-lt v0, v10, :cond_207
+    if-lt v0, v10, :cond_a
 
     .line 2632
     move-object/from16 v0, p0
@@ -2218,6 +2243,7 @@
 
     move-object/from16 v25, v0
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static/range {v25 .. v25}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v25
@@ -2235,13 +2261,13 @@
     invoke-virtual/range {v25 .. v29}, Landroid/widget/TextView;->setSpan_internal(Ljava/lang/Object;III)V
 
     .line 2626
-    :cond_207
+    :cond_a
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1e2
+    goto :goto_3
 
     .line 2638
-    :cond_20a
+    :cond_b
     add-int v8, v10, v7
 
     .line 2639
@@ -2252,6 +2278,7 @@
 
     move-object/from16 v25, v0
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static/range {v25 .. v25}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v25
@@ -2260,11 +2287,11 @@
 
     invoke-virtual {v0, v8, v8}, Landroid/widget/TextView;->setCursorPosition_internal(II)V
 
-    goto/16 :goto_126
+    goto/16 :goto_1
 .end method
 
 .method public onParentLostFocus()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2242
@@ -2277,12 +2304,13 @@
 .end method
 
 .method public show()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2343
     iget-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -2293,20 +2321,20 @@
 
     instance-of v0, v0, Landroid/text/Editable;
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_1
 
     .line 2351
-    :cond_e
-    :goto_e
+    :cond_0
+    :goto_0
     return-void
 
     .line 2345
-    :cond_f
+    :cond_1
     invoke-direct {p0}, Landroid/widget/Editor$SuggestionsPopupWindow;->updateSuggestions()Z
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 2346
     iget-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
@@ -2318,6 +2346,7 @@
     .line 2347
     iget-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -2334,5 +2363,5 @@
     .line 2349
     invoke-super {p0}, Landroid/widget/Editor$PinnedPopupWindow;->show()V
 
-    goto :goto_e
+    goto :goto_0
 .end method

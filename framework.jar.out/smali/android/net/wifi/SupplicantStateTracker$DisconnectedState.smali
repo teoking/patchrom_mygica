@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/wifi/SupplicantStateTracker;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,12 +35,13 @@
 
 # virtual methods
 .method public enter()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 218
     iget-object v2, p0, Landroid/net/wifi/SupplicantStateTracker$DisconnectedState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
+    #calls: Landroid/net/wifi/SupplicantStateTracker;->getCurrentMessage()Landroid/os/Message;
     invoke-static {v2}, Landroid/net/wifi/SupplicantStateTracker;->access$700(Landroid/net/wifi/SupplicantStateTracker;)Landroid/os/Message;
 
     move-result-object v0
@@ -55,13 +56,14 @@
     .local v1, stateChangeResult:Landroid/net/wifi/StateChangeResult;
     iget-object v2, p0, Landroid/net/wifi/SupplicantStateTracker$DisconnectedState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
+    #getter for: Landroid/net/wifi/SupplicantStateTracker;->mAuthenticationFailuresCount:I
     invoke-static {v2}, Landroid/net/wifi/SupplicantStateTracker;->access$000(Landroid/net/wifi/SupplicantStateTracker;)I
 
     move-result v2
 
     const/4 v3, 0x2
 
-    if-lt v2, v3, :cond_3a
+    if-lt v2, v3, :cond_0
 
     .line 222
     const-string v2, "SupplicantStateTracker"
@@ -93,6 +95,7 @@
 
     iget v3, v1, Landroid/net/wifi/StateChangeResult;->networkId:I
 
+    #calls: Landroid/net/wifi/SupplicantStateTracker;->handleNetworkConnectionFailure(I)V
     invoke-static {v2, v3}, Landroid/net/wifi/SupplicantStateTracker;->access$800(Landroid/net/wifi/SupplicantStateTracker;I)V
 
     .line 225
@@ -100,9 +103,10 @@
 
     const/4 v3, 0x0
 
+    #setter for: Landroid/net/wifi/SupplicantStateTracker;->mAuthenticationFailuresCount:I
     invoke-static {v2, v3}, Landroid/net/wifi/SupplicantStateTracker;->access$002(Landroid/net/wifi/SupplicantStateTracker;I)I
 
     .line 227
-    :cond_3a
+    :cond_0
     return-void
 .end method

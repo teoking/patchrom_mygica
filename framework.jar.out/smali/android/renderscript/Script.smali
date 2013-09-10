@@ -14,7 +14,7 @@
 
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
-    .registers 3
+    .locals 0
     .parameter "id"
     .parameter "rs"
 
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public bindAllocation(Landroid/renderscript/Allocation;I)V
-    .registers 6
+    .locals 3
     .parameter "va"
     .parameter "slot"
 
@@ -40,7 +40,7 @@
     invoke-virtual {v0}, Landroid/renderscript/RenderScript;->validate()V
 
     .line 88
-    if-eqz p1, :cond_19
+    if-eqz p1, :cond_0
 
     .line 89
     iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
@@ -60,11 +60,11 @@
     invoke-virtual {v0, v1, v2, p2}, Landroid/renderscript/RenderScript;->nScriptBindAllocation(III)V
 
     .line 93
-    :goto_18
+    :goto_0
     return-void
 
     .line 91
-    :cond_19
+    :cond_0
     iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
@@ -77,11 +77,11 @@
 
     invoke-virtual {v0, v1, v2, p2}, Landroid/renderscript/RenderScript;->nScriptBindAllocation(III)V
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method protected forEach(ILandroid/renderscript/Allocation;Landroid/renderscript/Allocation;Landroid/renderscript/FieldPacker;)V
-    .registers 11
+    .locals 6
     .parameter "slot"
     .parameter "ain"
     .parameter "aout"
@@ -89,9 +89,9 @@
 
     .prologue
     .line 55
-    if-nez p2, :cond_c
+    if-nez p2, :cond_0
 
-    if-nez p3, :cond_c
+    if-nez p3, :cond_0
 
     .line 56
     new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
@@ -103,12 +103,12 @@
     throw v0
 
     .line 59
-    :cond_c
+    :cond_0
     const/4 v3, 0x0
 
     .line 60
     .local v3, in_id:I
-    if-eqz p2, :cond_15
+    if-eqz p2, :cond_1
 
     .line 61
     iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
@@ -118,12 +118,12 @@
     move-result v3
 
     .line 63
-    :cond_15
+    :cond_1
     const/4 v4, 0x0
 
     .line 64
     .local v4, out_id:I
-    if-eqz p3, :cond_1e
+    if-eqz p3, :cond_2
 
     .line 65
     iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
@@ -133,12 +133,12 @@
     move-result v4
 
     .line 67
-    :cond_1e
+    :cond_2
     const/4 v5, 0x0
 
     .line 68
     .local v5, params:[B
-    if-eqz p4, :cond_25
+    if-eqz p4, :cond_3
 
     .line 69
     invoke-virtual {p4}, Landroid/renderscript/FieldPacker;->getData()[B
@@ -146,7 +146,7 @@
     move-result-object v5
 
     .line 71
-    :cond_25
+    :cond_3
     iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
@@ -164,7 +164,7 @@
 .end method
 
 .method protected invoke(I)V
-    .registers 4
+    .locals 2
     .parameter "slot"
 
     .prologue
@@ -184,13 +184,13 @@
 .end method
 
 .method protected invoke(ILandroid/renderscript/FieldPacker;)V
-    .registers 6
+    .locals 3
     .parameter "slot"
     .parameter "v"
 
     .prologue
     .line 39
-    if-eqz p2, :cond_12
+    if-eqz p2, :cond_0
 
     .line 40
     iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
@@ -208,11 +208,11 @@
     invoke-virtual {v0, v1, p1, v2}, Landroid/renderscript/RenderScript;->nScriptInvokeV(II[B)V
 
     .line 44
-    :goto_11
+    :goto_0
     return-void
 
     .line 42
-    :cond_12
+    :cond_0
     iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
@@ -223,11 +223,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/renderscript/RenderScript;->nScriptInvoke(II)V
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public setTimeZone(Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "timeZone"
 
     .prologue
@@ -237,7 +237,7 @@
     invoke-virtual {v1}, Landroid/renderscript/RenderScript;->validate()V
 
     .line 180
-    :try_start_5
+    :try_start_0
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v2, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
@@ -253,14 +253,14 @@
     move-result-object v3
 
     invoke-virtual {v1, v2, v3}, Landroid/renderscript/RenderScript;->nScriptSetTimeZone(I[B)V
-    :try_end_16
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_5 .. :try_end_16} :catch_17
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 184
     return-void
 
     .line 181
-    :catch_17
+    :catch_0
     move-exception v0
 
     .line 182
@@ -273,7 +273,7 @@
 .end method
 
 .method public setVar(ID)V
-    .registers 6
+    .locals 2
     .parameter "index"
     .parameter "v"
 
@@ -294,7 +294,7 @@
 .end method
 
 .method public setVar(IF)V
-    .registers 5
+    .locals 2
     .parameter "index"
     .parameter "v"
 
@@ -315,7 +315,7 @@
 .end method
 
 .method public setVar(II)V
-    .registers 5
+    .locals 2
     .parameter "index"
     .parameter "v"
 
@@ -336,7 +336,7 @@
 .end method
 
 .method public setVar(IJ)V
-    .registers 6
+    .locals 2
     .parameter "index"
     .parameter "v"
 
@@ -357,7 +357,7 @@
 .end method
 
 .method public setVar(ILandroid/renderscript/BaseObj;)V
-    .registers 6
+    .locals 3
     .parameter "index"
     .parameter "o"
 
@@ -371,29 +371,29 @@
 
     move-result v2
 
-    if-nez p2, :cond_f
+    if-nez p2, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_b
+    :goto_0
     invoke-virtual {v1, v2, p1, v0}, Landroid/renderscript/RenderScript;->nScriptSetVarObj(III)V
 
     .line 153
     return-void
 
     .line 152
-    :cond_f
+    :cond_0
     iget-object v0, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {p2, v0}, Landroid/renderscript/BaseObj;->getID(Landroid/renderscript/RenderScript;)I
 
     move-result v0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public setVar(ILandroid/renderscript/FieldPacker;)V
-    .registers 6
+    .locals 3
     .parameter "index"
     .parameter "v"
 
@@ -418,7 +418,7 @@
 .end method
 
 .method public setVar(ILandroid/renderscript/FieldPacker;Landroid/renderscript/Element;[I)V
-    .registers 11
+    .locals 6
     .parameter "index"
     .parameter "v"
     .parameter "e"
@@ -455,7 +455,7 @@
 .end method
 
 .method public setVar(IZ)V
-    .registers 6
+    .locals 3
     .parameter "index"
     .parameter "v"
 
@@ -469,19 +469,19 @@
 
     move-result v2
 
-    if-eqz p2, :cond_f
+    if-eqz p2, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     invoke-virtual {v1, v2, p1, v0}, Landroid/renderscript/RenderScript;->nScriptSetVarI(III)V
 
     .line 143
     return-void
 
     .line 142
-    :cond_f
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method

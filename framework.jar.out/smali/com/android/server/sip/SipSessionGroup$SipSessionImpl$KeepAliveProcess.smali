@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -61,7 +61,7 @@
 .end method
 
 .method private getRPortFromResponse(Ljavax/sip/message/Response;)I
-    .registers 4
+    .locals 2
     .parameter "response"
 
     .prologue
@@ -80,23 +80,23 @@
 
     .line 1635
     .local v0, viaHeader:Ljavax/sip/header/ViaHeader;
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     const/4 v1, -0x1
 
-    :goto_e
+    :goto_0
     return v1
 
-    :cond_f
+    :cond_0
     invoke-interface {v0}, Ljavax/sip/header/ViaHeader;->getRPort()I
 
     move-result v1
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method private parseOptionsResult(Ljava/util/EventObject;)Z
-    .registers 6
+    .locals 4
     .parameter "evt"
 
     .prologue
@@ -105,11 +105,12 @@
     .line 1611
     const-string v3, "OPTIONS"
 
+    #calls: Lcom/android/server/sip/SipSessionGroup;->expectResponse(Ljava/lang/String;Ljava/util/EventObject;)Z
     invoke-static {v3, p1}, Lcom/android/server/sip/SipSessionGroup;->access$2100(Ljava/lang/String;Ljava/util/EventObject;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_2
 
     move-object v0, p1
 
@@ -130,20 +131,20 @@
     .local v1, rPort:I
     const/4 v3, -0x1
 
-    if-eq v1, v3, :cond_25
+    if-eq v1, v3, :cond_1
 
     .line 1615
     iget v3, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->mRPort:I
 
-    if-nez v3, :cond_1d
+    if-nez v3, :cond_0
 
     iput v1, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->mRPort:I
 
     .line 1616
-    :cond_1d
+    :cond_0
     iget v3, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->mRPort:I
 
-    if-eq v3, v1, :cond_25
+    if-eq v3, v1, :cond_1
 
     .line 1617
     iput-boolean v2, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->mPortChanged:Z
@@ -154,18 +155,18 @@
     .line 1629
     .end local v0           #event:Ljavax/sip/ResponseEvent;
     .end local v1           #rPort:I
-    :cond_25
-    :goto_25
+    :cond_1
+    :goto_0
     return v2
 
-    :cond_26
+    :cond_2
     const/4 v2, 0x0
 
-    goto :goto_25
+    goto :goto_0
 .end method
 
 .method private sendKeepAlive()V
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/sip/SipException;,
@@ -182,7 +183,7 @@
     monitor-enter v1
 
     .line 1599
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->this$1:Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;
 
     const/16 v2, 0x9
@@ -196,6 +197,7 @@
 
     iget-object v2, v2, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;->this$0:Lcom/android/server/sip/SipSessionGroup;
 
+    #getter for: Lcom/android/server/sip/SipSessionGroup;->mSipHelper:Lcom/android/server/sip/SipHelper;
     invoke-static {v2}, Lcom/android/server/sip/SipSessionGroup;->access$300(Lcom/android/server/sip/SipSessionGroup;)Lcom/android/server/sip/SipHelper;
 
     move-result-object v2
@@ -204,6 +206,7 @@
 
     iget-object v3, v3, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;->this$0:Lcom/android/server/sip/SipSessionGroup;
 
+    #getter for: Lcom/android/server/sip/SipSessionGroup;->mLocalProfile:Landroid/net/sip/SipProfile;
     invoke-static {v3}, Lcom/android/server/sip/SipSessionGroup;->access$1400(Lcom/android/server/sip/SipSessionGroup;)Landroid/net/sip/SipProfile;
 
     move-result-object v3
@@ -244,6 +247,7 @@
 
     iget-object v2, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->this$1:Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;
 
+    #calls: Lcom/android/server/sip/SipSessionGroup;->addSipSession(Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;)V
     invoke-static {v0, v2}, Lcom/android/server/sip/SipSessionGroup;->access$500(Lcom/android/server/sip/SipSessionGroup;Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;)V
 
     .line 1605
@@ -251,6 +255,7 @@
 
     const/4 v2, 0x5
 
+    #calls: Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;->startSessionTimer(I)V
     invoke-static {v0, v2}, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;->access$3000(Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;I)V
 
     .line 1607
@@ -260,12 +265,12 @@
     return-void
 
     .line 1607
-    :catchall_4a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_4c
-    .catchall {:try_start_5 .. :try_end_4c} :catchall_4a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
@@ -273,7 +278,7 @@
 
 # virtual methods
 .method public onError(Landroid/net/sip/ISipSession;ILjava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter "session"
     .parameter "errorCode"
     .parameter "message"
@@ -292,7 +297,7 @@
 .end method
 
 .method process(Ljava/util/EventObject;)Z
-    .registers 4
+    .locals 2
     .parameter "evt"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -304,7 +309,7 @@
     .line 1530
     iget-boolean v0, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->mRunning:Z
 
-    if-eqz v0, :cond_3c
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->this$1:Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;
 
@@ -312,24 +317,24 @@
 
     const/16 v1, 0x9
 
-    if-ne v0, v1, :cond_3c
+    if-ne v0, v1, :cond_1
 
     .line 1531
     instance-of v0, p1, Ljavax/sip/ResponseEvent;
 
-    if-eqz v0, :cond_3c
+    if-eqz v0, :cond_1
 
     .line 1532
     invoke-direct {p0, p1}, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->parseOptionsResult(Ljava/util/EventObject;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3c
+    if-eqz v0, :cond_1
 
     .line 1533
     iget-boolean v0, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->mPortChanged:Z
 
-    if-eqz v0, :cond_2d
+    if-eqz v0, :cond_0
 
     .line 1534
     iget-object v0, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->this$1:Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;
@@ -342,7 +347,7 @@
     invoke-virtual {p0}, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->stop()V
 
     .line 1540
-    :goto_24
+    :goto_0
     iget-object v0, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->mCallback:Lcom/android/server/sip/SipSessionGroup$KeepAliveProcessCallback;
 
     iget-boolean v1, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->mPortChanged:Z
@@ -353,13 +358,14 @@
     const/4 v0, 0x1
 
     .line 1545
-    :goto_2c
+    :goto_1
     return v0
 
     .line 1537
-    :cond_2d
+    :cond_0
     iget-object v0, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->this$1:Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;
 
+    #calls: Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;->cancelSessionTimer()V
     invoke-static {v0}, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;->access$2800(Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;)V
 
     .line 1538
@@ -369,19 +375,20 @@
 
     iget-object v1, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->this$1:Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;
 
+    #calls: Lcom/android/server/sip/SipSessionGroup;->removeSipSession(Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;)V
     invoke-static {v0, v1}, Lcom/android/server/sip/SipSessionGroup;->access$1200(Lcom/android/server/sip/SipSessionGroup;Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;)V
 
-    goto :goto_24
+    goto :goto_0
 
     .line 1545
-    :cond_3c
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_2c
+    goto :goto_1
 .end method
 
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1560
@@ -392,66 +399,67 @@
     monitor-enter v2
 
     .line 1561
-    :try_start_5
+    :try_start_0
     iget-boolean v1, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->mRunning:Z
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_0
 
     monitor-exit v2
-    :try_end_a
-    .catchall {:try_start_5 .. :try_end_a} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1583
-    :goto_a
+    :goto_0
     return-void
 
     .line 1571
-    :cond_b
-    :try_start_b
+    :cond_0
+    :try_start_1
     invoke-direct {p0}, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->sendKeepAlive()V
-    :try_end_e
-    .catchall {:try_start_b .. :try_end_e} :catchall_10
-    .catch Ljava/lang/Throwable; {:try_start_b .. :try_end_e} :catch_13
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 1582
-    :cond_e
-    :goto_e
-    :try_start_e
+    :cond_1
+    :goto_1
+    :try_start_2
     monitor-exit v2
 
-    goto :goto_a
+    goto :goto_0
 
-    :catchall_10
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_12
-    .catchall {:try_start_e .. :try_end_12} :catchall_10
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v1
 
     .line 1572
-    :catch_13
+    :catch_0
     move-exception v0
 
     .line 1580
     .local v0, t:Ljava/lang/Throwable;
-    :try_start_14
+    :try_start_3
     iget-boolean v1, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->mRunning:Z
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->this$1:Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;
 
+    #calls: Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;->onError(Ljava/lang/Throwable;)V
     invoke-static {v1, v0}, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;->access$100(Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;Ljava/lang/Throwable;)V
-    :try_end_1d
-    .catchall {:try_start_14 .. :try_end_1d} :catchall_10
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto :goto_e
+    goto :goto_1
 .end method
 
 .method start(ILcom/android/server/sip/SipSessionGroup$KeepAliveProcessCallback;)V
-    .registers 5
+    .locals 2
     .parameter "interval"
     .parameter "callback"
 
@@ -459,14 +467,14 @@
     .line 1514
     iget-boolean v0, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->mRunning:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
     .line 1526
-    :goto_4
+    :goto_0
     return-void
 
     .line 1515
-    :cond_5
+    :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->mRunning:Z
@@ -486,6 +494,7 @@
 
     iget-object v0, v0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;->this$0:Lcom/android/server/sip/SipSessionGroup;
 
+    #getter for: Lcom/android/server/sip/SipSessionGroup;->mWakeupTimer:Lcom/android/server/sip/SipWakeupTimer;
     invoke-static {v0}, Lcom/android/server/sip/SipSessionGroup;->access$2700(Lcom/android/server/sip/SipSessionGroup;)Lcom/android/server/sip/SipWakeupTimer;
 
     move-result-object v0
@@ -497,11 +506,11 @@
     .line 1525
     invoke-virtual {p0}, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->run()V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method stop()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1586
@@ -514,7 +523,7 @@
     .line 1591
     const/4 v0, 0x0
 
-    :try_start_6
+    :try_start_0
     iput-boolean v0, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->mRunning:Z
 
     .line 1592
@@ -522,6 +531,7 @@
 
     iget-object v0, v0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;->this$0:Lcom/android/server/sip/SipSessionGroup;
 
+    #getter for: Lcom/android/server/sip/SipSessionGroup;->mWakeupTimer:Lcom/android/server/sip/SipWakeupTimer;
     invoke-static {v0}, Lcom/android/server/sip/SipSessionGroup;->access$2700(Lcom/android/server/sip/SipSessionGroup;)Lcom/android/server/sip/SipWakeupTimer;
 
     move-result-object v0
@@ -531,6 +541,7 @@
     .line 1593
     iget-object v0, p0, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl$KeepAliveProcess;->this$1:Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;
 
+    #calls: Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;->reset()V
     invoke-static {v0}, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;->access$2900(Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;)V
 
     .line 1594
@@ -540,12 +551,12 @@
     return-void
 
     .line 1594
-    :catchall_1a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1c
-    .catchall {:try_start_6 .. :try_end_1c} :catchall_1a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/StackView;Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 6
+    .locals 2
     .parameter
     .parameter "c"
     .parameter "attrs"
@@ -93,7 +93,7 @@
 .end method
 
 .method constructor <init>(Landroid/widget/StackView;Landroid/view/View;)V
-    .registers 5
+    .locals 2
     .parameter
     .parameter "view"
 
@@ -156,7 +156,7 @@
 
 # virtual methods
 .method getInvalidateRect()Landroid/graphics/Rect;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1322
@@ -166,7 +166,7 @@
 .end method
 
 .method invalidateGlobalRegion(Landroid/view/View;Landroid/graphics/Rect;)V
-    .registers 11
+    .locals 8
     .parameter "v"
     .parameter "r"
 
@@ -204,7 +204,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_26
+    if-eqz v2, :cond_0
 
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
@@ -212,15 +212,15 @@
 
     instance-of v2, v2, Landroid/view/View;
 
-    if-nez v2, :cond_27
+    if-nez v2, :cond_1
 
     .line 1319
-    :cond_26
-    :goto_26
+    :cond_0
+    :goto_0
     return-void
 
     .line 1301
-    :cond_27
+    :cond_1
     const/4 v0, 0x1
 
     .line 1302
@@ -230,12 +230,12 @@
     invoke-virtual {v2, v5, v5, v5, v5}, Landroid/graphics/Rect;->set(IIII)V
 
     .line 1304
-    :goto_2d
+    :goto_1
     invoke-virtual {v1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v2
 
-    if-eqz v2, :cond_98
+    if-eqz v2, :cond_3
 
     invoke-virtual {v1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
@@ -243,7 +243,7 @@
 
     instance-of v2, v2, Landroid/view/View;
 
-    if-eqz v2, :cond_98
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Landroid/widget/StackView$LayoutParams;->parentRect:Landroid/graphics/Rect;
 
@@ -253,10 +253,10 @@
 
     move-result v2
 
-    if-nez v2, :cond_98
+    if-nez v2, :cond_3
 
     .line 1305
-    if-nez v0, :cond_5e
+    if-nez v0, :cond_2
 
     .line 1306
     iget-object v2, p0, Landroid/widget/StackView$LayoutParams;->globalInvalidateRect:Landroid/graphics/Rect;
@@ -284,7 +284,7 @@
     invoke-virtual {v2, v3, v4}, Landroid/graphics/Rect;->offset(II)V
 
     .line 1309
-    :cond_5e
+    :cond_2
     const/4 v0, 0x0
 
     .line 1310
@@ -348,10 +348,10 @@
 
     invoke-virtual {v1, v2, v3, v4, v5}, Landroid/view/View;->invalidate(IIII)V
 
-    goto :goto_2d
+    goto :goto_1
 
     .line 1317
-    :cond_98
+    :cond_3
     iget-object v2, p0, Landroid/widget/StackView$LayoutParams;->globalInvalidateRect:Landroid/graphics/Rect;
 
     iget v2, v2, Landroid/graphics/Rect;->left:I
@@ -370,11 +370,11 @@
 
     invoke-virtual {v1, v2, v3, v4, v5}, Landroid/view/View;->invalidate(IIII)V
 
-    goto/16 :goto_26
+    goto/16 :goto_0
 .end method
 
 .method resetInvalidateRect()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -389,7 +389,7 @@
 .end method
 
 .method public setHorizontalOffset(I)V
-    .registers 3
+    .locals 1
     .parameter "newHorizontalOffset"
 
     .prologue
@@ -403,7 +403,7 @@
 .end method
 
 .method public setOffsets(II)V
-    .registers 18
+    .locals 15
     .parameter "newHorizontalOffset"
     .parameter "newVerticalOffset"
 
@@ -433,7 +433,7 @@
     .line 1344
     iget-object v9, p0, Landroid/widget/StackView$LayoutParams;->mView:Landroid/view/View;
 
-    if-eqz v9, :cond_bb
+    if-eqz v9, :cond_0
 
     .line 1345
     iget-object v9, p0, Landroid/widget/StackView$LayoutParams;->mView:Landroid/view/View;
@@ -641,12 +641,12 @@
     .end local v5           #top:I
     .end local v7           #xoffset:F
     .end local v8           #yoffset:F
-    :cond_bb
+    :cond_0
     return-void
 .end method
 
 .method public setVerticalOffset(I)V
-    .registers 3
+    .locals 1
     .parameter "newVerticalOffset"
 
     .prologue

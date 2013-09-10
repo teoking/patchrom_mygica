@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/TextureView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,12 +38,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 214
     iget-object v0, p0, Landroid/view/TextureView$1;->this$0:Landroid/view/TextureView;
 
+    #calls: Landroid/view/TextureView;->destroySurface()V
     invoke-static {v0}, Landroid/view/TextureView;->access$000(Landroid/view/TextureView;)V
 
     .line 215

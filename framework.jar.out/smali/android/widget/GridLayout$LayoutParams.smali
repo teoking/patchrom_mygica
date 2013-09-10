@@ -59,7 +59,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 1820
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1901
@@ -101,7 +101,7 @@
 .end method
 
 .method private constructor <init>(IIIIIILandroid/widget/GridLayout$Spec;Landroid/widget/GridLayout$Spec;)V
-    .registers 10
+    .locals 1
     .parameter "width"
     .parameter "height"
     .parameter "left"
@@ -139,7 +139,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -168,7 +168,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "params"
 
     .prologue
@@ -190,7 +190,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "params"
 
     .prologue
@@ -212,7 +212,7 @@
 .end method
 
 .method public constructor <init>(Landroid/widget/GridLayout$LayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "that"
 
     .prologue
@@ -244,7 +244,7 @@
 .end method
 
 .method public constructor <init>(Landroid/widget/GridLayout$Spec;Landroid/widget/GridLayout$Spec;)V
-    .registers 12
+    .locals 9
     .parameter "rowSpec"
     .parameter "columnSpec"
 
@@ -275,7 +275,7 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 11
+    .locals 8
     .parameter "context"
     .parameter "attrs"
 
@@ -293,7 +293,7 @@
 
     const/4 v7, 0x0
 
-    :try_start_8
+    :try_start_0
     invoke-virtual {v0, v6, v7}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v3
@@ -364,8 +364,8 @@
     move-result-object v6
 
     iput-object v6, p0, Landroid/widget/GridLayout$LayoutParams;->rowSpec:Landroid/widget/GridLayout$Spec;
-    :try_end_3e
-    .catchall {:try_start_8 .. :try_end_3e} :catchall_42
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1982
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
@@ -379,7 +379,7 @@
     .end local v3           #gravity:I
     .end local v4           #row:I
     .end local v5           #rowSpan:I
-    :catchall_42
+    :catchall_0
     move-exception v6
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
@@ -388,7 +388,7 @@
 .end method
 
 .method private reInitSuper(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "attrs"
 
@@ -406,7 +406,7 @@
 
     const/high16 v3, -0x8000
 
-    :try_start_9
+    :try_start_0
     invoke-virtual {v0, v2, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v1
@@ -447,8 +447,8 @@
     move-result v2
 
     iput v2, p0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
-    :try_end_29
-    .catchall {:try_start_9 .. :try_end_29} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1965
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
@@ -458,7 +458,7 @@
 
     .line 1965
     .end local v1           #margin:I
-    :catchall_2d
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
@@ -469,7 +469,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "o"
 
     .prologue
@@ -478,16 +478,16 @@
     const/4 v2, 0x0
 
     .line 2015
-    if-ne p0, p1, :cond_5
+    if-ne p0, p1, :cond_1
 
     .line 2023
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 2016
-    :cond_5
-    if-eqz p1, :cond_11
+    :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -497,14 +497,14 @@
 
     move-result-object v4
 
-    if-eq v3, v4, :cond_13
+    if-eq v3, v4, :cond_3
 
-    :cond_11
+    :cond_2
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_13
+    :cond_3
     move-object v0, p1
 
     .line 2018
@@ -520,14 +520,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_22
+    if-nez v3, :cond_4
 
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 
     .line 2021
-    :cond_22
+    :cond_4
     iget-object v3, p0, Landroid/widget/GridLayout$LayoutParams;->rowSpec:Landroid/widget/GridLayout$Spec;
 
     iget-object v4, v0, Landroid/widget/GridLayout$LayoutParams;->rowSpec:Landroid/widget/GridLayout$Spec;
@@ -536,15 +536,15 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_0
 
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 2028
@@ -571,7 +571,7 @@
 .end method
 
 .method protected setBaseAttributes(Landroid/content/res/TypedArray;II)V
-    .registers 6
+    .locals 2
     .parameter "attributes"
     .parameter "widthAttr"
     .parameter "heightAttr"
@@ -598,7 +598,7 @@
 .end method
 
 .method final setColumnSpecSpan(Landroid/widget/GridLayout$Interval;)V
-    .registers 3
+    .locals 1
     .parameter "span"
 
     .prologue
@@ -616,7 +616,7 @@
 .end method
 
 .method public setGravity(I)V
-    .registers 4
+    .locals 2
     .parameter "gravity"
 
     .prologue
@@ -655,7 +655,7 @@
 .end method
 
 .method final setRowSpecSpan(Landroid/widget/GridLayout$Interval;)V
-    .registers 3
+    .locals 1
     .parameter "span"
 
     .prologue

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(IFF)V
-    .registers 4
+    .locals 0
     .parameter "nameConstant"
     .parameter "fromValue"
     .parameter "deltaValue"

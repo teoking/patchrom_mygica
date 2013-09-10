@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/TabHost;Ljava/lang/CharSequence;Landroid/widget/TabHost$TabContentFactory;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "tag"
     .parameter "factory"
@@ -53,13 +53,13 @@
 
 # virtual methods
 .method public getContentView()Landroid/view/View;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 662
     iget-object v0, p0, Landroid/widget/TabHost$FactoryContentStrategy;->mTabContent:Landroid/view/View;
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 663
     iget-object v0, p0, Landroid/widget/TabHost$FactoryContentStrategy;->mFactory:Landroid/widget/TabHost$TabContentFactory;
@@ -77,7 +77,7 @@
     iput-object v0, p0, Landroid/widget/TabHost$FactoryContentStrategy;->mTabContent:Landroid/view/View;
 
     .line 665
-    :cond_12
+    :cond_0
     iget-object v0, p0, Landroid/widget/TabHost$FactoryContentStrategy;->mTabContent:Landroid/view/View;
 
     const/4 v1, 0x0
@@ -91,7 +91,7 @@
 .end method
 
 .method public tabClosed()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 670

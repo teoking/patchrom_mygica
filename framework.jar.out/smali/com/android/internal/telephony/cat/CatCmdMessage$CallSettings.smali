@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/cat/CatCmdMessage;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue

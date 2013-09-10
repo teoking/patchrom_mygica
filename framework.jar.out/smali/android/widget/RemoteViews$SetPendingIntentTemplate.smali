@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViews;ILandroid/app/PendingIntent;)V
-    .registers 5
+    .locals 1
     .parameter
     .parameter "id"
     .parameter "pendingIntentTemplate"
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "parcel"
 
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
-    .registers 10
+    .locals 6
     .parameter "root"
     .parameter "rootParent"
     .parameter "handler"
@@ -100,17 +100,17 @@
 
     .line 345
     .local v2, target:Landroid/view/View;
-    if-nez v2, :cond_9
+    if-nez v2, :cond_0
 
     .line 400
-    :goto_8
+    :goto_0
     return-void
 
     .line 348
-    :cond_9
+    :cond_0
     instance-of v3, v2, Landroid/widget/AdapterView;
 
-    if-eqz v3, :cond_1e
+    if-eqz v3, :cond_1
 
     move-object v0, v2
 
@@ -132,12 +132,12 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/AdapterView;->setTag(Ljava/lang/Object;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 396
     .end local v0           #av:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     .end local v1           #listener:Landroid/widget/AdapterView$OnItemClickListener;
-    :cond_1e
+    :cond_1
     const-string v3, "RemoteViews"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -168,11 +168,11 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 

@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 391
@@ -32,7 +32,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 389
@@ -42,7 +42,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/app/LoadedApk$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -53,21 +53,21 @@
 .end method
 
 .method private warn(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "methodName"
 
     .prologue
     .line 394
     sget-boolean v0, Landroid/app/LoadedApk$WarningContextClassLoader;->warned:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
     .line 405
-    :goto_4
+    :goto_0
     return-void
 
     .line 397
-    :cond_5
+    :cond_0
     const/4 v0, 0x1
 
     sput-boolean v0, Landroid/app/LoadedApk$WarningContextClassLoader;->warned:Z
@@ -142,13 +142,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public clearAssertionStatus()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 443
@@ -168,7 +168,7 @@
 .end method
 
 .method public getResource(Ljava/lang/String;)Ljava/net/URL;
-    .registers 3
+    .locals 1
     .parameter "resName"
 
     .prologue
@@ -190,7 +190,7 @@
 .end method
 
 .method public getResourceAsStream(Ljava/lang/String;)Ljava/io/InputStream;
-    .registers 3
+    .locals 1
     .parameter "resName"
 
     .prologue
@@ -212,7 +212,7 @@
 .end method
 
 .method public getResources(Ljava/lang/String;)Ljava/util/Enumeration;
-    .registers 3
+    .locals 1
     .parameter "resName"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -251,7 +251,7 @@
 .end method
 
 .method public loadClass(Ljava/lang/String;)Ljava/lang/Class;
-    .registers 3
+    .locals 1
     .parameter "className"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -288,7 +288,7 @@
 .end method
 
 .method public setClassAssertionStatus(Ljava/lang/String;Z)V
-    .registers 4
+    .locals 1
     .parameter "cname"
     .parameter "enable"
 
@@ -310,7 +310,7 @@
 .end method
 
 .method public setDefaultAssertionStatus(Z)V
-    .registers 3
+    .locals 1
     .parameter "enable"
 
     .prologue
@@ -331,7 +331,7 @@
 .end method
 
 .method public setPackageAssertionStatus(Ljava/lang/String;Z)V
-    .registers 4
+    .locals 1
     .parameter "pname"
     .parameter "enable"
 

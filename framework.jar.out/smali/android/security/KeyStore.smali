@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 52
@@ -59,7 +59,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 57
@@ -75,7 +75,7 @@
 .end method
 
 .method private contains([B)Z
-    .registers 6
+    .locals 4
     .parameter "key"
 
     .prologue
@@ -95,19 +95,19 @@
     .line 102
     iget v2, p0, Landroid/security/KeyStore;->mError:I
 
-    if-ne v2, v0, :cond_10
+    if-ne v2, v0, :cond_0
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_0
     move v0, v1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method private delKey([B)Z
-    .registers 6
+    .locals 4
     .parameter "key"
 
     .prologue
@@ -127,19 +127,19 @@
     .line 188
     iget v2, p0, Landroid/security/KeyStore;->mError:I
 
-    if-ne v2, v0, :cond_10
+    if-ne v2, v0, :cond_0
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_0
     move v0, v1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method private delete([B)Z
-    .registers 6
+    .locals 4
     .parameter "key"
 
     .prologue
@@ -159,19 +159,19 @@
     .line 93
     iget v2, p0, Landroid/security/KeyStore;->mError:I
 
-    if-ne v2, v0, :cond_10
+    if-ne v2, v0, :cond_0
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_0
     move v0, v1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method private varargs execute(I[[B)Ljava/util/ArrayList;
-    .registers 16
+    .locals 13
     .parameter "code"
     .parameter "parameters"
     .annotation system Ldalvik/annotation/Signature;
@@ -198,47 +198,47 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_6
-    if-ge v2, v5, :cond_17
+    :goto_0
+    if-ge v2, v5, :cond_2
 
     aget-object v7, v0, v2
 
     .line 239
     .local v7, parameter:[B
-    if-eqz v7, :cond_12
+    if-eqz v7, :cond_0
 
     array-length v11, v7
 
     const v12, 0xffff
 
-    if-le v11, v12, :cond_14
+    if-le v11, v12, :cond_1
 
     .line 240
-    :cond_12
+    :cond_0
     const/4 v10, 0x0
 
     .line 292
     .end local v7           #parameter:[B
-    :goto_13
+    :goto_1
     return-object v10
 
     .line 238
     .restart local v7       #parameter:[B
-    :cond_14
+    :cond_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 244
     .end local v7           #parameter:[B
-    :cond_17
+    :cond_2
     new-instance v8, Landroid/net/LocalSocket;
 
     invoke-direct {v8}, Landroid/net/LocalSocket;-><init>()V
 
     .line 246
     .local v8, socket:Landroid/net/LocalSocket;
-    :try_start_1c
+    :try_start_0
     sget-object v11, Landroid/security/KeyStore;->sAddress:Landroid/net/LocalSocketAddress;
 
     invoke-virtual {v8, v11}, Landroid/net/LocalSocket;->connect(Landroid/net/LocalSocketAddress;)V
@@ -259,8 +259,8 @@
 
     const/4 v2, 0x0
 
-    :goto_2b
-    if-ge v2, v5, :cond_3f
+    :goto_2
+    if-ge v2, v5, :cond_3
 
     aget-object v7, v0, v2
 
@@ -283,11 +283,11 @@
     .line 250
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2b
+    goto :goto_2
 
     .line 255
     .end local v7           #parameter:[B
-    :cond_3f
+    :cond_3
     invoke-virtual {v6}, Ljava/io/OutputStream;->flush()V
 
     .line 256
@@ -306,47 +306,47 @@
 
     const/4 v11, 0x1
 
-    if-eq p1, v11, :cond_5c
+    if-eq p1, v11, :cond_5
 
     .line 260
     const/4 v11, -0x1
 
-    if-eq p1, v11, :cond_55
+    if-eq p1, v11, :cond_4
 
     .line 261
     iput p1, p0, Landroid/security/KeyStore;->mError:I
-    :try_end_55
-    .catchall {:try_start_1c .. :try_end_55} :catchall_9f
-    .catch Ljava/io/IOException; {:try_start_1c .. :try_end_55} :catch_98
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 263
-    :cond_55
+    :cond_4
     const/4 v10, 0x0
 
     .line 289
-    :try_start_56
+    :try_start_1
     invoke-virtual {v8}, Landroid/net/LocalSocket;->close()V
-    :try_end_59
-    .catch Ljava/io/IOException; {:try_start_56 .. :try_end_59} :catch_5a
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_13
+    goto :goto_1
 
     .line 290
-    :catch_5a
+    :catch_0
     move-exception v11
 
-    goto :goto_13
+    goto :goto_1
 
     .line 266
-    :cond_5c
-    :try_start_5c
+    :cond_5
+    :try_start_2
     new-instance v10, Ljava/util/ArrayList;
 
     invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V
 
     .line 269
     .local v10, values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<[B>;"
-    :goto_61
+    :goto_3
     invoke-virtual {v3}, Ljava/io/InputStream;->read()I
 
     move-result v1
@@ -354,69 +354,69 @@
     .local v1, i:I
     const/4 v11, -0x1
 
-    if-ne v1, v11, :cond_6f
+    if-ne v1, v11, :cond_6
 
     .line 283
     const/4 v11, 0x1
 
     iput v11, p0, Landroid/security/KeyStore;->mError:I
-    :try_end_6b
-    .catchall {:try_start_5c .. :try_end_6b} :catchall_9f
-    .catch Ljava/io/IOException; {:try_start_5c .. :try_end_6b} :catch_98
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
     .line 289
-    :try_start_6b
+    :try_start_3
     invoke-virtual {v8}, Landroid/net/LocalSocket;->close()V
-    :try_end_6e
-    .catch Ljava/io/IOException; {:try_start_6b .. :try_end_6e} :catch_5a
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
-    goto :goto_13
+    goto :goto_1
 
     .line 272
-    :cond_6f
-    :try_start_6f
+    :cond_6
+    :try_start_4
     invoke-virtual {v3}, Ljava/io/InputStream;->read()I
-    :try_end_72
-    .catchall {:try_start_6f .. :try_end_72} :catchall_9f
-    .catch Ljava/io/IOException; {:try_start_6f .. :try_end_72} :catch_98
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
 
     move-result v4
 
     .local v4, j:I
     const/4 v11, -0x1
 
-    if-ne v4, v11, :cond_7b
+    if-ne v4, v11, :cond_7
 
     .line 273
     const/4 v10, 0x0
 
     .line 289
     .end local v10           #values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<[B>;"
-    :try_start_77
+    :try_start_5
     invoke-virtual {v8}, Landroid/net/LocalSocket;->close()V
-    :try_end_7a
-    .catch Ljava/io/IOException; {:try_start_77 .. :try_end_7a} :catch_5a
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_0
 
-    goto :goto_13
+    goto :goto_1
 
     .line 275
     .restart local v10       #values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<[B>;"
-    :cond_7b
+    :cond_7
     shl-int/lit8 v11, v1, 0x8
 
     or-int/2addr v11, v4
 
-    :try_start_7e
+    :try_start_6
     new-array v9, v11, [B
 
     .line 276
     .local v9, value:[B
     const/4 v1, 0x0
 
-    :goto_81
+    :goto_4
     array-length v11, v9
 
-    if-ge v1, v11, :cond_94
+    if-ge v1, v11, :cond_9
 
     .line 277
     array-length v11, v9
@@ -424,44 +424,44 @@
     sub-int/2addr v11, v1
 
     invoke-virtual {v3, v9, v1, v11}, Ljava/io/InputStream;->read([BII)I
-    :try_end_89
-    .catchall {:try_start_7e .. :try_end_89} :catchall_9f
-    .catch Ljava/io/IOException; {:try_start_7e .. :try_end_89} :catch_98
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_1
 
     move-result v4
 
     const/4 v11, -0x1
 
-    if-ne v4, v11, :cond_92
+    if-ne v4, v11, :cond_8
 
     .line 278
     const/4 v10, 0x0
 
     .line 289
     .end local v10           #values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<[B>;"
-    :try_start_8e
+    :try_start_7
     invoke-virtual {v8}, Landroid/net/LocalSocket;->close()V
-    :try_end_91
-    .catch Ljava/io/IOException; {:try_start_8e .. :try_end_91} :catch_5a
+    :try_end_7
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_0
 
-    goto :goto_13
+    goto :goto_1
 
     .line 276
     .restart local v10       #values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<[B>;"
-    :cond_92
+    :cond_8
     add-int/2addr v1, v4
 
-    goto :goto_81
+    goto :goto_4
 
     .line 281
-    :cond_94
-    :try_start_94
+    :cond_9
+    :try_start_8
     invoke-virtual {v10, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_97
-    .catchall {:try_start_94 .. :try_end_97} :catchall_9f
-    .catch Ljava/io/IOException; {:try_start_94 .. :try_end_97} :catch_98
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_1
 
-    goto :goto_61
+    goto :goto_3
 
     .line 285
     .end local v1           #i:I
@@ -470,49 +470,49 @@
     .end local v6           #out:Ljava/io/OutputStream;
     .end local v9           #value:[B
     .end local v10           #values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<[B>;"
-    :catch_98
+    :catch_1
     move-exception v11
 
     .line 289
-    :try_start_99
+    :try_start_9
     invoke-virtual {v8}, Landroid/net/LocalSocket;->close()V
-    :try_end_9c
-    .catch Ljava/io/IOException; {:try_start_99 .. :try_end_9c} :catch_a4
+    :try_end_9
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_2
 
     .line 292
-    :goto_9c
+    :goto_5
     const/4 v10, 0x0
 
-    goto/16 :goto_13
+    goto/16 :goto_1
 
     .line 288
-    :catchall_9f
+    :catchall_0
     move-exception v11
 
     .line 289
-    :try_start_a0
+    :try_start_a
     invoke-virtual {v8}, Landroid/net/LocalSocket;->close()V
-    :try_end_a3
-    .catch Ljava/io/IOException; {:try_start_a0 .. :try_end_a3} :catch_a6
+    :try_end_a
+    .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_3
 
     .line 288
-    :goto_a3
+    :goto_6
     throw v11
 
     .line 290
-    :catch_a4
+    :catch_2
     move-exception v11
 
-    goto :goto_9c
+    goto :goto_5
 
-    :catch_a6
+    :catch_3
     move-exception v12
 
-    goto :goto_a3
+    goto :goto_6
 .end method
 
 .method private generate([B)Z
-    .registers 6
+    .locals 4
     .parameter "key"
 
     .prologue
@@ -532,19 +532,19 @@
     .line 161
     iget v2, p0, Landroid/security/KeyStore;->mError:I
 
-    if-ne v2, v0, :cond_10
+    if-ne v2, v0, :cond_0
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_0
     move v0, v1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method private get([B)[B
-    .registers 6
+    .locals 4
     .parameter "key"
 
     .prologue
@@ -565,32 +565,32 @@
 
     .line 75
     .local v0, values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<[B>;"
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_16
+    if-eqz v1, :cond_1
 
-    :cond_14
+    :cond_0
     const/4 v1, 0x0
 
-    :goto_15
+    :goto_0
     return-object v1
 
-    :cond_16
+    :cond_1
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, [B
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public static getInstance()Landroid/security/KeyStore;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 60
@@ -602,14 +602,14 @@
 .end method
 
 .method private static getKeyBytes(Ljava/lang/String;)[B
-    .registers 6
+    .locals 5
     .parameter "string"
 
     .prologue
     .line 301
     const/4 v3, 0x0
 
-    :try_start_1
+    :try_start_0
     invoke-static {p0, v3}, Ljava/nio/charset/ModifiedUtf8;->countBytes(Ljava/lang/String;Z)J
 
     move-result-wide v3
@@ -625,8 +625,8 @@
     const/4 v3, 0x0
 
     invoke-static {v1, v3, p0}, Ljava/nio/charset/ModifiedUtf8;->encode([BILjava/lang/String;)V
-    :try_end_c
-    .catch Ljava/io/UTFDataFormatException; {:try_start_1 .. :try_end_c} :catch_d
+    :try_end_0
+    .catch Ljava/io/UTFDataFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 304
     return-object v1
@@ -634,7 +634,7 @@
     .line 305
     .end local v1           #result:[B
     .end local v2           #utfCount:I
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 306
@@ -647,7 +647,7 @@
 .end method
 
 .method private static getPasswordBytes(Ljava/lang/String;)[B
-    .registers 2
+    .locals 1
     .parameter "password"
 
     .prologue
@@ -662,7 +662,7 @@
 .end method
 
 .method private getPubkey([B)[B
-    .registers 6
+    .locals 4
     .parameter "key"
 
     .prologue
@@ -683,32 +683,32 @@
 
     .line 179
     .local v0, values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<[B>;"
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_16
+    if-eqz v1, :cond_1
 
-    :cond_14
+    :cond_0
     const/4 v1, 0x0
 
-    :goto_15
+    :goto_0
     return-object v1
 
-    :cond_16
+    :cond_1
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, [B
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method private static getUidBytes(I)[B
-    .registers 3
+    .locals 2
     .parameter "uid"
 
     .prologue
@@ -727,7 +727,7 @@
 .end method
 
 .method private grant([B[B)Z
-    .registers 7
+    .locals 4
     .parameter "key"
     .parameter "uid"
 
@@ -752,19 +752,19 @@
     .line 215
     iget v2, p0, Landroid/security/KeyStore;->mError:I
 
-    if-ne v2, v0, :cond_13
+    if-ne v2, v0, :cond_0
 
-    :goto_12
+    :goto_0
     return v0
 
-    :cond_13
+    :cond_0
     move v0, v1
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method private importKey([B[B)Z
-    .registers 7
+    .locals 4
     .parameter "keyName"
     .parameter "key"
 
@@ -789,19 +789,19 @@
     .line 170
     iget v2, p0, Landroid/security/KeyStore;->mError:I
 
-    if-ne v2, v0, :cond_13
+    if-ne v2, v0, :cond_0
 
-    :goto_12
+    :goto_0
     return v0
 
-    :cond_13
+    :cond_0
     move v0, v1
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method private password([B)Z
-    .registers 6
+    .locals 4
     .parameter "password"
 
     .prologue
@@ -821,19 +821,19 @@
     .line 133
     iget v2, p0, Landroid/security/KeyStore;->mError:I
 
-    if-ne v2, v0, :cond_10
+    if-ne v2, v0, :cond_0
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_0
     move v0, v1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method private put([B[B)Z
-    .registers 7
+    .locals 4
     .parameter "key"
     .parameter "value"
 
@@ -858,19 +858,19 @@
     .line 84
     iget v2, p0, Landroid/security/KeyStore;->mError:I
 
-    if-ne v2, v0, :cond_13
+    if-ne v2, v0, :cond_0
 
-    :goto_12
+    :goto_0
     return v0
 
-    :cond_13
+    :cond_0
     move v0, v1
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method private sign([B[B)[B
-    .registers 8
+    .locals 5
     .parameter "keyName"
     .parameter "data"
 
@@ -896,32 +896,32 @@
 
     .line 197
     .local v0, values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<[B>;"
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_1
 
-    :cond_17
+    :cond_0
     const/4 v1, 0x0
 
-    :goto_18
+    :goto_0
     return-object v1
 
-    :cond_19
+    :cond_1
     invoke-virtual {v0, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, [B
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method private static toKeyString([B)Ljava/lang/String;
-    .registers 5
+    .locals 4
     .parameter "bytes"
 
     .prologue
@@ -936,15 +936,15 @@
     array-length v3, p0
 
     invoke-static {p0, v1, v2, v3}, Ljava/nio/charset/ModifiedUtf8;->decode([B[CII)Ljava/lang/String;
-    :try_end_8
-    .catch Ljava/io/UTFDataFormatException; {:try_start_0 .. :try_end_8} :catch_a
+    :try_end_0
+    .catch Ljava/io/UTFDataFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     return-object v1
 
     .line 313
-    :catch_a
+    :catch_0
     move-exception v0
 
     .line 314
@@ -957,7 +957,7 @@
 .end method
 
 .method private ungrant([B[B)Z
-    .registers 7
+    .locals 4
     .parameter "key"
     .parameter "uid"
 
@@ -982,19 +982,19 @@
     .line 224
     iget v2, p0, Landroid/security/KeyStore;->mError:I
 
-    if-ne v2, v0, :cond_13
+    if-ne v2, v0, :cond_0
 
-    :goto_12
+    :goto_0
     return v0
 
-    :cond_13
+    :cond_0
     move v0, v1
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method private unlock([B)Z
-    .registers 6
+    .locals 4
     .parameter "password"
 
     .prologue
@@ -1014,19 +1014,19 @@
     .line 147
     iget v2, p0, Landroid/security/KeyStore;->mError:I
 
-    if-ne v2, v0, :cond_10
+    if-ne v2, v0, :cond_0
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_0
     move v0, v1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method private verify([B[B[B)Z
-    .registers 9
+    .locals 5
     .parameter "keyName"
     .parameter "data"
     .parameter "signature"
@@ -1056,21 +1056,21 @@
     .line 206
     iget v2, p0, Landroid/security/KeyStore;->mError:I
 
-    if-ne v2, v0, :cond_16
+    if-ne v2, v0, :cond_0
 
-    :goto_15
+    :goto_0
     return v0
 
-    :cond_16
+    :cond_0
     move v0, v1
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public contains(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -1087,7 +1087,7 @@
 .end method
 
 .method public delKey(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -1104,7 +1104,7 @@
 .end method
 
 .method public delete(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -1121,7 +1121,7 @@
 .end method
 
 .method public generate(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -1138,7 +1138,7 @@
 .end method
 
 .method public get(Ljava/lang/String;)[B
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -1155,7 +1155,7 @@
 .end method
 
 .method public getLastError()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 232
@@ -1165,7 +1165,7 @@
 .end method
 
 .method public getPubkey(Ljava/lang/String;)[B
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -1182,7 +1182,7 @@
 .end method
 
 .method public grant(Ljava/lang/String;I)Z
-    .registers 5
+    .locals 2
     .parameter "key"
     .parameter "uid"
 
@@ -1204,7 +1204,7 @@
 .end method
 
 .method public importKey(Ljava/lang/String;[B)Z
-    .registers 4
+    .locals 1
     .parameter "keyName"
     .parameter "key"
 
@@ -1222,7 +1222,7 @@
 .end method
 
 .method public isEmpty()Z
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v0, 0x0
@@ -1239,16 +1239,16 @@
 
     const/4 v2, 0x7
 
-    if-ne v1, v2, :cond_e
+    if-ne v1, v2, :cond_0
 
     const/4 v0, 0x1
 
-    :cond_e
+    :cond_0
     return v0
 .end method
 
 .method public lock()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v0, 0x1
@@ -1265,19 +1265,19 @@
     .line 142
     iget v2, p0, Landroid/security/KeyStore;->mError:I
 
-    if-ne v2, v0, :cond_e
+    if-ne v2, v0, :cond_0
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     move v0, v1
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public password(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "password"
 
     .prologue
@@ -1294,7 +1294,7 @@
 .end method
 
 .method public put(Ljava/lang/String;[B)Z
-    .registers 4
+    .locals 1
     .parameter "key"
     .parameter "value"
 
@@ -1312,7 +1312,7 @@
 .end method
 
 .method public reset()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v0, 0x1
@@ -1329,19 +1329,19 @@
     .line 128
     iget v2, p0, Landroid/security/KeyStore;->mError:I
 
-    if-ne v2, v0, :cond_e
+    if-ne v2, v0, :cond_0
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     move v0, v1
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public saw(Ljava/lang/String;)[Ljava/lang/String;
-    .registers 6
+    .locals 4
     .parameter "prefix"
 
     .prologue
@@ -1356,17 +1356,17 @@
 
     .line 116
     .local v2, values:[[B
-    if-nez v2, :cond_c
+    if-nez v2, :cond_1
 
     .line 117
     const/4 v1, 0x0
 
     .line 123
-    :cond_b
+    :cond_0
     return-object v1
 
     .line 119
-    :cond_c
+    :cond_1
     array-length v3, v2
 
     new-array v1, v3, [Ljava/lang/String;
@@ -1376,10 +1376,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_10
+    :goto_0
     array-length v3, v2
 
-    if-ge v0, v3, :cond_b
+    if-ge v0, v3, :cond_0
 
     .line 121
     aget-object v3, v2, v0
@@ -1393,11 +1393,11 @@
     .line 120
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public saw([B)[[B
-    .registers 6
+    .locals 4
     .parameter "prefix"
 
     .prologue
@@ -1418,16 +1418,16 @@
 
     .line 111
     .local v0, values:Ljava/util/ArrayList;,"Ljava/util/ArrayList<[B>;"
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     const/4 v1, 0x0
 
     check-cast v1, [[B
 
-    :goto_11
+    :goto_0
     return-object v1
 
-    :cond_12
+    :cond_0
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v1
@@ -1440,11 +1440,11 @@
 
     check-cast v1, [[B
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public sign(Ljava/lang/String;[B)[B
-    .registers 4
+    .locals 1
     .parameter "key"
     .parameter "data"
 
@@ -1462,7 +1462,7 @@
 .end method
 
 .method public state()Landroid/security/KeyStore$State;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 64
@@ -1477,7 +1477,7 @@
     .line 65
     iget v0, p0, Landroid/security/KeyStore;->mError:I
 
-    packed-switch v0, :pswitch_data_1e
+    packed-switch v0, :pswitch_data_0
 
     .line 69
     new-instance v0, Ljava/lang/AssertionError;
@@ -1489,36 +1489,36 @@
     throw v0
 
     .line 66
-    :pswitch_15
+    :pswitch_0
     sget-object v0, Landroid/security/KeyStore$State;->UNLOCKED:Landroid/security/KeyStore$State;
 
     .line 68
-    :goto_17
+    :goto_0
     return-object v0
 
     .line 67
-    :pswitch_18
+    :pswitch_1
     sget-object v0, Landroid/security/KeyStore$State;->LOCKED:Landroid/security/KeyStore$State;
 
-    goto :goto_17
+    goto :goto_0
 
     .line 68
-    :pswitch_1b
+    :pswitch_2
     sget-object v0, Landroid/security/KeyStore$State;->UNINITIALIZED:Landroid/security/KeyStore$State;
 
-    goto :goto_17
+    goto :goto_0
 
     .line 65
-    :pswitch_data_1e
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_15
-        :pswitch_18
-        :pswitch_1b
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public ungrant(Ljava/lang/String;I)Z
-    .registers 5
+    .locals 2
     .parameter "key"
     .parameter "uid"
 
@@ -1540,7 +1540,7 @@
 .end method
 
 .method public unlock(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "password"
 
     .prologue
@@ -1557,7 +1557,7 @@
 .end method
 
 .method public verify(Ljava/lang/String;[B[B)Z
-    .registers 5
+    .locals 1
     .parameter "key"
     .parameter "data"
     .parameter "signature"

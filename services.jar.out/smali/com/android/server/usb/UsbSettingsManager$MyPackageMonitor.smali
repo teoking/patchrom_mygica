@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/usb/UsbSettingsManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/usb/UsbSettingsManager;Lcom/android/server/usb/UsbSettingsManager$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public onPackageAdded(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
     .parameter "packageName"
     .parameter "uid"
 
@@ -55,6 +55,7 @@
     .line 361
     iget-object v0, p0, Lcom/android/server/usb/UsbSettingsManager$MyPackageMonitor;->this$0:Lcom/android/server/usb/UsbSettingsManager;
 
+    #calls: Lcom/android/server/usb/UsbSettingsManager;->handlePackageUpdate(Ljava/lang/String;)V
     invoke-static {v0, p1}, Lcom/android/server/usb/UsbSettingsManager;->access$000(Lcom/android/server/usb/UsbSettingsManager;Ljava/lang/String;)V
 
     .line 362
@@ -62,7 +63,7 @@
 .end method
 
 .method public onPackageChanged(Ljava/lang/String;I[Ljava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter "packageName"
     .parameter "uid"
     .parameter "components"
@@ -71,6 +72,7 @@
     .line 365
     iget-object v0, p0, Lcom/android/server/usb/UsbSettingsManager$MyPackageMonitor;->this$0:Lcom/android/server/usb/UsbSettingsManager;
 
+    #calls: Lcom/android/server/usb/UsbSettingsManager;->handlePackageUpdate(Ljava/lang/String;)V
     invoke-static {v0, p1}, Lcom/android/server/usb/UsbSettingsManager;->access$000(Lcom/android/server/usb/UsbSettingsManager;Ljava/lang/String;)V
 
     .line 366
@@ -78,7 +80,7 @@
 .end method
 
 .method public onPackageRemoved(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
     .parameter "packageName"
     .parameter "uid"
 

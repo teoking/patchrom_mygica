@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/DropBoxManagerService;Landroid/os/Handler;Landroid/content/Context;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter
@@ -41,13 +41,14 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .registers 5
+    .locals 3
     .parameter "selfChange"
 
     .prologue
     .line 152
     iget-object v0, p0, Lcom/android/server/DropBoxManagerService$2;->this$0:Lcom/android/server/DropBoxManagerService;
 
+    #getter for: Lcom/android/server/DropBoxManagerService;->mReceiver:Landroid/content/BroadcastReceiver;
     invoke-static {v0}, Lcom/android/server/DropBoxManagerService;->access$400(Lcom/android/server/DropBoxManagerService;)Landroid/content/BroadcastReceiver;
 
     move-result-object v1

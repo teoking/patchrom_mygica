@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/MediaRouter$Static;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public dispatchAudioRoutesChanged(Landroid/media/AudioRoutesInfo;)V
-    .registers 4
+    .locals 2
     .parameter "newRoutes"
 
     .prologue

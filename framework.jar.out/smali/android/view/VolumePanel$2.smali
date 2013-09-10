@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/VolumePanel;Landroid/content/Context;I)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter "x1"
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .registers 4
+    .locals 2
     .parameter "event"
 
     .prologue
@@ -46,7 +46,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -54,22 +54,23 @@
 
     const/4 v1, 0x4
 
-    if-ne v0, v1, :cond_14
+    if-ne v0, v1, :cond_0
 
     .line 243
     iget-object v0, p0, Landroid/view/VolumePanel$2;->this$0:Landroid/view/VolumePanel;
 
+    #calls: Landroid/view/VolumePanel;->forceTimeout()V
     invoke-static {v0}, Landroid/view/VolumePanel;->access$100(Landroid/view/VolumePanel;)V
 
     .line 244
     const/4 v0, 0x1
 
     .line 246
-    :goto_13
+    :goto_0
     return v0
 
-    :cond_14
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method

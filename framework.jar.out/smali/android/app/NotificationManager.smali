@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 70
@@ -34,7 +34,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "handler"
 
@@ -50,25 +50,25 @@
 .end method
 
 .method public static getService()Landroid/app/INotificationManager;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 78
     sget-object v1, Landroid/app/NotificationManager;->sService:Landroid/app/INotificationManager;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_0
 
     .line 79
     sget-object v1, Landroid/app/NotificationManager;->sService:Landroid/app/INotificationManager;
 
     .line 83
     .local v0, b:Landroid/os/IBinder;
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 81
     .end local v0           #b:Landroid/os/IBinder;
-    :cond_7
+    :cond_0
     const-string/jumbo v1, "notification"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -86,13 +86,13 @@
     .line 83
     sget-object v1, Landroid/app/NotificationManager;->sService:Landroid/app/INotificationManager;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public cancel(I)V
-    .registers 3
+    .locals 1
     .parameter "id"
 
     .prologue
@@ -106,7 +106,7 @@
 .end method
 
 .method public cancel(Ljava/lang/String;I)V
-    .registers 8
+    .locals 5
     .parameter "tag"
     .parameter "id"
 
@@ -128,7 +128,7 @@
     .local v0, pkg:Ljava/lang/String;
     sget-boolean v2, Landroid/app/NotificationManager;->localLOGV:Z
 
-    if-eqz v2, :cond_30
+    if-eqz v2, :cond_0
 
     sget-object v2, Landroid/app/NotificationManager;->TAG:Ljava/lang/String;
 
@@ -163,25 +163,25 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 153
-    :cond_30
-    :try_start_30
+    :cond_0
+    :try_start_0
     invoke-interface {v1, v0, p1, p2}, Landroid/app/INotificationManager;->cancelNotificationWithTag(Ljava/lang/String;Ljava/lang/String;I)V
-    :try_end_33
-    .catch Landroid/os/RemoteException; {:try_start_30 .. :try_end_33} :catch_34
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 156
-    :goto_33
+    :goto_0
     return-void
 
     .line 154
-    :catch_34
+    :catch_0
     move-exception v2
 
-    goto :goto_33
+    goto :goto_0
 .end method
 
 .method public cancelAll()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 164
@@ -201,7 +201,7 @@
     .local v0, pkg:Ljava/lang/String;
     sget-boolean v2, Landroid/app/NotificationManager;->localLOGV:Z
 
-    if-eqz v2, :cond_26
+    if-eqz v2, :cond_0
 
     sget-object v2, Landroid/app/NotificationManager;->TAG:Ljava/lang/String;
 
@@ -226,25 +226,25 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 168
-    :cond_26
-    :try_start_26
+    :cond_0
+    :try_start_0
     invoke-interface {v1, v0}, Landroid/app/INotificationManager;->cancelAllNotifications(Ljava/lang/String;)V
-    :try_end_29
-    .catch Landroid/os/RemoteException; {:try_start_26 .. :try_end_29} :catch_2a
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 171
-    :goto_29
+    :goto_0
     return-void
 
     .line 169
-    :catch_2a
+    :catch_0
     move-exception v2
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method public notify(ILandroid/app/Notification;)V
-    .registers 4
+    .locals 1
     .parameter "id"
     .parameter "notification"
 
@@ -259,7 +259,7 @@
 .end method
 
 .method public notify(Ljava/lang/String;ILandroid/app/Notification;)V
-    .registers 10
+    .locals 6
     .parameter "tag"
     .parameter "id"
     .parameter "notification"
@@ -288,7 +288,7 @@
     .local v1, pkg:Ljava/lang/String;
     sget-boolean v2, Landroid/app/NotificationManager;->localLOGV:Z
 
-    if-eqz v2, :cond_3d
+    if-eqz v2, :cond_0
 
     sget-object v2, Landroid/app/NotificationManager;->TAG:Ljava/lang/String;
 
@@ -332,7 +332,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3d
+    :cond_0
     move-object v2, p1
 
     move v3, p2
@@ -340,7 +340,7 @@
     move-object v4, p3
 
     .line 124
-    :try_start_40
+    :try_start_0
     invoke-interface/range {v0 .. v5}, Landroid/app/INotificationManager;->enqueueNotificationWithTag(Ljava/lang/String;Ljava/lang/String;ILandroid/app/Notification;[I)V
 
     .line 125
@@ -348,7 +348,7 @@
 
     aget v2, v5, v2
 
-    if-eq p2, v2, :cond_6e
+    if-eq p2, v2, :cond_1
 
     .line 126
     sget-object v2, Landroid/app/NotificationManager;->TAG:Ljava/lang/String;
@@ -386,17 +386,17 @@
     move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_6e
-    .catch Landroid/os/RemoteException; {:try_start_40 .. :try_end_6e} :catch_6f
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 130
-    :cond_6e
-    :goto_6e
+    :cond_1
+    :goto_0
     return-void
 
     .line 128
-    :catch_6f
+    :catch_0
     move-exception v2
 
-    goto :goto_6e
+    goto :goto_0
 .end method

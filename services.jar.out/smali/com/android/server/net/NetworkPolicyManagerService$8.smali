@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/net/NetworkPolicyManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 21
+    .locals 18
     .parameter "context"
     .parameter "intent"
 
@@ -57,14 +57,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_11
+    if-nez v3, :cond_0
 
     .line 567
-    :goto_10
+    :goto_0
     return-void
 
     .line 542
-    :cond_11
+    :cond_0
     const-string v3, "wifiInfo"
 
     move-object/from16 v0, p2
@@ -101,6 +101,7 @@
 
     iget-object v3, v0, Lcom/android/server/net/NetworkPolicyManagerService$8;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
+    #getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
     invoke-static {v3}, Lcom/android/server/net/NetworkPolicyManagerService;->access$100(Lcom/android/server/net/NetworkPolicyManagerService;)Ljava/lang/Object;
 
     move-result-object v17
@@ -108,11 +109,12 @@
     monitor-enter v17
 
     .line 548
-    :try_start_34
+    :try_start_0
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/net/NetworkPolicyManagerService$8;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
+    #getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Ljava/util/HashMap;
     invoke-static {v3}, Lcom/android/server/net/NetworkPolicyManagerService;->access$900(Lcom/android/server/net/NetworkPolicyManagerService;)Ljava/util/HashMap;
 
     move-result-object v3
@@ -125,9 +127,9 @@
 
     .line 549
     .local v1, policy:Landroid/net/NetworkPolicy;
-    if-nez v1, :cond_63
+    if-nez v1, :cond_2
 
-    if-eqz v13, :cond_63
+    if-eqz v13, :cond_2
 
     .line 552
     new-instance v1, Landroid/net/NetworkPolicy;
@@ -155,34 +157,35 @@
 
     iget-object v3, v0, Lcom/android/server/net/NetworkPolicyManagerService$8;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
+    #calls: Lcom/android/server/net/NetworkPolicyManagerService;->addNetworkPolicyLocked(Landroid/net/NetworkPolicy;)V
     invoke-static {v3, v1}, Lcom/android/server/net/NetworkPolicyManagerService;->access$1000(Lcom/android/server/net/NetworkPolicyManagerService;Landroid/net/NetworkPolicy;)V
 
     .line 566
-    :cond_5e
-    :goto_5e
+    :cond_1
+    :goto_1
     monitor-exit v17
 
-    goto :goto_10
+    goto :goto_0
 
     .end local v1           #policy:Landroid/net/NetworkPolicy;
-    :catchall_60
+    :catchall_0
     move-exception v3
 
     monitor-exit v17
-    :try_end_62
-    .catchall {:try_start_34 .. :try_end_62} :catchall_60
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v3
 
     .line 557
     .restart local v1       #policy:Landroid/net/NetworkPolicy;
-    :cond_63
-    if-eqz v1, :cond_5e
+    :cond_2
+    if-eqz v1, :cond_1
 
-    :try_start_65
+    :try_start_1
     iget-boolean v3, v1, Landroid/net/NetworkPolicy;->inferred:Z
 
-    if-eqz v3, :cond_5e
+    if-eqz v3, :cond_1
 
     .line 560
     iput-boolean v13, v1, Landroid/net/NetworkPolicy;->metered:Z
@@ -192,9 +195,10 @@
 
     iget-object v3, v0, Lcom/android/server/net/NetworkPolicyManagerService$8;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
+    #calls: Lcom/android/server/net/NetworkPolicyManagerService;->updateNetworkRulesLocked()V
     invoke-static {v3}, Lcom/android/server/net/NetworkPolicyManagerService;->access$1100(Lcom/android/server/net/NetworkPolicyManagerService;)V
-    :try_end_72
-    .catchall {:try_start_65 .. :try_end_72} :catchall_60
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_5e
+    goto :goto_1
 .end method

@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 55
@@ -86,7 +86,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -114,7 +114,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/preference/GenericInflater;Landroid/content/Context;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "newContext"
     .annotation system Ldalvik/annotation/Signature;
@@ -158,7 +158,7 @@
 .end method
 
 .method private final createItemFromTag(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Landroid/util/AttributeSet;)Ljava/lang/Object;
-    .registers 9
+    .locals 5
     .parameter "parser"
     .parameter "name"
     .parameter "attrs"
@@ -177,15 +177,15 @@
     const/4 v2, 0x0
 
     .line 424
-    :try_start_1
+    :try_start_0
     iget-object v3, p0, Landroid/preference/GenericInflater;->mFactory:Landroid/preference/GenericInflater$Factory;
 
-    if-nez v3, :cond_15
+    if-nez v3, :cond_1
 
     .line 426
     .local v2, item:Ljava/lang/Object;,"TT;"
-    :goto_5
-    if-nez v2, :cond_14
+    :goto_0
+    if-nez v2, :cond_0
 
     .line 427
     const/4 v3, -0x1
@@ -196,7 +196,7 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_1e
+    if-ne v3, v4, :cond_2
 
     .line 428
     invoke-virtual {p0, p2, p3}, Landroid/preference/GenericInflater;->onCreateItem(Ljava/lang/String;Landroid/util/AttributeSet;)Ljava/lang/Object;
@@ -204,13 +204,13 @@
     move-result-object v2
 
     .line 435
-    :cond_14
-    :goto_14
+    :cond_0
+    :goto_1
     return-object v2
 
     .line 424
     .end local v2           #item:Ljava/lang/Object;,"TT;"
-    :cond_15
+    :cond_1
     iget-object v3, p0, Landroid/preference/GenericInflater;->mFactory:Landroid/preference/GenericInflater$Factory;
 
     iget-object v4, p0, Landroid/preference/GenericInflater;->mContext:Landroid/content/Context;
@@ -219,26 +219,26 @@
 
     move-result-object v2
 
-    goto :goto_5
+    goto :goto_0
 
     .line 430
     .restart local v2       #item:Ljava/lang/Object;,"TT;"
-    :cond_1e
+    :cond_2
     const/4 v3, 0x0
 
     invoke-virtual {p0, p2, v3, p3}, Landroid/preference/GenericInflater;->createItem(Ljava/lang/String;Ljava/lang/String;Landroid/util/AttributeSet;)Ljava/lang/Object;
-    :try_end_22
-    .catch Landroid/view/InflateException; {:try_start_1 .. :try_end_22} :catch_24
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_22} :catch_26
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_22} :catch_4b
+    :try_end_0
+    .catch Landroid/view/InflateException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
 
     move-result-object v2
 
-    goto :goto_14
+    goto :goto_1
 
     .line 437
     .end local v2           #item:Ljava/lang/Object;,"TT;"
-    :catch_24
+    :catch_0
     move-exception v0
 
     .line 438
@@ -247,7 +247,7 @@
 
     .line 440
     .end local v0           #e:Landroid/view/InflateException;
-    :catch_26
+    :catch_1
     move-exception v0
 
     .line 441
@@ -292,7 +292,7 @@
     .line 447
     .end local v0           #e:Ljava/lang/ClassNotFoundException;
     .end local v1           #ie:Landroid/view/InflateException;
-    :catch_4b
+    :catch_2
     move-exception v0
 
     .line 448
@@ -336,7 +336,7 @@
 .end method
 
 .method private rInflate(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/Object;Landroid/util/AttributeSet;)V
-    .registers 9
+    .locals 5
     .parameter "parser"
     .parameter
     .parameter "attrs"
@@ -367,8 +367,8 @@
 
     .line 466
     .local v0, depth:I
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v3
@@ -376,30 +376,30 @@
     .local v3, type:I
     const/4 v4, 0x3
 
-    if-ne v3, v4, :cond_11
+    if-ne v3, v4, :cond_1
 
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v4
 
-    if-le v4, v0, :cond_2f
+    if-le v4, v0, :cond_2
 
-    :cond_11
+    :cond_1
     const/4 v4, 0x1
 
-    if-eq v3, v4, :cond_2f
+    if-eq v3, v4, :cond_2
 
     .line 468
     const/4 v4, 0x2
 
-    if-ne v3, v4, :cond_4
+    if-ne v3, v4, :cond_0
 
     .line 472
     invoke-virtual {p0, p1, p2, p3}, Landroid/preference/GenericInflater;->onCreateCustomFromTag(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/Object;Landroid/util/AttributeSet;)Z
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_0
 
     .line 479
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
@@ -423,12 +423,12 @@
     .line 493
     invoke-direct {p0, p1, v1, p3}, Landroid/preference/GenericInflater;->rInflate(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/Object;Landroid/util/AttributeSet;)V
 
-    goto :goto_4
+    goto :goto_0
 
     .line 499
     .end local v1           #item:Ljava/lang/Object;,"TT;"
     .end local v2           #name:Ljava/lang/String;
-    :cond_2f
+    :cond_2
     return-void
 .end method
 
@@ -438,7 +438,7 @@
 .end method
 
 .method public final createItem(Ljava/lang/String;Ljava/lang/String;Landroid/util/AttributeSet;)Ljava/lang/Object;
-    .registers 11
+    .locals 7
     .parameter "name"
     .parameter "prefix"
     .parameter "attrs"
@@ -472,17 +472,17 @@
 
     .line 372
     .local v2, constructor:Ljava/lang/reflect/Constructor;
-    if-nez v2, :cond_32
+    if-nez v2, :cond_0
 
     .line 375
-    :try_start_a
+    :try_start_0
     iget-object v5, p0, Landroid/preference/GenericInflater;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v6
 
-    if-eqz p2, :cond_3c
+    if-eqz p2, :cond_1
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -500,7 +500,7 @@
 
     move-result-object v5
 
-    :goto_23
+    :goto_0
     invoke-virtual {v6, v5}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v1
@@ -520,7 +520,7 @@
 
     .line 381
     .end local v1           #clazz:Ljava/lang/Class;
-    :cond_32
+    :cond_0
     iget-object v0, p0, Landroid/preference/GenericInflater;->mConstructorArgs:[Ljava/lang/Object;
 
     .line 382
@@ -531,24 +531,24 @@
 
     .line 383
     invoke-virtual {v2, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_3a
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_a .. :try_end_3a} :catch_3e
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_a .. :try_end_3a} :catch_76
-    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_3a} :catch_78
+    :try_end_0
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
 
     move-result-object v5
 
     return-object v5
 
     .end local v0           #args:[Ljava/lang/Object;
-    :cond_3c
+    :cond_1
     move-object v5, p1
 
     .line 375
-    goto :goto_23
+    goto :goto_0
 
     .line 385
-    :catch_3e
+    :catch_0
     move-exception v3
 
     .line 386
@@ -573,7 +573,7 @@
 
     move-result-object v5
 
-    if-eqz p2, :cond_67
+    if-eqz p2, :cond_2
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -592,7 +592,7 @@
     move-result-object p1
 
     .end local p1
-    :cond_67
+    :cond_2
     invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -614,7 +614,7 @@
     .end local v3           #e:Ljava/lang/NoSuchMethodException;
     .end local v4           #ie:Landroid/view/InflateException;
     .restart local p1
-    :catch_76
+    :catch_1
     move-exception v3
 
     .line 395
@@ -623,7 +623,7 @@
 
     .line 396
     .end local v3           #e:Ljava/lang/ClassNotFoundException;
-    :catch_78
+    :catch_2
     move-exception v3
 
     .line 397
@@ -675,7 +675,7 @@
 .end method
 
 .method public getContext()Landroid/content/Context;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 165
@@ -686,7 +686,7 @@
 .end method
 
 .method public getDefaultPackage()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 157
@@ -697,7 +697,7 @@
 .end method
 
 .method public final getFactory()Landroid/preference/GenericInflater$Factory;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -715,7 +715,7 @@
 .end method
 
 .method public inflate(ILandroid/preference/GenericInflater$Parent;)Ljava/lang/Object;
-    .registers 4
+    .locals 1
     .parameter "resource"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -728,25 +728,25 @@
     .line 220
     .local p0, this:Landroid/preference/GenericInflater;,"Landroid/preference/GenericInflater<TT;TP;>;"
     .local p2, root:Landroid/preference/GenericInflater$Parent;,"TP;"
-    if-eqz p2, :cond_8
+    if-eqz p2, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_3
+    :goto_0
     invoke-virtual {p0, p1, p2, v0}, Landroid/preference/GenericInflater;->inflate(ILandroid/preference/GenericInflater$Parent;Z)Ljava/lang/Object;
 
     move-result-object v0
 
     return-object v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public inflate(ILandroid/preference/GenericInflater$Parent;Z)Ljava/lang/Object;
-    .registers 6
+    .locals 2
     .parameter "resource"
     .parameter
     .parameter "attachToRoot"
@@ -774,10 +774,10 @@
 
     .line 263
     .local v0, parser:Landroid/content/res/XmlResourceParser;
-    :try_start_c
+    :try_start_0
     invoke-virtual {p0, v0, p2, p3}, Landroid/preference/GenericInflater;->inflate(Lorg/xmlpull/v1/XmlPullParser;Landroid/preference/GenericInflater$Parent;Z)Ljava/lang/Object;
-    :try_end_f
-    .catchall {:try_start_c .. :try_end_f} :catchall_14
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v1
 
@@ -786,7 +786,7 @@
 
     return-object v1
 
-    :catchall_14
+    :catchall_0
     move-exception v1
 
     invoke-interface {v0}, Landroid/content/res/XmlResourceParser;->close()V
@@ -795,7 +795,7 @@
 .end method
 
 .method public inflate(Lorg/xmlpull/v1/XmlPullParser;Landroid/preference/GenericInflater$Parent;)Ljava/lang/Object;
-    .registers 4
+    .locals 1
     .parameter "parser"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -810,25 +810,25 @@
     .line 240
     .local p0, this:Landroid/preference/GenericInflater;,"Landroid/preference/GenericInflater<TT;TP;>;"
     .local p2, root:Landroid/preference/GenericInflater$Parent;,"TP;"
-    if-eqz p2, :cond_8
+    if-eqz p2, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_3
+    :goto_0
     invoke-virtual {p0, p1, p2, v0}, Landroid/preference/GenericInflater;->inflate(Lorg/xmlpull/v1/XmlPullParser;Landroid/preference/GenericInflater$Parent;Z)Ljava/lang/Object;
 
     move-result-object v0
 
     return-object v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public inflate(Lorg/xmlpull/v1/XmlPullParser;Landroid/preference/GenericInflater$Parent;Z)Ljava/lang/Object;
-    .registers 15
+    .locals 11
     .parameter "parser"
     .parameter
     .parameter "attachToRoot"
@@ -851,7 +851,7 @@
     monitor-enter v7
 
     .line 293
-    :try_start_4
+    :try_start_0
     invoke-static {p1}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v0
@@ -865,30 +865,30 @@
     iget-object v9, p0, Landroid/preference/GenericInflater;->mContext:Landroid/content/Context;
 
     aput-object v9, v6, v8
-    :try_end_f
-    .catchall {:try_start_4 .. :try_end_f} :catchall_3a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 295
     move-object v3, p2
 
     .line 301
     .local v3, result:Landroid/preference/GenericInflater$Parent;,"TT;"
-    :cond_10
-    :try_start_10
+    :cond_0
+    :try_start_1
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v4
 
     .local v4, type:I
-    if-eq v4, v10, :cond_19
+    if-eq v4, v10, :cond_1
 
     const/4 v6, 0x1
 
-    if-ne v4, v6, :cond_10
+    if-ne v4, v6, :cond_0
 
     .line 305
-    :cond_19
-    if-eq v4, v10, :cond_3d
+    :cond_1
+    if-eq v4, v10, :cond_2
 
     .line 306
     new-instance v6, Landroid/view/InflateException;
@@ -918,32 +918,32 @@
     invoke-direct {v6, v8}, Landroid/view/InflateException;-><init>(Ljava/lang/String;)V
 
     throw v6
-    :try_end_38
-    .catchall {:try_start_10 .. :try_end_38} :catchall_3a
-    .catch Landroid/view/InflateException; {:try_start_10 .. :try_end_38} :catch_38
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_10 .. :try_end_38} :catch_50
-    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_38} :catch_5e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Landroid/view/InflateException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
 
     .line 331
     .end local v4           #type:I
-    :catch_38
+    :catch_0
     move-exception v1
 
     .line 332
     .local v1, e:Landroid/view/InflateException;
-    :try_start_39
+    :try_start_2
     throw v1
 
     .line 347
     .end local v0           #attrs:Landroid/util/AttributeSet;
     .end local v1           #e:Landroid/view/InflateException;
     .end local v3           #result:Landroid/preference/GenericInflater$Parent;,"TT;"
-    :catchall_3a
+    :catchall_0
     move-exception v6
 
     monitor-exit v7
-    :try_end_3c
-    .catchall {:try_start_39 .. :try_end_3c} :catchall_3a
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v6
 
@@ -951,8 +951,8 @@
     .restart local v0       #attrs:Landroid/util/AttributeSet;
     .restart local v3       #result:Landroid/preference/GenericInflater$Parent;,"TT;"
     .restart local v4       #type:I
-    :cond_3d
-    :try_start_3d
+    :cond_2
+    :try_start_3
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v6
@@ -972,21 +972,21 @@
 
     .line 326
     invoke-direct {p0, p1, v3, v0}, Landroid/preference/GenericInflater;->rInflate(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/Object;Landroid/util/AttributeSet;)V
-    :try_end_4e
-    .catchall {:try_start_3d .. :try_end_4e} :catchall_3a
-    .catch Landroid/view/InflateException; {:try_start_3d .. :try_end_4e} :catch_38
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_3d .. :try_end_4e} :catch_50
-    .catch Ljava/io/IOException; {:try_start_3d .. :try_end_4e} :catch_5e
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    .catch Landroid/view/InflateException; {:try_start_3 .. :try_end_3} :catch_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_3 .. :try_end_3} :catch_1
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
 
     .line 346
-    :try_start_4e
+    :try_start_4
     monitor-exit v7
 
     return-object v3
 
     .line 334
     .end local v4           #type:I
-    :catch_50
+    :catch_1
     move-exception v1
 
     .line 335
@@ -1009,7 +1009,7 @@
     .line 338
     .end local v1           #e:Lorg/xmlpull/v1/XmlPullParserException;
     .end local v2           #ex:Landroid/view/InflateException;
-    :catch_5e
+    :catch_2
     move-exception v1
 
     .line 339
@@ -1054,12 +1054,12 @@
 
     .line 343
     throw v2
-    :try_end_87
-    .catchall {:try_start_4e .. :try_end_87} :catchall_3a
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 .end method
 
 .method protected onCreateCustomFromTag(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/Object;Landroid/util/AttributeSet;)Z
-    .registers 5
+    .locals 1
     .parameter "parser"
     .parameter
     .parameter "attrs"
@@ -1089,7 +1089,7 @@
 .end method
 
 .method protected onCreateItem(Ljava/lang/String;Landroid/util/AttributeSet;)Ljava/lang/Object;
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "attrs"
     .annotation system Ldalvik/annotation/Signature;
@@ -1120,7 +1120,7 @@
 .end method
 
 .method protected onMergeRoots(Landroid/preference/GenericInflater$Parent;ZLandroid/preference/GenericInflater$Parent;)Landroid/preference/GenericInflater$Parent;
-    .registers 4
+    .locals 0
     .parameter
     .parameter "attachToGivenRoot"
     .parameter
@@ -1139,7 +1139,7 @@
 .end method
 
 .method public setDefaultPackage(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "defaultPackage"
 
     .prologue
@@ -1152,7 +1152,7 @@
 .end method
 
 .method public setFactory(Landroid/preference/GenericInflater$Factory;)V
-    .registers 4
+    .locals 2
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1168,7 +1168,7 @@
     .local p1, factory:Landroid/preference/GenericInflater$Factory;,"Landroid/preference/GenericInflater$Factory<TT;>;"
     iget-boolean v0, p0, Landroid/preference/GenericInflater;->mFactorySet:Z
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 193
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -1180,8 +1180,8 @@
     throw v0
 
     .line 196
-    :cond_c
-    if-nez p1, :cond_16
+    :cond_0
+    if-nez p1, :cond_1
 
     .line 197
     new-instance v0, Ljava/lang/NullPointerException;
@@ -1193,7 +1193,7 @@
     throw v0
 
     .line 199
-    :cond_16
+    :cond_1
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/preference/GenericInflater;->mFactorySet:Z
@@ -1201,17 +1201,17 @@
     .line 200
     iget-object v0, p0, Landroid/preference/GenericInflater;->mFactory:Landroid/preference/GenericInflater$Factory;
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_2
 
     .line 201
     iput-object p1, p0, Landroid/preference/GenericInflater;->mFactory:Landroid/preference/GenericInflater$Factory;
 
     .line 205
-    :goto_1f
+    :goto_0
     return-void
 
     .line 203
-    :cond_20
+    :cond_2
     new-instance v0, Landroid/preference/GenericInflater$FactoryMerger;
 
     iget-object v1, p0, Landroid/preference/GenericInflater;->mFactory:Landroid/preference/GenericInflater$Factory;
@@ -1220,5 +1220,5 @@
 
     iput-object v0, p0, Landroid/preference/GenericInflater;->mFactory:Landroid/preference/GenericInflater$Factory;
 
-    goto :goto_1f
+    goto :goto_0
 .end method

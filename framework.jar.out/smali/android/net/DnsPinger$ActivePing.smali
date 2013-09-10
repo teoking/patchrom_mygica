@@ -32,7 +32,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/net/DnsPinger;)V
-    .registers 4
+    .locals 2
     .parameter
 
     .prologue
@@ -52,7 +52,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/net/DnsPinger;Landroid/net/DnsPinger$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

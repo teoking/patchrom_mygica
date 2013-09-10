@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 27
@@ -25,7 +25,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "numSuccessfulYieldPoints"
 
     .prologue
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "message"
 
     .prologue
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .parameter "message"
     .parameter "numSuccessfulYieldPoints"
 
@@ -73,7 +73,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .registers 4
+    .locals 1
     .parameter "message"
     .parameter "cause"
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Throwable;)V
-    .registers 3
+    .locals 1
     .parameter "cause"
 
     .prologue
@@ -110,7 +110,7 @@
 
 # virtual methods
 .method public getNumSuccessfulYieldPoints()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 52

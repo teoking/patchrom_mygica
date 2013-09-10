@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "attrs"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public setSearchDialog(Landroid/app/SearchDialog;)V
-    .registers 2
+    .locals 0
     .parameter "searchDialog"
 
     .prologue
@@ -59,7 +59,7 @@
 .end method
 
 .method public startActionModeForChild(Landroid/view/View;Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
-    .registers 4
+    .locals 1
     .parameter "child"
     .parameter "callback"
 

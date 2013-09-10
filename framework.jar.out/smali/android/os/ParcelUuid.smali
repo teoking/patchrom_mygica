@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 110
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/UUID;)V
-    .registers 2
+    .locals 0
     .parameter "uuid"
 
     .prologue
@@ -54,7 +54,7 @@
 .end method
 
 .method public static fromString(Ljava/lang/String;)Landroid/os/ParcelUuid;
-    .registers 3
+    .locals 2
     .parameter "uuid"
 
     .prologue
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 125
@@ -83,34 +83,34 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 5
+    .locals 3
     .parameter "object"
 
     .prologue
     const/4 v1, 0x0
 
     .line 93
-    if-nez p1, :cond_4
+    if-nez p1, :cond_1
 
     .line 107
-    :cond_3
-    :goto_3
+    :cond_0
+    :goto_0
     return v1
 
     .line 97
-    :cond_4
-    if-ne p0, p1, :cond_8
+    :cond_1
+    if-ne p0, p1, :cond_2
 
     .line 98
     const/4 v1, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 101
-    :cond_8
+    :cond_2
     instance-of v2, p1, Landroid/os/ParcelUuid;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_0
 
     move-object v0, p1
 
@@ -127,11 +127,11 @@
 
     move-result v1
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public getUuid()Ljava/util/UUID;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 61
@@ -141,7 +141,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 78
@@ -155,7 +155,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 72
@@ -169,7 +169,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 

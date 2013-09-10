@@ -143,7 +143,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 78
@@ -641,7 +641,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 165
@@ -652,7 +652,7 @@
 .end method
 
 .method public static getAudioTypes()Ljava/util/ArrayList;
-    .registers 1
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -677,7 +677,7 @@
 .end method
 
 .method public static getImageTypes()Ljava/util/ArrayList;
-    .registers 1
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -702,7 +702,7 @@
 .end method
 
 .method public static getSupportedTypes()Ljava/util/ArrayList;
-    .registers 1
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -727,7 +727,7 @@
 .end method
 
 .method public static getVideoTypes()Ljava/util/ArrayList;
-    .registers 1
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -752,12 +752,12 @@
 .end method
 
 .method public static isAudioType(Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
     .parameter "contentType"
 
     .prologue
     .line 193
-    if-eqz p0, :cond_c
+    if-eqz p0, :cond_0
 
     const-string v0, "audio/"
 
@@ -765,26 +765,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public static isDrmType(Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
     .parameter "contentType"
 
     .prologue
     .line 201
-    if-eqz p0, :cond_14
+    if-eqz p0, :cond_1
 
     const-string v0, "application/vnd.oma.drm.content"
 
@@ -792,7 +792,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     const-string v0, "application/vnd.oma.drm.message"
 
@@ -800,27 +800,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_1
 
-    :cond_12
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_13
+    :goto_0
     return v0
 
-    :cond_14
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public static isImageType(Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
     .parameter "contentType"
 
     .prologue
     .line 189
-    if-eqz p0, :cond_c
+    if-eqz p0, :cond_0
 
     const-string v0, "image/"
 
@@ -828,21 +828,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public static isSupportedAudioType(Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
     .parameter "contentType"
 
     .prologue
@@ -851,27 +851,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     invoke-static {p0}, Lcom/google/android/mms/ContentType;->isSupportedType(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public static isSupportedImageType(Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
     .parameter "contentType"
 
     .prologue
@@ -880,32 +880,32 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     invoke-static {p0}, Lcom/google/android/mms/ContentType;->isSupportedType(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public static isSupportedType(Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
     .parameter "contentType"
 
     .prologue
     .line 169
-    if-eqz p0, :cond_c
+    if-eqz p0, :cond_0
 
     sget-object v0, Lcom/google/android/mms/ContentType;->sSupportedContentTypes:Ljava/util/ArrayList;
 
@@ -913,21 +913,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public static isSupportedVideoType(Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
     .parameter "contentType"
 
     .prologue
@@ -936,32 +936,32 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     invoke-static {p0}, Lcom/google/android/mms/ContentType;->isSupportedType(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public static isTextType(Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
     .parameter "contentType"
 
     .prologue
     .line 185
-    if-eqz p0, :cond_d
+    if-eqz p0, :cond_0
 
     const-string/jumbo v0, "text/"
 
@@ -969,26 +969,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_c
+    :goto_0
     return v0
 
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public static isUnspecified(Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
     .parameter "contentType"
 
     .prologue
     .line 207
-    if-eqz p0, :cond_c
+    if-eqz p0, :cond_0
 
     const-string v0, "*"
 
@@ -996,26 +996,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public static isVideoType(Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
     .parameter "contentType"
 
     .prologue
     .line 197
-    if-eqz p0, :cond_d
+    if-eqz p0, :cond_0
 
     const-string/jumbo v0, "video/"
 
@@ -1023,15 +1023,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_c
+    :goto_0
     return v0
 
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method

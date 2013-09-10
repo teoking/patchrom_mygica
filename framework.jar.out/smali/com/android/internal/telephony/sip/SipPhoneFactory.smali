@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 30
@@ -15,7 +15,7 @@
 .end method
 
 .method public static makePhone(Ljava/lang/String;Landroid/content/Context;Lcom/android/internal/telephony/PhoneNotifier;)Lcom/android/internal/telephony/sip/SipPhone;
-    .registers 7
+    .locals 4
     .parameter "sipUri"
     .parameter "context"
     .parameter "phoneNotifier"
@@ -36,16 +36,16 @@
     new-instance v2, Lcom/android/internal/telephony/sip/SipPhone;
 
     invoke-direct {v2, p1, p2, v1}, Lcom/android/internal/telephony/sip/SipPhone;-><init>(Landroid/content/Context;Lcom/android/internal/telephony/PhoneNotifier;Landroid/net/sip/SipProfile;)V
-    :try_end_e
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_e} :catch_f
+    :try_end_0
+    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 46
     .end local v1           #profile:Landroid/net/sip/SipProfile;
-    :goto_e
+    :goto_0
     return-object v2
 
     .line 44
-    :catch_f
+    :catch_0
     move-exception v0
 
     .line 45
@@ -59,5 +59,5 @@
     .line 46
     const/4 v2, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method

@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -43,7 +43,7 @@
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
@@ -59,10 +59,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_7
+    :goto_0
     iget v2, p0, Landroid/filterpacks/base/FrameBranch;->mNumberOfOutputs:I
 
-    if-ge v0, v2, :cond_25
+    if-ge v0, v2, :cond_0
 
     .line 58
     new-instance v2, Ljava/lang/StringBuilder;
@@ -88,15 +88,15 @@
     .line 57
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 60
-    :cond_25
+    :cond_0
     return-void
 .end method
 
 .method public setupPorts()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 41
@@ -108,10 +108,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_6
+    :goto_0
     iget v1, p0, Landroid/filterpacks/base/FrameBranch;->mNumberOfOutputs:I
 
-    if-ge v0, v1, :cond_26
+    if-ge v0, v1, :cond_0
 
     .line 43
     new-instance v1, Ljava/lang/StringBuilder;
@@ -139,9 +139,9 @@
     .line 42
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 45
-    :cond_26
+    :cond_0
     return-void
 .end method

@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILandroid/app/TimePickerDialog$OnTimeSetListener;IIZ)V
-    .registers 12
+    .locals 5
     .parameter "context"
     .parameter "theme"
     .parameter "callBack"
@@ -165,7 +165,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/app/TimePickerDialog$OnTimeSetListener;IIZ)V
-    .registers 13
+    .locals 7
     .parameter "context"
     .parameter "callBack"
     .parameter "hourOfDay"
@@ -195,13 +195,13 @@
 .end method
 
 .method private tryNotifyTimeSet()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 128
     iget-object v0, p0, Landroid/app/TimePickerDialog;->mCallback:Landroid/app/TimePickerDialog$OnTimeSetListener;
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_0
 
     .line 129
     iget-object v0, p0, Landroid/app/TimePickerDialog;->mTimePicker:Landroid/widget/TimePicker;
@@ -236,14 +236,14 @@
     invoke-interface {v0, v1, v2, v3}, Landroid/app/TimePickerDialog$OnTimeSetListener;->onTimeSet(Landroid/widget/TimePicker;II)V
 
     .line 133
-    :cond_24
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 0
     .parameter "dialog"
     .parameter "which"
 
@@ -256,7 +256,7 @@
 .end method
 
 .method public onRestoreInstanceState(Landroid/os/Bundle;)V
-    .registers 6
+    .locals 4
     .parameter "savedInstanceState"
 
     .prologue
@@ -317,7 +317,7 @@
 .end method
 
 .method public onSaveInstanceState()Landroid/os/Bundle;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 143
@@ -372,7 +372,7 @@
 .end method
 
 .method protected onStop()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 137
@@ -386,7 +386,7 @@
 .end method
 
 .method public onTimeChanged(Landroid/widget/TimePicker;II)V
-    .registers 4
+    .locals 0
     .parameter "view"
     .parameter "hourOfDay"
     .parameter "minute"
@@ -397,7 +397,7 @@
 .end method
 
 .method public updateTime(II)V
-    .registers 5
+    .locals 2
     .parameter "hourOfDay"
     .parameter "minutOfHour"
 

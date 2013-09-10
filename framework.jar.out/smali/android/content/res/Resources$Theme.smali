@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/res/Resources;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public applyStyle(IZ)V
-    .registers 4
+    .locals 1
     .parameter "resid"
     .parameter "force"
 
@@ -69,7 +69,7 @@
 .end method
 
 .method public dump(ILjava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter "priority"
     .parameter "tag"
     .parameter "prefix"
@@ -85,7 +85,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -108,7 +108,7 @@
 .end method
 
 .method public obtainStyledAttributes(I[I)Landroid/content/res/TypedArray;
-    .registers 12
+    .locals 9
     .parameter "resid"
     .parameter "attrs"
     .annotation system Ldalvik/annotation/Throws;
@@ -127,6 +127,7 @@
     .local v8, len:I
     iget-object v0, p0, Landroid/content/res/Resources$Theme;->this$0:Landroid/content/res/Resources;
 
+    #calls: Landroid/content/res/Resources;->getCachedStyledAttributes(I)Landroid/content/res/TypedArray;
     invoke-static {v0, v8}, Landroid/content/res/Resources;->access$000(Landroid/content/res/Resources;I)Landroid/content/res/TypedArray;
 
     move-result-object v7
@@ -155,7 +156,7 @@
 .end method
 
 .method public obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
-    .registers 15
+    .locals 10
     .parameter "set"
     .parameter "attrs"
     .parameter "defStyleAttr"
@@ -169,6 +170,7 @@
     .local v8, len:I
     iget-object v0, p0, Landroid/content/res/Resources$Theme;->this$0:Landroid/content/res/Resources;
 
+    #calls: Landroid/content/res/Resources;->getCachedStyledAttributes(I)Landroid/content/res/TypedArray;
     invoke-static {v0, v8}, Landroid/content/res/Resources;->access$000(Landroid/content/res/Resources;I)Landroid/content/res/TypedArray;
 
     move-result-object v7
@@ -183,11 +185,11 @@
     .local v9, parser:Landroid/content/res/XmlBlock$Parser;
     iget v0, p0, Landroid/content/res/Resources$Theme;->mTheme:I
 
-    if-eqz v9, :cond_1f
+    if-eqz v9, :cond_0
 
     iget v3, v9, Landroid/content/res/XmlBlock$Parser;->mParseState:I
 
-    :goto_10
+    :goto_0
     iget-object v5, v7, Landroid/content/res/TypedArray;->mData:[I
 
     iget-object v6, v7, Landroid/content/res/TypedArray;->mIndices:[I
@@ -210,14 +212,14 @@
     return-object v7
 
     .line 1262
-    :cond_1f
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public obtainStyledAttributes([I)Landroid/content/res/TypedArray;
-    .registers 11
+    .locals 9
     .parameter "attrs"
 
     .prologue
@@ -230,6 +232,7 @@
     .local v8, len:I
     iget-object v0, p0, Landroid/content/res/Resources$Theme;->this$0:Landroid/content/res/Resources;
 
+    #calls: Landroid/content/res/Resources;->getCachedStyledAttributes(I)Landroid/content/res/TypedArray;
     invoke-static {v0, v8}, Landroid/content/res/Resources;->access$000(Landroid/content/res/Resources;I)Landroid/content/res/TypedArray;
 
     move-result-object v7
@@ -258,7 +261,7 @@
 .end method
 
 .method public resolveAttribute(ILandroid/util/TypedValue;Z)Z
-    .registers 7
+    .locals 3
     .parameter "resid"
     .parameter "outValue"
     .parameter "resolveRefs"
@@ -279,7 +282,7 @@
 .end method
 
 .method public setTo(Landroid/content/res/Resources$Theme;)V
-    .registers 4
+    .locals 2
     .parameter "other"
 
     .prologue

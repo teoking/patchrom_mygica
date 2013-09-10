@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/TextView;II)V
-    .registers 6
+    .locals 2
     .parameter "v"
     .parameter "width"
     .parameter "height"
@@ -72,13 +72,13 @@
 .end method
 
 .method private getResourceId(II)I
-    .registers 6
+    .locals 3
     .parameter "currentId"
     .parameter "index"
 
     .prologue
     .line 3750
-    if-nez p1, :cond_16
+    if-nez p1, :cond_0
 
     .line 3751
     iget-object v1, p0, Landroid/widget/Editor$ErrorPopup;->mView:Landroid/widget/TextView;
@@ -106,14 +106,14 @@
 
     .line 3756
     .end local v0           #styledAttributes:Landroid/content/res/TypedArray;
-    :cond_16
+    :cond_0
     return p1
 .end method
 
 
 # virtual methods
 .method fixDirection(Z)V
-    .registers 4
+    .locals 2
     .parameter "above"
 
     .prologue
@@ -121,7 +121,7 @@
     iput-boolean p1, p0, Landroid/widget/Editor$ErrorPopup;->mAbove:Z
 
     .line 3736
-    if-eqz p1, :cond_18
+    if-eqz p1, :cond_0
 
     .line 3737
     iget v0, p0, Landroid/widget/Editor$ErrorPopup;->mPopupInlineErrorAboveBackgroundId:I
@@ -135,21 +135,21 @@
     iput v0, p0, Landroid/widget/Editor$ErrorPopup;->mPopupInlineErrorAboveBackgroundId:I
 
     .line 3745
-    :goto_e
+    :goto_0
     iget-object v1, p0, Landroid/widget/Editor$ErrorPopup;->mView:Landroid/widget/TextView;
 
-    if-eqz p1, :cond_23
+    if-eqz p1, :cond_1
 
     iget v0, p0, Landroid/widget/Editor$ErrorPopup;->mPopupInlineErrorAboveBackgroundId:I
 
-    :goto_14
+    :goto_1
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
     .line 3747
     return-void
 
     .line 3741
-    :cond_18
+    :cond_0
     iget v0, p0, Landroid/widget/Editor$ErrorPopup;->mPopupInlineErrorBackgroundId:I
 
     const/16 v1, 0xda
@@ -160,17 +160,17 @@
 
     iput v0, p0, Landroid/widget/Editor$ErrorPopup;->mPopupInlineErrorBackgroundId:I
 
-    goto :goto_e
+    goto :goto_0
 
     .line 3745
-    :cond_23
+    :cond_1
     iget v0, p0, Landroid/widget/Editor$ErrorPopup;->mPopupInlineErrorBackgroundId:I
 
-    goto :goto_14
+    goto :goto_1
 .end method
 
 .method public update(IIIIZ)V
-    .registers 8
+    .locals 2
     .parameter "x"
     .parameter "y"
     .parameter "w"
@@ -190,12 +190,12 @@
     .local v0, above:Z
     iget-boolean v1, p0, Landroid/widget/Editor$ErrorPopup;->mAbove:Z
 
-    if-eq v0, v1, :cond_e
+    if-eq v0, v1, :cond_0
 
     .line 3765
     invoke-virtual {p0, v0}, Landroid/widget/Editor$ErrorPopup;->fixDirection(Z)V
 
     .line 3767
-    :cond_e
+    :cond_0
     return-void
 .end method

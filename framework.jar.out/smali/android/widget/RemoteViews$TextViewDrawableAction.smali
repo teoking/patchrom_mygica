@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViews;IZIIII)V
-    .registers 9
+    .locals 1
     .parameter
     .parameter "viewId"
     .parameter "isRelative"
@@ -81,7 +81,7 @@
 .end method
 
 .method public constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
-    .registers 5
+    .locals 2
     .parameter
     .parameter "parcel"
 
@@ -110,11 +110,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_16
+    if-eqz v1, :cond_0
 
     const/4 v0, 0x1
 
-    :cond_16
+    :cond_0
     iput-boolean v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->isRelative:Z
 
     .line 1157
@@ -152,7 +152,7 @@
 
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
-    .registers 10
+    .locals 6
     .parameter "root"
     .parameter "rootParent"
     .parameter "handler"
@@ -175,17 +175,17 @@
 
     .line 1177
     .local v1, target:Landroid/widget/TextView;
-    if-nez v1, :cond_f
+    if-nez v1, :cond_0
 
     .line 1183
-    :goto_e
+    :goto_0
     return-void
 
     .line 1178
-    :cond_f
+    :cond_0
     iget-boolean v2, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->isRelative:Z
 
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_1
 
     .line 1179
     iget v2, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d1:I
@@ -198,10 +198,10 @@
 
     invoke-virtual {v1, v2, v3, v4, v5}, Landroid/widget/TextView;->setCompoundDrawablesRelativeWithIntrinsicBounds(IIII)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 1181
-    :cond_1f
+    :cond_1
     iget v2, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d1:I
 
     iget v3, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->d2:I
@@ -212,11 +212,11 @@
 
     invoke-virtual {v1, v2, v3, v4, v5}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 
@@ -234,11 +234,11 @@
     .line 1166
     iget-boolean v0, p0, Landroid/widget/RemoteViews$TextViewDrawableAction;->isRelative:Z
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_f
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1167
@@ -265,8 +265,8 @@
     return-void
 
     .line 1166
-    :cond_27
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method

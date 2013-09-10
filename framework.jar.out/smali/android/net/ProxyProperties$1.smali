@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 199
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/ProxyProperties;
-    .registers 9
+    .locals 7
     .parameter "in"
 
     .prologue
@@ -60,7 +60,7 @@
 
     const/4 v6, 0x1
 
-    if-ne v5, v6, :cond_11
+    if-ne v5, v6, :cond_0
 
     .line 204
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -73,7 +73,7 @@
     move-result v2
 
     .line 207
-    :cond_11
+    :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
@@ -98,7 +98,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -111,7 +111,7 @@
 .end method
 
 .method public newArray(I)[Landroid/net/ProxyProperties;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -122,7 +122,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

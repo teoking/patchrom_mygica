@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/am/ContentProviderRecord;Lcom/android/server/am/ProcessRecord;)V
-    .registers 5
+    .locals 2
     .parameter "_provider"
     .parameter "_client"
 
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public toClientString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 63
@@ -76,7 +76,7 @@
 .end method
 
 .method public toClientString(Ljava/lang/StringBuilder;)V
-    .registers 6
+    .locals 4
     .parameter "sb"
 
     .prologue
@@ -132,7 +132,7 @@
     .line 84
     iget-boolean v2, p0, Lcom/android/server/am/ContentProviderConnection;->waiting:Z
 
-    if-eqz v2, :cond_3a
+    if-eqz v2, :cond_0
 
     .line 85
     const-string v2, " WAITING"
@@ -140,10 +140,10 @@
     invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 87
-    :cond_3a
+    :cond_0
     iget-boolean v2, p0, Lcom/android/server/am/ContentProviderConnection;->dead:Z
 
-    if-eqz v2, :cond_43
+    if-eqz v2, :cond_1
 
     .line 88
     const-string v2, " DEAD"
@@ -151,7 +151,7 @@
     invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 90
-    :cond_43
+    :cond_1
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
@@ -174,7 +174,7 @@
 .end method
 
 .method public toShortString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 57
@@ -197,7 +197,7 @@
 .end method
 
 .method public toShortString(Ljava/lang/StringBuilder;)V
-    .registers 3
+    .locals 1
     .parameter "sb"
 
     .prologue
@@ -223,7 +223,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 49

@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 12
+    .locals 9
     .parameter "priority"
     .parameter "audioSession"
     .annotation system Ldalvik/annotation/Throws;
@@ -97,7 +97,7 @@
     iput-object v5, p0, Landroid/media/audiofx/Equalizer;->mParamListenerLock:Ljava/lang/Object;
 
     .line 148
-    if-nez p2, :cond_1f
+    if-nez p2, :cond_0
 
     .line 149
     const-string v5, "Equalizer"
@@ -107,7 +107,7 @@
     invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 152
-    :cond_1f
+    :cond_0
     invoke-virtual {p0}, Landroid/media/audiofx/Equalizer;->getNumberOfBands()S
 
     .line 154
@@ -120,7 +120,7 @@
     .line 156
     iget v5, p0, Landroid/media/audiofx/Equalizer;->mNumPresets:I
 
-    if-eqz v5, :cond_6c
+    if-eqz v5, :cond_2
 
     .line 157
     iget v5, p0, Landroid/media/audiofx/Equalizer;->mNumPresets:I
@@ -150,10 +150,10 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_3e
+    :goto_0
     iget v5, p0, Landroid/media/audiofx/Equalizer;->mNumPresets:I
 
-    if-ge v1, v5, :cond_6c
+    if-ge v1, v5, :cond_2
 
     .line 162
     const/4 v5, 0x1
@@ -172,18 +172,18 @@
 
     .line 165
     .local v2, length:I
-    :goto_4d
+    :goto_1
     aget-byte v5, v4, v2
 
-    if-eqz v5, :cond_54
+    if-eqz v5, :cond_1
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_4d
+    goto :goto_1
 
     .line 167
-    :cond_54
-    :try_start_54
+    :cond_1
+    :try_start_0
     iget-object v5, p0, Landroid/media/audiofx/Equalizer;->mPresetNames:[Ljava/lang/String;
 
     new-instance v6, Ljava/lang/String;
@@ -195,17 +195,17 @@
     invoke-direct {v6, v4, v7, v2, v8}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
 
     aput-object v6, v5, v1
-    :try_end_60
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_54 .. :try_end_60} :catch_63
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 161
-    :goto_60
+    :goto_2
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_3e
+    goto :goto_0
 
     .line 168
-    :catch_63
+    :catch_0
     move-exception v0
 
     .line 169
@@ -216,7 +216,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_60
+    goto :goto_2
 
     .line 173
     .end local v0           #e:Ljava/io/UnsupportedEncodingException;
@@ -224,12 +224,12 @@
     .end local v2           #length:I
     .end local v3           #param:[I
     .end local v4           #value:[B
-    :cond_6c
+    :cond_2
     return-void
 .end method
 
 .method static synthetic access$000(Landroid/media/audiofx/Equalizer;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -240,7 +240,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/media/audiofx/Equalizer;)Landroid/media/audiofx/Equalizer$OnParameterChangeListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -253,7 +253,7 @@
 
 # virtual methods
 .method public getBand(I)S
-    .registers 7
+    .locals 5
     .parameter "frequency"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -300,7 +300,7 @@
 .end method
 
 .method public getBandFreqRange(S)[I
-    .registers 6
+    .locals 4
     .parameter "band"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -345,7 +345,7 @@
 .end method
 
 .method public getBandLevel(S)S
-    .registers 7
+    .locals 5
     .parameter "band"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -390,7 +390,7 @@
 .end method
 
 .method public getBandLevelRange()[S
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -420,7 +420,7 @@
 .end method
 
 .method public getCenterFreq(S)I
-    .registers 7
+    .locals 5
     .parameter "band"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -467,7 +467,7 @@
 .end method
 
 .method public getCurrentPreset()S
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -501,7 +501,7 @@
 .end method
 
 .method public getNumberOfBands()S
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -518,17 +518,17 @@
     .line 184
     iget-short v2, p0, Landroid/media/audiofx/Equalizer;->mNumBands:S
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_0
 
     .line 185
     iget-short v2, p0, Landroid/media/audiofx/Equalizer;->mNumBands:S
 
     .line 192
-    :goto_8
+    :goto_0
     return v2
 
     .line 187
-    :cond_9
+    :cond_0
     new-array v0, v4, [I
 
     .line 188
@@ -554,11 +554,11 @@
     .line 192
     iget-short v2, p0, Landroid/media/audiofx/Equalizer;->mNumBands:S
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getNumberOfPresets()S
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -592,16 +592,16 @@
 .end method
 
 .method public getPresetName(S)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "preset"
 
     .prologue
     .line 370
-    if-ltz p1, :cond_b
+    if-ltz p1, :cond_0
 
     iget v0, p0, Landroid/media/audiofx/Equalizer;->mNumPresets:I
 
-    if-ge p1, v0, :cond_b
+    if-ge p1, v0, :cond_0
 
     .line 371
     iget-object v0, p0, Landroid/media/audiofx/Equalizer;->mPresetNames:[Ljava/lang/String;
@@ -609,17 +609,17 @@
     aget-object v0, v0, p1
 
     .line 373
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     const-string v0, ""
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getProperties()Landroid/media/audiofx/Equalizer$Settings;
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -683,10 +683,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_2b
+    :goto_0
     iget-short v3, p0, Landroid/media/audiofx/Equalizer;->mNumBands:S
 
-    if-ge v0, v3, :cond_3e
+    if-ge v0, v3, :cond_0
 
     .line 538
     iget-object v3, v2, Landroid/media/audiofx/Equalizer$Settings;->bandLevels:[S
@@ -704,15 +704,15 @@
     .line 537
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2b
+    goto :goto_0
 
     .line 540
-    :cond_3e
+    :cond_0
     return-object v2
 .end method
 
 .method public setBandLevel(SS)V
-    .registers 8
+    .locals 5
     .parameter "band"
     .parameter "level"
     .annotation system Ldalvik/annotation/Throws;
@@ -759,7 +759,7 @@
 .end method
 
 .method public setParameterListener(Landroid/media/audiofx/Equalizer$OnParameterChangeListener;)V
-    .registers 5
+    .locals 3
     .parameter "listener"
 
     .prologue
@@ -769,10 +769,10 @@
     monitor-enter v1
 
     .line 441
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/media/audiofx/Equalizer;->mParamListener:Landroid/media/audiofx/Equalizer$OnParameterChangeListener;
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 442
     iput-object p1, p0, Landroid/media/audiofx/Equalizer;->mParamListener:Landroid/media/audiofx/Equalizer$OnParameterChangeListener;
@@ -792,25 +792,25 @@
     invoke-super {p0, v0}, Landroid/media/audiofx/AudioEffect;->setParameterListener(Landroid/media/audiofx/AudioEffect$OnParameterChangeListener;)V
 
     .line 446
-    :cond_16
+    :cond_0
     monitor-exit v1
 
     .line 447
     return-void
 
     .line 446
-    :catchall_18
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1a
-    .catchall {:try_start_3 .. :try_end_1a} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setProperties(Landroid/media/audiofx/Equalizer$Settings;)V
-    .registers 9
+    .locals 7
     .parameter "settings"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -834,16 +834,16 @@
 
     array-length v3, v3
 
-    if-ne v2, v3, :cond_10
+    if-ne v2, v3, :cond_0
 
     iget-short v2, p1, Landroid/media/audiofx/Equalizer$Settings;->numBands:S
 
     iget-short v3, p0, Landroid/media/audiofx/Equalizer;->mNumBands:S
 
-    if-eq v2, v3, :cond_2b
+    if-eq v2, v3, :cond_1
 
     .line 555
-    :cond_10
+    :cond_0
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -871,7 +871,7 @@
     throw v2
 
     .line 558
-    :cond_2b
+    :cond_1
     new-array v2, v6, [[B
 
     iget-short v3, p1, Landroid/media/audiofx/Equalizer$Settings;->curPreset:S
@@ -899,10 +899,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_42
+    :goto_0
     iget-short v2, p0, Landroid/media/audiofx/Equalizer;->mNumBands:S
 
-    if-ge v0, v2, :cond_5b
+    if-ge v0, v2, :cond_2
 
     .line 561
     new-array v2, v6, [[B
@@ -926,10 +926,10 @@
     .line 560
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_42
+    goto :goto_0
 
     .line 564
-    :cond_5b
+    :cond_2
     const/16 v2, 0x9
 
     invoke-virtual {p0, v2, v1}, Landroid/media/audiofx/Equalizer;->setParameter(I[B)I
@@ -943,7 +943,7 @@
 .end method
 
 .method public usePreset(S)V
-    .registers 3
+    .locals 1
     .parameter "preset"
     .annotation system Ldalvik/annotation/Throws;
         value = {

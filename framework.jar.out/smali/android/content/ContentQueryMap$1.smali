@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/ContentQueryMap;Landroid/os/Handler;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "x0"
 
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .registers 4
+    .locals 2
     .parameter "selfChange"
 
     .prologue
@@ -47,7 +47,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 105
     iget-object v0, p0, Landroid/content/ContentQueryMap$1;->this$0:Landroid/content/ContentQueryMap;
@@ -55,16 +55,17 @@
     invoke-virtual {v0}, Landroid/content/ContentQueryMap;->requery()V
 
     .line 109
-    :goto_d
+    :goto_0
     return-void
 
     .line 107
-    :cond_e
+    :cond_0
     iget-object v0, p0, Landroid/content/ContentQueryMap$1;->this$0:Landroid/content/ContentQueryMap;
 
     const/4 v1, 0x1
 
+    #setter for: Landroid/content/ContentQueryMap;->mDirty:Z
     invoke-static {v0, v1}, Landroid/content/ContentQueryMap;->access$002(Landroid/content/ContentQueryMap;Z)Z
 
-    goto :goto_d
+    goto :goto_0
 .end method

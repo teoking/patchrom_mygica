@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 1318
@@ -102,7 +102,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1314
@@ -113,7 +113,7 @@
 .end method
 
 .method public static extractAddrSpec(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "address"
 
     .prologue
@@ -130,7 +130,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_0
 
     .line 1380
     const/4 v1, 0x2
@@ -141,17 +141,17 @@
 
     .line 1382
     .end local p0
-    :cond_11
+    :cond_0
     return-object p0
 .end method
 
 .method public static final getMessageBoxName(I)Ljava/lang/String;
-    .registers 4
+    .locals 3
     .parameter "msgBox"
 
     .prologue
     .line 1360
-    packed-switch p0, :pswitch_data_2e
+    packed-switch p0, :pswitch_data_0
 
     .line 1372
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -179,52 +179,52 @@
     throw v0
 
     .line 1362
-    :pswitch_1c
+    :pswitch_0
     const-string v0, "all"
 
     .line 1370
-    :goto_1e
+    :goto_0
     return-object v0
 
     .line 1364
-    :pswitch_1f
+    :pswitch_1
     const-string v0, "inbox"
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 1366
-    :pswitch_22
+    :pswitch_2
     const-string/jumbo v0, "sent"
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 1368
-    :pswitch_26
+    :pswitch_3
     const-string v0, "drafts"
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 1370
-    :pswitch_29
+    :pswitch_4
     const-string/jumbo v0, "outbox"
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 1360
     nop
 
-    :pswitch_data_2e
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_1c
-        :pswitch_1f
-        :pswitch_22
-        :pswitch_26
-        :pswitch_29
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
     .end packed-switch
 .end method
 
 .method public static isEmailAddress(Ljava/lang/String;)Z
-    .registers 4
+    .locals 3
     .parameter "address"
 
     .prologue
@@ -233,17 +233,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_0
 
     .line 1393
     const/4 v2, 0x0
 
     .line 1398
-    :goto_7
+    :goto_0
     return v2
 
     .line 1396
-    :cond_8
+    :cond_0
     invoke-static {p0}, Landroid/provider/Telephony$Mms;->extractAddrSpec(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -262,11 +262,11 @@
 
     move-result v2
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public static isPhoneNumber(Ljava/lang/String;)Z
-    .registers 3
+    .locals 2
     .parameter "number"
 
     .prologue
@@ -275,17 +275,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_0
 
     .line 1409
     const/4 v1, 0x0
 
     .line 1413
-    :goto_7
+    :goto_0
     return v1
 
     .line 1412
-    :cond_8
+    :cond_0
     sget-object v1, Landroid/util/Patterns;->PHONE:Ljava/util/regex/Pattern;
 
     invoke-virtual {v1, p0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -298,11 +298,11 @@
 
     move-result v1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public static final query(Landroid/content/ContentResolver;[Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 8
+    .locals 6
     .parameter "cr"
     .parameter "projection"
 
@@ -328,7 +328,7 @@
 .end method
 
 .method public static final query(Landroid/content/ContentResolver;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 10
+    .locals 6
     .parameter "cr"
     .parameter "projection"
     .parameter "where"
@@ -340,11 +340,11 @@
 
     const/4 v4, 0x0
 
-    if-nez p3, :cond_f
+    if-nez p3, :cond_0
 
     const-string v5, "date DESC"
 
-    :goto_7
+    :goto_0
     move-object v0, p0
 
     move-object v2, p1
@@ -357,8 +357,8 @@
 
     return-object v0
 
-    :cond_f
+    :cond_0
     move-object v5, p3
 
-    goto :goto_7
+    goto :goto_0
 .end method

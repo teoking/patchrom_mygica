@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/storage/StorageManager;I)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "what"
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public getMessage()Landroid/os/Message;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 214

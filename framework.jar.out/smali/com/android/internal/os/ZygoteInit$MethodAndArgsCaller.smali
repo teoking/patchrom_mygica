@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/reflect/Method;[Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "method"
     .parameter "args"
 
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 8
+    .locals 7
 
     .prologue
     .line 786
@@ -66,15 +66,15 @@
     aput-object v6, v4, v5
 
     invoke-virtual {v2, v3, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_e
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_e} :catch_f
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_e} :catch_16
+    :try_end_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 798
     return-void
 
     .line 787
-    :catch_f
+    :catch_0
     move-exception v1
 
     .line 788
@@ -87,7 +87,7 @@
 
     .line 789
     .end local v1           #ex:Ljava/lang/IllegalAccessException;
-    :catch_16
+    :catch_1
     move-exception v1
 
     .line 790
@@ -100,7 +100,7 @@
     .local v0, cause:Ljava/lang/Throwable;
     instance-of v2, v0, Ljava/lang/RuntimeException;
 
-    if-eqz v2, :cond_22
+    if-eqz v2, :cond_0
 
     .line 792
     check-cast v0, Ljava/lang/RuntimeException;
@@ -110,10 +110,10 @@
 
     .line 793
     .restart local v0       #cause:Ljava/lang/Throwable;
-    :cond_22
+    :cond_0
     instance-of v2, v0, Ljava/lang/Error;
 
-    if-eqz v2, :cond_29
+    if-eqz v2, :cond_1
 
     .line 794
     check-cast v0, Ljava/lang/Error;
@@ -123,7 +123,7 @@
 
     .line 796
     .restart local v0       #cause:Ljava/lang/Throwable;
-    :cond_29
+    :cond_1
     new-instance v2, Ljava/lang/RuntimeException;
 
     invoke-direct {v2, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V

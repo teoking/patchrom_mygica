@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/renderscript/Mesh$Builder;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue

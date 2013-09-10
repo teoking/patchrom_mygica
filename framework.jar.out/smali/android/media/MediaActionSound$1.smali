@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/MediaActionSound;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onLoadComplete(Landroid/media/SoundPool;II)V
-    .registers 11
+    .locals 7
     .parameter "soundPool"
     .parameter "sampleId"
     .parameter "status"
@@ -49,16 +49,17 @@
     const/high16 v2, 0x3f80
 
     .line 175
-    if-nez p3, :cond_1c
+    if-nez p3, :cond_1
 
     .line 176
     iget-object v0, p0, Landroid/media/MediaActionSound$1;->this$0:Landroid/media/MediaActionSound;
 
+    #getter for: Landroid/media/MediaActionSound;->mSoundIdToPlay:I
     invoke-static {v0}, Landroid/media/MediaActionSound;->access$000(Landroid/media/MediaActionSound;)I
 
     move-result v0
 
-    if-ne v0, p2, :cond_1b
+    if-ne v0, p2, :cond_0
 
     move-object v0, p1
 
@@ -78,15 +79,16 @@
 
     const/4 v1, -0x1
 
+    #setter for: Landroid/media/MediaActionSound;->mSoundIdToPlay:I
     invoke-static {v0, v1}, Landroid/media/MediaActionSound;->access$002(Landroid/media/MediaActionSound;I)I
 
     .line 184
-    :cond_1b
-    :goto_1b
+    :cond_0
+    :goto_0
     return-void
 
     .line 181
-    :cond_1c
+    :cond_1
     const-string v0, "MediaActionSound"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -115,5 +117,5 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1b
+    goto :goto_0
 .end method

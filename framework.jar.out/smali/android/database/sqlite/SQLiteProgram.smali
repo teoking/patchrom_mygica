@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 31
@@ -37,7 +37,7 @@
 .end method
 
 .method constructor <init>(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;[Ljava/lang/Object;Landroid/os/CancellationSignal;)V
-    .registers 12
+    .locals 7
     .parameter "db"
     .parameter "sql"
     .parameter "bindArgs"
@@ -70,14 +70,14 @@
 
     .line 46
     .local v2, n:I
-    packed-switch v2, :pswitch_data_8c
+    packed-switch v2, :pswitch_data_0
 
     .line 56
-    if-ne v2, v0, :cond_72
+    if-ne v2, v0, :cond_0
 
     .line 57
     .local v0, assumeReadOnly:Z
-    :goto_18
+    :goto_0
     new-instance v1, Landroid/database/sqlite/SQLiteStatementInfo;
 
     invoke-direct {v1}, Landroid/database/sqlite/SQLiteStatementInfo;-><init>()V
@@ -114,14 +114,14 @@
     .line 67
     .end local v0           #assumeReadOnly:Z
     .end local v1           #info:Landroid/database/sqlite/SQLiteStatementInfo;
-    :goto_36
-    if-eqz p3, :cond_74
+    :goto_1
+    if-eqz p3, :cond_1
 
     array-length v4, p3
 
     iget v5, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
 
-    if-le v4, v5, :cond_74
+    if-le v4, v5, :cond_1
 
     .line 68
     new-instance v3, Ljava/lang/IllegalArgumentException;
@@ -169,7 +169,7 @@
     throw v3
 
     .line 50
-    :pswitch_69
+    :pswitch_0
     iput-boolean v3, p0, Landroid/database/sqlite/SQLiteProgram;->mReadOnly:Z
 
     .line 51
@@ -180,19 +180,19 @@
     .line 52
     iput v3, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
 
-    goto :goto_36
+    goto :goto_1
 
-    :cond_72
+    :cond_0
     move v0, v3
 
     .line 56
-    goto :goto_18
+    goto :goto_0
 
     .line 73
-    :cond_74
+    :cond_1
     iget v4, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
 
-    if-eqz v4, :cond_87
+    if-eqz v4, :cond_3
 
     .line 74
     iget v4, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
@@ -202,7 +202,7 @@
     iput-object v4, p0, Landroid/database/sqlite/SQLiteProgram;->mBindArgs:[Ljava/lang/Object;
 
     .line 75
-    if-eqz p3, :cond_86
+    if-eqz p3, :cond_2
 
     .line 76
     iget-object v4, p0, Landroid/database/sqlite/SQLiteProgram;->mBindArgs:[Ljava/lang/Object;
@@ -212,31 +212,31 @@
     invoke-static {p3, v3, v4, v3, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 81
-    :cond_86
-    :goto_86
+    :cond_2
+    :goto_2
     return-void
 
     .line 79
-    :cond_87
+    :cond_3
     const/4 v3, 0x0
 
     iput-object v3, p0, Landroid/database/sqlite/SQLiteProgram;->mBindArgs:[Ljava/lang/Object;
 
-    goto :goto_86
+    goto :goto_2
 
     .line 46
     nop
 
-    :pswitch_data_8c
+    :pswitch_data_0
     .packed-switch 0x4
-        :pswitch_69
-        :pswitch_69
-        :pswitch_69
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method private bind(ILjava/lang/Object;)V
-    .registers 6
+    .locals 3
     .parameter "index"
     .parameter "value"
 
@@ -244,14 +244,14 @@
     .line 211
     const/4 v0, 0x1
 
-    if-lt p1, v0, :cond_7
+    if-lt p1, v0, :cond_0
 
     iget v0, p0, Landroid/database/sqlite/SQLiteProgram;->mNumParameters:I
 
-    if-le p1, v0, :cond_38
+    if-le p1, v0, :cond_1
 
     .line 212
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -301,7 +301,7 @@
     throw v0
 
     .line 216
-    :cond_38
+    :cond_1
     iget-object v0, p0, Landroid/database/sqlite/SQLiteProgram;->mBindArgs:[Ljava/lang/Object;
 
     add-int/lit8 v1, p1, -0x1
@@ -315,19 +315,19 @@
 
 # virtual methods
 .method public bindAllArgsAsStrings([Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "bindArgs"
 
     .prologue
     .line 198
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_0
 
     .line 199
     array-length v0, p1
 
     .local v0, i:I
-    :goto_3
-    if-eqz v0, :cond_f
+    :goto_0
+    if-eqz v0, :cond_0
 
     .line 200
     add-int/lit8 v1, v0, -0x1
@@ -339,22 +339,22 @@
     .line 199
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 203
     .end local v0           #i:I
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method public bindBlob(I[B)V
-    .registers 6
+    .locals 3
     .parameter "index"
     .parameter "value"
 
     .prologue
     .line 177
-    if-nez p2, :cond_22
+    if-nez p2, :cond_0
 
     .line 178
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -388,7 +388,7 @@
     throw v0
 
     .line 180
-    :cond_22
+    :cond_0
     invoke-direct {p0, p1, p2}, Landroid/database/sqlite/SQLiteProgram;->bind(ILjava/lang/Object;)V
 
     .line 181
@@ -396,7 +396,7 @@
 .end method
 
 .method public bindDouble(ID)V
-    .registers 5
+    .locals 1
     .parameter "index"
     .parameter "value"
 
@@ -413,7 +413,7 @@
 .end method
 
 .method public bindLong(IJ)V
-    .registers 5
+    .locals 1
     .parameter "index"
     .parameter "value"
 
@@ -430,7 +430,7 @@
 .end method
 
 .method public bindNull(I)V
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -444,13 +444,13 @@
 .end method
 
 .method public bindString(ILjava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "index"
     .parameter "value"
 
     .prologue
     .line 163
-    if-nez p2, :cond_22
+    if-nez p2, :cond_0
 
     .line 164
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -484,7 +484,7 @@
     throw v0
 
     .line 166
-    :cond_22
+    :cond_0
     invoke-direct {p0, p1, p2}, Landroid/database/sqlite/SQLiteProgram;->bind(ILjava/lang/Object;)V
 
     .line 167
@@ -492,13 +492,13 @@
 .end method
 
 .method public clearBindings()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 187
     iget-object v0, p0, Landroid/database/sqlite/SQLiteProgram;->mBindArgs:[Ljava/lang/Object;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 188
     iget-object v0, p0, Landroid/database/sqlite/SQLiteProgram;->mBindArgs:[Ljava/lang/Object;
@@ -508,12 +508,12 @@
     invoke-static {v0, v1}, Ljava/util/Arrays;->fill([Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 190
-    :cond_a
+    :cond_0
     return-void
 .end method
 
 .method final getBindArgs()[Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 92
@@ -523,7 +523,7 @@
 .end method
 
 .method final getColumnNames()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 96
@@ -533,7 +533,7 @@
 .end method
 
 .method protected final getConnectionFlags()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 106
@@ -549,7 +549,7 @@
 .end method
 
 .method final getDatabase()Landroid/database/sqlite/SQLiteDatabase;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84
@@ -559,7 +559,7 @@
 .end method
 
 .method protected final getSession()Landroid/database/sqlite/SQLiteSession;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 101
@@ -573,7 +573,7 @@
 .end method
 
 .method final getSql()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 88
@@ -583,7 +583,7 @@
 .end method
 
 .method public final getUniqueId()I
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -595,7 +595,7 @@
 .end method
 
 .method protected onAllReferencesReleased()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 207
@@ -606,7 +606,7 @@
 .end method
 
 .method protected final onCorruption()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 111

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 59
@@ -24,7 +24,7 @@
 .end method
 
 .method public static enableDebugLogging(Z)V
-    .registers 1
+    .locals 0
     .parameter "enabled"
 
     .prologue

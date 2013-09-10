@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 26
@@ -47,7 +47,7 @@
 .end method
 
 .method public final get()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -60,10 +60,10 @@
     monitor-enter p0
 
     .line 33
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/util/Singleton;->mInstance:Ljava/lang/Object;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 34
     invoke-virtual {p0}, Landroid/util/Singleton;->create()Ljava/lang/Object;
@@ -73,7 +73,7 @@
     iput-object v0, p0, Landroid/util/Singleton;->mInstance:Ljava/lang/Object;
 
     .line 36
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/util/Singleton;->mInstance:Ljava/lang/Object;
 
     monitor-exit p0
@@ -81,12 +81,12 @@
     return-object v0
 
     .line 37
-    :catchall_f
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_11
-    .catchall {:try_start_1 .. :try_end_11} :catchall_f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

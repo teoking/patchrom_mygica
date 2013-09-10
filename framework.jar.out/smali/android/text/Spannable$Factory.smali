@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 53
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 52
@@ -44,7 +44,7 @@
 .end method
 
 .method public static getInstance()Landroid/text/Spannable$Factory;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 59
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public newSpannable(Ljava/lang/CharSequence;)Landroid/text/Spannable;
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue

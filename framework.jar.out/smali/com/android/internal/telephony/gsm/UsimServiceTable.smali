@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>([B)V
-    .registers 2
+    .locals 0
     .parameter "table"
 
     .prologue
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method protected getTag()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 135
@@ -37,7 +37,7 @@
 .end method
 
 .method protected getValues()[Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 140
@@ -49,7 +49,7 @@
 .end method
 
 .method public isAvailable(Lcom/android/internal/telephony/gsm/UsimServiceTable$UsimService;)Z
-    .registers 3
+    .locals 1
     .parameter "service"
 
     .prologue

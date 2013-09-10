@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/ShutdownActivity;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,17 +38,18 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 46
     iget-object v0, p0, Lcom/android/server/ShutdownActivity$1;->this$0:Lcom/android/server/ShutdownActivity;
 
+    #getter for: Lcom/android/server/ShutdownActivity;->mReboot:Z
     invoke-static {v0}, Lcom/android/server/ShutdownActivity;->access$000(Lcom/android/server/ShutdownActivity;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 47
     iget-object v0, p0, Lcom/android/server/ShutdownActivity$1;->this$0:Lcom/android/server/ShutdownActivity;
@@ -57,6 +58,7 @@
 
     iget-object v2, p0, Lcom/android/server/ShutdownActivity$1;->this$0:Lcom/android/server/ShutdownActivity;
 
+    #getter for: Lcom/android/server/ShutdownActivity;->mConfirm:Z
     invoke-static {v2}, Lcom/android/server/ShutdownActivity;->access$100(Lcom/android/server/ShutdownActivity;)Z
 
     move-result v2
@@ -64,20 +66,21 @@
     invoke-static {v0, v1, v2}, Lcom/android/server/pm/ShutdownThread;->reboot(Landroid/content/Context;Ljava/lang/String;Z)V
 
     .line 51
-    :goto_14
+    :goto_0
     return-void
 
     .line 49
-    :cond_15
+    :cond_0
     iget-object v0, p0, Lcom/android/server/ShutdownActivity$1;->this$0:Lcom/android/server/ShutdownActivity;
 
     iget-object v1, p0, Lcom/android/server/ShutdownActivity$1;->this$0:Lcom/android/server/ShutdownActivity;
 
+    #getter for: Lcom/android/server/ShutdownActivity;->mConfirm:Z
     invoke-static {v1}, Lcom/android/server/ShutdownActivity;->access$100(Lcom/android/server/ShutdownActivity;)Z
 
     move-result v1
 
     invoke-static {v0, v1}, Lcom/android/server/pm/ShutdownThread;->shutdown(Landroid/content/Context;Z)V
 
-    goto :goto_14
+    goto :goto_0
 .end method

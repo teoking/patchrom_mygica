@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
-    .registers 3
+    .locals 0
     .parameter "id"
     .parameter "rs"
 
@@ -41,14 +41,14 @@
 .end method
 
 .method public static CLAMP_LINEAR(Landroid/renderscript/RenderScript;)Landroid/renderscript/Sampler;
-    .registers 3
+    .locals 2
     .parameter "rs"
 
     .prologue
     .line 125
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_CLAMP_LINEAR:Landroid/renderscript/Sampler;
 
-    if-nez v1, :cond_23
+    if-nez v1, :cond_0
 
     .line 126
     new-instance v0, Landroid/renderscript/Sampler$Builder;
@@ -85,21 +85,21 @@
 
     .line 133
     .end local v0           #b:Landroid/renderscript/Sampler$Builder;
-    :cond_23
+    :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_CLAMP_LINEAR:Landroid/renderscript/Sampler;
 
     return-object v1
 .end method
 
 .method public static CLAMP_LINEAR_MIP_LINEAR(Landroid/renderscript/RenderScript;)Landroid/renderscript/Sampler;
-    .registers 3
+    .locals 2
     .parameter "rs"
 
     .prologue
     .line 145
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_CLAMP_LINEAR_MIP_LINEAR:Landroid/renderscript/Sampler;
 
-    if-nez v1, :cond_23
+    if-nez v1, :cond_0
 
     .line 146
     new-instance v0, Landroid/renderscript/Sampler$Builder;
@@ -136,21 +136,21 @@
 
     .line 153
     .end local v0           #b:Landroid/renderscript/Sampler$Builder;
-    :cond_23
+    :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_CLAMP_LINEAR_MIP_LINEAR:Landroid/renderscript/Sampler;
 
     return-object v1
 .end method
 
 .method public static CLAMP_NEAREST(Landroid/renderscript/RenderScript;)Landroid/renderscript/Sampler;
-    .registers 3
+    .locals 2
     .parameter "rs"
 
     .prologue
     .line 105
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_CLAMP_NEAREST:Landroid/renderscript/Sampler;
 
-    if-nez v1, :cond_23
+    if-nez v1, :cond_0
 
     .line 106
     new-instance v0, Landroid/renderscript/Sampler$Builder;
@@ -187,21 +187,21 @@
 
     .line 113
     .end local v0           #b:Landroid/renderscript/Sampler$Builder;
-    :cond_23
+    :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_CLAMP_NEAREST:Landroid/renderscript/Sampler;
 
     return-object v1
 .end method
 
 .method public static WRAP_LINEAR(Landroid/renderscript/RenderScript;)Landroid/renderscript/Sampler;
-    .registers 3
+    .locals 2
     .parameter "rs"
 
     .prologue
     .line 185
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_WRAP_LINEAR:Landroid/renderscript/Sampler;
 
-    if-nez v1, :cond_23
+    if-nez v1, :cond_0
 
     .line 186
     new-instance v0, Landroid/renderscript/Sampler$Builder;
@@ -238,21 +238,21 @@
 
     .line 193
     .end local v0           #b:Landroid/renderscript/Sampler$Builder;
-    :cond_23
+    :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_WRAP_LINEAR:Landroid/renderscript/Sampler;
 
     return-object v1
 .end method
 
 .method public static WRAP_LINEAR_MIP_LINEAR(Landroid/renderscript/RenderScript;)Landroid/renderscript/Sampler;
-    .registers 3
+    .locals 2
     .parameter "rs"
 
     .prologue
     .line 205
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_WRAP_LINEAR_MIP_LINEAR:Landroid/renderscript/Sampler;
 
-    if-nez v1, :cond_23
+    if-nez v1, :cond_0
 
     .line 206
     new-instance v0, Landroid/renderscript/Sampler$Builder;
@@ -289,21 +289,21 @@
 
     .line 213
     .end local v0           #b:Landroid/renderscript/Sampler$Builder;
-    :cond_23
+    :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_WRAP_LINEAR_MIP_LINEAR:Landroid/renderscript/Sampler;
 
     return-object v1
 .end method
 
 .method public static WRAP_NEAREST(Landroid/renderscript/RenderScript;)Landroid/renderscript/Sampler;
-    .registers 3
+    .locals 2
     .parameter "rs"
 
     .prologue
     .line 165
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_WRAP_NEAREST:Landroid/renderscript/Sampler;
 
-    if-nez v1, :cond_23
+    if-nez v1, :cond_0
 
     .line 166
     new-instance v0, Landroid/renderscript/Sampler$Builder;
@@ -340,7 +340,7 @@
 
     .line 173
     .end local v0           #b:Landroid/renderscript/Sampler$Builder;
-    :cond_23
+    :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mSampler_WRAP_NEAREST:Landroid/renderscript/Sampler;
 
     return-object v1
@@ -349,7 +349,7 @@
 
 # virtual methods
 .method public getAnisotropy()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 93
@@ -359,7 +359,7 @@
 .end method
 
 .method public getMagnification()Landroid/renderscript/Sampler$Value;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 72
@@ -369,7 +369,7 @@
 .end method
 
 .method public getMinification()Landroid/renderscript/Sampler$Value;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 65
@@ -379,7 +379,7 @@
 .end method
 
 .method public getWrapS()Landroid/renderscript/Sampler$Value;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 79
@@ -389,7 +389,7 @@
 .end method
 
 .method public getWrapT()Landroid/renderscript/Sampler$Value;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 86

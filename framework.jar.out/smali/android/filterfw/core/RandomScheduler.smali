@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/FilterGraph;)V
-    .registers 3
+    .locals 1
     .parameter "graph"
 
     .prologue
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public reset()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 39
@@ -38,7 +38,7 @@
 .end method
 
 .method public scheduleNextNode()Landroid/filterfw/core/Filter;
-    .registers 7
+    .locals 6
 
     .prologue
     .line 43
@@ -61,13 +61,13 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :cond_11
-    :goto_11
+    :cond_0
+    :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_27
+    if-eqz v4, :cond_1
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -81,21 +81,21 @@
 
     move-result v4
 
-    if-eqz v4, :cond_11
+    if-eqz v4, :cond_0
 
     .line 46
     invoke-virtual {v0, v1}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
-    goto :goto_11
+    goto :goto_0
 
     .line 48
     .end local v1           #filter:Landroid/filterfw/core/Filter;
-    :cond_27
+    :cond_1
     invoke-virtual {v0}, Ljava/util/Vector;->size()I
 
     move-result v4
 
-    if-lez v4, :cond_3e
+    if-lez v4, :cond_2
 
     .line 49
     iget-object v4, p0, Landroid/filterfw/core/RandomScheduler;->mRand:Ljava/util/Random;
@@ -118,11 +118,11 @@
 
     .line 52
     .end local v3           #r:I
-    :goto_3d
+    :goto_1
     return-object v4
 
-    :cond_3e
+    :cond_2
     const/4 v4, 0x0
 
-    goto :goto_3d
+    goto :goto_1
 .end method

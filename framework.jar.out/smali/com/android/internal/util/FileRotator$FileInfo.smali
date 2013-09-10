@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "prefix"
 
     .prologue
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public build()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 443
@@ -86,7 +86,7 @@
 
     cmp-long v1, v1, v3
 
-    if-eqz v1, :cond_2c
+    if-eqz v1, :cond_0
 
     .line 446
     iget-wide v1, p0, Lcom/android/internal/util/FileRotator$FileInfo;->endMillis:J
@@ -94,7 +94,7 @@
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     .line 448
-    :cond_2c
+    :cond_0
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -103,7 +103,7 @@
 .end method
 
 .method public isActive()Z
-    .registers 5
+    .locals 4
 
     .prologue
     .line 455
@@ -113,21 +113,21 @@
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_c
+    :goto_0
     return v0
 
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public parse(Ljava/lang/String;)Z
-    .registers 10
+    .locals 8
     .parameter "name"
 
     .prologue
@@ -161,17 +161,17 @@
 
     .line 419
     .local v0, dashIndex:I
-    if-eq v1, v7, :cond_19
+    if-eq v1, v7, :cond_0
 
-    if-ne v0, v7, :cond_1a
+    if-ne v0, v7, :cond_1
 
     .line 435
-    :cond_19
-    :goto_19
+    :cond_0
+    :goto_0
     return v3
 
     .line 422
-    :cond_1a
+    :cond_1
     iget-object v5, p0, Lcom/android/internal/util/FileRotator$FileInfo;->prefix:Ljava/lang/String;
 
     invoke-virtual {p1, v3, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -182,12 +182,12 @@
 
     move-result v5
 
-    if-eqz v5, :cond_19
+    if-eqz v5, :cond_0
 
     .line 425
     add-int/lit8 v5, v1, 0x1
 
-    :try_start_28
+    :try_start_0
     invoke-virtual {p1, v5, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v5
@@ -205,21 +205,21 @@
 
     sub-int/2addr v5, v0
 
-    if-ne v5, v4, :cond_42
+    if-ne v5, v4, :cond_2
 
     .line 428
     const-wide v5, 0x7fffffffffffffffL
 
     iput-wide v5, p0, Lcom/android/internal/util/FileRotator$FileInfo;->endMillis:J
 
-    :goto_40
+    :goto_1
     move v3, v4
 
     .line 433
-    goto :goto_19
+    goto :goto_0
 
     .line 430
-    :cond_42
+    :cond_2
     add-int/lit8 v5, v0, 0x1
 
     invoke-virtual {p1, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -231,16 +231,16 @@
     move-result-wide v5
 
     iput-wide v5, p0, Lcom/android/internal/util/FileRotator$FileInfo;->endMillis:J
-    :try_end_4e
-    .catch Ljava/lang/NumberFormatException; {:try_start_28 .. :try_end_4e} :catch_4f
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_40
+    goto :goto_1
 
     .line 434
-    :catch_4f
+    :catch_0
     move-exception v2
 
     .line 435
     .local v2, e:Ljava/lang/NumberFormatException;
-    goto :goto_19
+    goto :goto_0
 .end method

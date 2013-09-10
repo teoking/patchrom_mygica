@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ServiceRecord;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "_record"
     .parameter "_permission"

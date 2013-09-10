@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService;Ljava/lang/String;Ljava/util/HashSet;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 4880
@@ -58,6 +58,7 @@
 
     iget-object v2, p0, Lcom/android/server/BackupManagerService$3;->val$targets:Ljava/util/HashSet;
 
+    #calls: Lcom/android/server/BackupManagerService;->dataChangedImpl(Ljava/lang/String;Ljava/util/HashSet;)V
     invoke-static {v0, v1, v2}, Lcom/android/server/BackupManagerService;->access$1800(Lcom/android/server/BackupManagerService;Ljava/lang/String;Ljava/util/HashSet;)V
 
     .line 4881

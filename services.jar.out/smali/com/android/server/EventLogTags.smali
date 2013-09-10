@@ -107,7 +107,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 11
@@ -117,7 +117,7 @@
 .end method
 
 .method public static writeBackupAgentFailure(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "package_"
     .parameter "message"
 
@@ -144,7 +144,7 @@
 .end method
 
 .method public static writeBackupDataChanged(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "package_"
 
     .prologue
@@ -158,7 +158,7 @@
 .end method
 
 .method public static writeBackupInitialize()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 296
@@ -175,7 +175,7 @@
 .end method
 
 .method public static writeBackupPackage(Ljava/lang/String;I)V
-    .registers 6
+    .locals 4
     .parameter "package_"
     .parameter "size"
 
@@ -206,7 +206,7 @@
 .end method
 
 .method public static writeBackupReset(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "transport"
 
     .prologue
@@ -220,7 +220,7 @@
 .end method
 
 .method public static writeBackupStart(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "transport"
 
     .prologue
@@ -234,7 +234,7 @@
 .end method
 
 .method public static writeBackupSuccess(II)V
-    .registers 6
+    .locals 4
     .parameter "packages"
     .parameter "time"
 
@@ -269,7 +269,7 @@
 .end method
 
 .method public static writeBackupTransportFailure(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "package_"
 
     .prologue
@@ -283,7 +283,7 @@
 .end method
 
 .method public static writeBatteryDischarge(JII)V
-    .registers 8
+    .locals 4
     .parameter "duration"
     .parameter "minlevel"
     .parameter "maxlevel"
@@ -327,7 +327,7 @@
 .end method
 
 .method public static writeBatteryLevel(III)V
-    .registers 7
+    .locals 4
     .parameter "level"
     .parameter "voltage"
     .parameter "temperature"
@@ -371,7 +371,7 @@
 .end method
 
 .method public static writeBatteryStatus(IIIILjava/lang/String;)V
-    .registers 9
+    .locals 4
     .parameter "status"
     .parameter "health"
     .parameter "present"
@@ -429,7 +429,7 @@
 .end method
 
 .method public static writeBootProgressPmsDataScanStart(J)V
-    .registers 3
+    .locals 1
     .parameter "time"
 
     .prologue
@@ -443,7 +443,7 @@
 .end method
 
 .method public static writeBootProgressPmsReady(J)V
-    .registers 3
+    .locals 1
     .parameter "time"
 
     .prologue
@@ -457,7 +457,7 @@
 .end method
 
 .method public static writeBootProgressPmsScanEnd(J)V
-    .registers 3
+    .locals 1
     .parameter "time"
 
     .prologue
@@ -471,7 +471,7 @@
 .end method
 
 .method public static writeBootProgressPmsStart(J)V
-    .registers 3
+    .locals 1
     .parameter "time"
 
     .prologue
@@ -485,7 +485,7 @@
 .end method
 
 .method public static writeBootProgressPmsSystemScanStart(J)V
-    .registers 3
+    .locals 1
     .parameter "time"
 
     .prologue
@@ -499,7 +499,7 @@
 .end method
 
 .method public static writeBootProgressSystemRun(J)V
-    .registers 3
+    .locals 1
     .parameter "time"
 
     .prologue
@@ -513,7 +513,7 @@
 .end method
 
 .method public static writeCacheFileDeleted(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "path"
 
     .prologue
@@ -527,7 +527,7 @@
 .end method
 
 .method public static writeConnectivityStateChanged(I)V
-    .registers 2
+    .locals 1
     .parameter "custom"
 
     .prologue
@@ -541,7 +541,7 @@
 .end method
 
 .method public static writeFreeStorageChanged(J)V
-    .registers 3
+    .locals 1
     .parameter "data"
 
     .prologue
@@ -555,7 +555,7 @@
 .end method
 
 .method public static writeFreeStorageLeft(JJJ)V
-    .registers 10
+    .locals 4
     .parameter "data"
     .parameter "system"
     .parameter "cache"
@@ -599,7 +599,7 @@
 .end method
 
 .method public static writeImfForceReconnectIme([Ljava/lang/Object;JI)V
-    .registers 8
+    .locals 4
     .parameter "ime"
     .parameter "timeSinceConnect"
     .parameter "showing"
@@ -639,7 +639,7 @@
 .end method
 
 .method public static writeLowStorage(J)V
-    .registers 3
+    .locals 1
     .parameter "data"
 
     .prologue
@@ -653,7 +653,7 @@
 .end method
 
 .method public static writeNetstatsMobileSample(JJJJJJJJJJJJJ)V
-    .registers 30
+    .locals 4
     .parameter "devRxBytes"
     .parameter "devTxBytes"
     .parameter "devRxPkts"
@@ -787,7 +787,7 @@
 .end method
 
 .method public static writeNetstatsWifiSample(JJJJJJJJJJJJJ)V
-    .registers 30
+    .locals 4
     .parameter "devRxBytes"
     .parameter "devTxBytes"
     .parameter "devRxPkts"
@@ -921,7 +921,7 @@
 .end method
 
 .method public static writeNotificationCancel(Ljava/lang/String;ILjava/lang/String;II)V
-    .registers 9
+    .locals 4
     .parameter "pkg"
     .parameter "id"
     .parameter "tag"
@@ -975,7 +975,7 @@
 .end method
 
 .method public static writeNotificationCancelAll(Ljava/lang/String;II)V
-    .registers 7
+    .locals 4
     .parameter "pkg"
     .parameter "requiredFlags"
     .parameter "forbiddenFlags"
@@ -1015,7 +1015,7 @@
 .end method
 
 .method public static writeNotificationEnqueue(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
-    .registers 8
+    .locals 4
     .parameter "pkg"
     .parameter "id"
     .parameter "tag"
@@ -1056,7 +1056,7 @@
 .end method
 
 .method public static writePowerPartialWakeState(ILjava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "releasedoracquired"
     .parameter "tag"
 
@@ -1087,7 +1087,7 @@
 .end method
 
 .method public static writePowerScreenBroadcastDone(IJI)V
-    .registers 8
+    .locals 4
     .parameter "on"
     .parameter "broadcastduration"
     .parameter "wakelockcount"
@@ -1131,7 +1131,7 @@
 .end method
 
 .method public static writePowerScreenBroadcastSend(I)V
-    .registers 2
+    .locals 1
     .parameter "wakelockcount"
 
     .prologue
@@ -1145,7 +1145,7 @@
 .end method
 
 .method public static writePowerScreenBroadcastStop(II)V
-    .registers 6
+    .locals 4
     .parameter "which"
     .parameter "wakelockcount"
 
@@ -1180,7 +1180,7 @@
 .end method
 
 .method public static writePowerScreenState(IIJI)V
-    .registers 9
+    .locals 4
     .parameter "offoron"
     .parameter "becauseofuser"
     .parameter "totaltouchdowntime"
@@ -1233,7 +1233,7 @@
 .end method
 
 .method public static writePowerSleepRequested(I)V
-    .registers 2
+    .locals 1
     .parameter "wakelockscleared"
 
     .prologue
@@ -1247,7 +1247,7 @@
 .end method
 
 .method public static writeRestoreAgentFailure(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "package_"
     .parameter "message"
 
@@ -1274,7 +1274,7 @@
 .end method
 
 .method public static writeRestorePackage(Ljava/lang/String;I)V
-    .registers 6
+    .locals 4
     .parameter "package_"
     .parameter "size"
 
@@ -1305,7 +1305,7 @@
 .end method
 
 .method public static writeRestoreStart(Ljava/lang/String;J)V
-    .registers 7
+    .locals 4
     .parameter "transport"
     .parameter "source"
 
@@ -1336,7 +1336,7 @@
 .end method
 
 .method public static writeRestoreSuccess(II)V
-    .registers 6
+    .locals 4
     .parameter "packages"
     .parameter "time"
 
@@ -1371,7 +1371,7 @@
 .end method
 
 .method public static writeRestoreTransportFailure()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 304
@@ -1388,7 +1388,7 @@
 .end method
 
 .method public static writeWatchdog(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "service"
 
     .prologue
@@ -1402,7 +1402,7 @@
 .end method
 
 .method public static writeWatchdogHardReset(Ljava/lang/String;III)V
-    .registers 8
+    .locals 4
     .parameter "process"
     .parameter "pid"
     .parameter "maxpss"
@@ -1451,7 +1451,7 @@
 .end method
 
 .method public static writeWatchdogMeminfo(IIIIIIIIIII)V
-    .registers 15
+    .locals 4
     .parameter "memfree"
     .parameter "buffers"
     .parameter "cached"
@@ -1567,7 +1567,7 @@
 .end method
 
 .method public static writeWatchdogProcPss(Ljava/lang/String;II)V
-    .registers 7
+    .locals 4
     .parameter "process"
     .parameter "pid"
     .parameter "pss"
@@ -1607,7 +1607,7 @@
 .end method
 
 .method public static writeWatchdogProcStats(IIIII)V
-    .registers 9
+    .locals 4
     .parameter "deathsinone"
     .parameter "deathsintwo"
     .parameter "deathsinthree"
@@ -1669,7 +1669,7 @@
 .end method
 
 .method public static writeWatchdogPssStats(IIIIIIIIIII)V
-    .registers 15
+    .locals 4
     .parameter "emptypss"
     .parameter "emptycount"
     .parameter "backgroundpss"
@@ -1785,7 +1785,7 @@
 .end method
 
 .method public static writeWatchdogRequestedReboot(IIIIIII)V
-    .registers 11
+    .locals 4
     .parameter "nowait"
     .parameter "scheduleinterval"
     .parameter "recheckinterval"
@@ -1865,7 +1865,7 @@
 .end method
 
 .method public static writeWatchdogScheduledReboot(JIIILjava/lang/String;)V
-    .registers 10
+    .locals 4
     .parameter "now"
     .parameter "interval"
     .parameter "starttime"
@@ -1923,7 +1923,7 @@
 .end method
 
 .method public static writeWatchdogSoftReset(Ljava/lang/String;IIILjava/lang/String;)V
-    .registers 9
+    .locals 4
     .parameter "process"
     .parameter "pid"
     .parameter "maxpss"
@@ -1977,7 +1977,7 @@
 .end method
 
 .method public static writeWatchdogVmstat(JIIIII)V
-    .registers 11
+    .locals 4
     .parameter "runtime"
     .parameter "pgfree"
     .parameter "pgactivate"
@@ -2048,7 +2048,7 @@
 .end method
 
 .method public static writeWmNoSurfaceMemory(Ljava/lang/String;ILjava/lang/String;)V
-    .registers 7
+    .locals 4
     .parameter "window"
     .parameter "pid"
     .parameter "operation"

@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/view/View;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/view/View;Landroid/view/View$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 16958
@@ -78,6 +78,7 @@
 
     move-result v1
 
+    #calls: Landroid/view/View;->checkForLongClick(I)V
     invoke-static {v0, v1}, Landroid/view/View;->access$2100(Landroid/view/View;I)V
 
     .line 16961

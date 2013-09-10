@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/location/GpsLocationProvider;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public sendNiResponse(II)Z
-    .registers 5
+    .locals 2
     .parameter "notificationId"
     .parameter "userResponse"
 
@@ -49,6 +49,7 @@
     .local v0, extrasBuf:Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/android/server/location/GpsLocationProvider$3;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
+    #calls: Lcom/android/server/location/GpsLocationProvider;->native_send_ni_response(II)V
     invoke-static {v1, p1, p2}, Lcom/android/server/location/GpsLocationProvider;->access$500(Lcom/android/server/location/GpsLocationProvider;II)V
 
     .line 1397

@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/TextView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -39,7 +39,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/TextView;Landroid/widget/TextView$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .registers 3
+    .locals 1
     .parameter "buffer"
 
     .prologue
@@ -69,7 +69,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 8746
     iget-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->this$0:Landroid/widget/TextView;
@@ -77,12 +77,12 @@
     invoke-static {v0, p1}, Landroid/text/method/MetaKeyKeyListener;->stopSelecting(Landroid/view/View;Landroid/text/Spannable;)V
 
     .line 8748
-    :cond_12
+    :cond_0
     return-void
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 6
+    .locals 1
     .parameter "buffer"
     .parameter "start"
     .parameter "before"
@@ -92,6 +92,7 @@
     .line 8720
     iget-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->this$0:Landroid/widget/TextView;
 
+    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
     invoke-static {v0}, Landroid/widget/TextView;->access$400(Landroid/widget/TextView;)Landroid/content/Context;
 
     move-result-object v0
@@ -104,7 +105,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->this$0:Landroid/widget/TextView;
 
@@ -112,19 +113,21 @@
 
     move-result v0
 
+    #calls: Landroid/widget/TextView;->isPasswordInputType(I)Z
     invoke-static {v0}, Landroid/widget/TextView;->access$500(I)Z
 
     move-result v0
 
-    if-nez v0, :cond_2a
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->this$0:Landroid/widget/TextView;
 
+    #calls: Landroid/widget/TextView;->hasPasswordTransformationMethod()Z
     invoke-static {v0}, Landroid/widget/TextView;->access$600(Landroid/widget/TextView;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2a
+    if-nez v0, :cond_0
 
     .line 8723
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -134,9 +137,10 @@
     iput-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->mBeforeText:Ljava/lang/CharSequence;
 
     .line 8726
-    :cond_2a
+    :cond_0
     iget-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->this$0:Landroid/widget/TextView;
 
+    #calls: Landroid/widget/TextView;->sendBeforeTextChanged(Ljava/lang/CharSequence;III)V
     invoke-static {v0, p1, p2, p3, p4}, Landroid/widget/TextView;->access$700(Landroid/widget/TextView;Ljava/lang/CharSequence;III)V
 
     .line 8727
@@ -144,7 +148,7 @@
 .end method
 
 .method public onSpanAdded(Landroid/text/Spannable;Ljava/lang/Object;II)V
-    .registers 12
+    .locals 7
     .parameter "buf"
     .parameter "what"
     .parameter "s"
@@ -173,7 +177,7 @@
 .end method
 
 .method public onSpanChanged(Landroid/text/Spannable;Ljava/lang/Object;IIII)V
-    .registers 14
+    .locals 7
     .parameter "buf"
     .parameter "what"
     .parameter "s"
@@ -204,7 +208,7 @@
 .end method
 
 .method public onSpanRemoved(Landroid/text/Spannable;Ljava/lang/Object;II)V
-    .registers 12
+    .locals 7
     .parameter "buf"
     .parameter "what"
     .parameter "s"
@@ -233,7 +237,7 @@
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 7
+    .locals 2
     .parameter "buffer"
     .parameter "start"
     .parameter "before"
@@ -248,6 +252,7 @@
     .line 8734
     iget-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->this$0:Landroid/widget/TextView;
 
+    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
     invoke-static {v0}, Landroid/widget/TextView;->access$800(Landroid/widget/TextView;)Landroid/content/Context;
 
     move-result-object v0
@@ -260,7 +265,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_37
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->this$0:Landroid/widget/TextView;
 
@@ -268,7 +273,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2d
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->this$0:Landroid/widget/TextView;
 
@@ -276,7 +281,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_37
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->this$0:Landroid/widget/TextView;
 
@@ -284,10 +289,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_37
+    if-eqz v0, :cond_1
 
     .line 8736
-    :cond_2d
+    :cond_0
     iget-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->this$0:Landroid/widget/TextView;
 
     iget-object v1, p0, Landroid/widget/TextView$ChangeWatcher;->mBeforeText:Ljava/lang/CharSequence;
@@ -300,6 +305,6 @@
     iput-object v0, p0, Landroid/widget/TextView$ChangeWatcher;->mBeforeText:Ljava/lang/CharSequence;
 
     .line 8739
-    :cond_37
+    :cond_1
     return-void
 .end method

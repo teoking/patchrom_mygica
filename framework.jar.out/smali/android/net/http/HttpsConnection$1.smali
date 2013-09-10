@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 86
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public checkClientTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "certs"
     .parameter "authType"
 
@@ -41,7 +41,7 @@
 .end method
 
 .method public checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "certs"
     .parameter "authType"
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public getAcceptedIssuers()[Ljava/security/cert/X509Certificate;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 88

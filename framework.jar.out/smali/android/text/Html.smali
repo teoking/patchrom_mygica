@@ -15,7 +15,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 90
@@ -25,7 +25,7 @@
 .end method
 
 .method public static escapeHtml(Ljava/lang/CharSequence;)Ljava/lang/String;
-    .registers 4
+    .locals 3
     .parameter "text"
 
     .prologue
@@ -53,7 +53,7 @@
 .end method
 
 .method public static fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
-    .registers 2
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -68,7 +68,7 @@
 .end method
 
 .method public static fromHtml(Ljava/lang/String;Landroid/text/Html$ImageGetter;Landroid/text/Html$TagHandler;)Landroid/text/Spanned;
-    .registers 8
+    .locals 5
     .parameter "source"
     .parameter "imageGetter"
     .parameter "tagHandler"
@@ -81,7 +81,7 @@
 
     .line 126
     .local v2, parser:Lorg/ccil/cowan/tagsoup/Parser;
-    :try_start_5
+    :try_start_0
     const-string v3, "http://www.ccil.org/~cowan/tagsoup/properties/schema"
 
     invoke-static {}, Landroid/text/Html$HtmlParser;->access$000()Lorg/ccil/cowan/tagsoup/HTMLSchema;
@@ -89,9 +89,9 @@
     move-result-object v4
 
     invoke-virtual {v2, v3, v4}, Lorg/ccil/cowan/tagsoup/Parser;->setProperty(Ljava/lang/String;Ljava/lang/Object;)V
-    :try_end_e
-    .catch Lorg/xml/sax/SAXNotRecognizedException; {:try_start_5 .. :try_end_e} :catch_18
-    .catch Lorg/xml/sax/SAXNotSupportedException; {:try_start_5 .. :try_end_e} :catch_1f
+    :try_end_0
+    .catch Lorg/xml/sax/SAXNotRecognizedException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Lorg/xml/sax/SAXNotSupportedException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 135
     new-instance v0, Landroid/text/HtmlToSpannedConverter;
@@ -108,7 +108,7 @@
 
     .line 127
     .end local v0           #converter:Landroid/text/HtmlToSpannedConverter;
-    :catch_18
+    :catch_0
     move-exception v1
 
     .line 129
@@ -121,7 +121,7 @@
 
     .line 130
     .end local v1           #e:Lorg/xml/sax/SAXNotRecognizedException;
-    :catch_1f
+    :catch_1
     move-exception v1
 
     .line 132
@@ -134,7 +134,7 @@
 .end method
 
 .method private static getOpenParaTagWithDirection(Landroid/text/Spanned;II)Ljava/lang/String;
-    .registers 9
+    .locals 6
     .parameter "text"
     .parameter "start"
     .parameter "end"
@@ -172,29 +172,29 @@
 
     .line 222
     .local v3, paraDir:I
-    packed-switch v3, :pswitch_data_1e
+    packed-switch v3, :pswitch_data_0
 
     .line 227
     const-string v4, "<p dir=ltr>"
 
-    :goto_1a
+    :goto_0
     return-object v4
 
     .line 224
-    :pswitch_1b
+    :pswitch_0
     const-string v4, "<p dir=rtl>"
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 222
-    :pswitch_data_1e
+    :pswitch_data_0
     .packed-switch -0x1
-        :pswitch_1b
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static toHtml(Landroid/text/Spanned;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "text"
 
     .prologue
@@ -216,7 +216,7 @@
 .end method
 
 .method private static withinBlockquote(Ljava/lang/StringBuilder;Landroid/text/Spanned;II)V
-    .registers 12
+    .locals 8
     .parameter "out"
     .parameter "text"
     .parameter "start"
@@ -236,8 +236,8 @@
     move v2, p2
 
     .local v2, i:I
-    :goto_a
-    if-ge v2, p3, :cond_2f
+    :goto_0
+    if-ge v2, p3, :cond_3
 
     .line 237
     invoke-static {p1, v7, v2, p3}, Landroid/text/TextUtils;->indexOf(Ljava/lang/CharSequence;CII)I
@@ -246,25 +246,25 @@
 
     .line 238
     .local v6, next:I
-    if-gez v6, :cond_13
+    if-gez v6, :cond_0
 
     .line 239
     move v6, p3
 
     .line 242
-    :cond_13
+    :cond_0
     const/4 v4, 0x0
 
     .line 244
     .local v4, nl:I
-    :goto_14
-    if-ge v6, p3, :cond_21
+    :goto_1
+    if-ge v6, p3, :cond_1
 
     invoke-interface {p1, v6}, Landroid/text/Spanned;->charAt(I)C
 
     move-result v0
 
-    if-ne v0, v7, :cond_21
+    if-ne v0, v7, :cond_1
 
     .line 245
     add-int/lit8 v4, v4, 0x1
@@ -272,17 +272,17 @@
     .line 246
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_14
+    goto :goto_1
 
     .line 249
-    :cond_21
+    :cond_1
     sub-int v3, v6, v4
 
-    if-ne v6, p3, :cond_2d
+    if-ne v6, p3, :cond_2
 
     const/4 v5, 0x1
 
-    :goto_26
+    :goto_2
     move-object v0, p0
 
     move-object v1, p1
@@ -292,18 +292,18 @@
     .line 236
     move v2, v6
 
-    goto :goto_a
+    goto :goto_0
 
     .line 249
-    :cond_2d
+    :cond_2
     const/4 v5, 0x0
 
-    goto :goto_26
+    goto :goto_2
 
     .line 252
     .end local v4           #nl:I
     .end local v6           #next:I
-    :cond_2f
+    :cond_3
     const-string v0, "</p>\n"
 
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -313,7 +313,7 @@
 .end method
 
 .method private static withinDiv(Ljava/lang/StringBuilder;Landroid/text/Spanned;II)V
-    .registers 12
+    .locals 8
     .parameter "out"
     .parameter "text"
     .parameter "start"
@@ -324,8 +324,8 @@
     move v1, p2
 
     .local v1, i:I
-    :goto_1
-    if-ge v1, p3, :cond_34
+    :goto_0
+    if-ge v1, p3, :cond_2
 
     .line 199
     const-class v7, Landroid/text/style/QuoteSpan;
@@ -355,8 +355,8 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_14
-    if-ge v2, v3, :cond_20
+    :goto_1
+    if-ge v2, v3, :cond_0
 
     aget-object v5, v0, v2
 
@@ -369,11 +369,11 @@
     .line 202
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_14
+    goto :goto_1
 
     .line 206
     .end local v5           #quote:Landroid/text/style/QuoteSpan;
-    :cond_20
+    :cond_0
     invoke-static {p0, p1, v1, v4}, Landroid/text/Html;->withinBlockquote(Ljava/lang/StringBuilder;Landroid/text/Spanned;II)V
 
     .line 208
@@ -383,8 +383,8 @@
 
     const/4 v2, 0x0
 
-    :goto_26
-    if-ge v2, v3, :cond_32
+    :goto_2
+    if-ge v2, v3, :cond_1
 
     aget-object v5, v0, v2
 
@@ -397,14 +397,14 @@
     .line 208
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_26
+    goto :goto_2
 
     .line 198
     .end local v5           #quote:Landroid/text/style/QuoteSpan;
-    :cond_32
+    :cond_1
     move v1, v4
 
-    goto :goto_1
+    goto :goto_0
 
     .line 212
     .end local v0           #arr$:[Landroid/text/style/QuoteSpan;
@@ -412,12 +412,12 @@
     .end local v3           #len$:I
     .end local v4           #next:I
     .end local v6           #quotes:[Landroid/text/style/QuoteSpan;
-    :cond_34
+    :cond_2
     return-void
 .end method
 
 .method private static withinHtml(Ljava/lang/StringBuilder;Landroid/text/Spanned;)V
-    .registers 12
+    .locals 10
     .parameter "out"
     .parameter "text"
 
@@ -432,12 +432,12 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_5
+    :goto_0
     invoke-interface {p1}, Landroid/text/Spanned;->length()I
 
     move-result v8
 
-    if-ge v2, v8, :cond_a0
+    if-ge v2, v8, :cond_6
 
     .line 164
     const-class v8, Landroid/text/style/ParagraphStyle;
@@ -469,17 +469,17 @@
     const/4 v3, 0x0
 
     .local v3, j:I
-    :goto_1d
+    :goto_1
     array-length v8, v7
 
-    if-ge v3, v8, :cond_75
+    if-ge v3, v8, :cond_3
 
     .line 170
     aget-object v8, v7, v3
 
     instance-of v8, v8, Landroid/text/style/AlignmentSpan;
 
-    if-eqz v8, :cond_46
+    if-eqz v8, :cond_0
 
     .line 171
     aget-object v8, v7, v3
@@ -497,7 +497,7 @@
     .line 174
     sget-object v8, Landroid/text/Layout$Alignment;->ALIGN_CENTER:Landroid/text/Layout$Alignment;
 
-    if-ne v0, v8, :cond_49
+    if-ne v0, v8, :cond_1
 
     .line 175
     new-instance v8, Ljava/lang/StringBuilder;
@@ -520,18 +520,18 @@
 
     .line 169
     .end local v0           #align:Landroid/text/Layout$Alignment;
-    :cond_46
-    :goto_46
+    :cond_0
+    :goto_2
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1d
+    goto :goto_1
 
     .line 176
     .restart local v0       #align:Landroid/text/Layout$Alignment;
-    :cond_49
+    :cond_1
     sget-object v8, Landroid/text/Layout$Alignment;->ALIGN_OPPOSITE:Landroid/text/Layout$Alignment;
 
-    if-ne v0, v8, :cond_61
+    if-ne v0, v8, :cond_2
 
     .line 177
     new-instance v8, Ljava/lang/StringBuilder;
@@ -552,10 +552,10 @@
 
     move-result-object v1
 
-    goto :goto_46
+    goto :goto_2
 
     .line 179
-    :cond_61
+    :cond_2
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -574,12 +574,12 @@
 
     move-result-object v1
 
-    goto :goto_46
+    goto :goto_2
 
     .line 183
     .end local v0           #align:Landroid/text/Layout$Alignment;
-    :cond_75
-    if-eqz v5, :cond_93
+    :cond_3
+    if-eqz v5, :cond_4
 
     .line 184
     new-instance v8, Ljava/lang/StringBuilder;
@@ -609,11 +609,11 @@
     invoke-virtual {p0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 187
-    :cond_93
+    :cond_4
     invoke-static {p0, p1, v2, v6}, Landroid/text/Html;->withinDiv(Ljava/lang/StringBuilder;Landroid/text/Spanned;II)V
 
     .line 189
-    if-eqz v5, :cond_9d
+    if-eqz v5, :cond_5
 
     .line 190
     const-string v8, "</div>"
@@ -621,10 +621,10 @@
     invoke-virtual {p0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 163
-    :cond_9d
+    :cond_5
     move v2, v6
 
-    goto/16 :goto_5
+    goto/16 :goto_0
 
     .line 193
     .end local v1           #elements:Ljava/lang/String;
@@ -632,12 +632,12 @@
     .end local v5           #needDiv:Z
     .end local v6           #next:I
     .end local v7           #style:[Landroid/text/style/ParagraphStyle;
-    :cond_a0
+    :cond_6
     return-void
 .end method
 
 .method private static withinParagraph(Ljava/lang/StringBuilder;Landroid/text/Spanned;IIIZ)V
-    .registers 15
+    .locals 9
     .parameter "out"
     .parameter "text"
     .parameter "start"
@@ -650,8 +650,8 @@
     move v1, p2
 
     .local v1, i:I
-    :goto_1
-    if-ge v1, p3, :cond_1aa
+    :goto_0
+    if-ge v1, p3, :cond_18
 
     .line 260
     const-class v7, Landroid/text/style/CharacterStyle;
@@ -675,17 +675,17 @@
     const/4 v2, 0x0
 
     .local v2, j:I
-    :goto_12
+    :goto_1
     array-length v7, v6
 
-    if-ge v2, v7, :cond_112
+    if-ge v2, v7, :cond_c
 
     .line 265
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/StyleSpan;
 
-    if-eqz v7, :cond_35
+    if-eqz v7, :cond_1
 
     .line 266
     aget-object v7, v6, v2
@@ -700,7 +700,7 @@
     .local v5, s:I
     and-int/lit8 v7, v5, 0x1
 
-    if-eqz v7, :cond_2c
+    if-eqz v7, :cond_0
 
     .line 269
     const-string v7, "<b>"
@@ -708,10 +708,10 @@
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 271
-    :cond_2c
+    :cond_0
     and-int/lit8 v7, v5, 0x2
 
-    if-eqz v7, :cond_35
+    if-eqz v7, :cond_1
 
     .line 272
     const-string v7, "<i>"
@@ -720,12 +720,12 @@
 
     .line 275
     .end local v5           #s:I
-    :cond_35
+    :cond_1
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/TypefaceSpan;
 
-    if-eqz v7, :cond_51
+    if-eqz v7, :cond_2
 
     .line 276
     aget-object v7, v6, v2
@@ -744,7 +744,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_51
+    if-eqz v7, :cond_2
 
     .line 279
     const-string v7, "<tt>"
@@ -753,12 +753,12 @@
 
     .line 282
     .end local v5           #s:Ljava/lang/String;
-    :cond_51
+    :cond_2
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/SuperscriptSpan;
 
-    if-eqz v7, :cond_5c
+    if-eqz v7, :cond_3
 
     .line 283
     const-string v7, "<sup>"
@@ -766,12 +766,12 @@
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 285
-    :cond_5c
+    :cond_3
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/SubscriptSpan;
 
-    if-eqz v7, :cond_67
+    if-eqz v7, :cond_4
 
     .line 286
     const-string v7, "<sub>"
@@ -779,12 +779,12 @@
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 288
-    :cond_67
+    :cond_4
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/UnderlineSpan;
 
-    if-eqz v7, :cond_72
+    if-eqz v7, :cond_5
 
     .line 289
     const-string v7, "<u>"
@@ -792,12 +792,12 @@
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 291
-    :cond_72
+    :cond_5
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/StrikethroughSpan;
 
-    if-eqz v7, :cond_7d
+    if-eqz v7, :cond_6
 
     .line 292
     const-string v7, "<strike>"
@@ -805,12 +805,12 @@
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 294
-    :cond_7d
+    :cond_6
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/URLSpan;
 
-    if-eqz v7, :cond_98
+    if-eqz v7, :cond_7
 
     .line 295
     const-string v7, "<a href=\""
@@ -834,12 +834,12 @@
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 299
-    :cond_98
+    :cond_7
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/ImageSpan;
 
-    if-eqz v7, :cond_b4
+    if-eqz v7, :cond_8
 
     .line 300
     const-string v7, "<img src=\""
@@ -866,12 +866,12 @@
     move v1, v3
 
     .line 307
-    :cond_b4
+    :cond_8
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/AbsoluteSizeSpan;
 
-    if-eqz v7, :cond_d1
+    if-eqz v7, :cond_9
 
     .line 308
     const-string v7, "<font size =\""
@@ -897,12 +897,12 @@
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 312
-    :cond_d1
+    :cond_9
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/ForegroundColorSpan;
 
-    if-eqz v7, :cond_10e
+    if-eqz v7, :cond_b
 
     .line 313
     const-string v7, "<font color =\"#"
@@ -928,14 +928,14 @@
 
     .line 316
     .local v0, color:Ljava/lang/String;
-    :goto_eb
+    :goto_2
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v7
 
     const/4 v8, 0x6
 
-    if-ge v7, v8, :cond_106
+    if-ge v7, v8, :cond_a
 
     .line 317
     new-instance v7, Ljava/lang/StringBuilder;
@@ -956,10 +956,10 @@
 
     move-result-object v0
 
-    goto :goto_eb
+    goto :goto_2
 
     .line 319
-    :cond_106
+    :cond_a
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 320
@@ -969,13 +969,13 @@
 
     .line 264
     .end local v0           #color:Ljava/lang/String;
-    :cond_10e
+    :cond_b
     add-int/lit8 v2, v2, 0x1
 
-    goto/16 :goto_12
+    goto/16 :goto_1
 
     .line 324
-    :cond_112
+    :cond_c
     invoke-static {p0, p1, v1, v3}, Landroid/text/Html;->withinStyle(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;II)V
 
     .line 326
@@ -983,15 +983,15 @@
 
     add-int/lit8 v2, v7, -0x1
 
-    :goto_118
-    if-ltz v2, :cond_1a7
+    :goto_3
+    if-ltz v2, :cond_17
 
     .line 327
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/ForegroundColorSpan;
 
-    if-eqz v7, :cond_125
+    if-eqz v7, :cond_d
 
     .line 328
     const-string v7, "</font>"
@@ -999,12 +999,12 @@
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 330
-    :cond_125
+    :cond_d
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/AbsoluteSizeSpan;
 
-    if-eqz v7, :cond_130
+    if-eqz v7, :cond_e
 
     .line 331
     const-string v7, "</font>"
@@ -1012,12 +1012,12 @@
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 333
-    :cond_130
+    :cond_e
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/URLSpan;
 
-    if-eqz v7, :cond_13b
+    if-eqz v7, :cond_f
 
     .line 334
     const-string v7, "</a>"
@@ -1025,12 +1025,12 @@
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 336
-    :cond_13b
+    :cond_f
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/StrikethroughSpan;
 
-    if-eqz v7, :cond_146
+    if-eqz v7, :cond_10
 
     .line 337
     const-string v7, "</strike>"
@@ -1038,12 +1038,12 @@
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 339
-    :cond_146
+    :cond_10
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/UnderlineSpan;
 
-    if-eqz v7, :cond_151
+    if-eqz v7, :cond_11
 
     .line 340
     const-string v7, "</u>"
@@ -1051,12 +1051,12 @@
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 342
-    :cond_151
+    :cond_11
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/SubscriptSpan;
 
-    if-eqz v7, :cond_15c
+    if-eqz v7, :cond_12
 
     .line 343
     const-string v7, "</sub>"
@@ -1064,12 +1064,12 @@
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 345
-    :cond_15c
+    :cond_12
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/SuperscriptSpan;
 
-    if-eqz v7, :cond_167
+    if-eqz v7, :cond_13
 
     .line 346
     const-string v7, "</sup>"
@@ -1077,12 +1077,12 @@
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 348
-    :cond_167
+    :cond_13
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/TypefaceSpan;
 
-    if-eqz v7, :cond_183
+    if-eqz v7, :cond_14
 
     .line 349
     aget-object v7, v6, v2
@@ -1101,7 +1101,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_183
+    if-eqz v7, :cond_14
 
     .line 352
     const-string v7, "</tt>"
@@ -1110,12 +1110,12 @@
 
     .line 355
     .end local v5           #s:Ljava/lang/String;
-    :cond_183
+    :cond_14
     aget-object v7, v6, v2
 
     instance-of v7, v7, Landroid/text/style/StyleSpan;
 
-    if-eqz v7, :cond_1a3
+    if-eqz v7, :cond_16
 
     .line 356
     aget-object v7, v6, v2
@@ -1130,7 +1130,7 @@
     .local v5, s:I
     and-int/lit8 v7, v5, 0x1
 
-    if-eqz v7, :cond_19a
+    if-eqz v7, :cond_15
 
     .line 359
     const-string v7, "</b>"
@@ -1138,10 +1138,10 @@
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 361
-    :cond_19a
+    :cond_15
     and-int/lit8 v7, v5, 0x2
 
-    if-eqz v7, :cond_1a3
+    if-eqz v7, :cond_16
 
     .line 362
     const-string v7, "</i>"
@@ -1150,32 +1150,32 @@
 
     .line 326
     .end local v5           #s:I
-    :cond_1a3
+    :cond_16
     add-int/lit8 v2, v2, -0x1
 
-    goto/16 :goto_118
+    goto/16 :goto_3
 
     .line 259
-    :cond_1a7
+    :cond_17
     move v1, v3
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
     .line 368
     .end local v2           #j:I
     .end local v3           #next:I
     .end local v6           #style:[Landroid/text/style/CharacterStyle;
-    :cond_1aa
-    if-eqz p5, :cond_1b7
+    :cond_18
+    if-eqz p5, :cond_19
 
     const-string v4, ""
 
     .line 370
     .local v4, p:Ljava/lang/String;
-    :goto_1ae
+    :goto_4
     const/4 v7, 0x1
 
-    if-ne p4, v7, :cond_1cf
+    if-ne p4, v7, :cond_1a
 
     .line 371
     const-string v7, "<br>\n"
@@ -1183,12 +1183,12 @@
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 380
-    :goto_1b6
+    :goto_5
     return-void
 
     .line 368
     .end local v4           #p:Ljava/lang/String;
-    :cond_1b7
+    :cond_19
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -1211,26 +1211,26 @@
 
     move-result-object v4
 
-    goto :goto_1ae
+    goto :goto_4
 
     .line 372
     .restart local v4       #p:Ljava/lang/String;
-    :cond_1cf
+    :cond_1a
     const/4 v7, 0x2
 
-    if-ne p4, v7, :cond_1d6
+    if-ne p4, v7, :cond_1b
 
     .line 373
     invoke-virtual {p0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1b6
+    goto :goto_5
 
     .line 375
-    :cond_1d6
+    :cond_1b
     const/4 v1, 0x2
 
-    :goto_1d7
-    if-ge v1, p4, :cond_1e1
+    :goto_6
+    if-ge v1, p4, :cond_1c
 
     .line 376
     const-string v7, "<br>"
@@ -1240,17 +1240,17 @@
     .line 375
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1d7
+    goto :goto_6
 
     .line 378
-    :cond_1e1
+    :cond_1c
     invoke-virtual {p0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1b6
+    goto :goto_5
 .end method
 
 .method private static withinStyle(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;II)V
-    .registers 9
+    .locals 5
     .parameter "out"
     .parameter "text"
     .parameter "start"
@@ -1263,8 +1263,8 @@
     move v1, p2
 
     .local v1, i:I
-    :goto_3
-    if-ge v1, p3, :cond_6a
+    :goto_0
+    if-ge v1, p3, :cond_7
 
     .line 385
     invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -1275,7 +1275,7 @@
     .local v0, c:C
     const/16 v2, 0x3c
 
-    if-ne v0, v2, :cond_15
+    if-ne v0, v2, :cond_0
 
     .line 388
     const-string v2, "&lt;"
@@ -1283,47 +1283,47 @@
     invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 384
-    :goto_12
+    :goto_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 389
-    :cond_15
+    :cond_0
     const/16 v2, 0x3e
 
-    if-ne v0, v2, :cond_1f
+    if-ne v0, v2, :cond_1
 
     .line 390
     const-string v2, "&gt;"
 
     invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_12
+    goto :goto_1
 
     .line 391
-    :cond_1f
+    :cond_1
     const/16 v2, 0x26
 
-    if-ne v0, v2, :cond_29
+    if-ne v0, v2, :cond_2
 
     .line 392
     const-string v2, "&amp;"
 
     invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_12
+    goto :goto_1
 
     .line 393
-    :cond_29
+    :cond_2
     const/16 v2, 0x7e
 
-    if-gt v0, v2, :cond_2f
+    if-gt v0, v2, :cond_3
 
-    if-ge v0, v4, :cond_4c
+    if-ge v0, v4, :cond_4
 
     .line 394
-    :cond_2f
+    :cond_3
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1350,17 +1350,17 @@
 
     invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_12
+    goto :goto_1
 
     .line 395
-    :cond_4c
-    if-ne v0, v4, :cond_66
+    :cond_4
+    if-ne v0, v4, :cond_6
 
     .line 396
-    :goto_4e
+    :goto_2
     add-int/lit8 v2, v1, 0x1
 
-    if-ge v2, p3, :cond_62
+    if-ge v2, p3, :cond_5
 
     add-int/lit8 v2, v1, 0x1
 
@@ -1368,7 +1368,7 @@
 
     move-result v2
 
-    if-ne v2, v4, :cond_62
+    if-ne v2, v4, :cond_5
 
     .line 397
     const-string v2, "&nbsp;"
@@ -1378,22 +1378,22 @@
     .line 398
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_4e
+    goto :goto_2
 
     .line 401
-    :cond_62
+    :cond_5
     invoke-virtual {p0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_12
+    goto :goto_1
 
     .line 403
-    :cond_66
+    :cond_6
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_12
+    goto :goto_1
 
     .line 406
     .end local v0           #c:C
-    :cond_6a
+    :cond_7
     return-void
 .end method

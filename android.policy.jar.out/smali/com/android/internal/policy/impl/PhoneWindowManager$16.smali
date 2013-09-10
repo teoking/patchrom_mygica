@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/view/WindowManagerPolicy$ScreenOnListener;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,15 +43,15 @@
 
 # virtual methods
 .method public onShown(Landroid/os/IBinder;)V
-    .registers 5
+    .locals 3
     .parameter "windowToken"
 
     .prologue
     .line 4250
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_0
 
     .line 4252
-    :try_start_2
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$16;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mWindowManager:Landroid/view/IWindowManager;
@@ -61,15 +61,15 @@
     invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/PhoneWindowManager$16$1;-><init>(Lcom/android/internal/policy/impl/PhoneWindowManager$16;)V
 
     invoke-interface {v0, p1, v1}, Landroid/view/IWindowManager;->waitForWindowDrawn(Landroid/os/IBinder;Landroid/os/IRemoteCallback;)V
-    :try_end_e
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_e} :catch_2a
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 4271
-    :goto_e
+    :goto_0
     return-void
 
     .line 4265
-    :cond_f
+    :cond_0
     const-string v0, "WindowManager"
 
     const-string v1, "No lock screen!"
@@ -89,7 +89,7 @@
     monitor-enter v1
 
     .line 4268
-    :try_start_20
+    :try_start_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$16;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     const/4 v2, 0x1
@@ -99,20 +99,20 @@
     .line 4269
     monitor-exit v1
 
-    goto :goto_e
+    goto :goto_0
 
-    :catchall_27
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_29
-    .catchall {:try_start_20 .. :try_end_29} :catchall_27
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 
     .line 4262
-    :catch_2a
+    :catch_0
     move-exception v0
 
-    goto :goto_e
+    goto :goto_0
 .end method

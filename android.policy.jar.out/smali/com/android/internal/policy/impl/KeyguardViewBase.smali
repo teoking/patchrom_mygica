@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/internal/policy/impl/KeyguardViewCallback;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "callback"
 
@@ -52,7 +52,7 @@
 .end method
 
 .method private interceptMediaKey(Landroid/view/KeyEvent;)Z
-    .registers 7
+    .locals 5
     .parameter "event"
 
     .prologue
@@ -69,25 +69,25 @@
 
     move-result v1
 
-    if-nez v1, :cond_57
+    if-nez v1, :cond_6
 
     .line 180
-    sparse-switch v0, :sswitch_data_66
+    sparse-switch v0, :sswitch_data_0
 
     .line 248
-    :cond_e
-    :goto_e
+    :cond_0
+    :goto_0
     const/4 v2, 0x0
 
-    :cond_f
-    :goto_f
+    :cond_1
+    :goto_1
     return v2
 
     .line 186
-    :sswitch_10
+    :sswitch_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewBase;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    if-nez v1, :cond_22
+    if-nez v1, :cond_2
 
     .line 187
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/KeyguardViewBase;->getContext()Landroid/content/Context;
@@ -105,10 +105,10 @@
     iput-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewBase;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
     .line 190
-    :cond_22
+    :cond_2
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewBase;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    if-eqz v1, :cond_2e
+    if-eqz v1, :cond_3
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewBase;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
@@ -116,24 +116,24 @@
 
     move-result v1
 
-    if-nez v1, :cond_f
+    if-nez v1, :cond_1
 
     .line 202
-    :cond_2e
-    :sswitch_2e
+    :cond_3
+    :sswitch_1
     invoke-virtual {p0, p1}, Lcom/android/internal/policy/impl/KeyguardViewBase;->handleMediaKeyEvent(Landroid/view/KeyEvent;)V
 
-    goto :goto_f
+    goto :goto_1
 
     .line 210
-    :sswitch_32
+    :sswitch_2
     monitor-enter p0
 
     .line 211
-    :try_start_33
+    :try_start_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewBase;->mAudioManager:Landroid/media/AudioManager;
 
-    if-nez v1, :cond_45
+    if-nez v1, :cond_4
 
     .line 212
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/KeyguardViewBase;->getContext()Landroid/content/Context;
@@ -151,10 +151,10 @@
     iput-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewBase;->mAudioManager:Landroid/media/AudioManager;
 
     .line 215
-    :cond_45
+    :cond_4
     monitor-exit p0
-    :try_end_46
-    .catchall {:try_start_33 .. :try_end_46} :catchall_52
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 218
     iget-object v3, p0, Lcom/android/internal/policy/impl/KeyguardViewBase;->mAudioManager:Landroid/media/AudioManager;
@@ -163,91 +163,91 @@
 
     const/16 v1, 0x18
 
-    if-ne v0, v1, :cond_55
+    if-ne v0, v1, :cond_5
 
     move v1, v2
 
-    :goto_4e
+    :goto_2
     invoke-virtual {v3, v4, v1}, Landroid/media/AudioManager;->adjustLocalOrRemoteStreamVolume(II)V
 
-    goto :goto_f
+    goto :goto_1
 
     .line 215
-    :catchall_52
+    :catchall_0
     move-exception v1
 
-    :try_start_53
+    :try_start_1
     monitor-exit p0
-    :try_end_54
-    .catchall {:try_start_53 .. :try_end_54} :catchall_52
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 
     .line 218
-    :cond_55
+    :cond_5
     const/4 v1, -0x1
 
-    goto :goto_4e
+    goto :goto_2
 
     .line 230
-    :cond_57
+    :cond_6
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v1
 
-    if-ne v1, v2, :cond_e
+    if-ne v1, v2, :cond_0
 
     .line 231
-    sparse-switch v0, :sswitch_data_a0
+    sparse-switch v0, :sswitch_data_1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 243
-    :sswitch_61
+    :sswitch_3
     invoke-virtual {p0, p1}, Lcom/android/internal/policy/impl/KeyguardViewBase;->handleMediaKeyEvent(Landroid/view/KeyEvent;)V
 
-    goto :goto_f
+    goto :goto_1
 
     .line 180
     nop
 
-    :sswitch_data_66
+    :sswitch_data_0
     .sparse-switch
-        0x18 -> :sswitch_32
-        0x19 -> :sswitch_32
-        0x4f -> :sswitch_2e
-        0x55 -> :sswitch_10
-        0x56 -> :sswitch_2e
-        0x57 -> :sswitch_2e
-        0x58 -> :sswitch_2e
-        0x59 -> :sswitch_2e
-        0x5a -> :sswitch_2e
-        0x5b -> :sswitch_2e
-        0x7e -> :sswitch_10
-        0x7f -> :sswitch_10
-        0x82 -> :sswitch_2e
-        0xa4 -> :sswitch_32
+        0x18 -> :sswitch_2
+        0x19 -> :sswitch_2
+        0x4f -> :sswitch_1
+        0x55 -> :sswitch_0
+        0x56 -> :sswitch_1
+        0x57 -> :sswitch_1
+        0x58 -> :sswitch_1
+        0x59 -> :sswitch_1
+        0x5a -> :sswitch_1
+        0x5b -> :sswitch_1
+        0x7e -> :sswitch_0
+        0x7f -> :sswitch_0
+        0x82 -> :sswitch_1
+        0xa4 -> :sswitch_2
     .end sparse-switch
 
     .line 231
-    :sswitch_data_a0
+    :sswitch_data_1
     .sparse-switch
-        0x4f -> :sswitch_61
-        0x55 -> :sswitch_61
-        0x56 -> :sswitch_61
-        0x57 -> :sswitch_61
-        0x58 -> :sswitch_61
-        0x59 -> :sswitch_61
-        0x5a -> :sswitch_61
-        0x5b -> :sswitch_61
-        0x7e -> :sswitch_61
-        0x7f -> :sswitch_61
-        0x82 -> :sswitch_61
+        0x4f -> :sswitch_3
+        0x55 -> :sswitch_3
+        0x56 -> :sswitch_3
+        0x57 -> :sswitch_3
+        0x58 -> :sswitch_3
+        0x59 -> :sswitch_3
+        0x5a -> :sswitch_3
+        0x5b -> :sswitch_3
+        0x7e -> :sswitch_3
+        0x7f -> :sswitch_3
+        0x82 -> :sswitch_3
     .end sparse-switch
 .end method
 
 .method private shouldEventKeepScreenOnWhileKeyguardShowing(Landroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 2
     .parameter "event"
 
     .prologue
@@ -258,35 +258,35 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_0
 
     .line 166
-    :goto_7
-    :pswitch_7
+    :goto_0
+    :pswitch_0
     return v0
 
     .line 159
-    :cond_8
+    :cond_0
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_12
+    packed-switch v1, :pswitch_data_0
 
     .line 166
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 159
     nop
 
-    :pswitch_data_12
+    :pswitch_data_0
     .packed-switch 0x13
-        :pswitch_7
-        :pswitch_7
-        :pswitch_7
-        :pswitch_7
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -296,7 +296,7 @@
 .end method
 
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -305,7 +305,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 146
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewBase;->mCallback:Lcom/android/internal/policy/impl/KeyguardViewCallback;
@@ -313,30 +313,30 @@
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardViewCallback;->pokeWakelock()V
 
     .line 149
-    :cond_b
+    :cond_0
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/KeyguardViewBase;->interceptMediaKey(Landroid/view/KeyEvent;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     .line 150
     const/4 v0, 0x1
 
     .line 152
-    :goto_12
+    :goto_0
     return v0
 
-    :cond_13
+    :cond_1
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result v0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public dispatchSystemUiVisibilityChanged(I)V
-    .registers 3
+    .locals 1
     .parameter "visibility"
 
     .prologue
@@ -353,7 +353,7 @@
 .end method
 
 .method public getCallback()Lcom/android/internal/policy/impl/KeyguardViewCallback;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 91
@@ -363,7 +363,7 @@
 .end method
 
 .method handleMediaKeyEvent(Landroid/view/KeyEvent;)V
-    .registers 7
+    .locals 5
     .parameter "keyEvent"
 
     .prologue
@@ -380,20 +380,20 @@
 
     .line 254
     .local v0, audioService:Landroid/media/IAudioService;
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_0
 
     .line 256
-    :try_start_c
+    :try_start_0
     invoke-interface {v0, p1}, Landroid/media/IAudioService;->dispatchMediaKeyEvent(Landroid/view/KeyEvent;)V
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_c .. :try_end_f} :catch_10
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 263
-    :goto_f
+    :goto_0
     return-void
 
     .line 257
-    :catch_10
+    :catch_0
     move-exception v1
 
     .line 258
@@ -420,18 +420,18 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_f
+    goto :goto_0
 
     .line 261
     .end local v1           #e:Landroid/os/RemoteException;
-    :cond_2a
+    :cond_0
     const-string v2, "KeyguardViewBase"
 
     const-string v3, "Unable to find IAudioService for media key event"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public abstract onScreenTurnedOff()V
@@ -444,7 +444,7 @@
 .end method
 
 .method public resetBackground()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 87

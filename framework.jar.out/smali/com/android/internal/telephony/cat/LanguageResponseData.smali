@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "lang"
 
     .prologue
@@ -26,19 +26,19 @@
 
 # virtual methods
 .method public format(Ljava/io/ByteArrayOutputStream;)V
-    .registers 9
+    .locals 7
     .parameter "buf"
 
     .prologue
     .line 169
-    if-nez p1, :cond_3
+    if-nez p1, :cond_1
 
     .line 191
-    :cond_2
+    :cond_0
     return-void
 
     .line 174
-    :cond_3
+    :cond_1
     sget-object v6, Lcom/android/internal/telephony/cat/ComprehensionTlvTag;->LANGUAGE:Lcom/android/internal/telephony/cat/ComprehensionTlvTag;
 
     invoke-virtual {v6}, Lcom/android/internal/telephony/cat/ComprehensionTlvTag;->value()I
@@ -54,7 +54,7 @@
     .line 179
     iget-object v6, p0, Lcom/android/internal/telephony/cat/LanguageResponseData;->lang:Ljava/lang/String;
 
-    if-eqz v6, :cond_31
+    if-eqz v6, :cond_2
 
     iget-object v6, p0, Lcom/android/internal/telephony/cat/LanguageResponseData;->lang:Ljava/lang/String;
 
@@ -62,7 +62,7 @@
 
     move-result v6
 
-    if-lez v6, :cond_31
+    if-lez v6, :cond_2
 
     .line 180
     iget-object v6, p0, Lcom/android/internal/telephony/cat/LanguageResponseData;->lang:Ljava/lang/String;
@@ -73,7 +73,7 @@
 
     .line 186
     .local v2, data:[B
-    :goto_20
+    :goto_0
     array-length v6, v2
 
     invoke-virtual {p1, v6}, Ljava/io/ByteArrayOutputStream;->write(I)V
@@ -88,8 +88,8 @@
     const/4 v3, 0x0
 
     .local v3, i$:I
-    :goto_27
-    if-ge v3, v4, :cond_2
+    :goto_1
+    if-ge v3, v4, :cond_0
 
     aget-byte v1, v0, v3
 
@@ -100,7 +100,7 @@
     .line 188
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_27
+    goto :goto_1
 
     .line 183
     .end local v0           #arr$:[B
@@ -108,11 +108,11 @@
     .end local v2           #data:[B
     .end local v3           #i$:I
     .end local v4           #len$:I
-    :cond_31
+    :cond_2
     const/4 v6, 0x0
 
     new-array v2, v6, [B
 
     .restart local v2       #data:[B
-    goto :goto_20
+    goto :goto_0
 .end method

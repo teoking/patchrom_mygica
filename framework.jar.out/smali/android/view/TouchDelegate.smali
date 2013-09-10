@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/Rect;Landroid/view/View;)V
-    .registers 6
+    .locals 3
     .parameter "bounds"
     .parameter "delegateView"
 
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .registers 13
+    .locals 11
     .parameter "event"
 
     .prologue
@@ -120,19 +120,19 @@
 
     move-result v9
 
-    packed-switch v9, :pswitch_data_60
+    packed-switch v9, :pswitch_data_0
 
     .line 137
-    :cond_14
-    :goto_14
-    if-eqz v4, :cond_2f
+    :cond_0
+    :goto_0
+    if-eqz v4, :cond_1
 
     .line 138
     iget-object v1, p0, Landroid/view/TouchDelegate;->mDelegateView:Landroid/view/View;
 
     .line 140
     .local v1, delegateView:Landroid/view/View;
-    if-eqz v3, :cond_51
+    if-eqz v3, :cond_2
 
     .line 142
     invoke-virtual {v1}, Landroid/view/View;->getWidth()I
@@ -154,18 +154,18 @@
     invoke-virtual {p1, v9, v10}, Landroid/view/MotionEvent;->setLocation(FF)V
 
     .line 149
-    :goto_2b
+    :goto_1
     invoke-virtual {v1, p1}, Landroid/view/View;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v2
 
     .line 151
     .end local v1           #delegateView:Landroid/view/View;
-    :cond_2f
+    :cond_1
     return v2
 
     .line 115
-    :pswitch_30
+    :pswitch_0
     iget-object v0, p0, Landroid/view/TouchDelegate;->mBounds:Landroid/graphics/Rect;
 
     .line 117
@@ -174,7 +174,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_14
+    if-eqz v9, :cond_0
 
     .line 118
     const/4 v9, 0x1
@@ -184,15 +184,15 @@
     .line 119
     const/4 v4, 0x1
 
-    goto :goto_14
+    goto :goto_0
 
     .line 124
     .end local v0           #bounds:Landroid/graphics/Rect;
-    :pswitch_3d
+    :pswitch_1
     iget-boolean v4, p0, Landroid/view/TouchDelegate;->mDelegateTargeted:Z
 
     .line 125
-    if-eqz v4, :cond_14
+    if-eqz v4, :cond_0
 
     .line 126
     iget-object v6, p0, Landroid/view/TouchDelegate;->mSlopBounds:Landroid/graphics/Rect;
@@ -203,16 +203,16 @@
 
     move-result v9
 
-    if-nez v9, :cond_14
+    if-nez v9, :cond_0
 
     .line 128
     const/4 v3, 0x0
 
-    goto :goto_14
+    goto :goto_0
 
     .line 133
     .end local v6           #slopBounds:Landroid/graphics/Rect;
-    :pswitch_4b
+    :pswitch_2
     iget-boolean v4, p0, Landroid/view/TouchDelegate;->mDelegateTargeted:Z
 
     .line 134
@@ -220,11 +220,11 @@
 
     iput-boolean v9, p0, Landroid/view/TouchDelegate;->mDelegateTargeted:Z
 
-    goto :goto_14
+    goto :goto_0
 
     .line 146
     .restart local v1       #delegateView:Landroid/view/View;
-    :cond_51
+    :cond_2
     iget v5, p0, Landroid/view/TouchDelegate;->mSlop:I
 
     .line 147
@@ -243,16 +243,16 @@
 
     invoke-virtual {p1, v9, v10}, Landroid/view/MotionEvent;->setLocation(FF)V
 
-    goto :goto_2b
+    goto :goto_1
 
     .line 113
     nop
 
-    :pswitch_data_60
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_30
-        :pswitch_3d
-        :pswitch_3d
-        :pswitch_4b
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

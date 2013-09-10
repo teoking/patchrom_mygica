@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 207
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/view/InputEvent;
-    .registers 5
+    .locals 3
     .parameter "in"
 
     .prologue
@@ -54,7 +54,7 @@
     .local v0, token:I
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_c
+    if-ne v0, v1, :cond_0
 
     .line 211
     invoke-static {p1}, Landroid/view/KeyEvent;->createFromParcelBody(Landroid/os/Parcel;)Landroid/view/KeyEvent;
@@ -62,24 +62,24 @@
     move-result-object v1
 
     .line 213
-    :goto_b
+    :goto_0
     return-object v1
 
     .line 212
-    :cond_c
+    :cond_0
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_14
+    if-ne v0, v1, :cond_1
 
     .line 213
     invoke-static {p1}, Landroid/view/MotionEvent;->createFromParcelBody(Landroid/os/Parcel;)Landroid/view/MotionEvent;
 
     move-result-object v1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 215
-    :cond_14
+    :cond_1
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "Unexpected input event type token in parcel."
@@ -90,7 +90,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -103,7 +103,7 @@
 .end method
 
 .method public newArray(I)[Landroid/view/InputEvent;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -114,7 +114,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

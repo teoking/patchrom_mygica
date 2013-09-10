@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .registers 3
+    .locals 0
     .parameter "msg"
     .parameter "cause"
 

@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 15
@@ -59,22 +59,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/os/IHardwareService;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 24
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 25
     const/4 v0, 0x0
 
     .line 31
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 27
-    :cond_4
+    :cond_0
     const-string v1, "android.os.IHardwareService"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -83,31 +83,31 @@
 
     .line 28
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/os/IHardwareService;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 29
     check-cast v0, Landroid/os/IHardwareService;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 31
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/os/IHardwareService$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/os/IHardwareService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 35
@@ -115,7 +115,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 11
+    .locals 6
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -132,26 +132,26 @@
     const/4 v4, 0x1
 
     .line 39
-    sparse-switch p1, :sswitch_data_a2
+    sparse-switch p1, :sswitch_data_0
 
     .line 116
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v4
 
-    :goto_9
+    :goto_0
     return v4
 
     .line 43
-    :sswitch_a
+    :sswitch_0
     const-string v3, "android.os.IHardwareService"
 
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 48
-    :sswitch_10
+    :sswitch_1
     const-string v5, "android.os.IHardwareService"
 
     invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -166,18 +166,18 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 51
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_0
 
     move v3, v4
 
-    :cond_1f
+    :cond_0
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 56
     .end local v2           #_result:Z
-    :sswitch_23
+    :sswitch_2
     const-string v5, "android.os.IHardwareService"
 
     invoke-virtual {p2, v5}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -187,29 +187,29 @@
 
     move-result v5
 
-    if-eqz v5, :cond_36
+    if-eqz v5, :cond_1
 
     move v0, v4
 
     .line 59
     .local v0, _arg0:Z
-    :goto_2f
+    :goto_1
     invoke-virtual {p0, v0}, Landroid/os/IHardwareService$Stub;->setFlashlightEnabled(Z)V
 
     .line 60
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_9
+    goto :goto_0
 
     .end local v0           #_arg0:Z
-    :cond_36
+    :cond_1
     move v0, v3
 
     .line 58
-    goto :goto_2f
+    goto :goto_1
 
     .line 65
-    :sswitch_38
+    :sswitch_3
     const-string v3, "android.os.IHardwareService"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -238,13 +238,13 @@
     .line 72
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 77
     .end local v0           #_arg0:I
     .end local v1           #_arg1:I
     .end local v2           #_result:Ljava/lang/String;
-    :sswitch_50
+    :sswitch_4
     const-string v3, "android.os.IHardwareService"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -273,13 +273,13 @@
     .line 84
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 89
     .end local v0           #_arg0:I
     .end local v1           #_arg1:I
     .end local v2           #_result:I
-    :sswitch_68
+    :sswitch_5
     const-string v3, "android.os.IHardwareService"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -308,13 +308,13 @@
     .line 96
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 101
     .end local v0           #_arg0:I
     .end local v1           #_arg1:Ljava/lang/String;
     .end local v2           #_result:I
-    :sswitch_80
+    :sswitch_6
     const-string v3, "android.os.IHardwareService"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -331,11 +331,11 @@
     .line 104
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 109
     .end local v2           #_result:Ljava/lang/String;
-    :sswitch_91
+    :sswitch_7
     const-string v3, "android.os.IHardwareService"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -352,18 +352,18 @@
     .line 112
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 39
-    :sswitch_data_a2
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_10
-        0x2 -> :sswitch_23
-        0x3 -> :sswitch_38
-        0x4 -> :sswitch_50
-        0x5 -> :sswitch_68
-        0x6 -> :sswitch_80
-        0x7 -> :sswitch_91
-        0x5f4e5446 -> :sswitch_a
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

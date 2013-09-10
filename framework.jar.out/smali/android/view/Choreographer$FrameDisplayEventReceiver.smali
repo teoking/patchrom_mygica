@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/Choreographer;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "looper"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public onVsync(JI)V
-    .registers 12
+    .locals 8
     .parameter "timestampNanos"
     .parameter "frame"
 
@@ -63,7 +63,7 @@
     .local v1, now:J
     cmp-long v3, p1, v1
 
-    if-lez v3, :cond_36
+    if-lez v3, :cond_0
 
     .line 699
     const-string v3, "Choreographer"
@@ -112,10 +112,10 @@
     move-wide p1, v1
 
     .line 705
-    :cond_36
+    :cond_0
     iget-boolean v3, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->mHavePendingVsync:Z
 
-    if-eqz v3, :cond_61
+    if-eqz v3, :cond_1
 
     .line 706
     const-string v3, "Choreographer"
@@ -125,7 +125,7 @@
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 712
-    :goto_41
+    :goto_0
     iput-wide p1, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->mTimestampNanos:J
 
     .line 713
@@ -134,6 +134,7 @@
     .line 714
     iget-object v3, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->this$0:Landroid/view/Choreographer;
 
+    #getter for: Landroid/view/Choreographer;->mHandler:Landroid/view/Choreographer$FrameHandler;
     invoke-static {v3}, Landroid/view/Choreographer;->access$300(Landroid/view/Choreographer;)Landroid/view/Choreographer$FrameHandler;
 
     move-result-object v3
@@ -149,6 +150,7 @@
     .line 716
     iget-object v3, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->this$0:Landroid/view/Choreographer;
 
+    #getter for: Landroid/view/Choreographer;->mHandler:Landroid/view/Choreographer$FrameHandler;
     invoke-static {v3}, Landroid/view/Choreographer;->access$300(Landroid/view/Choreographer;)Landroid/view/Choreographer$FrameHandler;
 
     move-result-object v3
@@ -164,14 +166,14 @@
 
     .line 709
     .end local v0           #msg:Landroid/os/Message;
-    :cond_61
+    :cond_1
     iput-boolean v7, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->mHavePendingVsync:Z
 
-    goto :goto_41
+    goto :goto_0
 .end method
 
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 721

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/AsyncTask;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public call()Ljava/lang/Object;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TResult;"
@@ -63,6 +63,7 @@
     .local p0, this:Landroid/os/AsyncTask$2;,"Landroid/os/AsyncTask.2;"
     iget-object v0, p0, Landroid/os/AsyncTask$2;->this$0:Landroid/os/AsyncTask;
 
+    #getter for: Landroid/os/AsyncTask;->mTaskInvoked:Ljava/util/concurrent/atomic/AtomicBoolean;
     invoke-static {v0}, Landroid/os/AsyncTask;->access$300(Landroid/os/AsyncTask;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v0
@@ -87,6 +88,7 @@
 
     move-result-object v1
 
+    #calls: Landroid/os/AsyncTask;->postResult(Ljava/lang/Object;)Ljava/lang/Object;
     invoke-static {v0, v1}, Landroid/os/AsyncTask;->access$400(Landroid/os/AsyncTask;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0

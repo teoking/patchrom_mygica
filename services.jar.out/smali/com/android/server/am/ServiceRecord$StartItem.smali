@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ServiceRecord;ZILandroid/content/Intent;Lcom/android/server/am/ActivityManagerService$NeededUriGrants;)V
-    .registers 6
+    .locals 0
     .parameter "_sr"
     .parameter "_taskRemoved"
     .parameter "_id"
@@ -71,13 +71,13 @@
 
 # virtual methods
 .method getUriPermissionsLocked()Lcom/android/server/am/UriPermissionOwner;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 127
     iget-object v0, p0, Lcom/android/server/am/ServiceRecord$StartItem;->uriPermissions:Lcom/android/server/am/UriPermissionOwner;
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 128
     new-instance v0, Lcom/android/server/am/UriPermissionOwner;
@@ -91,20 +91,20 @@
     iput-object v0, p0, Lcom/android/server/am/ServiceRecord$StartItem;->uriPermissions:Lcom/android/server/am/UriPermissionOwner;
 
     .line 130
-    :cond_f
+    :cond_0
     iget-object v0, p0, Lcom/android/server/am/ServiceRecord$StartItem;->uriPermissions:Lcom/android/server/am/UriPermissionOwner;
 
     return-object v0
 .end method
 
 .method removeUriPermissionsLocked()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 134
     iget-object v0, p0, Lcom/android/server/am/ServiceRecord$StartItem;->uriPermissions:Lcom/android/server/am/UriPermissionOwner;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 135
     iget-object v0, p0, Lcom/android/server/am/ServiceRecord$StartItem;->uriPermissions:Lcom/android/server/am/UriPermissionOwner;
@@ -117,28 +117,28 @@
     iput-object v0, p0, Lcom/android/server/am/ServiceRecord$StartItem;->uriPermissions:Lcom/android/server/am/UriPermissionOwner;
 
     .line 138
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 141
     iget-object v1, p0, Lcom/android/server/am/ServiceRecord$StartItem;->stringName:Ljava/lang/String;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_0
 
     .line 142
     iget-object v1, p0, Lcom/android/server/am/ServiceRecord$StartItem;->stringName:Ljava/lang/String;
 
     .line 151
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 144
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x80
@@ -222,5 +222,5 @@
 
     iput-object v1, p0, Lcom/android/server/am/ServiceRecord$StartItem;->stringName:Ljava/lang/String;
 
-    goto :goto_6
+    goto :goto_0
 .end method

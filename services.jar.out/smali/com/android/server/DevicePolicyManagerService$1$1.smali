@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/DevicePolicyManagerService$1;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 131
@@ -46,6 +46,7 @@
 
     iget-object v0, v0, Lcom/android/server/DevicePolicyManagerService$1;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
+    #calls: Lcom/android/server/DevicePolicyManagerService;->handlePasswordExpirationNotification()V
     invoke-static {v0}, Lcom/android/server/DevicePolicyManagerService;->access$000(Lcom/android/server/DevicePolicyManagerService;)V
 
     .line 132

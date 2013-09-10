@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/EthernetService;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "x0"
 
@@ -37,13 +37,14 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 216
     .local p0, this:Lcom/android/server/EthernetService$3;,"Lcom/android/server/EthernetService.3;"
     iget-object v0, p0, Lcom/android/server/EthernetService$3;->this$0:Lcom/android/server/EthernetService;
 
+    #getter for: Lcom/android/server/EthernetService;->mTracker:Landroid/net/ethernet/EthernetStateTracker;
     invoke-static {v0}, Lcom/android/server/EthernetService;->access$000(Lcom/android/server/EthernetService;)Landroid/net/ethernet/EthernetStateTracker;
 
     move-result-object v0

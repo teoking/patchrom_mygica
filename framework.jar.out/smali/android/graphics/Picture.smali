@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -42,7 +42,7 @@
 .end method
 
 .method private constructor <init>(IZ)V
-    .registers 4
+    .locals 1
     .parameter "nativePicture"
     .parameter "fromStream"
 
@@ -51,7 +51,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 152
-    if-nez p1, :cond_b
+    if-nez p1, :cond_0
 
     .line 153
     new-instance v0, Ljava/lang/RuntimeException;
@@ -61,7 +61,7 @@
     throw v0
 
     .line 155
-    :cond_b
+    :cond_0
     iput p1, p0, Landroid/graphics/Picture;->mNativePicture:I
 
     .line 156
@@ -72,18 +72,18 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/Picture;)V
-    .registers 4
+    .locals 2
     .parameter "src"
 
     .prologue
     const/4 v1, 0x0
 
     .line 52
-    if-eqz p1, :cond_d
+    if-eqz p1, :cond_0
 
     iget v0, p1, Landroid/graphics/Picture;->mNativePicture:I
 
-    :goto_5
+    :goto_0
     invoke-static {v0}, Landroid/graphics/Picture;->nativeConstructor(I)I
 
     move-result v0
@@ -93,15 +93,15 @@
     .line 53
     return-void
 
-    :cond_d
+    :cond_0
     move v0, v1
 
     .line 52
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public static createFromStream(Ljava/io/InputStream;)Landroid/graphics/Picture;
-    .registers 4
+    .locals 3
     .parameter "stream"
 
     .prologue
@@ -147,7 +147,7 @@
 
 # virtual methods
 .method public beginRecording(II)Landroid/graphics/Canvas;
-    .registers 5
+    .locals 2
     .parameter "width"
     .parameter "height"
 
@@ -174,20 +174,20 @@
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .registers 4
+    .locals 2
     .parameter "canvas"
 
     .prologue
     .line 100
     iget-object v0, p0, Landroid/graphics/Picture;->mRecordingCanvas:Landroid/graphics/Canvas;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 101
     invoke-virtual {p0}, Landroid/graphics/Picture;->endRecording()V
 
     .line 103
-    :cond_7
+    :cond_0
     iget v0, p1, Landroid/graphics/Canvas;->mNativeCanvas:I
 
     iget v1, p0, Landroid/graphics/Picture;->mNativePicture:I
@@ -199,13 +199,13 @@
 .end method
 
 .method public endRecording()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 75
     iget-object v0, p0, Landroid/graphics/Picture;->mRecordingCanvas:Landroid/graphics/Canvas;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 76
     const/4 v0, 0x0
@@ -218,12 +218,12 @@
     invoke-static {v0}, Landroid/graphics/Picture;->nativeEndRecording(I)V
 
     .line 79
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -236,8 +236,8 @@
     iget v0, p0, Landroid/graphics/Picture;->mNativePicture:I
 
     invoke-static {v0}, Landroid/graphics/Picture;->nativeDestructor(I)V
-    :try_end_5
-    .catchall {:try_start_0 .. :try_end_5} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 143
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -246,7 +246,7 @@
     return-void
 
     .line 143
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -261,7 +261,7 @@
 .end method
 
 .method final ni()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 148
@@ -271,12 +271,12 @@
 .end method
 
 .method public writeToStream(Ljava/io/OutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "stream"
 
     .prologue
     .line 130
-    if-nez p1, :cond_8
+    if-nez p1, :cond_0
 
     .line 131
     new-instance v0, Ljava/lang/NullPointerException;
@@ -286,7 +286,7 @@
     throw v0
 
     .line 133
-    :cond_8
+    :cond_0
     iget v0, p0, Landroid/graphics/Picture;->mNativePicture:I
 
     const/16 v1, 0x4000
@@ -297,7 +297,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_1
 
     .line 135
     new-instance v0, Ljava/lang/RuntimeException;
@@ -307,6 +307,6 @@
     throw v0
 
     .line 137
-    :cond_1a
+    :cond_1
     return-void
 .end method

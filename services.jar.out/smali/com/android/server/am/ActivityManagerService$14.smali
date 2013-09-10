@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 10345
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public compare(Lcom/android/server/am/ActivityManagerService$MemItem;Lcom/android/server/am/ActivityManagerService$MemItem;)I
-    .registers 7
+    .locals 4
     .parameter "lhs"
     .parameter "rhs"
 
@@ -53,39 +53,39 @@
 
     cmp-long v0, v0, v2
 
-    if-gez v0, :cond_a
+    if-gez v0, :cond_0
 
     .line 10349
     const/4 v0, 0x1
 
     .line 10353
-    :goto_9
+    :goto_0
     return v0
 
     .line 10350
-    :cond_a
+    :cond_0
     iget-wide v0, p1, Lcom/android/server/am/ActivityManagerService$MemItem;->pss:J
 
     iget-wide v2, p2, Lcom/android/server/am/ActivityManagerService$MemItem;->pss:J
 
     cmp-long v0, v0, v2
 
-    if-lez v0, :cond_14
+    if-lez v0, :cond_1
 
     .line 10351
     const/4 v0, -0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 10353
-    :cond_14
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 

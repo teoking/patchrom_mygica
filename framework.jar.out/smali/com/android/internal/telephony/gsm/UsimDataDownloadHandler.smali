@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/CommandsInterface;)V
-    .registers 2
+    .locals 0
     .parameter "commandsInterface"
 
     .prologue
@@ -38,7 +38,7 @@
 .end method
 
 .method private acknowledgeSmsWithError(I)V
-    .registers 5
+    .locals 3
     .parameter "cause"
 
     .prologue
@@ -56,7 +56,7 @@
 .end method
 
 .method private static getEnvelopeBodyLength(II)I
-    .registers 4
+    .locals 2
     .parameter "scAddressLength"
     .parameter "tpduLength"
 
@@ -68,15 +68,15 @@
     .local v0, length:I
     const/16 v1, 0x7f
 
-    if-le p1, v1, :cond_f
+    if-le p1, v1, :cond_1
 
     const/4 v1, 0x2
 
-    :goto_7
+    :goto_0
     add-int/2addr v0, v1
 
     .line 150
-    if-eqz p0, :cond_e
+    if-eqz p0, :cond_0
 
     .line 151
     add-int/lit8 v1, v0, 0x2
@@ -84,18 +84,18 @@
     add-int v0, v1, p0
 
     .line 153
-    :cond_e
+    :cond_0
     return v0
 
     .line 148
-    :cond_f
+    :cond_1
     const/4 v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method private handleDataDownload(Lcom/android/internal/telephony/gsm/SmsMessage;)V
-    .registers 19
+    .locals 17
     .parameter "smsMessage"
 
     .prologue
@@ -146,11 +146,11 @@
 
     const/16 v13, 0x7f
 
-    if-le v1, v13, :cond_a5
+    if-le v1, v13, :cond_0
 
     const/4 v13, 0x2
 
-    :goto_21
+    :goto_0
     add-int v10, v14, v13
 
     .line 90
@@ -174,7 +174,7 @@
     .line 95
     const/16 v13, 0x7f
 
-    if-le v1, v13, :cond_ca
+    if-le v1, v13, :cond_4
 
     .line 96
     add-int/lit8 v5, v6, 0x1
@@ -186,7 +186,7 @@
     aput-byte v13, v4, v6
 
     .line 98
-    :goto_36
+    :goto_1
     add-int/lit8 v6, v5, 0x1
 
     .end local v5           #index:I
@@ -240,7 +240,7 @@
     aput-byte v13, v4, v5
 
     .line 107
-    if-eqz v9, :cond_c8
+    if-eqz v9, :cond_3
 
     .line 108
     add-int/lit8 v5, v6, 0x1
@@ -277,7 +277,7 @@
     .line 115
     .end local v6           #index:I
     .restart local v5       #index:I
-    :goto_71
+    :goto_2
     add-int/lit8 v6, v5, 0x1
 
     .end local v5           #index:I
@@ -297,7 +297,7 @@
     .line 116
     const/16 v13, 0x7f
 
-    if-le v12, v13, :cond_c6
+    if-le v12, v13, :cond_2
 
     .line 117
     add-int/lit8 v5, v6, 0x1
@@ -309,7 +309,7 @@
     aput-byte v13, v4, v6
 
     .line 119
-    :goto_88
+    :goto_3
     add-int/lit8 v6, v5, 0x1
 
     .end local v5           #index:I
@@ -329,7 +329,7 @@
     .restart local v5       #index:I
     array-length v13, v4
 
-    if-eq v5, v13, :cond_a8
+    if-eq v5, v13, :cond_1
 
     .line 125
     const-string v13, "UsimDataDownloadHandler"
@@ -346,23 +346,23 @@
     invoke-direct {v0, v13}, Lcom/android/internal/telephony/gsm/UsimDataDownloadHandler;->acknowledgeSmsWithError(I)V
 
     .line 133
-    :goto_a4
+    :goto_4
     return-void
 
     .line 88
     .end local v4           #envelope:[B
     .end local v5           #index:I
     .end local v10           #totalLength:I
-    :cond_a5
+    :cond_0
     const/4 v13, 0x1
 
-    goto/16 :goto_21
+    goto/16 :goto_0
 
     .line 130
     .restart local v4       #envelope:[B
     .restart local v5       #index:I
     .restart local v10       #totalLength:I
-    :cond_a8
+    :cond_1
     invoke-static {v4}, Lcom/android/internal/telephony/IccUtils;->bytesToHexString([B)Ljava/lang/String;
 
     move-result-object v3
@@ -395,67 +395,67 @@
 
     invoke-interface {v13, v3, v14}, Lcom/android/internal/telephony/CommandsInterface;->sendEnvelopeWithStatus(Ljava/lang/String;Landroid/os/Message;)V
 
-    goto :goto_a4
+    goto :goto_4
 
     .end local v3           #encodedEnvelope:Ljava/lang/String;
     .end local v5           #index:I
     .restart local v6       #index:I
-    :cond_c6
+    :cond_2
     move v5, v6
 
     .end local v6           #index:I
     .restart local v5       #index:I
-    goto :goto_88
+    goto :goto_3
 
     .end local v5           #index:I
     .restart local v6       #index:I
-    :cond_c8
+    :cond_3
     move v5, v6
 
     .end local v6           #index:I
     .restart local v5       #index:I
-    goto :goto_71
+    goto :goto_2
 
     .end local v5           #index:I
     .restart local v6       #index:I
-    :cond_ca
+    :cond_4
     move v5, v6
 
     .end local v6           #index:I
     .restart local v5       #index:I
-    goto/16 :goto_36
+    goto/16 :goto_1
 .end method
 
 .method private static is7bitDcs(I)Z
-    .registers 3
+    .locals 2
     .parameter "dcs"
 
     .prologue
     .line 234
     and-int/lit16 v0, p0, 0x8c
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     and-int/lit16 v0, p0, 0xf4
 
     const/16 v1, 0xf0
 
-    if-ne v0, v1, :cond_c
+    if-ne v0, v1, :cond_1
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method private sendSmsAckForEnvelopeResponse(Lcom/android/internal/telephony/IccIoResult;II)V
-    .registers 16
+    .locals 12
     .parameter "response"
     .parameter "dcs"
     .parameter "pid"
@@ -472,17 +472,17 @@
     .local v7, sw2:I
     const/16 v8, 0x90
 
-    if-ne v6, v8, :cond_a
+    if-ne v6, v8, :cond_0
 
-    if-eqz v7, :cond_e
+    if-eqz v7, :cond_1
 
-    :cond_a
+    :cond_0
     const/16 v8, 0x91
 
-    if-ne v6, v8, :cond_3d
+    if-ne v6, v8, :cond_3
 
     .line 167
-    :cond_e
+    :cond_1
     const-string v8, "UsimDataDownloadHandler"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -514,20 +514,20 @@
 
     .line 181
     .local v5, success:Z
-    :goto_2b
+    :goto_0
     iget-object v2, p1, Lcom/android/internal/telephony/IccIoResult;->payload:[B
 
     .line 182
     .local v2, responseBytes:[B
-    if-eqz v2, :cond_32
+    if-eqz v2, :cond_2
 
     array-length v8, v2
 
-    if-nez v8, :cond_9a
+    if-nez v8, :cond_8
 
     .line 183
-    :cond_32
-    if-eqz v5, :cond_94
+    :cond_2
+    if-eqz v5, :cond_7
 
     .line 184
     iget-object v8, p0, Lcom/android/internal/telephony/gsm/UsimDataDownloadHandler;->mCI:Lcom/android/internal/telephony/CommandsInterface;
@@ -543,16 +543,16 @@
     .line 220
     .end local v2           #responseBytes:[B
     .end local v5           #success:Z
-    :goto_3c
+    :goto_1
     return-void
 
     .line 169
-    :cond_3d
+    :cond_3
     const/16 v8, 0x93
 
-    if-ne v6, v8, :cond_50
+    if-ne v6, v8, :cond_4
 
-    if-nez v7, :cond_50
+    if-nez v7, :cond_4
 
     .line 170
     const-string v8, "UsimDataDownloadHandler"
@@ -566,20 +566,20 @@
 
     invoke-direct {p0, v8}, Lcom/android/internal/telephony/gsm/UsimDataDownloadHandler;->acknowledgeSmsWithError(I)V
 
-    goto :goto_3c
+    goto :goto_1
 
     .line 173
-    :cond_50
+    :cond_4
     const/16 v8, 0x62
 
-    if-eq v6, v8, :cond_58
+    if-eq v6, v8, :cond_5
 
     const/16 v8, 0x63
 
-    if-ne v6, v8, :cond_76
+    if-ne v6, v8, :cond_6
 
     .line 174
-    :cond_58
+    :cond_5
     const-string v8, "UsimDataDownloadHandler"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -610,11 +610,11 @@
     const/4 v5, 0x0
 
     .restart local v5       #success:Z
-    goto :goto_2b
+    goto :goto_0
 
     .line 177
     .end local v5           #success:Z
-    :cond_76
+    :cond_6
     const-string v8, "UsimDataDownloadHandler"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -645,24 +645,24 @@
     const/4 v5, 0x0
 
     .restart local v5       #success:Z
-    goto :goto_2b
+    goto :goto_0
 
     .line 186
     .restart local v2       #responseBytes:[B
-    :cond_94
+    :cond_7
     const/16 v8, 0xd5
 
     invoke-direct {p0, v8}, Lcom/android/internal/telephony/gsm/UsimDataDownloadHandler;->acknowledgeSmsWithError(I)V
 
-    goto :goto_3c
+    goto :goto_1
 
     .line 193
-    :cond_9a
+    :cond_8
     const/4 v0, 0x0
 
     .line 194
     .local v0, index:I
-    if-eqz v5, :cond_d8
+    if-eqz v5, :cond_9
 
     .line 195
     array-length v8, v2
@@ -691,7 +691,7 @@
     aput-byte v8, v4, v1
 
     .line 206
-    :goto_ac
+    :goto_2
     add-int/lit8 v1, v0, 0x1
 
     .end local v0           #index:I
@@ -714,7 +714,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_ef
+    if-eqz v8, :cond_a
 
     .line 210
     array-length v8, v2
@@ -739,7 +739,7 @@
     .end local v1           #index:I
     .end local v3           #septetCount:I
     .restart local v0       #index:I
-    :goto_c7
+    :goto_3
     const/4 v8, 0x0
 
     array-length v9, v2
@@ -757,11 +757,11 @@
 
     invoke-interface {v8, v5, v9, v10}, Lcom/android/internal/telephony/CommandsInterface;->acknowledgeIncomingGsmSmsWithPdu(ZLjava/lang/String;Landroid/os/Message;)V
 
-    goto/16 :goto_3c
+    goto/16 :goto_1
 
     .line 199
     .end local v4           #smsAckPdu:[B
-    :cond_d8
+    :cond_9
     array-length v8, v2
 
     add-int/lit8 v8, v8, 0x6
@@ -800,10 +800,10 @@
 
     .end local v1           #index:I
     .restart local v0       #index:I
-    goto :goto_ac
+    goto :goto_2
 
     .line 213
-    :cond_ef
+    :cond_a
     add-int/lit8 v1, v0, 0x1
 
     .end local v0           #index:I
@@ -818,20 +818,20 @@
 
     .end local v1           #index:I
     .restart local v0       #index:I
-    goto :goto_c7
+    goto :goto_3
 .end method
 
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 7
+    .locals 5
     .parameter "msg"
 
     .prologue
     .line 244
     iget v2, p1, Landroid/os/Message;->what:I
 
-    packed-switch v2, :pswitch_data_66
+    packed-switch v2, :pswitch_data_0
 
     .line 264
     const-string v2, "UsimDataDownloadHandler"
@@ -859,21 +859,21 @@
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 266
-    :goto_1f
+    :goto_0
     return-void
 
     .line 246
-    :pswitch_20
+    :pswitch_0
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Lcom/android/internal/telephony/gsm/SmsMessage;
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/gsm/UsimDataDownloadHandler;->handleDataDownload(Lcom/android/internal/telephony/gsm/SmsMessage;)V
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 250
-    :pswitch_28
+    :pswitch_1
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
@@ -882,7 +882,7 @@
     .local v0, ar:Landroid/os/AsyncResult;
     iget-object v2, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    if-eqz v2, :cond_50
+    if-eqz v2, :cond_0
 
     .line 253
     const-string v2, "UsimDataDownloadHandler"
@@ -914,10 +914,10 @@
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/gsm/UsimDataDownloadHandler;->acknowledgeSmsWithError(I)V
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 259
-    :cond_50
+    :cond_0
     iget-object v2, v0, Landroid/os/AsyncResult;->userObj:Ljava/lang/Object;
 
     check-cast v2, [I
@@ -942,20 +942,20 @@
 
     invoke-direct {p0, v2, v3, v4}, Lcom/android/internal/telephony/gsm/UsimDataDownloadHandler;->sendSmsAckForEnvelopeResponse(Lcom/android/internal/telephony/IccIoResult;II)V
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 244
     nop
 
-    :pswitch_data_66
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_20
-        :pswitch_28
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public startDataDownload(Lcom/android/internal/telephony/gsm/SmsMessage;)I
-    .registers 4
+    .locals 2
     .parameter "smsMessage"
 
     .prologue
@@ -970,17 +970,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 68
     const/4 v0, -0x1
 
     .line 71
-    :goto_c
+    :goto_0
     return v0
 
     .line 70
-    :cond_d
+    :cond_0
     const-string v0, "UsimDataDownloadHandler"
 
     const-string/jumbo v1, "startDataDownload failed to send message to start data download."
@@ -990,5 +990,5 @@
     .line 71
     const/4 v0, 0x2
 
-    goto :goto_c
+    goto :goto_0
 .end method

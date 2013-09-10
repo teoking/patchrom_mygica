@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManagerService;Landroid/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;ZZLandroid/accounts/Account;Landroid/os/Bundle;)V
-    .registers 9
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter "x1"
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -72,7 +72,7 @@
 .end method
 
 .method protected toDebugString(J)Ljava/lang/String;
-    .registers 5
+    .locals 2
     .parameter "now"
 
     .prologue

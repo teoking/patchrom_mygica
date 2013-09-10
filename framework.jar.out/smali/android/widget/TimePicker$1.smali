@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 66
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public onTimeChanged(Landroid/widget/TimePicker;II)V
-    .registers 4
+    .locals 0
     .parameter "view"
     .parameter "hourOfDay"
     .parameter "minute"

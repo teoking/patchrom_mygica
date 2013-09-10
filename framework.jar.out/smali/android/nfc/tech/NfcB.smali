@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/nfc/Tag;)V
-    .registers 4
+    .locals 2
     .parameter "tag"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -60,7 +60,7 @@
 .end method
 
 .method public static get(Landroid/nfc/Tag;)Landroid/nfc/tech/NfcB;
-    .registers 4
+    .locals 3
     .parameter "tag"
 
     .prologue
@@ -73,38 +73,38 @@
 
     move-result v2
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_0
 
     .line 58
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 56
-    :cond_9
-    :try_start_9
+    :cond_0
+    :try_start_0
     new-instance v2, Landroid/nfc/tech/NfcB;
 
     invoke-direct {v2, p0}, Landroid/nfc/tech/NfcB;-><init>(Landroid/nfc/Tag;)V
-    :try_end_e
-    .catch Landroid/os/RemoteException; {:try_start_9 .. :try_end_e} :catch_10
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-object v1, v2
 
-    goto :goto_8
+    goto :goto_0
 
     .line 57
-    :catch_10
+    :catch_0
     move-exception v0
 
     .line 58
     .local v0, e:Landroid/os/RemoteException;
-    goto :goto_8
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public bridge synthetic close()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -119,7 +119,7 @@
 .end method
 
 .method public bridge synthetic connect()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -134,7 +134,7 @@
 .end method
 
 .method public getApplicationData()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 78
@@ -144,7 +144,7 @@
 .end method
 
 .method public getMaxTransceiveLength()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 123
@@ -156,7 +156,7 @@
 .end method
 
 .method public getProtocolInfo()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 89
@@ -166,7 +166,7 @@
 .end method
 
 .method public bridge synthetic getTag()Landroid/nfc/Tag;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 35
@@ -178,7 +178,7 @@
 .end method
 
 .method public bridge synthetic isConnected()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 35
@@ -190,7 +190,7 @@
 .end method
 
 .method public bridge synthetic reconnect()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -205,7 +205,7 @@
 .end method
 
 .method public transceive([B)[B
-    .registers 3
+    .locals 1
     .parameter "data"
     .annotation system Ldalvik/annotation/Throws;
         value = {

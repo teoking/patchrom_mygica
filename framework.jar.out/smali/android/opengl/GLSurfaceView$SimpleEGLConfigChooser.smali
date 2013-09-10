@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/opengl/GLSurfaceView;Z)V
-    .registers 11
+    .locals 8
     .parameter
     .parameter "withDepthBuffer"
 
@@ -35,11 +35,11 @@
     .line 977
     const/4 v3, 0x6
 
-    if-eqz p2, :cond_11
+    if-eqz p2, :cond_0
 
     const/16 v6, 0x10
 
-    :goto_9
+    :goto_0
     move-object v0, p0
 
     move-object v1, p1
@@ -53,9 +53,9 @@
     .line 978
     return-void
 
-    :cond_11
+    :cond_0
     move v6, v5
 
     .line 977
-    goto :goto_9
+    goto :goto_0
 .end method

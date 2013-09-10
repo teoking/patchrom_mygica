@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>(IIFFFF)V
-    .registers 7
+    .locals 0
     .parameter "axis"
     .parameter "source"
     .parameter "min"
@@ -65,7 +65,7 @@
 .end method
 
 .method synthetic constructor <init>(IIFFFFLandroid/view/InputDevice$1;)V
-    .registers 8
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -82,7 +82,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/view/InputDevice$MotionRange;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -93,7 +93,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/view/InputDevice$MotionRange;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -104,7 +104,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/view/InputDevice$MotionRange;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -115,7 +115,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/view/InputDevice$MotionRange;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -126,7 +126,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/view/InputDevice$MotionRange;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -137,7 +137,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/view/InputDevice$MotionRange;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -150,7 +150,7 @@
 
 # virtual methods
 .method public getAxis()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 625
@@ -160,7 +160,7 @@
 .end method
 
 .method public getFlat()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 669
@@ -170,7 +170,7 @@
 .end method
 
 .method public getFuzz()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 681
@@ -180,7 +180,7 @@
 .end method
 
 .method public getMax()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 649
@@ -190,7 +190,7 @@
 .end method
 
 .method public getMin()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 641
@@ -200,7 +200,7 @@
 .end method
 
 .method public getRange()F
-    .registers 3
+    .locals 2
 
     .prologue
     .line 657
@@ -214,7 +214,7 @@
 .end method
 
 .method public getSource()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 633

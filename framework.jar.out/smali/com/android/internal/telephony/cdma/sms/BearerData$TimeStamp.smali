@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 234
@@ -35,7 +35,7 @@
 .end method
 
 .method public static fromByteArray([B)Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
-    .registers 12
+    .locals 11
     .parameter "data"
 
     .prologue
@@ -64,28 +64,28 @@
     .local v6, year:I
     const/16 v7, 0x63
 
-    if-gt v6, v7, :cond_16
+    if-gt v6, v7, :cond_0
 
-    if-gez v6, :cond_18
+    if-gez v6, :cond_1
 
-    :cond_16
+    :cond_0
     move-object v5, v8
 
     .line 258
     .end local v5           #ts:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
-    :goto_17
+    :goto_0
     return-object v5
 
     .line 242
     .restart local v5       #ts:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
-    :cond_18
+    :cond_1
     const/16 v7, 0x60
 
-    if-lt v6, v7, :cond_2e
+    if-lt v6, v7, :cond_3
 
     add-int/lit16 v7, v6, 0x76c
 
-    :goto_1e
+    :goto_1
     iput v7, v5, Landroid/text/format/Time;->year:I
 
     .line 243
@@ -97,27 +97,27 @@
 
     .line 244
     .local v3, month:I
-    if-lt v3, v9, :cond_2c
+    if-lt v3, v9, :cond_2
 
     const/16 v7, 0xc
 
-    if-le v3, v7, :cond_31
+    if-le v3, v7, :cond_4
 
-    :cond_2c
+    :cond_2
     move-object v5, v8
 
-    goto :goto_17
+    goto :goto_0
 
     .line 242
     .end local v3           #month:I
-    :cond_2e
+    :cond_3
     add-int/lit16 v7, v6, 0x7d0
 
-    goto :goto_1e
+    goto :goto_1
 
     .line 245
     .restart local v3       #month:I
-    :cond_31
+    :cond_4
     add-int/lit8 v7, v3, -0x1
 
     iput v7, v5, Landroid/text/format/Time;->month:I
@@ -133,19 +133,19 @@
 
     .line 247
     .local v0, day:I
-    if-lt v0, v9, :cond_42
+    if-lt v0, v9, :cond_5
 
     const/16 v7, 0x1f
 
-    if-le v0, v7, :cond_44
+    if-le v0, v7, :cond_6
 
-    :cond_42
+    :cond_5
     move-object v5, v8
 
-    goto :goto_17
+    goto :goto_0
 
     .line 248
-    :cond_44
+    :cond_6
     iput v0, v5, Landroid/text/format/Time;->monthDay:I
 
     .line 249
@@ -159,19 +159,19 @@
 
     .line 250
     .local v1, hour:I
-    if-ltz v1, :cond_53
+    if-ltz v1, :cond_7
 
     const/16 v7, 0x17
 
-    if-le v1, v7, :cond_55
+    if-le v1, v7, :cond_8
 
-    :cond_53
+    :cond_7
     move-object v5, v8
 
-    goto :goto_17
+    goto :goto_0
 
     .line 251
-    :cond_55
+    :cond_8
     iput v1, v5, Landroid/text/format/Time;->hour:I
 
     .line 252
@@ -185,17 +185,17 @@
 
     .line 253
     .local v2, minute:I
-    if-ltz v2, :cond_62
+    if-ltz v2, :cond_9
 
-    if-le v2, v10, :cond_64
+    if-le v2, v10, :cond_a
 
-    :cond_62
+    :cond_9
     move-object v5, v8
 
-    goto :goto_17
+    goto :goto_0
 
     .line 254
-    :cond_64
+    :cond_a
     iput v2, v5, Landroid/text/format/Time;->minute:I
 
     .line 255
@@ -209,26 +209,26 @@
 
     .line 256
     .local v4, second:I
-    if-ltz v4, :cond_71
+    if-ltz v4, :cond_b
 
-    if-le v4, v10, :cond_73
+    if-le v4, v10, :cond_c
 
-    :cond_71
+    :cond_b
     move-object v5, v8
 
-    goto :goto_17
+    goto :goto_0
 
     .line 257
-    :cond_73
+    :cond_c
     iput v4, v5, Landroid/text/format/Time;->second:I
 
-    goto :goto_17
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 263

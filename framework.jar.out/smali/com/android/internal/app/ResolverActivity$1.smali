@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/ResolverActivity;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,12 +35,13 @@
 
 # virtual methods
 .method public onSomePackagesChanged()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 83
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$1;->this$0:Lcom/android/internal/app/ResolverActivity;
 
+    #getter for: Lcom/android/internal/app/ResolverActivity;->mAdapter:Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
     invoke-static {v0}, Lcom/android/internal/app/ResolverActivity;->access$000(Lcom/android/internal/app/ResolverActivity;)Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
 
     move-result-object v0

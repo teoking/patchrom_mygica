@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;ILandroid/content/pm/IPackageDataObserver;)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 7892
@@ -71,13 +71,14 @@
     monitor-enter v3
 
     .line 7895
-    :try_start_c
+    :try_start_0
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$9;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v4, p0, Lcom/android/server/pm/PackageManagerService$9;->val$packageName:Ljava/lang/String;
 
     iget v5, p0, Lcom/android/server/pm/PackageManagerService$9;->val$userId:I
 
+    #calls: Lcom/android/server/pm/PackageManagerService;->deleteApplicationCacheFilesLI(Ljava/lang/String;I)Z
     invoke-static {v2, v4, v5}, Lcom/android/server/pm/PackageManagerService;->access$3700(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;I)Z
 
     move-result v1
@@ -85,8 +86,8 @@
     .line 7896
     .local v1, succeded:Z
     monitor-exit v3
-    :try_end_17
-    .catchall {:try_start_c .. :try_end_17} :catchall_2b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 7897
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$9;->this$0:Lcom/android/server/pm/PackageManagerService;
@@ -95,43 +96,44 @@
 
     const/4 v4, 0x0
 
+    #calls: Lcom/android/server/pm/PackageManagerService;->clearExternalStorageDataSync(Ljava/lang/String;Z)V
     invoke-static {v2, v3, v4}, Lcom/android/server/pm/PackageManagerService;->access$3600(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Z)V
 
     .line 7898
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$9;->val$observer:Landroid/content/pm/IPackageDataObserver;
 
-    if-eqz v2, :cond_2a
+    if-eqz v2, :cond_0
 
     .line 7900
-    :try_start_23
+    :try_start_1
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$9;->val$observer:Landroid/content/pm/IPackageDataObserver;
 
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$9;->val$packageName:Ljava/lang/String;
 
     invoke-interface {v2, v3, v1}, Landroid/content/pm/IPackageDataObserver;->onRemoveCompleted(Ljava/lang/String;Z)V
-    :try_end_2a
-    .catch Landroid/os/RemoteException; {:try_start_23 .. :try_end_2a} :catch_2e
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 7905
-    :cond_2a
-    :goto_2a
+    :cond_0
+    :goto_0
     return-void
 
     .line 7896
     .end local v1           #succeded:Z
-    :catchall_2b
+    :catchall_0
     move-exception v2
 
-    :try_start_2c
+    :try_start_2
     monitor-exit v3
-    :try_end_2d
-    .catchall {:try_start_2c .. :try_end_2d} :catchall_2b
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v2
 
     .line 7901
     .restart local v1       #succeded:Z
-    :catch_2e
+    :catch_0
     move-exception v0
 
     .line 7902
@@ -142,5 +144,5 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2a
+    goto :goto_0
 .end method

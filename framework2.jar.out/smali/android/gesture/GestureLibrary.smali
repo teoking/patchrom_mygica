@@ -9,7 +9,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 26
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public addGesture(Ljava/lang/String;Landroid/gesture/Gesture;)V
-    .registers 4
+    .locals 1
     .parameter "entryName"
     .parameter "gesture"
 
@@ -44,7 +44,7 @@
 .end method
 
 .method public getGestureEntries()Ljava/util/Set;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -67,7 +67,7 @@
 .end method
 
 .method public getGestures(Ljava/lang/String;)Ljava/util/ArrayList;
-    .registers 3
+    .locals 1
     .parameter "entryName"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -93,7 +93,7 @@
 .end method
 
 .method public getLearner()Landroid/gesture/Learner;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 40
@@ -107,7 +107,7 @@
 .end method
 
 .method public getOrientationStyle()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 48
@@ -121,7 +121,7 @@
 .end method
 
 .method public getSequenceType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 56
@@ -135,7 +135,7 @@
 .end method
 
 .method public isReadOnly()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 35
@@ -148,7 +148,7 @@
 .end method
 
 .method public recognize(Landroid/gesture/Gesture;)Ljava/util/ArrayList;
-    .registers 3
+    .locals 1
     .parameter "gesture"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -174,7 +174,7 @@
 .end method
 
 .method public removeEntry(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "entryName"
 
     .prologue
@@ -188,7 +188,7 @@
 .end method
 
 .method public removeGesture(Ljava/lang/String;Landroid/gesture/Gesture;)V
-    .registers 4
+    .locals 1
     .parameter "entryName"
     .parameter "gesture"
 
@@ -206,7 +206,7 @@
 .end method
 
 .method public setOrientationStyle(I)V
-    .registers 3
+    .locals 1
     .parameter "style"
 
     .prologue
@@ -220,7 +220,7 @@
 .end method
 
 .method public setSequenceType(I)V
-    .registers 3
+    .locals 1
     .parameter "type"
 
     .prologue

@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1362
@@ -63,7 +63,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1333
@@ -74,7 +74,7 @@
 .end method
 
 .method public static getContentUri(Ljava/lang/String;)Landroid/net/Uri;
-    .registers 3
+    .locals 2
     .parameter "volumeName"
 
     .prologue
@@ -111,7 +111,7 @@
 .end method
 
 .method public static getContentUriForAudioId(Ljava/lang/String;I)Landroid/net/Uri;
-    .registers 4
+    .locals 2
     .parameter "volumeName"
     .parameter "audioId"
 

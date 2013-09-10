@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/app/MediaRouteChooserDialogFragment;Landroid/content/Context;I)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "context"
     .parameter "theme"
@@ -39,20 +39,22 @@
 
 # virtual methods
 .method public onBackPressed()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 628
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteChooserDialog;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mAdapter:Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$700(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteChooserDialog;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mAdapter:Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$700(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
 
     move-result-object v0
@@ -61,11 +63,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_0
 
     .line 629
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteChooserDialog;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mAdapter:Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$700(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
 
     move-result-object v0
@@ -73,18 +76,18 @@
     invoke-virtual {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;->finishGrouping()V
 
     .line 633
-    :goto_1d
+    :goto_0
     return-void
 
     .line 631
-    :cond_1e
+    :cond_0
     invoke-super {p0}, Landroid/app/Dialog;->onBackPressed()V
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .registers 6
+    .locals 3
     .parameter "keyCode"
     .parameter "event"
 
@@ -94,10 +97,11 @@
     .line 636
     const/16 v1, 0x19
 
-    if-ne p1, v1, :cond_24
+    if-ne p1, v1, :cond_0
 
     iget-object v1, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteChooserDialog;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mVolumeSlider:Landroid/widget/SeekBar;
     invoke-static {v1}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$900(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Landroid/widget/SeekBar;
 
     move-result-object v1
@@ -106,7 +110,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_24
+    if-eqz v1, :cond_0
 
     .line 637
     iget-object v1, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteChooserDialog;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
@@ -115,6 +119,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteChooserDialog;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mRouteTypes:I
     invoke-static {v2}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$000(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)I
 
     move-result v2
@@ -128,17 +133,18 @@
     invoke-virtual {v1, v2}, Landroid/media/MediaRouter$RouteInfo;->requestUpdateVolume(I)V
 
     .line 643
-    :goto_23
+    :goto_0
     return v0
 
     .line 639
-    :cond_24
+    :cond_0
     const/16 v1, 0x18
 
-    if-ne p1, v1, :cond_46
+    if-ne p1, v1, :cond_1
 
     iget-object v1, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteChooserDialog;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mVolumeSlider:Landroid/widget/SeekBar;
     invoke-static {v1}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$900(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Landroid/widget/SeekBar;
 
     move-result-object v1
@@ -147,7 +153,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_46
+    if-eqz v1, :cond_1
 
     .line 640
     iget-object v1, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteChooserDialog;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
@@ -156,6 +162,7 @@
 
     iget-object v2, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteChooserDialog;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mRouteTypes:I
     invoke-static {v2}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$000(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)I
 
     move-result v2
@@ -166,19 +173,19 @@
 
     invoke-virtual {v1, v0}, Landroid/media/MediaRouter$RouteInfo;->requestUpdateVolume(I)V
 
-    goto :goto_23
+    goto :goto_0
 
     .line 643
-    :cond_46
+    :cond_1
     invoke-super {p0, p1, p2}, Landroid/app/Dialog;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
-    goto :goto_23
+    goto :goto_0
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .registers 5
+    .locals 2
     .parameter "keyCode"
     .parameter "event"
 
@@ -188,10 +195,11 @@
     .line 648
     const/16 v1, 0x19
 
-    if-ne p1, v1, :cond_12
+    if-ne p1, v1, :cond_1
 
     iget-object v1, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteChooserDialog;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mVolumeSlider:Landroid/widget/SeekBar;
     invoke-static {v1}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$900(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Landroid/widget/SeekBar;
 
     move-result-object v1
@@ -200,21 +208,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_1
 
     .line 653
-    :cond_11
-    :goto_11
+    :cond_0
+    :goto_0
     return v0
 
     .line 650
-    :cond_12
+    :cond_1
     const/16 v1, 0x18
 
-    if-ne p1, v1, :cond_22
+    if-ne p1, v1, :cond_2
 
     iget-object v1, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteChooserDialog;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mVolumeSlider:Landroid/widget/SeekBar;
     invoke-static {v1}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$900(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Landroid/widget/SeekBar;
 
     move-result-object v1
@@ -223,13 +232,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_11
+    if-nez v1, :cond_0
 
     .line 653
-    :cond_22
+    :cond_2
     invoke-super {p0, p1, p2}, Landroid/app/Dialog;->onKeyUp(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
-    goto :goto_11
+    goto :goto_0
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "iface"
 
     .prologue
@@ -70,7 +70,7 @@
 .end method
 
 .method private doBooleanCommand(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "command"
 
     .prologue
@@ -88,7 +88,7 @@
 .end method
 
 .method private doIntCommand(Ljava/lang/String;)I
-    .registers 3
+    .locals 1
     .parameter "command"
 
     .prologue
@@ -106,7 +106,7 @@
 .end method
 
 .method private doStringCommand(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "command"
 
     .prologue
@@ -144,7 +144,7 @@
 
 # virtual methods
 .method public addNetwork()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 145
@@ -158,7 +158,7 @@
 .end method
 
 .method public addToBlacklist(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "bssid"
 
     .prologue
@@ -167,15 +167,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x0
 
     .line 330
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -198,11 +198,11 @@
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public cancelWps()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 421
@@ -216,7 +216,7 @@
 .end method
 
 .method public clearBlacklist()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 334
@@ -230,7 +230,7 @@
 .end method
 
 .method public closeSupplicantConnection()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 91
@@ -243,7 +243,7 @@
 .end method
 
 .method public connectToSupplicant()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 87
@@ -257,7 +257,7 @@
 .end method
 
 .method public disableNetwork(I)Z
-    .registers 4
+    .locals 2
     .parameter "netId"
 
     .prologue
@@ -288,7 +288,7 @@
 .end method
 
 .method public disconnect()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 183
@@ -302,12 +302,12 @@
 .end method
 
 .method public enableBackgroundScan(Z)V
-    .registers 3
+    .locals 1
     .parameter "enable"
 
     .prologue
     .line 350
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_0
 
     .line 351
     const-string v0, "SET pno 1"
@@ -315,26 +315,26 @@
     invoke-direct {p0, v0}, Landroid/net/wifi/WifiNative;->doBooleanCommand(Ljava/lang/String;)Z
 
     .line 355
-    :goto_7
+    :goto_0
     return-void
 
     .line 353
-    :cond_8
+    :cond_0
     const-string v0, "SET pno 0"
 
     invoke-direct {p0, v0}, Landroid/net/wifi/WifiNative;->doBooleanCommand(Ljava/lang/String;)Z
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public enableNetwork(IZ)Z
-    .registers 5
+    .locals 2
     .parameter "netId"
     .parameter "disableOthers"
 
     .prologue
     .line 163
-    if-eqz p2, :cond_1a
+    if-eqz p2, :cond_0
 
     .line 164
     new-instance v0, Ljava/lang/StringBuilder;
@@ -360,10 +360,10 @@
     move-result v0
 
     .line 166
-    :goto_19
+    :goto_0
     return v0
 
-    :cond_1a
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -386,11 +386,11 @@
 
     move-result v0
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public getBand()I
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v3, -0x1
@@ -408,7 +408,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_1e
+    if-nez v4, :cond_0
 
     .line 277
     const-string v4, " "
@@ -419,41 +419,41 @@
 
     .line 279
     .local v2, tokens:[Ljava/lang/String;
-    :try_start_13
+    :try_start_0
     array-length v4, v2
 
     const/4 v5, 0x2
 
-    if-ne v4, v5, :cond_1e
+    if-ne v4, v5, :cond_0
 
     const/4 v4, 0x1
 
     aget-object v4, v2, v4
 
     invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_1d
-    .catch Ljava/lang/NumberFormatException; {:try_start_13 .. :try_end_1d} :catch_1f
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v3
 
     .line 284
     .end local v2           #tokens:[Ljava/lang/String;
-    :cond_1e
-    :goto_1e
+    :cond_0
+    :goto_0
     return v3
 
     .line 280
     .restart local v2       #tokens:[Ljava/lang/String;
-    :catch_1f
+    :catch_0
     move-exception v0
 
     .line 281
     .local v0, e:Ljava/lang/NumberFormatException;
-    goto :goto_1e
+    goto :goto_0
 .end method
 
 .method public getGroupCapability(Ljava/lang/String;)I
-    .registers 13
+    .locals 11
     .parameter "deviceAddress"
 
     .prologue
@@ -466,17 +466,17 @@
 
     move-result v9
 
-    if-eqz v9, :cond_8
+    if-eqz v9, :cond_1
 
     .line 669
     .end local v2           #gc:I
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     return v2
 
     .line 654
     .restart local v2       #gc:I
-    :cond_8
+    :cond_1
     invoke-virtual {p0, p1}, Landroid/net/wifi/WifiNative;->p2pPeer(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
@@ -487,7 +487,7 @@
 
     move-result v9
 
-    if-nez v9, :cond_7
+    if-nez v9, :cond_0
 
     .line 657
     const-string v9, "\n"
@@ -507,8 +507,8 @@
     const/4 v3, 0x0
 
     .local v3, i$:I
-    :goto_1b
-    if-ge v3, v4, :cond_7
+    :goto_1
+    if-ge v3, v4, :cond_0
 
     aget-object v7, v0, v3
 
@@ -520,7 +520,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_3f
+    if-eqz v9, :cond_2
 
     .line 660
     const-string v9, "="
@@ -535,12 +535,12 @@
 
     const/4 v10, 0x2
 
-    if-ne v9, v10, :cond_7
+    if-ne v9, v10, :cond_0
 
     .line 663
     const/4 v9, 0x1
 
-    :try_start_32
+    :try_start_0
     aget-object v9, v5, v9
 
     invoke-static {v9}, Ljava/lang/Integer;->decode(Ljava/lang/String;)Ljava/lang/Integer;
@@ -548,32 +548,32 @@
     move-result-object v9
 
     invoke-virtual {v9}, Ljava/lang/Integer;->intValue()I
-    :try_end_3b
-    .catch Ljava/lang/NumberFormatException; {:try_start_32 .. :try_end_3b} :catch_3d
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v2
 
-    goto :goto_7
+    goto :goto_0
 
     .line 664
-    :catch_3d
+    :catch_0
     move-exception v1
 
     .line 665
     .local v1, e:Ljava/lang/NumberFormatException;
-    goto :goto_7
+    goto :goto_0
 
     .line 658
     .end local v1           #e:Ljava/lang/NumberFormatException;
     .end local v5           #nameValue:[Ljava/lang/String;
-    :cond_3f
+    :cond_2
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1b
+    goto :goto_1
 .end method
 
 .method public getMacAddress()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 192
@@ -589,7 +589,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1a
+    if-nez v2, :cond_0
 
     .line 194
     const-string v2, " = "
@@ -604,7 +604,7 @@
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1a
+    if-ne v2, v3, :cond_0
 
     const/4 v2, 0x1
 
@@ -612,17 +612,17 @@
 
     .line 197
     .end local v1           #tokens:[Ljava/lang/String;
-    :goto_19
+    :goto_0
     return-object v2
 
-    :cond_1a
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public getNetworkVariable(ILjava/lang/String;)Ljava/lang/String;
-    .registers 5
+    .locals 2
     .parameter "netId"
     .parameter "name"
 
@@ -632,15 +632,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x0
 
     .line 155
-    :goto_7
+    :goto_0
     return-object v0
 
-    :cond_8
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -673,11 +673,11 @@
 
     move-result-object v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public listNetworks()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 141
@@ -691,7 +691,7 @@
 .end method
 
 .method public p2pCancelConnect()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 582
@@ -705,22 +705,22 @@
 .end method
 
 .method public p2pConnect(Landroid/net/wifi/p2p/WifiP2pConfig;Z)Ljava/lang/String;
-    .registers 11
+    .locals 8
     .parameter "config"
     .parameter "joinExistingGroup"
 
     .prologue
     .line 530
-    if-nez p1, :cond_4
+    if-nez p1, :cond_0
 
     const/4 v6, 0x0
 
     .line 578
-    :goto_3
+    :goto_0
     return-object v6
 
     .line 531
-    :cond_4
+    :cond_0
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -738,11 +738,11 @@
     .line 535
     iget v6, v5, Landroid/net/wifi/WpsInfo;->setup:I
 
-    packed-switch v6, :pswitch_data_a4
+    packed-switch v6, :pswitch_data_0
 
     .line 563
-    :goto_15
-    if-eqz p2, :cond_7d
+    :goto_1
+    if-eqz p2, :cond_2
 
     .line 564
     const-string v6, "join"
@@ -750,7 +750,7 @@
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 575
-    :goto_1c
+    :goto_2
     const-string v1, "P2P_CONNECT "
 
     .line 576
@@ -760,12 +760,12 @@
     move-result-object v3
 
     .local v3, i$:Ljava/util/Iterator;
-    :goto_22
+    :goto_3
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_9d
+    if-eqz v6, :cond_5
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -796,28 +796,28 @@
 
     move-result-object v1
 
-    goto :goto_22
+    goto :goto_3
 
     .line 537
     .end local v1           #command:Ljava/lang/String;
     .end local v3           #i$:Ljava/util/Iterator;
     .end local v4           #s:Ljava/lang/String;
-    :pswitch_46
+    :pswitch_0
     const-string/jumbo v6, "pbc"
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_15
+    goto :goto_1
 
     .line 540
-    :pswitch_4d
+    :pswitch_1
     iget-object v6, v5, Landroid/net/wifi/WpsInfo;->pin:Ljava/lang/String;
 
     invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_61
+    if-eqz v6, :cond_1
 
     .line 541
     const-string/jumbo v6, "pin"
@@ -825,23 +825,23 @@
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 545
-    :goto_5b
+    :goto_4
     const-string v6, "display"
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_15
+    goto :goto_1
 
     .line 543
-    :cond_61
+    :cond_1
     iget-object v6, v5, Landroid/net/wifi/WpsInfo;->pin:Ljava/lang/String;
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_5b
+    goto :goto_4
 
     .line 548
-    :pswitch_67
+    :pswitch_2
     iget-object v6, v5, Landroid/net/wifi/WpsInfo;->pin:Ljava/lang/String;
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -851,10 +851,10 @@
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_15
+    goto :goto_1
 
     .line 552
-    :pswitch_72
+    :pswitch_3
     iget-object v6, v5, Landroid/net/wifi/WpsInfo;->pin:Ljava/lang/String;
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -864,26 +864,26 @@
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_15
+    goto :goto_1
 
     .line 568
-    :cond_7d
+    :cond_2
     iget v2, p1, Landroid/net/wifi/p2p/WifiP2pConfig;->groupOwnerIntent:I
 
     .line 569
     .local v2, groupOwnerIntent:I
-    if-ltz v2, :cond_85
+    if-ltz v2, :cond_3
 
     const/16 v6, 0xf
 
-    if-le v2, v6, :cond_86
+    if-le v2, v6, :cond_4
 
     .line 570
-    :cond_85
+    :cond_3
     const/4 v2, 0x7
 
     .line 572
-    :cond_86
+    :cond_4
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -904,33 +904,33 @@
 
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1c
+    goto :goto_2
 
     .line 578
     .end local v2           #groupOwnerIntent:I
     .restart local v1       #command:Ljava/lang/String;
     .restart local v3       #i$:Ljava/util/Iterator;
-    :cond_9d
+    :cond_5
     invoke-direct {p0, v1}, Landroid/net/wifi/WifiNative;->doStringCommand(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
-    goto/16 :goto_3
+    goto/16 :goto_0
 
     .line 535
     nop
 
-    :pswitch_data_a4
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_46
-        :pswitch_4d
-        :pswitch_67
-        :pswitch_72
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method public p2pFind()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 498
@@ -944,12 +944,12 @@
 .end method
 
 .method public p2pFind(I)Z
-    .registers 4
+    .locals 2
     .parameter "timeout"
 
     .prologue
     .line 502
-    if-gtz p1, :cond_7
+    if-gtz p1, :cond_0
 
     .line 503
     invoke-virtual {p0}, Landroid/net/wifi/WifiNative;->p2pFind()Z
@@ -957,10 +957,10 @@
     move-result v0
 
     .line 505
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -983,11 +983,11 @@
 
     move-result v0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public p2pFlush()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 524
@@ -1001,7 +1001,7 @@
 .end method
 
 .method public p2pGetDeviceAddress()Ljava/lang/String;
-    .registers 10
+    .locals 9
 
     .prologue
     .line 637
@@ -1011,16 +1011,16 @@
 
     .line 638
     .local v4, status:Ljava/lang/String;
-    if-nez v4, :cond_9
+    if-nez v4, :cond_0
 
     const-string v7, ""
 
     .line 648
-    :goto_8
+    :goto_0
     return-object v7
 
     .line 640
-    :cond_9
+    :cond_0
     const-string v7, "\n"
 
     invoke-virtual {v4, v7}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -1038,8 +1038,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_12
-    if-ge v1, v2, :cond_29
+    :goto_1
+    if-ge v1, v2, :cond_1
 
     aget-object v5, v0, v1
 
@@ -1051,7 +1051,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_30
+    if-eqz v7, :cond_3
 
     .line 643
     const-string v7, "="
@@ -1066,36 +1066,36 @@
 
     const/4 v8, 0x2
 
-    if-eq v7, v8, :cond_2c
+    if-eq v7, v8, :cond_2
 
     .line 648
     .end local v3           #nameValue:[Ljava/lang/String;
     .end local v5           #token:Ljava/lang/String;
-    :cond_29
+    :cond_1
     const-string v7, ""
 
-    goto :goto_8
+    goto :goto_0
 
     .line 645
     .restart local v3       #nameValue:[Ljava/lang/String;
     .restart local v5       #token:Ljava/lang/String;
-    :cond_2c
+    :cond_2
     const/4 v7, 0x1
 
     aget-object v7, v3, v7
 
-    goto :goto_8
+    goto :goto_0
 
     .line 641
     .end local v3           #nameValue:[Ljava/lang/String;
-    :cond_30
+    :cond_3
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_12
+    goto :goto_1
 .end method
 
 .method public p2pGroupAdd()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 604
@@ -1109,7 +1109,7 @@
 .end method
 
 .method public p2pGroupRemove(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "iface"
 
     .prologue
@@ -1118,15 +1118,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x0
 
     .line 609
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1149,11 +1149,11 @@
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public p2pInvite(Landroid/net/wifi/p2p/WifiP2pGroup;Ljava/lang/String;)Z
-    .registers 5
+    .locals 2
     .parameter "group"
     .parameter "deviceAddress"
 
@@ -1163,17 +1163,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x0
 
     .line 623
-    :goto_7
+    :goto_0
     return v0
 
     .line 620
-    :cond_8
-    if-nez p1, :cond_22
+    :cond_0
+    if-nez p1, :cond_1
 
     .line 621
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1198,10 +1198,10 @@
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 623
-    :cond_22
+    :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1254,11 +1254,11 @@
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public p2pListen()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 513
@@ -1272,12 +1272,12 @@
 .end method
 
 .method public p2pListen(I)Z
-    .registers 4
+    .locals 2
     .parameter "timeout"
 
     .prologue
     .line 517
-    if-gtz p1, :cond_7
+    if-gtz p1, :cond_0
 
     .line 518
     invoke-virtual {p0}, Landroid/net/wifi/WifiNative;->p2pListen()Z
@@ -1285,10 +1285,10 @@
     move-result v0
 
     .line 520
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1311,11 +1311,11 @@
 
     move-result v0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public p2pPeer(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "deviceAddress"
 
     .prologue
@@ -1346,31 +1346,31 @@
 .end method
 
 .method public p2pProvisionDiscovery(Landroid/net/wifi/p2p/WifiP2pConfig;)Z
-    .registers 4
+    .locals 2
     .parameter "config"
 
     .prologue
     const/4 v0, 0x0
 
     .line 586
-    if-nez p1, :cond_4
+    if-nez p1, :cond_0
 
     .line 600
-    :goto_3
+    :goto_0
     return v0
 
     .line 588
-    :cond_4
+    :cond_0
     iget-object v1, p1, Landroid/net/wifi/p2p/WifiP2pConfig;->wps:Landroid/net/wifi/WpsInfo;
 
     iget v1, v1, Landroid/net/wifi/WpsInfo;->setup:I
 
-    packed-switch v1, :pswitch_data_6c
+    packed-switch v1, :pswitch_data_0
 
-    goto :goto_3
+    goto :goto_0
 
     .line 590
-    :pswitch_c
+    :pswitch_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1401,10 +1401,10 @@
 
     move-result v0
 
-    goto :goto_3
+    goto :goto_0
 
     .line 593
-    :pswitch_2c
+    :pswitch_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1435,10 +1435,10 @@
 
     move-result v0
 
-    goto :goto_3
+    goto :goto_0
 
     .line 596
-    :pswitch_4c
+    :pswitch_2
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1469,19 +1469,19 @@
 
     move-result v0
 
-    goto :goto_3
+    goto :goto_0
 
     .line 588
-    :pswitch_data_6c
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_c
-        :pswitch_2c
-        :pswitch_4c
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public p2pReinvoke(ILjava/lang/String;)Z
-    .registers 5
+    .locals 2
     .parameter "netId"
     .parameter "deviceAddress"
 
@@ -1491,18 +1491,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
-    if-gez p1, :cond_a
+    if-gez p1, :cond_1
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
     .line 632
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1535,11 +1535,11 @@
 
     move-result v0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public p2pReject(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "deviceAddress"
 
     .prologue
@@ -1570,7 +1570,7 @@
 .end method
 
 .method public p2pServDiscCancelReq(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "id"
 
     .prologue
@@ -1601,7 +1601,7 @@
 .end method
 
 .method public p2pServDiscReq(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 6
+    .locals 3
     .parameter "addr"
     .parameter "query"
 
@@ -1665,7 +1665,7 @@
 .end method
 
 .method public p2pServiceAdd(Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;)Z
-    .registers 7
+    .locals 5
     .parameter "servInfo"
 
     .prologue
@@ -1679,12 +1679,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :cond_8
+    :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_35
+    if-eqz v3, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1725,7 +1725,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_0
 
     .line 701
     const/4 v3, 0x0
@@ -1733,17 +1733,17 @@
     .line 704
     .end local v0           #command:Ljava/lang/String;
     .end local v2           #s:Ljava/lang/String;
-    :goto_34
+    :goto_0
     return v3
 
-    :cond_35
+    :cond_1
     const/4 v3, 0x1
 
-    goto :goto_34
+    goto :goto_0
 .end method
 
 .method public p2pServiceDel(Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;)Z
-    .registers 10
+    .locals 8
     .parameter "servInfo"
 
     .prologue
@@ -1761,12 +1761,12 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :cond_a
+    :cond_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_7d
+    if-eqz v6, :cond_4
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1792,21 +1792,21 @@
 
     const/4 v7, 0x2
 
-    if-ge v6, v7, :cond_23
+    if-ge v6, v7, :cond_2
 
     .line 731
     .end local v0           #command:Ljava/lang/String;
     .end local v1           #data:[Ljava/lang/String;
     .end local v3           #s:Ljava/lang/String;
-    :cond_22
-    :goto_22
+    :cond_1
+    :goto_0
     return v4
 
     .line 719
     .restart local v0       #command:Ljava/lang/String;
     .restart local v1       #data:[Ljava/lang/String;
     .restart local v3       #s:Ljava/lang/String;
-    :cond_23
+    :cond_2
     const-string/jumbo v6, "upnp"
 
     aget-object v7, v1, v4
@@ -1815,7 +1815,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_46
+    if-eqz v6, :cond_3
 
     .line 720
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1835,17 +1835,17 @@
     move-result-object v0
 
     .line 727
-    :goto_3f
+    :goto_1
     invoke-direct {p0, v0}, Landroid/net/wifi/WifiNative;->doBooleanCommand(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-nez v6, :cond_a
+    if-nez v6, :cond_0
 
-    goto :goto_22
+    goto :goto_0
 
     .line 721
-    :cond_46
+    :cond_3
     const-string v6, "bonjour"
 
     aget-object v7, v1, v4
@@ -1854,7 +1854,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_22
+    if-eqz v6, :cond_1
 
     .line 722
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1900,20 +1900,20 @@
 
     move-result-object v0
 
-    goto :goto_3f
+    goto :goto_1
 
     .end local v0           #command:Ljava/lang/String;
     .end local v1           #data:[Ljava/lang/String;
     .end local v3           #s:Ljava/lang/String;
-    :cond_7d
+    :cond_4
     move v4, v5
 
     .line 731
-    goto :goto_22
+    goto :goto_0
 .end method
 
 .method public p2pServiceFlush()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 735
@@ -1927,7 +1927,7 @@
 .end method
 
 .method public p2pStopFind()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 509
@@ -1941,7 +1941,7 @@
 .end method
 
 .method public ping()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 114
@@ -1953,7 +1953,7 @@
 
     .line 115
     .local v0, pong:Ljava/lang/String;
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     const-string v1, "PONG"
 
@@ -1961,21 +1961,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_0
 
     const/4 v1, 0x1
 
-    :goto_11
+    :goto_0
     return v1
 
-    :cond_12
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public reassociate()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 179
@@ -1989,7 +1989,7 @@
 .end method
 
 .method public reconnect()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 175
@@ -2003,7 +2003,7 @@
 .end method
 
 .method public removeNetwork(I)Z
-    .registers 4
+    .locals 2
     .parameter "netId"
 
     .prologue
@@ -2034,7 +2034,7 @@
 .end method
 
 .method public saveConfig()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 321
@@ -2044,7 +2044,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     const-string v0, "SAVE_CONFIG"
 
@@ -2052,21 +2052,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_11
+    :goto_0
     return v0
 
-    :cond_12
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public scan()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 119
@@ -2080,7 +2080,7 @@
 .end method
 
 .method public scanResults()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 201
@@ -2094,7 +2094,7 @@
 .end method
 
 .method public setBand(I)Z
-    .registers 4
+    .locals 2
     .parameter "band"
 
     .prologue
@@ -2125,7 +2125,7 @@
 .end method
 
 .method public setBluetoothCoexistenceMode(I)Z
-    .registers 4
+    .locals 2
     .parameter "mode"
 
     .prologue
@@ -2156,12 +2156,12 @@
 .end method
 
 .method public setBluetoothCoexistenceScanMode(Z)Z
-    .registers 3
+    .locals 1
     .parameter "setCoexScanMode"
 
     .prologue
     .line 312
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
     .line 313
     const-string v0, "DRIVER BTCOEXSCAN-START"
@@ -2171,21 +2171,21 @@
     move-result v0
 
     .line 315
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const-string v0, "DRIVER BTCOEXSCAN-STOP"
 
     invoke-direct {p0, v0}, Landroid/net/wifi/WifiNative;->doBooleanCommand(Ljava/lang/String;)Z
 
     move-result v0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setConcurrencyPriority(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "s"
 
     .prologue
@@ -2216,7 +2216,7 @@
 .end method
 
 .method public setConfigMethods(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "cfg"
 
     .prologue
@@ -2247,7 +2247,7 @@
 .end method
 
 .method public setCountryCode(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "countryCode"
 
     .prologue
@@ -2278,7 +2278,7 @@
 .end method
 
 .method public setDeviceName(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "name"
 
     .prologue
@@ -2309,7 +2309,7 @@
 .end method
 
 .method public setDeviceType(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "type"
 
     .prologue
@@ -2340,7 +2340,7 @@
 .end method
 
 .method public setManufacturer(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -2371,7 +2371,7 @@
 .end method
 
 .method public setModelName(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -2402,7 +2402,7 @@
 .end method
 
 .method public setModelNumber(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -2433,7 +2433,7 @@
 .end method
 
 .method public setNetworkVariable(ILjava/lang/String;Ljava/lang/String;)Z
-    .registers 6
+    .locals 2
     .parameter "netId"
     .parameter "name"
     .parameter "value"
@@ -2444,22 +2444,22 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_1
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
     .line 150
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2502,11 +2502,11 @@
 
     move-result v0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public setP2pGroupIdle(Ljava/lang/String;I)Z
-    .registers 5
+    .locals 2
     .parameter "iface"
     .parameter "time"
 
@@ -2548,13 +2548,13 @@
 .end method
 
 .method public setP2pPowerSave(Ljava/lang/String;Z)Z
-    .registers 5
+    .locals 2
     .parameter "iface"
     .parameter "enabled"
 
     .prologue
     .line 474
-    if-eqz p2, :cond_20
+    if-eqz p2, :cond_0
 
     .line 475
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2586,10 +2586,10 @@
     move-result v0
 
     .line 477
-    :goto_1f
+    :goto_0
     return v0
 
-    :cond_20
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2618,11 +2618,11 @@
 
     move-result v0
 
-    goto :goto_1f
+    goto :goto_0
 .end method
 
 .method public setP2pSsidPostfix(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "postfix"
 
     .prologue
@@ -2653,18 +2653,18 @@
 .end method
 
 .method public setPersistentReconnect(Z)Z
-    .registers 5
+    .locals 3
     .parameter "enabled"
 
     .prologue
     const/4 v0, 0x1
 
     .line 425
-    if-ne p1, v0, :cond_1b
+    if-ne p1, v0, :cond_0
 
     .line 426
     .local v0, value:I
-    :goto_3
+    :goto_0
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2691,19 +2691,19 @@
 
     .line 425
     .end local v0           #value:I
-    :cond_1b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public setPowerSave(Z)V
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
     .line 466
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_0
 
     .line 467
     const-string v0, "SET ps 1"
@@ -2711,20 +2711,20 @@
     invoke-direct {p0, v0}, Landroid/net/wifi/WifiNative;->doBooleanCommand(Ljava/lang/String;)Z
 
     .line 471
-    :goto_7
+    :goto_0
     return-void
 
     .line 469
-    :cond_8
+    :cond_0
     const-string v0, "SET ps 0"
 
     invoke-direct {p0, v0}, Landroid/net/wifi/WifiNative;->doBooleanCommand(Ljava/lang/String;)Z
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setScanInterval(I)V
-    .registers 4
+    .locals 2
     .parameter "scanInterval"
 
     .prologue
@@ -2754,12 +2754,12 @@
 .end method
 
 .method public setScanMode(Z)Z
-    .registers 3
+    .locals 1
     .parameter "setActive"
 
     .prologue
     .line 123
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
     .line 124
     const-string v0, "DRIVER SCAN-ACTIVE"
@@ -2769,21 +2769,21 @@
     move-result v0
 
     .line 126
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const-string v0, "DRIVER SCAN-PASSIVE"
 
     invoke-direct {p0, v0}, Landroid/net/wifi/WifiNative;->doBooleanCommand(Ljava/lang/String;)Z
 
     move-result v0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setScanResultHandling(I)Z
-    .registers 4
+    .locals 2
     .parameter "mode"
 
     .prologue
@@ -2814,7 +2814,7 @@
 .end method
 
 .method public setSerialNumber(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -2845,12 +2845,12 @@
 .end method
 
 .method public setSuspendOptimizations(Z)Z
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
     .line 338
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
     .line 339
     const-string v0, "DRIVER SETSUSPENDMODE 1"
@@ -2860,21 +2860,21 @@
     move-result v0
 
     .line 341
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const-string v0, "DRIVER SETSUSPENDMODE 0"
 
     invoke-direct {p0, v0}, Landroid/net/wifi/WifiNative;->doBooleanCommand(Ljava/lang/String;)Z
 
     move-result v0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setWfdDeviceInfo(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "hex"
 
     .prologue
@@ -2905,7 +2905,7 @@
 .end method
 
 .method public setWfdEnable(Z)Z
-    .registers 4
+    .locals 2
     .parameter "enable"
 
     .prologue
@@ -2920,11 +2920,11 @@
 
     move-result-object v1
 
-    if-eqz p1, :cond_1c
+    if-eqz p1, :cond_0
 
     const-string v0, "1"
 
-    :goto_f
+    :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -2939,14 +2939,14 @@
 
     return v0
 
-    :cond_1c
+    :cond_0
     const-string v0, "0"
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public signalPoll()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 368
@@ -2960,7 +2960,7 @@
 .end method
 
 .method public startDriver()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 205
@@ -2974,7 +2974,7 @@
 .end method
 
 .method public startFilteringMulticastV4Packets()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 238
@@ -2984,7 +2984,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     const-string v0, "DRIVER RXFILTER-REMOVE 2"
 
@@ -2992,7 +2992,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     const-string v0, "DRIVER RXFILTER-START"
 
@@ -3000,21 +3000,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_19
+    :goto_0
     return v0
 
-    :cond_1a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public startFilteringMulticastV6Packets()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 258
@@ -3024,7 +3024,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     const-string v0, "DRIVER RXFILTER-REMOVE 3"
 
@@ -3032,7 +3032,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     const-string v0, "DRIVER RXFILTER-START"
 
@@ -3040,21 +3040,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_19
+    :goto_0
     return v0
 
-    :cond_1a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public startWpsPbc(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "bssid"
 
     .prologue
@@ -3063,7 +3063,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 373
     const-string v0, "WPS_PBC"
@@ -3073,10 +3073,10 @@
     move-result v0
 
     .line 375
-    :goto_c
+    :goto_0
     return v0
 
-    :cond_d
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3099,11 +3099,11 @@
 
     move-result v0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public startWpsPbc(Ljava/lang/String;Ljava/lang/String;)Z
-    .registers 5
+    .locals 2
     .parameter "iface"
     .parameter "bssid"
 
@@ -3113,7 +3113,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_0
 
     .line 381
     new-instance v0, Ljava/lang/StringBuilder;
@@ -3139,10 +3139,10 @@
     move-result v0
 
     .line 383
-    :goto_1d
+    :goto_0
     return v0
 
-    :cond_1e
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3175,11 +3175,11 @@
 
     move-result v0
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method public startWpsPinDisplay(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "bssid"
 
     .prologue
@@ -3188,7 +3188,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 400
     const-string v0, "WPS_PIN any"
@@ -3198,10 +3198,10 @@
     move-result-object v0
 
     .line 402
-    :goto_c
+    :goto_0
     return-object v0
 
-    :cond_d
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3224,11 +3224,11 @@
 
     move-result-object v0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public startWpsPinDisplay(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 5
+    .locals 2
     .parameter "iface"
     .parameter "bssid"
 
@@ -3238,7 +3238,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_0
 
     .line 408
     new-instance v0, Ljava/lang/StringBuilder;
@@ -3270,10 +3270,10 @@
     move-result-object v0
 
     .line 410
-    :goto_23
+    :goto_0
     return-object v0
 
-    :cond_24
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3306,11 +3306,11 @@
 
     move-result-object v0
 
-    goto :goto_23
+    goto :goto_0
 .end method
 
 .method public startWpsPinKeypad(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "pin"
 
     .prologue
@@ -3319,15 +3319,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x0
 
     .line 389
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3350,11 +3350,11 @@
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public startWpsPinKeypad(Ljava/lang/String;Ljava/lang/String;)Z
-    .registers 5
+    .locals 2
     .parameter "iface"
     .parameter "pin"
 
@@ -3364,15 +3364,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x0
 
     .line 394
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3405,11 +3405,11 @@
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public startWpsRegistrar(Ljava/lang/String;Ljava/lang/String;)Z
-    .registers 5
+    .locals 2
     .parameter "bssid"
     .parameter "pin"
 
@@ -3419,22 +3419,22 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_1
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
     .line 417
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3467,11 +3467,11 @@
 
     move-result v0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public status()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 187
@@ -3485,7 +3485,7 @@
 .end method
 
 .method public stopDriver()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 209
@@ -3499,7 +3499,7 @@
 .end method
 
 .method public stopFilteringMulticastV4Packets()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 248
@@ -3509,7 +3509,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     const-string v0, "DRIVER RXFILTER-ADD 2"
 
@@ -3517,7 +3517,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     const-string v0, "DRIVER RXFILTER-START"
 
@@ -3525,21 +3525,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_19
+    :goto_0
     return v0
 
-    :cond_1a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public stopFilteringMulticastV6Packets()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 268
@@ -3549,7 +3549,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     const-string v0, "DRIVER RXFILTER-ADD 3"
 
@@ -3557,7 +3557,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     const-string v0, "DRIVER RXFILTER-START"
 
@@ -3565,21 +3565,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_19
+    :goto_0
     return v0
 
-    :cond_1a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public stopSupplicant()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 137
@@ -3593,7 +3593,7 @@
 .end method
 
 .method public waitForEvent()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 95

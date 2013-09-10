@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/input/InputManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/input/InputManagerService;Lcom/android/server/input/InputManagerService$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,21 +47,21 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
     .line 1448
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_2e
+    packed-switch v0, :pswitch_data_0
 
     .line 1465
-    :goto_5
+    :goto_0
     return-void
 
     .line 1450
-    :pswitch_6
+    :pswitch_0
     iget-object v1, p0, Lcom/android/server/input/InputManagerService$InputManagerHandler;->this$0:Lcom/android/server/input/InputManagerService;
 
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -70,53 +70,58 @@
 
     check-cast v0, [Landroid/view/InputDevice;
 
+    #calls: Lcom/android/server/input/InputManagerService;->deliverInputDevicesChanged([Landroid/view/InputDevice;)V
     invoke-static {v1, v0}, Lcom/android/server/input/InputManagerService;->access$400(Lcom/android/server/input/InputManagerService;[Landroid/view/InputDevice;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 1453
-    :pswitch_12
+    :pswitch_1
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$InputManagerHandler;->this$0:Lcom/android/server/input/InputManagerService;
 
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     iget v2, p1, Landroid/os/Message;->arg2:I
 
+    #calls: Lcom/android/server/input/InputManagerService;->handleSwitchKeyboardLayout(II)V
     invoke-static {v0, v1, v2}, Lcom/android/server/input/InputManagerService;->access$500(Lcom/android/server/input/InputManagerService;II)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 1456
-    :pswitch_1c
+    :pswitch_2
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$InputManagerHandler;->this$0:Lcom/android/server/input/InputManagerService;
 
+    #calls: Lcom/android/server/input/InputManagerService;->reloadKeyboardLayouts()V
     invoke-static {v0}, Lcom/android/server/input/InputManagerService;->access$600(Lcom/android/server/input/InputManagerService;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 1459
-    :pswitch_22
+    :pswitch_3
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$InputManagerHandler;->this$0:Lcom/android/server/input/InputManagerService;
 
+    #calls: Lcom/android/server/input/InputManagerService;->updateKeyboardLayouts()V
     invoke-static {v0}, Lcom/android/server/input/InputManagerService;->access$100(Lcom/android/server/input/InputManagerService;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 1462
-    :pswitch_28
+    :pswitch_4
     iget-object v0, p0, Lcom/android/server/input/InputManagerService$InputManagerHandler;->this$0:Lcom/android/server/input/InputManagerService;
 
+    #calls: Lcom/android/server/input/InputManagerService;->reloadDeviceAliases()V
     invoke-static {v0}, Lcom/android/server/input/InputManagerService;->access$200(Lcom/android/server/input/InputManagerService;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 1448
-    :pswitch_data_2e
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_12
-        :pswitch_1c
-        :pswitch_22
-        :pswitch_28
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
     .end packed-switch
 .end method

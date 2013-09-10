@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -22,7 +22,7 @@
 
 # virtual methods
 .method public setHeaderIcon(I)Landroid/view/ContextMenu;
-    .registers 3
+    .locals 1
     .parameter "iconRes"
 
     .prologue
@@ -37,7 +37,7 @@
 .end method
 
 .method public setHeaderIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/ContextMenu;
-    .registers 3
+    .locals 1
     .parameter "icon"
 
     .prologue
@@ -52,7 +52,7 @@
 .end method
 
 .method public setHeaderTitle(I)Landroid/view/ContextMenu;
-    .registers 3
+    .locals 1
     .parameter "titleRes"
 
     .prologue
@@ -67,7 +67,7 @@
 .end method
 
 .method public setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/ContextMenu;
-    .registers 3
+    .locals 1
     .parameter "title"
 
     .prologue
@@ -82,7 +82,7 @@
 .end method
 
 .method public setHeaderView(Landroid/view/View;)Landroid/view/ContextMenu;
-    .registers 3
+    .locals 1
     .parameter "view"
 
     .prologue
@@ -97,19 +97,19 @@
 .end method
 
 .method public show(Landroid/view/View;Landroid/os/IBinder;)Lcom/android/internal/view/menu/MenuDialogHelper;
-    .registers 6
+    .locals 3
     .parameter "originalView"
     .parameter "token"
 
     .prologue
     .line 78
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_0
 
     .line 81
     invoke-virtual {p1, p0}, Landroid/view/View;->createContextMenu(Landroid/view/ContextMenu;)V
 
     .line 84
-    :cond_5
+    :cond_0
     invoke-virtual {p0}, Lcom/android/internal/view/menu/ContextMenuBuilder;->getVisibleItems()Ljava/util/ArrayList;
 
     move-result-object v1
@@ -118,7 +118,7 @@
 
     move-result v1
 
-    if-lez v1, :cond_1f
+    if-lez v1, :cond_1
 
     .line 85
     const v1, 0xc351
@@ -138,11 +138,11 @@
 
     .line 93
     .end local v0           #helper:Lcom/android/internal/view/menu/MenuDialogHelper;
-    :goto_1e
+    :goto_0
     return-object v0
 
-    :cond_1f
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_1e
+    goto :goto_0
 .end method

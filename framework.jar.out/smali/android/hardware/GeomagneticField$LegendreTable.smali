@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 335
@@ -36,23 +36,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     sput-boolean v0, Landroid/hardware/GeomagneticField$LegendreTable;->$assertionsDisabled:Z
 
     return-void
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public constructor <init>(IF)V
-    .registers 13
+    .locals 10
     .parameter "maxN"
     .parameter "thetaRad"
 
@@ -124,8 +124,8 @@
     const/4 v3, 0x1
 
     .local v3, n:I
-    :goto_31
-    if-gt v3, p1, :cond_111
+    :goto_0
+    if-gt v3, p1, :cond_6
 
     .line 364
     iget-object v5, p0, Landroid/hardware/GeomagneticField$LegendreTable;->mP:[[F
@@ -149,11 +149,11 @@
     const/4 v2, 0x0
 
     .local v2, m:I
-    :goto_44
-    if-gt v2, v3, :cond_10d
+    :goto_1
+    if-gt v2, v3, :cond_5
 
     .line 367
-    if-ne v3, v2, :cond_79
+    if-ne v3, v2, :cond_0
 
     .line 368
     iget-object v5, p0, Landroid/hardware/GeomagneticField$LegendreTable;->mP:[[F
@@ -208,21 +208,21 @@
     aput v6, v5, v2
 
     .line 366
-    :goto_76
+    :goto_2
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_44
+    goto :goto_1
 
     .line 371
-    :cond_79
-    if-eq v3, v9, :cond_7f
+    :cond_0
+    if-eq v3, v9, :cond_1
 
     add-int/lit8 v5, v3, -0x1
 
-    if-ne v2, v5, :cond_a9
+    if-ne v2, v5, :cond_2
 
     .line 372
-    :cond_7f
+    :cond_1
     iget-object v5, p0, Landroid/hardware/GeomagneticField$LegendreTable;->mP:[[F
 
     aget-object v5, v5, v3
@@ -270,21 +270,21 @@
 
     aput v6, v5, v2
 
-    goto :goto_76
+    goto :goto_2
 
     .line 376
-    :cond_a9
+    :cond_2
     sget-boolean v5, Landroid/hardware/GeomagneticField$LegendreTable;->$assertionsDisabled:Z
 
-    if-nez v5, :cond_b9
+    if-nez v5, :cond_4
 
-    if-le v3, v9, :cond_b3
+    if-le v3, v9, :cond_3
 
     add-int/lit8 v5, v3, -0x1
 
-    if-lt v2, v5, :cond_b9
+    if-lt v2, v5, :cond_4
 
-    :cond_b3
+    :cond_3
     new-instance v5, Ljava/lang/AssertionError;
 
     invoke-direct {v5}, Ljava/lang/AssertionError;-><init>()V
@@ -292,7 +292,7 @@
     throw v5
 
     .line 377
-    :cond_b9
+    :cond_4
     add-int/lit8 v5, v3, -0x1
 
     add-int/lit8 v6, v3, -0x1
@@ -392,17 +392,17 @@
 
     aput v6, v5, v2
 
-    goto/16 :goto_76
+    goto/16 :goto_2
 
     .line 363
     .end local v1           #k:F
-    :cond_10d
+    :cond_5
     add-int/lit8 v3, v3, 0x1
 
-    goto/16 :goto_31
+    goto/16 :goto_0
 
     .line 385
     .end local v2           #m:I
-    :cond_111
+    :cond_6
     return-void
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/inputmethodservice/KeyboardView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,34 +35,36 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
     .line 258
     iget v1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v1, :pswitch_data_36
+    packed-switch v1, :pswitch_data_0
 
     .line 275
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return-void
 
     .line 260
-    :pswitch_6
+    :pswitch_0
     iget-object v1, p0, Landroid/inputmethodservice/KeyboardView$1;->this$0:Landroid/inputmethodservice/KeyboardView;
 
     iget v2, p1, Landroid/os/Message;->arg1:I
 
+    #calls: Landroid/inputmethodservice/KeyboardView;->showKey(I)V
     invoke-static {v1, v2}, Landroid/inputmethodservice/KeyboardView;->access$100(Landroid/inputmethodservice/KeyboardView;I)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 263
-    :pswitch_e
+    :pswitch_1
     iget-object v1, p0, Landroid/inputmethodservice/KeyboardView$1;->this$0:Landroid/inputmethodservice/KeyboardView;
 
+    #getter for: Landroid/inputmethodservice/KeyboardView;->mPreviewText:Landroid/widget/TextView;
     invoke-static {v1}, Landroid/inputmethodservice/KeyboardView;->access$200(Landroid/inputmethodservice/KeyboardView;)Landroid/widget/TextView;
 
     move-result-object v1
@@ -71,17 +73,18 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 266
-    :pswitch_19
+    :pswitch_2
     iget-object v1, p0, Landroid/inputmethodservice/KeyboardView$1;->this$0:Landroid/inputmethodservice/KeyboardView;
 
+    #calls: Landroid/inputmethodservice/KeyboardView;->repeatKey()Z
     invoke-static {v1}, Landroid/inputmethodservice/KeyboardView;->access$300(Landroid/inputmethodservice/KeyboardView;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_0
 
     .line 267
     const/4 v1, 0x3
@@ -96,27 +99,28 @@
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/inputmethodservice/KeyboardView$1;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    goto :goto_5
+    goto :goto_0
 
     .line 272
     .end local v0           #repeat:Landroid/os/Message;
-    :pswitch_2c
+    :pswitch_3
     iget-object v2, p0, Landroid/inputmethodservice/KeyboardView$1;->this$0:Landroid/inputmethodservice/KeyboardView;
 
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/view/MotionEvent;
 
+    #calls: Landroid/inputmethodservice/KeyboardView;->openPopupIfRequired(Landroid/view/MotionEvent;)Z
     invoke-static {v2, v1}, Landroid/inputmethodservice/KeyboardView;->access$400(Landroid/inputmethodservice/KeyboardView;Landroid/view/MotionEvent;)Z
 
-    goto :goto_5
+    goto :goto_0
 
     .line 258
-    :pswitch_data_36
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_e
-        :pswitch_19
-        :pswitch_2c
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method

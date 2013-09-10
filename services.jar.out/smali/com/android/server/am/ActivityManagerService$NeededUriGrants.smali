@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
     .parameter "_targetPkg"
     .parameter "_targetUid"
     .parameter "_flags"

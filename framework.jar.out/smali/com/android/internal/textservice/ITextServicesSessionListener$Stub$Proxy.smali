@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 69
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 73
@@ -60,7 +60,7 @@
 .end method
 
 .method public onServiceConnected(Lcom/android/internal/textservice/ISpellCheckerSession;)V
-    .registers 7
+    .locals 5
     .parameter "spellCheckerSession"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -78,19 +78,19 @@
 
     .line 79
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "com.android.internal.textservice.ITextServicesSessionListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 80
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Lcom/android/internal/textservice/ISpellCheckerSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    :cond_10
+    :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 81
@@ -103,8 +103,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1b
-    .catchall {:try_start_5 .. :try_end_1b} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 84
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -113,7 +113,7 @@
     return-void
 
     .line 84
-    :catchall_1f
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V

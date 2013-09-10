@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 8
+    .locals 8
 
     .prologue
     const/4 v7, 0x4
@@ -71,11 +71,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_21b
+    if-nez v0, :cond_0
 
     move v0, v1
 
-    :goto_e
+    :goto_0
     sput-boolean v0, Landroid/hardware/GeomagneticField;->$assertionsDisabled:Z
 
     .line 52
@@ -93,19 +93,19 @@
 
     new-array v3, v5, [F
 
-    fill-array-data v3, :array_21e
+    fill-array-data v3, :array_0
 
     aput-object v3, v0, v1
 
     new-array v3, v6, [F
 
-    fill-array-data v3, :array_226
+    fill-array-data v3, :array_1
 
     aput-object v3, v0, v5
 
     new-array v3, v7, [F
 
-    fill-array-data v3, :array_230
+    fill-array-data v3, :array_2
 
     aput-object v3, v0, v6
 
@@ -113,7 +113,7 @@
 
     new-array v3, v3, [F
 
-    fill-array-data v3, :array_23c
+    fill-array-data v3, :array_3
 
     aput-object v3, v0, v7
 
@@ -123,7 +123,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_24a
+    fill-array-data v4, :array_4
 
     aput-object v4, v0, v3
 
@@ -133,7 +133,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_25a
+    fill-array-data v4, :array_5
 
     aput-object v4, v0, v3
 
@@ -143,7 +143,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_26c
+    fill-array-data v4, :array_6
 
     aput-object v4, v0, v3
 
@@ -153,7 +153,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_280
+    fill-array-data v4, :array_7
 
     aput-object v4, v0, v3
 
@@ -163,7 +163,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_296
+    fill-array-data v4, :array_8
 
     aput-object v4, v0, v3
 
@@ -173,7 +173,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_2ae
+    fill-array-data v4, :array_9
 
     aput-object v4, v0, v3
 
@@ -183,7 +183,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_2c8
+    fill-array-data v4, :array_a
 
     aput-object v4, v0, v3
 
@@ -193,7 +193,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_2e4
+    fill-array-data v4, :array_b
 
     aput-object v4, v0, v3
 
@@ -214,19 +214,19 @@
 
     new-array v3, v5, [F
 
-    fill-array-data v3, :array_302
+    fill-array-data v3, :array_c
 
     aput-object v3, v0, v1
 
     new-array v3, v6, [F
 
-    fill-array-data v3, :array_30a
+    fill-array-data v3, :array_d
 
     aput-object v3, v0, v5
 
     new-array v3, v7, [F
 
-    fill-array-data v3, :array_314
+    fill-array-data v3, :array_e
 
     aput-object v3, v0, v6
 
@@ -234,7 +234,7 @@
 
     new-array v3, v3, [F
 
-    fill-array-data v3, :array_320
+    fill-array-data v3, :array_f
 
     aput-object v3, v0, v7
 
@@ -244,7 +244,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_32e
+    fill-array-data v4, :array_10
 
     aput-object v4, v0, v3
 
@@ -254,7 +254,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_33e
+    fill-array-data v4, :array_11
 
     aput-object v4, v0, v3
 
@@ -264,7 +264,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_350
+    fill-array-data v4, :array_12
 
     aput-object v4, v0, v3
 
@@ -274,7 +274,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_364
+    fill-array-data v4, :array_13
 
     aput-object v4, v0, v3
 
@@ -284,7 +284,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_37a
+    fill-array-data v4, :array_14
 
     aput-object v4, v0, v3
 
@@ -294,7 +294,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_392
+    fill-array-data v4, :array_15
 
     aput-object v4, v0, v3
 
@@ -304,7 +304,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_3ac
+    fill-array-data v4, :array_16
 
     aput-object v4, v0, v3
 
@@ -314,7 +314,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_3c8
+    fill-array-data v4, :array_17
 
     aput-object v4, v0, v3
 
@@ -335,19 +335,19 @@
 
     new-array v3, v5, [F
 
-    fill-array-data v3, :array_3e6
+    fill-array-data v3, :array_18
 
     aput-object v3, v0, v1
 
     new-array v3, v6, [F
 
-    fill-array-data v3, :array_3ee
+    fill-array-data v3, :array_19
 
     aput-object v3, v0, v5
 
     new-array v3, v7, [F
 
-    fill-array-data v3, :array_3f8
+    fill-array-data v3, :array_1a
 
     aput-object v3, v0, v6
 
@@ -355,7 +355,7 @@
 
     new-array v3, v3, [F
 
-    fill-array-data v3, :array_404
+    fill-array-data v3, :array_1b
 
     aput-object v3, v0, v7
 
@@ -365,7 +365,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_412
+    fill-array-data v4, :array_1c
 
     aput-object v4, v0, v3
 
@@ -375,7 +375,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_422
+    fill-array-data v4, :array_1d
 
     aput-object v4, v0, v3
 
@@ -385,7 +385,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_434
+    fill-array-data v4, :array_1e
 
     aput-object v4, v0, v3
 
@@ -395,7 +395,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_448
+    fill-array-data v4, :array_1f
 
     aput-object v4, v0, v3
 
@@ -405,7 +405,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_45e
+    fill-array-data v4, :array_20
 
     aput-object v4, v0, v3
 
@@ -415,7 +415,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_476
+    fill-array-data v4, :array_21
 
     aput-object v4, v0, v3
 
@@ -425,7 +425,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_490
+    fill-array-data v4, :array_22
 
     aput-object v4, v0, v3
 
@@ -435,7 +435,7 @@
 
     new-array v4, v4, [F
 
-    fill-array-data v4, :array_4ac
+    fill-array-data v4, :array_23
 
     aput-object v4, v0, v3
 
@@ -456,19 +456,19 @@
 
     new-array v2, v5, [F
 
-    fill-array-data v2, :array_4ca
+    fill-array-data v2, :array_24
 
     aput-object v2, v0, v1
 
     new-array v2, v6, [F
 
-    fill-array-data v2, :array_4d2
+    fill-array-data v2, :array_25
 
     aput-object v2, v0, v5
 
     new-array v2, v7, [F
 
-    fill-array-data v2, :array_4dc
+    fill-array-data v2, :array_26
 
     aput-object v2, v0, v6
 
@@ -476,7 +476,7 @@
 
     new-array v2, v2, [F
 
-    fill-array-data v2, :array_4e8
+    fill-array-data v2, :array_27
 
     aput-object v2, v0, v7
 
@@ -486,7 +486,7 @@
 
     new-array v3, v3, [F
 
-    fill-array-data v3, :array_4f6
+    fill-array-data v3, :array_28
 
     aput-object v3, v0, v2
 
@@ -496,7 +496,7 @@
 
     new-array v3, v3, [F
 
-    fill-array-data v3, :array_506
+    fill-array-data v3, :array_29
 
     aput-object v3, v0, v2
 
@@ -506,7 +506,7 @@
 
     new-array v3, v3, [F
 
-    fill-array-data v3, :array_518
+    fill-array-data v3, :array_2a
 
     aput-object v3, v0, v2
 
@@ -516,7 +516,7 @@
 
     new-array v3, v3, [F
 
-    fill-array-data v3, :array_52c
+    fill-array-data v3, :array_2b
 
     aput-object v3, v0, v2
 
@@ -526,7 +526,7 @@
 
     new-array v3, v3, [F
 
-    fill-array-data v3, :array_542
+    fill-array-data v3, :array_2c
 
     aput-object v3, v0, v2
 
@@ -536,7 +536,7 @@
 
     new-array v3, v3, [F
 
-    fill-array-data v3, :array_55a
+    fill-array-data v3, :array_2d
 
     aput-object v3, v0, v2
 
@@ -546,7 +546,7 @@
 
     new-array v3, v3, [F
 
-    fill-array-data v3, :array_574
+    fill-array-data v3, :array_2e
 
     aput-object v3, v0, v2
 
@@ -556,7 +556,7 @@
 
     new-array v3, v3, [F
 
-    fill-array-data v3, :array_590
+    fill-array-data v3, :array_2f
 
     aput-object v3, v0, v2
 
@@ -588,27 +588,27 @@
 
     return-void
 
-    :cond_21b
+    :cond_0
     move v0, v2
 
     .line 33
-    goto/16 :goto_e
+    goto/16 :goto_0
 
     .line 52
-    :array_21e
+    :array_0
     .array-data 0x4
         0x33t 0x71t 0xe6t 0xc6t
         0x9at 0x49t 0xc6t 0xc4t
     .end array-data
 
-    :array_226
+    :array_1
     .array-data 0x4
         0x9at 0xc9t 0x15t 0xc5t
         0x9at 0x21t 0x3dt 0x45t
         0x33t 0x93t 0xd0t 0x44t
     .end array-data
 
-    :array_230
+    :array_2
     .array-data 0x4
         0x33t 0x83t 0xa7t 0x44t
         0x33t 0x63t 0x11t 0xc5t
@@ -616,7 +616,7 @@
         0x0t 0x80t 0x1et 0x44t
     .end array-data
 
-    :array_23c
+    :array_3
     .array-data 0x4
         0x66t 0x26t 0x64t 0x44t
         0x9at 0x39t 0x4at 0x44t
@@ -625,7 +625,7 @@
         0xcdt 0xcct 0xb2t 0x42t
     .end array-data
 
-    :array_24a
+    :array_4
     .array-data 0x4
         0x66t 0xe6t 0x66t 0xc3t
         0x9at 0x99t 0xb2t 0x43t
@@ -635,7 +635,7 @@
         0x9at 0x99t 0xf9t 0xc0t
     .end array-data
 
-    :array_25a
+    :array_5
     .array-data 0x4
         0x9at 0x99t 0x91t 0x42t
         0x33t 0x33t 0x89t 0x42t
@@ -646,7 +646,7 @@
         0xcdt 0xcct 0x9bt 0xc2t
     .end array-data
 
-    :array_26c
+    :array_6
     .array-data 0x4
         0x0t 0x0t 0xa1t 0x42t
         0x33t 0x33t 0x96t 0xc2t
@@ -658,7 +658,7 @@
         0xcdt 0xcct 0x9ct 0x40t
     .end array-data
 
-    :array_280
+    :array_7
     .array-data 0x4
         0x33t 0x33t 0xc3t 0x41t
         0x9at 0x99t 0x1t 0x41t
@@ -671,7 +671,7 @@
         0xcdt 0xcct 0x6ct 0xc0t
     .end array-data
 
-    :array_296
+    :array_8
     .array-data 0x4
         0xcdt 0xcct 0xact 0x40t
         0x66t 0x66t 0x16t 0x41t
@@ -685,7 +685,7 @@
         0x9at 0x99t 0x21t 0xc1t
     .end array-data
 
-    :array_2ae
+    :array_9
     .array-data 0x4
         0x0t 0x0t 0x0t 0xc0t
         0x9at 0x99t 0xc9t 0xc0t
@@ -700,7 +700,7 @@
         0x33t 0x33t 0x33t 0xc0t
     .end array-data
 
-    :array_2c8
+    :array_a
     .array-data 0x4
         0x0t 0x0t 0x40t 0x40t
         0x0t 0x0t 0xc0t 0xbft
@@ -716,7 +716,7 @@
         0x33t 0x33t 0x73t 0x40t
     .end array-data
 
-    :array_2e4
+    :array_b
     .array-data 0x4
         0xcdt 0xcct 0xct 0xc0t
         0xcdt 0xcct 0x4ct 0xbet
@@ -734,20 +734,20 @@
     .end array-data
 
     .line 67
-    :array_302
+    :array_c
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x33t 0x83t 0x9at 0x45t
     .end array-data
 
-    :array_30a
+    :array_d
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x33t 0x3bt 0x29t 0xc5t
         0x66t 0x6t 0x10t 0xc4t
     .end array-data
 
-    :array_314
+    :array_e
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x33t 0x33t 0x20t 0xc3t
@@ -755,7 +755,7 @@
         0x66t 0x26t 0x6t 0xc4t
     .end array-data
 
-    :array_320
+    :array_f
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x33t 0x33t 0x8ft 0x43t
@@ -764,7 +764,7 @@
         0xcdt 0x8ct 0x9at 0xc3t
     .end array-data
 
-    :array_32e
+    :array_10
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x66t 0x66t 0x32t 0x42t
@@ -774,7 +774,7 @@
         0xcdt 0xcct 0xc9t 0x42t
     .end array-data
 
-    :array_33e
+    :array_11
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x66t 0x66t 0xa6t 0xc1t
@@ -785,7 +785,7 @@
         0x0t 0x0t 0x5ct 0x42t
     .end array-data
 
-    :array_350
+    :array_12
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x9at 0x99t 0x67t 0xc2t
@@ -797,7 +797,7 @@
         0x33t 0x33t 0x53t 0xc0t
     .end array-data
 
-    :array_364
+    :array_13
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x30t 0x41t
@@ -810,7 +810,7 @@
         0x9at 0x99t 0xd9t 0x3ft
     .end array-data
 
-    :array_37a
+    :array_14
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0xa4t 0xc1t
@@ -824,7 +824,7 @@
         0x0t 0x0t 0xe0t 0x40t
     .end array-data
 
-    :array_392
+    :array_15
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x33t 0x33t 0x33t 0x40t
@@ -839,7 +839,7 @@
         0xcdt 0xcct 0x4t 0xc1t
     .end array-data
 
-    :array_3ac
+    :array_16
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0xcdt 0xcct 0x4ct 0x3et
@@ -855,7 +855,7 @@
         0x66t 0x66t 0xe6t 0xbft
     .end array-data
 
-    :array_3c8
+    :array_17
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x66t 0x66t 0x66t 0xbft
@@ -873,20 +873,20 @@
     .end array-data
 
     .line 82
-    :array_3e6
+    :array_18
     .array-data 0x4
         0x9at 0x99t 0x39t 0x41t
         0x0t 0x0t 0x84t 0x41t
     .end array-data
 
-    :array_3ee
+    :array_19
     .array-data 0x4
         0x9at 0x99t 0x41t 0xc1t
         0xcdt 0xcct 0x8ct 0xc0t
         0x33t 0x33t 0xf3t 0x3ft
     .end array-data
 
-    :array_3f8
+    :array_1a
     .array-data 0x4
         0xcdt 0xcct 0xcct 0x3et
         0x33t 0x33t 0x83t 0xc0t
@@ -894,7 +894,7 @@
         0x66t 0x66t 0xf6t 0xc0t
     .end array-data
 
-    :array_404
+    :array_1b
     .array-data 0x4
         0x66t 0x66t 0xe6t 0xbft
         0x33t 0x33t 0x13t 0x40t
@@ -903,7 +903,7 @@
         0x66t 0x66t 0x6t 0xc0t
     .end array-data
 
-    :array_412
+    :array_1c
     .array-data 0x4
         0x0t 0x0t 0x80t 0xbft
         0x9at 0x99t 0x19t 0x3ft
@@ -913,7 +913,7 @@
         0x0t 0x0t 0x80t 0x3ft
     .end array-data
 
-    :array_422
+    :array_1d
     .array-data 0x4
         0xcdt 0xcct 0x4ct 0xbet
         0xcdt 0xcct 0x4ct 0xbet
@@ -924,7 +924,7 @@
         0x9at 0x99t 0xd9t 0x3ft
     .end array-data
 
-    :array_434
+    :array_1e
     .array-data 0x4
         0xcdt 0xcct 0xcct 0x3dt
         0xcdt 0xcct 0xcct 0xbdt
@@ -936,7 +936,7 @@
         0x9at 0x99t 0x19t 0x3ft
     .end array-data
 
-    :array_448
+    :array_1f
     .array-data 0x4
         0xcdt 0xcct 0xcct 0xbdt
         0xcdt 0xcct 0xcct 0x3dt
@@ -949,7 +949,7 @@
         0xcdt 0xcct 0x4ct 0x3et
     .end array-data
 
-    :array_45e
+    :array_20
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0xcdt 0xcct 0xcct 0xbdt
@@ -963,7 +963,7 @@
         0xcdt 0xcct 0x4ct 0xbet
     .end array-data
 
-    :array_476
+    :array_21
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
@@ -978,7 +978,7 @@
         0xcdt 0xcct 0x4ct 0xbet
     .end array-data
 
-    :array_490
+    :array_22
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
@@ -994,7 +994,7 @@
         0x0t 0x0t 0x0t 0x0t
     .end array-data
 
-    :array_4ac
+    :array_23
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
@@ -1012,20 +1012,20 @@
     .end array-data
 
     .line 97
-    :array_4ca
+    :array_24
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x33t 0x33t 0xcft 0xc1t
     .end array-data
 
-    :array_4d2
+    :array_25
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0xb4t 0xc1t
         0xcdt 0xcct 0x3ct 0xc1t
     .end array-data
 
-    :array_4dc
+    :array_26
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x9at 0x99t 0xe9t 0x40t
@@ -1033,7 +1033,7 @@
         0x66t 0x66t 0x26t 0xc0t
     .end array-data
 
-    :array_4e8
+    :array_27
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0xcdt 0xcct 0x8ct 0x3ft
@@ -1042,7 +1042,7 @@
         0xcdt 0xcct 0x4ct 0xbft
     .end array-data
 
-    :array_4f6
+    :array_28
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0xcdt 0xcct 0xcct 0x3et
@@ -1052,7 +1052,7 @@
         0x9at 0x99t 0x19t 0xbft
     .end array-data
 
-    :array_506
+    :array_29
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0xcdt 0xcct 0x4ct 0xbet
@@ -1063,7 +1063,7 @@
         0x66t 0x66t 0x66t 0x3ft
     .end array-data
 
-    :array_518
+    :array_2a
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x33t 0x33t 0x33t 0x3ft
@@ -1075,7 +1075,7 @@
         0x9at 0x99t 0x99t 0x3et
     .end array-data
 
-    :array_52c
+    :array_2b
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0xcdt 0xcct 0xcct 0xbdt
@@ -1088,7 +1088,7 @@
         0x9at 0x99t 0x99t 0x3et
     .end array-data
 
-    :array_542
+    :array_2c
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
@@ -1102,7 +1102,7 @@
         0xcdt 0xcct 0x4ct 0x3et
     .end array-data
 
-    :array_55a
+    :array_2d
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0xcdt 0xcct 0xcct 0x3dt
@@ -1117,7 +1117,7 @@
         0xcdt 0xcct 0xcct 0xbdt
     .end array-data
 
-    :array_574
+    :array_2e
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
@@ -1133,7 +1133,7 @@
         0xcdt 0xcct 0xcct 0xbdt
     .end array-data
 
-    :array_590
+    :array_2f
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
@@ -1152,7 +1152,7 @@
 .end method
 
 .method public constructor <init>(FFFJ)V
-    .registers 32
+    .locals 26
     .parameter "gdLatitudeDeg"
     .parameter "gdLongitudeDeg"
     .parameter "altitudeMeters"
@@ -1193,7 +1193,7 @@
     .line 149
     sget-boolean v20, Landroid/hardware/GeomagneticField;->$assertionsDisabled:Z
 
-    if-nez v20, :cond_3b
+    if-nez v20, :cond_0
 
     sget-object v20, Landroid/hardware/GeomagneticField;->G_COEFF:[[F
 
@@ -1215,7 +1215,7 @@
 
     move/from16 v1, v21
 
-    if-eq v0, v1, :cond_3b
+    if-eq v0, v1, :cond_0
 
     new-instance v20, Ljava/lang/AssertionError;
 
@@ -1224,7 +1224,7 @@
     throw v20
 
     .line 155
-    :cond_3b
+    :cond_0
     new-instance v13, Landroid/hardware/GeomagneticField$LegendreTable;
 
     add-int/lit8 v20, v2, -0x1
@@ -1294,7 +1294,7 @@
     const/4 v9, 0x2
 
     .local v9, i:I
-    :goto_7b
+    :goto_0
     move-object/from16 v0, v16
 
     array-length v0, v0
@@ -1303,7 +1303,7 @@
 
     move/from16 v0, v20
 
-    if-ge v9, v0, :cond_93
+    if-ge v9, v0, :cond_1
 
     .line 165
     add-int/lit8 v20, v9, -0x1
@@ -1321,10 +1321,10 @@
     .line 164
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_7b
+    goto :goto_0
 
     .line 171
-    :cond_93
+    :cond_1
     new-array v0, v2, [F
 
     move-object/from16 v17, v0
@@ -1406,8 +1406,8 @@
     const/4 v14, 0x2
 
     .local v14, m:I
-    :goto_d6
-    if-ge v14, v2, :cond_105
+    :goto_1
+    if-ge v14, v2, :cond_2
 
     .line 181
     shr-int/lit8 v18, v14, 0x1
@@ -1458,11 +1458,11 @@
     .line 178
     add-int/lit8 v14, v14, 0x1
 
-    goto :goto_d6
+    goto :goto_1
 
     .line 186
     .end local v18           #x:I
-    :cond_105
+    :cond_2
     const/high16 v20, 0x3f80
 
     move-object/from16 v0, p0
@@ -1522,14 +1522,14 @@
     const/4 v15, 0x1
 
     .local v15, n:I
-    :goto_12f
-    if-ge v15, v2, :cond_1d8
+    :goto_2
+    if-ge v15, v2, :cond_4
 
     .line 199
     const/4 v14, 0x0
 
-    :goto_132
-    if-gt v14, v15, :cond_1d4
+    :goto_3
+    if-gt v14, v15, :cond_3
 
     .line 201
     sget-object v20, Landroid/hardware/GeomagneticField;->G_COEFF:[[F
@@ -1699,18 +1699,18 @@
     .line 199
     add-int/lit8 v14, v14, 0x1
 
-    goto/16 :goto_132
+    goto/16 :goto_3
 
     .line 198
     .end local v4           #g:F
     .end local v8           #h:F
-    :cond_1d4
+    :cond_3
     add-int/lit8 v15, v15, 0x1
 
-    goto/16 :goto_12f
+    goto/16 :goto_2
 
     .line 233
-    :cond_1d8
+    :cond_4
     move/from16 v0, p1
 
     float-to-double v0, v0
@@ -1822,7 +1822,7 @@
 .end method
 
 .method private computeGeocentricCoordinates(FFF)V
-    .registers 19
+    .locals 15
     .parameter "gdLatitudeDeg"
     .parameter "gdLongitudeDeg"
     .parameter "altitudeMeters"
@@ -2002,7 +2002,7 @@
 .end method
 
 .method private static computeSchmidtQuasiNormFactors(I)[[F
-    .registers 11
+    .locals 10
     .parameter "maxN"
 
     .prologue
@@ -2029,8 +2029,8 @@
     const/4 v1, 0x1
 
     .local v1, n:I
-    :goto_f
-    if-gt v1, p0, :cond_52
+    :goto_0
+    if-gt v1, p0, :cond_2
 
     .line 397
     add-int/lit8 v3, v1, 0x1
@@ -2066,8 +2066,8 @@
     const/4 v0, 0x1
 
     .local v0, m:I
-    :goto_2a
-    if-gt v0, v1, :cond_4f
+    :goto_1
+    if-gt v0, v1, :cond_1
 
     .line 401
     aget-object v5, v2, v1
@@ -2082,11 +2082,11 @@
 
     add-int/lit8 v7, v3, 0x1
 
-    if-ne v0, v4, :cond_4d
+    if-ne v0, v4, :cond_0
 
     const/4 v3, 0x2
 
-    :goto_3b
+    :goto_2
     mul-int/2addr v3, v7
 
     int-to-float v3, v3
@@ -2112,30 +2112,30 @@
     .line 400
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2a
+    goto :goto_1
 
-    :cond_4d
+    :cond_0
     move v3, v4
 
     .line 401
-    goto :goto_3b
+    goto :goto_2
 
     .line 396
-    :cond_4f
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 406
     .end local v0           #m:I
-    :cond_52
+    :cond_2
     return-object v2
 .end method
 
 
 # virtual methods
 .method public getDeclination()F
-    .registers 5
+    .locals 4
 
     .prologue
     .line 268
@@ -2161,7 +2161,7 @@
 .end method
 
 .method public getFieldStrength()F
-    .registers 4
+    .locals 3
 
     .prologue
     .line 291
@@ -2199,7 +2199,7 @@
 .end method
 
 .method public getHorizontalStrength()F
-    .registers 4
+    .locals 3
 
     .prologue
     .line 284
@@ -2229,7 +2229,7 @@
 .end method
 
 .method public getInclination()F
-    .registers 5
+    .locals 4
 
     .prologue
     .line 276
@@ -2257,7 +2257,7 @@
 .end method
 
 .method public getX()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 245
@@ -2267,7 +2267,7 @@
 .end method
 
 .method public getY()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 252
@@ -2277,7 +2277,7 @@
 .end method
 
 .method public getZ()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 259

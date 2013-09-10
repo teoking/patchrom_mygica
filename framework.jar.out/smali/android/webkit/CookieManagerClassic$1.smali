@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/CookieManagerClassic;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -62,16 +62,18 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
-    .registers 3
+    .locals 1
     .parameter "none"
 
     .prologue
     .line 130
+    #calls: Landroid/webkit/CookieManagerClassic;->nativeRemoveSessionCookie()V
     invoke-static {}, Landroid/webkit/CookieManagerClassic;->access$000()V
 
     .line 131
     iget-object v0, p0, Landroid/webkit/CookieManagerClassic$1;->this$0:Landroid/webkit/CookieManagerClassic;
 
+    #calls: Landroid/webkit/CookieManagerClassic;->signalCookieOperationsComplete()V
     invoke-static {v0}, Landroid/webkit/CookieManagerClassic;->access$100(Landroid/webkit/CookieManagerClassic;)V
 
     .line 132

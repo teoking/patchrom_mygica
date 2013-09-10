@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 28
@@ -21,7 +21,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "intent"
 
@@ -37,7 +37,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_22
+    if-eqz v1, :cond_0
 
     .line 34
     const-string v1, "google.com"
@@ -52,7 +52,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_22
+    if-nez v1, :cond_0
 
     .line 35
     const-string v1, "MasterClear"
@@ -62,11 +62,11 @@
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 54
-    :goto_21
+    :goto_0
     return-void
 
     .line 40
-    :cond_22
+    :cond_0
     const-string v1, "MasterClear"
 
     const-string v2, "!!! FACTORY RESET !!!"
@@ -84,5 +84,5 @@
     .local v0, thr:Ljava/lang/Thread;
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    goto :goto_21
+    goto :goto_0
 .end method

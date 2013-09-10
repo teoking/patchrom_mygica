@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/server/search/SearchManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,12 +33,13 @@
 .end method
 
 .method private updateSearchables()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 113
     iget-object v1, p0, Landroid/server/search/SearchManagerService$MyPackageMonitor;->this$0:Landroid/server/search/SearchManagerService;
 
+    #calls: Landroid/server/search/SearchManagerService;->getSearchables()Landroid/server/search/Searchables;
     invoke-static {v1}, Landroid/server/search/SearchManagerService;->access$200(Landroid/server/search/SearchManagerService;)Landroid/server/search/Searchables;
 
     move-result-object v1
@@ -61,6 +62,7 @@
     .line 117
     iget-object v1, p0, Landroid/server/search/SearchManagerService$MyPackageMonitor;->this$0:Landroid/server/search/SearchManagerService;
 
+    #getter for: Landroid/server/search/SearchManagerService;->mContext:Landroid/content/Context;
     invoke-static {v1}, Landroid/server/search/SearchManagerService;->access$100(Landroid/server/search/SearchManagerService;)Landroid/content/Context;
 
     move-result-object v1
@@ -74,7 +76,7 @@
 
 # virtual methods
 .method public onPackageModified(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "pkg"
 
     .prologue
@@ -86,7 +88,7 @@
 .end method
 
 .method public onSomePackagesChanged()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 103

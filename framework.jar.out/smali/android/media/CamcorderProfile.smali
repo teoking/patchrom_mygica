@@ -73,7 +73,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 302
@@ -89,7 +89,7 @@
 .end method
 
 .method private constructor <init>(IIIIIIIIIIII)V
-    .registers 13
+    .locals 0
     .parameter "duration"
     .parameter "quality"
     .parameter "fileFormat"
@@ -148,7 +148,7 @@
 .end method
 
 .method public static get(I)Landroid/media/CamcorderProfile;
-    .registers 5
+    .locals 4
     .parameter "quality"
 
     .prologue
@@ -168,8 +168,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_a
-    if-ge v1, v2, :cond_1b
+    :goto_0
+    if-ge v1, v2, :cond_1
 
     .line 216
     invoke-static {v1, v0}, Landroid/hardware/Camera;->getCameraInfo(ILandroid/hardware/Camera$CameraInfo;)V
@@ -177,7 +177,7 @@
     .line 217
     iget v3, v0, Landroid/hardware/Camera$CameraInfo;->facing:I
 
-    if-nez v3, :cond_18
+    if-nez v3, :cond_0
 
     .line 218
     invoke-static {v1, p0}, Landroid/media/CamcorderProfile;->get(II)Landroid/media/CamcorderProfile;
@@ -185,46 +185,46 @@
     move-result-object v3
 
     .line 221
-    :goto_17
+    :goto_1
     return-object v3
 
     .line 215
-    :cond_18
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 221
-    :cond_1b
+    :cond_1
     const/4 v3, 0x0
 
-    goto :goto_17
+    goto :goto_1
 .end method
 
 .method public static get(II)Landroid/media/CamcorderProfile;
-    .registers 5
+    .locals 3
     .parameter "cameraId"
     .parameter "quality"
 
     .prologue
     .line 264
-    if-ltz p1, :cond_5
+    if-ltz p1, :cond_0
 
     const/4 v1, 0x7
 
-    if-le p1, v1, :cond_26
+    if-le p1, v1, :cond_2
 
-    :cond_5
+    :cond_0
     const/16 v1, 0x3e8
 
-    if-lt p1, v1, :cond_d
+    if-lt p1, v1, :cond_1
 
     const/16 v1, 0x3ef
 
-    if-le p1, v1, :cond_26
+    if-le p1, v1, :cond_2
 
     .line 268
-    :cond_d
+    :cond_1
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -253,7 +253,7 @@
 
     .line 271
     .end local v0           #errMessage:Ljava/lang/String;
-    :cond_26
+    :cond_2
     invoke-static {p0, p1}, Landroid/media/CamcorderProfile;->native_get_camcorder_profile(II)Landroid/media/CamcorderProfile;
 
     move-result-object v1
@@ -262,7 +262,7 @@
 .end method
 
 .method public static hasProfile(I)Z
-    .registers 5
+    .locals 4
     .parameter "quality"
 
     .prologue
@@ -282,8 +282,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_a
-    if-ge v1, v2, :cond_1b
+    :goto_0
+    if-ge v1, v2, :cond_1
 
     .line 283
     invoke-static {v1, v0}, Landroid/hardware/Camera;->getCameraInfo(ILandroid/hardware/Camera$CameraInfo;)V
@@ -291,7 +291,7 @@
     .line 284
     iget v3, v0, Landroid/hardware/Camera$CameraInfo;->facing:I
 
-    if-nez v3, :cond_18
+    if-nez v3, :cond_0
 
     .line 285
     invoke-static {v1, p0}, Landroid/media/CamcorderProfile;->hasProfile(II)Z
@@ -299,24 +299,24 @@
     move-result v3
 
     .line 288
-    :goto_17
+    :goto_1
     return v3
 
     .line 282
-    :cond_18
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 288
-    :cond_1b
+    :cond_1
     const/4 v3, 0x0
 
-    goto :goto_17
+    goto :goto_1
 .end method
 
 .method public static hasProfile(II)Z
-    .registers 3
+    .locals 1
     .parameter "cameraId"
     .parameter "quality"
 

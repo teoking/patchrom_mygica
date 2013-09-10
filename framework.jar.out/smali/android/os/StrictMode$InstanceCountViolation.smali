@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 7
+    .locals 7
 
     .prologue
     const/4 v6, 0x1
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;JI)V
-    .registers 7
+    .locals 2
     .parameter "klass"
     .parameter "instances"
     .parameter "limit"

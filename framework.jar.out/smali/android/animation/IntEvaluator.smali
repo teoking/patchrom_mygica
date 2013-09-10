@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 22
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public evaluate(FLjava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Integer;
-    .registers 7
+    .locals 3
     .parameter "fraction"
     .parameter "startValue"
     .parameter "endValue"
@@ -69,7 +69,7 @@
 .end method
 
 .method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 5
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"

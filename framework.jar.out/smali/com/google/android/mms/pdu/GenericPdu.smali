@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 31
@@ -32,7 +32,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/android/mms/pdu/PduHeaders;)V
-    .registers 3
+    .locals 1
     .parameter "headers"
 
     .prologue
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public getFrom()Lcom/google/android/mms/pdu/EncodedStringValue;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 101
@@ -70,7 +70,7 @@
 .end method
 
 .method public getMessageType()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 59
@@ -86,7 +86,7 @@
 .end method
 
 .method public getMmsVersion()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 79
@@ -102,7 +102,7 @@
 .end method
 
 .method getPduHeaders()Lcom/google/android/mms/pdu/PduHeaders;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 50
@@ -112,7 +112,7 @@
 .end method
 
 .method public setFrom(Lcom/google/android/mms/pdu/EncodedStringValue;)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -128,7 +128,7 @@
 .end method
 
 .method public setMessageType(I)V
-    .registers 4
+    .locals 2
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -149,7 +149,7 @@
 .end method
 
 .method public setMmsVersion(I)V
-    .registers 4
+    .locals 2
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
         value = {

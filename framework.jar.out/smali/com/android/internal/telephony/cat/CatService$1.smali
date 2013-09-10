@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 682
@@ -36,7 +36,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
-    :try_start_9
+    :try_start_0
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/ResultCode;->HELP_INFO_REQUIRED:Lcom/android/internal/telephony/cat/ResultCode;
@@ -48,11 +48,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_14
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_14} :catch_1f6
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_21
 
-    :goto_14
-    :try_start_14
+    :goto_0
+    :try_start_1
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/ResultCode;->OK:Lcom/android/internal/telephony/cat/ResultCode;
@@ -64,11 +64,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_1f} :catch_1f3
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_20
 
-    :goto_1f
-    :try_start_1f
+    :goto_1
+    :try_start_2
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/ResultCode;->PRFRMD_WITH_PARTIAL_COMPREHENSION:Lcom/android/internal/telephony/cat/ResultCode;
@@ -80,11 +80,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_2a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1f .. :try_end_2a} :catch_1f0
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_1f
 
-    :goto_2a
-    :try_start_2a
+    :goto_2
+    :try_start_3
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/ResultCode;->PRFRMD_WITH_MISSING_INFO:Lcom/android/internal/telephony/cat/ResultCode;
@@ -96,11 +96,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_35
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2a .. :try_end_35} :catch_1ed
+    :try_end_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_1e
 
-    :goto_35
-    :try_start_35
+    :goto_3
+    :try_start_4
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/ResultCode;->PRFRMD_WITH_ADDITIONAL_EFS_READ:Lcom/android/internal/telephony/cat/ResultCode;
@@ -112,11 +112,11 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_40
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_35 .. :try_end_40} :catch_1ea
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_1d
 
-    :goto_40
-    :try_start_40
+    :goto_4
+    :try_start_5
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/ResultCode;->PRFRMD_ICON_NOT_DISPLAYED:Lcom/android/internal/telephony/cat/ResultCode;
@@ -128,11 +128,11 @@
     const/4 v2, 0x6
 
     aput v2, v0, v1
-    :try_end_4b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_40 .. :try_end_4b} :catch_1e7
+    :try_end_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_1c
 
-    :goto_4b
-    :try_start_4b
+    :goto_5
+    :try_start_6
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/ResultCode;->PRFRMD_MODIFIED_BY_NAA:Lcom/android/internal/telephony/cat/ResultCode;
@@ -144,11 +144,11 @@
     const/4 v2, 0x7
 
     aput v2, v0, v1
-    :try_end_56
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4b .. :try_end_56} :catch_1e4
+    :try_end_6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_1b
 
-    :goto_56
-    :try_start_56
+    :goto_6
+    :try_start_7
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/ResultCode;->PRFRMD_LIMITED_SERVICE:Lcom/android/internal/telephony/cat/ResultCode;
@@ -160,11 +160,11 @@
     const/16 v2, 0x8
 
     aput v2, v0, v1
-    :try_end_62
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_56 .. :try_end_62} :catch_1e1
+    :try_end_7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_1a
 
-    :goto_62
-    :try_start_62
+    :goto_7
+    :try_start_8
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/ResultCode;->PRFRMD_WITH_MODIFICATION:Lcom/android/internal/telephony/cat/ResultCode;
@@ -176,11 +176,11 @@
     const/16 v2, 0x9
 
     aput v2, v0, v1
-    :try_end_6e
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_62 .. :try_end_6e} :catch_1de
+    :try_end_8
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_19
 
-    :goto_6e
-    :try_start_6e
+    :goto_8
+    :try_start_9
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/ResultCode;->PRFRMD_NAA_NOT_ACTIVE:Lcom/android/internal/telephony/cat/ResultCode;
@@ -192,11 +192,11 @@
     const/16 v2, 0xa
 
     aput v2, v0, v1
-    :try_end_7a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6e .. :try_end_7a} :catch_1db
+    :try_end_9
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_18
 
-    :goto_7a
-    :try_start_7a
+    :goto_9
+    :try_start_a
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/ResultCode;->PRFRMD_TONE_NOT_PLAYED:Lcom/android/internal/telephony/cat/ResultCode;
@@ -208,11 +208,11 @@
     const/16 v2, 0xb
 
     aput v2, v0, v1
-    :try_end_86
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_7a .. :try_end_86} :catch_1d8
+    :try_end_a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_17
 
-    :goto_86
-    :try_start_86
+    :goto_a
+    :try_start_b
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/ResultCode;->NO_RESPONSE_FROM_USER:Lcom/android/internal/telephony/cat/ResultCode;
@@ -224,11 +224,11 @@
     const/16 v2, 0xc
 
     aput v2, v0, v1
-    :try_end_92
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_86 .. :try_end_92} :catch_1d5
+    :try_end_b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_16
 
-    :goto_92
-    :try_start_92
+    :goto_b
+    :try_start_c
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/ResultCode;->UICC_SESSION_TERM_BY_USER:Lcom/android/internal/telephony/cat/ResultCode;
@@ -240,11 +240,11 @@
     const/16 v2, 0xd
 
     aput v2, v0, v1
-    :try_end_9e
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_92 .. :try_end_9e} :catch_1d2
+    :try_end_c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_c .. :try_end_c} :catch_15
 
-    :goto_9e
-    :try_start_9e
+    :goto_c
+    :try_start_d
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/ResultCode;->BACKWARD_MOVE_BY_USER:Lcom/android/internal/telephony/cat/ResultCode;
@@ -256,11 +256,11 @@
     const/16 v2, 0xe
 
     aput v2, v0, v1
-    :try_end_aa
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9e .. :try_end_aa} :catch_1cf
+    :try_end_d
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_d .. :try_end_d} :catch_14
 
-    :goto_aa
-    :try_start_aa
+    :goto_d
+    :try_start_e
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/ResultCode;->USER_NOT_ACCEPT:Lcom/android/internal/telephony/cat/ResultCode;
@@ -272,11 +272,11 @@
     const/16 v2, 0xf
 
     aput v2, v0, v1
-    :try_end_b6
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_aa .. :try_end_b6} :catch_1cc
+    :try_end_e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_e .. :try_end_e} :catch_13
 
     .line 219
-    :goto_b6
+    :goto_e
     invoke-static {}, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->values()[Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     move-result-object v0
@@ -287,7 +287,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
-    :try_start_bf
+    :try_start_f
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SET_UP_MENU:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -299,11 +299,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_ca
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_bf .. :try_end_ca} :catch_1c9
+    :try_end_f
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_f .. :try_end_f} :catch_12
 
-    :goto_ca
-    :try_start_ca
+    :goto_f
+    :try_start_10
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->DISPLAY_TEXT:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -315,11 +315,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_d5
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_ca .. :try_end_d5} :catch_1c6
+    :try_end_10
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_10 .. :try_end_10} :catch_11
 
-    :goto_d5
-    :try_start_d5
+    :goto_10
+    :try_start_11
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->REFRESH:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -331,11 +331,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_e0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_d5 .. :try_end_e0} :catch_1c3
+    :try_end_11
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_11 .. :try_end_11} :catch_10
 
-    :goto_e0
-    :try_start_e0
+    :goto_11
+    :try_start_12
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SET_UP_IDLE_MODE_TEXT:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -347,11 +347,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_eb
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_e0 .. :try_end_eb} :catch_1c0
+    :try_end_12
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_12 .. :try_end_12} :catch_f
 
-    :goto_eb
-    :try_start_eb
+    :goto_12
+    :try_start_13
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->PROVIDE_LOCAL_INFORMATION:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -363,11 +363,11 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_f6
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_eb .. :try_end_f6} :catch_1bd
+    :try_end_13
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_13 .. :try_end_13} :catch_e
 
-    :goto_f6
-    :try_start_f6
+    :goto_13
+    :try_start_14
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->LAUNCH_BROWSER:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -379,11 +379,11 @@
     const/4 v2, 0x6
 
     aput v2, v0, v1
-    :try_end_101
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_f6 .. :try_end_101} :catch_1ba
+    :try_end_14
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_14} :catch_d
 
-    :goto_101
-    :try_start_101
+    :goto_14
+    :try_start_15
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SELECT_ITEM:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -395,11 +395,11 @@
     const/4 v2, 0x7
 
     aput v2, v0, v1
-    :try_end_10c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_101 .. :try_end_10c} :catch_1b7
+    :try_end_15
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_15 .. :try_end_15} :catch_c
 
-    :goto_10c
-    :try_start_10c
+    :goto_15
+    :try_start_16
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->GET_INPUT:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -411,11 +411,11 @@
     const/16 v2, 0x8
 
     aput v2, v0, v1
-    :try_end_118
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_10c .. :try_end_118} :catch_1b4
+    :try_end_16
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_16 .. :try_end_16} :catch_b
 
-    :goto_118
-    :try_start_118
+    :goto_16
+    :try_start_17
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->GET_INKEY:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -427,11 +427,11 @@
     const/16 v2, 0x9
 
     aput v2, v0, v1
-    :try_end_124
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_118 .. :try_end_124} :catch_1b1
+    :try_end_17
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_17 .. :try_end_17} :catch_a
 
-    :goto_124
-    :try_start_124
+    :goto_17
+    :try_start_18
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SEND_DTMF:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -443,11 +443,11 @@
     const/16 v2, 0xa
 
     aput v2, v0, v1
-    :try_end_130
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_124 .. :try_end_130} :catch_1af
+    :try_end_18
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_18 .. :try_end_18} :catch_9
 
-    :goto_130
-    :try_start_130
+    :goto_18
+    :try_start_19
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SEND_SMS:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -459,11 +459,11 @@
     const/16 v2, 0xb
 
     aput v2, v0, v1
-    :try_end_13c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_130 .. :try_end_13c} :catch_1ad
+    :try_end_19
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_19 .. :try_end_19} :catch_8
 
-    :goto_13c
-    :try_start_13c
+    :goto_19
+    :try_start_1a
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SEND_SS:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -475,11 +475,11 @@
     const/16 v2, 0xc
 
     aput v2, v0, v1
-    :try_end_148
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_13c .. :try_end_148} :catch_1ab
+    :try_end_1a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1a .. :try_end_1a} :catch_7
 
-    :goto_148
-    :try_start_148
+    :goto_1a
+    :try_start_1b
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SEND_USSD:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -491,11 +491,11 @@
     const/16 v2, 0xd
 
     aput v2, v0, v1
-    :try_end_154
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_148 .. :try_end_154} :catch_1a9
+    :try_end_1b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1b .. :try_end_1b} :catch_6
 
-    :goto_154
-    :try_start_154
+    :goto_1b
+    :try_start_1c
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->PLAY_TONE:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -507,11 +507,11 @@
     const/16 v2, 0xe
 
     aput v2, v0, v1
-    :try_end_160
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_154 .. :try_end_160} :catch_1a7
+    :try_end_1c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1c .. :try_end_1c} :catch_5
 
-    :goto_160
-    :try_start_160
+    :goto_1c
+    :try_start_1d
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SET_UP_CALL:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -523,11 +523,11 @@
     const/16 v2, 0xf
 
     aput v2, v0, v1
-    :try_end_16c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_160 .. :try_end_16c} :catch_1a5
+    :try_end_1d
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1d .. :try_end_1d} :catch_4
 
-    :goto_16c
-    :try_start_16c
+    :goto_1d
+    :try_start_1e
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->OPEN_CHANNEL:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -539,11 +539,11 @@
     const/16 v2, 0x10
 
     aput v2, v0, v1
-    :try_end_178
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_16c .. :try_end_178} :catch_1a3
+    :try_end_1e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1e .. :try_end_1e} :catch_3
 
-    :goto_178
-    :try_start_178
+    :goto_1e
+    :try_start_1f
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->CLOSE_CHANNEL:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -555,11 +555,11 @@
     const/16 v2, 0x11
 
     aput v2, v0, v1
-    :try_end_184
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_178 .. :try_end_184} :catch_1a1
+    :try_end_1f
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1f .. :try_end_1f} :catch_2
 
-    :goto_184
-    :try_start_184
+    :goto_1f
+    :try_start_20
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->RECEIVE_DATA:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -571,11 +571,11 @@
     const/16 v2, 0x12
 
     aput v2, v0, v1
-    :try_end_190
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_184 .. :try_end_190} :catch_19f
+    :try_end_20
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_20 .. :try_end_20} :catch_1
 
-    :goto_190
-    :try_start_190
+    :goto_20
+    :try_start_21
     sget-object v0, Lcom/android/internal/telephony/cat/CatService$1;->$SwitchMap$com$android$internal$telephony$cat$AppInterface$CommandType:[I
 
     sget-object v1, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->SEND_DATA:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -587,180 +587,180 @@
     const/16 v2, 0x13
 
     aput v2, v0, v1
-    :try_end_19c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_190 .. :try_end_19c} :catch_19d
+    :try_end_21
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_21 .. :try_end_21} :catch_0
 
-    :goto_19c
+    :goto_21
     return-void
 
-    :catch_19d
+    :catch_0
     move-exception v0
 
-    goto :goto_19c
+    goto :goto_21
 
-    :catch_19f
+    :catch_1
     move-exception v0
 
-    goto :goto_190
+    goto :goto_20
 
-    :catch_1a1
+    :catch_2
     move-exception v0
 
-    goto :goto_184
+    goto :goto_1f
 
-    :catch_1a3
+    :catch_3
     move-exception v0
 
-    goto :goto_178
+    goto :goto_1e
 
-    :catch_1a5
+    :catch_4
     move-exception v0
 
-    goto :goto_16c
+    goto :goto_1d
 
-    :catch_1a7
+    :catch_5
     move-exception v0
 
-    goto :goto_160
+    goto :goto_1c
 
-    :catch_1a9
+    :catch_6
     move-exception v0
 
-    goto :goto_154
+    goto :goto_1b
 
-    :catch_1ab
+    :catch_7
     move-exception v0
 
-    goto :goto_148
+    goto :goto_1a
 
-    :catch_1ad
+    :catch_8
     move-exception v0
 
-    goto :goto_13c
+    goto :goto_19
 
-    :catch_1af
+    :catch_9
     move-exception v0
 
-    goto :goto_130
+    goto :goto_18
 
-    :catch_1b1
+    :catch_a
     move-exception v0
 
-    goto/16 :goto_124
+    goto/16 :goto_17
 
-    :catch_1b4
+    :catch_b
     move-exception v0
 
-    goto/16 :goto_118
+    goto/16 :goto_16
 
-    :catch_1b7
+    :catch_c
     move-exception v0
 
-    goto/16 :goto_10c
+    goto/16 :goto_15
 
-    :catch_1ba
-    move-exception v0
-
-    goto/16 :goto_101
-
-    :catch_1bd
-    move-exception v0
-
-    goto/16 :goto_f6
-
-    :catch_1c0
-    move-exception v0
-
-    goto/16 :goto_eb
-
-    :catch_1c3
-    move-exception v0
-
-    goto/16 :goto_e0
-
-    :catch_1c6
-    move-exception v0
-
-    goto/16 :goto_d5
-
-    :catch_1c9
-    move-exception v0
-
-    goto/16 :goto_ca
-
-    .line 682
-    :catch_1cc
-    move-exception v0
-
-    goto/16 :goto_b6
-
-    :catch_1cf
-    move-exception v0
-
-    goto/16 :goto_aa
-
-    :catch_1d2
-    move-exception v0
-
-    goto/16 :goto_9e
-
-    :catch_1d5
-    move-exception v0
-
-    goto/16 :goto_92
-
-    :catch_1d8
-    move-exception v0
-
-    goto/16 :goto_86
-
-    :catch_1db
-    move-exception v0
-
-    goto/16 :goto_7a
-
-    :catch_1de
-    move-exception v0
-
-    goto/16 :goto_6e
-
-    :catch_1e1
-    move-exception v0
-
-    goto/16 :goto_62
-
-    :catch_1e4
-    move-exception v0
-
-    goto/16 :goto_56
-
-    :catch_1e7
-    move-exception v0
-
-    goto/16 :goto_4b
-
-    :catch_1ea
-    move-exception v0
-
-    goto/16 :goto_40
-
-    :catch_1ed
-    move-exception v0
-
-    goto/16 :goto_35
-
-    :catch_1f0
-    move-exception v0
-
-    goto/16 :goto_2a
-
-    :catch_1f3
-    move-exception v0
-
-    goto/16 :goto_1f
-
-    :catch_1f6
+    :catch_d
     move-exception v0
 
     goto/16 :goto_14
+
+    :catch_e
+    move-exception v0
+
+    goto/16 :goto_13
+
+    :catch_f
+    move-exception v0
+
+    goto/16 :goto_12
+
+    :catch_10
+    move-exception v0
+
+    goto/16 :goto_11
+
+    :catch_11
+    move-exception v0
+
+    goto/16 :goto_10
+
+    :catch_12
+    move-exception v0
+
+    goto/16 :goto_f
+
+    .line 682
+    :catch_13
+    move-exception v0
+
+    goto/16 :goto_e
+
+    :catch_14
+    move-exception v0
+
+    goto/16 :goto_d
+
+    :catch_15
+    move-exception v0
+
+    goto/16 :goto_c
+
+    :catch_16
+    move-exception v0
+
+    goto/16 :goto_b
+
+    :catch_17
+    move-exception v0
+
+    goto/16 :goto_a
+
+    :catch_18
+    move-exception v0
+
+    goto/16 :goto_9
+
+    :catch_19
+    move-exception v0
+
+    goto/16 :goto_8
+
+    :catch_1a
+    move-exception v0
+
+    goto/16 :goto_7
+
+    :catch_1b
+    move-exception v0
+
+    goto/16 :goto_6
+
+    :catch_1c
+    move-exception v0
+
+    goto/16 :goto_5
+
+    :catch_1d
+    move-exception v0
+
+    goto/16 :goto_4
+
+    :catch_1e
+    move-exception v0
+
+    goto/16 :goto_3
+
+    :catch_1f
+    move-exception v0
+
+    goto/16 :goto_2
+
+    :catch_20
+    move-exception v0
+
+    goto/16 :goto_1
+
+    :catch_21
+    move-exception v0
+
+    goto/16 :goto_0
 .end method

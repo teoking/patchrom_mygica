@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 617
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .registers 6
+    .locals 3
     .parameter "priority"
     .parameter "audioSession"
     .annotation system Ldalvik/annotation/Throws;
@@ -103,7 +103,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/media/audiofx/EnvironmentalReverb;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -114,7 +114,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/media/audiofx/EnvironmentalReverb;)Landroid/media/audiofx/EnvironmentalReverb$OnParameterChangeListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -127,7 +127,7 @@
 
 # virtual methods
 .method public getDecayHFRatio()S
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -161,7 +161,7 @@
 .end method
 
 .method public getDecayTime()I
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -195,7 +195,7 @@
 .end method
 
 .method public getDensity()S
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -229,7 +229,7 @@
 .end method
 
 .method public getDiffusion()S
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -263,7 +263,7 @@
 .end method
 
 .method public getProperties()Landroid/media/audiofx/EnvironmentalReverb$Settings;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -387,7 +387,7 @@
 .end method
 
 .method public getReflectionsDelay()I
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -421,7 +421,7 @@
 .end method
 
 .method public getReflectionsLevel()S
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -455,7 +455,7 @@
 .end method
 
 .method public getReverbDelay()I
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -489,7 +489,7 @@
 .end method
 
 .method public getReverbLevel()S
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -523,7 +523,7 @@
 .end method
 
 .method public getRoomHFLevel()S
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -557,7 +557,7 @@
 .end method
 
 .method public getRoomLevel()S
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -591,7 +591,7 @@
 .end method
 
 .method public setDecayHFRatio(S)V
-    .registers 4
+    .locals 2
     .parameter "decayHFRatio"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -622,7 +622,7 @@
 .end method
 
 .method public setDecayTime(I)V
-    .registers 4
+    .locals 2
     .parameter "decayTime"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -653,7 +653,7 @@
 .end method
 
 .method public setDensity(S)V
-    .registers 4
+    .locals 2
     .parameter "density"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -684,7 +684,7 @@
 .end method
 
 .method public setDiffusion(S)V
-    .registers 4
+    .locals 2
     .parameter "diffusion"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -715,7 +715,7 @@
 .end method
 
 .method public setParameterListener(Landroid/media/audiofx/EnvironmentalReverb$OnParameterChangeListener;)V
-    .registers 5
+    .locals 3
     .parameter "listener"
 
     .prologue
@@ -725,10 +725,10 @@
     monitor-enter v1
 
     .line 496
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/media/audiofx/EnvironmentalReverb;->mParamListener:Landroid/media/audiofx/EnvironmentalReverb$OnParameterChangeListener;
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 497
     iput-object p1, p0, Landroid/media/audiofx/EnvironmentalReverb;->mParamListener:Landroid/media/audiofx/EnvironmentalReverb$OnParameterChangeListener;
@@ -748,25 +748,25 @@
     invoke-super {p0, v0}, Landroid/media/audiofx/AudioEffect;->setParameterListener(Landroid/media/audiofx/AudioEffect$OnParameterChangeListener;)V
 
     .line 501
-    :cond_16
+    :cond_0
     monitor-exit v1
 
     .line 502
     return-void
 
     .line 501
-    :catchall_18
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1a
-    .catchall {:try_start_3 .. :try_end_1a} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setProperties(Landroid/media/audiofx/EnvironmentalReverb$Settings;)V
-    .registers 7
+    .locals 5
     .parameter "settings"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -899,7 +899,7 @@
 .end method
 
 .method public setReflectionsDelay(I)V
-    .registers 4
+    .locals 2
     .parameter "reflectionsDelay"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -930,7 +930,7 @@
 .end method
 
 .method public setReflectionsLevel(S)V
-    .registers 4
+    .locals 2
     .parameter "reflectionsLevel"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -961,7 +961,7 @@
 .end method
 
 .method public setReverbDelay(I)V
-    .registers 4
+    .locals 2
     .parameter "reverbDelay"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -992,7 +992,7 @@
 .end method
 
 .method public setReverbLevel(S)V
-    .registers 4
+    .locals 2
     .parameter "reverbLevel"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1023,7 +1023,7 @@
 .end method
 
 .method public setRoomHFLevel(S)V
-    .registers 4
+    .locals 2
     .parameter "roomHF"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1054,7 +1054,7 @@
 .end method
 
 .method public setRoomLevel(S)V
-    .registers 4
+    .locals 2
     .parameter "room"
     .annotation system Ldalvik/annotation/Throws;
         value = {

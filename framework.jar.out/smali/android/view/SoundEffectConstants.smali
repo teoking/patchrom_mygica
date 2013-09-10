@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -27,12 +27,12 @@
 .end method
 
 .method public static getContantForFocusDirection(I)I
-    .registers 3
+    .locals 2
     .parameter "direction"
 
     .prologue
     .line 42
-    sparse-switch p0, :sswitch_data_14
+    sparse-switch p0, :sswitch_data_0
 
     .line 54
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -44,41 +44,41 @@
     throw v0
 
     .line 44
-    :sswitch_b
+    :sswitch_0
     const/4 v0, 0x3
 
     .line 52
-    :goto_c
+    :goto_0
     return v0
 
     .line 47
-    :sswitch_d
+    :sswitch_1
     const/4 v0, 0x4
 
-    goto :goto_c
+    goto :goto_0
 
     .line 49
-    :sswitch_f
+    :sswitch_2
     const/4 v0, 0x1
 
-    goto :goto_c
+    goto :goto_0
 
     .line 52
-    :sswitch_11
+    :sswitch_3
     const/4 v0, 0x2
 
-    goto :goto_c
+    goto :goto_0
 
     .line 42
     nop
 
-    :sswitch_data_14
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_11
-        0x2 -> :sswitch_d
-        0x11 -> :sswitch_f
-        0x21 -> :sswitch_11
-        0x42 -> :sswitch_b
-        0x82 -> :sswitch_d
+        0x1 -> :sswitch_3
+        0x2 -> :sswitch_1
+        0x11 -> :sswitch_2
+        0x21 -> :sswitch_3
+        0x42 -> :sswitch_0
+        0x82 -> :sswitch_1
     .end sparse-switch
 .end method

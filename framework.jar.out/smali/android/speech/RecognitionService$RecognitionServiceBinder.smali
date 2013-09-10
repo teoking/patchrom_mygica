@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/speech/RecognitionService;)V
-    .registers 2
+    .locals 0
     .parameter "service"
 
     .prologue
@@ -37,32 +37,35 @@
 
 # virtual methods
 .method public cancel(Landroid/speech/IRecognitionListener;)V
-    .registers 5
+    .locals 3
     .parameter "listener"
 
     .prologue
     .line 333
     iget-object v0, p0, Landroid/speech/RecognitionService$RecognitionServiceBinder;->mInternalService:Landroid/speech/RecognitionService;
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/speech/RecognitionService$RecognitionServiceBinder;->mInternalService:Landroid/speech/RecognitionService;
 
+    #calls: Landroid/speech/RecognitionService;->checkPermissions(Landroid/speech/IRecognitionListener;)Z
     invoke-static {v0, p1}, Landroid/speech/RecognitionService;->access$700(Landroid/speech/RecognitionService;Landroid/speech/IRecognitionListener;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     .line 334
     iget-object v0, p0, Landroid/speech/RecognitionService$RecognitionServiceBinder;->mInternalService:Landroid/speech/RecognitionService;
 
+    #getter for: Landroid/speech/RecognitionService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/speech/RecognitionService;->access$600(Landroid/speech/RecognitionService;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/speech/RecognitionService$RecognitionServiceBinder;->mInternalService:Landroid/speech/RecognitionService;
 
+    #getter for: Landroid/speech/RecognitionService;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Landroid/speech/RecognitionService;->access$600(Landroid/speech/RecognitionService;)Landroid/os/Handler;
 
     move-result-object v1
@@ -76,12 +79,12 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     .line 337
-    :cond_20
+    :cond_0
     return-void
 .end method
 
 .method public clearReference()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 340
@@ -94,7 +97,7 @@
 .end method
 
 .method public startListening(Landroid/content/Intent;Landroid/speech/IRecognitionListener;)V
-    .registers 8
+    .locals 5
     .parameter "recognizerIntent"
     .parameter "listener"
 
@@ -102,25 +105,28 @@
     .line 316
     iget-object v0, p0, Landroid/speech/RecognitionService$RecognitionServiceBinder;->mInternalService:Landroid/speech/RecognitionService;
 
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/speech/RecognitionService$RecognitionServiceBinder;->mInternalService:Landroid/speech/RecognitionService;
 
+    #calls: Landroid/speech/RecognitionService;->checkPermissions(Landroid/speech/IRecognitionListener;)Z
     invoke-static {v0, p2}, Landroid/speech/RecognitionService;->access$700(Landroid/speech/RecognitionService;Landroid/speech/IRecognitionListener;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_0
 
     .line 317
     iget-object v0, p0, Landroid/speech/RecognitionService$RecognitionServiceBinder;->mInternalService:Landroid/speech/RecognitionService;
 
+    #getter for: Landroid/speech/RecognitionService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/speech/RecognitionService;->access$600(Landroid/speech/RecognitionService;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/speech/RecognitionService$RecognitionServiceBinder;->mInternalService:Landroid/speech/RecognitionService;
 
+    #getter for: Landroid/speech/RecognitionService;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Landroid/speech/RecognitionService;->access$600(Landroid/speech/RecognitionService;)Landroid/os/Handler;
 
     move-result-object v1
@@ -142,37 +148,40 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     .line 321
-    :cond_2a
+    :cond_0
     return-void
 .end method
 
 .method public stopListening(Landroid/speech/IRecognitionListener;)V
-    .registers 5
+    .locals 3
     .parameter "listener"
 
     .prologue
     .line 325
     iget-object v0, p0, Landroid/speech/RecognitionService$RecognitionServiceBinder;->mInternalService:Landroid/speech/RecognitionService;
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/speech/RecognitionService$RecognitionServiceBinder;->mInternalService:Landroid/speech/RecognitionService;
 
+    #calls: Landroid/speech/RecognitionService;->checkPermissions(Landroid/speech/IRecognitionListener;)Z
     invoke-static {v0, p1}, Landroid/speech/RecognitionService;->access$700(Landroid/speech/RecognitionService;Landroid/speech/IRecognitionListener;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     .line 326
     iget-object v0, p0, Landroid/speech/RecognitionService$RecognitionServiceBinder;->mInternalService:Landroid/speech/RecognitionService;
 
+    #getter for: Landroid/speech/RecognitionService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/speech/RecognitionService;->access$600(Landroid/speech/RecognitionService;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/speech/RecognitionService$RecognitionServiceBinder;->mInternalService:Landroid/speech/RecognitionService;
 
+    #getter for: Landroid/speech/RecognitionService;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Landroid/speech/RecognitionService;->access$600(Landroid/speech/RecognitionService;)Landroid/os/Handler;
 
     move-result-object v1
@@ -186,6 +195,6 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     .line 329
-    :cond_20
+    :cond_0
     return-void
 .end method

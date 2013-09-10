@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/LayoutInflater$Factory;Landroid/view/LayoutInflater$Factory2;Landroid/view/LayoutInflater$Factory;Landroid/view/LayoutInflater$Factory2;)V
-    .registers 5
+    .locals 0
     .parameter "f1"
     .parameter "f12"
     .parameter "f2"
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public onCreateView(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
-    .registers 7
+    .locals 2
     .parameter "parent"
     .parameter "name"
     .parameter "context"
@@ -68,7 +68,7 @@
     .line 168
     iget-object v1, p0, Landroid/view/LayoutInflater$FactoryMerger;->mF12:Landroid/view/LayoutInflater$Factory2;
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/view/LayoutInflater$FactoryMerger;->mF12:Landroid/view/LayoutInflater$Factory2;
 
@@ -78,30 +78,30 @@
 
     .line 170
     .local v0, v:Landroid/view/View;
-    :goto_a
-    if-eqz v0, :cond_14
+    :goto_0
+    if-eqz v0, :cond_1
 
     .line 171
     .end local v0           #v:Landroid/view/View;
-    :goto_c
+    :goto_1
     return-object v0
 
     .line 168
-    :cond_d
+    :cond_0
     iget-object v1, p0, Landroid/view/LayoutInflater$FactoryMerger;->mF1:Landroid/view/LayoutInflater$Factory;
 
     invoke-interface {v1, p2, p3, p4}, Landroid/view/LayoutInflater$Factory;->onCreateView(Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
 
     move-result-object v0
 
-    goto :goto_a
+    goto :goto_0
 
     .line 171
     .restart local v0       #v:Landroid/view/View;
-    :cond_14
+    :cond_1
     iget-object v1, p0, Landroid/view/LayoutInflater$FactoryMerger;->mF22:Landroid/view/LayoutInflater$Factory2;
 
-    if-eqz v1, :cond_20
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Landroid/view/LayoutInflater$FactoryMerger;->mF22:Landroid/view/LayoutInflater$Factory2;
 
@@ -109,23 +109,23 @@
 
     move-result-object v1
 
-    :goto_1e
+    :goto_2
     move-object v0, v1
 
-    goto :goto_c
+    goto :goto_1
 
-    :cond_20
+    :cond_2
     iget-object v1, p0, Landroid/view/LayoutInflater$FactoryMerger;->mF2:Landroid/view/LayoutInflater$Factory;
 
     invoke-interface {v1, p2, p3, p4}, Landroid/view/LayoutInflater$Factory;->onCreateView(Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
 
     move-result-object v1
 
-    goto :goto_1e
+    goto :goto_2
 .end method
 
 .method public onCreateView(Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
-    .registers 6
+    .locals 2
     .parameter "name"
     .parameter "context"
     .parameter "attrs"
@@ -140,20 +140,20 @@
 
     .line 163
     .local v0, v:Landroid/view/View;
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 164
     .end local v0           #v:Landroid/view/View;
-    :goto_8
+    :goto_0
     return-object v0
 
     .restart local v0       #v:Landroid/view/View;
-    :cond_9
+    :cond_0
     iget-object v1, p0, Landroid/view/LayoutInflater$FactoryMerger;->mF2:Landroid/view/LayoutInflater$Factory;
 
     invoke-interface {v1, p1, p2, p3}, Landroid/view/LayoutInflater$Factory;->onCreateView(Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
 
     move-result-object v0
 
-    goto :goto_8
+    goto :goto_0
 .end method

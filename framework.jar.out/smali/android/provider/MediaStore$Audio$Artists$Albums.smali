@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1642
@@ -29,7 +29,7 @@
 .end method
 
 .method public static final getContentUri(Ljava/lang/String;J)Landroid/net/Uri;
-    .registers 5
+    .locals 2
     .parameter "volumeName"
     .parameter "artistId"
 

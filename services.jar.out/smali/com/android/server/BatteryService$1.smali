@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/BatteryService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,13 +35,14 @@
 
 # virtual methods
 .method public onUEvent(Landroid/os/UEventObserver$UEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
     .line 183
     iget-object v0, p0, Lcom/android/server/BatteryService$1;->this$0:Lcom/android/server/BatteryService;
 
+    #calls: Lcom/android/server/BatteryService;->update()V
     invoke-static {v0}, Lcom/android/server/BatteryService;->access$000(Lcom/android/server/BatteryService;)V
 
     .line 184

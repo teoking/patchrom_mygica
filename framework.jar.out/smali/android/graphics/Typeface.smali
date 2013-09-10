@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 7
+    .locals 7
 
     .prologue
     const/4 v6, 0x2
@@ -153,7 +153,7 @@
 .end method
 
 .method private constructor <init>(I)V
-    .registers 4
+    .locals 2
     .parameter "ni"
 
     .prologue
@@ -166,7 +166,7 @@
     iput v0, p0, Landroid/graphics/Typeface;->mStyle:I
 
     .line 174
-    if-nez p1, :cond_11
+    if-nez p1, :cond_0
 
     .line 175
     new-instance v0, Ljava/lang/RuntimeException;
@@ -178,7 +178,7 @@
     throw v0
 
     .line 178
-    :cond_11
+    :cond_0
     iput p1, p0, Landroid/graphics/Typeface;->native_instance:I
 
     .line 179
@@ -193,7 +193,7 @@
 .end method
 
 .method public static create(Landroid/graphics/Typeface;I)Landroid/graphics/Typeface;
-    .registers 6
+    .locals 4
     .parameter "family"
     .parameter "style"
 
@@ -203,26 +203,26 @@
 
     .line 104
     .local v0, ni:I
-    if-eqz p0, :cond_b
+    if-eqz p0, :cond_2
 
     .line 106
     iget v3, p0, Landroid/graphics/Typeface;->mStyle:I
 
-    if-ne v3, p1, :cond_9
+    if-ne v3, p1, :cond_1
 
     move-object v2, p0
 
     .line 130
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     return-object v2
 
     .line 110
-    :cond_9
+    :cond_1
     iget v0, p0, Landroid/graphics/Typeface;->native_instance:I
 
     .line 114
-    :cond_b
+    :cond_2
     sget-object v3, Landroid/graphics/Typeface;->sTypefaceCache:Landroid/util/SparseArray;
 
     invoke-virtual {v3, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -233,7 +233,7 @@
 
     .line 116
     .local v1, styles:Landroid/util/SparseArray;,"Landroid/util/SparseArray<Landroid/graphics/Typeface;>;"
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_3
 
     .line 117
     invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -244,11 +244,11 @@
 
     .line 118
     .local v2, typeface:Landroid/graphics/Typeface;
-    if-nez v2, :cond_8
+    if-nez v2, :cond_0
 
     .line 123
     .end local v2           #typeface:Landroid/graphics/Typeface;
-    :cond_1d
+    :cond_3
     new-instance v2, Landroid/graphics/Typeface;
 
     invoke-static {v0, p1}, Landroid/graphics/Typeface;->nativeCreateFromTypeface(II)I
@@ -259,7 +259,7 @@
 
     .line 124
     .restart local v2       #typeface:Landroid/graphics/Typeface;
-    if-nez v1, :cond_33
+    if-nez v1, :cond_4
 
     .line 125
     new-instance v1, Landroid/util/SparseArray;
@@ -276,14 +276,14 @@
     invoke-virtual {v3, v0, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 128
-    :cond_33
+    :cond_4
     invoke-virtual {v1, p1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public static create(Ljava/lang/String;I)Landroid/graphics/Typeface;
-    .registers 4
+    .locals 2
     .parameter "familyName"
     .parameter "style"
 
@@ -301,7 +301,7 @@
 .end method
 
 .method public static createFromAsset(Landroid/content/res/AssetManager;Ljava/lang/String;)Landroid/graphics/Typeface;
-    .registers 4
+    .locals 2
     .parameter "mgr"
     .parameter "path"
 
@@ -319,7 +319,7 @@
 .end method
 
 .method public static createFromFile(Ljava/io/File;)Landroid/graphics/Typeface;
-    .registers 3
+    .locals 2
     .parameter "path"
 
     .prologue
@@ -340,7 +340,7 @@
 .end method
 
 .method public static createFromFile(Ljava/lang/String;)Landroid/graphics/Typeface;
-    .registers 3
+    .locals 2
     .parameter "path"
 
     .prologue
@@ -357,7 +357,7 @@
 .end method
 
 .method public static defaultFromStyle(I)Landroid/graphics/Typeface;
-    .registers 2
+    .locals 1
     .parameter "style"
 
     .prologue
@@ -393,7 +393,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "o"
 
     .prologue
@@ -402,16 +402,16 @@
     const/4 v2, 0x0
 
     .line 207
-    if-ne p0, p1, :cond_5
+    if-ne p0, p1, :cond_1
 
     .line 212
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 208
-    :cond_5
-    if-eqz p1, :cond_11
+    :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -421,14 +421,14 @@
 
     move-result-object v4
 
-    if-eq v3, v4, :cond_13
+    if-eq v3, v4, :cond_3
 
-    :cond_11
+    :cond_2
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_13
+    :cond_3
     move-object v0, p1
 
     .line 210
@@ -440,22 +440,22 @@
 
     iget v4, v0, Landroid/graphics/Typeface;->mStyle:I
 
-    if-ne v3, v4, :cond_22
+    if-ne v3, v4, :cond_4
 
     iget v3, p0, Landroid/graphics/Typeface;->native_instance:I
 
     iget v4, v0, Landroid/graphics/Typeface;->native_instance:I
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_0
 
-    :cond_22
+    :cond_4
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -468,8 +468,8 @@
     iget v0, p0, Landroid/graphics/Typeface;->native_instance:I
 
     invoke-static {v0}, Landroid/graphics/Typeface;->nativeUnref(I)V
-    :try_end_5
-    .catchall {:try_start_0 .. :try_end_5} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 201
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -478,7 +478,7 @@
     return-void
 
     .line 201
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -487,7 +487,7 @@
 .end method
 
 .method public getStyle()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 63
@@ -497,7 +497,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 217
@@ -516,7 +516,7 @@
 .end method
 
 .method public final isBold()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 68
@@ -524,21 +524,21 @@
 
     and-int/lit8 v0, v0, 0x1
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public final isItalic()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 73
@@ -546,15 +546,15 @@
 
     and-int/lit8 v0, v0, 0x2
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method

@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViews;ILandroid/content/Intent;)V
-    .registers 5
+    .locals 1
     .parameter
     .parameter "id"
     .parameter "fillInIntent"
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "parcel"
 
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
-    .registers 8
+    .locals 4
     .parameter "root"
     .parameter "rootParent"
     .parameter "handler"
@@ -104,22 +104,23 @@
 
     .line 264
     .local v1, target:Landroid/view/View;
-    if-nez v1, :cond_9
+    if-nez v1, :cond_1
 
     .line 317
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     return-void
 
     .line 266
-    :cond_9
+    :cond_1
     iget-object v2, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent;->this$0:Landroid/widget/RemoteViews;
 
+    #getter for: Landroid/widget/RemoteViews;->mIsWidgetCollectionChild:Z
     invoke-static {v2}, Landroid/widget/RemoteViews;->access$100(Landroid/widget/RemoteViews;)Z
 
     move-result v2
 
-    if-nez v2, :cond_19
+    if-nez v2, :cond_2
 
     .line 267
     const-string v2, "RemoteViews"
@@ -128,11 +129,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_8
+    goto :goto_0
 
     .line 271
-    :cond_19
-    if-ne v1, p1, :cond_24
+    :cond_2
+    if-ne v1, p1, :cond_3
 
     .line 272
     const v2, 0x1020266
@@ -141,15 +142,15 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/view/View;->setTagInternal(ILjava/lang/Object;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 273
-    :cond_24
-    if-eqz v1, :cond_8
+    :cond_3
+    if-eqz v1, :cond_0
 
     iget-object v2, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent;->fillInIntent:Landroid/content/Intent;
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_0
 
     .line 274
     new-instance v0, Landroid/widget/RemoteViews$SetOnClickFillInIntent$1;
@@ -160,11 +161,11 @@
     .local v0, listener:Landroid/view/View$OnClickListener;
     invoke-virtual {v1, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 

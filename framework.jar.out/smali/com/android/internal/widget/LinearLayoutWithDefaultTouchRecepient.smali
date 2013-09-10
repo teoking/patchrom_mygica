@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
-    .registers 5
+    .locals 3
     .parameter "ev"
 
     .prologue
@@ -61,7 +61,7 @@
     .line 53
     iget-object v0, p0, Lcom/android/internal/widget/LinearLayoutWithDefaultTouchRecepient;->mDefaultTouchRecepient:Landroid/view/View;
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     .line 54
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
@@ -69,24 +69,24 @@
     move-result v0
 
     .line 63
-    :goto_9
+    :goto_0
     return v0
 
     .line 57
-    :cond_a
+    :cond_0
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_1
 
     .line 58
     const/4 v0, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 60
-    :cond_12
+    :cond_1
     iget-object v0, p0, Lcom/android/internal/widget/LinearLayoutWithDefaultTouchRecepient;->mTempRect:Landroid/graphics/Rect;
 
     invoke-virtual {v0, v1, v1, v1, v1}, Landroid/graphics/Rect;->set(IIII)V
@@ -132,11 +132,11 @@
 
     move-result v0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public setDefaultTouchRecepient(Landroid/view/View;)V
-    .registers 2
+    .locals 0
     .parameter "defaultTouchRecepient"
 
     .prologue

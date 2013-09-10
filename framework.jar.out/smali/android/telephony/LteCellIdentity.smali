@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 130
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(IIIIILjava/lang/String;)V
-    .registers 8
+    .locals 1
     .parameter "mcc"
     .parameter "mnc"
     .parameter "ci"
@@ -81,7 +81,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -128,7 +128,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/telephony/LteCellIdentity$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -140,7 +140,7 @@
 .end method
 
 .method constructor <init>(Landroid/telephony/LteCellIdentity;)V
-    .registers 3
+    .locals 1
     .parameter "cid"
 
     .prologue
@@ -179,7 +179,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 115
@@ -189,7 +189,7 @@
 .end method
 
 .method public getCi()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 95
@@ -199,7 +199,7 @@
 .end method
 
 .method public getMcc()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -209,7 +209,7 @@
 .end method
 
 .method public getMnc()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 88
@@ -219,7 +219,7 @@
 .end method
 
 .method public getPci()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 102
@@ -229,7 +229,7 @@
 .end method
 
 .method public getTac()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 109
@@ -239,7 +239,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

@@ -213,7 +213,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 3
+    .locals 0
     .parameter "streamType"
     .parameter "volume"
 
@@ -237,7 +237,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 887
@@ -253,7 +253,7 @@
 .end method
 
 .method public startTone(I)Z
-    .registers 3
+    .locals 1
     .parameter "toneType"
 
     .prologue

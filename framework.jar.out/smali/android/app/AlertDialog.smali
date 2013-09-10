@@ -32,7 +32,7 @@
 
 # direct methods
 .method protected constructor <init>(Landroid/content/Context;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -52,7 +52,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;I)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "theme"
 
@@ -67,7 +67,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;IZ)V
-    .registers 7
+    .locals 3
     .parameter "context"
     .parameter "theme"
     .parameter "createContextWrapper"
@@ -105,7 +105,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;ZLandroid/content/DialogInterface$OnCancelListener;)V
-    .registers 6
+    .locals 2
     .parameter "context"
     .parameter "cancelable"
     .parameter "cancelListener"
@@ -147,7 +147,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/app/AlertDialog;)Lcom/android/internal/app/AlertController;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -158,7 +158,7 @@
 .end method
 
 .method static resolveDialogTheme(Landroid/content/Context;I)I
-    .registers 6
+    .locals 4
     .parameter "context"
     .parameter "resid"
 
@@ -166,67 +166,67 @@
     const/4 v3, 0x1
 
     .line 128
-    if-ne p1, v3, :cond_7
+    if-ne p1, v3, :cond_1
 
     .line 129
     const p1, 0x10302e9
 
     .line 144
     .end local p1
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return p1
 
     .line 130
     .restart local p1
-    :cond_7
+    :cond_1
     const/4 v1, 0x2
 
-    if-ne p1, v1, :cond_e
+    if-ne p1, v1, :cond_2
 
     .line 131
     const p1, 0x10302f9
 
-    goto :goto_6
+    goto :goto_0
 
     .line 132
-    :cond_e
+    :cond_2
     const/4 v1, 0x3
 
-    if-ne p1, v1, :cond_15
+    if-ne p1, v1, :cond_3
 
     .line 133
     const p1, 0x10302fc
 
-    goto :goto_6
+    goto :goto_0
 
     .line 134
-    :cond_15
+    :cond_3
     const/4 v1, 0x4
 
-    if-ne p1, v1, :cond_1c
+    if-ne p1, v1, :cond_4
 
     .line 135
     const p1, 0x1030301
 
-    goto :goto_6
+    goto :goto_0
 
     .line 136
-    :cond_1c
+    :cond_4
     const/4 v1, 0x5
 
-    if-ne p1, v1, :cond_23
+    if-ne p1, v1, :cond_5
 
     .line 137
     const p1, 0x1030302
 
-    goto :goto_6
+    goto :goto_0
 
     .line 138
-    :cond_23
+    :cond_5
     const/high16 v1, 0x100
 
-    if-ge p1, v1, :cond_6
+    if-ge p1, v1, :cond_0
 
     .line 141
     new-instance v0, Landroid/util/TypedValue;
@@ -246,13 +246,13 @@
     .line 144
     iget p1, v0, Landroid/util/TypedValue;->resourceId:I
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getButton(I)Landroid/widget/Button;
-    .registers 3
+    .locals 1
     .parameter "whichButton"
 
     .prologue
@@ -267,7 +267,7 @@
 .end method
 
 .method public getListView()Landroid/widget/ListView;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 168
@@ -281,7 +281,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 3
+    .locals 1
     .parameter "savedInstanceState"
 
     .prologue
@@ -298,7 +298,7 @@
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 1
     .parameter "keyCode"
     .parameter "event"
 
@@ -310,24 +310,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
     .line 342
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     invoke-super {p0, p1, p2}, Landroid/app/Dialog;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 1
     .parameter "keyCode"
     .parameter "event"
 
@@ -339,24 +339,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
     .line 348
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     invoke-super {p0, p1, p2}, Landroid/app/Dialog;->onKeyUp(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
-    .registers 6
+    .locals 2
     .parameter "whichButton"
     .parameter "text"
     .parameter "listener"
@@ -374,7 +374,7 @@
 .end method
 
 .method public setButton(ILjava/lang/CharSequence;Landroid/os/Message;)V
-    .registers 6
+    .locals 2
     .parameter "whichButton"
     .parameter "text"
     .parameter "msg"
@@ -392,7 +392,7 @@
 .end method
 
 .method public setButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
-    .registers 4
+    .locals 1
     .parameter "text"
     .parameter "listener"
     .annotation runtime Ljava/lang/Deprecated;
@@ -409,7 +409,7 @@
 .end method
 
 .method public setButton(Ljava/lang/CharSequence;Landroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "text"
     .parameter "msg"
     .annotation runtime Ljava/lang/Deprecated;
@@ -426,7 +426,7 @@
 .end method
 
 .method public setButton2(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
-    .registers 4
+    .locals 1
     .parameter "text"
     .parameter "listener"
     .annotation runtime Ljava/lang/Deprecated;
@@ -443,7 +443,7 @@
 .end method
 
 .method public setButton2(Ljava/lang/CharSequence;Landroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "text"
     .parameter "msg"
     .annotation runtime Ljava/lang/Deprecated;
@@ -460,7 +460,7 @@
 .end method
 
 .method public setButton3(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
-    .registers 4
+    .locals 1
     .parameter "text"
     .parameter "listener"
     .annotation runtime Ljava/lang/Deprecated;
@@ -477,7 +477,7 @@
 .end method
 
 .method public setButton3(Ljava/lang/CharSequence;Landroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "text"
     .parameter "msg"
     .annotation runtime Ljava/lang/Deprecated;
@@ -494,7 +494,7 @@
 .end method
 
 .method public setCustomTitle(Landroid/view/View;)V
-    .registers 3
+    .locals 1
     .parameter "customTitleView"
 
     .prologue
@@ -508,7 +508,7 @@
 .end method
 
 .method public setIcon(I)V
-    .registers 3
+    .locals 1
     .parameter "resId"
 
     .prologue
@@ -522,7 +522,7 @@
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)V
-    .registers 3
+    .locals 1
     .parameter "icon"
 
     .prologue
@@ -536,7 +536,7 @@
 .end method
 
 .method public setIconAttribute(I)V
-    .registers 5
+    .locals 3
     .parameter "attrId"
 
     .prologue
@@ -569,7 +569,7 @@
 .end method
 
 .method public setInverseBackgroundForced(Z)V
-    .registers 3
+    .locals 1
     .parameter "forceInverseBackground"
 
     .prologue
@@ -583,7 +583,7 @@
 .end method
 
 .method public setMessage(Ljava/lang/CharSequence;)V
-    .registers 3
+    .locals 1
     .parameter "message"
 
     .prologue
@@ -597,7 +597,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
-    .registers 3
+    .locals 1
     .parameter "title"
 
     .prologue
@@ -614,7 +614,7 @@
 .end method
 
 .method public setView(Landroid/view/View;)V
-    .registers 3
+    .locals 1
     .parameter "view"
 
     .prologue
@@ -628,7 +628,7 @@
 .end method
 
 .method public setView(Landroid/view/View;IIII)V
-    .registers 12
+    .locals 6
     .parameter "view"
     .parameter "viewSpacingLeft"
     .parameter "viewSpacingTop"

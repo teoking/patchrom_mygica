@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/media/JetPlayer;Landroid/media/JetPlayer;Landroid/os/Looper;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "jet"
     .parameter "looper"
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 10
+    .locals 8
     .parameter "msg"
 
     .prologue
@@ -55,6 +55,7 @@
     .local v7, listener:Landroid/media/JetPlayer$OnJetEventListener;
     iget-object v0, p0, Landroid/media/JetPlayer$NativeEventHandler;->this$0:Landroid/media/JetPlayer;
 
+    #getter for: Landroid/media/JetPlayer;->mEventListenerLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/media/JetPlayer;->access$000(Landroid/media/JetPlayer;)Ljava/lang/Object;
 
     move-result-object v1
@@ -62,22 +63,23 @@
     monitor-enter v1
 
     .line 409
-    :try_start_8
+    :try_start_0
     iget-object v0, p0, Landroid/media/JetPlayer$NativeEventHandler;->mJet:Landroid/media/JetPlayer;
 
+    #getter for: Landroid/media/JetPlayer;->mJetEventListener:Landroid/media/JetPlayer$OnJetEventListener;
     invoke-static {v0}, Landroid/media/JetPlayer;->access$100(Landroid/media/JetPlayer;)Landroid/media/JetPlayer$OnJetEventListener;
 
     move-result-object v7
 
     .line 410
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_8 .. :try_end_f} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 411
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_86
+    packed-switch v0, :pswitch_data_0
 
     .line 443
     new-instance v0, Ljava/lang/StringBuilder;
@@ -100,31 +102,33 @@
 
     move-result-object v0
 
+    #calls: Landroid/media/JetPlayer;->loge(Ljava/lang/String;)V
     invoke-static {v0}, Landroid/media/JetPlayer;->access$200(Ljava/lang/String;)V
 
     .line 444
-    :cond_2c
-    :goto_2c
+    :cond_0
+    :goto_0
     return-void
 
     .line 410
-    :catchall_2d
+    :catchall_0
     move-exception v0
 
-    :try_start_2e
+    :try_start_1
     monitor-exit v1
-    :try_end_2f
-    .catchall {:try_start_2e .. :try_end_2f} :catchall_2d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 
     .line 413
-    :pswitch_30
-    if-eqz v7, :cond_2c
+    :pswitch_0
+    if-eqz v7, :cond_0
 
     .line 416
     iget-object v0, p0, Landroid/media/JetPlayer$NativeEventHandler;->this$0:Landroid/media/JetPlayer;
 
+    #getter for: Landroid/media/JetPlayer;->mJetEventListener:Landroid/media/JetPlayer$OnJetEventListener;
     invoke-static {v0}, Landroid/media/JetPlayer;->access$100(Landroid/media/JetPlayer;)Landroid/media/JetPlayer$OnJetEventListener;
 
     move-result-object v0
@@ -179,11 +183,11 @@
 
     invoke-interface/range {v0 .. v6}, Landroid/media/JetPlayer$OnJetEventListener;->onJetEvent(Landroid/media/JetPlayer;SBBBB)V
 
-    goto :goto_2c
+    goto :goto_0
 
     .line 428
-    :pswitch_65
-    if-eqz v7, :cond_2c
+    :pswitch_1
+    if-eqz v7, :cond_0
 
     .line 429
     iget-object v0, p0, Landroid/media/JetPlayer$NativeEventHandler;->mJet:Landroid/media/JetPlayer;
@@ -194,11 +198,11 @@
 
     invoke-interface {v7, v0, v1, v2}, Landroid/media/JetPlayer$OnJetEventListener;->onJetUserIdUpdate(Landroid/media/JetPlayer;II)V
 
-    goto :goto_2c
+    goto :goto_0
 
     .line 433
-    :pswitch_71
-    if-eqz v7, :cond_2c
+    :pswitch_2
+    if-eqz v7, :cond_0
 
     .line 434
     iget-object v0, p0, Landroid/media/JetPlayer$NativeEventHandler;->mJet:Landroid/media/JetPlayer;
@@ -207,11 +211,11 @@
 
     invoke-interface {v7, v0, v1}, Landroid/media/JetPlayer$OnJetEventListener;->onJetNumQueuedSegmentUpdate(Landroid/media/JetPlayer;I)V
 
-    goto :goto_2c
+    goto :goto_0
 
     .line 438
-    :pswitch_7b
-    if-eqz v7, :cond_2c
+    :pswitch_3
+    if-eqz v7, :cond_0
 
     .line 439
     iget-object v0, p0, Landroid/media/JetPlayer$NativeEventHandler;->mJet:Landroid/media/JetPlayer;
@@ -220,16 +224,16 @@
 
     invoke-interface {v7, v0, v1}, Landroid/media/JetPlayer$OnJetEventListener;->onJetPauseUpdate(Landroid/media/JetPlayer;I)V
 
-    goto :goto_2c
+    goto :goto_0
 
     .line 411
     nop
 
-    :pswitch_data_86
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_30
-        :pswitch_65
-        :pswitch_71
-        :pswitch_7b
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method

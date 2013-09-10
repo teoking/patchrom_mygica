@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/StringBuilder;)V
-    .registers 2
+    .locals 0
     .parameter "builder"
 
     .prologue
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public println(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "x"
 
     .prologue
@@ -47,7 +47,7 @@
 
     .line 38
     .local v0, len:I
-    if-lez v0, :cond_15
+    if-lez v0, :cond_0
 
     add-int/lit8 v1, v0, -0x1
 
@@ -55,15 +55,15 @@
 
     move-result v1
 
-    if-eq v1, v2, :cond_1a
+    if-eq v1, v2, :cond_1
 
     .line 39
-    :cond_15
+    :cond_0
     iget-object v1, p0, Landroid/util/StringBuilderPrinter;->mBuilder:Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 41
-    :cond_1a
+    :cond_1
     return-void
 .end method

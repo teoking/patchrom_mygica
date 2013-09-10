@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 33
@@ -36,7 +36,7 @@
 .end method
 
 .method public getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;
-    .registers 10
+    .locals 7
     .parameter "source"
     .parameter "v"
 
@@ -56,7 +56,7 @@
     .local v4, replacement:[C
     instance-of v5, p1, Landroid/text/Editable;
 
-    if-nez v5, :cond_40
+    if-nez v5, :cond_4
 
     .line 64
     const/4 v0, 0x1
@@ -70,8 +70,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_f
-    if-ge v1, v2, :cond_1a
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     .line 67
     aget-char v5, v3, v1
@@ -80,21 +80,21 @@
 
     move-result v5
 
-    if-ltz v5, :cond_1d
+    if-ltz v5, :cond_1
 
     .line 68
     const/4 v0, 0x0
 
     .line 72
-    :cond_1a
-    if-eqz v0, :cond_20
+    :cond_0
+    if-eqz v0, :cond_2
 
     .line 98
     .end local v0           #doNothing:Z
     .end local v1           #i:I
     .end local v2           #n:I
     .end local p1
-    :goto_1c
+    :goto_1
     return-object p1
 
     .line 66
@@ -102,21 +102,21 @@
     .restart local v1       #i:I
     .restart local v2       #n:I
     .restart local p1
-    :cond_1d
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 76
-    :cond_20
+    :cond_2
     instance-of v5, p1, Landroid/text/Spannable;
 
-    if-nez v5, :cond_40
+    if-nez v5, :cond_4
 
     .line 82
     instance-of v5, p1, Landroid/text/Spanned;
 
-    if-eqz v5, :cond_36
+    if-eqz v5, :cond_3
 
     .line 83
     new-instance v5, Landroid/text/SpannedString;
@@ -132,11 +132,11 @@
 
     move-object p1, v5
 
-    goto :goto_1c
+    goto :goto_1
 
     .line 87
     .restart local p1
-    :cond_36
+    :cond_3
     new-instance v5, Landroid/text/method/ReplacementTransformationMethod$ReplacementCharSequence;
 
     invoke-direct {v5, p1, v3, v4}, Landroid/text/method/ReplacementTransformationMethod$ReplacementCharSequence;-><init>(Ljava/lang/CharSequence;[C[C)V
@@ -145,16 +145,16 @@
 
     move-result-object p1
 
-    goto :goto_1c
+    goto :goto_1
 
     .line 94
     .end local v0           #doNothing:Z
     .end local v1           #i:I
     .end local v2           #n:I
-    :cond_40
+    :cond_4
     instance-of v5, p1, Landroid/text/Spanned;
 
-    if-eqz v5, :cond_4d
+    if-eqz v5, :cond_5
 
     .line 95
     new-instance v5, Landroid/text/method/ReplacementTransformationMethod$SpannedReplacementCharSequence;
@@ -166,22 +166,22 @@
 
     move-object p1, v5
 
-    goto :goto_1c
+    goto :goto_1
 
     .line 98
     .restart local p1
-    :cond_4d
+    :cond_5
     new-instance v5, Landroid/text/method/ReplacementTransformationMethod$ReplacementCharSequence;
 
     invoke-direct {v5, p1, v3, v4}, Landroid/text/method/ReplacementTransformationMethod$ReplacementCharSequence;-><init>(Ljava/lang/CharSequence;[C[C)V
 
     move-object p1, v5
 
-    goto :goto_1c
+    goto :goto_1
 .end method
 
 .method public onFocusChanged(Landroid/view/View;Ljava/lang/CharSequence;ZILandroid/graphics/Rect;)V
-    .registers 6
+    .locals 0
     .parameter "view"
     .parameter "sourceText"
     .parameter "focused"

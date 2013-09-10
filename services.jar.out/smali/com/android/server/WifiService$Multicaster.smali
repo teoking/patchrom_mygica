@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/WifiService;Ljava/lang/String;Landroid/os/IBinder;)V
-    .registers 10
+    .locals 6
     .parameter
     .parameter "tag"
     .parameter "binder"
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 1509
@@ -66,6 +66,7 @@
     .line 1510
     iget-object v1, p0, Lcom/android/server/WifiService$Multicaster;->this$0:Lcom/android/server/WifiService;
 
+    #getter for: Lcom/android/server/WifiService;->mMulticasters:Ljava/util/List;
     invoke-static {v1}, Lcom/android/server/WifiService;->access$3600(Lcom/android/server/WifiService;)Ljava/util/List;
 
     move-result-object v2
@@ -73,9 +74,10 @@
     monitor-enter v2
 
     .line 1511
-    :try_start_e
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/WifiService$Multicaster;->this$0:Lcom/android/server/WifiService;
 
+    #getter for: Lcom/android/server/WifiService;->mMulticasters:Ljava/util/List;
     invoke-static {v1}, Lcom/android/server/WifiService;->access$3600(Lcom/android/server/WifiService;)Ljava/util/List;
 
     move-result-object v1
@@ -88,17 +90,18 @@
     .local v0, i:I
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_22
+    if-eq v0, v1, :cond_0
 
     .line 1513
     iget-object v1, p0, Lcom/android/server/WifiService$Multicaster;->this$0:Lcom/android/server/WifiService;
 
     iget v3, p0, Lcom/android/server/WifiService$DeathRecipient;->mMode:I
 
+    #calls: Lcom/android/server/WifiService;->removeMulticasterLocked(II)V
     invoke-static {v1, v0, v3}, Lcom/android/server/WifiService;->access$3700(Lcom/android/server/WifiService;II)V
 
     .line 1515
-    :cond_22
+    :cond_0
     monitor-exit v2
 
     .line 1516
@@ -106,18 +109,18 @@
 
     .line 1515
     .end local v0           #i:I
-    :catchall_24
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_26
-    .catchall {:try_start_e .. :try_end_26} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public getUid()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1523
@@ -127,7 +130,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1519

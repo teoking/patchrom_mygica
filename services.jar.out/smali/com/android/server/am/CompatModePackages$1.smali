@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/CompatModePackages;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,35 +35,35 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "msg"
 
     .prologue
     .line 48
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_10
+    packed-switch v0, :pswitch_data_0
 
     .line 53
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
     .line 56
-    :goto_8
+    :goto_0
     return-void
 
     .line 50
-    :pswitch_9
+    :pswitch_0
     iget-object v0, p0, Lcom/android/server/am/CompatModePackages$1;->this$0:Lcom/android/server/am/CompatModePackages;
 
     invoke-virtual {v0}, Lcom/android/server/am/CompatModePackages;->saveCompatModes()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 48
     nop
 
-    :pswitch_data_10
+    :pswitch_data_0
     .packed-switch 0x12c
-        :pswitch_9
+        :pswitch_0
     .end packed-switch
 .end method

@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "name"
 
     .prologue
@@ -78,7 +78,7 @@
 .end method
 
 .method private updateParameters()V
-    .registers 16
+    .locals 15
 
     .prologue
     const/high16 v10, 0x42b4
@@ -122,7 +122,7 @@
 
     cmpg-float v11, v11, v12
 
-    if-gtz v11, :cond_28
+    if-gtz v11, :cond_0
 
     .line 125
     new-instance v10, Ljava/lang/RuntimeException;
@@ -134,14 +134,14 @@
     throw v10
 
     .line 126
-    :cond_28
+    :cond_0
     iget v11, p0, Landroid/filterpacks/imageproc/StraightenFilter;->mMaxAngle:F
 
     cmpl-float v11, v11, v10
 
-    if-lez v11, :cond_117
+    if-lez v11, :cond_1
 
-    :goto_2e
+    :goto_0
     iput v10, p0, Landroid/filterpacks/imageproc/StraightenFilter;->mMaxAngle:F
 
     .line 128
@@ -477,16 +477,16 @@
     .end local v6           #p3:Landroid/filterfw/geometry/Point;
     .end local v7           #quad:Landroid/filterfw/geometry/Quad;
     .end local v8           #scale:F
-    :cond_117
+    :cond_1
     iget v10, p0, Landroid/filterpacks/imageproc/StraightenFilter;->mMaxAngle:F
 
-    goto/16 :goto_2e
+    goto/16 :goto_0
 .end method
 
 
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "context"
 
@@ -494,24 +494,24 @@
     .line 85
     iget-object v0, p0, Landroid/filterpacks/imageproc/StraightenFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 86
     invoke-direct {p0}, Landroid/filterpacks/imageproc/StraightenFilter;->updateParameters()V
 
     .line 88
-    :cond_7
+    :cond_0
     return-void
 .end method
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "target"
 
     .prologue
     .line 69
-    packed-switch p2, :pswitch_data_30
+    packed-switch p2, :pswitch_data_0
 
     .line 77
     new-instance v1, Ljava/lang/RuntimeException;
@@ -545,7 +545,7 @@
     throw v1
 
     .line 71
-    :pswitch_22
+    :pswitch_0
     invoke-static {p1}, Landroid/filterfw/core/ShaderProgram;->createIdentity(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/ShaderProgram;
 
     move-result-object v0
@@ -566,14 +566,14 @@
     return-void
 
     .line 69
-    :pswitch_data_30
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_22
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -594,7 +594,7 @@
     .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
     iget-object v3, p0, Landroid/filterpacks/imageproc/StraightenFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v3, :cond_16
+    if-eqz v3, :cond_0
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
@@ -602,10 +602,10 @@
 
     iget v4, p0, Landroid/filterpacks/imageproc/StraightenFilter;->mTarget:I
 
-    if-eq v3, v4, :cond_1d
+    if-eq v3, v4, :cond_1
 
     .line 98
-    :cond_16
+    :cond_0
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
     move-result v3
@@ -613,14 +613,14 @@
     invoke-virtual {p0, p1, v3}, Landroid/filterpacks/imageproc/StraightenFilter;->initProgram(Landroid/filterfw/core/FilterContext;I)V
 
     .line 102
-    :cond_1d
+    :cond_1
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v3
 
     iget v4, p0, Landroid/filterpacks/imageproc/StraightenFilter;->mWidth:I
 
-    if-ne v3, v4, :cond_2d
+    if-ne v3, v4, :cond_2
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getHeight()I
 
@@ -628,10 +628,10 @@
 
     iget v4, p0, Landroid/filterpacks/imageproc/StraightenFilter;->mHeight:I
 
-    if-eq v3, v4, :cond_3c
+    if-eq v3, v4, :cond_3
 
     .line 103
-    :cond_2d
+    :cond_2
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v3
@@ -649,7 +649,7 @@
     invoke-direct {p0}, Landroid/filterpacks/imageproc/StraightenFilter;->updateParameters()V
 
     .line 108
-    :cond_3c
+    :cond_3
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v3
@@ -677,7 +677,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 64

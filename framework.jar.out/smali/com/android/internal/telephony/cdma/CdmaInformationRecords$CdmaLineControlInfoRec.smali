@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(IIII)V
-    .registers 6
+    .locals 1
     .parameter "lineCtrlPolarityIncluded"
     .parameter "lineCtrlToggle"
     .parameter "lineCtrlReverse"
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 222

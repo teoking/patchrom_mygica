@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/AsyncTask$SerialExecutor;Ljava/lang/Runnable;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 230
@@ -51,8 +51,8 @@
     iget-object v0, p0, Landroid/os/AsyncTask$SerialExecutor$1;->val$r:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
-    :try_end_5
-    .catchall {:try_start_0 .. :try_end_5} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 232
     iget-object v0, p0, Landroid/os/AsyncTask$SerialExecutor$1;->this$0:Landroid/os/AsyncTask$SerialExecutor;
@@ -63,7 +63,7 @@
     return-void
 
     .line 232
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     iget-object v1, p0, Landroid/os/AsyncTask$SerialExecutor$1;->this$0:Landroid/os/AsyncTask$SerialExecutor;

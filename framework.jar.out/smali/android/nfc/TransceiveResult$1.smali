@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 71
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/nfc/TransceiveResult;
-    .registers 6
+    .locals 4
     .parameter "in"
 
     .prologue
@@ -52,7 +52,7 @@
 
     .line 77
     .local v2, result:I
-    if-nez v2, :cond_15
+    if-nez v2, :cond_0
 
     .line 78
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -69,7 +69,7 @@
 
     .line 84
     .end local v1           #responseLength:I
-    :goto_f
+    :goto_0
     new-instance v3, Landroid/nfc/TransceiveResult;
 
     invoke-direct {v3, v2, v0}, Landroid/nfc/TransceiveResult;-><init>(I[B)V
@@ -78,15 +78,15 @@
 
     .line 82
     .end local v0           #responseData:[B
-    :cond_15
+    :cond_0
     const/4 v0, 0x0
 
     .restart local v0       #responseData:[B
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -99,7 +99,7 @@
 .end method
 
 .method public newArray(I)[Landroid/nfc/TransceiveResult;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -110,7 +110,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

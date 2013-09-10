@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -45,7 +45,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 27
@@ -55,7 +55,7 @@
 .end method
 
 .method private static chooseHorizontal(Landroid/text/Layout;III)I
-    .registers 11
+    .locals 7
     .parameter "layout"
     .parameter "direction"
     .parameter "off1"
@@ -75,7 +75,7 @@
 
     .line 420
     .local v4, line2:I
-    if-ne v3, v4, :cond_21
+    if-ne v3, v4, :cond_3
 
     .line 423
     invoke-virtual {p0, p2}, Landroid/text/Layout;->getPrimaryHorizontal(I)F
@@ -90,45 +90,45 @@
 
     .line 426
     .local v1, h2:F
-    if-gez p1, :cond_1b
+    if-gez p1, :cond_2
 
     .line 429
     cmpg-float v6, v0, v1
 
-    if-gez v6, :cond_19
+    if-gez v6, :cond_1
 
     .line 454
     .end local v0           #h1:F
     .end local v1           #h2:F
     .end local p2
-    :cond_18
-    :goto_18
+    :cond_0
+    :goto_0
     return p2
 
     .restart local v0       #h1:F
     .restart local v1       #h2:F
     .restart local p2
-    :cond_19
+    :cond_1
     move p2, p3
 
     .line 432
-    goto :goto_18
+    goto :goto_0
 
     .line 436
-    :cond_1b
+    :cond_2
     cmpl-float v6, v0, v1
 
-    if-gtz v6, :cond_18
+    if-gtz v6, :cond_0
 
     move p2, p3
 
     .line 439
-    goto :goto_18
+    goto :goto_0
 
     .line 448
     .end local v0           #h1:F
     .end local v1           #h2:F
-    :cond_21
+    :cond_3
     invoke-virtual {p0, p2}, Landroid/text/Layout;->getLineForOffset(I)I
 
     move-result v2
@@ -141,26 +141,26 @@
 
     .line 451
     .local v5, textdir:I
-    if-ne v5, p1, :cond_30
+    if-ne v5, p1, :cond_4
 
     .line 452
     invoke-static {p2, p3}, Ljava/lang/Math;->max(II)I
 
     move-result p2
 
-    goto :goto_18
+    goto :goto_0
 
     .line 454
-    :cond_30
+    :cond_4
     invoke-static {p2, p3}, Ljava/lang/Math;->min(II)I
 
     move-result p2
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method public static extendDown(Landroid/text/Spannable;Landroid/text/Layout;)Z
-    .registers 9
+    .locals 7
     .parameter "text"
     .parameter "layout"
 
@@ -186,7 +186,7 @@
 
     add-int/lit8 v4, v4, -0x1
 
-    if-ge v2, v4, :cond_32
+    if-ge v2, v4, :cond_2
 
     .line 288
     invoke-virtual {p1, v2}, Landroid/text/Layout;->getParagraphDirection(I)I
@@ -199,7 +199,7 @@
 
     move-result v5
 
-    if-ne v4, v5, :cond_2b
+    if-ne v4, v5, :cond_1
 
     .line 290
     invoke-virtual {p1, v0}, Landroid/text/Layout;->getPrimaryHorizontal(I)F
@@ -217,17 +217,17 @@
     .line 296
     .end local v1           #h:F
     .local v3, move:I
-    :goto_27
+    :goto_0
     invoke-static {p0, v3}, Landroid/text/Selection;->extendSelection(Landroid/text/Spannable;I)V
 
     .line 303
     .end local v3           #move:I
-    :cond_2a
-    :goto_2a
+    :cond_0
+    :goto_1
     return v6
 
     .line 293
-    :cond_2b
+    :cond_1
     add-int/lit8 v4, v2, 0x1
 
     invoke-virtual {p1, v4}, Landroid/text/Layout;->getLineStart(I)I
@@ -235,16 +235,16 @@
     move-result v3
 
     .restart local v3       #move:I
-    goto :goto_27
+    goto :goto_0
 
     .line 298
     .end local v3           #move:I
-    :cond_32
+    :cond_2
     invoke-interface {p0}, Landroid/text/Spannable;->length()I
 
     move-result v4
 
-    if-eq v0, v4, :cond_2a
+    if-eq v0, v4, :cond_0
 
     .line 299
     invoke-interface {p0}, Landroid/text/Spannable;->length()I
@@ -253,11 +253,11 @@
 
     invoke-static {p0, v4}, Landroid/text/Selection;->extendSelection(Landroid/text/Spannable;I)V
 
-    goto :goto_2a
+    goto :goto_1
 .end method
 
 .method public static extendLeft(Landroid/text/Spannable;Landroid/text/Layout;)Z
-    .registers 5
+    .locals 3
     .parameter "text"
     .parameter "layout"
 
@@ -277,18 +277,18 @@
 
     .line 314
     .local v1, to:I
-    if-eq v1, v0, :cond_e
+    if-eq v1, v0, :cond_0
 
     .line 315
     invoke-static {p0, v1}, Landroid/text/Selection;->extendSelection(Landroid/text/Spannable;I)V
 
     .line 319
-    :cond_e
+    :cond_0
     return v2
 .end method
 
 .method public static extendRight(Landroid/text/Spannable;Landroid/text/Layout;)Z
-    .registers 5
+    .locals 3
     .parameter "text"
     .parameter "layout"
 
@@ -308,18 +308,18 @@
 
     .line 330
     .local v1, to:I
-    if-eq v1, v0, :cond_e
+    if-eq v1, v0, :cond_0
 
     .line 331
     invoke-static {p0, v1}, Landroid/text/Selection;->extendSelection(Landroid/text/Spannable;I)V
 
     .line 335
-    :cond_e
+    :cond_0
     return v2
 .end method
 
 .method public static final extendSelection(Landroid/text/Spannable;I)V
-    .registers 4
+    .locals 2
     .parameter "text"
     .parameter "index"
 
@@ -331,7 +331,7 @@
 
     move-result v0
 
-    if-eq v0, p1, :cond_f
+    if-eq v0, p1, :cond_0
 
     .line 102
     sget-object v0, Landroid/text/Selection;->SELECTION_END:Ljava/lang/Object;
@@ -341,12 +341,12 @@
     invoke-interface {p0, v0, p1, p1, v1}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
 
     .line 103
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method public static extendToLeftEdge(Landroid/text/Spannable;Landroid/text/Layout;)Z
-    .registers 4
+    .locals 2
     .parameter "text"
     .parameter "layout"
 
@@ -369,7 +369,7 @@
 .end method
 
 .method public static extendToRightEdge(Landroid/text/Spannable;Landroid/text/Layout;)Z
-    .registers 4
+    .locals 2
     .parameter "text"
     .parameter "layout"
 
@@ -390,7 +390,7 @@
 .end method
 
 .method public static extendUp(Landroid/text/Spannable;Landroid/text/Layout;)Z
-    .registers 9
+    .locals 7
     .parameter "text"
     .parameter "layout"
 
@@ -410,7 +410,7 @@
 
     .line 256
     .local v2, line:I
-    if-lez v2, :cond_2c
+    if-lez v2, :cond_2
 
     .line 259
     invoke-virtual {p1, v2}, Landroid/text/Layout;->getParagraphDirection(I)I
@@ -423,7 +423,7 @@
 
     move-result v5
 
-    if-ne v4, v5, :cond_25
+    if-ne v4, v5, :cond_1
 
     .line 261
     invoke-virtual {p1, v0}, Landroid/text/Layout;->getPrimaryHorizontal(I)F
@@ -441,17 +441,17 @@
     .line 267
     .end local v1           #h:F
     .local v3, move:I
-    :goto_21
+    :goto_0
     invoke-static {p0, v3}, Landroid/text/Selection;->extendSelection(Landroid/text/Spannable;I)V
 
     .line 274
     .end local v3           #move:I
-    :cond_24
-    :goto_24
+    :cond_0
+    :goto_1
     return v6
 
     .line 264
-    :cond_25
+    :cond_1
     add-int/lit8 v4, v2, -0x1
 
     invoke-virtual {p1, v4}, Landroid/text/Layout;->getLineStart(I)I
@@ -459,23 +459,23 @@
     move-result v3
 
     .restart local v3       #move:I
-    goto :goto_21
+    goto :goto_0
 
     .line 269
     .end local v3           #move:I
-    :cond_2c
-    if-eqz v0, :cond_24
+    :cond_2
+    if-eqz v0, :cond_0
 
     .line 270
     const/4 v4, 0x0
 
     invoke-static {p0, v4}, Landroid/text/Selection;->extendSelection(Landroid/text/Spannable;I)V
 
-    goto :goto_24
+    goto :goto_1
 .end method
 
 .method private static findEdge(Landroid/text/Spannable;Landroid/text/Layout;I)I
-    .registers 8
+    .locals 5
     .parameter "text"
     .parameter "layout"
     .parameter "dir"
@@ -502,7 +502,7 @@
     .local v2, pdir:I
     mul-int v4, p2, v2
 
-    if-gez v4, :cond_15
+    if-gez v4, :cond_1
 
     .line 404
     invoke-virtual {p1, v1}, Landroid/text/Layout;->getLineStart(I)I
@@ -510,12 +510,12 @@
     move-result v0
 
     .line 411
-    :cond_14
-    :goto_14
+    :cond_0
+    :goto_0
     return v0
 
     .line 406
-    :cond_15
+    :cond_1
     invoke-virtual {p1, v1}, Landroid/text/Layout;->getLineEnd(I)I
 
     move-result v0
@@ -528,23 +528,23 @@
 
     add-int/lit8 v4, v4, -0x1
 
-    if-eq v1, v4, :cond_14
+    if-eq v1, v4, :cond_0
 
     .line 411
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public static final getSelectionEnd(Ljava/lang/CharSequence;)I
-    .registers 2
+    .locals 1
     .parameter "text"
 
     .prologue
     .line 49
     instance-of v0, p0, Landroid/text/Spanned;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 50
     check-cast p0, Landroid/text/Spanned;
@@ -557,25 +557,25 @@
     move-result v0
 
     .line 52
-    :goto_c
+    :goto_0
     return v0
 
     .restart local p0
-    :cond_d
+    :cond_0
     const/4 v0, -0x1
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public static final getSelectionStart(Ljava/lang/CharSequence;)I
-    .registers 2
+    .locals 1
     .parameter "text"
 
     .prologue
     .line 38
     instance-of v0, p0, Landroid/text/Spanned;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 39
     check-cast p0, Landroid/text/Spanned;
@@ -588,18 +588,18 @@
     move-result v0
 
     .line 41
-    :goto_c
+    :goto_0
     return v0
 
     .restart local p0
-    :cond_d
+    :cond_0
     const/4 v0, -0x1
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public static moveDown(Landroid/text/Spannable;Landroid/text/Layout;)Z
-    .registers 12
+    .locals 10
     .parameter "text"
     .parameter "layout"
 
@@ -621,7 +621,7 @@
 
     .line 166
     .local v0, end:I
-    if-eq v6, v0, :cond_22
+    if-eq v6, v0, :cond_2
 
     .line 167
     invoke-static {v6, v0}, Ljava/lang/Math;->min(II)I
@@ -639,33 +639,33 @@
     invoke-static {p0, v3}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
 
     .line 172
-    if-nez v4, :cond_20
+    if-nez v4, :cond_1
 
     invoke-interface {p0}, Landroid/text/Spannable;->length()I
 
     move-result v9
 
-    if-ne v3, v9, :cond_20
+    if-ne v3, v9, :cond_1
 
     .line 196
     .end local v3           #max:I
     .end local v4           #min:I
-    :cond_1f
-    :goto_1f
+    :cond_0
+    :goto_0
     return v7
 
     .restart local v3       #max:I
     .restart local v4       #min:I
-    :cond_20
+    :cond_1
     move v7, v8
 
     .line 176
-    goto :goto_1f
+    goto :goto_0
 
     .line 178
     .end local v3           #max:I
     .end local v4           #min:I
-    :cond_22
+    :cond_2
     invoke-virtual {p1, v0}, Landroid/text/Layout;->getLineForOffset(I)I
 
     move-result v2
@@ -678,7 +678,7 @@
 
     add-int/lit8 v9, v9, -0x1
 
-    if-ge v2, v9, :cond_1f
+    if-ge v2, v9, :cond_0
 
     .line 183
     invoke-virtual {p1, v2}, Landroid/text/Layout;->getParagraphDirection(I)I
@@ -691,7 +691,7 @@
 
     move-result v9
 
-    if-ne v7, v9, :cond_49
+    if-ne v7, v9, :cond_3
 
     .line 185
     invoke-virtual {p1, v0}, Landroid/text/Layout;->getPrimaryHorizontal(I)F
@@ -709,17 +709,17 @@
     .line 191
     .end local v1           #h:F
     .local v5, move:I
-    :goto_44
+    :goto_1
     invoke-static {p0, v5}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
 
     move v7, v8
 
     .line 192
-    goto :goto_1f
+    goto :goto_0
 
     .line 188
     .end local v5           #move:I
-    :cond_49
+    :cond_3
     add-int/lit8 v7, v2, 0x1
 
     invoke-virtual {p1, v7}, Landroid/text/Layout;->getLineStart(I)I
@@ -727,11 +727,11 @@
     move-result v5
 
     .restart local v5       #move:I
-    goto :goto_44
+    goto :goto_1
 .end method
 
 .method public static moveLeft(Landroid/text/Spannable;Landroid/text/Layout;)Z
-    .registers 7
+    .locals 5
     .parameter "text"
     .parameter "layout"
 
@@ -751,7 +751,7 @@
 
     .line 208
     .local v0, end:I
-    if-eq v1, v0, :cond_14
+    if-eq v1, v0, :cond_0
 
     .line 209
     const/4 v4, -0x1
@@ -763,33 +763,33 @@
     invoke-static {p0, v4}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
 
     .line 220
-    :goto_13
+    :goto_0
     return v3
 
     .line 212
-    :cond_14
+    :cond_0
     invoke-virtual {p1, v0}, Landroid/text/Layout;->getOffsetToLeftOf(I)I
 
     move-result v2
 
     .line 214
     .local v2, to:I
-    if-eq v2, v0, :cond_1e
+    if-eq v2, v0, :cond_1
 
     .line 215
     invoke-static {p0, v2}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
 
-    goto :goto_13
+    goto :goto_0
 
     .line 220
-    :cond_1e
+    :cond_1
     const/4 v3, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public static moveRight(Landroid/text/Spannable;Landroid/text/Layout;)Z
-    .registers 7
+    .locals 5
     .parameter "text"
     .parameter "layout"
 
@@ -809,7 +809,7 @@
 
     .line 233
     .local v0, end:I
-    if-eq v1, v0, :cond_13
+    if-eq v1, v0, :cond_0
 
     .line 234
     invoke-static {p1, v3, v1, v0}, Landroid/text/Selection;->chooseHorizontal(Landroid/text/Layout;III)I
@@ -819,33 +819,33 @@
     invoke-static {p0, v4}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
 
     .line 245
-    :goto_12
+    :goto_0
     return v3
 
     .line 237
-    :cond_13
+    :cond_0
     invoke-virtual {p1, v0}, Landroid/text/Layout;->getOffsetToRightOf(I)I
 
     move-result v2
 
     .line 239
     .local v2, to:I
-    if-eq v2, v0, :cond_1d
+    if-eq v2, v0, :cond_1
 
     .line 240
     invoke-static {p0, v2}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
 
-    goto :goto_12
+    goto :goto_0
 
     .line 245
-    :cond_1d
+    :cond_1
     const/4 v3, 0x0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public static moveToFollowing(Landroid/text/Spannable;Landroid/text/Selection$PositionIterator;Z)Z
-    .registers 5
+    .locals 2
     .parameter "text"
     .parameter "iter"
     .parameter "extendSelection"
@@ -864,30 +864,30 @@
     .local v0, offset:I
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_10
+    if-eq v0, v1, :cond_0
 
     .line 389
-    if-eqz p2, :cond_12
+    if-eqz p2, :cond_1
 
     .line 390
     invoke-static {p0, v0}, Landroid/text/Selection;->extendSelection(Landroid/text/Spannable;I)V
 
     .line 395
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     const/4 v1, 0x1
 
     return v1
 
     .line 392
-    :cond_12
+    :cond_1
     invoke-static {p0, v0}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public static moveToLeftEdge(Landroid/text/Spannable;Landroid/text/Layout;)Z
-    .registers 4
+    .locals 2
     .parameter "text"
     .parameter "layout"
 
@@ -910,7 +910,7 @@
 .end method
 
 .method public static moveToPreceding(Landroid/text/Spannable;Landroid/text/Selection$PositionIterator;Z)Z
-    .registers 5
+    .locals 2
     .parameter "text"
     .parameter "iter"
     .parameter "extendSelection"
@@ -929,30 +929,30 @@
     .local v0, offset:I
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_10
+    if-eq v0, v1, :cond_0
 
     .line 375
-    if-eqz p2, :cond_12
+    if-eqz p2, :cond_1
 
     .line 376
     invoke-static {p0, v0}, Landroid/text/Selection;->extendSelection(Landroid/text/Spannable;I)V
 
     .line 381
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     const/4 v1, 0x1
 
     return v1
 
     .line 378
-    :cond_12
+    :cond_1
     invoke-static {p0, v0}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public static moveToRightEdge(Landroid/text/Spannable;Landroid/text/Layout;)Z
-    .registers 4
+    .locals 2
     .parameter "text"
     .parameter "layout"
 
@@ -973,7 +973,7 @@
 .end method
 
 .method public static moveUp(Landroid/text/Spannable;Landroid/text/Layout;)Z
-    .registers 12
+    .locals 10
     .parameter "text"
     .parameter "layout"
 
@@ -995,7 +995,7 @@
 
     .line 125
     .local v0, end:I
-    if-eq v6, v0, :cond_22
+    if-eq v6, v0, :cond_2
 
     .line 126
     invoke-static {v6, v0}, Ljava/lang/Math;->min(II)I
@@ -1013,40 +1013,40 @@
     invoke-static {p0, v4}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
 
     .line 131
-    if-nez v4, :cond_20
+    if-nez v4, :cond_1
 
     invoke-interface {p0}, Landroid/text/Spannable;->length()I
 
     move-result v9
 
-    if-ne v3, v9, :cond_20
+    if-ne v3, v9, :cond_1
 
     .line 155
     .end local v3           #max:I
     .end local v4           #min:I
-    :cond_1f
-    :goto_1f
+    :cond_0
+    :goto_0
     return v7
 
     .restart local v3       #max:I
     .restart local v4       #min:I
-    :cond_20
+    :cond_1
     move v7, v8
 
     .line 135
-    goto :goto_1f
+    goto :goto_0
 
     .line 137
     .end local v3           #max:I
     .end local v4           #min:I
-    :cond_22
+    :cond_2
     invoke-virtual {p1, v0}, Landroid/text/Layout;->getLineForOffset(I)I
 
     move-result v2
 
     .line 139
     .local v2, line:I
-    if-lez v2, :cond_1f
+    if-lez v2, :cond_0
 
     .line 142
     invoke-virtual {p1, v2}, Landroid/text/Layout;->getParagraphDirection(I)I
@@ -1059,7 +1059,7 @@
 
     move-result v9
 
-    if-ne v7, v9, :cond_43
+    if-ne v7, v9, :cond_3
 
     .line 144
     invoke-virtual {p1, v0}, Landroid/text/Layout;->getPrimaryHorizontal(I)F
@@ -1077,17 +1077,17 @@
     .line 150
     .end local v1           #h:F
     .local v5, move:I
-    :goto_3e
+    :goto_1
     invoke-static {p0, v5}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
 
     move v7, v8
 
     .line 151
-    goto :goto_1f
+    goto :goto_0
 
     .line 147
     .end local v5           #move:I
-    :cond_43
+    :cond_3
     add-int/lit8 v7, v2, -0x1
 
     invoke-virtual {p1, v7}, Landroid/text/Layout;->getLineStart(I)I
@@ -1095,11 +1095,11 @@
     move-result v5
 
     .restart local v5       #move:I
-    goto :goto_3e
+    goto :goto_1
 .end method
 
 .method public static final removeSelection(Landroid/text/Spannable;)V
-    .registers 2
+    .locals 1
     .parameter "text"
 
     .prologue
@@ -1118,7 +1118,7 @@
 .end method
 
 .method public static final selectAll(Landroid/text/Spannable;)V
-    .registers 3
+    .locals 2
     .parameter "text"
 
     .prologue
@@ -1136,7 +1136,7 @@
 .end method
 
 .method public static final setSelection(Landroid/text/Spannable;I)V
-    .registers 2
+    .locals 0
     .parameter "text"
     .parameter "index"
 
@@ -1149,7 +1149,7 @@
 .end method
 
 .method public static setSelection(Landroid/text/Spannable;II)V
-    .registers 7
+    .locals 4
     .parameter "text"
     .parameter "start"
     .parameter "stop"
@@ -1168,12 +1168,12 @@
 
     .line 75
     .local v0, oend:I
-    if-ne v1, p1, :cond_c
+    if-ne v1, p1, :cond_0
 
-    if-eq v0, p2, :cond_1a
+    if-eq v0, p2, :cond_1
 
     .line 76
-    :cond_c
+    :cond_0
     sget-object v2, Landroid/text/Selection;->SELECTION_START:Ljava/lang/Object;
 
     const/16 v3, 0x222
@@ -1188,6 +1188,6 @@
     invoke-interface {p0, v2, p2, p2, v3}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
 
     .line 81
-    :cond_1a
+    :cond_1
     return-void
 .end method

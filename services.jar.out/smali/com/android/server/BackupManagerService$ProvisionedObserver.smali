@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/BackupManagerService;Landroid/os/Handler;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "handler"
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .registers 8
+    .locals 6
     .parameter "selfChange"
 
     .prologue
@@ -59,14 +59,14 @@
     .local v0, isProvisioned:Z
     iget-object v3, p0, Lcom/android/server/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/BackupManagerService;
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_0
 
-    if-eqz v0, :cond_30
+    if-eqz v0, :cond_2
 
-    :cond_10
+    :cond_0
     const/4 v2, 0x1
 
-    :goto_11
+    :goto_0
     iput-boolean v2, v3, Lcom/android/server/BackupManagerService;->mProvisioned:Z
 
     .line 274
@@ -77,48 +77,49 @@
     monitor-enter v3
 
     .line 275
-    :try_start_18
+    :try_start_0
     iget-object v2, p0, Lcom/android/server/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-boolean v2, v2, Lcom/android/server/BackupManagerService;->mProvisioned:Z
 
-    if-eqz v2, :cond_2e
+    if-eqz v2, :cond_1
 
-    if-nez v1, :cond_2e
+    if-nez v1, :cond_1
 
     iget-object v2, p0, Lcom/android/server/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-boolean v2, v2, Lcom/android/server/BackupManagerService;->mEnabled:Z
 
-    if-eqz v2, :cond_2e
+    if-eqz v2, :cond_1
 
     .line 278
     iget-object v2, p0, Lcom/android/server/BackupManagerService$ProvisionedObserver;->this$0:Lcom/android/server/BackupManagerService;
 
     const-wide/32 v4, 0x2932e00
 
+    #calls: Lcom/android/server/BackupManagerService;->startBackupAlarmsLocked(J)V
     invoke-static {v2, v4, v5}, Lcom/android/server/BackupManagerService;->access$000(Lcom/android/server/BackupManagerService;J)V
 
     .line 280
-    :cond_2e
+    :cond_1
     monitor-exit v3
 
     .line 281
     return-void
 
     .line 268
-    :cond_30
+    :cond_2
     const/4 v2, 0x0
 
-    goto :goto_11
+    goto :goto_0
 
     .line 280
-    :catchall_32
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_34
-    .catchall {:try_start_18 .. :try_end_34} :catchall_32
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method

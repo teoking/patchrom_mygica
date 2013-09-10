@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/preference/VolumePreference$SeekBarVolumizer;Landroid/os/Handler;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "x0"
 
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .registers 5
+    .locals 3
     .parameter "selfChange"
 
     .prologue
@@ -46,29 +46,33 @@
     .line 241
     iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer$1;->this$1:Landroid/preference/VolumePreference$SeekBarVolumizer;
 
+    #getter for: Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
     invoke-static {v1}, Landroid/preference/VolumePreference$SeekBarVolumizer;->access$000(Landroid/preference/VolumePreference$SeekBarVolumizer;)Landroid/widget/SeekBar;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2c
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer$1;->this$1:Landroid/preference/VolumePreference$SeekBarVolumizer;
 
+    #getter for: Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
     invoke-static {v1}, Landroid/preference/VolumePreference$SeekBarVolumizer;->access$100(Landroid/preference/VolumePreference$SeekBarVolumizer;)Landroid/media/AudioManager;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2c
+    if-eqz v1, :cond_0
 
     .line 242
     iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer$1;->this$1:Landroid/preference/VolumePreference$SeekBarVolumizer;
 
+    #getter for: Landroid/preference/VolumePreference$SeekBarVolumizer;->mAudioManager:Landroid/media/AudioManager;
     invoke-static {v1}, Landroid/preference/VolumePreference$SeekBarVolumizer;->access$100(Landroid/preference/VolumePreference$SeekBarVolumizer;)Landroid/media/AudioManager;
 
     move-result-object v1
 
     iget-object v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer$1;->this$1:Landroid/preference/VolumePreference$SeekBarVolumizer;
 
+    #getter for: Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
     invoke-static {v2}, Landroid/preference/VolumePreference$SeekBarVolumizer;->access$200(Landroid/preference/VolumePreference$SeekBarVolumizer;)I
 
     move-result v2
@@ -81,6 +85,7 @@
     .local v0, volume:I
     iget-object v1, p0, Landroid/preference/VolumePreference$SeekBarVolumizer$1;->this$1:Landroid/preference/VolumePreference$SeekBarVolumizer;
 
+    #getter for: Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
     invoke-static {v1}, Landroid/preference/VolumePreference$SeekBarVolumizer;->access$000(Landroid/preference/VolumePreference$SeekBarVolumizer;)Landroid/widget/SeekBar;
 
     move-result-object v1
@@ -89,6 +94,6 @@
 
     .line 245
     .end local v0           #volume:I
-    :cond_2c
+    :cond_0
     return-void
 .end method

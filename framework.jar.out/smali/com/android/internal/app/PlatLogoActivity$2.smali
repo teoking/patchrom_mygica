@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/PlatLogoActivity;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onLongClick(Landroid/view/View;)Z
-    .registers 6
+    .locals 4
     .parameter "v"
 
     .prologue
@@ -65,11 +65,11 @@
     move-result-object v2
 
     invoke-virtual {v1, v2}, Lcom/android/internal/app/PlatLogoActivity;->startActivity(Landroid/content/Intent;)V
-    :try_end_19
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_19} :catch_20
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 122
-    :goto_19
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/app/PlatLogoActivity$2;->this$0:Lcom/android/internal/app/PlatLogoActivity;
 
     invoke-virtual {v1}, Lcom/android/internal/app/PlatLogoActivity;->finish()V
@@ -80,7 +80,7 @@
     return v1
 
     .line 119
-    :catch_20
+    :catch_0
     move-exception v0
 
     .line 120
@@ -91,5 +91,5 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_19
+    goto :goto_0
 .end method

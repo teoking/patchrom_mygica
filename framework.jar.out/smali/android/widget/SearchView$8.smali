@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/SearchView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
-    .registers 5
+    .locals 1
     .parameter "v"
     .parameter "actionId"
     .parameter "event"
@@ -47,6 +47,7 @@
     .line 1140
     iget-object v0, p0, Landroid/widget/SearchView$8;->this$0:Landroid/widget/SearchView;
 
+    #calls: Landroid/widget/SearchView;->onSubmitQuery()V
     invoke-static {v0}, Landroid/widget/SearchView;->access$900(Landroid/widget/SearchView;)V
 
     .line 1141

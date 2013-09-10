@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 44
@@ -120,7 +120,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 66
@@ -131,7 +131,7 @@
 .end method
 
 .method static synthetic access$002(J)J
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -142,7 +142,7 @@
 .end method
 
 .method static synthetic access$100()J
-    .registers 2
+    .locals 2
 
     .prologue
     .line 29
@@ -154,7 +154,7 @@
 .end method
 
 .method public static isTagEnabled(J)Z
-    .registers 6
+    .locals 4
     .parameter "traceTag"
 
     .prologue
@@ -167,17 +167,17 @@
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method private static native nativeGetEnabledTags()J
@@ -193,7 +193,7 @@
 .end method
 
 .method public static traceBegin(JLjava/lang/String;)V
-    .registers 7
+    .locals 4
     .parameter "traceTag"
     .parameter "methodName"
 
@@ -207,18 +207,18 @@
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 101
     invoke-static {p0, p1, p2}, Landroid/os/Trace;->nativeTraceBegin(JLjava/lang/String;)V
 
     .line 103
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public static traceCounter(JLjava/lang/String;I)V
-    .registers 8
+    .locals 4
     .parameter "traceTag"
     .parameter "counterName"
     .parameter "counterValue"
@@ -233,18 +233,18 @@
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 88
     invoke-static {p0, p1, p2, p3}, Landroid/os/Trace;->nativeTraceCounter(JLjava/lang/String;I)V
 
     .line 90
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public static traceEnd(J)V
-    .registers 6
+    .locals 4
     .parameter "traceTag"
 
     .prologue
@@ -257,12 +257,12 @@
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 113
     invoke-static {p0, p1}, Landroid/os/Trace;->nativeTraceEnd(J)V
 
     .line 115
-    :cond_c
+    :cond_0
     return-void
 .end method

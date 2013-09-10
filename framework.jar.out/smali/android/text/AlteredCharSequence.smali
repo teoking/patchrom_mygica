@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/CharSequence;[CII)V
-    .registers 5
+    .locals 0
     .parameter "source"
     .parameter "sub"
     .parameter "substart"
@@ -55,7 +55,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/CharSequence;[CIILandroid/text/AlteredCharSequence$1;)V
-    .registers 6
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -70,7 +70,7 @@
 .end method
 
 .method public static make(Ljava/lang/CharSequence;[CII)Landroid/text/AlteredCharSequence;
-    .registers 10
+    .locals 6
     .parameter "source"
     .parameter "sub"
     .parameter "substart"
@@ -80,7 +80,7 @@
     .line 36
     instance-of v0, p0, Landroid/text/Spanned;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 37
     new-instance v0, Landroid/text/AlteredCharSequence$AlteredSpanned;
@@ -98,32 +98,32 @@
     invoke-direct/range {v0 .. v5}, Landroid/text/AlteredCharSequence$AlteredSpanned;-><init>(Ljava/lang/CharSequence;[CIILandroid/text/AlteredCharSequence$1;)V
 
     .line 39
-    :goto_e
+    :goto_0
     return-object v0
 
-    :cond_f
+    :cond_0
     new-instance v0, Landroid/text/AlteredCharSequence;
 
     invoke-direct {v0, p0, p1, p2, p3}, Landroid/text/AlteredCharSequence;-><init>(Ljava/lang/CharSequence;[CII)V
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public charAt(I)C
-    .registers 4
+    .locals 2
     .parameter "off"
 
     .prologue
     .line 90
     iget v0, p0, Landroid/text/AlteredCharSequence;->mStart:I
 
-    if-lt p1, v0, :cond_11
+    if-lt p1, v0, :cond_0
 
     iget v0, p0, Landroid/text/AlteredCharSequence;->mEnd:I
 
-    if-ge p1, v0, :cond_11
+    if-ge p1, v0, :cond_0
 
     .line 91
     iget-object v0, p0, Landroid/text/AlteredCharSequence;->mChars:[C
@@ -135,21 +135,21 @@
     aget-char v0, v0, v1
 
     .line 93
-    :goto_10
+    :goto_0
     return v0
 
-    :cond_11
+    :cond_0
     iget-object v0, p0, Landroid/text/AlteredCharSequence;->mSource:Ljava/lang/CharSequence;
 
     invoke-interface {v0, p1}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v0
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public getChars(II[CI)V
-    .registers 8
+    .locals 3
     .parameter "start"
     .parameter "end"
     .parameter "dest"
@@ -176,7 +176,7 @@
     move-result p2
 
     .line 111
-    if-le p1, p2, :cond_1e
+    if-le p1, p2, :cond_0
 
     .line 112
     iget-object v0, p0, Landroid/text/AlteredCharSequence;->mChars:[C
@@ -190,12 +190,12 @@
     invoke-static {v0, v1, p3, p4, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 113
-    :cond_1e
+    :cond_0
     return-void
 .end method
 
 .method public length()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 97
@@ -209,7 +209,7 @@
 .end method
 
 .method public subSequence(II)Ljava/lang/CharSequence;
-    .registers 7
+    .locals 4
     .parameter "start"
     .parameter "end"
 
@@ -239,7 +239,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -266,7 +266,7 @@
 .end method
 
 .method update([CII)V
-    .registers 4
+    .locals 0
     .parameter "sub"
     .parameter "substart"
     .parameter "subend"

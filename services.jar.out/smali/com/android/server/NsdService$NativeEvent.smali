@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/NsdService;ILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "code"
     .parameter "raw"

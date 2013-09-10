@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/AudioService;Landroid/os/IBinder;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "cb"
 
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 3831
@@ -56,7 +56,7 @@
     monitor-enter v1
 
     .line 3832
-    :try_start_5
+    :try_start_0
     const-string v0, "AudioService"
 
     const-string v2, "  AudioFocus   audio focus client died"
@@ -68,6 +68,7 @@
 
     iget-object v2, p0, Landroid/media/AudioService$AudioFocusDeathHandler;->mCb:Landroid/os/IBinder;
 
+    #calls: Landroid/media/AudioService;->removeFocusStackEntryForClient(Landroid/os/IBinder;)V
     invoke-static {v0, v2}, Landroid/media/AudioService;->access$7900(Landroid/media/AudioService;Landroid/os/IBinder;)V
 
     .line 3834
@@ -77,18 +78,18 @@
     return-void
 
     .line 3834
-    :catchall_15
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_17
-    .catchall {:try_start_5 .. :try_end_17} :catchall_15
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public getBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 3838

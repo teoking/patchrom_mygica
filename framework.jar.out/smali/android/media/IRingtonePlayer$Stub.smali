@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 17
@@ -55,22 +55,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/media/IRingtonePlayer;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 26
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 27
     const/4 v0, 0x0
 
     .line 33
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 29
-    :cond_4
+    :cond_0
     const-string v1, "android.media.IRingtonePlayer"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -79,31 +79,31 @@
 
     .line 30
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/media/IRingtonePlayer;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 31
     check-cast v0, Landroid/media/IRingtonePlayer;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 33
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/media/IRingtonePlayer$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/media/IRingtonePlayer$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 37
@@ -111,7 +111,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 12
+    .locals 7
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -128,26 +128,26 @@
     const/4 v5, 0x1
 
     .line 41
-    sparse-switch p1, :sswitch_data_92
+    sparse-switch p1, :sswitch_data_0
 
     .line 111
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v5
 
-    :goto_9
+    :goto_0
     return v5
 
     .line 45
-    :sswitch_a
+    :sswitch_0
     const-string v4, "android.media.IRingtonePlayer"
 
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 50
-    :sswitch_10
+    :sswitch_1
     const-string v4, "android.media.IRingtonePlayer"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -163,7 +163,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_32
+    if-eqz v4, :cond_0
 
     .line 55
     sget-object v4, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -176,7 +176,7 @@
 
     .line 61
     .local v1, _arg1:Landroid/net/Uri;
-    :goto_27
+    :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -188,21 +188,21 @@
     .line 63
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 58
     .end local v1           #_arg1:Landroid/net/Uri;
     .end local v2           #_arg2:I
-    :cond_32
+    :cond_0
     const/4 v1, 0x0
 
     .restart local v1       #_arg1:Landroid/net/Uri;
-    goto :goto_27
+    goto :goto_1
 
     .line 68
     .end local v0           #_arg0:Landroid/os/IBinder;
     .end local v1           #_arg1:Landroid/net/Uri;
-    :sswitch_34
+    :sswitch_2
     const-string v4, "android.media.IRingtonePlayer"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -219,11 +219,11 @@
     .line 72
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 77
     .end local v0           #_arg0:Landroid/os/IBinder;
-    :sswitch_44
+    :sswitch_3
     const-string v6, "android.media.IRingtonePlayer"
 
     invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -244,19 +244,19 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 82
-    if-eqz v3, :cond_57
+    if-eqz v3, :cond_1
 
     move v4, v5
 
-    :cond_57
+    :cond_1
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 87
     .end local v0           #_arg0:Landroid/os/IBinder;
     .end local v3           #_result:Z
-    :sswitch_5b
+    :sswitch_4
     const-string v6, "android.media.IRingtonePlayer"
 
     invoke-virtual {p2, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -266,7 +266,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_80
+    if-eqz v6, :cond_2
 
     .line 90
     sget-object v6, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -279,18 +279,18 @@
 
     .line 96
     .local v0, _arg0:Landroid/net/Uri;
-    :goto_6e
+    :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
-    if-eqz v6, :cond_82
+    if-eqz v6, :cond_3
 
     move v1, v5
 
     .line 98
     .local v1, _arg1:Z
-    :goto_75
+    :goto_3
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -302,27 +302,27 @@
     .line 100
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 93
     .end local v0           #_arg0:Landroid/net/Uri;
     .end local v1           #_arg1:Z
     .end local v2           #_arg2:I
-    :cond_80
+    :cond_2
     const/4 v0, 0x0
 
     .restart local v0       #_arg0:Landroid/net/Uri;
-    goto :goto_6e
+    goto :goto_2
 
-    :cond_82
+    :cond_3
     move v1, v4
 
     .line 96
-    goto :goto_75
+    goto :goto_3
 
     .line 105
     .end local v0           #_arg0:Landroid/net/Uri;
-    :sswitch_84
+    :sswitch_5
     const-string v4, "android.media.IRingtonePlayer"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -333,18 +333,18 @@
     .line 107
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 41
     nop
 
-    :sswitch_data_92
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_10
-        0x2 -> :sswitch_34
-        0x3 -> :sswitch_44
-        0x4 -> :sswitch_5b
-        0x5 -> :sswitch_84
-        0x5f4e5446 -> :sswitch_a
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/AbsListView;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/AbsListView;Landroid/widget/AbsListView$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 2848
@@ -62,15 +62,15 @@
 
     iget-boolean v3, v3, Landroid/widget/AdapterView;->mDataChanged:Z
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_1
 
     .line 2862
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return-void
 
     .line 2850
-    :cond_7
+    :cond_1
     iget-object v3, p0, Landroid/widget/AbsListView$PerformClick;->this$0:Landroid/widget/AbsListView;
 
     iget-object v0, v3, Landroid/widget/AbsListView;->mAdapter:Landroid/widget/ListAdapter;
@@ -81,29 +81,29 @@
 
     .line 2852
     .local v1, motionPosition:I
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     iget-object v3, p0, Landroid/widget/AbsListView$PerformClick;->this$0:Landroid/widget/AbsListView;
 
     iget v3, v3, Landroid/widget/AdapterView;->mItemCount:I
 
-    if-lez v3, :cond_6
+    if-lez v3, :cond_0
 
     const/4 v3, -0x1
 
-    if-eq v1, v3, :cond_6
+    if-eq v1, v3, :cond_0
 
     invoke-interface {v0}, Landroid/widget/ListAdapter;->getCount()I
 
     move-result v3
 
-    if-ge v1, v3, :cond_6
+    if-ge v1, v3, :cond_0
 
     invoke-virtual {p0}, Landroid/widget/AbsListView$PerformClick;->sameWindow()Z
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_0
 
     .line 2855
     iget-object v3, p0, Landroid/widget/AbsListView$PerformClick;->this$0:Landroid/widget/AbsListView;
@@ -120,7 +120,7 @@
 
     .line 2858
     .local v2, view:Landroid/view/View;
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_0
 
     .line 2859
     iget-object v3, p0, Landroid/widget/AbsListView$PerformClick;->this$0:Landroid/widget/AbsListView;
@@ -131,5 +131,5 @@
 
     invoke-virtual {v3, v2, v1, v4, v5}, Landroid/widget/AbsListView;->performItemClick(Landroid/view/View;IJ)Z
 
-    goto :goto_6
+    goto :goto_0
 .end method

@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl;IJI)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter "count"
     .parameter "totalTime"

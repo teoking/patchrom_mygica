@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getSerialPorts()[Ljava/lang/String;
-    .registers 8
+    .locals 7
 
     .prologue
     .line 38
@@ -66,12 +66,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_e
+    :goto_0
     iget-object v4, p0, Lcom/android/server/SerialService;->mSerialPorts:[Ljava/lang/String;
 
     array-length v4, v4
 
-    if-ge v0, v4, :cond_28
+    if-ge v0, v4, :cond_1
 
     .line 42
     iget-object v4, p0, Lcom/android/server/SerialService;->mSerialPorts:[Ljava/lang/String;
@@ -88,20 +88,20 @@
 
     move-result v4
 
-    if-eqz v4, :cond_25
+    if-eqz v4, :cond_0
 
     .line 44
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 41
-    :cond_25
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 47
     .end local v1           #path:Ljava/lang/String;
-    :cond_28
+    :cond_1
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v4
@@ -117,7 +117,7 @@
 .end method
 
 .method public openSerialPort(Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
-    .registers 5
+    .locals 3
     .parameter "path"
 
     .prologue

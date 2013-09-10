@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/SyncManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onSyncRequest(Landroid/accounts/Account;ILjava/lang/String;Landroid/os/Bundle;)V
-    .registers 13
+    .locals 8
     .parameter "account"
     .parameter "userId"
     .parameter "authority"

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 316
@@ -41,68 +41,70 @@
 
 # virtual methods
 .method public compare(Landroid/content/pm/ResolveInfo;Landroid/content/pm/ResolveInfo;)I
-    .registers 7
+    .locals 4
     .parameter "lhs"
     .parameter "rhs"
 
     .prologue
     .line 319
-    if-ne p1, p2, :cond_4
+    if-ne p1, p2, :cond_0
 
     .line 320
     const/4 v2, 0x0
 
     .line 335
-    :goto_3
+    :goto_0
     return v2
 
     .line 322
-    :cond_4
+    :cond_0
+    #calls: Landroid/server/search/Searchables;->isSystemApp(Landroid/content/pm/ResolveInfo;)Z
     invoke-static {p1}, Landroid/server/search/Searchables;->access$000(Landroid/content/pm/ResolveInfo;)Z
 
     move-result v0
 
     .line 323
     .local v0, lhsSystem:Z
+    #calls: Landroid/server/search/Searchables;->isSystemApp(Landroid/content/pm/ResolveInfo;)Z
     invoke-static {p2}, Landroid/server/search/Searchables;->access$000(Landroid/content/pm/ResolveInfo;)Z
 
     move-result v1
 
     .line 325
     .local v1, rhsSystem:Z
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_1
 
-    if-nez v1, :cond_12
+    if-nez v1, :cond_1
 
     .line 326
     const/4 v2, -0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 327
-    :cond_12
-    if-eqz v1, :cond_18
+    :cond_1
+    if-eqz v1, :cond_2
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_2
 
     .line 328
     const/4 v2, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 335
-    :cond_18
+    :cond_2
     iget v2, p2, Landroid/content/pm/ResolveInfo;->priority:I
 
     iget v3, p1, Landroid/content/pm/ResolveInfo;->priority:I
 
     sub-int/2addr v2, v3
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 

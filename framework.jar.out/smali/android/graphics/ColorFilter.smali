@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 25
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -37,8 +37,8 @@
     .line 35
     :try_start_0
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
-    :try_end_3
-    .catchall {:try_start_0 .. :try_end_3} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 37
     iget v0, p0, Landroid/graphics/ColorFilter;->native_instance:I
@@ -51,7 +51,7 @@
     return-void
 
     .line 37
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     iget v1, p0, Landroid/graphics/ColorFilter;->native_instance:I

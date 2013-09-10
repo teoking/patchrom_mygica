@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/WindowManager;)V
-    .registers 3
+    .locals 1
     .parameter "wm"
 
     .prologue
@@ -60,14 +60,14 @@
 
 # virtual methods
 .method public declared-synchronized addHandler(Landroid/os/Handler;)V
-    .registers 4
+    .locals 2
     .parameter "h"
 
     .prologue
     .line 155
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/webkit/BrowserFrame$ConfigCallback;->mHandlers:Ljava/util/ArrayList;
 
     new-instance v1, Ljava/lang/ref/WeakReference;
@@ -75,8 +75,8 @@
     invoke-direct {v1, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_b
-    .catchall {:try_start_1 .. :try_end_b} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 156
     monitor-exit p0
@@ -84,7 +84,7 @@
     return-void
 
     .line 155
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -93,7 +93,7 @@
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .registers 10
+    .locals 8
     .parameter "newConfig"
 
     .prologue
@@ -104,14 +104,14 @@
 
     move-result v6
 
-    if-nez v6, :cond_9
+    if-nez v6, :cond_0
 
     .line 199
-    :goto_8
+    :goto_0
     return-void
 
     .line 162
-    :cond_9
+    :cond_0
     iget-object v6, p0, Landroid/webkit/BrowserFrame$ConfigCallback;->mWindowManager:Landroid/view/WindowManager;
 
     invoke-interface {v6}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
@@ -124,14 +124,14 @@
 
     .line 164
     .local v3, orientation:I
-    packed-switch v3, :pswitch_data_72
+    packed-switch v3, :pswitch_data_0
 
     .line 180
-    :goto_16
+    :goto_1
     monitor-enter p0
 
     .line 183
-    :try_start_17
+    :try_start_0
     new-instance v1, Ljava/util/ArrayList;
 
     iget-object v6, p0, Landroid/webkit/BrowserFrame$ConfigCallback;->mHandlers:Ljava/util/ArrayList;
@@ -151,12 +151,12 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :goto_28
+    :goto_2
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_59
+    if-eqz v6, :cond_2
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -174,7 +174,7 @@
 
     .line 187
     .local v0, h:Landroid/os/Handler;
-    if-eqz v0, :cond_55
+    if-eqz v0, :cond_1
 
     .line 188
     const/16 v6, 0x3ea
@@ -187,75 +187,75 @@
 
     invoke-virtual {v0, v6}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    goto :goto_28
+    goto :goto_2
 
     .line 198
     .end local v0           #h:Landroid/os/Handler;
     .end local v1           #handlersToRemove:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/ref/WeakReference;>;"
     .end local v2           #i$:Ljava/util/Iterator;
     .end local v5           #wh:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Landroid/os/Handler;>;"
-    :catchall_47
+    :catchall_0
     move-exception v6
 
     monitor-exit p0
-    :try_end_49
-    .catchall {:try_start_17 .. :try_end_49} :catchall_47
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v6
 
     .line 166
-    :pswitch_4a
+    :pswitch_0
     const/16 v3, 0x5a
 
     .line 167
-    goto :goto_16
+    goto :goto_1
 
     .line 169
-    :pswitch_4d
+    :pswitch_1
     const/16 v3, 0xb4
 
     .line 170
-    goto :goto_16
+    goto :goto_1
 
     .line 172
-    :pswitch_50
+    :pswitch_2
     const/16 v3, -0x5a
 
     .line 173
-    goto :goto_16
+    goto :goto_1
 
     .line 175
-    :pswitch_53
+    :pswitch_3
     const/4 v3, 0x0
 
     .line 176
-    goto :goto_16
+    goto :goto_1
 
     .line 191
     .restart local v0       #h:Landroid/os/Handler;
     .restart local v1       #handlersToRemove:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/ref/WeakReference;>;"
     .restart local v2       #i$:Ljava/util/Iterator;
     .restart local v5       #wh:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Landroid/os/Handler;>;"
-    :cond_55
-    :try_start_55
+    :cond_1
+    :try_start_1
     invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_28
+    goto :goto_2
 
     .line 195
     .end local v0           #h:Landroid/os/Handler;
     .end local v5           #wh:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Landroid/os/Handler;>;"
-    :cond_59
+    :cond_2
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    :goto_5d
+    :goto_3
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_6f
+    if-eqz v6, :cond_3
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -269,31 +269,31 @@
 
     invoke-virtual {v6, v4}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    goto :goto_5d
+    goto :goto_3
 
     .line 198
     .end local v4           #weak:Ljava/lang/ref/WeakReference;
-    :cond_6f
+    :cond_3
     monitor-exit p0
-    :try_end_70
-    .catchall {:try_start_55 .. :try_end_70} :catchall_47
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_8
+    goto :goto_0
 
     .line 164
     nop
 
-    :pswitch_data_72
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_53
-        :pswitch_4a
-        :pswitch_4d
-        :pswitch_50
+        :pswitch_3
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public onLowMemory()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 201

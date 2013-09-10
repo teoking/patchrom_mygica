@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/WebViewCore$WebCoreThread;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,53 +35,54 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "msg"
 
     .prologue
     .line 769
     iget v2, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v2, :sswitch_data_6a
+    sparse-switch v2, :sswitch_data_0
 
     .line 823
-    :goto_5
+    :goto_0
     return-void
 
     .line 771
-    :sswitch_6
+    :sswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/webkit/WebViewCore;
 
     .line 772
     .local v0, core:Landroid/webkit/WebViewCore;
+    #calls: Landroid/webkit/WebViewCore;->initialize()V
     invoke-static {v0}, Landroid/webkit/WebViewCore;->access$600(Landroid/webkit/WebViewCore;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 777
     .end local v0           #core:Landroid/webkit/WebViewCore;
-    :sswitch_e
+    :sswitch_1
     const/4 v2, 0x3
 
     invoke-static {v2}, Landroid/os/Process;->setThreadPriority(I)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 783
-    :sswitch_13
+    :sswitch_2
     const/4 v2, 0x0
 
     invoke-static {v2}, Landroid/os/Process;->setThreadPriority(I)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 788
-    :sswitch_18
+    :sswitch_3
     sget-object v2, Landroid/webkit/BrowserFrame;->sJavaBridge:Landroid/webkit/JWebCoreJavaBridge;
 
-    if-nez v2, :cond_24
+    if-nez v2, :cond_0
 
     .line 789
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -93,7 +94,7 @@
     throw v2
 
     .line 792
-    :cond_24
+    :cond_0
     sget-object v3, Landroid/webkit/BrowserFrame;->sJavaBridge:Landroid/webkit/JWebCoreJavaBridge;
 
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -102,13 +103,13 @@
 
     invoke-virtual {v3, v2}, Landroid/webkit/JWebCoreJavaBridge;->addPackageName(Ljava/lang/String;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 796
-    :sswitch_2e
+    :sswitch_4
     sget-object v2, Landroid/webkit/BrowserFrame;->sJavaBridge:Landroid/webkit/JWebCoreJavaBridge;
 
-    if-nez v2, :cond_3a
+    if-nez v2, :cond_1
 
     .line 797
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -120,7 +121,7 @@
     throw v2
 
     .line 800
-    :cond_3a
+    :cond_1
     sget-object v3, Landroid/webkit/BrowserFrame;->sJavaBridge:Landroid/webkit/JWebCoreJavaBridge;
 
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -129,13 +130,13 @@
 
     invoke-virtual {v3, v2}, Landroid/webkit/JWebCoreJavaBridge;->removePackageName(Ljava/lang/String;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 804
-    :sswitch_44
+    :sswitch_5
     sget-object v2, Landroid/webkit/BrowserFrame;->sJavaBridge:Landroid/webkit/JWebCoreJavaBridge;
 
-    if-nez v2, :cond_50
+    if-nez v2, :cond_2
 
     .line 805
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -147,7 +148,7 @@
     throw v2
 
     .line 808
-    :cond_50
+    :cond_2
     sget-object v3, Landroid/webkit/BrowserFrame;->sJavaBridge:Landroid/webkit/JWebCoreJavaBridge;
 
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -156,10 +157,10 @@
 
     invoke-virtual {v3, v2}, Landroid/webkit/JWebCoreJavaBridge;->updateProxy(Landroid/net/ProxyProperties;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 814
-    :sswitch_5a
+    :sswitch_6
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/Message;
@@ -168,30 +169,31 @@
     .local v1, m:Landroid/os/Message;
     invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 819
     .end local v1           #m:Landroid/os/Message;
-    :sswitch_62
+    :sswitch_7
+    #calls: Landroid/webkit/WebViewCore;->nativeCertTrustChanged()V
     invoke-static {}, Landroid/webkit/WebViewCore;->access$700()V
 
     .line 820
     invoke-static {}, Landroid/net/http/CertificateChainValidator;->handleTrustStorageUpdate()V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 769
     nop
 
-    :sswitch_data_6a
+    :sswitch_data_0
     .sparse-switch
-        0x0 -> :sswitch_6
-        0x1 -> :sswitch_e
-        0x2 -> :sswitch_13
-        0xb9 -> :sswitch_18
-        0xba -> :sswitch_2e
-        0xc1 -> :sswitch_44
-        0xc5 -> :sswitch_5a
-        0xdc -> :sswitch_62
+        0x0 -> :sswitch_0
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0xb9 -> :sswitch_3
+        0xba -> :sswitch_4
+        0xc1 -> :sswitch_5
+        0xc5 -> :sswitch_6
+        0xdc -> :sswitch_7
     .end sparse-switch
 .end method

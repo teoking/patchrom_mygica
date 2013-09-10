@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/res/AssetFileDescriptor;)V
-    .registers 6
+    .locals 4
     .parameter "fd"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -53,7 +53,7 @@
 
     cmp-long v0, v0, v2
 
-    if-gez v0, :cond_21
+    if-gez v0, :cond_0
 
     .line 264
     new-instance v0, Ljava/io/IOException;
@@ -65,7 +65,7 @@
     throw v0
 
     .line 266
-    :cond_21
+    :cond_0
     invoke-virtual {p1}, Landroid/content/res/AssetFileDescriptor;->getLength()J
 
     move-result-wide v0
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public write(I)V
-    .registers 6
+    .locals 4
     .parameter "oneByte"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -99,21 +99,21 @@
 
     cmp-long v0, v0, v2
 
-    if-ltz v0, :cond_1a
+    if-ltz v0, :cond_1
 
     .line 299
     iget-wide v0, p0, Landroid/content/res/AssetFileDescriptor$AutoCloseOutputStream;->mRemaining:J
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 306
-    :goto_e
+    :goto_0
     return-void
 
     .line 300
-    :cond_f
+    :cond_0
     invoke-super {p0, p1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;->write(I)V
 
     .line 301
@@ -125,17 +125,17 @@
 
     iput-wide v0, p0, Landroid/content/res/AssetFileDescriptor$AutoCloseOutputStream;->mRemaining:J
 
-    goto :goto_e
+    goto :goto_0
 
     .line 305
-    :cond_1a
+    :cond_1
     invoke-super {p0, p1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;->write(I)V
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public write([B)V
-    .registers 7
+    .locals 5
     .parameter "buffer"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -151,21 +151,21 @@
 
     cmp-long v1, v1, v3
 
-    if-ltz v1, :cond_24
+    if-ltz v1, :cond_2
 
     .line 285
     iget-wide v1, p0, Landroid/content/res/AssetFileDescriptor$AutoCloseOutputStream;->mRemaining:J
 
     cmp-long v1, v1, v3
 
-    if-nez v1, :cond_f
+    if-nez v1, :cond_0
 
     .line 294
-    :goto_e
+    :goto_0
     return-void
 
     .line 286
-    :cond_f
+    :cond_0
     array-length v0, p1
 
     .line 287
@@ -176,14 +176,14 @@
 
     cmp-long v1, v1, v3
 
-    if-lez v1, :cond_1a
+    if-lez v1, :cond_1
 
     iget-wide v1, p0, Landroid/content/res/AssetFileDescriptor$AutoCloseOutputStream;->mRemaining:J
 
     long-to-int v0, v1
 
     .line 288
-    :cond_1a
+    :cond_1
     invoke-super {p0, p1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;->write([B)V
 
     .line 289
@@ -195,18 +195,18 @@
 
     iput-wide v1, p0, Landroid/content/res/AssetFileDescriptor$AutoCloseOutputStream;->mRemaining:J
 
-    goto :goto_e
+    goto :goto_0
 
     .line 293
     .end local v0           #count:I
-    :cond_24
+    :cond_2
     invoke-super {p0, p1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;->write([B)V
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public write([BII)V
-    .registers 8
+    .locals 4
     .parameter "buffer"
     .parameter "offset"
     .parameter "count"
@@ -224,35 +224,35 @@
 
     cmp-long v0, v0, v2
 
-    if-ltz v0, :cond_23
+    if-ltz v0, :cond_2
 
     .line 272
     iget-wide v0, p0, Landroid/content/res/AssetFileDescriptor$AutoCloseOutputStream;->mRemaining:J
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 280
-    :goto_e
+    :goto_0
     return-void
 
     .line 273
-    :cond_f
+    :cond_0
     int-to-long v0, p3
 
     iget-wide v2, p0, Landroid/content/res/AssetFileDescriptor$AutoCloseOutputStream;->mRemaining:J
 
     cmp-long v0, v0, v2
 
-    if-lez v0, :cond_19
+    if-lez v0, :cond_1
 
     iget-wide v0, p0, Landroid/content/res/AssetFileDescriptor$AutoCloseOutputStream;->mRemaining:J
 
     long-to-int p3, v0
 
     .line 274
-    :cond_19
+    :cond_1
     invoke-super {p0, p1, p2, p3}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;->write([BII)V
 
     .line 275
@@ -264,11 +264,11 @@
 
     iput-wide v0, p0, Landroid/content/res/AssetFileDescriptor$AutoCloseOutputStream;->mRemaining:J
 
-    goto :goto_e
+    goto :goto_0
 
     .line 279
-    :cond_23
+    :cond_2
     invoke-super {p0, p1, p2, p3}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;->write([BII)V
 
-    goto :goto_e
+    goto :goto_0
 .end method

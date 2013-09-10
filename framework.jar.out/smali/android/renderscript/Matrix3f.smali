@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 32
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>([F)V
-    .registers 5
+    .locals 3
     .parameter "dataArray"
 
     .prologue
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public get(II)F
-    .registers 5
+    .locals 2
     .parameter "i"
     .parameter "j"
 
@@ -80,7 +80,7 @@
 .end method
 
 .method public getArray()[F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 56
@@ -90,7 +90,7 @@
 .end method
 
 .method public load(Landroid/renderscript/Matrix3f;)V
-    .registers 6
+    .locals 4
     .parameter "src"
 
     .prologue
@@ -114,7 +114,7 @@
 .end method
 
 .method public loadIdentity()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/high16 v3, 0x3f80
@@ -189,7 +189,7 @@
 .end method
 
 .method public loadMultiply(Landroid/renderscript/Matrix3f;Landroid/renderscript/Matrix3f;)V
-    .registers 14
+    .locals 11
     .parameter "lhs"
     .parameter "rhs"
 
@@ -206,8 +206,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_5
-    if-ge v0, v10, :cond_32
+    :goto_0
+    if-ge v0, v10, :cond_1
 
     .line 212
     const/4 v3, 0x0
@@ -225,8 +225,8 @@
     const/4 v1, 0x0
 
     .local v1, j:I
-    :goto_b
-    if-ge v1, v10, :cond_26
+    :goto_1
+    if-ge v1, v10, :cond_0
 
     .line 216
     invoke-virtual {p2, v0, v1}, Landroid/renderscript/Matrix3f;->get(II)F
@@ -264,11 +264,11 @@
     .line 215
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_b
+    goto :goto_1
 
     .line 221
     .end local v2           #rhs_ij:F
-    :cond_26
+    :cond_0
     invoke-virtual {p0, v0, v7, v3}, Landroid/renderscript/Matrix3f;->set(IIF)V
 
     .line 222
@@ -280,19 +280,19 @@
     .line 211
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 225
     .end local v1           #j:I
     .end local v3           #ri0:F
     .end local v4           #ri1:F
     .end local v5           #ri2:F
-    :cond_32
+    :cond_1
     return-void
 .end method
 
 .method public loadRotate(F)V
-    .registers 7
+    .locals 5
     .parameter "rot"
 
     .prologue
@@ -359,7 +359,7 @@
 .end method
 
 .method public loadRotate(FFFF)V
-    .registers 19
+    .locals 14
     .parameter "rot"
     .parameter "x"
     .parameter "y"
@@ -416,7 +416,7 @@
 
     cmpl-float v11, v1, v11
 
-    if-nez v11, :cond_2e
+    if-nez v11, :cond_0
 
     .line 124
     const/high16 v11, 0x3f80
@@ -435,7 +435,7 @@
 
     .line 129
     .end local v3           #recipLen:F
-    :cond_2e
+    :cond_0
     const/high16 v11, 0x3f80
 
     sub-float v2, v11, v0
@@ -575,7 +575,7 @@
 .end method
 
 .method public loadScale(FF)V
-    .registers 5
+    .locals 2
     .parameter "x"
     .parameter "y"
 
@@ -602,7 +602,7 @@
 .end method
 
 .method public loadScale(FFF)V
-    .registers 6
+    .locals 2
     .parameter "x"
     .parameter "y"
     .parameter "z"
@@ -637,7 +637,7 @@
 .end method
 
 .method public loadTranslate(FF)V
-    .registers 5
+    .locals 2
     .parameter "x"
     .parameter "y"
 
@@ -664,7 +664,7 @@
 .end method
 
 .method public multiply(Landroid/renderscript/Matrix3f;)V
-    .registers 3
+    .locals 1
     .parameter "rhs"
 
     .prologue
@@ -685,7 +685,7 @@
 .end method
 
 .method public rotate(F)V
-    .registers 3
+    .locals 1
     .parameter "rot"
 
     .prologue
@@ -706,7 +706,7 @@
 .end method
 
 .method public rotate(FFFF)V
-    .registers 6
+    .locals 1
     .parameter "rot"
     .parameter "x"
     .parameter "y"
@@ -730,7 +730,7 @@
 .end method
 
 .method public scale(FF)V
-    .registers 4
+    .locals 1
     .parameter "x"
     .parameter "y"
 
@@ -752,7 +752,7 @@
 .end method
 
 .method public scale(FFF)V
-    .registers 5
+    .locals 1
     .parameter "x"
     .parameter "y"
     .parameter "z"
@@ -775,7 +775,7 @@
 .end method
 
 .method public set(IIF)V
-    .registers 6
+    .locals 2
     .parameter "i"
     .parameter "j"
     .parameter "v"
@@ -795,7 +795,7 @@
 .end method
 
 .method public translate(FF)V
-    .registers 4
+    .locals 1
     .parameter "x"
     .parameter "y"
 
@@ -817,26 +817,26 @@
 .end method
 
 .method public transpose()V
-    .registers 8
+    .locals 7
 
     .prologue
     .line 309
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     const/4 v3, 0x2
 
-    if-ge v0, v3, :cond_2b
+    if-ge v0, v3, :cond_1
 
     .line 310
     add-int/lit8 v1, v0, 0x1
 
     .local v1, j:I
-    :goto_6
+    :goto_1
     const/4 v3, 0x3
 
-    if-ge v1, v3, :cond_28
+    if-ge v1, v3, :cond_0
 
     .line 311
     iget-object v3, p0, Landroid/renderscript/Matrix3f;->mMat:[F
@@ -877,17 +877,17 @@
     .line 310
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_6
+    goto :goto_1
 
     .line 309
     .end local v2           #temp:F
-    :cond_28
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 316
     .end local v1           #j:I
-    :cond_2b
+    :cond_1
     return-void
 .end method

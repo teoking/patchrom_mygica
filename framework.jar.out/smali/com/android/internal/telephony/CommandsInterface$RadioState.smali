@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 5
+    .locals 5
 
     .prologue
     const/4 v4, 0x2
@@ -94,7 +94,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -111,7 +111,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/telephony/CommandsInterface$RadioState;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -128,7 +128,7 @@
 .end method
 
 .method public static values()[Lcom/android/internal/telephony/CommandsInterface$RadioState;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 29
@@ -146,41 +146,41 @@
 
 # virtual methods
 .method public isAvailable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 39
     sget-object v0, Lcom/android/internal/telephony/CommandsInterface$RadioState;->RADIO_UNAVAILABLE:Lcom/android/internal/telephony/CommandsInterface$RadioState;
 
-    if-eq p0, v0, :cond_6
+    if-eq p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public isOn()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 35
     sget-object v0, Lcom/android/internal/telephony/CommandsInterface$RadioState;->RADIO_ON:Lcom/android/internal/telephony/CommandsInterface$RadioState;
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method

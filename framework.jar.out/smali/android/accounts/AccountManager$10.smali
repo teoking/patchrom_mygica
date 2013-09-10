@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;Landroid/app/Activity;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Ljava/lang/String;Landroid/app/Activity;)V
-    .registers 7
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter "x1"
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public doWork()V
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -60,6 +60,7 @@
     .line 1290
     iget-object v0, p0, Landroid/accounts/AccountManager$10;->this$0:Landroid/accounts/AccountManager;
 
+    #getter for: Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
     invoke-static {v0}, Landroid/accounts/AccountManager;->access$000(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
 
     move-result-object v1
@@ -70,19 +71,19 @@
 
     iget-object v0, p0, Landroid/accounts/AccountManager$10;->val$activity:Landroid/app/Activity;
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_f
+    :goto_0
     invoke-interface {v1, v2, v3, v0}, Landroid/accounts/IAccountManager;->editProperties(Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;Z)V
 
     .line 1291
     return-void
 
     .line 1290
-    :cond_13
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method

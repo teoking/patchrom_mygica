@@ -58,7 +58,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1278
@@ -72,7 +72,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1249
@@ -88,7 +88,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -108,7 +108,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/app/ActivityManager$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1253
@@ -132,7 +132,7 @@
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -197,7 +197,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

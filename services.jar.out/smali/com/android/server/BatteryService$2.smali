@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/BatteryService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onUEvent(Landroid/os/UEventObserver$UEvent;)V
-    .registers 5
+    .locals 3
     .parameter "event"
 
     .prologue
@@ -52,39 +52,42 @@
 
     move-result v1
 
-    if-eqz v1, :cond_22
+    if-eqz v1, :cond_1
 
     const/4 v0, 0x1
 
     .line 191
     .local v0, invalidCharger:I
-    :goto_f
+    :goto_0
     iget-object v1, p0, Lcom/android/server/BatteryService$2;->this$0:Lcom/android/server/BatteryService;
 
+    #getter for: Lcom/android/server/BatteryService;->mInvalidCharger:I
     invoke-static {v1}, Lcom/android/server/BatteryService;->access$100(Lcom/android/server/BatteryService;)I
 
     move-result v1
 
-    if-eq v1, v0, :cond_21
+    if-eq v1, v0, :cond_0
 
     .line 192
     iget-object v1, p0, Lcom/android/server/BatteryService$2;->this$0:Lcom/android/server/BatteryService;
 
+    #setter for: Lcom/android/server/BatteryService;->mInvalidCharger:I
     invoke-static {v1, v0}, Lcom/android/server/BatteryService;->access$102(Lcom/android/server/BatteryService;I)I
 
     .line 193
     iget-object v1, p0, Lcom/android/server/BatteryService$2;->this$0:Lcom/android/server/BatteryService;
 
+    #calls: Lcom/android/server/BatteryService;->update()V
     invoke-static {v1}, Lcom/android/server/BatteryService;->access$000(Lcom/android/server/BatteryService;)V
 
     .line 195
-    :cond_21
+    :cond_0
     return-void
 
     .line 190
     .end local v0           #invalidCharger:I
-    :cond_22
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method

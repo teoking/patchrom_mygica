@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(F)V
-    .registers 3
+    .locals 1
     .parameter "fraction"
 
     .prologue
@@ -40,7 +40,7 @@
 .end method
 
 .method constructor <init>(FI)V
-    .registers 4
+    .locals 1
     .parameter "fraction"
     .parameter "value"
 
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public clone()Landroid/animation/Keyframe$IntKeyframe;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 309
@@ -98,7 +98,7 @@
 .end method
 
 .method public bridge synthetic clone()Landroid/animation/Keyframe;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 273
@@ -110,7 +110,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -127,7 +127,7 @@
 .end method
 
 .method public getIntValue()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 293
@@ -137,7 +137,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 297
@@ -151,12 +151,12 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
     .line 301
-    if-eqz p1, :cond_15
+    if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -164,7 +164,7 @@
 
     const-class v1, Ljava/lang/Integer;
 
-    if-ne v0, v1, :cond_15
+    if-ne v0, v1, :cond_0
 
     .line 302
     check-cast p1, Ljava/lang/Integer;
@@ -182,6 +182,6 @@
     iput-boolean v0, p0, Landroid/animation/Keyframe;->mHasValue:Z
 
     .line 305
-    :cond_15
+    :cond_0
     return-void
 .end method

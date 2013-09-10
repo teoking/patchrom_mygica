@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/VpnService;)V
-    .registers 4
+    .locals 2
     .parameter
 
     .prologue
@@ -74,7 +74,7 @@
 .end method
 
 .method private check(Ljava/net/InetAddress;I)V
-    .registers 5
+    .locals 2
     .parameter "address"
     .parameter "prefixLength"
 
@@ -84,7 +84,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 303
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -96,20 +96,20 @@
     throw v0
 
     .line 305
-    :cond_e
+    :cond_0
     instance-of v0, p1, Ljava/net/Inet4Address;
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_2
 
     .line 306
-    if-ltz p2, :cond_18
+    if-ltz p2, :cond_1
 
     const/16 v0, 0x20
 
-    if-le p2, v0, :cond_3a
+    if-le p2, v0, :cond_5
 
     .line 307
-    :cond_18
+    :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Bad prefixLength"
@@ -119,20 +119,20 @@
     throw v0
 
     .line 309
-    :cond_20
+    :cond_2
     instance-of v0, p1, Ljava/net/Inet6Address;
 
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_4
 
     .line 310
-    if-ltz p2, :cond_2a
+    if-ltz p2, :cond_3
 
     const/16 v0, 0x80
 
-    if-le p2, v0, :cond_3a
+    if-le p2, v0, :cond_5
 
     .line 311
-    :cond_2a
+    :cond_3
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Bad prefixLength"
@@ -142,7 +142,7 @@
     throw v0
 
     .line 314
-    :cond_32
+    :cond_4
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Unsupported family"
@@ -152,14 +152,14 @@
     throw v0
 
     .line 316
-    :cond_3a
+    :cond_5
     return-void
 .end method
 
 
 # virtual methods
 .method public addAddress(Ljava/lang/String;I)Landroid/net/VpnService$Builder;
-    .registers 4
+    .locals 1
     .parameter "address"
     .parameter "prefixLength"
 
@@ -177,7 +177,7 @@
 .end method
 
 .method public addAddress(Ljava/net/InetAddress;I)Landroid/net/VpnService$Builder;
-    .registers 8
+    .locals 5
     .parameter "address"
     .parameter "prefixLength"
 
@@ -190,7 +190,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 329
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -202,7 +202,7 @@
     throw v0
 
     .line 332
-    :cond_11
+    :cond_0
     iget-object v0, p0, Landroid/net/VpnService$Builder;->mAddresses:Ljava/lang/StringBuilder;
 
     const-string v1, " %s/%d"
@@ -238,7 +238,7 @@
 .end method
 
 .method public addDnsServer(Ljava/lang/String;)Landroid/net/VpnService$Builder;
-    .registers 3
+    .locals 1
     .parameter "address"
 
     .prologue
@@ -255,7 +255,7 @@
 .end method
 
 .method public addDnsServer(Ljava/net/InetAddress;)Landroid/net/VpnService$Builder;
-    .registers 4
+    .locals 2
     .parameter "address"
 
     .prologue
@@ -264,16 +264,16 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     invoke-virtual {p1}, Ljava/net/InetAddress;->isAnyLocalAddress()Z
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_1
 
     .line 392
-    :cond_c
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Bad address"
@@ -283,12 +283,12 @@
     throw v0
 
     .line 394
-    :cond_14
+    :cond_1
     iget-object v0, p0, Landroid/net/VpnService$Builder;->mConfig:Lcom/android/internal/net/VpnConfig;
 
     iget-object v0, v0, Lcom/android/internal/net/VpnConfig;->dnsServers:Ljava/util/List;
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_2
 
     .line 395
     iget-object v0, p0, Landroid/net/VpnService$Builder;->mConfig:Lcom/android/internal/net/VpnConfig;
@@ -300,7 +300,7 @@
     iput-object v1, v0, Lcom/android/internal/net/VpnConfig;->dnsServers:Ljava/util/List;
 
     .line 397
-    :cond_23
+    :cond_2
     iget-object v0, p0, Landroid/net/VpnService$Builder;->mConfig:Lcom/android/internal/net/VpnConfig;
 
     iget-object v0, v0, Lcom/android/internal/net/VpnConfig;->dnsServers:Ljava/util/List;
@@ -316,7 +316,7 @@
 .end method
 
 .method public addRoute(Ljava/lang/String;I)Landroid/net/VpnService$Builder;
-    .registers 4
+    .locals 1
     .parameter "address"
     .parameter "prefixLength"
 
@@ -334,7 +334,7 @@
 .end method
 
 .method public addRoute(Ljava/net/InetAddress;I)Landroid/net/VpnService$Builder;
-    .registers 10
+    .locals 7
     .parameter "address"
     .parameter "prefixLength"
 
@@ -355,7 +355,7 @@
     .local v0, bytes:[B
     array-length v2, v0
 
-    if-ge v1, v2, :cond_26
+    if-ge v1, v2, :cond_1
 
     .line 360
     aget-byte v2, v0, v1
@@ -368,15 +368,15 @@
 
     aput-byte v2, v0, v1
 
-    :goto_14
+    :goto_0
     array-length v2, v0
 
-    if-ge v1, v2, :cond_26
+    if-ge v1, v2, :cond_1
 
     .line 361
     aget-byte v2, v0, v1
 
-    if-eqz v2, :cond_23
+    if-eqz v2, :cond_0
 
     .line 362
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -388,13 +388,13 @@
     throw v2
 
     .line 360
-    :cond_23
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_14
+    goto :goto_0
 
     .line 367
-    :cond_26
+    :cond_1
     iget-object v2, p0, Landroid/net/VpnService$Builder;->mRoutes:Ljava/lang/StringBuilder;
 
     const-string v3, " %s/%d"
@@ -430,7 +430,7 @@
 .end method
 
 .method public addSearchDomain(Ljava/lang/String;)Landroid/net/VpnService$Builder;
-    .registers 4
+    .locals 2
     .parameter "domain"
 
     .prologue
@@ -439,7 +439,7 @@
 
     iget-object v0, v0, Lcom/android/internal/net/VpnConfig;->searchDomains:Ljava/util/List;
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 418
     iget-object v0, p0, Landroid/net/VpnService$Builder;->mConfig:Lcom/android/internal/net/VpnConfig;
@@ -451,7 +451,7 @@
     iput-object v1, v0, Lcom/android/internal/net/VpnConfig;->searchDomains:Ljava/util/List;
 
     .line 420
-    :cond_f
+    :cond_0
     iget-object v0, p0, Landroid/net/VpnService$Builder;->mConfig:Lcom/android/internal/net/VpnConfig;
 
     iget-object v0, v0, Lcom/android/internal/net/VpnConfig;->searchDomains:Ljava/util/List;
@@ -463,7 +463,7 @@
 .end method
 
 .method public establish()Landroid/os/ParcelFileDescriptor;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 468
@@ -489,7 +489,8 @@
     iput-object v2, v1, Lcom/android/internal/net/VpnConfig;->routes:Ljava/lang/String;
 
     .line 472
-    :try_start_14
+    :try_start_0
+    #calls: Landroid/net/VpnService;->getService()Landroid/net/IConnectivityManager;
     invoke-static {}, Landroid/net/VpnService;->access$100()Landroid/net/IConnectivityManager;
 
     move-result-object v1
@@ -497,15 +498,15 @@
     iget-object v2, p0, Landroid/net/VpnService$Builder;->mConfig:Lcom/android/internal/net/VpnConfig;
 
     invoke-interface {v1, v2}, Landroid/net/IConnectivityManager;->establishVpn(Lcom/android/internal/net/VpnConfig;)Landroid/os/ParcelFileDescriptor;
-    :try_end_1d
-    .catch Landroid/os/RemoteException; {:try_start_14 .. :try_end_1d} :catch_1f
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     return-object v1
 
     .line 473
-    :catch_1f
+    :catch_0
     move-exception v0
 
     .line 474
@@ -518,7 +519,7 @@
 .end method
 
 .method public setConfigureIntent(Landroid/app/PendingIntent;)Landroid/net/VpnService$Builder;
-    .registers 3
+    .locals 1
     .parameter "intent"
 
     .prologue
@@ -532,12 +533,12 @@
 .end method
 
 .method public setMtu(I)Landroid/net/VpnService$Builder;
-    .registers 4
+    .locals 2
     .parameter "mtu"
 
     .prologue
     .line 291
-    if-gtz p1, :cond_a
+    if-gtz p1, :cond_0
 
     .line 292
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -549,7 +550,7 @@
     throw v0
 
     .line 294
-    :cond_a
+    :cond_0
     iget-object v0, p0, Landroid/net/VpnService$Builder;->mConfig:Lcom/android/internal/net/VpnConfig;
 
     iput p1, v0, Lcom/android/internal/net/VpnConfig;->mtu:I
@@ -559,7 +560,7 @@
 .end method
 
 .method public setSession(Ljava/lang/String;)Landroid/net/VpnService$Builder;
-    .registers 3
+    .locals 1
     .parameter "session"
 
     .prologue

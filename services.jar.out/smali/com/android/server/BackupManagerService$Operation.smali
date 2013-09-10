@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService;ILcom/android/server/BackupManagerService$BackupRestoreTask;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "initialState"
     .parameter "callbackObj"

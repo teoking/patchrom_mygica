@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/PppoeService;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "x0"
 
@@ -37,13 +37,14 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 200
     .local p0, this:Lcom/android/server/PppoeService$2;,"Lcom/android/server/PppoeService.2;"
     iget-object v0, p0, Lcom/android/server/PppoeService$2;->this$0:Lcom/android/server/PppoeService;
 
+    #getter for: Lcom/android/server/PppoeService;->mTracker:Landroid/net/pppoe/PppoeStateTracker;
     invoke-static {v0}, Lcom/android/server/PppoeService;->access$000(Lcom/android/server/PppoeService;)Landroid/net/pppoe/PppoeStateTracker;
 
     move-result-object v0

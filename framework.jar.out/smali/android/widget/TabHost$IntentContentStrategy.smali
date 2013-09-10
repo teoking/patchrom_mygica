@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/TabHost;Ljava/lang/String;Landroid/content/Intent;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "tag"
     .parameter "intent"
@@ -51,7 +51,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/TabHost;Ljava/lang/String;Landroid/content/Intent;Landroid/widget/TabHost$1;)V
-    .registers 5
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public getContentView()Landroid/view/View;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 691
@@ -75,7 +75,7 @@
 
     iget-object v2, v2, Landroid/widget/TabHost;->mLocalActivityManager:Landroid/app/LocalActivityManager;
 
-    if-nez v2, :cond_e
+    if-nez v2, :cond_0
 
     .line 692
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -87,7 +87,7 @@
     throw v2
 
     .line 694
-    :cond_e
+    :cond_0
     iget-object v2, p0, Landroid/widget/TabHost$IntentContentStrategy;->this$0:Landroid/widget/TabHost;
 
     iget-object v2, v2, Landroid/widget/TabHost;->mLocalActivityManager:Landroid/app/LocalActivityManager;
@@ -102,7 +102,7 @@
 
     .line 696
     .local v0, w:Landroid/view/Window;
-    if-eqz v0, :cond_59
+    if-eqz v0, :cond_3
 
     invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
@@ -110,14 +110,14 @@
 
     .line 697
     .local v1, wd:Landroid/view/View;
-    :goto_20
+    :goto_0
     iget-object v2, p0, Landroid/widget/TabHost$IntentContentStrategy;->mLaunchedView:Landroid/view/View;
 
-    if-eq v2, v1, :cond_3b
+    if-eq v2, v1, :cond_1
 
     iget-object v2, p0, Landroid/widget/TabHost$IntentContentStrategy;->mLaunchedView:Landroid/view/View;
 
-    if-eqz v2, :cond_3b
+    if-eqz v2, :cond_1
 
     .line 698
     iget-object v2, p0, Landroid/widget/TabHost$IntentContentStrategy;->mLaunchedView:Landroid/view/View;
@@ -126,11 +126,12 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_3b
+    if-eqz v2, :cond_1
 
     .line 699
     iget-object v2, p0, Landroid/widget/TabHost$IntentContentStrategy;->this$0:Landroid/widget/TabHost;
 
+    #getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
     invoke-static {v2}, Landroid/widget/TabHost;->access$100(Landroid/widget/TabHost;)Landroid/widget/FrameLayout;
 
     move-result-object v2
@@ -140,13 +141,13 @@
     invoke-virtual {v2, v3}, Landroid/widget/FrameLayout;->removeView(Landroid/view/View;)V
 
     .line 702
-    :cond_3b
+    :cond_1
     iput-object v1, p0, Landroid/widget/TabHost$IntentContentStrategy;->mLaunchedView:Landroid/view/View;
 
     .line 710
     iget-object v2, p0, Landroid/widget/TabHost$IntentContentStrategy;->mLaunchedView:Landroid/view/View;
 
-    if-eqz v2, :cond_56
+    if-eqz v2, :cond_2
 
     .line 711
     iget-object v2, p0, Landroid/widget/TabHost$IntentContentStrategy;->mLaunchedView:Landroid/view/View;
@@ -172,27 +173,27 @@
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->setDescendantFocusability(I)V
 
     .line 716
-    :cond_56
+    :cond_2
     iget-object v2, p0, Landroid/widget/TabHost$IntentContentStrategy;->mLaunchedView:Landroid/view/View;
 
     return-object v2
 
     .line 696
     .end local v1           #wd:Landroid/view/View;
-    :cond_59
+    :cond_3
     const/4 v1, 0x0
 
-    goto :goto_20
+    goto :goto_0
 .end method
 
 .method public tabClosed()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 720
     iget-object v0, p0, Landroid/widget/TabHost$IntentContentStrategy;->mLaunchedView:Landroid/view/View;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 721
     iget-object v0, p0, Landroid/widget/TabHost$IntentContentStrategy;->mLaunchedView:Landroid/view/View;
@@ -202,6 +203,6 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 723
-    :cond_b
+    :cond_0
     return-void
 .end method

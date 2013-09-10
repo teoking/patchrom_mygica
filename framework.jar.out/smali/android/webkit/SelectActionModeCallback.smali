@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 29
@@ -31,7 +31,7 @@
 .end method
 
 .method private setMenuVisibility(Landroid/view/Menu;ZI)V
-    .registers 5
+    .locals 1
     .parameter "menu"
     .parameter "visible"
     .parameter "resourceId"
@@ -44,26 +44,26 @@
 
     .line 145
     .local v0, item:Landroid/view/MenuItem;
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 146
     invoke-interface {v0, p2}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
     .line 148
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method finish()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 45
     iget-object v0, p0, Landroid/webkit/SelectActionModeCallback;->mActionMode:Landroid/view/ActionMode;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 46
     iget-object v0, p0, Landroid/webkit/SelectActionModeCallback;->mActionMode:Landroid/view/ActionMode;
@@ -71,12 +71,12 @@
     invoke-virtual {v0}, Landroid/view/ActionMode;->finish()V
 
     .line 48
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public onActionItemClicked(Landroid/view/ActionMode;Landroid/view/MenuItem;)Z
-    .registers 9
+    .locals 6
     .parameter "mode"
     .parameter "item"
 
@@ -90,14 +90,14 @@
 
     move-result v5
 
-    sparse-switch v5, :sswitch_data_84
+    sparse-switch v5, :sswitch_data_0
 
     .line 135
-    :goto_9
+    :goto_0
     return v3
 
     .line 92
-    :sswitch_a
+    :sswitch_0
     iget-object v3, p0, Landroid/webkit/SelectActionModeCallback;->mWebView:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v3}, Landroid/webkit/WebViewClassic;->cutSelection()V
@@ -105,14 +105,14 @@
     .line 93
     invoke-virtual {p1}, Landroid/view/ActionMode;->finish()V
 
-    :goto_12
+    :goto_1
     move v3, v4
 
     .line 135
-    goto :goto_9
+    goto :goto_0
 
     .line 97
-    :sswitch_14
+    :sswitch_1
     iget-object v3, p0, Landroid/webkit/SelectActionModeCallback;->mWebView:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v3}, Landroid/webkit/WebViewClassic;->copySelection()Z
@@ -120,10 +120,10 @@
     .line 98
     invoke-virtual {p1}, Landroid/view/ActionMode;->finish()V
 
-    goto :goto_12
+    goto :goto_1
 
     .line 102
-    :sswitch_1d
+    :sswitch_2
     iget-object v3, p0, Landroid/webkit/SelectActionModeCallback;->mWebView:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v3}, Landroid/webkit/WebViewClassic;->pasteFromClipboard()V
@@ -131,10 +131,10 @@
     .line 103
     invoke-virtual {p1}, Landroid/view/ActionMode;->finish()V
 
-    goto :goto_12
+    goto :goto_1
 
     .line 107
-    :sswitch_26
+    :sswitch_3
     iget-object v3, p0, Landroid/webkit/SelectActionModeCallback;->mWebView:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v3}, Landroid/webkit/WebViewClassic;->getSelection()Ljava/lang/String;
@@ -154,19 +154,19 @@
     .line 109
     invoke-virtual {p1}, Landroid/view/ActionMode;->finish()V
 
-    goto :goto_12
+    goto :goto_1
 
     .line 113
     .end local v2           #selection:Ljava/lang/String;
-    :sswitch_39
+    :sswitch_4
     iget-object v3, p0, Landroid/webkit/SelectActionModeCallback;->mWebView:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v3}, Landroid/webkit/WebViewClassic;->selectAll()V
 
-    goto :goto_12
+    goto :goto_1
 
     .line 117
-    :sswitch_3f
+    :sswitch_5
     iget-object v5, p0, Landroid/webkit/SelectActionModeCallback;->mWebView:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v5}, Landroid/webkit/WebViewClassic;->getSelection()Ljava/lang/String;
@@ -182,11 +182,11 @@
 
     invoke-virtual {v5, v1, v3}, Landroid/webkit/WebViewClassic;->showFindDialog(Ljava/lang/String;Z)Z
 
-    goto :goto_12
+    goto :goto_1
 
     .line 122
     .end local v1           #sel:Ljava/lang/String;
-    :sswitch_4e
+    :sswitch_6
     invoke-virtual {p1}, Landroid/view/ActionMode;->finish()V
 
     .line 123
@@ -222,7 +222,7 @@
 
     instance-of v3, v3, Landroid/app/Activity;
 
-    if-nez v3, :cond_79
+    if-nez v3, :cond_0
 
     .line 127
     const/high16 v3, 0x1000
@@ -230,7 +230,7 @@
     invoke-virtual {v0, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 129
-    :cond_79
+    :cond_0
     iget-object v3, p0, Landroid/webkit/SelectActionModeCallback;->mWebView:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v3}, Landroid/webkit/WebViewClassic;->getContext()Landroid/content/Context;
@@ -239,25 +239,25 @@
 
     invoke-virtual {v3, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    goto :goto_12
+    goto :goto_1
 
     .line 90
     nop
 
-    :sswitch_data_84
+    :sswitch_data_0
     .sparse-switch
-        0x1020020 -> :sswitch_a
-        0x1020021 -> :sswitch_14
-        0x1020022 -> :sswitch_1d
-        0x102039a -> :sswitch_39
-        0x102039b -> :sswitch_26
-        0x102039c -> :sswitch_3f
-        0x102039d -> :sswitch_4e
+        0x1020020 -> :sswitch_0
+        0x1020021 -> :sswitch_1
+        0x1020022 -> :sswitch_2
+        0x102039a -> :sswitch_4
+        0x102039b -> :sswitch_3
+        0x102039c -> :sswitch_5
+        0x102039d -> :sswitch_6
     .end sparse-switch
 .end method
 
 .method public onCreateActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
-    .registers 15
+    .locals 12
     .parameter "mode"
     .parameter "menu"
 
@@ -324,43 +324,43 @@
 
     .line 69
     .local v7, isEditable:Z
-    if-eqz v7, :cond_71
+    if-eqz v7, :cond_1
 
     invoke-virtual {v5}, Landroid/content/ClipboardManager;->hasPrimaryClip()Z
 
     move-result v9
 
-    if-eqz v9, :cond_71
+    if-eqz v9, :cond_1
 
-    if-eqz v8, :cond_71
+    if-eqz v8, :cond_1
 
     move v3, v10
 
     .line 70
     .local v3, canPaste:Z
-    :goto_3e
-    if-nez v7, :cond_73
+    :goto_0
+    if-nez v7, :cond_2
 
-    if-eqz v8, :cond_73
+    if-eqz v8, :cond_2
 
     move v2, v10
 
     .line 71
     .local v2, canFind:Z
-    :goto_43
-    if-eqz v7, :cond_4c
+    :goto_1
+    if-eqz v7, :cond_0
 
     iget-boolean v9, p0, Landroid/webkit/SelectActionModeCallback;->mIsTextSelected:Z
 
-    if-eqz v9, :cond_4c
+    if-eqz v9, :cond_0
 
-    if-eqz v8, :cond_4c
+    if-eqz v8, :cond_0
 
     move v1, v10
 
     .line 72
     .local v1, canCut:Z
-    :cond_4c
+    :cond_0
     iget-boolean v0, p0, Landroid/webkit/SelectActionModeCallback;->mIsTextSelected:Z
 
     .line 73
@@ -404,22 +404,22 @@
     .end local v2           #canFind:Z
     .end local v3           #canPaste:Z
     .end local v4           #canWebSearch:Z
-    :cond_71
+    :cond_1
     move v3, v1
 
     .line 69
-    goto :goto_3e
+    goto :goto_0
 
     .restart local v3       #canPaste:Z
-    :cond_73
+    :cond_2
     move v2, v1
 
     .line 70
-    goto :goto_43
+    goto :goto_1
 .end method
 
 .method public onDestroyActionMode(Landroid/view/ActionMode;)V
-    .registers 3
+    .locals 1
     .parameter "mode"
 
     .prologue
@@ -433,7 +433,7 @@
 .end method
 
 .method public onPrepareActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
-    .registers 4
+    .locals 1
     .parameter "mode"
     .parameter "menu"
 
@@ -445,7 +445,7 @@
 .end method
 
 .method setTextSelected(Z)V
-    .registers 2
+    .locals 0
     .parameter "isTextSelected"
 
     .prologue
@@ -457,7 +457,7 @@
 .end method
 
 .method setWebView(Landroid/webkit/WebViewClassic;)V
-    .registers 2
+    .locals 0
     .parameter "webView"
 
     .prologue

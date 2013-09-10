@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 28
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public clone()Landroid/graphics/drawable/shapes/Shape;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -45,7 +45,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -65,7 +65,7 @@
 .end method
 
 .method public final getHeight()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 43
@@ -75,7 +75,7 @@
 .end method
 
 .method public final getWidth()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 36
@@ -85,7 +85,7 @@
 .end method
 
 .method public hasAlpha()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 85
@@ -95,7 +95,7 @@
 .end method
 
 .method protected onResize(FF)V
-    .registers 3
+    .locals 0
     .parameter "width"
     .parameter "height"
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public final resize(FF)V
-    .registers 5
+    .locals 2
     .parameter "width"
     .parameter "height"
 
@@ -115,36 +115,36 @@
     .line 65
     cmpg-float v0, p1, v1
 
-    if-gez v0, :cond_6
+    if-gez v0, :cond_0
 
     .line 66
     const/4 p1, 0x0
 
     .line 68
-    :cond_6
+    :cond_0
     cmpg-float v0, p2, v1
 
-    if-gez v0, :cond_b
+    if-gez v0, :cond_1
 
     .line 69
     const/4 p2, 0x0
 
     .line 71
-    :cond_b
+    :cond_1
     iget v0, p0, Landroid/graphics/drawable/shapes/Shape;->mWidth:F
 
     cmpl-float v0, v0, p1
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_2
 
     iget v0, p0, Landroid/graphics/drawable/shapes/Shape;->mHeight:F
 
     cmpl-float v0, v0, p2
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_3
 
     .line 72
-    :cond_17
+    :cond_2
     iput p1, p0, Landroid/graphics/drawable/shapes/Shape;->mWidth:F
 
     .line 73
@@ -154,6 +154,6 @@
     invoke-virtual {p0, p1, p2}, Landroid/graphics/drawable/shapes/Shape;->onResize(FF)V
 
     .line 76
-    :cond_1e
+    :cond_3
     return-void
 .end method

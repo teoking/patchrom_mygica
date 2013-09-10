@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;)V
-    .registers 2
+    .locals 0
     .parameter "path"
 
     .prologue
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public isReadOnly()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60
@@ -47,21 +47,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public load()Z
-    .registers 7
+    .locals 6
 
     .prologue
     .line 91
@@ -77,16 +77,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1b
+    if-eqz v3, :cond_0
 
     invoke-virtual {v1}, Ljava/io/File;->canRead()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1b
+    if-eqz v3, :cond_0
 
     .line 95
-    :try_start_f
+    :try_start_0
     iget-object v3, p0, Landroid/gesture/GestureLibrary;->mStore:Landroid/gesture/GestureStore;
 
     new-instance v4, Ljava/io/FileInputStream;
@@ -96,20 +96,20 @@
     const/4 v5, 0x1
 
     invoke-virtual {v3, v4, v5}, Landroid/gesture/GestureStore;->load(Ljava/io/InputStream;Z)V
-    :try_end_1a
-    .catch Ljava/io/FileNotFoundException; {:try_start_f .. :try_end_1a} :catch_1c
-    .catch Ljava/io/IOException; {:try_start_f .. :try_end_1a} :catch_38
+    :try_end_0
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 96
     const/4 v2, 0x1
 
     .line 104
-    :cond_1b
-    :goto_1b
+    :cond_0
+    :goto_0
     return v2
 
     .line 97
-    :catch_1c
+    :catch_0
     move-exception v0
 
     .line 98
@@ -138,11 +138,11 @@
 
     invoke-static {v3, v4, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 99
     .end local v0           #e:Ljava/io/FileNotFoundException;
-    :catch_38
+    :catch_1
     move-exception v0
 
     .line 100
@@ -171,11 +171,11 @@
 
     invoke-static {v3, v4, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1b
+    goto :goto_0
 .end method
 
 .method public save()Z
-    .registers 8
+    .locals 7
 
     .prologue
     const/4 v3, 0x1
@@ -187,14 +187,14 @@
 
     move-result v4
 
-    if-nez v4, :cond_a
+    if-nez v4, :cond_0
 
     .line 87
-    :goto_9
+    :goto_0
     return v3
 
     .line 66
-    :cond_a
+    :cond_0
     iget-object v1, p0, Landroid/gesture/GestureLibraries$FileGestureLibrary;->mPath:Ljava/io/File;
 
     .line 68
@@ -209,27 +209,27 @@
 
     move-result v4
 
-    if-nez v4, :cond_1e
+    if-nez v4, :cond_1
 
     .line 70
     invoke-virtual {v2}, Ljava/io/File;->mkdirs()Z
 
     move-result v4
 
-    if-nez v4, :cond_1e
+    if-nez v4, :cond_1
 
     .line 71
     const/4 v3, 0x0
 
-    goto :goto_9
+    goto :goto_0
 
     .line 75
-    :cond_1e
+    :cond_1
     const/4 v3, 0x0
 
     .line 78
     .local v3, result:Z
-    :try_start_1f
+    :try_start_0
     invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
 
     .line 79
@@ -242,17 +242,17 @@
     const/4 v6, 0x1
 
     invoke-virtual {v4, v5, v6}, Landroid/gesture/GestureStore;->save(Ljava/io/OutputStream;Z)V
-    :try_end_2d
-    .catch Ljava/io/FileNotFoundException; {:try_start_1f .. :try_end_2d} :catch_2f
-    .catch Ljava/io/IOException; {:try_start_1f .. :try_end_2d} :catch_4b
+    :try_end_0
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 80
     const/4 v3, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 81
-    :catch_2f
+    :catch_0
     move-exception v0
 
     .line 82
@@ -281,11 +281,11 @@
 
     invoke-static {v4, v5, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_0
 
     .line 83
     .end local v0           #e:Ljava/io/FileNotFoundException;
-    :catch_4b
+    :catch_1
     move-exception v0
 
     .line 84
@@ -314,5 +314,5 @@
 
     invoke-static {v4, v5, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_0
 .end method

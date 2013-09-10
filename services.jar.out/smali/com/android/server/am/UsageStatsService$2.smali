@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/UsageStatsService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onPackageRemoved(Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
     .parameter "packageName"
     .parameter "uid"
 
@@ -48,9 +48,10 @@
     monitor-enter v1
 
     .line 655
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/UsageStatsService$2;->this$0:Lcom/android/server/am/UsageStatsService;
 
+    #getter for: Lcom/android/server/am/UsageStatsService;->mLastResumeTimes:Ljava/util/Map;
     invoke-static {v0}, Lcom/android/server/am/UsageStatsService;->access$300(Lcom/android/server/am/UsageStatsService;)Ljava/util/Map;
 
     move-result-object v0
@@ -64,12 +65,12 @@
     return-void
 
     .line 656
-    :catchall_10
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_12
-    .catchall {:try_start_5 .. :try_end_12} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

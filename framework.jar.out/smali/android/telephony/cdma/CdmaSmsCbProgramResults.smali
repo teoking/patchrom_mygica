@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 133
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>(III)V
-    .registers 4
+    .locals 0
     .parameter "category"
     .parameter "language"
     .parameter "categoryResult"
@@ -84,7 +84,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 128
@@ -129,7 +129,7 @@
 .end method
 
 .method public getCategory()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 97
@@ -139,7 +139,7 @@
 .end method
 
 .method public getCategoryResult()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 113
@@ -149,7 +149,7 @@
 .end method
 
 .method public getLanguage()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 105
@@ -159,7 +159,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 118
@@ -217,7 +217,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

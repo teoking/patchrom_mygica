@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 79
@@ -39,7 +39,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/accounts/AccountAuthenticatorCache$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public createFromXml(Lorg/xmlpull/v1/XmlPullParser;)Landroid/accounts/AuthenticatorDescription;
-    .registers 4
+    .locals 2
     .parameter "parser"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -79,7 +79,7 @@
 .end method
 
 .method public bridge synthetic createFromXml(Lorg/xmlpull/v1/XmlPullParser;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -98,7 +98,7 @@
 .end method
 
 .method public writeAsXml(Landroid/accounts/AuthenticatorDescription;Lorg/xmlpull/v1/XmlSerializer;)V
-    .registers 6
+    .locals 3
     .parameter "item"
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
@@ -122,7 +122,7 @@
 .end method
 
 .method public bridge synthetic writeAsXml(Ljava/lang/Object;Lorg/xmlpull/v1/XmlSerializer;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .annotation system Ldalvik/annotation/Throws;

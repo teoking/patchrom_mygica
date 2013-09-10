@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 31
@@ -78,7 +78,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 41
@@ -88,7 +88,7 @@
 .end method
 
 .method private createStackChunk([Ljava/lang/StackTraceElement;I)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 11
+    .locals 8
     .parameter "trace"
     .parameter "threadId"
 
@@ -118,8 +118,8 @@
     const/4 v3, 0x0
 
     .local v3, i$:I
-    :goto_b
-    if-ge v3, v4, :cond_41
+    :goto_0
+    if-ge v3, v4, :cond_1
 
     aget-object v2, v0, v3
 
@@ -162,7 +162,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_3c
+    if-eqz v6, :cond_0
 
     .line 156
     invoke-virtual {v2}, Ljava/lang/StackTraceElement;->getFileName()Ljava/lang/String;
@@ -178,17 +178,17 @@
     add-int/2addr v1, v6
 
     .line 157
-    :cond_3c
+    :cond_0
     add-int/lit8 v1, v1, 0x4
 
     .line 151
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 160
     .end local v2           #elem:Ljava/lang/StackTraceElement;
-    :cond_41
+    :cond_1
     invoke-static {v1}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
     move-result-object v5
@@ -212,8 +212,8 @@
 
     const/4 v3, 0x0
 
-    :goto_52
-    if-ge v3, v4, :cond_a0
+    :goto_1
+    if-ge v3, v4, :cond_3
 
     aget-object v2, v0, v3
 
@@ -259,7 +259,7 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_9c
+    if-eqz v6, :cond_2
 
     .line 170
     invoke-virtual {v2}, Ljava/lang/StackTraceElement;->getFileName()Ljava/lang/String;
@@ -280,7 +280,7 @@
     invoke-static {v5, v6}, Landroid/ddm/DdmHandleThread;->putString(Ljava/nio/ByteBuffer;Ljava/lang/String;)V
 
     .line 175
-    :goto_92
+    :goto_2
     invoke-virtual {v2}, Ljava/lang/StackTraceElement;->getLineNumber()I
 
     move-result v6
@@ -290,17 +290,17 @@
     .line 164
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_52
+    goto :goto_1
 
     .line 173
-    :cond_9c
+    :cond_2
     invoke-virtual {v5, v7}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
-    goto :goto_92
+    goto :goto_2
 
     .line 178
     .end local v2           #elem:Ljava/lang/StackTraceElement;
-    :cond_a0
+    :cond_3
     new-instance v6, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     sget v7, Landroid/ddm/DdmHandleThread;->CHUNK_STKL:I
@@ -311,7 +311,7 @@
 .end method
 
 .method private handleSTKL(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 7
+    .locals 5
     .parameter "request"
 
     .prologue
@@ -334,7 +334,7 @@
 
     .line 132
     .local v2, trace:[Ljava/lang/StackTraceElement;
-    if-nez v2, :cond_16
+    if-nez v2, :cond_0
 
     .line 133
     const/4 v3, 0x1
@@ -346,19 +346,19 @@
     move-result-object v3
 
     .line 135
-    :goto_15
+    :goto_0
     return-object v3
 
-    :cond_16
+    :cond_0
     invoke-direct {p0, v2, v1}, Landroid/ddm/DdmHandleThread;->createStackChunk([Ljava/lang/StackTraceElement;I)Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     move-result-object v3
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method private handleTHEN(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 5
+    .locals 3
     .parameter "request"
 
     .prologue
@@ -373,13 +373,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_0
 
     const/4 v0, 0x1
 
     .line 93
     .local v0, enable:Z
-    :goto_b
+    :goto_0
     invoke-static {v0}, Lorg/apache/harmony/dalvik/ddmc/DdmVmInternal;->threadNotify(Z)V
 
     .line 94
@@ -389,14 +389,14 @@
 
     .line 90
     .end local v0           #enable:Z
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method private handleTHST(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 8
+    .locals 6
     .parameter "request"
 
     .prologue
@@ -413,7 +413,7 @@
 
     .line 107
     .local v1, status:[B
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_0
 
     .line 108
     new-instance v2, Lorg/apache/harmony/dalvik/ddmc/Chunk;
@@ -427,10 +427,10 @@
     invoke-direct {v2, v3, v1, v4, v5}, Lorg/apache/harmony/dalvik/ddmc/Chunk;-><init>(I[BII)V
 
     .line 110
-    :goto_13
+    :goto_0
     return-object v2
 
-    :cond_14
+    :cond_0
     const/4 v2, 0x1
 
     const-string v3, "Can\'t build THST chunk"
@@ -439,11 +439,11 @@
 
     move-result-object v2
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public static register()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 47
@@ -474,7 +474,7 @@
 
 # virtual methods
 .method public connected()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 56
@@ -482,7 +482,7 @@
 .end method
 
 .method public disconnected()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 62
@@ -490,7 +490,7 @@
 .end method
 
 .method public handleChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 6
+    .locals 4
     .parameter "request"
 
     .prologue
@@ -501,7 +501,7 @@
     .local v0, type:I
     sget v1, Landroid/ddm/DdmHandleThread;->CHUNK_THEN:I
 
-    if-ne v0, v1, :cond_b
+    if-ne v0, v1, :cond_0
 
     .line 73
     invoke-direct {p0, p1}, Landroid/ddm/DdmHandleThread;->handleTHEN(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
@@ -509,37 +509,37 @@
     move-result-object v1
 
     .line 77
-    :goto_a
+    :goto_0
     return-object v1
 
     .line 74
-    :cond_b
+    :cond_0
     sget v1, Landroid/ddm/DdmHandleThread;->CHUNK_THST:I
 
-    if-ne v0, v1, :cond_14
+    if-ne v0, v1, :cond_1
 
     .line 75
     invoke-direct {p0, p1}, Landroid/ddm/DdmHandleThread;->handleTHST(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     move-result-object v1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 76
-    :cond_14
+    :cond_1
     sget v1, Landroid/ddm/DdmHandleThread;->CHUNK_STKL:I
 
-    if-ne v0, v1, :cond_1d
+    if-ne v0, v1, :cond_2
 
     .line 77
     invoke-direct {p0, p1}, Landroid/ddm/DdmHandleThread;->handleSTKL(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     move-result-object v1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 79
-    :cond_1d
+    :cond_2
     new-instance v1, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;

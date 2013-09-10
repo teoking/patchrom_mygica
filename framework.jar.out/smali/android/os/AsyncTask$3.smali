@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/AsyncTask;Ljava/util/concurrent/Callable;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method protected done()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 295
@@ -57,18 +57,19 @@
 
     move-result-object v2
 
+    #calls: Landroid/os/AsyncTask;->postResultIfNotInvoked(Ljava/lang/Object;)V
     invoke-static {v1, v2}, Landroid/os/AsyncTask;->access$500(Landroid/os/AsyncTask;Ljava/lang/Object;)V
-    :try_end_9
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_9} :catch_a
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_9} :catch_11
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_9} :catch_1e
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_2
 
     .line 304
-    :goto_9
+    :goto_0
     return-void
 
     .line 296
-    :catch_a
+    :catch_0
     move-exception v0
 
     .line 297
@@ -77,11 +78,11 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_0
 
     .line 298
     .end local v0           #e:Ljava/lang/InterruptedException;
-    :catch_11
+    :catch_1
     move-exception v0
 
     .line 299
@@ -100,7 +101,7 @@
 
     .line 301
     .end local v0           #e:Ljava/util/concurrent/ExecutionException;
-    :catch_1e
+    :catch_2
     move-exception v0
 
     .line 302
@@ -109,7 +110,8 @@
 
     const/4 v2, 0x0
 
+    #calls: Landroid/os/AsyncTask;->postResultIfNotInvoked(Ljava/lang/Object;)V
     invoke-static {v1, v2}, Landroid/os/AsyncTask;->access$500(Landroid/os/AsyncTask;Ljava/lang/Object;)V
 
-    goto :goto_9
+    goto :goto_0
 .end method

@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;Landroid/renderscript/Element;)V
-    .registers 4
+    .locals 1
     .parameter "rs"
     .parameter "e"
 
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public create()Landroid/renderscript/Type;
-    .registers 10
+    .locals 9
 
     .prologue
     const/4 v1, 0x1
@@ -69,19 +69,19 @@
     .line 264
     iget v0, p0, Landroid/renderscript/Type$Builder;->mDimZ:I
 
-    if-lez v0, :cond_21
+    if-lez v0, :cond_2
 
     .line 265
     iget v0, p0, Landroid/renderscript/Type$Builder;->mDimX:I
 
-    if-lt v0, v1, :cond_d
+    if-lt v0, v1, :cond_0
 
     iget v0, p0, Landroid/renderscript/Type$Builder;->mDimY:I
 
-    if-ge v0, v1, :cond_15
+    if-ge v0, v1, :cond_1
 
     .line 266
-    :cond_d
+    :cond_0
     new-instance v0, Landroid/renderscript/RSInvalidStateException;
 
     const-string v1, "Both X and Y dimension required when Z is present."
@@ -91,10 +91,10 @@
     throw v0
 
     .line 268
-    :cond_15
+    :cond_1
     iget-boolean v0, p0, Landroid/renderscript/Type$Builder;->mDimFaces:Z
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_2
 
     .line 269
     new-instance v0, Landroid/renderscript/RSInvalidStateException;
@@ -106,15 +106,15 @@
     throw v0
 
     .line 272
-    :cond_21
+    :cond_2
     iget v0, p0, Landroid/renderscript/Type$Builder;->mDimY:I
 
-    if-lez v0, :cond_31
+    if-lez v0, :cond_3
 
     .line 273
     iget v0, p0, Landroid/renderscript/Type$Builder;->mDimX:I
 
-    if-ge v0, v1, :cond_31
+    if-ge v0, v1, :cond_3
 
     .line 274
     new-instance v0, Landroid/renderscript/RSInvalidStateException;
@@ -126,15 +126,15 @@
     throw v0
 
     .line 277
-    :cond_31
+    :cond_3
     iget-boolean v0, p0, Landroid/renderscript/Type$Builder;->mDimFaces:Z
 
-    if-eqz v0, :cond_41
+    if-eqz v0, :cond_4
 
     .line 278
     iget v0, p0, Landroid/renderscript/Type$Builder;->mDimY:I
 
-    if-ge v0, v1, :cond_41
+    if-ge v0, v1, :cond_4
 
     .line 279
     new-instance v0, Landroid/renderscript/RSInvalidStateException;
@@ -146,7 +146,7 @@
     throw v0
 
     .line 283
-    :cond_41
+    :cond_4
     iget-object v0, p0, Landroid/renderscript/Type$Builder;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v1, p0, Landroid/renderscript/Type$Builder;->mElement:Landroid/renderscript/Element;
@@ -218,7 +218,7 @@
 .end method
 
 .method public setFaces(Z)Landroid/renderscript/Type$Builder;
-    .registers 2
+    .locals 0
     .parameter "value"
 
     .prologue
@@ -230,7 +230,7 @@
 .end method
 
 .method public setMipmaps(Z)Landroid/renderscript/Type$Builder;
-    .registers 2
+    .locals 0
     .parameter "value"
 
     .prologue
@@ -242,14 +242,14 @@
 .end method
 
 .method public setX(I)Landroid/renderscript/Type$Builder;
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
     .line 232
     const/4 v0, 0x1
 
-    if-ge p1, v0, :cond_b
+    if-ge p1, v0, :cond_0
 
     .line 233
     new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
@@ -261,7 +261,7 @@
     throw v0
 
     .line 235
-    :cond_b
+    :cond_0
     iput p1, p0, Landroid/renderscript/Type$Builder;->mDimX:I
 
     .line 236
@@ -269,14 +269,14 @@
 .end method
 
 .method public setY(I)Landroid/renderscript/Type$Builder;
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
     .line 240
     const/4 v0, 0x1
 
-    if-ge p1, v0, :cond_b
+    if-ge p1, v0, :cond_0
 
     .line 241
     new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
@@ -288,7 +288,7 @@
     throw v0
 
     .line 243
-    :cond_b
+    :cond_0
     iput p1, p0, Landroid/renderscript/Type$Builder;->mDimY:I
 
     .line 244

@@ -33,7 +33,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/RelativeLayout;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -46,7 +46,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/RelativeLayout;Landroid/widget/RelativeLayout$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public compare(Landroid/view/View;Landroid/view/View;)I
-    .registers 9
+    .locals 6
     .parameter "first"
     .parameter "second"
 
@@ -78,16 +78,16 @@
 
     .line 1022
     .local v2, topDifference:I
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_0
 
     .line 1040
     .end local v2           #topDifference:I
-    :goto_c
+    :goto_0
     return v2
 
     .line 1026
     .restart local v2       #topDifference:I
-    :cond_d
+    :cond_0
     invoke-virtual {p1}, Landroid/view/View;->getLeft()I
 
     move-result v4
@@ -100,15 +100,15 @@
 
     .line 1027
     .local v1, leftDifference:I
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_1
 
     move v2, v1
 
     .line 1028
-    goto :goto_c
+    goto :goto_0
 
     .line 1031
-    :cond_1b
+    :cond_1
     invoke-virtual {p1}, Landroid/view/View;->getHeight()I
 
     move-result v4
@@ -121,15 +121,15 @@
 
     .line 1032
     .local v0, heightDiference:I
-    if-eqz v0, :cond_29
+    if-eqz v0, :cond_2
 
     move v2, v0
 
     .line 1033
-    goto :goto_c
+    goto :goto_0
 
     .line 1036
-    :cond_29
+    :cond_2
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
 
     move-result v4
@@ -142,22 +142,22 @@
 
     .line 1037
     .local v3, widthDiference:I
-    if-eqz v3, :cond_37
+    if-eqz v3, :cond_3
 
     move v2, v3
 
     .line 1038
-    goto :goto_c
+    goto :goto_0
 
     .line 1040
-    :cond_37
+    :cond_3
     const/4 v2, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 

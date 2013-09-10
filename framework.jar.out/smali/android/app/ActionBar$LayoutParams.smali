@@ -74,7 +74,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 4
+    .locals 2
     .parameter "gravity"
 
     .prologue
@@ -90,7 +90,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .registers 4
+    .locals 1
     .parameter "width"
     .parameter "height"
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public constructor <init>(III)V
-    .registers 5
+    .locals 1
     .parameter "width"
     .parameter "height"
     .parameter "gravity"
@@ -135,7 +135,7 @@
 .end method
 
 .method public constructor <init>(Landroid/app/ActionBar$LayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -157,7 +157,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 6
+    .locals 3
     .parameter "c"
     .parameter "attrs"
 
@@ -195,7 +195,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue

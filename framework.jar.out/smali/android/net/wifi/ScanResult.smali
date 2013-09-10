@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 99
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
-    .registers 6
+    .locals 0
     .parameter "SSID"
     .parameter "BSSID"
     .parameter "caps"
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 86
@@ -90,7 +90,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 67
@@ -112,11 +112,11 @@
 
     iget-object v2, p0, Landroid/net/wifi/ScanResult;->SSID:Ljava/lang/String;
 
-    if-nez v2, :cond_4f
+    if-nez v2, :cond_0
 
     move-object v2, v0
 
-    :goto_12
+    :goto_0
     invoke-virtual {v3, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     move-result-object v2
@@ -129,11 +129,11 @@
 
     iget-object v2, p0, Landroid/net/wifi/ScanResult;->BSSID:Ljava/lang/String;
 
-    if-nez v2, :cond_52
+    if-nez v2, :cond_1
 
     move-object v2, v0
 
-    :goto_21
+    :goto_1
     invoke-virtual {v3, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     move-result-object v2
@@ -146,10 +146,10 @@
 
     iget-object v3, p0, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
 
-    if-nez v3, :cond_55
+    if-nez v3, :cond_2
 
     .end local v0           #none:Ljava/lang/String;
-    :goto_2f
+    :goto_2
     invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     move-result-object v2
@@ -185,24 +185,24 @@
 
     .line 70
     .restart local v0       #none:Ljava/lang/String;
-    :cond_4f
+    :cond_0
     iget-object v2, p0, Landroid/net/wifi/ScanResult;->SSID:Ljava/lang/String;
 
-    goto :goto_12
+    goto :goto_0
 
-    :cond_52
+    :cond_1
     iget-object v2, p0, Landroid/net/wifi/ScanResult;->BSSID:Ljava/lang/String;
 
-    goto :goto_21
+    goto :goto_1
 
-    :cond_55
+    :cond_2
     iget-object v0, p0, Landroid/net/wifi/ScanResult;->capabilities:Ljava/lang/String;
 
-    goto :goto_2f
+    goto :goto_2
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

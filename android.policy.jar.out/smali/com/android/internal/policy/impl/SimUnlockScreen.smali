@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 73
@@ -62,13 +62,13 @@
 
     new-array v0, v0, [C
 
-    fill-array-data v0, :array_a
+    fill-array-data v0, :array_0
 
     sput-object v0, Lcom/android/internal/policy/impl/SimUnlockScreen;->DIGITS:[C
 
     return-void
 
-    :array_a
+    :array_0
     .array-data 0x2
         0x30t 0x0t
         0x31t 0x0t
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/content/res/Configuration;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Lcom/android/internal/policy/impl/KeyguardScreenCallback;Lcom/android/internal/widget/LockPatternUtils;)V
-    .registers 15
+    .locals 9
     .parameter "context"
     .parameter "configuration"
     .parameter "updateMonitor"
@@ -106,7 +106,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_a4
+    fill-array-data v0, :array_0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mEnteredPin:[I
 
@@ -144,7 +144,7 @@
     .local v6, inflater:Landroid/view/LayoutInflater;
     iget v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mKeyboardHidden:I
 
-    if-ne v0, v8, :cond_98
+    if-ne v0, v8, :cond_0
 
     .line 88
     const v0, 0x1090052
@@ -152,7 +152,7 @@
     invoke-virtual {v6, v0, p0, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     .line 94
-    :goto_2f
+    :goto_0
     const v0, 0x10202e3
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/SimUnlockScreen;->findViewById(I)Landroid/view/View;
@@ -267,7 +267,7 @@
 
     .line 90
     .end local v7           #pm:Landroid/os/PowerManager;
-    :cond_98
+    :cond_0
     const v0, 0x1090053
 
     invoke-virtual {v6, v0, p0, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
@@ -277,10 +277,10 @@
 
     invoke-direct {v0, p0, v1}, Lcom/android/internal/policy/impl/SimUnlockScreen$TouchInput;-><init>(Lcom/android/internal/policy/impl/SimUnlockScreen;Lcom/android/internal/policy/impl/SimUnlockScreen$1;)V
 
-    goto :goto_2f
+    goto :goto_0
 
     .line 60
-    :array_a4
+    :array_0
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
@@ -294,7 +294,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/internal/policy/impl/SimUnlockScreen;)Landroid/app/ProgressDialog;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -305,7 +305,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/internal/policy/impl/SimUnlockScreen;)Landroid/os/PowerManager$WakeLock;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -316,7 +316,7 @@
 .end method
 
 .method static synthetic access$202(Lcom/android/internal/policy/impl/SimUnlockScreen;Landroid/os/PowerManager$WakeLock;)Landroid/os/PowerManager$WakeLock;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -328,7 +328,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/internal/policy/impl/SimUnlockScreen;)Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -339,7 +339,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/android/internal/policy/impl/SimUnlockScreen;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -350,7 +350,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/android/internal/policy/impl/SimUnlockScreen;)Landroid/widget/TextView;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -361,7 +361,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/android/internal/policy/impl/SimUnlockScreen;)Landroid/widget/TextView;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -372,7 +372,7 @@
 .end method
 
 .method static synthetic access$702(Lcom/android/internal/policy/impl/SimUnlockScreen;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -384,7 +384,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/android/internal/policy/impl/SimUnlockScreen;I)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -396,7 +396,7 @@
 .end method
 
 .method private checkPin()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 214
@@ -404,7 +404,7 @@
 
     const/4 v1, 0x4
 
-    if-ge v0, v1, :cond_1d
+    if-ge v0, v1, :cond_0
 
     .line 216
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mHeaderText:Landroid/widget/TextView;
@@ -431,11 +431,11 @@
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
     .line 250
-    :goto_1c
+    :goto_0
     return-void
 
     .line 222
-    :cond_1d
+    :cond_0
     invoke-direct {p0}, Lcom/android/internal/policy/impl/SimUnlockScreen;->getSimUnlockProgressDialog()Landroid/app/Dialog;
 
     move-result-object v0
@@ -459,17 +459,17 @@
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/SimUnlockScreen$1;->start()V
 
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 .method private getSimUnlockProgressDialog()Landroid/app/Dialog;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 199
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
-    if-nez v0, :cond_32
+    if-nez v0, :cond_0
 
     .line 200
     new-instance v0, Landroid/app/ProgressDialog;
@@ -519,21 +519,21 @@
     invoke-virtual {v0, v1}, Landroid/view/Window;->setType(I)V
 
     .line 208
-    :cond_32
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
     return-object v0
 .end method
 
 .method private reportDigit(I)V
-    .registers 5
+    .locals 3
     .parameter "digit"
 
     .prologue
     .line 281
     iget v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mEnteredDigits:I
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 282
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mPinText:Landroid/widget/TextView;
@@ -543,19 +543,19 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 284
-    :cond_b
+    :cond_0
     iget v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mEnteredDigits:I
 
     const/16 v1, 0x8
 
-    if-ne v0, v1, :cond_12
+    if-ne v0, v1, :cond_1
 
     .line 289
-    :goto_11
+    :goto_0
     return-void
 
     .line 287
-    :cond_12
+    :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mPinText:Landroid/widget/TextView;
 
     invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
@@ -575,19 +575,19 @@
 
     aput p1, v0, v1
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public cleanUp()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 142
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 143
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
@@ -600,7 +600,7 @@
     iput-object v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
 
     .line 146
-    :cond_c
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     invoke-virtual {v0, p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->removeCallback(Ljava/lang/Object;)V
@@ -610,7 +610,7 @@
 .end method
 
 .method public needsInput()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 118
@@ -620,7 +620,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 302
@@ -634,14 +634,14 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .registers 5
+    .locals 3
     .parameter "v"
 
     .prologue
     .line 185
     iget-object v2, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mBackSpaceButton:Landroid/view/View;
 
-    if-ne p1, v2, :cond_21
+    if-ne p1, v2, :cond_2
 
     .line 186
     iget-object v2, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mPinText:Landroid/widget/TextView;
@@ -658,7 +658,7 @@
 
     .line 188
     .local v1, len:I
-    if-lez v1, :cond_1b
+    if-lez v1, :cond_0
 
     .line 189
     add-int/lit8 v2, v1, -0x1
@@ -673,7 +673,7 @@
     iput v2, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mEnteredDigits:I
 
     .line 192
-    :cond_1b
+    :cond_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v2}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
@@ -681,24 +681,24 @@
     .line 196
     .end local v0           #digits:Landroid/text/Editable;
     .end local v1           #len:I
-    :cond_20
-    :goto_20
+    :cond_1
+    :goto_0
     return-void
 
     .line 193
-    :cond_21
+    :cond_2
     iget-object v2, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mOkButton:Landroid/widget/TextView;
 
-    if-ne p1, v2, :cond_20
+    if-ne p1, v2, :cond_1
 
     .line 194
     invoke-direct {p0}, Lcom/android/internal/policy/impl/SimUnlockScreen;->checkPin()V
 
-    goto :goto_20
+    goto :goto_0
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .registers 2
+    .locals 0
     .parameter "newConfig"
 
     .prologue
@@ -713,7 +713,7 @@
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .registers 6
+    .locals 3
     .parameter "keyCode"
     .parameter "event"
 
@@ -723,7 +723,7 @@
     .line 254
     const/4 v2, 0x4
 
-    if-ne p1, v2, :cond_a
+    if-ne p1, v2, :cond_1
 
     .line 255
     iget-object v2, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -731,12 +731,12 @@
     invoke-interface {v2}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->goToLockScreen()V
 
     .line 277
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return v1
 
     .line 259
-    :cond_a
+    :cond_1
     sget-object v2, Lcom/android/internal/policy/impl/SimUnlockScreen;->DIGITS:[C
 
     invoke-virtual {p2, v2}, Landroid/view/KeyEvent;->getMatch([C)C
@@ -745,25 +745,25 @@
 
     .line 260
     .local v0, match:C
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_2
 
     .line 261
     add-int/lit8 v2, v0, -0x30
 
     invoke-direct {p0, v2}, Lcom/android/internal/policy/impl/SimUnlockScreen;->reportDigit(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 264
-    :cond_18
+    :cond_2
     const/16 v2, 0x43
 
-    if-ne p1, v2, :cond_2c
+    if-ne p1, v2, :cond_3
 
     .line 265
     iget v2, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mEnteredDigits:I
 
-    if-lez v2, :cond_9
+    if-lez v2, :cond_0
 
     .line 266
     iget-object v2, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mPinText:Landroid/widget/TextView;
@@ -777,28 +777,28 @@
 
     iput v2, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mEnteredDigits:I
 
-    goto :goto_9
+    goto :goto_0
 
     .line 272
-    :cond_2c
+    :cond_3
     const/16 v2, 0x42
 
-    if-ne p1, v2, :cond_34
+    if-ne p1, v2, :cond_4
 
     .line 273
     invoke-direct {p0}, Lcom/android/internal/policy/impl/SimUnlockScreen;->checkPin()V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 277
-    :cond_34
+    :cond_4
     const/4 v1, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public onPause()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 123
@@ -811,7 +811,7 @@
 .end method
 
 .method public onResume()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 129
@@ -843,7 +843,7 @@
 .end method
 
 .method updateConfiguration()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 292
@@ -861,7 +861,7 @@
 
     iget v2, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mCreationOrientation:I
 
-    if-eq v1, v2, :cond_14
+    if-eq v1, v2, :cond_1
 
     .line 294
     iget-object v1, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -869,22 +869,22 @@
     invoke-interface {v1, v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->recreateMe(Landroid/content/res/Configuration;)V
 
     .line 298
-    :cond_13
-    :goto_13
+    :cond_0
+    :goto_0
     return-void
 
     .line 295
-    :cond_14
+    :cond_1
     iget v1, v0, Landroid/content/res/Configuration;->hardKeyboardHidden:I
 
     iget v2, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mKeyboardHidden:I
 
-    if-eq v1, v2, :cond_13
+    if-eq v1, v2, :cond_0
 
     .line 296
     iget v1, v0, Landroid/content/res/Configuration;->hardKeyboardHidden:I
 
     iput v1, p0, Lcom/android/internal/policy/impl/SimUnlockScreen;->mKeyboardHidden:I
 
-    goto :goto_13
+    goto :goto_0
 .end method

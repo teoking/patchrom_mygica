@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 41
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 230
@@ -73,7 +73,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/Matrix;)V
-    .registers 3
+    .locals 1
     .parameter "src"
 
     .prologue
@@ -81,11 +81,11 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 239
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_0
 
     iget v0, p1, Landroid/graphics/Matrix;->native_instance:I
 
-    :goto_7
+    :goto_0
     invoke-static {v0}, Landroid/graphics/Matrix;->native_create(I)I
 
     move-result v0
@@ -96,14 +96,14 @@
     return-void
 
     .line 239
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method private static checkPointArrays([FI[FII)V
-    .registers 8
+    .locals 3
     .parameter "src"
     .parameter "srcIndex"
     .parameter "dst"
@@ -132,18 +132,18 @@
 
     or-int/2addr v2, v0
 
-    if-ltz v2, :cond_15
+    if-ltz v2, :cond_0
 
     array-length v2, p0
 
-    if-gt v1, v2, :cond_15
+    if-gt v1, v2, :cond_0
 
     array-length v2, p2
 
-    if-le v0, v2, :cond_1b
+    if-le v0, v2, :cond_1
 
     .line 548
-    :cond_15
+    :cond_0
     new-instance v2, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     invoke-direct {v2}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>()V
@@ -151,7 +151,7 @@
     throw v2
 
     .line 550
-    :cond_1b
+    :cond_1
     return-void
 .end method
 
@@ -281,16 +281,16 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 4
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 274
-    if-eqz p1, :cond_14
+    if-eqz p1, :cond_0
 
     instance-of v0, p1, Landroid/graphics/Matrix;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     iget v0, p0, Landroid/graphics/Matrix;->native_instance:I
 
@@ -303,21 +303,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_13
+    :goto_0
     return v0
 
-    :cond_14
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -335,7 +335,7 @@
 .end method
 
 .method public getValues([F)V
-    .registers 4
+    .locals 2
     .parameter "values"
 
     .prologue
@@ -344,7 +344,7 @@
 
     const/16 v1, 0x9
 
-    if-ge v0, v1, :cond_b
+    if-ge v0, v1, :cond_0
 
     .line 721
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
@@ -354,7 +354,7 @@
     throw v0
 
     .line 723
-    :cond_b
+    :cond_0
     iget v0, p0, Landroid/graphics/Matrix;->native_instance:I
 
     invoke-static {v0, p1}, Landroid/graphics/Matrix;->native_getValues(I[F)V
@@ -364,7 +364,7 @@
 .end method
 
 .method public invert(Landroid/graphics/Matrix;)Z
-    .registers 4
+    .locals 2
     .parameter "inverse"
 
     .prologue
@@ -381,7 +381,7 @@
 .end method
 
 .method public isIdentity()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 247
@@ -395,7 +395,7 @@
 .end method
 
 .method public mapPoints([F)V
-    .registers 8
+    .locals 6
     .parameter "pts"
 
     .prologue
@@ -421,7 +421,7 @@
 .end method
 
 .method public mapPoints([FI[FII)V
-    .registers 13
+    .locals 7
     .parameter "dst"
     .parameter "dstIndex"
     .parameter "src"
@@ -454,7 +454,7 @@
 .end method
 
 .method public mapPoints([F[F)V
-    .registers 9
+    .locals 6
     .parameter "dst"
     .parameter "src"
 
@@ -466,7 +466,7 @@
 
     array-length v1, p2
 
-    if-eq v0, v1, :cond_b
+    if-eq v0, v1, :cond_0
 
     .line 634
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
@@ -476,7 +476,7 @@
     throw v0
 
     .line 636
-    :cond_b
+    :cond_0
     array-length v0, p1
 
     shr-int/lit8 v5, v0, 0x1
@@ -496,7 +496,7 @@
 .end method
 
 .method public mapRadius(F)F
-    .registers 3
+    .locals 1
     .parameter "radius"
 
     .prologue
@@ -511,7 +511,7 @@
 .end method
 
 .method public mapRect(Landroid/graphics/RectF;)Z
-    .registers 3
+    .locals 1
     .parameter "rect"
 
     .prologue
@@ -524,18 +524,18 @@
 .end method
 
 .method public mapRect(Landroid/graphics/RectF;Landroid/graphics/RectF;)Z
-    .registers 4
+    .locals 1
     .parameter "dst"
     .parameter "src"
 
     .prologue
     .line 690
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_0
 
-    if-nez p2, :cond_a
+    if-nez p2, :cond_1
 
     .line 691
-    :cond_4
+    :cond_0
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
@@ -543,7 +543,7 @@
     throw v0
 
     .line 693
-    :cond_a
+    :cond_1
     iget v0, p0, Landroid/graphics/Matrix;->native_instance:I
 
     invoke-static {v0, p1, p2}, Landroid/graphics/Matrix;->native_mapRect(ILandroid/graphics/RectF;Landroid/graphics/RectF;)Z
@@ -554,7 +554,7 @@
 .end method
 
 .method public mapVectors([F)V
-    .registers 8
+    .locals 6
     .parameter "vecs"
 
     .prologue
@@ -580,7 +580,7 @@
 .end method
 
 .method public mapVectors([FI[FII)V
-    .registers 13
+    .locals 7
     .parameter "dst"
     .parameter "dstIndex"
     .parameter "src"
@@ -613,7 +613,7 @@
 .end method
 
 .method public mapVectors([F[F)V
-    .registers 9
+    .locals 6
     .parameter "dst"
     .parameter "src"
 
@@ -625,7 +625,7 @@
 
     array-length v1, p2
 
-    if-eq v0, v1, :cond_b
+    if-eq v0, v1, :cond_0
 
     .line 652
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
@@ -635,7 +635,7 @@
     throw v0
 
     .line 654
-    :cond_b
+    :cond_0
     array-length v0, p1
 
     shr-int/lit8 v5, v0, 0x1
@@ -655,7 +655,7 @@
 .end method
 
 .method final ni()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 791
@@ -665,7 +665,7 @@
 .end method
 
 .method public postConcat(Landroid/graphics/Matrix;)Z
-    .registers 4
+    .locals 2
     .parameter "other"
 
     .prologue
@@ -682,7 +682,7 @@
 .end method
 
 .method public postRotate(F)Z
-    .registers 3
+    .locals 1
     .parameter "degrees"
 
     .prologue
@@ -697,7 +697,7 @@
 .end method
 
 .method public postRotate(FFF)Z
-    .registers 5
+    .locals 1
     .parameter "degrees"
     .parameter "px"
     .parameter "py"
@@ -714,7 +714,7 @@
 .end method
 
 .method public postScale(FF)Z
-    .registers 4
+    .locals 1
     .parameter "sx"
     .parameter "sy"
 
@@ -730,7 +730,7 @@
 .end method
 
 .method public postScale(FFFF)Z
-    .registers 6
+    .locals 1
     .parameter "sx"
     .parameter "sy"
     .parameter "px"
@@ -748,7 +748,7 @@
 .end method
 
 .method public postSkew(FF)Z
-    .registers 4
+    .locals 1
     .parameter "kx"
     .parameter "ky"
 
@@ -764,7 +764,7 @@
 .end method
 
 .method public postSkew(FFFF)Z
-    .registers 6
+    .locals 1
     .parameter "kx"
     .parameter "ky"
     .parameter "px"
@@ -782,7 +782,7 @@
 .end method
 
 .method public postTranslate(FF)Z
-    .registers 4
+    .locals 1
     .parameter "dx"
     .parameter "dy"
 
@@ -798,7 +798,7 @@
 .end method
 
 .method public preConcat(Landroid/graphics/Matrix;)Z
-    .registers 4
+    .locals 2
     .parameter "other"
 
     .prologue
@@ -815,7 +815,7 @@
 .end method
 
 .method public preRotate(F)Z
-    .registers 3
+    .locals 1
     .parameter "degrees"
 
     .prologue
@@ -830,7 +830,7 @@
 .end method
 
 .method public preRotate(FFF)Z
-    .registers 5
+    .locals 1
     .parameter "degrees"
     .parameter "px"
     .parameter "py"
@@ -847,7 +847,7 @@
 .end method
 
 .method public preScale(FF)Z
-    .registers 4
+    .locals 1
     .parameter "sx"
     .parameter "sy"
 
@@ -863,7 +863,7 @@
 .end method
 
 .method public preScale(FFFF)Z
-    .registers 6
+    .locals 1
     .parameter "sx"
     .parameter "sy"
     .parameter "px"
@@ -881,7 +881,7 @@
 .end method
 
 .method public preSkew(FF)Z
-    .registers 4
+    .locals 1
     .parameter "kx"
     .parameter "ky"
 
@@ -897,7 +897,7 @@
 .end method
 
 .method public preSkew(FFFF)Z
-    .registers 6
+    .locals 1
     .parameter "kx"
     .parameter "ky"
     .parameter "px"
@@ -915,7 +915,7 @@
 .end method
 
 .method public preTranslate(FF)Z
-    .registers 4
+    .locals 1
     .parameter "dx"
     .parameter "dy"
 
@@ -931,7 +931,7 @@
 .end method
 
 .method public printShortString(Ljava/io/PrintWriter;)V
-    .registers 4
+    .locals 2
     .parameter "pw"
 
     .prologue
@@ -1050,7 +1050,7 @@
 .end method
 
 .method public rectStaysRect()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 256
@@ -1064,7 +1064,7 @@
 .end method
 
 .method public reset()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 281
@@ -1077,33 +1077,33 @@
 .end method
 
 .method public set(Landroid/graphics/Matrix;)V
-    .registers 4
+    .locals 2
     .parameter "src"
 
     .prologue
     .line 264
-    if-nez p1, :cond_6
+    if-nez p1, :cond_0
 
     .line 265
     invoke-virtual {p0}, Landroid/graphics/Matrix;->reset()V
 
     .line 269
-    :goto_5
+    :goto_0
     return-void
 
     .line 267
-    :cond_6
+    :cond_0
     iget v0, p0, Landroid/graphics/Matrix;->native_instance:I
 
     iget v1, p1, Landroid/graphics/Matrix;->native_instance:I
 
     invoke-static {v0, v1}, Landroid/graphics/Matrix;->native_set(II)V
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public setConcat(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z
-    .registers 6
+    .locals 3
     .parameter "a"
     .parameter "b"
 
@@ -1123,7 +1123,7 @@
 .end method
 
 .method public setPolyToPoly([FI[FII)Z
-    .registers 12
+    .locals 6
     .parameter "src"
     .parameter "srcIndex"
     .parameter "dst"
@@ -1134,7 +1134,7 @@
     .line 567
     const/4 v0, 0x4
 
-    if-le p5, v0, :cond_9
+    if-le p5, v0, :cond_0
 
     .line 568
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1144,7 +1144,7 @@
     throw v0
 
     .line 570
-    :cond_9
+    :cond_0
     invoke-static {p1, p2, p3, p4, p5}, Landroid/graphics/Matrix;->checkPointArrays([FI[FII)V
 
     .line 571
@@ -1168,19 +1168,19 @@
 .end method
 
 .method public setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z
-    .registers 6
+    .locals 2
     .parameter "src"
     .parameter "dst"
     .parameter "stf"
 
     .prologue
     .line 533
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_0
 
-    if-nez p1, :cond_a
+    if-nez p1, :cond_1
 
     .line 534
-    :cond_4
+    :cond_0
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
@@ -1188,7 +1188,7 @@
     throw v0
 
     .line 536
-    :cond_a
+    :cond_1
     iget v0, p0, Landroid/graphics/Matrix;->native_instance:I
 
     iget v1, p3, Landroid/graphics/Matrix$ScaleToFit;->nativeInt:I
@@ -1201,7 +1201,7 @@
 .end method
 
 .method public setRotate(F)V
-    .registers 3
+    .locals 1
     .parameter "degrees"
 
     .prologue
@@ -1215,7 +1215,7 @@
 .end method
 
 .method public setRotate(FFF)V
-    .registers 5
+    .locals 1
     .parameter "degrees"
     .parameter "px"
     .parameter "py"
@@ -1231,7 +1231,7 @@
 .end method
 
 .method public setScale(FF)V
-    .registers 4
+    .locals 1
     .parameter "sx"
     .parameter "sy"
 
@@ -1246,7 +1246,7 @@
 .end method
 
 .method public setScale(FFFF)V
-    .registers 6
+    .locals 1
     .parameter "sx"
     .parameter "sy"
     .parameter "px"
@@ -1263,7 +1263,7 @@
 .end method
 
 .method public setSinCos(FF)V
-    .registers 4
+    .locals 1
     .parameter "sinValue"
     .parameter "cosValue"
 
@@ -1278,7 +1278,7 @@
 .end method
 
 .method public setSinCos(FFFF)V
-    .registers 6
+    .locals 1
     .parameter "sinValue"
     .parameter "cosValue"
     .parameter "px"
@@ -1295,7 +1295,7 @@
 .end method
 
 .method public setSkew(FF)V
-    .registers 4
+    .locals 1
     .parameter "kx"
     .parameter "ky"
 
@@ -1310,7 +1310,7 @@
 .end method
 
 .method public setSkew(FFFF)V
-    .registers 6
+    .locals 1
     .parameter "kx"
     .parameter "ky"
     .parameter "px"
@@ -1327,7 +1327,7 @@
 .end method
 
 .method public setTranslate(FF)V
-    .registers 4
+    .locals 1
     .parameter "dx"
     .parameter "dy"
 
@@ -1342,7 +1342,7 @@
 .end method
 
 .method public setValues([F)V
-    .registers 4
+    .locals 2
     .parameter "values"
 
     .prologue
@@ -1351,7 +1351,7 @@
 
     const/16 v1, 0x9
 
-    if-ge v0, v1, :cond_b
+    if-ge v0, v1, :cond_0
 
     .line 734
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
@@ -1361,7 +1361,7 @@
     throw v0
 
     .line 736
-    :cond_b
+    :cond_0
     iget v0, p0, Landroid/graphics/Matrix;->native_instance:I
 
     invoke-static {v0, p1}, Landroid/graphics/Matrix;->native_setValues(I[F)V
@@ -1371,7 +1371,7 @@
 .end method
 
 .method public toShortString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 749
@@ -1394,7 +1394,7 @@
 .end method
 
 .method public toShortString(Ljava/lang/StringBuilder;)V
-    .registers 4
+    .locals 2
     .parameter "sb"
 
     .prologue
@@ -1513,7 +1513,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 740

@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 155
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public onClickHandler(Landroid/view/View;Landroid/app/PendingIntent;Landroid/content/Intent;)Z
-    .registers 14
+    .locals 10
     .parameter "view"
     .parameter "pendingIntent"
     .parameter "fillInIntent"
@@ -37,7 +37,7 @@
     const/4 v9, 0x0
 
     .line 160
-    :try_start_1
+    :try_start_0
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -79,20 +79,20 @@
     move-object v2, p3
 
     invoke-virtual/range {v0 .. v6}, Landroid/content/Context;->startIntentSender(Landroid/content/IntentSender;Landroid/content/Intent;IIILandroid/os/Bundle;)V
-    :try_end_24
-    .catch Landroid/content/IntentSender$SendIntentException; {:try_start_1 .. :try_end_24} :catch_26
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_24} :catch_30
+    :try_end_0
+    .catch Landroid/content/IntentSender$SendIntentException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 176
     const/4 v1, 0x1
 
     .end local v0           #context:Landroid/content/Context;
     .end local v8           #opts:Landroid/app/ActivityOptions;
-    :goto_25
+    :goto_0
     return v1
 
     .line 168
-    :catch_26
+    :catch_0
     move-exception v7
 
     .line 169
@@ -106,11 +106,11 @@
     move v1, v9
 
     .line 170
-    goto :goto_25
+    goto :goto_0
 
     .line 171
     .end local v7           #e:Landroid/content/IntentSender$SendIntentException;
-    :catch_30
+    :catch_1
     move-exception v7
 
     .line 172
@@ -124,5 +124,5 @@
     move v1, v9
 
     .line 174
-    goto :goto_25
+    goto :goto_0
 .end method

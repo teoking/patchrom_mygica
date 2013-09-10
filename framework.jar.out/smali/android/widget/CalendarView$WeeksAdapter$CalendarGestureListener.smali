@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/CalendarView$WeeksAdapter;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onSingleTapUp(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "e"
 
     .prologue

@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 236
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcelable;)V
-    .registers 2
+    .locals 0
     .parameter "superState"
 
     .prologue
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/IThumbnailReceiver;)V
-    .registers 3
+    .locals 1
     .parameter "_receiver"
 
     .prologue

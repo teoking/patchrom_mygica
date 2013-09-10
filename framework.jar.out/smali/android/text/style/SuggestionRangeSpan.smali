@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 33
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "src"
 
     .prologue
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 44
@@ -59,7 +59,7 @@
 .end method
 
 .method public getSpanTypeId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 54
@@ -69,7 +69,7 @@
 .end method
 
 .method public setBackgroundColor(I)V
-    .registers 2
+    .locals 0
     .parameter "backgroundColor"
 
     .prologue
@@ -81,7 +81,7 @@
 .end method
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
-    .registers 3
+    .locals 1
     .parameter "tp"
 
     .prologue
@@ -95,7 +95,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

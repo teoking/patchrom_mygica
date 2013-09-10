@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/StatusBarManagerService;Z)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 257
@@ -51,10 +51,10 @@
 
     iget-object v0, v0, Lcom/android/server/StatusBarManagerService;->mBar:Lcom/android/internal/statusbar/IStatusBar;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 259
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/StatusBarManagerService$2;->this$0:Lcom/android/server/StatusBarManagerService;
 
     iget-object v0, v0, Lcom/android/server/StatusBarManagerService;->mBar:Lcom/android/internal/statusbar/IStatusBar;
@@ -62,17 +62,17 @@
     iget-boolean v1, p0, Lcom/android/server/StatusBarManagerService$2;->val$menuVisible:Z
 
     invoke-interface {v0, v1}, Lcom/android/internal/statusbar/IStatusBar;->topAppWindowChanged(Z)V
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_f} :catch_10
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 263
-    :cond_f
-    :goto_f
+    :cond_0
+    :goto_0
     return-void
 
     .line 260
-    :catch_10
+    :catch_0
     move-exception v0
 
-    goto :goto_f
+    goto :goto_0
 .end method

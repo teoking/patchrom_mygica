@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 6
+    .locals 4
     .parameter "v"
 
     .prologue
@@ -59,6 +59,7 @@
     .local v0, group:Landroid/media/MediaRouter$RouteGroup;
     iget-object v1, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter$ExpandGroupListener;->this$1:Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
 
+    #setter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;->mEditingGroup:Landroid/media/MediaRouter$RouteGroup;
     invoke-static {v1, v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;->access$502(Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;Landroid/media/MediaRouter$RouteGroup;)Landroid/media/MediaRouter$RouteGroup;
 
     .line 555
@@ -68,6 +69,7 @@
 
     move-result-object v2
 
+    #setter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;->mCategoryEditingGroups:Landroid/media/MediaRouter$RouteCategory;
     invoke-static {v1, v2}, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;->access$602(Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;Landroid/media/MediaRouter$RouteCategory;)Landroid/media/MediaRouter$RouteCategory;
 
     .line 556
@@ -94,12 +96,14 @@
 
     iget-object v2, v2, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mRouteTypes:I
     invoke-static {v2}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$000(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)I
 
     move-result v2
 
     iget-object v3, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter$ExpandGroupListener;->this$1:Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;->mEditingGroup:Landroid/media/MediaRouter$RouteGroup;
     invoke-static {v3}, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;->access$500(Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;)Landroid/media/MediaRouter$RouteGroup;
 
     move-result-object v3

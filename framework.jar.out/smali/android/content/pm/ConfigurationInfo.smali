@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 116
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 83
@@ -69,7 +69,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/pm/ConfigurationInfo;)V
-    .registers 3
+    .locals 1
     .parameter "orig"
 
     .prologue
@@ -111,7 +111,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -163,7 +163,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/ConfigurationInfo$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -177,7 +177,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 105
@@ -187,7 +187,7 @@
 .end method
 
 .method public getGlEsVersion()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 141
@@ -243,7 +243,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 95
@@ -343,7 +343,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "parcelableFlags"
 

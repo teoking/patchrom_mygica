@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "nativeCanvas"
 
     .prologue
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -49,24 +49,25 @@
     :try_start_0
     iget v0, p0, Landroid/graphics/Canvas$CanvasFinalizer;->mNativeCanvas:I
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 96
     iget v0, p0, Landroid/graphics/Canvas$CanvasFinalizer;->mNativeCanvas:I
 
+    #calls: Landroid/graphics/Canvas;->finalizer(I)V
     invoke-static {v0}, Landroid/graphics/Canvas;->access$000(I)V
-    :try_end_9
-    .catchall {:try_start_0 .. :try_end_9} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 99
-    :cond_9
+    :cond_0
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
     .line 101
     return-void
 
     .line 99
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V

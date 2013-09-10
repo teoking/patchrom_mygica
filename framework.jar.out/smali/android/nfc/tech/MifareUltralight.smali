@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/nfc/Tag;)V
-    .registers 7
+    .locals 5
     .parameter "tag"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -57,7 +57,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2b
+    if-nez v2, :cond_0
 
     invoke-virtual {p1}, Landroid/nfc/Tag;->getId()[B
 
@@ -69,7 +69,7 @@
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_2b
+    if-ne v2, v3, :cond_0
 
     .line 112
     invoke-virtual {p1, v4}, Landroid/nfc/Tag;->getTechExtras(I)Landroid/os/Bundle;
@@ -84,7 +84,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2c
+    if-eqz v2, :cond_1
 
     .line 114
     const/4 v2, 0x2
@@ -93,22 +93,22 @@
 
     .line 119
     .end local v1           #extras:Landroid/os/Bundle;
-    :cond_2b
-    :goto_2b
+    :cond_0
+    :goto_0
     return-void
 
     .line 116
     .restart local v1       #extras:Landroid/os/Bundle;
-    :cond_2c
+    :cond_1
     const/4 v2, 0x1
 
     iput v2, p0, Landroid/nfc/tech/MifareUltralight;->mType:I
 
-    goto :goto_2b
+    goto :goto_0
 .end method
 
 .method public static get(Landroid/nfc/Tag;)Landroid/nfc/tech/MifareUltralight;
-    .registers 4
+    .locals 3
     .parameter "tag"
 
     .prologue
@@ -121,48 +121,48 @@
 
     move-result v2
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_0
 
     .line 98
-    :goto_9
+    :goto_0
     return-object v1
 
     .line 96
-    :cond_a
-    :try_start_a
+    :cond_0
+    :try_start_0
     new-instance v2, Landroid/nfc/tech/MifareUltralight;
 
     invoke-direct {v2, p0}, Landroid/nfc/tech/MifareUltralight;-><init>(Landroid/nfc/Tag;)V
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_f} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-object v1, v2
 
-    goto :goto_9
+    goto :goto_0
 
     .line 97
-    :catch_11
+    :catch_0
     move-exception v0
 
     .line 98
     .local v0, e:Landroid/os/RemoteException;
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method private static validatePageIndex(I)V
-    .registers 4
+    .locals 3
     .parameter "pageIndex"
 
     .prologue
     .line 274
-    if-ltz p0, :cond_6
+    if-ltz p0, :cond_0
 
     const/16 v0, 0x100
 
-    if-lt p0, v0, :cond_20
+    if-lt p0, v0, :cond_1
 
     .line 275
-    :cond_6
+    :cond_0
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -188,14 +188,14 @@
     throw v0
 
     .line 277
-    :cond_20
+    :cond_1
     return-void
 .end method
 
 
 # virtual methods
 .method public bridge synthetic close()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -210,7 +210,7 @@
 .end method
 
 .method public bridge synthetic connect()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -225,7 +225,7 @@
 .end method
 
 .method public getMaxTransceiveLength()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 223
@@ -237,7 +237,7 @@
 .end method
 
 .method public bridge synthetic getTag()Landroid/nfc/Tag;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 61
@@ -249,7 +249,7 @@
 .end method
 
 .method public getTimeout()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 261
@@ -263,17 +263,17 @@
     const/16 v2, 0x9
 
     invoke-interface {v1, v2}, Landroid/nfc/INfcTag;->getTimeout(I)I
-    :try_end_b
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_b} :catch_d
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 264
-    :goto_c
+    :goto_0
     return v1
 
     .line 262
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 263
@@ -287,11 +287,11 @@
     .line 264
     const/4 v1, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public getType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 133
@@ -301,7 +301,7 @@
 .end method
 
 .method public bridge synthetic isConnected()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 61
@@ -313,7 +313,7 @@
 .end method
 
 .method public readPages(I)[B
-    .registers 6
+    .locals 4
     .parameter "pageOffset"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -355,7 +355,7 @@
 .end method
 
 .method public bridge synthetic reconnect()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -370,7 +370,7 @@
 .end method
 
 .method public setTimeout(I)V
-    .registers 6
+    .locals 4
     .parameter "timeout"
 
     .prologue
@@ -390,7 +390,7 @@
 
     .line 244
     .local v1, err:I
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_0
 
     .line 245
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -400,12 +400,12 @@
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v2
-    :try_end_16
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_16} :catch_16
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 247
     .end local v1           #err:I
-    :catch_16
+    :catch_0
     move-exception v0
 
     .line 248
@@ -418,12 +418,12 @@
 
     .line 250
     .end local v0           #e:Landroid/os/RemoteException;
-    :cond_1e
+    :cond_0
     return-void
 .end method
 
 .method public transceive([B)[B
-    .registers 3
+    .locals 1
     .parameter "data"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -443,7 +443,7 @@
 .end method
 
 .method public writePage(I[B)V
-    .registers 7
+    .locals 4
     .parameter "pageOffset"
     .parameter "data"
     .annotation system Ldalvik/annotation/Throws;

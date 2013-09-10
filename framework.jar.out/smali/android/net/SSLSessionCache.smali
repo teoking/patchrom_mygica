@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 8
+    .locals 6
     .parameter "context"
 
     .prologue
@@ -35,22 +35,22 @@
 
     .line 62
     .local v0, cache:Lorg/apache/harmony/xnet/provider/jsse/SSLClientSessionCache;
-    :try_start_c
+    :try_start_0
     invoke-static {v1}, Lorg/apache/harmony/xnet/provider/jsse/FileClientSessionCache;->usingDirectory(Ljava/io/File;)Lorg/apache/harmony/xnet/provider/jsse/SSLClientSessionCache;
-    :try_end_f
-    .catch Ljava/io/IOException; {:try_start_c .. :try_end_f} :catch_13
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
     .line 66
-    :goto_10
+    :goto_0
     iput-object v0, p0, Landroid/net/SSLSessionCache;->mSessionCache:Lorg/apache/harmony/xnet/provider/jsse/SSLClientSessionCache;
 
     .line 67
     return-void
 
     .line 63
-    :catch_13
+    :catch_0
     move-exception v2
 
     .line 64
@@ -77,11 +77,11 @@
 
     invoke-static {v3, v4, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public constructor <init>(Ljava/io/File;)V
-    .registers 3
+    .locals 1
     .parameter "dir"
     .annotation system Ldalvik/annotation/Throws;
         value = {

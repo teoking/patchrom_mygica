@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/wifi/WifiStateMachine;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public enter()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2882
@@ -52,24 +52,24 @@
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
-    .registers 6
+    .locals 4
     .parameter "message"
 
     .prologue
     .line 2887
     iget v2, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v2, :sswitch_data_48
+    sparse-switch v2, :sswitch_data_0
 
     .line 2904
     const/4 v2, 0x0
 
     .line 2906
-    :goto_6
+    :goto_0
     return v2
 
     .line 2889
-    :sswitch_7
+    :sswitch_0
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/net/wifi/StateChangeResult;
@@ -84,32 +84,35 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1e
+    if-eqz v2, :cond_0
 
     .line 2894
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DriverStoppedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     iget-object v3, p0, Landroid/net/wifi/WifiStateMachine$DriverStoppedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mDriverStartedState:Lcom/android/internal/util/State;
     invoke-static {v3}, Landroid/net/wifi/WifiStateMachine;->access$5100(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
 
     move-result-object v3
 
+    #calls: Landroid/net/wifi/WifiStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v2, v3}, Landroid/net/wifi/WifiStateMachine;->access$10100(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
 
     .line 2906
     .end local v0           #state:Landroid/net/wifi/SupplicantState;
     .end local v1           #stateChangeResult:Landroid/net/wifi/StateChangeResult;
-    :cond_1e
-    :goto_1e
+    :cond_0
+    :goto_1
     const/4 v2, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 2898
-    :sswitch_20
+    :sswitch_1
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DriverStoppedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mWakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$2100(Landroid/net/wifi/WifiStateMachine;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v2
@@ -119,6 +122,7 @@
     .line 2899
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DriverStoppedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$1300(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiNative;
 
     move-result-object v2
@@ -128,6 +132,7 @@
     .line 2900
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$DriverStoppedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mWakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$2100(Landroid/net/wifi/WifiStateMachine;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v2
@@ -139,20 +144,22 @@
 
     iget-object v3, p0, Landroid/net/wifi/WifiStateMachine$DriverStoppedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mDriverStartingState:Lcom/android/internal/util/State;
     invoke-static {v3}, Landroid/net/wifi/WifiStateMachine;->access$10200(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
 
     move-result-object v3
 
+    #calls: Landroid/net/wifi/WifiStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v2, v3}, Landroid/net/wifi/WifiStateMachine;->access$10300(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
 
-    goto :goto_1e
+    goto :goto_1
 
     .line 2887
     nop
 
-    :sswitch_data_48
+    :sswitch_data_0
     .sparse-switch
-        0x2000d -> :sswitch_20
-        0x24006 -> :sswitch_7
+        0x2000d -> :sswitch_1
+        0x24006 -> :sswitch_0
     .end sparse-switch
 .end method

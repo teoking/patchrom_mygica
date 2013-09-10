@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/DhcpStateMachine;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "intent"
 
@@ -43,6 +43,7 @@
     .line 131
     iget-object v0, p0, Landroid/net/DhcpStateMachine$1;->this$0:Landroid/net/DhcpStateMachine;
 
+    #getter for: Landroid/net/DhcpStateMachine;->mDhcpRenewWakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {v0}, Landroid/net/DhcpStateMachine;->access$000(Landroid/net/DhcpStateMachine;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v0

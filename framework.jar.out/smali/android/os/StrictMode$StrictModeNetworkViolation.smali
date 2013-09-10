@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 4
+    .locals 2
     .parameter "policyMask"
 
     .prologue

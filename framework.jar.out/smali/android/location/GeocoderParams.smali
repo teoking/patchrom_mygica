@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 67
@@ -41,7 +41,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 40
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/util/Locale;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "locale"
 
@@ -75,7 +75,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/location/GeocoderParams$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -86,7 +86,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/location/GeocoderParams;Ljava/util/Locale;)Ljava/util/Locale;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -98,7 +98,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/location/GeocoderParams;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 85
@@ -122,7 +122,7 @@
 .end method
 
 .method public getClientPackage()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 64
@@ -132,7 +132,7 @@
 .end method
 
 .method public getLocale()Ljava/util/Locale;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 57
@@ -142,7 +142,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "parcel"
     .parameter "flags"
 

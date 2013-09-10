@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 114
@@ -50,7 +50,7 @@
 .end method
 
 .method public awaken()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -71,7 +71,7 @@
 
     .line 139
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.service.dreams.IDreamManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -87,8 +87,8 @@
 
     .line 141
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_17
-    .catchall {:try_start_8 .. :try_end_17} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 144
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -100,7 +100,7 @@
     return-void
 
     .line 144
-    :catchall_1e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -112,7 +112,7 @@
 .end method
 
 .method public dream()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -133,7 +133,7 @@
 
     .line 125
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.service.dreams.IDreamManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -149,8 +149,8 @@
 
     .line 127
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_17
-    .catchall {:try_start_8 .. :try_end_17} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 130
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -162,7 +162,7 @@
     return-void
 
     .line 130
-    :catchall_1e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -174,7 +174,7 @@
 .end method
 
 .method public getDreamComponent()Landroid/content/ComponentName;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -195,7 +195,7 @@
 
     .line 175
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.service.dreams.IDreamManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -217,7 +217,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2c
+    if-eqz v3, :cond_0
 
     .line 179
     sget-object v3, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -227,12 +227,12 @@
     move-result-object v2
 
     check-cast v2, Landroid/content/ComponentName;
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 186
     .local v2, _result:Landroid/content/ComponentName;
-    :goto_25
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 187
@@ -243,15 +243,15 @@
 
     .line 182
     .end local v2           #_result:Landroid/content/ComponentName;
-    :cond_2c
+    :cond_0
     const/4 v2, 0x0
 
     .restart local v2       #_result:Landroid/content/ComponentName;
-    goto :goto_25
+    goto :goto_0
 
     .line 186
     .end local v2           #_result:Landroid/content/ComponentName;
-    :catchall_2e
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -263,7 +263,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 118
@@ -273,7 +273,7 @@
 .end method
 
 .method public setDreamComponent(Landroid/content/ComponentName;)V
-    .registers 7
+    .locals 5
     .parameter "componentName"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -295,13 +295,13 @@
 
     .line 153
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.service.dreams.IDreamManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 154
-    if-eqz p1, :cond_28
+    if-eqz p1, :cond_0
 
     .line 155
     const/4 v2, 0x1
@@ -314,7 +314,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 161
-    :goto_17
+    :goto_0
     iget-object v2, p0, Landroid/service/dreams/IDreamManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x3
@@ -325,8 +325,8 @@
 
     .line 162
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_8 .. :try_end_21} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 165
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -338,18 +338,18 @@
     return-void
 
     .line 159
-    :cond_28
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_29
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2c
-    .catchall {:try_start_29 .. :try_end_2c} :catchall_2d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 165
-    :catchall_2d
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -361,7 +361,7 @@
 .end method
 
 .method public testDream(Landroid/content/ComponentName;)V
-    .registers 7
+    .locals 5
     .parameter "componentName"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -383,13 +383,13 @@
 
     .line 196
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.service.dreams.IDreamManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 197
-    if-eqz p1, :cond_28
+    if-eqz p1, :cond_0
 
     .line 198
     const/4 v2, 0x1
@@ -402,7 +402,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 204
-    :goto_17
+    :goto_0
     iget-object v2, p0, Landroid/service/dreams/IDreamManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x5
@@ -413,8 +413,8 @@
 
     .line 205
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_8 .. :try_end_21} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 208
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -426,18 +426,18 @@
     return-void
 
     .line 202
-    :cond_28
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_29
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2c
-    .catchall {:try_start_29 .. :try_end_2c} :catchall_2d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 208
-    :catchall_2d
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

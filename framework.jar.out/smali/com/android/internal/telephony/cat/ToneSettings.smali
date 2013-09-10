@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 53
@@ -43,7 +43,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 5
+    .locals 3
     .parameter "in"
 
     .prologue
@@ -77,25 +77,25 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_1f
+    if-ne v0, v1, :cond_0
 
     move v0, v1
 
-    :goto_1c
+    :goto_0
     iput-boolean v0, p0, Lcom/android/internal/telephony/cat/ToneSettings;->vibrate:Z
 
     .line 41
     return-void
 
     .line 40
-    :cond_1f
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/android/internal/telephony/cat/ToneSettings$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -107,7 +107,7 @@
 .end method
 
 .method public constructor <init>(Lcom/android/internal/telephony/cat/Duration;Lcom/android/internal/telephony/cat/Tone;Z)V
-    .registers 4
+    .locals 0
     .parameter "duration"
     .parameter "tone"
     .parameter "vibrate"
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 44
@@ -142,7 +142,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 
@@ -162,11 +162,11 @@
     .line 50
     iget-boolean v1, p0, Lcom/android/internal/telephony/cat/ToneSettings;->vibrate:Z
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_0
 
     const/4 v0, 0x1
 
-    :cond_10
+    :cond_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 51

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 72
@@ -50,7 +50,7 @@
 .end method
 
 .method public checkPermission(Ljava/lang/String;II)Z
-    .registers 11
+    .locals 7
     .parameter "permission"
     .parameter "pid"
     .parameter "uid"
@@ -78,7 +78,7 @@
 
     .line 84
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.os.IPermissionController"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -106,16 +106,16 @@
 
     .line 90
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_25
-    .catchall {:try_start_a .. :try_end_25} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_2f
+    if-eqz v4, :cond_0
 
     .line 93
     .local v2, _result:Z
-    :goto_28
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 94
@@ -125,14 +125,14 @@
     return v2
 
     .end local v2           #_result:Z
-    :cond_2f
+    :cond_0
     move v2, v3
 
     .line 90
-    goto :goto_28
+    goto :goto_0
 
     .line 93
-    :catchall_31
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -144,7 +144,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76

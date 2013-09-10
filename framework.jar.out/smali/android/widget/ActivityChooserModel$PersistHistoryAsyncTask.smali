@@ -31,7 +31,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/ActivityChooserModel;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -44,7 +44,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/ActivityChooserModel;Landroid/widget/ActivityChooserModel$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -71,7 +71,7 @@
 .end method
 
 .method public varargs doInBackground([Ljava/lang/Object;)Ljava/lang/Void;
-    .registers 17
+    .locals 15
     .parameter "args"
 
     .prologue
@@ -96,9 +96,10 @@
 
     .line 1056
     .local v1, fos:Ljava/io/FileOutputStream;
-    :try_start_b
+    :try_start_0
     iget-object v11, p0, Landroid/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/widget/ActivityChooserModel;
 
+    #getter for: Landroid/widget/ActivityChooserModel;->mContext:Landroid/content/Context;
     invoke-static {v11}, Landroid/widget/ActivityChooserModel;->access$300(Landroid/widget/ActivityChooserModel;)Landroid/content/Context;
 
     move-result-object v11
@@ -106,8 +107,8 @@
     const/4 v12, 0x0
 
     invoke-virtual {v11, v3, v12}, Landroid/content/Context;->openFileOutput(Ljava/lang/String;I)Ljava/io/FileOutputStream;
-    :try_end_15
-    .catch Ljava/io/FileNotFoundException; {:try_start_b .. :try_end_15} :catch_71
+    :try_end_0
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
@@ -120,7 +121,7 @@
     .local v10, serializer:Lorg/xmlpull/v1/XmlSerializer;
     const/4 v11, 0x0
 
-    :try_start_1b
+    :try_start_1
     invoke-interface {v10, v1, v11}, Lorg/xmlpull/v1/XmlSerializer;->setOutput(Ljava/io/OutputStream;Ljava/lang/String;)V
 
     .line 1066
@@ -151,8 +152,8 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_33
-    if-ge v4, v9, :cond_8e
+    :goto_0
+    if-ge v4, v9, :cond_0
 
     .line 1071
     const/4 v11, 0x0
@@ -216,23 +217,23 @@
     const-string v12, "historical-record"
 
     invoke-interface {v10, v11, v12}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-    :try_end_6e
-    .catchall {:try_start_1b .. :try_end_6e} :catchall_12e
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_1b .. :try_end_6e} :catch_a4
-    .catch Ljava/lang/IllegalStateException; {:try_start_1b .. :try_end_6e} :catch_d3
-    .catch Ljava/io/IOException; {:try_start_1b .. :try_end_6e} :catch_100
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_1} :catch_3
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
 
     .line 1070
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_33
+    goto :goto_0
 
     .line 1057
     .end local v4           #i:I
     .end local v8           #record:Landroid/widget/ActivityChooserModel$HistoricalRecord;
     .end local v9           #recordCount:I
     .end local v10           #serializer:Lorg/xmlpull/v1/XmlSerializer;
-    :catch_71
+    :catch_0
     move-exception v0
 
     .line 1058
@@ -266,61 +267,62 @@
 
     .line 1105
     .end local v0           #fnfe:Ljava/io/FileNotFoundException;
-    :goto_8d
+    :goto_1
     return-object v11
 
     .line 1083
     .restart local v4       #i:I
     .restart local v9       #recordCount:I
     .restart local v10       #serializer:Lorg/xmlpull/v1/XmlSerializer;
-    :cond_8e
+    :cond_0
     const/4 v11, 0x0
 
-    :try_start_8f
+    :try_start_2
     const-string v12, "historical-records"
 
     invoke-interface {v10, v11, v12}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     .line 1084
     invoke-interface {v10}, Lorg/xmlpull/v1/XmlSerializer;->endDocument()V
-    :try_end_97
-    .catchall {:try_start_8f .. :try_end_97} :catchall_12e
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_8f .. :try_end_97} :catch_a4
-    .catch Ljava/lang/IllegalStateException; {:try_start_8f .. :try_end_97} :catch_d3
-    .catch Ljava/io/IOException; {:try_start_8f .. :try_end_97} :catch_100
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Ljava/lang/IllegalStateException; {:try_start_2 .. :try_end_2} :catch_3
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_4
 
     .line 1096
     iget-object v11, p0, Landroid/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/widget/ActivityChooserModel;
 
     const/4 v12, 0x1
 
+    #setter for: Landroid/widget/ActivityChooserModel;->mCanReadHistoricalData:Z
     invoke-static {v11, v12}, Landroid/widget/ActivityChooserModel;->access$602(Landroid/widget/ActivityChooserModel;Z)Z
 
     .line 1097
-    if-eqz v1, :cond_a2
+    if-eqz v1, :cond_1
 
     .line 1099
-    :try_start_9f
+    :try_start_3
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
-    :try_end_a2
-    .catch Ljava/io/IOException; {:try_start_9f .. :try_end_a2} :catch_d1
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
 
     .line 1105
     .end local v4           #i:I
     .end local v9           #recordCount:I
-    :cond_a2
-    :goto_a2
+    :cond_1
+    :goto_2
     const/4 v11, 0x0
 
-    goto :goto_8d
+    goto :goto_1
 
     .line 1089
-    :catch_a4
+    :catch_1
     move-exception v5
 
     .line 1090
     .local v5, iae:Ljava/lang/IllegalArgumentException;
-    :try_start_a5
+    :try_start_4
     invoke-static {}, Landroid/widget/ActivityChooserModel;->access$400()Ljava/lang/String;
 
     move-result-object v11
@@ -337,6 +339,7 @@
 
     iget-object v13, p0, Landroid/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/widget/ActivityChooserModel;
 
+    #getter for: Landroid/widget/ActivityChooserModel;->mHistoryFileName:Ljava/lang/String;
     invoke-static {v13}, Landroid/widget/ActivityChooserModel;->access$500(Landroid/widget/ActivityChooserModel;)Ljava/lang/String;
 
     move-result-object v13
@@ -350,41 +353,42 @@
     move-result-object v12
 
     invoke-static {v11, v12, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_c5
-    .catchall {:try_start_a5 .. :try_end_c5} :catchall_12e
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     .line 1096
     iget-object v11, p0, Landroid/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/widget/ActivityChooserModel;
 
     const/4 v12, 0x1
 
+    #setter for: Landroid/widget/ActivityChooserModel;->mCanReadHistoricalData:Z
     invoke-static {v11, v12}, Landroid/widget/ActivityChooserModel;->access$602(Landroid/widget/ActivityChooserModel;Z)Z
 
     .line 1097
-    if-eqz v1, :cond_a2
+    if-eqz v1, :cond_1
 
     .line 1099
-    :try_start_cd
+    :try_start_5
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
-    :try_end_d0
-    .catch Ljava/io/IOException; {:try_start_cd .. :try_end_d0} :catch_d1
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
 
-    goto :goto_a2
+    goto :goto_2
 
     .line 1100
     .end local v5           #iae:Ljava/lang/IllegalArgumentException;
-    :catch_d1
+    :catch_2
     move-exception v11
 
-    goto :goto_a2
+    goto :goto_2
 
     .line 1091
-    :catch_d3
+    :catch_3
     move-exception v7
 
     .line 1092
     .local v7, ise:Ljava/lang/IllegalStateException;
-    :try_start_d4
+    :try_start_6
     invoke-static {}, Landroid/widget/ActivityChooserModel;->access$400()Ljava/lang/String;
 
     move-result-object v11
@@ -401,6 +405,7 @@
 
     iget-object v13, p0, Landroid/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/widget/ActivityChooserModel;
 
+    #getter for: Landroid/widget/ActivityChooserModel;->mHistoryFileName:Ljava/lang/String;
     invoke-static {v13}, Landroid/widget/ActivityChooserModel;->access$500(Landroid/widget/ActivityChooserModel;)Ljava/lang/String;
 
     move-result-object v13
@@ -414,35 +419,36 @@
     move-result-object v12
 
     invoke-static {v11, v12, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_f4
-    .catchall {:try_start_d4 .. :try_end_f4} :catchall_12e
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     .line 1096
     iget-object v11, p0, Landroid/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/widget/ActivityChooserModel;
 
     const/4 v12, 0x1
 
+    #setter for: Landroid/widget/ActivityChooserModel;->mCanReadHistoricalData:Z
     invoke-static {v11, v12}, Landroid/widget/ActivityChooserModel;->access$602(Landroid/widget/ActivityChooserModel;Z)Z
 
     .line 1097
-    if-eqz v1, :cond_a2
+    if-eqz v1, :cond_1
 
     .line 1099
-    :try_start_fc
+    :try_start_7
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
-    :try_end_ff
-    .catch Ljava/io/IOException; {:try_start_fc .. :try_end_ff} :catch_d1
+    :try_end_7
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_2
 
-    goto :goto_a2
+    goto :goto_2
 
     .line 1093
     .end local v7           #ise:Ljava/lang/IllegalStateException;
-    :catch_100
+    :catch_4
     move-exception v6
 
     .line 1094
     .local v6, ioe:Ljava/io/IOException;
-    :try_start_101
+    :try_start_8
     invoke-static {}, Landroid/widget/ActivityChooserModel;->access$400()Ljava/lang/String;
 
     move-result-object v11
@@ -459,6 +465,7 @@
 
     iget-object v13, p0, Landroid/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/widget/ActivityChooserModel;
 
+    #getter for: Landroid/widget/ActivityChooserModel;->mHistoryFileName:Ljava/lang/String;
     invoke-static {v13}, Landroid/widget/ActivityChooserModel;->access$500(Landroid/widget/ActivityChooserModel;)Ljava/lang/String;
 
     move-result-object v13
@@ -472,55 +479,57 @@
     move-result-object v12
 
     invoke-static {v11, v12, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_121
-    .catchall {:try_start_101 .. :try_end_121} :catchall_12e
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
     .line 1096
     iget-object v11, p0, Landroid/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/widget/ActivityChooserModel;
 
     const/4 v12, 0x1
 
+    #setter for: Landroid/widget/ActivityChooserModel;->mCanReadHistoricalData:Z
     invoke-static {v11, v12}, Landroid/widget/ActivityChooserModel;->access$602(Landroid/widget/ActivityChooserModel;Z)Z
 
     .line 1097
-    if-eqz v1, :cond_a2
+    if-eqz v1, :cond_1
 
     .line 1099
-    :try_start_129
+    :try_start_9
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
-    :try_end_12c
-    .catch Ljava/io/IOException; {:try_start_129 .. :try_end_12c} :catch_d1
+    :try_end_9
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_2
 
-    goto/16 :goto_a2
+    goto/16 :goto_2
 
     .line 1096
     .end local v6           #ioe:Ljava/io/IOException;
-    :catchall_12e
+    :catchall_0
     move-exception v11
 
     iget-object v12, p0, Landroid/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/widget/ActivityChooserModel;
 
     const/4 v13, 0x1
 
+    #setter for: Landroid/widget/ActivityChooserModel;->mCanReadHistoricalData:Z
     invoke-static {v12, v13}, Landroid/widget/ActivityChooserModel;->access$602(Landroid/widget/ActivityChooserModel;Z)Z
 
     .line 1097
-    if-eqz v1, :cond_13a
+    if-eqz v1, :cond_2
 
     .line 1099
-    :try_start_137
+    :try_start_a
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
-    :try_end_13a
-    .catch Ljava/io/IOException; {:try_start_137 .. :try_end_13a} :catch_13b
+    :try_end_a
+    .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_5
 
     .line 1096
-    :cond_13a
-    :goto_13a
+    :cond_2
+    :goto_3
     throw v11
 
     .line 1100
-    :catch_13b
+    :catch_5
     move-exception v12
 
-    goto :goto_13a
+    goto :goto_3
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 184
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
-    .registers 5
+    .locals 3
     .parameter "r"
 
     .prologue

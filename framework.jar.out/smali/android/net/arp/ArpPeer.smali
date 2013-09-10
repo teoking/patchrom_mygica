@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/net/InetAddress;Ljava/lang/String;Ljava/net/InetAddress;)V
-    .registers 10
+    .locals 5
     .parameter "interfaceName"
     .parameter "myAddr"
     .parameter "mac"
@@ -65,8 +65,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_d
-    if-ge v0, v4, :cond_27
+    :goto_0
+    if-ge v0, v4, :cond_0
 
     .line 57
     iget-object v1, p0, Landroid/net/arp/ArpPeer;->mMyMac:[B
@@ -94,20 +94,20 @@
     .line 56
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_d
+    goto :goto_0
 
     .line 61
-    :cond_27
+    :cond_0
     instance-of v1, p2, Ljava/net/Inet6Address;
 
-    if-nez v1, :cond_2f
+    if-nez v1, :cond_1
 
     instance-of v1, p4, Ljava/net/Inet6Address;
 
-    if-eqz v1, :cond_37
+    if-eqz v1, :cond_2
 
     .line 62
-    :cond_2f
+    :cond_1
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "IPv6 unsupported"
@@ -117,7 +117,7 @@
     throw v1
 
     .line 65
-    :cond_37
+    :cond_2
     iput-object p4, p0, Landroid/net/arp/ArpPeer;->mPeer:Ljava/net/InetAddress;
 
     .line 66
@@ -150,7 +150,7 @@
 
 # virtual methods
 .method public close()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 128
@@ -158,22 +158,22 @@
     iget-object v0, p0, Landroid/net/arp/ArpPeer;->mSocket:Llibcore/net/RawSocket;
 
     invoke-virtual {v0}, Llibcore/net/RawSocket;->close()V
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 131
-    :goto_5
+    :goto_0
     return-void
 
     .line 129
-    :catch_6
+    :catch_0
     move-exception v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public doArp(I)[B
-    .registers 16
+    .locals 14
     .parameter "timeoutMillis"
 
     .prologue
@@ -287,14 +287,14 @@
 
     .line 100
     .local v1, recvBuf:[B
-    :cond_5e
+    :cond_0
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
 
     cmp-long v0, v2, v12
 
-    if-gez v0, :cond_d7
+    if-gez v0, :cond_1
 
     .line 101
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -323,13 +323,13 @@
     .local v10, readLen:I
     const/16 v0, 0x1c
 
-    if-lt v10, v0, :cond_5e
+    if-lt v10, v0, :cond_0
 
     const/4 v0, 0x0
 
     aget-byte v0, v1, v0
 
-    if-nez v0, :cond_5e
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
@@ -337,7 +337,7 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_5e
+    if-ne v0, v2, :cond_0
 
     const/4 v0, 0x2
 
@@ -345,13 +345,13 @@
 
     const/16 v2, 0x8
 
-    if-ne v0, v2, :cond_5e
+    if-ne v0, v2, :cond_0
 
     const/4 v0, 0x3
 
     aget-byte v0, v1, v0
 
-    if-nez v0, :cond_5e
+    if-nez v0, :cond_0
 
     const/4 v0, 0x4
 
@@ -359,7 +359,7 @@
 
     const/4 v2, 0x6
 
-    if-ne v0, v2, :cond_5e
+    if-ne v0, v2, :cond_0
 
     const/4 v0, 0x5
 
@@ -367,13 +367,13 @@
 
     const/4 v2, 0x4
 
-    if-ne v0, v2, :cond_5e
+    if-ne v0, v2, :cond_0
 
     const/4 v0, 0x6
 
     aget-byte v0, v1, v0
 
-    if-nez v0, :cond_5e
+    if-nez v0, :cond_0
 
     const/4 v0, 0x7
 
@@ -381,7 +381,7 @@
 
     const/4 v2, 0x2
 
-    if-ne v0, v2, :cond_5e
+    if-ne v0, v2, :cond_0
 
     const/16 v0, 0xe
 
@@ -391,7 +391,7 @@
 
     aget-byte v2, v7, v2
 
-    if-ne v0, v2, :cond_5e
+    if-ne v0, v2, :cond_0
 
     const/16 v0, 0xf
 
@@ -401,7 +401,7 @@
 
     aget-byte v2, v7, v2
 
-    if-ne v0, v2, :cond_5e
+    if-ne v0, v2, :cond_0
 
     const/16 v0, 0x10
 
@@ -411,7 +411,7 @@
 
     aget-byte v2, v7, v2
 
-    if-ne v0, v2, :cond_5e
+    if-ne v0, v2, :cond_0
 
     const/16 v0, 0x11
 
@@ -421,7 +421,7 @@
 
     aget-byte v2, v7, v2
 
-    if-ne v0, v2, :cond_5e
+    if-ne v0, v2, :cond_0
 
     .line 117
     const/4 v0, 0x6
@@ -442,11 +442,11 @@
     .end local v8           #duration:J
     .end local v10           #readLen:I
     .end local v11           #result:[B
-    :goto_d6
+    :goto_0
     return-object v11
 
-    :cond_d7
+    :cond_1
     const/4 v11, 0x0
 
-    goto :goto_d6
+    goto :goto_0
 .end method

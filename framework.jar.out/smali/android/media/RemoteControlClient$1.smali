@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/RemoteControlClient;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onInformationRequested(IIII)V
-    .registers 13
+    .locals 8
     .parameter "clientGeneration"
     .parameter "infoFlags"
     .parameter "artWidth"
@@ -55,15 +55,17 @@
     .line 833
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
 
-    if-eqz v0, :cond_9e
+    if-eqz v0, :cond_0
 
     .line 835
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
@@ -73,12 +75,14 @@
     .line 836
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v1}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v1
@@ -96,6 +100,7 @@
     .line 842
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
@@ -105,6 +110,7 @@
     .line 843
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
@@ -114,6 +120,7 @@
     .line 844
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
@@ -123,6 +130,7 @@
     .line 845
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
@@ -132,12 +140,14 @@
     .line 846
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v1}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v1
@@ -151,12 +161,14 @@
     .line 848
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v1}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v1
@@ -170,12 +182,14 @@
     .line 850
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v1}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v1
@@ -189,12 +203,14 @@
     .line 851
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v1}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v1
@@ -206,33 +222,36 @@
     invoke-virtual {v0, v1}, Landroid/media/RemoteControlClient$EventHandler;->dispatchMessage(Landroid/os/Message;)V
 
     .line 853
-    :cond_9e
+    :cond_0
     return-void
 .end method
 
 .method public plugRemoteControlDisplay(Landroid/media/IRemoteControlDisplay;)V
-    .registers 5
+    .locals 3
     .parameter "rcd"
 
     .prologue
     .line 866
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     .line 867
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v1}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v1
@@ -246,12 +265,12 @@
     invoke-virtual {v0, v1}, Landroid/media/RemoteControlClient$EventHandler;->dispatchMessage(Landroid/os/Message;)V
 
     .line 870
-    :cond_1c
+    :cond_0
     return-void
 .end method
 
 .method public setCurrentClientGenerationId(I)V
-    .registers 6
+    .locals 4
     .parameter "clientGeneration"
 
     .prologue
@@ -260,15 +279,17 @@
     .line 857
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
 
-    if-eqz v0, :cond_26
+    if-eqz v0, :cond_0
 
     .line 858
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
@@ -278,12 +299,14 @@
     .line 859
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v1}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v1
@@ -297,33 +320,36 @@
     invoke-virtual {v0, v1}, Landroid/media/RemoteControlClient$EventHandler;->dispatchMessage(Landroid/os/Message;)V
 
     .line 862
-    :cond_26
+    :cond_0
     return-void
 .end method
 
 .method public unplugRemoteControlDisplay(Landroid/media/IRemoteControlDisplay;)V
-    .registers 5
+    .locals 3
     .parameter "rcd"
 
     .prologue
     .line 874
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_0
 
     .line 875
     iget-object v0, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v0}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/media/RemoteControlClient$1;->this$0:Landroid/media/RemoteControlClient;
 
+    #getter for: Landroid/media/RemoteControlClient;->mEventHandler:Landroid/media/RemoteControlClient$EventHandler;
     invoke-static {v1}, Landroid/media/RemoteControlClient;->access$1300(Landroid/media/RemoteControlClient;)Landroid/media/RemoteControlClient$EventHandler;
 
     move-result-object v1
@@ -337,6 +363,6 @@
     invoke-virtual {v0, v1}, Landroid/media/RemoteControlClient$EventHandler;->dispatchMessage(Landroid/os/Message;)V
 
     .line 878
-    :cond_1d
+    :cond_0
     return-void
 .end method

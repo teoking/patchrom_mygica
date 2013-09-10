@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/net/InetAddress;[BZ)V
-    .registers 13
+    .locals 8
     .parameter "transId"
     .parameter "clientIp"
     .parameter "clientMac"
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public buildPacket(ISS)Ljava/nio/ByteBuffer;
-    .registers 13
+    .locals 9
     .parameter "encap"
     .parameter "destUdp"
     .parameter "srcUdp"
@@ -79,20 +79,20 @@
 .end method
 
 .method public doNextOp(Landroid/net/dhcp/DhcpStateMachine;)V
-    .registers 9
+    .locals 7
     .parameter "machine"
 
     .prologue
     .line 79
     iget-object v0, p0, Landroid/net/dhcp/DhcpPacket;->mRequestedIp:Ljava/net/InetAddress;
 
-    if-nez v0, :cond_3c
+    if-nez v0, :cond_0
 
     iget-object v4, p0, Landroid/net/dhcp/DhcpPacket;->mClientIp:Ljava/net/InetAddress;
 
     .line 81
     .local v4, clientRequest:Ljava/net/InetAddress;
-    :goto_6
+    :goto_0
     const-string v0, "DhcpPacket"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -149,14 +149,14 @@
 
     .line 79
     .end local v4           #clientRequest:Ljava/net/InetAddress;
-    :cond_3c
+    :cond_0
     iget-object v4, p0, Landroid/net/dhcp/DhcpPacket;->mRequestedIp:Ljava/net/InetAddress;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method finishPacket(Ljava/nio/ByteBuffer;)V
-    .registers 7
+    .locals 5
     .parameter "buffer"
 
     .prologue
@@ -221,7 +221,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 39
@@ -271,11 +271,11 @@
 
     iget-object v1, p0, Landroid/net/dhcp/DhcpPacket;->mRequestedParams:[B
 
-    if-nez v1, :cond_39
+    if-nez v1, :cond_0
 
     const/4 v1, 0x0
 
-    :goto_30
+    :goto_0
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -286,10 +286,10 @@
 
     return-object v1
 
-    :cond_39
+    :cond_0
     iget-object v1, p0, Landroid/net/dhcp/DhcpPacket;->mRequestedParams:[B
 
     array-length v1, v1
 
-    goto :goto_30
+    goto :goto_0
 .end method

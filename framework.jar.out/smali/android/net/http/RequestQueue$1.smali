@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/http/RequestQueue;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 4
+    .locals 1
     .parameter "ctx"
     .parameter "intent"
 
@@ -43,6 +43,7 @@
     .line 235
     iget-object v0, p0, Landroid/net/http/RequestQueue$1;->this$0:Landroid/net/http/RequestQueue;
 
+    #calls: Landroid/net/http/RequestQueue;->setProxyConfig()V
     invoke-static {v0}, Landroid/net/http/RequestQueue;->access$300(Landroid/net/http/RequestQueue;)V
 
     .line 236

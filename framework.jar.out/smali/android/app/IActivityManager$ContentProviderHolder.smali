@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 392
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/pm/ProviderInfo;)V
-    .registers 2
+    .locals 0
     .parameter "_info"
 
     .prologue
@@ -71,7 +71,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -112,25 +112,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_24
+    :goto_0
     iput-boolean v0, p0, Landroid/app/IActivityManager$ContentProviderHolder;->noReleaseNeeded:Z
 
     .line 409
     return-void
 
     .line 408
-    :cond_27
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_24
+    goto :goto_0
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/app/IActivityManager$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -144,7 +144,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 378
@@ -154,7 +154,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 
@@ -169,7 +169,7 @@
     .line 383
     iget-object v1, p0, Landroid/app/IActivityManager$ContentProviderHolder;->provider:Landroid/content/IContentProvider;
 
-    if-eqz v1, :cond_21
+    if-eqz v1, :cond_1
 
     .line 384
     iget-object v1, p0, Landroid/app/IActivityManager$ContentProviderHolder;->provider:Landroid/content/IContentProvider;
@@ -181,7 +181,7 @@
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 388
-    :goto_13
+    :goto_0
     iget-object v1, p0, Landroid/app/IActivityManager$ContentProviderHolder;->connection:Landroid/os/IBinder;
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
@@ -189,21 +189,21 @@
     .line 389
     iget-boolean v1, p0, Landroid/app/IActivityManager$ContentProviderHolder;->noReleaseNeeded:Z
 
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_0
 
     const/4 v0, 0x1
 
-    :cond_1d
+    :cond_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 390
     return-void
 
     .line 386
-    :cond_21
+    :cond_1
     const/4 v1, 0x0
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    goto :goto_13
+    goto :goto_0
 .end method

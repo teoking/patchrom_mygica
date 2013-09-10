@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 44
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 8
+    .locals 6
     .parameter "context"
 
     .prologue
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public bridge synthetic getServiceInfo(Landroid/accounts/AuthenticatorDescription;)Landroid/content/pm/RegisteredServicesCache$ServiceInfo;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -88,7 +88,7 @@
 .end method
 
 .method public parseServiceAttributes(Landroid/content/res/Resources;Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/accounts/AuthenticatorDescription;
-    .registers 13
+    .locals 9
     .parameter "res"
     .parameter "packageName"
     .parameter "attrs"
@@ -105,7 +105,7 @@
     .local v8, sa:Landroid/content/res/TypedArray;
     const/4 v0, 0x2
 
-    :try_start_7
+    :try_start_0
     invoke-virtual {v8, v0}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v1
@@ -163,34 +163,34 @@
     .line 69
     .local v7, customTokens:Z
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-    :try_end_2c
-    .catchall {:try_start_7 .. :try_end_2c} :catchall_3b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
-    if-eqz v0, :cond_34
+    if-eqz v0, :cond_0
 
     .line 70
     const/4 v0, 0x0
 
     .line 75
-    :goto_30
+    :goto_0
     invoke-virtual {v8}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 72
     return-object v0
 
-    :cond_34
-    :try_start_34
+    :cond_0
+    :try_start_1
     new-instance v0, Landroid/accounts/AuthenticatorDescription;
 
     move-object v2, p2
 
     invoke-direct/range {v0 .. v7}, Landroid/accounts/AuthenticatorDescription;-><init>(Ljava/lang/String;Ljava/lang/String;IIIIZ)V
-    :try_end_3a
-    .catchall {:try_start_34 .. :try_end_3a} :catchall_3b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_30
+    goto :goto_0
 
     .line 75
     .end local v1           #accountType:Ljava/lang/String;
@@ -199,7 +199,7 @@
     .end local v5           #smallIconId:I
     .end local v6           #prefId:I
     .end local v7           #customTokens:Z
-    :catchall_3b
+    :catchall_0
     move-exception v0
 
     invoke-virtual {v8}, Landroid/content/res/TypedArray;->recycle()V
@@ -208,7 +208,7 @@
 .end method
 
 .method public bridge synthetic parseServiceAttributes(Landroid/content/res/Resources;Ljava/lang/String;Landroid/util/AttributeSet;)Ljava/lang/Object;
-    .registers 5
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"

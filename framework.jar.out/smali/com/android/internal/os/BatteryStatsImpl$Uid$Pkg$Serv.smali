@@ -57,7 +57,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method detach()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 3692
@@ -101,7 +101,7 @@
 .end method
 
 .method public getBatteryStats()Lcom/android/internal/os/BatteryStatsImpl;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 3783
@@ -115,22 +115,22 @@
 .end method
 
 .method getLaunchTimeToNowLocked(J)J
-    .registers 7
+    .locals 4
     .parameter "batteryUptime"
 
     .prologue
     .line 3733
     iget-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunched:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunchedTime:J
 
     .line 3734
-    :goto_6
+    :goto_0
     return-wide v0
 
-    :cond_7
+    :cond_0
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunchedTime:J
 
     add-long/2addr v0, p1
@@ -139,62 +139,62 @@
 
     sub-long/2addr v0, v2
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getLaunches(I)I
-    .registers 4
+    .locals 2
     .parameter "which"
 
     .prologue
     .line 3790
     const/4 v1, 0x1
 
-    if-ne p1, v1, :cond_6
+    if-ne p1, v1, :cond_1
 
     .line 3791
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLastLaunches:I
 
     .line 3801
     .local v0, val:I
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return v0
 
     .line 3793
     .end local v0           #val:I
-    :cond_6
+    :cond_1
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunches:I
 
     .line 3794
     .restart local v0       #val:I
     const/4 v1, 0x2
 
-    if-ne p1, v1, :cond_f
+    if-ne p1, v1, :cond_2
 
     .line 3795
     iget v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLoadedLaunches:I
 
     sub-int/2addr v0, v1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 3796
-    :cond_f
+    :cond_2
     const/4 v1, 0x3
 
-    if-ne p1, v1, :cond_5
+    if-ne p1, v1, :cond_0
 
     .line 3797
     iget v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mUnpluggedLaunches:I
 
     sub-int/2addr v0, v1
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public getStartTime(JI)J
-    .registers 8
+    .locals 4
     .parameter "now"
     .parameter "which"
 
@@ -202,20 +202,20 @@
     .line 3807
     const/4 v2, 0x1
 
-    if-ne p3, v2, :cond_6
+    if-ne p3, v2, :cond_1
 
     .line 3808
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLastStartTime:J
 
     .line 3818
     .local v0, val:J
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return-wide v0
 
     .line 3810
     .end local v0           #val:J
-    :cond_6
+    :cond_1
     invoke-virtual {p0, p1, p2}, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->getStartTimeToNowLocked(J)J
 
     move-result-wide v0
@@ -224,46 +224,46 @@
     .restart local v0       #val:J
     const/4 v2, 0x2
 
-    if-ne p3, v2, :cond_11
+    if-ne p3, v2, :cond_2
 
     .line 3812
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLoadedStartTime:J
 
     sub-long/2addr v0, v2
 
-    goto :goto_5
+    goto :goto_0
 
     .line 3813
-    :cond_11
+    :cond_2
     const/4 v2, 0x3
 
-    if-ne p3, v2, :cond_5
+    if-ne p3, v2, :cond_0
 
     .line 3814
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mUnpluggedStartTime:J
 
     sub-long/2addr v0, v2
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method getStartTimeToNowLocked(J)J
-    .registers 7
+    .locals 4
     .parameter "batteryUptime"
 
     .prologue
     .line 3738
     iget-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mRunning:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mStartTime:J
 
     .line 3739
-    :goto_6
+    :goto_0
     return-wide v0
 
-    :cond_7
+    :cond_0
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mStartTime:J
 
     add-long/2addr v0, p1
@@ -272,62 +272,62 @@
 
     sub-long/2addr v0, v2
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getStarts(I)I
-    .registers 4
+    .locals 2
     .parameter "which"
 
     .prologue
     .line 3824
     const/4 v1, 0x1
 
-    if-ne p1, v1, :cond_6
+    if-ne p1, v1, :cond_1
 
     .line 3825
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLastStarts:I
 
     .line 3835
     .local v0, val:I
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return v0
 
     .line 3827
     .end local v0           #val:I
-    :cond_6
+    :cond_1
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mStarts:I
 
     .line 3828
     .restart local v0       #val:I
     const/4 v1, 0x2
 
-    if-ne p1, v1, :cond_f
+    if-ne p1, v1, :cond_2
 
     .line 3829
     iget v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLoadedStarts:I
 
     sub-int/2addr v0, v1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 3830
-    :cond_f
+    :cond_2
     const/4 v1, 0x3
 
-    if-ne p1, v1, :cond_5
+    if-ne p1, v1, :cond_0
 
     .line 3831
     iget v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mUnpluggedStarts:I
 
     sub-int/2addr v0, v1
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public plug(JJ)V
-    .registers 5
+    .locals 0
     .parameter "batteryUptime"
     .parameter "batteryRealtime"
 
@@ -337,7 +337,7 @@
 .end method
 
 .method readFromParcelLocked(Landroid/os/Parcel;)V
-    .registers 7
+    .locals 5
     .parameter "in"
 
     .prologue
@@ -364,11 +364,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_64
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_15
+    :goto_0
     iput-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mRunning:Z
 
     .line 3699
@@ -397,9 +397,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_66
+    if-eqz v0, :cond_1
 
-    :goto_2f
+    :goto_1
     iput-boolean v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunched:Z
 
     .line 3703
@@ -465,27 +465,27 @@
     .line 3713
     return-void
 
-    :cond_64
+    :cond_0
     move v0, v2
 
     .line 3698
-    goto :goto_15
+    goto :goto_0
 
-    :cond_66
+    :cond_1
     move v1, v2
 
     .line 3702
-    goto :goto_2f
+    goto :goto_1
 .end method
 
 .method public startLaunchedLocked()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3743
     iget-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunched:Z
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_0
 
     .line 3744
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunches:I
@@ -513,18 +513,18 @@
     iput-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunched:Z
 
     .line 3748
-    :cond_19
+    :cond_0
     return-void
 .end method
 
 .method public startRunningLocked()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3763
     iget-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mRunning:Z
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_0
 
     .line 3764
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mStarts:I
@@ -552,18 +552,18 @@
     iput-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mRunning:Z
 
     .line 3768
-    :cond_19
+    :cond_0
     return-void
 .end method
 
 .method public stopLaunchedLocked()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 3751
     iget-boolean v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunched:Z
 
-    if-eqz v2, :cond_20
+    if-eqz v2, :cond_0
 
     .line 3752
     iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->this$2:Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg;
@@ -586,7 +586,7 @@
 
     cmp-long v2, v0, v2
 
-    if-lez v2, :cond_21
+    if-lez v2, :cond_1
 
     .line 3754
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunchedTime:J
@@ -596,36 +596,36 @@
     iput-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunchedTime:J
 
     .line 3758
-    :goto_1d
+    :goto_0
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunched:Z
 
     .line 3760
     .end local v0           #time:J
-    :cond_20
+    :cond_0
     return-void
 
     .line 3756
     .restart local v0       #time:J
-    :cond_21
+    :cond_1
     iget v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunches:I
 
     add-int/lit8 v2, v2, -0x1
 
     iput v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunches:I
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method public stopRunningLocked()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 3771
     iget-boolean v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mRunning:Z
 
-    if-eqz v2, :cond_20
+    if-eqz v2, :cond_0
 
     .line 3772
     iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->this$2:Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg;
@@ -648,7 +648,7 @@
 
     cmp-long v2, v0, v2
 
-    if-lez v2, :cond_21
+    if-lez v2, :cond_1
 
     .line 3774
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mStartTime:J
@@ -658,30 +658,30 @@
     iput-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mStartTime:J
 
     .line 3778
-    :goto_1d
+    :goto_0
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mRunning:Z
 
     .line 3780
     .end local v0           #time:J
-    :cond_20
+    :cond_0
     return-void
 
     .line 3776
     .restart local v0       #time:J
-    :cond_21
+    :cond_1
     iget v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mStarts:I
 
     add-int/lit8 v2, v2, -0x1
 
     iput v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mStarts:I
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method public unplug(JJ)V
-    .registers 7
+    .locals 2
     .parameter "batteryUptime"
     .parameter "batteryRealtime"
 
@@ -708,7 +708,7 @@
 .end method
 
 .method writeToParcelLocked(Landroid/os/Parcel;)V
-    .registers 7
+    .locals 5
     .parameter "out"
 
     .prologue
@@ -729,11 +729,11 @@
     .line 3718
     iget-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mRunning:Z
 
-    if-eqz v0, :cond_4e
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_11
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3719
@@ -754,9 +754,9 @@
     .line 3722
     iget-boolean v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->mLaunched:Z
 
-    if-eqz v0, :cond_50
+    if-eqz v0, :cond_1
 
-    :goto_27
+    :goto_1
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3723
@@ -797,15 +797,15 @@
     .line 3730
     return-void
 
-    :cond_4e
+    :cond_0
     move v0, v2
 
     .line 3718
-    goto :goto_11
+    goto :goto_0
 
-    :cond_50
+    :cond_1
     move v1, v2
 
     .line 3722
-    goto :goto_27
+    goto :goto_1
 .end method

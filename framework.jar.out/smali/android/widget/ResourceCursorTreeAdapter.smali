@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/database/Cursor;II)V
-    .registers 12
+    .locals 7
     .parameter "context"
     .parameter "cursor"
     .parameter "groupLayout"
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/database/Cursor;III)V
-    .registers 13
+    .locals 7
     .parameter "context"
     .parameter "cursor"
     .parameter "collapsedGroupLayout"
@@ -76,7 +76,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/database/Cursor;IIII)V
-    .registers 8
+    .locals 1
     .parameter "context"
     .parameter "cursor"
     .parameter "collapsedGroupLayout"
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method public newChildView(Landroid/content/Context;Landroid/database/Cursor;ZLandroid/view/ViewGroup;)Landroid/view/View;
-    .registers 8
+    .locals 3
     .parameter "context"
     .parameter "cursor"
     .parameter "isLastChild"
@@ -128,11 +128,11 @@
     .line 100
     iget-object v1, p0, Landroid/widget/ResourceCursorTreeAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    if-eqz p3, :cond_c
+    if-eqz p3, :cond_0
 
     iget v0, p0, Landroid/widget/ResourceCursorTreeAdapter;->mLastChildLayout:I
 
-    :goto_6
+    :goto_0
     const/4 v2, 0x0
 
     invoke-virtual {v1, v0, p4, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
@@ -141,14 +141,14 @@
 
     return-object v0
 
-    :cond_c
+    :cond_0
     iget v0, p0, Landroid/widget/ResourceCursorTreeAdapter;->mChildLayout:I
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public newGroupView(Landroid/content/Context;Landroid/database/Cursor;ZLandroid/view/ViewGroup;)Landroid/view/View;
-    .registers 8
+    .locals 3
     .parameter "context"
     .parameter "cursor"
     .parameter "isExpanded"
@@ -158,11 +158,11 @@
     .line 105
     iget-object v1, p0, Landroid/widget/ResourceCursorTreeAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    if-eqz p3, :cond_c
+    if-eqz p3, :cond_0
 
     iget v0, p0, Landroid/widget/ResourceCursorTreeAdapter;->mExpandedGroupLayout:I
 
-    :goto_6
+    :goto_0
     const/4 v2, 0x0
 
     invoke-virtual {v1, v0, p4, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
@@ -171,8 +171,8 @@
 
     return-object v0
 
-    :cond_c
+    :cond_0
     iget v0, p0, Landroid/widget/ResourceCursorTreeAdapter;->mCollapsedGroupLayout:I
 
-    goto :goto_6
+    goto :goto_0
 .end method

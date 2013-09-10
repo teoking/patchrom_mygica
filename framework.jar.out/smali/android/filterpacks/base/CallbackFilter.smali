@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -57,14 +57,14 @@
 
 # virtual methods
 .method public prepare(Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
     .line 80
     iget-boolean v0, p0, Landroid/filterpacks/base/CallbackFilter;->mCallbacksOnUiThread:Z
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 81
     new-instance v0, Landroid/os/Handler;
@@ -78,12 +78,12 @@
     iput-object v0, p0, Landroid/filterpacks/base/CallbackFilter;->mUiThreadHandler:Landroid/os/Handler;
 
     .line 83
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 8
+    .locals 6
     .parameter "context"
 
     .prologue
@@ -98,12 +98,12 @@
     .local v4, input:Landroid/filterfw/core/Frame;
     iget-object v1, p0, Landroid/filterpacks/base/CallbackFilter;->mListener:Landroid/filterfw/core/FilterContext$OnFrameReceivedListener;
 
-    if-eqz v1, :cond_34
+    if-eqz v1, :cond_2
 
     .line 89
     iget-boolean v1, p0, Landroid/filterpacks/base/CallbackFilter;->mCallbacksOnUiThread:Z
 
-    if-eqz v1, :cond_2c
+    if-eqz v1, :cond_0
 
     .line 90
     invoke-virtual {v4}, Landroid/filterfw/core/Frame;->retain()Landroid/filterfw/core/Frame;
@@ -129,7 +129,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_33
+    if-nez v1, :cond_1
 
     .line 93
     new-instance v1, Ljava/lang/RuntimeException;
@@ -142,7 +142,7 @@
 
     .line 96
     .end local v0           #uiRunnable:Landroid/filterpacks/base/CallbackFilter$CallbackRunnable;
-    :cond_2c
+    :cond_0
     iget-object v1, p0, Landroid/filterpacks/base/CallbackFilter;->mListener:Landroid/filterfw/core/FilterContext$OnFrameReceivedListener;
 
     iget-object v2, p0, Landroid/filterpacks/base/CallbackFilter;->mUserData:Ljava/lang/Object;
@@ -150,11 +150,11 @@
     invoke-interface {v1, p0, v4, v2}, Landroid/filterfw/core/FilterContext$OnFrameReceivedListener;->onFrameReceived(Landroid/filterfw/core/Filter;Landroid/filterfw/core/Frame;Ljava/lang/Object;)V
 
     .line 101
-    :cond_33
+    :cond_1
     return-void
 
     .line 99
-    :cond_34
+    :cond_2
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "CallbackFilter received frame, but no listener set!"
@@ -165,7 +165,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76

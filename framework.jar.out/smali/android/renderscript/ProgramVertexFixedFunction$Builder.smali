@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
-    .registers 2
+    .locals 0
     .parameter "rs"
 
     .prologue
@@ -39,7 +39,7 @@
 .end method
 
 .method private buildShaderString()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 152
@@ -188,7 +188,7 @@
     .line 161
     iget-boolean v0, p0, Landroid/renderscript/ProgramVertexFixedFunction$Builder;->mTextureMatrixEnable:Z
 
-    if-eqz v0, :cond_c5
+    if-eqz v0, :cond_0
 
     .line 162
     new-instance v0, Ljava/lang/StringBuilder;
@@ -214,7 +214,7 @@
     iput-object v0, p0, Landroid/renderscript/ProgramVertexFixedFunction$Builder;->mShader:Ljava/lang/String;
 
     .line 166
-    :goto_ac
+    :goto_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -241,7 +241,7 @@
     return-void
 
     .line 164
-    :cond_c5
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -264,11 +264,11 @@
 
     iput-object v0, p0, Landroid/renderscript/ProgramVertexFixedFunction$Builder;->mShader:Ljava/lang/String;
 
-    goto :goto_ac
+    goto :goto_0
 .end method
 
 .method static getConstantInputType(Landroid/renderscript/RenderScript;)Landroid/renderscript/Type;
-    .registers 5
+    .locals 4
     .parameter "rs"
 
     .prologue
@@ -340,7 +340,7 @@
 
 # virtual methods
 .method public create()Landroid/renderscript/ProgramVertexFixedFunction;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 177
@@ -436,7 +436,7 @@
 .end method
 
 .method public setTextureMatrixEnable(Z)Landroid/renderscript/ProgramVertexFixedFunction$Builder;
-    .registers 2
+    .locals 0
     .parameter "enable"
 
     .prologue

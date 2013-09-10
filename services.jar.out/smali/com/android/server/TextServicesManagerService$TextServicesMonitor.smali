@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/TextServicesManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/TextServicesManagerService;Lcom/android/server/TextServicesManagerService$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,12 +47,13 @@
 
 # virtual methods
 .method public onSomePackagesChanged()V
-    .registers 8
+    .locals 7
 
     .prologue
     .line 99
     iget-object v3, p0, Lcom/android/server/TextServicesManagerService$TextServicesMonitor;->this$0:Lcom/android/server/TextServicesManagerService;
 
+    #getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
     invoke-static {v3}, Lcom/android/server/TextServicesManagerService;->access$100(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
 
     move-result-object v4
@@ -60,25 +61,29 @@
     monitor-enter v4
 
     .line 100
-    :try_start_7
+    :try_start_0
     iget-object v3, p0, Lcom/android/server/TextServicesManagerService$TextServicesMonitor;->this$0:Lcom/android/server/TextServicesManagerService;
 
+    #getter for: Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
     invoke-static {v3}, Lcom/android/server/TextServicesManagerService;->access$200(Lcom/android/server/TextServicesManagerService;)Landroid/content/Context;
 
     move-result-object v3
 
     iget-object v5, p0, Lcom/android/server/TextServicesManagerService$TextServicesMonitor;->this$0:Lcom/android/server/TextServicesManagerService;
 
+    #getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerList:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/server/TextServicesManagerService;->access$300(Lcom/android/server/TextServicesManagerService;)Ljava/util/ArrayList;
 
     move-result-object v5
 
     iget-object v6, p0, Lcom/android/server/TextServicesManagerService$TextServicesMonitor;->this$0:Lcom/android/server/TextServicesManagerService;
 
+    #getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
     invoke-static {v6}, Lcom/android/server/TextServicesManagerService;->access$100(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
 
     move-result-object v6
 
+    #calls: Lcom/android/server/TextServicesManagerService;->buildSpellCheckerMapLocked(Landroid/content/Context;Ljava/util/ArrayList;Ljava/util/HashMap;)V
     invoke-static {v3, v5, v6}, Lcom/android/server/TextServicesManagerService;->access$400(Landroid/content/Context;Ljava/util/ArrayList;Ljava/util/HashMap;)V
 
     .line 102
@@ -92,16 +97,16 @@
 
     .line 103
     .local v2, sci:Landroid/view/textservice/SpellCheckerInfo;
-    if-nez v2, :cond_27
+    if-nez v2, :cond_0
 
     monitor-exit v4
 
     .line 116
-    :goto_26
+    :goto_0
     return-void
 
     .line 104
-    :cond_27
+    :cond_0
     invoke-virtual {v2}, Landroid/view/textservice/SpellCheckerInfo;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
@@ -116,30 +121,31 @@
     .local v0, change:I
     const/4 v3, 0x3
 
-    if-eq v0, v3, :cond_3b
+    if-eq v0, v3, :cond_1
 
     const/4 v3, 0x2
 
-    if-eq v0, v3, :cond_3b
+    if-eq v0, v3, :cond_1
 
     invoke-virtual {p0, v1}, Lcom/android/server/TextServicesManagerService$TextServicesMonitor;->isPackageModified(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_4d
+    if-eqz v3, :cond_2
 
     .line 110
-    :cond_3b
+    :cond_1
     iget-object v3, p0, Lcom/android/server/TextServicesManagerService$TextServicesMonitor;->this$0:Lcom/android/server/TextServicesManagerService;
 
     const/4 v5, 0x0
 
+    #calls: Lcom/android/server/TextServicesManagerService;->findAvailSpellCheckerLocked(Ljava/lang/String;Ljava/lang/String;)Landroid/view/textservice/SpellCheckerInfo;
     invoke-static {v3, v5, v1}, Lcom/android/server/TextServicesManagerService;->access$500(Lcom/android/server/TextServicesManagerService;Ljava/lang/String;Ljava/lang/String;)Landroid/view/textservice/SpellCheckerInfo;
 
     move-result-object v2
 
     .line 111
-    if-eqz v2, :cond_4d
+    if-eqz v2, :cond_2
 
     .line 112
     iget-object v3, p0, Lcom/android/server/TextServicesManagerService$TextServicesMonitor;->this$0:Lcom/android/server/TextServicesManagerService;
@@ -148,23 +154,24 @@
 
     move-result-object v5
 
+    #calls: Lcom/android/server/TextServicesManagerService;->setCurrentSpellCheckerLocked(Ljava/lang/String;)V
     invoke-static {v3, v5}, Lcom/android/server/TextServicesManagerService;->access$600(Lcom/android/server/TextServicesManagerService;Ljava/lang/String;)V
 
     .line 115
-    :cond_4d
+    :cond_2
     monitor-exit v4
 
-    goto :goto_26
+    goto :goto_0
 
     .end local v0           #change:I
     .end local v1           #packageName:Ljava/lang/String;
     .end local v2           #sci:Landroid/view/textservice/SpellCheckerInfo;
-    :catchall_4f
+    :catchall_0
     move-exception v3
 
     monitor-exit v4
-    :try_end_51
-    .catchall {:try_start_7 .. :try_end_51} :catchall_4f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v3
 .end method

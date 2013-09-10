@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/server/BluetoothA2dpService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/server/BluetoothA2dpService;Landroid/server/BluetoothA2dpService$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -45,7 +45,7 @@
 .end method
 
 .method private onConnectionStateChanged(Landroid/bluetooth/BluetoothDevice;II)V
-    .registers 7
+    .locals 3
     .parameter "device"
     .parameter "prevState"
     .parameter "state"
@@ -82,6 +82,7 @@
     .line 609
     iget-object v1, p0, Landroid/server/BluetoothA2dpService$IntentBroadcastHandler;->this$0:Landroid/server/BluetoothA2dpService;
 
+    #getter for: Landroid/server/BluetoothA2dpService;->mContext:Landroid/content/Context;
     invoke-static {v1}, Landroid/server/BluetoothA2dpService;->access$900(Landroid/server/BluetoothA2dpService;)Landroid/content/Context;
 
     move-result-object v1
@@ -129,11 +130,13 @@
 
     move-result-object v1
 
+    #calls: Landroid/server/BluetoothA2dpService;->log(Ljava/lang/String;)V
     invoke-static {v1}, Landroid/server/BluetoothA2dpService;->access$1000(Ljava/lang/String;)V
 
     .line 613
     iget-object v1, p0, Landroid/server/BluetoothA2dpService$IntentBroadcastHandler;->this$0:Landroid/server/BluetoothA2dpService;
 
+    #getter for: Landroid/server/BluetoothA2dpService;->mBluetoothService:Landroid/server/BluetoothService;
     invoke-static {v1}, Landroid/server/BluetoothA2dpService;->access$500(Landroid/server/BluetoothA2dpService;)Landroid/server/BluetoothService;
 
     move-result-object v1
@@ -149,21 +152,21 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
     .line 619
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_1c
+    packed-switch v0, :pswitch_data_0
 
     .line 625
-    :goto_5
+    :goto_0
     return-void
 
     .line 621
-    :pswitch_6
+    :pswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/bluetooth/BluetoothDevice;
@@ -177,19 +180,20 @@
     .line 622
     iget-object v0, p0, Landroid/server/BluetoothA2dpService$IntentBroadcastHandler;->this$0:Landroid/server/BluetoothA2dpService;
 
+    #getter for: Landroid/server/BluetoothA2dpService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {v0}, Landroid/server/BluetoothA2dpService;->access$1100(Landroid/server/BluetoothA2dpService;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 619
     nop
 
-    :pswitch_data_1c
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_6
+        :pswitch_0
     .end packed-switch
 .end method

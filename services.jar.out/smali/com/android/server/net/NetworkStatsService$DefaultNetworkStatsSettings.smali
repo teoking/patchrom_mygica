@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -48,7 +48,7 @@
 .end method
 
 .method private getSecureBoolean(Ljava/lang/String;Z)Z
-    .registers 7
+    .locals 4
     .parameter "name"
     .parameter "def"
 
@@ -58,41 +58,41 @@
     const/4 v2, 0x0
 
     .line 1223
-    if-eqz p2, :cond_e
+    if-eqz p2, :cond_0
 
     move v0, v1
 
     .line 1224
     .local v0, defInt:I
-    :goto_5
+    :goto_0
     iget-object v3, p0, Lcom/android/server/net/NetworkStatsService$DefaultNetworkStatsSettings;->mResolver:Landroid/content/ContentResolver;
 
     invoke-static {v3, p1, v0}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v3
 
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_1
 
-    :goto_d
+    :goto_1
     return v1
 
     .end local v0           #defInt:I
-    :cond_e
+    :cond_0
     move v0, v2
 
     .line 1223
-    goto :goto_5
+    goto :goto_0
 
     .restart local v0       #defInt:I
-    :cond_10
+    :cond_1
     move v1, v2
 
     .line 1224
-    goto :goto_d
+    goto :goto_1
 .end method
 
 .method private getSecureLong(Ljava/lang/String;J)J
-    .registers 6
+    .locals 2
     .parameter "name"
     .parameter "def"
 
@@ -110,7 +110,7 @@
 
 # virtual methods
 .method public getDevConfig()Lcom/android/server/net/NetworkStatsService$NetworkStatsSettings$Config;
-    .registers 9
+    .locals 8
 
     .prologue
     .line 1249
@@ -146,7 +146,7 @@
 .end method
 
 .method public getDevPersistBytes(J)J
-    .registers 5
+    .locals 2
     .parameter "def"
 
     .prologue
@@ -161,7 +161,7 @@
 .end method
 
 .method public getGlobalAlertBytes(J)J
-    .registers 5
+    .locals 2
     .parameter "def"
 
     .prologue
@@ -176,7 +176,7 @@
 .end method
 
 .method public getPollInterval()J
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1229
@@ -192,7 +192,7 @@
 .end method
 
 .method public getReportXtOverDev()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1245
@@ -208,7 +208,7 @@
 .end method
 
 .method public getSampleEnabled()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1241
@@ -224,7 +224,7 @@
 .end method
 
 .method public getTimeCacheMaxAge()J
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1233
@@ -240,7 +240,7 @@
 .end method
 
 .method public getUidConfig()Lcom/android/server/net/NetworkStatsService$NetworkStatsSettings$Config;
-    .registers 9
+    .locals 8
 
     .prologue
     .line 1259
@@ -276,7 +276,7 @@
 .end method
 
 .method public getUidPersistBytes(J)J
-    .registers 5
+    .locals 2
     .parameter "def"
 
     .prologue
@@ -291,7 +291,7 @@
 .end method
 
 .method public getUidTagConfig()Lcom/android/server/net/NetworkStatsService$NetworkStatsSettings$Config;
-    .registers 9
+    .locals 8
 
     .prologue
     .line 1265
@@ -327,7 +327,7 @@
 .end method
 
 .method public getUidTagPersistBytes(J)J
-    .registers 5
+    .locals 2
     .parameter "def"
 
     .prologue
@@ -342,7 +342,7 @@
 .end method
 
 .method public getXtConfig()Lcom/android/server/net/NetworkStatsService$NetworkStatsSettings$Config;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1255
@@ -354,7 +354,7 @@
 .end method
 
 .method public getXtPersistBytes(J)J
-    .registers 5
+    .locals 2
     .parameter "def"
 
     .prologue

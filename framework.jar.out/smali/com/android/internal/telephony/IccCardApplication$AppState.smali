@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 8
+    .locals 8
 
     .prologue
     const/4 v7, 0x4
@@ -147,7 +147,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -164,7 +164,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/telephony/IccCardApplication$AppState;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -181,7 +181,7 @@
 .end method
 
 .method public static values()[Lcom/android/internal/telephony/IccCardApplication$AppState;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 37
@@ -199,106 +199,106 @@
 
 # virtual methods
 .method isAppNotReady()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 62
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppState;->APPSTATE_UNKNOWN:Lcom/android/internal/telephony/IccCardApplication$AppState;
 
-    if-eq p0, v0, :cond_8
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppState;->APPSTATE_DETECTED:Lcom/android/internal/telephony/IccCardApplication$AppState;
 
-    if-ne p0, v0, :cond_a
+    if-ne p0, v0, :cond_1
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method isAppReady()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 58
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppState;->APPSTATE_READY:Lcom/android/internal/telephony/IccCardApplication$AppState;
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method isPinRequired()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 46
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppState;->APPSTATE_PIN:Lcom/android/internal/telephony/IccCardApplication$AppState;
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method isPukRequired()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 50
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppState;->APPSTATE_PUK:Lcom/android/internal/telephony/IccCardApplication$AppState;
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method isSubscriptionPersoEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 54
     sget-object v0, Lcom/android/internal/telephony/IccCardApplication$AppState;->APPSTATE_SUBSCRIPTION_PERSO:Lcom/android/internal/telephony/IccCardApplication$AppState;
 
-    if-ne p0, v0, :cond_6
+    if-ne p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method

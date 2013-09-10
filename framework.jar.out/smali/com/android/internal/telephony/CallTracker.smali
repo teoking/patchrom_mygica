@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 35
@@ -59,29 +59,29 @@
 .end method
 
 .method private checkNoOperationsPending()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 121
     iget v0, p0, Lcom/android/internal/telephony/CallTracker;->pendingOperations:I
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected checkForTestEmergencyNumber(Ljava/lang/String;)Ljava/lang/String;
-    .registers 7
+    .locals 5
     .parameter "dialString"
 
     .prologue
@@ -100,7 +100,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_65
+    if-nez v2, :cond_0
 
     .line 152
     const-string v2, ":"
@@ -138,7 +138,7 @@
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_65
+    if-ne v2, v3, :cond_0
 
     .line 155
     const/4 v2, 0x0
@@ -153,7 +153,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_65
+    if-eqz v2, :cond_0
 
     .line 157
     iget-object v2, p0, Lcom/android/internal/telephony/CallTracker;->cm:Lcom/android/internal/telephony/CommandsInterface;
@@ -198,12 +198,12 @@
 
     .line 164
     .end local v1           #values:[Ljava/lang/String;
-    :cond_65
+    :cond_0
     return-object p1
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 6
+    .locals 2
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -294,7 +294,7 @@
 .end method
 
 .method protected handleRadioAvailable()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 95
@@ -305,16 +305,16 @@
 .end method
 
 .method protected isCommandExceptionRadioNotAvailable(Ljava/lang/Throwable;)Z
-    .registers 4
+    .locals 2
     .parameter "e"
 
     .prologue
     .line 87
-    if-eqz p1, :cond_12
+    if-eqz p1, :cond_0
 
     instance-of v0, p1, Lcom/android/internal/telephony/CommandException;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     check-cast p1, Lcom/android/internal/telephony/CommandException;
 
@@ -325,24 +325,24 @@
 
     sget-object v1, Lcom/android/internal/telephony/CommandException$Error;->RADIO_NOT_AVAILABLE:Lcom/android/internal/telephony/CommandException$Error;
 
-    if-ne v0, v1, :cond_12
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_11
+    :goto_0
     return v0
 
-    :cond_12
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method protected abstract log(Ljava/lang/String;)V
 .end method
 
 .method protected obtainNoPollCompleteMessage(I)Landroid/os/Message;
-    .registers 3
+    .locals 1
     .parameter "what"
 
     .prologue
@@ -367,7 +367,7 @@
 .end method
 
 .method protected pollCallsAfterDelay()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 79
@@ -391,7 +391,7 @@
 .end method
 
 .method protected pollCallsWhenSafe()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x1
@@ -404,7 +404,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 72
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/CallTracker;->obtainMessage(I)Landroid/os/Message;
@@ -421,7 +421,7 @@
     invoke-interface {v0, v1}, Lcom/android/internal/telephony/CommandsInterface;->getCurrentCalls(Landroid/os/Message;)V
 
     .line 75
-    :cond_16
+    :cond_0
     return-void
 .end method
 

@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "name"
 
     .prologue
@@ -23,7 +23,7 @@
 
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -33,7 +33,7 @@
 .end method
 
 .method public prepare(Landroid/filterfw/core/FilterContext;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -49,7 +49,7 @@
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 9
+    .locals 7
     .parameter "env"
 
     .prologue
@@ -138,7 +138,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x3

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/input/InputManagerService;Landroid/os/Handler;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "x0"
 
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .registers 3
+    .locals 1
     .parameter "selfChange"
 
     .prologue

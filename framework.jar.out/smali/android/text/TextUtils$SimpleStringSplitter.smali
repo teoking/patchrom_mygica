@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(C)V
-    .registers 2
+    .locals 0
     .parameter "delimiter"
 
     .prologue
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 405
@@ -66,21 +66,21 @@
 
     iget v1, p0, Landroid/text/TextUtils$SimpleStringSplitter;->mLength:I
 
-    if-ge v0, v1, :cond_8
+    if-ge v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -97,7 +97,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 376
@@ -109,7 +109,7 @@
 .end method
 
 .method public next()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 409
@@ -127,13 +127,13 @@
     .local v0, end:I
     const/4 v2, -0x1
 
-    if-ne v0, v2, :cond_f
+    if-ne v0, v2, :cond_0
 
     .line 411
     iget v0, p0, Landroid/text/TextUtils$SimpleStringSplitter;->mLength:I
 
     .line 413
-    :cond_f
+    :cond_0
     iget-object v2, p0, Landroid/text/TextUtils$SimpleStringSplitter;->mString:Ljava/lang/String;
 
     iget v3, p0, Landroid/text/TextUtils$SimpleStringSplitter;->mPosition:I
@@ -153,7 +153,7 @@
 .end method
 
 .method public remove()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 419
@@ -165,7 +165,7 @@
 .end method
 
 .method public setString(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "string"
 
     .prologue

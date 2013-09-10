@@ -71,7 +71,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/content/res/Configuration;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Lcom/android/internal/policy/impl/KeyguardScreenCallback;)V
-    .registers 15
+    .locals 9
     .parameter "context"
     .parameter "configuration"
     .parameter "lockPatternUtils"
@@ -142,7 +142,7 @@
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_84
+    if-eq v0, v1, :cond_0
 
     .line 460
     const v0, 0x1090058
@@ -150,7 +150,7 @@
     invoke-virtual {v6, v0, p0, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     .line 465
-    :goto_3b
+    :goto_0
     new-instance v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/LockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
@@ -187,9 +187,9 @@
 
     .line 473
     .local v7, vibrator:Landroid/os/Vibrator;
-    if-nez v7, :cond_8b
+    if-nez v7, :cond_1
 
-    :goto_5e
+    :goto_1
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/LockScreen;->mHasVibrator:Z
 
     .line 474
@@ -235,25 +235,25 @@
 
     .line 462
     .end local v7           #vibrator:Landroid/os/Vibrator;
-    :cond_84
+    :cond_0
     const v0, 0x1090059
 
     invoke-virtual {v6, v0, p0, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    goto :goto_3b
+    goto :goto_0
 
     .line 473
     .restart local v7       #vibrator:Landroid/os/Vibrator;
-    :cond_8b
+    :cond_1
     invoke-virtual {v7}, Landroid/os/Vibrator;->hasVibrator()Z
 
     move-result v5
 
-    goto :goto_5e
+    goto :goto_1
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/policy/impl/LockScreen;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -264,7 +264,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/android/internal/policy/impl/LockScreen;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -276,7 +276,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/internal/policy/impl/LockScreen;)Lcom/android/internal/policy/impl/LockScreen$UnlockWidgetCommonMethods;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -287,7 +287,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/android/internal/policy/impl/LockScreen;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -298,7 +298,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/android/internal/policy/impl/LockScreen;)Landroid/content/Context;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -309,7 +309,7 @@
 .end method
 
 .method static synthetic access$1200(Lcom/android/internal/policy/impl/LockScreen;)Landroid/content/Context;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -320,7 +320,7 @@
 .end method
 
 .method static synthetic access$1300(Lcom/android/internal/policy/impl/LockScreen;)Landroid/content/Context;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -331,7 +331,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/internal/policy/impl/LockScreen;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -342,7 +342,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/internal/policy/impl/LockScreen;)Landroid/media/AudioManager;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -353,7 +353,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/android/internal/policy/impl/LockScreen;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -364,7 +364,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/android/internal/policy/impl/LockScreen;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -375,7 +375,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/android/internal/policy/impl/LockScreen;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -388,7 +388,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/android/internal/policy/impl/LockScreen;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -399,7 +399,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/android/internal/policy/impl/LockScreen;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -410,7 +410,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/android/internal/policy/impl/LockScreen;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -421,14 +421,14 @@
 .end method
 
 .method private createUnlockMethods(Landroid/view/View;)Lcom/android/internal/policy/impl/LockScreen$UnlockWidgetCommonMethods;
-    .registers 12
+    .locals 10
     .parameter "unlockWidget"
 
     .prologue
     .line 484
     instance-of v6, p1, Lcom/android/internal/widget/SlidingTab;
 
-    if-eqz v6, :cond_2a
+    if-eqz v6, :cond_0
 
     move-object v3, p1
 
@@ -471,14 +471,14 @@
     .line 505
     .end local v2           #slidingTabMethods:Lcom/android/internal/policy/impl/LockScreen$SlidingTabMethods;
     .end local v3           #slidingTabView:Lcom/android/internal/widget/SlidingTab;
-    :goto_29
+    :goto_0
     return-object v2
 
     .line 496
-    :cond_2a
+    :cond_0
     instance-of v6, p1, Lcom/android/internal/widget/WaveView;
 
-    if-eqz v6, :cond_3b
+    if-eqz v6, :cond_1
 
     move-object v4, p1
 
@@ -498,15 +498,15 @@
     move-object v2, v5
 
     .line 500
-    goto :goto_29
+    goto :goto_0
 
     .line 501
     .end local v4           #waveView:Lcom/android/internal/widget/WaveView;
     .end local v5           #waveViewMethods:Lcom/android/internal/policy/impl/LockScreen$WaveViewMethods;
-    :cond_3b
+    :cond_1
     instance-of v6, p1, Lcom/android/internal/widget/multiwaveview/GlowPadView;
 
-    if-eqz v6, :cond_4c
+    if-eqz v6, :cond_2
 
     move-object v0, p1
 
@@ -526,12 +526,12 @@
     move-object v2, v1
 
     .line 505
-    goto :goto_29
+    goto :goto_0
 
     .line 507
     .end local v0           #glowPadView:Lcom/android/internal/widget/multiwaveview/GlowPadView;
     .end local v1           #glowPadViewMethods:Lcom/android/internal/policy/impl/LockScreen$GlowPadViewMethods;
-    :cond_4c
+    :cond_2
     new-instance v6, Ljava/lang/IllegalStateException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -558,7 +558,7 @@
 .end method
 
 .method private isSilentMode()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 536
@@ -570,21 +570,21 @@
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_b
+    if-eq v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method private requestUnlockScreen()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 399
@@ -601,7 +601,7 @@
 .end method
 
 .method private shouldEnableMenuKey()Z
-    .registers 7
+    .locals 6
 
     .prologue
     .line 426
@@ -637,26 +637,26 @@
 
     .line 430
     .local v1, fileOverride:Z
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
-    if-nez v2, :cond_20
+    if-nez v2, :cond_0
 
-    if-eqz v1, :cond_22
+    if-eqz v1, :cond_1
 
-    :cond_20
+    :cond_0
     const/4 v4, 0x1
 
-    :goto_21
+    :goto_0
     return v4
 
-    :cond_22
+    :cond_1
     const/4 v4, 0x0
 
-    goto :goto_21
+    goto :goto_0
 .end method
 
 .method private toggleRingMode()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x1
@@ -666,57 +666,57 @@
     .line 408
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/LockScreen;->mSilentMode:Z
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_0
 
     move v0, v1
 
-    :goto_7
+    :goto_0
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/LockScreen;->mSilentMode:Z
 
     .line 409
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/LockScreen;->mSilentMode:Z
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_2
 
     .line 410
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen;->mAudioManager:Landroid/media/AudioManager;
 
     iget-boolean v3, p0, Lcom/android/internal/policy/impl/LockScreen;->mHasVibrator:Z
 
-    if-eqz v3, :cond_19
+    if-eqz v3, :cond_1
 
-    :goto_13
+    :goto_1
     invoke-virtual {v0, v1}, Landroid/media/AudioManager;->setRingerMode(I)V
 
     .line 416
-    :goto_16
+    :goto_2
     return-void
 
-    :cond_17
+    :cond_0
     move v0, v2
 
     .line 408
-    goto :goto_7
+    goto :goto_0
 
-    :cond_19
+    :cond_1
     move v1, v2
 
     .line 410
-    goto :goto_13
+    goto :goto_1
 
     .line 414
-    :cond_1b
+    :cond_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen;->mAudioManager:Landroid/media/AudioManager;
 
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1}, Landroid/media/AudioManager;->setRingerMode(I)V
 
-    goto :goto_16
+    goto :goto_2
 .end method
 
 .method private updateTargets()V
-    .registers 10
+    .locals 9
 
     .prologue
     const/4 v7, 0x1
@@ -750,7 +750,7 @@
 
     instance-of v5, v5, Lcom/android/internal/policy/impl/LockScreen$GlowPadViewMethods;
 
-    if-eqz v5, :cond_5f
+    if-eqz v5, :cond_4
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/LockScreen;->mUnlockWidgetMethods:Lcom/android/internal/policy/impl/LockScreen$UnlockWidgetCommonMethods;
 
@@ -764,12 +764,12 @@
 
     .line 519
     .local v0, cameraTargetPresent:Z
-    :goto_24
+    :goto_0
     iget-object v5, p0, Lcom/android/internal/policy/impl/LockScreen;->mUnlockWidgetMethods:Lcom/android/internal/policy/impl/LockScreen$UnlockWidgetCommonMethods;
 
     instance-of v5, v5, Lcom/android/internal/policy/impl/LockScreen$GlowPadViewMethods;
 
-    if-eqz v5, :cond_61
+    if-eqz v5, :cond_5
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/LockScreen;->mUnlockWidgetMethods:Lcom/android/internal/policy/impl/LockScreen$UnlockWidgetCommonMethods;
 
@@ -783,8 +783,8 @@
 
     .line 524
     .local v4, searchTargetPresent:Z
-    :goto_35
-    if-eqz v1, :cond_63
+    :goto_1
+    if-eqz v1, :cond_6
 
     .line 525
     const-string v5, "LockScreen"
@@ -794,44 +794,44 @@
     invoke-static {v5, v8}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 529
-    :cond_3e
-    :goto_3e
+    :cond_0
+    :goto_2
     iget-object v5, p0, Lcom/android/internal/policy/impl/LockScreen;->mContext:Landroid/content/Context;
 
     invoke-static {v5}, Landroid/app/SearchManager;->getAssistIntent(Landroid/content/Context;)Landroid/content/Intent;
 
     move-result-object v5
 
-    if-eqz v5, :cond_6d
+    if-eqz v5, :cond_7
 
     move v3, v7
 
     .line 530
     .local v3, searchActionAvailable:Z
-    :goto_47
-    if-nez v1, :cond_4d
+    :goto_3
+    if-nez v1, :cond_1
 
-    if-nez v2, :cond_4d
+    if-nez v2, :cond_1
 
-    if-nez v0, :cond_6f
+    if-nez v0, :cond_8
 
-    :cond_4d
+    :cond_1
     move v5, v7
 
-    :goto_4e
+    :goto_4
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/LockScreen;->mCameraDisabled:Z
 
     .line 531
-    if-nez v2, :cond_56
+    if-nez v2, :cond_2
 
-    if-eqz v3, :cond_56
+    if-eqz v3, :cond_2
 
-    if-nez v4, :cond_57
+    if-nez v4, :cond_3
 
-    :cond_56
+    :cond_2
     move v6, v7
 
-    :cond_57
+    :cond_3
     iput-boolean v6, p0, Lcom/android/internal/policy/impl/LockScreen;->mSearchDisabled:Z
 
     .line 532
@@ -845,23 +845,23 @@
     .end local v0           #cameraTargetPresent:Z
     .end local v3           #searchActionAvailable:Z
     .end local v4           #searchTargetPresent:Z
-    :cond_5f
+    :cond_4
     move v0, v6
 
     .line 515
-    goto :goto_24
+    goto :goto_0
 
     .restart local v0       #cameraTargetPresent:Z
-    :cond_61
+    :cond_5
     move v4, v6
 
     .line 519
-    goto :goto_35
+    goto :goto_1
 
     .line 526
     .restart local v4       #searchTargetPresent:Z
-    :cond_63
-    if-eqz v2, :cond_3e
+    :cond_6
+    if-eqz v2, :cond_0
 
     .line 527
     const-string v5, "LockScreen"
@@ -870,26 +870,26 @@
 
     invoke-static {v5, v8}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_3e
+    goto :goto_2
 
-    :cond_6d
+    :cond_7
     move v3, v6
 
     .line 529
-    goto :goto_47
+    goto :goto_3
 
     .restart local v3       #searchActionAvailable:Z
-    :cond_6f
+    :cond_8
     move v5, v6
 
     .line 530
-    goto :goto_4e
+    goto :goto_4
 .end method
 
 
 # virtual methods
 .method public cleanUp()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -927,7 +927,7 @@
 .end method
 
 .method public needsInput()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 579
@@ -937,7 +937,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 556
@@ -951,7 +951,7 @@
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .registers 2
+    .locals 0
     .parameter "newConfig"
 
     .prologue
@@ -966,7 +966,7 @@
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 1
     .parameter "keyCode"
     .parameter "event"
 
@@ -974,11 +974,11 @@
     .line 541
     const/16 v0, 0x52
 
-    if-ne p1, v0, :cond_d
+    if-ne p1, v0, :cond_0
 
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/LockScreen;->mEnableMenuKeyInLockScreen:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 542
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -986,14 +986,14 @@
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->goToUnlockScreen()V
 
     .line 544
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public onPause()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 584
@@ -1027,7 +1027,7 @@
 .end method
 
 .method public onResume()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 600
@@ -1061,7 +1061,7 @@
 .end method
 
 .method updateConfiguration()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 548
@@ -1079,7 +1079,7 @@
 
     iget v2, p0, Lcom/android/internal/policy/impl/LockScreen;->mCreationOrientation:I
 
-    if-eq v1, v2, :cond_13
+    if-eq v1, v2, :cond_0
 
     .line 550
     iget-object v1, p0, Lcom/android/internal/policy/impl/LockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -1087,6 +1087,6 @@
     invoke-interface {v1, v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->recreateMe(Landroid/content/res/Configuration;)V
 
     .line 552
-    :cond_13
+    :cond_0
     return-void
 .end method

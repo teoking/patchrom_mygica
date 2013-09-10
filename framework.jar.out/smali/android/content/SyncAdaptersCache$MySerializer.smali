@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 79
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromXml(Lorg/xmlpull/v1/XmlPullParser;)Landroid/content/SyncAdapterType;
-    .registers 6
+    .locals 4
     .parameter "parser"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -78,7 +78,7 @@
 .end method
 
 .method public bridge synthetic createFromXml(Lorg/xmlpull/v1/XmlPullParser;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -97,7 +97,7 @@
 .end method
 
 .method public writeAsXml(Landroid/content/SyncAdapterType;Lorg/xmlpull/v1/XmlSerializer;)V
-    .registers 6
+    .locals 3
     .parameter "item"
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
@@ -128,7 +128,7 @@
 .end method
 
 .method public bridge synthetic writeAsXml(Ljava/lang/Object;Lorg/xmlpull/v1/XmlSerializer;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .annotation system Ldalvik/annotation/Throws;

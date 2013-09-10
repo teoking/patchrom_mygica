@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
-    .registers 6
+    .locals 4
     .parameter "rs"
 
     .prologue
@@ -126,7 +126,7 @@
 .end method
 
 .method private addToBuffer(ILandroid/renderscript/Matrix4f;)V
-    .registers 7
+    .locals 4
     .parameter "offset"
     .parameter "m"
 
@@ -140,10 +140,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_6
+    :goto_0
     const/16 v1, 0x10
 
-    if-ge v0, v1, :cond_16
+    if-ge v0, v1, :cond_0
 
     .line 249
     iget-object v1, p0, Landroid/renderscript/ProgramVertexFixedFunction$Constants;->mIOBuffer:Landroid/renderscript/FieldPacker;
@@ -157,10 +157,10 @@
     .line 248
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 251
-    :cond_16
+    :cond_0
     iget-object v1, p0, Landroid/renderscript/ProgramVertexFixedFunction$Constants;->mAlloc:Landroid/renderscript/Allocation;
 
     const/4 v2, 0x0
@@ -176,7 +176,7 @@
 
 # virtual methods
 .method public destroy()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 242
@@ -194,7 +194,7 @@
 .end method
 
 .method getAllocation()Landroid/renderscript/Allocation;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 211
@@ -204,7 +204,7 @@
 .end method
 
 .method public setModelview(Landroid/renderscript/Matrix4f;)V
-    .registers 3
+    .locals 1
     .parameter "m"
 
     .prologue
@@ -223,7 +223,7 @@
 .end method
 
 .method public setProjection(Landroid/renderscript/Matrix4f;)V
-    .registers 3
+    .locals 1
     .parameter "m"
 
     .prologue
@@ -242,7 +242,7 @@
 .end method
 
 .method public setTexture(Landroid/renderscript/Matrix4f;)V
-    .registers 3
+    .locals 1
     .parameter "m"
 
     .prologue

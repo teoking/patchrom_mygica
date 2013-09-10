@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/content/Context;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "context"
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onProposedRotationChanged(I)V
-    .registers 4
+    .locals 2
     .parameter "rotation"
 
     .prologue

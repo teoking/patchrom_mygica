@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/internal/telephony/DataConnection;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/telephony/DataConnection;Lcom/android/internal/telephony/DataConnection$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,27 +47,27 @@
 
 # virtual methods
 .method public processMessage(Landroid/os/Message;)Z
-    .registers 8
+    .locals 6
     .parameter "msg"
 
     .prologue
     .line 1101
     iget v3, p1, Landroid/os/Message;->what:I
 
-    packed-switch v3, :pswitch_data_84
+    packed-switch v3, :pswitch_data_0
 
     .line 1130
-    :pswitch_5
+    :pswitch_0
     const/4 v2, 0x0
 
     .line 1133
     .local v2, retVal:Z
-    :goto_6
+    :goto_0
     return v2
 
     .line 1103
     .end local v2           #retVal:Z
-    :pswitch_7
+    :pswitch_1
     iget-object v3, p0, Lcom/android/internal/telephony/DataConnection$DcDisconnectingState;->this$0:Lcom/android/internal/telephony/DataConnection;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -97,6 +97,7 @@
     .line 1105
     iget-object v3, p0, Lcom/android/internal/telephony/DataConnection$DcDisconnectingState;->this$0:Lcom/android/internal/telephony/DataConnection;
 
+    #calls: Lcom/android/internal/telephony/DataConnection;->deferMessage(Landroid/os/Message;)V
     invoke-static {v3, p1}, Lcom/android/internal/telephony/DataConnection;->access$2900(Lcom/android/internal/telephony/DataConnection;Landroid/os/Message;)V
 
     .line 1106
@@ -104,11 +105,11 @@
 
     .line 1107
     .restart local v2       #retVal:Z
-    goto :goto_6
+    goto :goto_0
 
     .line 1110
     .end local v2           #retVal:Z
-    :pswitch_2a
+    :pswitch_2
     iget-object v3, p0, Lcom/android/internal/telephony/DataConnection$DcDisconnectingState;->this$0:Lcom/android/internal/telephony/DataConnection;
 
     const-string v4, "DcDisconnectingState msg.what=EVENT_DEACTIVATE_DONE"
@@ -134,11 +135,12 @@
 
     iget v4, v4, Lcom/android/internal/telephony/DataConnection;->mTag:I
 
-    if-ne v3, v4, :cond_5b
+    if-ne v3, v4, :cond_0
 
     .line 1116
     iget-object v3, p0, Lcom/android/internal/telephony/DataConnection$DcDisconnectingState;->this$0:Lcom/android/internal/telephony/DataConnection;
 
+    #getter for: Lcom/android/internal/telephony/DataConnection;->mInactiveState:Lcom/android/internal/telephony/DataConnection$DcInactiveState;
     invoke-static {v3}, Lcom/android/internal/telephony/DataConnection;->access$200(Lcom/android/internal/telephony/DataConnection;)Lcom/android/internal/telephony/DataConnection$DcInactiveState;
 
     move-result-object v4
@@ -154,23 +156,25 @@
 
     iget-object v4, p0, Lcom/android/internal/telephony/DataConnection$DcDisconnectingState;->this$0:Lcom/android/internal/telephony/DataConnection;
 
+    #getter for: Lcom/android/internal/telephony/DataConnection;->mInactiveState:Lcom/android/internal/telephony/DataConnection$DcInactiveState;
     invoke-static {v4}, Lcom/android/internal/telephony/DataConnection;->access$200(Lcom/android/internal/telephony/DataConnection;)Lcom/android/internal/telephony/DataConnection$DcInactiveState;
 
     move-result-object v4
 
+    #calls: Lcom/android/internal/telephony/DataConnection;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v3, v4}, Lcom/android/internal/telephony/DataConnection;->access$3000(Lcom/android/internal/telephony/DataConnection;Lcom/android/internal/util/IState;)V
 
     .line 1122
-    :goto_59
+    :goto_1
     const/4 v2, 0x1
 
     .line 1123
     .restart local v2       #retVal:Z
-    goto :goto_6
+    goto :goto_0
 
     .line 1119
     .end local v2           #retVal:Z
-    :cond_5b
+    :cond_0
     iget-object v3, p0, Lcom/android/internal/telephony/DataConnection$DcDisconnectingState;->this$0:Lcom/android/internal/telephony/DataConnection;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -209,14 +213,14 @@
 
     invoke-virtual {v3, v4}, Lcom/android/internal/telephony/DataConnection;->log(Ljava/lang/String;)V
 
-    goto :goto_59
+    goto :goto_1
 
     .line 1101
-    :pswitch_data_84
+    :pswitch_data_0
     .packed-switch 0x40000
-        :pswitch_7
-        :pswitch_5
-        :pswitch_5
-        :pswitch_2a
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_2
     .end packed-switch
 .end method

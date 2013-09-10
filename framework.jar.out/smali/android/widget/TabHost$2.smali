@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/TabHost;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onTabSelectionChanged(IZ)V
-    .registers 5
+    .locals 2
     .parameter "tabIndex"
     .parameter "clicked"
 
@@ -49,11 +49,12 @@
     invoke-virtual {v0, p1}, Landroid/widget/TabHost;->setCurrentTab(I)V
 
     .line 151
-    if-eqz p2, :cond_11
+    if-eqz p2, :cond_0
 
     .line 152
     iget-object v0, p0, Landroid/widget/TabHost$2;->this$0:Landroid/widget/TabHost;
 
+    #getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
     invoke-static {v0}, Landroid/widget/TabHost;->access$100(Landroid/widget/TabHost;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -63,6 +64,6 @@
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->requestFocus(I)Z
 
     .line 154
-    :cond_11
+    :cond_0
     return-void
 .end method

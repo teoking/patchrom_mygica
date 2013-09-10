@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;I)V
-    .registers 4
+    .locals 0
     .parameter "messageRef"
     .parameter "ackPdu"
     .parameter "errorCode"
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 42

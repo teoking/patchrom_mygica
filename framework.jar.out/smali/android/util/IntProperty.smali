@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public final set(Ljava/lang/Object;Ljava/lang/Integer;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "value"
     .annotation system Ldalvik/annotation/Signature;
@@ -66,7 +66,7 @@
 .end method
 
 .method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

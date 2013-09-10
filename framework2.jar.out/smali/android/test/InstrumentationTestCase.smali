@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 36
@@ -19,7 +19,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/test/InstrumentationTestCase;Ljava/lang/reflect/Method;IZ)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -38,7 +38,7 @@
 .end method
 
 .method private runMethod(Ljava/lang/reflect/Method;I)V
-    .registers 4
+    .locals 1
     .parameter "runMethod"
     .parameter "tolerance"
     .annotation system Ldalvik/annotation/Throws;
@@ -58,7 +58,7 @@
 .end method
 
 .method private runMethod(Ljava/lang/reflect/Method;IZ)V
-    .registers 11
+    .locals 7
     .parameter "runMethod"
     .parameter "tolerance"
     .parameter "isRepetitive"
@@ -80,17 +80,17 @@
 
     .line 214
     .local v3, runCount:I
-    :cond_3
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_4
+    :try_start_0
     check-cast v4, [Ljava/lang/Object;
 
     invoke-virtual {p1, p0, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_9
-    .catchall {:try_start_4 .. :try_end_9} :catchall_61
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_4 .. :try_end_9} :catch_28
-    .catch Ljava/lang/IllegalAccessException; {:try_start_4 .. :try_end_9} :catch_46
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 215
     const/4 v1, 0x0
@@ -99,7 +99,7 @@
     add-int/lit8 v3, v3, 0x1
 
     .line 225
-    if-eqz p3, :cond_1f
+    if-eqz p3, :cond_1
 
     .line 226
     new-instance v2, Landroid/os/Bundle;
@@ -121,34 +121,34 @@
 
     .line 231
     .end local v2           #iterations:Landroid/os/Bundle;
-    :cond_1f
-    :goto_1f
-    if-ge v3, p2, :cond_25
+    :cond_1
+    :goto_0
+    if-ge v3, p2, :cond_2
 
-    if-nez p3, :cond_3
+    if-nez p3, :cond_0
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_0
 
     .line 233
-    :cond_25
-    if-eqz v1, :cond_78
+    :cond_2
+    if-eqz v1, :cond_4
 
     .line 234
     throw v1
 
     .line 216
-    :catch_28
+    :catch_0
     move-exception v0
 
     .line 217
     .local v0, e:Ljava/lang/reflect/InvocationTargetException;
-    :try_start_29
+    :try_start_1
     invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->fillInStackTrace()Ljava/lang/Throwable;
 
     .line 218
     invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->getTargetException()Ljava/lang/Throwable;
-    :try_end_2f
-    .catchall {:try_start_29 .. :try_end_2f} :catchall_61
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v1
 
@@ -156,7 +156,7 @@
     add-int/lit8 v3, v3, 0x1
 
     .line 225
-    if-eqz p3, :cond_1f
+    if-eqz p3, :cond_1
 
     .line 226
     new-instance v2, Landroid/os/Bundle;
@@ -176,20 +176,20 @@
 
     invoke-virtual {v4, v6, v2}, Landroid/app/Instrumentation;->sendStatus(ILandroid/os/Bundle;)V
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 219
     .end local v0           #e:Ljava/lang/reflect/InvocationTargetException;
     .end local v2           #iterations:Landroid/os/Bundle;
-    :catch_46
+    :catch_1
     move-exception v0
 
     .line 220
     .local v0, e:Ljava/lang/IllegalAccessException;
-    :try_start_47
+    :try_start_2
     invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->fillInStackTrace()Ljava/lang/Throwable;
-    :try_end_4a
-    .catchall {:try_start_47 .. :try_end_4a} :catchall_61
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 221
     move-object v1, v0
@@ -198,7 +198,7 @@
     add-int/lit8 v3, v3, 0x1
 
     .line 225
-    if-eqz p3, :cond_1f
+    if-eqz p3, :cond_1
 
     .line 226
     new-instance v2, Landroid/os/Bundle;
@@ -218,18 +218,18 @@
 
     invoke-virtual {v4, v6, v2}, Landroid/app/Instrumentation;->sendStatus(ILandroid/os/Bundle;)V
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 223
     .end local v0           #e:Ljava/lang/IllegalAccessException;
     .end local v2           #iterations:Landroid/os/Bundle;
-    :catchall_61
+    :catchall_0
     move-exception v4
 
     add-int/lit8 v3, v3, 0x1
 
     .line 225
-    if-eqz p3, :cond_77
+    if-eqz p3, :cond_3
 
     .line 226
     new-instance v2, Landroid/os/Bundle;
@@ -251,18 +251,18 @@
 
     .line 229
     .end local v2           #iterations:Landroid/os/Bundle;
-    :cond_77
+    :cond_3
     throw v4
 
     .line 236
-    :cond_78
+    :cond_4
     return-void
 .end method
 
 
 # virtual methods
 .method public getInstrumentation()Landroid/app/Instrumentation;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 69
@@ -272,7 +272,7 @@
 .end method
 
 .method public injectInsrumentation(Landroid/app/Instrumentation;)V
-    .registers 2
+    .locals 0
     .parameter "instrumentation"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -286,7 +286,7 @@
 .end method
 
 .method public injectInstrumentation(Landroid/app/Instrumentation;)V
-    .registers 2
+    .locals 0
     .parameter "instrumentation"
 
     .prologue
@@ -298,7 +298,7 @@
 .end method
 
 .method public final launchActivity(Ljava/lang/String;Ljava/lang/Class;Landroid/os/Bundle;)Landroid/app/Activity;
-    .registers 6
+    .locals 2
     .parameter "pkg"
     .parameter
     .parameter "extras"
@@ -326,13 +326,13 @@
 
     .line 94
     .local v0, intent:Landroid/content/Intent;
-    if-eqz p3, :cond_c
+    if-eqz p3, :cond_0
 
     .line 95
     invoke-virtual {v0, p3}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
     .line 97
-    :cond_c
+    :cond_0
     invoke-virtual {p0, p1, p2, v0}, Landroid/test/InstrumentationTestCase;->launchActivityWithIntent(Ljava/lang/String;Ljava/lang/Class;Landroid/content/Intent;)Landroid/app/Activity;
 
     move-result-object v1
@@ -341,7 +341,7 @@
 .end method
 
 .method public final launchActivityWithIntent(Ljava/lang/String;Ljava/lang/Class;Landroid/content/Intent;)Landroid/app/Activity;
-    .registers 6
+    .locals 2
     .parameter "pkg"
     .parameter
     .parameter "intent"
@@ -394,7 +394,7 @@
 .end method
 
 .method protected runTest()V
-    .registers 14
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -418,7 +418,7 @@
 
     .line 163
     .local v9, method:Ljava/lang/reflect/Method;
-    :try_start_9
+    :try_start_0
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -428,13 +428,13 @@
     check-cast v0, [Ljava/lang/Class;
 
     invoke-virtual {v1, v7, v0}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-    :try_end_13
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_9 .. :try_end_13} :catch_72
+    :try_end_0
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v9
 
     .line 168
-    :goto_14
+    :goto_0
     invoke-virtual {v9}, Ljava/lang/reflect/Method;->getModifiers()I
 
     move-result v0
@@ -443,7 +443,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3a
+    if-nez v0, :cond_0
 
     .line 169
     new-instance v0, Ljava/lang/StringBuilder;
@@ -473,7 +473,7 @@
     invoke-static {v0}, Landroid/test/InstrumentationTestCase;->fail(Ljava/lang/String;)V
 
     .line 172
-    :cond_3a
+    :cond_0
     const/4 v10, 0x1
 
     .line 173
@@ -488,7 +488,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_90
+    if-eqz v0, :cond_2
 
     .line 175
     const-class v0, Landroid/test/FlakyTest;
@@ -504,15 +504,15 @@
     move-result v10
 
     .line 181
-    :cond_50
-    :goto_50
+    :cond_1
+    :goto_1
     const-class v0, Landroid/test/UiThreadTest;
 
     invoke-virtual {v9, v0}, Ljava/lang/reflect/Method;->isAnnotationPresent(Ljava/lang/Class;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_a6
+    if-eqz v0, :cond_3
 
     .line 182
     move v3, v10
@@ -548,7 +548,7 @@
     .line 195
     aget-object v0, v5, v12
 
-    if-eqz v0, :cond_a9
+    if-eqz v0, :cond_4
 
     .line 196
     aget-object v0, v5, v12
@@ -562,7 +562,7 @@
     .end local v5           #exceptions:[Ljava/lang/Throwable;
     .end local v8           #isRepetitive:Z
     .end local v10           #runCount:I
-    :catch_72
+    :catch_0
     move-exception v6
 
     .line 165
@@ -593,20 +593,20 @@
 
     invoke-static {v0}, Landroid/test/InstrumentationTestCase;->fail(Ljava/lang/String;)V
 
-    goto :goto_14
+    goto :goto_0
 
     .line 176
     .end local v6           #e:Ljava/lang/NoSuchMethodException;
     .restart local v8       #isRepetitive:Z
     .restart local v10       #runCount:I
-    :cond_90
+    :cond_2
     const-class v0, Landroid/test/RepetitiveTest;
 
     invoke-virtual {v9, v0}, Ljava/lang/reflect/Method;->isAnnotationPresent(Ljava/lang/Class;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_50
+    if-eqz v0, :cond_1
 
     .line 177
     const-class v0, Landroid/test/RepetitiveTest;
@@ -624,19 +624,19 @@
     .line 178
     const/4 v8, 0x1
 
-    goto :goto_50
+    goto :goto_1
 
     .line 199
-    :cond_a6
+    :cond_3
     invoke-direct {p0, v9, v10, v8}, Landroid/test/InstrumentationTestCase;->runMethod(Ljava/lang/reflect/Method;IZ)V
 
     .line 201
-    :cond_a9
+    :cond_4
     return-void
 .end method
 
 .method public runTestOnUiThread(Ljava/lang/Runnable;)V
-    .registers 6
+    .locals 4
     .parameter "r"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -667,7 +667,7 @@
     .line 144
     aget-object v1, v0, v3
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_0
 
     .line 145
     aget-object v1, v0, v3
@@ -675,12 +675,12 @@
     throw v1
 
     .line 147
-    :cond_17
+    :cond_0
     return-void
 .end method
 
 .method public sendKeys(Ljava/lang/String;)V
-    .registers 16
+    .locals 14
     .parameter "keysSequence"
 
     .prologue
@@ -706,8 +706,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_c
-    if-ge v2, v0, :cond_a4
+    :goto_0
+    if-ge v2, v0, :cond_3
 
     .line 254
     aget-object v5, v9, v2
@@ -724,16 +724,16 @@
     .local v10, repeater:I
     const/4 v11, -0x1
 
-    if-ne v10, v11, :cond_4a
+    if-ne v10, v11, :cond_1
 
     const/4 v8, 0x1
 
     .line 265
     .local v8, keyCount:I
-    :goto_1a
+    :goto_1
     const/4 v11, -0x1
 
-    if-eq v10, v11, :cond_23
+    if-eq v10, v11, :cond_0
 
     .line 266
     add-int/lit8 v11, v10, 0x1
@@ -743,15 +743,15 @@
     move-result-object v5
 
     .line 269
-    :cond_23
+    :cond_0
     const/4 v4, 0x0
 
     .local v4, j:I
-    :goto_24
-    if-ge v4, v8, :cond_6d
+    :goto_2
+    if-ge v4, v8, :cond_2
 
     .line 271
-    :try_start_26
+    :try_start_0
     const-class v11, Landroid/view/KeyEvent;
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -781,50 +781,50 @@
     const/4 v11, 0x0
 
     invoke-virtual {v7, v11}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
-    :try_end_43
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_26 .. :try_end_43} :catch_70
-    .catch Ljava/lang/IllegalAccessException; {:try_start_26 .. :try_end_43} :catch_8a
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
 
     move-result v6
 
     .line 274
     .local v6, keyCode:I
-    :try_start_44
+    :try_start_1
     invoke-virtual {v3, v6}, Landroid/app/Instrumentation;->sendKeyDownUpSync(I)V
-    :try_end_47
-    .catch Ljava/lang/SecurityException; {:try_start_44 .. :try_end_47} :catch_a8
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_44 .. :try_end_47} :catch_70
-    .catch Ljava/lang/IllegalAccessException; {:try_start_44 .. :try_end_47} :catch_8a
+    :try_end_1
+    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_3
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_2
 
     .line 269
-    :goto_47
+    :goto_3
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_24
+    goto :goto_2
 
     .line 259
     .end local v4           #j:I
     .end local v6           #keyCode:I
     .end local v7           #keyCodeField:Ljava/lang/reflect/Field;
     .end local v8           #keyCount:I
-    :cond_4a
+    :cond_1
     const/4 v11, 0x0
 
-    :try_start_4b
+    :try_start_2
     invoke-virtual {v5, v11, v10}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v11
 
     invoke-static {v11}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_52
-    .catch Ljava/lang/NumberFormatException; {:try_start_4b .. :try_end_52} :catch_54
+    :try_end_2
+    .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_0
 
     move-result v8
 
-    goto :goto_1a
+    goto :goto_1
 
     .line 260
-    :catch_54
+    :catch_0
     move-exception v1
 
     .line 261
@@ -853,16 +853,16 @@
 
     .line 253
     .end local v1           #e:Ljava/lang/NumberFormatException;
-    :cond_6d
-    :goto_6d
+    :cond_2
+    :goto_4
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_c
+    goto :goto_0
 
     .line 280
     .restart local v4       #j:I
     .restart local v8       #keyCount:I
-    :catch_70
+    :catch_1
     move-exception v1
 
     .line 281
@@ -889,11 +889,11 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_6d
+    goto :goto_4
 
     .line 283
     .end local v1           #e:Ljava/lang/NoSuchFieldException;
-    :catch_8a
+    :catch_2
     move-exception v1
 
     .line 284
@@ -920,7 +920,7 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_6d
+    goto :goto_4
 
     .line 290
     .end local v1           #e:Ljava/lang/IllegalAccessException;
@@ -928,7 +928,7 @@
     .end local v5           #key:Ljava/lang/String;
     .end local v8           #keyCount:I
     .end local v10           #repeater:I
-    :cond_a4
+    :cond_3
     invoke-virtual {v3}, Landroid/app/Instrumentation;->waitForIdleSync()V
 
     .line 291
@@ -941,14 +941,14 @@
     .restart local v7       #keyCodeField:Ljava/lang/reflect/Field;
     .restart local v8       #keyCount:I
     .restart local v10       #repeater:I
-    :catch_a8
+    :catch_3
     move-exception v11
 
-    goto :goto_47
+    goto :goto_3
 .end method
 
 .method public varargs sendKeys([I)V
-    .registers 6
+    .locals 4
     .parameter "keys"
 
     .prologue
@@ -966,39 +966,39 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_6
-    if-ge v1, v0, :cond_10
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 305
-    :try_start_8
+    :try_start_0
     aget v3, p1, v1
 
     invoke-virtual {v2, v3}, Landroid/app/Instrumentation;->sendKeyDownUpSync(I)V
-    :try_end_d
-    .catch Ljava/lang/SecurityException; {:try_start_8 .. :try_end_d} :catch_14
+    :try_end_0
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 303
-    :goto_d
+    :goto_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 313
-    :cond_10
+    :cond_0
     invoke-virtual {v2}, Landroid/app/Instrumentation;->waitForIdleSync()V
 
     .line 314
     return-void
 
     .line 306
-    :catch_14
+    :catch_0
     move-exception v3
 
-    goto :goto_d
+    goto :goto_1
 .end method
 
 .method public varargs sendRepeatedKeys([I)V
-    .registers 10
+    .locals 8
     .parameter "keys"
 
     .prologue
@@ -1011,7 +1011,7 @@
 
     const/4 v7, 0x1
 
-    if-ne v6, v7, :cond_e
+    if-ne v6, v7, :cond_0
 
     .line 326
     new-instance v6, Ljava/lang/IllegalArgumentException;
@@ -1023,7 +1023,7 @@
     throw v6
 
     .line 330
-    :cond_e
+    :cond_0
     invoke-virtual {p0}, Landroid/test/InstrumentationTestCase;->getInstrumentation()Landroid/app/Instrumentation;
 
     move-result-object v2
@@ -1033,8 +1033,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_13
-    if-ge v1, v0, :cond_27
+    :goto_0
+    if-ge v1, v0, :cond_2
 
     .line 333
     aget v5, p1, v1
@@ -1050,32 +1050,32 @@
     const/4 v3, 0x0
 
     .local v3, j:I
-    :goto_1c
-    if-ge v3, v5, :cond_24
+    :goto_1
+    if-ge v3, v5, :cond_1
 
     .line 337
-    :try_start_1e
+    :try_start_0
     invoke-virtual {v2, v4}, Landroid/app/Instrumentation;->sendKeyDownUpSync(I)V
-    :try_end_21
-    .catch Ljava/lang/SecurityException; {:try_start_1e .. :try_end_21} :catch_2b
+    :try_end_0
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 335
-    :goto_21
+    :goto_2
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1c
+    goto :goto_1
 
     .line 332
-    :cond_24
+    :cond_1
     add-int/lit8 v1, v1, 0x2
 
-    goto :goto_13
+    goto :goto_0
 
     .line 346
     .end local v3           #j:I
     .end local v4           #keyCode:I
     .end local v5           #keyCount:I
-    :cond_27
+    :cond_2
     invoke-virtual {v2}, Landroid/app/Instrumentation;->waitForIdleSync()V
 
     .line 347
@@ -1085,14 +1085,14 @@
     .restart local v3       #j:I
     .restart local v4       #keyCode:I
     .restart local v5       #keyCount:I
-    :catch_2b
+    :catch_0
     move-exception v6
 
-    goto :goto_21
+    goto :goto_2
 .end method
 
 .method protected tearDown()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;

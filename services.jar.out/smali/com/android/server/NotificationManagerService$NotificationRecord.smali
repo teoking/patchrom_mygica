@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;IIIILandroid/app/Notification;)V
-    .registers 8
+    .locals 0
     .parameter "pkg"
     .parameter "tag"
     .parameter "id"
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;Landroid/content/Context;)V
-    .registers 7
+    .locals 3
     .parameter "pw"
     .parameter "prefix"
     .parameter "baseContext"
@@ -139,6 +139,7 @@
 
     iget v2, v2, Landroid/app/Notification;->icon:I
 
+    #calls: Lcom/android/server/NotificationManagerService;->idDebugString(Landroid/content/Context;Ljava/lang/String;I)Ljava/lang/String;
     invoke-static {p3, v1, v2}, Lcom/android/server/NotificationManagerService;->access$000(Landroid/content/Context;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v1
@@ -546,7 +547,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 355

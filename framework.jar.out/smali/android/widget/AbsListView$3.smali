@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/AbsListView;Landroid/view/inputmethod/InputConnection;Z)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter "x1"
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public performEditorAction(I)Z
-    .registers 6
+    .locals 4
     .parameter "editorAction"
 
     .prologue
@@ -46,7 +46,7 @@
     .line 5681
     const/4 v2, 0x6
 
-    if-ne p1, v2, :cond_1e
+    if-ne p1, v2, :cond_1
 
     .line 5682
     iget-object v2, p0, Landroid/widget/AbsListView$3;->this$0:Landroid/widget/AbsListView;
@@ -65,7 +65,7 @@
 
     .line 5685
     .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_0
 
     .line 5686
     iget-object v2, p0, Landroid/widget/AbsListView$3;->this$0:Landroid/widget/AbsListView;
@@ -77,23 +77,24 @@
     invoke-virtual {v0, v2, v1}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
     .line 5688
-    :cond_1d
+    :cond_0
     const/4 v1, 0x1
 
     .line 5690
     .end local v0           #imm:Landroid/view/inputmethod/InputMethodManager;
-    :cond_1e
+    :cond_1
     return v1
 .end method
 
 .method public reportFullscreenMode(Z)Z
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
     .line 5674
     iget-object v0, p0, Landroid/widget/AbsListView$3;->this$0:Landroid/widget/AbsListView;
 
+    #getter for: Landroid/widget/AbsListView;->mDefInputConnection:Landroid/view/inputmethod/InputConnection;
     invoke-static {v0}, Landroid/widget/AbsListView;->access$3300(Landroid/widget/AbsListView;)Landroid/view/inputmethod/InputConnection;
 
     move-result-object v0
@@ -106,13 +107,14 @@
 .end method
 
 .method public sendKeyEvent(Landroid/view/KeyEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
     .line 5698
     iget-object v0, p0, Landroid/widget/AbsListView$3;->this$0:Landroid/widget/AbsListView;
 
+    #getter for: Landroid/widget/AbsListView;->mDefInputConnection:Landroid/view/inputmethod/InputConnection;
     invoke-static {v0}, Landroid/widget/AbsListView;->access$3300(Landroid/widget/AbsListView;)Landroid/view/inputmethod/InputConnection;
 
     move-result-object v0

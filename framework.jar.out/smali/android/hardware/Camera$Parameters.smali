@@ -266,7 +266,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/hardware/Camera;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -287,7 +287,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/hardware/Camera;Landroid/hardware/Camera$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -299,78 +299,78 @@
 .end method
 
 .method private cameraFormatForPixelFormat(I)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "pixel_format"
 
     .prologue
     .line 2483
-    sparse-switch p1, :sswitch_data_20
+    sparse-switch p1, :sswitch_data_0
 
     .line 2491
     const/4 v0, 0x0
 
-    :goto_4
+    :goto_0
     return-object v0
 
     .line 2484
-    :sswitch_5
+    :sswitch_0
     const-string/jumbo v0, "yuv422sp"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 2485
-    :sswitch_9
+    :sswitch_1
     const-string/jumbo v0, "yuv420sp"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 2486
-    :sswitch_d
+    :sswitch_2
     const-string/jumbo v0, "yuv422i-yuyv"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 2487
-    :sswitch_11
+    :sswitch_3
     const-string/jumbo v0, "yuv420p"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 2488
-    :sswitch_15
+    :sswitch_4
     const-string/jumbo v0, "rgb565"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 2489
-    :sswitch_19
+    :sswitch_5
     const-string v0, "jpeg"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 2490
-    :sswitch_1c
+    :sswitch_6
     const-string v0, "bayer-rggb"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 2483
     nop
 
-    :sswitch_data_20
+    :sswitch_data_0
     .sparse-switch
-        0x4 -> :sswitch_15
-        0x10 -> :sswitch_5
-        0x11 -> :sswitch_9
-        0x14 -> :sswitch_d
-        0x100 -> :sswitch_19
-        0x200 -> :sswitch_1c
-        0x32315659 -> :sswitch_11
+        0x4 -> :sswitch_4
+        0x10 -> :sswitch_0
+        0x11 -> :sswitch_1
+        0x14 -> :sswitch_2
+        0x100 -> :sswitch_5
+        0x200 -> :sswitch_6
+        0x32315659 -> :sswitch_3
     .end sparse-switch
 .end method
 
 .method private getFloat(Ljava/lang/String;F)F
-    .registers 5
+    .locals 2
     .parameter "key"
     .parameter "defaultValue"
 
@@ -386,28 +386,28 @@
     check-cast v1, Ljava/lang/String;
 
     invoke-static {v1}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-    :try_end_b
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_b} :catch_d
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result p2
 
     .line 3545
     .end local p2
-    :goto_c
+    :goto_0
     return p2
 
     .line 3544
     .restart local p2
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 3545
     .local v0, ex:Ljava/lang/NumberFormatException;
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method private getInt(Ljava/lang/String;I)I
-    .registers 5
+    .locals 2
     .parameter "key"
     .parameter "defaultValue"
 
@@ -423,119 +423,59 @@
     check-cast v1, Ljava/lang/String;
 
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_b
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_b} :catch_d
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result p2
 
     .line 3554
     .end local p2
-    :goto_c
+    :goto_0
     return p2
 
     .line 3553
     .restart local p2
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 3554
     .local v0, ex:Ljava/lang/NumberFormatException;
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method private pixelFormatForCameraFormat(Ljava/lang/String;)I
-    .registers 4
+    .locals 2
     .parameter "format"
 
     .prologue
     const/4 v0, 0x0
 
     .line 2496
-    if-nez p1, :cond_4
+    if-nez p1, :cond_1
 
     .line 2517
-    :cond_3
-    :goto_3
+    :cond_0
+    :goto_0
     return v0
 
     .line 2499
-    :cond_4
+    :cond_1
     const-string/jumbo v1, "yuv422sp"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_2
 
     .line 2500
     const/16 v0, 0x10
 
-    goto :goto_3
+    goto :goto_0
 
     .line 2502
-    :cond_10
+    :cond_2
     const-string/jumbo v1, "yuv420sp"
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1c
-
-    .line 2503
-    const/16 v0, 0x11
-
-    goto :goto_3
-
-    .line 2505
-    :cond_1c
-    const-string/jumbo v1, "yuv422i-yuyv"
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_28
-
-    .line 2506
-    const/16 v0, 0x14
-
-    goto :goto_3
-
-    .line 2508
-    :cond_28
-    const-string/jumbo v1, "yuv420p"
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_35
-
-    .line 2509
-    const v0, 0x32315659
-
-    goto :goto_3
-
-    .line 2511
-    :cond_35
-    const-string/jumbo v1, "rgb565"
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_40
-
-    .line 2512
-    const/4 v0, 0x4
-
-    goto :goto_3
-
-    .line 2514
-    :cond_40
-    const-string v1, "jpeg"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -543,14 +483,74 @@
 
     if-eqz v1, :cond_3
 
+    .line 2503
+    const/16 v0, 0x11
+
+    goto :goto_0
+
+    .line 2505
+    :cond_3
+    const-string/jumbo v1, "yuv422i-yuyv"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    .line 2506
+    const/16 v0, 0x14
+
+    goto :goto_0
+
+    .line 2508
+    :cond_4
+    const-string/jumbo v1, "yuv420p"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    .line 2509
+    const v0, 0x32315659
+
+    goto :goto_0
+
+    .line 2511
+    :cond_5
+    const-string/jumbo v1, "rgb565"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
+    .line 2512
+    const/4 v0, 0x4
+
+    goto :goto_0
+
+    .line 2514
+    :cond_6
+    const-string v1, "jpeg"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
     .line 2515
     const/16 v0, 0x100
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method private same(Ljava/lang/String;Ljava/lang/String;)Z
-    .registers 5
+    .locals 2
     .parameter "s1"
     .parameter "s2"
 
@@ -558,34 +558,34 @@
     const/4 v0, 0x1
 
     .line 3651
-    if-nez p1, :cond_6
+    if-nez p1, :cond_1
 
-    if-nez p2, :cond_6
+    if-nez p2, :cond_1
 
     .line 3653
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return v0
 
     .line 3652
-    :cond_6
-    if-eqz p1, :cond_e
+    :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_0
 
     .line 3653
-    :cond_e
+    :cond_2
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method private set(Ljava/lang/String;Ljava/util/List;)V
-    .registers 9
+    .locals 6
     .parameter "key"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -604,7 +604,7 @@
     const/16 v5, 0x2c
 
     .line 2004
-    if-nez p2, :cond_a
+    if-nez p2, :cond_0
 
     .line 2005
     const-string v4, "(0,0,0,0,0)"
@@ -612,11 +612,11 @@
     invoke-virtual {p0, p1, v4}, Landroid/hardware/Camera$Parameters;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 2026
-    :goto_9
+    :goto_0
     return-void
 
     .line 2007
-    :cond_a
+    :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -626,12 +626,12 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_10
+    :goto_1
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v4
 
-    if-ge v2, v4, :cond_5b
+    if-ge v2, v4, :cond_2
 
     .line 2009
     invoke-interface {p2, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -699,31 +699,31 @@
 
     add-int/lit8 v4, v4, -0x1
 
-    if-eq v2, v4, :cond_58
+    if-eq v2, v4, :cond_1
 
     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 2008
-    :cond_58
+    :cond_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_10
+    goto :goto_1
 
     .line 2024
     .end local v0           #area:Landroid/hardware/Camera$Area;
     .end local v3           #rect:Landroid/graphics/Rect;
-    :cond_5b
+    :cond_2
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
     invoke-virtual {p0, p1, v4}, Landroid/hardware/Camera$Parameters;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method private split(Ljava/lang/String;)Ljava/util/ArrayList;
-    .registers 5
+    .locals 3
     .parameter "str"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -739,16 +739,16 @@
 
     .prologue
     .line 3491
-    if-nez p1, :cond_4
+    if-nez p1, :cond_1
 
     const/4 v0, 0x0
 
     .line 3499
-    :cond_3
+    :cond_0
     return-object v0
 
     .line 3494
-    :cond_4
+    :cond_1
     new-instance v1, Ljava/util/StringTokenizer;
 
     const-string v2, ","
@@ -763,12 +763,12 @@
 
     .line 3496
     .local v0, substrings:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :goto_10
+    :goto_0
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->hasMoreElements()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_0
 
     .line 3497
     invoke-virtual {v1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
@@ -777,11 +777,11 @@
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method private splitArea(Ljava/lang/String;)Ljava/util/ArrayList;
-    .registers 15
+    .locals 13
     .parameter "str"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -803,7 +803,7 @@
     const/4 v11, 0x0
 
     .line 3618
-    if-eqz p1, :cond_1b
+    if-eqz p1, :cond_0
 
     invoke-virtual {p1, v11}, Ljava/lang/String;->charAt(I)C
 
@@ -811,7 +811,7 @@
 
     const/16 v8, 0x28
 
-    if-ne v7, v8, :cond_1b
+    if-ne v7, v8, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -825,10 +825,10 @@
 
     const/16 v8, 0x29
 
-    if-eq v7, v8, :cond_35
+    if-eq v7, v8, :cond_2
 
     .line 3620
-    :cond_1b
+    :cond_0
     const-string v7, "Camera"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -854,12 +854,12 @@
     move-object v5, v6
 
     .line 3647
-    :cond_34
-    :goto_34
+    :cond_1
+    :goto_0
     return-object v5
 
     .line 3624
-    :cond_35
+    :cond_2
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
@@ -876,7 +876,7 @@
 
     .line 3628
     .local v1, array:[I
-    :cond_3e
+    :cond_3
     const-string v7, "),("
 
     invoke-virtual {p1, v7, v3}, Ljava/lang/String;->indexOf(Ljava/lang/String;I)I
@@ -887,7 +887,7 @@
     .local v2, endIndex:I
     const/4 v7, -0x1
 
-    if-ne v2, v7, :cond_4d
+    if-ne v2, v7, :cond_4
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -896,7 +896,7 @@
     add-int/lit8 v2, v7, -0x1
 
     .line 3630
-    :cond_4d
+    :cond_4
     invoke-virtual {p1, v3, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v7
@@ -942,26 +942,26 @@
 
     add-int/lit8 v7, v7, -0x1
 
-    if-ne v2, v7, :cond_3e
+    if-ne v2, v7, :cond_3
 
     .line 3636
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
     move-result v7
 
-    if-nez v7, :cond_80
+    if-nez v7, :cond_5
 
     move-object v5, v6
 
-    goto :goto_34
+    goto :goto_0
 
     .line 3638
-    :cond_80
+    :cond_5
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
     move-result v7
 
-    if-ne v7, v12, :cond_34
+    if-ne v7, v12, :cond_1
 
     .line 3639
     invoke-virtual {v5, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -977,45 +977,45 @@
     .line 3641
     iget v7, v4, Landroid/graphics/Rect;->left:I
 
-    if-nez v7, :cond_34
+    if-nez v7, :cond_1
 
     iget v7, v4, Landroid/graphics/Rect;->top:I
 
-    if-nez v7, :cond_34
+    if-nez v7, :cond_1
 
     iget v7, v4, Landroid/graphics/Rect;->right:I
 
-    if-nez v7, :cond_34
+    if-nez v7, :cond_1
 
     iget v7, v4, Landroid/graphics/Rect;->bottom:I
 
-    if-nez v7, :cond_34
+    if-nez v7, :cond_1
 
     iget v7, v0, Landroid/hardware/Camera$Area;->weight:I
 
-    if-nez v7, :cond_34
+    if-nez v7, :cond_1
 
     move-object v5, v6
 
     .line 3643
-    goto :goto_34
+    goto :goto_0
 .end method
 
 .method private splitFloat(Ljava/lang/String;[F)V
-    .registers 8
+    .locals 5
     .parameter "str"
     .parameter "output"
 
     .prologue
     .line 3530
-    if-nez p1, :cond_3
+    if-nez p1, :cond_1
 
     .line 3538
-    :cond_2
+    :cond_0
     return-void
 
     .line 3532
-    :cond_3
+    :cond_1
     new-instance v3, Ljava/util/StringTokenizer;
 
     const-string v4, ","
@@ -1028,12 +1028,12 @@
 
     .line 3534
     .local v0, index:I
-    :goto_b
+    :goto_0
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->hasMoreElements()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_0
 
     .line 3535
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
@@ -1057,11 +1057,11 @@
     .line 3537
     .end local v1           #index:I
     .restart local v0       #index:I
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method private splitInt(Ljava/lang/String;)Ljava/util/ArrayList;
-    .registers 7
+    .locals 5
     .parameter "str"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1079,17 +1079,17 @@
     const/4 v3, 0x0
 
     .line 3505
-    if-nez p1, :cond_5
+    if-nez p1, :cond_1
 
     move-object v0, v3
 
     .line 3514
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 3507
-    :cond_5
+    :cond_1
     new-instance v2, Ljava/util/StringTokenizer;
 
     const-string v4, ","
@@ -1104,12 +1104,12 @@
 
     .line 3509
     .local v0, substrings:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Integer;>;"
-    :goto_11
+    :goto_1
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->hasMoreElements()Z
 
     move-result v4
 
-    if-eqz v4, :cond_27
+    if-eqz v4, :cond_2
 
     .line 3510
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
@@ -1128,37 +1128,37 @@
 
     invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_11
+    goto :goto_1
 
     .line 3513
     .end local v1           #token:Ljava/lang/String;
-    :cond_27
+    :cond_2
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_0
 
     move-object v0, v3
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method private splitInt(Ljava/lang/String;[I)V
-    .registers 8
+    .locals 5
     .parameter "str"
     .parameter "output"
 
     .prologue
     .line 3518
-    if-nez p1, :cond_3
+    if-nez p1, :cond_1
 
     .line 3526
-    :cond_2
+    :cond_0
     return-void
 
     .line 3520
-    :cond_3
+    :cond_1
     new-instance v3, Ljava/util/StringTokenizer;
 
     const-string v4, ","
@@ -1171,12 +1171,12 @@
 
     .line 3522
     .local v0, index:I
-    :goto_b
+    :goto_0
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->hasMoreElements()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_0
 
     .line 3523
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
@@ -1200,11 +1200,11 @@
     .line 3525
     .end local v1           #index:I
     .restart local v0       #index:I
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method private splitRange(Ljava/lang/String;)Ljava/util/ArrayList;
-    .registers 10
+    .locals 8
     .parameter "str"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1220,7 +1220,7 @@
     const/4 v4, 0x0
 
     .line 3593
-    if-eqz p1, :cond_1a
+    if-eqz p1, :cond_0
 
     const/4 v5, 0x0
 
@@ -1230,7 +1230,7 @@
 
     const/16 v6, 0x28
 
-    if-ne v5, v6, :cond_1a
+    if-ne v5, v6, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -1244,10 +1244,10 @@
 
     const/16 v6, 0x29
 
-    if-eq v5, v6, :cond_34
+    if-eq v5, v6, :cond_2
 
     .line 3595
-    :cond_1a
+    :cond_0
     const-string v5, "Camera"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1273,12 +1273,12 @@
     move-object v3, v4
 
     .line 3611
-    :cond_33
-    :goto_33
+    :cond_1
+    :goto_0
     return-object v3
 
     .line 3599
-    :cond_34
+    :cond_2
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
@@ -1289,7 +1289,7 @@
 
     .line 3602
     .local v1, fromIndex:I
-    :cond_3a
+    :cond_3
     const/4 v5, 0x2
 
     new-array v2, v5, [I
@@ -1306,7 +1306,7 @@
     .local v0, endIndex:I
     const/4 v5, -0x1
 
-    if-ne v0, v5, :cond_4c
+    if-ne v0, v5, :cond_4
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -1315,7 +1315,7 @@
     add-int/lit8 v0, v5, -0x1
 
     .line 3605
-    :cond_4c
+    :cond_4
     invoke-virtual {p1, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v5
@@ -1335,22 +1335,22 @@
 
     add-int/lit8 v5, v5, -0x1
 
-    if-ne v0, v5, :cond_3a
+    if-ne v0, v5, :cond_3
 
     .line 3610
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v5
 
-    if-nez v5, :cond_33
+    if-nez v5, :cond_1
 
     move-object v3, v4
 
-    goto :goto_33
+    goto :goto_0
 .end method
 
 .method private splitSize(Ljava/lang/String;)Ljava/util/ArrayList;
-    .registers 7
+    .locals 5
     .parameter "str"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1368,17 +1368,17 @@
     const/4 v3, 0x0
 
     .line 3561
-    if-nez p1, :cond_5
+    if-nez p1, :cond_1
 
     move-object v1, v3
 
     .line 3570
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-object v1
 
     .line 3563
-    :cond_5
+    :cond_1
     new-instance v2, Ljava/util/StringTokenizer;
 
     const-string v4, ","
@@ -1393,13 +1393,13 @@
 
     .line 3565
     .local v1, sizeList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/hardware/Camera$Size;>;"
-    :cond_11
-    :goto_11
+    :cond_2
+    :goto_1
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->hasMoreElements()Z
 
     move-result v4
 
-    if-eqz v4, :cond_25
+    if-eqz v4, :cond_3
 
     .line 3566
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
@@ -1412,42 +1412,42 @@
 
     .line 3567
     .local v0, size:Landroid/hardware/Camera$Size;
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_2
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_11
+    goto :goto_1
 
     .line 3569
     .end local v0           #size:Landroid/hardware/Camera$Size;
-    :cond_25
+    :cond_3
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_0
 
     move-object v1, v3
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method private strToSize(Ljava/lang/String;)Landroid/hardware/Camera$Size;
-    .registers 9
+    .locals 7
     .parameter "str"
 
     .prologue
     const/4 v3, 0x0
 
     .line 3576
-    if-nez p1, :cond_4
+    if-nez p1, :cond_0
 
     .line 3586
-    :goto_3
+    :goto_0
     return-object v3
 
     .line 3578
-    :cond_4
+    :cond_0
     const/16 v4, 0x78
 
     invoke-virtual {p1, v4}, Ljava/lang/String;->indexOf(I)I
@@ -1458,7 +1458,7 @@
     .local v1, pos:I
     const/4 v4, -0x1
 
-    if-eq v1, v4, :cond_28
+    if-eq v1, v4, :cond_1
 
     .line 3580
     const/4 v3, 0x0
@@ -1491,12 +1491,12 @@
 
     invoke-direct {v3, v4, v5, v6}, Landroid/hardware/Camera$Size;-><init>(Landroid/hardware/Camera;II)V
 
-    goto :goto_3
+    goto :goto_0
 
     .line 3585
     .end local v0           #height:Ljava/lang/String;
     .end local v2           #width:Ljava/lang/String;
-    :cond_28
+    :cond_1
     const-string v4, "Camera"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1519,13 +1519,13 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public dump()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 1919
@@ -1569,12 +1569,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_28
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5f
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1624,16 +1624,16 @@
 
     invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_28
+    goto :goto_0
 
     .line 1923
     .end local v1           #k:Ljava/lang/String;
-    :cond_5f
+    :cond_0
     return-void
 .end method
 
 .method public flatten()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 1934
@@ -1654,12 +1654,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_f
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_34
+    if-eqz v3, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1692,11 +1692,11 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_f
+    goto :goto_0
 
     .line 1942
     .end local v2           #k:Ljava/lang/String;
-    :cond_34
+    :cond_0
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v3
@@ -1714,7 +1714,7 @@
 .end method
 
 .method public get(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -1731,7 +1731,7 @@
 .end method
 
 .method public getAntibanding()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2744
@@ -1745,7 +1745,7 @@
 .end method
 
 .method public getAutoExposureLock()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3038
@@ -1767,7 +1767,7 @@
 .end method
 
 .method public getAutoWhiteBalanceLock()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3110
@@ -1789,7 +1789,7 @@
 .end method
 
 .method public getColorEffect()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2707
@@ -1803,7 +1803,7 @@
 .end method
 
 .method public getExposureCompensation()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2938
@@ -1819,7 +1819,7 @@
 .end method
 
 .method public getExposureCompensationStep()F
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2986
@@ -1835,7 +1835,7 @@
 .end method
 
 .method public getFlashMode()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2834
@@ -1849,7 +1849,7 @@
 .end method
 
 .method public getFocalLength()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2906
@@ -1867,7 +1867,7 @@
 .end method
 
 .method public getFocusAreas()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1894,21 +1894,21 @@
 .end method
 
 .method public getFocusDistances([F)V
-    .registers 4
+    .locals 2
     .parameter "output"
 
     .prologue
     .line 3233
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_0
 
     array-length v0, p1
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_f
+    if-eq v0, v1, :cond_1
 
     .line 3234
-    :cond_6
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "output must be a float array with three elements."
@@ -1918,7 +1918,7 @@
     throw v0
 
     .line 3237
-    :cond_f
+    :cond_1
     const-string v0, "focus-distances"
 
     invoke-virtual {p0, v0}, Landroid/hardware/Camera$Parameters;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -1932,7 +1932,7 @@
 .end method
 
 .method public getFocusMode()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2874
@@ -1946,7 +1946,7 @@
 .end method
 
 .method public getHorizontalViewAngle()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2916
@@ -1964,7 +1964,7 @@
 .end method
 
 .method public getInt(Ljava/lang/String;)I
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -1985,7 +1985,7 @@
 .end method
 
 .method public getJpegQuality()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2213
@@ -1999,7 +1999,7 @@
 .end method
 
 .method public getJpegThumbnailQuality()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2194
@@ -2013,7 +2013,7 @@
 .end method
 
 .method public getJpegThumbnailSize()Landroid/hardware/Camera$Size;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 2162
@@ -2039,7 +2039,7 @@
 .end method
 
 .method public getMaxExposureCompensation()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2963
@@ -2055,7 +2055,7 @@
 .end method
 
 .method public getMaxNumDetectedFaces()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3385
@@ -2071,7 +2071,7 @@
 .end method
 
 .method public getMaxNumFocusAreas()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3249
@@ -2087,7 +2087,7 @@
 .end method
 
 .method public getMaxNumMeteringAreas()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3317
@@ -2103,7 +2103,7 @@
 .end method
 
 .method public getMaxZoom()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3175
@@ -2119,7 +2119,7 @@
 .end method
 
 .method public getMeteringAreas()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2146,7 +2146,7 @@
 .end method
 
 .method public getMinExposureCompensation()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2974
@@ -2162,7 +2162,7 @@
 .end method
 
 .method public getPictureFormat()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2461
@@ -2180,7 +2180,7 @@
 .end method
 
 .method public getPictureSize()Landroid/hardware/Camera$Size;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2420
@@ -2200,7 +2200,7 @@
 .end method
 
 .method public getPreferredPreviewSizeForVideo()Landroid/hardware/Camera$Size;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2134
@@ -2220,7 +2220,7 @@
 .end method
 
 .method public getPreviewFormat()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2373
@@ -2238,21 +2238,21 @@
 .end method
 
 .method public getPreviewFpsRange([I)V
-    .registers 4
+    .locals 2
     .parameter "range"
 
     .prologue
     .line 2280
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_0
 
     array-length v0, p1
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_f
+    if-eq v0, v1, :cond_1
 
     .line 2281
-    :cond_6
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "range must be an array with two elements."
@@ -2262,7 +2262,7 @@
     throw v0
 
     .line 2284
-    :cond_f
+    :cond_1
     const-string/jumbo v0, "preview-fps-range"
 
     invoke-virtual {p0, v0}, Landroid/hardware/Camera$Parameters;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -2276,7 +2276,7 @@
 .end method
 
 .method public getPreviewFrameRate()I
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2292,7 +2292,7 @@
 .end method
 
 .method public getPreviewSize()Landroid/hardware/Camera$Size;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2083
@@ -2312,7 +2312,7 @@
 .end method
 
 .method public getSceneMode()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2791
@@ -2326,7 +2326,7 @@
 .end method
 
 .method public getSupportedAntibanding()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2355,7 +2355,7 @@
 .end method
 
 .method public getSupportedColorEffects()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2384,7 +2384,7 @@
 .end method
 
 .method public getSupportedFlashModes()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2413,7 +2413,7 @@
 .end method
 
 .method public getSupportedFocusModes()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2442,7 +2442,7 @@
 .end method
 
 .method public getSupportedJpegThumbnailSizes()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2471,7 +2471,7 @@
 .end method
 
 .method public getSupportedPictureFormats()Ljava/util/List;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2507,13 +2507,13 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :cond_14
-    :goto_14
+    :cond_0
+    :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2e
+    if-eqz v5, :cond_1
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2529,7 +2529,7 @@
 
     .line 2476
     .local v0, f:I
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 2477
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2538,17 +2538,17 @@
 
     invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_14
+    goto :goto_0
 
     .line 2479
     .end local v0           #f:I
     .end local v3           #s:Ljava/lang/String;
-    :cond_2e
+    :cond_1
     return-object v1
 .end method
 
 .method public getSupportedPictureSizes()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2577,7 +2577,7 @@
 .end method
 
 .method public getSupportedPreviewFormats()Ljava/util/List;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2613,13 +2613,13 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :cond_14
-    :goto_14
+    :cond_0
+    :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2e
+    if-eqz v5, :cond_1
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2635,7 +2635,7 @@
 
     .line 2391
     .local v0, f:I
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 2392
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2644,17 +2644,17 @@
 
     invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_14
+    goto :goto_0
 
     .line 2394
     .end local v0           #f:I
     .end local v3           #s:Ljava/lang/String;
-    :cond_2e
+    :cond_1
     return-object v1
 .end method
 
 .method public getSupportedPreviewFpsRange()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2681,7 +2681,7 @@
 .end method
 
 .method public getSupportedPreviewFrameRates()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2713,7 +2713,7 @@
 .end method
 
 .method public getSupportedPreviewSizes()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2742,7 +2742,7 @@
 .end method
 
 .method public getSupportedSceneModes()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2771,7 +2771,7 @@
 .end method
 
 .method public getSupportedVideoSizes()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2800,7 +2800,7 @@
 .end method
 
 .method public getSupportedWhiteBalance()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2829,7 +2829,7 @@
 .end method
 
 .method public getVerticalViewAngle()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2926
@@ -2847,7 +2847,7 @@
 .end method
 
 .method public getVideoStabilization()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3471
@@ -2869,7 +2869,7 @@
 .end method
 
 .method public getWhiteBalance()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2660
@@ -2883,7 +2883,7 @@
 .end method
 
 .method public getZoom()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3137
@@ -2899,7 +2899,7 @@
 .end method
 
 .method public getZoomRatios()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2926,7 +2926,7 @@
 .end method
 
 .method public isAutoExposureLockSupported()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3052
@@ -2948,7 +2948,7 @@
 .end method
 
 .method public isAutoWhiteBalanceLockSupported()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3124
@@ -2970,7 +2970,7 @@
 .end method
 
 .method public isSmoothZoomSupported()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3199
@@ -2992,7 +2992,7 @@
 .end method
 
 .method public isVideoSnapshotSupported()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3434
@@ -3014,7 +3014,7 @@
 .end method
 
 .method public isVideoStabilizationSupported()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3484
@@ -3036,7 +3036,7 @@
 .end method
 
 .method public isZoomSupported()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3161
@@ -3058,7 +3058,7 @@
 .end method
 
 .method public remove(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -3072,7 +3072,7 @@
 .end method
 
 .method public removeGpsData()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2637
@@ -3105,7 +3105,7 @@
 .end method
 
 .method public set(Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
     .parameter "key"
     .parameter "value"
 
@@ -3124,7 +3124,7 @@
 .end method
 
 .method public set(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "key"
     .parameter "value"
 
@@ -3142,22 +3142,22 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_18
+    if-ne v0, v1, :cond_0
 
     invoke-virtual {p1, v3}, Ljava/lang/String;->indexOf(I)I
 
     move-result v0
 
-    if-ne v0, v1, :cond_18
+    if-ne v0, v1, :cond_0
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->indexOf(I)I
 
     move-result v0
 
-    if-eq v0, v1, :cond_37
+    if-eq v0, v1, :cond_1
 
     .line 1982
-    :cond_18
+    :cond_0
     const-string v0, "Camera"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3187,31 +3187,31 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1991
-    :goto_36
+    :goto_0
     return-void
 
     .line 1985
-    :cond_37
+    :cond_1
     invoke-virtual {p2, v4}, Ljava/lang/String;->indexOf(I)I
 
     move-result v0
 
-    if-ne v0, v1, :cond_49
+    if-ne v0, v1, :cond_2
 
     invoke-virtual {p2, v3}, Ljava/lang/String;->indexOf(I)I
 
     move-result v0
 
-    if-ne v0, v1, :cond_49
+    if-ne v0, v1, :cond_2
 
     invoke-virtual {p2, v2}, Ljava/lang/String;->indexOf(I)I
 
     move-result v0
 
-    if-eq v0, v1, :cond_68
+    if-eq v0, v1, :cond_3
 
     .line 1986
-    :cond_49
+    :cond_2
     const-string v0, "Camera"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3240,19 +3240,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_36
+    goto :goto_0
 
     .line 1990
-    :cond_68
+    :cond_3
     iget-object v0, p0, Landroid/hardware/Camera$Parameters;->mMap:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_36
+    goto :goto_0
 .end method
 
 .method public setAntibanding(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "antibanding"
 
     .prologue
@@ -3266,57 +3266,57 @@
 .end method
 
 .method public setAutoExposureLock(Z)V
-    .registers 4
+    .locals 2
     .parameter "toggle"
 
     .prologue
     .line 3023
     const-string v1, "auto-exposure-lock"
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_0
 
     const-string/jumbo v0, "true"
 
-    :goto_7
+    :goto_0
     invoke-virtual {p0, v1, v0}, Landroid/hardware/Camera$Parameters;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 3024
     return-void
 
     .line 3023
-    :cond_b
+    :cond_0
     const-string v0, "false"
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setAutoWhiteBalanceLock(Z)V
-    .registers 4
+    .locals 2
     .parameter "toggle"
 
     .prologue
     .line 3093
     const-string v1, "auto-whitebalance-lock"
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_0
 
     const-string/jumbo v0, "true"
 
-    :goto_7
+    :goto_0
     invoke-virtual {p0, v1, v0}, Landroid/hardware/Camera$Parameters;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 3094
     return-void
 
     .line 3093
-    :cond_b
+    :cond_0
     const-string v0, "false"
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setColorEffect(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "value"
 
     .prologue
@@ -3330,7 +3330,7 @@
 .end method
 
 .method public setExposureCompensation(I)V
-    .registers 3
+    .locals 1
     .parameter "value"
 
     .prologue
@@ -3344,7 +3344,7 @@
 .end method
 
 .method public setFlashMode(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "value"
 
     .prologue
@@ -3358,7 +3358,7 @@
 .end method
 
 .method public setFocusAreas(Ljava/util/List;)V
-    .registers 3
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3382,7 +3382,7 @@
 .end method
 
 .method public setFocusMode(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "value"
 
     .prologue
@@ -3396,7 +3396,7 @@
 .end method
 
 .method public setGpsAltitude(D)V
-    .registers 5
+    .locals 2
     .parameter "altitude"
 
     .prologue
@@ -3414,7 +3414,7 @@
 .end method
 
 .method public setGpsLatitude(D)V
-    .registers 5
+    .locals 2
     .parameter "latitude"
 
     .prologue
@@ -3432,7 +3432,7 @@
 .end method
 
 .method public setGpsLongitude(D)V
-    .registers 5
+    .locals 2
     .parameter "longitude"
 
     .prologue
@@ -3450,7 +3450,7 @@
 .end method
 
 .method public setGpsProcessingMethod(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "processing_method"
 
     .prologue
@@ -3464,7 +3464,7 @@
 .end method
 
 .method public setGpsTimestamp(J)V
-    .registers 5
+    .locals 2
     .parameter "timestamp"
 
     .prologue
@@ -3482,7 +3482,7 @@
 .end method
 
 .method public setJpegQuality(I)V
-    .registers 3
+    .locals 1
     .parameter "quality"
 
     .prologue
@@ -3496,7 +3496,7 @@
 .end method
 
 .method public setJpegThumbnailQuality(I)V
-    .registers 3
+    .locals 1
     .parameter "quality"
 
     .prologue
@@ -3510,7 +3510,7 @@
 .end method
 
 .method public setJpegThumbnailSize(II)V
-    .registers 4
+    .locals 1
     .parameter "width"
     .parameter "height"
 
@@ -3530,7 +3530,7 @@
 .end method
 
 .method public setMeteringAreas(Ljava/util/List;)V
-    .registers 3
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3554,7 +3554,7 @@
 .end method
 
 .method public setPictureFormat(I)V
-    .registers 6
+    .locals 4
     .parameter "pixel_format"
 
     .prologue
@@ -3565,7 +3565,7 @@
 
     .line 2446
     .local v0, s:Ljava/lang/String;
-    if-nez v0, :cond_1f
+    if-nez v0, :cond_0
 
     .line 2447
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -3593,7 +3593,7 @@
     throw v1
 
     .line 2451
-    :cond_1f
+    :cond_0
     const-string/jumbo v1, "picture-format"
 
     invoke-virtual {p0, v1, v0}, Landroid/hardware/Camera$Parameters;->set(Ljava/lang/String;Ljava/lang/String;)V
@@ -3603,7 +3603,7 @@
 .end method
 
 .method public setPictureSize(II)V
-    .registers 6
+    .locals 3
     .parameter "width"
     .parameter "height"
 
@@ -3650,7 +3650,7 @@
 .end method
 
 .method public setPreviewFormat(I)V
-    .registers 6
+    .locals 4
     .parameter "pixel_format"
 
     .prologue
@@ -3661,7 +3661,7 @@
 
     .line 2356
     .local v0, s:Ljava/lang/String;
-    if-nez v0, :cond_1f
+    if-nez v0, :cond_0
 
     .line 2357
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -3689,7 +3689,7 @@
     throw v1
 
     .line 2361
-    :cond_1f
+    :cond_0
     const-string/jumbo v1, "preview-format"
 
     invoke-virtual {p0, v1, v0}, Landroid/hardware/Camera$Parameters;->set(Ljava/lang/String;Ljava/lang/String;)V
@@ -3699,7 +3699,7 @@
 .end method
 
 .method public setPreviewFpsRange(II)V
-    .registers 6
+    .locals 3
     .parameter "min"
     .parameter "max"
 
@@ -3742,7 +3742,7 @@
 .end method
 
 .method public setPreviewFrameRate(I)V
-    .registers 3
+    .locals 1
     .parameter "fps"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -3758,7 +3758,7 @@
 .end method
 
 .method public setPreviewSize(II)V
-    .registers 6
+    .locals 3
     .parameter "width"
     .parameter "height"
 
@@ -3805,52 +3805,52 @@
 .end method
 
 .method public setRecordingHint(Z)V
-    .registers 4
+    .locals 2
     .parameter "hint"
 
     .prologue
     .line 3407
     const-string/jumbo v1, "recording-hint"
 
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_0
 
     const-string/jumbo v0, "true"
 
-    :goto_8
+    :goto_0
     invoke-virtual {p0, v1, v0}, Landroid/hardware/Camera$Parameters;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 3408
     return-void
 
     .line 3407
-    :cond_c
+    :cond_0
     const-string v0, "false"
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setRotation(I)V
-    .registers 5
+    .locals 3
     .parameter "rotation"
 
     .prologue
     .line 2574
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_0
 
     const/16 v0, 0x5a
 
-    if-eq p1, v0, :cond_e
+    if-eq p1, v0, :cond_0
 
     const/16 v0, 0xb4
 
-    if-eq p1, v0, :cond_e
+    if-eq p1, v0, :cond_0
 
     const/16 v0, 0x10e
 
-    if-ne p1, v0, :cond_19
+    if-ne p1, v0, :cond_1
 
     .line 2576
-    :cond_e
+    :cond_0
     const-string/jumbo v0, "rotation"
 
     invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
@@ -3863,7 +3863,7 @@
     return-void
 
     .line 2578
-    :cond_19
+    :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3890,7 +3890,7 @@
 .end method
 
 .method public setSceneMode(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "value"
 
     .prologue
@@ -3904,32 +3904,32 @@
 .end method
 
 .method public setVideoStabilization(Z)V
-    .registers 4
+    .locals 2
     .parameter "toggle"
 
     .prologue
     .line 3459
     const-string/jumbo v1, "video-stabilization"
 
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_0
 
     const-string/jumbo v0, "true"
 
-    :goto_8
+    :goto_0
     invoke-virtual {p0, v1, v0}, Landroid/hardware/Camera$Parameters;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 3460
     return-void
 
     .line 3459
-    :cond_c
+    :cond_0
     const-string v0, "false"
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setWhiteBalance(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "value"
 
     .prologue
@@ -3946,14 +3946,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_0
 
     .line 2677
-    :goto_d
+    :goto_0
     return-void
 
     .line 2675
-    :cond_e
+    :cond_0
     const-string/jumbo v1, "whitebalance"
 
     invoke-virtual {p0, v1, p1}, Landroid/hardware/Camera$Parameters;->set(Ljava/lang/String;Ljava/lang/String;)V
@@ -3965,11 +3965,11 @@
 
     invoke-virtual {p0, v1, v2}, Landroid/hardware/Camera$Parameters;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public setZoom(I)V
-    .registers 3
+    .locals 1
     .parameter "value"
 
     .prologue
@@ -3983,7 +3983,7 @@
 .end method
 
 .method public unflatten(Ljava/lang/String;)V
-    .registers 8
+    .locals 6
     .parameter "flattened"
 
     .prologue
@@ -4001,13 +4001,13 @@
 
     .line 1958
     .local v3, tokenizer:Ljava/util/StringTokenizer;
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->hasMoreElements()Z
 
     move-result v5
 
-    if-eqz v5, :cond_30
+    if-eqz v5, :cond_1
 
     .line 1959
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
@@ -4026,7 +4026,7 @@
     .local v2, pos:I
     const/4 v5, -0x1
 
-    if-eq v2, v5, :cond_c
+    if-eq v2, v5, :cond_0
 
     .line 1964
     const/4 v5, 0x0
@@ -4049,13 +4049,13 @@
 
     invoke-virtual {v5, v0, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_c
+    goto :goto_0
 
     .line 1968
     .end local v0           #k:Ljava/lang/String;
     .end local v1           #kv:Ljava/lang/String;
     .end local v2           #pos:I
     .end local v4           #v:Ljava/lang/String;
-    :cond_30
+    :cond_1
     return-void
 .end method

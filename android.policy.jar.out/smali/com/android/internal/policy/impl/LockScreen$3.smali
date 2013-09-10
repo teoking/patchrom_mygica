@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/LockScreen;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,12 +38,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 401
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$3;->this$0:Lcom/android/internal/policy/impl/LockScreen;
 
+    #getter for: Lcom/android/internal/policy/impl/LockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
     invoke-static {v0}, Lcom/android/internal/policy/impl/LockScreen;->access$400(Lcom/android/internal/policy/impl/LockScreen;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     move-result-object v0

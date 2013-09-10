@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 32
@@ -40,7 +40,7 @@
 .end method
 
 .method private constructor <init>(I)V
-    .registers 5
+    .locals 3
     .parameter "nativeBridge"
 
     .prologue
@@ -53,7 +53,7 @@
     monitor-enter v1
 
     .line 56
-    :try_start_6
+    :try_start_0
     sget v0, Landroid/webkit/WebHistoryItem;->sNextId:I
 
     add-int/lit8 v2, v0, 0x1
@@ -64,8 +64,8 @@
 
     .line 57
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_17
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 58
     iput p1, p0, Landroid/webkit/WebHistoryItem;->mNativeBridge:I
@@ -79,19 +79,19 @@
     return-void
 
     .line 57
-    :catchall_17
+    :catchall_0
     move-exception v0
 
-    :try_start_18
+    :try_start_1
     monitor-exit v1
-    :try_end_19
-    .catchall {:try_start_18 .. :try_end_19} :catchall_17
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method
 
 .method private constructor <init>(Landroid/webkit/WebHistoryItem;)V
-    .registers 3
+    .locals 1
     .parameter "item"
 
     .prologue
@@ -121,7 +121,7 @@
     .line 89
     iget v0, p0, Landroid/webkit/WebHistoryItem;->mNativeBridge:I
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     .line 90
     iget v0, p0, Landroid/webkit/WebHistoryItem;->mNativeBridge:I
@@ -129,12 +129,12 @@
     invoke-direct {p0, v0}, Landroid/webkit/WebHistoryItem;->nativeRef(I)V
 
     .line 92
-    :cond_1c
+    :cond_0
     return-void
 .end method
 
 .method constructor <init>([B)V
-    .registers 5
+    .locals 3
     .parameter "data"
 
     .prologue
@@ -150,7 +150,7 @@
     monitor-enter v1
 
     .line 76
-    :try_start_8
+    :try_start_0
     sget v0, Landroid/webkit/WebHistoryItem;->sNextId:I
 
     add-int/lit8 v2, v0, 0x1
@@ -166,12 +166,12 @@
     return-void
 
     .line 77
-    :catchall_12
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_14
-    .catchall {:try_start_8 .. :try_end_14} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
@@ -203,24 +203,24 @@
 
 # virtual methods
 .method protected declared-synchronized clone()Landroid/webkit/WebHistoryItem;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 249
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/WebHistoryItem;
 
     invoke-direct {v0, p0}, Landroid/webkit/WebHistoryItem;-><init>(Landroid/webkit/WebHistoryItem;)V
-    :try_end_6
-    .catchall {:try_start_1 .. :try_end_6} :catchall_8
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
-    :catchall_8
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -229,7 +229,7 @@
 .end method
 
 .method protected bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -246,7 +246,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -257,7 +257,7 @@
     .line 63
     iget v0, p0, Landroid/webkit/WebHistoryItem;->mNativeBridge:I
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 64
     iget v0, p0, Landroid/webkit/WebHistoryItem;->mNativeBridge:I
@@ -270,12 +270,12 @@
     iput v0, p0, Landroid/webkit/WebHistoryItem;->mNativeBridge:I
 
     .line 67
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public getCustomData()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 185
@@ -285,17 +285,17 @@
 .end method
 
 .method public getFavicon()Landroid/graphics/Bitmap;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 148
     iget-object v0, p0, Landroid/webkit/WebHistoryItem;->mFavicon:Landroid/graphics/Bitmap;
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     iget v0, p0, Landroid/webkit/WebHistoryItem;->mNativeBridge:I
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 149
     iget v0, p0, Landroid/webkit/WebHistoryItem;->mNativeBridge:I
@@ -307,20 +307,20 @@
     iput-object v0, p0, Landroid/webkit/WebHistoryItem;->mFavicon:Landroid/graphics/Bitmap;
 
     .line 151
-    :cond_10
+    :cond_0
     iget-object v0, p0, Landroid/webkit/WebHistoryItem;->mFavicon:Landroid/graphics/Bitmap;
 
     return-object v0
 .end method
 
 .method getFlattenedData()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 229
     iget v0, p0, Landroid/webkit/WebHistoryItem;->mNativeBridge:I
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 230
     iget v0, p0, Landroid/webkit/WebHistoryItem;->mNativeBridge:I
@@ -330,17 +330,17 @@
     move-result-object v0
 
     .line 232
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/webkit/WebHistoryItem;->mFlattenedData:[B
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getId()I
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -352,85 +352,85 @@
 .end method
 
 .method public getOriginalUrl()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 126
     iget v0, p0, Landroid/webkit/WebHistoryItem;->mNativeBridge:I
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
     .line 127
-    :goto_5
+    :goto_0
     return-object v0
 
-    :cond_6
+    :cond_0
     iget v0, p0, Landroid/webkit/WebHistoryItem;->mNativeBridge:I
 
     invoke-direct {p0, v0}, Landroid/webkit/WebHistoryItem;->nativeGetOriginalUrl(I)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public getTitle()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 137
     iget v0, p0, Landroid/webkit/WebHistoryItem;->mNativeBridge:I
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
     .line 138
-    :goto_5
+    :goto_0
     return-object v0
 
-    :cond_6
+    :cond_0
     iget v0, p0, Landroid/webkit/WebHistoryItem;->mNativeBridge:I
 
     invoke-direct {p0, v0}, Landroid/webkit/WebHistoryItem;->nativeGetTitle(I)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public getTouchIconUrl()Ljava/lang/String;
-    .registers 8
+    .locals 7
 
     .prologue
     .line 164
     iget-object v2, p0, Landroid/webkit/WebHistoryItem;->mTouchIconUrlFromLink:Ljava/lang/String;
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_0
 
     .line 165
     iget-object v2, p0, Landroid/webkit/WebHistoryItem;->mTouchIconUrlFromLink:Ljava/lang/String;
 
     .line 177
-    :goto_6
+    :goto_0
     return-object v2
 
     .line 166
-    :cond_7
+    :cond_0
     iget-object v2, p0, Landroid/webkit/WebHistoryItem;->mTouchIconUrlServerDefault:Ljava/lang/String;
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_1
 
     .line 167
     iget-object v2, p0, Landroid/webkit/WebHistoryItem;->mTouchIconUrlServerDefault:Ljava/lang/String;
 
-    goto :goto_6
+    goto :goto_0
 
     .line 171
-    :cond_e
-    :try_start_e
+    :cond_1
+    :try_start_0
     new-instance v1, Ljava/net/URL;
 
     invoke-virtual {p0}, Landroid/webkit/WebHistoryItem;->getOriginalUrl()Ljava/lang/String;
@@ -464,53 +464,53 @@
     move-result-object v2
 
     iput-object v2, p0, Landroid/webkit/WebHistoryItem;->mTouchIconUrlServerDefault:Ljava/lang/String;
-    :try_end_30
-    .catch Ljava/net/MalformedURLException; {:try_start_e .. :try_end_30} :catch_33
+    :try_end_0
+    .catch Ljava/net/MalformedURLException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 177
     iget-object v2, p0, Landroid/webkit/WebHistoryItem;->mTouchIconUrlServerDefault:Ljava/lang/String;
 
-    goto :goto_6
+    goto :goto_0
 
     .line 174
     .end local v1           #url:Ljava/net/URL;
-    :catch_33
+    :catch_0
     move-exception v0
 
     .line 175
     .local v0, e:Ljava/net/MalformedURLException;
     const/4 v2, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getUrl()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 115
     iget v0, p0, Landroid/webkit/WebHistoryItem;->mNativeBridge:I
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
     .line 116
-    :goto_5
+    :goto_0
     return-object v0
 
-    :cond_6
+    :cond_0
     iget v0, p0, Landroid/webkit/WebHistoryItem;->mNativeBridge:I
 
     invoke-direct {p0, v0}, Landroid/webkit/WebHistoryItem;->nativeGetUrl(I)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method inflate(I)V
-    .registers 3
+    .locals 1
     .parameter "nativeFrame"
 
     .prologue
@@ -533,7 +533,7 @@
 .end method
 
 .method public setCustomData(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "data"
 
     .prologue
@@ -545,7 +545,7 @@
 .end method
 
 .method setFavicon(Landroid/graphics/Bitmap;)V
-    .registers 2
+    .locals 0
     .parameter "icon"
 
     .prologue
@@ -557,23 +557,23 @@
 .end method
 
 .method setTouchIconUrl(Ljava/lang/String;Z)V
-    .registers 4
+    .locals 1
     .parameter "url"
     .parameter "precomposed"
 
     .prologue
     .line 218
-    if-nez p2, :cond_6
+    if-nez p2, :cond_0
 
     iget-object v0, p0, Landroid/webkit/WebHistoryItem;->mTouchIconUrlFromLink:Ljava/lang/String;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_1
 
     .line 219
-    :cond_6
+    :cond_0
     iput-object p1, p0, Landroid/webkit/WebHistoryItem;->mTouchIconUrlFromLink:Ljava/lang/String;
 
     .line 221
-    :cond_8
+    :cond_1
     return-void
 .end method

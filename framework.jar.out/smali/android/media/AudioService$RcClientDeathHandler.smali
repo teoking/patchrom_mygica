@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/AudioService;Landroid/os/IBinder;Landroid/app/PendingIntent;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "cb"
     .parameter "pi"
@@ -49,7 +49,7 @@
 .end method
 
 .method static synthetic access$8200(Landroid/media/AudioService$RcClientDeathHandler;)Landroid/os/IBinder;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -84,6 +84,7 @@
     .line 4257
     iget-object v0, p0, Landroid/media/AudioService$RcClientDeathHandler;->this$0:Landroid/media/AudioService;
 
+    #calls: Landroid/media/AudioService;->postReevaluateRemote()V
     invoke-static {v0}, Landroid/media/AudioService;->access$8000(Landroid/media/AudioService;)V
 
     .line 4258
@@ -91,7 +92,7 @@
 .end method
 
 .method public getBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 4261

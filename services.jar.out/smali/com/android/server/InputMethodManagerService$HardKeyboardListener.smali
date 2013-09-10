@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/InputMethodManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/InputMethodManagerService;Lcom/android/server/InputMethodManagerService$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public handleHardKeyboardStatusChange(ZZ)V
-    .registers 6
+    .locals 3
     .parameter "available"
     .parameter "enabled"
 
@@ -63,25 +63,28 @@
     monitor-enter v1
 
     .line 556
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$HardKeyboardListener;->this$0:Lcom/android/server/InputMethodManagerService;
 
+    #getter for: Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Landroid/app/AlertDialog;
     invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->access$600(Lcom/android/server/InputMethodManagerService;)Landroid/app/AlertDialog;
 
     move-result-object v0
 
-    if-eqz v0, :cond_34
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$HardKeyboardListener;->this$0:Lcom/android/server/InputMethodManagerService;
 
+    #getter for: Lcom/android/server/InputMethodManagerService;->mSwitchingDialogTitleView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->access$700(Lcom/android/server/InputMethodManagerService;)Landroid/view/View;
 
     move-result-object v0
 
-    if-eqz v0, :cond_34
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$HardKeyboardListener;->this$0:Lcom/android/server/InputMethodManagerService;
 
+    #getter for: Lcom/android/server/InputMethodManagerService;->mSwitchingDialog:Landroid/app/AlertDialog;
     invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->access$600(Lcom/android/server/InputMethodManagerService;)Landroid/app/AlertDialog;
 
     move-result-object v0
@@ -90,11 +93,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_34
+    if-eqz v0, :cond_0
 
     .line 558
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$HardKeyboardListener;->this$0:Lcom/android/server/InputMethodManagerService;
 
+    #getter for: Lcom/android/server/InputMethodManagerService;->mSwitchingDialogTitleView:Landroid/view/View;
     invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->access$700(Lcom/android/server/InputMethodManagerService;)Landroid/view/View;
 
     move-result-object v0
@@ -105,39 +109,39 @@
 
     move-result-object v2
 
-    if-eqz p1, :cond_36
+    if-eqz p1, :cond_1
 
     const/4 v0, 0x0
 
-    :goto_31
+    :goto_0
     invoke-virtual {v2, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 562
-    :cond_34
+    :cond_0
     monitor-exit v1
 
     .line 563
     return-void
 
     .line 558
-    :cond_36
+    :cond_1
     const/16 v0, 0x8
 
-    goto :goto_31
+    goto :goto_0
 
     .line 562
-    :catchall_39
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_3b
-    .catchall {:try_start_5 .. :try_end_3b} :catchall_39
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public onHardKeyboardStatusChange(ZZ)V
-    .registers 9
+    .locals 6
     .parameter "available"
     .parameter "enabled"
 
@@ -157,14 +161,14 @@
 
     const/16 v5, 0xfa0
 
-    if-eqz p1, :cond_19
+    if-eqz p1, :cond_0
 
     move v2, v0
 
-    :goto_f
-    if-eqz p2, :cond_1b
+    :goto_0
+    if-eqz p2, :cond_1
 
-    :goto_11
+    :goto_1
     invoke-virtual {v4, v5, v2, v0}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v0
@@ -174,14 +178,14 @@
     .line 548
     return-void
 
-    :cond_19
+    :cond_0
     move v2, v1
 
     .line 546
-    goto :goto_f
+    goto :goto_0
 
-    :cond_1b
+    :cond_1
     move v0, v1
 
-    goto :goto_11
+    goto :goto_1
 .end method

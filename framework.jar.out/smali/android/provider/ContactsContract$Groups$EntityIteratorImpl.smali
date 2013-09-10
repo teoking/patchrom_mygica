@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/database/Cursor;)V
-    .registers 2
+    .locals 0
     .parameter "cursor"
 
     .prologue
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public getEntityAndIncrementCursor(Landroid/database/Cursor;)Landroid/content/Entity;
-    .registers 4
+    .locals 2
     .parameter "cursor"
     .annotation system Ldalvik/annotation/Throws;
         value = {

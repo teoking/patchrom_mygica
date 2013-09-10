@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 132
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/nsd/NsdServiceInfo;
-    .registers 5
+    .locals 3
     .parameter "in"
 
     .prologue
@@ -56,6 +56,7 @@
 
     move-result-object v1
 
+    #setter for: Landroid/net/nsd/NsdServiceInfo;->mServiceName:Ljava/lang/String;
     invoke-static {v0, v1}, Landroid/net/nsd/NsdServiceInfo;->access$002(Landroid/net/nsd/NsdServiceInfo;Ljava/lang/String;)Ljava/lang/String;
 
     .line 136
@@ -63,6 +64,7 @@
 
     move-result-object v1
 
+    #setter for: Landroid/net/nsd/NsdServiceInfo;->mServiceType:Ljava/lang/String;
     invoke-static {v0, v1}, Landroid/net/nsd/NsdServiceInfo;->access$102(Landroid/net/nsd/NsdServiceInfo;Ljava/lang/String;)Ljava/lang/String;
 
     .line 137
@@ -74,6 +76,7 @@
 
     check-cast v1, Landroid/net/nsd/DnsSdTxtRecord;
 
+    #setter for: Landroid/net/nsd/NsdServiceInfo;->mTxtRecord:Landroid/net/nsd/DnsSdTxtRecord;
     invoke-static {v0, v1}, Landroid/net/nsd/NsdServiceInfo;->access$202(Landroid/net/nsd/NsdServiceInfo;Landroid/net/nsd/DnsSdTxtRecord;)Landroid/net/nsd/DnsSdTxtRecord;
 
     .line 139
@@ -83,10 +86,10 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_2f
+    if-ne v1, v2, :cond_0
 
     .line 141
-    :try_start_24
+    :try_start_0
     invoke-virtual {p1}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v1
@@ -95,31 +98,33 @@
 
     move-result-object v1
 
+    #setter for: Landroid/net/nsd/NsdServiceInfo;->mHost:Ljava/net/InetAddress;
     invoke-static {v0, v1}, Landroid/net/nsd/NsdServiceInfo;->access$302(Landroid/net/nsd/NsdServiceInfo;Ljava/net/InetAddress;)Ljava/net/InetAddress;
-    :try_end_2f
-    .catch Ljava/net/UnknownHostException; {:try_start_24 .. :try_end_2f} :catch_37
+    :try_end_0
+    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 145
-    :cond_2f
-    :goto_2f
+    :cond_0
+    :goto_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
+    #setter for: Landroid/net/nsd/NsdServiceInfo;->mPort:I
     invoke-static {v0, v1}, Landroid/net/nsd/NsdServiceInfo;->access$402(Landroid/net/nsd/NsdServiceInfo;I)I
 
     .line 146
     return-object v0
 
     .line 142
-    :catch_37
+    :catch_0
     move-exception v1
 
-    goto :goto_2f
+    goto :goto_0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -132,7 +137,7 @@
 .end method
 
 .method public newArray(I)[Landroid/net/nsd/NsdServiceInfo;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -143,7 +148,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

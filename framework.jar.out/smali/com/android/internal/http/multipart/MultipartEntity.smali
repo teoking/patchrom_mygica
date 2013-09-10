@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 86
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>([Lcom/android/internal/http/multipart/Part;)V
-    .registers 4
+    .locals 2
     .parameter "parts"
 
     .prologue
@@ -68,7 +68,7 @@
     invoke-virtual {p0, v0}, Lcom/android/internal/http/multipart/MultipartEntity;->setContentType(Ljava/lang/String;)V
 
     .line 144
-    if-nez p1, :cond_17
+    if-nez p1, :cond_0
 
     .line 145
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -80,7 +80,7 @@
     throw v0
 
     .line 147
-    :cond_17
+    :cond_0
     iput-object p1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->parts:[Lcom/android/internal/http/multipart/Part;
 
     .line 148
@@ -93,7 +93,7 @@
 .end method
 
 .method public constructor <init>([Lcom/android/internal/http/multipart/Part;Lorg/apache/http/params/HttpParams;)V
-    .registers 5
+    .locals 2
     .parameter "parts"
     .parameter "params"
 
@@ -107,7 +107,7 @@
     iput-boolean v0, p0, Lcom/android/internal/http/multipart/MultipartEntity;->contentConsumed:Z
 
     .line 132
-    if-nez p1, :cond_11
+    if-nez p1, :cond_0
 
     .line 133
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -119,8 +119,8 @@
     throw v0
 
     .line 135
-    :cond_11
-    if-nez p2, :cond_1c
+    :cond_0
+    if-nez p2, :cond_1
 
     .line 136
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -132,7 +132,7 @@
     throw v0
 
     .line 138
-    :cond_1c
+    :cond_1
     iput-object p1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->parts:[Lcom/android/internal/http/multipart/Part;
 
     .line 139
@@ -143,7 +143,7 @@
 .end method
 
 .method private static generateMultipartBoundary()[B
-    .registers 5
+    .locals 5
 
     .prologue
     .line 109
@@ -168,10 +168,10 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_10
+    :goto_0
     array-length v3, v0
 
-    if-ge v1, v3, :cond_23
+    if-ge v1, v3, :cond_0
 
     .line 112
     sget-object v3, Lcom/android/internal/http/multipart/MultipartEntity;->MULTIPART_CHARS:[B
@@ -191,17 +191,17 @@
     .line 111
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 114
-    :cond_23
+    :cond_0
     return-object v0
 .end method
 
 
 # virtual methods
 .method public getContent()Ljava/io/InputStream;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -215,11 +215,11 @@
 
     move-result v2
 
-    if-nez v2, :cond_12
+    if-nez v2, :cond_0
 
     iget-boolean v2, p0, Lcom/android/internal/http/multipart/MultipartEntity;->contentConsumed:Z
 
-    if-eqz v2, :cond_12
+    if-eqz v2, :cond_0
 
     .line 217
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -231,7 +231,7 @@
     throw v2
 
     .line 219
-    :cond_12
+    :cond_0
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/internal/http/multipart/MultipartEntity;->contentConsumed:Z
@@ -264,7 +264,7 @@
 .end method
 
 .method public getContentLength()J
-    .registers 4
+    .locals 3
 
     .prologue
     .line 208
@@ -276,17 +276,17 @@
     move-result-object v2
 
     invoke-static {v1, v2}, Lcom/android/internal/http/multipart/Part;->getLengthOfParts([Lcom/android/internal/http/multipart/Part;[B)J
-    :try_end_9
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_9} :catch_b
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-wide v1
 
     .line 211
-    :goto_a
+    :goto_0
     return-wide v1
 
     .line 209
-    :catch_b
+    :catch_0
     move-exception v0
 
     .line 210
@@ -300,11 +300,11 @@
     .line 211
     const-wide/16 v1, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getContentType()Lorg/apache/http/Header;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 197
@@ -346,13 +346,13 @@
 .end method
 
 .method protected getMultipartBoundary()[B
-    .registers 4
+    .locals 3
 
     .prologue
     .line 161
     iget-object v1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->multipartBoundary:[B
 
-    if-nez v1, :cond_1b
+    if-nez v1, :cond_1
 
     .line 162
     const/4 v0, 0x0
@@ -361,7 +361,7 @@
     .local v0, temp:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->params:Lorg/apache/http/params/HttpParams;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 164
     iget-object v1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->params:Lorg/apache/http/params/HttpParams;
@@ -377,8 +377,8 @@
 
     .line 166
     .restart local v0       #temp:Ljava/lang/String;
-    :cond_13
-    if-eqz v0, :cond_1e
+    :cond_0
+    if-eqz v0, :cond_2
 
     .line 167
     invoke-static {v0}, Lorg/apache/http/util/EncodingUtils;->getAsciiBytes(Ljava/lang/String;)[B
@@ -389,38 +389,38 @@
 
     .line 172
     .end local v0           #temp:Ljava/lang/String;
-    :cond_1b
-    :goto_1b
+    :cond_1
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->multipartBoundary:[B
 
     return-object v1
 
     .line 169
     .restart local v0       #temp:Ljava/lang/String;
-    :cond_1e
+    :cond_2
     invoke-static {}, Lcom/android/internal/http/multipart/MultipartEntity;->generateMultipartBoundary()[B
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->multipartBoundary:[B
 
-    goto :goto_1b
+    goto :goto_0
 .end method
 
 .method public isRepeatable()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 179
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->parts:[Lcom/android/internal/http/multipart/Part;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_15
+    if-ge v0, v1, :cond_1
 
     .line 180
     iget-object v1, p0, Lcom/android/internal/http/multipart/MultipartEntity;->parts:[Lcom/android/internal/http/multipart/Part;
@@ -431,30 +431,30 @@
 
     move-result v1
 
-    if-nez v1, :cond_12
+    if-nez v1, :cond_0
 
     .line 181
     const/4 v1, 0x0
 
     .line 184
-    :goto_11
+    :goto_1
     return v1
 
     .line 179
-    :cond_12
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 184
-    :cond_15
+    :cond_1
     const/4 v1, 0x1
 
-    goto :goto_11
+    goto :goto_1
 .end method
 
 .method public isStreaming()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 228
@@ -464,7 +464,7 @@
 .end method
 
 .method public writeTo(Ljava/io/OutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
         value = {

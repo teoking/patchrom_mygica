@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 25
@@ -51,7 +51,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_46
+    fill-array-data v0, :array_0
 
     sput-object v0, Lcom/android/internal/widget/Smileys;->sIconIds:[I
 
@@ -143,7 +143,7 @@
     return-void
 
     .line 25
-    :array_46
+    :array_0
     .array-data 0x4
         0x5ft 0x2t 0x8t 0x1t
         0x64t 0x2t 0x8t 0x1t
@@ -166,7 +166,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -176,7 +176,7 @@
 .end method
 
 .method public static getSmileyResource(I)I
-    .registers 2
+    .locals 1
     .parameter "which"
 
     .prologue

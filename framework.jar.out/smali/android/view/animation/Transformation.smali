@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 32
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 53
@@ -70,13 +70,13 @@
 
 # virtual methods
 .method public clear()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 63
     iget-object v0, p0, Landroid/view/animation/Transformation;->mMatrix:Landroid/graphics/Matrix;
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 64
     new-instance v0, Landroid/graphics/Matrix;
@@ -86,7 +86,7 @@
     iput-object v0, p0, Landroid/view/animation/Transformation;->mMatrix:Landroid/graphics/Matrix;
 
     .line 68
-    :goto_b
+    :goto_0
     const/high16 v0, 0x3f80
 
     iput v0, p0, Landroid/view/animation/Transformation;->mAlpha:F
@@ -100,16 +100,16 @@
     return-void
 
     .line 66
-    :cond_14
+    :cond_0
     iget-object v0, p0, Landroid/view/animation/Transformation;->mMatrix:Landroid/graphics/Matrix;
 
     invoke-virtual {v0}, Landroid/graphics/Matrix;->reset()V
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public compose(Landroid/view/animation/Transformation;)V
-    .registers 4
+    .locals 2
     .parameter "t"
 
     .prologue
@@ -138,7 +138,7 @@
 .end method
 
 .method public getAlpha()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 144
@@ -148,7 +148,7 @@
 .end method
 
 .method public getMatrix()Landroid/graphics/Matrix;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 129
@@ -158,7 +158,7 @@
 .end method
 
 .method public getTransformationType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 79
@@ -168,7 +168,7 @@
 .end method
 
 .method public postCompose(Landroid/view/animation/Transformation;)V
-    .registers 4
+    .locals 2
     .parameter "t"
 
     .prologue
@@ -197,7 +197,7 @@
 .end method
 
 .method public printShortString(Ljava/io/PrintWriter;)V
-    .registers 3
+    .locals 1
     .parameter "pw"
 
     .prologue
@@ -230,7 +230,7 @@
 .end method
 
 .method public set(Landroid/view/animation/Transformation;)V
-    .registers 4
+    .locals 2
     .parameter "t"
 
     .prologue
@@ -262,7 +262,7 @@
 .end method
 
 .method public setAlpha(F)V
-    .registers 2
+    .locals 0
     .parameter "alpha"
 
     .prologue
@@ -274,7 +274,7 @@
 .end method
 
 .method public setTransformationType(I)V
-    .registers 2
+    .locals 0
     .parameter "transformationType"
 
     .prologue
@@ -286,7 +286,7 @@
 .end method
 
 .method public toShortString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 159
@@ -309,7 +309,7 @@
 .end method
 
 .method public toShortString(Ljava/lang/StringBuilder;)V
-    .registers 3
+    .locals 1
     .parameter "sb"
 
     .prologue
@@ -341,7 +341,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 149

@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 44
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 12
+    .locals 10
     .parameter "savedInstanceState"
 
     .prologue
@@ -256,13 +256,13 @@
 .end method
 
 .method setDrawable(ILandroid/graphics/drawable/Drawable;)V
-    .registers 4
+    .locals 1
     .parameter "id"
     .parameter "dr"
 
     .prologue
     .line 99
-    if-eqz p2, :cond_b
+    if-eqz p2, :cond_0
 
     .line 100
     invoke-virtual {p0, p1}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->findViewById(I)Landroid/view/View;
@@ -274,12 +274,12 @@
     invoke-virtual {v0, p2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 102
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method setIconAndText(IIILjava/lang/String;II)V
-    .registers 13
+    .locals 6
     .parameter "iconId"
     .parameter "actionId"
     .parameter "descriptionId"
@@ -301,10 +301,10 @@
     .local v0, appIcon:Landroid/graphics/drawable/Drawable;
     iget-object v3, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mCurApp:Ljava/lang/String;
 
-    if-eqz v3, :cond_21
+    if-eqz v3, :cond_0
 
     .line 110
-    :try_start_8
+    :try_start_0
     invoke-virtual {p0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v3
@@ -331,15 +331,15 @@
     move-result-object v3
 
     invoke-virtual {v2, v3}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
-    :try_end_20
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_8 .. :try_end_20} :catch_38
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
     .line 118
     .end local v2           #info:Landroid/content/pm/ApplicationInfo;
-    :cond_21
-    :goto_21
+    :cond_0
+    :goto_0
     invoke-virtual {p0, p1, v0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->setDrawable(ILandroid/graphics/drawable/Drawable;)V
 
     .line 119
@@ -366,14 +366,14 @@
     return-void
 
     .line 114
-    :catch_38
+    :catch_0
     move-exception v3
 
-    goto :goto_21
+    goto :goto_0
 .end method
 
 .method setText(ILjava/lang/CharSequence;)V
-    .registers 4
+    .locals 1
     .parameter "id"
     .parameter "text"
 

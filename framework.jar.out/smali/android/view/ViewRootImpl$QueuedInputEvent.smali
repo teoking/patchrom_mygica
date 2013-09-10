@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 4072
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/view/ViewRootImpl$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue

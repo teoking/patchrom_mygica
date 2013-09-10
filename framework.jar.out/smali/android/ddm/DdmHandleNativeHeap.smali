@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 30
@@ -34,7 +34,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 36
@@ -47,7 +47,7 @@
 .end method
 
 .method private handleNHGT(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 7
+    .locals 5
     .parameter "request"
 
     .prologue
@@ -58,7 +58,7 @@
 
     .line 80
     .local v0, data:[B
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_0
 
     .line 82
     const-string v1, "ddm-nativeheap"
@@ -107,10 +107,10 @@
     invoke-direct {v1, v2, v0, v3, v4}, Lorg/apache/harmony/dalvik/ddmc/Chunk;-><init>(I[BII)V
 
     .line 86
-    :goto_32
+    :goto_0
     return-object v1
 
-    :cond_33
+    :cond_0
     const/4 v1, 0x1
 
     const-string v2, "Something went wrong"
@@ -119,11 +119,11 @@
 
     move-result-object v1
 
-    goto :goto_32
+    goto :goto_0
 .end method
 
 .method public static register()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 42
@@ -140,7 +140,7 @@
 
 # virtual methods
 .method public connected()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 49
@@ -148,7 +148,7 @@
 .end method
 
 .method public disconnected()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 55
@@ -156,7 +156,7 @@
 .end method
 
 .method public handleChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 6
+    .locals 4
     .parameter "request"
 
     .prologue
@@ -202,7 +202,7 @@
     .local v0, type:I
     sget v1, Landroid/ddm/DdmHandleNativeHeap;->CHUNK_NHGT:I
 
-    if-ne v0, v1, :cond_2f
+    if-ne v0, v1, :cond_0
 
     .line 65
     invoke-direct {p0, p1}, Landroid/ddm/DdmHandleNativeHeap;->handleNHGT(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
@@ -212,7 +212,7 @@
     return-object v1
 
     .line 67
-    :cond_2f
+    :cond_0
     new-instance v1, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;

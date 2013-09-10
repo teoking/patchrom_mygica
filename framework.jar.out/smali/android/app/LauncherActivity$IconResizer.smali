@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/LauncherActivity;)V
-    .registers 7
+    .locals 5
     .parameter
 
     .prologue
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public createIconThumbnail(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .registers 16
+    .locals 14
     .parameter "icon"
 
     .prologue
@@ -127,7 +127,7 @@
     .local v3, iconHeight:I
     instance-of v11, p1, Landroid/graphics/drawable/PaintDrawable;
 
-    if-eqz v11, :cond_1a
+    if-eqz v11, :cond_0
 
     move-object v5, p1
 
@@ -143,18 +143,18 @@
 
     .line 290
     .end local v5           #painter:Landroid/graphics/drawable/PaintDrawable;
-    :cond_1a
-    if-lez v8, :cond_71
+    :cond_0
+    if-lez v8, :cond_3
 
-    if-lez v2, :cond_71
+    if-lez v2, :cond_3
 
     .line 291
-    if-lt v8, v4, :cond_22
+    if-lt v8, v4, :cond_1
 
-    if-ge v2, v3, :cond_7b
+    if-ge v2, v3, :cond_6
 
     .line 292
-    :cond_22
+    :cond_1
     int-to-float v11, v4
 
     int-to-float v12, v3
@@ -163,7 +163,7 @@
 
     .line 294
     .local v6, ratio:F
-    if-le v4, v3, :cond_72
+    if-le v4, v3, :cond_4
 
     .line 295
     int-to-float v11, v8
@@ -173,21 +173,21 @@
     float-to-int v2, v11
 
     .line 300
-    :cond_2b
-    :goto_2b
+    :cond_2
+    :goto_0
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getOpacity()I
 
     move-result v11
 
     const/4 v12, -0x1
 
-    if-eq v11, v12, :cond_78
+    if-eq v11, v12, :cond_5
 
     sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     .line 302
     .local v0, c:Landroid/graphics/Bitmap$Config;
-    :goto_34
+    :goto_1
     iget v11, p0, Landroid/app/LauncherActivity$IconResizer;->mIconWidth:I
 
     iget v12, p0, Landroid/app/LauncherActivity$IconResizer;->mIconHeight:I
@@ -267,14 +267,14 @@
     .end local v7           #thumb:Landroid/graphics/Bitmap;
     .end local v9           #x:I
     .end local v10           #y:I
-    :cond_71
-    :goto_71
+    :cond_3
+    :goto_2
     return-object p1
 
     .line 296
     .restart local v6       #ratio:F
-    :cond_72
-    if-le v3, v4, :cond_2b
+    :cond_4
+    if-le v3, v4, :cond_2
 
     .line 297
     int-to-float v11, v2
@@ -283,20 +283,20 @@
 
     float-to-int v8, v11
 
-    goto :goto_2b
+    goto :goto_0
 
     .line 300
-    :cond_78
+    :cond_5
     sget-object v0, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
 
-    goto :goto_34
+    goto :goto_1
 
     .line 318
     .end local v6           #ratio:F
-    :cond_7b
-    if-ge v4, v8, :cond_71
+    :cond_6
+    if-ge v4, v8, :cond_3
 
-    if-ge v3, v2, :cond_71
+    if-ge v3, v2, :cond_3
 
     .line 319
     sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
@@ -371,5 +371,5 @@
     .restart local p1
     invoke-virtual {v1, v13}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    goto :goto_71
+    goto :goto_2
 .end method

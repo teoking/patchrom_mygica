@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -17,7 +17,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "attrs"
 
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -53,7 +53,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .registers 3
+    .locals 1
     .parameter "info"
 
     .prologue
@@ -74,7 +74,7 @@
 .end method
 
 .method public setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-    .registers 3
+    .locals 1
     .parameter "drawable"
 
     .prologue
@@ -97,7 +97,7 @@
 .end method
 
 .method public setImageResource(I)V
-    .registers 3
+    .locals 1
     .parameter "resid"
 
     .prologue
@@ -120,7 +120,7 @@
 .end method
 
 .method public setImageURI(Landroid/net/Uri;)V
-    .registers 3
+    .locals 1
     .parameter "uri"
 
     .prologue

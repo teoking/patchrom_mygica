@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "url"
     .parameter "text"
 
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public getInfo()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -77,7 +77,7 @@
 .end method
 
 .method public getURL()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 797
@@ -87,7 +87,7 @@
 .end method
 
 .method public isHtml()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 799

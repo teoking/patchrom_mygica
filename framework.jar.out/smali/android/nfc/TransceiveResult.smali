@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 70
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(I[B)V
-    .registers 3
+    .locals 0
     .parameter "result"
     .parameter "data"
 
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 58
@@ -80,7 +80,7 @@
 .end method
 
 .method public getResponseOrThrow()[B
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -91,10 +91,10 @@
     .line 44
     iget v0, p0, Landroid/nfc/TransceiveResult;->mResult:I
 
-    packed-switch v0, :pswitch_data_20
+    packed-switch v0, :pswitch_data_0
 
     .line 52
-    :pswitch_5
+    :pswitch_0
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "Transceive failed"
@@ -104,13 +104,13 @@
     throw v0
 
     .line 46
-    :pswitch_d
+    :pswitch_1
     iget-object v0, p0, Landroid/nfc/TransceiveResult;->mResponseData:[B
 
     return-object v0
 
     .line 48
-    :pswitch_10
+    :pswitch_2
     new-instance v0, Landroid/nfc/TagLostException;
 
     const-string v1, "Tag was lost."
@@ -120,7 +120,7 @@
     throw v0
 
     .line 50
-    :pswitch_18
+    :pswitch_3
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "Transceive length exceeds supported maximum"
@@ -130,17 +130,17 @@
     throw v0
 
     .line 44
-    :pswitch_data_20
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_d
-        :pswitch_5
-        :pswitch_10
-        :pswitch_18
+        :pswitch_1
+        :pswitch_0
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 
@@ -153,7 +153,7 @@
     .line 64
     iget v0, p0, Landroid/nfc/TransceiveResult;->mResult:I
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 65
     iget-object v0, p0, Landroid/nfc/TransceiveResult;->mResponseData:[B
@@ -168,6 +168,6 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByteArray([B)V
 
     .line 68
-    :cond_14
+    :cond_0
     return-void
 .end method

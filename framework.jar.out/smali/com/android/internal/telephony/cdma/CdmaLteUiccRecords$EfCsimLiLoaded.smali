@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public getEfName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 79
@@ -60,7 +60,7 @@
 .end method
 
 .method public onRecordLoaded(Landroid/os/AsyncResult;)V
-    .registers 9
+    .locals 7
     .parameter "ar"
 
     .prologue
@@ -79,26 +79,29 @@
 
     check-cast v1, [B
 
+    #setter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v2, v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$102(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;[B)[B
 
     .line 85
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_12
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_d6
+    if-ge v0, v1, :cond_0
 
     .line 86
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -107,11 +110,12 @@
 
     aget-byte v1, v1, v2
 
-    packed-switch v1, :pswitch_data_fa
+    packed-switch v1, :pswitch_data_0
 
     .line 94
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -120,6 +124,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -129,15 +134,16 @@
     aput-byte v5, v1, v2
 
     .line 85
-    :goto_3a
+    :goto_1
     add-int/lit8 v0, v0, 0x2
 
-    goto :goto_12
+    goto :goto_0
 
     .line 87
-    :pswitch_3d
+    :pswitch_0
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -146,6 +152,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -156,12 +163,13 @@
 
     aput-byte v3, v1, v2
 
-    goto :goto_3a
+    goto :goto_1
 
     .line 88
-    :pswitch_52
+    :pswitch_1
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -172,6 +180,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -182,12 +191,13 @@
 
     aput-byte v3, v1, v2
 
-    goto :goto_3a
+    goto :goto_1
 
     .line 89
-    :pswitch_69
+    :pswitch_2
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -196,6 +206,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -206,12 +217,13 @@
 
     aput-byte v3, v1, v2
 
-    goto :goto_3a
+    goto :goto_1
 
     .line 90
-    :pswitch_7e
+    :pswitch_3
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -222,6 +234,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -232,12 +245,13 @@
 
     aput-byte v3, v1, v2
 
-    goto :goto_3a
+    goto :goto_1
 
     .line 91
-    :pswitch_95
+    :pswitch_4
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -248,6 +262,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -258,12 +273,13 @@
 
     aput-byte v3, v1, v2
 
-    goto :goto_3a
+    goto :goto_1
 
     .line 92
-    :pswitch_ac
+    :pswitch_5
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -274,6 +290,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -282,12 +299,13 @@
 
     aput-byte v6, v1, v2
 
-    goto/16 :goto_3a
+    goto/16 :goto_1
 
     .line 93
-    :pswitch_c2
+    :pswitch_6
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -296,6 +314,7 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v1
@@ -304,10 +323,10 @@
 
     aput-byte v4, v1, v2
 
-    goto/16 :goto_3a
+    goto/16 :goto_1
 
     .line 98
-    :cond_d6
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -322,6 +341,7 @@
 
     iget-object v3, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimLiLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFli:[B
     invoke-static {v3}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
 
     move-result-object v3
@@ -346,14 +366,14 @@
     .line 86
     nop
 
-    :pswitch_data_fa
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_3d
-        :pswitch_52
-        :pswitch_69
-        :pswitch_7e
-        :pswitch_95
-        :pswitch_ac
-        :pswitch_c2
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
     .end packed-switch
 .end method

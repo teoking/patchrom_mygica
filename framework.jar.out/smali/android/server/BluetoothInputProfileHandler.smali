@@ -33,7 +33,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/content/Context;Landroid/server/BluetoothService;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "service"
 
@@ -75,7 +75,7 @@
 .end method
 
 .method private static debugLog(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "msg"
 
     .prologue
@@ -89,7 +89,7 @@
 .end method
 
 .method private static errorLog(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "msg"
 
     .prologue
@@ -103,7 +103,7 @@
 .end method
 
 .method static declared-synchronized getInstance(Landroid/content/Context;Landroid/server/BluetoothService;)Landroid/server/BluetoothInputProfileHandler;
-    .registers 4
+    .locals 2
     .parameter "context"
     .parameter "service"
 
@@ -113,10 +113,10 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/server/BluetoothInputProfileHandler;->sInstance:Landroid/server/BluetoothInputProfileHandler;
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     new-instance v0, Landroid/server/BluetoothInputProfileHandler;
 
@@ -125,17 +125,17 @@
     sput-object v0, Landroid/server/BluetoothInputProfileHandler;->sInstance:Landroid/server/BluetoothInputProfileHandler;
 
     .line 61
-    :cond_e
+    :cond_0
     sget-object v0, Landroid/server/BluetoothInputProfileHandler;->sInstance:Landroid/server/BluetoothInputProfileHandler;
-    :try_end_10
-    .catchall {:try_start_3 .. :try_end_10} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
     return-object v0
 
     .line 60
-    :catchall_12
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -144,7 +144,7 @@
 .end method
 
 .method private handleInputDeviceStateChange(Landroid/bluetooth/BluetoothDevice;I)V
-    .registers 7
+    .locals 4
     .parameter "device"
     .parameter "state"
 
@@ -156,23 +156,23 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_c
+    if-nez v2, :cond_0
 
     .line 170
     const/4 v1, 0x0
 
     .line 174
     .local v1, prevState:I
-    :goto_9
-    if-ne v1, p2, :cond_19
+    :goto_0
+    if-ne v1, p2, :cond_1
 
     .line 197
-    :goto_b
+    :goto_1
     return-void
 
     .line 172
     .end local v1           #prevState:I
-    :cond_c
+    :cond_0
     iget-object v2, p0, Landroid/server/BluetoothInputProfileHandler;->mInputDevices:Ljava/util/HashMap;
 
     invoke-virtual {v2, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -186,10 +186,10 @@
     move-result v1
 
     .restart local v1       #prevState:I
-    goto :goto_9
+    goto :goto_0
 
     .line 176
-    :cond_19
+    :cond_1
     iget-object v2, p0, Landroid/server/BluetoothInputProfileHandler;->mInputDevices:Ljava/util/HashMap;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -203,25 +203,25 @@
 
     move-result v2
 
-    if-lez v2, :cond_2b
+    if-lez v2, :cond_2
 
     const/4 v2, 0x1
 
-    if-eq p2, v2, :cond_2e
+    if-eq p2, v2, :cond_3
 
-    :cond_2b
+    :cond_2
     const/4 v2, 0x2
 
-    if-ne p2, v2, :cond_33
+    if-ne p2, v2, :cond_4
 
     .line 184
-    :cond_2e
+    :cond_3
     const/16 v2, 0x3e8
 
     invoke-virtual {p0, p1, v2}, Landroid/server/BluetoothInputProfileHandler;->setInputDevicePriority(Landroid/bluetooth/BluetoothDevice;I)Z
 
     .line 187
-    :cond_33
+    :cond_4
     new-instance v0, Landroid/content/Intent;
 
     const-string v2, "android.bluetooth.input.profile.action.CONNECTION_STATE_CHANGED"
@@ -304,13 +304,13 @@
 
     invoke-virtual {v2, p1, v3, p2, v1}, Landroid/server/BluetoothService;->sendConnectionStateChange(Landroid/bluetooth/BluetoothDevice;III)V
 
-    goto :goto_b
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method connectInputDevice(Landroid/bluetooth/BluetoothDevice;Landroid/bluetooth/BluetoothDeviceProfileState;)Z
-    .registers 8
+    .locals 5
     .parameter "device"
     .parameter "state"
 
@@ -330,28 +330,28 @@
 
     .line 67
     .local v1, objectPath:Ljava/lang/String;
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_0
 
     invoke-virtual {p0, p1}, Landroid/server/BluetoothInputProfileHandler;->getInputDeviceConnectionState(Landroid/bluetooth/BluetoothDevice;)I
 
     move-result v3
 
-    if-nez v3, :cond_19
+    if-nez v3, :cond_0
 
     invoke-virtual {p0, p1}, Landroid/server/BluetoothInputProfileHandler;->getInputDevicePriority(Landroid/bluetooth/BluetoothDevice;)I
 
     move-result v3
 
-    if-nez v3, :cond_1a
+    if-nez v3, :cond_1
 
     .line 79
-    :cond_19
-    :goto_19
+    :cond_0
+    :goto_0
     return v2
 
     .line 72
-    :cond_1a
-    if-eqz p2, :cond_19
+    :cond_1
+    if-eqz p2, :cond_0
 
     .line 73
     new-instance v0, Landroid/os/Message;
@@ -375,11 +375,11 @@
     .line 77
     const/4 v2, 0x1
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method connectInputDeviceInternal(Landroid/bluetooth/BluetoothDevice;)Z
-    .registers 7
+    .locals 5
     .parameter "device"
 
     .prologue
@@ -409,23 +409,23 @@
 
     move-result v3
 
-    if-nez v3, :cond_1b
+    if-nez v3, :cond_0
 
     .line 86
     invoke-direct {p0, p1, v1}, Landroid/server/BluetoothInputProfileHandler;->handleInputDeviceStateChange(Landroid/bluetooth/BluetoothDevice;I)V
 
     .line 89
-    :goto_1a
+    :goto_0
     return v1
 
-    :cond_1b
+    :cond_0
     move v1, v2
 
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 .method disconnectInputDevice(Landroid/bluetooth/BluetoothDevice;Landroid/bluetooth/BluetoothDeviceProfileState;)Z
-    .registers 8
+    .locals 5
     .parameter "device"
     .parameter "state"
 
@@ -445,22 +445,22 @@
 
     .line 95
     .local v1, objectPath:Ljava/lang/String;
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     invoke-virtual {p0, p1}, Landroid/server/BluetoothInputProfileHandler;->getInputDeviceConnectionState(Landroid/bluetooth/BluetoothDevice;)I
 
     move-result v3
 
-    if-nez v3, :cond_14
+    if-nez v3, :cond_1
 
     .line 106
-    :cond_13
-    :goto_13
+    :cond_0
+    :goto_0
     return v2
 
     .line 99
-    :cond_14
-    if-eqz p2, :cond_13
+    :cond_1
+    if-eqz p2, :cond_0
 
     .line 100
     new-instance v0, Landroid/os/Message;
@@ -484,11 +484,11 @@
     .line 104
     const/4 v2, 0x1
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method disconnectInputDeviceInternal(Landroid/bluetooth/BluetoothDevice;)Z
-    .registers 5
+    .locals 3
     .parameter "device"
 
     .prologue
@@ -516,7 +516,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1c
+    if-nez v1, :cond_0
 
     .line 113
     const/4 v1, 0x2
@@ -527,17 +527,17 @@
     const/4 v1, 0x0
 
     .line 116
-    :goto_1b
+    :goto_0
     return v1
 
-    :cond_1c
+    :cond_0
     const/4 v1, 0x1
 
-    goto :goto_1b
+    goto :goto_0
 .end method
 
 .method getConnectedInputDevices()Ljava/util/List;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -570,7 +570,7 @@
 .end method
 
 .method getInputDeviceConnectionState(Landroid/bluetooth/BluetoothDevice;)I
-    .registers 3
+    .locals 1
     .parameter "device"
 
     .prologue
@@ -581,16 +581,16 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     .line 121
     const/4 v0, 0x0
 
     .line 123
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     iget-object v0, p0, Landroid/server/BluetoothInputProfileHandler;->mInputDevices:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -603,11 +603,11 @@
 
     move-result v0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method getInputDevicePriority(Landroid/bluetooth/BluetoothDevice;)I
-    .registers 5
+    .locals 3
     .parameter "device"
 
     .prologue
@@ -636,7 +636,7 @@
 .end method
 
 .method getInputDevicesMatchingConnectionStates([I)Ljava/util/List;
-    .registers 3
+    .locals 1
     .parameter "states"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -660,19 +660,19 @@
 .end method
 
 .method handleInputDevicePropertyChange(Ljava/lang/String;Z)V
-    .registers 6
+    .locals 3
     .parameter "address"
     .parameter "connected"
 
     .prologue
     .line 200
-    if-eqz p2, :cond_f
+    if-eqz p2, :cond_0
 
     const/4 v2, 0x2
 
     .line 202
     .local v2, state:I
-    :goto_3
+    :goto_0
     invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
 
     move-result-object v0
@@ -694,14 +694,14 @@
     .end local v0           #adapter:Landroid/bluetooth/BluetoothAdapter;
     .end local v1           #device:Landroid/bluetooth/BluetoothDevice;
     .end local v2           #state:I
-    :cond_f
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method lookupInputDevicesMatchingStates([I)Ljava/util/List;
-    .registers 11
+    .locals 9
     .parameter "states"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -731,13 +731,13 @@
 
     move-result-object v2
 
-    :cond_f
-    :goto_f
+    :cond_0
+    :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_2f
+    if-eqz v8, :cond_2
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -762,25 +762,25 @@
     const/4 v3, 0x0
 
     .local v3, i$:I
-    :goto_22
-    if-ge v3, v6, :cond_f
+    :goto_1
+    if-ge v3, v6, :cond_0
 
     aget v7, v0, v3
 
     .line 158
     .local v7, state:I
-    if-ne v7, v4, :cond_2c
+    if-ne v7, v4, :cond_1
 
     .line 159
     invoke-interface {v5, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_f
+    goto :goto_0
 
     .line 157
-    :cond_2c
+    :cond_1
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_22
+    goto :goto_1
 
     .line 164
     .end local v0           #arr$:[I
@@ -789,12 +789,12 @@
     .end local v4           #inputDeviceState:I
     .end local v6           #len$:I
     .end local v7           #state:I
-    :cond_2f
+    :cond_2
     return-object v5
 .end method
 
 .method setInitialInputDevicePriority(Landroid/bluetooth/BluetoothDevice;I)V
-    .registers 5
+    .locals 2
     .parameter "device"
     .parameter "state"
 
@@ -802,48 +802,48 @@
     const/4 v1, -0x1
 
     .line 208
-    packed-switch p2, :pswitch_data_16
+    packed-switch p2, :pswitch_data_0
 
     .line 218
-    :cond_4
-    :goto_4
-    :pswitch_4
+    :cond_0
+    :goto_0
+    :pswitch_0
     return-void
 
     .line 210
-    :pswitch_5
+    :pswitch_1
     invoke-virtual {p0, p1}, Landroid/server/BluetoothInputProfileHandler;->getInputDevicePriority(Landroid/bluetooth/BluetoothDevice;)I
 
     move-result v0
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_0
 
     .line 211
     const/16 v0, 0x64
 
     invoke-virtual {p0, p1, v0}, Landroid/server/BluetoothInputProfileHandler;->setInputDevicePriority(Landroid/bluetooth/BluetoothDevice;I)Z
 
-    goto :goto_4
+    goto :goto_0
 
     .line 215
-    :pswitch_11
+    :pswitch_2
     invoke-virtual {p0, p1, v1}, Landroid/server/BluetoothInputProfileHandler;->setInputDevicePriority(Landroid/bluetooth/BluetoothDevice;I)Z
 
-    goto :goto_4
+    goto :goto_0
 
     .line 208
     nop
 
-    :pswitch_data_16
+    :pswitch_data_0
     .packed-switch 0xa
-        :pswitch_11
-        :pswitch_4
-        :pswitch_5
+        :pswitch_2
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method setInputDevicePriority(Landroid/bluetooth/BluetoothDevice;I)Z
-    .registers 5
+    .locals 2
     .parameter "device"
     .parameter "priority"
 
@@ -857,16 +857,16 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 145
     const/4 v0, 0x0
 
     .line 147
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     iget-object v0, p0, Landroid/server/BluetoothInputProfileHandler;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -885,5 +885,5 @@
 
     move-result v0
 
-    goto :goto_b
+    goto :goto_0
 .end method

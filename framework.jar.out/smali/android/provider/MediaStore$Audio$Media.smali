@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1278
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1257
@@ -68,7 +68,7 @@
 .end method
 
 .method public static getContentUri(Ljava/lang/String;)Landroid/net/Uri;
-    .registers 3
+    .locals 2
     .parameter "volumeName"
 
     .prologue
@@ -105,7 +105,7 @@
 .end method
 
 .method public static getContentUriForPath(Ljava/lang/String;)Landroid/net/Uri;
-    .registers 2
+    .locals 1
     .parameter "path"
 
     .prologue
@@ -122,15 +122,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     sget-object v0, Landroid/provider/MediaStore$Audio$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    :goto_10
+    :goto_0
     return-object v0
 
-    :cond_11
+    :cond_0
     sget-object v0, Landroid/provider/MediaStore$Audio$Media;->INTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    goto :goto_10
+    goto :goto_0
 .end method

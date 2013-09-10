@@ -25,7 +25,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/connectivity/Vpn;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/connectivity/Vpn;Lcom/android/server/connectivity/Vpn$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,7 +50,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/server/connectivity/Vpn$Connection;)Landroid/os/IBinder;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 3
+    .locals 0
     .parameter "name"
     .parameter "service"
 
@@ -76,7 +76,7 @@
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue

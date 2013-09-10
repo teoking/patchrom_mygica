@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 42
@@ -27,7 +27,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 44
@@ -37,7 +37,7 @@
 .end method
 
 .method public static getInstance()Landroid/security/SystemKeyStore;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 47
@@ -47,7 +47,7 @@
 .end method
 
 .method private getKeyFile(Ljava/lang/String;)Ljava/io/File;
-    .registers 6
+    .locals 4
     .parameter "keyName"
 
     .prologue
@@ -92,22 +92,22 @@
 .end method
 
 .method public static toHexString([B)Ljava/lang/String;
-    .registers 8
+    .locals 7
     .parameter "keyData"
 
     .prologue
     .line 51
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 52
     const/4 v5, 0x0
 
     .line 64
-    :goto_3
+    :goto_0
     return-object v5
 
     .line 54
-    :cond_4
+    :cond_0
     array-length v3, p0
 
     .line 55
@@ -127,10 +127,10 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_e
+    :goto_1
     array-length v5, p0
 
-    if-ge v2, v5, :cond_3b
+    if-ge v2, v5, :cond_2
 
     .line 58
     aget-byte v5, p0, v2
@@ -151,7 +151,7 @@
 
     const/4 v6, 0x1
 
-    if-ne v5, v6, :cond_35
+    if-ne v5, v6, :cond_1
 
     .line 60
     new-instance v5, Ljava/lang/StringBuilder;
@@ -173,28 +173,28 @@
     move-result-object v1
 
     .line 62
-    :cond_35
+    :cond_1
     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 57
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_e
+    goto :goto_1
 
     .line 64
     .end local v1           #hexStr:Ljava/lang/String;
-    :cond_3b
+    :cond_2
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public deleteKey(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "keyName"
 
     .prologue
@@ -209,7 +209,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_0
 
     .line 131
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -219,7 +219,7 @@
     throw v1
 
     .line 134
-    :cond_10
+    :cond_0
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
     .line 135
@@ -227,7 +227,7 @@
 .end method
 
 .method public generateNewKey(ILjava/lang/String;Ljava/lang/String;)[B
-    .registers 15
+    .locals 11
     .parameter "numBits"
     .parameter "algName"
     .parameter "keyName"
@@ -249,7 +249,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_10
+    if-eqz v7, :cond_0
 
     .line 78
     new-instance v7, Ljava/lang/IllegalArgumentException;
@@ -259,7 +259,7 @@
     throw v7
 
     .line 81
-    :cond_10
+    :cond_0
     invoke-static {p2}, Ljavax/crypto/KeyGenerator;->getInstance(Ljava/lang/String;)Ljavax/crypto/KeyGenerator;
 
     move-result-object v5
@@ -289,12 +289,12 @@
 
     .line 90
     .local v3, retKey:[B
-    :try_start_25
+    :try_start_0
     invoke-virtual {v2}, Ljava/io/File;->createNewFile()Z
 
     move-result v7
 
-    if-nez v7, :cond_34
+    if-nez v7, :cond_1
 
     .line 91
     new-instance v7, Ljava/lang/IllegalArgumentException;
@@ -304,7 +304,7 @@
     throw v7
 
     .line 101
-    :catch_31
+    :catch_0
     move-exception v1
 
     .line 102
@@ -314,12 +314,12 @@
     .line 104
     .end local v1           #ioe:Ljava/io/IOException;
     .end local v3           #retKey:[B
-    :goto_33
+    :goto_0
     return-object v3
 
     .line 94
     .restart local v3       #retKey:[B
-    :cond_34
+    :cond_1
     new-instance v0, Ljava/io/FileOutputStream;
 
     invoke-direct {v0, v2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
@@ -349,14 +349,14 @@
     const/4 v10, -0x1
 
     invoke-static {v7, v8, v9, v10}, Landroid/os/FileUtils;->setPermissions(Ljava/lang/String;III)I
-    :try_end_50
-    .catch Ljava/io/IOException; {:try_start_25 .. :try_end_50} :catch_31
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_33
+    goto :goto_0
 .end method
 
 .method public generateNewKeyHexString(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 5
+    .locals 1
     .parameter "numBits"
     .parameter "algName"
     .parameter "keyName"
@@ -380,7 +380,7 @@
 .end method
 
 .method public retrieveKey(Ljava/lang/String;)[B
-    .registers 4
+    .locals 2
     .parameter "keyName"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -400,16 +400,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_c
+    if-nez v1, :cond_0
 
     .line 121
     const/4 v1, 0x0
 
     .line 123
-    :goto_b
+    :goto_0
     return-object v1
 
-    :cond_c
+    :cond_0
     invoke-virtual {v0}, Ljava/io/File;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -418,11 +418,11 @@
 
     move-result-object v1
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public retrieveKeyHexString(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "keyName"
     .annotation system Ldalvik/annotation/Throws;
         value = {

@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 20
@@ -63,22 +63,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/speech/IRecognitionListener;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 29
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 30
     const/4 v0, 0x0
 
     .line 36
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 32
-    :cond_4
+    :cond_0
     const-string v1, "android.speech.IRecognitionListener"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -87,31 +87,31 @@
 
     .line 33
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/speech/IRecognitionListener;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 34
     check-cast v0, Landroid/speech/IRecognitionListener;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 36
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/speech/IRecognitionListener$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/speech/IRecognitionListener$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 40
@@ -119,7 +119,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 9
+    .locals 4
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -134,26 +134,26 @@
     const/4 v2, 0x1
 
     .line 44
-    sparse-switch p1, :sswitch_data_b2
+    sparse-switch p1, :sswitch_data_0
 
     .line 142
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
 
-    :goto_8
+    :goto_0
     return v2
 
     .line 48
-    :sswitch_9
+    :sswitch_0
     const-string v3, "android.speech.IRecognitionListener"
 
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 53
-    :sswitch_f
+    :sswitch_1
     const-string v3, "android.speech.IRecognitionListener"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -163,7 +163,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_0
 
     .line 56
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -176,22 +176,22 @@
 
     .line 61
     .local v0, _arg0:Landroid/os/Bundle;
-    :goto_22
+    :goto_1
     invoke-virtual {p0, v0}, Landroid/speech/IRecognitionListener$Stub;->onReadyForSpeech(Landroid/os/Bundle;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 59
     .end local v0           #_arg0:Landroid/os/Bundle;
-    :cond_26
+    :cond_0
     const/4 v0, 0x0
 
     .restart local v0       #_arg0:Landroid/os/Bundle;
-    goto :goto_22
+    goto :goto_1
 
     .line 66
     .end local v0           #_arg0:Landroid/os/Bundle;
-    :sswitch_28
+    :sswitch_2
     const-string v3, "android.speech.IRecognitionListener"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -199,10 +199,10 @@
     .line 67
     invoke-virtual {p0}, Landroid/speech/IRecognitionListener$Stub;->onBeginningOfSpeech()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 72
-    :sswitch_31
+    :sswitch_3
     const-string v3, "android.speech.IRecognitionListener"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -216,11 +216,11 @@
     .local v0, _arg0:F
     invoke-virtual {p0, v0}, Landroid/speech/IRecognitionListener$Stub;->onRmsChanged(F)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 80
     .end local v0           #_arg0:F
-    :sswitch_3e
+    :sswitch_4
     const-string v3, "android.speech.IRecognitionListener"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -234,11 +234,11 @@
     .local v0, _arg0:[B
     invoke-virtual {p0, v0}, Landroid/speech/IRecognitionListener$Stub;->onBufferReceived([B)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 88
     .end local v0           #_arg0:[B
-    :sswitch_4b
+    :sswitch_5
     const-string v3, "android.speech.IRecognitionListener"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -246,10 +246,10 @@
     .line 89
     invoke-virtual {p0}, Landroid/speech/IRecognitionListener$Stub;->onEndOfSpeech()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 94
-    :sswitch_54
+    :sswitch_6
     const-string v3, "android.speech.IRecognitionListener"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -263,11 +263,11 @@
     .local v0, _arg0:I
     invoke-virtual {p0, v0}, Landroid/speech/IRecognitionListener$Stub;->onError(I)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 102
     .end local v0           #_arg0:I
-    :sswitch_61
+    :sswitch_7
     const-string v3, "android.speech.IRecognitionListener"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -277,7 +277,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_78
+    if-eqz v3, :cond_1
 
     .line 105
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -290,22 +290,22 @@
 
     .line 110
     .local v0, _arg0:Landroid/os/Bundle;
-    :goto_74
+    :goto_2
     invoke-virtual {p0, v0}, Landroid/speech/IRecognitionListener$Stub;->onResults(Landroid/os/Bundle;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 108
     .end local v0           #_arg0:Landroid/os/Bundle;
-    :cond_78
+    :cond_1
     const/4 v0, 0x0
 
     .restart local v0       #_arg0:Landroid/os/Bundle;
-    goto :goto_74
+    goto :goto_2
 
     .line 115
     .end local v0           #_arg0:Landroid/os/Bundle;
-    :sswitch_7a
+    :sswitch_8
     const-string v3, "android.speech.IRecognitionListener"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -315,7 +315,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_92
+    if-eqz v3, :cond_2
 
     .line 118
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -328,22 +328,22 @@
 
     .line 123
     .restart local v0       #_arg0:Landroid/os/Bundle;
-    :goto_8d
+    :goto_3
     invoke-virtual {p0, v0}, Landroid/speech/IRecognitionListener$Stub;->onPartialResults(Landroid/os/Bundle;)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 121
     .end local v0           #_arg0:Landroid/os/Bundle;
-    :cond_92
+    :cond_2
     const/4 v0, 0x0
 
     .restart local v0       #_arg0:Landroid/os/Bundle;
-    goto :goto_8d
+    goto :goto_3
 
     .line 128
     .end local v0           #_arg0:Landroid/os/Bundle;
-    :sswitch_94
+    :sswitch_9
     const-string v3, "android.speech.IRecognitionListener"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -359,7 +359,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b0
+    if-eqz v3, :cond_3
 
     .line 133
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -372,31 +372,31 @@
 
     .line 138
     .local v1, _arg1:Landroid/os/Bundle;
-    :goto_ab
+    :goto_4
     invoke-virtual {p0, v0, v1}, Landroid/speech/IRecognitionListener$Stub;->onEvent(ILandroid/os/Bundle;)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 136
     .end local v1           #_arg1:Landroid/os/Bundle;
-    :cond_b0
+    :cond_3
     const/4 v1, 0x0
 
     .restart local v1       #_arg1:Landroid/os/Bundle;
-    goto :goto_ab
+    goto :goto_4
 
     .line 44
-    :sswitch_data_b2
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_f
-        0x2 -> :sswitch_28
-        0x3 -> :sswitch_31
-        0x4 -> :sswitch_3e
-        0x5 -> :sswitch_4b
-        0x6 -> :sswitch_54
-        0x7 -> :sswitch_61
-        0x8 -> :sswitch_7a
-        0x9 -> :sswitch_94
-        0x5f4e5446 -> :sswitch_9
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
+        0x8 -> :sswitch_8
+        0x9 -> :sswitch_9
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

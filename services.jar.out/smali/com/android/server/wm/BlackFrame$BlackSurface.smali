@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/wm/BlackFrame;Landroid/view/SurfaceSession;IIIII)V
-    .registers 17
+    .locals 9
     .parameter
     .parameter "session"
     .parameter "layer"
@@ -108,7 +108,7 @@
 
 # virtual methods
 .method clearMatrix()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/high16 v2, 0x3f80
@@ -125,7 +125,7 @@
 .end method
 
 .method setMatrix(Landroid/graphics/Matrix;)V
-    .registers 8
+    .locals 6
     .parameter "matrix"
 
     .prologue

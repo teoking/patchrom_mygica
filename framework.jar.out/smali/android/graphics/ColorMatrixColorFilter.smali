@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/ColorMatrix;)V
-    .registers 4
+    .locals 2
     .parameter "matrix"
 
     .prologue
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>([F)V
-    .registers 4
+    .locals 2
     .parameter "array"
 
     .prologue
@@ -51,7 +51,7 @@
 
     const/16 v1, 0x14
 
-    if-ge v0, v1, :cond_e
+    if-ge v0, v1, :cond_0
 
     .line 42
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
@@ -61,7 +61,7 @@
     throw v0
 
     .line 44
-    :cond_e
+    :cond_0
     invoke-static {p1}, Landroid/graphics/ColorMatrixColorFilter;->nativeColorMatrixFilter([F)I
 
     move-result v0

@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "id"
 
     .prologue
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>(ZZ)V
-    .registers 4
+    .locals 1
     .parameter "ip"
     .parameter "proxy"
 
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public getNetworkId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 44
@@ -82,7 +82,7 @@
 .end method
 
 .method public hasIpChanged()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 52
@@ -92,7 +92,7 @@
 .end method
 
 .method public hasProxyChanged()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60
@@ -102,7 +102,7 @@
 .end method
 
 .method public isNewNetwork()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 64
@@ -112,7 +112,7 @@
 .end method
 
 .method public setIpChanged(Z)V
-    .registers 2
+    .locals 0
     .parameter "ip"
 
     .prologue
@@ -124,7 +124,7 @@
 .end method
 
 .method public setIsNewNetwork(Z)V
-    .registers 2
+    .locals 0
     .parameter "isNew"
 
     .prologue
@@ -136,7 +136,7 @@
 .end method
 
 .method public setNetworkId(I)V
-    .registers 2
+    .locals 0
     .parameter "id"
 
     .prologue
@@ -148,7 +148,7 @@
 .end method
 
 .method public setProxyChanged(Z)V
-    .registers 2
+    .locals 0
     .parameter "proxy"
 
     .prologue

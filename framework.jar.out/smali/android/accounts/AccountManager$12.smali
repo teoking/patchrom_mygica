@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;Landroid/accounts/OnAccountsUpdateListener;[Landroid/accounts/Account;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1328
@@ -58,15 +58,15 @@
     iget-object v2, p0, Landroid/accounts/AccountManager$12;->val$accountsCopy:[Landroid/accounts/Account;
 
     invoke-interface {v1, v2}, Landroid/accounts/OnAccountsUpdateListener;->onAccountsUpdated([Landroid/accounts/Account;)V
-    :try_end_7
-    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1334
-    :goto_7
+    :goto_0
     return-void
 
     .line 1329
-    :catch_8
+    :catch_0
     move-exception v0
 
     .line 1332
@@ -77,5 +77,5 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_7
+    goto :goto_0
 .end method

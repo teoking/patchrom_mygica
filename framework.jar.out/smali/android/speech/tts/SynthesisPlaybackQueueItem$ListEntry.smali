@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>([B)V
-    .registers 2
+    .locals 0
     .parameter "bytes"
 
     .prologue

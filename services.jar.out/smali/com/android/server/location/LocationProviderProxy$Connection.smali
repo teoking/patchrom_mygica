@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/location/LocationProviderProxy;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -41,7 +41,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/location/LocationProviderProxy;Lcom/android/server/location/LocationProviderProxy$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -55,22 +55,22 @@
 
 # virtual methods
 .method public declared-synchronized getCachedAttributes()Lcom/android/internal/location/DummyLocationProvider;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 114
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->mCachedAttributes:Lcom/android/internal/location/DummyLocationProvider;
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -79,22 +79,22 @@
 .end method
 
 .method public declared-synchronized getProvider()Landroid/location/ILocationProvider;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 110
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->mProvider:Landroid/location/ILocationProvider;
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -103,7 +103,7 @@
 .end method
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 4
+    .locals 1
     .parameter "className"
     .parameter "service"
 
@@ -112,7 +112,7 @@
     monitor-enter p0
 
     .line 96
-    :try_start_1
+    :try_start_0
     invoke-static {p2}, Landroid/location/ILocationProvider$Stub;->asInterface(Landroid/os/IBinder;)Landroid/location/ILocationProvider;
 
     move-result-object v0
@@ -122,11 +122,12 @@
     .line 97
     iget-object v0, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->mProvider:Landroid/location/ILocationProvider;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 98
     iget-object v0, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->this$0:Lcom/android/server/location/LocationProviderProxy;
 
+    #getter for: Lcom/android/server/location/LocationProviderProxy;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/location/LocationProviderProxy;->access$100(Lcom/android/server/location/LocationProviderProxy;)Landroid/os/Handler;
 
     move-result-object v0
@@ -134,25 +135,25 @@
     invoke-virtual {v0, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     .line 100
-    :cond_14
+    :cond_0
     monitor-exit p0
 
     .line 101
     return-void
 
     .line 100
-    :catchall_16
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_18
-    .catchall {:try_start_1 .. :try_end_18} :catchall_16
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .registers 3
+    .locals 1
     .parameter "className"
 
     .prologue
@@ -162,7 +163,7 @@
     .line 105
     const/4 v0, 0x0
 
-    :try_start_2
+    :try_start_0
     iput-object v0, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->mProvider:Landroid/location/ILocationProvider;
 
     .line 106
@@ -172,23 +173,24 @@
     return-void
 
     .line 106
-    :catchall_6
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_8
-    .catchall {:try_start_2 .. :try_end_8} :catchall_6
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public run()V
-    .registers 9
+    .locals 8
 
     .prologue
     .line 118
     iget-object v2, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->this$0:Lcom/android/server/location/LocationProviderProxy;
 
+    #getter for: Lcom/android/server/location/LocationProviderProxy;->mMutex:Ljava/lang/Object;
     invoke-static {v2}, Lcom/android/server/location/LocationProviderProxy;->access$200(Lcom/android/server/location/LocationProviderProxy;)Ljava/lang/Object;
 
     move-result-object v3
@@ -196,72 +198,75 @@
     monitor-enter v3
 
     .line 119
-    :try_start_7
+    :try_start_0
     iget-object v2, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->this$0:Lcom/android/server/location/LocationProviderProxy;
 
+    #getter for: Lcom/android/server/location/LocationProviderProxy;->mServiceConnection:Lcom/android/server/location/LocationProviderProxy$Connection;
     invoke-static {v2}, Lcom/android/server/location/LocationProviderProxy;->access$300(Lcom/android/server/location/LocationProviderProxy;)Lcom/android/server/location/LocationProviderProxy$Connection;
 
     move-result-object v2
 
-    if-eq v2, p0, :cond_11
+    if-eq v2, p0, :cond_0
 
     .line 121
     monitor-exit v3
 
     .line 163
-    :goto_10
+    :goto_0
     return-void
 
     .line 123
-    :cond_11
+    :cond_0
     invoke-virtual {p0}, Lcom/android/server/location/LocationProviderProxy$Connection;->getProvider()Landroid/location/ILocationProvider;
 
     move-result-object v1
 
     .line 124
     .local v1, provider:Landroid/location/ILocationProvider;
-    if-nez v1, :cond_1c
+    if-nez v1, :cond_1
 
     .line 125
     monitor-exit v3
 
-    goto :goto_10
+    goto :goto_0
 
     .line 162
     .end local v1           #provider:Landroid/location/ILocationProvider;
-    :catchall_19
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_1b
-    .catchall {:try_start_7 .. :try_end_1b} :catchall_19
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 
     .line 130
     .restart local v1       #provider:Landroid/location/ILocationProvider;
-    :cond_1c
-    :try_start_1c
+    :cond_1
+    :try_start_1
     iget-object v2, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->this$0:Lcom/android/server/location/LocationProviderProxy;
 
+    #getter for: Lcom/android/server/location/LocationProviderProxy;->mEnabled:Z
     invoke-static {v2}, Lcom/android/server/location/LocationProviderProxy;->access$400(Lcom/android/server/location/LocationProviderProxy;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_27
+    if-eqz v2, :cond_2
 
     .line 131
     invoke-interface {v1}, Landroid/location/ILocationProvider;->enable()V
 
     .line 133
-    :cond_27
+    :cond_2
     iget-object v2, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->this$0:Lcom/android/server/location/LocationProviderProxy;
 
+    #getter for: Lcom/android/server/location/LocationProviderProxy;->mLocationTracking:Z
     invoke-static {v2}, Lcom/android/server/location/LocationProviderProxy;->access$500(Lcom/android/server/location/LocationProviderProxy;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_33
+    if-eqz v2, :cond_3
 
     .line 134
     const/4 v2, 0x1
@@ -269,9 +274,10 @@
     invoke-interface {v1, v2}, Landroid/location/ILocationProvider;->enableLocationTracking(Z)V
 
     .line 136
-    :cond_33
+    :cond_3
     iget-object v2, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->this$0:Lcom/android/server/location/LocationProviderProxy;
 
+    #getter for: Lcom/android/server/location/LocationProviderProxy;->mMinTime:J
     invoke-static {v2}, Lcom/android/server/location/LocationProviderProxy;->access$600(Lcom/android/server/location/LocationProviderProxy;)J
 
     move-result-wide v4
@@ -280,17 +286,19 @@
 
     cmp-long v2, v4, v6
 
-    if-ltz v2, :cond_4e
+    if-ltz v2, :cond_4
 
     .line 137
     iget-object v2, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->this$0:Lcom/android/server/location/LocationProviderProxy;
 
+    #getter for: Lcom/android/server/location/LocationProviderProxy;->mMinTime:J
     invoke-static {v2}, Lcom/android/server/location/LocationProviderProxy;->access$600(Lcom/android/server/location/LocationProviderProxy;)J
 
     move-result-wide v4
 
     iget-object v2, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->this$0:Lcom/android/server/location/LocationProviderProxy;
 
+    #getter for: Lcom/android/server/location/LocationProviderProxy;->mMinTimeSource:Landroid/os/WorkSource;
     invoke-static {v2}, Lcom/android/server/location/LocationProviderProxy;->access$700(Lcom/android/server/location/LocationProviderProxy;)Landroid/os/WorkSource;
 
     move-result-object v2
@@ -298,49 +306,53 @@
     invoke-interface {v1, v4, v5, v2}, Landroid/location/ILocationProvider;->setMinTime(JLandroid/os/WorkSource;)V
 
     .line 139
-    :cond_4e
+    :cond_4
     iget-object v2, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->this$0:Lcom/android/server/location/LocationProviderProxy;
 
+    #getter for: Lcom/android/server/location/LocationProviderProxy;->mNetworkInfo:Landroid/net/NetworkInfo;
     invoke-static {v2}, Lcom/android/server/location/LocationProviderProxy;->access$800(Lcom/android/server/location/LocationProviderProxy;)Landroid/net/NetworkInfo;
 
     move-result-object v2
 
-    if-eqz v2, :cond_65
+    if-eqz v2, :cond_5
 
     .line 140
     iget-object v2, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->this$0:Lcom/android/server/location/LocationProviderProxy;
 
+    #getter for: Lcom/android/server/location/LocationProviderProxy;->mNetworkState:I
     invoke-static {v2}, Lcom/android/server/location/LocationProviderProxy;->access$900(Lcom/android/server/location/LocationProviderProxy;)I
 
     move-result v2
 
     iget-object v4, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->this$0:Lcom/android/server/location/LocationProviderProxy;
 
+    #getter for: Lcom/android/server/location/LocationProviderProxy;->mNetworkInfo:Landroid/net/NetworkInfo;
     invoke-static {v4}, Lcom/android/server/location/LocationProviderProxy;->access$800(Lcom/android/server/location/LocationProviderProxy;)Landroid/net/NetworkInfo;
 
     move-result-object v4
 
     invoke-interface {v1, v2, v4}, Landroid/location/ILocationProvider;->updateNetworkState(ILandroid/net/NetworkInfo;)V
-    :try_end_65
-    .catchall {:try_start_1c .. :try_end_65} :catchall_19
-    .catch Landroid/os/RemoteException; {:try_start_1c .. :try_end_65} :catch_d0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 146
-    :cond_65
-    :goto_65
-    :try_start_65
+    :cond_5
+    :goto_1
+    :try_start_2
     iget-object v2, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->mCachedAttributes:Lcom/android/internal/location/DummyLocationProvider;
-    :try_end_67
-    .catchall {:try_start_65 .. :try_end_67} :catchall_19
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    if-nez v2, :cond_c8
+    if-nez v2, :cond_6
 
     .line 148
-    :try_start_69
+    :try_start_3
     new-instance v2, Lcom/android/internal/location/DummyLocationProvider;
 
     iget-object v4, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->this$0:Lcom/android/server/location/LocationProviderProxy;
 
+    #getter for: Lcom/android/server/location/LocationProviderProxy;->mName:Ljava/lang/String;
     invoke-static {v4}, Lcom/android/server/location/LocationProviderProxy;->access$1000(Lcom/android/server/location/LocationProviderProxy;)Ljava/lang/String;
 
     move-result-object v4
@@ -431,20 +443,20 @@
     move-result v4
 
     invoke-virtual {v2, v4}, Lcom/android/internal/location/DummyLocationProvider;->setAccuracy(I)V
-    :try_end_c8
-    .catchall {:try_start_69 .. :try_end_c8} :catchall_19
-    .catch Landroid/os/RemoteException; {:try_start_69 .. :try_end_c8} :catch_cb
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
 
     .line 162
-    :cond_c8
-    :goto_c8
-    :try_start_c8
+    :cond_6
+    :goto_2
+    :try_start_4
     monitor-exit v3
 
-    goto/16 :goto_10
+    goto/16 :goto_0
 
     .line 158
-    :catch_cb
+    :catch_0
     move-exception v0
 
     .line 159
@@ -452,15 +464,15 @@
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/android/server/location/LocationProviderProxy$Connection;->mCachedAttributes:Lcom/android/internal/location/DummyLocationProvider;
-    :try_end_cf
-    .catchall {:try_start_c8 .. :try_end_cf} :catchall_19
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    goto :goto_c8
+    goto :goto_2
 
     .line 142
     .end local v0           #e:Landroid/os/RemoteException;
-    :catch_d0
+    :catch_1
     move-exception v2
 
-    goto :goto_65
+    goto :goto_1
 .end method

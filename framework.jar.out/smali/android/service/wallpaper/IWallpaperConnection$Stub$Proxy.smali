@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 85
@@ -50,7 +50,7 @@
 .end method
 
 .method public attachEngine(Landroid/service/wallpaper/IWallpaperEngine;)V
-    .registers 7
+    .locals 5
     .parameter "engine"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -72,19 +72,19 @@
 
     .line 96
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.service.wallpaper.IWallpaperConnection"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 97
-    if-eqz p1, :cond_27
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/service/wallpaper/IWallpaperEngine;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 98
@@ -98,8 +98,8 @@
 
     .line 99
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 102
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -111,13 +111,13 @@
     return-void
 
     .line 97
-    :cond_27
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 102
-    :catchall_29
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -129,7 +129,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 89
@@ -139,7 +139,7 @@
 .end method
 
 .method public setWallpaper(Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
-    .registers 8
+    .locals 6
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -161,7 +161,7 @@
 
     .line 112
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.service.wallpaper.IWallpaperConnection"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -186,7 +186,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2f
+    if-eqz v3, :cond_0
 
     .line 117
     sget-object v3, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -196,12 +196,12 @@
     move-result-object v2
 
     check-cast v2, Landroid/os/ParcelFileDescriptor;
-    :try_end_28
-    .catchall {:try_start_8 .. :try_end_28} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 124
     .local v2, _result:Landroid/os/ParcelFileDescriptor;
-    :goto_28
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 125
@@ -212,15 +212,15 @@
 
     .line 120
     .end local v2           #_result:Landroid/os/ParcelFileDescriptor;
-    :cond_2f
+    :cond_0
     const/4 v2, 0x0
 
     .restart local v2       #_result:Landroid/os/ParcelFileDescriptor;
-    goto :goto_28
+    goto :goto_0
 
     .line 124
     .end local v2           #_result:Landroid/os/ParcelFileDescriptor;
-    :catchall_31
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

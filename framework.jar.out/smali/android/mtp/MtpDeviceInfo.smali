@@ -15,7 +15,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 32
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final getManufacturer()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 41
@@ -38,7 +38,7 @@
 .end method
 
 .method public final getModel()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 50
@@ -48,7 +48,7 @@
 .end method
 
 .method public final getSerialNumber()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 68
@@ -58,7 +58,7 @@
 .end method
 
 .method public final getVersion()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 59

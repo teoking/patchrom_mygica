@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/webkit/WebSyncManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/webkit/WebSyncManager;Landroid/webkit/WebSyncManager$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
@@ -56,7 +56,7 @@
     .line 52
     iget v1, p1, Landroid/os/Message;->what:I
 
-    if-ne v1, v2, :cond_17
+    if-ne v1, v2, :cond_0
 
     .line 56
     iget-object v1, p0, Landroid/webkit/WebSyncManager$SyncHandler;->this$0:Landroid/webkit/WebSyncManager;
@@ -80,6 +80,6 @@
 
     .line 62
     .end local v0           #newmsg:Landroid/os/Message;
-    :cond_17
+    :cond_0
     return-void
 .end method

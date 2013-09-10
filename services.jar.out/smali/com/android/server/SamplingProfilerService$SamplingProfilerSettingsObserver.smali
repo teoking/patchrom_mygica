@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/SamplingProfilerService;Landroid/content/ContentResolver;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "contentResolver"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .registers 6
+    .locals 4
     .parameter "selfChange"
 
     .prologue

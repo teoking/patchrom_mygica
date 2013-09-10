@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(IILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "uniqueId"
     .parameter "type"
     .parameter "message"
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>(IILjava/lang/String;Ljava/util/HashMap;)V
-    .registers 5
+    .locals 0
     .parameter "uniqueId"
     .parameter "type"
     .parameter "message"
@@ -66,28 +66,28 @@
 .end method
 
 .method private checkTypeValidity(I)V
-    .registers 5
+    .locals 3
     .parameter "type"
 
     .prologue
     .line 99
     const/4 v1, 0x1
 
-    if-lt p1, v1, :cond_6
+    if-lt p1, v1, :cond_0
 
     const/4 v1, 0x6
 
-    if-le p1, v1, :cond_27
+    if-le p1, v1, :cond_1
 
     .line 102
-    :cond_6
+    :cond_0
     const/16 v1, 0x3e9
 
-    if-eq p1, v1, :cond_27
+    if-eq p1, v1, :cond_1
 
     const/16 v1, 0x3ea
 
-    if-eq p1, v1, :cond_27
+    if-eq p1, v1, :cond_1
 
     .line 104
     new-instance v1, Ljava/lang/StringBuilder;
@@ -118,6 +118,6 @@
 
     .line 108
     .end local v0           #msg:Ljava/lang/String;
-    :cond_27
+    :cond_1
     return-void
 .end method

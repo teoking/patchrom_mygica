@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/accounts/AccountManagerService;Landroid/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;[Ljava/lang/String;)V
-    .registers 13
+    .locals 7
     .parameter
     .parameter "accounts"
     .parameter "response"
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public onResult(Landroid/os/Bundle;)V
-    .registers 9
+    .locals 7
     .parameter "result"
 
     .prologue
@@ -78,26 +78,26 @@
 
     .line 606
     .local v2, response:Landroid/accounts/IAccountManagerResponse;
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_0
 
     .line 608
-    if-nez p1, :cond_11
+    if-nez p1, :cond_1
 
     .line 609
     const/4 v3, 0x5
 
-    :try_start_a
+    :try_start_0
     const-string/jumbo v4, "null bundle"
 
     invoke-interface {v2, v3, v4}, Landroid/accounts/IAccountManagerResponse;->onError(ILjava/lang/String;)V
 
     .line 627
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     return-void
 
     .line 612
-    :cond_11
+    :cond_1
     const-string v3, "AccountManagerService"
 
     const/4 v4, 0x2
@@ -106,7 +106,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3e
+    if-eqz v3, :cond_2
 
     .line 613
     const-string v3, "AccountManagerService"
@@ -144,7 +144,7 @@
     invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 616
-    :cond_3e
+    :cond_2
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
@@ -165,14 +165,14 @@
 
     .line 619
     invoke-interface {v2, v1}, Landroid/accounts/IAccountManagerResponse;->onResult(Landroid/os/Bundle;)V
-    :try_end_52
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_52} :catch_53
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_10
+    goto :goto_0
 
     .line 620
     .end local v1           #newResult:Landroid/os/Bundle;
-    :catch_53
+    :catch_0
     move-exception v0
 
     .line 622
@@ -183,7 +183,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_0
 
     .line 623
     const-string v3, "AccountManagerService"
@@ -192,11 +192,11 @@
 
     invoke-static {v3, v4, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public run()V
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -213,15 +213,15 @@
     iget-object v3, p0, Landroid/accounts/AccountManagerService$TestFeaturesSession;->mFeatures:[Ljava/lang/String;
 
     invoke-interface {v1, p0, v2, v3}, Landroid/accounts/IAccountAuthenticator;->hasFeatures(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;[Ljava/lang/String;)V
-    :try_end_9
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_9} :catch_a
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 602
-    :goto_9
+    :goto_0
     return-void
 
     .line 599
-    :catch_a
+    :catch_0
     move-exception v0
 
     .line 600
@@ -232,11 +232,11 @@
 
     invoke-virtual {p0, v1, v2}, Landroid/accounts/AccountManagerService$TestFeaturesSession;->onError(ILjava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method protected toDebugString(J)Ljava/lang/String;
-    .registers 6
+    .locals 3
     .parameter "now"
 
     .prologue
@@ -279,7 +279,7 @@
 
     iget-object v0, p0, Landroid/accounts/AccountManagerService$TestFeaturesSession;->mFeatures:[Ljava/lang/String;
 
-    if-eqz v0, :cond_3a
+    if-eqz v0, :cond_0
 
     const-string v0, ","
 
@@ -289,7 +289,7 @@
 
     move-result-object v0
 
-    :goto_31
+    :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -300,8 +300,8 @@
 
     return-object v0
 
-    :cond_3a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_31
+    goto :goto_0
 .end method

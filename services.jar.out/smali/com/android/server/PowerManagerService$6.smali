@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/PowerManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 11
+    .locals 8
     .parameter "context"
     .parameter "intent"
 
@@ -43,6 +43,7 @@
     .line 1589
     iget-object v0, p0, Lcom/android/server/PowerManagerService$6;->this$0:Lcom/android/server/PowerManagerService;
 
+    #getter for: Lcom/android/server/PowerManagerService;->mLocks:Lcom/android/server/PowerManagerService$LockList;
     invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$600(Lcom/android/server/PowerManagerService;)Lcom/android/server/PowerManagerService$LockList;
 
     move-result-object v1
@@ -54,7 +55,7 @@
 
     const/4 v2, 0x3
 
-    :try_start_a
+    :try_start_0
     new-array v2, v2, [Ljava/lang/Object;
 
     const/4 v3, 0x0
@@ -89,6 +90,7 @@
 
     iget-object v4, p0, Lcom/android/server/PowerManagerService$6;->this$0:Lcom/android/server/PowerManagerService;
 
+    #getter for: Lcom/android/server/PowerManagerService;->mBroadcastWakeLock:Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;
     invoke-static {v4}, Lcom/android/server/PowerManagerService;->access$3400(Lcom/android/server/PowerManagerService;)Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;
 
     move-result-object v4
@@ -106,6 +108,7 @@
     .line 1592
     iget-object v0, p0, Lcom/android/server/PowerManagerService$6;->this$0:Lcom/android/server/PowerManagerService;
 
+    #getter for: Lcom/android/server/PowerManagerService;->mBroadcastWakeLock:Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;
     invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$3400(Lcom/android/server/PowerManagerService;)Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;
 
     move-result-object v0
@@ -119,12 +122,12 @@
     return-void
 
     .line 1593
-    :catchall_41
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_43
-    .catchall {:try_start_a .. :try_end_43} :catchall_41
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

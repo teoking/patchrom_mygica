@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 5
+    .locals 1
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -91,7 +91,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/app/FragmentBreadCrumbs;)Landroid/view/View$OnClickListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -102,7 +102,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/app/FragmentBreadCrumbs;)Landroid/app/FragmentBreadCrumbs$OnBreadCrumbClickListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -113,22 +113,22 @@
 .end method
 
 .method private createBackStackEntry(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/app/BackStackRecord;
-    .registers 5
+    .locals 2
     .parameter "title"
     .parameter "shortTitle"
 
     .prologue
     .line 141
-    if-nez p1, :cond_4
+    if-nez p1, :cond_0
 
     const/4 v0, 0x0
 
     .line 147
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 143
-    :cond_4
+    :cond_0
     new-instance v0, Landroid/app/BackStackRecord;
 
     iget-object v1, p0, Landroid/app/FragmentBreadCrumbs;->mActivity:Landroid/app/Activity;
@@ -148,43 +148,43 @@
     .line 146
     invoke-virtual {v0, p2}, Landroid/app/BackStackRecord;->setBreadCrumbShortTitle(Ljava/lang/CharSequence;)Landroid/app/FragmentTransaction;
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method private getPreEntry(I)Landroid/app/FragmentManager$BackStackEntry;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
     .line 228
     iget-object v0, p0, Landroid/app/FragmentBreadCrumbs;->mParentEntry:Landroid/app/BackStackRecord;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_1
 
     .line 229
-    if-nez p1, :cond_9
+    if-nez p1, :cond_0
 
     iget-object v0, p0, Landroid/app/FragmentBreadCrumbs;->mParentEntry:Landroid/app/BackStackRecord;
 
     .line 231
-    :goto_8
+    :goto_0
     return-object v0
 
     .line 229
-    :cond_9
+    :cond_0
     iget-object v0, p0, Landroid/app/FragmentBreadCrumbs;->mTopEntry:Landroid/app/BackStackRecord;
 
-    goto :goto_8
+    goto :goto_0
 
     .line 231
-    :cond_c
+    :cond_1
     iget-object v0, p0, Landroid/app/FragmentBreadCrumbs;->mTopEntry:Landroid/app/BackStackRecord;
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method private getPreEntryCount()I
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x1
@@ -194,35 +194,35 @@
     .line 217
     iget-object v0, p0, Landroid/app/FragmentBreadCrumbs;->mTopEntry:Landroid/app/BackStackRecord;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_7
+    :goto_0
     iget-object v3, p0, Landroid/app/FragmentBreadCrumbs;->mParentEntry:Landroid/app/BackStackRecord;
 
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_1
 
-    :goto_b
+    :goto_1
     add-int/2addr v0, v1
 
     return v0
 
-    :cond_d
+    :cond_0
     move v0, v2
 
-    goto :goto_7
+    goto :goto_0
 
-    :cond_f
+    :cond_1
     move v1, v2
 
-    goto :goto_b
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public onBackStackChanged()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 209
@@ -233,7 +233,7 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .registers 13
+    .locals 7
     .parameter "changed"
     .parameter "l"
     .parameter "t"
@@ -251,8 +251,8 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_5
-    if-ge v4, v2, :cond_2b
+    :goto_0
+    if-ge v4, v2, :cond_0
 
     .line 166
     invoke-virtual {p0, v4}, Landroid/app/FragmentBreadCrumbs;->getChildAt(I)Landroid/view/View;
@@ -298,18 +298,18 @@
     .line 165
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 172
     .end local v0           #child:Landroid/view/View;
     .end local v1           #childBottom:I
     .end local v3           #childRight:I
-    :cond_2b
+    :cond_0
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .registers 11
+    .locals 8
     .parameter "widthMeasureSpec"
     .parameter "heightMeasureSpec"
 
@@ -336,8 +336,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_8
-    if-ge v2, v1, :cond_34
+    :goto_0
+    if-ge v2, v1, :cond_1
 
     .line 184
     invoke-virtual {p0, v2}, Landroid/app/FragmentBreadCrumbs;->getChildAt(I)Landroid/view/View;
@@ -352,7 +352,7 @@
 
     const/16 v7, 0x8
 
-    if-eq v6, v7, :cond_31
+    if-eq v6, v7, :cond_0
 
     .line 186
     invoke-virtual {p0, v0, p1, p2}, Landroid/app/FragmentBreadCrumbs;->measureChild(Landroid/view/View;II)V
@@ -385,14 +385,14 @@
     move-result v5
 
     .line 183
-    :cond_31
+    :cond_0
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 195
     .end local v0           #child:Landroid/view/View;
-    :cond_34
+    :cond_1
     iget v6, p0, Landroid/view/View;->mPaddingLeft:I
 
     iget v7, p0, Landroid/view/View;->mPaddingRight:I
@@ -446,7 +446,7 @@
 .end method
 
 .method public setActivity(Landroid/app/Activity;)V
-    .registers 5
+    .locals 3
     .parameter "a"
 
     .prologue
@@ -506,14 +506,14 @@
 .end method
 
 .method public setMaxVisible(I)V
-    .registers 4
+    .locals 2
     .parameter "visibleCrumbs"
 
     .prologue
     .line 106
     const/4 v0, 0x1
 
-    if-ge p1, v0, :cond_c
+    if-ge p1, v0, :cond_0
 
     .line 107
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -525,7 +525,7 @@
     throw v0
 
     .line 109
-    :cond_c
+    :cond_0
     iput p1, p0, Landroid/app/FragmentBreadCrumbs;->mMaxVisible:I
 
     .line 110
@@ -533,7 +533,7 @@
 .end method
 
 .method public setOnBreadCrumbClickListener(Landroid/app/FragmentBreadCrumbs$OnBreadCrumbClickListener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue
@@ -545,7 +545,7 @@
 .end method
 
 .method public setParentTitle(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/view/View$OnClickListener;)V
-    .registers 5
+    .locals 1
     .parameter "title"
     .parameter "shortTitle"
     .parameter "listener"
@@ -569,7 +569,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
-    .registers 4
+    .locals 1
     .parameter "title"
     .parameter "shortTitle"
 
@@ -589,7 +589,7 @@
 .end method
 
 .method updateCrumbs()V
-    .registers 22
+    .locals 21
 
     .prologue
     .line 236
@@ -632,15 +632,15 @@
     const/4 v7, 0x0
 
     .local v7, i:I
-    :goto_1d
+    :goto_0
     add-int v18, v11, v12
 
     move/from16 v0, v18
 
-    if-ge v7, v0, :cond_b4
+    if-ge v7, v0, :cond_5
 
     .line 241
-    if-ge v7, v12, :cond_50
+    if-ge v7, v12, :cond_0
 
     move-object/from16 v0, p0
 
@@ -650,8 +650,8 @@
 
     .line 244
     .local v4, bse:Landroid/app/FragmentManager$BackStackEntry;
-    :goto_2b
-    if-ge v7, v13, :cond_5a
+    :goto_1
+    if-ge v7, v13, :cond_2
 
     .line 245
     move-object/from16 v0, p0
@@ -674,14 +674,14 @@
 
     .line 247
     .local v14, tag:Ljava/lang/Object;
-    if-eq v14, v4, :cond_5a
+    if-eq v14, v4, :cond_2
 
     .line 248
     move v9, v7
 
     .local v9, j:I
-    :goto_40
-    if-ge v9, v13, :cond_59
+    :goto_2
+    if-ge v9, v13, :cond_1
 
     .line 249
     move-object/from16 v0, p0
@@ -697,14 +697,14 @@
     .line 248
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_40
+    goto :goto_2
 
     .line 241
     .end local v4           #bse:Landroid/app/FragmentManager$BackStackEntry;
     .end local v9           #j:I
     .end local v14           #tag:Ljava/lang/Object;
     .end local v16           #v:Landroid/view/View;
-    :cond_50
+    :cond_0
     sub-int v18, v7, v12
 
     move/from16 v0, v18
@@ -713,22 +713,22 @@
 
     move-result-object v4
 
-    goto :goto_2b
+    goto :goto_1
 
     .line 251
     .restart local v4       #bse:Landroid/app/FragmentManager$BackStackEntry;
     .restart local v9       #j:I
     .restart local v14       #tag:Ljava/lang/Object;
     .restart local v16       #v:Landroid/view/View;
-    :cond_59
+    :cond_1
     move v13, v7
 
     .line 254
     .end local v9           #j:I
     .end local v14           #tag:Ljava/lang/Object;
     .end local v16           #v:Landroid/view/View;
-    :cond_5a
-    if-lt v7, v13, :cond_b0
+    :cond_2
+    if-lt v7, v13, :cond_4
 
     .line 255
     move-object/from16 v0, p0
@@ -779,7 +779,7 @@
     invoke-virtual {v15, v4}, Landroid/widget/TextView;->setTag(Ljava/lang/Object;)V
 
     .line 261
-    if-nez v7, :cond_9a
+    if-nez v7, :cond_3
 
     .line 262
     const v18, 0x102025f
@@ -795,7 +795,7 @@
     invoke-virtual/range {v18 .. v19}, Landroid/view/View;->setVisibility(I)V
 
     .line 264
-    :cond_9a
+    :cond_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/app/FragmentBreadCrumbs;->mContainer:Landroid/widget/LinearLayout;
@@ -820,14 +820,14 @@
     .line 240
     .end local v8           #item:Landroid/view/View;
     .end local v15           #text:Landroid/widget/TextView;
-    :cond_b0
+    :cond_4
     add-int/lit8 v7, v7, 0x1
 
-    goto/16 :goto_1d
+    goto/16 :goto_0
 
     .line 268
     .end local v4           #bse:Landroid/app/FragmentManager$BackStackEntry;
-    :cond_b4
+    :cond_5
     add-int v17, v11, v12
 
     .line 269
@@ -843,10 +843,10 @@
     move-result v13
 
     .line 270
-    :goto_c0
+    :goto_3
     move/from16 v0, v17
 
-    if-le v13, v0, :cond_d2
+    if-le v13, v0, :cond_6
 
     .line 271
     move-object/from16 v0, p0
@@ -862,14 +862,14 @@
     .line 272
     add-int/lit8 v13, v13, -0x1
 
-    goto :goto_c0
+    goto :goto_3
 
     .line 275
-    :cond_d2
+    :cond_6
     const/4 v7, 0x0
 
-    :goto_d3
-    if-ge v7, v13, :cond_13e
+    :goto_4
+    if-ge v7, v13, :cond_b
 
     .line 276
     move-object/from16 v0, p0
@@ -898,11 +898,11 @@
 
     move/from16 v0, v18
 
-    if-ge v7, v0, :cond_135
+    if-ge v7, v0, :cond_8
 
     const/16 v18, 0x1
 
-    :goto_f2
+    :goto_5
     move-object/from16 v0, v19
 
     move/from16 v1, v18
@@ -916,7 +916,7 @@
 
     move/from16 v18, v0
 
-    if-lez v18, :cond_132
+    if-lez v18, :cond_7
 
     .line 281
     move-object/from16 v0, p0
@@ -929,11 +929,11 @@
 
     move/from16 v0, v18
 
-    if-ge v7, v0, :cond_138
+    if-ge v7, v0, :cond_9
 
     const/16 v18, 0x8
 
-    :goto_10f
+    :goto_6
     move/from16 v0, v18
 
     invoke-virtual {v5, v0}, Landroid/view/View;->setVisibility(I)V
@@ -959,46 +959,46 @@
 
     move/from16 v0, v18
 
-    if-le v7, v0, :cond_13b
+    if-le v7, v0, :cond_a
 
-    if-eqz v7, :cond_13b
+    if-eqz v7, :cond_a
 
     const/16 v18, 0x0
 
-    :goto_12d
+    :goto_7
     move/from16 v0, v18
 
     invoke-virtual {v10, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 275
     .end local v10           #leftIcon:Landroid/view/View;
-    :cond_132
+    :cond_7
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_d3
+    goto :goto_4
 
     .line 278
-    :cond_135
+    :cond_8
     const/16 v18, 0x0
 
-    goto :goto_f2
+    goto :goto_5
 
     .line 281
-    :cond_138
+    :cond_9
     const/16 v18, 0x0
 
-    goto :goto_10f
+    goto :goto_6
 
     .line 284
     .restart local v10       #leftIcon:Landroid/view/View;
-    :cond_13b
+    :cond_a
     const/16 v18, 0x8
 
-    goto :goto_12d
+    goto :goto_7
 
     .line 288
     .end local v5           #child:Landroid/view/View;
     .end local v10           #leftIcon:Landroid/view/View;
-    :cond_13e
+    :cond_b
     return-void
 .end method

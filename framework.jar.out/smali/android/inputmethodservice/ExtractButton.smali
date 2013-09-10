@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -19,7 +19,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 4
+    .locals 0
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public hasWindowFocus()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 44
@@ -58,21 +58,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Landroid/inputmethodservice/ExtractButton;->getVisibility()I
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method

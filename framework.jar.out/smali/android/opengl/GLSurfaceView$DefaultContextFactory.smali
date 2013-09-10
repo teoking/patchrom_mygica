@@ -25,7 +25,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/opengl/GLSurfaceView;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -43,7 +43,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/opengl/GLSurfaceView;Landroid/opengl/GLSurfaceView$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public createContext(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;)Ljavax/microedition/khronos/egl/EGLContext;
-    .registers 7
+    .locals 3
     .parameter "egl"
     .parameter "display"
     .parameter "config"
@@ -78,6 +78,7 @@
 
     iget-object v2, p0, Landroid/opengl/GLSurfaceView$DefaultContextFactory;->this$0:Landroid/opengl/GLSurfaceView;
 
+    #getter for: Landroid/opengl/GLSurfaceView;->mEGLContextClientVersion:I
     invoke-static {v2}, Landroid/opengl/GLSurfaceView;->access$200(Landroid/opengl/GLSurfaceView;)I
 
     move-result v2
@@ -96,14 +97,15 @@
 
     iget-object v2, p0, Landroid/opengl/GLSurfaceView$DefaultContextFactory;->this$0:Landroid/opengl/GLSurfaceView;
 
+    #getter for: Landroid/opengl/GLSurfaceView;->mEGLContextClientVersion:I
     invoke-static {v2}, Landroid/opengl/GLSurfaceView;->access$200(Landroid/opengl/GLSurfaceView;)I
 
     move-result v2
 
-    if-eqz v2, :cond_25
+    if-eqz v2, :cond_0
 
     .end local v0           #attrib_list:[I
-    :goto_20
+    :goto_0
     invoke-interface {p1, p2, p3, v1, v0}, Ljavax/microedition/khronos/egl/EGL10;->eglCreateContext(Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;Ljavax/microedition/khronos/egl/EGLContext;[I)Ljavax/microedition/khronos/egl/EGLContext;
 
     move-result-object v1
@@ -111,14 +113,14 @@
     return-object v1
 
     .restart local v0       #attrib_list:[I
-    :cond_25
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_20
+    goto :goto_0
 .end method
 
 .method public destroyContext(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLContext;)V
-    .registers 7
+    .locals 3
     .parameter "egl"
     .parameter "display"
     .parameter "context"
@@ -129,7 +131,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_31
+    if-nez v0, :cond_0
 
     .line 778
     const-string v0, "DefaultContextFactory"
@@ -174,6 +176,6 @@
     invoke-static {v0, v1}, Landroid/opengl/GLSurfaceView$EglHelper;->throwEglException(Ljava/lang/String;I)V
 
     .line 784
-    :cond_31
+    :cond_0
     return-void
 .end method

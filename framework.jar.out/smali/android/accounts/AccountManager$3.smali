@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Ljava/lang/String;[Ljava/lang/String;)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public bridge synthetic bundleToResult(Landroid/os/Bundle;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -75,7 +75,7 @@
 .end method
 
 .method public bundleToResult(Landroid/os/Bundle;)[Landroid/accounts/Account;
-    .registers 7
+    .locals 5
     .parameter "bundle"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -91,7 +91,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_11
+    if-nez v3, :cond_0
 
     .line 534
     new-instance v3, Landroid/accounts/AuthenticatorException;
@@ -103,7 +103,7 @@
     throw v3
 
     .line 536
-    :cond_11
+    :cond_0
     const-string v3, "accounts"
 
     invoke-virtual {p1, v3}, Landroid/os/Bundle;->getParcelableArray(Ljava/lang/String;)[Landroid/os/Parcelable;
@@ -121,10 +121,10 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_1b
+    :goto_0
     array-length v3, v2
 
-    if-ge v1, v3, :cond_27
+    if-ge v1, v3, :cond_1
 
     .line 539
     aget-object v3, v2, v1
@@ -136,15 +136,15 @@
     .line 538
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 541
-    :cond_27
+    :cond_1
     return-object v0
 .end method
 
 .method public doWork()V
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -155,6 +155,7 @@
     .line 530
     iget-object v0, p0, Landroid/accounts/AccountManager$3;->this$0:Landroid/accounts/AccountManager;
 
+    #getter for: Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
     invoke-static {v0}, Landroid/accounts/AccountManager;->access$000(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
 
     move-result-object v0

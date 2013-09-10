@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 31
@@ -25,14 +25,14 @@
 .end method
 
 .method public static wrap(Ljavax/microedition/khronos/egl/EGL;ILjava/io/Writer;)Ljavax/microedition/khronos/egl/EGL;
-    .registers 4
+    .locals 1
     .parameter "egl"
     .parameter "configFlags"
     .parameter "log"
 
     .prologue
     .line 101
-    if-eqz p2, :cond_8
+    if-eqz p2, :cond_0
 
     .line 102
     new-instance v0, Landroid/opengl/EGLLogWrapper;
@@ -46,19 +46,19 @@
     .line 104
     .end local v0           #egl:Ljavax/microedition/khronos/egl/EGL;
     .restart local p0
-    :cond_8
+    :cond_0
     return-object p0
 .end method
 
 .method public static wrap(Ljavax/microedition/khronos/opengles/GL;ILjava/io/Writer;)Ljavax/microedition/khronos/opengles/GL;
-    .registers 6
+    .locals 3
     .parameter "gl"
     .parameter "configFlags"
     .parameter "log"
 
     .prologue
     .line 80
-    if-eqz p1, :cond_18
+    if-eqz p1, :cond_2
 
     .line 81
     new-instance v0, Landroid/opengl/GLErrorWrapper;
@@ -68,19 +68,19 @@
     .line 83
     .end local p0
     .local v0, gl:Ljavax/microedition/khronos/opengles/GL;
-    :goto_7
-    if-eqz p2, :cond_16
+    :goto_0
+    if-eqz p2, :cond_1
 
     .line 84
     and-int/lit8 v2, p1, 0x4
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_0
 
     const/4 v1, 0x1
 
     .line 86
     .local v1, logArgumentNames:Z
-    :goto_e
+    :goto_1
     new-instance p0, Landroid/opengl/GLLogWrapper;
 
     invoke-direct {p0, v0, p2, v1}, Landroid/opengl/GLLogWrapper;-><init>(Ljavax/microedition/khronos/opengles/GL;Ljava/io/Writer;Z)V
@@ -89,28 +89,28 @@
     .end local v0           #gl:Ljavax/microedition/khronos/opengles/GL;
     .end local v1           #logArgumentNames:Z
     .restart local p0
-    :goto_13
+    :goto_2
     return-object p0
 
     .line 84
     .end local p0
     .restart local v0       #gl:Ljavax/microedition/khronos/opengles/GL;
-    :cond_14
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_e
+    goto :goto_1
 
-    :cond_16
+    :cond_1
     move-object p0, v0
 
     .end local v0           #gl:Ljavax/microedition/khronos/opengles/GL;
     .restart local p0
-    goto :goto_13
+    goto :goto_2
 
-    :cond_18
+    :cond_2
     move-object v0, p0
 
     .end local p0
     .restart local v0       #gl:Ljavax/microedition/khronos/opengles/GL;
-    goto :goto_7
+    goto :goto_0
 .end method

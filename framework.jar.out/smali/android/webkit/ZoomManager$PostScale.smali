@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/webkit/ZoomManager;ZZZ)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter "updateTextWrap"
     .parameter "inZoomOverview"
@@ -57,12 +57,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 966
     iget-object v1, p0, Landroid/webkit/ZoomManager$PostScale;->this$0:Landroid/webkit/ZoomManager;
 
+    #getter for: Landroid/webkit/ZoomManager;->mWebView:Landroid/webkit/WebViewClassic;
     invoke-static {v1}, Landroid/webkit/ZoomManager;->access$600(Landroid/webkit/ZoomManager;)Landroid/webkit/WebViewClassic;
 
     move-result-object v1
@@ -71,11 +72,12 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_3d
+    if-eqz v1, :cond_1
 
     .line 970
     iget-object v1, p0, Landroid/webkit/ZoomManager$PostScale;->this$0:Landroid/webkit/ZoomManager;
 
+    #getter for: Landroid/webkit/ZoomManager;->mActualScale:F
     invoke-static {v1}, Landroid/webkit/ZoomManager;->access$900(Landroid/webkit/ZoomManager;)F
 
     move-result v0
@@ -84,6 +86,7 @@
     .local v0, newScale:F
     iget-object v1, p0, Landroid/webkit/ZoomManager$PostScale;->this$0:Landroid/webkit/ZoomManager;
 
+    #getter for: Landroid/webkit/ZoomManager;->mWebView:Landroid/webkit/WebViewClassic;
     invoke-static {v1}, Landroid/webkit/ZoomManager;->access$600(Landroid/webkit/ZoomManager;)Landroid/webkit/WebViewClassic;
 
     move-result-object v1
@@ -96,15 +99,15 @@
 
     move-result v1
 
-    if-eqz v1, :cond_30
+    if-eqz v1, :cond_0
 
     iget-boolean v1, p0, Landroid/webkit/ZoomManager$PostScale;->mInPortraitMode:Z
 
-    if-eqz v1, :cond_30
+    if-eqz v1, :cond_0
 
     iget-boolean v1, p0, Landroid/webkit/ZoomManager$PostScale;->mInZoomOverviewBeforeSizeChange:Z
 
-    if-eqz v1, :cond_30
+    if-eqz v1, :cond_0
 
     .line 974
     iget-object v1, p0, Landroid/webkit/ZoomManager$PostScale;->this$0:Landroid/webkit/ZoomManager;
@@ -114,13 +117,14 @@
     move-result v0
 
     .line 976
-    :cond_30
+    :cond_0
     iget-object v1, p0, Landroid/webkit/ZoomManager$PostScale;->this$0:Landroid/webkit/ZoomManager;
 
     iget-boolean v2, p0, Landroid/webkit/ZoomManager$PostScale;->mUpdateTextWrap:Z
 
     const/4 v3, 0x1
 
+    #calls: Landroid/webkit/ZoomManager;->setZoomScale(FZZ)V
     invoke-static {v1, v0, v2, v3}, Landroid/webkit/ZoomManager;->access$1700(Landroid/webkit/ZoomManager;FZZ)V
 
     .line 978
@@ -130,6 +134,6 @@
 
     .line 980
     .end local v0           #newScale:F
-    :cond_3d
+    :cond_1
     return-void
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/wifi/WifiWatchdogStateMachine;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public enter()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 516
@@ -43,7 +43,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -67,59 +67,63 @@
 
     move-result-object v0
 
+    #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->log(Ljava/lang/String;)V
     invoke-static {v0}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$100(Ljava/lang/String;)V
 
     .line 517
-    :cond_20
+    :cond_0
     return-void
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
-    .registers 6
+    .locals 4
     .parameter "msg"
 
     .prologue
     .line 521
     iget v2, p1, Landroid/os/Message;->what:I
 
-    packed-switch v2, :pswitch_data_52
+    packed-switch v2, :pswitch_data_0
 
     .line 541
-    :goto_5
+    :goto_0
     const/4 v2, 0x0
 
-    :goto_6
+    :goto_1
     return v2
 
     .line 523
-    :pswitch_7
+    :pswitch_0
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogDisabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
+    #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->isWatchdogEnabled()Z
     invoke-static {v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$600(Landroid/net/wifi/WifiWatchdogStateMachine;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_0
 
     .line 524
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogDisabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     iget-object v3, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogDisabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mNotConnectedState:Landroid/net/wifi/WifiWatchdogStateMachine$NotConnectedState;
     invoke-static {v3}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$700(Landroid/net/wifi/WifiWatchdogStateMachine;)Landroid/net/wifi/WifiWatchdogStateMachine$NotConnectedState;
 
     move-result-object v3
 
+    #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v2, v3}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$800(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
 
     .line 525
-    :cond_1a
+    :cond_0
     const/4 v2, 0x1
 
-    goto :goto_6
+    goto :goto_1
 
     .line 527
-    :pswitch_1c
+    :pswitch_1
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/content/Intent;
@@ -148,26 +152,28 @@
 
     aget v2, v2, v3
 
-    packed-switch v2, :pswitch_data_5a
+    packed-switch v2, :pswitch_data_1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 533
-    :pswitch_39
+    :pswitch_2
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$000()Z
 
     move-result v2
 
-    if-eqz v2, :cond_44
+    if-eqz v2, :cond_1
 
     const-string v2, "Watchdog disabled, verify link"
 
+    #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->log(Ljava/lang/String;)V
     invoke-static {v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$100(Ljava/lang/String;)V
 
     .line 534
-    :cond_44
+    :cond_1
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogDisabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mWsmChannel:Lcom/android/internal/util/AsyncChannel;
     invoke-static {v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$900(Landroid/net/wifi/WifiWatchdogStateMachine;)Lcom/android/internal/util/AsyncChannel;
 
     move-result-object v2
@@ -176,20 +182,20 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/util/AsyncChannel;->sendMessage(I)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 521
     nop
 
-    :pswitch_data_52
+    :pswitch_data_0
     .packed-switch 0x21001
-        :pswitch_7
-        :pswitch_1c
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 
     .line 531
-    :pswitch_data_5a
+    :pswitch_data_1
     .packed-switch 0x1
-        :pswitch_39
+        :pswitch_2
     .end packed-switch
 .end method

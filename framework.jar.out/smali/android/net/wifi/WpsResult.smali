@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 77
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 38
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/wifi/WpsResult$Status;)V
-    .registers 3
+    .locals 1
     .parameter "s"
 
     .prologue
@@ -90,7 +90,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/wifi/WpsResult;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -98,7 +98,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 64
-    if-eqz p1, :cond_d
+    if-eqz p1, :cond_0
 
     .line 65
     iget-object v0, p1, Landroid/net/wifi/WpsResult;->status:Landroid/net/wifi/WpsResult$Status;
@@ -111,14 +111,14 @@
     iput-object v0, p0, Landroid/net/wifi/WpsResult;->pin:Ljava/lang/String;
 
     .line 68
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 59
@@ -128,7 +128,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 49
@@ -182,7 +182,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

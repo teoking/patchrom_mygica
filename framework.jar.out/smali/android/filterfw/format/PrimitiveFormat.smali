@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 26
@@ -15,7 +15,7 @@
 .end method
 
 .method public static createByteFormat(I)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 2
+    .locals 1
     .parameter "target"
 
     .prologue
@@ -30,7 +30,7 @@
 .end method
 
 .method public static createByteFormat(II)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 3
+    .locals 1
     .parameter "count"
     .parameter "target"
 
@@ -46,7 +46,7 @@
 .end method
 
 .method public static createDoubleFormat(I)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 2
+    .locals 1
     .parameter "target"
 
     .prologue
@@ -61,7 +61,7 @@
 .end method
 
 .method public static createDoubleFormat(II)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 3
+    .locals 1
     .parameter "count"
     .parameter "target"
 
@@ -77,7 +77,7 @@
 .end method
 
 .method public static createFloatFormat(I)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 2
+    .locals 1
     .parameter "target"
 
     .prologue
@@ -92,7 +92,7 @@
 .end method
 
 .method public static createFloatFormat(II)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 3
+    .locals 1
     .parameter "count"
     .parameter "target"
 
@@ -108,7 +108,7 @@
 .end method
 
 .method private static createFormat(II)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 4
+    .locals 2
     .parameter "baseType"
     .parameter "target"
 
@@ -129,7 +129,7 @@
 .end method
 
 .method private static createFormat(III)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 4
+    .locals 1
     .parameter "baseType"
     .parameter "count"
     .parameter "target"
@@ -149,7 +149,7 @@
 .end method
 
 .method public static createInt16Format(I)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 2
+    .locals 1
     .parameter "target"
 
     .prologue
@@ -164,7 +164,7 @@
 .end method
 
 .method public static createInt16Format(II)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 3
+    .locals 1
     .parameter "count"
     .parameter "target"
 
@@ -180,7 +180,7 @@
 .end method
 
 .method public static createInt32Format(I)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 2
+    .locals 1
     .parameter "target"
 
     .prologue
@@ -195,7 +195,7 @@
 .end method
 
 .method public static createInt32Format(II)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 3
+    .locals 1
     .parameter "count"
     .parameter "target"
 

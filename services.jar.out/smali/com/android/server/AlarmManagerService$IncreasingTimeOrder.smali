@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 639
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public compare(Lcom/android/server/AlarmManagerService$Alarm;Lcom/android/server/AlarmManagerService$Alarm;)I
-    .registers 11
+    .locals 8
     .parameter "a1"
     .parameter "a2"
 
@@ -61,37 +61,37 @@
 
     cmp-long v4, v4, v6
 
-    if-lez v4, :cond_e
+    if-lez v4, :cond_0
 
     .line 644
     const/4 v4, 0x1
 
     .line 649
-    :goto_d
+    :goto_0
     return v4
 
     .line 646
-    :cond_e
+    :cond_0
     sub-long v4, v0, v2
 
     cmp-long v4, v4, v6
 
-    if-gez v4, :cond_16
+    if-gez v4, :cond_1
 
     .line 647
     const/4 v4, -0x1
 
-    goto :goto_d
+    goto :goto_0
 
     .line 649
-    :cond_16
+    :cond_1
     const/4 v4, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 

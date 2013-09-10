@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/text/Spanned;[C[C)V
-    .registers 4
+    .locals 0
     .parameter "source"
     .parameter "original"
     .parameter "replacement"
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public getSpanEnd(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "tag"
 
     .prologue
@@ -57,7 +57,7 @@
 .end method
 
 .method public getSpanFlags(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "tag"
 
     .prologue
@@ -72,7 +72,7 @@
 .end method
 
 .method public getSpanStart(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "tag"
 
     .prologue
@@ -87,7 +87,7 @@
 .end method
 
 .method public getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
-    .registers 5
+    .locals 1
     .parameter "start"
     .parameter "end"
     .parameter
@@ -114,7 +114,7 @@
 .end method
 
 .method public nextSpanTransition(IILjava/lang/Class;)I
-    .registers 5
+    .locals 1
     .parameter "start"
     .parameter "end"
     .parameter "type"
@@ -131,7 +131,7 @@
 .end method
 
 .method public subSequence(II)Ljava/lang/CharSequence;
-    .registers 4
+    .locals 1
     .parameter "start"
     .parameter "end"
 

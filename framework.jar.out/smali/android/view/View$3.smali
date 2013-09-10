@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;I)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public apply(Landroid/view/View;)Z
-    .registers 4
+    .locals 2
     .parameter "t"
 
     .prologue
@@ -62,21 +62,21 @@
 
     iget v1, p0, Landroid/view/View$3;->val$childViewId:I
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

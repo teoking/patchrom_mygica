@@ -15,7 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 32
@@ -56,7 +56,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 40
@@ -66,7 +66,7 @@
 .end method
 
 .method private handleFEAT(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 8
+    .locals 6
     .parameter "request"
 
     .prologue
@@ -90,8 +90,8 @@
     add-int/lit8 v1, v4, -0x1
 
     .local v1, i:I
-    :goto_c
-    if-ltz v1, :cond_1a
+    :goto_0
+    if-ltz v1, :cond_0
 
     .line 157
     aget-object v4, v0, v1
@@ -107,10 +107,10 @@
     .line 156
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_c
+    goto :goto_0
 
     .line 159
-    :cond_1a
+    :cond_0
     invoke-static {v3}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
 
     move-result-object v2
@@ -131,8 +131,8 @@
 
     add-int/lit8 v1, v4, -0x1
 
-    :goto_2a
-    if-ltz v1, :cond_3d
+    :goto_1
+    if-ltz v1, :cond_1
 
     .line 163
     aget-object v4, v0, v1
@@ -151,10 +151,10 @@
     .line 162
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_2a
+    goto :goto_1
 
     .line 167
-    :cond_3d
+    :cond_1
     new-instance v4, Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     sget v5, Landroid/ddm/DdmHandleHello;->CHUNK_FEAT:I
@@ -165,7 +165,7 @@
 .end method
 
 .method private handleHELO(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 12
+    .locals 10
     .parameter "request"
 
     .prologue
@@ -303,7 +303,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_7b
+    if-eqz v8, :cond_0
 
     .line 139
     const/4 v8, 0x0
@@ -311,12 +311,12 @@
     invoke-static {v8}, Landroid/ddm/DdmHandleHello;->sendWAIT(I)V
 
     .line 141
-    :cond_7b
+    :cond_0
     return-object v3
 .end method
 
 .method public static register()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 46
@@ -338,7 +338,7 @@
 .end method
 
 .method public static sendWAIT(I)V
-    .registers 6
+    .locals 5
     .parameter "reason"
 
     .prologue
@@ -372,7 +372,7 @@
 
 # virtual methods
 .method public connected()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 65
@@ -380,7 +380,7 @@
 .end method
 
 .method public disconnected()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 74
@@ -388,7 +388,7 @@
 .end method
 
 .method public handleChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 6
+    .locals 4
     .parameter "request"
 
     .prologue
@@ -399,7 +399,7 @@
     .local v0, type:I
     sget v1, Landroid/ddm/DdmHandleHello;->CHUNK_HELO:I
 
-    if-ne v0, v1, :cond_b
+    if-ne v0, v1, :cond_0
 
     .line 85
     invoke-direct {p0, p1}, Landroid/ddm/DdmHandleHello;->handleHELO(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
@@ -407,24 +407,24 @@
     move-result-object v1
 
     .line 87
-    :goto_a
+    :goto_0
     return-object v1
 
     .line 86
-    :cond_b
+    :cond_0
     sget v1, Landroid/ddm/DdmHandleHello;->CHUNK_FEAT:I
 
-    if-ne v0, v1, :cond_14
+    if-ne v0, v1, :cond_1
 
     .line 87
     invoke-direct {p0, p1}, Landroid/ddm/DdmHandleHello;->handleFEAT(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     move-result-object v1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 89
-    :cond_14
+    :cond_1
     new-instance v1, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;

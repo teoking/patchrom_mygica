@@ -25,7 +25,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/TabHost;Landroid/view/View;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "view"
 
@@ -43,7 +43,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/TabHost;Landroid/view/View;Landroid/widget/TabHost$1;)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public createIndicatorView()Landroid/view/View;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 617

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/http/AndroidHttpClient;Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/params/HttpParams;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter "x1"
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected createHttpContext()Lorg/apache/http/protocol/HttpContext;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 177
@@ -78,7 +78,7 @@
 .end method
 
 .method protected createHttpProcessor()Lorg/apache/http/protocol/BasicHttpProcessor;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 166

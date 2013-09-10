@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/pm/PackageParser$Package;[Ljava/lang/String;IIII)V
-    .registers 7
+    .locals 0
     .parameter "_owner"
     .parameter "_outError"
     .parameter "_nameRes"

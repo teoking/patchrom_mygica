@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>(I[BZ)V
-    .registers 12
+    .locals 8
     .parameter "transId"
     .parameter "clientMac"
     .parameter "broadcast"
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public buildPacket(ISS)Ljava/nio/ByteBuffer;
-    .registers 14
+    .locals 10
     .parameter "encap"
     .parameter "destUdp"
     .parameter "srcUdp"
@@ -82,7 +82,7 @@
 .end method
 
 .method public doNextOp(Landroid/net/dhcp/DhcpStateMachine;)V
-    .registers 6
+    .locals 4
     .parameter "machine"
 
     .prologue
@@ -102,7 +102,7 @@
 .end method
 
 .method finishPacket(Ljava/nio/ByteBuffer;)V
-    .registers 4
+    .locals 2
     .parameter "buffer"
 
     .prologue
@@ -128,7 +128,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 36
@@ -154,11 +154,11 @@
 
     iget-boolean v1, p0, Landroid/net/dhcp/DhcpPacket;->mBroadcast:Z
 
-    if-eqz v1, :cond_22
+    if-eqz v1, :cond_0
 
     const-string v1, "broadcast "
 
-    :goto_19
+    :goto_0
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -169,8 +169,8 @@
 
     return-object v1
 
-    :cond_22
+    :cond_0
     const-string/jumbo v1, "unicast "
 
-    goto :goto_19
+    goto :goto_0
 .end method

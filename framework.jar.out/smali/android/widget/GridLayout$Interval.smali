@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 3
+    .locals 0
     .parameter "min"
     .parameter "max"
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "that"
 
     .prologue
@@ -52,16 +52,16 @@
     const/4 v2, 0x0
 
     .line 2291
-    if-ne p0, p1, :cond_5
+    if-ne p0, p1, :cond_1
 
     .line 2308
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 2294
-    :cond_5
-    if-eqz p1, :cond_11
+    :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -71,15 +71,15 @@
 
     move-result-object v4
 
-    if-eq v3, v4, :cond_13
+    if-eq v3, v4, :cond_3
 
-    :cond_11
+    :cond_2
     move v1, v2
 
     .line 2295
-    goto :goto_4
+    goto :goto_0
 
-    :cond_13
+    :cond_3
     move-object v0, p1
 
     .line 2298
@@ -91,29 +91,29 @@
 
     iget v4, v0, Landroid/widget/GridLayout$Interval;->max:I
 
-    if-eq v3, v4, :cond_1e
-
-    move v1, v2
-
-    .line 2301
-    goto :goto_4
-
-    .line 2304
-    :cond_1e
-    iget v3, p0, Landroid/widget/GridLayout$Interval;->min:I
-
-    iget v4, v0, Landroid/widget/GridLayout$Interval;->min:I
-
     if-eq v3, v4, :cond_4
 
     move v1, v2
 
+    .line 2301
+    goto :goto_0
+
+    .line 2304
+    :cond_4
+    iget v3, p0, Landroid/widget/GridLayout$Interval;->min:I
+
+    iget v4, v0, Landroid/widget/GridLayout$Interval;->min:I
+
+    if-eq v3, v4, :cond_0
+
+    move v1, v2
+
     .line 2305
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 2313
@@ -132,7 +132,7 @@
 .end method
 
 .method inverse()Landroid/widget/GridLayout$Interval;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 2276
@@ -148,7 +148,7 @@
 .end method
 
 .method size()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2272
@@ -162,7 +162,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2320

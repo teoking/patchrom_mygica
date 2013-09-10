@@ -27,7 +27,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/android/internal/widget/ScrollingTabContainerView;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .registers 3
+    .locals 1
     .parameter "animation"
 
     .prologue
@@ -61,21 +61,21 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .registers 4
+    .locals 2
     .parameter "animation"
 
     .prologue
     .line 516
     iget-boolean v0, p0, Lcom/android/internal/widget/ScrollingTabContainerView$VisibilityAnimListener;->mCanceled:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
     .line 520
-    :goto_4
+    :goto_0
     return-void
 
     .line 518
-    :cond_5
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/widget/ScrollingTabContainerView$VisibilityAnimListener;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     const/4 v1, 0x0
@@ -89,11 +89,11 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ScrollingTabContainerView;->setVisibility(I)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .registers 2
+    .locals 0
     .parameter "animation"
 
     .prologue
@@ -102,7 +102,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .registers 4
+    .locals 2
     .parameter "animation"
 
     .prologue
@@ -126,7 +126,7 @@
 .end method
 
 .method public withFinalVisibility(I)Lcom/android/internal/widget/ScrollingTabContainerView$VisibilityAnimListener;
-    .registers 2
+    .locals 0
     .parameter "visibility"
 
     .prologue

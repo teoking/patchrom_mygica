@@ -123,7 +123,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 18
@@ -139,22 +139,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/app/admin/IDevicePolicyManager;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 27
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 28
     const/4 v0, 0x0
 
     .line 34
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 30
-    :cond_4
+    :cond_0
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -163,31 +163,31 @@
 
     .line 31
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/app/admin/IDevicePolicyManager;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 32
     check-cast v0, Landroid/app/admin/IDevicePolicyManager;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 34
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 38
@@ -195,7 +195,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 20
+    .locals 15
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -208,18 +208,18 @@
 
     .prologue
     .line 42
-    sparse-switch p1, :sswitch_data_6ee
+    sparse-switch p1, :sswitch_data_0
 
     .line 729
     invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v1
 
-    :goto_7
+    :goto_0
     return v1
 
     .line 46
-    :sswitch_8
+    :sswitch_0
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p3
@@ -229,10 +229,10 @@
     .line 47
     const/4 v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 51
-    :sswitch_11
+    :sswitch_1
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -244,7 +244,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_34
+    if-eqz v1, :cond_0
 
     .line 54
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -259,7 +259,7 @@
 
     .line 60
     .local v2, _arg0:Landroid/content/ComponentName;
-    :goto_28
+    :goto_1
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -274,20 +274,20 @@
     .line 63
     const/4 v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 57
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:I
-    :cond_34
+    :cond_0
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_28
+    goto :goto_1
 
     .line 67
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_36
+    :sswitch_2
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -299,7 +299,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5b
+    if-eqz v1, :cond_1
 
     .line 70
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -314,7 +314,7 @@
 
     .line 75
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_4d
+    :goto_2
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->getPasswordQuality(Landroid/content/ComponentName;)I
 
     move-result v12
@@ -331,20 +331,20 @@
     .line 78
     const/4 v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 73
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:I
-    :cond_5b
+    :cond_1
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_4d
+    goto :goto_2
 
     .line 82
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_5d
+    :sswitch_3
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -356,7 +356,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_80
+    if-eqz v1, :cond_2
 
     .line 85
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -371,7 +371,7 @@
 
     .line 91
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_74
+    :goto_3
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -386,20 +386,20 @@
     .line 94
     const/4 v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 88
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:I
-    :cond_80
+    :cond_2
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_74
+    goto :goto_3
 
     .line 98
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_82
+    :sswitch_4
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -411,7 +411,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_a8
+    if-eqz v1, :cond_3
 
     .line 101
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -426,7 +426,7 @@
 
     .line 106
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_99
+    :goto_4
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->getPasswordMinimumLength(Landroid/content/ComponentName;)I
 
     move-result v12
@@ -443,20 +443,20 @@
     .line 109
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 104
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:I
-    :cond_a8
+    :cond_3
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_99
+    goto :goto_4
 
     .line 113
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_aa
+    :sswitch_5
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -468,7 +468,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_ce
+    if-eqz v1, :cond_4
 
     .line 116
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -483,7 +483,7 @@
 
     .line 122
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_c1
+    :goto_5
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -498,20 +498,20 @@
     .line 125
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 119
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:I
-    :cond_ce
+    :cond_4
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_c1
+    goto :goto_5
 
     .line 129
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_d0
+    :sswitch_6
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -523,7 +523,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_f6
+    if-eqz v1, :cond_5
 
     .line 132
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -538,7 +538,7 @@
 
     .line 137
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_e7
+    :goto_6
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->getPasswordMinimumUpperCase(Landroid/content/ComponentName;)I
 
     move-result v12
@@ -555,20 +555,20 @@
     .line 140
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 135
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:I
-    :cond_f6
+    :cond_5
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_e7
+    goto :goto_6
 
     .line 144
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_f8
+    :sswitch_7
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -580,7 +580,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_11c
+    if-eqz v1, :cond_6
 
     .line 147
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -595,7 +595,7 @@
 
     .line 153
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_10f
+    :goto_7
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -610,20 +610,20 @@
     .line 156
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 150
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:I
-    :cond_11c
+    :cond_6
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_10f
+    goto :goto_7
 
     .line 160
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_11e
+    :sswitch_8
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -635,7 +635,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_144
+    if-eqz v1, :cond_7
 
     .line 163
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -650,7 +650,7 @@
 
     .line 168
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_135
+    :goto_8
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->getPasswordMinimumLowerCase(Landroid/content/ComponentName;)I
 
     move-result v12
@@ -667,20 +667,20 @@
     .line 171
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 166
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:I
-    :cond_144
+    :cond_7
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_135
+    goto :goto_8
 
     .line 175
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_146
+    :sswitch_9
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -692,7 +692,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_16a
+    if-eqz v1, :cond_8
 
     .line 178
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -707,7 +707,7 @@
 
     .line 184
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_15d
+    :goto_9
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -722,20 +722,20 @@
     .line 187
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 181
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:I
-    :cond_16a
+    :cond_8
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_15d
+    goto :goto_9
 
     .line 191
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_16c
+    :sswitch_a
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -747,7 +747,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_192
+    if-eqz v1, :cond_9
 
     .line 194
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -762,7 +762,7 @@
 
     .line 199
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_183
+    :goto_a
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->getPasswordMinimumLetters(Landroid/content/ComponentName;)I
 
     move-result v12
@@ -779,20 +779,20 @@
     .line 202
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 197
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:I
-    :cond_192
+    :cond_9
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_183
+    goto :goto_a
 
     .line 206
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_194
+    :sswitch_b
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -804,7 +804,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1b8
+    if-eqz v1, :cond_a
 
     .line 209
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -819,7 +819,7 @@
 
     .line 215
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_1ab
+    :goto_b
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -834,20 +834,20 @@
     .line 218
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 212
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:I
-    :cond_1b8
+    :cond_a
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_1ab
+    goto :goto_b
 
     .line 222
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_1ba
+    :sswitch_c
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -859,7 +859,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1e0
+    if-eqz v1, :cond_b
 
     .line 225
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -874,7 +874,7 @@
 
     .line 230
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_1d1
+    :goto_c
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->getPasswordMinimumNumeric(Landroid/content/ComponentName;)I
 
     move-result v12
@@ -891,20 +891,20 @@
     .line 233
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 228
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:I
-    :cond_1e0
+    :cond_b
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_1d1
+    goto :goto_c
 
     .line 237
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_1e2
+    :sswitch_d
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -916,7 +916,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_206
+    if-eqz v1, :cond_c
 
     .line 240
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -931,7 +931,7 @@
 
     .line 246
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_1f9
+    :goto_d
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -946,20 +946,20 @@
     .line 249
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 243
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:I
-    :cond_206
+    :cond_c
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_1f9
+    goto :goto_d
 
     .line 253
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_208
+    :sswitch_e
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -971,7 +971,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_22e
+    if-eqz v1, :cond_d
 
     .line 256
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -986,7 +986,7 @@
 
     .line 261
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_21f
+    :goto_e
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->getPasswordMinimumSymbols(Landroid/content/ComponentName;)I
 
     move-result v12
@@ -1003,20 +1003,20 @@
     .line 264
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 259
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:I
-    :cond_22e
+    :cond_d
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_21f
+    goto :goto_e
 
     .line 268
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_230
+    :sswitch_f
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1028,7 +1028,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_254
+    if-eqz v1, :cond_e
 
     .line 271
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1043,7 +1043,7 @@
 
     .line 277
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_247
+    :goto_f
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -1058,20 +1058,20 @@
     .line 280
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 274
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:I
-    :cond_254
+    :cond_e
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_247
+    goto :goto_f
 
     .line 284
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_256
+    :sswitch_10
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1083,7 +1083,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_27c
+    if-eqz v1, :cond_f
 
     .line 287
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1098,7 +1098,7 @@
 
     .line 292
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_26d
+    :goto_10
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->getPasswordMinimumNonLetter(Landroid/content/ComponentName;)I
 
     move-result v12
@@ -1115,20 +1115,20 @@
     .line 295
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 290
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:I
-    :cond_27c
+    :cond_f
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_26d
+    goto :goto_10
 
     .line 299
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_27e
+    :sswitch_11
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1140,7 +1140,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2a2
+    if-eqz v1, :cond_10
 
     .line 302
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1155,7 +1155,7 @@
 
     .line 308
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_295
+    :goto_11
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -1170,20 +1170,20 @@
     .line 311
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 305
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:I
-    :cond_2a2
+    :cond_10
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_295
+    goto :goto_11
 
     .line 315
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_2a4
+    :sswitch_12
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1195,7 +1195,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2ca
+    if-eqz v1, :cond_11
 
     .line 318
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1210,7 +1210,7 @@
 
     .line 323
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_2bb
+    :goto_12
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->getPasswordHistoryLength(Landroid/content/ComponentName;)I
 
     move-result v12
@@ -1227,20 +1227,20 @@
     .line 326
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 321
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:I
-    :cond_2ca
+    :cond_11
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_2bb
+    goto :goto_12
 
     .line 330
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_2cc
+    :sswitch_13
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1252,7 +1252,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2f0
+    if-eqz v1, :cond_12
 
     .line 333
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1267,7 +1267,7 @@
 
     .line 339
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_2e3
+    :goto_13
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v10
@@ -1282,20 +1282,20 @@
     .line 342
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 336
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v10           #_arg1:J
-    :cond_2f0
+    :cond_12
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_2e3
+    goto :goto_13
 
     .line 346
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_2f2
+    :sswitch_14
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1307,7 +1307,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_318
+    if-eqz v1, :cond_13
 
     .line 349
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1322,7 +1322,7 @@
 
     .line 354
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_309
+    :goto_14
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->getPasswordExpirationTimeout(Landroid/content/ComponentName;)J
 
     move-result-wide v12
@@ -1339,20 +1339,20 @@
     .line 357
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 352
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:J
-    :cond_318
+    :cond_13
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_309
+    goto :goto_14
 
     .line 361
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_31a
+    :sswitch_15
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1364,7 +1364,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_340
+    if-eqz v1, :cond_14
 
     .line 364
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1379,7 +1379,7 @@
 
     .line 369
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_331
+    :goto_15
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->getPasswordExpiration(Landroid/content/ComponentName;)J
 
     move-result-wide v12
@@ -1396,20 +1396,20 @@
     .line 372
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 367
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:J
-    :cond_340
+    :cond_14
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_331
+    goto :goto_15
 
     .line 376
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_342
+    :sswitch_16
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1426,11 +1426,11 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 379
-    if-eqz v12, :cond_35b
+    if-eqz v12, :cond_15
 
     const/4 v1, 0x1
 
-    :goto_353
+    :goto_16
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
@@ -1438,17 +1438,17 @@
     .line 380
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 379
-    :cond_35b
+    :cond_15
     const/4 v1, 0x0
 
-    goto :goto_353
+    goto :goto_16
 
     .line 384
     .end local v12           #_result:Z
-    :sswitch_35d
+    :sswitch_17
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1472,11 +1472,11 @@
     .line 388
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 392
     .end local v12           #_result:I
-    :sswitch_373
+    :sswitch_18
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1488,7 +1488,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_397
+    if-eqz v1, :cond_16
 
     .line 395
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1503,7 +1503,7 @@
 
     .line 401
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_38a
+    :goto_17
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -1518,20 +1518,20 @@
     .line 404
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 398
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:I
-    :cond_397
+    :cond_16
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_38a
+    goto :goto_17
 
     .line 408
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_399
+    :sswitch_19
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1543,7 +1543,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3bf
+    if-eqz v1, :cond_17
 
     .line 411
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1558,7 +1558,7 @@
 
     .line 416
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_3b0
+    :goto_18
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->getMaximumFailedPasswordsForWipe(Landroid/content/ComponentName;)I
 
     move-result v12
@@ -1575,20 +1575,20 @@
     .line 419
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 414
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:I
-    :cond_3bf
+    :cond_17
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_3b0
+    goto :goto_18
 
     .line 423
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_3c1
+    :sswitch_1a
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1617,11 +1617,11 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 430
-    if-eqz v12, :cond_3e2
+    if-eqz v12, :cond_18
 
     const/4 v1, 0x1
 
-    :goto_3da
+    :goto_19
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
@@ -1629,19 +1629,19 @@
     .line 431
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 430
-    :cond_3e2
+    :cond_18
     const/4 v1, 0x0
 
-    goto :goto_3da
+    goto :goto_19
 
     .line 435
     .end local v2           #_arg0:Ljava/lang/String;
     .end local v3           #_arg1:I
     .end local v12           #_result:Z
-    :sswitch_3e4
+    :sswitch_1b
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1653,7 +1653,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_408
+    if-eqz v1, :cond_19
 
     .line 438
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1668,7 +1668,7 @@
 
     .line 444
     .local v2, _arg0:Landroid/content/ComponentName;
-    :goto_3fb
+    :goto_1a
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v10
@@ -1683,20 +1683,20 @@
     .line 447
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 441
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v10           #_arg1:J
-    :cond_408
+    :cond_19
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_3fb
+    goto :goto_1a
 
     .line 451
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_40a
+    :sswitch_1c
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1708,7 +1708,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_430
+    if-eqz v1, :cond_1a
 
     .line 454
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1723,7 +1723,7 @@
 
     .line 459
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_421
+    :goto_1b
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->getMaximumTimeToLock(Landroid/content/ComponentName;)J
 
     move-result-wide v12
@@ -1740,20 +1740,20 @@
     .line 462
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 457
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:J
-    :cond_430
+    :cond_1a
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_421
+    goto :goto_1b
 
     .line 466
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_432
+    :sswitch_1d
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1769,10 +1769,10 @@
     .line 469
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 473
-    :sswitch_442
+    :sswitch_1e
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1794,11 +1794,11 @@
     .line 478
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 482
     .end local v2           #_arg0:I
-    :sswitch_456
+    :sswitch_1f
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1810,7 +1810,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_48d
+    if-eqz v1, :cond_1b
 
     .line 485
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1825,7 +1825,7 @@
 
     .line 491
     .local v2, _arg0:Landroid/content/ComponentName;
-    :goto_46d
+    :goto_1c
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
@@ -1847,7 +1847,7 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 496
-    if-eqz v12, :cond_48f
+    if-eqz v12, :cond_1c
 
     .line 497
     const/4 v1, 0x1
@@ -1864,41 +1864,41 @@
     invoke-virtual {v12, v0, v1}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 503
-    :goto_48a
+    :goto_1d
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 488
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:Ljava/lang/String;
     .end local v4           #_arg2:Ljava/lang/String;
     .end local v12           #_result:Landroid/content/ComponentName;
-    :cond_48d
+    :cond_1b
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_46d
+    goto :goto_1c
 
     .line 501
     .restart local v3       #_arg1:Ljava/lang/String;
     .restart local v4       #_arg2:Ljava/lang/String;
     .restart local v12       #_result:Landroid/content/ComponentName;
-    :cond_48f
+    :cond_1c
     const/4 v1, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_48a
+    goto :goto_1d
 
     .line 507
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:Ljava/lang/String;
     .end local v4           #_arg2:Ljava/lang/String;
     .end local v12           #_result:Landroid/content/ComponentName;
-    :sswitch_496
+    :sswitch_20
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1915,7 +1915,7 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 510
-    if-eqz v12, :cond_4b5
+    if-eqz v12, :cond_1d
 
     .line 511
     const/4 v1, 0x1
@@ -1932,24 +1932,24 @@
     invoke-virtual {v12, v0, v1}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 517
-    :goto_4b2
+    :goto_1e
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 515
-    :cond_4b5
+    :cond_1d
     const/4 v1, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_4b2
+    goto :goto_1e
 
     .line 521
     .end local v12           #_result:Landroid/content/ComponentName;
-    :sswitch_4bc
+    :sswitch_21
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -1961,7 +1961,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4e9
+    if-eqz v1, :cond_1e
 
     .line 524
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1976,18 +1976,18 @@
 
     .line 530
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_4d3
+    :goto_1f
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    if-eqz v1, :cond_4eb
+    if-eqz v1, :cond_1f
 
     const/4 v3, 0x1
 
     .line 531
     .local v3, _arg1:Z
-    :goto_4da
+    :goto_20
     invoke-virtual {p0, v2, v3}, Landroid/app/admin/IDevicePolicyManager$Stub;->setStorageEncryption(Landroid/content/ComponentName;Z)I
 
     move-result v12
@@ -2004,27 +2004,27 @@
     .line 534
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 527
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:Z
     .end local v12           #_result:I
-    :cond_4e9
+    :cond_1e
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_4d3
+    goto :goto_1f
 
     .line 530
-    :cond_4eb
+    :cond_1f
     const/4 v3, 0x0
 
-    goto :goto_4da
+    goto :goto_20
 
     .line 538
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_4ed
+    :sswitch_22
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -2036,7 +2036,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_516
+    if-eqz v1, :cond_20
 
     .line 541
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -2051,7 +2051,7 @@
 
     .line 546
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_504
+    :goto_21
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->getStorageEncryption(Landroid/content/ComponentName;)Z
 
     move-result v12
@@ -2061,11 +2061,11 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 548
-    if-eqz v12, :cond_518
+    if-eqz v12, :cond_21
 
     const/4 v1, 0x1
 
-    :goto_50e
+    :goto_22
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
@@ -2073,28 +2073,28 @@
     .line 549
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 544
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:Z
-    :cond_516
+    :cond_20
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_504
+    goto :goto_21
 
     .line 548
     .restart local v12       #_result:Z
-    :cond_518
+    :cond_21
     const/4 v1, 0x0
 
-    goto :goto_50e
+    goto :goto_22
 
     .line 553
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:Z
-    :sswitch_51a
+    :sswitch_23
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -2118,11 +2118,11 @@
     .line 557
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 561
     .end local v12           #_result:I
-    :sswitch_530
+    :sswitch_24
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -2134,7 +2134,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_557
+    if-eqz v1, :cond_22
 
     .line 564
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -2149,18 +2149,18 @@
 
     .line 570
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_547
+    :goto_23
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    if-eqz v1, :cond_559
+    if-eqz v1, :cond_23
 
     const/4 v3, 0x1
 
     .line 571
     .restart local v3       #_arg1:Z
-    :goto_54e
+    :goto_24
     invoke-virtual {p0, v2, v3}, Landroid/app/admin/IDevicePolicyManager$Stub;->setCameraDisabled(Landroid/content/ComponentName;Z)V
 
     .line 572
@@ -2169,26 +2169,26 @@
     .line 573
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 567
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:Z
-    :cond_557
+    :cond_22
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_547
+    goto :goto_23
 
     .line 570
-    :cond_559
+    :cond_23
     const/4 v3, 0x0
 
-    goto :goto_54e
+    goto :goto_24
 
     .line 577
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_55b
+    :sswitch_25
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -2200,7 +2200,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_584
+    if-eqz v1, :cond_24
 
     .line 580
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -2215,7 +2215,7 @@
 
     .line 585
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_572
+    :goto_25
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->getCameraDisabled(Landroid/content/ComponentName;)Z
 
     move-result v12
@@ -2225,11 +2225,11 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 587
-    if-eqz v12, :cond_586
+    if-eqz v12, :cond_25
 
     const/4 v1, 0x1
 
-    :goto_57c
+    :goto_26
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
@@ -2237,28 +2237,28 @@
     .line 588
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 583
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:Z
-    :cond_584
+    :cond_24
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_572
+    goto :goto_25
 
     .line 587
     .restart local v12       #_result:Z
-    :cond_586
+    :cond_25
     const/4 v1, 0x0
 
-    goto :goto_57c
+    goto :goto_26
 
     .line 592
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:Z
-    :sswitch_588
+    :sswitch_26
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -2270,7 +2270,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5af
+    if-eqz v1, :cond_26
 
     .line 595
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -2285,18 +2285,18 @@
 
     .line 601
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_59f
+    :goto_27
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    if-eqz v1, :cond_5b1
+    if-eqz v1, :cond_27
 
     const/4 v3, 0x1
 
     .line 602
     .restart local v3       #_arg1:Z
-    :goto_5a6
+    :goto_28
     invoke-virtual {p0, v2, v3}, Landroid/app/admin/IDevicePolicyManager$Stub;->setActiveAdmin(Landroid/content/ComponentName;Z)V
 
     .line 603
@@ -2305,26 +2305,26 @@
     .line 604
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 598
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:Z
-    :cond_5af
+    :cond_26
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_59f
+    goto :goto_27
 
     .line 601
-    :cond_5b1
+    :cond_27
     const/4 v3, 0x0
 
-    goto :goto_5a6
+    goto :goto_28
 
     .line 608
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_5b3
+    :sswitch_27
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -2336,7 +2336,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5dc
+    if-eqz v1, :cond_28
 
     .line 611
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -2351,7 +2351,7 @@
 
     .line 616
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_5ca
+    :goto_29
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->isAdminActive(Landroid/content/ComponentName;)Z
 
     move-result v12
@@ -2361,11 +2361,11 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 618
-    if-eqz v12, :cond_5de
+    if-eqz v12, :cond_29
 
     const/4 v1, 0x1
 
-    :goto_5d4
+    :goto_2a
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
@@ -2373,28 +2373,28 @@
     .line 619
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 614
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:Z
-    :cond_5dc
+    :cond_28
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_5ca
+    goto :goto_29
 
     .line 618
     .restart local v12       #_result:Z
-    :cond_5de
+    :cond_29
     const/4 v1, 0x0
 
-    goto :goto_5d4
+    goto :goto_2a
 
     .line 623
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v12           #_result:Z
-    :sswitch_5e0
+    :sswitch_28
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -2418,11 +2418,11 @@
     .line 627
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 631
     .end local v14           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/content/ComponentName;>;"
-    :sswitch_5f6
+    :sswitch_29
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -2445,11 +2445,11 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 636
-    if-eqz v12, :cond_613
+    if-eqz v12, :cond_2a
 
     const/4 v1, 0x1
 
-    :goto_60b
+    :goto_2b
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
@@ -2457,18 +2457,18 @@
     .line 637
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 636
-    :cond_613
+    :cond_2a
     const/4 v1, 0x0
 
-    goto :goto_60b
+    goto :goto_2b
 
     .line 641
     .end local v2           #_arg0:Ljava/lang/String;
     .end local v12           #_result:Z
-    :sswitch_615
+    :sswitch_2a
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -2480,7 +2480,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_645
+    if-eqz v1, :cond_2b
 
     .line 644
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -2495,12 +2495,12 @@
 
     .line 650
     .local v2, _arg0:Landroid/content/ComponentName;
-    :goto_62c
+    :goto_2c
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    if-eqz v1, :cond_647
+    if-eqz v1, :cond_2c
 
     .line 651
     sget-object v1, Landroid/os/RemoteCallback;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -2515,7 +2515,7 @@
 
     .line 656
     .local v3, _arg1:Landroid/os/RemoteCallback;
-    :goto_63c
+    :goto_2d
     invoke-virtual {p0, v2, v3}, Landroid/app/admin/IDevicePolicyManager$Stub;->getRemoveWarning(Landroid/content/ComponentName;Landroid/os/RemoteCallback;)V
 
     .line 657
@@ -2524,28 +2524,28 @@
     .line 658
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 647
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:Landroid/os/RemoteCallback;
-    :cond_645
+    :cond_2b
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_62c
+    goto :goto_2c
 
     .line 654
-    :cond_647
+    :cond_2c
     const/4 v3, 0x0
 
     .restart local v3       #_arg1:Landroid/os/RemoteCallback;
-    goto :goto_63c
+    goto :goto_2d
 
     .line 662
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:Landroid/os/RemoteCallback;
-    :sswitch_649
+    :sswitch_2b
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -2557,7 +2557,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_669
+    if-eqz v1, :cond_2d
 
     .line 665
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -2572,7 +2572,7 @@
 
     .line 670
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_660
+    :goto_2e
     invoke-virtual {p0, v2}, Landroid/app/admin/IDevicePolicyManager$Stub;->removeActiveAdmin(Landroid/content/ComponentName;)V
 
     .line 671
@@ -2581,19 +2581,19 @@
     .line 672
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 668
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :cond_669
+    :cond_2d
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_660
+    goto :goto_2e
 
     .line 676
     .end local v2           #_arg0:Landroid/content/ComponentName;
-    :sswitch_66b
+    :sswitch_2c
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -2605,7 +2605,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_698
+    if-eqz v1, :cond_2e
 
     .line 679
     sget-object v1, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -2620,7 +2620,7 @@
 
     .line 685
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    :goto_682
+    :goto_2f
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -2636,11 +2636,11 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 688
-    if-eqz v12, :cond_69a
+    if-eqz v12, :cond_2f
 
     const/4 v1, 0x1
 
-    :goto_690
+    :goto_30
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
@@ -2648,31 +2648,31 @@
     .line 689
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 682
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:I
     .end local v12           #_result:Z
-    :cond_698
+    :cond_2e
     const/4 v2, 0x0
 
     .restart local v2       #_arg0:Landroid/content/ComponentName;
-    goto :goto_682
+    goto :goto_2f
 
     .line 688
     .restart local v3       #_arg1:I
     .restart local v12       #_result:Z
-    :cond_69a
+    :cond_2f
     const/4 v1, 0x0
 
-    goto :goto_690
+    goto :goto_30
 
     .line 693
     .end local v2           #_arg0:Landroid/content/ComponentName;
     .end local v3           #_arg1:I
     .end local v12           #_result:Z
-    :sswitch_69c
+    :sswitch_2d
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -2738,7 +2738,7 @@
     .line 712
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 716
     .end local v2           #_arg0:I
@@ -2749,7 +2749,7 @@
     .end local v7           #_arg5:I
     .end local v8           #_arg6:I
     .end local v9           #_arg7:I
-    :sswitch_6cd
+    :sswitch_2e
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -2765,10 +2765,10 @@
     .line 719
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 723
-    :sswitch_6dd
+    :sswitch_2f
     const-string v1, "android.app.admin.IDevicePolicyManager"
 
     move-object/from16 v0, p2
@@ -2784,60 +2784,60 @@
     .line 726
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 42
     nop
 
-    :sswitch_data_6ee
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_11
-        0x2 -> :sswitch_36
-        0x3 -> :sswitch_5d
-        0x4 -> :sswitch_82
-        0x5 -> :sswitch_aa
-        0x6 -> :sswitch_d0
-        0x7 -> :sswitch_f8
-        0x8 -> :sswitch_11e
-        0x9 -> :sswitch_146
-        0xa -> :sswitch_16c
-        0xb -> :sswitch_194
-        0xc -> :sswitch_1ba
-        0xd -> :sswitch_1e2
-        0xe -> :sswitch_208
-        0xf -> :sswitch_230
-        0x10 -> :sswitch_256
-        0x11 -> :sswitch_27e
-        0x12 -> :sswitch_2a4
-        0x13 -> :sswitch_2cc
-        0x14 -> :sswitch_2f2
-        0x15 -> :sswitch_31a
-        0x16 -> :sswitch_342
-        0x17 -> :sswitch_35d
-        0x18 -> :sswitch_373
-        0x19 -> :sswitch_399
-        0x1a -> :sswitch_3c1
-        0x1b -> :sswitch_3e4
-        0x1c -> :sswitch_40a
-        0x1d -> :sswitch_432
-        0x1e -> :sswitch_442
-        0x1f -> :sswitch_456
-        0x20 -> :sswitch_496
-        0x21 -> :sswitch_4bc
-        0x22 -> :sswitch_4ed
-        0x23 -> :sswitch_51a
-        0x24 -> :sswitch_530
-        0x25 -> :sswitch_55b
-        0x26 -> :sswitch_588
-        0x27 -> :sswitch_5b3
-        0x28 -> :sswitch_5e0
-        0x29 -> :sswitch_5f6
-        0x2a -> :sswitch_615
-        0x2b -> :sswitch_649
-        0x2c -> :sswitch_66b
-        0x2d -> :sswitch_69c
-        0x2e -> :sswitch_6cd
-        0x2f -> :sswitch_6dd
-        0x5f4e5446 -> :sswitch_8
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
+        0x8 -> :sswitch_8
+        0x9 -> :sswitch_9
+        0xa -> :sswitch_a
+        0xb -> :sswitch_b
+        0xc -> :sswitch_c
+        0xd -> :sswitch_d
+        0xe -> :sswitch_e
+        0xf -> :sswitch_f
+        0x10 -> :sswitch_10
+        0x11 -> :sswitch_11
+        0x12 -> :sswitch_12
+        0x13 -> :sswitch_13
+        0x14 -> :sswitch_14
+        0x15 -> :sswitch_15
+        0x16 -> :sswitch_16
+        0x17 -> :sswitch_17
+        0x18 -> :sswitch_18
+        0x19 -> :sswitch_19
+        0x1a -> :sswitch_1a
+        0x1b -> :sswitch_1b
+        0x1c -> :sswitch_1c
+        0x1d -> :sswitch_1d
+        0x1e -> :sswitch_1e
+        0x1f -> :sswitch_1f
+        0x20 -> :sswitch_20
+        0x21 -> :sswitch_21
+        0x22 -> :sswitch_22
+        0x23 -> :sswitch_23
+        0x24 -> :sswitch_24
+        0x25 -> :sswitch_25
+        0x26 -> :sswitch_26
+        0x27 -> :sswitch_27
+        0x28 -> :sswitch_28
+        0x29 -> :sswitch_29
+        0x2a -> :sswitch_2a
+        0x2b -> :sswitch_2b
+        0x2c -> :sswitch_2c
+        0x2d -> :sswitch_2d
+        0x2e -> :sswitch_2e
+        0x2f -> :sswitch_2f
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 256
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/Class;)V
-    .registers 4
+    .locals 1
     .parameter "pkg"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -93,7 +93,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "pkg"
     .parameter "cls"
 
@@ -102,7 +102,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 61
-    if-nez p2, :cond_d
+    if-nez p2, :cond_0
 
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -113,7 +113,7 @@
     throw v0
 
     .line 62
-    :cond_d
+    :cond_0
     invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
@@ -128,7 +128,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -145,7 +145,7 @@
     .line 279
     iget-object v0, p0, Landroid/content/ComponentName;->mPackage:Ljava/lang/String;
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -156,7 +156,7 @@
     throw v0
 
     .line 281
-    :cond_16
+    :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
@@ -166,7 +166,7 @@
     .line 282
     iget-object v0, p0, Landroid/content/ComponentName;->mClass:Ljava/lang/String;
 
-    if-nez v0, :cond_28
+    if-nez v0, :cond_1
 
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -177,12 +177,12 @@
     throw v0
 
     .line 284
-    :cond_28
+    :cond_1
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;Landroid/os/Parcel;)V
-    .registers 4
+    .locals 1
     .parameter "pkg"
     .parameter "in"
 
@@ -205,7 +205,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "pkg"
     .parameter "cls"
 
@@ -214,7 +214,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 46
-    if-nez p1, :cond_e
+    if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -225,8 +225,8 @@
     throw v0
 
     .line 47
-    :cond_e
-    if-nez p2, :cond_18
+    :cond_0
+    if-nez p2, :cond_1
 
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -237,7 +237,7 @@
     throw v0
 
     .line 48
-    :cond_18
+    :cond_1
     iput-object p1, p0, Landroid/content/ComponentName;->mPackage:Ljava/lang/String;
 
     .line 49
@@ -248,7 +248,7 @@
 .end method
 
 .method public static readFromParcel(Landroid/os/Parcel;)Landroid/content/ComponentName;
-    .registers 3
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -259,23 +259,23 @@
 
     .line 253
     .local v0, pkg:Ljava/lang/String;
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     new-instance v1, Landroid/content/ComponentName;
 
     invoke-direct {v1, v0, p0}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Landroid/os/Parcel;)V
 
-    :goto_b
+    :goto_0
     return-object v1
 
-    :cond_c
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public static unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
-    .registers 7
+    .locals 6
     .parameter "str"
 
     .prologue
@@ -290,7 +290,7 @@
 
     .line 161
     .local v2, sep:I
-    if-ltz v2, :cond_11
+    if-ltz v2, :cond_0
 
     add-int/lit8 v3, v2, 0x1
 
@@ -298,18 +298,18 @@
 
     move-result v4
 
-    if-lt v3, v4, :cond_13
+    if-lt v3, v4, :cond_1
 
     .line 162
-    :cond_11
+    :cond_0
     const/4 v3, 0x0
 
     .line 169
-    :goto_12
+    :goto_0
     return-object v3
 
     .line 164
-    :cond_13
+    :cond_1
     invoke-virtual {p0, v5, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v1
@@ -328,7 +328,7 @@
 
     move-result v3
 
-    if-lez v3, :cond_3c
+    if-lez v3, :cond_2
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->charAt(I)C
 
@@ -336,7 +336,7 @@
 
     const/16 v4, 0x2e
 
-    if-ne v3, v4, :cond_3c
+    if-ne v3, v4, :cond_2
 
     .line 167
     new-instance v3, Ljava/lang/StringBuilder;
@@ -356,22 +356,22 @@
     move-result-object v0
 
     .line 169
-    :cond_3c
+    :cond_2
     new-instance v3, Landroid/content/ComponentName;
 
     invoke-direct {v3, v1, v0}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public static writeToParcel(Landroid/content/ComponentName;Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "c"
     .parameter "out"
 
     .prologue
     .line 233
-    if-eqz p0, :cond_7
+    if-eqz p0, :cond_0
 
     .line 234
     const/4 v0, 0x0
@@ -379,22 +379,22 @@
     invoke-virtual {p0, p1, v0}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 238
-    :goto_6
+    :goto_0
     return-void
 
     .line 236
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public clone()Landroid/content/ComponentName;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 80
@@ -410,7 +410,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -427,7 +427,7 @@
 .end method
 
 .method public compareTo(Landroid/content/ComponentName;)I
-    .registers 5
+    .locals 3
     .parameter "that"
 
     .prologue
@@ -442,15 +442,15 @@
 
     .line 208
     .local v0, v:I
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 211
     .end local v0           #v:I
-    :goto_a
+    :goto_0
     return v0
 
     .restart local v0       #v:I
-    :cond_b
+    :cond_0
     iget-object v1, p0, Landroid/content/ComponentName;->mClass:Ljava/lang/String;
 
     iget-object v2, p1, Landroid/content/ComponentName;->mClass:Ljava/lang/String;
@@ -459,11 +459,11 @@
 
     move-result v0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -479,7 +479,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 215
@@ -489,17 +489,17 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "obj"
 
     .prologue
     const/4 v2, 0x0
 
     .line 188
-    if-eqz p1, :cond_1c
+    if-eqz p1, :cond_0
 
     .line 189
-    :try_start_3
+    :try_start_0
     move-object v0, p1
 
     check-cast v0, Landroid/content/ComponentName;
@@ -516,37 +516,37 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1c
+    if-eqz v3, :cond_0
 
     iget-object v3, p0, Landroid/content/ComponentName;->mClass:Ljava/lang/String;
 
     iget-object v4, v1, Landroid/content/ComponentName;->mClass:Ljava/lang/String;
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    :try_end_18
-    .catch Ljava/lang/ClassCastException; {:try_start_3 .. :try_end_18} :catch_1d
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v3
 
-    if-eqz v3, :cond_1c
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 197
     .end local v1           #other:Landroid/content/ComponentName;
-    :cond_1c
-    :goto_1c
+    :cond_0
+    :goto_0
     return v2
 
     .line 195
-    :catch_1d
+    :catch_0
     move-exception v3
 
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 .method public flattenToShortString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 140
@@ -582,7 +582,7 @@
 .end method
 
 .method public flattenToString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 125
@@ -616,7 +616,7 @@
 .end method
 
 .method public getClassName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 94
@@ -626,7 +626,7 @@
 .end method
 
 .method public getPackageName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 87
@@ -636,7 +636,7 @@
 .end method
 
 .method public getShortClassName()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 102
@@ -648,7 +648,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_29
+    if-eqz v2, :cond_0
 
     .line 103
     iget-object v2, p0, Landroid/content/ComponentName;->mPackage:Ljava/lang/String;
@@ -667,7 +667,7 @@
 
     .line 105
     .local v0, CN:I
-    if-le v0, v1, :cond_29
+    if-le v0, v1, :cond_0
 
     iget-object v2, p0, Landroid/content/ComponentName;->mClass:Ljava/lang/String;
 
@@ -677,7 +677,7 @@
 
     const/16 v3, 0x2e
 
-    if-ne v2, v3, :cond_29
+    if-ne v2, v3, :cond_0
 
     .line 106
     iget-object v2, p0, Landroid/content/ComponentName;->mClass:Ljava/lang/String;
@@ -689,17 +689,17 @@
     .line 109
     .end local v0           #CN:I
     .end local v1           #PN:I
-    :goto_28
+    :goto_0
     return-object v2
 
-    :cond_29
+    :cond_0
     iget-object v2, p0, Landroid/content/ComponentName;->mClass:Ljava/lang/String;
 
-    goto :goto_28
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 202
@@ -721,7 +721,7 @@
 .end method
 
 .method public toShortString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 177
@@ -767,7 +767,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 182
@@ -813,7 +813,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 

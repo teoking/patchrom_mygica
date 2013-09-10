@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "src"
 
     .prologue
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "family"
 
     .prologue
@@ -46,7 +46,7 @@
 .end method
 
 .method private static apply(Landroid/graphics/Paint;Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "paint"
     .parameter "family"
 
@@ -58,14 +58,14 @@
 
     .line 77
     .local v1, old:Landroid/graphics/Typeface;
-    if-nez v1, :cond_28
+    if-nez v1, :cond_2
 
     .line 78
     const/4 v2, 0x0
 
     .line 83
     .local v2, oldStyle:I
-    :goto_7
+    :goto_0
     invoke-static {p1, v2}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;
 
     move-result-object v3
@@ -84,7 +84,7 @@
     .local v0, fake:I
     and-int/lit8 v4, v0, 0x1
 
-    if-eqz v4, :cond_1b
+    if-eqz v4, :cond_0
 
     .line 87
     const/4 v4, 0x1
@@ -92,10 +92,10 @@
     invoke-virtual {p0, v4}, Landroid/graphics/Paint;->setFakeBoldText(Z)V
 
     .line 90
-    :cond_1b
+    :cond_0
     and-int/lit8 v4, v0, 0x2
 
-    if-eqz v4, :cond_24
+    if-eqz v4, :cond_1
 
     .line 91
     const/high16 v4, -0x4180
@@ -103,7 +103,7 @@
     invoke-virtual {p0, v4}, Landroid/graphics/Paint;->setTextSkewX(F)V
 
     .line 94
-    :cond_24
+    :cond_1
     invoke-virtual {p0, v3}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
     .line 95
@@ -113,19 +113,19 @@
     .end local v0           #fake:I
     .end local v2           #oldStyle:I
     .end local v3           #tf:Landroid/graphics/Typeface;
-    :cond_28
+    :cond_2
     invoke-virtual {v1}, Landroid/graphics/Typeface;->getStyle()I
 
     move-result v2
 
     .restart local v2       #oldStyle:I
-    goto :goto_7
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 49
@@ -135,7 +135,7 @@
 .end method
 
 .method public getFamily()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60
@@ -145,7 +145,7 @@
 .end method
 
 .method public getSpanTypeId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 45
@@ -155,7 +155,7 @@
 .end method
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
-    .registers 3
+    .locals 1
     .parameter "ds"
 
     .prologue
@@ -169,7 +169,7 @@
 .end method
 
 .method public updateMeasureState(Landroid/text/TextPaint;)V
-    .registers 3
+    .locals 1
     .parameter "paint"
 
     .prologue
@@ -183,7 +183,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

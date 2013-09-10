@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/UiModeManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "intent"
 
@@ -53,7 +53,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1
 
     .line 243
     const-string v0, "state"
@@ -64,11 +64,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_1f
+    if-nez v0, :cond_0
 
     .line 245
     iget-object v0, p0, Lcom/android/server/UiModeManagerService$5;->this$0:Lcom/android/server/UiModeManagerService;
 
+    #getter for: Lcom/android/server/UiModeManagerService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/UiModeManagerService;->access$400(Lcom/android/server/UiModeManagerService;)Landroid/os/Handler;
 
     move-result-object v0
@@ -76,19 +77,20 @@
     invoke-virtual {v0, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     .line 251
-    :cond_1f
-    :goto_1f
+    :cond_0
+    :goto_0
     return-void
 
     .line 249
-    :cond_20
+    :cond_1
     iget-object v0, p0, Lcom/android/server/UiModeManagerService$5;->this$0:Lcom/android/server/UiModeManagerService;
 
+    #getter for: Lcom/android/server/UiModeManagerService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/UiModeManagerService;->access$400(Lcom/android/server/UiModeManagerService;)Landroid/os/Handler;
 
     move-result-object v0
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    goto :goto_1f
+    goto :goto_0
 .end method

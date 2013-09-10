@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;IIIII)V
-    .registers 14
+    .locals 7
     .parameter "number"
     .parameter "numberType"
     .parameter "numberPlan"
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 199

@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
-    .registers 3
+    .locals 0
     .parameter "id"
     .parameter "rs"
 
@@ -56,22 +56,22 @@
 
 # virtual methods
 .method public bindConstants(Landroid/renderscript/Allocation;I)V
-    .registers 7
+    .locals 4
     .parameter "a"
     .parameter "slot"
 
     .prologue
     .line 145
-    if-ltz p2, :cond_7
+    if-ltz p2, :cond_0
 
     iget-object v1, p0, Landroid/renderscript/Program;->mConstants:[Landroid/renderscript/Type;
 
     array-length v1, v1
 
-    if-lt p2, v1, :cond_f
+    if-lt p2, v1, :cond_1
 
     .line 146
-    :cond_7
+    :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Slot ID out of range."
@@ -81,8 +81,8 @@
     throw v1
 
     .line 148
-    :cond_f
-    if-eqz p1, :cond_2f
+    :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
 
@@ -104,7 +104,7 @@
 
     move-result v2
 
-    if-eq v1, v2, :cond_2f
+    if-eq v1, v2, :cond_2
 
     .line 150
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -116,8 +116,8 @@
     throw v1
 
     .line 152
-    :cond_2f
-    if-eqz p1, :cond_43
+    :cond_2
+    if-eqz p1, :cond_3
 
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
@@ -127,7 +127,7 @@
 
     .line 153
     .local v0, id:I
-    :goto_37
+    :goto_0
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v2, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
@@ -143,14 +143,14 @@
 
     .line 152
     .end local v0           #id:I
-    :cond_43
+    :cond_3
     const/4 v0, 0x0
 
-    goto :goto_37
+    goto :goto_0
 .end method
 
 .method public bindSampler(Landroid/renderscript/Sampler;I)V
-    .registers 6
+    .locals 3
     .parameter "vs"
     .parameter "slot"
     .annotation system Ldalvik/annotation/Throws;
@@ -166,14 +166,14 @@
     invoke-virtual {v1}, Landroid/renderscript/RenderScript;->validate()V
 
     .line 190
-    if-ltz p2, :cond_b
+    if-ltz p2, :cond_0
 
     iget v1, p0, Landroid/renderscript/Program;->mTextureCount:I
 
-    if-lt p2, v1, :cond_13
+    if-lt p2, v1, :cond_1
 
     .line 191
-    :cond_b
+    :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Slot ID out of range."
@@ -183,8 +183,8 @@
     throw v1
 
     .line 194
-    :cond_13
-    if-eqz p1, :cond_27
+    :cond_1
+    if-eqz p1, :cond_2
 
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
@@ -194,7 +194,7 @@
 
     .line 195
     .local v0, id:I
-    :goto_1b
+    :goto_0
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v2, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
@@ -210,14 +210,14 @@
 
     .line 194
     .end local v0           #id:I
-    :cond_27
+    :cond_2
     const/4 v0, 0x0
 
-    goto :goto_1b
+    goto :goto_0
 .end method
 
 .method public bindTexture(Landroid/renderscript/Allocation;I)V
-    .registers 6
+    .locals 3
     .parameter "va"
     .parameter "slot"
     .annotation system Ldalvik/annotation/Throws;
@@ -233,14 +233,14 @@
     invoke-virtual {v1}, Landroid/renderscript/RenderScript;->validate()V
 
     .line 166
-    if-ltz p2, :cond_b
+    if-ltz p2, :cond_0
 
     iget v1, p0, Landroid/renderscript/Program;->mTextureCount:I
 
-    if-lt p2, v1, :cond_13
+    if-lt p2, v1, :cond_1
 
     .line 167
-    :cond_b
+    :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Slot ID out of range."
@@ -250,8 +250,8 @@
     throw v1
 
     .line 169
-    :cond_13
-    if-eqz p1, :cond_2f
+    :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
 
@@ -261,7 +261,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2f
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Landroid/renderscript/Program;->mTextures:[Landroid/renderscript/Program$TextureType;
 
@@ -269,7 +269,7 @@
 
     sget-object v2, Landroid/renderscript/Program$TextureType;->TEXTURE_CUBE:Landroid/renderscript/Program$TextureType;
 
-    if-eq v1, v2, :cond_2f
+    if-eq v1, v2, :cond_2
 
     .line 171
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -281,8 +281,8 @@
     throw v1
 
     .line 174
-    :cond_2f
-    if-eqz p1, :cond_43
+    :cond_2
+    if-eqz p1, :cond_3
 
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
@@ -292,7 +292,7 @@
 
     .line 175
     .local v0, id:I
-    :goto_37
+    :goto_0
     iget-object v1, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v2, p0, Landroid/renderscript/BaseObj;->mRS:Landroid/renderscript/RenderScript;
@@ -308,28 +308,28 @@
 
     .line 174
     .end local v0           #id:I
-    :cond_43
+    :cond_3
     const/4 v0, 0x0
 
-    goto :goto_37
+    goto :goto_0
 .end method
 
 .method public getConstant(I)Landroid/renderscript/Type;
-    .registers 4
+    .locals 2
     .parameter "slot"
 
     .prologue
     .line 97
-    if-ltz p1, :cond_7
+    if-ltz p1, :cond_0
 
     iget-object v0, p0, Landroid/renderscript/Program;->mConstants:[Landroid/renderscript/Type;
 
     array-length v0, v0
 
-    if-lt p1, v0, :cond_f
+    if-lt p1, v0, :cond_1
 
     .line 98
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Slot ID out of range."
@@ -339,7 +339,7 @@
     throw v0
 
     .line 100
-    :cond_f
+    :cond_1
     iget-object v0, p0, Landroid/renderscript/Program;->mConstants:[Landroid/renderscript/Type;
 
     aget-object v0, v0, p1
@@ -348,29 +348,29 @@
 .end method
 
 .method public getConstantCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 86
     iget-object v0, p0, Landroid/renderscript/Program;->mConstants:[Landroid/renderscript/Type;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/renderscript/Program;->mConstants:[Landroid/renderscript/Type;
 
     array-length v0, v0
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getTextureCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 108
@@ -380,19 +380,19 @@
 .end method
 
 .method public getTextureName(I)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "slot"
 
     .prologue
     .line 130
-    if-ltz p1, :cond_6
+    if-ltz p1, :cond_0
 
     iget v0, p0, Landroid/renderscript/Program;->mTextureCount:I
 
-    if-lt p1, v0, :cond_e
+    if-lt p1, v0, :cond_1
 
     .line 131
-    :cond_6
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Slot ID out of range."
@@ -402,7 +402,7 @@
     throw v0
 
     .line 133
-    :cond_e
+    :cond_1
     iget-object v0, p0, Landroid/renderscript/Program;->mTextureNames:[Ljava/lang/String;
 
     aget-object v0, v0, p1
@@ -411,19 +411,19 @@
 .end method
 
 .method public getTextureType(I)Landroid/renderscript/Program$TextureType;
-    .registers 4
+    .locals 2
     .parameter "slot"
 
     .prologue
     .line 117
-    if-ltz p1, :cond_6
+    if-ltz p1, :cond_0
 
     iget v0, p0, Landroid/renderscript/Program;->mTextureCount:I
 
-    if-lt p1, v0, :cond_e
+    if-lt p1, v0, :cond_1
 
     .line 118
-    :cond_6
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Slot ID out of range."
@@ -433,7 +433,7 @@
     throw v0
 
     .line 120
-    :cond_e
+    :cond_1
     iget-object v0, p0, Landroid/renderscript/Program;->mTextures:[Landroid/renderscript/Program$TextureType;
 
     aget-object v0, v0, p1

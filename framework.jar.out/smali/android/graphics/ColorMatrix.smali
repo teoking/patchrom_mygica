@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 44
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/ColorMatrix;)V
-    .registers 6
+    .locals 4
     .parameter "src"
 
     .prologue
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>([F)V
-    .registers 5
+    .locals 3
     .parameter "src"
 
     .prologue
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public final getArray()[F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 65
@@ -96,7 +96,7 @@
 .end method
 
 .method public postConcat(Landroid/graphics/ColorMatrix;)V
-    .registers 2
+    .locals 0
     .parameter "postmatrix"
 
     .prologue
@@ -108,7 +108,7 @@
 .end method
 
 .method public preConcat(Landroid/graphics/ColorMatrix;)V
-    .registers 2
+    .locals 0
     .parameter "prematrix"
 
     .prologue
@@ -120,7 +120,7 @@
 .end method
 
 .method public reset()V
-    .registers 8
+    .locals 7
 
     .prologue
     .line 75
@@ -131,8 +131,8 @@
     const/16 v1, 0x13
 
     .local v1, i:I
-    :goto_4
-    if-lez v1, :cond_c
+    :goto_0
+    if-lez v1, :cond_0
 
     .line 78
     const/4 v2, 0x0
@@ -142,10 +142,10 @@
     .line 77
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 80
-    :cond_c
+    :cond_0
     const/4 v2, 0x0
 
     const/4 v3, 0x6
@@ -169,7 +169,7 @@
 .end method
 
 .method public set(Landroid/graphics/ColorMatrix;)V
-    .registers 6
+    .locals 4
     .parameter "src"
 
     .prologue
@@ -189,7 +189,7 @@
 .end method
 
 .method public set([F)V
-    .registers 5
+    .locals 3
     .parameter "src"
 
     .prologue
@@ -207,7 +207,7 @@
 .end method
 
 .method public setConcat(Landroid/graphics/ColorMatrix;Landroid/graphics/ColorMatrix;)V
-    .registers 16
+    .locals 13
     .parameter "matA"
     .parameter "matB"
 
@@ -223,16 +223,16 @@
 
     .line 157
     .local v6, tmp:[F
-    if-eq p1, p0, :cond_9
+    if-eq p1, p0, :cond_0
 
-    if-ne p2, p0, :cond_46
+    if-ne p2, p0, :cond_1
 
     .line 158
-    :cond_9
+    :cond_0
     new-array v6, v10, [F
 
     .line 164
-    :goto_b
+    :goto_0
     iget-object v0, p1, Landroid/graphics/ColorMatrix;->mArray:[F
 
     .line 165
@@ -248,8 +248,8 @@
     const/4 v5, 0x0
 
     .local v5, j:I
-    :goto_11
-    if-ge v5, v10, :cond_7a
+    :goto_1
+    if-ge v5, v10, :cond_3
 
     .line 168
     const/4 v2, 0x0
@@ -259,8 +259,8 @@
 
     .end local v3           #index:I
     .local v4, index:I
-    :goto_15
-    if-ge v2, v12, :cond_49
+    :goto_2
+    if-ge v2, v12, :cond_2
 
     .line 169
     add-int/lit8 v3, v4, 0x1
@@ -322,7 +322,7 @@
 
     .end local v3           #index:I
     .restart local v4       #index:I
-    goto :goto_15
+    goto :goto_2
 
     .line 161
     .end local v0           #a:[F
@@ -330,10 +330,10 @@
     .end local v2           #i:I
     .end local v4           #index:I
     .end local v5           #j:I
-    :cond_46
+    :cond_1
     iget-object v6, p0, Landroid/graphics/ColorMatrix;->mArray:[F
 
-    goto :goto_b
+    goto :goto_0
 
     .line 172
     .restart local v0       #a:[F
@@ -341,7 +341,7 @@
     .restart local v2       #i:I
     .restart local v4       #index:I
     .restart local v5       #j:I
-    :cond_49
+    :cond_2
     add-int/lit8 v3, v4, 0x1
 
     .end local v4           #index:I
@@ -401,14 +401,14 @@
     .line 167
     add-int/lit8 v5, v5, 0x5
 
-    goto :goto_11
+    goto :goto_1
 
     .line 177
     .end local v2           #i:I
-    :cond_7a
+    :cond_3
     iget-object v7, p0, Landroid/graphics/ColorMatrix;->mArray:[F
 
-    if-eq v6, v7, :cond_83
+    if-eq v6, v7, :cond_4
 
     .line 178
     iget-object v7, p0, Landroid/graphics/ColorMatrix;->mArray:[F
@@ -416,12 +416,12 @@
     invoke-static {v6, v11, v7, v11, v10}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 180
-    :cond_83
+    :cond_4
     return-void
 .end method
 
 .method public setRGB2YUV()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/high16 v3, 0x3f00
@@ -491,7 +491,7 @@
 .end method
 
 .method public setRotate(IF)V
-    .registers 11
+    .locals 8
     .parameter "axis"
     .parameter "degrees"
 
@@ -528,7 +528,7 @@
 
     .line 124
     .local v2, sine:F
-    packed-switch p1, :pswitch_data_5e
+    packed-switch p1, :pswitch_data_0
 
     .line 144
     new-instance v3, Ljava/lang/RuntimeException;
@@ -538,7 +538,7 @@
     throw v3
 
     .line 127
-    :pswitch_20
+    :pswitch_0
     iget-object v3, p0, Landroid/graphics/ColorMatrix;->mArray:[F
 
     iget-object v4, p0, Landroid/graphics/ColorMatrix;->mArray:[F
@@ -564,11 +564,11 @@
     aput v5, v3, v4
 
     .line 146
-    :goto_34
+    :goto_0
     return-void
 
     .line 133
-    :pswitch_35
+    :pswitch_1
     iget-object v3, p0, Landroid/graphics/ColorMatrix;->mArray:[F
 
     iget-object v4, p0, Landroid/graphics/ColorMatrix;->mArray:[F
@@ -593,10 +593,10 @@
 
     aput v2, v3, v4
 
-    goto :goto_34
+    goto :goto_0
 
     .line 139
-    :pswitch_4a
+    :pswitch_2
     iget-object v3, p0, Landroid/graphics/ColorMatrix;->mArray:[F
 
     iget-object v4, p0, Landroid/graphics/ColorMatrix;->mArray:[F
@@ -621,19 +621,19 @@
 
     aput v5, v3, v4
 
-    goto :goto_34
+    goto :goto_0
 
     .line 124
-    :pswitch_data_5e
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_20
-        :pswitch_35
-        :pswitch_4a
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public setSaturation(F)V
-    .registers 9
+    .locals 7
     .parameter "sat"
 
     .prologue
@@ -718,7 +718,7 @@
 .end method
 
 .method public setScale(FFFF)V
-    .registers 8
+    .locals 3
     .parameter "rScale"
     .parameter "gScale"
     .parameter "bScale"
@@ -733,8 +733,8 @@
     const/16 v1, 0x13
 
     .local v1, i:I
-    :goto_4
-    if-lez v1, :cond_c
+    :goto_0
+    if-lez v1, :cond_0
 
     .line 105
     const/4 v2, 0x0
@@ -744,10 +744,10 @@
     .line 104
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 107
-    :cond_c
+    :cond_0
     const/4 v2, 0x0
 
     aput p1, v0, v2
@@ -772,7 +772,7 @@
 .end method
 
 .method public setYUV2RGB()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/high16 v3, 0x3f80

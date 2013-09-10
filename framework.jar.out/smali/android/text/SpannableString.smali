@@ -10,7 +10,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;)V
-    .registers 4
+    .locals 2
     .parameter "source"
 
     .prologue
@@ -28,7 +28,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/CharSequence;II)V
-    .registers 4
+    .locals 0
     .parameter "source"
     .parameter "start"
     .parameter "end"
@@ -42,38 +42,38 @@
 .end method
 
 .method public static valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;
-    .registers 2
+    .locals 1
     .parameter "source"
 
     .prologue
     .line 38
     instance-of v0, p0, Landroid/text/SpannableString;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 39
     check-cast p0, Landroid/text/SpannableString;
 
     .line 41
     .end local p0
-    :goto_6
+    :goto_0
     return-object p0
 
     .restart local p0
-    :cond_7
+    :cond_0
     new-instance v0, Landroid/text/SpannableString;
 
     invoke-direct {v0, p0}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
     move-object p0, v0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public bridge synthetic getSpanEnd(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -86,7 +86,7 @@
 .end method
 
 .method public bridge synthetic getSpanFlags(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -99,7 +99,7 @@
 .end method
 
 .method public bridge synthetic getSpanStart(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -112,7 +112,7 @@
 .end method
 
 .method public bridge synthetic getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
-    .registers 5
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -127,7 +127,7 @@
 .end method
 
 .method public bridge synthetic nextSpanTransition(IILjava/lang/Class;)I
-    .registers 5
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -142,7 +142,7 @@
 .end method
 
 .method public removeSpan(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "what"
 
     .prologue
@@ -154,7 +154,7 @@
 .end method
 
 .method public setSpan(Ljava/lang/Object;III)V
-    .registers 5
+    .locals 0
     .parameter "what"
     .parameter "start"
     .parameter "end"
@@ -169,7 +169,7 @@
 .end method
 
 .method public final subSequence(II)Ljava/lang/CharSequence;
-    .registers 4
+    .locals 1
     .parameter "start"
     .parameter "end"
 

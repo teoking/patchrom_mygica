@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/File;)V
-    .registers 4
+    .locals 2
     .parameter "fileName"
 
     .prologue
@@ -65,7 +65,7 @@
 .end method
 
 .method private cleanUp()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 66
@@ -74,7 +74,7 @@
     .line 67
     iget-object v0, p0, Landroid/speech/tts/FileSynthesisCallback;->mFile:Ljava/io/RandomAccessFile;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 68
     iget-object v0, p0, Landroid/speech/tts/FileSynthesisCallback;->mFileName:Ljava/io/File;
@@ -82,19 +82,19 @@
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
     .line 70
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method private closeFileAndWidenPermissions()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 77
     :try_start_0
     iget-object v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mFile:Ljava/io/RandomAccessFile;
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_0
 
     .line 78
     iget-object v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mFile:Ljava/io/RandomAccessFile;
@@ -105,13 +105,13 @@
     const/4 v2, 0x0
 
     iput-object v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mFile:Ljava/io/RandomAccessFile;
-    :try_end_c
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_c} :catch_1a
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 92
-    :cond_c
-    :goto_c
-    :try_start_c
+    :cond_0
+    :goto_0
+    :try_start_1
     iget-object v2, p0, Landroid/speech/tts/FileSynthesisCallback;->mFileName:Ljava/io/File;
 
     invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
@@ -125,15 +125,15 @@
     const/4 v5, -0x1
 
     invoke-static {v2, v3, v4, v5}, Landroid/os/FileUtils;->setPermissions(Ljava/lang/String;III)I
-    :try_end_19
-    .catch Ljava/lang/SecurityException; {:try_start_c .. :try_end_19} :catch_40
+    :try_end_1
+    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 96
-    :goto_19
+    :goto_1
     return-void
 
     .line 81
-    :catch_1a
+    :catch_0
     move-exception v0
 
     .line 82
@@ -172,11 +172,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_c
+    goto :goto_0
 
     .line 93
     .end local v0           #ex:Ljava/io/IOException;
-    :catch_40
+    :catch_1
     move-exception v1
 
     .line 94
@@ -205,11 +205,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_19
+    goto :goto_1
 .end method
 
 .method private makeWavHeader(IIII)[B
-    .registers 14
+    .locals 9
     .parameter "sampleRateInHz"
     .parameter "audioFormat"
     .parameter "channelCount"
@@ -223,13 +223,13 @@
     .line 205
     const/4 v7, 0x3
 
-    if-ne p2, v7, :cond_60
+    if-ne p2, v7, :cond_0
 
     move v5, v6
 
     .line 206
     .local v5, sampleSizeInBytes:I
-    :goto_6
+    :goto_0
     mul-int v7, p1, v5
 
     mul-int v2, v7, p3
@@ -267,7 +267,7 @@
     .line 214
     new-array v7, v8, [B
 
-    fill-array-data v7, :array_62
+    fill-array-data v7, :array_0
 
     invoke-virtual {v3, v7}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
@@ -281,14 +281,14 @@
     .line 216
     new-array v7, v8, [B
 
-    fill-array-data v7, :array_68
+    fill-array-data v7, :array_1
 
     invoke-virtual {v3, v7}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
     .line 217
     new-array v7, v8, [B
 
-    fill-array-data v7, :array_6e
+    fill-array-data v7, :array_2
 
     invoke-virtual {v3, v7}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
@@ -320,7 +320,7 @@
     .line 225
     new-array v6, v8, [B
 
-    fill-array-data v6, :array_74
+    fill-array-data v6, :array_3
 
     invoke-virtual {v3, v6}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
@@ -337,13 +337,13 @@
     .end local v3           #header:Ljava/nio/ByteBuffer;
     .end local v4           #headerBuf:[B
     .end local v5           #sampleSizeInBytes:I
-    :cond_60
+    :cond_0
     const/4 v5, 0x2
 
-    goto :goto_6
+    goto :goto_0
 
     .line 214
-    :array_62
+    :array_0
     .array-data 0x1
         0x52t
         0x49t
@@ -352,7 +352,7 @@
     .end array-data
 
     .line 216
-    :array_68
+    :array_1
     .array-data 0x1
         0x57t
         0x41t
@@ -361,7 +361,7 @@
     .end array-data
 
     .line 217
-    :array_6e
+    :array_2
     .array-data 0x1
         0x66t
         0x6dt
@@ -370,7 +370,7 @@
     .end array-data
 
     .line 225
-    :array_74
+    :array_3
     .array-data 0x1
         0x64t
         0x61t
@@ -382,7 +382,7 @@
 
 # virtual methods
 .method public audioAvailable([BII)I
-    .registers 10
+    .locals 6
     .parameter "buffer"
     .parameter "offset"
     .parameter "length"
@@ -396,23 +396,23 @@
     monitor-enter v2
 
     .line 146
-    :try_start_4
+    :try_start_0
     iget-boolean v3, p0, Landroid/speech/tts/FileSynthesisCallback;->mStopped:Z
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_0
 
     .line 148
     monitor-exit v2
 
     .line 160
-    :goto_9
+    :goto_0
     return v1
 
     .line 150
-    :cond_a
+    :cond_0
     iget-object v3, p0, Landroid/speech/tts/FileSynthesisCallback;->mFile:Ljava/io/RandomAccessFile;
 
-    if-nez v3, :cond_1a
+    if-nez v3, :cond_1
 
     .line 151
     const-string v3, "FileSynthesisRequest"
@@ -424,38 +424,38 @@
     .line 152
     monitor-exit v2
 
-    goto :goto_9
+    goto :goto_0
 
     .line 162
-    :catchall_17
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_19
-    .catchall {:try_start_4 .. :try_end_19} :catchall_17
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 
     .line 155
-    :cond_1a
-    :try_start_1a
+    :cond_1
+    :try_start_1
     iget-object v3, p0, Landroid/speech/tts/FileSynthesisCallback;->mFile:Ljava/io/RandomAccessFile;
 
     invoke-virtual {v3, p1, p2, p3}, Ljava/io/RandomAccessFile;->write([BII)V
-    :try_end_1f
-    .catchall {:try_start_1a .. :try_end_1f} :catchall_17
-    .catch Ljava/io/IOException; {:try_start_1a .. :try_end_1f} :catch_22
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 156
     const/4 v1, 0x0
 
-    :try_start_20
+    :try_start_2
     monitor-exit v2
 
-    goto :goto_9
+    goto :goto_0
 
     .line 157
-    :catch_22
+    :catch_0
     move-exception v0
 
     .line 158
@@ -499,14 +499,14 @@
 
     .line 160
     monitor-exit v2
-    :try_end_4b
-    .catchall {:try_start_20 .. :try_end_4b} :catchall_17
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public done()I
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v2, -0x1
@@ -517,23 +517,23 @@
     monitor-enter v3
 
     .line 169
-    :try_start_4
+    :try_start_0
     iget-boolean v4, p0, Landroid/speech/tts/FileSynthesisCallback;->mStopped:Z
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_0
 
     .line 171
     monitor-exit v3
 
     .line 189
-    :goto_9
+    :goto_0
     return v2
 
     .line 173
-    :cond_a
+    :cond_0
     iget-object v4, p0, Landroid/speech/tts/FileSynthesisCallback;->mFile:Ljava/io/RandomAccessFile;
 
-    if-nez v4, :cond_1a
+    if-nez v4, :cond_1
 
     .line 174
     const-string v4, "FileSynthesisRequest"
@@ -545,21 +545,21 @@
     .line 175
     monitor-exit v3
 
-    goto :goto_9
+    goto :goto_0
 
     .line 191
-    :catchall_17
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_19
-    .catchall {:try_start_4 .. :try_end_19} :catchall_17
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 
     .line 179
-    :cond_1a
-    :try_start_1a
+    :cond_1
+    :try_start_1
     iget-object v4, p0, Landroid/speech/tts/FileSynthesisCallback;->mFile:Ljava/io/RandomAccessFile;
 
     const-wide/16 v5, 0x0
@@ -602,21 +602,21 @@
     const/4 v4, 0x1
 
     iput-boolean v4, p0, Landroid/speech/tts/FileSynthesisCallback;->mDone:Z
-    :try_end_40
-    .catchall {:try_start_1a .. :try_end_40} :catchall_17
-    .catch Ljava/io/IOException; {:try_start_1a .. :try_end_40} :catch_43
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 185
     const/4 v2, 0x0
 
-    :try_start_41
+    :try_start_2
     monitor-exit v3
 
-    goto :goto_9
+    goto :goto_0
 
     .line 186
     .end local v0           #dataLength:I
-    :catch_43
+    :catch_0
     move-exception v1
 
     .line 187
@@ -660,14 +660,14 @@
 
     .line 189
     monitor-exit v3
-    :try_end_6c
-    .catchall {:try_start_41 .. :try_end_6c} :catchall_17
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public error()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 197
@@ -676,7 +676,7 @@
     monitor-enter v1
 
     .line 198
-    :try_start_3
+    :try_start_0
     invoke-direct {p0}, Landroid/speech/tts/FileSynthesisCallback;->cleanUp()V
 
     .line 199
@@ -686,18 +686,18 @@
     return-void
 
     .line 199
-    :catchall_8
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_a
-    .catchall {:try_start_3 .. :try_end_a} :catchall_8
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public getMaxBufferSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 100
@@ -707,7 +707,7 @@
 .end method
 
 .method isDone()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 105
@@ -717,7 +717,7 @@
 .end method
 
 .method public start(III)I
-    .registers 10
+    .locals 6
     .parameter "sampleRateInHz"
     .parameter "audioFormat"
     .parameter "channelCount"
@@ -731,23 +731,23 @@
     monitor-enter v2
 
     .line 115
-    :try_start_4
+    :try_start_0
     iget-boolean v3, p0, Landroid/speech/tts/FileSynthesisCallback;->mStopped:Z
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_0
 
     .line 117
     monitor-exit v2
 
     .line 134
-    :goto_9
+    :goto_0
     return v1
 
     .line 119
-    :cond_a
+    :cond_0
     iget-object v3, p0, Landroid/speech/tts/FileSynthesisCallback;->mFile:Ljava/io/RandomAccessFile;
 
-    if-eqz v3, :cond_1c
+    if-eqz v3, :cond_1
 
     .line 120
     invoke-direct {p0}, Landroid/speech/tts/FileSynthesisCallback;->cleanUp()V
@@ -762,18 +762,18 @@
     throw v1
 
     .line 136
-    :catchall_19
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_1b
-    .catchall {:try_start_4 .. :try_end_1b} :catchall_19
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 
     .line 123
-    :cond_1c
-    :try_start_1c
+    :cond_1
+    :try_start_1
     iput p1, p0, Landroid/speech/tts/FileSynthesisCallback;->mSampleRateInHz:I
 
     .line 124
@@ -781,11 +781,11 @@
 
     .line 125
     iput p3, p0, Landroid/speech/tts/FileSynthesisCallback;->mChannelCount:I
-    :try_end_22
-    .catchall {:try_start_1c .. :try_end_22} :catchall_19
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 127
-    :try_start_22
+    :try_start_2
     new-instance v3, Ljava/io/RandomAccessFile;
 
     iget-object v4, p0, Landroid/speech/tts/FileSynthesisCallback;->mFileName:Ljava/io/File;
@@ -804,20 +804,20 @@
     new-array v4, v4, [B
 
     invoke-virtual {v3, v4}, Ljava/io/RandomAccessFile;->write([B)V
-    :try_end_37
-    .catchall {:try_start_22 .. :try_end_37} :catchall_19
-    .catch Ljava/io/IOException; {:try_start_22 .. :try_end_37} :catch_3a
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 130
     const/4 v1, 0x0
 
-    :try_start_38
+    :try_start_3
     monitor-exit v2
 
-    goto :goto_9
+    goto :goto_0
 
     .line 131
-    :catch_3a
+    :catch_0
     move-exception v0
 
     .line 132
@@ -861,14 +861,14 @@
 
     .line 134
     monitor-exit v2
-    :try_end_63
-    .catchall {:try_start_38 .. :try_end_63} :catchall_19
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method stop()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 56
@@ -879,7 +879,7 @@
     .line 57
     const/4 v0, 0x1
 
-    :try_start_4
+    :try_start_0
     iput-boolean v0, p0, Landroid/speech/tts/FileSynthesisCallback;->mStopped:Z
 
     .line 58
@@ -892,12 +892,12 @@
     return-void
 
     .line 59
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_d
-    .catchall {:try_start_4 .. :try_end_d} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

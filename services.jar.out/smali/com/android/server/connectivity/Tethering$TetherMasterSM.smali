@@ -74,7 +74,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/connectivity/Tethering;Ljava/lang/String;Landroid/os/Looper;)V
-    .registers 5
+    .locals 1
     .parameter
     .parameter "name"
     .parameter "looper"
@@ -197,7 +197,7 @@
 .end method
 
 .method static synthetic access$3200(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -208,7 +208,7 @@
 .end method
 
 .method static synthetic access$3202(Lcom/android/server/connectivity/Tethering$TetherMasterSM;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -220,7 +220,7 @@
 .end method
 
 .method static synthetic access$3400(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -231,7 +231,7 @@
 .end method
 
 .method static synthetic access$3404(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -246,7 +246,7 @@
 .end method
 
 .method static synthetic access$3500(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Lcom/android/internal/util/State;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -257,7 +257,7 @@
 .end method
 
 .method static synthetic access$3600(Lcom/android/server/connectivity/Tethering$TetherMasterSM;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -269,7 +269,7 @@
 .end method
 
 .method static synthetic access$3800(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Lcom/android/internal/util/State;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -280,7 +280,7 @@
 .end method
 
 .method static synthetic access$3900(Lcom/android/server/connectivity/Tethering$TetherMasterSM;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -292,7 +292,7 @@
 .end method
 
 .method static synthetic access$4100(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Lcom/android/internal/util/State;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -303,7 +303,7 @@
 .end method
 
 .method static synthetic access$4200(Lcom/android/server/connectivity/Tethering$TetherMasterSM;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -315,7 +315,7 @@
 .end method
 
 .method static synthetic access$4300(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Lcom/android/internal/util/State;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -326,7 +326,7 @@
 .end method
 
 .method static synthetic access$4400(Lcom/android/server/connectivity/Tethering$TetherMasterSM;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -338,7 +338,7 @@
 .end method
 
 .method static synthetic access$4500(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Lcom/android/internal/util/State;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -349,7 +349,7 @@
 .end method
 
 .method static synthetic access$4600(Lcom/android/server/connectivity/Tethering$TetherMasterSM;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -361,7 +361,7 @@
 .end method
 
 .method static synthetic access$4700(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Lcom/android/internal/util/State;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -372,7 +372,7 @@
 .end method
 
 .method static synthetic access$4800(Lcom/android/server/connectivity/Tethering$TetherMasterSM;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -384,7 +384,7 @@
 .end method
 
 .method static synthetic access$5100(Lcom/android/server/connectivity/Tethering$TetherMasterSM;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -396,7 +396,7 @@
 .end method
 
 .method static synthetic access$5200(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -407,7 +407,7 @@
 .end method
 
 .method static synthetic access$5202(Lcom/android/server/connectivity/Tethering$TetherMasterSM;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -419,7 +419,7 @@
 .end method
 
 .method static synthetic access$5300(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -430,7 +430,7 @@
 .end method
 
 .method static synthetic access$5400(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Lcom/android/internal/util/State;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -441,7 +441,7 @@
 .end method
 
 .method static synthetic access$5500(Lcom/android/server/connectivity/Tethering$TetherMasterSM;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

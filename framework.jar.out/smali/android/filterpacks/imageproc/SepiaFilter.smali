@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -47,7 +47,7 @@
 .end method
 
 .method private initParameters()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 106
@@ -55,7 +55,7 @@
 
     new-array v0, v1, [F
 
-    fill-array-data v0, :array_10
+    fill-array-data v0, :array_0
 
     .line 109
     .local v0, weights:[F
@@ -69,7 +69,7 @@
     return-void
 
     .line 106
-    :array_10
+    :array_0
     .array-data 0x4
         0x0t 0x40t 0xc9t 0x3et
         0x0t 0xc0t 0xb2t 0x3et
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -96,13 +96,13 @@
 .end method
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "target"
 
     .prologue
     .line 66
-    packed-switch p2, :pswitch_data_34
+    packed-switch p2, :pswitch_data_0
 
     .line 74
     new-instance v1, Ljava/lang/RuntimeException;
@@ -136,7 +136,7 @@
     throw v1
 
     .line 68
-    :pswitch_22
+    :pswitch_0
     new-instance v0, Landroid/filterfw/core/ShaderProgram;
 
     const-string/jumbo v1, "precision mediump float;\nuniform sampler2D tex_sampler_0;\nuniform mat3 matrix;\nvarying vec2 v_texcoord;\nvoid main() {\n  vec4 color = texture2D(tex_sampler_0, v_texcoord);\n  vec3 new_color = min(matrix * color.rgb, 1.0);\n  gl_FragColor = vec4(new_color.rgb, color.a);\n}\n"
@@ -159,14 +159,14 @@
     return-void
 
     .line 66
-    :pswitch_data_34
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_22
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -197,7 +197,7 @@
     .local v2, output:Landroid/filterfw/core/Frame;
     iget-object v3, p0, Landroid/filterpacks/imageproc/SepiaFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v3, :cond_1e
+    if-eqz v3, :cond_0
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
@@ -205,10 +205,10 @@
 
     iget v4, p0, Landroid/filterpacks/imageproc/SepiaFilter;->mTarget:I
 
-    if-eq v3, v4, :cond_28
+    if-eq v3, v4, :cond_1
 
     .line 91
-    :cond_1e
+    :cond_0
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
     move-result v3
@@ -219,7 +219,7 @@
     invoke-direct {p0}, Landroid/filterpacks/imageproc/SepiaFilter;->initParameters()V
 
     .line 96
-    :cond_28
+    :cond_1
     iget-object v3, p0, Landroid/filterpacks/imageproc/SepiaFilter;->mProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v3, v0, v2}, Landroid/filterfw/core/Program;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
@@ -237,7 +237,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 56

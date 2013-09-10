@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 133
@@ -51,7 +51,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "source"
 
     .prologue
@@ -107,23 +107,23 @@
 
     move-result v1
 
-    if-ne v1, v0, :cond_31
+    if-ne v1, v0, :cond_0
 
-    :goto_2e
+    :goto_0
     iput-boolean v0, p0, Landroid/accounts/AuthenticatorDescription;->customTokens:Z
 
     .line 97
     return-void
 
     .line 96
-    :cond_31
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_2e
+    goto :goto_0
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/accounts/AuthenticatorDescription$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -135,7 +135,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "type"
 
     .prologue
@@ -172,7 +172,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;IIII)V
-    .registers 15
+    .locals 8
     .parameter "type"
     .parameter "packageName"
     .parameter "labelId"
@@ -205,7 +205,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;IIIIZ)V
-    .registers 10
+    .locals 2
     .parameter "type"
     .parameter "packageName"
     .parameter "labelId"
@@ -219,7 +219,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 53
-    if-nez p1, :cond_e
+    if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -230,8 +230,8 @@
     throw v0
 
     .line 54
-    :cond_e
-    if-nez p2, :cond_19
+    :cond_0
+    if-nez p2, :cond_1
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -242,7 +242,7 @@
     throw v0
 
     .line 55
-    :cond_19
+    :cond_1
     iput-object p1, p0, Landroid/accounts/AuthenticatorDescription;->type:Ljava/lang/String;
 
     .line 56
@@ -268,12 +268,12 @@
 .end method
 
 .method public static newKey(Ljava/lang/String;)Landroid/accounts/AuthenticatorDescription;
-    .registers 3
+    .locals 2
     .parameter "type"
 
     .prologue
     .line 75
-    if-nez p0, :cond_b
+    if-nez p0, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -284,7 +284,7 @@
     throw v0
 
     .line 76
-    :cond_b
+    :cond_0
     new-instance v0, Landroid/accounts/AuthenticatorDescription;
 
     invoke-direct {v0, p0}, Landroid/accounts/AuthenticatorDescription;-><init>(Ljava/lang/String;)V
@@ -295,7 +295,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 101
@@ -305,30 +305,30 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 5
+    .locals 3
     .parameter "o"
 
     .prologue
     .line 111
-    if-ne p1, p0, :cond_4
+    if-ne p1, p0, :cond_0
 
     const/4 v1, 0x1
 
     .line 114
-    :goto_3
+    :goto_0
     return v1
 
     .line 112
-    :cond_4
+    :cond_0
     instance-of v1, p1, Landroid/accounts/AuthenticatorDescription;
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_1
 
     const/4 v1, 0x0
 
-    goto :goto_3
+    goto :goto_0
 
-    :cond_a
+    :cond_1
     move-object v0, p1
 
     .line 113
@@ -344,11 +344,11 @@
 
     move-result v1
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 106
@@ -362,7 +362,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 118
@@ -396,7 +396,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 
@@ -434,11 +434,11 @@
     .line 129
     iget-boolean v0, p0, Landroid/accounts/AuthenticatorDescription;->customTokens:Z
 
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_23
+    :goto_0
     int-to-byte v0, v0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
@@ -447,8 +447,8 @@
     return-void
 
     .line 129
-    :cond_28
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_23
+    goto :goto_0
 .end method

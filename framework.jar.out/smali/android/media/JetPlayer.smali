@@ -64,7 +64,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 72
@@ -76,7 +76,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v2, 0x0
@@ -107,7 +107,7 @@
 
     iput-object v1, p0, Landroid/media/JetPlayer;->mInitializationLooper:Landroid/os/Looper;
 
-    if-nez v1, :cond_1f
+    if-nez v1, :cond_0
 
     .line 161
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -117,7 +117,7 @@
     iput-object v1, p0, Landroid/media/JetPlayer;->mInitializationLooper:Landroid/os/Looper;
 
     .line 164
-    :cond_1f
+    :cond_0
     const/16 v1, 0x5622
 
     const/16 v2, 0xc
@@ -132,11 +132,11 @@
     .local v0, buffSizeInBytes:I
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_42
+    if-eq v0, v1, :cond_1
 
     const/4 v1, -0x2
 
-    if-eq v0, v1, :cond_42
+    if-eq v0, v1, :cond_1
 
     .line 170
     new-instance v1, Ljava/lang/ref/WeakReference;
@@ -158,12 +158,12 @@
     invoke-direct {p0, v1, v2, v3}, Landroid/media/JetPlayer;->native_setup(Ljava/lang/Object;II)Z
 
     .line 176
-    :cond_42
+    :cond_1
     return-void
 .end method
 
 .method static synthetic access$000(Landroid/media/JetPlayer;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -174,7 +174,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/media/JetPlayer;)Landroid/media/JetPlayer$OnJetEventListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -185,7 +185,7 @@
 .end method
 
 .method static synthetic access$200(Ljava/lang/String;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -196,13 +196,13 @@
 .end method
 
 .method public static getJetPlayer()Landroid/media/JetPlayer;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 141
     sget-object v0, Landroid/media/JetPlayer;->singletonRef:Landroid/media/JetPlayer;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 142
     new-instance v0, Landroid/media/JetPlayer;
@@ -212,14 +212,14 @@
     sput-object v0, Landroid/media/JetPlayer;->singletonRef:Landroid/media/JetPlayer;
 
     .line 144
-    :cond_b
+    :cond_0
     sget-object v0, Landroid/media/JetPlayer;->singletonRef:Landroid/media/JetPlayer;
 
     return-object v0
 .end method
 
 .method public static getMaxTracks()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 202
@@ -229,7 +229,7 @@
 .end method
 
 .method private static logd(Ljava/lang/String;)V
-    .registers 4
+    .locals 3
     .parameter "msg"
 
     .prologue
@@ -261,7 +261,7 @@
 .end method
 
 .method private static loge(Ljava/lang/String;)V
-    .registers 4
+    .locals 3
     .parameter "msg"
 
     .prologue
@@ -338,7 +338,7 @@
 .end method
 
 .method private static postEventFromNative(Ljava/lang/Object;III)V
-    .registers 8
+    .locals 4
     .parameter "jetplayer_ref"
     .parameter "what"
     .parameter "arg1"
@@ -357,11 +357,11 @@
 
     .line 566
     .local v0, jet:Landroid/media/JetPlayer;
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     iget-object v2, v0, Landroid/media/JetPlayer;->mEventHandler:Landroid/media/JetPlayer$NativeEventHandler;
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_0
 
     .line 567
     iget-object v2, v0, Landroid/media/JetPlayer;->mEventHandler:Landroid/media/JetPlayer$NativeEventHandler;
@@ -380,14 +380,14 @@
 
     .line 572
     .end local v1           #m:Landroid/os/Message;
-    :cond_1a
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public clearQueue()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 389
@@ -399,7 +399,7 @@
 .end method
 
 .method public clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -416,7 +416,7 @@
 .end method
 
 .method public closeJetFile()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 238
@@ -428,7 +428,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 180
@@ -439,7 +439,7 @@
 .end method
 
 .method public loadJetFile(Landroid/content/res/AssetFileDescriptor;)Z
-    .registers 8
+    .locals 6
     .parameter "afd"
 
     .prologue
@@ -454,7 +454,7 @@
 
     cmp-long v0, v4, v0
 
-    if-gez v0, :cond_13
+    if-gez v0, :cond_0
 
     .line 227
     new-instance v0, Landroid/util/AndroidRuntimeException;
@@ -466,7 +466,7 @@
     throw v0
 
     .line 229
-    :cond_13
+    :cond_0
     invoke-virtual {p1}, Landroid/content/res/AssetFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v1
@@ -485,7 +485,7 @@
 .end method
 
 .method public loadJetFile(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "path"
 
     .prologue
@@ -498,7 +498,7 @@
 .end method
 
 .method public pause()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 256
@@ -510,7 +510,7 @@
 .end method
 
 .method public play()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 247
@@ -522,7 +522,7 @@
 .end method
 
 .method public queueJetSegment(IIIIIB)Z
-    .registers 8
+    .locals 1
     .parameter "segmentNum"
     .parameter "libNum"
     .parameter "repeatCount"
@@ -540,7 +540,7 @@
 .end method
 
 .method public queueJetSegmentMuteArray(IIII[ZB)Z
-    .registers 9
+    .locals 2
     .parameter "segmentNum"
     .parameter "libNum"
     .parameter "repeatCount"
@@ -556,25 +556,25 @@
 
     move-result v1
 
-    if-eq v0, v1, :cond_9
+    if-eq v0, v1, :cond_0
 
     .line 313
     const/4 v0, 0x0
 
     .line 315
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     invoke-direct/range {p0 .. p6}, Landroid/media/JetPlayer;->native_queueJetSegmentMuteArray(IIII[ZB)Z
 
     move-result v0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public release()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 190
@@ -590,7 +590,7 @@
 .end method
 
 .method public setEventListener(Landroid/media/JetPlayer$OnJetEventListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
@@ -604,7 +604,7 @@
 .end method
 
 .method public setEventListener(Landroid/media/JetPlayer$OnJetEventListener;Landroid/os/Handler;)V
-    .registers 6
+    .locals 3
     .parameter "listener"
     .parameter "handler"
 
@@ -615,14 +615,14 @@
     monitor-enter v1
 
     .line 475
-    :try_start_3
+    :try_start_0
     iput-object p1, p0, Landroid/media/JetPlayer;->mJetEventListener:Landroid/media/JetPlayer$OnJetEventListener;
 
     .line 477
-    if-eqz p1, :cond_23
+    if-eqz p1, :cond_1
 
     .line 478
-    if-eqz p2, :cond_16
+    if-eqz p2, :cond_0
 
     .line 479
     new-instance v0, Landroid/media/JetPlayer$NativeEventHandler;
@@ -636,14 +636,14 @@
     iput-object v0, p0, Landroid/media/JetPlayer;->mEventHandler:Landroid/media/JetPlayer$NativeEventHandler;
 
     .line 488
-    :goto_14
+    :goto_0
     monitor-exit v1
 
     .line 489
     return-void
 
     .line 482
-    :cond_16
+    :cond_0
     new-instance v0, Landroid/media/JetPlayer$NativeEventHandler;
 
     iget-object v2, p0, Landroid/media/JetPlayer;->mInitializationLooper:Landroid/os/Looper;
@@ -652,32 +652,32 @@
 
     iput-object v0, p0, Landroid/media/JetPlayer;->mEventHandler:Landroid/media/JetPlayer$NativeEventHandler;
 
-    goto :goto_14
+    goto :goto_0
 
     .line 488
-    :catchall_20
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_22
-    .catchall {:try_start_3 .. :try_end_22} :catchall_20
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 485
-    :cond_23
+    :cond_1
     const/4 v0, 0x0
 
-    :try_start_24
+    :try_start_1
     iput-object v0, p0, Landroid/media/JetPlayer;->mEventHandler:Landroid/media/JetPlayer$NativeEventHandler;
-    :try_end_26
-    .catchall {:try_start_24 .. :try_end_26} :catchall_20
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public setMuteArray([ZZ)Z
-    .registers 5
+    .locals 2
     .parameter "muteArray"
     .parameter "sync"
 
@@ -689,25 +689,25 @@
 
     move-result v1
 
-    if-eq v0, v1, :cond_9
+    if-eq v0, v1, :cond_0
 
     .line 348
     const/4 v0, 0x0
 
     .line 349
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     invoke-direct {p0, p1, p2}, Landroid/media/JetPlayer;->native_setMuteArray([ZZ)Z
 
     move-result v0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setMuteFlag(IZZ)Z
-    .registers 5
+    .locals 1
     .parameter "trackId"
     .parameter "muteFlag"
     .parameter "sync"
@@ -722,7 +722,7 @@
 .end method
 
 .method public setMuteFlags(IZ)Z
-    .registers 4
+    .locals 1
     .parameter "muteFlags"
     .parameter "sync"
 
@@ -736,7 +736,7 @@
 .end method
 
 .method public triggerClip(I)Z
-    .registers 3
+    .locals 1
     .parameter "clipId"
 
     .prologue

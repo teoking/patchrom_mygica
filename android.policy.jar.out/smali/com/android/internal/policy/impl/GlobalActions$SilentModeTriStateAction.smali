@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/media/AudioManager;Landroid/os/Handler;)V
-    .registers 5
+    .locals 1
     .parameter "context"
     .parameter "audioManager"
     .parameter "handler"
@@ -44,7 +44,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_12
+    fill-array-data v0, :array_0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$SilentModeTriStateAction;->ITEM_IDS:[I
 
@@ -61,7 +61,7 @@
     return-void
 
     .line 643
-    :array_12
+    :array_0
     .array-data 0x4
         0xa3t 0x2t 0x2t 0x1t
         0xa4t 0x2t 0x2t 0x1t
@@ -70,7 +70,7 @@
 .end method
 
 .method private indexToRingerMode(I)I
-    .registers 2
+    .locals 0
     .parameter "index"
 
     .prologue
@@ -79,7 +79,7 @@
 .end method
 
 .method private ringerModeToIndex(I)I
-    .registers 2
+    .locals 0
     .parameter "ringerMode"
 
     .prologue
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public create(Landroid/content/Context;Landroid/view/View;Landroid/view/ViewGroup;Landroid/view/LayoutInflater;)Landroid/view/View;
-    .registers 11
+    .locals 6
     .parameter "context"
     .parameter "convertView"
     .parameter "parent"
@@ -123,10 +123,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_13
+    :goto_0
     const/4 v4, 0x3
 
-    if-ge v0, v4, :cond_33
+    if-ge v0, v4, :cond_1
 
     .line 671
     iget-object v4, p0, Lcom/android/internal/policy/impl/GlobalActions$SilentModeTriStateAction;->ITEM_IDS:[I
@@ -139,11 +139,11 @@
 
     .line 672
     .local v1, itemView:Landroid/view/View;
-    if-ne v2, v0, :cond_31
+    if-ne v2, v0, :cond_0
 
     const/4 v4, 0x1
 
-    :goto_21
+    :goto_1
     invoke-virtual {v1, v4}, Landroid/view/View;->setSelected(Z)V
 
     .line 674
@@ -159,22 +159,22 @@
     .line 670
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_13
+    goto :goto_0
 
-    :cond_31
+    :cond_0
     move v4, v5
 
     .line 672
-    goto :goto_21
+    goto :goto_1
 
     .line 677
     .end local v1           #itemView:Landroid/view/View;
-    :cond_33
+    :cond_1
     return-object v3
 .end method
 
 .method public isEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 696
@@ -184,7 +184,7 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .registers 7
+    .locals 5
     .parameter "v"
 
     .prologue
@@ -195,14 +195,14 @@
 
     instance-of v1, v1, Ljava/lang/Integer;
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_0
 
     .line 708
-    :goto_8
+    :goto_0
     return-void
 
     .line 705
-    :cond_9
+    :cond_0
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v1
@@ -232,11 +232,11 @@
 
     invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public onLongPress()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 684
@@ -246,7 +246,7 @@
 .end method
 
 .method public onPress()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 681
@@ -254,7 +254,7 @@
 .end method
 
 .method public showBeforeProvisioning()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 692
@@ -264,7 +264,7 @@
 .end method
 
 .method public showDuringKeyguard()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 688
@@ -274,7 +274,7 @@
 .end method
 
 .method willCreate()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 700

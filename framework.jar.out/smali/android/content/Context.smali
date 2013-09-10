@@ -135,7 +135,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 51
@@ -150,7 +150,7 @@
 .end method
 
 .method public bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;II)Z
-    .registers 7
+    .locals 2
     .parameter "service"
     .parameter "conn"
     .parameter "flags"
@@ -304,7 +304,7 @@
 .end method
 
 .method public final getString(I)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "resId"
 
     .prologue
@@ -321,7 +321,7 @@
 .end method
 
 .method public final varargs getString(I[Ljava/lang/Object;)Ljava/lang/String;
-    .registers 4
+    .locals 1
     .parameter "resId"
     .parameter "formatArgs"
 
@@ -342,7 +342,7 @@
 .end method
 
 .method public final getText(I)Ljava/lang/CharSequence;
-    .registers 3
+    .locals 1
     .parameter "resId"
 
     .prologue
@@ -362,7 +362,7 @@
 .end method
 
 .method public getThemeResId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 321
@@ -390,7 +390,7 @@
 .end method
 
 .method public isRestricted()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2385
@@ -400,7 +400,7 @@
 .end method
 
 .method public final obtainStyledAttributes(I[I)Landroid/content/res/TypedArray;
-    .registers 4
+    .locals 1
     .parameter "resid"
     .parameter "attrs"
     .annotation system Ldalvik/annotation/Throws;
@@ -423,7 +423,7 @@
 .end method
 
 .method public final obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
-    .registers 5
+    .locals 2
     .parameter "set"
     .parameter "attrs"
 
@@ -443,7 +443,7 @@
 .end method
 
 .method public final obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
-    .registers 6
+    .locals 1
     .parameter "set"
     .parameter "attrs"
     .parameter "defStyleAttr"
@@ -463,7 +463,7 @@
 .end method
 
 .method public final obtainStyledAttributes([I)Landroid/content/res/TypedArray;
-    .registers 3
+    .locals 1
     .parameter "attrs"
 
     .prologue
@@ -507,7 +507,7 @@
 .end method
 
 .method public registerComponentCallbacks(Landroid/content/ComponentCallbacks;)V
-    .registers 3
+    .locals 1
     .parameter "callback"
 
     .prologue
@@ -538,7 +538,7 @@
 .end method
 
 .method public sendBroadcast(Landroid/content/Intent;I)V
-    .registers 5
+    .locals 2
     .parameter "intent"
     .parameter "userId"
 
@@ -634,7 +634,7 @@
 .end method
 
 .method public unregisterComponentCallbacks(Landroid/content/ComponentCallbacks;)V
-    .registers 3
+    .locals 1
     .parameter "callback"
 
     .prologue

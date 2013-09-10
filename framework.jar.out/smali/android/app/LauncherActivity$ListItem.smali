@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 89
@@ -41,7 +41,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/pm/PackageManager;Landroid/content/pm/ResolveInfo;Landroid/app/LauncherActivity$IconResizer;)V
-    .registers 6
+    .locals 2
     .parameter "pm"
     .parameter "resolveInfo"
     .parameter "resizer"
@@ -65,17 +65,17 @@
 
     .line 77
     .local v0, ci:Landroid/content/pm/ComponentInfo;
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     iget-object v0, p2, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     .line 78
-    :cond_11
+    :cond_0
     iget-object v1, p0, Landroid/app/LauncherActivity$ListItem;->label:Ljava/lang/CharSequence;
 
-    if-nez v1, :cond_1d
+    if-nez v1, :cond_1
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_1
 
     .line 79
     iget-object v1, p2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
@@ -85,8 +85,8 @@
     iput-object v1, p0, Landroid/app/LauncherActivity$ListItem;->label:Ljava/lang/CharSequence;
 
     .line 82
-    :cond_1d
-    if-eqz p3, :cond_29
+    :cond_1
+    if-eqz p3, :cond_2
 
     .line 83
     invoke-virtual {p2, p1}, Landroid/content/pm/ResolveInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
@@ -100,7 +100,7 @@
     iput-object v1, p0, Landroid/app/LauncherActivity$ListItem;->icon:Landroid/graphics/drawable/Drawable;
 
     .line 85
-    :cond_29
+    :cond_2
     iget-object v1, v0, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget-object v1, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;

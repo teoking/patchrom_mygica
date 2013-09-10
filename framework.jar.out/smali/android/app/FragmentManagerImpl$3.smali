@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/FragmentManagerImpl;Ljava/lang/String;I)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 460

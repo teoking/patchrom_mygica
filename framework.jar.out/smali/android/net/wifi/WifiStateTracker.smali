@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "netType"
     .parameter "networkName"
 
@@ -121,7 +121,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/net/wifi/WifiStateTracker;)Landroid/net/NetworkInfo;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -132,7 +132,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/net/wifi/WifiStateTracker;Landroid/net/NetworkInfo;)Landroid/net/NetworkInfo;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -144,7 +144,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/net/wifi/WifiStateTracker;)Landroid/net/LinkProperties;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -155,7 +155,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/net/wifi/WifiStateTracker;Landroid/net/LinkProperties;)Landroid/net/LinkProperties;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -167,7 +167,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/net/wifi/WifiStateTracker;)Landroid/net/LinkCapabilities;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -178,7 +178,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/net/wifi/WifiStateTracker;Landroid/net/LinkCapabilities;)Landroid/net/LinkCapabilities;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -190,7 +190,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/net/wifi/WifiStateTracker;)Landroid/net/NetworkInfo$State;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -201,7 +201,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/net/wifi/WifiStateTracker;Landroid/net/NetworkInfo$State;)Landroid/net/NetworkInfo$State;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -213,7 +213,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/net/wifi/WifiStateTracker;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -226,7 +226,7 @@
 
 # virtual methods
 .method public defaultRouteSet(Z)V
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
@@ -240,7 +240,7 @@
 .end method
 
 .method public getLinkCapabilities()Landroid/net/LinkCapabilities;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 182
@@ -254,7 +254,7 @@
 .end method
 
 .method public getLinkProperties()Landroid/net/LinkProperties;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 172
@@ -268,7 +268,7 @@
 .end method
 
 .method public getNetworkInfo()Landroid/net/NetworkInfo;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 165
@@ -282,7 +282,7 @@
 .end method
 
 .method public getTcpBufferSizesPropName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 204
@@ -292,7 +292,7 @@
 .end method
 
 .method public isAvailable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 134
@@ -306,7 +306,7 @@
 .end method
 
 .method public isDefaultRouteSet()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 189
@@ -320,7 +320,7 @@
 .end method
 
 .method public isPrivateDnsRouteSet()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 151
@@ -334,7 +334,7 @@
 .end method
 
 .method public isTeardownRequested()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -348,7 +348,7 @@
 .end method
 
 .method public privateDnsRouteSet(Z)V
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
@@ -362,7 +362,7 @@
 .end method
 
 .method public reconnect()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 110
@@ -384,7 +384,7 @@
 .end method
 
 .method public setDependencyMet(Z)V
-    .registers 2
+    .locals 0
     .parameter "met"
 
     .prologue
@@ -393,7 +393,7 @@
 .end method
 
 .method public setPolicyDataEnable(Z)V
-    .registers 2
+    .locals 0
     .parameter "enabled"
 
     .prologue
@@ -402,7 +402,7 @@
 .end method
 
 .method public setRadio(Z)Z
-    .registers 3
+    .locals 1
     .parameter "turnOn"
 
     .prologue
@@ -418,7 +418,7 @@
 .end method
 
 .method public setTeardownRequested(Z)V
-    .registers 3
+    .locals 1
     .parameter "isRequested"
 
     .prologue
@@ -432,7 +432,7 @@
 .end method
 
 .method public setUserDataEnable(Z)V
-    .registers 5
+    .locals 3
     .parameter "enabled"
 
     .prologue
@@ -470,7 +470,7 @@
 .end method
 
 .method public startMonitoring(Landroid/content/Context;Landroid/os/Handler;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "target"
 
@@ -536,7 +536,7 @@
 .end method
 
 .method public teardown()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x1

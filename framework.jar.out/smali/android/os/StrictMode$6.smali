@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1760
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public finish()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1763

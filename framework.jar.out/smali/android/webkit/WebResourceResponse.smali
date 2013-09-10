@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/io/InputStream;)V
-    .registers 4
+    .locals 0
     .parameter "mimeType"
     .parameter "encoding"
     .parameter "data"
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public getData()Ljava/io/InputStream;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 104
@@ -48,7 +48,7 @@
 .end method
 
 .method public getEncoding()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 85
@@ -58,7 +58,7 @@
 .end method
 
 .method public getMimeType()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 66
@@ -68,7 +68,7 @@
 .end method
 
 .method public setData(Ljava/io/InputStream;)V
-    .registers 2
+    .locals 0
     .parameter "data"
 
     .prologue
@@ -80,7 +80,7 @@
 .end method
 
 .method public setEncoding(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "encoding"
 
     .prologue
@@ -92,7 +92,7 @@
 .end method
 
 .method public setMimeType(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "mimeType"
 
     .prologue

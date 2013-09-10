@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;Landroid/content/pm/ApplicationInfo;I)V
-    .registers 4
+    .locals 0
     .parameter "_agentStats"
     .parameter "_appInfo"
     .parameter "_backupMode"
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     const/16 v3, 0x20
@@ -60,17 +60,17 @@
     .line 47
     iget-object v1, p0, Lcom/android/server/am/BackupRecord;->stringName:Ljava/lang/String;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_0
 
     .line 48
     iget-object v1, p0, Lcom/android/server/am/BackupRecord;->stringName:Ljava/lang/String;
 
     .line 56
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 50
-    :cond_9
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x80
@@ -144,5 +144,5 @@
 
     iput-object v1, p0, Lcom/android/server/am/BackupRecord;->stringName:Ljava/lang/String;
 
-    goto :goto_8
+    goto :goto_0
 .end method

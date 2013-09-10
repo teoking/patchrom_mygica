@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/io/File;J)V
-    .registers 5
+    .locals 1
     .parameter "directory"
     .parameter "maxSize"
     .annotation system Ldalvik/annotation/Throws;
@@ -38,7 +38,7 @@
 .end method
 
 .method public static getInstalled()Landroid/net/http/HttpResponseCache;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 168
@@ -50,23 +50,23 @@
     .local v0, installed:Ljava/net/ResponseCache;
     instance-of v1, v0, Landroid/net/http/HttpResponseCache;
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
     check-cast v0, Landroid/net/http/HttpResponseCache;
 
     .end local v0           #installed:Ljava/net/ResponseCache;
-    :goto_a
+    :goto_0
     return-object v0
 
     .restart local v0       #installed:Ljava/net/ResponseCache;
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public static install(Ljava/io/File;J)Landroid/net/http/HttpResponseCache;
-    .registers 8
+    .locals 5
     .parameter "directory"
     .parameter "maxSize"
     .annotation system Ldalvik/annotation/Throws;
@@ -83,7 +83,7 @@
 
     .line 185
     .local v0, installed:Landroid/net/http/HttpResponseCache;
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_1
 
     .line 187
     iget-object v3, v0, Landroid/net/http/HttpResponseCache;->delegate:Llibcore/net/http/HttpResponseCache;
@@ -102,7 +102,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_25
+    if-eqz v3, :cond_0
 
     invoke-virtual {v1}, Llibcore/io/DiskLruCache;->maxSize()J
 
@@ -110,29 +110,29 @@
 
     cmp-long v3, v3, p1
 
-    if-nez v3, :cond_25
+    if-nez v3, :cond_0
 
     invoke-virtual {v1}, Llibcore/io/DiskLruCache;->isClosed()Z
 
     move-result v3
 
-    if-nez v3, :cond_25
+    if-nez v3, :cond_0
 
     .line 199
     .end local v0           #installed:Landroid/net/http/HttpResponseCache;
     .end local v1           #installedCache:Llibcore/io/DiskLruCache;
-    :goto_24
+    :goto_0
     return-object v0
 
     .line 193
     .restart local v0       #installed:Landroid/net/http/HttpResponseCache;
     .restart local v1       #installedCache:Llibcore/io/DiskLruCache;
-    :cond_25
+    :cond_0
     invoke-static {v0}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     .line 197
     .end local v1           #installedCache:Llibcore/io/DiskLruCache;
-    :cond_28
+    :cond_1
     new-instance v2, Landroid/net/http/HttpResponseCache;
 
     invoke-direct {v2, p0, p1, p2}, Landroid/net/http/HttpResponseCache;-><init>(Ljava/io/File;J)V
@@ -144,13 +144,13 @@
     move-object v0, v2
 
     .line 199
-    goto :goto_24
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public close()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -163,7 +163,7 @@
 
     move-result-object v0
 
-    if-ne v0, p0, :cond_a
+    if-ne v0, p0, :cond_0
 
     .line 287
     const/4 v0, 0x0
@@ -171,7 +171,7 @@
     invoke-static {v0}, Ljava/net/ResponseCache;->setDefault(Ljava/net/ResponseCache;)V
 
     .line 289
-    :cond_a
+    :cond_0
     iget-object v0, p0, Landroid/net/http/HttpResponseCache;->delegate:Llibcore/net/http/HttpResponseCache;
 
     invoke-virtual {v0}, Llibcore/net/http/HttpResponseCache;->getCache()Llibcore/io/DiskLruCache;
@@ -185,7 +185,7 @@
 .end method
 
 .method public delete()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -198,7 +198,7 @@
 
     move-result-object v0
 
-    if-ne v0, p0, :cond_a
+    if-ne v0, p0, :cond_0
 
     .line 297
     const/4 v0, 0x0
@@ -206,7 +206,7 @@
     invoke-static {v0}, Ljava/net/ResponseCache;->setDefault(Ljava/net/ResponseCache;)V
 
     .line 299
-    :cond_a
+    :cond_0
     iget-object v0, p0, Landroid/net/http/HttpResponseCache;->delegate:Llibcore/net/http/HttpResponseCache;
 
     invoke-virtual {v0}, Llibcore/net/http/HttpResponseCache;->getCache()Llibcore/io/DiskLruCache;
@@ -220,7 +220,7 @@
 .end method
 
 .method public flush()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 235
@@ -232,22 +232,22 @@
     move-result-object v0
 
     invoke-virtual {v0}, Llibcore/io/DiskLruCache;->flush()V
-    :try_end_9
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_9} :catch_a
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 238
-    :goto_9
+    :goto_0
     return-void
 
     .line 236
-    :catch_a
+    :catch_0
     move-exception v0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public get(Ljava/net/URI;Ljava/lang/String;Ljava/util/Map;)Ljava/net/CacheResponse;
-    .registers 5
+    .locals 1
     .parameter "uri"
     .parameter "requestMethod"
     .parameter
@@ -286,7 +286,7 @@
 .end method
 
 .method public getHitCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 254
@@ -300,7 +300,7 @@
 .end method
 
 .method public getNetworkCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 245
@@ -314,7 +314,7 @@
 .end method
 
 .method public getRequestCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 263
@@ -328,7 +328,7 @@
 .end method
 
 .method public maxSize()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 225
@@ -346,7 +346,7 @@
 .end method
 
 .method public put(Ljava/net/URI;Ljava/net/URLConnection;)Ljava/net/CacheRequest;
-    .registers 4
+    .locals 1
     .parameter "uri"
     .parameter "urlConnection"
     .annotation system Ldalvik/annotation/Throws;
@@ -367,7 +367,7 @@
 .end method
 
 .method public size()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 217
@@ -385,7 +385,7 @@
 .end method
 
 .method public trackConditionalCacheHit()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 273
@@ -398,7 +398,7 @@
 .end method
 
 .method public trackResponse(Ljava/net/ResponseSource;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -412,7 +412,7 @@
 .end method
 
 .method public update(Ljava/net/CacheResponse;Ljava/net/HttpURLConnection;)V
-    .registers 4
+    .locals 1
     .parameter "conditionalCacheHit"
     .parameter "connection"
 

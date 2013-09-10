@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/am/ContentProviderRecord;Landroid/os/IBinder;)V
-    .registers 7
+    .locals 4
     .parameter
     .parameter "token"
 
@@ -47,17 +47,17 @@
     .line 223
     const/4 v1, 0x0
 
-    :try_start_8
+    :try_start_0
     invoke-interface {p2, p0, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
-    :try_end_b
-    .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_b} :catch_c
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 227
-    :goto_b
+    :goto_0
     return-void
 
     .line 224
-    :catch_c
+    :catch_0
     move-exception v0
 
     .line 225
@@ -86,11 +86,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method static synthetic access$000(Lcom/android/server/am/ContentProviderRecord$ExternalProcessHandle;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -101,7 +101,7 @@
 .end method
 
 .method static synthetic access$008(Lcom/android/server/am/ContentProviderRecord$ExternalProcessHandle;)I
-    .registers 3
+    .locals 2
     .parameter "x0"
 
     .prologue
@@ -116,7 +116,7 @@
 .end method
 
 .method static synthetic access$010(Lcom/android/server/am/ContentProviderRecord$ExternalProcessHandle;)I
-    .registers 3
+    .locals 2
     .parameter "x0"
 
     .prologue
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 235
@@ -144,14 +144,14 @@
     monitor-enter v1
 
     .line 236
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/ContentProviderRecord$ExternalProcessHandle;->this$0:Lcom/android/server/am/ContentProviderRecord;
 
     invoke-virtual {v0}, Lcom/android/server/am/ContentProviderRecord;->hasExternalProcessHandles()Z
 
     move-result v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/am/ContentProviderRecord$ExternalProcessHandle;->this$0:Lcom/android/server/am/ContentProviderRecord;
 
@@ -163,35 +163,36 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     .line 238
     iget-object v0, p0, Lcom/android/server/am/ContentProviderRecord$ExternalProcessHandle;->this$0:Lcom/android/server/am/ContentProviderRecord;
 
     iget-object v2, p0, Lcom/android/server/am/ContentProviderRecord$ExternalProcessHandle;->mToken:Landroid/os/IBinder;
 
+    #calls: Lcom/android/server/am/ContentProviderRecord;->removeExternalProcessHandleInternalLocked(Landroid/os/IBinder;)V
     invoke-static {v0, v2}, Lcom/android/server/am/ContentProviderRecord;->access$100(Lcom/android/server/am/ContentProviderRecord;Landroid/os/IBinder;)V
 
     .line 240
-    :cond_20
+    :cond_0
     monitor-exit v1
 
     .line 241
     return-void
 
     .line 240
-    :catchall_22
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_24
-    .catchall {:try_start_5 .. :try_end_24} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public unlinkFromOwnDeathLocked()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 230

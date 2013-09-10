@@ -22,7 +22,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1073
@@ -32,7 +32,7 @@
 .end method
 
 .method static parseValue(Landroid/util/TypedValue;)Landroid/view/animation/Animation$Description;
-    .registers 7
+    .locals 6
     .parameter "value"
 
     .prologue
@@ -49,7 +49,7 @@
 
     .line 1099
     .local v0, d:Landroid/view/animation/Animation$Description;
-    if-nez p0, :cond_13
+    if-nez p0, :cond_1
 
     .line 1100
     iput v4, v0, Landroid/view/animation/Animation$Description;->type:I
@@ -58,34 +58,34 @@
     iput v5, v0, Landroid/view/animation/Animation$Description;->value:F
 
     .line 1121
-    :cond_e
+    :cond_0
     iput v4, v0, Landroid/view/animation/Animation$Description;->type:I
 
     .line 1122
     iput v5, v0, Landroid/view/animation/Animation$Description;->value:F
 
     .line 1124
-    :goto_12
+    :goto_0
     return-object v0
 
     .line 1103
-    :cond_13
+    :cond_1
     iget v2, p0, Landroid/util/TypedValue;->type:I
 
     const/4 v3, 0x6
 
-    if-ne v2, v3, :cond_2a
+    if-ne v2, v3, :cond_3
 
     .line 1104
     iget v2, p0, Landroid/util/TypedValue;->data:I
 
     and-int/lit8 v2, v2, 0xf
 
-    if-ne v2, v1, :cond_1f
+    if-ne v2, v1, :cond_2
 
     const/4 v1, 0x2
 
-    :cond_1f
+    :cond_2
     iput v1, v0, Landroid/view/animation/Animation$Description;->type:I
 
     .line 1107
@@ -97,15 +97,15 @@
 
     iput v1, v0, Landroid/view/animation/Animation$Description;->value:F
 
-    goto :goto_12
+    goto :goto_0
 
     .line 1109
-    :cond_2a
+    :cond_3
     iget v1, p0, Landroid/util/TypedValue;->type:I
 
     const/4 v2, 0x4
 
-    if-ne v1, v2, :cond_38
+    if-ne v1, v2, :cond_4
 
     .line 1110
     iput v4, v0, Landroid/view/animation/Animation$Description;->type:I
@@ -117,21 +117,21 @@
 
     iput v1, v0, Landroid/view/animation/Animation$Description;->value:F
 
-    goto :goto_12
+    goto :goto_0
 
     .line 1113
-    :cond_38
+    :cond_4
     iget v1, p0, Landroid/util/TypedValue;->type:I
 
     const/16 v2, 0x10
 
-    if-lt v1, v2, :cond_e
+    if-lt v1, v2, :cond_0
 
     iget v1, p0, Landroid/util/TypedValue;->type:I
 
     const/16 v2, 0x1f
 
-    if-gt v1, v2, :cond_e
+    if-gt v1, v2, :cond_0
 
     .line 1115
     iput v4, v0, Landroid/view/animation/Animation$Description;->type:I
@@ -143,5 +143,5 @@
 
     iput v1, v0, Landroid/view/animation/Animation$Description;->value:F
 
-    goto :goto_12
+    goto :goto_0
 .end method

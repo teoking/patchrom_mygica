@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 28
@@ -15,7 +15,7 @@
 .end method
 
 .method public static getObbInfo(Ljava/lang/String;)Landroid/content/res/ObbInfo;
-    .registers 7
+    .locals 6
     .parameter "filePath"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -25,7 +25,7 @@
 
     .prologue
     .line 39
-    if-nez p0, :cond_a
+    if-nez p0, :cond_0
 
     .line 40
     new-instance v3, Ljava/lang/IllegalArgumentException;
@@ -37,7 +37,7 @@
     throw v3
 
     .line 43
-    :cond_a
+    :cond_0
     new-instance v1, Ljava/io/File;
 
     invoke-direct {v1, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
@@ -48,7 +48,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2e
+    if-nez v3, :cond_1
 
     .line 45
     new-instance v3, Ljava/lang/IllegalArgumentException;
@@ -76,7 +76,7 @@
     throw v3
 
     .line 52
-    :cond_2e
+    :cond_1
     invoke-virtual {v1}, Ljava/io/File;->getCanonicalPath()Ljava/lang/String;
 
     move-result-object v0

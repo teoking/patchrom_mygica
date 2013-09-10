@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 35
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .registers 3
+    .locals 0
     .parameter "base"
     .parameter "themeres"
 
@@ -47,20 +47,20 @@
 .end method
 
 .method private initializeTheme()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 98
     iget-object v2, p0, Landroid/view/ContextThemeWrapper;->mTheme:Landroid/content/res/Resources$Theme;
 
-    if-nez v2, :cond_26
+    if-nez v2, :cond_1
 
     const/4 v0, 0x1
 
     .line 99
     .local v0, first:Z
-    :goto_5
-    if-eqz v0, :cond_1e
+    :goto_0
+    if-eqz v0, :cond_0
 
     .line 100
     invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getResources()Landroid/content/res/Resources;
@@ -82,7 +82,7 @@
 
     .line 102
     .local v1, theme:Landroid/content/res/Resources$Theme;
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_0
 
     .line 103
     iget-object v2, p0, Landroid/view/ContextThemeWrapper;->mTheme:Landroid/content/res/Resources$Theme;
@@ -91,7 +91,7 @@
 
     .line 106
     .end local v1           #theme:Landroid/content/res/Resources$Theme;
-    :cond_1e
+    :cond_0
     iget-object v2, p0, Landroid/view/ContextThemeWrapper;->mTheme:Landroid/content/res/Resources$Theme;
 
     iget v3, p0, Landroid/view/ContextThemeWrapper;->mThemeResource:I
@@ -103,16 +103,16 @@
 
     .line 98
     .end local v0           #first:Z
-    :cond_26
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected attachBaseContext(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "newBase"
 
     .prologue
@@ -127,7 +127,7 @@
 .end method
 
 .method public getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -138,12 +138,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_1
 
     .line 74
     iget-object v0, p0, Landroid/view/ContextThemeWrapper;->mInflater:Landroid/view/LayoutInflater;
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_0
 
     .line 75
     iget-object v0, p0, Landroid/view/ContextThemeWrapper;->mBase:Landroid/content/Context;
@@ -159,41 +159,41 @@
     iput-object v0, p0, Landroid/view/ContextThemeWrapper;->mInflater:Landroid/view/LayoutInflater;
 
     .line 77
-    :cond_18
+    :cond_0
     iget-object v0, p0, Landroid/view/ContextThemeWrapper;->mInflater:Landroid/view/LayoutInflater;
 
     .line 79
-    :goto_1a
+    :goto_0
     return-object v0
 
-    :cond_1b
+    :cond_1
     iget-object v0, p0, Landroid/view/ContextThemeWrapper;->mBase:Landroid/content/Context;
 
     invoke-virtual {v0, p1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 .method public getTheme()Landroid/content/res/Resources$Theme;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 61
     iget-object v0, p0, Landroid/view/ContextThemeWrapper;->mTheme:Landroid/content/res/Resources$Theme;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 62
     iget-object v0, p0, Landroid/view/ContextThemeWrapper;->mTheme:Landroid/content/res/Resources$Theme;
 
     .line 69
-    :goto_6
+    :goto_0
     return-object v0
 
     .line 65
-    :cond_7
+    :cond_0
     iget v0, p0, Landroid/view/ContextThemeWrapper;->mThemeResource:I
 
     invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
@@ -214,11 +214,11 @@
     .line 69
     iget-object v0, p0, Landroid/view/ContextThemeWrapper;->mTheme:Landroid/content/res/Resources$Theme;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getThemeResId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 57
@@ -228,7 +228,7 @@
 .end method
 
 .method protected onApplyThemeResource(Landroid/content/res/Resources$Theme;IZ)V
-    .registers 5
+    .locals 1
     .parameter "theme"
     .parameter "resid"
     .parameter "first"
@@ -244,7 +244,7 @@
 .end method
 
 .method public setTheme(I)V
-    .registers 2
+    .locals 0
     .parameter "resid"
 
     .prologue

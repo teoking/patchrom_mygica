@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 4
+    .locals 1
     .parameter "dialog"
     .parameter "which"
 
@@ -46,6 +46,7 @@
     .line 134
     iget-object v0, p0, Lcom/android/server/pm/ShutdownThread$1;->val$context:Landroid/content/Context;
 
+    #calls: Lcom/android/server/pm/ShutdownThread;->beginShutdownSequence(Landroid/content/Context;)V
     invoke-static {v0}, Lcom/android/server/pm/ShutdownThread;->access$000(Landroid/content/Context;)V
 
     .line 135

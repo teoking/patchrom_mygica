@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 19
@@ -63,22 +63,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/accessibilityservice/IAccessibilityServiceConnection;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 28
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 29
     const/4 v0, 0x0
 
     .line 35
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 31
-    :cond_4
+    :cond_0
     const-string v1, "android.accessibilityservice.IAccessibilityServiceConnection"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -87,31 +87,31 @@
 
     .line 32
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/accessibilityservice/IAccessibilityServiceConnection;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 33
     check-cast v0, Landroid/accessibilityservice/IAccessibilityServiceConnection;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 35
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/accessibilityservice/IAccessibilityServiceConnection$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/accessibilityservice/IAccessibilityServiceConnection$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 39
@@ -119,7 +119,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 27
+    .locals 22
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -132,18 +132,18 @@
 
     .prologue
     .line 43
-    sparse-switch p1, :sswitch_data_1de
+    sparse-switch p1, :sswitch_data_0
 
     .line 216
     invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
 
-    :goto_7
+    :goto_0
     return v2
 
     .line 47
-    :sswitch_8
+    :sswitch_0
     const-string v2, "android.accessibilityservice.IAccessibilityServiceConnection"
 
     move-object/from16 v0, p3
@@ -153,10 +153,10 @@
     .line 48
     const/4 v2, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 52
-    :sswitch_11
+    :sswitch_1
     const-string v2, "android.accessibilityservice.IAccessibilityServiceConnection"
 
     move-object/from16 v0, p2
@@ -168,7 +168,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_32
+    if-eqz v2, :cond_0
 
     .line 55
     sget-object v2, Landroid/accessibilityservice/AccessibilityServiceInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -183,7 +183,7 @@
 
     .line 60
     .local v3, _arg0:Landroid/accessibilityservice/AccessibilityServiceInfo;
-    :goto_28
+    :goto_1
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v3}, Landroid/accessibilityservice/IAccessibilityServiceConnection$Stub;->setServiceInfo(Landroid/accessibilityservice/AccessibilityServiceInfo;)V
@@ -194,19 +194,19 @@
     .line 62
     const/4 v2, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 58
     .end local v3           #_arg0:Landroid/accessibilityservice/AccessibilityServiceInfo;
-    :cond_32
+    :cond_0
     const/4 v3, 0x0
 
     .restart local v3       #_arg0:Landroid/accessibilityservice/AccessibilityServiceInfo;
-    goto :goto_28
+    goto :goto_1
 
     .line 66
     .end local v3           #_arg0:Landroid/accessibilityservice/AccessibilityServiceInfo;
-    :sswitch_34
+    :sswitch_2
     const-string v2, "android.accessibilityservice.IAccessibilityServiceConnection"
 
     move-object/from16 v0, p2
@@ -274,7 +274,7 @@
     .line 82
     const/4 v2, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 86
     .end local v3           #_arg0:I
@@ -284,7 +284,7 @@
     .end local v8           #_arg4:I
     .end local v9           #_arg5:J
     .end local v21           #_result:F
-    :sswitch_69
+    :sswitch_3
     const-string v2, "android.accessibilityservice.IAccessibilityServiceConnection"
 
     move-object/from16 v0, p2
@@ -352,7 +352,7 @@
     .line 102
     const/4 v2, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 106
     .end local v3           #_arg0:I
@@ -362,7 +362,7 @@
     .end local v8           #_arg4:Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
     .end local v9           #_arg5:J
     .end local v21           #_result:F
-    :sswitch_9f
+    :sswitch_4
     const-string v2, "android.accessibilityservice.IAccessibilityServiceConnection"
 
     move-object/from16 v0, p2
@@ -430,7 +430,7 @@
     .line 122
     const/4 v2, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 126
     .end local v3           #_arg0:I
@@ -440,7 +440,7 @@
     .end local v8           #_arg4:Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
     .end local v9           #_arg5:J
     .end local v21           #_result:F
-    :sswitch_d5
+    :sswitch_5
     const-string v2, "android.accessibilityservice.IAccessibilityServiceConnection"
 
     move-object/from16 v0, p2
@@ -508,7 +508,7 @@
     .line 142
     const/4 v2, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 146
     .end local v3           #_arg0:I
@@ -518,7 +518,7 @@
     .end local v8           #_arg4:Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
     .end local v9           #_arg5:J
     .end local v21           #_result:F
-    :sswitch_10b
+    :sswitch_6
     const-string v2, "android.accessibilityservice.IAccessibilityServiceConnection"
 
     move-object/from16 v0, p2
@@ -586,7 +586,7 @@
     .line 162
     const/4 v2, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 166
     .end local v3           #_arg0:I
@@ -596,7 +596,7 @@
     .end local v8           #_arg4:Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
     .end local v9           #_arg5:J
     .end local v21           #_result:F
-    :sswitch_141
+    :sswitch_7
     const-string v2, "android.accessibilityservice.IAccessibilityServiceConnection"
 
     move-object/from16 v0, p2
@@ -626,7 +626,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_191
+    if-eqz v2, :cond_1
 
     .line 175
     sget-object v2, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -641,7 +641,7 @@
 
     .line 181
     .local v7, _arg3:Landroid/os/Bundle;
-    :goto_164
+    :goto_2
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v8
@@ -687,11 +687,11 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 188
-    if-eqz v21, :cond_193
+    if-eqz v21, :cond_2
 
     const/4 v2, 0x1
 
-    :goto_189
+    :goto_3
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -699,7 +699,7 @@
     .line 189
     const/4 v2, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 178
     .end local v7           #_arg3:Landroid/os/Bundle;
@@ -707,21 +707,21 @@
     .end local v9           #_arg5:Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
     .end local v19           #_arg6:J
     .end local v21           #_result:Z
-    :cond_191
+    :cond_1
     const/4 v7, 0x0
 
     .restart local v7       #_arg3:Landroid/os/Bundle;
-    goto :goto_164
+    goto :goto_2
 
     .line 188
     .restart local v8       #_arg4:I
     .restart local v9       #_arg5:Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
     .restart local v19       #_arg6:J
     .restart local v21       #_result:Z
-    :cond_193
+    :cond_2
     const/4 v2, 0x0
 
-    goto :goto_189
+    goto :goto_3
 
     .line 193
     .end local v3           #_arg0:I
@@ -732,7 +732,7 @@
     .end local v9           #_arg5:Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;
     .end local v19           #_arg6:J
     .end local v21           #_result:Z
-    :sswitch_195
+    :sswitch_8
     const-string v2, "android.accessibilityservice.IAccessibilityServiceConnection"
 
     move-object/from16 v0, p2
@@ -749,7 +749,7 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 196
-    if-eqz v21, :cond_1b6
+    if-eqz v21, :cond_3
 
     .line 197
     const/4 v2, 0x1
@@ -768,24 +768,24 @@
     invoke-virtual {v0, v1, v2}, Landroid/accessibilityservice/AccessibilityServiceInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 203
-    :goto_1b3
+    :goto_4
     const/4 v2, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 201
-    :cond_1b6
+    :cond_3
     const/4 v2, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1b3
+    goto :goto_4
 
     .line 207
     .end local v21           #_result:Landroid/accessibilityservice/AccessibilityServiceInfo;
-    :sswitch_1bd
+    :sswitch_9
     const-string v2, "android.accessibilityservice.IAccessibilityServiceConnection"
 
     move-object/from16 v0, p2
@@ -810,11 +810,11 @@
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 212
-    if-eqz v21, :cond_1dc
+    if-eqz v21, :cond_4
 
     const/4 v2, 0x1
 
-    :goto_1d4
+    :goto_5
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -822,26 +822,26 @@
     .line 213
     const/4 v2, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 212
-    :cond_1dc
+    :cond_4
     const/4 v2, 0x0
 
-    goto :goto_1d4
+    goto :goto_5
 
     .line 43
-    :sswitch_data_1de
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_11
-        0x2 -> :sswitch_34
-        0x3 -> :sswitch_69
-        0x4 -> :sswitch_9f
-        0x5 -> :sswitch_d5
-        0x6 -> :sswitch_10b
-        0x7 -> :sswitch_141
-        0x8 -> :sswitch_195
-        0x9 -> :sswitch_1bd
-        0x5f4e5446 -> :sswitch_8
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
+        0x8 -> :sswitch_8
+        0x9 -> :sswitch_9
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 338
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 174
@@ -80,7 +80,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/LinkCapabilities;)V
-    .registers 4
+    .locals 2
     .parameter "source"
 
     .prologue
@@ -88,7 +88,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 184
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_0
 
     .line 185
     new-instance v0, Ljava/util/HashMap;
@@ -100,22 +100,22 @@
     iput-object v0, p0, Landroid/net/LinkCapabilities;->mCapabilities:Ljava/util/HashMap;
 
     .line 189
-    :goto_e
+    :goto_0
     return-void
 
     .line 187
-    :cond_f
+    :cond_0
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Landroid/net/LinkCapabilities;->mCapabilities:Ljava/util/HashMap;
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method static synthetic access$000(Landroid/net/LinkCapabilities;)Ljava/util/HashMap;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -126,7 +126,7 @@
 .end method
 
 .method public static createNeedsMap(Ljava/lang/String;)Landroid/net/LinkCapabilities;
-    .registers 2
+    .locals 1
     .parameter "applicationRole"
 
     .prologue
@@ -139,7 +139,7 @@
 .end method
 
 .method protected static log(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "s"
 
     .prologue
@@ -155,7 +155,7 @@
 
 # virtual methods
 .method public clear()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 205
@@ -168,7 +168,7 @@
 .end method
 
 .method public containsKey(I)Z
-    .registers 4
+    .locals 2
     .parameter "key"
 
     .prologue
@@ -187,7 +187,7 @@
 .end method
 
 .method public containsValue(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "value"
 
     .prologue
@@ -202,7 +202,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 296
@@ -212,7 +212,7 @@
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -238,7 +238,7 @@
 .end method
 
 .method public get(I)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "key"
 
     .prologue
@@ -259,7 +259,7 @@
 .end method
 
 .method public isEmpty()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 212
@@ -273,7 +273,7 @@
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -296,7 +296,7 @@
 .end method
 
 .method public put(ILjava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "key"
     .parameter "value"
 
@@ -315,7 +315,7 @@
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 221
@@ -329,7 +329,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 304
@@ -363,7 +363,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4c
+    if-eqz v4, :cond_1
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -373,13 +373,13 @@
 
     .line 308
     .local v0, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/String;>;"
-    if-eqz v1, :cond_46
+    if-eqz v1, :cond_0
 
     .line 309
     const/4 v1, 0x0
 
     .line 313
-    :goto_25
+    :goto_0
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v4
@@ -414,30 +414,30 @@
 
     .line 319
     .end local v0           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/String;>;"
-    :goto_45
+    :goto_1
     return-object v4
 
     .line 311
     .restart local v0       #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/String;>;"
-    :cond_46
+    :cond_0
     const-string v4, ","
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_25
+    goto :goto_0
 
     .line 319
     .end local v0           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/String;>;"
-    :cond_4c
+    :cond_1
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_45
+    goto :goto_1
 .end method
 
 .method public values()Ljava/util/Collection;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -460,7 +460,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "dest"
     .parameter "flags"
 
@@ -486,12 +486,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_13
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_36
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -522,10 +522,10 @@
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_13
+    goto :goto_0
 
     .line 332
     .end local v0           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/String;>;"
-    :cond_36
+    :cond_0
     return-void
 .end method

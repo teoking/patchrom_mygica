@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/sip/SipRegistrationListener;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "listener"
     .parameter "uri"
 
@@ -41,36 +41,36 @@
 .end method
 
 .method private getUri(Landroid/net/sip/ISipSession;)Ljava/lang/String;
-    .registers 6
+    .locals 4
     .parameter "session"
 
     .prologue
     .line 589
-    if-nez p1, :cond_5
+    if-nez p1, :cond_0
 
-    :try_start_2
+    :try_start_0
     iget-object v1, p0, Landroid/net/sip/SipManager$ListenerRelay;->mUri:Ljava/lang/String;
 
     .line 595
-    :goto_4
+    :goto_0
     return-object v1
 
     .line 589
-    :cond_5
+    :cond_0
     invoke-interface {p1}, Landroid/net/sip/ISipSession;->getLocalProfile()Landroid/net/sip/SipProfile;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/net/sip/SipProfile;->getUriString()Ljava/lang/String;
-    :try_end_c
-    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_c} :catch_e
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 592
-    :catch_e
+    :catch_0
     move-exception v0
 
     .line 594
@@ -100,13 +100,13 @@
     .line 595
     const/4 v1, 0x0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public onRegistering(Landroid/net/sip/ISipSession;)V
-    .registers 4
+    .locals 2
     .parameter "session"
 
     .prologue
@@ -124,7 +124,7 @@
 .end method
 
 .method public onRegistrationDone(Landroid/net/sip/ISipSession;I)V
-    .registers 7
+    .locals 4
     .parameter "session"
     .parameter "duration"
 
@@ -134,7 +134,7 @@
 
     .line 607
     .local v0, expiryTime:J
-    if-lez p2, :cond_8
+    if-lez p2, :cond_0
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -143,7 +143,7 @@
     add-long/2addr v0, v2
 
     .line 608
-    :cond_8
+    :cond_0
     iget-object v2, p0, Landroid/net/sip/SipManager$ListenerRelay;->mListener:Landroid/net/sip/SipRegistrationListener;
 
     invoke-direct {p0, p1}, Landroid/net/sip/SipManager$ListenerRelay;->getUri(Landroid/net/sip/ISipSession;)Ljava/lang/String;
@@ -157,7 +157,7 @@
 .end method
 
 .method public onRegistrationFailed(Landroid/net/sip/ISipSession;ILjava/lang/String;)V
-    .registers 6
+    .locals 2
     .parameter "session"
     .parameter "errorCode"
     .parameter "message"
@@ -177,7 +177,7 @@
 .end method
 
 .method public onRegistrationTimeout(Landroid/net/sip/ISipSession;)V
-    .registers 6
+    .locals 4
     .parameter "session"
 
     .prologue

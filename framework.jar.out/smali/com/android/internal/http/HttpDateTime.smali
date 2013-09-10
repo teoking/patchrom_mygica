@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 68
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 28
@@ -59,7 +59,7 @@
 .end method
 
 .method private static getDate(Ljava/lang/String;)I
-    .registers 4
+    .locals 3
     .parameter "dateString"
 
     .prologue
@@ -72,7 +72,7 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_19
+    if-ne v0, v1, :cond_0
 
     .line 126
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
@@ -94,21 +94,21 @@
     add-int/2addr v0, v1
 
     .line 129
-    :goto_18
+    :goto_0
     return v0
 
-    :cond_19
+    :cond_0
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
     add-int/lit8 v0, v0, -0x30
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method private static getMonth(Ljava/lang/String;)I
-    .registers 7
+    .locals 6
     .parameter "monthString"
 
     .prologue
@@ -151,7 +151,7 @@
 
     .line 151
     .local v0, hash:I
-    sparse-switch v0, :sswitch_data_42
+    sparse-switch v0, :sswitch_data_0
 
     .line 177
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -160,94 +160,94 @@
 
     throw v1
 
-    :sswitch_28
+    :sswitch_0
     move v1, v2
 
     .line 175
-    :goto_29
-    :sswitch_29
+    :goto_0
+    :sswitch_1
     return v1
 
-    :sswitch_2a
+    :sswitch_2
     move v1, v3
 
     .line 157
-    goto :goto_29
+    goto :goto_0
 
     .line 159
-    :sswitch_2c
+    :sswitch_3
     const/4 v1, 0x3
 
-    goto :goto_29
+    goto :goto_0
 
     .line 161
-    :sswitch_2e
+    :sswitch_4
     const/4 v1, 0x4
 
-    goto :goto_29
+    goto :goto_0
 
     .line 163
-    :sswitch_30
+    :sswitch_5
     const/4 v1, 0x5
 
-    goto :goto_29
+    goto :goto_0
 
     .line 165
-    :sswitch_32
+    :sswitch_6
     const/4 v1, 0x6
 
-    goto :goto_29
+    goto :goto_0
 
     .line 167
-    :sswitch_34
+    :sswitch_7
     const/4 v1, 0x7
 
-    goto :goto_29
+    goto :goto_0
 
     .line 169
-    :sswitch_36
+    :sswitch_8
     const/16 v1, 0x8
 
-    goto :goto_29
+    goto :goto_0
 
     .line 171
-    :sswitch_39
+    :sswitch_9
     const/16 v1, 0x9
 
-    goto :goto_29
+    goto :goto_0
 
     .line 173
-    :sswitch_3c
+    :sswitch_a
     const/16 v1, 0xa
 
-    goto :goto_29
+    goto :goto_0
 
     .line 175
-    :sswitch_3f
+    :sswitch_b
     const/16 v1, 0xb
 
-    goto :goto_29
+    goto :goto_0
 
     .line 151
-    :sswitch_data_42
+    :sswitch_data_0
     .sparse-switch
-        0x9 -> :sswitch_3f
-        0xa -> :sswitch_28
-        0x16 -> :sswitch_29
-        0x1a -> :sswitch_34
-        0x1d -> :sswitch_2a
-        0x20 -> :sswitch_2c
-        0x23 -> :sswitch_39
-        0x24 -> :sswitch_2e
-        0x25 -> :sswitch_36
-        0x28 -> :sswitch_32
-        0x2a -> :sswitch_30
-        0x30 -> :sswitch_3c
+        0x9 -> :sswitch_b
+        0xa -> :sswitch_0
+        0x16 -> :sswitch_1
+        0x1a -> :sswitch_7
+        0x1d -> :sswitch_2
+        0x20 -> :sswitch_3
+        0x23 -> :sswitch_9
+        0x24 -> :sswitch_4
+        0x25 -> :sswitch_8
+        0x28 -> :sswitch_6
+        0x2a -> :sswitch_5
+        0x30 -> :sswitch_a
     .end sparse-switch
 .end method
 
 .method private static getTime(Ljava/lang/String;)Lcom/android/internal/http/HttpDateTime$TimeOfDay;
-    .registers 8
+    .locals 7
     .parameter "timeString"
 
     .prologue
@@ -274,7 +274,7 @@
 
     const/16 v6, 0x3a
 
-    if-eq v5, v6, :cond_4f
+    if-eq v5, v6, :cond_0
 
     .line 211
     mul-int/lit8 v5, v0, 0xa
@@ -292,7 +292,7 @@
     add-int v0, v5, v6
 
     .line 213
-    :goto_1d
+    :goto_0
     add-int/lit8 v1, v1, 0x1
 
     .line 215
@@ -361,16 +361,16 @@
     .end local v3           #minute:I
     .end local v4           #second:I
     .restart local v2       #i:I
-    :cond_4f
+    :cond_0
     move v1, v2
 
     .end local v2           #i:I
     .restart local v1       #i:I
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method private static getYear(Ljava/lang/String;)I
-    .registers 8
+    .locals 7
     .parameter "yearString"
 
     .prologue
@@ -387,7 +387,7 @@
 
     move-result v1
 
-    if-ne v1, v5, :cond_24
+    if-ne v1, v5, :cond_1
 
     .line 183
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
@@ -410,31 +410,31 @@
     .local v0, year:I
     const/16 v1, 0x46
 
-    if-lt v0, v1, :cond_21
+    if-lt v0, v1, :cond_0
 
     .line 186
     add-int/lit16 v1, v0, 0x76c
 
     .line 202
     .end local v0           #year:I
-    :goto_20
+    :goto_0
     return v1
 
     .line 188
     .restart local v0       #year:I
-    :cond_21
+    :cond_0
     add-int/lit16 v1, v0, 0x7d0
 
-    goto :goto_20
+    goto :goto_0
 
     .line 190
     .end local v0           #year:I
-    :cond_24
+    :cond_1
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-ne v1, v6, :cond_46
+    if-ne v1, v6, :cond_2
 
     .line 192
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
@@ -467,18 +467,18 @@
     .restart local v0       #year:I
     add-int/lit16 v1, v0, 0x76c
 
-    goto :goto_20
+    goto :goto_0
 
     .line 196
     .end local v0           #year:I
-    :cond_46
+    :cond_2
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v1
 
     const/4 v2, 0x4
 
-    if-ne v1, v2, :cond_6f
+    if-ne v1, v2, :cond_3
 
     .line 197
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
@@ -517,17 +517,17 @@
 
     add-int/2addr v1, v2
 
-    goto :goto_20
+    goto :goto_0
 
     .line 202
-    :cond_6f
+    :cond_3
     const/16 v1, 0x7b2
 
-    goto :goto_20
+    goto :goto_0
 .end method
 
 .method public static parse(Ljava/lang/String;)J
-    .registers 13
+    .locals 12
     .parameter "timeString"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -569,7 +569,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_52
+    if-eqz v1, :cond_1
 
     .line 95
     invoke-virtual {v8, v2}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -609,10 +609,10 @@
 
     .line 112
     .local v9, timeOfDay:Lcom/android/internal/http/HttpDateTime$TimeOfDay;
-    :goto_34
+    :goto_0
     const/16 v1, 0x7f6
 
-    if-lt v6, v1, :cond_3c
+    if-lt v6, v1, :cond_0
 
     .line 113
     const/16 v6, 0x7f6
@@ -624,7 +624,7 @@
     const/4 v4, 0x1
 
     .line 118
-    :cond_3c
+    :cond_0
     new-instance v0, Landroid/text/format/Time;
 
     const-string v1, "UTC"
@@ -653,7 +653,7 @@
     .line 100
     .end local v0           #time:Landroid/text/format/Time;
     .end local v9           #timeOfDay:Lcom/android/internal/http/HttpDateTime$TimeOfDay;
-    :cond_52
+    :cond_1
     sget-object v1, Lcom/android/internal/http/HttpDateTime;->HTTP_DATE_ANSIC_PATTERN:Ljava/util/regex/Pattern;
 
     invoke-virtual {v1, p0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -666,7 +666,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7f
+    if-eqz v1, :cond_2
 
     .line 102
     invoke-virtual {v7, v2}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -705,11 +705,11 @@
 
     move-result v6
 
-    goto :goto_34
+    goto :goto_0
 
     .line 107
     .end local v9           #timeOfDay:Lcom/android/internal/http/HttpDateTime$TimeOfDay;
-    :cond_7f
+    :cond_2
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v1}, Ljava/lang/IllegalArgumentException;-><init>()V

@@ -238,7 +238,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 28
@@ -248,7 +248,7 @@
 .end method
 
 .method private static errorCallbackFromNative(I)V
-    .registers 4
+    .locals 3
     .parameter "error"
 
     .prologue
@@ -262,38 +262,38 @@
     monitor-enter v2
 
     .line 177
-    :try_start_4
+    :try_start_0
     sget-object v1, Landroid/media/AudioSystem;->mErrorCallback:Landroid/media/AudioSystem$ErrorCallback;
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_0
 
     .line 178
     sget-object v0, Landroid/media/AudioSystem;->mErrorCallback:Landroid/media/AudioSystem$ErrorCallback;
 
     .line 180
-    :cond_a
+    :cond_0
     monitor-exit v2
-    :try_end_b
-    .catchall {:try_start_4 .. :try_end_b} :catchall_11
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 181
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_1
 
     .line 182
     invoke-interface {v0, p0}, Landroid/media/AudioSystem$ErrorCallback;->onError(I)V
 
     .line 184
-    :cond_10
+    :cond_1
     return-void
 
     .line 180
-    :catchall_11
+    :catchall_0
     move-exception v1
 
-    :try_start_12
+    :try_start_1
     monitor-exit v2
-    :try_end_13
-    .catchall {:try_start_12 .. :try_end_13} :catchall_11
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
@@ -302,127 +302,127 @@
 .end method
 
 .method public static getDeviceName(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "device"
 
     .prologue
     .line 269
-    sparse-switch p0, :sswitch_data_36
+    sparse-switch p0, :sswitch_data_0
 
     .line 302
     const-string v0, ""
 
-    :goto_5
+    :goto_0
     return-object v0
 
     .line 271
-    :sswitch_6
+    :sswitch_0
     const-string v0, "earpiece"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 273
-    :sswitch_9
+    :sswitch_1
     const-string/jumbo v0, "speaker"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 275
-    :sswitch_d
+    :sswitch_2
     const-string v0, "headset"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 277
-    :sswitch_10
+    :sswitch_3
     const-string v0, "headphone"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 279
-    :sswitch_13
+    :sswitch_4
     const-string v0, "bt_sco"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 281
-    :sswitch_16
+    :sswitch_5
     const-string v0, "bt_sco_hs"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 283
-    :sswitch_19
+    :sswitch_6
     const-string v0, "bt_sco_carkit"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 285
-    :sswitch_1c
+    :sswitch_7
     const-string v0, "bt_a2dp"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 287
-    :sswitch_1f
+    :sswitch_8
     const-string v0, "bt_a2dp_hp"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 289
-    :sswitch_22
+    :sswitch_9
     const-string v0, "bt_a2dp_spk"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 291
-    :sswitch_25
+    :sswitch_a
     const-string v0, "aux_digital"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 293
-    :sswitch_28
+    :sswitch_b
     const-string v0, "analog_dock"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 295
-    :sswitch_2b
+    :sswitch_c
     const-string v0, "digital_dock"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 297
-    :sswitch_2e
+    :sswitch_d
     const-string/jumbo v0, "usb_accessory"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 299
-    :sswitch_32
+    :sswitch_e
     const-string/jumbo v0, "usb_device"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 269
-    :sswitch_data_36
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_6
-        0x2 -> :sswitch_9
-        0x4 -> :sswitch_d
-        0x8 -> :sswitch_10
-        0x10 -> :sswitch_13
-        0x20 -> :sswitch_16
-        0x40 -> :sswitch_19
-        0x80 -> :sswitch_1c
-        0x100 -> :sswitch_1f
-        0x200 -> :sswitch_22
-        0x400 -> :sswitch_25
-        0x800 -> :sswitch_28
-        0x1000 -> :sswitch_2b
-        0x2000 -> :sswitch_2e
-        0x4000 -> :sswitch_32
+        0x1 -> :sswitch_0
+        0x2 -> :sswitch_1
+        0x4 -> :sswitch_2
+        0x8 -> :sswitch_3
+        0x10 -> :sswitch_4
+        0x20 -> :sswitch_5
+        0x40 -> :sswitch_6
+        0x80 -> :sswitch_7
+        0x100 -> :sswitch_8
+        0x200 -> :sswitch_9
+        0x400 -> :sswitch_a
+        0x800 -> :sswitch_b
+        0x1000 -> :sswitch_c
+        0x2000 -> :sswitch_d
+        0x4000 -> :sswitch_e
     .end sparse-switch
 .end method
 
@@ -439,7 +439,7 @@
 .end method
 
 .method public static final getNumStreamTypes()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 62
@@ -470,7 +470,7 @@
 .end method
 
 .method public static setErrorCallback(Landroid/media/AudioSystem$ErrorCallback;)V
-    .registers 3
+    .locals 2
     .parameter "cb"
 
     .prologue
@@ -480,13 +480,13 @@
     monitor-enter v1
 
     .line 164
-    :try_start_3
+    :try_start_0
     sput-object p0, Landroid/media/AudioSystem;->mErrorCallback:Landroid/media/AudioSystem$ErrorCallback;
 
     .line 165
     monitor-exit v1
-    :try_end_6
-    .catchall {:try_start_3 .. :try_end_6} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 170
     invoke-static {}, Landroid/media/AudioSystem;->isMicrophoneMuted()Z
@@ -495,13 +495,13 @@
     return-void
 
     .line 165
-    :catchall_a
+    :catchall_0
     move-exception v0
 
-    :try_start_b
+    :try_start_1
     monitor-exit v1
-    :try_end_c
-    .catchall {:try_start_b .. :try_end_c} :catchall_a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method

@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 30
@@ -27,7 +27,7 @@
 .end method
 
 .method public static final removeAllDownloadsByPackage(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "context"
     .parameter "notification_package"
     .parameter "notification_class"

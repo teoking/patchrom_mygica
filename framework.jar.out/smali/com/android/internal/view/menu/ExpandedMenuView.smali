@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "attrs"
 
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public getWindowAnimations()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 75
@@ -64,7 +64,7 @@
 .end method
 
 .method public initialize(Lcom/android/internal/view/menu/MenuBuilder;)V
-    .registers 2
+    .locals 0
     .parameter "menu"
 
     .prologue
@@ -76,7 +76,7 @@
 .end method
 
 .method public invokeItem(Lcom/android/internal/view/menu/MenuItemImpl;)Z
-    .registers 4
+    .locals 2
     .parameter "item"
 
     .prologue
@@ -93,7 +93,7 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60
@@ -109,7 +109,7 @@
 .end method
 
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 7
+    .locals 1
     .parameter "parent"
     .parameter "v"
     .parameter "position"

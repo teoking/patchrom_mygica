@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 27
@@ -27,7 +27,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 31
@@ -38,7 +38,7 @@
 .end method
 
 .method public static abs(F)F
-    .registers 2
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -47,21 +47,21 @@
 
     cmpl-float v0, p0, v0
 
-    if-lez v0, :cond_6
+    if-lez v0, :cond_0
 
     .end local p0
-    :goto_5
+    :goto_0
     return p0
 
     .restart local p0
-    :cond_6
+    :cond_0
     neg-float p0, p0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public static acos(F)F
-    .registers 3
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -78,7 +78,7 @@
 .end method
 
 .method public static asin(F)F
-    .registers 3
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -95,7 +95,7 @@
 .end method
 
 .method public static atan(F)F
-    .registers 3
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -112,7 +112,7 @@
 .end method
 
 .method public static atan2(FF)F
-    .registers 6
+    .locals 4
     .parameter "a"
     .parameter "b"
 
@@ -132,7 +132,7 @@
 .end method
 
 .method public static constrain(FFF)F
-    .registers 4
+    .locals 1
     .parameter "amount"
     .parameter "low"
     .parameter "high"
@@ -141,58 +141,58 @@
     .line 47
     cmpg-float v0, p0, p1
 
-    if-gez v0, :cond_5
+    if-gez v0, :cond_0
 
     .end local p1
-    :goto_4
+    :goto_0
     return p1
 
     .restart local p1
-    :cond_5
+    :cond_0
     cmpl-float v0, p0, p2
 
-    if-lez v0, :cond_b
+    if-lez v0, :cond_1
 
     move p1, p2
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_b
+    :cond_1
     move p1, p0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static constrain(III)I
-    .registers 3
+    .locals 0
     .parameter "amount"
     .parameter "low"
     .parameter "high"
 
     .prologue
     .line 39
-    if-ge p0, p1, :cond_3
+    if-ge p0, p1, :cond_0
 
     .end local p1
-    :goto_2
+    :goto_0
     return p1
 
     .restart local p1
-    :cond_3
-    if-le p0, p2, :cond_7
+    :cond_0
+    if-le p0, p2, :cond_1
 
     move p1, p2
 
-    goto :goto_2
+    goto :goto_0
 
-    :cond_7
+    :cond_1
     move p1, p0
 
-    goto :goto_2
+    goto :goto_0
 .end method
 
 .method public static constrain(JJJ)J
-    .registers 7
+    .locals 1
     .parameter "amount"
     .parameter "low"
     .parameter "high"
@@ -201,30 +201,30 @@
     .line 43
     cmp-long v0, p0, p2
 
-    if-gez v0, :cond_5
+    if-gez v0, :cond_0
 
     .end local p2
-    :goto_4
+    :goto_0
     return-wide p2
 
     .restart local p2
-    :cond_5
+    :cond_0
     cmp-long v0, p0, p4
 
-    if-lez v0, :cond_b
+    if-lez v0, :cond_1
 
     move-wide p2, p4
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_b
+    :cond_1
     move-wide p2, p0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static degrees(F)F
-    .registers 2
+    .locals 1
     .parameter "radians"
 
     .prologue
@@ -237,7 +237,7 @@
 .end method
 
 .method public static dist(FFFF)F
-    .registers 8
+    .locals 4
     .parameter "x1"
     .parameter "y1"
     .parameter "x2"
@@ -271,7 +271,7 @@
 .end method
 
 .method public static dist(FFFFFF)F
-    .registers 11
+    .locals 5
     .parameter "x1"
     .parameter "y1"
     .parameter "z1"
@@ -315,7 +315,7 @@
 .end method
 
 .method public static exp(F)F
-    .registers 3
+    .locals 2
     .parameter "a"
 
     .prologue
@@ -332,7 +332,7 @@
 .end method
 
 .method public static lerp(FFF)F
-    .registers 4
+    .locals 1
     .parameter "start"
     .parameter "stop"
     .parameter "amount"
@@ -349,7 +349,7 @@
 .end method
 
 .method public static log(F)F
-    .registers 3
+    .locals 2
     .parameter "a"
 
     .prologue
@@ -366,7 +366,7 @@
 .end method
 
 .method public static mag(FF)F
-    .registers 4
+    .locals 2
     .parameter "a"
     .parameter "b"
 
@@ -390,7 +390,7 @@
 .end method
 
 .method public static mag(FFF)F
-    .registers 5
+    .locals 2
     .parameter "a"
     .parameter "b"
     .parameter "c"
@@ -419,7 +419,7 @@
 .end method
 
 .method public static map(FFFFF)F
-    .registers 8
+    .locals 3
     .parameter "minStart"
     .parameter "minStop"
     .parameter "maxStart"
@@ -444,7 +444,7 @@
 .end method
 
 .method public static max(FF)F
-    .registers 3
+    .locals 1
     .parameter "a"
     .parameter "b"
 
@@ -452,21 +452,21 @@
     .line 63
     cmpl-float v0, p0, p1
 
-    if-lez v0, :cond_5
+    if-lez v0, :cond_0
 
     .end local p0
-    :goto_4
+    :goto_0
     return p0
 
     .restart local p0
-    :cond_5
+    :cond_0
     move p0, p1
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static max(FFF)F
-    .registers 4
+    .locals 1
     .parameter "a"
     .parameter "b"
     .parameter "c"
@@ -475,95 +475,95 @@
     .line 71
     cmpl-float v0, p0, p1
 
-    if-lez v0, :cond_a
+    if-lez v0, :cond_1
 
     cmpl-float v0, p0, p2
 
-    if-lez v0, :cond_9
+    if-lez v0, :cond_0
 
     move p2, p0
 
     .end local p2
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return p2
 
     .restart local p2
-    :cond_a
+    :cond_1
     cmpl-float v0, p1, p2
 
-    if-lez v0, :cond_9
+    if-lez v0, :cond_0
 
     move p2, p1
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static max(II)F
-    .registers 3
+    .locals 1
     .parameter "a"
     .parameter "b"
 
     .prologue
     .line 67
-    if-le p0, p1, :cond_4
+    if-le p0, p1, :cond_0
 
     int-to-float v0, p0
 
-    :goto_3
+    :goto_0
     return v0
 
-    :cond_4
+    :cond_0
     int-to-float v0, p1
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public static max(III)F
-    .registers 4
+    .locals 1
     .parameter "a"
     .parameter "b"
     .parameter "c"
 
     .prologue
     .line 75
-    if-le p0, p1, :cond_8
+    if-le p0, p1, :cond_1
 
-    if-le p0, p2, :cond_6
+    if-le p0, p2, :cond_0
 
     .end local p0
-    :goto_4
+    :goto_0
     int-to-float v0, p0
 
     .end local p1
-    :goto_5
+    :goto_1
     return v0
 
     .restart local p0
     .restart local p1
-    :cond_6
+    :cond_0
     move p0, p2
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_8
-    if-le p1, p2, :cond_c
+    :cond_1
+    if-le p1, p2, :cond_2
 
     .end local p1
-    :goto_a
+    :goto_2
     int-to-float v0, p1
 
-    goto :goto_5
+    goto :goto_1
 
     .restart local p1
-    :cond_c
+    :cond_2
     move p1, p2
 
-    goto :goto_a
+    goto :goto_2
 .end method
 
 .method public static min(FF)F
-    .registers 3
+    .locals 1
     .parameter "a"
     .parameter "b"
 
@@ -571,21 +571,21 @@
     .line 79
     cmpg-float v0, p0, p1
 
-    if-gez v0, :cond_5
+    if-gez v0, :cond_0
 
     .end local p0
-    :goto_4
+    :goto_0
     return p0
 
     .restart local p0
-    :cond_5
+    :cond_0
     move p0, p1
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static min(FFF)F
-    .registers 4
+    .locals 1
     .parameter "a"
     .parameter "b"
     .parameter "c"
@@ -594,95 +594,95 @@
     .line 87
     cmpg-float v0, p0, p1
 
-    if-gez v0, :cond_a
+    if-gez v0, :cond_1
 
     cmpg-float v0, p0, p2
 
-    if-gez v0, :cond_9
+    if-gez v0, :cond_0
 
     move p2, p0
 
     .end local p2
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return p2
 
     .restart local p2
-    :cond_a
+    :cond_1
     cmpg-float v0, p1, p2
 
-    if-gez v0, :cond_9
+    if-gez v0, :cond_0
 
     move p2, p1
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static min(II)F
-    .registers 3
+    .locals 1
     .parameter "a"
     .parameter "b"
 
     .prologue
     .line 83
-    if-ge p0, p1, :cond_4
+    if-ge p0, p1, :cond_0
 
     int-to-float v0, p0
 
-    :goto_3
+    :goto_0
     return v0
 
-    :cond_4
+    :cond_0
     int-to-float v0, p1
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public static min(III)F
-    .registers 4
+    .locals 1
     .parameter "a"
     .parameter "b"
     .parameter "c"
 
     .prologue
     .line 91
-    if-ge p0, p1, :cond_8
+    if-ge p0, p1, :cond_1
 
-    if-ge p0, p2, :cond_6
+    if-ge p0, p2, :cond_0
 
     .end local p0
-    :goto_4
+    :goto_0
     int-to-float v0, p0
 
     .end local p1
-    :goto_5
+    :goto_1
     return v0
 
     .restart local p0
     .restart local p1
-    :cond_6
+    :cond_0
     move p0, p2
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_8
-    if-ge p1, p2, :cond_c
+    :cond_1
+    if-ge p1, p2, :cond_2
 
     .end local p1
-    :goto_a
+    :goto_2
     int-to-float v0, p1
 
-    goto :goto_5
+    goto :goto_1
 
     .restart local p1
-    :cond_c
+    :cond_2
     move p1, p2
 
-    goto :goto_a
+    goto :goto_2
 .end method
 
 .method public static norm(FFF)F
-    .registers 5
+    .locals 2
     .parameter "start"
     .parameter "stop"
     .parameter "value"
@@ -699,7 +699,7 @@
 .end method
 
 .method public static pow(FF)F
-    .registers 6
+    .locals 4
     .parameter "a"
     .parameter "b"
 
@@ -719,7 +719,7 @@
 .end method
 
 .method public static radians(F)F
-    .registers 2
+    .locals 1
     .parameter "degrees"
 
     .prologue
@@ -732,7 +732,7 @@
 .end method
 
 .method public static random(F)F
-    .registers 2
+    .locals 1
     .parameter "howbig"
 
     .prologue
@@ -749,7 +749,7 @@
 .end method
 
 .method public static random(FF)F
-    .registers 4
+    .locals 2
     .parameter "howsmall"
     .parameter "howbig"
 
@@ -757,15 +757,15 @@
     .line 173
     cmpl-float v0, p0, p1
 
-    if-ltz v0, :cond_5
+    if-ltz v0, :cond_0
 
     .line 174
     .end local p0
-    :goto_4
+    :goto_0
     return p0
 
     .restart local p0
-    :cond_5
+    :cond_0
     sget-object v0, Landroid/util/MathUtils;->sRandom:Ljava/util/Random;
 
     invoke-virtual {v0}, Ljava/util/Random;->nextFloat()F
@@ -778,11 +778,11 @@
 
     add-float/2addr p0, v0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static random(I)I
-    .registers 3
+    .locals 2
     .parameter "howbig"
 
     .prologue
@@ -803,21 +803,21 @@
 .end method
 
 .method public static random(II)I
-    .registers 4
+    .locals 2
     .parameter "howsmall"
     .parameter "howbig"
 
     .prologue
     .line 164
-    if-lt p0, p1, :cond_3
+    if-lt p0, p1, :cond_0
 
     .line 165
     .end local p0
-    :goto_2
+    :goto_0
     return p0
 
     .restart local p0
-    :cond_3
+    :cond_0
     sget-object v0, Landroid/util/MathUtils;->sRandom:Ljava/util/Random;
 
     invoke-virtual {v0}, Ljava/util/Random;->nextFloat()F
@@ -836,11 +836,11 @@
 
     float-to-int p0, v0
 
-    goto :goto_2
+    goto :goto_0
 .end method
 
 .method public static randomSeed(J)V
-    .registers 3
+    .locals 1
     .parameter "seed"
 
     .prologue
@@ -854,7 +854,7 @@
 .end method
 
 .method public static sq(F)F
-    .registers 2
+    .locals 1
     .parameter "v"
 
     .prologue
@@ -865,7 +865,7 @@
 .end method
 
 .method public static tan(F)F
-    .registers 3
+    .locals 2
     .parameter "angle"
 
     .prologue

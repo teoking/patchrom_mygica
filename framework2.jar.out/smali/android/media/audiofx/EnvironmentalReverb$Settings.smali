@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 521
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 9
+    .locals 7
     .parameter "settings"
 
     .prologue
@@ -77,7 +77,7 @@
 
     const/16 v5, 0x15
 
-    if-eq v4, v5, :cond_2f
+    if-eq v4, v5, :cond_0
 
     .line 533
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -105,7 +105,7 @@
     throw v4
 
     .line 535
-    :cond_2f
+    :cond_0
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v0
@@ -118,7 +118,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_54
+    if-nez v4, :cond_1
 
     .line 537
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -146,8 +146,8 @@
     throw v4
 
     .line 542
-    :cond_54
-    :try_start_54
+    :cond_1
+    :try_start_0
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v0
@@ -159,7 +159,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_93
+    if-nez v4, :cond_2
 
     .line 544
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -185,11 +185,11 @@
     invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v4
-    :try_end_79
-    .catch Ljava/lang/NumberFormatException; {:try_start_54 .. :try_end_79} :catch_79
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 592
-    :catch_79
+    :catch_0
     move-exception v1
 
     .line 593
@@ -220,8 +220,8 @@
 
     .line 546
     .end local v1           #nfe:Ljava/lang/NumberFormatException;
-    :cond_93
-    :try_start_93
+    :cond_2
+    :try_start_1
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -244,7 +244,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_c2
+    if-nez v4, :cond_3
 
     .line 549
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -272,7 +272,7 @@
     throw v4
 
     .line 551
-    :cond_c2
+    :cond_3
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -295,7 +295,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_f1
+    if-nez v4, :cond_4
 
     .line 554
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -323,7 +323,7 @@
     throw v4
 
     .line 556
-    :cond_f1
+    :cond_4
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -346,7 +346,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_120
+    if-nez v4, :cond_5
 
     .line 559
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -374,7 +374,7 @@
     throw v4
 
     .line 561
-    :cond_120
+    :cond_5
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -397,7 +397,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_14f
+    if-nez v4, :cond_6
 
     .line 564
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -425,7 +425,7 @@
     throw v4
 
     .line 566
-    :cond_14f
+    :cond_6
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -448,7 +448,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_17e
+    if-nez v4, :cond_7
 
     .line 569
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -476,7 +476,7 @@
     throw v4
 
     .line 571
-    :cond_17e
+    :cond_7
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -499,7 +499,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_1ad
+    if-nez v4, :cond_8
 
     .line 574
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -527,7 +527,7 @@
     throw v4
 
     .line 576
-    :cond_1ad
+    :cond_8
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -550,7 +550,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_1dc
+    if-nez v4, :cond_9
 
     .line 579
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -578,7 +578,7 @@
     throw v4
 
     .line 581
-    :cond_1dc
+    :cond_9
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -601,7 +601,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_20b
+    if-nez v4, :cond_a
 
     .line 584
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -629,7 +629,7 @@
     throw v4
 
     .line 586
-    :cond_20b
+    :cond_a
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -652,7 +652,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_23a
+    if-nez v4, :cond_b
 
     .line 589
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -680,7 +680,7 @@
     throw v4
 
     .line 591
-    :cond_23a
+    :cond_b
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -690,8 +690,8 @@
     move-result v4
 
     iput-short v4, p0, Landroid/media/audiofx/EnvironmentalReverb$Settings;->density:S
-    :try_end_244
-    .catch Ljava/lang/NumberFormatException; {:try_start_93 .. :try_end_244} :catch_79
+    :try_end_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 595
     return-void
@@ -700,7 +700,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 599

@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "where"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public getTabStop()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 49

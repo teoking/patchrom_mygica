@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 121
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;[Landroid/content/pm/PathPermission;)V
-    .registers 6
+    .locals 1
     .parameter "context"
     .parameter "readPermission"
     .parameter "writePermission"
@@ -99,7 +99,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/content/ContentProvider;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -110,7 +110,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/content/ContentProvider;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -121,14 +121,14 @@
 .end method
 
 .method public static coerceToLocalContentProvider(Landroid/content/IContentProvider;)Landroid/content/ContentProvider;
-    .registers 2
+    .locals 1
     .parameter "abstractInterface"
 
     .prologue
     .line 163
     instance-of v0, p0, Landroid/content/ContentProvider$Transport;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 164
     check-cast p0, Landroid/content/ContentProvider$Transport;
@@ -139,20 +139,20 @@
     move-result-object v0
 
     .line 166
-    :goto_a
+    :goto_0
     return-object v0
 
     .restart local p0
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public applyBatch(Ljava/util/ArrayList;)[Landroid/content/ContentProviderResult;
-    .registers 6
+    .locals 4
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -187,8 +187,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_7
-    if-ge v0, v1, :cond_18
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 1084
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -206,15 +206,15 @@
     .line 1083
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 1086
-    :cond_18
+    :cond_0
     return-object v2
 .end method
 
 .method public attachInfo(Landroid/content/Context;Landroid/content/pm/ProviderInfo;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "info"
 
@@ -225,7 +225,7 @@
     .line 1049
     iget-object v0, p0, Landroid/content/ContentProvider;->mContext:Landroid/content/Context;
 
-    if-nez v0, :cond_27
+    if-nez v0, :cond_1
 
     .line 1050
     iput-object p1, p0, Landroid/content/ContentProvider;->mContext:Landroid/content/Context;
@@ -238,7 +238,7 @@
     iput v0, p0, Landroid/content/ContentProvider;->mMyUid:I
 
     .line 1052
-    if-eqz p2, :cond_24
+    if-eqz p2, :cond_0
 
     .line 1053
     iget-object v0, p2, Landroid/content/pm/ProviderInfo;->readPermission:Ljava/lang/String;
@@ -261,16 +261,16 @@
     iput-boolean v0, p0, Landroid/content/ContentProvider;->mExported:Z
 
     .line 1058
-    :cond_24
+    :cond_0
     invoke-virtual {p0}, Landroid/content/ContentProvider;->onCreate()Z
 
     .line 1060
-    :cond_27
+    :cond_1
     return-void
 .end method
 
 .method public bulkInsert(Landroid/net/Uri;[Landroid/content/ContentValues;)I
-    .registers 6
+    .locals 3
     .parameter "uri"
     .parameter "values"
 
@@ -283,8 +283,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_2
-    if-ge v0, v1, :cond_c
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 705
     aget-object v2, p2, v0
@@ -294,15 +294,15 @@
     .line 704
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 707
-    :cond_c
+    :cond_0
     return v1
 .end method
 
 .method public call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .registers 5
+    .locals 1
     .parameter "method"
     .parameter "arg"
     .parameter "extras"
@@ -318,7 +318,7 @@
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter "fd"
     .parameter "writer"
     .parameter "args"
@@ -334,7 +334,7 @@
 .end method
 
 .method public final getContext()Landroid/content/Context;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 405
@@ -344,7 +344,7 @@
 .end method
 
 .method public getIContentProvider()Landroid/content/IContentProvider;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1028
@@ -354,7 +354,7 @@
 .end method
 
 .method public final getPathPermissions()[Landroid/content/pm/PathPermission;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 471
@@ -364,7 +364,7 @@
 .end method
 
 .method public final getReadPermission()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 427
@@ -374,7 +374,7 @@
 .end method
 
 .method public getStreamTypes(Landroid/net/Uri;Ljava/lang/String;)[Ljava/lang/String;
-    .registers 4
+    .locals 1
     .parameter "uri"
     .parameter "mimeTypeFilter"
 
@@ -389,7 +389,7 @@
 .end method
 
 .method public final getWritePermission()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 449
@@ -402,7 +402,7 @@
 .end method
 
 .method protected isTemporary()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1018
@@ -412,7 +412,7 @@
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .registers 2
+    .locals 0
     .parameter "newConfig"
 
     .prologue
@@ -424,7 +424,7 @@
 .end method
 
 .method public onLowMemory()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 523
@@ -432,7 +432,7 @@
 .end method
 
 .method public onTrimMemory(I)V
-    .registers 2
+    .locals 0
     .parameter "level"
 
     .prologue
@@ -441,7 +441,7 @@
 .end method
 
 .method public openAssetFile(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/res/AssetFileDescriptor;
-    .registers 9
+    .locals 6
     .parameter "uri"
     .parameter "mode"
     .annotation system Ldalvik/annotation/Throws;
@@ -458,7 +458,7 @@
 
     .line 830
     .local v1, fd:Landroid/os/ParcelFileDescriptor;
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_0
 
     new-instance v0, Landroid/content/res/AssetFileDescriptor;
 
@@ -468,17 +468,17 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/content/res/AssetFileDescriptor;-><init>(Landroid/os/ParcelFileDescriptor;JJ)V
 
-    :goto_f
+    :goto_0
     return-object v0
 
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public openFile(Landroid/net/Uri;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
-    .registers 6
+    .locals 3
     .parameter "uri"
     .parameter "mode"
     .annotation system Ldalvik/annotation/Throws;
@@ -515,7 +515,7 @@
 .end method
 
 .method protected final openFileHelper(Landroid/net/Uri;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
-    .registers 15
+    .locals 12
     .parameter "uri"
     .parameter "mode"
     .annotation system Ldalvik/annotation/Throws;
@@ -552,7 +552,7 @@
 
     .line 850
     .local v6, c:Landroid/database/Cursor;
-    if-eqz v6, :cond_17
+    if-eqz v6, :cond_0
 
     invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
 
@@ -560,18 +560,18 @@
 
     .line 851
     .local v7, count:I
-    :cond_17
-    if-eq v7, v11, :cond_52
+    :cond_0
+    if-eq v7, v11, :cond_3
 
     .line 854
-    if-eqz v6, :cond_1e
+    if-eqz v6, :cond_1
 
     .line 855
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     .line 857
-    :cond_1e
-    if-nez v7, :cond_39
+    :cond_1
+    if-nez v7, :cond_2
 
     .line 858
     new-instance v0, Ljava/io/FileNotFoundException;
@@ -599,7 +599,7 @@
     throw v0
 
     .line 860
-    :cond_39
+    :cond_2
     new-instance v0, Ljava/io/FileNotFoundException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -625,7 +625,7 @@
     throw v0
 
     .line 863
-    :cond_52
+    :cond_3
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     .line 864
@@ -637,7 +637,7 @@
 
     .line 865
     .local v8, i:I
-    if-ltz v8, :cond_6e
+    if-ltz v8, :cond_4
 
     invoke-interface {v6, v8}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
@@ -645,11 +645,11 @@
 
     .line 866
     .local v10, path:Ljava/lang/String;
-    :goto_61
+    :goto_0
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     .line 867
-    if-nez v10, :cond_70
+    if-nez v10, :cond_5
 
     .line 868
     new-instance v0, Ljava/io/FileNotFoundException;
@@ -661,15 +661,15 @@
     throw v0
 
     .end local v10           #path:Ljava/lang/String;
-    :cond_6e
+    :cond_4
     move-object v10, v3
 
     .line 865
-    goto :goto_61
+    goto :goto_0
 
     .line 871
     .restart local v10       #path:Ljava/lang/String;
-    :cond_70
+    :cond_5
     invoke-static {p1, p2}, Landroid/content/ContentResolver;->modeToMode(Landroid/net/Uri;Ljava/lang/String;)I
 
     move-result v9
@@ -688,7 +688,7 @@
 .end method
 
 .method public openPipeHelper(Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/Object;Landroid/content/ContentProvider$PipeDataWriter;)Landroid/os/ParcelFileDescriptor;
-    .registers 15
+    .locals 9
     .parameter "uri"
     .parameter "mimeType"
     .parameter "opts"
@@ -756,15 +756,15 @@
     const/4 v1, 0x0
 
     aget-object v1, v3, v1
-    :try_end_1a
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_1a} :catch_1b
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object v1
 
     .line 1008
     .end local v0           #task:Landroid/os/AsyncTask;,"Landroid/os/AsyncTask<Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;>;"
     .end local v3           #fds:[Landroid/os/ParcelFileDescriptor;
-    :catch_1b
+    :catch_0
     move-exception v8
 
     .line 1009
@@ -779,7 +779,7 @@
 .end method
 
 .method public openTypedAssetFile(Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/res/AssetFileDescriptor;
-    .registers 8
+    .locals 4
     .parameter "uri"
     .parameter "mimeTypeFilter"
     .parameter "opts"
@@ -797,7 +797,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_0
 
     .line 937
     const-string/jumbo v1, "r"
@@ -807,24 +807,24 @@
     move-result-object v1
 
     .line 943
-    :goto_f
+    :goto_0
     return-object v1
 
     .line 939
-    :cond_10
+    :cond_0
     invoke-virtual {p0, p1}, Landroid/content/ContentProvider;->getType(Landroid/net/Uri;)Ljava/lang/String;
 
     move-result-object v0
 
     .line 940
     .local v0, baseType:Ljava/lang/String;
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_1
 
     invoke-static {v0, p2}, Landroid/content/ClipDescription;->compareMimeTypes(Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_24
+    if-eqz v1, :cond_1
 
     .line 943
     const-string/jumbo v1, "r"
@@ -833,10 +833,10 @@
 
     move-result-object v1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 945
-    :cond_24
+    :cond_1
     new-instance v1, Ljava/io/FileNotFoundException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -876,7 +876,7 @@
 .end method
 
 .method public query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
-    .registers 8
+    .locals 1
     .parameter "uri"
     .parameter "projection"
     .parameter "selection"
@@ -894,7 +894,7 @@
 .end method
 
 .method protected final setPathPermissions([Landroid/content/pm/PathPermission;)V
-    .registers 2
+    .locals 0
     .parameter "permissions"
 
     .prologue
@@ -906,7 +906,7 @@
 .end method
 
 .method protected final setReadPermission(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "permission"
 
     .prologue
@@ -918,7 +918,7 @@
 .end method
 
 .method protected final setWritePermission(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "permission"
 
     .prologue
@@ -930,7 +930,7 @@
 .end method
 
 .method public shutdown()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1127

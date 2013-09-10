@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterfw/io/TextGraphReader;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "libraryName"
 
@@ -45,11 +45,12 @@
 
 # virtual methods
 .method public execute(Landroid/filterfw/io/TextGraphReader;)V
-    .registers 3
+    .locals 1
     .parameter "reader"
 
     .prologue
     .line 78
+    #getter for: Landroid/filterfw/io/TextGraphReader;->mFactory:Landroid/filterfw/core/FilterFactory;
     invoke-static {p1}, Landroid/filterfw/io/TextGraphReader;->access$000(Landroid/filterfw/io/TextGraphReader;)Landroid/filterfw/core/FilterFactory;
 
     iget-object v0, p0, Landroid/filterfw/io/TextGraphReader$AddLibraryCommand;->mLibraryName:Ljava/lang/String;

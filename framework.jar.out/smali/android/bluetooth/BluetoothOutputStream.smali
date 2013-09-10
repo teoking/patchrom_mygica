@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/bluetooth/BluetoothSocket;)V
-    .registers 2
+    .locals 0
     .parameter "s"
 
     .prologue
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public close()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -44,7 +44,7 @@
 .end method
 
 .method public write(I)V
-    .registers 6
+    .locals 4
     .parameter "oneByte"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -76,7 +76,7 @@
 .end method
 
 .method public write([BII)V
-    .registers 6
+    .locals 2
     .parameter "b"
     .parameter "offset"
     .parameter "count"
@@ -88,7 +88,7 @@
 
     .prologue
     .line 79
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 80
     new-instance v0, Ljava/lang/NullPointerException;
@@ -100,19 +100,19 @@
     throw v0
 
     .line 82
-    :cond_a
+    :cond_0
     or-int v0, p2, p3
 
-    if-ltz v0, :cond_12
+    if-ltz v0, :cond_1
 
     array-length v0, p1
 
     sub-int/2addr v0, p2
 
-    if-le p3, v0, :cond_1a
+    if-le p3, v0, :cond_2
 
     .line 83
-    :cond_12
+    :cond_1
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     const-string v1, "invalid offset or length"
@@ -122,7 +122,7 @@
     throw v0
 
     .line 85
-    :cond_1a
+    :cond_2
     iget-object v0, p0, Landroid/bluetooth/BluetoothOutputStream;->mSocket:Landroid/bluetooth/BluetoothSocket;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/bluetooth/BluetoothSocket;->write([BII)I

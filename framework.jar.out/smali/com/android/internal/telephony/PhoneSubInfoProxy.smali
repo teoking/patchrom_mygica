@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/PhoneSubInfo;)V
-    .registers 3
+    .locals 1
     .parameter "phoneSubInfo"
 
     .prologue
@@ -26,7 +26,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 33
     const-string v0, "iphonesubinfo"
@@ -34,14 +34,14 @@
     invoke-static {v0, p0}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     .line 35
-    :cond_12
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -57,7 +57,7 @@
 .end method
 
 .method public getCompleteVoiceMailNumber()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 95
@@ -71,7 +71,7 @@
 .end method
 
 .method public getDeviceId()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 42
@@ -85,7 +85,7 @@
 .end method
 
 .method public getDeviceSvn()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 46
@@ -99,7 +99,7 @@
 .end method
 
 .method public getIccSerialNumber()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60
@@ -113,7 +113,7 @@
 .end method
 
 .method public getIsimDomain()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 118
@@ -127,7 +127,7 @@
 .end method
 
 .method public getIsimImpi()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 110
@@ -141,7 +141,7 @@
 .end method
 
 .method public getIsimImpu()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 127
@@ -155,7 +155,7 @@
 .end method
 
 .method public getLine1AlphaTag()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 74
@@ -169,7 +169,7 @@
 .end method
 
 .method public getLine1Number()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 67
@@ -183,7 +183,7 @@
 .end method
 
 .method public getMsisdn()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -197,7 +197,7 @@
 .end method
 
 .method public getSubscriberId()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 53
@@ -211,7 +211,7 @@
 .end method
 
 .method public getVoiceMailAlphaTag()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 102
@@ -225,7 +225,7 @@
 .end method
 
 .method public getVoiceMailNumber()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 88
@@ -239,7 +239,7 @@
 .end method
 
 .method public setmPhoneSubInfo(Lcom/android/internal/telephony/PhoneSubInfo;)V
-    .registers 2
+    .locals 0
     .parameter "phoneSubInfo"
 
     .prologue

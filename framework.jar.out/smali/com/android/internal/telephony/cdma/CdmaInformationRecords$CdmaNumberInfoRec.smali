@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;IIII)V
-    .registers 8
+    .locals 1
     .parameter "id"
     .parameter "number"
     .parameter "numberType"
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 168

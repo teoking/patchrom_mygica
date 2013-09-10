@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;Ljava/lang/String;)Z
-    .registers 4
+    .locals 1
     .parameter "dir"
     .parameter "name"
 
@@ -50,7 +50,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     const-string v0, ".tmp"
 
@@ -58,15 +58,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_11
+    :goto_0
     return v0
 
-    :cond_12
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/database/MatrixCursor;II)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "index"
     .parameter "endIndex"
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Landroid/database/MatrixCursor$RowBuilder;
-    .registers 5
+    .locals 3
     .parameter "columnValue"
 
     .prologue
@@ -57,7 +57,7 @@
 
     iget v1, p0, Landroid/database/MatrixCursor$RowBuilder;->endIndex:I
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_0
 
     .line 206
     new-instance v0, Landroid/database/CursorIndexOutOfBoundsException;
@@ -69,9 +69,10 @@
     throw v0
 
     .line 210
-    :cond_e
+    :cond_0
     iget-object v0, p0, Landroid/database/MatrixCursor$RowBuilder;->this$0:Landroid/database/MatrixCursor;
 
+    #getter for: Landroid/database/MatrixCursor;->data:[Ljava/lang/Object;
     invoke-static {v0}, Landroid/database/MatrixCursor;->access$000(Landroid/database/MatrixCursor;)[Ljava/lang/Object;
 
     move-result-object v0

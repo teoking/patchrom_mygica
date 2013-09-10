@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 362
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;
-    .registers 9
+    .locals 7
     .parameter "in"
 
     .prologue
@@ -84,7 +84,7 @@
 
     .line 371
     .local v5, data:[B
-    if-lez v6, :cond_1f
+    if-lez v6, :cond_0
 
     .line 372
     new-array v5, v6, [B
@@ -93,10 +93,10 @@
     invoke-virtual {p1, v5}, Landroid/os/Parcel;->readByteArray([B)V
 
     .line 375
-    :cond_1f
+    :cond_0
     const/4 v0, 0x1
 
-    if-ne v1, v0, :cond_27
+    if-ne v1, v0, :cond_1
 
     .line 376
     invoke-static {v2, v3, v4, v5}, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->newInstance(IILandroid/net/wifi/p2p/WifiP2pDevice;[B)Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;
@@ -104,33 +104,33 @@
     move-result-object v0
 
     .line 382
-    :goto_26
+    :goto_0
     return-object v0
 
     .line 378
-    :cond_27
+    :cond_1
     const/4 v0, 0x2
 
-    if-ne v1, v0, :cond_2f
+    if-ne v1, v0, :cond_2
 
     .line 379
     invoke-static {v2, v3, v4, v5}, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceResponse;->newInstance(IILandroid/net/wifi/p2p/WifiP2pDevice;[B)Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceResponse;
 
     move-result-object v0
 
-    goto :goto_26
+    goto :goto_0
 
     .line 382
-    :cond_2f
+    :cond_2
     new-instance v0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;
 
     invoke-direct/range {v0 .. v5}, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;-><init>(IIILandroid/net/wifi/p2p/WifiP2pDevice;[B)V
 
-    goto :goto_26
+    goto :goto_0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -143,7 +143,7 @@
 .end method
 
 .method public newArray(I)[Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -154,7 +154,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

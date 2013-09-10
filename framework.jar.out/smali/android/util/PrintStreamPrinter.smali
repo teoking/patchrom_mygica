@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/PrintStream;)V
-    .registers 2
+    .locals 0
     .parameter "pw"
 
     .prologue
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public println(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "x"
 
     .prologue

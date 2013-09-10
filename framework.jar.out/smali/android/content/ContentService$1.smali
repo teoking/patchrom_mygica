@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/ContentService;Landroid/util/SparseIntArray;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Integer;Ljava/lang/Integer;)I
-    .registers 7
+    .locals 4
     .parameter "lhs"
     .parameter "rhs"
 
@@ -83,33 +83,33 @@
 
     .line 94
     .local v1, rc:I
-    if-ge v0, v1, :cond_18
+    if-ge v0, v1, :cond_0
 
     .line 95
     const/4 v2, 0x1
 
     .line 99
-    :goto_17
+    :goto_0
     return v2
 
     .line 96
-    :cond_18
-    if-le v0, v1, :cond_1c
+    :cond_0
+    if-le v0, v1, :cond_1
 
     .line 97
     const/4 v2, -0x1
 
-    goto :goto_17
+    goto :goto_0
 
     .line 99
-    :cond_1c
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 

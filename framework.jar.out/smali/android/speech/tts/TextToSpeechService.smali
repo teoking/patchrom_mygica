@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 72
@@ -63,7 +63,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/speech/tts/TextToSpeechService;)Landroid/speech/tts/AudioPlaybackHandler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -74,7 +74,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/speech/tts/TextToSpeechService;)Landroid/speech/tts/TextToSpeechService$CallbackMap;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -85,7 +85,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/speech/tts/TextToSpeechService;)[Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -98,7 +98,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/speech/tts/TextToSpeechService;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -109,7 +109,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/speech/tts/TextToSpeechService;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -122,7 +122,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/speech/tts/TextToSpeechService;)Landroid/speech/tts/TextToSpeechService$SynthHandler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -133,7 +133,7 @@
 .end method
 
 .method private getDefaultSpeechRate()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 213
@@ -149,7 +149,7 @@
 .end method
 
 .method private getSecureSettingInt(Ljava/lang/String;I)I
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "defaultValue"
 
@@ -167,7 +167,7 @@
 .end method
 
 .method private getSettingsLocale()[Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 217
@@ -191,7 +191,7 @@
 
 # virtual methods
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .registers 4
+    .locals 2
     .parameter "intent"
 
     .prologue
@@ -206,23 +206,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 752
     iget-object v0, p0, Landroid/speech/tts/TextToSpeechService;->mBinder:Landroid/speech/tts/ITextToSpeechService$Stub;
 
     .line 754
-    :goto_e
+    :goto_0
     return-object v0
 
-    :cond_f
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public onCreate()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 93
@@ -311,7 +311,7 @@
 .end method
 
 .method public onDestroy()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 118
@@ -337,7 +337,7 @@
 .end method
 
 .method protected onGetFeaturesForLanguage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;
-    .registers 5
+    .locals 1
     .parameter "lang"
     .parameter "country"
     .parameter "variant"

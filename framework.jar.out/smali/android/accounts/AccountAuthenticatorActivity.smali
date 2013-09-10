@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -31,18 +31,18 @@
 
 # virtual methods
 .method public finish()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 71
     iget-object v0, p0, Landroid/accounts/AccountAuthenticatorActivity;->mAccountAuthenticatorResponse:Landroid/accounts/AccountAuthenticatorResponse;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 73
     iget-object v0, p0, Landroid/accounts/AccountAuthenticatorActivity;->mResultBundle:Landroid/os/Bundle;
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_1
 
     .line 74
     iget-object v0, p0, Landroid/accounts/AccountAuthenticatorActivity;->mAccountAuthenticatorResponse:Landroid/accounts/AccountAuthenticatorResponse;
@@ -52,20 +52,20 @@
     invoke-virtual {v0, v1}, Landroid/accounts/AccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
 
     .line 79
-    :goto_f
+    :goto_0
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/accounts/AccountAuthenticatorActivity;->mAccountAuthenticatorResponse:Landroid/accounts/AccountAuthenticatorResponse;
 
     .line 81
-    :cond_12
+    :cond_0
     invoke-super {p0}, Landroid/app/Activity;->finish()V
 
     .line 82
     return-void
 
     .line 76
-    :cond_16
+    :cond_1
     iget-object v0, p0, Landroid/accounts/AccountAuthenticatorActivity;->mAccountAuthenticatorResponse:Landroid/accounts/AccountAuthenticatorResponse;
 
     const/4 v1, 0x4
@@ -74,11 +74,11 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/accounts/AccountAuthenticatorResponse;->onError(ILjava/lang/String;)V
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
     .parameter "icicle"
 
     .prologue
@@ -103,7 +103,7 @@
     .line 62
     iget-object v0, p0, Landroid/accounts/AccountAuthenticatorActivity;->mAccountAuthenticatorResponse:Landroid/accounts/AccountAuthenticatorResponse;
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     .line 63
     iget-object v0, p0, Landroid/accounts/AccountAuthenticatorActivity;->mAccountAuthenticatorResponse:Landroid/accounts/AccountAuthenticatorResponse;
@@ -111,12 +111,12 @@
     invoke-virtual {v0}, Landroid/accounts/AccountAuthenticatorResponse;->onRequestContinued()V
 
     .line 65
-    :cond_1a
+    :cond_0
     return-void
 .end method
 
 .method public final setAccountAuthenticatorResult(Landroid/os/Bundle;)V
-    .registers 2
+    .locals 0
     .parameter "result"
 
     .prologue

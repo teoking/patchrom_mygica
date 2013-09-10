@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 26
@@ -29,17 +29,17 @@
 
 # virtual methods
 .method public acquireReference()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 53
     monitor-enter p0
 
     .line 54
-    :try_start_1
+    :try_start_0
     iget v0, p0, Landroid/database/sqlite/SQLiteClosable;->mReferenceCount:I
 
-    if-gtz v0, :cond_21
+    if-gtz v0, :cond_0
 
     .line 55
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -67,18 +67,18 @@
     throw v0
 
     .line 59
-    :catchall_1e
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_20
-    .catchall {:try_start_1 .. :try_end_20} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 58
-    :cond_21
-    :try_start_21
+    :cond_0
+    :try_start_1
     iget v0, p0, Landroid/database/sqlite/SQLiteClosable;->mReferenceCount:I
 
     add-int/lit8 v0, v0, 0x1
@@ -87,15 +87,15 @@
 
     .line 59
     monitor-exit p0
-    :try_end_28
-    .catchall {:try_start_21 .. :try_end_28} :catchall_1e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 60
     return-void
 .end method
 
 .method public close()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 106
@@ -109,7 +109,7 @@
 .end method
 
 .method protected onAllReferencesReleasedFromContainer()V
-    .registers 1
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -122,7 +122,7 @@
 .end method
 
 .method public releaseReference()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 69
@@ -133,53 +133,53 @@
     monitor-enter p0
 
     .line 71
-    :try_start_2
+    :try_start_0
     iget v1, p0, Landroid/database/sqlite/SQLiteClosable;->mReferenceCount:I
 
     add-int/lit8 v1, v1, -0x1
 
     iput v1, p0, Landroid/database/sqlite/SQLiteClosable;->mReferenceCount:I
 
-    if-nez v1, :cond_12
+    if-nez v1, :cond_1
 
     const/4 v0, 0x1
 
     .line 72
-    :goto_b
+    :goto_0
     monitor-exit p0
-    :try_end_c
-    .catchall {:try_start_2 .. :try_end_c} :catchall_14
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 73
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 74
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteClosable;->onAllReferencesReleased()V
 
     .line 76
-    :cond_11
+    :cond_0
     return-void
 
     .line 71
-    :cond_12
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 
     .line 72
-    :catchall_14
+    :catchall_0
     move-exception v1
 
-    :try_start_15
+    :try_start_1
     monitor-exit p0
-    :try_end_16
-    .catchall {:try_start_15 .. :try_end_16} :catchall_14
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
 
 .method public releaseReferenceFromContainer()V
-    .registers 3
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -192,47 +192,47 @@
     monitor-enter p0
 
     .line 89
-    :try_start_2
+    :try_start_0
     iget v1, p0, Landroid/database/sqlite/SQLiteClosable;->mReferenceCount:I
 
     add-int/lit8 v1, v1, -0x1
 
     iput v1, p0, Landroid/database/sqlite/SQLiteClosable;->mReferenceCount:I
 
-    if-nez v1, :cond_12
+    if-nez v1, :cond_1
 
     const/4 v0, 0x1
 
     .line 90
-    :goto_b
+    :goto_0
     monitor-exit p0
-    :try_end_c
-    .catchall {:try_start_2 .. :try_end_c} :catchall_14
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 91
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 92
     invoke-virtual {p0}, Landroid/database/sqlite/SQLiteClosable;->onAllReferencesReleasedFromContainer()V
 
     .line 94
-    :cond_11
+    :cond_0
     return-void
 
     .line 89
-    :cond_12
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 
     .line 90
-    :catchall_14
+    :catchall_0
     move-exception v1
 
-    :try_start_15
+    :try_start_1
     monitor-exit p0
-    :try_end_16
-    .catchall {:try_start_15 .. :try_end_16} :catchall_14
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method

@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 30
@@ -20,7 +20,7 @@
 .end method
 
 .method public static getDeviceIdLabel(Lcom/android/internal/telephony/Phone;)I
-    .registers 4
+    .locals 3
     .parameter "phone"
 
     .prologue
@@ -31,32 +31,32 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_b
+    if-ne v0, v1, :cond_0
 
     .line 103
     const v0, 0x10400d6
 
     .line 109
-    :goto_a
+    :goto_0
     return v0
 
     .line 104
-    :cond_b
+    :cond_0
     invoke-interface {p0}, Lcom/android/internal/telephony/Phone;->getPhoneType()I
 
     move-result v0
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_16
+    if-ne v0, v1, :cond_1
 
     .line 105
     const v0, 0x10400d7
 
-    goto :goto_a
+    goto :goto_0
 
     .line 107
-    :cond_16
+    :cond_1
     const-string v0, "TelephonyCapabilities"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -86,30 +86,30 @@
     .line 109
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public static supportsAdn(I)Z
-    .registers 2
+    .locals 1
     .parameter "phoneType"
 
     .prologue
     const/4 v0, 0x1
 
     .line 178
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_0
 
-    :goto_3
+    :goto_0
     return v0
 
-    :cond_4
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public static supportsAnswerAndHold(Lcom/android/internal/telephony/Phone;)Z
-    .registers 4
+    .locals 3
     .parameter "phone"
 
     .prologue
@@ -120,7 +120,7 @@
 
     move-result v1
 
-    if-eq v1, v0, :cond_e
+    if-eq v1, v0, :cond_0
 
     invoke-interface {p0}, Lcom/android/internal/telephony/Phone;->getPhoneType()I
 
@@ -128,20 +128,20 @@
 
     const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_f
+    if-ne v1, v2, :cond_1
 
-    :cond_e
-    :goto_e
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_f
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public static supportsConferenceCallManagement(Lcom/android/internal/telephony/Phone;)Z
-    .registers 4
+    .locals 3
     .parameter "phone"
 
     .prologue
@@ -152,7 +152,7 @@
 
     move-result v1
 
-    if-eq v1, v0, :cond_e
+    if-eq v1, v0, :cond_0
 
     invoke-interface {p0}, Lcom/android/internal/telephony/Phone;->getPhoneType()I
 
@@ -160,20 +160,20 @@
 
     const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_f
+    if-ne v1, v2, :cond_1
 
-    :cond_e
-    :goto_e
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_f
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public static supportsEcm(Lcom/android/internal/telephony/Phone;)Z
-    .registers 3
+    .locals 2
     .parameter "phone"
 
     .prologue
@@ -184,21 +184,21 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public static supportsHoldAndUnhold(Lcom/android/internal/telephony/Phone;)Z
-    .registers 4
+    .locals 3
     .parameter "phone"
 
     .prologue
@@ -209,7 +209,7 @@
 
     move-result v1
 
-    if-eq v1, v0, :cond_e
+    if-eq v1, v0, :cond_0
 
     invoke-interface {p0}, Lcom/android/internal/telephony/Phone;->getPhoneType()I
 
@@ -217,20 +217,20 @@
 
     const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_f
+    if-ne v1, v2, :cond_1
 
-    :cond_e
-    :goto_e
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_f
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public static supportsNetworkSelection(Lcom/android/internal/telephony/Phone;)Z
-    .registers 3
+    .locals 2
     .parameter "phone"
 
     .prologue
@@ -241,19 +241,19 @@
 
     move-result v1
 
-    if-ne v1, v0, :cond_8
+    if-ne v1, v0, :cond_0
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public static supportsOtasp(Lcom/android/internal/telephony/Phone;)Z
-    .registers 3
+    .locals 2
     .parameter "phone"
 
     .prologue
@@ -264,21 +264,21 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public static supportsVoiceMessageCount(Lcom/android/internal/telephony/Phone;)Z
-    .registers 3
+    .locals 2
     .parameter "phone"
 
     .prologue
@@ -289,15 +289,15 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method

@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, -0x1
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method protected extractEmailAddressFromMessageBody()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x2
@@ -93,14 +93,14 @@
     .local v0, parts:[Ljava/lang/String;
     array-length v1, v0
 
-    if-ge v1, v3, :cond_d
+    if-ge v1, v3, :cond_0
 
     .line 402
-    :goto_c
+    :goto_0
     return-void
 
     .line 399
-    :cond_d
+    :cond_0
     const/4 v1, 0x0
 
     aget-object v1, v0, v1
@@ -123,59 +123,59 @@
 
     iput-boolean v1, p0, Lcom/android/internal/telephony/SmsMessageBase;->isEmail:Z
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public getDisplayMessageBody()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 207
     iget-boolean v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->isEmail:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 208
     iget-object v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->emailBody:Ljava/lang/String;
 
     .line 210
-    :goto_6
+    :goto_0
     return-object v0
 
-    :cond_7
+    :cond_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/SmsMessageBase;->getMessageBody()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getDisplayOriginatingAddress()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 182
     iget-boolean v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->isEmail:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 183
     iget-object v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->emailFrom:Ljava/lang/String;
 
     .line 185
-    :goto_6
+    :goto_0
     return-object v0
 
-    :cond_7
+    :cond_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/SmsMessageBase;->getOriginatingAddress()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getEmailBody()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 244
@@ -185,7 +185,7 @@
 .end method
 
 .method public getEmailFrom()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 252
@@ -195,7 +195,7 @@
 .end method
 
 .method public getIndexOnIcc()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 366
@@ -205,7 +205,7 @@
 .end method
 
 .method public getMessageBody()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 194
@@ -218,33 +218,33 @@
 .end method
 
 .method public getOriginatingAddress()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 169
     iget-object v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->originatingAddress:Lcom/android/internal/telephony/SmsAddress;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     .line 170
     const/4 v0, 0x0
 
     .line 173
-    :goto_5
+    :goto_0
     return-object v0
 
-    :cond_6
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->originatingAddress:Lcom/android/internal/telephony/SmsAddress;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/SmsAddress;->getAddressString()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public getPdu()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 320
@@ -257,27 +257,27 @@
 .end method
 
 .method public getPseudoSubject()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 219
     iget-object v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->pseudoSubject:Ljava/lang/String;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     const-string v0, ""
 
-    :goto_6
+    :goto_0
     return-object v0
 
-    :cond_7
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->pseudoSubject:Ljava/lang/String;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getServiceCenterAddress()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 161
@@ -290,7 +290,7 @@
 .end method
 
 .method public getStatusOnIcc()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 357
@@ -300,7 +300,7 @@
 .end method
 
 .method public getTimestampMillis()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 226
@@ -310,7 +310,7 @@
 .end method
 
 .method public getUserData()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 297
@@ -320,7 +320,7 @@
 .end method
 
 .method public getUserDataHeader()Lcom/android/internal/telephony/SmsHeader;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 306
@@ -333,7 +333,7 @@
 .end method
 
 .method public isEmail()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 236
@@ -361,13 +361,13 @@
 .end method
 
 .method protected parseMessageBody()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 372
     iget-object v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->originatingAddress:Lcom/android/internal/telephony/SmsAddress;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->originatingAddress:Lcom/android/internal/telephony/SmsAddress;
 
@@ -375,12 +375,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 373
     invoke-virtual {p0}, Lcom/android/internal/telephony/SmsMessageBase;->extractEmailAddressFromMessageBody()V
 
     .line 375
-    :cond_f
+    :cond_0
     return-void
 .end method

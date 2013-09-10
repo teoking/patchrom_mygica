@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 5
+    .locals 2
     .parameter "w"
     .parameter "h"
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>(III)V
-    .registers 6
+    .locals 2
     .parameter "w"
     .parameter "h"
     .parameter "viewType"
@@ -90,7 +90,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 5
+    .locals 2
     .parameter "c"
     .parameter "attrs"
 
@@ -108,7 +108,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 4
+    .locals 2
     .parameter "source"
 
     .prologue

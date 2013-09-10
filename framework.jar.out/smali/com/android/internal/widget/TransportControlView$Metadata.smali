@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/TransportControlView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -41,7 +41,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/android/internal/widget/TransportControlView$Metadata;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -52,7 +52,7 @@
 .end method
 
 .method static synthetic access$1002(Lcom/android/internal/widget/TransportControlView$Metadata;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -64,7 +64,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/android/internal/widget/TransportControlView$Metadata;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -75,7 +75,7 @@
 .end method
 
 .method static synthetic access$1102(Lcom/android/internal/widget/TransportControlView$Metadata;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -87,7 +87,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/android/internal/widget/TransportControlView$Metadata;)Landroid/graphics/Bitmap;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -98,7 +98,7 @@
 .end method
 
 .method static synthetic access$502(Lcom/android/internal/widget/TransportControlView$Metadata;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -110,7 +110,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/android/internal/widget/TransportControlView$Metadata;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -121,7 +121,7 @@
 .end method
 
 .method static synthetic access$902(Lcom/android/internal/widget/TransportControlView$Metadata;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -135,7 +135,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 260

@@ -18,7 +18,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "index"
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public final getCapabilitiesForType(Ljava/lang/String;)Landroid/media/MediaCodecInfo$CodecCapabilities;
-    .registers 3
+    .locals 1
     .parameter "type"
 
     .prologue
@@ -50,7 +50,7 @@
 .end method
 
 .method public final getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 30
@@ -64,7 +64,7 @@
 .end method
 
 .method public final getSupportedTypes()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 44
@@ -78,7 +78,7 @@
 .end method
 
 .method public final isEncoder()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 37

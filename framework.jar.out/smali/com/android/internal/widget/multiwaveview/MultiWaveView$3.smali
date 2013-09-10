@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/multiwaveview/MultiWaveView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .registers 4
+    .locals 2
     .parameter "animation"
 
     .prologue
@@ -47,6 +47,7 @@
 
     iget-object v1, p0, Lcom/android/internal/widget/multiwaveview/MultiWaveView$3;->this$0:Lcom/android/internal/widget/multiwaveview/MultiWaveView;
 
+    #getter for: Lcom/android/internal/widget/multiwaveview/MultiWaveView;->mHandleDrawable:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
     invoke-static {v1}, Lcom/android/internal/widget/multiwaveview/MultiWaveView;->access$500(Lcom/android/internal/widget/multiwaveview/MultiWaveView;)Lcom/android/internal/widget/multiwaveview/TargetDrawable;
 
     move-result-object v1

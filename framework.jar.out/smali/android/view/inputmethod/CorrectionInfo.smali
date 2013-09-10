@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 91
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/CharSequence;Ljava/lang/CharSequence;)V
-    .registers 4
+    .locals 0
     .parameter "offset"
     .parameter "oldText"
     .parameter "newText"
@@ -66,7 +66,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -107,7 +107,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/view/inputmethod/CorrectionInfo$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 103
@@ -131,7 +131,7 @@
 .end method
 
 .method public getNewText()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 68
@@ -141,7 +141,7 @@
 .end method
 
 .method public getOffset()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 54
@@ -151,7 +151,7 @@
 .end method
 
 .method public getOldText()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 61
@@ -161,7 +161,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 73
@@ -219,7 +219,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

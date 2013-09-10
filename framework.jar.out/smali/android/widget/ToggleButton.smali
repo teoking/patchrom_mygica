@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 7
+    .locals 3
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -105,7 +105,7 @@
 .end method
 
 .method private syncTextState()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 79
@@ -115,11 +115,11 @@
 
     .line 80
     .local v0, checked:Z
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_1
 
     iget-object v1, p0, Landroid/widget/ToggleButton;->mTextOn:Ljava/lang/CharSequence;
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_1
 
     .line 81
     iget-object v1, p0, Landroid/widget/ToggleButton;->mTextOn:Ljava/lang/CharSequence;
@@ -127,35 +127,35 @@
     invoke-virtual {p0, v1}, Landroid/widget/ToggleButton;->setText(Ljava/lang/CharSequence;)V
 
     .line 85
-    :cond_f
-    :goto_f
+    :cond_0
+    :goto_0
     return-void
 
     .line 82
-    :cond_10
-    if-nez v0, :cond_f
+    :cond_1
+    if-nez v0, :cond_0
 
     iget-object v1, p0, Landroid/widget/ToggleButton;->mTextOff:Ljava/lang/CharSequence;
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_0
 
     .line 83
     iget-object v1, p0, Landroid/widget/ToggleButton;->mTextOff:Ljava/lang/CharSequence;
 
     invoke-virtual {p0, v1}, Landroid/widget/ToggleButton;->setText(Ljava/lang/CharSequence;)V
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method private updateReferenceToIndicatorDrawable(Landroid/graphics/drawable/Drawable;)V
-    .registers 4
+    .locals 2
     .parameter "backgroundDrawable"
 
     .prologue
     .line 138
     instance-of v1, p1, Landroid/graphics/drawable/LayerDrawable;
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_0
 
     move-object v0, p1
 
@@ -174,22 +174,22 @@
 
     .line 145
     .end local v0           #layerDrawable:Landroid/graphics/drawable/LayerDrawable;
-    :goto_10
+    :goto_0
     return-void
 
     .line 143
-    :cond_11
+    :cond_0
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/widget/ToggleButton;->mIndicatorDrawable:Landroid/graphics/drawable/Drawable;
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected drawableStateChanged()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 149
@@ -198,7 +198,7 @@
     .line 151
     iget-object v0, p0, Landroid/widget/ToggleButton;->mIndicatorDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 152
     iget-object v1, p0, Landroid/widget/ToggleButton;->mIndicatorDrawable:Landroid/graphics/drawable/Drawable;
@@ -207,19 +207,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_1
 
     const/16 v0, 0xff
 
-    :goto_11
+    :goto_0
     invoke-virtual {v1, v0}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
     .line 154
-    :cond_14
+    :cond_0
     return-void
 
     .line 152
-    :cond_15
+    :cond_1
     const/high16 v0, 0x437f
 
     iget v2, p0, Landroid/widget/ToggleButton;->mDisabledAlpha:F
@@ -228,11 +228,11 @@
 
     float-to-int v0, v0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public getTextOff()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 111
@@ -242,7 +242,7 @@
 .end method
 
 .method public getTextOn()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 93
@@ -252,7 +252,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 125
@@ -270,7 +270,7 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -291,7 +291,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .registers 3
+    .locals 1
     .parameter "info"
 
     .prologue
@@ -312,7 +312,7 @@
 .end method
 
 .method public setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-    .registers 2
+    .locals 0
     .parameter "d"
 
     .prologue
@@ -327,7 +327,7 @@
 .end method
 
 .method public setChecked(Z)V
-    .registers 2
+    .locals 0
     .parameter "checked"
 
     .prologue
@@ -342,7 +342,7 @@
 .end method
 
 .method public setTextOff(Ljava/lang/CharSequence;)V
-    .registers 2
+    .locals 0
     .parameter "textOff"
 
     .prologue
@@ -354,7 +354,7 @@
 .end method
 
 .method public setTextOn(Ljava/lang/CharSequence;)V
-    .registers 2
+    .locals 0
     .parameter "textOn"
 
     .prologue

@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 108
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public onScale(Landroid/view/ScaleGestureDetector;)Z
-    .registers 3
+    .locals 1
     .parameter "detector"
 
     .prologue
@@ -42,7 +42,7 @@
 .end method
 
 .method public onScaleBegin(Landroid/view/ScaleGestureDetector;)Z
-    .registers 3
+    .locals 1
     .parameter "detector"
 
     .prologue
@@ -53,7 +53,7 @@
 .end method
 
 .method public onScaleEnd(Landroid/view/ScaleGestureDetector;)V
-    .registers 2
+    .locals 0
     .parameter "detector"
 
     .prologue

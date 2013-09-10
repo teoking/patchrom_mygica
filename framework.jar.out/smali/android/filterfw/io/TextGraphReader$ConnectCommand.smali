@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterfw/io/TextGraphReader;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter "sourceFilter"
     .parameter "sourcePort"
@@ -63,11 +63,12 @@
 
 # virtual methods
 .method public execute(Landroid/filterfw/io/TextGraphReader;)V
-    .registers 7
+    .locals 5
     .parameter "reader"
 
     .prologue
     .line 142
+    #getter for: Landroid/filterfw/io/TextGraphReader;->mCurrentGraph:Landroid/filterfw/core/FilterGraph;
     invoke-static {p1}, Landroid/filterfw/io/TextGraphReader;->access$200(Landroid/filterfw/io/TextGraphReader;)Landroid/filterfw/core/FilterGraph;
 
     move-result-object v0

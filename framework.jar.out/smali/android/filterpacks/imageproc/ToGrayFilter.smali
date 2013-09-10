@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method protected getNativeProgram(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/Program;
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -68,7 +68,7 @@
 .end method
 
 .method protected getShaderProgram(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/Program;
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -89,7 +89,7 @@
     .local v0, inputChannels:I
     const/4 v2, 0x4
 
-    if-eq v0, v2, :cond_2e
+    if-eq v0, v2, :cond_0
 
     .line 80
     new-instance v2, Ljava/lang/RuntimeException;
@@ -123,7 +123,7 @@
     throw v2
 
     .line 83
-    :cond_2e
+    :cond_0
     new-instance v1, Landroid/filterfw/core/ShaderProgram;
 
     const-string/jumbo v2, "precision mediump float;\nuniform sampler2D tex_sampler_0;\nvarying vec2 v_texcoord;\nvoid main() {\n  vec4 color = texture2D(tex_sampler_0, v_texcoord);\n  float y = dot(color, vec4(0.299, 0.587, 0.114, 0));\n  gl_FragColor = vec4(y, y, y, color.a);\n}\n"
@@ -139,7 +139,7 @@
     .line 85
     iget-boolean v2, p0, Landroid/filterpacks/imageproc/ToGrayFilter;->mInvertSource:Z
 
-    if-eqz v2, :cond_45
+    if-eqz v2, :cond_1
 
     .line 86
     const/4 v2, 0x0
@@ -149,12 +149,12 @@
     invoke-virtual {v1, v2, v4, v4, v3}, Landroid/filterfw/core/ShaderProgram;->setSourceRect(FFFF)V
 
     .line 87
-    :cond_45
+    :cond_1
     return-object v1
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x3

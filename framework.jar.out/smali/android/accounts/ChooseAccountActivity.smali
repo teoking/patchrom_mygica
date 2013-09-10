@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -65,7 +65,7 @@
 .end method
 
 .method private getAuthDescriptions()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 92
@@ -84,8 +84,8 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_a
-    if-ge v2, v3, :cond_18
+    :goto_0
+    if-ge v2, v3, :cond_0
 
     aget-object v1, v0, v2
 
@@ -100,16 +100,16 @@
     .line 92
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 95
     .end local v1           #desc:Landroid/accounts/AuthenticatorDescription;
-    :cond_18
+    :cond_0
     return-void
 .end method
 
 .method private getDrawableForType(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
-    .registers 9
+    .locals 7
     .parameter "accountType"
 
     .prologue
@@ -126,10 +126,10 @@
 
     move-result v4
 
-    if-eqz v4, :cond_23
+    if-eqz v4, :cond_0
 
     .line 101
-    :try_start_a
+    :try_start_0
     iget-object v4, p0, Landroid/accounts/ChooseAccountActivity;->mTypeToAuthDescription:Ljava/util/HashMap;
 
     invoke-virtual {v4, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -157,21 +157,21 @@
     iget v5, v1, Landroid/accounts/AuthenticatorDescription;->iconId:I
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-    :try_end_22
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_a .. :try_end_22} :catch_24
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_a .. :try_end_22} :catch_46
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v3
 
     .line 116
     .end local v0           #authContext:Landroid/content/Context;
     .end local v1           #desc:Landroid/accounts/AuthenticatorDescription;
-    :cond_23
-    :goto_23
+    :cond_0
+    :goto_0
     return-object v3
 
     .line 104
-    :catch_24
+    :catch_0
     move-exception v2
 
     .line 106
@@ -182,7 +182,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_23
+    if-eqz v4, :cond_0
 
     .line 107
     const-string v4, "AccountManager"
@@ -207,11 +207,11 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_23
+    goto :goto_0
 
     .line 109
     .end local v2           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    :catch_46
+    :catch_1
     move-exception v2
 
     .line 111
@@ -222,7 +222,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_23
+    if-eqz v4, :cond_0
 
     .line 112
     const-string v4, "AccountManager"
@@ -247,24 +247,24 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_23
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public finish()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 130
     iget-object v0, p0, Landroid/accounts/ChooseAccountActivity;->mAccountManagerResponse:Landroid/accounts/AccountManagerResponse;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 131
     iget-object v0, p0, Landroid/accounts/ChooseAccountActivity;->mResult:Landroid/os/Bundle;
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     .line 132
     iget-object v0, p0, Landroid/accounts/ChooseAccountActivity;->mAccountManagerResponse:Landroid/accounts/AccountManagerResponse;
@@ -274,15 +274,15 @@
     invoke-virtual {v0, v1}, Landroid/accounts/AccountManagerResponse;->onResult(Landroid/os/Bundle;)V
 
     .line 137
-    :cond_f
-    :goto_f
+    :cond_0
+    :goto_0
     invoke-super {p0}, Landroid/app/Activity;->finish()V
 
     .line 138
     return-void
 
     .line 134
-    :cond_13
+    :cond_1
     iget-object v0, p0, Landroid/accounts/ChooseAccountActivity;->mAccountManagerResponse:Landroid/accounts/AccountManagerResponse;
 
     const/4 v1, 0x4
@@ -291,11 +291,11 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/accounts/AccountManagerResponse;->onError(ILjava/lang/String;)V
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .registers 9
+    .locals 7
     .parameter "savedInstanceState"
 
     .prologue
@@ -335,7 +335,7 @@
     .line 61
     iget-object v3, p0, Landroid/accounts/ChooseAccountActivity;->mAccounts:[Landroid/os/Parcelable;
 
-    if-nez v3, :cond_2a
+    if-nez v3, :cond_0
 
     .line 62
     const/4 v3, 0x0
@@ -346,11 +346,11 @@
     invoke-virtual {p0}, Landroid/accounts/ChooseAccountActivity;->finish()V
 
     .line 89
-    :goto_29
+    :goto_0
     return-void
 
     .line 67
-    :cond_2a
+    :cond_0
     invoke-direct {p0}, Landroid/accounts/ChooseAccountActivity;->getAuthDescriptions()V
 
     .line 69
@@ -365,12 +365,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_33
+    :goto_1
     iget-object v3, p0, Landroid/accounts/ChooseAccountActivity;->mAccounts:[Landroid/os/Parcelable;
 
     array-length v3, v3
 
-    if-ge v0, v3, :cond_56
+    if-ge v0, v3, :cond_1
 
     .line 71
     new-instance v4, Landroid/accounts/ChooseAccountActivity$AccountInfo;
@@ -402,10 +402,10 @@
     .line 70
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_33
+    goto :goto_1
 
     .line 75
-    :cond_56
+    :cond_1
     const v3, 0x1090031
 
     invoke-virtual {p0, v3}, Landroid/accounts/ChooseAccountActivity;->setContentView(I)V
@@ -442,11 +442,11 @@
 
     invoke-virtual {v1, v3}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method protected onListItemClick(Landroid/widget/ListView;Landroid/view/View;IJ)V
-    .registers 11
+    .locals 5
     .parameter "l"
     .parameter "v"
     .parameter "position"

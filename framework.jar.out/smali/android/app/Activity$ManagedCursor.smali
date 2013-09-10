@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/database/Cursor;)V
-    .registers 3
+    .locals 1
     .parameter "cursor"
 
     .prologue
@@ -47,7 +47,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/app/Activity$ManagedCursor;)Landroid/database/Cursor;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -58,7 +58,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/app/Activity$ManagedCursor;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -69,7 +69,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/app/Activity$ManagedCursor;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/app/Activity$ManagedCursor;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -92,7 +92,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/app/Activity$ManagedCursor;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

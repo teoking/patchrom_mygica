@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 310
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public getTransformation(JLandroid/view/animation/Transformation;)Z
-    .registers 5
+    .locals 1
     .parameter "currentTime"
     .parameter "outTransformation"
 

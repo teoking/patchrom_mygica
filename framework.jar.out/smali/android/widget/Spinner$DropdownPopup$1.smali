@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/Spinner$DropdownPopup;Landroid/widget/Spinner;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 9
+    .locals 3
     .parameter "parent"
     .parameter "v"
     .parameter "position"
@@ -64,7 +64,7 @@
 
     iget-object v0, v0, Landroid/widget/AdapterView;->mOnItemClickListener:Landroid/widget/AdapterView$OnItemClickListener;
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     .line 917
     iget-object v0, p0, Landroid/widget/Spinner$DropdownPopup$1;->this$1:Landroid/widget/Spinner$DropdownPopup;
@@ -73,6 +73,7 @@
 
     iget-object v1, p0, Landroid/widget/Spinner$DropdownPopup$1;->this$1:Landroid/widget/Spinner$DropdownPopup;
 
+    #getter for: Landroid/widget/Spinner$DropdownPopup;->mAdapter:Landroid/widget/ListAdapter;
     invoke-static {v1}, Landroid/widget/Spinner$DropdownPopup;->access$100(Landroid/widget/Spinner$DropdownPopup;)Landroid/widget/ListAdapter;
 
     move-result-object v1
@@ -84,7 +85,7 @@
     invoke-virtual {v0, p2, p3, v1, v2}, Landroid/widget/Spinner;->performItemClick(Landroid/view/View;IJ)Z
 
     .line 919
-    :cond_20
+    :cond_0
     iget-object v0, p0, Landroid/widget/Spinner$DropdownPopup$1;->this$1:Landroid/widget/Spinner$DropdownPopup;
 
     invoke-virtual {v0}, Landroid/widget/Spinner$DropdownPopup;->dismiss()V

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;Landroid/widget/ListView;Landroid/view/View;Lcom/android/internal/app/MediaRouteChooserDialogFragment$ViewHolder;)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 7
+    .locals 5
     .parameter "v"
 
     .prologue

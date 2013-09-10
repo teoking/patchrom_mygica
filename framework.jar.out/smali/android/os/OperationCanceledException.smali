@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 27
@@ -18,15 +18,15 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "message"
 
     .prologue
     .line 31
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_0
 
     .end local p1
-    :goto_2
+    :goto_0
     invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     .line 32
@@ -34,8 +34,8 @@
 
     .line 31
     .restart local p1
-    :cond_6
+    :cond_0
     const-string p1, "The operation has been canceled."
 
-    goto :goto_2
+    goto :goto_0
 .end method

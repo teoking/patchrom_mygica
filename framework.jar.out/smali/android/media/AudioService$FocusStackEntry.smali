@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(IILandroid/media/IAudioFocusDispatcher;Landroid/os/IBinder;Ljava/lang/String;Landroid/media/AudioService$AudioFocusDeathHandler;Ljava/lang/String;I)V
-    .registers 11
+    .locals 2
     .parameter "streamType"
     .parameter "duration"
     .parameter "afl"
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -135,18 +135,18 @@
 .end method
 
 .method public unlinkToDeath()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 3702
     :try_start_0
     iget-object v1, p0, Landroid/media/AudioService$FocusStackEntry;->mSourceRef:Landroid/os/IBinder;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/media/AudioService$FocusStackEntry;->mHandler:Landroid/media/AudioService$AudioFocusDeathHandler;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 3703
     iget-object v1, p0, Landroid/media/AudioService$FocusStackEntry;->mSourceRef:Landroid/os/IBinder;
@@ -161,16 +161,16 @@
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/media/AudioService$FocusStackEntry;->mHandler:Landroid/media/AudioService$AudioFocusDeathHandler;
-    :try_end_13
-    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_13} :catch_14
+    :try_end_0
+    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 3709
-    :cond_13
-    :goto_13
+    :cond_0
+    :goto_0
     return-void
 
     .line 3706
-    :catch_14
+    :catch_0
     move-exception v0
 
     .line 3707
@@ -203,5 +203,5 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_13
+    goto :goto_0
 .end method

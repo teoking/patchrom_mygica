@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
-    .registers 4
+    .locals 2
     .parameter "rs"
 
     .prologue
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public add(Landroid/renderscript/Element;Ljava/lang/String;)Landroid/renderscript/Element$Builder;
-    .registers 4
+    .locals 1
     .parameter "element"
     .parameter "name"
 
@@ -85,7 +85,7 @@
 .end method
 
 .method public add(Landroid/renderscript/Element;Ljava/lang/String;I)Landroid/renderscript/Element$Builder;
-    .registers 11
+    .locals 7
     .parameter "element"
     .parameter "name"
     .parameter "arraySize"
@@ -96,7 +96,7 @@
     const/4 v5, 0x0
 
     .line 1015
-    if-ge p3, v6, :cond_c
+    if-ge p3, v6, :cond_0
 
     .line 1016
     new-instance v3, Landroid/renderscript/RSIllegalArgumentException;
@@ -108,10 +108,10 @@
     throw v3
 
     .line 1020
-    :cond_c
+    :cond_0
     iget v3, p0, Landroid/renderscript/Element$Builder;->mSkipPadding:I
 
-    if-eqz v3, :cond_1b
+    if-eqz v3, :cond_1
 
     .line 1021
     const-string v3, "#padding_"
@@ -120,35 +120,35 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1b
+    if-eqz v3, :cond_1
 
     .line 1022
     iput v5, p0, Landroid/renderscript/Element$Builder;->mSkipPadding:I
 
     .line 1048
-    :goto_1a
+    :goto_0
     return-object p0
 
     .line 1027
-    :cond_1b
+    :cond_1
     iget v3, p1, Landroid/renderscript/Element;->mVectorSize:I
 
     const/4 v4, 0x3
 
-    if-ne v3, v4, :cond_6f
+    if-ne v3, v4, :cond_3
 
     .line 1028
     iput v6, p0, Landroid/renderscript/Element$Builder;->mSkipPadding:I
 
     .line 1033
-    :goto_22
+    :goto_1
     iget v3, p0, Landroid/renderscript/Element$Builder;->mCount:I
 
     iget-object v4, p0, Landroid/renderscript/Element$Builder;->mElements:[Landroid/renderscript/Element;
 
     array-length v4, v4
 
-    if-ne v3, v4, :cond_56
+    if-ne v3, v4, :cond_2
 
     .line 1034
     iget v3, p0, Landroid/renderscript/Element$Builder;->mCount:I
@@ -208,7 +208,7 @@
     .end local v0           #as:[I
     .end local v1           #e:[Landroid/renderscript/Element;
     .end local v2           #s:[Ljava/lang/String;
-    :cond_56
+    :cond_2
     iget-object v3, p0, Landroid/renderscript/Element$Builder;->mElements:[Landroid/renderscript/Element;
 
     iget v4, p0, Landroid/renderscript/Element$Builder;->mCount:I
@@ -236,17 +236,17 @@
 
     iput v3, p0, Landroid/renderscript/Element$Builder;->mCount:I
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 1030
-    :cond_6f
+    :cond_3
     iput v5, p0, Landroid/renderscript/Element$Builder;->mSkipPadding:I
 
-    goto :goto_22
+    goto :goto_1
 .end method
 
 .method public create()Landroid/renderscript/Element;
-    .registers 10
+    .locals 9
 
     .prologue
     const/4 v8, 0x0
@@ -305,10 +305,10 @@
     const/4 v6, 0x0
 
     .local v6, ct:I
-    :goto_2b
+    :goto_0
     array-length v0, v3
 
-    if-ge v6, v0, :cond_3b
+    if-ge v6, v0, :cond_0
 
     .line 1078
     aget-object v0, v3, v6
@@ -324,10 +324,10 @@
     .line 1077
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_2b
+    goto :goto_0
 
     .line 1080
-    :cond_3b
+    :cond_0
     iget-object v0, p0, Landroid/renderscript/Element$Builder;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {v0, v7, v4, v5}, Landroid/renderscript/RenderScript;->nElementCreate2([I[Ljava/lang/String;[I)I

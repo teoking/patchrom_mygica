@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 33
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public final getDescription()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 72
@@ -40,7 +40,7 @@
 .end method
 
 .method public final getFreeSpace()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 61
@@ -50,7 +50,7 @@
 .end method
 
 .method public final getMaxCapacity()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 52
@@ -60,7 +60,7 @@
 .end method
 
 .method public final getStorageId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 43
@@ -70,7 +70,7 @@
 .end method
 
 .method public final getVolumeIdentifier()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81

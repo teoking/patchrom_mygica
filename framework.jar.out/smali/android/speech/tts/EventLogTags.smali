@@ -11,7 +11,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 11
@@ -21,7 +21,7 @@
 .end method
 
 .method public static writeTtsSpeakFailure(Ljava/lang/String;IIILjava/lang/String;II)V
-    .registers 11
+    .locals 4
     .parameter "engine"
     .parameter "callerUid"
     .parameter "callerPid"
@@ -93,7 +93,7 @@
 .end method
 
 .method public static writeTtsSpeakSuccess(Ljava/lang/String;IIILjava/lang/String;IIJJJ)V
-    .registers 17
+    .locals 4
     .parameter "engine"
     .parameter "callerUid"
     .parameter "callerPid"

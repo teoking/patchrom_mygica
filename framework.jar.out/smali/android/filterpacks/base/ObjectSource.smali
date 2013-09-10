@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "context"
 
@@ -67,12 +67,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 87
     iget-object v0, p0, Landroid/filterpacks/base/ObjectSource;->mFrame:Landroid/filterfw/core/Frame;
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 88
     iget-object v0, p0, Landroid/filterpacks/base/ObjectSource;->mFrame:Landroid/filterfw/core/Frame;
@@ -85,24 +85,24 @@
     iput-object v0, p0, Landroid/filterpacks/base/ObjectSource;->mFrame:Landroid/filterfw/core/Frame;
 
     .line 92
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
     .line 59
     iget-object v1, p0, Landroid/filterpacks/base/ObjectSource;->mFrame:Landroid/filterfw/core/Frame;
 
-    if-nez v1, :cond_2f
+    if-nez v1, :cond_1
 
     .line 60
     iget-object v1, p0, Landroid/filterpacks/base/ObjectSource;->mObject:Ljava/lang/Object;
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_0
 
     .line 61
     new-instance v1, Ljava/lang/NullPointerException;
@@ -114,7 +114,7 @@
     throw v1
 
     .line 63
-    :cond_10
+    :cond_0
     iget-object v1, p0, Landroid/filterpacks/base/ObjectSource;->mObject:Ljava/lang/Object;
 
     const/4 v2, 0x1
@@ -151,7 +151,7 @@
 
     .line 70
     .end local v0           #outputFormat:Landroid/filterfw/core/FrameFormat;
-    :cond_2f
+    :cond_1
     const-string v1, "frame"
 
     iget-object v2, p0, Landroid/filterpacks/base/ObjectSource;->mFrame:Landroid/filterfw/core/Frame;
@@ -161,7 +161,7 @@
     .line 73
     iget-boolean v1, p0, Landroid/filterpacks/base/ObjectSource;->mRepeatFrame:Z
 
-    if-nez v1, :cond_3f
+    if-nez v1, :cond_2
 
     .line 74
     const-string v1, "frame"
@@ -169,12 +169,12 @@
     invoke-virtual {p0, v1}, Landroid/filterpacks/base/ObjectSource;->closeOutputPort(Ljava/lang/String;)V
 
     .line 76
-    :cond_3f
+    :cond_2
     return-void
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 53
@@ -189,7 +189,7 @@
 .end method
 
 .method public tearDown(Landroid/filterfw/core/FilterContext;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue

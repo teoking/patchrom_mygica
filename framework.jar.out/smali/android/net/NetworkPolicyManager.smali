@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/INetworkPolicyManager;)V
-    .registers 4
+    .locals 2
     .parameter "service"
 
     .prologue
@@ -31,7 +31,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 64
-    if-nez p1, :cond_e
+    if-nez p1, :cond_0
 
     .line 65
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -43,7 +43,7 @@
     throw v0
 
     .line 67
-    :cond_e
+    :cond_0
     iput-object p1, p0, Landroid/net/NetworkPolicyManager;->mService:Landroid/net/INetworkPolicyManager;
 
     .line 68
@@ -51,7 +51,7 @@
 .end method
 
 .method public static computeLastCycleBoundary(JLandroid/net/NetworkPolicy;)J
-    .registers 10
+    .locals 7
     .parameter "currentTime"
     .parameter "policy"
 
@@ -65,7 +65,7 @@
 
     const/4 v4, -0x1
 
-    if-ne v3, v4, :cond_f
+    if-ne v3, v4, :cond_0
 
     .line 157
     new-instance v3, Ljava/lang/IllegalArgumentException;
@@ -77,7 +77,7 @@
     throw v3
 
     .line 160
-    :cond_f
+    :cond_0
     new-instance v2, Landroid/text/format/Time;
 
     iget-object v3, p2, Landroid/net/NetworkPolicy;->cycleTimezone:Ljava/lang/String;
@@ -111,7 +111,7 @@
 
     move-result v3
 
-    if-ltz v3, :cond_4d
+    if-ltz v3, :cond_1
 
     .line 171
     new-instance v1, Landroid/text/format/Time;
@@ -149,7 +149,7 @@
 
     .line 181
     .end local v1           #lastMonth:Landroid/text/format/Time;
-    :cond_4d
+    :cond_1
     invoke-virtual {v0, v5}, Landroid/text/format/Time;->toMillis(Z)J
 
     move-result-wide v3
@@ -158,7 +158,7 @@
 .end method
 
 .method public static computeNextCycleBoundary(JLandroid/net/NetworkPolicy;)J
-    .registers 10
+    .locals 7
     .parameter "currentTime"
     .parameter "policy"
 
@@ -172,7 +172,7 @@
 
     const/4 v4, -0x1
 
-    if-ne v3, v4, :cond_f
+    if-ne v3, v4, :cond_0
 
     .line 187
     new-instance v3, Ljava/lang/IllegalArgumentException;
@@ -184,7 +184,7 @@
     throw v3
 
     .line 190
-    :cond_f
+    :cond_0
     new-instance v2, Landroid/text/format/Time;
 
     iget-object v3, p2, Landroid/net/NetworkPolicy;->cycleTimezone:Ljava/lang/String;
@@ -218,7 +218,7 @@
 
     move-result v3
 
-    if-gtz v3, :cond_4d
+    if-gtz v3, :cond_1
 
     .line 201
     new-instance v1, Landroid/text/format/Time;
@@ -256,7 +256,7 @@
 
     .line 211
     .end local v1           #nextMonth:Landroid/text/format/Time;
-    :cond_4d
+    :cond_1
     invoke-virtual {v0, v5}, Landroid/text/format/Time;->toMillis(Z)J
 
     move-result-wide v3
@@ -265,7 +265,7 @@
 .end method
 
 .method public static dumpPolicy(Ljava/io/PrintWriter;I)V
-    .registers 3
+    .locals 1
     .parameter "fout"
     .parameter "policy"
 
@@ -278,7 +278,7 @@
     .line 274
     and-int/lit8 v0, p1, 0x1
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 275
     const-string v0, "REJECT_METERED_BACKGROUND"
@@ -286,7 +286,7 @@
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->write(Ljava/lang/String;)V
 
     .line 277
-    :cond_e
+    :cond_0
     const-string v0, "]"
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->write(Ljava/lang/String;)V
@@ -296,7 +296,7 @@
 .end method
 
 .method public static dumpRules(Ljava/io/PrintWriter;I)V
-    .registers 3
+    .locals 1
     .parameter "fout"
     .parameter "rules"
 
@@ -309,7 +309,7 @@
     .line 283
     and-int/lit8 v0, p1, 0x1
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 284
     const-string v0, "REJECT_METERED"
@@ -317,7 +317,7 @@
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->write(Ljava/lang/String;)V
 
     .line 286
-    :cond_e
+    :cond_0
     const-string v0, "]"
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->write(Ljava/lang/String;)V
@@ -327,7 +327,7 @@
 .end method
 
 .method public static from(Landroid/content/Context;)Landroid/net/NetworkPolicyManager;
-    .registers 2
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -344,7 +344,7 @@
 .end method
 
 .method public static isUidValidForPolicy(Landroid/content/Context;I)Z
-    .registers 3
+    .locals 1
     .parameter "context"
     .parameter "uid"
     .annotation runtime Ljava/lang/Deprecated;
@@ -354,28 +354,28 @@
     .line 239
     const/16 v0, 0x2710
 
-    if-lt p1, v0, :cond_8
+    if-lt p1, v0, :cond_0
 
     const/16 v0, 0x4e1f
 
-    if-le p1, v0, :cond_a
+    if-le p1, v0, :cond_1
 
     .line 241
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
     .line 268
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_1
     const/4 v0, 0x1
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static snapToCycleDay(Landroid/text/format/Time;I)V
-    .registers 4
+    .locals 2
     .parameter "time"
     .parameter "cycleDay"
 
@@ -389,7 +389,7 @@
 
     move-result v0
 
-    if-le p1, v0, :cond_17
+    if-le p1, v0, :cond_0
 
     .line 223
     iget v0, p0, Landroid/text/format/Time;->month:I
@@ -407,23 +407,23 @@
     iput v0, p0, Landroid/text/format/Time;->second:I
 
     .line 229
-    :goto_13
+    :goto_0
     invoke-virtual {p0, v1}, Landroid/text/format/Time;->normalize(Z)J
 
     .line 230
     return-void
 
     .line 227
-    :cond_17
+    :cond_0
     iput p1, p0, Landroid/text/format/Time;->monthDay:I
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getAppPolicy(I)I
-    .registers 4
+    .locals 2
     .parameter "appId"
 
     .prologue
@@ -432,28 +432,28 @@
     iget-object v1, p0, Landroid/net/NetworkPolicyManager;->mService:Landroid/net/INetworkPolicyManager;
 
     invoke-interface {v1, p1}, Landroid/net/INetworkPolicyManager;->getAppPolicy(I)I
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 91
-    :goto_6
+    :goto_0
     return v1
 
     .line 90
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 91
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getAppsWithPolicy(I)[I
-    .registers 4
+    .locals 2
     .parameter "policy"
 
     .prologue
@@ -462,17 +462,17 @@
     iget-object v1, p0, Landroid/net/NetworkPolicyManager;->mService:Landroid/net/INetworkPolicyManager;
 
     invoke-interface {v1, p1}, Landroid/net/INetworkPolicyManager;->getAppsWithPolicy(I)[I
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 99
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 98
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 99
@@ -481,11 +481,11 @@
 
     new-array v1, v1, [I
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getNetworkPolicies()[Landroid/net/NetworkPolicy;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 126
@@ -493,28 +493,28 @@
     iget-object v1, p0, Landroid/net/NetworkPolicyManager;->mService:Landroid/net/INetworkPolicyManager;
 
     invoke-interface {v1}, Landroid/net/INetworkPolicyManager;->getNetworkPolicies()[Landroid/net/NetworkPolicy;
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 128
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 127
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 128
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getRestrictBackground()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 141
@@ -522,28 +522,28 @@
     iget-object v1, p0, Landroid/net/NetworkPolicyManager;->mService:Landroid/net/INetworkPolicyManager;
 
     invoke-interface {v1}, Landroid/net/INetworkPolicyManager;->getRestrictBackground()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 143
-    :goto_6
+    :goto_0
     return v1
 
     .line 142
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 143
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public registerListener(Landroid/net/INetworkPolicyListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
@@ -552,22 +552,22 @@
     iget-object v0, p0, Landroid/net/NetworkPolicyManager;->mService:Landroid/net/INetworkPolicyManager;
 
     invoke-interface {v0, p1}, Landroid/net/INetworkPolicyManager;->registerListener(Landroid/net/INetworkPolicyListener;)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 108
-    :goto_5
+    :goto_0
     return-void
 
     .line 106
-    :catch_6
+    :catch_0
     move-exception v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public setAppPolicy(II)V
-    .registers 4
+    .locals 1
     .parameter "appId"
     .parameter "policy"
 
@@ -577,22 +577,22 @@
     iget-object v0, p0, Landroid/net/NetworkPolicyManager;->mService:Landroid/net/INetworkPolicyManager;
 
     invoke-interface {v0, p1, p2}, Landroid/net/INetworkPolicyManager;->setAppPolicy(II)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 85
-    :goto_5
+    :goto_0
     return-void
 
     .line 83
-    :catch_6
+    :catch_0
     move-exception v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public setNetworkPolicies([Landroid/net/NetworkPolicy;)V
-    .registers 3
+    .locals 1
     .parameter "policies"
 
     .prologue
@@ -601,22 +601,22 @@
     iget-object v0, p0, Landroid/net/NetworkPolicyManager;->mService:Landroid/net/INetworkPolicyManager;
 
     invoke-interface {v0, p1}, Landroid/net/INetworkPolicyManager;->setNetworkPolicies([Landroid/net/NetworkPolicy;)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 122
-    :goto_5
+    :goto_0
     return-void
 
     .line 120
-    :catch_6
+    :catch_0
     move-exception v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public setRestrictBackground(Z)V
-    .registers 3
+    .locals 1
     .parameter "restrictBackground"
 
     .prologue
@@ -625,22 +625,22 @@
     iget-object v0, p0, Landroid/net/NetworkPolicyManager;->mService:Landroid/net/INetworkPolicyManager;
 
     invoke-interface {v0, p1}, Landroid/net/INetworkPolicyManager;->setRestrictBackground(Z)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 137
-    :goto_5
+    :goto_0
     return-void
 
     .line 135
-    :catch_6
+    :catch_0
     move-exception v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public unregisterListener(Landroid/net/INetworkPolicyListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
@@ -649,16 +649,16 @@
     iget-object v0, p0, Landroid/net/NetworkPolicyManager;->mService:Landroid/net/INetworkPolicyManager;
 
     invoke-interface {v0, p1}, Landroid/net/INetworkPolicyManager;->unregisterListener(Landroid/net/INetworkPolicyListener;)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 115
-    :goto_5
+    :goto_0
     return-void
 
     .line 113
-    :catch_6
+    :catch_0
     move-exception v0
 
-    goto :goto_5
+    goto :goto_0
 .end method

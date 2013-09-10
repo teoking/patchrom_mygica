@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 83
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public onEvent(IILjava/lang/String;)V
-    .registers 11
+    .locals 7
     .parameter "wfd"
     .parameter "mask"
     .parameter "path"
@@ -89,7 +89,7 @@
     monitor-enter v5
 
     .line 113
-    :try_start_4
+    :try_start_0
     iget-object v4, p0, Landroid/os/FileObserver$ObserverThread;->m_observers:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -104,7 +104,7 @@
 
     .line 114
     .local v3, weak:Ljava/lang/ref/WeakReference;
-    if-eqz v3, :cond_25
+    if-eqz v3, :cond_0
 
     .line 115
     invoke-virtual {v3}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -118,7 +118,7 @@
     move-object v1, v0
 
     .line 116
-    if-nez v1, :cond_25
+    if-nez v1, :cond_0
 
     .line 117
     iget-object v4, p0, Landroid/os/FileObserver$ObserverThread;->m_observers:Ljava/util/HashMap;
@@ -130,40 +130,40 @@
     invoke-virtual {v4, v6}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 120
-    :cond_25
+    :cond_0
     monitor-exit v5
-    :try_end_26
-    .catchall {:try_start_4 .. :try_end_26} :catchall_2c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 123
-    if-eqz v1, :cond_2b
+    if-eqz v1, :cond_1
 
     .line 125
-    :try_start_28
+    :try_start_1
     invoke-virtual {v1, p2, p3}, Landroid/os/FileObserver;->onEvent(ILjava/lang/String;)V
-    :try_end_2b
-    .catch Ljava/lang/Throwable; {:try_start_28 .. :try_end_2b} :catch_2f
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 130
-    :cond_2b
-    :goto_2b
+    :cond_1
+    :goto_0
     return-void
 
     .line 120
     .end local v3           #weak:Ljava/lang/ref/WeakReference;
-    :catchall_2c
+    :catchall_0
     move-exception v4
 
-    :try_start_2d
+    :try_start_2
     monitor-exit v5
-    :try_end_2e
-    .catchall {:try_start_2d .. :try_end_2e} :catchall_2c
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v4
 
     .line 126
     .restart local v3       #weak:Ljava/lang/ref/WeakReference;
-    :catch_2f
+    :catch_0
     move-exception v2
 
     .line 127
@@ -190,11 +190,11 @@
 
     invoke-static {v4, v5, v2}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_2b
+    goto :goto_0
 .end method
 
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 88
@@ -207,7 +207,7 @@
 .end method
 
 .method public startWatching(Ljava/lang/String;ILandroid/os/FileObserver;)I
-    .registers 9
+    .locals 5
     .parameter "path"
     .parameter "mask"
     .parameter "observer"
@@ -228,7 +228,7 @@
 
     .line 95
     .local v0, i:Ljava/lang/Integer;
-    if-ltz v1, :cond_1b
+    if-ltz v1, :cond_0
 
     .line 96
     iget-object v3, p0, Landroid/os/FileObserver$ObserverThread;->m_observers:Ljava/util/HashMap;
@@ -236,7 +236,7 @@
     monitor-enter v3
 
     .line 97
-    :try_start_10
+    :try_start_0
     iget-object v2, p0, Landroid/os/FileObserver$ObserverThread;->m_observers:Ljava/util/HashMap;
 
     new-instance v4, Ljava/lang/ref/WeakReference;
@@ -247,11 +247,11 @@
 
     .line 98
     monitor-exit v3
-    :try_end_1b
-    .catchall {:try_start_10 .. :try_end_1b} :catchall_20
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 101
-    :cond_1b
+    :cond_0
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
@@ -259,19 +259,19 @@
     return v2
 
     .line 98
-    :catchall_20
+    :catchall_0
     move-exception v2
 
-    :try_start_21
+    :try_start_1
     monitor-exit v3
-    :try_end_22
-    .catchall {:try_start_21 .. :try_end_22} :catchall_20
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v2
 .end method
 
 .method public stopWatching(I)V
-    .registers 3
+    .locals 1
     .parameter "descriptor"
 
     .prologue

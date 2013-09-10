@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/MasterClearReceiver;Ljava/lang/String;Landroid/content/Context;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 46
@@ -56,15 +56,15 @@
     const-string v2, "Still running after master clear?!"
 
     invoke-static {v1, v2}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_c
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_c} :catch_d
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 51
-    :goto_c
+    :goto_0
     return-void
 
     .line 48
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 49
@@ -75,5 +75,5 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_c
+    goto :goto_0
 .end method

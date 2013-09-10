@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/AdapterView;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public clearSavedState()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 840
@@ -57,7 +57,7 @@
 .end method
 
 .method public onChanged()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 799
@@ -103,29 +103,30 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4c
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->mInstanceState:Landroid/os/Parcelable;
 
-    if-eqz v0, :cond_4c
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->this$0:Landroid/widget/AdapterView;
 
     iget v0, v0, Landroid/widget/AdapterView;->mOldItemCount:I
 
-    if-nez v0, :cond_4c
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->this$0:Landroid/widget/AdapterView;
 
     iget v0, v0, Landroid/widget/AdapterView;->mItemCount:I
 
-    if-lez v0, :cond_4c
+    if-lez v0, :cond_0
 
     .line 807
     iget-object v0, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->this$0:Landroid/widget/AdapterView;
 
     iget-object v1, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->mInstanceState:Landroid/os/Parcelable;
 
+    #calls: Landroid/widget/AdapterView;->onRestoreInstanceState(Landroid/os/Parcelable;)V
     invoke-static {v0, v1}, Landroid/widget/AdapterView;->access$000(Landroid/widget/AdapterView;Landroid/os/Parcelable;)V
 
     .line 808
@@ -134,7 +135,7 @@
     iput-object v0, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->mInstanceState:Landroid/os/Parcelable;
 
     .line 812
-    :goto_41
+    :goto_0
     iget-object v0, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->this$0:Landroid/widget/AdapterView;
 
     invoke-virtual {v0}, Landroid/widget/AdapterView;->checkFocus()V
@@ -148,16 +149,16 @@
     return-void
 
     .line 810
-    :cond_4c
+    :cond_0
     iget-object v0, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->this$0:Landroid/widget/AdapterView;
 
     invoke-virtual {v0}, Landroid/widget/AdapterView;->rememberSyncState()V
 
-    goto :goto_41
+    goto :goto_0
 .end method
 
 .method public onInvalidated()V
-    .registers 7
+    .locals 6
 
     .prologue
     .local p0, this:Landroid/widget/AdapterView$AdapterDataSetObserver;,"Landroid/widget/AdapterView<TT;>.AdapterDataSetObserver;"
@@ -185,11 +186,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_0
 
     .line 823
     iget-object v0, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->this$0:Landroid/widget/AdapterView;
 
+    #calls: Landroid/widget/AdapterView;->onSaveInstanceState()Landroid/os/Parcelable;
     invoke-static {v0}, Landroid/widget/AdapterView;->access$100(Landroid/widget/AdapterView;)Landroid/os/Parcelable;
 
     move-result-object v0
@@ -197,7 +199,7 @@
     iput-object v0, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->mInstanceState:Landroid/os/Parcelable;
 
     .line 827
-    :cond_1d
+    :cond_0
     iget-object v0, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->this$0:Landroid/widget/AdapterView;
 
     iget-object v1, p0, Landroid/widget/AdapterView$AdapterDataSetObserver;->this$0:Landroid/widget/AdapterView;

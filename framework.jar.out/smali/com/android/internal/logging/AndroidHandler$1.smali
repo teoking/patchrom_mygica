@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 88
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public format(Ljava/util/logging/LogRecord;)Ljava/lang/String;
-    .registers 6
+    .locals 4
     .parameter "r"
 
     .prologue
@@ -39,7 +39,7 @@
 
     .line 92
     .local v2, thrown:Ljava/lang/Throwable;
-    if-eqz v2, :cond_27
+    if-eqz v2, :cond_0
 
     .line 93
     new-instance v1, Ljava/io/StringWriter;
@@ -79,13 +79,13 @@
     .line 101
     .end local v0           #pw:Ljava/io/PrintWriter;
     .end local v1           #sw:Ljava/io/StringWriter;
-    :goto_26
+    :goto_0
     return-object v3
 
-    :cond_27
+    :cond_0
     invoke-virtual {p1}, Ljava/util/logging/LogRecord;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
-    goto :goto_26
+    goto :goto_0
 .end method

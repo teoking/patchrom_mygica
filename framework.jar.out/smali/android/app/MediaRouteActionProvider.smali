@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -71,7 +71,7 @@
 .end method
 
 .method private getActivity()Landroid/app/Activity;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 109
@@ -79,14 +79,14 @@
 
     .line 110
     .local v0, context:Landroid/content/Context;
-    :goto_2
+    :goto_0
     instance-of v1, v0, Landroid/content/ContextWrapper;
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_0
 
     instance-of v1, v0, Landroid/app/Activity;
 
-    if-nez v1, :cond_11
+    if-nez v1, :cond_0
 
     .line 111
     check-cast v0, Landroid/content/ContextWrapper;
@@ -97,13 +97,13 @@
     move-result-object v0
 
     .restart local v0       #context:Landroid/content/Context;
-    goto :goto_2
+    goto :goto_0
 
     .line 113
-    :cond_11
+    :cond_0
     instance-of v1, v0, Landroid/app/Activity;
 
-    if-nez v1, :cond_1d
+    if-nez v1, :cond_1
 
     .line 114
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -115,7 +115,7 @@
     throw v1
 
     .line 118
-    :cond_1d
+    :cond_1
     check-cast v0, Landroid/app/Activity;
 
     .end local v0           #context:Landroid/content/Context;
@@ -125,7 +125,7 @@
 
 # virtual methods
 .method public isVisible()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x1
@@ -137,19 +137,19 @@
 
     move-result v1
 
-    if-le v1, v0, :cond_a
+    if-le v1, v0, :cond_0
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public onCreateActionView()Landroid/view/View;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 71
@@ -163,21 +163,21 @@
 .end method
 
 .method public onCreateActionView(Landroid/view/MenuItem;)Landroid/view/View;
-    .registers 4
+    .locals 2
     .parameter "item"
 
     .prologue
     .line 76
     iget-object v0, p0, Landroid/app/MediaRouteActionProvider;->mMenuItem:Landroid/view/MenuItem;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/app/MediaRouteActionProvider;->mView:Landroid/app/MediaRouteButton;
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_1
 
     .line 77
-    :cond_8
+    :cond_0
     const-string v0, "MediaRouteActionProvider"
 
     const-string/jumbo v1, "onCreateActionView: this ActionProvider is already associated with a menu item. Don\'t reuse MediaRouteActionProvider instances! Abandoning the old one..."
@@ -185,7 +185,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 81
-    :cond_10
+    :cond_1
     iput-object p1, p0, Landroid/app/MediaRouteActionProvider;->mMenuItem:Landroid/view/MenuItem;
 
     .line 82
@@ -218,7 +218,7 @@
 .end method
 
 .method public onPerformDefaultAction()Z
-    .registers 5
+    .locals 4
 
     .prologue
     .line 90
@@ -242,7 +242,7 @@
 
     .line 95
     .local v0, dialogFragment:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     .line 96
     const-string v2, "MediaRouteActionProvider"
@@ -255,11 +255,11 @@
     const/4 v2, 0x0
 
     .line 104
-    :goto_1b
+    :goto_0
     return v2
 
     .line 100
-    :cond_1c
+    :cond_0
     new-instance v0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
     .end local v0           #dialogFragment:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
@@ -284,11 +284,11 @@
     .line 104
     const/4 v2, 0x1
 
-    goto :goto_1b
+    goto :goto_0
 .end method
 
 .method public overridesItemVisibility()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 130
@@ -298,7 +298,7 @@
 .end method
 
 .method public setExtendedSettingsClickListener(Landroid/view/View$OnClickListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
@@ -308,7 +308,7 @@
     .line 123
     iget-object v0, p0, Landroid/app/MediaRouteActionProvider;->mView:Landroid/app/MediaRouteButton;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 124
     iget-object v0, p0, Landroid/app/MediaRouteActionProvider;->mView:Landroid/app/MediaRouteButton;
@@ -316,30 +316,30 @@
     invoke-virtual {v0, p1}, Landroid/app/MediaRouteButton;->setExtendedSettingsClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 126
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method public setRouteTypes(I)V
-    .registers 4
+    .locals 2
     .parameter "types"
 
     .prologue
     .line 56
     iget v0, p0, Landroid/app/MediaRouteActionProvider;->mRouteTypes:I
 
-    if-ne v0, p1, :cond_5
+    if-ne v0, p1, :cond_1
 
     .line 67
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-void
 
     .line 57
-    :cond_5
+    :cond_1
     iget v0, p0, Landroid/app/MediaRouteActionProvider;->mRouteTypes:I
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_2
 
     .line 58
     iget-object v0, p0, Landroid/app/MediaRouteActionProvider;->mRouter:Landroid/media/MediaRouter;
@@ -349,11 +349,11 @@
     invoke-virtual {v0, v1}, Landroid/media/MediaRouter;->removeCallback(Landroid/media/MediaRouter$Callback;)V
 
     .line 60
-    :cond_10
+    :cond_2
     iput p1, p0, Landroid/app/MediaRouteActionProvider;->mRouteTypes:I
 
     .line 61
-    if-eqz p1, :cond_1b
+    if-eqz p1, :cond_3
 
     .line 62
     iget-object v0, p0, Landroid/app/MediaRouteActionProvider;->mRouter:Landroid/media/MediaRouter;
@@ -363,10 +363,10 @@
     invoke-virtual {v0, p1, v1}, Landroid/media/MediaRouter;->addCallback(ILandroid/media/MediaRouter$Callback;)V
 
     .line 64
-    :cond_1b
+    :cond_3
     iget-object v0, p0, Landroid/app/MediaRouteActionProvider;->mView:Landroid/app/MediaRouteButton;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_0
 
     .line 65
     iget-object v0, p0, Landroid/app/MediaRouteActionProvider;->mView:Landroid/app/MediaRouteButton;
@@ -375,5 +375,5 @@
 
     invoke-virtual {v0, v1}, Landroid/app/MediaRouteButton;->setRouteTypes(I)V
 
-    goto :goto_4
+    goto :goto_0
 .end method

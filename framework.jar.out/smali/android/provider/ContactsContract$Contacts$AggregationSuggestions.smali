@@ -40,7 +40,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1740
@@ -50,7 +50,7 @@
 .end method
 
 .method public static final builder()Landroid/provider/ContactsContract$Contacts$AggregationSuggestions$Builder;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1846

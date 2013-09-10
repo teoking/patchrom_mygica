@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/media/AudioService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/media/AudioService;Landroid/media/AudioService$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -45,7 +45,7 @@
 .end method
 
 .method private findUSBStream(Ljava/lang/String;I)Z
-    .registers 16
+    .locals 13
     .parameter "string"
     .parameter "card"
 
@@ -99,8 +99,8 @@
 
     .line 3407
     .local v9, waitSec:I
-    :goto_26
-    :try_start_26
+    :goto_0
+    :try_start_0
     const-string v10, "AudioService"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -129,21 +129,21 @@
     const-wide/16 v10, 0x3e8
 
     invoke-static {v10, v11}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_46
-    .catch Ljava/lang/InterruptedException; {:try_start_26 .. :try_end_46} :catch_82
-    .catch Ljava/io/FileNotFoundException; {:try_start_26 .. :try_end_46} :catch_8b
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 3412
-    :goto_46
-    :try_start_46
+    :goto_1
+    :try_start_1
     invoke-virtual {v4}, Ljava/io/File;->exists()Z
 
     move-result v10
 
-    if-eqz v10, :cond_94
+    if-eqz v10, :cond_0
 
     .line 3419
-    :goto_4c
+    :goto_2
     new-instance v5, Ljava/io/FileReader;
 
     invoke-direct {v5, v0}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V
@@ -153,22 +153,22 @@
     const/16 v10, 0x400
 
     new-array v1, v10, [C
-    :try_end_55
-    .catch Ljava/io/FileNotFoundException; {:try_start_46 .. :try_end_55} :catch_8b
+    :try_end_1
+    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 3422
     .local v1, data:[C
-    :try_start_55
+    :try_start_2
     invoke-virtual {v5, v1}, Ljava/io/FileReader;->read([C)I
-    :try_end_58
-    .catch Ljava/io/IOException; {:try_start_55 .. :try_end_58} :catch_ba
-    .catch Ljava/io/FileNotFoundException; {:try_start_55 .. :try_end_58} :catch_8b
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
+    .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_1
 
     move-result v7
 
     .line 3426
-    :goto_59
-    :try_start_59
+    :goto_3
+    :try_start_3
     new-instance v8, Ljava/lang/String;
 
     const/4 v10, 0x0
@@ -178,21 +178,21 @@
     .line 3427
     .local v8, usbStream:Ljava/lang/String;
     invoke-virtual {v8, p1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-    :try_end_62
-    .catch Ljava/io/FileNotFoundException; {:try_start_59 .. :try_end_62} :catch_8b
+    :try_end_3
+    .catch Ljava/io/FileNotFoundException; {:try_start_3 .. :try_end_3} :catch_1
 
     move-result v7
 
     .line 3429
-    :try_start_63
+    :try_start_4
     invoke-virtual {v5}, Ljava/io/FileReader;->close()V
-    :try_end_66
-    .catch Ljava/io/IOException; {:try_start_63 .. :try_end_66} :catch_c3
-    .catch Ljava/io/FileNotFoundException; {:try_start_63 .. :try_end_66} :catch_8b
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+    .catch Ljava/io/FileNotFoundException; {:try_start_4 .. :try_end_4} :catch_1
 
     .line 3433
-    :goto_66
-    :try_start_66
+    :goto_4
+    :try_start_5
     const-string v10, "AudioService"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -219,18 +219,18 @@
     .end local v1           #data:[C
     .end local v5           #fr:Ljava/io/FileReader;
     .end local v8           #usbStream:Ljava/lang/String;
-    :goto_7e
-    if-ltz v7, :cond_cc
+    :goto_5
+    if-ltz v7, :cond_2
 
     .line 3438
     const/4 v10, 0x1
 
     .line 3439
-    :goto_81
+    :goto_6
     return v10
 
     .line 3409
-    :catch_82
+    :catch_0
     move-exception v2
 
     .line 3410
@@ -240,14 +240,14 @@
     const-string v11, "audio source file does not exist"
 
     invoke-static {v10, v11, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_8a
-    .catch Ljava/io/FileNotFoundException; {:try_start_66 .. :try_end_8a} :catch_8b
+    :try_end_5
+    .catch Ljava/io/FileNotFoundException; {:try_start_5 .. :try_end_5} :catch_1
 
-    goto :goto_46
+    goto :goto_1
 
     .line 3434
     .end local v2           #e:Ljava/lang/InterruptedException;
-    :catch_8b
+    :catch_1
     move-exception v3
 
     .line 3435
@@ -258,15 +258,15 @@
 
     invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_7e
+    goto :goto_5
 
     .line 3413
     .end local v3           #e1:Ljava/io/FileNotFoundException;
-    :cond_94
-    if-lt v6, v9, :cond_b6
+    :cond_0
+    if-lt v6, v9, :cond_1
 
     .line 3414
-    :try_start_96
+    :try_start_6
     const-string v10, "AudioService"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -295,18 +295,18 @@
 
     invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_4c
+    goto :goto_2
 
     .line 3417
-    :cond_b6
+    :cond_1
     add-int/lit8 v6, v6, 0x1
 
-    goto/16 :goto_26
+    goto/16 :goto_0
 
     .line 3423
     .restart local v1       #data:[C
     .restart local v5       #fr:Ljava/io/FileReader;
-    :catch_ba
+    :catch_2
     move-exception v3
 
     .line 3424
@@ -317,12 +317,12 @@
 
     invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_59
+    goto :goto_3
 
     .line 3430
     .end local v3           #e1:Ljava/io/IOException;
     .restart local v8       #usbStream:Ljava/lang/String;
-    :catch_c3
+    :catch_3
     move-exception v3
 
     .line 3431
@@ -332,26 +332,26 @@
     const-string v11, "close fileRead ERROR!!"
 
     invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_cb
-    .catch Ljava/io/FileNotFoundException; {:try_start_96 .. :try_end_cb} :catch_8b
+    :try_end_6
+    .catch Ljava/io/FileNotFoundException; {:try_start_6 .. :try_end_6} :catch_1
 
-    goto :goto_66
+    goto :goto_4
 
     .line 3439
     .end local v1           #data:[C
     .end local v3           #e1:Ljava/io/IOException;
     .end local v5           #fr:Ljava/io/FileReader;
     .end local v8           #usbStream:Ljava/lang/String;
-    :cond_cc
+    :cond_2
     const/4 v10, 0x0
 
-    goto :goto_81
+    goto :goto_6
 .end method
 
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 30
+    .locals 27
     .parameter "context"
     .parameter "intent"
 
@@ -369,7 +369,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2d
+    if-eqz v2, :cond_1
 
     .line 3449
     const-string v2, "android.intent.extra.DOCK_STATE"
@@ -384,14 +384,14 @@
 
     .line 3452
     .local v21, dockState:I
-    packed-switch v21, :pswitch_data_3ba
+    packed-switch v21, :pswitch_data_0
 
     .line 3467
     const/16 v18, 0x0
 
     .line 3469
     .local v18, config:I
-    :goto_1a
+    :goto_0
     const/4 v2, 0x3
 
     move/from16 v0, v18
@@ -401,57 +401,57 @@
     .line 3625
     .end local v18           #config:I
     .end local v21           #dockState:I
-    :cond_20
-    :goto_20
+    :cond_0
+    :goto_1
     return-void
 
     .line 3454
     .restart local v21       #dockState:I
-    :pswitch_21
+    :pswitch_0
     const/16 v18, 0x7
 
     .line 3455
     .restart local v18       #config:I
-    goto :goto_1a
+    goto :goto_0
 
     .line 3457
     .end local v18           #config:I
-    :pswitch_24
+    :pswitch_1
     const/16 v18, 0x6
 
     .line 3458
     .restart local v18       #config:I
-    goto :goto_1a
+    goto :goto_0
 
     .line 3460
     .end local v18           #config:I
-    :pswitch_27
+    :pswitch_2
     const/16 v18, 0x8
 
     .line 3461
     .restart local v18       #config:I
-    goto :goto_1a
+    goto :goto_0
 
     .line 3463
     .end local v18           #config:I
-    :pswitch_2a
+    :pswitch_3
     const/16 v18, 0x9
 
     .line 3464
     .restart local v18       #config:I
-    goto :goto_1a
+    goto :goto_0
 
     .line 3470
     .end local v18           #config:I
     .end local v21           #dockState:I
-    :cond_2d
+    :cond_1
     const-string v2, "android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED"
 
     invoke-virtual {v9, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_ad
+    if-eqz v2, :cond_6
 
     .line 3471
     const-string v2, "android.bluetooth.profile.extra.STATE"
@@ -486,7 +486,7 @@
 
     .line 3477
     .local v16, btDevice:Landroid/bluetooth/BluetoothDevice;
-    if-eqz v16, :cond_20
+    if-eqz v16, :cond_0
 
     .line 3481
     invoke-virtual/range {v16 .. v16}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
@@ -500,40 +500,40 @@
 
     .line 3483
     .local v15, btClass:Landroid/bluetooth/BluetoothClass;
-    if-eqz v15, :cond_5e
+    if-eqz v15, :cond_2
 
     .line 3484
     invoke-virtual {v15}, Landroid/bluetooth/BluetoothClass;->getDeviceClass()I
 
     move-result v2
 
-    sparse-switch v2, :sswitch_data_3c6
+    sparse-switch v2, :sswitch_data_0
 
     .line 3495
-    :cond_5e
-    :goto_5e
+    :cond_2
+    :goto_2
     invoke-static {v11}, Landroid/bluetooth/BluetoothAdapter;->checkBluetoothAddress(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-nez v2, :cond_66
+    if-nez v2, :cond_3
 
     .line 3496
     const-string v11, ""
 
     .line 3499
-    :cond_66
+    :cond_3
     const/4 v2, 0x2
 
     move/from16 v0, v26
 
-    if-ne v0, v2, :cond_9a
+    if-ne v0, v2, :cond_4
 
     const/16 v19, 0x1
 
     .line 3500
     .local v19, connected:Z
-    :goto_6d
+    :goto_3
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
@@ -542,17 +542,19 @@
 
     move/from16 v1, v20
 
+    #calls: Landroid/media/AudioService;->handleDeviceConnection(ZILjava/lang/String;)Z
     invoke-static {v2, v0, v1, v11}, Landroid/media/AudioService;->access$6800(Landroid/media/AudioService;ZILjava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_20
+    if-eqz v2, :cond_0
 
     .line 3501
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mScoClients:Ljava/util/ArrayList;
     invoke-static {v2}, Landroid/media/AudioService;->access$2100(Landroid/media/AudioService;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -560,63 +562,65 @@
     monitor-enter v3
 
     .line 3502
-    if-eqz v19, :cond_9d
+    if-eqz v19, :cond_5
 
     .line 3503
-    :try_start_86
+    :try_start_0
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
     move-object/from16 v0, v16
 
+    #setter for: Landroid/media/AudioService;->mBluetoothHeadsetDevice:Landroid/bluetooth/BluetoothDevice;
     invoke-static {v2, v0}, Landroid/media/AudioService;->access$2602(Landroid/media/AudioService;Landroid/bluetooth/BluetoothDevice;)Landroid/bluetooth/BluetoothDevice;
 
     .line 3508
-    :goto_8f
+    :goto_4
     monitor-exit v3
 
-    goto :goto_20
+    goto :goto_1
 
-    :catchall_91
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_93
-    .catchall {:try_start_86 .. :try_end_93} :catchall_91
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 
     .line 3487
     .end local v19           #connected:Z
-    :sswitch_94
+    :sswitch_0
     const/16 v20, 0x20
 
     .line 3488
-    goto :goto_5e
+    goto :goto_2
 
     .line 3490
-    :sswitch_97
+    :sswitch_1
     const/16 v20, 0x40
 
-    goto :goto_5e
+    goto :goto_2
 
     .line 3499
-    :cond_9a
+    :cond_4
     const/16 v19, 0x0
 
-    goto :goto_6d
+    goto :goto_3
 
     .line 3505
     .restart local v19       #connected:Z
-    :cond_9d
-    :try_start_9d
+    :cond_5
+    :try_start_1
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
     const/4 v4, 0x0
 
+    #setter for: Landroid/media/AudioService;->mBluetoothHeadsetDevice:Landroid/bluetooth/BluetoothDevice;
     invoke-static {v2, v4}, Landroid/media/AudioService;->access$2602(Landroid/media/AudioService;Landroid/bluetooth/BluetoothDevice;)Landroid/bluetooth/BluetoothDevice;
 
     .line 3506
@@ -624,11 +628,12 @@
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #calls: Landroid/media/AudioService;->resetBluetoothSco()V
     invoke-static {v2}, Landroid/media/AudioService;->access$5900(Landroid/media/AudioService;)V
-    :try_end_ac
-    .catchall {:try_start_9d .. :try_end_ac} :catchall_91
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_8f
+    goto :goto_4
 
     .line 3510
     .end local v11           #address:Ljava/lang/String;
@@ -637,14 +642,14 @@
     .end local v19           #connected:Z
     .end local v20           #device:I
     .end local v26           #state:I
-    :cond_ad
+    :cond_6
     const-string v2, "android.intent.action.USB_AUDIO_ACCESSORY_PLUG"
 
     invoke-virtual {v9, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_bd
+    if-nez v2, :cond_7
 
     const-string v2, "android.intent.action.USB_AUDIO_DEVICE_PLUG"
 
@@ -652,10 +657,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1ea
+    if-eqz v2, :cond_13
 
     .line 3512
-    :cond_bd
+    :cond_7
     const-string/jumbo v2, "state"
 
     const/4 v3, 0x0
@@ -694,30 +699,30 @@
     .local v13, alsaDevice:I
     const/4 v2, -0x1
 
-    if-ne v12, v2, :cond_176
+    if-ne v12, v2, :cond_9
 
     const/4 v2, -0x1
 
-    if-ne v13, v2, :cond_176
+    if-ne v13, v2, :cond_9
 
     const-string v24, ""
 
     .line 3517
     .local v24, params:Ljava/lang/String;
-    :goto_e1
+    :goto_5
     const-string v2, "android.intent.action.USB_AUDIO_ACCESSORY_PLUG"
 
     invoke-virtual {v9, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_195
+    if-eqz v2, :cond_a
 
     const/16 v20, 0x2000
 
     .line 3519
     .restart local v20       #device:I
-    :goto_eb
+    :goto_6
     const-string v3, "AudioService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -736,11 +741,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_199
+    if-eqz v2, :cond_b
 
     const-string v2, "ACTION_USB_AUDIO_ACCESSORY_PLUG"
 
-    :goto_102
+    :goto_7
     invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -790,14 +795,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1cd
+    if-eqz v2, :cond_11
 
     .line 3524
     const/4 v2, 0x1
 
     move/from16 v0, v26
 
-    if-ne v0, v2, :cond_1a1
+    if-ne v0, v2, :cond_e
 
     .line 3525
     const-string v2, "Playback"
@@ -808,7 +813,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_157
+    if-eqz v2, :cond_8
 
     .line 3526
     const/16 v20, 0x4000
@@ -822,19 +827,20 @@
 
     move/from16 v0, v26
 
-    if-ne v0, v2, :cond_19d
+    if-ne v0, v2, :cond_c
 
     const/4 v2, 0x1
 
-    :goto_150
+    :goto_8
     move/from16 v0, v20
 
     move-object/from16 v1, v24
 
+    #calls: Landroid/media/AudioService;->handleDeviceConnection(ZILjava/lang/String;)Z
     invoke-static {v3, v2, v0, v1}, Landroid/media/AudioService;->access$6800(Landroid/media/AudioService;ZILjava/lang/String;)Z
 
     .line 3529
-    :cond_157
+    :cond_8
     const-string v2, "Capture"
 
     move-object/from16 v0, p0
@@ -843,7 +849,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_20
+    if-eqz v2, :cond_0
 
     .line 3530
     const/high16 v20, 0x100
@@ -857,23 +863,24 @@
 
     move/from16 v0, v26
 
-    if-ne v0, v2, :cond_19f
+    if-ne v0, v2, :cond_d
 
     const/4 v2, 0x1
 
-    :goto_16d
+    :goto_9
     move/from16 v0, v20
 
     move-object/from16 v1, v24
 
+    #calls: Landroid/media/AudioService;->handleDeviceConnection(ZILjava/lang/String;)Z
     invoke-static {v3, v2, v0, v1}, Landroid/media/AudioService;->access$6800(Landroid/media/AudioService;ZILjava/lang/String;)Z
 
-    goto/16 :goto_20
+    goto/16 :goto_1
 
     .line 3515
     .end local v20           #device:I
     .end local v24           #params:Ljava/lang/String;
-    :cond_176
+    :cond_9
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -902,36 +909,36 @@
 
     move-result-object v24
 
-    goto/16 :goto_e1
+    goto/16 :goto_5
 
     .line 3517
     .restart local v24       #params:Ljava/lang/String;
-    :cond_195
+    :cond_a
     const/16 v20, 0x0
 
-    goto/16 :goto_eb
+    goto/16 :goto_6
 
     .line 3519
     .restart local v20       #device:I
-    :cond_199
+    :cond_b
     const-string v2, "ACTION_USB_AUDIO_DEVICE_PLUG"
 
-    goto/16 :goto_102
+    goto/16 :goto_7
 
     .line 3527
-    :cond_19d
+    :cond_c
     const/4 v2, 0x0
 
-    goto :goto_150
+    goto :goto_8
 
     .line 3531
-    :cond_19f
+    :cond_d
     const/4 v2, 0x0
 
-    goto :goto_16d
+    goto :goto_9
 
     .line 3534
-    :cond_1a1
+    :cond_e
     const/16 v20, 0x4000
 
     .line 3535
@@ -943,15 +950,16 @@
 
     move/from16 v0, v26
 
-    if-ne v0, v2, :cond_1c9
+    if-ne v0, v2, :cond_f
 
     const/4 v2, 0x1
 
-    :goto_1ad
+    :goto_a
     move/from16 v0, v20
 
     move-object/from16 v1, v24
 
+    #calls: Landroid/media/AudioService;->handleDeviceConnection(ZILjava/lang/String;)Z
     invoke-static {v3, v2, v0, v1}, Landroid/media/AudioService;->access$6800(Landroid/media/AudioService;ZILjava/lang/String;)Z
 
     .line 3536
@@ -966,40 +974,41 @@
 
     move/from16 v0, v26
 
-    if-ne v0, v2, :cond_1cb
+    if-ne v0, v2, :cond_10
 
     const/4 v2, 0x1
 
-    :goto_1c0
+    :goto_b
     move/from16 v0, v20
 
     move-object/from16 v1, v24
 
+    #calls: Landroid/media/AudioService;->handleDeviceConnection(ZILjava/lang/String;)Z
     invoke-static {v3, v2, v0, v1}, Landroid/media/AudioService;->access$6800(Landroid/media/AudioService;ZILjava/lang/String;)Z
 
-    goto/16 :goto_20
+    goto/16 :goto_1
 
     .line 3535
-    :cond_1c9
+    :cond_f
     const/4 v2, 0x0
 
-    goto :goto_1ad
+    goto :goto_a
 
     .line 3537
-    :cond_1cb
+    :cond_10
     const/4 v2, 0x0
 
-    goto :goto_1c0
+    goto :goto_b
 
     .line 3539
-    :cond_1cd
+    :cond_11
     const-string v2, "android.intent.action.USB_AUDIO_ACCESSORY_PLUG"
 
     invoke-virtual {v9, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_20
+    if-eqz v2, :cond_0
 
     .line 3540
     move-object/from16 v0, p0
@@ -1010,23 +1019,24 @@
 
     move/from16 v0, v26
 
-    if-ne v0, v2, :cond_1e8
+    if-ne v0, v2, :cond_12
 
     const/4 v2, 0x1
 
-    :goto_1df
+    :goto_c
     move/from16 v0, v20
 
     move-object/from16 v1, v24
 
+    #calls: Landroid/media/AudioService;->handleDeviceConnection(ZILjava/lang/String;)Z
     invoke-static {v3, v2, v0, v1}, Landroid/media/AudioService;->access$6800(Landroid/media/AudioService;ZILjava/lang/String;)Z
 
-    goto/16 :goto_20
+    goto/16 :goto_1
 
-    :cond_1e8
+    :cond_12
     const/4 v2, 0x0
 
-    goto :goto_1df
+    goto :goto_c
 
     .line 3542
     .end local v12           #alsaCard:I
@@ -1034,14 +1044,14 @@
     .end local v20           #device:I
     .end local v24           #params:Ljava/lang/String;
     .end local v26           #state:I
-    :cond_1ea
+    :cond_13
     const-string v2, "android.bluetooth.headset.profile.action.AUDIO_STATE_CHANGED"
 
     invoke-virtual {v9, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2d6
+    if-eqz v2, :cond_18
 
     .line 3543
     const/4 v14, 0x0
@@ -1056,6 +1066,7 @@
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mScoClients:Ljava/util/ArrayList;
     invoke-static {v2}, Landroid/media/AudioService;->access$2100(Landroid/media/AudioService;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -1063,7 +1074,7 @@
     monitor-enter v3
 
     .line 3546
-    :try_start_1fe
+    :try_start_2
     const-string v2, "android.bluetooth.profile.extra.STATE"
 
     const/4 v4, -0x1
@@ -1080,6 +1091,7 @@
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mScoClients:Ljava/util/ArrayList;
     invoke-static {v2}, Landroid/media/AudioService;->access$2100(Landroid/media/AudioService;)Ljava/util/ArrayList;
 
     move-result-object v2
@@ -1088,66 +1100,69 @@
 
     move-result v2
 
-    if-nez v2, :cond_237
+    if-nez v2, :cond_15
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mScoAudioState:I
     invoke-static {v2}, Landroid/media/AudioService;->access$2400(Landroid/media/AudioService;)I
 
     move-result v2
 
     const/4 v4, 0x3
 
-    if-eq v2, v4, :cond_236
+    if-eq v2, v4, :cond_14
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mScoAudioState:I
     invoke-static {v2}, Landroid/media/AudioService;->access$2400(Landroid/media/AudioService;)I
 
     move-result v2
 
     const/4 v4, 0x1
 
-    if-eq v2, v4, :cond_236
+    if-eq v2, v4, :cond_14
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mScoAudioState:I
     invoke-static {v2}, Landroid/media/AudioService;->access$2400(Landroid/media/AudioService;)I
 
     move-result v2
 
     const/4 v4, 0x5
 
-    if-ne v2, v4, :cond_237
+    if-ne v2, v4, :cond_15
 
     .line 3552
-    :cond_236
+    :cond_14
     const/4 v14, 0x1
 
     .line 3554
-    :cond_237
-    packed-switch v17, :pswitch_data_3d4
+    :cond_15
+    packed-switch v17, :pswitch_data_1
 
     .line 3576
-    :cond_23a
-    :goto_23a
+    :cond_16
+    :goto_d
     const/4 v14, 0x0
 
     .line 3579
-    :cond_23b
-    :goto_23b
+    :cond_17
+    :goto_e
     monitor-exit v3
-    :try_end_23c
-    .catchall {:try_start_1fe .. :try_end_23c} :catchall_294
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 3580
-    if-eqz v14, :cond_20
+    if-eqz v14, :cond_0
 
     .line 3581
     move-object/from16 v0, p0
@@ -1156,6 +1171,7 @@
 
     move/from16 v0, v25
 
+    #calls: Landroid/media/AudioService;->broadcastScoConnectionState(I)V
     invoke-static {v2, v0}, Landroid/media/AudioService;->access$2300(Landroid/media/AudioService;I)V
 
     .line 3584
@@ -1182,6 +1198,7 @@
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mContext:Landroid/content/Context;
     invoke-static {v2}, Landroid/media/AudioService;->access$6900(Landroid/media/AudioService;)Landroid/content/Context;
 
     move-result-object v2
@@ -1190,50 +1207,53 @@
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->sendStickyBroadcast(Landroid/content/Intent;)V
 
-    goto/16 :goto_20
+    goto/16 :goto_1
 
     .line 3556
     .end local v22           #newIntent:Landroid/content/Intent;
-    :pswitch_268
+    :pswitch_4
     const/16 v25, 0x1
 
     .line 3557
-    :try_start_26a
+    :try_start_3
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mScoAudioState:I
     invoke-static {v2}, Landroid/media/AudioService;->access$2400(Landroid/media/AudioService;)I
 
     move-result v2
 
     const/4 v4, 0x3
 
-    if-eq v2, v4, :cond_23b
+    if-eq v2, v4, :cond_17
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mScoAudioState:I
     invoke-static {v2}, Landroid/media/AudioService;->access$2400(Landroid/media/AudioService;)I
 
     move-result v2
 
     const/4 v4, 0x5
 
-    if-eq v2, v4, :cond_23b
+    if-eq v2, v4, :cond_17
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mScoAudioState:I
     invoke-static {v2}, Landroid/media/AudioService;->access$2400(Landroid/media/AudioService;)I
 
     move-result v2
 
     const/4 v4, 0x4
 
-    if-eq v2, v4, :cond_23b
+    if-eq v2, v4, :cond_17
 
     .line 3560
     move-object/from16 v0, p0
@@ -1242,34 +1262,36 @@
 
     const/4 v4, 0x2
 
+    #setter for: Landroid/media/AudioService;->mScoAudioState:I
     invoke-static {v2, v4}, Landroid/media/AudioService;->access$2402(Landroid/media/AudioService;I)I
 
-    goto :goto_23b
+    goto :goto_e
 
     .line 3579
     .end local v17           #btState:I
-    :catchall_294
+    :catchall_1
     move-exception v2
 
     monitor-exit v3
-    :try_end_296
-    .catchall {:try_start_26a .. :try_end_296} :catchall_294
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     throw v2
 
     .line 3564
     .restart local v17       #btState:I
-    :pswitch_297
+    :pswitch_5
     const/16 v25, 0x0
 
     .line 3565
-    :try_start_299
+    :try_start_4
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
     const/4 v4, 0x0
 
+    #setter for: Landroid/media/AudioService;->mScoAudioState:I
     invoke-static {v2, v4}, Landroid/media/AudioService;->access$2402(Landroid/media/AudioService;I)I
 
     .line 3566
@@ -1283,45 +1305,48 @@
 
     invoke-virtual {v2, v4, v5}, Landroid/media/AudioService;->clearAllScoClients(IZ)V
 
-    goto :goto_23b
+    goto :goto_e
 
     .line 3569
-    :pswitch_2ab
+    :pswitch_6
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mScoAudioState:I
     invoke-static {v2}, Landroid/media/AudioService;->access$2400(Landroid/media/AudioService;)I
 
     move-result v2
 
     const/4 v4, 0x3
 
-    if-eq v2, v4, :cond_23a
+    if-eq v2, v4, :cond_16
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mScoAudioState:I
     invoke-static {v2}, Landroid/media/AudioService;->access$2400(Landroid/media/AudioService;)I
 
     move-result v2
 
     const/4 v4, 0x5
 
-    if-eq v2, v4, :cond_23a
+    if-eq v2, v4, :cond_16
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mScoAudioState:I
     invoke-static {v2}, Landroid/media/AudioService;->access$2400(Landroid/media/AudioService;)I
 
     move-result v2
 
     const/4 v4, 0x4
 
-    if-eq v2, v4, :cond_23a
+    if-eq v2, v4, :cond_16
 
     .line 3572
     move-object/from16 v0, p0
@@ -1330,24 +1355,25 @@
 
     const/4 v4, 0x2
 
+    #setter for: Landroid/media/AudioService;->mScoAudioState:I
     invoke-static {v2, v4}, Landroid/media/AudioService;->access$2402(Landroid/media/AudioService;I)I
-    :try_end_2d4
-    .catchall {:try_start_299 .. :try_end_2d4} :catchall_294
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    goto/16 :goto_23a
+    goto/16 :goto_d
 
     .line 3588
     .end local v14           #broadcast:Z
     .end local v17           #btState:I
     .end local v25           #scoAudioState:I
-    :cond_2d6
+    :cond_18
     const-string v2, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v9, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_35f
+    if-eqz v2, :cond_19
 
     .line 3589
     move-object/from16 v0, p0
@@ -1356,6 +1382,7 @@
 
     const/4 v3, 0x1
 
+    #setter for: Landroid/media/AudioService;->mBootCompleted:Z
     invoke-static {v2, v3}, Landroid/media/AudioService;->access$7002(Landroid/media/AudioService;Z)Z
 
     .line 3590
@@ -1363,6 +1390,7 @@
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mAudioHandler:Landroid/media/AudioService$AudioHandler;
     invoke-static {v2}, Landroid/media/AudioService;->access$100(Landroid/media/AudioService;)Landroid/media/AudioService$AudioHandler;
 
     move-result-object v2
@@ -1379,6 +1407,7 @@
 
     const/4 v8, 0x0
 
+    #calls: Landroid/media/AudioService;->sendMsg(Landroid/os/Handler;IIIILjava/lang/Object;I)V
     invoke-static/range {v2 .. v8}, Landroid/media/AudioService;->access$200(Landroid/os/Handler;IIIILjava/lang/Object;I)V
 
     .line 3593
@@ -1390,6 +1419,7 @@
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mContext:Landroid/content/Context;
     invoke-static {v2}, Landroid/media/AudioService;->access$6900(Landroid/media/AudioService;)Landroid/content/Context;
 
     move-result-object v2
@@ -1402,6 +1432,7 @@
 
     check-cast v2, Landroid/app/KeyguardManager;
 
+    #setter for: Landroid/media/AudioService;->mKeyguardManager:Landroid/app/KeyguardManager;
     invoke-static {v3, v2}, Landroid/media/AudioService;->access$7102(Landroid/media/AudioService;Landroid/app/KeyguardManager;)Landroid/app/KeyguardManager;
 
     .line 3595
@@ -1411,6 +1442,7 @@
 
     const/4 v3, -0x1
 
+    #setter for: Landroid/media/AudioService;->mScoConnectionState:I
     invoke-static {v2, v3}, Landroid/media/AudioService;->access$7202(Landroid/media/AudioService;I)I
 
     .line 3596
@@ -1418,6 +1450,7 @@
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #calls: Landroid/media/AudioService;->resetBluetoothSco()V
     invoke-static {v2}, Landroid/media/AudioService;->access$5900(Landroid/media/AudioService;)V
 
     .line 3597
@@ -1425,6 +1458,7 @@
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #calls: Landroid/media/AudioService;->getBluetoothHeadset()Z
     invoke-static {v2}, Landroid/media/AudioService;->access$2700(Landroid/media/AudioService;)Z
 
     .line 3600
@@ -1451,6 +1485,7 @@
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mContext:Landroid/content/Context;
     invoke-static {v2}, Landroid/media/AudioService;->access$6900(Landroid/media/AudioService;)Landroid/content/Context;
 
     move-result-object v2
@@ -1466,13 +1501,14 @@
 
     .line 3606
     .local v10, adapter:Landroid/bluetooth/BluetoothAdapter;
-    if-eqz v10, :cond_20
+    if-eqz v10, :cond_0
 
     .line 3607
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mContext:Landroid/content/Context;
     invoke-static {v2}, Landroid/media/AudioService;->access$6900(Landroid/media/AudioService;)Landroid/content/Context;
 
     move-result-object v2
@@ -1481,6 +1517,7 @@
 
     iget-object v3, v0, Landroid/media/AudioService$AudioServiceBroadcastReceiver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mBluetoothProfileServiceListener:Landroid/bluetooth/BluetoothProfile$ServiceListener;
     invoke-static {v3}, Landroid/media/AudioService;->access$7300(Landroid/media/AudioService;)Landroid/bluetooth/BluetoothProfile$ServiceListener;
 
     move-result-object v3
@@ -1489,19 +1526,19 @@
 
     invoke-virtual {v10, v2, v3, v4}, Landroid/bluetooth/BluetoothAdapter;->getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)Z
 
-    goto/16 :goto_20
+    goto/16 :goto_1
 
     .line 3610
     .end local v10           #adapter:Landroid/bluetooth/BluetoothAdapter;
     .end local v22           #newIntent:Landroid/content/Intent;
-    :cond_35f
+    :cond_19
     const-string v2, "android.intent.action.PACKAGE_REMOVED"
 
     invoke-virtual {v9, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_387
+    if-eqz v2, :cond_1a
 
     .line 3611
     const-string v2, "android.intent.extra.REPLACING"
@@ -1514,7 +1551,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_20
+    if-nez v2, :cond_0
 
     .line 3613
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
@@ -1527,7 +1564,7 @@
 
     .line 3614
     .local v23, packageName:Ljava/lang/String;
-    if-eqz v23, :cond_20
+    if-eqz v23, :cond_0
 
     .line 3615
     move-object/from16 v0, p0
@@ -1536,54 +1573,55 @@
 
     move-object/from16 v0, v23
 
+    #calls: Landroid/media/AudioService;->removeMediaButtonReceiverForPackage(Ljava/lang/String;)V
     invoke-static {v2, v0}, Landroid/media/AudioService;->access$7400(Landroid/media/AudioService;Ljava/lang/String;)V
 
-    goto/16 :goto_20
+    goto/16 :goto_1
 
     .line 3618
     .end local v23           #packageName:Ljava/lang/String;
-    :cond_387
+    :cond_1a
     const-string v2, "android.intent.action.SCREEN_ON"
 
     invoke-virtual {v9, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_397
+    if-eqz v2, :cond_1b
 
     .line 3619
     const-string/jumbo v2, "screen_state=on"
 
     invoke-static {v2}, Landroid/media/AudioSystem;->setParameters(Ljava/lang/String;)I
 
-    goto/16 :goto_20
+    goto/16 :goto_1
 
     .line 3620
-    :cond_397
+    :cond_1b
     const-string v2, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {v9, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_3a7
+    if-eqz v2, :cond_1c
 
     .line 3621
     const-string/jumbo v2, "screen_state=off"
 
     invoke-static {v2}, Landroid/media/AudioSystem;->setParameters(Ljava/lang/String;)I
 
-    goto/16 :goto_20
+    goto/16 :goto_1
 
     .line 3622
-    :cond_3a7
+    :cond_1c
     const-string v2, "android.intent.action.CONFIGURATION_CHANGED"
 
     invoke-virtual {v9, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_20
+    if-eqz v2, :cond_0
 
     .line 3623
     move-object/from16 v0, p0
@@ -1592,32 +1630,33 @@
 
     move-object/from16 v0, p1
 
+    #calls: Landroid/media/AudioService;->handleConfigurationChanged(Landroid/content/Context;)V
     invoke-static {v2, v0}, Landroid/media/AudioService;->access$7500(Landroid/media/AudioService;Landroid/content/Context;)V
 
-    goto/16 :goto_20
+    goto/16 :goto_1
 
     .line 3452
-    :pswitch_data_3ba
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_21
-        :pswitch_24
-        :pswitch_27
-        :pswitch_2a
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 
     .line 3484
-    :sswitch_data_3c6
+    :sswitch_data_0
     .sparse-switch
-        0x404 -> :sswitch_94
-        0x408 -> :sswitch_94
-        0x420 -> :sswitch_97
+        0x404 -> :sswitch_0
+        0x408 -> :sswitch_0
+        0x420 -> :sswitch_1
     .end sparse-switch
 
     .line 3554
-    :pswitch_data_3d4
+    :pswitch_data_1
     .packed-switch 0xa
-        :pswitch_297
-        :pswitch_2ab
-        :pswitch_268
+        :pswitch_5
+        :pswitch_6
+        :pswitch_4
     .end packed-switch
 .end method

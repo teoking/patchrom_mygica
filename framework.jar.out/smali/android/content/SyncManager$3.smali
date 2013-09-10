@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/SyncManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 11
+    .locals 8
     .parameter "context"
     .parameter "intent"
 
@@ -45,6 +45,7 @@
     .line 196
     iget-object v0, p0, Landroid/content/SyncManager$3;->this$0:Landroid/content/SyncManager;
 
+    #calls: Landroid/content/SyncManager;->getConnectivityManager()Landroid/net/ConnectivityManager;
     invoke-static {v0}, Landroid/content/SyncManager;->access$300(Landroid/content/SyncManager;)Landroid/net/ConnectivityManager;
 
     move-result-object v0
@@ -53,7 +54,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     .line 197
     iget-object v0, p0, Landroid/content/SyncManager$3;->this$0:Landroid/content/SyncManager;
@@ -73,6 +74,6 @@
     invoke-virtual/range {v0 .. v7}, Landroid/content/SyncManager;->scheduleSync(Landroid/accounts/Account;ILjava/lang/String;Landroid/os/Bundle;JZ)V
 
     .line 201
-    :cond_1c
+    :cond_0
     return-void
 .end method

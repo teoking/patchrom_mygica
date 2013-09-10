@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 9
+    .locals 9
 
     .prologue
     const/4 v8, 0x4
@@ -247,7 +247,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter "stringRep"
@@ -271,7 +271,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/android/util/AbstractMessageParser$Token$Type;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -288,7 +288,7 @@
 .end method
 
 .method public static values()[Lcom/google/android/util/AbstractMessageParser$Token$Type;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 655
@@ -306,7 +306,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 679

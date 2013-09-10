@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 15
@@ -47,22 +47,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/content/IIntentSender;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 24
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 25
     const/4 v0, 0x0
 
     .line 31
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 27
-    :cond_4
+    :cond_0
     const-string v1, "android.content.IIntentSender"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -71,31 +71,31 @@
 
     .line 28
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/content/IIntentSender;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 29
     check-cast v0, Landroid/content/IIntentSender;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 31
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/content/IIntentSender$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/content/IIntentSender$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 35
@@ -103,7 +103,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 13
+    .locals 8
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -118,18 +118,18 @@
     const/4 v7, 0x1
 
     .line 39
-    sparse-switch p1, :sswitch_data_46
+    sparse-switch p1, :sswitch_data_0
 
     .line 70
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0
 
-    :goto_8
+    :goto_0
     return v0
 
     .line 43
-    :sswitch_9
+    :sswitch_0
     const-string v0, "android.content.IIntentSender"
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
@@ -137,10 +137,10 @@
     move v0, v7
 
     .line 44
-    goto :goto_8
+    goto :goto_0
 
     .line 48
-    :sswitch_10
+    :sswitch_1
     const-string v0, "android.content.IIntentSender"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -156,7 +156,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_44
+    if-eqz v0, :cond_0
 
     .line 53
     sget-object v0, Landroid/content/Intent;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -169,7 +169,7 @@
 
     .line 59
     .local v2, _arg1:Landroid/content/Intent;
-    :goto_27
+    :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
@@ -208,7 +208,7 @@
     move v0, v7
 
     .line 67
-    goto :goto_8
+    goto :goto_0
 
     .line 56
     .end local v2           #_arg1:Landroid/content/Intent;
@@ -216,16 +216,16 @@
     .end local v4           #_arg3:Landroid/content/IIntentReceiver;
     .end local v5           #_arg4:Ljava/lang/String;
     .end local v6           #_result:I
-    :cond_44
+    :cond_0
     const/4 v2, 0x0
 
     .restart local v2       #_arg1:Landroid/content/Intent;
-    goto :goto_27
+    goto :goto_1
 
     .line 39
-    :sswitch_data_46
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_10
-        0x5f4e5446 -> :sswitch_9
+        0x1 -> :sswitch_1
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

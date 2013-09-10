@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/NetInitiatedActivity;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "intent"
 
@@ -74,14 +74,15 @@
 
     const-string v1, "android.intent.action.NETWORK_INITIATED_VERIFY"
 
-    if-ne v0, v1, :cond_29
+    if-ne v0, v1, :cond_0
 
     .line 62
     iget-object v0, p0, Lcom/android/internal/app/NetInitiatedActivity$1;->this$0:Lcom/android/internal/app/NetInitiatedActivity;
 
+    #calls: Lcom/android/internal/app/NetInitiatedActivity;->handleNIVerify(Landroid/content/Intent;)V
     invoke-static {v0, p2}, Lcom/android/internal/app/NetInitiatedActivity;->access$000(Lcom/android/internal/app/NetInitiatedActivity;Landroid/content/Intent;)V
 
     .line 64
-    :cond_29
+    :cond_0
     return-void
 .end method

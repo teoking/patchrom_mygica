@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/sip/SipService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/sip/SipService;Lcom/android/server/sip/SipService$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
@@ -59,7 +59,7 @@
 
     .line 1065
     .local v0, bundle:Landroid/os/Bundle;
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_0
 
     .line 1066
     const-string/jumbo v2, "networkInfo"
@@ -74,6 +74,7 @@
     .local v1, info:Landroid/net/NetworkInfo;
     iget-object v2, p0, Lcom/android/server/sip/SipService$ConnectivityReceiver;->this$0:Lcom/android/server/sip/SipService;
 
+    #getter for: Lcom/android/server/sip/SipService;->mExecutor:Lcom/android/server/sip/SipService$MyExecutor;
     invoke-static {v2}, Lcom/android/server/sip/SipService;->access$800(Lcom/android/server/sip/SipService;)Lcom/android/server/sip/SipService$MyExecutor;
 
     move-result-object v2
@@ -86,6 +87,6 @@
 
     .line 1076
     .end local v1           #info:Landroid/net/NetworkInfo;
-    :cond_1d
+    :cond_0
     return-void
 .end method

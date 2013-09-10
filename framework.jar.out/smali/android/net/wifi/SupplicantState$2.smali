@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 176
@@ -34,7 +34,7 @@
 
     sput-object v0, Landroid/net/wifi/SupplicantState$2;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
-    :try_start_9
+    :try_start_0
     sget-object v0, Landroid/net/wifi/SupplicantState$2;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
     sget-object v1, Landroid/net/wifi/SupplicantState;->AUTHENTICATING:Landroid/net/wifi/SupplicantState;
@@ -46,11 +46,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_14
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_14} :catch_b9
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_c
 
-    :goto_14
-    :try_start_14
+    :goto_0
+    :try_start_1
     sget-object v0, Landroid/net/wifi/SupplicantState$2;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
     sget-object v1, Landroid/net/wifi/SupplicantState;->ASSOCIATING:Landroid/net/wifi/SupplicantState;
@@ -62,11 +62,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_1f} :catch_b6
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_b
 
-    :goto_1f
-    :try_start_1f
+    :goto_1
+    :try_start_2
     sget-object v0, Landroid/net/wifi/SupplicantState$2;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
     sget-object v1, Landroid/net/wifi/SupplicantState;->ASSOCIATED:Landroid/net/wifi/SupplicantState;
@@ -78,11 +78,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_2a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1f .. :try_end_2a} :catch_b3
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_a
 
-    :goto_2a
-    :try_start_2a
+    :goto_2
+    :try_start_3
     sget-object v0, Landroid/net/wifi/SupplicantState$2;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
     sget-object v1, Landroid/net/wifi/SupplicantState;->FOUR_WAY_HANDSHAKE:Landroid/net/wifi/SupplicantState;
@@ -94,11 +94,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_35
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2a .. :try_end_35} :catch_b1
+    :try_end_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_9
 
-    :goto_35
-    :try_start_35
+    :goto_3
+    :try_start_4
     sget-object v0, Landroid/net/wifi/SupplicantState$2;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
     sget-object v1, Landroid/net/wifi/SupplicantState;->GROUP_HANDSHAKE:Landroid/net/wifi/SupplicantState;
@@ -110,11 +110,11 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_40
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_35 .. :try_end_40} :catch_af
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_8
 
-    :goto_40
-    :try_start_40
+    :goto_4
+    :try_start_5
     sget-object v0, Landroid/net/wifi/SupplicantState$2;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
     sget-object v1, Landroid/net/wifi/SupplicantState;->COMPLETED:Landroid/net/wifi/SupplicantState;
@@ -126,11 +126,11 @@
     const/4 v2, 0x6
 
     aput v2, v0, v1
-    :try_end_4b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_40 .. :try_end_4b} :catch_ad
+    :try_end_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_7
 
-    :goto_4b
-    :try_start_4b
+    :goto_5
+    :try_start_6
     sget-object v0, Landroid/net/wifi/SupplicantState$2;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
     sget-object v1, Landroid/net/wifi/SupplicantState;->DISCONNECTED:Landroid/net/wifi/SupplicantState;
@@ -142,11 +142,11 @@
     const/4 v2, 0x7
 
     aput v2, v0, v1
-    :try_end_56
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4b .. :try_end_56} :catch_ab
+    :try_end_6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_6
 
-    :goto_56
-    :try_start_56
+    :goto_6
+    :try_start_7
     sget-object v0, Landroid/net/wifi/SupplicantState$2;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
     sget-object v1, Landroid/net/wifi/SupplicantState;->INTERFACE_DISABLED:Landroid/net/wifi/SupplicantState;
@@ -158,11 +158,11 @@
     const/16 v2, 0x8
 
     aput v2, v0, v1
-    :try_end_62
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_56 .. :try_end_62} :catch_a9
+    :try_end_7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_5
 
-    :goto_62
-    :try_start_62
+    :goto_7
+    :try_start_8
     sget-object v0, Landroid/net/wifi/SupplicantState$2;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
     sget-object v1, Landroid/net/wifi/SupplicantState;->INACTIVE:Landroid/net/wifi/SupplicantState;
@@ -174,11 +174,11 @@
     const/16 v2, 0x9
 
     aput v2, v0, v1
-    :try_end_6e
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_62 .. :try_end_6e} :catch_a7
+    :try_end_8
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_4
 
-    :goto_6e
-    :try_start_6e
+    :goto_8
+    :try_start_9
     sget-object v0, Landroid/net/wifi/SupplicantState$2;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
     sget-object v1, Landroid/net/wifi/SupplicantState;->SCANNING:Landroid/net/wifi/SupplicantState;
@@ -190,11 +190,11 @@
     const/16 v2, 0xa
 
     aput v2, v0, v1
-    :try_end_7a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6e .. :try_end_7a} :catch_a5
+    :try_end_9
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_3
 
-    :goto_7a
-    :try_start_7a
+    :goto_9
+    :try_start_a
     sget-object v0, Landroid/net/wifi/SupplicantState$2;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
     sget-object v1, Landroid/net/wifi/SupplicantState;->DORMANT:Landroid/net/wifi/SupplicantState;
@@ -206,11 +206,11 @@
     const/16 v2, 0xb
 
     aput v2, v0, v1
-    :try_end_86
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_7a .. :try_end_86} :catch_a3
+    :try_end_a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_2
 
-    :goto_86
-    :try_start_86
+    :goto_a
+    :try_start_b
     sget-object v0, Landroid/net/wifi/SupplicantState$2;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
     sget-object v1, Landroid/net/wifi/SupplicantState;->UNINITIALIZED:Landroid/net/wifi/SupplicantState;
@@ -222,11 +222,11 @@
     const/16 v2, 0xc
 
     aput v2, v0, v1
-    :try_end_92
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_86 .. :try_end_92} :catch_a1
+    :try_end_b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_1
 
-    :goto_92
-    :try_start_92
+    :goto_b
+    :try_start_c
     sget-object v0, Landroid/net/wifi/SupplicantState$2;->$SwitchMap$android$net$wifi$SupplicantState:[I
 
     sget-object v1, Landroid/net/wifi/SupplicantState;->INVALID:Landroid/net/wifi/SupplicantState;
@@ -238,74 +238,74 @@
     const/16 v2, 0xd
 
     aput v2, v0, v1
-    :try_end_9e
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_92 .. :try_end_9e} :catch_9f
+    :try_end_c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_c .. :try_end_c} :catch_0
 
-    :goto_9e
+    :goto_c
     return-void
 
-    :catch_9f
+    :catch_0
     move-exception v0
 
-    goto :goto_9e
+    goto :goto_c
 
-    :catch_a1
+    :catch_1
     move-exception v0
 
-    goto :goto_92
+    goto :goto_b
 
-    :catch_a3
+    :catch_2
     move-exception v0
 
-    goto :goto_86
+    goto :goto_a
 
-    :catch_a5
+    :catch_3
     move-exception v0
 
-    goto :goto_7a
+    goto :goto_9
 
-    :catch_a7
+    :catch_4
     move-exception v0
 
-    goto :goto_6e
+    goto :goto_8
 
-    :catch_a9
+    :catch_5
     move-exception v0
 
-    goto :goto_62
+    goto :goto_7
 
-    :catch_ab
+    :catch_6
     move-exception v0
 
-    goto :goto_56
+    goto :goto_6
 
-    :catch_ad
+    :catch_7
     move-exception v0
 
-    goto :goto_4b
+    goto :goto_5
 
-    :catch_af
+    :catch_8
     move-exception v0
 
-    goto :goto_40
+    goto :goto_4
 
-    :catch_b1
+    :catch_9
     move-exception v0
 
-    goto :goto_35
+    goto :goto_3
 
-    :catch_b3
+    :catch_a
     move-exception v0
 
-    goto/16 :goto_2a
+    goto/16 :goto_2
 
-    :catch_b6
+    :catch_b
     move-exception v0
 
-    goto/16 :goto_1f
+    goto/16 :goto_1
 
-    :catch_b9
+    :catch_c
     move-exception v0
 
-    goto/16 :goto_14
+    goto/16 :goto_0
 .end method

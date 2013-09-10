@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/DigitalClock$TimeChangedReceiver;ZLcom/android/internal/widget/DigitalClock;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,13 +48,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 88
     iget-boolean v0, p0, Lcom/android/internal/widget/DigitalClock$TimeChangedReceiver$1;->val$timezoneChanged:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 89
     iget-object v0, p0, Lcom/android/internal/widget/DigitalClock$TimeChangedReceiver$1;->val$clock:Lcom/android/internal/widget/DigitalClock;
@@ -63,10 +63,11 @@
 
     move-result-object v1
 
+    #setter for: Lcom/android/internal/widget/DigitalClock;->mCalendar:Ljava/util/Calendar;
     invoke-static {v0, v1}, Lcom/android/internal/widget/DigitalClock;->access$002(Lcom/android/internal/widget/DigitalClock;Ljava/util/Calendar;)Ljava/util/Calendar;
 
     .line 91
-    :cond_d
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/widget/DigitalClock$TimeChangedReceiver$1;->val$clock:Lcom/android/internal/widget/DigitalClock;
 
     invoke-virtual {v0}, Lcom/android/internal/widget/DigitalClock;->updateTime()V

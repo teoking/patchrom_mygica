@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 78
@@ -50,7 +50,7 @@
 .end method
 
 .method public attach(Landroid/service/wallpaper/IWallpaperConnection;Landroid/os/IBinder;IZII)V
-    .registers 12
+    .locals 5
     .parameter "connection"
     .parameter "windowToken"
     .parameter "windowType"
@@ -75,19 +75,19 @@
 
     .line 88
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_6
+    :try_start_0
     const-string v3, "android.service.wallpaper.IWallpaperService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 89
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/service/wallpaper/IWallpaperConnection;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :cond_11
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 90
@@ -97,9 +97,9 @@
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 92
-    if-eqz p4, :cond_31
+    if-eqz p4, :cond_1
 
-    :goto_1c
+    :goto_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 93
@@ -118,8 +118,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_2d
-    .catchall {:try_start_6 .. :try_end_2d} :catchall_33
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 98
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -128,13 +128,13 @@
     return-void
 
     .line 92
-    :cond_31
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_1c
+    goto :goto_0
 
     .line 98
-    :catchall_33
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -143,7 +143,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 82

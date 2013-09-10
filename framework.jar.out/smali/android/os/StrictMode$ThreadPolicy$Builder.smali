@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/StrictMode$ThreadPolicy;)V
-    .registers 3
+    .locals 1
     .parameter "policy"
 
     .prologue
@@ -61,7 +61,7 @@
 .end method
 
 .method private disable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 4
+    .locals 2
     .parameter "bit"
 
     .prologue
@@ -79,7 +79,7 @@
 .end method
 
 .method private enable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 3
+    .locals 1
     .parameter "bit"
 
     .prologue
@@ -97,25 +97,25 @@
 
 # virtual methods
 .method public build()Landroid/os/StrictMode$ThreadPolicy;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 514
     iget v0, p0, Landroid/os/StrictMode$ThreadPolicy$Builder;->mMask:I
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     iget v0, p0, Landroid/os/StrictMode$ThreadPolicy$Builder;->mMask:I
 
     and-int/lit16 v0, v0, 0xf0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 517
     invoke-virtual {p0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->penaltyLog()Landroid/os/StrictMode$ThreadPolicy$Builder;
 
     .line 519
-    :cond_d
+    :cond_0
     new-instance v0, Landroid/os/StrictMode$ThreadPolicy;
 
     iget v1, p0, Landroid/os/StrictMode$ThreadPolicy$Builder;->mMask:I
@@ -128,7 +128,7 @@
 .end method
 
 .method public detectAll()Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 371
@@ -142,7 +142,7 @@
 .end method
 
 .method public detectCustomSlowCalls()Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 413
@@ -156,7 +156,7 @@
 .end method
 
 .method public detectDiskReads()Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 399
@@ -170,7 +170,7 @@
 .end method
 
 .method public detectDiskWrites()Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 427
@@ -184,7 +184,7 @@
 .end method
 
 .method public detectNetwork()Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 385
@@ -198,7 +198,7 @@
 .end method
 
 .method public penaltyDeath()Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 455
@@ -212,7 +212,7 @@
 .end method
 
 .method public penaltyDeathOnNetwork()Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 467
@@ -226,7 +226,7 @@
 .end method
 
 .method public penaltyDialog()Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 442
@@ -240,7 +240,7 @@
 .end method
 
 .method public penaltyDropBox()Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 491
@@ -254,7 +254,7 @@
 .end method
 
 .method public penaltyFlashScreen()Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 474
@@ -268,7 +268,7 @@
 .end method
 
 .method public penaltyLog()Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 481
@@ -282,7 +282,7 @@
 .end method
 
 .method public permitAll()Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 378
@@ -296,7 +296,7 @@
 .end method
 
 .method public permitCustomSlowCalls()Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 420
@@ -310,7 +310,7 @@
 .end method
 
 .method public permitDiskReads()Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 406
@@ -324,7 +324,7 @@
 .end method
 
 .method public permitDiskWrites()Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 434
@@ -338,7 +338,7 @@
 .end method
 
 .method public permitNetwork()Landroid/os/StrictMode$ThreadPolicy$Builder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 392

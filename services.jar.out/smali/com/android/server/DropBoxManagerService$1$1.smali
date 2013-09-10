@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/DropBoxManagerService$1;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 118
@@ -44,6 +44,7 @@
 
     iget-object v1, v1, Lcom/android/server/DropBoxManagerService$1;->this$0:Lcom/android/server/DropBoxManagerService;
 
+    #calls: Lcom/android/server/DropBoxManagerService;->init()V
     invoke-static {v1}, Lcom/android/server/DropBoxManagerService;->access$200(Lcom/android/server/DropBoxManagerService;)V
 
     .line 119
@@ -51,16 +52,17 @@
 
     iget-object v1, v1, Lcom/android/server/DropBoxManagerService$1;->this$0:Lcom/android/server/DropBoxManagerService;
 
+    #calls: Lcom/android/server/DropBoxManagerService;->trimToFit()J
     invoke-static {v1}, Lcom/android/server/DropBoxManagerService;->access$300(Lcom/android/server/DropBoxManagerService;)J
-    :try_end_e
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_e} :catch_f
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 123
-    :goto_e
+    :goto_0
     return-void
 
     .line 120
-    :catch_f
+    :catch_0
     move-exception v0
 
     .line 121
@@ -71,5 +73,5 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_e
+    goto :goto_0
 .end method

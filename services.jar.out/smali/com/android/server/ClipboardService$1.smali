@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/ClipboardService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
@@ -53,7 +53,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_0
 
     .line 99
     iget-object v1, p0, Lcom/android/server/ClipboardService$1;->this$0:Lcom/android/server/ClipboardService;
@@ -66,9 +66,10 @@
 
     move-result v2
 
+    #calls: Lcom/android/server/ClipboardService;->removeClipboard(I)V
     invoke-static {v1, v2}, Lcom/android/server/ClipboardService;->access$000(Lcom/android/server/ClipboardService;I)V
 
     .line 101
-    :cond_18
+    :cond_0
     return-void
 .end method

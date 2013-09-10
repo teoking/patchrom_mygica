@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/TabHost;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,18 +38,19 @@
 
 # virtual methods
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .registers 6
+    .locals 2
     .parameter "v"
     .parameter "keyCode"
     .parameter "event"
 
     .prologue
     .line 132
-    sparse-switch p2, :sswitch_data_1a
+    sparse-switch p2, :sswitch_data_0
 
     .line 142
     iget-object v0, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
 
+    #getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
     invoke-static {v0}, Landroid/widget/TabHost;->access$100(Landroid/widget/TabHost;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -61,6 +62,7 @@
     .line 143
     iget-object v0, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
 
+    #getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
     invoke-static {v0}, Landroid/widget/TabHost;->access$100(Landroid/widget/TabHost;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -69,23 +71,23 @@
 
     move-result v0
 
-    :goto_17
+    :goto_0
     return v0
 
     .line 139
-    :sswitch_18
+    :sswitch_0
     const/4 v0, 0x0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 132
-    :sswitch_data_1a
+    :sswitch_data_0
     .sparse-switch
-        0x13 -> :sswitch_18
-        0x14 -> :sswitch_18
-        0x15 -> :sswitch_18
-        0x16 -> :sswitch_18
-        0x17 -> :sswitch_18
-        0x42 -> :sswitch_18
+        0x13 -> :sswitch_0
+        0x14 -> :sswitch_0
+        0x15 -> :sswitch_0
+        0x16 -> :sswitch_0
+        0x17 -> :sswitch_0
+        0x42 -> :sswitch_0
     .end sparse-switch
 .end method

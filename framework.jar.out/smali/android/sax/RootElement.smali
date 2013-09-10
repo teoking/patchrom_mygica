@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "localName"
 
     .prologue
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "uri"
     .parameter "localName"
 
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public getContentHandler()Lorg/xml/sax/ContentHandler;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 94

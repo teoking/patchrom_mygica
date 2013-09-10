@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 429
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
-    .registers 5
+    .locals 3
     .parameter "ctx"
 
     .prologue
@@ -47,15 +47,15 @@
     move-result-object v2
 
     invoke-direct {v1, v2}, Landroid/os/storage/StorageManager;-><init>(Landroid/os/Looper;)V
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_f} :catch_10
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 435
-    :goto_f
+    :goto_0
     return-object v1
 
     .line 433
-    :catch_10
+    :catch_0
     move-exception v0
 
     .line 434
@@ -69,5 +69,5 @@
     .line 435
     const/4 v1, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method

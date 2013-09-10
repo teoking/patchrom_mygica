@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>([BII)V
-    .registers 5
+    .locals 1
     .parameter "record"
     .parameter "offset"
     .parameter "length"
@@ -54,20 +54,20 @@
 .end method
 
 .method private parseCurrentTlvObject()Z
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v1, 0x0
 
     .line 92
-    :try_start_1
+    :try_start_0
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/SimTlv;->record:[B
 
     iget v3, p0, Lcom/android/internal/telephony/gsm/SimTlv;->curOffset:I
 
     aget-byte v2, v2, v3
 
-    if-eqz v2, :cond_15
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/SimTlv;->record:[B
 
@@ -79,15 +79,15 @@
 
     const/16 v3, 0xff
 
-    if-ne v2, v3, :cond_16
+    if-ne v2, v3, :cond_1
 
     .line 115
-    :cond_15
-    :goto_15
+    :cond_0
+    :goto_0
     return v1
 
     .line 96
-    :cond_16
+    :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/SimTlv;->record:[B
 
     iget v3, p0, Lcom/android/internal/telephony/gsm/SimTlv;->curOffset:I
@@ -100,7 +100,7 @@
 
     const/16 v3, 0x80
 
-    if-ge v2, v3, :cond_44
+    if-ge v2, v3, :cond_2
 
     .line 98
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/SimTlv;->record:[B
@@ -121,11 +121,11 @@
     add-int/lit8 v2, v2, 0x2
 
     iput v2, p0, Lcom/android/internal/telephony/gsm/SimTlv;->curDataOffset:I
-    :try_end_36
-    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_1 .. :try_end_36} :catch_65
+    :try_end_0
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 111
-    :goto_36
+    :goto_1
     iget v2, p0, Lcom/android/internal/telephony/gsm/SimTlv;->curDataLength:I
 
     iget v3, p0, Lcom/android/internal/telephony/gsm/SimTlv;->curDataOffset:I
@@ -138,16 +138,16 @@
 
     add-int/2addr v3, v4
 
-    if-gt v2, v3, :cond_15
+    if-gt v2, v3, :cond_0
 
     .line 115
     const/4 v1, 0x1
 
-    goto :goto_15
+    goto :goto_0
 
     .line 100
-    :cond_44
-    :try_start_44
+    :cond_2
+    :try_start_1
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/SimTlv;->record:[B
 
     iget v3, p0, Lcom/android/internal/telephony/gsm/SimTlv;->curOffset:I
@@ -160,7 +160,7 @@
 
     const/16 v3, 0x81
 
-    if-ne v2, v3, :cond_15
+    if-ne v2, v3, :cond_0
 
     .line 102
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/SimTlv;->record:[B
@@ -181,39 +181,39 @@
     add-int/lit8 v2, v2, 0x3
 
     iput v2, p0, Lcom/android/internal/telephony/gsm/SimTlv;->curDataOffset:I
-    :try_end_64
-    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_44 .. :try_end_64} :catch_65
+    :try_end_1
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_36
+    goto :goto_1
 
     .line 107
-    :catch_65
+    :catch_0
     move-exception v0
 
     .line 108
     .local v0, ex:Ljava/lang/ArrayIndexOutOfBoundsException;
-    goto :goto_15
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getData()[B
-    .registers 6
+    .locals 5
 
     .prologue
     .line 76
     iget-boolean v1, p0, Lcom/android/internal/telephony/gsm/SimTlv;->hasValidTlvObject:Z
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_0
 
     const/4 v0, 0x0
 
     .line 80
-    :goto_5
+    :goto_0
     return-object v0
 
     .line 78
-    :cond_6
+    :cond_0
     iget v1, p0, Lcom/android/internal/telephony/gsm/SimTlv;->curDataLength:I
 
     new-array v0, v1, [B
@@ -230,25 +230,25 @@
 
     invoke-static {v1, v2, v0, v3, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public getTag()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 66
     iget-boolean v0, p0, Lcom/android/internal/telephony/gsm/SimTlv;->hasValidTlvObject:Z
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
     .line 67
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/SimTlv;->record:[B
 
     iget v1, p0, Lcom/android/internal/telephony/gsm/SimTlv;->curOffset:I
@@ -257,11 +257,11 @@
 
     and-int/lit16 v0, v0, 0xff
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public isValidObject()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 56
@@ -271,22 +271,22 @@
 .end method
 
 .method public nextObject()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 49
     iget-boolean v0, p0, Lcom/android/internal/telephony/gsm/SimTlv;->hasValidTlvObject:Z
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
     .line 52
-    :goto_5
+    :goto_0
     return v0
 
     .line 50
-    :cond_6
+    :cond_0
     iget v0, p0, Lcom/android/internal/telephony/gsm/SimTlv;->curDataOffset:I
 
     iget v1, p0, Lcom/android/internal/telephony/gsm/SimTlv;->curDataLength:I
@@ -305,5 +305,5 @@
     .line 52
     iget-boolean v0, p0, Lcom/android/internal/telephony/gsm/SimTlv;->hasValidTlvObject:Z
 
-    goto :goto_5
+    goto :goto_0
 .end method

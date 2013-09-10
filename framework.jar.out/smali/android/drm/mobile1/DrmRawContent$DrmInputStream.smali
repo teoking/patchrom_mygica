@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/drm/mobile1/DrmRawContent;Landroid/drm/mobile1/DrmRights;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "rights"
 
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public available()I
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -69,6 +69,7 @@
     .line 284
     iget-object v2, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->this$0:Landroid/drm/mobile1/DrmRawContent;
 
+    #calls: Landroid/drm/mobile1/DrmRawContent;->nativeGetContentLength()I
     invoke-static {v2}, Landroid/drm/mobile1/DrmRawContent;->access$000(Landroid/drm/mobile1/DrmRawContent;)I
 
     move-result v1
@@ -77,7 +78,7 @@
     .local v1, len:I
     const/4 v2, -0x1
 
-    if-ne v2, v1, :cond_f
+    if-ne v2, v1, :cond_0
 
     .line 287
     new-instance v2, Ljava/io/IOException;
@@ -87,27 +88,27 @@
     throw v2
 
     .line 290
-    :cond_f
+    :cond_0
     const/4 v2, -0x3
 
-    if-ne v2, v1, :cond_14
+    if-ne v2, v1, :cond_2
 
     .line 291
     const/4 v0, 0x0
 
     .line 297
-    :cond_13
+    :cond_1
     return v0
 
     .line 293
-    :cond_14
+    :cond_2
     iget v2, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->offset:I
 
     sub-int v0, v1, v2
 
     .line 294
     .local v0, availableLen:I
-    if-gez v0, :cond_13
+    if-gez v0, :cond_1
 
     .line 295
     new-instance v2, Ljava/io/IOException;
@@ -118,7 +119,7 @@
 .end method
 
 .method public close()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 378
@@ -131,7 +132,7 @@
 .end method
 
 .method public mark(I)V
-    .registers 2
+    .locals 0
     .parameter "readlimit"
 
     .prologue
@@ -140,7 +141,7 @@
 .end method
 
 .method public markSupported()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 351
@@ -150,7 +151,7 @@
 .end method
 
 .method public read()I
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -173,24 +174,24 @@
 
     .line 308
     .local v0, res:I
-    if-ne v1, v0, :cond_c
+    if-ne v1, v0, :cond_0
 
     .line 311
-    :goto_b
+    :goto_0
     return v1
 
-    :cond_c
+    :cond_0
     iget-object v1, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->b:[B
 
     aget-byte v1, v1, v4
 
     and-int/lit16 v1, v1, 0xff
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public read([B)I
-    .registers 4
+    .locals 2
     .parameter "b"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -212,7 +213,7 @@
 .end method
 
 .method public read([BII)I
-    .registers 7
+    .locals 3
     .parameter "b"
     .parameter "off"
     .parameter "len"
@@ -226,7 +227,7 @@
     const/4 v0, -0x1
 
     .line 325
-    if-nez p1, :cond_9
+    if-nez p1, :cond_0
 
     .line 326
     new-instance v0, Ljava/lang/NullPointerException;
@@ -236,19 +237,19 @@
     throw v0
 
     .line 327
-    :cond_9
-    if-ltz p2, :cond_12
+    :cond_0
+    if-ltz p2, :cond_1
 
-    if-ltz p3, :cond_12
+    if-ltz p3, :cond_1
 
     add-int v1, p2, p3
 
     array-length v2, p1
 
-    if-le v1, v2, :cond_18
+    if-le v1, v2, :cond_2
 
     .line 328
-    :cond_12
+    :cond_1
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
@@ -256,12 +257,12 @@
     throw v0
 
     .line 329
-    :cond_18
+    :cond_2
     const/4 v1, 0x1
 
     iget-boolean v2, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->isClosed:Z
 
-    if-ne v1, v2, :cond_23
+    if-ne v1, v2, :cond_3
 
     .line 330
     new-instance v0, Ljava/io/IOException;
@@ -271,29 +272,30 @@
     throw v0
 
     .line 332
-    :cond_23
-    if-nez p3, :cond_27
+    :cond_3
+    if-nez p3, :cond_5
 
     .line 333
     const/4 v0, 0x0
 
     .line 344
-    :cond_26
-    :goto_26
+    :cond_4
+    :goto_0
     return v0
 
     .line 335
-    :cond_27
+    :cond_5
     iget-object v1, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->this$0:Landroid/drm/mobile1/DrmRawContent;
 
     iget v2, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->offset:I
 
+    #calls: Landroid/drm/mobile1/DrmRawContent;->nativeReadContent([BIII)I
     invoke-static {v1, p1, p2, p3, v2}, Landroid/drm/mobile1/DrmRawContent;->access$100(Landroid/drm/mobile1/DrmRawContent;[BIII)I
 
     move-result p3
 
     .line 337
-    if-ne v0, p3, :cond_37
+    if-ne v0, p3, :cond_6
 
     .line 338
     new-instance v0, Ljava/io/IOException;
@@ -303,10 +305,10 @@
     throw v0
 
     .line 339
-    :cond_37
+    :cond_6
     const/4 v1, -0x2
 
-    if-eq v1, p3, :cond_26
+    if-eq v1, p3, :cond_4
 
     .line 342
     iget v0, p0, Landroid/drm/mobile1/DrmRawContent$DrmInputStream;->offset:I
@@ -318,11 +320,11 @@
     move v0, p3
 
     .line 344
-    goto :goto_26
+    goto :goto_0
 .end method
 
 .method public reset()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -339,7 +341,7 @@
 .end method
 
 .method public skip(J)J
-    .registers 5
+    .locals 2
     .parameter "n"
     .annotation system Ldalvik/annotation/Throws;
         value = {

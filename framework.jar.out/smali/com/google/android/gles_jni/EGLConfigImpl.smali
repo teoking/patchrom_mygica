@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "config"
 
     .prologue
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method get()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 29

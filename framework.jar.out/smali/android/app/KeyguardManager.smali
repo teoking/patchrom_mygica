@@ -18,7 +18,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 113
@@ -42,7 +42,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/app/KeyguardManager;)Landroid/view/IWindowManager;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public exitKeyguardSecurely(Landroid/app/KeyguardManager$OnKeyguardExitResult;)V
-    .registers 4
+    .locals 2
     .parameter "callback"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -70,22 +70,22 @@
     invoke-direct {v1, p0, p1}, Landroid/app/KeyguardManager$1;-><init>(Landroid/app/KeyguardManager;Landroid/app/KeyguardManager$OnKeyguardExitResult;)V
 
     invoke-interface {v0, v1}, Landroid/view/IWindowManager;->exitKeyguardSecurely(Landroid/view/IOnKeyguardExitResult;)V
-    :try_end_a
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_a} :catch_b
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 215
-    :goto_a
+    :goto_0
     return-void
 
     .line 212
-    :catch_b
+    :catch_0
     move-exception v0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public inKeyguardRestrictedInputMode()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 175
@@ -93,28 +93,28 @@
     iget-object v1, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
 
     invoke-interface {v1}, Landroid/view/IWindowManager;->inKeyguardRestrictedInputMode()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 177
-    :goto_6
+    :goto_0
     return v1
 
     .line 176
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 177
     .local v0, ex:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public isKeyguardLocked()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 145
@@ -122,28 +122,28 @@
     iget-object v1, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
 
     invoke-interface {v1}, Landroid/view/IWindowManager;->isKeyguardLocked()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 147
-    :goto_6
+    :goto_0
     return v1
 
     .line 146
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 147
     .local v0, ex:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public isKeyguardSecure()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 158
@@ -151,28 +151,28 @@
     iget-object v1, p0, Landroid/app/KeyguardManager;->mWM:Landroid/view/IWindowManager;
 
     invoke-interface {v1}, Landroid/view/IWindowManager;->isKeyguardSecure()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 160
-    :goto_6
+    :goto_0
     return v1
 
     .line 159
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 160
     .local v0, ex:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public newKeyguardLock(Ljava/lang/String;)Landroid/app/KeyguardManager$KeyguardLock;
-    .registers 3
+    .locals 1
     .parameter "tag"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation

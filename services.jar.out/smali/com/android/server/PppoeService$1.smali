@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/PppoeService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
@@ -55,7 +55,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_26
+    if-eqz v2, :cond_1
 
     .line 176
     const-string v2, "PppoeService"
@@ -65,24 +65,25 @@
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 178
-    :try_start_13
+    :try_start_0
     iget-object v2, p0, Lcom/android/server/PppoeService$1;->this$0:Lcom/android/server/PppoeService;
 
+    #getter for: Lcom/android/server/PppoeService;->mTracker:Landroid/net/pppoe/PppoeStateTracker;
     invoke-static {v2}, Lcom/android/server/PppoeService;->access$000(Lcom/android/server/PppoeService;)Landroid/net/pppoe/PppoeStateTracker;
 
     move-result-object v2
 
     invoke-virtual {v2}, Landroid/net/pppoe/PppoeStateTracker;->resetInterface()Z
-    :try_end_1c
-    .catch Ljava/net/UnknownHostException; {:try_start_13 .. :try_end_1c} :catch_1d
+    :try_end_0
+    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 186
-    :cond_1c
-    :goto_1c
+    :cond_0
+    :goto_0
     return-void
 
     .line 179
-    :catch_1d
+    :catch_0
     move-exception v1
 
     .line 180
@@ -93,18 +94,18 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1c
+    goto :goto_0
 
     .line 182
     .end local v1           #e:Ljava/net/UnknownHostException;
-    :cond_26
+    :cond_1
     const-string v2, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1c
+    if-eqz v2, :cond_0
 
     .line 183
     const-string v2, "PppoeService"
@@ -116,6 +117,7 @@
     .line 184
     iget-object v2, p0, Lcom/android/server/PppoeService$1;->this$0:Lcom/android/server/PppoeService;
 
+    #getter for: Lcom/android/server/PppoeService;->mTracker:Landroid/net/pppoe/PppoeStateTracker;
     invoke-static {v2}, Lcom/android/server/PppoeService;->access$000(Lcom/android/server/PppoeService;)Landroid/net/pppoe/PppoeStateTracker;
 
     move-result-object v2
@@ -124,5 +126,5 @@
 
     invoke-virtual {v2, v3}, Landroid/net/pppoe/PppoeStateTracker;->stopInterface(Z)Z
 
-    goto :goto_1c
+    goto :goto_0
 .end method

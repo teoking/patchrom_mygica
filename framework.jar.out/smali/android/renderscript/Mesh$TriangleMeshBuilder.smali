@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;II)V
-    .registers 9
+    .locals 5
     .parameter "rs"
     .parameter "vtxSize"
     .parameter "flags"
@@ -139,14 +139,14 @@
     .line 603
     const/4 v0, 0x2
 
-    if-lt p2, v0, :cond_37
+    if-lt p2, v0, :cond_0
 
     const/4 v0, 0x3
 
-    if-le p2, v0, :cond_3f
+    if-le p2, v0, :cond_1
 
     .line 604
-    :cond_37
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Vertex size out of range."
@@ -156,12 +156,12 @@
     throw v0
 
     .line 606
-    :cond_3f
+    :cond_1
     return-void
 .end method
 
 .method private latch()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x4
@@ -171,7 +171,7 @@
 
     and-int/lit8 v0, v0, 0x1
 
-    if-eqz v0, :cond_3a
+    if-eqz v0, :cond_0
 
     .line 618
     invoke-direct {p0, v3}, Landroid/renderscript/Mesh$TriangleMeshBuilder;->makeSpace(I)V
@@ -229,12 +229,12 @@
     aput v2, v0, v1
 
     .line 624
-    :cond_3a
+    :cond_0
     iget v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mFlags:I
 
     and-int/lit16 v0, v0, 0x100
 
-    if-eqz v0, :cond_5c
+    if-eqz v0, :cond_1
 
     .line 625
     const/4 v0, 0x2
@@ -268,12 +268,12 @@
     aput v2, v0, v1
 
     .line 629
-    :cond_5c
+    :cond_1
     iget v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mFlags:I
 
     and-int/lit8 v0, v0, 0x2
 
-    if-eqz v0, :cond_94
+    if-eqz v0, :cond_2
 
     .line 630
     invoke-direct {p0, v3}, Landroid/renderscript/Mesh$TriangleMeshBuilder;->makeSpace(I)V
@@ -331,7 +331,7 @@
     aput v2, v0, v1
 
     .line 636
-    :cond_94
+    :cond_2
     iget v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mMaxIndex:I
 
     add-int/lit8 v0, v0, 0x1
@@ -343,7 +343,7 @@
 .end method
 
 .method private makeSpace(I)V
-    .registers 6
+    .locals 4
     .parameter "count"
 
     .prologue
@@ -358,7 +358,7 @@
 
     array-length v2, v2
 
-    if-lt v1, v2, :cond_1a
+    if-lt v1, v2, :cond_0
 
     .line 610
     iget-object v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxData:[F
@@ -384,14 +384,14 @@
 
     .line 614
     .end local v0           #t:[F
-    :cond_1a
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public addTriangle(III)Landroid/renderscript/Mesh$TriangleMeshBuilder;
-    .registers 8
+    .locals 4
     .parameter "idx1"
     .parameter "idx2"
     .parameter "idx3"
@@ -402,24 +402,24 @@
     .line 755
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mMaxIndex:I
 
-    if-ge p1, v1, :cond_13
+    if-ge p1, v1, :cond_0
 
-    if-ltz p1, :cond_13
-
-    iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mMaxIndex:I
-
-    if-ge p2, v1, :cond_13
-
-    if-ltz p2, :cond_13
+    if-ltz p1, :cond_0
 
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mMaxIndex:I
 
-    if-ge p3, v1, :cond_13
+    if-ge p2, v1, :cond_0
 
-    if-gez p3, :cond_1b
+    if-ltz p2, :cond_0
+
+    iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mMaxIndex:I
+
+    if-ge p3, v1, :cond_0
+
+    if-gez p3, :cond_1
 
     .line 758
-    :cond_13
+    :cond_0
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "Index provided greater than vertex count."
@@ -429,7 +429,7 @@
     throw v1
 
     .line 760
-    :cond_1b
+    :cond_1
     iget v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexCount:I
 
     add-int/lit8 v1, v1, 0x3
@@ -438,7 +438,7 @@
 
     array-length v2, v2
 
-    if-lt v1, v2, :cond_35
+    if-lt v1, v2, :cond_2
 
     .line 761
     iget-object v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexData:[S
@@ -464,7 +464,7 @@
 
     .line 765
     .end local v0           #t:[S
-    :cond_35
+    :cond_2
     iget-object v1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexData:[S
 
     iget v2, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mIndexCount:I
@@ -508,7 +508,7 @@
 .end method
 
 .method public addVertex(FF)Landroid/renderscript/Mesh$TriangleMeshBuilder;
-    .registers 6
+    .locals 3
     .parameter "x"
     .parameter "y"
 
@@ -518,7 +518,7 @@
     .line 650
     iget v0, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mVtxSize:I
 
-    if-eq v0, v1, :cond_d
+    if-eq v0, v1, :cond_0
 
     .line 651
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -530,7 +530,7 @@
     throw v0
 
     .line 653
-    :cond_d
+    :cond_0
     invoke-direct {p0, v1}, Landroid/renderscript/Mesh$TriangleMeshBuilder;->makeSpace(I)V
 
     .line 654
@@ -563,7 +563,7 @@
 .end method
 
 .method public addVertex(FFF)Landroid/renderscript/Mesh$TriangleMeshBuilder;
-    .registers 7
+    .locals 3
     .parameter "x"
     .parameter "y"
     .parameter "z"
@@ -574,7 +574,7 @@
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_d
+    if-eq v0, v1, :cond_0
 
     .line 673
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -586,7 +586,7 @@
     throw v0
 
     .line 675
-    :cond_d
+    :cond_0
     const/4 v0, 0x4
 
     invoke-direct {p0, v0}, Landroid/renderscript/Mesh$TriangleMeshBuilder;->makeSpace(I)V
@@ -645,7 +645,7 @@
 .end method
 
 .method public create(Z)Landroid/renderscript/Mesh;
-    .registers 11
+    .locals 9
     .parameter "uploadToBufferObject"
 
     .prologue
@@ -681,7 +681,7 @@
 
     and-int/lit8 v4, v4, 0x1
 
-    if-eqz v4, :cond_2a
+    if-eqz v4, :cond_0
 
     .line 792
     iget-object v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mRS:Landroid/renderscript/RenderScript;
@@ -695,12 +695,12 @@
     invoke-virtual {v0, v4, v5}, Landroid/renderscript/Element$Builder;->add(Landroid/renderscript/Element;Ljava/lang/String;)Landroid/renderscript/Element$Builder;
 
     .line 794
-    :cond_2a
+    :cond_0
     iget v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mFlags:I
 
     and-int/lit16 v4, v4, 0x100
 
-    if-eqz v4, :cond_3c
+    if-eqz v4, :cond_1
 
     .line 795
     iget-object v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mRS:Landroid/renderscript/RenderScript;
@@ -714,12 +714,12 @@
     invoke-virtual {v0, v4, v5}, Landroid/renderscript/Element$Builder;->add(Landroid/renderscript/Element;Ljava/lang/String;)Landroid/renderscript/Element$Builder;
 
     .line 797
-    :cond_3c
+    :cond_1
     iget v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mFlags:I
 
     and-int/lit8 v4, v4, 0x2
 
-    if-eqz v4, :cond_4e
+    if-eqz v4, :cond_2
 
     .line 798
     iget-object v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mRS:Landroid/renderscript/RenderScript;
@@ -733,7 +733,7 @@
     invoke-virtual {v0, v4, v5}, Landroid/renderscript/Element$Builder;->add(Landroid/renderscript/Element;Ljava/lang/String;)Landroid/renderscript/Element$Builder;
 
     .line 800
-    :cond_4e
+    :cond_2
     invoke-virtual {v0}, Landroid/renderscript/Element$Builder;->create()Landroid/renderscript/Element;
 
     move-result-object v4
@@ -745,13 +745,13 @@
 
     .line 803
     .local v3, usage:I
-    if-eqz p1, :cond_59
+    if-eqz p1, :cond_3
 
     .line 804
     or-int/lit8 v3, v3, 0x4
 
     .line 807
-    :cond_59
+    :cond_3
     new-instance v2, Landroid/renderscript/Mesh$Builder;
 
     iget-object v4, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mRS:Landroid/renderscript/RenderScript;
@@ -797,10 +797,10 @@
     invoke-virtual {v4, v7, v5, v6}, Landroid/renderscript/Allocation;->copy1DRangeFromUnchecked(II[F)V
 
     .line 814
-    if-eqz p1, :cond_8e
+    if-eqz p1, :cond_4
 
     .line 815
-    if-eqz p1, :cond_8e
+    if-eqz p1, :cond_4
 
     .line 816
     invoke-virtual {v1, v7}, Landroid/renderscript/Mesh;->getVertexAllocation(I)Landroid/renderscript/Allocation;
@@ -810,7 +810,7 @@
     invoke-virtual {v4, v8}, Landroid/renderscript/Allocation;->syncAll(I)V
 
     .line 820
-    :cond_8e
+    :cond_4
     invoke-virtual {v1, v7}, Landroid/renderscript/Mesh;->getIndexSetAllocation(I)Landroid/renderscript/Allocation;
 
     move-result-object v4
@@ -822,7 +822,7 @@
     invoke-virtual {v4, v7, v5, v6}, Landroid/renderscript/Allocation;->copy1DRangeFromUnchecked(II[S)V
 
     .line 821
-    if-eqz p1, :cond_a2
+    if-eqz p1, :cond_5
 
     .line 822
     invoke-virtual {v1, v7}, Landroid/renderscript/Mesh;->getIndexSetAllocation(I)Landroid/renderscript/Allocation;
@@ -832,12 +832,12 @@
     invoke-virtual {v4, v8}, Landroid/renderscript/Allocation;->syncAll(I)V
 
     .line 825
-    :cond_a2
+    :cond_5
     return-object v1
 .end method
 
 .method public setColor(FFFF)Landroid/renderscript/Mesh$TriangleMeshBuilder;
-    .registers 7
+    .locals 2
     .parameter "r"
     .parameter "g"
     .parameter "b"
@@ -849,7 +849,7 @@
 
     and-int/lit8 v0, v0, 0x1
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 735
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -861,7 +861,7 @@
     throw v0
 
     .line 737
-    :cond_e
+    :cond_0
     iput p1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mR:F
 
     .line 738
@@ -878,7 +878,7 @@
 .end method
 
 .method public setNormal(FFF)Landroid/renderscript/Mesh$TriangleMeshBuilder;
-    .registers 6
+    .locals 2
     .parameter "x"
     .parameter "y"
     .parameter "z"
@@ -889,7 +889,7 @@
 
     and-int/lit8 v0, v0, 0x2
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 714
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -901,7 +901,7 @@
     throw v0
 
     .line 716
-    :cond_e
+    :cond_0
     iput p1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mNX:F
 
     .line 717
@@ -915,7 +915,7 @@
 .end method
 
 .method public setTexture(FF)Landroid/renderscript/Mesh$TriangleMeshBuilder;
-    .registers 5
+    .locals 2
     .parameter "s"
     .parameter "t"
 
@@ -925,7 +925,7 @@
 
     and-int/lit16 v0, v0, 0x100
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 695
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -937,7 +937,7 @@
     throw v0
 
     .line 697
-    :cond_e
+    :cond_0
     iput p1, p0, Landroid/renderscript/Mesh$TriangleMeshBuilder;->mS0:F
 
     .line 698

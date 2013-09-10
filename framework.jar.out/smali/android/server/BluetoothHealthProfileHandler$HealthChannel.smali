@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/server/BluetoothHealthProfileHandler;Landroid/bluetooth/BluetoothDevice;Landroid/bluetooth/BluetoothHealthAppConfiguration;Landroid/os/ParcelFileDescriptor;ZLjava/lang/String;)V
-    .registers 8
+    .locals 1
     .parameter
     .parameter "device"
     .parameter "config"
@@ -71,6 +71,7 @@
     iput v0, p0, Landroid/server/BluetoothHealthProfileHandler$HealthChannel;->mState:I
 
     .line 80
+    #calls: Landroid/server/BluetoothHealthProfileHandler;->getChannelId()I
     invoke-static {p1}, Landroid/server/BluetoothHealthProfileHandler;->access$000(Landroid/server/BluetoothHealthProfileHandler;)I
 
     move-result v0
@@ -82,7 +83,7 @@
 .end method
 
 .method static synthetic access$1000(Landroid/server/BluetoothHealthProfileHandler$HealthChannel;)Landroid/bluetooth/BluetoothDevice;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -93,7 +94,7 @@
 .end method
 
 .method static synthetic access$1100(Landroid/server/BluetoothHealthProfileHandler$HealthChannel;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -104,7 +105,7 @@
 .end method
 
 .method static synthetic access$1200(Landroid/server/BluetoothHealthProfileHandler$HealthChannel;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -115,7 +116,7 @@
 .end method
 
 .method static synthetic access$1202(Landroid/server/BluetoothHealthProfileHandler$HealthChannel;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -127,7 +128,7 @@
 .end method
 
 .method static synthetic access$1400(Landroid/server/BluetoothHealthProfileHandler$HealthChannel;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -138,7 +139,7 @@
 .end method
 
 .method static synthetic access$1402(Landroid/server/BluetoothHealthProfileHandler$HealthChannel;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -150,7 +151,7 @@
 .end method
 
 .method static synthetic access$1500(Landroid/server/BluetoothHealthProfileHandler$HealthChannel;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -161,7 +162,7 @@
 .end method
 
 .method static synthetic access$1502(Landroid/server/BluetoothHealthProfileHandler$HealthChannel;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -173,7 +174,7 @@
 .end method
 
 .method static synthetic access$1600(Landroid/server/BluetoothHealthProfileHandler$HealthChannel;)Landroid/os/ParcelFileDescriptor;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -184,7 +185,7 @@
 .end method
 
 .method static synthetic access$1602(Landroid/server/BluetoothHealthProfileHandler$HealthChannel;Landroid/os/ParcelFileDescriptor;)Landroid/os/ParcelFileDescriptor;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -196,7 +197,7 @@
 .end method
 
 .method static synthetic access$800(Landroid/server/BluetoothHealthProfileHandler$HealthChannel;)Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -207,7 +208,7 @@
 .end method
 
 .method static synthetic access$900(Landroid/server/BluetoothHealthProfileHandler$HealthChannel;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -218,7 +219,7 @@
 .end method
 
 .method static synthetic access$902(Landroid/server/BluetoothHealthProfileHandler$HealthChannel;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

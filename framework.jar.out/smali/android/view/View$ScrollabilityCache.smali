@@ -63,7 +63,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 4
+    .locals 4
 
     .prologue
     const/4 v3, 0x1
@@ -92,7 +92,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewConfiguration;Landroid/view/View;)V
-    .registers 11
+    .locals 8
     .parameter "configuration"
     .parameter "host"
 
@@ -205,7 +205,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 9
+    .locals 8
 
     .prologue
     .line 17668
@@ -219,7 +219,7 @@
 
     cmp-long v6, v4, v6
 
-    if-ltz v6, :cond_26
+    if-ltz v6, :cond_0
 
     .line 17674
     long-to-int v3, v4
@@ -268,12 +268,12 @@
     .end local v1           #framesCount:I
     .end local v2           #interpolator:Landroid/graphics/Interpolator;
     .end local v3           #nextFrame:I
-    :cond_26
+    :cond_0
     return-void
 .end method
 
 .method public setFadeColor(I)V
-    .registers 10
+    .locals 8
     .parameter "color"
 
     .prologue
@@ -282,11 +282,11 @@
     const/4 v1, 0x0
 
     .line 17654
-    if-eqz p1, :cond_2d
+    if-eqz p1, :cond_0
 
     iget v0, p0, Landroid/view/View$ScrollabilityCache;->mLastColor:I
 
-    if-eq p1, v0, :cond_2d
+    if-eq p1, v0, :cond_0
 
     .line 17655
     iput p1, p0, Landroid/view/View$ScrollabilityCache;->mLastColor:I
@@ -330,6 +330,6 @@
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
     .line 17665
-    :cond_2d
+    :cond_0
     return-void
 .end method

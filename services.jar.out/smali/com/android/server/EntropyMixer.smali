@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 54
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 76
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "entropyFile"
     .parameter "randomDevice"
 
@@ -99,7 +99,7 @@
     iput-object v0, p0, Lcom/android/server/EntropyMixer;->mHandler:Landroid/os/Handler;
 
     .line 81
-    if-nez p2, :cond_14
+    if-nez p2, :cond_0
 
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -110,8 +110,8 @@
     throw v0
 
     .line 82
-    :cond_14
-    if-nez p1, :cond_1e
+    :cond_0
+    if-nez p1, :cond_1
 
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -122,7 +122,7 @@
     throw v0
 
     .line 84
-    :cond_1e
+    :cond_1
     iput-object p2, p0, Lcom/android/server/EntropyMixer;->randomDevice:Ljava/lang/String;
 
     .line 85
@@ -145,7 +145,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/server/EntropyMixer;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -156,7 +156,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/server/EntropyMixer;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -167,7 +167,7 @@
 .end method
 
 .method private addDeviceSpecificEntropy()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 128
@@ -175,7 +175,7 @@
 
     .line 130
     .local v1, out:Ljava/io/PrintWriter;
-    :try_start_1
+    :try_start_0
     new-instance v2, Ljava/io/PrintWriter;
 
     new-instance v3, Ljava/io/FileOutputStream;
@@ -185,14 +185,14 @@
     invoke-direct {v3, v4}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
 
     invoke-direct {v2, v3}, Ljava/io/PrintWriter;-><init>(Ljava/io/OutputStream;)V
-    :try_end_d
-    .catchall {:try_start_1 .. :try_end_d} :catchall_8f
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_d} :catch_81
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 131
     .end local v1           #out:Ljava/io/PrintWriter;
     .local v2, out:Ljava/io/PrintWriter;
-    :try_start_d
+    :try_start_1
     const-string v3, "Copyright (C) 2009 The Android Open Source Project"
 
     invoke-virtual {v2, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
@@ -299,91 +299,91 @@
     move-result-wide v3
 
     invoke-virtual {v2, v3, v4}, Ljava/io/PrintWriter;->println(J)V
-    :try_end_7a
-    .catchall {:try_start_d .. :try_end_7a} :catchall_96
-    .catch Ljava/io/IOException; {:try_start_d .. :try_end_7a} :catch_99
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 148
-    if-eqz v2, :cond_7f
+    if-eqz v2, :cond_0
 
     .line 149
     invoke-virtual {v2}, Ljava/io/PrintWriter;->close()V
 
-    :cond_7f
+    :cond_0
     move-object v1, v2
 
     .line 152
     .end local v2           #out:Ljava/io/PrintWriter;
     .restart local v1       #out:Ljava/io/PrintWriter;
-    :cond_80
-    :goto_80
+    :cond_1
+    :goto_0
     return-void
 
     .line 145
-    :catch_81
+    :catch_0
     move-exception v0
 
     .line 146
     .local v0, e:Ljava/io/IOException;
-    :goto_82
-    :try_start_82
+    :goto_1
+    :try_start_2
     const-string v3, "EntropyMixer"
 
     const-string v4, "Unable to add device specific data to the entropy pool"
 
     invoke-static {v3, v4, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_89
-    .catchall {:try_start_82 .. :try_end_89} :catchall_8f
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 148
-    if-eqz v1, :cond_80
+    if-eqz v1, :cond_1
 
     .line 149
     invoke-virtual {v1}, Ljava/io/PrintWriter;->close()V
 
-    goto :goto_80
+    goto :goto_0
 
     .line 148
     .end local v0           #e:Ljava/io/IOException;
-    :catchall_8f
+    :catchall_0
     move-exception v3
 
-    :goto_90
-    if-eqz v1, :cond_95
+    :goto_2
+    if-eqz v1, :cond_2
 
     .line 149
     invoke-virtual {v1}, Ljava/io/PrintWriter;->close()V
 
     .line 148
-    :cond_95
+    :cond_2
     throw v3
 
     .end local v1           #out:Ljava/io/PrintWriter;
     .restart local v2       #out:Ljava/io/PrintWriter;
-    :catchall_96
+    :catchall_1
     move-exception v3
 
     move-object v1, v2
 
     .end local v2           #out:Ljava/io/PrintWriter;
     .restart local v1       #out:Ljava/io/PrintWriter;
-    goto :goto_90
+    goto :goto_2
 
     .line 145
     .end local v1           #out:Ljava/io/PrintWriter;
     .restart local v2       #out:Ljava/io/PrintWriter;
-    :catch_99
+    :catch_1
     move-exception v0
 
     move-object v1, v2
 
     .end local v2           #out:Ljava/io/PrintWriter;
     .restart local v1       #out:Ljava/io/PrintWriter;
-    goto :goto_82
+    goto :goto_1
 .end method
 
 .method private static getSystemDir()Ljava/lang/String;
-    .registers 3
+    .locals 3
 
     .prologue
     .line 155
@@ -412,7 +412,7 @@
 .end method
 
 .method private loadInitialEntropy()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 99
@@ -428,15 +428,15 @@
     const/4 v3, 0x0
 
     invoke-virtual {v1, v2, v3}, Lcom/android/server/RandomBlock;->toFile(Ljava/lang/String;Z)V
-    :try_end_c
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_c} :catch_d
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 103
-    :goto_c
+    :goto_0
     return-void
 
     .line 100
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 101
@@ -447,11 +447,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method private scheduleEntropyWriter()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x1
@@ -473,7 +473,7 @@
 .end method
 
 .method private writeEntropy()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 107
@@ -489,15 +489,15 @@
     const/4 v3, 0x1
 
     invoke-virtual {v1, v2, v3}, Lcom/android/server/RandomBlock;->toFile(Ljava/lang/String;Z)V
-    :try_end_c
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_c} :catch_d
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 111
-    :goto_c
+    :goto_0
     return-void
 
     .line 108
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 109
@@ -508,5 +508,5 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_c
+    goto :goto_0
 .end method

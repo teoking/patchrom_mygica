@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>([B)V
-    .registers 3
+    .locals 1
     .parameter "buf"
 
     .prologue
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public available()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 62
@@ -64,7 +64,7 @@
 .end method
 
 .method public read(I)I
-    .registers 8
+    .locals 6
     .parameter "bits"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -92,9 +92,9 @@
 
     .line 77
     .local v2, offset:I
-    if-ltz p1, :cond_19
+    if-ltz p1, :cond_0
 
-    if-gt p1, v5, :cond_19
+    if-gt p1, v5, :cond_0
 
     iget v3, p0, Lcom/android/internal/util/BitwiseInputStream;->mPos:I
 
@@ -102,10 +102,10 @@
 
     iget v4, p0, Lcom/android/internal/util/BitwiseInputStream;->mEnd:I
 
-    if-le v3, v4, :cond_50
+    if-le v3, v4, :cond_1
 
     .line 78
-    :cond_19
+    :cond_0
     new-instance v3, Lcom/android/internal/util/BitwiseInputStream$AccessException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -161,7 +161,7 @@
     throw v3
 
     .line 81
-    :cond_50
+    :cond_1
     iget-object v3, p0, Lcom/android/internal/util/BitwiseInputStream;->mBuf:[B
 
     aget-byte v3, v3, v1
@@ -172,7 +172,7 @@
 
     .line 82
     .local v0, data:I
-    if-ge v2, v5, :cond_63
+    if-ge v2, v5, :cond_2
 
     iget-object v3, p0, Lcom/android/internal/util/BitwiseInputStream;->mBuf:[B
 
@@ -185,7 +185,7 @@
     or-int/2addr v0, v3
 
     .line 83
-    :cond_63
+    :cond_2
     ushr-int/2addr v0, v2
 
     .line 84
@@ -209,7 +209,7 @@
 .end method
 
 .method public readByteArray(I)[B
-    .registers 8
+    .locals 6
     .parameter "bits"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -223,11 +223,11 @@
 
     and-int/lit8 v4, p1, 0x7
 
-    if-lez v4, :cond_25
+    if-lez v4, :cond_0
 
     const/4 v4, 0x1
 
-    :goto_7
+    :goto_0
     add-int v1, v5, v4
 
     .line 97
@@ -239,8 +239,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_c
-    if-ge v2, v1, :cond_27
+    :goto_1
+    if-ge v2, v1, :cond_1
 
     .line 99
     const/16 v4, 0x8
@@ -270,28 +270,28 @@
     .line 98
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_c
+    goto :goto_1
 
     .line 96
     .end local v0           #arr:[B
     .end local v1           #bytes:I
     .end local v2           #i:I
     .end local v3           #increment:I
-    :cond_25
+    :cond_0
     const/4 v4, 0x0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 102
     .restart local v0       #arr:[B
     .restart local v1       #bytes:I
     .restart local v2       #i:I
-    :cond_27
+    :cond_1
     return-object v0
 .end method
 
 .method public skip(I)V
-    .registers 5
+    .locals 3
     .parameter "bits"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -307,7 +307,7 @@
 
     iget v1, p0, Lcom/android/internal/util/BitwiseInputStream;->mEnd:I
 
-    if-le v0, v1, :cond_3e
+    if-le v0, v1, :cond_0
 
     .line 112
     new-instance v0, Lcom/android/internal/util/BitwiseInputStream$AccessException;
@@ -365,7 +365,7 @@
     throw v0
 
     .line 115
-    :cond_3e
+    :cond_0
     iget v0, p0, Lcom/android/internal/util/BitwiseInputStream;->mPos:I
 
     add-int/2addr v0, p1

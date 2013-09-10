@@ -95,7 +95,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 39
@@ -129,7 +129,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 288
@@ -152,7 +152,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/SurfaceTexture;)V
-    .registers 4
+    .locals 2
     .parameter "surfaceTexture"
 
     .prologue
@@ -179,7 +179,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 2
+    .locals 0
     .parameter "source"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -199,7 +199,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/view/Surface$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .annotation system Ldalvik/annotation/Throws;
@@ -216,7 +216,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/SurfaceSession;IIIIII)V
-    .registers 17
+    .locals 9
     .parameter "s"
     .parameter "pid"
     .parameter "display"
@@ -272,7 +272,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/SurfaceSession;ILjava/lang/String;IIIII)V
-    .registers 11
+    .locals 2
     .parameter "s"
     .parameter "pid"
     .parameter "name"
@@ -314,7 +314,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/view/Surface;)Landroid/content/res/CompatibilityInfo$Translator;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -325,7 +325,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/view/Surface;)Landroid/graphics/Matrix;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -336,13 +336,13 @@
 .end method
 
 .method private static checkHeadless()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 43
     sget-boolean v0, Landroid/view/Surface;->headless:Z
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 44
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -354,7 +354,7 @@
     throw v0
 
     .line 46
-    :cond_c
+    :cond_0
     return-void
 .end method
 
@@ -397,7 +397,7 @@
 .end method
 
 .method public static setOrientation(II)V
-    .registers 3
+    .locals 1
     .parameter "display"
     .parameter "orientation"
 
@@ -423,7 +423,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 106
@@ -436,7 +436,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -447,20 +447,20 @@
     .line 539
     :try_start_0
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
-    :try_end_3
-    .catchall {:try_start_0 .. :try_end_3} :catchall_3b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 541
     iget v0, p0, Landroid/view/Surface;->mNativeSurface:I
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     iget v0, p0, Landroid/view/Surface;->mSurfaceControl:I
 
-    if-eqz v0, :cond_37
+    if-eqz v0, :cond_1
 
     .line 546
-    :cond_b
+    :cond_0
     const-string v0, "Surface"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -504,26 +504,26 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 550
-    :cond_37
+    :cond_1
     invoke-virtual {p0}, Landroid/view/Surface;->release()V
 
     .line 552
     return-void
 
     .line 541
-    :catchall_3b
+    :catchall_0
     move-exception v0
 
     iget v1, p0, Landroid/view/Surface;->mNativeSurface:I
 
-    if-nez v1, :cond_44
+    if-nez v1, :cond_2
 
     iget v1, p0, Landroid/view/Surface;->mSurfaceControl:I
 
-    if-eqz v1, :cond_70
+    if-eqz v1, :cond_3
 
     .line 546
-    :cond_44
+    :cond_2
     const-string v1, "Surface"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -567,7 +567,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 550
-    :cond_70
+    :cond_3
     invoke-virtual {p0}, Landroid/view/Surface;->release()V
 
     throw v0
@@ -577,7 +577,7 @@
 .end method
 
 .method public getGenerationId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 324
@@ -596,7 +596,7 @@
 .end method
 
 .method public lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
-    .registers 3
+    .locals 1
     .parameter "dirty"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -624,12 +624,12 @@
 .end method
 
 .method setCompatibilityTranslator(Landroid/content/res/CompatibilityInfo$Translator;)V
-    .registers 4
+    .locals 2
     .parameter "translator"
 
     .prologue
     .line 401
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     .line 402
     iget v0, p1, Landroid/content/res/CompatibilityInfo$Translator;->applicationScale:F
@@ -649,7 +649,7 @@
 
     .line 406
     .end local v0           #appScale:F
-    :cond_10
+    :cond_0
     return-void
 .end method
 
@@ -669,7 +669,7 @@
 .end method
 
 .method public setPosition(II)V
-    .registers 5
+    .locals 2
     .parameter "x"
     .parameter "y"
 
@@ -697,7 +697,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 102

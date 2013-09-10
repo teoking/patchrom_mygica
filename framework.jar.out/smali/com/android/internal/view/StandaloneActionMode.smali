@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/internal/widget/ActionBarContextView;Landroid/view/ActionMode$Callback;Z)V
-    .registers 7
+    .locals 2
     .parameter "context"
     .parameter "view"
     .parameter "callback"
@@ -80,20 +80,20 @@
 
 # virtual methods
 .method public finish()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 98
     iget-boolean v0, p0, Lcom/android/internal/view/StandaloneActionMode;->mFinished:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
     .line 105
-    :goto_4
+    :goto_0
     return-void
 
     .line 101
-    :cond_5
+    :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/view/StandaloneActionMode;->mFinished:Z
@@ -110,17 +110,17 @@
 
     invoke-interface {v0, p0}, Landroid/view/ActionMode$Callback;->onDestroyActionMode(Landroid/view/ActionMode;)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public getCustomView()Landroid/view/View;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 124
     iget-object v0, p0, Lcom/android/internal/view/StandaloneActionMode;->mCustomView:Ljava/lang/ref/WeakReference;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/view/StandaloneActionMode;->mCustomView:Ljava/lang/ref/WeakReference;
 
@@ -130,17 +130,17 @@
 
     check-cast v0, Landroid/view/View;
 
-    :goto_c
+    :goto_0
     return-object v0
 
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public getMenu()Landroid/view/Menu;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 109
@@ -150,7 +150,7 @@
 .end method
 
 .method public getMenuInflater()Landroid/view/MenuInflater;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 129
@@ -164,7 +164,7 @@
 .end method
 
 .method public getSubtitle()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 119
@@ -178,7 +178,7 @@
 .end method
 
 .method public getTitle()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 114
@@ -192,7 +192,7 @@
 .end method
 
 .method public invalidate()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 93
@@ -207,7 +207,7 @@
 .end method
 
 .method public isTitleOptional()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 82
@@ -221,7 +221,7 @@
 .end method
 
 .method public isUiFocusable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 157
@@ -231,7 +231,7 @@
 .end method
 
 .method public onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
-    .registers 3
+    .locals 0
     .parameter "menu"
     .parameter "allMenusAreClosing"
 
@@ -241,7 +241,7 @@
 .end method
 
 .method public onCloseSubMenu(Lcom/android/internal/view/menu/SubMenuBuilder;)V
-    .registers 2
+    .locals 0
     .parameter "menu"
 
     .prologue
@@ -250,7 +250,7 @@
 .end method
 
 .method public onMenuItemSelected(Lcom/android/internal/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
-    .registers 4
+    .locals 1
     .parameter "menu"
     .parameter "item"
 
@@ -266,7 +266,7 @@
 .end method
 
 .method public onMenuModeChange(Lcom/android/internal/view/menu/MenuBuilder;)V
-    .registers 3
+    .locals 1
     .parameter "menu"
 
     .prologue
@@ -283,7 +283,7 @@
 .end method
 
 .method public onSubMenuSelected(Lcom/android/internal/view/menu/SubMenuBuilder;)Z
-    .registers 5
+    .locals 3
     .parameter "subMenu"
 
     .prologue
@@ -294,14 +294,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     .line 145
-    :goto_7
+    :goto_0
     return v2
 
     .line 144
-    :cond_8
+    :cond_0
     new-instance v0, Lcom/android/internal/view/menu/MenuPopupHelper;
 
     iget-object v1, p0, Lcom/android/internal/view/StandaloneActionMode;->mContext:Landroid/content/Context;
@@ -310,11 +310,11 @@
 
     invoke-virtual {v0}, Lcom/android/internal/view/menu/MenuPopupHelper;->show()V
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setCustomView(Landroid/view/View;)V
-    .registers 3
+    .locals 1
     .parameter "view"
 
     .prologue
@@ -324,27 +324,27 @@
     invoke-virtual {v0, p1}, Lcom/android/internal/widget/ActionBarContextView;->setCustomView(Landroid/view/View;)V
 
     .line 88
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_0
 
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    :goto_c
+    :goto_0
     iput-object v0, p0, Lcom/android/internal/view/StandaloneActionMode;->mCustomView:Ljava/lang/ref/WeakReference;
 
     .line 89
     return-void
 
     .line 88
-    :cond_f
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public setSubtitle(I)V
-    .registers 3
+    .locals 1
     .parameter "resId"
 
     .prologue
@@ -362,7 +362,7 @@
 .end method
 
 .method public setSubtitle(Ljava/lang/CharSequence;)V
-    .registers 3
+    .locals 1
     .parameter "subtitle"
 
     .prologue
@@ -376,7 +376,7 @@
 .end method
 
 .method public setTitle(I)V
-    .registers 3
+    .locals 1
     .parameter "resId"
 
     .prologue
@@ -394,7 +394,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
-    .registers 3
+    .locals 1
     .parameter "title"
 
     .prologue
@@ -408,7 +408,7 @@
 .end method
 
 .method public setTitleOptionalHint(Z)V
-    .registers 3
+    .locals 1
     .parameter "titleOptional"
 
     .prologue

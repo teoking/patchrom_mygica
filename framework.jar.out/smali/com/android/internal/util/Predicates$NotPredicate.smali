@@ -41,7 +41,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/internal/util/Predicate;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -65,7 +65,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/util/Predicate;Lcom/android/internal/util/Predicates$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Z
-    .registers 3
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -98,15 +98,15 @@
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method

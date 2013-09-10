@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -17,7 +17,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "attrs"
 
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
-    .registers 6
+    .locals 2
     .parameter "child"
     .parameter "index"
     .parameter "params"
@@ -41,7 +41,7 @@
     .line 64
     instance-of v0, p1, Landroid/widget/TextView;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 65
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -53,7 +53,7 @@
     throw v0
 
     .line 69
-    :cond_c
+    :cond_0
     invoke-super {p0, p1, p2, p3}, Landroid/widget/ViewSwitcher;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
     .line 70
@@ -61,7 +61,7 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -82,7 +82,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .registers 3
+    .locals 1
     .parameter "info"
 
     .prologue
@@ -103,7 +103,7 @@
 .end method
 
 .method public setCurrentText(Ljava/lang/CharSequence;)V
-    .registers 3
+    .locals 1
     .parameter "text"
 
     .prologue
@@ -121,7 +121,7 @@
 .end method
 
 .method public setText(Ljava/lang/CharSequence;)V
-    .registers 3
+    .locals 1
     .parameter "text"
 
     .prologue

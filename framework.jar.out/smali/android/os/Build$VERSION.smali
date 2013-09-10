@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 4
+    .locals 4
 
     .prologue
     const/4 v0, 0x0
@@ -41,6 +41,7 @@
     .line 85
     const-string/jumbo v1, "ro.build.version.incremental"
 
+    #calls: Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1}, Landroid/os/Build;->access$000(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -50,6 +51,7 @@
     .line 90
     const-string/jumbo v1, "ro.build.version.release"
 
+    #calls: Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1}, Landroid/os/Build;->access$000(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -59,6 +61,7 @@
     .line 99
     const-string/jumbo v1, "ro.build.version.sdk"
 
+    #calls: Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1}, Landroid/os/Build;->access$000(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -77,6 +80,7 @@
     .line 112
     const-string/jumbo v1, "ro.build.version.codename"
 
+    #calls: Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v1}, Landroid/os/Build;->access$000(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -94,23 +98,23 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3e
+    if-eqz v2, :cond_0
 
-    :goto_3a
+    :goto_0
     add-int/2addr v0, v1
 
     sput v0, Landroid/os/Build$VERSION;->RESOURCES_SDK_INT:I
 
     return-void
 
-    :cond_3e
+    :cond_0
     const/4 v0, 0x1
 
-    goto :goto_3a
+    goto :goto_0
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 79

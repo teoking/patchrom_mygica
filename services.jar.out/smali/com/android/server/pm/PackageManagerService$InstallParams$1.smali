@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService$InstallParams;I)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
@@ -75,6 +75,7 @@
 
     iget-object v2, v2, Lcom/android/server/pm/PackageManagerService$InstallParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
+    #calls: Lcom/android/server/pm/PackageManagerService;->getVerificationTimeout()J
     invoke-static {v2}, Lcom/android/server/pm/PackageManagerService;->access$2700(Lcom/android/server/pm/PackageManagerService;)J
 
     move-result-wide v2

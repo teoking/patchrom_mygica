@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 5
+    .locals 5
 
     .prologue
     const/4 v4, 0x1
@@ -93,7 +93,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 27
@@ -104,7 +104,7 @@
 .end method
 
 .method static synthetic access$100(I)Landroid/text/TextDirectionHeuristics$TriState;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -117,7 +117,7 @@
 .end method
 
 .method static synthetic access$200(I)Landroid/text/TextDirectionHeuristics$TriState;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -130,75 +130,75 @@
 .end method
 
 .method private static isRtlText(I)Landroid/text/TextDirectionHeuristics$TriState;
-    .registers 2
+    .locals 1
     .parameter "directionality"
 
     .prologue
     .line 128
-    packed-switch p0, :pswitch_data_c
+    packed-switch p0, :pswitch_data_0
 
     .line 135
     sget-object v0, Landroid/text/TextDirectionHeuristics$TriState;->UNKNOWN:Landroid/text/TextDirectionHeuristics$TriState;
 
-    :goto_5
+    :goto_0
     return-object v0
 
     .line 130
-    :pswitch_6
+    :pswitch_0
     sget-object v0, Landroid/text/TextDirectionHeuristics$TriState;->FALSE:Landroid/text/TextDirectionHeuristics$TriState;
 
-    goto :goto_5
+    goto :goto_0
 
     .line 133
-    :pswitch_9
+    :pswitch_1
     sget-object v0, Landroid/text/TextDirectionHeuristics$TriState;->TRUE:Landroid/text/TextDirectionHeuristics$TriState;
 
-    goto :goto_5
+    goto :goto_0
 
     .line 128
-    :pswitch_data_c
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_6
-        :pswitch_9
-        :pswitch_9
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method private static isRtlTextOrFormat(I)Landroid/text/TextDirectionHeuristics$TriState;
-    .registers 2
+    .locals 1
     .parameter "directionality"
 
     .prologue
     .line 140
-    sparse-switch p0, :sswitch_data_c
+    sparse-switch p0, :sswitch_data_0
 
     .line 151
     sget-object v0, Landroid/text/TextDirectionHeuristics$TriState;->UNKNOWN:Landroid/text/TextDirectionHeuristics$TriState;
 
-    :goto_5
+    :goto_0
     return-object v0
 
     .line 144
-    :sswitch_6
+    :sswitch_0
     sget-object v0, Landroid/text/TextDirectionHeuristics$TriState;->FALSE:Landroid/text/TextDirectionHeuristics$TriState;
 
-    goto :goto_5
+    goto :goto_0
 
     .line 149
-    :sswitch_9
+    :sswitch_1
     sget-object v0, Landroid/text/TextDirectionHeuristics$TriState;->TRUE:Landroid/text/TextDirectionHeuristics$TriState;
 
-    goto :goto_5
+    goto :goto_0
 
     .line 140
-    :sswitch_data_c
+    :sswitch_data_0
     .sparse-switch
-        0x0 -> :sswitch_6
-        0x1 -> :sswitch_9
-        0x2 -> :sswitch_9
-        0xe -> :sswitch_6
-        0xf -> :sswitch_6
-        0x10 -> :sswitch_9
-        0x11 -> :sswitch_9
+        0x0 -> :sswitch_0
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_1
+        0xe -> :sswitch_0
+        0xf -> :sswitch_0
+        0x10 -> :sswitch_1
+        0x11 -> :sswitch_1
     .end sparse-switch
 .end method

@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 120
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(IIII[Landroid/os/Parcelable;)V
-    .registers 6
+    .locals 0
     .parameter "id"
     .parameter "Class"
     .parameter "subClass"
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 137
@@ -90,7 +90,7 @@
 .end method
 
 .method public getEndpoint(I)Landroid/hardware/usb/UsbEndpoint;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -105,7 +105,7 @@
 .end method
 
 .method public getEndpointCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 101
@@ -117,7 +117,7 @@
 .end method
 
 .method public getId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 64
@@ -127,7 +127,7 @@
 .end method
 
 .method public getInterfaceClass()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 74
@@ -137,7 +137,7 @@
 .end method
 
 .method public getInterfaceProtocol()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 92
@@ -147,7 +147,7 @@
 .end method
 
 .method public getInterfaceSubclass()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 83
@@ -157,7 +157,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 115
@@ -239,7 +239,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "parcel"
     .parameter "flags"
 

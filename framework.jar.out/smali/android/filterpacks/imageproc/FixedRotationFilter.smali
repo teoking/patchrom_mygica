@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -50,7 +50,7 @@
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 16
+    .locals 14
     .parameter "context"
 
     .prologue
@@ -69,7 +69,7 @@
     .local v1, input:Landroid/filterfw/core/Frame;
     iget v11, p0, Landroid/filterpacks/imageproc/FixedRotationFilter;->mRotation:I
 
-    if-nez v11, :cond_13
+    if-nez v11, :cond_0
 
     .line 63
     const-string v11, "image"
@@ -77,11 +77,11 @@
     invoke-virtual {p0, v11, v1}, Landroid/filterpacks/imageproc/FixedRotationFilter;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
 
     .line 111
-    :goto_12
+    :goto_0
     return-void
 
     .line 66
-    :cond_13
+    :cond_0
     invoke-virtual {v1}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v2
@@ -90,7 +90,7 @@
     .local v2, inputFormat:Landroid/filterfw/core/FrameFormat;
     iget-object v11, p0, Landroid/filterpacks/imageproc/FixedRotationFilter;->mProgram:Landroid/filterfw/core/ShaderProgram;
 
-    if-nez v11, :cond_21
+    if-nez v11, :cond_1
 
     .line 70
     invoke-static {p1}, Landroid/filterfw/core/ShaderProgram;->createIdentity(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/ShaderProgram;
@@ -100,7 +100,7 @@
     iput-object v11, p0, Landroid/filterpacks/imageproc/FixedRotationFilter;->mProgram:Landroid/filterfw/core/ShaderProgram;
 
     .line 72
-    :cond_21
+    :cond_1
     invoke-virtual {v2}, Landroid/filterfw/core/FrameFormat;->mutableCopy()Landroid/filterfw/core/MutableFrameFormat;
 
     move-result-object v4
@@ -157,7 +157,7 @@
 
     rem-int/lit8 v11, v11, 0x4
 
-    packed-switch v11, :pswitch_data_88
+    packed-switch v11, :pswitch_data_0
 
     .line 94
     new-instance v9, Landroid/filterfw/geometry/Quad;
@@ -166,7 +166,7 @@
 
     .line 98
     .local v9, sourceRegion:Landroid/filterfw/geometry/Quad;
-    :goto_55
+    :goto_1
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v11
@@ -194,12 +194,12 @@
     .line 110
     invoke-virtual {v3}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
 
-    goto :goto_12
+    goto :goto_0
 
     .line 82
     .end local v3           #output:Landroid/filterfw/core/Frame;
     .end local v9           #sourceRegion:Landroid/filterfw/geometry/Quad;
-    :pswitch_70
+    :pswitch_0
     new-instance v9, Landroid/filterfw/geometry/Quad;
 
     invoke-direct {v9, v7, v5, v8, v6}, Landroid/filterfw/geometry/Quad;-><init>(Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;)V
@@ -208,22 +208,22 @@
     .restart local v9       #sourceRegion:Landroid/filterfw/geometry/Quad;
     invoke-virtual {v4, v0, v10}, Landroid/filterfw/core/MutableFrameFormat;->setDimensions(II)V
 
-    goto :goto_55
+    goto :goto_1
 
     .line 86
     .end local v9           #sourceRegion:Landroid/filterfw/geometry/Quad;
-    :pswitch_79
+    :pswitch_1
     new-instance v9, Landroid/filterfw/geometry/Quad;
 
     invoke-direct {v9, v8, v7, v6, v5}, Landroid/filterfw/geometry/Quad;-><init>(Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;)V
 
     .line 87
     .restart local v9       #sourceRegion:Landroid/filterfw/geometry/Quad;
-    goto :goto_55
+    goto :goto_1
 
     .line 89
     .end local v9           #sourceRegion:Landroid/filterfw/geometry/Quad;
-    :pswitch_7f
+    :pswitch_2
     new-instance v9, Landroid/filterfw/geometry/Quad;
 
     invoke-direct {v9, v6, v8, v5, v7}, Landroid/filterfw/geometry/Quad;-><init>(Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;)V
@@ -232,19 +232,19 @@
     .restart local v9       #sourceRegion:Landroid/filterfw/geometry/Quad;
     invoke-virtual {v4, v0, v10}, Landroid/filterfw/core/MutableFrameFormat;->setDimensions(II)V
 
-    goto :goto_55
+    goto :goto_1
 
     .line 80
-    :pswitch_data_88
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_70
-        :pswitch_79
-        :pswitch_7f
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x3

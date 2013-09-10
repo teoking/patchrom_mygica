@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 143
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/content/pm/ParceledListSlice;
-    .registers 9
+    .locals 7
     .parameter "in"
 
     .prologue
@@ -60,12 +60,12 @@
 
     move-result v6
 
-    if-ne v6, v0, :cond_2f
+    if-ne v6, v0, :cond_0
 
     .line 148
     .local v0, lastSlice:Z
-    :goto_c
-    if-lez v1, :cond_31
+    :goto_0
+    if-lez v1, :cond_1
 
     .line 149
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -110,28 +110,28 @@
     .end local v2           #offset:I
     .end local v3           #p:Landroid/os/Parcel;
     .end local v4           #parcelSize:I
-    :goto_2e
+    :goto_1
     return-object v5
 
     .end local v0           #lastSlice:Z
-    :cond_2f
+    :cond_0
     move v0, v5
 
     .line 146
-    goto :goto_c
+    goto :goto_0
 
     .line 162
     .restart local v0       #lastSlice:Z
-    :cond_31
+    :cond_1
     new-instance v5, Landroid/content/pm/ParceledListSlice;
 
     invoke-direct {v5}, Landroid/content/pm/ParceledListSlice;-><init>()V
 
-    goto :goto_2e
+    goto :goto_1
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -144,7 +144,7 @@
 .end method
 
 .method public newArray(I)[Landroid/content/pm/ParceledListSlice;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -155,7 +155,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

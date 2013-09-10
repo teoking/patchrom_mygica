@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 627
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/WifiConfiguration;
-    .registers 10
+    .locals 8
     .parameter "in"
 
     .prologue
@@ -97,12 +97,12 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_2a
+    :goto_0
     iget-object v6, v1, Landroid/net/wifi/WifiConfiguration;->wepKeys:[Ljava/lang/String;
 
     array-length v6, v6
 
-    if-ge v3, v6, :cond_3a
+    if-ge v3, v6, :cond_0
 
     .line 637
     iget-object v6, v1, Landroid/net/wifi/WifiConfiguration;->wepKeys:[Ljava/lang/String;
@@ -116,10 +116,10 @@
     .line 636
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2a
+    goto :goto_0
 
     .line 638
-    :cond_3a
+    :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
@@ -138,14 +138,15 @@
 
     move-result v6
 
-    if-eqz v6, :cond_7f
+    if-eqz v6, :cond_1
 
     const/4 v6, 0x1
 
-    :goto_4d
+    :goto_1
     iput-boolean v6, v1, Landroid/net/wifi/WifiConfiguration;->hiddenSSID:Z
 
     .line 641
+    #calls: Landroid/net/wifi/WifiConfiguration;->readBitSet(Landroid/os/Parcel;)Ljava/util/BitSet;
     invoke-static {p1}, Landroid/net/wifi/WifiConfiguration;->access$100(Landroid/os/Parcel;)Ljava/util/BitSet;
 
     move-result-object v6
@@ -153,6 +154,7 @@
     iput-object v6, v1, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
     .line 642
+    #calls: Landroid/net/wifi/WifiConfiguration;->readBitSet(Landroid/os/Parcel;)Ljava/util/BitSet;
     invoke-static {p1}, Landroid/net/wifi/WifiConfiguration;->access$100(Landroid/os/Parcel;)Ljava/util/BitSet;
 
     move-result-object v6
@@ -160,6 +162,7 @@
     iput-object v6, v1, Landroid/net/wifi/WifiConfiguration;->allowedProtocols:Ljava/util/BitSet;
 
     .line 643
+    #calls: Landroid/net/wifi/WifiConfiguration;->readBitSet(Landroid/os/Parcel;)Ljava/util/BitSet;
     invoke-static {p1}, Landroid/net/wifi/WifiConfiguration;->access$100(Landroid/os/Parcel;)Ljava/util/BitSet;
 
     move-result-object v6
@@ -167,6 +170,7 @@
     iput-object v6, v1, Landroid/net/wifi/WifiConfiguration;->allowedAuthAlgorithms:Ljava/util/BitSet;
 
     .line 644
+    #calls: Landroid/net/wifi/WifiConfiguration;->readBitSet(Landroid/os/Parcel;)Ljava/util/BitSet;
     invoke-static {p1}, Landroid/net/wifi/WifiConfiguration;->access$100(Landroid/os/Parcel;)Ljava/util/BitSet;
 
     move-result-object v6
@@ -174,6 +178,7 @@
     iput-object v6, v1, Landroid/net/wifi/WifiConfiguration;->allowedPairwiseCiphers:Ljava/util/BitSet;
 
     .line 645
+    #calls: Landroid/net/wifi/WifiConfiguration;->readBitSet(Landroid/os/Parcel;)Ljava/util/BitSet;
     invoke-static {p1}, Landroid/net/wifi/WifiConfiguration;->access$100(Landroid/os/Parcel;)Ljava/util/BitSet;
 
     move-result-object v6
@@ -190,8 +195,8 @@
     const/4 v4, 0x0
 
     .local v4, i$:I
-    :goto_71
-    if-ge v4, v5, :cond_81
+    :goto_2
+    if-ge v4, v5, :cond_2
 
     aget-object v2, v0, v4
 
@@ -206,23 +211,23 @@
     .line 647
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_71
+    goto :goto_2
 
     .line 640
     .end local v0           #arr$:[Landroid/net/wifi/WifiConfiguration$EnterpriseField;
     .end local v2           #field:Landroid/net/wifi/WifiConfiguration$EnterpriseField;
     .end local v4           #i$:I
     .end local v5           #len$:I
-    :cond_7f
+    :cond_1
     const/4 v6, 0x0
 
-    goto :goto_4d
+    goto :goto_1
 
     .line 651
     .restart local v0       #arr$:[Landroid/net/wifi/WifiConfiguration$EnterpriseField;
     .restart local v4       #i$:I
     .restart local v5       #len$:I
-    :cond_81
+    :cond_2
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v6
@@ -260,7 +265,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -273,7 +278,7 @@
 .end method
 
 .method public newArray(I)[Landroid/net/wifi/WifiConfiguration;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -284,7 +289,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

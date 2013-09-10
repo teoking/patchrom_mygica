@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/DigitalClock;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 10
+    .locals 9
 
     .prologue
     const-wide/16 v7, 0x3e8
@@ -46,18 +46,19 @@
     .line 88
     iget-object v4, p0, Landroid/widget/DigitalClock$1;->this$0:Landroid/widget/DigitalClock;
 
+    #getter for: Landroid/widget/DigitalClock;->mTickerStopped:Z
     invoke-static {v4}, Landroid/widget/DigitalClock;->access$000(Landroid/widget/DigitalClock;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_0
 
     .line 95
-    :goto_a
+    :goto_0
     return-void
 
     .line 89
-    :cond_b
+    :cond_0
     iget-object v4, p0, Landroid/widget/DigitalClock$1;->this$0:Landroid/widget/DigitalClock;
 
     iget-object v4, v4, Landroid/widget/DigitalClock;->mCalendar:Ljava/util/Calendar;
@@ -107,17 +108,19 @@
     .local v0, next:J
     iget-object v4, p0, Landroid/widget/DigitalClock$1;->this$0:Landroid/widget/DigitalClock;
 
+    #getter for: Landroid/widget/DigitalClock;->mHandler:Landroid/os/Handler;
     invoke-static {v4}, Landroid/widget/DigitalClock;->access$200(Landroid/widget/DigitalClock;)Landroid/os/Handler;
 
     move-result-object v4
 
     iget-object v5, p0, Landroid/widget/DigitalClock$1;->this$0:Landroid/widget/DigitalClock;
 
+    #getter for: Landroid/widget/DigitalClock;->mTicker:Ljava/lang/Runnable;
     invoke-static {v5}, Landroid/widget/DigitalClock;->access$100(Landroid/widget/DigitalClock;)Ljava/lang/Runnable;
 
     move-result-object v5
 
     invoke-virtual {v4, v5, v0, v1}, Landroid/os/Handler;->postAtTime(Ljava/lang/Runnable;J)Z
 
-    goto :goto_a
+    goto :goto_0
 .end method

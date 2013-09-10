@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/internal/util/AsyncChannel$SyncMessenger;Landroid/os/Looper;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "looper"
 
@@ -47,7 +47,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/util/AsyncChannel$SyncMessenger;Landroid/os/Looper;Lcom/android/internal/util/AsyncChannel$1;)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -60,7 +60,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/internal/util/AsyncChannel$SyncMessenger$SyncHandler;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -71,7 +71,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/android/internal/util/AsyncChannel$SyncMessenger$SyncHandler;)Landroid/os/Message;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -82,7 +82,7 @@
 .end method
 
 .method static synthetic access$402(Lcom/android/internal/util/AsyncChannel$SyncMessenger$SyncHandler;Landroid/os/Message;)Landroid/os/Message;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
@@ -118,7 +118,7 @@
     monitor-enter v1
 
     .line 752
-    :try_start_e
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/util/AsyncChannel$SyncMessenger$SyncHandler;->mLockObject:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notify()V
@@ -130,12 +130,12 @@
     return-void
 
     .line 753
-    :catchall_15
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_17
-    .catchall {:try_start_e .. :try_end_17} :catchall_15
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

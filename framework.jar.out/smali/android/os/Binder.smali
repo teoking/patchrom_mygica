@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 175
@@ -42,7 +42,7 @@
 .end method
 
 .method private execTransact(IIII)Z
-    .registers 12
+    .locals 7
     .parameter "code"
     .parameter "dataObj"
     .parameter "replyObj"
@@ -64,18 +64,18 @@
 
     .line 367
     .local v3, reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     invoke-virtual {p0, p1, v0, v3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_c
-    .catch Landroid/os/RemoteException; {:try_start_9 .. :try_end_c} :catch_14
-    .catch Ljava/lang/RuntimeException; {:try_start_9 .. :try_end_c} :catch_1d
-    .catch Ljava/lang/OutOfMemoryError; {:try_start_9 .. :try_end_c} :catch_26
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_0 .. :try_end_0} :catch_2
 
     move-result v4
 
     .line 382
     .local v4, res:Z
-    :goto_d
+    :goto_0
     invoke-virtual {v3}, Landroid/os/Parcel;->recycle()V
 
     .line 383
@@ -86,7 +86,7 @@
 
     .line 368
     .end local v4           #res:Z
-    :catch_14
+    :catch_0
     move-exception v1
 
     .line 369
@@ -101,12 +101,12 @@
 
     .line 381
     .restart local v4       #res:Z
-    goto :goto_d
+    goto :goto_0
 
     .line 372
     .end local v1           #e:Landroid/os/RemoteException;
     .end local v4           #res:Z
-    :catch_1d
+    :catch_1
     move-exception v1
 
     .line 373
@@ -121,12 +121,12 @@
 
     .line 381
     .restart local v4       #res:Z
-    goto :goto_d
+    goto :goto_0
 
     .line 376
     .end local v1           #e:Ljava/lang/RuntimeException;
     .end local v4           #res:Z
-    :catch_26
+    :catch_2
     move-exception v1
 
     .line 377
@@ -148,7 +148,7 @@
     const/4 v4, 0x1
 
     .restart local v4       #res:Z
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public static final native flushPendingCommands()V
@@ -161,7 +161,7 @@
 .end method
 
 .method public static final getOrigCallingUid()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 86
@@ -176,7 +176,7 @@
 .end method
 
 .method public static final getOrigCallingUser()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 100
@@ -209,7 +209,7 @@
 
 # virtual methods
 .method public attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "owner"
     .parameter "descriptor"
 
@@ -225,7 +225,7 @@
 .end method
 
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "fd"
     .parameter "fout"
     .parameter "args"
@@ -236,7 +236,7 @@
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;[Ljava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "fd"
     .parameter "args"
 
@@ -254,10 +254,10 @@
 
     .line 280
     .local v1, pw:Ljava/io/PrintWriter;
-    :try_start_a
+    :try_start_0
     invoke-virtual {p0, p1, v1, p2}, Landroid/os/Binder;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    :try_end_d
-    .catchall {:try_start_a .. :try_end_d} :catchall_11
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 282
     invoke-virtual {v1}, Ljava/io/PrintWriter;->flush()V
@@ -266,7 +266,7 @@
     return-void
 
     .line 282
-    :catchall_11
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Ljava/io/PrintWriter;->flush()V
@@ -275,7 +275,7 @@
 .end method
 
 .method public dumpAsync(Ljava/io/FileDescriptor;[Ljava/lang/String;)V
-    .registers 10
+    .locals 7
     .parameter "fd"
     .parameter "args"
 
@@ -314,7 +314,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -325,8 +325,8 @@
     .line 348
     :try_start_0
     invoke-direct {p0}, Landroid/os/Binder;->destroy()V
-    :try_end_3
-    .catchall {:try_start_0 .. :try_end_3} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 350
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -335,7 +335,7 @@
     return-void
 
     .line 350
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -344,7 +344,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 203
@@ -354,7 +354,7 @@
 .end method
 
 .method public isBinderAlive()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 221
@@ -364,7 +364,7 @@
 .end method
 
 .method public linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
-    .registers 3
+    .locals 0
     .parameter "recipient"
     .parameter "flags"
 
@@ -374,7 +374,7 @@
 .end method
 
 .method protected onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 9
+    .locals 4
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -391,7 +391,7 @@
     .line 244
     const v3, 0x5f4e5446
 
-    if-ne p1, v3, :cond_e
+    if-ne p1, v3, :cond_0
 
     .line 245
     invoke-virtual {p0}, Landroid/os/Binder;->getInterfaceDescriptor()Ljava/lang/String;
@@ -401,14 +401,14 @@
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 269
-    :goto_d
+    :goto_0
     return v2
 
     .line 247
-    :cond_e
+    :cond_0
     const v3, 0x5f444d50
 
-    if-ne p1, v3, :cond_36
+    if-ne p1, v3, :cond_3
 
     .line 248
     invoke-virtual {p2}, Landroid/os/Parcel;->readFileDescriptor()Landroid/os/ParcelFileDescriptor;
@@ -423,78 +423,78 @@
 
     .line 250
     .local v0, args:[Ljava/lang/String;
-    if-eqz v1, :cond_27
+    if-eqz v1, :cond_1
 
     .line 252
-    :try_start_1d
+    :try_start_0
     invoke-virtual {v1}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v3
 
     invoke-virtual {p0, v3, v0}, Landroid/os/Binder;->dump(Ljava/io/FileDescriptor;[Ljava/lang/String;)V
-    :try_end_24
-    .catchall {:try_start_1d .. :try_end_24} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 255
-    :try_start_24
+    :try_start_1
     invoke-virtual {v1}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_27
-    .catch Ljava/io/IOException; {:try_start_24 .. :try_end_27} :catch_38
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 262
-    :cond_27
-    :goto_27
-    if-eqz p3, :cond_32
+    :cond_1
+    :goto_1
+    if-eqz p3, :cond_2
 
     .line 263
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_d
+    goto :goto_0
 
     .line 254
-    :catchall_2d
+    :catchall_0
     move-exception v2
 
     .line 255
-    :try_start_2e
+    :try_start_2
     invoke-virtual {v1}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_31
-    .catch Ljava/io/IOException; {:try_start_2e .. :try_end_31} :catch_3a
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
     .line 258
-    :goto_31
+    :goto_2
     throw v2
 
     .line 265
-    :cond_32
+    :cond_2
     invoke-static {}, Landroid/os/StrictMode;->clearGatheredViolations()V
 
-    goto :goto_d
+    goto :goto_0
 
     .line 269
     .end local v0           #args:[Ljava/lang/String;
     .end local v1           #fd:Landroid/os/ParcelFileDescriptor;
-    :cond_36
+    :cond_3
     const/4 v2, 0x0
 
-    goto :goto_d
+    goto :goto_0
 
     .line 256
     .restart local v0       #args:[Ljava/lang/String;
     .restart local v1       #fd:Landroid/os/ParcelFileDescriptor;
-    :catch_38
+    :catch_0
     move-exception v3
 
-    goto :goto_27
+    goto :goto_1
 
-    :catch_3a
+    :catch_1
     move-exception v3
 
-    goto :goto_31
+    goto :goto_2
 .end method
 
 .method public pingBinder()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 211
@@ -504,7 +504,7 @@
 .end method
 
 .method public queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
-    .registers 3
+    .locals 1
     .parameter "descriptor"
 
     .prologue
@@ -515,23 +515,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 231
     iget-object v0, p0, Landroid/os/Binder;->mOwner:Landroid/os/IInterface;
 
     .line 233
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public final transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 7
+    .locals 2
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -546,31 +546,31 @@
     const/4 v1, 0x0
 
     .line 323
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_0
 
     .line 324
     invoke-virtual {p2, v1}, Landroid/os/Parcel;->setDataPosition(I)V
 
     .line 326
-    :cond_6
+    :cond_0
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0
 
     .line 327
     .local v0, r:Z
-    if-eqz p3, :cond_f
+    if-eqz p3, :cond_1
 
     .line 328
     invoke-virtual {p3, v1}, Landroid/os/Parcel;->setDataPosition(I)V
 
     .line 330
-    :cond_f
+    :cond_1
     return v0
 .end method
 
 .method public unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
-    .registers 4
+    .locals 1
     .parameter "recipient"
     .parameter "flags"
 

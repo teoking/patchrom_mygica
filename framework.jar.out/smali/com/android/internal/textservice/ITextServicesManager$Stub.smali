@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 18
@@ -63,22 +63,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/textservice/ITextServicesManager;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 27
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 28
     const/4 v0, 0x0
 
     .line 34
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 30
-    :cond_4
+    :cond_0
     const-string v1, "com.android.internal.textservice.ITextServicesManager"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -87,31 +87,31 @@
 
     .line 31
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/textservice/ITextServicesManager;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 32
     check-cast v0, Lcom/android/internal/textservice/ITextServicesManager;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 34
-    :cond_13
+    :cond_1
     new-instance v0, Lcom/android/internal/textservice/ITextServicesManager$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/textservice/ITextServicesManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 38
@@ -119,7 +119,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 14
+    .locals 9
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -136,26 +136,26 @@
     const/4 v7, 0x1
 
     .line 42
-    sparse-switch p1, :sswitch_data_f4
+    sparse-switch p1, :sswitch_data_0
 
     .line 157
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v7
 
-    :goto_9
+    :goto_0
     return v7
 
     .line 46
-    :sswitch_a
+    :sswitch_0
     const-string v0, "com.android.internal.textservice.ITextServicesManager"
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 51
-    :sswitch_10
+    :sswitch_1
     const-string v8, "com.android.internal.textservice.ITextServicesManager"
 
     invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -176,7 +176,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 56
-    if-eqz v6, :cond_29
+    if-eqz v6, :cond_0
 
     .line 57
     invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
@@ -184,18 +184,18 @@
     .line 58
     invoke-virtual {v6, p3, v7}, Landroid/view/textservice/SpellCheckerInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 61
-    :cond_29
+    :cond_0
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 67
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v6           #_result:Landroid/view/textservice/SpellCheckerInfo;
-    :sswitch_2d
+    :sswitch_2
     const-string v8, "com.android.internal.textservice.ITextServicesManager"
 
     invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -211,13 +211,13 @@
 
     move-result v8
 
-    if-eqz v8, :cond_4d
+    if-eqz v8, :cond_1
 
     move v2, v7
 
     .line 72
     .local v2, _arg1:Z
-    :goto_3d
+    :goto_1
     invoke-virtual {p0, v1, v2}, Lcom/android/internal/textservice/ITextServicesManager$Stub;->getCurrentSpellCheckerSubtype(Ljava/lang/String;Z)Landroid/view/textservice/SpellCheckerSubtype;
 
     move-result-object v6
@@ -227,7 +227,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 74
-    if-eqz v6, :cond_4f
+    if-eqz v6, :cond_2
 
     .line 75
     invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeInt(I)V
@@ -235,29 +235,29 @@
     .line 76
     invoke-virtual {v6, p3, v7}, Landroid/view/textservice/SpellCheckerSubtype;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .end local v2           #_arg1:Z
     .end local v6           #_result:Landroid/view/textservice/SpellCheckerSubtype;
-    :cond_4d
+    :cond_1
     move v2, v0
 
     .line 71
-    goto :goto_3d
+    goto :goto_1
 
     .line 79
     .restart local v2       #_arg1:Z
     .restart local v6       #_result:Landroid/view/textservice/SpellCheckerSubtype;
-    :cond_4f
+    :cond_2
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 85
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Z
     .end local v6           #_result:Landroid/view/textservice/SpellCheckerSubtype;
-    :sswitch_53
+    :sswitch_3
     const-string v0, "com.android.internal.textservice.ITextServicesManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -299,7 +299,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_83
+    if-eqz v0, :cond_3
 
     .line 96
     sget-object v0, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -311,21 +311,21 @@
     check-cast v5, Landroid/os/Bundle;
 
     .local v5, _arg4:Landroid/os/Bundle;
-    :goto_7e
+    :goto_2
     move-object v0, p0
 
     .line 101
     invoke-virtual/range {v0 .. v5}, Lcom/android/internal/textservice/ITextServicesManager$Stub;->getSpellCheckerService(Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/textservice/ITextServicesSessionListener;Lcom/android/internal/textservice/ISpellCheckerSessionListener;Landroid/os/Bundle;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 99
     .end local v5           #_arg4:Landroid/os/Bundle;
-    :cond_83
+    :cond_3
     const/4 v5, 0x0
 
     .restart local v5       #_arg4:Landroid/os/Bundle;
-    goto :goto_7e
+    goto :goto_2
 
     .line 106
     .end local v1           #_arg0:Ljava/lang/String;
@@ -333,7 +333,7 @@
     .end local v3           #_arg2:Lcom/android/internal/textservice/ITextServicesSessionListener;
     .end local v4           #_arg3:Lcom/android/internal/textservice/ISpellCheckerSessionListener;
     .end local v5           #_arg4:Landroid/os/Bundle;
-    :sswitch_85
+    :sswitch_4
     const-string v0, "com.android.internal.textservice.ITextServicesManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -351,11 +351,11 @@
     .local v1, _arg0:Lcom/android/internal/textservice/ISpellCheckerSessionListener;
     invoke-virtual {p0, v1}, Lcom/android/internal/textservice/ITextServicesManager$Stub;->finishSpellCheckerService(Lcom/android/internal/textservice/ISpellCheckerSessionListener;)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 114
     .end local v1           #_arg0:Lcom/android/internal/textservice/ISpellCheckerSessionListener;
-    :sswitch_97
+    :sswitch_5
     const-string v0, "com.android.internal.textservice.ITextServicesManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -375,12 +375,12 @@
     .restart local v2       #_arg1:Ljava/lang/String;
     invoke-virtual {p0, v1, v2}, Lcom/android/internal/textservice/ITextServicesManager$Stub;->setCurrentSpellChecker(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 124
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Ljava/lang/String;
-    :sswitch_a9
+    :sswitch_6
     const-string v0, "com.android.internal.textservice.ITextServicesManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -400,12 +400,12 @@
     .local v2, _arg1:I
     invoke-virtual {p0, v1, v2}, Lcom/android/internal/textservice/ITextServicesManager$Stub;->setCurrentSpellCheckerSubtype(Ljava/lang/String;I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 134
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:I
-    :sswitch_bb
+    :sswitch_7
     const-string v8, "com.android.internal.textservice.ITextServicesManager"
 
     invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -415,26 +415,26 @@
 
     move-result v8
 
-    if-eqz v8, :cond_cc
+    if-eqz v8, :cond_4
 
     move v1, v7
 
     .line 137
     .local v1, _arg0:Z
-    :goto_c7
+    :goto_3
     invoke-virtual {p0, v1}, Lcom/android/internal/textservice/ITextServicesManager$Stub;->setSpellCheckerEnabled(Z)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .end local v1           #_arg0:Z
-    :cond_cc
+    :cond_4
     move v1, v0
 
     .line 136
-    goto :goto_c7
+    goto :goto_3
 
     .line 142
-    :sswitch_ce
+    :sswitch_8
     const-string v8, "com.android.internal.textservice.ITextServicesManager"
 
     invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -449,18 +449,18 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 145
-    if-eqz v6, :cond_dd
+    if-eqz v6, :cond_5
 
     move v0, v7
 
-    :cond_dd
+    :cond_5
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 150
     .end local v6           #_result:Z
-    :sswitch_e2
+    :sswitch_9
     const-string v0, "com.android.internal.textservice.ITextServicesManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -477,22 +477,22 @@
     .line 153
     invoke-virtual {p3, v6, v7}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 42
     nop
 
-    :sswitch_data_f4
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_10
-        0x2 -> :sswitch_2d
-        0x3 -> :sswitch_53
-        0x4 -> :sswitch_85
-        0x5 -> :sswitch_97
-        0x6 -> :sswitch_a9
-        0x7 -> :sswitch_bb
-        0x8 -> :sswitch_ce
-        0x9 -> :sswitch_e2
-        0x5f4e5446 -> :sswitch_a
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
+        0x8 -> :sswitch_8
+        0x9 -> :sswitch_9
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

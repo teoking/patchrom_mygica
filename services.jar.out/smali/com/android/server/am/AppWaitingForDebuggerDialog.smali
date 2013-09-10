@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/am/ActivityManagerService;Landroid/content/Context;Lcom/android/server/am/ProcessRecord;)V
-    .registers 9
+    .locals 5
     .parameter "service"
     .parameter "context"
     .parameter "app"
@@ -64,7 +64,7 @@
     .local v0, text:Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/android/server/am/AppWaitingForDebuggerDialog;->mAppName:Ljava/lang/CharSequence;
 
-    if-eqz v1, :cond_85
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/android/server/am/AppWaitingForDebuggerDialog;->mAppName:Ljava/lang/CharSequence;
 
@@ -72,7 +72,7 @@
 
     move-result v1
 
-    if-lez v1, :cond_85
+    if-lez v1, :cond_0
 
     .line 40
     const-string v1, "Application "
@@ -100,7 +100,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 50
-    :goto_48
+    :goto_0
     const-string v1, " is waiting for the debugger to attach."
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -165,7 +165,7 @@
     return-void
 
     .line 46
-    :cond_85
+    :cond_0
     const-string v1, "Process "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -175,13 +175,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_48
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public onStop()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 59

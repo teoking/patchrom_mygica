@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/SyncManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public compare(Landroid/content/SyncManager$AuthoritySyncStats;Landroid/content/SyncManager$AuthoritySyncStats;)I
-    .registers 8
+    .locals 5
     .parameter "lhs"
     .parameter "rhs"
 
@@ -64,7 +64,7 @@
 
     .line 1313
     .local v0, compare:I
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 1314
     iget-wide v1, p2, Landroid/content/SyncManager$AuthoritySyncStats;->elapsedTime:J
@@ -76,12 +76,12 @@
     move-result v0
 
     .line 1316
-    :cond_12
+    :cond_0
     return v0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 

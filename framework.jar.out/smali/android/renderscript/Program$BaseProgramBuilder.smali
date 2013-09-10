@@ -42,7 +42,7 @@
 
 # direct methods
 .method protected constructor <init>(Landroid/renderscript/RenderScript;)V
-    .registers 5
+    .locals 3
     .parameter "rs"
 
     .prologue
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public addConstant(Landroid/renderscript/Type;)Landroid/renderscript/Program$BaseProgramBuilder;
-    .registers 4
+    .locals 2
     .parameter "t"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -114,7 +114,7 @@
 
     const/16 v1, 0x8
 
-    if-lt v0, v1, :cond_e
+    if-lt v0, v1, :cond_0
 
     .line 310
     new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
@@ -126,7 +126,7 @@
     throw v0
 
     .line 312
-    :cond_e
+    :cond_0
     invoke-virtual {p1}, Landroid/renderscript/Type;->getElement()Landroid/renderscript/Element;
 
     move-result-object v0
@@ -135,7 +135,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1
 
     .line 313
     new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
@@ -147,7 +147,7 @@
     throw v0
 
     .line 315
-    :cond_20
+    :cond_1
     iget-object v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mConstants:[Landroid/renderscript/Type;
 
     iget v1, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mConstantCount:I
@@ -166,7 +166,7 @@
 .end method
 
 .method public addTexture(Landroid/renderscript/Program$TextureType;)Landroid/renderscript/Program$BaseProgramBuilder;
-    .registers 4
+    .locals 2
     .parameter "texType"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -203,7 +203,7 @@
 .end method
 
 .method public addTexture(Landroid/renderscript/Program$TextureType;Ljava/lang/String;)Landroid/renderscript/Program$BaseProgramBuilder;
-    .registers 5
+    .locals 2
     .parameter "texType"
     .parameter "texName"
     .annotation system Ldalvik/annotation/Throws;
@@ -218,7 +218,7 @@
 
     const/16 v1, 0x8
 
-    if-lt v0, v1, :cond_e
+    if-lt v0, v1, :cond_0
 
     .line 344
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -230,7 +230,7 @@
     throw v0
 
     .line 346
-    :cond_e
+    :cond_0
     iget-object v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureTypes:[Landroid/renderscript/Program$TextureType;
 
     iget v1, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureCount:I
@@ -256,7 +256,7 @@
 .end method
 
 .method public getCurrentConstantIndex()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 289
@@ -268,7 +268,7 @@
 .end method
 
 .method public getCurrentTextureIndex()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 297
@@ -280,7 +280,7 @@
 .end method
 
 .method protected initProgram(Landroid/renderscript/Program;)V
-    .registers 6
+    .locals 4
     .parameter "p"
 
     .prologue
@@ -376,7 +376,7 @@
 .end method
 
 .method public setShader(Landroid/content/res/Resources;I)Landroid/renderscript/Program$BaseProgramBuilder;
-    .registers 13
+    .locals 10
     .parameter "resources"
     .parameter "resourceID"
 
@@ -390,7 +390,7 @@
     .local v4, is:Ljava/io/InputStream;
     const/16 v7, 0x400
 
-    :try_start_6
+    :try_start_0
     new-array v5, v7, [B
 
     .line 253
@@ -399,14 +399,14 @@
 
     .line 255
     .local v6, strLength:I
-    :goto_9
+    :goto_0
     array-length v7, v5
 
     sub-int v1, v7, v6
 
     .line 256
     .local v1, bytesLeft:I
-    if-nez v1, :cond_1d
+    if-nez v1, :cond_0
 
     .line 257
     array-length v7, v5
@@ -435,25 +435,25 @@
 
     .line 262
     .end local v0           #buf2:[B
-    :cond_1d
+    :cond_0
     invoke-virtual {v4, v5, v6, v1}, Ljava/io/InputStream;->read([BII)I
-    :try_end_20
-    .catchall {:try_start_6 .. :try_end_20} :catchall_33
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
     .line 263
     .local v2, bytesRead:I
-    if-gtz v2, :cond_31
+    if-gtz v2, :cond_1
 
     .line 269
-    :try_start_23
+    :try_start_1
     invoke-virtual {v4}, Ljava/io/InputStream;->close()V
-    :try_end_26
-    .catch Ljava/io/IOException; {:try_start_23 .. :try_end_26} :catch_38
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 276
-    :try_start_26
+    :try_start_2
     new-instance v7, Ljava/lang/String;
 
     const/4 v8, 0x0
@@ -463,37 +463,37 @@
     invoke-direct {v7, v5, v8, v6, v9}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
 
     iput-object v7, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mShader:Ljava/lang/String;
-    :try_end_30
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_26 .. :try_end_30} :catch_3f
+    :try_end_2
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_2 .. :try_end_2} :catch_1
 
     .line 281
-    :goto_30
+    :goto_1
     return-object p0
 
     .line 266
-    :cond_31
+    :cond_1
     add-int/2addr v6, v2
 
     .line 267
-    goto :goto_9
+    goto :goto_0
 
     .line 269
     .end local v1           #bytesLeft:I
     .end local v2           #bytesRead:I
     .end local v5           #str:[B
     .end local v6           #strLength:I
-    :catchall_33
+    :catchall_0
     move-exception v7
 
-    :try_start_34
+    :try_start_3
     invoke-virtual {v4}, Ljava/io/InputStream;->close()V
 
     throw v7
-    :try_end_38
-    .catch Ljava/io/IOException; {:try_start_34 .. :try_end_38} :catch_38
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
     .line 271
-    :catch_38
+    :catch_0
     move-exception v3
 
     .line 272
@@ -510,7 +510,7 @@
     .restart local v2       #bytesRead:I
     .restart local v5       #str:[B
     .restart local v6       #strLength:I
-    :catch_3f
+    :catch_1
     move-exception v3
 
     .line 278
@@ -521,11 +521,11 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_30
+    goto :goto_1
 .end method
 
 .method public setShader(Ljava/lang/String;)Landroid/renderscript/Program$BaseProgramBuilder;
-    .registers 2
+    .locals 0
     .parameter "s"
 
     .prologue

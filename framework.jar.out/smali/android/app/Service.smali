@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public final attach(Landroid/content/Context;Landroid/app/ActivityThread;Ljava/lang/String;Landroid/os/IBinder;Landroid/app/Application;Ljava/lang/Object;)V
-    .registers 9
+    .locals 2
     .parameter "context"
     .parameter "thread"
     .parameter "className"
@@ -116,25 +116,25 @@
 
     const/4 v1, 0x5
 
-    if-ge v0, v1, :cond_1c
+    if-ge v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_19
+    :goto_0
     iput-boolean v0, p0, Landroid/app/Service;->mStartCompatibility:Z
 
     .line 700
     return-void
 
     .line 698
-    :cond_1c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter "fd"
     .parameter "writer"
     .parameter "args"
@@ -150,7 +150,7 @@
 .end method
 
 .method public final getApplication()Landroid/app/Application;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 300
@@ -160,7 +160,7 @@
 .end method
 
 .method final getClassName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 703
@@ -173,7 +173,7 @@
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .registers 2
+    .locals 0
     .parameter "newConfig"
 
     .prologue
@@ -182,7 +182,7 @@
 .end method
 
 .method public onCreate()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 307
@@ -190,7 +190,7 @@
 .end method
 
 .method public onDestroy()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 461
@@ -198,7 +198,7 @@
 .end method
 
 .method public onLowMemory()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 467
@@ -206,7 +206,7 @@
 .end method
 
 .method public onRebind(Landroid/content/Intent;)V
-    .registers 2
+    .locals 0
     .parameter "intent"
 
     .prologue
@@ -215,7 +215,7 @@
 .end method
 
 .method public onStart(Landroid/content/Intent;I)V
-    .registers 3
+    .locals 0
     .parameter "intent"
     .parameter "startId"
     .annotation runtime Ljava/lang/Deprecated;
@@ -227,7 +227,7 @@
 .end method
 
 .method public onStartCommand(Landroid/content/Intent;II)I
-    .registers 5
+    .locals 1
     .parameter "intent"
     .parameter "flags"
     .parameter "startId"
@@ -239,21 +239,21 @@
     .line 451
     iget-boolean v0, p0, Landroid/app/Service;->mStartCompatibility:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x1
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public onTaskRemoved(Landroid/content/Intent;)V
-    .registers 2
+    .locals 0
     .parameter "rootIntent"
 
     .prologue
@@ -262,7 +262,7 @@
 .end method
 
 .method public onTrimMemory(I)V
-    .registers 2
+    .locals 0
     .parameter "level"
 
     .prologue
@@ -271,7 +271,7 @@
 .end method
 
 .method public onUnbind(Landroid/content/Intent;)Z
-    .registers 3
+    .locals 1
     .parameter "intent"
 
     .prologue
@@ -282,7 +282,7 @@
 .end method
 
 .method public final setForeground(Z)V
-    .registers 5
+    .locals 3
     .parameter "isForeground"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -324,7 +324,7 @@
 .end method
 
 .method public final startForeground(ILandroid/app/Notification;)V
-    .registers 9
+    .locals 6
     .parameter "id"
     .parameter "notification"
 
@@ -348,22 +348,22 @@
     move-object v4, p2
 
     invoke-interface/range {v0 .. v5}, Landroid/app/IActivityManager;->setServiceForeground(Landroid/content/ComponentName;Landroid/os/IBinder;ILandroid/app/Notification;Z)V
-    :try_end_11
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_11} :catch_12
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 648
-    :goto_11
+    :goto_0
     return-void
 
     .line 646
-    :catch_12
+    :catch_0
     move-exception v0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public final stopForeground(Z)V
-    .registers 8
+    .locals 6
     .parameter "removeNotification"
 
     .prologue
@@ -386,22 +386,22 @@
     move v5, p1
 
     invoke-interface/range {v0 .. v5}, Landroid/app/IActivityManager;->setServiceForeground(Landroid/content/ComponentName;Landroid/os/IBinder;ILandroid/app/Notification;Z)V
-    :try_end_11
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_11} :catch_12
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 665
-    :goto_11
+    :goto_0
     return-void
 
     .line 663
-    :catch_12
+    :catch_0
     move-exception v0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public final stopSelf()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 546
@@ -414,22 +414,22 @@
 .end method
 
 .method public final stopSelf(I)V
-    .registers 5
+    .locals 3
     .parameter "startId"
 
     .prologue
     .line 555
     iget-object v0, p0, Landroid/app/Service;->mActivityManager:Landroid/app/IActivityManager;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_0
 
     .line 563
-    :goto_4
+    :goto_0
     return-void
 
     .line 559
-    :cond_5
-    :try_start_5
+    :cond_0
+    :try_start_0
     iget-object v0, p0, Landroid/app/Service;->mActivityManager:Landroid/app/IActivityManager;
 
     new-instance v1, Landroid/content/ComponentName;
@@ -441,20 +441,20 @@
     iget-object v2, p0, Landroid/app/Service;->mToken:Landroid/os/IBinder;
 
     invoke-interface {v0, v1, v2, p1}, Landroid/app/IActivityManager;->stopServiceToken(Landroid/content/ComponentName;Landroid/os/IBinder;I)Z
-    :try_end_13
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_13} :catch_14
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_4
+    goto :goto_0
 
     .line 561
-    :catch_14
+    :catch_0
     move-exception v0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public final stopSelfResult(I)Z
-    .registers 6
+    .locals 4
     .parameter "startId"
 
     .prologue
@@ -463,15 +463,15 @@
     .line 587
     iget-object v1, p0, Landroid/app/Service;->mActivityManager:Landroid/app/IActivityManager;
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_0
 
     .line 595
-    :goto_5
+    :goto_0
     return v0
 
     .line 591
-    :cond_6
-    :try_start_6
+    :cond_0
+    :try_start_0
     iget-object v1, p0, Landroid/app/Service;->mActivityManager:Landroid/app/IActivityManager;
 
     new-instance v2, Landroid/content/ComponentName;
@@ -483,16 +483,16 @@
     iget-object v3, p0, Landroid/app/Service;->mToken:Landroid/os/IBinder;
 
     invoke-interface {v1, v2, v3, p1}, Landroid/app/IActivityManager;->stopServiceToken(Landroid/content/ComponentName;Landroid/os/IBinder;I)Z
-    :try_end_14
-    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_14} :catch_16
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v0
 
-    goto :goto_5
+    goto :goto_0
 
     .line 593
-    :catch_16
+    :catch_0
     move-exception v1
 
-    goto :goto_5
+    goto :goto_0
 .end method

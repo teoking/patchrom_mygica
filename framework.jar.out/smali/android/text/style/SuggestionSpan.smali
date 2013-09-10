@@ -61,7 +61,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 276
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/util/Locale;[Ljava/lang/String;ILjava/lang/Class;)V
-    .registers 10
+    .locals 4
     .parameter "context"
     .parameter "locale"
     .parameter "suggestions"
@@ -122,7 +122,7 @@
     iput p4, p0, Landroid/text/style/SuggestionSpan;->mFlags:I
 
     .line 128
-    if-eqz p2, :cond_33
+    if-eqz p2, :cond_0
 
     .line 129
     invoke-virtual {p2}, Ljava/util/Locale;->toString()Ljava/lang/String;
@@ -132,8 +132,8 @@
     iput-object v1, p0, Landroid/text/style/SuggestionSpan;->mLocaleString:Ljava/lang/String;
 
     .line 137
-    :goto_1b
-    if-eqz p5, :cond_52
+    :goto_0
+    if-eqz p5, :cond_2
 
     .line 138
     invoke-virtual {p5}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
@@ -143,7 +143,7 @@
     iput-object v1, p0, Landroid/text/style/SuggestionSpan;->mNotificationTargetClassName:Ljava/lang/String;
 
     .line 142
-    :goto_23
+    :goto_1
     iget-object v1, p0, Landroid/text/style/SuggestionSpan;->mSuggestions:[Ljava/lang/String;
 
     iget-object v2, p0, Landroid/text/style/SuggestionSpan;->mLocaleString:Ljava/lang/String;
@@ -163,8 +163,8 @@
     return-void
 
     .line 130
-    :cond_33
-    if-eqz p1, :cond_46
+    :cond_0
+    if-eqz p1, :cond_1
 
     .line 131
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -183,10 +183,10 @@
 
     iput-object v1, p0, Landroid/text/style/SuggestionSpan;->mLocaleString:Ljava/lang/String;
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 133
-    :cond_46
+    :cond_1
     const-string v1, "SuggestionSpan"
 
     const-string v2, "No locale or context specified in SuggestionSpan constructor"
@@ -198,19 +198,19 @@
 
     iput-object v1, p0, Landroid/text/style/SuggestionSpan;->mLocaleString:Ljava/lang/String;
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 140
-    :cond_52
+    :cond_2
     const-string v1, ""
 
     iput-object v1, p0, Landroid/text/style/SuggestionSpan;->mNotificationTargetClassName:Ljava/lang/String;
 
-    goto :goto_23
+    goto :goto_1
 .end method
 
 .method public constructor <init>(Landroid/content/Context;[Ljava/lang/String;I)V
-    .registers 10
+    .locals 6
     .parameter "context"
     .parameter "suggestions"
     .parameter "flags"
@@ -236,7 +236,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "src"
 
     .prologue
@@ -325,7 +325,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Locale;[Ljava/lang/String;I)V
-    .registers 10
+    .locals 6
     .parameter "locale"
     .parameter "suggestions"
     .parameter "flags"
@@ -351,7 +351,7 @@
 .end method
 
 .method private static hashCodeInternal([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-    .registers 7
+    .locals 4
     .parameter "suggestions"
     .parameter "locale"
     .parameter "notificationTargetClassName"
@@ -394,7 +394,7 @@
 .end method
 
 .method private initStyle(Landroid/content/Context;)V
-    .registers 10
+    .locals 8
     .parameter "context"
 
     .prologue
@@ -409,7 +409,7 @@
     const/4 v3, 0x0
 
     .line 148
-    if-nez p1, :cond_15
+    if-nez p1, :cond_0
 
     .line 149
     iput v3, p0, Landroid/text/style/SuggestionSpan;->mMisspelledUnderlineThickness:F
@@ -430,11 +430,11 @@
     iput v4, p0, Landroid/text/style/SuggestionSpan;->mAutoCorrectionUnderlineColor:I
 
     .line 181
-    :goto_14
+    :goto_0
     return-void
 
     .line 158
-    :cond_15
+    :cond_0
     const v0, 0x10103b1
 
     .line 159
@@ -508,13 +508,13 @@
 
     iput v2, p0, Landroid/text/style/SuggestionSpan;->mAutoCorrectionUnderlineColor:I
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 234
@@ -524,7 +524,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 5
+    .locals 3
     .parameter "o"
 
     .prologue
@@ -533,7 +533,7 @@
     .line 259
     instance-of v1, p1, Landroid/text/style/SuggestionSpan;
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_0
 
     .line 260
     check-cast p1, Landroid/text/style/SuggestionSpan;
@@ -545,17 +545,17 @@
 
     iget v2, p0, Landroid/text/style/SuggestionSpan;->mHashCode:I
 
-    if-ne v1, v2, :cond_10
+    if-ne v1, v2, :cond_0
 
     const/4 v0, 0x1
 
     .line 262
-    :cond_10
+    :cond_0
     return v0
 .end method
 
 .method public getFlags()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 225
@@ -565,7 +565,7 @@
 .end method
 
 .method public getLocale()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 208
@@ -575,7 +575,7 @@
 .end method
 
 .method public getNotificationTargetClassName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 221
@@ -585,7 +585,7 @@
 .end method
 
 .method public getSpanTypeId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 254
@@ -595,7 +595,7 @@
 .end method
 
 .method public getSuggestions()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 201
@@ -605,7 +605,7 @@
 .end method
 
 .method public getUnderlineColor()I
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v3, 0x1
@@ -617,90 +617,90 @@
 
     and-int/lit8 v5, v5, 0x2
 
-    if-eqz v5, :cond_1e
+    if-eqz v5, :cond_1
 
     move v2, v3
 
     .line 315
     .local v2, misspelled:Z
-    :goto_9
+    :goto_0
     iget v5, p0, Landroid/text/style/SuggestionSpan;->mFlags:I
 
     and-int/lit8 v5, v5, 0x1
 
-    if-eqz v5, :cond_20
+    if-eqz v5, :cond_2
 
     move v1, v3
 
     .line 316
     .local v1, easy:Z
-    :goto_10
+    :goto_1
     iget v5, p0, Landroid/text/style/SuggestionSpan;->mFlags:I
 
     and-int/lit8 v5, v5, 0x4
 
-    if-eqz v5, :cond_22
+    if-eqz v5, :cond_3
 
     move v0, v3
 
     .line 317
     .local v0, autoCorrection:Z
-    :goto_17
-    if-eqz v1, :cond_27
+    :goto_2
+    if-eqz v1, :cond_5
 
     .line 318
-    if-nez v2, :cond_24
+    if-nez v2, :cond_4
 
     .line 319
     iget v4, p0, Landroid/text/style/SuggestionSpan;->mEasyCorrectUnderlineColor:I
 
     .line 326
-    :cond_1d
-    :goto_1d
+    :cond_0
+    :goto_3
     return v4
 
     .end local v0           #autoCorrection:Z
     .end local v1           #easy:Z
     .end local v2           #misspelled:Z
-    :cond_1e
+    :cond_1
     move v2, v4
 
     .line 314
-    goto :goto_9
+    goto :goto_0
 
     .restart local v2       #misspelled:Z
-    :cond_20
+    :cond_2
     move v1, v4
 
     .line 315
-    goto :goto_10
+    goto :goto_1
 
     .restart local v1       #easy:Z
-    :cond_22
+    :cond_3
     move v0, v4
 
     .line 316
-    goto :goto_17
+    goto :goto_2
 
     .line 321
     .restart local v0       #autoCorrection:Z
-    :cond_24
+    :cond_4
     iget v4, p0, Landroid/text/style/SuggestionSpan;->mMisspelledUnderlineColor:I
 
-    goto :goto_1d
+    goto :goto_3
 
     .line 323
-    :cond_27
-    if-eqz v0, :cond_1d
+    :cond_5
+    if-eqz v0, :cond_0
 
     .line 324
     iget v4, p0, Landroid/text/style/SuggestionSpan;->mAutoCorrectionUnderlineColor:I
 
-    goto :goto_1d
+    goto :goto_3
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 267
@@ -710,7 +710,7 @@
 .end method
 
 .method public setFlags(I)V
-    .registers 2
+    .locals 0
     .parameter "flags"
 
     .prologue
@@ -722,7 +722,7 @@
 .end method
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
-    .registers 8
+    .locals 6
     .parameter "tp"
 
     .prologue
@@ -735,39 +735,39 @@
 
     and-int/lit8 v5, v5, 0x2
 
-    if-eqz v5, :cond_23
+    if-eqz v5, :cond_1
 
     move v2, v3
 
     .line 292
     .local v2, misspelled:Z
-    :goto_9
+    :goto_0
     iget v5, p0, Landroid/text/style/SuggestionSpan;->mFlags:I
 
     and-int/lit8 v5, v5, 0x1
 
-    if-eqz v5, :cond_25
+    if-eqz v5, :cond_2
 
     move v1, v3
 
     .line 293
     .local v1, easy:Z
-    :goto_10
+    :goto_1
     iget v5, p0, Landroid/text/style/SuggestionSpan;->mFlags:I
 
     and-int/lit8 v5, v5, 0x4
 
-    if-eqz v5, :cond_27
+    if-eqz v5, :cond_3
 
     move v0, v3
 
     .line 294
     .local v0, autoCorrection:Z
-    :goto_17
-    if-eqz v1, :cond_35
+    :goto_2
+    if-eqz v1, :cond_5
 
     .line 295
-    if-nez v2, :cond_29
+    if-nez v2, :cond_4
 
     .line 296
     iget v3, p0, Landroid/text/style/SuggestionSpan;->mEasyCorrectUnderlineColor:I
@@ -777,39 +777,39 @@
     invoke-virtual {p1, v3, v4}, Landroid/text/TextPaint;->setUnderlineText(IF)V
 
     .line 305
-    :cond_22
-    :goto_22
+    :cond_0
+    :goto_3
     return-void
 
     .end local v0           #autoCorrection:Z
     .end local v1           #easy:Z
     .end local v2           #misspelled:Z
-    :cond_23
+    :cond_1
     move v2, v4
 
     .line 291
-    goto :goto_9
+    goto :goto_0
 
     .restart local v2       #misspelled:Z
-    :cond_25
+    :cond_2
     move v1, v4
 
     .line 292
-    goto :goto_10
+    goto :goto_1
 
     .restart local v1       #easy:Z
-    :cond_27
+    :cond_3
     move v0, v4
 
     .line 293
-    goto :goto_17
+    goto :goto_2
 
     .line 297
     .restart local v0       #autoCorrection:Z
-    :cond_29
+    :cond_4
     iget v3, p1, Landroid/text/TextPaint;->underlineColor:I
 
-    if-nez v3, :cond_22
+    if-nez v3, :cond_0
 
     .line 300
     iget v3, p0, Landroid/text/style/SuggestionSpan;->mMisspelledUnderlineColor:I
@@ -818,11 +818,11 @@
 
     invoke-virtual {p1, v3, v4}, Landroid/text/TextPaint;->setUnderlineText(IF)V
 
-    goto :goto_22
+    goto :goto_3
 
     .line 302
-    :cond_35
-    if-eqz v0, :cond_22
+    :cond_5
+    if-eqz v0, :cond_0
 
     .line 303
     iget v3, p0, Landroid/text/style/SuggestionSpan;->mAutoCorrectionUnderlineColor:I
@@ -831,11 +831,11 @@
 
     invoke-virtual {p1, v3, v4}, Landroid/text/TextPaint;->setUnderlineText(IF)V
 
-    goto :goto_22
+    goto :goto_3
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

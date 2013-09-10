@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/CountryDetectorService;Landroid/location/ICountryListener;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "listener"
 
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 61
@@ -62,6 +62,7 @@
 
     iget-object v1, p0, Lcom/android/server/CountryDetectorService$Receiver;->mKey:Landroid/os/IBinder;
 
+    #calls: Lcom/android/server/CountryDetectorService;->removeListener(Landroid/os/IBinder;)V
     invoke-static {v0, v1}, Lcom/android/server/CountryDetectorService;->access$000(Lcom/android/server/CountryDetectorService;Landroid/os/IBinder;)V
 
     .line 62
@@ -69,14 +70,14 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 4
+    .locals 2
     .parameter "otherObj"
 
     .prologue
     .line 66
     instance-of v0, p1, Lcom/android/server/CountryDetectorService$Receiver;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 67
     iget-object v0, p0, Lcom/android/server/CountryDetectorService$Receiver;->mKey:Landroid/os/IBinder;
@@ -91,18 +92,18 @@
     move-result v0
 
     .line 69
-    :goto_e
+    :goto_0
     return v0
 
     .restart local p1
-    :cond_f
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public getListener()Landroid/location/ICountryListener;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 78
@@ -112,7 +113,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 74

@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "context"
 
@@ -73,7 +73,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     const-string/jumbo v0, "target"
 
@@ -81,13 +81,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_1
 
     .line 91
-    :cond_11
+    :cond_0
     iget-object v0, p0, Landroid/filterpacks/imageproc/BitmapSource;->mImageFrame:Landroid/filterfw/core/Frame;
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_1
 
     .line 92
     iget-object v0, p0, Landroid/filterpacks/imageproc/BitmapSource;->mImageFrame:Landroid/filterfw/core/Frame;
@@ -100,12 +100,12 @@
     iput-object v0, p0, Landroid/filterpacks/imageproc/BitmapSource;->mImageFrame:Landroid/filterfw/core/Frame;
 
     .line 96
-    :cond_1d
+    :cond_1
     return-void
 .end method
 
 .method public loadImage(Landroid/filterfw/core/FilterContext;)V
-    .registers 7
+    .locals 5
     .parameter "filterContext"
 
     .prologue
@@ -168,7 +168,7 @@
     .line 81
     iget-boolean v1, p0, Landroid/filterpacks/imageproc/BitmapSource;->mRecycleBitmap:Z
 
-    if-eqz v1, :cond_3c
+    if-eqz v1, :cond_0
 
     .line 82
     iget-object v1, p0, Landroid/filterpacks/imageproc/BitmapSource;->mBitmap:Landroid/graphics/Bitmap;
@@ -176,7 +176,7 @@
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->recycle()V
 
     .line 84
-    :cond_3c
+    :cond_0
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/filterpacks/imageproc/BitmapSource;->mBitmap:Landroid/graphics/Bitmap;
@@ -186,20 +186,20 @@
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
     .line 100
     iget-object v0, p0, Landroid/filterpacks/imageproc/BitmapSource;->mImageFrame:Landroid/filterfw/core/Frame;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 101
     invoke-virtual {p0, p1}, Landroid/filterpacks/imageproc/BitmapSource;->loadImage(Landroid/filterfw/core/FilterContext;)V
 
     .line 104
-    :cond_7
+    :cond_0
     const-string v0, "image"
 
     iget-object v1, p0, Landroid/filterpacks/imageproc/BitmapSource;->mImageFrame:Landroid/filterfw/core/Frame;
@@ -209,7 +209,7 @@
     .line 106
     iget-boolean v0, p0, Landroid/filterpacks/imageproc/BitmapSource;->mRepeatFrame:Z
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_1
 
     .line 107
     const-string v0, "image"
@@ -217,12 +217,12 @@
     invoke-virtual {p0, v0}, Landroid/filterpacks/imageproc/BitmapSource;->closeOutputPort(Ljava/lang/String;)V
 
     .line 109
-    :cond_17
+    :cond_1
     return-void
 .end method
 
 .method public setupPorts()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 62
@@ -245,14 +245,14 @@
 .end method
 
 .method public tearDown(Landroid/filterfw/core/FilterContext;)V
-    .registers 3
+    .locals 1
     .parameter "env"
 
     .prologue
     .line 113
     iget-object v0, p0, Landroid/filterpacks/imageproc/BitmapSource;->mImageFrame:Landroid/filterfw/core/Frame;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 114
     iget-object v0, p0, Landroid/filterpacks/imageproc/BitmapSource;->mImageFrame:Landroid/filterfw/core/Frame;
@@ -265,6 +265,6 @@
     iput-object v0, p0, Landroid/filterpacks/imageproc/BitmapSource;->mImageFrame:Landroid/filterfw/core/Frame;
 
     .line 117
-    :cond_c
+    :cond_0
     return-void
 .end method

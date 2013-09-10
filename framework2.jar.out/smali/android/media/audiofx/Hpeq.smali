@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 6
+    .locals 3
     .parameter "priority"
     .parameter "audioSession"
     .annotation system Ldalvik/annotation/Throws;
@@ -75,7 +75,7 @@
     iput-object v0, p0, Landroid/media/audiofx/Hpeq;->mParamListenerLock:Ljava/lang/Object;
 
     .line 116
-    if-nez p2, :cond_1c
+    if-nez p2, :cond_0
 
     .line 117
     const-string v0, "HPEQ-JAVA"
@@ -85,12 +85,12 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 119
-    :cond_1c
+    :cond_0
     return-void
 .end method
 
 .method static synthetic access$000(Landroid/media/audiofx/Hpeq;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -101,7 +101,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/media/audiofx/Hpeq;)Landroid/media/audiofx/Hpeq$OnParameterChangeListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public getBandCount()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 126
@@ -131,7 +131,7 @@
 .end method
 
 .method public getGainForAllBands([I)I
-    .registers 6
+    .locals 4
     .parameter "gain_buf"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -158,18 +158,18 @@
     .local v0, bandCount:I
     array-length v2, p1
 
-    if-ge v2, v0, :cond_f
+    if-ge v2, v0, :cond_0
 
     .line 186
     array-length v0, p1
 
     .line 189
-    :cond_f
+    :cond_0
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_10
-    if-ge v1, v0, :cond_1b
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 190
     invoke-virtual {p0, v1}, Landroid/media/audiofx/Hpeq;->getGainForBand(I)I
@@ -181,17 +181,17 @@
     .line 189
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 193
-    :cond_1b
+    :cond_1
     const/4 v2, 0x0
 
     return v2
 .end method
 
 .method public getGainForBand(I)I
-    .registers 7
+    .locals 5
     .parameter "band"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -261,7 +261,7 @@
 .end method
 
 .method public getGainRange([I)I
-    .registers 7
+    .locals 5
     .parameter "range_buf"
 
     .prologue
@@ -321,7 +321,7 @@
 .end method
 
 .method public setGainForAllBands([I)I
-    .registers 6
+    .locals 4
     .parameter "gain_buf"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -348,18 +348,18 @@
     .local v0, bandCount:I
     array-length v2, p1
 
-    if-ge v2, v0, :cond_f
+    if-ge v2, v0, :cond_0
 
     .line 210
     array-length v0, p1
 
     .line 213
-    :cond_f
+    :cond_0
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_10
-    if-ge v1, v0, :cond_1a
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 214
     aget v2, p1, v1
@@ -369,17 +369,17 @@
     .line 213
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 217
-    :cond_1a
+    :cond_1
     const/4 v2, 0x0
 
     return v2
 .end method
 
 .method public setGainForBand(II)V
-    .registers 6
+    .locals 3
     .parameter "band"
     .parameter "gain"
     .annotation system Ldalvik/annotation/Throws;
@@ -438,7 +438,7 @@
 .end method
 
 .method public setParameterListener(Landroid/media/audiofx/Hpeq$OnParameterChangeListener;)V
-    .registers 5
+    .locals 3
     .parameter "listener"
 
     .prologue
@@ -448,10 +448,10 @@
     monitor-enter v1
 
     .line 284
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/media/audiofx/Hpeq;->mParamListener:Landroid/media/audiofx/Hpeq$OnParameterChangeListener;
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 285
     iput-object p1, p0, Landroid/media/audiofx/Hpeq;->mParamListener:Landroid/media/audiofx/Hpeq$OnParameterChangeListener;
@@ -471,19 +471,19 @@
     invoke-super {p0, v0}, Landroid/media/audiofx/AudioEffect;->setParameterListener(Landroid/media/audiofx/AudioEffect$OnParameterChangeListener;)V
 
     .line 289
-    :cond_16
+    :cond_0
     monitor-exit v1
 
     .line 290
     return-void
 
     .line 289
-    :catchall_18
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1a
-    .catchall {:try_start_3 .. :try_end_1a} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

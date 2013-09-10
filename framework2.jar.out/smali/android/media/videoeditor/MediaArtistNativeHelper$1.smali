@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/videoeditor/MediaArtistNativeHelper;[Landroid/graphics/Bitmap;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onThumbnail(Landroid/graphics/Bitmap;I)V
-    .registers 5
+    .locals 2
     .parameter "bitmap"
     .parameter "index"
 

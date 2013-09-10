@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/PowerManagerService;Landroid/os/Handler;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "x0"
 
@@ -36,13 +36,14 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .registers 3
+    .locals 1
     .parameter "selfChange"
 
     .prologue
     .line 714
     iget-object v0, p0, Lcom/android/server/PowerManagerService$3;->this$0:Lcom/android/server/PowerManagerService;
 
+    #calls: Lcom/android/server/PowerManagerService;->updateSettingsValues()V
     invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$2600(Lcom/android/server/PowerManagerService;)V
 
     .line 715

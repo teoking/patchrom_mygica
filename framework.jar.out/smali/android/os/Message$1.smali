@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 465
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/os/Message;
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -52,6 +52,7 @@
 
     .line 468
     .local v0, msg:Landroid/os/Message;
+    #calls: Landroid/os/Message;->readFromParcel(Landroid/os/Parcel;)V
     invoke-static {v0, p1}, Landroid/os/Message;->access$000(Landroid/os/Message;Landroid/os/Parcel;)V
 
     .line 469
@@ -59,7 +60,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -72,7 +73,7 @@
 .end method
 
 .method public newArray(I)[Landroid/os/Message;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -83,7 +84,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

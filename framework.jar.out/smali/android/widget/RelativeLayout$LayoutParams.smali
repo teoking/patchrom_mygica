@@ -115,7 +115,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 4
+    .locals 1
     .parameter "w"
     .parameter "h"
 
@@ -135,7 +135,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 12
+    .locals 9
     .parameter "c"
     .parameter "attrs"
 
@@ -176,8 +176,8 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_18
-    if-ge v3, v0, :cond_d9
+    :goto_0
+    if-ge v3, v0, :cond_7
 
     .line 1108
     invoke-virtual {v1, v3}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -186,36 +186,36 @@
 
     .line 1109
     .local v2, attr:I
-    packed-switch v2, :pswitch_data_de
+    packed-switch v2, :pswitch_data_0
 
     .line 1107
-    :goto_21
+    :goto_1
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_18
+    goto :goto_0
 
     .line 1111
-    :pswitch_24
+    :pswitch_0
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v5
 
     iput-boolean v5, p0, Landroid/widget/RelativeLayout$LayoutParams;->alignWithParent:Z
 
-    goto :goto_21
+    goto :goto_1
 
     .line 1114
-    :pswitch_2b
+    :pswitch_1
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v5
 
     aput v5, v4, v7
 
-    goto :goto_21
+    goto :goto_1
 
     .line 1117
-    :pswitch_32
+    :pswitch_2
     const/4 v5, 0x1
 
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -224,10 +224,10 @@
 
     aput v8, v4, v5
 
-    goto :goto_21
+    goto :goto_1
 
     .line 1120
-    :pswitch_3a
+    :pswitch_3
     const/4 v5, 0x2
 
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -236,10 +236,10 @@
 
     aput v8, v4, v5
 
-    goto :goto_21
+    goto :goto_1
 
     .line 1123
-    :pswitch_42
+    :pswitch_4
     const/4 v5, 0x3
 
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -248,10 +248,10 @@
 
     aput v8, v4, v5
 
-    goto :goto_21
+    goto :goto_1
 
     .line 1126
-    :pswitch_4a
+    :pswitch_5
     const/4 v5, 0x4
 
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -260,10 +260,10 @@
 
     aput v8, v4, v5
 
-    goto :goto_21
+    goto :goto_1
 
     .line 1129
-    :pswitch_52
+    :pswitch_6
     const/4 v5, 0x5
 
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -272,10 +272,10 @@
 
     aput v8, v4, v5
 
-    goto :goto_21
+    goto :goto_1
 
     .line 1132
-    :pswitch_5a
+    :pswitch_7
     const/4 v5, 0x6
 
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -284,10 +284,10 @@
 
     aput v8, v4, v5
 
-    goto :goto_21
+    goto :goto_1
 
     .line 1135
-    :pswitch_62
+    :pswitch_8
     const/4 v5, 0x7
 
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -296,10 +296,10 @@
 
     aput v8, v4, v5
 
-    goto :goto_21
+    goto :goto_1
 
     .line 1138
-    :pswitch_6a
+    :pswitch_9
     const/16 v5, 0x8
 
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -308,165 +308,165 @@
 
     aput v8, v4, v5
 
-    goto :goto_21
+    goto :goto_1
 
     .line 1141
-    :pswitch_73
+    :pswitch_a
     const/16 v8, 0x9
 
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v5
 
-    if-eqz v5, :cond_7f
+    if-eqz v5, :cond_0
 
     move v5, v6
 
-    :goto_7c
+    :goto_2
     aput v5, v4, v8
 
-    goto :goto_21
+    goto :goto_1
 
-    :cond_7f
+    :cond_0
     move v5, v7
 
-    goto :goto_7c
+    goto :goto_2
 
     .line 1144
-    :pswitch_81
+    :pswitch_b
     const/16 v8, 0xa
 
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v5
 
-    if-eqz v5, :cond_8d
+    if-eqz v5, :cond_1
 
     move v5, v6
 
-    :goto_8a
+    :goto_3
     aput v5, v4, v8
 
-    goto :goto_21
+    goto :goto_1
 
-    :cond_8d
+    :cond_1
     move v5, v7
 
-    goto :goto_8a
+    goto :goto_3
 
     .line 1147
-    :pswitch_8f
+    :pswitch_c
     const/16 v8, 0xb
 
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v5
 
-    if-eqz v5, :cond_9b
+    if-eqz v5, :cond_2
 
     move v5, v6
 
-    :goto_98
+    :goto_4
     aput v5, v4, v8
 
-    goto :goto_21
+    goto :goto_1
 
-    :cond_9b
+    :cond_2
     move v5, v7
 
-    goto :goto_98
+    goto :goto_4
 
     .line 1150
-    :pswitch_9d
+    :pswitch_d
     const/16 v8, 0xc
 
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v5
 
-    if-eqz v5, :cond_aa
+    if-eqz v5, :cond_3
 
     move v5, v6
 
-    :goto_a6
+    :goto_5
     aput v5, v4, v8
 
-    goto/16 :goto_21
+    goto/16 :goto_1
 
-    :cond_aa
+    :cond_3
     move v5, v7
 
-    goto :goto_a6
+    goto :goto_5
 
     .line 1153
-    :pswitch_ac
+    :pswitch_e
     const/16 v8, 0xd
 
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v5
 
-    if-eqz v5, :cond_b9
+    if-eqz v5, :cond_4
 
     move v5, v6
 
-    :goto_b5
+    :goto_6
     aput v5, v4, v8
 
-    goto/16 :goto_21
+    goto/16 :goto_1
 
-    :cond_b9
+    :cond_4
     move v5, v7
 
-    goto :goto_b5
+    goto :goto_6
 
     .line 1156
-    :pswitch_bb
+    :pswitch_f
     const/16 v8, 0xe
 
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v5
 
-    if-eqz v5, :cond_c8
+    if-eqz v5, :cond_5
 
     move v5, v6
 
-    :goto_c4
+    :goto_7
     aput v5, v4, v8
 
-    goto/16 :goto_21
+    goto/16 :goto_1
 
-    :cond_c8
+    :cond_5
     move v5, v7
 
-    goto :goto_c4
+    goto :goto_7
 
     .line 1159
-    :pswitch_ca
+    :pswitch_10
     const/16 v8, 0xf
 
     invoke-virtual {v1, v2, v7}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v5
 
-    if-eqz v5, :cond_d7
+    if-eqz v5, :cond_6
 
     move v5, v6
 
-    :goto_d3
+    :goto_8
     aput v5, v4, v8
 
-    goto/16 :goto_21
+    goto/16 :goto_1
 
-    :cond_d7
+    :cond_6
     move v5, v7
 
-    goto :goto_d3
+    goto :goto_8
 
     .line 1164
     .end local v2           #attr:I
-    :cond_d9
+    :cond_7
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 1165
@@ -475,30 +475,30 @@
     .line 1109
     nop
 
-    :pswitch_data_de
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_2b
-        :pswitch_32
-        :pswitch_3a
-        :pswitch_42
-        :pswitch_4a
-        :pswitch_52
-        :pswitch_5a
-        :pswitch_62
-        :pswitch_6a
-        :pswitch_73
-        :pswitch_81
-        :pswitch_8f
-        :pswitch_9d
-        :pswitch_ac
-        :pswitch_bb
-        :pswitch_ca
-        :pswitch_24
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
+        :pswitch_a
+        :pswitch_b
+        :pswitch_c
+        :pswitch_d
+        :pswitch_e
+        :pswitch_f
+        :pswitch_10
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -517,7 +517,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -536,7 +536,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/widget/RelativeLayout$LayoutParams;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -547,7 +547,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/widget/RelativeLayout$LayoutParams;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -559,7 +559,7 @@
 .end method
 
 .method static synthetic access$112(Landroid/widget/RelativeLayout$LayoutParams;I)I
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -575,7 +575,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/widget/RelativeLayout$LayoutParams;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -586,7 +586,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/widget/RelativeLayout$LayoutParams;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -598,7 +598,7 @@
 .end method
 
 .method static synthetic access$212(Landroid/widget/RelativeLayout$LayoutParams;I)I
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -614,7 +614,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/widget/RelativeLayout$LayoutParams;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -625,7 +625,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/widget/RelativeLayout$LayoutParams;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -637,7 +637,7 @@
 .end method
 
 .method static synthetic access$312(Landroid/widget/RelativeLayout$LayoutParams;I)I
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -653,7 +653,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/widget/RelativeLayout$LayoutParams;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -664,7 +664,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/widget/RelativeLayout$LayoutParams;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -676,7 +676,7 @@
 .end method
 
 .method static synthetic access$412(Landroid/widget/RelativeLayout$LayoutParams;I)I
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -692,7 +692,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/widget/RelativeLayout$LayoutParams;)[I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -705,7 +705,7 @@
 
 # virtual methods
 .method public addRule(I)V
-    .registers 4
+    .locals 2
     .parameter "verb"
 
     .prologue
@@ -721,7 +721,7 @@
 .end method
 
 .method public addRule(II)V
-    .registers 4
+    .locals 1
     .parameter "verb"
     .parameter "anchor"
 
@@ -736,7 +736,7 @@
 .end method
 
 .method public debug(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "output"
 
     .prologue
@@ -795,7 +795,7 @@
 .end method
 
 .method public getRules()[I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1234

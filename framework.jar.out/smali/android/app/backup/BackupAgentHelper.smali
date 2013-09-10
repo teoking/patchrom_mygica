@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 55
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
-    .registers 4
+    .locals 1
     .parameter "keyPrefix"
     .parameter "helper"
 
@@ -47,7 +47,7 @@
 .end method
 
 .method public getDispatcher()Landroid/app/backup/BackupHelperDispatcher;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 80
@@ -57,7 +57,7 @@
 .end method
 
 .method public onBackup(Landroid/os/ParcelFileDescriptor;Landroid/app/backup/BackupDataOutput;Landroid/os/ParcelFileDescriptor;)V
-    .registers 5
+    .locals 1
     .parameter "oldState"
     .parameter "data"
     .parameter "newState"
@@ -78,7 +78,7 @@
 .end method
 
 .method public onRestore(Landroid/app/backup/BackupDataInput;ILandroid/os/ParcelFileDescriptor;)V
-    .registers 5
+    .locals 1
     .parameter "data"
     .parameter "appVersionCode"
     .parameter "newState"

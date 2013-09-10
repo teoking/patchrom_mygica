@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(IILjava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 0
     .parameter "startChar"
     .parameter "endChar"
     .parameter "url"

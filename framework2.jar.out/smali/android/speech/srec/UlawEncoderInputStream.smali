@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;I)V
-    .registers 5
+    .locals 2
     .parameter "in"
     .parameter "max"
 
@@ -66,7 +66,7 @@
 .end method
 
 .method public static encode([BI[BIII)V
-    .registers 14
+    .locals 8
     .parameter "pcmBuf"
     .parameter "pcmOffset"
     .parameter "ulawBuf"
@@ -76,12 +76,12 @@
 
     .prologue
     .line 76
-    if-gtz p5, :cond_4
+    if-gtz p5, :cond_0
 
     const/16 p5, 0x2000
 
     .line 78
-    :cond_4
+    :cond_0
     const/high16 v6, 0x2000
 
     div-int v0, v6, p5
@@ -99,8 +99,8 @@
 
     .end local p1
     .local v3, pcmOffset:I
-    :goto_b
-    if-ge v1, p4, :cond_e9
+    :goto_0
+    if-ge v1, p4, :cond_14
 
     .line 81
     add-int/lit8 p1, v3, 0x1
@@ -128,16 +128,16 @@
     shr-int/lit8 v2, v6, 0x10
 
     .line 85
-    if-ltz v2, :cond_89
+    if-ltz v2, :cond_a
 
     .line 86
-    if-gtz v2, :cond_2e
+    if-gtz v2, :cond_1
 
     const/16 v4, 0xff
 
     .line 108
     .local v4, ulaw:I
-    :goto_25
+    :goto_1
     add-int/lit8 p3, v5, 0x1
 
     .end local v5           #ulawOffset:I
@@ -153,14 +153,14 @@
 
     .end local p3
     .restart local v5       #ulawOffset:I
-    goto :goto_b
+    goto :goto_0
 
     .line 86
     .end local v4           #ulaw:I
-    :cond_2e
+    :cond_1
     const/16 v6, 0x1e
 
-    if-gt v2, v6, :cond_39
+    if-gt v2, v6, :cond_2
 
     rsub-int/lit8 v6, v2, 0x1e
 
@@ -168,12 +168,12 @@
 
     add-int/lit16 v4, v6, 0xf0
 
-    goto :goto_25
+    goto :goto_1
 
-    :cond_39
+    :cond_2
     const/16 v6, 0x5e
 
-    if-gt v2, v6, :cond_44
+    if-gt v2, v6, :cond_3
 
     rsub-int/lit8 v6, v2, 0x5e
 
@@ -181,12 +181,12 @@
 
     add-int/lit16 v4, v6, 0xe0
 
-    goto :goto_25
+    goto :goto_1
 
-    :cond_44
+    :cond_3
     const/16 v6, 0xde
 
-    if-gt v2, v6, :cond_4f
+    if-gt v2, v6, :cond_4
 
     rsub-int v6, v2, 0xde
 
@@ -194,12 +194,12 @@
 
     add-int/lit16 v4, v6, 0xd0
 
-    goto :goto_25
+    goto :goto_1
 
-    :cond_4f
+    :cond_4
     const/16 v6, 0x1de
 
-    if-gt v2, v6, :cond_5a
+    if-gt v2, v6, :cond_5
 
     rsub-int v6, v2, 0x1de
 
@@ -207,12 +207,12 @@
 
     add-int/lit16 v4, v6, 0xc0
 
-    goto :goto_25
+    goto :goto_1
 
-    :cond_5a
+    :cond_5
     const/16 v6, 0x3de
 
-    if-gt v2, v6, :cond_65
+    if-gt v2, v6, :cond_6
 
     rsub-int v6, v2, 0x3de
 
@@ -220,12 +220,12 @@
 
     add-int/lit16 v4, v6, 0xb0
 
-    goto :goto_25
+    goto :goto_1
 
-    :cond_65
+    :cond_6
     const/16 v6, 0x7de
 
-    if-gt v2, v6, :cond_70
+    if-gt v2, v6, :cond_7
 
     rsub-int v6, v2, 0x7de
 
@@ -233,12 +233,12 @@
 
     add-int/lit16 v4, v6, 0xa0
 
-    goto :goto_25
+    goto :goto_1
 
-    :cond_70
+    :cond_7
     const/16 v6, 0xfde
 
-    if-gt v2, v6, :cond_7b
+    if-gt v2, v6, :cond_8
 
     rsub-int v6, v2, 0xfde
 
@@ -246,12 +246,12 @@
 
     add-int/lit16 v4, v6, 0x90
 
-    goto :goto_25
+    goto :goto_1
 
-    :cond_7b
+    :cond_8
     const/16 v6, 0x1fde
 
-    if-gt v2, v6, :cond_86
+    if-gt v2, v6, :cond_9
 
     rsub-int v6, v2, 0x1fde
 
@@ -259,30 +259,30 @@
 
     add-int/lit16 v4, v6, 0x80
 
-    goto :goto_25
+    goto :goto_1
 
-    :cond_86
+    :cond_9
     const/16 v4, 0x80
 
-    goto :goto_25
+    goto :goto_1
 
     .line 97
-    :cond_89
+    :cond_a
     const/4 v6, -0x1
 
-    if-gt v6, v2, :cond_8f
+    if-gt v6, v2, :cond_b
 
     const/16 v4, 0x7f
 
     .restart local v4       #ulaw:I
-    :goto_8e
-    goto :goto_25
+    :goto_2
+    goto :goto_1
 
     .end local v4           #ulaw:I
-    :cond_8f
+    :cond_b
     const/16 v6, -0x1f
 
-    if-gt v6, v2, :cond_9a
+    if-gt v6, v2, :cond_c
 
     add-int/lit8 v6, v2, 0x1f
 
@@ -290,12 +290,12 @@
 
     add-int/lit8 v4, v6, 0x70
 
-    goto :goto_8e
+    goto :goto_2
 
-    :cond_9a
+    :cond_c
     const/16 v6, -0x5f
 
-    if-gt v6, v2, :cond_a5
+    if-gt v6, v2, :cond_d
 
     add-int/lit8 v6, v2, 0x5f
 
@@ -303,12 +303,12 @@
 
     add-int/lit8 v4, v6, 0x60
 
-    goto :goto_8e
+    goto :goto_2
 
-    :cond_a5
+    :cond_d
     const/16 v6, -0xdf
 
-    if-gt v6, v2, :cond_b0
+    if-gt v6, v2, :cond_e
 
     add-int/lit16 v6, v2, 0xdf
 
@@ -316,12 +316,12 @@
 
     add-int/lit8 v4, v6, 0x50
 
-    goto :goto_8e
+    goto :goto_2
 
-    :cond_b0
+    :cond_e
     const/16 v6, -0x1df
 
-    if-gt v6, v2, :cond_bb
+    if-gt v6, v2, :cond_f
 
     add-int/lit16 v6, v2, 0x1df
 
@@ -329,12 +329,12 @@
 
     add-int/lit8 v4, v6, 0x40
 
-    goto :goto_8e
+    goto :goto_2
 
-    :cond_bb
+    :cond_f
     const/16 v6, -0x3df
 
-    if-gt v6, v2, :cond_c6
+    if-gt v6, v2, :cond_10
 
     add-int/lit16 v6, v2, 0x3df
 
@@ -342,12 +342,12 @@
 
     add-int/lit8 v4, v6, 0x30
 
-    goto :goto_8e
+    goto :goto_2
 
-    :cond_c6
+    :cond_10
     const/16 v6, -0x7df
 
-    if-gt v6, v2, :cond_d1
+    if-gt v6, v2, :cond_11
 
     add-int/lit16 v6, v2, 0x7df
 
@@ -355,12 +355,12 @@
 
     add-int/lit8 v4, v6, 0x20
 
-    goto :goto_8e
+    goto :goto_2
 
-    :cond_d1
+    :cond_11
     const/16 v6, -0xfdf
 
-    if-gt v6, v2, :cond_dc
+    if-gt v6, v2, :cond_12
 
     add-int/lit16 v6, v2, 0xfdf
 
@@ -368,12 +368,12 @@
 
     add-int/lit8 v4, v6, 0x10
 
-    goto :goto_8e
+    goto :goto_2
 
-    :cond_dc
+    :cond_12
     const/16 v6, -0x1fdf
 
-    if-gt v6, v2, :cond_e7
+    if-gt v6, v2, :cond_13
 
     add-int/lit16 v6, v2, 0x1fdf
 
@@ -381,21 +381,21 @@
 
     add-int/lit8 v4, v6, 0x0
 
-    goto :goto_8e
+    goto :goto_2
 
-    :cond_e7
+    :cond_13
     const/4 v4, 0x0
 
-    goto :goto_8e
+    goto :goto_2
 
     .line 110
     .end local v2           #pcm:I
-    :cond_e9
+    :cond_14
     return-void
 .end method
 
 .method public static maxAbsPcm([BII)I
-    .registers 9
+    .locals 6
     .parameter "pcmBuf"
     .parameter "offset"
     .parameter "length"
@@ -413,8 +413,8 @@
 
     .end local p1
     .local v2, offset:I
-    :goto_3
-    if-ge v0, p2, :cond_1c
+    :goto_0
+    if-ge v0, p2, :cond_2
 
     .line 123
     add-int/lit8 p1, v2, 0x1
@@ -437,32 +437,32 @@
 
     .line 124
     .local v3, pcm:I
-    if-gez v3, :cond_16
+    if-gez v3, :cond_0
 
     neg-int v3, v3
 
     .line 125
-    :cond_16
-    if-le v3, v1, :cond_19
+    :cond_0
+    if-le v3, v1, :cond_1
 
     move v1, v3
 
     .line 122
-    :cond_19
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 127
     .end local v3           #pcm:I
-    :cond_1c
+    :cond_2
     return v1
 .end method
 
 
 # virtual methods
 .method public available()I
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -487,7 +487,7 @@
 .end method
 
 .method public close()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -498,7 +498,7 @@
     .line 176
     iget-object v1, p0, Landroid/speech/srec/UlawEncoderInputStream;->mIn:Ljava/io/InputStream;
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_0
 
     .line 177
     iget-object v0, p0, Landroid/speech/srec/UlawEncoderInputStream;->mIn:Ljava/io/InputStream;
@@ -514,12 +514,12 @@
 
     .line 181
     .end local v0           #in:Ljava/io/InputStream;
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public read()I
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -542,24 +542,24 @@
 
     .line 170
     .local v0, n:I
-    if-ne v0, v1, :cond_c
+    if-ne v0, v1, :cond_0
 
     .line 171
-    :goto_b
+    :goto_0
     return v1
 
-    :cond_c
+    :cond_0
     iget-object v1, p0, Landroid/speech/srec/UlawEncoderInputStream;->mOneByte:[B
 
     aget-byte v1, v1, v4
 
     and-int/lit16 v1, v1, 0xff
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public read([B)I
-    .registers 4
+    .locals 2
     .parameter "buf"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -581,7 +581,7 @@
 .end method
 
 .method public read([BII)I
-    .registers 13
+    .locals 9
     .parameter "buf"
     .parameter "offset"
     .parameter "length"
@@ -597,7 +597,7 @@
     .line 142
     iget-object v1, p0, Landroid/speech/srec/UlawEncoderInputStream;->mIn:Ljava/io/InputStream;
 
-    if-nez v1, :cond_12
+    if-nez v1, :cond_1
 
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -609,7 +609,7 @@
 
     .line 148
     .local v4, n:I
-    :cond_d
+    :cond_0
     iget v1, p0, Landroid/speech/srec/UlawEncoderInputStream;->mBufCount:I
 
     add-int/2addr v1, v4
@@ -618,12 +618,12 @@
 
     .line 145
     .end local v4           #n:I
-    :cond_12
+    :cond_1
     iget v1, p0, Landroid/speech/srec/UlawEncoderInputStream;->mBufCount:I
 
     const/4 v2, 0x2
 
-    if-ge v1, v2, :cond_30
+    if-ge v1, v2, :cond_2
 
     .line 146
     iget-object v1, p0, Landroid/speech/srec/UlawEncoderInputStream;->mIn:Ljava/io/InputStream;
@@ -652,15 +652,15 @@
 
     .line 147
     .restart local v4       #n:I
-    if-ne v4, v0, :cond_d
+    if-ne v4, v0, :cond_0
 
     .line 159
-    :goto_2f
+    :goto_0
     return v0
 
     .line 152
     .end local v4           #n:I
-    :cond_30
+    :cond_2
     iget v0, p0, Landroid/speech/srec/UlawEncoderInputStream;->mBufCount:I
 
     div-int/lit8 v0, v0, 0x2
@@ -696,10 +696,10 @@
     const/4 v6, 0x0
 
     .local v6, i:I
-    :goto_4a
+    :goto_1
     iget v0, p0, Landroid/speech/srec/UlawEncoderInputStream;->mBufCount:I
 
-    if-ge v6, v0, :cond_5c
+    if-ge v6, v0, :cond_3
 
     iget-object v0, p0, Landroid/speech/srec/UlawEncoderInputStream;->mBuf:[B
 
@@ -715,11 +715,11 @@
 
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_4a
+    goto :goto_1
 
-    :cond_5c
+    :cond_3
     move v0, v4
 
     .line 159
-    goto :goto_2f
+    goto :goto_0
 .end method

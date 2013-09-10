@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/RecentApplicationsDialog;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v5, 0x0
@@ -55,8 +55,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_7
-    if-ge v1, v3, :cond_14
+    :goto_0
+    if-ge v1, v3, :cond_0
 
     aget-object v2, v0, v1
 
@@ -70,10 +70,10 @@
     .line 67
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 71
     .end local v2           #icon:Landroid/widget/TextView;
-    :cond_14
+    :cond_0
     return-void
 .end method

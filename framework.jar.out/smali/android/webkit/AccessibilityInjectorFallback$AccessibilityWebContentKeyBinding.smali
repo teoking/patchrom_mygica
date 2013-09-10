@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(J[I)V
-    .registers 4
+    .locals 0
     .parameter "keyCodeAndModifiers"
     .parameter "actionSequence"
 
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public getAction(I)I
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -82,7 +82,7 @@
 .end method
 
 .method public getActionCode(I)I
-    .registers 4
+    .locals 2
     .parameter "index"
 
     .prologue
@@ -101,7 +101,7 @@
 .end method
 
 .method public getActionCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 512
@@ -113,7 +113,7 @@
 .end method
 
 .method public getFirstArgument(I)I
-    .registers 4
+    .locals 2
     .parameter "index"
 
     .prologue
@@ -132,7 +132,7 @@
 .end method
 
 .method public getKeyCode()I
-    .registers 5
+    .locals 4
 
     .prologue
     .line 498
@@ -152,7 +152,7 @@
 .end method
 
 .method public getModifiers()I
-    .registers 5
+    .locals 4
 
     .prologue
     .line 505
@@ -172,7 +172,7 @@
 .end method
 
 .method public getSecondArgument(I)I
-    .registers 4
+    .locals 2
     .parameter "index"
 
     .prologue
@@ -191,7 +191,7 @@
 .end method
 
 .method public getThirdArgument(I)I
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -208,7 +208,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 562
@@ -255,8 +255,8 @@
     move-result v1
 
     .local v1, count:I
-    :goto_28
-    if-ge v2, v1, :cond_6c
+    :goto_0
+    if-ge v2, v1, :cond_0
 
     .line 569
     const-string/jumbo v3, "{actionCode"
@@ -322,10 +322,10 @@
     .line 568
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_28
+    goto :goto_0
 
     .line 581
-    :cond_6c
+    :cond_0
     const-string v3, "]"
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

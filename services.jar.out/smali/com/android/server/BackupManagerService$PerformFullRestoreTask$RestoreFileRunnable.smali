@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService$PerformFullRestoreTask;Landroid/app/IBackupAgent;Lcom/android/server/BackupManagerService$FileMetadata;Landroid/os/ParcelFileDescriptor;I)V
-    .registers 7
+    .locals 1
     .parameter
     .parameter "agent"
     .parameter "info"
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 14
+    .locals 13
 
     .prologue
     .line 2963
@@ -118,16 +118,16 @@
     iget-object v12, v12, Lcom/android/server/BackupManagerService;->mBackupManagerBinder:Landroid/app/backup/IBackupManager;
 
     invoke-interface/range {v0 .. v12}, Landroid/app/IBackupAgent;->doRestoreFile(Landroid/os/ParcelFileDescriptor;JILjava/lang/String;Ljava/lang/String;JJILandroid/app/backup/IBackupManager;)V
-    :try_end_27
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_27} :catch_28
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 2969
-    :goto_27
+    :goto_0
     return-void
 
     .line 2966
-    :catch_28
+    :catch_0
     move-exception v0
 
-    goto :goto_27
+    goto :goto_0
 .end method

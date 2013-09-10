@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -29,7 +29,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "attrs"
 
@@ -45,7 +45,7 @@
 .end method
 
 .method private init()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 73
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public createRenderScriptGL(Landroid/renderscript/RenderScriptGL$SurfaceConfig;)Landroid/renderscript/RenderScriptGL;
-    .registers 4
+    .locals 2
     .parameter "sc"
 
     .prologue
@@ -86,14 +86,14 @@
 .end method
 
 .method public destroyRenderScriptGL()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 153
     monitor-enter p0
 
     .line 154
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/renderscript/RSSurfaceView;->mRS:Landroid/renderscript/RenderScriptGL;
 
     invoke-virtual {v0}, Landroid/renderscript/RenderScriptGL;->destroy()V
@@ -110,18 +110,18 @@
     return-void
 
     .line 156
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_d
-    .catchall {:try_start_1 .. :try_end_d} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public getRenderScriptGL()Landroid/renderscript/RenderScriptGL;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 170
@@ -131,13 +131,13 @@
 .end method
 
 .method public pause()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 121
     iget-object v0, p0, Landroid/renderscript/RSSurfaceView;->mRS:Landroid/renderscript/RenderScriptGL;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 122
     iget-object v0, p0, Landroid/renderscript/RSSurfaceView;->mRS:Landroid/renderscript/RenderScriptGL;
@@ -145,18 +145,18 @@
     invoke-virtual {v0}, Landroid/renderscript/RenderScriptGL;->pause()V
 
     .line 124
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public resume()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 135
     iget-object v0, p0, Landroid/renderscript/RSSurfaceView;->mRS:Landroid/renderscript/RenderScriptGL;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 136
     iget-object v0, p0, Landroid/renderscript/RSSurfaceView;->mRS:Landroid/renderscript/RenderScriptGL;
@@ -164,12 +164,12 @@
     invoke-virtual {v0}, Landroid/renderscript/RenderScriptGL;->resume()V
 
     .line 138
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public setRenderScriptGL(Landroid/renderscript/RenderScriptGL;)V
-    .registers 2
+    .locals 0
     .parameter "rs"
 
     .prologue
@@ -181,7 +181,7 @@
 .end method
 
 .method public surfaceChanged(Landroid/view/SurfaceHolder;III)V
-    .registers 6
+    .locals 1
     .parameter "holder"
     .parameter "format"
     .parameter "w"
@@ -192,10 +192,10 @@
     monitor-enter p0
 
     .line 107
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/renderscript/RSSurfaceView;->mRS:Landroid/renderscript/RenderScriptGL;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 108
     iget-object v0, p0, Landroid/renderscript/RSSurfaceView;->mRS:Landroid/renderscript/RenderScriptGL;
@@ -203,25 +203,25 @@
     invoke-virtual {v0, p1, p3, p4}, Landroid/renderscript/RenderScriptGL;->setSurface(Landroid/view/SurfaceHolder;II)V
 
     .line 110
-    :cond_a
+    :cond_0
     monitor-exit p0
 
     .line 111
     return-void
 
     .line 110
-    :catchall_c
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_e
-    .catchall {:try_start_1 .. :try_end_e} :catchall_c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public surfaceCreated(Landroid/view/SurfaceHolder;)V
-    .registers 2
+    .locals 0
     .parameter "holder"
 
     .prologue
@@ -233,7 +233,7 @@
 .end method
 
 .method public surfaceDestroyed(Landroid/view/SurfaceHolder;)V
-    .registers 6
+    .locals 4
     .parameter "holder"
 
     .prologue
@@ -241,10 +241,10 @@
     monitor-enter p0
 
     .line 94
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/renderscript/RSSurfaceView;->mRS:Landroid/renderscript/RenderScriptGL;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 95
     iget-object v0, p0, Landroid/renderscript/RSSurfaceView;->mRS:Landroid/renderscript/RenderScriptGL;
@@ -258,19 +258,19 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/renderscript/RenderScriptGL;->setSurface(Landroid/view/SurfaceHolder;II)V
 
     .line 97
-    :cond_d
+    :cond_0
     monitor-exit p0
 
     .line 98
     return-void
 
     .line 97
-    :catchall_f
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_11
-    .catchall {:try_start_1 .. :try_end_11} :catchall_f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

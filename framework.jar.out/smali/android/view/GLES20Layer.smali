@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 29
@@ -30,7 +30,7 @@
 .end method
 
 .method constructor <init>(IIZ)V
-    .registers 4
+    .locals 0
     .parameter "width"
     .parameter "height"
     .parameter "opaque"
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method copyInto(Landroid/graphics/Bitmap;)Z
-    .registers 4
+    .locals 2
     .parameter "bitmap"
 
     .prologue
@@ -63,13 +63,13 @@
 .end method
 
 .method destroy()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 57
     iget-object v0, p0, Landroid/view/GLES20Layer;->mFinalizer:Landroid/view/GLES20Layer$Finalizer;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 58
     iget-object v0, p0, Landroid/view/GLES20Layer;->mFinalizer:Landroid/view/GLES20Layer$Finalizer;
@@ -82,7 +82,7 @@
     iput-object v0, p0, Landroid/view/GLES20Layer;->mFinalizer:Landroid/view/GLES20Layer$Finalizer;
 
     .line 61
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/view/GLES20Layer;->mLayer:I
@@ -92,13 +92,13 @@
 .end method
 
 .method flush()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 66
     iget v0, p0, Landroid/view/GLES20Layer;->mLayer:I
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 67
     iget v0, p0, Landroid/view/GLES20Layer;->mLayer:I
@@ -106,12 +106,12 @@
     invoke-static {v0}, Landroid/view/GLES20Canvas;->nFlushLayer(I)V
 
     .line 69
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public getLayer()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 42
@@ -121,7 +121,7 @@
 .end method
 
 .method update(IIZ)V
-    .registers 4
+    .locals 0
     .parameter "width"
     .parameter "height"
     .parameter "isOpaque"

@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 28
@@ -23,7 +23,7 @@
 
 # virtual methods
 .method public closeSystemDialogs(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "reason"
 
     .prologue
@@ -32,7 +32,7 @@
 .end method
 
 .method public dispatchAppVisibility(Z)V
-    .registers 2
+    .locals 0
     .parameter "visible"
 
     .prologue
@@ -41,7 +41,7 @@
 .end method
 
 .method public dispatchDragEvent(Landroid/view/DragEvent;)V
-    .registers 2
+    .locals 0
     .parameter "event"
 
     .prologue
@@ -50,7 +50,7 @@
 .end method
 
 .method public dispatchGetNewSurface()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 50
@@ -58,7 +58,7 @@
 .end method
 
 .method public dispatchScreenState(Z)V
-    .registers 2
+    .locals 0
     .parameter "on"
 
     .prologue
@@ -67,7 +67,7 @@
 .end method
 
 .method public dispatchSystemUiVisibilityChanged(IIII)V
-    .registers 5
+    .locals 0
     .parameter "seq"
     .parameter "globalUi"
     .parameter "localValue"
@@ -82,7 +82,7 @@
 .end method
 
 .method public dispatchWallpaperCommand(Ljava/lang/String;IIILandroid/os/Bundle;Z)V
-    .registers 10
+    .locals 3
     .parameter "action"
     .parameter "x"
     .parameter "y"
@@ -92,10 +92,10 @@
 
     .prologue
     .line 83
-    if-eqz p6, :cond_c
+    if-eqz p6, :cond_0
 
     .line 85
-    :try_start_2
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/view/BaseIWindow;->mSession:Landroid/view/IWindowSession;
 
     invoke-virtual {p0}, Lcom/android/internal/view/BaseIWindow;->asBinder()Landroid/os/IBinder;
@@ -105,23 +105,23 @@
     const/4 v2, 0x0
 
     invoke-interface {v0, v1, v2}, Landroid/view/IWindowSession;->wallpaperCommandComplete(Landroid/os/IBinder;Landroid/os/Bundle;)V
-    :try_end_c
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_c} :catch_d
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 89
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     return-void
 
     .line 86
-    :catch_d
+    :catch_0
     move-exception v0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public dispatchWallpaperOffsets(FFFFZ)V
-    .registers 8
+    .locals 2
     .parameter "x"
     .parameter "y"
     .parameter "xStep"
@@ -130,10 +130,10 @@
 
     .prologue
     .line 65
-    if-eqz p5, :cond_b
+    if-eqz p5, :cond_0
 
     .line 67
-    :try_start_2
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/view/BaseIWindow;->mSession:Landroid/view/IWindowSession;
 
     invoke-virtual {p0}, Lcom/android/internal/view/BaseIWindow;->asBinder()Landroid/os/IBinder;
@@ -141,23 +141,23 @@
     move-result-object v1
 
     invoke-interface {v0, v1}, Landroid/view/IWindowSession;->wallpaperOffsetsComplete(Landroid/os/IBinder;)V
-    :try_end_b
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_b} :catch_c
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 71
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return-void
 
     .line 68
-    :catch_c
+    :catch_0
     move-exception v0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public doneAnimating()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 92
@@ -165,7 +165,7 @@
 .end method
 
 .method public executeCommand(Ljava/lang/String;Ljava/lang/String;Landroid/os/ParcelFileDescriptor;)V
-    .registers 4
+    .locals 0
     .parameter "command"
     .parameter "parameters"
     .parameter "out"
@@ -176,7 +176,7 @@
 .end method
 
 .method public resized(IILandroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/content/res/Configuration;)V
-    .registers 8
+    .locals 1
     .parameter "w"
     .parameter "h"
     .parameter "contentInsets"
@@ -186,30 +186,30 @@
 
     .prologue
     .line 38
-    if-eqz p5, :cond_7
+    if-eqz p5, :cond_0
 
     .line 40
-    :try_start_2
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/view/BaseIWindow;->mSession:Landroid/view/IWindowSession;
 
     invoke-interface {v0, p0}, Landroid/view/IWindowSession;->finishDrawing(Landroid/view/IWindow;)V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 44
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     return-void
 
     .line 41
-    :catch_8
+    :catch_0
     move-exception v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setSession(Landroid/view/IWindowSession;)V
-    .registers 2
+    .locals 0
     .parameter "session"
 
     .prologue
@@ -221,7 +221,7 @@
 .end method
 
 .method public windowFocusChanged(ZZ)V
-    .registers 3
+    .locals 0
     .parameter "hasFocus"
     .parameter "touchEnabled"
 

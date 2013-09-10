@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 32
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .registers 4
+    .locals 2
     .parameter "inputStream"
 
     .prologue
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method public close()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -122,123 +122,123 @@
     const/4 v2, 0x0
 
     .line 107
-    :try_start_2
+    :try_start_0
     iget-object v0, p0, Landroid/media/AmrInputStream;->mInputStream:Ljava/io/InputStream;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/media/AmrInputStream;->mInputStream:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
-    :try_end_b
-    .catchall {:try_start_2 .. :try_end_b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 109
-    :cond_b
+    :cond_0
     iput-object v1, p0, Landroid/media/AmrInputStream;->mInputStream:Ljava/io/InputStream;
 
     .line 111
-    :try_start_d
+    :try_start_1
     iget v0, p0, Landroid/media/AmrInputStream;->mGae:I
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_1
 
     iget v0, p0, Landroid/media/AmrInputStream;->mGae:I
 
     invoke-static {v0}, Landroid/media/AmrInputStream;->GsmAmrEncoderCleanup(I)V
-    :try_end_16
-    .catchall {:try_start_d .. :try_end_16} :catchall_4f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_4
 
     .line 114
-    :cond_16
-    :try_start_16
+    :cond_1
+    :try_start_2
     iget v0, p0, Landroid/media/AmrInputStream;->mGae:I
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_2
 
     iget v0, p0, Landroid/media/AmrInputStream;->mGae:I
 
     invoke-static {v0}, Landroid/media/AmrInputStream;->GsmAmrEncoderDelete(I)V
-    :try_end_1f
-    .catchall {:try_start_16 .. :try_end_1f} :catchall_60
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_6
 
     .line 116
-    :cond_1f
+    :cond_2
     iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
 
     .line 120
     return-void
 
     .line 109
-    :catchall_22
+    :catchall_0
     move-exception v0
 
     iput-object v1, p0, Landroid/media/AmrInputStream;->mInputStream:Ljava/io/InputStream;
 
     .line 111
-    :try_start_25
+    :try_start_3
     iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
 
-    if-eqz v1, :cond_2e
+    if-eqz v1, :cond_3
 
     iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
 
     invoke-static {v1}, Landroid/media/AmrInputStream;->GsmAmrEncoderCleanup(I)V
-    :try_end_2e
-    .catchall {:try_start_25 .. :try_end_2e} :catchall_3a
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     .line 114
-    :cond_2e
-    :try_start_2e
+    :cond_3
+    :try_start_4
     iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
 
-    if-eqz v1, :cond_37
+    if-eqz v1, :cond_4
 
     iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
 
     invoke-static {v1}, Landroid/media/AmrInputStream;->GsmAmrEncoderDelete(I)V
-    :try_end_37
-    .catchall {:try_start_2e .. :try_end_37} :catchall_4b
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_3
 
     .line 116
-    :cond_37
+    :cond_4
     iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
 
     .line 109
     throw v0
 
     .line 113
-    :catchall_3a
+    :catchall_1
     move-exception v0
 
     .line 114
-    :try_start_3b
+    :try_start_5
     iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
 
-    if-eqz v1, :cond_44
+    if-eqz v1, :cond_5
 
     iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
 
     invoke-static {v1}, Landroid/media/AmrInputStream;->GsmAmrEncoderDelete(I)V
-    :try_end_44
-    .catchall {:try_start_3b .. :try_end_44} :catchall_47
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
     .line 116
-    :cond_44
+    :cond_5
     iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
 
     .line 113
     throw v0
 
     .line 116
-    :catchall_47
+    :catchall_2
     move-exception v0
 
     iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
 
     throw v0
 
-    :catchall_4b
+    :catchall_3
     move-exception v0
 
     iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
@@ -246,37 +246,37 @@
     throw v0
 
     .line 113
-    :catchall_4f
+    :catchall_4
     move-exception v0
 
     .line 114
-    :try_start_50
+    :try_start_6
     iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
 
-    if-eqz v1, :cond_59
+    if-eqz v1, :cond_6
 
     iget v1, p0, Landroid/media/AmrInputStream;->mGae:I
 
     invoke-static {v1}, Landroid/media/AmrInputStream;->GsmAmrEncoderDelete(I)V
-    :try_end_59
-    .catchall {:try_start_50 .. :try_end_59} :catchall_5c
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_5
 
     .line 116
-    :cond_59
+    :cond_6
     iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
 
     .line 113
     throw v0
 
     .line 116
-    :catchall_5c
+    :catchall_5
     move-exception v0
 
     iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
 
     throw v0
 
-    :catchall_60
+    :catchall_6
     move-exception v0
 
     iput v2, p0, Landroid/media/AmrInputStream;->mGae:I
@@ -285,7 +285,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -296,7 +296,7 @@
     .line 124
     iget v0, p0, Landroid/media/AmrInputStream;->mGae:I
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 125
     invoke-virtual {p0}, Landroid/media/AmrInputStream;->close()V
@@ -311,12 +311,12 @@
     throw v0
 
     .line 128
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method public read()I
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -337,7 +337,7 @@
 
     .line 67
     .local v0, rtn:I
-    if-ne v0, v3, :cond_11
+    if-ne v0, v3, :cond_0
 
     iget-object v1, p0, Landroid/media/AmrInputStream;->mOneByte:[B
 
@@ -345,17 +345,17 @@
 
     and-int/lit16 v1, v1, 0xff
 
-    :goto_10
+    :goto_0
     return v1
 
-    :cond_11
+    :cond_0
     const/4 v1, -0x1
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public read([B)I
-    .registers 4
+    .locals 2
     .parameter "b"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -377,7 +377,7 @@
 .end method
 
 .method public read([BII)I
-    .registers 11
+    .locals 7
     .parameter "b"
     .parameter "offset"
     .parameter "length"
@@ -395,7 +395,7 @@
     .line 77
     iget v3, p0, Landroid/media/AmrInputStream;->mGae:I
 
-    if-nez v3, :cond_f
+    if-nez v3, :cond_0
 
     new-instance v2, Ljava/lang/IllegalStateException;
 
@@ -406,12 +406,12 @@
     throw v2
 
     .line 80
-    :cond_f
+    :cond_0
     iget v3, p0, Landroid/media/AmrInputStream;->mBufOut:I
 
     iget v4, p0, Landroid/media/AmrInputStream;->mBufIn:I
 
-    if-lt v3, v4, :cond_39
+    if-lt v3, v4, :cond_3
 
     .line 82
     iput v6, p0, Landroid/media/AmrInputStream;->mBufOut:I
@@ -423,10 +423,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1a
+    :goto_0
     const/16 v3, 0x140
 
-    if-ge v0, v3, :cond_2d
+    if-ge v0, v3, :cond_2
 
     .line 87
     iget-object v3, p0, Landroid/media/AmrInputStream;->mInputStream:Ljava/io/InputStream;
@@ -441,26 +441,26 @@
 
     .line 88
     .local v1, n:I
-    if-ne v1, v2, :cond_2b
+    if-ne v1, v2, :cond_1
 
     .line 101
     .end local v0           #i:I
     .end local v1           #n:I
-    :goto_2a
+    :goto_1
     return v2
 
     .line 89
     .restart local v0       #i:I
     .restart local v1       #n:I
-    :cond_2b
+    :cond_1
     add-int/2addr v0, v1
 
     .line 90
-    goto :goto_1a
+    goto :goto_0
 
     .line 93
     .end local v1           #n:I
-    :cond_2d
+    :cond_2
     iget v2, p0, Landroid/media/AmrInputStream;->mGae:I
 
     iget-object v3, p0, Landroid/media/AmrInputStream;->mBuf:[B
@@ -475,14 +475,14 @@
 
     .line 97
     .end local v0           #i:I
-    :cond_39
+    :cond_3
     iget v2, p0, Landroid/media/AmrInputStream;->mBufIn:I
 
     iget v3, p0, Landroid/media/AmrInputStream;->mBufOut:I
 
     sub-int/2addr v2, v3
 
-    if-le p3, v2, :cond_46
+    if-le p3, v2, :cond_4
 
     iget v2, p0, Landroid/media/AmrInputStream;->mBufIn:I
 
@@ -491,7 +491,7 @@
     sub-int p3, v2, v3
 
     .line 98
-    :cond_46
+    :cond_4
     iget-object v2, p0, Landroid/media/AmrInputStream;->mBuf:[B
 
     iget v3, p0, Landroid/media/AmrInputStream;->mBufOut:I
@@ -508,5 +508,5 @@
     move v2, p3
 
     .line 101
-    goto :goto_2a
+    goto :goto_1
 .end method

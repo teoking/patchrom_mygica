@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/inputmethod/InputMethodManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public actionPerformed(I)V
-    .registers 2
+    .locals 0
     .parameter "id"
 
     .prologue
@@ -44,7 +44,7 @@
 .end method
 
 .method public passString(Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "szText"
 
     .prologue

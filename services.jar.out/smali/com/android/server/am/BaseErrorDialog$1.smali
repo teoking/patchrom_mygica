@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/BaseErrorDialog;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,20 +35,21 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
     .line 72
     iget v0, p1, Landroid/os/Message;->what:I
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 73
     iget-object v0, p0, Lcom/android/server/am/BaseErrorDialog$1;->this$0:Lcom/android/server/am/BaseErrorDialog;
 
     const/4 v1, 0x0
 
+    #setter for: Lcom/android/server/am/BaseErrorDialog;->mConsuming:Z
     invoke-static {v0, v1}, Lcom/android/server/am/BaseErrorDialog;->access$002(Lcom/android/server/am/BaseErrorDialog;Z)Z
 
     .line 74
@@ -56,9 +57,10 @@
 
     const/4 v1, 0x1
 
+    #calls: Lcom/android/server/am/BaseErrorDialog;->setEnabled(Z)V
     invoke-static {v0, v1}, Lcom/android/server/am/BaseErrorDialog;->access$100(Lcom/android/server/am/BaseErrorDialog;Z)V
 
     .line 76
-    :cond_10
+    :cond_0
     return-void
 .end method

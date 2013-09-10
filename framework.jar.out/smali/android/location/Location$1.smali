@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 698
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/location/Location;
-    .registers 9
+    .locals 7
     .parameter "in"
 
     .prologue
@@ -66,6 +66,7 @@
 
     move-result-wide v5
 
+    #setter for: Landroid/location/Location;->mTime:J
     invoke-static {v0, v5, v6}, Landroid/location/Location;->access$002(Landroid/location/Location;J)J
 
     .line 703
@@ -73,6 +74,7 @@
 
     move-result-wide v5
 
+    #setter for: Landroid/location/Location;->mLatitude:D
     invoke-static {v0, v5, v6}, Landroid/location/Location;->access$102(Landroid/location/Location;D)D
 
     .line 704
@@ -80,6 +82,7 @@
 
     move-result-wide v5
 
+    #setter for: Landroid/location/Location;->mLongitude:D
     invoke-static {v0, v5, v6}, Landroid/location/Location;->access$202(Landroid/location/Location;D)D
 
     .line 705
@@ -87,11 +90,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6b
+    if-eqz v2, :cond_0
 
     move v2, v3
 
-    :goto_27
+    :goto_0
+    #setter for: Landroid/location/Location;->mHasAltitude:Z
     invoke-static {v0, v2}, Landroid/location/Location;->access$302(Landroid/location/Location;Z)Z
 
     .line 706
@@ -99,6 +103,7 @@
 
     move-result-wide v5
 
+    #setter for: Landroid/location/Location;->mAltitude:D
     invoke-static {v0, v5, v6}, Landroid/location/Location;->access$402(Landroid/location/Location;D)D
 
     .line 707
@@ -106,11 +111,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6d
+    if-eqz v2, :cond_1
 
     move v2, v3
 
-    :goto_38
+    :goto_1
+    #setter for: Landroid/location/Location;->mHasSpeed:Z
     invoke-static {v0, v2}, Landroid/location/Location;->access$502(Landroid/location/Location;Z)Z
 
     .line 708
@@ -118,6 +124,7 @@
 
     move-result v2
 
+    #setter for: Landroid/location/Location;->mSpeed:F
     invoke-static {v0, v2}, Landroid/location/Location;->access$602(Landroid/location/Location;F)F
 
     .line 709
@@ -125,11 +132,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6f
+    if-eqz v2, :cond_2
 
     move v2, v3
 
-    :goto_49
+    :goto_2
+    #setter for: Landroid/location/Location;->mHasBearing:Z
     invoke-static {v0, v2}, Landroid/location/Location;->access$702(Landroid/location/Location;Z)Z
 
     .line 710
@@ -137,6 +145,7 @@
 
     move-result v2
 
+    #setter for: Landroid/location/Location;->mBearing:F
     invoke-static {v0, v2}, Landroid/location/Location;->access$802(Landroid/location/Location;F)F
 
     .line 711
@@ -144,9 +153,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_71
+    if-eqz v2, :cond_3
 
-    :goto_59
+    :goto_3
+    #setter for: Landroid/location/Location;->mHasAccuracy:Z
     invoke-static {v0, v3}, Landroid/location/Location;->access$902(Landroid/location/Location;Z)Z
 
     .line 712
@@ -154,6 +164,7 @@
 
     move-result v2
 
+    #setter for: Landroid/location/Location;->mAccuracy:F
     invoke-static {v0, v2}, Landroid/location/Location;->access$1002(Landroid/location/Location;F)F
 
     .line 713
@@ -161,38 +172,39 @@
 
     move-result-object v2
 
+    #setter for: Landroid/location/Location;->mExtras:Landroid/os/Bundle;
     invoke-static {v0, v2}, Landroid/location/Location;->access$1102(Landroid/location/Location;Landroid/os/Bundle;)Landroid/os/Bundle;
 
     .line 714
     return-object v0
 
-    :cond_6b
+    :cond_0
     move v2, v4
 
     .line 705
-    goto :goto_27
+    goto :goto_0
 
-    :cond_6d
+    :cond_1
     move v2, v4
 
     .line 707
-    goto :goto_38
+    goto :goto_1
 
-    :cond_6f
+    :cond_2
     move v2, v4
 
     .line 709
-    goto :goto_49
+    goto :goto_2
 
-    :cond_71
+    :cond_3
     move v3, v4
 
     .line 711
-    goto :goto_59
+    goto :goto_3
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -205,7 +217,7 @@
 .end method
 
 .method public newArray(I)[Landroid/location/Location;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -216,7 +228,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

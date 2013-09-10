@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/FastScroller;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 134
@@ -48,7 +48,7 @@
 
     iget-boolean v2, v2, Landroid/widget/AbsListView;->mIsAttached:Z
 
-    if-eqz v2, :cond_3a
+    if-eqz v2, :cond_1
 
     .line 135
     iget-object v2, p0, Landroid/widget/FastScroller$1;->this$0:Landroid/widget/FastScroller;
@@ -82,14 +82,14 @@
 
     .line 140
     .local v0, newThumbY:I
-    if-gez v0, :cond_40
+    if-gez v0, :cond_2
 
     .line 141
     const/4 v0, 0x0
 
     .line 145
-    :cond_24
-    :goto_24
+    :cond_0
+    :goto_0
     iget-object v2, p0, Landroid/widget/FastScroller$1;->this$0:Landroid/widget/FastScroller;
 
     iput v0, v2, Landroid/widget/FastScroller;->mThumbY:I
@@ -118,7 +118,7 @@
     .line 149
     .end local v0           #newThumbY:I
     .end local v1           #viewHeight:I
-    :cond_3a
+    :cond_1
     iget-object v2, p0, Landroid/widget/FastScroller$1;->this$0:Landroid/widget/FastScroller;
 
     const/4 v3, 0x0
@@ -131,14 +131,14 @@
     .line 142
     .restart local v0       #newThumbY:I
     .restart local v1       #viewHeight:I
-    :cond_40
+    :cond_2
     iget-object v2, p0, Landroid/widget/FastScroller$1;->this$0:Landroid/widget/FastScroller;
 
     iget v2, v2, Landroid/widget/FastScroller;->mThumbH:I
 
     add-int/2addr v2, v0
 
-    if-le v2, v1, :cond_24
+    if-le v2, v1, :cond_0
 
     .line 143
     iget-object v2, p0, Landroid/widget/FastScroller$1;->this$0:Landroid/widget/FastScroller;
@@ -147,5 +147,5 @@
 
     sub-int v0, v1, v2
 
-    goto :goto_24
+    goto :goto_0
 .end method

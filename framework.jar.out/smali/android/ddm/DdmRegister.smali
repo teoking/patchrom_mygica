@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 28
@@ -15,7 +15,7 @@
 .end method
 
 .method public static registerHandlers()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 48

@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/FilterContext;Landroid/filterfw/core/FilterGraph;Ljava/lang/Class;)V
-    .registers 9
+    .locals 5
     .parameter "context"
     .parameter "graph"
     .parameter "schedulerClass"
@@ -73,7 +73,7 @@
     .line 50
     iget-boolean v2, p0, Landroid/filterfw/core/SyncRunner;->mLogVerbose:Z
 
-    if-eqz v2, :cond_2d
+    if-eqz v2, :cond_0
 
     const-string v2, "SyncRunner"
 
@@ -82,19 +82,19 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 53
-    :cond_2d
+    :cond_0
     const-class v2, Landroid/filterfw/core/Scheduler;
 
     invoke-virtual {v2, p3}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_99
+    if-eqz v2, :cond_2
 
     .line 55
     const/4 v2, 0x1
 
-    :try_start_36
+    :try_start_0
     new-array v2, v2, [Ljava/lang/Class;
 
     const/4 v3, 0x0
@@ -124,12 +124,12 @@
     check-cast v2, Landroid/filterfw/core/Scheduler;
 
     iput-object v2, p0, Landroid/filterfw/core/SyncRunner;->mScheduler:Landroid/filterfw/core/Scheduler;
-    :try_end_4f
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_36 .. :try_end_4f} :catch_6c
-    .catch Ljava/lang/InstantiationException; {:try_start_36 .. :try_end_4f} :catch_75
-    .catch Ljava/lang/IllegalAccessException; {:try_start_36 .. :try_end_4f} :catch_7e
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_36 .. :try_end_4f} :catch_87
-    .catch Ljava/lang/Exception; {:try_start_36 .. :try_end_4f} :catch_90
+    :try_end_0
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_3
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_4
 
     .line 73
     iput-object p1, p0, Landroid/filterfw/core/GraphRunner;->mFilterContext:Landroid/filterfw/core/FilterContext;
@@ -149,7 +149,7 @@
     .line 78
     iget-boolean v2, p0, Landroid/filterfw/core/SyncRunner;->mLogVerbose:Z
 
-    if-eqz v2, :cond_68
+    if-eqz v2, :cond_1
 
     const-string v2, "SyncRunner"
 
@@ -158,7 +158,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 81
-    :cond_68
+    :cond_1
     invoke-virtual {p2}, Landroid/filterfw/core/FilterGraph;->setupFilters()V
 
     .line 82
@@ -166,7 +166,7 @@
 
     .line 57
     .end local v1           #schedulerConstructor:Ljava/lang/reflect/Constructor;
-    :catch_6c
+    :catch_0
     move-exception v0
 
     .line 58
@@ -181,7 +181,7 @@
 
     .line 59
     .end local v0           #e:Ljava/lang/NoSuchMethodException;
-    :catch_75
+    :catch_1
     move-exception v0
 
     .line 60
@@ -196,7 +196,7 @@
 
     .line 61
     .end local v0           #e:Ljava/lang/InstantiationException;
-    :catch_7e
+    :catch_2
     move-exception v0
 
     .line 62
@@ -211,7 +211,7 @@
 
     .line 63
     .end local v0           #e:Ljava/lang/IllegalAccessException;
-    :catch_87
+    :catch_3
     move-exception v0
 
     .line 64
@@ -226,7 +226,7 @@
 
     .line 65
     .end local v0           #e:Ljava/lang/reflect/InvocationTargetException;
-    :catch_90
+    :catch_4
     move-exception v0
 
     .line 66
@@ -241,7 +241,7 @@
 
     .line 69
     .end local v0           #e:Ljava/lang/Exception;
-    :cond_99
+    :cond_2
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Class provided is not a Scheduler subclass!"
@@ -254,13 +254,13 @@
 
 # virtual methods
 .method assertReadyToStep()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 221
     iget-object v0, p0, Landroid/filterfw/core/SyncRunner;->mScheduler:Landroid/filterfw/core/Scheduler;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 222
     new-instance v0, Ljava/lang/RuntimeException;
@@ -272,12 +272,12 @@
     throw v0
 
     .line 223
-    :cond_c
+    :cond_0
     invoke-virtual {p0}, Landroid/filterfw/core/SyncRunner;->getGraph()Landroid/filterfw/core/FilterGraph;
 
     move-result-object v0
 
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_1
 
     .line 224
     new-instance v0, Ljava/lang/RuntimeException;
@@ -289,12 +289,12 @@
     throw v0
 
     .line 226
-    :cond_1a
+    :cond_1
     return-void
 .end method
 
 .method public beginProcessing()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 98
@@ -314,13 +314,13 @@
 .end method
 
 .method public close()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 104
     iget-boolean v0, p0, Landroid/filterfw/core/SyncRunner;->mLogVerbose:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     const-string v0, "SyncRunner"
 
@@ -329,7 +329,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 105
-    :cond_b
+    :cond_0
     invoke-virtual {p0}, Landroid/filterfw/core/SyncRunner;->getGraph()Landroid/filterfw/core/FilterGraph;
 
     move-result-object v0
@@ -348,7 +348,7 @@
 .end method
 
 .method protected determinePostRunState()I
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v3, 0x4
@@ -373,12 +373,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :cond_10
+    :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2a
+    if-eqz v4, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -392,32 +392,32 @@
 
     move-result v4
 
-    if-eqz v4, :cond_10
+    if-eqz v4, :cond_0
 
     .line 194
     invoke-virtual {v0}, Landroid/filterfw/core/Filter;->getStatus()I
 
     move-result v4
 
-    if-ne v4, v3, :cond_29
+    if-ne v4, v3, :cond_1
 
     .line 196
     const/4 v3, 0x3
 
     .line 203
     .end local v0           #filter:Landroid/filterfw/core/Filter;
-    :cond_29
-    :goto_29
+    :cond_1
+    :goto_0
     return v3
 
-    :cond_2a
+    :cond_2
     const/4 v3, 0x2
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method public declared-synchronized getError()Ljava/lang/Exception;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 155
@@ -431,13 +431,13 @@
 .end method
 
 .method public getGraph()Landroid/filterfw/core/FilterGraph;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 86
     iget-object v0, p0, Landroid/filterfw/core/SyncRunner;->mScheduler:Landroid/filterfw/core/Scheduler;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/filterfw/core/SyncRunner;->mScheduler:Landroid/filterfw/core/Scheduler;
 
@@ -445,17 +445,17 @@
 
     move-result-object v0
 
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public isRunning()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 140
@@ -465,13 +465,13 @@
 .end method
 
 .method performStep()Z
-    .registers 4
+    .locals 3
 
     .prologue
     .line 208
     iget-boolean v1, p0, Landroid/filterfw/core/SyncRunner;->mLogVerbose:Z
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
     const-string v1, "SyncRunner"
 
@@ -480,7 +480,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 209
-    :cond_b
+    :cond_0
     iget-object v1, p0, Landroid/filterfw/core/SyncRunner;->mScheduler:Landroid/filterfw/core/Scheduler;
 
     invoke-virtual {v1}, Landroid/filterfw/core/Scheduler;->scheduleNextNode()Landroid/filterfw/core/Filter;
@@ -489,7 +489,7 @@
 
     .line 210
     .local v0, filter:Landroid/filterfw/core/Filter;
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_1
 
     .line 211
     iget-object v1, p0, Landroid/filterfw/core/SyncRunner;->mTimer:Landroid/filterfw/core/StopWatchMap;
@@ -516,24 +516,24 @@
     const/4 v1, 0x1
 
     .line 216
-    :goto_29
+    :goto_0
     return v1
 
-    :cond_2a
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method protected processFilterNode(Landroid/filterfw/core/Filter;)V
-    .registers 5
+    .locals 3
     .parameter "filter"
 
     .prologue
     .line 163
     iget-boolean v0, p0, Landroid/filterfw/core/SyncRunner;->mLogVerbose:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     const-string v0, "SyncRunner"
 
@@ -542,7 +542,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 164
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/filterfw/core/GraphRunner;->mFilterContext:Landroid/filterfw/core/FilterContext;
 
     invoke-virtual {p1, v0}, Landroid/filterfw/core/Filter;->performProcess(Landroid/filterfw/core/FilterContext;)V
@@ -554,7 +554,7 @@
 
     const/4 v1, 0x6
 
-    if-ne v0, v1, :cond_36
+    if-ne v0, v1, :cond_1
 
     .line 166
     new-instance v0, Ljava/lang/RuntimeException;
@@ -588,19 +588,19 @@
     throw v0
 
     .line 167
-    :cond_36
+    :cond_1
     invoke-virtual {p1}, Landroid/filterfw/core/Filter;->getStatus()I
 
     move-result v0
 
     const/4 v1, 0x4
 
-    if-ne v0, v1, :cond_4f
+    if-ne v0, v1, :cond_3
 
     .line 168
     iget-boolean v0, p0, Landroid/filterfw/core/SyncRunner;->mLogVerbose:Z
 
-    if-eqz v0, :cond_48
+    if-eqz v0, :cond_2
 
     const-string v0, "SyncRunner"
 
@@ -609,7 +609,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 169
-    :cond_48
+    :cond_2
     invoke-virtual {p1}, Landroid/filterfw/core/Filter;->getSleepDelay()I
 
     move-result v0
@@ -617,18 +617,18 @@
     invoke-virtual {p0, p1, v0}, Landroid/filterfw/core/SyncRunner;->scheduleFilterWake(Landroid/filterfw/core/Filter;I)V
 
     .line 171
-    :cond_4f
+    :cond_3
     return-void
 .end method
 
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 111
     iget-boolean v2, p0, Landroid/filterfw/core/SyncRunner;->mLogVerbose:Z
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_0
 
     const-string v2, "SyncRunner"
 
@@ -637,7 +637,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 113
-    :cond_b
+    :cond_0
     invoke-virtual {p0}, Landroid/filterfw/core/SyncRunner;->assertReadyToStep()V
 
     .line 116
@@ -654,33 +654,33 @@
 
     .line 121
     .local v1, keepRunning:Z
-    :goto_16
-    if-eqz v1, :cond_1d
+    :goto_0
+    if-eqz v1, :cond_1
 
     .line 122
     invoke-virtual {p0}, Landroid/filterfw/core/SyncRunner;->performStep()Z
 
     move-result v1
 
-    goto :goto_16
+    goto :goto_0
 
     .line 126
-    :cond_1d
-    if-eqz v0, :cond_22
+    :cond_1
+    if-eqz v0, :cond_2
 
     .line 127
     invoke-virtual {p0}, Landroid/filterfw/core/SyncRunner;->deactivateGlContext()V
 
     .line 131
-    :cond_22
+    :cond_2
     iget-object v2, p0, Landroid/filterfw/core/SyncRunner;->mDoneListener:Landroid/filterfw/core/GraphRunner$OnRunnerDoneListener;
 
-    if-eqz v2, :cond_3a
+    if-eqz v2, :cond_4
 
     .line 132
     iget-boolean v2, p0, Landroid/filterfw/core/SyncRunner;->mLogVerbose:Z
 
-    if-eqz v2, :cond_31
+    if-eqz v2, :cond_3
 
     const-string v2, "SyncRunner"
 
@@ -689,7 +689,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 133
-    :cond_31
+    :cond_3
     iget-object v2, p0, Landroid/filterfw/core/SyncRunner;->mDoneListener:Landroid/filterfw/core/GraphRunner$OnRunnerDoneListener;
 
     invoke-virtual {p0}, Landroid/filterfw/core/SyncRunner;->determinePostRunState()I
@@ -699,10 +699,10 @@
     invoke-interface {v2, v3}, Landroid/filterfw/core/GraphRunner$OnRunnerDoneListener;->onRunnerDone(I)V
 
     .line 135
-    :cond_3a
+    :cond_4
     iget-boolean v2, p0, Landroid/filterfw/core/SyncRunner;->mLogVerbose:Z
 
-    if-eqz v2, :cond_45
+    if-eqz v2, :cond_5
 
     const-string v2, "SyncRunner"
 
@@ -711,12 +711,12 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 136
-    :cond_45
+    :cond_5
     return-void
 .end method
 
 .method protected scheduleFilterWake(Landroid/filterfw/core/Filter;I)V
-    .registers 10
+    .locals 7
     .parameter "filter"
     .parameter "delay"
 
@@ -752,7 +752,7 @@
 .end method
 
 .method public setDoneCallback(Landroid/filterfw/core/GraphRunner$OnRunnerDoneListener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue
@@ -764,7 +764,7 @@
 .end method
 
 .method public step()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 90
@@ -779,7 +779,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_0
 
     .line 92
     new-instance v0, Ljava/lang/RuntimeException;
@@ -791,28 +791,28 @@
     throw v0
 
     .line 94
-    :cond_15
+    :cond_0
     invoke-virtual {p0}, Landroid/filterfw/core/SyncRunner;->performStep()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_1
 
     const/4 v0, 0x1
 
-    :goto_1c
+    :goto_0
     return v0
 
-    :cond_1d
+    :cond_1
     invoke-virtual {p0}, Landroid/filterfw/core/SyncRunner;->determinePostRunState()I
 
     move-result v0
 
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 .method public stop()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 150
@@ -826,7 +826,7 @@
 .end method
 
 .method protected waitUntilWake()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 159

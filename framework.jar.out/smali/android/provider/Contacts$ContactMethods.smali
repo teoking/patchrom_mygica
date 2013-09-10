@@ -132,7 +132,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1472
@@ -157,7 +157,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1391
@@ -167,31 +167,31 @@
 .end method
 
 .method public static decodeImProtocol(Ljava/lang/String;)Ljava/lang/Object;
-    .registers 4
+    .locals 3
     .parameter "encodedString"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .prologue
     .line 1320
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 1321
     const/4 v0, 0x0
 
     .line 1329
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 1324
-    :cond_4
+    :cond_0
     const-string/jumbo v0, "pre:"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_1
 
     .line 1325
     const/4 v0, 0x4
@@ -208,17 +208,17 @@
 
     move-result-object v0
 
-    goto :goto_3
+    goto :goto_0
 
     .line 1328
-    :cond_1b
+    :cond_1
     const-string v0, "custom:"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_29
+    if-eqz v0, :cond_2
 
     .line 1329
     const/4 v0, 0x7
@@ -227,10 +227,10 @@
 
     move-result-object v0
 
-    goto :goto_3
+    goto :goto_0
 
     .line 1332
-    :cond_29
+    :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -257,7 +257,7 @@
 .end method
 
 .method public static encodeCustomImProtocol(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "protocolString"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -286,7 +286,7 @@
 .end method
 
 .method public static encodePredefinedImProtocol(I)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "protocol"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -315,7 +315,7 @@
 .end method
 
 .method public static final getDisplayLabel(Landroid/content/Context;IILjava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .registers 10
+    .locals 6
     .parameter "context"
     .parameter "kind"
     .parameter "type"
@@ -331,7 +331,7 @@
 
     .line 1400
     .local v0, display:Ljava/lang/CharSequence;
-    packed-switch p1, :pswitch_data_4a
+    packed-switch p1, :pswitch_data_0
 
     .line 1436
     const v3, 0x104000f
@@ -341,13 +341,13 @@
     move-result-object v0
 
     .line 1438
-    :cond_d
-    :goto_d
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 1402
-    :pswitch_e
-    if-eqz p2, :cond_23
+    :pswitch_0
+    if-eqz p2, :cond_1
 
     .line 1403
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -364,41 +364,41 @@
     .local v2, labels:[Ljava/lang/CharSequence;
     add-int/lit8 v3, p2, -0x1
 
-    :try_start_1c
+    :try_start_0
     aget-object v0, v2, v3
-    :try_end_1e
-    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_1c .. :try_end_1e} :catch_1f
+    :try_end_0
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_d
+    goto :goto_0
 
     .line 1407
-    :catch_1f
+    :catch_0
     move-exception v1
 
     .line 1408
     .local v1, e:Ljava/lang/ArrayIndexOutOfBoundsException;
     aget-object v0, v2, v5
 
-    goto :goto_d
+    goto :goto_0
 
     .line 1411
     .end local v1           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
     .end local v2           #labels:[Ljava/lang/CharSequence;
-    :cond_23
+    :cond_1
     invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_d
+    if-nez v3, :cond_0
 
     .line 1412
     move-object v0, p3
 
-    goto :goto_d
+    goto :goto_0
 
     .line 1419
-    :pswitch_2b
-    if-eqz p2, :cond_41
+    :pswitch_1
+    if-eqz p2, :cond_2
 
     .line 1420
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -415,132 +415,132 @@
     .restart local v2       #labels:[Ljava/lang/CharSequence;
     add-int/lit8 v3, p2, -0x1
 
-    :try_start_3a
+    :try_start_1
     aget-object v0, v2, v3
-    :try_end_3c
-    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_3a .. :try_end_3c} :catch_3d
+    :try_end_1
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto :goto_d
+    goto :goto_0
 
     .line 1424
-    :catch_3d
+    :catch_1
     move-exception v1
 
     .line 1425
     .restart local v1       #e:Ljava/lang/ArrayIndexOutOfBoundsException;
     aget-object v0, v2, v5
 
-    goto :goto_d
+    goto :goto_0
 
     .line 1428
     .end local v1           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
     .end local v2           #labels:[Ljava/lang/CharSequence;
-    :cond_41
+    :cond_2
     invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_d
+    if-nez v3, :cond_0
 
     .line 1429
     move-object v0, p3
 
-    goto :goto_d
+    goto :goto_0
 
     .line 1400
     nop
 
-    :pswitch_data_4a
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_e
-        :pswitch_2b
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public static lookupProviderNameFromId(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "protocol"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .prologue
     .line 1367
-    packed-switch p0, :pswitch_data_1e
+    packed-switch p0, :pswitch_data_0
 
     .line 1385
     const/4 v0, 0x0
 
-    :goto_4
+    :goto_0
     return-object v0
 
     .line 1369
-    :pswitch_5
+    :pswitch_0
     const-string v0, "GTalk"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 1371
-    :pswitch_8
+    :pswitch_1
     const-string v0, "AIM"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 1373
-    :pswitch_b
+    :pswitch_2
     const-string v0, "MSN"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 1375
-    :pswitch_e
+    :pswitch_3
     const-string v0, "Yahoo"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 1377
-    :pswitch_11
+    :pswitch_4
     const-string v0, "ICQ"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 1379
-    :pswitch_14
+    :pswitch_5
     const-string v0, "JABBER"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 1381
-    :pswitch_17
+    :pswitch_6
     const-string v0, "SKYPE"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 1383
-    :pswitch_1a
+    :pswitch_7
     const-string v0, "QQ"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 1367
     nop
 
-    :pswitch_data_1e
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_8
-        :pswitch_b
-        :pswitch_e
-        :pswitch_17
-        :pswitch_1a
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_6
+        :pswitch_7
+        :pswitch_0
+        :pswitch_4
         :pswitch_5
-        :pswitch_11
-        :pswitch_14
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public addPostalLocation(Landroid/content/Context;JDD)V
-    .registers 16
+    .locals 8
     .parameter "context"
     .parameter "postalId"
     .parameter "latitude"

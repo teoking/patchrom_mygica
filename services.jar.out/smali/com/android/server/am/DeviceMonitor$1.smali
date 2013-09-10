@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/DeviceMonitor;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,12 +35,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 49
     iget-object v0, p0, Lcom/android/server/am/DeviceMonitor$1;->this$0:Lcom/android/server/am/DeviceMonitor;
 
+    #calls: Lcom/android/server/am/DeviceMonitor;->monitor()V
     invoke-static {v0}, Lcom/android/server/am/DeviceMonitor;->access$000(Lcom/android/server/am/DeviceMonitor;)V
 
     .line 50

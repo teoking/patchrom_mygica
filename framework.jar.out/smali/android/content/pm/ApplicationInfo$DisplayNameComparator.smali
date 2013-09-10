@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/pm/PackageManager;)V
-    .registers 3
+    .locals 1
     .parameter "pm"
 
     .prologue
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public final compare(Landroid/content/pm/ApplicationInfo;Landroid/content/pm/ApplicationInfo;)I
-    .registers 8
+    .locals 5
     .parameter "aa"
     .parameter "ab"
 
@@ -73,13 +73,13 @@
 
     .line 501
     .local v0, sa:Ljava/lang/CharSequence;
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     .line 502
     iget-object v0, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     .line 504
-    :cond_a
+    :cond_0
     iget-object v2, p0, Landroid/content/pm/ApplicationInfo$DisplayNameComparator;->mPM:Landroid/content/pm/PackageManager;
 
     invoke-virtual {v2, p2}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
@@ -88,13 +88,13 @@
 
     .line 505
     .local v1, sb:Ljava/lang/CharSequence;
-    if-nez v1, :cond_14
+    if-nez v1, :cond_1
 
     .line 506
     iget-object v1, p2, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     .line 509
-    :cond_14
+    :cond_1
     iget-object v2, p0, Landroid/content/pm/ApplicationInfo$DisplayNameComparator;->sCollator:Ljava/text/Collator;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -113,7 +113,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 

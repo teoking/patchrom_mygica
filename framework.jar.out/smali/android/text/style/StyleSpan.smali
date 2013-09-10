@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "style"
 
     .prologue
@@ -27,7 +27,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "src"
 
     .prologue
@@ -46,7 +46,7 @@
 .end method
 
 .method private static apply(Landroid/graphics/Paint;I)V
-    .registers 8
+    .locals 6
     .parameter "paint"
     .parameter "style"
 
@@ -58,19 +58,19 @@
 
     .line 85
     .local v1, old:Landroid/graphics/Typeface;
-    if-nez v1, :cond_2c
+    if-nez v1, :cond_2
 
     .line 86
     const/4 v2, 0x0
 
     .line 91
     .local v2, oldStyle:I
-    :goto_7
+    :goto_0
     or-int v4, v2, p1
 
     .line 94
     .local v4, want:I
-    if-nez v1, :cond_31
+    if-nez v1, :cond_3
 
     .line 95
     invoke-static {v4}, Landroid/graphics/Typeface;->defaultFromStyle(I)Landroid/graphics/Typeface;
@@ -79,7 +79,7 @@
 
     .line 100
     .local v3, tf:Landroid/graphics/Typeface;
-    :goto_f
+    :goto_1
     invoke-virtual {v3}, Landroid/graphics/Typeface;->getStyle()I
 
     move-result v5
@@ -92,7 +92,7 @@
     .local v0, fake:I
     and-int/lit8 v5, v0, 0x1
 
-    if-eqz v5, :cond_1f
+    if-eqz v5, :cond_0
 
     .line 103
     const/4 v5, 0x1
@@ -100,10 +100,10 @@
     invoke-virtual {p0, v5}, Landroid/graphics/Paint;->setFakeBoldText(Z)V
 
     .line 106
-    :cond_1f
+    :cond_0
     and-int/lit8 v5, v0, 0x2
 
-    if-eqz v5, :cond_28
+    if-eqz v5, :cond_1
 
     .line 107
     const/high16 v5, -0x4180
@@ -111,7 +111,7 @@
     invoke-virtual {p0, v5}, Landroid/graphics/Paint;->setTextSkewX(F)V
 
     .line 110
-    :cond_28
+    :cond_1
     invoke-virtual {p0, v3}, Landroid/graphics/Paint;->setTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
 
     .line 111
@@ -122,29 +122,29 @@
     .end local v2           #oldStyle:I
     .end local v3           #tf:Landroid/graphics/Typeface;
     .end local v4           #want:I
-    :cond_2c
+    :cond_2
     invoke-virtual {v1}, Landroid/graphics/Typeface;->getStyle()I
 
     move-result v2
 
     .restart local v2       #oldStyle:I
-    goto :goto_7
+    goto :goto_0
 
     .line 97
     .restart local v4       #want:I
-    :cond_31
+    :cond_3
     invoke-static {v1, v4}, Landroid/graphics/Typeface;->create(Landroid/graphics/Typeface;I)Landroid/graphics/Typeface;
 
     move-result-object v3
 
     .restart local v3       #tf:Landroid/graphics/Typeface;
-    goto :goto_f
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 57
@@ -154,7 +154,7 @@
 .end method
 
 .method public getSpanTypeId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 53
@@ -164,7 +164,7 @@
 .end method
 
 .method public getStyle()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 68
@@ -174,7 +174,7 @@
 .end method
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
-    .registers 3
+    .locals 1
     .parameter "ds"
 
     .prologue
@@ -188,7 +188,7 @@
 .end method
 
 .method public updateMeasureState(Landroid/text/TextPaint;)V
-    .registers 3
+    .locals 1
     .parameter "paint"
 
     .prologue
@@ -202,7 +202,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

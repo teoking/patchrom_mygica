@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
     .parameter "_name"
     .parameter "_pkgFlags"
 
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 40

@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 32
@@ -78,7 +78,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 42
@@ -88,24 +88,24 @@
 .end method
 
 .method private handleMPRE(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 9
+    .locals 7
     .parameter "request"
 
     .prologue
     const/4 v6, 0x0
 
     .line 120
-    :try_start_1
+    :try_start_0
     invoke-static {}, Landroid/os/Debug;->stopMethodTracing()V
-    :try_end_4
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_4} :catch_13
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 121
     const/4 v2, 0x0
 
     .line 129
     .local v2, result:B
-    :goto_5
+    :goto_0
     const/4 v3, 0x1
 
     new-array v1, v3, [B
@@ -127,7 +127,7 @@
     .line 122
     .end local v1           #reply:[B
     .end local v2           #result:B
-    :catch_13
+    :catch_0
     move-exception v0
 
     .line 123
@@ -162,11 +162,11 @@
     const/4 v2, 0x1
 
     .restart local v2       #result:B
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method private handleMPRQ(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 8
+    .locals 6
     .parameter "request"
 
     .prologue
@@ -179,13 +179,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_17
+    if-eqz v4, :cond_0
 
     move v1, v2
 
     .line 184
     .local v1, result:I
-    :goto_9
+    :goto_0
     new-array v0, v2, [B
 
     int-to-byte v2, v1
@@ -206,15 +206,15 @@
 
     .end local v0           #reply:[B
     .end local v1           #result:I
-    :cond_17
+    :cond_0
     move v1, v3
 
     .line 181
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method private handleMPRS(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 10
+    .locals 8
     .parameter "request"
 
     .prologue
@@ -249,20 +249,20 @@
 
     .line 106
     .local v1, fileName:Ljava/lang/String;
-    :try_start_14
+    :try_start_0
     invoke-static {v1, v0, v2}, Landroid/os/Debug;->startMethodTracing(Ljava/lang/String;II)V
-    :try_end_17
-    .catch Ljava/lang/RuntimeException; {:try_start_14 .. :try_end_17} :catch_19
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 107
     const/4 v6, 0x0
 
     .line 109
-    :goto_18
+    :goto_0
     return-object v6
 
     .line 108
-    :catch_19
+    :catch_0
     move-exception v5
 
     .line 109
@@ -277,19 +277,19 @@
 
     move-result-object v6
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method private handleMPSE(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 7
+    .locals 5
     .parameter "request"
 
     .prologue
     .line 165
     :try_start_0
     invoke-static {}, Landroid/os/Debug;->stopMethodTracing()V
-    :try_end_3
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_3} :catch_6
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 166
     const/4 v1, 0x0
@@ -299,11 +299,11 @@
     const/4 v2, 0x0
 
     .end local v1           #result:B
-    :goto_5
+    :goto_0
     return-object v2
 
     .line 167
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 168
@@ -345,11 +345,11 @@
 
     move-result-object v2
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method private handleMPSS(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 8
+    .locals 6
     .parameter "request"
 
     .prologue
@@ -372,20 +372,20 @@
 
     .line 147
     .local v1, flags:I
-    :try_start_c
+    :try_start_0
     invoke-static {v0, v1}, Landroid/os/Debug;->startMethodTracingDdms(II)V
-    :try_end_f
-    .catch Ljava/lang/RuntimeException; {:try_start_c .. :try_end_f} :catch_11
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 148
     const/4 v4, 0x0
 
     .line 150
-    :goto_10
+    :goto_0
     return-object v4
 
     .line 149
-    :catch_11
+    :catch_0
     move-exception v3
 
     .line 150
@@ -400,11 +400,11 @@
 
     move-result-object v4
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public static register()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 48
@@ -449,7 +449,7 @@
 
 # virtual methods
 .method public connected()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 59
@@ -457,7 +457,7 @@
 .end method
 
 .method public disconnected()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 65
@@ -465,7 +465,7 @@
 .end method
 
 .method public handleChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 6
+    .locals 4
     .parameter "request"
 
     .prologue
@@ -476,7 +476,7 @@
     .local v0, type:I
     sget v1, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPRS:I
 
-    if-ne v0, v1, :cond_b
+    if-ne v0, v1, :cond_0
 
     .line 76
     invoke-direct {p0, p1}, Landroid/ddm/DdmHandleProfiling;->handleMPRS(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
@@ -484,63 +484,63 @@
     move-result-object v1
 
     .line 84
-    :goto_a
+    :goto_0
     return-object v1
 
     .line 77
-    :cond_b
+    :cond_0
     sget v1, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPRE:I
 
-    if-ne v0, v1, :cond_14
+    if-ne v0, v1, :cond_1
 
     .line 78
     invoke-direct {p0, p1}, Landroid/ddm/DdmHandleProfiling;->handleMPRE(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     move-result-object v1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 79
-    :cond_14
+    :cond_1
     sget v1, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPSS:I
 
-    if-ne v0, v1, :cond_1d
+    if-ne v0, v1, :cond_2
 
     .line 80
     invoke-direct {p0, p1}, Landroid/ddm/DdmHandleProfiling;->handleMPSS(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     move-result-object v1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 81
-    :cond_1d
+    :cond_2
     sget v1, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPSE:I
 
-    if-ne v0, v1, :cond_26
+    if-ne v0, v1, :cond_3
 
     .line 82
     invoke-direct {p0, p1}, Landroid/ddm/DdmHandleProfiling;->handleMPSE(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     move-result-object v1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 83
-    :cond_26
+    :cond_3
     sget v1, Landroid/ddm/DdmHandleProfiling;->CHUNK_MPRQ:I
 
-    if-ne v0, v1, :cond_2f
+    if-ne v0, v1, :cond_4
 
     .line 84
     invoke-direct {p0, p1}, Landroid/ddm/DdmHandleProfiling;->handleMPRQ(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
 
     move-result-object v1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 86
-    :cond_2f
+    :cond_4
     new-instance v1, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;

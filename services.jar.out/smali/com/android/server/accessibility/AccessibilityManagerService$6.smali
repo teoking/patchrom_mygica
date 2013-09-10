@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/accessibility/AccessibilityManagerService;Landroid/view/accessibility/IAccessibilityManagerClient;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 377
@@ -54,7 +54,7 @@
     monitor-enter v1
 
     .line 378
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$6;->val$addedClient:Landroid/view/accessibility/IAccessibilityManagerClient;
 
     invoke-interface {v0}, Landroid/view/accessibility/IAccessibilityManagerClient;->asBinder()Landroid/os/IBinder;
@@ -81,12 +81,12 @@
     return-void
 
     .line 380
-    :catchall_1a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1c
-    .catchall {:try_start_5 .. :try_end_1c} :catchall_1a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

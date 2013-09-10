@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "priority"
     .parameter "tag"
 
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;I)V
-    .registers 6
+    .locals 2
     .parameter "priority"
     .parameter "tag"
     .parameter "buffer"
@@ -80,7 +80,7 @@
 .end method
 
 .method private flushBuilder()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 77
@@ -90,7 +90,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_23
+    if-lez v0, :cond_0
 
     .line 78
     iget v0, p0, Landroid/util/LogWriter;->mBuffer:I
@@ -121,14 +121,14 @@
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
 
     .line 81
-    :cond_23
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public close()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 57
@@ -139,7 +139,7 @@
 .end method
 
 .method public flush()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 61
@@ -150,7 +150,7 @@
 .end method
 
 .method public write([CII)V
-    .registers 7
+    .locals 3
     .parameter "buf"
     .parameter "offset"
     .parameter "count"
@@ -160,8 +160,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_1
-    if-ge v1, p3, :cond_17
+    :goto_0
+    if-ge v1, p3, :cond_1
 
     .line 66
     add-int v2, p2, v1
@@ -172,27 +172,27 @@
     .local v0, c:C
     const/16 v2, 0xa
 
-    if-ne v0, v2, :cond_11
+    if-ne v0, v2, :cond_0
 
     .line 68
     invoke-direct {p0}, Landroid/util/LogWriter;->flushBuilder()V
 
     .line 65
-    :goto_e
+    :goto_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 71
-    :cond_11
+    :cond_0
     iget-object v2, p0, Landroid/util/LogWriter;->mBuilder:Ljava/lang/StringBuilder;
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_e
+    goto :goto_1
 
     .line 74
     .end local v0           #c:C
-    :cond_17
+    :cond_1
     return-void
 .end method

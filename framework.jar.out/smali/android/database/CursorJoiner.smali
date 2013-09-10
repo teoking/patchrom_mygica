@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 45
@@ -62,23 +62,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     sput-boolean v0, Landroid/database/CursorJoiner;->$assertionsDisabled:Z
 
     return-void
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public constructor <init>(Landroid/database/Cursor;[Ljava/lang/String;Landroid/database/Cursor;[Ljava/lang/String;)V
-    .registers 8
+    .locals 3
     .parameter "cursorLeft"
     .parameter "columnNamesLeft"
     .parameter "cursorRight"
@@ -93,7 +93,7 @@
 
     array-length v1, p4
 
-    if-eq v0, v1, :cond_2d
+    if-eq v0, v1, :cond_0
 
     .line 79
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -135,7 +135,7 @@
     throw v0
 
     .line 84
-    :cond_2d
+    :cond_0
     iput-object p1, p0, Landroid/database/CursorJoiner;->mCursorLeft:Landroid/database/Cursor;
 
     .line 85
@@ -186,7 +186,7 @@
 .end method
 
 .method private buildColumnIndiciesArray(Landroid/database/Cursor;[Ljava/lang/String;)[I
-    .registers 6
+    .locals 3
     .parameter "cursor"
     .parameter "columnNames"
 
@@ -201,10 +201,10 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_4
+    :goto_0
     array-length v2, p2
 
-    if-ge v1, v2, :cond_12
+    if-ge v1, v2, :cond_0
 
     .line 111
     aget-object v2, p2, v1
@@ -218,15 +218,15 @@
     .line 110
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 113
-    :cond_12
+    :cond_0
     return-object v0
 .end method
 
 .method private static varargs compareStrings([Ljava/lang/String;)I
-    .registers 7
+    .locals 6
     .parameter "values"
 
     .prologue
@@ -239,7 +239,7 @@
 
     rem-int/lit8 v4, v4, 0x2
 
-    if-eqz v4, :cond_10
+    if-eqz v4, :cond_0
 
     .line 244
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -251,50 +251,50 @@
     throw v2
 
     .line 247
-    :cond_10
+    :cond_0
     const/4 v1, 0x0
 
     .local v1, index:I
-    :goto_11
+    :goto_0
     array-length v4, p0
 
-    if-ge v1, v4, :cond_39
+    if-ge v1, v4, :cond_5
 
     .line 248
     aget-object v4, p0, v1
 
-    if-nez v4, :cond_21
+    if-nez v4, :cond_2
 
     .line 249
     add-int/lit8 v4, v1, 0x1
 
     aget-object v4, p0, v4
 
-    if-nez v4, :cond_28
+    if-nez v4, :cond_3
 
     .line 247
-    :cond_1e
+    :cond_1
     add-int/lit8 v1, v1, 0x2
 
-    goto :goto_11
+    goto :goto_0
 
     .line 253
-    :cond_21
+    :cond_2
     add-int/lit8 v4, v1, 0x1
 
     aget-object v4, p0, v4
 
-    if-nez v4, :cond_29
+    if-nez v4, :cond_4
 
     move v2, v3
 
     .line 263
-    :cond_28
-    :goto_28
+    :cond_3
+    :goto_1
     return v2
 
     .line 257
-    :cond_29
+    :cond_4
     aget-object v4, p0, v1
 
     add-int/lit8 v5, v1, 0x1
@@ -307,31 +307,31 @@
 
     .line 258
     .local v0, comp:I
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_1
 
     .line 259
-    if-ltz v0, :cond_28
+    if-ltz v0, :cond_3
 
     move v2, v3
 
-    goto :goto_28
+    goto :goto_1
 
     .line 263
     .end local v0           #comp:I
-    :cond_39
+    :cond_5
     const/4 v2, 0x0
 
-    goto :goto_28
+    goto :goto_1
 .end method
 
 .method private incrementCursors()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 217
     iget-boolean v0, p0, Landroid/database/CursorJoiner;->mCompareResultIsValid:Z
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 218
     sget-object v0, Landroid/database/CursorJoiner$1;->$SwitchMap$android$database$CursorJoiner$Result:[I
@@ -344,36 +344,36 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_2c
+    packed-switch v0, :pswitch_data_0
 
     .line 230
-    :goto_11
+    :goto_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/database/CursorJoiner;->mCompareResultIsValid:Z
 
     .line 232
-    :cond_14
+    :cond_0
     return-void
 
     .line 220
-    :pswitch_15
+    :pswitch_0
     iget-object v0, p0, Landroid/database/CursorJoiner;->mCursorLeft:Landroid/database/Cursor;
 
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
 
-    goto :goto_11
+    goto :goto_0
 
     .line 223
-    :pswitch_1b
+    :pswitch_1
     iget-object v0, p0, Landroid/database/CursorJoiner;->mCursorRight:Landroid/database/Cursor;
 
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
 
-    goto :goto_11
+    goto :goto_0
 
     .line 226
-    :pswitch_21
+    :pswitch_2
     iget-object v0, p0, Landroid/database/CursorJoiner;->mCursorLeft:Landroid/database/Cursor;
 
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
@@ -383,19 +383,19 @@
 
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
 
-    goto :goto_11
+    goto :goto_0
 
     .line 218
-    :pswitch_data_2c
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_21
-        :pswitch_15
-        :pswitch_1b
+        :pswitch_2
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method private static populateValues([Ljava/lang/String;Landroid/database/Cursor;[II)V
-    .registers 7
+    .locals 3
     .parameter "values"
     .parameter "cursor"
     .parameter "columnIndicies"
@@ -405,13 +405,13 @@
     .line 206
     sget-boolean v1, Landroid/database/CursorJoiner;->$assertionsDisabled:Z
 
-    if-nez v1, :cond_f
+    if-nez v1, :cond_0
 
-    if-eqz p3, :cond_f
+    if-eqz p3, :cond_0
 
     const/4 v1, 0x1
 
-    if-eq p3, v1, :cond_f
+    if-eq p3, v1, :cond_0
 
     new-instance v1, Ljava/lang/AssertionError;
 
@@ -420,14 +420,14 @@
     throw v1
 
     .line 207
-    :cond_f
+    :cond_0
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_10
+    :goto_0
     array-length v1, p2
 
-    if-ge v0, v1, :cond_21
+    if-ge v0, v1, :cond_1
 
     .line 208
     mul-int/lit8 v1, v0, 0x2
@@ -445,17 +445,17 @@
     .line 207
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 210
-    :cond_21
+    :cond_1
     return-void
 .end method
 
 
 # virtual methods
 .method public hasNext()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x1
@@ -465,7 +465,7 @@
     .line 121
     iget-boolean v2, p0, Landroid/database/CursorJoiner;->mCompareResultIsValid:Z
 
-    if-eqz v2, :cond_64
+    if-eqz v2, :cond_4
 
     .line 122
     sget-object v2, Landroid/database/CursorJoiner$1;->$SwitchMap$android$database$CursorJoiner$Result:[I
@@ -478,7 +478,7 @@
 
     aget v2, v2, v3
 
-    packed-switch v2, :pswitch_data_76
+    packed-switch v2, :pswitch_data_0
 
     .line 133
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -508,14 +508,14 @@
     throw v0
 
     .line 124
-    :pswitch_2e
+    :pswitch_0
     iget-object v2, p0, Landroid/database/CursorJoiner;->mCursorLeft:Landroid/database/Cursor;
 
     invoke-interface {v2}, Landroid/database/Cursor;->isLast()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3e
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Landroid/database/CursorJoiner;->mCursorRight:Landroid/database/Cursor;
 
@@ -523,25 +523,25 @@
 
     move-result v2
 
-    if-nez v2, :cond_3f
+    if-nez v2, :cond_1
 
-    :cond_3e
+    :cond_0
     move v0, v1
 
     .line 137
-    :cond_3f
-    :goto_3f
+    :cond_1
+    :goto_0
     return v0
 
     .line 127
-    :pswitch_40
+    :pswitch_1
     iget-object v2, p0, Landroid/database/CursorJoiner;->mCursorLeft:Landroid/database/Cursor;
 
     invoke-interface {v2}, Landroid/database/Cursor;->isLast()Z
 
     move-result v2
 
-    if-eqz v2, :cond_50
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Landroid/database/CursorJoiner;->mCursorRight:Landroid/database/Cursor;
 
@@ -549,22 +549,22 @@
 
     move-result v2
 
-    if-nez v2, :cond_3f
+    if-nez v2, :cond_1
 
-    :cond_50
+    :cond_2
     move v0, v1
 
-    goto :goto_3f
+    goto :goto_0
 
     .line 130
-    :pswitch_52
+    :pswitch_2
     iget-object v2, p0, Landroid/database/CursorJoiner;->mCursorLeft:Landroid/database/Cursor;
 
     invoke-interface {v2}, Landroid/database/Cursor;->isAfterLast()Z
 
     move-result v2
 
-    if-eqz v2, :cond_62
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Landroid/database/CursorJoiner;->mCursorRight:Landroid/database/Cursor;
 
@@ -572,22 +572,22 @@
 
     move-result v2
 
-    if-nez v2, :cond_3f
+    if-nez v2, :cond_1
 
-    :cond_62
+    :cond_3
     move v0, v1
 
-    goto :goto_3f
+    goto :goto_0
 
     .line 137
-    :cond_64
+    :cond_4
     iget-object v2, p0, Landroid/database/CursorJoiner;->mCursorLeft:Landroid/database/Cursor;
 
     invoke-interface {v2}, Landroid/database/Cursor;->isAfterLast()Z
 
     move-result v2
 
-    if-eqz v2, :cond_74
+    if-eqz v2, :cond_5
 
     iget-object v2, p0, Landroid/database/CursorJoiner;->mCursorRight:Landroid/database/Cursor;
 
@@ -595,24 +595,24 @@
 
     move-result v2
 
-    if-nez v2, :cond_3f
+    if-nez v2, :cond_1
 
-    :cond_74
+    :cond_5
     move v0, v1
 
-    goto :goto_3f
+    goto :goto_0
 
     .line 122
-    :pswitch_data_76
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_2e
-        :pswitch_40
-        :pswitch_52
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -629,7 +629,7 @@
 .end method
 
 .method public next()Landroid/database/CursorJoiner$Result;
-    .registers 8
+    .locals 7
 
     .prologue
     const/4 v3, 0x0
@@ -641,7 +641,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_11
+    if-nez v4, :cond_0
 
     .line 158
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -653,19 +653,19 @@
     throw v2
 
     .line 160
-    :cond_11
+    :cond_0
     invoke-direct {p0}, Landroid/database/CursorJoiner;->incrementCursors()V
 
     .line 161
     sget-boolean v4, Landroid/database/CursorJoiner;->$assertionsDisabled:Z
 
-    if-nez v4, :cond_24
+    if-nez v4, :cond_1
 
     invoke-virtual {p0}, Landroid/database/CursorJoiner;->hasNext()Z
 
     move-result v4
 
-    if-nez v4, :cond_24
+    if-nez v4, :cond_1
 
     new-instance v2, Ljava/lang/AssertionError;
 
@@ -674,36 +674,36 @@
     throw v2
 
     .line 163
-    :cond_24
+    :cond_1
     iget-object v4, p0, Landroid/database/CursorJoiner;->mCursorLeft:Landroid/database/Cursor;
 
     invoke-interface {v4}, Landroid/database/Cursor;->isAfterLast()Z
 
     move-result v4
 
-    if-nez v4, :cond_5a
+    if-nez v4, :cond_2
 
     move v0, v2
 
     .line 164
     .local v0, hasLeft:Z
-    :goto_2d
+    :goto_0
     iget-object v4, p0, Landroid/database/CursorJoiner;->mCursorRight:Landroid/database/Cursor;
 
     invoke-interface {v4}, Landroid/database/Cursor;->isAfterLast()Z
 
     move-result v4
 
-    if-nez v4, :cond_5c
+    if-nez v4, :cond_3
 
     move v1, v2
 
     .line 166
     .local v1, hasRight:Z
-    :goto_36
-    if-eqz v0, :cond_6d
+    :goto_1
+    if-eqz v0, :cond_4
 
-    if-eqz v1, :cond_6d
+    if-eqz v1, :cond_4
 
     .line 167
     iget-object v4, p0, Landroid/database/CursorJoiner;->mValues:[Ljava/lang/String;
@@ -730,10 +730,10 @@
 
     move-result v3
 
-    packed-switch v3, :pswitch_data_86
+    packed-switch v3, :pswitch_data_0
 
     .line 186
-    :goto_55
+    :goto_2
     iput-boolean v2, p0, Landroid/database/CursorJoiner;->mCompareResultIsValid:Z
 
     .line 187
@@ -743,62 +743,62 @@
 
     .end local v0           #hasLeft:Z
     .end local v1           #hasRight:Z
-    :cond_5a
+    :cond_2
     move v0, v3
 
     .line 163
-    goto :goto_2d
+    goto :goto_0
 
     .restart local v0       #hasLeft:Z
-    :cond_5c
+    :cond_3
     move v1, v3
 
     .line 164
-    goto :goto_36
+    goto :goto_1
 
     .line 171
     .restart local v1       #hasRight:Z
-    :pswitch_5e
+    :pswitch_0
     sget-object v3, Landroid/database/CursorJoiner$Result;->LEFT:Landroid/database/CursorJoiner$Result;
 
     iput-object v3, p0, Landroid/database/CursorJoiner;->mCompareResult:Landroid/database/CursorJoiner$Result;
 
-    goto :goto_55
+    goto :goto_2
 
     .line 174
-    :pswitch_63
+    :pswitch_1
     sget-object v3, Landroid/database/CursorJoiner$Result;->BOTH:Landroid/database/CursorJoiner$Result;
 
     iput-object v3, p0, Landroid/database/CursorJoiner;->mCompareResult:Landroid/database/CursorJoiner$Result;
 
-    goto :goto_55
+    goto :goto_2
 
     .line 177
-    :pswitch_68
+    :pswitch_2
     sget-object v3, Landroid/database/CursorJoiner$Result;->RIGHT:Landroid/database/CursorJoiner$Result;
 
     iput-object v3, p0, Landroid/database/CursorJoiner;->mCompareResult:Landroid/database/CursorJoiner$Result;
 
-    goto :goto_55
+    goto :goto_2
 
     .line 180
-    :cond_6d
-    if-eqz v0, :cond_74
+    :cond_4
+    if-eqz v0, :cond_5
 
     .line 181
     sget-object v3, Landroid/database/CursorJoiner$Result;->LEFT:Landroid/database/CursorJoiner$Result;
 
     iput-object v3, p0, Landroid/database/CursorJoiner;->mCompareResult:Landroid/database/CursorJoiner$Result;
 
-    goto :goto_55
+    goto :goto_2
 
     .line 183
-    :cond_74
+    :cond_5
     sget-boolean v3, Landroid/database/CursorJoiner;->$assertionsDisabled:Z
 
-    if-nez v3, :cond_80
+    if-nez v3, :cond_6
 
-    if-nez v1, :cond_80
+    if-nez v1, :cond_6
 
     new-instance v2, Ljava/lang/AssertionError;
 
@@ -807,26 +807,26 @@
     throw v2
 
     .line 184
-    :cond_80
+    :cond_6
     sget-object v3, Landroid/database/CursorJoiner$Result;->RIGHT:Landroid/database/CursorJoiner$Result;
 
     iput-object v3, p0, Landroid/database/CursorJoiner;->mCompareResult:Landroid/database/CursorJoiner$Result;
 
-    goto :goto_55
+    goto :goto_2
 
     .line 169
     nop
 
-    :pswitch_data_86
+    :pswitch_data_0
     .packed-switch -0x1
-        :pswitch_5e
-        :pswitch_63
-        :pswitch_68
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 45
@@ -838,7 +838,7 @@
 .end method
 
 .method public remove()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 191

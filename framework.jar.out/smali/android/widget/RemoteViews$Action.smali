@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 186
@@ -29,7 +29,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/RemoteViews$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -50,7 +50,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 191
@@ -60,7 +60,7 @@
 .end method
 
 .method public setBitmapCache(Landroid/widget/RemoteViews$BitmapCache;)V
-    .registers 2
+    .locals 0
     .parameter "bitmapCache"
 
     .prologue
@@ -69,7 +69,7 @@
 .end method
 
 .method public updateMemoryUsageEstimate(Landroid/widget/RemoteViews$MemoryUsageCounter;)V
-    .registers 2
+    .locals 0
     .parameter "counter"
 
     .prologue

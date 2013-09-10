@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .registers 4
+    .locals 1
     .parameter "width"
     .parameter "height"
 
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(IIII)V
-    .registers 5
+    .locals 0
     .parameter "width"
     .parameter "height"
     .parameter "minHeight"
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 6
+    .locals 3
     .parameter "c"
     .parameter "attrs"
 
@@ -115,31 +115,31 @@
 
     const/4 v2, -0x1
 
-    :try_start_13
+    :try_start_0
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getLayoutDimension(II)I
 
     move-result v1
 
     iput v1, p0, Lcom/android/internal/widget/SizeAdaptiveLayout$LayoutParams;->maxHeight:I
-    :try_end_19
-    .catch Ljava/lang/Exception; {:try_start_13 .. :try_end_19} :catch_1d
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 357
-    :goto_19
+    :goto_0
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 358
     return-void
 
     .line 353
-    :catch_1d
+    :catch_0
     move-exception v1
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "p"
 
     .prologue
@@ -161,7 +161,7 @@
 
 # virtual methods
 .method public debug(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "output"
 
     .prologue

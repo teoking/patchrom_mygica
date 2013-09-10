@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 53
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 49
@@ -77,7 +77,7 @@
 .end method
 
 .method public static addWord(Landroid/content/Context;Ljava/lang/String;II)V
-    .registers 6
+    .locals 2
     .parameter "context"
     .parameter "word"
     .parameter "frequency"
@@ -89,17 +89,17 @@
     const/4 v1, 0x1
 
     .line 132
-    if-eqz p3, :cond_6
+    if-eqz p3, :cond_0
 
-    if-eq p3, v1, :cond_6
+    if-eq p3, v1, :cond_0
 
     .line 145
-    :goto_5
+    :goto_0
     return-void
 
     .line 138
-    :cond_6
-    if-ne p3, v1, :cond_11
+    :cond_0
+    if-ne p3, v1, :cond_1
 
     .line 139
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -108,24 +108,24 @@
 
     .line 144
     .local v0, locale:Ljava/util/Locale;
-    :goto_c
+    :goto_1
     const/4 v1, 0x0
 
     invoke-static {p0, p1, p2, v1, v0}, Landroid/provider/UserDictionary$Words;->addWord(Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;Ljava/util/Locale;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 141
     .end local v0           #locale:Ljava/util/Locale;
-    :cond_11
+    :cond_1
     const/4 v0, 0x0
 
     .restart local v0       #locale:Ljava/util/Locale;
-    goto :goto_c
+    goto :goto_1
 .end method
 
 .method public static addWord(Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;Ljava/util/Locale;)V
-    .registers 11
+    .locals 6
     .parameter "context"
     .parameter "word"
     .parameter "frequency"
@@ -144,28 +144,28 @@
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_0
 
     .line 181
-    :goto_a
+    :goto_0
     return-void
 
     .line 166
-    :cond_b
-    if-gez p2, :cond_e
+    :cond_0
+    if-gez p2, :cond_1
 
     const/4 p2, 0x0
 
     .line 167
-    :cond_e
+    :cond_1
     const/16 v4, 0xff
 
-    if-le p2, v4, :cond_14
+    if-le p2, v4, :cond_2
 
     const/16 p2, 0xff
 
     .line 169
-    :cond_14
+    :cond_2
     const/4 v0, 0x5
 
     .line 170
@@ -194,11 +194,11 @@
     .line 174
     const-string v5, "locale"
 
-    if-nez p4, :cond_49
+    if-nez p4, :cond_3
 
     const/4 v4, 0x0
 
-    :goto_2f
+    :goto_1
     invoke-virtual {v3, v5, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 175
@@ -226,14 +226,14 @@
 
     .line 181
     .local v2, result:Landroid/net/Uri;
-    goto :goto_a
+    goto :goto_0
 
     .line 174
     .end local v2           #result:Landroid/net/Uri;
-    :cond_49
+    :cond_3
     invoke-virtual {p4}, Ljava/util/Locale;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_2f
+    goto :goto_1
 .end method

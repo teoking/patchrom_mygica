@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -19,7 +19,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 4
+    .locals 0
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public extendSelection(I)V
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -66,7 +66,7 @@
 .end method
 
 .method protected getDefaultEditable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 65
@@ -76,7 +76,7 @@
 .end method
 
 .method protected getDefaultMovementMethod()Landroid/text/method/MovementMethod;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 70
@@ -88,7 +88,7 @@
 .end method
 
 .method public getText()Landroid/text/Editable;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 75
@@ -102,7 +102,7 @@
 .end method
 
 .method public bridge synthetic getText()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 50
@@ -114,7 +114,7 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -135,7 +135,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .registers 3
+    .locals 1
     .parameter "info"
 
     .prologue
@@ -156,7 +156,7 @@
 .end method
 
 .method public selectAll()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 101
@@ -171,14 +171,14 @@
 .end method
 
 .method public setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
-    .registers 4
+    .locals 2
     .parameter "ellipsis"
 
     .prologue
     .line 113
     sget-object v0, Landroid/text/TextUtils$TruncateAt;->MARQUEE:Landroid/text/TextUtils$TruncateAt;
 
-    if-ne p1, v0, :cond_c
+    if-ne p1, v0, :cond_0
 
     .line 114
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -190,7 +190,7 @@
     throw v0
 
     .line 117
-    :cond_c
+    :cond_0
     invoke-super {p0, p1}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
     .line 118
@@ -198,7 +198,7 @@
 .end method
 
 .method public setSelection(I)V
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -214,7 +214,7 @@
 .end method
 
 .method public setSelection(II)V
-    .registers 4
+    .locals 1
     .parameter "start"
     .parameter "stop"
 
@@ -231,7 +231,7 @@
 .end method
 
 .method public setText(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V
-    .registers 4
+    .locals 1
     .parameter "text"
     .parameter "type"
 

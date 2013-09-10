@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v6, 0x0
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Landroid/media/videoeditor/MediaItem;Landroid/media/videoeditor/MediaItem;JII)V
-    .registers 10
+    .locals 2
     .parameter "transitionId"
     .parameter "afterMediaItem"
     .parameter "beforeMediaItem"
@@ -57,7 +57,7 @@
     invoke-direct/range {p0 .. p6}, Landroid/media/videoeditor/Transition;-><init>(Ljava/lang/String;Landroid/media/videoeditor/MediaItem;Landroid/media/videoeditor/MediaItem;JI)V
 
     .line 66
-    packed-switch p7, :pswitch_data_12
+    packed-switch p7, :pswitch_data_0
 
     .line 74
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -69,7 +69,7 @@
     throw v0
 
     .line 76
-    :pswitch_e
+    :pswitch_0
     iput p7, p0, Landroid/media/videoeditor/TransitionSliding;->mSlidingDirection:I
 
     .line 77
@@ -78,19 +78,19 @@
     .line 66
     nop
 
-    :pswitch_data_12
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_e
-        :pswitch_e
-        :pswitch_e
-        :pswitch_e
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method generate()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 93
@@ -101,7 +101,7 @@
 .end method
 
 .method public getDirection()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 85

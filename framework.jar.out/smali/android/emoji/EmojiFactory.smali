@@ -35,7 +35,7 @@
 
 # direct methods
 .method private constructor <init>(ILjava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "nativeEmojiFactory"
     .parameter "name"
 
@@ -66,7 +66,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/emoji/EmojiFactory;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -128,8 +128,8 @@
     iget v0, p0, Landroid/emoji/EmojiFactory;->mNativeEmojiFactory:I
 
     invoke-direct {p0, v0}, Landroid/emoji/EmojiFactory;->nativeDestructor(I)V
-    :try_end_5
-    .catchall {:try_start_0 .. :try_end_5} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 82
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -138,7 +138,7 @@
     return-void
 
     .line 82
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -147,7 +147,7 @@
 .end method
 
 .method public getAndroidPuaFromVendorSpecificPua(I)I
-    .registers 3
+    .locals 1
     .parameter "vsp"
 
     .prologue
@@ -162,24 +162,24 @@
 .end method
 
 .method public getAndroidPuaFromVendorSpecificPua(Ljava/lang/String;)Ljava/lang/String;
-    .registers 12
+    .locals 10
     .parameter "vspString"
 
     .prologue
     const/4 v9, 0x0
 
     .line 182
-    if-nez p1, :cond_5
+    if-nez p1, :cond_0
 
     .line 183
     const/4 v8, 0x0
 
     .line 202
-    :goto_4
+    :goto_0
     return-object v8
 
     .line 185
-    :cond_5
+    :cond_0
     iget v8, p0, Landroid/emoji/EmojiFactory;->mNativeEmojiFactory:I
 
     invoke-direct {p0, v8}, Landroid/emoji/EmojiFactory;->nativeGetMinimumVendorSpecificPua(I)I
@@ -217,8 +217,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_1d
-    if-ge v2, v3, :cond_3a
+    :goto_1
+    if-ge v2, v3, :cond_2
 
     .line 192
     invoke-virtual {p1, v2}, Ljava/lang/String;->codePointAt(I)I
@@ -227,9 +227,9 @@
 
     .line 193
     .local v0, codePoint:I
-    if-gt v5, v0, :cond_37
+    if-gt v5, v0, :cond_1
 
-    if-gt v0, v4, :cond_37
+    if-gt v0, v4, :cond_1
 
     .line 194
     invoke-virtual {p0, v0}, Landroid/emoji/EmojiFactory;->getAndroidPuaFromVendorSpecificPua(I)I
@@ -238,14 +238,14 @@
 
     .line 195
     .local v6, newCodePoint:I
-    if-lez v6, :cond_37
+    if-lez v6, :cond_1
 
     .line 196
     aput v6, v1, v7
 
     .line 191
     .end local v6           #newCodePoint:I
-    :goto_2f
+    :goto_2
     const/4 v8, 0x1
 
     invoke-virtual {p1, v2, v8}, Ljava/lang/String;->offsetByCodePoints(II)I
@@ -254,26 +254,26 @@
 
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1d
+    goto :goto_1
 
     .line 200
-    :cond_37
+    :cond_1
     aput v0, v1, v7
 
-    goto :goto_2f
+    goto :goto_2
 
     .line 202
     .end local v0           #codePoint:I
-    :cond_3a
+    :cond_2
     new-instance v8, Ljava/lang/String;
 
     invoke-direct {v8, v1, v9, v7}, Ljava/lang/String;-><init>([III)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public getAndroidPuaFromVendorSpecificSjis(C)I
-    .registers 3
+    .locals 1
     .parameter "sjis"
 
     .prologue
@@ -288,14 +288,14 @@
 .end method
 
 .method public declared-synchronized getBitmapFromAndroidPua(I)Landroid/graphics/Bitmap;
-    .registers 8
+    .locals 6
     .parameter "pua"
 
     .prologue
     .line 102
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v3, p0, Landroid/emoji/EmojiFactory;->mCache:Ljava/util/Map;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -310,7 +310,7 @@
 
     .line 103
     .local v0, cache:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Landroid/graphics/Bitmap;>;"
-    if-nez v0, :cond_27
+    if-nez v0, :cond_1
 
     .line 104
     iget v3, p0, Landroid/emoji/EmojiFactory;->mNativeEmojiFactory:I
@@ -321,7 +321,7 @@
 
     .line 108
     .local v1, ret:Landroid/graphics/Bitmap;
-    if-eqz v1, :cond_25
+    if-eqz v1, :cond_0
 
     .line 109
     iget-object v3, p0, Landroid/emoji/EmojiFactory;->mCache:Ljava/util/Map;
@@ -335,20 +335,20 @@
     invoke-direct {v5, v1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     invoke-interface {v3, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_25
-    .catchall {:try_start_1 .. :try_end_25} :catchall_44
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 119
     .end local v1           #ret:Landroid/graphics/Bitmap;
-    :cond_25
-    :goto_25
+    :cond_0
+    :goto_0
     monitor-exit p0
 
     return-object v1
 
     .line 113
-    :cond_27
-    :try_start_27
+    :cond_1
+    :try_start_1
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v2
@@ -357,7 +357,7 @@
 
     .line 114
     .local v2, tmp:Landroid/graphics/Bitmap;
-    if-nez v2, :cond_47
+    if-nez v2, :cond_2
 
     .line 115
     iget v3, p0, Landroid/emoji/EmojiFactory;->mNativeEmojiFactory:I
@@ -379,16 +379,16 @@
     invoke-direct {v5, v1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
     invoke-interface {v3, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_43
-    .catchall {:try_start_27 .. :try_end_43} :catchall_44
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_25
+    goto :goto_0
 
     .line 102
     .end local v0           #cache:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Landroid/graphics/Bitmap;>;"
     .end local v1           #ret:Landroid/graphics/Bitmap;
     .end local v2           #tmp:Landroid/graphics/Bitmap;
-    :catchall_44
+    :catchall_0
     move-exception v3
 
     monitor-exit p0
@@ -397,29 +397,29 @@
 
     .restart local v0       #cache:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Landroid/graphics/Bitmap;>;"
     .restart local v2       #tmp:Landroid/graphics/Bitmap;
-    :cond_47
+    :cond_2
     move-object v1, v2
 
     .line 119
-    goto :goto_25
+    goto :goto_0
 .end method
 
 .method public declared-synchronized getBitmapFromVendorSpecificPua(I)Landroid/graphics/Bitmap;
-    .registers 3
+    .locals 1
     .parameter "vsp"
 
     .prologue
     .line 147
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0, p1}, Landroid/emoji/EmojiFactory;->getAndroidPuaFromVendorSpecificPua(I)I
 
     move-result v0
 
     invoke-virtual {p0, v0}, Landroid/emoji/EmojiFactory;->getBitmapFromAndroidPua(I)Landroid/graphics/Bitmap;
-    :try_end_8
-    .catchall {:try_start_1 .. :try_end_8} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
@@ -427,7 +427,7 @@
 
     return-object v0
 
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -436,21 +436,21 @@
 .end method
 
 .method public declared-synchronized getBitmapFromVendorSpecificSjis(C)Landroid/graphics/Bitmap;
-    .registers 3
+    .locals 1
     .parameter "sjis"
 
     .prologue
     .line 134
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0, p1}, Landroid/emoji/EmojiFactory;->getAndroidPuaFromVendorSpecificSjis(C)I
 
     move-result v0
 
     invoke-virtual {p0, v0}, Landroid/emoji/EmojiFactory;->getBitmapFromAndroidPua(I)Landroid/graphics/Bitmap;
-    :try_end_8
-    .catchall {:try_start_1 .. :try_end_8} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
@@ -458,7 +458,7 @@
 
     return-object v0
 
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -467,7 +467,7 @@
 .end method
 
 .method public getMaximumAndroidPua()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 270
@@ -481,7 +481,7 @@
 .end method
 
 .method public getMinimumAndroidPua()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 262
@@ -495,7 +495,7 @@
 .end method
 
 .method public getVendorSpecificPuaFromAndroidPua(I)I
-    .registers 3
+    .locals 1
     .parameter "pua"
 
     .prologue
@@ -510,24 +510,24 @@
 .end method
 
 .method public getVendorSpecificPuaFromAndroidPua(Ljava/lang/String;)Ljava/lang/String;
-    .registers 12
+    .locals 10
     .parameter "puaString"
 
     .prologue
     const/4 v9, 0x0
 
     .line 216
-    if-nez p1, :cond_5
+    if-nez p1, :cond_0
 
     .line 217
     const/4 v8, 0x0
 
     .line 236
-    :goto_4
+    :goto_0
     return-object v8
 
     .line 219
-    :cond_5
+    :cond_0
     iget v8, p0, Landroid/emoji/EmojiFactory;->mNativeEmojiFactory:I
 
     invoke-direct {p0, v8}, Landroid/emoji/EmojiFactory;->nativeGetMinimumAndroidPua(I)I
@@ -565,8 +565,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_1d
-    if-ge v2, v3, :cond_3a
+    :goto_1
+    if-ge v2, v3, :cond_2
 
     .line 226
     invoke-virtual {p1, v2}, Ljava/lang/String;->codePointAt(I)I
@@ -575,9 +575,9 @@
 
     .line 227
     .local v0, codePoint:I
-    if-gt v5, v0, :cond_37
+    if-gt v5, v0, :cond_1
 
-    if-gt v0, v4, :cond_37
+    if-gt v0, v4, :cond_1
 
     .line 228
     invoke-virtual {p0, v0}, Landroid/emoji/EmojiFactory;->getVendorSpecificPuaFromAndroidPua(I)I
@@ -586,14 +586,14 @@
 
     .line 229
     .local v6, newCodePoint:I
-    if-lez v6, :cond_37
+    if-lez v6, :cond_1
 
     .line 230
     aput v6, v1, v7
 
     .line 225
     .end local v6           #newCodePoint:I
-    :goto_2f
+    :goto_2
     const/4 v8, 0x1
 
     invoke-virtual {p1, v2, v8}, Ljava/lang/String;->offsetByCodePoints(II)I
@@ -602,26 +602,26 @@
 
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1d
+    goto :goto_1
 
     .line 234
-    :cond_37
+    :cond_1
     aput v0, v1, v7
 
-    goto :goto_2f
+    goto :goto_2
 
     .line 236
     .end local v0           #codePoint:I
-    :cond_3a
+    :cond_2
     new-instance v8, Ljava/lang/String;
 
     invoke-direct {v8, v1, v9, v7}, Ljava/lang/String;-><init>([III)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public getVendorSpecificSjisFromAndroidPua(I)I
-    .registers 3
+    .locals 1
     .parameter "pua"
 
     .prologue
@@ -636,7 +636,7 @@
 .end method
 
 .method public name()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 87

@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 347
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public set(I[I[I[B[BI)V
-    .registers 7
+    .locals 0
     .parameter "newNumSubSamples"
     .parameter "newNumBytesOfClearData"
     .parameter "newNumBytesOfEncryptedData"

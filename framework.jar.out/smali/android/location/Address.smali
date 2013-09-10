@@ -75,7 +75,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 475
@@ -89,7 +89,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Locale;)V
-    .registers 4
+    .locals 2
     .parameter "locale"
 
     .prologue
@@ -122,7 +122,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/location/Address;)Ljava/util/HashMap;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -133,7 +133,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/location/Address;Ljava/util/HashMap;)Ljava/util/HashMap;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -145,7 +145,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/location/Address;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -156,7 +156,7 @@
 .end method
 
 .method static synthetic access$1002(Landroid/location/Address;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -168,7 +168,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/location/Address;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -180,7 +180,7 @@
 .end method
 
 .method static synthetic access$1102(Landroid/location/Address;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -192,7 +192,7 @@
 .end method
 
 .method static synthetic access$1202(Landroid/location/Address;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -204,7 +204,7 @@
 .end method
 
 .method static synthetic access$1300(Landroid/location/Address;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -215,7 +215,7 @@
 .end method
 
 .method static synthetic access$1302(Landroid/location/Address;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -227,7 +227,7 @@
 .end method
 
 .method static synthetic access$1402(Landroid/location/Address;D)D
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -239,7 +239,7 @@
 .end method
 
 .method static synthetic access$1500(Landroid/location/Address;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -250,7 +250,7 @@
 .end method
 
 .method static synthetic access$1502(Landroid/location/Address;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -262,7 +262,7 @@
 .end method
 
 .method static synthetic access$1602(Landroid/location/Address;D)D
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -274,7 +274,7 @@
 .end method
 
 .method static synthetic access$1702(Landroid/location/Address;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -286,7 +286,7 @@
 .end method
 
 .method static synthetic access$1802(Landroid/location/Address;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -298,7 +298,7 @@
 .end method
 
 .method static synthetic access$1902(Landroid/location/Address;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -310,7 +310,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/location/Address;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -322,7 +322,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/location/Address;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -334,7 +334,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/location/Address;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -346,7 +346,7 @@
 .end method
 
 .method static synthetic access$502(Landroid/location/Address;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -358,7 +358,7 @@
 .end method
 
 .method static synthetic access$602(Landroid/location/Address;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -370,7 +370,7 @@
 .end method
 
 .method static synthetic access$702(Landroid/location/Address;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -382,7 +382,7 @@
 .end method
 
 .method static synthetic access$802(Landroid/location/Address;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -394,7 +394,7 @@
 .end method
 
 .method static synthetic access$902(Landroid/location/Address;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -408,7 +408,7 @@
 
 # virtual methods
 .method public clearLatitude()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 321
@@ -421,7 +421,7 @@
 .end method
 
 .method public clearLongitude()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 358
@@ -434,13 +434,13 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 530
     iget-object v0, p0, Landroid/location/Address;->mExtras:Landroid/os/Bundle;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/location/Address;->mExtras:Landroid/os/Bundle;
 
@@ -448,22 +448,22 @@
 
     move-result v0
 
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getAddressLine(I)Ljava/lang/String;
-    .registers 5
+    .locals 3
     .parameter "index"
 
     .prologue
     .line 89
-    if-gez p1, :cond_21
+    if-gez p1, :cond_0
 
     .line 90
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -497,17 +497,17 @@
     throw v0
 
     .line 92
-    :cond_21
+    :cond_0
     iget-object v0, p0, Landroid/location/Address;->mAddressLines:Ljava/util/HashMap;
 
-    if-nez v0, :cond_27
+    if-nez v0, :cond_1
 
     const/4 v0, 0x0
 
-    :goto_26
+    :goto_0
     return-object v0
 
-    :cond_27
+    :cond_1
     iget-object v0, p0, Landroid/location/Address;->mAddressLines:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -520,11 +520,11 @@
 
     check-cast v0, Ljava/lang/String;
 
-    goto :goto_26
+    goto :goto_0
 .end method
 
 .method public getAdminArea()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 141
@@ -534,7 +534,7 @@
 .end method
 
 .method public getCountryCode()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 260
@@ -544,7 +544,7 @@
 .end method
 
 .method public getCountryName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 276
@@ -554,7 +554,7 @@
 .end method
 
 .method public getExtras()Landroid/os/Bundle;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 410
@@ -564,7 +564,7 @@
 .end method
 
 .method public getFeatureName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 126
@@ -574,13 +574,13 @@
 .end method
 
 .method public getLatitude()D
-    .registers 3
+    .locals 2
 
     .prologue
     .line 302
     iget-boolean v0, p0, Landroid/location/Address;->mHasLatitude:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 303
     iget-wide v0, p0, Landroid/location/Address;->mLatitude:D
@@ -588,7 +588,7 @@
     return-wide v0
 
     .line 305
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -597,7 +597,7 @@
 .end method
 
 .method public getLocale()Ljava/util/Locale;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 71
@@ -607,7 +607,7 @@
 .end method
 
 .method public getLocality()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 170
@@ -617,13 +617,13 @@
 .end method
 
 .method public getLongitude()D
-    .registers 3
+    .locals 2
 
     .prologue
     .line 339
     iget-boolean v0, p0, Landroid/location/Address;->mHasLongitude:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 340
     iget-wide v0, p0, Landroid/location/Address;->mLongitude:D
@@ -631,7 +631,7 @@
     return-wide v0
 
     .line 342
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -640,7 +640,7 @@
 .end method
 
 .method public getMaxAddressLineIndex()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 79
@@ -650,7 +650,7 @@
 .end method
 
 .method public getPhone()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 369
@@ -660,7 +660,7 @@
 .end method
 
 .method public getPostalCode()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 244
@@ -670,7 +670,7 @@
 .end method
 
 .method public getPremises()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 229
@@ -680,7 +680,7 @@
 .end method
 
 .method public getSubAdminArea()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 156
@@ -690,7 +690,7 @@
 .end method
 
 .method public getSubLocality()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 185
@@ -700,7 +700,7 @@
 .end method
 
 .method public getSubThoroughfare()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 215
@@ -710,7 +710,7 @@
 .end method
 
 .method public getThoroughfare()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 200
@@ -720,7 +720,7 @@
 .end method
 
 .method public getUrl()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 384
@@ -730,7 +730,7 @@
 .end method
 
 .method public hasLatitude()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 292
@@ -740,7 +740,7 @@
 .end method
 
 .method public hasLongitude()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 329
@@ -750,13 +750,13 @@
 .end method
 
 .method public setAddressLine(ILjava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "index"
     .parameter "line"
 
     .prologue
     .line 102
-    if-gez p1, :cond_21
+    if-gez p1, :cond_0
 
     .line 103
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -790,10 +790,10 @@
     throw v2
 
     .line 105
-    :cond_21
+    :cond_0
     iget-object v2, p0, Landroid/location/Address;->mAddressLines:Ljava/util/HashMap;
 
-    if-nez v2, :cond_2c
+    if-nez v2, :cond_1
 
     .line 106
     new-instance v2, Ljava/util/HashMap;
@@ -803,7 +803,7 @@
     iput-object v2, p0, Landroid/location/Address;->mAddressLines:Ljava/util/HashMap;
 
     .line 108
-    :cond_2c
+    :cond_1
     iget-object v2, p0, Landroid/location/Address;->mAddressLines:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -813,7 +813,7 @@
     invoke-virtual {v2, v3, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 110
-    if-nez p2, :cond_5d
+    if-nez p2, :cond_2
 
     .line 112
     const/4 v2, -0x1
@@ -832,12 +832,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_44
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_65
+    if-eqz v2, :cond_3
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -859,12 +859,12 @@
 
     iput v2, p0, Landroid/location/Address;->mMaxAddressLineIndex:I
 
-    goto :goto_44
+    goto :goto_0
 
     .line 117
     .end local v0           #i:Ljava/lang/Integer;
     .end local v1           #i$:Ljava/util/Iterator;
-    :cond_5d
+    :cond_2
     iget v2, p0, Landroid/location/Address;->mMaxAddressLineIndex:I
 
     invoke-static {v2, p1}, Ljava/lang/Math;->max(II)I
@@ -874,12 +874,12 @@
     iput v2, p0, Landroid/location/Address;->mMaxAddressLineIndex:I
 
     .line 119
-    :cond_65
+    :cond_3
     return-void
 .end method
 
 .method public setAdminArea(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "adminArea"
 
     .prologue
@@ -891,7 +891,7 @@
 .end method
 
 .method public setCountryCode(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "countryCode"
 
     .prologue
@@ -903,7 +903,7 @@
 .end method
 
 .method public setCountryName(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "countryName"
 
     .prologue
@@ -915,32 +915,32 @@
 .end method
 
 .method public setExtras(Landroid/os/Bundle;)V
-    .registers 3
+    .locals 1
     .parameter "extras"
 
     .prologue
     .line 418
-    if-nez p1, :cond_6
+    if-nez p1, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_3
+    :goto_0
     iput-object v0, p0, Landroid/location/Address;->mExtras:Landroid/os/Bundle;
 
     .line 419
     return-void
 
     .line 418
-    :cond_6
+    :cond_0
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0, p1}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public setFeatureName(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "featureName"
 
     .prologue
@@ -952,7 +952,7 @@
 .end method
 
 .method public setLatitude(D)V
-    .registers 4
+    .locals 1
     .parameter "latitude"
 
     .prologue
@@ -969,7 +969,7 @@
 .end method
 
 .method public setLocality(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "locality"
 
     .prologue
@@ -981,7 +981,7 @@
 .end method
 
 .method public setLongitude(D)V
-    .registers 4
+    .locals 1
     .parameter "longitude"
 
     .prologue
@@ -998,7 +998,7 @@
 .end method
 
 .method public setPhone(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "phone"
 
     .prologue
@@ -1010,7 +1010,7 @@
 .end method
 
 .method public setPostalCode(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "postalCode"
 
     .prologue
@@ -1022,7 +1022,7 @@
 .end method
 
 .method public setPremises(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "premises"
 
     .prologue
@@ -1034,7 +1034,7 @@
 .end method
 
 .method public setSubAdminArea(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "subAdminArea"
 
     .prologue
@@ -1046,7 +1046,7 @@
 .end method
 
 .method public setSubLocality(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "sublocality"
 
     .prologue
@@ -1058,7 +1058,7 @@
 .end method
 
 .method public setSubThoroughfare(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "subthoroughfare"
 
     .prologue
@@ -1070,7 +1070,7 @@
 .end method
 
 .method public setThoroughfare(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "thoroughfare"
 
     .prologue
@@ -1082,7 +1082,7 @@
 .end method
 
 .method public setUrl(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "Url"
 
     .prologue
@@ -1094,7 +1094,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 8
+    .locals 7
 
     .prologue
     const/16 v6, 0x5d
@@ -1116,13 +1116,13 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_f
+    :goto_0
     iget v3, p0, Landroid/location/Address;->mMaxAddressLineIndex:I
 
-    if-gt v0, v3, :cond_43
+    if-gt v0, v3, :cond_2
 
     .line 426
-    if-lez v0, :cond_1a
+    if-lez v0, :cond_0
 
     .line 427
     const/16 v3, 0x2c
@@ -1130,7 +1130,7 @@
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 429
-    :cond_1a
+    :cond_0
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 430
@@ -1153,7 +1153,7 @@
 
     .line 432
     .local v1, line:Ljava/lang/String;
-    if-nez v1, :cond_39
+    if-nez v1, :cond_1
 
     .line 433
     const-string/jumbo v3, "null"
@@ -1161,13 +1161,13 @@
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 425
-    :goto_36
+    :goto_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 435
-    :cond_39
+    :cond_1
     invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 436
@@ -1176,11 +1176,11 @@
     .line 437
     invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_36
+    goto :goto_1
 
     .line 440
     .end local v1           #line:Ljava/lang/String;
-    :cond_43
+    :cond_2
     invoke-virtual {v2, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 441
@@ -1345,7 +1345,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 11
+    .locals 8
     .parameter "parcel"
     .parameter "flags"
 
@@ -1375,13 +1375,13 @@
     .line 536
     iget-object v3, p0, Landroid/location/Address;->mAddressLines:Ljava/util/HashMap;
 
-    if-nez v3, :cond_83
+    if-nez v3, :cond_3
 
     .line 537
     invoke-virtual {p1, v5}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 546
-    :cond_1b
+    :cond_0
     iget-object v3, p0, Landroid/location/Address;->mFeatureName:Ljava/lang/String;
 
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
@@ -1439,17 +1439,17 @@
     .line 557
     iget-boolean v3, p0, Landroid/location/Address;->mHasLatitude:Z
 
-    if-eqz v3, :cond_b7
+    if-eqz v3, :cond_4
 
     move v3, v4
 
-    :goto_57
+    :goto_0
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 558
     iget-boolean v3, p0, Landroid/location/Address;->mHasLatitude:Z
 
-    if-eqz v3, :cond_63
+    if-eqz v3, :cond_1
 
     .line 559
     iget-wide v6, p0, Landroid/location/Address;->mLatitude:D
@@ -1457,18 +1457,18 @@
     invoke-virtual {p1, v6, v7}, Landroid/os/Parcel;->writeDouble(D)V
 
     .line 561
-    :cond_63
+    :cond_1
     iget-boolean v3, p0, Landroid/location/Address;->mHasLongitude:Z
 
-    if-eqz v3, :cond_b9
+    if-eqz v3, :cond_5
 
-    :goto_67
+    :goto_1
     invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 562
     iget-boolean v3, p0, Landroid/location/Address;->mHasLongitude:Z
 
-    if-eqz v3, :cond_73
+    if-eqz v3, :cond_2
 
     .line 563
     iget-wide v3, p0, Landroid/location/Address;->mLongitude:D
@@ -1476,7 +1476,7 @@
     invoke-virtual {p1, v3, v4}, Landroid/os/Parcel;->writeDouble(D)V
 
     .line 565
-    :cond_73
+    :cond_2
     iget-object v3, p0, Landroid/location/Address;->mPhone:Ljava/lang/String;
 
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
@@ -1495,7 +1495,7 @@
     return-void
 
     .line 539
-    :cond_83
+    :cond_3
     iget-object v3, p0, Landroid/location/Address;->mAddressLines:Ljava/util/HashMap;
 
     invoke-virtual {v3}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
@@ -1516,12 +1516,12 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :goto_94
+    :goto_2
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1b
+    if-eqz v3, :cond_0
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1552,20 +1552,20 @@
 
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_94
+    goto :goto_2
 
     .end local v0           #e:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/String;>;"
     .end local v1           #entries:Ljava/util/Set;,"Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/String;>;>;"
     .end local v2           #i$:Ljava/util/Iterator;
-    :cond_b7
+    :cond_4
     move v3, v5
 
     .line 557
-    goto :goto_57
+    goto :goto_0
 
-    :cond_b9
+    :cond_5
     move v4, v5
 
     .line 561
-    goto :goto_67
+    goto :goto_1
 .end method

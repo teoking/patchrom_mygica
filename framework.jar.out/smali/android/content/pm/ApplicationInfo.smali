@@ -129,7 +129,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 585
@@ -143,7 +143,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -184,7 +184,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/pm/ApplicationInfo;)V
-    .registers 4
+    .locals 2
     .parameter "orig"
 
     .prologue
@@ -341,7 +341,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 5
+    .locals 3
     .parameter "source"
 
     .prologue
@@ -502,9 +502,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_a9
+    if-eqz v2, :cond_0
 
-    :goto_82
+    :goto_0
     iput-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
     .line 615
@@ -552,15 +552,15 @@
     .line 621
     return-void
 
-    :cond_a9
+    :cond_0
     move v0, v1
 
     .line 614
-    goto :goto_82
+    goto :goto_0
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/ApplicationInfo$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -572,7 +572,7 @@
 .end method
 
 .method private isPackageUnavailable(Landroid/content/pm/PackageManager;)Z
-    .registers 7
+    .locals 5
     .parameter "pm"
 
     .prologue
@@ -581,42 +581,42 @@
     const/4 v2, 0x0
 
     .line 669
-    :try_start_2
+    :try_start_0
     iget-object v3, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     const/4 v4, 0x0
 
     invoke-virtual {p1, v3, v4}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
-    :try_end_8
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_8} :catch_e
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v3
 
-    if-nez v3, :cond_c
+    if-nez v3, :cond_0
 
     .line 671
-    :goto_b
+    :goto_0
     return v1
 
-    :cond_c
+    :cond_0
     move v1, v2
 
     .line 669
-    goto :goto_b
+    goto :goto_0
 
     .line 670
-    :catch_e
+    :catch_0
     move-exception v0
 
     .line 671
     .local v0, ex:Landroid/content/pm/PackageManager$NameNotFoundException;
-    goto :goto_b
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 554
@@ -626,7 +626,7 @@
 .end method
 
 .method public disableCompatibilityMode()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 650
@@ -643,7 +643,7 @@
 .end method
 
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "pw"
     .parameter "prefix"
 
@@ -654,7 +654,7 @@
     .line 443
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->className:Ljava/lang/String;
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     .line 444
     new-instance v0, Ljava/lang/StringBuilder;
@@ -684,10 +684,10 @@
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 446
-    :cond_23
+    :cond_0
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->permission:Ljava/lang/String;
 
-    if-eqz v0, :cond_44
+    if-eqz v0, :cond_1
 
     .line 447
     new-instance v0, Ljava/lang/StringBuilder;
@@ -717,7 +717,7 @@
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 449
-    :cond_44
+    :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -911,12 +911,12 @@
     .line 457
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->sourceDir:Ljava/lang/String;
 
-    if-nez v0, :cond_24a
+    if-nez v0, :cond_8
 
     .line 458
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->publicSourceDir:Ljava/lang/String;
 
-    if-eqz v0, :cond_132
+    if-eqz v0, :cond_2
 
     .line 459
     new-instance v0, Ljava/lang/StringBuilder;
@@ -946,11 +946,11 @@
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 464
-    :cond_132
-    :goto_132
+    :cond_2
+    :goto_0
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->resourceDirs:[Ljava/lang/String;
 
-    if-eqz v0, :cond_153
+    if-eqz v0, :cond_3
 
     .line 465
     new-instance v0, Ljava/lang/StringBuilder;
@@ -980,7 +980,7 @@
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 467
-    :cond_153
+    :cond_3
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1010,7 +1010,7 @@
     .line 468
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->sharedLibraryFiles:[Ljava/lang/String;
 
-    if-eqz v0, :cond_190
+    if-eqz v0, :cond_4
 
     .line 469
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1040,7 +1040,7 @@
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 471
-    :cond_190
+    :cond_4
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1082,7 +1082,7 @@
     .line 472
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->manageSpaceActivityName:Ljava/lang/String;
 
-    if-eqz v0, :cond_1d9
+    if-eqz v0, :cond_5
 
     .line 473
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1112,10 +1112,10 @@
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 475
-    :cond_1d9
+    :cond_5
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->descriptionRes:I
 
-    if-eqz v0, :cond_1fd
+    if-eqz v0, :cond_6
 
     .line 476
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1149,10 +1149,10 @@
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 478
-    :cond_1fd
+    :cond_6
     iget v0, p0, Landroid/content/pm/ApplicationInfo;->uiOptions:I
 
-    if-eqz v0, :cond_222
+    if-eqz v0, :cond_7
 
     .line 479
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1186,7 +1186,7 @@
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 481
-    :cond_222
+    :cond_7
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1205,11 +1205,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_273
+    if-eqz v0, :cond_9
 
     const-string/jumbo v0, "true"
 
-    :goto_23b
+    :goto_1
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -1227,7 +1227,7 @@
     return-void
 
     .line 461
-    :cond_24a
+    :cond_8
     iget-object v0, p0, Landroid/content/pm/ApplicationInfo;->sourceDir:Ljava/lang/String;
 
     iget-object v1, p0, Landroid/content/pm/ApplicationInfo;->publicSourceDir:Ljava/lang/String;
@@ -1236,7 +1236,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_132
+    if-nez v0, :cond_2
 
     .line 462
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1265,17 +1265,17 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    goto/16 :goto_132
+    goto/16 :goto_0
 
     .line 481
-    :cond_273
+    :cond_9
     const-string v0, "false"
 
-    goto :goto_23b
+    goto :goto_1
 .end method
 
 .method protected getApplicationInfo()Landroid/content/pm/ApplicationInfo;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 679
@@ -1283,7 +1283,7 @@
 .end method
 
 .method public hasRtlSupport()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/high16 v1, 0x40
@@ -1293,21 +1293,21 @@
 
     and-int/2addr v0, v1
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method protected loadDefaultIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
-    .registers 4
+    .locals 2
     .parameter "pm"
 
     .prologue
@@ -1318,13 +1318,13 @@
 
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     invoke-direct {p0, p1}, Landroid/content/pm/ApplicationInfo;->isPackageUnavailable(Landroid/content/pm/PackageManager;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     .line 661
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
@@ -1338,26 +1338,26 @@
     move-result-object v0
 
     .line 664
-    :goto_18
+    :goto_0
     return-object v0
 
-    :cond_19
+    :cond_0
     invoke-virtual {p1}, Landroid/content/pm/PackageManager;->getDefaultActivityIcon()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method public loadDescription(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
-    .registers 5
+    .locals 3
     .parameter "pm"
 
     .prologue
     .line 635
     iget v1, p0, Landroid/content/pm/ApplicationInfo;->descriptionRes:I
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_0
 
     .line 636
     iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
@@ -1370,21 +1370,21 @@
 
     .line 637
     .local v0, label:Ljava/lang/CharSequence;
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 641
     .end local v0           #label:Ljava/lang/CharSequence;
-    :goto_e
+    :goto_0
     return-object v0
 
-    :cond_f
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 548
@@ -1436,7 +1436,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "parcelableFlags"
 
@@ -1532,11 +1532,11 @@
     .line 576
     iget-boolean v0, p0, Landroid/content/pm/ApplicationInfo;->enabled:Z
 
-    if-eqz v0, :cond_7f
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5d
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 577
@@ -1573,8 +1573,8 @@
     return-void
 
     .line 576
-    :cond_7f
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5d
+    goto :goto_0
 .end method

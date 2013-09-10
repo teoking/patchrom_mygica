@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 3
+    .locals 0
     .parameter "w"
     .parameter "h"
 
@@ -29,7 +29,7 @@
 .end method
 
 .method public constructor <init>(IIF)V
-    .registers 4
+    .locals 0
     .parameter "w"
     .parameter "h"
     .parameter "initWeight"
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "c"
     .parameter "attrs"
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 2
+    .locals 0
     .parameter "p"
 
     .prologue
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
-    .registers 2
+    .locals 0
     .parameter "source"
 
     .prologue
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method protected setBaseAttributes(Landroid/content/res/TypedArray;II)V
-    .registers 6
+    .locals 2
     .parameter "a"
     .parameter "widthAttr"
     .parameter "heightAttr"
@@ -95,7 +95,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_0
 
     .line 316
     const-string v0, "layout_width"
@@ -107,12 +107,12 @@
     iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     .line 321
-    :goto_f
+    :goto_0
     invoke-virtual {p1, p3}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_1
 
     .line 322
     const-string v0, "layout_height"
@@ -124,18 +124,18 @@
     iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     .line 326
-    :goto_1d
+    :goto_1
     return-void
 
     .line 318
-    :cond_1e
+    :cond_0
     iput v1, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    goto :goto_f
+    goto :goto_0
 
     .line 324
-    :cond_21
+    :cond_1
     iput v1, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    goto :goto_1d
+    goto :goto_1
 .end method

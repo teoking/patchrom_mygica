@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine;Landroid/net/wifi/WpsInfo;Landroid/widget/EditText;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 5
+    .locals 2
     .parameter "dialog"
     .parameter "which"
 
@@ -60,11 +60,12 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_1b
+    if-ne v0, v1, :cond_0
 
     .line 1513
     iget-object v0, p0, Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine$3;->this$1:Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine;
 
+    #getter for: Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine;->mSavedPeerConfig:Landroid/net/wifi/p2p/WifiP2pConfig;
     invoke-static {v0}, Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine;->access$4200(Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine;)Landroid/net/wifi/p2p/WifiP2pConfig;
 
     move-result-object v0
@@ -84,7 +85,7 @@
     iput-object v1, v0, Landroid/net/wifi/WpsInfo;->pin:Ljava/lang/String;
 
     .line 1516
-    :cond_1b
+    :cond_0
     iget-object v0, p0, Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine$3;->this$1:Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine;
 
     const v1, 0x23002

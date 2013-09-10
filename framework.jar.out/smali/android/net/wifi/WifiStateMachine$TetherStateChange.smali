@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/wifi/WifiStateMachine;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter

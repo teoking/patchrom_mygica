@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/net/NetworkIdentitySet;III)V
-    .registers 8
+    .locals 3
     .parameter "ident"
     .parameter "uid"
     .parameter "set"
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method public compareTo(Lcom/android/server/net/NetworkStatsCollection$Key;)I
-    .registers 4
+    .locals 2
     .parameter "another"
 
     .prologue
@@ -126,7 +126,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -142,7 +142,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
     .parameter "obj"
 
     .prologue
@@ -151,7 +151,7 @@
     .line 520
     instance-of v2, p1, Lcom/android/server/net/NetworkStatsCollection$Key;
 
-    if-eqz v2, :cond_25
+    if-eqz v2, :cond_0
 
     move-object v0, p1
 
@@ -164,19 +164,19 @@
 
     iget v3, v0, Lcom/android/server/net/NetworkStatsCollection$Key;->uid:I
 
-    if-ne v2, v3, :cond_25
+    if-ne v2, v3, :cond_0
 
     iget v2, p0, Lcom/android/server/net/NetworkStatsCollection$Key;->set:I
 
     iget v3, v0, Lcom/android/server/net/NetworkStatsCollection$Key;->set:I
 
-    if-ne v2, v3, :cond_25
+    if-ne v2, v3, :cond_0
 
     iget v2, p0, Lcom/android/server/net/NetworkStatsCollection$Key;->tag:I
 
     iget v3, v0, Lcom/android/server/net/NetworkStatsCollection$Key;->tag:I
 
-    if-ne v2, v3, :cond_25
+    if-ne v2, v3, :cond_0
 
     iget-object v2, p0, Lcom/android/server/net/NetworkStatsCollection$Key;->ident:Lcom/android/server/net/NetworkIdentitySet;
 
@@ -186,18 +186,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_25
+    if-eqz v2, :cond_0
 
     const/4 v1, 0x1
 
     .line 525
     .end local v0           #key:Lcom/android/server/net/NetworkStatsCollection$Key;
-    :cond_25
+    :cond_0
     return v1
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 515

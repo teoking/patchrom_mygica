@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/service/wallpaper/WallpaperService;Landroid/service/wallpaper/WallpaperService;Landroid/service/wallpaper/IWallpaperConnection;Landroid/os/IBinder;IZII)V
-    .registers 12
+    .locals 3
     .parameter
     .parameter "context"
     .parameter "conn"
@@ -58,17 +58,19 @@
     .line 957
     new-instance v2, Lcom/android/internal/os/HandlerCaller;
 
+    #getter for: Landroid/service/wallpaper/WallpaperService;->mCallbackLooper:Landroid/os/Looper;
     invoke-static {p1}, Landroid/service/wallpaper/WallpaperService;->access$200(Landroid/service/wallpaper/WallpaperService;)Landroid/os/Looper;
 
     move-result-object v1
 
-    if-eqz v1, :cond_30
+    if-eqz v1, :cond_0
 
+    #getter for: Landroid/service/wallpaper/WallpaperService;->mCallbackLooper:Landroid/os/Looper;
     invoke-static {p1}, Landroid/service/wallpaper/WallpaperService;->access$200(Landroid/service/wallpaper/WallpaperService;)Landroid/os/Looper;
 
     move-result-object v1
 
-    :goto_11
+    :goto_0
     invoke-direct {v2, p2, v1, p0}, Lcom/android/internal/os/HandlerCaller;-><init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/internal/os/HandlerCaller$Callback;)V
 
     iput-object v2, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mCaller:Lcom/android/internal/os/HandlerCaller;
@@ -111,16 +113,16 @@
 
     .line 957
     .end local v0           #msg:Landroid/os/Message;
-    :cond_30
+    :cond_0
     invoke-virtual {p2}, Landroid/service/wallpaper/WallpaperService;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v1
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method static synthetic access$100(Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;)Lcom/android/internal/os/HandlerCaller;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -133,7 +135,7 @@
 
 # virtual methods
 .method public destroy()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 999
@@ -156,33 +158,34 @@
 .end method
 
 .method public dispatchPointer(Landroid/view/MotionEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
     .line 984
     iget-object v0, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 985
     iget-object v0, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
 
+    #calls: Landroid/service/wallpaper/WallpaperService$Engine;->dispatchPointer(Landroid/view/MotionEvent;)V
     invoke-static {v0, p1}, Landroid/service/wallpaper/WallpaperService$Engine;->access$000(Landroid/service/wallpaper/WallpaperService$Engine;Landroid/view/MotionEvent;)V
 
     .line 989
-    :goto_9
+    :goto_0
     return-void
 
     .line 987
-    :cond_a
+    :cond_0
     invoke-virtual {p1}, Landroid/view/MotionEvent;->recycle()V
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public dispatchWallpaperCommand(Ljava/lang/String;IIILandroid/os/Bundle;)V
-    .registers 13
+    .locals 7
     .parameter "action"
     .parameter "x"
     .parameter "y"
@@ -193,7 +196,7 @@
     .line 993
     iget-object v0, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 994
     iget-object v0, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
@@ -215,12 +218,12 @@
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/view/BaseIWindow;->dispatchWallpaperCommand(Ljava/lang/String;IIILandroid/os/Bundle;Z)V
 
     .line 996
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 .method public executeMessage(Landroid/os/Message;)V
-    .registers 12
+    .locals 10
     .parameter "message"
 
     .prologue
@@ -231,7 +234,7 @@
     .line 1004
     iget v8, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v8, :sswitch_data_c2
+    sparse-switch v8, :sswitch_data_0
 
     .line 1067
     const-string v6, "WallpaperService"
@@ -259,17 +262,17 @@
     invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1069
-    :goto_21
+    :goto_0
     return-void
 
     .line 1007
-    :sswitch_22
-    :try_start_22
+    :sswitch_0
+    :try_start_0
     iget-object v6, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mConnection:Landroid/service/wallpaper/IWallpaperConnection;
 
     invoke-interface {v6, p0}, Landroid/service/wallpaper/IWallpaperConnection;->attachEngine(Landroid/service/wallpaper/IWallpaperEngine;)V
-    :try_end_27
-    .catch Landroid/os/RemoteException; {:try_start_22 .. :try_end_27} :catch_3c
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1012
     iget-object v6, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->this$0:Landroid/service/wallpaper/WallpaperService;
@@ -285,6 +288,7 @@
     .line 1014
     iget-object v6, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->this$0:Landroid/service/wallpaper/WallpaperService;
 
+    #getter for: Landroid/service/wallpaper/WallpaperService;->mActiveEngines:Ljava/util/ArrayList;
     invoke-static {v6}, Landroid/service/wallpaper/WallpaperService;->access$300(Landroid/service/wallpaper/WallpaperService;)Ljava/util/ArrayList;
 
     move-result-object v6
@@ -294,11 +298,11 @@
     .line 1015
     invoke-virtual {v2, p0}, Landroid/service/wallpaper/WallpaperService$Engine;->attach(Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;)V
 
-    goto :goto_21
+    goto :goto_0
 
     .line 1008
     .end local v2           #engine:Landroid/service/wallpaper/WallpaperService$Engine;
-    :catch_3c
+    :catch_0
     move-exception v1
 
     .line 1009
@@ -309,13 +313,14 @@
 
     invoke-static {v6, v7, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_21
+    goto :goto_0
 
     .line 1019
     .end local v1           #e:Landroid/os/RemoteException;
-    :sswitch_45
+    :sswitch_1
     iget-object v6, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->this$0:Landroid/service/wallpaper/WallpaperService;
 
+    #getter for: Landroid/service/wallpaper/WallpaperService;->mActiveEngines:Ljava/util/ArrayList;
     invoke-static {v6}, Landroid/service/wallpaper/WallpaperService;->access$300(Landroid/service/wallpaper/WallpaperService;)Ljava/util/ArrayList;
 
     move-result-object v6
@@ -329,10 +334,10 @@
 
     invoke-virtual {v6}, Landroid/service/wallpaper/WallpaperService$Engine;->detach()V
 
-    goto :goto_21
+    goto :goto_0
 
     .line 1024
-    :sswitch_56
+    :sswitch_2
     iget-object v6, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
 
     iget v7, p1, Landroid/os/Message;->arg1:I
@@ -341,44 +346,44 @@
 
     invoke-virtual {v6, v7, v8}, Landroid/service/wallpaper/WallpaperService$Engine;->doDesiredSizeChanged(II)V
 
-    goto :goto_21
+    goto :goto_0
 
     .line 1028
-    :sswitch_60
+    :sswitch_3
     iget-object v8, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
 
     invoke-virtual {v8, v6, v7, v7}, Landroid/service/wallpaper/WallpaperService$Engine;->updateSurface(ZZZ)V
 
-    goto :goto_21
+    goto :goto_0
 
     .line 1033
-    :sswitch_66
+    :sswitch_4
     iget-object v8, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
 
     iget v9, p1, Landroid/os/Message;->arg1:I
 
-    if-eqz v9, :cond_70
+    if-eqz v9, :cond_0
 
-    :goto_6c
+    :goto_1
     invoke-virtual {v8, v6}, Landroid/service/wallpaper/WallpaperService$Engine;->doVisibilityChanged(Z)V
 
-    goto :goto_21
+    goto :goto_0
 
-    :cond_70
+    :cond_0
     move v6, v7
 
-    goto :goto_6c
+    goto :goto_1
 
     .line 1036
-    :sswitch_72
+    :sswitch_5
     iget-object v7, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
 
     invoke-virtual {v7, v6}, Landroid/service/wallpaper/WallpaperService$Engine;->doOffsetsChanged(Z)V
 
-    goto :goto_21
+    goto :goto_0
 
     .line 1039
-    :sswitch_78
+    :sswitch_6
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/service/wallpaper/WallpaperService$WallpaperCommand;
@@ -389,20 +394,20 @@
 
     invoke-virtual {v6, v0}, Landroid/service/wallpaper/WallpaperService$Engine;->doCommand(Landroid/service/wallpaper/WallpaperService$WallpaperCommand;)V
 
-    goto :goto_21
+    goto :goto_0
 
     .line 1043
     .end local v0           #cmd:Landroid/service/wallpaper/WallpaperService$WallpaperCommand;
-    :sswitch_82
+    :sswitch_7
     iget v8, p1, Landroid/os/Message;->arg1:I
 
-    if-eqz v8, :cond_92
+    if-eqz v8, :cond_1
 
     move v4, v6
 
     .line 1044
     .local v4, reportDraw:Z
-    :goto_87
+    :goto_2
     iget-object v8, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
 
     invoke-virtual {v8, v6, v7, v4}, Landroid/service/wallpaper/WallpaperService$Engine;->updateSurface(ZZZ)V
@@ -412,17 +417,17 @@
 
     invoke-virtual {v7, v6}, Landroid/service/wallpaper/WallpaperService$Engine;->doOffsetsChanged(Z)V
 
-    goto :goto_21
+    goto :goto_0
 
     .end local v4           #reportDraw:Z
-    :cond_92
+    :cond_1
     move v4, v7
 
     .line 1043
-    goto :goto_87
+    goto :goto_2
 
     .line 1048
-    :sswitch_94
+    :sswitch_8
     const/4 v5, 0x0
 
     .line 1049
@@ -439,7 +444,7 @@
 
     const/4 v7, 0x2
 
-    if-ne v6, v7, :cond_b1
+    if-ne v6, v7, :cond_2
 
     .line 1051
     iget-object v6, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
@@ -449,12 +454,12 @@
     monitor-enter v7
 
     .line 1052
-    :try_start_a5
+    :try_start_1
     iget-object v6, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
 
     iget-object v6, v6, Landroid/service/wallpaper/WallpaperService$Engine;->mPendingMove:Landroid/view/MotionEvent;
 
-    if-ne v6, v3, :cond_bd
+    if-ne v6, v3, :cond_4
 
     .line 1053
     iget-object v6, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
@@ -464,14 +469,14 @@
     iput-object v8, v6, Landroid/service/wallpaper/WallpaperService$Engine;->mPendingMove:Landroid/view/MotionEvent;
 
     .line 1058
-    :goto_b0
+    :goto_3
     monitor-exit v7
-    :try_end_b1
-    .catchall {:try_start_a5 .. :try_end_b1} :catchall_bf
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 1060
-    :cond_b1
-    if-nez v5, :cond_b8
+    :cond_2
+    if-nez v5, :cond_3
 
     .line 1062
     iget-object v6, p0, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mEngine:Landroid/service/wallpaper/WallpaperService$Engine;
@@ -479,45 +484,45 @@
     invoke-virtual {v6, v3}, Landroid/service/wallpaper/WallpaperService$Engine;->onTouchEvent(Landroid/view/MotionEvent;)V
 
     .line 1064
-    :cond_b8
+    :cond_3
     invoke-virtual {v3}, Landroid/view/MotionEvent;->recycle()V
 
-    goto/16 :goto_21
+    goto/16 :goto_0
 
     .line 1056
-    :cond_bd
+    :cond_4
     const/4 v5, 0x1
 
-    goto :goto_b0
+    goto :goto_3
 
     .line 1058
-    :catchall_bf
+    :catchall_0
     move-exception v6
 
-    :try_start_c0
+    :try_start_2
     monitor-exit v7
-    :try_end_c1
-    .catchall {:try_start_c0 .. :try_end_c1} :catchall_bf
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v6
 
     .line 1004
-    :sswitch_data_c2
+    :sswitch_data_0
     .sparse-switch
-        0xa -> :sswitch_22
-        0x14 -> :sswitch_45
-        0x1e -> :sswitch_56
-        0x2710 -> :sswitch_60
-        0x271a -> :sswitch_66
-        0x2724 -> :sswitch_72
-        0x2729 -> :sswitch_78
-        0x272e -> :sswitch_82
-        0x2738 -> :sswitch_94
+        0xa -> :sswitch_0
+        0x14 -> :sswitch_1
+        0x1e -> :sswitch_2
+        0x2710 -> :sswitch_3
+        0x271a -> :sswitch_4
+        0x2724 -> :sswitch_5
+        0x2729 -> :sswitch_6
+        0x272e -> :sswitch_7
+        0x2738 -> :sswitch_8
     .end sparse-switch
 .end method
 
 .method public setDesiredSize(II)V
-    .registers 6
+    .locals 3
     .parameter "width"
     .parameter "height"
 
@@ -542,7 +547,7 @@
 .end method
 
 .method public setVisibility(Z)V
-    .registers 6
+    .locals 4
     .parameter "visible"
 
     .prologue
@@ -551,11 +556,11 @@
 
     const/16 v3, 0x271a
 
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     const/4 v1, 0x1
 
-    :goto_7
+    :goto_0
     invoke-virtual {v2, v3, v1}, Lcom/android/internal/os/HandlerCaller;->obtainMessageI(II)Landroid/os/Message;
 
     move-result-object v0
@@ -571,8 +576,8 @@
 
     .line 978
     .end local v0           #msg:Landroid/os/Message;
-    :cond_11
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method

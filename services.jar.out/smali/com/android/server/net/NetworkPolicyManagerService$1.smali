@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/net/NetworkPolicyManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onForegroundActivitiesChanged(IIZ)V
-    .registers 7
+    .locals 3
     .parameter "pid"
     .parameter "uid"
     .parameter "foregroundActivities"
@@ -44,6 +44,7 @@
     .line 395
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
+    #getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/net/NetworkPolicyManagerService;->access$000(Lcom/android/server/net/NetworkPolicyManagerService;)Landroid/os/Handler;
 
     move-result-object v0
@@ -65,7 +66,7 @@
 .end method
 
 .method public onImportanceChanged(III)V
-    .registers 4
+    .locals 0
     .parameter "pid"
     .parameter "uid"
     .parameter "importance"
@@ -76,7 +77,7 @@
 .end method
 
 .method public onProcessDied(II)V
-    .registers 5
+    .locals 2
     .parameter "pid"
     .parameter "uid"
 
@@ -84,6 +85,7 @@
     .line 405
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
+    #getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/net/NetworkPolicyManagerService;->access$000(Lcom/android/server/net/NetworkPolicyManagerService;)Landroid/os/Handler;
 
     move-result-object v0

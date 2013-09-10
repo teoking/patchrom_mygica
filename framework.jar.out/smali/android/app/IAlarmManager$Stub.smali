@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 19
@@ -57,22 +57,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/app/IAlarmManager;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 28
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 29
     const/4 v0, 0x0
 
     .line 35
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 31
-    :cond_4
+    :cond_0
     const-string v1, "android.app.IAlarmManager"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -81,31 +81,31 @@
 
     .line 32
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/app/IAlarmManager;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 33
     check-cast v0, Landroid/app/IAlarmManager;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 35
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/app/IAlarmManager$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/app/IAlarmManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 39
@@ -113,7 +113,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 15
+    .locals 10
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -128,18 +128,18 @@
     const/4 v9, 0x1
 
     .line 43
-    sparse-switch p1, :sswitch_data_cc
+    sparse-switch p1, :sswitch_data_0
 
     .line 141
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0
 
-    :goto_8
+    :goto_0
     return v0
 
     .line 47
-    :sswitch_9
+    :sswitch_0
     const-string v0, "android.app.IAlarmManager"
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
@@ -147,10 +147,10 @@
     move v0, v9
 
     .line 48
-    goto :goto_8
+    goto :goto_0
 
     .line 52
-    :sswitch_10
+    :sswitch_1
     const-string v0, "android.app.IAlarmManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -172,7 +172,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_0
 
     .line 59
     sget-object v0, Landroid/app/PendingIntent;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -185,7 +185,7 @@
 
     .line 64
     .local v4, _arg2:Landroid/app/PendingIntent;
-    :goto_2b
+    :goto_1
     invoke-virtual {p0, v1, v2, v3, v4}, Landroid/app/IAlarmManager$Stub;->set(IJLandroid/app/PendingIntent;)V
 
     .line 65
@@ -194,21 +194,21 @@
     move v0, v9
 
     .line 66
-    goto :goto_8
+    goto :goto_0
 
     .line 62
     .end local v4           #_arg2:Landroid/app/PendingIntent;
-    :cond_33
+    :cond_0
     const/4 v4, 0x0
 
     .restart local v4       #_arg2:Landroid/app/PendingIntent;
-    goto :goto_2b
+    goto :goto_1
 
     .line 70
     .end local v1           #_arg0:I
     .end local v2           #_arg1:J
     .end local v4           #_arg2:Landroid/app/PendingIntent;
-    :sswitch_35
+    :sswitch_2
     const-string v0, "android.app.IAlarmManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -236,7 +236,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5d
+    if-eqz v0, :cond_1
 
     .line 79
     sget-object v0, Landroid/app/PendingIntent;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -248,7 +248,7 @@
     check-cast v6, Landroid/app/PendingIntent;
 
     .local v6, _arg3:Landroid/app/PendingIntent;
-    :goto_54
+    :goto_2
     move-object v0, p0
 
     .line 84
@@ -260,22 +260,22 @@
     move v0, v9
 
     .line 86
-    goto :goto_8
+    goto :goto_0
 
     .line 82
     .end local v6           #_arg3:Landroid/app/PendingIntent;
-    :cond_5d
+    :cond_1
     const/4 v6, 0x0
 
     .restart local v6       #_arg3:Landroid/app/PendingIntent;
-    goto :goto_54
+    goto :goto_2
 
     .line 90
     .end local v1           #_arg0:I
     .end local v2           #_arg1:J
     .end local v4           #_arg2:J
     .end local v6           #_arg3:Landroid/app/PendingIntent;
-    :sswitch_5f
+    :sswitch_3
     const-string v0, "android.app.IAlarmManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -303,7 +303,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_87
+    if-eqz v0, :cond_2
 
     .line 99
     sget-object v0, Landroid/app/PendingIntent;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -315,7 +315,7 @@
     check-cast v6, Landroid/app/PendingIntent;
 
     .restart local v6       #_arg3:Landroid/app/PendingIntent;
-    :goto_7e
+    :goto_3
     move-object v0, p0
 
     .line 104
@@ -327,22 +327,22 @@
     move v0, v9
 
     .line 106
-    goto :goto_8
+    goto :goto_0
 
     .line 102
     .end local v6           #_arg3:Landroid/app/PendingIntent;
-    :cond_87
+    :cond_2
     const/4 v6, 0x0
 
     .restart local v6       #_arg3:Landroid/app/PendingIntent;
-    goto :goto_7e
+    goto :goto_3
 
     .line 110
     .end local v1           #_arg0:I
     .end local v2           #_arg1:J
     .end local v4           #_arg2:J
     .end local v6           #_arg3:Landroid/app/PendingIntent;
-    :sswitch_89
+    :sswitch_4
     const-string v0, "android.app.IAlarmManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -362,11 +362,11 @@
     move v0, v9
 
     .line 115
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 119
     .end local v7           #_arg0:J
-    :sswitch_9b
+    :sswitch_5
     const-string v0, "android.app.IAlarmManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -386,11 +386,11 @@
     move v0, v9
 
     .line 124
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 128
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_ad
+    :sswitch_6
     const-string v0, "android.app.IAlarmManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -400,7 +400,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c9
+    if-eqz v0, :cond_3
 
     .line 131
     sget-object v0, Landroid/app/PendingIntent;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -413,7 +413,7 @@
 
     .line 136
     .local v1, _arg0:Landroid/app/PendingIntent;
-    :goto_c0
+    :goto_4
     invoke-virtual {p0, v1}, Landroid/app/IAlarmManager$Stub;->remove(Landroid/app/PendingIntent;)V
 
     .line 137
@@ -422,27 +422,27 @@
     move v0, v9
 
     .line 138
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 134
     .end local v1           #_arg0:Landroid/app/PendingIntent;
-    :cond_c9
+    :cond_3
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/app/PendingIntent;
-    goto :goto_c0
+    goto :goto_4
 
     .line 43
     nop
 
-    :sswitch_data_cc
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_10
-        0x2 -> :sswitch_35
-        0x3 -> :sswitch_5f
-        0x4 -> :sswitch_89
-        0x5 -> :sswitch_9b
-        0x6 -> :sswitch_ad
-        0x5f4e5446 -> :sswitch_9
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

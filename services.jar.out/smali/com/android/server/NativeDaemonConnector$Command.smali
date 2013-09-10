@@ -31,7 +31,7 @@
 
 # direct methods
 .method public varargs constructor <init>(Ljava/lang/String;[Ljava/lang/Object;)V
-    .registers 8
+    .locals 5
     .parameter "cmd"
     .parameter "args"
 
@@ -59,8 +59,8 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_e
-    if-ge v2, v3, :cond_18
+    :goto_0
+    if-ge v2, v3, :cond_0
 
     aget-object v0, v1, v2
 
@@ -71,16 +71,16 @@
     .line 451
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 454
     .end local v0           #arg:Ljava/lang/Object;
-    :cond_18
+    :cond_0
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/server/NativeDaemonConnector$Command;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -91,7 +91,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/server/NativeDaemonConnector$Command;)Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public appendArg(Ljava/lang/Object;)Lcom/android/server/NativeDaemonConnector$Command;
-    .registers 3
+    .locals 1
     .parameter "arg"
 
     .prologue

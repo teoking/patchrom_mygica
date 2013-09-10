@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;)V
-    .registers 14
+    .locals 10
     .parameter "context"
     .parameter "cur"
     .parameter "next"

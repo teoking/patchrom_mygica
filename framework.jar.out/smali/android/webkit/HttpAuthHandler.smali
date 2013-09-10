@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 31
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method public cancel()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 46
@@ -26,7 +26,7 @@
 .end method
 
 .method public proceed(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "username"
     .parameter "password"
 
@@ -36,7 +36,7 @@
 .end method
 
 .method public suppressDialog()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 59
@@ -46,7 +46,7 @@
 .end method
 
 .method public useHttpAuthUsernamePassword()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 39

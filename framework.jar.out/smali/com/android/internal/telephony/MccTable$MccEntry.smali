@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/String;I)V
-    .registers 5
+    .locals 1
     .parameter "mnc"
     .parameter "iso"
     .parameter "smallestDigitsMCC"
@@ -55,7 +55,7 @@
 .end method
 
 .method constructor <init>(ILjava/lang/String;ILjava/lang/String;)V
-    .registers 5
+    .locals 0
     .parameter "mnc"
     .parameter "iso"
     .parameter "smallestDigitsMCC"
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public compareTo(Lcom/android/internal/telephony/MccTable$MccEntry;)I
-    .registers 4
+    .locals 2
     .parameter "o"
 
     .prologue
@@ -99,7 +99,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

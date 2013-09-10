@@ -12,7 +12,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 88
@@ -26,7 +26,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 109
@@ -42,7 +42,7 @@
 .end method
 
 .method static getAndroidLevel(Ljava/util/logging/Level;)I
-    .registers 3
+    .locals 2
     .parameter "level"
 
     .prologue
@@ -55,48 +55,48 @@
     .local v0, value:I
     const/16 v1, 0x3e8
 
-    if-lt v0, v1, :cond_a
+    if-lt v0, v1, :cond_0
 
     .line 163
     const/4 v1, 0x6
 
     .line 169
-    :goto_9
+    :goto_0
     return v1
 
     .line 164
-    :cond_a
+    :cond_0
     const/16 v1, 0x384
 
-    if-lt v0, v1, :cond_10
+    if-lt v0, v1, :cond_1
 
     .line 165
     const/4 v1, 0x5
 
-    goto :goto_9
+    goto :goto_0
 
     .line 166
-    :cond_10
+    :cond_1
     const/16 v1, 0x320
 
-    if-lt v0, v1, :cond_16
+    if-lt v0, v1, :cond_2
 
     .line 167
     const/4 v1, 0x4
 
-    goto :goto_9
+    goto :goto_0
 
     .line 169
-    :cond_16
+    :cond_2
     const/4 v1, 0x3
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public close()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 116
@@ -104,7 +104,7 @@
 .end method
 
 .method public flush()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 121
@@ -112,7 +112,7 @@
 .end method
 
 .method public publish(Ljava/util/logging/LogRecord;)V
-    .registers 8
+    .locals 6
     .parameter "record"
 
     .prologue
@@ -141,15 +141,15 @@
 
     move-result v4
 
-    if-nez v4, :cond_17
+    if-nez v4, :cond_0
 
     .line 137
-    :goto_16
+    :goto_0
     return-void
 
     .line 132
-    :cond_17
-    :try_start_17
+    :cond_0
+    :try_start_0
     invoke-virtual {p0}, Lcom/android/internal/logging/AndroidHandler;->getFormatter()Ljava/util/logging/Formatter;
 
     move-result-object v4
@@ -161,14 +161,14 @@
     .line 133
     .local v2, message:Ljava/lang/String;
     invoke-static {v1, v3, v2}, Landroid/util/Log;->println(ILjava/lang/String;Ljava/lang/String;)I
-    :try_end_22
-    .catch Ljava/lang/RuntimeException; {:try_start_17 .. :try_end_22} :catch_23
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 134
     .end local v2           #message:Ljava/lang/String;
-    :catch_23
+    :catch_0
     move-exception v0
 
     .line 135
@@ -179,11 +179,11 @@
 
     invoke-static {v4, v5, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method public publish(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/util/logging/Level;Ljava/lang/String;)V
-    .registers 9
+    .locals 4
     .parameter "source"
     .parameter "tag"
     .parameter "level"
@@ -201,23 +201,23 @@
 
     move-result v2
 
-    if-nez v2, :cond_b
+    if-nez v2, :cond_0
 
     .line 151
-    :goto_a
+    :goto_0
     return-void
 
     .line 147
-    :cond_b
-    :try_start_b
+    :cond_0
+    :try_start_0
     invoke-static {v1, p2, p4}, Landroid/util/Log;->println(ILjava/lang/String;Ljava/lang/String;)I
-    :try_end_e
-    .catch Ljava/lang/RuntimeException; {:try_start_b .. :try_end_e} :catch_f
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_a
+    goto :goto_0
 
     .line 148
-    :catch_f
+    :catch_0
     move-exception v0
 
     .line 149
@@ -228,5 +228,5 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_a
+    goto :goto_0
 .end method

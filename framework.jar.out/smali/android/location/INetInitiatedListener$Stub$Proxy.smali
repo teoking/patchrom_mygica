@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 72
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -60,7 +60,7 @@
 .end method
 
 .method public sendNiResponse(II)Z
-    .registers 10
+    .locals 7
     .parameter "notifId"
     .parameter "userResponse"
     .annotation system Ldalvik/annotation/Throws;
@@ -87,7 +87,7 @@
 
     .line 84
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.location.INetInitiatedListener"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -112,16 +112,16 @@
 
     .line 89
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_22
-    .catchall {:try_start_a .. :try_end_22} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_2c
+    if-eqz v4, :cond_0
 
     .line 92
     .local v2, _result:Z
-    :goto_25
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 93
@@ -131,14 +131,14 @@
     return v2
 
     .end local v2           #_result:Z
-    :cond_2c
+    :cond_0
     move v2, v3
 
     .line 89
-    goto :goto_25
+    goto :goto_0
 
     .line 92
-    :catchall_2e
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

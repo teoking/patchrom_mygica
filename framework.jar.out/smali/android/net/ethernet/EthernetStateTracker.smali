@@ -74,7 +74,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 7
+    .locals 4
     .parameter "netType"
     .parameter "networkName"
 
@@ -167,7 +167,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5f
+    if-eqz v1, :cond_0
 
     .line 95
     const-string v1, "EthernetStateTracker"
@@ -177,11 +177,11 @@
     invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 104
-    :goto_5e
+    :goto_0
     return-void
 
     .line 98
-    :cond_5f
+    :cond_0
     const-string v1, "EthernetStateTracker"
 
     const-string v2, "Success"
@@ -224,11 +224,11 @@
 
     iput-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mMonitor:Landroid/net/ethernet/EthernetMonitor;
 
-    goto :goto_5e
+    goto :goto_0
 .end method
 
 .method static synthetic access$000(Landroid/net/ethernet/EthernetStateTracker;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -239,7 +239,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/net/ethernet/EthernetStateTracker;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -251,7 +251,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/net/ethernet/EthernetStateTracker;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -262,7 +262,7 @@
 .end method
 
 .method static synthetic access$1000(Landroid/net/ethernet/EthernetStateTracker;)Landroid/net/DhcpInfoInternal;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -273,7 +273,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/net/ethernet/EthernetStateTracker;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -285,7 +285,7 @@
 .end method
 
 .method static synthetic access$1100(Landroid/net/ethernet/EthernetStateTracker;)Landroid/net/LinkProperties;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -296,7 +296,7 @@
 .end method
 
 .method static synthetic access$1102(Landroid/net/ethernet/EthernetStateTracker;Landroid/net/LinkProperties;)Landroid/net/LinkProperties;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -308,7 +308,7 @@
 .end method
 
 .method static synthetic access$1200(Landroid/net/ethernet/EthernetStateTracker;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -319,7 +319,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/net/ethernet/EthernetStateTracker;)Landroid/net/ethernet/EthernetManager;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -330,7 +330,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/net/ethernet/EthernetStateTracker;ZI)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -343,7 +343,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/net/ethernet/EthernetStateTracker;)Landroid/net/NetworkInfo;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -354,7 +354,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/net/ethernet/EthernetStateTracker;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -365,7 +365,7 @@
 .end method
 
 .method static synthetic access$502(Landroid/net/ethernet/EthernetStateTracker;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -377,7 +377,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/net/ethernet/EthernetStateTracker;Landroid/net/ethernet/EthernetDevInfo;)Z
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .annotation system Ldalvik/annotation/Throws;
@@ -396,7 +396,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/net/ethernet/EthernetStateTracker;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -407,7 +407,7 @@
 .end method
 
 .method static synthetic access$800(Landroid/net/ethernet/EthernetStateTracker;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -418,7 +418,7 @@
 .end method
 
 .method static synthetic access$802(Landroid/net/ethernet/EthernetStateTracker;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -430,7 +430,7 @@
 .end method
 
 .method static synthetic access$900(Landroid/net/ethernet/EthernetStateTracker;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -441,7 +441,7 @@
 .end method
 
 .method private configureInterface(Landroid/net/ethernet/EthernetDevInfo;)Z
-    .registers 9
+    .locals 7
     .parameter "info"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -488,12 +488,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4a
+    if-eqz v2, :cond_1
 
     .line 170
     iget-boolean v2, p0, Landroid/net/ethernet/EthernetStateTracker;->mStartingDhcp:Z
 
-    if-nez v2, :cond_49
+    if-nez v2, :cond_0
 
     .line 171
     const-string v2, "EthernetStateTracker"
@@ -531,12 +531,12 @@
     invoke-virtual {v2, v5}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     .line 198
-    :cond_49
-    :goto_49
+    :cond_0
+    :goto_0
     return v6
 
     .line 177
-    :cond_4a
+    :cond_1
     iget-object v2, p0, Landroid/net/ethernet/EthernetStateTracker;->mDhcpInfoInternal:Landroid/net/DhcpInfoInternal;
 
     invoke-virtual {p1}, Landroid/net/ethernet/EthernetDevInfo;->getIpAddress()Ljava/lang/String;
@@ -628,7 +628,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_ad
+    if-eqz v2, :cond_2
 
     .line 187
     invoke-virtual {p1}, Landroid/net/ethernet/EthernetDevInfo;->getIfName()Ljava/lang/String;
@@ -640,7 +640,7 @@
     invoke-static {v2, v3}, Landroid/net/NetworkUtils;->resetConnections(Ljava/lang/String;I)I
 
     .line 189
-    :cond_ad
+    :cond_2
     invoke-virtual {p1}, Landroid/net/ethernet/EthernetDevInfo;->getIfName()Ljava/lang/String;
 
     move-result-object v2
@@ -651,7 +651,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_c7
+    if-eqz v2, :cond_3
 
     .line 190
     const/4 v0, 0x1
@@ -665,16 +665,16 @@
     invoke-static {v2, v3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 196
-    :goto_c1
+    :goto_1
     iget-object v2, p0, Landroid/net/ethernet/EthernetStateTracker;->mTrackerTarget:Landroid/os/Handler;
 
     invoke-virtual {v2, v0}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    goto :goto_49
+    goto :goto_0
 
     .line 193
     .end local v0           #event:I
-    :cond_c7
+    :cond_3
     const/4 v0, 0x2
 
     .line 194
@@ -685,11 +685,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_c1
+    goto :goto_1
 .end method
 
 .method private configureInterfaceStatic(Ljava/lang/String;Landroid/net/DhcpInfoInternal;)Z
-    .registers 12
+    .locals 9
     .parameter "ifname"
     .parameter "dhcpInfoInternal"
 
@@ -727,7 +727,7 @@
     invoke-virtual {v2}, Landroid/net/InterfaceConfiguration;->setInterfaceUp()V
 
     .line 147
-    :try_start_1b
+    :try_start_0
     invoke-interface {v3, p1, v2}, Landroid/os/INetworkManagementService;->setInterfaceConfig(Ljava/lang/String;Landroid/net/InterfaceConfiguration;)V
 
     .line 148
@@ -748,19 +748,19 @@
     const-string v7, "Static IP configuration succeeded"
 
     invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_30
-    .catch Landroid/os/RemoteException; {:try_start_1b .. :try_end_30} :catch_32
-    .catch Ljava/lang/IllegalStateException; {:try_start_1b .. :try_end_30} :catch_4c
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 151
     const/4 v5, 0x1
 
     .line 157
-    :goto_31
+    :goto_0
     return v5
 
     .line 152
-    :catch_32
+    :catch_0
     move-exception v4
 
     .line 153
@@ -787,11 +787,11 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_31
+    goto :goto_0
 
     .line 155
     .end local v4           #re:Landroid/os/RemoteException;
-    :catch_4c
+    :catch_1
     move-exception v1
 
     .line 156
@@ -818,11 +818,11 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_31
+    goto :goto_0
 .end method
 
 .method private postNotification(I)V
-    .registers 4
+    .locals 2
     .parameter "event"
 
     .prologue
@@ -854,7 +854,7 @@
 .end method
 
 .method private setEthState(ZI)V
-    .registers 9
+    .locals 6
     .parameter "state"
     .parameter "event"
 
@@ -919,10 +919,10 @@
 
     move-result v1
 
-    if-eq v1, p1, :cond_9e
+    if-eq v1, p1, :cond_1
 
     .line 379
-    if-eqz p1, :cond_a2
+    if-eqz p1, :cond_2
 
     .line 380
     const-string v1, "EthernetStateTracker"
@@ -990,8 +990,8 @@
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 392
-    :cond_82
-    :goto_82
+    :cond_0
+    :goto_0
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
 
     invoke-virtual {v1, p1}, Landroid/net/NetworkInfo;->setIsAvailable(Z)V
@@ -1025,14 +1025,14 @@
 
     .line 398
     .end local v0           #msg:Landroid/os/Message;
-    :cond_9e
+    :cond_1
     invoke-direct {p0, p2}, Landroid/net/ethernet/EthernetStateTracker;->postNotification(I)V
 
     .line 399
     return-void
 
     .line 384
-    :cond_a2
+    :cond_2
     const-string v1, "EthernetStateTracker"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1100,7 +1100,7 @@
     .line 387
     const/4 v1, 0x4
 
-    if-ne v1, p2, :cond_82
+    if-ne v1, p2, :cond_0
 
     .line 388
     const-string v1, "EthernetStateTracker"
@@ -1112,13 +1112,13 @@
     .line 389
     invoke-virtual {p0, v5}, Landroid/net/ethernet/EthernetStateTracker;->stopInterface(Z)Z
 
-    goto :goto_82
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public StartPolling()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 242
@@ -1138,7 +1138,7 @@
 .end method
 
 .method public defaultRouteSet(Z)V
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
@@ -1152,7 +1152,7 @@
 .end method
 
 .method public getDhcpInfo()Landroid/net/DhcpInfo;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 402
@@ -1166,7 +1166,7 @@
 .end method
 
 .method public getLinkCapabilities()Landroid/net/LinkCapabilities;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 362
@@ -1180,7 +1180,7 @@
 .end method
 
 .method public getLinkProperties()Landroid/net/LinkProperties;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 352
@@ -1194,7 +1194,7 @@
 .end method
 
 .method public getNetworkInfo()Landroid/net/NetworkInfo;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 345
@@ -1208,7 +1208,7 @@
 .end method
 
 .method public getTcpBufferSizesPropName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 238
@@ -1218,7 +1218,7 @@
 .end method
 
 .method public isAvailable()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x1
@@ -1230,7 +1230,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mEM:Landroid/net/ethernet/EthernetManager;
 
@@ -1238,19 +1238,19 @@
 
     move-result v1
 
-    if-eq v1, v0, :cond_12
+    if-eq v1, v0, :cond_0
 
-    :goto_11
+    :goto_0
     return v0
 
-    :cond_12
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public isDefaultRouteSet()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 331
@@ -1264,7 +1264,7 @@
 .end method
 
 .method public isPrivateDnsRouteSet()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 317
@@ -1278,7 +1278,7 @@
 .end method
 
 .method public isTeardownRequested()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 111
@@ -1292,7 +1292,7 @@
 .end method
 
 .method public notifyPhyConnected(Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "ifname"
 
     .prologue
@@ -1326,7 +1326,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2a
+    if-eqz v1, :cond_0
 
     .line 530
     const-string v1, "hw.hasethernet"
@@ -1336,11 +1336,11 @@
     invoke-static {v1, v2}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 532
-    :cond_2a
+    :cond_0
     monitor-enter p0
 
     .line 533
-    :try_start_2b
+    :try_start_0
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mTrackerTarget:Landroid/os/Handler;
 
     const/4 v2, 0x5
@@ -1361,18 +1361,18 @@
 
     .line 535
     .end local v0           #msg:Landroid/os/Message;
-    :catchall_37
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
-    :try_end_39
-    .catchall {:try_start_2b .. :try_end_39} :catchall_37
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public notifyStateChange(Ljava/lang/String;Landroid/net/NetworkInfo$DetailedState;)V
-    .registers 6
+    .locals 3
     .parameter "ifname"
     .parameter "state"
 
@@ -1433,7 +1433,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_59
+    if-eqz v0, :cond_1
 
     .line 541
     const-string v0, "EthernetStateTracker"
@@ -1446,7 +1446,7 @@
     monitor-enter p0
 
     .line 543
-    :try_start_44
+    :try_start_0
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mTrackerTarget:Landroid/os/Handler;
 
     sget-object v0, Landroid/net/NetworkInfo$DetailedState;->CONNECTED:Landroid/net/NetworkInfo$DetailedState;
@@ -1455,64 +1455,64 @@
 
     move-result v0
 
-    if-eqz v0, :cond_54
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x3
 
-    :goto_4f
+    :goto_0
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     .line 545
     monitor-exit p0
 
     .line 551
-    :goto_53
+    :goto_1
     return-void
 
     .line 543
-    :cond_54
+    :cond_0
     const/4 v0, 0x4
 
-    goto :goto_4f
+    goto :goto_0
 
     .line 545
-    :catchall_56
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_58
-    .catchall {:try_start_44 .. :try_end_58} :catchall_56
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 547
-    :cond_59
+    :cond_1
     const-string v0, "(pulledout)"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_66
+    if-eqz v0, :cond_2
 
     .line 548
     const/4 v0, 0x6
 
     invoke-direct {p0, v0}, Landroid/net/ethernet/EthernetStateTracker;->postNotification(I)V
 
-    goto :goto_53
+    goto :goto_1
 
     .line 550
-    :cond_66
+    :cond_2
     const/4 v0, 0x7
 
     invoke-direct {p0, v0}, Landroid/net/ethernet/EthernetStateTracker;->postNotification(I)V
 
-    goto :goto_53
+    goto :goto_1
 .end method
 
 .method public privateDnsRouteSet(Z)V
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
@@ -1526,26 +1526,26 @@
 .end method
 
 .method public reconnect()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x1
 
     .line 253
-    :try_start_1
+    :try_start_0
     monitor-enter p0
-    :try_end_2
-    .catch Ljava/net/UnknownHostException; {:try_start_1 .. :try_end_2} :catch_3e
+    :try_end_0
+    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 254
-    :try_start_2
+    :try_start_1
     iget-boolean v2, p0, Landroid/net/ethernet/EthernetStateTracker;->mHWConnected:Z
 
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_0
 
     iget-boolean v2, p0, Landroid/net/ethernet/EthernetStateTracker;->mStackConnected:Z
 
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_0
 
     .line 255
     const-string v2, "EthernetStateTracker"
@@ -1558,24 +1558,24 @@
     monitor-exit p0
 
     .line 271
-    :goto_12
+    :goto_0
     return v1
 
     .line 258
-    :cond_13
+    :cond_0
     monitor-exit p0
-    :try_end_14
-    .catchall {:try_start_2 .. :try_end_14} :catchall_3b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 259
-    :try_start_14
+    :try_start_2
     iget-object v2, p0, Landroid/net/ethernet/EthernetStateTracker;->mEM:Landroid/net/ethernet/EthernetManager;
 
     invoke-virtual {v2}, Landroid/net/ethernet/EthernetManager;->getEthState()I
 
     move-result v2
 
-    if-eq v2, v1, :cond_42
+    if-eq v2, v1, :cond_2
 
     .line 261
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mEM:Landroid/net/ethernet/EthernetManager;
@@ -1591,7 +1591,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2f
+    if-nez v1, :cond_1
 
     .line 263
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mEM:Landroid/net/ethernet/EthernetManager;
@@ -1599,7 +1599,7 @@
     invoke-virtual {v1}, Landroid/net/ethernet/EthernetManager;->ethSetDefaultConf()V
 
     .line 265
-    :cond_2f
+    :cond_1
     const-string v1, "EthernetStateTracker"
 
     const-string v2, "$$reconnect call resetInterface()"
@@ -1608,29 +1608,29 @@
 
     .line 266
     invoke-virtual {p0}, Landroid/net/ethernet/EthernetStateTracker;->resetInterface()Z
-    :try_end_39
-    .catch Ljava/net/UnknownHostException; {:try_start_14 .. :try_end_39} :catch_3e
+    :try_end_2
+    .catch Ljava/net/UnknownHostException; {:try_start_2 .. :try_end_2} :catch_0
 
     move-result v1
 
-    goto :goto_12
+    goto :goto_0
 
     .line 258
-    :catchall_3b
+    :catchall_0
     move-exception v1
 
-    :try_start_3c
+    :try_start_3
     monitor-exit p0
-    :try_end_3d
-    .catchall {:try_start_3c .. :try_end_3d} :catchall_3b
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    :try_start_3d
+    :try_start_4
     throw v1
-    :try_end_3e
-    .catch Ljava/net/UnknownHostException; {:try_start_3d .. :try_end_3e} :catch_3e
+    :try_end_4
+    .catch Ljava/net/UnknownHostException; {:try_start_4 .. :try_end_4} :catch_0
 
     .line 268
-    :catch_3e
+    :catch_0
     move-exception v0
 
     .line 269
@@ -1639,14 +1639,14 @@
 
     .line 271
     .end local v0           #e:Ljava/net/UnknownHostException;
-    :cond_42
+    :cond_2
     const/4 v1, 0x0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public resetInterface()Z
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/UnknownHostException;
@@ -1657,7 +1657,7 @@
     .line 206
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mEM:Landroid/net/ethernet/EthernetManager;
 
-    if-eqz v1, :cond_75
+    if-eqz v1, :cond_4
 
     .line 207
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mEM:Landroid/net/ethernet/EthernetManager;
@@ -1668,7 +1668,7 @@
 
     .line 208
     .local v0, info:Landroid/net/ethernet/EthernetDevInfo;
-    if-eqz v0, :cond_7a
+    if-eqz v0, :cond_5
 
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mEM:Landroid/net/ethernet/EthernetManager;
 
@@ -1676,13 +1676,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7a
+    if-eqz v1, :cond_5
 
     .line 209
     monitor-enter p0
 
     .line 210
-    :try_start_15
+    :try_start_0
     invoke-virtual {v0}, Landroid/net/ethernet/EthernetDevInfo;->getIfName()Ljava/lang/String;
 
     move-result-object v1
@@ -1717,7 +1717,7 @@
     .line 212
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mInterfaceName:Ljava/lang/String;
 
-    if-eqz v1, :cond_40
+    if-eqz v1, :cond_0
 
     .line 213
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mInterfaceName:Ljava/lang/String;
@@ -1727,10 +1727,10 @@
     invoke-static {v1, v2}, Landroid/net/NetworkUtils;->resetConnections(Ljava/lang/String;I)I
 
     .line 215
-    :cond_40
+    :cond_0
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mDhcpTarget:Landroid/os/Handler;
 
-    if-eqz v1, :cond_4a
+    if-eqz v1, :cond_1
 
     .line 216
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mDhcpTarget:Landroid/os/Handler;
@@ -1740,7 +1740,7 @@
     invoke-virtual {v1, v2}, Landroid/os/Handler;->removeMessages(I)V
 
     .line 218
-    :cond_4a
+    :cond_1
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mStartingDhcp:Z
@@ -1752,7 +1752,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_5c
+    if-nez v1, :cond_2
 
     .line 220
     const-string v1, "EthernetStateTracker"
@@ -1762,7 +1762,7 @@
     invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 222
-    :cond_5c
+    :cond_2
     const-string v1, "EthernetStateTracker"
 
     const-string v2, "Force the connection disconnected before configuration"
@@ -1779,7 +1779,7 @@
     .line 225
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mInterfaceName:Ljava/lang/String;
 
-    if-eqz v1, :cond_71
+    if-eqz v1, :cond_3
 
     .line 226
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mInterfaceName:Ljava/lang/String;
@@ -1787,7 +1787,7 @@
     invoke-static {v1}, Landroid/net/NetworkUtils;->enableInterface(Ljava/lang/String;)I
 
     .line 227
-    :cond_71
+    :cond_3
     invoke-direct {p0, v0}, Landroid/net/ethernet/EthernetStateTracker;->configureInterface(Landroid/net/ethernet/EthernetDevInfo;)Z
 
     .line 228
@@ -1795,36 +1795,36 @@
 
     .line 234
     .end local v0           #info:Landroid/net/ethernet/EthernetDevInfo;
-    :cond_75
-    :goto_75
+    :cond_4
+    :goto_0
     const/4 v1, 0x1
 
     return v1
 
     .line 228
     .restart local v0       #info:Landroid/net/ethernet/EthernetDevInfo;
-    :catchall_77
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
-    :try_end_79
-    .catchall {:try_start_15 .. :try_end_79} :catchall_77
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 
     .line 231
-    :cond_7a
+    :cond_5
     const-string v1, "EthernetStateTracker"
 
     const-string v2, "Failed to resetInterface for EthernetManager is null"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_75
+    goto :goto_0
 .end method
 
 .method public setDependencyMet(Z)V
-    .registers 2
+    .locals 0
     .parameter "met"
 
     .prologue
@@ -1833,7 +1833,7 @@
 .end method
 
 .method public setPolicyDataEnable(Z)V
-    .registers 5
+    .locals 3
     .parameter "enabled"
 
     .prologue
@@ -1871,7 +1871,7 @@
 .end method
 
 .method public setRadio(Z)Z
-    .registers 3
+    .locals 1
     .parameter "turnOn"
 
     .prologue
@@ -1882,7 +1882,7 @@
 .end method
 
 .method public setTeardownRequested(Z)V
-    .registers 3
+    .locals 1
     .parameter "isRequested"
 
     .prologue
@@ -1896,7 +1896,7 @@
 .end method
 
 .method public setUserDataEnable(Z)V
-    .registers 5
+    .locals 3
     .parameter "enabled"
 
     .prologue
@@ -1934,7 +1934,7 @@
 .end method
 
 .method public startMonitoring(Landroid/content/Context;Landroid/os/Handler;)V
-    .registers 8
+    .locals 5
     .parameter "context"
     .parameter "target"
 
@@ -1951,7 +1951,7 @@
     .line 281
     iget-boolean v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mServiceStarted:Z
 
-    if-eqz v1, :cond_3d
+    if-eqz v1, :cond_0
 
     .line 282
     iput-object p1, p0, Landroid/net/ethernet/EthernetStateTracker;->mContext:Landroid/content/Context;
@@ -1996,12 +1996,12 @@
     .local v0, state:I
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mEM:Landroid/net/ethernet/EthernetManager;
 
-    if-eq v0, v4, :cond_3d
+    if-eq v0, v4, :cond_0
 
     .line 288
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mEM:Landroid/net/ethernet/EthernetManager;
 
-    if-nez v0, :cond_3e
+    if-nez v0, :cond_1
 
     .line 290
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mEM:Landroid/net/ethernet/EthernetManager;
@@ -2010,24 +2010,24 @@
 
     .line 303
     .end local v0           #state:I
-    :cond_3d
-    :goto_3d
+    :cond_0
+    :goto_0
     return-void
 
     .line 292
     .restart local v0       #state:I
-    :cond_3e
+    :cond_1
     const-string v1, "EthernetStateTracker"
 
     const-string v2, "$$ DISABLE startMonitoring call resetInterface()"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_3d
+    goto :goto_0
 .end method
 
 .method public stopInterface(Z)Z
-    .registers 8
+    .locals 6
     .parameter "suspend"
 
     .prologue
@@ -2036,7 +2036,7 @@
     .line 115
     iget-object v2, p0, Landroid/net/ethernet/EthernetStateTracker;->mEM:Landroid/net/ethernet/EthernetManager;
 
-    if-eqz v2, :cond_49
+    if-eqz v2, :cond_3
 
     .line 116
     iget-object v2, p0, Landroid/net/ethernet/EthernetStateTracker;->mEM:Landroid/net/ethernet/EthernetManager;
@@ -2047,7 +2047,7 @@
 
     .line 117
     .local v1, info:Landroid/net/ethernet/EthernetDevInfo;
-    if-eqz v1, :cond_49
+    if-eqz v1, :cond_3
 
     iget-object v2, p0, Landroid/net/ethernet/EthernetStateTracker;->mEM:Landroid/net/ethernet/EthernetManager;
 
@@ -2055,7 +2055,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_49
+    if-eqz v2, :cond_3
 
     .line 119
     iget-object v3, p0, Landroid/net/ethernet/EthernetStateTracker;->mDhcpTarget:Landroid/os/Handler;
@@ -2065,7 +2065,7 @@
     .line 120
     const/4 v2, 0x1
 
-    :try_start_19
+    :try_start_0
     iput-boolean v2, p0, Landroid/net/ethernet/EthernetStateTracker;->mInterfaceStopped:Z
 
     .line 121
@@ -2098,7 +2098,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_3d
+    if-nez v2, :cond_0
 
     .line 127
     const-string v2, "EthernetStateTracker"
@@ -2108,8 +2108,8 @@
     invoke-static {v2, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 129
-    :cond_3d
-    if-eqz v0, :cond_43
+    :cond_0
+    if-eqz v0, :cond_1
 
     .line 130
     const/4 v2, 0x3
@@ -2117,36 +2117,36 @@
     invoke-static {v0, v2}, Landroid/net/NetworkUtils;->resetConnections(Ljava/lang/String;I)I
 
     .line 131
-    :cond_43
-    if-nez p1, :cond_48
+    :cond_1
+    if-nez p1, :cond_2
 
     .line 132
     invoke-static {v0}, Landroid/net/NetworkUtils;->disableInterface(Ljava/lang/String;)I
 
     .line 133
-    :cond_48
+    :cond_2
     monitor-exit v3
 
     .line 137
     .end local v0           #ifname:Ljava/lang/String;
     .end local v1           #info:Landroid/net/ethernet/EthernetDevInfo;
-    :cond_49
+    :cond_3
     return v5
 
     .line 133
     .restart local v1       #info:Landroid/net/ethernet/EthernetDevInfo;
-    :catchall_4a
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_4c
-    .catchall {:try_start_19 .. :try_end_4c} :catchall_4a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method
 
 .method public teardown()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x0
@@ -2154,12 +2154,12 @@
     .line 366
     iget-object v1, p0, Landroid/net/ethernet/EthernetStateTracker;->mEM:Landroid/net/ethernet/EthernetManager;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_0
 
     invoke-virtual {p0, v0}, Landroid/net/ethernet/EthernetStateTracker;->stopInterface(Z)Z
 
     move-result v0
 
-    :cond_9
+    :cond_0
     return v0
 .end method

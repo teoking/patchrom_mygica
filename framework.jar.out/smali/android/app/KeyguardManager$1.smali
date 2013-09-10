@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/KeyguardManager;Landroid/app/KeyguardManager$OnKeyguardExitResult;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onKeyguardExitResult(Z)V
-    .registers 3
+    .locals 1
     .parameter "success"
     .annotation system Ldalvik/annotation/Throws;
         value = {

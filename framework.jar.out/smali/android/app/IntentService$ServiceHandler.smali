@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/IntentService;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "looper"
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue

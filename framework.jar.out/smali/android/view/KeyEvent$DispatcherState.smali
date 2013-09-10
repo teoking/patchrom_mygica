@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2931
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public handleUpEvent(Landroid/view/KeyEvent;)V
-    .registers 5
+    .locals 3
     .parameter "event"
 
     .prologue
@@ -62,7 +62,7 @@
 
     .line 3005
     .local v0, index:I
-    if-ltz v0, :cond_16
+    if-ltz v0, :cond_0
 
     .line 3007
     const/16 v2, 0x120
@@ -75,10 +75,10 @@
     invoke-virtual {v2, v0}, Landroid/util/SparseIntArray;->removeAt(I)V
 
     .line 3010
-    :cond_16
+    :cond_0
     iget v2, p0, Landroid/view/KeyEvent$DispatcherState;->mDownKeyCode:I
 
-    if-ne v2, v1, :cond_25
+    if-ne v2, v1, :cond_1
 
     .line 3012
     const/16 v2, 0x200
@@ -96,12 +96,12 @@
     iput-object v2, p0, Landroid/view/KeyEvent$DispatcherState;->mDownTarget:Ljava/lang/Object;
 
     .line 3016
-    :cond_25
+    :cond_1
     return-void
 .end method
 
 .method public isTracking(Landroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 2
     .parameter "event"
 
     .prologue
@@ -112,21 +112,21 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_a
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public performedLongPress(Landroid/view/KeyEvent;)V
-    .registers 5
+    .locals 3
     .parameter "event"
 
     .prologue
@@ -146,7 +146,7 @@
 .end method
 
 .method public reset()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2941
@@ -169,14 +169,14 @@
 .end method
 
 .method public reset(Ljava/lang/Object;)V
-    .registers 3
+    .locals 1
     .parameter "target"
 
     .prologue
     .line 2950
     iget-object v0, p0, Landroid/view/KeyEvent$DispatcherState;->mDownTarget:Ljava/lang/Object;
 
-    if-ne v0, p1, :cond_a
+    if-ne v0, p1, :cond_0
 
     .line 2952
     const/4 v0, 0x0
@@ -189,12 +189,12 @@
     iput-object v0, p0, Landroid/view/KeyEvent$DispatcherState;->mDownTarget:Ljava/lang/Object;
 
     .line 2955
-    :cond_a
+    :cond_0
     return-void
 .end method
 
 .method public startTracking(Landroid/view/KeyEvent;Ljava/lang/Object;)V
-    .registers 5
+    .locals 2
     .parameter "event"
     .parameter "target"
 
@@ -204,7 +204,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 2969
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -216,7 +216,7 @@
     throw v0
 
     .line 2973
-    :cond_e
+    :cond_0
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v0

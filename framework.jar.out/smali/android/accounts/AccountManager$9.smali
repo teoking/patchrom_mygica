@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;Landroid/app/Activity;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Landroid/accounts/Account;Ljava/lang/String;Landroid/app/Activity;Landroid/os/Bundle;)V
-    .registers 9
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter "x1"
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public doWork()V
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -70,6 +70,7 @@
     .line 1241
     iget-object v0, p0, Landroid/accounts/AccountManager$9;->this$0:Landroid/accounts/AccountManager;
 
+    #getter for: Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
     invoke-static {v0}, Landroid/accounts/AccountManager;->access$000(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
 
     move-result-object v0
@@ -82,11 +83,11 @@
 
     iget-object v4, p0, Landroid/accounts/AccountManager$9;->val$activity:Landroid/app/Activity;
 
-    if-eqz v4, :cond_17
+    if-eqz v4, :cond_0
 
     const/4 v4, 0x1
 
-    :goto_11
+    :goto_0
     iget-object v5, p0, Landroid/accounts/AccountManager$9;->val$options:Landroid/os/Bundle;
 
     invoke-interface/range {v0 .. v5}, Landroid/accounts/IAccountManager;->updateCredentials(Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;Ljava/lang/String;ZLandroid/os/Bundle;)V
@@ -95,8 +96,8 @@
     return-void
 
     .line 1241
-    :cond_17
+    :cond_0
     const/4 v4, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method

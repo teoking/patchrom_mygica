@@ -60,7 +60,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 17250
@@ -84,7 +84,7 @@
 .end method
 
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 17248
@@ -94,7 +94,7 @@
 .end method
 
 .method static acquire()Landroid/view/View$AttachInfo$InvalidateInfo;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 17284
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public getNextPoolable()Landroid/view/View$AttachInfo$InvalidateInfo;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 17280
@@ -122,7 +122,7 @@
 .end method
 
 .method public bridge synthetic getNextPoolable()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 17248
@@ -134,7 +134,7 @@
 .end method
 
 .method public isPooled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 17292
@@ -144,7 +144,7 @@
 .end method
 
 .method release()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 17288
@@ -157,7 +157,7 @@
 .end method
 
 .method public setNextPoolable(Landroid/view/View$AttachInfo$InvalidateInfo;)V
-    .registers 2
+    .locals 0
     .parameter "element"
 
     .prologue
@@ -169,7 +169,7 @@
 .end method
 
 .method public bridge synthetic setNextPoolable(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -183,7 +183,7 @@
 .end method
 
 .method public setPooled(Z)V
-    .registers 2
+    .locals 0
     .parameter "isPooled"
 
     .prologue

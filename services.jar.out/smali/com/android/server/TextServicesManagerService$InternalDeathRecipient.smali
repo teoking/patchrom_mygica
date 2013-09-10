@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/TextServicesManagerService;Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;Lcom/android/internal/textservice/ITextServicesSessionListener;Ljava/lang/String;Lcom/android/internal/textservice/ISpellCheckerSessionListener;ILandroid/os/Bundle;)V
-    .registers 8
+    .locals 0
     .parameter
     .parameter "group"
     .parameter "tsListener"
@@ -73,7 +73,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;)Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 778
@@ -101,7 +101,7 @@
 .end method
 
 .method public hasSpellCheckerListener(Lcom/android/internal/textservice/ISpellCheckerSessionListener;)Z
-    .registers 4
+    .locals 2
     .parameter "listener"
 
     .prologue

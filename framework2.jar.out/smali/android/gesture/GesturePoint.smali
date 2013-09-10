@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(FFJ)V
-    .registers 5
+    .locals 0
     .parameter "x"
     .parameter "y"
     .parameter "t"
@@ -36,7 +36,7 @@
 .end method
 
 .method static deserialize(Ljava/io/DataInputStream;)Landroid/gesture/GesturePoint;
-    .registers 6
+    .locals 5
     .parameter "in"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public clone()Ljava/lang/Object;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 49

@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/sip/SipSessionGroup;I)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "duration"
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public getDuration()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1761

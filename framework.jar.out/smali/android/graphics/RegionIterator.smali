@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/Region;)V
-    .registers 3
+    .locals 1
     .parameter "region"
 
     .prologue
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -61,12 +61,12 @@
 .end method
 
 .method public final next(Landroid/graphics/Rect;)Z
-    .registers 4
+    .locals 2
     .parameter "r"
 
     .prologue
     .line 38
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 39
     new-instance v0, Ljava/lang/NullPointerException;
@@ -78,7 +78,7 @@
     throw v0
 
     .line 41
-    :cond_a
+    :cond_0
     iget v0, p0, Landroid/graphics/RegionIterator;->mNativeIter:I
 
     invoke-static {v0, p1}, Landroid/graphics/RegionIterator;->nativeNext(ILandroid/graphics/Rect;)Z

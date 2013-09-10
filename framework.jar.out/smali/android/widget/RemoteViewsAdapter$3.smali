@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViewsAdapter;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 900

@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lcom/android/server/NativeDaemonEvent;)V
-    .registers 3
+    .locals 0
     .parameter "command"
     .parameter "event"
 
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public rethrowAsParcelableException()Ljava/lang/IllegalArgumentException;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 432

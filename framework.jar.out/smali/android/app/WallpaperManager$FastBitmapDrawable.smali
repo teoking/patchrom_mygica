@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/graphics/Bitmap;)V
-    .registers 5
+    .locals 3
     .parameter "bitmap"
 
     .prologue
@@ -86,7 +86,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/graphics/Bitmap;Landroid/app/WallpaperManager$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .registers 6
+    .locals 4
     .parameter "canvas"
 
     .prologue
@@ -124,7 +124,7 @@
 .end method
 
 .method public getIntrinsicHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 184
@@ -134,7 +134,7 @@
 .end method
 
 .method public getIntrinsicWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 179
@@ -144,7 +144,7 @@
 .end method
 
 .method public getMinimumHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 194
@@ -154,7 +154,7 @@
 .end method
 
 .method public getMinimumWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 189
@@ -164,7 +164,7 @@
 .end method
 
 .method public getOpacity()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 148
@@ -174,7 +174,7 @@
 .end method
 
 .method public setAlpha(I)V
-    .registers 4
+    .locals 2
     .parameter "alpha"
 
     .prologue
@@ -189,7 +189,7 @@
 .end method
 
 .method public setBounds(IIII)V
-    .registers 7
+    .locals 2
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -227,7 +227,7 @@
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
-    .registers 4
+    .locals 2
     .parameter "cf"
 
     .prologue
@@ -242,7 +242,7 @@
 .end method
 
 .method public setDither(Z)V
-    .registers 4
+    .locals 2
     .parameter "dither"
 
     .prologue
@@ -257,7 +257,7 @@
 .end method
 
 .method public setFilterBitmap(Z)V
-    .registers 4
+    .locals 2
     .parameter "filter"
 
     .prologue

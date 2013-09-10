@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 35
@@ -47,7 +47,7 @@
 .end method
 
 .method public getHandler()Landroid/os/Handler;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -57,7 +57,7 @@
 .end method
 
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .registers 3
+    .locals 1
     .parameter "intent"
 
     .prologue
@@ -72,7 +72,7 @@
 .end method
 
 .method public onCreate()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 84
@@ -106,7 +106,7 @@
 .end method
 
 .method public onDestroy()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 114
@@ -139,7 +139,7 @@
 .end method
 
 .method public onStartCommand(Landroid/content/Intent;II)I
-    .registers 7
+    .locals 3
     .parameter "intent"
     .parameter "flags"
     .parameter "startId"

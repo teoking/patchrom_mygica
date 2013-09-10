@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/util/DisplayMetrics;Landroid/view/SurfaceSession;[Ljava/lang/String;)V
-    .registers 27
+    .locals 23
     .parameter "dm"
     .parameter "session"
     .parameter "tokens"
@@ -78,12 +78,12 @@
     const/16 v17, 0x0
 
     .local v17, i:I
-    :goto_1f
+    :goto_0
     move/from16 v0, v17
 
     move/from16 v1, v18
 
-    if-ge v0, v1, :cond_83
+    if-ge v0, v1, :cond_4
 
     .line 67
     move-object/from16 v0, p0
@@ -120,32 +120,32 @@
     .local v13, c2:I
     const/16 v2, 0x61
 
-    if-lt v12, v2, :cond_63
+    if-lt v12, v2, :cond_0
 
     const/16 v2, 0x66
 
-    if-gt v12, v2, :cond_63
+    if-gt v12, v2, :cond_0
 
     add-int/lit8 v2, v12, -0x61
 
     add-int/lit8 v12, v2, 0xa
 
     .line 72
-    :goto_4b
+    :goto_1
     const/16 v2, 0x61
 
-    if-lt v13, v2, :cond_73
+    if-lt v13, v2, :cond_2
 
     const/16 v2, 0x66
 
-    if-gt v13, v2, :cond_73
+    if-gt v13, v2, :cond_2
 
     add-int/lit8 v2, v13, -0x61
 
     add-int/lit8 v13, v2, 0xa
 
     .line 75
-    :goto_57
+    :goto_2
     mul-int/lit8 v2, v12, 0x10
 
     add-int/2addr v2, v13
@@ -159,56 +159,56 @@
     .line 66
     add-int/lit8 v17, v17, 0x2
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 70
-    :cond_63
+    :cond_0
     const/16 v2, 0x41
 
-    if-lt v12, v2, :cond_70
+    if-lt v12, v2, :cond_1
 
     const/16 v2, 0x46
 
-    if-gt v12, v2, :cond_70
+    if-gt v12, v2, :cond_1
 
     add-int/lit8 v2, v12, -0x41
 
     add-int/lit8 v12, v2, 0xa
 
-    goto :goto_4b
+    goto :goto_1
 
     .line 71
-    :cond_70
+    :cond_1
     add-int/lit8 v12, v12, -0x30
 
-    goto :goto_4b
+    goto :goto_1
 
     .line 73
-    :cond_73
+    :cond_2
     const/16 v2, 0x41
 
-    if-lt v13, v2, :cond_80
+    if-lt v13, v2, :cond_3
 
     const/16 v2, 0x46
 
-    if-gt v13, v2, :cond_80
+    if-gt v13, v2, :cond_3
 
     add-int/lit8 v2, v13, -0x41
 
     add-int/lit8 v13, v2, 0xa
 
-    goto :goto_57
+    goto :goto_2
 
     .line 74
-    :cond_80
+    :cond_3
     add-int/lit8 v13, v13, -0x30
 
-    goto :goto_57
+    goto :goto_2
 
     .line 77
     .end local v12           #c1:I
     .end local v13           #c2:I
-    :cond_83
+    :cond_4
     invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -479,7 +479,7 @@
     invoke-virtual {v2, v3, v4, v5, v0}, Landroid/graphics/Paint;->setShadowLayer(FFFI)V
 
     .line 114
-    :try_start_164
+    :try_start_0
     new-instance v2, Landroid/view/Surface;
 
     const/4 v4, 0x0
@@ -530,24 +530,24 @@
     iget-object v2, v0, Lcom/android/server/wm/Watermark;->mSurface:Landroid/view/Surface;
 
     invoke-virtual {v2}, Landroid/view/Surface;->show()V
-    :try_end_191
-    .catch Landroid/view/Surface$OutOfResourcesException; {:try_start_164 .. :try_end_191} :catch_192
+    :try_end_0
+    .catch Landroid/view/Surface$OutOfResourcesException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 121
-    :goto_191
+    :goto_3
     return-void
 
     .line 119
-    :catch_192
+    :catch_0
     move-exception v2
 
-    goto :goto_191
+    goto :goto_3
 .end method
 
 
 # virtual methods
 .method drawIfNeeded()V
-    .registers 16
+    .locals 15
 
     .prologue
     const/4 v12, 0x0
@@ -555,7 +555,7 @@
     .line 133
     iget-boolean v11, p0, Lcom/android/server/wm/Watermark;->mDrawNeeded:Z
 
-    if-eqz v11, :cond_5b
+    if-eqz v11, :cond_4
 
     .line 134
     iget v6, p0, Lcom/android/server/wm/Watermark;->mLastDW:I
@@ -579,19 +579,19 @@
 
     .line 141
     .local v0, c:Landroid/graphics/Canvas;
-    :try_start_11
+    :try_start_0
     iget-object v11, p0, Lcom/android/server/wm/Watermark;->mSurface:Landroid/view/Surface;
 
     invoke-virtual {v11, v4}, Landroid/view/Surface;->lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
-    :try_end_16
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_11 .. :try_end_16} :catch_5e
-    .catch Landroid/view/Surface$OutOfResourcesException; {:try_start_11 .. :try_end_16} :catch_5c
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Landroid/view/Surface$OutOfResourcesException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
     .line 145
-    :goto_17
-    if-eqz v0, :cond_5b
+    :goto_0
+    if-eqz v0, :cond_4
 
     .line 146
     sget-object v11, Landroid/graphics/PorterDuff$Mode;->CLEAR:Landroid/graphics/PorterDuff$Mode;
@@ -629,20 +629,20 @@
 
     .line 156
     .local v7, qdelta:I
-    if-lt v8, v7, :cond_36
+    if-lt v8, v7, :cond_0
 
     sub-int v11, v1, v7
 
-    if-le v8, v11, :cond_39
+    if-le v8, v11, :cond_1
 
     .line 157
-    :cond_36
+    :cond_0
     div-int/lit8 v11, v1, 0x3
 
     add-int/2addr v1, v11
 
     .line 160
-    :cond_39
+    :cond_1
     iget v11, p0, Lcom/android/server/wm/Watermark;->mTextHeight:I
 
     neg-int v10, v11
@@ -655,13 +655,13 @@
 
     .line 162
     .local v9, x:I
-    :cond_3f
-    :goto_3f
+    :cond_2
+    :goto_1
     iget v11, p0, Lcom/android/server/wm/Watermark;->mTextHeight:I
 
     add-int/2addr v11, v3
 
-    if-ge v10, v11, :cond_56
+    if-ge v10, v11, :cond_3
 
     .line 163
     iget-object v11, p0, Lcom/android/server/wm/Watermark;->mText:Ljava/lang/String;
@@ -678,7 +678,7 @@
     add-int/2addr v9, v1
 
     .line 165
-    if-lt v9, v6, :cond_3f
+    if-lt v9, v6, :cond_2
 
     .line 166
     iget v11, p0, Lcom/android/server/wm/Watermark;->mTextWidth:I
@@ -690,10 +690,10 @@
     .line 167
     add-int/2addr v10, v2
 
-    goto :goto_3f
+    goto :goto_1
 
     .line 170
-    :cond_56
+    :cond_3
     iget-object v11, p0, Lcom/android/server/wm/Watermark;->mSurface:Landroid/view/Surface;
 
     invoke-virtual {v11, v0}, Landroid/view/Surface;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
@@ -710,7 +710,7 @@
     .end local v8           #rem:I
     .end local v9           #x:I
     .end local v10           #y:I
-    :cond_5b
+    :cond_4
     return-void
 
     .line 143
@@ -718,20 +718,20 @@
     .restart local v3       #dh:I
     .restart local v4       #dirty:Landroid/graphics/Rect;
     .restart local v6       #dw:I
-    :catch_5c
+    :catch_0
     move-exception v11
 
-    goto :goto_17
+    goto :goto_0
 
     .line 142
-    :catch_5e
+    :catch_1
     move-exception v11
 
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method positionSurface(II)V
-    .registers 4
+    .locals 1
     .parameter "dw"
     .parameter "dh"
 
@@ -739,14 +739,14 @@
     .line 124
     iget v0, p0, Lcom/android/server/wm/Watermark;->mLastDW:I
 
-    if-ne v0, p1, :cond_8
+    if-ne v0, p1, :cond_0
 
     iget v0, p0, Lcom/android/server/wm/Watermark;->mLastDH:I
 
-    if-eq v0, p2, :cond_14
+    if-eq v0, p2, :cond_1
 
     .line 125
-    :cond_8
+    :cond_0
     iput p1, p0, Lcom/android/server/wm/Watermark;->mLastDW:I
 
     .line 126
@@ -763,6 +763,6 @@
     iput-boolean v0, p0, Lcom/android/server/wm/Watermark;->mDrawNeeded:Z
 
     .line 130
-    :cond_14
+    :cond_1
     return-void
 .end method

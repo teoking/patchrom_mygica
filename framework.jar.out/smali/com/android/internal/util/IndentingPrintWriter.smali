@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/Writer;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "writer"
     .parameter "indent"
 
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public decreaseIndent()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 45
@@ -82,7 +82,7 @@
 .end method
 
 .method public increaseIndent()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 40
@@ -106,7 +106,7 @@
 .end method
 
 .method public printPair(Ljava/lang/String;Ljava/lang/Object;)V
-    .registers 5
+    .locals 2
     .parameter "key"
     .parameter "value"
 
@@ -151,7 +151,7 @@
 .end method
 
 .method public println()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 55
@@ -167,7 +167,7 @@
 .end method
 
 .method public write([CII)V
-    .registers 5
+    .locals 1
     .parameter "buf"
     .parameter "offset"
     .parameter "count"
@@ -176,7 +176,7 @@
     .line 61
     iget-boolean v0, p0, Lcom/android/internal/util/IndentingPrintWriter;->mEmptyLine:Z
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 62
     const/4 v0, 0x0
@@ -189,7 +189,7 @@
     invoke-super {p0, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 65
-    :cond_c
+    :cond_0
     invoke-super {p0, p1, p2, p3}, Ljava/io/PrintWriter;->write([CII)V
 
     .line 66

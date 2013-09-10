@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/util/AsyncChannel;Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter "srcContext"
     .parameter "srcHandler"
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 329
@@ -85,6 +85,7 @@
     .local v0, result:I
     iget-object v1, p0, Lcom/android/internal/util/AsyncChannel$1ConnectAsync;->this$0:Lcom/android/internal/util/AsyncChannel;
 
+    #calls: Lcom/android/internal/util/AsyncChannel;->replyHalfConnected(I)V
     invoke-static {v1, v0}, Lcom/android/internal/util/AsyncChannel;->access$000(Lcom/android/internal/util/AsyncChannel;I)V
 
     .line 332

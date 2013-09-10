@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/database/sqlite/SQLiteConnectionPool;Landroid/database/sqlite/SQLiteConnectionPool$ConnectionWaiter;I)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,12 +48,13 @@
 
 # virtual methods
 .method public onCancel()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 649
     iget-object v0, p0, Landroid/database/sqlite/SQLiteConnectionPool$1;->this$0:Landroid/database/sqlite/SQLiteConnectionPool;
 
+    #getter for: Landroid/database/sqlite/SQLiteConnectionPool;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/database/sqlite/SQLiteConnectionPool;->access$000(Landroid/database/sqlite/SQLiteConnectionPool;)Ljava/lang/Object;
 
     move-result-object v1
@@ -61,36 +62,37 @@
     monitor-enter v1
 
     .line 650
-    :try_start_7
+    :try_start_0
     iget-object v0, p0, Landroid/database/sqlite/SQLiteConnectionPool$1;->val$waiter:Landroid/database/sqlite/SQLiteConnectionPool$ConnectionWaiter;
 
     iget v0, v0, Landroid/database/sqlite/SQLiteConnectionPool$ConnectionWaiter;->mNonce:I
 
     iget v2, p0, Landroid/database/sqlite/SQLiteConnectionPool$1;->val$nonce:I
 
-    if-ne v0, v2, :cond_16
+    if-ne v0, v2, :cond_0
 
     .line 651
     iget-object v0, p0, Landroid/database/sqlite/SQLiteConnectionPool$1;->this$0:Landroid/database/sqlite/SQLiteConnectionPool;
 
     iget-object v2, p0, Landroid/database/sqlite/SQLiteConnectionPool$1;->val$waiter:Landroid/database/sqlite/SQLiteConnectionPool$ConnectionWaiter;
 
+    #calls: Landroid/database/sqlite/SQLiteConnectionPool;->cancelConnectionWaiterLocked(Landroid/database/sqlite/SQLiteConnectionPool$ConnectionWaiter;)V
     invoke-static {v0, v2}, Landroid/database/sqlite/SQLiteConnectionPool;->access$100(Landroid/database/sqlite/SQLiteConnectionPool;Landroid/database/sqlite/SQLiteConnectionPool$ConnectionWaiter;)V
 
     .line 653
-    :cond_16
+    :cond_0
     monitor-exit v1
 
     .line 654
     return-void
 
     .line 653
-    :catchall_18
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1a
-    .catchall {:try_start_7 .. :try_end_1a} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

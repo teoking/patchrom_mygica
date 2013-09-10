@@ -63,7 +63,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 5447
@@ -74,7 +74,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .registers 3
+    .locals 0
     .parameter "width"
     .parameter "height"
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 6
+    .locals 3
     .parameter "c"
     .parameter "attrs"
 
@@ -124,7 +124,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -146,46 +146,46 @@
 .end method
 
 .method protected static sizeToString(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "size"
 
     .prologue
     .line 5510
     const/4 v0, -0x2
 
-    if-ne p0, v0, :cond_7
+    if-ne p0, v0, :cond_0
 
     .line 5511
     const-string/jumbo v0, "wrap-content"
 
     .line 5516
-    :goto_6
+    :goto_0
     return-object v0
 
     .line 5513
-    :cond_7
+    :cond_0
     const/4 v0, -0x1
 
-    if-ne p0, v0, :cond_e
+    if-ne p0, v0, :cond_1
 
     .line 5514
     const-string/jumbo v0, "match-parent"
 
-    goto :goto_6
+    goto :goto_0
 
     .line 5516
-    :cond_e
+    :cond_1
     invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public debug(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "output"
 
     .prologue
@@ -244,7 +244,7 @@
 .end method
 
 .method public onDebugDraw(Landroid/view/View;Landroid/graphics/Canvas;)V
-    .registers 3
+    .locals 0
     .parameter "view"
     .parameter "canvas"
 
@@ -254,7 +254,7 @@
 .end method
 
 .method public onResolveLayoutDirection(I)V
-    .registers 2
+    .locals 0
     .parameter "layoutDirection"
 
     .prologue
@@ -263,7 +263,7 @@
 .end method
 
 .method protected setBaseAttributes(Landroid/content/res/TypedArray;II)V
-    .registers 5
+    .locals 1
     .parameter "a"
     .parameter "widthAttr"
     .parameter "heightAttr"

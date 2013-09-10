@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 966
@@ -57,7 +57,7 @@
 .end method
 
 .method constructor <init>([Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .parameter "segments"
     .parameter "size"
 
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -91,14 +91,14 @@
 .end method
 
 .method public get(I)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
     .line 977
     iget v0, p0, Landroid/net/Uri$PathSegments;->size:I
 
-    if-lt p1, v0, :cond_a
+    if-lt p1, v0, :cond_0
 
     .line 978
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
@@ -108,7 +108,7 @@
     throw v0
 
     .line 981
-    :cond_a
+    :cond_0
     iget-object v0, p0, Landroid/net/Uri$PathSegments;->segments:[Ljava/lang/String;
 
     aget-object v0, v0, p1
@@ -117,7 +117,7 @@
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 985

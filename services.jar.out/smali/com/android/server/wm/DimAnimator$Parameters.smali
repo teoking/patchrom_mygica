@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/wm/WindowStateAnimator;IIF)V
-    .registers 5
+    .locals 0
     .parameter "dimWinAnimator"
     .parameter "dimWidth"
     .parameter "dimHeight"

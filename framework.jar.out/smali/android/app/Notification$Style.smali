@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1619
@@ -51,13 +51,13 @@
 .end method
 
 .method protected checkBuilder()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1653
     iget-object v0, p0, Landroid/app/Notification$Style;->mBuilder:Landroid/app/Notification$Builder;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 1654
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -69,12 +69,12 @@
     throw v0
 
     .line 1656
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method protected getStandardView(I)Landroid/widget/RemoteViews;
-    .registers 11
+    .locals 9
     .parameter "layoutId"
 
     .prologue
@@ -94,7 +94,7 @@
     .line 1661
     iget-object v2, p0, Landroid/app/Notification$Style;->mBigContentTitle:Ljava/lang/CharSequence;
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_0
 
     .line 1662
     iget-object v2, p0, Landroid/app/Notification$Style;->mBuilder:Landroid/app/Notification$Builder;
@@ -104,9 +104,10 @@
     invoke-virtual {v2, v3}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     .line 1665
-    :cond_1a
+    :cond_0
     iget-object v2, p0, Landroid/app/Notification$Style;->mBuilder:Landroid/app/Notification$Builder;
 
+    #calls: Landroid/app/Notification$Builder;->applyStandardTemplateWithActions(I)Landroid/widget/RemoteViews;
     invoke-static {v2, p1}, Landroid/app/Notification$Builder;->access$300(Landroid/app/Notification$Builder;I)Landroid/widget/RemoteViews;
 
     move-result-object v0
@@ -115,7 +116,7 @@
     .local v0, contentView:Landroid/widget/RemoteViews;
     iget-object v2, p0, Landroid/app/Notification$Style;->mBigContentTitle:Ljava/lang/CharSequence;
 
-    if-eqz v2, :cond_46
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Landroid/app/Notification$Style;->mBigContentTitle:Ljava/lang/CharSequence;
 
@@ -125,23 +126,23 @@
 
     move-result v2
 
-    if-eqz v2, :cond_46
+    if-eqz v2, :cond_1
 
     .line 1668
     invoke-virtual {v0, v6, v5}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
     .line 1674
-    :goto_31
+    :goto_0
     iget-boolean v2, p0, Landroid/app/Notification$Style;->mSummaryTextSet:Z
 
-    if-eqz v2, :cond_4a
+    if-eqz v2, :cond_2
 
     iget-object v1, p0, Landroid/app/Notification$Style;->mSummaryText:Ljava/lang/CharSequence;
 
     .line 1677
     .local v1, overflowText:Ljava/lang/CharSequence;
-    :goto_37
-    if-eqz v1, :cond_51
+    :goto_1
+    if-eqz v1, :cond_3
 
     .line 1678
     const v2, 0x1020046
@@ -155,39 +156,40 @@
     invoke-virtual {v0, v7, v4}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
     .line 1686
-    :goto_45
+    :goto_2
     return-object v0
 
     .line 1670
     .end local v1           #overflowText:Ljava/lang/CharSequence;
-    :cond_46
+    :cond_1
     invoke-virtual {v0, v6, v4}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
-    goto :goto_31
+    goto :goto_0
 
     .line 1674
-    :cond_4a
+    :cond_2
     iget-object v2, p0, Landroid/app/Notification$Style;->mBuilder:Landroid/app/Notification$Builder;
 
+    #getter for: Landroid/app/Notification$Builder;->mSubText:Ljava/lang/CharSequence;
     invoke-static {v2}, Landroid/app/Notification$Builder;->access$400(Landroid/app/Notification$Builder;)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    goto :goto_37
+    goto :goto_1
 
     .line 1682
     .restart local v1       #overflowText:Ljava/lang/CharSequence;
-    :cond_51
+    :cond_3
     invoke-virtual {v0, v8, v5}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
     .line 1683
     invoke-virtual {v0, v7, v5}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
-    goto :goto_45
+    goto :goto_2
 .end method
 
 .method protected internalSetBigContentTitle(Ljava/lang/CharSequence;)V
-    .registers 2
+    .locals 0
     .parameter "title"
 
     .prologue
@@ -199,7 +201,7 @@
 .end method
 
 .method protected internalSetSummaryText(Ljava/lang/CharSequence;)V
-    .registers 3
+    .locals 1
     .parameter "cs"
 
     .prologue
@@ -216,14 +218,14 @@
 .end method
 
 .method public setBuilder(Landroid/app/Notification$Builder;)V
-    .registers 3
+    .locals 1
     .parameter "builder"
 
     .prologue
     .line 1644
     iget-object v0, p0, Landroid/app/Notification$Style;->mBuilder:Landroid/app/Notification$Builder;
 
-    if-eq v0, p1, :cond_f
+    if-eq v0, p1, :cond_0
 
     .line 1645
     iput-object p1, p0, Landroid/app/Notification$Style;->mBuilder:Landroid/app/Notification$Builder;
@@ -231,7 +233,7 @@
     .line 1646
     iget-object v0, p0, Landroid/app/Notification$Style;->mBuilder:Landroid/app/Notification$Builder;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 1647
     iget-object v0, p0, Landroid/app/Notification$Style;->mBuilder:Landroid/app/Notification$Builder;
@@ -239,6 +241,6 @@
     invoke-virtual {v0, p0}, Landroid/app/Notification$Builder;->setStyle(Landroid/app/Notification$Style;)Landroid/app/Notification$Builder;
 
     .line 1650
-    :cond_f
+    :cond_0
     return-void
 .end method

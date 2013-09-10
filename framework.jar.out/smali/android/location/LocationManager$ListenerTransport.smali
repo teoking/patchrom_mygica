@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/location/LocationManager;Landroid/location/LocationListener;Landroid/os/Looper;)V
-    .registers 5
+    .locals 1
     .parameter
     .parameter "listener"
     .parameter "looper"
@@ -49,7 +49,7 @@
     iput-object p2, p0, Landroid/location/LocationManager$ListenerTransport;->mListener:Landroid/location/LocationListener;
 
     .line 183
-    if-nez p3, :cond_11
+    if-nez p3, :cond_0
 
     .line 184
     new-instance v0, Landroid/location/LocationManager$ListenerTransport$1;
@@ -59,49 +59,50 @@
     iput-object v0, p0, Landroid/location/LocationManager$ListenerTransport;->mListenerHandler:Landroid/os/Handler;
 
     .line 198
-    :goto_10
+    :goto_0
     return-void
 
     .line 191
-    :cond_11
+    :cond_0
     new-instance v0, Landroid/location/LocationManager$ListenerTransport$2;
 
     invoke-direct {v0, p0, p3, p1}, Landroid/location/LocationManager$ListenerTransport$2;-><init>(Landroid/location/LocationManager$ListenerTransport;Landroid/os/Looper;Landroid/location/LocationManager;)V
 
     iput-object v0, p0, Landroid/location/LocationManager$ListenerTransport;->mListenerHandler:Landroid/os/Handler;
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method private _handleMessage(Landroid/os/Message;)V
-    .registers 10
+    .locals 8
     .parameter "msg"
 
     .prologue
     .line 235
     iget v6, p1, Landroid/os/Message;->what:I
 
-    packed-switch v6, :pswitch_data_5a
+    packed-switch v6, :pswitch_data_0
 
     .line 255
-    :goto_5
-    :try_start_5
+    :goto_0
+    :try_start_0
     iget-object v6, p0, Landroid/location/LocationManager$ListenerTransport;->this$0:Landroid/location/LocationManager;
 
+    #getter for: Landroid/location/LocationManager;->mService:Landroid/location/ILocationManager;
     invoke-static {v6}, Landroid/location/LocationManager;->access$100(Landroid/location/LocationManager;)Landroid/location/ILocationManager;
 
     move-result-object v6
 
     invoke-interface {v6, p0}, Landroid/location/ILocationManager;->locationCallbackFinished(Landroid/location/ILocationListener;)V
-    :try_end_e
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_e} :catch_50
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 259
-    :goto_e
+    :goto_1
     return-void
 
     .line 237
-    :pswitch_f
+    :pswitch_0
     new-instance v3, Landroid/location/Location;
 
     iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -116,11 +117,11 @@
 
     invoke-interface {v6, v3}, Landroid/location/LocationListener;->onLocationChanged(Landroid/location/Location;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 241
     .end local v3           #location:Landroid/location/Location;
-    :pswitch_1e
+    :pswitch_1
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/Bundle;
@@ -155,14 +156,14 @@
 
     invoke-interface {v6, v4, v5, v2}, Landroid/location/LocationListener;->onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 248
     .end local v0           #b:Landroid/os/Bundle;
     .end local v2           #extras:Landroid/os/Bundle;
     .end local v4           #provider:Ljava/lang/String;
     .end local v5           #status:I
-    :pswitch_3c
+    :pswitch_2
     iget-object v7, p0, Landroid/location/LocationManager$ListenerTransport;->mListener:Landroid/location/LocationListener;
 
     iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -171,10 +172,10 @@
 
     invoke-interface {v7, v6}, Landroid/location/LocationListener;->onProviderEnabled(Ljava/lang/String;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 251
-    :pswitch_46
+    :pswitch_3
     iget-object v7, p0, Landroid/location/LocationManager$ListenerTransport;->mListener:Landroid/location/LocationListener;
 
     iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -183,10 +184,10 @@
 
     invoke-interface {v7, v6}, Landroid/location/LocationListener;->onProviderDisabled(Ljava/lang/String;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 256
-    :catch_50
+    :catch_0
     move-exception v1
 
     .line 257
@@ -197,22 +198,22 @@
 
     invoke-static {v6, v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_e
+    goto :goto_1
 
     .line 235
     nop
 
-    :pswitch_data_5a
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_f
-        :pswitch_1e
-        :pswitch_3c
-        :pswitch_46
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method static synthetic access$000(Landroid/location/LocationManager$ListenerTransport;Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -226,7 +227,7 @@
 
 # virtual methods
 .method public onLocationChanged(Landroid/location/Location;)V
-    .registers 4
+    .locals 2
     .parameter "location"
 
     .prologue
@@ -254,7 +255,7 @@
 .end method
 
 .method public onProviderDisabled(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "provider"
 
     .prologue
@@ -282,7 +283,7 @@
 .end method
 
 .method public onProviderEnabled(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "provider"
 
     .prologue
@@ -310,7 +311,7 @@
 .end method
 
 .method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
-    .registers 7
+    .locals 3
     .parameter "provider"
     .parameter "status"
     .parameter "extras"
@@ -344,7 +345,7 @@
     invoke-virtual {v0, v2, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     .line 213
-    if-eqz p3, :cond_1f
+    if-eqz p3, :cond_0
 
     .line 214
     const-string v2, "extras"
@@ -352,7 +353,7 @@
     invoke-virtual {v0, v2, p3}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 216
-    :cond_1f
+    :cond_0
     iput-object v0, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     .line 217

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/hardware/LegacySensorManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onRotationChanged(I)V
-    .registers 2
+    .locals 0
     .parameter "rotation"
 
     .prologue

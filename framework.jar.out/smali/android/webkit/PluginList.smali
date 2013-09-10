@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public declared-synchronized addPlugin(Landroid/webkit/Plugin;)V
-    .registers 3
+    .locals 1
     .parameter "plugin"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -54,30 +54,30 @@
     .line 69
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/webkit/PluginList;->mPlugins:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 70
     iget-object v0, p0, Landroid/webkit/PluginList;->mPlugins:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_e
-    .catchall {:try_start_1 .. :try_end_e} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 72
-    :cond_e
+    :cond_0
     monitor-exit p0
 
     return-void
 
     .line 69
-    :catchall_10
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -86,7 +86,7 @@
 .end method
 
 .method public declared-synchronized clear()V
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -94,12 +94,12 @@
     .line 98
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/webkit/PluginList;->mPlugins:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
-    :try_end_6
-    .catchall {:try_start_1 .. :try_end_6} :catchall_8
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 99
     monitor-exit p0
@@ -107,7 +107,7 @@
     return-void
 
     .line 98
-    :catchall_8
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -116,7 +116,7 @@
 .end method
 
 .method public declared-synchronized getList()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -124,16 +124,16 @@
     .line 57
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/webkit/PluginList;->mPlugins:Ljava/util/ArrayList;
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -142,7 +142,7 @@
 .end method
 
 .method public declared-synchronized pluginClicked(Landroid/content/Context;I)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "position"
     .annotation runtime Ljava/lang/Deprecated;
@@ -152,7 +152,7 @@
     .line 111
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v1, p0, Landroid/webkit/PluginList;->mPlugins:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -164,19 +164,19 @@
     .line 112
     .local v0, plugin:Landroid/webkit/Plugin;
     invoke-virtual {v0, p1}, Landroid/webkit/Plugin;->dispatchClickEvent(Landroid/content/Context;)V
-    :try_end_c
-    .catchall {:try_start_1 .. :try_end_c} :catchall_e
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_1 .. :try_end_c} :catch_11
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 117
     .end local v0           #plugin:Landroid/webkit/Plugin;
-    :goto_c
+    :goto_0
     monitor-exit p0
 
     return-void
 
     .line 111
-    :catchall_e
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
@@ -184,14 +184,14 @@
     throw v1
 
     .line 113
-    :catch_11
+    :catch_0
     move-exception v1
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public declared-synchronized removePlugin(Landroid/webkit/Plugin;)V
-    .registers 4
+    .locals 2
     .parameter "plugin"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -200,7 +200,7 @@
     .line 83
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v1, p0, Landroid/webkit/PluginList;->mPlugins:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
@@ -211,24 +211,24 @@
     .local v0, location:I
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_f
+    if-eq v0, v1, :cond_0
 
     .line 85
     iget-object v1, p0, Landroid/webkit/PluginList;->mPlugins:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
-    :try_end_f
-    .catchall {:try_start_1 .. :try_end_f} :catchall_11
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 87
-    :cond_f
+    :cond_0
     monitor-exit p0
 
     return-void
 
     .line 83
     .end local v0           #location:I
-    :catchall_11
+    :catchall_0
     move-exception v1
 
     monitor-exit p0

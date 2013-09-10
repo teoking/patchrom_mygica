@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterfw/io/TextGraphReader;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "packageName"
 
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public execute(Landroid/filterfw/io/TextGraphReader;)V
-    .registers 5
+    .locals 3
     .parameter "reader"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -56,6 +56,7 @@
     .prologue
     .line 62
     :try_start_0
+    #getter for: Landroid/filterfw/io/TextGraphReader;->mFactory:Landroid/filterfw/core/FilterFactory;
     invoke-static {p1}, Landroid/filterfw/io/TextGraphReader;->access$000(Landroid/filterfw/io/TextGraphReader;)Landroid/filterfw/core/FilterFactory;
 
     move-result-object v1
@@ -63,14 +64,14 @@
     iget-object v2, p0, Landroid/filterfw/io/TextGraphReader$ImportPackageCommand;->mPackageName:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Landroid/filterfw/core/FilterFactory;->addPackage(Ljava/lang/String;)V
-    :try_end_9
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_9} :catch_a
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 66
     return-void
 
     .line 63
-    :catch_a
+    :catch_0
     move-exception v0
 
     .line 64

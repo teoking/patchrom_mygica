@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 129
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>(Ljava/net/InetAddress;I)V
-    .registers 6
+    .locals 3
     .parameter "address"
     .parameter "prefixLength"
 
@@ -50,25 +50,25 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 43
-    if-eqz p1, :cond_13
+    if-eqz p1, :cond_1
 
-    if-ltz p2, :cond_13
+    if-ltz p2, :cond_1
 
     instance-of v0, p1, Ljava/net/Inet4Address;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     const/16 v0, 0x20
 
-    if-gt p2, v0, :cond_13
+    if-gt p2, v0, :cond_1
 
-    :cond_f
+    :cond_0
     const/16 v0, 0x80
 
-    if-le p2, v0, :cond_30
+    if-le p2, v0, :cond_2
 
     .line 46
-    :cond_13
+    :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -98,7 +98,7 @@
     throw v0
 
     .line 49
-    :cond_30
+    :cond_2
     iput-object p1, p0, Landroid/net/LinkAddress;->address:Ljava/net/InetAddress;
 
     .line 50
@@ -109,7 +109,7 @@
 .end method
 
 .method public constructor <init>(Ljava/net/InterfaceAddress;)V
-    .registers 3
+    .locals 1
     .parameter "interfaceAddress"
 
     .prologue
@@ -137,7 +137,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 108
@@ -147,7 +147,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
     .parameter "obj"
 
     .prologue
@@ -156,14 +156,14 @@
     .line 73
     instance-of v2, p1, Landroid/net/LinkAddress;
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_1
 
     .line 77
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return v1
 
-    :cond_6
+    :cond_1
     move-object v0, p1
 
     .line 76
@@ -179,21 +179,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_0
 
     iget v2, p0, Landroid/net/LinkAddress;->prefixLength:I
 
     iget v3, v0, Landroid/net/LinkAddress;->prefixLength:I
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_0
 
     const/4 v1, 0x1
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public getAddress()Ljava/net/InetAddress;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 93
@@ -203,7 +203,7 @@
 .end method
 
 .method public getNetworkPrefixLength()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 100
@@ -213,48 +213,48 @@
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 86
     iget-object v0, p0, Landroid/net/LinkAddress;->address:Ljava/net/InetAddress;
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_5
+    :goto_0
     iget v1, p0, Landroid/net/LinkAddress;->prefixLength:I
 
     add-int/2addr v0, v1
 
     return v0
 
-    :cond_9
+    :cond_0
     iget-object v0, p0, Landroid/net/LinkAddress;->address:Ljava/net/InetAddress;
 
     invoke-virtual {v0}, Ljava/net/InetAddress;->hashCode()I
 
     move-result v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 60
     iget-object v0, p0, Landroid/net/LinkAddress;->address:Ljava/net/InetAddress;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     const-string v0, ""
 
-    :goto_6
+    :goto_0
     return-object v0
 
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -285,11 +285,11 @@
 
     move-result-object v0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 
@@ -297,7 +297,7 @@
     .line 116
     iget-object v0, p0, Landroid/net/LinkAddress;->address:Ljava/net/InetAddress;
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 117
     const/4 v0, 0x1
@@ -319,14 +319,14 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 123
-    :goto_16
+    :goto_0
     return-void
 
     .line 121
-    :cond_17
+    :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    goto :goto_16
+    goto :goto_0
 .end method

@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;II)V
-    .registers 5
+    .locals 0
     .parameter "identIn"
     .parameter "tagIn"
     .parameter "labelIn"

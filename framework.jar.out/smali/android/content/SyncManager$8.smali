@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/SyncManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public onServiceChanged(Landroid/content/SyncAdapterType;Z)V
-    .registers 11
+    .locals 8
     .parameter "type"
     .parameter "removed"
 
@@ -56,7 +56,7 @@
     const/4 v1, 0x0
 
     .line 368
-    if-nez p2, :cond_f
+    if-nez p2, :cond_0
 
     .line 369
     iget-object v0, p0, Landroid/content/SyncManager$8;->this$0:Landroid/content/SyncManager;
@@ -74,12 +74,12 @@
     invoke-virtual/range {v0 .. v7}, Landroid/content/SyncManager;->scheduleSync(Landroid/accounts/Account;ILjava/lang/String;Landroid/os/Bundle;JZ)V
 
     .line 372
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method public bridge synthetic onServiceChanged(Ljava/lang/Object;Z)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

@@ -106,7 +106,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 6
+    .locals 6
 
     .prologue
     const/16 v5, 0x10
@@ -122,17 +122,17 @@
 
     move-result v2
 
-    if-nez v2, :cond_94
+    if-nez v2, :cond_0
 
     move v2, v3
 
-    :goto_d
+    :goto_0
     sput-boolean v2, Lcom/google/android/mms/pdu/CharacterSets;->$assertionsDisabled:Z
 
     .line 56
     new-array v2, v5, [I
 
-    fill-array-data v2, :array_c6
+    fill-array-data v2, :array_0
 
     sput-object v2, Lcom/google/android/mms/pdu/CharacterSets;->MIBENUM_NUMBERS:[I
 
@@ -250,7 +250,7 @@
     .line 126
     sget-boolean v2, Lcom/google/android/mms/pdu/CharacterSets;->$assertionsDisabled:Z
 
-    if-nez v2, :cond_97
+    if-nez v2, :cond_1
 
     sget-object v2, Lcom/google/android/mms/pdu/CharacterSets;->MIBENUM_NUMBERS:[I
 
@@ -260,7 +260,7 @@
 
     array-length v3, v3
 
-    if-eq v2, v3, :cond_97
+    if-eq v2, v3, :cond_1
 
     new-instance v2, Ljava/lang/AssertionError;
 
@@ -268,14 +268,14 @@
 
     throw v2
 
-    :cond_94
+    :cond_0
     move v2, v4
 
     .line 23
-    goto/16 :goto_d
+    goto/16 :goto_0
 
     .line 127
-    :cond_97
+    :cond_1
     sget-object v2, Lcom/google/android/mms/pdu/CharacterSets;->MIBENUM_NUMBERS:[I
 
     array-length v2, v2
@@ -287,8 +287,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_9d
-    if-gt v1, v0, :cond_c4
+    :goto_1
+    if-gt v1, v0, :cond_2
 
     .line 129
     sget-object v2, Lcom/google/android/mms/pdu/CharacterSets;->MIBENUM_TO_NAME_MAP:Ljava/util/HashMap;
@@ -327,16 +327,16 @@
     .line 128
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_9d
+    goto :goto_1
 
     .line 132
-    :cond_c4
+    :cond_2
     return-void
 
     .line 56
     nop
 
-    :array_c6
+    :array_0
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x3t 0x0t 0x0t 0x0t
@@ -358,7 +358,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 134
@@ -368,7 +368,7 @@
 .end method
 
 .method public static getMibEnumValue(Ljava/lang/String;)I
-    .registers 3
+    .locals 2
     .parameter "mimeName"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -378,17 +378,17 @@
 
     .prologue
     .line 162
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 163
     const/4 v1, -0x1
 
     .line 170
-    :goto_3
+    :goto_0
     return v1
 
     .line 166
-    :cond_4
+    :cond_0
     sget-object v1, Lcom/google/android/mms/pdu/CharacterSets;->NAME_TO_MIBENUM_MAP:Ljava/util/HashMap;
 
     invoke-virtual {v1, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -399,7 +399,7 @@
 
     .line 167
     .local v0, mibEnumValue:Ljava/lang/Integer;
-    if-nez v0, :cond_14
+    if-nez v0, :cond_1
 
     .line 168
     new-instance v1, Ljava/io/UnsupportedEncodingException;
@@ -409,16 +409,16 @@
     throw v1
 
     .line 170
-    :cond_14
+    :cond_1
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public static getMimeName(I)Ljava/lang/String;
-    .registers 4
+    .locals 3
     .parameter "mibEnumValue"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -442,7 +442,7 @@
 
     .line 147
     .local v0, name:Ljava/lang/String;
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 148
     new-instance v1, Ljava/io/UnsupportedEncodingException;
@@ -452,6 +452,6 @@
     throw v1
 
     .line 150
-    :cond_14
+    :cond_0
     return-object v0
 .end method

@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
@@ -186,7 +186,7 @@
 
 # virtual methods
 .method createClickOutline(Landroid/view/View;I)Landroid/graphics/Bitmap;
-    .registers 4
+    .locals 1
     .parameter "v"
     .parameter "color"
 
@@ -202,7 +202,7 @@
 .end method
 
 .method createOutline(Landroid/view/View;II)Landroid/graphics/Bitmap;
-    .registers 14
+    .locals 10
     .parameter "v"
     .parameter "type"
     .parameter "color"
@@ -218,7 +218,7 @@
     invoke-virtual {v6, p3}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 1405
-    if-nez p2, :cond_1e
+    if-nez p2, :cond_2
 
     .line 1406
     iget-object v6, p0, Landroid/widget/StackView$HolographicHelper;->mBlurPaint:Landroid/graphics/Paint;
@@ -228,32 +228,32 @@
     invoke-virtual {v6, v7}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
 
     .line 1411
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     invoke-virtual {p1}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v6
 
-    if-eqz v6, :cond_1c
+    if-eqz v6, :cond_1
 
     invoke-virtual {p1}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v6
 
-    if-nez v6, :cond_29
+    if-nez v6, :cond_3
 
-    :cond_1c
+    :cond_1
     move-object v0, v5
 
     .line 1435
-    :goto_1d
+    :goto_1
     return-object v0
 
     .line 1407
-    :cond_1e
+    :cond_2
     const/4 v6, 0x1
 
-    if-ne p2, v6, :cond_10
+    if-ne p2, v6, :cond_0
 
     .line 1408
     iget-object v6, p0, Landroid/widget/StackView$HolographicHelper;->mBlurPaint:Landroid/graphics/Paint;
@@ -262,10 +262,10 @@
 
     invoke-virtual {v6, v7}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
 
-    goto :goto_10
+    goto :goto_0
 
     .line 1415
-    :cond_29
+    :cond_3
     invoke-virtual {p1}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v6
@@ -349,11 +349,11 @@
 
     invoke-virtual {v6, v5}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    goto :goto_1d
+    goto :goto_1
 .end method
 
 .method createResOutline(Landroid/view/View;I)Landroid/graphics/Bitmap;
-    .registers 4
+    .locals 1
     .parameter "v"
     .parameter "color"
 
@@ -369,7 +369,7 @@
 .end method
 
 .method drawOutline(Landroid/graphics/Canvas;Landroid/graphics/Bitmap;)V
-    .registers 11
+    .locals 8
     .parameter "dest"
     .parameter "src"
 

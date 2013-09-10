@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 570
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public onClockVisibilityChanged()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 588
@@ -39,7 +39,7 @@
 .end method
 
 .method public onDevicePolicyManagerStateChanged()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 594
@@ -47,7 +47,7 @@
 .end method
 
 .method public onDeviceProvisioned()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 591
@@ -55,7 +55,7 @@
 .end method
 
 .method public onPhoneStateChanged(I)V
-    .registers 2
+    .locals 0
     .parameter "phoneState"
 
     .prologue
@@ -64,7 +64,7 @@
 .end method
 
 .method public onRefreshBatteryInfo(ZZI)V
-    .registers 4
+    .locals 0
     .parameter "showBatteryInfo"
     .parameter "pluggedIn"
     .parameter "batteryLevel"
@@ -75,7 +75,7 @@
 .end method
 
 .method public onRefreshCarrierInfo(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
-    .registers 3
+    .locals 0
     .parameter "plmn"
     .parameter "spn"
 
@@ -85,7 +85,7 @@
 .end method
 
 .method public onRingerModeChanged(I)V
-    .registers 2
+    .locals 0
     .parameter "state"
 
     .prologue
@@ -94,7 +94,7 @@
 .end method
 
 .method public onTimeChanged()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 576
@@ -102,7 +102,7 @@
 .end method
 
 .method public onUserChanged(I)V
-    .registers 2
+    .locals 0
     .parameter "userId"
 
     .prologue

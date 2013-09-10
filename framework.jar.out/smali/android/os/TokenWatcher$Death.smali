@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/TokenWatcher;Landroid/os/IBinder;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "token"
     .parameter "tag"
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 193
@@ -68,7 +68,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -80,11 +80,12 @@
     :try_start_0
     iget-object v0, p0, Landroid/os/TokenWatcher$Death;->token:Landroid/os/IBinder;
 
-    if-eqz v0, :cond_29
+    if-eqz v0, :cond_0
 
     .line 200
     iget-object v0, p0, Landroid/os/TokenWatcher$Death;->this$0:Landroid/os/TokenWatcher;
 
+    #getter for: Landroid/os/TokenWatcher;->mTag:Ljava/lang/String;
     invoke-static {v0}, Landroid/os/TokenWatcher;->access$200(Landroid/os/TokenWatcher;)Ljava/lang/String;
 
     move-result-object v0
@@ -117,18 +118,18 @@
     iget-object v1, p0, Landroid/os/TokenWatcher$Death;->token:Landroid/os/IBinder;
 
     invoke-virtual {v0, v1}, Landroid/os/TokenWatcher;->release(Landroid/os/IBinder;)V
-    :try_end_29
-    .catchall {:try_start_0 .. :try_end_29} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 205
-    :cond_29
+    :cond_0
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
     .line 207
     return-void
 
     .line 205
-    :catchall_2d
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V

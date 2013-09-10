@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/ZoomButtonsController;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,41 +35,43 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
     .line 173
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_2e
+    packed-switch v0, :pswitch_data_0
 
     .line 194
-    :goto_5
+    :goto_0
     return-void
 
     .line 175
-    :pswitch_6
+    :pswitch_0
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$2;->this$0:Landroid/widget/ZoomButtonsController;
 
+    #calls: Landroid/widget/ZoomButtonsController;->onPostConfigurationChanged()V
     invoke-static {v0}, Landroid/widget/ZoomButtonsController;->access$200(Landroid/widget/ZoomButtonsController;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 179
-    :pswitch_c
+    :pswitch_1
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$2;->this$0:Landroid/widget/ZoomButtonsController;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/ZoomButtonsController;->setVisible(Z)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 183
-    :pswitch_13
+    :pswitch_2
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$2;->this$0:Landroid/widget/ZoomButtonsController;
 
+    #getter for: Landroid/widget/ZoomButtonsController;->mOwnerView:Landroid/view/View;
     invoke-static {v0}, Landroid/widget/ZoomButtonsController;->access$300(Landroid/widget/ZoomButtonsController;)Landroid/view/View;
 
     move-result-object v0
@@ -78,7 +80,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_27
+    if-nez v0, :cond_0
 
     .line 185
     const-string v0, "ZoomButtonsController"
@@ -87,23 +89,23 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5
+    goto :goto_0
 
     .line 189
-    :cond_27
+    :cond_0
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$2;->this$0:Landroid/widget/ZoomButtonsController;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/widget/ZoomButtonsController;->setVisible(Z)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 173
-    :pswitch_data_2e
+    :pswitch_data_0
     .packed-switch 0x2
-        :pswitch_6
-        :pswitch_c
-        :pswitch_13
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 23
@@ -16,7 +16,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "message"
 
     .prologue
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .registers 4
+    .locals 1
     .parameter "message"
     .parameter "cause"
 
@@ -36,20 +36,20 @@
     .line 32
     instance-of v0, p2, Ljavax/sip/SipException;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     invoke-virtual {p2}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     invoke-virtual {p2}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
 
     move-result-object p2
 
     .end local p2
-    :cond_e
+    :cond_0
     invoke-direct {p0, p1, p2}, Ljava/lang/Exception;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 36

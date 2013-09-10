@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/SyncStatusObserver;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onStatusChanged(I)V
-    .registers 3
+    .locals 1
     .parameter "which"
     .annotation system Ldalvik/annotation/Throws;
         value = {

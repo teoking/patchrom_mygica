@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 69
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public onLoadClass(Ljava/lang/Class;)Z
-    .registers 3
+    .locals 1
     .parameter "clazz"
 
     .prologue

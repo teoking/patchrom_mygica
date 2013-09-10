@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/service/dreams/Dream;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 353
@@ -81,6 +81,7 @@
 
     iget-object v1, p0, Landroid/service/dreams/Dream$1;->this$0:Landroid/service/dreams/Dream;
 
+    #getter for: Landroid/service/dreams/Dream;->mWindow:Landroid/view/Window;
     invoke-static {v1}, Landroid/service/dreams/Dream;->access$000(Landroid/service/dreams/Dream;)Landroid/view/Window;
 
     move-result-object v1
@@ -91,6 +92,7 @@
 
     iget-object v2, p0, Landroid/service/dreams/Dream$1;->this$0:Landroid/service/dreams/Dream;
 
+    #getter for: Landroid/service/dreams/Dream;->mWindow:Landroid/view/Window;
     invoke-static {v2}, Landroid/service/dreams/Dream;->access$000(Landroid/service/dreams/Dream;)Landroid/view/Window;
 
     move-result-object v2

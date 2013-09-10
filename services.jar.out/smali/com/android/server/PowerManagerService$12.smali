@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/PowerManagerService;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2838

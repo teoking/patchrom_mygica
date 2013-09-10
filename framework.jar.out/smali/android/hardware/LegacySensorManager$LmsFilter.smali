@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/16 v1, 0x18
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public filter(JF)F
-    .registers 27
+    .locals 23
     .parameter "time"
     .parameter "in"
 
@@ -112,7 +112,7 @@
 
     cmpl-float v19, v19, v20
 
-    if-lez v19, :cond_ee
+    if-lez v19, :cond_2
 
     .line 387
     const/high16 v19, 0x43b4
@@ -120,8 +120,8 @@
     sub-float v17, v17, v19
 
     .line 395
-    :cond_29
-    :goto_29
+    :cond_0
+    :goto_0
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/hardware/LegacySensorManager$LmsFilter;->mIndex:I
@@ -149,7 +149,7 @@
 
     move/from16 v1, v20
 
-    if-lt v0, v1, :cond_4d
+    if-lt v0, v1, :cond_1
 
     .line 397
     const/16 v19, 0xc
@@ -161,7 +161,7 @@
     iput v0, v1, Landroid/hardware/LegacySensorManager$LmsFilter;->mIndex:I
 
     .line 398
-    :cond_4d
+    :cond_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/LegacySensorManager$LmsFilter;->mV:[F
@@ -245,12 +245,12 @@
     const/4 v13, 0x0
 
     .local v13, i:I
-    :goto_8f
+    :goto_1
     const/16 v19, 0xb
 
     move/from16 v0, v19
 
-    if-ge v13, v0, :cond_fc
+    if-ge v13, v0, :cond_3
 
     .line 409
     move-object/from16 v0, p0
@@ -357,7 +357,7 @@
     .line 408
     add-int/lit8 v13, v13, 0x1
 
-    goto :goto_8f
+    goto :goto_1
 
     .line 388
     .end local v2           #A:F
@@ -370,21 +370,21 @@
     .end local v11           #dT:F
     .end local v13           #i:I
     .end local v14           #j:I
-    :cond_ee
+    :cond_2
     sub-float v19, v18, v17
 
     const/high16 v20, 0x4334
 
     cmpl-float v19, v19, v20
 
-    if-lez v19, :cond_29
+    if-lez v19, :cond_0
 
     .line 389
     const/high16 v19, 0x43b4
 
     add-float v17, v17, v19
 
-    goto/16 :goto_29
+    goto/16 :goto_0
 
     .line 420
     .restart local v2       #A:F
@@ -393,7 +393,7 @@
     .restart local v5       #D:F
     .restart local v6       #E:F
     .restart local v13       #i:I
-    :cond_fc
+    :cond_3
     mul-float v19, v2, v3
 
     mul-float v20, v4, v5
@@ -435,16 +435,16 @@
 
     cmpl-float v19, v12, v19
 
-    if-ltz v19, :cond_151
+    if-ltz v19, :cond_6
 
     move/from16 v19, v12
 
-    :goto_124
+    :goto_2
     const/high16 v20, 0x3f00
 
     cmpl-float v19, v19, v20
 
-    if-ltz v19, :cond_142
+    if-ltz v19, :cond_4
 
     .line 427
     const/high16 v19, 0x3f00
@@ -474,12 +474,12 @@
     add-float v12, v19, v20
 
     .line 428
-    :cond_142
+    :cond_4
     const/16 v19, 0x0
 
     cmpg-float v19, v12, v19
 
-    if-gez v19, :cond_14c
+    if-gez v19, :cond_5
 
     .line 429
     const/high16 v19, 0x3f80
@@ -487,7 +487,7 @@
     add-float v12, v12, v19
 
     .line 430
-    :cond_14c
+    :cond_5
     const/high16 v19, 0x43b4
 
     mul-float v12, v12, v19
@@ -496,10 +496,10 @@
     return v12
 
     .line 426
-    :cond_151
+    :cond_6
     neg-float v0, v12
 
     move/from16 v19, v0
 
-    goto :goto_124
+    goto :goto_2
 .end method

@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 59
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 58
@@ -58,7 +58,7 @@
 .end method
 
 .method public static get(Landroid/content/ContentProviderClient;Landroid/net/Uri;Landroid/accounts/Account;)[B
-    .registers 10
+    .locals 7
     .parameter "provider"
     .parameter "uri"
     .parameter "account"
@@ -102,7 +102,7 @@
 
     .line 79
     .local v6, c:Landroid/database/Cursor;
-    if-nez v6, :cond_20
+    if-nez v6, :cond_0
 
     .line 80
     new-instance v0, Landroid/os/RemoteException;
@@ -112,13 +112,13 @@
     throw v0
 
     .line 84
-    :cond_20
-    :try_start_20
+    :cond_0
+    :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_34
+    if-eqz v0, :cond_1
 
     .line 85
     const-string v0, "data"
@@ -128,8 +128,8 @@
     move-result v0
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getBlob(I)[B
-    :try_end_2f
-    .catchall {:try_start_20 .. :try_end_2f} :catchall_38
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v5
 
@@ -137,16 +137,16 @@
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     .line 90
-    :goto_33
+    :goto_0
     return-object v5
 
     .line 88
-    :cond_34
+    :cond_1
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    goto :goto_33
+    goto :goto_0
 
-    :catchall_38
+    :catchall_0
     move-exception v0
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
@@ -155,7 +155,7 @@
 .end method
 
 .method public static getWithUri(Landroid/content/ContentProviderClient;Landroid/net/Uri;Landroid/accounts/Account;)Landroid/util/Pair;
-    .registers 14
+    .locals 11
     .parameter "provider"
     .parameter "uri"
     .parameter "account"
@@ -213,7 +213,7 @@
 
     .line 133
     .local v7, c:Landroid/database/Cursor;
-    if-nez v7, :cond_20
+    if-nez v7, :cond_0
 
     .line 134
     new-instance v0, Landroid/os/RemoteException;
@@ -223,13 +223,13 @@
     throw v0
 
     .line 138
-    :cond_20
-    :try_start_20
+    :cond_0
+    :try_start_0
     invoke-interface {v7}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_41
+    if-eqz v0, :cond_1
 
     .line 139
     const/4 v0, 0x1
@@ -257,8 +257,8 @@
     move-result-object v0
 
     invoke-static {v0, v6}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
-    :try_end_3c
-    .catchall {:try_start_20 .. :try_end_3c} :catchall_45
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v5
 
@@ -268,16 +268,16 @@
     .line 146
     .end local v6           #blob:[B
     .end local v8           #rowId:J
-    :goto_40
+    :goto_0
     return-object v5
 
     .line 144
-    :cond_41
+    :cond_1
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
-    goto :goto_40
+    goto :goto_0
 
-    :catchall_45
+    :catchall_0
     move-exception v0
 
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
@@ -286,7 +286,7 @@
 .end method
 
 .method public static insert(Landroid/content/ContentProviderClient;Landroid/net/Uri;Landroid/accounts/Account;[B)Landroid/net/Uri;
-    .registers 7
+    .locals 3
     .parameter "provider"
     .parameter "uri"
     .parameter "account"
@@ -332,7 +332,7 @@
 .end method
 
 .method public static newSetOperation(Landroid/net/Uri;Landroid/accounts/Account;[B)Landroid/content/ContentProviderOperation;
-    .registers 7
+    .locals 4
     .parameter "uri"
     .parameter "account"
     .parameter "data"
@@ -382,7 +382,7 @@
 .end method
 
 .method public static newUpdateOperation(Landroid/net/Uri;[B)Landroid/content/ContentProviderOperation;
-    .registers 4
+    .locals 2
     .parameter "uri"
     .parameter "data"
 
@@ -415,7 +415,7 @@
 .end method
 
 .method public static set(Landroid/content/ContentProviderClient;Landroid/net/Uri;Landroid/accounts/Account;[B)V
-    .registers 7
+    .locals 3
     .parameter "provider"
     .parameter "uri"
     .parameter "account"
@@ -460,7 +460,7 @@
 .end method
 
 .method public static update(Landroid/content/ContentProviderClient;Landroid/net/Uri;[B)V
-    .registers 6
+    .locals 3
     .parameter "provider"
     .parameter "uri"
     .parameter "data"

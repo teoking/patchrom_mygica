@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/inputmethod/InputMethodManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 5
+    .locals 2
     .parameter "className"
     .parameter "service"
 
@@ -53,34 +53,35 @@
     iput-object v1, v0, Landroid/view/inputmethod/InputMethodManager;->mPCM:Lcom/benq/cdserver/IPCMBinder;
 
     .line 912
-    :try_start_8
+    :try_start_0
     iget-object v0, p0, Landroid/view/inputmethod/InputMethodManager$2;->this$0:Landroid/view/inputmethod/InputMethodManager;
 
     iget-object v0, v0, Landroid/view/inputmethod/InputMethodManager;->mPCM:Lcom/benq/cdserver/IPCMBinder;
 
     iget-object v1, p0, Landroid/view/inputmethod/InputMethodManager$2;->this$0:Landroid/view/inputmethod/InputMethodManager;
 
+    #getter for: Landroid/view/inputmethod/InputMethodManager;->mCallback:Lcom/benq/cdserver/IPCMCallback;
     invoke-static {v1}, Landroid/view/inputmethod/InputMethodManager;->access$100(Landroid/view/inputmethod/InputMethodManager;)Lcom/benq/cdserver/IPCMCallback;
 
     move-result-object v1
 
     invoke-interface {v0, v1}, Lcom/benq/cdserver/IPCMBinder;->registerCallback(Lcom/benq/cdserver/IPCMCallback;)V
-    :try_end_15
-    .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_15} :catch_16
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 917
-    :goto_15
+    :goto_0
     return-void
 
     .line 913
-    :catch_16
+    :catch_0
     move-exception v0
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .registers 4
+    .locals 2
     .parameter "className"
 
     .prologue

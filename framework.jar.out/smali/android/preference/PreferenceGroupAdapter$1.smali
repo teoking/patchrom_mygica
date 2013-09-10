@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/preference/PreferenceGroupAdapter;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,12 +38,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 87
     iget-object v0, p0, Landroid/preference/PreferenceGroupAdapter$1;->this$0:Landroid/preference/PreferenceGroupAdapter;
 
+    #calls: Landroid/preference/PreferenceGroupAdapter;->syncMyPreferences()V
     invoke-static {v0}, Landroid/preference/PreferenceGroupAdapter;->access$100(Landroid/preference/PreferenceGroupAdapter;)V
 
     .line 88

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accessibilityservice/AccessibilityService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -52,7 +52,7 @@
 .end method
 
 .method public onGesture(I)Z
-    .registers 3
+    .locals 1
     .parameter "gestureId"
 
     .prologue
@@ -67,7 +67,7 @@
 .end method
 
 .method public onInterrupt()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 513
@@ -80,7 +80,7 @@
 .end method
 
 .method public onServiceConnected()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 508
@@ -93,13 +93,14 @@
 .end method
 
 .method public onSetConnectionId(I)V
-    .registers 3
+    .locals 1
     .parameter "connectionId"
 
     .prologue
     .line 523
     iget-object v0, p0, Landroid/accessibilityservice/AccessibilityService$1;->this$0:Landroid/accessibilityservice/AccessibilityService;
 
+    #setter for: Landroid/accessibilityservice/AccessibilityService;->mConnectionId:I
     invoke-static {v0, p1}, Landroid/accessibilityservice/AccessibilityService;->access$002(Landroid/accessibilityservice/AccessibilityService;I)I
 
     .line 524

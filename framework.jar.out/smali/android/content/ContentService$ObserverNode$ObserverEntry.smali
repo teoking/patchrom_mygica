@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/ContentService$ObserverNode;Landroid/database/IContentObserver;ZLjava/lang/Object;II)V
-    .registers 10
+    .locals 3
     .parameter
     .parameter "o"
     .parameter "n"
@@ -63,7 +63,7 @@
     iput-boolean p3, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->notifyForDescendents:Z
 
     .line 557
-    :try_start_f
+    :try_start_0
     iget-object v1, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->observer:Landroid/database/IContentObserver;
 
     invoke-interface {v1}, Landroid/database/IContentObserver;->asBinder()Landroid/os/IBinder;
@@ -73,28 +73,28 @@
     const/4 v2, 0x0
 
     invoke-interface {v1, p0, v2}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
-    :try_end_19
-    .catch Landroid/os/RemoteException; {:try_start_f .. :try_end_19} :catch_1a
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 561
-    :goto_19
+    :goto_0
     return-void
 
     .line 558
-    :catch_1a
+    :catch_0
     move-exception v0
 
     .line 559
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {p0}, Landroid/content/ContentService$ObserverNode$ObserverEntry;->binderDied()V
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public binderDied()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 564
@@ -103,7 +103,7 @@
     monitor-enter v1
 
     .line 565
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->this$0:Landroid/content/ContentService$ObserverNode;
 
     iget-object v2, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->observer:Landroid/database/IContentObserver;
@@ -117,18 +117,18 @@
     return-void
 
     .line 566
-    :catchall_c
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_e
-    .catchall {:try_start_3 .. :try_end_e} :catchall_c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public dumpLocked(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/util/SparseIntArray;)V
-    .registers 9
+    .locals 2
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -180,7 +180,7 @@
     .line 575
     iget-object v0, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->observer:Landroid/database/IContentObserver;
 
-    if-eqz v0, :cond_42
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/content/ContentService$ObserverNode$ObserverEntry;->observer:Landroid/database/IContentObserver;
 
@@ -188,7 +188,7 @@
 
     move-result-object v0
 
-    :goto_36
+    :goto_0
     invoke-static {v0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
 
     move-result v0
@@ -203,8 +203,8 @@
     return-void
 
     .line 575
-    :cond_42
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_36
+    goto :goto_0
 .end method

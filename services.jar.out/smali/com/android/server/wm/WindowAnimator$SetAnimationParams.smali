@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/wm/WindowStateAnimator;Landroid/view/animation/Animation;II)V
-    .registers 5
+    .locals 0
     .parameter "winAnimator"
     .parameter "animation"
     .parameter "animDw"

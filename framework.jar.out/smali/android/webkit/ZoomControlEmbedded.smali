@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/webkit/ZoomManager;Landroid/webkit/WebViewClassic;)V
-    .registers 3
+    .locals 0
     .parameter "zoomManager"
     .parameter "webView"
 
@@ -44,7 +44,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/webkit/ZoomControlEmbedded;)Landroid/webkit/WebViewClassic;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -55,7 +55,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/webkit/ZoomControlEmbedded;)Landroid/widget/ZoomButtonsController;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -66,13 +66,13 @@
 .end method
 
 .method private getControls()Landroid/widget/ZoomButtonsController;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 84
     iget-object v2, p0, Landroid/webkit/ZoomControlEmbedded;->mZoomButtonsController:Landroid/widget/ZoomButtonsController;
 
-    if-nez v2, :cond_2f
+    if-nez v2, :cond_0
 
     .line 85
     new-instance v2, Landroid/widget/ZoomButtonsController;
@@ -115,7 +115,7 @@
     .local v1, params:Landroid/view/ViewGroup$LayoutParams;
     instance-of v2, v1, Landroid/widget/FrameLayout$LayoutParams;
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_0
 
     .line 93
     check-cast v1, Landroid/widget/FrameLayout$LayoutParams;
@@ -127,7 +127,7 @@
 
     .line 96
     .end local v0           #controls:Landroid/view/View;
-    :cond_2f
+    :cond_0
     iget-object v2, p0, Landroid/webkit/ZoomControlEmbedded;->mZoomButtonsController:Landroid/widget/ZoomButtonsController;
 
     return-object v2
@@ -136,13 +136,13 @@
 
 # virtual methods
 .method public hide()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 57
     iget-object v0, p0, Landroid/webkit/ZoomControlEmbedded;->mZoomButtonsController:Landroid/widget/ZoomButtonsController;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 58
     iget-object v0, p0, Landroid/webkit/ZoomControlEmbedded;->mZoomButtonsController:Landroid/widget/ZoomButtonsController;
@@ -152,18 +152,18 @@
     invoke-virtual {v0, v1}, Landroid/widget/ZoomButtonsController;->setVisible(Z)V
 
     .line 60
-    :cond_a
+    :cond_0
     return-void
 .end method
 
 .method public isVisible()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 63
     iget-object v0, p0, Landroid/webkit/ZoomControlEmbedded;->mZoomButtonsController:Landroid/widget/ZoomButtonsController;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/webkit/ZoomControlEmbedded;->mZoomButtonsController:Landroid/widget/ZoomButtonsController;
 
@@ -171,21 +171,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public show()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v4, 0x1
@@ -199,7 +199,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_49
+    if-nez v2, :cond_0
 
     iget-object v2, p0, Landroid/webkit/ZoomControlEmbedded;->mZoomManager:Landroid/webkit/ZoomManager;
 
@@ -207,7 +207,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_49
+    if-nez v2, :cond_0
 
     .line 41
     iget-object v2, p0, Landroid/webkit/ZoomControlEmbedded;->mZoomButtonsController:Landroid/widget/ZoomButtonsController;
@@ -221,7 +221,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_49
+    if-eqz v2, :cond_0
 
     .line 44
     iget-object v2, p0, Landroid/webkit/ZoomControlEmbedded;->mWebView:Landroid/webkit/WebViewClassic;
@@ -244,9 +244,9 @@
 
     move-result v2
 
-    if-eqz v2, :cond_49
+    if-eqz v2, :cond_0
 
-    if-lez v0, :cond_49
+    if-lez v0, :cond_0
 
     .line 47
     add-int/lit8 v0, v0, -0x1
@@ -271,25 +271,25 @@
     .line 54
     .end local v0           #count:I
     .end local v1           #settings:Landroid/webkit/WebSettingsClassic;
-    :cond_49
+    :cond_0
     return-void
 .end method
 
 .method public update()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 67
     iget-object v2, p0, Landroid/webkit/ZoomControlEmbedded;->mZoomButtonsController:Landroid/widget/ZoomButtonsController;
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_0
 
     .line 81
-    :goto_4
+    :goto_0
     return-void
 
     .line 71
-    :cond_5
+    :cond_0
     iget-object v2, p0, Landroid/webkit/ZoomControlEmbedded;->mZoomManager:Landroid/webkit/ZoomManager;
 
     invoke-virtual {v2}, Landroid/webkit/ZoomManager;->canZoomIn()Z
@@ -304,7 +304,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2c
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Landroid/webkit/ZoomControlEmbedded;->mZoomManager:Landroid/webkit/ZoomManager;
 
@@ -312,16 +312,16 @@
 
     move-result v2
 
-    if-nez v2, :cond_2c
+    if-nez v2, :cond_1
 
     const/4 v1, 0x1
 
     .line 73
     .local v1, canZoomOut:Z
-    :goto_1c
-    if-nez v0, :cond_2e
+    :goto_1
+    if-nez v0, :cond_2
 
-    if-nez v1, :cond_2e
+    if-nez v1, :cond_2
 
     .line 75
     iget-object v2, p0, Landroid/webkit/ZoomControlEmbedded;->mZoomButtonsController:Landroid/widget/ZoomButtonsController;
@@ -334,18 +334,18 @@
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_4
+    goto :goto_0
 
     .line 72
     .end local v1           #canZoomOut:Z
-    :cond_2c
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_1c
+    goto :goto_1
 
     .line 78
     .restart local v1       #canZoomOut:Z
-    :cond_2e
+    :cond_2
     iget-object v2, p0, Landroid/webkit/ZoomControlEmbedded;->mZoomButtonsController:Landroid/widget/ZoomButtonsController;
 
     invoke-virtual {v2, v0}, Landroid/widget/ZoomButtonsController;->setZoomInEnabled(Z)V
@@ -355,5 +355,5 @@
 
     invoke-virtual {v2, v1}, Landroid/widget/ZoomButtonsController;->setZoomOutEnabled(Z)V
 
-    goto :goto_4
+    goto :goto_0
 .end method

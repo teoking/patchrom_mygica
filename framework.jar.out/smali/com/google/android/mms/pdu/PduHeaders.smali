@@ -405,7 +405,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 330
@@ -430,13 +430,13 @@
 
 # virtual methods
 .method protected appendEncodedStringValue(Lcom/google/android/mms/pdu/EncodedStringValue;I)V
-    .registers 6
+    .locals 3
     .parameter "value"
     .parameter "field"
 
     .prologue
     .line 653
-    if-nez p1, :cond_8
+    if-nez p1, :cond_0
 
     .line 654
     new-instance v1, Ljava/lang/NullPointerException;
@@ -446,8 +446,8 @@
     throw v1
 
     .line 657
-    :cond_8
-    sparse-switch p2, :sswitch_data_34
+    :cond_0
+    sparse-switch p2, :sswitch_data_0
 
     .line 663
     new-instance v1, Ljava/lang/RuntimeException;
@@ -459,7 +459,7 @@
     throw v1
 
     .line 666
-    :sswitch_13
+    :sswitch_0
     iget-object v1, p0, Lcom/google/android/mms/pdu/PduHeaders;->mHeaderMap:Ljava/util/HashMap;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -474,7 +474,7 @@
 
     .line 668
     .local v0, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/google/android/mms/pdu/EncodedStringValue;>;"
-    if-nez v0, :cond_26
+    if-nez v0, :cond_1
 
     .line 669
     new-instance v0, Ljava/util/ArrayList;
@@ -484,7 +484,7 @@
 
     .line 671
     .restart local v0       #list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/google/android/mms/pdu/EncodedStringValue;>;"
-    :cond_26
+    :cond_1
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 672
@@ -502,16 +502,16 @@
     .line 657
     nop
 
-    :sswitch_data_34
+    :sswitch_data_0
     .sparse-switch
-        0x81 -> :sswitch_13
-        0x82 -> :sswitch_13
-        0x97 -> :sswitch_13
+        0x81 -> :sswitch_0
+        0x82 -> :sswitch_0
+        0x97 -> :sswitch_0
     .end sparse-switch
 .end method
 
 .method protected getEncodedStringValue(I)Lcom/google/android/mms/pdu/EncodedStringValue;
-    .registers 4
+    .locals 2
     .parameter "field"
 
     .prologue
@@ -532,7 +532,7 @@
 .end method
 
 .method protected getEncodedStringValues(I)[Lcom/google/android/mms/pdu/EncodedStringValue;
-    .registers 6
+    .locals 4
     .parameter "field"
 
     .prologue
@@ -551,17 +551,17 @@
 
     .line 565
     .local v0, list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/google/android/mms/pdu/EncodedStringValue;>;"
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 566
     const/4 v2, 0x0
 
     .line 569
-    :goto_f
+    :goto_0
     return-object v2
 
     .line 568
-    :cond_10
+    :cond_0
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v2
@@ -576,11 +576,11 @@
 
     check-cast v2, [Lcom/google/android/mms/pdu/EncodedStringValue;
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method protected getLongInteger(I)J
-    .registers 5
+    .locals 3
     .parameter "field"
 
     .prologue
@@ -599,25 +599,25 @@
 
     .line 685
     .local v0, longInteger:Ljava/lang/Long;
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 686
     const-wide/16 v1, -0x1
 
     .line 689
-    :goto_10
+    :goto_0
     return-wide v1
 
-    :cond_11
+    :cond_0
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v1
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method protected getOctet(I)I
-    .registers 5
+    .locals 3
     .parameter "field"
 
     .prologue
@@ -636,25 +636,25 @@
 
     .line 344
     .local v0, octet:Ljava/lang/Integer;
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 345
     const/4 v1, 0x0
 
     .line 348
-    :goto_f
+    :goto_0
     return v1
 
-    :cond_10
+    :cond_0
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method protected getTextString(I)[B
-    .registers 4
+    .locals 2
     .parameter "field"
 
     .prologue
@@ -677,13 +677,13 @@
 .end method
 
 .method protected setEncodedStringValue(Lcom/google/android/mms/pdu/EncodedStringValue;I)V
-    .registers 5
+    .locals 2
     .parameter "value"
     .parameter "field"
 
     .prologue
     .line 586
-    if-nez p1, :cond_8
+    if-nez p1, :cond_0
 
     .line 587
     new-instance v0, Ljava/lang/NullPointerException;
@@ -693,8 +693,8 @@
     throw v0
 
     .line 590
-    :cond_8
-    sparse-switch p2, :sswitch_data_1e
+    :cond_0
+    sparse-switch p2, :sswitch_data_0
 
     .line 603
     new-instance v0, Ljava/lang/RuntimeException;
@@ -706,7 +706,7 @@
     throw v0
 
     .line 606
-    :sswitch_13
+    :sswitch_0
     iget-object v0, p0, Lcom/google/android/mms/pdu/PduHeaders;->mHeaderMap:Ljava/util/HashMap;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -721,28 +721,28 @@
     .line 590
     nop
 
-    :sswitch_data_1e
+    :sswitch_data_0
     .sparse-switch
-        0x89 -> :sswitch_13
-        0x93 -> :sswitch_13
-        0x96 -> :sswitch_13
-        0x9a -> :sswitch_13
-        0xa0 -> :sswitch_13
-        0xa4 -> :sswitch_13
-        0xa6 -> :sswitch_13
-        0xb5 -> :sswitch_13
-        0xb6 -> :sswitch_13
+        0x89 -> :sswitch_0
+        0x93 -> :sswitch_0
+        0x96 -> :sswitch_0
+        0x9a -> :sswitch_0
+        0xa0 -> :sswitch_0
+        0xa4 -> :sswitch_0
+        0xa6 -> :sswitch_0
+        0xb5 -> :sswitch_0
+        0xb6 -> :sswitch_0
     .end sparse-switch
 .end method
 
 .method protected setEncodedStringValues([Lcom/google/android/mms/pdu/EncodedStringValue;I)V
-    .registers 7
+    .locals 4
     .parameter "value"
     .parameter "field"
 
     .prologue
     .line 623
-    if-nez p1, :cond_8
+    if-nez p1, :cond_0
 
     .line 624
     new-instance v2, Ljava/lang/NullPointerException;
@@ -752,8 +752,8 @@
     throw v2
 
     .line 627
-    :cond_8
-    sparse-switch p2, :sswitch_data_2e
+    :cond_0
+    sparse-switch p2, :sswitch_data_0
 
     .line 634
     new-instance v2, Ljava/lang/RuntimeException;
@@ -765,7 +765,7 @@
     throw v2
 
     .line 637
-    :sswitch_13
+    :sswitch_0
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
@@ -775,10 +775,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_19
+    :goto_0
     array-length v2, p1
 
-    if-ge v0, v2, :cond_24
+    if-ge v0, v2, :cond_1
 
     .line 639
     aget-object v2, p1, v0
@@ -788,10 +788,10 @@
     .line 638
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_19
+    goto :goto_0
 
     .line 641
-    :cond_24
+    :cond_1
     iget-object v2, p0, Lcom/google/android/mms/pdu/PduHeaders;->mHeaderMap:Ljava/util/HashMap;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -804,22 +804,22 @@
     return-void
 
     .line 627
-    :sswitch_data_2e
+    :sswitch_data_0
     .sparse-switch
-        0x81 -> :sswitch_13
-        0x82 -> :sswitch_13
-        0x97 -> :sswitch_13
+        0x81 -> :sswitch_0
+        0x82 -> :sswitch_0
+        0x97 -> :sswitch_0
     .end sparse-switch
 .end method
 
 .method protected setLongInteger(JI)V
-    .registers 7
+    .locals 3
     .parameter "value"
     .parameter "field"
 
     .prologue
     .line 703
-    sparse-switch p3, :sswitch_data_1a
+    sparse-switch p3, :sswitch_data_0
 
     .line 717
     new-instance v0, Ljava/lang/RuntimeException;
@@ -831,7 +831,7 @@
     throw v0
 
     .line 719
-    :sswitch_b
+    :sswitch_0
     iget-object v0, p0, Lcom/google/android/mms/pdu/PduHeaders;->mHeaderMap:Ljava/util/HashMap;
 
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -850,23 +850,23 @@
     .line 703
     nop
 
-    :sswitch_data_1a
+    :sswitch_data_0
     .sparse-switch
-        0x85 -> :sswitch_b
-        0x87 -> :sswitch_b
-        0x88 -> :sswitch_b
-        0x8e -> :sswitch_b
-        0x9d -> :sswitch_b
-        0x9f -> :sswitch_b
-        0xa1 -> :sswitch_b
-        0xad -> :sswitch_b
-        0xaf -> :sswitch_b
-        0xb3 -> :sswitch_b
+        0x85 -> :sswitch_0
+        0x87 -> :sswitch_0
+        0x88 -> :sswitch_0
+        0x8e -> :sswitch_0
+        0x9d -> :sswitch_0
+        0x9f -> :sswitch_0
+        0xa1 -> :sswitch_0
+        0xad -> :sswitch_0
+        0xaf -> :sswitch_0
+        0xb3 -> :sswitch_0
     .end sparse-switch
 .end method
 
 .method protected setOctet(II)V
-    .registers 8
+    .locals 5
     .parameter "value"
     .parameter "field"
     .annotation system Ldalvik/annotation/Throws;
@@ -887,10 +887,10 @@
     const/16 v1, 0x80
 
     .line 364
-    packed-switch p2, :pswitch_data_106
+    packed-switch p2, :pswitch_data_0
 
     .line 490
-    :pswitch_d
+    :pswitch_0
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Invalid header field!"
@@ -900,10 +900,10 @@
     throw v0
 
     .line 376
-    :pswitch_15
-    if-eq v1, p1, :cond_91
+    :pswitch_1
+    if-eq v1, p1, :cond_5
 
-    if-eq v0, p1, :cond_91
+    if-eq v0, p1, :cond_5
 
     .line 378
     new-instance v0, Lcom/google/android/mms/InvalidHeaderValueException;
@@ -915,10 +915,10 @@
     throw v0
 
     .line 382
-    :pswitch_21
-    if-eq v1, p1, :cond_91
+    :pswitch_2
+    if-eq v1, p1, :cond_5
 
-    if-eq v0, p1, :cond_91
+    if-eq v0, p1, :cond_5
 
     .line 385
     new-instance v0, Lcom/google/android/mms/InvalidHeaderValueException;
@@ -930,10 +930,10 @@
     throw v0
 
     .line 389
-    :pswitch_2d
-    if-eq v1, p1, :cond_91
+    :pswitch_3
+    if-eq v1, p1, :cond_5
 
-    if-eq v0, p1, :cond_91
+    if-eq v0, p1, :cond_5
 
     .line 392
     new-instance v0, Lcom/google/android/mms/InvalidHeaderValueException;
@@ -945,15 +945,15 @@
     throw v0
 
     .line 396
-    :pswitch_39
-    if-lt p1, v1, :cond_3f
+    :pswitch_4
+    if-lt p1, v1, :cond_0
 
     const/16 v0, 0x82
 
-    if-le p1, v0, :cond_91
+    if-le p1, v0, :cond_5
 
     .line 398
-    :cond_3f
+    :cond_0
     new-instance v0, Lcom/google/android/mms/InvalidHeaderValueException;
 
     const-string v1, "Invalid Octet value!"
@@ -963,15 +963,15 @@
     throw v0
 
     .line 402
-    :pswitch_47
-    if-lt p1, v1, :cond_4d
+    :pswitch_5
+    if-lt p1, v1, :cond_1
 
     const/16 v0, 0x87
 
-    if-le p1, v0, :cond_91
+    if-le p1, v0, :cond_5
 
     .line 404
-    :cond_4d
+    :cond_1
     new-instance v0, Lcom/google/android/mms/InvalidHeaderValueException;
 
     const-string v1, "Invalid Octet value!"
@@ -981,15 +981,15 @@
     throw v0
 
     .line 408
-    :pswitch_55
-    if-lt p1, v1, :cond_5b
+    :pswitch_6
+    if-lt p1, v1, :cond_2
 
     const/16 v0, 0x83
 
-    if-le p1, v0, :cond_91
+    if-le p1, v0, :cond_5
 
     .line 411
-    :cond_5b
+    :cond_2
     new-instance v0, Lcom/google/android/mms/InvalidHeaderValueException;
 
     const-string v1, "Invalid Octet value!"
@@ -999,15 +999,15 @@
     throw v0
 
     .line 415
-    :pswitch_63
-    if-lt p1, v1, :cond_69
+    :pswitch_7
+    if-lt p1, v1, :cond_3
 
     const/16 v0, 0x84
 
-    if-le p1, v0, :cond_91
+    if-le p1, v0, :cond_5
 
     .line 417
-    :cond_69
+    :cond_3
     new-instance v0, Lcom/google/android/mms/InvalidHeaderValueException;
 
     const-string v1, "Invalid Octet value!"
@@ -1017,8 +1017,8 @@
     throw v0
 
     .line 421
-    :pswitch_71
-    if-eq v1, p1, :cond_91
+    :pswitch_8
+    if-eq v1, p1, :cond_5
 
     .line 423
     new-instance v0, Lcom/google/android/mms/InvalidHeaderValueException;
@@ -1030,15 +1030,15 @@
     throw v0
 
     .line 427
-    :pswitch_7b
-    if-lt p1, v1, :cond_81
+    :pswitch_9
+    if-lt p1, v1, :cond_4
 
     const/16 v0, 0x87
 
-    if-le p1, v0, :cond_91
+    if-le p1, v0, :cond_5
 
     .line 430
-    :cond_81
+    :cond_4
     new-instance v0, Lcom/google/android/mms/InvalidHeaderValueException;
 
     const-string v1, "Invalid Octet value!"
@@ -1048,19 +1048,19 @@
     throw v0
 
     .line 435
-    :pswitch_89
+    :pswitch_a
     const/16 v0, 0xc2
 
-    if-le p1, v0, :cond_9f
+    if-le p1, v0, :cond_6
 
-    if-ge p1, v4, :cond_9f
+    if-ge p1, v4, :cond_6
 
     .line 437
     const/16 p1, 0xc0
 
     .line 492
-    :cond_91
-    :goto_91
+    :cond_5
+    :goto_0
     iget-object v0, p0, Lcom/google/android/mms/pdu/PduHeaders;->mHeaderMap:Ljava/util/HashMap;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1077,143 +1077,143 @@
     return-void
 
     .line 438
-    :cond_9f
+    :cond_6
     const/16 v0, 0xe3
 
-    if-le p1, v0, :cond_a8
+    if-le p1, v0, :cond_7
 
-    if-gt p1, v2, :cond_a8
+    if-gt p1, v2, :cond_7
 
     .line 440
     const/16 p1, 0xe0
 
-    goto :goto_91
+    goto :goto_0
 
     .line 441
-    :cond_a8
-    if-lt p1, v1, :cond_b0
+    :cond_7
+    if-lt p1, v1, :cond_9
 
-    if-le p1, v1, :cond_ae
+    if-le p1, v1, :cond_8
 
-    if-lt p1, v3, :cond_b0
+    if-lt p1, v3, :cond_9
 
-    :cond_ae
-    if-le p1, v2, :cond_91
+    :cond_8
+    if-le p1, v2, :cond_5
 
     .line 445
-    :cond_b0
+    :cond_9
     const/16 p1, 0xe0
 
-    goto :goto_91
+    goto :goto_0
 
     .line 450
-    :pswitch_b3
+    :pswitch_b
     const/16 v0, 0xc1
 
-    if-le p1, v0, :cond_bc
+    if-le p1, v0, :cond_a
 
-    if-ge p1, v4, :cond_bc
+    if-ge p1, v4, :cond_a
 
     .line 452
     const/16 p1, 0xc0
 
-    goto :goto_91
+    goto :goto_0
 
     .line 453
-    :cond_bc
+    :cond_a
     const/16 v0, 0xe4
 
-    if-le p1, v0, :cond_c5
+    if-le p1, v0, :cond_b
 
-    if-gt p1, v2, :cond_c5
+    if-gt p1, v2, :cond_b
 
     .line 455
     const/16 p1, 0xe0
 
-    goto :goto_91
+    goto :goto_0
 
     .line 456
-    :cond_c5
-    if-lt p1, v1, :cond_cd
+    :cond_b
+    if-lt p1, v1, :cond_d
 
-    if-le p1, v1, :cond_cb
+    if-le p1, v1, :cond_c
 
-    if-lt p1, v3, :cond_cd
+    if-lt p1, v3, :cond_d
 
-    :cond_cb
-    if-le p1, v2, :cond_91
+    :cond_c
+    if-le p1, v2, :cond_5
 
     .line 460
-    :cond_cd
+    :cond_d
     const/16 p1, 0xe0
 
-    goto :goto_91
+    goto :goto_0
 
     .line 465
-    :pswitch_d0
+    :pswitch_c
     const/16 v0, 0xc4
 
-    if-le p1, v0, :cond_d9
+    if-le p1, v0, :cond_e
 
-    if-ge p1, v4, :cond_d9
+    if-ge p1, v4, :cond_e
 
     .line 467
     const/16 p1, 0xc0
 
-    goto :goto_91
+    goto :goto_0
 
     .line 468
-    :cond_d9
+    :cond_e
     const/16 v0, 0xeb
 
-    if-le p1, v0, :cond_df
+    if-le p1, v0, :cond_f
 
-    if-le p1, v2, :cond_e9
+    if-le p1, v2, :cond_11
 
-    :cond_df
-    if-lt p1, v1, :cond_e9
+    :cond_f
+    if-lt p1, v1, :cond_11
 
     const/16 v0, 0x88
 
-    if-le p1, v0, :cond_e7
+    if-le p1, v0, :cond_10
 
-    if-lt p1, v3, :cond_e9
+    if-lt p1, v3, :cond_11
 
-    :cond_e7
-    if-le p1, v2, :cond_91
+    :cond_10
+    if-le p1, v2, :cond_5
 
     .line 474
-    :cond_e9
+    :cond_11
     const/16 p1, 0xe0
 
-    goto :goto_91
+    goto :goto_0
 
     .line 478
-    :pswitch_ec
+    :pswitch_d
     const/16 v0, 0x10
 
-    if-lt p1, v0, :cond_f4
+    if-lt p1, v0, :cond_12
 
     const/16 v0, 0x13
 
-    if-le p1, v0, :cond_91
+    if-le p1, v0, :cond_5
 
     .line 479
-    :cond_f4
+    :cond_12
     const/16 p1, 0x12
 
-    goto :goto_91
+    goto :goto_0
 
     .line 483
-    :pswitch_f7
-    if-lt p1, v1, :cond_fd
+    :pswitch_e
+    if-lt p1, v1, :cond_13
 
     const/16 v0, 0x97
 
-    if-le p1, v0, :cond_91
+    if-le p1, v0, :cond_5
 
     .line 485
-    :cond_fd
+    :cond_13
     new-instance v0, Lcom/google/android/mms/InvalidHeaderValueException;
 
     const-string v1, "Invalid Octet value!"
@@ -1225,77 +1225,77 @@
     .line 364
     nop
 
-    :pswitch_data_106
+    :pswitch_data_0
     .packed-switch 0x86
-        :pswitch_15
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_e
         :pswitch_d
-        :pswitch_d
-        :pswitch_d
-        :pswitch_d
-        :pswitch_d
-        :pswitch_f7
-        :pswitch_ec
-        :pswitch_d
-        :pswitch_39
-        :pswitch_15
-        :pswitch_15
-        :pswitch_d0
-        :pswitch_d
-        :pswitch_15
-        :pswitch_47
-        :pswitch_d
-        :pswitch_d
-        :pswitch_d
-        :pswitch_89
-        :pswitch_d
-        :pswitch_21
-        :pswitch_55
-        :pswitch_d
-        :pswitch_d
-        :pswitch_d
-        :pswitch_d
-        :pswitch_d
-        :pswitch_15
-        :pswitch_63
-        :pswitch_d
-        :pswitch_b3
-        :pswitch_d
-        :pswitch_15
-        :pswitch_d
-        :pswitch_15
-        :pswitch_d
-        :pswitch_15
-        :pswitch_d
-        :pswitch_d
-        :pswitch_d
-        :pswitch_d
-        :pswitch_d
-        :pswitch_15
-        :pswitch_d
-        :pswitch_d
-        :pswitch_71
-        :pswitch_d
-        :pswitch_d
-        :pswitch_d
-        :pswitch_d
-        :pswitch_d
-        :pswitch_7b
-        :pswitch_15
-        :pswitch_15
-        :pswitch_d
-        :pswitch_d
-        :pswitch_2d
+        :pswitch_0
+        :pswitch_4
+        :pswitch_1
+        :pswitch_1
+        :pswitch_c
+        :pswitch_0
+        :pswitch_1
+        :pswitch_5
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_a
+        :pswitch_0
+        :pswitch_2
+        :pswitch_6
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_7
+        :pswitch_0
+        :pswitch_b
+        :pswitch_0
+        :pswitch_1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_8
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_9
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method protected setTextString([BI)V
-    .registers 5
+    .locals 2
     .parameter "value"
     .parameter "field"
 
     .prologue
     .line 520
-    if-nez p1, :cond_8
+    if-nez p1, :cond_0
 
     .line 521
     new-instance v0, Ljava/lang/NullPointerException;
@@ -1305,8 +1305,8 @@
     throw v0
 
     .line 524
-    :cond_8
-    sparse-switch p2, :sswitch_data_1e
+    :cond_0
+    sparse-switch p2, :sswitch_data_0
 
     .line 539
     new-instance v0, Ljava/lang/RuntimeException;
@@ -1318,7 +1318,7 @@
     throw v0
 
     .line 541
-    :sswitch_13
+    :sswitch_0
     iget-object v0, p0, Lcom/google/android/mms/pdu/PduHeaders;->mHeaderMap:Ljava/util/HashMap;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1333,18 +1333,18 @@
     .line 524
     nop
 
-    :sswitch_data_1e
+    :sswitch_data_0
     .sparse-switch
-        0x83 -> :sswitch_13
-        0x84 -> :sswitch_13
-        0x8a -> :sswitch_13
-        0x8b -> :sswitch_13
-        0x98 -> :sswitch_13
-        0x9e -> :sswitch_13
-        0xb7 -> :sswitch_13
-        0xb8 -> :sswitch_13
-        0xb9 -> :sswitch_13
-        0xbd -> :sswitch_13
-        0xbe -> :sswitch_13
+        0x83 -> :sswitch_0
+        0x84 -> :sswitch_0
+        0x8a -> :sswitch_0
+        0x8b -> :sswitch_0
+        0x98 -> :sswitch_0
+        0x9e -> :sswitch_0
+        0xb7 -> :sswitch_0
+        0xb8 -> :sswitch_0
+        0xb9 -> :sswitch_0
+        0xbd -> :sswitch_0
+        0xbe -> :sswitch_0
     .end sparse-switch
 .end method

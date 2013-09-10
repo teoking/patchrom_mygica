@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/TextServicesManagerService;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter "id"
     .parameter "locale"
@@ -55,7 +55,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/android/server/TextServicesManagerService$InternalServiceConnection;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 8
+    .locals 5
     .parameter "name"
     .parameter "service"
 
@@ -76,6 +76,7 @@
     .line 731
     iget-object v2, p0, Lcom/android/server/TextServicesManagerService$InternalServiceConnection;->this$0:Lcom/android/server/TextServicesManagerService;
 
+    #getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
     invoke-static {v2}, Lcom/android/server/TextServicesManagerService;->access$100(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
 
     move-result-object v3
@@ -83,7 +84,7 @@
     monitor-enter v3
 
     .line 735
-    :try_start_7
+    :try_start_0
     invoke-static {p2}, Lcom/android/internal/textservice/ISpellCheckerService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/textservice/ISpellCheckerService;
 
     move-result-object v1
@@ -92,6 +93,7 @@
     .local v1, spellChecker:Lcom/android/internal/textservice/ISpellCheckerService;
     iget-object v2, p0, Lcom/android/server/TextServicesManagerService$InternalServiceConnection;->this$0:Lcom/android/server/TextServicesManagerService;
 
+    #getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerBindGroups:Ljava/util/HashMap;
     invoke-static {v2}, Lcom/android/server/TextServicesManagerService;->access$1100(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
 
     move-result-object v2
@@ -106,19 +108,20 @@
 
     .line 737
     .local v0, group:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_0
 
+    #getter for: Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->mInternalConnection:Lcom/android/server/TextServicesManagerService$InternalServiceConnection;
     invoke-static {v0}, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->access$700(Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;)Lcom/android/server/TextServicesManagerService$InternalServiceConnection;
 
     move-result-object v2
 
-    if-ne p0, v2, :cond_24
+    if-ne p0, v2, :cond_0
 
     .line 738
     invoke-virtual {v0, v1}, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->onServiceConnected(Lcom/android/internal/textservice/ISpellCheckerService;)V
 
     .line 740
-    :cond_24
+    :cond_0
     monitor-exit v3
 
     .line 741
@@ -127,24 +130,25 @@
     .line 740
     .end local v0           #group:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
     .end local v1           #spellChecker:Lcom/android/internal/textservice/ISpellCheckerService;
-    :catchall_26
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_28
-    .catchall {:try_start_7 .. :try_end_28} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .registers 6
+    .locals 4
     .parameter "name"
 
     .prologue
     .line 745
     iget-object v1, p0, Lcom/android/server/TextServicesManagerService$InternalServiceConnection;->this$0:Lcom/android/server/TextServicesManagerService;
 
+    #getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/android/server/TextServicesManagerService;->access$100(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
 
     move-result-object v2
@@ -152,9 +156,10 @@
     monitor-enter v2
 
     .line 746
-    :try_start_7
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/TextServicesManagerService$InternalServiceConnection;->this$0:Lcom/android/server/TextServicesManagerService;
 
+    #getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerBindGroups:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/android/server/TextServicesManagerService;->access$1100(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -169,17 +174,19 @@
 
     .line 747
     .local v0, group:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_0
 
+    #getter for: Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->mInternalConnection:Lcom/android/server/TextServicesManagerService$InternalServiceConnection;
     invoke-static {v0}, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->access$700(Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;)Lcom/android/server/TextServicesManagerService$InternalServiceConnection;
 
     move-result-object v1
 
-    if-ne p0, v1, :cond_28
+    if-ne p0, v1, :cond_0
 
     .line 748
     iget-object v1, p0, Lcom/android/server/TextServicesManagerService$InternalServiceConnection;->this$0:Lcom/android/server/TextServicesManagerService;
 
+    #getter for: Lcom/android/server/TextServicesManagerService;->mSpellCheckerBindGroups:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/android/server/TextServicesManagerService;->access$1100(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -189,7 +196,7 @@
     invoke-virtual {v1, v3}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 750
-    :cond_28
+    :cond_0
     monitor-exit v2
 
     .line 751
@@ -197,12 +204,12 @@
 
     .line 750
     .end local v0           #group:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
-    :catchall_2a
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_2c
-    .catchall {:try_start_7 .. :try_end_2c} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method

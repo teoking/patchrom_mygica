@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 48
@@ -21,7 +21,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -31,7 +31,7 @@
 .end method
 
 .method public static obtain(I)[C
-    .registers 4
+    .locals 3
     .parameter "len"
 
     .prologue
@@ -41,7 +41,7 @@
     monitor-enter v2
 
     .line 29
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/graphics/TemporaryBuffer;->sTemp:[C
 
     .line 30
@@ -52,18 +52,18 @@
 
     .line 31
     monitor-exit v2
-    :try_end_9
-    .catchall {:try_start_3 .. :try_end_9} :catchall_15
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 33
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     array-length v1, v0
 
-    if-ge v1, p0, :cond_14
+    if-ge v1, p0, :cond_1
 
     .line 34
-    :cond_e
+    :cond_0
     invoke-static {p0}, Lcom/android/internal/util/ArrayUtils;->idealCharArraySize(I)I
 
     move-result v1
@@ -71,24 +71,24 @@
     new-array v0, v1, [C
 
     .line 37
-    :cond_14
+    :cond_1
     return-object v0
 
     .line 31
     .end local v0           #buf:[C
-    :catchall_15
+    :catchall_0
     move-exception v1
 
-    :try_start_16
+    :try_start_1
     monitor-exit v2
-    :try_end_17
-    .catchall {:try_start_16 .. :try_end_17} :catchall_15
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
 
 .method public static recycle([C)V
-    .registers 3
+    .locals 2
     .parameter "temp"
 
     .prologue
@@ -97,33 +97,33 @@
 
     const/16 v1, 0x3e8
 
-    if-le v0, v1, :cond_6
+    if-le v0, v1, :cond_0
 
     .line 46
-    :goto_5
+    :goto_0
     return-void
 
     .line 43
-    :cond_6
+    :cond_0
     const-class v1, Landroid/graphics/TemporaryBuffer;
 
     monitor-enter v1
 
     .line 44
-    :try_start_9
+    :try_start_0
     sput-object p0, Landroid/graphics/TemporaryBuffer;->sTemp:[C
 
     .line 45
     monitor-exit v1
 
-    goto :goto_5
+    goto :goto_0
 
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_9 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

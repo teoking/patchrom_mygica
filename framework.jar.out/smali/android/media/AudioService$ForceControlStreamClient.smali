@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/AudioService;Landroid/os/IBinder;)V
-    .registers 7
+    .locals 4
     .parameter
     .parameter "cb"
 
@@ -36,26 +36,26 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 865
-    if-eqz p2, :cond_b
+    if-eqz p2, :cond_0
 
     .line 867
     const/4 v1, 0x0
 
-    :try_start_8
+    :try_start_0
     invoke-interface {p2, p0, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
-    :try_end_b
-    .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_b} :catch_e
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 874
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     iput-object p2, p0, Landroid/media/AudioService$ForceControlStreamClient;->mCb:Landroid/os/IBinder;
 
     .line 875
     return-void
 
     .line 868
-    :catch_e
+    :catch_0
     move-exception v0
 
     .line 870
@@ -91,18 +91,19 @@
     .line 871
     const/4 p2, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public binderDied()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 878
     iget-object v0, p0, Landroid/media/AudioService$ForceControlStreamClient;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mForceControlStreamLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/media/AudioService;->access$800(Landroid/media/AudioService;)Ljava/lang/Object;
 
     move-result-object v1
@@ -110,7 +111,7 @@
     monitor-enter v1
 
     .line 879
-    :try_start_7
+    :try_start_0
     const-string v0, "AudioService"
 
     const-string v2, "SCO client died"
@@ -120,11 +121,12 @@
     .line 880
     iget-object v0, p0, Landroid/media/AudioService$ForceControlStreamClient;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mForceControlStreamClient:Landroid/media/AudioService$ForceControlStreamClient;
     invoke-static {v0}, Landroid/media/AudioService;->access$900(Landroid/media/AudioService;)Landroid/media/AudioService$ForceControlStreamClient;
 
     move-result-object v0
 
-    if-eq v0, p0, :cond_20
+    if-eq v0, p0, :cond_0
 
     .line 881
     const-string v0, "AudioService"
@@ -134,18 +136,19 @@
     invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 886
-    :goto_1e
+    :goto_0
     monitor-exit v1
 
     .line 887
     return-void
 
     .line 883
-    :cond_20
+    :cond_0
     iget-object v0, p0, Landroid/media/AudioService$ForceControlStreamClient;->this$0:Landroid/media/AudioService;
 
     const/4 v2, 0x0
 
+    #setter for: Landroid/media/AudioService;->mForceControlStreamClient:Landroid/media/AudioService$ForceControlStreamClient;
     invoke-static {v0, v2}, Landroid/media/AudioService;->access$902(Landroid/media/AudioService;Landroid/media/AudioService$ForceControlStreamClient;)Landroid/media/AudioService$ForceControlStreamClient;
 
     .line 884
@@ -153,29 +156,30 @@
 
     const/4 v2, -0x1
 
+    #setter for: Landroid/media/AudioService;->mVolumeControlStream:I
     invoke-static {v0, v2}, Landroid/media/AudioService;->access$1002(Landroid/media/AudioService;I)I
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 886
-    :catchall_2d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_2f
-    .catchall {:try_start_7 .. :try_end_2f} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public release()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 890
     iget-object v0, p0, Landroid/media/AudioService$ForceControlStreamClient;->mCb:Landroid/os/IBinder;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 891
     iget-object v0, p0, Landroid/media/AudioService$ForceControlStreamClient;->mCb:Landroid/os/IBinder;
@@ -190,6 +194,6 @@
     iput-object v0, p0, Landroid/media/AudioService$ForceControlStreamClient;->mCb:Landroid/os/IBinder;
 
     .line 894
-    :cond_d
+    :cond_0
     return-void
 .end method

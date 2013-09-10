@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/sip/SipService;Landroid/net/sip/SipProfile;Landroid/app/PendingIntent;Landroid/net/sip/ISipSessionListener;)V
-    .registers 10
+    .locals 5
     .parameter
     .parameter "localProfile"
     .parameter "incomingCallPendingIntent"
@@ -67,10 +67,12 @@
 
     move-result-object v2
 
+    #getter for: Lcom/android/server/sip/SipService;->mTimer:Lcom/android/server/sip/SipWakeupTimer;
     invoke-static {p1}, Lcom/android/server/sip/SipService;->access$200(Lcom/android/server/sip/SipService;)Lcom/android/server/sip/SipWakeupTimer;
 
     move-result-object v3
 
+    #getter for: Lcom/android/server/sip/SipService;->mMyWakeLock:Lcom/android/server/sip/SipWakeLock;
     invoke-static {p1}, Lcom/android/server/sip/SipService;->access$300(Lcom/android/server/sip/SipService;)Lcom/android/server/sip/SipWakeLock;
 
     move-result-object v4
@@ -92,7 +94,7 @@
 .end method
 
 .method private duplicate(Landroid/net/sip/SipProfile;)Landroid/net/sip/SipProfile;
-    .registers 5
+    .locals 3
     .parameter "p"
 
     .prologue
@@ -109,15 +111,15 @@
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/net/sip/SipProfile$Builder;->build()Landroid/net/sip/SipProfile;
-    :try_end_e
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_e} :catch_10
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     return-object v1
 
     .line 483
-    :catch_10
+    :catch_0
     move-exception v0
 
     .line 484
@@ -139,7 +141,7 @@
 .end method
 
 .method private getUri()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 579
@@ -155,7 +157,7 @@
 
 # virtual methods
 .method public close()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 523
@@ -178,7 +180,7 @@
 .end method
 
 .method public containsSession(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "callId"
 
     .prologue
@@ -193,7 +195,7 @@
 .end method
 
 .method public createSession(Landroid/net/sip/ISipSessionListener;)Landroid/net/sip/ISipSession;
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
@@ -208,7 +210,7 @@
 .end method
 
 .method public getLocalProfile()Landroid/net/sip/SipProfile;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 463
@@ -222,7 +224,7 @@
 .end method
 
 .method public isOpenedToReceiveCalls()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 571
@@ -232,7 +234,7 @@
 .end method
 
 .method public isRegistered()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 575
@@ -246,7 +248,7 @@
 .end method
 
 .method public onConnectivityChanged(Z)V
-    .registers 3
+    .locals 1
     .parameter "connected"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -261,7 +263,7 @@
     invoke-virtual {v0}, Lcom/android/server/sip/SipSessionGroup;->onConnectivityChanged()V
 
     .line 510
-    if-eqz p1, :cond_14
+    if-eqz p1, :cond_1
 
     .line 511
     iget-object v0, p0, Lcom/android/server/sip/SipService$SipSessionGroupExt;->mSipGroup:Lcom/android/server/sip/SipSessionGroup;
@@ -271,17 +273,17 @@
     .line 512
     iget-boolean v0, p0, Lcom/android/server/sip/SipService$SipSessionGroupExt;->mOpenedToReceiveCalls:Z
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Lcom/android/server/sip/SipService$SipSessionGroupExt;->openToReceiveCalls()V
 
     .line 520
-    :cond_13
-    :goto_13
+    :cond_0
+    :goto_0
     return-void
 
     .line 517
-    :cond_14
+    :cond_1
     iget-object v0, p0, Lcom/android/server/sip/SipService$SipSessionGroupExt;->mSipGroup:Lcom/android/server/sip/SipSessionGroup;
 
     invoke-virtual {v0}, Lcom/android/server/sip/SipSessionGroup;->close()V
@@ -291,11 +293,11 @@
 
     invoke-virtual {v0}, Lcom/android/server/sip/SipService$AutoRegistrationProcess;->stop()V
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public onError(Landroid/net/sip/ISipSession;ILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "session"
     .parameter "errorCode"
     .parameter "message"
@@ -306,7 +308,7 @@
 .end method
 
 .method public onKeepAliveIntervalChanged()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 471
@@ -319,7 +321,7 @@
 .end method
 
 .method public onRinging(Landroid/net/sip/ISipSession;Landroid/net/sip/SipProfile;Ljava/lang/String;)V
-    .registers 11
+    .locals 7
     .parameter "s"
     .parameter "caller"
     .parameter "sessionDescription"
@@ -337,43 +339,45 @@
     monitor-enter v4
 
     .line 542
-    :try_start_6
+    :try_start_0
     invoke-virtual {p0}, Lcom/android/server/sip/SipService$SipSessionGroupExt;->isRegistered()Z
 
     move-result v3
 
-    if-eqz v3, :cond_14
+    if-eqz v3, :cond_0
 
     iget-object v3, p0, Lcom/android/server/sip/SipService$SipSessionGroupExt;->this$0:Lcom/android/server/sip/SipService;
 
+    #calls: Lcom/android/server/sip/SipService;->callingSelf(Lcom/android/server/sip/SipService$SipSessionGroupExt;Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;)Z
     invoke-static {v3, p0, v2}, Lcom/android/server/sip/SipService;->access$500(Lcom/android/server/sip/SipService;Lcom/android/server/sip/SipService$SipSessionGroupExt;Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_19
+    if-eqz v3, :cond_1
 
     .line 543
-    :cond_14
+    :cond_0
     invoke-virtual {v2}, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;->endCall()V
-    :try_end_17
-    .catchall {:try_start_6 .. :try_end_17} :catchall_35
-    .catch Landroid/app/PendingIntent$CanceledException; {:try_start_6 .. :try_end_17} :catch_38
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Landroid/app/PendingIntent$CanceledException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 544
-    :try_start_17
+    :try_start_1
     monitor-exit v4
-    :try_end_18
-    .catchall {:try_start_17 .. :try_end_18} :catchall_35
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 561
-    :goto_18
+    :goto_0
     return-void
 
     .line 548
-    :cond_19
-    :try_start_19
+    :cond_1
+    :try_start_2
     iget-object v3, p0, Lcom/android/server/sip/SipService$SipSessionGroupExt;->this$0:Lcom/android/server/sip/SipService;
 
+    #calls: Lcom/android/server/sip/SipService;->addPendingSession(Landroid/net/sip/ISipSession;)V
     invoke-static {v3, v2}, Lcom/android/server/sip/SipService;->access$600(Lcom/android/server/sip/SipService;Landroid/net/sip/ISipSession;)V
 
     .line 549
@@ -391,6 +395,7 @@
 
     iget-object v5, p0, Lcom/android/server/sip/SipService$SipSessionGroupExt;->this$0:Lcom/android/server/sip/SipService;
 
+    #getter for: Lcom/android/server/sip/SipService;->mContext:Landroid/content/Context;
     invoke-static {v5}, Lcom/android/server/sip/SipService;->access$700(Lcom/android/server/sip/SipService;)Landroid/content/Context;
 
     move-result-object v5
@@ -398,34 +403,34 @@
     const/16 v6, 0x65
 
     invoke-virtual {v3, v5, v6, v1}, Landroid/app/PendingIntent;->send(Landroid/content/Context;ILandroid/content/Intent;)V
-    :try_end_33
-    .catchall {:try_start_19 .. :try_end_33} :catchall_35
-    .catch Landroid/app/PendingIntent$CanceledException; {:try_start_19 .. :try_end_33} :catch_38
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catch Landroid/app/PendingIntent$CanceledException; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 560
     .end local v1           #intent:Landroid/content/Intent;
-    :goto_33
-    :try_start_33
+    :goto_1
+    :try_start_3
     monitor-exit v4
 
-    goto :goto_18
+    goto :goto_0
 
-    :catchall_35
+    :catchall_0
     move-exception v3
 
     monitor-exit v4
-    :try_end_37
-    .catchall {:try_start_33 .. :try_end_37} :catchall_35
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v3
 
     .line 556
-    :catch_38
+    :catch_0
     move-exception v0
 
     .line 557
     .local v0, e:Landroid/app/PendingIntent$CanceledException;
-    :try_start_39
+    :try_start_4
     const-string v3, "SipService"
 
     const-string/jumbo v5, "pendingIntent is canceled, drop incoming call"
@@ -434,14 +439,14 @@
 
     .line 558
     invoke-virtual {v2}, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;->endCall()V
-    :try_end_44
-    .catchall {:try_start_39 .. :try_end_44} :catchall_35
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    goto :goto_33
+    goto :goto_1
 .end method
 
 .method public openToReceiveCalls()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/sip/SipException;
@@ -457,13 +462,14 @@
     .line 499
     iget-object v0, p0, Lcom/android/server/sip/SipService$SipSessionGroupExt;->this$0:Lcom/android/server/sip/SipService;
 
+    #getter for: Lcom/android/server/sip/SipService;->mNetworkType:I
     invoke-static {v0}, Lcom/android/server/sip/SipService;->access$400(Lcom/android/server/sip/SipService;)I
 
     move-result v0
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_18
+    if-eq v0, v1, :cond_0
 
     .line 500
     iget-object v0, p0, Lcom/android/server/sip/SipService$SipSessionGroupExt;->mSipGroup:Lcom/android/server/sip/SipSessionGroup;
@@ -478,12 +484,12 @@
     invoke-virtual {v0, v1}, Lcom/android/server/sip/SipService$AutoRegistrationProcess;->start(Lcom/android/server/sip/SipSessionGroup;)V
 
     .line 505
-    :cond_18
+    :cond_0
     return-void
 .end method
 
 .method public setIncomingCallPendingIntent(Landroid/app/PendingIntent;)V
-    .registers 2
+    .locals 0
     .parameter "pIntent"
 
     .prologue
@@ -495,7 +501,7 @@
 .end method
 
 .method public setListener(Landroid/net/sip/ISipSessionListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
@@ -509,7 +515,7 @@
 .end method
 
 .method setWakeupTimer(Lcom/android/server/sip/SipWakeupTimer;)V
-    .registers 3
+    .locals 1
     .parameter "timer"
 
     .prologue

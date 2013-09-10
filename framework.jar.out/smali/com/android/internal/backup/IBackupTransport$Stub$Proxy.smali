@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 207
@@ -50,7 +50,7 @@
 .end method
 
 .method public clearBackupData(Landroid/content/pm/PackageInfo;)I
-    .registers 8
+    .locals 6
     .parameter "packageInfo"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -72,13 +72,13 @@
 
     .line 421
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.backup.IBackupTransport"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 422
-    if-eqz p1, :cond_2c
+    if-eqz p1, :cond_0
 
     .line 423
     const/4 v3, 0x1
@@ -91,7 +91,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/content/pm/PackageInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 429
-    :goto_17
+    :goto_0
     iget-object v3, p0, Lcom/android/internal/backup/IBackupTransport$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x7
@@ -105,8 +105,8 @@
 
     .line 431
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -122,18 +122,18 @@
 
     .line 427
     .end local v2           #_result:I
-    :cond_2c
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 434
-    :catchall_31
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -145,7 +145,7 @@
 .end method
 
 .method public configurationIntent()Landroid/content/Intent;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -166,7 +166,7 @@
 
     .line 232
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.backup.IBackupTransport"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -188,7 +188,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2c
+    if-eqz v3, :cond_0
 
     .line 236
     sget-object v3, Landroid/content/Intent;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -198,12 +198,12 @@
     move-result-object v2
 
     check-cast v2, Landroid/content/Intent;
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 243
     .local v2, _result:Landroid/content/Intent;
-    :goto_25
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 244
@@ -214,15 +214,15 @@
 
     .line 239
     .end local v2           #_result:Landroid/content/Intent;
-    :cond_2c
+    :cond_0
     const/4 v2, 0x0
 
     .restart local v2       #_result:Landroid/content/Intent;
-    goto :goto_25
+    goto :goto_0
 
     .line 243
     .end local v2           #_result:Landroid/content/Intent;
-    :catchall_2e
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -234,7 +234,7 @@
 .end method
 
 .method public currentDestinationString()Ljava/lang/String;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -255,7 +255,7 @@
 
     .line 263
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.backup.IBackupTransport"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -274,8 +274,8 @@
 
     .line 266
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -291,7 +291,7 @@
 
     .line 269
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_22
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -303,7 +303,7 @@
 .end method
 
 .method public finishBackup()I
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -324,7 +324,7 @@
 
     .line 453
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.backup.IBackupTransport"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -343,8 +343,8 @@
 
     .line 456
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -360,7 +360,7 @@
 
     .line 459
     .end local v2           #_result:I
-    :catchall_23
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -372,7 +372,7 @@
 .end method
 
 .method public finishRestore()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -393,7 +393,7 @@
 
     .line 605
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.backup.IBackupTransport"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -409,8 +409,8 @@
 
     .line 607
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 610
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -422,7 +422,7 @@
     return-void
 
     .line 610
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -434,7 +434,7 @@
 .end method
 
 .method public getAvailableRestoreSets()[Landroid/app/backup/RestoreSet;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -455,7 +455,7 @@
 
     .line 476
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.backup.IBackupTransport"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -480,8 +480,8 @@
     move-result-object v2
 
     check-cast v2, [Landroid/app/backup/RestoreSet;
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 482
     .local v2, _result:[Landroid/app/backup/RestoreSet;
@@ -495,7 +495,7 @@
 
     .line 482
     .end local v2           #_result:[Landroid/app/backup/RestoreSet;
-    :catchall_27
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -507,7 +507,7 @@
 .end method
 
 .method public getCurrentRestoreSet()J
-    .registers 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -528,7 +528,7 @@
 
     .line 501
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v4, "com.android.internal.backup.IBackupTransport"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -547,8 +547,8 @@
 
     .line 504
     invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v2
 
@@ -564,7 +564,7 @@
 
     .line 507
     .end local v2           #_result:J
-    :catchall_23
+    :catchall_0
     move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -576,7 +576,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 211
@@ -586,7 +586,7 @@
 .end method
 
 .method public getRestoreData(Landroid/os/ParcelFileDescriptor;)I
-    .registers 8
+    .locals 6
     .parameter "outFd"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -608,13 +608,13 @@
 
     .line 578
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.backup.IBackupTransport"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 579
-    if-eqz p1, :cond_2d
+    if-eqz p1, :cond_0
 
     .line 580
     const/4 v3, 0x1
@@ -627,7 +627,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 586
-    :goto_17
+    :goto_0
     iget-object v3, p0, Lcom/android/internal/backup/IBackupTransport$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xd
@@ -641,8 +641,8 @@
 
     .line 588
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_32
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -658,18 +658,18 @@
 
     .line 584
     .end local v2           #_result:I
-    :cond_2d
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_2e
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_31
-    .catchall {:try_start_2e .. :try_end_31} :catchall_32
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 591
-    :catchall_32
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -681,7 +681,7 @@
 .end method
 
 .method public initializeDevice()I
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -702,7 +702,7 @@
 
     .line 346
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.backup.IBackupTransport"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -721,8 +721,8 @@
 
     .line 349
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -738,7 +738,7 @@
 
     .line 352
     .end local v2           #_result:I
-    :catchall_22
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -750,7 +750,7 @@
 .end method
 
 .method public nextRestorePackage()Ljava/lang/String;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -771,7 +771,7 @@
 
     .line 556
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.backup.IBackupTransport"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -790,8 +790,8 @@
 
     .line 559
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -807,7 +807,7 @@
 
     .line 562
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_23
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -819,7 +819,7 @@
 .end method
 
 .method public performBackup(Landroid/content/pm/PackageInfo;Landroid/os/ParcelFileDescriptor;)I
-    .registers 9
+    .locals 6
     .parameter "packageInfo"
     .parameter "inFd"
     .annotation system Ldalvik/annotation/Throws;
@@ -842,13 +842,13 @@
 
     .line 382
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.backup.IBackupTransport"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 383
-    if-eqz p1, :cond_36
+    if-eqz p1, :cond_0
 
     .line 384
     const/4 v3, 0x1
@@ -861,8 +861,8 @@
     invoke-virtual {p1, v0, v3}, Landroid/content/pm/PackageInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 390
-    :goto_17
-    if-eqz p2, :cond_43
+    :goto_0
+    if-eqz p2, :cond_1
 
     .line 391
     const/4 v3, 0x1
@@ -875,7 +875,7 @@
     invoke-virtual {p2, v0, v3}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 397
-    :goto_21
+    :goto_1
     iget-object v3, p0, Lcom/android/internal/backup/IBackupTransport$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x6
@@ -889,8 +889,8 @@
 
     .line 399
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_2e
-    .catchall {:try_start_8 .. :try_end_2e} :catchall_3b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -906,18 +906,18 @@
 
     .line 388
     .end local v2           #_result:I
-    :cond_36
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_37
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_3a
-    .catchall {:try_start_37 .. :try_end_3a} :catchall_3b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 402
-    :catchall_3b
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -928,19 +928,19 @@
     throw v3
 
     .line 395
-    :cond_43
+    :cond_1
     const/4 v3, 0x0
 
-    :try_start_44
+    :try_start_2
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_47
-    .catchall {:try_start_44 .. :try_end_47} :catchall_3b
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_21
+    goto :goto_1
 .end method
 
 .method public requestBackupTime()J
-    .registers 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -961,7 +961,7 @@
 
     .line 320
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v4, "com.android.internal.backup.IBackupTransport"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -980,8 +980,8 @@
 
     .line 323
     invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v2
 
@@ -997,7 +997,7 @@
 
     .line 326
     .end local v2           #_result:J
-    :catchall_22
+    :catchall_0
     move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1009,7 +1009,7 @@
 .end method
 
 .method public startRestore(J[Landroid/content/pm/PackageInfo;)I
-    .registers 10
+    .locals 6
     .parameter "token"
     .parameter "packages"
     .annotation system Ldalvik/annotation/Throws;
@@ -1032,7 +1032,7 @@
 
     .line 531
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.backup.IBackupTransport"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1059,8 +1059,8 @@
 
     .line 536
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_22
-    .catchall {:try_start_8 .. :try_end_22} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -1076,7 +1076,7 @@
 
     .line 539
     .end local v2           #_result:I
-    :catchall_2a
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1088,7 +1088,7 @@
 .end method
 
 .method public transportDirName()Ljava/lang/String;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1109,7 +1109,7 @@
 
     .line 292
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.backup.IBackupTransport"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1128,8 +1128,8 @@
 
     .line 295
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -1145,7 +1145,7 @@
 
     .line 298
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_22
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/Path;FFLandroid/graphics/PathDashPathEffect$Style;)V
-    .registers 7
+    .locals 2
     .parameter "shape"
     .parameter "advance"
     .parameter "phase"

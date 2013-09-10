@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/gsm/GsmConnection;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "l"
 
@@ -36,41 +36,43 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "msg"
 
     .prologue
     .line 100
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_12
+    packed-switch v0, :pswitch_data_0
 
     .line 110
-    :goto_5
+    :goto_0
     return-void
 
     .line 104
-    :pswitch_6
+    :pswitch_0
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmConnection$MyHandler;->this$0:Lcom/android/internal/telephony/gsm/GsmConnection;
 
+    #calls: Lcom/android/internal/telephony/gsm/GsmConnection;->processNextPostDialChar()V
     invoke-static {v0}, Lcom/android/internal/telephony/gsm/GsmConnection;->access$000(Lcom/android/internal/telephony/gsm/GsmConnection;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 107
-    :pswitch_c
+    :pswitch_1
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmConnection$MyHandler;->this$0:Lcom/android/internal/telephony/gsm/GsmConnection;
 
+    #calls: Lcom/android/internal/telephony/gsm/GsmConnection;->releaseWakeLock()V
     invoke-static {v0}, Lcom/android/internal/telephony/gsm/GsmConnection;->access$100(Lcom/android/internal/telephony/gsm/GsmConnection;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 100
-    :pswitch_data_12
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_6
-        :pswitch_6
-        :pswitch_c
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

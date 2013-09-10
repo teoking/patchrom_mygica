@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/test/InstrumentationTestCase;Ljava/lang/Runnable;[Ljava/lang/Throwable;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 138
@@ -56,15 +56,15 @@
     iget-object v1, p0, Landroid/test/InstrumentationTestCase$1;->val$r:Ljava/lang/Runnable;
 
     invoke-interface {v1}, Ljava/lang/Runnable;->run()V
-    :try_end_5
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 142
-    :goto_5
+    :goto_0
     return-void
 
     .line 139
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 140
@@ -75,5 +75,5 @@
 
     aput-object v0, v1, v2
 
-    goto :goto_5
+    goto :goto_0
 .end method

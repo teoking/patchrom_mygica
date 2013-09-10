@@ -99,7 +99,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageSettingBase;)V
-    .registers 4
+    .locals 2
     .parameter "base"
 
     .prologue
@@ -293,7 +293,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;Ljava/io/File;Ljava/lang/String;II)V
-    .registers 9
+    .locals 1
     .parameter "name"
     .parameter "realName"
     .parameter "codePath"
@@ -367,7 +367,7 @@
 .end method
 
 .method private getComponentHashSet(Landroid/util/SparseArray;I)Ljava/util/HashSet;
-    .registers 5
+    .locals 2
     .parameter
     .parameter "userId"
     .annotation system Ldalvik/annotation/Signature;
@@ -397,7 +397,7 @@
 
     .line 224
     .local v0, set:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 225
     new-instance v0, Ljava/util/HashSet;
@@ -412,14 +412,14 @@
     invoke-virtual {p1, p2, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 228
-    :cond_11
+    :cond_0
     return-object v0
 .end method
 
 
 # virtual methods
 .method addDisabledComponent(Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
     .parameter "componentClassName"
     .parameter "userId"
 
@@ -440,7 +440,7 @@
 .end method
 
 .method addEnabledComponent(Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
     .parameter "componentClassName"
     .parameter "userId"
 
@@ -461,7 +461,7 @@
 .end method
 
 .method public copyFrom(Lcom/android/server/pm/PackageSettingBase;)V
-    .registers 4
+    .locals 2
     .parameter "base"
 
     .prologue
@@ -540,7 +540,7 @@
 .end method
 
 .method disableComponentLPw(Ljava/lang/String;I)Z
-    .registers 7
+    .locals 4
     .parameter "componentClassName"
     .parameter "userId"
 
@@ -579,7 +579,7 @@
 .end method
 
 .method enableComponentLPw(Ljava/lang/String;I)Z
-    .registers 7
+    .locals 4
     .parameter "componentClassName"
     .parameter "userId"
 
@@ -618,7 +618,7 @@
 .end method
 
 .method getCurrentEnabledStateLPr(Ljava/lang/String;I)I
-    .registers 6
+    .locals 3
     .parameter "componentName"
     .parameter "userId"
 
@@ -644,37 +644,37 @@
 
     move-result v2
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_0
 
     .line 269
     const/4 v2, 0x1
 
     .line 273
-    :goto_13
+    :goto_0
     return v2
 
     .line 270
-    :cond_14
+    :cond_0
     invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1c
+    if-eqz v2, :cond_1
 
     .line 271
     const/4 v2, 0x2
 
-    goto :goto_13
+    goto :goto_0
 
     .line 273
-    :cond_1c
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method getDisabledComponents(I)Ljava/util/HashSet;
-    .registers 3
+    .locals 1
     .parameter "userId"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -698,7 +698,7 @@
 .end method
 
 .method getEnabled(I)I
-    .registers 4
+    .locals 2
     .parameter "userId"
 
     .prologue
@@ -715,7 +715,7 @@
 .end method
 
 .method getEnabledComponents(I)Ljava/util/HashSet;
-    .registers 3
+    .locals 1
     .parameter "userId"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -739,7 +739,7 @@
 .end method
 
 .method public getInstallStatus()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 154
@@ -749,7 +749,7 @@
 .end method
 
 .method getInstallerPackageName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 146
@@ -759,7 +759,7 @@
 .end method
 
 .method getNotLaunched(I)Z
-    .registers 4
+    .locals 2
     .parameter "userId"
 
     .prologue
@@ -786,7 +786,7 @@
 .end method
 
 .method getStopped(I)Z
-    .registers 4
+    .locals 2
     .parameter "userId"
 
     .prologue
@@ -813,7 +813,7 @@
 .end method
 
 .method init(Ljava/io/File;Ljava/io/File;Ljava/lang/String;I)V
-    .registers 6
+    .locals 1
     .parameter "codePath"
     .parameter "resourcePath"
     .parameter "nativeLibraryPathString"
@@ -851,7 +851,7 @@
 .end method
 
 .method removeUser(I)V
-    .registers 3
+    .locals 1
     .parameter "userId"
 
     .prologue
@@ -885,7 +885,7 @@
 .end method
 
 .method restoreComponentLPw(Ljava/lang/String;I)Z
-    .registers 7
+    .locals 4
     .parameter "componentClassName"
     .parameter "userId"
 
@@ -924,7 +924,7 @@
 .end method
 
 .method setDisabledComponents(Ljava/util/HashSet;I)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "userId"
     .annotation system Ldalvik/annotation/Signature;
@@ -949,7 +949,7 @@
 .end method
 
 .method setEnabled(II)V
-    .registers 4
+    .locals 1
     .parameter "state"
     .parameter "userId"
 
@@ -964,7 +964,7 @@
 .end method
 
 .method setEnabledComponents(Ljava/util/HashSet;I)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "userId"
     .annotation system Ldalvik/annotation/Signature;
@@ -989,7 +989,7 @@
 .end method
 
 .method public setInstallStatus(I)V
-    .registers 2
+    .locals 0
     .parameter "newStatus"
 
     .prologue
@@ -1001,7 +1001,7 @@
 .end method
 
 .method public setInstallerPackageName(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "packageName"
 
     .prologue
@@ -1013,7 +1013,7 @@
 .end method
 
 .method setNotLaunched(ZI)V
-    .registers 5
+    .locals 2
     .parameter "stop"
     .parameter "userId"
 
@@ -1032,7 +1032,7 @@
 .end method
 
 .method setStopped(ZI)V
-    .registers 5
+    .locals 2
     .parameter "stop"
     .parameter "userId"
 
@@ -1051,7 +1051,7 @@
 .end method
 
 .method public setTimeStamp(J)V
-    .registers 3
+    .locals 0
     .parameter "newStamp"
 
     .prologue

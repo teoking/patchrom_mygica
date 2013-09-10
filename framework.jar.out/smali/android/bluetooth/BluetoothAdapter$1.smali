@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/bluetooth/BluetoothAdapter;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "x0"
 
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "msg"
 
     .prologue
@@ -45,23 +45,24 @@
 
     .line 1053
     .local v1, handle:I
-    :try_start_2
+    :try_start_0
     iget-object v2, p0, Landroid/bluetooth/BluetoothAdapter$1;->this$0:Landroid/bluetooth/BluetoothAdapter;
 
+    #getter for: Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
     invoke-static {v2}, Landroid/bluetooth/BluetoothAdapter;->access$000(Landroid/bluetooth/BluetoothAdapter;)Landroid/bluetooth/IBluetooth;
 
     move-result-object v2
 
     invoke-interface {v2, v1}, Landroid/bluetooth/IBluetooth;->removeServiceRecord(I)V
-    :try_end_b
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_b} :catch_c
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1055
-    :goto_b
+    :goto_0
     return-void
 
     .line 1054
-    :catch_c
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -71,5 +72,5 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_b
+    goto :goto_0
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 36
@@ -74,7 +74,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 78
@@ -84,7 +84,7 @@
 .end method
 
 .method static addCertificate(Landroid/content/Context;Ljava/lang/String;[B)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "type"
     .parameter "value"
@@ -102,7 +102,7 @@
 .end method
 
 .method static getCertType(Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "mimeType"
 
     .prologue
@@ -119,7 +119,7 @@
 .end method
 
 .method static getKeyStrengthList()[Ljava/lang/String;
-    .registers 3
+    .locals 3
 
     .prologue
     .line 48
@@ -143,7 +143,7 @@
 .end method
 
 .method static getSignedPublicKey(Landroid/content/Context;ILjava/lang/String;)Ljava/lang/String;
-    .registers 10
+    .locals 7
     .parameter "context"
     .parameter "index"
     .parameter "challenge"
@@ -159,11 +159,11 @@
 
     .line 54
     .local v1, generator:Ljava/security/KeyPairGenerator;
-    if-nez p1, :cond_3c
+    if-nez p1, :cond_0
 
     const/16 v5, 0x800
 
-    :goto_a
+    :goto_0
     invoke-virtual {v1, v5}, Ljava/security/KeyPairGenerator;->initialize(I)V
 
     .line 55
@@ -216,27 +216,27 @@
     move-result-object v6
 
     invoke-direct {v5, v6}, Ljava/lang/String;-><init>([B)V
-    :try_end_3b
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_3b} :catch_3f
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 67
     .end local v1           #generator:Ljava/security/KeyPairGenerator;
     .end local v2           #pair:Ljava/security/KeyPair;
     .end local v3           #request:Lcom/android/org/bouncycastle/jce/netscape/NetscapeCertRequest;
     .end local v4           #signed:[B
-    :goto_3b
+    :goto_1
     return-object v5
 
     .line 54
     .restart local v1       #generator:Ljava/security/KeyPairGenerator;
-    :cond_3c
+    :cond_0
     const/16 v5, 0x400
 
-    goto :goto_a
+    goto :goto_0
 
     .line 64
     .end local v1           #generator:Ljava/security/KeyPairGenerator;
-    :catch_3f
+    :catch_0
     move-exception v0
 
     .line 65
@@ -248,5 +248,5 @@
     .line 67
     const/4 v5, 0x0
 
-    goto :goto_3b
+    goto :goto_1
 .end method

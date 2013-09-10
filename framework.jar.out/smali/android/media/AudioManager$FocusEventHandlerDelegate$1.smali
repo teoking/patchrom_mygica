@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/AudioManager$FocusEventHandlerDelegate;Landroid/os/Looper;Landroid/media/AudioManager;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "msg"
 
     .prologue
@@ -54,6 +54,7 @@
 
     iget-object v1, v1, Landroid/media/AudioManager$FocusEventHandlerDelegate;->this$0:Landroid/media/AudioManager;
 
+    #getter for: Landroid/media/AudioManager;->mFocusListenerLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/media/AudioManager;->access$000(Landroid/media/AudioManager;)Ljava/lang/Object;
 
     move-result-object v2
@@ -61,7 +62,7 @@
     monitor-enter v2
 
     .line 1816
-    :try_start_a
+    :try_start_0
     iget-object v1, p0, Landroid/media/AudioManager$FocusEventHandlerDelegate$1;->this$1:Landroid/media/AudioManager$FocusEventHandlerDelegate;
 
     iget-object v3, v1, Landroid/media/AudioManager$FocusEventHandlerDelegate;->this$0:Landroid/media/AudioManager;
@@ -70,17 +71,18 @@
 
     check-cast v1, Ljava/lang/String;
 
+    #calls: Landroid/media/AudioManager;->findFocusListener(Ljava/lang/String;)Landroid/media/AudioManager$OnAudioFocusChangeListener;
     invoke-static {v3, v1}, Landroid/media/AudioManager;->access$100(Landroid/media/AudioManager;Ljava/lang/String;)Landroid/media/AudioManager$OnAudioFocusChangeListener;
 
     move-result-object v0
 
     .line 1817
     monitor-exit v2
-    :try_end_17
-    .catchall {:try_start_a .. :try_end_17} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1818
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_0
 
     .line 1819
     iget v1, p1, Landroid/os/Message;->what:I
@@ -88,17 +90,17 @@
     invoke-interface {v0, v1}, Landroid/media/AudioManager$OnAudioFocusChangeListener;->onAudioFocusChange(I)V
 
     .line 1821
-    :cond_1e
+    :cond_0
     return-void
 
     .line 1817
-    :catchall_1f
+    :catchall_0
     move-exception v1
 
-    :try_start_20
+    :try_start_1
     monitor-exit v2
-    :try_end_21
-    .catchall {:try_start_20 .. :try_end_21} :catchall_1f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method

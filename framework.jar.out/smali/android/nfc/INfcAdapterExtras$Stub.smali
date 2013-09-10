@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 17
@@ -57,22 +57,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/nfc/INfcAdapterExtras;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 26
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 27
     const/4 v0, 0x0
 
     .line 33
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 29
-    :cond_4
+    :cond_0
     const-string v1, "android.nfc.INfcAdapterExtras"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -81,31 +81,31 @@
 
     .line 30
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/nfc/INfcAdapterExtras;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 31
     check-cast v0, Landroid/nfc/INfcAdapterExtras;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 33
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/nfc/INfcAdapterExtras$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/nfc/INfcAdapterExtras$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 37
@@ -113,7 +113,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 11
+    .locals 6
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -130,26 +130,26 @@
     const/4 v3, 0x1
 
     .line 41
-    sparse-switch p1, :sswitch_data_b2
+    sparse-switch p1, :sswitch_data_0
 
     .line 135
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v3
 
-    :goto_9
+    :goto_0
     return v3
 
     .line 45
-    :sswitch_a
+    :sswitch_0
     const-string v4, "android.nfc.INfcAdapterExtras"
 
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 50
-    :sswitch_10
+    :sswitch_1
     const-string v4, "android.nfc.INfcAdapterExtras"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -176,7 +176,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 57
-    if-eqz v2, :cond_2d
+    if-eqz v2, :cond_0
 
     .line 58
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -184,19 +184,19 @@
     .line 59
     invoke-virtual {v2, p3, v3}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 62
-    :cond_2d
+    :cond_0
     invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 68
     .end local v0           #_arg0:Ljava/lang/String;
     .end local v1           #_arg1:Landroid/os/IBinder;
     .end local v2           #_result:Landroid/os/Bundle;
-    :sswitch_31
+    :sswitch_2
     const-string v4, "android.nfc.INfcAdapterExtras"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -223,7 +223,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 75
-    if-eqz v2, :cond_4e
+    if-eqz v2, :cond_1
 
     .line 76
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -231,19 +231,19 @@
     .line 77
     invoke-virtual {v2, p3, v3}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 80
-    :cond_4e
+    :cond_1
     invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 86
     .end local v0           #_arg0:Ljava/lang/String;
     .end local v1           #_arg1:Landroid/os/IBinder;
     .end local v2           #_result:Landroid/os/Bundle;
-    :sswitch_52
+    :sswitch_3
     const-string v4, "android.nfc.INfcAdapterExtras"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -270,7 +270,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 93
-    if-eqz v2, :cond_6f
+    if-eqz v2, :cond_2
 
     .line 94
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -278,19 +278,19 @@
     .line 95
     invoke-virtual {v2, p3, v3}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 98
-    :cond_6f
+    :cond_2
     invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 104
     .end local v0           #_arg0:Ljava/lang/String;
     .end local v1           #_arg1:[B
     .end local v2           #_result:Landroid/os/Bundle;
-    :sswitch_73
+    :sswitch_4
     const-string v4, "android.nfc.INfcAdapterExtras"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -313,12 +313,12 @@
     .line 109
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 114
     .end local v0           #_arg0:Ljava/lang/String;
     .end local v2           #_result:I
-    :sswitch_87
+    :sswitch_5
     const-string v4, "android.nfc.INfcAdapterExtras"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -341,12 +341,12 @@
     .line 120
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 125
     .end local v0           #_arg0:Ljava/lang/String;
     .end local v1           #_arg1:I
-    :sswitch_9c
+    :sswitch_6
     const-string v4, "android.nfc.INfcAdapterExtras"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -369,19 +369,19 @@
     .line 131
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 41
     nop
 
-    :sswitch_data_b2
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_10
-        0x2 -> :sswitch_31
-        0x3 -> :sswitch_52
-        0x4 -> :sswitch_73
-        0x5 -> :sswitch_87
-        0x6 -> :sswitch_9c
-        0x5f4e5446 -> :sswitch_a
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

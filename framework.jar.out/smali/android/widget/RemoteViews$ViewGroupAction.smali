@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViews;ILandroid/widget/RemoteViews;)V
-    .registers 5
+    .locals 1
     .parameter
     .parameter "viewId"
     .parameter "nestedViews"
@@ -48,18 +48,19 @@
     iput-object p3, p0, Landroid/widget/RemoteViews$ViewGroupAction;->nestedViews:Landroid/widget/RemoteViews;
 
     .line 1079
-    if-eqz p3, :cond_f
+    if-eqz p3, :cond_0
 
     .line 1080
+    #calls: Landroid/widget/RemoteViews;->configureRemoteViewsAsChild(Landroid/widget/RemoteViews;)V
     invoke-static {p1, p3}, Landroid/widget/RemoteViews;->access$300(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews;)V
 
     .line 1082
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method public constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;Landroid/widget/RemoteViews$BitmapCache;)V
-    .registers 7
+    .locals 3
     .parameter
     .parameter "parcel"
     .parameter "bitmapCache"
@@ -84,14 +85,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_1d
+    if-nez v1, :cond_0
 
     const/4 v0, 0x1
 
     .line 1087
     .local v0, nestedViewsNull:Z
-    :goto_13
-    if-nez v0, :cond_1f
+    :goto_0
+    if-nez v0, :cond_1
 
     .line 1088
     new-instance v1, Landroid/widget/RemoteViews;
@@ -101,28 +102,28 @@
     iput-object v1, p0, Landroid/widget/RemoteViews$ViewGroupAction;->nestedViews:Landroid/widget/RemoteViews;
 
     .line 1092
-    :goto_1c
+    :goto_1
     return-void
 
     .line 1086
     .end local v0           #nestedViewsNull:Z
-    :cond_1d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 1090
     .restart local v0       #nestedViewsNull:Z
-    :cond_1f
+    :cond_1
     iput-object v2, p0, Landroid/widget/RemoteViews$ViewGroupAction;->nestedViews:Landroid/widget/RemoteViews;
 
-    goto :goto_1c
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
-    .registers 7
+    .locals 3
     .parameter "root"
     .parameter "rootParent"
     .parameter "handler"
@@ -145,17 +146,17 @@
 
     .line 1110
     .local v1, target:Landroid/view/ViewGroup;
-    if-nez v1, :cond_f
+    if-nez v1, :cond_0
 
     .line 1118
-    :goto_e
+    :goto_0
     return-void
 
     .line 1111
-    :cond_f
+    :cond_0
     iget-object v2, p0, Landroid/widget/RemoteViews$ViewGroupAction;->nestedViews:Landroid/widget/RemoteViews;
 
-    if-eqz v2, :cond_1d
+    if-eqz v2, :cond_1
 
     .line 1113
     iget-object v2, p0, Landroid/widget/RemoteViews$ViewGroupAction;->nestedViews:Landroid/widget/RemoteViews;
@@ -166,44 +167,45 @@
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 1116
-    :cond_1d
+    :cond_1
     invoke-virtual {v1}, Landroid/view/ViewGroup;->removeAllViews()V
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public setBitmapCache(Landroid/widget/RemoteViews$BitmapCache;)V
-    .registers 3
+    .locals 1
     .parameter "bitmapCache"
 
     .prologue
     .line 1129
     iget-object v0, p0, Landroid/widget/RemoteViews$ViewGroupAction;->nestedViews:Landroid/widget/RemoteViews;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 1130
     iget-object v0, p0, Landroid/widget/RemoteViews$ViewGroupAction;->nestedViews:Landroid/widget/RemoteViews;
 
+    #calls: Landroid/widget/RemoteViews;->setBitmapCache(Landroid/widget/RemoteViews$BitmapCache;)V
     invoke-static {v0, p1}, Landroid/widget/RemoteViews;->access$500(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews$BitmapCache;)V
 
     .line 1132
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public updateMemoryUsageEstimate(Landroid/widget/RemoteViews$MemoryUsageCounter;)V
-    .registers 3
+    .locals 1
     .parameter "counter"
 
     .prologue
     .line 1122
     iget-object v0, p0, Landroid/widget/RemoteViews$ViewGroupAction;->nestedViews:Landroid/widget/RemoteViews;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 1123
     iget-object v0, p0, Landroid/widget/RemoteViews$ViewGroupAction;->nestedViews:Landroid/widget/RemoteViews;
@@ -215,12 +217,12 @@
     invoke-virtual {p1, v0}, Landroid/widget/RemoteViews$MemoryUsageCounter;->increment(I)V
 
     .line 1125
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 
@@ -238,7 +240,7 @@
     .line 1097
     iget-object v0, p0, Landroid/widget/RemoteViews$ViewGroupAction;->nestedViews:Landroid/widget/RemoteViews;
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 1098
     const/4 v0, 0x1
@@ -251,14 +253,14 @@
     invoke-virtual {v0, p1, p2}, Landroid/widget/RemoteViews;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1104
-    :goto_16
+    :goto_0
     return-void
 
     .line 1102
-    :cond_17
+    :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_16
+    goto :goto_0
 .end method

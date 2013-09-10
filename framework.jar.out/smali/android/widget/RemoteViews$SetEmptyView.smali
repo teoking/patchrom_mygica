@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViews;II)V
-    .registers 5
+    .locals 1
     .parameter
     .parameter "viewId"
     .parameter "emptyViewId"
@@ -52,7 +52,7 @@
 .end method
 
 .method constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "in"
 
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
-    .registers 8
+    .locals 4
     .parameter "root"
     .parameter "rootParent"
     .parameter "handler"
@@ -102,14 +102,14 @@
     .local v2, view:Landroid/view/View;
     instance-of v3, v2, Landroid/widget/AdapterView;
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_1
 
     .line 241
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return-void
 
-    :cond_b
+    :cond_1
     move-object v0, v2
 
     .line 235
@@ -125,16 +125,16 @@
 
     .line 238
     .local v1, emptyView:Landroid/view/View;
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_0
 
     .line 240
     invoke-virtual {v0, v1}, Landroid/widget/AdapterView;->setEmptyView(Landroid/view/View;)V
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 

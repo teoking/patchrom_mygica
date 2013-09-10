@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/SurfaceView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
@@ -44,48 +44,49 @@
     .line 118
     iget v1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v1, :pswitch_data_1e
+    packed-switch v1, :pswitch_data_0
 
     .line 129
-    :goto_6
+    :goto_0
     return-void
 
     .line 120
-    :pswitch_7
+    :pswitch_0
     iget-object v1, p0, Landroid/view/SurfaceView$1;->this$0:Landroid/view/SurfaceView;
 
     iget v2, p1, Landroid/os/Message;->arg1:I
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_0
 
     const/4 v0, 0x1
 
-    :cond_e
+    :cond_0
     invoke-virtual {v1, v0}, Landroid/view/SurfaceView;->setKeepScreenOn(Z)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 123
-    :pswitch_12
+    :pswitch_1
     iget-object v0, p0, Landroid/view/SurfaceView$1;->this$0:Landroid/view/SurfaceView;
 
     invoke-virtual {v0}, Landroid/view/SurfaceView;->handleGetNewSurface()V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 126
-    :pswitch_18
+    :pswitch_2
     iget-object v1, p0, Landroid/view/SurfaceView$1;->this$0:Landroid/view/SurfaceView;
 
+    #calls: Landroid/view/SurfaceView;->updateWindow(ZZ)V
     invoke-static {v1, v0, v0}, Landroid/view/SurfaceView;->access$000(Landroid/view/SurfaceView;ZZ)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 118
-    :pswitch_data_1e
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_7
-        :pswitch_12
-        :pswitch_18
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

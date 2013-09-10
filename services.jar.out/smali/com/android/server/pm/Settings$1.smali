@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/Settings;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method protected bridge synthetic dumpFilter(Ljava/io/PrintWriter;Ljava/lang/String;Landroid/content/IntentFilter;)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -61,7 +61,7 @@
 .end method
 
 .method protected dumpFilter(Ljava/io/PrintWriter;Ljava/lang/String;Lcom/android/server/pm/PreferredActivity;)V
-    .registers 5
+    .locals 1
     .parameter "out"
     .parameter "prefix"
     .parameter "filter"
@@ -77,7 +77,7 @@
 .end method
 
 .method protected bridge synthetic packageForFilter(Landroid/content/IntentFilter;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -93,7 +93,7 @@
 .end method
 
 .method protected packageForFilter(Lcom/android/server/pm/PreferredActivity;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "filter"
 
     .prologue

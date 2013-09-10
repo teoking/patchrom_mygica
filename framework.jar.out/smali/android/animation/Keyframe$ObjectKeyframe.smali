@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(FLjava/lang/Object;)V
-    .registers 4
+    .locals 1
     .parameter "fraction"
     .parameter "value"
 
@@ -35,45 +35,45 @@
     iput-object p2, p0, Landroid/animation/Keyframe$ObjectKeyframe;->mValue:Ljava/lang/Object;
 
     .line 249
-    if-eqz p2, :cond_17
+    if-eqz p2, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_a
+    :goto_0
     iput-boolean v0, p0, Landroid/animation/Keyframe;->mHasValue:Z
 
     .line 250
     iget-boolean v0, p0, Landroid/animation/Keyframe;->mHasValue:Z
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_1
 
     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
 
-    :goto_14
+    :goto_1
     iput-object v0, p0, Landroid/animation/Keyframe;->mValueType:Ljava/lang/Class;
 
     .line 251
     return-void
 
     .line 249
-    :cond_17
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 
     .line 250
-    :cond_19
+    :cond_1
     const-class v0, Ljava/lang/Object;
 
-    goto :goto_14
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public clone()Landroid/animation/Keyframe$ObjectKeyframe;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 264
@@ -100,7 +100,7 @@
 .end method
 
 .method public bridge synthetic clone()Landroid/animation/Keyframe;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 239
@@ -112,7 +112,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -129,7 +129,7 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 254
@@ -139,7 +139,7 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)V
-    .registers 3
+    .locals 1
     .parameter "value"
 
     .prologue
@@ -147,19 +147,19 @@
     iput-object p1, p0, Landroid/animation/Keyframe$ObjectKeyframe;->mValue:Ljava/lang/Object;
 
     .line 259
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     iput-boolean v0, p0, Landroid/animation/Keyframe;->mHasValue:Z
 
     .line 260
     return-void
 
     .line 259
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method

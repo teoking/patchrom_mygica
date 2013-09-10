@@ -79,7 +79,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 55
@@ -96,7 +96,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v2, 0x1
@@ -167,11 +167,11 @@
 
     sget-object v4, Lcom/android/internal/telephony/test/SimulatedCommands$SimLockState;->NONE:Lcom/android/internal/telephony/test/SimulatedCommands$SimLockState;
 
-    if-eq v1, v4, :cond_55
+    if-eq v1, v4, :cond_0
 
     move v1, v2
 
-    :goto_3e
+    :goto_0
     iput-boolean v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mSimLockEnabled:Z
 
     .line 98
@@ -189,9 +189,9 @@
 
     sget-object v4, Lcom/android/internal/telephony/test/SimulatedCommands$SimFdnState;->NONE:Lcom/android/internal/telephony/test/SimulatedCommands$SimFdnState;
 
-    if-eq v1, v4, :cond_57
+    if-eq v1, v4, :cond_1
 
-    :goto_4e
+    :goto_1
     iput-boolean v2, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mSimFdnEnabled:Z
 
     .line 101
@@ -202,21 +202,21 @@
     .line 102
     return-void
 
-    :cond_55
+    :cond_0
     move v1, v3
 
     .line 97
-    goto :goto_3e
+    goto :goto_0
 
-    :cond_57
+    :cond_1
     move v2, v3
 
     .line 100
-    goto :goto_4e
+    goto :goto_1
 .end method
 
 .method private isSimLocked()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1020
@@ -224,29 +224,29 @@
 
     sget-object v1, Lcom/android/internal/telephony/test/SimulatedCommands$SimLockState;->NONE:Lcom/android/internal/telephony/test/SimulatedCommands$SimLockState;
 
-    if-eq v0, v1, :cond_8
+    if-eq v0, v1, :cond_0
 
     .line 1021
     const/4 v0, 0x1
 
     .line 1023
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method private resultFail(Landroid/os/Message;Ljava/lang/Throwable;)V
-    .registers 4
+    .locals 1
     .parameter "result"
     .parameter "tr"
 
     .prologue
     .line 1355
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 1356
     invoke-static {p1}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;)Landroid/os/AsyncResult;
@@ -258,7 +258,7 @@
     .line 1357
     iget v0, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->pausedResponseCount:I
 
-    if-lez v0, :cond_12
+    if-lez v0, :cond_1
 
     .line 1358
     iget-object v0, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->pausedResponses:Ljava/util/ArrayList;
@@ -266,25 +266,25 @@
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 1363
-    :cond_11
-    :goto_11
+    :cond_0
+    :goto_0
     return-void
 
     .line 1360
-    :cond_12
+    :cond_1
     invoke-virtual {p1}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method private resultSuccess(Landroid/os/Message;Ljava/lang/Object;)V
-    .registers 4
+    .locals 1
     .parameter "result"
     .parameter "ret"
 
     .prologue
     .line 1344
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 1345
     invoke-static {p1}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;)Landroid/os/AsyncResult;
@@ -296,7 +296,7 @@
     .line 1346
     iget v0, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->pausedResponseCount:I
 
-    if-lez v0, :cond_12
+    if-lez v0, :cond_1
 
     .line 1347
     iget-object v0, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->pausedResponses:Ljava/util/ArrayList;
@@ -304,24 +304,24 @@
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 1352
-    :cond_11
-    :goto_11
+    :cond_0
+    :goto_0
     return-void
 
     .line 1349
-    :cond_12
+    :cond_1
     invoke-virtual {p1}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method private unimplemented(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "result"
 
     .prologue
     .line 1331
-    if-eqz p1, :cond_18
+    if-eqz p1, :cond_0
 
     .line 1332
     invoke-static {p1}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;)Landroid/os/AsyncResult;
@@ -339,7 +339,7 @@
     .line 1335
     iget v0, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->pausedResponseCount:I
 
-    if-lez v0, :cond_19
+    if-lez v0, :cond_1
 
     .line 1336
     iget-object v0, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->pausedResponses:Ljava/util/ArrayList;
@@ -347,21 +347,21 @@
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 1341
-    :cond_18
-    :goto_18
+    :cond_0
+    :goto_0
     return-void
 
     .line 1338
-    :cond_19
+    :cond_1
     invoke-virtual {p1}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public acceptCall(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "result"
 
     .prologue
@@ -374,7 +374,7 @@
 
     .line 699
     .local v0, success:Z
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     .line 700
     new-instance v1, Ljava/lang/RuntimeException;
@@ -386,20 +386,20 @@
     invoke-direct {p0, p1, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultFail(Landroid/os/Message;Ljava/lang/Throwable;)V
 
     .line 704
-    :goto_12
+    :goto_0
     return-void
 
     .line 702
-    :cond_13
+    :cond_0
     const/4 v1, 0x0
 
     invoke-direct {p0, p1, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultSuccess(Landroid/os/Message;Ljava/lang/Object;)V
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public acknowledgeIncomingGsmSmsWithPdu(ZLjava/lang/String;Landroid/os/Message;)V
-    .registers 4
+    .locals 0
     .parameter "success"
     .parameter "ackPdu"
     .parameter "result"
@@ -413,7 +413,7 @@
 .end method
 
 .method public acknowledgeLastIncomingCdmaSms(ZILandroid/os/Message;)V
-    .registers 4
+    .locals 0
     .parameter "success"
     .parameter "cause"
     .parameter "result"
@@ -427,7 +427,7 @@
 .end method
 
 .method public acknowledgeLastIncomingGsmSms(ZILandroid/os/Message;)V
-    .registers 4
+    .locals 0
     .parameter "success"
     .parameter "cause"
     .parameter "result"
@@ -441,7 +441,7 @@
 .end method
 
 .method public cancelPendingUssd(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "response"
 
     .prologue
@@ -455,7 +455,7 @@
 .end method
 
 .method public changeBarringPassword(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .registers 5
+    .locals 0
     .parameter "facility"
     .parameter "oldPwd"
     .parameter "newPwd"
@@ -470,7 +470,7 @@
 .end method
 
 .method public changeIccPin(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .registers 8
+    .locals 4
     .parameter "oldPin"
     .parameter "newPin"
     .parameter "result"
@@ -479,7 +479,7 @@
     const/4 v3, 0x0
 
     .line 277
-    if-eqz p1, :cond_16
+    if-eqz p1, :cond_1
 
     iget-object v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mPinCode:Ljava/lang/String;
 
@@ -487,13 +487,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_16
+    if-eqz v1, :cond_1
 
     .line 278
     iput-object p2, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mPinCode:Ljava/lang/String;
 
     .line 279
-    if-eqz p3, :cond_15
+    if-eqz p3, :cond_0
 
     .line 280
     invoke-static {p3, v3, v3}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
@@ -502,13 +502,13 @@
     invoke-virtual {p3}, Landroid/os/Message;->sendToTarget()V
 
     .line 295
-    :cond_15
-    :goto_15
+    :cond_0
+    :goto_0
     return-void
 
     .line 287
-    :cond_16
-    if-eqz p3, :cond_15
+    :cond_1
+    if-eqz p3, :cond_0
 
     .line 288
     const-string v1, "SIM"
@@ -531,11 +531,11 @@
     .line 293
     invoke-virtual {p3}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public changeIccPin2(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .registers 8
+    .locals 4
     .parameter "oldPin2"
     .parameter "newPin2"
     .parameter "result"
@@ -544,7 +544,7 @@
     const/4 v3, 0x0
 
     .line 298
-    if-eqz p1, :cond_16
+    if-eqz p1, :cond_1
 
     iget-object v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mPin2Code:Ljava/lang/String;
 
@@ -552,13 +552,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_16
+    if-eqz v1, :cond_1
 
     .line 299
     iput-object p2, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mPin2Code:Ljava/lang/String;
 
     .line 300
-    if-eqz p3, :cond_15
+    if-eqz p3, :cond_0
 
     .line 301
     invoke-static {p3, v3, v3}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
@@ -567,13 +567,13 @@
     invoke-virtual {p3}, Landroid/os/Message;->sendToTarget()V
 
     .line 316
-    :cond_15
-    :goto_15
+    :cond_0
+    :goto_0
     return-void
 
     .line 308
-    :cond_16
-    if-eqz p3, :cond_15
+    :cond_1
+    if-eqz p3, :cond_0
 
     .line 309
     const-string v1, "SIM"
@@ -596,11 +596,11 @@
     .line 314
     invoke-virtual {p3}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public changeIccPin2ForApp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .registers 5
+    .locals 0
     .parameter "oldPin2"
     .parameter "newPin2"
     .parameter "aidPtr"
@@ -615,7 +615,7 @@
 .end method
 
 .method public changeIccPinForApp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .registers 5
+    .locals 0
     .parameter "oldPin"
     .parameter "newPin"
     .parameter "aidPtr"
@@ -630,7 +630,7 @@
 .end method
 
 .method public conference(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "result"
 
     .prologue
@@ -647,7 +647,7 @@
 
     .line 643
     .local v0, success:Z
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 644
     new-instance v1, Ljava/lang/RuntimeException;
@@ -659,20 +659,20 @@
     invoke-direct {p0, p1, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultFail(Landroid/os/Message;Ljava/lang/Throwable;)V
 
     .line 648
-    :goto_15
+    :goto_0
     return-void
 
     .line 646
-    :cond_16
+    :cond_0
     const/4 v1, 0x0
 
     invoke-direct {p0, p1, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultSuccess(Landroid/os/Message;Ljava/lang/Object;)V
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public deactivateDataCall(IILandroid/os/Message;)V
-    .registers 4
+    .locals 0
     .parameter "cid"
     .parameter "reason"
     .parameter "result"
@@ -685,7 +685,7 @@
 .end method
 
 .method public deleteSmsOnRuim(ILandroid/os/Message;)V
-    .registers 6
+    .locals 3
     .parameter "index"
     .parameter "response"
 
@@ -721,7 +721,7 @@
 .end method
 
 .method public deleteSmsOnSim(ILandroid/os/Message;)V
-    .registers 6
+    .locals 3
     .parameter "index"
     .parameter "response"
 
@@ -757,7 +757,7 @@
 .end method
 
 .method public dial(Ljava/lang/String;ILandroid/os/Message;)V
-    .registers 5
+    .locals 1
     .parameter "address"
     .parameter "clirMode"
     .parameter "result"
@@ -778,7 +778,7 @@
 .end method
 
 .method public dial(Ljava/lang/String;ILcom/android/internal/telephony/UUSInfo;Landroid/os/Message;)V
-    .registers 6
+    .locals 1
     .parameter "address"
     .parameter "clirMode"
     .parameter "uusInfo"
@@ -800,7 +800,7 @@
 .end method
 
 .method public exitEmergencyCallbackMode(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "result"
 
     .prologue
@@ -811,7 +811,7 @@
 .end method
 
 .method public explicitCallTransfer(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "result"
 
     .prologue
@@ -828,7 +828,7 @@
 
     .line 663
     .local v0, success:Z
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 664
     new-instance v1, Ljava/lang/RuntimeException;
@@ -840,20 +840,20 @@
     invoke-direct {p0, p1, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultFail(Landroid/os/Message;Ljava/lang/Throwable;)V
 
     .line 668
-    :goto_15
+    :goto_0
     return-void
 
     .line 666
-    :cond_16
+    :cond_0
     const/4 v1, 0x0
 
     invoke-direct {p0, p1, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultSuccess(Landroid/os/Message;Ljava/lang/Object;)V
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public forceDataDormancy(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "response"
 
     .prologue
@@ -865,7 +865,7 @@
 .end method
 
 .method public getAvailableNetworks(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "result"
 
     .prologue
@@ -876,7 +876,7 @@
 .end method
 
 .method public getBasebandVersion(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "result"
 
     .prologue
@@ -890,7 +890,7 @@
 .end method
 
 .method public getCDMASubscription(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "response"
 
     .prologue
@@ -909,7 +909,7 @@
 .end method
 
 .method public getCLIR(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "result"
 
     .prologue
@@ -920,7 +920,7 @@
 .end method
 
 .method public getCdmaBroadcastConfig(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "response"
 
     .prologue
@@ -932,7 +932,7 @@
 .end method
 
 .method public getCdmaSubscriptionSource(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "result"
 
     .prologue
@@ -944,7 +944,7 @@
 .end method
 
 .method public getCurrentCalls(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "result"
 
     .prologue
@@ -953,13 +953,13 @@
 
     sget-object v1, Lcom/android/internal/telephony/CommandsInterface$RadioState;->RADIO_ON:Lcom/android/internal/telephony/CommandsInterface$RadioState;
 
-    if-ne v0, v1, :cond_16
+    if-ne v0, v1, :cond_0
 
     invoke-direct {p0}, Lcom/android/internal/telephony/test/SimulatedCommands;->isSimLocked()Z
 
     move-result v0
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 446
     iget-object v0, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->simulatedCallState:Lcom/android/internal/telephony/test/SimulatedGsmCallState;
@@ -971,11 +971,11 @@
     invoke-direct {p0, p1, v0}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultSuccess(Landroid/os/Message;Ljava/lang/Object;)V
 
     .line 453
-    :goto_15
+    :goto_0
     return-void
 
     .line 449
-    :cond_16
+    :cond_0
     new-instance v0, Lcom/android/internal/telephony/CommandException;
 
     sget-object v1, Lcom/android/internal/telephony/CommandException$Error;->RADIO_NOT_AVAILABLE:Lcom/android/internal/telephony/CommandException$Error;
@@ -984,11 +984,11 @@
 
     invoke-direct {p0, p1, v0}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultFail(Landroid/os/Message;Ljava/lang/Throwable;)V
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public getDataCallList(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "result"
 
     .prologue
@@ -1006,7 +1006,7 @@
 .end method
 
 .method public getDataRegistrationState(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "result"
 
     .prologue
@@ -1050,7 +1050,7 @@
 .end method
 
 .method public getDeviceIdentity(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "response"
 
     .prologue
@@ -1069,7 +1069,7 @@
 .end method
 
 .method public getGsmBroadcastConfig(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "response"
 
     .prologue
@@ -1081,7 +1081,7 @@
 .end method
 
 .method public getIMEI(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "result"
 
     .prologue
@@ -1095,7 +1095,7 @@
 .end method
 
 .method public getIMEISV(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "result"
 
     .prologue
@@ -1109,7 +1109,7 @@
 .end method
 
 .method public getIMSI(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "result"
 
     .prologue
@@ -1123,7 +1123,7 @@
 .end method
 
 .method public getIMSIForApp(Ljava/lang/String;Landroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "aid"
     .parameter "result"
 
@@ -1138,7 +1138,7 @@
 .end method
 
 .method public getIccCardStatus(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "result"
 
     .prologue
@@ -1150,7 +1150,7 @@
 .end method
 
 .method public getLastCallFailCause(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "result"
 
     .prologue
@@ -1175,7 +1175,7 @@
 .end method
 
 .method public getLastDataCallFailCause(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "result"
 
     .prologue
@@ -1187,7 +1187,7 @@
 .end method
 
 .method public getLastPdpFailCause(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "result"
 
     .prologue
@@ -1199,7 +1199,7 @@
 .end method
 
 .method public getMute(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "result"
 
     .prologue
@@ -1210,7 +1210,7 @@
 .end method
 
 .method public getNeighboringCids(Landroid/os/Message;)V
-    .registers 7
+    .locals 5
     .parameter "result"
 
     .prologue
@@ -1231,8 +1231,8 @@
     const/4 v0, 0x1
 
     .local v0, i:I
-    :goto_8
-    if-ge v0, v4, :cond_f
+    :goto_0
+    if-ge v0, v4, :cond_0
 
     .line 989
     aput v0, v1, v0
@@ -1240,10 +1240,10 @@
     .line 988
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 991
-    :cond_f
+    :cond_0
     invoke-direct {p0, p1, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultSuccess(Landroid/os/Message;Ljava/lang/Object;)V
 
     .line 992
@@ -1251,7 +1251,7 @@
 .end method
 
 .method public getNetworkSelectionMode(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "result"
 
     .prologue
@@ -1274,7 +1274,7 @@
 .end method
 
 .method public getOperator(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "result"
 
     .prologue
@@ -1313,7 +1313,7 @@
 .end method
 
 .method public getPDPContextList(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "result"
 
     .prologue
@@ -1325,7 +1325,7 @@
 .end method
 
 .method public getPreferredNetworkType(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "result"
 
     .prologue
@@ -1350,7 +1350,7 @@
 .end method
 
 .method public getPreferredVoicePrivacy(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "result"
 
     .prologue
@@ -1369,7 +1369,7 @@
 .end method
 
 .method public getSignalStrength(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "result"
 
     .prologue
@@ -1399,7 +1399,7 @@
 .end method
 
 .method public getSmscAddress(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "result"
 
     .prologue
@@ -1411,7 +1411,7 @@
 .end method
 
 .method public getVoiceRadioTechnology(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "response"
 
     .prologue
@@ -1423,7 +1423,7 @@
 .end method
 
 .method public getVoiceRegistrationState(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "result"
 
     .prologue
@@ -1515,7 +1515,7 @@
 .end method
 
 .method public handleCallSetupRequestFromSim(ZLandroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "accept"
     .parameter "response"
 
@@ -1530,7 +1530,7 @@
 .end method
 
 .method public hangupConnection(ILandroid/os/Message;)V
-    .registers 7
+    .locals 4
     .parameter "gsmIndex"
     .parameter "result"
 
@@ -1550,7 +1550,7 @@
 
     .line 559
     .local v0, success:Z
-    if-nez v0, :cond_1f
+    if-nez v0, :cond_0
 
     .line 560
     const-string v1, "GSM"
@@ -1569,11 +1569,11 @@
     invoke-direct {p0, p2, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultFail(Landroid/os/Message;Ljava/lang/Throwable;)V
 
     .line 566
-    :goto_1e
+    :goto_0
     return-void
 
     .line 563
-    :cond_1f
+    :cond_0
     const-string v1, "GSM"
 
     const-string v2, "[SimCmd] hangupConnection: resultSuccess"
@@ -1585,11 +1585,11 @@
 
     invoke-direct {p0, p2, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultSuccess(Landroid/os/Message;Ljava/lang/Object;)V
 
-    goto :goto_1e
+    goto :goto_0
 .end method
 
 .method public hangupForegroundResumeBackground(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "result"
 
     .prologue
@@ -1606,7 +1606,7 @@
 
     .line 602
     .local v0, success:Z
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 603
     new-instance v1, Ljava/lang/RuntimeException;
@@ -1618,20 +1618,20 @@
     invoke-direct {p0, p1, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultFail(Landroid/os/Message;Ljava/lang/Throwable;)V
 
     .line 607
-    :goto_15
+    :goto_0
     return-void
 
     .line 605
-    :cond_16
+    :cond_0
     const/4 v1, 0x0
 
     invoke-direct {p0, p1, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultSuccess(Landroid/os/Message;Ljava/lang/Object;)V
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public hangupWaitingOrBackground(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "result"
 
     .prologue
@@ -1648,7 +1648,7 @@
 
     .line 581
     .local v0, success:Z
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 582
     new-instance v1, Ljava/lang/RuntimeException;
@@ -1660,20 +1660,20 @@
     invoke-direct {p0, p1, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultFail(Landroid/os/Message;Ljava/lang/Throwable;)V
 
     .line 586
-    :goto_15
+    :goto_0
     return-void
 
     .line 584
-    :cond_16
+    :cond_0
     const/4 v1, 0x0
 
     invoke-direct {p0, p1, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultSuccess(Landroid/os/Message;Ljava/lang/Object;)V
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public iccIO(IILjava/lang/String;IIILjava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .registers 21
+    .locals 11
     .parameter "command"
     .parameter "fileid"
     .parameter "path"
@@ -1715,7 +1715,7 @@
 .end method
 
 .method public iccIOForApp(IILjava/lang/String;IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .registers 11
+    .locals 0
     .parameter "command"
     .parameter "fileid"
     .parameter "path"
@@ -1736,13 +1736,13 @@
 .end method
 
 .method public invokeOemRilRequestRaw([BLandroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "data"
     .parameter "response"
 
     .prologue
     .line 1212
-    if-eqz p2, :cond_b
+    if-eqz p2, :cond_0
 
     .line 1213
     invoke-static {p2}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;)Landroid/os/AsyncResult;
@@ -1755,18 +1755,18 @@
     invoke-virtual {p2}, Landroid/os/Message;->sendToTarget()V
 
     .line 1216
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method public invokeOemRilRequestStrings([Ljava/lang/String;Landroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "strings"
     .parameter "response"
 
     .prologue
     .line 1220
-    if-eqz p2, :cond_b
+    if-eqz p2, :cond_0
 
     .line 1221
     invoke-static {p2}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;)Landroid/os/AsyncResult;
@@ -1779,12 +1779,12 @@
     invoke-virtual {p2}, Landroid/os/Message;->sendToTarget()V
 
     .line 1224
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method public pauseResponses()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1311
@@ -1799,7 +1799,7 @@
 .end method
 
 .method public progressConnectingCallState()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1238
@@ -1817,7 +1817,7 @@
 .end method
 
 .method public progressConnectingToActive()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1245
@@ -1835,7 +1835,7 @@
 .end method
 
 .method public queryAvailableBandMode(Landroid/os/Message;)V
-    .registers 7
+    .locals 5
     .parameter "result"
 
     .prologue
@@ -1873,7 +1873,7 @@
 .end method
 
 .method public queryCLIP(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "response"
 
     .prologue
@@ -1884,7 +1884,7 @@
 .end method
 
 .method public queryCallForwardStatus(IILjava/lang/String;Landroid/os/Message;)V
-    .registers 5
+    .locals 0
     .parameter "cfReason"
     .parameter "serviceClass"
     .parameter "number"
@@ -1898,7 +1898,7 @@
 .end method
 
 .method public queryCallWaiting(ILandroid/os/Message;)V
-    .registers 3
+    .locals 0
     .parameter "serviceClass"
     .parameter "response"
 
@@ -1911,7 +1911,7 @@
 .end method
 
 .method public queryCdmaRoamingPreference(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "response"
 
     .prologue
@@ -1930,7 +1930,7 @@
 .end method
 
 .method public queryFacilityLock(Ljava/lang/String;Ljava/lang/String;ILandroid/os/Message;)V
-    .registers 11
+    .locals 6
     .parameter "facility"
     .parameter "pin"
     .parameter "serviceClass"
@@ -1957,7 +1957,7 @@
 .end method
 
 .method public queryFacilityLockForApp(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Landroid/os/Message;)V
-    .registers 12
+    .locals 6
     .parameter "facility"
     .parameter "pin"
     .parameter "serviceClass"
@@ -1972,7 +1972,7 @@
     const/4 v2, 0x0
 
     .line 343
-    if-eqz p1, :cond_42
+    if-eqz p1, :cond_3
 
     const-string v3, "SC"
 
@@ -1980,10 +1980,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_42
+    if-eqz v3, :cond_3
 
     .line 344
-    if-eqz p5, :cond_3c
+    if-eqz p5, :cond_0
 
     .line 345
     new-array v0, v1, [I
@@ -1992,9 +1992,9 @@
     .local v0, r:[I
     iget-boolean v3, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mSimLockEnabled:Z
 
-    if-eqz v3, :cond_3d
+    if-eqz v3, :cond_1
 
-    :goto_15
+    :goto_0
     aput v1, v0, v2
 
     .line 347
@@ -2012,11 +2012,11 @@
 
     aget v1, v0, v2
 
-    if-nez v1, :cond_3f
+    if-nez v1, :cond_2
 
     const-string/jumbo v1, "unlocked"
 
-    :goto_2b
+    :goto_1
     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -2035,27 +2035,27 @@
 
     .line 366
     .end local v0           #r:[I
-    :cond_3c
-    :goto_3c
+    :cond_0
+    :goto_2
     return-void
 
     .restart local v0       #r:[I
-    :cond_3d
+    :cond_1
     move v1, v2
 
     .line 346
-    goto :goto_15
+    goto :goto_0
 
     .line 347
-    :cond_3f
+    :cond_2
     const-string v1, "locked"
 
-    goto :goto_2b
+    goto :goto_1
 
     .line 353
     .end local v0           #r:[I
-    :cond_42
-    if-eqz p1, :cond_80
+    :cond_3
+    if-eqz p1, :cond_6
 
     const-string v3, "FD"
 
@@ -2063,10 +2063,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_80
+    if-eqz v3, :cond_6
 
     .line 354
-    if-eqz p5, :cond_3c
+    if-eqz p5, :cond_0
 
     .line 355
     new-array v0, v1, [I
@@ -2075,9 +2075,9 @@
     .restart local v0       #r:[I
     iget-boolean v3, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mSimFdnEnabled:Z
 
-    if-eqz v3, :cond_7b
+    if-eqz v3, :cond_4
 
-    :goto_54
+    :goto_3
     aput v1, v0, v2
 
     .line 357
@@ -2095,11 +2095,11 @@
 
     aget v1, v0, v2
 
-    if-nez v1, :cond_7d
+    if-nez v1, :cond_5
 
     const-string v1, "disabled"
 
-    :goto_69
+    :goto_4
     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -2116,30 +2116,30 @@
     .line 360
     invoke-virtual {p5}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_3c
+    goto :goto_2
 
-    :cond_7b
+    :cond_4
     move v1, v2
 
     .line 356
-    goto :goto_54
+    goto :goto_3
 
     .line 357
-    :cond_7d
+    :cond_5
     const-string v1, "enabled"
 
-    goto :goto_69
+    goto :goto_4
 
     .line 365
     .end local v0           #r:[I
-    :cond_80
+    :cond_6
     invoke-direct {p0, p5}, Lcom/android/internal/telephony/test/SimulatedCommands;->unimplemented(Landroid/os/Message;)V
 
-    goto :goto_3c
+    goto :goto_2
 .end method
 
 .method public queryTTYMode(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "response"
 
     .prologue
@@ -2158,7 +2158,7 @@
 .end method
 
 .method public rejectCall(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "result"
 
     .prologue
@@ -2175,7 +2175,7 @@
 
     .line 717
     .local v0, success:Z
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 718
     new-instance v1, Ljava/lang/RuntimeException;
@@ -2187,20 +2187,20 @@
     invoke-direct {p0, p1, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultFail(Landroid/os/Message;Ljava/lang/Throwable;)V
 
     .line 722
-    :goto_15
+    :goto_0
     return-void
 
     .line 720
-    :cond_16
+    :cond_0
     const/4 v1, 0x0
 
     invoke-direct {p0, p1, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultSuccess(Landroid/os/Message;Ljava/lang/Object;)V
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public reportSmsMemoryStatus(ZLandroid/os/Message;)V
-    .registers 3
+    .locals 0
     .parameter "available"
     .parameter "result"
 
@@ -2213,7 +2213,7 @@
 .end method
 
 .method public reportStkServiceIsRunning(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "result"
 
     .prologue
@@ -2227,7 +2227,7 @@
 .end method
 
 .method public requestIsimAuthentication(Ljava/lang/String;Landroid/os/Message;)V
-    .registers 3
+    .locals 0
     .parameter "nonce"
     .parameter "response"
 
@@ -2240,7 +2240,7 @@
 .end method
 
 .method public resetRadio(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "result"
 
     .prologue
@@ -2252,7 +2252,7 @@
 .end method
 
 .method public resumeResponses()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 1316
@@ -2265,7 +2265,7 @@
     .line 1318
     iget v2, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->pausedResponseCount:I
 
-    if-nez v2, :cond_27
+    if-nez v2, :cond_1
 
     .line 1319
     const/4 v0, 0x0
@@ -2278,8 +2278,8 @@
     move-result v1
 
     .local v1, s:I
-    :goto_11
-    if-ge v0, v1, :cond_21
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 1320
     iget-object v2, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->pausedResponses:Ljava/util/ArrayList;
@@ -2295,10 +2295,10 @@
     .line 1319
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_11
+    goto :goto_0
 
     .line 1322
-    :cond_21
+    :cond_0
     iget-object v2, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->pausedResponses:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
@@ -2306,22 +2306,22 @@
     .line 1326
     .end local v0           #i:I
     .end local v1           #s:I
-    :goto_26
+    :goto_1
     return-void
 
     .line 1324
-    :cond_27
+    :cond_1
     const-string v2, "GSM"
 
     const-string v3, "SimulatedCommands.resumeResponses < 0"
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_26
+    goto :goto_1
 .end method
 
 .method public sendBurstDtmf(Ljava/lang/String;IILandroid/os/Message;)V
-    .registers 6
+    .locals 1
     .parameter "dtmfString"
     .parameter "on"
     .parameter "off"
@@ -2338,7 +2338,7 @@
 .end method
 
 .method public sendCDMAFeatureCode(Ljava/lang/String;Landroid/os/Message;)V
-    .registers 5
+    .locals 2
     .parameter "FeatureCode"
     .parameter "response"
 
@@ -2358,7 +2358,7 @@
 .end method
 
 .method public sendCdmaSms([BLandroid/os/Message;)V
-    .registers 5
+    .locals 2
     .parameter "pdu"
     .parameter "response"
 
@@ -2375,7 +2375,7 @@
 .end method
 
 .method public sendDtmf(CLandroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "c"
     .parameter "result"
 
@@ -2390,7 +2390,7 @@
 .end method
 
 .method public sendEnvelope(Ljava/lang/String;Landroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "contents"
     .parameter "response"
 
@@ -2405,7 +2405,7 @@
 .end method
 
 .method public sendEnvelopeWithStatus(Ljava/lang/String;Landroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "contents"
     .parameter "response"
 
@@ -2420,7 +2420,7 @@
 .end method
 
 .method public sendSMS(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .registers 4
+    .locals 0
     .parameter "smscPDU"
     .parameter "pdu"
     .parameter "result"
@@ -2433,7 +2433,7 @@
 .end method
 
 .method public sendTerminalResponse(Ljava/lang/String;Landroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "contents"
     .parameter "response"
 
@@ -2448,7 +2448,7 @@
 .end method
 
 .method public sendUSSD(Ljava/lang/String;Landroid/os/Message;)V
-    .registers 5
+    .locals 2
     .parameter "ussdString"
     .parameter "result"
 
@@ -2462,7 +2462,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 1189
     invoke-direct {p0, p2, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultSuccess(Landroid/os/Message;Ljava/lang/Object;)V
@@ -2475,11 +2475,11 @@
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->triggerIncomingUssd(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1198
-    :goto_13
+    :goto_0
     return-void
 
     .line 1194
-    :cond_14
+    :cond_0
     invoke-direct {p0, p2, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultSuccess(Landroid/os/Message;Ljava/lang/Object;)V
 
     .line 1196
@@ -2489,11 +2489,11 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->triggerIncomingUssd(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public separateConnection(ILandroid/os/Message;)V
-    .registers 7
+    .locals 4
     .parameter "gsmIndex"
     .parameter "result"
 
@@ -2515,7 +2515,7 @@
 
     .line 681
     .local v1, success:Z
-    if-nez v1, :cond_18
+    if-nez v1, :cond_0
 
     .line 682
     new-instance v2, Ljava/lang/RuntimeException;
@@ -2527,20 +2527,20 @@
     invoke-direct {p0, p2, v2}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultFail(Landroid/os/Message;Ljava/lang/Throwable;)V
 
     .line 686
-    :goto_17
+    :goto_0
     return-void
 
     .line 684
-    :cond_18
+    :cond_0
     const/4 v2, 0x0
 
     invoke-direct {p0, p2, v2}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultSuccess(Landroid/os/Message;Ljava/lang/Object;)V
 
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method public setAutoProgressConnectingCall(Z)V
-    .registers 3
+    .locals 1
     .parameter "b"
 
     .prologue
@@ -2554,7 +2554,7 @@
 .end method
 
 .method public setBandMode(ILandroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "bandMode"
     .parameter "result"
 
@@ -2569,7 +2569,7 @@
 .end method
 
 .method public setCLIR(ILandroid/os/Message;)V
-    .registers 3
+    .locals 0
     .parameter "clirMode"
     .parameter "result"
 
@@ -2581,7 +2581,7 @@
 .end method
 
 .method public setCallForward(IIILjava/lang/String;ILandroid/os/Message;)V
-    .registers 7
+    .locals 0
     .parameter "action"
     .parameter "cfReason"
     .parameter "serviceClass"
@@ -2597,7 +2597,7 @@
 .end method
 
 .method public setCallWaiting(ZILandroid/os/Message;)V
-    .registers 4
+    .locals 0
     .parameter "enable"
     .parameter "serviceClass"
     .parameter "response"
@@ -2611,7 +2611,7 @@
 .end method
 
 .method public setCdmaBroadcastActivation(ZLandroid/os/Message;)V
-    .registers 3
+    .locals 0
     .parameter "activate"
     .parameter "response"
 
@@ -2624,7 +2624,7 @@
 .end method
 
 .method public setCdmaBroadcastConfig([ILandroid/os/Message;)V
-    .registers 3
+    .locals 0
     .parameter "configValuesArray"
     .parameter "response"
 
@@ -2637,7 +2637,7 @@
 .end method
 
 .method public setCdmaRoamingPreference(ILandroid/os/Message;)V
-    .registers 5
+    .locals 2
     .parameter "cdmaRoamingType"
     .parameter "response"
 
@@ -2657,7 +2657,7 @@
 .end method
 
 .method public setCdmaSubscriptionSource(ILandroid/os/Message;)V
-    .registers 5
+    .locals 2
     .parameter "cdmaSubscriptionType"
     .parameter "response"
 
@@ -2677,7 +2677,7 @@
 .end method
 
 .method public setFacilityLock(Ljava/lang/String;ZLjava/lang/String;ILandroid/os/Message;)V
-    .registers 13
+    .locals 7
     .parameter "facility"
     .parameter "lockEnabled"
     .parameter "pin"
@@ -2707,7 +2707,7 @@
 .end method
 
 .method public setFacilityLockForApp(Ljava/lang/String;ZLjava/lang/String;ILjava/lang/String;Landroid/os/Message;)V
-    .registers 11
+    .locals 4
     .parameter "facility"
     .parameter "lockEnabled"
     .parameter "pin"
@@ -2719,7 +2719,7 @@
     const/4 v3, 0x0
 
     .line 378
-    if-eqz p1, :cond_3e
+    if-eqz p1, :cond_2
 
     const-string v1, "SC"
 
@@ -2727,10 +2727,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3e
+    if-eqz v1, :cond_2
 
     .line 380
-    if-eqz p3, :cond_27
+    if-eqz p3, :cond_1
 
     iget-object v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mPinCode:Ljava/lang/String;
 
@@ -2738,7 +2738,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_27
+    if-eqz v1, :cond_1
 
     .line 381
     const-string v1, "SIM"
@@ -2751,7 +2751,7 @@
     iput-boolean p2, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mSimLockEnabled:Z
 
     .line 384
-    if-eqz p6, :cond_26
+    if-eqz p6, :cond_0
 
     .line 385
     invoke-static {p6, v3, v3}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
@@ -2760,13 +2760,13 @@
     invoke-virtual {p6}, Landroid/os/Message;->sendToTarget()V
 
     .line 429
-    :cond_26
-    :goto_26
+    :cond_0
+    :goto_0
     return-void
 
     .line 392
-    :cond_27
-    if-eqz p6, :cond_26
+    :cond_1
+    if-eqz p6, :cond_0
 
     .line 393
     const-string v1, "SIM"
@@ -2789,12 +2789,12 @@
     .line 398
     invoke-virtual {p6}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_26
+    goto :goto_0
 
     .line 402
     .end local v0           #ex:Lcom/android/internal/telephony/CommandException;
-    :cond_3e
-    if-eqz p1, :cond_7b
+    :cond_2
+    if-eqz p1, :cond_4
 
     const-string v1, "FD"
 
@@ -2802,10 +2802,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7b
+    if-eqz v1, :cond_4
 
     .line 404
-    if-eqz p3, :cond_64
+    if-eqz p3, :cond_3
 
     iget-object v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mPin2Code:Ljava/lang/String;
 
@@ -2813,7 +2813,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_64
+    if-eqz v1, :cond_3
 
     .line 405
     const-string v1, "SIM"
@@ -2826,7 +2826,7 @@
     iput-boolean p2, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mSimFdnEnabled:Z
 
     .line 408
-    if-eqz p6, :cond_26
+    if-eqz p6, :cond_0
 
     .line 409
     invoke-static {p6, v3, v3}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
@@ -2834,11 +2834,11 @@
     .line 410
     invoke-virtual {p6}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_26
+    goto :goto_0
 
     .line 416
-    :cond_64
-    if-eqz p6, :cond_26
+    :cond_3
+    if-eqz p6, :cond_0
 
     .line 417
     const-string v1, "SIM"
@@ -2861,18 +2861,18 @@
     .line 422
     invoke-virtual {p6}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_26
+    goto :goto_0
 
     .line 428
     .end local v0           #ex:Lcom/android/internal/telephony/CommandException;
-    :cond_7b
+    :cond_4
     invoke-direct {p0, p6}, Lcom/android/internal/telephony/test/SimulatedCommands;->unimplemented(Landroid/os/Message;)V
 
-    goto :goto_26
+    goto :goto_0
 .end method
 
 .method public setGsmBroadcastActivation(ZLandroid/os/Message;)V
-    .registers 3
+    .locals 0
     .parameter "activate"
     .parameter "response"
 
@@ -2885,7 +2885,7 @@
 .end method
 
 .method public setGsmBroadcastConfig([Lcom/android/internal/telephony/gsm/SmsBroadcastConfigInfo;Landroid/os/Message;)V
-    .registers 3
+    .locals 0
     .parameter "config"
     .parameter "response"
 
@@ -2898,7 +2898,7 @@
 .end method
 
 .method public setLocationUpdates(ZLandroid/os/Message;)V
-    .registers 3
+    .locals 0
     .parameter "enable"
     .parameter "response"
 
@@ -2911,7 +2911,7 @@
 .end method
 
 .method public setMute(ZLandroid/os/Message;)V
-    .registers 3
+    .locals 0
     .parameter "enableMute"
     .parameter "result"
 
@@ -2923,7 +2923,7 @@
 .end method
 
 .method public setNetworkSelectionModeAutomatic(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "result"
 
     .prologue
@@ -2934,7 +2934,7 @@
 .end method
 
 .method public setNetworkSelectionModeManual(Ljava/lang/String;Landroid/os/Message;)V
-    .registers 3
+    .locals 0
     .parameter "operatorNumeric"
     .parameter "result"
 
@@ -2946,7 +2946,7 @@
 .end method
 
 .method public setNextCallFailCause(I)V
-    .registers 2
+    .locals 0
     .parameter "gsmCause"
 
     .prologue
@@ -2958,7 +2958,7 @@
 .end method
 
 .method public setNextDialFailImmediately(Z)V
-    .registers 3
+    .locals 1
     .parameter "b"
 
     .prologue
@@ -2972,7 +2972,7 @@
 .end method
 
 .method public setPhoneType(I)V
-    .registers 4
+    .locals 2
     .parameter "phoneType"
 
     .prologue
@@ -2988,7 +2988,7 @@
 .end method
 
 .method public setPreferredNetworkType(ILandroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "networkType"
     .parameter "result"
 
@@ -3006,7 +3006,7 @@
 .end method
 
 .method public setPreferredVoicePrivacy(ZLandroid/os/Message;)V
-    .registers 5
+    .locals 2
     .parameter "enable"
     .parameter "result"
 
@@ -3026,13 +3026,13 @@
 .end method
 
 .method public setRadioPower(ZLandroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "on"
     .parameter "result"
 
     .prologue
     .line 1027
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_0
 
     .line 1028
     sget-object v0, Lcom/android/internal/telephony/CommandsInterface$RadioState;->RADIO_ON:Lcom/android/internal/telephony/CommandsInterface$RadioState;
@@ -3040,20 +3040,20 @@
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/test/SimulatedCommands;->setRadioState(Lcom/android/internal/telephony/CommandsInterface$RadioState;)V
 
     .line 1032
-    :goto_7
+    :goto_0
     return-void
 
     .line 1030
-    :cond_8
+    :cond_0
     sget-object v0, Lcom/android/internal/telephony/CommandsInterface$RadioState;->RADIO_OFF:Lcom/android/internal/telephony/CommandsInterface$RadioState;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/test/SimulatedCommands;->setRadioState(Lcom/android/internal/telephony/CommandsInterface$RadioState;)V
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setSmscAddress(Ljava/lang/String;Landroid/os/Message;)V
-    .registers 3
+    .locals 0
     .parameter "address"
     .parameter "result"
 
@@ -3066,7 +3066,7 @@
 .end method
 
 .method public setSuppServiceNotifications(ZLandroid/os/Message;)V
-    .registers 5
+    .locals 2
     .parameter "enable"
     .parameter "result"
 
@@ -3077,11 +3077,11 @@
     invoke-direct {p0, p2, v0}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultSuccess(Landroid/os/Message;Ljava/lang/Object;)V
 
     .line 327
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     iget-boolean v0, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mSsnNotifyOn:Z
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 328
     const-string v0, "SIM"
@@ -3091,7 +3091,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 331
-    :cond_11
+    :cond_0
     iput-boolean p1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mSsnNotifyOn:Z
 
     .line 332
@@ -3099,7 +3099,7 @@
 .end method
 
 .method public setTTYMode(ILandroid/os/Message;)V
-    .registers 5
+    .locals 2
     .parameter "ttyMode"
     .parameter "response"
 
@@ -3119,7 +3119,7 @@
 .end method
 
 .method public setupDataCall(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .registers 9
+    .locals 0
     .parameter "radioTechnology"
     .parameter "profile"
     .parameter "apn"
@@ -3138,7 +3138,7 @@
 .end method
 
 .method public shutdown()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1289
@@ -3155,18 +3155,18 @@
 
     .line 1291
     .local v0, looper:Landroid/os/Looper;
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 1292
     invoke-virtual {v0}, Landroid/os/Looper;->quit()V
 
     .line 1294
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method public startDtmf(CLandroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "c"
     .parameter "result"
 
@@ -3181,7 +3181,7 @@
 .end method
 
 .method public stopDtmf(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "result"
 
     .prologue
@@ -3195,7 +3195,7 @@
 .end method
 
 .method public supplyIccPin(Ljava/lang/String;Landroid/os/Message;)V
-    .registers 8
+    .locals 5
     .parameter "pin"
     .parameter "result"
 
@@ -3207,7 +3207,7 @@
 
     sget-object v2, Lcom/android/internal/telephony/test/SimulatedCommands$SimLockState;->REQUIRE_PIN:Lcom/android/internal/telephony/test/SimulatedCommands$SimLockState;
 
-    if-eq v1, v2, :cond_2f
+    if-eq v1, v2, :cond_1
 
     .line 112
     const-string v1, "SIM"
@@ -3250,13 +3250,13 @@
 
     .line 150
     .end local v0           #ex:Lcom/android/internal/telephony/CommandException;
-    :cond_2e
-    :goto_2e
+    :cond_0
+    :goto_0
     return-void
 
     .line 121
-    :cond_2f
-    if-eqz p1, :cond_55
+    :cond_1
+    if-eqz p1, :cond_2
 
     iget-object v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mPinCode:Ljava/lang/String;
 
@@ -3264,7 +3264,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_55
+    if-eqz v1, :cond_2
 
     .line 122
     const-string v1, "SIM"
@@ -3289,7 +3289,7 @@
     invoke-virtual {v1}, Landroid/os/RegistrantList;->notifyRegistrants()V
 
     .line 127
-    if-eqz p2, :cond_2e
+    if-eqz p2, :cond_0
 
     .line 128
     invoke-static {p2, v4, v4}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
@@ -3297,11 +3297,11 @@
     .line 129
     invoke-virtual {p2}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 135
-    :cond_55
-    if-eqz p2, :cond_2e
+    :cond_2
+    if-eqz p2, :cond_0
 
     .line 136
     iget v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mPinUnlockAttempts:I
@@ -3340,7 +3340,7 @@
 
     const/4 v2, 0x3
 
-    if-lt v1, v2, :cond_87
+    if-lt v1, v2, :cond_3
 
     .line 141
     const-string v1, "SIM"
@@ -3355,7 +3355,7 @@
     iput-object v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mSimLockedState:Lcom/android/internal/telephony/test/SimulatedCommands$SimLockState;
 
     .line 145
-    :cond_87
+    :cond_3
     new-instance v0, Lcom/android/internal/telephony/CommandException;
 
     sget-object v1, Lcom/android/internal/telephony/CommandException$Error;->PASSWORD_INCORRECT:Lcom/android/internal/telephony/CommandException$Error;
@@ -3369,11 +3369,11 @@
     .line 148
     invoke-virtual {p2}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_2e
+    goto :goto_0
 .end method
 
 .method public supplyIccPin2(Ljava/lang/String;Landroid/os/Message;)V
-    .registers 8
+    .locals 5
     .parameter "pin2"
     .parameter "result"
 
@@ -3385,7 +3385,7 @@
 
     sget-object v2, Lcom/android/internal/telephony/test/SimulatedCommands$SimFdnState;->REQUIRE_PIN2:Lcom/android/internal/telephony/test/SimulatedCommands$SimFdnState;
 
-    if-eq v1, v2, :cond_2f
+    if-eq v1, v2, :cond_1
 
     .line 196
     const-string v1, "SIM"
@@ -3428,13 +3428,13 @@
 
     .line 233
     .end local v0           #ex:Lcom/android/internal/telephony/CommandException;
-    :cond_2e
-    :goto_2e
+    :cond_0
+    :goto_0
     return-void
 
     .line 205
-    :cond_2f
-    if-eqz p1, :cond_50
+    :cond_1
+    if-eqz p1, :cond_2
 
     iget-object v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mPin2Code:Ljava/lang/String;
 
@@ -3442,7 +3442,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_50
+    if-eqz v1, :cond_2
 
     .line 206
     const-string v1, "SIM"
@@ -3462,7 +3462,7 @@
     iput-object v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mSimFdnEnabledState:Lcom/android/internal/telephony/test/SimulatedCommands$SimFdnState;
 
     .line 210
-    if-eqz p2, :cond_2e
+    if-eqz p2, :cond_0
 
     .line 211
     invoke-static {p2, v4, v4}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
@@ -3470,11 +3470,11 @@
     .line 212
     invoke-virtual {p2}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 218
-    :cond_50
-    if-eqz p2, :cond_2e
+    :cond_2
+    if-eqz p2, :cond_0
 
     .line 219
     iget v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mPin2UnlockAttempts:I
@@ -3513,7 +3513,7 @@
 
     const/4 v2, 0x3
 
-    if-lt v1, v2, :cond_82
+    if-lt v1, v2, :cond_3
 
     .line 224
     const-string v1, "SIM"
@@ -3528,7 +3528,7 @@
     iput-object v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mSimFdnEnabledState:Lcom/android/internal/telephony/test/SimulatedCommands$SimFdnState;
 
     .line 228
-    :cond_82
+    :cond_3
     new-instance v0, Lcom/android/internal/telephony/CommandException;
 
     sget-object v1, Lcom/android/internal/telephony/CommandException$Error;->PASSWORD_INCORRECT:Lcom/android/internal/telephony/CommandException$Error;
@@ -3542,11 +3542,11 @@
     .line 231
     invoke-virtual {p2}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_2e
+    goto :goto_0
 .end method
 
 .method public supplyIccPin2ForApp(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .registers 4
+    .locals 0
     .parameter "pin2"
     .parameter "aid"
     .parameter "response"
@@ -3560,7 +3560,7 @@
 .end method
 
 .method public supplyIccPinForApp(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .registers 4
+    .locals 0
     .parameter "pin"
     .parameter "aid"
     .parameter "response"
@@ -3574,7 +3574,7 @@
 .end method
 
 .method public supplyIccPuk(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .registers 9
+    .locals 5
     .parameter "puk"
     .parameter "newPin"
     .parameter "result"
@@ -3587,7 +3587,7 @@
 
     sget-object v2, Lcom/android/internal/telephony/test/SimulatedCommands$SimLockState;->REQUIRE_PUK:Lcom/android/internal/telephony/test/SimulatedCommands$SimLockState;
 
-    if-eq v1, v2, :cond_2f
+    if-eq v1, v2, :cond_1
 
     .line 154
     const-string v1, "SIM"
@@ -3630,13 +3630,13 @@
 
     .line 192
     .end local v0           #ex:Lcom/android/internal/telephony/CommandException;
-    :cond_2e
-    :goto_2e
+    :cond_0
+    :goto_0
     return-void
 
     .line 163
-    :cond_2f
-    if-eqz p1, :cond_55
+    :cond_1
+    if-eqz p1, :cond_2
 
     const-string v1, "12345678"
 
@@ -3644,7 +3644,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_55
+    if-eqz v1, :cond_2
 
     .line 164
     const-string v1, "SIM"
@@ -3669,7 +3669,7 @@
     invoke-virtual {v1}, Landroid/os/RegistrantList;->notifyRegistrants()V
 
     .line 169
-    if-eqz p3, :cond_2e
+    if-eqz p3, :cond_0
 
     .line 170
     invoke-static {p3, v4, v4}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
@@ -3677,11 +3677,11 @@
     .line 171
     invoke-virtual {p3}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 177
-    :cond_55
-    if-eqz p3, :cond_2e
+    :cond_2
+    if-eqz p3, :cond_0
 
     .line 178
     iget v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mPukUnlockAttempts:I
@@ -3720,7 +3720,7 @@
 
     const/16 v2, 0xa
 
-    if-lt v1, v2, :cond_88
+    if-lt v1, v2, :cond_3
 
     .line 183
     const-string v1, "SIM"
@@ -3735,7 +3735,7 @@
     iput-object v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mSimLockedState:Lcom/android/internal/telephony/test/SimulatedCommands$SimLockState;
 
     .line 187
-    :cond_88
+    :cond_3
     new-instance v0, Lcom/android/internal/telephony/CommandException;
 
     sget-object v1, Lcom/android/internal/telephony/CommandException$Error;->PASSWORD_INCORRECT:Lcom/android/internal/telephony/CommandException$Error;
@@ -3749,11 +3749,11 @@
     .line 190
     invoke-virtual {p3}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_2e
+    goto :goto_0
 .end method
 
 .method public supplyIccPuk2(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .registers 9
+    .locals 5
     .parameter "puk2"
     .parameter "newPin2"
     .parameter "result"
@@ -3766,7 +3766,7 @@
 
     sget-object v2, Lcom/android/internal/telephony/test/SimulatedCommands$SimFdnState;->REQUIRE_PUK2:Lcom/android/internal/telephony/test/SimulatedCommands$SimFdnState;
 
-    if-eq v1, v2, :cond_2f
+    if-eq v1, v2, :cond_1
 
     .line 237
     const-string v1, "SIM"
@@ -3809,13 +3809,13 @@
 
     .line 274
     .end local v0           #ex:Lcom/android/internal/telephony/CommandException;
-    :cond_2e
-    :goto_2e
+    :cond_0
+    :goto_0
     return-void
 
     .line 246
-    :cond_2f
-    if-eqz p1, :cond_50
+    :cond_1
+    if-eqz p1, :cond_2
 
     const-string v1, "87654321"
 
@@ -3823,7 +3823,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_50
+    if-eqz v1, :cond_2
 
     .line 247
     const-string v1, "SIM"
@@ -3843,7 +3843,7 @@
     iput v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mPuk2UnlockAttempts:I
 
     .line 251
-    if-eqz p3, :cond_2e
+    if-eqz p3, :cond_0
 
     .line 252
     invoke-static {p3, v4, v4}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
@@ -3851,11 +3851,11 @@
     .line 253
     invoke-virtual {p3}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 259
-    :cond_50
-    if-eqz p3, :cond_2e
+    :cond_2
+    if-eqz p3, :cond_0
 
     .line 260
     iget v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mPuk2UnlockAttempts:I
@@ -3894,7 +3894,7 @@
 
     const/16 v2, 0xa
 
-    if-lt v1, v2, :cond_83
+    if-lt v1, v2, :cond_3
 
     .line 265
     const-string v1, "SIM"
@@ -3909,7 +3909,7 @@
     iput-object v1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mSimFdnEnabledState:Lcom/android/internal/telephony/test/SimulatedCommands$SimFdnState;
 
     .line 269
-    :cond_83
+    :cond_3
     new-instance v0, Lcom/android/internal/telephony/CommandException;
 
     sget-object v1, Lcom/android/internal/telephony/CommandException$Error;->PASSWORD_INCORRECT:Lcom/android/internal/telephony/CommandException$Error;
@@ -3923,11 +3923,11 @@
     .line 272
     invoke-virtual {p3}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_2e
+    goto :goto_0
 .end method
 
 .method public supplyIccPuk2ForApp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .registers 5
+    .locals 0
     .parameter "puk2"
     .parameter "newPin2"
     .parameter "aid"
@@ -3942,7 +3942,7 @@
 .end method
 
 .method public supplyIccPukForApp(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .registers 5
+    .locals 0
     .parameter "puk"
     .parameter "newPin"
     .parameter "aid"
@@ -3957,7 +3957,7 @@
 .end method
 
 .method public supplyNetworkDepersonalization(Ljava/lang/String;Landroid/os/Message;)V
-    .registers 3
+    .locals 0
     .parameter "netpin"
     .parameter "result"
 
@@ -3970,7 +3970,7 @@
 .end method
 
 .method public switchWaitingOrHoldingAndActive(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "result"
 
     .prologue
@@ -3987,7 +3987,7 @@
 
     .line 623
     .local v0, success:Z
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 624
     new-instance v1, Ljava/lang/RuntimeException;
@@ -3999,20 +3999,20 @@
     invoke-direct {p0, p1, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultFail(Landroid/os/Message;Ljava/lang/Throwable;)V
 
     .line 628
-    :goto_15
+    :goto_0
     return-void
 
     .line 626
-    :cond_16
+    :cond_0
     const/4 v1, 0x0
 
     invoke-direct {p0, p1, v1}, Lcom/android/internal/telephony/test/SimulatedCommands;->resultSuccess(Landroid/os/Message;Ljava/lang/Object;)V
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public triggerHangupAll()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1300
@@ -4030,7 +4030,7 @@
 .end method
 
 .method public triggerHangupBackground()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1276
@@ -4048,7 +4048,7 @@
 .end method
 
 .method public triggerHangupForeground()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1269
@@ -4066,7 +4066,7 @@
 .end method
 
 .method public triggerIncomingSMS(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "message"
 
     .prologue
@@ -4075,7 +4075,7 @@
 .end method
 
 .method public triggerIncomingUssd(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "statusCode"
     .parameter "message"
 
@@ -4083,7 +4083,7 @@
     .line 1178
     iget-object v1, p0, Lcom/android/internal/telephony/BaseCommands;->mUSSDRegistrant:Landroid/os/Registrant;
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_0
 
     .line 1179
     const/4 v1, 0x2
@@ -4106,12 +4106,12 @@
 
     .line 1182
     .end local v0           #result:[Ljava/lang/String;
-    :cond_12
+    :cond_0
     return-void
 .end method
 
 .method public triggerRing(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "number"
 
     .prologue
@@ -4130,7 +4130,7 @@
 .end method
 
 .method public triggerSsn(II)V
-    .registers 7
+    .locals 4
     .parameter "type"
     .parameter "code"
 
@@ -4163,7 +4163,7 @@
 .end method
 
 .method public writeSmsToRuim(ILjava/lang/String;Landroid/os/Message;)V
-    .registers 7
+    .locals 3
     .parameter "status"
     .parameter "pdu"
     .parameter "response"
@@ -4200,7 +4200,7 @@
 .end method
 
 .method public writeSmsToSim(ILjava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    .registers 8
+    .locals 3
     .parameter "status"
     .parameter "smsc"
     .parameter "pdu"

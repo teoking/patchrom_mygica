@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;Landroid/os/Handler;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "x0"
 
@@ -36,13 +36,14 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .registers 3
+    .locals 1
     .parameter "selfChange"
 
     .prologue
     .line 755
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$8;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
+    #calls: Lcom/android/internal/policy/impl/GlobalActions;->onAirplaneModeChanged()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$1500(Lcom/android/internal/policy/impl/GlobalActions;)V
 
     .line 756

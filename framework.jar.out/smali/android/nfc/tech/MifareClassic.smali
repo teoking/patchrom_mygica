@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     const/4 v1, 0x6
@@ -53,21 +53,21 @@
     .line 79
     new-array v0, v1, [B
 
-    fill-array-data v0, :array_18
+    fill-array-data v0, :array_0
 
     sput-object v0, Landroid/nfc/tech/MifareClassic;->KEY_DEFAULT:[B
 
     .line 85
     new-array v0, v1, [B
 
-    fill-array-data v0, :array_20
+    fill-array-data v0, :array_1
 
     sput-object v0, Landroid/nfc/tech/MifareClassic;->KEY_MIFARE_APPLICATION_DIRECTORY:[B
 
     .line 91
     new-array v0, v1, [B
 
-    fill-array-data v0, :array_28
+    fill-array-data v0, :array_2
 
     sput-object v0, Landroid/nfc/tech/MifareClassic;->KEY_NFC_FORUM:[B
 
@@ -76,7 +76,7 @@
     .line 79
     nop
 
-    :array_18
+    :array_0
     .array-data 0x1
         0xfft
         0xfft
@@ -89,7 +89,7 @@
     .line 85
     nop
 
-    :array_20
+    :array_1
     .array-data 0x1
         0xa0t
         0xa1t
@@ -102,7 +102,7 @@
     .line 91
     nop
 
-    :array_28
+    :array_2
     .array-data 0x1
         0xd3t
         0xf7t
@@ -114,7 +114,7 @@
 .end method
 
 .method public constructor <init>(Landroid/nfc/Tag;)V
-    .registers 8
+    .locals 6
     .parameter "tag"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -150,7 +150,7 @@
 
     move-result v1
 
-    sparse-switch v1, :sswitch_data_6c
+    sparse-switch v1, :sswitch_data_0
 
     .line 199
     new-instance v1, Ljava/lang/RuntimeException;
@@ -182,18 +182,18 @@
     throw v1
 
     .line 155
-    :sswitch_35
+    :sswitch_0
     iput v2, p0, Landroid/nfc/tech/MifareClassic;->mType:I
 
     .line 156
     iput v5, p0, Landroid/nfc/tech/MifareClassic;->mSize:I
 
     .line 202
-    :goto_39
+    :goto_0
     return-void
 
     .line 159
-    :sswitch_3a
+    :sswitch_1
     iput v2, p0, Landroid/nfc/tech/MifareClassic;->mType:I
 
     .line 160
@@ -201,10 +201,10 @@
 
     iput v1, p0, Landroid/nfc/tech/MifareClassic;->mSize:I
 
-    goto :goto_39
+    goto :goto_0
 
     .line 163
-    :sswitch_41
+    :sswitch_2
     iput v3, p0, Landroid/nfc/tech/MifareClassic;->mType:I
 
     .line 164
@@ -212,28 +212,28 @@
 
     iput v1, p0, Landroid/nfc/tech/MifareClassic;->mSize:I
 
-    goto :goto_39
+    goto :goto_0
 
     .line 168
-    :sswitch_48
+    :sswitch_3
     iput v3, p0, Landroid/nfc/tech/MifareClassic;->mType:I
 
     .line 169
     iput v4, p0, Landroid/nfc/tech/MifareClassic;->mSize:I
 
-    goto :goto_39
+    goto :goto_0
 
     .line 173
-    :sswitch_4d
+    :sswitch_4
     iput v2, p0, Landroid/nfc/tech/MifareClassic;->mType:I
 
     .line 174
     iput v4, p0, Landroid/nfc/tech/MifareClassic;->mSize:I
 
-    goto :goto_39
+    goto :goto_0
 
     .line 177
-    :sswitch_52
+    :sswitch_5
     iput v2, p0, Landroid/nfc/tech/MifareClassic;->mType:I
 
     .line 178
@@ -242,10 +242,10 @@
     .line 179
     iput-boolean v3, p0, Landroid/nfc/tech/MifareClassic;->mIsEmulated:Z
 
-    goto :goto_39
+    goto :goto_0
 
     .line 182
-    :sswitch_59
+    :sswitch_6
     iput v2, p0, Landroid/nfc/tech/MifareClassic;->mType:I
 
     .line 183
@@ -254,19 +254,19 @@
     .line 184
     iput-boolean v3, p0, Landroid/nfc/tech/MifareClassic;->mIsEmulated:Z
 
-    goto :goto_39
+    goto :goto_0
 
     .line 187
-    :sswitch_60
+    :sswitch_7
     iput v2, p0, Landroid/nfc/tech/MifareClassic;->mType:I
 
     .line 188
     iput v5, p0, Landroid/nfc/tech/MifareClassic;->mSize:I
 
-    goto :goto_39
+    goto :goto_0
 
     .line 193
-    :sswitch_65
+    :sswitch_8
     const/4 v1, 0x2
 
     iput v1, p0, Landroid/nfc/tech/MifareClassic;->mType:I
@@ -274,29 +274,29 @@
     .line 194
     iput v4, p0, Landroid/nfc/tech/MifareClassic;->mSize:I
 
-    goto :goto_39
+    goto :goto_0
 
     .line 152
     nop
 
-    :sswitch_data_6c
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_35
-        0x8 -> :sswitch_35
-        0x9 -> :sswitch_3a
-        0x10 -> :sswitch_41
-        0x11 -> :sswitch_48
-        0x18 -> :sswitch_4d
-        0x28 -> :sswitch_52
-        0x38 -> :sswitch_59
-        0x88 -> :sswitch_60
-        0x98 -> :sswitch_65
-        0xb8 -> :sswitch_65
+        0x1 -> :sswitch_0
+        0x8 -> :sswitch_0
+        0x9 -> :sswitch_1
+        0x10 -> :sswitch_2
+        0x11 -> :sswitch_3
+        0x18 -> :sswitch_4
+        0x28 -> :sswitch_5
+        0x38 -> :sswitch_6
+        0x88 -> :sswitch_7
+        0x98 -> :sswitch_8
+        0xb8 -> :sswitch_8
     .end sparse-switch
 .end method
 
 .method private authenticate(I[BZ)Z
-    .registers 13
+    .locals 9
     .parameter "sector"
     .parameter "key"
     .parameter "keyA"
@@ -326,7 +326,7 @@
 
     .line 376
     .local v0, cmd:[B
-    if-eqz p3, :cond_35
+    if-eqz p3, :cond_0
 
     .line 377
     const/16 v5, 0x60
@@ -334,7 +334,7 @@
     aput-byte v5, v0, v4
 
     .line 385
-    :goto_13
+    :goto_0
     invoke-virtual {p0, p1}, Landroid/nfc/tech/MifareClassic;->sectorToBlock(I)I
 
     move-result v5
@@ -370,32 +370,32 @@
     .line 395
     const/4 v5, 0x0
 
-    :try_start_2e
+    :try_start_0
     invoke-virtual {p0, v0, v5}, Landroid/nfc/tech/MifareClassic;->transceive([BZ)[B
-    :try_end_31
-    .catch Landroid/nfc/TagLostException; {:try_start_2e .. :try_end_31} :catch_3a
-    .catch Ljava/io/IOException; {:try_start_2e .. :try_end_31} :catch_3c
+    :try_end_0
+    .catch Landroid/nfc/TagLostException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v5
 
-    if-eqz v5, :cond_3d
+    if-eqz v5, :cond_1
 
     .line 403
-    :goto_34
+    :goto_1
     return v3
 
     .line 379
     .end local v2           #uid:[B
-    :cond_35
+    :cond_0
     const/16 v5, 0x61
 
     aput-byte v5, v0, v4
 
-    goto :goto_13
+    goto :goto_0
 
     .line 398
     .restart local v2       #uid:[B
-    :catch_3a
+    :catch_0
     move-exception v1
 
     .line 399
@@ -404,18 +404,18 @@
 
     .line 400
     .end local v1           #e:Landroid/nfc/TagLostException;
-    :catch_3c
+    :catch_1
     move-exception v3
 
-    :cond_3d
+    :cond_1
     move v3, v4
 
     .line 403
-    goto :goto_34
+    goto :goto_1
 .end method
 
 .method public static get(Landroid/nfc/Tag;)Landroid/nfc/tech/MifareClassic;
-    .registers 4
+    .locals 3
     .parameter "tag"
 
     .prologue
@@ -428,48 +428,48 @@
 
     move-result v2
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_0
 
     .line 140
-    :goto_9
+    :goto_0
     return-object v1
 
     .line 138
-    :cond_a
-    :try_start_a
+    :cond_0
+    :try_start_0
     new-instance v2, Landroid/nfc/tech/MifareClassic;
 
     invoke-direct {v2, p0}, Landroid/nfc/tech/MifareClassic;-><init>(Landroid/nfc/Tag;)V
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_f} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-object v1, v2
 
-    goto :goto_9
+    goto :goto_0
 
     .line 139
-    :catch_11
+    :catch_0
     move-exception v0
 
     .line 140
     .local v0, e:Landroid/os/RemoteException;
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method private static validateBlock(I)V
-    .registers 4
+    .locals 3
     .parameter "block"
 
     .prologue
     .line 643
-    if-ltz p0, :cond_6
+    if-ltz p0, :cond_0
 
     const/16 v0, 0x100
 
-    if-lt p0, v0, :cond_1f
+    if-lt p0, v0, :cond_1
 
     .line 644
-    :cond_6
+    :cond_0
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -495,24 +495,24 @@
     throw v0
 
     .line 646
-    :cond_1f
+    :cond_1
     return-void
 .end method
 
 .method private static validateSector(I)V
-    .registers 4
+    .locals 3
     .parameter "sector"
 
     .prologue
     .line 636
-    if-ltz p0, :cond_6
+    if-ltz p0, :cond_0
 
     const/16 v0, 0x28
 
-    if-lt p0, v0, :cond_20
+    if-lt p0, v0, :cond_1
 
     .line 637
-    :cond_6
+    :cond_0
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -538,17 +538,17 @@
     throw v0
 
     .line 639
-    :cond_20
+    :cond_1
     return-void
 .end method
 
 .method private static validateValueOperand(I)V
-    .registers 3
+    .locals 2
     .parameter "value"
 
     .prologue
     .line 649
-    if-gez p0, :cond_b
+    if-gez p0, :cond_0
 
     .line 650
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -560,14 +560,14 @@
     throw v0
 
     .line 652
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public authenticateSectorWithKeyA(I[B)Z
-    .registers 4
+    .locals 1
     .parameter "sectorIndex"
     .parameter "key"
     .annotation system Ldalvik/annotation/Throws;
@@ -588,7 +588,7 @@
 .end method
 
 .method public authenticateSectorWithKeyB(I[B)Z
-    .registers 4
+    .locals 1
     .parameter "sectorIndex"
     .parameter "key"
     .annotation system Ldalvik/annotation/Throws;
@@ -609,7 +609,7 @@
 .end method
 
 .method public blockToSector(I)I
-    .registers 3
+    .locals 1
     .parameter "blockIndex"
 
     .prologue
@@ -619,27 +619,27 @@
     .line 293
     const/16 v0, 0x80
 
-    if-ge p1, v0, :cond_a
+    if-ge p1, v0, :cond_0
 
     .line 294
     div-int/lit8 v0, p1, 0x4
 
     .line 296
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     add-int/lit8 v0, p1, -0x80
 
     div-int/lit8 v0, v0, 0x10
 
     add-int/lit8 v0, v0, 0x20
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public bridge synthetic close()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -654,7 +654,7 @@
 .end method
 
 .method public bridge synthetic connect()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -669,7 +669,7 @@
 .end method
 
 .method public decrement(II)V
-    .registers 6
+    .locals 3
     .parameter "blockIndex"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -728,7 +728,7 @@
 .end method
 
 .method public getBlockCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 263
@@ -740,7 +740,7 @@
 .end method
 
 .method public getBlockCountInSector(I)I
-    .registers 3
+    .locals 1
     .parameter "sectorIndex"
 
     .prologue
@@ -750,23 +750,23 @@
     .line 276
     const/16 v0, 0x20
 
-    if-ge p1, v0, :cond_9
+    if-ge p1, v0, :cond_0
 
     .line 277
     const/4 v0, 0x4
 
     .line 279
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/16 v0, 0x10
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getMaxTransceiveLength()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 584
@@ -778,56 +778,56 @@
 .end method
 
 .method public getSectorCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 243
     iget v0, p0, Landroid/nfc/tech/MifareClassic;->mSize:I
 
-    sparse-switch v0, :sswitch_data_12
+    sparse-switch v0, :sswitch_data_0
 
     .line 253
     const/4 v0, 0x0
 
-    :goto_6
+    :goto_0
     return v0
 
     .line 245
-    :sswitch_7
+    :sswitch_0
     const/16 v0, 0x10
 
-    goto :goto_6
+    goto :goto_0
 
     .line 247
-    :sswitch_a
+    :sswitch_1
     const/16 v0, 0x20
 
-    goto :goto_6
+    goto :goto_0
 
     .line 249
-    :sswitch_d
+    :sswitch_2
     const/16 v0, 0x28
 
-    goto :goto_6
+    goto :goto_0
 
     .line 251
-    :sswitch_10
+    :sswitch_3
     const/4 v0, 0x5
 
-    goto :goto_6
+    goto :goto_0
 
     .line 243
-    :sswitch_data_12
+    :sswitch_data_0
     .sparse-switch
-        0x140 -> :sswitch_10
-        0x400 -> :sswitch_7
-        0x800 -> :sswitch_a
-        0x1000 -> :sswitch_d
+        0x140 -> :sswitch_3
+        0x400 -> :sswitch_0
+        0x800 -> :sswitch_1
+        0x1000 -> :sswitch_2
     .end sparse-switch
 .end method
 
 .method public getSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 224
@@ -837,7 +837,7 @@
 .end method
 
 .method public bridge synthetic getTag()Landroid/nfc/Tag;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 73
@@ -849,7 +849,7 @@
 .end method
 
 .method public getTimeout()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 621
@@ -863,17 +863,17 @@
     const/16 v2, 0x8
 
     invoke-interface {v1, v2}, Landroid/nfc/INfcTag;->getTimeout(I)I
-    :try_end_b
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_b} :catch_d
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 624
-    :goto_c
+    :goto_0
     return v1
 
     .line 622
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 623
@@ -887,11 +887,11 @@
     .line 624
     const/4 v1, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public getType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 213
@@ -901,7 +901,7 @@
 .end method
 
 .method public increment(II)V
-    .registers 6
+    .locals 3
     .parameter "blockIndex"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -960,7 +960,7 @@
 .end method
 
 .method public bridge synthetic isConnected()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 73
@@ -972,7 +972,7 @@
 .end method
 
 .method public isEmulated()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 234
@@ -982,7 +982,7 @@
 .end method
 
 .method public readBlock(I)[B
-    .registers 6
+    .locals 4
     .parameter "blockIndex"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1024,7 +1024,7 @@
 .end method
 
 .method public bridge synthetic reconnect()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1039,7 +1039,7 @@
 .end method
 
 .method public restore(I)V
-    .registers 6
+    .locals 4
     .parameter "blockIndex"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1080,34 +1080,34 @@
 .end method
 
 .method public sectorToBlock(I)I
-    .registers 3
+    .locals 1
     .parameter "sectorIndex"
 
     .prologue
     .line 308
     const/16 v0, 0x20
 
-    if-ge p1, v0, :cond_7
+    if-ge p1, v0, :cond_0
 
     .line 309
     mul-int/lit8 v0, p1, 0x4
 
     .line 311
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     add-int/lit8 v0, p1, -0x20
 
     mul-int/lit8 v0, v0, 0x10
 
     add-int/lit16 v0, v0, 0x80
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public setTimeout(I)V
-    .registers 6
+    .locals 4
     .parameter "timeout"
 
     .prologue
@@ -1127,7 +1127,7 @@
 
     .line 604
     .local v1, err:I
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_0
 
     .line 605
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -1137,12 +1137,12 @@
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v2
-    :try_end_16
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_16} :catch_16
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 607
     .end local v1           #err:I
-    :catch_16
+    :catch_0
     move-exception v0
 
     .line 608
@@ -1155,12 +1155,12 @@
 
     .line 610
     .end local v0           #e:Landroid/os/RemoteException;
-    :cond_1e
+    :cond_0
     return-void
 .end method
 
 .method public transceive([B)[B
-    .registers 3
+    .locals 1
     .parameter "data"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1180,7 +1180,7 @@
 .end method
 
 .method public transfer(I)V
-    .registers 6
+    .locals 4
     .parameter "blockIndex"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1221,7 +1221,7 @@
 .end method
 
 .method public writeBlock(I[B)V
-    .registers 7
+    .locals 4
     .parameter "blockIndex"
     .parameter "data"
     .annotation system Ldalvik/annotation/Throws;
@@ -1244,7 +1244,7 @@
 
     const/16 v2, 0x10
 
-    if-eq v1, v2, :cond_15
+    if-eq v1, v2, :cond_0
 
     .line 446
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -1256,7 +1256,7 @@
     throw v1
 
     .line 449
-    :cond_15
+    :cond_0
     array-length v1, p2
 
     add-int/lit8 v1, v1, 0x2

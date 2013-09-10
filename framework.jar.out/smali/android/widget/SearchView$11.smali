@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/SearchView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .registers 2
+    .locals 0
     .parameter "s"
 
     .prologue
@@ -47,7 +47,7 @@
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 5
+    .locals 0
     .parameter "s"
     .parameter "start"
     .parameter "before"
@@ -59,7 +59,7 @@
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 6
+    .locals 1
     .parameter "s"
     .parameter "start"
     .parameter "before"
@@ -69,6 +69,7 @@
     .line 1623
     iget-object v0, p0, Landroid/widget/SearchView$11;->this$0:Landroid/widget/SearchView;
 
+    #calls: Landroid/widget/SearchView;->onTextChanged(Ljava/lang/CharSequence;)V
     invoke-static {v0, p1}, Landroid/widget/SearchView;->access$2000(Landroid/widget/SearchView;Ljava/lang/CharSequence;)V
 
     .line 1624

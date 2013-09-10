@@ -11,7 +11,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 10
+    .locals 9
 
     .prologue
     const-wide/16 v5, 0x0
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>(Landroid/media/videoeditor/MediaItem;Ljava/lang/String;Landroid/graphics/Rect;Landroid/graphics/Rect;JJ)V
-    .registers 16
+    .locals 7
     .parameter "mediaItem"
     .parameter "effectId"
     .parameter "startRect"
@@ -63,16 +63,16 @@
 
     move-result v0
 
-    if-lez v0, :cond_14
+    if-lez v0, :cond_0
 
     invoke-virtual {p3}, Landroid/graphics/Rect;->height()I
 
     move-result v0
 
-    if-gtz v0, :cond_1c
+    if-gtz v0, :cond_1
 
     .line 57
-    :cond_14
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid Start rectangle"
@@ -82,21 +82,21 @@
     throw v0
 
     .line 59
-    :cond_1c
+    :cond_1
     invoke-virtual {p4}, Landroid/graphics/Rect;->width()I
 
     move-result v0
 
-    if-lez v0, :cond_28
+    if-lez v0, :cond_2
 
     invoke-virtual {p4}, Landroid/graphics/Rect;->height()I
 
     move-result v0
 
-    if-gtz v0, :cond_30
+    if-gtz v0, :cond_3
 
     .line 60
-    :cond_28
+    :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid End rectangle"
@@ -106,7 +106,7 @@
     throw v0
 
     .line 63
-    :cond_30
+    :cond_3
     iput-object p3, p0, Landroid/media/videoeditor/EffectKenBurns;->mStartRect:Landroid/graphics/Rect;
 
     .line 64
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public getEndRect()Landroid/graphics/Rect;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84
@@ -129,7 +129,7 @@
 .end method
 
 .method getKenBurnsSettings(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
-    .registers 4
+    .locals 1
     .parameter "start"
     .parameter "end"
 
@@ -211,7 +211,7 @@
 .end method
 
 .method public getStartRect()Landroid/graphics/Rect;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 74

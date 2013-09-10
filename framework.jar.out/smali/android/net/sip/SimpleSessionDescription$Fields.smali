@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "order"
 
     .prologue
@@ -53,7 +53,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -65,7 +65,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/StringBuilder;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -77,7 +77,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;C)Ljava/lang/String;
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -92,7 +92,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;CLjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -106,7 +106,7 @@
 .end method
 
 .method private cut(Ljava/lang/String;C)[Ljava/lang/String;
-    .registers 9
+    .locals 6
     .parameter "prefix"
     .parameter "delimiter"
 
@@ -133,13 +133,13 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :cond_f
-    :goto_f
+    :cond_0
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_39
+    if-eqz v5, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -153,7 +153,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_0
 
     .line 553
     invoke-virtual {v3, p2}, Ljava/lang/String;->indexOf(I)I
@@ -164,7 +164,7 @@
     .local v0, i:I
     const/4 v5, -0x1
 
-    if-ne v0, v5, :cond_2c
+    if-ne v0, v5, :cond_1
 
     .line 555
     invoke-virtual {v3}, Ljava/lang/String;->length()I
@@ -172,7 +172,7 @@
     move-result v0
 
     .line 557
-    :cond_2c
+    :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v5
@@ -186,12 +186,12 @@
     .line 558
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 561
     .end local v0           #i:I
     .end local v3           #line:Ljava/lang/String;
-    :cond_39
+    :cond_2
     invoke-static {v4, v2}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
 
     move-result-object v5
@@ -202,7 +202,7 @@
 .end method
 
 .method private find(Ljava/lang/String;C)I
-    .registers 7
+    .locals 4
     .parameter "key"
     .parameter "delimiter"
 
@@ -223,8 +223,8 @@
     add-int/lit8 v0, v3, -0x1
 
     .local v0, i:I
-    :goto_c
-    if-ltz v0, :cond_2c
+    :goto_0
+    if-ltz v0, :cond_2
 
     .line 570
     iget-object v3, p0, Landroid/net/sip/SimpleSessionDescription$Fields;->mLines:Ljava/util/ArrayList;
@@ -241,45 +241,45 @@
 
     move-result v3
 
-    if-eqz v3, :cond_29
+    if-eqz v3, :cond_1
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    if-eq v3, v1, :cond_28
+    if-eq v3, v1, :cond_0
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v3
 
-    if-ne v3, p2, :cond_29
+    if-ne v3, p2, :cond_1
 
     .line 576
     .end local v0           #i:I
     .end local v2           #line:Ljava/lang/String;
-    :cond_28
-    :goto_28
+    :cond_0
+    :goto_1
     return v0
 
     .line 569
     .restart local v0       #i:I
     .restart local v2       #line:Ljava/lang/String;
-    :cond_29
+    :cond_1
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_c
+    goto :goto_0
 
     .line 576
     .end local v2           #line:Ljava/lang/String;
-    :cond_2c
+    :cond_2
     const/4 v0, -0x1
 
-    goto :goto_28
+    goto :goto_1
 .end method
 
 .method private get(Ljava/lang/String;C)Ljava/lang/String;
-    .registers 7
+    .locals 4
     .parameter "key"
     .parameter "delimiter"
 
@@ -293,17 +293,17 @@
     .local v0, index:I
     const/4 v3, -0x1
 
-    if-ne v0, v3, :cond_9
+    if-ne v0, v3, :cond_0
 
     .line 605
     const/4 v3, 0x0
 
     .line 609
-    :goto_8
+    :goto_0
     return-object v3
 
     .line 607
-    :cond_9
+    :cond_0
     iget-object v3, p0, Landroid/net/sip/SimpleSessionDescription$Fields;->mLines:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -324,24 +324,24 @@
 
     move-result v3
 
-    if-ne v3, v1, :cond_1e
+    if-ne v3, v1, :cond_1
 
     const-string v3, ""
 
-    goto :goto_8
+    goto :goto_0
 
-    :cond_1e
+    :cond_1
     add-int/lit8 v3, v1, 0x1
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v3
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method private parse(Ljava/lang/String;)V
-    .registers 8
+    .locals 6
     .parameter "line"
 
     .prologue
@@ -362,14 +362,14 @@
 
     move-result v3
 
-    if-ne v3, v4, :cond_f
+    if-ne v3, v4, :cond_0
 
     .line 543
-    :goto_e
+    :goto_0
     return-void
 
     .line 531
-    :cond_f
+    :cond_0
     const/16 v0, 0x3d
 
     .line 532
@@ -380,7 +380,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_21
+    if-nez v3, :cond_1
 
     const-string v3, "a=fmtp:"
 
@@ -388,50 +388,50 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2f
+    if-eqz v3, :cond_3
 
     .line 533
-    :cond_21
+    :cond_1
     const/16 v0, 0x20
 
     .line 537
-    :cond_23
-    :goto_23
+    :cond_2
+    :goto_1
     invoke-virtual {p1, v0}, Ljava/lang/String;->indexOf(I)I
 
     move-result v1
 
     .line 538
     .local v1, i:I
-    if-ne v1, v4, :cond_3a
+    if-ne v1, v4, :cond_5
 
     .line 539
     const-string v3, ""
 
     invoke-direct {p0, p1, v0, v3}, Landroid/net/sip/SimpleSessionDescription$Fields;->set(Ljava/lang/String;CLjava/lang/String;)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 534
     .end local v1           #i:I
-    :cond_2f
+    :cond_3
     const/16 v3, 0x62
 
-    if-eq v2, v3, :cond_37
+    if-eq v2, v3, :cond_4
 
     const/16 v3, 0x61
 
-    if-ne v2, v3, :cond_23
+    if-ne v2, v3, :cond_2
 
     .line 535
-    :cond_37
+    :cond_4
     const/16 v0, 0x3a
 
-    goto :goto_23
+    goto :goto_1
 
     .line 541
     .restart local v1       #i:I
-    :cond_3a
+    :cond_5
     invoke-virtual {p1, v5, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v3
@@ -444,11 +444,11 @@
 
     invoke-direct {p0, v3, v0, v4}, Landroid/net/sip/SimpleSessionDescription$Fields;->set(Ljava/lang/String;CLjava/lang/String;)V
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method private set(Ljava/lang/String;CLjava/lang/String;)V
-    .registers 7
+    .locals 3
     .parameter "key"
     .parameter "delimiter"
     .parameter "value"
@@ -463,14 +463,14 @@
 
     .line 585
     .local v0, index:I
-    if-eqz p3, :cond_30
+    if-eqz p3, :cond_3
 
     .line 586
     invoke-virtual {p3}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-eqz v1, :cond_22
+    if-eqz v1, :cond_0
 
     .line 587
     new-instance v1, Ljava/lang/StringBuilder;
@@ -494,8 +494,8 @@
     move-result-object p1
 
     .line 589
-    :cond_22
-    if-ne v0, v2, :cond_2a
+    :cond_0
+    if-ne v0, v2, :cond_2
 
     .line 590
     iget-object v1, p0, Landroid/net/sip/SimpleSessionDescription$Fields;->mLines:Ljava/util/ArrayList;
@@ -503,32 +503,32 @@
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 597
-    :cond_29
-    :goto_29
+    :cond_1
+    :goto_0
     return-void
 
     .line 592
-    :cond_2a
+    :cond_2
     iget-object v1, p0, Landroid/net/sip/SimpleSessionDescription$Fields;->mLines:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0, p1}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_29
+    goto :goto_0
 
     .line 594
-    :cond_30
-    if-eq v0, v2, :cond_29
+    :cond_3
+    if-eq v0, v2, :cond_1
 
     .line 595
     iget-object v1, p0, Landroid/net/sip/SimpleSessionDescription$Fields;->mLines:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method private write(Ljava/lang/StringBuilder;)V
-    .registers 8
+    .locals 6
     .parameter "buffer"
 
     .prologue
@@ -536,14 +536,14 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v4, p0, Landroid/net/sip/SimpleSessionDescription$Fields;->mOrder:Ljava/lang/String;
 
     invoke-virtual {v4}, Ljava/lang/String;->length()I
 
     move-result v4
 
-    if-ge v0, v4, :cond_35
+    if-ge v0, v4, :cond_2
 
     .line 514
     iget-object v4, p0, Landroid/net/sip/SimpleSessionDescription$Fields;->mOrder:Ljava/lang/String;
@@ -561,13 +561,13 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :cond_15
-    :goto_15
+    :cond_0
+    :goto_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_32
+    if-eqz v4, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -583,7 +583,7 @@
 
     move-result v4
 
-    if-ne v4, v3, :cond_15
+    if-ne v4, v3, :cond_0
 
     .line 517
     invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -594,26 +594,26 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_15
+    goto :goto_1
 
     .line 513
     .end local v2           #line:Ljava/lang/String;
-    :cond_32
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 521
     .end local v1           #i$:Ljava/util/Iterator;
     .end local v3           #type:C
-    :cond_35
+    :cond_2
     return-void
 .end method
 
 
 # virtual methods
 .method public getAddress()Ljava/lang/String;
-    .registers 8
+    .locals 7
 
     .prologue
     const/4 v3, 0x0
@@ -631,15 +631,15 @@
 
     .line 402
     .local v0, address:Ljava/lang/String;
-    if-nez v0, :cond_d
+    if-nez v0, :cond_1
 
     .line 410
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     return-object v3
 
     .line 405
-    :cond_d
+    :cond_1
     const-string v4, " "
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -652,7 +652,7 @@
 
     const/4 v5, 0x3
 
-    if-ne v4, v5, :cond_c
+    if-ne v4, v5, :cond_0
 
     .line 409
     aget-object v3, v1, v6
@@ -665,13 +665,13 @@
 
     .line 410
     .local v2, slash:I
-    if-gez v2, :cond_24
+    if-gez v2, :cond_2
 
     aget-object v3, v1, v6
 
-    goto :goto_c
+    goto :goto_0
 
-    :cond_24
+    :cond_2
     aget-object v3, v1, v6
 
     const/4 v4, 0x0
@@ -680,11 +680,11 @@
 
     move-result-object v3
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public getAttribute(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "name"
 
     .prologue
@@ -717,7 +717,7 @@
 .end method
 
 .method public getAttributeNames()[Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 492
@@ -733,7 +733,7 @@
 .end method
 
 .method public getBandwidth(Ljava/lang/String;)I
-    .registers 6
+    .locals 4
     .parameter "type"
 
     .prologue
@@ -766,33 +766,33 @@
 
     .line 471
     .local v0, value:Ljava/lang/String;
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     .line 473
-    :try_start_1c
+    :try_start_0
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_1f
-    .catch Ljava/lang/NumberFormatException; {:try_start_1c .. :try_end_1f} :catch_21
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 477
-    :cond_20
-    :goto_20
+    :cond_0
+    :goto_0
     return v1
 
     .line 474
-    :catch_21
+    :catch_0
     move-exception v2
 
     .line 475
     invoke-virtual {p0, p1, v1}, Landroid/net/sip/SimpleSessionDescription$Fields;->setBandwidth(Ljava/lang/String;I)V
 
-    goto :goto_20
+    goto :goto_0
 .end method
 
 .method public getBandwidthTypes()[Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 462
@@ -808,7 +808,7 @@
 .end method
 
 .method public getEncryptionKey()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v2, 0x0
@@ -824,15 +824,15 @@
 
     .line 442
     .local v1, encryption:Ljava/lang/String;
-    if-nez v1, :cond_c
+    if-nez v1, :cond_1
 
     .line 446
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return-object v2
 
     .line 445
-    :cond_c
+    :cond_1
     const/16 v3, 0x3a
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->indexOf(I)I
@@ -843,7 +843,7 @@
     .local v0, colon:I
     const/4 v3, -0x1
 
-    if-eq v0, v3, :cond_b
+    if-eq v0, v3, :cond_0
 
     const/4 v2, 0x0
 
@@ -853,11 +853,11 @@
 
     move-result-object v2
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public getEncryptionMethod()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 429
@@ -871,20 +871,20 @@
 
     .line 430
     .local v1, encryption:Ljava/lang/String;
-    if-nez v1, :cond_c
+    if-nez v1, :cond_1
 
     .line 431
     const/4 v1, 0x0
 
     .line 434
     .end local v1           #encryption:Ljava/lang/String;
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return-object v1
 
     .line 433
     .restart local v1       #encryption:Ljava/lang/String;
-    :cond_c
+    :cond_1
     const/16 v2, 0x3a
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->indexOf(I)I
@@ -895,7 +895,7 @@
     .local v0, colon:I
     const/4 v2, -0x1
 
-    if-eq v0, v2, :cond_b
+    if-eq v0, v2, :cond_0
 
     const/4 v2, 0x0
 
@@ -903,16 +903,16 @@
 
     move-result-object v1
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public setAddress(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "address"
 
     .prologue
     .line 418
-    if-eqz p1, :cond_1d
+    if-eqz p1, :cond_0
 
     .line 419
     new-instance v1, Ljava/lang/StringBuilder;
@@ -925,11 +925,11 @@
 
     move-result v0
 
-    if-gez v0, :cond_25
+    if-gez v0, :cond_1
 
     const-string v0, "IN IP4 "
 
-    :goto_11
+    :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -943,7 +943,7 @@
     move-result-object p1
 
     .line 422
-    :cond_1d
+    :cond_0
     const-string v0, "c"
 
     const/16 v1, 0x3d
@@ -954,14 +954,14 @@
     return-void
 
     .line 419
-    :cond_25
+    :cond_1
     const-string v0, "IN IP6 "
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public setAttribute(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "name"
     .parameter "value"
 
@@ -994,7 +994,7 @@
 .end method
 
 .method public setBandwidth(Ljava/lang/String;I)V
-    .registers 6
+    .locals 3
     .parameter "type"
     .parameter "value"
 
@@ -1020,27 +1020,27 @@
 
     const/16 v2, 0x3a
 
-    if-gez p2, :cond_1c
+    if-gez p2, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_18
+    :goto_0
     invoke-direct {p0, v1, v2, v0}, Landroid/net/sip/SimpleSessionDescription$Fields;->set(Ljava/lang/String;CLjava/lang/String;)V
 
     .line 486
     return-void
 
     .line 485
-    :cond_1c
+    :cond_0
     invoke-static {p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method public setEncryption(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 7
+    .locals 4
     .parameter "method"
     .parameter "key"
 
@@ -1050,13 +1050,13 @@
 
     const/16 v1, 0x3d
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_0
 
-    if-nez p2, :cond_c
+    if-nez p2, :cond_1
 
     .end local p1
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     invoke-direct {p0, v0, v1, p1}, Landroid/net/sip/SimpleSessionDescription$Fields;->set(Ljava/lang/String;CLjava/lang/String;)V
 
     .line 456
@@ -1064,7 +1064,7 @@
 
     .line 454
     .restart local p1
-    :cond_c
+    :cond_1
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1087,5 +1087,5 @@
 
     move-result-object p1
 
-    goto :goto_8
+    goto :goto_0
 .end method

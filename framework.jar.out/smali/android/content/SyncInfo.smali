@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 79
@@ -45,7 +45,7 @@
 .end method
 
 .method constructor <init>(ILandroid/accounts/Account;Ljava/lang/String;J)V
-    .registers 6
+    .locals 0
     .parameter "authorityId"
     .parameter "account"
     .parameter "authority"
@@ -72,7 +72,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "parcel"
 
     .prologue
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 59
@@ -124,7 +124,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "parcel"
     .parameter "flags"
 

@@ -99,7 +99,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;I)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "userId"
 
@@ -158,7 +158,7 @@
     monitor-enter v1
 
     .line 178
-    :try_start_32
+    :try_start_0
     new-instance v0, Landroid/accounts/AccountManagerService$DatabaseHelper;
 
     invoke-direct {v0, p1, p2}, Landroid/accounts/AccountManagerService$DatabaseHelper;-><init>(Landroid/content/Context;I)V
@@ -172,18 +172,18 @@
     return-void
 
     .line 179
-    :catchall_3b
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_3d
-    .catchall {:try_start_32 .. :try_end_3d} :catchall_3b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method static synthetic access$1300(Landroid/accounts/AccountManagerService$UserAccounts;)Ljava/util/HashMap;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -194,7 +194,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/accounts/AccountManagerService$UserAccounts;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -205,7 +205,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/accounts/AccountManagerService$UserAccounts;)Landroid/accounts/AccountManagerService$DatabaseHelper;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -216,7 +216,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/accounts/AccountManagerService$UserAccounts;)Ljava/util/HashMap;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -227,7 +227,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/accounts/AccountManagerService$UserAccounts;)Ljava/util/HashMap;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -238,7 +238,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/accounts/AccountManagerService$UserAccounts;)Ljava/util/HashMap;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -249,7 +249,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/accounts/AccountManagerService$UserAccounts;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -260,7 +260,7 @@
 .end method
 
 .method static synthetic access$800(Landroid/accounts/AccountManagerService$UserAccounts;)Ljava/util/HashMap;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue

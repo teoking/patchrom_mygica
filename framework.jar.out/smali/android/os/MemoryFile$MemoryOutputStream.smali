@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/os/MemoryFile;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -42,7 +42,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/MemoryFile;Landroid/os/MemoryFile$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public write(I)V
-    .registers 6
+    .locals 4
     .parameter "oneByte"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -72,7 +72,7 @@
     .line 338
     iget-object v0, p0, Landroid/os/MemoryFile$MemoryOutputStream;->mSingleByte:[B
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     .line 339
     new-array v0, v3, [B
@@ -80,7 +80,7 @@
     iput-object v0, p0, Landroid/os/MemoryFile$MemoryOutputStream;->mSingleByte:[B
 
     .line 341
-    :cond_a
+    :cond_0
     iget-object v0, p0, Landroid/os/MemoryFile$MemoryOutputStream;->mSingleByte:[B
 
     int-to-byte v1, p1
@@ -97,7 +97,7 @@
 .end method
 
 .method public write([BII)V
-    .registers 6
+    .locals 2
     .parameter "buffer"
     .parameter "offset"
     .parameter "count"

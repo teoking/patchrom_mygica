@@ -33,7 +33,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/LocationManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -46,7 +46,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/LocationManagerService;Lcom/android/server/LocationManagerService$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public compare(Lcom/android/server/location/LocationProviderInterface;Lcom/android/server/location/LocationProviderInterface;)I
-    .registers 5
+    .locals 2
     .parameter "l1"
     .parameter "l2"
 
@@ -80,7 +80,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public equals(Lcom/android/server/location/LocationProviderInterface;Lcom/android/server/location/LocationProviderInterface;)Z
-    .registers 5
+    .locals 2
     .parameter "l1"
     .parameter "l2"
 
@@ -114,15 +114,15 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_c
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method

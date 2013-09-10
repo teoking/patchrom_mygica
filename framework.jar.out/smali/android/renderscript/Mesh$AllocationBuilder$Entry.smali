@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/renderscript/Mesh$AllocationBuilder;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue

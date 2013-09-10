@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/TabHost;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "tag"
 
@@ -44,7 +44,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/TabHost;Ljava/lang/String;Landroid/widget/TabHost$1;)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -57,7 +57,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/widget/TabHost$TabSpec;)Landroid/widget/TabHost$IndicatorStrategy;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -68,7 +68,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/widget/TabHost$TabSpec;)Landroid/widget/TabHost$ContentStrategy;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public getTag()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 496
@@ -91,7 +91,7 @@
 .end method
 
 .method public setContent(I)Landroid/widget/TabHost$TabSpec;
-    .registers 5
+    .locals 3
     .parameter "viewId"
 
     .prologue
@@ -111,7 +111,7 @@
 .end method
 
 .method public setContent(Landroid/content/Intent;)Landroid/widget/TabHost$TabSpec;
-    .registers 6
+    .locals 4
     .parameter "intent"
 
     .prologue
@@ -133,7 +133,7 @@
 .end method
 
 .method public setContent(Landroid/widget/TabHost$TabContentFactory;)Landroid/widget/TabHost$TabSpec;
-    .registers 5
+    .locals 3
     .parameter "contentFactory"
 
     .prologue
@@ -153,7 +153,7 @@
 .end method
 
 .method public setIndicator(Landroid/view/View;)Landroid/widget/TabHost$TabSpec;
-    .registers 5
+    .locals 3
     .parameter "view"
 
     .prologue
@@ -173,7 +173,7 @@
 .end method
 
 .method public setIndicator(Ljava/lang/CharSequence;)Landroid/widget/TabHost$TabSpec;
-    .registers 5
+    .locals 3
     .parameter "label"
 
     .prologue
@@ -193,7 +193,7 @@
 .end method
 
 .method public setIndicator(Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;)Landroid/widget/TabHost$TabSpec;
-    .registers 6
+    .locals 3
     .parameter "label"
     .parameter "icon"
 

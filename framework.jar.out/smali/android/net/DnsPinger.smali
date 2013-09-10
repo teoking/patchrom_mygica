@@ -83,7 +83,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 63
@@ -105,13 +105,13 @@
 
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_18
+    fill-array-data v0, :array_0
 
     sput-object v0, Landroid/net/DnsPinger;->mDnsQuery:[B
 
     return-void
 
-    :array_18
+    :array_0
     .array-data 0x1
         0x0t
         0x0t
@@ -149,7 +149,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroid/os/Looper;Landroid/os/Handler;I)V
-    .registers 9
+    .locals 3
     .parameter "context"
     .parameter "TAG"
     .parameter "looper"
@@ -196,7 +196,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3b
+    if-nez v0, :cond_0
 
     .line 127
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -224,7 +224,7 @@
     throw v0
 
     .line 130
-    :cond_3b
+    :cond_0
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -250,13 +250,13 @@
 .end method
 
 .method private getCurrentLinkProperties()Landroid/net/LinkProperties;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 289
     iget-object v0, p0, Landroid/net/DnsPinger;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 290
     iget-object v0, p0, Landroid/net/DnsPinger;->mContext:Landroid/content/Context;
@@ -272,7 +272,7 @@
     iput-object v0, p0, Landroid/net/DnsPinger;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     .line 294
-    :cond_10
+    :cond_0
     iget-object v0, p0, Landroid/net/DnsPinger;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     iget v1, p0, Landroid/net/DnsPinger;->mConnectionType:I
@@ -285,7 +285,7 @@
 .end method
 
 .method private getDefaultDns()Ljava/net/InetAddress;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 298
@@ -303,16 +303,16 @@
 
     .line 300
     .local v0, dns:Ljava/lang/String;
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-nez v2, :cond_21
+    if-nez v2, :cond_1
 
     .line 301
-    :cond_14
+    :cond_0
     iget-object v2, p0, Landroid/net/DnsPinger;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -326,20 +326,20 @@
     move-result-object v0
 
     .line 305
-    :cond_21
-    :try_start_21
+    :cond_1
+    :try_start_0
     invoke-static {v0}, Landroid/net/NetworkUtils;->numericToInetAddress(Ljava/lang/String;)Ljava/net/InetAddress;
-    :try_end_24
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_21 .. :try_end_24} :catch_26
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v2
 
     .line 308
-    :goto_25
+    :goto_0
     return-object v2
 
     .line 306
-    :catch_26
+    :catch_0
     move-exception v1
 
     .line 307
@@ -351,11 +351,11 @@
     .line 308
     const/4 v2, 0x0
 
-    goto :goto_25
+    goto :goto_0
 .end method
 
 .method private log(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "s"
 
     .prologue
@@ -369,7 +369,7 @@
 .end method
 
 .method private loge(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "s"
 
     .prologue
@@ -383,7 +383,7 @@
 .end method
 
 .method private sendResponse(III)V
-    .registers 6
+    .locals 2
     .parameter "internalId"
     .parameter "externalId"
     .parameter "responseVal"
@@ -407,7 +407,7 @@
 
 # virtual methods
 .method public cancelPings()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 275
@@ -429,7 +429,7 @@
 .end method
 
 .method public getDnsList()Ljava/util/List;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -448,7 +448,7 @@
 
     .line 246
     .local v0, curLinkProps:Landroid/net/LinkProperties;
-    if-nez v0, :cond_27
+    if-nez v0, :cond_0
 
     .line 247
     new-instance v2, Ljava/lang/StringBuilder;
@@ -483,27 +483,27 @@
     iget-object v2, p0, Landroid/net/DnsPinger;->mDefaultDns:Ljava/util/ArrayList;
 
     .line 257
-    :goto_26
+    :goto_0
     return-object v2
 
     .line 251
-    :cond_27
+    :cond_0
     invoke-virtual {v0}, Landroid/net/LinkProperties;->getDnses()Ljava/util/Collection;
 
     move-result-object v1
 
     .line 252
     .local v1, dnses:Ljava/util/Collection;,"Ljava/util/Collection<Ljava/net/InetAddress;>;"
-    if-eqz v1, :cond_33
+    if-eqz v1, :cond_1
 
     invoke-interface {v1}, Ljava/util/Collection;->size()I
 
     move-result v2
 
-    if-nez v2, :cond_3b
+    if-nez v2, :cond_2
 
     .line 253
-    :cond_33
+    :cond_1
     const-string v2, "getDns::LinkProps has null dns - returning default"
 
     invoke-direct {p0, v2}, Landroid/net/DnsPinger;->loge(Ljava/lang/String;)V
@@ -511,19 +511,19 @@
     .line 254
     iget-object v2, p0, Landroid/net/DnsPinger;->mDefaultDns:Ljava/util/ArrayList;
 
-    goto :goto_26
+    goto :goto_0
 
     .line 257
-    :cond_3b
+    :cond_2
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    goto :goto_26
+    goto :goto_0
 .end method
 
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 23
+    .locals 21
     .parameter "msg"
 
     .prologue
@@ -532,15 +532,15 @@
 
     iget v15, v0, Landroid/os/Message;->what:I
 
-    packed-switch v15, :pswitch_data_214
+    packed-switch v15, :pswitch_data_0
 
     .line 237
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     return-void
 
     .line 139
-    :pswitch_8
+    :pswitch_0
     move-object/from16 v0, p1
 
     iget-object v7, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -563,10 +563,10 @@
 
     move/from16 v0, v16
 
-    if-ne v15, v0, :cond_7
+    if-ne v15, v0, :cond_0
 
     .line 144
-    :try_start_1e
+    :try_start_0
     new-instance v11, Landroid/net/DnsPinger$ActivePing;
 
     const/4 v15, 0x0
@@ -607,11 +607,11 @@
     const/16 v16, 0x1
 
     invoke-virtual/range {v15 .. v16}, Ljava/net/DatagramSocket;->setSoTimeout(I)V
-    :try_end_42
-    .catch Ljava/io/IOException; {:try_start_1e .. :try_end_42} :catch_be
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 154
-    :try_start_42
+    :try_start_1
     iget-object v15, v11, Landroid/net/DnsPinger$ActivePing;->socket:Ljava/net/DatagramSocket;
 
     invoke-direct/range {p0 .. p0}, Landroid/net/DnsPinger;->getCurrentLinkProperties()Landroid/net/LinkProperties;
@@ -627,13 +627,13 @@
     move-result-object v16
 
     invoke-virtual/range {v15 .. v16}, Ljava/net/DatagramSocket;->setNetworkInterface(Ljava/net/NetworkInterface;)V
-    :try_end_53
-    .catch Ljava/lang/Exception; {:try_start_42 .. :try_end_53} :catch_d2
-    .catch Ljava/io/IOException; {:try_start_42 .. :try_end_53} :catch_be
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 160
-    :goto_53
-    :try_start_53
+    :goto_1
+    :try_start_2
     sget-object v15, Landroid/net/DnsPinger;->sRandom:Ljava/util/Random;
 
     invoke-virtual {v15}, Ljava/util/Random;->nextInt()I
@@ -749,17 +749,17 @@
     move-wide/from16 v1, v16
 
     invoke-virtual {v0, v15, v1, v2}, Landroid/net/DnsPinger;->sendMessageDelayed(Landroid/os/Message;J)Z
-    :try_end_bc
-    .catch Ljava/io/IOException; {:try_start_53 .. :try_end_bc} :catch_be
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 179
     .end local v4           #buf:[B
     .end local v6           #dnsAddress:Ljava/net/InetAddress;
     .end local v11           #newActivePing:Landroid/net/DnsPinger$ActivePing;
     .end local v12           #packet:Ljava/net/DatagramPacket;
-    :catch_be
+    :catch_0
     move-exception v8
 
     .line 180
@@ -780,18 +780,18 @@
 
     invoke-direct {v0, v15, v1, v2}, Landroid/net/DnsPinger;->sendResponse(III)V
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 156
     .end local v8           #e:Ljava/io/IOException;
     .restart local v6       #dnsAddress:Ljava/net/InetAddress;
     .restart local v11       #newActivePing:Landroid/net/DnsPinger$ActivePing;
-    :catch_d2
+    :catch_1
     move-exception v8
 
     .line 157
     .local v8, e:Ljava/lang/Exception;
-    :try_start_d3
+    :try_start_3
     new-instance v15, Ljava/lang/StringBuilder;
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
@@ -813,17 +813,17 @@
     move-object/from16 v0, p0
 
     invoke-direct {v0, v15}, Landroid/net/DnsPinger;->loge(Ljava/lang/String;)V
-    :try_end_ec
-    .catch Ljava/io/IOException; {:try_start_d3 .. :try_end_ec} :catch_be
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
-    goto/16 :goto_53
+    goto/16 :goto_1
 
     .line 184
     .end local v6           #dnsAddress:Ljava/net/InetAddress;
     .end local v7           #dnsArg:Landroid/net/DnsPinger$DnsArg;
     .end local v8           #e:Ljava/lang/Exception;
     .end local v11           #newActivePing:Landroid/net/DnsPinger$ActivePing;
-    :pswitch_ee
+    :pswitch_1
     move-object/from16 v0, p1
 
     iget v15, v0, Landroid/os/Message;->arg1:I
@@ -836,7 +836,7 @@
 
     move/from16 v0, v16
 
-    if-ne v15, v0, :cond_7
+    if-ne v15, v0, :cond_0
 
     .line 187
     move-object/from16 v0, p0
@@ -848,13 +848,13 @@
     move-result-object v9
 
     .local v9, i$:Ljava/util/Iterator;
-    :cond_104
-    :goto_104
+    :cond_1
+    :goto_2
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v15
 
-    if-eqz v15, :cond_15d
+    if-eqz v15, :cond_2
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -866,7 +866,7 @@
     .local v5, curPing:Landroid/net/DnsPinger$ActivePing;
     const/4 v15, 0x2
 
-    :try_start_111
+    :try_start_4
     new-array v14, v15, [B
 
     .line 191
@@ -902,7 +902,7 @@
 
     move/from16 v0, v16
 
-    if-ne v15, v0, :cond_104
+    if-ne v15, v0, :cond_1
 
     const/4 v15, 0x1
 
@@ -920,7 +920,7 @@
 
     move/from16 v0, v16
 
-    if-ne v15, v0, :cond_104
+    if-ne v15, v0, :cond_1
 
     .line 196
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -940,22 +940,22 @@
     move-result-object v15
 
     iput-object v15, v5, Landroid/net/DnsPinger$ActivePing;->result:Ljava/lang/Integer;
-    :try_end_151
-    .catch Ljava/net/SocketTimeoutException; {:try_start_111 .. :try_end_151} :catch_152
-    .catch Ljava/lang/Exception; {:try_start_111 .. :try_end_151} :catch_154
+    :try_end_4
+    .catch Ljava/net/SocketTimeoutException; {:try_start_4 .. :try_end_4} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_3
 
-    goto :goto_104
+    goto :goto_2
 
     .line 203
     .end local v13           #replyPacket:Ljava/net/DatagramPacket;
     .end local v14           #responseBuf:[B
-    :catch_152
+    :catch_2
     move-exception v15
 
-    goto :goto_104
+    goto :goto_2
 
     .line 205
-    :catch_154
+    :catch_3
     move-exception v8
 
     .line 209
@@ -968,12 +968,12 @@
 
     iput-object v15, v5, Landroid/net/DnsPinger$ActivePing;->result:Ljava/lang/Integer;
 
-    goto :goto_104
+    goto :goto_2
 
     .line 212
     .end local v5           #curPing:Landroid/net/DnsPinger$ActivePing;
     .end local v8           #e:Ljava/lang/Exception;
-    :cond_15d
+    :cond_2
     move-object/from16 v0, p0
 
     iget-object v15, v0, Landroid/net/DnsPinger;->mActivePings:Ljava/util/List;
@@ -984,13 +984,13 @@
 
     .line 213
     .local v10, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/net/DnsPinger$ActivePing;>;"
-    :cond_165
-    :goto_165
+    :cond_3
+    :goto_3
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v15
 
-    if-eqz v15, :cond_1c6
+    if-eqz v15, :cond_5
 
     .line 214
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -1003,7 +1003,7 @@
     .restart local v5       #curPing:Landroid/net/DnsPinger$ActivePing;
     iget-object v15, v5, Landroid/net/DnsPinger$ActivePing;->result:Ljava/lang/Integer;
 
-    if-eqz v15, :cond_195
+    if-eqz v15, :cond_4
 
     .line 216
     iget v15, v5, Landroid/net/DnsPinger$ActivePing;->internalId:I
@@ -1036,10 +1036,10 @@
     .line 218
     invoke-interface {v10}, Ljava/util/Iterator;->remove()V
 
-    goto :goto_165
+    goto :goto_3
 
     .line 219
-    :cond_195
+    :cond_4
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v15
@@ -1062,7 +1062,7 @@
 
     cmp-long v15, v15, v17
 
-    if-lez v15, :cond_165
+    if-lez v15, :cond_3
 
     .line 221
     iget v15, v5, Landroid/net/DnsPinger$ActivePing;->internalId:I
@@ -1089,11 +1089,11 @@
     .line 223
     invoke-interface {v10}, Ljava/util/Iterator;->remove()V
 
-    goto :goto_165
+    goto :goto_3
 
     .line 226
     .end local v5           #curPing:Landroid/net/DnsPinger$ActivePing;
-    :cond_1c6
+    :cond_5
     move-object/from16 v0, p0
 
     iget-object v15, v0, Landroid/net/DnsPinger;->mActivePings:Ljava/util/List;
@@ -1102,7 +1102,7 @@
 
     move-result v15
 
-    if-nez v15, :cond_7
+    if-nez v15, :cond_0
 
     .line 227
     const v15, 0x50002
@@ -1133,12 +1133,12 @@
 
     invoke-virtual {v0, v15, v1, v2}, Landroid/net/DnsPinger;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 232
     .end local v9           #i$:Ljava/util/Iterator;
     .end local v10           #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/net/DnsPinger$ActivePing;>;"
-    :pswitch_1f0
+    :pswitch_2
     move-object/from16 v0, p0
 
     iget-object v15, v0, Landroid/net/DnsPinger;->mActivePings:Ljava/util/List;
@@ -1148,12 +1148,12 @@
     move-result-object v9
 
     .restart local v9       #i$:Ljava/util/Iterator;
-    :goto_1f8
+    :goto_4
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v15
 
-    if-eqz v15, :cond_20a
+    if-eqz v15, :cond_6
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1167,32 +1167,32 @@
 
     invoke-virtual {v15}, Ljava/net/DatagramSocket;->close()V
 
-    goto :goto_1f8
+    goto :goto_4
 
     .line 234
     .end local v3           #activePing:Landroid/net/DnsPinger$ActivePing;
-    :cond_20a
+    :cond_6
     move-object/from16 v0, p0
 
     iget-object v15, v0, Landroid/net/DnsPinger;->mActivePings:Ljava/util/List;
 
     invoke-interface {v15}, Ljava/util/List;->clear()V
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 137
     nop
 
-    :pswitch_data_214
+    :pswitch_data_0
     .packed-switch 0x50001
-        :pswitch_8
-        :pswitch_ee
-        :pswitch_1f0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public pingDnsAsync(Ljava/net/InetAddress;II)I
-    .registers 8
+    .locals 4
     .parameter "dns"
     .parameter "timeout"
     .parameter "delay"

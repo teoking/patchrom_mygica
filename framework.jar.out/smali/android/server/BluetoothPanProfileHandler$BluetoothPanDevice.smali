@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/server/BluetoothPanProfileHandler;ILjava/lang/String;Ljava/lang/String;I)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter "state"
     .parameter "ifaceAddr"
@@ -58,7 +58,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -69,7 +69,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -92,7 +92,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -104,7 +104,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -115,7 +115,7 @@
 .end method
 
 .method static synthetic access$502(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -127,7 +127,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -138,7 +138,7 @@
 .end method
 
 .method static synthetic access$602(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

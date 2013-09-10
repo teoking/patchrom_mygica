@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 71
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "name"
     .parameter "type"
 
@@ -80,7 +80,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     .line 48
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -108,12 +108,12 @@
     throw v0
 
     .line 50
-    :cond_23
+    :cond_0
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_43
+    if-eqz v0, :cond_1
 
     .line 51
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -141,7 +141,7 @@
     throw v0
 
     .line 53
-    :cond_43
+    :cond_1
     iput-object p1, p0, Landroid/accounts/Account;->name:Ljava/lang/String;
 
     .line 54
@@ -154,7 +154,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 63
@@ -164,7 +164,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "o"
 
     .prologue
@@ -173,24 +173,24 @@
     const/4 v2, 0x0
 
     .line 33
-    if-ne p1, p0, :cond_5
+    if-ne p1, p0, :cond_1
 
     .line 36
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 34
-    :cond_5
+    :cond_1
     instance-of v3, p1, Landroid/accounts/Account;
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_2
 
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_b
+    :cond_2
     move-object v0, p1
 
     .line 35
@@ -206,7 +206,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_22
+    if-eqz v3, :cond_3
 
     iget-object v3, p0, Landroid/accounts/Account;->type:Ljava/lang/String;
 
@@ -216,16 +216,16 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_0
 
-    :cond_22
+    :cond_3
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 40
@@ -257,7 +257,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 82
@@ -303,7 +303,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

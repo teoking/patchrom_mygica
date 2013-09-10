@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 230
@@ -50,7 +50,7 @@
 .end method
 
 .method public getFeaturesForLanguage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
-    .registers 10
+    .locals 6
     .parameter "lang"
     .parameter "country"
     .parameter "variant"
@@ -74,7 +74,7 @@
 
     .line 510
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -102,8 +102,8 @@
 
     .line 516
     invoke-virtual {v1}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_2c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -119,7 +119,7 @@
 
     .line 519
     .end local v2           #_result:[Ljava/lang/String;
-    :catchall_2c
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -131,7 +131,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 234
@@ -141,7 +141,7 @@
 .end method
 
 .method public getLanguage()[Ljava/lang/String;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -162,7 +162,7 @@
 
     .line 447
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -181,8 +181,8 @@
 
     .line 450
     invoke-virtual {v1}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -198,7 +198,7 @@
 
     .line 453
     .end local v2           #_result:[Ljava/lang/String;
-    :catchall_22
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -210,7 +210,7 @@
 .end method
 
 .method public isLanguageAvailable(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-    .registers 10
+    .locals 6
     .parameter "lang"
     .parameter "country"
     .parameter "variant"
@@ -234,7 +234,7 @@
 
     .line 477
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -262,8 +262,8 @@
 
     .line 483
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_2c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -279,7 +279,7 @@
 
     .line 486
     .end local v2           #_result:I
-    :catchall_2c
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -291,7 +291,7 @@
 .end method
 
 .method public isSpeaking()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -314,7 +314,7 @@
 
     .line 395
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -333,18 +333,18 @@
 
     .line 398
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_9 .. :try_end_1b} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_1f
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 401
     .local v2, _result:Z
-    :cond_1f
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 402
@@ -355,7 +355,7 @@
 
     .line 401
     .end local v2           #_result:Z
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -367,7 +367,7 @@
 .end method
 
 .method public loadLanguage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-    .registers 10
+    .locals 6
     .parameter "lang"
     .parameter "country"
     .parameter "variant"
@@ -391,7 +391,7 @@
 
     .line 543
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -419,8 +419,8 @@
 
     .line 549
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_2c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -436,7 +436,7 @@
 
     .line 552
     .end local v2           #_result:I
-    :catchall_2c
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -448,7 +448,7 @@
 .end method
 
 .method public playAudio(Landroid/os/IBinder;Landroid/net/Uri;ILandroid/os/Bundle;)I
-    .registers 11
+    .locals 6
     .parameter "callingInstance"
     .parameter "audioUri"
     .parameter "queueMode"
@@ -473,7 +473,7 @@
 
     .line 323
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -482,7 +482,7 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 325
-    if-eqz p2, :cond_3c
+    if-eqz p2, :cond_0
 
     .line 326
     const/4 v3, 0x1
@@ -495,11 +495,11 @@
     invoke-virtual {p2, v0, v3}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 332
-    :goto_1a
+    :goto_0
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 333
-    if-eqz p4, :cond_49
+    if-eqz p4, :cond_1
 
     .line 334
     const/4 v3, 0x1
@@ -512,7 +512,7 @@
     invoke-virtual {p4, v0, v3}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 340
-    :goto_27
+    :goto_1
     iget-object v3, p0, Landroid/speech/tts/ITextToSpeechService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x3
@@ -526,8 +526,8 @@
 
     .line 342
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_34
-    .catchall {:try_start_8 .. :try_end_34} :catchall_41
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -543,18 +543,18 @@
 
     .line 330
     .end local v2           #_result:I
-    :cond_3c
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_3d
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_40
-    .catchall {:try_start_3d .. :try_end_40} :catchall_41
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 345
-    :catchall_41
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -565,19 +565,19 @@
     throw v3
 
     .line 338
-    :cond_49
+    :cond_1
     const/4 v3, 0x0
 
-    :try_start_4a
+    :try_start_2
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_4d
-    .catchall {:try_start_4a .. :try_end_4d} :catchall_41
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_27
+    goto :goto_1
 .end method
 
 .method public playSilence(Landroid/os/IBinder;JILandroid/os/Bundle;)I
-    .registers 12
+    .locals 6
     .parameter "callingInstance"
     .parameter "duration"
     .parameter "queueMode"
@@ -602,7 +602,7 @@
 
     .line 365
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -617,7 +617,7 @@
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 369
-    if-eqz p5, :cond_35
+    if-eqz p5, :cond_0
 
     .line 370
     const/4 v3, 0x1
@@ -630,7 +630,7 @@
     invoke-virtual {p5, v0, v3}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 376
-    :goto_20
+    :goto_0
     iget-object v3, p0, Landroid/speech/tts/ITextToSpeechService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x4
@@ -644,8 +644,8 @@
 
     .line 378
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_2d
-    .catchall {:try_start_8 .. :try_end_2d} :catchall_3a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -661,18 +661,18 @@
 
     .line 374
     .end local v2           #_result:I
-    :cond_35
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_36
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_39
-    .catchall {:try_start_36 .. :try_end_39} :catchall_3a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_20
+    goto :goto_0
 
     .line 381
-    :catchall_3a
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -684,7 +684,7 @@
 .end method
 
 .method public setCallback(Landroid/os/IBinder;Landroid/speech/tts/ITextToSpeechCallback;)V
-    .registers 8
+    .locals 5
     .parameter "caller"
     .parameter "cb"
     .annotation system Ldalvik/annotation/Throws;
@@ -707,7 +707,7 @@
 
     .line 569
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.speech.tts.ITextToSpeechService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -716,13 +716,13 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 571
-    if-eqz p2, :cond_2b
+    if-eqz p2, :cond_0
 
     invoke-interface {p2}, Landroid/speech/tts/ITextToSpeechCallback;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_16
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 572
@@ -736,8 +736,8 @@
 
     .line 573
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 576
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -749,13 +749,13 @@
     return-void
 
     .line 571
-    :cond_2b
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 576
-    :catchall_2d
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -767,7 +767,7 @@
 .end method
 
 .method public speak(Landroid/os/IBinder;Ljava/lang/String;ILandroid/os/Bundle;)I
-    .registers 11
+    .locals 6
     .parameter "callingInstance"
     .parameter "text"
     .parameter "queueMode"
@@ -792,7 +792,7 @@
 
     .line 251
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -807,7 +807,7 @@
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 255
-    if-eqz p4, :cond_35
+    if-eqz p4, :cond_0
 
     .line 256
     const/4 v3, 0x1
@@ -820,7 +820,7 @@
     invoke-virtual {p4, v0, v3}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 262
-    :goto_20
+    :goto_0
     iget-object v3, p0, Landroid/speech/tts/ITextToSpeechService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x1
@@ -834,8 +834,8 @@
 
     .line 264
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_2d
-    .catchall {:try_start_8 .. :try_end_2d} :catchall_3a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -851,18 +851,18 @@
 
     .line 260
     .end local v2           #_result:I
-    :cond_35
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_36
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_39
-    .catchall {:try_start_36 .. :try_end_39} :catchall_3a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_20
+    goto :goto_0
 
     .line 267
-    :catchall_3a
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -874,7 +874,7 @@
 .end method
 
 .method public stop(Landroid/os/IBinder;)I
-    .registers 8
+    .locals 6
     .parameter "callingInstance"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -896,7 +896,7 @@
 
     .line 419
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -918,8 +918,8 @@
 
     .line 423
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -935,7 +935,7 @@
 
     .line 426
     .end local v2           #_result:I
-    :catchall_25
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -947,7 +947,7 @@
 .end method
 
 .method public synthesizeToFile(Landroid/os/IBinder;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)I
-    .registers 11
+    .locals 6
     .parameter "callingInstance"
     .parameter "text"
     .parameter "filename"
@@ -972,7 +972,7 @@
 
     .line 287
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.speech.tts.ITextToSpeechService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -987,7 +987,7 @@
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 291
-    if-eqz p4, :cond_35
+    if-eqz p4, :cond_0
 
     .line 292
     const/4 v3, 0x1
@@ -1000,7 +1000,7 @@
     invoke-virtual {p4, v0, v3}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 298
-    :goto_20
+    :goto_0
     iget-object v3, p0, Landroid/speech/tts/ITextToSpeechService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x2
@@ -1014,8 +1014,8 @@
 
     .line 300
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_2d
-    .catchall {:try_start_8 .. :try_end_2d} :catchall_3a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -1031,18 +1031,18 @@
 
     .line 296
     .end local v2           #_result:I
-    :cond_35
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_36
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_39
-    .catchall {:try_start_36 .. :try_end_39} :catchall_3a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_20
+    goto :goto_0
 
     .line 303
-    :catchall_3a
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

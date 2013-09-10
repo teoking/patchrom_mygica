@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 25
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -51,8 +51,8 @@
     .line 87
     :try_start_0
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
-    :try_end_3
-    .catchall {:try_start_0 .. :try_end_3} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 89
     iget v0, p0, Landroid/graphics/Shader;->native_instance:I
@@ -65,7 +65,7 @@
     return-void
 
     .line 89
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     iget v1, p0, Landroid/graphics/Shader;->native_instance:I
@@ -78,7 +78,7 @@
 .end method
 
 .method public getLocalMatrix(Landroid/graphics/Matrix;)Z
-    .registers 4
+    .locals 2
     .parameter "localM"
 
     .prologue
@@ -87,7 +87,7 @@
     .line 67
     iget-object v1, p0, Landroid/graphics/Shader;->mLocalMatrix:Landroid/graphics/Matrix;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 68
     iget-object v1, p0, Landroid/graphics/Shader;->mLocalMatrix:Landroid/graphics/Matrix;
@@ -101,17 +101,17 @@
 
     move-result v1
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_0
 
     const/4 v0, 0x1
 
     .line 71
-    :cond_13
+    :cond_0
     return v0
 .end method
 
 .method public setLocalMatrix(Landroid/graphics/Matrix;)V
-    .registers 5
+    .locals 3
     .parameter "localM"
 
     .prologue
@@ -123,19 +123,19 @@
 
     iget v2, p0, Landroid/graphics/Shader;->native_shader:I
 
-    if-nez p1, :cond_d
+    if-nez p1, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_9
+    :goto_0
     invoke-static {v1, v2, v0}, Landroid/graphics/Shader;->nativeSetLocalMatrix(III)V
 
     .line 83
     return-void
 
     .line 81
-    :cond_d
+    :cond_0
     iget v0, p1, Landroid/graphics/Matrix;->native_instance:I
 
-    goto :goto_9
+    goto :goto_0
 .end method

@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1021
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 8
+    .locals 2
     .parameter "user"
     .parameter "photo"
     .parameter "grouping"
@@ -83,7 +83,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_23
+    if-nez v1, :cond_1
 
     .line 1041
     iput-object p1, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->user:Ljava/lang/String;
@@ -95,10 +95,10 @@
 
     move-result v1
 
-    if-nez v1, :cond_21
+    if-nez v1, :cond_0
 
     .end local p2
-    :goto_1a
+    :goto_0
     iput-object p2, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->photo:Ljava/lang/String;
 
     .line 1044
@@ -108,18 +108,18 @@
     iput-object p4, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->groupingId:Ljava/lang/String;
 
     .line 1052
-    :goto_20
+    :goto_1
     return-void
 
     .restart local p2
-    :cond_21
+    :cond_0
     move-object p2, v0
 
     .line 1043
-    goto :goto_1a
+    goto :goto_0
 
     .line 1047
-    :cond_23
+    :cond_1
     iput-object v0, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->user:Ljava/lang/String;
 
     .line 1048
@@ -133,11 +133,11 @@
     .line 1050
     iput-object p2, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->groupingId:Ljava/lang/String;
 
-    goto :goto_20
+    goto :goto_1
 .end method
 
 .method public static getPhotoURL(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "user"
     .parameter "photo"
 
@@ -175,7 +175,7 @@
 .end method
 
 .method public static getRssUrl(Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "user"
 
     .prologue
@@ -186,7 +186,7 @@
 .end method
 
 .method public static getTagsURL(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "tag"
 
     .prologue
@@ -213,7 +213,7 @@
 .end method
 
 .method public static getUserSetsURL(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "user"
     .parameter "setId"
 
@@ -251,7 +251,7 @@
 .end method
 
 .method public static getUserTagsURL(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "user"
     .parameter "tagId"
 
@@ -289,7 +289,7 @@
 .end method
 
 .method public static getUserURL(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "user"
 
     .prologue
@@ -316,7 +316,7 @@
 .end method
 
 .method public static matchURL(Ljava/lang/String;Ljava/lang/String;)Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;
-    .registers 12
+    .locals 10
     .parameter "url"
     .parameter "text"
 
@@ -340,7 +340,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     .line 1069
     new-instance v0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;
@@ -364,11 +364,11 @@
     invoke-direct/range {v0 .. v5}, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1076
-    :goto_22
+    :goto_0
     return-object v0
 
     .line 1072
-    :cond_23
+    :cond_0
     sget-object v0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->URL_PATTERN:Ljava/util/regex/Pattern;
 
     invoke-virtual {v0, p0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -380,7 +380,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_41
+    if-eqz v0, :cond_1
 
     .line 1074
     new-instance v3, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;
@@ -403,19 +403,19 @@
 
     move-object v0, v3
 
-    goto :goto_22
+    goto :goto_0
 
-    :cond_41
+    :cond_1
     move-object v0, v2
 
     .line 1076
-    goto :goto_22
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getGrouping()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1056
@@ -425,7 +425,7 @@
 .end method
 
 .method public getGroupingId()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1057
@@ -435,7 +435,7 @@
 .end method
 
 .method public getInfo()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -465,13 +465,13 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_40
+    if-eqz v1, :cond_0
 
     invoke-virtual {p0}, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->getUser()Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_15
+    :goto_0
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1084
@@ -479,13 +479,13 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_43
+    if-eqz v1, :cond_1
 
     invoke-virtual {p0}, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->getPhoto()Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_22
+    :goto_1
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1085
@@ -493,13 +493,13 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_46
+    if-eqz v1, :cond_2
 
     invoke-virtual {p0}, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->getGrouping()Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_2f
+    :goto_2
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1086
@@ -507,45 +507,45 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_49
+    if-eqz v1, :cond_3
 
     invoke-virtual {p0}, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->getGroupingId()Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_3c
+    :goto_3
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1087
     return-object v0
 
     .line 1083
-    :cond_40
+    :cond_0
     const-string v1, ""
 
-    goto :goto_15
+    goto :goto_0
 
     .line 1084
-    :cond_43
+    :cond_1
     const-string v1, ""
 
-    goto :goto_22
+    goto :goto_1
 
     .line 1085
-    :cond_46
+    :cond_2
     const-string v1, ""
 
-    goto :goto_2f
+    goto :goto_2
 
     .line 1086
-    :cond_49
+    :cond_3
     const-string v1, ""
 
-    goto :goto_3c
+    goto :goto_3
 .end method
 
 .method public getPhoto()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1055
@@ -555,7 +555,7 @@
 .end method
 
 .method public getUrl()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1091
@@ -567,7 +567,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 1092
     iget-object v0, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->user:Ljava/lang/String;
@@ -579,11 +579,11 @@
     move-result-object v0
 
     .line 1102
-    :goto_13
+    :goto_0
     return-object v0
 
     .line 1093
-    :cond_14
+    :cond_0
     const-string/jumbo v0, "tags"
 
     iget-object v1, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->grouping:Ljava/lang/String;
@@ -592,12 +592,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_2
 
     .line 1094
     iget-object v0, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->user:Ljava/lang/String;
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_1
 
     .line 1095
     iget-object v0, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->user:Ljava/lang/String;
@@ -608,23 +608,23 @@
 
     move-result-object v0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 1097
-    :cond_2c
+    :cond_1
     iget-object v0, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->groupingId:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->getTagsURL(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 1099
-    :cond_33
+    :cond_2
     iget-object v0, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->photo:Ljava/lang/String;
 
-    if-eqz v0, :cond_40
+    if-eqz v0, :cond_3
 
     .line 1100
     iget-object v0, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->user:Ljava/lang/String;
@@ -635,21 +635,21 @@
 
     move-result-object v0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 1102
-    :cond_40
+    :cond_3
     iget-object v0, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->user:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->getUserURL(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public getUser()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1054
@@ -659,7 +659,7 @@
 .end method
 
 .method public isHtml()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1059
@@ -669,7 +669,7 @@
 .end method
 
 .method public isMedia()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1060

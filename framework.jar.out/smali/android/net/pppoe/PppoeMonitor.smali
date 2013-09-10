@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/pppoe/PppoeStateTracker;)V
-    .registers 3
+    .locals 1
     .parameter "tracker"
 
     .prologue
@@ -63,7 +63,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/net/pppoe/PppoeMonitor;)Landroid/net/pppoe/PppoeStateTracker;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public startMonitoring()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 38

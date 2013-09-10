@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 30
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>([B)V
-    .registers 2
+    .locals 0
     .parameter "data"
 
     .prologue
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 55
@@ -66,7 +66,7 @@
 .end method
 
 .method public getBytes()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 51
@@ -76,7 +76,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

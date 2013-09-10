@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/app/backup/IRestoreSession;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "binder"
 
@@ -51,47 +51,47 @@
 
 # virtual methods
 .method public endRestoreSession()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x0
 
     .line 162
-    :try_start_1
+    :try_start_0
     iget-object v1, p0, Landroid/app/backup/RestoreSession;->mBinder:Landroid/app/backup/IRestoreSession;
 
     invoke-interface {v1}, Landroid/app/backup/IRestoreSession;->endRestoreSession()V
-    :try_end_6
-    .catchall {:try_start_1 .. :try_end_6} :catchall_12
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_6} :catch_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 166
-    :goto_6
+    :goto_0
     iput-object v3, p0, Landroid/app/backup/RestoreSession;->mBinder:Landroid/app/backup/IRestoreSession;
 
     .line 168
     return-void
 
     .line 163
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 164
     .local v0, e:Landroid/os/RemoteException;
-    :try_start_a
+    :try_start_1
     const-string v1, "RestoreSession"
 
     const-string v2, "Can\'t contact server to get available sets"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_11
-    .catchall {:try_start_a .. :try_end_11} :catchall_12
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 166
     .end local v0           #e:Landroid/os/RemoteException;
-    :catchall_12
+    :catchall_0
     move-exception v1
 
     iput-object v3, p0, Landroid/app/backup/RestoreSession;->mBinder:Landroid/app/backup/IRestoreSession;
@@ -100,7 +100,7 @@
 .end method
 
 .method public getAvailableRestoreSets(Landroid/app/backup/RestoreObserver;)I
-    .registers 7
+    .locals 5
     .parameter "observer"
 
     .prologue
@@ -117,21 +117,21 @@
 
     .line 54
     .local v2, obsWrapper:Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
-    :try_start_8
+    :try_start_0
     iget-object v3, p0, Landroid/app/backup/RestoreSession;->mBinder:Landroid/app/backup/IRestoreSession;
 
     invoke-interface {v3, v2}, Landroid/app/backup/IRestoreSession;->getAvailableRestoreSets(Landroid/app/backup/IRestoreObserver;)I
-    :try_end_d
-    .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_d} :catch_f
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 58
-    :goto_e
+    :goto_0
     return v1
 
     .line 55
-    :catch_f
+    :catch_0
     move-exception v0
 
     .line 56
@@ -142,11 +142,11 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public restoreAll(JLandroid/app/backup/RestoreObserver;)I
-    .registers 8
+    .locals 4
     .parameter "token"
     .parameter "observer"
 
@@ -158,7 +158,7 @@
     .local v1, err:I
     iget-object v2, p0, Landroid/app/backup/RestoreSession;->mObserver:Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_0
 
     .line 77
     const-string v2, "RestoreSession"
@@ -171,11 +171,11 @@
     const/4 v2, -0x1
 
     .line 86
-    :goto_e
+    :goto_0
     return v2
 
     .line 80
-    :cond_f
+    :cond_0
     new-instance v2, Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
 
     iget-object v3, p0, Landroid/app/backup/RestoreSession;->mContext:Landroid/content/Context;
@@ -185,25 +185,25 @@
     iput-object v2, p0, Landroid/app/backup/RestoreSession;->mObserver:Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
 
     .line 82
-    :try_start_18
+    :try_start_0
     iget-object v2, p0, Landroid/app/backup/RestoreSession;->mBinder:Landroid/app/backup/IRestoreSession;
 
     iget-object v3, p0, Landroid/app/backup/RestoreSession;->mObserver:Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
 
     invoke-interface {v2, p1, p2, v3}, Landroid/app/backup/IRestoreSession;->restoreAll(JLandroid/app/backup/IRestoreObserver;)I
-    :try_end_1f
-    .catch Landroid/os/RemoteException; {:try_start_18 .. :try_end_1f} :catch_22
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    :goto_20
+    :goto_1
     move v2, v1
 
     .line 86
-    goto :goto_e
+    goto :goto_0
 
     .line 83
-    :catch_22
+    :catch_0
     move-exception v0
 
     .line 84
@@ -214,11 +214,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_20
+    goto :goto_1
 .end method
 
 .method public restorePackage(Ljava/lang/String;Landroid/app/backup/RestoreObserver;)I
-    .registers 7
+    .locals 4
     .parameter "packageName"
     .parameter "observer"
 
@@ -230,7 +230,7 @@
     .local v1, err:I
     iget-object v2, p0, Landroid/app/backup/RestoreSession;->mObserver:Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_0
 
     .line 141
     const-string v2, "RestoreSession"
@@ -243,11 +243,11 @@
     const/4 v2, -0x1
 
     .line 150
-    :goto_e
+    :goto_0
     return v2
 
     .line 144
-    :cond_f
+    :cond_0
     new-instance v2, Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
 
     iget-object v3, p0, Landroid/app/backup/RestoreSession;->mContext:Landroid/content/Context;
@@ -257,25 +257,25 @@
     iput-object v2, p0, Landroid/app/backup/RestoreSession;->mObserver:Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
 
     .line 146
-    :try_start_18
+    :try_start_0
     iget-object v2, p0, Landroid/app/backup/RestoreSession;->mBinder:Landroid/app/backup/IRestoreSession;
 
     iget-object v3, p0, Landroid/app/backup/RestoreSession;->mObserver:Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
 
     invoke-interface {v2, p1, v3}, Landroid/app/backup/IRestoreSession;->restorePackage(Ljava/lang/String;Landroid/app/backup/IRestoreObserver;)I
-    :try_end_1f
-    .catch Landroid/os/RemoteException; {:try_start_18 .. :try_end_1f} :catch_22
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    :goto_20
+    :goto_1
     move v2, v1
 
     .line 150
-    goto :goto_e
+    goto :goto_0
 
     .line 147
-    :catch_22
+    :catch_0
     move-exception v0
 
     .line 148
@@ -286,11 +286,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_20
+    goto :goto_1
 .end method
 
 .method public restoreSome(JLandroid/app/backup/RestoreObserver;[Ljava/lang/String;)I
-    .registers 9
+    .locals 4
     .parameter "token"
     .parameter "observer"
     .parameter "packages"
@@ -303,7 +303,7 @@
     .local v1, err:I
     iget-object v2, p0, Landroid/app/backup/RestoreSession;->mObserver:Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_0
 
     .line 111
     const-string v2, "RestoreSession"
@@ -316,11 +316,11 @@
     const/4 v2, -0x1
 
     .line 120
-    :goto_e
+    :goto_0
     return v2
 
     .line 114
-    :cond_f
+    :cond_0
     new-instance v2, Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
 
     iget-object v3, p0, Landroid/app/backup/RestoreSession;->mContext:Landroid/content/Context;
@@ -330,25 +330,25 @@
     iput-object v2, p0, Landroid/app/backup/RestoreSession;->mObserver:Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
 
     .line 116
-    :try_start_18
+    :try_start_0
     iget-object v2, p0, Landroid/app/backup/RestoreSession;->mBinder:Landroid/app/backup/IRestoreSession;
 
     iget-object v3, p0, Landroid/app/backup/RestoreSession;->mObserver:Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
 
     invoke-interface {v2, p1, p2, v3, p4}, Landroid/app/backup/IRestoreSession;->restoreSome(JLandroid/app/backup/IRestoreObserver;[Ljava/lang/String;)I
-    :try_end_1f
-    .catch Landroid/os/RemoteException; {:try_start_18 .. :try_end_1f} :catch_22
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    :goto_20
+    :goto_1
     move v2, v1
 
     .line 120
-    goto :goto_e
+    goto :goto_0
 
     .line 117
-    :catch_22
+    :catch_0
     move-exception v0
 
     .line 118
@@ -359,5 +359,5 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_20
+    goto :goto_1
 .end method

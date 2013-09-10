@@ -88,7 +88,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 354
@@ -144,7 +144,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 347
@@ -154,7 +154,7 @@
 .end method
 
 .method public static addToGroup(Landroid/content/ContentResolver;JJ)Landroid/net/Uri;
-    .registers 8
+    .locals 3
     .parameter "resolver"
     .parameter "personId"
     .parameter "groupId"
@@ -197,7 +197,7 @@
 .end method
 
 .method public static addToGroup(Landroid/content/ContentResolver;JLjava/lang/String;)Landroid/net/Uri;
-    .registers 13
+    .locals 9
     .parameter "resolver"
     .parameter "personId"
     .parameter "groupName"
@@ -234,36 +234,36 @@
 
     .line 512
     .local v8, groupsCursor:Landroid/database/Cursor;
-    if-eqz v8, :cond_25
+    if-eqz v8, :cond_1
 
     .line 514
-    :try_start_17
+    :try_start_0
     invoke-interface {v8}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_0
 
     .line 515
     const/4 v0, 0x0
 
     invoke-interface {v8, v0}, Landroid/database/Cursor;->getLong(I)J
-    :try_end_21
-    .catchall {:try_start_17 .. :try_end_21} :catchall_33
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v6
 
     .line 518
-    :cond_22
+    :cond_0
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
     .line 522
-    :cond_25
+    :cond_1
     const-wide/16 v0, 0x0
 
     cmp-long v0, v6, v0
 
-    if-nez v0, :cond_38
+    if-nez v0, :cond_2
 
     .line 523
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -275,7 +275,7 @@
     throw v0
 
     .line 518
-    :catchall_33
+    :catchall_0
     move-exception v0
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
@@ -283,7 +283,7 @@
     throw v0
 
     .line 526
-    :cond_38
+    :cond_2
     invoke-static {p0, p1, p2, v6, v7}, Landroid/provider/Contacts$People;->addToGroup(Landroid/content/ContentResolver;JJ)Landroid/net/Uri;
 
     move-result-object v0
@@ -292,7 +292,7 @@
 .end method
 
 .method public static addToMyContactsGroup(Landroid/content/ContentResolver;J)Landroid/net/Uri;
-    .registers 7
+    .locals 4
     .parameter "resolver"
     .parameter "personId"
     .annotation runtime Ljava/lang/Deprecated;
@@ -310,7 +310,7 @@
 
     cmp-long v2, v0, v2
 
-    if-nez v2, :cond_12
+    if-nez v2, :cond_0
 
     .line 491
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -322,7 +322,7 @@
     throw v2
 
     .line 494
-    :cond_12
+    :cond_0
     invoke-static {p0, p1, p2, v0, v1}, Landroid/provider/Contacts$People;->addToGroup(Landroid/content/ContentResolver;JJ)Landroid/net/Uri;
 
     move-result-object v2
@@ -331,7 +331,7 @@
 .end method
 
 .method public static createPersonInMyContactsGroup(Landroid/content/ContentResolver;Landroid/content/ContentValues;)Landroid/net/Uri;
-    .registers 6
+    .locals 4
     .parameter "resolver"
     .parameter "values"
     .annotation runtime Ljava/lang/Deprecated;
@@ -349,7 +349,7 @@
 
     .line 563
     .local v0, contactUri:Landroid/net/Uri;
-    if-nez v0, :cond_12
+    if-nez v0, :cond_1
 
     .line 564
     const-string v2, "Contacts"
@@ -362,13 +362,13 @@
 
     .line 572
     .end local v0           #contactUri:Landroid/net/Uri;
-    :cond_11
-    :goto_11
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 568
     .restart local v0       #contactUri:Landroid/net/Uri;
-    :cond_12
+    :cond_1
     invoke-static {v0}, Landroid/content/ContentUris;->parseId(Landroid/net/Uri;)J
 
     move-result-wide v2
@@ -377,7 +377,7 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_11
+    if-nez v2, :cond_0
 
     .line 569
     invoke-virtual {p0, v0, v1, v1}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
@@ -385,11 +385,11 @@
     move-object v0, v1
 
     .line 570
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public static loadContactPhoto(Landroid/content/Context;Landroid/net/Uri;ILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
-    .registers 7
+    .locals 3
     .parameter "context"
     .parameter "person"
     .parameter "placeholderImageResource"
@@ -401,7 +401,7 @@
     const/4 v0, 0x0
 
     .line 636
-    if-nez p1, :cond_8
+    if-nez p1, :cond_1
 
     .line 637
     invoke-static {p2, p0, p3}, Landroid/provider/Contacts$People;->loadPlaceholderPhoto(ILandroid/content/Context;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
@@ -409,12 +409,12 @@
     move-result-object v0
 
     .line 645
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 640
-    :cond_8
+    :cond_1
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -425,7 +425,7 @@
 
     .line 641
     .local v1, stream:Ljava/io/InputStream;
-    if-eqz v1, :cond_16
+    if-eqz v1, :cond_2
 
     invoke-static {v1, v0, p3}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
@@ -433,35 +433,35 @@
 
     .line 642
     .local v0, bm:Landroid/graphics/Bitmap;
-    :cond_16
-    if-nez v0, :cond_7
+    :cond_2
+    if-nez v0, :cond_0
 
     .line 643
     invoke-static {p2, p0, p3}, Landroid/provider/Contacts$People;->loadPlaceholderPhoto(ILandroid/content/Context;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method private static loadPlaceholderPhoto(ILandroid/content/Context;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
-    .registers 4
+    .locals 1
     .parameter "placeholderImageResource"
     .parameter "context"
     .parameter "options"
 
     .prologue
     .line 650
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 651
     const/4 v0, 0x0
 
     .line 653
-    :goto_3
+    :goto_0
     return-object v0
 
-    :cond_4
+    :cond_0
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -470,11 +470,11 @@
 
     move-result-object v0
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public static markAsContacted(Landroid/content/ContentResolver;J)V
-    .registers 9
+    .locals 6
     .parameter "resolver"
     .parameter "personId"
     .annotation runtime Ljava/lang/Deprecated;
@@ -525,7 +525,7 @@
 .end method
 
 .method public static openContactPhotoInputStream(Landroid/content/ContentResolver;Landroid/net/Uri;)Ljava/io/InputStream;
-    .registers 10
+    .locals 8
     .parameter "cr"
     .parameter "person"
     .annotation runtime Ljava/lang/Deprecated;
@@ -565,79 +565,79 @@
 
     .line 610
     .local v6, cursor:Landroid/database/Cursor;
-    if-eqz v6, :cond_1f
+    if-eqz v6, :cond_0
 
-    :try_start_19
+    :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
-    :try_end_1c
-    .catchall {:try_start_19 .. :try_end_1c} :catchall_3d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_2
 
     .line 619
-    :cond_1f
-    if-eqz v6, :cond_24
+    :cond_0
+    if-eqz v6, :cond_1
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_24
-    :goto_24
+    :cond_1
+    :goto_0
     return-object v3
 
     .line 613
-    :cond_25
+    :cond_2
     const/4 v0, 0x0
 
-    :try_start_26
+    :try_start_1
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getBlob(I)[B
-    :try_end_29
-    .catchall {:try_start_26 .. :try_end_29} :catchall_3d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v7
 
     .line 614
     .local v7, data:[B
-    if-nez v7, :cond_32
+    if-nez v7, :cond_3
 
     .line 619
-    if-eqz v6, :cond_24
+    if-eqz v6, :cond_1
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    goto :goto_24
+    goto :goto_0
 
     .line 617
-    :cond_32
-    :try_start_32
+    :cond_3
+    :try_start_2
     new-instance v3, Ljava/io/ByteArrayInputStream;
 
     invoke-direct {v3, v7}, Ljava/io/ByteArrayInputStream;-><init>([B)V
-    :try_end_37
-    .catchall {:try_start_32 .. :try_end_37} :catchall_3d
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 619
-    if-eqz v6, :cond_24
+    if-eqz v6, :cond_1
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    goto :goto_24
+    goto :goto_0
 
     .end local v7           #data:[B
-    :catchall_3d
+    :catchall_0
     move-exception v0
 
-    if-eqz v6, :cond_43
+    if-eqz v6, :cond_4
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_43
+    :cond_4
     throw v0
 .end method
 
 .method public static queryGroups(Landroid/content/ContentResolver;J)Landroid/database/Cursor;
-    .registers 9
+    .locals 6
     .parameter "resolver"
     .parameter "person"
     .annotation runtime Ljava/lang/Deprecated;
@@ -675,7 +675,7 @@
 .end method
 
 .method public static setPhotoData(Landroid/content/ContentResolver;Landroid/net/Uri;[B)V
-    .registers 7
+    .locals 4
     .parameter "cr"
     .parameter "person"
     .parameter "data"
@@ -712,7 +712,7 @@
 .end method
 
 .method public static tryGetMyContactsGroupId(Landroid/content/ContentResolver;)J
-    .registers 8
+    .locals 7
     .parameter "resolver"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -737,22 +737,22 @@
 
     .line 466
     .local v6, groupsCursor:Landroid/database/Cursor;
-    if-eqz v6, :cond_22
+    if-eqz v6, :cond_1
 
     .line 468
-    :try_start_10
+    :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_0
 
     .line 469
     const/4 v0, 0x0
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getLong(I)J
-    :try_end_1a
-    .catchall {:try_start_10 .. :try_end_1a} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v0
 
@@ -760,21 +760,21 @@
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     .line 475
-    :goto_1e
+    :goto_0
     return-wide v0
 
     .line 472
-    :cond_1f
+    :cond_0
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     .line 475
-    :cond_22
+    :cond_1
     const-wide/16 v0, 0x0
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 472
-    :catchall_25
+    :catchall_0
     move-exception v0
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V

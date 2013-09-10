@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 139
@@ -47,7 +47,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -85,7 +85,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/inputmethod/InputConnection;Landroid/os/IBinder;II)V
-    .registers 5
+    .locals 0
     .parameter "conn"
     .parameter "connToken"
     .parameter "uid"
@@ -112,7 +112,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/InputBinding;)V
-    .registers 4
+    .locals 1
     .parameter "conn"
     .parameter "binding"
 
@@ -151,7 +151,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 150
@@ -161,7 +161,7 @@
 .end method
 
 .method public getConnection()Landroid/view/inputmethod/InputConnection;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 92
@@ -171,7 +171,7 @@
 .end method
 
 .method public getConnectionToken()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 101
@@ -181,7 +181,7 @@
 .end method
 
 .method public getPid()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 115
@@ -191,7 +191,7 @@
 .end method
 
 .method public getUid()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 108
@@ -201,7 +201,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 120
@@ -259,7 +259,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

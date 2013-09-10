@@ -82,7 +82,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/view/menu/MenuBuilder;IIIILjava/lang/CharSequence;I)V
-    .registers 10
+    .locals 2
     .parameter "menu"
     .parameter "group"
     .parameter "id"
@@ -114,7 +114,7 @@
     .line 117
     sget-object v0, Lcom/android/internal/view/menu/MenuItemImpl;->sPrependShortcutLabel:Ljava/lang/String;
 
-    if-nez v0, :cond_56
+    if-nez v0, :cond_0
 
     .line 119
     invoke-virtual {p1}, Lcom/android/internal/view/menu/MenuBuilder;->getContext()Landroid/content/Context;
@@ -185,7 +185,7 @@
     sput-object v0, Lcom/android/internal/view/menu/MenuItemImpl;->sSpaceShortcutLabel:Ljava/lang/String;
 
     .line 129
-    :cond_56
+    :cond_0
     iput-object p1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     .line 130
@@ -211,7 +211,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/view/menu/MenuItemImpl;)Lcom/android/internal/view/menu/MenuBuilder;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -224,7 +224,7 @@
 
 # virtual methods
 .method public actionFormatChanged()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 508
@@ -237,7 +237,7 @@
 .end method
 
 .method public collapseActionView()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x0
@@ -247,29 +247,29 @@
 
     and-int/lit8 v1, v1, 0x8
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_1
 
     .line 641
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     return v0
 
     .line 631
-    :cond_8
+    :cond_1
     iget-object v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionView:Landroid/view/View;
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_2
 
     .line 633
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 636
-    :cond_e
+    :cond_2
     iget-object v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mOnActionExpandListener:Landroid/view/MenuItem$OnActionExpandListener;
 
-    if-eqz v1, :cond_1a
+    if-eqz v1, :cond_3
 
     iget-object v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mOnActionExpandListener:Landroid/view/MenuItem$OnActionExpandListener;
 
@@ -277,21 +277,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_0
 
     .line 638
-    :cond_1a
+    :cond_3
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v0, p0}, Lcom/android/internal/view/menu/MenuBuilder;->collapseItemActionView(Lcom/android/internal/view/menu/MenuItemImpl;)Z
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public expandActionView()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x0
@@ -301,22 +301,22 @@
 
     and-int/lit8 v1, v1, 0x8
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionView:Landroid/view/View;
 
-    if-nez v1, :cond_c
+    if-nez v1, :cond_1
 
     .line 623
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return v0
 
     .line 618
-    :cond_c
+    :cond_1
     iget-object v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mOnActionExpandListener:Landroid/view/MenuItem$OnActionExpandListener;
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mOnActionExpandListener:Landroid/view/MenuItem$OnActionExpandListener;
 
@@ -324,21 +324,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
     .line 620
-    :cond_18
+    :cond_2
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v0, p0}, Lcom/android/internal/view/menu/MenuBuilder;->expandItemActionView(Lcom/android/internal/view/menu/MenuItemImpl;)Z
 
     move-result v0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public getActionProvider()Landroid/view/ActionProvider;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 588
@@ -348,26 +348,26 @@
 .end method
 
 .method public getActionView()Landroid/view/View;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 577
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionView:Landroid/view/View;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 578
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionView:Landroid/view/View;
 
     .line 583
-    :goto_6
+    :goto_0
     return-object v0
 
     .line 579
-    :cond_7
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionProvider:Landroid/view/ActionProvider;
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_1
 
     .line 580
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionProvider:Landroid/view/ActionProvider;
@@ -381,17 +381,17 @@
     .line 581
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionView:Landroid/view/View;
 
-    goto :goto_6
+    goto :goto_0
 
     .line 583
-    :cond_16
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getAlphabeticShortcut()C
-    .registers 2
+    .locals 1
 
     .prologue
     .line 226
@@ -401,7 +401,7 @@
 .end method
 
 .method getCallback()Ljava/lang/Runnable;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 217
@@ -411,7 +411,7 @@
 .end method
 
 .method public getGroupId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 191
@@ -421,26 +421,26 @@
 .end method
 
 .method public getIcon()Landroid/graphics/drawable/Drawable;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 380
     iget-object v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mIconDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_0
 
     .line 381
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mIconDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 391
-    :goto_6
+    :goto_0
     return-object v0
 
     .line 384
-    :cond_7
+    :cond_0
     iget v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mIconResId:I
 
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_1
 
     .line 385
     iget-object v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
@@ -464,18 +464,18 @@
     .line 387
     iput-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mIconDrawable:Landroid/graphics/drawable/Drawable;
 
-    goto :goto_6
+    goto :goto_0
 
     .line 391
     .end local v0           #icon:Landroid/graphics/drawable/Drawable;
-    :cond_1d
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getIntent()Landroid/content/Intent;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 208
@@ -485,7 +485,7 @@
 .end method
 
 .method public getItemId()I
-    .registers 2
+    .locals 1
     .annotation runtime Landroid/view/ViewDebug$CapturedViewProperty;
     .end annotation
 
@@ -497,7 +497,7 @@
 .end method
 
 .method public getMenuInfo()Landroid/view/ContextMenu$ContextMenuInfo;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 504
@@ -507,7 +507,7 @@
 .end method
 
 .method public getNumericShortcut()C
-    .registers 2
+    .locals 1
 
     .prologue
     .line 240
@@ -517,7 +517,7 @@
 .end method
 
 .method public getOrder()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 200
@@ -527,7 +527,7 @@
 .end method
 
 .method public getOrdering()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 204
@@ -537,7 +537,7 @@
 .end method
 
 .method getShortcut()C
-    .registers 2
+    .locals 1
 
     .prologue
     .line 266
@@ -547,21 +547,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     iget-char v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mShortcutAlphabeticChar:C
 
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     iget-char v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mShortcutNumericChar:C
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method getShortcutLabel()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 276
@@ -571,17 +571,17 @@
 
     .line 277
     .local v1, shortcut:C
-    if-nez v1, :cond_9
+    if-nez v1, :cond_0
 
     .line 278
     const-string v2, ""
 
     .line 301
-    :goto_8
+    :goto_0
     return-object v2
 
     .line 281
-    :cond_9
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     sget-object v2, Lcom/android/internal/view/menu/MenuItemImpl;->sPrependShortcutLabel:Ljava/lang/String;
@@ -590,56 +590,56 @@
 
     .line 282
     .local v0, sb:Ljava/lang/StringBuilder;
-    sparse-switch v1, :sswitch_data_2e
+    sparse-switch v1, :sswitch_data_0
 
     .line 297
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 301
-    :goto_16
+    :goto_1
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_8
+    goto :goto_0
 
     .line 285
-    :sswitch_1b
+    :sswitch_0
     sget-object v2, Lcom/android/internal/view/menu/MenuItemImpl;->sEnterShortcutLabel:Ljava/lang/String;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_16
+    goto :goto_1
 
     .line 289
-    :sswitch_21
+    :sswitch_1
     sget-object v2, Lcom/android/internal/view/menu/MenuItemImpl;->sDeleteShortcutLabel:Ljava/lang/String;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_16
+    goto :goto_1
 
     .line 293
-    :sswitch_27
+    :sswitch_2
     sget-object v2, Lcom/android/internal/view/menu/MenuItemImpl;->sSpaceShortcutLabel:Ljava/lang/String;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_16
+    goto :goto_1
 
     .line 282
     nop
 
-    :sswitch_data_2e
+    :sswitch_data_0
     .sparse-switch
-        0x8 -> :sswitch_21
-        0xa -> :sswitch_1b
-        0x20 -> :sswitch_27
+        0x8 -> :sswitch_1
+        0xa -> :sswitch_0
+        0x20 -> :sswitch_2
     .end sparse-switch
 .end method
 
 .method public getSubMenu()Landroid/view/SubMenu;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 315
@@ -649,7 +649,7 @@
 .end method
 
 .method public getTitle()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
     .annotation runtime Landroid/view/ViewDebug$CapturedViewProperty;
     .end annotation
 
@@ -661,56 +661,56 @@
 .end method
 
 .method public getTitleCondensed()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 363
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mTitleCondensed:Ljava/lang/CharSequence;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mTitleCondensed:Ljava/lang/CharSequence;
 
-    :goto_6
+    :goto_0
     return-object v0
 
-    :cond_7
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mTitle:Ljava/lang/CharSequence;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method getTitleForItemView(Lcom/android/internal/view/menu/MenuView$ItemView;)Ljava/lang/CharSequence;
-    .registers 3
+    .locals 1
     .parameter "itemView"
 
     .prologue
     .line 341
-    if-eqz p1, :cond_d
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Lcom/android/internal/view/menu/MenuView$ItemView;->prefersCondensedTitle()Z
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Lcom/android/internal/view/menu/MenuItemImpl;->getTitleCondensed()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    :goto_c
+    :goto_0
     return-object v0
 
-    :cond_d
+    :cond_0
     invoke-virtual {p0}, Lcom/android/internal/view/menu/MenuItemImpl;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public hasCollapsibleActionView()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 651
@@ -718,45 +718,45 @@
 
     and-int/lit8 v0, v0, 0x8
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionView:Landroid/view/View;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public hasSubMenu()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 319
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mSubMenu:Lcom/android/internal/view/menu/SubMenuBuilder;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public invoke()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x1
@@ -764,7 +764,7 @@
     .line 144
     iget-object v2, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mClickListener:Landroid/view/MenuItem$OnMenuItemClickListener;
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mClickListener:Landroid/view/MenuItem$OnMenuItemClickListener;
 
@@ -772,15 +772,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_1
 
     .line 171
-    :cond_d
-    :goto_d
+    :cond_0
+    :goto_0
     return v1
 
     .line 149
-    :cond_e
+    :cond_1
     iget-object v2, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     iget-object v3, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
@@ -793,28 +793,28 @@
 
     move-result v2
 
-    if-nez v2, :cond_d
+    if-nez v2, :cond_0
 
     .line 153
     iget-object v2, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mItemCallback:Ljava/lang/Runnable;
 
-    if-eqz v2, :cond_26
+    if-eqz v2, :cond_2
 
     .line 154
     iget-object v2, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mItemCallback:Ljava/lang/Runnable;
 
     invoke-interface {v2}, Ljava/lang/Runnable;->run()V
 
-    goto :goto_d
+    goto :goto_0
 
     .line 158
-    :cond_26
+    :cond_2
     iget-object v2, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mIntent:Landroid/content/Intent;
 
-    if-eqz v2, :cond_3e
+    if-eqz v2, :cond_3
 
     .line 160
-    :try_start_2a
+    :try_start_0
     iget-object v2, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v2}, Lcom/android/internal/view/menu/MenuBuilder;->getContext()Landroid/content/Context;
@@ -824,13 +824,13 @@
     iget-object v3, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mIntent:Landroid/content/Intent;
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-    :try_end_35
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_2a .. :try_end_35} :catch_36
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_d
+    goto :goto_0
 
     .line 162
-    :catch_36
+    :catch_0
     move-exception v0
 
     .line 163
@@ -843,10 +843,10 @@
 
     .line 167
     .end local v0           #e:Landroid/content/ActivityNotFoundException;
-    :cond_3e
+    :cond_3
     iget-object v2, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionProvider:Landroid/view/ActionProvider;
 
-    if-eqz v2, :cond_4a
+    if-eqz v2, :cond_4
 
     iget-object v2, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionProvider:Landroid/view/ActionProvider;
 
@@ -854,17 +854,17 @@
 
     move-result v2
 
-    if-nez v2, :cond_d
+    if-nez v2, :cond_0
 
     .line 171
-    :cond_4a
+    :cond_4
     const/4 v1, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public isActionButton()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 519
@@ -874,21 +874,21 @@
 
     const/16 v1, 0x20
 
-    if-ne v0, v1, :cond_a
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public isActionViewExpanded()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 660
@@ -898,7 +898,7 @@
 .end method
 
 .method public isCheckable()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x1
@@ -908,19 +908,19 @@
 
     and-int/lit8 v1, v1, 0x1
 
-    if-ne v1, v0, :cond_8
+    if-ne v1, v0, :cond_0
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public isChecked()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 435
@@ -930,21 +930,21 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public isEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 175
@@ -952,21 +952,21 @@
 
     and-int/lit8 v0, v0, 0x10
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public isExclusiveCheckable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 431
@@ -974,21 +974,21 @@
 
     and-int/lit8 v0, v0, 0x4
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public isVisible()Z
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v0, 0x1
@@ -998,7 +998,7 @@
     .line 459
     iget-object v2, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionProvider:Landroid/view/ActionProvider;
 
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionProvider:Landroid/view/ActionProvider;
 
@@ -1006,14 +1006,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_2
 
     .line 460
     iget v2, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
 
     and-int/lit8 v2, v2, 0x8
 
-    if-nez v2, :cond_1d
+    if-nez v2, :cond_1
 
     iget-object v2, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionProvider:Landroid/view/ActionProvider;
 
@@ -1021,34 +1021,34 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1d
+    if-eqz v2, :cond_1
 
     .line 462
-    :cond_1c
-    :goto_1c
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_1d
+    :cond_1
     move v0, v1
 
     .line 460
-    goto :goto_1c
+    goto :goto_0
 
     .line 462
-    :cond_1f
+    :cond_2
     iget v2, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
 
     and-int/lit8 v2, v2, 0x8
 
-    if-eqz v2, :cond_1c
+    if-eqz v2, :cond_0
 
     move v0, v1
 
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 .method public requestsActionButton()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x1
@@ -1058,19 +1058,19 @@
 
     and-int/lit8 v1, v1, 0x1
 
-    if-ne v1, v0, :cond_8
+    if-ne v1, v0, :cond_0
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public requiresActionButton()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 527
@@ -1080,21 +1080,21 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setActionProvider(Landroid/view/ActionProvider;)Landroid/view/MenuItem;
-    .registers 4
+    .locals 2
     .parameter "actionProvider"
 
     .prologue
@@ -1103,7 +1103,7 @@
     .line 592
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionProvider:Landroid/view/ActionProvider;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 593
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionProvider:Landroid/view/ActionProvider;
@@ -1111,7 +1111,7 @@
     invoke-virtual {v0, v1}, Landroid/view/ActionProvider;->setVisibilityListener(Landroid/view/ActionProvider$VisibilityListener;)V
 
     .line 595
-    :cond_a
+    :cond_0
     iput-object v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionView:Landroid/view/View;
 
     .line 596
@@ -1138,7 +1138,7 @@
 .end method
 
 .method public setActionView(I)Landroid/view/MenuItem;
-    .registers 6
+    .locals 4
     .parameter "resId"
 
     .prologue
@@ -1174,7 +1174,7 @@
 .end method
 
 .method public setActionView(Landroid/view/View;)Landroid/view/MenuItem;
-    .registers 4
+    .locals 2
     .parameter "view"
 
     .prologue
@@ -1187,7 +1187,7 @@
     iput-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mActionProvider:Landroid/view/ActionProvider;
 
     .line 562
-    if-eqz p1, :cond_17
+    if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -1195,11 +1195,11 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_17
+    if-ne v0, v1, :cond_0
 
     iget v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mId:I
 
-    if-lez v0, :cond_17
+    if-lez v0, :cond_0
 
     .line 563
     iget v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mId:I
@@ -1207,7 +1207,7 @@
     invoke-virtual {p1, v0}, Landroid/view/View;->setId(I)V
 
     .line 565
-    :cond_17
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v0, p0}, Lcom/android/internal/view/menu/MenuBuilder;->onItemActionRequestChanged(Lcom/android/internal/view/menu/MenuItemImpl;)V
@@ -1217,7 +1217,7 @@
 .end method
 
 .method public setActionViewExpanded(Z)V
-    .registers 4
+    .locals 2
     .parameter "isExpanded"
 
     .prologue
@@ -1236,21 +1236,21 @@
 .end method
 
 .method public setAlphabeticShortcut(C)Landroid/view/MenuItem;
-    .registers 4
+    .locals 2
     .parameter "alphaChar"
 
     .prologue
     .line 230
     iget-char v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mShortcutAlphabeticChar:C
 
-    if-ne v0, p1, :cond_5
+    if-ne v0, p1, :cond_0
 
     .line 236
-    :goto_4
+    :goto_0
     return-object p0
 
     .line 232
-    :cond_5
+    :cond_0
     invoke-static {p1}, Ljava/lang/Character;->toLowerCase(C)C
 
     move-result v0
@@ -1264,11 +1264,11 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/view/menu/MenuBuilder;->onItemsChanged(Z)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public setCallback(Ljava/lang/Runnable;)Landroid/view/MenuItem;
-    .registers 2
+    .locals 0
     .parameter "callback"
 
     .prologue
@@ -1280,7 +1280,7 @@
 .end method
 
 .method public setCheckable(Z)Landroid/view/MenuItem;
-    .registers 6
+    .locals 4
     .parameter "checkable"
 
     .prologue
@@ -1295,11 +1295,11 @@
 
     and-int/lit8 v3, v1, -0x2
 
-    if-eqz p1, :cond_17
+    if-eqz p1, :cond_1
 
     const/4 v1, 0x1
 
-    :goto_a
+    :goto_0
     or-int/2addr v1, v3
 
     iput v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
@@ -1307,7 +1307,7 @@
     .line 419
     iget v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
 
-    if-eq v0, v1, :cond_16
+    if-eq v0, v1, :cond_0
 
     .line 420
     iget-object v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
@@ -1315,18 +1315,18 @@
     invoke-virtual {v1, v2}, Lcom/android/internal/view/menu/MenuBuilder;->onItemsChanged(Z)V
 
     .line 423
-    :cond_16
+    :cond_0
     return-object p0
 
-    :cond_17
+    :cond_1
     move v1, v2
 
     .line 418
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public setChecked(Z)Landroid/view/MenuItem;
-    .registers 3
+    .locals 1
     .parameter "checked"
 
     .prologue
@@ -1335,7 +1335,7 @@
 
     and-int/lit8 v0, v0, 0x4
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 442
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
@@ -1343,18 +1343,18 @@
     invoke-virtual {v0, p0}, Lcom/android/internal/view/menu/MenuBuilder;->setExclusiveItemChecked(Landroid/view/MenuItem;)V
 
     .line 447
-    :goto_b
+    :goto_0
     return-object p0
 
     .line 444
-    :cond_c
+    :cond_0
     invoke-virtual {p0, p1}, Lcom/android/internal/view/menu/MenuItemImpl;->setCheckedInt(Z)V
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method setCheckedInt(Z)V
-    .registers 6
+    .locals 4
     .parameter "checked"
 
     .prologue
@@ -1369,11 +1369,11 @@
 
     and-int/lit8 v3, v1, -0x3
 
-    if-eqz p1, :cond_17
+    if-eqz p1, :cond_1
 
     const/4 v1, 0x2
 
-    :goto_a
+    :goto_0
     or-int/2addr v1, v3
 
     iput v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
@@ -1381,7 +1381,7 @@
     .line 453
     iget v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
 
-    if-eq v0, v1, :cond_16
+    if-eq v0, v1, :cond_0
 
     .line 454
     iget-object v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
@@ -1389,23 +1389,23 @@
     invoke-virtual {v1, v2}, Lcom/android/internal/view/menu/MenuBuilder;->onItemsChanged(Z)V
 
     .line 456
-    :cond_16
+    :cond_0
     return-void
 
-    :cond_17
+    :cond_1
     move v1, v2
 
     .line 452
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public setEnabled(Z)Landroid/view/MenuItem;
-    .registers 4
+    .locals 2
     .parameter "enabled"
 
     .prologue
     .line 179
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_0
 
     .line 180
     iget v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
@@ -1415,7 +1415,7 @@
     iput v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
 
     .line 185
-    :goto_8
+    :goto_0
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     const/4 v1, 0x0
@@ -1426,18 +1426,18 @@
     return-object p0
 
     .line 182
-    :cond_f
+    :cond_0
     iget v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
 
     and-int/lit8 v0, v0, -0x11
 
     iput v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setExclusiveCheckable(Z)V
-    .registers 4
+    .locals 2
     .parameter "exclusive"
 
     .prologue
@@ -1446,11 +1446,11 @@
 
     and-int/lit8 v1, v0, -0x5
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x4
 
-    :goto_7
+    :goto_0
     or-int/2addr v0, v1
 
     iput v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
@@ -1459,14 +1459,14 @@
     return-void
 
     .line 427
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setIcon(I)Landroid/view/MenuItem;
-    .registers 4
+    .locals 2
     .parameter "iconResId"
 
     .prologue
@@ -1490,7 +1490,7 @@
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;
-    .registers 4
+    .locals 2
     .parameter "icon"
 
     .prologue
@@ -1512,7 +1512,7 @@
 .end method
 
 .method public setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
-    .registers 2
+    .locals 0
     .parameter "intent"
 
     .prologue
@@ -1524,12 +1524,12 @@
 .end method
 
 .method public setIsActionButton(Z)V
-    .registers 3
+    .locals 1
     .parameter "isActionButton"
 
     .prologue
     .line 531
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
     .line 532
     iget v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
@@ -1539,22 +1539,22 @@
     iput v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
 
     .line 536
-    :goto_8
+    :goto_0
     return-void
 
     .line 534
-    :cond_9
+    :cond_0
     iget v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
 
     and-int/lit8 v0, v0, -0x21
 
     iput v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method setMenuInfo(Landroid/view/ContextMenu$ContextMenuInfo;)V
-    .registers 2
+    .locals 0
     .parameter "menuInfo"
 
     .prologue
@@ -1566,21 +1566,21 @@
 .end method
 
 .method public setNumericShortcut(C)Landroid/view/MenuItem;
-    .registers 4
+    .locals 2
     .parameter "numericChar"
 
     .prologue
     .line 244
     iget-char v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mShortcutNumericChar:C
 
-    if-ne v0, p1, :cond_5
+    if-ne v0, p1, :cond_0
 
     .line 250
-    :goto_4
+    :goto_0
     return-object p0
 
     .line 246
-    :cond_5
+    :cond_0
     iput-char p1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mShortcutNumericChar:C
 
     .line 248
@@ -1590,11 +1590,11 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/view/menu/MenuBuilder;->onItemsChanged(Z)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public setOnActionExpandListener(Landroid/view/MenuItem$OnActionExpandListener;)Landroid/view/MenuItem;
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue
@@ -1606,7 +1606,7 @@
 .end method
 
 .method public setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
-    .registers 2
+    .locals 0
     .parameter "clickListener"
 
     .prologue
@@ -1618,7 +1618,7 @@
 .end method
 
 .method public setShortcut(CC)Landroid/view/MenuItem;
-    .registers 5
+    .locals 2
     .parameter "numericChar"
     .parameter "alphaChar"
 
@@ -1645,14 +1645,14 @@
 .end method
 
 .method public setShowAsAction(I)V
-    .registers 4
+    .locals 2
     .parameter "actionEnum"
 
     .prologue
     .line 543
     and-int/lit8 v0, p1, 0x3
 
-    packed-switch v0, :pswitch_data_16
+    packed-switch v0, :pswitch_data_0
 
     .line 552
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1664,7 +1664,7 @@
     throw v0
 
     .line 555
-    :pswitch_d
+    :pswitch_0
     iput p1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mShowAsAction:I
 
     .line 556
@@ -1678,16 +1678,16 @@
     .line 543
     nop
 
-    :pswitch_data_16
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_d
-        :pswitch_d
-        :pswitch_d
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public setShowAsActionFlags(I)Landroid/view/MenuItem;
-    .registers 2
+    .locals 0
     .parameter "actionEnum"
 
     .prologue
@@ -1699,7 +1699,7 @@
 .end method
 
 .method setSubMenu(Lcom/android/internal/view/menu/SubMenuBuilder;)V
-    .registers 3
+    .locals 1
     .parameter "subMenu"
 
     .prologue
@@ -1718,7 +1718,7 @@
 .end method
 
 .method public setTitle(I)Landroid/view/MenuItem;
-    .registers 3
+    .locals 1
     .parameter "title"
 
     .prologue
@@ -1741,7 +1741,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
-    .registers 4
+    .locals 2
     .parameter "title"
 
     .prologue
@@ -1758,7 +1758,7 @@
     .line 351
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mSubMenu:Lcom/android/internal/view/menu/SubMenuBuilder;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 352
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mSubMenu:Lcom/android/internal/view/menu/SubMenuBuilder;
@@ -1766,12 +1766,12 @@
     invoke-virtual {v0, p1}, Lcom/android/internal/view/menu/SubMenuBuilder;->setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
 
     .line 355
-    :cond_11
+    :cond_0
     return-object p0
 .end method
 
 .method public setTitleCondensed(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
-    .registers 4
+    .locals 2
     .parameter "title"
 
     .prologue
@@ -1779,13 +1779,13 @@
     iput-object p1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mTitleCondensed:Ljava/lang/CharSequence;
 
     .line 370
-    if-nez p1, :cond_6
+    if-nez p1, :cond_0
 
     .line 371
     iget-object p1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mTitle:Ljava/lang/CharSequence;
 
     .line 374
-    :cond_6
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     const/4 v1, 0x0
@@ -1797,7 +1797,7 @@
 .end method
 
 .method public setVisible(Z)Landroid/view/MenuItem;
-    .registers 3
+    .locals 1
     .parameter "shown"
 
     .prologue
@@ -1806,19 +1806,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v0, p0}, Lcom/android/internal/view/menu/MenuBuilder;->onItemVisibleChanged(Lcom/android/internal/view/menu/MenuItemImpl;)V
 
     .line 486
-    :cond_b
+    :cond_0
     return-object p0
 .end method
 
 .method setVisibleInt(Z)Z
-    .registers 6
+    .locals 4
     .parameter "shown"
 
     .prologue
@@ -1833,11 +1833,11 @@
 
     and-int/lit8 v3, v1, -0x9
 
-    if-eqz p1, :cond_13
+    if-eqz p1, :cond_1
 
     move v1, v2
 
-    :goto_a
+    :goto_0
     or-int/2addr v1, v3
 
     iput v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
@@ -1845,22 +1845,22 @@
     .line 477
     iget v1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlags:I
 
-    if-eq v0, v1, :cond_12
+    if-eq v0, v1, :cond_0
 
     const/4 v2, 0x1
 
-    :cond_12
+    :cond_0
     return v2
 
     .line 476
-    :cond_13
+    :cond_1
     const/16 v1, 0x8
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public shouldShowIcon()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 515
@@ -1874,7 +1874,7 @@
 .end method
 
 .method shouldShowShortcut()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 311
@@ -1884,27 +1884,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Lcom/android/internal/view/menu/MenuItemImpl;->getShortcut()C
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public showsTextAsAction()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 539
@@ -1914,21 +1914,21 @@
 
     const/4 v1, 0x4
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 496

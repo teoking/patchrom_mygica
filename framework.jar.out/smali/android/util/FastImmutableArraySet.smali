@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>([Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -82,7 +82,7 @@
 
     .line 41
     .local v0, it:Landroid/util/FastImmutableArraySet$FastIterator;,"Landroid/util/FastImmutableArraySet$FastIterator<TT;>;"
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 42
     new-instance v0, Landroid/util/FastImmutableArraySet$FastIterator;
@@ -97,20 +97,20 @@
     iput-object v0, p0, Landroid/util/FastImmutableArraySet;->mIterator:Landroid/util/FastImmutableArraySet$FastIterator;
 
     .line 47
-    :goto_d
+    :goto_0
     return-object v0
 
     .line 45
-    :cond_e
+    :cond_0
     const/4 v1, 0x0
 
     iput v1, v0, Landroid/util/FastImmutableArraySet$FastIterator;->mIndex:I
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 52

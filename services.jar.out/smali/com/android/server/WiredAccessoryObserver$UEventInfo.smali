@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
     .parameter "devName"
     .parameter "state1Bits"
     .parameter "state2Bits"
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public checkSwitchExists()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 77
@@ -63,27 +63,27 @@
 
     .line 78
     .local v0, f:Ljava/io/File;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v1
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     const/4 v1, 0x1
 
-    :goto_12
+    :goto_0
     return v1
 
-    :cond_13
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public computeNewHeadsetState(II)I
-    .registers 7
+    .locals 4
     .parameter "headsetState"
     .parameter "switchState"
 
@@ -101,13 +101,13 @@
     .local v0, preserveMask:I
     const/4 v2, 0x1
 
-    if-ne p2, v2, :cond_10
+    if-ne p2, v2, :cond_0
 
     iget v1, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mState1Bits:I
 
     .line 86
     .local v1, setBits:I
-    :goto_c
+    :goto_0
     and-int v2, p1, v0
 
     or-int/2addr v2, v1
@@ -116,23 +116,23 @@
 
     .line 83
     .end local v1           #setBits:I
-    :cond_10
+    :cond_0
     const/4 v2, 0x2
 
-    if-ne p2, v2, :cond_16
+    if-ne p2, v2, :cond_1
 
     iget v1, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mState2Bits:I
 
-    goto :goto_c
+    goto :goto_0
 
-    :cond_16
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public getDevName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 66
@@ -142,7 +142,7 @@
 .end method
 
 .method public getDevPath()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 69
@@ -166,7 +166,7 @@
 .end method
 
 .method public getSwitchStatePath()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 73

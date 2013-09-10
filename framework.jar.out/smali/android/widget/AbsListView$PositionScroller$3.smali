@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/AbsListView$PositionScroller;III)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 4426

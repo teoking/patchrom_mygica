@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/Editor$SuggestionsPopupWindow;)V
-    .registers 4
+    .locals 2
     .parameter
 
     .prologue
@@ -36,6 +36,7 @@
 
     iget-object v0, v0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v0}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -58,7 +59,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/Editor$SuggestionsPopupWindow;Landroid/widget/Editor$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -72,12 +73,13 @@
 
 # virtual methods
 .method public getCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2260
     iget-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 
+    #getter for: Landroid/widget/Editor$SuggestionsPopupWindow;->mNumberOfSuggestions:I
     invoke-static {v0}, Landroid/widget/Editor$SuggestionsPopupWindow;->access$1600(Landroid/widget/Editor$SuggestionsPopupWindow;)I
 
     move-result v0
@@ -86,13 +88,14 @@
 .end method
 
 .method public getItem(I)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "position"
 
     .prologue
     .line 2265
     iget-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 
+    #getter for: Landroid/widget/Editor$SuggestionsPopupWindow;->mSuggestionInfos:[Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;
     invoke-static {v0}, Landroid/widget/Editor$SuggestionsPopupWindow;->access$1700(Landroid/widget/Editor$SuggestionsPopupWindow;)[Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;
 
     move-result-object v0
@@ -103,7 +106,7 @@
 .end method
 
 .method public getItemId(I)J
-    .registers 4
+    .locals 2
     .parameter "position"
 
     .prologue
@@ -114,7 +117,7 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .registers 10
+    .locals 6
     .parameter "position"
     .parameter "convertView"
     .parameter "parent"
@@ -131,7 +134,7 @@
 
     .line 2277
     .local v1, textView:Landroid/widget/TextView;
-    if-nez v1, :cond_19
+    if-nez v1, :cond_0
 
     .line 2278
     iget-object v2, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;->mInflater:Landroid/view/LayoutInflater;
@@ -140,6 +143,7 @@
 
     iget-object v3, v3, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
 
+    #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
     invoke-static {v3}, Landroid/widget/Editor;->access$600(Landroid/widget/Editor;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -155,9 +159,10 @@
 
     .line 2282
     .restart local v1       #textView:Landroid/widget/TextView;
-    :cond_19
+    :cond_0
     iget-object v2, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 
+    #getter for: Landroid/widget/Editor$SuggestionsPopupWindow;->mSuggestionInfos:[Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;
     invoke-static {v2}, Landroid/widget/Editor$SuggestionsPopupWindow;->access$1700(Landroid/widget/Editor$SuggestionsPopupWindow;)[Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;
 
     move-result-object v2
@@ -175,7 +180,7 @@
 
     const/4 v3, -0x1
 
-    if-ne v2, v3, :cond_32
+    if-ne v2, v3, :cond_1
 
     .line 2286
     const v2, 0x1080355
@@ -183,27 +188,27 @@
     invoke-virtual {v1, v2, v4, v4, v4}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
     .line 2295
-    :goto_31
+    :goto_0
     return-object v1
 
     .line 2288
-    :cond_32
+    :cond_1
     iget v2, v0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;->suggestionIndex:I
 
     const/4 v3, -0x2
 
-    if-ne v2, v3, :cond_3e
+    if-ne v2, v3, :cond_2
 
     .line 2289
     const v2, 0x1080356
 
     invoke-virtual {v1, v2, v4, v4, v4}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    goto :goto_31
+    goto :goto_0
 
     .line 2292
-    :cond_3e
+    :cond_2
     invoke-virtual {v1, v5, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_31
+    goto :goto_0
 .end method

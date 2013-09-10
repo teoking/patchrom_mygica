@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/webkit/HTML5VideoViewProxy;)V
-    .registers 2
+    .locals 0
     .parameter "proxy"
 
     .prologue
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 292

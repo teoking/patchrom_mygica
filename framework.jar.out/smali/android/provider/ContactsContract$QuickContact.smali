@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 7612
@@ -45,7 +45,7 @@
 .end method
 
 .method public static showQuickContact(Landroid/content/Context;Landroid/graphics/Rect;Landroid/net/Uri;I[Ljava/lang/String;)V
-    .registers 10
+    .locals 5
     .parameter "context"
     .parameter "target"
     .parameter "lookupUri"
@@ -58,14 +58,14 @@
 
     .line 7733
     .local v0, actualContext:Landroid/content/Context;
-    :goto_1
+    :goto_0
     instance-of v3, v0, Landroid/content/ContextWrapper;
 
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_0
 
     instance-of v3, v0, Landroid/app/Activity;
 
-    if-nez v3, :cond_10
+    if-nez v3, :cond_0
 
     .line 7734
     check-cast v0, Landroid/content/ContextWrapper;
@@ -76,19 +76,19 @@
     move-result-object v0
 
     .restart local v0       #actualContext:Landroid/content/Context;
-    goto :goto_1
+    goto :goto_0
 
     .line 7736
-    :cond_10
+    :cond_0
     instance-of v3, v0, Landroid/app/Activity;
 
-    if-eqz v3, :cond_36
+    if-eqz v3, :cond_1
 
     const/high16 v2, 0x8
 
     .line 7741
     .local v2, intentFlags:I
-    :goto_16
+    :goto_1
     new-instance v3, Landroid/content/Intent;
 
     const-string v4, "com.android.contacts.action.QUICK_CONTACT"
@@ -125,14 +125,14 @@
     .line 7736
     .end local v1           #intent:Landroid/content/Intent;
     .end local v2           #intentFlags:I
-    :cond_36
+    :cond_1
     const v2, 0x10008000
 
-    goto :goto_16
+    goto :goto_1
 .end method
 
 .method public static showQuickContact(Landroid/content/Context;Landroid/view/View;Landroid/net/Uri;I[Ljava/lang/String;)V
-    .registers 12
+    .locals 7
     .parameter "context"
     .parameter "target"
     .parameter "lookupUri"

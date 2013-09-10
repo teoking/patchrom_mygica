@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ProcessRecord;ZLjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "owner"
     .parameter "oomAdj"
     .parameter "reason"

@@ -29,7 +29,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 152
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public enableSmoothTransition()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 319
@@ -54,7 +54,7 @@
 .end method
 
 .method public getAllowContentAccess()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 284
@@ -66,7 +66,7 @@
 .end method
 
 .method public getAllowFileAccess()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 266
@@ -84,22 +84,22 @@
 .end method
 
 .method public declared-synchronized getBlockNetworkImage()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 805
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -108,22 +108,22 @@
 .end method
 
 .method public declared-synchronized getBlockNetworkLoads()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 837
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -132,7 +132,7 @@
 .end method
 
 .method public getBuiltInZoomControls()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 224
@@ -144,7 +144,7 @@
 .end method
 
 .method public getCacheMode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1190
@@ -156,22 +156,22 @@
 .end method
 
 .method public declared-synchronized getCursiveFontFamily()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 651
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -180,22 +180,22 @@
 .end method
 
 .method public declared-synchronized getDatabaseEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1020
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -204,22 +204,22 @@
 .end method
 
 .method public declared-synchronized getDatabasePath()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1011
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -228,22 +228,22 @@
 .end method
 
 .method public declared-synchronized getDefaultFixedFontSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 750
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -252,22 +252,22 @@
 .end method
 
 .method public declared-synchronized getDefaultFontSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 730
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -276,22 +276,22 @@
 .end method
 
 .method public declared-synchronized getDefaultTextEncodingName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1134
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -300,7 +300,7 @@
 .end method
 
 .method public getDefaultZoom()Landroid/webkit/WebSettings$ZoomDensity;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 436
@@ -312,7 +312,7 @@
 .end method
 
 .method public getDisplayZoomControls()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 247
@@ -324,22 +324,22 @@
 .end method
 
 .method public declared-synchronized getDomStorageEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1002
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -348,22 +348,22 @@
 .end method
 
 .method public declared-synchronized getFantasyFontFamily()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 670
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -372,22 +372,22 @@
 .end method
 
 .method public declared-synchronized getFixedFontFamily()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 595
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -396,22 +396,22 @@
 .end method
 
 .method public declared-synchronized getJavaScriptCanOpenWindowsAutomatically()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1115
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -420,22 +420,22 @@
 .end method
 
 .method public declared-synchronized getJavaScriptEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1039
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -444,22 +444,22 @@
 .end method
 
 .method public declared-synchronized getLayoutAlgorithm()Landroid/webkit/WebSettings$LayoutAlgorithm;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 557
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -468,7 +468,7 @@
 .end method
 
 .method public getLightTouchEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 450
@@ -480,7 +480,7 @@
 .end method
 
 .method public getLoadWithOverviewMode()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 298
@@ -492,22 +492,22 @@
 .end method
 
 .method public declared-synchronized getLoadsImagesAutomatically()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 776
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -516,22 +516,22 @@
 .end method
 
 .method public declared-synchronized getMinimumFontSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 690
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -540,22 +540,22 @@
 .end method
 
 .method public declared-synchronized getMinimumLogicalFontSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 710
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -564,7 +564,7 @@
 .end method
 
 .method public getNavDump()Z
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -578,22 +578,22 @@
 .end method
 
 .method public declared-synchronized getPluginState()Landroid/webkit/WebSettings$PluginState;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1080
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -602,7 +602,7 @@
 .end method
 
 .method public declared-synchronized getPluginsEnabled()Z
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -610,16 +610,16 @@
     .line 1071
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -628,7 +628,7 @@
 .end method
 
 .method public declared-synchronized getPluginsPath()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -636,16 +636,16 @@
     .line 1094
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     const-string v0, ""
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -654,22 +654,22 @@
 .end method
 
 .method public declared-synchronized getSansSerifFontFamily()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 613
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -678,7 +678,7 @@
 .end method
 
 .method public getSaveFormData()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 358
@@ -690,7 +690,7 @@
 .end method
 
 .method public getSavePassword()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 372
@@ -702,22 +702,22 @@
 .end method
 
 .method public declared-synchronized getSerifFontFamily()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 632
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -726,22 +726,22 @@
 .end method
 
 .method public declared-synchronized getStandardFontFamily()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 576
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -750,22 +750,22 @@
 .end method
 
 .method public declared-synchronized getTextSize()Landroid/webkit/WebSettings$TextSize;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 415
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -774,22 +774,22 @@
 .end method
 
 .method public declared-synchronized getTextZoom()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 391
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -798,7 +798,7 @@
 .end method
 
 .method public declared-synchronized getUseDoubleTree()Z
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -814,7 +814,7 @@
 .end method
 
 .method public getUseWebViewBackgroundForOverscrollBackground()Z
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -828,22 +828,22 @@
 .end method
 
 .method public declared-synchronized getUseWideViewPort()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 514
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -852,7 +852,7 @@
 .end method
 
 .method public declared-synchronized getUserAgent()I
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -860,16 +860,16 @@
     .line 498
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -878,22 +878,22 @@
 .end method
 
 .method public declared-synchronized getUserAgentString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1149
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -902,7 +902,7 @@
 .end method
 
 .method public setAllowContentAccess(Z)V
-    .registers 3
+    .locals 1
     .parameter "allow"
 
     .prologue
@@ -915,7 +915,7 @@
 .end method
 
 .method public setAllowFileAccess(Z)V
-    .registers 3
+    .locals 1
     .parameter "allow"
 
     .prologue
@@ -934,23 +934,23 @@
 .end method
 
 .method public declared-synchronized setAppCacheEnabled(Z)V
-    .registers 3
+    .locals 1
     .parameter "flag"
 
     .prologue
     .line 953
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -959,23 +959,23 @@
 .end method
 
 .method public declared-synchronized setAppCacheMaxSize(J)V
-    .registers 4
+    .locals 1
     .parameter "appCacheMaxSize"
 
     .prologue
     .line 975
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -984,23 +984,23 @@
 .end method
 
 .method public declared-synchronized setAppCachePath(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "appCachePath"
 
     .prologue
     .line 966
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1009,23 +1009,23 @@
 .end method
 
 .method public declared-synchronized setBlockNetworkImage(Z)V
-    .registers 3
+    .locals 1
     .parameter "flag"
 
     .prologue
     .line 795
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1034,23 +1034,23 @@
 .end method
 
 .method public declared-synchronized setBlockNetworkLoads(Z)V
-    .registers 3
+    .locals 1
     .parameter "flag"
 
     .prologue
     .line 827
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1059,7 +1059,7 @@
 .end method
 
 .method public setBuiltInZoomControls(Z)V
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
@@ -1072,7 +1072,7 @@
 .end method
 
 .method public setCacheMode(I)V
-    .registers 3
+    .locals 1
     .parameter "mode"
 
     .prologue
@@ -1085,23 +1085,23 @@
 .end method
 
 .method public declared-synchronized setCursiveFontFamily(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "font"
 
     .prologue
     .line 641
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1110,23 +1110,23 @@
 .end method
 
 .method public declared-synchronized setDatabaseEnabled(Z)V
-    .registers 3
+    .locals 1
     .parameter "flag"
 
     .prologue
     .line 984
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1135,23 +1135,23 @@
 .end method
 
 .method public declared-synchronized setDatabasePath(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "databasePath"
 
     .prologue
     .line 932
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1160,23 +1160,23 @@
 .end method
 
 .method public declared-synchronized setDefaultFixedFontSize(I)V
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
     .line 740
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1185,23 +1185,23 @@
 .end method
 
 .method public declared-synchronized setDefaultFontSize(I)V
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
     .line 720
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1210,23 +1210,23 @@
 .end method
 
 .method public declared-synchronized setDefaultTextEncodingName(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "encoding"
 
     .prologue
     .line 1124
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1235,7 +1235,7 @@
 .end method
 
 .method public setDefaultZoom(Landroid/webkit/WebSettings$ZoomDensity;)V
-    .registers 3
+    .locals 1
     .parameter "zoom"
 
     .prologue
@@ -1248,7 +1248,7 @@
 .end method
 
 .method public setDisplayZoomControls(Z)V
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
@@ -1261,23 +1261,23 @@
 .end method
 
 .method public declared-synchronized setDomStorageEnabled(Z)V
-    .registers 3
+    .locals 1
     .parameter "flag"
 
     .prologue
     .line 993
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1286,7 +1286,7 @@
 .end method
 
 .method public setEnableSmoothTransition(Z)V
-    .registers 3
+    .locals 1
     .parameter "enable"
 
     .prologue
@@ -1299,23 +1299,23 @@
 .end method
 
 .method public declared-synchronized setFantasyFontFamily(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "font"
 
     .prologue
     .line 660
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1324,23 +1324,23 @@
 .end method
 
 .method public declared-synchronized setFixedFontFamily(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "font"
 
     .prologue
     .line 585
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1349,23 +1349,23 @@
 .end method
 
 .method public declared-synchronized setGeolocationDatabasePath(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "databasePath"
 
     .prologue
     .line 944
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1374,23 +1374,23 @@
 .end method
 
 .method public declared-synchronized setGeolocationEnabled(Z)V
-    .registers 3
+    .locals 1
     .parameter "flag"
 
     .prologue
     .line 1029
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1399,23 +1399,23 @@
 .end method
 
 .method public declared-synchronized setJavaScriptCanOpenWindowsAutomatically(Z)V
-    .registers 3
+    .locals 1
     .parameter "flag"
 
     .prologue
     .line 1104
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1424,23 +1424,23 @@
 .end method
 
 .method public declared-synchronized setJavaScriptEnabled(Z)V
-    .registers 3
+    .locals 1
     .parameter "flag"
 
     .prologue
     .line 847
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1449,23 +1449,23 @@
 .end method
 
 .method public declared-synchronized setLayoutAlgorithm(Landroid/webkit/WebSettings$LayoutAlgorithm;)V
-    .registers 3
+    .locals 1
     .parameter "l"
 
     .prologue
     .line 545
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1474,7 +1474,7 @@
 .end method
 
 .method public setLightTouchEnabled(Z)V
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
@@ -1487,7 +1487,7 @@
 .end method
 
 .method public setLoadWithOverviewMode(Z)V
-    .registers 3
+    .locals 1
     .parameter "overview"
 
     .prologue
@@ -1500,23 +1500,23 @@
 .end method
 
 .method public declared-synchronized setLoadsImagesAutomatically(Z)V
-    .registers 3
+    .locals 1
     .parameter "flag"
 
     .prologue
     .line 765
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1525,23 +1525,23 @@
 .end method
 
 .method public declared-synchronized setMinimumFontSize(I)V
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
     .line 680
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1550,23 +1550,23 @@
 .end method
 
 .method public declared-synchronized setMinimumLogicalFontSize(I)V
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
     .line 700
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1575,7 +1575,7 @@
 .end method
 
 .method public setNavDump(Z)V
-    .registers 3
+    .locals 1
     .parameter "enabled"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1590,7 +1590,7 @@
 .end method
 
 .method public setNeedInitialFocus(Z)V
-    .registers 3
+    .locals 1
     .parameter "flag"
 
     .prologue
@@ -1603,23 +1603,23 @@
 .end method
 
 .method public declared-synchronized setPluginState(Landroid/webkit/WebSettings$PluginState;)V
-    .registers 3
+    .locals 1
     .parameter "state"
 
     .prologue
     .line 906
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1628,7 +1628,7 @@
 .end method
 
 .method public declared-synchronized setPluginsEnabled(Z)V
-    .registers 3
+    .locals 1
     .parameter "flag"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1637,16 +1637,16 @@
     .line 894
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1655,7 +1655,7 @@
 .end method
 
 .method public declared-synchronized setPluginsPath(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "pluginsPath"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1670,23 +1670,23 @@
 .end method
 
 .method public declared-synchronized setRenderPriority(Landroid/webkit/WebSettings$RenderPriority;)V
-    .registers 3
+    .locals 1
     .parameter "priority"
 
     .prologue
     .line 1169
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1695,23 +1695,23 @@
 .end method
 
 .method public declared-synchronized setSansSerifFontFamily(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "font"
 
     .prologue
     .line 604
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1720,7 +1720,7 @@
 .end method
 
 .method public setSaveFormData(Z)V
-    .registers 3
+    .locals 1
     .parameter "save"
 
     .prologue
@@ -1733,7 +1733,7 @@
 .end method
 
 .method public setSavePassword(Z)V
-    .registers 3
+    .locals 1
     .parameter "save"
 
     .prologue
@@ -1746,23 +1746,23 @@
 .end method
 
 .method public declared-synchronized setSerifFontFamily(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "font"
 
     .prologue
     .line 622
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1771,23 +1771,23 @@
 .end method
 
 .method public declared-synchronized setStandardFontFamily(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "font"
 
     .prologue
     .line 566
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1796,23 +1796,23 @@
 .end method
 
 .method public declared-synchronized setSupportMultipleWindows(Z)V
-    .registers 3
+    .locals 1
     .parameter "support"
 
     .prologue
     .line 523
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1821,7 +1821,7 @@
 .end method
 
 .method public setSupportZoom(Z)V
-    .registers 3
+    .locals 1
     .parameter "support"
 
     .prologue
@@ -1834,23 +1834,23 @@
 .end method
 
 .method public declared-synchronized setTextSize(Landroid/webkit/WebSettings$TextSize;)V
-    .registers 3
+    .locals 1
     .parameter "t"
 
     .prologue
     .line 402
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1859,23 +1859,23 @@
 .end method
 
 .method public declared-synchronized setTextZoom(I)V
-    .registers 3
+    .locals 1
     .parameter "textZoom"
 
     .prologue
     .line 381
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1884,7 +1884,7 @@
 .end method
 
 .method public declared-synchronized setUseDoubleTree(Z)V
-    .registers 2
+    .locals 0
     .parameter "use"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1899,7 +1899,7 @@
 .end method
 
 .method public setUseWebViewBackgroundForOverscrollBackground(Z)V
-    .registers 3
+    .locals 1
     .parameter "view"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1914,23 +1914,23 @@
 .end method
 
 .method public declared-synchronized setUseWideViewPort(Z)V
-    .registers 3
+    .locals 1
     .parameter "use"
 
     .prologue
     .line 505
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1939,7 +1939,7 @@
 .end method
 
 .method public declared-synchronized setUserAgent(I)V
-    .registers 3
+    .locals 1
     .parameter "ua"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1948,16 +1948,16 @@
     .line 485
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1966,23 +1966,23 @@
 .end method
 
 .method public declared-synchronized setUserAgentString(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "ua"
 
     .prologue
     .line 1142
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1991,22 +1991,22 @@
 .end method
 
 .method public declared-synchronized supportMultipleWindows()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 534
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -2015,7 +2015,7 @@
 .end method
 
 .method public supportZoom()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 195

@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/FileDescriptor;)V
-    .registers 5
+    .locals 3
     .parameter "fd"
 
     .prologue
@@ -39,7 +39,7 @@
     iput-object v0, p0, Landroid/app/backup/BackupDataInput;->mHeader:Landroid/app/backup/BackupDataInput$EntityHeader;
 
     .line 74
-    if-nez p1, :cond_13
+    if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -48,7 +48,7 @@
     throw v0
 
     .line 75
-    :cond_13
+    :cond_0
     invoke-static {p1}, Landroid/app/backup/BackupDataInput;->ctor(Ljava/io/FileDescriptor;)I
 
     move-result v0
@@ -58,7 +58,7 @@
     .line 76
     iget v0, p0, Landroid/app/backup/BackupDataInput;->mBackupReader:I
 
-    if-nez v0, :cond_36
+    if-nez v0, :cond_1
 
     .line 77
     new-instance v0, Ljava/lang/RuntimeException;
@@ -86,7 +86,7 @@
     throw v0
 
     .line 79
-    :cond_36
+    :cond_1
     return-void
 .end method
 
@@ -108,7 +108,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -121,8 +121,8 @@
     iget v0, p0, Landroid/app/backup/BackupDataInput;->mBackupReader:I
 
     invoke-static {v0}, Landroid/app/backup/BackupDataInput;->dtor(I)V
-    :try_end_5
-    .catchall {:try_start_0 .. :try_end_5} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 86
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -131,7 +131,7 @@
     return-void
 
     .line 86
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -140,13 +140,13 @@
 .end method
 
 .method public getDataSize()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 137
     iget-boolean v0, p0, Landroid/app/backup/BackupDataInput;->mHeaderReady:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 138
     iget-object v0, p0, Landroid/app/backup/BackupDataInput;->mHeader:Landroid/app/backup/BackupDataInput$EntityHeader;
@@ -156,7 +156,7 @@
     return v0
 
     .line 140
-    :cond_9
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Entity header not read"
@@ -167,13 +167,13 @@
 .end method
 
 .method public getKey()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 122
     iget-boolean v0, p0, Landroid/app/backup/BackupDataInput;->mHeaderReady:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 123
     iget-object v0, p0, Landroid/app/backup/BackupDataInput;->mHeader:Landroid/app/backup/BackupDataInput$EntityHeader;
@@ -183,7 +183,7 @@
     return-object v0
 
     .line 125
-    :cond_9
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Entity header not read"
@@ -194,7 +194,7 @@
 .end method
 
 .method public readEntityData([BII)I
-    .registers 8
+    .locals 4
     .parameter "data"
     .parameter "offset"
     .parameter "size"
@@ -208,7 +208,7 @@
     .line 160
     iget-boolean v1, p0, Landroid/app/backup/BackupDataInput;->mHeaderReady:Z
 
-    if-eqz v1, :cond_2b
+    if-eqz v1, :cond_1
 
     .line 161
     iget v1, p0, Landroid/app/backup/BackupDataInput;->mBackupReader:I
@@ -219,13 +219,13 @@
 
     .line 162
     .local v0, result:I
-    if-ltz v0, :cond_d
+    if-ltz v0, :cond_0
 
     .line 163
     return v0
 
     .line 165
-    :cond_d
+    :cond_0
     new-instance v1, Ljava/io/IOException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -256,7 +256,7 @@
 
     .line 168
     .end local v0           #result:I
-    :cond_2b
+    :cond_1
     new-instance v1, Ljava/lang/IllegalStateException;
 
     const-string v2, "Entity header not read"
@@ -267,7 +267,7 @@
 .end method
 
 .method public readNextHeader()Z
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -290,18 +290,18 @@
 
     .line 101
     .local v0, result:I
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 103
     iput-boolean v1, p0, Landroid/app/backup/BackupDataInput;->mHeaderReady:Z
 
     .line 108
-    :goto_e
+    :goto_0
     return v1
 
     .line 105
-    :cond_f
-    if-lez v0, :cond_15
+    :cond_0
+    if-lez v0, :cond_1
 
     .line 107
     iput-boolean v2, p0, Landroid/app/backup/BackupDataInput;->mHeaderReady:Z
@@ -309,10 +309,10 @@
     move v1, v2
 
     .line 108
-    goto :goto_e
+    goto :goto_0
 
     .line 111
-    :cond_15
+    :cond_1
     iput-boolean v2, p0, Landroid/app/backup/BackupDataInput;->mHeaderReady:Z
 
     .line 112
@@ -346,7 +346,7 @@
 .end method
 
 .method public skipEntityData()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -357,7 +357,7 @@
     .line 181
     iget-boolean v0, p0, Landroid/app/backup/BackupDataInput;->mHeaderReady:Z
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 182
     iget v0, p0, Landroid/app/backup/BackupDataInput;->mBackupReader:I
@@ -368,7 +368,7 @@
     return-void
 
     .line 184
-    :cond_a
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Entity header not read"

@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/AbsListView;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/AbsListView;Landroid/widget/AbsListView$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 10
+    .locals 9
 
     .prologue
     const/4 v8, 0x0
@@ -78,7 +78,7 @@
 
     .line 2869
     .local v0, child:Landroid/view/View;
-    if-eqz v0, :cond_45
+    if-eqz v0, :cond_1
 
     .line 2870
     iget-object v6, p0, Landroid/widget/AbsListView$CheckForLongPress;->this$0:Landroid/widget/AbsListView;
@@ -109,13 +109,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_36
+    if-eqz v6, :cond_0
 
     iget-object v6, p0, Landroid/widget/AbsListView$CheckForLongPress;->this$0:Landroid/widget/AbsListView;
 
     iget-boolean v6, v6, Landroid/widget/AdapterView;->mDataChanged:Z
 
-    if-nez v6, :cond_36
+    if-nez v6, :cond_0
 
     .line 2875
     iget-object v6, p0, Landroid/widget/AbsListView$CheckForLongPress;->this$0:Landroid/widget/AbsListView;
@@ -125,8 +125,8 @@
     move-result v1
 
     .line 2877
-    :cond_36
-    if-eqz v1, :cond_46
+    :cond_0
+    if-eqz v1, :cond_2
 
     .line 2878
     iget-object v6, p0, Landroid/widget/AbsListView$CheckForLongPress;->this$0:Landroid/widget/AbsListView;
@@ -147,20 +147,20 @@
     .end local v1           #handled:Z
     .end local v2           #longPressId:J
     .end local v4           #longPressPosition:I
-    :cond_45
-    :goto_45
+    :cond_1
+    :goto_0
     return-void
 
     .line 2882
     .restart local v1       #handled:Z
     .restart local v2       #longPressId:J
     .restart local v4       #longPressPosition:I
-    :cond_46
+    :cond_2
     iget-object v6, p0, Landroid/widget/AbsListView$CheckForLongPress;->this$0:Landroid/widget/AbsListView;
 
     const/4 v7, 0x2
 
     iput v7, v6, Landroid/widget/AbsListView;->mTouchMode:I
 
-    goto :goto_45
+    goto :goto_0
 .end method

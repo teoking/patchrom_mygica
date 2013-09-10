@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/MountService;Ljava/lang/String;ZZ)V
-    .registers 6
+    .locals 1
     .parameter
     .parameter "path"
     .parameter "force"
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method handleFinished()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 339
@@ -73,6 +73,7 @@
 
     iget-boolean v3, p0, Lcom/android/server/MountService$UnmountCallBack;->removeEncryption:Z
 
+    #calls: Lcom/android/server/MountService;->doUnmountVolume(Ljava/lang/String;ZZ)I
     invoke-static {v0, v1, v2, v3}, Lcom/android/server/MountService;->access$100(Lcom/android/server/MountService;Ljava/lang/String;ZZ)I
 
     .line 340

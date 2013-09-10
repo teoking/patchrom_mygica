@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 103
@@ -38,7 +38,7 @@
 .end method
 
 .method static synthetic access$900(I)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -51,33 +51,33 @@
 .end method
 
 .method private static isAggressiveRecovery(I)Z
-    .registers 3
+    .locals 2
     .parameter "value"
 
     .prologue
     const/4 v0, 0x1
 
     .line 111
-    if-eq p0, v0, :cond_c
+    if-eq p0, v0, :cond_0
 
     const/4 v1, 0x2
 
-    if-eq p0, v1, :cond_c
+    if-eq p0, v1, :cond_0
 
     const/4 v1, 0x3
 
-    if-eq p0, v1, :cond_c
+    if-eq p0, v1, :cond_0
 
     const/4 v1, 0x4
 
-    if-ne p0, v1, :cond_d
+    if-ne p0, v1, :cond_1
 
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_d
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method

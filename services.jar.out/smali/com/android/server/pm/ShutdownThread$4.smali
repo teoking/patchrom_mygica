@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/ShutdownThread;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onShutDownComplete(I)V
-    .registers 5
+    .locals 3
     .parameter "statusCode"
     .annotation system Ldalvik/annotation/Throws;
         value = {

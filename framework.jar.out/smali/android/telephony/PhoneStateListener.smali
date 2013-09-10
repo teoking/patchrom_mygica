@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 168
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public onCallForwardingIndicatorChanged(Z)V
-    .registers 2
+    .locals 0
     .parameter "cfi"
 
     .prologue
@@ -76,7 +76,7 @@
 .end method
 
 .method public onCallStateChanged(ILjava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "state"
     .parameter "incomingNumber"
 
@@ -86,7 +86,7 @@
 .end method
 
 .method public onCellInfoChanged(Landroid/telephony/CellInfo;)V
-    .registers 2
+    .locals 0
     .parameter "cellInfo"
 
     .prologue
@@ -95,7 +95,7 @@
 .end method
 
 .method public onCellLocationChanged(Landroid/telephony/CellLocation;)V
-    .registers 2
+    .locals 0
     .parameter "location"
 
     .prologue
@@ -104,7 +104,7 @@
 .end method
 
 .method public onDataActivity(I)V
-    .registers 2
+    .locals 0
     .parameter "direction"
 
     .prologue
@@ -113,7 +113,7 @@
 .end method
 
 .method public onDataConnectionStateChanged(I)V
-    .registers 2
+    .locals 0
     .parameter "state"
 
     .prologue
@@ -122,7 +122,7 @@
 .end method
 
 .method public onDataConnectionStateChanged(II)V
-    .registers 3
+    .locals 0
     .parameter "state"
     .parameter "networkType"
 
@@ -132,7 +132,7 @@
 .end method
 
 .method public onMessageWaitingIndicatorChanged(Z)V
-    .registers 2
+    .locals 0
     .parameter "mwi"
 
     .prologue
@@ -141,7 +141,7 @@
 .end method
 
 .method public onOtaspChanged(I)V
-    .registers 2
+    .locals 0
     .parameter "otaspMode"
 
     .prologue
@@ -150,7 +150,7 @@
 .end method
 
 .method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
-    .registers 2
+    .locals 0
     .parameter "serviceState"
 
     .prologue
@@ -159,7 +159,7 @@
 .end method
 
 .method public onSignalStrengthChanged(I)V
-    .registers 2
+    .locals 0
     .parameter "asu"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -170,7 +170,7 @@
 .end method
 
 .method public onSignalStrengthsChanged(Landroid/telephony/SignalStrength;)V
-    .registers 2
+    .locals 0
     .parameter "signalStrength"
 
     .prologue

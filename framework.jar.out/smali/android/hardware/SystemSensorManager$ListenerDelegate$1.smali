@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/hardware/SystemSensorManager$ListenerDelegate;Landroid/os/Looper;Landroid/hardware/SystemSensorManager;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 11
+    .locals 9
     .parameter "msg"
 
     .prologue
@@ -70,7 +70,7 @@
 
     move-result v4
 
-    packed-switch v4, :pswitch_data_90
+    packed-switch v4, :pswitch_data_0
 
     .line 207
     iget-object v4, p0, Landroid/hardware/SystemSensorManager$ListenerDelegate$1;->this$1:Landroid/hardware/SystemSensorManager$ListenerDelegate;
@@ -81,7 +81,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_32
+    if-nez v4, :cond_0
 
     .line 208
     iget-object v4, p0, Landroid/hardware/SystemSensorManager$ListenerDelegate$1;->this$1:Landroid/hardware/SystemSensorManager$ListenerDelegate;
@@ -93,6 +93,7 @@
     .line 209
     iget-object v4, p0, Landroid/hardware/SystemSensorManager$ListenerDelegate$1;->this$1:Landroid/hardware/SystemSensorManager$ListenerDelegate;
 
+    #getter for: Landroid/hardware/SystemSensorManager$ListenerDelegate;->mSensorEventListener:Landroid/hardware/SensorEventListener;
     invoke-static {v4}, Landroid/hardware/SystemSensorManager$ListenerDelegate;->access$100(Landroid/hardware/SystemSensorManager$ListenerDelegate;)Landroid/hardware/SensorEventListener;
 
     move-result-object v4
@@ -104,22 +105,22 @@
     invoke-interface {v4, v5, v6}, Landroid/hardware/SensorEventListener;->onAccuracyChanged(Landroid/hardware/Sensor;I)V
 
     .line 215
-    :cond_32
-    :goto_32
+    :cond_0
+    :goto_0
     const-string v4, "app.froce.landscape"
 
     invoke-static {v4, v8}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v4
 
-    if-eqz v4, :cond_5a
+    if-eqz v4, :cond_1
 
     .line 216
     invoke-static {}, Landroid/hardware/SystemSensorManager;->access$200()Z
 
     move-result v4
 
-    if-eqz v4, :cond_5a
+    if-eqz v4, :cond_1
 
     iget-object v4, v2, Landroid/hardware/SensorEvent;->sensor:Landroid/hardware/Sensor;
 
@@ -127,7 +128,7 @@
 
     move-result v4
 
-    if-ne v4, v7, :cond_5a
+    if-ne v4, v7, :cond_1
 
     .line 217
     const/4 v3, 0x0
@@ -156,9 +157,10 @@
 
     .line 224
     .end local v3           #tmp_val:F
-    :cond_5a
+    :cond_1
     iget-object v4, p0, Landroid/hardware/SystemSensorManager$ListenerDelegate$1;->this$1:Landroid/hardware/SystemSensorManager$ListenerDelegate;
 
+    #getter for: Landroid/hardware/SystemSensorManager$ListenerDelegate;->mSensorEventListener:Landroid/hardware/SensorEventListener;
     invoke-static {v4}, Landroid/hardware/SystemSensorManager$ListenerDelegate;->access$100(Landroid/hardware/SystemSensorManager$ListenerDelegate;)Landroid/hardware/SensorEventListener;
 
     move-result-object v4
@@ -174,7 +176,7 @@
     return-void
 
     .line 199
-    :pswitch_69
+    :pswitch_0
     iget-object v4, p0, Landroid/hardware/SystemSensorManager$ListenerDelegate$1;->this$1:Landroid/hardware/SystemSensorManager$ListenerDelegate;
 
     iget-object v4, v4, Landroid/hardware/SystemSensorManager$ListenerDelegate;->mSensorAccuracies:Landroid/util/SparseIntArray;
@@ -187,11 +189,11 @@
     .local v0, accuracy:I
     iget v4, v2, Landroid/hardware/SensorEvent;->accuracy:I
 
-    if-ltz v4, :cond_32
+    if-ltz v4, :cond_0
 
     iget v4, v2, Landroid/hardware/SensorEvent;->accuracy:I
 
-    if-eq v0, v4, :cond_32
+    if-eq v0, v4, :cond_0
 
     .line 201
     iget-object v4, p0, Landroid/hardware/SystemSensorManager$ListenerDelegate$1;->this$1:Landroid/hardware/SystemSensorManager$ListenerDelegate;
@@ -205,6 +207,7 @@
     .line 202
     iget-object v4, p0, Landroid/hardware/SystemSensorManager$ListenerDelegate$1;->this$1:Landroid/hardware/SystemSensorManager$ListenerDelegate;
 
+    #getter for: Landroid/hardware/SystemSensorManager$ListenerDelegate;->mSensorEventListener:Landroid/hardware/SensorEventListener;
     invoke-static {v4}, Landroid/hardware/SystemSensorManager$ListenerDelegate;->access$100(Landroid/hardware/SystemSensorManager$ListenerDelegate;)Landroid/hardware/SensorEventListener;
 
     move-result-object v4
@@ -215,12 +218,12 @@
 
     invoke-interface {v4, v5, v6}, Landroid/hardware/SensorEventListener;->onAccuracyChanged(Landroid/hardware/Sensor;I)V
 
-    goto :goto_32
+    goto :goto_0
 
     .line 194
-    :pswitch_data_90
+    :pswitch_data_0
     .packed-switch 0x2
-        :pswitch_69
-        :pswitch_69
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method

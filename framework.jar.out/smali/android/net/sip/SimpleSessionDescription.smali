@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(JLjava/lang/String;)V
-    .registers 10
+    .locals 6
     .parameter "sessionId"
     .parameter "address"
 
@@ -65,11 +65,11 @@
 
     move-result v0
 
-    if-gez v0, :cond_84
+    if-gez v0, :cond_0
 
     const-string v0, "IN IP4 "
 
-    :goto_23
+    :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -87,6 +87,7 @@
 
     const-string/jumbo v1, "v=0"
 
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->parse(Ljava/lang/String;)V
     invoke-static {v0, v1}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$000(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;)V
 
     .line 69
@@ -126,6 +127,7 @@
 
     move-result-object v1
 
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->parse(Ljava/lang/String;)V
     invoke-static {v0, v1}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$000(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;)V
 
     .line 71
@@ -133,6 +135,7 @@
 
     const-string/jumbo v1, "s=-"
 
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->parse(Ljava/lang/String;)V
     invoke-static {v0, v1}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$000(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;)V
 
     .line 72
@@ -140,6 +143,7 @@
 
     const-string/jumbo v1, "t=0 0"
 
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->parse(Ljava/lang/String;)V
     invoke-static {v0, v1}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$000(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;)V
 
     .line 73
@@ -163,20 +167,21 @@
 
     move-result-object v1
 
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->parse(Ljava/lang/String;)V
     invoke-static {v0, v1}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$000(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;)V
 
     .line 74
     return-void
 
     .line 67
-    :cond_84
+    :cond_0
     const-string v0, "IN IP6 "
 
-    goto :goto_23
+    goto :goto_0
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 25
+    .locals 23
     .parameter "message"
 
     .prologue
@@ -249,8 +254,8 @@
     .end local v10           #i$:I
     .end local v12           #len$:I
     .local v11, i$:I
-    :goto_36
-    if-ge v11, v12, :cond_f5
+    :goto_0
+    if-ge v11, v12, :cond_4
 
     aget-object v14, v5, v11
 
@@ -258,7 +263,7 @@
     .local v14, line:Ljava/lang/String;
     const/16 v19, 0x1
 
-    :try_start_3c
+    :try_start_0
     move/from16 v0, v19
 
     invoke-virtual {v14, v0}, Ljava/lang/String;->charAt(I)C
@@ -271,7 +276,7 @@
 
     move/from16 v1, v20
 
-    if-eq v0, v1, :cond_6c
+    if-eq v0, v1, :cond_0
 
     .line 88
     new-instance v19, Ljava/lang/IllegalArgumentException;
@@ -279,12 +284,12 @@
     invoke-direct/range {v19 .. v19}, Ljava/lang/IllegalArgumentException;-><init>()V
 
     throw v19
-    :try_end_50
-    .catch Ljava/lang/Exception; {:try_start_3c .. :try_end_50} :catch_50
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 103
     .end local v11           #i$:I
-    :catch_50
+    :catch_0
     move-exception v7
 
     .line 104
@@ -318,10 +323,10 @@
     .line 90
     .end local v7           #e:Ljava/lang/Exception;
     .restart local v11       #i$:I
-    :cond_6c
+    :cond_0
     const/16 v19, 0x0
 
-    :try_start_6e
+    :try_start_1
     move/from16 v0, v19
 
     invoke-virtual {v14, v0}, Ljava/lang/String;->charAt(I)C
@@ -334,7 +339,7 @@
 
     move/from16 v1, v20
 
-    if-ne v0, v1, :cond_f1
+    if-ne v0, v1, :cond_3
 
     .line 91
     const/16 v19, 0x2
@@ -393,11 +398,11 @@
 
     move/from16 v1, v22
 
-    if-ge v0, v1, :cond_e1
+    if-ge v0, v1, :cond_1
 
     const/16 v19, 0x1
 
-    :goto_b3
+    :goto_1
     const/16 v22, 0x2
 
     aget-object v22, v17, v22
@@ -436,8 +441,8 @@
 
     .end local v11           #i$:I
     .restart local v10       #i$:I
-    :goto_d1
-    if-ge v10, v13, :cond_ea
+    :goto_2
+    if-ge v10, v13, :cond_2
 
     aget-object v9, v6, v10
 
@@ -454,7 +459,7 @@
     .line 96
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_d1
+    goto :goto_2
 
     .line 93
     .end local v6           #arr$:[Ljava/lang/String;
@@ -463,7 +468,7 @@
     .end local v13           #len$:I
     .end local v16           #media:Landroid/net/sip/SimpleSessionDescription$Media;
     .restart local v11       #i$:I
-    :cond_e1
+    :cond_1
     const/16 v19, 0x1
 
     aget-object v19, v18, v19
@@ -472,7 +477,7 @@
 
     move-result v19
 
-    goto :goto_b3
+    goto :goto_1
 
     .line 99
     .end local v11           #i$:I
@@ -480,7 +485,7 @@
     .restart local v10       #i$:I
     .restart local v13       #len$:I
     .restart local v16       #media:Landroid/net/sip/SimpleSessionDescription$Media;
-    :cond_ea
+    :cond_2
     move-object/from16 v8, v16
 
     .line 85
@@ -490,7 +495,7 @@
     .end local v16           #media:Landroid/net/sip/SimpleSessionDescription$Media;
     .end local v17           #parts:[Ljava/lang/String;
     .end local v18           #ports:[Ljava/lang/String;
-    :goto_ec
+    :goto_3
     add-int/lit8 v10, v11, 0x1
 
     .restart local v10       #i$:I
@@ -498,26 +503,27 @@
 
     .end local v10           #i$:I
     .restart local v11       #i$:I
-    goto/16 :goto_36
+    goto/16 :goto_0
 
     .line 101
-    :cond_f1
+    :cond_3
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->parse(Ljava/lang/String;)V
     invoke-static {v8, v14}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$000(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;)V
-    :try_end_f4
-    .catch Ljava/lang/Exception; {:try_start_6e .. :try_end_f4} :catch_50
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_ec
+    goto :goto_3
 
     .line 107
     .end local v14           #line:Ljava/lang/String;
-    :cond_f5
+    :cond_4
     return-void
 .end method
 
 
 # virtual methods
 .method public encode()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 137
@@ -529,6 +535,7 @@
     .local v0, buffer:Ljava/lang/StringBuilder;
     iget-object v3, p0, Landroid/net/sip/SimpleSessionDescription;->mFields:Landroid/net/sip/SimpleSessionDescription$Fields;
 
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->write(Ljava/lang/StringBuilder;)V
     invoke-static {v3, v0}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$200(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/StringBuilder;)V
 
     .line 139
@@ -539,12 +546,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_10
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -554,13 +561,14 @@
 
     .line 140
     .local v2, media:Landroid/net/sip/SimpleSessionDescription$Media;
+    #calls: Landroid/net/sip/SimpleSessionDescription$Media;->write(Ljava/lang/StringBuilder;)V
     invoke-static {v2, v0}, Landroid/net/sip/SimpleSessionDescription$Media;->access$300(Landroid/net/sip/SimpleSessionDescription$Media;Ljava/lang/StringBuilder;)V
 
-    goto :goto_10
+    goto :goto_0
 
     .line 142
     .end local v2           #media:Landroid/net/sip/SimpleSessionDescription$Media;
-    :cond_20
+    :cond_0
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -569,7 +577,7 @@
 .end method
 
 .method public getAddress()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 149
@@ -583,7 +591,7 @@
 .end method
 
 .method public getAttribute(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -598,7 +606,7 @@
 .end method
 
 .method public getAttributeNames()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 209
@@ -612,7 +620,7 @@
 .end method
 
 .method public getBandwidth(Ljava/lang/String;)I
-    .registers 3
+    .locals 1
     .parameter "type"
 
     .prologue
@@ -627,7 +635,7 @@
 .end method
 
 .method public getBandwidthTypes()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 186
@@ -641,7 +649,7 @@
 .end method
 
 .method public getEncryptionKey()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 171
@@ -655,7 +663,7 @@
 .end method
 
 .method public getEncryptionMethod()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 164
@@ -669,7 +677,7 @@
 .end method
 
 .method public getMedia()[Landroid/net/sip/SimpleSessionDescription$Media;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 128
@@ -693,7 +701,7 @@
 .end method
 
 .method public newMedia(Ljava/lang/String;IILjava/lang/String;)Landroid/net/sip/SimpleSessionDescription$Media;
-    .registers 11
+    .locals 6
     .parameter "type"
     .parameter "port"
     .parameter "portCount"
@@ -726,7 +734,7 @@
 .end method
 
 .method public setAddress(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "address"
 
     .prologue
@@ -740,7 +748,7 @@
 .end method
 
 .method public setAttribute(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "value"
 
@@ -755,7 +763,7 @@
 .end method
 
 .method public setBandwidth(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
     .parameter "type"
     .parameter "value"
 
@@ -770,7 +778,7 @@
 .end method
 
 .method public setEncryption(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "method"
     .parameter "key"
 

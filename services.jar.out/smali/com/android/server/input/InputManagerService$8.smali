@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/input/InputManagerService;[Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public visitKeyboardLayout(Landroid/content/res/Resources;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
-    .registers 10
+    .locals 4
     .parameter "resources"
     .parameter "descriptor"
     .parameter "label"
@@ -77,23 +77,23 @@
     move-result-object v2
 
     aput-object v2, v0, v1
-    :try_end_17
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_17} :catch_1a
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_17} :catch_18
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1396
-    :goto_17
+    :goto_0
     return-void
 
     .line 1394
-    :catch_18
+    :catch_0
     move-exception v0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1393
-    :catch_1a
+    :catch_1
     move-exception v0
 
-    goto :goto_17
+    goto :goto_0
 .end method

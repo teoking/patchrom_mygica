@@ -61,7 +61,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 160
@@ -72,7 +72,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .registers 7
+    .locals 5
     .parameter "type"
 
     .prologue
@@ -88,7 +88,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 139
-    if-ne v1, p1, :cond_26
+    if-ne v1, p1, :cond_1
 
     .line 140
     const-string v0, "amlogic"
@@ -121,15 +121,15 @@
     iput v2, p0, Landroid/hardware/Sensor;->mPower:F
 
     .line 159
-    :cond_25
-    :goto_25
+    :cond_0
+    :goto_0
     return-void
 
     .line 149
-    :cond_26
+    :cond_1
     const/4 v0, 0x4
 
-    if-ne v0, p1, :cond_25
+    if-ne v0, p1, :cond_0
 
     .line 150
     const-string v0, "amlogic"
@@ -161,13 +161,13 @@
     .line 157
     iput v2, p0, Landroid/hardware/Sensor;->mPower:F
 
-    goto :goto_25
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method getHandle()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 222
@@ -177,7 +177,7 @@
 .end method
 
 .method public getMaximumRange()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 195
@@ -187,7 +187,7 @@
 .end method
 
 .method public getMinDelay()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 218
@@ -197,7 +197,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 167
@@ -207,7 +207,7 @@
 .end method
 
 .method public getPower()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 209
@@ -217,7 +217,7 @@
 .end method
 
 .method public getResolution()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 202
@@ -227,7 +227,7 @@
 .end method
 
 .method public getType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 181
@@ -237,7 +237,7 @@
 .end method
 
 .method public getVendor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 174
@@ -247,7 +247,7 @@
 .end method
 
 .method public getVersion()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 188
@@ -257,7 +257,7 @@
 .end method
 
 .method setRange(FF)V
-    .registers 3
+    .locals 0
     .parameter "max"
     .parameter "res"
 

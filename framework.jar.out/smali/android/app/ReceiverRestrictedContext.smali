@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "base"
 
     .prologue
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
-    .registers 6
+    .locals 2
     .parameter "service"
     .parameter "conn"
     .parameter "flags"
@@ -36,7 +36,7 @@
 .end method
 
 .method public registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-    .registers 4
+    .locals 1
     .parameter "receiver"
     .parameter "filter"
 
@@ -52,7 +52,7 @@
 .end method
 
 .method public registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
-    .registers 7
+    .locals 2
     .parameter "receiver"
     .parameter "filter"
     .parameter "broadcastPermission"

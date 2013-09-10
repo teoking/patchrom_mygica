@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 2187
@@ -38,7 +38,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/GridLayout$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method protected getOffset(Landroid/widget/GridLayout;Landroid/view/View;Landroid/widget/GridLayout$Alignment;IZ)I
-    .registers 8
+    .locals 2
     .parameter "gl"
     .parameter "c"
     .parameter "a"
@@ -76,7 +76,7 @@
 .end method
 
 .method protected include(II)V
-    .registers 4
+    .locals 1
     .parameter "before"
     .parameter "after"
 
@@ -104,7 +104,7 @@
 .end method
 
 .method protected final include(Landroid/widget/GridLayout;Landroid/view/View;Landroid/widget/GridLayout$Spec;Landroid/widget/GridLayout$Axis;)V
-    .registers 11
+    .locals 6
     .parameter "gl"
     .parameter "c"
     .parameter "spec"
@@ -160,7 +160,7 @@
 .end method
 
 .method protected reset()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/high16 v0, -0x8000
@@ -181,12 +181,12 @@
 .end method
 
 .method protected size(Z)I
-    .registers 4
+    .locals 2
     .parameter "min"
 
     .prologue
     .line 2203
-    if-nez p1, :cond_e
+    if-nez p1, :cond_0
 
     .line 2204
     iget v0, p0, Landroid/widget/GridLayout$Bounds;->flexibility:I
@@ -195,27 +195,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 2205
     const v0, 0x186a0
 
     .line 2208
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     iget v0, p0, Landroid/widget/GridLayout$Bounds;->before:I
 
     iget v1, p0, Landroid/widget/GridLayout$Bounds;->after:I
 
     add-int/2addr v0, v1
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2227

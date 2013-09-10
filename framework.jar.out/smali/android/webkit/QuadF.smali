@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 31
@@ -54,7 +54,7 @@
 .end method
 
 .method private static isPointInTriangle(FFLandroid/graphics/PointF;Landroid/graphics/PointF;Landroid/graphics/PointF;)Z
-    .registers 18
+    .locals 13
     .parameter "x0"
     .parameter "y0"
     .parameter "r1"
@@ -163,35 +163,35 @@
 
     cmpl-float v11, v2, v11
 
-    if-ltz v11, :cond_5a
+    if-ltz v11, :cond_0
 
     const/4 v11, 0x0
 
     cmpl-float v11, v3, v11
 
-    if-ltz v11, :cond_5a
+    if-ltz v11, :cond_0
 
     const/4 v11, 0x0
 
     cmpl-float v11, v4, v11
 
-    if-ltz v11, :cond_5a
+    if-ltz v11, :cond_0
 
     const/4 v11, 0x1
 
-    :goto_59
+    :goto_0
     return v11
 
-    :cond_5a
+    :cond_0
     const/4 v11, 0x0
 
-    goto :goto_59
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public containsPoint(FF)Z
-    .registers 6
+    .locals 3
     .parameter "x"
     .parameter "y"
 
@@ -207,7 +207,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/webkit/QuadF;->p1:Landroid/graphics/PointF;
 
@@ -219,22 +219,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_1
 
-    :cond_18
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_19
+    :goto_0
     return v0
 
-    :cond_1a
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public offset(FF)V
-    .registers 4
+    .locals 1
     .parameter "dx"
     .parameter "dy"
 
@@ -264,7 +264,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 57

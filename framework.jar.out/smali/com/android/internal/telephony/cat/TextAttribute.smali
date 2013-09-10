@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(IILcom/android/internal/telephony/cat/TextAlignment;Lcom/android/internal/telephony/cat/FontSize;ZZZZLcom/android/internal/telephony/cat/TextColor;)V
-    .registers 10
+    .locals 0
     .parameter "start"
     .parameter "length"
     .parameter "align"

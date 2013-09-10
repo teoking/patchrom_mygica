@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 29
@@ -16,7 +16,7 @@
 .end method
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 3
+    .locals 1
     .parameter "tag"
     .parameter "msg"
 
@@ -32,7 +32,7 @@
 .end method
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    .registers 6
+    .locals 3
     .parameter "tag"
     .parameter "msg"
     .parameter "tr"
@@ -75,7 +75,7 @@
 .end method
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 4
+    .locals 2
     .parameter "tag"
     .parameter "msg"
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    .registers 7
+    .locals 4
     .parameter "tag"
     .parameter "msg"
     .parameter "tr"
@@ -138,7 +138,7 @@
 .end method
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 4
+    .locals 2
     .parameter "tag"
     .parameter "msg"
 
@@ -156,7 +156,7 @@
 .end method
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    .registers 7
+    .locals 4
     .parameter "tag"
     .parameter "msg"
     .parameter "tr"
@@ -201,7 +201,7 @@
 .end method
 
 .method public static println(ILjava/lang/String;Ljava/lang/String;)I
-    .registers 4
+    .locals 1
     .parameter "priority"
     .parameter "tag"
     .parameter "msg"
@@ -218,7 +218,7 @@
 .end method
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 4
+    .locals 2
     .parameter "tag"
     .parameter "msg"
 
@@ -236,7 +236,7 @@
 .end method
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    .registers 7
+    .locals 4
     .parameter "tag"
     .parameter "msg"
     .parameter "tr"
@@ -281,7 +281,7 @@
 .end method
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 4
+    .locals 2
     .parameter "tag"
     .parameter "msg"
 
@@ -299,7 +299,7 @@
 .end method
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    .registers 7
+    .locals 4
     .parameter "tag"
     .parameter "msg"
     .parameter "tr"
@@ -344,7 +344,7 @@
 .end method
 
 .method public static w(Ljava/lang/String;Ljava/lang/Throwable;)I
-    .registers 5
+    .locals 3
     .parameter "tag"
     .parameter "tr"
 

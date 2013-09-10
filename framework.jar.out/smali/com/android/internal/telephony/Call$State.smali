@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 8
+    .locals 8
 
     .prologue
     const/4 v7, 0x4
@@ -196,7 +196,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -213,7 +213,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/telephony/Call$State;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -230,7 +230,7 @@
 .end method
 
 .method public static values()[Lcom/android/internal/telephony/Call$State;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 29
@@ -248,79 +248,79 @@
 
 # virtual methods
 .method public isAlive()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 33
     sget-object v0, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
 
-    if-eq p0, v0, :cond_e
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/Call$State;->DISCONNECTED:Lcom/android/internal/telephony/Call$State;
 
-    if-eq p0, v0, :cond_e
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/Call$State;->DISCONNECTING:Lcom/android/internal/telephony/Call$State;
 
-    if-eq p0, v0, :cond_e
+    if-eq p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public isDialing()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 41
     sget-object v0, Lcom/android/internal/telephony/Call$State;->DIALING:Lcom/android/internal/telephony/Call$State;
 
-    if-eq p0, v0, :cond_8
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/Call$State;->ALERTING:Lcom/android/internal/telephony/Call$State;
 
-    if-ne p0, v0, :cond_a
+    if-ne p0, v0, :cond_1
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public isRinging()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 37
     sget-object v0, Lcom/android/internal/telephony/Call$State;->INCOMING:Lcom/android/internal/telephony/Call$State;
 
-    if-eq p0, v0, :cond_8
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/Call$State;->WAITING:Lcom/android/internal/telephony/Call$State;
 
-    if-ne p0, v0, :cond_a
+    if-ne p0, v0, :cond_1
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method

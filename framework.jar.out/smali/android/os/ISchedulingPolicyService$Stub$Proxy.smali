@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 77
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -60,7 +60,7 @@
 .end method
 
 .method public requestPriority(III)I
-    .registers 10
+    .locals 6
     .parameter "pid"
     .parameter "tid"
     .parameter "prio"
@@ -84,7 +84,7 @@
 
     .line 94
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.os.ISchedulingPolicyService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -112,8 +112,8 @@
 
     .line 100
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_23
-    .catchall {:try_start_8 .. :try_end_23} :catchall_2b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -129,7 +129,7 @@
 
     .line 103
     .end local v2           #_result:I
-    :catchall_2b
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

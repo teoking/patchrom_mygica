@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/WapPushOverSms;Landroid/content/Context;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "ownerContext"
 
@@ -45,7 +45,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/telephony/WapPushOverSms$WapPushConnection;)Lcom/android/internal/telephony/IWapPushManager;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -56,7 +56,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/internal/telephony/WapPushOverSms$WapPushConnection;)Landroid/content/Context;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -67,20 +67,20 @@
 .end method
 
 .method private rebindWapPushManager()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 92
     iget-object v1, p0, Lcom/android/internal/telephony/WapPushOverSms$WapPushConnection;->mWapPushMan:Lcom/android/internal/telephony/IWapPushManager;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_0
 
     .line 108
-    :goto_4
+    :goto_0
     return-void
 
     .line 94
-    :cond_5
+    :cond_0
     move-object v0, p0
 
     .line 95
@@ -91,26 +91,26 @@
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/WapPushOverSms$WapPushConnection$1;->start()V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public bindWapPushManager()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 79
     iget-object v1, p0, Lcom/android/internal/telephony/WapPushOverSms$WapPushConnection;->mWapPushMan:Lcom/android/internal/telephony/IWapPushManager;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_0
 
     .line 85
-    :goto_4
+    :goto_0
     return-void
 
     .line 81
-    :cond_5
+    :cond_0
     move-object v0, p0
 
     .line 83
@@ -131,11 +131,11 @@
 
     invoke-virtual {v1, v2, v0, v3}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public getWapPushManager()Lcom/android/internal/telephony/IWapPushManager;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 114
@@ -145,7 +145,7 @@
 .end method
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "service"
 
@@ -162,7 +162,7 @@
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue

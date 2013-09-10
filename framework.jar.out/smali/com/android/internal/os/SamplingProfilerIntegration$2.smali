@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Landroid/content/pm/PackageInfo;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,20 +43,21 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
 
     .line 137
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/os/SamplingProfilerIntegration$2;->val$processName:Ljava/lang/String;
 
     iget-object v1, p0, Lcom/android/internal/os/SamplingProfilerIntegration$2;->val$packageInfo:Landroid/content/pm/PackageInfo;
 
+    #calls: Lcom/android/internal/os/SamplingProfilerIntegration;->writeSnapshotFile(Ljava/lang/String;Landroid/content/pm/PackageInfo;)V
     invoke-static {v0, v1}, Lcom/android/internal/os/SamplingProfilerIntegration;->access$000(Ljava/lang/String;Landroid/content/pm/PackageInfo;)V
-    :try_end_8
-    .catchall {:try_start_1 .. :try_end_8} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 139
     invoke-static {}, Lcom/android/internal/os/SamplingProfilerIntegration;->access$100()Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -69,7 +70,7 @@
     return-void
 
     .line 139
-    :catchall_10
+    :catchall_0
     move-exception v0
 
     invoke-static {}, Lcom/android/internal/os/SamplingProfilerIntegration;->access$100()Ljava/util/concurrent/atomic/AtomicBoolean;

@@ -59,7 +59,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 96
@@ -85,7 +85,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 428
@@ -96,7 +96,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/os/Message;Landroid/os/Parcel;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -108,7 +108,7 @@
 .end method
 
 .method public static obtain()Landroid/os/Message;
-    .registers 3
+    .locals 3
 
     .prologue
     .line 107
@@ -117,10 +117,10 @@
     monitor-enter v2
 
     .line 108
-    :try_start_3
+    :try_start_0
     sget-object v1, Landroid/os/Message;->sPool:Landroid/os/Message;
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_0
 
     .line 109
     sget-object v0, Landroid/os/Message;->sPool:Landroid/os/Message;
@@ -148,37 +148,37 @@
 
     .line 116
     .end local v0           #m:Landroid/os/Message;
-    :goto_17
+    :goto_0
     return-object v0
 
     .line 115
-    :cond_18
+    :cond_0
     monitor-exit v2
-    :try_end_19
-    .catchall {:try_start_3 .. :try_end_19} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 116
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    goto :goto_17
+    goto :goto_0
 
     .line 115
     .restart local v0       #m:Landroid/os/Message;
-    :catchall_1f
+    :catchall_0
     move-exception v1
 
-    :try_start_20
+    :try_start_1
     monitor-exit v2
-    :try_end_21
-    .catchall {:try_start_20 .. :try_end_21} :catchall_1f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
 
 .method public static obtain(Landroid/os/Handler;)Landroid/os/Message;
-    .registers 2
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -196,7 +196,7 @@
 .end method
 
 .method public static obtain(Landroid/os/Handler;I)Landroid/os/Message;
-    .registers 3
+    .locals 1
     .parameter "h"
     .parameter "what"
 
@@ -218,7 +218,7 @@
 .end method
 
 .method public static obtain(Landroid/os/Handler;III)Landroid/os/Message;
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "arg1"
@@ -248,7 +248,7 @@
 .end method
 
 .method public static obtain(Landroid/os/Handler;IIILjava/lang/Object;)Landroid/os/Message;
-    .registers 6
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "arg1"
@@ -282,7 +282,7 @@
 .end method
 
 .method public static obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
-    .registers 4
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -308,7 +308,7 @@
 .end method
 
 .method public static obtain(Landroid/os/Handler;Ljava/lang/Runnable;)Landroid/os/Message;
-    .registers 3
+    .locals 1
     .parameter "h"
     .parameter "callback"
 
@@ -330,7 +330,7 @@
 .end method
 
 .method public static obtain(Landroid/os/Message;)Landroid/os/Message;
-    .registers 4
+    .locals 3
     .parameter "orig"
 
     .prologue
@@ -368,7 +368,7 @@
     .line 132
     iget-object v1, p0, Landroid/os/Message;->data:Landroid/os/Bundle;
 
-    if-eqz v1, :cond_25
+    if-eqz v1, :cond_0
 
     .line 133
     new-instance v1, Landroid/os/Bundle;
@@ -380,7 +380,7 @@
     iput-object v1, v0, Landroid/os/Message;->data:Landroid/os/Bundle;
 
     .line 135
-    :cond_25
+    :cond_0
     iget-object v1, p0, Landroid/os/Message;->target:Landroid/os/Handler;
 
     iput-object v1, v0, Landroid/os/Message;->target:Landroid/os/Handler;
@@ -395,7 +395,7 @@
 .end method
 
 .method private readFromParcel(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "source"
 
     .prologue
@@ -425,7 +425,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_26
+    if-eqz v0, :cond_0
 
     .line 511
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -443,7 +443,7 @@
     iput-object v0, p0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     .line 513
-    :cond_26
+    :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
@@ -471,7 +471,7 @@
 
 # virtual methods
 .method clearForRecycle()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v0, 0x0
@@ -515,7 +515,7 @@
 .end method
 
 .method public copyFrom(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "o"
 
     .prologue
@@ -554,7 +554,7 @@
     .line 273
     iget-object v0, p1, Landroid/os/Message;->data:Landroid/os/Bundle;
 
-    if-eqz v0, :cond_29
+    if-eqz v0, :cond_0
 
     .line 274
     iget-object v0, p1, Landroid/os/Message;->data:Landroid/os/Bundle;
@@ -568,20 +568,20 @@
     iput-object v0, p0, Landroid/os/Message;->data:Landroid/os/Bundle;
 
     .line 278
-    :goto_28
+    :goto_0
     return-void
 
     .line 276
-    :cond_29
+    :cond_0
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/os/Message;->data:Landroid/os/Bundle;
 
-    goto :goto_28
+    goto :goto_0
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 478
@@ -591,7 +591,7 @@
 .end method
 
 .method public getCallback()Ljava/lang/Runnable;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 312
@@ -601,13 +601,13 @@
 .end method
 
 .method public getData()Landroid/os/Bundle;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 327
     iget-object v0, p0, Landroid/os/Message;->data:Landroid/os/Bundle;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 328
     new-instance v0, Landroid/os/Bundle;
@@ -617,14 +617,14 @@
     iput-object v0, p0, Landroid/os/Message;->data:Landroid/os/Bundle;
 
     .line 331
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/os/Message;->data:Landroid/os/Bundle;
 
     return-object v0
 .end method
 
 .method public getTarget()Landroid/os/Handler;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 300
@@ -634,7 +634,7 @@
 .end method
 
 .method public getWhen()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 284
@@ -644,7 +644,7 @@
 .end method
 
 .method public isAsynchronous()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 379
@@ -652,21 +652,21 @@
 
     and-int/lit8 v0, v0, 0x2
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method isInUse()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x1
@@ -676,19 +676,19 @@
 
     and-int/lit8 v1, v1, 0x1
 
-    if-ne v1, v0, :cond_8
+    if-ne v1, v0, :cond_0
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method markInUse()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 423
@@ -703,7 +703,7 @@
 .end method
 
 .method public peekData()Landroid/os/Bundle;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 342
@@ -713,7 +713,7 @@
 .end method
 
 .method public recycle()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 249
@@ -725,12 +725,12 @@
     monitor-enter v1
 
     .line 252
-    :try_start_6
+    :try_start_0
     sget v0, Landroid/os/Message;->sPoolSize:I
 
     const/16 v2, 0x32
 
-    if-ge v0, v2, :cond_18
+    if-ge v0, v2, :cond_0
 
     .line 253
     sget-object v0, Landroid/os/Message;->sPool:Landroid/os/Message;
@@ -748,25 +748,25 @@
     sput v0, Landroid/os/Message;->sPoolSize:I
 
     .line 257
-    :cond_18
+    :cond_0
     monitor-exit v1
 
     .line 258
     return-void
 
     .line 257
-    :catchall_1a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1c
-    .catchall {:try_start_6 .. :try_end_1c} :catchall_1a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public sendToTarget()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 360
@@ -779,12 +779,12 @@
 .end method
 
 .method public setAsynchronous(Z)V
-    .registers 3
+    .locals 1
     .parameter "async"
 
     .prologue
     .line 398
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
     .line 399
     iget v0, p0, Landroid/os/Message;->flags:I
@@ -794,22 +794,22 @@
     iput v0, p0, Landroid/os/Message;->flags:I
 
     .line 403
-    :goto_8
+    :goto_0
     return-void
 
     .line 401
-    :cond_9
+    :cond_0
     iget v0, p0, Landroid/os/Message;->flags:I
 
     and-int/lit8 v0, v0, -0x3
 
     iput v0, p0, Landroid/os/Message;->flags:I
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setData(Landroid/os/Bundle;)V
-    .registers 2
+    .locals 0
     .parameter "data"
 
     .prologue
@@ -821,7 +821,7 @@
 .end method
 
 .method public setTarget(Landroid/os/Handler;)V
-    .registers 2
+    .locals 0
     .parameter "target"
 
     .prologue
@@ -833,7 +833,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 432
@@ -849,7 +849,7 @@
 .end method
 
 .method toString(J)Ljava/lang/String;
-    .registers 6
+    .locals 3
     .parameter "now"
 
     .prologue
@@ -884,7 +884,7 @@
     .line 444
     iget v1, p0, Landroid/os/Message;->arg1:I
 
-    if-eqz v1, :cond_29
+    if-eqz v1, :cond_0
 
     .line 445
     const-string v1, " arg1="
@@ -897,10 +897,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 449
-    :cond_29
+    :cond_0
     iget v1, p0, Landroid/os/Message;->arg2:I
 
-    if-eqz v1, :cond_37
+    if-eqz v1, :cond_1
 
     .line 450
     const-string v1, " arg2="
@@ -913,10 +913,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 454
-    :cond_37
+    :cond_1
     iget-object v1, p0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    if-eqz v1, :cond_45
+    if-eqz v1, :cond_2
 
     .line 455
     const-string v1, " obj="
@@ -929,7 +929,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 459
-    :cond_45
+    :cond_2
     const-string v1, " }"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -943,7 +943,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 7
+    .locals 4
     .parameter "dest"
     .parameter "flags"
 
@@ -951,7 +951,7 @@
     .line 482
     iget-object v2, p0, Landroid/os/Message;->callback:Ljava/lang/Runnable;
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_0
 
     .line 483
     new-instance v2, Ljava/lang/RuntimeException;
@@ -963,7 +963,7 @@
     throw v2
 
     .line 486
-    :cond_c
+    :cond_0
     iget v2, p0, Landroid/os/Message;->what:I
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -981,10 +981,10 @@
     .line 489
     iget-object v2, p0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    if-eqz v2, :cond_43
+    if-eqz v2, :cond_1
 
     .line 491
-    :try_start_1f
+    :try_start_0
     iget-object v1, p0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/Parcelable;
@@ -997,12 +997,12 @@
 
     .line 493
     invoke-virtual {p1, v1, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
-    :try_end_2a
-    .catch Ljava/lang/ClassCastException; {:try_start_1f .. :try_end_2a} :catch_3a
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 501
     .end local v1           #p:Landroid/os/Parcelable;
-    :goto_2a
+    :goto_0
     iget-wide v2, p0, Landroid/os/Message;->when:J
 
     invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
@@ -1021,7 +1021,7 @@
     return-void
 
     .line 494
-    :catch_3a
+    :catch_0
     move-exception v0
 
     .line 495
@@ -1036,10 +1036,10 @@
 
     .line 499
     .end local v0           #e:Ljava/lang/ClassCastException;
-    :cond_43
+    :cond_1
     const/4 v2, 0x0
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_2a
+    goto :goto_0
 .end method

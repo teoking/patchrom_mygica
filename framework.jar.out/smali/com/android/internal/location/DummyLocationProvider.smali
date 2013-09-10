@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/location/ILocationManager;)V
-    .registers 3
+    .locals 0
     .parameter "name"
     .parameter "service"
 
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public getAccuracy()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 168
@@ -56,7 +56,7 @@
 .end method
 
 .method public getPowerRequirement()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 157
@@ -66,7 +66,7 @@
 .end method
 
 .method public hasMonetaryCost()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 117
@@ -76,7 +76,7 @@
 .end method
 
 .method public requiresCell()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 108
@@ -86,7 +86,7 @@
 .end method
 
 .method public requiresNetwork()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 90
@@ -96,7 +96,7 @@
 .end method
 
 .method public requiresSatellite()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 99
@@ -106,7 +106,7 @@
 .end method
 
 .method public setAccuracy(I)V
-    .registers 2
+    .locals 0
     .parameter "accuracy"
 
     .prologue
@@ -118,7 +118,7 @@
 .end method
 
 .method public setHasMonetaryCost(Z)V
-    .registers 2
+    .locals 0
     .parameter "hasMonetaryCost"
 
     .prologue
@@ -130,7 +130,7 @@
 .end method
 
 .method public setPowerRequirement(I)V
-    .registers 2
+    .locals 0
     .parameter "powerRequirement"
 
     .prologue
@@ -142,7 +142,7 @@
 .end method
 
 .method public setRequiresCell(Z)V
-    .registers 2
+    .locals 0
     .parameter "requiresCell"
 
     .prologue
@@ -154,7 +154,7 @@
 .end method
 
 .method public setRequiresNetwork(Z)V
-    .registers 2
+    .locals 0
     .parameter "requiresNetwork"
 
     .prologue
@@ -166,7 +166,7 @@
 .end method
 
 .method public setRequiresSatellite(Z)V
-    .registers 2
+    .locals 0
     .parameter "requiresSatellite"
 
     .prologue
@@ -178,7 +178,7 @@
 .end method
 
 .method public setSupportsAltitude(Z)V
-    .registers 2
+    .locals 0
     .parameter "supportsAltitude"
 
     .prologue
@@ -190,7 +190,7 @@
 .end method
 
 .method public setSupportsBearing(Z)V
-    .registers 2
+    .locals 0
     .parameter "supportsBearing"
 
     .prologue
@@ -202,7 +202,7 @@
 .end method
 
 .method public setSupportsSpeed(Z)V
-    .registers 2
+    .locals 0
     .parameter "supportsSpeed"
 
     .prologue
@@ -214,7 +214,7 @@
 .end method
 
 .method public supportsAltitude()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 127
@@ -224,7 +224,7 @@
 .end method
 
 .method public supportsBearing()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 147
@@ -234,7 +234,7 @@
 .end method
 
 .method public supportsSpeed()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 137

@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 58
@@ -68,7 +68,7 @@
 .end method
 
 .method private constructor <init>(Landroid/content/res/Resources;)V
-    .registers 3
+    .locals 1
     .parameter "resources"
 
     .prologue
@@ -92,7 +92,7 @@
 .end method
 
 .method private add(Ljava/lang/String;C)V
-    .registers 12
+    .locals 9
     .parameter "src"
     .parameter "off"
 
@@ -120,8 +120,8 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_f
-    if-ge v3, v5, :cond_36
+    :goto_0
+    if-ge v3, v5, :cond_0
 
     .line 219
     invoke-virtual {p1, v3}, Ljava/lang/String;->charAt(I)C
@@ -134,12 +134,12 @@
 
     .line 222
     .local v1, found:Z
-    :goto_16
+    :goto_1
     iget-object v6, p0, Landroid/text/AutoText;->mTrie:[C
 
     aget-char v6, v6, v2
 
-    if-eq v6, v8, :cond_3e
+    if-eq v6, v8, :cond_2
 
     .line 224
     iget-object v6, p0, Landroid/text/AutoText;->mTrie:[C
@@ -152,12 +152,12 @@
 
     aget-char v6, v6, v7
 
-    if-ne v0, v6, :cond_7f
+    if-ne v0, v6, :cond_3
 
     .line 228
     add-int/lit8 v6, v5, -0x1
 
-    if-ne v3, v6, :cond_37
+    if-ne v3, v6, :cond_1
 
     .line 229
     iget-object v6, p0, Landroid/text/AutoText;->mTrie:[C
@@ -173,14 +173,14 @@
     .line 265
     .end local v0           #c:C
     .end local v1           #found:Z
-    :cond_36
-    :goto_36
+    :cond_0
+    :goto_2
     return-void
 
     .line 236
     .restart local v0       #c:C
     .restart local v1       #found:Z
-    :cond_37
+    :cond_1
     iget-object v6, p0, Landroid/text/AutoText;->mTrie:[C
 
     aget-char v6, v6, v2
@@ -191,8 +191,8 @@
     const/4 v1, 0x1
 
     .line 242
-    :cond_3e
-    if-nez v1, :cond_8c
+    :cond_2
+    if-nez v1, :cond_5
 
     .line 245
     invoke-direct {p0}, Landroid/text/AutoText;->newTrieNode()C
@@ -252,7 +252,7 @@
     .line 255
     add-int/lit8 v6, v5, -0x1
 
-    if-ne v3, v6, :cond_86
+    if-ne v3, v6, :cond_4
 
     .line 256
     iget-object v6, p0, Landroid/text/AutoText;->mTrie:[C
@@ -265,22 +265,22 @@
 
     aput-char p2, v6, v7
 
-    goto :goto_36
+    goto :goto_2
 
     .line 223
     .end local v4           #node:C
-    :cond_7f
+    :cond_3
     iget-object v6, p0, Landroid/text/AutoText;->mTrie:[C
 
     aget-char v6, v6, v2
 
     add-int/lit8 v2, v6, 0x3
 
-    goto :goto_16
+    goto :goto_1
 
     .line 262
     .restart local v4       #node:C
-    :cond_86
+    :cond_4
     iget-object v6, p0, Landroid/text/AutoText;->mTrie:[C
 
     aget-char v6, v6, v2
@@ -289,14 +289,14 @@
 
     .line 218
     .end local v4           #node:C
-    :cond_8c
+    :cond_5
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public static get(Ljava/lang/CharSequence;IILandroid/view/View;)Ljava/lang/String;
-    .registers 5
+    .locals 1
     .parameter "src"
     .parameter "start"
     .parameter "end"
@@ -316,7 +316,7 @@
 .end method
 
 .method private static getInstance(Landroid/view/View;)Landroid/text/AutoText;
-    .registers 6
+    .locals 5
     .parameter "view"
 
     .prologue
@@ -344,7 +344,7 @@
     monitor-enter v4
 
     .line 93
-    :try_start_11
+    :try_start_0
     sget-object v0, Landroid/text/AutoText;->sInstance:Landroid/text/AutoText;
 
     .line 95
@@ -355,7 +355,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_22
+    if-nez v3, :cond_0
 
     .line 96
     new-instance v0, Landroid/text/AutoText;
@@ -368,7 +368,7 @@
     sput-object v0, Landroid/text/AutoText;->sInstance:Landroid/text/AutoText;
 
     .line 99
-    :cond_22
+    :cond_0
     monitor-exit v4
 
     .line 101
@@ -376,18 +376,18 @@
 
     .line 99
     .end local v0           #instance:Landroid/text/AutoText;
-    :catchall_24
+    :catchall_0
     move-exception v3
 
     monitor-exit v4
-    :try_end_26
-    .catchall {:try_start_11 .. :try_end_26} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v3
 .end method
 
 .method private getSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 129
@@ -397,7 +397,7 @@
 .end method
 
 .method public static getSize(Landroid/view/View;)I
-    .registers 2
+    .locals 1
     .parameter "view"
 
     .prologue
@@ -414,7 +414,7 @@
 .end method
 
 .method private init(Landroid/content/res/Resources;)V
-    .registers 14
+    .locals 12
     .parameter "r"
 
     .prologue
@@ -456,7 +456,7 @@
     iput-char v9, p0, Landroid/text/AutoText;->mTrieUsed:C
 
     .line 170
-    :try_start_1f
+    :try_start_0
     const-string/jumbo v9, "words"
 
     invoke-static {v6, v9}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
@@ -470,8 +470,8 @@
 
     .line 175
     .local v5, ooff:C
-    :cond_28
-    :goto_28
+    :cond_0
+    :goto_0
     invoke-static {v6}, Lcom/android/internal/util/XmlUtils;->nextElement(Lorg/xmlpull/v1/XmlPullParser;)V
 
     .line 177
@@ -481,7 +481,7 @@
 
     .line 178
     .local v2, element:Ljava/lang/String;
-    if-eqz v2, :cond_3a
+    if-eqz v2, :cond_1
 
     const-string/jumbo v9, "word"
 
@@ -489,15 +489,15 @@
 
     move-result v9
 
-    if-nez v9, :cond_47
+    if-nez v9, :cond_2
 
     .line 200
-    :cond_3a
+    :cond_1
     invoke-virtual {p1}, Landroid/content/res/Resources;->flushLayoutCache()V
-    :try_end_3d
-    .catchall {:try_start_1f .. :try_end_3d} :catchall_6c
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1f .. :try_end_3d} :catch_65
-    .catch Ljava/io/IOException; {:try_start_1f .. :try_end_3d} :catch_82
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 206
     invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->close()V
@@ -513,10 +513,10 @@
     return-void
 
     .line 182
-    :cond_47
+    :cond_2
     const/4 v9, 0x0
 
-    :try_start_48
+    :try_start_1
     const-string/jumbo v10, "src"
 
     invoke-interface {v6, v9, v10}, Landroid/content/res/XmlResourceParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -531,7 +531,7 @@
 
     const/4 v10, 0x4
 
-    if-ne v9, v10, :cond_28
+    if-ne v9, v10, :cond_0
 
     .line 184
     invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->getText()Ljava/lang/String;
@@ -544,20 +544,20 @@
 
     move-result v9
 
-    if-eqz v9, :cond_71
+    if-eqz v9, :cond_3
 
     .line 188
     move v4, v5
 
     .line 195
-    :goto_61
+    :goto_1
     invoke-direct {p0, v8, v4}, Landroid/text/AutoText;->add(Ljava/lang/String;C)V
-    :try_end_64
-    .catchall {:try_start_48 .. :try_end_64} :catchall_6c
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_48 .. :try_end_64} :catch_65
-    .catch Ljava/io/IOException; {:try_start_48 .. :try_end_64} :catch_82
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto :goto_28
+    goto :goto_0
 
     .line 201
     .end local v0           #dest:Ljava/lang/String;
@@ -565,23 +565,23 @@
     .end local v3           #odest:Ljava/lang/String;
     .end local v5           #ooff:C
     .end local v8           #src:Ljava/lang/String;
-    :catch_65
+    :catch_0
     move-exception v1
 
     .line 202
     .local v1, e:Lorg/xmlpull/v1/XmlPullParserException;
-    :try_start_66
+    :try_start_2
     new-instance v9, Ljava/lang/RuntimeException;
 
     invoke-direct {v9, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v9
-    :try_end_6c
-    .catchall {:try_start_66 .. :try_end_6c} :catchall_6c
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 206
     .end local v1           #e:Lorg/xmlpull/v1/XmlPullParserException;
-    :catchall_6c
+    :catchall_0
     move-exception v9
 
     invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->close()V
@@ -594,8 +594,8 @@
     .restart local v3       #odest:Ljava/lang/String;
     .restart local v5       #ooff:C
     .restart local v8       #src:Ljava/lang/String;
-    :cond_71
-    :try_start_71
+    :cond_3
+    :try_start_3
     invoke-virtual {v7}, Ljava/lang/StringBuilder;->length()I
 
     move-result v9
@@ -614,12 +614,12 @@
 
     .line 192
     invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_81
-    .catchall {:try_start_71 .. :try_end_81} :catchall_6c
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_71 .. :try_end_81} :catch_65
-    .catch Ljava/io/IOException; {:try_start_71 .. :try_end_81} :catch_82
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_3 .. :try_end_3} :catch_0
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
 
-    goto :goto_61
+    goto :goto_1
 
     .line 203
     .end local v0           #dest:Ljava/lang/String;
@@ -628,23 +628,23 @@
     .end local v4           #off:C
     .end local v5           #ooff:C
     .end local v8           #src:Ljava/lang/String;
-    :catch_82
+    :catch_1
     move-exception v1
 
     .line 204
     .local v1, e:Ljava/io/IOException;
-    :try_start_83
+    :try_start_4
     new-instance v9, Ljava/lang/RuntimeException;
 
     invoke-direct {v9, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v9
-    :try_end_89
-    .catchall {:try_start_83 .. :try_end_89} :catchall_6c
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 .end method
 
 .method private lookup(Ljava/lang/CharSequence;II)Ljava/lang/String;
-    .registers 13
+    .locals 9
     .parameter "src"
     .parameter "start"
     .parameter "end"
@@ -666,8 +666,8 @@
     move v2, p2
 
     .local v2, i:I
-    :goto_a
-    if-ge v2, p3, :cond_3d
+    :goto_0
+    if-ge v2, p3, :cond_0
 
     .line 136
     invoke-interface {p1, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -676,8 +676,8 @@
 
     .line 138
     .local v0, c:C
-    :goto_10
-    if-eq v1, v8, :cond_44
+    :goto_1
+    if-eq v1, v8, :cond_2
 
     .line 139
     iget-object v6, p0, Landroid/text/AutoText;->mTrie:[C
@@ -686,12 +686,12 @@
 
     aget-char v6, v6, v7
 
-    if-ne v0, v6, :cond_49
+    if-ne v0, v6, :cond_3
 
     .line 140
     add-int/lit8 v6, p3, -0x1
 
-    if-ne v2, v6, :cond_3e
+    if-ne v2, v6, :cond_1
 
     iget-object v6, p0, Landroid/text/AutoText;->mTrie:[C
 
@@ -699,7 +699,7 @@
 
     aget-char v6, v6, v7
 
-    if-eq v6, v8, :cond_3e
+    if-eq v6, v8, :cond_1
 
     .line 142
     iget-object v5, p0, Landroid/text/AutoText;->mTrie:[C
@@ -734,12 +734,12 @@
     .end local v0           #c:C
     .end local v3           #len:I
     .end local v4           #off:I
-    :cond_3d
+    :cond_0
     return-object v5
 
     .line 148
     .restart local v0       #c:C
-    :cond_3e
+    :cond_1
     iget-object v6, p0, Landroid/text/AutoText;->mTrie:[C
 
     add-int/lit8 v7, v1, 0x2
@@ -747,27 +747,27 @@
     aget-char v1, v6, v7
 
     .line 153
-    :cond_44
-    if-eq v1, v8, :cond_3d
+    :cond_2
+    if-eq v1, v8, :cond_0
 
     .line 135
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 138
-    :cond_49
+    :cond_3
     iget-object v6, p0, Landroid/text/AutoText;->mTrie:[C
 
     add-int/lit8 v7, v1, 0x3
 
     aget-char v1, v6, v7
 
-    goto :goto_10
+    goto :goto_1
 .end method
 
 .method private newTrieNode()C
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v4, 0x0
@@ -781,7 +781,7 @@
 
     array-length v3, v3
 
-    if-le v2, v3, :cond_1b
+    if-le v2, v3, :cond_0
 
     .line 269
     iget-object v2, p0, Landroid/text/AutoText;->mTrie:[C
@@ -807,7 +807,7 @@
 
     .line 274
     .end local v0           #copy:[C
-    :cond_1b
+    :cond_0
     iget-char v1, p0, Landroid/text/AutoText;->mTrieUsed:C
 
     .line 275

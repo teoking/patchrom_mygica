@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/WebViewCore;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public updateQuota(J)V
-    .registers 5
+    .locals 2
     .parameter "newQuota"
 
     .prologue
@@ -47,10 +47,12 @@
 
     iget-object v1, p0, Landroid/webkit/WebViewCore$2;->this$0:Landroid/webkit/WebViewCore;
 
+    #getter for: Landroid/webkit/WebViewCore;->mNativeClass:I
     invoke-static {v1}, Landroid/webkit/WebViewCore;->access$300(Landroid/webkit/WebViewCore;)I
 
     move-result v1
 
+    #calls: Landroid/webkit/WebViewCore;->nativeSetNewStorageLimit(IJ)V
     invoke-static {v0, v1, p1, p2}, Landroid/webkit/WebViewCore;->access$400(Landroid/webkit/WebViewCore;IJ)V
 
     .line 479

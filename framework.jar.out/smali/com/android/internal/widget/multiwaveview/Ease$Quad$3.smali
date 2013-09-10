@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 65
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getInterpolation(F)F
-    .registers 6
+    .locals 4
     .parameter "input"
 
     .prologue
@@ -46,7 +46,7 @@
 
     cmpg-float v0, p1, v2
 
-    if-gez v0, :cond_f
+    if-gez v0, :cond_0
 
     mul-float v0, v1, p1
 
@@ -54,10 +54,10 @@
 
     add-float/2addr v0, v3
 
-    :goto_e
+    :goto_0
     return v0
 
-    :cond_f
+    :cond_0
     const/high16 v0, -0x4100
 
     sub-float/2addr p1, v2
@@ -74,5 +74,5 @@
 
     add-float/2addr v0, v3
 
-    goto :goto_e
+    goto :goto_0
 .end method

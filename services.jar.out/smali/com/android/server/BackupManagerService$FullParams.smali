@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService;)V
-    .registers 4
+    .locals 2
     .parameter
 
     .prologue

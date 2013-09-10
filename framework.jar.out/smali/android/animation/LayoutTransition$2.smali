@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/animation/LayoutTransition;Landroid/view/View;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -40,13 +40,14 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .registers 4
+    .locals 2
     .parameter "animation"
 
     .prologue
     .line 871
     iget-object v0, p0, Landroid/animation/LayoutTransition$2;->this$0:Landroid/animation/LayoutTransition;
 
+    #getter for: Landroid/animation/LayoutTransition;->pendingAnimations:Ljava/util/HashMap;
     invoke-static {v0}, Landroid/animation/LayoutTransition;->access$100(Landroid/animation/LayoutTransition;)Ljava/util/HashMap;
 
     move-result-object v0

@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>([B)V
-    .registers 16
+    .locals 14
     .parameter "pdu"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -54,16 +54,16 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 94
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
     array-length v0, p1
 
     const/4 v2, 0x6
 
-    if-ge v0, v2, :cond_11
+    if-ge v0, v2, :cond_1
 
     .line 95
-    :cond_9
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Illegal PDU"
@@ -73,12 +73,12 @@
     throw v0
 
     .line 98
-    :cond_11
+    :cond_1
     array-length v0, p1
 
     const/16 v2, 0x38
 
-    if-gt v0, v2, :cond_7b
+    if-gt v0, v2, :cond_5
 
     .line 99
     const/4 v0, 0x3
@@ -156,26 +156,26 @@
 
     and-int/lit8 v0, v0, 0x1
 
-    if-eqz v0, :cond_75
+    if-eqz v0, :cond_2
 
     const/4 v8, 0x1
 
     .line 107
     .local v8, emergencyUserAlert:Z
-    :goto_51
+    :goto_0
     const/4 v0, 0x5
 
     aget-byte v0, p1, v0
 
     and-int/lit16 v0, v0, 0x80
 
-    if-eqz v0, :cond_77
+    if-eqz v0, :cond_3
 
     const/4 v7, 0x1
 
     .line 108
     .local v7, activatePopup:Z
-    :goto_59
+    :goto_1
     const/4 v0, 0x4
 
     aget-byte v0, p1, v0
@@ -190,7 +190,7 @@
 
     const/4 v2, 0x6
 
-    if-le v0, v2, :cond_79
+    if-le v0, v2, :cond_4
 
     .line 112
     const/4 v0, 0x6
@@ -203,7 +203,7 @@
 
     .line 116
     .local v12, warningSecurityInfo:[B
-    :goto_6a
+    :goto_2
     new-instance v0, Landroid/telephony/SmsCbEtwsInfo;
 
     invoke-direct {v0, v13, v8, v7, v12}, Landroid/telephony/SmsCbEtwsInfo;-><init>(IZZ[B)V
@@ -220,42 +220,42 @@
     .end local v8           #emergencyUserAlert:Z
     .end local v12           #warningSecurityInfo:[B
     .end local v13           #warningType:I
-    :goto_74
+    :goto_3
     return-void
 
     .line 106
-    :cond_75
+    :cond_2
     const/4 v8, 0x0
 
-    goto :goto_51
+    goto :goto_0
 
     .line 107
     .restart local v8       #emergencyUserAlert:Z
-    :cond_77
+    :cond_3
     const/4 v7, 0x0
 
-    goto :goto_59
+    goto :goto_1
 
     .line 114
     .restart local v7       #activatePopup:Z
     .restart local v13       #warningType:I
-    :cond_79
+    :cond_4
     const/4 v12, 0x0
 
     .restart local v12       #warningSecurityInfo:[B
-    goto :goto_6a
+    goto :goto_2
 
     .line 120
     .end local v7           #activatePopup:Z
     .end local v8           #emergencyUserAlert:Z
     .end local v12           #warningSecurityInfo:[B
     .end local v13           #warningType:I
-    :cond_7b
+    :cond_5
     array-length v0, p1
 
     const/16 v2, 0x58
 
-    if-gt v0, v2, :cond_e7
+    if-gt v0, v2, :cond_8
 
     .line 122
     const/4 v0, 0x1
@@ -339,21 +339,21 @@
 
     .line 132
     .local v10, nrOfPages:I
-    if-eqz v11, :cond_c3
+    if-eqz v11, :cond_6
 
-    if-eqz v10, :cond_c3
+    if-eqz v10, :cond_6
 
-    if-le v11, v10, :cond_c5
+    if-le v11, v10, :cond_7
 
     .line 133
-    :cond_c3
+    :cond_6
     const/4 v11, 0x1
 
     .line 134
     const/4 v10, 0x1
 
     .line 137
-    :cond_c5
+    :cond_7
     iput v11, p0, Lcom/android/internal/telephony/gsm/SmsCbHeader;->pageIndex:I
 
     .line 138
@@ -362,12 +362,12 @@
     .line 162
     .end local v10           #nrOfPages:I
     .end local v11           #pageIndex:I
-    :goto_c9
+    :goto_4
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->isEtwsMessage()Z
 
     move-result v0
 
-    if-eqz v0, :cond_13e
+    if-eqz v0, :cond_a
 
     .line 163
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->isEtwsEmergencyUserAlert()Z
@@ -401,13 +401,13 @@
 
     iput-object v0, p0, Lcom/android/internal/telephony/gsm/SmsCbHeader;->mCmasInfo:Landroid/telephony/SmsCbCmasInfo;
 
-    goto :goto_74
+    goto :goto_3
 
     .line 142
     .end local v7           #activatePopup:Z
     .end local v8           #emergencyUserAlert:Z
     .end local v13           #warningType:I
-    :cond_e7
+    :cond_8
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/android/internal/telephony/gsm/SmsCbHeader;->format:I
@@ -421,7 +421,7 @@
     .local v9, messageType:I
     const/4 v0, 0x1
 
-    if-eq v9, v0, :cond_109
+    if-eq v9, v0, :cond_9
 
     .line 147
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -449,7 +449,7 @@
     throw v0
 
     .line 150
-    :cond_109
+    :cond_9
     const/4 v0, 0x1
 
     aget-byte v0, p1, v0
@@ -517,16 +517,16 @@
 
     iput v0, p0, Lcom/android/internal/telephony/gsm/SmsCbHeader;->nrOfPages:I
 
-    goto :goto_c9
+    goto :goto_4
 
     .line 168
     .end local v9           #messageType:I
-    :cond_13e
+    :cond_a
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->isCmasMessage()Z
 
     move-result v0
 
-    if-eqz v0, :cond_162
+    if-eqz v0, :cond_b
 
     .line 169
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->getCmasMessageClass()I
@@ -568,14 +568,14 @@
 
     iput-object v0, p0, Lcom/android/internal/telephony/gsm/SmsCbHeader;->mCmasInfo:Landroid/telephony/SmsCbCmasInfo;
 
-    goto/16 :goto_74
+    goto/16 :goto_3
 
     .line 177
     .end local v1           #messageClass:I
     .end local v4           #severity:I
     .end local v5           #urgency:I
     .end local v6           #certainty:I
-    :cond_162
+    :cond_b
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/telephony/gsm/SmsCbHeader;->mEtwsInfo:Landroid/telephony/SmsCbEtwsInfo;
@@ -585,218 +585,218 @@
 
     iput-object v0, p0, Lcom/android/internal/telephony/gsm/SmsCbHeader;->mCmasInfo:Landroid/telephony/SmsCbCmasInfo;
 
-    goto/16 :goto_74
+    goto/16 :goto_3
 .end method
 
 .method private getCmasCertainty()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 383
     iget v0, p0, Lcom/android/internal/telephony/gsm/SmsCbHeader;->messageIdentifier:I
 
-    packed-switch v0, :pswitch_data_c
+    packed-switch v0, :pswitch_data_0
 
     .line 397
     const/4 v0, -0x1
 
-    :goto_6
+    :goto_0
     return v0
 
     .line 388
-    :pswitch_7
+    :pswitch_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 394
-    :pswitch_9
+    :pswitch_1
     const/4 v0, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 383
     nop
 
-    :pswitch_data_c
+    :pswitch_data_0
     .packed-switch 0x1113
-        :pswitch_7
-        :pswitch_9
-        :pswitch_7
-        :pswitch_9
-        :pswitch_7
-        :pswitch_9
-        :pswitch_7
-        :pswitch_9
+        :pswitch_0
+        :pswitch_1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method private getCmasMessageClass()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 293
     iget v0, p0, Lcom/android/internal/telephony/gsm/SmsCbHeader;->messageIdentifier:I
 
-    packed-switch v0, :pswitch_data_16
+    packed-switch v0, :pswitch_data_0
 
     .line 322
     const/4 v0, -0x1
 
-    :goto_6
+    :goto_0
     return v0
 
     .line 295
-    :pswitch_7
+    :pswitch_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 301
-    :pswitch_9
+    :pswitch_1
     const/4 v0, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 307
-    :pswitch_b
+    :pswitch_2
     const/4 v0, 0x2
 
-    goto :goto_6
+    goto :goto_0
 
     .line 310
-    :pswitch_d
+    :pswitch_3
     const/4 v0, 0x3
 
-    goto :goto_6
+    goto :goto_0
 
     .line 313
-    :pswitch_f
+    :pswitch_4
     const/4 v0, 0x4
 
-    goto :goto_6
+    goto :goto_0
 
     .line 316
-    :pswitch_11
+    :pswitch_5
     const/4 v0, 0x5
 
-    goto :goto_6
+    goto :goto_0
 
     .line 319
-    :pswitch_13
+    :pswitch_6
     const/4 v0, 0x6
 
-    goto :goto_6
+    goto :goto_0
 
     .line 293
     nop
 
-    :pswitch_data_16
+    :pswitch_data_0
     .packed-switch 0x1112
-        :pswitch_7
-        :pswitch_9
-        :pswitch_9
-        :pswitch_9
-        :pswitch_9
-        :pswitch_b
-        :pswitch_b
-        :pswitch_b
-        :pswitch_b
-        :pswitch_d
-        :pswitch_f
-        :pswitch_11
-        :pswitch_13
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
     .end packed-switch
 .end method
 
 .method private getCmasSeverity()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 333
     iget v0, p0, Lcom/android/internal/telephony/gsm/SmsCbHeader;->messageIdentifier:I
 
-    packed-switch v0, :pswitch_data_c
+    packed-switch v0, :pswitch_data_0
 
     .line 347
     const/4 v0, -0x1
 
-    :goto_6
+    :goto_0
     return v0
 
     .line 338
-    :pswitch_7
+    :pswitch_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 344
-    :pswitch_9
+    :pswitch_1
     const/4 v0, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 333
     nop
 
-    :pswitch_data_c
+    :pswitch_data_0
     .packed-switch 0x1113
-        :pswitch_7
-        :pswitch_7
-        :pswitch_7
-        :pswitch_7
-        :pswitch_9
-        :pswitch_9
-        :pswitch_9
-        :pswitch_9
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method private getCmasUrgency()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 358
     iget v0, p0, Lcom/android/internal/telephony/gsm/SmsCbHeader;->messageIdentifier:I
 
-    packed-switch v0, :pswitch_data_c
+    packed-switch v0, :pswitch_data_0
 
     .line 372
     const/4 v0, -0x1
 
-    :goto_6
+    :goto_0
     return v0
 
     .line 363
-    :pswitch_7
+    :pswitch_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 369
-    :pswitch_9
+    :pswitch_1
     const/4 v0, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 358
     nop
 
-    :pswitch_data_c
+    :pswitch_data_0
     .packed-switch 0x1113
-        :pswitch_7
-        :pswitch_7
-        :pswitch_9
-        :pswitch_9
-        :pswitch_7
-        :pswitch_7
-        :pswitch_9
-        :pswitch_9
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method private getEtwsWarningType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 284
@@ -808,7 +808,7 @@
 .end method
 
 .method private isCmasMessage()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 253
@@ -816,27 +816,27 @@
 
     const/16 v1, 0x1112
 
-    if-lt v0, v1, :cond_e
+    if-lt v0, v1, :cond_0
 
     iget v0, p0, Lcom/android/internal/telephony/gsm/SmsCbHeader;->messageIdentifier:I
 
     const/16 v1, 0x112f
 
-    if-gt v0, v1, :cond_e
+    if-gt v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method private isEtwsEmergencyUserAlert()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 274
@@ -844,21 +844,21 @@
 
     and-int/lit16 v0, v0, 0x2000
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method private isEtwsMessage()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 228
@@ -870,21 +870,21 @@
 
     const/16 v1, 0x1100
 
-    if-ne v0, v1, :cond_c
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method private isEtwsPopupAlert()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 264
@@ -892,23 +892,23 @@
 
     and-int/lit16 v0, v0, 0x1000
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method getCmasInfo()Landroid/telephony/SmsCbCmasInfo;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 211
@@ -918,7 +918,7 @@
 .end method
 
 .method getDataCodingScheme()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 195
@@ -928,7 +928,7 @@
 .end method
 
 .method getEtwsInfo()Landroid/telephony/SmsCbEtwsInfo;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 207
@@ -938,7 +938,7 @@
 .end method
 
 .method getGeographicalScope()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 183
@@ -948,7 +948,7 @@
 .end method
 
 .method getNumberOfPages()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 203
@@ -958,7 +958,7 @@
 .end method
 
 .method getPageIndex()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 199
@@ -968,7 +968,7 @@
 .end method
 
 .method getSerialNumber()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 187
@@ -978,7 +978,7 @@
 .end method
 
 .method getServiceCategory()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 191
@@ -988,7 +988,7 @@
 .end method
 
 .method isEmergencyMessage()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 219
@@ -996,27 +996,27 @@
 
     const/16 v1, 0x1100
 
-    if-lt v0, v1, :cond_e
+    if-lt v0, v1, :cond_0
 
     iget v0, p0, Lcom/android/internal/telephony/gsm/SmsCbHeader;->messageIdentifier:I
 
     const/16 v1, 0x18ff
 
-    if-gt v0, v1, :cond_e
+    if-gt v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method isEtwsPrimaryNotification()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 237
@@ -1024,21 +1024,21 @@
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method isUmtsFormat()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 245
@@ -1046,21 +1046,21 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 403

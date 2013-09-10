@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/SearchDialog;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "intent"
 
@@ -51,7 +51,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 107
     iget-object v0, p0, Landroid/app/SearchDialog$1;->this$0:Landroid/app/SearchDialog;
@@ -59,6 +59,6 @@
     invoke-virtual {v0}, Landroid/app/SearchDialog;->onConfigurationChanged()V
 
     .line 109
-    :cond_11
+    :cond_0
     return-void
 .end method

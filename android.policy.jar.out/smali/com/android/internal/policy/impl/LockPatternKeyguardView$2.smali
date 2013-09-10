@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/LockPatternKeyguardView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public isVisible(Landroid/view/View;)Z
-    .registers 3
+    .locals 1
     .parameter "self"
 
     .prologue
@@ -47,21 +47,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public requestHide(Landroid/view/View;)V
-    .registers 4
+    .locals 2
     .parameter "view"
 
     .prologue
@@ -73,6 +73,7 @@
     .line 250
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$2;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
+    #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
     invoke-static {v0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$400(Lcom/android/internal/policy/impl/LockPatternKeyguardView;)Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     move-result-object v0
@@ -91,7 +92,7 @@
 .end method
 
 .method public requestShow(Landroid/view/View;)V
-    .registers 4
+    .locals 2
     .parameter "view"
 
     .prologue
@@ -103,6 +104,7 @@
     .line 233
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$2;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
+    #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
     invoke-static {v0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$400(Lcom/android/internal/policy/impl/LockPatternKeyguardView;)Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     move-result-object v0
@@ -118,7 +120,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_0
 
     .line 239
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$2;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
@@ -128,20 +130,20 @@
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->setBackgroundColor(I)V
 
     .line 243
-    :goto_1f
+    :goto_0
     return-void
 
     .line 241
-    :cond_20
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$2;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->resetBackground()V
 
-    goto :goto_1f
+    goto :goto_0
 .end method
 
 .method public userActivity(Landroid/view/View;)V
-    .registers 4
+    .locals 2
     .parameter "self"
 
     .prologue

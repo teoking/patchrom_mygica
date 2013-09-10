@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 2864
@@ -39,7 +39,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/app/ActivityThread$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 2874
@@ -72,16 +72,16 @@
     iget-object v4, p0, Landroid/app/ActivityThread$StopInfo;->description:Ljava/lang/CharSequence;
 
     invoke-interface {v0, v1, v2, v3, v4}, Landroid/app/IActivityManager;->activityStopped(Landroid/os/IBinder;Landroid/os/Bundle;Landroid/graphics/Bitmap;Ljava/lang/CharSequence;)V
-    :try_end_11
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_11} :catch_12
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 2878
-    :goto_11
+    :goto_0
     return-void
 
     .line 2876
-    :catch_12
+    :catch_0
     move-exception v0
 
-    goto :goto_11
+    goto :goto_0
 .end method

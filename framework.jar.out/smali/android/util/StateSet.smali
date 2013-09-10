@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 39
@@ -44,7 +44,7 @@
 .end method
 
 .method public static dump([I)Ljava/lang/String;
-    .registers 5
+    .locals 4
     .parameter "states"
 
     .prologue
@@ -62,62 +62,62 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_2f
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 159
     aget v3, p0, v1
 
-    sparse-switch v3, :sswitch_data_34
+    sparse-switch v3, :sswitch_data_0
 
     .line 157
-    :goto_e
+    :goto_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 161
-    :sswitch_11
+    :sswitch_0
     const-string v3, "W "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_e
+    goto :goto_1
 
     .line 164
-    :sswitch_17
+    :sswitch_1
     const-string v3, "P "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_e
+    goto :goto_1
 
     .line 167
-    :sswitch_1d
+    :sswitch_2
     const-string v3, "S "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_e
+    goto :goto_1
 
     .line 170
-    :sswitch_23
+    :sswitch_3
     const-string v3, "F "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_e
+    goto :goto_1
 
     .line 173
-    :sswitch_29
+    :sswitch_4
     const-string v3, "E "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_e
+    goto :goto_1
 
     .line 178
-    :cond_2f
+    :cond_0
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -125,18 +125,18 @@
     return-object v3
 
     .line 159
-    :sswitch_data_34
+    :sswitch_data_0
     .sparse-switch
-        0x101009c -> :sswitch_23
-        0x101009d -> :sswitch_11
-        0x101009e -> :sswitch_29
-        0x10100a1 -> :sswitch_1d
-        0x10100a7 -> :sswitch_17
+        0x101009c -> :sswitch_3
+        0x101009d -> :sswitch_0
+        0x101009e -> :sswitch_4
+        0x10100a1 -> :sswitch_2
+        0x10100a7 -> :sswitch_1
     .end sparse-switch
 .end method
 
 .method public static isWildCard([I)Z
-    .registers 3
+    .locals 2
     .parameter "stateSetOrSpec"
 
     .prologue
@@ -145,21 +145,21 @@
     .line 50
     array-length v1, p0
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_0
 
     aget v1, p0, v0
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_1
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x1
 
-    :cond_9
+    :cond_1
     return v0
 .end method
 
 .method public static stateSetMatches([II)Z
-    .registers 8
+    .locals 6
     .parameter "stateSpec"
     .parameter "state"
 
@@ -176,55 +176,55 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_4
-    if-ge v0, v1, :cond_a
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 123
     aget v2, p0, v0
 
     .line 124
     .local v2, stateSpecState:I
-    if-nez v2, :cond_b
+    if-nez v2, :cond_1
 
     .line 140
     .end local v2           #stateSpecState:I
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_1
     return v3
 
     .line 128
     .restart local v2       #stateSpecState:I
-    :cond_b
-    if-lez v2, :cond_11
+    :cond_1
+    if-lez v2, :cond_2
 
     .line 129
-    if-eq p1, v2, :cond_16
+    if-eq p1, v2, :cond_3
 
     move v3, v4
 
     .line 130
-    goto :goto_a
+    goto :goto_1
 
     .line 134
-    :cond_11
+    :cond_2
     neg-int v5, v2
 
-    if-ne p1, v5, :cond_16
+    if-ne p1, v5, :cond_3
 
     move v3, v4
 
     .line 136
-    goto :goto_a
+    goto :goto_1
 
     .line 122
-    :cond_16
+    :cond_3
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static stateSetMatches([I[I)Z
-    .registers 13
+    .locals 11
     .parameter "stateSpec"
     .parameter "stateSet"
 
@@ -234,27 +234,27 @@
     const/4 v8, 0x0
 
     .line 61
-    if-nez p1, :cond_e
+    if-nez p1, :cond_2
 
     .line 62
-    if-eqz p0, :cond_c
+    if-eqz p0, :cond_0
 
     invoke-static {p0}, Landroid/util/StateSet;->isWildCard([I)Z
 
     move-result v10
 
-    if-eqz v10, :cond_d
+    if-eqz v10, :cond_1
 
-    :cond_c
+    :cond_0
     move v8, v9
 
     .line 110
-    :cond_d
-    :goto_d
+    :cond_1
+    :goto_0
     return v8
 
     .line 64
-    :cond_e
+    :cond_2
     array-length v6, p0
 
     .line 65
@@ -266,31 +266,31 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_11
-    if-ge v1, v6, :cond_39
+    :goto_1
+    if-ge v1, v6, :cond_9
 
     .line 67
     aget v7, p0, v1
 
     .line 68
     .local v7, stateSpecState:I
-    if-nez v7, :cond_19
+    if-nez v7, :cond_3
 
     move v8, v9
 
     .line 70
-    goto :goto_d
+    goto :goto_0
 
     .line 73
-    :cond_19
-    if-lez v7, :cond_2d
+    :cond_3
+    if-lez v7, :cond_6
 
     .line 74
     const/4 v3, 0x1
 
     .line 80
     .local v3, mustMatch:Z
-    :goto_1c
+    :goto_2
     const/4 v0, 0x0
 
     .line 81
@@ -298,82 +298,82 @@
     const/4 v2, 0x0
 
     .local v2, j:I
-    :goto_1e
-    if-ge v2, v5, :cond_26
+    :goto_3
+    if-ge v2, v5, :cond_4
 
     .line 82
     aget v4, p1, v2
 
     .line 83
     .local v4, state:I
-    if-nez v4, :cond_30
+    if-nez v4, :cond_7
 
     .line 85
-    if-nez v3, :cond_d
+    if-nez v3, :cond_1
 
     .line 104
     .end local v4           #state:I
-    :cond_26
-    :goto_26
-    if-eqz v3, :cond_2a
+    :cond_4
+    :goto_4
+    if-eqz v3, :cond_5
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_1
 
     .line 66
-    :cond_2a
+    :cond_5
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_11
+    goto :goto_1
 
     .line 77
     .end local v0           #found:Z
     .end local v2           #j:I
     .end local v3           #mustMatch:Z
-    :cond_2d
+    :cond_6
     const/4 v3, 0x0
 
     .line 78
     .restart local v3       #mustMatch:Z
     neg-int v7, v7
 
-    goto :goto_1c
+    goto :goto_2
 
     .line 93
     .restart local v0       #found:Z
     .restart local v2       #j:I
     .restart local v4       #state:I
-    :cond_30
-    if-ne v4, v7, :cond_36
+    :cond_7
+    if-ne v4, v7, :cond_8
 
     .line 94
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_1
 
     .line 95
     const/4 v0, 0x1
 
     .line 97
-    goto :goto_26
+    goto :goto_4
 
     .line 81
-    :cond_36
+    :cond_8
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1e
+    goto :goto_3
 
     .end local v0           #found:Z
     .end local v2           #j:I
     .end local v3           #mustMatch:Z
     .end local v4           #state:I
     .end local v7           #stateSpecState:I
-    :cond_39
+    :cond_9
     move v8, v9
 
     .line 110
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public static trimStateSet([II)[I
-    .registers 5
+    .locals 3
     .parameter "states"
     .parameter "newSize"
 
@@ -383,16 +383,16 @@
     .line 144
     array-length v1, p0
 
-    if-ne v1, p1, :cond_5
+    if-ne v1, p1, :cond_0
 
     .line 150
     .end local p0
-    :goto_4
+    :goto_0
     return-object p0
 
     .line 148
     .restart local p0
-    :cond_5
+    :cond_0
     new-array v0, p1, [I
 
     .line 149
@@ -402,5 +402,5 @@
     move-object p0, v0
 
     .line 150
-    goto :goto_4
+    goto :goto_0
 .end method

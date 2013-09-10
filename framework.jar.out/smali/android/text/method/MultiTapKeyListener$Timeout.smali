@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/text/method/MultiTapKeyListener;Landroid/text/Editable;)V
-    .registers 7
+    .locals 4
     .parameter
     .parameter "buffer"
 
@@ -69,7 +69,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/text/method/MultiTapKeyListener$Timeout;Landroid/text/Editable;)Landroid/text/Editable;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 267
@@ -91,7 +91,7 @@
 
     .line 269
     .local v0, buf:Landroid/text/Spannable;
-    if-eqz v0, :cond_26
+    if-eqz v0, :cond_1
 
     .line 270
     invoke-static {v0}, Landroid/text/Selection;->getSelectionStart(Ljava/lang/CharSequence;)I
@@ -122,9 +122,9 @@
 
     .line 276
     .local v2, end:I
-    if-ne v3, v4, :cond_23
+    if-ne v3, v4, :cond_0
 
-    if-ne v1, v2, :cond_23
+    if-ne v1, v2, :cond_0
 
     .line 277
     invoke-static {v0}, Landroid/text/Selection;->getSelectionEnd(Ljava/lang/CharSequence;)I
@@ -134,7 +134,7 @@
     invoke-static {v0, v5}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
 
     .line 280
-    :cond_23
+    :cond_0
     invoke-interface {v0, p0}, Landroid/text/Spannable;->removeSpan(Ljava/lang/Object;)V
 
     .line 282
@@ -142,6 +142,6 @@
     .end local v2           #end:I
     .end local v3           #st:I
     .end local v4           #start:I
-    :cond_26
+    :cond_1
     return-void
 .end method

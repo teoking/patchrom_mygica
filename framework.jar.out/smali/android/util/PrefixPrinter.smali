@@ -14,7 +14,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/util/Printer;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "printer"
     .parameter "prefix"
 
@@ -33,13 +33,13 @@
 .end method
 
 .method public static create(Landroid/util/Printer;Ljava/lang/String;)Landroid/util/Printer;
-    .registers 3
+    .locals 1
     .parameter "printer"
     .parameter "prefix"
 
     .prologue
     .line 36
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_0
 
     const-string v0, ""
 
@@ -47,29 +47,29 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_1
 
     .line 39
     .end local p0
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return-object p0
 
     .restart local p0
-    :cond_b
+    :cond_1
     new-instance v0, Landroid/util/PrefixPrinter;
 
     invoke-direct {v0, p0, p1}, Landroid/util/PrefixPrinter;-><init>(Landroid/util/Printer;Ljava/lang/String;)V
 
     move-object p0, v0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public println(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "str"
 
     .prologue

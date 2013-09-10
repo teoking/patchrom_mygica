@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 206
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>(IJJZLandroid/telephony/SignalStrength;Landroid/telephony/CellIdentity;)V
-    .registers 10
+    .locals 1
     .parameter "timeStampType"
     .parameter "timeStamp"
     .parameter "timingAdv"
@@ -74,20 +74,20 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 63
-    if-ltz p1, :cond_8
+    if-ltz p1, :cond_0
 
     const/4 v0, 0x4
 
-    if-le p1, v0, :cond_21
+    if-le p1, v0, :cond_1
 
     .line 65
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/telephony/CellInfo;->mTimeStampType:I
 
     .line 70
-    :goto_b
+    :goto_0
     iput-boolean p6, p0, Landroid/telephony/CellInfo;->mRegistered:Z
 
     .line 71
@@ -117,14 +117,14 @@
     return-void
 
     .line 67
-    :cond_21
+    :cond_1
     iput p1, p0, Landroid/telephony/CellInfo;->mTimeStampType:I
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -145,9 +145,9 @@
 
     move-result v1
 
-    if-ne v1, v0, :cond_37
+    if-ne v1, v0, :cond_0
 
-    :goto_10
+    :goto_0
     iput-boolean v0, p0, Landroid/telephony/CellInfo;->mRegistered:Z
 
     .line 99
@@ -185,7 +185,7 @@
     .line 103
     iget v0, p0, Landroid/telephony/CellInfo;->mCellIdentityType:I
 
-    packed-switch v0, :pswitch_data_44
+    packed-switch v0, :pswitch_data_0
 
     .line 108
     const/4 v0, 0x0
@@ -193,17 +193,17 @@
     iput-object v0, p0, Landroid/telephony/CellInfo;->mCellIdentity:Landroid/telephony/CellIdentity;
 
     .line 110
-    :goto_36
+    :goto_1
     return-void
 
     .line 98
-    :cond_37
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_10
+    goto :goto_0
 
     .line 105
-    :pswitch_39
+    :pswitch_0
     sget-object v0, Landroid/telephony/GsmCellIdentity;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -214,17 +214,17 @@
 
     iput-object v0, p0, Landroid/telephony/CellInfo;->mCellIdentity:Landroid/telephony/CellIdentity;
 
-    goto :goto_36
+    goto :goto_1
 
     .line 103
-    :pswitch_data_44
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_39
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/telephony/CellInfo$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -236,7 +236,7 @@
 .end method
 
 .method public constructor <init>(Landroid/telephony/CellInfo;)V
-    .registers 4
+    .locals 2
     .parameter "ci"
 
     .prologue
@@ -280,7 +280,7 @@
     .line 87
     iget v0, p0, Landroid/telephony/CellInfo;->mCellIdentityType:I
 
-    packed-switch v0, :pswitch_data_36
+    packed-switch v0, :pswitch_data_0
 
     .line 92
     const/4 v0, 0x0
@@ -288,11 +288,11 @@
     iput-object v0, p0, Landroid/telephony/CellInfo;->mCellIdentity:Landroid/telephony/CellIdentity;
 
     .line 94
-    :goto_28
+    :goto_0
     return-void
 
     .line 89
-    :pswitch_29
+    :pswitch_0
     new-instance v1, Landroid/telephony/GsmCellIdentity;
 
     iget-object v0, p1, Landroid/telephony/CellInfo;->mCellIdentity:Landroid/telephony/CellIdentity;
@@ -303,21 +303,21 @@
 
     iput-object v1, p0, Landroid/telephony/CellInfo;->mCellIdentity:Landroid/telephony/CellIdentity;
 
-    goto :goto_28
+    goto :goto_0
 
     .line 87
     nop
 
-    :pswitch_data_36
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_29
+        :pswitch_0
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 190
@@ -327,7 +327,7 @@
 .end method
 
 .method public getCellIdentity()Landroid/telephony/CellIdentity;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 154
@@ -337,7 +337,7 @@
 .end method
 
 .method public getSignalStrength()Landroid/telephony/SignalStrength;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 146
@@ -351,7 +351,7 @@
 .end method
 
 .method public getTimeStamp()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 116
@@ -361,7 +361,7 @@
 .end method
 
 .method public getTimeStampType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 124
@@ -371,7 +371,7 @@
 .end method
 
 .method public getTimingAdvance()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 138
@@ -381,7 +381,7 @@
 .end method
 
 .method public isRegistered()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 131
@@ -391,7 +391,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 159
@@ -408,7 +408,7 @@
     .line 162
     iget v1, p0, Landroid/telephony/CellInfo;->mTimeStampType:I
 
-    packed-switch v1, :pswitch_data_92
+    packed-switch v1, :pswitch_data_0
 
     .line 176
     const-string/jumbo v1, "unknown"
@@ -416,7 +416,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 178
-    :goto_15
+    :goto_0
     const-string v1, ", TimeStamp: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -442,11 +442,11 @@
 
     iget-boolean v1, p0, Landroid/telephony/CellInfo;->mRegistered:Z
 
-    if-eqz v1, :cond_8f
+    if-eqz v1, :cond_0
 
     const-string v1, "YES"
 
-    :goto_32
+    :goto_1
     invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 180
@@ -514,55 +514,55 @@
     return-object v1
 
     .line 164
-    :pswitch_75
+    :pswitch_0
     const-string v1, "antenna"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    goto :goto_15
+    goto :goto_0
 
     .line 167
-    :pswitch_7b
+    :pswitch_1
     const-string/jumbo v1, "modem"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    goto :goto_15
+    goto :goto_0
 
     .line 170
-    :pswitch_82
+    :pswitch_2
     const-string/jumbo v1, "oem_ril"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    goto :goto_15
+    goto :goto_0
 
     .line 173
-    :pswitch_89
+    :pswitch_3
     const-string v1, "java_ril"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    goto :goto_15
+    goto :goto_0
 
     .line 179
-    :cond_8f
+    :cond_0
     const-string v1, "NO"
 
-    goto :goto_32
+    goto :goto_1
 
     .line 162
-    :pswitch_data_92
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_75
-        :pswitch_7b
-        :pswitch_82
-        :pswitch_89
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 
@@ -575,11 +575,11 @@
     .line 197
     iget-boolean v0, p0, Landroid/telephony/CellInfo;->mRegistered:Z
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_a
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 198
@@ -611,8 +611,8 @@
     return-void
 
     .line 197
-    :cond_27
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method

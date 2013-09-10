@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/webkit/JsResult$ResultReceiver;)V
-    .registers 2
+    .locals 0
     .parameter "receiver"
 
     .prologue
@@ -23,7 +23,7 @@
 
 # virtual methods
 .method public confirm(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "result"
 
     .prologue
@@ -38,7 +38,7 @@
 .end method
 
 .method public getStringResult()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 50

@@ -231,7 +231,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 135
@@ -242,7 +242,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -516,7 +516,7 @@
 .end method
 
 .method public static glMatrixIndexPointerOES(IIILjava/nio/Buffer;)V
-    .registers 5
+    .locals 1
     .parameter "size"
     .parameter "type"
     .parameter "stride"
@@ -533,41 +533,41 @@
     .line 902
     const/4 v0, 0x2
 
-    if-eq p0, v0, :cond_10
+    if-eq p0, v0, :cond_0
 
     const/4 v0, 0x3
 
-    if-eq p0, v0, :cond_10
+    if-eq p0, v0, :cond_0
 
     const/4 v0, 0x4
 
-    if-ne p0, v0, :cond_24
+    if-ne p0, v0, :cond_2
 
-    :cond_10
+    :cond_0
     const/16 v0, 0x1406
 
-    if-eq p1, v0, :cond_20
+    if-eq p1, v0, :cond_1
 
     const/16 v0, 0x1400
 
-    if-eq p1, v0, :cond_20
+    if-eq p1, v0, :cond_1
 
     const/16 v0, 0x1402
 
-    if-eq p1, v0, :cond_20
+    if-eq p1, v0, :cond_1
 
     const/16 v0, 0x140c
 
-    if-ne p1, v0, :cond_24
+    if-ne p1, v0, :cond_2
 
-    :cond_20
-    if-ltz p2, :cond_24
+    :cond_1
+    if-ltz p2, :cond_2
 
     .line 910
     sput-object p3, Landroid/opengl/GLES11Ext;->_matrixIndexPointerOES:Ljava/nio/Buffer;
 
     .line 912
-    :cond_24
+    :cond_2
     return-void
 .end method
 
@@ -668,7 +668,7 @@
 .end method
 
 .method public static glWeightPointerOES(IIILjava/nio/Buffer;)V
-    .registers 5
+    .locals 1
     .parameter "size"
     .parameter "type"
     .parameter "stride"

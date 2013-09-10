@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/SurfaceSession;Landroid/graphics/Rect;Landroid/graphics/Rect;I)V
-    .registers 16
+    .locals 11
     .parameter "session"
     .parameter "outer"
     .parameter "inner"
@@ -80,12 +80,12 @@
     iput-object v0, p0, Lcom/android/server/wm/BlackFrame;->mInnerRect:Landroid/graphics/Rect;
 
     .line 112
-    :try_start_24
+    :try_start_0
     iget v0, p2, Landroid/graphics/Rect;->top:I
 
     iget v1, p3, Landroid/graphics/Rect;->top:I
 
-    if-ge v0, v1, :cond_3f
+    if-ge v0, v1, :cond_0
 
     .line 113
     iget-object v9, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
@@ -113,12 +113,12 @@
     aput-object v0, v9, v10
 
     .line 116
-    :cond_3f
+    :cond_0
     iget v0, p2, Landroid/graphics/Rect;->left:I
 
     iget v1, p3, Landroid/graphics/Rect;->left:I
 
-    if-ge v0, v1, :cond_5a
+    if-ge v0, v1, :cond_1
 
     .line 117
     iget-object v9, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
@@ -146,12 +146,12 @@
     aput-object v0, v9, v10
 
     .line 120
-    :cond_5a
+    :cond_1
     iget v0, p2, Landroid/graphics/Rect;->bottom:I
 
     iget v1, p3, Landroid/graphics/Rect;->bottom:I
 
-    if-le v0, v1, :cond_75
+    if-le v0, v1, :cond_2
 
     .line 121
     iget-object v9, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
@@ -179,12 +179,12 @@
     aput-object v0, v9, v10
 
     .line 124
-    :cond_75
+    :cond_2
     iget v0, p2, Landroid/graphics/Rect;->right:I
 
     iget v1, p3, Landroid/graphics/Rect;->right:I
 
-    if-le v0, v1, :cond_90
+    if-le v0, v1, :cond_3
 
     .line 125
     iget-object v9, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
@@ -210,59 +210,59 @@
     invoke-direct/range {v0 .. v7}, Lcom/android/server/wm/BlackFrame$BlackSurface;-><init>(Lcom/android/server/wm/BlackFrame;Landroid/view/SurfaceSession;IIIII)V
 
     aput-object v0, v9, v10
-    :try_end_90
-    .catchall {:try_start_24 .. :try_end_90} :catchall_97
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 128
-    :cond_90
+    :cond_3
     const/4 v8, 0x1
 
     .line 130
-    if-nez v8, :cond_96
+    if-nez v8, :cond_4
 
     .line 131
     invoke-virtual {p0}, Lcom/android/server/wm/BlackFrame;->kill()V
 
     .line 134
-    :cond_96
+    :cond_4
     return-void
 
     .line 130
-    :catchall_97
+    :catchall_0
     move-exception v0
 
-    if-nez v8, :cond_9d
+    if-nez v8, :cond_5
 
     .line 131
     invoke-virtual {p0}, Lcom/android/server/wm/BlackFrame;->kill()V
 
-    :cond_9d
+    :cond_5
     throw v0
 .end method
 
 
 # virtual methods
 .method public clearMatrix()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 170
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_16
+    if-ge v0, v1, :cond_1
 
     .line 171
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 
     aget-object v1, v1, v0
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 172
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
@@ -272,42 +272,42 @@
     invoke-virtual {v1}, Lcom/android/server/wm/BlackFrame$BlackSurface;->clearMatrix()V
 
     .line 170
-    :cond_13
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 175
-    :cond_16
+    :cond_1
     return-void
 .end method
 
 .method public hide()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 152
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 
-    if-eqz v1, :cond_1c
+    if-eqz v1, :cond_1
 
     .line 153
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_5
+    :goto_0
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_1c
+    if-ge v0, v1, :cond_1
 
     .line 154
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 
     aget-object v1, v1, v0
 
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_0
 
     .line 155
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
@@ -319,43 +319,43 @@
     invoke-virtual {v1}, Landroid/view/Surface;->hide()V
 
     .line 153
-    :cond_19
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 159
     .end local v0           #i:I
-    :cond_1c
+    :cond_1
     return-void
 .end method
 
 .method public kill()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 137
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 
-    if-eqz v1, :cond_21
+    if-eqz v1, :cond_1
 
     .line 138
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_5
+    :goto_0
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_21
+    if-ge v0, v1, :cond_1
 
     .line 139
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 
     aget-object v1, v1, v0
 
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_0
 
     .line 144
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
@@ -374,19 +374,19 @@
     aput-object v2, v1, v0
 
     .line 138
-    :cond_1e
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 149
     .end local v0           #i:I
-    :cond_21
+    :cond_1
     return-void
 .end method
 
 .method public printTo(Ljava/lang/String;Ljava/io/PrintWriter;)V
-    .registers 6
+    .locals 3
     .parameter "prefix"
     .parameter "pw"
 
@@ -418,12 +418,12 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_1b
+    :goto_0
     iget-object v2, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_50
+    if-ge v1, v2, :cond_0
 
     .line 97
     iget-object v2, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
@@ -470,16 +470,16 @@
     .line 96
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 103
     .end local v0           #bs:Lcom/android/server/wm/BlackFrame$BlackSurface;
-    :cond_50
+    :cond_0
     return-void
 .end method
 
 .method public setMatrix(Landroid/graphics/Matrix;)V
-    .registers 4
+    .locals 2
     .parameter "matrix"
 
     .prologue
@@ -487,19 +487,19 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_16
+    if-ge v0, v1, :cond_1
 
     .line 163
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
 
     aget-object v1, v1, v0
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 164
     iget-object v1, p0, Lcom/android/server/wm/BlackFrame;->mBlackSurfaces:[Lcom/android/server/wm/BlackFrame$BlackSurface;
@@ -509,12 +509,12 @@
     invoke-virtual {v1, p1}, Lcom/android/server/wm/BlackFrame$BlackSurface;->setMatrix(Landroid/graphics/Matrix;)V
 
     .line 162
-    :cond_13
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 167
-    :cond_16
+    :cond_1
     return-void
 .end method

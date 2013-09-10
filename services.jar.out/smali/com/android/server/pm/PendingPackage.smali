@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;Ljava/io/File;Ljava/lang/String;III)V
-    .registers 17
+    .locals 8
     .parameter "name"
     .parameter "realName"
     .parameter "codePath"

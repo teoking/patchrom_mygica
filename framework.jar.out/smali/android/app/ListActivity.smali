@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 175
@@ -55,31 +55,31 @@
 .end method
 
 .method private ensureList()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 309
     iget-object v0, p0, Landroid/app/ListActivity;->mList:Landroid/widget/ListView;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
     .line 314
-    :goto_4
+    :goto_0
     return-void
 
     .line 312
-    :cond_5
+    :cond_0
     const v0, 0x109005e
 
     invoke-virtual {p0, v0}, Landroid/app/ListActivity;->setContentView(I)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getListAdapter()Landroid/widget/ListAdapter;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 305
@@ -89,7 +89,7 @@
 .end method
 
 .method public getListView()Landroid/widget/ListView;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 297
@@ -102,7 +102,7 @@
 .end method
 
 .method public getSelectedItemId()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 290
@@ -116,7 +116,7 @@
 .end method
 
 .method public getSelectedItemPosition()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 283
@@ -130,7 +130,7 @@
 .end method
 
 .method public onContentChanged()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 239
@@ -158,7 +158,7 @@
     .line 242
     iget-object v1, p0, Landroid/app/ListActivity;->mList:Landroid/widget/ListView;
 
-    if-nez v1, :cond_21
+    if-nez v1, :cond_0
 
     .line 243
     new-instance v1, Ljava/lang/RuntimeException;
@@ -170,8 +170,8 @@
     throw v1
 
     .line 247
-    :cond_21
-    if-eqz v0, :cond_28
+    :cond_0
+    if-eqz v0, :cond_1
 
     .line 248
     iget-object v1, p0, Landroid/app/ListActivity;->mList:Landroid/widget/ListView;
@@ -179,7 +179,7 @@
     invoke-virtual {v1, v0}, Landroid/widget/ListView;->setEmptyView(Landroid/view/View;)V
 
     .line 250
-    :cond_28
+    :cond_1
     iget-object v1, p0, Landroid/app/ListActivity;->mList:Landroid/widget/ListView;
 
     iget-object v2, p0, Landroid/app/ListActivity;->mOnClickListener:Landroid/widget/AdapterView$OnItemClickListener;
@@ -189,7 +189,7 @@
     .line 251
     iget-boolean v1, p0, Landroid/app/ListActivity;->mFinishedStart:Z
 
-    if-eqz v1, :cond_38
+    if-eqz v1, :cond_2
 
     .line 252
     iget-object v1, p0, Landroid/app/ListActivity;->mAdapter:Landroid/widget/ListAdapter;
@@ -197,7 +197,7 @@
     invoke-virtual {p0, v1}, Landroid/app/ListActivity;->setListAdapter(Landroid/widget/ListAdapter;)V
 
     .line 254
-    :cond_38
+    :cond_2
     iget-object v1, p0, Landroid/app/ListActivity;->mHandler:Landroid/os/Handler;
 
     iget-object v2, p0, Landroid/app/ListActivity;->mRequestFocus:Ljava/lang/Runnable;
@@ -214,7 +214,7 @@
 .end method
 
 .method protected onDestroy()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 227
@@ -232,7 +232,7 @@
 .end method
 
 .method protected onListItemClick(Landroid/widget/ListView;Landroid/view/View;IJ)V
-    .registers 6
+    .locals 0
     .parameter "l"
     .parameter "v"
     .parameter "position"
@@ -244,7 +244,7 @@
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Bundle;)V
-    .registers 2
+    .locals 0
     .parameter "state"
 
     .prologue
@@ -259,7 +259,7 @@
 .end method
 
 .method public setListAdapter(Landroid/widget/ListAdapter;)V
-    .registers 3
+    .locals 1
     .parameter "adapter"
 
     .prologue
@@ -267,7 +267,7 @@
     monitor-enter p0
 
     .line 263
-    :try_start_1
+    :try_start_0
     invoke-direct {p0}, Landroid/app/ListActivity;->ensureList()V
 
     .line 264
@@ -285,18 +285,18 @@
     return-void
 
     .line 266
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_f
-    .catchall {:try_start_1 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setSelection(I)V
-    .registers 3
+    .locals 1
     .parameter "position"
 
     .prologue

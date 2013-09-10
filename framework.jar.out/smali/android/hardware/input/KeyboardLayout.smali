@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 33
@@ -57,7 +57,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -90,7 +90,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/hardware/input/KeyboardLayout$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -102,7 +102,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "descriptor"
     .parameter "label"
     .parameter "collection"
@@ -127,7 +127,7 @@
 
 # virtual methods
 .method public compareTo(Landroid/hardware/input/KeyboardLayout;)I
-    .registers 5
+    .locals 3
     .parameter "another"
 
     .prologue
@@ -142,7 +142,7 @@
 
     .line 98
     .local v0, result:I
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 99
     iget-object v1, p0, Landroid/hardware/input/KeyboardLayout;->mCollection:Ljava/lang/String;
@@ -154,12 +154,12 @@
     move-result v0
 
     .line 101
-    :cond_12
+    :cond_0
     return v0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -175,7 +175,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 85
@@ -185,7 +185,7 @@
 .end method
 
 .method public getCollection()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 80
@@ -195,7 +195,7 @@
 .end method
 
 .method public getDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 63
@@ -205,7 +205,7 @@
 .end method
 
 .method public getLabel()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 71
@@ -215,7 +215,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 106
@@ -225,16 +225,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 107
     iget-object v0, p0, Landroid/hardware/input/KeyboardLayout;->mLabel:Ljava/lang/String;
 
     .line 109
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -261,11 +261,11 @@
 
     move-result-object v0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

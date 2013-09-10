@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     const/16 v1, 0x100
@@ -42,14 +42,14 @@
     .line 181
     new-array v0, v1, [I
 
-    fill-array-data v0, :array_12
+    fill-array-data v0, :array_0
 
     sput-object v0, Landroid/util/Base64$Decoder;->DECODE:[I
 
     .line 204
     new-array v0, v1, [I
 
-    fill-array-data v0, :array_216
+    fill-array-data v0, :array_1
 
     sput-object v0, Landroid/util/Base64$Decoder;->DECODE_WEBSAFE:[I
 
@@ -58,7 +58,7 @@
     .line 181
     nop
 
-    :array_12
+    :array_0
     .array-data 0x4
         0xfft 0xfft 0xfft 0xfft
         0xfft 0xfft 0xfft 0xfft
@@ -319,7 +319,7 @@
     .end array-data
 
     .line 204
-    :array_216
+    :array_1
     .array-data 0x4
         0xfft 0xfft 0xfft 0xfft
         0xfft 0xfft 0xfft 0xfft
@@ -581,7 +581,7 @@
 .end method
 
 .method public constructor <init>(I[B)V
-    .registers 5
+    .locals 2
     .parameter "flags"
     .parameter "output"
 
@@ -597,11 +597,11 @@
     .line 244
     and-int/lit8 v0, p1, 0x8
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     sget-object v0, Landroid/util/Base64$Decoder;->DECODE:[I
 
-    :goto_c
+    :goto_0
     iput-object v0, p0, Landroid/util/Base64$Decoder;->alphabet:[I
 
     .line 245
@@ -614,16 +614,16 @@
     return-void
 
     .line 244
-    :cond_13
+    :cond_0
     sget-object v0, Landroid/util/Base64$Decoder;->DECODE_WEBSAFE:[I
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public maxOutputSize(I)I
-    .registers 3
+    .locals 1
     .parameter "len"
 
     .prologue
@@ -638,7 +638,7 @@
 .end method
 
 .method public process([BIIZ)Z
-    .registers 16
+    .locals 11
     .parameter "input"
     .parameter "offset"
     .parameter "len"
@@ -650,16 +650,16 @@
 
     const/4 v10, 0x6
 
-    if-ne v9, v10, :cond_7
+    if-ne v9, v10, :cond_0
 
     const/4 v9, 0x0
 
     .line 437
-    :goto_6
+    :goto_0
     return v9
 
     .line 266
-    :cond_7
+    :cond_0
     move v5, p2
 
     .line 267
@@ -687,17 +687,17 @@
 
     .line 280
     .local v0, alphabet:[I
-    :goto_12
-    if-ge v5, p3, :cond_133
+    :goto_1
+    if-ge v5, p3, :cond_c
 
     .line 295
-    if-nez v7, :cond_67
+    if-nez v7, :cond_2
 
     .line 300
-    :goto_16
+    :goto_2
     add-int/lit8 v9, v5, 0x4
 
-    if-gt v9, p3, :cond_5a
+    if-gt v9, p3, :cond_1
 
     aget-byte v9, p1, v5
 
@@ -741,7 +741,7 @@
 
     or-int v8, v9, v10
 
-    if-ltz v8, :cond_5a
+    if-ltz v8, :cond_1
 
     .line 301
     add-int/lit8 v9, v2, 0x2
@@ -772,19 +772,19 @@
     .line 305
     add-int/lit8 v5, v5, 0x4
 
-    goto :goto_16
+    goto :goto_2
 
     .line 307
-    :cond_5a
-    if-lt v5, p3, :cond_67
+    :cond_1
+    if-lt v5, p3, :cond_2
 
     move v3, v2
 
     .line 393
     .end local v2           #op:I
     .local v3, op:I
-    :goto_5d
-    if-nez p4, :cond_102
+    :goto_3
+    if-nez p4, :cond_b
 
     .line 396
     iput v7, p0, Landroid/util/Base64$Decoder;->state:I
@@ -798,12 +798,12 @@
     .line 399
     const/4 v9, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 315
     .end local v3           #op:I
     .restart local v2       #op:I
-    :cond_67
+    :cond_2
     add-int/lit8 v6, v5, 0x1
 
     .end local v5           #p:I
@@ -816,22 +816,22 @@
 
     .line 317
     .local v1, d:I
-    packed-switch v7, :pswitch_data_136
+    packed-switch v7, :pswitch_data_0
 
-    :cond_72
-    :goto_72
+    :cond_3
+    :goto_4
     move v5, v6
 
     .line 391
     .end local v6           #p:I
     .restart local v5       #p:I
-    goto :goto_12
+    goto :goto_1
 
     .line 319
     .end local v5           #p:I
     .restart local v6       #p:I
-    :pswitch_74
-    if-ltz v1, :cond_7a
+    :pswitch_0
+    if-ltz v1, :cond_4
 
     .line 320
     move v8, v1
@@ -839,13 +839,13 @@
     .line 321
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_72
+    goto :goto_4
 
     .line 322
-    :cond_7a
+    :cond_4
     const/4 v9, -0x1
 
-    if-eq v1, v9, :cond_72
+    if-eq v1, v9, :cond_3
 
     .line 323
     const/4 v9, 0x6
@@ -855,11 +855,11 @@
     .line 324
     const/4 v9, 0x0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 329
-    :pswitch_82
-    if-ltz v1, :cond_8b
+    :pswitch_1
+    if-ltz v1, :cond_5
 
     .line 330
     shl-int/lit8 v9, v8, 0x6
@@ -869,13 +869,13 @@
     .line 331
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_72
+    goto :goto_4
 
     .line 332
-    :cond_8b
+    :cond_5
     const/4 v9, -0x1
 
-    if-eq v1, v9, :cond_72
+    if-eq v1, v9, :cond_3
 
     .line 333
     const/4 v9, 0x6
@@ -885,11 +885,11 @@
     .line 334
     const/4 v9, 0x0
 
-    goto/16 :goto_6
+    goto/16 :goto_0
 
     .line 339
-    :pswitch_94
-    if-ltz v1, :cond_9d
+    :pswitch_2
+    if-ltz v1, :cond_6
 
     .line 340
     shl-int/lit8 v9, v8, 0x6
@@ -899,13 +899,13 @@
     .line 341
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_72
+    goto :goto_4
 
     .line 342
-    :cond_9d
+    :cond_6
     const/4 v9, -0x2
 
-    if-ne v1, v9, :cond_aa
+    if-ne v1, v9, :cond_7
 
     .line 345
     add-int/lit8 v3, v2, 0x1
@@ -925,13 +925,13 @@
 
     .end local v3           #op:I
     .restart local v2       #op:I
-    goto :goto_72
+    goto :goto_4
 
     .line 347
-    :cond_aa
+    :cond_7
     const/4 v9, -0x1
 
-    if-eq v1, v9, :cond_72
+    if-eq v1, v9, :cond_3
 
     .line 348
     const/4 v9, 0x6
@@ -941,11 +941,11 @@
     .line 349
     const/4 v9, 0x0
 
-    goto/16 :goto_6
+    goto/16 :goto_0
 
     .line 354
-    :pswitch_b3
-    if-ltz v1, :cond_ce
+    :pswitch_3
+    if-ltz v1, :cond_8
 
     .line 356
     shl-int/lit8 v9, v8, 0x6
@@ -981,13 +981,13 @@
     .line 361
     const/4 v7, 0x0
 
-    goto :goto_72
+    goto :goto_4
 
     .line 362
-    :cond_ce
+    :cond_8
     const/4 v9, -0x2
 
-    if-ne v1, v9, :cond_e1
+    if-ne v1, v9, :cond_9
 
     .line 365
     add-int/lit8 v9, v2, 0x1
@@ -1011,13 +1011,13 @@
     .line 368
     const/4 v7, 0x5
 
-    goto :goto_72
+    goto :goto_4
 
     .line 369
-    :cond_e1
+    :cond_9
     const/4 v9, -0x1
 
-    if-eq v1, v9, :cond_72
+    if-eq v1, v9, :cond_3
 
     .line 370
     const/4 v9, 0x6
@@ -1027,24 +1027,24 @@
     .line 371
     const/4 v9, 0x0
 
-    goto/16 :goto_6
+    goto/16 :goto_0
 
     .line 376
-    :pswitch_ea
+    :pswitch_4
     const/4 v9, -0x2
 
-    if-ne v1, v9, :cond_f0
+    if-ne v1, v9, :cond_a
 
     .line 377
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_72
+    goto :goto_4
 
     .line 378
-    :cond_f0
+    :cond_a
     const/4 v9, -0x1
 
-    if-eq v1, v9, :cond_72
+    if-eq v1, v9, :cond_3
 
     .line 379
     const/4 v9, 0x6
@@ -1054,13 +1054,13 @@
     .line 380
     const/4 v9, 0x0
 
-    goto/16 :goto_6
+    goto/16 :goto_0
 
     .line 385
-    :pswitch_f9
+    :pswitch_5
     const/4 v9, -0x1
 
-    if-eq v1, v9, :cond_72
+    if-eq v1, v9, :cond_3
 
     .line 386
     const/4 v9, 0x6
@@ -1070,7 +1070,7 @@
     .line 387
     const/4 v9, 0x0
 
-    goto/16 :goto_6
+    goto/16 :goto_0
 
     .line 405
     .end local v1           #d:I
@@ -1078,15 +1078,15 @@
     .end local v6           #p:I
     .restart local v3       #op:I
     .restart local v5       #p:I
-    :cond_102
-    packed-switch v7, :pswitch_data_146
+    :cond_b
+    packed-switch v7, :pswitch_data_1
 
     move v2, v3
 
     .line 435
     .end local v3           #op:I
     .restart local v2       #op:I
-    :goto_106
+    :goto_5
     iput v7, p0, Landroid/util/Base64$Decoder;->state:I
 
     .line 436
@@ -1095,22 +1095,22 @@
     .line 437
     const/4 v9, 0x1
 
-    goto/16 :goto_6
+    goto/16 :goto_0
 
     .end local v2           #op:I
     .restart local v3       #op:I
-    :pswitch_10d
+    :pswitch_6
     move v2, v3
 
     .line 408
     .end local v3           #op:I
     .restart local v2       #op:I
-    goto :goto_106
+    goto :goto_5
 
     .line 412
     .end local v2           #op:I
     .restart local v3       #op:I
-    :pswitch_10f
+    :pswitch_7
     const/4 v9, 0x6
 
     iput v9, p0, Landroid/util/Base64$Decoder;->state:I
@@ -1118,10 +1118,10 @@
     .line 413
     const/4 v9, 0x0
 
-    goto/16 :goto_6
+    goto/16 :goto_0
 
     .line 417
-    :pswitch_115
+    :pswitch_8
     add-int/lit8 v2, v3, 0x1
 
     .end local v3           #op:I
@@ -1132,12 +1132,12 @@
 
     aput-byte v9, v4, v3
 
-    goto :goto_106
+    goto :goto_5
 
     .line 422
     .end local v2           #op:I
     .restart local v3       #op:I
-    :pswitch_11d
+    :pswitch_9
     add-int/lit8 v2, v3, 0x1
 
     .end local v3           #op:I
@@ -1164,12 +1164,12 @@
     .line 424
     .end local v3           #op:I
     .restart local v2       #op:I
-    goto :goto_106
+    goto :goto_5
 
     .line 427
     .end local v2           #op:I
     .restart local v3       #op:I
-    :pswitch_12d
+    :pswitch_a
     const/4 v9, 0x6
 
     iput v9, p0, Landroid/util/Base64$Decoder;->state:I
@@ -1177,35 +1177,35 @@
     .line 428
     const/4 v9, 0x0
 
-    goto/16 :goto_6
+    goto/16 :goto_0
 
     .end local v3           #op:I
     .restart local v2       #op:I
-    :cond_133
+    :cond_c
     move v3, v2
 
     .end local v2           #op:I
     .restart local v3       #op:I
-    goto/16 :goto_5d
+    goto/16 :goto_3
 
     .line 317
-    :pswitch_data_136
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_74
-        :pswitch_82
-        :pswitch_94
-        :pswitch_b3
-        :pswitch_ea
-        :pswitch_f9
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
     .end packed-switch
 
     .line 405
-    :pswitch_data_146
+    :pswitch_data_1
     .packed-switch 0x0
-        :pswitch_10d
-        :pswitch_10f
-        :pswitch_115
-        :pswitch_11d
-        :pswitch_12d
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
+        :pswitch_a
     .end packed-switch
 .end method

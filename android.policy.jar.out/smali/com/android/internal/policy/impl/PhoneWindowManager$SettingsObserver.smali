@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/os/Handler;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "handler"
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method observe()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -144,7 +144,7 @@
 .end method
 
 .method public onChange(Z)V
-    .registers 4
+    .locals 2
     .parameter "selfChange"
 
     .prologue

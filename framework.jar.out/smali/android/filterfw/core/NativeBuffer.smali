@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 104
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -59,7 +59,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 6
+    .locals 4
     .parameter "count"
 
     .prologue
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method protected assertReadable()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 114
@@ -122,15 +122,15 @@
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
     iget v0, p0, Landroid/filterfw/core/NativeBuffer;->mSize:I
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/filterfw/core/NativeBuffer;->mAttachedFrame:Landroid/filterfw/core/Frame;
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Landroid/filterfw/core/NativeBuffer;->mAttachedFrame:Landroid/filterfw/core/Frame;
 
@@ -138,10 +138,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_1
 
     .line 116
-    :cond_18
+    :cond_0
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Attempting to read from null data frame!"
@@ -151,12 +151,12 @@
     throw v0
 
     .line 118
-    :cond_20
+    :cond_1
     return-void
 .end method
 
 .method protected assertWritable()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 121
@@ -164,7 +164,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 122
     new-instance v0, Ljava/lang/RuntimeException;
@@ -176,12 +176,12 @@
     throw v0
 
     .line 124
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method attachToFrame(Landroid/filterfw/core/Frame;)V
-    .registers 2
+    .locals 0
     .parameter "frame"
 
     .prologue
@@ -193,7 +193,7 @@
 .end method
 
 .method public count()I
-    .registers 5
+    .locals 4
 
     .prologue
     .line 64
@@ -203,7 +203,7 @@
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     iget v0, p0, Landroid/filterfw/core/NativeBuffer;->mSize:I
 
@@ -213,17 +213,17 @@
 
     div-int/2addr v0, v1
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public getElementSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 68
@@ -233,13 +233,13 @@
 .end method
 
 .method public isReadOnly()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 100
     iget-object v0, p0, Landroid/filterfw/core/NativeBuffer;->mAttachedFrame:Landroid/filterfw/core/Frame;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/filterfw/core/NativeBuffer;->mAttachedFrame:Landroid/filterfw/core/Frame;
 
@@ -247,17 +247,17 @@
 
     move-result v0
 
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public mutableCopy()Landroid/filterfw/core/NativeBuffer;
-    .registers 7
+    .locals 6
 
     .prologue
     .line 45
@@ -265,7 +265,7 @@
 
     .line 47
     .local v2, result:Landroid/filterfw/core/NativeBuffer;
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -278,20 +278,20 @@
 
     .end local v2           #result:Landroid/filterfw/core/NativeBuffer;
     check-cast v2, Landroid/filterfw/core/NativeBuffer;
-    :try_end_b
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_b} :catch_1d
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 53
     .restart local v2       #result:Landroid/filterfw/core/NativeBuffer;
     iget v3, p0, Landroid/filterfw/core/NativeBuffer;->mSize:I
 
-    if-lez v3, :cond_48
+    if-lez v3, :cond_0
 
     invoke-direct {p0, v2}, Landroid/filterfw/core/NativeBuffer;->nativeCopyTo(Landroid/filterfw/core/NativeBuffer;)Z
 
     move-result v3
 
-    if-nez v3, :cond_48
+    if-nez v3, :cond_0
 
     .line 54
     new-instance v3, Ljava/lang/RuntimeException;
@@ -305,7 +305,7 @@
     .line 49
     .end local v1           #myClass:Ljava/lang/Class;
     .end local v2           #result:Landroid/filterfw/core/NativeBuffer;
-    :catch_1d
+    :catch_0
     move-exception v0
 
     .line 50
@@ -354,12 +354,12 @@
     .end local v0           #e:Ljava/lang/Exception;
     .restart local v1       #myClass:Ljava/lang/Class;
     .restart local v2       #result:Landroid/filterfw/core/NativeBuffer;
-    :cond_48
+    :cond_0
     return-object v2
 .end method
 
 .method public release()Landroid/filterfw/core/NativeBuffer;
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x1
@@ -373,7 +373,7 @@
     .local v0, doDealloc:Z
     iget-object v3, p0, Landroid/filterfw/core/NativeBuffer;->mAttachedFrame:Landroid/filterfw/core/Frame;
 
-    if-eqz v3, :cond_1b
+    if-eqz v3, :cond_3
 
     .line 84
     iget-object v3, p0, Landroid/filterfw/core/NativeBuffer;->mAttachedFrame:Landroid/filterfw/core/Frame;
@@ -382,14 +382,14 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_19
+    if-nez v3, :cond_2
 
     move v0, v1
 
     .line 91
-    :cond_10
-    :goto_10
-    if-eqz v0, :cond_18
+    :cond_0
+    :goto_0
+    if-eqz v0, :cond_1
 
     .line 92
     iget-boolean v1, p0, Landroid/filterfw/core/NativeBuffer;->mOwnsData:Z
@@ -401,21 +401,21 @@
 
     .line 95
     .end local p0
-    :cond_18
+    :cond_1
     return-object p0
 
     .restart local p0
-    :cond_19
+    :cond_2
     move v0, v2
 
     .line 84
-    goto :goto_10
+    goto :goto_0
 
     .line 85
-    :cond_1b
+    :cond_3
     iget-boolean v3, p0, Landroid/filterfw/core/NativeBuffer;->mOwnsData:Z
 
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_0
 
     .line 86
     iget v3, p0, Landroid/filterfw/core/NativeBuffer;->mRefCount:I
@@ -427,27 +427,27 @@
     .line 87
     iget v3, p0, Landroid/filterfw/core/NativeBuffer;->mRefCount:I
 
-    if-nez v3, :cond_2b
+    if-nez v3, :cond_4
 
     move v0, v1
 
-    :goto_2a
-    goto :goto_10
+    :goto_1
+    goto :goto_0
 
-    :cond_2b
+    :cond_4
     move v0, v2
 
-    goto :goto_2a
+    goto :goto_1
 .end method
 
 .method public retain()Landroid/filterfw/core/NativeBuffer;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 72
     iget-object v0, p0, Landroid/filterfw/core/NativeBuffer;->mAttachedFrame:Landroid/filterfw/core/Frame;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_1
 
     .line 73
     iget-object v0, p0, Landroid/filterfw/core/NativeBuffer;->mAttachedFrame:Landroid/filterfw/core/Frame;
@@ -455,15 +455,15 @@
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->retain()Landroid/filterfw/core/Frame;
 
     .line 77
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return-object p0
 
     .line 74
-    :cond_a
+    :cond_1
     iget-boolean v0, p0, Landroid/filterfw/core/NativeBuffer;->mOwnsData:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 75
     iget v0, p0, Landroid/filterfw/core/NativeBuffer;->mRefCount:I
@@ -472,11 +472,11 @@
 
     iput v0, p0, Landroid/filterfw/core/NativeBuffer;->mRefCount:I
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60

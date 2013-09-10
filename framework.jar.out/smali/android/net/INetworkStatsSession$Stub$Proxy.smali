@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 169
@@ -50,7 +50,7 @@
 .end method
 
 .method public close()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -71,7 +71,7 @@
 
     .line 310
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.INetworkStatsSession"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -87,8 +87,8 @@
 
     .line 312
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_17
-    .catchall {:try_start_8 .. :try_end_17} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 315
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -100,7 +100,7 @@
     return-void
 
     .line 315
-    :catchall_1e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -112,7 +112,7 @@
 .end method
 
 .method public getHistoryForNetwork(Landroid/net/NetworkTemplate;I)Landroid/net/NetworkStatsHistory;
-    .registers 9
+    .locals 6
     .parameter "template"
     .parameter "fields"
     .annotation system Ldalvik/annotation/Throws;
@@ -135,13 +135,13 @@
 
     .line 214
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.net.INetworkStatsSession"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 215
-    if-eqz p1, :cond_39
+    if-eqz p1, :cond_0
 
     .line 216
     const/4 v3, 0x1
@@ -154,7 +154,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/net/NetworkTemplate;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 222
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 223
@@ -174,7 +174,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_46
+    if-eqz v3, :cond_1
 
     .line 226
     sget-object v3, Landroid/net/NetworkStatsHistory;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -184,12 +184,12 @@
     move-result-object v2
 
     check-cast v2, Landroid/net/NetworkStatsHistory;
-    :try_end_32
-    .catchall {:try_start_8 .. :try_end_32} :catchall_3e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 233
     .local v2, _result:Landroid/net/NetworkStatsHistory;
-    :goto_32
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 234
@@ -200,18 +200,18 @@
 
     .line 220
     .end local v2           #_result:Landroid/net/NetworkStatsHistory;
-    :cond_39
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_3a
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_3d
-    .catchall {:try_start_3a .. :try_end_3d} :catchall_3e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 233
-    :catchall_3e
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -222,15 +222,15 @@
     throw v3
 
     .line 229
-    :cond_46
+    :cond_1
     const/4 v2, 0x0
 
     .restart local v2       #_result:Landroid/net/NetworkStatsHistory;
-    goto :goto_32
+    goto :goto_1
 .end method
 
 .method public getHistoryForUid(Landroid/net/NetworkTemplate;IIII)Landroid/net/NetworkStatsHistory;
-    .registers 12
+    .locals 6
     .parameter "template"
     .parameter "uid"
     .parameter "set"
@@ -256,13 +256,13 @@
 
     .line 278
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.net.INetworkStatsSession"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 279
-    if-eqz p1, :cond_42
+    if-eqz p1, :cond_0
 
     .line 280
     const/4 v3, 0x1
@@ -275,7 +275,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/net/NetworkTemplate;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 286
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 287
@@ -304,7 +304,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4f
+    if-eqz v3, :cond_1
 
     .line 293
     sget-object v3, Landroid/net/NetworkStatsHistory;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -314,12 +314,12 @@
     move-result-object v2
 
     check-cast v2, Landroid/net/NetworkStatsHistory;
-    :try_end_3b
-    .catchall {:try_start_8 .. :try_end_3b} :catchall_47
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 300
     .local v2, _result:Landroid/net/NetworkStatsHistory;
-    :goto_3b
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 301
@@ -330,18 +330,18 @@
 
     .line 284
     .end local v2           #_result:Landroid/net/NetworkStatsHistory;
-    :cond_42
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_43
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_46
-    .catchall {:try_start_43 .. :try_end_46} :catchall_47
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 300
-    :catchall_47
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -352,15 +352,15 @@
     throw v3
 
     .line 296
-    :cond_4f
+    :cond_1
     const/4 v2, 0x0
 
     .restart local v2       #_result:Landroid/net/NetworkStatsHistory;
-    goto :goto_3b
+    goto :goto_1
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 173
@@ -370,7 +370,7 @@
 .end method
 
 .method public getSummaryForAllUid(Landroid/net/NetworkTemplate;JJZ)Landroid/net/NetworkStats;
-    .registers 13
+    .locals 6
     .parameter "template"
     .parameter "start"
     .parameter "end"
@@ -399,13 +399,13 @@
 
     .line 245
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v5, "android.net.INetworkStatsSession"
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 246
-    if-eqz p1, :cond_43
+    if-eqz p1, :cond_0
 
     .line 247
     const/4 v5, 0x1
@@ -418,16 +418,16 @@
     invoke-virtual {p1, v0, v5}, Landroid/net/NetworkTemplate;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 253
-    :goto_19
+    :goto_0
     invoke-virtual {v0, p2, p3}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 254
     invoke-virtual {v0, p4, p5}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 255
-    if-eqz p6, :cond_50
+    if-eqz p6, :cond_1
 
-    :goto_21
+    :goto_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 256
@@ -447,7 +447,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_52
+    if-eqz v3, :cond_2
 
     .line 259
     sget-object v3, Landroid/net/NetworkStats;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -457,12 +457,12 @@
     move-result-object v2
 
     check-cast v2, Landroid/net/NetworkStats;
-    :try_end_3c
-    .catchall {:try_start_a .. :try_end_3c} :catchall_48
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 266
     .local v2, _result:Landroid/net/NetworkStats;
-    :goto_3c
+    :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 267
@@ -473,18 +473,18 @@
 
     .line 251
     .end local v2           #_result:Landroid/net/NetworkStats;
-    :cond_43
+    :cond_0
     const/4 v5, 0x0
 
-    :try_start_44
+    :try_start_1
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_47
-    .catchall {:try_start_44 .. :try_end_47} :catchall_48
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 266
-    :catchall_48
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -494,22 +494,22 @@
 
     throw v3
 
-    :cond_50
+    :cond_1
     move v3, v4
 
     .line 255
-    goto :goto_21
+    goto :goto_1
 
     .line 262
-    :cond_52
+    :cond_2
     const/4 v2, 0x0
 
     .restart local v2       #_result:Landroid/net/NetworkStats;
-    goto :goto_3c
+    goto :goto_2
 .end method
 
 .method public getSummaryForNetwork(Landroid/net/NetworkTemplate;JJ)Landroid/net/NetworkStats;
-    .registers 12
+    .locals 6
     .parameter "template"
     .parameter "start"
     .parameter "end"
@@ -533,13 +533,13 @@
 
     .line 182
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.net.INetworkStatsSession"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 183
-    if-eqz p1, :cond_3c
+    if-eqz p1, :cond_0
 
     .line 184
     const/4 v3, 0x1
@@ -552,7 +552,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/net/NetworkTemplate;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 190
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2, p3}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 191
@@ -575,7 +575,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_49
+    if-eqz v3, :cond_1
 
     .line 195
     sget-object v3, Landroid/net/NetworkStats;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -585,12 +585,12 @@
     move-result-object v2
 
     check-cast v2, Landroid/net/NetworkStats;
-    :try_end_35
-    .catchall {:try_start_8 .. :try_end_35} :catchall_41
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 202
     .local v2, _result:Landroid/net/NetworkStats;
-    :goto_35
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 203
@@ -601,18 +601,18 @@
 
     .line 188
     .end local v2           #_result:Landroid/net/NetworkStats;
-    :cond_3c
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_3d
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_40
-    .catchall {:try_start_3d .. :try_end_40} :catchall_41
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 202
-    :catchall_41
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -623,9 +623,9 @@
     throw v3
 
     .line 198
-    :cond_49
+    :cond_1
     const/4 v2, 0x0
 
     .restart local v2       #_result:Landroid/net/NetworkStats;
-    goto :goto_35
+    goto :goto_1
 .end method

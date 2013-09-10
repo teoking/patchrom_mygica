@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/SyncManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "intent"
 
@@ -43,6 +43,7 @@
     .line 293
     iget-object v1, p0, Landroid/content/SyncManager$4;->this$0:Landroid/content/SyncManager;
 
+    #getter for: Landroid/content/SyncManager;->mDataConnectionIsConnected:Z
     invoke-static {v1}, Landroid/content/SyncManager;->access$400(Landroid/content/SyncManager;)Z
 
     move-result v0
@@ -53,23 +54,26 @@
 
     iget-object v2, p0, Landroid/content/SyncManager$4;->this$0:Landroid/content/SyncManager;
 
+    #calls: Landroid/content/SyncManager;->readDataConnectionState()Z
     invoke-static {v2}, Landroid/content/SyncManager;->access$500(Landroid/content/SyncManager;)Z
 
     move-result v2
 
+    #setter for: Landroid/content/SyncManager;->mDataConnectionIsConnected:Z
     invoke-static {v1, v2}, Landroid/content/SyncManager;->access$402(Landroid/content/SyncManager;Z)Z
 
     .line 298
     iget-object v1, p0, Landroid/content/SyncManager$4;->this$0:Landroid/content/SyncManager;
 
+    #getter for: Landroid/content/SyncManager;->mDataConnectionIsConnected:Z
     invoke-static {v1}, Landroid/content/SyncManager;->access$400(Landroid/content/SyncManager;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3d
+    if-eqz v1, :cond_2
 
     .line 299
-    if-nez v0, :cond_38
+    if-nez v0, :cond_1
 
     .line 300
     const-string v1, "SyncManager"
@@ -80,7 +84,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2b
+    if-eqz v1, :cond_0
 
     .line 301
     const-string v1, "SyncManager"
@@ -90,9 +94,10 @@
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 303
-    :cond_2b
+    :cond_0
     iget-object v1, p0, Landroid/content/SyncManager$4;->this$0:Landroid/content/SyncManager;
 
+    #getter for: Landroid/content/SyncManager;->mSyncStorageEngine:Landroid/content/SyncStorageEngine;
     invoke-static {v1}, Landroid/content/SyncManager;->access$600(Landroid/content/SyncManager;)Landroid/content/SyncStorageEngine;
 
     move-result-object v1
@@ -104,12 +109,13 @@
     invoke-virtual {v1, v2}, Landroid/content/SyncStorageEngine;->clearAllBackoffs(Landroid/content/SyncQueue;)V
 
     .line 305
-    :cond_38
+    :cond_1
     iget-object v1, p0, Landroid/content/SyncManager$4;->this$0:Landroid/content/SyncManager;
 
+    #calls: Landroid/content/SyncManager;->sendCheckAlarmsMessage()V
     invoke-static {v1}, Landroid/content/SyncManager;->access$100(Landroid/content/SyncManager;)V
 
     .line 307
-    :cond_3d
+    :cond_2
     return-void
 .end method

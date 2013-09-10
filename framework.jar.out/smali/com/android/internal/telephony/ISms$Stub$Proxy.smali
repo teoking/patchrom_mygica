@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 223
@@ -50,7 +50,7 @@
 .end method
 
 .method public copyMessageToIccEf(I[B[B)Z
-    .registers 10
+    .locals 6
     .parameter "status"
     .parameter "pdu"
     .parameter "smsc"
@@ -76,7 +76,7 @@
 
     .line 297
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -104,18 +104,18 @@
 
     .line 303
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_24
-    .catchall {:try_start_9 .. :try_end_24} :catchall_2f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_28
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 306
     .local v2, _result:Z
-    :cond_28
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 307
@@ -126,7 +126,7 @@
 
     .line 306
     .end local v2           #_result:Z
-    :catchall_2f
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -138,7 +138,7 @@
 .end method
 
 .method public disableCellBroadcast(I)Z
-    .registers 8
+    .locals 6
     .parameter "messageIdentifier"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -162,7 +162,7 @@
 
     .line 507
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -184,18 +184,18 @@
 
     .line 511
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1f
-    .catchall {:try_start_9 .. :try_end_1f} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_23
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 514
     .local v2, _result:Z
-    :cond_23
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 515
@@ -206,7 +206,7 @@
 
     .line 514
     .end local v2           #_result:Z
-    :catchall_2a
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -218,7 +218,7 @@
 .end method
 
 .method public disableCellBroadcastRange(II)Z
-    .registers 9
+    .locals 6
     .parameter "startMessageId"
     .parameter "endMessageId"
     .annotation system Ldalvik/annotation/Throws;
@@ -243,7 +243,7 @@
 
     .line 568
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -268,18 +268,18 @@
 
     .line 573
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_22
-    .catchall {:try_start_9 .. :try_end_22} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 576
     .local v2, _result:Z
-    :cond_26
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 577
@@ -290,7 +290,7 @@
 
     .line 576
     .end local v2           #_result:Z
-    :catchall_2d
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -302,7 +302,7 @@
 .end method
 
 .method public enableCellBroadcast(I)Z
-    .registers 8
+    .locals 6
     .parameter "messageIdentifier"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -326,7 +326,7 @@
 
     .line 478
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -348,18 +348,18 @@
 
     .line 482
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1e
-    .catchall {:try_start_9 .. :try_end_1e} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_22
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 485
     .local v2, _result:Z
-    :cond_22
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 486
@@ -370,7 +370,7 @@
 
     .line 485
     .end local v2           #_result:Z
-    :catchall_29
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -382,7 +382,7 @@
 .end method
 
 .method public enableCellBroadcastRange(II)Z
-    .registers 9
+    .locals 6
     .parameter "startMessageId"
     .parameter "endMessageId"
     .annotation system Ldalvik/annotation/Throws;
@@ -407,7 +407,7 @@
 
     .line 537
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -432,18 +432,18 @@
 
     .line 542
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_22
-    .catchall {:try_start_9 .. :try_end_22} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 545
     .local v2, _result:Z
-    :cond_26
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 546
@@ -454,7 +454,7 @@
 
     .line 545
     .end local v2           #_result:Z
-    :catchall_2d
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -466,7 +466,7 @@
 .end method
 
 .method public getAllMessagesFromIccEf()Ljava/util/List;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -497,7 +497,7 @@
 
     .line 240
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -518,8 +518,8 @@
     sget-object v3, Lcom/android/internal/telephony/SmsRawData;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {v1, v3}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
-    :try_end_1c
-    .catchall {:try_start_8 .. :try_end_1c} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -535,7 +535,7 @@
 
     .line 246
     .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Lcom/android/internal/telephony/SmsRawData;>;"
-    :catchall_24
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -547,7 +547,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 227
@@ -557,7 +557,7 @@
 .end method
 
 .method public sendData(Ljava/lang/String;Ljava/lang/String;I[BLandroid/app/PendingIntent;Landroid/app/PendingIntent;)V
-    .registers 12
+    .locals 5
     .parameter "destAddr"
     .parameter "scAddr"
     .parameter "destPort"
@@ -584,7 +584,7 @@
 
     .line 339
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.telephony.ISms"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -602,7 +602,7 @@
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeByteArray([B)V
 
     .line 344
-    if-eqz p5, :cond_3e
+    if-eqz p5, :cond_0
 
     .line 345
     const/4 v2, 0x1
@@ -615,8 +615,8 @@
     invoke-virtual {p5, v0, v2}, Landroid/app/PendingIntent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 351
-    :goto_23
-    if-eqz p6, :cond_4b
+    :goto_0
+    if-eqz p6, :cond_1
 
     .line 352
     const/4 v2, 0x1
@@ -629,7 +629,7 @@
     invoke-virtual {p6, v0, v2}, Landroid/app/PendingIntent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 358
-    :goto_2d
+    :goto_1
     iget-object v2, p0, Lcom/android/internal/telephony/ISms$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x4
@@ -640,8 +640,8 @@
 
     .line 359
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_37
-    .catchall {:try_start_8 .. :try_end_37} :catchall_43
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 362
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -653,18 +653,18 @@
     return-void
 
     .line 349
-    :cond_3e
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_3f
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_42
-    .catchall {:try_start_3f .. :try_end_42} :catchall_43
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_23
+    goto :goto_0
 
     .line 362
-    :catchall_43
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -675,19 +675,19 @@
     throw v2
 
     .line 356
-    :cond_4b
+    :cond_1
     const/4 v2, 0x0
 
-    :try_start_4c
+    :try_start_2
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_4f
-    .catchall {:try_start_4c .. :try_end_4f} :catchall_43
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_2d
+    goto :goto_1
 .end method
 
 .method public sendMultipartText(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
-    .registers 11
+    .locals 5
     .parameter "destinationAddress"
     .parameter "scAddress"
     .parameter
@@ -736,7 +736,7 @@
 
     .line 447
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.telephony.ISms"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -767,8 +767,8 @@
 
     .line 454
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_26
-    .catchall {:try_start_8 .. :try_end_26} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 457
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -780,7 +780,7 @@
     return-void
 
     .line 457
-    :catchall_2d
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -792,7 +792,7 @@
 .end method
 
 .method public sendText(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V
-    .registers 11
+    .locals 5
     .parameter "destAddr"
     .parameter "scAddr"
     .parameter "text"
@@ -818,7 +818,7 @@
 
     .line 394
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.telephony.ISms"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -833,7 +833,7 @@
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 398
-    if-eqz p4, :cond_3b
+    if-eqz p4, :cond_0
 
     .line 399
     const/4 v2, 0x1
@@ -846,8 +846,8 @@
     invoke-virtual {p4, v0, v2}, Landroid/app/PendingIntent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 405
-    :goto_20
-    if-eqz p5, :cond_48
+    :goto_0
+    if-eqz p5, :cond_1
 
     .line 406
     const/4 v2, 0x1
@@ -860,7 +860,7 @@
     invoke-virtual {p5, v0, v2}, Landroid/app/PendingIntent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 412
-    :goto_2a
+    :goto_1
     iget-object v2, p0, Lcom/android/internal/telephony/ISms$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x5
@@ -871,8 +871,8 @@
 
     .line 413
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_34
-    .catchall {:try_start_8 .. :try_end_34} :catchall_40
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 416
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -884,18 +884,18 @@
     return-void
 
     .line 403
-    :cond_3b
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_3c
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_3f
-    .catchall {:try_start_3c .. :try_end_3f} :catchall_40
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_20
+    goto :goto_0
 
     .line 416
-    :catchall_40
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -906,19 +906,19 @@
     throw v2
 
     .line 410
-    :cond_48
+    :cond_1
     const/4 v2, 0x0
 
-    :try_start_49
+    :try_start_2
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_4c
-    .catchall {:try_start_49 .. :try_end_4c} :catchall_40
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_2a
+    goto :goto_1
 .end method
 
 .method public updateMessageOnIccEf(II[B)Z
-    .registers 10
+    .locals 6
     .parameter "messageIndex"
     .parameter "newStatus"
     .parameter "pdu"
@@ -944,7 +944,7 @@
 
     .line 268
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "com.android.internal.telephony.ISms"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -972,18 +972,18 @@
 
     .line 274
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_24
-    .catchall {:try_start_9 .. :try_end_24} :catchall_2f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_28
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 277
     .local v2, _result:Z
-    :cond_28
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 278
@@ -994,7 +994,7 @@
 
     .line 277
     .end local v2           #_result:Z
-    :catchall_2f
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -25,7 +25,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "attrs"
 
@@ -82,7 +82,7 @@
 .end method
 
 .method private fade(IFF)V
-    .registers 7
+    .locals 3
     .parameter "visibility"
     .parameter "startAlpha"
     .parameter "endAlpha"
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public hasFocus()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 109
@@ -122,7 +122,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/ZoomControls;->mZoomOut:Landroid/widget/ZoomButton;
 
@@ -130,22 +130,22 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_1
 
-    :cond_10
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_11
+    :goto_0
     return v0
 
-    :cond_12
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public hide()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 89
@@ -162,7 +162,7 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -183,7 +183,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .registers 3
+    .locals 1
     .parameter "info"
 
     .prologue
@@ -204,7 +204,7 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -215,7 +215,7 @@
 .end method
 
 .method public setIsZoomInEnabled(Z)V
-    .registers 3
+    .locals 1
     .parameter "isEnabled"
 
     .prologue
@@ -229,7 +229,7 @@
 .end method
 
 .method public setIsZoomOutEnabled(Z)V
-    .registers 3
+    .locals 1
     .parameter "isEnabled"
 
     .prologue
@@ -243,7 +243,7 @@
 .end method
 
 .method public setOnZoomInClickListener(Landroid/view/View$OnClickListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
@@ -257,7 +257,7 @@
 .end method
 
 .method public setOnZoomOutClickListener(Landroid/view/View$OnClickListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
@@ -271,7 +271,7 @@
 .end method
 
 .method public setZoomSpeed(J)V
-    .registers 4
+    .locals 1
     .parameter "speed"
 
     .prologue
@@ -290,7 +290,7 @@
 .end method
 
 .method public show()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 85

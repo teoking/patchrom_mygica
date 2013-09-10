@@ -63,7 +63,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 65
@@ -77,7 +77,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -111,7 +111,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/net/sip/SipProfile$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -122,7 +122,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 5
+    .locals 3
     .parameter "in"
 
     .prologue
@@ -201,11 +201,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_5d
+    if-nez v0, :cond_0
 
     move v0, v1
 
-    :goto_40
+    :goto_0
     iput-boolean v0, p0, Landroid/net/sip/SipProfile;->mSendKeepAlive:Z
 
     .line 319
@@ -213,9 +213,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_5f
+    if-nez v0, :cond_1
 
-    :goto_48
+    :goto_1
     iput-boolean v1, p0, Landroid/net/sip/SipProfile;->mAutoRegistration:Z
 
     .line 320
@@ -242,21 +242,21 @@
     .line 323
     return-void
 
-    :cond_5d
+    :cond_0
     move v0, v2
 
     .line 318
-    goto :goto_40
+    goto :goto_0
 
-    :cond_5f
+    :cond_1
     move v1, v2
 
     .line 319
-    goto :goto_48
+    goto :goto_1
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/net/sip/SipProfile$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -268,7 +268,7 @@
 .end method
 
 .method static synthetic access$1002(Landroid/net/sip/SipProfile;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -280,7 +280,7 @@
 .end method
 
 .method static synthetic access$1102(Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -292,7 +292,7 @@
 .end method
 
 .method static synthetic access$1202(Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -304,7 +304,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/net/sip/SipProfile;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -322,7 +322,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/net/sip/SipProfile;Ljavax/sip/address/Address;)Ljavax/sip/address/Address;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -334,7 +334,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/net/sip/SipProfile;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -345,7 +345,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/net/sip/SipProfile;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -357,7 +357,7 @@
 .end method
 
 .method static synthetic access$502(Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -369,7 +369,7 @@
 .end method
 
 .method static synthetic access$602(Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -381,7 +381,7 @@
 .end method
 
 .method static synthetic access$702(Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -393,7 +393,7 @@
 .end method
 
 .method static synthetic access$800(Landroid/net/sip/SipProfile;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -404,7 +404,7 @@
 .end method
 
 .method static synthetic access$802(Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -416,7 +416,7 @@
 .end method
 
 .method static synthetic access$902(Landroid/net/sip/SipProfile;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -428,7 +428,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/ObjectStreamException;
@@ -439,21 +439,21 @@
     .line 499
     iget v0, p0, Landroid/net/sip/SipProfile;->mPort:I
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/16 v0, 0x13c4
 
     iput v0, p0, Landroid/net/sip/SipProfile;->mPort:I
 
     .line 500
-    :cond_8
+    :cond_0
     return-object p0
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 342
@@ -463,7 +463,7 @@
 .end method
 
 .method public getAuthUserName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 406
@@ -473,7 +473,7 @@
 .end method
 
 .method public getAutoRegistration()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 478
@@ -483,7 +483,7 @@
 .end method
 
 .method public getCallingUid()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 494
@@ -493,7 +493,7 @@
 .end method
 
 .method public getDisplayName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 386
@@ -507,7 +507,7 @@
 .end method
 
 .method public getPassword()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 415
@@ -517,7 +517,7 @@
 .end method
 
 .method public getPort()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 433
@@ -527,7 +527,7 @@
 .end method
 
 .method public getProfileName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 460
@@ -537,7 +537,7 @@
 .end method
 
 .method public getProtocol()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 442
@@ -547,7 +547,7 @@
 .end method
 
 .method public getProxyAddress()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 451
@@ -557,7 +557,7 @@
 .end method
 
 .method public getSendKeepAlive()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 469
@@ -567,7 +567,7 @@
 .end method
 
 .method public getSipAddress()Ljavax/sip/address/Address;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 377
@@ -577,7 +577,7 @@
 .end method
 
 .method public getSipDomain()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 424
@@ -587,7 +587,7 @@
 .end method
 
 .method public getUri()Ljavax/sip/address/SipURI;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 352
@@ -603,7 +603,7 @@
 .end method
 
 .method public getUriString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 364
@@ -613,7 +613,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2d
+    if-nez v0, :cond_0
 
     .line 365
     new-instance v0, Ljava/lang/StringBuilder;
@@ -651,10 +651,10 @@
     move-result-object v0
 
     .line 367
-    :goto_2c
+    :goto_0
     return-object v0
 
-    :cond_2d
+    :cond_0
     invoke-virtual {p0}, Landroid/net/sip/SipProfile;->getUri()Ljavax/sip/address/SipURI;
 
     move-result-object v0
@@ -663,11 +663,11 @@
 
     move-result-object v0
 
-    goto :goto_2c
+    goto :goto_0
 .end method
 
 .method public getUserName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 395
@@ -683,7 +683,7 @@
 .end method
 
 .method public setCallingUid(I)V
-    .registers 2
+    .locals 0
     .parameter "uid"
 
     .prologue
@@ -695,7 +695,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "out"
     .parameter "flags"
 
@@ -737,19 +737,19 @@
     .line 333
     iget-boolean v0, p0, Landroid/net/sip/SipProfile;->mSendKeepAlive:Z
 
-    if-eqz v0, :cond_3f
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_25
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 334
     iget-boolean v0, p0, Landroid/net/sip/SipProfile;->mAutoRegistration:Z
 
-    if-eqz v0, :cond_41
+    if-eqz v0, :cond_1
 
-    :goto_2c
+    :goto_1
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 335
@@ -770,15 +770,15 @@
     .line 338
     return-void
 
-    :cond_3f
+    :cond_0
     move v0, v2
 
     .line 333
-    goto :goto_25
+    goto :goto_0
 
-    :cond_41
+    :cond_1
     move v1, v2
 
     .line 334
-    goto :goto_2c
+    goto :goto_1
 .end method

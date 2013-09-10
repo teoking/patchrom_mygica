@@ -70,7 +70,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x2
@@ -132,7 +132,7 @@
 .end method
 
 .method private checkConnections()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 273
@@ -140,7 +140,7 @@
 .end method
 
 .method private connectPorts()V
-    .registers 15
+    .locals 14
 
     .prologue
     .line 313
@@ -158,12 +158,12 @@
 
     move-result-object v6
 
-    :goto_b
+    :goto_0
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_f2
+    if-eqz v11, :cond_4
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -195,7 +195,7 @@
 
     const/4 v12, 0x1
 
-    if-ne v11, v12, :cond_35
+    if-ne v11, v12, :cond_0
 
     .line 318
     const/4 v11, 0x0
@@ -208,13 +208,13 @@
 
     invoke-virtual {v10, v11}, Landroid/filterfw/core/OutputPort;->connectTo(Landroid/filterfw/core/InputPort;)V
 
-    goto :goto_b
+    goto :goto_0
 
     .line 319
-    :cond_35
+    :cond_0
     iget v11, p0, Landroid/filterfw/core/FilterGraph;->mAutoBranchMode:I
 
-    if-nez v11, :cond_5e
+    if-nez v11, :cond_1
 
     .line 320
     new-instance v11, Ljava/lang/RuntimeException;
@@ -254,10 +254,10 @@
     throw v11
 
     .line 323
-    :cond_5e
+    :cond_1
     iget-boolean v11, p0, Landroid/filterfw/core/FilterGraph;->mLogVerbose:Z
 
-    if-eqz v11, :cond_80
+    if-eqz v11, :cond_2
 
     iget-object v11, p0, Landroid/filterfw/core/FilterGraph;->TAG:Ljava/lang/String;
 
@@ -288,7 +288,7 @@
     invoke-static {v11, v12}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 324
-    :cond_80
+    :cond_2
     const/4 v0, 0x0
 
     .line 325
@@ -297,7 +297,7 @@
 
     const/4 v12, 0x1
 
-    if-ne v11, v12, :cond_ea
+    if-ne v11, v12, :cond_3
 
     .line 326
     new-instance v0, Landroid/filterpacks/base/FrameBranch;
@@ -387,12 +387,12 @@
     move-result-object v7
 
     .local v7, i$:Ljava/util/Iterator;
-    :goto_d4
+    :goto_1
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v11
 
-    if-eqz v11, :cond_f8
+    if-eqz v11, :cond_5
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -410,7 +410,7 @@
 
     invoke-virtual {v3, v11}, Landroid/filterfw/core/OutputPort;->connectTo(Landroid/filterfw/core/InputPort;)V
 
-    goto :goto_d4
+    goto :goto_1
 
     .line 328
     .end local v2           #branchId:I
@@ -419,7 +419,7 @@
     .end local v7           #i$:Ljava/util/Iterator;
     .end local v8           #inputPortIter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/filterfw/core/InputPort;>;"
     .restart local v1       #branchId:I
-    :cond_ea
+    :cond_3
     new-instance v11, Ljava/lang/RuntimeException;
 
     const-string v12, "TODO: Unsynced branches not implemented yet!"
@@ -433,7 +433,7 @@
     .end local v5           #connection:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Landroid/filterfw/core/OutputPort;Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;>;"
     .end local v9           #inputPorts:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;"
     .end local v10           #outputPort:Landroid/filterfw/core/OutputPort;
-    :cond_f2
+    :cond_4
     iget-object v11, p0, Landroid/filterfw/core/FilterGraph;->mPreconnections:Ljava/util/HashMap;
 
     invoke-virtual {v11}, Ljava/util/HashMap;->clear()V
@@ -450,16 +450,16 @@
     .restart local v8       #inputPortIter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/filterfw/core/InputPort;>;"
     .restart local v9       #inputPorts:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;"
     .restart local v10       #outputPort:Landroid/filterfw/core/OutputPort;
-    :cond_f8
+    :cond_5
     move v1, v2
 
     .end local v2           #branchId:I
     .restart local v1       #branchId:I
-    goto/16 :goto_b
+    goto/16 :goto_0
 .end method
 
 .method private discardUnconnectedOutputs()V
-    .registers 11
+    .locals 10
 
     .prologue
     .line 277
@@ -475,12 +475,12 @@
 
     move-result-object v2
 
-    :cond_b
+    :cond_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_86
+    if-eqz v7, :cond_3
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -503,13 +503,13 @@
     move-result-object v3
 
     .local v3, i$:Ljava/util/Iterator;
-    :cond_20
-    :goto_20
+    :cond_1
+    :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_b
+    if-eqz v7, :cond_0
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -523,12 +523,12 @@
 
     move-result v7
 
-    if-nez v7, :cond_20
+    if-nez v7, :cond_1
 
     .line 282
     iget-boolean v7, p0, Landroid/filterfw/core/FilterGraph;->mLogVerbose:Z
 
-    if-eqz v7, :cond_54
+    if-eqz v7, :cond_2
 
     iget-object v7, p0, Landroid/filterfw/core/FilterGraph;->TAG:Ljava/lang/String;
 
@@ -559,7 +559,7 @@
     invoke-static {v7, v8}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 283
-    :cond_54
+    :cond_2
     new-instance v5, Landroid/filterpacks/base/NullFilter;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -609,7 +609,7 @@
     .line 287
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_20
+    goto :goto_0
 
     .line 292
     .end local v1           #filter:Landroid/filterfw/core/Filter;
@@ -617,18 +617,18 @@
     .end local v4           #id:I
     .end local v5           #nullFilter:Landroid/filterpacks/base/NullFilter;
     .end local v6           #port:Landroid/filterfw/core/OutputPort;
-    :cond_86
+    :cond_3
     invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :goto_8a
+    :goto_1
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_9a
+    if-eqz v7, :cond_4
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -640,16 +640,16 @@
     .restart local v1       #filter:Landroid/filterfw/core/Filter;
     invoke-virtual {p0, v1}, Landroid/filterfw/core/FilterGraph;->addFilter(Landroid/filterfw/core/Filter;)Z
 
-    goto :goto_8a
+    goto :goto_1
 
     .line 295
     .end local v1           #filter:Landroid/filterfw/core/Filter;
-    :cond_9a
+    :cond_4
     return-void
 .end method
 
 .method private getSourceFilters()Ljava/util/HashSet;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -677,13 +677,13 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :cond_d
-    :goto_d
+    :cond_0
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3f
+    if-eqz v3, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -697,12 +697,12 @@
 
     move-result v3
 
-    if-nez v3, :cond_d
+    if-nez v3, :cond_0
 
     .line 347
     iget-boolean v3, p0, Landroid/filterfw/core/FilterGraph;->mLogVerbose:Z
 
-    if-eqz v3, :cond_3b
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Landroid/filterfw/core/FilterGraph;->TAG:Ljava/lang/String;
 
@@ -727,19 +727,19 @@
     invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 348
-    :cond_3b
+    :cond_1
     invoke-virtual {v2, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    goto :goto_d
+    goto :goto_0
 
     .line 351
     .end local v0           #filter:Landroid/filterfw/core/Filter;
-    :cond_3f
+    :cond_2
     return-object v2
 .end method
 
 .method private preconnect(Landroid/filterfw/core/OutputPort;Landroid/filterfw/core/InputPort;)V
-    .registers 5
+    .locals 2
     .parameter "outPort"
     .parameter "inPort"
 
@@ -755,7 +755,7 @@
 
     .line 305
     .local v0, targets:Ljava/util/LinkedList;,"Ljava/util/LinkedList<Landroid/filterfw/core/InputPort;>;"
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 306
     new-instance v0, Ljava/util/LinkedList;
@@ -770,7 +770,7 @@
     invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 309
-    :cond_14
+    :cond_0
     invoke-virtual {v0, p2}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
     .line 310
@@ -778,7 +778,7 @@
 .end method
 
 .method private readyForProcessing(Landroid/filterfw/core/Filter;Ljava/util/Set;)Z
-    .registers 8
+    .locals 5
     .parameter "filter"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -801,14 +801,14 @@
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_0
 
     .line 188
-    :goto_7
+    :goto_0
     return v3
 
     .line 182
-    :cond_8
+    :cond_0
     invoke-virtual {p1}, Landroid/filterfw/core/Filter;->getInputPorts()Ljava/util/Collection;
 
     move-result-object v4
@@ -818,12 +818,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :cond_10
+    :cond_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_29
+    if-eqz v4, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -839,27 +839,27 @@
 
     .line 184
     .local v0, dependency:Landroid/filterfw/core/Filter;
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_1
 
     invoke-interface {p2, v0}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-nez v4, :cond_10
+    if-nez v4, :cond_1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 188
     .end local v0           #dependency:Landroid/filterfw/core/Filter;
     .end local v2           #port:Landroid/filterfw/core/InputPort;
-    :cond_29
+    :cond_2
     const/4 v3, 0x1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method private removeFilter(Landroid/filterfw/core/Filter;)V
-    .registers 4
+    .locals 2
     .parameter "filter"
 
     .prologue
@@ -882,7 +882,7 @@
 .end method
 
 .method private runTypeCheck()V
-    .registers 10
+    .locals 9
 
     .prologue
     .line 192
@@ -905,12 +905,12 @@
     invoke-virtual {v1, v6}, Ljava/util/Stack;->addAll(Ljava/util/Collection;)Z
 
     .line 196
-    :cond_11
+    :cond_0
     invoke-virtual {v1}, Ljava/util/Stack;->empty()Z
 
     move-result v6
 
-    if-nez v6, :cond_6c
+    if-nez v6, :cond_3
 
     .line 198
     invoke-virtual {v1}, Ljava/util/Stack;->pop()Ljava/lang/Object;
@@ -929,7 +929,7 @@
     .line 205
     iget-boolean v6, p0, Landroid/filterfw/core/FilterGraph;->mLogVerbose:Z
 
-    if-eqz v6, :cond_45
+    if-eqz v6, :cond_1
 
     iget-object v6, p0, Landroid/filterfw/core/FilterGraph;->TAG:Ljava/lang/String;
 
@@ -960,7 +960,7 @@
     invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 206
-    :cond_45
+    :cond_1
     invoke-direct {p0, v0}, Landroid/filterfw/core/FilterGraph;->runTypeCheckOn(Landroid/filterfw/core/Filter;)V
 
     .line 209
@@ -973,13 +973,13 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :cond_50
-    :goto_50
+    :cond_2
+    :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_11
+    if-eqz v6, :cond_0
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -995,25 +995,25 @@
 
     .line 211
     .local v5, target:Landroid/filterfw/core/Filter;
-    if-eqz v5, :cond_50
+    if-eqz v5, :cond_2
 
     invoke-direct {p0, v5, v4}, Landroid/filterfw/core/FilterGraph;->readyForProcessing(Landroid/filterfw/core/Filter;Ljava/util/Set;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_50
+    if-eqz v6, :cond_2
 
     .line 212
     invoke-virtual {v1, v5}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_50
+    goto :goto_0
 
     .line 218
     .end local v0           #filter:Landroid/filterfw/core/Filter;
     .end local v2           #i$:Ljava/util/Iterator;
     .end local v3           #port:Landroid/filterfw/core/OutputPort;
     .end local v5           #target:Landroid/filterfw/core/Filter;
-    :cond_6c
+    :cond_3
     invoke-interface {v4}, Ljava/util/Set;->size()I
 
     move-result v6
@@ -1026,7 +1026,7 @@
 
     move-result v7
 
-    if-eq v6, v7, :cond_82
+    if-eq v6, v7, :cond_4
 
     .line 219
     new-instance v6, Ljava/lang/RuntimeException;
@@ -1038,12 +1038,12 @@
     throw v6
 
     .line 221
-    :cond_82
+    :cond_4
     return-void
 .end method
 
 .method private runTypeCheckOn(Landroid/filterfw/core/Filter;)V
-    .registers 11
+    .locals 9
     .parameter "filter"
 
     .prologue
@@ -1059,12 +1059,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :cond_9
+    :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_bf
+    if-eqz v5, :cond_3
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1076,7 +1076,7 @@
     .local v2, inputPort:Landroid/filterfw/core/InputPort;
     iget-boolean v5, p0, Landroid/filterfw/core/FilterGraph;->mLogVerbose:Z
 
-    if-eqz v5, :cond_31
+    if-eqz v5, :cond_1
 
     iget-object v5, p0, Landroid/filterfw/core/FilterGraph;->TAG:Ljava/lang/String;
 
@@ -1101,7 +1101,7 @@
     invoke-static {v5, v6}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 242
-    :cond_31
+    :cond_1
     invoke-virtual {v2}, Landroid/filterfw/core/InputPort;->getSourceFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v3
@@ -1114,14 +1114,14 @@
 
     .line 244
     .local v4, targetFormat:Landroid/filterfw/core/FrameFormat;
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_0
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_0
 
     .line 245
     iget-boolean v5, p0, Landroid/filterfw/core/FilterGraph;->mLogVerbose:Z
 
-    if-eqz v5, :cond_69
+    if-eqz v5, :cond_2
 
     iget-object v5, p0, Landroid/filterfw/core/FilterGraph;->TAG:Ljava/lang/String;
 
@@ -1162,18 +1162,18 @@
     invoke-static {v5, v6}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 247
-    :cond_69
+    :cond_2
     const/4 v0, 0x1
 
     .line 248
     .local v0, compatible:Z
     iget v5, p0, Landroid/filterfw/core/FilterGraph;->mTypeCheckMode:I
 
-    packed-switch v5, :pswitch_data_c0
+    packed-switch v5, :pswitch_data_0
 
     .line 262
-    :goto_6f
-    if-nez v0, :cond_9
+    :goto_0
+    if-nez v0, :cond_0
 
     .line 263
     new-instance v5, Ljava/lang/RuntimeException;
@@ -1233,13 +1233,13 @@
     throw v5
 
     .line 250
-    :pswitch_aa
+    :pswitch_0
     invoke-virtual {v2, v8}, Landroid/filterfw/core/InputPort;->setChecksType(Z)V
 
-    goto :goto_6f
+    goto :goto_0
 
     .line 253
-    :pswitch_ae
+    :pswitch_1
     invoke-virtual {v3, v4}, Landroid/filterfw/core/FrameFormat;->mayBeCompatibleWith(Landroid/filterfw/core/FrameFormat;)Z
 
     move-result v0
@@ -1249,10 +1249,10 @@
 
     invoke-virtual {v2, v5}, Landroid/filterfw/core/InputPort;->setChecksType(Z)V
 
-    goto :goto_6f
+    goto :goto_0
 
     .line 257
-    :pswitch_b7
+    :pswitch_2
     invoke-virtual {v3, v4}, Landroid/filterfw/core/FrameFormat;->isCompatibleWith(Landroid/filterfw/core/FrameFormat;)Z
 
     move-result v0
@@ -1260,27 +1260,27 @@
     .line 258
     invoke-virtual {v2, v8}, Landroid/filterfw/core/InputPort;->setChecksType(Z)V
 
-    goto :goto_6f
+    goto :goto_0
 
     .line 269
     .end local v0           #compatible:Z
     .end local v2           #inputPort:Landroid/filterfw/core/InputPort;
     .end local v3           #sourceFormat:Landroid/filterfw/core/FrameFormat;
     .end local v4           #targetFormat:Landroid/filterfw/core/FrameFormat;
-    :cond_bf
+    :cond_3
     return-void
 
     .line 248
-    :pswitch_data_c0
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_aa
-        :pswitch_ae
-        :pswitch_b7
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method private updateOutputs(Landroid/filterfw/core/Filter;)V
-    .registers 10
+    .locals 8
     .parameter "filter"
 
     .prologue
@@ -1294,13 +1294,13 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_4b
+    if-eqz v5, :cond_2
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1316,7 +1316,7 @@
 
     .line 226
     .local v2, inputPort:Landroid/filterfw/core/InputPort;
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_0
 
     .line 227
     invoke-virtual {v2}, Landroid/filterfw/core/InputPort;->getSourceFormat()Landroid/filterfw/core/FrameFormat;
@@ -1335,7 +1335,7 @@
 
     .line 230
     .local v3, outputFormat:Landroid/filterfw/core/FrameFormat;
-    if-nez v3, :cond_47
+    if-nez v3, :cond_1
 
     .line 231
     new-instance v5, Ljava/lang/RuntimeException;
@@ -1369,24 +1369,24 @@
     throw v5
 
     .line 234
-    :cond_47
+    :cond_1
     invoke-virtual {v4, v3}, Landroid/filterfw/core/OutputPort;->setPortFormat(Landroid/filterfw/core/FrameFormat;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 237
     .end local v1           #inputFormat:Landroid/filterfw/core/FrameFormat;
     .end local v2           #inputPort:Landroid/filterfw/core/InputPort;
     .end local v3           #outputFormat:Landroid/filterfw/core/FrameFormat;
     .end local v4           #outputPort:Landroid/filterfw/core/OutputPort;
-    :cond_4b
+    :cond_2
     return-void
 .end method
 
 
 # virtual methods
 .method public addFilter(Landroid/filterfw/core/Filter;)Z
-    .registers 4
+    .locals 2
     .parameter "filter"
 
     .prologue
@@ -1395,7 +1395,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 67
     iget-object v0, p0, Landroid/filterfw/core/FilterGraph;->mFilters:Ljava/util/HashSet;
@@ -1415,23 +1415,23 @@
     const/4 v0, 0x1
 
     .line 71
-    :goto_15
+    :goto_0
     return v0
 
-    :cond_16
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public beginProcessing()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 126
     iget-boolean v2, p0, Landroid/filterfw/core/FilterGraph;->mLogVerbose:Z
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Landroid/filterfw/core/FilterGraph;->TAG:Ljava/lang/String;
 
@@ -1440,7 +1440,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 127
-    :cond_b
+    :cond_0
     iget-object v2, p0, Landroid/filterfw/core/FilterGraph;->mFilters:Ljava/util/HashSet;
 
     invoke-virtual {v2}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
@@ -1448,12 +1448,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_11
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1465,11 +1465,11 @@
     .local v0, filter:Landroid/filterfw/core/Filter;
     invoke-virtual {v0}, Landroid/filterfw/core/Filter;->openOutputs()V
 
-    goto :goto_11
+    goto :goto_0
 
     .line 130
     .end local v0           #filter:Landroid/filterfw/core/Filter;
-    :cond_21
+    :cond_1
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Landroid/filterfw/core/FilterGraph;->mIsReady:Z
@@ -1479,14 +1479,14 @@
 .end method
 
 .method public closeFilters(Landroid/filterfw/core/FilterContext;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
     .line 140
     iget-boolean v2, p0, Landroid/filterfw/core/FilterGraph;->mLogVerbose:Z
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Landroid/filterfw/core/FilterGraph;->TAG:Ljava/lang/String;
 
@@ -1495,7 +1495,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 141
-    :cond_b
+    :cond_0
     iget-object v2, p0, Landroid/filterfw/core/FilterGraph;->mFilters:Ljava/util/HashSet;
 
     invoke-virtual {v2}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
@@ -1503,12 +1503,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_11
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1520,11 +1520,11 @@
     .local v0, filter:Landroid/filterfw/core/Filter;
     invoke-virtual {v0, p1}, Landroid/filterfw/core/Filter;->performClose(Landroid/filterfw/core/FilterContext;)V
 
-    goto :goto_11
+    goto :goto_0
 
     .line 144
     .end local v0           #filter:Landroid/filterfw/core/Filter;
-    :cond_21
+    :cond_1
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Landroid/filterfw/core/FilterGraph;->mIsReady:Z
@@ -1534,7 +1534,7 @@
 .end method
 
 .method public connect(Landroid/filterfw/core/Filter;Ljava/lang/String;Landroid/filterfw/core/Filter;Ljava/lang/String;)V
-    .registers 10
+    .locals 5
     .parameter "source"
     .parameter "outputName"
     .parameter "target"
@@ -1542,12 +1542,12 @@
 
     .prologue
     .line 86
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_0
 
-    if-nez p3, :cond_c
+    if-nez p3, :cond_1
 
     .line 87
-    :cond_4
+    :cond_0
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Passing null Filter in connect()!"
@@ -1557,21 +1557,21 @@
     throw v2
 
     .line 88
-    :cond_c
+    :cond_1
     invoke-virtual {p0, p1}, Landroid/filterfw/core/FilterGraph;->containsFilter(Landroid/filterfw/core/Filter;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_2
 
     invoke-virtual {p0, p3}, Landroid/filterfw/core/FilterGraph;->containsFilter(Landroid/filterfw/core/Filter;)Z
 
     move-result v2
 
-    if-nez v2, :cond_20
+    if-nez v2, :cond_3
 
     .line 89
-    :cond_18
+    :cond_2
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "Attempting to connect filter not in graph!"
@@ -1581,7 +1581,7 @@
     throw v2
 
     .line 92
-    :cond_20
+    :cond_3
     invoke-virtual {p1, p2}, Landroid/filterfw/core/Filter;->getOutputPort(Ljava/lang/String;)Landroid/filterfw/core/OutputPort;
 
     move-result-object v1
@@ -1594,7 +1594,7 @@
 
     .line 94
     .local v0, inPort:Landroid/filterfw/core/InputPort;
-    if-nez v1, :cond_53
+    if-nez v1, :cond_4
 
     .line 95
     new-instance v2, Ljava/lang/RuntimeException;
@@ -1638,8 +1638,8 @@
     throw v2
 
     .line 97
-    :cond_53
-    if-nez v0, :cond_7e
+    :cond_4
+    if-nez v0, :cond_5
 
     .line 98
     new-instance v2, Ljava/lang/RuntimeException;
@@ -1683,7 +1683,7 @@
     throw v2
 
     .line 102
-    :cond_7e
+    :cond_5
     invoke-direct {p0, v1, v0}, Landroid/filterfw/core/FilterGraph;->preconnect(Landroid/filterfw/core/OutputPort;Landroid/filterfw/core/InputPort;)V
 
     .line 103
@@ -1691,7 +1691,7 @@
 .end method
 
 .method public connect(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 10
+    .locals 5
     .parameter "sourceName"
     .parameter "outputName"
     .parameter "targetName"
@@ -1711,7 +1711,7 @@
 
     .line 111
     .local v1, target:Landroid/filterfw/core/Filter;
-    if-nez v0, :cond_29
+    if-nez v0, :cond_0
 
     .line 112
     new-instance v2, Ljava/lang/RuntimeException;
@@ -1745,8 +1745,8 @@
     throw v2
 
     .line 114
-    :cond_29
-    if-nez v1, :cond_4a
+    :cond_0
+    if-nez v1, :cond_1
 
     .line 115
     new-instance v2, Ljava/lang/RuntimeException;
@@ -1780,7 +1780,7 @@
     throw v2
 
     .line 118
-    :cond_4a
+    :cond_1
     invoke-virtual {p0, v0, p2, v1, p4}, Landroid/filterfw/core/FilterGraph;->connect(Landroid/filterfw/core/Filter;Ljava/lang/String;Landroid/filterfw/core/Filter;Ljava/lang/String;)V
 
     .line 119
@@ -1788,7 +1788,7 @@
 .end method
 
 .method public containsFilter(Landroid/filterfw/core/Filter;)Z
-    .registers 3
+    .locals 1
     .parameter "filter"
 
     .prologue
@@ -1803,7 +1803,7 @@
 .end method
 
 .method public flushFrames()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 134
@@ -1814,12 +1814,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_6
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1831,16 +1831,16 @@
     .local v0, filter:Landroid/filterfw/core/Filter;
     invoke-virtual {v0}, Landroid/filterfw/core/Filter;->clearOutputs()V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 137
     .end local v0           #filter:Landroid/filterfw/core/Filter;
-    :cond_16
+    :cond_0
     return-void
 .end method
 
 .method public getFilter(Ljava/lang/String;)Landroid/filterfw/core/Filter;
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -1857,7 +1857,7 @@
 .end method
 
 .method public getFilters()Ljava/util/Set;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1876,7 +1876,7 @@
 .end method
 
 .method public isReady()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 148
@@ -1886,7 +1886,7 @@
 .end method
 
 .method public setAutoBranchMode(I)V
-    .registers 2
+    .locals 0
     .parameter "autoBranchMode"
 
     .prologue
@@ -1898,7 +1898,7 @@
 .end method
 
 .method public setDiscardUnconnectedOutputs(Z)V
-    .registers 2
+    .locals 0
     .parameter "discard"
 
     .prologue
@@ -1910,7 +1910,7 @@
 .end method
 
 .method public setTypeCheckMode(I)V
-    .registers 2
+    .locals 0
     .parameter "typeCheckMode"
 
     .prologue
@@ -1922,19 +1922,19 @@
 .end method
 
 .method setupFilters()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 356
     iget-boolean v0, p0, Landroid/filterfw/core/FilterGraph;->mDiscardUnconnectedOutputs:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 357
     invoke-direct {p0}, Landroid/filterfw/core/FilterGraph;->discardUnconnectedOutputs()V
 
     .line 359
-    :cond_7
+    :cond_0
     invoke-direct {p0}, Landroid/filterfw/core/FilterGraph;->connectPorts()V
 
     .line 360
@@ -1948,7 +1948,7 @@
 .end method
 
 .method public tearDown(Landroid/filterfw/core/FilterContext;)V
-    .registers 5
+    .locals 3
     .parameter "context"
 
     .prologue
@@ -1959,7 +1959,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2e
+    if-nez v2, :cond_1
 
     .line 165
     invoke-virtual {p0}, Landroid/filterfw/core/FilterGraph;->flushFrames()V
@@ -1972,12 +1972,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_11
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1989,11 +1989,11 @@
     .local v0, filter:Landroid/filterfw/core/Filter;
     invoke-virtual {v0, p1}, Landroid/filterfw/core/Filter;->performTearDown(Landroid/filterfw/core/FilterContext;)V
 
-    goto :goto_11
+    goto :goto_0
 
     .line 169
     .end local v0           #filter:Landroid/filterfw/core/Filter;
-    :cond_21
+    :cond_0
     iget-object v2, p0, Landroid/filterfw/core/FilterGraph;->mFilters:Ljava/util/HashSet;
 
     invoke-virtual {v2}, Ljava/util/HashSet;->clear()V
@@ -2010,6 +2010,6 @@
 
     .line 173
     .end local v1           #i$:Ljava/util/Iterator;
-    :cond_2e
+    :cond_1
     return-void
 .end method

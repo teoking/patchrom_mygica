@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 9
+    .locals 7
     .parameter "context"
 
     .prologue
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public isSpeaking()Z
-    .registers 2
+    .locals 1
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -89,7 +89,7 @@
 .end method
 
 .method protected shutdown()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 540
@@ -102,7 +102,7 @@
 .end method
 
 .method public speak(Ljava/lang/String;ILjava/util/HashMap;)I
-    .registers 5
+    .locals 1
     .parameter "text"
     .parameter "queueMode"
     .parameter
@@ -135,7 +135,7 @@
 .end method
 
 .method public stop()I
-    .registers 2
+    .locals 1
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 

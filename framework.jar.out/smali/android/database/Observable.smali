@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 29
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public registerObserver(Ljava/lang/Object;)V
-    .registers 6
+    .locals 4
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -59,7 +59,7 @@
     .line 44
     .local p0, this:Landroid/database/Observable;,"Landroid/database/Observable<TT;>;"
     .local p1, observer:Ljava/lang/Object;,"TT;"
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 45
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -71,20 +71,20 @@
     throw v0
 
     .line 47
-    :cond_a
+    :cond_0
     iget-object v1, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 
     monitor-enter v1
 
     .line 48
-    :try_start_d
+    :try_start_0
     iget-object v0, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_37
+    if-eqz v0, :cond_1
 
     .line 49
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -118,33 +118,33 @@
     throw v0
 
     .line 52
-    :catchall_34
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_36
-    .catchall {:try_start_d .. :try_end_36} :catchall_34
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 51
-    :cond_37
-    :try_start_37
+    :cond_1
+    :try_start_1
     iget-object v0, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 52
     monitor-exit v1
-    :try_end_3d
-    .catchall {:try_start_37 .. :try_end_3d} :catchall_34
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 53
     return-void
 .end method
 
 .method public unregisterAll()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 79
@@ -154,7 +154,7 @@
     monitor-enter v1
 
     .line 80
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
@@ -166,18 +166,18 @@
     return-void
 
     .line 81
-    :catchall_a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_c
-    .catchall {:try_start_3 .. :try_end_c} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public unregisterObserver(Ljava/lang/Object;)V
-    .registers 7
+    .locals 5
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -189,7 +189,7 @@
     .line 63
     .local p0, this:Landroid/database/Observable;,"Landroid/database/Observable<TT;>;"
     .local p1, observer:Ljava/lang/Object;,"TT;"
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 64
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -201,13 +201,13 @@
     throw v1
 
     .line 66
-    :cond_a
+    :cond_0
     iget-object v2, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 
     monitor-enter v2
 
     .line 67
-    :try_start_d
+    :try_start_0
     iget-object v1, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
@@ -218,7 +218,7 @@
     .local v0, index:I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_38
+    if-ne v0, v1, :cond_1
 
     .line 69
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -253,27 +253,27 @@
 
     .line 72
     .end local v0           #index:I
-    :catchall_35
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_37
-    .catchall {:try_start_d .. :try_end_37} :catchall_35
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 
     .line 71
     .restart local v0       #index:I
-    :cond_38
-    :try_start_38
+    :cond_1
+    :try_start_1
     iget-object v1, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
     .line 72
     monitor-exit v2
-    :try_end_3e
-    .catchall {:try_start_38 .. :try_end_3e} :catchall_35
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 73
     return-void

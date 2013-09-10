@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/mms/pdu/EncodedStringValue;[BII[Lcom/google/android/mms/pdu/EncodedStringValue;)V
-    .registers 7
+    .locals 1
     .parameter "from"
     .parameter "messageId"
     .parameter "mmsVersion"
@@ -46,7 +46,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/android/mms/pdu/PduHeaders;)V
-    .registers 2
+    .locals 0
     .parameter "headers"
 
     .prologue
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public getDate()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 63
@@ -76,7 +76,7 @@
 .end method
 
 .method public getMessageId()[B
-    .registers 3
+    .locals 2
 
     .prologue
     .line 81
@@ -92,7 +92,7 @@
 .end method
 
 .method public getReadStatus()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 119
@@ -108,7 +108,7 @@
 .end method
 
 .method public getTo()[Lcom/google/android/mms/pdu/EncodedStringValue;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 100
@@ -124,7 +124,7 @@
 .end method
 
 .method public setDate(J)V
-    .registers 5
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -140,7 +140,7 @@
 .end method
 
 .method public setMessageId([B)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -156,7 +156,7 @@
 .end method
 
 .method public setReadStatus(I)V
-    .registers 4
+    .locals 2
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -177,7 +177,7 @@
 .end method
 
 .method public setTo([Lcom/google/android/mms/pdu/EncodedStringValue;)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue

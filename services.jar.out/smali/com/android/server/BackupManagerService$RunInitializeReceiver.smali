@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/BackupManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/BackupManagerService;Lcom/android/server/BackupManagerService$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
@@ -63,7 +63,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_30
+    if-eqz v1, :cond_0
 
     .line 901
     iget-object v1, p0, Lcom/android/server/BackupManagerService$RunInitializeReceiver;->this$0:Lcom/android/server/BackupManagerService;
@@ -73,7 +73,7 @@
     monitor-enter v2
 
     .line 902
-    :try_start_11
+    :try_start_0
     const-string v1, "BackupManagerService"
 
     const-string v3, "Running a device init"
@@ -111,16 +111,16 @@
 
     .line 912
     .end local v0           #msg:Landroid/os/Message;
-    :cond_30
+    :cond_0
     return-void
 
     .line 910
-    :catchall_31
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_33
-    .catchall {:try_start_11 .. :try_end_33} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 92
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 96
@@ -60,7 +60,7 @@
 .end method
 
 .method public onForegroundActivitiesChanged(IIZ)V
-    .registers 9
+    .locals 5
     .parameter "pid"
     .parameter "uid"
     .parameter "foregroundActivities"
@@ -80,7 +80,7 @@
 
     .line 102
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "android.app.IProcessObserver"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -92,9 +92,9 @@
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 105
-    if-eqz p3, :cond_21
+    if-eqz p3, :cond_0
 
-    :goto_12
+    :goto_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 106
@@ -107,8 +107,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1d
-    .catchall {:try_start_5 .. :try_end_1d} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 109
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -117,13 +117,13 @@
     return-void
 
     .line 105
-    :cond_21
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_12
+    goto :goto_0
 
     .line 109
-    :catchall_23
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -132,7 +132,7 @@
 .end method
 
 .method public onImportanceChanged(III)V
-    .registers 9
+    .locals 5
     .parameter "pid"
     .parameter "uid"
     .parameter "importance"
@@ -150,7 +150,7 @@
 
     .line 116
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.app.IProcessObserver"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -174,8 +174,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1a
-    .catchall {:try_start_4 .. :try_end_1a} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 123
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -184,7 +184,7 @@
     return-void
 
     .line 123
-    :catchall_1e
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -193,7 +193,7 @@
 .end method
 
 .method public onProcessDied(II)V
-    .registers 8
+    .locals 5
     .parameter "pid"
     .parameter "uid"
     .annotation system Ldalvik/annotation/Throws;
@@ -210,7 +210,7 @@
 
     .line 130
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.app.IProcessObserver"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -231,8 +231,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_17
-    .catchall {:try_start_4 .. :try_end_17} :catchall_1b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 136
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -241,7 +241,7 @@
     return-void
 
     .line 136
-    :catchall_1b
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V

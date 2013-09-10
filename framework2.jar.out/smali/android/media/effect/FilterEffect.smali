@@ -11,7 +11,7 @@
 
 # direct methods
 .method protected constructor <init>(Landroid/media/effect/EffectContext;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "name"
 
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method protected beginGLEffect()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 67
@@ -50,7 +50,7 @@
 .end method
 
 .method protected endGLEffect()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 75
@@ -63,7 +63,7 @@
 .end method
 
 .method protected frameFromTexture(III)Landroid/filterfw/core/Frame;
-    .registers 10
+    .locals 6
     .parameter "texId"
     .parameter "width"
     .parameter "height"
@@ -107,7 +107,7 @@
 .end method
 
 .method protected getFilterContext()Landroid/filterfw/core/FilterContext;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 82
@@ -119,7 +119,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 58

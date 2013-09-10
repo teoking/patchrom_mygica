@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 6
+    .locals 3
     .parameter "priority"
     .parameter "audioSession"
     .annotation system Ldalvik/annotation/Throws;
@@ -83,7 +83,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/media/audiofx/PresetReverb;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -94,7 +94,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/media/audiofx/PresetReverb;)Landroid/media/audiofx/PresetReverb$OnParameterChangeListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public getPreset()S
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -139,7 +139,7 @@
 .end method
 
 .method public getProperties()Landroid/media/audiofx/PresetReverb$Settings;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -180,7 +180,7 @@
 .end method
 
 .method public setParameterListener(Landroid/media/audiofx/PresetReverb$OnParameterChangeListener;)V
-    .registers 5
+    .locals 3
     .parameter "listener"
 
     .prologue
@@ -190,10 +190,10 @@
     monitor-enter v1
 
     .line 225
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/media/audiofx/PresetReverb;->mParamListener:Landroid/media/audiofx/PresetReverb$OnParameterChangeListener;
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 226
     iput-object p1, p0, Landroid/media/audiofx/PresetReverb;->mParamListener:Landroid/media/audiofx/PresetReverb$OnParameterChangeListener;
@@ -213,25 +213,25 @@
     invoke-super {p0, v0}, Landroid/media/audiofx/AudioEffect;->setParameterListener(Landroid/media/audiofx/AudioEffect$OnParameterChangeListener;)V
 
     .line 230
-    :cond_16
+    :cond_0
     monitor-exit v1
 
     .line 231
     return-void
 
     .line 230
-    :catchall_18
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1a
-    .catchall {:try_start_3 .. :try_end_1a} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setPreset(S)V
-    .registers 3
+    .locals 1
     .parameter "preset"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -256,7 +256,7 @@
 .end method
 
 .method public setProperties(Landroid/media/audiofx/PresetReverb$Settings;)V
-    .registers 4
+    .locals 2
     .parameter "settings"
     .annotation system Ldalvik/annotation/Throws;
         value = {

@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViews;IIF)V
-    .registers 6
+    .locals 1
     .parameter
     .parameter "viewId"
     .parameter "units"
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "parcel"
 
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
-    .registers 8
+    .locals 4
     .parameter "root"
     .parameter "rootParent"
     .parameter "handler"
@@ -121,25 +121,25 @@
 
     .line 1219
     .local v1, target:Landroid/widget/TextView;
-    if-nez v1, :cond_f
+    if-nez v1, :cond_0
 
     .line 1221
-    :goto_e
+    :goto_0
     return-void
 
     .line 1220
-    :cond_f
+    :cond_0
     iget v2, p0, Landroid/widget/RemoteViews$TextViewSizeAction;->units:I
 
     iget v3, p0, Landroid/widget/RemoteViews$TextViewSizeAction;->size:F
 
     invoke-virtual {v1, v2, v3}, Landroid/widget/TextView;->setTextSize(IF)V
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

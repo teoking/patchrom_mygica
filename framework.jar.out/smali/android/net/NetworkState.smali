@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 72
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/NetworkInfo;Landroid/net/LinkProperties;Landroid/net/LinkCapabilities;)V
-    .registers 10
+    .locals 6
     .parameter "networkInfo"
     .parameter "linkProperties"
     .parameter "linkCapabilities"
@@ -73,7 +73,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/NetworkInfo;Landroid/net/LinkProperties;Landroid/net/LinkCapabilities;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 6
+    .locals 0
     .parameter "networkInfo"
     .parameter "linkProperties"
     .parameter "linkCapabilities"
@@ -104,7 +104,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -161,7 +161,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60
@@ -171,7 +171,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 

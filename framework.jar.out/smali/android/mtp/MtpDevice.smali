@@ -15,7 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 37
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Landroid/hardware/usb/UsbDevice;)V
-    .registers 2
+    .locals 0
     .parameter "device"
 
     .prologue
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public close()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 72
@@ -95,7 +95,7 @@
 .end method
 
 .method public deleteObject(I)Z
-    .registers 3
+    .locals 1
     .parameter "objectHandle"
 
     .prologue
@@ -108,7 +108,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -119,8 +119,8 @@
     .line 78
     :try_start_0
     invoke-direct {p0}, Landroid/mtp/MtpDevice;->native_close()V
-    :try_end_3
-    .catchall {:try_start_0 .. :try_end_3} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 80
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -129,7 +129,7 @@
     return-void
 
     .line 80
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -138,7 +138,7 @@
 .end method
 
 .method public getDeviceId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 103
@@ -152,7 +152,7 @@
 .end method
 
 .method public getDeviceInfo()Landroid/mtp/MtpDeviceInfo;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 117
@@ -164,7 +164,7 @@
 .end method
 
 .method public getDeviceName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 92
@@ -178,7 +178,7 @@
 .end method
 
 .method public getObject(II)[B
-    .registers 4
+    .locals 1
     .parameter "objectHandle"
     .parameter "objectSize"
 
@@ -192,7 +192,7 @@
 .end method
 
 .method public getObjectHandles(III)[I
-    .registers 5
+    .locals 1
     .parameter "storageId"
     .parameter "format"
     .parameter "objectHandle"
@@ -207,7 +207,7 @@
 .end method
 
 .method public getObjectInfo(I)Landroid/mtp/MtpObjectInfo;
-    .registers 3
+    .locals 1
     .parameter "objectHandle"
 
     .prologue
@@ -220,7 +220,7 @@
 .end method
 
 .method public getParent(I)J
-    .registers 4
+    .locals 2
     .parameter "objectHandle"
 
     .prologue
@@ -233,7 +233,7 @@
 .end method
 
 .method public getStorageId(I)J
-    .registers 4
+    .locals 2
     .parameter "objectHandle"
 
     .prologue
@@ -246,7 +246,7 @@
 .end method
 
 .method public getStorageIds()[I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 127
@@ -258,7 +258,7 @@
 .end method
 
 .method public getStorageInfo(I)Landroid/mtp/MtpStorageInfo;
-    .registers 3
+    .locals 1
     .parameter "storageId"
 
     .prologue
@@ -271,7 +271,7 @@
 .end method
 
 .method public getThumbnail(I)[B
-    .registers 3
+    .locals 1
     .parameter "objectHandle"
 
     .prologue
@@ -284,7 +284,7 @@
 .end method
 
 .method public importFile(ILjava/lang/String;)Z
-    .registers 4
+    .locals 1
     .parameter "objectHandle"
     .parameter "destPath"
 
@@ -298,7 +298,7 @@
 .end method
 
 .method public open(Landroid/hardware/usb/UsbDeviceConnection;)Z
-    .registers 5
+    .locals 3
     .parameter "connection"
 
     .prologue
@@ -319,18 +319,18 @@
 
     .line 60
     .local v0, result:Z
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     .line 61
     invoke-virtual {p1}, Landroid/hardware/usb/UsbDeviceConnection;->close()V
 
     .line 63
-    :cond_13
+    :cond_0
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 108

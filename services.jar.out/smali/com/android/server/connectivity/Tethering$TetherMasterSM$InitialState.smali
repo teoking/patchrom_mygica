@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public enter()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1407
@@ -43,7 +43,7 @@
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
-    .registers 8
+    .locals 6
     .parameter "message"
 
     .prologue
@@ -79,18 +79,18 @@
     .local v1, retValue:Z
     iget v3, p1, Landroid/os/Message;->what:I
 
-    packed-switch v3, :pswitch_data_56
+    packed-switch v3, :pswitch_data_0
 
     .line 1428
     const/4 v1, 0x0
 
     .line 1431
-    :cond_21
-    :goto_21
+    :cond_0
+    :goto_0
     return v1
 
     .line 1414
-    :pswitch_22
+    :pswitch_0
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
@@ -99,6 +99,7 @@
     .local v2, who:Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
     iget-object v3, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$InitialState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
+    #getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mNotifyList:Ljava/util/ArrayList;
     invoke-static {v3}, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->access$5300(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -110,17 +111,19 @@
 
     iget-object v4, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$InitialState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
+    #getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mTetherModeAliveState:Lcom/android/internal/util/State;
     invoke-static {v4}, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->access$5400(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Lcom/android/internal/util/State;
 
     move-result-object v4
 
+    #calls: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v3, v4}, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->access$5500(Lcom/android/server/connectivity/Tethering$TetherMasterSM;Lcom/android/internal/util/IState;)V
 
-    goto :goto_21
+    goto :goto_0
 
     .line 1420
     .end local v2           #who:Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
-    :pswitch_3b
+    :pswitch_1
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
@@ -129,6 +132,7 @@
     .restart local v2       #who:Lcom/android/server/connectivity/Tethering$TetherInterfaceSM;
     iget-object v3, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$InitialState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
+    #getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mNotifyList:Ljava/util/ArrayList;
     invoke-static {v3}, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->access$5300(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -141,23 +145,24 @@
     .local v0, index:I
     const/4 v3, -0x1
 
-    if-eq v0, v3, :cond_21
+    if-eq v0, v3, :cond_0
 
     .line 1424
     iget-object v3, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$InitialState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
+    #getter for: Lcom/android/server/connectivity/Tethering$TetherMasterSM;->mNotifyList:Ljava/util/ArrayList;
     invoke-static {v3}, Lcom/android/server/connectivity/Tethering$TetherMasterSM;->access$5300(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)Ljava/util/ArrayList;
 
     move-result-object v3
 
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    goto :goto_21
+    goto :goto_0
 
     .line 1412
-    :pswitch_data_56
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_22
-        :pswitch_3b
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

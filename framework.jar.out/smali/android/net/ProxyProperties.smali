@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 198
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/ProxyProperties;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -53,7 +53,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 55
-    if-eqz p1, :cond_1b
+    if-eqz p1, :cond_0
 
     .line 56
     invoke-virtual {p1}, Landroid/net/ProxyProperties;->getHost()Ljava/lang/String;
@@ -82,12 +82,12 @@
     iput-object v0, p0, Landroid/net/ProxyProperties;->mParsedExclusionList:[Ljava/lang/String;
 
     .line 61
-    :cond_1b
+    :cond_0
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "host"
     .parameter "port"
     .parameter "exclList"
@@ -110,7 +110,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;[Ljava/lang/String;)V
-    .registers 5
+    .locals 0
     .parameter "host"
     .parameter "port"
     .parameter "exclList"
@@ -137,7 +137,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILjava/lang/String;[Ljava/lang/String;Landroid/net/ProxyProperties$1;)V
-    .registers 6
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -152,7 +152,7 @@
 .end method
 
 .method private setExclusionList(Ljava/lang/String;)V
-    .registers 9
+    .locals 7
     .parameter "exclusionList"
 
     .prologue
@@ -162,7 +162,7 @@
     .line 87
     iget-object v3, p0, Landroid/net/ProxyProperties;->mExclusionList:Ljava/lang/String;
 
-    if-nez v3, :cond_c
+    if-nez v3, :cond_1
 
     .line 88
     const/4 v3, 0x0
@@ -172,11 +172,11 @@
     iput-object v3, p0, Landroid/net/ProxyProperties;->mParsedExclusionList:[Ljava/lang/String;
 
     .line 99
-    :cond_b
+    :cond_0
     return-void
 
     .line 90
-    :cond_c
+    :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v3
@@ -201,10 +201,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1e
+    :goto_0
     array-length v3, v2
 
-    if-ge v0, v3, :cond_b
+    if-ge v0, v3, :cond_0
 
     .line 93
     aget-object v3, v2, v0
@@ -221,7 +221,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_34
+    if-eqz v3, :cond_2
 
     const/4 v3, 0x1
 
@@ -230,7 +230,7 @@
     move-result-object v1
 
     .line 95
-    :cond_34
+    :cond_2
     iget-object v3, p0, Landroid/net/ProxyProperties;->mParsedExclusionList:[Ljava/lang/String;
 
     mul-int/lit8 v4, v0, 0x2
@@ -267,13 +267,13 @@
     .line 92
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1e
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 165
@@ -283,7 +283,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
     .parameter "o"
 
     .prologue
@@ -292,14 +292,14 @@
     .line 148
     instance-of v2, p1, Landroid/net/ProxyProperties;
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_1
 
     .line 157
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return v1
 
-    :cond_6
+    :cond_1
     move-object v0, p1
 
     .line 149
@@ -309,7 +309,7 @@
     .local v0, p:Landroid/net/ProxyProperties;
     iget-object v2, p0, Landroid/net/ProxyProperties;->mExclusionList:Ljava/lang/String;
 
-    if-eqz v2, :cond_19
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Landroid/net/ProxyProperties;->mExclusionList:Ljava/lang/String;
 
@@ -321,19 +321,19 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_0
 
     .line 151
-    :cond_19
+    :cond_2
     iget-object v2, p0, Landroid/net/ProxyProperties;->mHost:Ljava/lang/String;
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_3
 
     invoke-virtual {v0}, Landroid/net/ProxyProperties;->getHost()Ljava/lang/String;
 
     move-result-object v2
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Landroid/net/ProxyProperties;->mHost:Ljava/lang/String;
 
@@ -345,44 +345,44 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_0
 
     .line 154
-    :cond_2f
+    :cond_3
     iget-object v2, p0, Landroid/net/ProxyProperties;->mHost:Ljava/lang/String;
 
-    if-eqz v2, :cond_37
+    if-eqz v2, :cond_4
 
     iget-object v2, v0, Landroid/net/ProxyProperties;->mHost:Ljava/lang/String;
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_0
 
     .line 155
-    :cond_37
+    :cond_4
     iget-object v2, p0, Landroid/net/ProxyProperties;->mHost:Ljava/lang/String;
-
-    if-nez v2, :cond_3f
-
-    iget-object v2, v0, Landroid/net/ProxyProperties;->mHost:Ljava/lang/String;
 
     if-nez v2, :cond_5
 
+    iget-object v2, v0, Landroid/net/ProxyProperties;->mHost:Ljava/lang/String;
+
+    if-nez v2, :cond_0
+
     .line 156
-    :cond_3f
+    :cond_5
     iget v2, p0, Landroid/net/ProxyProperties;->mPort:I
 
     iget v3, v0, Landroid/net/ProxyProperties;->mPort:I
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_0
 
     .line 157
     const/4 v1, 0x1
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public getExclusionList()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -392,7 +392,7 @@
 .end method
 
 .method public getHost()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 72
@@ -402,7 +402,7 @@
 .end method
 
 .method public getPort()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -412,7 +412,7 @@
 .end method
 
 .method public getSocketAddress()Ljava/net/InetSocketAddress;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 64
@@ -420,7 +420,7 @@
 
     .line 66
     .local v0, inetSocketAddress:Ljava/net/InetSocketAddress;
-    :try_start_1
+    :try_start_0
     new-instance v1, Ljava/net/InetSocketAddress;
 
     iget-object v2, p0, Landroid/net/ProxyProperties;->mHost:Ljava/lang/String;
@@ -428,8 +428,8 @@
     iget v3, p0, Landroid/net/ProxyProperties;->mPort:I
 
     invoke-direct {v1, v2, v3}, Ljava/net/InetSocketAddress;-><init>(Ljava/lang/String;I)V
-    :try_end_a
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_a} :catch_c
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     .end local v0           #inetSocketAddress:Ljava/net/InetSocketAddress;
     .local v1, inetSocketAddress:Ljava/net/InetSocketAddress;
@@ -438,18 +438,18 @@
     .line 68
     .end local v1           #inetSocketAddress:Ljava/net/InetSocketAddress;
     .restart local v0       #inetSocketAddress:Ljava/net/InetSocketAddress;
-    :goto_b
+    :goto_0
     return-object v0
 
     .line 67
-    :catch_c
+    :catch_0
     move-exception v2
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v1, 0x0
@@ -457,16 +457,16 @@
     .line 173
     iget-object v0, p0, Landroid/net/ProxyProperties;->mHost:Ljava/lang/String;
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     move v0, v1
 
-    :goto_6
+    :goto_0
     iget-object v2, p0, Landroid/net/ProxyProperties;->mExclusionList:Ljava/lang/String;
 
-    if-nez v2, :cond_16
+    if-nez v2, :cond_1
 
-    :goto_a
+    :goto_1
     add-int/2addr v0, v1
 
     iget v1, p0, Landroid/net/ProxyProperties;->mPort:I
@@ -475,27 +475,27 @@
 
     return v0
 
-    :cond_f
+    :cond_0
     iget-object v0, p0, Landroid/net/ProxyProperties;->mHost:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
     move-result v0
 
-    goto :goto_6
+    goto :goto_0
 
-    :cond_16
+    :cond_1
     iget-object v1, p0, Landroid/net/ProxyProperties;->mExclusionList:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
 
     move-result v1
 
-    goto :goto_a
+    goto :goto_1
 .end method
 
 .method public isExcluded(Ljava/lang/String;)Z
-    .registers 8
+    .locals 6
     .parameter "url"
 
     .prologue
@@ -506,25 +506,25 @@
 
     move-result v4
 
-    if-nez v4, :cond_10
+    if-nez v4, :cond_0
 
     iget-object v4, p0, Landroid/net/ProxyProperties;->mParsedExclusionList:[Ljava/lang/String;
 
-    if-eqz v4, :cond_10
+    if-eqz v4, :cond_0
 
     iget-object v4, p0, Landroid/net/ProxyProperties;->mParsedExclusionList:[Ljava/lang/String;
 
     array-length v4, v4
 
-    if-nez v4, :cond_11
+    if-nez v4, :cond_1
 
     .line 114
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     return v3
 
     .line 105
-    :cond_11
+    :cond_1
     invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
@@ -537,18 +537,18 @@
 
     .line 107
     .local v2, urlDomain:Ljava/lang/String;
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_0
 
     .line 108
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1c
+    :goto_1
     iget-object v4, p0, Landroid/net/ProxyProperties;->mParsedExclusionList:[Ljava/lang/String;
 
     array-length v4, v4
 
-    if-ge v0, v4, :cond_10
+    if-ge v0, v4, :cond_0
 
     .line 109
     iget-object v4, p0, Landroid/net/ProxyProperties;->mParsedExclusionList:[Ljava/lang/String;
@@ -559,7 +559,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_37
+    if-nez v4, :cond_2
 
     iget-object v4, p0, Landroid/net/ProxyProperties;->mParsedExclusionList:[Ljava/lang/String;
 
@@ -571,23 +571,23 @@
 
     move-result v4
 
-    if-eqz v4, :cond_39
+    if-eqz v4, :cond_3
 
     .line 111
-    :cond_37
+    :cond_2
     const/4 v3, 0x1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 108
-    :cond_39
+    :cond_3
     add-int/lit8 v0, v0, 0x2
 
-    goto :goto_1c
+    goto :goto_1
 .end method
 
 .method public makeProxy()Ljava/net/Proxy;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 118
@@ -597,10 +597,10 @@
     .local v1, proxy:Ljava/net/Proxy;
     iget-object v3, p0, Landroid/net/ProxyProperties;->mHost:Ljava/lang/String;
 
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_0
 
     .line 121
-    :try_start_6
+    :try_start_0
     new-instance v0, Ljava/net/InetSocketAddress;
 
     iget-object v3, p0, Landroid/net/ProxyProperties;->mHost:Ljava/lang/String;
@@ -616,8 +616,8 @@
     sget-object v3, Ljava/net/Proxy$Type;->HTTP:Ljava/net/Proxy$Type;
 
     invoke-direct {v2, v3, v0}, Ljava/net/Proxy;-><init>(Ljava/net/Proxy$Type;Ljava/net/SocketAddress;)V
-    :try_end_16
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_6 .. :try_end_16} :catch_18
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     .end local v1           #proxy:Ljava/net/Proxy;
     .local v2, proxy:Ljava/net/Proxy;
@@ -627,19 +627,19 @@
     .end local v0           #inetSocketAddress:Ljava/net/InetSocketAddress;
     .end local v2           #proxy:Ljava/net/Proxy;
     .restart local v1       #proxy:Ljava/net/Proxy;
-    :cond_17
-    :goto_17
+    :cond_0
+    :goto_0
     return-object v1
 
     .line 123
-    :catch_18
+    :catch_0
     move-exception v3
 
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 131
@@ -651,7 +651,7 @@
     .local v0, sb:Ljava/lang/StringBuilder;
     iget-object v1, p0, Landroid/net/ProxyProperties;->mHost:Ljava/lang/String;
 
-    if-eqz v1, :cond_35
+    if-eqz v1, :cond_1
 
     .line 133
     const-string v1, "["
@@ -680,7 +680,7 @@
     .line 137
     iget-object v1, p0, Landroid/net/ProxyProperties;->mExclusionList:Ljava/lang/String;
 
-    if-eqz v1, :cond_30
+    if-eqz v1, :cond_0
 
     .line 138
     const-string v1, " xl="
@@ -694,8 +694,8 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 143
-    :cond_30
-    :goto_30
+    :cond_0
+    :goto_0
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -703,16 +703,16 @@
     return-object v1
 
     .line 141
-    :cond_35
+    :cond_1
     const-string v1, "[ProxyProperties.mHost == null]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_30
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 
@@ -720,7 +720,7 @@
     .line 183
     iget-object v0, p0, Landroid/net/ProxyProperties;->mHost:Ljava/lang/String;
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_0
 
     .line 184
     const/4 v0, 0x1
@@ -738,7 +738,7 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 190
-    :goto_12
+    :goto_0
     iget-object v0, p0, Landroid/net/ProxyProperties;->mExclusionList:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
@@ -752,10 +752,10 @@
     return-void
 
     .line 188
-    :cond_1d
+    :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    goto :goto_12
+    goto :goto_0
 .end method

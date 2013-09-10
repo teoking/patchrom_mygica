@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/database/ContentObserver;ZLandroid/net/Uri;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "selfChange"
     .parameter "uri"
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 180

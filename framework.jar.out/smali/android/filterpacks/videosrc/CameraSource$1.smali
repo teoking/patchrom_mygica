@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/filterpacks/videosrc/CameraSource;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,18 +38,19 @@
 
 # virtual methods
 .method public onFrameAvailable(Landroid/graphics/SurfaceTexture;)V
-    .registers 5
+    .locals 3
     .parameter "surfaceTexture"
 
     .prologue
     .line 350
     iget-object v0, p0, Landroid/filterpacks/videosrc/CameraSource$1;->this$0:Landroid/filterpacks/videosrc/CameraSource;
 
+    #getter for: Landroid/filterpacks/videosrc/CameraSource;->mLogVerbose:Z
     invoke-static {v0}, Landroid/filterpacks/videosrc/CameraSource;->access$000(Landroid/filterpacks/videosrc/CameraSource;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     const-string v0, "CameraSource"
 
@@ -58,17 +59,18 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 351
-    :cond_f
+    :cond_0
     iget-object v1, p0, Landroid/filterpacks/videosrc/CameraSource$1;->this$0:Landroid/filterpacks/videosrc/CameraSource;
 
     monitor-enter v1
 
     .line 352
-    :try_start_12
+    :try_start_0
     iget-object v0, p0, Landroid/filterpacks/videosrc/CameraSource$1;->this$0:Landroid/filterpacks/videosrc/CameraSource;
 
     const/4 v2, 0x1
 
+    #setter for: Landroid/filterpacks/videosrc/CameraSource;->mNewFrameAvailable:Z
     invoke-static {v0, v2}, Landroid/filterpacks/videosrc/CameraSource;->access$102(Landroid/filterpacks/videosrc/CameraSource;Z)Z
 
     .line 353
@@ -83,12 +85,12 @@
     return-void
 
     .line 354
-    :catchall_1f
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_21
-    .catchall {:try_start_12 .. :try_end_21} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

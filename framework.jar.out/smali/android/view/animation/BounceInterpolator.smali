@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 27
@@ -19,7 +19,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "attrs"
 
@@ -32,7 +32,7 @@
 .end method
 
 .method private static bounce(F)F
-    .registers 3
+    .locals 2
     .parameter "t"
 
     .prologue
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public getInterpolation(F)F
-    .registers 4
+    .locals 2
     .parameter "t"
 
     .prologue
@@ -63,23 +63,23 @@
 
     cmpg-float v0, p1, v0
 
-    if-gez v0, :cond_10
+    if-gez v0, :cond_0
 
     invoke-static {p1}, Landroid/view/animation/BounceInterpolator;->bounce(F)F
 
     move-result v0
 
     .line 49
-    :goto_f
+    :goto_0
     return v0
 
     .line 47
-    :cond_10
+    :cond_0
     const v0, 0x3f3da512
 
     cmpg-float v0, p1, v0
 
-    if-gez v0, :cond_25
+    if-gez v0, :cond_1
 
     const v0, 0x3f0c14a5
 
@@ -93,15 +93,15 @@
 
     add-float/2addr v0, v1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 48
-    :cond_25
+    :cond_1
     const v0, 0x3f76e2eb
 
     cmpg-float v0, p1, v0
 
-    if-gez v0, :cond_3a
+    if-gez v0, :cond_2
 
     const v0, 0x3f5a43fe
 
@@ -115,10 +115,10 @@
 
     add-float/2addr v0, v1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 49
-    :cond_3a
+    :cond_2
     const v0, 0x3f859168
 
     sub-float v0, p1, v0
@@ -131,5 +131,5 @@
 
     add-float/2addr v0, v1
 
-    goto :goto_f
+    goto :goto_0
 .end method

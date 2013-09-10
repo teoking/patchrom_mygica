@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/ZoomButtonsController;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "intent"
 
@@ -45,20 +45,22 @@
     .line 153
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$1;->this$0:Landroid/widget/ZoomButtonsController;
 
+    #getter for: Landroid/widget/ZoomButtonsController;->mIsVisible:Z
     invoke-static {v0}, Landroid/widget/ZoomButtonsController;->access$000(Landroid/widget/ZoomButtonsController;)Z
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     .line 157
-    :goto_9
+    :goto_0
     return-void
 
     .line 155
-    :cond_a
+    :cond_0
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$1;->this$0:Landroid/widget/ZoomButtonsController;
 
+    #getter for: Landroid/widget/ZoomButtonsController;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/widget/ZoomButtonsController;->access$100(Landroid/widget/ZoomButtonsController;)Landroid/os/Handler;
 
     move-result-object v0
@@ -68,11 +70,12 @@
     .line 156
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$1;->this$0:Landroid/widget/ZoomButtonsController;
 
+    #getter for: Landroid/widget/ZoomButtonsController;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/widget/ZoomButtonsController;->access$100(Landroid/widget/ZoomButtonsController;)Landroid/os/Handler;
 
     move-result-object v0
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    goto :goto_9
+    goto :goto_0
 .end method

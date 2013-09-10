@@ -69,7 +69,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
@@ -121,7 +121,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4f
+    if-eqz v1, :cond_0
 
     .line 77
     new-instance v1, Ljava/lang/Thread;
@@ -154,12 +154,12 @@
 
     .line 84
     .end local v0           #intentFilter:Landroid/content/IntentFilter;
-    :cond_4f
+    :cond_0
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/server/RemoteControlService;Z)Z
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -173,7 +173,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/server/RemoteControlService;)Landroid/content/Context;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -184,7 +184,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/server/RemoteControlService;)Landroid/net/LocalSocket;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -195,7 +195,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/server/RemoteControlService;)Ljava/io/InputStream;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -206,7 +206,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/android/server/RemoteControlService;)Ljava/io/OutputStream;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -217,7 +217,7 @@
 .end method
 
 .method private connect()Z
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v2, 0x1
@@ -225,14 +225,14 @@
     .line 126
     iget-object v3, p0, Lcom/android/server/RemoteControlService;->mSocket:Landroid/net/LocalSocket;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_0
 
     .line 146
-    :goto_5
+    :goto_0
     return v2
 
     .line 130
-    :cond_6
+    :cond_0
     const-string v3, "RemoteControlService"
 
     const-string v4, "connecting..."
@@ -240,7 +240,7 @@
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 132
-    :try_start_d
+    :try_start_0
     new-instance v3, Landroid/net/LocalSocket;
 
     invoke-direct {v3}, Landroid/net/LocalSocket;-><init>()V
@@ -279,14 +279,14 @@
     move-result-object v3
 
     iput-object v3, p0, Lcom/android/server/RemoteControlService;->mOut:Ljava/io/OutputStream;
-    :try_end_32
-    .catch Ljava/io/IOException; {:try_start_d .. :try_end_32} :catch_33
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_5
+    goto :goto_0
 
     .line 141
     .end local v0           #address:Landroid/net/LocalSocketAddress;
-    :catch_33
+    :catch_0
     move-exception v1
 
     .line 142
@@ -319,11 +319,11 @@
     .line 144
     const/4 v2, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method private disconnect()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -336,48 +336,48 @@
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 152
-    :try_start_8
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/RemoteControlService;->mSocket:Landroid/net/LocalSocket;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/RemoteControlService;->mSocket:Landroid/net/LocalSocket;
 
     invoke-virtual {v0}, Landroid/net/LocalSocket;->close()V
-    :try_end_11
-    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_11} :catch_2e
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
 
     .line 156
-    :cond_11
-    :goto_11
-    :try_start_11
+    :cond_0
+    :goto_0
+    :try_start_1
     iget-object v0, p0, Lcom/android/server/RemoteControlService;->mIn:Ljava/io/InputStream;
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/RemoteControlService;->mIn:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
-    :try_end_1a
-    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_1a} :catch_2c
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 160
-    :cond_1a
-    :goto_1a
-    :try_start_1a
+    :cond_1
+    :goto_1
+    :try_start_2
     iget-object v0, p0, Lcom/android/server/RemoteControlService;->mOut:Ljava/io/OutputStream;
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/server/RemoteControlService;->mOut:Ljava/io/OutputStream;
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
-    :try_end_23
-    .catch Ljava/io/IOException; {:try_start_1a .. :try_end_23} :catch_2a
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 163
-    :cond_23
-    :goto_23
+    :cond_2
+    :goto_2
     iput-object v2, p0, Lcom/android/server/RemoteControlService;->mSocket:Landroid/net/LocalSocket;
 
     .line 164
@@ -390,26 +390,26 @@
     return-void
 
     .line 161
-    :catch_2a
+    :catch_0
     move-exception v0
 
-    goto :goto_23
+    goto :goto_2
 
     .line 157
-    :catch_2c
+    :catch_1
     move-exception v0
 
-    goto :goto_1a
+    goto :goto_1
 
     .line 153
-    :catch_2e
+    :catch_2
     move-exception v0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method private sendData(Z)Z
-    .registers 10
+    .locals 8
     .parameter "enable"
 
     .prologue
@@ -418,10 +418,10 @@
     const/4 v4, 0x0
 
     .line 102
-    :try_start_2
+    :try_start_0
     iget-object v5, p0, Lcom/android/server/RemoteControlService;->mOut:Ljava/io/OutputStream;
 
-    if-eqz v5, :cond_2e
+    if-eqz v5, :cond_0
 
     .line 103
     const/4 v5, 0x4
@@ -473,39 +473,39 @@
     .line 113
     iget-object v6, p0, Lcom/android/server/RemoteControlService;->mOut:Ljava/io/OutputStream;
 
-    if-eqz p1, :cond_2f
+    if-eqz p1, :cond_1
 
     move v5, v3
 
-    :goto_26
+    :goto_0
     invoke-virtual {v6, v5}, Ljava/io/OutputStream;->write(I)V
 
     .line 115
     iget-object v5, p0, Lcom/android/server/RemoteControlService;->mOut:Ljava/io/OutputStream;
 
     invoke-virtual {v5}, Ljava/io/OutputStream;->flush()V
-    :try_end_2e
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2e} :catch_31
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 122
     .end local v0           #dataLen:I
     .end local v2           #len:[B
-    :cond_2e
-    :goto_2e
+    :cond_0
+    :goto_1
     return v3
 
     .restart local v0       #dataLen:I
     .restart local v2       #len:[B
-    :cond_2f
+    :cond_1
     move v5, v4
 
     .line 113
-    goto :goto_26
+    goto :goto_0
 
     .line 118
     .end local v0           #dataLen:I
     .end local v2           #len:[B
-    :catch_31
+    :catch_0
     move-exception v1
 
     .line 119
@@ -539,13 +539,13 @@
     move v3, v4
 
     .line 120
-    goto :goto_2e
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public disableConnection()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 97
@@ -558,7 +558,7 @@
 .end method
 
 .method public enableConnection()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 90

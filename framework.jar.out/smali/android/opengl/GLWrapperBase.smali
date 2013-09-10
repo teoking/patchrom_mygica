@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Ljavax/microedition/khronos/opengles/GL;)V
-    .registers 3
+    .locals 1
     .parameter "gl"
 
     .prologue
@@ -42,7 +42,7 @@
     .line 34
     instance-of v0, p1, Ljavax/microedition/khronos/opengles/GL10Ext;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     move-object v0, p1
 
@@ -52,10 +52,10 @@
     iput-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl10Ext:Ljavax/microedition/khronos/opengles/GL10Ext;
 
     .line 37
-    :cond_11
+    :cond_0
     instance-of v0, p1, Ljavax/microedition/khronos/opengles/GL11;
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_1
 
     move-object v0, p1
 
@@ -65,10 +65,10 @@
     iput-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11:Ljavax/microedition/khronos/opengles/GL11;
 
     .line 40
-    :cond_1a
+    :cond_1
     instance-of v0, p1, Ljavax/microedition/khronos/opengles/GL11Ext;
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_2
 
     move-object v0, p1
 
@@ -78,10 +78,10 @@
     iput-object v0, p0, Landroid/opengl/GLWrapperBase;->mgl11Ext:Ljavax/microedition/khronos/opengles/GL11Ext;
 
     .line 43
-    :cond_23
+    :cond_2
     instance-of v0, p1, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_3
 
     .line 44
     check-cast p1, Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
@@ -90,6 +90,6 @@
     iput-object p1, p0, Landroid/opengl/GLWrapperBase;->mgl11ExtensionPack:Ljavax/microedition/khronos/opengles/GL11ExtensionPack;
 
     .line 46
-    :cond_2b
+    :cond_3
     return-void
 .end method

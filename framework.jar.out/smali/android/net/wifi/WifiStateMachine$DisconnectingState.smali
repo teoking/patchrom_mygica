@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/wifi/WifiStateMachine;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public enter()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3342
@@ -52,51 +52,54 @@
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
-    .registers 4
+    .locals 2
     .parameter "message"
 
     .prologue
     .line 3347
     iget v0, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v0, :sswitch_data_2a
+    sparse-switch v0, :sswitch_data_0
 
     .line 3363
     const/4 v0, 0x0
 
     .line 3365
-    :goto_6
+    :goto_0
     return v0
 
     .line 3349
-    :sswitch_7
+    :sswitch_0
     iget v0, p1, Landroid/os/Message;->arg1:I
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_11
+    if-ne v0, v1, :cond_0
 
     .line 3350
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DisconnectingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #calls: Landroid/net/wifi/WifiStateMachine;->deferMessage(Landroid/os/Message;)V
     invoke-static {v0, p1}, Landroid/net/wifi/WifiStateMachine;->access$13800(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;)V
 
     .line 3365
-    :cond_11
-    :goto_11
+    :cond_0
+    :goto_1
     const/4 v0, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 3358
-    :sswitch_13
+    :sswitch_1
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DisconnectingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #calls: Landroid/net/wifi/WifiStateMachine;->deferMessage(Landroid/os/Message;)V
     invoke-static {v0, p1}, Landroid/net/wifi/WifiStateMachine;->access$13900(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;)V
 
     .line 3359
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DisconnectingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #calls: Landroid/net/wifi/WifiStateMachine;->handleNetworkDisconnect()V
     invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$6100(Landroid/net/wifi/WifiStateMachine;)V
 
     .line 3360
@@ -104,20 +107,22 @@
 
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$DisconnectingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mDisconnectedState:Lcom/android/internal/util/State;
     invoke-static {v1}, Landroid/net/wifi/WifiStateMachine;->access$8600(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
 
     move-result-object v1
 
+    #calls: Landroid/net/wifi/WifiStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$14000(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
 
-    goto :goto_11
+    goto :goto_1
 
     .line 3347
     nop
 
-    :sswitch_data_2a
+    :sswitch_data_0
     .sparse-switch
-        0x20048 -> :sswitch_7
-        0x24006 -> :sswitch_13
+        0x20048 -> :sswitch_0
+        0x24006 -> :sswitch_1
     .end sparse-switch
 .end method

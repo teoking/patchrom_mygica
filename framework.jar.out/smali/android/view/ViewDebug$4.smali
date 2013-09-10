@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public varargs post([Ljava/lang/Object;)V
-    .registers 5
+    .locals 3
     .parameter "data"
 
     .prologue
@@ -59,7 +59,7 @@
     .line 535
     aget-object v0, p1, v1
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 536
     aget-object v0, p1, v1
@@ -71,10 +71,10 @@
     invoke-virtual {v0, v1}, Landroid/graphics/Canvas;->setBitmap(Landroid/graphics/Bitmap;)V
 
     .line 538
-    :cond_e
+    :cond_0
     aget-object v0, p1, v2
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_1
 
     .line 539
     aget-object v0, p1, v2
@@ -84,12 +84,12 @@
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
     .line 541
-    :cond_19
+    :cond_1
     return-void
 .end method
 
 .method public pre()[Ljava/lang/Object;
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v1, 0x0
@@ -97,7 +97,7 @@
     .line 516
     iget-object v3, p0, Landroid/view/ViewDebug$4;->val$view:Landroid/view/View;
 
-    if-eqz v3, :cond_34
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Landroid/view/ViewDebug$4;->val$view:Landroid/view/View;
 
@@ -105,7 +105,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_34
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Landroid/view/ViewDebug$4;->val$view:Landroid/view/View;
 
@@ -119,8 +119,8 @@
 
     .line 519
     .local v2, metrics:Landroid/util/DisplayMetrics;
-    :goto_17
-    if-eqz v2, :cond_36
+    :goto_0
+    if-eqz v2, :cond_2
 
     iget v3, v2, Landroid/util/DisplayMetrics;->widthPixels:I
 
@@ -134,8 +134,8 @@
 
     .line 522
     .local v0, bitmap:Landroid/graphics/Bitmap;
-    :goto_23
-    if-eqz v0, :cond_2a
+    :goto_1
+    if-eqz v0, :cond_0
 
     new-instance v1, Landroid/graphics/Canvas;
 
@@ -143,7 +143,7 @@
 
     .line 523
     .local v1, canvas:Landroid/graphics/Canvas;
-    :cond_2a
+    :cond_0
     const/4 v3, 0x2
 
     new-array v3, v3, [Ljava/lang/Object;
@@ -161,22 +161,22 @@
     .end local v0           #bitmap:Landroid/graphics/Bitmap;
     .end local v1           #canvas:Landroid/graphics/Canvas;
     .end local v2           #metrics:Landroid/util/DisplayMetrics;
-    :cond_34
+    :cond_1
     move-object v2, v1
 
     .line 516
-    goto :goto_17
+    goto :goto_0
 
     .restart local v2       #metrics:Landroid/util/DisplayMetrics;
-    :cond_36
+    :cond_2
     move-object v0, v1
 
     .line 519
-    goto :goto_23
+    goto :goto_1
 .end method
 
 .method public varargs run([Ljava/lang/Object;)V
-    .registers 5
+    .locals 3
     .parameter "data"
 
     .prologue
@@ -185,7 +185,7 @@
     .line 529
     aget-object v0, p1, v2
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 530
     iget-object v1, p0, Landroid/view/ViewDebug$4;->val$view:Landroid/view/View;
@@ -197,6 +197,6 @@
     invoke-virtual {v1, v0}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
 
     .line 532
-    :cond_e
+    :cond_0
     return-void
 .end method

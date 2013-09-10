@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/media/effect/EffectContext;Ljava/lang/String;)V
-    .registers 10
+    .locals 7
     .parameter "context"
     .parameter "name"
 

@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 400
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public getExtra()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 436
@@ -78,7 +78,7 @@
 .end method
 
 .method public getType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 425
@@ -88,7 +88,7 @@
 .end method
 
 .method public setExtra(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "extra"
 
     .prologue
@@ -100,7 +100,7 @@
 .end method
 
 .method public setType(I)V
-    .registers 2
+    .locals 0
     .parameter "type"
 
     .prologue

@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/accounts/AbstractAccountAuthenticator;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/AbstractAccountAuthenticator$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public addAccount(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;)V
-    .registers 14
+    .locals 8
     .parameter "response"
     .parameter "accountType"
     .parameter "authTokenType"
@@ -69,7 +69,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_39
+    if-eqz v0, :cond_0
 
     .line 122
     const-string v1, "AccountAuthenticator"
@@ -104,11 +104,11 @@
 
     move-result-object v2
 
-    if-nez p4, :cond_7b
+    if-nez p4, :cond_3
 
     const-string v0, "[]"
 
-    :goto_2e
+    :goto_0
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -120,13 +120,14 @@
     invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 126
-    :cond_39
+    :cond_0
     iget-object v0, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
+    #calls: Landroid/accounts/AbstractAccountAuthenticator;->checkBinderPermission()V
     invoke-static {v0}, Landroid/accounts/AbstractAccountAuthenticator;->access$000(Landroid/accounts/AbstractAccountAuthenticator;)V
 
     .line 128
-    :try_start_3e
+    :try_start_0
     iget-object v0, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     new-instance v1, Landroid/accounts/AccountAuthenticatorResponse;
@@ -155,7 +156,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_75
+    if-eqz v0, :cond_1
 
     .line 132
     invoke-virtual {v7}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
@@ -188,30 +189,30 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 135
-    :cond_75
-    if-eqz v7, :cond_7a
+    :cond_1
+    if-eqz v7, :cond_2
 
     .line 136
     invoke-interface {p1, v7}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
-    :try_end_7a
-    .catch Ljava/lang/Exception; {:try_start_3e .. :try_end_7a} :catch_80
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 141
     .end local v7           #result:Landroid/os/Bundle;
-    :cond_7a
-    :goto_7a
+    :cond_2
+    :goto_1
     return-void
 
     .line 122
-    :cond_7b
+    :cond_3
     invoke-static {p4}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 138
-    :catch_80
+    :catch_0
     move-exception v6
 
     .line 139
@@ -220,13 +221,14 @@
 
     const-string v1, "addAccount"
 
+    #calls: Landroid/accounts/AbstractAccountAuthenticator;->handleException(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
     invoke-static {v0, p1, v1, p2, v6}, Landroid/accounts/AbstractAccountAuthenticator;->access$100(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    goto :goto_7a
+    goto :goto_1
 .end method
 
 .method public confirmCredentials(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;Landroid/os/Bundle;)V
-    .registers 9
+    .locals 5
     .parameter "response"
     .parameter "account"
     .parameter "options"
@@ -246,7 +248,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_0
 
     .line 146
     const-string v2, "AccountAuthenticator"
@@ -272,13 +274,14 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 148
-    :cond_21
+    :cond_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
+    #calls: Landroid/accounts/AbstractAccountAuthenticator;->checkBinderPermission()V
     invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->access$000(Landroid/accounts/AbstractAccountAuthenticator;)V
 
     .line 150
-    :try_start_26
+    :try_start_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
@@ -299,7 +302,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_59
+    if-eqz v2, :cond_1
 
     .line 153
     invoke-virtual {v1}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
@@ -332,22 +335,22 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 157
-    :cond_59
-    if-eqz v1, :cond_5e
+    :cond_1
+    if-eqz v1, :cond_2
 
     .line 158
     invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
-    :try_end_5e
-    .catch Ljava/lang/Exception; {:try_start_26 .. :try_end_5e} :catch_5f
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 163
     .end local v1           #result:Landroid/os/Bundle;
-    :cond_5e
-    :goto_5e
+    :cond_2
+    :goto_0
     return-void
 
     .line 160
-    :catch_5f
+    :catch_0
     move-exception v0
 
     .line 161
@@ -360,13 +363,14 @@
 
     move-result-object v4
 
+    #calls: Landroid/accounts/AbstractAccountAuthenticator;->handleException(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
     invoke-static {v2, p1, v3, v4, v0}, Landroid/accounts/AbstractAccountAuthenticator;->access$100(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    goto :goto_5e
+    goto :goto_0
 .end method
 
 .method public editProperties(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;)V
-    .registers 7
+    .locals 4
     .parameter "response"
     .parameter "accountType"
     .annotation system Ldalvik/annotation/Throws;
@@ -379,10 +383,11 @@
     .line 239
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
+    #calls: Landroid/accounts/AbstractAccountAuthenticator;->checkBinderPermission()V
     invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->access$000(Landroid/accounts/AbstractAccountAuthenticator;)V
 
     .line 241
-    :try_start_5
+    :try_start_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
@@ -395,21 +400,21 @@
 
     .line 243
     .local v1, result:Landroid/os/Bundle;
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_0
 
     .line 244
     invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
-    :try_end_15
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_15} :catch_16
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 249
     .end local v1           #result:Landroid/os/Bundle;
-    :cond_15
-    :goto_15
+    :cond_0
+    :goto_0
     return-void
 
     .line 246
-    :catch_16
+    :catch_0
     move-exception v0
 
     .line 247
@@ -418,13 +423,14 @@
 
     const-string v3, "editProperties"
 
+    #calls: Landroid/accounts/AbstractAccountAuthenticator;->handleException(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
     invoke-static {v2, p1, v3, p2, v0}, Landroid/accounts/AbstractAccountAuthenticator;->access$100(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public getAccountRemovalAllowed(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;)V
-    .registers 8
+    .locals 5
     .parameter "response"
     .parameter "account"
     .annotation system Ldalvik/annotation/Throws;
@@ -437,10 +443,11 @@
     .line 267
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
+    #calls: Landroid/accounts/AbstractAccountAuthenticator;->checkBinderPermission()V
     invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->access$000(Landroid/accounts/AbstractAccountAuthenticator;)V
 
     .line 269
-    :try_start_5
+    :try_start_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
@@ -453,21 +460,21 @@
 
     .line 271
     .local v1, result:Landroid/os/Bundle;
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_0
 
     .line 272
     invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
-    :try_end_15
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_15} :catch_16
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 277
     .end local v1           #result:Landroid/os/Bundle;
-    :cond_15
-    :goto_15
+    :cond_0
+    :goto_0
     return-void
 
     .line 274
-    :catch_16
+    :catch_0
     move-exception v0
 
     .line 275
@@ -480,13 +487,14 @@
 
     move-result-object v4
 
+    #calls: Landroid/accounts/AbstractAccountAuthenticator;->handleException(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
     invoke-static {v2, p1, v3, v4, v0}, Landroid/accounts/AbstractAccountAuthenticator;->access$100(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public getAuthToken(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)V
-    .registers 11
+    .locals 6
     .parameter "response"
     .parameter "account"
     .parameter "authTokenType"
@@ -507,7 +515,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2b
+    if-eqz v2, :cond_0
 
     .line 191
     const-string v2, "AccountAuthenticator"
@@ -543,13 +551,14 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 194
-    :cond_2b
+    :cond_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
+    #calls: Landroid/accounts/AbstractAccountAuthenticator;->checkBinderPermission()V
     invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->access$000(Landroid/accounts/AbstractAccountAuthenticator;)V
 
     .line 196
-    :try_start_30
+    :try_start_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
@@ -570,7 +579,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_63
+    if-eqz v2, :cond_1
 
     .line 200
     invoke-virtual {v1}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
@@ -603,22 +612,22 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 203
-    :cond_63
-    if-eqz v1, :cond_68
+    :cond_1
+    if-eqz v1, :cond_2
 
     .line 204
     invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
-    :try_end_68
-    .catch Ljava/lang/Exception; {:try_start_30 .. :try_end_68} :catch_69
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 210
     .end local v1           #result:Landroid/os/Bundle;
-    :cond_68
-    :goto_68
+    :cond_2
+    :goto_0
     return-void
 
     .line 206
-    :catch_69
+    :catch_0
     move-exception v0
 
     .line 207
@@ -653,13 +662,14 @@
 
     move-result-object v4
 
+    #calls: Landroid/accounts/AbstractAccountAuthenticator;->handleException(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
     invoke-static {v2, p1, v3, v4, v0}, Landroid/accounts/AbstractAccountAuthenticator;->access$100(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    goto :goto_68
+    goto :goto_0
 .end method
 
 .method public getAuthTokenLabel(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "response"
     .parameter "authTokenType"
     .annotation system Ldalvik/annotation/Throws;
@@ -678,7 +688,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_0
 
     .line 169
     const-string v2, "AccountAuthenticator"
@@ -704,13 +714,14 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 171
-    :cond_21
+    :cond_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
+    #calls: Landroid/accounts/AbstractAccountAuthenticator;->checkBinderPermission()V
     invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->access$000(Landroid/accounts/AbstractAccountAuthenticator;)V
 
     .line 173
-    :try_start_26
+    :try_start_0
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
@@ -736,7 +747,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5e
+    if-eqz v2, :cond_1
 
     .line 177
     invoke-virtual {v1}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
@@ -769,18 +780,18 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 181
-    :cond_5e
+    :cond_1
     invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
-    :try_end_61
-    .catch Ljava/lang/Exception; {:try_start_26 .. :try_end_61} :catch_62
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 185
     .end local v1           #result:Landroid/os/Bundle;
-    :goto_61
+    :goto_0
     return-void
 
     .line 182
-    :catch_62
+    :catch_0
     move-exception v0
 
     .line 183
@@ -789,13 +800,14 @@
 
     const-string v3, "getAuthTokenLabel"
 
+    #calls: Landroid/accounts/AbstractAccountAuthenticator;->handleException(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
     invoke-static {v2, p1, v3, p2, v0}, Landroid/accounts/AbstractAccountAuthenticator;->access$100(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    goto :goto_61
+    goto :goto_0
 .end method
 
 .method public hasFeatures(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;[Ljava/lang/String;)V
-    .registers 9
+    .locals 5
     .parameter "response"
     .parameter "account"
     .parameter "features"
@@ -809,10 +821,11 @@
     .line 253
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
+    #calls: Landroid/accounts/AbstractAccountAuthenticator;->checkBinderPermission()V
     invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->access$000(Landroid/accounts/AbstractAccountAuthenticator;)V
 
     .line 255
-    :try_start_5
+    :try_start_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
@@ -825,21 +838,21 @@
 
     .line 257
     .local v1, result:Landroid/os/Bundle;
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_0
 
     .line 258
     invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
-    :try_end_15
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_15} :catch_16
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 263
     .end local v1           #result:Landroid/os/Bundle;
-    :cond_15
-    :goto_15
+    :cond_0
+    :goto_0
     return-void
 
     .line 260
-    :catch_16
+    :catch_0
     move-exception v0
 
     .line 261
@@ -852,13 +865,14 @@
 
     move-result-object v4
 
+    #calls: Landroid/accounts/AbstractAccountAuthenticator;->handleException(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
     invoke-static {v2, p1, v3, v4, v0}, Landroid/accounts/AbstractAccountAuthenticator;->access$100(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public updateCredentials(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)V
-    .registers 11
+    .locals 6
     .parameter "response"
     .parameter "account"
     .parameter "authTokenType"
@@ -879,7 +893,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2c
+    if-eqz v2, :cond_0
 
     .line 215
     const-string v2, "AccountAuthenticator"
@@ -915,13 +929,14 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 218
-    :cond_2c
+    :cond_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
+    #calls: Landroid/accounts/AbstractAccountAuthenticator;->checkBinderPermission()V
     invoke-static {v2}, Landroid/accounts/AbstractAccountAuthenticator;->access$000(Landroid/accounts/AbstractAccountAuthenticator;)V
 
     .line 220
-    :try_start_31
+    :try_start_0
     iget-object v2, p0, Landroid/accounts/AbstractAccountAuthenticator$Transport;->this$0:Landroid/accounts/AbstractAccountAuthenticator;
 
     new-instance v3, Landroid/accounts/AccountAuthenticatorResponse;
@@ -942,7 +957,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_65
+    if-eqz v2, :cond_1
 
     .line 224
     invoke-virtual {v1}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
@@ -975,22 +990,22 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 228
-    :cond_65
-    if-eqz v1, :cond_6a
+    :cond_1
+    if-eqz v1, :cond_2
 
     .line 229
     invoke-interface {p1, v1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
-    :try_end_6a
-    .catch Ljava/lang/Exception; {:try_start_31 .. :try_end_6a} :catch_6b
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 235
     .end local v1           #result:Landroid/os/Bundle;
-    :cond_6a
-    :goto_6a
+    :cond_2
+    :goto_0
     return-void
 
     .line 231
-    :catch_6b
+    :catch_0
     move-exception v0
 
     .line 232
@@ -1025,7 +1040,8 @@
 
     move-result-object v4
 
+    #calls: Landroid/accounts/AbstractAccountAuthenticator;->handleException(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
     invoke-static {v2, p1, v3, v4, v0}, Landroid/accounts/AbstractAccountAuthenticator;->access$100(Landroid/accounts/AbstractAccountAuthenticator;Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    goto :goto_6a
+    goto :goto_0
 .end method

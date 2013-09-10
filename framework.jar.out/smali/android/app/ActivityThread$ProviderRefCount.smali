@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/IActivityManager$ContentProviderHolder;Landroid/app/ActivityThread$ProviderClientRecord;II)V
-    .registers 5
+    .locals 0
     .parameter "inHolder"
     .parameter "inClient"
     .parameter "sCount"

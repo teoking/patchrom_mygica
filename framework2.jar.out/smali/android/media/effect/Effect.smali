@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 37
@@ -29,7 +29,7 @@
 .end method
 
 .method public setUpdateListener(Landroid/media/effect/EffectUpdateListener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 154
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 158
@@ -60,7 +60,7 @@
 .end method
 
 .method public setAllMetadata(ILandroid/os/Bundle;Landroid/graphics/Bitmap;)V
-    .registers 9
+    .locals 5
     .parameter "generationId"
     .parameter "metadata"
     .parameter "artwork"
@@ -78,7 +78,7 @@
 
     .line 260
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.media.IRemoteControlDisplay"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -87,7 +87,7 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 262
-    if-eqz p2, :cond_2c
+    if-eqz p2, :cond_0
 
     .line 263
     const/4 v1, 0x1
@@ -100,8 +100,8 @@
     invoke-virtual {p2, v0, v1}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 269
-    :goto_16
-    if-eqz p3, :cond_36
+    :goto_0
+    if-eqz p3, :cond_1
 
     .line 270
     const/4 v1, 0x1
@@ -114,7 +114,7 @@
     invoke-virtual {p3, v0, v1}, Landroid/graphics/Bitmap;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 276
-    :goto_20
+    :goto_1
     iget-object v1, p0, Landroid/media/IRemoteControlDisplay$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x6
@@ -124,8 +124,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_28
-    .catchall {:try_start_4 .. :try_end_28} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 279
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -134,18 +134,18 @@
     return-void
 
     .line 267
-    :cond_2c
+    :cond_0
     const/4 v1, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 279
-    :catchall_31
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -153,19 +153,19 @@
     throw v1
 
     .line 274
-    :cond_36
+    :cond_1
     const/4 v1, 0x0
 
-    :try_start_37
+    :try_start_2
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_3a
-    .catchall {:try_start_37 .. :try_end_3a} :catchall_31
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_20
+    goto :goto_1
 .end method
 
 .method public setArtwork(ILandroid/graphics/Bitmap;)V
-    .registers 8
+    .locals 5
     .parameter "generationId"
     .parameter "artwork"
     .annotation system Ldalvik/annotation/Throws;
@@ -182,7 +182,7 @@
 
     .line 238
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.media.IRemoteControlDisplay"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -191,7 +191,7 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 240
-    if-eqz p2, :cond_22
+    if-eqz p2, :cond_0
 
     .line 241
     const/4 v1, 0x1
@@ -204,7 +204,7 @@
     invoke-virtual {p2, v0, v1}, Landroid/graphics/Bitmap;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 247
-    :goto_16
+    :goto_0
     iget-object v1, p0, Landroid/media/IRemoteControlDisplay$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x5
@@ -214,8 +214,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1e
-    .catchall {:try_start_4 .. :try_end_1e} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 250
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -224,18 +224,18 @@
     return-void
 
     .line 245
-    :cond_22
+    :cond_0
     const/4 v1, 0x0
 
-    :try_start_23
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_26
-    .catchall {:try_start_23 .. :try_end_26} :catchall_27
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 250
-    :catchall_27
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -244,7 +244,7 @@
 .end method
 
 .method public setCurrentClientId(ILandroid/app/PendingIntent;Z)V
-    .registers 9
+    .locals 5
     .parameter "clientGeneration"
     .parameter "clientMediaIntent"
     .parameter "clearing"
@@ -266,7 +266,7 @@
 
     .line 172
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_6
+    :try_start_0
     const-string v3, "android.media.IRemoteControlDisplay"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -275,7 +275,7 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 174
-    if-eqz p2, :cond_29
+    if-eqz p2, :cond_0
 
     .line 175
     const/4 v3, 0x1
@@ -288,10 +288,10 @@
     invoke-virtual {p2, v0, v3}, Landroid/app/PendingIntent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 181
-    :goto_18
-    if-eqz p3, :cond_33
+    :goto_0
+    if-eqz p3, :cond_1
 
-    :goto_1a
+    :goto_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 182
@@ -304,8 +304,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_25
-    .catchall {:try_start_6 .. :try_end_25} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 185
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -314,33 +314,33 @@
     return-void
 
     .line 179
-    :cond_29
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_2a
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2d
-    .catchall {:try_start_2a .. :try_end_2d} :catchall_2e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_18
+    goto :goto_0
 
     .line 185
-    :catchall_2e
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v1
 
-    :cond_33
+    :cond_1
     move v1, v2
 
     .line 181
-    goto :goto_1a
+    goto :goto_1
 .end method
 
 .method public setMetadata(ILandroid/os/Bundle;)V
-    .registers 8
+    .locals 5
     .parameter "generationId"
     .parameter "metadata"
     .annotation system Ldalvik/annotation/Throws;
@@ -357,7 +357,7 @@
 
     .line 219
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.media.IRemoteControlDisplay"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -366,7 +366,7 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 221
-    if-eqz p2, :cond_22
+    if-eqz p2, :cond_0
 
     .line 222
     const/4 v1, 0x1
@@ -379,7 +379,7 @@
     invoke-virtual {p2, v0, v1}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 228
-    :goto_16
+    :goto_0
     iget-object v1, p0, Landroid/media/IRemoteControlDisplay$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x4
@@ -389,8 +389,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1e
-    .catchall {:try_start_4 .. :try_end_1e} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 231
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -399,18 +399,18 @@
     return-void
 
     .line 226
-    :cond_22
+    :cond_0
     const/4 v1, 0x0
 
-    :try_start_23
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_26
-    .catchall {:try_start_23 .. :try_end_26} :catchall_27
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 231
-    :catchall_27
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -419,7 +419,7 @@
 .end method
 
 .method public setPlaybackState(IIJ)V
-    .registers 10
+    .locals 5
     .parameter "generationId"
     .parameter "state"
     .parameter "stateChangeTimeMs"
@@ -437,7 +437,7 @@
 
     .line 192
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.media.IRemoteControlDisplay"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -461,8 +461,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1a
-    .catchall {:try_start_4 .. :try_end_1a} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 199
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -471,7 +471,7 @@
     return-void
 
     .line 199
-    :catchall_1e
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -480,7 +480,7 @@
 .end method
 
 .method public setTransportControlFlags(II)V
-    .registers 8
+    .locals 5
     .parameter "generationId"
     .parameter "transportControlFlags"
     .annotation system Ldalvik/annotation/Throws;
@@ -497,7 +497,7 @@
 
     .line 206
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.media.IRemoteControlDisplay"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -518,8 +518,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_17
-    .catchall {:try_start_4 .. :try_end_17} :catchall_1b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 212
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -528,7 +528,7 @@
     return-void
 
     .line 212
-    :catchall_1b
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V

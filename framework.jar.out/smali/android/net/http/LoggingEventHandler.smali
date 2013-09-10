@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 28
@@ -20,7 +20,7 @@
 
 # virtual methods
 .method public certificate(Landroid/net/http/SslCertificate;)V
-    .registers 2
+    .locals 0
     .parameter "certificate"
 
     .prologue
@@ -29,7 +29,7 @@
 .end method
 
 .method public data([BI)V
-    .registers 3
+    .locals 0
     .parameter "data"
     .parameter "len"
 
@@ -39,7 +39,7 @@
 .end method
 
 .method public endData()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 70
@@ -47,7 +47,7 @@
 .end method
 
 .method public error(ILjava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "id"
     .parameter "description"
 
@@ -57,7 +57,7 @@
 .end method
 
 .method public handleSslErrorRequest(Landroid/net/http/SslError;)Z
-    .registers 3
+    .locals 1
     .parameter "error"
 
     .prologue
@@ -68,7 +68,7 @@
 .end method
 
 .method public headers(Landroid/net/http/Headers;)V
-    .registers 2
+    .locals 0
     .parameter "headers"
 
     .prologue
@@ -77,7 +77,7 @@
 .end method
 
 .method public locationChanged(Ljava/lang/String;Z)V
-    .registers 3
+    .locals 0
     .parameter "newLocation"
     .parameter "permanent"
 
@@ -87,7 +87,7 @@
 .end method
 
 .method public requestSent()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 31
@@ -100,7 +100,7 @@
 .end method
 
 .method public status(IIILjava/lang/String;)V
-    .registers 5
+    .locals 0
     .parameter "major_version"
     .parameter "minor_version"
     .parameter "code"

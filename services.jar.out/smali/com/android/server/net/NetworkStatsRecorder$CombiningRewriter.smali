@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/net/NetworkStatsCollection;)V
-    .registers 3
+    .locals 1
     .parameter "collection"
 
     .prologue
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public read(Ljava/io/InputStream;)V
-    .registers 3
+    .locals 1
     .parameter "in"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -67,7 +67,7 @@
 .end method
 
 .method public reset()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 271
@@ -75,7 +75,7 @@
 .end method
 
 .method public shouldWrite()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 280
@@ -85,7 +85,7 @@
 .end method
 
 .method public write(Ljava/io/OutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
         value = {

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 26
@@ -24,14 +24,14 @@
 .end method
 
 .method public static wrap(Landroid/text/style/CharacterStyle;)Landroid/text/style/CharacterStyle;
-    .registers 2
+    .locals 1
     .parameter "cs"
 
     .prologue
     .line 37
     instance-of v0, p0, Landroid/text/style/MetricAffectingSpan;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 38
     new-instance v0, Landroid/text/style/MetricAffectingSpan$Passthrough;
@@ -43,21 +43,21 @@
 
     .line 40
     .restart local p0
-    :goto_b
+    :goto_0
     return-object v0
 
-    :cond_c
+    :cond_0
     new-instance v0, Landroid/text/style/CharacterStyle$Passthrough;
 
     invoke-direct {v0, p0}, Landroid/text/style/CharacterStyle$Passthrough;-><init>(Landroid/text/style/CharacterStyle;)V
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getUnderlying()Landroid/text/style/CharacterStyle;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 50

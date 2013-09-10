@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/FaceUnlock;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 5
+    .locals 2
     .parameter "className"
     .parameter "iservice"
 
@@ -57,11 +57,13 @@
 
     move-result-object v1
 
+    #setter for: Lcom/android/internal/policy/impl/FaceUnlock;->mService:Lcom/android/internal/policy/IFaceLockInterface;
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/FaceUnlock;->access$002(Lcom/android/internal/policy/impl/FaceUnlock;Lcom/android/internal/policy/IFaceLockInterface;)Lcom/android/internal/policy/IFaceLockInterface;
 
     .line 440
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock$1;->this$0:Lcom/android/internal/policy/impl/FaceUnlock;
 
+    #getter for: Lcom/android/internal/policy/impl/FaceUnlock;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/internal/policy/impl/FaceUnlock;->access$100(Lcom/android/internal/policy/impl/FaceUnlock;)Landroid/os/Handler;
 
     move-result-object v0
@@ -75,7 +77,7 @@
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .registers 4
+    .locals 2
     .parameter "className"
 
     .prologue
@@ -89,6 +91,7 @@
     .line 449
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock$1;->this$0:Lcom/android/internal/policy/impl/FaceUnlock;
 
+    #getter for: Lcom/android/internal/policy/impl/FaceUnlock;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/internal/policy/impl/FaceUnlock;->access$100(Lcom/android/internal/policy/impl/FaceUnlock;)Landroid/os/Handler;
 
     move-result-object v0

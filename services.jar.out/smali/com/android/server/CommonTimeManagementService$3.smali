@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/CommonTimeManagementService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,12 +38,13 @@
 
 # virtual methods
 .method public onServerDied()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 135
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService$3;->this$0:Lcom/android/server/CommonTimeManagementService;
 
+    #calls: Lcom/android/server/CommonTimeManagementService;->scheduleTimeConfigReconnect()V
     invoke-static {v0}, Lcom/android/server/CommonTimeManagementService;->access$100(Lcom/android/server/CommonTimeManagementService;)V
 
     .line 136

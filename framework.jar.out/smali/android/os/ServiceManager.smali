@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 31
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 27
@@ -47,7 +47,7 @@
 .end method
 
 .method public static addService(Ljava/lang/String;Landroid/os/IBinder;)V
-    .registers 5
+    .locals 3
     .parameter "name"
     .parameter "service"
 
@@ -61,15 +61,15 @@
     const/4 v2, 0x0
 
     invoke-interface {v1, p0, p1, v2}, Landroid/os/IServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;Z)V
-    :try_end_8
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_8} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 76
-    :goto_8
+    :goto_0
     return-void
 
     .line 73
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 74
@@ -80,11 +80,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public static addService(Ljava/lang/String;Landroid/os/IBinder;Z)V
-    .registers 6
+    .locals 3
     .parameter "name"
     .parameter "service"
     .parameter "allowIsolated"
@@ -97,15 +97,15 @@
     move-result-object v1
 
     invoke-interface {v1, p0, p1, p2}, Landroid/os/IServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;Z)V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 93
-    :goto_7
+    :goto_0
     return-void
 
     .line 90
-    :catch_8
+    :catch_0
     move-exception v0
 
     .line 91
@@ -116,11 +116,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public static checkService(Ljava/lang/String;)Landroid/os/IBinder;
-    .registers 5
+    .locals 4
     .parameter "name"
 
     .prologue
@@ -136,31 +136,31 @@
 
     .line 102
     .local v1, service:Landroid/os/IBinder;
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
     .line 109
     .end local v1           #service:Landroid/os/IBinder;
-    :goto_a
+    :goto_0
     return-object v1
 
     .line 105
     .restart local v1       #service:Landroid/os/IBinder;
-    :cond_b
+    :cond_0
     invoke-static {}, Landroid/os/ServiceManager;->getIServiceManager()Landroid/os/IServiceManager;
 
     move-result-object v2
 
     invoke-interface {v2, p0}, Landroid/os/IServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
-    :try_end_12
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_12} :catch_14
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 107
     .end local v1           #service:Landroid/os/IBinder;
-    :catch_14
+    :catch_0
     move-exception v0
 
     .line 108
@@ -174,27 +174,27 @@
     .line 109
     const/4 v1, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method private static getIServiceManager()Landroid/os/IServiceManager;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 34
     sget-object v0, Landroid/os/ServiceManager;->sServiceManager:Landroid/os/IServiceManager;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 35
     sget-object v0, Landroid/os/ServiceManager;->sServiceManager:Landroid/os/IServiceManager;
 
     .line 40
-    :goto_6
+    :goto_0
     return-object v0
 
     .line 39
-    :cond_7
+    :cond_0
     invoke-static {}, Lcom/android/internal/os/BinderInternal;->getContextObject()Landroid/os/IBinder;
 
     move-result-object v0
@@ -208,11 +208,11 @@
     .line 40
     sget-object v0, Landroid/os/ServiceManager;->sServiceManager:Landroid/os/IServiceManager;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public static getService(Ljava/lang/String;)Landroid/os/IBinder;
-    .registers 5
+    .locals 4
     .parameter "name"
 
     .prologue
@@ -228,31 +228,31 @@
 
     .line 52
     .local v1, service:Landroid/os/IBinder;
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
     .line 60
     .end local v1           #service:Landroid/os/IBinder;
-    :goto_a
+    :goto_0
     return-object v1
 
     .line 55
     .restart local v1       #service:Landroid/os/IBinder;
-    :cond_b
+    :cond_0
     invoke-static {}, Landroid/os/ServiceManager;->getIServiceManager()Landroid/os/IServiceManager;
 
     move-result-object v2
 
     invoke-interface {v2, p0}, Landroid/os/IServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-    :try_end_12
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_12} :catch_14
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 57
     .end local v1           #service:Landroid/os/IBinder;
-    :catch_14
+    :catch_0
     move-exception v0
 
     .line 58
@@ -266,11 +266,11 @@
     .line 60
     const/4 v1, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public static initServiceCache(Ljava/util/Map;)V
-    .registers 3
+    .locals 2
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -292,7 +292,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 135
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -304,7 +304,7 @@
     throw v0
 
     .line 137
-    :cond_11
+    :cond_0
     sget-object v0, Landroid/os/ServiceManager;->sCache:Ljava/util/HashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/HashMap;->putAll(Ljava/util/Map;)V
@@ -314,7 +314,7 @@
 .end method
 
 .method public static listServices()[Ljava/lang/String;
-    .registers 3
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -329,19 +329,19 @@
     move-result-object v1
 
     invoke-interface {v1}, Landroid/os/IServiceManager;->listServices()[Ljava/lang/String;
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 121
     .local v0, e:Landroid/os/RemoteException;
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 119
     .end local v0           #e:Landroid/os/RemoteException;
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 120
@@ -355,5 +355,5 @@
     .line 121
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method

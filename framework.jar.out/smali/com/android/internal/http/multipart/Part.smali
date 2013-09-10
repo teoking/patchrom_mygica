@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 55
@@ -140,7 +140,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 52
@@ -150,7 +150,7 @@
 .end method
 
 .method public static getBoundary()Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 129
@@ -160,7 +160,7 @@
 .end method
 
 .method public static getLengthOfParts([Lcom/android/internal/http/multipart/Part;)J
-    .registers 3
+    .locals 2
     .parameter "parts"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -180,7 +180,7 @@
 .end method
 
 .method public static getLengthOfParts([Lcom/android/internal/http/multipart/Part;[B)J
-    .registers 9
+    .locals 7
     .parameter "parts"
     .parameter "partBoundary"
     .annotation system Ldalvik/annotation/Throws;
@@ -198,7 +198,7 @@
     invoke-interface {v5, v6}, Lorg/apache/commons/logging/Log;->trace(Ljava/lang/Object;)V
 
     .line 420
-    if-nez p0, :cond_11
+    if-nez p0, :cond_0
 
     .line 421
     new-instance v5, Ljava/lang/IllegalArgumentException;
@@ -210,7 +210,7 @@
     throw v5
 
     .line 423
-    :cond_11
+    :cond_0
     const-wide/16 v3, 0x0
 
     .line 424
@@ -218,10 +218,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_14
+    :goto_0
     array-length v5, p0
 
-    if-ge v0, v5, :cond_2f
+    if-ge v0, v5, :cond_2
 
     .line 426
     aget-object v5, p0, v0
@@ -241,29 +241,29 @@
 
     cmp-long v5, v1, v5
 
-    if-gez v5, :cond_2b
+    if-gez v5, :cond_1
 
     .line 429
     const-wide/16 v5, -0x1
 
     .line 437
     .end local v1           #l:J
-    :goto_2a
+    :goto_1
     return-wide v5
 
     .line 431
     .restart local v1       #l:J
-    :cond_2b
+    :cond_1
     add-long/2addr v3, v1
 
     .line 424
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_14
+    goto :goto_0
 
     .line 433
     .end local v1           #l:J
-    :cond_2f
+    :cond_2
     sget-object v5, Lcom/android/internal/http/multipart/Part;->EXTRA_BYTES:[B
 
     array-length v5, v5
@@ -300,11 +300,11 @@
     move-wide v5, v3
 
     .line 437
-    goto :goto_2a
+    goto :goto_1
 .end method
 
 .method public static sendParts(Ljava/io/OutputStream;[Lcom/android/internal/http/multipart/Part;)V
-    .registers 3
+    .locals 1
     .parameter "out"
     .parameter "parts"
     .annotation system Ldalvik/annotation/Throws;
@@ -324,7 +324,7 @@
 .end method
 
 .method public static sendParts(Ljava/io/OutputStream;[Lcom/android/internal/http/multipart/Part;[B)V
-    .registers 6
+    .locals 3
     .parameter "out"
     .parameter "parts"
     .parameter "partBoundary"
@@ -336,7 +336,7 @@
 
     .prologue
     .line 377
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 378
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -348,15 +348,15 @@
     throw v1
 
     .line 380
-    :cond_a
-    if-eqz p2, :cond_f
+    :cond_0
+    if-eqz p2, :cond_1
 
     array-length v1, p2
 
-    if-nez v1, :cond_18
+    if-nez v1, :cond_2
 
     .line 381
-    :cond_f
+    :cond_1
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v2, "partBoundary may not be empty"
@@ -366,14 +366,14 @@
     throw v1
 
     .line 383
-    :cond_18
+    :cond_2
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_19
+    :goto_0
     array-length v1, p1
 
-    if-ge v0, v1, :cond_29
+    if-ge v0, v1, :cond_3
 
     .line 385
     aget-object v1, p1, v0
@@ -388,10 +388,10 @@
     .line 383
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_19
+    goto :goto_0
 
     .line 388
-    :cond_29
+    :cond_3
     sget-object v1, Lcom/android/internal/http/multipart/Part;->EXTRA_BYTES:[B
 
     invoke-virtual {p0, v1}, Ljava/io/OutputStream;->write([B)V
@@ -425,32 +425,32 @@
 .end method
 
 .method protected getPartBoundary()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 169
     iget-object v0, p0, Lcom/android/internal/http/multipart/Part;->boundaryBytes:[B
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 171
     sget-object v0, Lcom/android/internal/http/multipart/Part;->DEFAULT_BOUNDARY_BYTES:[B
 
     .line 173
-    :goto_6
+    :goto_0
     return-object v0
 
-    :cond_7
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/http/multipart/Part;->boundaryBytes:[B
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public abstract getTransferEncoding()Ljava/lang/String;
 .end method
 
 .method public isRepeatable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 195
@@ -460,7 +460,7 @@
 .end method
 
 .method public length()J
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -484,17 +484,17 @@
 
     cmp-long v1, v1, v3
 
-    if-gez v1, :cond_14
+    if-gez v1, :cond_0
 
     .line 328
     const-wide/16 v1, -0x1
 
     .line 337
-    :goto_13
+    :goto_0
     return-wide v1
 
     .line 330
-    :cond_14
+    :cond_0
     new-instance v0, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
@@ -531,7 +531,7 @@
 
     add-long/2addr v1, v3
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method protected abstract lengthOfData()J
@@ -543,7 +543,7 @@
 .end method
 
 .method public send(Ljava/io/OutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -585,7 +585,7 @@
 .end method
 
 .method protected sendContentTypeHeader(Ljava/io/OutputStream;)V
-    .registers 6
+    .locals 4
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -608,7 +608,7 @@
 
     .line 232
     .local v1, contentType:Ljava/lang/String;
-    if-eqz v1, :cond_30
+    if-eqz v1, :cond_0
 
     .line 233
     sget-object v2, Lcom/android/internal/http/multipart/Part;->CRLF_BYTES:[B
@@ -634,7 +634,7 @@
 
     .line 237
     .local v0, charSet:Ljava/lang/String;
-    if-eqz v0, :cond_30
+    if-eqz v0, :cond_0
 
     .line 238
     sget-object v2, Lcom/android/internal/http/multipart/Part;->CHARSET_BYTES:[B
@@ -650,7 +650,7 @@
 
     .line 242
     .end local v0           #charSet:Ljava/lang/String;
-    :cond_30
+    :cond_0
     return-void
 .end method
 
@@ -663,7 +663,7 @@
 .end method
 
 .method protected sendDispositionHeader(Ljava/io/OutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -710,7 +710,7 @@
 .end method
 
 .method protected sendEnd(Ljava/io/OutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -736,7 +736,7 @@
 .end method
 
 .method protected sendEndOfHeader(Ljava/io/OutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -767,7 +767,7 @@
 .end method
 
 .method protected sendStart(Ljava/io/OutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -805,7 +805,7 @@
 .end method
 
 .method protected sendTransferEncodingHeader(Ljava/io/OutputStream;)V
-    .registers 5
+    .locals 3
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -828,7 +828,7 @@
 
     .line 254
     .local v0, transferEncoding:Ljava/lang/String;
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_0
 
     .line 255
     sget-object v1, Lcom/android/internal/http/multipart/Part;->CRLF_BYTES:[B
@@ -848,12 +848,12 @@
     invoke-virtual {p1, v1}, Ljava/io/OutputStream;->write([B)V
 
     .line 259
-    :cond_1e
+    :cond_0
     return-void
 .end method
 
 .method setPartBoundary([B)V
-    .registers 2
+    .locals 0
     .parameter "boundaryBytes"
 
     .prologue
@@ -865,7 +865,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 347

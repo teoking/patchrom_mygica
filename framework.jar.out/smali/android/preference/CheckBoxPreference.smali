@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -19,7 +19,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 7
+    .locals 3
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method protected onBindView(Landroid/view/View;)V
-    .registers 5
+    .locals 3
     .parameter "view"
 
     .prologue
@@ -104,11 +104,11 @@
 
     .line 62
     .local v0, checkboxView:Landroid/view/View;
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_0
 
     instance-of v1, v0, Landroid/widget/Checkable;
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_0
 
     move-object v1, v0
 
@@ -123,7 +123,7 @@
     invoke-virtual {p0, v0}, Landroid/preference/CheckBoxPreference;->sendAccessibilityEvent(Landroid/view/View;)V
 
     .line 67
-    :cond_1b
+    :cond_0
     invoke-virtual {p0, p1}, Landroid/preference/CheckBoxPreference;->syncSummaryView(Landroid/view/View;)V
 
     .line 68

@@ -27,7 +27,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/android/internal/widget/AbsActionBarView;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .registers 3
+    .locals 1
     .parameter "animation"
 
     .prologue
@@ -61,22 +61,22 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .registers 4
+    .locals 2
     .parameter "animation"
 
     .prologue
     .line 260
     iget-boolean v0, p0, Lcom/android/internal/widget/AbsActionBarView$VisibilityAnimListener;->mCanceled:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_1
 
     .line 267
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-void
 
     .line 262
-    :cond_5
+    :cond_1
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView$VisibilityAnimListener;->this$0:Lcom/android/internal/widget/AbsActionBarView;
 
     const/4 v1, 0x0
@@ -95,13 +95,13 @@
 
     iget-object v0, v0, Lcom/android/internal/widget/AbsActionBarView;->mSplitView:Lcom/android/internal/widget/ActionBarContainer;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView$VisibilityAnimListener;->this$0:Lcom/android/internal/widget/AbsActionBarView;
 
     iget-object v0, v0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_0
 
     .line 265
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView$VisibilityAnimListener;->this$0:Lcom/android/internal/widget/AbsActionBarView;
@@ -112,11 +112,11 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/view/menu/ActionMenuView;->setVisibility(I)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .registers 2
+    .locals 0
     .parameter "animation"
 
     .prologue
@@ -125,7 +125,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .registers 4
+    .locals 2
     .parameter "animation"
 
     .prologue
@@ -149,7 +149,7 @@
 .end method
 
 .method public withFinalVisibility(I)Lcom/android/internal/widget/AbsActionBarView$VisibilityAnimListener;
-    .registers 2
+    .locals 0
     .parameter "visibility"
 
     .prologue

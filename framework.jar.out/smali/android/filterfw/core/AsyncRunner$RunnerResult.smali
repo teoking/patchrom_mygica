@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/filterfw/core/AsyncRunner;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -42,7 +42,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/filterfw/core/AsyncRunner;Landroid/filterfw/core/AsyncRunner$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

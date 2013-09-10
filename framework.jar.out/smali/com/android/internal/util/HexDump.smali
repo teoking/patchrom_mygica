@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 21
@@ -17,13 +17,13 @@
 
     new-array v0, v0, [C
 
-    fill-array-data v0, :array_a
+    fill-array-data v0, :array_0
 
     sput-object v0, Lcom/android/internal/util/HexDump;->HEX_DIGITS:[C
 
     return-void
 
-    :array_a
+    :array_0
     .array-data 0x2
         0x30t 0x0t
         0x31t 0x0t
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 19
@@ -55,7 +55,7 @@
 .end method
 
 .method public static dumpHexString([B)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "array"
 
     .prologue
@@ -72,7 +72,7 @@
 .end method
 
 .method public static dumpHexString([BII)Ljava/lang/String;
-    .registers 13
+    .locals 10
     .parameter "array"
     .parameter "offset"
     .parameter "length"
@@ -110,15 +110,15 @@
     move v2, p1
 
     .local v2, i:I
-    :goto_17
+    :goto_0
     add-int v8, p1, p2
 
-    if-ge v2, v8, :cond_77
+    if-ge v2, v8, :cond_3
 
     .line 40
     const/16 v8, 0x10
 
-    if-ne v5, v8, :cond_54
+    if-ne v5, v8, :cond_2
 
     .line 42
     const-string v8, " "
@@ -129,23 +129,23 @@
     const/4 v3, 0x0
 
     .local v3, j:I
-    :goto_25
+    :goto_1
     const/16 v8, 0x10
 
-    if-ge v3, v8, :cond_47
+    if-ge v3, v8, :cond_1
 
     .line 46
     aget-byte v8, v4, v3
 
     const/16 v9, 0x20
 
-    if-le v8, v9, :cond_41
+    if-le v8, v9, :cond_0
 
     aget-byte v8, v4, v3
 
     const/16 v9, 0x7e
 
-    if-ge v8, v9, :cond_41
+    if-ge v8, v9, :cond_0
 
     .line 48
     new-instance v8, Ljava/lang/String;
@@ -157,21 +157,21 @@
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 44
-    :goto_3e
+    :goto_2
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_25
+    goto :goto_1
 
     .line 52
-    :cond_41
+    :cond_0
     const-string v8, "."
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_3e
+    goto :goto_2
 
     .line 56
-    :cond_47
+    :cond_1
     const-string v8, "\n0x"
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -188,7 +188,7 @@
 
     .line 61
     .end local v3           #j:I
-    :cond_54
+    :cond_2
     aget-byte v0, p0, v2
 
     .line 62
@@ -231,14 +231,14 @@
 
     .end local v6           #lineIndex:I
     .restart local v5       #lineIndex:I
-    goto :goto_17
+    goto :goto_0
 
     .line 69
     .end local v0           #b:B
-    :cond_77
+    :cond_3
     const/16 v8, 0x10
 
-    if-eq v5, v8, :cond_ad
+    if-eq v5, v8, :cond_6
 
     .line 71
     rsub-int/lit8 v8, v5, 0x10
@@ -252,8 +252,8 @@
     .line 73
     const/4 v2, 0x0
 
-    :goto_82
-    if-ge v2, v1, :cond_8c
+    :goto_3
+    if-ge v2, v1, :cond_4
 
     .line 75
     const-string v8, " "
@@ -263,27 +263,27 @@
     .line 73
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_82
+    goto :goto_3
 
     .line 78
-    :cond_8c
+    :cond_4
     const/4 v2, 0x0
 
-    :goto_8d
-    if-ge v2, v5, :cond_ad
+    :goto_4
+    if-ge v2, v5, :cond_6
 
     .line 80
     aget-byte v8, v4, v2
 
     const/16 v9, 0x20
 
-    if-le v8, v9, :cond_a7
+    if-le v8, v9, :cond_5
 
     aget-byte v8, v4, v2
 
     const/16 v9, 0x7e
 
-    if-ge v8, v9, :cond_a7
+    if-ge v8, v9, :cond_5
 
     .line 82
     new-instance v8, Ljava/lang/String;
@@ -295,22 +295,22 @@
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 78
-    :goto_a4
+    :goto_5
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_8d
+    goto :goto_4
 
     .line 86
-    :cond_a7
+    :cond_5
     const-string v8, "."
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_a4
+    goto :goto_5
 
     .line 91
     .end local v1           #count:I
-    :cond_ad
+    :cond_6
     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v8
@@ -319,7 +319,7 @@
 .end method
 
 .method public static hexStringToByteArray(Ljava/lang/String;)[B
-    .registers 7
+    .locals 6
     .parameter "hexString"
 
     .prologue
@@ -339,8 +339,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_9
-    if-ge v1, v2, :cond_28
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     .line 159
     div-int/lit8 v3, v1, 0x2
@@ -374,67 +374,67 @@
     .line 157
     add-int/lit8 v1, v1, 0x2
 
-    goto :goto_9
+    goto :goto_0
 
     .line 162
-    :cond_28
+    :cond_0
     return-object v0
 .end method
 
 .method private static toByte(C)I
-    .registers 4
+    .locals 3
     .parameter "c"
 
     .prologue
     .line 145
     const/16 v0, 0x30
 
-    if-lt p0, v0, :cond_b
+    if-lt p0, v0, :cond_0
 
     const/16 v0, 0x39
 
-    if-gt p0, v0, :cond_b
+    if-gt p0, v0, :cond_0
 
     add-int/lit8 v0, p0, -0x30
 
     .line 147
-    :goto_a
+    :goto_0
     return v0
 
     .line 146
-    :cond_b
+    :cond_0
     const/16 v0, 0x41
 
-    if-lt p0, v0, :cond_18
+    if-lt p0, v0, :cond_1
 
     const/16 v0, 0x46
 
-    if-gt p0, v0, :cond_18
+    if-gt p0, v0, :cond_1
 
     add-int/lit8 v0, p0, -0x41
 
     add-int/lit8 v0, v0, 0xa
 
-    goto :goto_a
+    goto :goto_0
 
     .line 147
-    :cond_18
+    :cond_1
     const/16 v0, 0x61
 
-    if-lt p0, v0, :cond_25
+    if-lt p0, v0, :cond_2
 
     const/16 v0, 0x66
 
-    if-gt p0, v0, :cond_25
+    if-gt p0, v0, :cond_2
 
     add-int/lit8 v0, p0, -0x61
 
     add-int/lit8 v0, v0, 0xa
 
-    goto :goto_a
+    goto :goto_0
 
     .line 149
-    :cond_25
+    :cond_2
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -467,7 +467,7 @@
 .end method
 
 .method public static toByteArray(B)[B
-    .registers 3
+    .locals 2
     .parameter "b"
 
     .prologue
@@ -487,7 +487,7 @@
 .end method
 
 .method public static toByteArray(I)[B
-    .registers 4
+    .locals 3
     .parameter "i"
 
     .prologue
@@ -544,7 +544,7 @@
 .end method
 
 .method public static toHexString(B)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "b"
 
     .prologue
@@ -561,7 +561,7 @@
 .end method
 
 .method public static toHexString(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "i"
 
     .prologue
@@ -578,7 +578,7 @@
 .end method
 
 .method public static toHexString([B)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "array"
 
     .prologue
@@ -595,7 +595,7 @@
 .end method
 
 .method public static toHexString([BII)Ljava/lang/String;
-    .registers 10
+    .locals 7
     .parameter "array"
     .parameter "offset"
     .parameter "length"
@@ -619,10 +619,10 @@
 
     .end local v2           #bufIndex:I
     .local v3, bufIndex:I
-    :goto_7
+    :goto_0
     add-int v5, p1, p2
 
-    if-ge v4, v5, :cond_26
+    if-ge v4, v5, :cond_0
 
     .line 111
     aget-byte v0, p0, v4
@@ -659,11 +659,11 @@
     .line 109
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 116
     .end local v0           #b:B
-    :cond_26
+    :cond_0
     new-instance v5, Ljava/lang/String;
 
     invoke-direct {v5, v1}, Ljava/lang/String;-><init>([C)V

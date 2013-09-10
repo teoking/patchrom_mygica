@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 55
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -85,7 +85,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 9
+    .locals 5
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -113,13 +113,13 @@
 
     .line 75
     .local v2, d:Landroid/graphics/drawable/Drawable;
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_0
 
     .line 76
     invoke-virtual {p0, v2}, Landroid/widget/CompoundButton;->setButtonDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 79
-    :cond_14
+    :cond_0
     invoke-virtual {v0, v4, v4}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v1
@@ -138,7 +138,7 @@
 
 # virtual methods
 .method protected drawableStateChanged()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 263
@@ -147,7 +147,7 @@
     .line 265
     iget-object v1, p0, Landroid/widget/CompoundButton;->mButtonDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 266
     invoke-virtual {p0}, Landroid/widget/CompoundButton;->getDrawableState()[I
@@ -165,12 +165,12 @@
 
     .line 273
     .end local v0           #myDrawableState:[I
-    :cond_13
+    :cond_0
     return-void
 .end method
 
 .method public isChecked()Z
-    .registers 2
+    .locals 1
     .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
     .end annotation
 
@@ -182,7 +182,7 @@
 .end method
 
 .method public jumpDrawablesToCurrentState()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 282
@@ -191,19 +191,19 @@
     .line 283
     iget-object v0, p0, Landroid/widget/CompoundButton;->mButtonDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/CompoundButton;->mButtonDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->jumpToCurrentState()V
 
     .line 284
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method protected onCreateDrawableState(I)[I
-    .registers 4
+    .locals 2
     .parameter "extraSpace"
 
     .prologue
@@ -220,7 +220,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_0
 
     .line 256
     sget-object v1, Landroid/widget/CompoundButton;->CHECKED_STATE_SET:[I
@@ -228,12 +228,12 @@
     invoke-static {v0, v1}, Landroid/widget/CompoundButton;->mergeDrawableStates([I[I)[I
 
     .line 258
-    :cond_11
+    :cond_0
     return-object v0
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .registers 9
+    .locals 7
     .parameter "canvas"
 
     .prologue
@@ -245,7 +245,7 @@
 
     .line 232
     .local v0, buttonDrawable:Landroid/graphics/drawable/Drawable;
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_0
 
     .line 233
     invoke-virtual {p0}, Landroid/widget/CompoundButton;->getGravity()I
@@ -266,10 +266,10 @@
 
     .line 238
     .local v3, y:I
-    sparse-switch v2, :sswitch_data_32
+    sparse-switch v2, :sswitch_data_0
 
     .line 247
-    :goto_15
+    :goto_0
     const/4 v4, 0x0
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
@@ -287,14 +287,14 @@
     .end local v1           #height:I
     .end local v2           #verticalGravity:I
     .end local v3           #y:I
-    :cond_22
+    :cond_0
     return-void
 
     .line 240
     .restart local v1       #height:I
     .restart local v2       #verticalGravity:I
     .restart local v3       #y:I
-    :sswitch_23
+    :sswitch_0
     invoke-virtual {p0}, Landroid/widget/CompoundButton;->getHeight()I
 
     move-result v4
@@ -302,10 +302,10 @@
     sub-int v3, v4, v1
 
     .line 241
-    goto :goto_15
+    goto :goto_0
 
     .line 243
-    :sswitch_2a
+    :sswitch_1
     invoke-virtual {p0}, Landroid/widget/CompoundButton;->getHeight()I
 
     move-result v4
@@ -314,18 +314,18 @@
 
     div-int/lit8 v3, v4, 0x2
 
-    goto :goto_15
+    goto :goto_0
 
     .line 238
-    :sswitch_data_32
+    :sswitch_data_0
     .sparse-switch
-        0x10 -> :sswitch_2a
-        0x50 -> :sswitch_23
+        0x10 -> :sswitch_1
+        0x50 -> :sswitch_0
     .end sparse-switch
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -351,7 +351,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .registers 3
+    .locals 1
     .parameter "info"
 
     .prologue
@@ -382,7 +382,7 @@
 .end method
 
 .method public onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .registers 4
+    .locals 2
     .parameter "state"
 
     .prologue
@@ -412,7 +412,7 @@
 .end method
 
 .method public onSaveInstanceState()Landroid/os/Parcelable;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 332
@@ -444,7 +444,7 @@
 .end method
 
 .method public performClick()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 99
@@ -459,23 +459,23 @@
 .end method
 
 .method public setButtonDrawable(I)V
-    .registers 5
+    .locals 3
     .parameter "resid"
 
     .prologue
     .line 177
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_0
 
     iget v1, p0, Landroid/widget/CompoundButton;->mButtonResource:I
 
-    if-ne p1, v1, :cond_7
+    if-ne p1, v1, :cond_0
 
     .line 188
-    :goto_6
+    :goto_0
     return-void
 
     .line 181
-    :cond_7
+    :cond_0
     iput p1, p0, Landroid/widget/CompoundButton;->mButtonResource:I
 
     .line 183
@@ -485,7 +485,7 @@
     .local v0, d:Landroid/graphics/drawable/Drawable;
     iget v1, p0, Landroid/widget/CompoundButton;->mButtonResource:I
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_1
 
     .line 185
     invoke-virtual {p0}, Landroid/widget/CompoundButton;->getResources()Landroid/content/res/Resources;
@@ -499,14 +499,14 @@
     move-result-object v0
 
     .line 187
-    :cond_18
+    :cond_1
     invoke-virtual {p0, v0}, Landroid/widget/CompoundButton;->setButtonDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public setButtonDrawable(Landroid/graphics/drawable/Drawable;)V
-    .registers 5
+    .locals 3
     .parameter "d"
 
     .prologue
@@ -515,12 +515,12 @@
     const/4 v1, 0x0
 
     .line 196
-    if-eqz p1, :cond_36
+    if-eqz p1, :cond_1
 
     .line 197
     iget-object v0, p0, Landroid/widget/CompoundButton;->mButtonDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 198
     iget-object v0, p0, Landroid/widget/CompoundButton;->mButtonDrawable:Landroid/graphics/drawable/Drawable;
@@ -533,7 +533,7 @@
     invoke-virtual {p0, v0}, Landroid/widget/CompoundButton;->unscheduleDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 201
-    :cond_12
+    :cond_0
     invoke-virtual {p1, p0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
     .line 202
@@ -548,11 +548,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_3a
+    if-nez v0, :cond_2
 
     const/4 v0, 0x1
 
-    :goto_23
+    :goto_0
     invoke-virtual {p1, v0, v1}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
 
     .line 204
@@ -573,28 +573,28 @@
     invoke-virtual {p0, v0}, Landroid/widget/CompoundButton;->setMinHeight(I)V
 
     .line 209
-    :cond_36
+    :cond_1
     invoke-virtual {p0}, Landroid/widget/CompoundButton;->refreshDrawableState()V
 
     .line 210
     return-void
 
-    :cond_3a
+    :cond_2
     move v0, v1
 
     .line 203
-    goto :goto_23
+    goto :goto_0
 .end method
 
 .method public setChecked(Z)V
-    .registers 4
+    .locals 2
     .parameter "checked"
 
     .prologue
     .line 114
     iget-boolean v0, p0, Landroid/widget/CompoundButton;->mChecked:Z
 
-    if-eq v0, p1, :cond_10
+    if-eq v0, p1, :cond_0
 
     .line 115
     iput-boolean p1, p0, Landroid/widget/CompoundButton;->mChecked:Z
@@ -608,15 +608,15 @@
     .line 120
     iget-boolean v0, p0, Landroid/widget/CompoundButton;->mBroadcasting:Z
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_1
 
     .line 134
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     return-void
 
     .line 124
-    :cond_11
+    :cond_1
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/widget/CompoundButton;->mBroadcasting:Z
@@ -624,7 +624,7 @@
     .line 125
     iget-object v0, p0, Landroid/widget/CompoundButton;->mOnCheckedChangeListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_2
 
     .line 126
     iget-object v0, p0, Landroid/widget/CompoundButton;->mOnCheckedChangeListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
@@ -634,10 +634,10 @@
     invoke-interface {v0, p0, v1}, Landroid/widget/CompoundButton$OnCheckedChangeListener;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
 
     .line 128
-    :cond_1f
+    :cond_2
     iget-object v0, p0, Landroid/widget/CompoundButton;->mOnCheckedChangeWidgetListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_3
 
     .line 129
     iget-object v0, p0, Landroid/widget/CompoundButton;->mOnCheckedChangeWidgetListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
@@ -647,16 +647,16 @@
     invoke-interface {v0, p0, v1}, Landroid/widget/CompoundButton$OnCheckedChangeListener;->onCheckedChanged(Landroid/widget/CompoundButton;Z)V
 
     .line 132
-    :cond_2a
+    :cond_3
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/widget/CompoundButton;->mBroadcasting:Z
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue
@@ -668,7 +668,7 @@
 .end method
 
 .method setOnCheckedChangeWidgetListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue
@@ -680,31 +680,31 @@
 .end method
 
 .method public toggle()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 87
     iget-boolean v0, p0, Landroid/widget/CompoundButton;->mChecked:Z
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     invoke-virtual {p0, v0}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
     .line 88
     return-void
 
     .line 87
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method protected verifyDrawable(Landroid/graphics/drawable/Drawable;)Z
-    .registers 3
+    .locals 1
     .parameter "who"
 
     .prologue
@@ -713,20 +713,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/CompoundButton;->mButtonDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-ne p1, v0, :cond_c
+    if-ne p1, v0, :cond_1
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method

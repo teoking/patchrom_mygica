@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/ContentValues;)V
-    .registers 3
+    .locals 1
     .parameter "values"
 
     .prologue
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public addSubValue(Landroid/net/Uri;Landroid/content/ContentValues;)V
-    .registers 5
+    .locals 2
     .parameter "uri"
     .parameter "values"
 
@@ -71,7 +71,7 @@
 .end method
 
 .method public getEntityValues()Landroid/content/ContentValues;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 43
@@ -81,7 +81,7 @@
 .end method
 
 .method public getSubValues()Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -100,7 +100,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 65
@@ -132,12 +132,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_1a
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_3d
+    if-eqz v3, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -168,11 +168,11 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 71
     .end local v1           #namedValue:Landroid/content/Entity$NamedContentValues;
-    :cond_3d
+    :cond_0
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3

@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/database/Cursor;ILjava/lang/CharSequence;)V
-    .registers 7
+    .locals 3
     .parameter "cursor"
     .parameter "sortedColumnIndex"
     .parameter "alphabet"
@@ -60,10 +60,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_16
+    :goto_0
     iget v1, p0, Landroid/widget/AlphabetIndexer;->mAlphabetLength:I
 
-    if-ge v0, v1, :cond_2b
+    if-ge v0, v1, :cond_0
 
     .line 89
     iget-object v1, p0, Landroid/widget/AlphabetIndexer;->mAlphabetArray:[Ljava/lang/String;
@@ -83,10 +83,10 @@
     .line 88
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_16
+    goto :goto_0
 
     .line 91
-    :cond_2b
+    :cond_0
     new-instance v1, Landroid/util/SparseIntArray;
 
     iget v2, p0, Landroid/widget/AlphabetIndexer;->mAlphabetLength:I
@@ -96,13 +96,13 @@
     iput-object v1, p0, Landroid/widget/AlphabetIndexer;->mAlphaMap:Landroid/util/SparseIntArray;
 
     .line 92
-    if-eqz p1, :cond_39
+    if-eqz p1, :cond_1
 
     .line 93
     invoke-interface {p1, p0}, Landroid/database/Cursor;->registerDataSetObserver(Landroid/database/DataSetObserver;)V
 
     .line 96
-    :cond_39
+    :cond_1
     invoke-static {}, Ljava/text/Collator;->getInstance()Ljava/text/Collator;
 
     move-result-object v1
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method protected compare(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 6
+    .locals 3
     .parameter "word"
     .parameter "letter"
 
@@ -133,14 +133,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_f
+    if-nez v1, :cond_0
 
     .line 129
     const-string v0, " "
 
     .line 134
     .local v0, firstLetter:Ljava/lang/String;
-    :goto_8
+    :goto_0
     iget-object v1, p0, Landroid/widget/AlphabetIndexer;->mCollator:Ljava/text/Collator;
 
     invoke-virtual {v1, v0, p2}, Ljava/text/Collator;->compare(Ljava/lang/String;Ljava/lang/String;)I
@@ -151,7 +151,7 @@
 
     .line 131
     .end local v0           #firstLetter:Ljava/lang/String;
-    :cond_f
+    :cond_0
     const/4 v1, 0x0
 
     const/4 v2, 0x1
@@ -161,11 +161,11 @@
     move-result-object v0
 
     .restart local v0       #firstLetter:Ljava/lang/String;
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getPositionForSection(I)I
-    .registers 19
+    .locals 17
     .parameter "sectionIndex"
 
     .prologue
@@ -182,41 +182,41 @@
 
     .line 150
     .local v4, cursor:Landroid/database/Cursor;
-    if-eqz v4, :cond_10
+    if-eqz v4, :cond_0
 
     move-object/from16 v0, p0
 
     iget-object v15, v0, Landroid/widget/AlphabetIndexer;->mAlphabet:Ljava/lang/CharSequence;
 
-    if-nez v15, :cond_12
+    if-nez v15, :cond_2
 
     .line 151
-    :cond_10
+    :cond_0
     const/4 v9, 0x0
 
     .line 248
-    :cond_11
-    :goto_11
+    :cond_1
+    :goto_0
     return v9
 
     .line 155
-    :cond_12
-    if-gtz p1, :cond_16
+    :cond_2
+    if-gtz p1, :cond_3
 
     .line 156
     const/4 v9, 0x0
 
-    goto :goto_11
+    goto :goto_0
 
     .line 158
-    :cond_16
+    :cond_3
     move-object/from16 v0, p0
 
     iget v15, v0, Landroid/widget/AlphabetIndexer;->mAlphabetLength:I
 
     move/from16 v0, p1
 
-    if-lt v0, v15, :cond_24
+    if-lt v0, v15, :cond_4
 
     .line 159
     move-object/from16 v0, p0
@@ -226,7 +226,7 @@
     add-int/lit8 p1, v15, -0x1
 
     .line 162
-    :cond_24
+    :cond_4
     invoke-interface {v4}, Landroid/database/Cursor;->getPosition()I
 
     move-result v12
@@ -280,10 +280,10 @@
     move-result v9
 
     .local v9, pos:I
-    if-eq v15, v9, :cond_4d
+    if-eq v15, v9, :cond_5
 
     .line 177
-    if-gez v9, :cond_11
+    if-gez v9, :cond_1
 
     .line 178
     neg-int v9, v9
@@ -292,8 +292,8 @@
     move v6, v9
 
     .line 187
-    :cond_4d
-    if-lez p1, :cond_67
+    :cond_5
+    if-lez p1, :cond_6
 
     .line 188
     move-object/from16 v0, p0
@@ -318,7 +318,7 @@
     .local v11, prevLetterPos:I
     const/high16 v15, -0x8000
 
-    if-eq v11, v15, :cond_67
+    if-eq v11, v15, :cond_6
 
     .line 192
     invoke-static {v11}, Ljava/lang/Math;->abs(I)I
@@ -328,14 +328,14 @@
     .line 198
     .end local v10           #prevLetter:I
     .end local v11           #prevLetterPos:I
-    :cond_67
+    :cond_6
     add-int v15, v6, v13
 
     div-int/lit8 v9, v15, 0x2
 
     .line 200
-    :goto_6b
-    if-ge v9, v6, :cond_7c
+    :goto_1
+    if-ge v9, v6, :cond_7
 
     .line 202
     invoke-interface {v4, v9}, Landroid/database/Cursor;->moveToPosition(I)Z
@@ -351,32 +351,32 @@
 
     .line 204
     .local v3, curName:Ljava/lang/String;
-    if-nez v3, :cond_86
+    if-nez v3, :cond_9
 
     .line 205
-    if-nez v9, :cond_83
+    if-nez v9, :cond_8
 
     .line 246
     .end local v3           #curName:Ljava/lang/String;
-    :cond_7c
-    :goto_7c
+    :cond_7
+    :goto_2
     invoke-virtual {v1, v7, v9}, Landroid/util/SparseIntArray;->put(II)V
 
     .line 247
     invoke-interface {v4, v12}, Landroid/database/Cursor;->moveToPosition(I)Z
 
-    goto :goto_11
+    goto :goto_0
 
     .line 208
     .restart local v3       #curName:Ljava/lang/String;
-    :cond_83
+    :cond_8
     add-int/lit8 v9, v9, -0x1
 
     .line 209
-    goto :goto_6b
+    goto :goto_1
 
     .line 212
-    :cond_86
+    :cond_9
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v3, v14}, Landroid/widget/AlphabetIndexer;->compare(Ljava/lang/String;Ljava/lang/String;)I
@@ -385,49 +385,49 @@
 
     .line 213
     .local v5, diff:I
-    if-eqz v5, :cond_9c
+    if-eqz v5, :cond_c
 
     .line 225
-    if-gez v5, :cond_96
+    if-gez v5, :cond_a
 
     .line 226
     add-int/lit8 v13, v9, 0x1
 
     .line 227
-    if-lt v13, v2, :cond_97
+    if-lt v13, v2, :cond_b
 
     .line 228
     move v9, v2
 
     .line 229
-    goto :goto_7c
+    goto :goto_2
 
     .line 232
-    :cond_96
+    :cond_a
     move v6, v9
 
     .line 244
-    :cond_97
-    :goto_97
+    :cond_b
+    :goto_3
     add-int v15, v13, v6
 
     div-int/lit8 v9, v15, 0x2
 
     .line 245
-    goto :goto_6b
+    goto :goto_1
 
     .line 236
-    :cond_9c
-    if-eq v13, v9, :cond_7c
+    :cond_c
+    if-eq v13, v9, :cond_7
 
     .line 241
     move v6, v9
 
-    goto :goto_97
+    goto :goto_3
 .end method
 
 .method public getSectionForPosition(I)I
-    .registers 9
+    .locals 7
     .parameter "position"
 
     .prologue
@@ -463,10 +463,10 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_19
+    :goto_0
     iget v5, p0, Landroid/widget/AlphabetIndexer;->mAlphabetLength:I
 
-    if-ge v1, v5, :cond_31
+    if-ge v1, v5, :cond_1
 
     .line 263
     iget-object v5, p0, Landroid/widget/AlphabetIndexer;->mAlphabet:Ljava/lang/CharSequence;
@@ -487,35 +487,35 @@
 
     move-result v5
 
-    if-nez v5, :cond_2e
+    if-nez v5, :cond_0
 
     .line 269
     .end local v1           #i:I
     .end local v2           #letter:C
     .end local v4           #targetLetter:Ljava/lang/String;
-    :goto_2d
+    :goto_1
     return v1
 
     .line 262
     .restart local v1       #i:I
     .restart local v2       #letter:C
     .restart local v4       #targetLetter:Ljava/lang/String;
-    :cond_2e
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_19
+    goto :goto_0
 
     .line 269
     .end local v2           #letter:C
     .end local v4           #targetLetter:Ljava/lang/String;
-    :cond_31
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_2d
+    goto :goto_1
 .end method
 
 .method public getSections()[Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 105
@@ -525,7 +525,7 @@
 .end method
 
 .method public onChanged()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 277
@@ -541,7 +541,7 @@
 .end method
 
 .method public onInvalidated()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 286
@@ -557,14 +557,14 @@
 .end method
 
 .method public setCursor(Landroid/database/Cursor;)V
-    .registers 3
+    .locals 1
     .parameter "cursor"
 
     .prologue
     .line 113
     iget-object v0, p0, Landroid/widget/AlphabetIndexer;->mDataCursor:Landroid/database/Cursor;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 114
     iget-object v0, p0, Landroid/widget/AlphabetIndexer;->mDataCursor:Landroid/database/Cursor;
@@ -572,11 +572,11 @@
     invoke-interface {v0, p0}, Landroid/database/Cursor;->unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
 
     .line 116
-    :cond_9
+    :cond_0
     iput-object p1, p0, Landroid/widget/AlphabetIndexer;->mDataCursor:Landroid/database/Cursor;
 
     .line 117
-    if-eqz p1, :cond_12
+    if-eqz p1, :cond_1
 
     .line 118
     iget-object v0, p0, Landroid/widget/AlphabetIndexer;->mDataCursor:Landroid/database/Cursor;
@@ -584,7 +584,7 @@
     invoke-interface {v0, p0}, Landroid/database/Cursor;->registerDataSetObserver(Landroid/database/DataSetObserver;)V
 
     .line 120
-    :cond_12
+    :cond_1
     iget-object v0, p0, Landroid/widget/AlphabetIndexer;->mAlphaMap:Landroid/util/SparseIntArray;
 
     invoke-virtual {v0}, Landroid/util/SparseIntArray;->clear()V

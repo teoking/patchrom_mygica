@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 35
@@ -24,27 +24,27 @@
 
 # virtual methods
 .method public getWebView()Landroid/webkit/WebView;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 96
     iget-boolean v0, p0, Landroid/webkit/WebViewFragment;->mIsWebViewAvailable:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/webkit/WebViewFragment;->mWebView:Landroid/webkit/WebView;
 
-    :goto_6
+    :goto_0
     return-object v0
 
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .registers 6
+    .locals 2
     .parameter "inflater"
     .parameter "container"
     .parameter "savedInstanceState"
@@ -53,7 +53,7 @@
     .line 44
     iget-object v0, p0, Landroid/webkit/WebViewFragment;->mWebView:Landroid/webkit/WebView;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 45
     iget-object v0, p0, Landroid/webkit/WebViewFragment;->mWebView:Landroid/webkit/WebView;
@@ -61,7 +61,7 @@
     invoke-virtual {v0}, Landroid/webkit/WebView;->destroy()V
 
     .line 47
-    :cond_9
+    :cond_0
     new-instance v0, Landroid/webkit/WebView;
 
     invoke-virtual {p0}, Landroid/webkit/WebViewFragment;->getActivity()Landroid/app/Activity;
@@ -84,13 +84,13 @@
 .end method
 
 .method public onDestroy()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 85
     iget-object v0, p0, Landroid/webkit/WebViewFragment;->mWebView:Landroid/webkit/WebView;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 86
     iget-object v0, p0, Landroid/webkit/WebViewFragment;->mWebView:Landroid/webkit/WebView;
@@ -103,7 +103,7 @@
     iput-object v0, p0, Landroid/webkit/WebViewFragment;->mWebView:Landroid/webkit/WebView;
 
     .line 89
-    :cond_c
+    :cond_0
     invoke-super {p0}, Landroid/app/Fragment;->onDestroy()V
 
     .line 90
@@ -111,7 +111,7 @@
 .end method
 
 .method public onDestroyView()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -127,7 +127,7 @@
 .end method
 
 .method public onPause()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 57
@@ -143,7 +143,7 @@
 .end method
 
 .method public onResume()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 66

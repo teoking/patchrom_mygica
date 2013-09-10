@@ -44,7 +44,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/speech/SpeechRecognizer;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -64,7 +64,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/speech/SpeechRecognizer;Landroid/speech/SpeechRecognizer$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -76,7 +76,7 @@
 .end method
 
 .method static synthetic access$1000(Landroid/speech/SpeechRecognizer$InternalListener;)Landroid/speech/RecognitionListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -87,7 +87,7 @@
 .end method
 
 .method static synthetic access$1002(Landroid/speech/SpeechRecognizer$InternalListener;Landroid/speech/RecognitionListener;)Landroid/speech/RecognitionListener;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public onBeginningOfSpeech()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 458
@@ -120,7 +120,7 @@
 .end method
 
 .method public onBufferReceived([B)V
-    .registers 4
+    .locals 2
     .parameter "buffer"
 
     .prologue
@@ -140,7 +140,7 @@
 .end method
 
 .method public onEndOfSpeech()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 466
@@ -159,7 +159,7 @@
 .end method
 
 .method public onError(I)V
-    .registers 5
+    .locals 3
     .parameter "error"
 
     .prologue
@@ -183,7 +183,7 @@
 .end method
 
 .method public onEvent(ILandroid/os/Bundle;)V
-    .registers 5
+    .locals 2
     .parameter "eventType"
     .parameter "params"
 
@@ -204,7 +204,7 @@
 .end method
 
 .method public onPartialResults(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
     .parameter "results"
 
     .prologue
@@ -224,7 +224,7 @@
 .end method
 
 .method public onReadyForSpeech(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
     .parameter "noiseParams"
 
     .prologue
@@ -244,7 +244,7 @@
 .end method
 
 .method public onResults(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
     .parameter "results"
 
     .prologue
@@ -264,7 +264,7 @@
 .end method
 
 .method public onRmsChanged(F)V
-    .registers 5
+    .locals 3
     .parameter "rmsdB"
 
     .prologue

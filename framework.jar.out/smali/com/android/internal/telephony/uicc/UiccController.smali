@@ -21,7 +21,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/internal/telephony/PhoneBase;)V
-    .registers 3
+    .locals 1
     .parameter "phone"
 
     .prologue
@@ -41,7 +41,7 @@
 .end method
 
 .method public static declared-synchronized getInstance(Lcom/android/internal/telephony/PhoneBase;)Lcom/android/internal/telephony/uicc/UiccController;
-    .registers 3
+    .locals 2
     .parameter "phone"
 
     .prologue
@@ -50,10 +50,10 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     sget-object v0, Lcom/android/internal/telephony/uicc/UiccController;->mInstance:Lcom/android/internal/telephony/uicc/UiccController;
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 43
     new-instance v0, Lcom/android/internal/telephony/uicc/UiccController;
@@ -63,28 +63,28 @@
     sput-object v0, Lcom/android/internal/telephony/uicc/UiccController;->mInstance:Lcom/android/internal/telephony/uicc/UiccController;
 
     .line 47
-    :goto_e
+    :goto_0
     sget-object v0, Lcom/android/internal/telephony/uicc/UiccController;->mInstance:Lcom/android/internal/telephony/uicc/UiccController;
-    :try_end_10
-    .catchall {:try_start_3 .. :try_end_10} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
     return-object v0
 
     .line 45
-    :cond_12
-    :try_start_12
+    :cond_0
+    :try_start_1
     sget-object v0, Lcom/android/internal/telephony/uicc/UiccController;->mInstance:Lcom/android/internal/telephony/uicc/UiccController;
 
     invoke-direct {v0, p0}, Lcom/android/internal/telephony/uicc/UiccController;->setNewPhone(Lcom/android/internal/telephony/PhoneBase;)V
-    :try_end_17
-    .catchall {:try_start_12 .. :try_end_17} :catchall_18
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_e
+    goto :goto_0
 
     .line 42
-    :catchall_18
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -93,7 +93,7 @@
 .end method
 
 .method private log(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "string"
 
     .prologue
@@ -107,7 +107,7 @@
 .end method
 
 .method private setNewPhone(Lcom/android/internal/telephony/PhoneBase;)V
-    .registers 4
+    .locals 2
     .parameter "phone"
 
     .prologue
@@ -119,7 +119,7 @@
     .line 61
     instance-of v0, p1, Lcom/android/internal/telephony/gsm/GSMPhone;
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 62
     const-string v0, "New phone is GSMPhone"
@@ -130,14 +130,14 @@
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/uicc/UiccController;->updateCurrentCard(Z)V
 
     .line 73
-    :goto_f
+    :goto_0
     return-void
 
     .line 64
-    :cond_10
+    :cond_0
     instance-of v0, p1, Lcom/android/internal/telephony/cdma/CDMALTEPhone;
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_1
 
     .line 65
     const-string v0, "New phone type is CDMALTEPhone"
@@ -147,13 +147,13 @@
     .line 66
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/uicc/UiccController;->updateCurrentCard(Z)V
 
-    goto :goto_f
+    goto :goto_0
 
     .line 67
-    :cond_1d
+    :cond_1
     instance-of v0, p1, Lcom/android/internal/telephony/cdma/CDMAPhone;
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_2
 
     .line 68
     const-string v0, "New phone type is CDMAPhone"
@@ -165,42 +165,42 @@
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/uicc/UiccController;->updateCurrentCard(Z)V
 
-    goto :goto_f
+    goto :goto_0
 
     .line 71
-    :cond_2b
+    :cond_2
     const-string v0, "RIL_UiccController"
 
     const-string v1, "Unhandled phone type. Critical error!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method private updateCurrentCard(Z)V
-    .registers 7
+    .locals 5
     .parameter "isNewCard3gpp"
 
     .prologue
     .line 76
     iget-boolean v0, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIsCurrentCard3gpp:Z
 
-    if-ne v0, p1, :cond_9
+    if-ne v0, p1, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccCard:Lcom/android/internal/telephony/IccCard;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 88
-    :goto_8
+    :goto_0
     return-void
 
     .line 80
-    :cond_9
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccCard:Lcom/android/internal/telephony/IccCard;
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_1
 
     .line 81
     iget-object v0, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccCard:Lcom/android/internal/telephony/IccCard;
@@ -213,7 +213,7 @@
     iput-object v0, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccCard:Lcom/android/internal/telephony/IccCard;
 
     .line 85
-    :cond_15
+    :cond_1
     iput-boolean p1, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIsCurrentCard3gpp:Z
 
     .line 86
@@ -241,13 +241,13 @@
 
     iput-object v0, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccCard:Lcom/android/internal/telephony/IccCard;
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getIccCard()Lcom/android/internal/telephony/IccCard;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 51

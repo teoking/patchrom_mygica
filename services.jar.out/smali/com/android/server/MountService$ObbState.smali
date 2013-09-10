@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/MountService;Ljava/lang/String;ILandroid/os/storage/IObbActionListener;I)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter "filename"
     .parameter "callerUid"
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x1
@@ -84,12 +84,14 @@
     .local v0, action:Lcom/android/server/MountService$ObbAction;
     iget-object v1, p0, Lcom/android/server/MountService$ObbState;->this$0:Lcom/android/server/MountService;
 
+    #getter for: Lcom/android/server/MountService;->mObbActionHandler:Lcom/android/server/MountService$ObbActionHandler;
     invoke-static {v1}, Lcom/android/server/MountService;->access$000(Lcom/android/server/MountService;)Lcom/android/server/MountService$ObbActionHandler;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/server/MountService$ObbState;->this$0:Lcom/android/server/MountService;
 
+    #getter for: Lcom/android/server/MountService;->mObbActionHandler:Lcom/android/server/MountService$ObbActionHandler;
     invoke-static {v2}, Lcom/android/server/MountService;->access$000(Lcom/android/server/MountService;)Lcom/android/server/MountService$ObbActionHandler;
 
     move-result-object v2
@@ -105,7 +107,7 @@
 .end method
 
 .method public getBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 251
@@ -119,7 +121,7 @@
 .end method
 
 .method public link()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -141,7 +143,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 270
@@ -200,7 +202,7 @@
 .end method
 
 .method public unlink()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 265

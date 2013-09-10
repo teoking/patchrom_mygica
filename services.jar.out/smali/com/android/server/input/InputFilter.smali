@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/Looper;)V
-    .registers 6
+    .locals 4
     .parameter "looper"
 
     .prologue
@@ -48,7 +48,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_1
 
     new-instance v0, Landroid/view/InputEventConsistencyVerifier;
 
@@ -56,7 +56,7 @@
 
     invoke-direct {v0, p0, v3, v2}, Landroid/view/InputEventConsistencyVerifier;-><init>(Ljava/lang/Object;ILjava/lang/String;)V
 
-    :goto_12
+    :goto_0
     iput-object v0, p0, Lcom/android/server/input/InputFilter;->mInboundInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
 
     .line 112
@@ -64,7 +64,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_0
 
     new-instance v1, Landroid/view/InputEventConsistencyVerifier;
 
@@ -72,7 +72,7 @@
 
     invoke-direct {v1, p0, v3, v0}, Landroid/view/InputEventConsistencyVerifier;-><init>(Ljava/lang/Object;ILjava/lang/String;)V
 
-    :cond_21
+    :cond_0
     iput-object v1, p0, Lcom/android/server/input/InputFilter;->mOutboundInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
 
     .line 124
@@ -85,15 +85,15 @@
     .line 125
     return-void
 
-    :cond_2b
+    :cond_1
     move-object v0, v1
 
     .line 107
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method static synthetic access$002(Lcom/android/server/input/InputFilter;Lcom/android/server/input/InputFilter$Host;)Lcom/android/server/input/InputFilter$Host;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -105,7 +105,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/server/input/InputFilter;)Landroid/view/InputEventConsistencyVerifier;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -116,7 +116,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/server/input/InputFilter;)Landroid/view/InputEventConsistencyVerifier;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -129,7 +129,7 @@
 
 # virtual methods
 .method final filterInputEvent(Landroid/view/InputEvent;I)V
-    .registers 6
+    .locals 3
     .parameter "event"
     .parameter "policyFlags"
 
@@ -152,7 +152,7 @@
 .end method
 
 .method final install(Lcom/android/server/input/InputFilter$Host;)V
-    .registers 4
+    .locals 2
     .parameter "host"
 
     .prologue
@@ -172,7 +172,7 @@
 .end method
 
 .method public onInputEvent(Landroid/view/InputEvent;I)V
-    .registers 3
+    .locals 0
     .parameter "event"
     .parameter "policyFlags"
 
@@ -185,7 +185,7 @@
 .end method
 
 .method public onInstalled()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 200
@@ -193,7 +193,7 @@
 .end method
 
 .method public onUninstalled()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 210
@@ -201,13 +201,13 @@
 .end method
 
 .method public sendInputEvent(Landroid/view/InputEvent;I)V
-    .registers 5
+    .locals 2
     .parameter "event"
     .parameter "policyFlags"
 
     .prologue
     .line 163
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 164
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -219,10 +219,10 @@
     throw v0
 
     .line 166
-    :cond_a
+    :cond_0
     iget-object v0, p0, Lcom/android/server/input/InputFilter;->mHost:Lcom/android/server/input/InputFilter$Host;
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_1
 
     .line 167
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -234,10 +234,10 @@
     throw v0
 
     .line 170
-    :cond_16
+    :cond_1
     iget-object v0, p0, Lcom/android/server/input/InputFilter;->mOutboundInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_2
 
     .line 171
     iget-object v0, p0, Lcom/android/server/input/InputFilter;->mOutboundInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
@@ -247,7 +247,7 @@
     invoke-virtual {v0, p1, v1}, Landroid/view/InputEventConsistencyVerifier;->onInputEvent(Landroid/view/InputEvent;I)V
 
     .line 173
-    :cond_20
+    :cond_2
     iget-object v0, p0, Lcom/android/server/input/InputFilter;->mHost:Lcom/android/server/input/InputFilter$Host;
 
     invoke-interface {v0, p1, p2}, Lcom/android/server/input/InputFilter$Host;->sendInputEvent(Landroid/view/InputEvent;I)V
@@ -257,7 +257,7 @@
 .end method
 
 .method final uninstall()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 142

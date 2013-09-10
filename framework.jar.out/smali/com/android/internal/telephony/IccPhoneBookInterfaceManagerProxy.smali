@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;)V
-    .registers 3
+    .locals 1
     .parameter "iccPhoneBookInterfaceManager"
 
     .prologue
@@ -26,7 +26,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 43
     const-string/jumbo v0, "simphonebook"
@@ -34,14 +34,14 @@
     invoke-static {v0, p0}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     .line 45
-    :cond_14
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public getAdnRecordsInEf(I)Ljava/util/List;
-    .registers 3
+    .locals 1
     .parameter "efid"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -71,7 +71,7 @@
 .end method
 
 .method public getAdnRecordsSize(I)[I
-    .registers 3
+    .locals 1
     .parameter "efid"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -91,7 +91,7 @@
 .end method
 
 .method public setmIccPhoneBookInterfaceManager(Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;)V
-    .registers 2
+    .locals 0
     .parameter "iccPhoneBookInterfaceManager"
 
     .prologue
@@ -103,7 +103,7 @@
 .end method
 
 .method public updateAdnRecordsInEfByIndex(ILjava/lang/String;Ljava/lang/String;ILjava/lang/String;)Z
-    .registers 12
+    .locals 6
     .parameter "efid"
     .parameter "newTag"
     .parameter "newPhoneNumber"
@@ -137,7 +137,7 @@
 .end method
 
 .method public updateAdnRecordsInEfBySearch(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
-    .registers 14
+    .locals 7
     .parameter "efid"
     .parameter "oldTag"
     .parameter "oldPhoneNumber"

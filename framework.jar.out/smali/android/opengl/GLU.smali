@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 244
@@ -23,7 +23,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 26
@@ -33,76 +33,76 @@
 .end method
 
 .method public static gluErrorString(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "error"
 
     .prologue
     .line 36
-    sparse-switch p0, :sswitch_data_1e
+    sparse-switch p0, :sswitch_data_0
 
     .line 52
     const/4 v0, 0x0
 
-    :goto_4
+    :goto_0
     return-object v0
 
     .line 38
-    :sswitch_5
+    :sswitch_0
     const-string/jumbo v0, "no error"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 40
-    :sswitch_9
+    :sswitch_1
     const-string v0, "invalid enum"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 42
-    :sswitch_c
+    :sswitch_2
     const-string v0, "invalid value"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 44
-    :sswitch_f
+    :sswitch_3
     const-string v0, "invalid operation"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 46
-    :sswitch_12
+    :sswitch_4
     const-string/jumbo v0, "stack overflow"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 48
-    :sswitch_16
+    :sswitch_5
     const-string/jumbo v0, "stack underflow"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 50
-    :sswitch_1a
+    :sswitch_6
     const-string/jumbo v0, "out of memory"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 36
-    :sswitch_data_1e
+    :sswitch_data_0
     .sparse-switch
-        0x0 -> :sswitch_5
-        0x500 -> :sswitch_9
-        0x501 -> :sswitch_c
-        0x502 -> :sswitch_f
-        0x503 -> :sswitch_12
-        0x504 -> :sswitch_16
-        0x505 -> :sswitch_1a
+        0x0 -> :sswitch_0
+        0x500 -> :sswitch_1
+        0x501 -> :sswitch_2
+        0x502 -> :sswitch_3
+        0x503 -> :sswitch_4
+        0x504 -> :sswitch_5
+        0x505 -> :sswitch_6
     .end sparse-switch
 .end method
 
 .method public static gluLookAt(Ljavax/microedition/khronos/opengles/GL10;FFFFFFFFF)V
-    .registers 21
+    .locals 11
     .parameter "gl"
     .parameter "eyeX"
     .parameter "eyeY"
@@ -143,7 +143,7 @@
 
     move/from16 v10, p9
 
-    :try_start_12
+    :try_start_0
     invoke-static/range {v0 .. v10}, Landroid/opengl/Matrix;->setLookAtM([FIFFFFFFFFF)V
 
     .line 79
@@ -158,18 +158,18 @@
     return-void
 
     .line 80
-    :catchall_1b
+    :catchall_0
     move-exception v1
 
     monitor-exit v0
-    :try_end_1d
-    .catchall {:try_start_12 .. :try_end_1d} :catchall_1b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public static gluOrtho2D(Ljavax/microedition/khronos/opengles/GL10;FFFF)V
-    .registers 12
+    .locals 7
     .parameter "gl"
     .parameter "left"
     .parameter "right"
@@ -199,7 +199,7 @@
 .end method
 
 .method public static gluPerspective(Ljavax/microedition/khronos/opengles/GL10;FFFF)V
-    .registers 14
+    .locals 9
     .parameter "gl"
     .parameter "fovy"
     .parameter "aspect"
@@ -249,7 +249,7 @@
 .end method
 
 .method public static gluProject(FFF[FI[FI[II[FI)I
-    .registers 22
+    .locals 11
     .parameter "objX"
     .parameter "objY"
     .parameter "objZ"
@@ -293,7 +293,7 @@
 
     move v5, p4
 
-    :try_start_f
+    :try_start_0
     invoke-static/range {v0 .. v5}, Landroid/opengl/Matrix;->multiplyMM([FI[FI[FI)V
 
     .line 158
@@ -342,7 +342,7 @@
 
     cmpl-float v1, v10, v1
 
-    if-nez v1, :cond_3a
+    if-nez v1, :cond_0
 
     .line 168
     const/4 v1, 0x0
@@ -350,11 +350,11 @@
     monitor-exit v0
 
     .line 183
-    :goto_39
+    :goto_0
     return v1
 
     .line 171
-    :cond_3a
+    :cond_0
     const/high16 v1, 0x3f80
 
     div-float v9, v1, v10
@@ -451,23 +451,23 @@
     .line 183
     const/4 v1, 0x1
 
-    goto :goto_39
+    goto :goto_0
 
     .line 181
     .end local v9           #rw:F
     .end local v10           #w:F
-    :catchall_82
+    :catchall_0
     move-exception v1
 
     monitor-exit v0
-    :try_end_84
-    .catchall {:try_start_f .. :try_end_84} :catchall_82
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public static gluUnProject(FFF[FI[FI[II[FI)I
-    .registers 21
+    .locals 10
     .parameter "winX"
     .parameter "winY"
     .parameter "winZ"
@@ -511,7 +511,7 @@
 
     move v5, p4
 
-    :try_start_d
+    :try_start_0
     invoke-static/range {v0 .. v5}, Landroid/opengl/Matrix;->multiplyMM([FI[FI[FI)V
 
     .line 224
@@ -523,7 +523,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1c
+    if-nez v1, :cond_0
 
     .line 225
     const/4 v1, 0x0
@@ -531,11 +531,11 @@
     monitor-exit v0
 
     .line 241
-    :goto_1b
+    :goto_0
     return v1
 
     .line 228
-    :cond_1c
+    :cond_0
     const/4 v1, 0x0
 
     const/high16 v2, 0x4000
@@ -634,15 +634,15 @@
     .line 241
     const/4 v1, 0x1
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 239
-    :catchall_65
+    :catchall_0
     move-exception v1
 
     monitor-exit v0
-    :try_end_67
-    .catchall {:try_start_d .. :try_end_67} :catchall_65
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/MediaRouteActionProvider;)V
-    .registers 3
+    .locals 1
     .parameter "ap"
 
     .prologue
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public onRouteAdded(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
-    .registers 5
+    .locals 2
     .parameter "router"
     .parameter "info"
 
@@ -66,24 +66,24 @@
 
     .line 148
     .local v0, ap:Landroid/app/MediaRouteActionProvider;
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 149
     invoke-virtual {p1, p0}, Landroid/media/MediaRouter;->removeCallback(Landroid/media/MediaRouter$Callback;)V
 
     .line 154
-    :goto_d
+    :goto_0
     return-void
 
     .line 153
-    :cond_e
+    :cond_0
     invoke-virtual {v0}, Landroid/app/MediaRouteActionProvider;->refreshVisibility()V
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public onRouteRemoved(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
-    .registers 5
+    .locals 2
     .parameter "router"
     .parameter "info"
 
@@ -99,18 +99,18 @@
 
     .line 159
     .local v0, ap:Landroid/app/MediaRouteActionProvider;
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 160
     invoke-virtual {p1, p0}, Landroid/media/MediaRouter;->removeCallback(Landroid/media/MediaRouter$Callback;)V
 
     .line 165
-    :goto_d
+    :goto_0
     return-void
 
     .line 164
-    :cond_e
+    :cond_0
     invoke-virtual {v0}, Landroid/app/MediaRouteActionProvider;->refreshVisibility()V
 
-    goto :goto_d
+    goto :goto_0
 .end method

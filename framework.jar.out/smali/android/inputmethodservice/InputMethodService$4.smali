@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/inputmethodservice/InputMethodService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public actionPerformed(I)V
-    .registers 5
+    .locals 3
     .parameter "id"
 
     .prologue
@@ -64,6 +64,7 @@
 
     iget-object v2, p0, Landroid/inputmethodservice/InputMethodService$4;->this$0:Landroid/inputmethodservice/InputMethodService;
 
+    #getter for: Landroid/inputmethodservice/InputMethodService;->mConnection:Landroid/content/ServiceConnection;
     invoke-static {v2}, Landroid/inputmethodservice/InputMethodService;->access$200(Landroid/inputmethodservice/InputMethodService;)Landroid/content/ServiceConnection;
 
     move-result-object v2
@@ -87,7 +88,7 @@
 .end method
 
 .method public passString(Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "szText"
 
     .prologue
@@ -125,15 +126,15 @@
 
     iget-object v0, v0, Landroid/inputmethodservice/InputMethodService;->mStartedInputConnection:Landroid/view/inputmethod/InputConnection;
 
-    if-nez v0, :cond_26
+    if-nez v0, :cond_0
 
     .line 2468
-    :goto_25
+    :goto_0
     return-void
 
     .line 2459
-    :cond_26
-    if-nez p1, :cond_30
+    :cond_0
+    if-nez p1, :cond_1
 
     .line 2461
     iget-object v0, p0, Landroid/inputmethodservice/InputMethodService$4;->this$0:Landroid/inputmethodservice/InputMethodService;
@@ -142,10 +143,10 @@
 
     invoke-interface {v0, v3, v3}, Landroid/view/inputmethod/InputConnection;->deleteSurroundingText(II)Z
 
-    goto :goto_25
+    goto :goto_0
 
     .line 2464
-    :cond_30
+    :cond_1
     iget-object v0, p0, Landroid/inputmethodservice/InputMethodService$4;->this$0:Landroid/inputmethodservice/InputMethodService;
 
     iget-object v0, v0, Landroid/inputmethodservice/InputMethodService;->mStartedInputConnection:Landroid/view/inputmethod/InputConnection;
@@ -168,5 +169,5 @@
 
     invoke-interface {v0}, Landroid/view/inputmethod/InputConnection;->endBatchEdit()Z
 
-    goto :goto_25
+    goto :goto_0
 .end method

@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 23
@@ -20,7 +20,7 @@
 
 # virtual methods
 .method public evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 16
+    .locals 12
     .parameter "fraction"
     .parameter "startValue"
     .parameter "endValue"

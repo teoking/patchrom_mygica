@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/Locale;)V
-    .registers 2
+    .locals 0
     .parameter "locale"
 
     .prologue
@@ -50,7 +50,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/util/Locale;Landroid/view/AccessibilityIterators$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -62,14 +62,14 @@
 .end method
 
 .method public static getInstance(Ljava/util/Locale;)Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;
-    .registers 2
+    .locals 1
     .parameter "locale"
 
     .prologue
     .line 78
     sget-object v0, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->sInstance:Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 79
     new-instance v0, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;
@@ -79,7 +79,7 @@
     sput-object v0, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->sInstance:Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;
 
     .line 81
-    :cond_b
+    :cond_0
     sget-object v0, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->sInstance:Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;
 
     return-object v0
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public following(I)[I
-    .registers 8
+    .locals 6
     .parameter "offset"
 
     .prologue
@@ -105,36 +105,36 @@
 
     .line 99
     .local v2, textLegth:I
-    if-gtz v2, :cond_b
+    if-gtz v2, :cond_1
 
     .line 119
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return-object v3
 
     .line 102
-    :cond_b
-    if-ge p1, v2, :cond_a
+    :cond_1
+    if-ge p1, v2, :cond_0
 
     .line 105
     move v1, p1
 
     .line 106
     .local v1, start:I
-    if-gez v1, :cond_11
+    if-gez v1, :cond_2
 
     .line 107
     const/4 v1, 0x0
 
     .line 109
-    :cond_11
+    :cond_2
     iget-object v4, p0, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->mImpl:Ljava/text/BreakIterator;
 
     invoke-virtual {v4, v1}, Ljava/text/BreakIterator;->isBoundary(I)Z
 
     move-result v4
 
-    if-nez v4, :cond_22
+    if-nez v4, :cond_3
 
     .line 110
     iget-object v4, p0, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->mImpl:Ljava/text/BreakIterator;
@@ -144,12 +144,12 @@
     move-result v1
 
     .line 111
-    if-ne v1, v5, :cond_11
+    if-ne v1, v5, :cond_2
 
-    goto :goto_a
+    goto :goto_0
 
     .line 115
-    :cond_22
+    :cond_3
     iget-object v4, p0, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->mImpl:Ljava/text/BreakIterator;
 
     invoke-virtual {v4, v1}, Ljava/text/BreakIterator;->following(I)I
@@ -158,18 +158,18 @@
 
     .line 116
     .local v0, end:I
-    if-eq v0, v5, :cond_a
+    if-eq v0, v5, :cond_0
 
     .line 119
     invoke-virtual {p0, v1, v0}, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->getRange(II)[I
 
     move-result-object v3
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public initialize(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "text"
 
     .prologue
@@ -186,7 +186,7 @@
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .registers 4
+    .locals 2
     .parameter "newConfig"
 
     .prologue
@@ -201,7 +201,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_f
+    if-nez v1, :cond_0
 
     .line 152
     iput-object v0, p0, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->mLocale:Ljava/util/Locale;
@@ -210,12 +210,12 @@
     invoke-virtual {p0, v0}, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->onLocaleChanged(Ljava/util/Locale;)V
 
     .line 155
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method protected onLocaleChanged(Ljava/util/Locale;)V
-    .registers 3
+    .locals 1
     .parameter "locale"
 
     .prologue
@@ -231,7 +231,7 @@
 .end method
 
 .method public onLowMemory()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 160
@@ -239,7 +239,7 @@
 .end method
 
 .method public preceding(I)[I
-    .registers 8
+    .locals 6
     .parameter "offset"
 
     .prologue
@@ -256,36 +256,36 @@
 
     .line 125
     .local v2, textLegth:I
-    if-gtz v2, :cond_b
+    if-gtz v2, :cond_1
 
     .line 145
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return-object v3
 
     .line 128
-    :cond_b
-    if-lez p1, :cond_a
+    :cond_1
+    if-lez p1, :cond_0
 
     .line 131
     move v0, p1
 
     .line 132
     .local v0, end:I
-    if-le v0, v2, :cond_11
+    if-le v0, v2, :cond_2
 
     .line 133
     move v0, v2
 
     .line 135
-    :cond_11
+    :cond_2
     iget-object v4, p0, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->mImpl:Ljava/text/BreakIterator;
 
     invoke-virtual {v4, v0}, Ljava/text/BreakIterator;->isBoundary(I)Z
 
     move-result v4
 
-    if-nez v4, :cond_22
+    if-nez v4, :cond_3
 
     .line 136
     iget-object v4, p0, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->mImpl:Ljava/text/BreakIterator;
@@ -295,12 +295,12 @@
     move-result v0
 
     .line 137
-    if-ne v0, v5, :cond_11
+    if-ne v0, v5, :cond_2
 
-    goto :goto_a
+    goto :goto_0
 
     .line 141
-    :cond_22
+    :cond_3
     iget-object v4, p0, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->mImpl:Ljava/text/BreakIterator;
 
     invoke-virtual {v4, v0}, Ljava/text/BreakIterator;->preceding(I)I
@@ -309,12 +309,12 @@
 
     .line 142
     .local v1, start:I
-    if-eq v1, v5, :cond_a
+    if-eq v1, v5, :cond_0
 
     .line 145
     invoke-virtual {p0, v1, v0}, Landroid/view/AccessibilityIterators$CharacterTextSegmentIterator;->getRange(II)[I
 
     move-result-object v3
 
-    goto :goto_a
+    goto :goto_0
 .end method

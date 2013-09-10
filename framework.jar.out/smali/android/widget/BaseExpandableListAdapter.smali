@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 33
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public areAllItemsEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60
@@ -42,7 +42,7 @@
 .end method
 
 .method public getChildType(II)I
-    .registers 4
+    .locals 1
     .parameter "groupPosition"
     .parameter "childPosition"
 
@@ -54,7 +54,7 @@
 .end method
 
 .method public getChildTypeCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 120
@@ -64,7 +64,7 @@
 .end method
 
 .method public getCombinedChildId(JJ)J
-    .registers 10
+    .locals 5
     .parameter "groupId"
     .parameter "childId"
 
@@ -92,7 +92,7 @@
 .end method
 
 .method public getCombinedGroupId(J)J
-    .registers 6
+    .locals 3
     .parameter "groupId"
 
     .prologue
@@ -109,7 +109,7 @@
 .end method
 
 .method public getGroupType(I)I
-    .registers 3
+    .locals 1
     .parameter "groupPosition"
 
     .prologue
@@ -120,7 +120,7 @@
 .end method
 
 .method public getGroupTypeCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 136
@@ -130,7 +130,7 @@
 .end method
 
 .method public isEmpty()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 103
@@ -138,21 +138,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public notifyDataSetChanged()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 56
@@ -165,7 +165,7 @@
 .end method
 
 .method public notifyDataSetInvalidated()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 49
@@ -178,7 +178,7 @@
 .end method
 
 .method public onGroupCollapsed(I)V
-    .registers 2
+    .locals 0
     .parameter "groupPosition"
 
     .prologue
@@ -187,7 +187,7 @@
 .end method
 
 .method public onGroupExpanded(I)V
-    .registers 2
+    .locals 0
     .parameter "groupPosition"
 
     .prologue
@@ -196,7 +196,7 @@
 .end method
 
 .method public registerDataSetObserver(Landroid/database/DataSetObserver;)V
-    .registers 3
+    .locals 1
     .parameter "observer"
 
     .prologue
@@ -210,7 +210,7 @@
 .end method
 
 .method public unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
-    .registers 3
+    .locals 1
     .parameter "observer"
 
     .prologue

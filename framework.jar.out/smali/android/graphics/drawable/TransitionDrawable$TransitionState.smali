@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/TransitionDrawable$TransitionState;Landroid/graphics/drawable/TransitionDrawable;Landroid/content/res/Resources;)V
-    .registers 4
+    .locals 0
     .parameter "orig"
     .parameter "owner"
     .parameter "res"
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public getChangingConfigurations()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 264
@@ -42,7 +42,7 @@
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v1, 0x0
@@ -60,7 +60,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .registers 4
+    .locals 2
     .parameter "res"
 
     .prologue

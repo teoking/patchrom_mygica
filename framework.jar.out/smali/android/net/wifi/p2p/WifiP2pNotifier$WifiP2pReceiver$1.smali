@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/wifi/p2p/WifiP2pNotifier$WifiP2pReceiver;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onGroupInfoAvailable(Landroid/net/wifi/p2p/WifiP2pGroup;)V
-    .registers 10
+    .locals 8
     .parameter "info"
 
     .prologue
@@ -57,6 +57,7 @@
 
     move-result-object v5
 
+    #calls: Landroid/net/wifi/p2p/WifiP2pNotifier;->describeWifiP2pGroup(Landroid/net/wifi/p2p/WifiP2pGroup;)Ljava/lang/String;
     invoke-static {p1}, Landroid/net/wifi/p2p/WifiP2pNotifier;->access$700(Landroid/net/wifi/p2p/WifiP2pGroup;)Ljava/lang/String;
 
     move-result-object v6
@@ -76,7 +77,7 @@
 
     move-result v4
 
-    if-ne v4, v7, :cond_5b
+    if-ne v4, v7, :cond_2
 
     .line 166
     const-string v4, "WifiP2pNotifier"
@@ -103,7 +104,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_40
+    if-eqz v4, :cond_0
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -117,12 +118,12 @@
 
     .line 173
     .end local v1           #c:Landroid/net/wifi/p2p/WifiP2pDevice;
-    :cond_40
-    if-eqz v2, :cond_5a
+    :cond_0
+    if-eqz v2, :cond_1
 
     iget-object v4, v2, Landroid/net/wifi/p2p/WifiP2pDevice;->wfdInfo:Landroid/net/wifi/p2p/WifiP2pWfdInfo;
 
-    if-eqz v4, :cond_5a
+    if-eqz v4, :cond_1
 
     .line 174
     iget-object v4, p0, Landroid/net/wifi/p2p/WifiP2pNotifier$WifiP2pReceiver$1;->this$1:Landroid/net/wifi/p2p/WifiP2pNotifier$WifiP2pReceiver;
@@ -135,6 +136,7 @@
 
     move-result v5
 
+    #setter for: Landroid/net/wifi/p2p/WifiP2pNotifier;->mWfdPort:I
     invoke-static {v4, v5}, Landroid/net/wifi/p2p/WifiP2pNotifier;->access$802(Landroid/net/wifi/p2p/WifiP2pNotifier;I)I
 
     .line 175
@@ -142,17 +144,18 @@
 
     iget-object v4, v4, Landroid/net/wifi/p2p/WifiP2pNotifier$WifiP2pReceiver;->this$0:Landroid/net/wifi/p2p/WifiP2pNotifier;
 
+    #setter for: Landroid/net/wifi/p2p/WifiP2pNotifier;->mAutoStartWfd:Z
     invoke-static {v4, v7}, Landroid/net/wifi/p2p/WifiP2pNotifier;->access$102(Landroid/net/wifi/p2p/WifiP2pNotifier;Z)Z
 
     .line 190
     .end local v3           #i$:Ljava/util/Iterator;
-    :cond_5a
-    :goto_5a
+    :cond_1
+    :goto_0
     return-void
 
     .line 180
     .end local v2           #device:Landroid/net/wifi/p2p/WifiP2pDevice;
-    :cond_5b
+    :cond_2
     const-string v4, "WifiP2pNotifier"
 
     const-string v5, "WFD : I am GC"
@@ -170,21 +173,22 @@
 
     .line 184
     .restart local v2       #device:Landroid/net/wifi/p2p/WifiP2pDevice;
-    if-eqz v2, :cond_5a
+    if-eqz v2, :cond_1
 
     iget-object v4, v2, Landroid/net/wifi/p2p/WifiP2pDevice;->wfdInfo:Landroid/net/wifi/p2p/WifiP2pWfdInfo;
 
-    if-eqz v4, :cond_5a
+    if-eqz v4, :cond_1
 
     iget-object v4, p0, Landroid/net/wifi/p2p/WifiP2pNotifier$WifiP2pReceiver$1;->this$1:Landroid/net/wifi/p2p/WifiP2pNotifier$WifiP2pReceiver;
 
     iget-object v4, v4, Landroid/net/wifi/p2p/WifiP2pNotifier$WifiP2pReceiver;->this$0:Landroid/net/wifi/p2p/WifiP2pNotifier;
 
+    #getter for: Landroid/net/wifi/p2p/WifiP2pNotifier;->mP2pInfo:Landroid/net/wifi/p2p/WifiP2pInfo;
     invoke-static {v4}, Landroid/net/wifi/p2p/WifiP2pNotifier;->access$500(Landroid/net/wifi/p2p/WifiP2pNotifier;)Landroid/net/wifi/p2p/WifiP2pInfo;
 
     move-result-object v4
 
-    if-eqz v4, :cond_5a
+    if-eqz v4, :cond_1
 
     .line 185
     iget-object v4, p0, Landroid/net/wifi/p2p/WifiP2pNotifier$WifiP2pReceiver$1;->this$1:Landroid/net/wifi/p2p/WifiP2pNotifier$WifiP2pReceiver;
@@ -197,6 +201,7 @@
 
     move-result v5
 
+    #setter for: Landroid/net/wifi/p2p/WifiP2pNotifier;->mWfdPort:I
     invoke-static {v4, v5}, Landroid/net/wifi/p2p/WifiP2pNotifier;->access$802(Landroid/net/wifi/p2p/WifiP2pNotifier;I)I
 
     .line 186
@@ -204,6 +209,7 @@
 
     iget-object v4, v4, Landroid/net/wifi/p2p/WifiP2pNotifier$WifiP2pReceiver;->this$0:Landroid/net/wifi/p2p/WifiP2pNotifier;
 
+    #getter for: Landroid/net/wifi/p2p/WifiP2pNotifier;->mP2pInfo:Landroid/net/wifi/p2p/WifiP2pInfo;
     invoke-static {v4}, Landroid/net/wifi/p2p/WifiP2pNotifier;->access$500(Landroid/net/wifi/p2p/WifiP2pNotifier;)Landroid/net/wifi/p2p/WifiP2pInfo;
 
     move-result-object v4
@@ -223,11 +229,13 @@
 
     iget-object v6, v6, Landroid/net/wifi/p2p/WifiP2pNotifier$WifiP2pReceiver;->this$0:Landroid/net/wifi/p2p/WifiP2pNotifier;
 
+    #getter for: Landroid/net/wifi/p2p/WifiP2pNotifier;->mWfdPort:I
     invoke-static {v6}, Landroid/net/wifi/p2p/WifiP2pNotifier;->access$800(Landroid/net/wifi/p2p/WifiP2pNotifier;)I
 
     move-result v6
 
+    #calls: Landroid/net/wifi/p2p/WifiP2pNotifier;->connectToRtspServer(Ljava/lang/String;I)V
     invoke-static {v4, v5, v6}, Landroid/net/wifi/p2p/WifiP2pNotifier;->access$900(Landroid/net/wifi/p2p/WifiP2pNotifier;Ljava/lang/String;I)V
 
-    goto :goto_5a
+    goto :goto_0
 .end method

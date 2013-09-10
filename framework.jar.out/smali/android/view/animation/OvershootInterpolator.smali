@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 30
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(F)V
-    .registers 2
+    .locals 0
     .parameter "tension"
 
     .prologue
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "attrs"
 
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public getInterpolation(F)F
-    .registers 6
+    .locals 4
     .parameter "t"
 
     .prologue

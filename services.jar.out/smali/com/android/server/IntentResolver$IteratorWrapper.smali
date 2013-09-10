@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/IntentResolver;Ljava/util/Iterator;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 173
@@ -92,7 +92,7 @@
 .end method
 
 .method public next()Landroid/content/IntentFilter;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TF;"
@@ -116,7 +116,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 164
@@ -129,14 +129,14 @@
 .end method
 
 .method public remove()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 181
     .local p0, this:Lcom/android/server/IntentResolver$IteratorWrapper;,"Lcom/android/server/IntentResolver<TF;TR;>.IteratorWrapper;"
     iget-object v0, p0, Lcom/android/server/IntentResolver$IteratorWrapper;->mCur:Landroid/content/IntentFilter;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 182
     iget-object v0, p0, Lcom/android/server/IntentResolver$IteratorWrapper;->this$0:Lcom/android/server/IntentResolver;
@@ -146,7 +146,7 @@
     invoke-virtual {v0, v1}, Lcom/android/server/IntentResolver;->removeFilterInternal(Landroid/content/IntentFilter;)V
 
     .line 184
-    :cond_b
+    :cond_0
     iget-object v0, p0, Lcom/android/server/IntentResolver$IteratorWrapper;->mI:Ljava/util/Iterator;
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V

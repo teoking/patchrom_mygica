@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 59
@@ -31,10 +31,11 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 61
+    #calls: Landroid/os/Trace;->nativeGetEnabledTags()J
     invoke-static {}, Landroid/os/Trace;->access$100()J
 
     move-result-wide v0

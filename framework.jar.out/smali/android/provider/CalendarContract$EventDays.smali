@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1969
@@ -41,7 +41,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1976
@@ -51,7 +51,7 @@
 .end method
 
 .method public static final query(Landroid/content/ContentResolver;II[Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 12
+    .locals 8
     .parameter "cr"
     .parameter "startDay"
     .parameter "numDays"
@@ -63,14 +63,14 @@
     .line 1994
     const/4 v0, 0x1
 
-    if-ge p2, v0, :cond_5
+    if-ge p2, v0, :cond_0
 
     .line 2001
-    :goto_4
+    :goto_0
     return-object v4
 
     .line 1997
-    :cond_5
+    :cond_0
     add-int v0, p1, p2
 
     add-int/lit8 v7, v0, -0x1
@@ -111,5 +111,5 @@
 
     move-result-object v4
 
-    goto :goto_4
+    goto :goto_0
 .end method

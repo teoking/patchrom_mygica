@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/view/inputmethod/InputMethodInfo;ILjava/lang/String;Ljava/lang/String;)V
-    .registers 9
+    .locals 2
     .parameter "imeName"
     .parameter "subtypeName"
     .parameter "imi"
@@ -74,7 +74,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_0
 
     .line 2515
     iput-boolean v0, p0, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mIsSystemLocale:Z
@@ -83,11 +83,11 @@
     iput-boolean v0, p0, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mIsSystemLanguage:Z
 
     .line 2522
-    :goto_16
+    :goto_0
     return-void
 
     .line 2518
-    :cond_17
+    :cond_0
     invoke-virtual {p5, p6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
@@ -97,7 +97,7 @@
     .line 2519
     iget-boolean v1, p0, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mIsSystemLocale:Z
 
-    if-nez v1, :cond_2c
+    if-nez v1, :cond_1
 
     const/4 v1, 0x2
 
@@ -109,21 +109,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2d
+    if-eqz v1, :cond_2
 
-    :cond_2c
+    :cond_1
     const/4 v0, 0x1
 
-    :cond_2d
+    :cond_2
     iput-boolean v0, p0, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mIsSystemLanguage:Z
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public compareTo(Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;)I
-    .registers 6
+    .locals 4
     .parameter "other"
 
     .prologue
@@ -138,30 +138,30 @@
 
     move-result v2
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_1
 
     .line 2556
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return v0
 
     .line 2529
-    :cond_b
+    :cond_1
     iget-object v2, p1, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mImeName:Ljava/lang/CharSequence;
 
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_15
+    if-eqz v2, :cond_2
 
     move v0, v1
 
     .line 2530
-    goto :goto_a
+    goto :goto_0
 
     .line 2532
-    :cond_15
+    :cond_2
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mImeName:Ljava/lang/CharSequence;
 
     iget-object v3, p1, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mImeName:Ljava/lang/CharSequence;
@@ -170,7 +170,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_30
+    if-nez v2, :cond_3
 
     .line 2533
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mImeName:Ljava/lang/CharSequence;
@@ -189,10 +189,10 @@
 
     move-result v0
 
-    goto :goto_a
+    goto :goto_0
 
     .line 2535
-    :cond_30
+    :cond_3
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mSubtypeName:Ljava/lang/CharSequence;
 
     iget-object v3, p1, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mSubtypeName:Ljava/lang/CharSequence;
@@ -201,45 +201,45 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3c
+    if-eqz v2, :cond_4
 
     .line 2536
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 
     .line 2538
-    :cond_3c
+    :cond_4
     iget-boolean v2, p0, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mIsSystemLocale:Z
 
-    if-eqz v2, :cond_42
+    if-eqz v2, :cond_5
 
     move v0, v1
 
     .line 2539
-    goto :goto_a
+    goto :goto_0
 
     .line 2541
-    :cond_42
+    :cond_5
     iget-boolean v2, p1, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mIsSystemLocale:Z
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_0
 
     .line 2544
     iget-boolean v2, p0, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mIsSystemLanguage:Z
 
-    if-eqz v2, :cond_4c
+    if-eqz v2, :cond_6
 
     move v0, v1
 
     .line 2545
-    goto :goto_a
+    goto :goto_0
 
     .line 2547
-    :cond_4c
+    :cond_6
     iget-boolean v2, p1, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mIsSystemLanguage:Z
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_0
 
     .line 2550
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mSubtypeName:Ljava/lang/CharSequence;
@@ -248,7 +248,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_0
 
     .line 2553
     iget-object v0, p1, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mSubtypeName:Ljava/lang/CharSequence;
@@ -257,15 +257,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_62
+    if-eqz v0, :cond_7
 
     move v0, v1
 
     .line 2554
-    goto :goto_a
+    goto :goto_0
 
     .line 2556
-    :cond_62
+    :cond_7
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$ImeSubtypeListItem;->mSubtypeName:Ljava/lang/CharSequence;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -282,11 +282,11 @@
 
     move-result v0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

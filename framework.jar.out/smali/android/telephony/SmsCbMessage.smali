@@ -65,7 +65,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 219
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>(IIILandroid/telephony/SmsCbLocation;ILjava/lang/String;Ljava/lang/String;ILandroid/telephony/SmsCbEtwsInfo;Landroid/telephony/SmsCbCmasInfo;)V
-    .registers 11
+    .locals 0
     .parameter "messageFormat"
     .parameter "geographicalScope"
     .parameter "serialNumber"
@@ -130,7 +130,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 5
+    .locals 3
     .parameter "in"
 
     .prologue
@@ -202,21 +202,21 @@
 
     .line 170
     .local v0, type:I
-    packed-switch v0, :pswitch_data_56
+    packed-switch v0, :pswitch_data_0
 
     .line 184
-    :pswitch_3c
+    :pswitch_0
     iput-object v2, p0, Landroid/telephony/SmsCbMessage;->mEtwsWarningInfo:Landroid/telephony/SmsCbEtwsInfo;
 
     .line 185
     iput-object v2, p0, Landroid/telephony/SmsCbMessage;->mCmasWarningInfo:Landroid/telephony/SmsCbCmasInfo;
 
     .line 187
-    :goto_40
+    :goto_0
     return-void
 
     .line 173
-    :pswitch_41
+    :pswitch_1
     new-instance v1, Landroid/telephony/SmsCbEtwsInfo;
 
     invoke-direct {v1, p1}, Landroid/telephony/SmsCbEtwsInfo;-><init>(Landroid/os/Parcel;)V
@@ -226,10 +226,10 @@
     .line 174
     iput-object v2, p0, Landroid/telephony/SmsCbMessage;->mCmasWarningInfo:Landroid/telephony/SmsCbCmasInfo;
 
-    goto :goto_40
+    goto :goto_0
 
     .line 179
-    :pswitch_4b
+    :pswitch_2
     iput-object v2, p0, Landroid/telephony/SmsCbMessage;->mEtwsWarningInfo:Landroid/telephony/SmsCbEtwsInfo;
 
     .line 180
@@ -239,23 +239,23 @@
 
     iput-object v1, p0, Landroid/telephony/SmsCbMessage;->mCmasWarningInfo:Landroid/telephony/SmsCbCmasInfo;
 
-    goto :goto_40
+    goto :goto_0
 
     .line 170
     nop
 
-    :pswitch_data_56
+    :pswitch_data_0
     .packed-switch 0x43
-        :pswitch_4b
-        :pswitch_3c
-        :pswitch_41
+        :pswitch_2
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 380
@@ -265,7 +265,7 @@
 .end method
 
 .method public getCmasWarningInfo()Landroid/telephony/SmsCbCmasInfo;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 337
@@ -275,7 +275,7 @@
 .end method
 
 .method public getEtwsWarningInfo()Landroid/telephony/SmsCbEtwsInfo;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 323
@@ -285,7 +285,7 @@
 .end method
 
 .method public getGeographicalScope()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 238
@@ -295,7 +295,7 @@
 .end method
 
 .method public getLanguageCode()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 283
@@ -305,7 +305,7 @@
 .end method
 
 .method public getLocation()Landroid/telephony/SmsCbLocation;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 262
@@ -315,7 +315,7 @@
 .end method
 
 .method public getMessageBody()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 292
@@ -325,7 +325,7 @@
 .end method
 
 .method public getMessageFormat()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 300
@@ -335,7 +335,7 @@
 .end method
 
 .method public getMessagePriority()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 310
@@ -345,7 +345,7 @@
 .end method
 
 .method public getSerialNumber()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 249
@@ -355,7 +355,7 @@
 .end method
 
 .method public getServiceCategory()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 274
@@ -365,27 +365,27 @@
 .end method
 
 .method public isCmasMessage()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 361
     iget-object v0, p0, Landroid/telephony/SmsCbMessage;->mCmasWarningInfo:Landroid/telephony/SmsCbCmasInfo;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public isEmergencyMessage()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 345
@@ -393,41 +393,41 @@
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public isEtwsMessage()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 353
     iget-object v0, p0, Landroid/telephony/SmsCbMessage;->mEtwsWarningInfo:Landroid/telephony/SmsCbEtwsInfo;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 366
@@ -521,7 +521,7 @@
 
     iget-object v0, p0, Landroid/telephony/SmsCbMessage;->mEtwsWarningInfo:Landroid/telephony/SmsCbEtwsInfo;
 
-    if-eqz v0, :cond_a6
+    if-eqz v0, :cond_0
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -547,14 +547,14 @@
 
     move-result-object v0
 
-    :goto_76
+    :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
     iget-object v0, p0, Landroid/telephony/SmsCbMessage;->mCmasWarningInfo:Landroid/telephony/SmsCbCmasInfo;
 
-    if-eqz v0, :cond_a9
+    if-eqz v0, :cond_1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -580,7 +580,7 @@
 
     move-result-object v0
 
-    :goto_97
+    :goto_1
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -597,19 +597,19 @@
 
     return-object v0
 
-    :cond_a6
+    :cond_0
     const-string v0, ""
 
-    goto :goto_76
+    goto :goto_0
 
-    :cond_a9
+    :cond_1
     const-string v0, ""
 
-    goto :goto_97
+    goto :goto_1
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 
@@ -657,7 +657,7 @@
     .line 205
     iget-object v0, p0, Landroid/telephony/SmsCbMessage;->mEtwsWarningInfo:Landroid/telephony/SmsCbEtwsInfo;
 
-    if-eqz v0, :cond_37
+    if-eqz v0, :cond_0
 
     .line 207
     const/16 v0, 0x45
@@ -670,14 +670,14 @@
     invoke-virtual {v0, p1, p2}, Landroid/telephony/SmsCbEtwsInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 217
-    :goto_36
+    :goto_0
     return-void
 
     .line 209
-    :cond_37
+    :cond_0
     iget-object v0, p0, Landroid/telephony/SmsCbMessage;->mCmasWarningInfo:Landroid/telephony/SmsCbCmasInfo;
 
-    if-eqz v0, :cond_46
+    if-eqz v0, :cond_1
 
     .line 211
     const/16 v0, 0x43
@@ -689,13 +689,13 @@
 
     invoke-virtual {v0, p1, p2}, Landroid/telephony/SmsCbCmasInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_36
+    goto :goto_0
 
     .line 215
-    :cond_46
+    :cond_1
     const/16 v0, 0x30
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_36
+    goto :goto_0
 .end method

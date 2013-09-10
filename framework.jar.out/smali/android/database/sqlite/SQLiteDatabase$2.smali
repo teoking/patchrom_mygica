@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .registers 4
+    .locals 2
     .parameter "candidate"
 
     .prologue

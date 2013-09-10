@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;ZLjava/util/Set;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZ)V
-    .registers 13
+    .locals 6
     .parameter "intent"
     .parameter "resultCode"
     .parameter "data"
@@ -70,11 +70,11 @@
 
     iget-boolean v1, p0, Lcom/android/server/pm/PackageManagerService$11;->val$reportStatus:Z
 
-    if-eqz v1, :cond_1a
+    if-eqz v1, :cond_0
 
     move v1, v2
 
-    :goto_c
+    :goto_0
     iget-object v5, p0, Lcom/android/server/pm/PackageManagerService$11;->val$keys:Ljava/util/Set;
 
     invoke-virtual {v3, v4, v1, v2, v5}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
@@ -94,8 +94,8 @@
 
     .line 9148
     .end local v0           #msg:Landroid/os/Message;
-    :cond_1a
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method

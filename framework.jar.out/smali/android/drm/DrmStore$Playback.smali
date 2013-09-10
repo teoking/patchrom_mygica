@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 157
@@ -36,7 +36,7 @@
 .end method
 
 .method static isValid(I)Z
-    .registers 2
+    .locals 1
     .parameter "playbackStatus"
 
     .prologue
@@ -45,26 +45,26 @@
 
     .line 143
     .local v0, isValid:Z
-    packed-switch p0, :pswitch_data_8
+    packed-switch p0, :pswitch_data_0
 
     .line 150
-    :goto_4
+    :goto_0
     return v0
 
     .line 148
-    :pswitch_5
+    :pswitch_0
     const/4 v0, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 143
     nop
 
-    :pswitch_data_8
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_5
-        :pswitch_5
-        :pswitch_5
-        :pswitch_5
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method

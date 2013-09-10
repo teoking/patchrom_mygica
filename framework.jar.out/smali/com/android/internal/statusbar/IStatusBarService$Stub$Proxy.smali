@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 280
@@ -50,7 +50,7 @@
 .end method
 
 .method public cancelPreloadRecentApps()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -71,7 +71,7 @@
 
     .line 590
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -87,8 +87,8 @@
 
     .line 592
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 595
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -100,7 +100,7 @@
     return-void
 
     .line 595
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -112,7 +112,7 @@
 .end method
 
 .method public collapse()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -133,7 +133,7 @@
 
     .line 305
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -149,8 +149,8 @@
 
     .line 307
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_17
-    .catchall {:try_start_8 .. :try_end_17} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 310
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -162,7 +162,7 @@
     return-void
 
     .line 310
-    :catchall_1e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -174,7 +174,7 @@
 .end method
 
 .method public disable(ILandroid/os/IBinder;Ljava/lang/String;)V
-    .registers 9
+    .locals 5
     .parameter "what"
     .parameter "token"
     .parameter "pkg"
@@ -198,7 +198,7 @@
 
     .line 319
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -223,8 +223,8 @@
 
     .line 324
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 327
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -236,7 +236,7 @@
     return-void
 
     .line 327
-    :catchall_27
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -248,7 +248,7 @@
 .end method
 
 .method public expand()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -269,7 +269,7 @@
 
     .line 291
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -285,8 +285,8 @@
 
     .line 293
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_17
-    .catchall {:try_start_8 .. :try_end_17} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 296
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -298,7 +298,7 @@
     return-void
 
     .line 296
-    :catchall_1e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -310,7 +310,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 284
@@ -320,7 +320,7 @@
 .end method
 
 .method public onClearAllNotifications()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -341,7 +341,7 @@
 
     .line 500
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -357,8 +357,8 @@
 
     .line 502
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 505
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -370,7 +370,7 @@
     return-void
 
     .line 505
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -382,7 +382,7 @@
 .end method
 
 .method public onNotificationClear(Ljava/lang/String;Ljava/lang/String;I)V
-    .registers 9
+    .locals 5
     .parameter "pkg"
     .parameter "tag"
     .parameter "id"
@@ -406,7 +406,7 @@
 
     .line 514
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -431,8 +431,8 @@
 
     .line 519
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_8 .. :try_end_21} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 522
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -444,7 +444,7 @@
     return-void
 
     .line 522
-    :catchall_28
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -456,7 +456,7 @@
 .end method
 
 .method public onNotificationClick(Ljava/lang/String;Ljava/lang/String;I)V
-    .registers 9
+    .locals 5
     .parameter "pkg"
     .parameter "tag"
     .parameter "id"
@@ -480,7 +480,7 @@
 
     .line 463
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -505,8 +505,8 @@
 
     .line 468
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_8 .. :try_end_21} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 471
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -518,7 +518,7 @@
     return-void
 
     .line 471
-    :catchall_28
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -530,7 +530,7 @@
 .end method
 
 .method public onNotificationError(Ljava/lang/String;Ljava/lang/String;IIILjava/lang/String;)V
-    .registers 12
+    .locals 5
     .parameter "pkg"
     .parameter "tag"
     .parameter "id"
@@ -557,7 +557,7 @@
 
     .line 480
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -591,8 +591,8 @@
 
     .line 488
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_2a
-    .catchall {:try_start_8 .. :try_end_2a} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 491
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -604,7 +604,7 @@
     return-void
 
     .line 491
-    :catchall_31
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -616,7 +616,7 @@
 .end method
 
 .method public onPanelRevealed()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -637,7 +637,7 @@
 
     .line 449
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -653,8 +653,8 @@
 
     .line 451
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 454
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -666,7 +666,7 @@
     return-void
 
     .line 454
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -678,7 +678,7 @@
 .end method
 
 .method public preloadRecentApps()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -699,7 +699,7 @@
 
     .line 576
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -715,8 +715,8 @@
 
     .line 578
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 581
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -728,7 +728,7 @@
     return-void
 
     .line 581
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -740,7 +740,7 @@
 .end method
 
 .method public registerStatusBar(Lcom/android/internal/statusbar/IStatusBar;Lcom/android/internal/statusbar/StatusBarIconList;Ljava/util/List;Ljava/util/List;[ILjava/util/List;)V
-    .registers 12
+    .locals 5
     .parameter "callbacks"
     .parameter "iconList"
     .parameter
@@ -790,23 +790,23 @@
 
     .line 421
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 422
-    if-eqz p1, :cond_45
+    if-eqz p1, :cond_1
 
     invoke-interface {p1}, Lcom/android/internal/statusbar/IStatusBar;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 423
-    if-nez p5, :cond_47
+    if-nez p5, :cond_2
 
     .line 424
     const/4 v2, -0x1
@@ -814,7 +814,7 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 429
-    :goto_1c
+    :goto_1
     iget-object v2, p0, Lcom/android/internal/statusbar/IStatusBarService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x9
@@ -831,13 +831,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_30
+    if-eqz v2, :cond_0
 
     .line 432
     invoke-virtual {p2, v1}, Lcom/android/internal/statusbar/StatusBarIconList;->readFromParcel(Landroid/os/Parcel;)V
 
     .line 434
-    :cond_30
+    :cond_0
     invoke-virtual {v1, p3}, Landroid/os/Parcel;->readBinderList(Ljava/util/List;)V
 
     .line 435
@@ -850,8 +850,8 @@
 
     .line 437
     invoke-virtual {v1, p6}, Landroid/os/Parcel;->readBinderList(Ljava/util/List;)V
-    :try_end_3e
-    .catchall {:try_start_8 .. :try_end_3e} :catchall_4c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 440
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -863,24 +863,24 @@
     return-void
 
     .line 422
-    :cond_45
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 427
-    :cond_47
-    :try_start_47
+    :cond_2
+    :try_start_1
     array-length v2, p5
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_4b
-    .catchall {:try_start_47 .. :try_end_4b} :catchall_4c
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1c
+    goto :goto_1
 
     .line 440
-    :catchall_4c
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -892,7 +892,7 @@
 .end method
 
 .method public removeIcon(Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "slot"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -914,7 +914,7 @@
 
     .line 371
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -933,8 +933,8 @@
 
     .line 374
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 377
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -946,7 +946,7 @@
     return-void
 
     .line 377
-    :catchall_21
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -958,7 +958,7 @@
 .end method
 
 .method public setHardKeyboardEnabled(Z)V
-    .registers 7
+    .locals 5
     .parameter "enabled"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -982,17 +982,17 @@
 
     .line 547
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 548
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     const/4 v2, 0x1
 
-    :cond_11
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 549
@@ -1006,8 +1006,8 @@
 
     .line 550
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1f
-    .catchall {:try_start_9 .. :try_end_1f} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 553
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1019,7 +1019,7 @@
     return-void
 
     .line 553
-    :catchall_26
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1031,7 +1031,7 @@
 .end method
 
 .method public setIcon(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;)V
-    .registers 11
+    .locals 5
     .parameter "slot"
     .parameter "iconPackage"
     .parameter "iconId"
@@ -1057,7 +1057,7 @@
 
     .line 336
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1088,8 +1088,8 @@
 
     .line 343
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_26
-    .catchall {:try_start_8 .. :try_end_26} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 346
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1101,7 +1101,7 @@
     return-void
 
     .line 346
-    :catchall_2d
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1113,7 +1113,7 @@
 .end method
 
 .method public setIconVisibility(Ljava/lang/String;Z)V
-    .registers 8
+    .locals 5
     .parameter "slot"
     .parameter "visible"
     .annotation system Ldalvik/annotation/Throws;
@@ -1138,7 +1138,7 @@
 
     .line 355
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1147,11 +1147,11 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 357
-    if-eqz p2, :cond_14
+    if-eqz p2, :cond_0
 
     const/4 v2, 0x1
 
-    :cond_14
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 358
@@ -1165,8 +1165,8 @@
 
     .line 359
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_9 .. :try_end_21} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 362
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1178,7 +1178,7 @@
     return-void
 
     .line 362
-    :catchall_28
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1190,7 +1190,7 @@
 .end method
 
 .method public setImeWindowStatus(Landroid/os/IBinder;II)V
-    .registers 9
+    .locals 5
     .parameter "token"
     .parameter "vis"
     .parameter "backDisposition"
@@ -1214,7 +1214,7 @@
 
     .line 401
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1239,8 +1239,8 @@
 
     .line 406
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_8 .. :try_end_21} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 409
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1252,7 +1252,7 @@
     return-void
 
     .line 409
-    :catchall_28
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1264,7 +1264,7 @@
 .end method
 
 .method public setSystemUiVisibility(II)V
-    .registers 8
+    .locals 5
     .parameter "vis"
     .parameter "mask"
     .annotation system Ldalvik/annotation/Throws;
@@ -1287,7 +1287,7 @@
 
     .line 531
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1309,8 +1309,8 @@
 
     .line 535
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 538
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1322,7 +1322,7 @@
     return-void
 
     .line 538
-    :catchall_25
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1334,7 +1334,7 @@
 .end method
 
 .method public toggleRecentApps()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1355,7 +1355,7 @@
 
     .line 562
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1371,8 +1371,8 @@
 
     .line 564
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 567
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1384,7 +1384,7 @@
     return-void
 
     .line 567
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1396,7 +1396,7 @@
 .end method
 
 .method public topAppWindowChanged(Z)V
-    .registers 7
+    .locals 5
     .parameter "menuVisible"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1420,17 +1420,17 @@
 
     .line 386
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "com.android.internal.statusbar.IStatusBarService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 387
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     const/4 v2, 0x1
 
-    :cond_11
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 388
@@ -1444,8 +1444,8 @@
 
     .line 389
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1e
-    .catchall {:try_start_9 .. :try_end_1e} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 392
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1457,7 +1457,7 @@
     return-void
 
     .line 392
-    :catchall_25
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/GridLayout$Interval;Landroid/widget/GridLayout$MutableInt;)V
-    .registers 4
+    .locals 1
     .parameter "span"
     .parameter "value"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2050
@@ -72,11 +72,11 @@
 
     iget-boolean v0, p0, Landroid/widget/GridLayout$Arc;->valid:Z
 
-    if-nez v0, :cond_2c
+    if-nez v0, :cond_0
 
     const-string v0, "+>"
 
-    :goto_17
+    :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -99,8 +99,8 @@
 
     return-object v0
 
-    :cond_2c
+    :cond_0
     const-string v0, "->"
 
-    goto :goto_17
+    goto :goto_0
 .end method

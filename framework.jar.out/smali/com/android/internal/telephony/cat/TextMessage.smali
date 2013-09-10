@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 62
@@ -53,7 +53,7 @@
 .end method
 
 .method constructor <init>()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -96,7 +96,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 6
+    .locals 4
     .parameter "in"
 
     .prologue
@@ -163,11 +163,11 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_58
+    if-ne v0, v1, :cond_0
 
     move v0, v1
 
-    :goto_33
+    :goto_0
     iput-boolean v0, p0, Lcom/android/internal/telephony/cat/TextMessage;->iconSelfExplanatory:Z
 
     .line 41
@@ -175,11 +175,11 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_5a
+    if-ne v0, v1, :cond_1
 
     move v0, v1
 
-    :goto_3c
+    :goto_1
     iput-boolean v0, p0, Lcom/android/internal/telephony/cat/TextMessage;->isHighPriority:Z
 
     .line 42
@@ -187,11 +187,11 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_5c
+    if-ne v0, v1, :cond_2
 
     move v0, v1
 
-    :goto_45
+    :goto_2
     iput-boolean v0, p0, Lcom/android/internal/telephony/cat/TextMessage;->responseNeeded:Z
 
     .line 43
@@ -199,9 +199,9 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_5e
+    if-ne v0, v1, :cond_3
 
-    :goto_4d
+    :goto_3
     iput-boolean v1, p0, Lcom/android/internal/telephony/cat/TextMessage;->userClear:Z
 
     .line 44
@@ -216,33 +216,33 @@
     .line 45
     return-void
 
-    :cond_58
+    :cond_0
     move v0, v2
 
     .line 40
-    goto :goto_33
+    goto :goto_0
 
-    :cond_5a
+    :cond_1
     move v0, v2
 
     .line 41
-    goto :goto_3c
+    goto :goto_1
 
-    :cond_5c
+    :cond_2
     move v0, v2
 
     .line 42
-    goto :goto_45
+    goto :goto_2
 
-    :cond_5e
+    :cond_3
     move v1, v2
 
     .line 43
-    goto :goto_4d
+    goto :goto_3
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/android/internal/telephony/cat/TextMessage$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -256,7 +256,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 48
@@ -266,7 +266,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "dest"
     .parameter "flags"
 
@@ -293,39 +293,39 @@
     .line 55
     iget-boolean v0, p0, Lcom/android/internal/telephony/cat/TextMessage;->iconSelfExplanatory:Z
 
-    if-eqz v0, :cond_36
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_16
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 56
     iget-boolean v0, p0, Lcom/android/internal/telephony/cat/TextMessage;->isHighPriority:Z
 
-    if-eqz v0, :cond_38
+    if-eqz v0, :cond_1
 
     move v0, v1
 
-    :goto_1e
+    :goto_1
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 57
     iget-boolean v0, p0, Lcom/android/internal/telephony/cat/TextMessage;->responseNeeded:Z
 
-    if-eqz v0, :cond_3a
+    if-eqz v0, :cond_2
 
     move v0, v1
 
-    :goto_26
+    :goto_2
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 58
     iget-boolean v0, p0, Lcom/android/internal/telephony/cat/TextMessage;->userClear:Z
 
-    if-eqz v0, :cond_3c
+    if-eqz v0, :cond_3
 
-    :goto_2d
+    :goto_3
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 59
@@ -336,27 +336,27 @@
     .line 60
     return-void
 
-    :cond_36
+    :cond_0
     move v0, v2
 
     .line 55
-    goto :goto_16
+    goto :goto_0
 
-    :cond_38
+    :cond_1
     move v0, v2
 
     .line 56
-    goto :goto_1e
+    goto :goto_1
 
-    :cond_3a
+    :cond_2
     move v0, v2
 
     .line 57
-    goto :goto_26
+    goto :goto_2
 
-    :cond_3c
+    :cond_3
     move v1, v2
 
     .line 58
-    goto :goto_2d
+    goto :goto_3
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "track"
 
     .prologue
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public getInfo()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -69,7 +69,7 @@
 .end method
 
 .method public getTrack()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 777
@@ -79,7 +79,7 @@
 .end method
 
 .method public isHtml()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 779

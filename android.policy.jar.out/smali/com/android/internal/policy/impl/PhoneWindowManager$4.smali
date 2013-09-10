@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v5, 0x0
@@ -52,7 +52,7 @@
 
     iget v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mLongPressOnPowerBehavior:I
 
-    if-gez v0, :cond_1c
+    if-gez v0, :cond_0
 
     .line 812
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -74,21 +74,21 @@
     iput v1, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mLongPressOnPowerBehavior:I
 
     .line 815
-    :cond_1c
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mLongPressOnPowerBehavior:I
 
-    packed-switch v0, :pswitch_data_5a
+    packed-switch v0, :pswitch_data_0
 
     .line 833
-    :cond_23
-    :goto_23
-    :pswitch_23
+    :cond_1
+    :goto_0
+    :pswitch_0
     return-void
 
     .line 819
-    :pswitch_24
+    :pswitch_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iput-boolean v4, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPowerKeyHandled:Z
@@ -110,17 +110,17 @@
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->showGlobalActionsDialog()V
 
-    goto :goto_23
+    goto :goto_0
 
     .line 825
-    :pswitch_3a
+    :pswitch_2
     const-string v0, "ro.platform.has.mbxuimode"
 
     invoke-static {v0, v3}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_1
 
     .line 826
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -146,13 +146,13 @@
 
     invoke-interface {v0}, Landroid/view/WindowManagerPolicy$WindowManagerFuncs;->shutdown()V
 
-    goto :goto_23
+    goto :goto_0
 
     .line 815
-    :pswitch_data_5a
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_23
-        :pswitch_24
-        :pswitch_3a
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

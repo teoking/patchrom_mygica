@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 5107
@@ -32,7 +32,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/view/ViewRootImpl$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "o"
 
     .prologue
@@ -54,16 +54,16 @@
     const/4 v2, 0x0
 
     .line 5113
-    if-ne p0, p1, :cond_5
+    if-ne p0, p1, :cond_1
 
     .line 5117
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 5114
-    :cond_5
-    if-eqz p1, :cond_11
+    :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -73,14 +73,14 @@
 
     move-result-object v4
 
-    if-eq v3, v4, :cond_13
+    if-eq v3, v4, :cond_3
 
-    :cond_11
+    :cond_2
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_13
+    :cond_3
     move-object v0, p1
 
     .line 5116
@@ -90,7 +90,7 @@
     .local v0, that:Landroid/view/ViewRootImpl$RunQueue$HandlerAction;
     iget-object v3, p0, Landroid/view/ViewRootImpl$RunQueue$HandlerAction;->action:Ljava/lang/Runnable;
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_5
 
     iget-object v3, p0, Landroid/view/ViewRootImpl$RunQueue$HandlerAction;->action:Ljava/lang/Runnable;
 
@@ -100,29 +100,29 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_0
 
-    :cond_24
+    :cond_4
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_26
+    :cond_5
     iget-object v3, v0, Landroid/view/ViewRootImpl$RunQueue$HandlerAction;->action:Ljava/lang/Runnable;
 
-    if-nez v3, :cond_24
+    if-nez v3, :cond_4
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 8
+    .locals 7
 
     .prologue
     .line 5123
     iget-object v1, p0, Landroid/view/ViewRootImpl$RunQueue$HandlerAction;->action:Ljava/lang/Runnable;
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/view/ViewRootImpl$RunQueue$HandlerAction;->action:Ljava/lang/Runnable;
 
@@ -132,7 +132,7 @@
 
     .line 5124
     .local v0, result:I
-    :goto_a
+    :goto_0
     mul-int/lit8 v1, v0, 0x1f
 
     iget-wide v2, p0, Landroid/view/ViewRootImpl$RunQueue$HandlerAction;->delay:J
@@ -154,8 +154,8 @@
 
     .line 5123
     .end local v0           #result:I
-    :cond_18
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method

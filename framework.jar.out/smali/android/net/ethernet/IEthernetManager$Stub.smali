@@ -51,7 +51,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 14
@@ -67,22 +67,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/net/ethernet/IEthernetManager;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 23
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 24
     const/4 v0, 0x0
 
     .line 30
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 26
-    :cond_4
+    :cond_0
     const-string v1, "android.net.ethernet.IEthernetManager"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -91,31 +91,31 @@
 
     .line 27
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/net/ethernet/IEthernetManager;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 28
     check-cast v0, Landroid/net/ethernet/IEthernetManager;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 30
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/net/ethernet/IEthernetManager$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/net/ethernet/IEthernetManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 34
@@ -123,7 +123,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 10
+    .locals 5
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -140,26 +140,26 @@
     const/4 v3, 0x1
 
     .line 38
-    sparse-switch p1, :sswitch_data_ee
+    sparse-switch p1, :sswitch_data_0
 
     .line 154
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v3
 
-    :goto_9
+    :goto_0
     return v3
 
     .line 42
-    :sswitch_a
+    :sswitch_0
     const-string v2, "android.net.ethernet.IEthernetManager"
 
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 47
-    :sswitch_10
+    :sswitch_1
     const-string v2, "android.net.ethernet.IEthernetManager"
 
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -176,11 +176,11 @@
     .line 50
     invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 55
     .end local v1           #_result:[Ljava/lang/String;
-    :sswitch_20
+    :sswitch_2
     const-string v2, "android.net.ethernet.IEthernetManager"
 
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -197,11 +197,11 @@
     .line 59
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 64
     .end local v0           #_arg0:I
-    :sswitch_30
+    :sswitch_3
     const-string v2, "android.net.ethernet.IEthernetManager"
 
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -218,11 +218,11 @@
     .line 67
     invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 72
     .end local v1           #_result:I
-    :sswitch_40
+    :sswitch_4
     const-string v2, "android.net.ethernet.IEthernetManager"
 
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -232,7 +232,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5a
+    if-eqz v2, :cond_0
 
     .line 75
     sget-object v2, Landroid/net/ethernet/EthernetDevInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -245,25 +245,25 @@
 
     .line 80
     .local v0, _arg0:Landroid/net/ethernet/EthernetDevInfo;
-    :goto_53
+    :goto_1
     invoke-virtual {p0, v0}, Landroid/net/ethernet/IEthernetManager$Stub;->UpdateEthDevInfo(Landroid/net/ethernet/EthernetDevInfo;)V
 
     .line 81
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 78
     .end local v0           #_arg0:Landroid/net/ethernet/EthernetDevInfo;
-    :cond_5a
+    :cond_0
     const/4 v0, 0x0
 
     .restart local v0       #_arg0:Landroid/net/ethernet/EthernetDevInfo;
-    goto :goto_53
+    goto :goto_1
 
     .line 86
     .end local v0           #_arg0:Landroid/net/ethernet/EthernetDevInfo;
-    :sswitch_5c
+    :sswitch_5
     const-string v4, "android.net.ethernet.IEthernetManager"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -278,18 +278,18 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 89
-    if-eqz v1, :cond_6b
+    if-eqz v1, :cond_1
 
     move v2, v3
 
-    :cond_6b
+    :cond_1
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 94
     .end local v1           #_result:Z
-    :sswitch_6f
+    :sswitch_6
     const-string v4, "android.net.ethernet.IEthernetManager"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -304,7 +304,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 97
-    if-eqz v1, :cond_84
+    if-eqz v1, :cond_2
 
     .line 98
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -312,17 +312,17 @@
     .line 99
     invoke-virtual {v1, p3, v3}, Landroid/net/ethernet/EthernetDevInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 102
-    :cond_84
+    :cond_2
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 108
     .end local v1           #_result:Landroid/net/ethernet/EthernetDevInfo;
-    :sswitch_88
+    :sswitch_7
     const-string v2, "android.net.ethernet.IEthernetManager"
 
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -339,11 +339,11 @@
     .line 111
     invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 116
     .end local v1           #_result:I
-    :sswitch_99
+    :sswitch_8
     const-string v2, "android.net.ethernet.IEthernetManager"
 
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -360,11 +360,11 @@
     .line 120
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 125
     .end local v0           #_arg0:Ljava/lang/String;
-    :sswitch_aa
+    :sswitch_9
     const-string v4, "android.net.ethernet.IEthernetManager"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -379,18 +379,18 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 128
-    if-eqz v1, :cond_b9
+    if-eqz v1, :cond_3
 
     move v2, v3
 
-    :cond_b9
+    :cond_3
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 133
     .end local v1           #_result:Z
-    :sswitch_be
+    :sswitch_a
     const-string v4, "android.net.ethernet.IEthernetManager"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -405,18 +405,18 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 136
-    if-eqz v1, :cond_cd
+    if-eqz v1, :cond_4
 
     move v2, v3
 
-    :cond_cd
+    :cond_4
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 141
     .end local v1           #_result:Z
-    :sswitch_d2
+    :sswitch_b
     const-string v4, "android.net.ethernet.IEthernetManager"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -431,7 +431,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 144
-    if-eqz v1, :cond_e8
+    if-eqz v1, :cond_5
 
     .line 145
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -439,30 +439,30 @@
     .line 146
     invoke-virtual {v1, p3, v3}, Landroid/net/DhcpInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 149
-    :cond_e8
+    :cond_5
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 38
     nop
 
-    :sswitch_data_ee
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_10
-        0x2 -> :sswitch_20
-        0x3 -> :sswitch_30
-        0x4 -> :sswitch_40
-        0x5 -> :sswitch_5c
-        0x6 -> :sswitch_6f
-        0x7 -> :sswitch_88
-        0x8 -> :sswitch_99
-        0x9 -> :sswitch_aa
-        0xa -> :sswitch_be
-        0xb -> :sswitch_d2
-        0x5f4e5446 -> :sswitch_a
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
+        0x8 -> :sswitch_8
+        0x9 -> :sswitch_9
+        0xa -> :sswitch_a
+        0xb -> :sswitch_b
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

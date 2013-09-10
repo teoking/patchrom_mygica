@@ -60,7 +60,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/util/List;I[Ljava/lang/String;[I)V
-    .registers 7
+    .locals 1
     .parameter "context"
     .parameter
     .parameter "resource"
@@ -116,7 +116,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/widget/SimpleAdapter;)Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -127,7 +127,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/widget/SimpleAdapter;Ljava/util/ArrayList;)Ljava/util/ArrayList;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -139,7 +139,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/widget/SimpleAdapter;)Ljava/util/List;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -150,7 +150,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/widget/SimpleAdapter;Ljava/util/List;)Ljava/util/List;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -162,7 +162,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/widget/SimpleAdapter;)[I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -173,7 +173,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/widget/SimpleAdapter;)[Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -184,7 +184,7 @@
 .end method
 
 .method private bindView(ILandroid/view/View;)V
-    .registers 16
+    .locals 13
     .parameter "position"
     .parameter "view"
 
@@ -200,14 +200,14 @@
 
     .line 148
     .local v4, dataSet:Ljava/util/Map;
-    if-nez v4, :cond_b
+    if-nez v4, :cond_1
 
     .line 201
-    :cond_a
+    :cond_0
     return-void
 
     .line 152
-    :cond_b
+    :cond_1
     iget-object v0, p0, Landroid/widget/SimpleAdapter;->mViewBinder:Landroid/widget/SimpleAdapter$ViewBinder;
 
     .line 153
@@ -227,8 +227,8 @@
     const/4 v6, 0x0
 
     .local v6, i:I
-    :goto_13
-    if-ge v6, v2, :cond_a
+    :goto_0
+    if-ge v6, v2, :cond_0
 
     .line 158
     aget v10, v8, v6
@@ -239,7 +239,7 @@
 
     .line 159
     .local v9, v:Landroid/view/View;
-    if-eqz v9, :cond_47
+    if-eqz v9, :cond_4
 
     .line 160
     aget-object v10, v5, v6
@@ -250,25 +250,25 @@
 
     .line 161
     .local v3, data:Ljava/lang/Object;
-    if-nez v3, :cond_4a
+    if-nez v3, :cond_5
 
     const-string v7, ""
 
     .line 162
     .local v7, text:Ljava/lang/String;
-    :goto_27
-    if-nez v7, :cond_2b
+    :goto_1
+    if-nez v7, :cond_2
 
     .line 163
     const-string v7, ""
 
     .line 166
-    :cond_2b
+    :cond_2
     const/4 v1, 0x0
 
     .line 167
     .local v1, bound:Z
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_3
 
     .line 168
     invoke-interface {v0, v9, v3, v7}, Landroid/widget/SimpleAdapter$ViewBinder;->setViewValue(Landroid/view/View;Ljava/lang/Object;Ljava/lang/String;)Z
@@ -276,18 +276,18 @@
     move-result v1
 
     .line 171
-    :cond_32
-    if-nez v1, :cond_47
+    :cond_3
+    if-nez v1, :cond_4
 
     .line 172
     instance-of v10, v9, Landroid/widget/Checkable;
 
-    if-eqz v10, :cond_87
+    if-eqz v10, :cond_9
 
     .line 173
     instance-of v10, v3, Ljava/lang/Boolean;
 
-    if-eqz v10, :cond_4f
+    if-eqz v10, :cond_6
 
     .line 174
     check-cast v9, Landroid/widget/Checkable;
@@ -305,29 +305,29 @@
     .line 157
     .end local v1           #bound:Z
     .end local v7           #text:Ljava/lang/String;
-    :cond_47
-    :goto_47
+    :cond_4
+    :goto_2
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_13
+    goto :goto_0
 
     .line 161
     .restart local v3       #data:Ljava/lang/Object;
     .restart local v9       #v:Landroid/view/View;
-    :cond_4a
+    :cond_5
     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v7
 
-    goto :goto_27
+    goto :goto_1
 
     .line 175
     .restart local v1       #bound:Z
     .restart local v7       #text:Ljava/lang/String;
-    :cond_4f
+    :cond_6
     instance-of v10, v9, Landroid/widget/TextView;
 
-    if-eqz v10, :cond_59
+    if-eqz v10, :cond_7
 
     .line 178
     check-cast v9, Landroid/widget/TextView;
@@ -335,11 +335,11 @@
     .end local v9           #v:Landroid/view/View;
     invoke-virtual {p0, v9, v7}, Landroid/widget/SimpleAdapter;->setViewText(Landroid/widget/TextView;Ljava/lang/String;)V
 
-    goto :goto_47
+    goto :goto_2
 
     .line 180
     .restart local v9       #v:Landroid/view/View;
-    :cond_59
+    :cond_7
     new-instance v11, Ljava/lang/IllegalStateException;
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -364,11 +364,11 @@
 
     move-result-object v12
 
-    if-nez v3, :cond_82
+    if-nez v3, :cond_8
 
     const-string v10, "<unknown type>"
 
-    :goto_76
+    :goto_3
     invoke-virtual {v12, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v10
@@ -381,18 +381,18 @@
 
     throw v11
 
-    :cond_82
+    :cond_8
     invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v10
 
-    goto :goto_76
+    goto :goto_3
 
     .line 184
-    :cond_87
+    :cond_9
     instance-of v10, v9, Landroid/widget/TextView;
 
-    if-eqz v10, :cond_91
+    if-eqz v10, :cond_a
 
     .line 187
     check-cast v9, Landroid/widget/TextView;
@@ -400,19 +400,19 @@
     .end local v9           #v:Landroid/view/View;
     invoke-virtual {p0, v9, v7}, Landroid/widget/SimpleAdapter;->setViewText(Landroid/widget/TextView;Ljava/lang/String;)V
 
-    goto :goto_47
+    goto :goto_2
 
     .line 188
     .restart local v9       #v:Landroid/view/View;
-    :cond_91
+    :cond_a
     instance-of v10, v9, Landroid/widget/ImageView;
 
-    if-eqz v10, :cond_ab
+    if-eqz v10, :cond_c
 
     .line 189
     instance-of v10, v3, Ljava/lang/Integer;
 
-    if-eqz v10, :cond_a5
+    if-eqz v10, :cond_b
 
     .line 190
     check-cast v9, Landroid/widget/ImageView;
@@ -427,22 +427,22 @@
 
     invoke-virtual {p0, v9, v10}, Landroid/widget/SimpleAdapter;->setViewImage(Landroid/widget/ImageView;I)V
 
-    goto :goto_47
+    goto :goto_2
 
     .line 192
     .restart local v3       #data:Ljava/lang/Object;
     .restart local v9       #v:Landroid/view/View;
-    :cond_a5
+    :cond_b
     check-cast v9, Landroid/widget/ImageView;
 
     .end local v9           #v:Landroid/view/View;
     invoke-virtual {p0, v9, v7}, Landroid/widget/SimpleAdapter;->setViewImage(Landroid/widget/ImageView;Ljava/lang/String;)V
 
-    goto :goto_47
+    goto :goto_2
 
     .line 195
     .restart local v9       #v:Landroid/view/View;
-    :cond_ab
+    :cond_c
     new-instance v10, Ljava/lang/IllegalStateException;
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -483,7 +483,7 @@
 .end method
 
 .method private createViewFromResource(ILandroid/view/View;Landroid/view/ViewGroup;I)Landroid/view/View;
-    .registers 8
+    .locals 3
     .parameter "position"
     .parameter "convertView"
     .parameter "parent"
@@ -491,7 +491,7 @@
 
     .prologue
     .line 120
-    if-nez p2, :cond_d
+    if-nez p2, :cond_0
 
     .line 121
     iget-object v1, p0, Landroid/widget/SimpleAdapter;->mInflater:Landroid/view/LayoutInflater;
@@ -504,7 +504,7 @@
 
     .line 126
     .local v0, v:Landroid/view/View;
-    :goto_9
+    :goto_0
     invoke-direct {p0, p1, v0}, Landroid/widget/SimpleAdapter;->bindView(ILandroid/view/View;)V
 
     .line 128
@@ -512,17 +512,17 @@
 
     .line 123
     .end local v0           #v:Landroid/view/View;
-    :cond_d
+    :cond_0
     move-object v0, p2
 
     .restart local v0       #v:Landroid/view/View;
-    goto :goto_9
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 93
@@ -536,7 +536,7 @@
 .end method
 
 .method public getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .registers 5
+    .locals 1
     .parameter "position"
     .parameter "convertView"
     .parameter "parent"
@@ -553,13 +553,13 @@
 .end method
 
 .method public getFilter()Landroid/widget/Filter;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 281
     iget-object v0, p0, Landroid/widget/SimpleAdapter;->mFilter:Landroid/widget/SimpleAdapter$SimpleFilter;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 282
     new-instance v0, Landroid/widget/SimpleAdapter$SimpleFilter;
@@ -571,14 +571,14 @@
     iput-object v0, p0, Landroid/widget/SimpleAdapter;->mFilter:Landroid/widget/SimpleAdapter$SimpleFilter;
 
     .line 284
-    :cond_c
+    :cond_0
     iget-object v0, p0, Landroid/widget/SimpleAdapter;->mFilter:Landroid/widget/SimpleAdapter$SimpleFilter;
 
     return-object v0
 .end method
 
 .method public getItem(I)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "position"
 
     .prologue
@@ -593,7 +593,7 @@
 .end method
 
 .method public getItemId(I)J
-    .registers 4
+    .locals 2
     .parameter "position"
 
     .prologue
@@ -604,7 +604,7 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .registers 5
+    .locals 1
     .parameter "position"
     .parameter "convertView"
     .parameter "parent"
@@ -621,7 +621,7 @@
 .end method
 
 .method public getViewBinder()Landroid/widget/SimpleAdapter$ViewBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 211
@@ -631,7 +631,7 @@
 .end method
 
 .method public setDropDownViewResource(I)V
-    .registers 2
+    .locals 0
     .parameter "resource"
 
     .prologue
@@ -643,7 +643,7 @@
 .end method
 
 .method public setViewBinder(Landroid/widget/SimpleAdapter$ViewBinder;)V
-    .registers 2
+    .locals 0
     .parameter "viewBinder"
 
     .prologue
@@ -655,7 +655,7 @@
 .end method
 
 .method public setViewImage(Landroid/widget/ImageView;I)V
-    .registers 3
+    .locals 0
     .parameter "v"
     .parameter "value"
 
@@ -668,7 +668,7 @@
 .end method
 
 .method public setViewImage(Landroid/widget/ImageView;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "v"
     .parameter "value"
 
@@ -680,15 +680,15 @@
     move-result v1
 
     invoke-virtual {p1, v1}, Landroid/widget/ImageView;->setImageResource(I)V
-    :try_end_7
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 266
-    :goto_7
+    :goto_0
     return-void
 
     .line 263
-    :catch_8
+    :catch_0
     move-exception v0
 
     .line 264
@@ -699,11 +699,11 @@
 
     invoke-virtual {p1, v1}, Landroid/widget/ImageView;->setImageURI(Landroid/net/Uri;)V
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setViewText(Landroid/widget/TextView;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "v"
     .parameter "text"
 

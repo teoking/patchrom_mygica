@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 2347
@@ -44,7 +44,7 @@
 .end method
 
 .method private constructor <init>(ZIILandroid/widget/GridLayout$Alignment;)V
-    .registers 7
+    .locals 2
     .parameter "startDefined"
     .parameter "start"
     .parameter "size"
@@ -65,7 +65,7 @@
 .end method
 
 .method synthetic constructor <init>(ZIILandroid/widget/GridLayout$Alignment;Landroid/widget/GridLayout$1;)V
-    .registers 6
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -80,7 +80,7 @@
 .end method
 
 .method private constructor <init>(ZLandroid/widget/GridLayout$Interval;Landroid/widget/GridLayout$Alignment;)V
-    .registers 4
+    .locals 0
     .parameter "startDefined"
     .parameter "span"
     .parameter "alignment"
@@ -105,7 +105,7 @@
 
 # virtual methods
 .method final copyWriteAlignment(Landroid/widget/GridLayout$Alignment;)Landroid/widget/GridLayout$Spec;
-    .registers 5
+    .locals 3
     .parameter "alignment"
 
     .prologue
@@ -122,7 +122,7 @@
 .end method
 
 .method final copyWriteSpan(Landroid/widget/GridLayout$Interval;)Landroid/widget/GridLayout$Spec;
-    .registers 5
+    .locals 3
     .parameter "span"
 
     .prologue
@@ -139,7 +139,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "that"
 
     .prologue
@@ -148,16 +148,16 @@
     const/4 v2, 0x0
 
     .line 2387
-    if-ne p0, p1, :cond_5
+    if-ne p0, p1, :cond_1
 
     .line 2404
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 2390
-    :cond_5
-    if-eqz p1, :cond_11
+    :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -167,15 +167,15 @@
 
     move-result-object v4
 
-    if-eq v3, v4, :cond_13
+    if-eq v3, v4, :cond_3
 
-    :cond_11
+    :cond_2
     move v1, v2
 
     .line 2391
-    goto :goto_4
+    goto :goto_0
 
-    :cond_13
+    :cond_3
     move-object v0, p1
 
     .line 2394
@@ -191,15 +191,15 @@
 
     move-result v3
 
-    if-nez v3, :cond_22
+    if-nez v3, :cond_4
 
     move v1, v2
 
     .line 2397
-    goto :goto_4
+    goto :goto_0
 
     .line 2400
-    :cond_22
+    :cond_4
     iget-object v3, p0, Landroid/widget/GridLayout$Spec;->span:Landroid/widget/GridLayout$Interval;
 
     iget-object v4, v0, Landroid/widget/GridLayout$Spec;->span:Landroid/widget/GridLayout$Interval;
@@ -208,16 +208,16 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_0
 
     move v1, v2
 
     .line 2401
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method final getFlexibility()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2372
@@ -225,21 +225,21 @@
 
     sget-object v1, Landroid/widget/GridLayout;->UNDEFINED_ALIGNMENT:Landroid/widget/GridLayout$Alignment;
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x2
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 2409

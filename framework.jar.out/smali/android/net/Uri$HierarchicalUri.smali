@@ -36,7 +36,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;Landroid/net/Uri$Part;Landroid/net/Uri$PathPart;Landroid/net/Uri$Part;Landroid/net/Uri$Part;)V
-    .registers 7
+    .locals 1
     .parameter "scheme"
     .parameter "authority"
     .parameter "path"
@@ -67,12 +67,12 @@
     iput-object v0, p0, Landroid/net/Uri$HierarchicalUri;->authority:Landroid/net/Uri$Part;
 
     .line 1142
-    if-nez p3, :cond_16
+    if-nez p3, :cond_0
 
     sget-object p3, Landroid/net/Uri$PathPart;->NULL:Landroid/net/Uri$PathPart;
 
     .end local p3
-    :cond_16
+    :cond_0
     iput-object p3, p0, Landroid/net/Uri$HierarchicalUri;->path:Landroid/net/Uri$PathPart;
 
     .line 1143
@@ -94,7 +94,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;Landroid/net/Uri$Part;Landroid/net/Uri$PathPart;Landroid/net/Uri$Part;Landroid/net/Uri$Part;Landroid/net/Uri$1;)V
-    .registers 7
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -110,7 +110,7 @@
 .end method
 
 .method private appendSspTo(Ljava/lang/StringBuilder;)V
-    .registers 6
+    .locals 4
     .parameter "builder"
 
     .prologue
@@ -123,7 +123,7 @@
 
     .line 1208
     .local v0, encodedAuthority:Ljava/lang/String;
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 1210
     const-string v2, "//"
@@ -135,7 +135,7 @@
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1213
-    :cond_11
+    :cond_0
     iget-object v2, p0, Landroid/net/Uri$HierarchicalUri;->path:Landroid/net/Uri$PathPart;
 
     invoke-virtual {v2}, Landroid/net/Uri$PathPart;->getEncoded()Ljava/lang/String;
@@ -144,20 +144,20 @@
 
     .line 1214
     .local v1, encodedPath:Ljava/lang/String;
-    if-eqz v1, :cond_1c
+    if-eqz v1, :cond_1
 
     .line 1215
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1218
-    :cond_1c
+    :cond_1
     iget-object v2, p0, Landroid/net/Uri$HierarchicalUri;->query:Landroid/net/Uri$Part;
 
     invoke-virtual {v2}, Landroid/net/Uri$Part;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_33
+    if-nez v2, :cond_2
 
     .line 1219
     const/16 v2, 0x3f
@@ -175,18 +175,18 @@
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1221
-    :cond_33
+    :cond_2
     return-void
 .end method
 
 .method private getSsp()Landroid/net/Uri$Part;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1185
     iget-object v0, p0, Landroid/net/Uri$HierarchicalUri;->ssp:Landroid/net/Uri$Part;
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     invoke-direct {p0}, Landroid/net/Uri$HierarchicalUri;->makeSchemeSpecificPart()Ljava/lang/String;
 
@@ -198,17 +198,17 @@
 
     iput-object v0, p0, Landroid/net/Uri$HierarchicalUri;->ssp:Landroid/net/Uri$Part;
 
-    :goto_e
+    :goto_0
     return-object v0
 
-    :cond_f
+    :cond_0
     iget-object v0, p0, Landroid/net/Uri$HierarchicalUri;->ssp:Landroid/net/Uri$Part;
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method private makeSchemeSpecificPart()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1201
@@ -229,7 +229,7 @@
 .end method
 
 .method private makeUriString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1270
@@ -241,7 +241,7 @@
     .local v0, builder:Ljava/lang/StringBuilder;
     iget-object v1, p0, Landroid/net/Uri$HierarchicalUri;->scheme:Ljava/lang/String;
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_0
 
     .line 1273
     iget-object v1, p0, Landroid/net/Uri$HierarchicalUri;->scheme:Ljava/lang/String;
@@ -255,7 +255,7 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 1276
-    :cond_14
+    :cond_0
     invoke-direct {p0, v0}, Landroid/net/Uri$HierarchicalUri;->appendSspTo(Ljava/lang/StringBuilder;)V
 
     .line 1278
@@ -265,7 +265,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2e
+    if-nez v1, :cond_1
 
     .line 1279
     const/16 v1, 0x23
@@ -283,7 +283,7 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1282
-    :cond_2e
+    :cond_1
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -292,7 +292,7 @@
 .end method
 
 .method static readFrom(Landroid/os/Parcel;)Landroid/net/Uri;
-    .registers 7
+    .locals 6
     .parameter "parcel"
 
     .prologue
@@ -327,7 +327,7 @@
 
 # virtual methods
 .method public buildUpon()Landroid/net/Uri$Builder;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1286
@@ -369,7 +369,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1158
@@ -379,7 +379,7 @@
 .end method
 
 .method public getAuthority()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1224
@@ -393,7 +393,7 @@
 .end method
 
 .method public getEncodedAuthority()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1228
@@ -407,7 +407,7 @@
 .end method
 
 .method public getEncodedFragment()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1252
@@ -421,7 +421,7 @@
 .end method
 
 .method public getEncodedPath()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1232
@@ -435,7 +435,7 @@
 .end method
 
 .method public getEncodedQuery()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1244
@@ -449,7 +449,7 @@
 .end method
 
 .method public getEncodedSchemeSpecificPart()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1190
@@ -465,7 +465,7 @@
 .end method
 
 .method public getFragment()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1248
@@ -479,7 +479,7 @@
 .end method
 
 .method public getPath()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1236
@@ -493,7 +493,7 @@
 .end method
 
 .method public getPathSegments()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -516,7 +516,7 @@
 .end method
 
 .method public getQuery()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1240
@@ -530,7 +530,7 @@
 .end method
 
 .method public getScheme()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1179
@@ -540,7 +540,7 @@
 .end method
 
 .method public getSchemeSpecificPart()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1194
@@ -556,7 +556,7 @@
 .end method
 
 .method public isHierarchical()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1171
@@ -566,27 +566,27 @@
 .end method
 
 .method public isRelative()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1175
     iget-object v0, p0, Landroid/net/Uri$HierarchicalUri;->scheme:Ljava/lang/String;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1264
@@ -596,41 +596,41 @@
 
     move-result-object v2
 
-    if-eq v1, v2, :cond_e
+    if-eq v1, v2, :cond_0
 
     const/4 v0, 0x1
 
     .line 1265
     .local v0, cached:Z
-    :goto_9
-    if-eqz v0, :cond_10
+    :goto_0
+    if-eqz v0, :cond_1
 
     iget-object v1, p0, Landroid/net/Uri$HierarchicalUri;->uriString:Ljava/lang/String;
 
-    :goto_d
+    :goto_1
     return-object v1
 
     .line 1264
     .end local v0           #cached:Z
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 
     .line 1265
     .restart local v0       #cached:Z
-    :cond_10
+    :cond_1
     invoke-direct {p0}, Landroid/net/Uri$HierarchicalUri;->makeUriString()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/net/Uri$HierarchicalUri;->uriString:Ljava/lang/String;
 
-    goto :goto_d
+    goto :goto_1
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "parcel"
     .parameter "flags"
 

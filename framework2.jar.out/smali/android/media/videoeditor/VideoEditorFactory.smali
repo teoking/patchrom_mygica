@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 32
@@ -15,7 +15,7 @@
 .end method
 
 .method public static create(Ljava/lang/String;)Landroid/media/videoeditor/VideoEditor;
-    .registers 5
+    .locals 4
     .parameter "projectPath"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -35,14 +35,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_3f
+    if-nez v1, :cond_1
 
     .line 51
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
     move-result v1
 
-    if-nez v1, :cond_2a
+    if-nez v1, :cond_0
 
     .line 52
     new-instance v1, Ljava/io/FileNotFoundException;
@@ -70,7 +70,7 @@
     throw v1
 
     .line 59
-    :cond_2a
+    :cond_0
     new-instance v1, Ljava/io/File;
 
     const-string v2, ".nomedia"
@@ -81,7 +81,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3f
+    if-nez v1, :cond_1
 
     .line 60
     new-instance v1, Ljava/io/FileNotFoundException;
@@ -93,7 +93,7 @@
     throw v1
 
     .line 65
-    :cond_3f
+    :cond_1
     new-instance v1, Landroid/media/videoeditor/VideoEditorImpl;
 
     invoke-direct {v1, p0}, Landroid/media/videoeditor/VideoEditorImpl;-><init>(Ljava/lang/String;)V
@@ -102,7 +102,7 @@
 .end method
 
 .method public static load(Ljava/lang/String;Z)Landroid/media/videoeditor/VideoEditor;
-    .registers 4
+    .locals 2
     .parameter "projectPath"
     .parameter "generatePreview"
     .annotation system Ldalvik/annotation/Throws;
@@ -119,7 +119,7 @@
 
     .line 90
     .local v0, videoEditor:Landroid/media/videoeditor/VideoEditor;
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_0
 
     .line 91
     const/4 v1, 0x0
@@ -127,6 +127,6 @@
     invoke-interface {v0, v1}, Landroid/media/videoeditor/VideoEditor;->generatePreview(Landroid/media/videoeditor/VideoEditor$MediaProcessingProgressListener;)V
 
     .line 93
-    :cond_b
+    :cond_0
     return-object v0
 .end method

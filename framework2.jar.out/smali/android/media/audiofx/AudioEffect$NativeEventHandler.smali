@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/media/audiofx/AudioEffect;Landroid/media/audiofx/AudioEffect;Landroid/os/Looper;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "ae"
     .parameter "looper"
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 16
+    .locals 14
     .parameter "msg"
 
     .prologue
@@ -55,18 +55,18 @@
     .line 1126
     iget-object v12, p0, Landroid/media/audiofx/AudioEffect$NativeEventHandler;->mAudioEffect:Landroid/media/audiofx/AudioEffect;
 
-    if-nez v12, :cond_7
+    if-nez v12, :cond_1
 
     .line 1179
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return-void
 
     .line 1129
-    :cond_7
+    :cond_1
     iget v12, p1, Landroid/os/Message;->what:I
 
-    packed-switch v12, :pswitch_data_a6
+    packed-switch v12, :pswitch_data_0
 
     .line 1176
     const-string v10, "AudioEffect-JAVA"
@@ -93,10 +93,10 @@
 
     invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_6
+    goto :goto_0
 
     .line 1131
-    :pswitch_27
+    :pswitch_0
     const/4 v1, 0x0
 
     .line 1132
@@ -108,53 +108,54 @@
     monitor-enter v12
 
     .line 1133
-    :try_start_2d
+    :try_start_0
     iget-object v13, p0, Landroid/media/audiofx/AudioEffect$NativeEventHandler;->mAudioEffect:Landroid/media/audiofx/AudioEffect;
 
+    #getter for: Landroid/media/audiofx/AudioEffect;->mEnableStatusChangeListener:Landroid/media/audiofx/AudioEffect$OnEnableStatusChangeListener;
     invoke-static {v13}, Landroid/media/audiofx/AudioEffect;->access$000(Landroid/media/audiofx/AudioEffect;)Landroid/media/audiofx/AudioEffect$OnEnableStatusChangeListener;
 
     move-result-object v1
 
     .line 1134
     monitor-exit v12
-    :try_end_34
-    .catchall {:try_start_2d .. :try_end_34} :catchall_40
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1135
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_0
 
     .line 1136
     iget-object v12, p0, Landroid/media/audiofx/AudioEffect$NativeEventHandler;->mAudioEffect:Landroid/media/audiofx/AudioEffect;
 
     iget v13, p1, Landroid/os/Message;->arg1:I
 
-    if-eqz v13, :cond_43
+    if-eqz v13, :cond_2
 
-    :goto_3c
+    :goto_1
     invoke-interface {v1, v12, v10}, Landroid/media/audiofx/AudioEffect$OnEnableStatusChangeListener;->onEnableStatusChange(Landroid/media/audiofx/AudioEffect;Z)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 1134
-    :catchall_40
+    :catchall_0
     move-exception v10
 
-    :try_start_41
+    :try_start_1
     monitor-exit v12
-    :try_end_42
-    .catchall {:try_start_41 .. :try_end_42} :catchall_40
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v10
 
-    :cond_43
+    :cond_2
     move v10, v11
 
     .line 1136
-    goto :goto_3c
+    goto :goto_1
 
     .line 1141
     .end local v1           #enableStatusChangeListener:Landroid/media/audiofx/AudioEffect$OnEnableStatusChangeListener;
-    :pswitch_45
+    :pswitch_1
     const/4 v0, 0x0
 
     .line 1142
@@ -166,53 +167,54 @@
     monitor-enter v12
 
     .line 1143
-    :try_start_4b
+    :try_start_2
     iget-object v13, p0, Landroid/media/audiofx/AudioEffect$NativeEventHandler;->mAudioEffect:Landroid/media/audiofx/AudioEffect;
 
+    #getter for: Landroid/media/audiofx/AudioEffect;->mControlChangeStatusListener:Landroid/media/audiofx/AudioEffect$OnControlStatusChangeListener;
     invoke-static {v13}, Landroid/media/audiofx/AudioEffect;->access$100(Landroid/media/audiofx/AudioEffect;)Landroid/media/audiofx/AudioEffect$OnControlStatusChangeListener;
 
     move-result-object v0
 
     .line 1144
     monitor-exit v12
-    :try_end_52
-    .catchall {:try_start_4b .. :try_end_52} :catchall_5e
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 1145
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     .line 1146
     iget-object v12, p0, Landroid/media/audiofx/AudioEffect$NativeEventHandler;->mAudioEffect:Landroid/media/audiofx/AudioEffect;
 
     iget v13, p1, Landroid/os/Message;->arg1:I
 
-    if-eqz v13, :cond_61
+    if-eqz v13, :cond_3
 
-    :goto_5a
+    :goto_2
     invoke-interface {v0, v12, v10}, Landroid/media/audiofx/AudioEffect$OnControlStatusChangeListener;->onControlStatusChange(Landroid/media/audiofx/AudioEffect;Z)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 1144
-    :catchall_5e
+    :catchall_1
     move-exception v10
 
-    :try_start_5f
+    :try_start_3
     monitor-exit v12
-    :try_end_60
-    .catchall {:try_start_5f .. :try_end_60} :catchall_5e
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     throw v10
 
-    :cond_61
+    :cond_3
     move v10, v11
 
     .line 1146
-    goto :goto_5a
+    goto :goto_2
 
     .line 1151
     .end local v0           #controlStatusChangeListener:Landroid/media/audiofx/AudioEffect$OnControlStatusChangeListener;
-    :pswitch_63
+    :pswitch_2
     const/4 v4, 0x0
 
     .line 1152
@@ -224,20 +226,21 @@
     monitor-enter v12
 
     .line 1153
-    :try_start_69
+    :try_start_4
     iget-object v10, p0, Landroid/media/audiofx/AudioEffect$NativeEventHandler;->mAudioEffect:Landroid/media/audiofx/AudioEffect;
 
+    #getter for: Landroid/media/audiofx/AudioEffect;->mParameterChangeListener:Landroid/media/audiofx/AudioEffect$OnParameterChangeListener;
     invoke-static {v10}, Landroid/media/audiofx/AudioEffect;->access$200(Landroid/media/audiofx/AudioEffect;)Landroid/media/audiofx/AudioEffect$OnParameterChangeListener;
 
     move-result-object v4
 
     .line 1154
     monitor-exit v12
-    :try_end_70
-    .catchall {:try_start_69 .. :try_end_70} :catchall_a3
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
     .line 1155
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_0
 
     .line 1158
     iget v7, p1, Landroid/os/Message;->arg1:I
@@ -302,7 +305,7 @@
 
     invoke-interface {v4, v10, v6, v3, v8}, Landroid/media/audiofx/AudioEffect$OnParameterChangeListener;->onParameterChange(Landroid/media/audiofx/AudioEffect;I[B[B)V
 
-    goto/16 :goto_6
+    goto/16 :goto_0
 
     .line 1154
     .end local v2           #p:[B
@@ -312,21 +315,21 @@
     .end local v7           #vOffset:I
     .end local v8           #value:[B
     .end local v9           #vsize:I
-    :catchall_a3
+    :catchall_2
     move-exception v10
 
-    :try_start_a4
+    :try_start_5
     monitor-exit v12
-    :try_end_a5
-    .catchall {:try_start_a4 .. :try_end_a5} :catchall_a3
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
     throw v10
 
     .line 1129
-    :pswitch_data_a6
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_45
-        :pswitch_27
-        :pswitch_63
+        :pswitch_1
+        :pswitch_0
+        :pswitch_2
     .end packed-switch
 .end method

@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 512
@@ -59,7 +59,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ZZ)V
-    .registers 4
+    .locals 0
     .parameter "name"
     .parameter "nameIsType"
     .parameter "encoder"
@@ -76,7 +76,7 @@
 .end method
 
 .method public static createByCodecName(Ljava/lang/String;)Landroid/media/MediaCodec;
-    .registers 3
+    .locals 2
     .parameter "name"
 
     .prologue
@@ -91,7 +91,7 @@
 .end method
 
 .method public static createDecoderByType(Ljava/lang/String;)Landroid/media/MediaCodec;
-    .registers 4
+    .locals 3
     .parameter "type"
 
     .prologue
@@ -108,7 +108,7 @@
 .end method
 
 .method public static createEncoderByType(Ljava/lang/String;)Landroid/media/MediaCodec;
-    .registers 3
+    .locals 2
     .parameter "type"
 
     .prologue
@@ -153,7 +153,7 @@
 
 # virtual methods
 .method public configure(Landroid/media/MediaFormat;Landroid/view/Surface;Landroid/media/MediaCrypto;I)V
-    .registers 15
+    .locals 10
     .parameter "format"
     .parameter "surface"
     .parameter "crypto"
@@ -175,7 +175,7 @@
 
     .line 245
     .local v2, values:[Ljava/lang/Object;
-    if-eqz p1, :cond_3a
+    if-eqz p1, :cond_0
 
     .line 246
     invoke-interface {v7}, Ljava/util/Map;->size()I
@@ -205,12 +205,12 @@
     move-result-object v9
 
     .local v9, i$:Ljava/util/Iterator;
-    :goto_1d
+    :goto_0
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3a
+    if-eqz v0, :cond_0
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -238,12 +238,12 @@
     .line 253
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1d
+    goto :goto_0
 
     .end local v6           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
     .end local v8           #i:I
     .end local v9           #i$:Ljava/util/Iterator;
-    :cond_3a
+    :cond_0
     move-object v0, p0
 
     move-object v3, p2
@@ -266,7 +266,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 210
@@ -280,7 +280,7 @@
 .end method
 
 .method public getInputBuffers()[Ljava/nio/ByteBuffer;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 473
@@ -294,7 +294,7 @@
 .end method
 
 .method public getOutputBuffers()[Ljava/nio/ByteBuffer;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 482
@@ -308,7 +308,7 @@
 .end method
 
 .method public final getOutputFormat()Landroid/media/MediaFormat;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 464

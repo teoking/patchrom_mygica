@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/ViewRootImpl;)V
-    .registers 3
+    .locals 1
     .parameter "viewAncestor"
 
     .prologue
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public finishedEvent(IZ)V
-    .registers 5
+    .locals 2
     .parameter "seq"
     .parameter "handled"
 
@@ -66,18 +66,18 @@
 
     .line 4676
     .local v0, viewAncestor:Landroid/view/ViewRootImpl;
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 4677
     invoke-virtual {v0, p1, p2}, Landroid/view/ViewRootImpl;->dispatchImeFinishedEvent(IZ)V
 
     .line 4679
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method public sessionCreated(Lcom/android/internal/view/IInputMethodSession;)V
-    .registers 2
+    .locals 0
     .parameter "session"
 
     .prologue

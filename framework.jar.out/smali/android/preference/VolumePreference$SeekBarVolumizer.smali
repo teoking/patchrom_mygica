@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/preference/VolumePreference;Landroid/content/Context;Landroid/widget/SeekBar;I)V
-    .registers 11
+    .locals 6
     .parameter
     .parameter "context"
     .parameter "seekBar"
@@ -71,7 +71,7 @@
 .end method
 
 .method public constructor <init>(Landroid/preference/VolumePreference;Landroid/content/Context;Landroid/widget/SeekBar;ILandroid/net/Uri;)V
-    .registers 8
+    .locals 2
     .parameter
     .parameter "context"
     .parameter "seekBar"
@@ -136,7 +136,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/preference/VolumePreference$SeekBarVolumizer;)Landroid/widget/SeekBar;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -147,7 +147,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/preference/VolumePreference$SeekBarVolumizer;)Landroid/media/AudioManager;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -158,7 +158,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/preference/VolumePreference$SeekBarVolumizer;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -169,7 +169,7 @@
 .end method
 
 .method private initSeekBar(Landroid/widget/SeekBar;Landroid/net/Uri;)V
-    .registers 7
+    .locals 4
     .parameter "seekBar"
     .parameter "defaultUri"
 
@@ -228,21 +228,21 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
     .line 271
-    if-nez p2, :cond_3c
+    if-nez p2, :cond_0
 
     .line 272
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_50
+    if-ne v0, v1, :cond_2
 
     .line 273
     sget-object p2, Landroid/provider/Settings$System;->DEFAULT_RINGTONE_URI:Landroid/net/Uri;
 
     .line 281
-    :cond_3c
-    :goto_3c
+    :cond_0
+    :goto_0
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mContext:Landroid/content/Context;
 
     invoke-static {v0, p2}, Landroid/media/RingtoneManager;->getRingtone(Landroid/content/Context;Landroid/net/Uri;)Landroid/media/Ringtone;
@@ -254,7 +254,7 @@
     .line 283
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
-    if-eqz v0, :cond_4f
+    if-eqz v0, :cond_1
 
     .line 284
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
@@ -264,33 +264,33 @@
     invoke-virtual {v0, v1}, Landroid/media/Ringtone;->setStreamType(I)V
 
     .line 286
-    :cond_4f
+    :cond_1
     return-void
 
     .line 274
-    :cond_50
+    :cond_2
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mStreamType:I
 
     const/4 v1, 0x5
 
-    if-ne v0, v1, :cond_58
+    if-ne v0, v1, :cond_3
 
     .line 275
     sget-object p2, Landroid/provider/Settings$System;->DEFAULT_NOTIFICATION_URI:Landroid/net/Uri;
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 277
-    :cond_58
+    :cond_3
     sget-object p2, Landroid/provider/Settings$System;->DEFAULT_ALARM_ALERT_URI:Landroid/net/Uri;
 
-    goto :goto_3c
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public changeVolumeBy(I)V
-    .registers 3
+    .locals 1
     .parameter "amount"
 
     .prologue
@@ -304,13 +304,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 351
     invoke-virtual {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->startSample()V
 
     .line 353
-    :cond_e
+    :cond_0
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
 
     invoke-virtual {v0}, Landroid/widget/SeekBar;->getProgress()I
@@ -329,7 +329,7 @@
 .end method
 
 .method public getSeekBar()Landroid/widget/SeekBar;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 345
@@ -339,13 +339,13 @@
 .end method
 
 .method public isSamplePlaying()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 328
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
@@ -353,21 +353,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public muteVolume()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v1, 0x0
@@ -377,7 +377,7 @@
     .line 358
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mVolumeBeforeMute:I
 
-    if-eq v0, v2, :cond_18
+    if-eq v0, v2, :cond_0
 
     .line 359
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
@@ -398,11 +398,11 @@
     iput v2, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mVolumeBeforeMute:I
 
     .line 369
-    :goto_17
+    :goto_0
     return-void
 
     .line 364
-    :cond_18
+    :cond_0
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mSeekBar:Landroid/widget/SeekBar;
 
     invoke-virtual {v0}, Landroid/widget/SeekBar;->getProgress()I
@@ -422,32 +422,32 @@
     .line 367
     invoke-virtual {p0, v1}, Landroid/preference/VolumePreference$SeekBarVolumizer;->postSetVolume(I)V
 
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method public onProgressChanged(Landroid/widget/SeekBar;IZ)V
-    .registers 4
+    .locals 0
     .parameter "seekBar"
     .parameter "progress"
     .parameter "fromTouch"
 
     .prologue
     .line 300
-    if-nez p3, :cond_3
+    if-nez p3, :cond_0
 
     .line 305
-    :goto_2
+    :goto_0
     return-void
 
     .line 304
-    :cond_3
+    :cond_0
     invoke-virtual {p0, p2}, Landroid/preference/VolumePreference$SeekBarVolumizer;->postSetVolume(I)V
 
-    goto :goto_2
+    goto :goto_0
 .end method
 
 .method public onRestoreInstanceState(Landroid/preference/VolumePreference$VolumeStore;)V
-    .registers 4
+    .locals 2
     .parameter "volumeStore"
 
     .prologue
@@ -456,7 +456,7 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_12
+    if-eq v0, v1, :cond_0
 
     .line 380
     iget v0, p1, Landroid/preference/VolumePreference$VolumeStore;->originalVolume:I
@@ -474,19 +474,19 @@
     invoke-virtual {p0, v0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->postSetVolume(I)V
 
     .line 384
-    :cond_12
+    :cond_0
     return-void
 .end method
 
 .method public onSaveInstanceState(Landroid/preference/VolumePreference$VolumeStore;)V
-    .registers 3
+    .locals 1
     .parameter "volumeStore"
 
     .prologue
     .line 372
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mLastProgress:I
 
-    if-ltz v0, :cond_c
+    if-ltz v0, :cond_0
 
     .line 373
     iget v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mLastProgress:I
@@ -499,12 +499,12 @@
     iput v0, p1, Landroid/preference/VolumePreference$VolumeStore;->originalVolume:I
 
     .line 376
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public onStartTrackingTouch(Landroid/widget/SeekBar;)V
-    .registers 2
+    .locals 0
     .parameter "seekBar"
 
     .prologue
@@ -513,7 +513,7 @@
 .end method
 
 .method public onStopTrackingTouch(Landroid/widget/SeekBar;)V
-    .registers 3
+    .locals 1
     .parameter "seekBar"
 
     .prologue
@@ -522,18 +522,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     .line 319
     invoke-virtual {p0}, Landroid/preference/VolumePreference$SeekBarVolumizer;->startSample()V
 
     .line 321
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method postSetVolume(I)V
-    .registers 3
+    .locals 1
     .parameter "progress"
 
     .prologue
@@ -555,7 +555,7 @@
 .end method
 
 .method public revertVolume()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 295
@@ -574,7 +574,7 @@
 .end method
 
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 324
@@ -593,7 +593,7 @@
 .end method
 
 .method public startSample()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 332
@@ -604,7 +604,7 @@
     .line 333
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 334
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
@@ -612,12 +612,12 @@
     invoke-virtual {v0}, Landroid/media/Ringtone;->play()V
 
     .line 336
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public stop()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 289
@@ -646,13 +646,13 @@
 .end method
 
 .method public stopSample()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 339
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 340
     iget-object v0, p0, Landroid/preference/VolumePreference$SeekBarVolumizer;->mRingtone:Landroid/media/Ringtone;
@@ -660,6 +660,6 @@
     invoke-virtual {v0}, Landroid/media/Ringtone;->stop()V
 
     .line 342
-    :cond_9
+    :cond_0
     return-void
 .end method

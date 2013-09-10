@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/bluetooth/BluetoothAudioGateway;Landroid/bluetooth/BluetoothAdapter;Landroid/bluetooth/BluetoothDevice;II)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter "adapter"
     .parameter "remoteDevice"

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 366
@@ -41,28 +41,28 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/content/pm/ContainerEncryptionParams;
-    .registers 6
+    .locals 4
     .parameter "source"
 
     .prologue
     const/4 v2, 0x0
 
     .line 369
-    :try_start_1
+    :try_start_0
     new-instance v1, Landroid/content/pm/ContainerEncryptionParams;
 
     const/4 v3, 0x0
 
     invoke-direct {v1, p1, v3}, Landroid/content/pm/ContainerEncryptionParams;-><init>(Landroid/os/Parcel;Landroid/content/pm/ContainerEncryptionParams$1;)V
-    :try_end_7
-    .catch Ljava/security/InvalidAlgorithmParameterException; {:try_start_1 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Ljava/security/InvalidAlgorithmParameterException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 372
-    :goto_7
+    :goto_0
     return-object v1
 
     .line 370
-    :catch_8
+    :catch_0
     move-exception v0
 
     .line 371
@@ -76,11 +76,11 @@
     move-object v1, v2
 
     .line 372
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -93,7 +93,7 @@
 .end method
 
 .method public newArray(I)[Landroid/content/pm/ContainerEncryptionParams;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -104,7 +104,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

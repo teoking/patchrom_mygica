@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/ActivityOptions;Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public sendResult(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
     .parameter "data"
     .annotation system Ldalvik/annotation/Throws;
         value = {

@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public getEfName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 172
@@ -60,7 +60,7 @@
 .end method
 
 .method public onRecordLoaded(Landroid/os/AsyncResult;)V
-    .registers 15
+    .locals 13
     .parameter "ar"
 
     .prologue
@@ -116,14 +116,14 @@
 
     const/16 v10, 0x80
 
-    if-ne v7, v10, :cond_f1
+    if-ne v7, v10, :cond_1
 
     move v5, v8
 
     .line 182
     .local v5, provisioned:Z
-    :goto_30
-    if-eqz v5, :cond_f4
+    :goto_0
+    if-eqz v5, :cond_2
 
     .line 183
     const/4 v7, 0x2
@@ -170,12 +170,12 @@
     .local v2, digit7:I
     const/16 v7, 0x9
 
-    if-le v2, v7, :cond_58
+    if-le v2, v7, :cond_0
 
     const/4 v2, 0x0
 
     .line 187
-    :cond_58
+    :cond_0
     aget-byte v7, v1, v12
 
     and-int/lit8 v7, v7, 0x3
@@ -194,6 +194,7 @@
     .local v4, last3digits:I
     iget-object v7, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimImsimLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #calls: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->adjstMinDigits(I)I
     invoke-static {v7, v3}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$900(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;I)I
 
     move-result v3
@@ -201,6 +202,7 @@
     .line 189
     iget-object v7, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimImsimLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #calls: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->adjstMinDigits(I)I
     invoke-static {v7, v6}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$900(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;I)I
 
     move-result v6
@@ -208,6 +210,7 @@
     .line 190
     iget-object v7, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimImsimLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #calls: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->adjstMinDigits(I)I
     invoke-static {v7, v4}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$900(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;I)I
 
     move-result v4
@@ -301,6 +304,7 @@
 
     move-result-object v8
 
+    #setter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mMin:Ljava/lang/String;
     invoke-static {v7, v8}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$1002(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Ljava/lang/String;)Ljava/lang/String;
 
     .line 198
@@ -318,6 +322,7 @@
 
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimImsimLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mMin:Ljava/lang/String;
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$1000(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)Ljava/lang/String;
 
     move-result-object v9
@@ -338,24 +343,24 @@
     .end local v3           #first3digits:I
     .end local v4           #last3digits:I
     .end local v6           #second3digits:I
-    :goto_f0
+    :goto_1
     return-void
 
     .end local v5           #provisioned:Z
-    :cond_f1
+    :cond_1
     move v5, v9
 
     .line 180
-    goto/16 :goto_30
+    goto/16 :goto_0
 
     .line 200
     .restart local v5       #provisioned:Z
-    :cond_f4
+    :cond_2
     iget-object v7, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimImsimLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
     const-string/jumbo v8, "min not present"
 
     invoke-virtual {v7, v8}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->log(Ljava/lang/String;)V
 
-    goto :goto_f0
+    goto :goto_1
 .end method

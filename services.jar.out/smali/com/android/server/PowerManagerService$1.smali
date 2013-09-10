@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/PowerManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "intent"
 
@@ -51,6 +51,7 @@
 
     move-result v1
 
+    #setter for: Lcom/android/server/PowerManagerService;->mHdmiPlugged:Z
     invoke-static {v0, v1}, Lcom/android/server/PowerManagerService;->access$202(Lcom/android/server/PowerManagerService;Z)Z
 
     .line 355

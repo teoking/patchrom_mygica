@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 116
@@ -50,7 +50,7 @@
 .end method
 
 .method public getFromLocation(DDILandroid/location/GeocoderParams;Ljava/util/List;)Ljava/lang/String;
-    .registers 14
+    .locals 6
     .parameter "latitude"
     .parameter "longitude"
     .parameter "maxResults"
@@ -89,7 +89,7 @@
 
     .line 128
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.location.IGeocodeProvider"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -104,7 +104,7 @@
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 132
-    if-eqz p6, :cond_3a
+    if-eqz p6, :cond_0
 
     .line 133
     const/4 v3, 0x1
@@ -117,7 +117,7 @@
     invoke-virtual {p6, v0, v3}, Landroid/location/GeocoderParams;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 139
-    :goto_20
+    :goto_0
     iget-object v3, p0, Landroid/location/IGeocodeProvider$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x1
@@ -139,8 +139,8 @@
     sget-object v3, Landroid/location/Address;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {v1, p7, v3}, Landroid/os/Parcel;->readTypedList(Ljava/util/List;Landroid/os/Parcelable$Creator;)V
-    :try_end_33
-    .catchall {:try_start_8 .. :try_end_33} :catchall_3f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 145
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -153,18 +153,18 @@
 
     .line 137
     .end local v2           #_result:Ljava/lang/String;
-    :cond_3a
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_3b
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_3e
-    .catchall {:try_start_3b .. :try_end_3e} :catchall_3f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_20
+    goto :goto_0
 
     .line 145
-    :catchall_3f
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -177,7 +177,7 @@
 .end method
 
 .method public getFromLocationName(Ljava/lang/String;DDDDILandroid/location/GeocoderParams;Ljava/util/List;)Ljava/lang/String;
-    .registers 21
+    .locals 8
     .parameter "locationName"
     .parameter "lowerLeftLatitude"
     .parameter "lowerLeftLongitude"
@@ -221,7 +221,7 @@
 
     .line 156
     .local v3, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v5, "android.location.IGeocodeProvider"
 
     invoke-virtual {v2, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -249,7 +249,7 @@
     invoke-virtual {v2, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 163
-    if-eqz p11, :cond_4b
+    if-eqz p11, :cond_0
 
     .line 164
     const/4 v5, 0x1
@@ -264,7 +264,7 @@
     invoke-virtual {v0, v2, v5}, Landroid/location/GeocoderParams;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 170
-    :goto_2f
+    :goto_0
     iget-object v5, p0, Landroid/location/IGeocodeProvider$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v6, 0x2
@@ -288,8 +288,8 @@
     move-object/from16 v0, p12
 
     invoke-virtual {v3, v0, v5}, Landroid/os/Parcel;->readTypedList(Ljava/util/List;Landroid/os/Parcelable$Creator;)V
-    :try_end_44
-    .catchall {:try_start_8 .. :try_end_44} :catchall_50
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 176
     invoke-virtual {v3}, Landroid/os/Parcel;->recycle()V
@@ -302,18 +302,18 @@
 
     .line 168
     .end local v4           #_result:Ljava/lang/String;
-    :cond_4b
+    :cond_0
     const/4 v5, 0x0
 
-    :try_start_4c
+    :try_start_1
     invoke-virtual {v2, v5}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_4f
-    .catchall {:try_start_4c .. :try_end_4f} :catchall_50
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_2f
+    goto :goto_0
 
     .line 176
-    :catchall_50
+    :catchall_0
     move-exception v5
 
     invoke-virtual {v3}, Landroid/os/Parcel;->recycle()V
@@ -326,7 +326,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 120

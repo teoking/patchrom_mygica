@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 636
@@ -26,7 +26,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/AsyncTask$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "msg"
 
     .prologue
@@ -52,14 +52,14 @@
     .local v0, result:Landroid/os/AsyncTask$AsyncTaskResult;
     iget v1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v1, :pswitch_data_1e
+    packed-switch v1, :pswitch_data_0
 
     .line 650
-    :goto_9
+    :goto_0
     return-void
 
     .line 644
-    :pswitch_a
+    :pswitch_0
     iget-object v1, v0, Landroid/os/AsyncTask$AsyncTaskResult;->mTask:Landroid/os/AsyncTask;
 
     iget-object v2, v0, Landroid/os/AsyncTask$AsyncTaskResult;->mData:[Ljava/lang/Object;
@@ -68,26 +68,27 @@
 
     aget-object v2, v2, v3
 
+    #calls: Landroid/os/AsyncTask;->finish(Ljava/lang/Object;)V
     invoke-static {v1, v2}, Landroid/os/AsyncTask;->access$600(Landroid/os/AsyncTask;Ljava/lang/Object;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 647
-    :pswitch_15
+    :pswitch_1
     iget-object v1, v0, Landroid/os/AsyncTask$AsyncTaskResult;->mTask:Landroid/os/AsyncTask;
 
     iget-object v2, v0, Landroid/os/AsyncTask$AsyncTaskResult;->mData:[Ljava/lang/Object;
 
     invoke-virtual {v1, v2}, Landroid/os/AsyncTask;->onProgressUpdate([Ljava/lang/Object;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 641
     nop
 
-    :pswitch_data_1e
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_a
-        :pswitch_15
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

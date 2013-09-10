@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 732
@@ -40,7 +40,7 @@
 .end method
 
 .method private reserve(I)I
-    .registers 10
+    .locals 8
     .parameter "length"
 
     .prologue
@@ -65,7 +65,7 @@
 
     .line 826
     .local v3, oldCapacity:I
-    if-le v2, v3, :cond_15
+    if-le v2, v3, :cond_0
 
     .line 827
     mul-int/lit8 v0, v3, 0x2
@@ -84,14 +84,14 @@
     .line 832
     .end local v0           #newCapacity:I
     .end local v1           #newChars:[C
-    :cond_15
+    :cond_0
     return v5
 .end method
 
 
 # virtual methods
 .method public append(FI)Lcom/android/internal/widget/PointerLocationView$FasterStringBuilder;
-    .registers 9
+    .locals 6
     .parameter "value"
     .parameter "precision"
 
@@ -104,8 +104,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_2
-    if-ge v0, p2, :cond_9
+    :goto_0
+    if-ge v0, p2, :cond_0
 
     .line 800
     mul-int/lit8 v1, v1, 0xa
@@ -113,10 +113,10 @@
     .line 799
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 802
-    :cond_9
+    :cond_0
     int-to-float v2, v1
 
     mul-float/2addr v2, p1
@@ -139,7 +139,7 @@
     invoke-virtual {p0, v2}, Lcom/android/internal/widget/PointerLocationView$FasterStringBuilder;->append(I)Lcom/android/internal/widget/PointerLocationView$FasterStringBuilder;
 
     .line 806
-    if-eqz p2, :cond_30
+    if-eqz p2, :cond_1
 
     .line 807
     const-string v2, "."
@@ -174,12 +174,12 @@
     invoke-virtual {p0, v2, p2}, Lcom/android/internal/widget/PointerLocationView$FasterStringBuilder;->append(II)Lcom/android/internal/widget/PointerLocationView$FasterStringBuilder;
 
     .line 813
-    :cond_30
+    :cond_1
     return-object p0
 .end method
 
 .method public append(I)Lcom/android/internal/widget/PointerLocationView$FasterStringBuilder;
-    .registers 3
+    .locals 1
     .parameter "value"
 
     .prologue
@@ -194,7 +194,7 @@
 .end method
 
 .method public append(II)Lcom/android/internal/widget/PointerLocationView$FasterStringBuilder;
-    .registers 12
+    .locals 9
     .parameter "value"
     .parameter "zeroPadWidth"
 
@@ -202,20 +202,20 @@
     const/16 v8, 0x30
 
     .line 754
-    if-gez p1, :cond_10
+    if-gez p1, :cond_0
 
     const/4 v5, 0x1
 
     .line 755
     .local v5, negative:Z
-    :goto_5
-    if-eqz v5, :cond_12
+    :goto_0
+    if-eqz v5, :cond_1
 
     .line 756
     neg-int p1, p1
 
     .line 757
-    if-gez p1, :cond_12
+    if-gez p1, :cond_1
 
     .line 758
     const-string v7, "-2147483648"
@@ -223,19 +223,19 @@
     invoke-virtual {p0, v7}, Lcom/android/internal/widget/PointerLocationView$FasterStringBuilder;->append(Ljava/lang/String;)Lcom/android/internal/widget/PointerLocationView$FasterStringBuilder;
 
     .line 794
-    :goto_f
+    :goto_1
     return-object p0
 
     .line 754
     .end local v5           #negative:Z
-    :cond_10
+    :cond_0
     const/4 v5, 0x0
 
-    goto :goto_5
+    goto :goto_0
 
     .line 763
     .restart local v5       #negative:Z
-    :cond_12
+    :cond_1
     const/16 v7, 0xb
 
     invoke-direct {p0, v7}, Lcom/android/internal/widget/PointerLocationView$FasterStringBuilder;->reserve(I)I
@@ -248,7 +248,7 @@
 
     .line 766
     .local v0, chars:[C
-    if-nez p1, :cond_27
+    if-nez p1, :cond_2
 
     .line 767
     add-int/lit8 v4, v3, 0x1
@@ -264,13 +264,13 @@
 
     iput v7, p0, Lcom/android/internal/widget/PointerLocationView$FasterStringBuilder;->mLength:I
 
-    goto :goto_f
+    goto :goto_1
 
     .line 772
     .end local v4           #index:I
     .restart local v3       #index:I
-    :cond_27
-    if-eqz v5, :cond_30
+    :cond_2
+    if-eqz v5, :cond_3
 
     .line 773
     add-int/lit8 v4, v3, 0x1
@@ -286,7 +286,7 @@
     .line 776
     .end local v4           #index:I
     .restart local v3       #index:I
-    :cond_30
+    :cond_3
     const v2, 0x3b9aca00
 
     .line 777
@@ -299,9 +299,9 @@
     .line 778
     .end local v3           #index:I
     .restart local v4       #index:I
-    :cond_36
-    :goto_36
-    if-ge p1, v2, :cond_44
+    :cond_4
+    :goto_2
+    if-ge p1, v2, :cond_5
 
     .line 779
     div-int/lit8 v2, v2, 0xa
@@ -310,7 +310,7 @@
     add-int/lit8 v6, v6, -0x1
 
     .line 781
-    if-ge v6, p2, :cond_36
+    if-ge v6, p2, :cond_4
 
     .line 782
     add-int/lit8 v3, v4, 0x1
@@ -323,9 +323,9 @@
 
     .end local v3           #index:I
     .restart local v4       #index:I
-    goto :goto_36
+    goto :goto_2
 
-    :cond_44
+    :cond_5
     move v3, v4
 
     .line 787
@@ -354,16 +354,16 @@
     aput-char v7, v0, v3
 
     .line 791
-    if-nez v2, :cond_44
+    if-nez v2, :cond_5
 
     .line 793
     iput v4, p0, Lcom/android/internal/widget/PointerLocationView$FasterStringBuilder;->mLength:I
 
-    goto :goto_f
+    goto :goto_1
 .end method
 
 .method public append(Ljava/lang/String;)Lcom/android/internal/widget/PointerLocationView$FasterStringBuilder;
-    .registers 6
+    .locals 4
     .parameter "value"
 
     .prologue
@@ -398,7 +398,7 @@
 .end method
 
 .method public clear()Lcom/android/internal/widget/PointerLocationView$FasterStringBuilder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 737
@@ -411,7 +411,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 818

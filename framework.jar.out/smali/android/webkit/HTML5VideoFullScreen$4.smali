@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/HTML5VideoFullScreen;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onBufferingUpdate(Landroid/media/MediaPlayer;I)V
-    .registers 4
+    .locals 1
     .parameter "mp"
     .parameter "percent"
 
@@ -46,6 +46,7 @@
     .line 359
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$4;->this$0:Landroid/webkit/HTML5VideoFullScreen;
 
+    #setter for: Landroid/webkit/HTML5VideoFullScreen;->mCurrentBufferPercentage:I
     invoke-static {v0, p2}, Landroid/webkit/HTML5VideoFullScreen;->access$1002(Landroid/webkit/HTML5VideoFullScreen;I)I
 
     .line 360

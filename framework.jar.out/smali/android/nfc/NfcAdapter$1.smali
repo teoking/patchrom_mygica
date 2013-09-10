@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/nfc/NfcAdapter;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onPaused(Landroid/app/Activity;)V
-    .registers 4
+    .locals 2
     .parameter "activity"
 
     .prologue

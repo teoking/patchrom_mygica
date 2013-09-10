@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/ArrayList;)V
-    .registers 3
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -77,7 +77,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/ArrayList;Landroid/os/Parcel;)V
-    .registers 5
+    .locals 2
     .parameter
     .parameter "in"
     .annotation system Ldalvik/annotation/Signature;
@@ -148,13 +148,13 @@
 .end method
 
 .method public static writeCounterToParcel(Landroid/os/Parcel;Lcom/android/internal/os/BatteryStatsImpl$Counter;)V
-    .registers 3
+    .locals 1
     .parameter "out"
     .parameter "counter"
 
     .prologue
     .line 399
-    if-nez p1, :cond_7
+    if-nez p1, :cond_0
 
     .line 400
     const/4 v0, 0x0
@@ -162,11 +162,11 @@
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 406
-    :goto_6
+    :goto_0
     return-void
 
     .line 403
-    :cond_7
+    :cond_0
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeInt(I)V
@@ -174,13 +174,13 @@
     .line 405
     invoke-virtual {p1, p0}, Lcom/android/internal/os/BatteryStatsImpl$Counter;->writeToParcel(Landroid/os/Parcel;)V
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method detach()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 448
@@ -193,27 +193,27 @@
 .end method
 
 .method public getCountLocked(I)I
-    .registers 4
+    .locals 2
     .parameter "which"
 
     .prologue
     .line 411
     const/4 v1, 0x1
 
-    if-ne p1, v1, :cond_6
+    if-ne p1, v1, :cond_1
 
     .line 412
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Counter;->mLastCount:I
 
     .line 422
     .local v0, val:I
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return v0
 
     .line 414
     .end local v0           #val:I
-    :cond_6
+    :cond_1
     iget-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Counter;->mCount:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v1}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
@@ -224,29 +224,29 @@
     .restart local v0       #val:I
     const/4 v1, 0x3
 
-    if-ne p1, v1, :cond_13
+    if-ne p1, v1, :cond_2
 
     .line 416
     iget v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Counter;->mUnpluggedCount:I
 
     sub-int/2addr v0, v1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 417
-    :cond_13
-    if-eqz p1, :cond_5
+    :cond_2
+    if-eqz p1, :cond_0
 
     .line 418
     iget v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Counter;->mLoadedCount:I
 
     sub-int/2addr v0, v1
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public logState(Landroid/util/Printer;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "pw"
     .parameter "prefix"
 
@@ -335,7 +335,7 @@
 .end method
 
 .method public plug(JJ)V
-    .registers 6
+    .locals 1
     .parameter "batteryUptime"
     .parameter "batteryRealtime"
 
@@ -354,7 +354,7 @@
 .end method
 
 .method readSummaryFromParcelLocked(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -389,7 +389,7 @@
 .end method
 
 .method reset(Z)V
-    .registers 4
+    .locals 2
     .parameter "detachIfReset"
 
     .prologue
@@ -410,18 +410,18 @@
     iput v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Counter;->mLoadedCount:I
 
     .line 442
-    if-eqz p1, :cond_13
+    if-eqz p1, :cond_0
 
     .line 443
     invoke-virtual {p0}, Lcom/android/internal/os/BatteryStatsImpl$Counter;->detach()V
 
     .line 445
-    :cond_13
+    :cond_0
     return-void
 .end method
 
 .method stepAtomic()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 433
@@ -434,7 +434,7 @@
 .end method
 
 .method public unplug(JJ)V
-    .registers 7
+    .locals 2
     .parameter "batteryUptime"
     .parameter "batteryRealtime"
 
@@ -456,7 +456,7 @@
 .end method
 
 .method writeSummaryFromParcelLocked(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "out"
 
     .prologue
@@ -476,7 +476,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "out"
 
     .prologue

@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Runnable;)V
-    .registers 2
+    .locals 0
     .parameter "target"
 
     .prologue
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1612
@@ -56,7 +56,7 @@
     .line 1614
     const/4 v0, 0x1
 
-    :try_start_7
+    :try_start_0
     iput-boolean v0, p0, Landroid/app/Instrumentation$SyncRunnable;->mComplete:Z
 
     .line 1615
@@ -69,62 +69,62 @@
     return-void
 
     .line 1616
-    :catchall_e
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_10
-    .catchall {:try_start_7 .. :try_end_10} :catchall_e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public waitForComplete()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1620
     monitor-enter p0
 
     .line 1621
-    :goto_1
-    :try_start_1
+    :goto_0
+    :try_start_0
     iget-boolean v0, p0, Landroid/app/Instrumentation$SyncRunnable;->mComplete:Z
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 1623
-    :try_start_5
+    :try_start_1
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
-    :try_end_8
-    .catchall {:try_start_5 .. :try_end_8} :catchall_d
-    .catch Ljava/lang/InterruptedException; {:try_start_5 .. :try_end_8} :catch_9
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_1
+    goto :goto_0
 
     .line 1624
-    :catch_9
+    :catch_0
     move-exception v0
 
-    goto :goto_1
+    goto :goto_0
 
     .line 1627
-    :cond_b
-    :try_start_b
+    :cond_0
+    :try_start_2
     monitor-exit p0
 
     .line 1628
     return-void
 
     .line 1627
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_f
-    .catchall {:try_start_b .. :try_end_f} :catchall_d
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v0
 .end method

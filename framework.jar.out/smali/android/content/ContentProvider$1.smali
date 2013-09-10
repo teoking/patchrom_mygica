@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/ContentProvider;Landroid/content/ContentProvider$PipeDataWriter;[Landroid/os/ParcelFileDescriptor;Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/Object;)V
-    .registers 8
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 9
+    .locals 7
     .parameter "params"
 
     .prologue
@@ -100,7 +100,7 @@
     invoke-interface/range {v0 .. v5}, Landroid/content/ContentProvider$PipeDataWriter;->writeDataToPipe(Landroid/os/ParcelFileDescriptor;Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/Object;)V
 
     .line 998
-    :try_start_12
+    :try_start_0
     iget-object v0, p0, Landroid/content/ContentProvider$1;->val$fds:[Landroid/os/ParcelFileDescriptor;
 
     const/4 v1, 0x1
@@ -108,17 +108,17 @@
     aget-object v0, v0, v1
 
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_1a
-    .catch Ljava/io/IOException; {:try_start_12 .. :try_end_1a} :catch_1c
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1002
-    :goto_1a
+    :goto_0
     const/4 v0, 0x0
 
     return-object v0
 
     .line 999
-    :catch_1c
+    :catch_0
     move-exception v6
 
     .line 1000
@@ -129,5 +129,5 @@
 
     invoke-static {v0, v1, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1a
+    goto :goto_0
 .end method

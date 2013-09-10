@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/bluetooth/BluetoothAudioGateway;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "x0"
 
@@ -36,30 +36,33 @@
 
 # virtual methods
 .method public run()V
-    .registers 10
+    .locals 9
 
     .prologue
     const/4 v8, -0x1
 
     .line 99
-    :cond_1
-    :goto_1
+    :cond_0
+    :goto_0
     iget-object v0, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mInterrupted:Z
     invoke-static {v0}, Landroid/bluetooth/BluetoothAudioGateway;->access$000(Landroid/bluetooth/BluetoothAudioGateway;)Z
 
     move-result v0
 
-    if-nez v0, :cond_156
+    if-nez v0, :cond_3
 
     .line 101
     iget-object v0, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #setter for: Landroid/bluetooth/BluetoothAudioGateway;->mConnectingHeadsetRfcommChannel:I
     invoke-static {v0, v8}, Landroid/bluetooth/BluetoothAudioGateway;->access$102(Landroid/bluetooth/BluetoothAudioGateway;I)I
 
     .line 102
     iget-object v0, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #setter for: Landroid/bluetooth/BluetoothAudioGateway;->mConnectingHandsfreeRfcommChannel:I
     invoke-static {v0, v8}, Landroid/bluetooth/BluetoothAudioGateway;->access$202(Landroid/bluetooth/BluetoothAudioGateway;I)I
 
     .line 103
@@ -67,23 +70,25 @@
 
     const/16 v1, 0x3e8
 
+    #calls: Landroid/bluetooth/BluetoothAudioGateway;->waitForHandsfreeConnectNative(I)Z
     invoke-static {v0, v1}, Landroid/bluetooth/BluetoothAudioGateway;->access$300(Landroid/bluetooth/BluetoothAudioGateway;I)Z
 
     move-result v0
 
-    if-nez v0, :cond_66
+    if-nez v0, :cond_1
 
     .line 104
     iget-object v0, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mTimeoutRemainingMs:I
     invoke-static {v0}, Landroid/bluetooth/BluetoothAudioGateway;->access$400(Landroid/bluetooth/BluetoothAudioGateway;)I
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_0
 
     .line 106
-    :try_start_25
+    :try_start_0
     const-string v0, "BT Audio Gateway"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -98,6 +103,7 @@
 
     iget-object v2, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mTimeoutRemainingMs:I
     invoke-static {v2}, Landroid/bluetooth/BluetoothAudioGateway;->access$400(Landroid/bluetooth/BluetoothAudioGateway;)I
 
     move-result v2
@@ -121,6 +127,7 @@
     .line 108
     iget-object v0, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mTimeoutRemainingMs:I
     invoke-static {v0}, Landroid/bluetooth/BluetoothAudioGateway;->access$400(Landroid/bluetooth/BluetoothAudioGateway;)I
 
     move-result v0
@@ -128,13 +135,13 @@
     int-to-long v0, v0
 
     invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_55
-    .catch Ljava/lang/InterruptedException; {:try_start_25 .. :try_end_55} :catch_56
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
+    goto :goto_0
 
     .line 109
-    :catch_56
+    :catch_0
     move-exception v6
 
     .line 110
@@ -150,13 +157,14 @@
 
     const/4 v1, 0x1
 
+    #setter for: Landroid/bluetooth/BluetoothAudioGateway;->mInterrupted:Z
     invoke-static {v0, v1}, Landroid/bluetooth/BluetoothAudioGateway;->access$002(Landroid/bluetooth/BluetoothAudioGateway;Z)Z
 
-    goto :goto_1
+    goto :goto_0
 
     .line 116
     .end local v6           #e:Ljava/lang/InterruptedException;
-    :cond_66
+    :cond_1
     const-string v0, "BT Audio Gateway"
 
     const-string v1, "connect notification!"
@@ -166,11 +174,12 @@
     .line 122
     iget-object v0, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mConnectingHeadsetRfcommChannel:I
     invoke-static {v0}, Landroid/bluetooth/BluetoothAudioGateway;->access$100(Landroid/bluetooth/BluetoothAudioGateway;)I
 
     move-result v0
 
-    if-ltz v0, :cond_df
+    if-ltz v0, :cond_2
 
     .line 123
     const-string v0, "BT Audio Gateway"
@@ -187,6 +196,7 @@
 
     iget-object v2, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mConnectingHeadsetAddress:Ljava/lang/String;
     invoke-static {v2}, Landroid/bluetooth/BluetoothAudioGateway;->access$500(Landroid/bluetooth/BluetoothAudioGateway;)Ljava/lang/String;
 
     move-result-object v2
@@ -203,6 +213,7 @@
 
     iget-object v2, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mConnectingHeadsetRfcommChannel:I
     invoke-static {v2}, Landroid/bluetooth/BluetoothAudioGateway;->access$100(Landroid/bluetooth/BluetoothAudioGateway;)I
 
     move-result v2
@@ -220,6 +231,7 @@
     .line 126
     iget-object v0, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mCallback:Landroid/os/Handler;
     invoke-static {v0}, Landroid/bluetooth/BluetoothAudioGateway;->access$600(Landroid/bluetooth/BluetoothAudioGateway;)Landroid/os/Handler;
 
     move-result-object v0
@@ -241,18 +253,21 @@
 
     iget-object v2, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
     invoke-static {v2}, Landroid/bluetooth/BluetoothAudioGateway;->access$700(Landroid/bluetooth/BluetoothAudioGateway;)Landroid/bluetooth/BluetoothAdapter;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
     invoke-static {v3}, Landroid/bluetooth/BluetoothAudioGateway;->access$700(Landroid/bluetooth/BluetoothAudioGateway;)Landroid/bluetooth/BluetoothAdapter;
 
     move-result-object v3
 
     iget-object v4, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mConnectingHeadsetAddress:Ljava/lang/String;
     invoke-static {v4}, Landroid/bluetooth/BluetoothAudioGateway;->access$500(Landroid/bluetooth/BluetoothAudioGateway;)Ljava/lang/String;
 
     move-result-object v4
@@ -263,12 +278,14 @@
 
     iget-object v4, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mConnectingHeadsetSocketFd:I
     invoke-static {v4}, Landroid/bluetooth/BluetoothAudioGateway;->access$800(Landroid/bluetooth/BluetoothAudioGateway;)I
 
     move-result v4
 
     iget-object v5, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mConnectingHeadsetRfcommChannel:I
     invoke-static {v5}, Landroid/bluetooth/BluetoothAudioGateway;->access$100(Landroid/bluetooth/BluetoothAudioGateway;)I
 
     move-result v5
@@ -282,14 +299,15 @@
 
     .line 135
     .end local v7           #msg:Landroid/os/Message;
-    :cond_df
+    :cond_2
     iget-object v0, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mConnectingHandsfreeRfcommChannel:I
     invoke-static {v0}, Landroid/bluetooth/BluetoothAudioGateway;->access$200(Landroid/bluetooth/BluetoothAudioGateway;)I
 
     move-result v0
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_0
 
     .line 136
     const-string v0, "BT Audio Gateway"
@@ -306,6 +324,7 @@
 
     iget-object v2, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mConnectingHandsfreeAddress:Ljava/lang/String;
     invoke-static {v2}, Landroid/bluetooth/BluetoothAudioGateway;->access$900(Landroid/bluetooth/BluetoothAudioGateway;)Ljava/lang/String;
 
     move-result-object v2
@@ -322,6 +341,7 @@
 
     iget-object v2, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mConnectingHandsfreeRfcommChannel:I
     invoke-static {v2}, Landroid/bluetooth/BluetoothAudioGateway;->access$200(Landroid/bluetooth/BluetoothAudioGateway;)I
 
     move-result v2
@@ -345,6 +365,7 @@
     .restart local v7       #msg:Landroid/os/Message;
     iget-object v0, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mCallback:Landroid/os/Handler;
     invoke-static {v0}, Landroid/bluetooth/BluetoothAudioGateway;->access$600(Landroid/bluetooth/BluetoothAudioGateway;)Landroid/os/Handler;
 
     move-result-object v0
@@ -363,18 +384,21 @@
 
     iget-object v2, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
     invoke-static {v2}, Landroid/bluetooth/BluetoothAudioGateway;->access$700(Landroid/bluetooth/BluetoothAudioGateway;)Landroid/bluetooth/BluetoothAdapter;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mAdapter:Landroid/bluetooth/BluetoothAdapter;
     invoke-static {v3}, Landroid/bluetooth/BluetoothAudioGateway;->access$700(Landroid/bluetooth/BluetoothAudioGateway;)Landroid/bluetooth/BluetoothAdapter;
 
     move-result-object v3
 
     iget-object v4, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mConnectingHandsfreeAddress:Ljava/lang/String;
     invoke-static {v4}, Landroid/bluetooth/BluetoothAudioGateway;->access$900(Landroid/bluetooth/BluetoothAudioGateway;)Ljava/lang/String;
 
     move-result-object v4
@@ -385,12 +409,14 @@
 
     iget-object v4, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mConnectingHandsfreeSocketFd:I
     invoke-static {v4}, Landroid/bluetooth/BluetoothAudioGateway;->access$1000(Landroid/bluetooth/BluetoothAudioGateway;)I
 
     move-result v4
 
     iget-object v5, p0, Landroid/bluetooth/BluetoothAudioGateway$1;->this$0:Landroid/bluetooth/BluetoothAudioGateway;
 
+    #getter for: Landroid/bluetooth/BluetoothAudioGateway;->mConnectingHandsfreeRfcommChannel:I
     invoke-static {v5}, Landroid/bluetooth/BluetoothAudioGateway;->access$200(Landroid/bluetooth/BluetoothAudioGateway;)I
 
     move-result v5
@@ -402,10 +428,10 @@
     .line 147
     invoke-virtual {v7}, Landroid/os/Message;->sendToTarget()V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
     .line 152
     .end local v7           #msg:Landroid/os/Message;
-    :cond_156
+    :cond_3
     return-void
 .end method

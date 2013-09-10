@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "name"
 
     .prologue
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method protected createProgram(Landroid/filterfw/core/FilterContext;Landroid/filterfw/core/FrameFormat;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "format"
 
@@ -76,7 +76,7 @@
     .line 95
     iget-object v0, p0, Landroid/filterpacks/imageproc/CropFilter;->mLastFormat:Landroid/filterfw/core/FrameFormat;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Landroid/filterpacks/imageproc/CropFilter;->mLastFormat:Landroid/filterfw/core/FrameFormat;
 
@@ -88,14 +88,14 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_11
+    if-ne v0, v1, :cond_1
 
     .line 110
-    :cond_10
+    :cond_0
     return-void
 
     .line 96
-    :cond_11
+    :cond_1
     iput-object p2, p0, Landroid/filterpacks/imageproc/CropFilter;->mLastFormat:Landroid/filterfw/core/FrameFormat;
 
     .line 97
@@ -108,13 +108,13 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_56
+    packed-switch v0, :pswitch_data_0
 
     .line 107
-    :goto_1d
+    :goto_0
     iget-object v0, p0, Landroid/filterpacks/imageproc/CropFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 108
     new-instance v0, Ljava/lang/RuntimeException;
@@ -148,10 +148,10 @@
     throw v0
 
     .line 100
-    :pswitch_40
+    :pswitch_0
     iget-boolean v0, p0, Landroid/filterpacks/imageproc/CropFilter;->mFillBlack:Z
 
-    if-eqz v0, :cond_4f
+    if-eqz v0, :cond_2
 
     .line 101
     new-instance v0, Landroid/filterfw/core/ShaderProgram;
@@ -162,27 +162,27 @@
 
     iput-object v0, p0, Landroid/filterpacks/imageproc/CropFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 103
-    :cond_4f
+    :cond_2
     invoke-static {p1}, Landroid/filterfw/core/ShaderProgram;->createIdentity(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/ShaderProgram;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/filterpacks/imageproc/CropFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 98
-    :pswitch_data_56
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_40
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 5
+    .locals 2
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -203,7 +203,7 @@
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 11
+    .locals 9
     .parameter "env"
 
     .prologue
@@ -253,22 +253,22 @@
     .local v4, outputFormat:Landroid/filterfw/core/MutableFrameFormat;
     iget v6, p0, Landroid/filterpacks/imageproc/CropFilter;->mOutputWidth:I
 
-    if-ne v6, v8, :cond_58
+    if-ne v6, v8, :cond_1
 
     invoke-virtual {v4}, Landroid/filterfw/core/MutableFrameFormat;->getWidth()I
 
     move-result v6
 
-    :goto_2a
+    :goto_0
     iget v7, p0, Landroid/filterpacks/imageproc/CropFilter;->mOutputHeight:I
 
-    if-ne v7, v8, :cond_5b
+    if-ne v7, v8, :cond_2
 
     invoke-virtual {v4}, Landroid/filterfw/core/MutableFrameFormat;->getHeight()I
 
     move-result v7
 
-    :goto_32
+    :goto_1
     invoke-virtual {v4, v6, v7}, Landroid/filterfw/core/MutableFrameFormat;->setDimensions(II)V
 
     .line 129
@@ -286,7 +286,7 @@
 
     instance-of v6, v6, Landroid/filterfw/core/ShaderProgram;
 
-    if-eqz v6, :cond_4a
+    if-eqz v6, :cond_0
 
     .line 133
     iget-object v5, p0, Landroid/filterpacks/imageproc/CropFilter;->mProgram:Landroid/filterfw/core/Program;
@@ -299,7 +299,7 @@
 
     .line 137
     .end local v5           #shaderProgram:Landroid/filterfw/core/ShaderProgram;
-    :cond_4a
+    :cond_0
     iget-object v6, p0, Landroid/filterpacks/imageproc/CropFilter;->mProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v6, v2, v3}, Landroid/filterfw/core/Program;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
@@ -317,19 +317,19 @@
 
     .line 125
     .end local v3           #output:Landroid/filterfw/core/Frame;
-    :cond_58
+    :cond_1
     iget v6, p0, Landroid/filterpacks/imageproc/CropFilter;->mOutputWidth:I
 
-    goto :goto_2a
+    goto :goto_0
 
-    :cond_5b
+    :cond_2
     iget v7, p0, Landroid/filterpacks/imageproc/CropFilter;->mOutputHeight:I
 
-    goto :goto_32
+    goto :goto_1
 .end method
 
 .method public setupPorts()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 79

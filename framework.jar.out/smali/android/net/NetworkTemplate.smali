@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 60
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "matchRule"
     .parameter "subscriberId"
     .parameter "networkId"
@@ -102,7 +102,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -135,7 +135,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/net/NetworkTemplate$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -147,7 +147,7 @@
 .end method
 
 .method public static buildTemplateEthernet()Landroid/net/NetworkTemplate;
-    .registers 3
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -163,7 +163,7 @@
 .end method
 
 .method public static buildTemplateMobile3gLower(Ljava/lang/String;)Landroid/net/NetworkTemplate;
-    .registers 4
+    .locals 3
     .parameter "subscriberId"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -182,7 +182,7 @@
 .end method
 
 .method public static buildTemplateMobile4g(Ljava/lang/String;)Landroid/net/NetworkTemplate;
-    .registers 4
+    .locals 3
     .parameter "subscriberId"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -201,7 +201,7 @@
 .end method
 
 .method public static buildTemplateMobileAll(Ljava/lang/String;)Landroid/net/NetworkTemplate;
-    .registers 4
+    .locals 3
     .parameter "subscriberId"
 
     .prologue
@@ -218,7 +218,7 @@
 .end method
 
 .method public static buildTemplateMobileWildcard()Landroid/net/NetworkTemplate;
-    .registers 3
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -234,7 +234,7 @@
 .end method
 
 .method public static buildTemplateWifi()Landroid/net/NetworkTemplate;
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -248,7 +248,7 @@
 .end method
 
 .method public static buildTemplateWifi(Ljava/lang/String;)Landroid/net/NetworkTemplate;
-    .registers 4
+    .locals 3
     .parameter "networkId"
 
     .prologue
@@ -265,7 +265,7 @@
 .end method
 
 .method public static buildTemplateWifiWildcard()Landroid/net/NetworkTemplate;
-    .registers 3
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -281,7 +281,7 @@
 .end method
 
 .method private static ensureSubtypeAvailable()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 338
@@ -295,7 +295,7 @@
 .end method
 
 .method public static forceAllNetworkTypes()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 68
@@ -308,78 +308,78 @@
 .end method
 
 .method private static getMatchRuleName(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "matchRule"
 
     .prologue
     .line 316
-    packed-switch p0, :pswitch_data_1c
+    packed-switch p0, :pswitch_data_0
 
     .line 332
     const-string v0, "UNKNOWN"
 
-    :goto_5
+    :goto_0
     return-object v0
 
     .line 318
-    :pswitch_6
+    :pswitch_0
     const-string v0, "MOBILE_3G_LOWER"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 320
-    :pswitch_9
+    :pswitch_1
     const-string v0, "MOBILE_4G"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 322
-    :pswitch_c
+    :pswitch_2
     const-string v0, "MOBILE_ALL"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 324
-    :pswitch_f
+    :pswitch_3
     const-string v0, "WIFI"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 326
-    :pswitch_12
+    :pswitch_4
     const-string v0, "ETHERNET"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 328
-    :pswitch_15
+    :pswitch_5
     const-string v0, "MOBILE_WILDCARD"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 330
-    :pswitch_18
+    :pswitch_6
     const-string v0, "WIFI_WILDCARD"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 316
     nop
 
-    :pswitch_data_1c
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_c
+        :pswitch_2
+        :pswitch_0
+        :pswitch_1
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
         :pswitch_6
-        :pswitch_9
-        :pswitch_f
-        :pswitch_12
-        :pswitch_15
-        :pswitch_18
     .end packed-switch
 .end method
 
 .method private matchesEthernet(Landroid/net/NetworkIdentity;)Z
-    .registers 4
+    .locals 2
     .parameter "ident"
 
     .prologue
@@ -388,23 +388,23 @@
 
     const/16 v1, 0x9
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_0
 
     .line 292
     const/4 v0, 0x1
 
     .line 294
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method private matchesMobile(Landroid/net/NetworkIdentity;)Z
-    .registers 5
+    .locals 3
     .parameter "ident"
 
     .prologue
@@ -415,17 +415,17 @@
 
     const/4 v2, 0x6
 
-    if-ne v1, v2, :cond_7
+    if-ne v1, v2, :cond_1
 
     .line 235
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_1
     sget-boolean v1, Landroid/net/NetworkTemplate;->sForceAllNetworkTypes:Z
 
-    if-nez v1, :cond_15
+    if-nez v1, :cond_2
 
     sget-object v1, Landroid/net/NetworkTemplate;->DATA_USAGE_NETWORK_TYPES:[I
 
@@ -435,9 +435,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1f
+    if-eqz v1, :cond_3
 
-    :cond_15
+    :cond_2
     iget-object v1, p0, Landroid/net/NetworkTemplate;->mSubscriberId:Ljava/lang/String;
 
     iget-object v2, p1, Landroid/net/NetworkIdentity;->mSubscriberId:Ljava/lang/String;
@@ -446,16 +446,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_0
 
-    :cond_1f
+    :cond_3
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method private matchesMobile3gLower(Landroid/net/NetworkIdentity;)Z
-    .registers 5
+    .locals 3
     .parameter "ident"
 
     .prologue
@@ -469,20 +469,20 @@
 
     const/4 v2, 0x6
 
-    if-ne v1, v2, :cond_a
+    if-ne v1, v2, :cond_1
 
     .line 255
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return v0
 
     .line 247
-    :cond_a
+    :cond_1
     invoke-direct {p0, p1}, Landroid/net/NetworkTemplate;->matchesMobile(Landroid/net/NetworkIdentity;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_0
 
     .line 248
     iget v1, p1, Landroid/net/NetworkIdentity;->mSubType:I
@@ -491,27 +491,27 @@
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_1c
+    packed-switch v1, :pswitch_data_0
 
-    goto :goto_9
+    goto :goto_0
 
     .line 252
-    :pswitch_1a
+    :pswitch_0
     const/4 v0, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 248
-    :pswitch_data_1c
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_1a
-        :pswitch_1a
-        :pswitch_1a
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method private matchesMobile4g(Landroid/net/NetworkIdentity;)Z
-    .registers 5
+    .locals 3
     .parameter "ident"
 
     .prologue
@@ -525,20 +525,20 @@
 
     const/4 v2, 0x6
 
-    if-ne v1, v2, :cond_a
+    if-ne v1, v2, :cond_0
 
     .line 272
-    :goto_9
-    :pswitch_9
+    :goto_0
+    :pswitch_0
     return v0
 
     .line 266
-    :cond_a
+    :cond_0
     invoke-direct {p0, p1}, Landroid/net/NetworkTemplate;->matchesMobile(Landroid/net/NetworkIdentity;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_1
 
     .line 267
     iget v1, p1, Landroid/net/NetworkIdentity;->mSubType:I
@@ -547,25 +547,25 @@
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_1c
+    packed-switch v1, :pswitch_data_0
 
     .line 272
-    :cond_19
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 
     .line 267
     nop
 
-    :pswitch_data_1c
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_9
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method private matchesMobileWildcard(Landroid/net/NetworkIdentity;)Z
-    .registers 5
+    .locals 3
     .parameter "ident"
 
     .prologue
@@ -576,17 +576,17 @@
 
     const/4 v2, 0x6
 
-    if-ne v1, v2, :cond_7
+    if-ne v1, v2, :cond_1
 
     .line 301
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_1
     sget-boolean v1, Landroid/net/NetworkTemplate;->sForceAllNetworkTypes:Z
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_0
 
     sget-object v1, Landroid/net/NetworkTemplate;->DATA_USAGE_NETWORK_TYPES:[I
 
@@ -596,31 +596,31 @@
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_0
 
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method private matchesWifi(Landroid/net/NetworkIdentity;)Z
-    .registers 4
+    .locals 2
     .parameter "ident"
 
     .prologue
     .line 279
     iget v0, p1, Landroid/net/NetworkIdentity;->mType:I
 
-    packed-switch v0, :pswitch_data_10
+    packed-switch v0, :pswitch_data_0
 
     .line 283
     const/4 v0, 0x0
 
-    :goto_6
+    :goto_0
     return v0
 
     .line 281
-    :pswitch_7
+    :pswitch_0
     iget-object v0, p0, Landroid/net/NetworkTemplate;->mNetworkId:Ljava/lang/String;
 
     iget-object v1, p1, Landroid/net/NetworkIdentity;->mNetworkId:Ljava/lang/String;
@@ -629,51 +629,51 @@
 
     move-result v0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 279
-    :pswitch_data_10
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_7
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method private matchesWifiWildcard(Landroid/net/NetworkIdentity;)Z
-    .registers 3
+    .locals 1
     .parameter "ident"
 
     .prologue
     .line 306
     iget v0, p1, Landroid/net/NetworkIdentity;->mType:I
 
-    sparse-switch v0, :sswitch_data_a
+    sparse-switch v0, :sswitch_data_0
 
     .line 311
     const/4 v0, 0x0
 
-    :goto_6
+    :goto_0
     return v0
 
     .line 309
-    :sswitch_7
+    :sswitch_0
     const/4 v0, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 306
     nop
 
-    :sswitch_data_a
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_7
-        0xd -> :sswitch_7
+        0x1 -> :sswitch_0
+        0xd -> :sswitch_0
     .end sparse-switch
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 159
@@ -683,7 +683,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
     .parameter "obj"
 
     .prologue
@@ -692,7 +692,7 @@
     .line 182
     instance-of v2, p1, Landroid/net/NetworkTemplate;
 
-    if-eqz v2, :cond_23
+    if-eqz v2, :cond_0
 
     move-object v0, p1
 
@@ -705,7 +705,7 @@
 
     iget v3, v0, Landroid/net/NetworkTemplate;->mMatchRule:I
 
-    if-ne v2, v3, :cond_23
+    if-ne v2, v3, :cond_0
 
     iget-object v2, p0, Landroid/net/NetworkTemplate;->mSubscriberId:Ljava/lang/String;
 
@@ -715,7 +715,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_23
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Landroid/net/NetworkTemplate;->mNetworkId:Ljava/lang/String;
 
@@ -725,18 +725,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_23
+    if-eqz v2, :cond_0
 
     const/4 v1, 0x1
 
     .line 188
     .end local v0           #other:Landroid/net/NetworkTemplate;
-    :cond_23
+    :cond_0
     return v1
 .end method
 
 .method public getMatchRule()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 192
@@ -746,7 +746,7 @@
 .end method
 
 .method public getNetworkId()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 200
@@ -756,7 +756,7 @@
 .end method
 
 .method public getSubscriberId()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 196
@@ -766,7 +766,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 177
@@ -804,14 +804,14 @@
 .end method
 
 .method public matches(Landroid/net/NetworkIdentity;)Z
-    .registers 4
+    .locals 2
     .parameter "ident"
 
     .prologue
     .line 207
     iget v0, p0, Landroid/net/NetworkTemplate;->mMatchRule:I
 
-    packed-switch v0, :pswitch_data_32
+    packed-switch v0, :pswitch_data_0
 
     .line 223
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -823,80 +823,80 @@
     throw v0
 
     .line 209
-    :pswitch_e
+    :pswitch_0
     invoke-direct {p0, p1}, Landroid/net/NetworkTemplate;->matchesMobile(Landroid/net/NetworkIdentity;)Z
 
     move-result v0
 
     .line 221
-    :goto_12
+    :goto_0
     return v0
 
     .line 211
-    :pswitch_13
+    :pswitch_1
     invoke-direct {p0, p1}, Landroid/net/NetworkTemplate;->matchesMobile3gLower(Landroid/net/NetworkIdentity;)Z
 
     move-result v0
 
-    goto :goto_12
+    goto :goto_0
 
     .line 213
-    :pswitch_18
+    :pswitch_2
     invoke-direct {p0, p1}, Landroid/net/NetworkTemplate;->matchesMobile4g(Landroid/net/NetworkIdentity;)Z
 
     move-result v0
 
-    goto :goto_12
+    goto :goto_0
 
     .line 215
-    :pswitch_1d
+    :pswitch_3
     invoke-direct {p0, p1}, Landroid/net/NetworkTemplate;->matchesWifi(Landroid/net/NetworkIdentity;)Z
 
     move-result v0
 
-    goto :goto_12
+    goto :goto_0
 
     .line 217
-    :pswitch_22
+    :pswitch_4
     invoke-direct {p0, p1}, Landroid/net/NetworkTemplate;->matchesEthernet(Landroid/net/NetworkIdentity;)Z
 
     move-result v0
 
-    goto :goto_12
+    goto :goto_0
 
     .line 219
-    :pswitch_27
+    :pswitch_5
     invoke-direct {p0, p1}, Landroid/net/NetworkTemplate;->matchesMobileWildcard(Landroid/net/NetworkIdentity;)Z
 
     move-result v0
 
-    goto :goto_12
+    goto :goto_0
 
     .line 221
-    :pswitch_2c
+    :pswitch_6
     invoke-direct {p0, p1}, Landroid/net/NetworkTemplate;->matchesWifiWildcard(Landroid/net/NetworkIdentity;)Z
 
     move-result v0
 
-    goto :goto_12
+    goto :goto_0
 
     .line 207
     nop
 
-    :pswitch_data_32
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_e
-        :pswitch_13
-        :pswitch_18
-        :pswitch_1d
-        :pswitch_22
-        :pswitch_27
-        :pswitch_2c
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
     .end packed-switch
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 164
@@ -925,7 +925,7 @@
     .line 166
     iget-object v1, p0, Landroid/net/NetworkTemplate;->mSubscriberId:Ljava/lang/String;
 
-    if-eqz v1, :cond_2a
+    if-eqz v1, :cond_0
 
     .line 167
     const-string v1, ", subscriberId="
@@ -943,10 +943,10 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 169
-    :cond_2a
+    :cond_0
     iget-object v1, p0, Landroid/net/NetworkTemplate;->mNetworkId:Ljava/lang/String;
 
-    if-eqz v1, :cond_39
+    if-eqz v1, :cond_1
 
     .line 170
     const-string v1, ", networkId="
@@ -960,7 +960,7 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 172
-    :cond_39
+    :cond_1
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -969,7 +969,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

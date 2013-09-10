@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "maxLines"
 
     .prologue
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public declared-synchronized dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 7
+    .locals 3
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -62,7 +62,7 @@
     .line 51
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v1, p0, Landroid/util/LocalLog;->mLog:Ljava/util/LinkedList;
 
     const/4 v2, 0x0
@@ -73,12 +73,12 @@
 
     .line 52
     .local v0, itr:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
-    :goto_8
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_0
 
     .line 53
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -88,14 +88,14 @@
     check-cast v1, Ljava/lang/String;
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-    :try_end_17
-    .catchall {:try_start_1 .. :try_end_17} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_8
+    goto :goto_0
 
     .line 51
     .end local v0           #itr:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
-    :catchall_18
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
@@ -104,24 +104,24 @@
 
     .line 55
     .restart local v0       #itr:Ljava/util/Iterator;,"Ljava/util/Iterator<Ljava/lang/String;>;"
-    :cond_1b
+    :cond_0
     monitor-exit p0
 
     return-void
 .end method
 
 .method public declared-synchronized log(Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "msg"
 
     .prologue
     .line 43
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget v0, p0, Landroid/util/LocalLog;->mMaxLines:I
 
-    if-lez v0, :cond_41
+    if-lez v0, :cond_0
 
     .line 44
     iget-object v0, p0, Landroid/util/LocalLog;->mNow:Landroid/text/format/Time;
@@ -164,7 +164,7 @@
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
     .line 46
-    :goto_2e
+    :goto_0
     iget-object v0, p0, Landroid/util/LocalLog;->mLog:Ljava/util/LinkedList;
 
     invoke-virtual {v0}, Ljava/util/LinkedList;->size()I
@@ -173,18 +173,18 @@
 
     iget v1, p0, Landroid/util/LocalLog;->mMaxLines:I
 
-    if-le v0, v1, :cond_41
+    if-le v0, v1, :cond_0
 
     iget-object v0, p0, Landroid/util/LocalLog;->mLog:Ljava/util/LinkedList;
 
     invoke-virtual {v0}, Ljava/util/LinkedList;->remove()Ljava/lang/Object;
-    :try_end_3d
-    .catchall {:try_start_1 .. :try_end_3d} :catchall_3e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 43
-    :catchall_3e
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -192,7 +192,7 @@
     throw v0
 
     .line 48
-    :cond_41
+    :cond_0
     monitor-exit p0
 
     return-void

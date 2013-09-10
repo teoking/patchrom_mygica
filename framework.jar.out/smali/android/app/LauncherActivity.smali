@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 57
@@ -34,7 +34,7 @@
 .end method
 
 .method private updateAlertTitle()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 364
@@ -48,7 +48,7 @@
 
     .line 365
     .local v0, alertTitle:Landroid/widget/TextView;
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 366
     invoke-virtual {p0}, Landroid/app/LauncherActivity;->getTitle()Ljava/lang/CharSequence;
@@ -58,12 +58,12 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 368
-    :cond_12
+    :cond_0
     return-void
 .end method
 
 .method private updateButtonText()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 371
@@ -77,7 +77,7 @@
 
     .line 372
     .local v0, cancelButton:Landroid/widget/Button;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 373
     new-instance v1, Landroid/app/LauncherActivity$1;
@@ -87,14 +87,14 @@
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 379
-    :cond_13
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method protected getTargetIntent()Landroid/content/Intent;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 432
@@ -106,7 +106,7 @@
 .end method
 
 .method protected intentForPosition(I)Landroid/content/Intent;
-    .registers 4
+    .locals 2
     .parameter "position"
 
     .prologue
@@ -125,7 +125,7 @@
 .end method
 
 .method protected itemForPosition(I)Landroid/app/LauncherActivity$ListItem;
-    .registers 4
+    .locals 2
     .parameter "position"
 
     .prologue
@@ -144,7 +144,7 @@
 .end method
 
 .method public makeListItems()Ljava/util/List;
-    .registers 9
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -193,8 +193,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1e
-    if-ge v0, v2, :cond_34
+    :goto_0
+    if-ge v0, v2, :cond_0
 
     .line 454
     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -218,16 +218,16 @@
     .line 453
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 458
     .end local v3           #resolveInfo:Landroid/content/pm/ResolveInfo;
-    :cond_34
+    :cond_0
     return-object v4
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 5
+    .locals 3
     .parameter "icicle"
 
     .prologue
@@ -316,7 +316,7 @@
 .end method
 
 .method protected onEvaluateShowIcons()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 467
@@ -326,7 +326,7 @@
 .end method
 
 .method protected onListItemClick(Landroid/widget/ListView;Landroid/view/View;IJ)V
-    .registers 7
+    .locals 1
     .parameter "l"
     .parameter "v"
     .parameter "position"
@@ -347,7 +347,7 @@
 .end method
 
 .method protected onQueryPackageManager(Landroid/content/Intent;)Ljava/util/List;
-    .registers 4
+    .locals 2
     .parameter "queryIntent"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -375,7 +375,7 @@
 .end method
 
 .method protected onSetContentView()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 398
@@ -388,7 +388,7 @@
 .end method
 
 .method public setTitle(I)V
-    .registers 2
+    .locals 0
     .parameter "titleId"
 
     .prologue
@@ -403,7 +403,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
-    .registers 2
+    .locals 0
     .parameter "title"
 
     .prologue

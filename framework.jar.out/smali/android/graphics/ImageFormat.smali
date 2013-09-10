@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 19
@@ -33,7 +33,7 @@
 .end method
 
 .method public static getBitsPerPixel(I)I
-    .registers 3
+    .locals 2
     .parameter "format"
 
     .prologue
@@ -42,37 +42,37 @@
     const/16 v0, 0x10
 
     .line 121
-    sparse-switch p0, :sswitch_data_e
+    sparse-switch p0, :sswitch_data_0
 
     .line 135
     const/4 v0, -0x1
 
-    :goto_8
-    :sswitch_8
+    :goto_0
+    :sswitch_0
     return v0
 
-    :sswitch_9
+    :sswitch_1
     move v0, v1
 
     .line 129
-    goto :goto_8
+    goto :goto_0
 
-    :sswitch_b
+    :sswitch_2
     move v0, v1
 
     .line 131
-    goto :goto_8
+    goto :goto_0
 
     .line 121
     nop
 
-    :sswitch_data_e
+    :sswitch_data_0
     .sparse-switch
-        0x4 -> :sswitch_8
-        0x10 -> :sswitch_8
-        0x11 -> :sswitch_b
-        0x14 -> :sswitch_8
-        0x200 -> :sswitch_8
-        0x32315659 -> :sswitch_9
+        0x4 -> :sswitch_0
+        0x10 -> :sswitch_0
+        0x11 -> :sswitch_2
+        0x14 -> :sswitch_0
+        0x200 -> :sswitch_0
+        0x32315659 -> :sswitch_1
     .end sparse-switch
 .end method

@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 73
@@ -41,7 +41,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -69,7 +69,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/VerifierInfo$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/security/PublicKey;)V
-    .registers 5
+    .locals 2
     .parameter "packageName"
     .parameter "publicKey"
 
@@ -90,16 +90,16 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 47
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_1
 
     .line 48
-    :cond_b
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "packageName must not be null or empty"
@@ -109,8 +109,8 @@
     throw v0
 
     .line 49
-    :cond_14
-    if-nez p2, :cond_1f
+    :cond_1
+    if-nez p2, :cond_2
 
     .line 50
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -122,7 +122,7 @@
     throw v0
 
     .line 53
-    :cond_1f
+    :cond_2
     iput-object p1, p0, Landroid/content/pm/VerifierInfo;->packageName:Ljava/lang/String;
 
     .line 54
@@ -135,7 +135,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 64
@@ -145,7 +145,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

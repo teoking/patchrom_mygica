@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
-    .registers 2
+    .locals 0
     .parameter "activityManagerService"
 
     .prologue
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 13
+    .locals 9
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -54,7 +54,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_40
+    if-eqz v0, :cond_0
 
     .line 1444
     new-instance v0, Ljava/lang/StringBuilder;
@@ -108,11 +108,11 @@
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 1452
-    :goto_3f
+    :goto_0
     return-void
 
     .line 1450
-    :cond_40
+    :cond_0
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MemBinder;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 
     const-string v3, "  "
@@ -131,5 +131,5 @@
 
     invoke-virtual/range {v0 .. v8}, Lcom/android/server/am/ActivityManagerService;->dumpApplicationMemoryUsage(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;Ljava/lang/String;[Ljava/lang/String;ZLjava/io/PrintWriter;Ljava/lang/StringBuilder;Ljava/lang/StringBuilder;)V
 
-    goto :goto_3f
+    goto :goto_0
 .end method

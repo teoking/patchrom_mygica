@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;JJIIII)V
-    .registers 14
+    .locals 4
     .parameter "dbName"
     .parameter "pageCount"
     .parameter "pageSize"

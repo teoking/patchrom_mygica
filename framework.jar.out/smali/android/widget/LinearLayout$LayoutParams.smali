@@ -88,7 +88,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 4
+    .locals 1
     .parameter "width"
     .parameter "height"
 
@@ -111,7 +111,7 @@
 .end method
 
 .method public constructor <init>(IIF)V
-    .registers 5
+    .locals 1
     .parameter "width"
     .parameter "height"
     .parameter "weight"
@@ -133,7 +133,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 7
+    .locals 4
     .parameter "c"
     .parameter "attrs"
 
@@ -182,7 +182,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "p"
 
     .prologue
@@ -199,7 +199,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -218,7 +218,7 @@
 
 # virtual methods
 .method public debug(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "output"
 
     .prologue

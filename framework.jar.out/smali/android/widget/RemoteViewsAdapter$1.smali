@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViewsAdapter;Landroid/util/Pair;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 844
@@ -54,7 +54,7 @@
     monitor-enter v1
 
     .line 845
-    :try_start_5
+    :try_start_0
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->access$1300()Ljava/util/HashMap;
 
     move-result-object v0
@@ -65,7 +65,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     .line 846
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->access$1300()Ljava/util/HashMap;
@@ -77,7 +77,7 @@
     invoke-virtual {v0, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 848
-    :cond_1a
+    :cond_0
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->access$1400()Ljava/util/HashMap;
 
     move-result-object v0
@@ -88,7 +88,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2f
+    if-eqz v0, :cond_1
 
     .line 849
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->access$1400()Ljava/util/HashMap;
@@ -100,19 +100,19 @@
     invoke-virtual {v0, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 851
-    :cond_2f
+    :cond_1
     monitor-exit v1
 
     .line 852
     return-void
 
     .line 851
-    :catchall_31
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_33
-    .catchall {:try_start_5 .. :try_end_33} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

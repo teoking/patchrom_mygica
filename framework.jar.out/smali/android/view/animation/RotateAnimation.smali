@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(FF)V
-    .registers 5
+    .locals 2
     .parameter "fromDegrees"
     .parameter "toDegrees"
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>(FFFF)V
-    .registers 7
+    .locals 2
     .parameter "fromDegrees"
     .parameter "toDegrees"
     .parameter "pivotX"
@@ -116,7 +116,7 @@
 .end method
 
 .method public constructor <init>(FFIFIF)V
-    .registers 9
+    .locals 2
     .parameter "fromDegrees"
     .parameter "toDegrees"
     .parameter "pivotXType"
@@ -170,7 +170,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 8
+    .locals 5
     .parameter "context"
     .parameter "attrs"
 
@@ -272,13 +272,13 @@
 .end method
 
 .method private initializePivotPoint()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 157
     iget v0, p0, Landroid/view/animation/RotateAnimation;->mPivotXType:I
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     .line 158
     iget v0, p0, Landroid/view/animation/RotateAnimation;->mPivotXValue:F
@@ -286,10 +286,10 @@
     iput v0, p0, Landroid/view/animation/RotateAnimation;->mPivotX:F
 
     .line 160
-    :cond_8
+    :cond_0
     iget v0, p0, Landroid/view/animation/RotateAnimation;->mPivotYType:I
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_1
 
     .line 161
     iget v0, p0, Landroid/view/animation/RotateAnimation;->mPivotYValue:F
@@ -297,14 +297,14 @@
     iput v0, p0, Landroid/view/animation/RotateAnimation;->mPivotY:F
 
     .line 163
-    :cond_10
+    :cond_1
     return-void
 .end method
 
 
 # virtual methods
 .method protected applyTransformation(FLandroid/view/animation/Transformation;)V
-    .registers 9
+    .locals 6
     .parameter "interpolatedTime"
     .parameter "t"
 
@@ -336,13 +336,13 @@
 
     cmpl-float v2, v2, v5
 
-    if-nez v2, :cond_23
+    if-nez v2, :cond_0
 
     iget v2, p0, Landroid/view/animation/RotateAnimation;->mPivotY:F
 
     cmpl-float v2, v2, v5
 
-    if-nez v2, :cond_23
+    if-nez v2, :cond_0
 
     .line 171
     invoke-virtual {p2}, Landroid/view/animation/Transformation;->getMatrix()Landroid/graphics/Matrix;
@@ -352,11 +352,11 @@
     invoke-virtual {v2, v0}, Landroid/graphics/Matrix;->setRotate(F)V
 
     .line 175
-    :goto_22
+    :goto_0
     return-void
 
     .line 173
-    :cond_23
+    :cond_0
     invoke-virtual {p2}, Landroid/view/animation/Transformation;->getMatrix()Landroid/graphics/Matrix;
 
     move-result-object v2
@@ -371,11 +371,11 @@
 
     invoke-virtual {v2, v0, v3, v4}, Landroid/graphics/Matrix;->setRotate(FFF)V
 
-    goto :goto_22
+    goto :goto_0
 .end method
 
 .method public initialize(IIII)V
-    .registers 7
+    .locals 2
     .parameter "width"
     .parameter "height"
     .parameter "parentWidth"

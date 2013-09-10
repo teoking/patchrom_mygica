@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/media/AudioService;Landroid/os/IBinder;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "b"
 
@@ -45,12 +45,13 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 4924
     iget-object v0, p0, Landroid/media/AudioService$RcDisplayDeathHandler;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mRCStack:Ljava/util/Stack;
     invoke-static {v0}, Landroid/media/AudioService;->access$8300(Landroid/media/AudioService;)Ljava/util/Stack;
 
     move-result-object v1
@@ -58,7 +59,7 @@
     monitor-enter v1
 
     .line 4925
-    :try_start_7
+    :try_start_0
     const-string v0, "AudioService"
 
     const-string v2, "RemoteControl: display died"
@@ -70,6 +71,7 @@
 
     const/4 v2, 0x0
 
+    #setter for: Landroid/media/AudioService;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
     invoke-static {v0, v2}, Landroid/media/AudioService;->access$8402(Landroid/media/AudioService;Landroid/media/IRemoteControlDisplay;)Landroid/media/IRemoteControlDisplay;
 
     .line 4927
@@ -79,18 +81,18 @@
     return-void
 
     .line 4927
-    :catchall_16
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_18
-    .catchall {:try_start_7 .. :try_end_18} :catchall_16
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public unlinkToRcDisplayDeath()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 4933
@@ -100,15 +102,15 @@
     const/4 v2, 0x0
 
     invoke-interface {v1, p0, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
-    :try_end_6
-    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_6} :catch_7
+    :try_end_0
+    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 4939
-    :goto_6
+    :goto_0
     return-void
 
     .line 4934
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 4936
@@ -144,5 +146,5 @@
     .line 4937
     invoke-virtual {v0}, Ljava/util/NoSuchElementException;->printStackTrace()V
 
-    goto :goto_6
+    goto :goto_0
 .end method

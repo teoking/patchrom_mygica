@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 118
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -95,29 +95,29 @@
 .end method
 
 .method public static createFromPath(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
-    .registers 7
+    .locals 6
     .parameter "pathName"
 
     .prologue
     const/4 v0, 0x0
 
     .line 890
-    if-nez p0, :cond_4
+    if-nez p0, :cond_1
 
     .line 899
-    :cond_3
-    :goto_3
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 894
-    :cond_4
+    :cond_1
     invoke-static {p0}, Landroid/graphics/BitmapFactory;->decodeFile(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
     move-result-object v1
 
     .line 895
     .local v1, bm:Landroid/graphics/Bitmap;
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_0
 
     move-object v2, v0
 
@@ -132,11 +132,11 @@
 
     move-result-object v0
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public static createFromResourceStream(Landroid/content/res/Resources;Landroid/util/TypedValue;Ljava/io/InputStream;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
-    .registers 5
+    .locals 1
     .parameter "res"
     .parameter "value"
     .parameter "is"
@@ -154,7 +154,7 @@
 .end method
 
 .method public static createFromResourceStream(Landroid/content/res/Resources;Landroid/util/TypedValue;Ljava/io/InputStream;Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/drawable/Drawable;
-    .registers 14
+    .locals 9
     .parameter "res"
     .parameter "value"
     .parameter "is"
@@ -165,22 +165,22 @@
     const/4 v0, 0x0
 
     .line 760
-    if-nez p2, :cond_4
+    if-nez p2, :cond_1
 
     .line 796
-    :cond_3
-    :goto_3
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 770
-    :cond_4
+    :cond_1
     new-instance v3, Landroid/graphics/Rect;
 
     invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
 
     .line 779
     .local v3, pad:Landroid/graphics/Rect;
-    if-nez p4, :cond_10
+    if-nez p4, :cond_2
 
     new-instance p4, Landroid/graphics/BitmapFactory$Options;
 
@@ -189,7 +189,7 @@
 
     .line 780
     .restart local p4
-    :cond_10
+    :cond_2
     sget v5, Landroid/util/DisplayMetrics;->DENSITY_DEVICE:I
 
     iput v5, p4, Landroid/graphics/BitmapFactory$Options;->inScreenDensity:I
@@ -201,7 +201,7 @@
 
     .line 782
     .local v1, bm:Landroid/graphics/Bitmap;
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_0
 
     .line 783
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->getNinePatchChunk()[B
@@ -210,23 +210,23 @@
 
     .line 784
     .local v2, np:[B
-    if-eqz v2, :cond_26
+    if-eqz v2, :cond_3
 
     invoke-static {v2}, Landroid/graphics/NinePatch;->isNinePatchChunk([B)Z
 
     move-result v0
 
-    if-nez v0, :cond_28
+    if-nez v0, :cond_4
 
     .line 785
-    :cond_26
+    :cond_3
     const/4 v2, 0x0
 
     .line 786
     const/4 v3, 0x0
 
     .line 788
-    :cond_28
+    :cond_4
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->getLayoutBounds()[I
 
     move-result-object v6
@@ -237,7 +237,7 @@
 
     .line 790
     .local v4, layoutBoundsRect:Landroid/graphics/Rect;
-    if-eqz v6, :cond_40
+    if-eqz v6, :cond_5
 
     .line 791
     new-instance v4, Landroid/graphics/Rect;
@@ -262,7 +262,7 @@
     invoke-direct {v4, v0, v5, v7, v8}, Landroid/graphics/Rect;-><init>(IIII)V
 
     .restart local v4       #layoutBoundsRect:Landroid/graphics/Rect;
-    :cond_40
+    :cond_5
     move-object v0, p0
 
     move-object v5, p3
@@ -272,11 +272,11 @@
 
     move-result-object v0
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public static createFromStream(Ljava/io/InputStream;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 1
     .parameter "is"
     .parameter "srcName"
 
@@ -292,7 +292,7 @@
 .end method
 
 .method public static createFromXml(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;)Landroid/graphics/drawable/Drawable;
-    .registers 8
+    .locals 6
     .parameter "r"
     .parameter "parser"
     .annotation system Ldalvik/annotation/Throws;
@@ -312,21 +312,21 @@
 
     .line 810
     .local v0, attrs:Landroid/util/AttributeSet;
-    :cond_5
+    :cond_0
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v2
 
     .local v2, type:I
-    if-eq v2, v4, :cond_e
+    if-eq v2, v4, :cond_1
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_0
 
     .line 814
-    :cond_e
-    if-eq v2, v4, :cond_18
+    :cond_1
+    if-eq v2, v4, :cond_2
 
     .line 815
     new-instance v3, Lorg/xmlpull/v1/XmlPullParserException;
@@ -338,14 +338,14 @@
     throw v3
 
     .line 818
-    :cond_18
+    :cond_2
     invoke-static {p0, p1, v0}, Landroid/graphics/drawable/Drawable;->createFromXmlInner(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
     .line 820
     .local v1, drawable:Landroid/graphics/drawable/Drawable;
-    if-nez v1, :cond_3b
+    if-nez v1, :cond_3
 
     .line 821
     new-instance v3, Ljava/lang/RuntimeException;
@@ -377,12 +377,12 @@
     throw v3
 
     .line 824
-    :cond_3b
+    :cond_3
     return-object v1
 .end method
 
 .method public static createFromXmlInner(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Landroid/graphics/drawable/Drawable;
-    .registers 8
+    .locals 5
     .parameter "r"
     .parameter "parser"
     .parameter "attrs"
@@ -407,7 +407,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_1
 
     .line 839
     new-instance v0, Landroid/graphics/drawable/StateListDrawable;
@@ -416,8 +416,8 @@
 
     .line 881
     .local v0, drawable:Landroid/graphics/drawable/Drawable;
-    :cond_12
-    :goto_12
+    :cond_0
+    :goto_0
     invoke-virtual {v0, p0, p1, p2}, Landroid/graphics/drawable/Drawable;->inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)V
 
     .line 882
@@ -425,14 +425,14 @@
 
     .line 840
     .end local v0           #drawable:Landroid/graphics/drawable/Drawable;
-    :cond_16
+    :cond_1
     const-string v2, "level-list"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_24
+    if-eqz v2, :cond_2
 
     .line 841
     new-instance v0, Landroid/graphics/drawable/LevelListDrawable;
@@ -440,18 +440,18 @@
     invoke-direct {v0}, Landroid/graphics/drawable/LevelListDrawable;-><init>()V
 
     .restart local v0       #drawable:Landroid/graphics/drawable/Drawable;
-    goto :goto_12
+    goto :goto_0
 
     .line 846
     .end local v0           #drawable:Landroid/graphics/drawable/Drawable;
-    :cond_24
+    :cond_2
     const-string v2, "layer-list"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_32
+    if-eqz v2, :cond_3
 
     .line 847
     new-instance v0, Landroid/graphics/drawable/LayerDrawable;
@@ -459,18 +459,18 @@
     invoke-direct {v0}, Landroid/graphics/drawable/LayerDrawable;-><init>()V
 
     .restart local v0       #drawable:Landroid/graphics/drawable/Drawable;
-    goto :goto_12
+    goto :goto_0
 
     .line 848
     .end local v0           #drawable:Landroid/graphics/drawable/Drawable;
-    :cond_32
+    :cond_3
     const-string/jumbo v2, "transition"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_41
+    if-eqz v2, :cond_4
 
     .line 849
     new-instance v0, Landroid/graphics/drawable/TransitionDrawable;
@@ -478,18 +478,18 @@
     invoke-direct {v0}, Landroid/graphics/drawable/TransitionDrawable;-><init>()V
 
     .restart local v0       #drawable:Landroid/graphics/drawable/Drawable;
-    goto :goto_12
+    goto :goto_0
 
     .line 850
     .end local v0           #drawable:Landroid/graphics/drawable/Drawable;
-    :cond_41
+    :cond_4
     const-string v2, "color"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4f
+    if-eqz v2, :cond_5
 
     .line 851
     new-instance v0, Landroid/graphics/drawable/ColorDrawable;
@@ -497,18 +497,18 @@
     invoke-direct {v0}, Landroid/graphics/drawable/ColorDrawable;-><init>()V
 
     .restart local v0       #drawable:Landroid/graphics/drawable/Drawable;
-    goto :goto_12
+    goto :goto_0
 
     .line 852
     .end local v0           #drawable:Landroid/graphics/drawable/Drawable;
-    :cond_4f
+    :cond_5
     const-string/jumbo v2, "shape"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_5e
+    if-eqz v2, :cond_6
 
     .line 853
     new-instance v0, Landroid/graphics/drawable/GradientDrawable;
@@ -516,18 +516,18 @@
     invoke-direct {v0}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
 
     .restart local v0       #drawable:Landroid/graphics/drawable/Drawable;
-    goto :goto_12
+    goto :goto_0
 
     .line 854
     .end local v0           #drawable:Landroid/graphics/drawable/Drawable;
-    :cond_5e
+    :cond_6
     const-string/jumbo v2, "scale"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_6d
+    if-eqz v2, :cond_7
 
     .line 855
     new-instance v0, Landroid/graphics/drawable/ScaleDrawable;
@@ -535,18 +535,18 @@
     invoke-direct {v0}, Landroid/graphics/drawable/ScaleDrawable;-><init>()V
 
     .restart local v0       #drawable:Landroid/graphics/drawable/Drawable;
-    goto :goto_12
+    goto :goto_0
 
     .line 856
     .end local v0           #drawable:Landroid/graphics/drawable/Drawable;
-    :cond_6d
+    :cond_7
     const-string v2, "clip"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_7b
+    if-eqz v2, :cond_8
 
     .line 857
     new-instance v0, Landroid/graphics/drawable/ClipDrawable;
@@ -554,18 +554,18 @@
     invoke-direct {v0}, Landroid/graphics/drawable/ClipDrawable;-><init>()V
 
     .restart local v0       #drawable:Landroid/graphics/drawable/Drawable;
-    goto :goto_12
+    goto :goto_0
 
     .line 858
     .end local v0           #drawable:Landroid/graphics/drawable/Drawable;
-    :cond_7b
+    :cond_8
     const-string/jumbo v2, "rotate"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_8a
+    if-eqz v2, :cond_9
 
     .line 859
     new-instance v0, Landroid/graphics/drawable/RotateDrawable;
@@ -573,18 +573,18 @@
     invoke-direct {v0}, Landroid/graphics/drawable/RotateDrawable;-><init>()V
 
     .restart local v0       #drawable:Landroid/graphics/drawable/Drawable;
-    goto :goto_12
+    goto :goto_0
 
     .line 860
     .end local v0           #drawable:Landroid/graphics/drawable/Drawable;
-    :cond_8a
+    :cond_9
     const-string v2, "animated-rotate"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_99
+    if-eqz v2, :cond_a
 
     .line 861
     new-instance v0, Landroid/graphics/drawable/AnimatedRotateDrawable;
@@ -592,18 +592,18 @@
     invoke-direct {v0}, Landroid/graphics/drawable/AnimatedRotateDrawable;-><init>()V
 
     .restart local v0       #drawable:Landroid/graphics/drawable/Drawable;
-    goto/16 :goto_12
+    goto/16 :goto_0
 
     .line 862
     .end local v0           #drawable:Landroid/graphics/drawable/Drawable;
-    :cond_99
+    :cond_a
     const-string v2, "animation-list"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_a8
+    if-eqz v2, :cond_b
 
     .line 863
     new-instance v0, Landroid/graphics/drawable/AnimationDrawable;
@@ -611,18 +611,18 @@
     invoke-direct {v0}, Landroid/graphics/drawable/AnimationDrawable;-><init>()V
 
     .restart local v0       #drawable:Landroid/graphics/drawable/Drawable;
-    goto/16 :goto_12
+    goto/16 :goto_0
 
     .line 864
     .end local v0           #drawable:Landroid/graphics/drawable/Drawable;
-    :cond_a8
+    :cond_b
     const-string v2, "inset"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_b7
+    if-eqz v2, :cond_c
 
     .line 865
     new-instance v0, Landroid/graphics/drawable/InsetDrawable;
@@ -630,18 +630,18 @@
     invoke-direct {v0}, Landroid/graphics/drawable/InsetDrawable;-><init>()V
 
     .restart local v0       #drawable:Landroid/graphics/drawable/Drawable;
-    goto/16 :goto_12
+    goto/16 :goto_0
 
     .line 866
     .end local v0           #drawable:Landroid/graphics/drawable/Drawable;
-    :cond_b7
+    :cond_c
     const-string v2, "bitmap"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_d2
+    if-eqz v2, :cond_d
 
     .line 867
     new-instance v0, Landroid/graphics/drawable/BitmapDrawable;
@@ -650,7 +650,7 @@
 
     .line 868
     .restart local v0       #drawable:Landroid/graphics/drawable/Drawable;
-    if-eqz p0, :cond_12
+    if-eqz p0, :cond_0
 
     move-object v2, v0
 
@@ -663,18 +663,18 @@
 
     invoke-virtual {v2, v3}, Landroid/graphics/drawable/BitmapDrawable;->setTargetDensity(Landroid/util/DisplayMetrics;)V
 
-    goto/16 :goto_12
+    goto/16 :goto_0
 
     .line 871
     .end local v0           #drawable:Landroid/graphics/drawable/Drawable;
-    :cond_d2
+    :cond_d
     const-string/jumbo v2, "nine-patch"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_ee
+    if-eqz v2, :cond_e
 
     .line 872
     new-instance v0, Landroid/graphics/drawable/NinePatchDrawable;
@@ -683,7 +683,7 @@
 
     .line 873
     .restart local v0       #drawable:Landroid/graphics/drawable/Drawable;
-    if-eqz p0, :cond_12
+    if-eqz p0, :cond_0
 
     move-object v2, v0
 
@@ -696,11 +696,11 @@
 
     invoke-virtual {v2, v3}, Landroid/graphics/drawable/NinePatchDrawable;->setTargetDensity(Landroid/util/DisplayMetrics;)V
 
-    goto/16 :goto_12
+    goto/16 :goto_0
 
     .line 877
     .end local v0           #drawable:Landroid/graphics/drawable/Drawable;
-    :cond_ee
+    :cond_e
     new-instance v2, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -735,7 +735,7 @@
 .end method
 
 .method private static drawableFromBitmap(Landroid/content/res/Resources;Landroid/graphics/Bitmap;[BLandroid/graphics/Rect;Landroid/graphics/Rect;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
-    .registers 13
+    .locals 7
     .parameter "res"
     .parameter "bm"
     .parameter "np"
@@ -745,7 +745,7 @@
 
     .prologue
     .line 979
-    if-eqz p2, :cond_e
+    if-eqz p2, :cond_0
 
     .line 980
     new-instance v0, Landroid/graphics/drawable/NinePatchDrawable;
@@ -765,19 +765,19 @@
     invoke-direct/range {v0 .. v6}, Landroid/graphics/drawable/NinePatchDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;[BLandroid/graphics/Rect;Landroid/graphics/Rect;Ljava/lang/String;)V
 
     .line 983
-    :goto_d
+    :goto_0
     return-object v0
 
-    :cond_e
+    :cond_0
     new-instance v0, Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-direct {v0, p0, p1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public static resolveOpacity(II)I
-    .registers 4
+    .locals 2
     .parameter "op1"
     .parameter "op2"
 
@@ -787,61 +787,61 @@
     const/4 v1, -0x3
 
     .line 597
-    if-ne p0, p1, :cond_5
+    if-ne p0, p1, :cond_0
 
     .line 609
     .end local p0
-    :goto_4
+    :goto_0
     return p0
 
     .line 600
     .restart local p0
-    :cond_5
-    if-eqz p0, :cond_9
+    :cond_0
+    if-eqz p0, :cond_1
 
-    if-nez p1, :cond_b
+    if-nez p1, :cond_2
 
     .line 601
-    :cond_9
+    :cond_1
     const/4 p0, 0x0
 
-    goto :goto_4
+    goto :goto_0
 
     .line 603
-    :cond_b
-    if-eq p0, v1, :cond_f
+    :cond_2
+    if-eq p0, v1, :cond_3
 
-    if-ne p1, v1, :cond_11
+    if-ne p1, v1, :cond_4
 
-    :cond_f
+    :cond_3
     move p0, v1
 
     .line 604
-    goto :goto_4
+    goto :goto_0
 
     .line 606
-    :cond_11
-    if-eq p0, v0, :cond_15
+    :cond_4
+    if-eq p0, v0, :cond_5
 
-    if-ne p1, v0, :cond_17
+    if-ne p1, v0, :cond_6
 
-    :cond_15
+    :cond_5
     move p0, v0
 
     .line 607
-    goto :goto_4
+    goto :goto_0
 
     .line 609
-    :cond_17
+    :cond_6
     const/4 p0, -0x1
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public clearColorFilter()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 420
@@ -854,7 +854,7 @@
 .end method
 
 .method public final copyBounds()Landroid/graphics/Rect;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 182
@@ -868,7 +868,7 @@
 .end method
 
 .method public final copyBounds(Landroid/graphics/Rect;)V
-    .registers 3
+    .locals 1
     .parameter "bounds"
 
     .prologue
@@ -885,7 +885,7 @@
 .end method
 
 .method public final getBounds()Landroid/graphics/Rect;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 201
@@ -893,7 +893,7 @@
 
     sget-object v1, Landroid/graphics/drawable/Drawable;->ZERO_BOUNDS_RECT:Landroid/graphics/Rect;
 
-    if-ne v0, v1, :cond_d
+    if-ne v0, v1, :cond_0
 
     .line 202
     new-instance v0, Landroid/graphics/Rect;
@@ -903,20 +903,20 @@
     iput-object v0, p0, Landroid/graphics/drawable/Drawable;->mBounds:Landroid/graphics/Rect;
 
     .line 205
-    :cond_d
+    :cond_0
     iget-object v0, p0, Landroid/graphics/drawable/Drawable;->mBounds:Landroid/graphics/Rect;
 
     return-object v0
 .end method
 
 .method public getCallback()Landroid/graphics/drawable/Drawable$Callback;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 332
     iget-object v0, p0, Landroid/graphics/drawable/Drawable;->mCallback:Ljava/lang/ref/WeakReference;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 333
     iget-object v0, p0, Landroid/graphics/drawable/Drawable;->mCallback:Ljava/lang/ref/WeakReference;
@@ -928,17 +928,17 @@
     check-cast v0, Landroid/graphics/drawable/Drawable$Callback;
 
     .line 335
-    :goto_c
+    :goto_0
     return-object v0
 
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public getChangingConfigurations()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 235
@@ -948,7 +948,7 @@
 .end method
 
 .method public getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 973
@@ -958,7 +958,7 @@
 .end method
 
 .method public getCurrent()Landroid/graphics/drawable/Drawable;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 492
@@ -966,7 +966,7 @@
 .end method
 
 .method public getIntrinsicHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 666
@@ -976,7 +976,7 @@
 .end method
 
 .method public getIntrinsicWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 658
@@ -986,7 +986,7 @@
 .end method
 
 .method public getLayoutInsets()Landroid/graphics/Insets;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 716
@@ -996,7 +996,7 @@
 .end method
 
 .method public final getLevel()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 525
@@ -1006,7 +1006,7 @@
 .end method
 
 .method public getMinimumHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 693
@@ -1016,21 +1016,21 @@
 
     .line 694
     .local v0, intrinsicHeight:I
-    if-lez v0, :cond_7
+    if-lez v0, :cond_0
 
     .end local v0           #intrinsicHeight:I
-    :goto_6
+    :goto_0
     return v0
 
     .restart local v0       #intrinsicHeight:I
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getMinimumWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 679
@@ -1040,24 +1040,24 @@
 
     .line 680
     .local v0, intrinsicWidth:I
-    if-lez v0, :cond_7
+    if-lez v0, :cond_0
 
     .end local v0           #intrinsicWidth:I
-    :goto_6
+    :goto_0
     return v0
 
     .restart local v0       #intrinsicWidth:I
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public abstract getOpacity()I
 .end method
 
 .method public getPadding(Landroid/graphics/Rect;)Z
-    .registers 3
+    .locals 1
     .parameter "padding"
 
     .prologue
@@ -1071,7 +1071,7 @@
 .end method
 
 .method public getResolvedLayoutDirectionSelf()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 392
@@ -1081,23 +1081,23 @@
 
     .line 393
     .local v0, callback:Landroid/graphics/drawable/Drawable$Callback;
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     instance-of v1, v0, Landroid/graphics/drawable/Drawable$Callback2;
 
-    if-nez v1, :cond_c
+    if-nez v1, :cond_1
 
     .line 394
-    :cond_a
+    :cond_0
     const/4 v1, 0x0
 
     .line 396
     .end local v0           #callback:Landroid/graphics/drawable/Drawable$Callback;
-    :goto_b
+    :goto_0
     return v1
 
     .restart local v0       #callback:Landroid/graphics/drawable/Drawable$Callback;
-    :cond_c
+    :cond_1
     check-cast v0, Landroid/graphics/drawable/Drawable$Callback2;
 
     .end local v0           #callback:Landroid/graphics/drawable/Drawable$Callback;
@@ -1105,11 +1105,11 @@
 
     move-result v1
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public getState()[I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 475
@@ -1119,7 +1119,7 @@
 .end method
 
 .method public getTransparentRegion()Landroid/graphics/Region;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 626
@@ -1129,7 +1129,7 @@
 .end method
 
 .method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)V
-    .registers 6
+    .locals 2
     .parameter "r"
     .parameter "parser"
     .parameter "attrs"
@@ -1162,7 +1162,7 @@
 .end method
 
 .method inflateWithAttributes(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/content/res/TypedArray;I)V
-    .registers 6
+    .locals 1
     .parameter "r"
     .parameter "parser"
     .parameter "attrs"
@@ -1189,7 +1189,7 @@
 .end method
 
 .method public invalidateSelf()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 348
@@ -1199,18 +1199,18 @@
 
     .line 349
     .local v0, callback:Landroid/graphics/drawable/Drawable$Callback;
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 350
     invoke-interface {v0, p0}, Landroid/graphics/drawable/Drawable$Callback;->invalidateDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 352
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public isStateful()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 434
@@ -1220,7 +1220,7 @@
 .end method
 
 .method public final isVisible()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 552
@@ -1230,7 +1230,7 @@
 .end method
 
 .method public jumpToCurrentState()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 483
@@ -1238,7 +1238,7 @@
 .end method
 
 .method public mutate()Landroid/graphics/drawable/Drawable;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 734
@@ -1246,7 +1246,7 @@
 .end method
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
-    .registers 2
+    .locals 0
     .parameter "bounds"
 
     .prologue
@@ -1255,7 +1255,7 @@
 .end method
 
 .method protected onLevelChange(I)Z
-    .registers 3
+    .locals 1
     .parameter "level"
 
     .prologue
@@ -1266,7 +1266,7 @@
 .end method
 
 .method protected onStateChange([I)Z
-    .registers 3
+    .locals 1
     .parameter "state"
 
     .prologue
@@ -1277,7 +1277,7 @@
 .end method
 
 .method public scheduleSelf(Ljava/lang/Runnable;J)V
-    .registers 5
+    .locals 1
     .parameter "what"
     .parameter "when"
 
@@ -1289,13 +1289,13 @@
 
     .line 366
     .local v0, callback:Landroid/graphics/drawable/Drawable$Callback;
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 367
     invoke-interface {v0, p0, p1, p2, p3}, Landroid/graphics/drawable/Drawable$Callback;->scheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;J)V
 
     .line 369
-    :cond_9
+    :cond_0
     return-void
 .end method
 
@@ -1303,7 +1303,7 @@
 .end method
 
 .method public setBounds(IIII)V
-    .registers 7
+    .locals 2
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -1317,7 +1317,7 @@
     .local v0, oldBounds:Landroid/graphics/Rect;
     sget-object v1, Landroid/graphics/drawable/Drawable;->ZERO_BOUNDS_RECT:Landroid/graphics/Rect;
 
-    if-ne v0, v1, :cond_d
+    if-ne v0, v1, :cond_0
 
     .line 143
     new-instance v0, Landroid/graphics/Rect;
@@ -1329,25 +1329,25 @@
 
     .line 146
     .restart local v0       #oldBounds:Landroid/graphics/Rect;
-    :cond_d
+    :cond_0
     iget v1, v0, Landroid/graphics/Rect;->left:I
 
-    if-ne v1, p1, :cond_1d
+    if-ne v1, p1, :cond_1
 
     iget v1, v0, Landroid/graphics/Rect;->top:I
 
-    if-ne v1, p2, :cond_1d
+    if-ne v1, p2, :cond_1
 
     iget v1, v0, Landroid/graphics/Rect;->right:I
 
-    if-ne v1, p3, :cond_1d
+    if-ne v1, p3, :cond_1
 
     iget v1, v0, Landroid/graphics/Rect;->bottom:I
 
-    if-eq v1, p4, :cond_27
+    if-eq v1, p4, :cond_2
 
     .line 148
-    :cond_1d
+    :cond_1
     iget-object v1, p0, Landroid/graphics/drawable/Drawable;->mBounds:Landroid/graphics/Rect;
 
     invoke-virtual {v1, p1, p2, p3, p4}, Landroid/graphics/Rect;->set(IIII)V
@@ -1358,12 +1358,12 @@
     invoke-virtual {p0, v1}, Landroid/graphics/drawable/Drawable;->onBoundsChange(Landroid/graphics/Rect;)V
 
     .line 151
-    :cond_27
+    :cond_2
     return-void
 .end method
 
 .method public setBounds(Landroid/graphics/Rect;)V
-    .registers 6
+    .locals 4
     .parameter "bounds"
 
     .prologue
@@ -1383,7 +1383,7 @@
 .end method
 
 .method public final setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
-    .registers 3
+    .locals 1
     .parameter "cb"
 
     .prologue
@@ -1399,7 +1399,7 @@
 .end method
 
 .method public setChangingConfigurations(I)V
-    .registers 2
+    .locals 0
     .parameter "configs"
 
     .prologue
@@ -1411,7 +1411,7 @@
 .end method
 
 .method public setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
-    .registers 4
+    .locals 1
     .parameter "color"
     .parameter "mode"
 
@@ -1431,7 +1431,7 @@
 .end method
 
 .method public setDither(Z)V
-    .registers 2
+    .locals 0
     .parameter "dither"
 
     .prologue
@@ -1440,7 +1440,7 @@
 .end method
 
 .method public setFilterBitmap(Z)V
-    .registers 2
+    .locals 0
     .parameter "filter"
 
     .prologue
@@ -1449,14 +1449,14 @@
 .end method
 
 .method public final setLevel(I)Z
-    .registers 3
+    .locals 1
     .parameter "level"
 
     .prologue
     .line 512
     iget v0, p0, Landroid/graphics/drawable/Drawable;->mLevel:I
 
-    if-eq v0, p1, :cond_b
+    if-eq v0, p1, :cond_0
 
     .line 513
     iput p1, p0, Landroid/graphics/drawable/Drawable;->mLevel:I
@@ -1467,17 +1467,17 @@
     move-result v0
 
     .line 516
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public setState([I)Z
-    .registers 3
+    .locals 1
     .parameter "stateSet"
 
     .prologue
@@ -1488,7 +1488,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 461
     iput-object p1, p0, Landroid/graphics/drawable/Drawable;->mStateSet:[I
@@ -1499,17 +1499,17 @@
     move-result v0
 
     .line 464
-    :goto_e
+    :goto_0
     return v0
 
-    :cond_f
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public setVisible(ZZ)Z
-    .registers 5
+    .locals 2
     .parameter "visible"
     .parameter "restart"
 
@@ -1517,14 +1517,14 @@
     .line 543
     iget-boolean v1, p0, Landroid/graphics/drawable/Drawable;->mVisible:Z
 
-    if-eq v1, p1, :cond_d
+    if-eq v1, p1, :cond_1
 
     const/4 v0, 0x1
 
     .line 544
     .local v0, changed:Z
-    :goto_5
-    if-eqz v0, :cond_c
+    :goto_0
+    if-eqz v0, :cond_0
 
     .line 545
     iput-boolean p1, p0, Landroid/graphics/drawable/Drawable;->mVisible:Z
@@ -1533,19 +1533,19 @@
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     .line 548
-    :cond_c
+    :cond_0
     return v0
 
     .line 543
     .end local v0           #changed:Z
-    :cond_d
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public unscheduleSelf(Ljava/lang/Runnable;)V
-    .registers 3
+    .locals 1
     .parameter "what"
 
     .prologue
@@ -1556,12 +1556,12 @@
 
     .line 382
     .local v0, callback:Landroid/graphics/drawable/Drawable$Callback;
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 383
     invoke-interface {v0, p0, p1}, Landroid/graphics/drawable/Drawable$Callback;->unscheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;)V
 
     .line 385
-    :cond_9
+    :cond_0
     return-void
 .end method

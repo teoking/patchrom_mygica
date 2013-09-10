@@ -200,7 +200,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 89
@@ -234,7 +234,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 42
@@ -244,375 +244,375 @@
 .end method
 
 .method public static isNotificationToBeDisplayed(I)Z
-    .registers 3
+    .locals 2
     .parameter "visibility"
 
     .prologue
     const/4 v0, 0x1
 
     .line 547
-    if-eq p0, v0, :cond_6
+    if-eq p0, v0, :cond_0
 
     const/4 v1, 0x3
 
-    if-ne p0, v1, :cond_7
+    if-ne p0, v1, :cond_1
 
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public static isStatusClientError(I)Z
-    .registers 2
+    .locals 1
     .parameter "status"
 
     .prologue
     .line 530
     const/16 v0, 0x190
 
-    if-lt p0, v0, :cond_a
+    if-lt p0, v0, :cond_0
 
     const/16 v0, 0x1f4
 
-    if-ge p0, v0, :cond_a
+    if-ge p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static isStatusCompleted(I)Z
-    .registers 2
+    .locals 1
     .parameter "status"
 
     .prologue
     .line 556
     const/16 v0, 0xc8
 
-    if-lt p0, v0, :cond_8
+    if-lt p0, v0, :cond_0
 
     const/16 v0, 0x12c
 
-    if-lt p0, v0, :cond_10
+    if-lt p0, v0, :cond_1
 
-    :cond_8
+    :cond_0
     const/16 v0, 0x190
 
-    if-lt p0, v0, :cond_12
+    if-lt p0, v0, :cond_2
 
     const/16 v0, 0x258
 
-    if-ge p0, v0, :cond_12
+    if-ge p0, v0, :cond_2
 
-    :cond_10
+    :cond_1
     const/4 v0, 0x1
 
-    :goto_11
+    :goto_0
     return v0
 
-    :cond_12
+    :cond_2
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public static isStatusError(I)Z
-    .registers 2
+    .locals 1
     .parameter "status"
 
     .prologue
     .line 523
     const/16 v0, 0x190
 
-    if-lt p0, v0, :cond_a
+    if-lt p0, v0, :cond_0
 
     const/16 v0, 0x258
 
-    if-ge p0, v0, :cond_a
+    if-ge p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static isStatusInformational(I)Z
-    .registers 2
+    .locals 1
     .parameter "status"
 
     .prologue
     .line 509
     const/16 v0, 0x64
 
-    if-lt p0, v0, :cond_a
+    if-lt p0, v0, :cond_0
 
     const/16 v0, 0xc8
 
-    if-ge p0, v0, :cond_a
+    if-ge p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static isStatusServerError(I)Z
-    .registers 2
+    .locals 1
     .parameter "status"
 
     .prologue
     .line 537
     const/16 v0, 0x1f4
 
-    if-lt p0, v0, :cond_a
+    if-lt p0, v0, :cond_0
 
     const/16 v0, 0x258
 
-    if-ge p0, v0, :cond_a
+    if-ge p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static isStatusSuccess(I)Z
-    .registers 2
+    .locals 1
     .parameter "status"
 
     .prologue
     .line 516
     const/16 v0, 0xc8
 
-    if-lt p0, v0, :cond_a
+    if-lt p0, v0, :cond_0
 
     const/16 v0, 0x12c
 
-    if-ge p0, v0, :cond_a
+    if-ge p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static statusToString(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "status"
 
     .prologue
     .line 720
-    sparse-switch p0, :sswitch_data_50
+    sparse-switch p0, :sswitch_data_0
 
     .line 745
     invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_7
+    :goto_0
     return-object v0
 
     .line 721
-    :sswitch_8
+    :sswitch_0
     const-string v0, "PENDING"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 722
-    :sswitch_b
+    :sswitch_1
     const-string v0, "RUNNING"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 723
-    :sswitch_e
+    :sswitch_2
     const-string v0, "PAUSED_BY_APP"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 724
-    :sswitch_11
+    :sswitch_3
     const-string v0, "WAITING_TO_RETRY"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 725
-    :sswitch_14
+    :sswitch_4
     const-string v0, "WAITING_FOR_NETWORK"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 726
-    :sswitch_17
+    :sswitch_5
     const-string v0, "QUEUED_FOR_WIFI"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 727
-    :sswitch_1a
+    :sswitch_6
     const-string v0, "INSUFFICIENT_SPACE_ERROR"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 728
-    :sswitch_1d
+    :sswitch_7
     const-string v0, "DEVICE_NOT_FOUND_ERROR"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 729
-    :sswitch_20
+    :sswitch_8
     const-string v0, "SUCCESS"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 730
-    :sswitch_23
+    :sswitch_9
     const-string v0, "BAD_REQUEST"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 731
-    :sswitch_26
+    :sswitch_a
     const-string v0, "NOT_ACCEPTABLE"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 732
-    :sswitch_29
+    :sswitch_b
     const-string v0, "LENGTH_REQUIRED"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 733
-    :sswitch_2c
+    :sswitch_c
     const-string v0, "PRECONDITION_FAILED"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 734
-    :sswitch_2f
+    :sswitch_d
     const-string v0, "FILE_ALREADY_EXISTS_ERROR"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 735
-    :sswitch_32
+    :sswitch_e
     const-string v0, "CANNOT_RESUME"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 736
-    :sswitch_35
+    :sswitch_f
     const-string v0, "CANCELED"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 737
-    :sswitch_38
+    :sswitch_10
     const-string v0, "UNKNOWN_ERROR"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 738
-    :sswitch_3b
+    :sswitch_11
     const-string v0, "FILE_ERROR"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 739
-    :sswitch_3e
+    :sswitch_12
     const-string v0, "UNHANDLED_REDIRECT"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 740
-    :sswitch_41
+    :sswitch_13
     const-string v0, "UNHANDLED_HTTP_CODE"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 741
-    :sswitch_44
+    :sswitch_14
     const-string v0, "HTTP_DATA_ERROR"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 742
-    :sswitch_47
+    :sswitch_15
     const-string v0, "HTTP_EXCEPTION"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 743
-    :sswitch_4a
+    :sswitch_16
     const-string v0, "TOO_MANY_REDIRECTS"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 744
-    :sswitch_4d
+    :sswitch_17
     const-string v0, "BLOCKED"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 720
-    :sswitch_data_50
+    :sswitch_data_0
     .sparse-switch
-        0xbe -> :sswitch_8
-        0xc0 -> :sswitch_b
-        0xc1 -> :sswitch_e
-        0xc2 -> :sswitch_11
-        0xc3 -> :sswitch_14
-        0xc4 -> :sswitch_17
-        0xc6 -> :sswitch_1a
-        0xc7 -> :sswitch_1d
-        0xc8 -> :sswitch_20
-        0x190 -> :sswitch_23
-        0x196 -> :sswitch_26
-        0x19b -> :sswitch_29
-        0x19c -> :sswitch_2c
-        0x1e8 -> :sswitch_2f
-        0x1e9 -> :sswitch_32
-        0x1ea -> :sswitch_35
-        0x1eb -> :sswitch_38
-        0x1ec -> :sswitch_3b
-        0x1ed -> :sswitch_3e
-        0x1ee -> :sswitch_41
-        0x1ef -> :sswitch_44
-        0x1f0 -> :sswitch_47
-        0x1f1 -> :sswitch_4a
-        0x1f2 -> :sswitch_4d
+        0xbe -> :sswitch_0
+        0xc0 -> :sswitch_1
+        0xc1 -> :sswitch_2
+        0xc2 -> :sswitch_3
+        0xc3 -> :sswitch_4
+        0xc4 -> :sswitch_5
+        0xc6 -> :sswitch_6
+        0xc7 -> :sswitch_7
+        0xc8 -> :sswitch_8
+        0x190 -> :sswitch_9
+        0x196 -> :sswitch_a
+        0x19b -> :sswitch_b
+        0x19c -> :sswitch_c
+        0x1e8 -> :sswitch_d
+        0x1e9 -> :sswitch_e
+        0x1ea -> :sswitch_f
+        0x1eb -> :sswitch_10
+        0x1ec -> :sswitch_11
+        0x1ed -> :sswitch_12
+        0x1ee -> :sswitch_13
+        0x1ef -> :sswitch_14
+        0x1f0 -> :sswitch_15
+        0x1f1 -> :sswitch_16
+        0x1f2 -> :sswitch_17
     .end sparse-switch
 .end method

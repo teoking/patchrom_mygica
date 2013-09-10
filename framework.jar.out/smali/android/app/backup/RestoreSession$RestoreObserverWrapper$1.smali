@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/backup/RestoreSession$RestoreObserverWrapper;Landroid/os/Looper;Landroid/app/backup/RestoreSession;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter
@@ -41,21 +41,21 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
     .line 197
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_36
+    packed-switch v0, :pswitch_data_0
 
     .line 211
-    :goto_5
+    :goto_0
     return-void
 
     .line 199
-    :pswitch_6
+    :pswitch_0
     iget-object v0, p0, Landroid/app/backup/RestoreSession$RestoreObserverWrapper$1;->this$1:Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
 
     iget-object v0, v0, Landroid/app/backup/RestoreSession$RestoreObserverWrapper;->mAppObserver:Landroid/app/backup/RestoreObserver;
@@ -64,10 +64,10 @@
 
     invoke-virtual {v0, v1}, Landroid/app/backup/RestoreObserver;->restoreStarting(I)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 202
-    :pswitch_10
+    :pswitch_1
     iget-object v0, p0, Landroid/app/backup/RestoreSession$RestoreObserverWrapper$1;->this$1:Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
 
     iget-object v1, v0, Landroid/app/backup/RestoreSession$RestoreObserverWrapper;->mAppObserver:Landroid/app/backup/RestoreObserver;
@@ -80,10 +80,10 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/app/backup/RestoreObserver;->onUpdate(ILjava/lang/String;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 205
-    :pswitch_1e
+    :pswitch_2
     iget-object v0, p0, Landroid/app/backup/RestoreSession$RestoreObserverWrapper$1;->this$1:Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
 
     iget-object v0, v0, Landroid/app/backup/RestoreSession$RestoreObserverWrapper;->mAppObserver:Landroid/app/backup/RestoreObserver;
@@ -92,10 +92,10 @@
 
     invoke-virtual {v0, v1}, Landroid/app/backup/RestoreObserver;->restoreFinished(I)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 208
-    :pswitch_28
+    :pswitch_3
     iget-object v0, p0, Landroid/app/backup/RestoreSession$RestoreObserverWrapper$1;->this$1:Landroid/app/backup/RestoreSession$RestoreObserverWrapper;
 
     iget-object v1, v0, Landroid/app/backup/RestoreSession$RestoreObserverWrapper;->mAppObserver:Landroid/app/backup/RestoreObserver;
@@ -108,14 +108,14 @@
 
     invoke-virtual {v1, v0}, Landroid/app/backup/RestoreObserver;->restoreSetsAvailable([Landroid/app/backup/RestoreSet;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 197
-    :pswitch_data_36
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_10
-        :pswitch_1e
-        :pswitch_28
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method

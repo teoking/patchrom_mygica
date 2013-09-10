@@ -67,7 +67,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 306
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Bundle;)V
-    .registers 5
+    .locals 3
     .parameter "opts"
 
     .prologue
@@ -118,7 +118,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_38
+    if-ne v0, v1, :cond_1
 
     .line 314
     const-string v0, "android:animEnterRes"
@@ -152,17 +152,17 @@
     iput-object v0, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     .line 331
-    :cond_37
-    :goto_37
+    :cond_0
+    :goto_0
     return-void
 
     .line 318
-    :cond_38
+    :cond_1
     iget v0, p0, Landroid/app/ActivityOptions;->mAnimationType:I
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_5e
+    if-ne v0, v1, :cond_2
 
     .line 319
     const-string v0, "android:animStartX"
@@ -200,24 +200,24 @@
 
     iput v0, p0, Landroid/app/ActivityOptions;->mStartHeight:I
 
-    goto :goto_37
+    goto :goto_0
 
     .line 323
-    :cond_5e
+    :cond_2
     iget v0, p0, Landroid/app/ActivityOptions;->mAnimationType:I
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_68
+    if-eq v0, v1, :cond_3
 
     iget v0, p0, Landroid/app/ActivityOptions;->mAnimationType:I
 
     const/4 v1, 0x4
 
-    if-ne v0, v1, :cond_37
+    if-ne v0, v1, :cond_0
 
     .line 325
-    :cond_68
+    :cond_3
     const-string v0, "android:animThumbnail"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -259,16 +259,16 @@
 
     iput-object v0, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
-    goto :goto_37
+    goto :goto_0
 .end method
 
 .method public static abort(Landroid/os/Bundle;)V
-    .registers 2
+    .locals 1
     .parameter "options"
 
     .prologue
     .line 395
-    if-eqz p0, :cond_a
+    if-eqz p0, :cond_0
 
     .line 396
     new-instance v0, Landroid/app/ActivityOptions;
@@ -278,12 +278,12 @@
     invoke-virtual {v0}, Landroid/app/ActivityOptions;->abort()V
 
     .line 398
-    :cond_a
+    :cond_0
     return-void
 .end method
 
 .method public static makeCustomAnimation(Landroid/content/Context;II)Landroid/app/ActivityOptions;
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "enterResId"
     .parameter "exitResId"
@@ -300,7 +300,7 @@
 .end method
 
 .method public static makeCustomAnimation(Landroid/content/Context;IILandroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;)Landroid/app/ActivityOptions;
-    .registers 7
+    .locals 2
     .parameter "context"
     .parameter "enterResId"
     .parameter "exitResId"
@@ -340,7 +340,7 @@
 .end method
 
 .method public static makeDelayedThumbnailScaleUpAnimation(Landroid/view/View;Landroid/graphics/Bitmap;IILandroid/app/ActivityOptions$OnAnimationStartedListener;)Landroid/app/ActivityOptions;
-    .registers 11
+    .locals 6
     .parameter "source"
     .parameter "thumbnail"
     .parameter "startX"
@@ -369,7 +369,7 @@
 .end method
 
 .method public static makeScaleUpAnimation(Landroid/view/View;IIII)Landroid/app/ActivityOptions;
-    .registers 9
+    .locals 4
     .parameter "source"
     .parameter "startX"
     .parameter "startY"
@@ -435,7 +435,7 @@
 .end method
 
 .method public static makeThumbnailScaleUpAnimation(Landroid/view/View;Landroid/graphics/Bitmap;II)Landroid/app/ActivityOptions;
-    .registers 5
+    .locals 1
     .parameter "source"
     .parameter "thumbnail"
     .parameter "startX"
@@ -453,7 +453,7 @@
 .end method
 
 .method public static makeThumbnailScaleUpAnimation(Landroid/view/View;Landroid/graphics/Bitmap;IILandroid/app/ActivityOptions$OnAnimationStartedListener;)Landroid/app/ActivityOptions;
-    .registers 11
+    .locals 6
     .parameter "source"
     .parameter "thumbnail"
     .parameter "startX"
@@ -482,7 +482,7 @@
 .end method
 
 .method private static makeThumbnailScaleUpAnimation(Landroid/view/View;Landroid/graphics/Bitmap;IILandroid/app/ActivityOptions$OnAnimationStartedListener;Z)Landroid/app/ActivityOptions;
-    .registers 9
+    .locals 3
     .parameter "source"
     .parameter "thumbnail"
     .parameter "startX"
@@ -509,11 +509,11 @@
     iput-object v2, v0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
     .line 296
-    if-eqz p5, :cond_30
+    if-eqz p5, :cond_0
 
     const/4 v2, 0x4
 
-    :goto_12
+    :goto_0
     iput v2, v0, Landroid/app/ActivityOptions;->mAnimationType:I
 
     .line 297
@@ -558,20 +558,20 @@
 
     .line 296
     .end local v1           #pts:[I
-    :cond_30
+    :cond_0
     const/4 v2, 0x3
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method private setListener(Landroid/os/Handler;Landroid/app/ActivityOptions$OnAnimationStartedListener;)V
-    .registers 6
+    .locals 3
     .parameter "handler"
     .parameter "listener"
 
     .prologue
     .line 164
-    if-eqz p2, :cond_b
+    if-eqz p2, :cond_0
 
     .line 165
     move-object v1, p1
@@ -591,45 +591,45 @@
     .line 177
     .end local v0           #finalListener:Landroid/app/ActivityOptions$OnAnimationStartedListener;
     .end local v1           #h:Landroid/os/Handler;
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public abort()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 385
     iget-object v0, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 387
-    :try_start_4
+    :try_start_0
     iget-object v0, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     const/4 v1, 0x0
 
     invoke-interface {v0, v1}, Landroid/os/IRemoteCallback;->sendResult(Landroid/os/Bundle;)V
-    :try_end_a
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_a} :catch_b
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 391
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return-void
 
     .line 388
-    :catch_b
+    :catch_0
     move-exception v0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getAnimationType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 340
@@ -639,7 +639,7 @@
 .end method
 
 .method public getCustomEnterResId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 345
@@ -649,7 +649,7 @@
 .end method
 
 .method public getCustomExitResId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 350
@@ -659,7 +659,7 @@
 .end method
 
 .method public getOnAnimationStartListener()Landroid/os/IRemoteCallback;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 380
@@ -669,7 +669,7 @@
 .end method
 
 .method public getPackageName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 335
@@ -679,7 +679,7 @@
 .end method
 
 .method public getStartHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 375
@@ -689,7 +689,7 @@
 .end method
 
 .method public getStartWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 370
@@ -699,7 +699,7 @@
 .end method
 
 .method public getStartX()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 360
@@ -709,7 +709,7 @@
 .end method
 
 .method public getStartY()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 365
@@ -719,7 +719,7 @@
 .end method
 
 .method public getThumbnail()Landroid/graphics/Bitmap;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 355
@@ -729,7 +729,7 @@
 .end method
 
 .method public toBundle()Landroid/os/Bundle;
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x0
@@ -743,7 +743,7 @@
     .local v0, b:Landroid/os/Bundle;
     iget-object v2, p0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_0
 
     .line 465
     const-string v2, "android:packageName"
@@ -753,17 +753,17 @@
     invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 467
-    :cond_11
+    :cond_0
     iget v2, p0, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    packed-switch v2, :pswitch_data_8c
+    packed-switch v2, :pswitch_data_0
 
     .line 492
-    :goto_16
+    :goto_0
     return-object v0
 
     .line 469
-    :pswitch_17
+    :pswitch_0
     const-string v2, "android:animType"
 
     iget v3, p0, Landroid/app/ActivityOptions;->mAnimationType:I
@@ -789,7 +789,7 @@
 
     iget-object v3, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
-    if-eqz v3, :cond_38
+    if-eqz v3, :cond_1
 
     iget-object v1, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
@@ -797,13 +797,13 @@
 
     move-result-object v1
 
-    :cond_38
+    :cond_1
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putIBinder(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    goto :goto_16
+    goto :goto_0
 
     .line 476
-    :pswitch_3c
+    :pswitch_1
     const-string v1, "android:animType"
 
     iget v2, p0, Landroid/app/ActivityOptions;->mAnimationType:I
@@ -838,10 +838,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    goto :goto_16
+    goto :goto_0
 
     .line 484
-    :pswitch_60
+    :pswitch_2
     const-string v2, "android:animType"
 
     iget v3, p0, Landroid/app/ActivityOptions;->mAnimationType:I
@@ -874,7 +874,7 @@
 
     iget-object v3, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
-    if-eqz v3, :cond_88
+    if-eqz v3, :cond_2
 
     iget-object v1, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
@@ -882,23 +882,23 @@
 
     move-result-object v1
 
-    :cond_88
+    :cond_2
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putIBinder(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    goto :goto_16
+    goto :goto_0
 
     .line 467
-    :pswitch_data_8c
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_17
-        :pswitch_3c
-        :pswitch_60
-        :pswitch_60
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public update(Landroid/app/ActivityOptions;)V
-    .registers 5
+    .locals 3
     .parameter "otherOptions"
 
     .prologue
@@ -907,7 +907,7 @@
     .line 406
     iget-object v0, p1, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 407
     iget-object v0, p1, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
@@ -915,17 +915,17 @@
     iput-object v0, p0, Landroid/app/ActivityOptions;->mPackageName:Ljava/lang/String;
 
     .line 409
-    :cond_9
+    :cond_0
     iget v0, p1, Landroid/app/ActivityOptions;->mAnimationType:I
 
-    packed-switch v0, :pswitch_data_72
+    packed-switch v0, :pswitch_data_0
 
     .line 452
-    :goto_e
+    :goto_0
     return-void
 
     .line 411
-    :pswitch_f
+    :pswitch_0
     iget v0, p1, Landroid/app/ActivityOptions;->mAnimationType:I
 
     iput v0, p0, Landroid/app/ActivityOptions;->mAnimationType:I
@@ -946,29 +946,29 @@
     .line 415
     iget-object v0, p1, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_1
 
     .line 417
-    :try_start_21
+    :try_start_0
     iget-object v0, p1, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     const/4 v1, 0x0
 
     invoke-interface {v0, v1}, Landroid/os/IRemoteCallback;->sendResult(Landroid/os/Bundle;)V
-    :try_end_27
-    .catch Landroid/os/RemoteException; {:try_start_21 .. :try_end_27} :catch_70
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_2
 
     .line 421
-    :cond_27
-    :goto_27
+    :cond_1
+    :goto_1
     iget-object v0, p1, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     iput-object v0, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
-    goto :goto_e
+    goto :goto_0
 
     .line 424
-    :pswitch_2c
+    :pswitch_1
     iget v0, p1, Landroid/app/ActivityOptions;->mAnimationType:I
 
     iput v0, p0, Landroid/app/ActivityOptions;->mAnimationType:I
@@ -996,27 +996,27 @@
     .line 429
     iget-object v0, p1, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
-    if-eqz v0, :cond_4a
+    if-eqz v0, :cond_2
 
     .line 431
-    :try_start_44
+    :try_start_1
     iget-object v0, p1, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     const/4 v1, 0x0
 
     invoke-interface {v0, v1}, Landroid/os/IRemoteCallback;->sendResult(Landroid/os/Bundle;)V
-    :try_end_4a
-    .catch Landroid/os/RemoteException; {:try_start_44 .. :try_end_4a} :catch_6e
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 435
-    :cond_4a
-    :goto_4a
+    :cond_2
+    :goto_2
     iput-object v2, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
-    goto :goto_e
+    goto :goto_0
 
     .line 439
-    :pswitch_4d
+    :pswitch_2
     iget v0, p1, Landroid/app/ActivityOptions;->mAnimationType:I
 
     iput v0, p0, Landroid/app/ActivityOptions;->mAnimationType:I
@@ -1039,51 +1039,51 @@
     .line 443
     iget-object v0, p1, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
-    if-eqz v0, :cond_67
+    if-eqz v0, :cond_3
 
     .line 445
-    :try_start_61
+    :try_start_2
     iget-object v0, p1, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     const/4 v1, 0x0
 
     invoke-interface {v0, v1}, Landroid/os/IRemoteCallback;->sendResult(Landroid/os/Bundle;)V
-    :try_end_67
-    .catch Landroid/os/RemoteException; {:try_start_61 .. :try_end_67} :catch_6c
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 449
-    :cond_67
-    :goto_67
+    :cond_3
+    :goto_3
     iget-object v0, p1, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
     iput-object v0, p0, Landroid/app/ActivityOptions;->mAnimationStartedListener:Landroid/os/IRemoteCallback;
 
-    goto :goto_e
+    goto :goto_0
 
     .line 446
-    :catch_6c
+    :catch_0
     move-exception v0
 
-    goto :goto_67
+    goto :goto_3
 
     .line 432
-    :catch_6e
+    :catch_1
     move-exception v0
 
-    goto :goto_4a
+    goto :goto_2
 
     .line 418
-    :catch_70
+    :catch_2
     move-exception v0
 
-    goto :goto_27
+    goto :goto_1
 
     .line 409
-    :pswitch_data_72
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_f
-        :pswitch_2c
-        :pswitch_4d
-        :pswitch_4d
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_2
     .end packed-switch
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/BrowserFrame$2;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1113
@@ -50,6 +50,7 @@
 
     iget v1, v1, Landroid/webkit/BrowserFrame$2;->val$handle:I
 
+    #calls: Landroid/webkit/BrowserFrame;->nativeSslCertErrorProceed(I)V
     invoke-static {v0, v1}, Landroid/webkit/BrowserFrame;->access$200(Landroid/webkit/BrowserFrame;I)V
 
     .line 1114

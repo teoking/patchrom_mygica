@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/MountService;Ljava/lang/String;Landroid/os/storage/IMountShutdownObserver;)V
-    .registers 6
+    .locals 2
     .parameter
     .parameter "path"
     .parameter "observer"
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method handleFinished()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 367
@@ -60,6 +60,7 @@
 
     iget-boolean v5, p0, Lcom/android/server/MountService$UnmountCallBack;->removeEncryption:Z
 
+    #calls: Lcom/android/server/MountService;->doUnmountVolume(Ljava/lang/String;ZZ)I
     invoke-static {v2, v3, v4, v5}, Lcom/android/server/MountService;->access$100(Lcom/android/server/MountService;Ljava/lang/String;ZZ)I
 
     move-result v1
@@ -68,23 +69,23 @@
     .local v1, ret:I
     iget-object v2, p0, Lcom/android/server/MountService$ShutdownCallBack;->observer:Landroid/os/storage/IMountShutdownObserver;
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_0
 
     .line 370
-    :try_start_f
+    :try_start_0
     iget-object v2, p0, Lcom/android/server/MountService$ShutdownCallBack;->observer:Landroid/os/storage/IMountShutdownObserver;
 
     invoke-interface {v2, v1}, Landroid/os/storage/IMountShutdownObserver;->onShutDownComplete(I)V
-    :try_end_14
-    .catch Landroid/os/RemoteException; {:try_start_f .. :try_end_14} :catch_15
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 375
-    :cond_14
-    :goto_14
+    :cond_0
+    :goto_0
     return-void
 
     .line 371
-    :catch_15
+    :catch_0
     move-exception v0
 
     .line 372
@@ -95,5 +96,5 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_14
+    goto :goto_0
 .end method

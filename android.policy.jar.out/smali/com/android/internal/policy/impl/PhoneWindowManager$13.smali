@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 10
+    .locals 7
     .parameter "name"
     .parameter "service"
 
@@ -51,22 +51,22 @@
     monitor-enter v5
 
     .line 3725
-    :try_start_5
+    :try_start_0
     iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$13;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v4, v4, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotConnection:Landroid/content/ServiceConnection;
 
-    if-eq v4, p0, :cond_d
+    if-eq v4, p0, :cond_0
 
     .line 3726
     monitor-exit v5
 
     .line 3754
-    :goto_c
+    :goto_0
     return-void
 
     .line 3728
-    :cond_d
+    :cond_0
     new-instance v1, Landroid/os/Messenger;
 
     invoke-direct {v1, p2}, Landroid/os/Messenger;-><init>(Landroid/os/IBinder;)V
@@ -119,7 +119,7 @@
 
     iget-object v4, v4, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBar:Landroid/view/WindowManagerPolicy$WindowState;
 
-    if-eqz v4, :cond_45
+    if-eqz v4, :cond_1
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$13;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -129,7 +129,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_45
+    if-eqz v4, :cond_1
 
     .line 3746
     const/4 v4, 0x1
@@ -137,12 +137,12 @@
     iput v4, v2, Landroid/os/Message;->arg1:I
 
     .line 3747
-    :cond_45
+    :cond_1
     iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$13;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v4, v4, Lcom/android/internal/policy/impl/PhoneWindowManager;->mNavigationBar:Landroid/view/WindowManagerPolicy$WindowState;
 
-    if-eqz v4, :cond_58
+    if-eqz v4, :cond_2
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$13;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -152,40 +152,40 @@
 
     move-result v4
 
-    if-eqz v4, :cond_58
+    if-eqz v4, :cond_2
 
     .line 3748
     const/4 v4, 0x1
 
     iput v4, v2, Landroid/os/Message;->arg2:I
-    :try_end_58
-    .catchall {:try_start_5 .. :try_end_58} :catchall_5d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 3750
-    :cond_58
-    :try_start_58
+    :cond_2
+    :try_start_1
     invoke-virtual {v1, v2}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
-    :try_end_5b
-    .catchall {:try_start_58 .. :try_end_5b} :catchall_5d
-    .catch Landroid/os/RemoteException; {:try_start_58 .. :try_end_5b} :catch_60
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 3753
-    :goto_5b
-    :try_start_5b
+    :goto_1
+    :try_start_2
     monitor-exit v5
 
-    goto :goto_c
+    goto :goto_0
 
     .end local v0           #h:Landroid/os/Handler;
     .end local v1           #messenger:Landroid/os/Messenger;
     .end local v2           #msg:Landroid/os/Message;
     .end local v3           #myConn:Landroid/content/ServiceConnection;
-    :catchall_5d
+    :catchall_0
     move-exception v4
 
     monitor-exit v5
-    :try_end_5f
-    .catchall {:try_start_5b .. :try_end_5f} :catchall_5d
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v4
 
@@ -194,14 +194,14 @@
     .restart local v1       #messenger:Landroid/os/Messenger;
     .restart local v2       #msg:Landroid/os/Message;
     .restart local v3       #myConn:Landroid/content/ServiceConnection;
-    :catch_60
+    :catch_0
     move-exception v4
 
-    goto :goto_5b
+    goto :goto_1
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .registers 2
+    .locals 0
     .parameter "name"
 
     .prologue

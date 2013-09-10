@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 19
@@ -59,22 +59,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/content/IClipboard;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 28
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 29
     const/4 v0, 0x0
 
     .line 35
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 31
-    :cond_4
+    :cond_0
     const-string v1, "android.content.IClipboard"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -83,31 +83,31 @@
 
     .line 32
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/content/IClipboard;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 33
     check-cast v0, Landroid/content/IClipboard;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 35
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/content/IClipboard$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/content/IClipboard$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 39
@@ -115,7 +115,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 10
+    .locals 5
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -132,26 +132,26 @@
     const/4 v3, 0x1
 
     .line 43
-    sparse-switch p1, :sswitch_data_b2
+    sparse-switch p1, :sswitch_data_0
 
     .line 129
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v3
 
-    :goto_9
+    :goto_0
     return v3
 
     .line 47
-    :sswitch_a
+    :sswitch_0
     const-string v2, "android.content.IClipboard"
 
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 52
-    :sswitch_10
+    :sswitch_1
     const-string v2, "android.content.IClipboard"
 
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -161,7 +161,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2a
+    if-eqz v2, :cond_0
 
     .line 55
     sget-object v2, Landroid/content/ClipData;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -174,25 +174,25 @@
 
     .line 60
     .local v0, _arg0:Landroid/content/ClipData;
-    :goto_23
+    :goto_1
     invoke-virtual {p0, v0}, Landroid/content/IClipboard$Stub;->setPrimaryClip(Landroid/content/ClipData;)V
 
     .line 61
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 58
     .end local v0           #_arg0:Landroid/content/ClipData;
-    :cond_2a
+    :cond_0
     const/4 v0, 0x0
 
     .restart local v0       #_arg0:Landroid/content/ClipData;
-    goto :goto_23
+    goto :goto_1
 
     .line 66
     .end local v0           #_arg0:Landroid/content/ClipData;
-    :sswitch_2c
+    :sswitch_2
     const-string v4, "android.content.IClipboard"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -213,7 +213,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 71
-    if-eqz v1, :cond_45
+    if-eqz v1, :cond_1
 
     .line 72
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -221,18 +221,18 @@
     .line 73
     invoke-virtual {v1, p3, v3}, Landroid/content/ClipData;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 76
-    :cond_45
+    :cond_1
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 82
     .end local v0           #_arg0:Ljava/lang/String;
     .end local v1           #_result:Landroid/content/ClipData;
-    :sswitch_49
+    :sswitch_3
     const-string v4, "android.content.IClipboard"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -247,7 +247,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 85
-    if-eqz v1, :cond_5e
+    if-eqz v1, :cond_2
 
     .line 86
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -255,17 +255,17 @@
     .line 87
     invoke-virtual {v1, p3, v3}, Landroid/content/ClipDescription;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 90
-    :cond_5e
+    :cond_2
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 96
     .end local v1           #_result:Landroid/content/ClipDescription;
-    :sswitch_62
+    :sswitch_4
     const-string v4, "android.content.IClipboard"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -280,18 +280,18 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 99
-    if-eqz v1, :cond_71
+    if-eqz v1, :cond_3
 
     move v2, v3
 
-    :cond_71
+    :cond_3
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 104
     .end local v1           #_result:Z
-    :sswitch_75
+    :sswitch_5
     const-string v2, "android.content.IClipboard"
 
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -312,11 +312,11 @@
     .line 108
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 113
     .end local v0           #_arg0:Landroid/content/IOnPrimaryClipChangedListener;
-    :sswitch_89
+    :sswitch_6
     const-string v2, "android.content.IClipboard"
 
     invoke-virtual {p2, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -337,11 +337,11 @@
     .line 117
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 122
     .end local v0           #_arg0:Landroid/content/IOnPrimaryClipChangedListener;
-    :sswitch_9e
+    :sswitch_7
     const-string v4, "android.content.IClipboard"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -356,25 +356,25 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 125
-    if-eqz v1, :cond_ad
+    if-eqz v1, :cond_4
 
     move v2, v3
 
-    :cond_ad
+    :cond_4
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 43
-    :sswitch_data_b2
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_10
-        0x2 -> :sswitch_2c
-        0x3 -> :sswitch_49
-        0x4 -> :sswitch_62
-        0x5 -> :sswitch_75
-        0x6 -> :sswitch_89
-        0x7 -> :sswitch_9e
-        0x5f4e5446 -> :sswitch_a
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

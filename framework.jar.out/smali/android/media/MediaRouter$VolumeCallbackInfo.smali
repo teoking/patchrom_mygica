@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/media/MediaRouter$VolumeCallback;Landroid/media/MediaRouter$RouteInfo;)V
-    .registers 3
+    .locals 0
     .parameter "vcb"
     .parameter "route"
 

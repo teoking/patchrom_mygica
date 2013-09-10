@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 45
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "flags"
 
     .prologue
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/Paint;)V
-    .registers 3
+    .locals 1
     .parameter "p"
 
     .prologue
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public set(Landroid/text/TextPaint;)V
-    .registers 3
+    .locals 1
     .parameter "tp"
 
     .prologue
@@ -135,7 +135,7 @@
 .end method
 
 .method public setUnderlineText(IF)V
-    .registers 3
+    .locals 0
     .parameter "color"
     .parameter "thickness"
 

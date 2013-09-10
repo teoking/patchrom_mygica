@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/webkit/CallbackProxy$UploadFile;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "uploadFile"
     .parameter "acceptType"
     .parameter "capture"
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public getAcceptType()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1559
@@ -59,7 +59,7 @@
 .end method
 
 .method public getCapture()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1563
@@ -69,7 +69,7 @@
 .end method
 
 .method public getUploadFile()Landroid/webkit/CallbackProxy$UploadFile;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1555

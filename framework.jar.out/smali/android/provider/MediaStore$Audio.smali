@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1052
@@ -42,14 +42,14 @@
 .end method
 
 .method public static keyFor(Ljava/lang/String;)Ljava/lang/String;
-    .registers 9
+    .locals 8
     .parameter "name"
 
     .prologue
     const/16 v7, 0x2e
 
     .line 1207
-    if-eqz p0, :cond_d5
+    if-eqz p0, :cond_a
 
     .line 1208
     const/4 v4, 0x0
@@ -62,33 +62,33 @@
 
     move-result v5
 
-    if-eqz v5, :cond_10
+    if-eqz v5, :cond_1
 
     .line 1210
     const-string v2, "\u0001"
 
     .line 1254
     .end local v4           #sortfirst:Z
-    :cond_f
-    :goto_f
+    :cond_0
+    :goto_0
     return-object v2
 
     .line 1214
     .restart local v4       #sortfirst:Z
-    :cond_10
+    :cond_1
     const-string v5, "\u0001"
 
     invoke-virtual {p0, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_19
+    if-eqz v5, :cond_2
 
     .line 1215
     const/4 v4, 0x1
 
     .line 1217
-    :cond_19
+    :cond_2
     invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v5
@@ -104,7 +104,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2f
+    if-eqz v5, :cond_3
 
     .line 1219
     const/4 v5, 0x4
@@ -114,14 +114,14 @@
     move-result-object p0
 
     .line 1221
-    :cond_2f
+    :cond_3
     const-string v5, "an "
 
     invoke-virtual {p0, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_3c
+    if-eqz v5, :cond_4
 
     .line 1222
     const/4 v5, 0x3
@@ -131,14 +131,14 @@
     move-result-object p0
 
     .line 1224
-    :cond_3c
+    :cond_4
     const-string v5, "a "
 
     invoke-virtual {p0, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_49
+    if-eqz v5, :cond_5
 
     .line 1225
     const/4 v5, 0x2
@@ -148,14 +148,14 @@
     move-result-object p0
 
     .line 1227
-    :cond_49
+    :cond_5
     const-string v5, ", the"
 
     invoke-virtual {p0, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-nez v5, :cond_79
+    if-nez v5, :cond_6
 
     const-string v5, ",the"
 
@@ -163,7 +163,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_79
+    if-nez v5, :cond_6
 
     const-string v5, ", an"
 
@@ -171,7 +171,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_79
+    if-nez v5, :cond_6
 
     const-string v5, ",an"
 
@@ -179,7 +179,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_79
+    if-nez v5, :cond_6
 
     const-string v5, ", a"
 
@@ -187,7 +187,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_79
+    if-nez v5, :cond_6
 
     const-string v5, ",a"
 
@@ -195,10 +195,10 @@
 
     move-result v5
 
-    if-eqz v5, :cond_84
+    if-eqz v5, :cond_7
 
     .line 1230
-    :cond_79
+    :cond_6
     const/4 v5, 0x0
 
     const/16 v6, 0x2c
@@ -212,7 +212,7 @@
     move-result-object p0
 
     .line 1232
-    :cond_84
+    :cond_7
     const-string v5, "[\\[\\]\\(\\)\"\'.,?!]"
 
     const-string v6, ""
@@ -230,7 +230,7 @@
 
     move-result v5
 
-    if-lez v5, :cond_d1
+    if-lez v5, :cond_9
 
     .line 1237
     new-instance v0, Ljava/lang/StringBuilder;
@@ -251,8 +251,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_a3
-    if-ge v1, v3, :cond_b2
+    :goto_1
+    if-ge v1, v3, :cond_8
 
     .line 1241
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -267,10 +267,10 @@
     .line 1240
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_a3
+    goto :goto_1
 
     .line 1244
-    :cond_b2
+    :cond_8
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
@@ -282,7 +282,7 @@
 
     .line 1246
     .local v2, key:Ljava/lang/String;
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_0
 
     .line 1247
     new-instance v5, Ljava/lang/StringBuilder;
@@ -303,22 +303,22 @@
 
     move-result-object v2
 
-    goto/16 :goto_f
+    goto/16 :goto_0
 
     .line 1251
     .end local v0           #b:Ljava/lang/StringBuilder;
     .end local v1           #i:I
     .end local v2           #key:Ljava/lang/String;
     .end local v3           #nl:I
-    :cond_d1
+    :cond_9
     const-string v2, ""
 
-    goto/16 :goto_f
+    goto/16 :goto_0
 
     .line 1254
     .end local v4           #sortfirst:Z
-    :cond_d5
+    :cond_a
     const/4 v2, 0x0
 
-    goto/16 :goto_f
+    goto/16 :goto_0
 .end method

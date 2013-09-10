@@ -107,7 +107,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 7
+    .locals 7
 
     .prologue
     const/4 v6, 0x4
@@ -121,7 +121,7 @@
     .line 191
     new-array v0, v6, [F
 
-    fill-array-data v0, :array_3c
+    fill-array-data v0, :array_0
 
     sput-object v0, Landroid/util/TypedValue;->RADIX_MULTS:[F
 
@@ -178,7 +178,7 @@
     .line 191
     nop
 
-    :array_3c
+    :array_0
     .array-data 0x4
         0x0t 0x0t 0x80t 0x3bt
         0x0t 0x0t 0x0t 0x38t
@@ -188,7 +188,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 23
@@ -203,42 +203,42 @@
 .end method
 
 .method public static applyDimension(IFLandroid/util/DisplayMetrics;)F
-    .registers 5
+    .locals 2
     .parameter "unit"
     .parameter "value"
     .parameter "metrics"
 
     .prologue
     .line 323
-    packed-switch p0, :pswitch_data_24
+    packed-switch p0, :pswitch_data_0
 
     .line 337
     const/4 p1, 0x0
 
     .end local p1
-    :goto_4
-    :pswitch_4
+    :goto_0
+    :pswitch_0
     return p1
 
     .line 327
     .restart local p1
-    :pswitch_5
+    :pswitch_1
     iget v0, p2, Landroid/util/DisplayMetrics;->density:F
 
     mul-float/2addr p1, v0
 
-    goto :goto_4
+    goto :goto_0
 
     .line 329
-    :pswitch_9
+    :pswitch_2
     iget v0, p2, Landroid/util/DisplayMetrics;->scaledDensity:F
 
     mul-float/2addr p1, v0
 
-    goto :goto_4
+    goto :goto_0
 
     .line 331
-    :pswitch_d
+    :pswitch_3
     iget v0, p2, Landroid/util/DisplayMetrics;->xdpi:F
 
     mul-float/2addr v0, p1
@@ -247,18 +247,18 @@
 
     mul-float p1, v0, v1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 333
-    :pswitch_16
+    :pswitch_4
     iget v0, p2, Landroid/util/DisplayMetrics;->xdpi:F
 
     mul-float/2addr p1, v0
 
-    goto :goto_4
+    goto :goto_0
 
     .line 335
-    :pswitch_1a
+    :pswitch_5
     iget v0, p2, Landroid/util/DisplayMetrics;->xdpi:F
 
     mul-float/2addr v0, p1
@@ -267,24 +267,24 @@
 
     mul-float p1, v0, v1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 323
     nop
 
-    :pswitch_data_24
+    :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
         :pswitch_4
         :pswitch_5
-        :pswitch_9
-        :pswitch_d
-        :pswitch_16
-        :pswitch_1a
     .end packed-switch
 .end method
 
 .method public static final coerceToString(II)Ljava/lang/String;
-    .registers 5
+    .locals 3
     .parameter "type"
     .parameter "data"
 
@@ -294,15 +294,15 @@
     const/16 v2, 0x1f
 
     .line 436
-    packed-switch p0, :pswitch_data_cc
+    packed-switch p0, :pswitch_data_0
 
     .line 457
-    :pswitch_6
+    :pswitch_0
     const/16 v1, 0x1c
 
-    if-lt p0, v1, :cond_c0
+    if-lt p0, v1, :cond_2
 
-    if-gt p0, v2, :cond_c0
+    if-gt p0, v2, :cond_2
 
     .line 458
     new-instance v0, Ljava/lang/StringBuilder;
@@ -328,13 +328,13 @@
     move-result-object v0
 
     .line 463
-    :cond_23
-    :goto_23
-    :pswitch_23
+    :cond_0
+    :goto_0
+    :pswitch_1
     return-object v0
 
     .line 440
-    :pswitch_24
+    :pswitch_2
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -353,10 +353,10 @@
 
     move-result-object v0
 
-    goto :goto_23
+    goto :goto_0
 
     .line 442
-    :pswitch_38
+    :pswitch_3
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -375,10 +375,10 @@
 
     move-result-object v0
 
-    goto :goto_23
+    goto :goto_0
 
     .line 444
-    :pswitch_4c
+    :pswitch_4
     invoke-static {p1}, Ljava/lang/Float;->intBitsToFloat(I)F
 
     move-result v0
@@ -387,10 +387,10 @@
 
     move-result-object v0
 
-    goto :goto_23
+    goto :goto_0
 
     .line 446
-    :pswitch_55
+    :pswitch_5
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -423,10 +423,10 @@
 
     move-result-object v0
 
-    goto :goto_23
+    goto :goto_0
 
     .line 449
-    :pswitch_77
+    :pswitch_6
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -463,10 +463,10 @@
 
     move-result-object v0
 
-    goto :goto_23
+    goto :goto_0
 
     .line 452
-    :pswitch_9c
+    :pswitch_7
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -489,63 +489,63 @@
 
     move-result-object v0
 
-    goto/16 :goto_23
+    goto/16 :goto_0
 
     .line 454
-    :pswitch_b5
-    if-eqz p1, :cond_bc
+    :pswitch_8
+    if-eqz p1, :cond_1
 
     const-string/jumbo v0, "true"
 
-    goto/16 :goto_23
+    goto/16 :goto_0
 
-    :cond_bc
+    :cond_1
     const-string v0, "false"
 
-    goto/16 :goto_23
+    goto/16 :goto_0
 
     .line 459
-    :cond_c0
+    :cond_2
     const/16 v1, 0x10
 
-    if-lt p0, v1, :cond_23
+    if-lt p0, v1, :cond_0
 
-    if-gt p0, v2, :cond_23
+    if-gt p0, v2, :cond_0
 
     .line 460
     invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    goto/16 :goto_23
+    goto/16 :goto_0
 
     .line 436
-    :pswitch_data_cc
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_23
-        :pswitch_24
-        :pswitch_38
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_0
+        :pswitch_4
+        :pswitch_5
         :pswitch_6
-        :pswitch_4c
-        :pswitch_55
-        :pswitch_77
-        :pswitch_6
-        :pswitch_6
-        :pswitch_6
-        :pswitch_6
-        :pswitch_6
-        :pswitch_6
-        :pswitch_6
-        :pswitch_6
-        :pswitch_6
-        :pswitch_6
-        :pswitch_9c
-        :pswitch_b5
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_7
+        :pswitch_8
     .end packed-switch
 .end method
 
 .method public static complexToDimension(ILandroid/util/DisplayMetrics;)F
-    .registers 4
+    .locals 2
     .parameter "data"
     .parameter "metrics"
 
@@ -567,7 +567,7 @@
 .end method
 
 .method public static complexToDimensionNoisy(ILandroid/util/DisplayMetrics;)F
-    .registers 7
+    .locals 5
     .parameter "data"
     .parameter "metrics"
 
@@ -662,7 +662,7 @@
 .end method
 
 .method public static complexToDimensionPixelOffset(ILandroid/util/DisplayMetrics;)I
-    .registers 4
+    .locals 2
     .parameter "data"
     .parameter "metrics"
 
@@ -686,7 +686,7 @@
 .end method
 
 .method public static complexToDimensionPixelSize(ILandroid/util/DisplayMetrics;)I
-    .registers 7
+    .locals 5
     .parameter "data"
     .parameter "metrics"
 
@@ -718,43 +718,43 @@
 
     .line 287
     .local v1, res:I
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_0
 
     .line 290
     .end local v1           #res:I
-    :goto_13
+    :goto_0
     return v1
 
     .line 288
     .restart local v1       #res:I
-    :cond_14
+    :cond_0
     cmpl-float v3, v2, v4
 
-    if-nez v3, :cond_1a
+    if-nez v3, :cond_1
 
     const/4 v1, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 289
-    :cond_1a
+    :cond_1
     cmpl-float v3, v2, v4
 
-    if-lez v3, :cond_20
+    if-lez v3, :cond_2
 
     const/4 v1, 0x1
 
-    goto :goto_13
+    goto :goto_0
 
     .line 290
-    :cond_20
+    :cond_2
     const/4 v1, -0x1
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public static complexToFloat(I)F
-    .registers 4
+    .locals 3
     .parameter "complex"
 
     .prologue
@@ -777,7 +777,7 @@
 .end method
 
 .method public static complexToFraction(IFF)F
-    .registers 4
+    .locals 1
     .parameter "data"
     .parameter "base"
     .parameter "pbase"
@@ -788,48 +788,48 @@
 
     and-int/lit8 v0, v0, 0xf
 
-    packed-switch v0, :pswitch_data_16
+    packed-switch v0, :pswitch_data_0
 
     .line 379
     const/4 v0, 0x0
 
-    :goto_8
+    :goto_0
     return v0
 
     .line 375
-    :pswitch_9
+    :pswitch_0
     invoke-static {p0}, Landroid/util/TypedValue;->complexToFloat(I)F
 
     move-result v0
 
     mul-float/2addr v0, p1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 377
-    :pswitch_f
+    :pswitch_1
     invoke-static {p0}, Landroid/util/TypedValue;->complexToFloat(I)F
 
     move-result v0
 
     mul-float/2addr v0, p2
 
-    goto :goto_8
+    goto :goto_0
 
     .line 373
     nop
 
-    :pswitch_data_16
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_9
-        :pswitch_f
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public final coerceToString()Ljava/lang/CharSequence;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 410
@@ -839,27 +839,27 @@
     .local v0, t:I
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_0
 
     .line 412
     iget-object v1, p0, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
     .line 414
-    :goto_7
+    :goto_0
     return-object v1
 
-    :cond_8
+    :cond_0
     iget v1, p0, Landroid/util/TypedValue;->data:I
 
     invoke-static {v0, v1}, Landroid/util/TypedValue;->coerceToString(II)Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getDimension(Landroid/util/DisplayMetrics;)F
-    .registers 3
+    .locals 1
     .parameter "metrics"
 
     .prologue
@@ -874,7 +874,7 @@
 .end method
 
 .method public final getFloat()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 186
@@ -888,7 +888,7 @@
 .end method
 
 .method public getFraction(FF)F
-    .registers 4
+    .locals 1
     .parameter "base"
     .parameter "pbase"
 
@@ -904,7 +904,7 @@
 .end method
 
 .method public setTo(Landroid/util/TypedValue;)V
-    .registers 3
+    .locals 1
     .parameter "other"
 
     .prologue
@@ -943,7 +943,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 478
@@ -987,7 +987,7 @@
 
     const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_3d
+    if-ne v1, v2, :cond_0
 
     .line 482
     const-string v1, " \""
@@ -998,11 +998,11 @@
 
     iget-object v1, p0, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
-    if-eqz v1, :cond_6a
+    if-eqz v1, :cond_3
 
     iget-object v1, p0, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
-    :goto_34
+    :goto_0
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -1012,10 +1012,10 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 484
-    :cond_3d
+    :cond_0
     iget v1, p0, Landroid/util/TypedValue;->assetCookie:I
 
-    if-eqz v1, :cond_4c
+    if-eqz v1, :cond_1
 
     .line 485
     const-string v1, " a="
@@ -1029,10 +1029,10 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 487
-    :cond_4c
+    :cond_1
     iget v1, p0, Landroid/util/TypedValue;->resourceId:I
 
-    if-eqz v1, :cond_5f
+    if-eqz v1, :cond_2
 
     .line 488
     const-string v1, " r=0x"
@@ -1050,7 +1050,7 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 490
-    :cond_5f
+    :cond_2
     const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1063,8 +1063,8 @@
     return-object v1
 
     .line 482
-    :cond_6a
+    :cond_3
     const-string v1, "<null>"
 
-    goto :goto_34
+    goto :goto_0
 .end method

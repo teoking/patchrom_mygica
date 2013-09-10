@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 41
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/LinkSocketNotifier;)V
-    .registers 3
+    .locals 1
     .parameter "notifier"
 
     .prologue
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/LinkSocketNotifier;Landroid/net/Proxy;)V
-    .registers 4
+    .locals 1
     .parameter "notifier"
     .parameter "proxy"
 
@@ -70,7 +70,7 @@
 .end method
 
 .method protected static log(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "s"
 
     .prologue
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public bind(Ljava/net/SocketAddress;)V
-    .registers 4
+    .locals 2
     .parameter "localAddr"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -114,7 +114,7 @@
 .end method
 
 .method public declared-synchronized close()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -125,12 +125,12 @@
     .line 226
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     const-string v0, "close() EX"
 
     invoke-static {v0}, Landroid/net/LinkSocket;->log(Ljava/lang/String;)V
-    :try_end_6
-    .catchall {:try_start_1 .. :try_end_6} :catchall_8
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 227
     monitor-exit p0
@@ -138,7 +138,7 @@
     return-void
 
     .line 226
-    :catchall_8
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -147,7 +147,7 @@
 .end method
 
 .method public connect()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -165,7 +165,7 @@
 .end method
 
 .method public connect(I)V
-    .registers 3
+    .locals 1
     .parameter "timeout"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -184,7 +184,7 @@
 .end method
 
 .method public connect(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
     .parameter "dstName"
     .parameter "dstPort"
     .annotation system Ldalvik/annotation/Throws;
@@ -205,7 +205,7 @@
 .end method
 
 .method public connect(Ljava/lang/String;II)V
-    .registers 5
+    .locals 1
     .parameter "dstName"
     .parameter "dstPort"
     .parameter "timeout"
@@ -228,7 +228,7 @@
 .end method
 
 .method public connect(Ljava/net/SocketAddress;)V
-    .registers 3
+    .locals 1
     .parameter "remoteAddr"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -250,7 +250,7 @@
 .end method
 
 .method public connect(Ljava/net/SocketAddress;I)V
-    .registers 4
+    .locals 1
     .parameter "remoteAddr"
     .parameter "timeout"
     .annotation system Ldalvik/annotation/Throws;
@@ -274,7 +274,7 @@
 .end method
 
 .method public getCapabilities()Landroid/net/LinkCapabilities;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 98
@@ -289,7 +289,7 @@
 .end method
 
 .method public getCapabilities(Ljava/util/Set;)Landroid/net/LinkCapabilities;
-    .registers 3
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -318,7 +318,7 @@
 .end method
 
 .method public getLinkProperties()Landroid/net/LinkProperties;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 69
@@ -335,7 +335,7 @@
 .end method
 
 .method public getNeededCapabilities()Landroid/net/LinkCapabilities;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 90
@@ -350,7 +350,7 @@
 .end method
 
 .method public getTrackedCapabilities()Ljava/util/Set;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -376,7 +376,7 @@
 .end method
 
 .method public requestNewLink(Landroid/net/LinkSocket$LinkRequestReason;)V
-    .registers 3
+    .locals 1
     .parameter "linkRequestReason"
 
     .prologue
@@ -390,7 +390,7 @@
 .end method
 
 .method public setNeededCapabilities(Landroid/net/LinkCapabilities;)Z
-    .registers 3
+    .locals 1
     .parameter "needs"
 
     .prologue
@@ -406,7 +406,7 @@
 .end method
 
 .method public setTrackedCapabilities(Ljava/util/Set;)V
-    .registers 3
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {

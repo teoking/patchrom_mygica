@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 46
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "hostId"
 
@@ -122,10 +122,10 @@
     monitor-enter v2
 
     .line 111
-    :try_start_2d
+    :try_start_0
     sget-object v1, Landroid/appwidget/AppWidgetHost;->sService:Lcom/android/internal/appwidget/IAppWidgetService;
 
-    if-nez v1, :cond_3d
+    if-nez v1, :cond_0
 
     .line 112
     const-string v1, "appwidget"
@@ -144,25 +144,25 @@
 
     .line 115
     .end local v0           #b:Landroid/os/IBinder;
-    :cond_3d
+    :cond_0
     monitor-exit v2
 
     .line 116
     return-void
 
     .line 115
-    :catchall_3f
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_41
-    .catchall {:try_start_2d .. :try_end_41} :catchall_3f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public static deleteAllHosts()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 214
@@ -170,14 +170,14 @@
     sget-object v1, Landroid/appwidget/AppWidgetHost;->sService:Lcom/android/internal/appwidget/IAppWidgetService;
 
     invoke-interface {v1}, Lcom/android/internal/appwidget/IAppWidgetService;->deleteAllHosts()V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 219
     return-void
 
     .line 216
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 217
@@ -194,14 +194,14 @@
 
 # virtual methods
 .method public allocateAppWidgetId()I
-    .registers 5
+    .locals 4
 
     .prologue
     .line 162
     :try_start_0
     iget-object v1, p0, Landroid/appwidget/AppWidgetHost;->mPackageName:Ljava/lang/String;
 
-    if-nez v1, :cond_c
+    if-nez v1, :cond_0
 
     .line 163
     iget-object v1, p0, Landroid/appwidget/AppWidgetHost;->mContext:Landroid/content/Context;
@@ -213,7 +213,7 @@
     iput-object v1, p0, Landroid/appwidget/AppWidgetHost;->mPackageName:Ljava/lang/String;
 
     .line 165
-    :cond_c
+    :cond_0
     sget-object v1, Landroid/appwidget/AppWidgetHost;->sService:Lcom/android/internal/appwidget/IAppWidgetService;
 
     iget-object v2, p0, Landroid/appwidget/AppWidgetHost;->mPackageName:Ljava/lang/String;
@@ -221,15 +221,15 @@
     iget v3, p0, Landroid/appwidget/AppWidgetHost;->mHostId:I
 
     invoke-interface {v1, v2, v3}, Lcom/android/internal/appwidget/IAppWidgetService;->allocateAppWidgetId(Ljava/lang/String;I)I
-    :try_end_15
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_15} :catch_17
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     return v1
 
     .line 167
-    :catch_17
+    :catch_0
     move-exception v0
 
     .line 168
@@ -244,7 +244,7 @@
 .end method
 
 .method protected clearViews()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 301
@@ -257,7 +257,7 @@
 .end method
 
 .method public final createView(Landroid/content/Context;ILandroid/appwidget/AppWidgetProviderInfo;)Landroid/appwidget/AppWidgetHostView;
-    .registers 10
+    .locals 6
     .parameter "context"
     .parameter "appWidgetId"
     .parameter "appWidget"
@@ -278,7 +278,7 @@
     monitor-enter v4
 
     .line 230
-    :try_start_a
+    :try_start_0
     iget-object v3, p0, Landroid/appwidget/AppWidgetHost;->mViews:Ljava/util/HashMap;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -289,16 +289,16 @@
 
     .line 231
     monitor-exit v4
-    :try_end_14
-    .catchall {:try_start_a .. :try_end_14} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 234
-    :try_start_14
+    :try_start_1
     sget-object v3, Landroid/appwidget/AppWidgetHost;->sService:Lcom/android/internal/appwidget/IAppWidgetService;
 
     invoke-interface {v3, p2}, Lcom/android/internal/appwidget/IAppWidgetService;->getAppWidgetViews(I)Landroid/widget/RemoteViews;
-    :try_end_19
-    .catch Landroid/os/RemoteException; {:try_start_14 .. :try_end_19} :catch_21
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result-object v2
 
@@ -311,18 +311,18 @@
 
     .line 231
     .end local v2           #views:Landroid/widget/RemoteViews;
-    :catchall_1e
+    :catchall_0
     move-exception v3
 
-    :try_start_1f
+    :try_start_2
     monitor-exit v4
-    :try_end_20
-    .catchall {:try_start_1f .. :try_end_20} :catchall_1e
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v3
 
     .line 235
-    :catch_21
+    :catch_0
     move-exception v0
 
     .line 236
@@ -337,7 +337,7 @@
 .end method
 
 .method public deleteAppWidgetId(I)V
-    .registers 6
+    .locals 4
     .parameter "appWidgetId"
 
     .prologue
@@ -347,7 +347,7 @@
     monitor-enter v2
 
     .line 177
-    :try_start_3
+    :try_start_0
     iget-object v1, p0, Landroid/appwidget/AppWidgetHost;->mViews:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -355,27 +355,27 @@
     move-result-object v3
 
     invoke-virtual {v1, v3}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_c
-    .catchall {:try_start_3 .. :try_end_c} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 179
-    :try_start_c
+    :try_start_1
     sget-object v1, Landroid/appwidget/AppWidgetHost;->sService:Lcom/android/internal/appwidget/IAppWidgetService;
 
     invoke-interface {v1, p1}, Lcom/android/internal/appwidget/IAppWidgetService;->deleteAppWidgetId(I)V
-    :try_end_11
-    .catchall {:try_start_c .. :try_end_11} :catchall_1d
-    .catch Landroid/os/RemoteException; {:try_start_c .. :try_end_11} :catch_13
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 184
-    :try_start_11
+    :try_start_2
     monitor-exit v2
 
     .line 185
     return-void
 
     .line 181
-    :catch_13
+    :catch_0
     move-exception v0
 
     .line 182
@@ -390,18 +390,18 @@
 
     .line 184
     .end local v0           #e:Landroid/os/RemoteException;
-    :catchall_1d
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_1f
-    .catchall {:try_start_11 .. :try_end_1f} :catchall_1d
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v1
 .end method
 
 .method public deleteHost()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 197
@@ -411,14 +411,14 @@
     iget v2, p0, Landroid/appwidget/AppWidgetHost;->mHostId:I
 
     invoke-interface {v1, v2}, Lcom/android/internal/appwidget/IAppWidgetService;->deleteHost(I)V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 202
     return-void
 
     .line 199
-    :catch_8
+    :catch_0
     move-exception v0
 
     .line 200
@@ -433,7 +433,7 @@
 .end method
 
 .method protected onCreateView(Landroid/content/Context;ILandroid/appwidget/AppWidgetProviderInfo;)Landroid/appwidget/AppWidgetHostView;
-    .registers 5
+    .locals 1
     .parameter "context"
     .parameter "appWidgetId"
     .parameter "appWidget"
@@ -448,7 +448,7 @@
 .end method
 
 .method protected onProviderChanged(ILandroid/appwidget/AppWidgetProviderInfo;)V
-    .registers 7
+    .locals 4
     .parameter "appWidgetId"
     .parameter "appWidget"
 
@@ -503,7 +503,7 @@
     monitor-enter v2
 
     .line 270
-    :try_start_2b
+    :try_start_0
     iget-object v1, p0, Landroid/appwidget/AppWidgetHost;->mViews:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -519,34 +519,34 @@
     .line 271
     .local v0, v:Landroid/appwidget/AppWidgetHostView;
     monitor-exit v2
-    :try_end_38
-    .catchall {:try_start_2b .. :try_end_38} :catchall_3e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 272
-    if-eqz v0, :cond_3d
+    if-eqz v0, :cond_0
 
     .line 273
     invoke-virtual {v0, p2}, Landroid/appwidget/AppWidgetHostView;->resetAppWidget(Landroid/appwidget/AppWidgetProviderInfo;)V
 
     .line 275
-    :cond_3d
+    :cond_0
     return-void
 
     .line 271
     .end local v0           #v:Landroid/appwidget/AppWidgetHostView;
-    :catchall_3e
+    :catchall_0
     move-exception v1
 
-    :try_start_3f
+    :try_start_1
     monitor-exit v2
-    :try_end_40
-    .catchall {:try_start_3f .. :try_end_40} :catchall_3e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
 
 .method public startListening()V
-    .registers 10
+    .locals 9
 
     .prologue
     .line 124
@@ -556,10 +556,10 @@
 
     .line 127
     .local v4, updatedViews:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/widget/RemoteViews;>;"
-    :try_start_5
+    :try_start_0
     iget-object v5, p0, Landroid/appwidget/AppWidgetHost;->mPackageName:Ljava/lang/String;
 
-    if-nez v5, :cond_11
+    if-nez v5, :cond_0
 
     .line 128
     iget-object v5, p0, Landroid/appwidget/AppWidgetHost;->mContext:Landroid/content/Context;
@@ -571,7 +571,7 @@
     iput-object v5, p0, Landroid/appwidget/AppWidgetHost;->mPackageName:Ljava/lang/String;
 
     .line 130
-    :cond_11
+    :cond_0
     sget-object v5, Landroid/appwidget/AppWidgetHost;->sService:Lcom/android/internal/appwidget/IAppWidgetService;
 
     iget-object v6, p0, Landroid/appwidget/AppWidgetHost;->mCallbacks:Landroid/appwidget/AppWidgetHost$Callbacks;
@@ -581,8 +581,8 @@
     iget v8, p0, Landroid/appwidget/AppWidgetHost;->mHostId:I
 
     invoke-interface {v5, v6, v7, v8, v4}, Lcom/android/internal/appwidget/IAppWidgetService;->startListening(Lcom/android/internal/appwidget/IAppWidgetHost;Ljava/lang/String;ILjava/util/List;)[I
-    :try_end_1c
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_1c} :catch_2f
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v3
 
@@ -595,8 +595,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_1f
-    if-ge v2, v0, :cond_39
+    :goto_0
+    if-ge v2, v0, :cond_1
 
     .line 138
     aget v6, v3, v2
@@ -612,13 +612,13 @@
     .line 137
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 132
     .end local v0           #N:I
     .end local v2           #i:I
     .end local v3           #updatedIds:[I
-    :catch_2f
+    :catch_0
     move-exception v1
 
     .line 133
@@ -636,12 +636,12 @@
     .restart local v0       #N:I
     .restart local v2       #i:I
     .restart local v3       #updatedIds:[I
-    :cond_39
+    :cond_1
     return-void
 .end method
 
 .method public stopListening()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 148
@@ -651,14 +651,14 @@
     iget v2, p0, Landroid/appwidget/AppWidgetHost;->mHostId:I
 
     invoke-interface {v1, v2}, Lcom/android/internal/appwidget/IAppWidgetService;->stopListening(I)V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 153
     return-void
 
     .line 150
-    :catch_8
+    :catch_0
     move-exception v0
 
     .line 151
@@ -673,7 +673,7 @@
 .end method
 
 .method updateAppWidgetView(ILandroid/widget/RemoteViews;)V
-    .registers 7
+    .locals 4
     .parameter "appWidgetId"
     .parameter "views"
 
@@ -684,7 +684,7 @@
     monitor-enter v2
 
     .line 280
-    :try_start_3
+    :try_start_0
     iget-object v1, p0, Landroid/appwidget/AppWidgetHost;->mViews:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -700,34 +700,34 @@
     .line 281
     .local v0, v:Landroid/appwidget/AppWidgetHostView;
     monitor-exit v2
-    :try_end_10
-    .catchall {:try_start_3 .. :try_end_10} :catchall_16
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 282
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 283
     invoke-virtual {v0, p2}, Landroid/appwidget/AppWidgetHostView;->updateAppWidget(Landroid/widget/RemoteViews;)V
 
     .line 285
-    :cond_15
+    :cond_0
     return-void
 
     .line 281
     .end local v0           #v:Landroid/appwidget/AppWidgetHostView;
-    :catchall_16
+    :catchall_0
     move-exception v1
 
-    :try_start_17
+    :try_start_1
     monitor-exit v2
-    :try_end_18
-    .catchall {:try_start_17 .. :try_end_18} :catchall_16
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
 
 .method viewDataChanged(II)V
-    .registers 7
+    .locals 4
     .parameter "appWidgetId"
     .parameter "viewId"
 
@@ -738,7 +738,7 @@
     monitor-enter v2
 
     .line 290
-    :try_start_3
+    :try_start_0
     iget-object v1, p0, Landroid/appwidget/AppWidgetHost;->mViews:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -754,28 +754,28 @@
     .line 291
     .local v0, v:Landroid/appwidget/AppWidgetHostView;
     monitor-exit v2
-    :try_end_10
-    .catchall {:try_start_3 .. :try_end_10} :catchall_16
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 292
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 293
     invoke-virtual {v0, p2}, Landroid/appwidget/AppWidgetHostView;->viewDataChanged(I)V
 
     .line 295
-    :cond_15
+    :cond_0
     return-void
 
     .line 291
     .end local v0           #v:Landroid/appwidget/AppWidgetHostView;
-    :catchall_16
+    :catchall_0
     move-exception v1
 
-    :try_start_17
+    :try_start_1
     monitor-exit v2
-    :try_end_18
-    .catchall {:try_start_17 .. :try_end_18} :catchall_16
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method

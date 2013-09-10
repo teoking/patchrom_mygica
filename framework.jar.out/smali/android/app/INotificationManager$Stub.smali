@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 15
@@ -63,22 +63,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/app/INotificationManager;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 24
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 25
     const/4 v0, 0x0
 
     .line 31
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 27
-    :cond_4
+    :cond_0
     const-string v1, "android.app.INotificationManager"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -87,31 +87,31 @@
 
     .line 28
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/app/INotificationManager;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 29
     check-cast v0, Landroid/app/INotificationManager;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 31
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/app/INotificationManager$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/app/INotificationManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 35
@@ -119,7 +119,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 13
+    .locals 8
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -136,26 +136,26 @@
     const/4 v7, 0x1
 
     .line 39
-    sparse-switch p1, :sswitch_data_10e
+    sparse-switch p1, :sswitch_data_0
 
     .line 169
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v7
 
-    :goto_9
+    :goto_0
     return v7
 
     .line 43
-    :sswitch_a
+    :sswitch_0
     const-string v0, "android.app.INotificationManager"
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 48
-    :sswitch_10
+    :sswitch_1
     const-string v0, "android.app.INotificationManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -177,7 +177,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_39
+    if-eqz v0, :cond_0
 
     .line 55
     sget-object v0, Landroid/app/Notification;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -190,7 +190,7 @@
 
     .line 61
     .local v3, _arg2:Landroid/app/Notification;
-    :goto_2b
+    :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->createIntArray()[I
 
     move-result-object v4
@@ -205,22 +205,22 @@
     .line 64
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 58
     .end local v3           #_arg2:Landroid/app/Notification;
     .end local v4           #_arg3:[I
-    :cond_39
+    :cond_0
     const/4 v3, 0x0
 
     .restart local v3       #_arg2:Landroid/app/Notification;
-    goto :goto_2b
+    goto :goto_1
 
     .line 69
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:I
     .end local v3           #_arg2:Landroid/app/Notification;
-    :sswitch_3b
+    :sswitch_2
     const-string v0, "android.app.INotificationManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -243,12 +243,12 @@
     .line 75
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 80
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:I
-    :sswitch_4f
+    :sswitch_3
     const-string v0, "android.app.INotificationManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -265,11 +265,11 @@
     .line 84
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 89
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_5f
+    :sswitch_4
     const-string v0, "android.app.INotificationManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -302,13 +302,13 @@
     .line 97
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 102
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Landroid/app/ITransientNotification;
     .end local v3           #_arg2:I
-    :sswitch_7b
+    :sswitch_5
     const-string v0, "android.app.INotificationManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -335,12 +335,12 @@
     .line 108
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 113
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Landroid/app/ITransientNotification;
-    :sswitch_94
+    :sswitch_6
     const-string v0, "android.app.INotificationManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -368,7 +368,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c3
+    if-eqz v0, :cond_1
 
     .line 122
     sget-object v0, Landroid/app/Notification;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -381,7 +381,7 @@
 
     .line 128
     .local v4, _arg3:Landroid/app/Notification;
-    :goto_b3
+    :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->createIntArray()[I
 
     move-result-object v5
@@ -398,23 +398,23 @@
     .line 131
     invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 125
     .end local v4           #_arg3:Landroid/app/Notification;
     .end local v5           #_arg4:[I
-    :cond_c3
+    :cond_1
     const/4 v4, 0x0
 
     .restart local v4       #_arg3:Landroid/app/Notification;
-    goto :goto_b3
+    goto :goto_2
 
     .line 136
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:I
     .end local v4           #_arg3:Landroid/app/Notification;
-    :sswitch_c5
+    :sswitch_7
     const-string v0, "android.app.INotificationManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -443,13 +443,13 @@
     .line 144
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 149
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:I
-    :sswitch_de
+    :sswitch_8
     const-string v0, "android.app.INotificationManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -465,24 +465,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_ee
+    if-eqz v0, :cond_2
 
     move v2, v7
 
     .line 154
     .local v2, _arg1:Z
-    :cond_ee
+    :cond_2
     invoke-virtual {p0, v1, v2}, Landroid/app/INotificationManager$Stub;->setNotificationsEnabledForPackage(Ljava/lang/String;Z)V
 
     .line 155
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 160
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Z
-    :sswitch_f6
+    :sswitch_9
     const-string v0, "android.app.INotificationManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -503,27 +503,27 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 165
-    if-eqz v6, :cond_109
+    if-eqz v6, :cond_3
 
     move v2, v7
 
-    :cond_109
+    :cond_3
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 39
-    :sswitch_data_10e
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_10
-        0x2 -> :sswitch_3b
-        0x3 -> :sswitch_4f
-        0x4 -> :sswitch_5f
-        0x5 -> :sswitch_7b
-        0x6 -> :sswitch_94
-        0x7 -> :sswitch_c5
-        0x8 -> :sswitch_de
-        0x9 -> :sswitch_f6
-        0x5f4e5446 -> :sswitch_a
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
+        0x8 -> :sswitch_8
+        0x9 -> :sswitch_9
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

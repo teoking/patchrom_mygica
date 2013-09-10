@@ -22,7 +22,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/android/internal/policy/impl/SimUnlockScreen;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "pin"
 
@@ -45,7 +45,7 @@
 .end method
 
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 167
@@ -75,16 +75,16 @@
     invoke-direct {v3, p0, v1}, Lcom/android/internal/policy/impl/SimUnlockScreen$CheckSimPin$1;-><init>(Lcom/android/internal/policy/impl/SimUnlockScreen$CheckSimPin;Z)V
 
     invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/SimUnlockScreen;->post(Ljava/lang/Runnable;)Z
-    :try_end_1a
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_1a} :catch_1b
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 181
     .end local v1           #result:Z
-    :goto_1a
+    :goto_0
     return-void
 
     .line 174
-    :catch_1b
+    :catch_0
     move-exception v0
 
     .line 175
@@ -97,5 +97,5 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/SimUnlockScreen;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_1a
+    goto :goto_0
 .end method

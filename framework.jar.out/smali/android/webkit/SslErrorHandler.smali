@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 31
@@ -17,7 +17,7 @@
 
 # virtual methods
 .method public cancel()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 42
@@ -25,7 +25,7 @@
 .end method
 
 .method public proceed()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 36

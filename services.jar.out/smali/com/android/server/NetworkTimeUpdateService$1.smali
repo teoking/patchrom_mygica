@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/NetworkTimeUpdateService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "intent"
 
@@ -43,6 +43,7 @@
     .line 143
     iget-object v0, p0, Lcom/android/server/NetworkTimeUpdateService$1;->this$0:Lcom/android/server/NetworkTimeUpdateService;
 
+    #getter for: Lcom/android/server/NetworkTimeUpdateService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/NetworkTimeUpdateService;->access$000(Lcom/android/server/NetworkTimeUpdateService;)Landroid/os/Handler;
 
     move-result-object v0

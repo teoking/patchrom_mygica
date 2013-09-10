@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/WallpaperManagerService;Landroid/app/WallpaperInfo;Lcom/android/server/WallpaperManagerService$WallpaperData;)V
-    .registers 5
+    .locals 1
     .parameter
     .parameter "info"
     .parameter "wallpaper"
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public attachEngine(Landroid/service/wallpaper/IWallpaperEngine;)V
-    .registers 2
+    .locals 0
     .parameter "engine"
 
     .prologue
@@ -76,7 +76,7 @@
 .end method
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 7
+    .locals 4
     .parameter "name"
     .parameter "service"
 
@@ -89,12 +89,12 @@
     monitor-enter v1
 
     .line 223
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/WallpaperManagerService$WallpaperConnection;->mWallpaper:Lcom/android/server/WallpaperManagerService$WallpaperData;
 
     iget-object v0, v0, Lcom/android/server/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/WallpaperManagerService$WallpaperConnection;
 
-    if-ne v0, p0, :cond_27
+    if-ne v0, p0, :cond_0
 
     .line 224
     iget-object v0, p0, Lcom/android/server/WallpaperManagerService$WallpaperConnection;->mWallpaper:Lcom/android/server/WallpaperManagerService$WallpaperData;
@@ -124,28 +124,29 @@
 
     iget-object v2, p0, Lcom/android/server/WallpaperManagerService$WallpaperConnection;->mWallpaper:Lcom/android/server/WallpaperManagerService$WallpaperData;
 
+    #calls: Lcom/android/server/WallpaperManagerService;->saveSettingsLocked(Lcom/android/server/WallpaperManagerService$WallpaperData;)V
     invoke-static {v0, v2}, Lcom/android/server/WallpaperManagerService;->access$200(Lcom/android/server/WallpaperManagerService;Lcom/android/server/WallpaperManagerService$WallpaperData;)V
 
     .line 233
-    :cond_27
+    :cond_0
     monitor-exit v1
 
     .line 234
     return-void
 
     .line 233
-    :catchall_29
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_2b
-    .catchall {:try_start_5 .. :try_end_2b} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .registers 8
+    .locals 6
     .parameter "name"
 
     .prologue
@@ -159,7 +160,7 @@
     .line 238
     const/4 v0, 0x0
 
-    :try_start_6
+    :try_start_0
     iput-object v0, p0, Lcom/android/server/WallpaperManagerService$WallpaperConnection;->mService:Landroid/service/wallpaper/IWallpaperService;
 
     .line 239
@@ -172,7 +173,7 @@
 
     iget-object v0, v0, Lcom/android/server/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/WallpaperManagerService$WallpaperConnection;
 
-    if-ne v0, p0, :cond_5d
+    if-ne v0, p0, :cond_0
 
     .line 241
     const-string v0, "WallpaperService"
@@ -206,7 +207,7 @@
 
     iget-boolean v0, v0, Lcom/android/server/WallpaperManagerService$WallpaperData;->wallpaperUpdating:Z
 
-    if-nez v0, :cond_5d
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/WallpaperManagerService$WallpaperConnection;->mWallpaper:Lcom/android/server/WallpaperManagerService$WallpaperData;
 
@@ -222,7 +223,7 @@
 
     cmp-long v0, v2, v4
 
-    if-lez v0, :cond_5d
+    if-lez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/WallpaperManagerService$WallpaperConnection;->mWallpaper:Lcom/android/server/WallpaperManagerService$WallpaperData;
 
@@ -232,7 +233,7 @@
 
     iget v2, v2, Lcom/android/server/WallpaperManagerService;->mCurrentUserId:I
 
-    if-ne v0, v2, :cond_5d
+    if-ne v0, v2, :cond_0
 
     .line 246
     const-string v0, "WallpaperService"
@@ -253,25 +254,25 @@
     invoke-virtual {v0, v2, v3}, Lcom/android/server/WallpaperManagerService;->clearWallpaperLocked(ZI)V
 
     .line 250
-    :cond_5d
+    :cond_0
     monitor-exit v1
 
     .line 251
     return-void
 
     .line 250
-    :catchall_5f
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_61
-    .catchall {:try_start_6 .. :try_end_61} :catchall_5f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setWallpaper(Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
-    .registers 5
+    .locals 3
     .parameter "name"
 
     .prologue
@@ -283,12 +284,12 @@
     monitor-enter v1
 
     .line 259
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/WallpaperManagerService$WallpaperConnection;->mWallpaper:Lcom/android/server/WallpaperManagerService$WallpaperData;
 
     iget-object v0, v0, Lcom/android/server/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/WallpaperManagerService$WallpaperConnection;
 
-    if-ne v0, p0, :cond_15
+    if-ne v0, p0, :cond_0
 
     .line 260
     iget-object v0, p0, Lcom/android/server/WallpaperManagerService$WallpaperConnection;->this$0:Lcom/android/server/WallpaperManagerService;
@@ -302,23 +303,23 @@
     monitor-exit v1
 
     .line 262
-    :goto_14
+    :goto_0
     return-object v0
 
-    :cond_15
+    :cond_0
     const/4 v0, 0x0
 
     monitor-exit v1
 
-    goto :goto_14
+    goto :goto_0
 
     .line 263
-    :catchall_18
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1a
-    .catchall {:try_start_5 .. :try_end_1a} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

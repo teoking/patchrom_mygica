@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 77
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -60,7 +60,7 @@
 .end method
 
 .method public sendResult(ILjava/lang/String;Landroid/os/Bundle;)Z
-    .registers 11
+    .locals 7
     .parameter "code"
     .parameter "data"
     .parameter "ex"
@@ -88,7 +88,7 @@
 
     .line 89
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.app.IActivityPendingResult"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -100,7 +100,7 @@
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 92
-    if-eqz p3, :cond_36
+    if-eqz p3, :cond_0
 
     .line 93
     const/4 v4, 0x1
@@ -113,7 +113,7 @@
     invoke-virtual {p3, v0, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 99
-    :goto_1f
+    :goto_0
     iget-object v4, p0, Landroid/app/IActivityPendingResult$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v5, 0x1
@@ -127,16 +127,16 @@
 
     .line 101
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_2c
-    .catchall {:try_start_a .. :try_end_2c} :catchall_3b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_43
+    if-eqz v4, :cond_1
 
     .line 104
     .local v2, _result:Z
-    :goto_2f
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 105
@@ -147,18 +147,18 @@
 
     .line 97
     .end local v2           #_result:Z
-    :cond_36
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_37
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_3a
-    .catchall {:try_start_37 .. :try_end_3a} :catchall_3b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 104
-    :catchall_3b
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -169,9 +169,9 @@
     .line 104
     throw v3
 
-    :cond_43
+    :cond_1
     move v2, v3
 
     .line 101
-    goto :goto_2f
+    goto :goto_1
 .end method

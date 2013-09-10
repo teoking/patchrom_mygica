@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;JLandroid/content/pm/IPackageDataObserver;)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 1783
@@ -74,7 +74,7 @@
     move-result v1
 
     .line 1786
-    if-gez v1, :cond_1b
+    if-gez v1, :cond_0
 
     .line 1787
     const-string v2, "PackageManager"
@@ -84,39 +84,39 @@
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1789
-    :cond_1b
+    :cond_0
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$1;->val$observer:Landroid/content/pm/IPackageDataObserver;
 
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_1
 
     .line 1791
-    :try_start_1f
+    :try_start_0
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$1;->val$observer:Landroid/content/pm/IPackageDataObserver;
 
     const/4 v4, 0x0
 
-    if-ltz v1, :cond_29
+    if-ltz v1, :cond_2
 
     const/4 v2, 0x1
 
-    :goto_25
+    :goto_0
     invoke-interface {v3, v4, v2}, Landroid/content/pm/IPackageDataObserver;->onRemoveCompleted(Ljava/lang/String;Z)V
-    :try_end_28
-    .catch Landroid/os/RemoteException; {:try_start_1f .. :try_end_28} :catch_2b
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1796
-    :cond_28
-    :goto_28
+    :cond_1
+    :goto_1
     return-void
 
     .line 1791
-    :cond_29
+    :cond_2
     const/4 v2, 0x0
 
-    goto :goto_25
+    goto :goto_0
 
     .line 1792
-    :catch_2b
+    :catch_0
     move-exception v0
 
     .line 1793
@@ -127,5 +127,5 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_28
+    goto :goto_1
 .end method

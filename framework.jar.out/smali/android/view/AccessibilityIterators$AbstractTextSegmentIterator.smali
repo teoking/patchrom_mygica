@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 49
@@ -44,28 +44,28 @@
 
 # virtual methods
 .method protected getRange(II)[I
-    .registers 5
+    .locals 2
     .parameter "start"
     .parameter "end"
 
     .prologue
     .line 60
-    if-ltz p1, :cond_6
+    if-ltz p1, :cond_0
 
-    if-ltz p2, :cond_6
+    if-ltz p2, :cond_0
 
-    if-ne p1, p2, :cond_8
+    if-ne p1, p2, :cond_1
 
     .line 61
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
     .line 65
-    :goto_7
+    :goto_0
     return-object v0
 
     .line 63
-    :cond_8
+    :cond_1
     iget-object v0, p0, Landroid/view/AccessibilityIterators$AbstractTextSegmentIterator;->mSegment:[I
 
     const/4 v1, 0x0
@@ -82,11 +82,11 @@
     .line 65
     iget-object v0, p0, Landroid/view/AccessibilityIterators$AbstractTextSegmentIterator;->mSegment:[I
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public initialize(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "text"
 
     .prologue

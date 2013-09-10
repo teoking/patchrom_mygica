@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/storage/StorageManager$ListenerDelegate;Landroid/os/Looper;Landroid/os/storage/StorageManager;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 8
+    .locals 6
     .parameter "msg"
 
     .prologue
@@ -56,7 +56,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_16
+    if-ne v2, v3, :cond_0
 
     move-object v1, v0
 
@@ -75,16 +75,16 @@
 
     .line 269
     .end local v1           #ev:Landroid/os/storage/StorageManager$UmsConnectionChangedStorageEvent;
-    :goto_15
+    :goto_0
     return-void
 
     .line 263
-    :cond_16
+    :cond_0
     iget v2, p1, Landroid/os/Message;->what:I
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_2c
+    if-ne v2, v3, :cond_1
 
     move-object v1, v0
 
@@ -105,11 +105,11 @@
 
     invoke-virtual {v2, v3, v4, v5}, Landroid/os/storage/StorageEventListener;->onStorageStateChanged(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_15
+    goto :goto_0
 
     .line 267
     .end local v1           #ev:Landroid/os/storage/StorageManager$StorageStateChangedStorageEvent;
-    :cond_2c
+    :cond_1
     const-string v2, "StorageManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -134,5 +134,5 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_15
+    goto :goto_0
 .end method

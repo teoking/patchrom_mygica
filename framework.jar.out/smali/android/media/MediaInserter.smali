@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/IContentProvider;I)V
-    .registers 4
+    .locals 1
     .parameter "provider"
     .parameter "bufferSizePerUri"
 
@@ -72,7 +72,7 @@
 .end method
 
 .method private flush(Landroid/net/Uri;Ljava/util/List;)V
-    .registers 5
+    .locals 2
     .parameter "tableUri"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -99,7 +99,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1a
+    if-nez v1, :cond_0
 
     .line 89
     invoke-interface {p2}, Ljava/util/List;->size()I
@@ -128,12 +128,12 @@
 
     .line 94
     .end local v0           #valuesArray:[Landroid/content/ContentValues;
-    :cond_1a
+    :cond_0
     return-void
 .end method
 
 .method private flushAllPriority()V
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -153,12 +153,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_a
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_22
+    if-eqz v3, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -180,12 +180,12 @@
     .local v1, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/ContentValues;>;"
     invoke-direct {p0, v2, v1}, Landroid/media/MediaInserter;->flush(Landroid/net/Uri;Ljava/util/List;)V
 
-    goto :goto_a
+    goto :goto_0
 
     .line 84
     .end local v1           #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/ContentValues;>;"
     .end local v2           #tableUri:Landroid/net/Uri;
-    :cond_22
+    :cond_0
     iget-object v3, p0, Landroid/media/MediaInserter;->mPriorityRowMap:Ljava/util/HashMap;
 
     invoke-virtual {v3}, Ljava/util/HashMap;->clear()V
@@ -195,7 +195,7 @@
 .end method
 
 .method private insert(Landroid/net/Uri;Landroid/content/ContentValues;Z)V
-    .registers 8
+    .locals 4
     .parameter "tableUri"
     .parameter "values"
     .parameter "priority"
@@ -207,13 +207,13 @@
 
     .prologue
     .line 57
-    if-eqz p3, :cond_2b
+    if-eqz p3, :cond_2
 
     iget-object v1, p0, Landroid/media/MediaInserter;->mPriorityRowMap:Ljava/util/HashMap;
 
     .line 58
     .local v1, rowmap:Ljava/util/HashMap;,"Ljava/util/HashMap<Landroid/net/Uri;Ljava/util/List<Landroid/content/ContentValues;>;>;"
-    :goto_4
+    :goto_0
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -222,7 +222,7 @@
 
     .line 59
     .local v0, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/ContentValues;>;"
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 60
     new-instance v0, Ljava/util/ArrayList;
@@ -235,7 +235,7 @@
     invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 63
-    :cond_14
+    :cond_0
     new-instance v2, Landroid/content/ContentValues;
 
     invoke-direct {v2, p2}, Landroid/content/ContentValues;-><init>(Landroid/content/ContentValues;)V
@@ -249,7 +249,7 @@
 
     iget v3, p0, Landroid/media/MediaInserter;->mBufferSizePerUri:I
 
-    if-lt v2, v3, :cond_2a
+    if-lt v2, v3, :cond_1
 
     .line 65
     invoke-direct {p0}, Landroid/media/MediaInserter;->flushAllPriority()V
@@ -258,22 +258,22 @@
     invoke-direct {p0, p1, v0}, Landroid/media/MediaInserter;->flush(Landroid/net/Uri;Ljava/util/List;)V
 
     .line 68
-    :cond_2a
+    :cond_1
     return-void
 
     .line 57
     .end local v0           #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/ContentValues;>;"
     .end local v1           #rowmap:Ljava/util/HashMap;,"Ljava/util/HashMap<Landroid/net/Uri;Ljava/util/List<Landroid/content/ContentValues;>;>;"
-    :cond_2b
+    :cond_2
     iget-object v1, p0, Landroid/media/MediaInserter;->mRowMap:Ljava/util/HashMap;
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public flushAll()V
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -296,12 +296,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_d
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_25
+    if-eqz v3, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -323,12 +323,12 @@
     .local v1, list:Ljava/util/List;,"Ljava/util/List<Landroid/content/ContentValues;>;"
     invoke-direct {p0, v2, v1}, Landroid/media/MediaInserter;->flush(Landroid/net/Uri;Ljava/util/List;)V
 
-    goto :goto_d
+    goto :goto_0
 
     .line 76
     .end local v1           #list:Ljava/util/List;,"Ljava/util/List<Landroid/content/ContentValues;>;"
     .end local v2           #tableUri:Landroid/net/Uri;
-    :cond_25
+    :cond_0
     iget-object v3, p0, Landroid/media/MediaInserter;->mRowMap:Ljava/util/HashMap;
 
     invoke-virtual {v3}, Ljava/util/HashMap;->clear()V
@@ -338,7 +338,7 @@
 .end method
 
 .method public insert(Landroid/net/Uri;Landroid/content/ContentValues;)V
-    .registers 4
+    .locals 1
     .parameter "tableUri"
     .parameter "values"
     .annotation system Ldalvik/annotation/Throws;
@@ -358,7 +358,7 @@
 .end method
 
 .method public insertwithPriority(Landroid/net/Uri;Landroid/content/ContentValues;)V
-    .registers 4
+    .locals 1
     .parameter "tableUri"
     .parameter "values"
     .annotation system Ldalvik/annotation/Throws;

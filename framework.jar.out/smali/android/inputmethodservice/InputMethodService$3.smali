@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/inputmethodservice/InputMethodService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 7
+    .locals 4
     .parameter "className"
     .parameter "service"
 
@@ -67,6 +67,7 @@
 
     iget-object v3, p0, Landroid/inputmethodservice/InputMethodService$3;->this$0:Landroid/inputmethodservice/InputMethodService;
 
+    #getter for: Landroid/inputmethodservice/InputMethodService;->mConnection:Landroid/content/ServiceConnection;
     invoke-static {v3}, Landroid/inputmethodservice/InputMethodService;->access$200(Landroid/inputmethodservice/InputMethodService;)Landroid/content/ServiceConnection;
 
     move-result-object v3
@@ -82,27 +83,28 @@
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 2435
-    :try_start_27
+    :try_start_0
     iget-object v1, p0, Landroid/inputmethodservice/InputMethodService$3;->this$0:Landroid/inputmethodservice/InputMethodService;
 
     iget-object v1, v1, Landroid/inputmethodservice/InputMethodService;->mPCM:Lcom/benq/cdserver/IPCMBinder;
 
     iget-object v2, p0, Landroid/inputmethodservice/InputMethodService$3;->this$0:Landroid/inputmethodservice/InputMethodService;
 
+    #getter for: Landroid/inputmethodservice/InputMethodService;->mCallback:Lcom/benq/cdserver/IPCMCallback;
     invoke-static {v2}, Landroid/inputmethodservice/InputMethodService;->access$300(Landroid/inputmethodservice/InputMethodService;)Lcom/benq/cdserver/IPCMCallback;
 
     move-result-object v2
 
     invoke-interface {v1, v2}, Lcom/benq/cdserver/IPCMBinder;->registerCallback(Lcom/benq/cdserver/IPCMCallback;)V
-    :try_end_34
-    .catch Landroid/os/RemoteException; {:try_start_27 .. :try_end_34} :catch_35
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 2440
-    :goto_34
+    :goto_0
     return-void
 
     .line 2436
-    :catch_35
+    :catch_0
     move-exception v0
 
     .line 2437
@@ -129,11 +131,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_34
+    goto :goto_0
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .registers 4
+    .locals 2
     .parameter "className"
 
     .prologue

@@ -149,7 +149,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 144
@@ -283,7 +283,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -369,7 +369,7 @@
 
 # virtual methods
 .method protected cancelPollState()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 464
@@ -384,7 +384,7 @@
 .end method
 
 .method public disableLocationUpdates()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -395,11 +395,11 @@
     .line 275
     iget-boolean v0, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mWantSingleLocationUpdate:Z
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     iget-boolean v0, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mWantContinuousLocationUpdates:Z
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 276
     iget-object v0, p0, Lcom/android/internal/telephony/ServiceStateTracker;->cm:Lcom/android/internal/telephony/CommandsInterface;
@@ -409,12 +409,12 @@
     invoke-interface {v0, v2, v1}, Lcom/android/internal/telephony/CommandsInterface;->setLocationUpdates(ZLandroid/os/Message;)V
 
     .line 278
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 .method protected disableSingleLocationUpdate()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -425,11 +425,11 @@
     .line 268
     iget-boolean v0, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mWantSingleLocationUpdate:Z
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     iget-boolean v0, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mWantContinuousLocationUpdates:Z
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 269
     iget-object v0, p0, Lcom/android/internal/telephony/ServiceStateTracker;->cm:Lcom/android/internal/telephony/CommandsInterface;
@@ -439,12 +439,12 @@
     invoke-interface {v0, v2, v1}, Lcom/android/internal/telephony/CommandsInterface;->setLocationUpdates(ZLandroid/os/Message;)V
 
     .line 271
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 6
+    .locals 2
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -713,7 +713,7 @@
 .end method
 
 .method public enableLocationUpdates()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x1
@@ -721,19 +721,19 @@
     .line 261
     iget-boolean v0, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mWantSingleLocationUpdate:Z
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     iget-boolean v0, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mWantContinuousLocationUpdates:Z
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_1
 
     .line 264
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return-void
 
     .line 262
-    :cond_a
+    :cond_1
     iput-boolean v2, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mWantContinuousLocationUpdates:Z
 
     .line 263
@@ -747,11 +747,11 @@
 
     invoke-interface {v0, v2, v1}, Lcom/android/internal/telephony/CommandsInterface;->setLocationUpdates(ZLandroid/os/Message;)V
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public enableSingleLocationUpdate()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x1
@@ -759,19 +759,19 @@
     .line 255
     iget-boolean v0, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mWantSingleLocationUpdate:Z
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     iget-boolean v0, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mWantContinuousLocationUpdates:Z
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_1
 
     .line 258
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return-void
 
     .line 256
-    :cond_a
+    :cond_1
     iput-boolean v2, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mWantSingleLocationUpdate:Z
 
     .line 257
@@ -785,14 +785,14 @@
 
     invoke-interface {v0, v2, v1}, Lcom/android/internal/telephony/CommandsInterface;->setLocationUpdates(ZLandroid/os/Message;)V
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public abstract getCurrentDataConnectionState()I
 .end method
 
 .method public getDesiredPowerState()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 175
@@ -805,14 +805,14 @@
 .end method
 
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
     .line 282
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_64
+    packed-switch v0, :pswitch_data_0
 
     .line 299
     new-instance v0, Ljava/lang/StringBuilder;
@@ -838,24 +838,24 @@
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/ServiceStateTracker;->log(Ljava/lang/String;)V
 
     .line 302
-    :goto_1d
+    :goto_0
     return-void
 
     .line 284
-    :pswitch_1e
+    :pswitch_0
     monitor-enter p0
 
     .line 285
-    :try_start_1f
+    :try_start_0
     iget-boolean v0, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mPendingRadioPowerOffAfterDataOff:Z
 
-    if-eqz v0, :cond_3f
+    if-eqz v0, :cond_0
 
     iget v0, p1, Landroid/os/Message;->arg1:I
 
     iget v1, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mPendingRadioPowerOffAfterDataOffTag:I
 
-    if-ne v0, v1, :cond_3f
+    if-ne v0, v1, :cond_0
 
     .line 287
     const-string v0, "EVENT_SET_RADIO_OFF, turn radio off now."
@@ -878,23 +878,23 @@
     iput-boolean v0, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mPendingRadioPowerOffAfterDataOff:Z
 
     .line 295
-    :goto_3a
+    :goto_1
     monitor-exit p0
 
-    goto :goto_1d
+    goto :goto_0
 
-    :catchall_3c
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_3e
-    .catchall {:try_start_1f .. :try_end_3e} :catchall_3c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 292
-    :cond_3f
-    :try_start_3f
+    :cond_0
+    :try_start_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -928,15 +928,15 @@
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/ServiceStateTracker;->log(Ljava/lang/String;)V
-    :try_end_63
-    .catchall {:try_start_3f .. :try_end_63} :catchall_3c
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_3a
+    goto :goto_1
 
     .line 282
-    :pswitch_data_64
+    :pswitch_data_0
     .packed-switch 0x26
-        :pswitch_1e
+        :pswitch_0
     .end packed-switch
 .end method
 
@@ -956,7 +956,7 @@
 .end method
 
 .method public powerOffRadioSafely(Lcom/android/internal/telephony/DataConnectionTracker;)V
-    .registers 5
+    .locals 3
     .parameter "dcTracker"
 
     .prologue
@@ -964,17 +964,17 @@
     monitor-enter p0
 
     .line 413
-    :try_start_1
+    :try_start_0
     iget-boolean v1, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mPendingRadioPowerOffAfterDataOff:Z
 
-    if-nez v1, :cond_19
+    if-nez v1, :cond_0
 
     .line 416
     invoke-virtual {p1}, Lcom/android/internal/telephony/DataConnectionTracker;->isDisconnected()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_1
 
     .line 418
     const-string/jumbo v1, "radioTurnedOff"
@@ -990,15 +990,15 @@
     invoke-virtual {p0}, Lcom/android/internal/telephony/ServiceStateTracker;->hangupAndPowerOff()V
 
     .line 435
-    :cond_19
-    :goto_19
+    :cond_0
+    :goto_0
     monitor-exit p0
 
     .line 436
     return-void
 
     .line 422
-    :cond_1b
+    :cond_1
     const-string/jumbo v1, "radioTurnedOff"
 
     invoke-virtual {p1, v1}, Lcom/android/internal/telephony/DataConnectionTracker;->cleanUpAllConnections(Ljava/lang/String;)V
@@ -1030,7 +1030,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_45
+    if-eqz v1, :cond_2
 
     .line 427
     const-string v1, "Wait upto 30s for data to disconnect, then turn off radio."
@@ -1042,37 +1042,37 @@
 
     iput-boolean v1, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mPendingRadioPowerOffAfterDataOff:Z
 
-    goto :goto_19
+    goto :goto_0
 
     .line 435
     .end local v0           #msg:Landroid/os/Message;
-    :catchall_42
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
-    :try_end_44
-    .catchall {:try_start_1 .. :try_end_44} :catchall_42
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 
     .line 430
     .restart local v0       #msg:Landroid/os/Message;
-    :cond_45
-    :try_start_45
+    :cond_2
+    :try_start_1
     const-string v1, "Cannot send delayed Msg, turn off radio right away."
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/ServiceStateTracker;->log(Ljava/lang/String;)V
 
     .line 431
     invoke-virtual {p0}, Lcom/android/internal/telephony/ServiceStateTracker;->hangupAndPowerOff()V
-    :try_end_4d
-    .catchall {:try_start_45 .. :try_end_4d} :catchall_42
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public processPendingRadioPowerOffAfterDataOff()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x0
@@ -1081,10 +1081,10 @@
     monitor-enter p0
 
     .line 445
-    :try_start_2
+    :try_start_0
     iget-boolean v1, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mPendingRadioPowerOffAfterDataOff:Z
 
-    if-eqz v1, :cond_1a
+    if-eqz v1, :cond_0
 
     .line 446
     const-string v0, "Process pending request to turn radio off."
@@ -1112,27 +1112,27 @@
     monitor-exit p0
 
     .line 452
-    :goto_19
+    :goto_0
     return v0
 
-    :cond_1a
+    :cond_0
     monitor-exit p0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 453
-    :catchall_1c
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_1e
-    .catchall {:try_start_2 .. :try_end_1e} :catchall_1c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public reRegisterNetwork(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "onComplete"
 
     .prologue
@@ -1152,7 +1152,7 @@
 .end method
 
 .method public registerForDataConnectionAttached(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1174,18 +1174,18 @@
 
     move-result v1
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_0
 
     .line 325
     invoke-virtual {v0}, Landroid/os/Registrant;->notifyRegistrant()V
 
     .line 327
-    :cond_13
+    :cond_0
     return-void
 .end method
 
 .method public registerForDataConnectionDetached(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1207,18 +1207,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 343
     invoke-virtual {v0}, Landroid/os/Registrant;->notifyRegistrant()V
 
     .line 345
-    :cond_13
+    :cond_0
     return-void
 .end method
 
 .method public registerForNetworkAttached(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1242,18 +1242,18 @@
 
     move-result v1
 
-    if-nez v1, :cond_15
+    if-nez v1, :cond_0
 
     .line 361
     invoke-virtual {v0}, Landroid/os/Registrant;->notifyRegistrant()V
 
     .line 363
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method public registerForPsRestrictedDisabled(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1277,18 +1277,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_0
 
     .line 398
     invoke-virtual {v0}, Landroid/os/Registrant;->notifyRegistrant()V
 
     .line 400
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method public registerForPsRestrictedEnabled(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1312,18 +1312,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_0
 
     .line 379
     invoke-virtual {v0}, Landroid/os/Registrant;->notifyRegistrant()V
 
     .line 381
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method public registerForRoamingOff(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1347,18 +1347,18 @@
 
     move-result v1
 
-    if-nez v1, :cond_15
+    if-nez v1, :cond_0
 
     .line 212
     invoke-virtual {v0}, Landroid/os/Registrant;->notifyRegistrant()V
 
     .line 214
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method public registerForRoamingOn(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1382,13 +1382,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_0
 
     .line 191
     invoke-virtual {v0}, Landroid/os/Registrant;->notifyRegistrant()V
 
     .line 193
-    :cond_15
+    :cond_0
     return-void
 .end method
 
@@ -1396,7 +1396,7 @@
 .end method
 
 .method public setRadioPower(Z)V
-    .registers 2
+    .locals 0
     .parameter "power"
 
     .prologue
@@ -1411,7 +1411,7 @@
 .end method
 
 .method protected shouldFixTimeZoneNow(Lcom/android/internal/telephony/PhoneBase;Ljava/lang/String;Ljava/lang/String;Z)Z
-    .registers 16
+    .locals 11
     .parameter "phoneBase"
     .parameter "operatorNumeric"
     .parameter "prevOperatorNumeric"
@@ -1427,14 +1427,14 @@
 
     const/4 v10, 0x3
 
-    :try_start_4
+    :try_start_0
     invoke-virtual {p2, v9, v10}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v9
 
     invoke-static {v9}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_b
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_b} :catch_ac
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v5
 
@@ -1444,27 +1444,27 @@
 
     const/4 v10, 0x3
 
-    :try_start_e
+    :try_start_1
     invoke-virtual {p3, v9, v10}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v9
 
     invoke-static {v9}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_15
-    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_15} :catch_cc
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result v6
 
     .line 505
     .local v6, prevMcc:I
-    :goto_16
+    :goto_0
     invoke-virtual {p1}, Lcom/android/internal/telephony/PhoneBase;->getIccCard()Lcom/android/internal/telephony/IccCard;
 
     move-result-object v3
 
     .line 506
     .local v3, iccCard:Lcom/android/internal/telephony/IccCard;
-    if-eqz v3, :cond_d1
+    if-eqz v3, :cond_2
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/IccCard;->getState()Lcom/android/internal/telephony/IccCard$State;
 
@@ -1474,24 +1474,24 @@
 
     move-result v9
 
-    if-eqz v9, :cond_d1
+    if-eqz v9, :cond_2
 
     move v4, v7
 
     .line 509
     .local v4, iccCardExist:Z
-    :goto_27
-    if-eqz v4, :cond_2b
+    :goto_1
+    if-eqz v4, :cond_0
 
-    if-ne v5, v6, :cond_2d
+    if-ne v5, v6, :cond_1
 
-    :cond_2b
-    if-eqz p4, :cond_d4
+    :cond_0
+    if-eqz p4, :cond_3
 
     .line 511
     .local v7, retVal:Z
-    :cond_2d
-    :goto_2d
+    :cond_1
+    :goto_2
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
@@ -1528,11 +1528,11 @@
 
     move-result-object v9
 
-    if-nez v3, :cond_d7
+    if-nez v3, :cond_4
 
     const-string/jumbo v8, "null"
 
-    :goto_56
+    :goto_3
     invoke-virtual {v9, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v8
@@ -1624,11 +1624,11 @@
     .end local v5           #mcc:I
     .end local v6           #prevMcc:I
     .end local v7           #retVal:Z
-    :goto_ab
+    :goto_4
     return v7
 
     .line 487
-    :catch_ac
+    :catch_0
     move-exception v2
 
     .line 489
@@ -1662,12 +1662,12 @@
     move v7, v8
 
     .line 492
-    goto :goto_ab
+    goto :goto_4
 
     .line 500
     .end local v2           #e:Ljava/lang/Exception;
     .restart local v5       #mcc:I
-    :catch_cc
+    :catch_1
     move-exception v2
 
     .line 501
@@ -1675,27 +1675,27 @@
     add-int/lit8 v6, v5, 0x1
 
     .restart local v6       #prevMcc:I
-    goto/16 :goto_16
+    goto/16 :goto_0
 
     .end local v2           #e:Ljava/lang/Exception;
     .restart local v3       #iccCard:Lcom/android/internal/telephony/IccCard;
-    :cond_d1
+    :cond_2
     move v4, v8
 
     .line 506
-    goto/16 :goto_27
+    goto/16 :goto_1
 
     .restart local v4       #iccCardExist:Z
-    :cond_d4
+    :cond_3
     move v7, v8
 
     .line 509
-    goto/16 :goto_2d
+    goto/16 :goto_2
 
     .line 512
     .restart local v0       #ctm:J
     .restart local v7       #retVal:Z
-    :cond_d7
+    :cond_4
     invoke-virtual {v3}, Lcom/android/internal/telephony/IccCard;->getState()Lcom/android/internal/telephony/IccCard$State;
 
     move-result-object v8
@@ -1704,11 +1704,11 @@
 
     move-result-object v8
 
-    goto/16 :goto_56
+    goto/16 :goto_3
 .end method
 
 .method public unregisterForDataConnectionAttached(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -1722,7 +1722,7 @@
 .end method
 
 .method public unregisterForDataConnectionDetached(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -1736,7 +1736,7 @@
 .end method
 
 .method public unregisterForNetworkAttached(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -1750,7 +1750,7 @@
 .end method
 
 .method public unregisterForPsRestrictedDisabled(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -1764,7 +1764,7 @@
 .end method
 
 .method public unregisterForPsRestrictedEnabled(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -1778,7 +1778,7 @@
 .end method
 
 .method public unregisterForRoamingOff(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -1792,7 +1792,7 @@
 .end method
 
 .method public unregisterForRoamingOn(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue

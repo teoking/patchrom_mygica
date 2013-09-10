@@ -27,7 +27,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/TabHost;Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "label"
     .parameter "icon"
@@ -49,7 +49,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/TabHost;Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;Landroid/widget/TabHost$1;)V
-    .registers 5
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public createIndicatorView()Landroid/view/View;
-    .registers 11
+    .locals 10
 
     .prologue
     const/4 v0, 0x1
@@ -93,12 +93,14 @@
     .local v4, inflater:Landroid/view/LayoutInflater;
     iget-object v8, p0, Landroid/widget/TabHost$LabelAndIconIndicatorStrategy;->this$0:Landroid/widget/TabHost;
 
+    #getter for: Landroid/widget/TabHost;->mTabLayoutId:I
     invoke-static {v8}, Landroid/widget/TabHost;->access$900(Landroid/widget/TabHost;)I
 
     move-result v8
 
     iget-object v9, p0, Landroid/widget/TabHost$LabelAndIconIndicatorStrategy;->this$0:Landroid/widget/TabHost;
 
+    #getter for: Landroid/widget/TabHost;->mTabWidget:Landroid/widget/TabWidget;
     invoke-static {v9}, Landroid/widget/TabHost;->access$1000(Landroid/widget/TabHost;)Landroid/widget/TabWidget;
 
     move-result-object v9
@@ -135,14 +137,14 @@
 
     const/16 v9, 0x8
 
-    if-ne v8, v9, :cond_76
+    if-ne v8, v9, :cond_3
 
     move v2, v0
 
     .line 586
     .local v2, exclusive:Z
-    :goto_3b
-    if-eqz v2, :cond_45
+    :goto_0
+    if-eqz v2, :cond_0
 
     iget-object v8, p0, Landroid/widget/TabHost$LabelAndIconIndicatorStrategy;->mLabel:Ljava/lang/CharSequence;
 
@@ -150,22 +152,22 @@
 
     move-result v8
 
-    if-eqz v8, :cond_78
+    if-eqz v8, :cond_4
 
     .line 588
     .local v0, bindIcon:Z
-    :cond_45
-    :goto_45
+    :cond_0
+    :goto_1
     iget-object v8, p0, Landroid/widget/TabHost$LabelAndIconIndicatorStrategy;->mLabel:Ljava/lang/CharSequence;
 
     invoke-virtual {v6, v8}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 590
-    if-eqz v0, :cond_58
+    if-eqz v0, :cond_1
 
     iget-object v8, p0, Landroid/widget/TabHost$LabelAndIconIndicatorStrategy;->mIcon:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v8, :cond_58
+    if-eqz v8, :cond_1
 
     .line 591
     iget-object v8, p0, Landroid/widget/TabHost$LabelAndIconIndicatorStrategy;->mIcon:Landroid/graphics/drawable/Drawable;
@@ -176,7 +178,7 @@
     invoke-virtual {v3, v7}, Landroid/widget/ImageView;->setVisibility(I)V
 
     .line 595
-    :cond_58
+    :cond_1
     invoke-virtual {v1}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
     move-result-object v7
@@ -185,7 +187,7 @@
 
     const/4 v8, 0x4
 
-    if-gt v7, v8, :cond_75
+    if-gt v7, v8, :cond_2
 
     .line 597
     const v7, 0x1080598
@@ -206,21 +208,21 @@
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
     .line 601
-    :cond_75
+    :cond_2
     return-object v5
 
     .end local v0           #bindIcon:Z
     .end local v2           #exclusive:Z
-    :cond_76
+    :cond_3
     move v2, v7
 
     .line 585
-    goto :goto_3b
+    goto :goto_0
 
     .restart local v2       #exclusive:Z
-    :cond_78
+    :cond_4
     move v0, v7
 
     .line 586
-    goto :goto_45
+    goto :goto_1
 .end method

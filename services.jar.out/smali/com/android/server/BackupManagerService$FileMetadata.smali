@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 2866
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     const/16 v2, 0x2c

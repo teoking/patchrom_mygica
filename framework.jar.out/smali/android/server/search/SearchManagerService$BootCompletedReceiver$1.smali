@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/server/search/SearchManagerService$BootCompletedReceiver;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 88
@@ -48,6 +48,7 @@
 
     iget-object v0, v0, Landroid/server/search/SearchManagerService$BootCompletedReceiver;->this$0:Landroid/server/search/SearchManagerService;
 
+    #getter for: Landroid/server/search/SearchManagerService;->mContext:Landroid/content/Context;
     invoke-static {v0}, Landroid/server/search/SearchManagerService;->access$100(Landroid/server/search/SearchManagerService;)Landroid/content/Context;
 
     move-result-object v0
@@ -61,6 +62,7 @@
 
     iget-object v0, v0, Landroid/server/search/SearchManagerService$BootCompletedReceiver;->this$0:Landroid/server/search/SearchManagerService;
 
+    #calls: Landroid/server/search/SearchManagerService;->getSearchables()Landroid/server/search/Searchables;
     invoke-static {v0}, Landroid/server/search/SearchManagerService;->access$200(Landroid/server/search/SearchManagerService;)Landroid/server/search/Searchables;
 
     .line 91

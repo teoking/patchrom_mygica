@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/ViewGroup;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,18 +38,20 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2877
     iget-object v0, p0, Landroid/view/ViewGroup$2;->this$0:Landroid/view/ViewGroup;
 
+    #getter for: Landroid/view/ViewGroup;->mAnimationListener:Landroid/view/animation/Animation$AnimationListener;
     invoke-static {v0}, Landroid/view/ViewGroup;->access$200(Landroid/view/ViewGroup;)Landroid/view/animation/Animation$AnimationListener;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/view/ViewGroup$2;->this$0:Landroid/view/ViewGroup;
 
+    #getter for: Landroid/view/ViewGroup;->mLayoutAnimationController:Landroid/view/animation/LayoutAnimationController;
     invoke-static {v1}, Landroid/view/ViewGroup;->access$100(Landroid/view/ViewGroup;)Landroid/view/animation/LayoutAnimationController;
 
     move-result-object v1

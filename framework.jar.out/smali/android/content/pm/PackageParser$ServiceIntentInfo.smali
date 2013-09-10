@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/pm/PackageParser$Service;)V
-    .registers 2
+    .locals 0
     .parameter "_service"
 
     .prologue
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3687

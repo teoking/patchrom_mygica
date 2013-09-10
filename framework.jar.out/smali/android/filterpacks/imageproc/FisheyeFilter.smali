@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "name"
 
     .prologue
@@ -68,7 +68,7 @@
 .end method
 
 .method private updateFrameSize(II)V
-    .registers 3
+    .locals 0
     .parameter "width"
     .parameter "height"
 
@@ -87,7 +87,7 @@
 .end method
 
 .method private updateProgramParams()V
-    .registers 15
+    .locals 14
 
     .prologue
     const/high16 v13, 0x3f80
@@ -111,7 +111,7 @@
 
     iget v10, p0, Landroid/filterpacks/imageproc/FisheyeFilter;->mHeight:I
 
-    if-le v9, v10, :cond_83
+    if-le v9, v10, :cond_0
 
     .line 153
     aput v13, v8, v11
@@ -130,7 +130,7 @@
     aput v9, v8, v12
 
     .line 159
-    :goto_1b
+    :goto_0
     iget v9, p0, Landroid/filterpacks/imageproc/FisheyeFilter;->mScale:F
 
     const/high16 v10, 0x4000
@@ -265,7 +265,7 @@
     .end local v4           #max_radian:F
     .end local v6           #radius:F
     .end local v7           #radius2:F
-    :cond_83
+    :cond_0
     iget v9, p0, Landroid/filterpacks/imageproc/FisheyeFilter;->mWidth:I
 
     int-to-float v9, v9
@@ -281,13 +281,13 @@
     .line 157
     aput v13, v8, v12
 
-    goto :goto_1b
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "context"
 
@@ -295,18 +295,18 @@
     .line 137
     iget-object v0, p0, Landroid/filterpacks/imageproc/FisheyeFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 138
     invoke-direct {p0}, Landroid/filterpacks/imageproc/FisheyeFilter;->updateProgramParams()V
 
     .line 140
-    :cond_7
+    :cond_0
     return-void
 .end method
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -316,13 +316,13 @@
 .end method
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "target"
 
     .prologue
     .line 92
-    packed-switch p2, :pswitch_data_34
+    packed-switch p2, :pswitch_data_0
 
     .line 100
     new-instance v1, Ljava/lang/RuntimeException;
@@ -356,7 +356,7 @@
     throw v1
 
     .line 94
-    :pswitch_22
+    :pswitch_0
     new-instance v0, Landroid/filterfw/core/ShaderProgram;
 
     const-string/jumbo v1, "precision mediump float;\nuniform sampler2D tex_sampler_0;\nuniform vec2 scale;\nuniform float alpha;\nuniform float radius2;\nuniform float factor;\nvarying vec2 v_texcoord;\nvoid main() {\n  const float m_pi_2 = 1.570963;\n  vec2 coord = v_texcoord - vec2(0.5, 0.5);\n  float dist = length(coord * scale);\n  float radian = m_pi_2 - atan(alpha * sqrt(radius2 - dist * dist), dist);\n  float scalar = radian * factor / dist;\n  vec2 new_coord = coord * scalar + vec2(0.5, 0.5);\n  gl_FragColor = texture2D(tex_sampler_0, new_coord);\n}\n"
@@ -379,14 +379,14 @@
     return-void
 
     .line 92
-    :pswitch_data_34
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_22
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -417,7 +417,7 @@
     .local v2, output:Landroid/filterfw/core/Frame;
     iget-object v3, p0, Landroid/filterpacks/imageproc/FisheyeFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v3, :cond_1e
+    if-eqz v3, :cond_0
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
@@ -425,10 +425,10 @@
 
     iget v4, p0, Landroid/filterpacks/imageproc/FisheyeFilter;->mTarget:I
 
-    if-eq v3, v4, :cond_25
+    if-eq v3, v4, :cond_1
 
     .line 117
-    :cond_1e
+    :cond_0
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
     move-result v3
@@ -436,14 +436,14 @@
     invoke-virtual {p0, p1, v3}, Landroid/filterpacks/imageproc/FisheyeFilter;->initProgram(Landroid/filterfw/core/FilterContext;I)V
 
     .line 121
-    :cond_25
+    :cond_1
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v3
 
     iget v4, p0, Landroid/filterpacks/imageproc/FisheyeFilter;->mWidth:I
 
-    if-ne v3, v4, :cond_35
+    if-ne v3, v4, :cond_2
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getHeight()I
 
@@ -451,10 +451,10 @@
 
     iget v4, p0, Landroid/filterpacks/imageproc/FisheyeFilter;->mHeight:I
 
-    if-eq v3, v4, :cond_40
+    if-eq v3, v4, :cond_3
 
     .line 122
-    :cond_35
+    :cond_2
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v3
@@ -466,7 +466,7 @@
     invoke-direct {p0, v3, v4}, Landroid/filterpacks/imageproc/FisheyeFilter;->updateFrameSize(II)V
 
     .line 126
-    :cond_40
+    :cond_3
     iget-object v3, p0, Landroid/filterpacks/imageproc/FisheyeFilter;->mProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v3, v0, v2}, Landroid/filterfw/core/Program;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
@@ -484,7 +484,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 82

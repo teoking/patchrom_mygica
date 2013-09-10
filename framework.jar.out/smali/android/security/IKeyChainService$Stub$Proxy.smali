@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 135
@@ -50,7 +50,7 @@
 .end method
 
 .method public deleteCaCertificate(Ljava/lang/String;)Z
-    .registers 8
+    .locals 6
     .parameter "alias"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -74,7 +74,7 @@
 
     .line 204
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.security.IKeyChainService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -96,18 +96,18 @@
 
     .line 208
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1e
-    .catchall {:try_start_9 .. :try_end_1e} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_22
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 211
     .local v2, _result:Z
-    :cond_22
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 212
@@ -118,7 +118,7 @@
 
     .line 211
     .end local v2           #_result:Z
-    :catchall_29
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -131,7 +131,7 @@
 .end method
 
 .method public getCertificate(Ljava/lang/String;)[B
-    .registers 8
+    .locals 6
     .parameter "alias"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -153,7 +153,7 @@
 
     .line 167
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.security.IKeyChainService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -175,8 +175,8 @@
 
     .line 171
     invoke-virtual {v1}, Landroid/os/Parcel;->createByteArray()[B
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -192,7 +192,7 @@
 
     .line 174
     .end local v2           #_result:[B
-    :catchall_25
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -205,7 +205,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 139
@@ -215,7 +215,7 @@
 .end method
 
 .method public hasGrant(ILjava/lang/String;)Z
-    .registers 9
+    .locals 6
     .parameter "uid"
     .parameter "alias"
     .annotation system Ldalvik/annotation/Throws;
@@ -240,7 +240,7 @@
 
     .line 258
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.security.IKeyChainService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -265,18 +265,18 @@
 
     .line 263
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_21
-    .catchall {:try_start_9 .. :try_end_21} :catchall_2c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_25
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 266
     .local v2, _result:Z
-    :cond_25
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 267
@@ -287,7 +287,7 @@
 
     .line 266
     .end local v2           #_result:Z
-    :catchall_2c
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -300,7 +300,7 @@
 .end method
 
 .method public installCaCertificate([B)V
-    .registers 7
+    .locals 5
     .parameter "caCertificate"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -322,7 +322,7 @@
 
     .line 186
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.security.IKeyChainService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -341,8 +341,8 @@
 
     .line 189
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 192
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -354,7 +354,7 @@
     return-void
 
     .line 192
-    :catchall_21
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -367,7 +367,7 @@
 .end method
 
 .method public requestPrivateKey(Ljava/lang/String;)Ljava/lang/String;
-    .registers 8
+    .locals 6
     .parameter "alias"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -389,7 +389,7 @@
 
     .line 149
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.security.IKeyChainService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -411,8 +411,8 @@
 
     .line 153
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -428,7 +428,7 @@
 
     .line 156
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_25
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -441,7 +441,7 @@
 .end method
 
 .method public reset()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -464,7 +464,7 @@
 
     .line 222
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.security.IKeyChainService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -483,18 +483,18 @@
 
     .line 225
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_9 .. :try_end_1b} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_1f
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 228
     .local v2, _result:Z
-    :cond_1f
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 229
@@ -505,7 +505,7 @@
 
     .line 228
     .end local v2           #_result:Z
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -518,7 +518,7 @@
 .end method
 
 .method public setGrant(ILjava/lang/String;Z)V
-    .registers 9
+    .locals 5
     .parameter "uid"
     .parameter "alias"
     .parameter "value"
@@ -544,7 +544,7 @@
 
     .line 240
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.security.IKeyChainService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -556,11 +556,11 @@
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 243
-    if-eqz p3, :cond_17
+    if-eqz p3, :cond_0
 
     const/4 v2, 0x1
 
-    :cond_17
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 244
@@ -574,8 +574,8 @@
 
     .line 245
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_24
-    .catchall {:try_start_9 .. :try_end_24} :catchall_2b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 248
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -587,7 +587,7 @@
     return-void
 
     .line 248
-    :catchall_2b
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

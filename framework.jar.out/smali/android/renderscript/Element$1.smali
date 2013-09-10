@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 933
@@ -36,7 +36,7 @@
 
     sput-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataKind:[I
 
-    :try_start_9
+    :try_start_0
     sget-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataKind:[I
 
     sget-object v1, Landroid/renderscript/Element$DataKind;->PIXEL_LA:Landroid/renderscript/Element$DataKind;
@@ -48,11 +48,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_14
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_14} :catch_dc
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_e
 
-    :goto_14
-    :try_start_14
+    :goto_0
+    :try_start_1
     sget-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataKind:[I
 
     sget-object v1, Landroid/renderscript/Element$DataKind;->PIXEL_RGB:Landroid/renderscript/Element$DataKind;
@@ -64,11 +64,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_1f} :catch_d9
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_d
 
-    :goto_1f
-    :try_start_1f
+    :goto_1
+    :try_start_2
     sget-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataKind:[I
 
     sget-object v1, Landroid/renderscript/Element$DataKind;->PIXEL_RGBA:Landroid/renderscript/Element$DataKind;
@@ -80,11 +80,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_2a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1f .. :try_end_2a} :catch_d6
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_c
 
-    :goto_2a
-    :try_start_2a
+    :goto_2
+    :try_start_3
     sget-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataKind:[I
 
     sget-object v1, Landroid/renderscript/Element$DataKind;->PIXEL_DEPTH:Landroid/renderscript/Element$DataKind;
@@ -96,11 +96,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_35
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2a .. :try_end_35} :catch_d3
+    :try_end_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_b
 
     .line 864
-    :goto_35
+    :goto_3
     invoke-static {}, Landroid/renderscript/Element$DataType;->values()[Landroid/renderscript/Element$DataType;
 
     move-result-object v0
@@ -111,7 +111,7 @@
 
     sput-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataType:[I
 
-    :try_start_3e
+    :try_start_4
     sget-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataType:[I
 
     sget-object v1, Landroid/renderscript/Element$DataType;->FLOAT_32:Landroid/renderscript/Element$DataType;
@@ -123,11 +123,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_49
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3e .. :try_end_49} :catch_d0
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_a
 
-    :goto_49
-    :try_start_49
+    :goto_4
+    :try_start_5
     sget-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataType:[I
 
     sget-object v1, Landroid/renderscript/Element$DataType;->FLOAT_64:Landroid/renderscript/Element$DataType;
@@ -139,11 +139,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_54
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_49 .. :try_end_54} :catch_ce
+    :try_end_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_9
 
-    :goto_54
-    :try_start_54
+    :goto_5
+    :try_start_6
     sget-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataType:[I
 
     sget-object v1, Landroid/renderscript/Element$DataType;->SIGNED_8:Landroid/renderscript/Element$DataType;
@@ -155,11 +155,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_5f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_54 .. :try_end_5f} :catch_cc
+    :try_end_6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_8
 
-    :goto_5f
-    :try_start_5f
+    :goto_6
+    :try_start_7
     sget-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataType:[I
 
     sget-object v1, Landroid/renderscript/Element$DataType;->SIGNED_16:Landroid/renderscript/Element$DataType;
@@ -171,11 +171,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_6a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5f .. :try_end_6a} :catch_ca
+    :try_end_7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_7
 
-    :goto_6a
-    :try_start_6a
+    :goto_7
+    :try_start_8
     sget-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataType:[I
 
     sget-object v1, Landroid/renderscript/Element$DataType;->SIGNED_32:Landroid/renderscript/Element$DataType;
@@ -187,11 +187,11 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_75
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6a .. :try_end_75} :catch_c8
+    :try_end_8
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_6
 
-    :goto_75
-    :try_start_75
+    :goto_8
+    :try_start_9
     sget-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataType:[I
 
     sget-object v1, Landroid/renderscript/Element$DataType;->SIGNED_64:Landroid/renderscript/Element$DataType;
@@ -203,11 +203,11 @@
     const/4 v2, 0x6
 
     aput v2, v0, v1
-    :try_end_80
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_75 .. :try_end_80} :catch_c6
+    :try_end_9
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_5
 
-    :goto_80
-    :try_start_80
+    :goto_9
+    :try_start_a
     sget-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataType:[I
 
     sget-object v1, Landroid/renderscript/Element$DataType;->UNSIGNED_8:Landroid/renderscript/Element$DataType;
@@ -219,11 +219,11 @@
     const/4 v2, 0x7
 
     aput v2, v0, v1
-    :try_end_8b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_80 .. :try_end_8b} :catch_c4
+    :try_end_a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_4
 
-    :goto_8b
-    :try_start_8b
+    :goto_a
+    :try_start_b
     sget-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataType:[I
 
     sget-object v1, Landroid/renderscript/Element$DataType;->UNSIGNED_16:Landroid/renderscript/Element$DataType;
@@ -235,11 +235,11 @@
     const/16 v2, 0x8
 
     aput v2, v0, v1
-    :try_end_97
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_8b .. :try_end_97} :catch_c2
+    :try_end_b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_3
 
-    :goto_97
-    :try_start_97
+    :goto_b
+    :try_start_c
     sget-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataType:[I
 
     sget-object v1, Landroid/renderscript/Element$DataType;->UNSIGNED_32:Landroid/renderscript/Element$DataType;
@@ -251,11 +251,11 @@
     const/16 v2, 0x9
 
     aput v2, v0, v1
-    :try_end_a3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_97 .. :try_end_a3} :catch_c0
+    :try_end_c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_c .. :try_end_c} :catch_2
 
-    :goto_a3
-    :try_start_a3
+    :goto_c
+    :try_start_d
     sget-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataType:[I
 
     sget-object v1, Landroid/renderscript/Element$DataType;->UNSIGNED_64:Landroid/renderscript/Element$DataType;
@@ -267,11 +267,11 @@
     const/16 v2, 0xa
 
     aput v2, v0, v1
-    :try_end_af
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_a3 .. :try_end_af} :catch_be
+    :try_end_d
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_d .. :try_end_d} :catch_1
 
-    :goto_af
-    :try_start_af
+    :goto_d
+    :try_start_e
     sget-object v0, Landroid/renderscript/Element$1;->$SwitchMap$android$renderscript$Element$DataType:[I
 
     sget-object v1, Landroid/renderscript/Element$DataType;->BOOLEAN:Landroid/renderscript/Element$DataType;
@@ -283,85 +283,85 @@
     const/16 v2, 0xb
 
     aput v2, v0, v1
-    :try_end_bb
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_af .. :try_end_bb} :catch_bc
+    :try_end_e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_e .. :try_end_e} :catch_0
 
-    :goto_bb
+    :goto_e
     return-void
 
-    :catch_bc
+    :catch_0
     move-exception v0
 
-    goto :goto_bb
+    goto :goto_e
 
-    :catch_be
+    :catch_1
     move-exception v0
 
-    goto :goto_af
+    goto :goto_d
 
-    :catch_c0
+    :catch_2
     move-exception v0
 
-    goto :goto_a3
+    goto :goto_c
 
-    :catch_c2
+    :catch_3
     move-exception v0
 
-    goto :goto_97
+    goto :goto_b
 
-    :catch_c4
+    :catch_4
     move-exception v0
 
-    goto :goto_8b
+    goto :goto_a
 
-    :catch_c6
+    :catch_5
     move-exception v0
 
-    goto :goto_80
+    goto :goto_9
 
-    :catch_c8
+    :catch_6
     move-exception v0
 
-    goto :goto_75
+    goto :goto_8
 
-    :catch_ca
+    :catch_7
     move-exception v0
 
-    goto :goto_6a
+    goto :goto_7
 
-    :catch_cc
+    :catch_8
     move-exception v0
 
-    goto :goto_5f
+    goto :goto_6
 
-    :catch_ce
+    :catch_9
     move-exception v0
 
-    goto :goto_54
+    goto :goto_5
 
-    :catch_d0
+    :catch_a
     move-exception v0
 
-    goto/16 :goto_49
+    goto/16 :goto_4
 
     .line 933
-    :catch_d3
+    :catch_b
     move-exception v0
 
-    goto/16 :goto_35
+    goto/16 :goto_3
 
-    :catch_d6
+    :catch_c
     move-exception v0
 
-    goto/16 :goto_2a
+    goto/16 :goto_2
 
-    :catch_d9
+    :catch_d
     move-exception v0
 
-    goto/16 :goto_1f
+    goto/16 :goto_1
 
-    :catch_dc
+    :catch_e
     move-exception v0
 
-    goto/16 :goto_14
+    goto/16 :goto_0
 .end method

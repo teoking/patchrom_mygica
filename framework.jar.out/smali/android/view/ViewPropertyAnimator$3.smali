@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/ViewPropertyAnimator;I)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,12 +43,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 657
     iget-object v0, p0, Landroid/view/ViewPropertyAnimator$3;->this$0:Landroid/view/ViewPropertyAnimator;
 
+    #getter for: Landroid/view/ViewPropertyAnimator;->mView:Landroid/view/View;
     invoke-static {v0}, Landroid/view/ViewPropertyAnimator;->access$200(Landroid/view/ViewPropertyAnimator;)Landroid/view/View;
 
     move-result-object v0

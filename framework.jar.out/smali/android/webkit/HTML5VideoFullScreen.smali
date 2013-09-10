@@ -64,7 +64,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;IIZ)V
-    .registers 7
+    .locals 2
     .parameter "context"
     .parameter "videoLayerId"
     .parameter "position"
@@ -133,7 +133,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/webkit/HTML5VideoFullScreen;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -144,7 +144,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/webkit/HTML5VideoFullScreen;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -156,7 +156,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/webkit/HTML5VideoFullScreen;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -167,7 +167,7 @@
 .end method
 
 .method static synthetic access$1002(Landroid/webkit/HTML5VideoFullScreen;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -179,7 +179,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/webkit/HTML5VideoFullScreen;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -191,7 +191,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/webkit/HTML5VideoFullScreen;)Landroid/widget/MediaController;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -202,7 +202,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/webkit/HTML5VideoFullScreen;Landroid/widget/MediaController;)Landroid/widget/MediaController;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -214,7 +214,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/webkit/HTML5VideoFullScreen;Landroid/view/SurfaceHolder;)Landroid/view/SurfaceHolder;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -226,7 +226,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/webkit/HTML5VideoFullScreen;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -238,7 +238,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/webkit/HTML5VideoFullScreen;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -249,7 +249,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/webkit/HTML5VideoFullScreen;)Landroid/webkit/HTML5VideoFullScreen$VideoSurfaceView;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -260,7 +260,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/webkit/HTML5VideoFullScreen;)Landroid/view/SurfaceView;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -273,7 +273,7 @@
 .end method
 
 .method static synthetic access$800()Landroid/widget/FrameLayout;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 24
@@ -283,7 +283,7 @@
 .end method
 
 .method static synthetic access$802(Landroid/widget/FrameLayout;)Landroid/widget/FrameLayout;
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -294,7 +294,7 @@
 .end method
 
 .method static synthetic access$900()Landroid/view/View;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 24
@@ -304,7 +304,7 @@
 .end method
 
 .method static synthetic access$902(Landroid/view/View;)Landroid/view/View;
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -315,17 +315,17 @@
 .end method
 
 .method private attachMediaController()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 153
     sget-object v0, Landroid/webkit/HTML5VideoFullScreen;->mPlayer:Landroid/media/MediaPlayer;
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen;->mMediaController:Landroid/widget/MediaController;
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     .line 154
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen;->mMediaController:Landroid/widget/MediaController;
@@ -347,12 +347,12 @@
     invoke-virtual {v0, v1}, Landroid/widget/MediaController;->setEnabled(Z)V
 
     .line 159
-    :cond_1a
+    :cond_0
     return-void
 .end method
 
 .method private getSurfaceView()Landroid/view/SurfaceView;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 136
@@ -362,7 +362,7 @@
 .end method
 
 .method private prepareForFullScreen()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 169
@@ -415,7 +415,7 @@
 .end method
 
 .method private setMediaController(Landroid/widget/MediaController;)V
-    .registers 2
+    .locals 0
     .parameter "m"
 
     .prologue
@@ -430,7 +430,7 @@
 .end method
 
 .method private toggleMediaControlsVisiblity()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 179
@@ -440,7 +440,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 180
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen;->mMediaController:Landroid/widget/MediaController;
@@ -448,22 +448,22 @@
     invoke-virtual {v0}, Landroid/widget/MediaController;->hide()V
 
     .line 184
-    :goto_d
+    :goto_0
     return-void
 
     .line 182
-    :cond_e
+    :cond_0
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen;->mMediaController:Landroid/widget/MediaController;
 
     invoke-virtual {v0}, Landroid/widget/MediaController;->show()V
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public canPause()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 316
@@ -473,7 +473,7 @@
 .end method
 
 .method public canSeekBackward()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 321
@@ -483,7 +483,7 @@
 .end method
 
 .method public canSeekForward()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 326
@@ -493,7 +493,7 @@
 .end method
 
 .method public decideDisplayMode()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 163
@@ -508,7 +508,7 @@
 .end method
 
 .method public enterFullScreenVideoState(ILandroid/webkit/HTML5VideoViewProxy;Landroid/webkit/WebViewClassic;)V
-    .registers 11
+    .locals 7
     .parameter "layerId"
     .parameter "proxy"
     .parameter "webView"
@@ -615,7 +615,7 @@
 
     .line 290
     .local v0, client:Landroid/webkit/WebChromeClient;
-    if-eqz v0, :cond_86
+    if-eqz v0, :cond_1
 
     .line 291
     sget-object v2, Landroid/webkit/HTML5VideoFullScreen;->mLayout:Landroid/widget/FrameLayout;
@@ -629,7 +629,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_70
+    if-eqz v2, :cond_0
 
     .line 295
     invoke-virtual {p3}, Landroid/webkit/WebViewClassic;->getViewManager()Landroid/webkit/ViewManager;
@@ -639,7 +639,7 @@
     invoke-virtual {v2}, Landroid/webkit/ViewManager;->hideAll()V
 
     .line 297
-    :cond_70
+    :cond_0
     invoke-virtual {v0}, Landroid/webkit/WebChromeClient;->getVideoLoadingProgressView()Landroid/view/View;
 
     move-result-object v2
@@ -649,7 +649,7 @@
     .line 298
     sget-object v2, Landroid/webkit/HTML5VideoFullScreen;->mProgressView:Landroid/view/View;
 
-    if-eqz v2, :cond_86
+    if-eqz v2, :cond_1
 
     .line 299
     sget-object v2, Landroid/webkit/HTML5VideoFullScreen;->mLayout:Landroid/widget/FrameLayout;
@@ -664,54 +664,54 @@
     invoke-virtual {v2, v4}, Landroid/view/View;->setVisibility(I)V
 
     .line 303
-    :cond_86
+    :cond_1
     return-void
 .end method
 
 .method public fullScreenExited()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 235
     sget-object v0, Landroid/webkit/HTML5VideoFullScreen;->mLayout:Landroid/widget/FrameLayout;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public getBufferPercentage()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 331
     sget-object v0, Landroid/webkit/HTML5VideoFullScreen;->mPlayer:Landroid/media/MediaPlayer;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 332
     iget v0, p0, Landroid/webkit/HTML5VideoFullScreen;->mCurrentBufferPercentage:I
 
     .line 334
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public isFullScreenMode()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 310
@@ -721,7 +721,7 @@
 .end method
 
 .method public onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .registers 15
+    .locals 5
     .parameter "v"
     .parameter "left"
     .parameter "top"
@@ -846,7 +846,7 @@
     .line 390
     sget-object v2, Landroid/webkit/HTML5VideoFullScreen;->mPlayer:Landroid/media/MediaPlayer;
 
-    if-eqz v2, :cond_150
+    if-eqz v2, :cond_0
 
     .line 391
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1065,12 +1065,12 @@
 
     .line 407
     .end local v1           #builder:Ljava/lang/StringBuilder;
-    :cond_150
+    :cond_0
     return-void
 .end method
 
 .method public onPrepared(Landroid/media/MediaPlayer;)V
-    .registers 8
+    .locals 6
     .parameter "mp"
 
     .prologue
@@ -1102,25 +1102,25 @@
 
     .line 195
     .local v0, data:Landroid/media/Metadata;
-    if-eqz v0, :cond_92
+    if-eqz v0, :cond_9
 
     .line 196
     invoke-virtual {v0, v3}, Landroid/media/Metadata;->has(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_0
 
     invoke-virtual {v0, v3}, Landroid/media/Metadata;->getBoolean(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_8c
+    if-eqz v1, :cond_6
 
-    :cond_23
+    :cond_0
     move v1, v3
 
-    :goto_24
+    :goto_0
     iput-boolean v1, p0, Landroid/webkit/HTML5VideoFullScreen;->mCanPause:Z
 
     .line 198
@@ -1128,18 +1128,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_32
+    if-eqz v1, :cond_1
 
     invoke-virtual {v0, v4}, Landroid/media/Metadata;->getBoolean(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_8e
+    if-eqz v1, :cond_7
 
-    :cond_32
+    :cond_1
     move v1, v3
 
-    :goto_33
+    :goto_1
     iput-boolean v1, p0, Landroid/webkit/HTML5VideoFullScreen;->mCanSeekBack:Z
 
     .line 200
@@ -1147,25 +1147,25 @@
 
     move-result v1
 
-    if-eqz v1, :cond_41
+    if-eqz v1, :cond_2
 
     invoke-virtual {v0, v5}, Landroid/media/Metadata;->getBoolean(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_90
+    if-eqz v1, :cond_8
 
-    :cond_41
+    :cond_2
     move v1, v3
 
-    :goto_42
+    :goto_2
     iput-boolean v1, p0, Landroid/webkit/HTML5VideoFullScreen;->mCanSeekForward:Z
 
     .line 206
-    :goto_44
+    :goto_3
     sget-object v1, Landroid/webkit/HTML5VideoFullScreen;->mProgressView:Landroid/view/View;
 
-    if-eqz v1, :cond_4f
+    if-eqz v1, :cond_3
 
     .line 207
     sget-object v1, Landroid/webkit/HTML5VideoFullScreen;->mProgressView:Landroid/view/View;
@@ -1175,7 +1175,7 @@
     invoke-virtual {v1, v4}, Landroid/view/View;->setVisibility(I)V
 
     .line 210
-    :cond_4f
+    :cond_3
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->getVideoWidth()I
 
     move-result v1
@@ -1212,7 +1212,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7b
+    if-eqz v1, :cond_4
 
     .line 219
     sget-object v1, Landroid/webkit/HTML5VideoFullScreen;->mPlayer:Landroid/media/MediaPlayer;
@@ -1223,10 +1223,10 @@
     invoke-virtual {p0, v2}, Landroid/webkit/HTML5VideoFullScreen;->setStartWhenPrepared(Z)V
 
     .line 228
-    :cond_7b
+    :cond_4
     iget-object v1, p0, Landroid/webkit/HTML5VideoFullScreen;->mMediaController:Landroid/widget/MediaController;
 
-    if-eqz v1, :cond_8b
+    if-eqz v1, :cond_5
 
     .line 229
     iget-object v1, p0, Landroid/webkit/HTML5VideoFullScreen;->mMediaController:Landroid/widget/MediaController;
@@ -1241,40 +1241,40 @@
     invoke-virtual {v1, v2}, Landroid/widget/MediaController;->show(I)V
 
     .line 232
-    :cond_8b
+    :cond_5
     return-void
 
-    :cond_8c
+    :cond_6
     move v1, v2
 
     .line 196
-    goto :goto_24
+    goto :goto_0
 
-    :cond_8e
+    :cond_7
     move v1, v2
 
     .line 198
-    goto :goto_33
+    goto :goto_1
 
-    :cond_90
+    :cond_8
     move v1, v2
 
     .line 200
-    goto :goto_42
+    goto :goto_2
 
     .line 203
-    :cond_92
+    :cond_9
     iput-boolean v3, p0, Landroid/webkit/HTML5VideoFullScreen;->mCanSeekForward:Z
 
     iput-boolean v3, p0, Landroid/webkit/HTML5VideoFullScreen;->mCanSeekBack:Z
 
     iput-boolean v3, p0, Landroid/webkit/HTML5VideoFullScreen;->mCanPause:Z
 
-    goto :goto_44
+    goto :goto_3
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .registers 5
+    .locals 2
     .parameter "v"
     .parameter "event"
 
@@ -1284,24 +1284,24 @@
 
     const/4 v1, 0x2
 
-    if-lt v0, v1, :cond_c
+    if-lt v0, v1, :cond_0
 
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen;->mMediaController:Landroid/widget/MediaController;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 367
     invoke-direct {p0}, Landroid/webkit/HTML5VideoFullScreen;->toggleMediaControlsVisiblity()V
 
     .line 369
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public reset()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 347
@@ -1310,7 +1310,7 @@
     .line 348
     iget-object v1, p0, Landroid/webkit/HTML5VideoView;->mProxy:Landroid/webkit/HTML5VideoViewProxy;
 
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/webkit/HTML5VideoView;->mProxy:Landroid/webkit/HTML5VideoViewProxy;
 
@@ -1318,7 +1318,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_0
 
     .line 349
     iget-object v1, p0, Landroid/webkit/HTML5VideoView;->mProxy:Landroid/webkit/HTML5VideoViewProxy;
@@ -1333,25 +1333,25 @@
 
     .line 350
     .local v0, client:Landroid/webkit/WebChromeClient;
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_0
 
     .line 351
     invoke-virtual {v0}, Landroid/webkit/WebChromeClient;->onHideCustomView()V
 
     .line 353
     .end local v0           #client:Landroid/webkit/WebChromeClient;
-    :cond_1e
+    :cond_0
     return-void
 .end method
 
 .method public showControllerInFullScreen()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 339
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen;->mMediaController:Landroid/widget/MediaController;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 340
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen;->mMediaController:Landroid/widget/MediaController;
@@ -1361,22 +1361,22 @@
     invoke-virtual {v0, v1}, Landroid/widget/MediaController;->show(I)V
 
     .line 342
-    :cond_a
+    :cond_0
     return-void
 .end method
 
 .method protected switchProgressView(Z)V
-    .registers 4
+    .locals 2
     .parameter "playerBuffering"
 
     .prologue
     .line 374
     sget-object v0, Landroid/webkit/HTML5VideoFullScreen;->mProgressView:Landroid/view/View;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 375
-    if-eqz p1, :cond_d
+    if-eqz p1, :cond_1
 
     .line 376
     sget-object v0, Landroid/webkit/HTML5VideoFullScreen;->mProgressView:Landroid/view/View;
@@ -1386,17 +1386,17 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 381
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     return-void
 
     .line 378
-    :cond_d
+    :cond_1
     sget-object v0, Landroid/webkit/HTML5VideoFullScreen;->mProgressView:Landroid/view/View;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_c
+    goto :goto_0
 .end method

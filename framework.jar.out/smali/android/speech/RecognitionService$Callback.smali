@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/speech/RecognitionService;Landroid/speech/IRecognitionListener;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "listener"
 
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/speech/RecognitionService;Landroid/speech/IRecognitionListener;Landroid/speech/RecognitionService$1;)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -53,7 +53,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/speech/RecognitionService$Callback;)Landroid/speech/IRecognitionListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public beginningOfSpeech()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -84,7 +84,7 @@
 .end method
 
 .method public bufferReceived([B)V
-    .registers 3
+    .locals 1
     .parameter "buffer"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -103,7 +103,7 @@
 .end method
 
 .method public endOfSpeech()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -121,7 +121,7 @@
 .end method
 
 .method public error(I)V
-    .registers 4
+    .locals 2
     .parameter "error"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -133,6 +133,7 @@
     .line 254
     iget-object v0, p0, Landroid/speech/RecognitionService$Callback;->this$0:Landroid/speech/RecognitionService;
 
+    #getter for: Landroid/speech/RecognitionService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/speech/RecognitionService;->access$600(Landroid/speech/RecognitionService;)Landroid/os/Handler;
 
     move-result-object v0
@@ -155,7 +156,7 @@
 .end method
 
 .method public partialResults(Landroid/os/Bundle;)V
-    .registers 3
+    .locals 1
     .parameter "partialResults"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -174,7 +175,7 @@
 .end method
 
 .method public readyForSpeech(Landroid/os/Bundle;)V
-    .registers 3
+    .locals 1
     .parameter "params"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -193,7 +194,7 @@
 .end method
 
 .method public results(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
     .parameter "results"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -205,6 +206,7 @@
     .line 291
     iget-object v0, p0, Landroid/speech/RecognitionService$Callback;->this$0:Landroid/speech/RecognitionService;
 
+    #getter for: Landroid/speech/RecognitionService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/speech/RecognitionService;->access$600(Landroid/speech/RecognitionService;)Landroid/os/Handler;
 
     move-result-object v0
@@ -227,7 +229,7 @@
 .end method
 
 .method public rmsChanged(F)V
-    .registers 3
+    .locals 1
     .parameter "rmsdB"
     .annotation system Ldalvik/annotation/Throws;
         value = {

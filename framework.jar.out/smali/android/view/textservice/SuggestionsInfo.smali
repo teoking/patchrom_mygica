@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 28
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(I[Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "suggestionsAttributes"
     .parameter "suggestions"
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public constructor <init>(I[Ljava/lang/String;II)V
-    .registers 6
+    .locals 1
     .parameter "suggestionsAttributes"
     .parameter "suggestions"
     .parameter "cookie"
@@ -92,7 +92,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 72
-    if-nez p2, :cond_13
+    if-nez p2, :cond_0
 
     .line 73
     sget-object v0, Landroid/view/textservice/SuggestionsInfo;->EMPTY:[Ljava/lang/String;
@@ -105,7 +105,7 @@
     iput-boolean v0, p0, Landroid/view/textservice/SuggestionsInfo;->mSuggestionsAvailable:Z
 
     .line 79
-    :goto_c
+    :goto_0
     iput p1, p0, Landroid/view/textservice/SuggestionsInfo;->mSuggestionsAttributes:I
 
     .line 80
@@ -118,7 +118,7 @@
     return-void
 
     .line 76
-    :cond_13
+    :cond_0
     iput-object p2, p0, Landroid/view/textservice/SuggestionsInfo;->mSuggestions:[Ljava/lang/String;
 
     .line 77
@@ -126,11 +126,11 @@
 
     iput-boolean v0, p0, Landroid/view/textservice/SuggestionsInfo;->mSuggestionsAvailable:Z
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "source"
 
     .prologue
@@ -172,25 +172,25 @@
 
     move-result v1
 
-    if-ne v1, v0, :cond_25
+    if-ne v1, v0, :cond_0
 
-    :goto_22
+    :goto_0
     iput-boolean v0, p0, Landroid/view/textservice/SuggestionsInfo;->mSuggestionsAvailable:Z
 
     .line 90
     return-void
 
     .line 89
-    :cond_25
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_22
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 183
@@ -200,7 +200,7 @@
 .end method
 
 .method public getCookie()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 122
@@ -210,7 +210,7 @@
 .end method
 
 .method public getSequence()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 129
@@ -220,7 +220,7 @@
 .end method
 
 .method public getSuggestionAt(I)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "i"
 
     .prologue
@@ -233,7 +233,7 @@
 .end method
 
 .method public getSuggestionsAttributes()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 138
@@ -243,31 +243,31 @@
 .end method
 
 .method public getSuggestionsCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 148
     iget-boolean v0, p0, Landroid/view/textservice/SuggestionsInfo;->mSuggestionsAvailable:Z
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     .line 149
     const/4 v0, -0x1
 
     .line 151
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     iget-object v0, p0, Landroid/view/textservice/SuggestionsInfo;->mSuggestions:[Ljava/lang/String;
 
     array-length v0, v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public setCookieAndSequence(II)V
-    .registers 3
+    .locals 0
     .parameter "cookie"
     .parameter "sequence"
 
@@ -283,7 +283,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 
@@ -311,19 +311,19 @@
     .line 104
     iget-boolean v0, p0, Landroid/view/textservice/SuggestionsInfo;->mSuggestionsAvailable:Z
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_19
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 105
     return-void
 
     .line 104
-    :cond_1d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_19
+    goto :goto_0
 .end method

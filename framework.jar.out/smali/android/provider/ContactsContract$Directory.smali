@@ -69,7 +69,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 443
@@ -87,7 +87,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 436
@@ -98,7 +98,7 @@
 .end method
 
 .method public static notifyDirectoryChange(Landroid/content/ContentResolver;)V
-    .registers 4
+    .locals 3
     .parameter "resolver"
 
     .prologue

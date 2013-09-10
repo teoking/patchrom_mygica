@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 4
+    .locals 4
 
     .prologue
     .line 40
@@ -31,16 +31,16 @@
     check-cast v2, Lcom/android/internal/policy/IPolicy;
 
     sput-object v2, Lcom/android/internal/policy/PolicyManager;->sPolicy:Lcom/android/internal/policy/IPolicy;
-    :try_end_e
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_e} :catch_f
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_e} :catch_18
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_e} :catch_21
+    :try_end_0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
 
     .line 52
     return-void
 
     .line 42
-    :catch_f
+    :catch_0
     move-exception v0
 
     .line 43
@@ -55,7 +55,7 @@
 
     .line 45
     .end local v0           #ex:Ljava/lang/ClassNotFoundException;
-    :catch_18
+    :catch_1
     move-exception v0
 
     .line 46
@@ -70,7 +70,7 @@
 
     .line 48
     .end local v0           #ex:Ljava/lang/InstantiationException;
-    :catch_21
+    :catch_2
     move-exception v0
 
     .line 49
@@ -85,7 +85,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 55
@@ -95,7 +95,7 @@
 .end method
 
 .method public static makeNewFallbackEventHandler(Landroid/content/Context;)Landroid/view/FallbackEventHandler;
-    .registers 2
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -110,7 +110,7 @@
 .end method
 
 .method public static makeNewLayoutInflater(Landroid/content/Context;)Landroid/view/LayoutInflater;
-    .registers 2
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -125,7 +125,7 @@
 .end method
 
 .method public static makeNewWindow(Landroid/content/Context;)Landroid/view/Window;
-    .registers 2
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -140,7 +140,7 @@
 .end method
 
 .method public static makeNewWindowManager()Landroid/view/WindowManagerPolicy;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 67

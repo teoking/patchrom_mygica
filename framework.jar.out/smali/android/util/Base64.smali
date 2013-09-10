@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 27
@@ -42,23 +42,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     sput-boolean v0, Landroid/util/Base64;->$assertionsDisabled:Z
 
     return-void
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 740
@@ -68,7 +68,7 @@
 .end method
 
 .method public static decode(Ljava/lang/String;I)[B
-    .registers 3
+    .locals 1
     .parameter "str"
     .parameter "flags"
 
@@ -86,7 +86,7 @@
 .end method
 
 .method public static decode([BI)[B
-    .registers 4
+    .locals 2
     .parameter "input"
     .parameter "flags"
 
@@ -104,7 +104,7 @@
 .end method
 
 .method public static decode([BIII)[B
-    .registers 9
+    .locals 5
     .parameter "input"
     .parameter "offset"
     .parameter "len"
@@ -132,7 +132,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1b
+    if-nez v2, :cond_0
 
     .line 161
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -144,24 +144,24 @@
     throw v2
 
     .line 165
-    :cond_1b
+    :cond_0
     iget v2, v0, Landroid/util/Base64$Coder;->op:I
 
     iget-object v3, v0, Landroid/util/Base64$Coder;->output:[B
 
     array-length v3, v3
 
-    if-ne v2, v3, :cond_25
+    if-ne v2, v3, :cond_1
 
     .line 166
     iget-object v1, v0, Landroid/util/Base64$Coder;->output:[B
 
     .line 173
-    :goto_24
+    :goto_0
     return-object v1
 
     .line 171
-    :cond_25
+    :cond_1
     iget v2, v0, Landroid/util/Base64$Coder;->op:I
 
     new-array v1, v2, [B
@@ -174,11 +174,11 @@
 
     invoke-static {v2, v4, v1, v4, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    goto :goto_24
+    goto :goto_0
 .end method
 
 .method public static encode([BI)[B
-    .registers 4
+    .locals 2
     .parameter "input"
     .parameter "flags"
 
@@ -196,7 +196,7 @@
 .end method
 
 .method public static encode([BIII)[B
-    .registers 9
+    .locals 5
     .parameter "input"
     .parameter "offset"
     .parameter "len"
@@ -222,25 +222,25 @@
     .local v1, output_len:I
     iget-boolean v2, v0, Landroid/util/Base64$Encoder;->do_padding:Z
 
-    if-eqz v2, :cond_3d
+    if-eqz v2, :cond_2
 
     .line 517
     rem-int/lit8 v2, p2, 0x3
 
-    if-lez v2, :cond_15
+    if-lez v2, :cond_0
 
     .line 518
     add-int/lit8 v1, v1, 0x4
 
     .line 529
-    :cond_15
-    :goto_15
-    :pswitch_15
+    :cond_0
+    :goto_0
+    :pswitch_0
     iget-boolean v2, v0, Landroid/util/Base64$Encoder;->do_newline:Z
 
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_1
 
-    if-lez p2, :cond_28
+    if-lez p2, :cond_1
 
     .line 530
     add-int/lit8 v2, p2, -0x1
@@ -251,17 +251,17 @@
 
     iget-boolean v2, v0, Landroid/util/Base64$Encoder;->do_cr:Z
 
-    if-eqz v2, :cond_49
+    if-eqz v2, :cond_3
 
     const/4 v2, 0x2
 
-    :goto_26
+    :goto_1
     mul-int/2addr v2, v4
 
     add-int/2addr v1, v2
 
     .line 534
-    :cond_28
+    :cond_1
     new-array v2, v1, [B
 
     iput-object v2, v0, Landroid/util/Base64$Coder;->output:[B
@@ -272,11 +272,11 @@
     .line 537
     sget-boolean v2, Landroid/util/Base64;->$assertionsDisabled:Z
 
-    if-nez v2, :cond_4b
+    if-nez v2, :cond_4
 
     iget v2, v0, Landroid/util/Base64$Coder;->op:I
 
-    if-eq v2, v1, :cond_4b
+    if-eq v2, v1, :cond_4
 
     new-instance v2, Ljava/lang/AssertionError;
 
@@ -285,48 +285,48 @@
     throw v2
 
     .line 521
-    :cond_3d
+    :cond_2
     rem-int/lit8 v2, p2, 0x3
 
-    packed-switch v2, :pswitch_data_4e
+    packed-switch v2, :pswitch_data_0
 
-    goto :goto_15
+    goto :goto_0
 
     .line 523
-    :pswitch_43
+    :pswitch_1
     add-int/lit8 v1, v1, 0x2
 
-    goto :goto_15
+    goto :goto_0
 
     .line 524
-    :pswitch_46
+    :pswitch_2
     add-int/lit8 v1, v1, 0x3
 
-    goto :goto_15
+    goto :goto_0
 
-    :cond_49
+    :cond_3
     move v2, v3
 
     .line 530
-    goto :goto_26
+    goto :goto_1
 
     .line 539
-    :cond_4b
+    :cond_4
     iget-object v2, v0, Landroid/util/Base64$Coder;->output:[B
 
     return-object v2
 
     .line 521
-    :pswitch_data_4e
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_15
-        :pswitch_43
-        :pswitch_46
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public static encodeToString([BI)Ljava/lang/String;
-    .registers 6
+    .locals 4
     .parameter "input"
     .parameter "flags"
 
@@ -342,13 +342,13 @@
     const-string v3, "US-ASCII"
 
     invoke-direct {v1, v2, v3}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
-    :try_end_b
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_b} :catch_c
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object v1
 
     .line 457
-    :catch_c
+    :catch_0
     move-exception v0
 
     .line 459
@@ -361,7 +361,7 @@
 .end method
 
 .method public static encodeToString([BIII)Ljava/lang/String;
-    .registers 8
+    .locals 4
     .parameter "input"
     .parameter "offset"
     .parameter "len"
@@ -379,13 +379,13 @@
     const-string v3, "US-ASCII"
 
     invoke-direct {v1, v2, v3}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
-    :try_end_b
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_b} :catch_c
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object v1
 
     .line 478
-    :catch_c
+    :catch_0
     move-exception v0
 
     .line 480

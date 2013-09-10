@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 26
@@ -26,7 +26,7 @@
 .end method
 
 .method private declared-synchronized internalNotifyRegistrants(Ljava/lang/Object;Ljava/lang/Throwable;)V
-    .registers 7
+    .locals 4
     .parameter "result"
     .parameter "exception"
 
@@ -37,7 +37,7 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :try_start_2
+    :try_start_0
     iget-object v3, p0, Landroid/os/RegistrantList;->registrants:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
@@ -45,8 +45,8 @@
     move-result v2
 
     .local v2, s:I
-    :goto_8
-    if-ge v0, v2, :cond_18
+    :goto_0
+    if-ge v0, v2, :cond_0
 
     .line 79
     iget-object v3, p0, Landroid/os/RegistrantList;->registrants:Ljava/util/ArrayList;
@@ -60,24 +60,24 @@
     .line 80
     .local v1, r:Landroid/os/Registrant;
     invoke-virtual {v1, p1, p2}, Landroid/os/Registrant;->internalNotifyRegistrant(Ljava/lang/Object;Ljava/lang/Throwable;)V
-    :try_end_15
-    .catchall {:try_start_2 .. :try_end_15} :catchall_1a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 78
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 82
     .end local v1           #r:Landroid/os/Registrant;
-    :cond_18
+    :cond_0
     monitor-exit p0
 
     return-void
 
     .line 78
     .end local v2           #s:I
-    :catchall_1a
+    :catchall_0
     move-exception v3
 
     monitor-exit p0
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public declared-synchronized add(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -97,14 +97,14 @@
     .line 33
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/os/Registrant;
 
     invoke-direct {v0, p1, p2, p3}, Landroid/os/Registrant;-><init>(Landroid/os/Handler;ILjava/lang/Object;)V
 
     invoke-virtual {p0, v0}, Landroid/os/RegistrantList;->add(Landroid/os/Registrant;)V
-    :try_end_9
-    .catchall {:try_start_1 .. :try_end_9} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 34
     monitor-exit p0
@@ -112,7 +112,7 @@
     return-void
 
     .line 33
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -121,22 +121,22 @@
 .end method
 
 .method public declared-synchronized add(Landroid/os/Registrant;)V
-    .registers 3
+    .locals 1
     .parameter "r"
 
     .prologue
     .line 47
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0}, Landroid/os/RegistrantList;->removeCleared()V
 
     .line 48
     iget-object v0, p0, Landroid/os/RegistrantList;->registrants:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_9
-    .catchall {:try_start_1 .. :try_end_9} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 49
     monitor-exit p0
@@ -144,7 +144,7 @@
     return-void
 
     .line 47
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -153,7 +153,7 @@
 .end method
 
 .method public declared-synchronized addUnique(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -162,7 +162,7 @@
     .line 40
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
 
     .line 41
@@ -171,8 +171,8 @@
     invoke-direct {v0, p1, p2, p3}, Landroid/os/Registrant;-><init>(Landroid/os/Handler;ILjava/lang/Object;)V
 
     invoke-virtual {p0, v0}, Landroid/os/RegistrantList;->add(Landroid/os/Registrant;)V
-    :try_end_c
-    .catchall {:try_start_1 .. :try_end_c} :catchall_e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 42
     monitor-exit p0
@@ -180,7 +180,7 @@
     return-void
 
     .line 40
-    :catchall_e
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -189,19 +189,19 @@
 .end method
 
 .method public declared-synchronized get(I)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
     .line 72
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/os/RegistrantList;->registrants:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-    :try_end_6
-    .catchall {:try_start_1 .. :try_end_6} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
@@ -209,7 +209,7 @@
 
     return-object v0
 
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -218,7 +218,7 @@
 .end method
 
 .method public notifyException(Ljava/lang/Throwable;)V
-    .registers 3
+    .locals 1
     .parameter "exception"
 
     .prologue
@@ -232,7 +232,7 @@
 .end method
 
 .method public notifyRegistrants()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -245,7 +245,7 @@
 .end method
 
 .method public notifyRegistrants(Landroid/os/AsyncResult;)V
-    .registers 4
+    .locals 2
     .parameter "ar"
 
     .prologue
@@ -261,7 +261,7 @@
 .end method
 
 .method public notifyResult(Ljava/lang/Object;)V
-    .registers 3
+    .locals 1
     .parameter "result"
 
     .prologue
@@ -275,7 +275,7 @@
 .end method
 
 .method public declared-synchronized remove(Landroid/os/Handler;)V
-    .registers 7
+    .locals 5
     .parameter "h"
 
     .prologue
@@ -285,7 +285,7 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :try_start_2
+    :try_start_0
     iget-object v4, p0, Landroid/os/RegistrantList;->registrants:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
@@ -293,8 +293,8 @@
     move-result v3
 
     .local v3, s:I
-    :goto_8
-    if-ge v0, v3, :cond_20
+    :goto_0
+    if-ge v0, v3, :cond_2
 
     .line 113
     iget-object v4, p0, Landroid/os/RegistrantList;->registrants:Ljava/util/ArrayList;
@@ -313,27 +313,27 @@
 
     .line 121
     .local v2, rh:Landroid/os/Handler;
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_0
 
-    if-ne v2, p1, :cond_1d
+    if-ne v2, p1, :cond_1
 
     .line 122
-    :cond_1a
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Registrant;->clear()V
 
     .line 112
-    :cond_1d
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 126
     .end local v1           #r:Landroid/os/Registrant;
     .end local v2           #rh:Landroid/os/Handler;
-    :cond_20
+    :cond_2
     invoke-virtual {p0}, Landroid/os/RegistrantList;->removeCleared()V
-    :try_end_23
-    .catchall {:try_start_2 .. :try_end_23} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 127
     monitor-exit p0
@@ -342,7 +342,7 @@
 
     .line 112
     .end local v3           #s:I
-    :catchall_25
+    :catchall_0
     move-exception v4
 
     monitor-exit p0
@@ -351,13 +351,13 @@
 .end method
 
 .method public declared-synchronized removeCleared()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 54
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v2, p0, Landroid/os/RegistrantList;->registrants:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -367,8 +367,8 @@
     add-int/lit8 v0, v2, -0x1
 
     .local v0, i:I
-    :goto_9
-    if-ltz v0, :cond_1f
+    :goto_0
+    if-ltz v0, :cond_1
 
     .line 55
     iget-object v2, p0, Landroid/os/RegistrantList;->registrants:Ljava/util/ArrayList;
@@ -383,31 +383,31 @@
     .local v1, r:Landroid/os/Registrant;
     iget-object v2, v1, Landroid/os/Registrant;->refH:Ljava/lang/ref/WeakReference;
 
-    if-nez v2, :cond_1c
+    if-nez v2, :cond_0
 
     .line 58
     iget-object v2, p0, Landroid/os/RegistrantList;->registrants:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
-    :try_end_1c
-    .catchall {:try_start_1 .. :try_end_1c} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 54
-    :cond_1c
+    :cond_0
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 61
     .end local v1           #r:Landroid/os/Registrant;
-    :cond_1f
+    :cond_1
     monitor-exit p0
 
     return-void
 
     .line 54
     .end local v0           #i:I
-    :catchall_21
+    :catchall_0
     move-exception v2
 
     monitor-exit p0
@@ -416,18 +416,18 @@
 .end method
 
 .method public declared-synchronized size()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 66
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/os/RegistrantList;->registrants:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-    :try_end_6
-    .catchall {:try_start_1 .. :try_end_6} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
@@ -435,7 +435,7 @@
 
     return v0
 
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     monitor-exit p0

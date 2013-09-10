@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1623
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1616
@@ -62,60 +62,60 @@
 .end method
 
 .method public static final getPresenceIconResourceId(I)I
-    .registers 2
+    .locals 1
     .parameter "status"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .prologue
     .line 1643
-    packed-switch p0, :pswitch_data_18
+    packed-switch p0, :pswitch_data_0
 
     .line 1659
     const v0, 0x108006a
 
-    :goto_6
+    :goto_0
     return v0
 
     .line 1645
-    :pswitch_7
+    :pswitch_0
     const v0, 0x108006b
 
-    goto :goto_6
+    goto :goto_0
 
     .line 1649
-    :pswitch_b
+    :pswitch_1
     const v0, 0x1080067
 
-    goto :goto_6
+    goto :goto_0
 
     .line 1652
-    :pswitch_f
+    :pswitch_2
     const v0, 0x1080068
 
-    goto :goto_6
+    goto :goto_0
 
     .line 1655
-    :pswitch_13
+    :pswitch_3
     const v0, 0x1080069
 
-    goto :goto_6
+    goto :goto_0
 
     .line 1643
     nop
 
-    :pswitch_data_18
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_13
-        :pswitch_b
-        :pswitch_b
-        :pswitch_f
-        :pswitch_7
+        :pswitch_3
+        :pswitch_1
+        :pswitch_1
+        :pswitch_2
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static final setPresenceIcon(Landroid/widget/ImageView;I)V
-    .registers 3
+    .locals 1
     .parameter "icon"
     .parameter "serverStatus"
     .annotation runtime Ljava/lang/Deprecated;

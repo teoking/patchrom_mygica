@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/bluetooth/BluetoothAdapter;Landroid/bluetooth/BluetoothAdapter$BluetoothStateChangeCallback;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "callback"
 
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onBluetoothStateChange(Z)V
-    .registers 3
+    .locals 1
     .parameter "on"
 
     .prologue

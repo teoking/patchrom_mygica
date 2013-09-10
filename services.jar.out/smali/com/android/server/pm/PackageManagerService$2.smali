@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;JLandroid/content/IntentSender;)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 9
+    .locals 8
 
     .prologue
     .line 1806
@@ -74,7 +74,7 @@
     move-result v7
 
     .line 1809
-    if-gez v7, :cond_1b
+    if-gez v7, :cond_0
 
     .line 1810
     const-string v0, "PackageManager"
@@ -84,20 +84,20 @@
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1812
-    :cond_1b
+    :cond_0
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$2;->val$pi:Landroid/content/IntentSender;
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_1
 
     .line 1815
-    if-ltz v7, :cond_2c
+    if-ltz v7, :cond_2
 
     const/4 v2, 0x1
 
     .line 1816
     .local v2, code:I
-    :goto_22
-    :try_start_22
+    :goto_0
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$2;->val$pi:Landroid/content/IntentSender;
 
     const/4 v1, 0x0
@@ -109,24 +109,24 @@
     const/4 v5, 0x0
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/IntentSender;->sendIntent(Landroid/content/Context;ILandroid/content/Intent;Landroid/content/IntentSender$OnFinished;Landroid/os/Handler;)V
-    :try_end_2b
-    .catch Landroid/content/IntentSender$SendIntentException; {:try_start_22 .. :try_end_2b} :catch_2e
+    :try_end_0
+    .catch Landroid/content/IntentSender$SendIntentException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1822
     .end local v2           #code:I
-    :cond_2b
-    :goto_2b
+    :cond_1
+    :goto_1
     return-void
 
     .line 1815
-    :cond_2c
+    :cond_2
     const/4 v2, 0x0
 
-    goto :goto_22
+    goto :goto_0
 
     .line 1818
     .restart local v2       #code:I
-    :catch_2e
+    :catch_0
     move-exception v6
 
     .line 1819
@@ -137,5 +137,5 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2b
+    goto :goto_1
 .end method

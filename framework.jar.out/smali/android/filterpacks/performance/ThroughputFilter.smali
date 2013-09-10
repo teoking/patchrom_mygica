@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "name"
 
     .prologue
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public open(Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 2
     .parameter "env"
 
     .prologue
@@ -86,7 +86,7 @@
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 13
+    .locals 11
     .parameter "context"
 
     .prologue
@@ -124,7 +124,7 @@
 
     cmp-long v7, v7, v9
 
-    if-nez v7, :cond_25
+    if-nez v7, :cond_0
 
     .line 82
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -134,7 +134,7 @@
     iput-wide v7, p0, Landroid/filterpacks/performance/ThroughputFilter;->mLastTime:J
 
     .line 84
-    :cond_25
+    :cond_0
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
@@ -153,7 +153,7 @@
 
     cmp-long v7, v7, v9
 
-    if-ltz v7, :cond_67
+    if-ltz v7, :cond_1
 
     .line 88
     invoke-virtual {v2}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
@@ -218,12 +218,12 @@
     .end local v4           #pixelCount:I
     .end local v5           #throughput:Landroid/filterpacks/performance/Throughput;
     .end local v6           #throughputFrame:Landroid/filterfw/core/Frame;
-    :cond_67
+    :cond_1
     return-void
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 50

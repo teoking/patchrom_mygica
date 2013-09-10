@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/ViewManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -44,7 +44,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/webkit/ViewManager$ChildView;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -55,7 +55,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/webkit/ViewManager$ChildView;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -66,12 +66,13 @@
 .end method
 
 .method private attachViewOnUIThread()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 78
     iget-object v0, p0, Landroid/webkit/ViewManager$ChildView;->this$0:Landroid/webkit/ViewManager;
 
+    #getter for: Landroid/webkit/ViewManager;->mWebView:Landroid/webkit/WebViewClassic;
     invoke-static {v0}, Landroid/webkit/ViewManager;->access$200(Landroid/webkit/ViewManager;)Landroid/webkit/WebViewClassic;
 
     move-result-object v0
@@ -87,6 +88,7 @@
     .line 79
     iget-object v0, p0, Landroid/webkit/ViewManager$ChildView;->this$0:Landroid/webkit/ViewManager;
 
+    #getter for: Landroid/webkit/ViewManager;->mChildren:Ljava/util/ArrayList;
     invoke-static {v0}, Landroid/webkit/ViewManager;->access$300(Landroid/webkit/ViewManager;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -96,11 +98,12 @@
     .line 80
     iget-object v0, p0, Landroid/webkit/ViewManager$ChildView;->this$0:Landroid/webkit/ViewManager;
 
+    #getter for: Landroid/webkit/ViewManager;->mReadyToDraw:Z
     invoke-static {v0}, Landroid/webkit/ViewManager;->access$400(Landroid/webkit/ViewManager;)Z
 
     move-result v0
 
-    if-nez v0, :cond_27
+    if-nez v0, :cond_0
 
     .line 81
     iget-object v0, p0, Landroid/webkit/ViewManager$ChildView;->mView:Landroid/view/View;
@@ -110,17 +113,18 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 83
-    :cond_27
+    :cond_0
     return-void
 .end method
 
 .method private removeViewOnUIThread()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 97
     iget-object v0, p0, Landroid/webkit/ViewManager$ChildView;->this$0:Landroid/webkit/ViewManager;
 
+    #getter for: Landroid/webkit/ViewManager;->mWebView:Landroid/webkit/WebViewClassic;
     invoke-static {v0}, Landroid/webkit/ViewManager;->access$200(Landroid/webkit/ViewManager;)Landroid/webkit/WebViewClassic;
 
     move-result-object v0
@@ -136,6 +140,7 @@
     .line 98
     iget-object v0, p0, Landroid/webkit/ViewManager$ChildView;->this$0:Landroid/webkit/ViewManager;
 
+    #getter for: Landroid/webkit/ViewManager;->mChildren:Ljava/util/ArrayList;
     invoke-static {v0}, Landroid/webkit/ViewManager;->access$300(Landroid/webkit/ViewManager;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -149,7 +154,7 @@
 
 # virtual methods
 .method attachView(IIII)V
-    .registers 7
+    .locals 2
     .parameter "x"
     .parameter "y"
     .parameter "width"
@@ -159,19 +164,20 @@
     .line 57
     iget-object v0, p0, Landroid/webkit/ViewManager$ChildView;->mView:Landroid/view/View;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_0
 
     .line 75
-    :goto_4
+    :goto_0
     return-void
 
     .line 60
-    :cond_5
+    :cond_0
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/webkit/ViewManager$ChildView;->setBounds(IIII)V
 
     .line 62
     iget-object v0, p0, Landroid/webkit/ViewManager$ChildView;->this$0:Landroid/webkit/ViewManager;
 
+    #getter for: Landroid/webkit/ViewManager;->mWebView:Landroid/webkit/WebViewClassic;
     invoke-static {v0}, Landroid/webkit/ViewManager;->access$200(Landroid/webkit/ViewManager;)Landroid/webkit/WebViewClassic;
 
     move-result-object v0
@@ -184,26 +190,27 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method removeView()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 86
     iget-object v0, p0, Landroid/webkit/ViewManager$ChildView;->mView:Landroid/view/View;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_0
 
     .line 94
-    :goto_4
+    :goto_0
     return-void
 
     .line 89
-    :cond_5
+    :cond_0
     iget-object v0, p0, Landroid/webkit/ViewManager$ChildView;->this$0:Landroid/webkit/ViewManager;
 
+    #getter for: Landroid/webkit/ViewManager;->mWebView:Landroid/webkit/WebViewClassic;
     invoke-static {v0}, Landroid/webkit/ViewManager;->access$200(Landroid/webkit/ViewManager;)Landroid/webkit/WebViewClassic;
 
     move-result-object v0
@@ -216,11 +223,11 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method setBounds(IIII)V
-    .registers 5
+    .locals 0
     .parameter "x"
     .parameter "y"
     .parameter "width"

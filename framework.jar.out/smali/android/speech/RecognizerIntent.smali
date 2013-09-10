@@ -69,7 +69,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 44
@@ -80,7 +80,7 @@
 .end method
 
 .method public static final getVoiceDetailsIntent(Landroid/content/Context;)Landroid/content/Intent;
-    .registers 7
+    .locals 6
     .parameter "context"
 
     .prologue
@@ -107,25 +107,25 @@
 
     .line 331
     .local v2, ri:Landroid/content/pm/ResolveInfo;
-    if-eqz v2, :cond_1e
+    if-eqz v2, :cond_0
 
     iget-object v4, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    if-eqz v4, :cond_1e
+    if-eqz v4, :cond_0
 
     iget-object v4, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v4, v4, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
-    if-nez v4, :cond_1f
+    if-nez v4, :cond_1
 
     .line 338
-    :cond_1e
-    :goto_1e
+    :cond_0
+    :goto_0
     return-object v1
 
     .line 333
-    :cond_1f
+    :cond_1
     iget-object v4, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v4, v4, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
@@ -138,7 +138,7 @@
 
     .line 334
     .local v0, className:Ljava/lang/String;
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_0
 
     .line 336
     new-instance v1, Landroid/content/Intent;
@@ -159,5 +159,5 @@
 
     invoke-virtual {v1, v4}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    goto :goto_1e
+    goto :goto_0
 .end method

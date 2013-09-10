@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/GestureDetector;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 .end method
 
 .method constructor <init>(Landroid/view/GestureDetector;Landroid/os/Handler;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "handler"
 
@@ -57,14 +57,14 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
     .line 259
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_54
+    packed-switch v0, :pswitch_data_0
 
     .line 276
     new-instance v0, Ljava/lang/RuntimeException;
@@ -92,15 +92,17 @@
     throw v0
 
     .line 261
-    :pswitch_1e
+    :pswitch_0
     iget-object v0, p0, Landroid/view/GestureDetector$GestureHandler;->this$0:Landroid/view/GestureDetector;
 
+    #getter for: Landroid/view/GestureDetector;->mListener:Landroid/view/GestureDetector$OnGestureListener;
     invoke-static {v0}, Landroid/view/GestureDetector;->access$100(Landroid/view/GestureDetector;)Landroid/view/GestureDetector$OnGestureListener;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/view/GestureDetector$GestureHandler;->this$0:Landroid/view/GestureDetector;
 
+    #getter for: Landroid/view/GestureDetector;->mCurrentDownEvent:Landroid/view/MotionEvent;
     invoke-static {v1}, Landroid/view/GestureDetector;->access$000(Landroid/view/GestureDetector;)Landroid/view/MotionEvent;
 
     move-result-object v1
@@ -108,58 +110,63 @@
     invoke-interface {v0, v1}, Landroid/view/GestureDetector$OnGestureListener;->onShowPress(Landroid/view/MotionEvent;)V
 
     .line 278
-    :cond_2d
-    :goto_2d
+    :cond_0
+    :goto_0
     return-void
 
     .line 265
-    :pswitch_2e
+    :pswitch_1
     iget-object v0, p0, Landroid/view/GestureDetector$GestureHandler;->this$0:Landroid/view/GestureDetector;
 
+    #calls: Landroid/view/GestureDetector;->dispatchLongPress()V
     invoke-static {v0}, Landroid/view/GestureDetector;->access$200(Landroid/view/GestureDetector;)V
 
-    goto :goto_2d
+    goto :goto_0
 
     .line 270
-    :pswitch_34
+    :pswitch_2
     iget-object v0, p0, Landroid/view/GestureDetector$GestureHandler;->this$0:Landroid/view/GestureDetector;
 
+    #getter for: Landroid/view/GestureDetector;->mDoubleTapListener:Landroid/view/GestureDetector$OnDoubleTapListener;
     invoke-static {v0}, Landroid/view/GestureDetector;->access$300(Landroid/view/GestureDetector;)Landroid/view/GestureDetector$OnDoubleTapListener;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2d
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/view/GestureDetector$GestureHandler;->this$0:Landroid/view/GestureDetector;
 
+    #getter for: Landroid/view/GestureDetector;->mStillDown:Z
     invoke-static {v0}, Landroid/view/GestureDetector;->access$400(Landroid/view/GestureDetector;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2d
+    if-nez v0, :cond_0
 
     .line 271
     iget-object v0, p0, Landroid/view/GestureDetector$GestureHandler;->this$0:Landroid/view/GestureDetector;
 
+    #getter for: Landroid/view/GestureDetector;->mDoubleTapListener:Landroid/view/GestureDetector$OnDoubleTapListener;
     invoke-static {v0}, Landroid/view/GestureDetector;->access$300(Landroid/view/GestureDetector;)Landroid/view/GestureDetector$OnDoubleTapListener;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/view/GestureDetector$GestureHandler;->this$0:Landroid/view/GestureDetector;
 
+    #getter for: Landroid/view/GestureDetector;->mCurrentDownEvent:Landroid/view/MotionEvent;
     invoke-static {v1}, Landroid/view/GestureDetector;->access$000(Landroid/view/GestureDetector;)Landroid/view/MotionEvent;
 
     move-result-object v1
 
     invoke-interface {v0, v1}, Landroid/view/GestureDetector$OnDoubleTapListener;->onSingleTapConfirmed(Landroid/view/MotionEvent;)Z
 
-    goto :goto_2d
+    goto :goto_0
 
     .line 259
-    :pswitch_data_54
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_1e
-        :pswitch_2e
-        :pswitch_34
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

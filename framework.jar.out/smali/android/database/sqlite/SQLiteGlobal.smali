@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 40
@@ -27,7 +27,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 45
@@ -38,7 +38,7 @@
 .end method
 
 .method public static getDefaultJournalMode()Ljava/lang/String;
-    .registers 3
+    .locals 3
 
     .prologue
     .line 74
@@ -62,7 +62,7 @@
 .end method
 
 .method public static getDefaultPageSize()I
-    .registers 3
+    .locals 3
 
     .prologue
     .line 62
@@ -71,10 +71,10 @@
     monitor-enter v1
 
     .line 63
-    :try_start_3
+    :try_start_0
     sget v0, Landroid/database/sqlite/SQLiteGlobal;->sDefaultPageSize:I
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 64
     new-instance v0, Landroid/os/StatFs;
@@ -90,7 +90,7 @@
     sput v0, Landroid/database/sqlite/SQLiteGlobal;->sDefaultPageSize:I
 
     .line 66
-    :cond_14
+    :cond_0
     const-string v0, "debug.sqlite.pagesize"
 
     sget v2, Landroid/database/sqlite/SQLiteGlobal;->sDefaultPageSize:I
@@ -104,18 +104,18 @@
     return v0
 
     .line 67
-    :catchall_1e
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_20
-    .catchall {:try_start_3 .. :try_end_20} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public static getDefaultSyncMode()Ljava/lang/String;
-    .registers 3
+    .locals 3
 
     .prologue
     .line 92
@@ -139,7 +139,7 @@
 .end method
 
 .method public static getJournalSizeLimit()I
-    .registers 3
+    .locals 3
 
     .prologue
     .line 83
@@ -163,7 +163,7 @@
 .end method
 
 .method public static getWALAutoCheckpoint()I
-    .registers 4
+    .locals 4
 
     .prologue
     .line 110
@@ -195,7 +195,7 @@
 .end method
 
 .method public static getWALConnectionPoolSize()I
-    .registers 4
+    .locals 4
 
     .prologue
     .line 120
@@ -227,7 +227,7 @@
 .end method
 
 .method public static getWALSyncMode()Ljava/lang/String;
-    .registers 3
+    .locals 3
 
     .prologue
     .line 101
@@ -254,7 +254,7 @@
 .end method
 
 .method public static releaseMemory()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 55

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 481
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public final compare(Landroid/text/util/LinkSpec;Landroid/text/util/LinkSpec;)I
-    .registers 7
+    .locals 4
     .parameter "a"
     .parameter "b"
 
@@ -55,55 +55,55 @@
 
     iget v3, p2, Landroid/text/util/LinkSpec;->start:I
 
-    if-ge v2, v3, :cond_9
+    if-ge v2, v3, :cond_1
 
     .line 499
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     return v0
 
     .line 487
-    :cond_9
+    :cond_1
     iget v2, p1, Landroid/text/util/LinkSpec;->start:I
 
     iget v3, p2, Landroid/text/util/LinkSpec;->start:I
 
-    if-le v2, v3, :cond_11
+    if-le v2, v3, :cond_2
 
     move v0, v1
 
     .line 488
-    goto :goto_8
+    goto :goto_0
 
     .line 491
-    :cond_11
+    :cond_2
     iget v2, p1, Landroid/text/util/LinkSpec;->end:I
 
     iget v3, p2, Landroid/text/util/LinkSpec;->end:I
 
-    if-ge v2, v3, :cond_19
+    if-ge v2, v3, :cond_3
 
     move v0, v1
 
     .line 492
-    goto :goto_8
+    goto :goto_0
 
     .line 495
-    :cond_19
+    :cond_3
     iget v1, p1, Landroid/text/util/LinkSpec;->end:I
 
     iget v2, p2, Landroid/text/util/LinkSpec;->end:I
 
-    if-gt v1, v2, :cond_8
+    if-gt v1, v2, :cond_0
 
     .line 499
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -123,7 +123,7 @@
 .end method
 
 .method public final equals(Ljava/lang/Object;)Z
-    .registers 3
+    .locals 1
     .parameter "o"
 
     .prologue

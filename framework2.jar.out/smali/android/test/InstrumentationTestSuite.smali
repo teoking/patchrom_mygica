@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Instrumentation;)V
-    .registers 2
+    .locals 0
     .parameter "instr"
 
     .prologue
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;Landroid/app/Instrumentation;)V
-    .registers 3
+    .locals 0
     .parameter "theClass"
     .parameter "instr"
 
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Landroid/app/Instrumentation;)V
-    .registers 3
+    .locals 0
     .parameter "name"
     .parameter "instr"
 
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public addTestSuite(Ljava/lang/Class;)V
-    .registers 4
+    .locals 2
     .parameter "testClass"
 
     .prologue
@@ -76,7 +76,7 @@
 .end method
 
 .method public runTest(Ljunit/framework/Test;Ljunit/framework/TestResult;)V
-    .registers 5
+    .locals 2
     .parameter "test"
     .parameter "result"
 
@@ -84,7 +84,7 @@
     .line 67
     instance-of v0, p1, Landroid/test/InstrumentationTestCase;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     move-object v0, p1
 
@@ -96,7 +96,7 @@
     invoke-virtual {v0, v1}, Landroid/test/InstrumentationTestCase;->injectInstrumentation(Landroid/app/Instrumentation;)V
 
     .line 72
-    :cond_c
+    :cond_0
     invoke-super {p0, p1, p2}, Ljunit/framework/TestSuite;->runTest(Ljunit/framework/Test;Ljunit/framework/TestResult;)V
 
     .line 73

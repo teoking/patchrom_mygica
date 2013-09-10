@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -75,12 +75,12 @@
 .end method
 
 .method public static presentationFromCLIP(I)I
-    .registers 4
+    .locals 3
     .parameter "cli"
 
     .prologue
     .line 58
-    packed-switch p0, :pswitch_data_28
+    packed-switch p0, :pswitch_data_0
 
     .line 64
     const-string v0, "CDMA"
@@ -108,42 +108,42 @@
     .line 65
     sget v0, Lcom/android/internal/telephony/Connection;->PRESENTATION_UNKNOWN:I
 
-    :goto_1d
+    :goto_0
     return v0
 
     .line 59
-    :pswitch_1e
+    :pswitch_0
     sget v0, Lcom/android/internal/telephony/Connection;->PRESENTATION_ALLOWED:I
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 60
-    :pswitch_21
+    :pswitch_1
     sget v0, Lcom/android/internal/telephony/Connection;->PRESENTATION_RESTRICTED:I
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 61
-    :pswitch_24
+    :pswitch_2
     sget v0, Lcom/android/internal/telephony/Connection;->PRESENTATION_UNKNOWN:I
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 58
     nop
 
-    :pswitch_data_28
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_1e
-        :pswitch_21
-        :pswitch_24
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 42

@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/Input;)V
-    .registers 4
+    .locals 1
     .parameter "cmdDet"
     .parameter "input"
 
@@ -32,16 +32,16 @@
 
 # virtual methods
 .method setIcon(Landroid/graphics/Bitmap;)Z
-    .registers 3
+    .locals 1
     .parameter "icon"
 
     .prologue
     .line 167
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/telephony/cat/GetInputParams;->input:Lcom/android/internal/telephony/cat/Input;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 168
     iget-object v0, p0, Lcom/android/internal/telephony/cat/GetInputParams;->input:Lcom/android/internal/telephony/cat/Input;
@@ -49,7 +49,7 @@
     iput-object p1, v0, Lcom/android/internal/telephony/cat/Input;->icon:Landroid/graphics/Bitmap;
 
     .line 170
-    :cond_a
+    :cond_0
     const/4 v0, 0x1
 
     return v0

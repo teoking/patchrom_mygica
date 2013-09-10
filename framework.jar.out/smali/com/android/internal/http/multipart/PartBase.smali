@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 7
+    .locals 2
     .parameter "name"
     .parameter "contentType"
     .parameter "charSet"
@@ -26,7 +26,7 @@
     invoke-direct {p0}, Lcom/android/internal/http/multipart/Part;-><init>()V
 
     .line 63
-    if-nez p1, :cond_d
+    if-nez p1, :cond_0
 
     .line 64
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -38,7 +38,7 @@
     throw v0
 
     .line 66
-    :cond_d
+    :cond_0
     iput-object p1, p0, Lcom/android/internal/http/multipart/PartBase;->name:Ljava/lang/String;
 
     .line 67
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public getCharSet()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 97
@@ -67,7 +67,7 @@
 .end method
 
 .method public getContentType()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 88
@@ -77,7 +77,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 79
@@ -87,7 +87,7 @@
 .end method
 
 .method public getTransferEncoding()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 106
@@ -97,7 +97,7 @@
 .end method
 
 .method public setCharSet(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "charSet"
 
     .prologue
@@ -109,7 +109,7 @@
 .end method
 
 .method public setContentType(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "contentType"
 
     .prologue
@@ -121,12 +121,12 @@
 .end method
 
 .method public setName(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "name"
 
     .prologue
     .line 134
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 135
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -138,7 +138,7 @@
     throw v0
 
     .line 137
-    :cond_a
+    :cond_0
     iput-object p1, p0, Lcom/android/internal/http/multipart/PartBase;->name:Ljava/lang/String;
 
     .line 138
@@ -146,7 +146,7 @@
 .end method
 
 .method public setTransferEncoding(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "transferEncoding"
 
     .prologue

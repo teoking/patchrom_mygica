@@ -128,7 +128,7 @@
 
 # direct methods
 .method protected constructor <init>(ILjava/net/InetAddress;Ljava/net/InetAddress;Ljava/net/InetAddress;Ljava/net/InetAddress;[BZ)V
-    .registers 8
+    .locals 0
     .parameter "transId"
     .parameter "clientIp"
     .parameter "yourIp"
@@ -167,7 +167,7 @@
 .end method
 
 .method public static buildAckPacket(IIZLjava/net/InetAddress;Ljava/net/InetAddress;[BLjava/lang/Integer;Ljava/net/InetAddress;Ljava/net/InetAddress;Ljava/net/InetAddress;Ljava/util/List;Ljava/net/InetAddress;Ljava/lang/String;)Ljava/nio/ByteBuffer;
-    .registers 20
+    .locals 7
     .parameter "encap"
     .parameter "transactionId"
     .parameter "broadcast"
@@ -262,7 +262,7 @@
 .end method
 
 .method public static buildDiscoverPacket(II[BZ[B)Ljava/nio/ByteBuffer;
-    .registers 8
+    .locals 3
     .parameter "encap"
     .parameter "transactionId"
     .parameter "clientMac"
@@ -292,7 +292,7 @@
 .end method
 
 .method public static buildNakPacket(IILjava/net/InetAddress;Ljava/net/InetAddress;[B)Ljava/nio/ByteBuffer;
-    .registers 12
+    .locals 7
     .parameter "encap"
     .parameter "transactionId"
     .parameter "serverIpAddr"
@@ -339,7 +339,7 @@
 .end method
 
 .method public static buildOfferPacket(IIZLjava/net/InetAddress;Ljava/net/InetAddress;[BLjava/lang/Integer;Ljava/net/InetAddress;Ljava/net/InetAddress;Ljava/net/InetAddress;Ljava/util/List;Ljava/net/InetAddress;Ljava/lang/String;)Ljava/nio/ByteBuffer;
-    .registers 20
+    .locals 7
     .parameter "encap"
     .parameter "transactionId"
     .parameter "broadcast"
@@ -434,7 +434,7 @@
 .end method
 
 .method public static buildRequestPacket(IILjava/net/InetAddress;Z[BLjava/net/InetAddress;Ljava/net/InetAddress;[BLjava/lang/String;)Ljava/nio/ByteBuffer;
-    .registers 13
+    .locals 4
     .parameter "encap"
     .parameter "transactionId"
     .parameter "clientIp"
@@ -479,7 +479,7 @@
 .end method
 
 .method private checksum(Ljava/nio/ByteBuffer;III)I
-    .registers 19
+    .locals 14
     .parameter "buf"
     .parameter "seed"
     .parameter "start"
@@ -531,8 +531,8 @@
     const/4 v5, 0x0
 
     .local v5, i$:I
-    :goto_1e
-    if-ge v5, v6, :cond_2a
+    :goto_0
+    if-ge v5, v6, :cond_0
 
     aget-short v8, v2, v5
 
@@ -547,11 +547,11 @@
     .line 391
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 395
     .end local v8           #s:S
-    :cond_2a
+    :cond_0
     array-length v12, v9
 
     mul-int/lit8 v12, v12, 0x2
@@ -563,7 +563,7 @@
 
     move/from16 v1, p3
 
-    if-eq v0, v1, :cond_44
+    if-eq v0, v1, :cond_2
 
     .line 399
     move/from16 v0, p3
@@ -576,7 +576,7 @@
 
     .line 402
     .local v3, b:S
-    if-gez v3, :cond_41
+    if-gez v3, :cond_1
 
     .line 403
     add-int/lit16 v12, v3, 0x100
@@ -584,14 +584,14 @@
     int-to-short v3, v12
 
     .line 406
-    :cond_41
+    :cond_1
     mul-int/lit16 v12, v3, 0x100
 
     add-int/2addr v11, v12
 
     .line 409
     .end local v3           #b:S
-    :cond_44
+    :cond_2
     shr-int/lit8 v12, v11, 0x10
 
     const v13, 0xffff
@@ -632,7 +632,7 @@
 .end method
 
 .method public static decodeFullPacket(Ljava/nio/ByteBuffer;I)Landroid/net/dhcp/DhcpPacket;
-    .registers 62
+    .locals 60
     .parameter "packet"
     .parameter "pktType"
 
@@ -707,7 +707,7 @@
     invoke-virtual {v0, v8}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
     .line 585
-    if-nez p1, :cond_4d
+    if-nez p1, :cond_0
 
     .line 587
     const/4 v8, 0x6
@@ -750,7 +750,7 @@
 
     move/from16 v0, v45
 
-    if-eq v0, v8, :cond_4d
+    if-eq v0, v8, :cond_0
 
     .line 596
     const/4 v2, 0x0
@@ -759,21 +759,21 @@
     .end local v43           #l2dst:[B
     .end local v44           #l2src:[B
     .end local v45           #l2type:S
-    :goto_4c
+    :goto_0
     return-object v2
 
     .line 599
-    :cond_4d
-    if-eqz p1, :cond_54
+    :cond_0
+    if-eqz p1, :cond_1
 
     const/4 v8, 0x1
 
     move/from16 v0, p1
 
-    if-ne v0, v8, :cond_a6
+    if-ne v0, v8, :cond_3
 
     .line 601
-    :cond_54
+    :cond_1
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v41
@@ -842,15 +842,15 @@
 
     move/from16 v0, v38
 
-    if-eq v0, v8, :cond_88
+    if-eq v0, v8, :cond_2
 
     .line 616
     const/4 v2, 0x0
 
-    goto :goto_4c
+    goto :goto_0
 
     .line 619
-    :cond_88
+    :cond_2
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->getShort()S
 
     move-result v58
@@ -879,18 +879,18 @@
 
     move/from16 v0, v58
 
-    if-eq v0, v8, :cond_a6
+    if-eq v0, v8, :cond_3
 
     const/16 v8, 0x44
 
     move/from16 v0, v58
 
-    if-eq v0, v8, :cond_a6
+    if-eq v0, v8, :cond_3
 
     .line 625
     const/4 v2, 0x0
 
-    goto :goto_4c
+    goto :goto_0
 
     .line 629
     .end local v32           #ipChksm:S
@@ -906,7 +906,7 @@
     .end local v56           #udpDstPort:S
     .end local v57           #udpLen:S
     .end local v58           #udpSrcPort:S
-    :cond_a6
+    :cond_3
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v54
@@ -953,13 +953,13 @@
 
     and-int v8, v8, v17
 
-    if-eqz v8, :cond_120
+    if-eqz v8, :cond_4
 
     const/4 v4, 0x1
 
     .line 637
     .local v4, broadcast:Z
-    :goto_ca
+    :goto_1
     const/4 v8, 0x4
 
     new-array v0, v8, [B
@@ -968,7 +968,7 @@
 
     .line 640
     .local v42, ipv4addr:[B
-    :try_start_cf
+    :try_start_0
     move-object/from16 v0, p0
 
     move-object/from16 v1, v42
@@ -1016,8 +1016,8 @@
 
     .line 647
     invoke-static/range {v42 .. v42}, Ljava/net/InetAddress;->getByAddress([B)Ljava/net/InetAddress;
-    :try_end_fa
-    .catch Ljava/net/UnknownHostException; {:try_start_cf .. :try_end_fa} :catch_122
+    :try_end_0
+    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v13
 
@@ -1059,12 +1059,12 @@
 
     move/from16 v0, v18
 
-    if-eq v0, v8, :cond_126
+    if-eq v0, v8, :cond_5
 
     .line 663
     const/4 v2, 0x0
 
-    goto/16 :goto_4c
+    goto/16 :goto_0
 
     .line 636
     .end local v4           #broadcast:Z
@@ -1075,22 +1075,22 @@
     .end local v13           #relayIp:Ljava/net/InetAddress;
     .end local v18           #dhcpMagicCookie:I
     .end local v42           #ipv4addr:[B
-    :cond_120
+    :cond_4
     const/4 v4, 0x0
 
-    goto :goto_ca
+    goto :goto_1
 
     .line 648
     .restart local v4       #broadcast:Z
     .restart local v42       #ipv4addr:[B
-    :catch_122
+    :catch_0
     move-exception v23
 
     .line 649
     .local v23, ex:Ljava/net/UnknownHostException;
     const/4 v2, 0x0
 
-    goto/16 :goto_4c
+    goto/16 :goto_0
 
     .line 666
     .end local v23           #ex:Ljava/net/UnknownHostException;
@@ -1100,13 +1100,13 @@
     .restart local v12       #nextIp:Ljava/net/InetAddress;
     .restart local v13       #relayIp:Ljava/net/InetAddress;
     .restart local v18       #dhcpMagicCookie:I
-    :cond_126
+    :cond_5
     const/16 v49, 0x1
 
     .line 668
     .local v49, notFinishedOptions:Z
-    :cond_128
-    :goto_128
+    :cond_6
+    :goto_2
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->position()I
 
     move-result v8
@@ -1115,9 +1115,9 @@
 
     move-result v9
 
-    if-ge v8, v9, :cond_1fa
+    if-ge v8, v9, :cond_9
 
-    if-eqz v49, :cond_1fa
+    if-eqz v49, :cond_9
 
     .line 669
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->get()B
@@ -1130,15 +1130,15 @@
 
     move/from16 v0, v51
 
-    if-ne v0, v8, :cond_140
+    if-ne v0, v8, :cond_7
 
     .line 672
     const/16 v49, 0x0
 
-    goto :goto_128
+    goto :goto_2
 
     .line 674
-    :cond_140
+    :cond_7
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v50
@@ -1149,18 +1149,18 @@
 
     .line 677
     .local v24, expectedLen:I
-    sparse-switch v51, :sswitch_data_280
+    sparse-switch v51, :sswitch_data_0
 
     .line 742
     const/16 v30, 0x0
 
     .local v30, i:I
-    :goto_14b
+    :goto_3
     move/from16 v0, v30
 
     move/from16 v1, v50
 
-    if-ge v0, v1, :cond_15f
+    if-ge v0, v1, :cond_8
 
     .line 743
     add-int/lit8 v24, v24, 0x1
@@ -1171,11 +1171,11 @@
     .line 742
     add-int/lit8 v30, v30, 0x1
 
-    goto :goto_14b
+    goto :goto_3
 
     .line 679
     .end local v30           #i:I
-    :sswitch_159
+    :sswitch_0
     invoke-static/range {p0 .. p0}, Landroid/net/dhcp/DhcpPacket;->readIpAddress(Ljava/nio/ByteBuffer;)Ljava/net/InetAddress;
 
     move-result-object v48
@@ -1184,21 +1184,21 @@
     const/16 v24, 0x4
 
     .line 748
-    :cond_15f
-    :goto_15f
+    :cond_8
+    :goto_4
     move/from16 v0, v24
 
     move/from16 v1, v50
 
-    if-eq v0, v1, :cond_128
+    if-eq v0, v1, :cond_6
 
     .line 749
     const/4 v2, 0x0
 
-    goto/16 :goto_4c
+    goto/16 :goto_0
 
     .line 683
-    :sswitch_168
+    :sswitch_1
     invoke-static/range {p0 .. p0}, Landroid/net/dhcp/DhcpPacket;->readIpAddress(Ljava/nio/ByteBuffer;)Ljava/net/InetAddress;
 
     move-result-object v26
@@ -1207,21 +1207,21 @@
     const/16 v24, 0x4
 
     .line 685
-    goto :goto_15f
+    goto :goto_4
 
     .line 687
-    :sswitch_16f
+    :sswitch_2
     const/16 v24, 0x0
 
     .line 689
     const/16 v24, 0x0
 
-    :goto_173
+    :goto_5
     move/from16 v0, v24
 
     move/from16 v1, v50
 
-    if-ge v0, v1, :cond_15f
+    if-ge v0, v1, :cond_8
 
     .line 691
     invoke-static/range {p0 .. p0}, Landroid/net/dhcp/DhcpPacket;->readIpAddress(Ljava/nio/ByteBuffer;)Ljava/net/InetAddress;
@@ -1235,10 +1235,10 @@
     .line 690
     add-int/lit8 v24, v24, 0x4
 
-    goto :goto_173
+    goto :goto_5
 
     .line 695
-    :sswitch_185
+    :sswitch_3
     move/from16 v24, v50
 
     .line 696
@@ -1251,10 +1251,10 @@
     move-result-object v28
 
     .line 697
-    goto :goto_15f
+    goto :goto_4
 
     .line 699
-    :sswitch_190
+    :sswitch_4
     move/from16 v24, v50
 
     .line 700
@@ -1267,10 +1267,10 @@
     move-result-object v21
 
     .line 701
-    goto :goto_15f
+    goto :goto_4
 
     .line 703
-    :sswitch_19b
+    :sswitch_5
     invoke-static/range {p0 .. p0}, Landroid/net/dhcp/DhcpPacket;->readIpAddress(Ljava/nio/ByteBuffer;)Ljava/net/InetAddress;
 
     move-result-object v16
@@ -1279,10 +1279,10 @@
     const/16 v24, 0x4
 
     .line 705
-    goto :goto_15f
+    goto :goto_4
 
     .line 707
-    :sswitch_1a2
+    :sswitch_6
     invoke-static/range {p0 .. p0}, Landroid/net/dhcp/DhcpPacket;->readIpAddress(Ljava/nio/ByteBuffer;)Ljava/net/InetAddress;
 
     move-result-object v52
@@ -1291,10 +1291,10 @@
     const/16 v24, 0x4
 
     .line 709
-    goto :goto_15f
+    goto :goto_4
 
     .line 711
-    :sswitch_1a9
+    :sswitch_7
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->getInt()I
 
     move-result v8
@@ -1307,10 +1307,10 @@
     const/16 v24, 0x4
 
     .line 713
-    goto :goto_15f
+    goto :goto_4
 
     .line 715
-    :sswitch_1b4
+    :sswitch_8
     invoke-virtual/range {p0 .. p0}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v19
@@ -1319,10 +1319,10 @@
     const/16 v24, 0x1
 
     .line 717
-    goto :goto_15f
+    goto :goto_4
 
     .line 719
-    :sswitch_1bb
+    :sswitch_9
     invoke-static/range {p0 .. p0}, Landroid/net/dhcp/DhcpPacket;->readIpAddress(Ljava/nio/ByteBuffer;)Ljava/net/InetAddress;
 
     move-result-object v53
@@ -1331,10 +1331,10 @@
     const/16 v24, 0x4
 
     .line 721
-    goto :goto_15f
+    goto :goto_4
 
     .line 723
-    :sswitch_1c2
+    :sswitch_a
     move/from16 v0, v50
 
     new-array v0, v0, [B
@@ -1352,10 +1352,10 @@
     move/from16 v24, v50
 
     .line 726
-    goto :goto_15f
+    goto :goto_4
 
     .line 728
-    :sswitch_1d2
+    :sswitch_b
     move/from16 v24, v50
 
     .line 729
@@ -1368,10 +1368,10 @@
     move-result-object v47
 
     .line 730
-    goto :goto_15f
+    goto :goto_4
 
     .line 732
-    :sswitch_1dd
+    :sswitch_c
     move/from16 v24, v50
 
     .line 733
@@ -1384,10 +1384,10 @@
     move-result-object v59
 
     .line 734
-    goto/16 :goto_15f
+    goto/16 :goto_4
 
     .line 736
-    :sswitch_1e9
+    :sswitch_d
     move/from16 v0, v50
 
     new-array v0, v0, [B
@@ -1406,18 +1406,18 @@
     move/from16 v24, v50
 
     .line 739
-    goto/16 :goto_15f
+    goto/16 :goto_4
 
     .line 756
     .end local v24           #expectedLen:I
     .end local v31           #id:[B
     .end local v50           #optionLen:B
     .end local v51           #optionType:B
-    :cond_1fa
-    packed-switch v19, :pswitch_data_2ba
+    :cond_9
+    packed-switch v19, :pswitch_data_0
 
     .line 790
-    :pswitch_1fd
+    :pswitch_0
     sget-object v8, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -1445,23 +1445,23 @@
     .line 791
     const/4 v2, 0x0
 
-    goto/16 :goto_4c
+    goto/16 :goto_0
 
     .line 757
-    :pswitch_21a
+    :pswitch_1
     const/4 v2, 0x0
 
-    goto/16 :goto_4c
+    goto/16 :goto_0
 
     .line 759
-    :pswitch_21d
+    :pswitch_2
     new-instance v2, Landroid/net/dhcp/DhcpDiscoverPacket;
 
     invoke-direct {v2, v3, v7, v4}, Landroid/net/dhcp/DhcpDiscoverPacket;-><init>(I[BZ)V
 
     .line 794
     .local v2, newPacket:Landroid/net/dhcp/DhcpPacket;
-    :goto_222
+    :goto_6
     move-object/from16 v0, v16
 
     iput-object v0, v2, Landroid/net/dhcp/DhcpPacket;->mBroadcastAddress:Ljava/net/InetAddress;
@@ -1516,33 +1516,33 @@
 
     iput-object v0, v2, Landroid/net/dhcp/DhcpPacket;->mSubnetMask:Ljava/net/InetAddress;
 
-    goto/16 :goto_4c
+    goto/16 :goto_0
 
     .line 763
     .end local v2           #newPacket:Landroid/net/dhcp/DhcpPacket;
-    :pswitch_250
+    :pswitch_3
     new-instance v2, Landroid/net/dhcp/DhcpOfferPacket;
 
     invoke-direct/range {v2 .. v7}, Landroid/net/dhcp/DhcpOfferPacket;-><init>(IZLjava/net/InetAddress;Ljava/net/InetAddress;[B)V
 
     .line 765
     .restart local v2       #newPacket:Landroid/net/dhcp/DhcpPacket;
-    goto :goto_222
+    goto :goto_6
 
     .line 767
     .end local v2           #newPacket:Landroid/net/dhcp/DhcpPacket;
-    :pswitch_256
+    :pswitch_4
     new-instance v2, Landroid/net/dhcp/DhcpRequestPacket;
 
     invoke-direct {v2, v3, v10, v7, v4}, Landroid/net/dhcp/DhcpRequestPacket;-><init>(ILjava/net/InetAddress;[BZ)V
 
     .line 769
     .restart local v2       #newPacket:Landroid/net/dhcp/DhcpPacket;
-    goto :goto_222
+    goto :goto_6
 
     .line 771
     .end local v2           #newPacket:Landroid/net/dhcp/DhcpPacket;
-    :pswitch_25c
+    :pswitch_5
     new-instance v2, Landroid/net/dhcp/DhcpDeclinePacket;
 
     move-object v8, v2
@@ -1557,22 +1557,22 @@
 
     .line 774
     .restart local v2       #newPacket:Landroid/net/dhcp/DhcpPacket;
-    goto :goto_222
+    goto :goto_6
 
     .line 776
     .end local v2           #newPacket:Landroid/net/dhcp/DhcpPacket;
-    :pswitch_266
+    :pswitch_6
     new-instance v2, Landroid/net/dhcp/DhcpAckPacket;
 
     invoke-direct/range {v2 .. v7}, Landroid/net/dhcp/DhcpAckPacket;-><init>(IZLjava/net/InetAddress;Ljava/net/InetAddress;[B)V
 
     .line 778
     .restart local v2       #newPacket:Landroid/net/dhcp/DhcpPacket;
-    goto :goto_222
+    goto :goto_6
 
     .line 780
     .end local v2           #newPacket:Landroid/net/dhcp/DhcpPacket;
-    :pswitch_26c
+    :pswitch_7
     new-instance v2, Landroid/net/dhcp/DhcpNakPacket;
 
     move-object v8, v2
@@ -1587,11 +1587,11 @@
 
     .line 783
     .restart local v2       #newPacket:Landroid/net/dhcp/DhcpPacket;
-    goto :goto_222
+    goto :goto_6
 
     .line 785
     .end local v2           #newPacket:Landroid/net/dhcp/DhcpPacket;
-    :pswitch_276
+    :pswitch_8
     new-instance v2, Landroid/net/dhcp/DhcpInformPacket;
 
     move-object v8, v2
@@ -1606,45 +1606,45 @@
 
     .line 788
     .restart local v2       #newPacket:Landroid/net/dhcp/DhcpPacket;
-    goto :goto_222
+    goto :goto_6
 
     .line 677
-    :sswitch_data_280
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_159
-        0x3 -> :sswitch_168
-        0x6 -> :sswitch_16f
-        0xc -> :sswitch_185
-        0xf -> :sswitch_190
-        0x1c -> :sswitch_19b
-        0x32 -> :sswitch_1a2
-        0x33 -> :sswitch_1a9
-        0x35 -> :sswitch_1b4
-        0x36 -> :sswitch_1bb
-        0x37 -> :sswitch_1c2
-        0x38 -> :sswitch_1d2
-        0x3c -> :sswitch_1dd
-        0x3d -> :sswitch_1e9
+        0x1 -> :sswitch_0
+        0x3 -> :sswitch_1
+        0x6 -> :sswitch_2
+        0xc -> :sswitch_3
+        0xf -> :sswitch_4
+        0x1c -> :sswitch_5
+        0x32 -> :sswitch_6
+        0x33 -> :sswitch_7
+        0x35 -> :sswitch_8
+        0x36 -> :sswitch_9
+        0x37 -> :sswitch_a
+        0x38 -> :sswitch_b
+        0x3c -> :sswitch_c
+        0x3d -> :sswitch_d
     .end sparse-switch
 
     .line 756
-    :pswitch_data_2ba
+    :pswitch_data_0
     .packed-switch -0x1
-        :pswitch_21a
-        :pswitch_1fd
-        :pswitch_21d
-        :pswitch_250
-        :pswitch_256
-        :pswitch_25c
-        :pswitch_266
-        :pswitch_26c
-        :pswitch_1fd
-        :pswitch_276
+        :pswitch_1
+        :pswitch_0
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_0
+        :pswitch_8
     .end packed-switch
 .end method
 
 .method public static decodeFullPacket([BI)Landroid/net/dhcp/DhcpPacket;
-    .registers 5
+    .locals 3
     .parameter "packet"
     .parameter "pktType"
 
@@ -1670,12 +1670,12 @@
 .end method
 
 .method private intAbs(S)I
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
     .line 363
-    if-gez p1, :cond_7
+    if-gez p1, :cond_0
 
     .line 364
     const/high16 v1, 0x1
@@ -1683,17 +1683,17 @@
     add-int v0, p1, v1
 
     .line 367
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     move v0, p1
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public static macToString([B)Ljava/lang/String;
-    .registers 6
+    .locals 5
     .parameter "mac"
 
     .prologue
@@ -1705,10 +1705,10 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_3
+    :goto_0
     array-length v3, p0
 
-    if-ge v1, v3, :cond_55
+    if-ge v1, v3, :cond_1
 
     .line 497
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1768,7 +1768,7 @@
 
     add-int/lit8 v3, v3, -0x1
 
-    if-eq v1, v3, :cond_52
+    if-eq v1, v3, :cond_0
 
     .line 504
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1790,19 +1790,19 @@
     move-result-object v2
 
     .line 496
-    :cond_52
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 508
     .end local v0           #hexString:Ljava/lang/String;
-    :cond_55
+    :cond_1
     return-object v2
 .end method
 
 .method private static readAsciiString(Ljava/nio/ByteBuffer;I)Ljava/lang/String;
-    .registers 7
+    .locals 5
     .parameter "buf"
     .parameter "byteCount"
 
@@ -1829,7 +1829,7 @@
 .end method
 
 .method private static readIpAddress(Ljava/nio/ByteBuffer;)Ljava/net/InetAddress;
-    .registers 5
+    .locals 4
     .parameter "packet"
 
     .prologue
@@ -1847,32 +1847,32 @@
     invoke-virtual {p0, v1}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
 
     .line 527
-    :try_start_7
+    :try_start_0
     invoke-static {v1}, Ljava/net/InetAddress;->getByAddress([B)Ljava/net/InetAddress;
-    :try_end_a
-    .catch Ljava/net/UnknownHostException; {:try_start_7 .. :try_end_a} :catch_c
+    :try_end_0
+    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v2
 
     .line 534
-    :goto_b
+    :goto_0
     return-object v2
 
     .line 528
-    :catch_c
+    :catch_0
     move-exception v0
 
     .line 531
     .local v0, ex:Ljava/net/UnknownHostException;
     const/4 v2, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected addTlv(Ljava/nio/ByteBuffer;BB)V
-    .registers 5
+    .locals 1
     .parameter "buf"
     .parameter "type"
     .parameter "value"
@@ -1894,14 +1894,14 @@
 .end method
 
 .method protected addTlv(Ljava/nio/ByteBuffer;BLjava/lang/Integer;)V
-    .registers 5
+    .locals 1
     .parameter "buf"
     .parameter "type"
     .parameter "value"
 
     .prologue
     .line 462
-    if-eqz p3, :cond_10
+    if-eqz p3, :cond_0
 
     .line 463
     invoke-virtual {p1, p2}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
@@ -1919,19 +1919,19 @@
     invoke-virtual {p1, v0}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 
     .line 467
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method protected addTlv(Ljava/nio/ByteBuffer;BLjava/lang/String;)V
-    .registers 6
+    .locals 2
     .parameter "buf"
     .parameter "type"
     .parameter "str"
 
     .prologue
     .line 473
-    if-eqz p3, :cond_1f
+    if-eqz p3, :cond_0
 
     .line 474
     invoke-virtual {p1, p2}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
@@ -1949,12 +1949,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_e
+    :goto_0
     invoke-virtual {p3}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1f
+    if-ge v0, v1, :cond_0
 
     .line 478
     invoke-virtual {p3, v0}, Ljava/lang/String;->charAt(I)C
@@ -1968,23 +1968,23 @@
     .line 477
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 481
     .end local v0           #i:I
-    :cond_1f
+    :cond_0
     return-void
 .end method
 
 .method protected addTlv(Ljava/nio/ByteBuffer;BLjava/net/InetAddress;)V
-    .registers 5
+    .locals 1
     .parameter "buf"
     .parameter "type"
     .parameter "addr"
 
     .prologue
     .line 439
-    if-eqz p3, :cond_9
+    if-eqz p3, :cond_0
 
     .line 440
     invoke-virtual {p3}, Ljava/net/InetAddress;->getAddress()[B
@@ -1994,12 +1994,12 @@
     invoke-virtual {p0, p1, p2, v0}, Landroid/net/dhcp/DhcpPacket;->addTlv(Ljava/nio/ByteBuffer;B[B)V
 
     .line 442
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method protected addTlv(Ljava/nio/ByteBuffer;BLjava/util/List;)V
-    .registers 7
+    .locals 3
     .parameter "buf"
     .parameter "type"
     .parameter
@@ -2018,13 +2018,13 @@
     .prologue
     .line 448
     .local p3, addrs:Ljava/util/List;,"Ljava/util/List<Ljava/net/InetAddress;>;"
-    if-eqz p3, :cond_2d
+    if-eqz p3, :cond_0
 
     invoke-interface {p3}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-lez v2, :cond_2d
+    if-lez v2, :cond_0
 
     .line 449
     invoke-virtual {p1, p2}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
@@ -2046,12 +2046,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_19
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2d
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2067,24 +2067,24 @@
 
     invoke-virtual {p1, v2}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
-    goto :goto_19
+    goto :goto_0
 
     .line 456
     .end local v0           #addr:Ljava/net/InetAddress;
     .end local v1           #i$:Ljava/util/Iterator;
-    :cond_2d
+    :cond_0
     return-void
 .end method
 
 .method protected addTlv(Ljava/nio/ByteBuffer;B[B)V
-    .registers 5
+    .locals 1
     .parameter "buf"
     .parameter "type"
     .parameter "payload"
 
     .prologue
     .line 428
-    if-eqz p3, :cond_d
+    if-eqz p3, :cond_0
 
     .line 429
     invoke-virtual {p1, p2}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
@@ -2100,12 +2100,12 @@
     invoke-virtual {p1, p3}, Ljava/nio/ByteBuffer;->put([B)Ljava/nio/ByteBuffer;
 
     .line 433
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method protected addTlvEnd(Ljava/nio/ByteBuffer;)V
-    .registers 3
+    .locals 1
     .parameter "buf"
 
     .prologue
@@ -2125,7 +2125,7 @@
 .end method
 
 .method protected fillInPacket(ILjava/net/InetAddress;Ljava/net/InetAddress;SSLjava/nio/ByteBuffer;BZ)V
-    .registers 23
+    .locals 14
     .parameter "encap"
     .parameter "destIp"
     .parameter "srcIp"
@@ -2185,7 +2185,7 @@
     .line 268
     const/4 v12, 0x1
 
-    if-ne p1, v12, :cond_8c
+    if-ne p1, v12, :cond_0
 
     .line 270
     const/16 v12, 0x45
@@ -2312,7 +2312,7 @@
     invoke-virtual {v0, v12}, Ljava/nio/ByteBuffer;->putShort(S)Ljava/nio/ByteBuffer;
 
     .line 296
-    :cond_8c
+    :cond_0
     invoke-virtual/range {p6 .. p7}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
     .line 297
@@ -2355,7 +2355,7 @@
     invoke-virtual {v0, v12}, Ljava/nio/ByteBuffer;->putShort(S)Ljava/nio/ByteBuffer;
 
     .line 303
-    if-eqz p8, :cond_18b
+    if-eqz p8, :cond_3
 
     .line 304
     const/16 v12, -0x8000
@@ -2365,7 +2365,7 @@
     invoke-virtual {v0, v12}, Ljava/nio/ByteBuffer;->putShort(S)Ljava/nio/ByteBuffer;
 
     .line 309
-    :goto_ba
+    :goto_0
     iget-object v12, p0, Landroid/net/dhcp/DhcpPacket;->mClientIp:Ljava/net/InetAddress;
 
     invoke-virtual {v12}, Ljava/net/InetAddress;->getAddress()[B
@@ -2458,7 +2458,7 @@
 
     const/4 v13, 0x1
 
-    if-ne v12, v13, :cond_11c
+    if-ne v12, v13, :cond_1
 
     .line 323
     const/4 v12, 0x0
@@ -2468,10 +2468,10 @@
     invoke-virtual {v0, v12}, Ljava/nio/ByteBuffer;->put(B)Ljava/nio/ByteBuffer;
 
     .line 328
-    :cond_11c
+    :cond_1
     const/4 v12, 0x1
 
-    if-ne p1, v12, :cond_18a
+    if-ne p1, v12, :cond_2
 
     .line 330
     invoke-virtual/range {p6 .. p6}, Ljava/nio/ByteBuffer;->position()I
@@ -2606,25 +2606,25 @@
     .line 356
     .end local v9           #udpLen:S
     .end local v11           #udpSeed:I
-    :cond_18a
+    :cond_2
     return-void
 
     .line 306
-    :cond_18b
+    :cond_3
     const/4 v12, 0x0
 
     move-object/from16 v0, p6
 
     invoke-virtual {v0, v12}, Ljava/nio/ByteBuffer;->putShort(S)Ljava/nio/ByteBuffer;
 
-    goto/16 :goto_ba
+    goto/16 :goto_0
 .end method
 
 .method abstract finishPacket(Ljava/nio/ByteBuffer;)V
 .end method
 
 .method public getTransactionId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 242
@@ -2634,7 +2634,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 512

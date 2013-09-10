@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 236
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public findTokenEnd(Ljava/lang/CharSequence;I)I
-    .registers 7
+    .locals 4
     .parameter "text"
     .parameter "cursor"
 
@@ -47,8 +47,8 @@
 
     .line 254
     .local v1, len:I
-    :goto_5
-    if-ge v0, v1, :cond_13
+    :goto_0
+    if-ge v0, v1, :cond_1
 
     .line 255
     invoke-interface {p1, v0}, Ljava/lang/CharSequence;->charAt(I)C
@@ -57,29 +57,29 @@
 
     const/16 v3, 0x2c
 
-    if-ne v2, v3, :cond_10
+    if-ne v2, v3, :cond_0
 
     .line 262
     .end local v0           #i:I
-    :goto_f
+    :goto_1
     return v0
 
     .line 258
     .restart local v0       #i:I
-    :cond_10
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
-    :cond_13
+    :cond_1
     move v0, v1
 
     .line 262
-    goto :goto_f
+    goto :goto_1
 .end method
 
 .method public findTokenStart(Ljava/lang/CharSequence;I)I
-    .registers 6
+    .locals 3
     .parameter "text"
     .parameter "cursor"
 
@@ -89,8 +89,8 @@
 
     .line 240
     .local v0, i:I
-    :goto_1
-    if-lez v0, :cond_10
+    :goto_0
+    if-lez v0, :cond_0
 
     add-int/lit8 v1, v0, -0x1
 
@@ -100,17 +100,17 @@
 
     const/16 v2, 0x2c
 
-    if-eq v1, v2, :cond_10
+    if-eq v1, v2, :cond_0
 
     .line 241
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 243
-    :cond_10
-    :goto_10
-    if-ge v0, p2, :cond_1d
+    :cond_0
+    :goto_1
+    if-ge v0, p2, :cond_1
 
     invoke-interface {p1, v0}, Ljava/lang/CharSequence;->charAt(I)C
 
@@ -118,20 +118,20 @@
 
     const/16 v2, 0x20
 
-    if-ne v1, v2, :cond_1d
+    if-ne v1, v2, :cond_1
 
     .line 244
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_10
+    goto :goto_1
 
     .line 247
-    :cond_1d
+    :cond_1
     return v0
 .end method
 
 .method public terminateToken(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .registers 9
+    .locals 7
     .parameter "text"
 
     .prologue
@@ -144,8 +144,8 @@
 
     .line 268
     .local v6, i:I
-    :goto_5
-    if-lez v6, :cond_14
+    :goto_0
+    if-lez v6, :cond_0
 
     add-int/lit8 v0, v6, -0x1
 
@@ -155,16 +155,16 @@
 
     const/16 v2, 0x20
 
-    if-ne v0, v2, :cond_14
+    if-ne v0, v2, :cond_0
 
     .line 269
     add-int/lit8 v6, v6, -0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 272
-    :cond_14
-    if-lez v6, :cond_21
+    :cond_0
+    if-lez v6, :cond_1
 
     add-int/lit8 v0, v6, -0x1
 
@@ -174,19 +174,19 @@
 
     const/16 v2, 0x2c
 
-    if-ne v0, v2, :cond_21
+    if-ne v0, v2, :cond_1
 
     .line 281
     .end local p1
-    :goto_20
+    :goto_1
     return-object p1
 
     .line 275
     .restart local p1
-    :cond_21
+    :cond_1
     instance-of v0, p1, Landroid/text/Spanned;
 
-    if-eqz v0, :cond_4c
+    if-eqz v0, :cond_2
 
     .line 276
     new-instance v4, Landroid/text/SpannableString;
@@ -230,11 +230,11 @@
     move-object p1, v4
 
     .line 279
-    goto :goto_20
+    goto :goto_1
 
     .line 281
     .end local v4           #sp:Landroid/text/SpannableString;
-    :cond_4c
+    :cond_2
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -253,5 +253,5 @@
 
     move-result-object p1
 
-    goto :goto_20
+    goto :goto_1
 .end method

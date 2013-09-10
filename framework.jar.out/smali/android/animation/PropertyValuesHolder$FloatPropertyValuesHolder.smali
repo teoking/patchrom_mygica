@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 883
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(Landroid/util/Property;Landroid/animation/FloatKeyframeSet;)V
-    .registers 4
+    .locals 1
     .parameter "property"
     .parameter "keyframeSet"
 
@@ -85,7 +85,7 @@
     .line 903
     instance-of v0, p1, Landroid/util/FloatProperty;
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     .line 904
     iget-object v0, p0, Landroid/animation/PropertyValuesHolder;->mProperty:Landroid/util/Property;
@@ -95,12 +95,12 @@
     iput-object v0, p0, Landroid/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatProperty:Landroid/util/FloatProperty;
 
     .line 906
-    :cond_1a
+    :cond_0
     return-void
 .end method
 
 .method public varargs constructor <init>(Landroid/util/Property;[F)V
-    .registers 4
+    .locals 1
     .parameter "property"
     .parameter "values"
 
@@ -116,7 +116,7 @@
     .line 916
     instance-of v0, p1, Landroid/util/FloatProperty;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 917
     iget-object v0, p0, Landroid/animation/PropertyValuesHolder;->mProperty:Landroid/util/Property;
@@ -126,12 +126,12 @@
     iput-object v0, p0, Landroid/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatProperty:Landroid/util/FloatProperty;
 
     .line 919
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Landroid/animation/FloatKeyframeSet;)V
-    .registers 4
+    .locals 1
     .parameter "propertyName"
     .parameter "keyframeSet"
 
@@ -161,7 +161,7 @@
 .end method
 
 .method public varargs constructor <init>(Ljava/lang/String;[F)V
-    .registers 4
+    .locals 1
     .parameter "propertyName"
     .parameter "values"
 
@@ -181,7 +181,7 @@
 
 # virtual methods
 .method calculateValue(F)V
-    .registers 3
+    .locals 1
     .parameter "fraction"
 
     .prologue
@@ -199,7 +199,7 @@
 .end method
 
 .method public clone()Landroid/animation/PropertyValuesHolder$FloatPropertyValuesHolder;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 939
@@ -222,7 +222,7 @@
 .end method
 
 .method public bridge synthetic clone()Landroid/animation/PropertyValuesHolder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 880
@@ -234,7 +234,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -251,7 +251,7 @@
 .end method
 
 .method getAnimatedValue()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 934
@@ -265,14 +265,14 @@
 .end method
 
 .method setAnimatedValue(Ljava/lang/Object;)V
-    .registers 6
+    .locals 4
     .parameter "target"
 
     .prologue
     .line 953
     iget-object v1, p0, Landroid/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatProperty:Landroid/util/FloatProperty;
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_1
 
     .line 954
     iget-object v1, p0, Landroid/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatProperty:Landroid/util/FloatProperty;
@@ -282,15 +282,15 @@
     invoke-virtual {v1, p1, v2}, Landroid/util/FloatProperty;->setValue(Ljava/lang/Object;F)V
 
     .line 975
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return-void
 
     .line 957
-    :cond_c
+    :cond_1
     iget-object v1, p0, Landroid/animation/PropertyValuesHolder;->mProperty:Landroid/util/Property;
 
-    if-eqz v1, :cond_1c
+    if-eqz v1, :cond_2
 
     .line 958
     iget-object v1, p0, Landroid/animation/PropertyValuesHolder;->mProperty:Landroid/util/Property;
@@ -303,31 +303,32 @@
 
     invoke-virtual {v1, p1, v2}, Landroid/util/Property;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    goto :goto_b
+    goto :goto_0
 
     .line 961
-    :cond_1c
+    :cond_2
     iget v1, p0, Landroid/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mJniSetter:I
 
-    if-eqz v1, :cond_28
+    if-eqz v1, :cond_3
 
     .line 962
     iget v1, p0, Landroid/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mJniSetter:I
 
     iget v2, p0, Landroid/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mFloatAnimatedValue:F
 
+    #calls: Landroid/animation/PropertyValuesHolder;->nCallFloatMethod(Ljava/lang/Object;IF)V
     invoke-static {p1, v1, v2}, Landroid/animation/PropertyValuesHolder;->access$400(Ljava/lang/Object;IF)V
 
-    goto :goto_b
+    goto :goto_0
 
     .line 965
-    :cond_28
+    :cond_3
     iget-object v1, p0, Landroid/animation/PropertyValuesHolder;->mSetter:Ljava/lang/reflect/Method;
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
     .line 967
-    :try_start_2c
+    :try_start_0
     iget-object v1, p0, Landroid/animation/PropertyValuesHolder;->mTmpValueArray:[Ljava/lang/Object;
 
     const/4 v2, 0x0
@@ -346,14 +347,14 @@
     iget-object v2, p0, Landroid/animation/PropertyValuesHolder;->mTmpValueArray:[Ljava/lang/Object;
 
     invoke-virtual {v1, p1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_3e
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_2c .. :try_end_3e} :catch_3f
-    .catch Ljava/lang/IllegalAccessException; {:try_start_2c .. :try_end_3e} :catch_4a
+    :try_end_0
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 969
-    :catch_3f
+    :catch_0
     move-exception v0
 
     .line 970
@@ -366,11 +367,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_b
+    goto :goto_0
 
     .line 971
     .end local v0           #e:Ljava/lang/reflect/InvocationTargetException;
-    :catch_4a
+    :catch_1
     move-exception v0
 
     .line 972
@@ -383,11 +384,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public varargs setFloatValues([F)V
-    .registers 3
+    .locals 1
     .parameter "values"
 
     .prologue
@@ -406,23 +407,23 @@
 .end method
 
 .method setupSetter(Ljava/lang/Class;)V
-    .registers 7
+    .locals 5
     .parameter "targetClass"
 
     .prologue
     .line 979
     iget-object v3, p0, Landroid/animation/PropertyValuesHolder;->mProperty:Landroid/util/Property;
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_1
 
     .line 1014
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-void
 
     .line 984
-    :cond_5
-    :try_start_5
+    :cond_1
+    :try_start_0
     iget-object v3, p0, Landroid/animation/PropertyValuesHolder;->mPropertyMapLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
 
     invoke-virtual {v3}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
@@ -442,7 +443,7 @@
 
     .line 986
     .local v2, propertyMap:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_2
 
     .line 987
     iget-object v3, p0, Landroid/animation/PropertyValuesHolder;->mPropertyName:Ljava/lang/String;
@@ -455,7 +456,7 @@
 
     .line 988
     .local v0, mJniSetterInteger:Ljava/lang/Integer;
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_2
 
     .line 989
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -466,10 +467,10 @@
 
     .line 992
     .end local v0           #mJniSetterInteger:Ljava/lang/Integer;
-    :cond_28
+    :cond_2
     iget v3, p0, Landroid/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mJniSetter:I
 
-    if-nez v3, :cond_56
+    if-nez v3, :cond_4
 
     .line 993
     const-string/jumbo v3, "set"
@@ -482,6 +483,7 @@
 
     .line 994
     .local v1, methodName:Ljava/lang/String;
+    #calls: Landroid/animation/PropertyValuesHolder;->nGetFloatMethod(Ljava/lang/Class;Ljava/lang/String;)I
     invoke-static {p1, v1}, Landroid/animation/PropertyValuesHolder;->access$500(Ljava/lang/Class;Ljava/lang/String;)I
 
     move-result v3
@@ -491,10 +493,10 @@
     .line 995
     iget v3, p0, Landroid/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mJniSetter:I
 
-    if-eqz v3, :cond_56
+    if-eqz v3, :cond_4
 
     .line 996
-    if-nez v2, :cond_4b
+    if-nez v2, :cond_3
 
     .line 997
     new-instance v2, Ljava/util/HashMap;
@@ -509,7 +511,7 @@
     invoke-virtual {v3, p1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1000
-    :cond_4b
+    :cond_3
     iget-object v3, p0, Landroid/animation/PropertyValuesHolder;->mPropertyName:Ljava/lang/String;
 
     iget v4, p0, Landroid/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mJniSetter:I
@@ -519,13 +521,13 @@
     move-result-object v4
 
     invoke-virtual {v2, v3, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_56
-    .catchall {:try_start_5 .. :try_end_56} :catchall_72
-    .catch Ljava/lang/NoSuchMethodError; {:try_start_5 .. :try_end_56} :catch_67
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1008
     .end local v1           #methodName:Ljava/lang/String;
-    :cond_56
+    :cond_4
     iget-object v3, p0, Landroid/animation/PropertyValuesHolder;->mPropertyMapLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;
 
     invoke-virtual {v3}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;->writeLock()Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;
@@ -536,18 +538,18 @@
 
     .line 1010
     .end local v2           #propertyMap:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
-    :goto_5f
+    :goto_1
     iget v3, p0, Landroid/animation/PropertyValuesHolder$FloatPropertyValuesHolder;->mJniSetter:I
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_0
 
     .line 1012
     invoke-super {p0, p1}, Landroid/animation/PropertyValuesHolder;->setupSetter(Ljava/lang/Class;)V
 
-    goto :goto_4
+    goto :goto_0
 
     .line 1003
-    :catch_67
+    :catch_0
     move-exception v3
 
     .line 1008
@@ -559,9 +561,9 @@
 
     invoke-virtual {v3}, Ljava/util/concurrent/locks/ReentrantReadWriteLock$WriteLock;->unlock()V
 
-    goto :goto_5f
+    goto :goto_1
 
-    :catchall_72
+    :catchall_0
     move-exception v3
 
     iget-object v4, p0, Landroid/animation/PropertyValuesHolder;->mPropertyMapLock:Ljava/util/concurrent/locks/ReentrantReadWriteLock;

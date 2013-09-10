@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "poolSize"
 
     .prologue
@@ -47,7 +47,7 @@
 .end method
 
 .method private createSensorEvent()Landroid/hardware/SensorEvent;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1329
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method getFromPool()Landroid/hardware/SensorEvent;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 1339
@@ -74,10 +74,10 @@
     monitor-enter p0
 
     .line 1341
-    :try_start_2
+    :try_start_0
     iget v2, p0, Landroid/hardware/SensorManager$SensorEventPool;->mNumItemsInPool:I
 
-    if-lez v2, :cond_1b
+    if-lez v2, :cond_0
 
     .line 1343
     iget v2, p0, Landroid/hardware/SensorManager$SensorEventPool;->mPoolSize:I
@@ -108,13 +108,13 @@
 
     .line 1348
     .end local v0           #index:I
-    :cond_1b
+    :cond_0
     monitor-exit p0
-    :try_end_1c
-    .catchall {:try_start_2 .. :try_end_1c} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1349
-    if-nez v1, :cond_22
+    if-nez v1, :cond_1
 
     .line 1352
     invoke-direct {p0}, Landroid/hardware/SensorManager$SensorEventPool;->createSensorEvent()Landroid/hardware/SensorEvent;
@@ -122,23 +122,23 @@
     move-result-object v1
 
     .line 1354
-    :cond_22
+    :cond_1
     return-object v1
 
     .line 1348
-    :catchall_23
+    :catchall_0
     move-exception v2
 
-    :try_start_24
+    :try_start_1
     monitor-exit p0
-    :try_end_25
-    .catchall {:try_start_24 .. :try_end_25} :catchall_23
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v2
 .end method
 
 .method returnToPool(Landroid/hardware/SensorEvent;)V
-    .registers 5
+    .locals 3
     .parameter "t"
 
     .prologue
@@ -146,12 +146,12 @@
     monitor-enter p0
 
     .line 1360
-    :try_start_1
+    :try_start_0
     iget v1, p0, Landroid/hardware/SensorManager$SensorEventPool;->mNumItemsInPool:I
 
     iget v2, p0, Landroid/hardware/SensorManager$SensorEventPool;->mPoolSize:I
 
-    if-ge v1, v2, :cond_17
+    if-ge v1, v2, :cond_0
 
     .line 1362
     iget v1, p0, Landroid/hardware/SensorManager$SensorEventPool;->mNumItemsInPool:I
@@ -175,19 +175,19 @@
 
     .line 1366
     .end local v0           #index:I
-    :cond_17
+    :cond_0
     monitor-exit p0
 
     .line 1367
     return-void
 
     .line 1366
-    :catchall_19
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
-    :try_end_1b
-    .catchall {:try_start_1 .. :try_end_1b} :catchall_19
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method

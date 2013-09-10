@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 49
@@ -55,7 +55,7 @@
 .end method
 
 .method private loadVoiceMail()V
-    .registers 11
+    .locals 10
 
     .prologue
     .line 76
@@ -71,16 +71,16 @@
 
     .line 80
     .local v5, vmFile:Ljava/io/File;
-    :try_start_b
+    :try_start_0
     new-instance v6, Ljava/io/FileReader;
 
     invoke-direct {v6, v5}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
-    :try_end_10
-    .catch Ljava/io/FileNotFoundException; {:try_start_b .. :try_end_10} :catch_2e
+    :try_end_0
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 88
     .local v6, vmReader:Ljava/io/FileReader;
-    :try_start_10
+    :try_start_1
     invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
 
     move-result-object v4
@@ -95,7 +95,7 @@
     invoke-static {v4, v7}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
 
     .line 94
-    :goto_1d
+    :goto_0
     invoke-static {v4}, Lcom/android/internal/util/XmlUtils;->nextElement(Lorg/xmlpull/v1/XmlPullParser;)V
 
     .line 96
@@ -108,23 +108,23 @@
     const-string/jumbo v7, "voicemail"
 
     invoke-virtual {v7, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    :try_end_2a
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_10 .. :try_end_2a} :catch_89
-    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_2a} :catch_a3
+    :try_end_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
 
     move-result v7
 
-    if-nez v7, :cond_58
+    if-nez v7, :cond_0
 
     .line 114
     .end local v2           #name:Ljava/lang/String;
     .end local v4           #parser:Lorg/xmlpull/v1/XmlPullParser;
     .end local v6           #vmReader:Ljava/io/FileReader;
-    :goto_2d
+    :goto_1
     return-void
 
     .line 81
-    :catch_2e
+    :catch_0
     move-exception v1
 
     .line 82
@@ -167,17 +167,17 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2d
+    goto :goto_1
 
     .line 101
     .end local v1           #e:Ljava/io/FileNotFoundException;
     .restart local v2       #name:Ljava/lang/String;
     .restart local v4       #parser:Lorg/xmlpull/v1/XmlPullParser;
     .restart local v6       #vmReader:Ljava/io/FileReader;
-    :cond_58
+    :cond_0
     const/4 v7, 0x3
 
-    :try_start_59
+    :try_start_2
     new-array v0, v7, [Ljava/lang/String;
 
     .line 102
@@ -234,18 +234,18 @@
     iget-object v7, p0, Lcom/android/internal/telephony/gsm/VoiceMailConstants;->CarrierVmMap:Ljava/util/HashMap;
 
     invoke-virtual {v7, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_88
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_59 .. :try_end_88} :catch_89
-    .catch Ljava/io/IOException; {:try_start_59 .. :try_end_88} :catch_a3
+    :try_end_2
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 109
     .end local v0           #data:[Ljava/lang/String;
     .end local v2           #name:Ljava/lang/String;
     .end local v3           #numeric:Ljava/lang/String;
     .end local v4           #parser:Lorg/xmlpull/v1/XmlPullParser;
-    :catch_89
+    :catch_1
     move-exception v1
 
     .line 110
@@ -272,11 +272,11 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2d
+    goto :goto_1
 
     .line 111
     .end local v1           #e:Lorg/xmlpull/v1/XmlPullParserException;
-    :catch_a3
+    :catch_2
     move-exception v1
 
     .line 112
@@ -303,13 +303,13 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_2d
+    goto/16 :goto_1
 .end method
 
 
 # virtual methods
 .method containsCarrier(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "carrier"
 
     .prologue
@@ -324,7 +324,7 @@
 .end method
 
 .method getCarrierName(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "carrier"
 
     .prologue
@@ -347,7 +347,7 @@
 .end method
 
 .method getVoiceMailNumber(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "carrier"
 
     .prologue
@@ -370,7 +370,7 @@
 .end method
 
 .method getVoiceMailTag(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "carrier"
 
     .prologue

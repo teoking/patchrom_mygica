@@ -15,7 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 4
+    .locals 4
 
     .prologue
     const/16 v3, 0xff
@@ -29,8 +29,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_7
-    if-ge v0, v3, :cond_11
+    :goto_0
+    if-ge v0, v3, :cond_0
 
     .line 42
     sget-object v1, Lcom/google/android/mms/pdu/Base64;->base64Alphabet:[B
@@ -42,16 +42,16 @@
     .line 41
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 44
-    :cond_11
+    :cond_0
     const/16 v0, 0x5a
 
-    :goto_13
+    :goto_1
     const/16 v1, 0x41
 
-    if-lt v0, v1, :cond_21
+    if-lt v0, v1, :cond_1
 
     .line 45
     sget-object v1, Lcom/google/android/mms/pdu/Base64;->base64Alphabet:[B
@@ -65,16 +65,16 @@
     .line 44
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_13
+    goto :goto_1
 
     .line 47
-    :cond_21
+    :cond_1
     const/16 v0, 0x7a
 
-    :goto_23
+    :goto_2
     const/16 v1, 0x61
 
-    if-lt v0, v1, :cond_33
+    if-lt v0, v1, :cond_2
 
     .line 48
     sget-object v1, Lcom/google/android/mms/pdu/Base64;->base64Alphabet:[B
@@ -90,16 +90,16 @@
     .line 47
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_23
+    goto :goto_2
 
     .line 50
-    :cond_33
+    :cond_2
     const/16 v0, 0x39
 
-    :goto_35
+    :goto_3
     const/16 v1, 0x30
 
-    if-lt v0, v1, :cond_45
+    if-lt v0, v1, :cond_3
 
     .line 51
     sget-object v1, Lcom/google/android/mms/pdu/Base64;->base64Alphabet:[B
@@ -115,10 +115,10 @@
     .line 50
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_35
+    goto :goto_3
 
     .line 54
-    :cond_45
+    :cond_3
     sget-object v1, Lcom/google/android/mms/pdu/Base64;->base64Alphabet:[B
 
     const/16 v2, 0x2b
@@ -141,7 +141,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 20
@@ -151,7 +151,7 @@
 .end method
 
 .method public static decodeBase64([B)[B
-    .registers 16
+    .locals 15
     .parameter "base64Data"
 
     .prologue
@@ -163,7 +163,7 @@
     .line 69
     array-length v12, p0
 
-    if-nez v12, :cond_b
+    if-nez v12, :cond_1
 
     .line 70
     const/4 v12, 0x0
@@ -171,12 +171,12 @@
     new-array v5, v12, [B
 
     .line 123
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return-object v5
 
     .line 73
-    :cond_b
+    :cond_1
     array-length v12, p0
 
     div-int/lit8 v11, v12, 0x4
@@ -218,29 +218,29 @@
 
     .line 85
     .local v8, lastData:I
-    :cond_18
+    :cond_2
     add-int/lit8 v12, v8, -0x1
 
     aget-byte v12, p0, v12
 
     const/16 v13, 0x3d
 
-    if-ne v12, v13, :cond_28
+    if-ne v12, v13, :cond_3
 
     .line 86
     add-int/lit8 v8, v8, -0x1
 
-    if-nez v8, :cond_18
+    if-nez v8, :cond_2
 
     .line 87
     const/4 v12, 0x0
 
     new-array v5, v12, [B
 
-    goto :goto_a
+    goto :goto_0
 
     .line 90
-    :cond_28
+    :cond_3
     sub-int v12, v8, v11
 
     new-array v5, v12, [B
@@ -249,8 +249,8 @@
     const/4 v7, 0x0
 
     .local v7, i:I
-    :goto_2d
-    if-ge v7, v11, :cond_a
+    :goto_1
+    if-ge v7, v11, :cond_0
 
     .line 94
     mul-int/lit8 v4, v7, 0x4
@@ -284,11 +284,11 @@
     .line 101
     const/16 v12, 0x3d
 
-    if-eq v9, v12, :cond_7a
+    if-eq v9, v12, :cond_5
 
     const/16 v12, 0x3d
 
-    if-eq v10, v12, :cond_7a
+    if-eq v10, v12, :cond_5
 
     .line 103
     sget-object v12, Lcom/google/android/mms/pdu/Base64;->base64Alphabet:[B
@@ -340,20 +340,20 @@
     aput-byte v13, v5, v12
 
     .line 121
-    :cond_75
-    :goto_75
+    :cond_4
+    :goto_2
     add-int/lit8 v6, v6, 0x3
 
     .line 93
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_2d
+    goto :goto_1
 
     .line 110
-    :cond_7a
+    :cond_5
     const/16 v12, 0x3d
 
-    if-ne v9, v12, :cond_87
+    if-ne v9, v12, :cond_6
 
     .line 112
     shl-int/lit8 v12, v0, 0x2
@@ -366,13 +366,13 @@
 
     aput-byte v12, v5, v6
 
-    goto :goto_75
+    goto :goto_2
 
     .line 113
-    :cond_87
+    :cond_6
     const/16 v12, 0x3d
 
-    if-ne v10, v12, :cond_75
+    if-ne v10, v12, :cond_4
 
     .line 115
     sget-object v12, Lcom/google/android/mms/pdu/Base64;->base64Alphabet:[B
@@ -407,11 +407,11 @@
 
     aput-byte v13, v5, v12
 
-    goto :goto_75
+    goto :goto_2
 .end method
 
 .method static discardNonBase64([B)[B
-    .registers 8
+    .locals 7
     .parameter "data"
 
     .prologue
@@ -431,10 +431,10 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_6
+    :goto_0
     array-length v5, p0
 
-    if-ge v3, v5, :cond_1b
+    if-ge v3, v5, :cond_1
 
     .line 156
     aget-byte v5, p0, v3
@@ -443,7 +443,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_18
+    if-eqz v5, :cond_0
 
     .line 157
     add-int/lit8 v1, v0, 0x1
@@ -459,13 +459,13 @@
     .line 155
     .end local v1           #bytesCopied:I
     .restart local v0       #bytesCopied:I
-    :cond_18
+    :cond_0
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 161
-    :cond_1b
+    :cond_1
     new-array v4, v0, [B
 
     .line 163
@@ -477,7 +477,7 @@
 .end method
 
 .method private static isBase64(B)Z
-    .registers 4
+    .locals 3
     .parameter "octect"
 
     .prologue
@@ -486,25 +486,25 @@
     .line 133
     const/16 v1, 0x3d
 
-    if-ne p0, v1, :cond_6
+    if-ne p0, v1, :cond_1
 
     .line 138
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return v0
 
     .line 135
-    :cond_6
+    :cond_1
     sget-object v1, Lcom/google/android/mms/pdu/Base64;->base64Alphabet:[B
 
     aget-byte v1, v1, p0
 
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_5
+    if-ne v1, v2, :cond_0
 
     .line 136
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method

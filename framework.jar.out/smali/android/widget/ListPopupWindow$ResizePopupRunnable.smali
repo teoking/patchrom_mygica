@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/ListPopupWindow;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/ListPopupWindow;Landroid/widget/ListPopupWindow$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,20 +50,22 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1257
     iget-object v0, p0, Landroid/widget/ListPopupWindow$ResizePopupRunnable;->this$0:Landroid/widget/ListPopupWindow;
 
+    #getter for: Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
     invoke-static {v0}, Landroid/widget/ListPopupWindow;->access$600(Landroid/widget/ListPopupWindow;)Landroid/widget/ListPopupWindow$DropDownListView;
 
     move-result-object v0
 
-    if-eqz v0, :cond_3d
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/ListPopupWindow$ResizePopupRunnable;->this$0:Landroid/widget/ListPopupWindow;
 
+    #getter for: Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
     invoke-static {v0}, Landroid/widget/ListPopupWindow;->access$600(Landroid/widget/ListPopupWindow;)Landroid/widget/ListPopupWindow$DropDownListView;
 
     move-result-object v0
@@ -74,6 +76,7 @@
 
     iget-object v1, p0, Landroid/widget/ListPopupWindow$ResizePopupRunnable;->this$0:Landroid/widget/ListPopupWindow;
 
+    #getter for: Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
     invoke-static {v1}, Landroid/widget/ListPopupWindow;->access$600(Landroid/widget/ListPopupWindow;)Landroid/widget/ListPopupWindow$DropDownListView;
 
     move-result-object v1
@@ -82,10 +85,11 @@
 
     move-result v1
 
-    if-le v0, v1, :cond_3d
+    if-le v0, v1, :cond_0
 
     iget-object v0, p0, Landroid/widget/ListPopupWindow$ResizePopupRunnable;->this$0:Landroid/widget/ListPopupWindow;
 
+    #getter for: Landroid/widget/ListPopupWindow;->mDropDownList:Landroid/widget/ListPopupWindow$DropDownListView;
     invoke-static {v0}, Landroid/widget/ListPopupWindow;->access$600(Landroid/widget/ListPopupWindow;)Landroid/widget/ListPopupWindow$DropDownListView;
 
     move-result-object v0
@@ -98,11 +102,12 @@
 
     iget v1, v1, Landroid/widget/ListPopupWindow;->mListItemExpandMaximum:I
 
-    if-gt v0, v1, :cond_3d
+    if-gt v0, v1, :cond_0
 
     .line 1259
     iget-object v0, p0, Landroid/widget/ListPopupWindow$ResizePopupRunnable;->this$0:Landroid/widget/ListPopupWindow;
 
+    #getter for: Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
     invoke-static {v0}, Landroid/widget/ListPopupWindow;->access$700(Landroid/widget/ListPopupWindow;)Landroid/widget/PopupWindow;
 
     move-result-object v0
@@ -117,6 +122,6 @@
     invoke-virtual {v0}, Landroid/widget/ListPopupWindow;->show()V
 
     .line 1262
-    :cond_3d
+    :cond_0
     return-void
 .end method

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;Ljava/io/File;)V
-    .registers 3
+    .locals 0
     .parameter "real"
     .parameter "temp"
 
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public chooseForRead()Ljava/io/File;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 40
@@ -44,7 +44,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_1
 
     .line 41
     iget-object v0, p0, Lcom/android/internal/util/JournaledFile;->mReal:Ljava/io/File;
@@ -57,7 +57,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_0
 
     .line 43
     iget-object v1, p0, Lcom/android/internal/util/JournaledFile;->mTemp:Ljava/io/File;
@@ -66,19 +66,19 @@
 
     .line 51
     .end local v0           #result:Ljava/io/File;
-    :cond_17
-    :goto_17
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 45
-    :cond_18
+    :cond_1
     iget-object v1, p0, Lcom/android/internal/util/JournaledFile;->mTemp:Ljava/io/File;
 
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2a
+    if-eqz v1, :cond_2
 
     .line 46
     iget-object v0, p0, Lcom/android/internal/util/JournaledFile;->mTemp:Ljava/io/File;
@@ -91,24 +91,24 @@
 
     invoke-virtual {v1, v2}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
-    goto :goto_17
+    goto :goto_0
 
     .line 49
     .end local v0           #result:Ljava/io/File;
-    :cond_2a
+    :cond_2
     iget-object v0, p0, Lcom/android/internal/util/JournaledFile;->mReal:Ljava/io/File;
 
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method public chooseForWrite()Ljava/io/File;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 63
     iget-boolean v0, p0, Lcom/android/internal/util/JournaledFile;->mWriting:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 64
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -120,33 +120,33 @@
     throw v0
 
     .line 66
-    :cond_d
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/util/JournaledFile;->mReal:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v0
 
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_1
 
     .line 73
-    :try_start_15
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/util/JournaledFile;->mReal:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z
-    :try_end_1a
-    .catch Ljava/io/IOException; {:try_start_15 .. :try_end_1a} :catch_2d
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 79
-    :cond_1a
-    :goto_1a
+    :cond_1
+    :goto_0
     iget-object v0, p0, Lcom/android/internal/util/JournaledFile;->mTemp:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v0
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_2
 
     .line 80
     iget-object v0, p0, Lcom/android/internal/util/JournaledFile;->mTemp:Ljava/io/File;
@@ -154,7 +154,7 @@
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
     .line 82
-    :cond_27
+    :cond_2
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/util/JournaledFile;->mWriting:Z
@@ -165,20 +165,20 @@
     return-object v0
 
     .line 74
-    :catch_2d
+    :catch_0
     move-exception v0
 
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 .method public commit()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 90
     iget-boolean v0, p0, Lcom/android/internal/util/JournaledFile;->mWriting:Z
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 91
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -190,7 +190,7 @@
     throw v0
 
     .line 93
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/util/JournaledFile;->mWriting:Z
@@ -207,13 +207,13 @@
 .end method
 
 .method public rollback()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 101
     iget-boolean v0, p0, Lcom/android/internal/util/JournaledFile;->mWriting:Z
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 102
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -225,7 +225,7 @@
     throw v0
 
     .line 104
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/util/JournaledFile;->mWriting:Z

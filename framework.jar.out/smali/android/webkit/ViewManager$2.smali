@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/ViewManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 266
@@ -46,6 +46,7 @@
 
     const/4 v1, 0x0
 
+    #setter for: Landroid/webkit/ViewManager;->mReadyToDraw:Z
     invoke-static {v0, v1}, Landroid/webkit/ViewManager;->access$402(Landroid/webkit/ViewManager;Z)Z
 
     .line 267

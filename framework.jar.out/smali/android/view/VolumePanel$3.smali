@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/VolumePanel;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .registers 4
+    .locals 2
     .parameter "dialog"
 
     .prologue
@@ -47,17 +47,20 @@
 
     const/4 v1, -0x1
 
+    #setter for: Landroid/view/VolumePanel;->mActiveStreamType:I
     invoke-static {v0, v1}, Landroid/view/VolumePanel;->access$202(Landroid/view/VolumePanel;I)I
 
     .line 254
     iget-object v0, p0, Landroid/view/VolumePanel$3;->this$0:Landroid/view/VolumePanel;
 
+    #getter for: Landroid/view/VolumePanel;->mAudioManager:Landroid/media/AudioManager;
     invoke-static {v0}, Landroid/view/VolumePanel;->access$300(Landroid/view/VolumePanel;)Landroid/media/AudioManager;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/view/VolumePanel$3;->this$0:Landroid/view/VolumePanel;
 
+    #getter for: Landroid/view/VolumePanel;->mActiveStreamType:I
     invoke-static {v1}, Landroid/view/VolumePanel;->access$200(Landroid/view/VolumePanel;)I
 
     move-result v1

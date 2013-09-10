@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/android/mms/pdu/GenericPdu;IJ)V
-    .registers 5
+    .locals 0
     .parameter "pdu"
     .parameter "msgBox"
     .parameter "threadId"
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public getMessageBox()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 38
@@ -48,7 +48,7 @@
 .end method
 
 .method public getPdu()Lcom/google/android/mms/pdu/GenericPdu;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 34
@@ -58,7 +58,7 @@
 .end method
 
 .method public getThreadId()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 42

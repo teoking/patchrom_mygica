@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Intent;)V
-    .registers 3
+    .locals 1
     .parameter "intent"
 
     .prologue
@@ -46,14 +46,14 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 4
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 6033
     instance-of v1, p1, Landroid/content/Intent$FilterComparison;
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_0
 
     .line 6034
     check-cast p1, Landroid/content/Intent$FilterComparison;
@@ -71,18 +71,18 @@
 
     .line 6037
     .end local v0           #other:Landroid/content/Intent;
-    :goto_e
+    :goto_0
     return v1
 
     .restart local p1
-    :cond_f
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public getIntent()Landroid/content/Intent;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 6028
@@ -92,7 +92,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 6042

@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "name"
 
     .prologue
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "context"
 
@@ -73,7 +73,7 @@
     .line 71
     iget-object v0, p0, Landroid/filterpacks/base/GLTextureSource;->mFrame:Landroid/filterfw/core/Frame;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 72
     iget-object v0, p0, Landroid/filterpacks/base/GLTextureSource;->mFrame:Landroid/filterfw/core/Frame;
@@ -86,12 +86,12 @@
     iput-object v0, p0, Landroid/filterpacks/base/GLTextureSource;->mFrame:Landroid/filterfw/core/Frame;
 
     .line 75
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -100,7 +100,7 @@
     .line 80
     iget-object v1, p0, Landroid/filterpacks/base/GLTextureSource;->mFrame:Landroid/filterfw/core/Frame;
 
-    if-nez v1, :cond_23
+    if-nez v1, :cond_0
 
     .line 81
     iget v1, p0, Landroid/filterpacks/base/GLTextureSource;->mWidth:I
@@ -138,7 +138,7 @@
 
     .line 91
     .end local v0           #outputFormat:Landroid/filterfw/core/FrameFormat;
-    :cond_23
+    :cond_0
     const-string v1, "frame"
 
     iget-object v2, p0, Landroid/filterpacks/base/GLTextureSource;->mFrame:Landroid/filterfw/core/Frame;
@@ -148,7 +148,7 @@
     .line 93
     iget-boolean v1, p0, Landroid/filterpacks/base/GLTextureSource;->mRepeatFrame:Z
 
-    if-nez v1, :cond_33
+    if-nez v1, :cond_1
 
     .line 95
     const-string v1, "frame"
@@ -156,12 +156,12 @@
     invoke-virtual {p0, v1}, Landroid/filterpacks/base/GLTextureSource;->closeOutputPort(Ljava/lang/String;)V
 
     .line 97
-    :cond_33
+    :cond_1
     return-void
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x3
@@ -180,14 +180,14 @@
 .end method
 
 .method public tearDown(Landroid/filterfw/core/FilterContext;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
     .line 101
     iget-object v0, p0, Landroid/filterpacks/base/GLTextureSource;->mFrame:Landroid/filterfw/core/Frame;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 102
     iget-object v0, p0, Landroid/filterpacks/base/GLTextureSource;->mFrame:Landroid/filterfw/core/Frame;
@@ -195,6 +195,6 @@
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
 
     .line 104
-    :cond_9
+    :cond_0
     return-void
 .end method

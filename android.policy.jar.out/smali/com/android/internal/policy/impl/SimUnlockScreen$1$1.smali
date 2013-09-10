@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/SimUnlockScreen$1;Z)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 228
@@ -51,17 +51,19 @@
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/SimUnlockScreen$1;->this$0:Lcom/android/internal/policy/impl/SimUnlockScreen;
 
+    #getter for: Lcom/android/internal/policy/impl/SimUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
     invoke-static {v0}, Lcom/android/internal/policy/impl/SimUnlockScreen;->access$100(Lcom/android/internal/policy/impl/SimUnlockScreen;)Landroid/app/ProgressDialog;
 
     move-result-object v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 229
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen$1$1;->this$1:Lcom/android/internal/policy/impl/SimUnlockScreen$1;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/SimUnlockScreen$1;->this$0:Lcom/android/internal/policy/impl/SimUnlockScreen;
 
+    #getter for: Lcom/android/internal/policy/impl/SimUnlockScreen;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
     invoke-static {v0}, Lcom/android/internal/policy/impl/SimUnlockScreen;->access$100(Lcom/android/internal/policy/impl/SimUnlockScreen;)Landroid/app/ProgressDialog;
 
     move-result-object v0
@@ -69,27 +71,29 @@
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->hide()V
 
     .line 231
-    :cond_15
+    :cond_0
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen$1$1;->val$success:Z
 
-    if-eqz v0, :cond_58
+    if-eqz v0, :cond_2
 
     .line 232
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen$1$1;->this$1:Lcom/android/internal/policy/impl/SimUnlockScreen$1;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/SimUnlockScreen$1;->this$0:Lcom/android/internal/policy/impl/SimUnlockScreen;
 
+    #getter for: Lcom/android/internal/policy/impl/SimUnlockScreen;->wakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {v0}, Lcom/android/internal/policy/impl/SimUnlockScreen;->access$200(Lcom/android/internal/policy/impl/SimUnlockScreen;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v0
 
-    if-eqz v0, :cond_36
+    if-eqz v0, :cond_1
 
     .line 233
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen$1$1;->this$1:Lcom/android/internal/policy/impl/SimUnlockScreen$1;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/SimUnlockScreen$1;->this$0:Lcom/android/internal/policy/impl/SimUnlockScreen;
 
+    #getter for: Lcom/android/internal/policy/impl/SimUnlockScreen;->wakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {v0}, Lcom/android/internal/policy/impl/SimUnlockScreen;->access$200(Lcom/android/internal/policy/impl/SimUnlockScreen;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v0
@@ -103,14 +107,16 @@
 
     const/4 v1, 0x0
 
+    #setter for: Lcom/android/internal/policy/impl/SimUnlockScreen;->wakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/SimUnlockScreen;->access$202(Lcom/android/internal/policy/impl/SimUnlockScreen;Landroid/os/PowerManager$WakeLock;)Landroid/os/PowerManager$WakeLock;
 
     .line 238
-    :cond_36
+    :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen$1$1;->this$1:Lcom/android/internal/policy/impl/SimUnlockScreen$1;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/SimUnlockScreen$1;->this$0:Lcom/android/internal/policy/impl/SimUnlockScreen;
 
+    #getter for: Lcom/android/internal/policy/impl/SimUnlockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
     invoke-static {v0}, Lcom/android/internal/policy/impl/SimUnlockScreen;->access$300(Lcom/android/internal/policy/impl/SimUnlockScreen;)Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     move-result-object v0
@@ -122,6 +128,7 @@
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/SimUnlockScreen$1;->this$0:Lcom/android/internal/policy/impl/SimUnlockScreen;
 
+    #getter for: Lcom/android/internal/policy/impl/SimUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
     invoke-static {v0}, Lcom/android/internal/policy/impl/SimUnlockScreen;->access$400(Lcom/android/internal/policy/impl/SimUnlockScreen;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     move-result-object v0
@@ -129,11 +136,12 @@
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->goToUnlockScreen()V
 
     .line 245
-    :goto_4c
+    :goto_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen$1$1;->this$1:Lcom/android/internal/policy/impl/SimUnlockScreen$1;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/SimUnlockScreen$1;->this$0:Lcom/android/internal/policy/impl/SimUnlockScreen;
 
+    #getter for: Lcom/android/internal/policy/impl/SimUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
     invoke-static {v0}, Lcom/android/internal/policy/impl/SimUnlockScreen;->access$400(Lcom/android/internal/policy/impl/SimUnlockScreen;)Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     move-result-object v0
@@ -144,11 +152,12 @@
     return-void
 
     .line 241
-    :cond_58
+    :cond_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/SimUnlockScreen$1$1;->this$1:Lcom/android/internal/policy/impl/SimUnlockScreen$1;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/SimUnlockScreen$1;->this$0:Lcom/android/internal/policy/impl/SimUnlockScreen;
 
+    #getter for: Lcom/android/internal/policy/impl/SimUnlockScreen;->mHeaderText:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/internal/policy/impl/SimUnlockScreen;->access$500(Lcom/android/internal/policy/impl/SimUnlockScreen;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -162,6 +171,7 @@
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/SimUnlockScreen$1;->this$0:Lcom/android/internal/policy/impl/SimUnlockScreen;
 
+    #getter for: Lcom/android/internal/policy/impl/SimUnlockScreen;->mPinText:Landroid/widget/TextView;
     invoke-static {v0}, Lcom/android/internal/policy/impl/SimUnlockScreen;->access$600(Lcom/android/internal/policy/impl/SimUnlockScreen;)Landroid/widget/TextView;
 
     move-result-object v0
@@ -177,7 +187,8 @@
 
     const/4 v1, 0x0
 
+    #setter for: Lcom/android/internal/policy/impl/SimUnlockScreen;->mEnteredDigits:I
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/SimUnlockScreen;->access$702(Lcom/android/internal/policy/impl/SimUnlockScreen;I)I
 
-    goto :goto_4c
+    goto :goto_0
 .end method

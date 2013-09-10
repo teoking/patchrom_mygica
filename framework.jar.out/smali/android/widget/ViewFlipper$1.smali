@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/ViewFlipper;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
@@ -55,44 +55,48 @@
 
     move-result v1
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_1
 
     .line 76
     iget-object v1, p0, Landroid/widget/ViewFlipper$1;->this$0:Landroid/widget/ViewFlipper;
 
+    #setter for: Landroid/widget/ViewFlipper;->mUserPresent:Z
     invoke-static {v1, v3}, Landroid/widget/ViewFlipper;->access$002(Landroid/widget/ViewFlipper;Z)Z
 
     .line 77
     iget-object v1, p0, Landroid/widget/ViewFlipper$1;->this$0:Landroid/widget/ViewFlipper;
 
+    #calls: Landroid/widget/ViewFlipper;->updateRunning()V
     invoke-static {v1}, Landroid/widget/ViewFlipper;->access$100(Landroid/widget/ViewFlipper;)V
 
     .line 82
-    :cond_17
-    :goto_17
+    :cond_0
+    :goto_0
     return-void
 
     .line 78
-    :cond_18
+    :cond_1
     const-string v1, "android.intent.action.USER_PRESENT"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_0
 
     .line 79
     iget-object v1, p0, Landroid/widget/ViewFlipper$1;->this$0:Landroid/widget/ViewFlipper;
 
     const/4 v2, 0x1
 
+    #setter for: Landroid/widget/ViewFlipper;->mUserPresent:Z
     invoke-static {v1, v2}, Landroid/widget/ViewFlipper;->access$002(Landroid/widget/ViewFlipper;Z)Z
 
     .line 80
     iget-object v1, p0, Landroid/widget/ViewFlipper$1;->this$0:Landroid/widget/ViewFlipper;
 
+    #calls: Landroid/widget/ViewFlipper;->updateRunning(Z)V
     invoke-static {v1, v3}, Landroid/widget/ViewFlipper;->access$200(Landroid/widget/ViewFlipper;Z)V
 
-    goto :goto_17
+    goto :goto_0
 .end method

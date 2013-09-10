@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "newVersion"
 
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onCreate(Landroid/database/sqlite/SQLiteDatabase;)V
-    .registers 4
+    .locals 2
     .parameter "db"
 
     .prologue
@@ -62,7 +62,7 @@
 
     and-int/lit8 v1, v1, 0x2
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_0
 
     .line 143
     const-string v1, ",display2 TEXT"
@@ -70,7 +70,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 145
-    :cond_15
+    :cond_0
     const-string v1, ",query TEXT,date LONG);"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -87,7 +87,7 @@
 .end method
 
 .method public onUpgrade(Landroid/database/sqlite/SQLiteDatabase;II)V
-    .registers 7
+    .locals 3
     .parameter "db"
     .parameter "oldVersion"
     .parameter "newVersion"

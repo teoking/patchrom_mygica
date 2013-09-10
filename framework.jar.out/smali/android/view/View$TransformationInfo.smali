@@ -86,7 +86,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v5, 0x0
@@ -166,7 +166,7 @@
 .end method
 
 .method static synthetic access$1100(Landroid/view/View$TransformationInfo;)Landroid/graphics/Matrix;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -177,7 +177,7 @@
 .end method
 
 .method static synthetic access$1200(Landroid/view/View$TransformationInfo;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -188,7 +188,7 @@
 .end method
 
 .method static synthetic access$1202(Landroid/view/View$TransformationInfo;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -200,7 +200,7 @@
 .end method
 
 .method static synthetic access$1300(Landroid/view/View$TransformationInfo;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -211,7 +211,7 @@
 .end method
 
 .method static synthetic access$1302(Landroid/view/View$TransformationInfo;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -223,7 +223,7 @@
 .end method
 
 .method static synthetic access$1400(Landroid/view/View$TransformationInfo;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -234,7 +234,7 @@
 .end method
 
 .method static synthetic access$1402(Landroid/view/View$TransformationInfo;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -246,7 +246,7 @@
 .end method
 
 .method static synthetic access$1500(Landroid/view/View$TransformationInfo;)Landroid/graphics/Camera;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -257,7 +257,7 @@
 .end method
 
 .method static synthetic access$1502(Landroid/view/View$TransformationInfo;Landroid/graphics/Camera;)Landroid/graphics/Camera;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -269,7 +269,7 @@
 .end method
 
 .method static synthetic access$1600(Landroid/view/View$TransformationInfo;)Landroid/graphics/Matrix;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -280,7 +280,7 @@
 .end method
 
 .method static synthetic access$1602(Landroid/view/View$TransformationInfo;Landroid/graphics/Matrix;)Landroid/graphics/Matrix;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -292,7 +292,7 @@
 .end method
 
 .method static synthetic access$1700(Landroid/view/View$TransformationInfo;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -303,7 +303,7 @@
 .end method
 
 .method static synthetic access$1702(Landroid/view/View$TransformationInfo;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -315,7 +315,7 @@
 .end method
 
 .method static synthetic access$1800(Landroid/view/View$TransformationInfo;)Landroid/graphics/Matrix;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -326,7 +326,7 @@
 .end method
 
 .method static synthetic access$1802(Landroid/view/View$TransformationInfo;Landroid/graphics/Matrix;)Landroid/graphics/Matrix;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

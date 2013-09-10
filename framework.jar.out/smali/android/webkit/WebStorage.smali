@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 208
@@ -24,7 +24,7 @@
 .end method
 
 .method public static getInstance()Landroid/webkit/WebStorage;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 197
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public deleteAllData()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 189
@@ -50,7 +50,7 @@
 .end method
 
 .method public deleteOrigin(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "origin"
 
     .prologue
@@ -59,7 +59,7 @@
 .end method
 
 .method public getOrigins(Landroid/webkit/ValueCallback;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -78,7 +78,7 @@
 .end method
 
 .method public getQuotaForOrigin(Ljava/lang/String;Landroid/webkit/ValueCallback;)V
-    .registers 3
+    .locals 0
     .parameter "origin"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -99,7 +99,7 @@
 .end method
 
 .method public getUsageForOrigin(Ljava/lang/String;Landroid/webkit/ValueCallback;)V
-    .registers 3
+    .locals 0
     .parameter "origin"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -120,7 +120,7 @@
 .end method
 
 .method public setQuotaForOrigin(Ljava/lang/String;J)V
-    .registers 4
+    .locals 0
     .parameter "origin"
     .parameter "quota"
 

@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ServiceRecord;Ljava/lang/String;IIILandroid/app/Notification;)V
-    .registers 7
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 12
+    .locals 11
 
     .prologue
     const/4 v10, 0x0
@@ -79,17 +79,17 @@
 
     .line 363
     .local v0, nm:Lcom/android/server/NotificationManagerService;
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 380
-    :goto_a
+    :goto_0
     return-void
 
     .line 367
-    :cond_b
+    :cond_0
     const/4 v1, 0x1
 
-    :try_start_c
+    :try_start_0
     new-array v7, v1, [I
 
     .line 368
@@ -107,14 +107,14 @@
     iget-object v6, p0, Lcom/android/server/am/ServiceRecord$1;->val$localForegroundNoti:Landroid/app/Notification;
 
     invoke-virtual/range {v0 .. v7}, Lcom/android/server/NotificationManagerService;->enqueueNotificationInternal(Ljava/lang/String;IILjava/lang/String;ILandroid/app/Notification;[I)V
-    :try_end_1c
-    .catch Ljava/lang/RuntimeException; {:try_start_c .. :try_end_1c} :catch_1d
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_a
+    goto :goto_0
 
     .line 370
     .end local v7           #outId:[I
-    :catch_1d
+    :catch_0
     move-exception v8
 
     .line 371
@@ -175,5 +175,5 @@
 
     invoke-virtual {v1, v2, v3, v4, v5}, Lcom/android/server/am/ActivityManagerService;->crashApplication(IILjava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_a
+    goto :goto_0
 .end method

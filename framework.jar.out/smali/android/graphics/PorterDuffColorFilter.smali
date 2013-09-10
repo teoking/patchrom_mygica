@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(ILandroid/graphics/PorterDuff$Mode;)V
-    .registers 5
+    .locals 2
     .parameter "srcColor"
     .parameter "mode"
 

@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 12
+    .locals 0
     .parameter "uniqueId"
     .parameter "fullName"
     .parameter "email"
@@ -97,7 +97,7 @@
 
 # virtual methods
 .method public getAddressLine1()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 163
@@ -107,7 +107,7 @@
 .end method
 
 .method public getAddressLine2()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 164
@@ -117,7 +117,7 @@
 .end method
 
 .method public getCity()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 165
@@ -127,7 +127,7 @@
 .end method
 
 .method public getCompanyName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 162
@@ -137,7 +137,7 @@
 .end method
 
 .method public getCountry()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 168
@@ -147,7 +147,7 @@
 .end method
 
 .method public getEmailAddress()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 161
@@ -157,7 +157,7 @@
 .end method
 
 .method public getFullName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 160
@@ -167,7 +167,7 @@
 .end method
 
 .method public getPhoneNumber()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 169
@@ -177,7 +177,7 @@
 .end method
 
 .method public getState()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 166
@@ -187,7 +187,7 @@
 .end method
 
 .method public getUniqueId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 159
@@ -197,7 +197,7 @@
 .end method
 
 .method public getZipCode()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 167

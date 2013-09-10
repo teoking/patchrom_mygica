@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1787
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public addParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/provider/ContactsContract$Contacts$AggregationSuggestions$Builder;
-    .registers 4
+    .locals 1
     .parameter "kind"
     .parameter "value"
 
@@ -80,7 +80,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 1814
     iget-object v0, p0, Landroid/provider/ContactsContract$Contacts$AggregationSuggestions$Builder;->mKinds:Ljava/util/ArrayList;
@@ -93,12 +93,12 @@
     invoke-virtual {v0, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 1817
-    :cond_10
+    :cond_0
     return-object p0
 .end method
 
 .method public build()Landroid/net/Uri;
-    .registers 7
+    .locals 6
 
     .prologue
     .line 1826
@@ -126,7 +126,7 @@
     .line 1829
     iget v3, p0, Landroid/provider/ContactsContract$Contacts$AggregationSuggestions$Builder;->mLimit:I
 
-    if-eqz v3, :cond_24
+    if-eqz v3, :cond_0
 
     .line 1830
     const-string v3, "limit"
@@ -140,7 +140,7 @@
     invoke-virtual {v0, v3, v4}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
 
     .line 1833
-    :cond_24
+    :cond_0
     iget-object v3, p0, Landroid/provider/ContactsContract$Contacts$AggregationSuggestions$Builder;->mKinds:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
@@ -152,8 +152,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_2b
-    if-ge v2, v1, :cond_5d
+    :goto_0
+    if-ge v2, v1, :cond_1
 
     .line 1835
     const-string/jumbo v4, "query"
@@ -201,10 +201,10 @@
     .line 1834
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2b
+    goto :goto_0
 
     .line 1838
-    :cond_5d
+    :cond_1
     invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
 
     move-result-object v3
@@ -213,7 +213,7 @@
 .end method
 
 .method public setContactId(J)Landroid/provider/ContactsContract$Contacts$AggregationSuggestions$Builder;
-    .registers 3
+    .locals 0
     .parameter "contactId"
 
     .prologue
@@ -225,7 +225,7 @@
 .end method
 
 .method public setLimit(I)Landroid/provider/ContactsContract$Contacts$AggregationSuggestions$Builder;
-    .registers 2
+    .locals 0
     .parameter "limit"
 
     .prologue

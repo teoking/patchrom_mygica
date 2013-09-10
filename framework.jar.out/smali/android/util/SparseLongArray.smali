@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 38
@@ -29,7 +29,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "initialCapacity"
 
     .prologue
@@ -61,7 +61,7 @@
 .end method
 
 .method private static binarySearch([IIIJ)I
-    .registers 10
+    .locals 5
     .parameter "a"
     .parameter "start"
     .parameter "len"
@@ -76,12 +76,12 @@
 
     .line 231
     .local v2, low:I
-    :goto_4
+    :goto_0
     sub-int v3, v1, v2
 
     const/4 v4, 0x1
 
-    if-le v3, v4, :cond_18
+    if-le v3, v4, :cond_1
 
     .line 232
     add-int v3, v1, v2
@@ -96,25 +96,25 @@
 
     cmp-long v3, v3, p3
 
-    if-gez v3, :cond_16
+    if-gez v3, :cond_0
 
     .line 235
     move v2, v0
 
-    goto :goto_4
+    goto :goto_0
 
     .line 237
-    :cond_16
+    :cond_0
     move v1, v0
 
-    goto :goto_4
+    goto :goto_0
 
     .line 240
     .end local v0           #guess:I
-    :cond_18
+    :cond_1
     add-int v3, p1, p2
 
-    if-ne v1, v3, :cond_21
+    if-ne v1, v3, :cond_3
 
     .line 241
     add-int v3, p1, p2
@@ -123,29 +123,29 @@
 
     .line 245
     .end local v1           #high:I
-    :cond_20
-    :goto_20
+    :cond_2
+    :goto_1
     return v1
 
     .line 242
     .restart local v1       #high:I
-    :cond_21
+    :cond_3
     aget v3, p0, v1
 
     int-to-long v3, v3
 
     cmp-long v3, v3, p3
 
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_2
 
     .line 245
     xor-int/lit8 v1, v1, -0x1
 
-    goto :goto_20
+    goto :goto_1
 .end method
 
 .method private growKeyAndValueArrays(I)V
-    .registers 8
+    .locals 6
     .parameter "minNeededSize"
 
     .prologue
@@ -196,7 +196,7 @@
 
 # virtual methods
 .method public append(IJ)V
-    .registers 7
+    .locals 3
     .parameter "key"
     .parameter "value"
 
@@ -204,7 +204,7 @@
     .line 200
     iget v1, p0, Landroid/util/SparseLongArray;->mSize:I
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/util/SparseLongArray;->mKeys:[I
 
@@ -214,17 +214,17 @@
 
     aget v1, v1, v2
 
-    if-gt p1, v1, :cond_12
+    if-gt p1, v1, :cond_0
 
     .line 201
     invoke-virtual {p0, p1, p2, p3}, Landroid/util/SparseLongArray;->put(IJ)V
 
     .line 213
-    :goto_11
+    :goto_0
     return-void
 
     .line 205
-    :cond_12
+    :cond_0
     iget v0, p0, Landroid/util/SparseLongArray;->mSize:I
 
     .line 206
@@ -233,7 +233,7 @@
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_1e
+    if-lt v0, v1, :cond_1
 
     .line 207
     add-int/lit8 v1, v0, 0x1
@@ -241,7 +241,7 @@
     invoke-direct {p0, v1}, Landroid/util/SparseLongArray;->growKeyAndValueArrays(I)V
 
     .line 210
-    :cond_1e
+    :cond_1
     iget-object v1, p0, Landroid/util/SparseLongArray;->mKeys:[I
 
     aput p1, v1, v0
@@ -256,11 +256,11 @@
 
     iput v1, p0, Landroid/util/SparseLongArray;->mSize:I
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public clear()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 192
@@ -273,7 +273,7 @@
 .end method
 
 .method public clone()Landroid/util/SparseLongArray;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 56
@@ -281,7 +281,7 @@
 
     .line 58
     .local v1, clone:Landroid/util/SparseLongArray;
-    :try_start_1
+    :try_start_0
     invoke-super {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v2
@@ -313,22 +313,22 @@
     check-cast v2, [J
 
     iput-object v2, v1, Landroid/util/SparseLongArray;->mValues:[J
-    :try_end_1d
-    .catch Ljava/lang/CloneNotSupportedException; {:try_start_1 .. :try_end_1d} :catch_1e
+    :try_end_0
+    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 64
-    :goto_1d
+    :goto_0
     return-object v1
 
     .line 61
-    :catch_1e
+    :catch_0
     move-exception v2
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -345,7 +345,7 @@
 .end method
 
 .method public delete(I)V
-    .registers 8
+    .locals 6
     .parameter "key"
 
     .prologue
@@ -364,18 +364,18 @@
 
     .line 95
     .local v0, i:I
-    if-ltz v0, :cond_f
+    if-ltz v0, :cond_0
 
     .line 96
     invoke-virtual {p0, v0}, Landroid/util/SparseLongArray;->removeAt(I)V
 
     .line 98
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method public get(I)J
-    .registers 4
+    .locals 2
     .parameter "key"
 
     .prologue
@@ -390,7 +390,7 @@
 .end method
 
 .method public get(IJ)J
-    .registers 10
+    .locals 6
     .parameter "key"
     .parameter "valueIfKeyNotFound"
 
@@ -410,24 +410,24 @@
 
     .line 82
     .local v0, i:I
-    if-gez v0, :cond_d
+    if-gez v0, :cond_0
 
     .line 85
     .end local p2
-    :goto_c
+    :goto_0
     return-wide p2
 
     .restart local p2
-    :cond_d
+    :cond_0
     iget-object v1, p0, Landroid/util/SparseLongArray;->mValues:[J
 
     aget-wide p2, v1, v0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public indexOfKey(I)I
-    .registers 7
+    .locals 5
     .parameter "key"
 
     .prologue
@@ -448,7 +448,7 @@
 .end method
 
 .method public indexOfValue(J)I
-    .registers 6
+    .locals 3
     .parameter "value"
 
     .prologue
@@ -456,10 +456,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget v1, p0, Landroid/util/SparseLongArray;->mSize:I
 
-    if-ge v0, v1, :cond_11
+    if-ge v0, v1, :cond_1
 
     .line 182
     iget-object v1, p0, Landroid/util/SparseLongArray;->mValues:[J
@@ -468,29 +468,29 @@
 
     cmp-long v1, v1, p1
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_0
 
     .line 185
     .end local v0           #i:I
-    :goto_d
+    :goto_1
     return v0
 
     .line 181
     .restart local v0       #i:I
-    :cond_e
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 185
-    :cond_11
+    :cond_1
     const/4 v0, -0x1
 
-    goto :goto_d
+    goto :goto_1
 .end method
 
 .method public keyAt(I)I
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -503,7 +503,7 @@
 .end method
 
 .method public put(IJ)V
-    .registers 10
+    .locals 6
     .parameter "key"
     .parameter "value"
 
@@ -523,7 +523,7 @@
 
     .line 117
     .local v0, i:I
-    if-ltz v0, :cond_11
+    if-ltz v0, :cond_0
 
     .line 118
     iget-object v1, p0, Landroid/util/SparseLongArray;->mValues:[J
@@ -531,11 +531,11 @@
     aput-wide p2, v1, v0
 
     .line 135
-    :goto_10
+    :goto_0
     return-void
 
     .line 120
-    :cond_11
+    :cond_0
     xor-int/lit8 v0, v0, -0x1
 
     .line 122
@@ -545,7 +545,7 @@
 
     array-length v2, v2
 
-    if-lt v1, v2, :cond_21
+    if-lt v1, v2, :cond_1
 
     .line 123
     iget v1, p0, Landroid/util/SparseLongArray;->mSize:I
@@ -555,12 +555,12 @@
     invoke-direct {p0, v1}, Landroid/util/SparseLongArray;->growKeyAndValueArrays(I)V
 
     .line 126
-    :cond_21
+    :cond_1
     iget v1, p0, Landroid/util/SparseLongArray;->mSize:I
 
     sub-int/2addr v1, v0
 
-    if-eqz v1, :cond_3e
+    if-eqz v1, :cond_2
 
     .line 127
     iget-object v1, p0, Landroid/util/SparseLongArray;->mKeys:[I
@@ -589,7 +589,7 @@
     invoke-static {v1, v0, v2, v3, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 131
-    :cond_3e
+    :cond_2
     iget-object v1, p0, Landroid/util/SparseLongArray;->mKeys:[I
 
     aput p1, v1, v0
@@ -606,11 +606,11 @@
 
     iput v1, p0, Landroid/util/SparseLongArray;->mSize:I
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public removeAt(I)V
-    .registers 7
+    .locals 5
     .parameter "index"
 
     .prologue
@@ -656,7 +656,7 @@
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 142
@@ -666,7 +666,7 @@
 .end method
 
 .method public valueAt(I)J
-    .registers 4
+    .locals 2
     .parameter "index"
 
     .prologue

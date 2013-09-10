@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 48
@@ -73,7 +73,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/app/NativeActivity;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -84,7 +84,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/app/NativeActivity;IIZ)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -157,14 +157,14 @@
 
 # virtual methods
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
     .line 278
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDispatchingUnhandledKey:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 279
     invoke-super {p0, p1}, Landroid/app/Activity;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
@@ -172,11 +172,11 @@
     move-result v0
 
     .line 284
-    :goto_8
+    :goto_0
     return v0
 
     .line 283
-    :cond_9
+    :cond_0
     iget v0, p0, Landroid/app/NativeActivity;->mNativeHandle:I
 
     invoke-direct {p0, v0, p1}, Landroid/app/NativeActivity;->dispatchKeyEventNative(ILandroid/view/KeyEvent;)V
@@ -184,11 +184,11 @@
     .line 284
     const/4 v0, 0x1
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method dispatchUnhandledKeyEvent(Landroid/view/KeyEvent;)Z
-    .registers 5
+    .locals 3
     .parameter "event"
 
     .prologue
@@ -197,7 +197,7 @@
     .line 349
     const/4 v1, 0x1
 
-    :try_start_2
+    :try_start_0
     iput-boolean v1, p0, Landroid/app/NativeActivity;->mDispatchingUnhandledKey:Z
 
     .line 350
@@ -211,12 +211,12 @@
 
     .line 351
     .local v0, decor:Landroid/view/View;
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 352
     invoke-virtual {v0, p1}, Landroid/view/View;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    :try_end_11
-    .catchall {:try_start_2 .. :try_end_11} :catchall_19
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v1
 
@@ -224,21 +224,21 @@
     iput-boolean v2, p0, Landroid/app/NativeActivity;->mDispatchingUnhandledKey:Z
 
     .line 354
-    :goto_14
+    :goto_0
     return v1
 
     .line 357
-    :cond_15
+    :cond_0
     iput-boolean v2, p0, Landroid/app/NativeActivity;->mDispatchingUnhandledKey:Z
 
     move v1, v2
 
     .line 354
-    goto :goto_14
+    goto :goto_0
 
     .line 357
     .end local v0           #decor:Landroid/view/View;
-    :catchall_19
+    :catchall_0
     move-exception v1
 
     iput-boolean v2, p0, Landroid/app/NativeActivity;->mDispatchingUnhandledKey:Z
@@ -247,7 +247,7 @@
 .end method
 
 .method hideIme(I)V
-    .registers 4
+    .locals 2
     .parameter "mode"
 
     .prologue
@@ -267,7 +267,7 @@
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .registers 3
+    .locals 1
     .parameter "newConfig"
 
     .prologue
@@ -277,7 +277,7 @@
     .line 255
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 256
     iget v0, p0, Landroid/app/NativeActivity;->mNativeHandle:I
@@ -285,12 +285,12 @@
     invoke-direct {p0, v0}, Landroid/app/NativeActivity;->onConfigurationChangedNative(I)V
 
     .line 258
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 18
+    .locals 16
     .parameter "savedInstanceState"
 
     .prologue
@@ -414,7 +414,7 @@
     invoke-virtual {v1, v0}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
     .line 166
-    :try_start_71
+    :try_start_0
     invoke-virtual/range {p0 .. p0}, Landroid/app/NativeActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
@@ -437,7 +437,7 @@
     .local v11, ai:Landroid/content/pm/ActivityInfo;
     iget-object v1, v11, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
-    if-eqz v1, :cond_9d
+    if-eqz v1, :cond_1
 
     .line 169
     iget-object v1, v11, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
@@ -450,30 +450,30 @@
 
     .line 170
     .local v15, ln:Ljava/lang/String;
-    if-eqz v15, :cond_92
+    if-eqz v15, :cond_0
 
     move-object v13, v15
 
     .line 171
-    :cond_92
+    :cond_0
     iget-object v1, v11, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
     const-string v4, "android.app.func_name"
 
     invoke-virtual {v1, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-    :try_end_99
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_71 .. :try_end_99} :catch_d0
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v15
 
     .line 172
-    if-eqz v15, :cond_9d
+    if-eqz v15, :cond_1
 
     move-object v3, v15
 
     .line 178
     .end local v15           #ln:Ljava/lang/String;
-    :cond_9d
+    :cond_1
     const/4 v2, 0x0
 
     .line 180
@@ -496,7 +496,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_b5
+    if-eqz v1, :cond_2
 
     .line 183
     invoke-virtual {v14}, Ljava/io/File;->getPath()Ljava/lang/String;
@@ -504,8 +504,8 @@
     move-result-object v2
 
     .line 186
-    :cond_b5
-    if-nez v2, :cond_d9
+    :cond_2
+    if-nez v2, :cond_3
 
     .line 187
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -536,7 +536,7 @@
     .end local v2           #path:Ljava/lang/String;
     .end local v11           #ai:Landroid/content/pm/ActivityInfo;
     .end local v14           #libraryFile:Ljava/io/File;
-    :catch_d0
+    :catch_0
     move-exception v12
 
     .line 175
@@ -554,8 +554,8 @@
     .restart local v2       #path:Ljava/lang/String;
     .restart local v11       #ai:Landroid/content/pm/ActivityInfo;
     .restart local v14       #libraryFile:Ljava/io/File;
-    :cond_d9
-    if-eqz p1, :cond_130
+    :cond_3
+    if-eqz p1, :cond_4
 
     const-string v1, "android:native_state"
 
@@ -567,7 +567,7 @@
 
     .line 193
     .local v10, nativeSavedState:[B
-    :goto_e3
+    :goto_0
     invoke-static {}, Landroid/os/Looper;->myQueue()Landroid/os/MessageQueue;
 
     move-result-object v4
@@ -619,7 +619,7 @@
 
     iget v1, v0, Landroid/app/NativeActivity;->mNativeHandle:I
 
-    if-nez v1, :cond_132
+    if-nez v1, :cond_5
 
     .line 199
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -648,14 +648,14 @@
 
     .line 190
     .end local v10           #nativeSavedState:[B
-    :cond_130
+    :cond_4
     const/4 v10, 0x0
 
-    goto :goto_e3
+    goto :goto_0
 
     .line 201
     .restart local v10       #nativeSavedState:[B
-    :cond_132
+    :cond_5
     invoke-super/range {p0 .. p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 202
@@ -663,7 +663,7 @@
 .end method
 
 .method protected onDestroy()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -676,7 +676,7 @@
     .line 207
     iget-object v0, p0, Landroid/app/NativeActivity;->mCurSurfaceHolder:Landroid/view/SurfaceHolder;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 208
     iget v0, p0, Landroid/app/NativeActivity;->mNativeHandle:I
@@ -687,10 +687,10 @@
     iput-object v2, p0, Landroid/app/NativeActivity;->mCurSurfaceHolder:Landroid/view/SurfaceHolder;
 
     .line 211
-    :cond_f
+    :cond_0
     iget-object v0, p0, Landroid/app/NativeActivity;->mCurInputQueue:Landroid/view/InputQueue;
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1
 
     .line 212
     iget v0, p0, Landroid/app/NativeActivity;->mNativeHandle:I
@@ -707,7 +707,7 @@
     iput-object v2, p0, Landroid/app/NativeActivity;->mCurInputQueue:Landroid/view/InputQueue;
 
     .line 215
-    :cond_20
+    :cond_1
     iget v0, p0, Landroid/app/NativeActivity;->mNativeHandle:I
 
     invoke-direct {p0, v0}, Landroid/app/NativeActivity;->unloadNativeCode(I)V
@@ -720,7 +720,7 @@
 .end method
 
 .method public onGlobalLayout()V
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v3, 0x1
@@ -757,7 +757,7 @@
 
     iget v1, p0, Landroid/app/NativeActivity;->mLastContentX:I
 
-    if-ne v0, v1, :cond_2d
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Landroid/app/NativeActivity;->mLocation:[I
 
@@ -765,18 +765,18 @@
 
     iget v1, p0, Landroid/app/NativeActivity;->mLastContentY:I
 
-    if-ne v0, v1, :cond_2d
+    if-ne v0, v1, :cond_0
 
     iget v0, p0, Landroid/app/NativeActivity;->mLastContentWidth:I
 
-    if-ne v7, v0, :cond_2d
+    if-ne v7, v0, :cond_0
 
     iget v0, p0, Landroid/app/NativeActivity;->mLastContentHeight:I
 
-    if-eq v6, v0, :cond_4f
+    if-eq v6, v0, :cond_1
 
     .line 336
-    :cond_2d
+    :cond_0
     iget-object v0, p0, Landroid/app/NativeActivity;->mLocation:[I
 
     aget v0, v0, v2
@@ -799,7 +799,7 @@
     .line 340
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
-    if-nez v0, :cond_4f
+    if-nez v0, :cond_1
 
     .line 341
     iget v1, p0, Landroid/app/NativeActivity;->mNativeHandle:I
@@ -817,19 +817,19 @@
     invoke-direct/range {v0 .. v5}, Landroid/app/NativeActivity;->onContentRectChangedNative(IIIII)V
 
     .line 345
-    :cond_4f
+    :cond_1
     return-void
 .end method
 
 .method public onInputQueueCreated(Landroid/view/InputQueue;)V
-    .registers 4
+    .locals 2
     .parameter "queue"
 
     .prologue
     .line 317
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 318
     iput-object p1, p0, Landroid/app/NativeActivity;->mCurInputQueue:Landroid/view/InputQueue;
@@ -844,12 +844,12 @@
     invoke-direct {p0, v0, v1}, Landroid/app/NativeActivity;->onInputChannelCreatedNative(ILandroid/view/InputChannel;)V
 
     .line 321
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method public onInputQueueDestroyed(Landroid/view/InputQueue;)V
-    .registers 4
+    .locals 2
     .parameter "queue"
 
     .prologue
@@ -861,7 +861,7 @@
     .line 325
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 326
     iget v0, p0, Landroid/app/NativeActivity;->mNativeHandle:I
@@ -873,12 +873,12 @@
     invoke-direct {p0, v0, v1}, Landroid/app/NativeActivity;->onInputChannelDestroyedNative(ILandroid/view/InputChannel;)V
 
     .line 328
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method public onLowMemory()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 262
@@ -887,7 +887,7 @@
     .line 263
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 264
     iget v0, p0, Landroid/app/NativeActivity;->mNativeHandle:I
@@ -895,12 +895,12 @@
     invoke-direct {p0, v0}, Landroid/app/NativeActivity;->onLowMemoryNative(I)V
 
     .line 266
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method protected onPause()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 221
@@ -916,7 +916,7 @@
 .end method
 
 .method protected onResume()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 227
@@ -932,7 +932,7 @@
 .end method
 
 .method protected onSaveInstanceState(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
     .parameter "outState"
 
     .prologue
@@ -948,7 +948,7 @@
 
     .line 235
     .local v0, state:[B
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 236
     const-string v1, "android:native_state"
@@ -956,12 +956,12 @@
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putByteArray(Ljava/lang/String;[B)V
 
     .line 238
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method protected onStart()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 242
@@ -977,7 +977,7 @@
 .end method
 
 .method protected onStop()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 248
@@ -993,7 +993,7 @@
 .end method
 
 .method public onWindowFocusChanged(Z)V
-    .registers 3
+    .locals 1
     .parameter "hasFocus"
 
     .prologue
@@ -1003,7 +1003,7 @@
     .line 271
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 272
     iget v0, p0, Landroid/app/NativeActivity;->mNativeHandle:I
@@ -1011,12 +1011,12 @@
     invoke-direct {p0, v0, p1}, Landroid/app/NativeActivity;->onWindowFocusChangedNative(IZ)V
 
     .line 274
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method preDispatchKeyEvent(Landroid/view/KeyEvent;I)V
-    .registers 5
+    .locals 2
     .parameter "event"
     .parameter "seq"
 
@@ -1033,7 +1033,7 @@
 .end method
 
 .method setWindowFlags(II)V
-    .registers 4
+    .locals 1
     .parameter "flags"
     .parameter "mask"
 
@@ -1050,7 +1050,7 @@
 .end method
 
 .method setWindowFormat(I)V
-    .registers 3
+    .locals 1
     .parameter "format"
 
     .prologue
@@ -1066,7 +1066,7 @@
 .end method
 
 .method showIme(I)V
-    .registers 4
+    .locals 2
     .parameter "mode"
 
     .prologue
@@ -1082,7 +1082,7 @@
 .end method
 
 .method public surfaceChanged(Landroid/view/SurfaceHolder;III)V
-    .registers 11
+    .locals 6
     .parameter "holder"
     .parameter "format"
     .parameter "width"
@@ -1092,7 +1092,7 @@
     .line 296
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     .line 297
     iput-object p1, p0, Landroid/app/NativeActivity;->mCurSurfaceHolder:Landroid/view/SurfaceHolder;
@@ -1115,19 +1115,19 @@
     invoke-direct/range {v0 .. v5}, Landroid/app/NativeActivity;->onSurfaceChangedNative(ILandroid/view/Surface;III)V
 
     .line 300
-    :cond_13
+    :cond_0
     return-void
 .end method
 
 .method public surfaceCreated(Landroid/view/SurfaceHolder;)V
-    .registers 4
+    .locals 2
     .parameter "holder"
 
     .prologue
     .line 289
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 290
     iput-object p1, p0, Landroid/app/NativeActivity;->mCurSurfaceHolder:Landroid/view/SurfaceHolder;
@@ -1142,12 +1142,12 @@
     invoke-direct {p0, v0, v1}, Landroid/app/NativeActivity;->onSurfaceCreatedNative(ILandroid/view/Surface;)V
 
     .line 293
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method public surfaceDestroyed(Landroid/view/SurfaceHolder;)V
-    .registers 3
+    .locals 1
     .parameter "holder"
 
     .prologue
@@ -1159,7 +1159,7 @@
     .line 311
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 312
     iget v0, p0, Landroid/app/NativeActivity;->mNativeHandle:I
@@ -1167,19 +1167,19 @@
     invoke-direct {p0, v0}, Landroid/app/NativeActivity;->onSurfaceDestroyedNative(I)V
 
     .line 314
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public surfaceRedrawNeeded(Landroid/view/SurfaceHolder;)V
-    .registers 4
+    .locals 2
     .parameter "holder"
 
     .prologue
     .line 303
     iget-boolean v0, p0, Landroid/app/NativeActivity;->mDestroyed:Z
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 304
     iput-object p1, p0, Landroid/app/NativeActivity;->mCurSurfaceHolder:Landroid/view/SurfaceHolder;
@@ -1194,6 +1194,6 @@
     invoke-direct {p0, v0, v1}, Landroid/app/NativeActivity;->onSurfaceRedrawNeededNative(ILandroid/view/Surface;)V
 
     .line 307
-    :cond_f
+    :cond_0
     return-void
 .end method

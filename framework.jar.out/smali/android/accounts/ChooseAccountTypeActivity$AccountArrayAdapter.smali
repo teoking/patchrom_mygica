@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILjava/util/ArrayList;)V
-    .registers 5
+    .locals 1
     .parameter "context"
     .parameter "textViewResourceId"
     .parameter
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .registers 8
+    .locals 4
     .parameter "position"
     .parameter "convertView"
     .parameter "parent"
@@ -91,7 +91,7 @@
     const/4 v3, 0x0
 
     .line 187
-    if-nez p2, :cond_49
+    if-nez p2, :cond_0
 
     .line 188
     iget-object v1, p0, Landroid/accounts/ChooseAccountTypeActivity$AccountArrayAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
@@ -134,7 +134,7 @@
     invoke-virtual {p2, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
     .line 197
-    :goto_2a
+    :goto_0
     iget-object v2, v0, Landroid/accounts/ChooseAccountTypeActivity$ViewHolder;->text:Landroid/widget/TextView;
 
     iget-object v1, p0, Landroid/accounts/ChooseAccountTypeActivity$AccountArrayAdapter;->mInfos:Ljava/util/ArrayList;
@@ -169,7 +169,7 @@
 
     .line 194
     .end local v0           #holder:Landroid/accounts/ChooseAccountTypeActivity$ViewHolder;
-    :cond_49
+    :cond_0
     invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
@@ -177,5 +177,5 @@
     check-cast v0, Landroid/accounts/ChooseAccountTypeActivity$ViewHolder;
 
     .restart local v0       #holder:Landroid/accounts/ChooseAccountTypeActivity$ViewHolder;
-    goto :goto_2a
+    goto :goto_0
 .end method

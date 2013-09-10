@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 66
@@ -58,7 +58,7 @@
 .end method
 
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 113
@@ -84,30 +84,30 @@
 
 # virtual methods
 .method public disableCarMode(I)V
-    .registers 5
+    .locals 3
     .parameter "flags"
 
     .prologue
     .line 157
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_0
 
     .line 159
-    :try_start_4
+    :try_start_0
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
     invoke-interface {v1, p1}, Landroid/app/IUiModeManager;->disableCarMode(I)V
-    :try_end_9
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_9} :catch_a
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 164
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return-void
 
     .line 160
-    :catch_a
+    :catch_0
     move-exception v0
 
     .line 161
@@ -118,34 +118,34 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public enableCarMode(I)V
-    .registers 5
+    .locals 3
     .parameter "flags"
 
     .prologue
     .line 134
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_0
 
     .line 136
-    :try_start_4
+    :try_start_0
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
     invoke-interface {v1, p1}, Landroid/app/IUiModeManager;->enableCarMode(I)V
-    :try_end_9
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_9} :catch_a
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 141
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return-void
 
     .line 137
-    :catch_a
+    :catch_0
     move-exception v0
 
     .line 138
@@ -156,34 +156,34 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public getCurrentModeType()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 174
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 176
-    :try_start_4
+    :try_start_0
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
     invoke-interface {v1}, Landroid/app/IUiModeManager;->getCurrentModeType()I
-    :try_end_9
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_9} :catch_b
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 181
-    :goto_a
+    :goto_0
     return v1
 
     .line 177
-    :catch_b
+    :catch_0
     move-exception v0
 
     .line 178
@@ -196,37 +196,37 @@
 
     .line 181
     .end local v0           #e:Landroid/os/RemoteException;
-    :cond_13
+    :cond_0
     const/4 v1, 0x1
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getNightMode()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 215
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 217
-    :try_start_4
+    :try_start_0
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
     invoke-interface {v1}, Landroid/app/IUiModeManager;->getNightMode()I
-    :try_end_9
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_9} :catch_b
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 222
-    :goto_a
+    :goto_0
     return v1
 
     .line 218
-    :catch_b
+    :catch_0
     move-exception v0
 
     .line 219
@@ -239,37 +239,37 @@
 
     .line 222
     .end local v0           #e:Landroid/os/RemoteException;
-    :cond_13
+    :cond_0
     const/4 v1, -0x1
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public setNightMode(I)V
-    .registers 5
+    .locals 3
     .parameter "mode"
 
     .prologue
     .line 199
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_0
 
     .line 201
-    :try_start_4
+    :try_start_0
     iget-object v1, p0, Landroid/app/UiModeManager;->mService:Landroid/app/IUiModeManager;
 
     invoke-interface {v1, p1}, Landroid/app/IUiModeManager;->setNightMode(I)V
-    :try_end_9
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_9} :catch_a
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 206
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return-void
 
     .line 202
-    :catch_a
+    :catch_0
     move-exception v0
 
     .line 203
@@ -280,5 +280,5 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_0
 .end method

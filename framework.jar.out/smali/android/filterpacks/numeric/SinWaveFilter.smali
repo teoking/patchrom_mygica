@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public open(Landroid/filterfw/core/FilterContext;)V
-    .registers 3
+    .locals 1
     .parameter "env"
 
     .prologue
@@ -56,7 +56,7 @@
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 5
+    .locals 3
     .parameter "env"
 
     .prologue
@@ -119,7 +119,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 47

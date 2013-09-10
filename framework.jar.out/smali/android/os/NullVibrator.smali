@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 27
@@ -23,7 +23,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 29
@@ -34,7 +34,7 @@
 .end method
 
 .method public static getInstance()Landroid/os/NullVibrator;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 33
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public cancel()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 54
@@ -54,7 +54,7 @@
 .end method
 
 .method public hasVibrator()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 38
@@ -64,7 +64,7 @@
 .end method
 
 .method public vibrate(J)V
-    .registers 3
+    .locals 0
     .parameter "milliseconds"
 
     .prologue
@@ -73,7 +73,7 @@
 .end method
 
 .method public vibrate([JI)V
-    .registers 4
+    .locals 1
     .parameter "pattern"
     .parameter "repeat"
 
@@ -81,7 +81,7 @@
     .line 47
     array-length v0, p1
 
-    if-lt p2, v0, :cond_9
+    if-lt p2, v0, :cond_0
 
     .line 48
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
@@ -91,6 +91,6 @@
     throw v0
 
     .line 50
-    :cond_9
+    :cond_0
     return-void
 .end method

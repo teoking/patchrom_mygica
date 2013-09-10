@@ -61,7 +61,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1320
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 36
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/CharSequence;)V
-    .registers 4
+    .locals 2
     .parameter "text"
 
     .prologue
@@ -106,7 +106,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/CharSequence;II)V
-    .registers 16
+    .locals 12
     .parameter "text"
     .parameter "start"
     .parameter "end"
@@ -127,7 +127,7 @@
 
     .line 54
     .local v11, srclen:I
-    if-gez v11, :cond_12
+    if-gez v11, :cond_0
 
     new-instance v0, Ljava/lang/StringIndexOutOfBoundsException;
 
@@ -136,7 +136,7 @@
     throw v0
 
     .line 56
-    :cond_12
+    :cond_0
     add-int/lit8 v0, v11, 0x1
 
     invoke-static {v0}, Lcom/android/internal/util/ArrayUtils;->idealCharArraySize(I)I
@@ -194,7 +194,7 @@
     .line 70
     instance-of v0, p1, Landroid/text/Spanned;
 
-    if-eqz v0, :cond_86
+    if-eqz v0, :cond_6
 
     move-object v9, p1
 
@@ -214,26 +214,26 @@
     const/4 v7, 0x0
 
     .local v7, i:I
-    :goto_4b
+    :goto_0
     array-length v0, v10
 
-    if-ge v7, v0, :cond_86
+    if-ge v7, v0, :cond_6
 
     .line 75
     aget-object v0, v10, v7
 
     instance-of v0, v0, Landroid/text/NoCopySpan;
 
-    if-eqz v0, :cond_57
+    if-eqz v0, :cond_1
 
     .line 74
-    :goto_54
+    :goto_1
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_4b
+    goto :goto_0
 
     .line 79
-    :cond_57
+    :cond_1
     aget-object v0, v10, v7
 
     invoke-interface {v9, v0}, Landroid/text/Spanned;->getSpanStart(Ljava/lang/Object;)I
@@ -262,45 +262,45 @@
 
     .line 83
     .local v5, fl:I
-    if-gez v3, :cond_70
+    if-gez v3, :cond_2
 
     .line 84
     const/4 v3, 0x0
 
     .line 85
-    :cond_70
+    :cond_2
     sub-int v0, p3, p2
 
-    if-le v3, v0, :cond_76
+    if-le v3, v0, :cond_3
 
     .line 86
     sub-int v3, p3, p2
 
     .line 88
-    :cond_76
-    if-gez v4, :cond_79
+    :cond_3
+    if-gez v4, :cond_4
 
     .line 89
     const/4 v4, 0x0
 
     .line 90
-    :cond_79
+    :cond_4
     sub-int v0, p3, p2
 
-    if-le v4, v0, :cond_7f
+    if-le v4, v0, :cond_5
 
     .line 91
     sub-int v4, p3, p2
 
     .line 93
-    :cond_7f
+    :cond_5
     aget-object v2, v10, v7
 
     move-object v0, p0
 
     invoke-direct/range {v0 .. v5}, Landroid/text/SpannableStringBuilder;->setSpan(ZLjava/lang/Object;III)V
 
-    goto :goto_54
+    goto :goto_1
 
     .line 96
     .end local v3           #st:I
@@ -309,12 +309,12 @@
     .end local v7           #i:I
     .end local v9           #sp:Landroid/text/Spanned;
     .end local v10           #spans:[Ljava/lang/Object;
-    :cond_86
+    :cond_6
     return-void
 .end method
 
 .method private change(IILjava/lang/CharSequence;II)V
-    .registers 44
+    .locals 38
     .parameter "start"
     .parameter "end"
     .parameter "cs"
@@ -342,8 +342,8 @@
     add-int/lit8 v30, v4, -0x1
 
     .local v30, i:I
-    :goto_c
-    if-ltz v30, :cond_d9
+    :goto_0
+    if-ltz v30, :cond_c
 
     .line 268
     move-object/from16 v0, p0
@@ -358,7 +358,7 @@
 
     iget v4, v0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v7, v4, :cond_1f
+    if-le v7, v4, :cond_0
 
     .line 270
     move-object/from16 v0, p0
@@ -368,7 +368,7 @@
     sub-int/2addr v7, v4
 
     .line 272
-    :cond_1f
+    :cond_0
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/text/SpannableStringBuilder;->mSpanEnds:[I
@@ -381,7 +381,7 @@
 
     iget v4, v0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v8, v4, :cond_30
+    if-le v8, v4, :cond_1
 
     .line 274
     move-object/from16 v0, p0
@@ -391,7 +391,7 @@
     sub-int/2addr v8, v4
 
     .line 276
-    :cond_30
+    :cond_1
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/text/SpannableStringBuilder;->mSpanFlags:[I
@@ -402,7 +402,7 @@
 
     const/16 v5, 0x33
 
-    if-ne v4, v5, :cond_9a
+    if-ne v4, v5, :cond_5
 
     .line 277
     move/from16 v32, v7
@@ -421,24 +421,24 @@
     .local v27, clen:I
     move/from16 v0, p1
 
-    if-le v7, v0, :cond_62
+    if-le v7, v0, :cond_2
 
     move/from16 v0, p2
 
-    if-gt v7, v0, :cond_62
+    if-gt v7, v0, :cond_2
 
     .line 282
     move/from16 v7, p2
 
-    :goto_4e
+    :goto_1
     move/from16 v0, v27
 
-    if-ge v7, v0, :cond_62
+    if-ge v7, v0, :cond_2
 
     .line 283
     move/from16 v0, p2
 
-    if-le v7, v0, :cond_be
+    if-le v7, v0, :cond_8
 
     add-int/lit8 v4, v7, -0x1
 
@@ -450,30 +450,30 @@
 
     const/16 v5, 0xa
 
-    if-ne v4, v5, :cond_be
+    if-ne v4, v5, :cond_8
 
     .line 287
-    :cond_62
+    :cond_2
     move/from16 v0, p1
 
-    if-le v8, v0, :cond_80
+    if-le v8, v0, :cond_3
 
     move/from16 v0, p2
 
-    if-gt v8, v0, :cond_80
+    if-gt v8, v0, :cond_3
 
     .line 288
     move/from16 v8, p2
 
-    :goto_6c
+    :goto_2
     move/from16 v0, v27
 
-    if-ge v8, v0, :cond_80
+    if-ge v8, v0, :cond_3
 
     .line 289
     move/from16 v0, p2
 
-    if-le v8, v0, :cond_c1
+    if-le v8, v0, :cond_9
 
     add-int/lit8 v4, v8, -0x1
 
@@ -485,20 +485,20 @@
 
     const/16 v5, 0xa
 
-    if-ne v4, v5, :cond_c1
+    if-ne v4, v5, :cond_9
 
     .line 293
-    :cond_80
+    :cond_3
     move/from16 v0, v32
 
-    if-ne v7, v0, :cond_88
+    if-ne v7, v0, :cond_4
 
     move/from16 v0, v31
 
-    if-eq v8, v0, :cond_9a
+    if-eq v8, v0, :cond_5
 
     .line 294
-    :cond_88
+    :cond_4
     const/4 v5, 0x0
 
     move-object/from16 v0, p0
@@ -521,14 +521,14 @@
     .end local v27           #clen:I
     .end local v31           #oen:I
     .end local v32           #ost:I
-    :cond_9a
+    :cond_5
     const/16 v29, 0x0
 
     .line 298
     .local v29, flags:I
     move/from16 v0, p1
 
-    if-ne v7, v0, :cond_c4
+    if-ne v7, v0, :cond_a
 
     move/from16 v0, v29
 
@@ -537,11 +537,11 @@
     move/from16 v29, v0
 
     .line 300
-    :cond_a6
-    :goto_a6
+    :cond_6
+    :goto_3
     move/from16 v0, p1
 
-    if-ne v8, v0, :cond_cf
+    if-ne v8, v0, :cond_b
 
     move/from16 v0, v29
 
@@ -550,8 +550,8 @@
     move/from16 v29, v0
 
     .line 302
-    :cond_b0
-    :goto_b0
+    :cond_7
+    :goto_4
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/text/SpannableStringBuilder;->mSpanFlags:[I
@@ -565,33 +565,33 @@
     .line 267
     add-int/lit8 v30, v30, -0x1
 
-    goto/16 :goto_c
+    goto/16 :goto_0
 
     .line 282
     .end local v29           #flags:I
     .restart local v27       #clen:I
     .restart local v31       #oen:I
     .restart local v32       #ost:I
-    :cond_be
+    :cond_8
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_4e
+    goto :goto_1
 
     .line 288
-    :cond_c1
+    :cond_9
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_6c
+    goto :goto_2
 
     .line 299
     .end local v27           #clen:I
     .end local v31           #oen:I
     .end local v32           #ost:I
     .restart local v29       #flags:I
-    :cond_c4
+    :cond_a
     add-int v4, p2, v12
 
-    if-ne v7, v4, :cond_a6
+    if-ne v7, v4, :cond_6
 
     move/from16 v0, v29
 
@@ -599,25 +599,25 @@
 
     move/from16 v29, v0
 
-    goto :goto_a6
+    goto :goto_3
 
     .line 301
-    :cond_cf
+    :cond_b
     add-int v4, p2, v12
 
-    if-ne v8, v4, :cond_b0
+    if-ne v8, v4, :cond_7
 
     const v4, 0x8000
 
     or-int v29, v29, v4
 
-    goto :goto_b0
+    goto :goto_4
 
     .line 305
     .end local v7           #spanStart:I
     .end local v8           #spanEnd:I
     .end local v29           #flags:I
-    :cond_d9
+    :cond_c
     move-object/from16 v0, p0
 
     move/from16 v1, p2
@@ -629,7 +629,7 @@
 
     iget v4, v0, Landroid/text/SpannableStringBuilder;->mGapLength:I
 
-    if-lt v12, v4, :cond_f6
+    if-lt v12, v4, :cond_d
 
     .line 308
     move-object/from16 v0, p0
@@ -651,28 +651,28 @@
     invoke-direct {v0, v4}, Landroid/text/SpannableStringBuilder;->resizeFor(I)V
 
     .line 311
-    :cond_f6
-    if-nez v34, :cond_167
+    :cond_d
+    if-nez v34, :cond_f
 
     const/4 v15, 0x1
 
     .line 314
     .local v15, textIsRemoved:Z
-    :goto_f9
-    if-lez v33, :cond_16c
+    :goto_5
+    if-lez v33, :cond_11
 
     .line 319
     const/16 v30, 0x0
 
     .line 320
-    :goto_fd
+    :goto_6
     move-object/from16 v0, p0
 
     iget v4, v0, Landroid/text/SpannableStringBuilder;->mSpanCount:I
 
     move/from16 v0, v30
 
-    if-ge v0, v4, :cond_16c
+    if-ge v0, v4, :cond_11
 
     .line 321
     move-object/from16 v0, p0
@@ -685,7 +685,7 @@
 
     const/16 v5, 0x21
 
-    if-ne v4, v5, :cond_169
+    if-ne v4, v5, :cond_10
 
     move-object/from16 v0, p0
 
@@ -695,7 +695,7 @@
 
     move/from16 v0, p1
 
-    if-lt v4, v0, :cond_169
+    if-lt v4, v0, :cond_10
 
     move-object/from16 v0, p0
 
@@ -713,7 +713,7 @@
 
     add-int/2addr v5, v6
 
-    if-ge v4, v5, :cond_169
+    if-ge v4, v5, :cond_10
 
     move-object/from16 v0, p0
 
@@ -723,7 +723,7 @@
 
     move/from16 v0, p1
 
-    if-lt v4, v0, :cond_169
+    if-lt v4, v0, :cond_10
 
     move-object/from16 v0, p0
 
@@ -741,9 +741,9 @@
 
     add-int/2addr v5, v6
 
-    if-ge v4, v5, :cond_169
+    if-ge v4, v5, :cond_10
 
-    if-nez v15, :cond_15f
+    if-nez v15, :cond_e
 
     move-object/from16 v0, p0
 
@@ -753,7 +753,7 @@
 
     move/from16 v0, p1
 
-    if-gt v4, v0, :cond_15f
+    if-gt v4, v0, :cond_e
 
     move-object/from16 v0, p0
 
@@ -765,34 +765,34 @@
 
     iget v5, v0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-ge v4, v5, :cond_169
+    if-ge v4, v5, :cond_10
 
     .line 327
-    :cond_15f
+    :cond_e
     move-object/from16 v0, p0
 
     move/from16 v1, v30
 
     invoke-direct {v0, v1}, Landroid/text/SpannableStringBuilder;->removeSpan(I)V
 
-    goto :goto_fd
+    goto :goto_6
 
     .line 311
     .end local v15           #textIsRemoved:Z
-    :cond_167
+    :cond_f
     const/4 v15, 0x0
 
-    goto :goto_f9
+    goto :goto_5
 
     .line 331
     .restart local v15       #textIsRemoved:Z
-    :cond_169
+    :cond_10
     add-int/lit8 v30, v30, 0x1
 
-    goto :goto_fd
+    goto :goto_6
 
     .line 335
-    :cond_16c
+    :cond_11
     move-object/from16 v0, p0
 
     iget v4, v0, Landroid/text/SpannableStringBuilder;->mGapStart:I
@@ -821,7 +821,7 @@
 
     const/4 v5, 0x1
 
-    if-ge v4, v5, :cond_18f
+    if-ge v4, v5, :cond_12
 
     .line 339
     new-instance v4, Ljava/lang/Exception;
@@ -833,7 +833,7 @@
     invoke-virtual {v4}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 341
-    :cond_18f
+    :cond_12
     move-object/from16 v0, p0
 
     iget-object v4, v0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -849,7 +849,7 @@
     invoke-static {v0, v1, v2, v4, v3}, Landroid/text/TextUtils;->getChars(Ljava/lang/CharSequence;II[CI)V
 
     .line 343
-    if-lez v33, :cond_200
+    if-lez v33, :cond_14
 
     .line 344
     move-object/from16 v0, p0
@@ -868,23 +868,23 @@
 
     array-length v5, v5
 
-    if-ne v4, v5, :cond_1fe
+    if-ne v4, v5, :cond_13
 
     const/4 v14, 0x1
 
     .line 346
     .local v14, atEnd:Z
-    :goto_1b1
+    :goto_7
     const/16 v30, 0x0
 
-    :goto_1b3
+    :goto_8
     move-object/from16 v0, p0
 
     iget v4, v0, Landroid/text/SpannableStringBuilder;->mSpanCount:I
 
     move/from16 v0, v30
 
-    if-ge v0, v4, :cond_200
+    if-ge v0, v4, :cond_14
 
     .line 347
     move-object/from16 v0, p0
@@ -959,19 +959,19 @@
     .line 346
     add-int/lit8 v30, v30, 0x1
 
-    goto :goto_1b3
+    goto :goto_8
 
     .line 344
     .end local v13           #startFlag:I
     .end local v14           #atEnd:Z
     .end local v20           #endFlag:I
-    :cond_1fe
+    :cond_13
     const/4 v14, 0x0
 
-    goto :goto_1b1
+    goto :goto_7
 
     .line 357
-    :cond_200
+    :cond_14
     move-object/from16 v0, p0
 
     iget v4, v0, Landroid/text/SpannableStringBuilder;->mSpanCount:I
@@ -985,7 +985,7 @@
 
     instance-of v4, v0, Landroid/text/Spanned;
 
-    if-eqz v4, :cond_26d
+    if-eqz v4, :cond_18
 
     move-object/from16 v35, p3
 
@@ -1010,14 +1010,14 @@
     .local v36, spans:[Ljava/lang/Object;
     const/16 v30, 0x0
 
-    :goto_220
+    :goto_9
     move-object/from16 v0, v36
 
     array-length v4, v0
 
     move/from16 v0, v30
 
-    if-ge v0, v4, :cond_26d
+    if-ge v0, v4, :cond_18
 
     .line 364
     aget-object v4, v36, v30
@@ -1044,22 +1044,22 @@
 
     move/from16 v1, p4
 
-    if-ge v0, v1, :cond_23f
+    if-ge v0, v1, :cond_15
 
     move/from16 v37, p4
 
     .line 368
-    :cond_23f
+    :cond_15
     move/from16 v0, v28
 
     move/from16 v1, p5
 
-    if-le v0, v1, :cond_247
+    if-le v0, v1, :cond_16
 
     move/from16 v28, p5
 
     .line 371
-    :cond_247
+    :cond_16
     aget-object v4, v36, v30
 
     move-object/from16 v0, p0
@@ -1068,7 +1068,7 @@
 
     move-result v4
 
-    if-gez v4, :cond_26a
+    if-gez v4, :cond_17
 
     .line 372
     const/16 v22, 0x0
@@ -1096,29 +1096,29 @@
     invoke-direct/range {v21 .. v26}, Landroid/text/SpannableStringBuilder;->setSpan(ZLjava/lang/Object;III)V
 
     .line 363
-    :cond_26a
+    :cond_17
     add-int/lit8 v30, v30, 0x1
 
-    goto :goto_220
+    goto :goto_9
 
     .line 377
     .end local v28           #en:I
     .end local v35           #sp:Landroid/text/Spanned;
     .end local v36           #spans:[Ljava/lang/Object;
     .end local v37           #st:I
-    :cond_26d
+    :cond_18
     return-void
 .end method
 
 .method private checkRange(Ljava/lang/String;II)V
-    .registers 8
+    .locals 4
     .parameter "operation"
     .parameter "start"
     .parameter "end"
 
     .prologue
     .line 1008
-    if-ge p3, p2, :cond_29
+    if-ge p3, p2, :cond_0
 
     .line 1009
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
@@ -1160,19 +1160,19 @@
     throw v1
 
     .line 1013
-    :cond_29
+    :cond_0
     invoke-virtual {p0}, Landroid/text/SpannableStringBuilder;->length()I
 
     move-result v0
 
     .line 1015
     .local v0, len:I
-    if-gt p2, v0, :cond_31
+    if-gt p2, v0, :cond_1
 
-    if-le p3, v0, :cond_5c
+    if-le p3, v0, :cond_2
 
     .line 1016
-    :cond_31
+    :cond_1
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1216,13 +1216,13 @@
     throw v1
 
     .line 1020
-    :cond_5c
-    if-ltz p2, :cond_60
+    :cond_2
+    if-ltz p2, :cond_3
 
-    if-gez p3, :cond_87
+    if-gez p3, :cond_4
 
     .line 1021
-    :cond_60
+    :cond_3
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1262,12 +1262,12 @@
     throw v1
 
     .line 1024
-    :cond_87
+    :cond_4
     return-void
 .end method
 
 .method private static hasNonExclusiveExclusiveSpanAt(Ljava/lang/CharSequence;I)Z
-    .registers 9
+    .locals 7
     .parameter "text"
     .parameter "offset"
 
@@ -1275,7 +1275,7 @@
     .line 506
     instance-of v6, p0, Landroid/text/Spanned;
 
-    if-eqz v6, :cond_20
+    if-eqz v6, :cond_1
 
     move-object v4, p0
 
@@ -1299,8 +1299,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_f
-    if-ge v1, v2, :cond_20
+    :goto_0
+    if-ge v1, v2, :cond_1
 
     .line 511
     aget-object v3, v5, v1
@@ -1315,7 +1315,7 @@
     .local v0, flags:I
     const/16 v6, 0x21
 
-    if-eq v0, v6, :cond_1d
+    if-eq v0, v6, :cond_0
 
     const/4 v6, 0x1
 
@@ -1326,7 +1326,7 @@
     .end local v3           #span:Ljava/lang/Object;
     .end local v4           #spanned:Landroid/text/Spanned;
     .end local v5           #spans:[Ljava/lang/Object;
-    :goto_1c
+    :goto_1
     return v6
 
     .line 510
@@ -1336,10 +1336,10 @@
     .restart local v3       #span:Ljava/lang/Object;
     .restart local v4       #spanned:Landroid/text/Spanned;
     .restart local v5       #spans:[Ljava/lang/Object;
-    :cond_1d
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 516
     .end local v0           #flags:I
@@ -1348,14 +1348,14 @@
     .end local v3           #span:Ljava/lang/Object;
     .end local v4           #spanned:Landroid/text/Spanned;
     .end local v5           #spans:[Ljava/lang/Object;
-    :cond_20
+    :cond_1
     const/4 v6, 0x0
 
-    goto :goto_1c
+    goto :goto_1
 .end method
 
 .method private moveGapTo(I)V
-    .registers 14
+    .locals 12
     .parameter "where"
 
     .prologue
@@ -1366,28 +1366,28 @@
     .line 153
     iget v6, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-ne p1, v6, :cond_7
+    if-ne p1, v6, :cond_0
 
     .line 198
-    :goto_6
+    :goto_0
     return-void
 
     .line 156
-    :cond_7
+    :cond_0
     invoke-virtual {p0}, Landroid/text/SpannableStringBuilder;->length()I
 
     move-result v6
 
-    if-ne p1, v6, :cond_53
+    if-ne p1, v6, :cond_5
 
     const/4 v0, 0x1
 
     .line 158
     .local v0, atEnd:Z
-    :goto_e
+    :goto_1
     iget v6, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-ge p1, v6, :cond_55
+    if-ge p1, v6, :cond_6
 
     .line 159
     iget v6, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
@@ -1411,14 +1411,14 @@
     invoke-static {v6, p1, v7, v8, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 167
-    :goto_23
+    :goto_2
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_24
+    :goto_3
     iget v6, p0, Landroid/text/SpannableStringBuilder;->mSpanCount:I
 
-    if-ge v3, v6, :cond_8d
+    if-ge v3, v6, :cond_b
 
     .line 168
     iget-object v6, p0, Landroid/text/SpannableStringBuilder;->mSpanStarts:[I
@@ -1435,7 +1435,7 @@
     .local v1, end:I
     iget v6, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v5, v6, :cond_37
+    if-le v5, v6, :cond_1
 
     .line 172
     iget v6, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
@@ -1443,8 +1443,8 @@
     sub-int/2addr v5, v6
 
     .line 173
-    :cond_37
-    if-le v5, p1, :cond_67
+    :cond_1
+    if-le v5, p1, :cond_7
 
     .line 174
     iget v6, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
@@ -1452,11 +1452,11 @@
     add-int/2addr v5, v6
 
     .line 182
-    :cond_3c
-    :goto_3c
+    :cond_2
+    :goto_4
     iget v6, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v1, v6, :cond_43
+    if-le v1, v6, :cond_3
 
     .line 183
     iget v6, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
@@ -1464,8 +1464,8 @@
     sub-int/2addr v1, v6
 
     .line 184
-    :cond_43
-    if-le v1, p1, :cond_7b
+    :cond_3
+    if-le v1, p1, :cond_9
 
     .line 185
     iget v6, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
@@ -1473,8 +1473,8 @@
     add-int/2addr v1, v6
 
     .line 193
-    :cond_48
-    :goto_48
+    :cond_4
+    :goto_5
     iget-object v6, p0, Landroid/text/SpannableStringBuilder;->mSpanStarts:[I
 
     aput v5, v6, v3
@@ -1487,7 +1487,7 @@
     .line 167
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_24
+    goto :goto_3
 
     .line 156
     .end local v0           #atEnd:Z
@@ -1495,14 +1495,14 @@
     .end local v3           #i:I
     .end local v4           #overlap:I
     .end local v5           #start:I
-    :cond_53
+    :cond_5
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_1
 
     .line 162
     .restart local v0       #atEnd:Z
-    :cond_55
+    :cond_6
     iget v6, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
     sub-int v4, p1, v6
@@ -1523,14 +1523,14 @@
 
     invoke-static {v6, v7, v8, v9, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    goto :goto_23
+    goto :goto_2
 
     .line 175
     .restart local v1       #end:I
     .restart local v3       #i:I
     .restart local v5       #start:I
-    :cond_67
-    if-ne v5, p1, :cond_3c
+    :cond_7
+    if-ne v5, p1, :cond_2
 
     .line 176
     iget-object v6, p0, Landroid/text/SpannableStringBuilder;->mSpanFlags:[I
@@ -1543,24 +1543,24 @@
 
     .line 178
     .local v2, flag:I
-    if-eq v2, v10, :cond_77
+    if-eq v2, v10, :cond_8
 
-    if-eqz v0, :cond_3c
+    if-eqz v0, :cond_2
 
-    if-ne v2, v11, :cond_3c
+    if-ne v2, v11, :cond_2
 
     .line 179
-    :cond_77
+    :cond_8
     iget v6, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
 
     add-int/2addr v5, v6
 
-    goto :goto_3c
+    goto :goto_4
 
     .line 186
     .end local v2           #flag:I
-    :cond_7b
-    if-ne v1, p1, :cond_48
+    :cond_9
+    if-ne v1, p1, :cond_4
 
     .line 187
     iget-object v6, p0, Landroid/text/SpannableStringBuilder;->mSpanFlags:[I
@@ -1571,32 +1571,32 @@
 
     .line 189
     .restart local v2       #flag:I
-    if-eq v2, v10, :cond_89
+    if-eq v2, v10, :cond_a
 
-    if-eqz v0, :cond_48
+    if-eqz v0, :cond_4
 
-    if-ne v2, v11, :cond_48
+    if-ne v2, v11, :cond_4
 
     .line 190
-    :cond_89
+    :cond_a
     iget v6, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
 
     add-int/2addr v1, v6
 
-    goto :goto_48
+    goto :goto_5
 
     .line 197
     .end local v1           #end:I
     .end local v2           #flag:I
     .end local v5           #start:I
-    :cond_8d
+    :cond_b
     iput p1, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    goto/16 :goto_6
+    goto/16 :goto_0
 .end method
 
 .method private static region(II)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "start"
     .parameter "end"
 
@@ -1640,7 +1640,7 @@
 .end method
 
 .method private removeSpan(I)V
-    .registers 9
+    .locals 7
     .parameter "i"
 
     .prologue
@@ -1665,24 +1665,24 @@
     .local v1, end:I
     iget v4, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v3, v4, :cond_13
+    if-le v3, v4, :cond_0
 
     iget v4, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
 
     sub-int/2addr v3, v4
 
     .line 418
-    :cond_13
+    :cond_0
     iget v4, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v1, v4, :cond_1a
+    if-le v1, v4, :cond_1
 
     iget v4, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
 
     sub-int/2addr v1, v4
 
     .line 420
-    :cond_1a
+    :cond_1
     iget v4, p0, Landroid/text/SpannableStringBuilder;->mSpanCount:I
 
     add-int/lit8 v5, p1, 0x1
@@ -1750,7 +1750,7 @@
 .end method
 
 .method private resizeFor(I)V
-    .registers 11
+    .locals 9
     .parameter "size"
 
     .prologue
@@ -1775,14 +1775,14 @@
 
     .line 134
     .local v1, delta:I
-    if-nez v1, :cond_f
+    if-nez v1, :cond_1
 
     .line 150
-    :cond_e
+    :cond_0
     return-void
 
     .line 136
-    :cond_f
+    :cond_1
     new-array v4, v3, [C
 
     .line 137
@@ -1827,7 +1827,7 @@
 
     const/4 v7, 0x1
 
-    if-ge v6, v7, :cond_3e
+    if-ge v6, v7, :cond_2
 
     .line 144
     new-instance v6, Ljava/lang/Exception;
@@ -1839,14 +1839,14 @@
     invoke-virtual {v6}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 146
-    :cond_3e
+    :cond_2
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_3f
+    :goto_0
     iget v6, p0, Landroid/text/SpannableStringBuilder;->mSpanCount:I
 
-    if-ge v2, v6, :cond_e
+    if-ge v2, v6, :cond_0
 
     .line 147
     iget-object v6, p0, Landroid/text/SpannableStringBuilder;->mSpanStarts:[I
@@ -1855,7 +1855,7 @@
 
     iget v7, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v6, v7, :cond_52
+    if-le v6, v7, :cond_3
 
     iget-object v6, p0, Landroid/text/SpannableStringBuilder;->mSpanStarts:[I
 
@@ -1866,14 +1866,14 @@
     aput v7, v6, v2
 
     .line 148
-    :cond_52
+    :cond_3
     iget-object v6, p0, Landroid/text/SpannableStringBuilder;->mSpanEnds:[I
 
     aget v6, v6, v2
 
     iget v7, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v6, v7, :cond_61
+    if-le v6, v7, :cond_4
 
     iget-object v6, p0, Landroid/text/SpannableStringBuilder;->mSpanEnds:[I
 
@@ -1884,14 +1884,14 @@
     aput v7, v6, v2
 
     .line 146
-    :cond_61
+    :cond_4
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3f
+    goto :goto_0
 .end method
 
 .method private sendAfterTextChanged([Landroid/text/TextWatcher;)V
-    .registers 5
+    .locals 3
     .parameter "watchers"
 
     .prologue
@@ -1903,8 +1903,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_2
-    if-ge v0, v1, :cond_c
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 970
     aget-object v2, p1, v0
@@ -1914,15 +1914,15 @@
     .line 969
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 972
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method private sendBeforeTextChanged([Landroid/text/TextWatcher;III)V
-    .registers 8
+    .locals 3
     .parameter "watchers"
     .parameter "start"
     .parameter "before"
@@ -1937,8 +1937,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_2
-    if-ge v0, v1, :cond_c
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 954
     aget-object v2, p1, v0
@@ -1948,15 +1948,15 @@
     .line 953
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 956
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method private sendSpanAdded(Ljava/lang/Object;II)V
-    .registers 8
+    .locals 4
     .parameter "what"
     .parameter "start"
     .parameter "end"
@@ -1980,8 +1980,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_a
-    if-ge v0, v1, :cond_14
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 979
     aget-object v3, v2, v0
@@ -1991,15 +1991,15 @@
     .line 978
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 981
-    :cond_14
+    :cond_0
     return-void
 .end method
 
 .method private sendSpanChanged(Ljava/lang/Object;IIII)V
-    .registers 16
+    .locals 10
     .parameter "what"
     .parameter "oldStart"
     .parameter "oldEnd"
@@ -2041,8 +2041,8 @@
     const/4 v7, 0x0
 
     .local v7, i:I
-    :goto_1a
-    if-ge v7, v8, :cond_2a
+    :goto_0
+    if-ge v7, v8, :cond_0
 
     .line 999
     aget-object v0, v9, v7
@@ -2064,15 +2064,15 @@
     .line 998
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 1001
-    :cond_2a
+    :cond_0
     return-void
 .end method
 
 .method private sendSpanRemoved(Ljava/lang/Object;II)V
-    .registers 8
+    .locals 4
     .parameter "what"
     .parameter "start"
     .parameter "end"
@@ -2096,8 +2096,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_a
-    if-ge v0, v1, :cond_14
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 988
     aget-object v3, v2, v0
@@ -2107,15 +2107,15 @@
     .line 987
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 990
-    :cond_14
+    :cond_0
     return-void
 .end method
 
 .method private sendTextChanged([Landroid/text/TextWatcher;III)V
-    .registers 8
+    .locals 3
     .parameter "watchers"
     .parameter "start"
     .parameter "before"
@@ -2130,8 +2130,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_2
-    if-ge v0, v1, :cond_c
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 962
     aget-object v2, p1, v0
@@ -2141,15 +2141,15 @@
     .line 961
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 964
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method private sendToSpanWatchers(III)V
-    .registers 16
+    .locals 12
     .parameter "replaceStart"
     .parameter "replaceEnd"
     .parameter "nbNewChars"
@@ -2161,10 +2161,10 @@
     const/4 v6, 0x0
 
     .local v6, i:I
-    :goto_4
+    :goto_0
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mSpanCountBeforeAdd:I
 
-    if-ge v6, v0, :cond_70
+    if-ge v6, v0, :cond_b
 
     .line 521
     iget-object v0, p0, Landroid/text/SpannableStringBuilder;->mSpanStarts:[I
@@ -2181,24 +2181,24 @@
     .local v5, spanEnd:I
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v4, v0, :cond_17
+    if-le v4, v0, :cond_0
 
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
 
     sub-int/2addr v4, v0
 
     .line 524
-    :cond_17
+    :cond_0
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v5, v0, :cond_1e
+    if-le v5, v0, :cond_1
 
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
 
     sub-int/2addr v5, v0
 
     .line 525
-    :cond_1e
+    :cond_1
     iget-object v0, p0, Landroid/text/SpannableStringBuilder;->mSpanFlags:[I
 
     aget v9, v0, v6
@@ -2217,10 +2217,10 @@
 
     .line 531
     .local v2, previousSpanStart:I
-    if-le v4, v7, :cond_4a
+    if-le v4, v7, :cond_5
 
     .line 532
-    if-eqz p3, :cond_2c
+    if-eqz p3, :cond_2
 
     .line 533
     sub-int/2addr v2, p3
@@ -2229,16 +2229,16 @@
     const/4 v8, 0x1
 
     .line 549
-    :cond_2c
-    :goto_2c
+    :cond_2
+    :goto_1
     move v3, v5
 
     .line 550
     .local v3, previousSpanEnd:I
-    if-le v5, v7, :cond_5e
+    if-le v5, v7, :cond_8
 
     .line 551
-    if-eqz p3, :cond_33
+    if-eqz p3, :cond_3
 
     .line 552
     sub-int/2addr v3, p3
@@ -2247,9 +2247,9 @@
     const/4 v8, 0x1
 
     .line 566
-    :cond_33
-    :goto_33
-    if-eqz v8, :cond_3d
+    :cond_3
+    :goto_2
+    if-eqz v8, :cond_4
 
     .line 567
     iget-object v0, p0, Landroid/text/SpannableStringBuilder;->mSpans:[Ljava/lang/Object;
@@ -2261,7 +2261,7 @@
     invoke-direct/range {v0 .. v5}, Landroid/text/SpannableStringBuilder;->sendSpanChanged(Ljava/lang/Object;IIII)V
 
     .line 569
-    :cond_3d
+    :cond_4
     iget-object v0, p0, Landroid/text/SpannableStringBuilder;->mSpanFlags:[I
 
     aget v1, v0, v6
@@ -2275,63 +2275,63 @@
     .line 520
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 536
     .end local v3           #previousSpanEnd:I
-    :cond_4a
-    if-lt v4, p1, :cond_2c
+    :cond_5
+    if-lt v4, p1, :cond_2
 
     .line 538
-    if-ne v4, p1, :cond_54
+    if-ne v4, p1, :cond_6
 
     and-int/lit16 v0, v9, 0x1000
 
     const/16 v1, 0x1000
 
-    if-eq v0, v1, :cond_2c
+    if-eq v0, v1, :cond_2
 
-    :cond_54
-    if-ne v4, v7, :cond_5c
+    :cond_6
+    if-ne v4, v7, :cond_7
 
     and-int/lit16 v0, v9, 0x2000
 
     const/16 v1, 0x2000
 
-    if-eq v0, v1, :cond_2c
+    if-eq v0, v1, :cond_2
 
     .line 545
-    :cond_5c
+    :cond_7
     const/4 v8, 0x1
 
-    goto :goto_2c
+    goto :goto_1
 
     .line 555
     .restart local v3       #previousSpanEnd:I
-    :cond_5e
-    if-lt v5, p1, :cond_33
+    :cond_8
+    if-lt v5, p1, :cond_3
 
     .line 557
-    if-ne v5, p1, :cond_68
+    if-ne v5, p1, :cond_9
 
     and-int/lit16 v0, v9, 0x4000
 
     const/16 v1, 0x4000
 
-    if-eq v0, v1, :cond_33
+    if-eq v0, v1, :cond_3
 
-    :cond_68
-    if-ne v5, v7, :cond_6e
+    :cond_9
+    if-ne v5, v7, :cond_a
 
     and-int v0, v9, v11
 
-    if-eq v0, v11, :cond_33
+    if-eq v0, v11, :cond_3
 
     .line 562
-    :cond_6e
+    :cond_a
     const/4 v8, 0x1
 
-    goto :goto_33
+    goto :goto_2
 
     .line 573
     .end local v2           #previousSpanStart:I
@@ -2341,13 +2341,13 @@
     .end local v7           #newReplaceEnd:I
     .end local v8           #spanChanged:Z
     .end local v9           #spanFlags:I
-    :cond_70
+    :cond_b
     iget v6, p0, Landroid/text/SpannableStringBuilder;->mSpanCountBeforeAdd:I
 
-    :goto_72
+    :goto_3
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mSpanCount:I
 
-    if-ge v6, v0, :cond_96
+    if-ge v6, v0, :cond_e
 
     .line 574
     iget-object v0, p0, Landroid/text/SpannableStringBuilder;->mSpanStarts:[I
@@ -2364,24 +2364,24 @@
     .restart local v5       #spanEnd:I
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v4, v0, :cond_85
+    if-le v4, v0, :cond_c
 
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
 
     sub-int/2addr v4, v0
 
     .line 577
-    :cond_85
+    :cond_c
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v5, v0, :cond_8c
+    if-le v5, v0, :cond_d
 
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
 
     sub-int/2addr v5, v0
 
     .line 578
-    :cond_8c
+    :cond_d
     iget-object v0, p0, Landroid/text/SpannableStringBuilder;->mSpans:[Ljava/lang/Object;
 
     aget-object v0, v0, v6
@@ -2391,17 +2391,17 @@
     .line 573
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_72
+    goto :goto_3
 
     .line 580
     .end local v4           #spanStart:I
     .end local v5           #spanEnd:I
-    :cond_96
+    :cond_e
     return-void
 .end method
 
 .method private setSpan(ZLjava/lang/Object;III)V
-    .registers 28
+    .locals 22
     .parameter "send"
     .parameter "what"
     .parameter "start"
@@ -2431,10 +2431,10 @@
     .local v12, flagsStart:I
     const/4 v3, 0x3
 
-    if-ne v12, v3, :cond_33
+    if-ne v12, v3, :cond_0
 
     .line 596
-    if-eqz p3, :cond_33
+    if-eqz p3, :cond_0
 
     invoke-virtual/range {p0 .. p0}, Landroid/text/SpannableStringBuilder;->length()I
 
@@ -2442,7 +2442,7 @@
 
     move/from16 v0, p3
 
-    if-eq v0, v3, :cond_33
+    if-eq v0, v3, :cond_0
 
     .line 597
     add-int/lit8 v3, p3, -0x1
@@ -2457,7 +2457,7 @@
     .local v9, c:C
     const/16 v3, 0xa
 
-    if-eq v9, v3, :cond_33
+    if-eq v9, v3, :cond_0
 
     .line 600
     new-instance v3, Ljava/lang/RuntimeException;
@@ -2470,17 +2470,17 @@
 
     .line 604
     .end local v9           #c:C
-    :cond_33
+    :cond_0
     and-int/lit8 v11, p5, 0xf
 
     .line 605
     .local v11, flagsEnd:I
     const/4 v3, 0x3
 
-    if-ne v11, v3, :cond_56
+    if-ne v11, v3, :cond_1
 
     .line 606
-    if-eqz p4, :cond_56
+    if-eqz p4, :cond_1
 
     invoke-virtual/range {p0 .. p0}, Landroid/text/SpannableStringBuilder;->length()I
 
@@ -2488,7 +2488,7 @@
 
     move/from16 v0, p4
 
-    if-eq v0, v3, :cond_56
+    if-eq v0, v3, :cond_1
 
     .line 607
     add-int/lit8 v3, p4, -0x1
@@ -2503,7 +2503,7 @@
     .restart local v9       #c:C
     const/16 v3, 0xa
 
-    if-eq v9, v3, :cond_56
+    if-eq v9, v3, :cond_1
 
     .line 610
     new-instance v3, Ljava/lang/RuntimeException;
@@ -2516,23 +2516,23 @@
 
     .line 615
     .end local v9           #c:C
-    :cond_56
+    :cond_1
     const/4 v3, 0x2
 
-    if-ne v12, v3, :cond_6c
+    if-ne v12, v3, :cond_3
 
     const/4 v3, 0x1
 
-    if-ne v11, v3, :cond_6c
+    if-ne v11, v3, :cond_3
 
     move/from16 v0, p3
 
     move/from16 v1, p4
 
-    if-ne v0, v1, :cond_6c
+    if-ne v0, v1, :cond_3
 
     .line 616
-    if-eqz p1, :cond_6b
+    if-eqz p1, :cond_2
 
     const-string v3, "SpannableStringBuilder"
 
@@ -2541,12 +2541,12 @@
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 689
-    :cond_6b
-    :goto_6b
+    :cond_2
+    :goto_0
     return-void
 
     .line 624
-    :cond_6c
+    :cond_3
     move/from16 v7, p3
 
     .line 625
@@ -2561,7 +2561,7 @@
 
     move/from16 v0, p3
 
-    if-le v0, v3, :cond_dd
+    if-le v0, v3, :cond_8
 
     .line 628
     move-object/from16 v0, p0
@@ -2571,15 +2571,15 @@
     add-int p3, p3, v3
 
     .line 634
-    :cond_7e
-    :goto_7e
+    :cond_4
+    :goto_1
     move-object/from16 v0, p0
 
     iget v3, v0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
     move/from16 v0, p4
 
-    if-le v0, v3, :cond_fa
+    if-le v0, v3, :cond_a
 
     .line 635
     move-object/from16 v0, p0
@@ -2589,8 +2589,8 @@
     add-int p4, p4, v3
 
     .line 641
-    :cond_8c
-    :goto_8c
+    :cond_5
+    :goto_2
     move-object/from16 v0, p0
 
     iget v10, v0, Landroid/text/SpannableStringBuilder;->mSpanCount:I
@@ -2608,15 +2608,15 @@
     const/4 v13, 0x0
 
     .local v13, i:I
-    :goto_97
-    if-ge v13, v10, :cond_11c
+    :goto_3
+    if-ge v13, v10, :cond_d
 
     .line 645
     aget-object v3, v19, v13
 
     move-object/from16 v0, p2
 
-    if-ne v3, v0, :cond_118
+    if-ne v3, v0, :cond_c
 
     .line 646
     move-object/from16 v0, p0
@@ -2639,7 +2639,7 @@
 
     iget v3, v0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v5, v3, :cond_b6
+    if-le v5, v3, :cond_6
 
     .line 650
     move-object/from16 v0, p0
@@ -2649,12 +2649,12 @@
     sub-int/2addr v5, v3
 
     .line 651
-    :cond_b6
+    :cond_6
     move-object/from16 v0, p0
 
     iget v3, v0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v6, v3, :cond_c1
+    if-le v6, v3, :cond_7
 
     .line 652
     move-object/from16 v0, p0
@@ -2664,7 +2664,7 @@
     sub-int/2addr v6, v3
 
     .line 654
-    :cond_c1
+    :cond_7
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/text/SpannableStringBuilder;->mSpanStarts:[I
@@ -2686,7 +2686,7 @@
     aput p5, v3, v13
 
     .line 658
-    if-eqz p1, :cond_6b
+    if-eqz p1, :cond_2
 
     move-object/from16 v3, p0
 
@@ -2694,7 +2694,7 @@
 
     invoke-direct/range {v3 .. v8}, Landroid/text/SpannableStringBuilder;->sendSpanChanged(Ljava/lang/Object;IIII)V
 
-    goto :goto_6b
+    goto :goto_0
 
     .line 629
     .end local v5           #ostart:I
@@ -2702,23 +2702,23 @@
     .end local v10           #count:I
     .end local v13           #i:I
     .end local v19           #spans:[Ljava/lang/Object;
-    :cond_dd
+    :cond_8
     move-object/from16 v0, p0
 
     iget v3, v0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
     move/from16 v0, p3
 
-    if-ne v0, v3, :cond_7e
+    if-ne v0, v3, :cond_4
 
     .line 630
     const/4 v3, 0x2
 
-    if-eq v12, v3, :cond_f3
+    if-eq v12, v3, :cond_9
 
     const/4 v3, 0x3
 
-    if-ne v12, v3, :cond_7e
+    if-ne v12, v3, :cond_4
 
     invoke-virtual/range {p0 .. p0}, Landroid/text/SpannableStringBuilder;->length()I
 
@@ -2726,36 +2726,36 @@
 
     move/from16 v0, p3
 
-    if-ne v0, v3, :cond_7e
+    if-ne v0, v3, :cond_4
 
     .line 631
-    :cond_f3
+    :cond_9
     move-object/from16 v0, p0
 
     iget v3, v0, Landroid/text/SpannableStringBuilder;->mGapLength:I
 
     add-int p3, p3, v3
 
-    goto :goto_7e
+    goto :goto_1
 
     .line 636
-    :cond_fa
+    :cond_a
     move-object/from16 v0, p0
 
     iget v3, v0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
     move/from16 v0, p4
 
-    if-ne v0, v3, :cond_8c
+    if-ne v0, v3, :cond_5
 
     .line 637
     const/4 v3, 0x2
 
-    if-eq v11, v3, :cond_110
+    if-eq v11, v3, :cond_b
 
     const/4 v3, 0x3
 
-    if-ne v11, v3, :cond_8c
+    if-ne v11, v3, :cond_5
 
     invoke-virtual/range {p0 .. p0}, Landroid/text/SpannableStringBuilder;->length()I
 
@@ -2763,29 +2763,29 @@
 
     move/from16 v0, p4
 
-    if-ne v0, v3, :cond_8c
+    if-ne v0, v3, :cond_5
 
     .line 638
-    :cond_110
+    :cond_b
     move-object/from16 v0, p0
 
     iget v3, v0, Landroid/text/SpannableStringBuilder;->mGapLength:I
 
     add-int p4, p4, v3
 
-    goto/16 :goto_8c
+    goto/16 :goto_2
 
     .line 644
     .restart local v10       #count:I
     .restart local v13       #i:I
     .restart local v19       #spans:[Ljava/lang/Object;
-    :cond_118
+    :cond_c
     add-int/lit8 v13, v13, 0x1
 
-    goto/16 :goto_97
+    goto/16 :goto_3
 
     .line 664
-    :cond_11c
+    :cond_d
     move-object/from16 v0, p0
 
     iget v3, v0, Landroid/text/SpannableStringBuilder;->mSpanCount:I
@@ -2798,7 +2798,7 @@
 
     array-length v4, v4
 
-    if-lt v3, v4, :cond_1ad
+    if-lt v3, v4, :cond_e
 
     .line 665
     move-object/from16 v0, p0
@@ -2956,7 +2956,7 @@
     .end local v16           #newspanflags:[I
     .end local v17           #newspans:[Ljava/lang/Object;
     .end local v18           #newspanstarts:[I
-    :cond_1ad
+    :cond_e
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/text/SpannableStringBuilder;->mSpans:[Ljava/lang/Object;
@@ -3012,7 +3012,7 @@
     iput v3, v0, Landroid/text/SpannableStringBuilder;->mSpanCount:I
 
     .line 688
-    if-eqz p1, :cond_6b
+    if-eqz p1, :cond_2
 
     move-object/from16 v0, p0
 
@@ -3020,11 +3020,11 @@
 
     invoke-direct {v0, v1, v7, v8}, Landroid/text/SpannableStringBuilder;->sendSpanAdded(Ljava/lang/Object;II)V
 
-    goto/16 :goto_6b
+    goto/16 :goto_0
 .end method
 
 .method private updatedIntervalBound(IIIIZZ)I
-    .registers 9
+    .locals 2
     .parameter "offset"
     .parameter "start"
     .parameter "nbNewChars"
@@ -3034,7 +3034,7 @@
 
     .prologue
     .line 381
-    if-lt p1, p2, :cond_2d
+    if-lt p1, p2, :cond_4
 
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
@@ -3042,20 +3042,20 @@
 
     add-int/2addr v0, v1
 
-    if-ge p1, v0, :cond_2d
+    if-ge p1, v0, :cond_4
 
     .line 382
     const/4 v0, 0x2
 
-    if-ne p4, v0, :cond_17
+    if-ne p4, v0, :cond_2
 
     .line 387
-    if-nez p6, :cond_10
+    if-nez p6, :cond_0
 
-    if-le p1, p2, :cond_2d
+    if-le p1, p2, :cond_4
 
     .line 388
-    :cond_10
+    :cond_0
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
     iget v1, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
@@ -3064,19 +3064,19 @@
 
     .line 408
     .end local p2
-    :cond_16
-    :goto_16
+    :cond_1
+    :goto_0
     return p2
 
     .line 391
     .restart local p2
-    :cond_17
+    :cond_2
     const/4 v0, 0x3
 
-    if-ne p4, v0, :cond_23
+    if-ne p4, v0, :cond_3
 
     .line 392
-    if-eqz p5, :cond_2d
+    if-eqz p5, :cond_4
 
     .line 393
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
@@ -3085,63 +3085,63 @@
 
     add-int p2, v0, v1
 
-    goto :goto_16
+    goto :goto_0
 
     .line 399
-    :cond_23
-    if-nez p6, :cond_16
+    :cond_3
+    if-nez p6, :cond_1
 
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
     sub-int/2addr v0, p3
 
-    if-lt p1, v0, :cond_16
+    if-lt p1, v0, :cond_1
 
     .line 403
     iget p2, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    goto :goto_16
+    goto :goto_0
 
-    :cond_2d
+    :cond_4
     move p2, p1
 
     .line 408
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method public static valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
-    .registers 2
+    .locals 1
     .parameter "source"
 
     .prologue
     .line 99
     instance-of v0, p0, Landroid/text/SpannableStringBuilder;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 100
     check-cast p0, Landroid/text/SpannableStringBuilder;
 
     .line 102
     .end local p0
-    :goto_6
+    :goto_0
     return-object p0
 
     .restart local p0
-    :cond_7
+    :cond_0
     new-instance v0, Landroid/text/SpannableStringBuilder;
 
     invoke-direct {v0, p0}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
 
     move-object p0, v0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public bridge synthetic append(C)Landroid/text/Editable;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -3154,7 +3154,7 @@
 .end method
 
 .method public bridge synthetic append(Ljava/lang/CharSequence;)Landroid/text/Editable;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -3167,7 +3167,7 @@
 .end method
 
 .method public bridge synthetic append(Ljava/lang/CharSequence;II)Landroid/text/Editable;
-    .registers 5
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -3182,7 +3182,7 @@
 .end method
 
 .method public append(C)Landroid/text/SpannableStringBuilder;
-    .registers 3
+    .locals 1
     .parameter "text"
 
     .prologue
@@ -3199,7 +3199,7 @@
 .end method
 
 .method public append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
-    .registers 8
+    .locals 6
     .parameter "text"
 
     .prologue
@@ -3230,7 +3230,7 @@
 .end method
 
 .method public append(Ljava/lang/CharSequence;II)Landroid/text/SpannableStringBuilder;
-    .registers 10
+    .locals 6
     .parameter "text"
     .parameter "start"
     .parameter "end"
@@ -3261,7 +3261,7 @@
 .end method
 
 .method public bridge synthetic append(C)Ljava/lang/Appendable;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3279,7 +3279,7 @@
 .end method
 
 .method public bridge synthetic append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3297,7 +3297,7 @@
 .end method
 
 .method public bridge synthetic append(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;
-    .registers 5
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -3317,7 +3317,7 @@
 .end method
 
 .method public charAt(I)C
-    .registers 6
+    .locals 4
     .parameter "where"
 
     .prologue
@@ -3328,7 +3328,7 @@
 
     .line 111
     .local v0, len:I
-    if-gez p1, :cond_25
+    if-gez p1, :cond_0
 
     .line 112
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
@@ -3362,8 +3362,8 @@
     throw v1
 
     .line 113
-    :cond_25
-    if-lt p1, v0, :cond_4a
+    :cond_0
+    if-lt p1, v0, :cond_1
 
     .line 114
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
@@ -3401,10 +3401,10 @@
     throw v1
 
     .line 117
-    :cond_4a
+    :cond_1
     iget v1, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-lt p1, v1, :cond_56
+    if-lt p1, v1, :cond_2
 
     .line 118
     iget-object v1, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -3416,19 +3416,19 @@
     aget-char v1, v1, v2
 
     .line 120
-    :goto_55
+    :goto_0
     return v1
 
-    :cond_56
+    :cond_2
     iget-object v1, p0, Landroid/text/SpannableStringBuilder;->mText:[C
 
     aget-char v1, v1, p1
 
-    goto :goto_55
+    goto :goto_0
 .end method
 
 .method public clear()V
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v1, 0x0
@@ -3453,7 +3453,7 @@
 .end method
 
 .method public clearSpans()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 227
@@ -3462,8 +3462,8 @@
     add-int/lit8 v0, v4, -0x1
 
     .local v0, i:I
-    :goto_4
-    if-ltz v0, :cond_2d
+    :goto_0
+    if-ltz v0, :cond_2
 
     .line 228
     iget-object v4, p0, Landroid/text/SpannableStringBuilder;->mSpans:[Ljava/lang/Object;
@@ -3486,7 +3486,7 @@
     .local v1, oend:I
     iget v4, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v2, v4, :cond_19
+    if-le v2, v4, :cond_0
 
     .line 233
     iget v4, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
@@ -3494,10 +3494,10 @@
     sub-int/2addr v2, v4
 
     .line 234
-    :cond_19
+    :cond_0
     iget v4, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v1, v4, :cond_20
+    if-le v1, v4, :cond_1
 
     .line 235
     iget v4, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
@@ -3505,7 +3505,7 @@
     sub-int/2addr v1, v4
 
     .line 237
-    :cond_20
+    :cond_1
     iput v0, p0, Landroid/text/SpannableStringBuilder;->mSpanCount:I
 
     .line 238
@@ -3521,18 +3521,18 @@
     .line 227
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 242
     .end local v1           #oend:I
     .end local v2           #ostart:I
     .end local v3           #what:Ljava/lang/Object;
-    :cond_2d
+    :cond_2
     return-void
 .end method
 
 .method public bridge synthetic delete(II)Landroid/text/Editable;
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -3546,7 +3546,7 @@
 .end method
 
 .method public delete(II)Landroid/text/SpannableStringBuilder;
-    .registers 10
+    .locals 7
     .parameter "start"
     .parameter "end"
 
@@ -3578,7 +3578,7 @@
 
     mul-int/lit8 v1, v1, 0x2
 
-    if-le v0, v1, :cond_1c
+    if-le v0, v1, :cond_0
 
     .line 215
     invoke-virtual {p0}, Landroid/text/SpannableStringBuilder;->length()I
@@ -3588,12 +3588,12 @@
     invoke-direct {p0, v0}, Landroid/text/SpannableStringBuilder;->resizeFor(I)V
 
     .line 217
-    :cond_1c
+    :cond_0
     return-object v6
 .end method
 
 .method public drawText(Landroid/graphics/Canvas;IIFFLandroid/graphics/Paint;)V
-    .registers 14
+    .locals 7
     .parameter "c"
     .parameter "start"
     .parameter "end"
@@ -3612,7 +3612,7 @@
     .line 1114
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-gt p3, v0, :cond_17
+    if-gt p3, v0, :cond_0
 
     .line 1115
     iget-object v1, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -3632,14 +3632,14 @@
     invoke-virtual/range {v0 .. v6}, Landroid/graphics/Canvas;->drawText([CIIFFLandroid/graphics/Paint;)V
 
     .line 1125
-    :goto_16
+    :goto_0
     return-void
 
     .line 1116
-    :cond_17
+    :cond_0
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-lt p2, v0, :cond_2b
+    if-lt p2, v0, :cond_1
 
     .line 1117
     iget-object v1, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -3660,10 +3660,10 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/graphics/Canvas;->drawText([CIIFFLandroid/graphics/Paint;)V
 
-    goto :goto_16
+    goto :goto_0
 
     .line 1119
-    :cond_2b
+    :cond_1
     sub-int v0, p3, p2
 
     invoke-static {v0}, Landroid/text/TextUtils;->obtain(I)[C
@@ -3690,11 +3690,11 @@
     .line 1123
     invoke-static {v1}, Landroid/text/TextUtils;->recycle([C)V
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method public drawTextRun(Landroid/graphics/Canvas;IIIIFFILandroid/graphics/Paint;)V
-    .registers 20
+    .locals 10
     .parameter "c"
     .parameter "start"
     .parameter "end"
@@ -3722,7 +3722,7 @@
     .local v3, len:I
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-gt p5, v0, :cond_1e
+    if-gt p5, v0, :cond_0
 
     .line 1139
     iget-object v1, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -3744,14 +3744,14 @@
     invoke-virtual/range {v0 .. v9}, Landroid/graphics/Canvas;->drawTextRun([CIIIIFFILandroid/graphics/Paint;)V
 
     .line 1149
-    :goto_1d
+    :goto_0
     return-void
 
     .line 1140
-    :cond_1e
+    :cond_0
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-lt p4, v0, :cond_39
+    if-lt p4, v0, :cond_1
 
     .line 1141
     iget-object v1, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -3776,10 +3776,10 @@
 
     invoke-virtual/range {v0 .. v9}, Landroid/graphics/Canvas;->drawTextRun([CIIIIFFILandroid/graphics/Paint;)V
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 1144
-    :cond_39
+    :cond_1
     invoke-static {v5}, Landroid/text/TextUtils;->obtain(I)[C
 
     move-result-object v1
@@ -3810,11 +3810,11 @@
     .line 1147
     invoke-static {v1}, Landroid/text/TextUtils;->recycle([C)V
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method public getChars(II[CI)V
-    .registers 9
+    .locals 4
     .parameter "start"
     .parameter "end"
     .parameter "dest"
@@ -3829,7 +3829,7 @@
     .line 915
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-gt p2, v0, :cond_11
+    if-gt p2, v0, :cond_0
 
     .line 916
     iget-object v0, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -3839,14 +3839,14 @@
     invoke-static {v0, p1, p3, p4, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 925
-    :goto_10
+    :goto_0
     return-void
 
     .line 917
-    :cond_11
+    :cond_0
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-lt p1, v0, :cond_20
+    if-lt p1, v0, :cond_1
 
     .line 918
     iget-object v0, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -3859,10 +3859,10 @@
 
     invoke-static {v0, v1, p3, p4, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    goto :goto_10
+    goto :goto_0
 
     .line 920
-    :cond_20
+    :cond_1
     iget-object v0, p0, Landroid/text/SpannableStringBuilder;->mText:[C
 
     iget v1, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
@@ -3892,11 +3892,11 @@
 
     invoke-static {v0, v1, p3, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public getFilters()[Landroid/text/InputFilter;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1317
@@ -3906,7 +3906,7 @@
 .end method
 
 .method public getSpanEnd(Ljava/lang/Object;)I
-    .registers 7
+    .locals 5
     .parameter "what"
 
     .prologue
@@ -3922,13 +3922,13 @@
     add-int/lit8 v1, v0, -0x1
 
     .local v1, i:I
-    :goto_6
-    if-ltz v1, :cond_1b
+    :goto_0
+    if-ltz v1, :cond_2
 
     .line 734
     aget-object v4, v2, v1
 
-    if-ne v4, p1, :cond_18
+    if-ne v4, p1, :cond_1
 
     .line 735
     iget-object v4, p0, Landroid/text/SpannableStringBuilder;->mSpanEnds:[I
@@ -3939,7 +3939,7 @@
     .local v3, where:I
     iget v4, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v3, v4, :cond_17
+    if-le v3, v4, :cond_0
 
     .line 738
     iget v4, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
@@ -3948,25 +3948,25 @@
 
     .line 744
     .end local v3           #where:I
-    :cond_17
-    :goto_17
+    :cond_0
+    :goto_1
     return v3
 
     .line 733
-    :cond_18
+    :cond_1
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 744
-    :cond_1b
+    :cond_2
     const/4 v3, -0x1
 
-    goto :goto_17
+    goto :goto_1
 .end method
 
 .method public getSpanFlags(Ljava/lang/Object;)I
-    .registers 6
+    .locals 4
     .parameter "what"
 
     .prologue
@@ -3982,13 +3982,13 @@
     add-int/lit8 v1, v0, -0x1
 
     .local v1, i:I
-    :goto_6
-    if-ltz v1, :cond_14
+    :goto_0
+    if-ltz v1, :cond_1
 
     .line 756
     aget-object v3, v2, v1
 
-    if-ne v3, p1, :cond_11
+    if-ne v3, p1, :cond_0
 
     .line 757
     iget-object v3, p0, Landroid/text/SpannableStringBuilder;->mSpanFlags:[I
@@ -3996,24 +3996,24 @@
     aget v3, v3, v1
 
     .line 761
-    :goto_10
+    :goto_1
     return v3
 
     .line 755
-    :cond_11
+    :cond_0
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 761
-    :cond_14
+    :cond_1
     const/4 v3, 0x0
 
-    goto :goto_10
+    goto :goto_1
 .end method
 
 .method public getSpanStart(Ljava/lang/Object;)I
-    .registers 7
+    .locals 5
     .parameter "what"
 
     .prologue
@@ -4029,13 +4029,13 @@
     add-int/lit8 v1, v0, -0x1
 
     .local v1, i:I
-    :goto_6
-    if-ltz v1, :cond_1b
+    :goto_0
+    if-ltz v1, :cond_2
 
     .line 712
     aget-object v4, v2, v1
 
-    if-ne v4, p1, :cond_18
+    if-ne v4, p1, :cond_1
 
     .line 713
     iget-object v4, p0, Landroid/text/SpannableStringBuilder;->mSpanStarts:[I
@@ -4046,7 +4046,7 @@
     .local v3, where:I
     iget v4, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-le v3, v4, :cond_17
+    if-le v3, v4, :cond_0
 
     .line 716
     iget v4, p0, Landroid/text/SpannableStringBuilder;->mGapLength:I
@@ -4055,25 +4055,25 @@
 
     .line 722
     .end local v3           #where:I
-    :cond_17
-    :goto_17
+    :cond_0
+    :goto_1
     return v3
 
     .line 711
-    :cond_18
+    :cond_1
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 722
-    :cond_1b
+    :cond_2
     const/4 v3, -0x1
 
-    goto :goto_17
+    goto :goto_1
 .end method
 
 .method public getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
-    .registers 26
+    .locals 22
     .parameter "queryStart"
     .parameter "queryEnd"
     .parameter
@@ -4090,19 +4090,19 @@
     .prologue
     .line 771
     .local p3, kind:Ljava/lang/Class;,"Ljava/lang/Class<TT;>;"
-    if-nez p3, :cond_7
+    if-nez p3, :cond_1
 
     invoke-static/range {p3 .. p3}, Lcom/android/internal/util/ArrayUtils;->emptyArray(Ljava/lang/Class;)[Ljava/lang/Object;
 
     move-result-object v13
 
     .line 862
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return-object v13
 
     .line 773
-    :cond_7
+    :cond_1
     move-object/from16 v0, p0
 
     iget v15, v0, Landroid/text/SpannableStringBuilder;->mSpanCount:I
@@ -4169,8 +4169,8 @@
     .end local v2           #count:I
     .end local v14           #ret1:Ljava/lang/Object;,"TT;"
     .local v3, count:I
-    :goto_2c
-    if-ge v8, v15, :cond_d7
+    :goto_1
+    if-ge v8, v15, :cond_e
 
     .line 786
     aget v17, v19, v8
@@ -4179,112 +4179,112 @@
     .local v17, spanStart:I
     move/from16 v0, v17
 
-    if-le v0, v7, :cond_36
+    if-le v0, v7, :cond_2
 
     .line 788
     sub-int v17, v17, v6
 
     .line 790
-    :cond_36
+    :cond_2
     move/from16 v0, v17
 
     move/from16 v1, p2
 
-    if-le v0, v1, :cond_41
+    if-le v0, v1, :cond_3
 
     move v2, v3
 
     .line 785
     .end local v3           #count:I
     .restart local v2       #count:I
-    :goto_3d
+    :goto_2
     add-int/lit8 v8, v8, 0x1
 
     move v3, v2
 
     .end local v2           #count:I
     .restart local v3       #count:I
-    goto :goto_2c
+    goto :goto_1
 
     .line 794
-    :cond_41
+    :cond_3
     aget v16, v4, v8
 
     .line 795
     .local v16, spanEnd:I
     move/from16 v0, v16
 
-    if-le v0, v7, :cond_49
+    if-le v0, v7, :cond_4
 
     .line 796
     sub-int v16, v16, v6
 
     .line 798
-    :cond_49
+    :cond_4
     move/from16 v0, v16
 
     move/from16 v1, p1
 
-    if-ge v0, v1, :cond_51
+    if-ge v0, v1, :cond_5
 
     move v2, v3
 
     .line 799
     .end local v3           #count:I
     .restart local v2       #count:I
-    goto :goto_3d
+    goto :goto_2
 
     .line 802
     .end local v2           #count:I
     .restart local v3       #count:I
-    :cond_51
+    :cond_5
     move/from16 v0, v17
 
     move/from16 v1, v16
 
-    if-eq v0, v1, :cond_6d
+    if-eq v0, v1, :cond_7
 
     move/from16 v0, p1
 
     move/from16 v1, p2
 
-    if-eq v0, v1, :cond_6d
+    if-eq v0, v1, :cond_7
 
     .line 803
     move/from16 v0, v17
 
     move/from16 v1, p2
 
-    if-ne v0, v1, :cond_65
+    if-ne v0, v1, :cond_6
 
     move v2, v3
 
     .line 804
     .end local v3           #count:I
     .restart local v2       #count:I
-    goto :goto_3d
+    goto :goto_2
 
     .line 805
     .end local v2           #count:I
     .restart local v3       #count:I
-    :cond_65
+    :cond_6
     move/from16 v0, v16
 
     move/from16 v1, p1
 
-    if-ne v0, v1, :cond_6d
+    if-ne v0, v1, :cond_7
 
     move v2, v3
 
     .line 806
     .end local v3           #count:I
     .restart local v2       #count:I
-    goto :goto_3d
+    goto :goto_2
 
     .line 810
     .end local v2           #count:I
     .restart local v3       #count:I
-    :cond_6d
+    :cond_7
     aget-object v20, v18, v8
 
     move-object/from16 v0, p3
@@ -4295,19 +4295,19 @@
 
     move-result v20
 
-    if-nez v20, :cond_7b
+    if-nez v20, :cond_8
 
     move v2, v3
 
     .end local v3           #count:I
     .restart local v2       #count:I
-    goto :goto_3d
+    goto :goto_2
 
     .line 812
     .end local v2           #count:I
     .restart local v3       #count:I
-    :cond_7b
-    if-nez v3, :cond_82
+    :cond_8
+    if-nez v3, :cond_9
 
     .line 814
     aget-object v14, v18, v8
@@ -4318,18 +4318,18 @@
 
     .end local v3           #count:I
     .restart local v2       #count:I
-    goto :goto_3d
+    goto :goto_2
 
     .line 817
     .end local v2           #count:I
     .end local v14           #ret1:Ljava/lang/Object;,"TT;"
     .restart local v3       #count:I
-    :cond_82
+    :cond_9
     const/16 v20, 0x1
 
     move/from16 v0, v20
 
-    if-ne v3, v0, :cond_9e
+    if-ne v3, v0, :cond_a
 
     .line 819
     sub-int v20, v15, v8
@@ -4356,7 +4356,7 @@
     aput-object v14, v13, v20
 
     .line 823
-    :cond_9e
+    :cond_a
     aget v20, v5, v8
 
     const/high16 v21, 0xff
@@ -4365,14 +4365,14 @@
 
     .line 824
     .local v12, prio:I
-    if-eqz v12, :cond_cf
+    if-eqz v12, :cond_d
 
     .line 827
     const/4 v9, 0x0
 
     .local v9, j:I
-    :goto_a7
-    if-ge v9, v3, :cond_b9
+    :goto_3
+    if-ge v9, v3, :cond_b
 
     .line 828
     aget-object v20, v13, v9
@@ -4391,11 +4391,11 @@
 
     .line 830
     .local v11, p:I
-    if-le v12, v11, :cond_cc
+    if-le v12, v11, :cond_c
 
     .line 835
     .end local v11           #p:I
-    :cond_b9
+    :cond_b
     add-int/lit8 v20, v9, 0x1
 
     sub-int v21, v3, v9
@@ -4417,21 +4417,21 @@
     .line 839
     .end local v3           #count:I
     .restart local v2       #count:I
-    goto/16 :goto_3d
+    goto/16 :goto_2
 
     .line 827
     .end local v2           #count:I
     .restart local v3       #count:I
     .restart local v11       #p:I
-    :cond_cc
+    :cond_c
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_a7
+    goto :goto_3
 
     .line 841
     .end local v9           #j:I
     .end local v11           #p:I
-    :cond_cf
+    :cond_d
     add-int/lit8 v2, v3, 0x1
 
     .end local v3           #count:I
@@ -4440,7 +4440,7 @@
 
     aput-object v20, v13, v3
 
-    goto/16 :goto_3d
+    goto/16 :goto_2
 
     .line 846
     .end local v2           #count:I
@@ -4448,23 +4448,23 @@
     .end local v16           #spanEnd:I
     .end local v17           #spanStart:I
     .restart local v3       #count:I
-    :cond_d7
-    if-nez v3, :cond_df
+    :cond_e
+    if-nez v3, :cond_f
 
     .line 847
     invoke-static/range {p3 .. p3}, Lcom/android/internal/util/ArrayUtils;->emptyArray(Ljava/lang/Class;)[Ljava/lang/Object;
 
     move-result-object v13
 
-    goto/16 :goto_6
+    goto/16 :goto_0
 
     .line 849
-    :cond_df
+    :cond_f
     const/16 v20, 0x1
 
     move/from16 v0, v20
 
-    if-ne v3, v0, :cond_fb
+    if-ne v3, v0, :cond_10
 
     .line 851
     const/16 v20, 0x1
@@ -4488,17 +4488,17 @@
 
     aput-object v14, v13, v20
 
-    goto/16 :goto_6
+    goto/16 :goto_0
 
     .line 855
-    :cond_fb
+    :cond_10
     array-length v0, v13
 
     move/from16 v20, v0
 
     move/from16 v0, v20
 
-    if-eq v3, v0, :cond_6
+    if-eq v3, v0, :cond_0
 
     .line 860
     move-object/from16 v0, p3
@@ -4528,11 +4528,11 @@
     move-object v13, v10
 
     .line 862
-    goto/16 :goto_6
+    goto/16 :goto_0
 .end method
 
 .method public getTextRunAdvances(IIIII[FILandroid/graphics/Paint;)F
-    .registers 19
+    .locals 10
     .parameter "start"
     .parameter "end"
     .parameter "contextStart"
@@ -4554,7 +4554,7 @@
     .local v3, len:I
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-gt p2, v0, :cond_18
+    if-gt p2, v0, :cond_0
 
     .line 1212
     iget-object v1, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -4577,15 +4577,15 @@
 
     .line 1225
     .local v9, ret:F
-    :goto_17
+    :goto_0
     return v9
 
     .line 1214
     .end local v9           #ret:F
-    :cond_18
+    :cond_0
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-lt p1, v0, :cond_32
+    if-lt p1, v0, :cond_1
 
     .line 1215
     iget-object v1, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -4611,11 +4611,11 @@
     move-result v9
 
     .restart local v9       #ret:F
-    goto :goto_17
+    goto :goto_0
 
     .line 1218
     .end local v9           #ret:F
-    :cond_32
+    :cond_1
     invoke-static {v5}, Landroid/text/TextUtils;->obtain(I)[C
 
     move-result-object v1
@@ -4647,11 +4647,11 @@
     .restart local v9       #ret:F
     invoke-static {v1}, Landroid/text/TextUtils;->recycle([C)V
 
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method public getTextRunAdvances(IIIII[FILandroid/graphics/Paint;I)F
-    .registers 21
+    .locals 11
     .parameter "start"
     .parameter "end"
     .parameter "contextStart"
@@ -4674,7 +4674,7 @@
     .local v3, len:I
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-gt p2, v0, :cond_1b
+    if-gt p2, v0, :cond_0
 
     .line 1241
     iget-object v1, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -4699,15 +4699,15 @@
 
     .line 1254
     .local v10, ret:F
-    :goto_1a
+    :goto_0
     return v10
 
     .line 1243
     .end local v10           #ret:F
-    :cond_1b
+    :cond_0
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-lt p1, v0, :cond_38
+    if-lt p1, v0, :cond_1
 
     .line 1244
     iget-object v1, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -4735,11 +4735,11 @@
     move-result v10
 
     .restart local v10       #ret:F
-    goto :goto_1a
+    goto :goto_0
 
     .line 1247
     .end local v10           #ret:F
-    :cond_38
+    :cond_1
     invoke-static {v5}, Landroid/text/TextUtils;->obtain(I)[C
 
     move-result-object v1
@@ -4773,11 +4773,11 @@
     .restart local v10       #ret:F
     invoke-static {v1}, Landroid/text/TextUtils;->recycle([C)V
 
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 .method public getTextRunCursor(IIIIILandroid/graphics/Paint;)I
-    .registers 15
+    .locals 8
     .parameter "contextStart"
     .parameter "contextEnd"
     .parameter "flags"
@@ -4797,7 +4797,7 @@
     .local v3, contextLen:I
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-gt p2, v0, :cond_13
+    if-gt p2, v0, :cond_0
 
     .line 1290
     iget-object v1, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -4818,15 +4818,15 @@
 
     .line 1303
     .local v7, ret:I
-    :goto_12
+    :goto_0
     return v7
 
     .line 1292
     .end local v7           #ret:I
-    :cond_13
+    :cond_0
     iget v0, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-lt p1, v0, :cond_2d
+    if-lt p1, v0, :cond_1
 
     .line 1293
     iget-object v1, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -4854,11 +4854,11 @@
     sub-int v7, v0, v2
 
     .restart local v7       #ret:I
-    goto :goto_12
+    goto :goto_0
 
     .line 1296
     .end local v7           #ret:I
-    :cond_2d
+    :cond_1
     invoke-static {v3}, Landroid/text/TextUtils;->obtain(I)[C
 
     move-result-object v1
@@ -4886,11 +4886,11 @@
     .restart local v7       #ret:I
     invoke-static {v1}, Landroid/text/TextUtils;->recycle([C)V
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public getTextWidths(II[FLandroid/graphics/Paint;)I
-    .registers 10
+    .locals 5
     .parameter "start"
     .parameter "end"
     .parameter "widths"
@@ -4907,7 +4907,7 @@
     .line 1184
     iget v2, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-gt p2, v2, :cond_13
+    if-gt p2, v2, :cond_0
 
     .line 1185
     iget-object v2, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -4920,15 +4920,15 @@
 
     .line 1196
     .local v1, ret:I
-    :goto_12
+    :goto_0
     return v1
 
     .line 1186
     .end local v1           #ret:I
-    :cond_13
+    :cond_0
     iget v2, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-lt p1, v2, :cond_23
+    if-lt p1, v2, :cond_1
 
     .line 1187
     iget-object v2, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -4944,11 +4944,11 @@
     move-result v1
 
     .restart local v1       #ret:I
-    goto :goto_12
+    goto :goto_0
 
     .line 1189
     .end local v1           #ret:I
-    :cond_23
+    :cond_1
     sub-int v2, p2, p1
 
     invoke-static {v2}, Landroid/text/TextUtils;->obtain(I)[C
@@ -4970,11 +4970,11 @@
     .restart local v1       #ret:I
     invoke-static {v0}, Landroid/text/TextUtils;->recycle([C)V
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public bridge synthetic insert(ILjava/lang/CharSequence;)Landroid/text/Editable;
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -4988,7 +4988,7 @@
 .end method
 
 .method public bridge synthetic insert(ILjava/lang/CharSequence;II)Landroid/text/Editable;
-    .registers 6
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -5004,7 +5004,7 @@
 .end method
 
 .method public insert(ILjava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
-    .registers 9
+    .locals 6
     .parameter "where"
     .parameter "tb"
 
@@ -5032,7 +5032,7 @@
 .end method
 
 .method public insert(ILjava/lang/CharSequence;II)Landroid/text/SpannableStringBuilder;
-    .registers 11
+    .locals 6
     .parameter "where"
     .parameter "tb"
     .parameter "start"
@@ -5060,7 +5060,7 @@
 .end method
 
 .method public length()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 127
@@ -5076,7 +5076,7 @@
 .end method
 
 .method public measureText(IILandroid/graphics/Paint;)F
-    .registers 9
+    .locals 5
     .parameter "start"
     .parameter "end"
     .parameter "p"
@@ -5092,7 +5092,7 @@
     .line 1160
     iget v2, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-gt p2, v2, :cond_14
+    if-gt p2, v2, :cond_0
 
     .line 1161
     iget-object v2, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -5105,15 +5105,15 @@
 
     .line 1172
     .local v1, ret:F
-    :goto_13
+    :goto_0
     return v1
 
     .line 1162
     .end local v1           #ret:F
-    :cond_14
+    :cond_0
     iget v2, p0, Landroid/text/SpannableStringBuilder;->mGapStart:I
 
-    if-lt p1, v2, :cond_24
+    if-lt p1, v2, :cond_1
 
     .line 1163
     iget-object v2, p0, Landroid/text/SpannableStringBuilder;->mText:[C
@@ -5129,11 +5129,11 @@
     move-result v1
 
     .restart local v1       #ret:F
-    goto :goto_13
+    goto :goto_0
 
     .line 1165
     .end local v1           #ret:F
-    :cond_24
+    :cond_1
     sub-int v2, p2, p1
 
     invoke-static {v2}, Landroid/text/TextUtils;->obtain(I)[C
@@ -5155,11 +5155,11 @@
     .restart local v1       #ret:F
     invoke-static {v0}, Landroid/text/TextUtils;->recycle([C)V
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public nextSpanTransition(IILjava/lang/Class;)I
-    .registers 14
+    .locals 10
     .parameter "start"
     .parameter "limit"
     .parameter "kind"
@@ -5190,18 +5190,18 @@
 
     .line 878
     .local v3, gaplen:I
-    if-nez p3, :cond_10
+    if-nez p3, :cond_0
 
     .line 879
     const-class p3, Ljava/lang/Object;
 
     .line 882
-    :cond_10
+    :cond_0
     const/4 v5, 0x0
 
     .local v5, i:I
-    :goto_11
-    if-ge v5, v0, :cond_3a
+    :goto_0
+    if-ge v5, v0, :cond_5
 
     .line 883
     aget v7, v8, v5
@@ -5212,23 +5212,23 @@
 
     .line 886
     .local v1, en:I
-    if-le v7, v4, :cond_1a
+    if-le v7, v4, :cond_1
 
     .line 887
     sub-int/2addr v7, v3
 
     .line 888
-    :cond_1a
-    if-le v1, v4, :cond_1d
+    :cond_1
+    if-le v1, v4, :cond_2
 
     .line 889
     sub-int/2addr v1, v3
 
     .line 891
-    :cond_1d
-    if-le v7, p1, :cond_2a
+    :cond_2
+    if-le v7, p1, :cond_3
 
-    if-ge v7, p2, :cond_2a
+    if-ge v7, p2, :cond_3
 
     aget-object v9, v6, v5
 
@@ -5236,16 +5236,16 @@
 
     move-result v9
 
-    if-eqz v9, :cond_2a
+    if-eqz v9, :cond_3
 
     .line 892
     move p2, v7
 
     .line 893
-    :cond_2a
-    if-le v1, p1, :cond_37
+    :cond_3
+    if-le v1, p1, :cond_4
 
-    if-ge v1, p2, :cond_37
+    if-ge v1, p2, :cond_4
 
     aget-object v9, v6, v5
 
@@ -5253,26 +5253,26 @@
 
     move-result v9
 
-    if-eqz v9, :cond_37
+    if-eqz v9, :cond_4
 
     .line 894
     move p2, v1
 
     .line 882
-    :cond_37
+    :cond_4
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_11
+    goto :goto_0
 
     .line 897
     .end local v1           #en:I
     .end local v7           #st:I
-    :cond_3a
+    :cond_5
     return p2
 .end method
 
 .method public removeSpan(Ljava/lang/Object;)V
-    .registers 4
+    .locals 2
     .parameter "what"
 
     .prologue
@@ -5282,32 +5282,32 @@
     add-int/lit8 v0, v1, -0x1
 
     .local v0, i:I
-    :goto_4
-    if-ltz v0, :cond_f
+    :goto_0
+    if-ltz v0, :cond_0
 
     .line 696
     iget-object v1, p0, Landroid/text/SpannableStringBuilder;->mSpans:[Ljava/lang/Object;
 
     aget-object v1, v1, v0
 
-    if-ne v1, p1, :cond_10
+    if-ne v1, p1, :cond_1
 
     .line 697
     invoke-direct {p0, v0}, Landroid/text/SpannableStringBuilder;->removeSpan(I)V
 
     .line 701
-    :cond_f
+    :cond_0
     return-void
 
     .line 695
-    :cond_10
+    :cond_1
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public bridge synthetic replace(IILjava/lang/CharSequence;)Landroid/text/Editable;
-    .registers 5
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -5322,7 +5322,7 @@
 .end method
 
 .method public bridge synthetic replace(IILjava/lang/CharSequence;II)Landroid/text/Editable;
-    .registers 7
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -5339,7 +5339,7 @@
 .end method
 
 .method public replace(IILjava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
-    .registers 10
+    .locals 6
     .parameter "start"
     .parameter "end"
     .parameter "tb"
@@ -5368,7 +5368,7 @@
 .end method
 
 .method public replace(IILjava/lang/CharSequence;II)Landroid/text/SpannableStringBuilder;
-    .registers 29
+    .locals 23
     .parameter "start"
     .parameter "end"
     .parameter "tb"
@@ -5401,12 +5401,12 @@
     const/16 v17, 0x0
 
     .local v17, i:I
-    :goto_15
+    :goto_0
     move/from16 v0, v17
 
     move/from16 v1, v16
 
-    if-ge v0, v1, :cond_3e
+    if-ge v0, v1, :cond_1
 
     .line 445
     move-object/from16 v0, p0
@@ -5433,7 +5433,7 @@
 
     .line 447
     .local v21, repl:Ljava/lang/CharSequence;
-    if-eqz v21, :cond_3b
+    if-eqz v21, :cond_0
 
     .line 448
     move-object/from16 p3, v21
@@ -5447,14 +5447,14 @@
     move-result p5
 
     .line 444
-    :cond_3b
+    :cond_0
     add-int/lit8 v17, v17, 0x1
 
-    goto :goto_15
+    goto :goto_0
 
     .line 454
     .end local v21           #repl:Ljava/lang/CharSequence;
-    :cond_3e
+    :cond_1
     sub-int v20, p2, p1
 
     .line 455
@@ -5463,22 +5463,22 @@
 
     .line 457
     .local v18, newLen:I
-    if-nez v20, :cond_4d
+    if-nez v20, :cond_2
 
-    if-nez v18, :cond_4d
+    if-nez v18, :cond_2
 
     invoke-static/range {p3 .. p4}, Landroid/text/SpannableStringBuilder;->hasNonExclusiveExclusiveSpanAt(Ljava/lang/CharSequence;I)Z
 
     move-result v5
 
-    if-nez v5, :cond_4d
+    if-nez v5, :cond_2
 
     .line 502
-    :goto_4c
+    :goto_1
     return-object p0
 
     .line 463
-    :cond_4d
+    :cond_2
     add-int v5, p1, v20
 
     const-class v6, Landroid/text/TextWatcher;
@@ -5508,15 +5508,15 @@
     invoke-direct {v0, v1, v2, v3, v4}, Landroid/text/SpannableStringBuilder;->sendBeforeTextChanged([Landroid/text/TextWatcher;III)V
 
     .line 469
-    if-eqz v20, :cond_d5
+    if-eqz v20, :cond_6
 
-    if-eqz v18, :cond_d5
+    if-eqz v18, :cond_6
 
     const/4 v15, 0x1
 
     .line 470
     .local v15, adjustSelection:Z
-    :goto_6d
+    :goto_2
     const/4 v8, 0x0
 
     .line 471
@@ -5525,7 +5525,7 @@
 
     .line 472
     .local v12, selectionEnd:I
-    if-eqz v15, :cond_79
+    if-eqz v15, :cond_3
 
     .line 473
     invoke-static/range {p0 .. p0}, Landroid/text/Selection;->getSelectionStart(Ljava/lang/CharSequence;)I
@@ -5538,20 +5538,20 @@
     move-result v12
 
     .line 477
-    :cond_79
+    :cond_3
     invoke-direct/range {p0 .. p5}, Landroid/text/SpannableStringBuilder;->change(IILjava/lang/CharSequence;II)V
 
     .line 479
-    if-eqz v15, :cond_b4
+    if-eqz v15, :cond_5
 
     .line 480
     move/from16 v0, p1
 
-    if-le v8, v0, :cond_99
+    if-le v8, v0, :cond_4
 
     move/from16 v0, p2
 
-    if-ge v8, v0, :cond_99
+    if-ge v8, v0, :cond_4
 
     .line 481
     sub-int v5, v8, p1
@@ -5579,14 +5579,14 @@
 
     .line 487
     .end local v19           #offset:I
-    :cond_99
+    :cond_4
     move/from16 v0, p1
 
-    if-le v12, v0, :cond_b4
+    if-le v12, v0, :cond_5
 
     move/from16 v0, p2
 
-    if-ge v12, v0, :cond_b4
+    if-ge v12, v0, :cond_5
 
     .line 488
     sub-int v5, v12, p1
@@ -5614,7 +5614,7 @@
 
     .line 496
     .end local v19           #offset:I
-    :cond_b4
+    :cond_5
     move-object/from16 v0, p0
 
     move-object/from16 v1, v22
@@ -5645,25 +5645,25 @@
 
     invoke-direct {v0, v1, v2, v5}, Landroid/text/SpannableStringBuilder;->sendToSpanWatchers(III)V
 
-    goto/16 :goto_4c
+    goto/16 :goto_1
 
     .line 469
     .end local v8           #selectionStart:I
     .end local v12           #selectionEnd:I
     .end local v15           #adjustSelection:Z
-    :cond_d5
+    :cond_6
     const/4 v15, 0x0
 
-    goto :goto_6d
+    goto :goto_2
 .end method
 
 .method public setFilters([Landroid/text/InputFilter;)V
-    .registers 3
+    .locals 1
     .parameter "filters"
 
     .prologue
     .line 1308
-    if-nez p1, :cond_8
+    if-nez p1, :cond_0
 
     .line 1309
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -5673,7 +5673,7 @@
     throw v0
 
     .line 1312
-    :cond_8
+    :cond_0
     iput-object p1, p0, Landroid/text/SpannableStringBuilder;->mFilters:[Landroid/text/InputFilter;
 
     .line 1313
@@ -5681,7 +5681,7 @@
 .end method
 
 .method public setSpan(Ljava/lang/Object;III)V
-    .registers 11
+    .locals 6
     .parameter "what"
     .parameter "start"
     .parameter "end"
@@ -5708,7 +5708,7 @@
 .end method
 
 .method public subSequence(II)Ljava/lang/CharSequence;
-    .registers 4
+    .locals 1
     .parameter "start"
     .parameter "end"
 
@@ -5722,7 +5722,7 @@
 .end method
 
 .method public substring(II)Ljava/lang/String;
-    .registers 5
+    .locals 2
     .parameter "start"
     .parameter "end"
 
@@ -5747,7 +5747,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0

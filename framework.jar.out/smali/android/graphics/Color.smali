@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 372
@@ -201,7 +201,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 36
@@ -211,7 +211,7 @@
 .end method
 
 .method public static HSBtoColor(FFF)I
-    .registers 16
+    .locals 13
     .parameter "h"
     .parameter "s"
     .parameter "b"
@@ -297,10 +297,10 @@
 
     .line 269
     .local v8, tv:F
-    packed-switch v4, :pswitch_data_60
+    packed-switch v4, :pswitch_data_0
 
     .line 302
-    :goto_34
+    :goto_0
     const/high16 v9, -0x100
 
     mul-float v10, v7, v12
@@ -328,7 +328,7 @@
     return v9
 
     .line 271
-    :pswitch_47
+    :pswitch_0
     move v7, p2
 
     .line 272
@@ -338,10 +338,10 @@
     move v0, v5
 
     .line 274
-    goto :goto_34
+    goto :goto_0
 
     .line 276
-    :pswitch_4b
+    :pswitch_1
     move v7, v6
 
     .line 277
@@ -351,10 +351,10 @@
     move v0, v5
 
     .line 279
-    goto :goto_34
+    goto :goto_0
 
     .line 281
-    :pswitch_4f
+    :pswitch_2
     move v7, v5
 
     .line 282
@@ -364,10 +364,10 @@
     move v0, v8
 
     .line 284
-    goto :goto_34
+    goto :goto_0
 
     .line 286
-    :pswitch_53
+    :pswitch_3
     move v7, v5
 
     .line 287
@@ -377,10 +377,10 @@
     move v0, p2
 
     .line 289
-    goto :goto_34
+    goto :goto_0
 
     .line 291
-    :pswitch_57
+    :pswitch_4
     move v7, v8
 
     .line 292
@@ -390,10 +390,10 @@
     move v0, p2
 
     .line 294
-    goto :goto_34
+    goto :goto_0
 
     .line 296
-    :pswitch_5b
+    :pswitch_5
     move v7, p2
 
     .line 297
@@ -402,24 +402,24 @@
     .line 298
     move v0, v6
 
-    goto :goto_34
+    goto :goto_0
 
     .line 269
     nop
 
-    :pswitch_data_60
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_47
-        :pswitch_4b
-        :pswitch_4f
-        :pswitch_53
-        :pswitch_57
-        :pswitch_5b
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method public static HSBtoColor([F)I
-    .registers 4
+    .locals 3
     .parameter "hsb"
 
     .prologue
@@ -444,7 +444,7 @@
 .end method
 
 .method public static HSVToColor(I[F)I
-    .registers 4
+    .locals 2
     .parameter "alpha"
     .parameter "hsv"
 
@@ -454,7 +454,7 @@
 
     const/4 v1, 0x3
 
-    if-ge v0, v1, :cond_c
+    if-ge v0, v1, :cond_0
 
     .line 361
     new-instance v0, Ljava/lang/RuntimeException;
@@ -466,7 +466,7 @@
     throw v0
 
     .line 363
-    :cond_c
+    :cond_0
     invoke-static {p0, p1}, Landroid/graphics/Color;->nativeHSVToColor(I[F)I
 
     move-result v0
@@ -475,7 +475,7 @@
 .end method
 
 .method public static HSVToColor([F)I
-    .registers 2
+    .locals 1
     .parameter "hsv"
 
     .prologue
@@ -490,7 +490,7 @@
 .end method
 
 .method public static RGBToHSV(III[F)V
-    .registers 6
+    .locals 2
     .parameter "red"
     .parameter "green"
     .parameter "blue"
@@ -502,7 +502,7 @@
 
     const/4 v1, 0x3
 
-    if-ge v0, v1, :cond_c
+    if-ge v0, v1, :cond_0
 
     .line 318
     new-instance v0, Ljava/lang/RuntimeException;
@@ -514,7 +514,7 @@
     throw v0
 
     .line 320
-    :cond_c
+    :cond_0
     invoke-static {p0, p1, p2, p3}, Landroid/graphics/Color;->nativeRGBToHSV(III[F)V
 
     .line 321
@@ -522,7 +522,7 @@
 .end method
 
 .method public static alpha(I)I
-    .registers 2
+    .locals 1
     .parameter "color"
 
     .prologue
@@ -533,7 +533,7 @@
 .end method
 
 .method public static argb(IIII)I
-    .registers 6
+    .locals 2
     .parameter "alpha"
     .parameter "red"
     .parameter "green"
@@ -557,7 +557,7 @@
 .end method
 
 .method public static blue(I)I
-    .registers 2
+    .locals 1
     .parameter "color"
 
     .prologue
@@ -568,7 +568,7 @@
 .end method
 
 .method public static brightness(I)F
-    .registers 7
+    .locals 6
     .parameter "color"
 
     .prologue
@@ -609,7 +609,7 @@
 .end method
 
 .method public static colorToHSV(I[F)V
-    .registers 5
+    .locals 3
     .parameter "color"
     .parameter "hsv"
 
@@ -632,7 +632,7 @@
 .end method
 
 .method public static green(I)I
-    .registers 2
+    .locals 1
     .parameter "color"
 
     .prologue
@@ -645,7 +645,7 @@
 .end method
 
 .method public static hue(I)F
-    .registers 12
+    .locals 11
     .parameter "color"
 
     .prologue
@@ -686,20 +686,20 @@
 
     .line 127
     .local v8, temp:I
-    if-ne v1, v8, :cond_1e
+    if-ne v1, v8, :cond_1
 
     .line 128
     const/4 v0, 0x0
 
     .line 149
     .local v0, H:F
-    :cond_1d
-    :goto_1d
+    :cond_0
+    :goto_0
     return v0
 
     .line 130
     .end local v0           #H:F
-    :cond_1e
+    :cond_1
     sub-int v10, v1, v8
 
     int-to-float v9, v10
@@ -730,14 +730,14 @@
 
     .line 135
     .local v3, cb:F
-    if-ne v7, v1, :cond_40
+    if-ne v7, v1, :cond_2
 
     .line 136
     sub-float v0, v3, v4
 
     .line 143
     .restart local v0       #H:F
-    :goto_34
+    :goto_1
     const/high16 v10, 0x40c0
 
     div-float/2addr v0, v10
@@ -747,19 +747,19 @@
 
     cmpg-float v10, v0, v10
 
-    if-gez v10, :cond_1d
+    if-gez v10, :cond_0
 
     .line 145
     const/high16 v10, 0x3f80
 
     add-float/2addr v0, v10
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 137
     .end local v0           #H:F
-    :cond_40
-    if-ne v6, v1, :cond_48
+    :cond_2
+    if-ne v6, v1, :cond_3
 
     .line 138
     const/high16 v10, 0x4000
@@ -769,11 +769,11 @@
     sub-float v0, v10, v3
 
     .restart local v0       #H:F
-    goto :goto_34
+    goto :goto_1
 
     .line 140
     .end local v0           #H:F
-    :cond_48
+    :cond_3
     const/high16 v10, 0x4080
 
     add-float/2addr v10, v4
@@ -781,7 +781,7 @@
     sub-float v0, v10, v5
 
     .restart local v0       #H:F
-    goto :goto_34
+    goto :goto_1
 .end method
 
 .method private static native nativeHSVToColor(I[F)I
@@ -791,7 +791,7 @@
 .end method
 
 .method public static parseColor(Ljava/lang/String;)I
-    .registers 5
+    .locals 4
     .parameter "colorString"
 
     .prologue
@@ -804,7 +804,7 @@
 
     const/16 v3, 0x23
 
-    if-ne v2, v3, :cond_31
+    if-ne v2, v3, :cond_2
 
     .line 208
     const/4 v2, 0x1
@@ -827,7 +827,7 @@
 
     const/4 v3, 0x7
 
-    if-ne v2, v3, :cond_21
+    if-ne v2, v3, :cond_1
 
     .line 211
     const-wide/32 v2, -0x1000000
@@ -835,24 +835,24 @@
     or-long/2addr v0, v2
 
     .line 215
-    :cond_1f
+    :cond_0
     long-to-int v2, v0
 
     .line 219
     .end local v0           #color:J
-    :goto_20
+    :goto_0
     return v2
 
     .line 212
     .restart local v0       #color:J
-    :cond_21
+    :cond_1
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
 
     const/16 v3, 0x9
 
-    if-eq v2, v3, :cond_1f
+    if-eq v2, v3, :cond_0
 
     .line 213
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -865,7 +865,7 @@
 
     .line 217
     .end local v0           #color:J
-    :cond_31
+    :cond_2
     sget-object v2, Landroid/graphics/Color;->sColorNameMap:Ljava/util/HashMap;
 
     sget-object v3, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -882,17 +882,17 @@
 
     .line 218
     .local v0, color:Ljava/lang/Integer;
-    if-eqz v0, :cond_46
+    if-eqz v0, :cond_3
 
     .line 219
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
 
-    goto :goto_20
+    goto :goto_0
 
     .line 222
-    :cond_46
+    :cond_3
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Unknown color"
@@ -903,7 +903,7 @@
 .end method
 
 .method public static red(I)I
-    .registers 2
+    .locals 1
     .parameter "color"
 
     .prologue
@@ -916,7 +916,7 @@
 .end method
 
 .method public static rgb(III)I
-    .registers 5
+    .locals 2
     .parameter "red"
     .parameter "green"
     .parameter "blue"
@@ -939,7 +939,7 @@
 .end method
 
 .method public static saturation(I)F
-    .registers 9
+    .locals 8
     .parameter "color"
 
     .prologue
@@ -980,19 +980,19 @@
 
     .line 170
     .local v5, temp:I
-    if-ne v1, v5, :cond_1e
+    if-ne v1, v5, :cond_0
 
     .line 171
     const/4 v0, 0x0
 
     .line 176
     .local v0, S:F
-    :goto_1d
+    :goto_0
     return v0
 
     .line 173
     .end local v0           #S:F
-    :cond_1e
+    :cond_0
     sub-int v6, v1, v5
 
     int-to-float v6, v6
@@ -1002,5 +1002,5 @@
     div-float v0, v6, v7
 
     .restart local v0       #S:F
-    goto :goto_1d
+    goto :goto_0
 .end method

@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 812
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "docid"
     .parameter "text"
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public static getRssUrl(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "docid"
 
     .prologue
@@ -85,7 +85,7 @@
 .end method
 
 .method public static getURL(Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "docid"
 
     .prologue
@@ -100,20 +100,20 @@
 .end method
 
 .method public static getURL(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "docid"
     .parameter "extraParams"
 
     .prologue
     .line 858
-    if-nez p1, :cond_22
+    if-nez p1, :cond_1
 
     .line 859
     const-string p1, ""
 
     .line 863
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -145,12 +145,12 @@
     return-object v0
 
     .line 860
-    :cond_22
+    :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-lez v0, :cond_4
+    if-lez v0, :cond_0
 
     .line 861
     new-instance v0, Ljava/lang/StringBuilder;
@@ -171,11 +171,11 @@
 
     move-result-object p1
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static matchURL(Ljava/lang/String;Ljava/lang/String;)Lcom/google/android/util/AbstractMessageParser$Video;
-    .registers 5
+    .locals 3
     .parameter "url"
     .parameter "text"
 
@@ -193,7 +193,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_0
 
     .line 832
     new-instance v1, Lcom/google/android/util/AbstractMessageParser$Video;
@@ -207,19 +207,19 @@
     invoke-direct {v1, v2, p1}, Lcom/google/android/util/AbstractMessageParser$Video;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 834
-    :goto_16
+    :goto_0
     return-object v1
 
-    :cond_17
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getDocID()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 823
@@ -229,7 +229,7 @@
 .end method
 
 .method public getInfo()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -270,7 +270,7 @@
 .end method
 
 .method public isHtml()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 825
@@ -280,7 +280,7 @@
 .end method
 
 .method public isMedia()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 826

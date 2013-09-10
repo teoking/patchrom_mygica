@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 324
@@ -33,7 +33,7 @@
 .end method
 
 .method public static getContentUri(Ljava/lang/String;)Landroid/net/Uri;
-    .registers 3
+    .locals 2
     .parameter "volumeName"
 
     .prologue
@@ -70,7 +70,7 @@
 .end method
 
 .method public static final getContentUri(Ljava/lang/String;J)Landroid/net/Uri;
-    .registers 5
+    .locals 2
     .parameter "volumeName"
     .parameter "rowId"
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public static getMtpObjectsUri(Ljava/lang/String;)Landroid/net/Uri;
-    .registers 3
+    .locals 2
     .parameter "volumeName"
 
     .prologue
@@ -149,7 +149,7 @@
 .end method
 
 .method public static final getMtpObjectsUri(Ljava/lang/String;J)Landroid/net/Uri;
-    .registers 5
+    .locals 2
     .parameter "volumeName"
     .parameter "fileId"
 
@@ -191,7 +191,7 @@
 .end method
 
 .method public static final getMtpReferencesUri(Ljava/lang/String;J)Landroid/net/Uri;
-    .registers 5
+    .locals 2
     .parameter "volumeName"
     .parameter "fileId"
 

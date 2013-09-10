@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 5598
@@ -84,7 +84,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 5583
@@ -94,29 +94,29 @@
 .end method
 
 .method public static final getTypeLabel(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .registers 5
+    .locals 2
     .parameter "res"
     .parameter "type"
     .parameter "label"
 
     .prologue
     .line 5677
-    if-nez p1, :cond_9
+    if-nez p1, :cond_0
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_0
 
     .line 5681
     .end local p2
-    :goto_8
+    :goto_0
     return-object p2
 
     .line 5680
     .restart local p2
-    :cond_9
+    :cond_0
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$Email;->getTypeLabelResource(I)I
 
     move-result v0
@@ -127,55 +127,55 @@
 
     move-result-object p2
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public static final getTypeLabelResource(I)I
-    .registers 2
+    .locals 1
     .parameter "type"
 
     .prologue
     .line 5661
-    packed-switch p0, :pswitch_data_18
+    packed-switch p0, :pswitch_data_0
 
     .line 5666
     const v0, 0x10402bf
 
-    :goto_6
+    :goto_0
     return v0
 
     .line 5662
-    :pswitch_7
+    :pswitch_0
     const v0, 0x10402c0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 5663
-    :pswitch_b
+    :pswitch_1
     const v0, 0x10402c1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 5664
-    :pswitch_f
+    :pswitch_2
     const v0, 0x10402c2
 
-    goto :goto_6
+    goto :goto_0
 
     .line 5665
-    :pswitch_13
+    :pswitch_3
     const v0, 0x10402c3
 
-    goto :goto_6
+    goto :goto_0
 
     .line 5661
     nop
 
-    :pswitch_data_18
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_7
-        :pswitch_b
-        :pswitch_f
-        :pswitch_13
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method

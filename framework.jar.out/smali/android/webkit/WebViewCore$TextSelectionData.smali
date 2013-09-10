@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(III)V
-    .registers 5
+    .locals 1
     .parameter "start"
     .parameter "end"
     .parameter "selectTextPtr"

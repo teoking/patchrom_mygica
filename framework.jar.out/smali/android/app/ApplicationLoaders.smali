@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 70
@@ -37,7 +37,7 @@
 .end method
 
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 24
@@ -54,7 +54,7 @@
 .end method
 
 .method public static getDefault()Landroid/app/ApplicationLoaders;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 28
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public getClassLoader(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/ClassLoader;
-    .registers 9
+    .locals 5
     .parameter "zip"
     .parameter "libPath"
     .parameter "parent"
@@ -88,17 +88,17 @@
     monitor-enter v4
 
     .line 42
-    if-nez p3, :cond_e
+    if-nez p3, :cond_0
 
     .line 43
     move-object p3, v0
 
     .line 51
-    :cond_e
-    if-ne p3, v0, :cond_29
+    :cond_0
+    if-ne p3, v0, :cond_2
 
     .line 52
-    :try_start_10
+    :try_start_0
     iget-object v3, p0, Landroid/app/ApplicationLoaders;->mLoaders:Ljava/util/Map;
 
     invoke-interface {v3, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -109,19 +109,19 @@
 
     .line 53
     .local v1, loader:Ljava/lang/ClassLoader;
-    if-eqz v1, :cond_1c
+    if-eqz v1, :cond_1
 
     .line 54
     monitor-exit v4
 
     .line 64
     .end local v1           #loader:Ljava/lang/ClassLoader;
-    :goto_1b
+    :goto_0
     return-object v1
 
     .line 57
     .restart local v1       #loader:Ljava/lang/ClassLoader;
-    :cond_1c
+    :cond_1
     new-instance v2, Ldalvik/system/PathClassLoader;
 
     invoke-direct {v2, p1, p2, p3}, Ldalvik/system/PathClassLoader;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V
@@ -137,27 +137,27 @@
 
     move-object v1, v2
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 64
     .end local v1           #loader:Ljava/lang/ClassLoader;
     .end local v2           #pathClassloader:Ldalvik/system/PathClassLoader;
-    :cond_29
+    :cond_2
     new-instance v1, Ldalvik/system/PathClassLoader;
 
     invoke-direct {v1, p1, p3}, Ldalvik/system/PathClassLoader;-><init>(Ljava/lang/String;Ljava/lang/ClassLoader;)V
 
     monitor-exit v4
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 65
-    :catchall_30
+    :catchall_0
     move-exception v3
 
     monitor-exit v4
-    :try_end_32
-    .catchall {:try_start_10 .. :try_end_32} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v3
 .end method

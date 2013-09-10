@@ -9,7 +9,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 38
@@ -20,7 +20,7 @@
 .end method
 
 .method public static declared-synchronized getInstance(Landroid/content/Context;)Landroid/webkit/WebViewDatabase;
-    .registers 3
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -29,14 +29,14 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     invoke-static {}, Landroid/webkit/WebViewFactory;->getProvider()Landroid/webkit/WebViewFactoryProvider;
 
     move-result-object v0
 
     invoke-interface {v0, p0}, Landroid/webkit/WebViewFactoryProvider;->getWebViewDatabase(Landroid/content/Context;)Landroid/webkit/WebViewDatabase;
-    :try_end_a
-    .catchall {:try_start_3 .. :try_end_a} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
@@ -44,7 +44,7 @@
 
     return-object v0
 
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public clearFormData()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 92
@@ -67,7 +67,7 @@
 .end method
 
 .method public clearHttpAuthUsernamePassword()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -79,7 +79,7 @@
 .end method
 
 .method public clearUsernamePassword()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60
@@ -91,7 +91,7 @@
 .end method
 
 .method public hasFormData()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 85
@@ -103,7 +103,7 @@
 .end method
 
 .method public hasHttpAuthUsernamePassword()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 69
@@ -115,7 +115,7 @@
 .end method
 
 .method public hasUsernamePassword()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 53

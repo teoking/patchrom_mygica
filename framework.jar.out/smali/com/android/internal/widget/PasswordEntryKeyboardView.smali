@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "attrs"
 
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 4
+    .locals 0
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public setShifted(Z)Z
-    .registers 9
+    .locals 7
     .parameter "shifted"
 
     .prologue
@@ -76,8 +76,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_f
-    if-ge v1, v4, :cond_19
+    :goto_0
+    if-ge v1, v4, :cond_0
 
     aget v2, v0, v1
 
@@ -88,10 +88,10 @@
     .line 44
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 47
     .end local v2           #index:I
-    :cond_19
+    :cond_0
     return v5
 .end method

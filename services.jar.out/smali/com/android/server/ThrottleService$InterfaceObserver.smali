@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/Handler;ILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "handler"
     .parameter "msg"
     .parameter "iface"
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public interfaceAdded(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "iface"
 
     .prologue
@@ -60,7 +60,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 192
     iget-object v0, p0, Lcom/android/server/ThrottleService$InterfaceObserver;->mHandler:Landroid/os/Handler;
@@ -74,12 +74,12 @@
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     .line 194
-    :cond_13
+    :cond_0
     return-void
 .end method
 
 .method public interfaceLinkStateChanged(Ljava/lang/String;Z)V
-    .registers 3
+    .locals 0
     .parameter "iface"
     .parameter "up"
 
@@ -89,7 +89,7 @@
 .end method
 
 .method public interfaceRemoved(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "iface"
 
     .prologue
@@ -98,13 +98,13 @@
 .end method
 
 .method public interfaceStatusChanged(Ljava/lang/String;Z)V
-    .registers 5
+    .locals 2
     .parameter "iface"
     .parameter "up"
 
     .prologue
     .line 178
-    if-eqz p2, :cond_15
+    if-eqz p2, :cond_0
 
     .line 179
     iget-object v0, p0, Lcom/android/server/ThrottleService$InterfaceObserver;->mIface:Ljava/lang/String;
@@ -113,7 +113,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 180
     iget-object v0, p0, Lcom/android/server/ThrottleService$InterfaceObserver;->mHandler:Landroid/os/Handler;
@@ -127,12 +127,12 @@
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     .line 183
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method public limitReached(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "limitName"
     .parameter "iface"
 

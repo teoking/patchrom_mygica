@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 31
@@ -47,7 +47,7 @@
 .end method
 
 .method public getTag()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60
@@ -60,7 +60,7 @@
 .end method
 
 .method public getTitleOptionalHint()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 134
@@ -73,7 +73,7 @@
 .end method
 
 .method public isTitleOptional()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 142
@@ -83,7 +83,7 @@
 .end method
 
 .method public isUiFocusable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 209
@@ -102,7 +102,7 @@
 .end method
 
 .method public setTag(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "tag"
 
     .prologue
@@ -120,7 +120,7 @@
 .end method
 
 .method public setTitleOptionalHint(Z)V
-    .registers 2
+    .locals 0
     .parameter "titleOptional"
 
     .prologue

@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/hardware/input/InputManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/hardware/input/InputManager;Landroid/hardware/input/InputManager$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public onInputDevicesChanged([I)V
-    .registers 3
+    .locals 1
     .parameter "deviceIdAndGeneration"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -59,6 +59,7 @@
     .line 753
     iget-object v0, p0, Landroid/hardware/input/InputManager$InputDevicesChangedListener;->this$0:Landroid/hardware/input/InputManager;
 
+    #calls: Landroid/hardware/input/InputManager;->onInputDevicesChanged([I)V
     invoke-static {v0, p1}, Landroid/hardware/input/InputManager;->access$100(Landroid/hardware/input/InputManager;[I)V
 
     .line 754

@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "ni"
 
     .prologue
@@ -20,7 +20,7 @@
 .end method
 
 .method public constructor <init>([B)V
-    .registers 4
+    .locals 2
     .parameter "table"
 
     .prologue
@@ -32,7 +32,7 @@
 
     const/16 v1, 0x100
 
-    if-ge v0, v1, :cond_11
+    if-ge v0, v1, :cond_0
 
     .line 26
     new-instance v0, Ljava/lang/RuntimeException;
@@ -44,7 +44,7 @@
     throw v0
 
     .line 28
-    :cond_11
+    :cond_0
     invoke-static {p1}, Landroid/graphics/TableMaskFilter;->nativeNewTable([B)I
 
     move-result v0
@@ -56,7 +56,7 @@
 .end method
 
 .method public static CreateClipTable(II)Landroid/graphics/TableMaskFilter;
-    .registers 4
+    .locals 2
     .parameter "min"
     .parameter "max"
 
@@ -74,7 +74,7 @@
 .end method
 
 .method public static CreateGammaTable(F)Landroid/graphics/TableMaskFilter;
-    .registers 3
+    .locals 2
     .parameter "gamma"
 
     .prologue

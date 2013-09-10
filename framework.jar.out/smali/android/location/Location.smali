@@ -69,7 +69,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 697
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(Landroid/location/Location;)V
-    .registers 8
+    .locals 6
     .parameter "l"
 
     .prologue
@@ -169,7 +169,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 8
+    .locals 6
     .parameter "provider"
 
     .prologue
@@ -255,7 +255,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/location/Location;J)J
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -267,7 +267,7 @@
 .end method
 
 .method static synthetic access$1002(Landroid/location/Location;F)F
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -279,7 +279,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/location/Location;D)D
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -291,7 +291,7 @@
 .end method
 
 .method static synthetic access$1102(Landroid/location/Location;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -303,7 +303,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/location/Location;D)D
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -315,7 +315,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/location/Location;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -327,7 +327,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/location/Location;D)D
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -339,7 +339,7 @@
 .end method
 
 .method static synthetic access$502(Landroid/location/Location;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -351,7 +351,7 @@
 .end method
 
 .method static synthetic access$602(Landroid/location/Location;F)F
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -363,7 +363,7 @@
 .end method
 
 .method static synthetic access$702(Landroid/location/Location;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -375,7 +375,7 @@
 .end method
 
 .method static synthetic access$802(Landroid/location/Location;F)F
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -387,7 +387,7 @@
 .end method
 
 .method static synthetic access$902(Landroid/location/Location;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -399,7 +399,7 @@
 .end method
 
 .method private static computeDistanceAndBearing(DDDD[F)V
-    .registers 96
+    .locals 87
     .parameter "lat1"
     .parameter "lon1"
     .parameter "lat2"
@@ -569,10 +569,10 @@
     const/16 v48, 0x0
 
     .local v48, iter:I
-    :goto_7e
+    :goto_0
     move/from16 v0, v48
 
-    if-ge v0, v12, :cond_184
+    if-ge v0, v12, :cond_0
 
     .line 312
     move-wide/from16 v51, v49
@@ -634,13 +634,13 @@
 
     cmpl-double v75, v59, v75
 
-    if-nez v75, :cond_203
+    if-nez v75, :cond_2
 
     const-wide/16 v55, 0x0
 
     .line 323
     .local v55, sinAlpha:D
-    :goto_b4
+    :goto_1
     const-wide/high16 v75, 0x3ff0
 
     mul-double v77, v55, v55
@@ -652,12 +652,12 @@
 
     cmpl-double v75, v31, v75
 
-    if-nez v75, :cond_209
+    if-nez v75, :cond_3
 
     const-wide/16 v23, 0x0
 
     .line 327
-    :goto_c2
+    :goto_2
     mul-double v73, v31, v19
 
     .line 328
@@ -851,7 +851,7 @@
 
     cmpg-double v75, v75, v77
 
-    if-gez v75, :cond_213
+    if-gez v75, :cond_4
 
     .line 357
     .end local v6           #B:D
@@ -864,7 +864,7 @@
     .end local v69           #t1:D
     .end local v71           #t2:D
     .end local v73           #uSquared:D
-    :cond_184
+    :cond_0
     mul-double v75, v21, v4
 
     sub-double v77, v53, v41
@@ -896,7 +896,7 @@
 
     move/from16 v1, v76
 
-    if-le v0, v1, :cond_202
+    if-le v0, v1, :cond_1
 
     .line 360
     mul-double v75, v37, v57
@@ -955,7 +955,7 @@
 
     move/from16 v1, v76
 
-    if-le v0, v1, :cond_202
+    if-le v0, v1, :cond_1
 
     .line 365
     mul-double v75, v33, v57
@@ -1010,7 +1010,7 @@
     .line 371
     .end local v46           #finalBearing:F
     .end local v47           #initialBearing:F
-    :cond_202
+    :cond_1
     return-void
 
     .line 321
@@ -1019,16 +1019,16 @@
     .restart local v61       #sinSqSigma:D
     .restart local v69       #t1:D
     .restart local v71       #t2:D
-    :cond_203
+    :cond_2
     mul-double v75, v35, v57
 
     div-double v55, v75, v59
 
-    goto/16 :goto_b4
+    goto/16 :goto_1
 
     .line 324
     .restart local v55       #sinAlpha:D
-    :cond_209
+    :cond_3
     const-wide/high16 v75, 0x4000
 
     mul-double v75, v75, v65
@@ -1037,7 +1037,7 @@
 
     sub-double v23, v29, v75
 
-    goto/16 :goto_c2
+    goto/16 :goto_2
 
     .line 311
     .restart local v6       #B:D
@@ -1045,19 +1045,19 @@
     .restart local v25       #cos2SMSq:D
     .restart local v39       #delta:D
     .restart local v73       #uSquared:D
-    :cond_213
+    :cond_4
     add-int/lit8 v48, v48, 0x1
 
-    goto/16 :goto_7e
+    goto/16 :goto_0
 .end method
 
 .method public static convert(Ljava/lang/String;)D
-    .registers 22
+    .locals 21
     .parameter "coordinate"
 
     .prologue
     .line 212
-    if-nez p0, :cond_a
+    if-nez p0, :cond_0
 
     .line 213
     new-instance v17, Ljava/lang/NullPointerException;
@@ -1069,7 +1069,7 @@
     throw v17
 
     .line 216
-    :cond_a
+    :cond_0
     const/4 v8, 0x0
 
     .line 217
@@ -1090,7 +1090,7 @@
 
     move/from16 v1, v18
 
-    if-ne v0, v1, :cond_28
+    if-ne v0, v1, :cond_1
 
     .line 218
     const/16 v17, 0x1
@@ -1107,7 +1107,7 @@
     const/4 v8, 0x1
 
     .line 222
-    :cond_28
+    :cond_1
     new-instance v13, Ljava/util/StringTokenizer;
 
     const-string v17, ":"
@@ -1130,7 +1130,7 @@
 
     move/from16 v0, v17
 
-    if-ge v14, v0, :cond_5a
+    if-ge v14, v0, :cond_2
 
     .line 225
     new-instance v17, Ljava/lang/IllegalArgumentException;
@@ -1162,8 +1162,8 @@
     throw v17
 
     .line 228
-    :cond_5a
-    :try_start_5a
+    :cond_2
+    :try_start_0
     invoke-virtual {v13}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v3
@@ -1174,7 +1174,7 @@
 
     move/from16 v0, v17
 
-    if-ne v14, v0, :cond_71
+    if-ne v14, v0, :cond_4
 
     .line 231
     invoke-static {v3}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
@@ -1183,25 +1183,25 @@
 
     .line 232
     .local v15, val:D
-    if-eqz v8, :cond_6e
+    if-eqz v8, :cond_3
 
     neg-double v0, v15
 
     move-wide/from16 v17, v0
 
     .line 266
-    :goto_6d
+    :goto_0
     return-wide v17
 
-    :cond_6e
+    :cond_3
     move-wide/from16 v17, v15
 
     .line 232
-    goto :goto_6d
+    goto :goto_0
 
     .line 235
     .end local v15           #val:D
-    :cond_71
+    :cond_4
     invoke-virtual {v13}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v7
@@ -1222,7 +1222,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_f1
+    if-eqz v17, :cond_6
 
     .line 241
     invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -1247,32 +1247,32 @@
 
     .line 248
     .end local v12           #seconds:Ljava/lang/String;
-    :goto_90
-    if-eqz v8, :cond_f6
+    :goto_1
+    if-eqz v8, :cond_7
 
     const/16 v17, 0xb4
 
     move/from16 v0, v17
 
-    if-ne v2, v0, :cond_f6
+    if-ne v2, v0, :cond_7
 
     const-wide/16 v17, 0x0
 
     cmpl-double v17, v5, v17
 
-    if-nez v17, :cond_f6
+    if-nez v17, :cond_7
 
     const-wide/16 v17, 0x0
 
     cmpl-double v17, v10, v17
 
-    if-nez v17, :cond_f6
+    if-nez v17, :cond_7
 
     const/4 v4, 0x1
 
     .line 252
     .local v4, isNegative180:Z
-    :goto_a5
+    :goto_2
     int-to-double v0, v2
 
     move-wide/from16 v17, v0
@@ -1281,18 +1281,18 @@
 
     cmpg-double v17, v17, v19
 
-    if-ltz v17, :cond_b6
+    if-ltz v17, :cond_5
 
     const/16 v17, 0xb3
 
     move/from16 v0, v17
 
-    if-le v2, v0, :cond_f8
+    if-le v2, v0, :cond_8
 
-    if-nez v4, :cond_f8
+    if-nez v4, :cond_8
 
     .line 253
-    :cond_b6
+    :cond_5
     new-instance v17, Ljava/lang/IllegalArgumentException;
 
     new-instance v18, Ljava/lang/StringBuilder;
@@ -1320,8 +1320,8 @@
     invoke-direct/range {v17 .. v18}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v17
-    :try_end_d3
-    .catch Ljava/lang/NumberFormatException; {:try_start_5a .. :try_end_d3} :catch_d3
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 267
     .end local v2           #deg:I
@@ -1330,7 +1330,7 @@
     .end local v5           #min:D
     .end local v7           #minutes:Ljava/lang/String;
     .end local v10           #sec:D
-    :catch_d3
+    :catch_0
     move-exception v9
 
     .line 268
@@ -1369,38 +1369,38 @@
     .restart local v3       #degrees:Ljava/lang/String;
     .restart local v7       #minutes:Ljava/lang/String;
     .restart local v10       #sec:D
-    :cond_f1
-    :try_start_f1
+    :cond_6
+    :try_start_1
     invoke-static {v7}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
 
     move-result-wide v5
 
     .restart local v5       #min:D
-    goto :goto_90
+    goto :goto_1
 
     .line 248
-    :cond_f6
+    :cond_7
     const/4 v4, 0x0
 
-    goto :goto_a5
+    goto :goto_2
 
     .line 255
     .restart local v4       #isNegative180:Z
-    :cond_f8
+    :cond_8
     const-wide/16 v17, 0x0
 
     cmpg-double v17, v5, v17
 
-    if-ltz v17, :cond_107
+    if-ltz v17, :cond_9
 
     const-wide v17, 0x404d800000000000L
 
     cmpl-double v17, v5, v17
 
-    if-lez v17, :cond_124
+    if-lez v17, :cond_a
 
     .line 256
-    :cond_107
+    :cond_9
     new-instance v17, Ljava/lang/IllegalArgumentException;
 
     new-instance v18, Ljava/lang/StringBuilder;
@@ -1430,21 +1430,21 @@
     throw v17
 
     .line 259
-    :cond_124
+    :cond_a
     const-wide/16 v17, 0x0
 
     cmpg-double v17, v10, v17
 
-    if-ltz v17, :cond_133
+    if-ltz v17, :cond_b
 
     const-wide v17, 0x404d800000000000L
 
     cmpl-double v17, v10, v17
 
-    if-lez v17, :cond_150
+    if-lez v17, :cond_c
 
     .line 260
-    :cond_133
+    :cond_b
     new-instance v17, Ljava/lang/IllegalArgumentException;
 
     new-instance v18, Ljava/lang/StringBuilder;
@@ -1472,11 +1472,11 @@
     invoke-direct/range {v17 .. v18}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v17
-    :try_end_150
-    .catch Ljava/lang/NumberFormatException; {:try_start_f1 .. :try_end_150} :catch_d3
+    :try_end_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 264
-    :cond_150
+    :cond_c
     int-to-double v0, v2
 
     move-wide/from16 v17, v0
@@ -1500,22 +1500,22 @@
     div-double v15, v15, v17
 
     .line 266
-    if-eqz v8, :cond_170
+    if-eqz v8, :cond_d
 
     neg-double v0, v15
 
     move-wide/from16 v17, v0
 
-    goto/16 :goto_6d
+    goto/16 :goto_0
 
-    :cond_170
+    :cond_d
     move-wide/from16 v17, v15
 
-    goto/16 :goto_6d
+    goto/16 :goto_0
 .end method
 
 .method public static convert(DI)Ljava/lang/String;
-    .registers 14
+    .locals 11
     .parameter "coordinate"
     .parameter "outputType"
 
@@ -1533,22 +1533,22 @@
 
     cmpg-double v4, p0, v4
 
-    if-ltz v4, :cond_1e
+    if-ltz v4, :cond_0
 
     const-wide v4, 0x4066800000000000L
 
     cmpl-double v4, p0, v4
 
-    if-gtz v4, :cond_1e
+    if-gtz v4, :cond_0
 
     invoke-static {p0, p1}, Ljava/lang/Double;->isNaN(D)Z
 
     move-result v4
 
-    if-eqz v4, :cond_37
+    if-eqz v4, :cond_1
 
     .line 166
-    :cond_1e
+    :cond_0
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1574,12 +1574,12 @@
     throw v4
 
     .line 168
-    :cond_37
-    if-eqz p2, :cond_57
+    :cond_1
+    if-eqz p2, :cond_2
 
-    if-eq p2, v9, :cond_57
+    if-eq p2, v9, :cond_2
 
-    if-eq p2, v6, :cond_57
+    if-eq p2, v6, :cond_2
 
     .line 171
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -1607,7 +1607,7 @@
     throw v4
 
     .line 174
-    :cond_57
+    :cond_2
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1618,7 +1618,7 @@
 
     cmpg-double v4, p0, v4
 
-    if-gez v4, :cond_68
+    if-gez v4, :cond_3
 
     .line 178
     const/16 v4, 0x2d
@@ -1629,7 +1629,7 @@
     neg-double p0, p0
 
     .line 182
-    :cond_68
+    :cond_3
     new-instance v1, Ljava/text/DecimalFormat;
 
     const-string v4, "###.#####"
@@ -1638,12 +1638,12 @@
 
     .line 183
     .local v1, df:Ljava/text/DecimalFormat;
-    if-eq p2, v9, :cond_73
+    if-eq p2, v9, :cond_4
 
-    if-ne p2, v6, :cond_91
+    if-ne p2, v6, :cond_5
 
     .line 184
-    :cond_73
+    :cond_4
     invoke-static {p0, p1}, Ljava/lang/Math;->floor(D)D
 
     move-result-wide v4
@@ -1666,7 +1666,7 @@
     mul-double/2addr p0, v7
 
     .line 189
-    if-ne p2, v6, :cond_91
+    if-ne p2, v6, :cond_5
 
     .line 190
     invoke-static {p0, p1}, Ljava/lang/Math;->floor(D)D
@@ -1693,7 +1693,7 @@
     .line 197
     .end local v0           #degrees:I
     .end local v2           #minutes:I
-    :cond_91
+    :cond_5
     invoke-virtual {v1, p0, p1}, Ljava/text/DecimalFormat;->format(D)Ljava/lang/String;
 
     move-result-object v4
@@ -1709,7 +1709,7 @@
 .end method
 
 .method public static distanceBetween(DDDD[F)V
-    .registers 11
+    .locals 2
     .parameter "startLatitude"
     .parameter "startLongitude"
     .parameter "endLatitude"
@@ -1718,16 +1718,16 @@
 
     .prologue
     .line 393
-    if-eqz p8, :cond_6
+    if-eqz p8, :cond_0
 
     array-length v0, p8
 
     const/4 v1, 0x1
 
-    if-ge v0, v1, :cond_f
+    if-ge v0, v1, :cond_1
 
     .line 394
-    :cond_6
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "results is null or has length < 1"
@@ -1737,7 +1737,7 @@
     throw v0
 
     .line 396
-    :cond_f
+    :cond_1
     invoke-static/range {p0 .. p8}, Landroid/location/Location;->computeDistanceAndBearing(DDDD[F)V
 
     .line 398
@@ -1747,7 +1747,7 @@
 
 # virtual methods
 .method public bearingTo(Landroid/location/Location;)F
-    .registers 12
+    .locals 10
     .parameter "dest"
 
     .prologue
@@ -1757,14 +1757,14 @@
     monitor-enter v9
 
     .line 439
-    :try_start_3
+    :try_start_0
     iget-wide v0, p0, Landroid/location/Location;->mLatitude:D
 
     iget-wide v2, p0, Landroid/location/Location;->mLat1:D
 
     cmpl-double v0, v0, v2
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_0
 
     iget-wide v0, p0, Landroid/location/Location;->mLongitude:D
 
@@ -1772,7 +1772,7 @@
 
     cmpl-double v0, v0, v2
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_0
 
     iget-wide v0, p1, Landroid/location/Location;->mLatitude:D
 
@@ -1780,7 +1780,7 @@
 
     cmpl-double v0, v0, v2
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_0
 
     iget-wide v0, p1, Landroid/location/Location;->mLongitude:D
 
@@ -1788,10 +1788,10 @@
 
     cmpl-double v0, v0, v2
 
-    if-eqz v0, :cond_4e
+    if-eqz v0, :cond_1
 
     .line 441
-    :cond_23
+    :cond_0
     iget-wide v0, p0, Landroid/location/Location;->mLatitude:D
 
     iget-wide v2, p0, Landroid/location/Location;->mLongitude:D
@@ -1843,7 +1843,7 @@
     iput v0, p0, Landroid/location/Location;->mInitialBearing:F
 
     .line 450
-    :cond_4e
+    :cond_1
     iget v0, p0, Landroid/location/Location;->mInitialBearing:F
 
     monitor-exit v9
@@ -1851,18 +1851,18 @@
     return v0
 
     .line 451
-    :catchall_52
+    :catchall_0
     move-exception v0
 
     monitor-exit v9
-    :try_end_54
-    .catchall {:try_start_3 .. :try_end_54} :catchall_52
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 723
@@ -1872,7 +1872,7 @@
 .end method
 
 .method public distanceTo(Landroid/location/Location;)F
-    .registers 12
+    .locals 10
     .parameter "dest"
 
     .prologue
@@ -1882,14 +1882,14 @@
     monitor-enter v9
 
     .line 411
-    :try_start_3
+    :try_start_0
     iget-wide v0, p0, Landroid/location/Location;->mLatitude:D
 
     iget-wide v2, p0, Landroid/location/Location;->mLat1:D
 
     cmpl-double v0, v0, v2
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_0
 
     iget-wide v0, p0, Landroid/location/Location;->mLongitude:D
 
@@ -1897,7 +1897,7 @@
 
     cmpl-double v0, v0, v2
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_0
 
     iget-wide v0, p1, Landroid/location/Location;->mLatitude:D
 
@@ -1905,7 +1905,7 @@
 
     cmpl-double v0, v0, v2
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_0
 
     iget-wide v0, p1, Landroid/location/Location;->mLongitude:D
 
@@ -1913,10 +1913,10 @@
 
     cmpl-double v0, v0, v2
 
-    if-eqz v0, :cond_4e
+    if-eqz v0, :cond_1
 
     .line 413
-    :cond_23
+    :cond_0
     iget-wide v0, p0, Landroid/location/Location;->mLatitude:D
 
     iget-wide v2, p0, Landroid/location/Location;->mLongitude:D
@@ -1968,7 +1968,7 @@
     iput v0, p0, Landroid/location/Location;->mInitialBearing:F
 
     .line 422
-    :cond_4e
+    :cond_1
     iget v0, p0, Landroid/location/Location;->mDistance:F
 
     monitor-exit v9
@@ -1976,18 +1976,18 @@
     return v0
 
     .line 423
-    :catchall_52
+    :catchall_0
     move-exception v0
 
     monitor-exit v9
-    :try_end_54
-    .catchall {:try_start_3 .. :try_end_54} :catchall_52
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "pw"
     .parameter "prefix"
 
@@ -2258,7 +2258,7 @@
 .end method
 
 .method public getAccuracy()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 634
@@ -2268,7 +2268,7 @@
 .end method
 
 .method public getAltitude()D
-    .registers 3
+    .locals 2
 
     .prologue
     .line 526
@@ -2278,7 +2278,7 @@
 .end method
 
 .method public getBearing()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 594
@@ -2288,7 +2288,7 @@
 .end method
 
 .method public getExtras()Landroid/os/Bundle;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 670
@@ -2298,7 +2298,7 @@
 .end method
 
 .method public getLatitude()D
-    .registers 3
+    .locals 2
 
     .prologue
     .line 489
@@ -2308,7 +2308,7 @@
 .end method
 
 .method public getLongitude()D
-    .registers 3
+    .locals 2
 
     .prologue
     .line 503
@@ -2318,7 +2318,7 @@
 .end method
 
 .method public getProvider()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 459
@@ -2328,7 +2328,7 @@
 .end method
 
 .method public getSpeed()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 560
@@ -2338,7 +2338,7 @@
 .end method
 
 .method public getTime()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 474
@@ -2348,7 +2348,7 @@
 .end method
 
 .method public hasAccuracy()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 626
@@ -2358,7 +2358,7 @@
 .end method
 
 .method public hasAltitude()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 518
@@ -2368,7 +2368,7 @@
 .end method
 
 .method public hasBearing()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 586
@@ -2378,7 +2378,7 @@
 .end method
 
 .method public hasSpeed()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 552
@@ -2388,7 +2388,7 @@
 .end method
 
 .method public removeAccuracy()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 651
@@ -2406,7 +2406,7 @@
 .end method
 
 .method public removeAltitude()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 543
@@ -2424,7 +2424,7 @@
 .end method
 
 .method public removeBearing()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 617
@@ -2442,7 +2442,7 @@
 .end method
 
 .method public removeSpeed()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 577
@@ -2460,7 +2460,7 @@
 .end method
 
 .method public reset()V
-    .registers 8
+    .locals 7
 
     .prologue
     const/4 v6, 0x0
@@ -2517,7 +2517,7 @@
 .end method
 
 .method public set(Landroid/location/Location;)V
-    .registers 4
+    .locals 2
     .parameter "l"
 
     .prologue
@@ -2584,29 +2584,29 @@
     .line 131
     iget-object v0, p1, Landroid/location/Location;->mExtras:Landroid/os/Bundle;
 
-    if-nez v0, :cond_38
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_35
+    :goto_0
     iput-object v0, p0, Landroid/location/Location;->mExtras:Landroid/os/Bundle;
 
     .line 132
     return-void
 
     .line 131
-    :cond_38
+    :cond_0
     new-instance v0, Landroid/os/Bundle;
 
     iget-object v1, p1, Landroid/location/Location;->mExtras:Landroid/os/Bundle;
 
     invoke-direct {v0, v1}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
-    goto :goto_35
+    goto :goto_0
 .end method
 
 .method public setAccuracy(F)V
-    .registers 3
+    .locals 1
     .parameter "accuracy"
 
     .prologue
@@ -2623,7 +2623,7 @@
 .end method
 
 .method public setAltitude(D)V
-    .registers 4
+    .locals 1
     .parameter "altitude"
 
     .prologue
@@ -2640,39 +2640,39 @@
 .end method
 
 .method public setBearing(F)V
-    .registers 4
+    .locals 2
     .parameter "bearing"
 
     .prologue
     const/high16 v1, 0x43b4
 
     .line 602
-    :goto_2
+    :goto_0
     const/4 v0, 0x0
 
     cmpg-float v0, p1, v0
 
-    if-gez v0, :cond_9
+    if-gez v0, :cond_0
 
     .line 603
     add-float/2addr p1, v1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 605
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_1
     cmpl-float v0, p1, v1
 
-    if-ltz v0, :cond_f
+    if-ltz v0, :cond_1
 
     .line 606
     sub-float/2addr p1, v1
 
-    goto :goto_9
+    goto :goto_1
 
     .line 608
-    :cond_f
+    :cond_1
     iput p1, p0, Landroid/location/Location;->mBearing:F
 
     .line 609
@@ -2685,32 +2685,32 @@
 .end method
 
 .method public setExtras(Landroid/os/Bundle;)V
-    .registers 3
+    .locals 1
     .parameter "extras"
 
     .prologue
     .line 678
-    if-nez p1, :cond_6
+    if-nez p1, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_3
+    :goto_0
     iput-object v0, p0, Landroid/location/Location;->mExtras:Landroid/os/Bundle;
 
     .line 679
     return-void
 
     .line 678
-    :cond_6
+    :cond_0
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0, p1}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public setLatitude(D)V
-    .registers 3
+    .locals 0
     .parameter "latitude"
 
     .prologue
@@ -2722,7 +2722,7 @@
 .end method
 
 .method public setLongitude(D)V
-    .registers 3
+    .locals 0
     .parameter "longitude"
 
     .prologue
@@ -2734,7 +2734,7 @@
 .end method
 
 .method public setProvider(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "provider"
 
     .prologue
@@ -2746,7 +2746,7 @@
 .end method
 
 .method public setSpeed(F)V
-    .registers 3
+    .locals 1
     .parameter "speed"
 
     .prologue
@@ -2763,7 +2763,7 @@
 .end method
 
 .method public setTime(J)V
-    .registers 3
+    .locals 0
     .parameter "time"
 
     .prologue
@@ -2775,7 +2775,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 682
@@ -2953,7 +2953,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 8
+    .locals 5
     .parameter "parcel"
     .parameter "flags"
 
@@ -2985,11 +2985,11 @@
     .line 731
     iget-boolean v0, p0, Landroid/location/Location;->mHasAltitude:Z
 
-    if-eqz v0, :cond_4f
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_1b
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 732
@@ -3000,11 +3000,11 @@
     .line 733
     iget-boolean v0, p0, Landroid/location/Location;->mHasSpeed:Z
 
-    if-eqz v0, :cond_51
+    if-eqz v0, :cond_1
 
     move v0, v1
 
-    :goto_28
+    :goto_1
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 734
@@ -3015,11 +3015,11 @@
     .line 735
     iget-boolean v0, p0, Landroid/location/Location;->mHasBearing:Z
 
-    if-eqz v0, :cond_53
+    if-eqz v0, :cond_2
 
     move v0, v1
 
-    :goto_35
+    :goto_2
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 736
@@ -3030,9 +3030,9 @@
     .line 737
     iget-boolean v0, p0, Landroid/location/Location;->mHasAccuracy:Z
 
-    if-eqz v0, :cond_55
+    if-eqz v0, :cond_3
 
-    :goto_41
+    :goto_3
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 738
@@ -3048,27 +3048,27 @@
     .line 740
     return-void
 
-    :cond_4f
+    :cond_0
     move v0, v2
 
     .line 731
-    goto :goto_1b
+    goto :goto_0
 
-    :cond_51
+    :cond_1
     move v0, v2
 
     .line 733
-    goto :goto_28
+    goto :goto_1
 
-    :cond_53
+    :cond_2
     move v0, v2
 
     .line 735
-    goto :goto_35
+    goto :goto_2
 
-    :cond_55
+    :cond_3
     move v1, v2
 
     .line 737
-    goto :goto_41
+    goto :goto_3
 .end method

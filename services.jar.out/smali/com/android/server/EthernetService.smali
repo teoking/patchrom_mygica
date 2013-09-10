@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/net/ethernet/EthernetStateTracker;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "Tracker"
 
@@ -149,7 +149,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/server/EthernetService;)Landroid/net/ethernet/EthernetStateTracker;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -160,7 +160,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/server/EthernetService;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -173,7 +173,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/server/EthernetService;)Ljava/lang/Runnable;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -184,7 +184,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/server/EthernetService;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -195,7 +195,7 @@
 .end method
 
 .method private getPersistedState()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 160
@@ -208,32 +208,32 @@
 
     .line 162
     .local v0, cr:Landroid/content/ContentResolver;
-    :try_start_6
+    :try_start_0
     const-string v2, "eth_on"
 
     invoke-static {v0, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
-    :try_end_b
-    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_6 .. :try_end_b} :catch_d
+    :try_end_0
+    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v2
 
     .line 165
-    :goto_c
+    :goto_0
     return v2
 
     .line 163
-    :catch_d
+    :catch_0
     move-exception v1
 
     .line 165
     .local v1, e:Landroid/provider/Settings$SettingNotFoundException;
     const/4 v2, 0x1
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method private declared-synchronized persistEthEnabled(Z)V
-    .registers 5
+    .locals 3
     .parameter "enabled"
 
     .prologue
@@ -241,7 +241,7 @@
     .local p0, this:Lcom/android/server/EthernetService;,"Lcom/android/server/EthernetService<Tsyncronized;>;"
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/EthernetService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -252,14 +252,14 @@
     .local v0, cr:Landroid/content/ContentResolver;
     const-string v2, "eth_on"
 
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     const/4 v1, 0x2
 
-    :goto_c
+    :goto_0
     invoke-static {v0, v2, v1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-    :try_end_f
-    .catchall {:try_start_1 .. :try_end_f} :catchall_13
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 173
     monitor-exit p0
@@ -267,14 +267,14 @@
     return-void
 
     .line 171
-    :cond_11
+    :cond_0
     const/4 v1, 0x1
 
-    goto :goto_c
+    goto :goto_0
 
     .line 170
     .end local v0           #cr:Landroid/content/ContentResolver;
-    :catchall_13
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
@@ -283,7 +283,7 @@
 .end method
 
 .method private registerForBroadcasts()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 122
@@ -302,7 +302,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_18
+    if-nez v1, :cond_0
 
     .line 124
     const-string v1, "android.intent.action.SCREEN_ON"
@@ -315,7 +315,7 @@
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     .line 127
-    :cond_18
+    :cond_0
     iget-object v1, p0, Lcom/android/server/EthernetService;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/server/EthernetService;->mReceiver:Landroid/content/BroadcastReceiver;
@@ -327,7 +327,7 @@
 .end method
 
 .method private scanEthDevice()I
-    .registers 6
+    .locals 5
 
     .prologue
     .line 136
@@ -340,7 +340,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_43
+    if-eqz v0, :cond_2
 
     .line 138
     const-string v2, "EthernetService"
@@ -374,27 +374,27 @@
     .line 139
     iget-object v2, p0, Lcom/android/server/EthernetService;->DevName:[Ljava/lang/String;
 
-    if-eqz v2, :cond_2e
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Lcom/android/server/EthernetService;->DevName:[Ljava/lang/String;
 
     array-length v2, v2
 
-    if-eq v2, v0, :cond_32
+    if-eq v2, v0, :cond_1
 
     .line 140
-    :cond_2e
+    :cond_0
     new-array v2, v0, [Ljava/lang/String;
 
     iput-object v2, p0, Lcom/android/server/EthernetService;->DevName:[Ljava/lang/String;
 
     .line 145
-    :cond_32
+    :cond_1
     const/4 v1, 0x0
 
     .local v1, j:I
-    :goto_33
-    if-ge v1, v0, :cond_43
+    :goto_0
+    if-ge v1, v0, :cond_2
 
     .line 146
     iget-object v2, p0, Lcom/android/server/EthernetService;->DevName:[Ljava/lang/String;
@@ -410,16 +410,16 @@
 
     aget-object v2, v2, v1
 
-    if-nez v2, :cond_44
+    if-nez v2, :cond_3
 
     .line 152
     .end local v1           #j:I
-    :cond_43
+    :cond_2
     return v0
 
     .line 149
     .restart local v1       #j:I
-    :cond_44
+    :cond_3
     const-string v2, "EthernetService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -459,13 +459,13 @@
     .line 145
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_33
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public declared-synchronized UpdateEthDevInfo(Landroid/net/ethernet/EthernetDevInfo;)V
-    .registers 6
+    .locals 4
     .parameter "info"
 
     .prologue
@@ -473,7 +473,7 @@
     .local p0, this:Lcom/android/server/EthernetService;,"Lcom/android/server/EthernetService<Tsyncronized;>;"
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v2, p0, Lcom/android/server/EthernetService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -544,15 +544,15 @@
 
     .line 111
     iget v2, p0, Lcom/android/server/EthernetService;->mEthState:I
-    :try_end_45
-    .catchall {:try_start_1 .. :try_end_45} :catchall_5f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_54
+    if-ne v2, v3, :cond_0
 
     .line 113
-    :try_start_48
+    :try_start_1
     iget-object v2, p0, Lcom/android/server/EthernetService;->mTracker:Landroid/net/ethernet/EthernetStateTracker;
 
     invoke-virtual {v2}, Landroid/net/ethernet/EthernetStateTracker;->resetInterface()Z
@@ -563,38 +563,38 @@
     const-string v3, "$$UpdateEthDevInfo() call resetInterface()"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_54
-    .catchall {:try_start_48 .. :try_end_54} :catchall_5f
-    .catch Ljava/net/UnknownHostException; {:try_start_48 .. :try_end_54} :catch_56
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/net/UnknownHostException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 119
-    :cond_54
-    :goto_54
+    :cond_0
+    :goto_0
     monitor-exit p0
 
     return-void
 
     .line 115
-    :catch_56
+    :catch_0
     move-exception v1
 
     .line 116
     .local v1, e:Ljava/net/UnknownHostException;
-    :try_start_57
+    :try_start_2
     const-string v2, "EthernetService"
 
     const-string v3, "Wrong ethernet configuration"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_5e
-    .catchall {:try_start_57 .. :try_end_5e} :catchall_5f
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_54
+    goto :goto_0
 
     .line 103
     .end local v0           #cr:Landroid/content/ContentResolver;
     .end local v1           #e:Ljava/net/UnknownHostException;
-    :catchall_5f
+    :catchall_0
     move-exception v2
 
     monitor-exit p0
@@ -603,7 +603,7 @@
 .end method
 
 .method public getDeviceNameList()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 156
@@ -612,21 +612,21 @@
 
     move-result v0
 
-    if-lez v0, :cond_9
+    if-lez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/EthernetService;->DevName:[Ljava/lang/String;
 
-    :goto_8
+    :goto_0
     return-object v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getDhcpInfo()Landroid/net/DhcpInfo;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 297
@@ -641,7 +641,7 @@
 .end method
 
 .method public getEthState()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 248
@@ -652,19 +652,19 @@
 .end method
 
 .method public declared-synchronized getSavedEthConfig()Landroid/net/ethernet/EthernetDevInfo;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 77
     .local p0, this:Lcom/android/server/EthernetService;,"Lcom/android/server/EthernetService<Tsyncronized;>;"
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0}, Lcom/android/server/EthernetService;->isEthConfigured()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4a
+    if-eqz v2, :cond_0
 
     .line 78
     iget-object v2, p0, Lcom/android/server/EthernetService;->mContext:Landroid/content/Context;
@@ -733,24 +733,24 @@
     move-result-object v2
 
     invoke-virtual {v1, v2}, Landroid/net/ethernet/EthernetDevInfo;->setRouteAddr(Ljava/lang/String;)V
-    :try_end_48
-    .catchall {:try_start_1 .. :try_end_48} :catchall_4c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 89
     .end local v0           #cr:Landroid/content/ContentResolver;
     .end local v1           #info:Landroid/net/ethernet/EthernetDevInfo;
-    :goto_48
+    :goto_0
     monitor-exit p0
 
     return-object v1
 
-    :cond_4a
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_48
+    goto :goto_0
 
     .line 77
-    :catchall_4c
+    :catchall_0
     move-exception v2
 
     monitor-exit p0
@@ -759,7 +759,7 @@
 .end method
 
 .method public getTotalInterface()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 131
@@ -772,7 +772,7 @@
 .end method
 
 .method public isEthConfigured()Z
-    .registers 6
+    .locals 5
 
     .prologue
     .local p0, this:Lcom/android/server/EthernetService;,"Lcom/android/server/EthernetService<Tsyncronized;>;"
@@ -797,20 +797,20 @@
 
     .line 71
     .local v1, x:I
-    if-ne v1, v2, :cond_11
+    if-ne v1, v2, :cond_0
 
     .line 73
-    :goto_10
+    :goto_0
     return v2
 
-    :cond_11
+    :cond_0
     move v2, v3
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public isEthDeviceAdded()Z
-    .registers 7
+    .locals 6
 
     .prologue
     .local p0, this:Lcom/android/server/EthernetService;,"Lcom/android/server/EthernetService<Tsyncronized;>;"
@@ -821,16 +821,16 @@
     .line 278
     iget-object v1, p0, Lcom/android/server/EthernetService;->DevName:[Ljava/lang/String;
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/android/server/EthernetService;->DevName:[Ljava/lang/String;
 
     aget-object v1, v1, v3
 
-    if-nez v1, :cond_16
+    if-nez v1, :cond_1
 
     .line 279
-    :cond_c
+    :cond_0
     const-string v1, "EthernetService"
 
     const-string v4, "isEthDeviceAdded: trigger scanEthDevice"
@@ -841,19 +841,19 @@
     invoke-direct {p0}, Lcom/android/server/EthernetService;->scanEthDevice()I
 
     .line 283
-    :cond_16
+    :cond_1
     iget-object v1, p0, Lcom/android/server/EthernetService;->DevName:[Ljava/lang/String;
 
-    if-eqz v1, :cond_20
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/android/server/EthernetService;->DevName:[Ljava/lang/String;
 
     aget-object v1, v1, v3
 
-    if-nez v1, :cond_28
+    if-nez v1, :cond_4
 
     .line 284
-    :cond_20
+    :cond_2
     const-string v1, "EthernetService"
 
     const-string v2, "EthernetNative.isEthDeviceAdded: No Device Found"
@@ -861,12 +861,12 @@
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 293
-    :cond_27
-    :goto_27
+    :cond_3
+    :goto_0
     return v3
 
     .line 288
-    :cond_28
+    :cond_4
     iget-object v1, p0, Lcom/android/server/EthernetService;->DevName:[Ljava/lang/String;
 
     aget-object v1, v1, v3
@@ -903,11 +903,11 @@
 
     move-result-object v5
 
-    if-nez v0, :cond_5d
+    if-nez v0, :cond_5
 
     move v1, v2
 
-    :goto_4e
+    :goto_1
     invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -919,22 +919,22 @@
     invoke-static {v4, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 290
-    if-nez v0, :cond_27
+    if-nez v0, :cond_3
 
     move v3, v2
 
     .line 291
-    goto :goto_27
+    goto :goto_0
 
-    :cond_5d
+    :cond_5
     move v1, v3
 
     .line 289
-    goto :goto_4e
+    goto :goto_1
 .end method
 
 .method public isEthDeviceUp()Z
-    .registers 10
+    .locals 9
 
     .prologue
     .local p0, this:Lcom/android/server/EthernetService;,"Lcom/android/server/EthernetService<Tsyncronized;>;"
@@ -945,7 +945,7 @@
 
     .line 254
     .local v3, retval:Z
-    :try_start_2
+    :try_start_0
     new-instance v2, Ljava/io/FileReader;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -996,7 +996,7 @@
 
     .line 257
     .local v4, status:Ljava/lang/String;
-    if-eqz v4, :cond_5a
+    if-eqz v4, :cond_0
 
     const-string v6, "up"
 
@@ -1004,7 +1004,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_5a
+    if-eqz v6, :cond_0
 
     .line 258
     const-string v6, "EthernetService"
@@ -1033,7 +1033,7 @@
     const/4 v3, 0x1
 
     .line 268
-    :goto_53
+    :goto_0
     invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
 
     .line 269
@@ -1044,7 +1044,7 @@
     .end local v2           #fr:Ljava/io/FileReader;
     .end local v3           #retval:Z
     .end local v4           #status:Ljava/lang/String;
-    :goto_59
+    :goto_1
     return v3
 
     .line 261
@@ -1052,8 +1052,8 @@
     .restart local v2       #fr:Ljava/io/FileReader;
     .restart local v3       #retval:Z
     .restart local v4       #status:Ljava/lang/String;
-    :cond_5a
-    if-eqz v4, :cond_7e
+    :cond_0
+    if-eqz v4, :cond_1
 
     const-string v6, "down"
 
@@ -1061,7 +1061,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_7e
+    if-eqz v6, :cond_1
 
     .line 262
     const-string v6, "EthernetService"
@@ -1085,25 +1085,25 @@
     move-result-object v7
 
     invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_7c
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_7c} :catch_80
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 263
     const/4 v3, 0x0
 
-    goto :goto_53
+    goto :goto_0
 
     .line 266
-    :cond_7e
+    :cond_1
     const/4 v3, 0x0
 
-    goto :goto_53
+    goto :goto_0
 
     .line 271
     .end local v0           #br:Ljava/io/BufferedReader;
     .end local v2           #fr:Ljava/io/FileReader;
     .end local v4           #status:Ljava/lang/String;
-    :catch_80
+    :catch_0
     move-exception v1
 
     .line 272
@@ -1117,11 +1117,11 @@
     move v3, v5
 
     .line 273
-    goto :goto_59
+    goto :goto_1
 .end method
 
 .method public declared-synchronized setEthMode(Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "mode"
 
     .prologue
@@ -1129,7 +1129,7 @@
     .local p0, this:Lcom/android/server/EthernetService;,"Lcom/android/server/EthernetService<Tsyncronized;>;"
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/EthernetService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1175,7 +1175,7 @@
     .line 95
     iget-object v1, p0, Lcom/android/server/EthernetService;->DevName:[Ljava/lang/String;
 
-    if-eqz v1, :cond_44
+    if-eqz v1, :cond_0
 
     .line 96
     const-string v1, "eth_ifname"
@@ -1199,18 +1199,18 @@
     const-string v1, "eth_mode"
 
     invoke-static {v0, v1, p1}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-    :try_end_44
-    .catchall {:try_start_1 .. :try_end_44} :catchall_46
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 100
-    :cond_44
+    :cond_0
     monitor-exit p0
 
     return-void
 
     .line 93
     .end local v0           #cr:Landroid/content/ContentResolver;
-    :catchall_46
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
@@ -1219,7 +1219,7 @@
 .end method
 
 .method public declared-synchronized setEthState(I)V
-    .registers 7
+    .locals 5
     .parameter "state"
 
     .prologue
@@ -1229,7 +1229,7 @@
     .line 205
     monitor-enter p0
 
-    :try_start_2
+    :try_start_0
     const-string v1, "EthernetService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1275,13 +1275,13 @@
     .local v0, cr:Landroid/content/ContentResolver;
     iget v1, p0, Lcom/android/server/EthernetService;->mEthState:I
 
-    if-eq v1, p1, :cond_42
+    if-eq v1, p1, :cond_0
 
     .line 208
     iput p1, p0, Lcom/android/server/EthernetService;->mEthState:I
 
     .line 209
-    if-ne p1, v4, :cond_44
+    if-ne p1, v4, :cond_1
 
     .line 210
     const/4 v1, 0x0
@@ -1296,21 +1296,21 @@
     invoke-direct {v1, p0, v2}, Lcom/android/server/EthernetService$3;-><init>(Lcom/android/server/EthernetService;Ljava/lang/String;)V
 
     invoke-virtual {v1}, Lcom/android/server/EthernetService$3;->start()V
-    :try_end_42
-    .catchall {:try_start_2 .. :try_end_42} :catchall_66
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 245
-    :cond_42
-    :goto_42
+    :cond_0
+    :goto_0
     monitor-exit p0
 
     return-void
 
     .line 220
-    :cond_44
+    :cond_1
     const/4 v1, 0x1
 
-    :try_start_45
+    :try_start_1
     invoke-direct {p0, v1}, Lcom/android/server/EthernetService;->persistEthEnabled(Z)V
 
     .line 221
@@ -1318,7 +1318,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_53
+    if-nez v1, :cond_2
 
     .line 224
     const-string v1, "dhcp"
@@ -1326,10 +1326,10 @@
     invoke-virtual {p0, v1}, Lcom/android/server/EthernetService;->setEthMode(Ljava/lang/String;)V
 
     .line 226
-    :cond_53
+    :cond_2
     iget-boolean v1, p0, Lcom/android/server/EthernetService;->isEthernetServiceInited:Z
 
-    if-nez v1, :cond_69
+    if-nez v1, :cond_3
 
     .line 227
     const-string v1, "EthernetService"
@@ -1344,14 +1344,14 @@
     const-string v2, "$$ resetInterface() will be called in reconnect()"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_65
-    .catchall {:try_start_45 .. :try_end_65} :catchall_66
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_42
+    goto :goto_0
 
     .line 205
     .end local v0           #cr:Landroid/content/ContentResolver;
-    :catchall_66
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
@@ -1360,8 +1360,8 @@
 
     .line 231
     .restart local v0       #cr:Landroid/content/ContentResolver;
-    :cond_69
-    :try_start_69
+    :cond_3
+    :try_start_2
     const-string v1, "EthernetService"
 
     const-string v2, "$$ setEthState() start thread to resetInterface()"
@@ -1376,8 +1376,8 @@
     invoke-direct {v1, p0, v2}, Lcom/android/server/EthernetService$4;-><init>(Lcom/android/server/EthernetService;Ljava/lang/String;)V
 
     invoke-virtual {v1}, Lcom/android/server/EthernetService$4;->start()V
-    :try_end_7a
-    .catchall {:try_start_69 .. :try_end_7a} :catchall_66
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_42
+    goto :goto_0
 .end method

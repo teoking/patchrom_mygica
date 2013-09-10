@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/ShareActionProvider;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/ShareActionProvider;Landroid/widget/ShareActionProvider$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,19 +50,21 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 7
+    .locals 5
     .parameter "item"
 
     .prologue
     .line 300
     iget-object v3, p0, Landroid/widget/ShareActionProvider$ShareMenuItemOnMenuItemClickListener;->this$0:Landroid/widget/ShareActionProvider;
 
+    #getter for: Landroid/widget/ShareActionProvider;->mContext:Landroid/content/Context;
     invoke-static {v3}, Landroid/widget/ShareActionProvider;->access$100(Landroid/widget/ShareActionProvider;)Landroid/content/Context;
 
     move-result-object v3
 
     iget-object v4, p0, Landroid/widget/ShareActionProvider$ShareMenuItemOnMenuItemClickListener;->this$0:Landroid/widget/ShareActionProvider;
 
+    #getter for: Landroid/widget/ShareActionProvider;->mShareHistoryFileName:Ljava/lang/String;
     invoke-static {v4}, Landroid/widget/ShareActionProvider;->access$200(Landroid/widget/ShareActionProvider;)Ljava/lang/String;
 
     move-result-object v4
@@ -85,7 +87,7 @@
 
     .line 304
     .local v2, launchIntent:Landroid/content/Intent;
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_0
 
     .line 305
     const/high16 v3, 0x8
@@ -95,6 +97,7 @@
     .line 306
     iget-object v3, p0, Landroid/widget/ShareActionProvider$ShareMenuItemOnMenuItemClickListener;->this$0:Landroid/widget/ShareActionProvider;
 
+    #getter for: Landroid/widget/ShareActionProvider;->mContext:Landroid/content/Context;
     invoke-static {v3}, Landroid/widget/ShareActionProvider;->access$100(Landroid/widget/ShareActionProvider;)Landroid/content/Context;
 
     move-result-object v3
@@ -102,7 +105,7 @@
     invoke-virtual {v3, v2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     .line 308
-    :cond_28
+    :cond_0
     const/4 v3, 0x1
 
     return v3

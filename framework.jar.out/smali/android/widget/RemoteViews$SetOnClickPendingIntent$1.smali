@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViews$SetOnClickPendingIntent;Landroid/widget/RemoteViews$OnClickHandler;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 10
+    .locals 8
     .parameter "v"
 
     .prologue

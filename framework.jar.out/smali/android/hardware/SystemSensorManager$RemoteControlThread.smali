@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/hardware/SystemSensorManager;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 23
+    .locals 22
 
     .prologue
     .line 492
@@ -49,11 +49,12 @@
 
     move-object/from16 v18, v0
 
+    #calls: Landroid/hardware/SystemSensorManager;->connect()Z
     invoke-static/range {v18 .. v18}, Landroid/hardware/SystemSensorManager;->access$300(Landroid/hardware/SystemSensorManager;)Z
 
     move-result v18
 
-    if-eqz v18, :cond_13
+    if-eqz v18, :cond_0
 
     .line 493
     const-string v18, "SensorManager"
@@ -63,7 +64,7 @@
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 496
-    :cond_13
+    :cond_0
     const/16 v18, 0x4
 
     move/from16 v0, v18
@@ -72,8 +73,8 @@
 
     .line 499
     .local v6, data:[B
-    :cond_19
-    :goto_19
+    :cond_1
+    :goto_0
     const/4 v4, 0x0
 
     .line 500
@@ -92,11 +93,12 @@
 
     move-object/from16 v18, v0
 
+    #getter for: Landroid/hardware/SystemSensorManager;->mSocket:Landroid/net/LocalSocket;
     invoke-static/range {v18 .. v18}, Landroid/hardware/SystemSensorManager;->access$400(Landroid/hardware/SystemSensorManager;)Landroid/net/LocalSocket;
 
     move-result-object v18
 
-    if-eqz v18, :cond_40
+    if-eqz v18, :cond_2
 
     move-object/from16 v0, p0
 
@@ -104,11 +106,12 @@
 
     move-object/from16 v18, v0
 
+    #getter for: Landroid/hardware/SystemSensorManager;->mIn:Ljava/io/InputStream;
     invoke-static/range {v18 .. v18}, Landroid/hardware/SystemSensorManager;->access$500(Landroid/hardware/SystemSensorManager;)Ljava/io/InputStream;
 
     move-result-object v18
 
-    if-eqz v18, :cond_40
+    if-eqz v18, :cond_2
 
     move-object/from16 v0, p0
 
@@ -116,35 +119,38 @@
 
     move-object/from16 v18, v0
 
+    #getter for: Landroid/hardware/SystemSensorManager;->mOut:Ljava/io/OutputStream;
     invoke-static/range {v18 .. v18}, Landroid/hardware/SystemSensorManager;->access$600(Landroid/hardware/SystemSensorManager;)Ljava/io/OutputStream;
 
     move-result-object v18
 
-    if-nez v18, :cond_4a
+    if-nez v18, :cond_3
 
     .line 583
-    :cond_40
-    :goto_40
+    :cond_2
+    :goto_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/SystemSensorManager$RemoteControlThread;->this$0:Landroid/hardware/SystemSensorManager;
 
     move-object/from16 v18, v0
 
+    #calls: Landroid/hardware/SystemSensorManager;->disconnect()V
     invoke-static/range {v18 .. v18}, Landroid/hardware/SystemSensorManager;->access$800(Landroid/hardware/SystemSensorManager;)V
 
     .line 584
     return-void
 
     .line 508
-    :cond_4a
-    :try_start_4a
+    :cond_3
+    :try_start_0
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/SystemSensorManager$RemoteControlThread;->this$0:Landroid/hardware/SystemSensorManager;
 
     move-object/from16 v18, v0
 
+    #getter for: Landroid/hardware/SystemSensorManager;->mIn:Ljava/io/InputStream;
     invoke-static/range {v18 .. v18}, Landroid/hardware/SystemSensorManager;->access$500(Landroid/hardware/SystemSensorManager;)Ljava/io/InputStream;
 
     move-result-object v18
@@ -169,7 +175,7 @@
 
     move/from16 v1, v19
 
-    if-ge v0, v1, :cond_8e
+    if-ge v0, v1, :cond_4
 
     .line 509
     const-string v18, "SensorManager"
@@ -177,13 +183,13 @@
     const-string v19, "RC, read data length fail"
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_71
-    .catch Ljava/io/IOException; {:try_start_4a .. :try_end_71} :catch_72
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_40
+    goto :goto_1
 
     .line 512
-    :catch_72
+    :catch_0
     move-exception v8
 
     .line 513
@@ -212,11 +218,11 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_40
+    goto :goto_1
 
     .line 517
     .end local v8           #ex:Ljava/io/IOException;
-    :cond_8e
+    :cond_4
     const/4 v7, 0x0
 
     .line 518
@@ -224,12 +230,12 @@
     const/4 v9, 0x0
 
     .local v9, i:I
-    :goto_90
+    :goto_2
     const/16 v18, 0x4
 
     move/from16 v0, v18
 
-    if-ge v9, v0, :cond_a7
+    if-ge v9, v0, :cond_5
 
     .line 519
     aget-byte v18, v6, v9
@@ -249,27 +255,28 @@
     .line 518
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_90
+    goto :goto_2
 
     .line 524
-    :cond_a7
+    :cond_5
     move v4, v7
 
     .line 525
     new-array v10, v7, [B
 
     .line 526
-    :goto_aa
-    if-lez v4, :cond_d9
+    :goto_3
+    if-lez v4, :cond_6
 
     .line 528
-    :try_start_ac
+    :try_start_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/SystemSensorManager$RemoteControlThread;->this$0:Landroid/hardware/SystemSensorManager;
 
     move-object/from16 v18, v0
 
+    #getter for: Landroid/hardware/SystemSensorManager;->mIn:Ljava/io/InputStream;
     invoke-static/range {v18 .. v18}, Landroid/hardware/SystemSensorManager;->access$500(Landroid/hardware/SystemSensorManager;)Ljava/io/InputStream;
 
     move-result-object v18
@@ -277,18 +284,18 @@
     move-object/from16 v0, v18
 
     invoke-virtual {v0, v10, v5, v4}, Ljava/io/InputStream;->read([BII)I
-    :try_end_bb
-    .catch Ljava/io/IOException; {:try_start_ac .. :try_end_bb} :catch_be
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result v5
 
     .line 529
     sub-int/2addr v4, v5
 
-    goto :goto_aa
+    goto :goto_3
 
     .line 530
-    :catch_be
+    :catch_1
     move-exception v8
 
     .line 531
@@ -319,18 +326,19 @@
 
     .line 536
     .end local v8           #ex:Ljava/io/IOException;
-    :cond_d9
+    :cond_6
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/hardware/SystemSensorManager$RemoteControlThread;->this$0:Landroid/hardware/SystemSensorManager;
 
     move-object/from16 v18, v0
 
+    #getter for: Landroid/hardware/SystemSensorManager;->mRegisterListener:Z
     invoke-static/range {v18 .. v18}, Landroid/hardware/SystemSensorManager;->access$700(Landroid/hardware/SystemSensorManager;)Z
 
     move-result v18
 
-    if-nez v18, :cond_ee
+    if-nez v18, :cond_7
 
     .line 537
     const-string v18, "SensorManager"
@@ -339,10 +347,10 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_19
+    goto/16 :goto_0
 
     .line 541
-    :cond_ee
+    :cond_7
     const/16 v18, 0x4
 
     const/16 v19, 0x0
@@ -353,13 +361,13 @@
 
     move/from16 v1, v19
 
-    if-ne v0, v1, :cond_19
+    if-ne v0, v1, :cond_1
 
     const/16 v18, 0x12
 
     move/from16 v0, v18
 
-    if-lt v7, v0, :cond_19
+    if-lt v7, v0, :cond_1
 
     .line 544
     const/16 v18, 0x3
@@ -637,7 +645,7 @@
 
     move/from16 v1, v16
 
-    if-ne v0, v1, :cond_264
+    if-ne v0, v1, :cond_a
 
     .line 560
     new-instance v13, Landroid/hardware/Sensor;
@@ -649,8 +657,8 @@
 
     .line 568
     .restart local v13       #sensorObject:Landroid/hardware/Sensor;
-    :cond_20a
-    :goto_20a
+    :cond_8
+    :goto_4
     const/16 v18, 0x0
 
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -665,10 +673,10 @@
     monitor-enter v19
 
     .line 570
-    if-eqz v13, :cond_274
+    if-eqz v13, :cond_b
 
     .line 571
-    :try_start_217
+    :try_start_2
     sget-object v18, Landroid/hardware/SystemSensorManager;->sListeners:Ljava/util/ArrayList;
 
     invoke-virtual/range {v18 .. v18}, Ljava/util/ArrayList;->size()I
@@ -679,8 +687,8 @@
     .local v14, size:I
     const/4 v9, 0x0
 
-    :goto_21e
-    if-ge v9, v14, :cond_274
+    :goto_5
+    if-ge v9, v14, :cond_b
 
     .line 573
     sget-object v18, Landroid/hardware/SystemSensorManager;->sListeners:Ljava/util/ArrayList;
@@ -699,7 +707,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_261
+    if-eqz v18, :cond_9
 
     .line 575
     const-string v18, "SensorManager"
@@ -748,26 +756,26 @@
     move-object/from16 v0, v17
 
     invoke-virtual {v12, v13, v0, v15, v3}, Landroid/hardware/SystemSensorManager$ListenerDelegate;->onSensorChangedLocked(Landroid/hardware/Sensor;[F[JI)V
-    :try_end_261
-    .catchall {:try_start_217 .. :try_end_261} :catchall_277
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 572
-    :cond_261
+    :cond_9
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_21e
+    goto :goto_5
 
     .line 563
     .end local v12           #listener:Landroid/hardware/SystemSensorManager$ListenerDelegate;
     .end local v14           #size:I
-    :cond_264
+    :cond_a
     const/16 v18, 0x4
 
     move/from16 v0, v18
 
     move/from16 v1, v16
 
-    if-ne v0, v1, :cond_20a
+    if-ne v0, v1, :cond_8
 
     .line 564
     new-instance v13, Landroid/hardware/Sensor;
@@ -778,21 +786,21 @@
     invoke-direct {v13, v0}, Landroid/hardware/Sensor;-><init>(I)V
 
     .restart local v13       #sensorObject:Landroid/hardware/Sensor;
-    goto :goto_20a
+    goto :goto_4
 
     .line 580
-    :cond_274
-    :try_start_274
+    :cond_b
+    :try_start_3
     monitor-exit v19
 
-    goto/16 :goto_19
+    goto/16 :goto_0
 
-    :catchall_277
+    :catchall_0
     move-exception v18
 
     monitor-exit v19
-    :try_end_279
-    .catchall {:try_start_274 .. :try_end_279} :catchall_277
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v18
 .end method

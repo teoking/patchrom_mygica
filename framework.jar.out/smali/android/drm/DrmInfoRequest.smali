@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "infoType"
     .parameter "mimeType"
 
@@ -63,7 +63,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3e
+    if-nez v1, :cond_0
 
     .line 71
     new-instance v1, Ljava/lang/StringBuilder;
@@ -110,12 +110,12 @@
 
     .line 75
     .end local v0           #msg:Ljava/lang/String;
-    :cond_3e
+    :cond_0
     return-void
 .end method
 
 .method static isValidType(I)Z
-    .registers 2
+    .locals 1
     .parameter "infoType"
 
     .prologue
@@ -124,34 +124,34 @@
 
     .line 152
     .local v0, isValid:Z
-    packed-switch p0, :pswitch_data_8
+    packed-switch p0, :pswitch_data_0
 
     .line 160
-    :goto_4
+    :goto_0
     return v0
 
     .line 157
-    :pswitch_5
+    :pswitch_0
     const/4 v0, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 152
     nop
 
-    :pswitch_data_8
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_5
-        :pswitch_5
-        :pswitch_5
-        :pswitch_5
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public get(Ljava/lang/String;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -166,7 +166,7 @@
 .end method
 
 .method public getInfoType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 92
@@ -176,7 +176,7 @@
 .end method
 
 .method public getMimeType()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 83
@@ -186,13 +186,13 @@
 .end method
 
 .method isValid()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 145
     iget-object v0, p0, Landroid/drm/DrmInfoRequest;->mMimeType:Ljava/lang/String;
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/drm/DrmInfoRequest;->mMimeType:Ljava/lang/String;
 
@@ -202,11 +202,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/drm/DrmInfoRequest;->mRequestInformation:Ljava/util/HashMap;
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     iget v0, p0, Landroid/drm/DrmInfoRequest;->mInfoType:I
 
@@ -214,21 +214,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_1b
+    :goto_0
     return v0
 
-    :cond_1c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_1b
+    goto :goto_0
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -255,7 +255,7 @@
 .end method
 
 .method public keyIterator()Ljava/util/Iterator;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -282,7 +282,7 @@
 .end method
 
 .method public put(Ljava/lang/String;Ljava/lang/Object;)V
-    .registers 4
+    .locals 1
     .parameter "key"
     .parameter "value"
 

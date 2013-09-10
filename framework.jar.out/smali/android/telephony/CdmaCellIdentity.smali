@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 152
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(IIIIILjava/lang/String;)V
-    .registers 8
+    .locals 1
     .parameter "nid"
     .parameter "sid"
     .parameter "bid"
@@ -81,7 +81,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -128,7 +128,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/telephony/CdmaCellIdentity$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -140,7 +140,7 @@
 .end method
 
 .method constructor <init>(Landroid/telephony/CdmaCellIdentity;)V
-    .registers 3
+    .locals 1
     .parameter "cid"
 
     .prologue
@@ -179,7 +179,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 137
@@ -189,7 +189,7 @@
 .end method
 
 .method public getBasestationId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 106
@@ -199,7 +199,7 @@
 .end method
 
 .method public getLatitude()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 131
@@ -209,7 +209,7 @@
 .end method
 
 .method public getLongitude()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 117
@@ -219,7 +219,7 @@
 .end method
 
 .method public getNetworkId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 92
@@ -229,7 +229,7 @@
 .end method
 
 .method public getSystemId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 99
@@ -239,7 +239,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

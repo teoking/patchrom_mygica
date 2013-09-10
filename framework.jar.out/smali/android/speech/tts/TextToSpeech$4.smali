@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeech;JILjava/util/HashMap;)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Integer;
-    .registers 8
+    .locals 6
     .parameter "service"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -75,6 +75,7 @@
     .line 883
     iget-object v0, p0, Landroid/speech/tts/TextToSpeech$4;->this$0:Landroid/speech/tts/TextToSpeech;
 
+    #calls: Landroid/speech/tts/TextToSpeech;->getCallerIdentity()Landroid/os/IBinder;
     invoke-static {v0}, Landroid/speech/tts/TextToSpeech;->access$100(Landroid/speech/tts/TextToSpeech;)Landroid/os/IBinder;
 
     move-result-object v1
@@ -87,6 +88,7 @@
 
     iget-object v5, p0, Landroid/speech/tts/TextToSpeech$4;->val$params:Ljava/util/HashMap;
 
+    #calls: Landroid/speech/tts/TextToSpeech;->getParams(Ljava/util/HashMap;)Landroid/os/Bundle;
     invoke-static {v0, v5}, Landroid/speech/tts/TextToSpeech;->access$500(Landroid/speech/tts/TextToSpeech;Ljava/util/HashMap;)Landroid/os/Bundle;
 
     move-result-object v5
@@ -105,7 +107,7 @@
 .end method
 
 .method public bridge synthetic run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .annotation system Ldalvik/annotation/Throws;
         value = {

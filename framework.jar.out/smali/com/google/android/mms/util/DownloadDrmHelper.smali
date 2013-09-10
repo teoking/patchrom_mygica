@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -25,7 +25,7 @@
 .end method
 
 .method public static getOriginalMimeType(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 8
+    .locals 5
     .parameter "context"
     .parameter "path"
     .parameter "containingMime"
@@ -44,28 +44,28 @@
     .local v0, drmClient:Landroid/drm/DrmManagerClient;
     const/4 v3, 0x0
 
-    :try_start_7
+    :try_start_0
     invoke-virtual {v0, p1, v3}, Landroid/drm/DrmManagerClient;->canHandle(Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_11
+    if-eqz v3, :cond_0
 
     .line 101
     invoke-virtual {v0, p1}, Landroid/drm/DrmManagerClient;->getOriginalMimeType(Ljava/lang/String;)Ljava/lang/String;
-    :try_end_10
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_7 .. :try_end_10} :catch_12
-    .catch Ljava/lang/IllegalStateException; {:try_start_7 .. :try_end_10} :catch_1b
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v2
 
     .line 109
-    :cond_11
-    :goto_11
+    :cond_0
+    :goto_0
     return-object v2
 
     .line 103
-    :catch_12
+    :catch_0
     move-exception v1
 
     .line 104
@@ -76,11 +76,11 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_11
+    goto :goto_0
 
     .line 106
     .end local v1           #ex:Ljava/lang/IllegalArgumentException;
-    :catch_1b
+    :catch_1
     move-exception v1
 
     .line 107
@@ -91,11 +91,11 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public static isDrmConvertNeeded(Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
     .parameter "mimetype"
 
     .prologue
@@ -110,7 +110,7 @@
 .end method
 
 .method public static isDrmMimeType(Landroid/content/Context;Ljava/lang/String;)Z
-    .registers 7
+    .locals 5
     .parameter "context"
     .parameter "mimetype"
 
@@ -120,44 +120,44 @@
 
     .line 44
     .local v2, result:Z
-    if-eqz p0, :cond_18
+    if-eqz p0, :cond_0
 
     .line 46
-    :try_start_3
+    :try_start_0
     new-instance v0, Landroid/drm/DrmManagerClient;
 
     invoke-direct {v0, p0}, Landroid/drm/DrmManagerClient;-><init>(Landroid/content/Context;)V
 
     .line 47
     .local v0, drmClient:Landroid/drm/DrmManagerClient;
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
-    if-eqz p1, :cond_18
+    if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    if-lez v3, :cond_18
+    if-lez v3, :cond_0
 
     .line 48
     const-string v3, ""
 
     invoke-virtual {v0, v3, p1}, Landroid/drm/DrmManagerClient;->canHandle(Ljava/lang/String;Ljava/lang/String;)Z
-    :try_end_17
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_3 .. :try_end_17} :catch_19
-    .catch Ljava/lang/IllegalStateException; {:try_start_3 .. :try_end_17} :catch_22
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result v2
 
     .line 57
     .end local v0           #drmClient:Landroid/drm/DrmManagerClient;
-    :cond_18
-    :goto_18
+    :cond_0
+    :goto_0
     return v2
 
     .line 50
-    :catch_19
+    :catch_0
     move-exception v1
 
     .line 51
@@ -168,11 +168,11 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_18
+    goto :goto_0
 
     .line 53
     .end local v1           #e:Ljava/lang/IllegalArgumentException;
-    :catch_22
+    :catch_1
     move-exception v1
 
     .line 54
@@ -183,16 +183,16 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method public static modifyDrmFwLockFileExtension(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "filename"
 
     .prologue
     .line 75
-    if-eqz p0, :cond_16
+    if-eqz p0, :cond_1
 
     .line 77
     const-string v1, "."
@@ -205,7 +205,7 @@
     .local v0, extensionIndex:I
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_10
+    if-eq v0, v1, :cond_0
 
     .line 79
     const/4 v1, 0x0
@@ -215,7 +215,7 @@
     move-result-object p0
 
     .line 81
-    :cond_10
+    :cond_0
     const-string v1, ".fl"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
@@ -224,6 +224,6 @@
 
     .line 83
     .end local v0           #extensionIndex:I
-    :cond_16
+    :cond_1
     return-object p0
 .end method

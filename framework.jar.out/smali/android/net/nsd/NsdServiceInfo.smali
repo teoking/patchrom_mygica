@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 131
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 40
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Landroid/net/nsd/DnsSdTxtRecord;)V
-    .registers 4
+    .locals 0
     .parameter "sn"
     .parameter "rt"
     .parameter "tr"
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/net/nsd/NsdServiceInfo;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -93,7 +93,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/net/nsd/NsdServiceInfo;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -105,7 +105,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/net/nsd/NsdServiceInfo;Landroid/net/nsd/DnsSdTxtRecord;)Landroid/net/nsd/DnsSdTxtRecord;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -117,7 +117,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/net/nsd/NsdServiceInfo;Ljava/net/InetAddress;)Ljava/net/InetAddress;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -129,7 +129,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/net/nsd/NsdServiceInfo;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -143,7 +143,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 113
@@ -153,7 +153,7 @@
 .end method
 
 .method public getHost()Ljava/net/InetAddress;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 82
@@ -163,7 +163,7 @@
 .end method
 
 .method public getPort()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 92
@@ -173,7 +173,7 @@
 .end method
 
 .method public getServiceName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 52
@@ -183,7 +183,7 @@
 .end method
 
 .method public getServiceType()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 62
@@ -193,7 +193,7 @@
 .end method
 
 .method public getTxtRecord()Landroid/net/nsd/DnsSdTxtRecord;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 72
@@ -203,7 +203,7 @@
 .end method
 
 .method public setHost(Ljava/net/InetAddress;)V
-    .registers 2
+    .locals 0
     .parameter "s"
 
     .prologue
@@ -215,7 +215,7 @@
 .end method
 
 .method public setPort(I)V
-    .registers 2
+    .locals 0
     .parameter "p"
 
     .prologue
@@ -227,7 +227,7 @@
 .end method
 
 .method public setServiceName(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "s"
 
     .prologue
@@ -239,7 +239,7 @@
 .end method
 
 .method public setServiceType(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "s"
 
     .prologue
@@ -251,7 +251,7 @@
 .end method
 
 .method public setTxtRecord(Landroid/net/nsd/DnsSdTxtRecord;)V
-    .registers 3
+    .locals 1
     .parameter "t"
 
     .prologue
@@ -267,7 +267,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 101
@@ -344,7 +344,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 
@@ -367,7 +367,7 @@
     .line 121
     iget-object v0, p0, Landroid/net/nsd/NsdServiceInfo;->mHost:Ljava/net/InetAddress;
 
-    if-eqz v0, :cond_26
+    if-eqz v0, :cond_0
 
     .line 122
     const/4 v0, 0x1
@@ -384,7 +384,7 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByteArray([B)V
 
     .line 127
-    :goto_20
+    :goto_0
     iget v0, p0, Landroid/net/nsd/NsdServiceInfo;->mPort:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
@@ -393,10 +393,10 @@
     return-void
 
     .line 125
-    :cond_26
+    :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    goto :goto_20
+    goto :goto_0
 .end method

@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;II)V
-    .registers 4
+    .locals 0
     .parameter "source"
     .parameter "start"
     .parameter "end"
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public charAt(I)C
-    .registers 4
+    .locals 2
     .parameter "off"
 
     .prologue
@@ -78,7 +78,7 @@
 .end method
 
 .method public getChars(II[CI)V
-    .registers 12
+    .locals 7
     .parameter "start"
     .parameter "end"
     .parameter "dest"
@@ -119,8 +119,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_18
-    if-ge v0, v2, :cond_33
+    :goto_0
+    if-ge v0, v2, :cond_0
 
     .line 534
     add-int v4, p4, v0
@@ -153,16 +153,16 @@
     .line 533
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_18
+    goto :goto_0
 
     .line 539
     .end local v3           #tmp:C
-    :cond_33
+    :cond_0
     return-void
 .end method
 
 .method public length()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 507
@@ -176,7 +176,7 @@
 .end method
 
 .method public subSequence(II)Ljava/lang/CharSequence;
-    .registers 5
+    .locals 2
     .parameter "start"
     .parameter "end"
 
@@ -201,7 +201,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 519

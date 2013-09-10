@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/internal/view/menu/ActionMenuPresenter;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/view/menu/ActionMenuPresenter;Lcom/android/internal/view/menu/ActionMenuPresenter$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
-    .registers 5
+    .locals 2
     .parameter "menu"
     .parameter "allMenusAreClosing"
 
@@ -58,7 +58,7 @@
     .line 643
     instance-of v0, p1, Lcom/android/internal/view/menu/SubMenuBuilder;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 644
     check-cast p1, Lcom/android/internal/view/menu/SubMenuBuilder;
@@ -73,28 +73,28 @@
     invoke-virtual {v0, v1}, Lcom/android/internal/view/menu/MenuBuilder;->close(Z)V
 
     .line 646
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public onOpenSubMenu(Lcom/android/internal/view/menu/MenuBuilder;)Z
-    .registers 5
+    .locals 3
     .parameter "subMenu"
 
     .prologue
     const/4 v2, 0x0
 
     .line 635
-    if-nez p1, :cond_4
+    if-nez p1, :cond_0
 
     .line 638
     .end local p1
-    :goto_3
+    :goto_0
     return v2
 
     .line 637
     .restart local p1
-    :cond_4
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$PopupPresenterCallback;->this$0:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     check-cast p1, Lcom/android/internal/view/menu/SubMenuBuilder;
@@ -110,5 +110,5 @@
 
     iput v1, v0, Lcom/android/internal/view/menu/ActionMenuPresenter;->mOpenSubMenuId:I
 
-    goto :goto_3
+    goto :goto_0
 .end method

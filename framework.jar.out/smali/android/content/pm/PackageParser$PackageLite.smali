@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;ILjava/util/List;)V
-    .registers 5
+    .locals 1
     .parameter "packageName"
     .parameter "installLocation"
     .parameter

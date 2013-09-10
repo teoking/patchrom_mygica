@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 70
@@ -15,7 +15,7 @@
 .end method
 
 .method public static appendId(Landroid/net/Uri$Builder;J)Landroid/net/Uri$Builder;
-    .registers 4
+    .locals 1
     .parameter "builder"
     .parameter "id"
 
@@ -33,7 +33,7 @@
 .end method
 
 .method public static parseId(Landroid/net/Uri;)J
-    .registers 4
+    .locals 3
     .parameter "contentUri"
 
     .prologue
@@ -44,23 +44,23 @@
 
     .line 86
     .local v0, last:Ljava/lang/String;
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     const-wide/16 v1, -0x1
 
-    :goto_8
+    :goto_0
     return-wide v1
 
-    :cond_9
+    :cond_0
     invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v1
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public static withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
-    .registers 4
+    .locals 1
     .parameter "contentUri"
     .parameter "id"
 

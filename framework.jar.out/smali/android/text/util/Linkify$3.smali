@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 136
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public final transformUrl(Ljava/util/regex/Matcher;Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 1
     .parameter "match"
     .parameter "url"
 

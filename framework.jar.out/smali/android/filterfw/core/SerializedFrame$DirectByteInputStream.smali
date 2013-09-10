@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/SerializedFrame;[BI)V
-    .registers 5
+    .locals 1
     .parameter
     .parameter "buffer"
     .parameter "size"
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public final available()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 135
@@ -69,7 +69,7 @@
 .end method
 
 .method public final read()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 140
@@ -77,7 +77,7 @@
 
     iget v1, p0, Landroid/filterfw/core/SerializedFrame$DirectByteInputStream;->mSize:I
 
-    if-ge v0, v1, :cond_13
+    if-ge v0, v1, :cond_0
 
     iget-object v0, p0, Landroid/filterfw/core/SerializedFrame$DirectByteInputStream;->mBuffer:[B
 
@@ -91,17 +91,17 @@
 
     and-int/lit16 v0, v0, 0xff
 
-    :goto_12
+    :goto_0
     return v0
 
-    :cond_13
+    :cond_0
     const/4 v0, -0x1
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public final read([BII)I
-    .registers 6
+    .locals 2
     .parameter "b"
     .parameter "off"
     .parameter "len"
@@ -112,24 +112,24 @@
 
     iget v1, p0, Landroid/filterfw/core/SerializedFrame$DirectByteInputStream;->mSize:I
 
-    if-lt v0, v1, :cond_8
+    if-lt v0, v1, :cond_0
 
     .line 146
     const/4 v0, -0x1
 
     .line 153
-    :goto_7
+    :goto_0
     return v0
 
     .line 148
-    :cond_8
+    :cond_0
     iget v0, p0, Landroid/filterfw/core/SerializedFrame$DirectByteInputStream;->mPos:I
 
     add-int/2addr v0, p3
 
     iget v1, p0, Landroid/filterfw/core/SerializedFrame$DirectByteInputStream;->mSize:I
 
-    if-le v0, v1, :cond_15
+    if-le v0, v1, :cond_1
 
     .line 149
     iget v0, p0, Landroid/filterfw/core/SerializedFrame$DirectByteInputStream;->mSize:I
@@ -139,7 +139,7 @@
     sub-int p3, v0, v1
 
     .line 151
-    :cond_15
+    :cond_1
     iget-object v0, p0, Landroid/filterfw/core/SerializedFrame$DirectByteInputStream;->mBuffer:[B
 
     iget v1, p0, Landroid/filterfw/core/SerializedFrame$DirectByteInputStream;->mPos:I
@@ -156,11 +156,11 @@
     move v0, p3
 
     .line 153
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public final skip(J)J
-    .registers 9
+    .locals 6
     .parameter "n"
 
     .prologue
@@ -179,7 +179,7 @@
 
     cmp-long v2, v2, v4
 
-    if-lez v2, :cond_13
+    if-lez v2, :cond_0
 
     .line 159
     iget v2, p0, Landroid/filterfw/core/SerializedFrame$DirectByteInputStream;->mSize:I
@@ -191,21 +191,21 @@
     int-to-long p1, v2
 
     .line 161
-    :cond_13
+    :cond_0
     cmp-long v2, p1, v0
 
-    if-gez v2, :cond_19
+    if-gez v2, :cond_1
 
     move-wide p1, v0
 
     .line 165
     .end local p1
-    :goto_18
+    :goto_0
     return-wide p1
 
     .line 164
     .restart local p1
-    :cond_19
+    :cond_1
     iget v0, p0, Landroid/filterfw/core/SerializedFrame$DirectByteInputStream;->mPos:I
 
     int-to-long v0, v0
@@ -216,5 +216,5 @@
 
     iput v0, p0, Landroid/filterfw/core/SerializedFrame$DirectByteInputStream;->mPos:I
 
-    goto :goto_18
+    goto :goto_0
 .end method

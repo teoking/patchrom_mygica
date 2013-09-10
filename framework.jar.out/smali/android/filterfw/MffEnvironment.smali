@@ -9,7 +9,7 @@
 
 # direct methods
 .method protected constructor <init>(Landroid/filterfw/core/FrameManager;)V
-    .registers 3
+    .locals 1
     .parameter "frameManager"
 
     .prologue
@@ -17,7 +17,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 45
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 46
     new-instance p1, Landroid/filterfw/core/CachedFrameManager;
@@ -27,7 +27,7 @@
 
     .line 50
     .restart local p1
-    :cond_a
+    :cond_0
     new-instance v0, Landroid/filterfw/core/FilterContext;
 
     invoke-direct {v0}, Landroid/filterfw/core/FilterContext;-><init>()V
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public activateGLEnvironment()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 85
@@ -58,7 +58,7 @@
 
     .line 86
     .local v0, glEnv:Landroid/filterfw/core/GLEnvironment;
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 87
     iget-object v1, p0, Landroid/filterfw/MffEnvironment;->mContext:Landroid/filterfw/core/FilterContext;
@@ -73,7 +73,7 @@
     return-void
 
     .line 89
-    :cond_12
+    :cond_0
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string v2, "No GLEnvironment in place to activate!"
@@ -84,7 +84,7 @@
 .end method
 
 .method public createGLEnvironment()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 74
@@ -104,7 +104,7 @@
 .end method
 
 .method public deactivateGLEnvironment()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 99
@@ -116,7 +116,7 @@
 
     .line 100
     .local v0, glEnv:Landroid/filterfw/core/GLEnvironment;
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 101
     iget-object v1, p0, Landroid/filterfw/MffEnvironment;->mContext:Landroid/filterfw/core/FilterContext;
@@ -131,7 +131,7 @@
     return-void
 
     .line 103
-    :cond_12
+    :cond_0
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string v2, "No GLEnvironment in place to deactivate!"
@@ -142,7 +142,7 @@
 .end method
 
 .method public getContext()Landroid/filterfw/core/FilterContext;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 59
@@ -152,7 +152,7 @@
 .end method
 
 .method public setGLEnvironment(Landroid/filterfw/core/GLEnvironment;)V
-    .registers 3
+    .locals 1
     .parameter "glEnvironment"
 
     .prologue

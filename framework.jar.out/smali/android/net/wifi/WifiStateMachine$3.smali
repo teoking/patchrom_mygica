@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/wifi/WifiStateMachine;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "intent"
 
@@ -53,36 +53,38 @@
 
     move-result v1
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 642
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$3;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     const/4 v2, 0x1
 
+    #calls: Landroid/net/wifi/WifiStateMachine;->handleScreenStateChanged(Z)V
     invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$000(Landroid/net/wifi/WifiStateMachine;Z)V
 
     .line 646
-    :cond_12
-    :goto_12
+    :cond_0
+    :goto_0
     return-void
 
     .line 643
-    :cond_13
+    :cond_1
     const-string v1, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_0
 
     .line 644
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$3;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     const/4 v2, 0x0
 
+    #calls: Landroid/net/wifi/WifiStateMachine;->handleScreenStateChanged(Z)V
     invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$000(Landroid/net/wifi/WifiStateMachine;Z)V
 
-    goto :goto_12
+    goto :goto_0
 .end method

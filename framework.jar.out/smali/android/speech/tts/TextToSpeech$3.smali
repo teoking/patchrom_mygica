@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeech;Ljava/lang/String;ILjava/util/HashMap;)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Integer;
-    .registers 7
+    .locals 5
     .parameter "service"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -75,6 +75,7 @@
     .line 852
     iget-object v1, p0, Landroid/speech/tts/TextToSpeech$3;->this$0:Landroid/speech/tts/TextToSpeech;
 
+    #getter for: Landroid/speech/tts/TextToSpeech;->mEarcons:Ljava/util/Map;
     invoke-static {v1}, Landroid/speech/tts/TextToSpeech;->access$600(Landroid/speech/tts/TextToSpeech;)Ljava/util/Map;
 
     move-result-object v1
@@ -89,7 +90,7 @@
 
     .line 853
     .local v0, earconUri:Landroid/net/Uri;
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 854
     const/4 v1, -0x1
@@ -99,12 +100,13 @@
     move-result-object v1
 
     .line 856
-    :goto_15
+    :goto_0
     return-object v1
 
-    :cond_16
+    :cond_0
     iget-object v1, p0, Landroid/speech/tts/TextToSpeech$3;->this$0:Landroid/speech/tts/TextToSpeech;
 
+    #calls: Landroid/speech/tts/TextToSpeech;->getCallerIdentity()Landroid/os/IBinder;
     invoke-static {v1}, Landroid/speech/tts/TextToSpeech;->access$100(Landroid/speech/tts/TextToSpeech;)Landroid/os/IBinder;
 
     move-result-object v1
@@ -115,6 +117,7 @@
 
     iget-object v4, p0, Landroid/speech/tts/TextToSpeech$3;->val$params:Ljava/util/HashMap;
 
+    #calls: Landroid/speech/tts/TextToSpeech;->getParams(Ljava/util/HashMap;)Landroid/os/Bundle;
     invoke-static {v3, v4}, Landroid/speech/tts/TextToSpeech;->access$500(Landroid/speech/tts/TextToSpeech;Ljava/util/HashMap;)Landroid/os/Bundle;
 
     move-result-object v3
@@ -127,11 +130,11 @@
 
     move-result-object v1
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public bridge synthetic run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .annotation system Ldalvik/annotation/Throws;
         value = {

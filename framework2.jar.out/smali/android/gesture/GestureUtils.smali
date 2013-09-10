@@ -12,7 +12,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 42
@@ -30,7 +30,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 44
@@ -41,26 +41,26 @@
 .end method
 
 .method static closeStream(Ljava/io/Closeable;)V
-    .registers 4
+    .locals 3
     .parameter "stream"
 
     .prologue
     .line 53
-    if-eqz p0, :cond_5
+    if-eqz p0, :cond_0
 
     .line 55
-    :try_start_2
+    :try_start_0
     invoke-interface {p0}, Ljava/io/Closeable;->close()V
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 60
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return-void
 
     .line 56
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 57
@@ -71,11 +71,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method static computeCentroid([F)[F
-    .registers 10
+    .locals 9
     .parameter "points"
 
     .prologue
@@ -97,8 +97,8 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_6
-    if-ge v4, v3, :cond_13
+    :goto_0
+    if-ge v4, v3, :cond_0
 
     .line 335
     aget v5, p0, v4
@@ -116,10 +116,10 @@
     .line 334
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 339
-    :cond_13
+    :cond_0
     const/4 v5, 0x2
 
     new-array v0, v5, [F
@@ -152,7 +152,7 @@
 .end method
 
 .method private static computeCoVariance([F)[[F
-    .registers 11
+    .locals 10
     .parameter "points"
 
     .prologue
@@ -206,8 +206,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_22
-    if-ge v2, v1, :cond_50
+    :goto_0
+    if-ge v2, v1, :cond_0
 
     .line 360
     aget v3, p0, v2
@@ -265,12 +265,12 @@
     .line 359
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_22
+    goto :goto_0
 
     .line 368
     .end local v3           #x:F
     .end local v4           #y:F
-    :cond_50
+    :cond_0
     aget-object v5, v0, v8
 
     aget v6, v5, v8
@@ -327,7 +327,7 @@
 .end method
 
 .method private static computeOrientation([[F)[F
-    .registers 13
+    .locals 12
     .parameter "covarianceMatrix"
 
     .prologue
@@ -350,7 +350,7 @@
 
     cmpl-float v8, v8, v9
 
-    if-eqz v8, :cond_19
+    if-eqz v8, :cond_0
 
     const/4 v8, 0x1
 
@@ -364,10 +364,10 @@
 
     cmpl-float v8, v8, v9
 
-    if-nez v8, :cond_22
+    if-nez v8, :cond_1
 
     .line 540
-    :cond_19
+    :cond_0
     const/4 v8, 0x0
 
     const/high16 v9, 0x3f80
@@ -382,7 +382,7 @@
     aput v9, v6, v8
 
     .line 544
-    :cond_22
+    :cond_1
     const/4 v8, 0x0
 
     aget-object v8, p0, v8
@@ -485,7 +485,7 @@
     .local v4, lambda2:F
     cmpl-float v8, v3, v4
 
-    if-nez v8, :cond_72
+    if-nez v8, :cond_2
 
     .line 552
     const/4 v8, 0x0
@@ -502,20 +502,20 @@
     aput v9, v6, v8
 
     .line 559
-    :goto_71
+    :goto_0
     return-object v6
 
     .line 555
-    :cond_72
+    :cond_2
     cmpl-float v8, v3, v4
 
-    if-lez v8, :cond_8f
+    if-lez v8, :cond_3
 
     move v2, v3
 
     .line 556
     .local v2, lambda:F
-    :goto_77
+    :goto_1
     const/4 v8, 0x0
 
     const/high16 v9, 0x3f80
@@ -547,18 +547,18 @@
 
     aput v9, v6, v8
 
-    goto :goto_71
+    goto :goto_0
 
     .end local v2           #lambda:F
-    :cond_8f
+    :cond_3
     move v2, v4
 
     .line 555
-    goto :goto_77
+    goto :goto_1
 .end method
 
 .method public static computeOrientedBoundingBox(Ljava/util/ArrayList;)Landroid/gesture/OrientedBoundingBox;
-    .registers 9
+    .locals 8
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -589,8 +589,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_9
-    if-ge v1, v0, :cond_20
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 474
     invoke-virtual {p0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -619,12 +619,12 @@
     .line 473
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 479
     .end local v2           #index:I
     .end local v4           #point:Landroid/gesture/GesturePoint;
-    :cond_20
+    :cond_0
     invoke-static {v5}, Landroid/gesture/GestureUtils;->computeCentroid([F)[F
 
     move-result-object v3
@@ -639,7 +639,7 @@
 .end method
 
 .method public static computeOrientedBoundingBox([F)Landroid/gesture/OrientedBoundingBox;
-    .registers 6
+    .locals 5
     .parameter "originalPoints"
 
     .prologue
@@ -655,8 +655,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_4
-    if-ge v0, v3, :cond_d
+    :goto_0
+    if-ge v0, v3, :cond_0
 
     .line 493
     aget v4, p0, v0
@@ -666,10 +666,10 @@
     .line 492
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 495
-    :cond_d
+    :cond_0
     invoke-static {v2}, Landroid/gesture/GestureUtils;->computeCentroid([F)[F
 
     move-result-object v1
@@ -684,7 +684,7 @@
 .end method
 
 .method private static computeOrientedBoundingBox([F[F)Landroid/gesture/OrientedBoundingBox;
-    .registers 17
+    .locals 15
     .parameter "points"
     .parameter "centroid"
 
@@ -725,7 +725,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_57
+    if-nez v0, :cond_4
 
     const/4 v0, 0x1
 
@@ -735,14 +735,14 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_57
+    if-nez v0, :cond_4
 
     .line 507
     const v6, -0x4036f025
 
     .line 513
     .local v6, angle:F
-    :goto_26
+    :goto_0
     const v12, 0x7f7fffff
 
     .line 514
@@ -766,32 +766,32 @@
     const/4 v9, 0x0
 
     .local v9, i:I
-    :goto_30
-    if-ge v9, v8, :cond_69
+    :goto_1
+    if-ge v9, v8, :cond_5
 
     .line 519
     aget v0, p0, v9
 
     cmpg-float v0, v0, v12
 
-    if-gez v0, :cond_3a
+    if-gez v0, :cond_0
 
     .line 520
     aget v12, p0, v9
 
     .line 522
-    :cond_3a
+    :cond_0
     aget v0, p0, v9
 
     cmpl-float v0, v0, v10
 
-    if-lez v0, :cond_42
+    if-lez v0, :cond_1
 
     .line 523
     aget v10, p0, v9
 
     .line 525
-    :cond_42
+    :cond_1
     add-int/lit8 v9, v9, 0x1
 
     .line 526
@@ -799,27 +799,27 @@
 
     cmpg-float v0, v0, v13
 
-    if-gez v0, :cond_4c
+    if-gez v0, :cond_2
 
     .line 527
     aget v13, p0, v9
 
     .line 529
-    :cond_4c
+    :cond_2
     aget v0, p0, v9
 
     cmpl-float v0, v0, v11
 
-    if-lez v0, :cond_54
+    if-lez v0, :cond_3
 
     .line 530
     aget v11, p0, v9
 
     .line 518
-    :cond_54
+    :cond_3
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_30
+    goto :goto_1
 
     .line 509
     .end local v6           #angle:F
@@ -829,7 +829,7 @@
     .end local v11           #maxy:F
     .end local v12           #minx:F
     .end local v13           #miny:F
-    :cond_57
+    :cond_4
     const/4 v0, 0x1
 
     aget v0, v14, v0
@@ -854,7 +854,7 @@
 
     invoke-static {p0, v0}, Landroid/gesture/GestureUtils;->rotate([FF)[F
 
-    goto :goto_26
+    goto :goto_0
 
     .line 534
     .restart local v8       #count:I
@@ -863,7 +863,7 @@
     .restart local v11       #maxy:F
     .restart local v12       #minx:F
     .restart local v13       #miny:F
-    :cond_69
+    :cond_5
     new-instance v0, Landroid/gesture/OrientedBoundingBox;
 
     const/high16 v1, 0x4334
@@ -896,7 +896,7 @@
 .end method
 
 .method static computeStraightness([F)F
-    .registers 6
+    .locals 5
     .parameter "points"
 
     .prologue
@@ -951,7 +951,7 @@
 .end method
 
 .method static computeStraightness([FF)F
-    .registers 6
+    .locals 4
     .parameter "points"
     .parameter "totalLen"
 
@@ -1001,7 +1001,7 @@
 .end method
 
 .method static computeTotalLength([F)F
-    .registers 10
+    .locals 9
     .parameter "points"
 
     .prologue
@@ -1019,8 +1019,8 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_5
-    if-ge v3, v0, :cond_29
+    :goto_0
+    if-ge v3, v0, :cond_0
 
     .line 380
     add-int/lit8 v5, v3, 0x2
@@ -1066,17 +1066,17 @@
     .line 379
     add-int/lit8 v3, v3, 0x2
 
-    goto :goto_5
+    goto :goto_0
 
     .line 384
     .end local v1           #dx:F
     .end local v2           #dy:F
-    :cond_29
+    :cond_0
     return v4
 .end method
 
 .method static cosineDistance([F[F)F
-    .registers 7
+    .locals 5
     .parameter "vector1"
     .parameter "vector2"
 
@@ -1093,8 +1093,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_3
-    if-ge v0, v1, :cond_e
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 428
     aget v3, p0, v0
@@ -1108,10 +1108,10 @@
     .line 427
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 430
-    :cond_e
+    :cond_0
     float-to-double v3, v2
 
     invoke-static {v3, v4}, Ljava/lang/Math;->acos(D)D
@@ -1124,7 +1124,7 @@
 .end method
 
 .method static minimumCosineDistance([F[FI)F
-    .registers 22
+    .locals 19
     .parameter "vector1"
     .parameter "vector2"
     .parameter "numOrientations"
@@ -1148,8 +1148,8 @@
     const/4 v8, 0x0
 
     .local v8, i:I
-    :goto_6
-    if-ge v8, v9, :cond_2b
+    :goto_0
+    if-ge v8, v9, :cond_0
 
     .line 446
     aget v13, p0, v8
@@ -1196,15 +1196,15 @@
     .line 445
     add-int/lit8 v8, v8, 0x2
 
-    goto :goto_6
+    goto :goto_0
 
     .line 449
-    :cond_2b
+    :cond_0
     const/4 v13, 0x0
 
     cmpl-float v13, v2, v13
 
-    if-eqz v13, :cond_69
+    if-eqz v13, :cond_2
 
     .line 450
     div-float v12, v5, v2
@@ -1223,7 +1223,7 @@
 
     move/from16 v0, p2
 
-    if-le v0, v13, :cond_57
+    if-le v0, v13, :cond_1
 
     invoke-static {v3, v4}, Ljava/lang/Math;->abs(D)D
 
@@ -1241,7 +1241,7 @@
 
     cmpl-double v13, v13, v15
 
-    if-ltz v13, :cond_57
+    if-ltz v13, :cond_1
 
     .line 453
     float-to-double v13, v2
@@ -1255,13 +1255,13 @@
     .line 460
     .end local v3           #angle:D
     .end local v12           #tan:F
-    :goto_56
+    :goto_1
     return v13
 
     .line 455
     .restart local v3       #angle:D
     .restart local v12       #tan:F
-    :cond_57
+    :cond_1
     invoke-static {v3, v4}, Ljava/lang/Math;->cos(D)D
 
     move-result-wide v6
@@ -1290,21 +1290,21 @@
 
     double-to-float v13, v13
 
-    goto :goto_56
+    goto :goto_1
 
     .line 460
     .end local v3           #angle:D
     .end local v6           #cosine:D
     .end local v10           #sine:D
     .end local v12           #tan:F
-    :cond_69
+    :cond_2
     const v13, 0x3fc90fdb
 
-    goto :goto_56
+    goto :goto_1
 .end method
 
 .method private static plot(FF[FI)V
-    .registers 29
+    .locals 25
     .parameter "x"
     .parameter "y"
     .parameter "sample"
@@ -1316,22 +1316,22 @@
 
     cmpg-float v21, p0, v21
 
-    if-gez v21, :cond_8
+    if-gez v21, :cond_0
 
     const/16 p0, 0x0
 
     .line 211
-    :cond_8
+    :cond_0
     const/16 v21, 0x0
 
     cmpg-float v21, p1, v21
 
-    if-gez v21, :cond_10
+    if-gez v21, :cond_1
 
     const/16 p1, 0x0
 
     .line 212
-    :cond_10
+    :cond_1
     move/from16 v0, p0
 
     float-to-double v0, v0
@@ -1404,7 +1404,7 @@
 
     cmpl-float v21, p0, v21
 
-    if-nez v21, :cond_63
+    if-nez v21, :cond_3
 
     move/from16 v0, v18
 
@@ -1414,7 +1414,7 @@
 
     cmpl-float v21, p1, v21
 
-    if-nez v21, :cond_63
+    if-nez v21, :cond_3
 
     .line 219
     mul-int v21, v15, p3
@@ -1429,7 +1429,7 @@
 
     cmpg-float v21, v21, v22
 
-    if-gez v21, :cond_62
+    if-gez v21, :cond_2
 
     .line 221
     const/high16 v21, 0x3f80
@@ -1437,13 +1437,13 @@
     aput v21, p2, v4
 
     .line 258
-    :cond_62
-    :goto_62
+    :cond_2
+    :goto_0
     return-void
 
     .line 224
     .end local v4           #index:I
-    :cond_63
+    :cond_3
     int-to-float v0, v12
 
     move/from16 v21, v0
@@ -1596,13 +1596,13 @@
 
     cmpl-float v21, v8, v21
 
-    if-lez v21, :cond_dd
+    if-lez v21, :cond_4
 
     .line 237
     aput v8, p2, v4
 
     .line 240
-    :cond_dd
+    :cond_4
     div-float v8, v7, v5
 
     .line 241
@@ -1615,13 +1615,13 @@
 
     cmpl-float v21, v8, v21
 
-    if-lez v21, :cond_eb
+    if-lez v21, :cond_5
 
     .line 243
     aput v8, p2, v4
 
     .line 246
-    :cond_eb
+    :cond_5
     div-float v8, v2, v5
 
     .line 247
@@ -1634,13 +1634,13 @@
 
     cmpl-float v21, v8, v21
 
-    if-lez v21, :cond_f9
+    if-lez v21, :cond_6
 
     .line 249
     aput v8, p2, v4
 
     .line 252
-    :cond_f9
+    :cond_6
     div-float v8, v3, v5
 
     .line 253
@@ -1653,16 +1653,16 @@
 
     cmpl-float v21, v8, v21
 
-    if-lez v21, :cond_62
+    if-lez v21, :cond_2
 
     .line 255
     aput v8, p2, v4
 
-    goto/16 :goto_62
+    goto/16 :goto_0
 .end method
 
 .method static rotate([FF)[F
-    .registers 10
+    .locals 8
     .parameter "points"
     .parameter "angle"
 
@@ -1695,8 +1695,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_e
-    if-ge v1, v3, :cond_2d
+    :goto_0
+    if-ge v1, v3, :cond_0
 
     .line 568
     aget v6, p0, v1
@@ -1737,17 +1737,17 @@
     .line 567
     add-int/lit8 v1, v1, 0x2
 
-    goto :goto_e
+    goto :goto_0
 
     .line 573
     .end local v4           #x:F
     .end local v5           #y:F
-    :cond_2d
+    :cond_0
     return-object p0
 .end method
 
 .method static scale([FFF)[F
-    .registers 7
+    .locals 4
     .parameter "points"
     .parameter "sx"
     .parameter "sy"
@@ -1761,8 +1761,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_2
-    if-ge v0, v1, :cond_13
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 588
     aget v2, p0, v0
@@ -1783,15 +1783,15 @@
     .line 587
     add-int/lit8 v0, v0, 0x2
 
-    goto :goto_2
+    goto :goto_0
 
     .line 591
-    :cond_13
+    :cond_0
     return-object p0
 .end method
 
 .method public static spatialSampling(Landroid/gesture/Gesture;I)[F
-    .registers 3
+    .locals 1
     .parameter "gesture"
     .parameter "bitmapSize"
 
@@ -1807,7 +1807,7 @@
 .end method
 
 .method public static spatialSampling(Landroid/gesture/Gesture;IZ)[F
-    .registers 38
+    .locals 35
     .parameter "gesture"
     .parameter "bitmapSize"
     .parameter "keepAspectRatio"
@@ -1869,26 +1869,26 @@
 
     .line 102
     .local v29, sy:F
-    if-eqz p2, :cond_8f
+    if-eqz p2, :cond_2
 
     .line 103
     cmpg-float v33, v28, v29
 
-    if-gez v33, :cond_8c
+    if-gez v33, :cond_1
 
     move/from16 v18, v28
 
     .line 104
     .local v18, scale:F
-    :goto_30
+    :goto_0
     move/from16 v28, v18
 
     .line 105
     move/from16 v29, v18
 
     .line 130
-    :cond_34
-    :goto_34
+    :cond_0
+    :goto_1
     invoke-virtual/range {v16 .. v16}, Landroid/graphics/RectF;->centerX()F
 
     move-result v33
@@ -1936,8 +1936,8 @@
     const/4 v9, 0x0
 
     .local v9, index:I
-    :goto_53
-    if-ge v9, v5, :cond_1e4
+    :goto_2
+    if-ge v9, v5, :cond_11
 
     .line 140
     move-object/from16 v0, v27
@@ -1975,10 +1975,10 @@
     const/4 v8, 0x0
 
     .local v8, i:I
-    :goto_6d
+    :goto_3
     move/from16 v0, v23
 
-    if-ge v8, v0, :cond_cc
+    if-ge v8, v0, :cond_7
 
     .line 145
     aget v33, v26, v8
@@ -2009,7 +2009,7 @@
     .line 144
     add-int/lit8 v8, v8, 0x2
 
-    goto :goto_6d
+    goto :goto_3
 
     .end local v5           #count:I
     .end local v8           #i:I
@@ -2024,14 +2024,14 @@
     .end local v25           #stroke:Landroid/gesture/GestureStroke;
     .end local v26           #strokepoints:[F
     .end local v27           #strokes:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureStroke;>;"
-    :cond_8c
+    :cond_1
     move/from16 v18, v29
 
     .line 103
-    goto :goto_30
+    goto :goto_0
 
     .line 108
-    :cond_8f
+    :cond_2
     div-float v4, v7, v6
 
     .line 109
@@ -2040,7 +2040,7 @@
 
     cmpl-float v33, v4, v33
 
-    if-lez v33, :cond_9b
+    if-lez v33, :cond_3
 
     .line 110
     const/high16 v33, 0x3f80
@@ -2048,43 +2048,43 @@
     div-float v4, v33, v4
 
     .line 112
-    :cond_9b
+    :cond_3
     const v33, 0x3e851eb8
 
     cmpg-float v33, v4, v33
 
-    if-gez v33, :cond_b0
+    if-gez v33, :cond_5
 
     .line 113
     cmpg-float v33, v28, v29
 
-    if-gez v33, :cond_ad
+    if-gez v33, :cond_4
 
     move/from16 v18, v28
 
     .line 114
     .restart local v18       #scale:F
-    :goto_a8
+    :goto_4
     move/from16 v28, v18
 
     .line 115
     move/from16 v29, v18
 
     .line 116
-    goto :goto_34
+    goto :goto_1
 
     .end local v18           #scale:F
-    :cond_ad
+    :cond_4
     move/from16 v18, v29
 
     .line 113
-    goto :goto_a8
+    goto :goto_4
 
     .line 117
-    :cond_b0
+    :cond_5
     cmpl-float v33, v28, v29
 
-    if-lez v33, :cond_c0
+    if-lez v33, :cond_6
 
     .line 118
     sget v33, Landroid/gesture/GestureUtils;->NONUNIFORM_SCALE:F
@@ -2095,16 +2095,16 @@
     .restart local v18       #scale:F
     cmpg-float v33, v18, v28
 
-    if-gez v33, :cond_34
+    if-gez v33, :cond_0
 
     .line 120
     move/from16 v28, v18
 
-    goto/16 :goto_34
+    goto/16 :goto_1
 
     .line 123
     .end local v18           #scale:F
-    :cond_c0
+    :cond_6
     sget v33, Landroid/gesture/GestureUtils;->NONUNIFORM_SCALE:F
 
     mul-float v18, v28, v33
@@ -2113,12 +2113,12 @@
     .restart local v18       #scale:F
     cmpg-float v33, v18, v29
 
-    if-gez v33, :cond_34
+    if-gez v33, :cond_0
 
     .line 125
     move/from16 v29, v18
 
-    goto/16 :goto_34
+    goto/16 :goto_1
 
     .line 148
     .end local v4           #aspectRatio:F
@@ -2134,7 +2134,7 @@
     .restart local v25       #stroke:Landroid/gesture/GestureStroke;
     .restart local v26       #strokepoints:[F
     .restart local v27       #strokes:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/gesture/GestureStroke;>;"
-    :cond_cc
+    :cond_7
     const/high16 v19, -0x4080
 
     .line 149
@@ -2145,10 +2145,10 @@
     .local v20, segmentEndY:F
     const/4 v8, 0x0
 
-    :goto_d1
+    :goto_5
     move/from16 v0, v23
 
-    if-ge v8, v0, :cond_1e0
+    if-ge v8, v0, :cond_10
 
     .line 151
     aget v33, v15, v8
@@ -2157,13 +2157,13 @@
 
     cmpg-float v33, v33, v34
 
-    if-gez v33, :cond_13a
+    if-gez v33, :cond_a
 
     const/16 v21, 0x0
 
     .line 152
     .local v21, segmentStartX:F
-    :goto_df
+    :goto_6
     add-int/lit8 v33, v8, 0x1
 
     aget v33, v15, v33
@@ -2172,31 +2172,31 @@
 
     cmpg-float v33, v33, v34
 
-    if-gez v33, :cond_13d
+    if-gez v33, :cond_b
 
     const/16 v22, 0x0
 
     .line 153
     .local v22, segmentStartY:F
-    :goto_eb
+    :goto_7
     cmpl-float v33, v21, v30
 
-    if-lez v33, :cond_f1
+    if-lez v33, :cond_8
 
     .line 154
     move/from16 v21, v30
 
     .line 156
-    :cond_f1
+    :cond_8
     cmpl-float v33, v22, v30
 
-    if-lez v33, :cond_f7
+    if-lez v33, :cond_9
 
     .line 157
     move/from16 v22, v30
 
     .line 159
-    :cond_f7
+    :cond_9
     move/from16 v0, v21
 
     move/from16 v1, v22
@@ -2212,12 +2212,12 @@
 
     cmpl-float v33, v19, v33
 
-    if-eqz v33, :cond_1d8
+    if-eqz v33, :cond_f
 
     .line 162
     cmpl-float v33, v19, v21
 
-    if-lez v33, :cond_142
+    if-lez v33, :cond_c
 
     .line 163
     move/from16 v0, v21
@@ -2246,10 +2246,10 @@
 
     .line 166
     .local v24, slope:F
-    :goto_120
+    :goto_8
     cmpg-float v33, v31, v19
 
-    if-gez v33, :cond_174
+    if-gez v33, :cond_d
 
     .line 167
     sub-float v33, v31, v21
@@ -2275,7 +2275,7 @@
 
     add-float v31, v31, v33
 
-    goto :goto_120
+    goto :goto_8
 
     .line 151
     .end local v21           #segmentStartX:F
@@ -2283,26 +2283,26 @@
     .end local v24           #slope:F
     .end local v31           #xpos:F
     .end local v32           #ypos:F
-    :cond_13a
+    :cond_a
     aget v21, v15, v8
 
-    goto :goto_df
+    goto :goto_6
 
     .line 152
     .restart local v21       #segmentStartX:F
-    :cond_13d
+    :cond_b
     add-int/lit8 v33, v8, 0x1
 
     aget v22, v15, v33
 
-    goto :goto_eb
+    goto :goto_7
 
     .line 171
     .restart local v22       #segmentStartY:F
-    :cond_142
+    :cond_c
     cmpg-float v33, v19, v21
 
-    if-gez v33, :cond_174
+    if-gez v33, :cond_d
 
     .line 172
     move/from16 v0, v19
@@ -2331,10 +2331,10 @@
 
     .line 175
     .restart local v24       #slope:F
-    :goto_15a
+    :goto_9
     cmpg-float v33, v31, v21
 
-    if-gez v33, :cond_174
+    if-gez v33, :cond_d
 
     .line 176
     sub-float v33, v31, v21
@@ -2360,16 +2360,16 @@
 
     add-float v31, v31, v33
 
-    goto :goto_15a
+    goto :goto_9
 
     .line 182
     .end local v24           #slope:F
     .end local v31           #xpos:F
     .end local v32           #ypos:F
-    :cond_174
+    :cond_d
     cmpl-float v33, v20, v22
 
-    if-lez v33, :cond_1a6
+    if-lez v33, :cond_e
 
     .line 183
     move/from16 v0, v22
@@ -2398,10 +2398,10 @@
 
     .line 186
     .local v10, invertSlope:F
-    :goto_18c
+    :goto_a
     cmpg-float v33, v32, v20
 
-    if-gez v33, :cond_1d8
+    if-gez v33, :cond_f
 
     .line 187
     sub-float v33, v32, v22
@@ -2427,16 +2427,16 @@
 
     add-float v32, v32, v33
 
-    goto :goto_18c
+    goto :goto_a
 
     .line 191
     .end local v10           #invertSlope:F
     .end local v31           #xpos:F
     .end local v32           #ypos:F
-    :cond_1a6
+    :cond_e
     cmpg-float v33, v20, v22
 
-    if-gez v33, :cond_1d8
+    if-gez v33, :cond_f
 
     .line 192
     move/from16 v0, v20
@@ -2465,10 +2465,10 @@
 
     .line 195
     .restart local v10       #invertSlope:F
-    :goto_1be
+    :goto_b
     cmpg-float v33, v32, v22
 
-    if-gez v33, :cond_1d8
+    if-gez v33, :cond_f
 
     .line 196
     sub-float v33, v32, v22
@@ -2494,13 +2494,13 @@
 
     add-float v32, v32, v33
 
-    goto :goto_1be
+    goto :goto_b
 
     .line 202
     .end local v10           #invertSlope:F
     .end local v31           #xpos:F
     .end local v32           #ypos:F
-    :cond_1d8
+    :cond_f
     move/from16 v19, v21
 
     .line 203
@@ -2509,15 +2509,15 @@
     .line 150
     add-int/lit8 v8, v8, 0x2
 
-    goto/16 :goto_d1
+    goto/16 :goto_5
 
     .line 139
     .end local v21           #segmentStartX:F
     .end local v22           #segmentStartY:F
-    :cond_1e0
+    :cond_10
     add-int/lit8 v9, v9, 0x1
 
-    goto/16 :goto_53
+    goto/16 :goto_2
 
     .line 206
     .end local v8           #i:I
@@ -2527,12 +2527,12 @@
     .end local v23           #size:I
     .end local v25           #stroke:Landroid/gesture/GestureStroke;
     .end local v26           #strokepoints:[F
-    :cond_1e4
+    :cond_11
     return-object v17
 .end method
 
 .method static squaredEuclideanDistance([F[F)F
-    .registers 8
+    .locals 6
     .parameter "vector1"
     .parameter "vector2"
 
@@ -2549,8 +2549,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_3
-    if-ge v1, v2, :cond_11
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     .line 411
     aget v4, p0, v1
@@ -2568,11 +2568,11 @@
     .line 410
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 414
     .end local v0           #difference:F
-    :cond_11
+    :cond_0
     int-to-float v4, v2
 
     div-float v4, v3, v4
@@ -2581,7 +2581,7 @@
 .end method
 
 .method public static temporalSampling(Landroid/gesture/GestureStroke;I)[F
-    .registers 24
+    .locals 22
     .parameter "stroke"
     .parameter "numPoints"
 
@@ -2679,30 +2679,30 @@
 
     .line 285
     .local v2, count:I
-    :goto_39
-    if-ge v9, v2, :cond_45
+    :goto_0
+    if-ge v9, v2, :cond_0
 
     .line 286
     const/16 v20, 0x1
 
     cmpl-float v20, v3, v20
 
-    if-nez v20, :cond_5d
+    if-nez v20, :cond_2
 
     .line 287
     add-int/lit8 v9, v9, 0x1
 
     .line 288
-    if-lt v9, v2, :cond_53
+    if-lt v9, v2, :cond_1
 
     .line 317
-    :cond_45
+    :cond_0
     move v9, v11
 
-    :goto_46
+    :goto_1
     move/from16 v0, v19
 
-    if-ge v9, v0, :cond_97
+    if-ge v9, v0, :cond_4
 
     .line 318
     aput v12, v18, v9
@@ -2715,10 +2715,10 @@
     .line 317
     add-int/lit8 v9, v9, 0x2
 
-    goto :goto_46
+    goto :goto_1
 
     .line 291
-    :cond_53
+    :cond_1
     mul-int/lit8 v20, v9, 0x2
 
     aget v3, v16, v20
@@ -2731,7 +2731,7 @@
     aget v4, v16, v20
 
     .line 294
-    :cond_5d
+    :cond_2
     sub-float v5, v3, v12
 
     .line 295
@@ -2766,7 +2766,7 @@
 
     cmpl-float v20, v20, v10
 
-    if-ltz v20, :cond_91
+    if-ltz v20, :cond_3
 
     .line 298
     sub-float v20, v10, v8
@@ -2808,13 +2808,13 @@
     const/4 v8, 0x0
 
     .line 308
-    goto :goto_39
+    goto :goto_0
 
     .line 309
     .end local v14           #nx:F
     .end local v15           #ny:F
     .end local v17           #ratio:F
-    :cond_91
+    :cond_3
     move v12, v3
 
     .line 310
@@ -2829,18 +2829,18 @@
     .line 313
     add-float/2addr v8, v7
 
-    goto :goto_39
+    goto :goto_0
 
     .line 321
     .end local v5           #deltaX:F
     .end local v6           #deltaY:F
     .end local v7           #distance:F
-    :cond_97
+    :cond_4
     return-object v18
 .end method
 
 .method static translate([FFF)[F
-    .registers 7
+    .locals 4
     .parameter "points"
     .parameter "dx"
     .parameter "dy"
@@ -2854,8 +2854,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_2
-    if-ge v0, v1, :cond_13
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 579
     aget v2, p0, v0
@@ -2876,9 +2876,9 @@
     .line 578
     add-int/lit8 v0, v0, 0x2
 
-    goto :goto_2
+    goto :goto_0
 
     .line 582
-    :cond_13
+    :cond_0
     return-object p0
 .end method

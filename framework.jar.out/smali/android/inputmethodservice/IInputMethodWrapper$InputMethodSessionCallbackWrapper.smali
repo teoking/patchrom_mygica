@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Lcom/android/internal/view/IInputMethodCallback;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "cb"
 
@@ -46,15 +46,15 @@
 
 # virtual methods
 .method public sessionCreated(Landroid/view/inputmethod/InputMethodSession;)V
-    .registers 5
+    .locals 3
     .parameter "session"
 
     .prologue
     .line 89
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_0
 
     .line 90
-    :try_start_2
+    :try_start_0
     new-instance v0, Landroid/inputmethodservice/IInputMethodSessionWrapper;
 
     iget-object v1, p0, Landroid/inputmethodservice/IInputMethodWrapper$InputMethodSessionCallbackWrapper;->mContext:Landroid/content/Context;
@@ -69,24 +69,24 @@
 
     .line 98
     .end local v0           #wrap:Landroid/inputmethodservice/IInputMethodSessionWrapper;
-    :goto_e
+    :goto_0
     return-void
 
     .line 94
-    :cond_f
+    :cond_0
     iget-object v1, p0, Landroid/inputmethodservice/IInputMethodWrapper$InputMethodSessionCallbackWrapper;->mCb:Lcom/android/internal/view/IInputMethodCallback;
 
     const/4 v2, 0x0
 
     invoke-interface {v1, v2}, Lcom/android/internal/view/IInputMethodCallback;->sessionCreated(Lcom/android/internal/view/IInputMethodSession;)V
-    :try_end_15
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_15} :catch_16
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_e
+    goto :goto_0
 
     .line 96
-    :catch_16
+    :catch_0
     move-exception v1
 
-    goto :goto_e
+    goto :goto_0
 .end method

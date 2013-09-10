@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 391
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 387
@@ -52,7 +52,7 @@
 .end method
 
 .method public static addMessage(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;)Landroid/net/Uri;
-    .registers 13
+    .locals 8
     .parameter "resolver"
     .parameter "address"
     .parameter "body"
@@ -85,7 +85,7 @@
 .end method
 
 .method public static saveMessage(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;)Z
-    .registers 9
+    .locals 6
     .parameter "resolver"
     .parameter "uri"
     .parameter "body"
@@ -126,13 +126,13 @@
 
     move-result v2
 
-    if-ne v2, v1, :cond_21
+    if-ne v2, v1, :cond_0
 
-    :goto_20
+    :goto_0
     return v1
 
-    :cond_21
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_20
+    goto :goto_0
 .end method

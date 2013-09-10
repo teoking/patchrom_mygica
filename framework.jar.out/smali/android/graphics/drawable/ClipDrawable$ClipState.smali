@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/ClipDrawable$ClipState;Landroid/graphics/drawable/ClipDrawable;Landroid/content/res/Resources;)V
-    .registers 5
+    .locals 1
     .parameter "orig"
     .parameter "owner"
     .parameter "res"
@@ -40,10 +40,10 @@
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable$ConstantState;-><init>()V
 
     .line 254
-    if-eqz p1, :cond_25
+    if-eqz p1, :cond_0
 
     .line 255
-    if-eqz p3, :cond_26
+    if-eqz p3, :cond_1
 
     .line 256
     iget-object v0, p1, Landroid/graphics/drawable/ClipDrawable$ClipState;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -59,7 +59,7 @@
     iput-object v0, p0, Landroid/graphics/drawable/ClipDrawable$ClipState;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 260
-    :goto_13
+    :goto_0
     iget-object v0, p0, Landroid/graphics/drawable/ClipDrawable$ClipState;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p2}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
@@ -82,11 +82,11 @@
     iput-boolean v0, p0, Landroid/graphics/drawable/ClipDrawable$ClipState;->mCheckedConstantState:Z
 
     .line 265
-    :cond_25
+    :cond_0
     return-void
 
     .line 258
-    :cond_26
+    :cond_1
     iget-object v0, p1, Landroid/graphics/drawable/ClipDrawable$ClipState;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
@@ -99,13 +99,13 @@
 
     iput-object v0, p0, Landroid/graphics/drawable/ClipDrawable$ClipState;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method canConstantState()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x1
@@ -113,7 +113,7 @@
     .line 283
     iget-boolean v0, p0, Landroid/graphics/drawable/ClipDrawable$ClipState;->mCheckedConstantState:Z
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 284
     iget-object v0, p0, Landroid/graphics/drawable/ClipDrawable$ClipState;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -122,31 +122,31 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_1
 
     move v0, v1
 
-    :goto_e
+    :goto_0
     iput-boolean v0, p0, Landroid/graphics/drawable/ClipDrawable$ClipState;->mCanConstantState:Z
 
     .line 285
     iput-boolean v1, p0, Landroid/graphics/drawable/ClipDrawable$ClipState;->mCheckedConstantState:Z
 
     .line 288
-    :cond_12
+    :cond_0
     iget-boolean v0, p0, Landroid/graphics/drawable/ClipDrawable$ClipState;->mCanConstantState:Z
 
     return v0
 
     .line 284
-    :cond_15
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public getChangingConfigurations()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 279
@@ -156,7 +156,7 @@
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -170,7 +170,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .registers 4
+    .locals 2
     .parameter "res"
 
     .prologue

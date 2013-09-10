@@ -34,7 +34,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 222
@@ -51,7 +51,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/AsyncTask$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -64,14 +64,14 @@
 
 # virtual methods
 .method public declared-synchronized execute(Ljava/lang/Runnable;)V
-    .registers 4
+    .locals 2
     .parameter "r"
 
     .prologue
     .line 227
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/os/AsyncTask$SerialExecutor;->mTasks:Ljava/util/ArrayDeque;
 
     new-instance v1, Landroid/os/AsyncTask$SerialExecutor$1;
@@ -83,21 +83,21 @@
     .line 236
     iget-object v0, p0, Landroid/os/AsyncTask$SerialExecutor;->mActive:Ljava/lang/Runnable;
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 237
     invoke-virtual {p0}, Landroid/os/AsyncTask$SerialExecutor;->scheduleNext()V
-    :try_end_12
-    .catchall {:try_start_1 .. :try_end_12} :catchall_14
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 239
-    :cond_12
+    :cond_0
     monitor-exit p0
 
     return-void
 
     .line 227
-    :catchall_14
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -106,13 +106,13 @@
 .end method
 
 .method protected declared-synchronized scheduleNext()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 242
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/os/AsyncTask$SerialExecutor;->mTasks:Ljava/util/ArrayDeque;
 
     invoke-virtual {v0}, Ljava/util/ArrayDeque;->poll()Ljava/lang/Object;
@@ -123,7 +123,7 @@
 
     iput-object v0, p0, Landroid/os/AsyncTask$SerialExecutor;->mActive:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 243
     sget-object v0, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
@@ -131,17 +131,17 @@
     iget-object v1, p0, Landroid/os/AsyncTask$SerialExecutor;->mActive:Ljava/lang/Runnable;
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-    :try_end_14
-    .catchall {:try_start_1 .. :try_end_14} :catchall_16
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 245
-    :cond_14
+    :cond_0
     monitor-exit p0
 
     return-void
 
     .line 242
-    :catchall_16
+    :catchall_0
     move-exception v0
 
     monitor-exit p0

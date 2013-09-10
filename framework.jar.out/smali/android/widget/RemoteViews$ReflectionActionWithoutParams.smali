@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViews;ILjava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter
     .parameter "viewId"
     .parameter "methodName"
@@ -52,7 +52,7 @@
 .end method
 
 .method constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "in"
 
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
-    .registers 11
+    .locals 7
     .parameter "root"
     .parameter "rootParent"
     .parameter "handler"
@@ -100,21 +100,21 @@
 
     .line 663
     .local v3, view:Landroid/view/View;
-    if-nez v3, :cond_9
+    if-nez v3, :cond_0
 
     .line 690
-    :goto_8
+    :goto_0
     return-void
 
     .line 665
-    :cond_9
+    :cond_0
     invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
 
     .line 668
     .local v1, klass:Ljava/lang/Class;
-    :try_start_d
+    :try_start_0
     iget-object v4, p0, Landroid/widget/RemoteViews$ReflectionActionWithoutParams;->methodName:Ljava/lang/String;
 
     const/4 v5, 0x0
@@ -122,8 +122,8 @@
     new-array v5, v5, [Ljava/lang/Class;
 
     invoke-virtual {v1, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-    :try_end_15
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_d .. :try_end_15} :catch_4e
+    :try_end_0
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v2
 
@@ -135,7 +135,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_7f
+    if-nez v4, :cond_1
 
     .line 675
     new-instance v4, Landroid/widget/RemoteViews$ActionException;
@@ -186,7 +186,7 @@
 
     .line 669
     .end local v2           #method:Ljava/lang/reflect/Method;
-    :catch_4e
+    :catch_0
     move-exception v0
 
     .line 670
@@ -240,20 +240,20 @@
     .line 686
     .end local v0           #ex:Ljava/lang/NoSuchMethodException;
     .restart local v2       #method:Ljava/lang/reflect/Method;
-    :cond_7f
+    :cond_1
     const/4 v4, 0x0
 
-    :try_start_80
+    :try_start_1
     new-array v4, v4, [Ljava/lang/Object;
 
     invoke-virtual {v2, v3, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_85
-    .catch Ljava/lang/Exception; {:try_start_80 .. :try_end_85} :catch_86
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 687
-    :catch_86
+    :catch_1
     move-exception v0
 
     .line 688
@@ -266,7 +266,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 

@@ -63,7 +63,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 254
@@ -92,7 +92,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 249
@@ -102,7 +102,7 @@
 .end method
 
 .method public static final buildFolderUri(J)Landroid/net/Uri;
-    .registers 3
+    .locals 1
     .parameter "folderId"
 
     .prologue

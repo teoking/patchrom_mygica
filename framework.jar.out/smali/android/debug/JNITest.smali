@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -19,7 +19,7 @@
 .end method
 
 .method private part2(DILjava/lang/String;)I
-    .registers 9
+    .locals 4
     .parameter "doubleArg"
     .parameter "fromArray"
     .parameter "stringArg"
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public test(IDLjava/lang/String;)I
-    .registers 11
+    .locals 6
     .parameter "intArg"
     .parameter "doubleArg"
     .parameter "stringArg"
@@ -93,7 +93,7 @@
 
     new-array v5, v0, [I
 
-    fill-array-data v5, :array_10
+    fill-array-data v5, :array_0
 
     .local v5, intArray:[I
     move-object v0, p0
@@ -114,7 +114,7 @@
     .line 28
     nop
 
-    :array_10
+    :array_0
     .array-data 0x4
         0x2at 0x0t 0x0t 0x0t
         0x35t 0x0t 0x0t 0x0t

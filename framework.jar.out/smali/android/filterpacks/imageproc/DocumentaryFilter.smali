@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "name"
 
     .prologue
@@ -80,7 +80,7 @@
 .end method
 
 .method private initParameters()V
-    .registers 11
+    .locals 10
 
     .prologue
     const/4 v9, 0x2
@@ -94,7 +94,7 @@
     .line 146
     iget-object v3, p0, Landroid/filterpacks/imageproc/DocumentaryFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v3, :cond_6f
+    if-eqz v3, :cond_0
 
     .line 147
     new-array v1, v9, [F
@@ -105,7 +105,7 @@
 
     iget v4, p0, Landroid/filterpacks/imageproc/DocumentaryFilter;->mHeight:I
 
-    if-le v3, v4, :cond_70
+    if-le v3, v4, :cond_1
 
     .line 149
     aput v8, v1, v6
@@ -124,7 +124,7 @@
     aput v3, v1, v7
 
     .line 155
-    :goto_1c
+    :goto_0
     aget v3, v1, v6
 
     aget v4, v1, v6
@@ -216,12 +216,12 @@
     .end local v0           #max_dist:F
     .end local v1           #scale:[F
     .end local v2           #seed:[F
-    :cond_6f
+    :cond_0
     return-void
 
     .line 152
     .restart local v1       #scale:[F
-    :cond_70
+    :cond_1
     iget v3, p0, Landroid/filterpacks/imageproc/DocumentaryFilter;->mWidth:I
 
     int-to-float v3, v3
@@ -237,13 +237,13 @@
     .line 153
     aput v8, v1, v7
 
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -253,13 +253,13 @@
 .end method
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "target"
 
     .prologue
     .line 100
-    packed-switch p2, :pswitch_data_34
+    packed-switch p2, :pswitch_data_0
 
     .line 108
     new-instance v1, Ljava/lang/RuntimeException;
@@ -293,7 +293,7 @@
     throw v1
 
     .line 102
-    :pswitch_22
+    :pswitch_0
     new-instance v0, Landroid/filterfw/core/ShaderProgram;
 
     const-string/jumbo v1, "precision mediump float;\nuniform sampler2D tex_sampler_0;\nuniform vec2 seed;\nuniform float stepsize;\nuniform float inv_max_dist;\nuniform vec2 scale;\nvarying vec2 v_texcoord;\nfloat rand(vec2 loc) {\n  float theta1 = dot(loc, vec2(0.9898, 0.233));\n  float theta2 = dot(loc, vec2(12.0, 78.0));\n  float value = cos(theta1) * sin(theta2) + sin(theta1) * cos(theta2);\n  float temp = mod(197.0 * value, 1.0) + value;\n  float part1 = mod(220.0 * temp, 1.0) + temp;\n  float part2 = value * 0.5453;\n  float part3 = cos(theta1 + theta2) * 0.43758;\n  return fract(part1 + part2 + part3);\n}\nvoid main() {\n  vec4 color = texture2D(tex_sampler_0, v_texcoord);\n  float dither = rand(v_texcoord + seed);\n  vec3 xform = clamp(2.0 * color.rgb, 0.0, 1.0);\n  vec3 temp = clamp(2.0 * (color.rgb + stepsize), 0.0, 1.0);\n  vec3 new_color = clamp(xform + (temp - xform) * (dither - 0.5), 0.0, 1.0);\n  float gray = dot(new_color, vec3(0.299, 0.587, 0.114));\n  new_color = vec3(gray, gray, gray);\n  vec2 coord = v_texcoord - vec2(0.5, 0.5);\n  float dist = length(coord * scale);\n  float lumen = 0.85 / (1.0 + exp((dist * inv_max_dist - 0.83) * 20.0)) + 0.15;\n  gl_FragColor = vec4(new_color * lumen, color.a);\n}\n"
@@ -316,14 +316,14 @@
     return-void
 
     .line 100
-    :pswitch_data_34
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_22
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -344,7 +344,7 @@
     .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
     iget-object v3, p0, Landroid/filterpacks/imageproc/DocumentaryFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v3, :cond_16
+    if-eqz v3, :cond_0
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
@@ -352,10 +352,10 @@
 
     iget v4, p0, Landroid/filterpacks/imageproc/DocumentaryFilter;->mTarget:I
 
-    if-eq v3, v4, :cond_1d
+    if-eq v3, v4, :cond_1
 
     .line 122
-    :cond_16
+    :cond_0
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
     move-result v3
@@ -363,14 +363,14 @@
     invoke-virtual {p0, p1, v3}, Landroid/filterpacks/imageproc/DocumentaryFilter;->initProgram(Landroid/filterfw/core/FilterContext;I)V
 
     .line 126
-    :cond_1d
+    :cond_1
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v3
 
     iget v4, p0, Landroid/filterpacks/imageproc/DocumentaryFilter;->mWidth:I
 
-    if-ne v3, v4, :cond_2d
+    if-ne v3, v4, :cond_2
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getHeight()I
 
@@ -378,10 +378,10 @@
 
     iget v4, p0, Landroid/filterpacks/imageproc/DocumentaryFilter;->mHeight:I
 
-    if-eq v3, v4, :cond_3c
+    if-eq v3, v4, :cond_3
 
     .line 127
-    :cond_2d
+    :cond_2
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v3
@@ -399,7 +399,7 @@
     invoke-direct {p0}, Landroid/filterpacks/imageproc/DocumentaryFilter;->initParameters()V
 
     .line 133
-    :cond_3c
+    :cond_3
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v3
@@ -427,7 +427,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 90

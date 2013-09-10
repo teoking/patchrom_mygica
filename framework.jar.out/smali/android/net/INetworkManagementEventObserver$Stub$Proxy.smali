@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 113
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 117
@@ -60,7 +60,7 @@
 .end method
 
 .method public interfaceAdded(Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "iface"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -82,7 +82,7 @@
 
     .line 174
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.INetworkManagementEventObserver"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -101,8 +101,8 @@
 
     .line 177
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 180
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -114,7 +114,7 @@
     return-void
 
     .line 180
-    :catchall_21
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -126,7 +126,7 @@
 .end method
 
 .method public interfaceLinkStateChanged(Ljava/lang/String;Z)V
-    .registers 8
+    .locals 5
     .parameter "iface"
     .parameter "up"
     .annotation system Ldalvik/annotation/Throws;
@@ -151,7 +151,7 @@
 
     .line 153
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.net.INetworkManagementEventObserver"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -160,11 +160,11 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 155
-    if-eqz p2, :cond_14
+    if-eqz p2, :cond_0
 
     const/4 v2, 0x1
 
-    :cond_14
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 156
@@ -178,8 +178,8 @@
 
     .line 157
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_9 .. :try_end_21} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 160
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -191,7 +191,7 @@
     return-void
 
     .line 160
-    :catchall_28
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -203,7 +203,7 @@
 .end method
 
 .method public interfaceRemoved(Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "iface"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -225,7 +225,7 @@
 
     .line 194
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.INetworkManagementEventObserver"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -244,8 +244,8 @@
 
     .line 197
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 200
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -257,7 +257,7 @@
     return-void
 
     .line 200
-    :catchall_21
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -269,7 +269,7 @@
 .end method
 
 .method public interfaceStatusChanged(Ljava/lang/String;Z)V
-    .registers 8
+    .locals 5
     .parameter "iface"
     .parameter "up"
     .annotation system Ldalvik/annotation/Throws;
@@ -296,7 +296,7 @@
 
     .line 130
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.net.INetworkManagementEventObserver"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -305,9 +305,9 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 132
-    if-eqz p2, :cond_28
+    if-eqz p2, :cond_0
 
-    :goto_14
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 133
@@ -321,8 +321,8 @@
 
     .line 134
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_a .. :try_end_21} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 137
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -333,14 +333,14 @@
     .line 140
     return-void
 
-    :cond_28
+    :cond_0
     move v2, v3
 
     .line 132
-    goto :goto_14
+    goto :goto_0
 
     .line 137
-    :catchall_2a
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -352,7 +352,7 @@
 .end method
 
 .method public limitReached(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "limitName"
     .parameter "iface"
     .annotation system Ldalvik/annotation/Throws;
@@ -375,7 +375,7 @@
 
     .line 216
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.INetworkManagementEventObserver"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -397,8 +397,8 @@
 
     .line 220
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 223
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -410,7 +410,7 @@
     return-void
 
     .line 223
-    :catchall_24
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

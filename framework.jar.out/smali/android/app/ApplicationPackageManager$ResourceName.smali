@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/pm/ApplicationInfo;I)V
-    .registers 4
+    .locals 1
     .parameter "aInfo"
     .parameter "_iconId"
 
@@ -37,7 +37,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/pm/ComponentInfo;I)V
-    .registers 4
+    .locals 1
     .parameter "cInfo"
     .parameter "_iconId"
 
@@ -54,7 +54,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/pm/ResolveInfo;I)V
-    .registers 4
+    .locals 1
     .parameter "rInfo"
     .parameter "_iconId"
 
@@ -73,7 +73,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .parameter "_packageName"
     .parameter "_iconId"
 
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "o"
 
     .prologue
@@ -103,16 +103,16 @@
     const/4 v2, 0x0
 
     .line 854
-    if-ne p0, p1, :cond_5
+    if-ne p0, p1, :cond_1
 
     .line 860
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 855
-    :cond_5
-    if-eqz p1, :cond_11
+    :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -122,14 +122,14 @@
 
     move-result-object v4
 
-    if-eq v3, v4, :cond_13
+    if-eq v3, v4, :cond_3
 
-    :cond_11
+    :cond_2
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_13
+    :cond_3
     move-object v0, p1
 
     .line 857
@@ -141,17 +141,17 @@
 
     iget v4, v0, Landroid/app/ApplicationPackageManager$ResourceName;->iconId:I
 
-    if-eq v3, v4, :cond_1e
+    if-eq v3, v4, :cond_4
 
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 
     .line 860
-    :cond_1e
+    :cond_4
     iget-object v3, p0, Landroid/app/ApplicationPackageManager$ResourceName;->packageName:Ljava/lang/String;
 
-    if-eqz v3, :cond_2e
+    if-eqz v3, :cond_6
 
     iget-object v3, p0, Landroid/app/ApplicationPackageManager$ResourceName;->packageName:Ljava/lang/String;
 
@@ -161,23 +161,23 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_0
 
-    :cond_2c
+    :cond_5
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_2e
+    :cond_6
     iget-object v3, v0, Landroid/app/ApplicationPackageManager$ResourceName;->packageName:Ljava/lang/String;
 
-    if-nez v3, :cond_2c
+    if-nez v3, :cond_5
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 868
@@ -200,7 +200,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 875

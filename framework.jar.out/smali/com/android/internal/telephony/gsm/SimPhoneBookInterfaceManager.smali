@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/gsm/GSMPhone;)V
-    .registers 3
+    .locals 1
     .parameter "phone"
 
     .prologue
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public dispose()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 42
@@ -43,17 +43,17 @@
 .end method
 
 .method protected finalize()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 47
     :try_start_0
     invoke-super {p0}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->finalize()V
-    :try_end_3
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_3} :catch_b
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 51
-    :goto_3
+    :goto_0
     const-string v1, "GSM"
 
     const-string v2, "SimPhoneBookInterfaceManager finalized"
@@ -64,7 +64,7 @@
     return-void
 
     .line 48
-    :catch_b
+    :catch_0
     move-exception v0
 
     .line 49
@@ -75,11 +75,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public getAdnRecordsSize(I)[I
-    .registers 7
+    .locals 5
     .parameter "efid"
 
     .prologue
@@ -110,7 +110,7 @@
     monitor-enter v3
 
     .line 57
-    :try_start_19
+    :try_start_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/gsm/SimPhoneBookInterfaceManager;->checkThread()V
 
     .line 58
@@ -152,8 +152,8 @@
 
     .line 66
     monitor-exit v3
-    :try_end_3b
-    .catchall {:try_start_19 .. :try_end_3b} :catchall_3e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 68
     iget-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->recordSize:[I
@@ -163,19 +163,19 @@
     .line 66
     .end local v0           #response:Landroid/os/Message;
     .end local v1           #status:Ljava/util/concurrent/atomic/AtomicBoolean;
-    :catchall_3e
+    :catchall_0
     move-exception v2
 
-    :try_start_3f
+    :try_start_1
     monitor-exit v3
-    :try_end_40
-    .catchall {:try_start_3f .. :try_end_40} :catchall_3e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v2
 .end method
 
 .method protected logd(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
@@ -207,7 +207,7 @@
 .end method
 
 .method protected loge(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue

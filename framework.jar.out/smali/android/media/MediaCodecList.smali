@@ -5,7 +5,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 54
@@ -21,7 +21,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 51
@@ -37,21 +37,21 @@
 .end method
 
 .method public static final getCodecInfoAt(I)Landroid/media/MediaCodecInfo;
-    .registers 2
+    .locals 1
     .parameter "index"
 
     .prologue
     .line 33
-    if-ltz p0, :cond_8
+    if-ltz p0, :cond_0
 
     invoke-static {}, Landroid/media/MediaCodecList;->getCodecCount()I
 
     move-result v0
 
-    if-le p0, v0, :cond_e
+    if-le p0, v0, :cond_1
 
     .line 34
-    :cond_8
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -59,7 +59,7 @@
     throw v0
 
     .line 37
-    :cond_e
+    :cond_1
     new-instance v0, Landroid/media/MediaCodecInfo;
 
     invoke-direct {v0, p0}, Landroid/media/MediaCodecInfo;-><init>(I)V

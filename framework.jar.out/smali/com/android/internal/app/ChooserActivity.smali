@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -17,7 +17,7 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 13
+    .locals 11
     .parameter "savedInstanceState"
 
     .prologue
@@ -38,7 +38,7 @@
     .local v10, targetParcelable:Landroid/os/Parcelable;
     instance-of v0, v10, Landroid/content/Intent;
 
-    if-nez v0, :cond_2a
+    if-nez v0, :cond_0
 
     .line 30
     const-string v0, "ChooseActivity"
@@ -67,10 +67,10 @@
     invoke-virtual {p0}, Lcom/android/internal/app/ChooserActivity;->finish()V
 
     .line 54
-    :goto_29
+    :goto_0
     return-void
 
-    :cond_2a
+    :cond_0
     move-object v2, v10
 
     .line 34
@@ -86,7 +86,7 @@
 
     .line 36
     .local v3, title:Ljava/lang/CharSequence;
-    if-nez v3, :cond_40
+    if-nez v3, :cond_1
 
     .line 37
     invoke-virtual {p0}, Lcom/android/internal/app/ChooserActivity;->getResources()Landroid/content/res/Resources;
@@ -100,7 +100,7 @@
     move-result-object v3
 
     .line 39
-    :cond_40
+    :cond_1
     const-string v0, "android.intent.extra.INITIAL_INTENTS"
 
     invoke-virtual {v8, v0}, Landroid/content/Intent;->getParcelableArrayExtra(Ljava/lang/String;)[Landroid/os/Parcelable;
@@ -113,7 +113,7 @@
 
     .line 41
     .local v4, initialIntents:[Landroid/content/Intent;
-    if-eqz v9, :cond_87
+    if-eqz v9, :cond_3
 
     .line 42
     array-length v0, v9
@@ -124,17 +124,17 @@
     const/4 v7, 0x0
 
     .local v7, i:I
-    :goto_4d
+    :goto_1
     array-length v0, v9
 
-    if-ge v7, v0, :cond_87
+    if-ge v7, v0, :cond_3
 
     .line 44
     aget-object v0, v9, v7
 
     instance-of v0, v0, Landroid/content/Intent;
 
-    if-nez v0, :cond_7e
+    if-nez v0, :cond_2
 
     .line 45
     const-string v0, "ChooseActivity"
@@ -174,10 +174,10 @@
     .line 47
     invoke-virtual {p0}, Lcom/android/internal/app/ChooserActivity;->finish()V
 
-    goto :goto_29
+    goto :goto_0
 
     .line 50
-    :cond_7e
+    :cond_2
     aget-object v0, v9, v7
 
     check-cast v0, Landroid/content/Intent;
@@ -187,11 +187,11 @@
     .line 43
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_4d
+    goto :goto_1
 
     .line 53
     .end local v7           #i:I
-    :cond_87
+    :cond_3
     const/4 v5, 0x0
 
     const/4 v6, 0x0
@@ -202,5 +202,5 @@
 
     invoke-super/range {v0 .. v6}, Lcom/android/internal/app/ResolverActivity;->onCreate(Landroid/os/Bundle;Landroid/content/Intent;Ljava/lang/CharSequence;[Landroid/content/Intent;Ljava/util/List;Z)V
 
-    goto :goto_29
+    goto :goto_0
 .end method

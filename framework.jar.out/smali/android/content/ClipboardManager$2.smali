@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/ClipboardManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,30 +35,30 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "msg"
 
     .prologue
     .line 73
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_c
+    packed-switch v0, :pswitch_data_0
 
     .line 77
-    :goto_5
+    :goto_0
     return-void
 
     .line 75
-    :pswitch_6
+    :pswitch_0
     iget-object v0, p0, Landroid/content/ClipboardManager$2;->this$0:Landroid/content/ClipboardManager;
 
     invoke-virtual {v0}, Landroid/content/ClipboardManager;->reportPrimaryClipChanged()V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 73
-    :pswitch_data_c
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_6
+        :pswitch_0
     .end packed-switch
 .end method

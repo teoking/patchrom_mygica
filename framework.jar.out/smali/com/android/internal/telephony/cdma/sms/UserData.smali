@@ -72,7 +72,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 6
+    .locals 6
 
     .prologue
     const/16 v5, 0xd
@@ -84,7 +84,7 @@
 
     new-array v1, v1, [C
 
-    fill-array-data v1, :array_3c
+    fill-array-data v1, :array_0
 
     sput-object v1, Lcom/android/internal/telephony/cdma/sms/UserData;->ASCII_MAP:[C
 
@@ -99,12 +99,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_15
+    :goto_0
     sget-object v1, Lcom/android/internal/telephony/cdma/sms/UserData;->ASCII_MAP:[C
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_28
+    if-ge v0, v1, :cond_0
 
     .line 90
     sget-object v1, Lcom/android/internal/telephony/cdma/sms/UserData;->charToAscii:Landroid/util/SparseIntArray;
@@ -120,10 +120,10 @@
     .line 89
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_15
+    goto :goto_0
 
     .line 92
-    :cond_28
+    :cond_0
     sget-object v1, Lcom/android/internal/telephony/cdma/sms/UserData;->charToAscii:Landroid/util/SparseIntArray;
 
     invoke-virtual {v1, v4, v4}, Landroid/util/SparseIntArray;->put(II)V
@@ -147,7 +147,7 @@
     return-void
 
     .line 65
-    :array_3c
+    :array_0
     .array-data 0x2
         0x20t 0x0t
         0x21t 0x0t
@@ -248,7 +248,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 24
@@ -263,7 +263,7 @@
 .end method
 
 .method public static stringToAscii(Ljava/lang/String;)[B
-    .registers 8
+    .locals 7
     .parameter "str"
 
     .prologue
@@ -283,8 +283,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_8
-    if-ge v1, v2, :cond_17
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     .line 109
     sget-object v4, Lcom/android/internal/telephony/cdma/sms/UserData;->charToAscii:Landroid/util/SparseIntArray;
@@ -299,20 +299,20 @@
 
     .line 110
     .local v0, charCode:I
-    if-ne v0, v6, :cond_18
+    if-ne v0, v6, :cond_1
 
     const/4 v3, 0x0
 
     .line 113
     .end local v0           #charCode:I
     .end local v3           #result:[B
-    :cond_17
+    :cond_0
     return-object v3
 
     .line 111
     .restart local v0       #charCode:I
     .restart local v3       #result:[B
-    :cond_18
+    :cond_1
     int-to-byte v4, v0
 
     aput-byte v4, v3, v1
@@ -320,13 +320,13 @@
     .line 108
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 152
@@ -353,7 +353,7 @@
 
     iget-boolean v1, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncodingSet:Z
 
-    if-eqz v1, :cond_d5
+    if-eqz v1, :cond_0
 
     iget v1, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
@@ -361,7 +361,7 @@
 
     move-result-object v1
 
-    :goto_20
+    :goto_0
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -539,8 +539,8 @@
     return-object v1
 
     .line 154
-    :cond_d5
+    :cond_0
     const-string/jumbo v1, "unset"
 
-    goto/16 :goto_20
+    goto/16 :goto_0
 .end method

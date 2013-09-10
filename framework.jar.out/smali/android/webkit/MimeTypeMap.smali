@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 31
@@ -23,7 +23,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 33
@@ -34,7 +34,7 @@
 .end method
 
 .method public static getFileExtensionFromUrl(Ljava/lang/String;)Ljava/lang/String;
-    .registers 8
+    .locals 7
     .parameter "url"
 
     .prologue
@@ -45,7 +45,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_4c
+    if-nez v5, :cond_3
 
     .line 45
     const/16 v5, 0x23
@@ -56,7 +56,7 @@
 
     .line 46
     .local v3, fragment:I
-    if-lez v3, :cond_13
+    if-lez v3, :cond_0
 
     .line 47
     invoke-virtual {p0, v6, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -64,7 +64,7 @@
     move-result-object p0
 
     .line 50
-    :cond_13
+    :cond_0
     const/16 v5, 0x3f
 
     invoke-virtual {p0, v5}, Ljava/lang/String;->lastIndexOf(I)I
@@ -73,7 +73,7 @@
 
     .line 51
     .local v4, query:I
-    if-lez v4, :cond_1f
+    if-lez v4, :cond_1
 
     .line 52
     invoke-virtual {p0, v6, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -81,7 +81,7 @@
     move-result-object p0
 
     .line 55
-    :cond_1f
+    :cond_1
     const/16 v5, 0x2f
 
     invoke-virtual {p0, v5}, Ljava/lang/String;->lastIndexOf(I)I
@@ -90,7 +90,7 @@
 
     .line 56
     .local v2, filenamePos:I
-    if-ltz v2, :cond_4a
+    if-ltz v2, :cond_2
 
     add-int/lit8 v5, v2, 0x1
 
@@ -100,12 +100,12 @@
 
     .line 61
     .local v1, filename:Ljava/lang/String;
-    :goto_2d
+    :goto_0
     invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v5
 
-    if-nez v5, :cond_4c
+    if-nez v5, :cond_3
 
     const-string v5, "[a-zA-Z_0-9\\.\\-\\(\\)\\%]+"
 
@@ -113,7 +113,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4c
+    if-eqz v5, :cond_3
 
     .line 63
     const/16 v5, 0x2e
@@ -124,7 +124,7 @@
 
     .line 64
     .local v0, dotPos:I
-    if-ltz v0, :cond_4c
+    if-ltz v0, :cond_3
 
     .line 65
     add-int/lit8 v5, v0, 0x1
@@ -139,30 +139,30 @@
     .end local v2           #filenamePos:I
     .end local v3           #fragment:I
     .end local v4           #query:I
-    :goto_49
+    :goto_1
     return-object v5
 
     .restart local v2       #filenamePos:I
     .restart local v3       #fragment:I
     .restart local v4       #query:I
-    :cond_4a
+    :cond_2
     move-object v1, p0
 
     .line 56
-    goto :goto_2d
+    goto :goto_0
 
     .line 70
     .end local v2           #filenamePos:I
     .end local v3           #fragment:I
     .end local v4           #query:I
-    :cond_4c
+    :cond_3
     const-string v5, ""
 
-    goto :goto_49
+    goto :goto_1
 .end method
 
 .method public static getSingleton()Landroid/webkit/MimeTypeMap;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 165
@@ -172,7 +172,7 @@
 .end method
 
 .method private static mimeTypeFromExtension(Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "extension"
 
     .prologue
@@ -187,7 +187,7 @@
 
 # virtual methods
 .method public getExtensionFromMimeType(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "mimeType"
 
     .prologue
@@ -200,7 +200,7 @@
 .end method
 
 .method public getMimeTypeFromExtension(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "extension"
 
     .prologue
@@ -213,7 +213,7 @@
 .end method
 
 .method public hasExtension(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "extension"
 
     .prologue
@@ -226,7 +226,7 @@
 .end method
 
 .method public hasMimeType(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "mimeType"
 
     .prologue
@@ -239,7 +239,7 @@
 .end method
 
 .method remapGenericMimeType(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 8
+    .locals 4
     .parameter "mimeType"
     .parameter "url"
     .parameter "contentDisposition"
@@ -252,7 +252,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_11
+    if-nez v3, :cond_0
 
     const-string v3, "application/octet-stream"
 
@@ -260,15 +260,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_27
+    if-eqz v3, :cond_4
 
     .line 135
-    :cond_11
+    :cond_0
     const/4 v1, 0x0
 
     .line 136
     .local v1, filename:Ljava/lang/String;
-    if-eqz p3, :cond_18
+    if-eqz p3, :cond_1
 
     .line 137
     invoke-static {p3}, Landroid/webkit/URLUtil;->parseContentDisposition(Ljava/lang/String;)Ljava/lang/String;
@@ -276,14 +276,14 @@
     move-result-object v1
 
     .line 139
-    :cond_18
-    if-eqz v1, :cond_1b
+    :cond_1
+    if-eqz v1, :cond_2
 
     .line 140
     move-object p2, v1
 
     .line 142
-    :cond_1b
+    :cond_2
     invoke-static {p2}, Landroid/webkit/MimeTypeMap;->getFileExtensionFromUrl(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -296,7 +296,7 @@
 
     .line 144
     .local v2, newMimeType:Ljava/lang/String;
-    if-eqz v2, :cond_26
+    if-eqz v2, :cond_3
 
     .line 145
     move-object p1, v2
@@ -305,37 +305,37 @@
     .end local v0           #extension:Ljava/lang/String;
     .end local v1           #filename:Ljava/lang/String;
     .end local v2           #newMimeType:Ljava/lang/String;
-    :cond_26
-    :goto_26
+    :cond_3
+    :goto_0
     return-object p1
 
     .line 147
-    :cond_27
+    :cond_4
     const-string/jumbo v3, "text/vnd.wap.wml"
 
     invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_34
+    if-eqz v3, :cond_5
 
     .line 149
     const-string/jumbo p1, "text/plain"
 
-    goto :goto_26
+    goto :goto_0
 
     .line 153
-    :cond_34
+    :cond_5
     const-string v3, "application/vnd.wap.xhtml+xml"
 
     invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_3
 
     .line 154
     const-string p1, "application/xhtml+xml"
 
-    goto :goto_26
+    goto :goto_0
 .end method

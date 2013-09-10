@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 8
+    .locals 4
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -116,7 +116,7 @@
     .line 75
     iget-object v2, p0, Landroid/widget/AnalogClock;->mDial:Landroid/graphics/drawable/Drawable;
 
-    if-nez v2, :cond_31
+    if-nez v2, :cond_0
 
     .line 76
     const v2, 0x1080210
@@ -128,7 +128,7 @@
     iput-object v2, p0, Landroid/widget/AnalogClock;->mDial:Landroid/graphics/drawable/Drawable;
 
     .line 79
-    :cond_31
+    :cond_0
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -140,7 +140,7 @@
     .line 80
     iget-object v2, p0, Landroid/widget/AnalogClock;->mHourHand:Landroid/graphics/drawable/Drawable;
 
-    if-nez v2, :cond_45
+    if-nez v2, :cond_1
 
     .line 81
     const v2, 0x1080211
@@ -152,7 +152,7 @@
     iput-object v2, p0, Landroid/widget/AnalogClock;->mHourHand:Landroid/graphics/drawable/Drawable;
 
     .line 84
-    :cond_45
+    :cond_1
     const/4 v2, 0x2
 
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -164,7 +164,7 @@
     .line 85
     iget-object v2, p0, Landroid/widget/AnalogClock;->mMinuteHand:Landroid/graphics/drawable/Drawable;
 
-    if-nez v2, :cond_59
+    if-nez v2, :cond_2
 
     .line 86
     const v2, 0x1080212
@@ -176,7 +176,7 @@
     iput-object v2, p0, Landroid/widget/AnalogClock;->mMinuteHand:Landroid/graphics/drawable/Drawable;
 
     .line 89
-    :cond_59
+    :cond_2
     new-instance v2, Landroid/text/format/Time;
 
     invoke-direct {v2}, Landroid/text/format/Time;-><init>()V
@@ -206,7 +206,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/widget/AnalogClock;Landroid/text/format/Time;)Landroid/text/format/Time;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -218,7 +218,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/widget/AnalogClock;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -229,7 +229,7 @@
 .end method
 
 .method private onTimeChanged()V
-    .registers 7
+    .locals 6
 
     .prologue
     const/high16 v5, 0x4270
@@ -294,7 +294,7 @@
 .end method
 
 .method private updateContentDescription(Landroid/text/format/Time;)V
-    .registers 8
+    .locals 6
     .parameter "time"
 
     .prologue
@@ -328,7 +328,7 @@
 
 # virtual methods
 .method protected onAttachedToWindow()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 97
@@ -337,7 +337,7 @@
     .line 99
     iget-boolean v1, p0, Landroid/widget/AnalogClock;->mAttached:Z
 
-    if-nez v1, :cond_2a
+    if-nez v1, :cond_0
 
     .line 100
     const/4 v1, 0x1
@@ -380,7 +380,7 @@
 
     .line 114
     .end local v0           #filter:Landroid/content/IntentFilter;
-    :cond_2a
+    :cond_0
     new-instance v1, Landroid/text/format/Time;
 
     invoke-direct {v1}, Landroid/text/format/Time;-><init>()V
@@ -395,7 +395,7 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 122
@@ -404,7 +404,7 @@
     .line 123
     iget-boolean v0, p0, Landroid/widget/AnalogClock;->mAttached:Z
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 124
     invoke-virtual {p0}, Landroid/widget/AnalogClock;->getContext()Landroid/content/Context;
@@ -421,12 +421,12 @@
     iput-boolean v0, p0, Landroid/widget/AnalogClock;->mAttached:Z
 
     .line 127
-    :cond_13
+    :cond_0
     return-void
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .registers 19
+    .locals 17
     .parameter "canvas"
 
     .prologue
@@ -440,7 +440,7 @@
 
     .line 165
     .local v3, changed:Z
-    if-eqz v3, :cond_e
+    if-eqz v3, :cond_0
 
     .line 166
     const/4 v13, 0x0
@@ -450,7 +450,7 @@
     iput-boolean v13, v0, Landroid/widget/AnalogClock;->mChanged:Z
 
     .line 169
-    :cond_e
+    :cond_0
     move-object/from16 v0, p0
 
     iget v13, v0, Landroid/view/View;->mRight:I
@@ -505,12 +505,12 @@
 
     .line 181
     .local v9, scaled:Z
-    if-lt v2, v10, :cond_37
+    if-lt v2, v10, :cond_1
 
-    if-ge v1, v5, :cond_4c
+    if-ge v1, v5, :cond_2
 
     .line 182
-    :cond_37
+    :cond_1
     const/4 v9, 0x1
 
     .line 183
@@ -545,8 +545,8 @@
 
     .line 189
     .end local v8           #scale:F
-    :cond_4c
-    if-eqz v3, :cond_62
+    :cond_2
+    if-eqz v3, :cond_3
 
     .line 190
     div-int/lit8 v13, v10, 0x2
@@ -570,7 +570,7 @@
     invoke-virtual {v4, v13, v14, v15, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 192
-    :cond_62
+    :cond_3
     move-object/from16 v0, p1
 
     invoke-virtual {v4, v0}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
@@ -606,7 +606,7 @@
 
     .line 197
     .local v6, hourHand:Landroid/graphics/drawable/Drawable;
-    if-eqz v3, :cond_9d
+    if-eqz v3, :cond_4
 
     .line 198
     invoke-virtual {v6}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
@@ -640,7 +640,7 @@
     invoke-virtual {v6, v13, v14, v15, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 202
-    :cond_9d
+    :cond_4
     move-object/from16 v0, p1
 
     invoke-virtual {v6, v0}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
@@ -679,7 +679,7 @@
 
     .line 209
     .local v7, minuteHand:Landroid/graphics/drawable/Drawable;
-    if-eqz v3, :cond_db
+    if-eqz v3, :cond_5
 
     .line 210
     invoke-virtual {v7}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
@@ -713,7 +713,7 @@
     invoke-virtual {v7, v13, v14, v15, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 214
-    :cond_db
+    :cond_5
     move-object/from16 v0, p1
 
     invoke-virtual {v7, v0}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
@@ -722,18 +722,18 @@
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 217
-    if-eqz v9, :cond_e8
+    if-eqz v9, :cond_6
 
     .line 218
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 220
-    :cond_e8
+    :cond_6
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .registers 13
+    .locals 10
     .parameter "widthMeasureSpec"
     .parameter "heightMeasureSpec"
 
@@ -773,11 +773,11 @@
 
     .line 140
     .local v4, vScale:F
-    if-eqz v5, :cond_21
+    if-eqz v5, :cond_0
 
     iget v7, p0, Landroid/widget/AnalogClock;->mDialWidth:I
 
-    if-ge v6, v7, :cond_21
+    if-ge v6, v7, :cond_0
 
     .line 141
     int-to-float v7, v6
@@ -789,12 +789,12 @@
     div-float v0, v7, v8
 
     .line 144
-    :cond_21
-    if-eqz v1, :cond_2d
+    :cond_0
+    if-eqz v1, :cond_1
 
     iget v7, p0, Landroid/widget/AnalogClock;->mDialHeight:I
 
-    if-ge v2, v7, :cond_2d
+    if-ge v2, v7, :cond_1
 
     .line 145
     int-to-float v7, v2
@@ -806,7 +806,7 @@
     div-float v4, v7, v8
 
     .line 148
-    :cond_2d
+    :cond_1
     invoke-static {v0, v4}, Ljava/lang/Math;->min(FF)F
 
     move-result v3
@@ -844,7 +844,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .registers 6
+    .locals 1
     .parameter "w"
     .parameter "h"
     .parameter "oldw"

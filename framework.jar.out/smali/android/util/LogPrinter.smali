@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "priority"
     .parameter "tag"
 
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;I)V
-    .registers 4
+    .locals 0
     .parameter "priority"
     .parameter "tag"
     .parameter "buffer"
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public println(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "x"
 
     .prologue

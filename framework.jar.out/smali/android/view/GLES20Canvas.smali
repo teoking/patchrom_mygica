@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 74
@@ -67,7 +67,7 @@
 .end method
 
 .method constructor <init>(IZ)V
-    .registers 4
+    .locals 1
     .parameter "layer"
     .parameter "translucent"
 
@@ -104,11 +104,11 @@
     iput-object v0, p0, Landroid/view/GLES20Canvas;->mPathBounds:Landroid/graphics/RectF;
 
     .line 95
-    if-nez p2, :cond_2a
+    if-nez p2, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_1e
+    :goto_0
     iput-boolean v0, p0, Landroid/view/GLES20Canvas;->mOpaque:Z
 
     .line 96
@@ -125,14 +125,14 @@
     return-void
 
     .line 95
-    :cond_2a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_1e
+    goto :goto_0
 .end method
 
 .method constructor <init>(Z)V
-    .registers 3
+    .locals 1
     .parameter "translucent"
 
     .prologue
@@ -146,7 +146,7 @@
 .end method
 
 .method protected constructor <init>(ZZ)V
-    .registers 4
+    .locals 1
     .parameter "record"
     .parameter "translucent"
 
@@ -183,15 +183,15 @@
     iput-object v0, p0, Landroid/view/GLES20Canvas;->mPathBounds:Landroid/graphics/RectF;
 
     .line 101
-    if-nez p2, :cond_2c
+    if-nez p2, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_1e
+    :goto_0
     iput-boolean v0, p0, Landroid/view/GLES20Canvas;->mOpaque:Z
 
     .line 103
-    if-eqz p1, :cond_2e
+    if-eqz p1, :cond_1
 
     .line 104
     invoke-static {}, Landroid/view/GLES20Canvas;->nCreateDisplayListRenderer()I
@@ -201,31 +201,31 @@
     iput v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     .line 109
-    :goto_28
+    :goto_1
     invoke-direct {p0}, Landroid/view/GLES20Canvas;->setupFinalizer()V
 
     .line 110
     return-void
 
     .line 101
-    :cond_2c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 106
-    :cond_2e
+    :cond_1
     invoke-static {}, Landroid/view/GLES20Canvas;->nCreateRenderer()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
-    goto :goto_28
+    goto :goto_1
 .end method
 
 .method static synthetic access$000(I)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -236,7 +236,7 @@
 .end method
 
 .method static destroyDisplayList(I)V
-    .registers 1
+    .locals 0
     .parameter "displayList"
 
     .prologue
@@ -248,7 +248,7 @@
 .end method
 
 .method public static flushCaches(I)V
-    .registers 1
+    .locals 0
     .parameter "level"
 
     .prologue
@@ -260,7 +260,7 @@
 .end method
 
 .method static getDisplayListSize(I)I
-    .registers 2
+    .locals 1
     .parameter "displayList"
 
     .prologue
@@ -273,7 +273,7 @@
 .end method
 
 .method public static getStencilSize()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 247
@@ -285,7 +285,7 @@
 .end method
 
 .method public static initCaches()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 342
@@ -296,7 +296,7 @@
 .end method
 
 .method static isAvailable()Z
-    .registers 1
+    .locals 1
 
     .prologue
     .line 77
@@ -570,7 +570,7 @@
 .end method
 
 .method static setDisplayListName(ILjava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "displayList"
     .parameter "name"
 
@@ -583,7 +583,7 @@
 .end method
 
 .method private setupColorFilter(Landroid/graphics/Paint;)I
-    .registers 5
+    .locals 3
     .parameter "paint"
 
     .prologue
@@ -594,7 +594,7 @@
 
     .line 1379
     .local v0, filter:Landroid/graphics/ColorFilter;
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 1380
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
@@ -607,23 +607,23 @@
     const/4 v1, 0x4
 
     .line 1383
-    :goto_e
+    :goto_0
     return v1
 
-    :cond_f
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method private setupFinalizer()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 113
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 114
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -635,7 +635,7 @@
     throw v0
 
     .line 116
-    :cond_c
+    :cond_0
     new-instance v0, Landroid/view/GLES20Canvas$CanvasFinalizer;
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
@@ -649,7 +649,7 @@
 .end method
 
 .method private setupModifiers(Landroid/graphics/Bitmap;Landroid/graphics/Paint;)I
-    .registers 6
+    .locals 3
     .parameter "b"
     .parameter "paint"
 
@@ -661,7 +661,7 @@
 
     sget-object v2, Landroid/graphics/Bitmap$Config;->ALPHA_8:Landroid/graphics/Bitmap$Config;
 
-    if-eq v1, v2, :cond_19
+    if-eq v1, v2, :cond_1
 
     .line 1317
     invoke-virtual {p2}, Landroid/graphics/Paint;->getColorFilter()Landroid/graphics/ColorFilter;
@@ -670,7 +670,7 @@
 
     .line 1318
     .local v0, filter:Landroid/graphics/ColorFilter;
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 1319
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
@@ -684,28 +684,28 @@
 
     .line 1325
     .end local v0           #filter:Landroid/graphics/ColorFilter;
-    :goto_16
+    :goto_0
     return v1
 
     .line 1323
     .restart local v0       #filter:Landroid/graphics/ColorFilter;
-    :cond_17
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 1325
     .end local v0           #filter:Landroid/graphics/ColorFilter;
-    :cond_19
+    :cond_1
     invoke-direct {p0, p2}, Landroid/view/GLES20Canvas;->setupModifiers(Landroid/graphics/Paint;)I
 
     move-result v1
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method private setupModifiers(Landroid/graphics/Paint;)I
-    .registers 10
+    .locals 8
     .parameter "paint"
 
     .prologue
@@ -716,7 +716,7 @@
     .local v1, modifiers:I
     iget-boolean v3, p1, Landroid/graphics/Paint;->hasShadow:Z
 
-    if-eqz v3, :cond_14
+    if-eqz v3, :cond_0
 
     .line 1333
     iget v3, p0, Landroid/view/GLES20Canvas;->mRenderer:I
@@ -735,14 +735,14 @@
     or-int/lit8 v1, v1, 0x1
 
     .line 1338
-    :cond_14
+    :cond_0
     invoke-virtual {p1}, Landroid/graphics/Paint;->getShader()Landroid/graphics/Shader;
 
     move-result-object v2
 
     .line 1339
     .local v2, shader:Landroid/graphics/Shader;
-    if-eqz v2, :cond_23
+    if-eqz v2, :cond_1
 
     .line 1340
     iget v3, p0, Landroid/view/GLES20Canvas;->mRenderer:I
@@ -755,14 +755,14 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 1344
-    :cond_23
+    :cond_1
     invoke-virtual {p1}, Landroid/graphics/Paint;->getColorFilter()Landroid/graphics/ColorFilter;
 
     move-result-object v0
 
     .line 1345
     .local v0, filter:Landroid/graphics/ColorFilter;
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_2
 
     .line 1346
     iget v3, p0, Landroid/view/GLES20Canvas;->mRenderer:I
@@ -775,12 +775,12 @@
     or-int/lit8 v1, v1, 0x4
 
     .line 1350
-    :cond_32
+    :cond_2
     return v1
 .end method
 
 .method private setupModifiers(Landroid/graphics/Paint;I)I
-    .registers 11
+    .locals 8
     .parameter "paint"
     .parameter "flags"
 
@@ -792,11 +792,11 @@
     .local v1, modifiers:I
     iget-boolean v3, p1, Landroid/graphics/Paint;->hasShadow:Z
 
-    if-eqz v3, :cond_18
+    if-eqz v3, :cond_0
 
     and-int/lit8 v3, p2, 0x1
 
-    if-eqz v3, :cond_18
+    if-eqz v3, :cond_0
 
     .line 1357
     iget v3, p0, Landroid/view/GLES20Canvas;->mRenderer:I
@@ -815,18 +815,18 @@
     or-int/lit8 v1, v1, 0x1
 
     .line 1362
-    :cond_18
+    :cond_0
     invoke-virtual {p1}, Landroid/graphics/Paint;->getShader()Landroid/graphics/Shader;
 
     move-result-object v2
 
     .line 1363
     .local v2, shader:Landroid/graphics/Shader;
-    if-eqz v2, :cond_2b
+    if-eqz v2, :cond_1
 
     and-int/lit8 v3, p2, 0x2
 
-    if-eqz v3, :cond_2b
+    if-eqz v3, :cond_1
 
     .line 1364
     iget v3, p0, Landroid/view/GLES20Canvas;->mRenderer:I
@@ -839,18 +839,18 @@
     or-int/lit8 v1, v1, 0x2
 
     .line 1368
-    :cond_2b
+    :cond_1
     invoke-virtual {p1}, Landroid/graphics/Paint;->getColorFilter()Landroid/graphics/ColorFilter;
 
     move-result-object v0
 
     .line 1369
     .local v0, filter:Landroid/graphics/ColorFilter;
-    if-eqz v0, :cond_3e
+    if-eqz v0, :cond_2
 
     and-int/lit8 v3, p2, 0x4
 
-    if-eqz v3, :cond_3e
+    if-eqz v3, :cond_2
 
     .line 1370
     iget v3, p0, Landroid/view/GLES20Canvas;->mRenderer:I
@@ -863,12 +863,12 @@
     or-int/lit8 v1, v1, 0x4
 
     .line 1374
-    :cond_3e
+    :cond_2
     return v1
 .end method
 
 .method public static terminateCaches()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 333
@@ -881,7 +881,7 @@
 
 # virtual methods
 .method public attachFunctor(I)V
-    .registers 3
+    .locals 1
     .parameter "functor"
 
     .prologue
@@ -895,7 +895,7 @@
 .end method
 
 .method public callDrawGLFunction(I)I
-    .registers 3
+    .locals 1
     .parameter "drawGLFunction"
 
     .prologue
@@ -910,7 +910,7 @@
 .end method
 
 .method public clipPath(Landroid/graphics/Path;)Z
-    .registers 8
+    .locals 6
     .parameter "path"
 
     .prologue
@@ -952,7 +952,7 @@
 .end method
 
 .method public clipPath(Landroid/graphics/Path;Landroid/graphics/Region$Op;)Z
-    .registers 9
+    .locals 6
     .parameter "path"
     .parameter "op"
 
@@ -993,7 +993,7 @@
 .end method
 
 .method public clipRect(FFFF)Z
-    .registers 11
+    .locals 6
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -1023,7 +1023,7 @@
 .end method
 
 .method public clipRect(FFFFLandroid/graphics/Region$Op;)Z
-    .registers 12
+    .locals 6
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -1052,7 +1052,7 @@
 .end method
 
 .method public clipRect(IIII)Z
-    .registers 11
+    .locals 6
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -1082,7 +1082,7 @@
 .end method
 
 .method public clipRect(Landroid/graphics/Rect;)Z
-    .registers 8
+    .locals 6
     .parameter "rect"
 
     .prologue
@@ -1109,7 +1109,7 @@
 .end method
 
 .method public clipRect(Landroid/graphics/Rect;Landroid/graphics/Region$Op;)Z
-    .registers 9
+    .locals 6
     .parameter "rect"
     .parameter "op"
 
@@ -1135,7 +1135,7 @@
 .end method
 
 .method public clipRect(Landroid/graphics/RectF;)Z
-    .registers 8
+    .locals 6
     .parameter "rect"
 
     .prologue
@@ -1162,7 +1162,7 @@
 .end method
 
 .method public clipRect(Landroid/graphics/RectF;Landroid/graphics/Region$Op;)Z
-    .registers 9
+    .locals 6
     .parameter "rect"
     .parameter "op"
 
@@ -1188,7 +1188,7 @@
 .end method
 
 .method public clipRegion(Landroid/graphics/Region;)Z
-    .registers 8
+    .locals 6
     .parameter "region"
 
     .prologue
@@ -1228,7 +1228,7 @@
 .end method
 
 .method public clipRegion(Landroid/graphics/Region;Landroid/graphics/Region$Op;)Z
-    .registers 9
+    .locals 6
     .parameter "region"
     .parameter "op"
 
@@ -1267,7 +1267,7 @@
 .end method
 
 .method public concat(Landroid/graphics/Matrix;)V
-    .registers 4
+    .locals 2
     .parameter "matrix"
 
     .prologue
@@ -1283,7 +1283,7 @@
 .end method
 
 .method public detachFunctor(I)V
-    .registers 3
+    .locals 1
     .parameter "functor"
 
     .prologue
@@ -1297,7 +1297,7 @@
 .end method
 
 .method public drawARGB(IIII)V
-    .registers 7
+    .locals 2
     .parameter "a"
     .parameter "r"
     .parameter "g"
@@ -1332,7 +1332,7 @@
 .end method
 
 .method public drawArc(Landroid/graphics/RectF;FFZLandroid/graphics/Paint;)V
-    .registers 16
+    .locals 10
     .parameter "oval"
     .parameter "startAngle"
     .parameter "sweepAngle"
@@ -1349,7 +1349,7 @@
 
     .line 710
     .local v9, modifiers:I
-    :try_start_5
+    :try_start_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v1, p1, Landroid/graphics/RectF;->left:F
@@ -1369,36 +1369,36 @@
     move v7, p4
 
     invoke-static/range {v0 .. v8}, Landroid/view/GLES20Canvas;->nDrawArc(IFFFFFFZI)V
-    :try_end_17
-    .catchall {:try_start_5 .. :try_end_17} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 713
-    if-eqz v9, :cond_1e
+    if-eqz v9, :cond_0
 
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v0, v9}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 715
-    :cond_1e
+    :cond_0
     return-void
 
     .line 713
-    :catchall_1f
+    :catchall_0
     move-exception v0
 
-    if-eqz v9, :cond_27
+    if-eqz v9, :cond_1
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v9}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_27
+    :cond_1
     throw v0
 .end method
 
 .method public drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
-    .registers 12
+    .locals 7
     .parameter "bitmap"
     .parameter "left"
     .parameter "top"
@@ -1412,7 +1412,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -1423,8 +1423,8 @@
     throw v0
 
     .line 747
-    :cond_f
-    if-eqz p4, :cond_2b
+    :cond_0
+    if-eqz p4, :cond_2
 
     invoke-direct {p0, p1, p4}, Landroid/view/GLES20Canvas;->setupModifiers(Landroid/graphics/Bitmap;Landroid/graphics/Paint;)I
 
@@ -1432,15 +1432,15 @@
 
     .line 749
     .local v6, modifiers:I
-    :goto_15
-    if-nez p4, :cond_2d
+    :goto_0
+    if-nez p4, :cond_3
 
     move v5, v0
 
     .line 750
     .local v5, nativePaint:I
-    :goto_18
-    :try_start_18
+    :goto_1
+    :try_start_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v1, p1, Landroid/graphics/Bitmap;->mNativeBitmap:I
@@ -1452,54 +1452,54 @@
     move v4, p3
 
     invoke-static/range {v0 .. v5}, Landroid/view/GLES20Canvas;->nDrawBitmap(II[BFFI)V
-    :try_end_23
-    .catchall {:try_start_18 .. :try_end_23} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 752
-    if-eqz v6, :cond_2a
+    if-eqz v6, :cond_1
 
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v0, v6}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 754
-    :cond_2a
+    :cond_1
     return-void
 
     .end local v5           #nativePaint:I
     .end local v6           #modifiers:I
-    :cond_2b
+    :cond_2
     move v6, v0
 
     .line 747
-    goto :goto_15
+    goto :goto_0
 
     .line 749
     .restart local v6       #modifiers:I
-    :cond_2d
-    :try_start_2d
+    :cond_3
+    :try_start_1
     iget v5, p4, Landroid/graphics/Paint;->mNativePaint:I
-    :try_end_2f
-    .catchall {:try_start_2d .. :try_end_2f} :catchall_30
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_18
+    goto :goto_1
 
     .line 752
-    :catchall_30
+    :catchall_0
     move-exception v0
 
-    if-eqz v6, :cond_38
+    if-eqz v6, :cond_4
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v6}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_38
+    :cond_4
     throw v0
 .end method
 
 .method public drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Matrix;Landroid/graphics/Paint;)V
-    .registers 10
+    .locals 6
     .parameter "bitmap"
     .parameter "matrix"
     .parameter "paint"
@@ -1512,7 +1512,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_0
 
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
@@ -1523,8 +1523,8 @@
     throw v2
 
     .line 763
-    :cond_f
-    if-eqz p3, :cond_2b
+    :cond_0
+    if-eqz p3, :cond_2
 
     invoke-direct {p0, p1, p3}, Landroid/view/GLES20Canvas;->setupModifiers(Landroid/graphics/Bitmap;Landroid/graphics/Paint;)I
 
@@ -1532,15 +1532,15 @@
 
     .line 765
     .local v0, modifiers:I
-    :goto_15
-    if-nez p3, :cond_2d
+    :goto_0
+    if-nez p3, :cond_3
 
     move v1, v2
 
     .line 766
     .local v1, nativePaint:I
-    :goto_18
-    :try_start_18
+    :goto_1
+    :try_start_0
     iget v2, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v3, p1, Landroid/graphics/Bitmap;->mNativeBitmap:I
@@ -1550,54 +1550,54 @@
     iget v5, p2, Landroid/graphics/Matrix;->native_instance:I
 
     invoke-static {v2, v3, v4, v5, v1}, Landroid/view/GLES20Canvas;->nDrawBitmap(II[BII)V
-    :try_end_23
-    .catchall {:try_start_18 .. :try_end_23} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 769
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_1
 
     iget v2, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v2, v0}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 771
-    :cond_2a
+    :cond_1
     return-void
 
     .end local v0           #modifiers:I
     .end local v1           #nativePaint:I
-    :cond_2b
+    :cond_2
     move v0, v2
 
     .line 763
-    goto :goto_15
+    goto :goto_0
 
     .line 765
     .restart local v0       #modifiers:I
-    :cond_2d
-    :try_start_2d
+    :cond_3
+    :try_start_1
     iget v1, p3, Landroid/graphics/Paint;->mNativePaint:I
-    :try_end_2f
-    .catchall {:try_start_2d .. :try_end_2f} :catchall_30
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_18
+    goto :goto_1
 
     .line 769
-    :catchall_30
+    :catchall_0
     move-exception v2
 
-    if-eqz v0, :cond_38
+    if-eqz v0, :cond_4
 
     iget v3, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v3, v0}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_38
+    :cond_4
     throw v2
 .end method
 
 .method public drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
-    .registers 25
+    .locals 20
     .parameter "bitmap"
     .parameter "src"
     .parameter "dst"
@@ -1609,7 +1609,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_e
+    if-eqz v3, :cond_0
 
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
@@ -1620,8 +1620,8 @@
     throw v3
 
     .line 780
-    :cond_e
-    if-eqz p4, :cond_64
+    :cond_0
+    if-eqz p4, :cond_2
 
     move-object/from16 v0, p0
 
@@ -1635,15 +1635,15 @@
 
     .line 782
     .local v17, modifiers:I
-    :goto_1a
-    if-nez p4, :cond_67
+    :goto_0
+    if-nez p4, :cond_3
 
     const/4 v14, 0x0
 
     .line 785
     .local v14, nativePaint:I
-    :goto_1d
-    if-nez p2, :cond_6c
+    :goto_1
+    if-nez p2, :cond_4
 
     .line 786
     const/16 v19, 0x0
@@ -1653,7 +1653,7 @@
 
     .line 787
     .local v16, left:I
-    :try_start_23
+    :try_start_0
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v18
@@ -1666,7 +1666,7 @@
 
     .line 796
     .local v15, bottom:I
-    :goto_2b
+    :goto_2
     move-object/from16 v0, p0
 
     iget v3, v0, Landroid/view/GLES20Canvas;->mRenderer:I
@@ -1718,11 +1718,11 @@
     int-to-float v13, v13
 
     invoke-static/range {v3 .. v14}, Landroid/view/GLES20Canvas;->nDrawBitmap(II[BFFFFFFFFI)V
-    :try_end_58
-    .catchall {:try_start_23 .. :try_end_58} :catchall_83
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 799
-    if-eqz v17, :cond_63
+    if-eqz v17, :cond_1
 
     move-object/from16 v0, p0
 
@@ -1733,7 +1733,7 @@
     invoke-static {v3, v0}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 801
-    :cond_63
+    :cond_1
     return-void
 
     .line 780
@@ -1743,24 +1743,24 @@
     .end local v17           #modifiers:I
     .end local v18           #right:I
     .end local v19           #top:I
-    :cond_64
+    :cond_2
     const/16 v17, 0x0
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 782
     .restart local v17       #modifiers:I
-    :cond_67
-    :try_start_67
+    :cond_3
+    :try_start_1
     move-object/from16 v0, p4
 
     iget v14, v0, Landroid/graphics/Paint;->mNativePaint:I
 
-    goto :goto_1d
+    goto :goto_1
 
     .line 790
     .restart local v14       #nativePaint:I
-    :cond_6c
+    :cond_4
     move-object/from16 v0, p2
 
     iget v0, v0, Landroid/graphics/Rect;->left:I
@@ -1788,11 +1788,11 @@
     move-object/from16 v0, p2
 
     iget v15, v0, Landroid/graphics/Rect;->bottom:I
-    :try_end_82
-    .catchall {:try_start_67 .. :try_end_82} :catchall_83
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .restart local v15       #bottom:I
-    goto :goto_2b
+    goto :goto_2
 
     .line 799
     .end local v14           #nativePaint:I
@@ -1800,10 +1800,10 @@
     .end local v16           #left:I
     .end local v18           #right:I
     .end local v19           #top:I
-    :catchall_83
+    :catchall_0
     move-exception v3
 
-    if-eqz v17, :cond_8f
+    if-eqz v17, :cond_5
 
     move-object/from16 v0, p0
 
@@ -1813,12 +1813,12 @@
 
     invoke-static {v4, v0}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_8f
+    :cond_5
     throw v3
 .end method
 
 .method public drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/RectF;Landroid/graphics/Paint;)V
-    .registers 19
+    .locals 14
     .parameter "bitmap"
     .parameter "src"
     .parameter "dst"
@@ -1830,7 +1830,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_0
 
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
@@ -1841,8 +1841,8 @@
     throw v1
 
     .line 807
-    :cond_e
-    if-eqz p4, :cond_48
+    :cond_0
+    if-eqz p4, :cond_2
 
     move-object/from16 v0, p4
 
@@ -1852,15 +1852,15 @@
 
     .line 809
     .local v13, modifiers:I
-    :goto_16
-    if-nez p4, :cond_4a
+    :goto_0
+    if-nez p4, :cond_3
 
     const/4 v12, 0x0
 
     .line 812
     .local v12, nativePaint:I
-    :goto_19
-    if-nez p2, :cond_4f
+    :goto_1
+    if-nez p2, :cond_4
 
     .line 813
     const/4 v5, 0x0
@@ -1870,7 +1870,7 @@
 
     .line 814
     .local v4, left:F
-    :try_start_1d
+    :try_start_0
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v1
@@ -1887,7 +1887,7 @@
 
     .line 823
     .local v7, bottom:F
-    :goto_27
+    :goto_2
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v2, p1, Landroid/graphics/Bitmap;->mNativeBitmap:I
@@ -1911,18 +1911,18 @@
     iget v11, v0, Landroid/graphics/RectF;->bottom:F
 
     invoke-static/range {v1 .. v12}, Landroid/view/GLES20Canvas;->nDrawBitmap(II[BFFFFFFFFI)V
-    :try_end_40
-    .catchall {:try_start_1d .. :try_end_40} :catchall_64
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 826
-    if-eqz v13, :cond_47
+    if-eqz v13, :cond_1
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v13}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 828
-    :cond_47
+    :cond_1
     return-void
 
     .line 807
@@ -1932,24 +1932,24 @@
     .end local v7           #bottom:F
     .end local v12           #nativePaint:I
     .end local v13           #modifiers:I
-    :cond_48
+    :cond_2
     const/4 v13, 0x0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 809
     .restart local v13       #modifiers:I
-    :cond_4a
-    :try_start_4a
+    :cond_3
+    :try_start_1
     move-object/from16 v0, p4
 
     iget v12, v0, Landroid/graphics/Paint;->mNativePaint:I
 
-    goto :goto_19
+    goto :goto_1
 
     .line 817
     .restart local v12       #nativePaint:I
-    :cond_4f
+    :cond_4
     move-object/from16 v0, p2
 
     iget v1, v0, Landroid/graphics/Rect;->left:I
@@ -1977,13 +1977,13 @@
     move-object/from16 v0, p2
 
     iget v1, v0, Landroid/graphics/Rect;->bottom:I
-    :try_end_62
-    .catchall {:try_start_4a .. :try_end_62} :catchall_64
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     int-to-float v7, v1
 
     .restart local v7       #bottom:F
-    goto :goto_27
+    goto :goto_2
 
     .line 826
     .end local v4           #left:F
@@ -1991,21 +1991,21 @@
     .end local v6           #right:F
     .end local v7           #bottom:F
     .end local v12           #nativePaint:I
-    :catchall_64
+    :catchall_0
     move-exception v1
 
-    if-eqz v13, :cond_6c
+    if-eqz v13, :cond_5
 
     iget v2, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v2, v13}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_6c
+    :cond_5
     throw v1
 .end method
 
 .method public drawBitmap([IIIFFIIZLandroid/graphics/Paint;)V
-    .registers 24
+    .locals 14
     .parameter "colors"
     .parameter "offset"
     .parameter "stride"
@@ -2018,7 +2018,7 @@
 
     .prologue
     .line 837
-    if-gez p6, :cond_b
+    if-gez p6, :cond_0
 
     .line 838
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -2030,8 +2030,8 @@
     throw v1
 
     .line 841
-    :cond_b
-    if-gez p7, :cond_15
+    :cond_0
+    if-gez p7, :cond_1
 
     .line 842
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -2043,14 +2043,14 @@
     throw v1
 
     .line 845
-    :cond_15
+    :cond_1
     invoke-static/range {p3 .. p3}, Ljava/lang/Math;->abs(I)I
 
     move-result v1
 
     move/from16 v0, p6
 
-    if-ge v1, v0, :cond_25
+    if-ge v1, v0, :cond_2
 
     .line 846
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -2062,7 +2062,7 @@
     throw v1
 
     .line 849
-    :cond_25
+    :cond_2
     add-int/lit8 v1, p7, -0x1
 
     mul-int v1, v1, p3
@@ -2075,20 +2075,20 @@
 
     .line 852
     .local v12, length:I
-    if-ltz p2, :cond_38
+    if-ltz p2, :cond_3
 
     add-int v1, p2, p6
 
-    if-gt v1, v12, :cond_38
+    if-gt v1, v12, :cond_3
 
-    if-ltz v11, :cond_38
+    if-ltz v11, :cond_3
 
     add-int v1, v11, p6
 
-    if-le v1, v12, :cond_3e
+    if-le v1, v12, :cond_4
 
     .line 854
-    :cond_38
+    :cond_3
     new-instance v1, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     invoke-direct {v1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>()V
@@ -2096,8 +2096,8 @@
     throw v1
 
     .line 858
-    :cond_3e
-    if-eqz p9, :cond_65
+    :cond_4
+    if-eqz p9, :cond_6
 
     move-object/from16 v0, p9
 
@@ -2107,15 +2107,15 @@
 
     .line 860
     .local v13, modifier:I
-    :goto_46
-    if-nez p9, :cond_67
+    :goto_0
+    if-nez p9, :cond_7
 
     const/4 v10, 0x0
 
     .line 861
     .local v10, nativePaint:I
-    :goto_49
-    :try_start_49
+    :goto_1
+    :try_start_0
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     move-object v2, p1
@@ -2135,56 +2135,56 @@
     move/from16 v9, p8
 
     invoke-static/range {v1 .. v10}, Landroid/view/GLES20Canvas;->nDrawBitmap(I[IIIFFIIZI)V
-    :try_end_5d
-    .catchall {:try_start_49 .. :try_end_5d} :catchall_6c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 864
-    if-eqz v13, :cond_64
+    if-eqz v13, :cond_5
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v13}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 866
-    :cond_64
+    :cond_5
     return-void
 
     .line 858
     .end local v10           #nativePaint:I
     .end local v13           #modifier:I
-    :cond_65
+    :cond_6
     const/4 v13, 0x0
 
-    goto :goto_46
+    goto :goto_0
 
     .line 860
     .restart local v13       #modifier:I
-    :cond_67
-    :try_start_67
+    :cond_7
+    :try_start_1
     move-object/from16 v0, p9
 
     iget v10, v0, Landroid/graphics/Paint;->mNativePaint:I
-    :try_end_6b
-    .catchall {:try_start_67 .. :try_end_6b} :catchall_6c
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_49
+    goto :goto_1
 
     .line 864
-    :catchall_6c
+    :catchall_0
     move-exception v1
 
-    if-eqz v13, :cond_74
+    if-eqz v13, :cond_8
 
     iget v2, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v2, v13}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_74
+    :cond_8
     throw v1
 .end method
 
 .method public drawBitmap([IIIIIIIZLandroid/graphics/Paint;)V
-    .registers 20
+    .locals 10
     .parameter "colors"
     .parameter "offset"
     .parameter "stride"
@@ -2224,7 +2224,7 @@
 .end method
 
 .method public drawBitmapMesh(Landroid/graphics/Bitmap;II[FI[IILandroid/graphics/Paint;)V
-    .registers 22
+    .locals 13
     .parameter "bitmap"
     .parameter "meshWidth"
     .parameter "meshHeight"
@@ -2240,7 +2240,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_0
 
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
@@ -2251,17 +2251,17 @@
     throw v1
 
     .line 882
-    :cond_e
-    if-ltz p2, :cond_16
+    :cond_0
+    if-ltz p2, :cond_1
 
-    if-ltz p3, :cond_16
+    if-ltz p3, :cond_1
 
-    if-ltz p5, :cond_16
+    if-ltz p5, :cond_1
 
-    if-gez p7, :cond_1c
+    if-gez p7, :cond_2
 
     .line 883
-    :cond_16
+    :cond_1
     new-instance v1, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     invoke-direct {v1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>()V
@@ -2269,18 +2269,18 @@
     throw v1
 
     .line 886
-    :cond_1c
-    if-eqz p2, :cond_20
+    :cond_2
+    if-eqz p2, :cond_3
 
-    if-nez p3, :cond_21
+    if-nez p3, :cond_4
 
     .line 905
-    :cond_20
-    :goto_20
+    :cond_3
+    :goto_0
     return-void
 
     .line 890
-    :cond_21
+    :cond_4
     add-int/lit8 v1, p2, 0x1
 
     add-int/lit8 v2, p3, 0x1
@@ -2306,7 +2306,7 @@
     const/16 p7, 0x0
 
     .line 897
-    if-eqz p8, :cond_5c
+    if-eqz p8, :cond_5
 
     move-object/from16 v0, p8
 
@@ -2316,15 +2316,15 @@
 
     .line 899
     .local v12, modifiers:I
-    :goto_3d
-    if-nez p8, :cond_5e
+    :goto_1
+    if-nez p8, :cond_6
 
     const/4 v10, 0x0
 
     .line 900
     .local v10, nativePaint:I
-    :goto_40
-    :try_start_40
+    :goto_2
+    :try_start_0
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v2, p1, Landroid/graphics/Bitmap;->mNativeBitmap:I
@@ -2344,54 +2344,54 @@
     move/from16 v9, p7
 
     invoke-static/range {v1 .. v10}, Landroid/view/GLES20Canvas;->nDrawBitmapMesh(II[BII[FI[III)V
-    :try_end_54
-    .catchall {:try_start_40 .. :try_end_54} :catchall_63
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 903
-    if-eqz v12, :cond_20
+    if-eqz v12, :cond_3
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v12}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    goto :goto_20
+    goto :goto_0
 
     .line 897
     .end local v10           #nativePaint:I
     .end local v12           #modifiers:I
-    :cond_5c
+    :cond_5
     const/4 v12, 0x0
 
-    goto :goto_3d
+    goto :goto_1
 
     .line 899
     .restart local v12       #modifiers:I
-    :cond_5e
-    :try_start_5e
+    :cond_6
+    :try_start_1
     move-object/from16 v0, p8
 
     iget v10, v0, Landroid/graphics/Paint;->mNativePaint:I
-    :try_end_62
-    .catchall {:try_start_5e .. :try_end_62} :catchall_63
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_40
+    goto :goto_2
 
     .line 903
-    :catchall_63
+    :catchall_0
     move-exception v1
 
-    if-eqz v12, :cond_6b
+    if-eqz v12, :cond_7
 
     iget v2, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v2, v12}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_6b
+    :cond_7
     throw v1
 .end method
 
 .method public drawCircle(FFFLandroid/graphics/Paint;)V
-    .registers 8
+    .locals 3
     .parameter "cx"
     .parameter "cy"
     .parameter "radius"
@@ -2407,42 +2407,42 @@
 
     .line 915
     .local v0, modifiers:I
-    :try_start_5
+    :try_start_0
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v2, p4, Landroid/graphics/Paint;->mNativePaint:I
 
     invoke-static {v1, p1, p2, p3, v2}, Landroid/view/GLES20Canvas;->nDrawCircle(IFFFI)V
-    :try_end_c
-    .catchall {:try_start_5 .. :try_end_c} :catchall_14
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 917
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v0}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 919
-    :cond_13
+    :cond_0
     return-void
 
     .line 917
-    :catchall_14
+    :catchall_0
     move-exception v1
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_1
 
     iget v2, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v2, v0}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_1c
+    :cond_1
     throw v1
 .end method
 
 .method public drawColor(I)V
-    .registers 3
+    .locals 1
     .parameter "color"
 
     .prologue
@@ -2456,7 +2456,7 @@
 .end method
 
 .method public drawColor(ILandroid/graphics/PorterDuff$Mode;)V
-    .registers 5
+    .locals 2
     .parameter "color"
     .parameter "mode"
 
@@ -2473,7 +2473,7 @@
 .end method
 
 .method public drawDisplayList(Landroid/view/DisplayList;Landroid/graphics/Rect;I)I
-    .registers 6
+    .locals 2
     .parameter "displayList"
     .parameter "dirty"
     .parameter "flags"
@@ -2497,7 +2497,7 @@
 .end method
 
 .method drawHardwareLayer(Landroid/view/HardwareLayer;FFLandroid/graphics/Paint;)V
-    .registers 10
+    .locals 5
     .parameter "layer"
     .parameter "x"
     .parameter "y"
@@ -2513,7 +2513,7 @@
 
     .line 397
     .local v0, glLayer:Landroid/view/GLES20Layer;
-    if-eqz p4, :cond_1e
+    if-eqz p4, :cond_1
 
     invoke-direct {p0, p4}, Landroid/view/GLES20Canvas;->setupColorFilter(Landroid/graphics/Paint;)I
 
@@ -2521,15 +2521,15 @@
 
     .line 399
     .local v1, modifier:I
-    :goto_a
-    if-nez p4, :cond_20
+    :goto_0
+    if-nez p4, :cond_2
 
     move v2, v3
 
     .line 400
     .local v2, nativePaint:I
-    :goto_d
-    :try_start_d
+    :goto_1
+    :try_start_0
     iget v3, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-virtual {v0}, Landroid/view/GLES20Layer;->getLayer()I
@@ -2537,54 +2537,54 @@
     move-result v4
 
     invoke-static {v3, v4, p2, p3, v2}, Landroid/view/GLES20Canvas;->nDrawLayer(IIFFI)V
-    :try_end_16
-    .catchall {:try_start_d .. :try_end_16} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 402
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_0
 
     iget v3, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v3, v1}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 404
-    :cond_1d
+    :cond_0
     return-void
 
     .end local v1           #modifier:I
     .end local v2           #nativePaint:I
-    :cond_1e
+    :cond_1
     move v1, v3
 
     .line 397
-    goto :goto_a
+    goto :goto_0
 
     .line 399
     .restart local v1       #modifier:I
-    :cond_20
-    :try_start_20
+    :cond_2
+    :try_start_1
     iget v2, p4, Landroid/graphics/Paint;->mNativePaint:I
-    :try_end_22
-    .catchall {:try_start_20 .. :try_end_22} :catchall_23
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_d
+    goto :goto_1
 
     .line 402
-    :catchall_23
+    :catchall_0
     move-exception v3
 
-    if-eqz v1, :cond_2b
+    if-eqz v1, :cond_3
 
     iget v4, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v4, v1}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_2b
+    :cond_3
     throw v3
 .end method
 
 .method public drawLine(FFFFLandroid/graphics/Paint;)V
-    .registers 9
+    .locals 3
     .parameter "startX"
     .parameter "startY"
     .parameter "stopX"
@@ -2632,7 +2632,7 @@
 .end method
 
 .method public drawLines([FIILandroid/graphics/Paint;)V
-    .registers 8
+    .locals 3
     .parameter "pts"
     .parameter "offset"
     .parameter "count"
@@ -2642,16 +2642,16 @@
     .line 947
     or-int v1, p2, p3
 
-    if-ltz v1, :cond_9
+    if-ltz v1, :cond_0
 
     add-int v1, p2, p3
 
     array-length v2, p1
 
-    if-le v1, v2, :cond_11
+    if-le v1, v2, :cond_1
 
     .line 948
-    :cond_9
+    :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "The lines array must contain 4 elements per line."
@@ -2661,7 +2661,7 @@
     throw v1
 
     .line 950
-    :cond_11
+    :cond_1
     const/4 v1, 0x6
 
     invoke-direct {p0, p4, v1}, Landroid/view/GLES20Canvas;->setupModifiers(Landroid/graphics/Paint;I)I
@@ -2670,42 +2670,42 @@
 
     .line 952
     .local v0, modifiers:I
-    :try_start_16
+    :try_start_0
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v2, p4, Landroid/graphics/Paint;->mNativePaint:I
 
     invoke-static {v1, p1, p2, p3, v2}, Landroid/view/GLES20Canvas;->nDrawLines(I[FIII)V
-    :try_end_1d
-    .catchall {:try_start_16 .. :try_end_1d} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 954
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_2
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v0}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 956
-    :cond_24
+    :cond_2
     return-void
 
     .line 954
-    :catchall_25
+    :catchall_0
     move-exception v1
 
-    if-eqz v0, :cond_2d
+    if-eqz v0, :cond_3
 
     iget v2, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v2, v0}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_2d
+    :cond_3
     throw v1
 .end method
 
 .method public drawLines([FLandroid/graphics/Paint;)V
-    .registers 5
+    .locals 2
     .parameter "pts"
     .parameter "paint"
 
@@ -2722,7 +2722,7 @@
 .end method
 
 .method public drawOval(Landroid/graphics/RectF;Landroid/graphics/Paint;)V
-    .registers 10
+    .locals 7
     .parameter "oval"
     .parameter "paint"
 
@@ -2736,7 +2736,7 @@
 
     .line 970
     .local v6, modifiers:I
-    :try_start_5
+    :try_start_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v1, p1, Landroid/graphics/RectF;->left:F
@@ -2750,36 +2750,36 @@
     iget v5, p2, Landroid/graphics/Paint;->mNativePaint:I
 
     invoke-static/range {v0 .. v5}, Landroid/view/GLES20Canvas;->nDrawOval(IFFFFI)V
-    :try_end_14
-    .catchall {:try_start_5 .. :try_end_14} :catchall_1c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 972
-    if-eqz v6, :cond_1b
+    if-eqz v6, :cond_0
 
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v0, v6}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 974
-    :cond_1b
+    :cond_0
     return-void
 
     .line 972
-    :catchall_1c
+    :catchall_0
     move-exception v0
 
-    if-eqz v6, :cond_24
+    if-eqz v6, :cond_1
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v6}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_24
+    :cond_1
     throw v0
 .end method
 
 .method public drawPaint(Landroid/graphics/Paint;)V
-    .registers 9
+    .locals 7
     .parameter "paint"
 
     .prologue
@@ -2820,7 +2820,7 @@
 .end method
 
 .method public drawPatch(Landroid/graphics/Bitmap;[BLandroid/graphics/RectF;Landroid/graphics/Paint;)V
-    .registers 15
+    .locals 10
     .parameter "bitmap"
     .parameter "chunks"
     .parameter "dst"
@@ -2834,7 +2834,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -2845,8 +2845,8 @@
     throw v0
 
     .line 730
-    :cond_f
-    if-eqz p4, :cond_32
+    :cond_0
+    if-eqz p4, :cond_2
 
     invoke-direct {p0, p4}, Landroid/view/GLES20Canvas;->setupColorFilter(Landroid/graphics/Paint;)I
 
@@ -2854,15 +2854,15 @@
 
     .line 732
     .local v9, modifier:I
-    :goto_15
-    if-nez p4, :cond_34
+    :goto_0
+    if-nez p4, :cond_3
 
     move v8, v0
 
     .line 733
     .local v8, nativePaint:I
-    :goto_18
-    :try_start_18
+    :goto_1
+    :try_start_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v1, p1, Landroid/graphics/Bitmap;->mNativeBitmap:I
@@ -2880,54 +2880,54 @@
     move-object v3, p2
 
     invoke-static/range {v0 .. v8}, Landroid/view/GLES20Canvas;->nDrawPatch(II[B[BFFFFI)V
-    :try_end_2a
-    .catchall {:try_start_18 .. :try_end_2a} :catchall_37
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 736
-    if-eqz v9, :cond_31
+    if-eqz v9, :cond_1
 
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v0, v9}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 738
-    :cond_31
+    :cond_1
     return-void
 
     .end local v8           #nativePaint:I
     .end local v9           #modifier:I
-    :cond_32
+    :cond_2
     move v9, v0
 
     .line 730
-    goto :goto_15
+    goto :goto_0
 
     .line 732
     .restart local v9       #modifier:I
-    :cond_34
-    :try_start_34
+    :cond_3
+    :try_start_1
     iget v8, p4, Landroid/graphics/Paint;->mNativePaint:I
-    :try_end_36
-    .catchall {:try_start_34 .. :try_end_36} :catchall_37
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_18
+    goto :goto_1
 
     .line 736
-    :catchall_37
+    :catchall_0
     move-exception v0
 
-    if-eqz v9, :cond_3f
+    if-eqz v9, :cond_4
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v9}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_3f
+    :cond_4
     throw v0
 .end method
 
 .method public drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
-    .registers 7
+    .locals 4
     .parameter "path"
     .parameter "paint"
 
@@ -2941,15 +2941,15 @@
 
     .line 990
     .local v0, modifiers:I
-    :try_start_5
+    :try_start_0
     iget-boolean v1, p1, Landroid/graphics/Path;->isSimplePath:Z
 
-    if-eqz v1, :cond_20
+    if-eqz v1, :cond_2
 
     .line 991
     iget-object v1, p1, Landroid/graphics/Path;->rects:Landroid/graphics/Region;
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_0
 
     .line 992
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
@@ -2961,25 +2961,25 @@
     iget v3, p2, Landroid/graphics/Paint;->mNativePaint:I
 
     invoke-static {v1, v2, v3}, Landroid/view/GLES20Canvas;->nDrawRects(III)V
-    :try_end_18
-    .catchall {:try_start_5 .. :try_end_18} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 998
-    :cond_18
-    :goto_18
-    if-eqz v0, :cond_1f
+    :cond_0
+    :goto_0
+    if-eqz v0, :cond_1
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v0}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 1000
-    :cond_1f
+    :cond_1
     return-void
 
     .line 995
-    :cond_20
-    :try_start_20
+    :cond_2
+    :try_start_1
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v2, p1, Landroid/graphics/Path;->mNativePath:I
@@ -2987,48 +2987,48 @@
     iget v3, p2, Landroid/graphics/Paint;->mNativePaint:I
 
     invoke-static {v1, v2, v3}, Landroid/view/GLES20Canvas;->nDrawPath(III)V
-    :try_end_29
-    .catchall {:try_start_20 .. :try_end_29} :catchall_2a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_18
+    goto :goto_0
 
     .line 998
-    :catchall_2a
+    :catchall_0
     move-exception v1
 
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_3
 
     iget v2, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v2, v0}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_32
+    :cond_3
     throw v1
 .end method
 
 .method public drawPicture(Landroid/graphics/Picture;)V
-    .registers 3
+    .locals 1
     .parameter "picture"
 
     .prologue
     .line 1007
     iget-boolean v0, p1, Landroid/graphics/Picture;->createdFromStream:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
     .line 1013
-    :goto_4
+    :goto_0
     return-void
 
     .line 1011
-    :cond_5
+    :cond_0
     invoke-virtual {p1}, Landroid/graphics/Picture;->endRecording()V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public drawPicture(Landroid/graphics/Picture;Landroid/graphics/Rect;)V
-    .registers 6
+    .locals 3
     .parameter "picture"
     .parameter "dst"
 
@@ -3036,14 +3036,14 @@
     .line 1017
     iget-boolean v0, p1, Landroid/graphics/Picture;->createdFromStream:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
     .line 1028
-    :goto_4
+    :goto_0
     return-void
 
     .line 1021
-    :cond_5
+    :cond_0
     invoke-virtual {p0}, Landroid/view/GLES20Canvas;->save()I
 
     .line 1022
@@ -3062,13 +3062,13 @@
 
     move-result v0
 
-    if-lez v0, :cond_34
+    if-lez v0, :cond_1
 
     invoke-virtual {p1}, Landroid/graphics/Picture;->getHeight()I
 
     move-result v0
 
-    if-lez v0, :cond_34
+    if-lez v0, :cond_1
 
     .line 1024
     invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
@@ -3098,17 +3098,17 @@
     invoke-virtual {p0, v0, v1}, Landroid/view/GLES20Canvas;->scale(FF)V
 
     .line 1026
-    :cond_34
+    :cond_1
     invoke-virtual {p0, p1}, Landroid/view/GLES20Canvas;->drawPicture(Landroid/graphics/Picture;)V
 
     .line 1027
     invoke-virtual {p0}, Landroid/view/GLES20Canvas;->restore()V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public drawPicture(Landroid/graphics/Picture;Landroid/graphics/RectF;)V
-    .registers 6
+    .locals 3
     .parameter "picture"
     .parameter "dst"
 
@@ -3116,14 +3116,14 @@
     .line 1032
     iget-boolean v0, p1, Landroid/graphics/Picture;->createdFromStream:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
     .line 1043
-    :goto_4
+    :goto_0
     return-void
 
     .line 1036
-    :cond_5
+    :cond_0
     invoke-virtual {p0}, Landroid/view/GLES20Canvas;->save()I
 
     .line 1037
@@ -3138,13 +3138,13 @@
 
     move-result v0
 
-    if-lez v0, :cond_32
+    if-lez v0, :cond_1
 
     invoke-virtual {p1}, Landroid/graphics/Picture;->getHeight()I
 
     move-result v0
 
-    if-lez v0, :cond_32
+    if-lez v0, :cond_1
 
     .line 1039
     invoke-virtual {p2}, Landroid/graphics/RectF;->width()F
@@ -3174,17 +3174,17 @@
     invoke-virtual {p0, v0, v1}, Landroid/view/GLES20Canvas;->scale(FF)V
 
     .line 1041
-    :cond_32
+    :cond_1
     invoke-virtual {p0, p1}, Landroid/view/GLES20Canvas;->drawPicture(Landroid/graphics/Picture;)V
 
     .line 1042
     invoke-virtual {p0}, Landroid/view/GLES20Canvas;->restore()V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public drawPoint(FFLandroid/graphics/Paint;)V
-    .registers 7
+    .locals 3
     .parameter "x"
     .parameter "y"
     .parameter "paint"
@@ -3216,7 +3216,7 @@
 .end method
 
 .method public drawPoints([FIILandroid/graphics/Paint;)V
-    .registers 8
+    .locals 3
     .parameter "pts"
     .parameter "offset"
     .parameter "count"
@@ -3232,42 +3232,42 @@
 
     .line 1061
     .local v0, modifiers:I
-    :try_start_5
+    :try_start_0
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v2, p4, Landroid/graphics/Paint;->mNativePaint:I
 
     invoke-static {v1, p1, p2, p3, v2}, Landroid/view/GLES20Canvas;->nDrawPoints(I[FIII)V
-    :try_end_c
-    .catchall {:try_start_5 .. :try_end_c} :catchall_14
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1063
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v0}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 1065
-    :cond_13
+    :cond_0
     return-void
 
     .line 1063
-    :catchall_14
+    :catchall_0
     move-exception v1
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_1
 
     iget v2, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v2, v0}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_1c
+    :cond_1
     throw v1
 .end method
 
 .method public drawPoints([FLandroid/graphics/Paint;)V
-    .registers 5
+    .locals 2
     .parameter "pts"
     .parameter "paint"
 
@@ -3284,7 +3284,7 @@
 .end method
 
 .method public drawPosText(Ljava/lang/String;[FLandroid/graphics/Paint;)V
-    .registers 11
+    .locals 7
     .parameter "text"
     .parameter "pos"
     .parameter "paint"
@@ -3299,7 +3299,7 @@
 
     array-length v1, p2
 
-    if-le v0, v1, :cond_f
+    if-le v0, v1, :cond_0
 
     .line 1092
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
@@ -3309,14 +3309,14 @@
     throw v0
 
     .line 1095
-    :cond_f
+    :cond_0
     invoke-direct {p0, p3}, Landroid/view/GLES20Canvas;->setupModifiers(Landroid/graphics/Paint;)I
 
     move-result v6
 
     .line 1097
     .local v6, modifiers:I
-    :try_start_13
+    :try_start_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     const/4 v2, 0x0
@@ -3332,36 +3332,36 @@
     move-object v4, p2
 
     invoke-static/range {v0 .. v5}, Landroid/view/GLES20Canvas;->nDrawPosText(ILjava/lang/String;II[FI)V
-    :try_end_21
-    .catchall {:try_start_13 .. :try_end_21} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1099
-    if-eqz v6, :cond_28
+    if-eqz v6, :cond_1
 
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v0, v6}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 1101
-    :cond_28
+    :cond_1
     return-void
 
     .line 1099
-    :catchall_29
+    :catchall_0
     move-exception v0
 
-    if-eqz v6, :cond_31
+    if-eqz v6, :cond_2
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v6}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_31
+    :cond_2
     throw v0
 .end method
 
 .method public drawPosText([CII[FLandroid/graphics/Paint;)V
-    .registers 13
+    .locals 7
     .parameter "text"
     .parameter "index"
     .parameter "count"
@@ -3370,22 +3370,22 @@
 
     .prologue
     .line 1073
-    if-ltz p2, :cond_c
+    if-ltz p2, :cond_0
 
     add-int v0, p2, p3
 
     array-length v1, p1
 
-    if-gt v0, v1, :cond_c
+    if-gt v0, v1, :cond_0
 
     mul-int/lit8 v0, p3, 0x2
 
     array-length v1, p4
 
-    if-le v0, v1, :cond_12
+    if-le v0, v1, :cond_1
 
     .line 1074
-    :cond_c
+    :cond_0
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
@@ -3393,14 +3393,14 @@
     throw v0
 
     .line 1077
-    :cond_12
+    :cond_1
     invoke-direct {p0, p5}, Landroid/view/GLES20Canvas;->setupModifiers(Landroid/graphics/Paint;)I
 
     move-result v6
 
     .line 1079
     .local v6, modifiers:I
-    :try_start_16
+    :try_start_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v5, p5, Landroid/graphics/Paint;->mNativePaint:I
@@ -3414,36 +3414,36 @@
     move-object v4, p4
 
     invoke-static/range {v0 .. v5}, Landroid/view/GLES20Canvas;->nDrawPosText(I[CII[FI)V
-    :try_end_21
-    .catchall {:try_start_16 .. :try_end_21} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1081
-    if-eqz v6, :cond_28
+    if-eqz v6, :cond_2
 
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v0, v6}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 1083
-    :cond_28
+    :cond_2
     return-void
 
     .line 1081
-    :catchall_29
+    :catchall_0
     move-exception v0
 
-    if-eqz v6, :cond_31
+    if-eqz v6, :cond_3
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v6}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_31
+    :cond_3
     throw v0
 .end method
 
 .method public drawRGB(III)V
-    .registers 6
+    .locals 2
     .parameter "r"
     .parameter "g"
     .parameter "b"
@@ -3475,7 +3475,7 @@
 .end method
 
 .method public drawRect(FFFFLandroid/graphics/Paint;)V
-    .registers 13
+    .locals 7
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -3486,19 +3486,19 @@
     .line 1108
     cmpl-float v0, p1, p3
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     cmpl-float v0, p2, p4
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_1
 
     .line 1115
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     return-void
 
     .line 1109
-    :cond_9
+    :cond_1
     const/4 v0, 0x6
 
     invoke-direct {p0, p5, v0}, Landroid/view/GLES20Canvas;->setupModifiers(Landroid/graphics/Paint;I)I
@@ -3507,7 +3507,7 @@
 
     .line 1111
     .local v6, modifiers:I
-    :try_start_e
+    :try_start_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v5, p5, Landroid/graphics/Paint;->mNativePaint:I
@@ -3521,33 +3521,33 @@
     move v4, p4
 
     invoke-static/range {v0 .. v5}, Landroid/view/GLES20Canvas;->nDrawRect(IFFFFI)V
-    :try_end_19
-    .catchall {:try_start_e .. :try_end_19} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1113
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_0
 
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v0, v6}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    goto :goto_8
+    goto :goto_0
 
-    :catchall_21
+    :catchall_0
     move-exception v0
 
-    if-eqz v6, :cond_29
+    if-eqz v6, :cond_2
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v6}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_29
+    :cond_2
     throw v0
 .end method
 
 .method public drawRect(Landroid/graphics/Rect;Landroid/graphics/Paint;)V
-    .registers 9
+    .locals 6
     .parameter "r"
     .parameter "paint"
 
@@ -3580,7 +3580,7 @@
 .end method
 
 .method public drawRect(Landroid/graphics/RectF;Landroid/graphics/Paint;)V
-    .registers 9
+    .locals 6
     .parameter "r"
     .parameter "paint"
 
@@ -3605,7 +3605,7 @@
 .end method
 
 .method public drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
-    .registers 14
+    .locals 9
     .parameter "rect"
     .parameter "rx"
     .parameter "ry"
@@ -3621,7 +3621,7 @@
 
     .line 1139
     .local v8, modifiers:I
-    :try_start_5
+    :try_start_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v1, p1, Landroid/graphics/RectF;->left:F
@@ -3639,36 +3639,36 @@
     move v6, p3
 
     invoke-static/range {v0 .. v7}, Landroid/view/GLES20Canvas;->nDrawRoundRect(IFFFFFFI)V
-    :try_end_16
-    .catchall {:try_start_5 .. :try_end_16} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1142
-    if-eqz v8, :cond_1d
+    if-eqz v8, :cond_0
 
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v0, v8}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 1144
-    :cond_1d
+    :cond_0
     return-void
 
     .line 1142
-    :catchall_1e
+    :catchall_0
     move-exception v0
 
-    if-eqz v8, :cond_26
+    if-eqz v8, :cond_1
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v8}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_26
+    :cond_1
     throw v0
 .end method
 
 .method public drawText(Ljava/lang/CharSequence;IIFFLandroid/graphics/Paint;)V
-    .registers 17
+    .locals 10
     .parameter "text"
     .parameter "start"
     .parameter "end"
@@ -3686,21 +3686,21 @@
 
     .line 1170
     .local v9, modifiers:I
-    :try_start_6
+    :try_start_0
     instance-of v1, p1, Ljava/lang/String;
 
-    if-nez v1, :cond_12
+    if-nez v1, :cond_0
 
     instance-of v1, p1, Landroid/text/SpannedString;
 
-    if-nez v1, :cond_12
+    if-nez v1, :cond_0
 
     instance-of v1, p1, Landroid/text/SpannableString;
 
-    if-eqz v1, :cond_2f
+    if-eqz v1, :cond_2
 
     .line 1172
-    :cond_12
+    :cond_0
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -3724,27 +3724,27 @@
     move v6, p5
 
     invoke-static/range {v1 .. v8}, Landroid/view/GLES20Canvas;->nDrawText(ILjava/lang/String;IIFFII)V
-    :try_end_27
-    .catchall {:try_start_6 .. :try_end_27} :catchall_42
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1185
-    :goto_27
-    if-eqz v9, :cond_2e
+    :goto_0
+    if-eqz v9, :cond_1
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v9}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 1187
-    :cond_2e
+    :cond_1
     return-void
 
     .line 1174
-    :cond_2f
-    :try_start_2f
+    :cond_2
+    :try_start_1
     instance-of v1, p1, Landroid/text/GraphicsOperations;
 
-    if-eqz v1, :cond_4b
+    if-eqz v1, :cond_4
 
     .line 1175
     move-object v0, p1
@@ -3766,29 +3766,29 @@
     move-object/from16 v7, p6
 
     invoke-interface/range {v1 .. v7}, Landroid/text/GraphicsOperations;->drawText(Landroid/graphics/Canvas;IIFFLandroid/graphics/Paint;)V
-    :try_end_41
-    .catchall {:try_start_2f .. :try_end_41} :catchall_42
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_27
+    goto :goto_0
 
     .line 1185
-    :catchall_42
+    :catchall_0
     move-exception v1
 
-    if-eqz v9, :cond_4a
+    if-eqz v9, :cond_3
 
     iget v3, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v3, v9}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_4a
+    :cond_3
     throw v1
 
     .line 1178
-    :cond_4b
+    :cond_4
     sub-int v1, p3, p2
 
-    :try_start_4d
+    :try_start_2
     invoke-static {v1}, Landroid/graphics/TemporaryBuffer;->obtain(I)[C
 
     move-result-object v2
@@ -3822,14 +3822,14 @@
 
     .line 1182
     invoke-static {v2}, Landroid/graphics/TemporaryBuffer;->recycle([C)V
-    :try_end_6a
-    .catchall {:try_start_4d .. :try_end_6a} :catchall_42
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_27
+    goto :goto_0
 .end method
 
 .method public drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
-    .registers 14
+    .locals 9
     .parameter "text"
     .parameter "x"
     .parameter "y"
@@ -3843,7 +3843,7 @@
 
     .line 1210
     .local v8, modifiers:I
-    :try_start_4
+    :try_start_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     const/4 v2, 0x0
@@ -3863,36 +3863,36 @@
     move v5, p3
 
     invoke-static/range {v0 .. v7}, Landroid/view/GLES20Canvas;->nDrawText(ILjava/lang/String;IIFFII)V
-    :try_end_15
-    .catchall {:try_start_4 .. :try_end_15} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1213
-    if-eqz v8, :cond_1c
+    if-eqz v8, :cond_0
 
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v0, v8}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 1215
-    :cond_1c
+    :cond_0
     return-void
 
     .line 1213
-    :catchall_1d
+    :catchall_0
     move-exception v0
 
-    if-eqz v8, :cond_25
+    if-eqz v8, :cond_1
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v8}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_25
+    :cond_1
     throw v0
 .end method
 
 .method public drawText(Ljava/lang/String;IIFFLandroid/graphics/Paint;)V
-    .registers 16
+    .locals 9
     .parameter "text"
     .parameter "start"
     .parameter "end"
@@ -3916,7 +3916,7 @@
 
     or-int/2addr v0, v1
 
-    if-gez v0, :cond_13
+    if-gez v0, :cond_0
 
     .line 1192
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
@@ -3926,14 +3926,14 @@
     throw v0
 
     .line 1195
-    :cond_13
+    :cond_0
     invoke-direct {p0, p6}, Landroid/view/GLES20Canvas;->setupModifiers(Landroid/graphics/Paint;)I
 
     move-result v8
 
     .line 1197
     .local v8, modifiers:I
-    :try_start_17
+    :try_start_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v6, p6, Landroid/graphics/Paint;->mBidiFlags:I
@@ -3951,36 +3951,36 @@
     move v5, p5
 
     invoke-static/range {v0 .. v7}, Landroid/view/GLES20Canvas;->nDrawText(ILjava/lang/String;IIFFII)V
-    :try_end_25
-    .catchall {:try_start_17 .. :try_end_25} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1199
-    if-eqz v8, :cond_2c
+    if-eqz v8, :cond_1
 
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v0, v8}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 1201
-    :cond_2c
+    :cond_1
     return-void
 
     .line 1199
-    :catchall_2d
+    :catchall_0
     move-exception v0
 
-    if-eqz v8, :cond_35
+    if-eqz v8, :cond_2
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v8}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_35
+    :cond_2
     throw v0
 .end method
 
 .method public drawText([CIIFFLandroid/graphics/Paint;)V
-    .registers 16
+    .locals 9
     .parameter "text"
     .parameter "index"
     .parameter "count"
@@ -4004,7 +4004,7 @@
 
     or-int/2addr v0, v1
 
-    if-gez v0, :cond_11
+    if-gez v0, :cond_0
 
     .line 1152
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
@@ -4014,14 +4014,14 @@
     throw v0
 
     .line 1155
-    :cond_11
+    :cond_0
     invoke-direct {p0, p6}, Landroid/view/GLES20Canvas;->setupModifiers(Landroid/graphics/Paint;)I
 
     move-result v8
 
     .line 1157
     .local v8, modifiers:I
-    :try_start_15
+    :try_start_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v6, p6, Landroid/graphics/Paint;->mBidiFlags:I
@@ -4039,36 +4039,36 @@
     move v5, p5
 
     invoke-static/range {v0 .. v7}, Landroid/view/GLES20Canvas;->nDrawText(I[CIIFFII)V
-    :try_end_23
-    .catchall {:try_start_15 .. :try_end_23} :catchall_2b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1159
-    if-eqz v8, :cond_2a
+    if-eqz v8, :cond_1
 
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v0, v8}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 1161
-    :cond_2a
+    :cond_1
     return-void
 
     .line 1159
-    :catchall_2b
+    :catchall_0
     move-exception v0
 
-    if-eqz v8, :cond_33
+    if-eqz v8, :cond_2
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v8}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_33
+    :cond_2
     throw v0
 .end method
 
 .method public drawTextOnPath(Ljava/lang/String;Landroid/graphics/Path;FFLandroid/graphics/Paint;)V
-    .registers 16
+    .locals 10
     .parameter "text"
     .parameter "path"
     .parameter "hOffset"
@@ -4081,22 +4081,22 @@
 
     move-result v0
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_1
 
     .line 1247
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return-void
 
     .line 1240
-    :cond_7
+    :cond_1
     invoke-direct {p0, p5}, Landroid/view/GLES20Canvas;->setupModifiers(Landroid/graphics/Paint;)I
 
     move-result v9
 
     .line 1242
     .local v9, modifiers:I
-    :try_start_b
+    :try_start_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     const/4 v2, 0x0
@@ -4118,33 +4118,33 @@
     move v6, p4
 
     invoke-static/range {v0 .. v8}, Landroid/view/GLES20Canvas;->nDrawTextOnPath(ILjava/lang/String;IIIFFII)V
-    :try_end_1e
-    .catchall {:try_start_b .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1245
-    if-eqz v9, :cond_6
+    if-eqz v9, :cond_0
 
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v0, v9}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    goto :goto_6
+    goto :goto_0
 
-    :catchall_26
+    :catchall_0
     move-exception v0
 
-    if-eqz v9, :cond_2e
+    if-eqz v9, :cond_2
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v9}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_2e
+    :cond_2
     throw v0
 .end method
 
 .method public drawTextOnPath([CIILandroid/graphics/Path;FFLandroid/graphics/Paint;)V
-    .registers 19
+    .locals 11
     .parameter "text"
     .parameter "index"
     .parameter "count"
@@ -4155,16 +4155,16 @@
 
     .prologue
     .line 1220
-    if-ltz p2, :cond_7
+    if-ltz p2, :cond_0
 
     add-int v1, p2, p3
 
     array-length v2, p1
 
-    if-le v1, v2, :cond_d
+    if-le v1, v2, :cond_1
 
     .line 1221
-    :cond_7
+    :cond_0
     new-instance v1, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     invoke-direct {v1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>()V
@@ -4172,7 +4172,7 @@
     throw v1
 
     .line 1224
-    :cond_d
+    :cond_1
     move-object/from16 v0, p7
 
     invoke-direct {p0, v0}, Landroid/view/GLES20Canvas;->setupModifiers(Landroid/graphics/Paint;)I
@@ -4181,7 +4181,7 @@
 
     .line 1226
     .local v10, modifiers:I
-    :try_start_13
+    :try_start_0
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget v5, p4, Landroid/graphics/Path;->mNativePath:I
@@ -4205,36 +4205,36 @@
     move/from16 v7, p6
 
     invoke-static/range {v1 .. v9}, Landroid/view/GLES20Canvas;->nDrawTextOnPath(I[CIIIFFII)V
-    :try_end_29
-    .catchall {:try_start_13 .. :try_end_29} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1229
-    if-eqz v10, :cond_30
+    if-eqz v10, :cond_2
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v10}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 1231
-    :cond_30
+    :cond_2
     return-void
 
     .line 1229
-    :catchall_31
+    :catchall_0
     move-exception v1
 
-    if-eqz v10, :cond_39
+    if-eqz v10, :cond_3
 
     iget v2, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v2, v10}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_39
+    :cond_3
     throw v1
 .end method
 
 .method public drawTextRun(Ljava/lang/CharSequence;IIIIFFILandroid/graphics/Paint;)V
-    .registers 23
+    .locals 13
     .parameter "text"
     .parameter "start"
     .parameter "end"
@@ -4261,7 +4261,7 @@
 
     or-int/2addr v2, v4
 
-    if-gez v2, :cond_14
+    if-gez v2, :cond_0
 
     .line 1278
     new-instance v2, Ljava/lang/IndexOutOfBoundsException;
@@ -4271,7 +4271,7 @@
     throw v2
 
     .line 1281
-    :cond_14
+    :cond_0
     move-object/from16 v0, p9
 
     invoke-direct {p0, v0}, Landroid/view/GLES20Canvas;->setupModifiers(Landroid/graphics/Paint;)I
@@ -4280,28 +4280,28 @@
 
     .line 1283
     .local v12, modifiers:I
-    if-nez p8, :cond_49
+    if-nez p8, :cond_3
 
     const/4 v10, 0x0
 
     .line 1284
     .local v10, flags:I
-    :goto_1d
-    :try_start_1d
+    :goto_0
+    :try_start_0
     instance-of v2, p1, Ljava/lang/String;
 
-    if-nez v2, :cond_29
+    if-nez v2, :cond_1
 
     instance-of v2, p1, Landroid/text/SpannedString;
 
-    if-nez v2, :cond_29
+    if-nez v2, :cond_1
 
     instance-of v2, p1, Landroid/text/SpannableString;
 
-    if-eqz v2, :cond_4b
+    if-eqz v2, :cond_4
 
     .line 1286
-    :cond_29
+    :cond_1
     iget v2, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -4325,35 +4325,35 @@
     move/from16 v9, p7
 
     invoke-static/range {v2 .. v11}, Landroid/view/GLES20Canvas;->nDrawTextRun(ILjava/lang/String;IIIIFFII)V
-    :try_end_41
-    .catchall {:try_start_1d .. :try_end_41} :catchall_65
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1301
-    :goto_41
-    if-eqz v12, :cond_48
+    :goto_1
+    if-eqz v12, :cond_2
 
     iget v2, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v2, v12}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 1303
-    :cond_48
+    :cond_2
     return-void
 
     .line 1283
     .end local v10           #flags:I
-    :cond_49
+    :cond_3
     const/4 v10, 0x1
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 1288
     .restart local v10       #flags:I
-    :cond_4b
-    :try_start_4b
+    :cond_4
+    :try_start_1
     instance-of v2, p1, Landroid/text/GraphicsOperations;
 
-    if-eqz v2, :cond_6e
+    if-eqz v2, :cond_6
 
     .line 1289
     move-object v0, p1
@@ -4379,26 +4379,26 @@
     move-object/from16 v11, p9
 
     invoke-interface/range {v2 .. v11}, Landroid/text/GraphicsOperations;->drawTextRun(Landroid/graphics/Canvas;IIIIFFILandroid/graphics/Paint;)V
-    :try_end_64
-    .catchall {:try_start_4b .. :try_end_64} :catchall_65
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_41
+    goto :goto_1
 
     .line 1301
-    :catchall_65
+    :catchall_0
     move-exception v2
 
-    if-eqz v12, :cond_6d
+    if-eqz v12, :cond_5
 
     iget v4, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v4, v12}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_6d
+    :cond_5
     throw v2
 
     .line 1292
-    :cond_6e
+    :cond_6
     sub-int v7, p5, p4
 
     .line 1293
@@ -4407,7 +4407,7 @@
 
     .line 1294
     .local v5, len:I
-    :try_start_72
+    :try_start_2
     invoke-static {v7}, Landroid/graphics/TemporaryBuffer;->obtain(I)[C
 
     move-result-object v3
@@ -4441,14 +4441,14 @@
 
     .line 1298
     invoke-static {v3}, Landroid/graphics/TemporaryBuffer;->recycle([C)V
-    :try_end_91
-    .catchall {:try_start_72 .. :try_end_91} :catchall_65
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_41
+    goto :goto_1
 .end method
 
 .method public drawTextRun([CIIIIFFILandroid/graphics/Paint;)V
-    .registers 22
+    .locals 12
     .parameter "text"
     .parameter "index"
     .parameter "count"
@@ -4471,7 +4471,7 @@
 
     or-int/2addr v1, v2
 
-    if-gez v1, :cond_e
+    if-gez v1, :cond_0
 
     .line 1256
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
@@ -4481,14 +4481,14 @@
     throw v1
 
     .line 1258
-    :cond_e
-    if-eqz p8, :cond_30
+    :cond_0
+    if-eqz p8, :cond_1
 
     const/4 v1, 0x1
 
     move/from16 v0, p8
 
-    if-eq v0, v1, :cond_30
+    if-eq v0, v1, :cond_1
 
     .line 1259
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -4518,7 +4518,7 @@
     throw v1
 
     .line 1262
-    :cond_30
+    :cond_1
     move-object/from16 v0, p9
 
     invoke-direct {p0, v0}, Landroid/view/GLES20Canvas;->setupModifiers(Landroid/graphics/Paint;)I
@@ -4527,7 +4527,7 @@
 
     .line 1264
     .local v11, modifiers:I
-    :try_start_36
+    :try_start_0
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     move-object/from16 v0, p9
@@ -4551,36 +4551,36 @@
     move/from16 v9, p8
 
     invoke-static/range {v1 .. v10}, Landroid/view/GLES20Canvas;->nDrawTextRun(I[CIIIIFFII)V
-    :try_end_4c
-    .catchall {:try_start_36 .. :try_end_4c} :catchall_54
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1267
-    if-eqz v11, :cond_53
+    if-eqz v11, :cond_2
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v11}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
     .line 1269
-    :cond_53
+    :cond_2
     return-void
 
     .line 1267
-    :catchall_54
+    :catchall_0
     move-exception v1
 
-    if-eqz v11, :cond_5c
+    if-eqz v11, :cond_3
 
     iget v2, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v2, v11}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_5c
+    :cond_3
     throw v1
 .end method
 
 .method public drawVertices(Landroid/graphics/Canvas$VertexMode;I[FI[FI[II[SIILandroid/graphics/Paint;)V
-    .registers 13
+    .locals 0
     .parameter "mode"
     .parameter "vertexCount"
     .parameter "verts"
@@ -4600,7 +4600,7 @@
 .end method
 
 .method public getClipBounds(Landroid/graphics/Rect;)Z
-    .registers 3
+    .locals 1
     .parameter "bounds"
 
     .prologue
@@ -4615,7 +4615,7 @@
 .end method
 
 .method getDisplayList(I)I
-    .registers 3
+    .locals 1
     .parameter "displayList"
 
     .prologue
@@ -4630,7 +4630,7 @@
 .end method
 
 .method public getDrawFilter()Landroid/graphics/DrawFilter;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 698
@@ -4640,7 +4640,7 @@
 .end method
 
 .method public getHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 180
@@ -4650,7 +4650,7 @@
 .end method
 
 .method public getMatrix(Landroid/graphics/Matrix;)V
-    .registers 4
+    .locals 2
     .parameter "matrix"
 
     .prologue
@@ -4666,7 +4666,7 @@
 .end method
 
 .method public getMaximumBitmapHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 190
@@ -4678,7 +4678,7 @@
 .end method
 
 .method public getMaximumBitmapWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 185
@@ -4690,7 +4690,7 @@
 .end method
 
 .method getRenderer()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 200
@@ -4700,7 +4700,7 @@
 .end method
 
 .method public getSaveCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 673
@@ -4714,7 +4714,7 @@
 .end method
 
 .method public getWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 175
@@ -4724,7 +4724,7 @@
 .end method
 
 .method interrupt()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 409
@@ -4737,7 +4737,7 @@
 .end method
 
 .method public invokeFunctors(Landroid/graphics/Rect;)I
-    .registers 3
+    .locals 1
     .parameter "dirty"
 
     .prologue
@@ -4752,7 +4752,7 @@
 .end method
 
 .method public isOpaque()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 170
@@ -4762,7 +4762,7 @@
 .end method
 
 .method public onPostDraw()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 233
@@ -4775,12 +4775,12 @@
 .end method
 
 .method public onPreDraw(Landroid/graphics/Rect;)I
-    .registers 8
+    .locals 6
     .parameter "dirty"
 
     .prologue
     .line 219
-    if-eqz p1, :cond_13
+    if-eqz p1, :cond_0
 
     .line 220
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
@@ -4800,10 +4800,10 @@
     move-result v0
 
     .line 223
-    :goto_12
+    :goto_0
     return v0
 
-    :cond_13
+    :cond_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     iget-boolean v1, p0, Landroid/view/GLES20Canvas;->mOpaque:Z
@@ -4812,11 +4812,11 @@
 
     move-result v0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method outputDisplayList(Landroid/view/DisplayList;)V
-    .registers 4
+    .locals 2
     .parameter "displayList"
 
     .prologue
@@ -4837,7 +4837,7 @@
 .end method
 
 .method public quickReject(FFFFLandroid/graphics/Canvas$EdgeType;)Z
-    .registers 12
+    .locals 6
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -4866,7 +4866,7 @@
 .end method
 
 .method public quickReject(Landroid/graphics/Path;Landroid/graphics/Canvas$EdgeType;)Z
-    .registers 9
+    .locals 6
     .parameter "path"
     .parameter "type"
 
@@ -4907,7 +4907,7 @@
 .end method
 
 .method public quickReject(Landroid/graphics/RectF;Landroid/graphics/Canvas$EdgeType;)Z
-    .registers 9
+    .locals 6
     .parameter "rect"
     .parameter "type"
 
@@ -4933,7 +4933,7 @@
 .end method
 
 .method protected resetDisplayListRenderer()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 121
@@ -4946,7 +4946,7 @@
 .end method
 
 .method public restore()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 659
@@ -4959,7 +4959,7 @@
 .end method
 
 .method public restoreToCount(I)V
-    .registers 3
+    .locals 1
     .parameter "saveCount"
 
     .prologue
@@ -4973,7 +4973,7 @@
 .end method
 
 .method resume()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 413
@@ -4986,7 +4986,7 @@
 .end method
 
 .method public rotate(F)V
-    .registers 3
+    .locals 1
     .parameter "degrees"
 
     .prologue
@@ -5000,7 +5000,7 @@
 .end method
 
 .method public save()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 585
@@ -5016,7 +5016,7 @@
 .end method
 
 .method public save(I)I
-    .registers 3
+    .locals 1
     .parameter "saveFlags"
 
     .prologue
@@ -5031,7 +5031,7 @@
 .end method
 
 .method public saveLayer(FFFFLandroid/graphics/Paint;I)I
-    .registers 16
+    .locals 9
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -5045,14 +5045,14 @@
     .line 617
     cmpg-float v1, p1, p3
 
-    if-gez v1, :cond_33
+    if-gez v1, :cond_4
 
     cmpg-float v1, p2, p4
 
-    if-gez v1, :cond_33
+    if-gez v1, :cond_4
 
     .line 619
-    if-eqz p5, :cond_25
+    if-eqz p5, :cond_1
 
     invoke-direct {p0, p5}, Landroid/view/GLES20Canvas;->setupColorFilter(Landroid/graphics/Paint;)I
 
@@ -5060,15 +5060,15 @@
 
     .line 621
     .local v8, modifier:I
-    :goto_f
-    if-nez p5, :cond_27
+    :goto_0
+    if-nez p5, :cond_2
 
     move v5, v0
 
     .line 622
     .local v5, nativePaint:I
-    :goto_12
-    :try_start_12
+    :goto_1
+    :try_start_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     move v1, p1
@@ -5082,14 +5082,14 @@
     move v6, p6
 
     invoke-static/range {v0 .. v6}, Landroid/view/GLES20Canvas;->nSaveLayer(IFFFFII)I
-    :try_end_1c
-    .catchall {:try_start_12 .. :try_end_1c} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v7
 
     .line 624
     .local v7, count:I
-    if-eqz v8, :cond_24
+    if-eqz v8, :cond_0
 
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
@@ -5099,51 +5099,51 @@
     .end local v5           #nativePaint:I
     .end local v7           #count:I
     .end local v8           #modifier:I
-    :cond_24
-    :goto_24
+    :cond_0
+    :goto_2
     return v7
 
-    :cond_25
+    :cond_1
     move v8, v0
 
     .line 619
-    goto :goto_f
+    goto :goto_0
 
     .line 621
     .restart local v8       #modifier:I
-    :cond_27
-    :try_start_27
+    :cond_2
+    :try_start_1
     iget v5, p5, Landroid/graphics/Paint;->mNativePaint:I
-    :try_end_29
-    .catchall {:try_start_27 .. :try_end_29} :catchall_2a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_12
+    goto :goto_1
 
     .line 624
-    :catchall_2a
+    :catchall_0
     move-exception v0
 
-    if-eqz v8, :cond_32
+    if-eqz v8, :cond_3
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v8}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_32
+    :cond_3
     throw v0
 
     .line 628
     .end local v8           #modifier:I
-    :cond_33
+    :cond_4
     invoke-virtual {p0, p6}, Landroid/view/GLES20Canvas;->save(I)I
 
     move-result v7
 
-    goto :goto_24
+    goto :goto_2
 .end method
 
 .method public saveLayer(Landroid/graphics/RectF;Landroid/graphics/Paint;I)I
-    .registers 14
+    .locals 10
     .parameter "bounds"
     .parameter "paint"
     .parameter "saveFlags"
@@ -5152,7 +5152,7 @@
     const/4 v0, 0x0
 
     .line 597
-    if-eqz p1, :cond_13
+    if-eqz p1, :cond_1
 
     .line 598
     iget v1, p1, Landroid/graphics/RectF;->left:F
@@ -5174,13 +5174,13 @@
     move-result v7
 
     .line 609
-    :cond_12
-    :goto_12
+    :cond_0
+    :goto_0
     return v7
 
     .line 602
-    :cond_13
-    if-eqz p2, :cond_2a
+    :cond_1
+    if-eqz p2, :cond_2
 
     invoke-direct {p0, p2}, Landroid/view/GLES20Canvas;->setupColorFilter(Landroid/graphics/Paint;)I
 
@@ -5188,68 +5188,68 @@
 
     .line 604
     .local v8, modifier:I
-    :goto_19
-    if-nez p2, :cond_2c
+    :goto_1
+    if-nez p2, :cond_3
 
     move v9, v0
 
     .line 605
     .local v9, nativePaint:I
-    :goto_1c
-    :try_start_1c
+    :goto_2
+    :try_start_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v0, v9, p3}, Landroid/view/GLES20Canvas;->nSaveLayer(III)I
-    :try_end_21
-    .catchall {:try_start_1c .. :try_end_21} :catchall_2f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v7
 
     .line 607
     .local v7, count:I
-    if-eqz v8, :cond_12
+    if-eqz v8, :cond_0
 
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v0, v8}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    goto :goto_12
+    goto :goto_0
 
     .end local v7           #count:I
     .end local v8           #modifier:I
     .end local v9           #nativePaint:I
-    :cond_2a
+    :cond_2
     move v8, v0
 
     .line 602
-    goto :goto_19
+    goto :goto_1
 
     .line 604
     .restart local v8       #modifier:I
-    :cond_2c
-    :try_start_2c
+    :cond_3
+    :try_start_1
     iget v9, p2, Landroid/graphics/Paint;->mNativePaint:I
-    :try_end_2e
-    .catchall {:try_start_2c .. :try_end_2e} :catchall_2f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1c
+    goto :goto_2
 
     .line 607
-    :catchall_2f
+    :catchall_0
     move-exception v0
 
-    if-eqz v8, :cond_37
+    if-eqz v8, :cond_4
 
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v1, v8}, Landroid/view/GLES20Canvas;->nResetModifiers(II)V
 
-    :cond_37
+    :cond_4
     throw v0
 .end method
 
 .method public saveLayerAlpha(FFFFII)I
-    .registers 14
+    .locals 7
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -5261,11 +5261,11 @@
     .line 648
     cmpg-float v0, p1, p3
 
-    if-gez v0, :cond_15
+    if-gez v0, :cond_0
 
     cmpg-float v0, p2, p4
 
-    if-gez v0, :cond_15
+    if-gez v0, :cond_0
 
     .line 649
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
@@ -5287,26 +5287,26 @@
     move-result v0
 
     .line 651
-    :goto_14
+    :goto_0
     return v0
 
-    :cond_15
+    :cond_0
     invoke-virtual {p0, p6}, Landroid/view/GLES20Canvas;->save(I)I
 
     move-result v0
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public saveLayerAlpha(Landroid/graphics/RectF;II)I
-    .registers 11
+    .locals 7
     .parameter "bounds"
     .parameter "alpha"
     .parameter "saveFlags"
 
     .prologue
     .line 636
-    if-eqz p1, :cond_12
+    if-eqz p1, :cond_0
 
     .line 637
     iget v1, p1, Landroid/graphics/RectF;->left:F
@@ -5328,21 +5328,21 @@
     move-result v0
 
     .line 640
-    :goto_11
+    :goto_0
     return v0
 
-    :cond_12
+    :cond_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v0, p2, p3}, Landroid/view/GLES20Canvas;->nSaveLayerAlpha(III)I
 
     move-result v0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public scale(FF)V
-    .registers 4
+    .locals 1
     .parameter "sx"
     .parameter "sy"
 
@@ -5357,7 +5357,7 @@
 .end method
 
 .method public setDrawFilter(Landroid/graphics/DrawFilter;)V
-    .registers 6
+    .locals 4
     .parameter "filter"
 
     .prologue
@@ -5365,7 +5365,7 @@
     iput-object p1, p0, Landroid/view/GLES20Canvas;->mFilter:Landroid/graphics/DrawFilter;
 
     .line 685
-    if-nez p1, :cond_a
+    if-nez p1, :cond_1
 
     .line 686
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
@@ -5373,15 +5373,15 @@
     invoke-static {v1}, Landroid/view/GLES20Canvas;->nResetPaintFilter(I)V
 
     .line 691
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return-void
 
     .line 687
-    :cond_a
+    :cond_1
     instance-of v1, p1, Landroid/graphics/PaintFlagsDrawFilter;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_0
 
     move-object v0, p1
 
@@ -5398,36 +5398,36 @@
 
     invoke-static {v1, v2, v3}, Landroid/view/GLES20Canvas;->nSetupPaintFilter(III)V
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public setMatrix(Landroid/graphics/Matrix;)V
-    .registers 4
+    .locals 2
     .parameter "matrix"
 
     .prologue
     .line 559
     iget v1, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
-    if-nez p1, :cond_9
+    if-nez p1, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_5
+    :goto_0
     invoke-static {v1, v0}, Landroid/view/GLES20Canvas;->nSetMatrix(II)V
 
     .line 560
     return-void
 
     .line 559
-    :cond_9
+    :cond_0
     iget v0, p1, Landroid/graphics/Matrix;->native_instance:I
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public setViewport(II)V
-    .registers 4
+    .locals 1
     .parameter "width"
     .parameter "height"
 
@@ -5448,7 +5448,7 @@
 .end method
 
 .method public skew(FF)V
-    .registers 4
+    .locals 1
     .parameter "sx"
     .parameter "sy"
 
@@ -5463,7 +5463,7 @@
 .end method
 
 .method public translate(FF)V
-    .registers 5
+    .locals 2
     .parameter "dx"
     .parameter "dy"
 
@@ -5473,18 +5473,18 @@
     .line 531
     cmpl-float v0, p1, v1
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     cmpl-float v0, p2, v1
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_1
 
-    :cond_9
+    :cond_0
     iget v0, p0, Landroid/view/GLES20Canvas;->mRenderer:I
 
     invoke-static {v0, p1, p2}, Landroid/view/GLES20Canvas;->nTranslate(IFF)V
 
     .line 532
-    :cond_e
+    :cond_1
     return-void
 .end method

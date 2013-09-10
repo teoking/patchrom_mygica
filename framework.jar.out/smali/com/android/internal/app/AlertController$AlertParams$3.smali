@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/AlertController$AlertParams;Lcom/android/internal/app/AlertController;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 8
+    .locals 2
     .parameter "parent"
     .parameter "v"
     .parameter "position"
@@ -57,6 +57,7 @@
 
     iget-object v1, p0, Lcom/android/internal/app/AlertController$AlertParams$3;->val$dialog:Lcom/android/internal/app/AlertController;
 
+    #getter for: Lcom/android/internal/app/AlertController;->mDialogInterface:Landroid/content/DialogInterface;
     invoke-static {v1}, Lcom/android/internal/app/AlertController;->access$600(Lcom/android/internal/app/AlertController;)Landroid/content/DialogInterface;
 
     move-result-object v1
@@ -68,11 +69,12 @@
 
     iget-boolean v0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mIsSingleChoice:Z
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_0
 
     .line 926
     iget-object v0, p0, Lcom/android/internal/app/AlertController$AlertParams$3;->val$dialog:Lcom/android/internal/app/AlertController;
 
+    #getter for: Lcom/android/internal/app/AlertController;->mDialogInterface:Landroid/content/DialogInterface;
     invoke-static {v0}, Lcom/android/internal/app/AlertController;->access$600(Lcom/android/internal/app/AlertController;)Landroid/content/DialogInterface;
 
     move-result-object v0
@@ -80,6 +82,6 @@
     invoke-interface {v0}, Landroid/content/DialogInterface;->dismiss()V
 
     .line 928
-    :cond_1c
+    :cond_0
     return-void
 .end method

@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/AbsSpinner;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method clear()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 460
@@ -70,8 +70,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_1a
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 463
     invoke-virtual {v2, v1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
@@ -82,24 +82,25 @@
 
     .line 464
     .local v3, view:Landroid/view/View;
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_0
 
     .line 465
     iget-object v4, p0, Landroid/widget/AbsSpinner$RecycleBin;->this$0:Landroid/widget/AbsSpinner;
 
     const/4 v5, 0x1
 
+    #calls: Landroid/widget/AbsSpinner;->removeDetachedView(Landroid/view/View;Z)V
     invoke-static {v4, v3, v5}, Landroid/widget/AbsSpinner;->access$100(Landroid/widget/AbsSpinner;Landroid/view/View;Z)V
 
     .line 462
-    :cond_17
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 468
     .end local v3           #view:Landroid/view/View;
-    :cond_1a
+    :cond_1
     invoke-virtual {v2}, Landroid/util/SparseArray;->clear()V
 
     .line 469
@@ -107,7 +108,7 @@
 .end method
 
 .method get(I)Landroid/view/View;
-    .registers 4
+    .locals 2
     .parameter "position"
 
     .prologue
@@ -122,7 +123,7 @@
 
     .line 450
     .local v0, result:Landroid/view/View;
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 452
     iget-object v1, p0, Landroid/widget/AbsSpinner$RecycleBin;->mScrapHeap:Landroid/util/SparseArray;
@@ -130,12 +131,12 @@
     invoke-virtual {v1, p1}, Landroid/util/SparseArray;->delete(I)V
 
     .line 456
-    :cond_f
+    :cond_0
     return-object v0
 .end method
 
 .method public put(ILandroid/view/View;)V
-    .registers 4
+    .locals 1
     .parameter "position"
     .parameter "v"
 

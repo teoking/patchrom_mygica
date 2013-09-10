@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1564
@@ -26,7 +26,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/webkit/WebViewClassic$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 9
+    .locals 6
     .parameter "context"
     .parameter "intent"
 
@@ -77,17 +77,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1e
+    if-eqz v4, :cond_1
 
-    if-eqz v3, :cond_1e
+    if-eqz v3, :cond_1
 
     .line 1587
-    :cond_1d
-    :goto_1d
+    :cond_0
+    :goto_0
     return-void
 
     .line 1575
-    :cond_1e
+    :cond_1
     invoke-static {}, Landroid/webkit/WebViewClassic;->access$1400()Ljava/util/Set;
 
     move-result-object v4
@@ -96,7 +96,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_35
+    if-eqz v4, :cond_2
 
     .line 1576
     const-string v4, "android.intent.action.PACKAGE_ADDED"
@@ -105,7 +105,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_49
+    if-eqz v4, :cond_3
 
     .line 1577
     const/16 v4, 0xb9
@@ -113,8 +113,8 @@
     invoke-static {v4, v1}, Landroid/webkit/WebViewCore;->sendStaticMessage(ILjava/lang/Object;)V
 
     .line 1583
-    :cond_35
-    :goto_35
+    :cond_2
+    :goto_1
     invoke-static {p1}, Landroid/webkit/PluginManager;->getInstance(Landroid/content/Context;)Landroid/webkit/PluginManager;
 
     move-result-object v2
@@ -125,7 +125,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1d
+    if-eqz v4, :cond_0
 
     .line 1585
     const-string v4, "android.intent.action.PACKAGE_ADDED"
@@ -136,14 +136,14 @@
 
     invoke-virtual {v2, v4}, Landroid/webkit/PluginManager;->refreshPlugins(Z)V
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 1579
     .end local v2           #pm:Landroid/webkit/PluginManager;
-    :cond_49
+    :cond_3
     const/16 v4, 0xba
 
     invoke-static {v4, v1}, Landroid/webkit/WebViewCore;->sendStaticMessage(ILjava/lang/Object;)V
 
-    goto :goto_35
+    goto :goto_1
 .end method

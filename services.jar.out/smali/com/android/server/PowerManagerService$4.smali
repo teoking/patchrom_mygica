@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/PowerManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,12 +38,13 @@
 
 # virtual methods
 .method public onScreenOn()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 1496
     iget-object v0, p0, Lcom/android/server/PowerManagerService$4;->this$0:Lcom/android/server/PowerManagerService;
 
+    #getter for: Lcom/android/server/PowerManagerService;->mLocks:Lcom/android/server/PowerManagerService$LockList;
     invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$600(Lcom/android/server/PowerManagerService;)Lcom/android/server/PowerManagerService$LockList;
 
     move-result-object v1
@@ -51,20 +52,22 @@
     monitor-enter v1
 
     .line 1497
-    :try_start_7
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/PowerManagerService$4;->this$0:Lcom/android/server/PowerManagerService;
 
+    #getter for: Lcom/android/server/PowerManagerService;->mPreparingForScreenOn:Z
     invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$3200(Lcom/android/server/PowerManagerService;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_49
+    if-eqz v0, :cond_0
 
     .line 1498
     iget-object v0, p0, Lcom/android/server/PowerManagerService$4;->this$0:Lcom/android/server/PowerManagerService;
 
     const/4 v2, 0x0
 
+    #setter for: Lcom/android/server/PowerManagerService;->mPreparingForScreenOn:Z
     invoke-static {v0, v2}, Lcom/android/server/PowerManagerService;->access$3202(Lcom/android/server/PowerManagerService;Z)Z
 
     .line 1499
@@ -72,12 +75,14 @@
 
     iget-object v2, p0, Lcom/android/server/PowerManagerService$4;->this$0:Lcom/android/server/PowerManagerService;
 
+    #getter for: Lcom/android/server/PowerManagerService;->mPowerState:I
     invoke-static {v2}, Lcom/android/server/PowerManagerService;->access$1000(Lcom/android/server/PowerManagerService;)I
 
     move-result v2
 
     const/4 v3, 0x1
 
+    #calls: Lcom/android/server/PowerManagerService;->updateLightsLocked(II)V
     invoke-static {v0, v2, v3}, Lcom/android/server/PowerManagerService;->access$3300(Lcom/android/server/PowerManagerService;II)V
 
     .line 1500
@@ -101,6 +106,7 @@
 
     iget-object v4, p0, Lcom/android/server/PowerManagerService$4;->this$0:Lcom/android/server/PowerManagerService;
 
+    #getter for: Lcom/android/server/PowerManagerService;->mBroadcastWakeLock:Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;
     invoke-static {v4}, Lcom/android/server/PowerManagerService;->access$3400(Lcom/android/server/PowerManagerService;)Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;
 
     move-result-object v4
@@ -118,6 +124,7 @@
     .line 1502
     iget-object v0, p0, Lcom/android/server/PowerManagerService$4;->this$0:Lcom/android/server/PowerManagerService;
 
+    #getter for: Lcom/android/server/PowerManagerService;->mBroadcastWakeLock:Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;
     invoke-static {v0}, Lcom/android/server/PowerManagerService;->access$3400(Lcom/android/server/PowerManagerService;)Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;
 
     move-result-object v0
@@ -125,19 +132,19 @@
     invoke-virtual {v0}, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->release()V
 
     .line 1504
-    :cond_49
+    :cond_0
     monitor-exit v1
 
     .line 1505
     return-void
 
     .line 1504
-    :catchall_4b
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_4d
-    .catchall {:try_start_7 .. :try_end_4d} :catchall_4b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

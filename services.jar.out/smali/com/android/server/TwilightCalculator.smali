@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 23
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public calculateTwilight(JDD)V
-    .registers 32
+    .locals 25
     .parameter "time"
     .parameter "latiude"
     .parameter "longitude"
@@ -286,7 +286,7 @@
 
     cmpl-double v19, v5, v19
 
-    if-ltz v19, :cond_fd
+    if-ltz v19, :cond_0
 
     .line 100
     const/16 v19, 0x1
@@ -316,16 +316,16 @@
     iput-wide v0, v2, Lcom/android/server/TwilightCalculator;->mSunrise:J
 
     .line 121
-    :goto_fc
+    :goto_0
     return-void
 
     .line 104
-    :cond_fd
+    :cond_0
     const-wide/high16 v19, -0x4010
 
     cmpg-double v19, v5, v19
 
-    if-gtz v19, :cond_11c
+    if-gtz v19, :cond_1
 
     .line 105
     const/16 v19, 0x0
@@ -354,10 +354,10 @@
 
     iput-wide v0, v2, Lcom/android/server/TwilightCalculator;->mSunrise:J
 
-    goto :goto_fc
+    goto :goto_0
 
     .line 111
-    :cond_11c
+    :cond_1
     invoke-static {v5, v6}, Ljava/lang/Math;->acos(D)D
 
     move-result-wide v19
@@ -430,7 +430,7 @@
 
     cmp-long v19, v19, p1
 
-    if-gez v19, :cond_182
+    if-gez v19, :cond_2
 
     move-object/from16 v0, p0
 
@@ -440,7 +440,7 @@
 
     cmp-long v19, v19, p1
 
-    if-lez v19, :cond_182
+    if-lez v19, :cond_2
 
     .line 117
     const/16 v19, 0x0
@@ -451,10 +451,10 @@
 
     iput v0, v1, Lcom/android/server/TwilightCalculator;->mState:I
 
-    goto/16 :goto_fc
+    goto/16 :goto_0
 
     .line 119
-    :cond_182
+    :cond_2
     const/16 v19, 0x1
 
     move/from16 v0, v19
@@ -463,5 +463,5 @@
 
     iput v0, v1, Lcom/android/server/TwilightCalculator;->mState:I
 
-    goto/16 :goto_fc
+    goto/16 :goto_0
 .end method

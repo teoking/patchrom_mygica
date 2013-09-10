@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/net/InetAddress;Ljava/net/InetAddress;Ljava/net/InetAddress;Ljava/net/InetAddress;[B)V
-    .registers 15
+    .locals 8
     .parameter "transId"
     .parameter "clientIp"
     .parameter "yourIp"
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public buildPacket(ISS)Ljava/nio/ByteBuffer;
-    .registers 13
+    .locals 9
     .parameter "encap"
     .parameter "destUdp"
     .parameter "srcUdp"
@@ -85,7 +85,7 @@
 .end method
 
 .method public doNextOp(Landroid/net/dhcp/DhcpStateMachine;)V
-    .registers 2
+    .locals 0
     .parameter "machine"
 
     .prologue
@@ -97,7 +97,7 @@
 .end method
 
 .method finishPacket(Ljava/nio/ByteBuffer;)V
-    .registers 4
+    .locals 2
     .parameter "buffer"
 
     .prologue
@@ -130,7 +130,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 38
@@ -156,11 +156,11 @@
 
     iget-object v1, p0, Landroid/net/dhcp/DhcpPacket;->mMessage:Ljava/lang/String;
 
-    if-nez v1, :cond_22
+    if-nez v1, :cond_0
 
     const-string v1, "(none)"
 
-    :goto_19
+    :goto_0
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -171,8 +171,8 @@
 
     return-object v1
 
-    :cond_22
+    :cond_0
     iget-object v1, p0, Landroid/net/dhcp/DhcpPacket;->mMessage:Ljava/lang/String;
 
-    goto :goto_19
+    goto :goto_0
 .end method

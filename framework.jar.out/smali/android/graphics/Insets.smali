@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -35,7 +35,7 @@
 .end method
 
 .method private constructor <init>(IIII)V
-    .registers 5
+    .locals 0
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -62,7 +62,7 @@
 .end method
 
 .method public static of(IIII)Landroid/graphics/Insets;
-    .registers 5
+    .locals 1
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -70,43 +70,43 @@
 
     .prologue
     .line 56
-    if-nez p0, :cond_b
+    if-nez p0, :cond_0
 
-    if-nez p1, :cond_b
+    if-nez p1, :cond_0
 
-    if-nez p2, :cond_b
+    if-nez p2, :cond_0
 
-    if-nez p3, :cond_b
+    if-nez p3, :cond_0
 
     .line 57
     sget-object v0, Landroid/graphics/Insets;->NONE:Landroid/graphics/Insets;
 
     .line 59
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     new-instance v0, Landroid/graphics/Insets;
 
     invoke-direct {v0, p0, p1, p2, p3}, Landroid/graphics/Insets;-><init>(IIII)V
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public static of(Landroid/graphics/Rect;)Landroid/graphics/Insets;
-    .registers 5
+    .locals 4
     .parameter "r"
 
     .prologue
     .line 70
-    if-nez p0, :cond_5
+    if-nez p0, :cond_0
 
     sget-object v0, Landroid/graphics/Insets;->NONE:Landroid/graphics/Insets;
 
-    :goto_4
+    :goto_0
     return-object v0
 
-    :cond_5
+    :cond_0
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
     iget v1, p0, Landroid/graphics/Rect;->top:I
@@ -119,13 +119,13 @@
 
     move-result-object v0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "o"
 
     .prologue
@@ -134,16 +134,16 @@
     const/4 v2, 0x0
 
     .line 83
-    if-ne p0, p1, :cond_5
+    if-ne p0, p1, :cond_1
 
     .line 93
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 84
-    :cond_5
-    if-eqz p1, :cond_11
+    :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -153,14 +153,14 @@
 
     move-result-object v4
 
-    if-eq v3, v4, :cond_13
+    if-eq v3, v4, :cond_3
 
-    :cond_11
+    :cond_2
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_13
+    :cond_3
     move-object v0, p1
 
     .line 86
@@ -172,51 +172,51 @@
 
     iget v4, v0, Landroid/graphics/Insets;->bottom:I
 
-    if-eq v3, v4, :cond_1e
-
-    move v1, v2
-
-    goto :goto_4
-
-    .line 89
-    :cond_1e
-    iget v3, p0, Landroid/graphics/Insets;->left:I
-
-    iget v4, v0, Landroid/graphics/Insets;->left:I
-
-    if-eq v3, v4, :cond_26
-
-    move v1, v2
-
-    goto :goto_4
-
-    .line 90
-    :cond_26
-    iget v3, p0, Landroid/graphics/Insets;->right:I
-
-    iget v4, v0, Landroid/graphics/Insets;->right:I
-
-    if-eq v3, v4, :cond_2e
-
-    move v1, v2
-
-    goto :goto_4
-
-    .line 91
-    :cond_2e
-    iget v3, p0, Landroid/graphics/Insets;->top:I
-
-    iget v4, v0, Landroid/graphics/Insets;->top:I
-
     if-eq v3, v4, :cond_4
 
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
+
+    .line 89
+    :cond_4
+    iget v3, p0, Landroid/graphics/Insets;->left:I
+
+    iget v4, v0, Landroid/graphics/Insets;->left:I
+
+    if-eq v3, v4, :cond_5
+
+    move v1, v2
+
+    goto :goto_0
+
+    .line 90
+    :cond_5
+    iget v3, p0, Landroid/graphics/Insets;->right:I
+
+    iget v4, v0, Landroid/graphics/Insets;->right:I
+
+    if-eq v3, v4, :cond_6
+
+    move v1, v2
+
+    goto :goto_0
+
+    .line 91
+    :cond_6
+    iget v3, p0, Landroid/graphics/Insets;->top:I
+
+    iget v4, v0, Landroid/graphics/Insets;->top:I
+
+    if-eq v3, v4, :cond_0
+
+    move v1, v2
+
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 98
@@ -249,7 +249,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 107

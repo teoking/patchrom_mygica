@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 45
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -68,7 +68,7 @@
 .end method
 
 .method private constructor <init>(Landroid/content/Context;I)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "rate"
 
@@ -109,7 +109,7 @@
     .line 82
     iget-object v0, p0, Landroid/view/WindowOrientationListener;->mSensor:Landroid/hardware/Sensor;
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_0
 
     .line 84
     new-instance v0, Landroid/view/WindowOrientationListener$SensorEventListenerImpl;
@@ -119,12 +119,12 @@
     iput-object v0, p0, Landroid/view/WindowOrientationListener;->mSensorEventListener:Landroid/view/WindowOrientationListener$SensorEventListenerImpl;
 
     .line 86
-    :cond_27
+    :cond_0
     return-void
 .end method
 
 .method static synthetic access$000()Z
-    .registers 1
+    .locals 1
 
     .prologue
     .line 43
@@ -136,33 +136,33 @@
 
 # virtual methods
 .method public canDetectOrientation()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 151
     iget-object v0, p0, Landroid/view/WindowOrientationListener;->mSensor:Landroid/hardware/Sensor;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public disable()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 110
     iget-object v0, p0, Landroid/view/WindowOrientationListener;->mSensor:Landroid/hardware/Sensor;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_1
 
     .line 111
     const-string v0, "WindowOrientationListener"
@@ -172,22 +172,22 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 121
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return-void
 
     .line 114
-    :cond_c
+    :cond_1
     iget-boolean v0, p0, Landroid/view/WindowOrientationListener;->mEnabled:Z
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_b
+    if-ne v0, v1, :cond_0
 
     .line 115
     sget-boolean v0, Landroid/view/WindowOrientationListener;->LOG:Z
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_2
 
     .line 116
     const-string v0, "WindowOrientationListener"
@@ -197,7 +197,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 118
-    :cond_1c
+    :cond_2
     iget-object v0, p0, Landroid/view/WindowOrientationListener;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Landroid/view/WindowOrientationListener;->mSensorEventListener:Landroid/view/WindowOrientationListener$SensorEventListenerImpl;
@@ -209,17 +209,17 @@
 
     iput-boolean v0, p0, Landroid/view/WindowOrientationListener;->mEnabled:Z
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public enable()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 93
     iget-object v0, p0, Landroid/view/WindowOrientationListener;->mSensor:Landroid/hardware/Sensor;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_1
 
     .line 94
     const-string v0, "WindowOrientationListener"
@@ -229,20 +229,20 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 104
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return-void
 
     .line 97
-    :cond_c
+    :cond_1
     iget-boolean v0, p0, Landroid/view/WindowOrientationListener;->mEnabled:Z
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 98
     sget-boolean v0, Landroid/view/WindowOrientationListener;->LOG:Z
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_2
 
     .line 99
     const-string v0, "WindowOrientationListener"
@@ -252,7 +252,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 101
-    :cond_1b
+    :cond_2
     iget-object v0, p0, Landroid/view/WindowOrientationListener;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Landroid/view/WindowOrientationListener;->mSensorEventListener:Landroid/view/WindowOrientationListener$SensorEventListenerImpl;
@@ -268,17 +268,17 @@
 
     iput-boolean v0, p0, Landroid/view/WindowOrientationListener;->mEnabled:Z
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public getProposedRotation()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 141
     iget-boolean v0, p0, Landroid/view/WindowOrientationListener;->mEnabled:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 142
     iget-object v0, p0, Landroid/view/WindowOrientationListener;->mSensorEventListener:Landroid/view/WindowOrientationListener$SensorEventListenerImpl;
@@ -288,20 +288,20 @@
     move-result v0
 
     .line 144
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, -0x1
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public abstract onProposedRotationChanged(I)V
 .end method
 
 .method public setCurrentRotation(I)V
-    .registers 2
+    .locals 0
     .parameter "rotation"
 
     .prologue

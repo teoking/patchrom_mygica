@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 25
@@ -20,7 +20,7 @@
 .end method
 
 .method public process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
-    .registers 5
+    .locals 2
     .parameter "input"
     .parameter "output"
 
@@ -47,7 +47,7 @@
 .end method
 
 .method public reset()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 40

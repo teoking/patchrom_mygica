@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 39
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 45
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(IIII)V
-    .registers 5
+    .locals 0
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -93,7 +93,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/Rect;)V
-    .registers 3
+    .locals 1
     .parameter "r"
 
     .prologue
@@ -125,7 +125,7 @@
 .end method
 
 .method public static intersects(Landroid/graphics/Rect;Landroid/graphics/Rect;)Z
-    .registers 4
+    .locals 2
     .parameter "a"
     .parameter "b"
 
@@ -135,39 +135,39 @@
 
     iget v1, p1, Landroid/graphics/Rect;->right:I
 
-    if-ge v0, v1, :cond_1a
+    if-ge v0, v1, :cond_0
 
     iget v0, p1, Landroid/graphics/Rect;->left:I
 
     iget v1, p0, Landroid/graphics/Rect;->right:I
 
-    if-ge v0, v1, :cond_1a
+    if-ge v0, v1, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
     iget v1, p1, Landroid/graphics/Rect;->bottom:I
 
-    if-ge v0, v1, :cond_1a
+    if-ge v0, v1, :cond_0
 
     iget v0, p1, Landroid/graphics/Rect;->top:I
 
     iget v1, p0, Landroid/graphics/Rect;->bottom:I
 
-    if-ge v0, v1, :cond_1a
+    if-ge v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_19
+    :goto_0
     return v0
 
-    :cond_1a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public static unflattenFromString(Ljava/lang/String;)Landroid/graphics/Rect;
-    .registers 7
+    .locals 6
     .parameter "str"
 
     .prologue
@@ -184,16 +184,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_0
 
     .line 153
     const/4 v1, 0x0
 
     .line 155
-    :goto_d
+    :goto_0
     return-object v1
 
-    :cond_e
+    :cond_0
     new-instance v1, Landroid/graphics/Rect;
 
     const/4 v2, 0x1
@@ -238,13 +238,13 @@
 
     invoke-direct {v1, v2, v3, v4, v5}, Landroid/graphics/Rect;-><init>(IIII)V
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public final centerX()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 200
@@ -260,7 +260,7 @@
 .end method
 
 .method public final centerY()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 209
@@ -276,7 +276,7 @@
 .end method
 
 .method public contains(II)Z
-    .registers 5
+    .locals 2
     .parameter "x"
     .parameter "y"
 
@@ -286,43 +286,43 @@
 
     iget v1, p0, Landroid/graphics/Rect;->right:I
 
-    if-ge v0, v1, :cond_1e
+    if-ge v0, v1, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
     iget v1, p0, Landroid/graphics/Rect;->bottom:I
 
-    if-ge v0, v1, :cond_1e
+    if-ge v0, v1, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
-    if-lt p1, v0, :cond_1e
+    if-lt p1, v0, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
-    if-ge p1, v0, :cond_1e
+    if-ge p1, v0, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
-    if-lt p2, v0, :cond_1e
+    if-lt p2, v0, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    if-ge p2, v0, :cond_1e
+    if-ge p2, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_1d
+    :goto_0
     return v0
 
-    :cond_1e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method public contains(IIII)Z
-    .registers 7
+    .locals 2
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -334,43 +334,43 @@
 
     iget v1, p0, Landroid/graphics/Rect;->right:I
 
-    if-ge v0, v1, :cond_1e
+    if-ge v0, v1, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
     iget v1, p0, Landroid/graphics/Rect;->bottom:I
 
-    if-ge v0, v1, :cond_1e
+    if-ge v0, v1, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
-    if-gt v0, p1, :cond_1e
+    if-gt v0, p1, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
-    if-gt v0, p2, :cond_1e
+    if-gt v0, p2, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
-    if-lt v0, p3, :cond_1e
+    if-lt v0, p3, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    if-lt v0, p4, :cond_1e
+    if-lt v0, p4, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_1d
+    :goto_0
     return v0
 
-    :cond_1e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method public contains(Landroid/graphics/Rect;)Z
-    .registers 4
+    .locals 2
     .parameter "r"
 
     .prologue
@@ -379,51 +379,51 @@
 
     iget v1, p0, Landroid/graphics/Rect;->right:I
 
-    if-ge v0, v1, :cond_26
+    if-ge v0, v1, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
     iget v1, p0, Landroid/graphics/Rect;->bottom:I
 
-    if-ge v0, v1, :cond_26
+    if-ge v0, v1, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
     iget v1, p1, Landroid/graphics/Rect;->left:I
 
-    if-gt v0, v1, :cond_26
+    if-gt v0, v1, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
     iget v1, p1, Landroid/graphics/Rect;->top:I
 
-    if-gt v0, v1, :cond_26
+    if-gt v0, v1, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
     iget v1, p1, Landroid/graphics/Rect;->right:I
 
-    if-lt v0, v1, :cond_26
+    if-lt v0, v1, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
     iget v1, p1, Landroid/graphics/Rect;->bottom:I
 
-    if-lt v0, v1, :cond_26
+    if-lt v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_25
+    :goto_0
     return v0
 
-    :cond_26
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_25
+    goto :goto_0
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 538
@@ -433,7 +433,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "o"
 
     .prologue
@@ -442,16 +442,16 @@
     const/4 v2, 0x0
 
     .line 80
-    if-ne p0, p1, :cond_5
+    if-ne p0, p1, :cond_1
 
     .line 84
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 81
-    :cond_5
-    if-eqz p1, :cond_11
+    :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -461,14 +461,14 @@
 
     move-result-object v4
 
-    if-eq v3, v4, :cond_13
+    if-eq v3, v4, :cond_3
 
-    :cond_11
+    :cond_2
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_13
+    :cond_3
     move-object v0, p1
 
     .line 83
@@ -480,34 +480,34 @@
 
     iget v4, v0, Landroid/graphics/Rect;->left:I
 
-    if-ne v3, v4, :cond_2e
+    if-ne v3, v4, :cond_4
 
     iget v3, p0, Landroid/graphics/Rect;->top:I
 
     iget v4, v0, Landroid/graphics/Rect;->top:I
 
-    if-ne v3, v4, :cond_2e
+    if-ne v3, v4, :cond_4
 
     iget v3, p0, Landroid/graphics/Rect;->right:I
 
     iget v4, v0, Landroid/graphics/Rect;->right:I
 
-    if-ne v3, v4, :cond_2e
+    if-ne v3, v4, :cond_4
 
     iget v3, p0, Landroid/graphics/Rect;->bottom:I
 
     iget v4, v0, Landroid/graphics/Rect;->bottom:I
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_0
 
-    :cond_2e
+    :cond_4
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public final exactCenterX()F
-    .registers 3
+    .locals 2
 
     .prologue
     .line 216
@@ -527,7 +527,7 @@
 .end method
 
 .method public final exactCenterY()F
-    .registers 3
+    .locals 2
 
     .prologue
     .line 223
@@ -547,7 +547,7 @@
 .end method
 
 .method public flattenToString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     const/16 v2, 0x20
@@ -596,7 +596,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 89
@@ -629,7 +629,7 @@
 .end method
 
 .method public final height()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 191
@@ -643,7 +643,7 @@
 .end method
 
 .method public inset(II)V
-    .registers 4
+    .locals 1
     .parameter "dx"
     .parameter "dy"
 
@@ -681,7 +681,7 @@
 .end method
 
 .method public intersect(IIII)Z
-    .registers 6
+    .locals 1
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -691,67 +691,67 @@
     .line 377
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
-    if-ge v0, p3, :cond_2a
+    if-ge v0, p3, :cond_4
 
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
-    if-ge p1, v0, :cond_2a
+    if-ge p1, v0, :cond_4
 
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
-    if-ge v0, p4, :cond_2a
+    if-ge v0, p4, :cond_4
 
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    if-ge p2, v0, :cond_2a
+    if-ge p2, v0, :cond_4
 
     .line 378
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
-    if-ge v0, p1, :cond_16
+    if-ge v0, p1, :cond_0
 
     iput p1, p0, Landroid/graphics/Rect;->left:I
 
     .line 379
-    :cond_16
+    :cond_0
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
-    if-ge v0, p2, :cond_1c
+    if-ge v0, p2, :cond_1
 
     iput p2, p0, Landroid/graphics/Rect;->top:I
 
     .line 380
-    :cond_1c
+    :cond_1
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
-    if-le v0, p3, :cond_22
+    if-le v0, p3, :cond_2
 
     iput p3, p0, Landroid/graphics/Rect;->right:I
 
     .line 381
-    :cond_22
+    :cond_2
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    if-le v0, p4, :cond_28
+    if-le v0, p4, :cond_3
 
     iput p4, p0, Landroid/graphics/Rect;->bottom:I
 
     .line 382
-    :cond_28
+    :cond_3
     const/4 v0, 0x1
 
     .line 384
-    :goto_29
+    :goto_0
     return v0
 
-    :cond_2a
+    :cond_4
     const/4 v0, 0x0
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method public intersect(Landroid/graphics/Rect;)Z
-    .registers 6
+    .locals 4
     .parameter "r"
 
     .prologue
@@ -772,7 +772,7 @@
 .end method
 
 .method public intersects(IIII)Z
-    .registers 6
+    .locals 1
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -782,33 +782,33 @@
     .line 440
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
-    if-ge v0, p3, :cond_12
+    if-ge v0, p3, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
-    if-ge p1, v0, :cond_12
+    if-ge p1, v0, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
-    if-ge v0, p4, :cond_12
+    if-ge v0, p4, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    if-ge p2, v0, :cond_12
+    if-ge p2, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_11
+    :goto_0
     return v0
 
-    :cond_12
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public final isEmpty()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 175
@@ -816,28 +816,28 @@
 
     iget v1, p0, Landroid/graphics/Rect;->right:I
 
-    if-ge v0, v1, :cond_c
+    if-ge v0, v1, :cond_0
 
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
     iget v1, p0, Landroid/graphics/Rect;->bottom:I
 
-    if-lt v0, v1, :cond_e
+    if-lt v0, v1, :cond_1
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public offset(II)V
-    .registers 4
+    .locals 1
     .parameter "dx"
     .parameter "dy"
 
@@ -875,7 +875,7 @@
 .end method
 
 .method public offsetTo(II)V
-    .registers 5
+    .locals 2
     .parameter "newLeft"
     .parameter "newTop"
 
@@ -913,7 +913,7 @@
 .end method
 
 .method public printShortString(Ljava/io/PrintWriter;)V
-    .registers 4
+    .locals 2
     .parameter "pw"
 
     .prologue
@@ -959,7 +959,7 @@
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -996,7 +996,7 @@
 .end method
 
 .method public scale(F)V
-    .registers 4
+    .locals 2
     .parameter "scale"
 
     .prologue
@@ -1007,7 +1007,7 @@
 
     cmpl-float v0, p1, v0
 
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_0
 
     .line 590
     iget v0, p0, Landroid/graphics/Rect;->left:I
@@ -1062,12 +1062,12 @@
     iput v0, p0, Landroid/graphics/Rect;->bottom:I
 
     .line 595
-    :cond_28
+    :cond_0
     return-void
 .end method
 
 .method public set(IIII)V
-    .registers 5
+    .locals 0
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -1091,7 +1091,7 @@
 .end method
 
 .method public set(Landroid/graphics/Rect;)V
-    .registers 3
+    .locals 1
     .parameter "src"
 
     .prologue
@@ -1120,7 +1120,7 @@
 .end method
 
 .method public setEmpty()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 230
@@ -1139,7 +1139,7 @@
 .end method
 
 .method public setIntersect(Landroid/graphics/Rect;Landroid/graphics/Rect;)Z
-    .registers 5
+    .locals 2
     .parameter "a"
     .parameter "b"
 
@@ -1149,25 +1149,25 @@
 
     iget v1, p2, Landroid/graphics/Rect;->right:I
 
-    if-ge v0, v1, :cond_42
+    if-ge v0, v1, :cond_0
 
     iget v0, p2, Landroid/graphics/Rect;->left:I
 
     iget v1, p1, Landroid/graphics/Rect;->right:I
 
-    if-ge v0, v1, :cond_42
+    if-ge v0, v1, :cond_0
 
     iget v0, p1, Landroid/graphics/Rect;->top:I
 
     iget v1, p2, Landroid/graphics/Rect;->bottom:I
 
-    if-ge v0, v1, :cond_42
+    if-ge v0, v1, :cond_0
 
     iget v0, p2, Landroid/graphics/Rect;->top:I
 
     iget v1, p1, Landroid/graphics/Rect;->bottom:I
 
-    if-ge v0, v1, :cond_42
+    if-ge v0, v1, :cond_0
 
     .line 416
     iget v0, p1, Landroid/graphics/Rect;->left:I
@@ -1217,17 +1217,17 @@
     const/4 v0, 0x1
 
     .line 422
-    :goto_41
+    :goto_0
     return v0
 
-    :cond_42
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_41
+    goto :goto_0
 .end method
 
 .method public sort()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 522
@@ -1235,7 +1235,7 @@
 
     iget v2, p0, Landroid/graphics/Rect;->right:I
 
-    if-le v1, v2, :cond_e
+    if-le v1, v2, :cond_0
 
     .line 523
     iget v0, p0, Landroid/graphics/Rect;->left:I
@@ -1251,12 +1251,12 @@
 
     .line 527
     .end local v0           #temp:I
-    :cond_e
+    :cond_0
     iget v1, p0, Landroid/graphics/Rect;->top:I
 
     iget v2, p0, Landroid/graphics/Rect;->bottom:I
 
-    if-le v1, v2, :cond_1c
+    if-le v1, v2, :cond_1
 
     .line 528
     iget v0, p0, Landroid/graphics/Rect;->top:I
@@ -1272,12 +1272,12 @@
 
     .line 532
     .end local v0           #temp:I
-    :cond_1c
+    :cond_1
     return-void
 .end method
 
 .method public toShortString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 109
@@ -1295,7 +1295,7 @@
 .end method
 
 .method public toShortString(Ljava/lang/StringBuilder;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "sb"
 
     .prologue
@@ -1350,7 +1350,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 98
@@ -1409,7 +1409,7 @@
 .end method
 
 .method public union(II)V
-    .registers 4
+    .locals 1
     .parameter "x"
     .parameter "y"
 
@@ -1417,51 +1417,51 @@
     .line 502
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
-    if-ge p1, v0, :cond_d
+    if-ge p1, v0, :cond_2
 
     .line 503
     iput p1, p0, Landroid/graphics/Rect;->left:I
 
     .line 507
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
-    if-ge p2, v0, :cond_14
+    if-ge p2, v0, :cond_3
 
     .line 508
     iput p2, p0, Landroid/graphics/Rect;->top:I
 
     .line 512
-    :cond_c
-    :goto_c
+    :cond_1
+    :goto_1
     return-void
 
     .line 504
-    :cond_d
+    :cond_2
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
-    if-le p1, v0, :cond_6
+    if-le p1, v0, :cond_0
 
     .line 505
     iput p1, p0, Landroid/graphics/Rect;->right:I
 
-    goto :goto_6
+    goto :goto_0
 
     .line 509
-    :cond_14
+    :cond_3
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    if-le p2, v0, :cond_c
+    if-le p2, v0, :cond_1
 
     .line 510
     iput p2, p0, Landroid/graphics/Rect;->bottom:I
 
-    goto :goto_c
+    goto :goto_1
 .end method
 
 .method public union(IIII)V
-    .registers 7
+    .locals 2
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -1469,61 +1469,61 @@
 
     .prologue
     .line 468
-    if-ge p1, p3, :cond_28
+    if-ge p1, p3, :cond_3
 
-    if-ge p2, p4, :cond_28
+    if-ge p2, p4, :cond_3
 
     .line 469
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
     iget v1, p0, Landroid/graphics/Rect;->right:I
 
-    if-ge v0, v1, :cond_29
+    if-ge v0, v1, :cond_4
 
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
     iget v1, p0, Landroid/graphics/Rect;->bottom:I
 
-    if-ge v0, v1, :cond_29
+    if-ge v0, v1, :cond_4
 
     .line 470
     iget v0, p0, Landroid/graphics/Rect;->left:I
 
-    if-le v0, p1, :cond_16
+    if-le v0, p1, :cond_0
 
     iput p1, p0, Landroid/graphics/Rect;->left:I
 
     .line 471
-    :cond_16
+    :cond_0
     iget v0, p0, Landroid/graphics/Rect;->top:I
 
-    if-le v0, p2, :cond_1c
+    if-le v0, p2, :cond_1
 
     iput p2, p0, Landroid/graphics/Rect;->top:I
 
     .line 472
-    :cond_1c
+    :cond_1
     iget v0, p0, Landroid/graphics/Rect;->right:I
 
-    if-ge v0, p3, :cond_22
+    if-ge v0, p3, :cond_2
 
     iput p3, p0, Landroid/graphics/Rect;->right:I
 
     .line 473
-    :cond_22
+    :cond_2
     iget v0, p0, Landroid/graphics/Rect;->bottom:I
 
-    if-ge v0, p4, :cond_28
+    if-ge v0, p4, :cond_3
 
     iput p4, p0, Landroid/graphics/Rect;->bottom:I
 
     .line 481
-    :cond_28
-    :goto_28
+    :cond_3
+    :goto_0
     return-void
 
     .line 475
-    :cond_29
+    :cond_4
     iput p1, p0, Landroid/graphics/Rect;->left:I
 
     .line 476
@@ -1535,11 +1535,11 @@
     .line 478
     iput p4, p0, Landroid/graphics/Rect;->bottom:I
 
-    goto :goto_28
+    goto :goto_0
 .end method
 
 .method public union(Landroid/graphics/Rect;)V
-    .registers 6
+    .locals 4
     .parameter "r"
 
     .prologue
@@ -1559,7 +1559,7 @@
 .end method
 
 .method public final width()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 183
@@ -1573,7 +1573,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 

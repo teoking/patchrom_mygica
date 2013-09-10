@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 79
@@ -122,7 +122,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 81
@@ -132,7 +132,7 @@
 .end method
 
 .method public static final cacheRegisterMap(Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
     .parameter "classAndMethodDesc"
 
     .prologue
@@ -145,7 +145,7 @@
 .end method
 
 .method public static changeDebugPort(I)V
-    .registers 1
+    .locals 0
     .parameter "port"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -156,7 +156,7 @@
 .end method
 
 .method public static countInstancesOfClass(Ljava/lang/Class;)J
-    .registers 3
+    .locals 2
     .parameter "cls"
 
     .prologue
@@ -171,7 +171,7 @@
 .end method
 
 .method public static dumpHprofData(Ljava/lang/String;)V
-    .registers 1
+    .locals 0
     .parameter "fileName"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -188,7 +188,7 @@
 .end method
 
 .method public static dumpHprofData(Ljava/lang/String;Ljava/io/FileDescriptor;)V
-    .registers 2
+    .locals 0
     .parameter "fileName"
     .parameter "fd"
     .annotation system Ldalvik/annotation/Throws;
@@ -206,7 +206,7 @@
 .end method
 
 .method public static dumpHprofDataDdms()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 910
@@ -223,7 +223,7 @@
 .end method
 
 .method public static final dumpReferenceTables()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 985
@@ -234,7 +234,7 @@
 .end method
 
 .method public static dumpService(Ljava/lang/String;Ljava/io/FileDescriptor;[Ljava/lang/String;)Z
-    .registers 9
+    .locals 6
     .parameter "name"
     .parameter "fd"
     .parameter "args"
@@ -249,7 +249,7 @@
 
     .line 1314
     .local v1, service:Landroid/os/IBinder;
-    if-nez v1, :cond_20
+    if-nez v1, :cond_0
 
     .line 1315
     const-string v3, "Debug"
@@ -275,23 +275,23 @@
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1324
-    :goto_1f
+    :goto_0
     return v2
 
     .line 1320
-    :cond_20
-    :try_start_20
+    :cond_0
+    :try_start_0
     invoke-interface {v1, p1, p2}, Landroid/os/IBinder;->dump(Ljava/io/FileDescriptor;[Ljava/lang/String;)V
-    :try_end_23
-    .catch Landroid/os/RemoteException; {:try_start_20 .. :try_end_23} :catch_25
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1321
     const/4 v2, 0x1
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 1322
-    :catch_25
+    :catch_0
     move-exception v0
 
     .line 1323
@@ -318,11 +318,11 @@
 
     invoke-static {v3, v4, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1f
+    goto :goto_0
 .end method
 
 .method public static enableEmulatorTraceOutput()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 418
@@ -333,7 +333,7 @@
 .end method
 
 .method private static fieldTypeMatches(Ljava/lang/reflect/Field;Ljava/lang/Class;)Z
-    .registers 8
+    .locals 6
     .parameter "field"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -358,22 +358,22 @@
 
     .line 1127
     .local v1, fieldClass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    if-ne v1, p1, :cond_a
+    if-ne v1, p1, :cond_0
 
     move v5, v4
 
     .line 1143
-    :goto_9
+    :goto_0
     return v5
 
     .line 1136
-    :cond_a
-    :try_start_a
+    :cond_0
+    :try_start_0
     const-string v3, "TYPE"
 
     invoke-virtual {p1, v3}, Ljava/lang/Class;->getField(Ljava/lang/String;)Ljava/lang/reflect/Field;
-    :try_end_f
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_a .. :try_end_f} :catch_1c
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v2
 
@@ -381,48 +381,48 @@
     .local v2, primitiveTypeField:Ljava/lang/reflect/Field;
     const/4 v3, 0x0
 
-    :try_start_11
+    :try_start_1
     invoke-virtual {v2, v3}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Ljava/lang/Class;
-    :try_end_17
-    .catch Ljava/lang/IllegalAccessException; {:try_start_11 .. :try_end_17} :catch_20
+    :try_end_1
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
 
-    if-ne v1, v3, :cond_1e
+    if-ne v1, v3, :cond_1
 
     move v3, v4
 
-    :goto_1a
+    :goto_1
     move v5, v3
 
-    goto :goto_9
+    goto :goto_0
 
     .line 1137
     .end local v2           #primitiveTypeField:Ljava/lang/reflect/Field;
-    :catch_1c
+    :catch_0
     move-exception v0
 
     .line 1138
     .local v0, ex:Ljava/lang/NoSuchFieldException;
-    goto :goto_9
+    goto :goto_0
 
     .end local v0           #ex:Ljava/lang/NoSuchFieldException;
     .restart local v2       #primitiveTypeField:Ljava/lang/reflect/Field;
-    :cond_1e
+    :cond_1
     move v3, v5
 
     .line 1141
-    goto :goto_1a
+    goto :goto_1
 
     .line 1142
-    :catch_20
+    :catch_1
     move-exception v0
 
     .line 1143
     .local v0, ex:Ljava/lang/IllegalAccessException;
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static final native getBinderDeathObjectCount()I
@@ -441,7 +441,7 @@
 .end method
 
 .method public static getCaller()Ljava/lang/String;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 1370
@@ -463,7 +463,7 @@
 .end method
 
 .method private static getCaller([Ljava/lang/StackTraceElement;I)Ljava/lang/String;
-    .registers 5
+    .locals 3
     .parameter "callStack"
     .parameter "depth"
 
@@ -473,17 +473,17 @@
 
     array-length v2, p0
 
-    if-lt v1, v2, :cond_8
+    if-lt v1, v2, :cond_0
 
     .line 1344
     const-string v1, "<bottom of call stack>"
 
     .line 1347
-    :goto_7
+    :goto_0
     return-object v1
 
     .line 1346
-    :cond_8
+    :cond_0
     add-int/lit8 v1, p1, 0x4
 
     aget-object v0, p0, v1
@@ -534,11 +534,11 @@
 
     move-result-object v1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public static getCallers(I)Ljava/lang/String;
-    .registers 6
+    .locals 5
     .parameter "depth"
 
     .prologue
@@ -562,8 +562,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_e
-    if-ge v1, p0, :cond_20
+    :goto_0
+    if-ge v1, p0, :cond_0
 
     .line 1360
     invoke-static {v0, v1}, Landroid/os/Debug;->getCaller([Ljava/lang/StackTraceElement;I)Ljava/lang/String;
@@ -581,10 +581,10 @@
     .line 1359
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 1362
-    :cond_20
+    :cond_0
     invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -593,7 +593,7 @@
 .end method
 
 .method public static getGlobalAllocCount()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 581
@@ -607,7 +607,7 @@
 .end method
 
 .method public static getGlobalAllocSize()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 584
@@ -621,7 +621,7 @@
 .end method
 
 .method public static getGlobalClassInitCount()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 594
@@ -635,7 +635,7 @@
 .end method
 
 .method public static getGlobalClassInitTime()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 598
@@ -649,7 +649,7 @@
 .end method
 
 .method public static getGlobalExternalAllocCount()I
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -661,7 +661,7 @@
 .end method
 
 .method public static getGlobalExternalAllocSize()I
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -673,7 +673,7 @@
 .end method
 
 .method public static getGlobalExternalFreedCount()I
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -685,7 +685,7 @@
 .end method
 
 .method public static getGlobalExternalFreedSize()I
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -697,7 +697,7 @@
 .end method
 
 .method public static getGlobalFreedCount()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 587
@@ -711,7 +711,7 @@
 .end method
 
 .method public static getGlobalFreedSize()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 590
@@ -725,7 +725,7 @@
 .end method
 
 .method public static getGlobalGcInvocationCount()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 652
@@ -739,7 +739,7 @@
 .end method
 
 .method public static getLoadedClassCount()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 873
@@ -772,7 +772,7 @@
 .end method
 
 .method public static getThreadAllocCount()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 655
@@ -786,7 +786,7 @@
 .end method
 
 .method public static getThreadAllocSize()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 658
@@ -800,7 +800,7 @@
 .end method
 
 .method public static getThreadExternalAllocCount()I
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -812,7 +812,7 @@
 .end method
 
 .method public static getThreadExternalAllocSize()I
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -824,7 +824,7 @@
 .end method
 
 .method public static getThreadGcInvocationCount()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 687
@@ -838,7 +838,7 @@
 .end method
 
 .method public static getVmFeatureList()[Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 316
@@ -850,7 +850,7 @@
 .end method
 
 .method public static isDebuggerConnected()Z
-    .registers 1
+    .locals 1
 
     .prologue
     .line 305
@@ -862,7 +862,7 @@
 .end method
 
 .method public static isMethodTracingActive()Z
-    .registers 1
+    .locals 1
 
     .prologue
     .line 529
@@ -874,7 +874,7 @@
 .end method
 
 .method private static modifyFieldIfSet(Ljava/lang/reflect/Field;Lcom/android/internal/util/TypedProperties;Ljava/lang/String;)V
-    .registers 9
+    .locals 6
     .parameter "field"
     .parameter "properties"
     .parameter "propertyName"
@@ -887,7 +887,7 @@
 
     const-class v4, Ljava/lang/String;
 
-    if-ne v3, v4, :cond_85
+    if-ne v3, v4, :cond_1
 
     .line 1155
     invoke-virtual {p1, p2}, Lcom/android/internal/util/TypedProperties;->getStringInfo(Ljava/lang/String;)I
@@ -896,7 +896,7 @@
 
     .line 1156
     .local v1, stringInfo:I
-    packed-switch v1, :pswitch_data_f6
+    packed-switch v1, :pswitch_data_0
 
     .line 1175
     new-instance v3, Ljava/lang/IllegalStateException;
@@ -934,26 +934,26 @@
     throw v3
 
     .line 1162
-    :pswitch_32
+    :pswitch_0
     const/4 v3, 0x0
 
     const/4 v4, 0x0
 
-    :try_start_34
+    :try_start_0
     invoke-virtual {p0, v3, v4}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_37
-    .catch Ljava/lang/IllegalAccessException; {:try_start_34 .. :try_end_37} :catch_38
+    :try_end_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1194
     .end local v1           #stringInfo:I
-    :cond_37
-    :goto_37
-    :pswitch_37
+    :cond_0
+    :goto_0
+    :pswitch_1
     return-void
 
     .line 1163
     .restart local v1       #stringInfo:I
-    :catch_38
+    :catch_0
     move-exception v0
 
     .line 1164
@@ -984,7 +984,7 @@
 
     .line 1171
     .end local v0           #ex:Ljava/lang/IllegalAccessException;
-    :pswitch_52
+    :pswitch_2
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1037,15 +1037,15 @@
 
     .line 1180
     .end local v1           #stringInfo:I
-    :cond_85
-    :pswitch_85
+    :cond_1
+    :pswitch_3
     invoke-virtual {p1, p2}, Lcom/android/internal/util/TypedProperties;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
     .line 1181
     .local v2, value:Ljava/lang/Object;
-    if-eqz v2, :cond_37
+    if-eqz v2, :cond_0
 
     .line 1182
     invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -1056,7 +1056,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_d6
+    if-nez v3, :cond_2
 
     .line 1183
     new-instance v3, Ljava/lang/IllegalArgumentException;
@@ -1124,18 +1124,18 @@
     throw v3
 
     .line 1188
-    :cond_d6
+    :cond_2
     const/4 v3, 0x0
 
-    :try_start_d7
+    :try_start_1
     invoke-virtual {p0, v3, v2}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_da
-    .catch Ljava/lang/IllegalAccessException; {:try_start_d7 .. :try_end_da} :catch_dc
+    :try_end_1
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto/16 :goto_37
+    goto/16 :goto_0
 
     .line 1189
-    :catch_dc
+    :catch_1
     move-exception v0
 
     .line 1190
@@ -1165,17 +1165,17 @@
     throw v3
 
     .line 1156
-    :pswitch_data_f6
+    :pswitch_data_0
     .packed-switch -0x2
-        :pswitch_52
-        :pswitch_37
-        :pswitch_32
-        :pswitch_85
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method public static printLoadedClasses(I)V
-    .registers 1
+    .locals 0
     .parameter "flags"
 
     .prologue
@@ -1187,7 +1187,7 @@
 .end method
 
 .method public static resetAllCounts()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 786
@@ -1200,7 +1200,7 @@
 .end method
 
 .method public static resetGlobalAllocCount()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 691
@@ -1213,7 +1213,7 @@
 .end method
 
 .method public static resetGlobalAllocSize()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 694
@@ -1226,7 +1226,7 @@
 .end method
 
 .method public static resetGlobalClassInitCount()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 703
@@ -1239,7 +1239,7 @@
 .end method
 
 .method public static resetGlobalClassInitTime()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 706
@@ -1252,7 +1252,7 @@
 .end method
 
 .method public static resetGlobalExternalAllocCount()V
-    .registers 0
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1262,7 +1262,7 @@
 .end method
 
 .method public static resetGlobalExternalAllocSize()V
-    .registers 0
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1272,7 +1272,7 @@
 .end method
 
 .method public static resetGlobalExternalFreedCount()V
-    .registers 0
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1282,7 +1282,7 @@
 .end method
 
 .method public static resetGlobalExternalFreedSize()V
-    .registers 0
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1292,7 +1292,7 @@
 .end method
 
 .method public static resetGlobalFreedCount()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 697
@@ -1305,7 +1305,7 @@
 .end method
 
 .method public static resetGlobalFreedSize()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 700
@@ -1318,7 +1318,7 @@
 .end method
 
 .method public static resetGlobalGcInvocationCount()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 751
@@ -1331,7 +1331,7 @@
 .end method
 
 .method public static resetThreadAllocCount()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 754
@@ -1344,7 +1344,7 @@
 .end method
 
 .method public static resetThreadAllocSize()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 757
@@ -1357,7 +1357,7 @@
 .end method
 
 .method public static resetThreadExternalAllocCount()V
-    .registers 0
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1367,7 +1367,7 @@
 .end method
 
 .method public static resetThreadExternalAllocSize()V
-    .registers 0
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1377,7 +1377,7 @@
 .end method
 
 .method public static resetThreadGcInvocationCount()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 783
@@ -1390,7 +1390,7 @@
 .end method
 
 .method public static setAllocationLimit(I)I
-    .registers 2
+    .locals 1
     .parameter "limit"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1403,7 +1403,7 @@
 .end method
 
 .method public static setFieldsOn(Ljava/lang/Class;)V
-    .registers 2
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1425,7 +1425,7 @@
 .end method
 
 .method public static setFieldsOn(Ljava/lang/Class;Z)V
-    .registers 5
+    .locals 3
     .parameter
     .parameter "partial"
     .annotation system Ldalvik/annotation/Signature;
@@ -1451,11 +1451,11 @@
 
     move-result-object v2
 
-    if-nez p0, :cond_25
+    if-nez p0, :cond_0
 
     const-string/jumbo v0, "null"
 
-    :goto_13
+    :goto_0
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -1476,16 +1476,16 @@
     return-void
 
     .line 1284
-    :cond_25
+    :cond_0
     invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public static setGlobalAllocationLimit(I)I
-    .registers 2
+    .locals 1
     .parameter "limit"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1498,7 +1498,7 @@
 .end method
 
 .method public static startAllocCounting()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 568
@@ -1509,7 +1509,7 @@
 .end method
 
 .method public static startMethodTracing()V
-    .registers 2
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -1524,7 +1524,7 @@
 .end method
 
 .method public static startMethodTracing(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "traceName"
 
     .prologue
@@ -1538,7 +1538,7 @@
 .end method
 
 .method public static startMethodTracing(Ljava/lang/String;I)V
-    .registers 3
+    .locals 1
     .parameter "traceName"
     .parameter "bufferSize"
 
@@ -1553,7 +1553,7 @@
 .end method
 
 .method public static startMethodTracing(Ljava/lang/String;II)V
-    .registers 6
+    .locals 3
     .parameter "traceName"
     .parameter "bufferSize"
     .parameter "flags"
@@ -1572,7 +1572,7 @@
 
     const/16 v2, 0x2f
 
-    if-eq v1, v2, :cond_1d
+    if-eq v1, v2, :cond_0
 
     .line 492
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1594,14 +1594,14 @@
     move-result-object v0
 
     .line 493
-    :cond_1d
+    :cond_0
     const-string v1, ".trace"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-nez v1, :cond_38
+    if-nez v1, :cond_1
 
     .line 494
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1623,7 +1623,7 @@
     move-result-object v0
 
     .line 496
-    :cond_38
+    :cond_1
     invoke-static {v0, p1, p2}, Ldalvik/system/VMDebug;->startMethodTracing(Ljava/lang/String;II)V
 
     .line 497
@@ -1631,7 +1631,7 @@
 .end method
 
 .method public static startMethodTracing(Ljava/lang/String;Ljava/io/FileDescriptor;II)V
-    .registers 4
+    .locals 0
     .parameter "traceName"
     .parameter "fd"
     .parameter "bufferSize"
@@ -1646,7 +1646,7 @@
 .end method
 
 .method public static startMethodTracingDdms(II)V
-    .registers 2
+    .locals 0
     .parameter "bufferSize"
     .parameter "flags"
 
@@ -1659,7 +1659,7 @@
 .end method
 
 .method public static startNativeTracing()V
-    .registers 4
+    .locals 4
 
     .prologue
     .line 363
@@ -1667,7 +1667,7 @@
 
     .line 365
     .local v1, outStream:Ljava/io/PrintWriter;
-    :try_start_1
+    :try_start_0
     new-instance v0, Ljava/io/FileOutputStream;
 
     const-string v3, "/sys/qemu_trace/state"
@@ -1683,23 +1683,23 @@
     invoke-direct {v3, v0}, Ljava/io/OutputStreamWriter;-><init>(Ljava/io/OutputStream;)V
 
     invoke-direct {v2, v3}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
-    :try_end_12
-    .catchall {:try_start_1 .. :try_end_12} :catchall_28
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_12} :catch_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 367
     .end local v1           #outStream:Ljava/io/PrintWriter;
     .local v2, outStream:Ljava/io/PrintWriter;
-    :try_start_12
+    :try_start_1
     const-string v3, "1"
 
     invoke-virtual {v2, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-    :try_end_17
-    .catchall {:try_start_12 .. :try_end_17} :catchall_2f
-    .catch Ljava/lang/Exception; {:try_start_12 .. :try_end_17} :catch_32
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 370
-    if-eqz v2, :cond_35
+    if-eqz v2, :cond_2
 
     .line 371
     invoke-virtual {v2}, Ljava/io/PrintWriter;->close()V
@@ -1710,76 +1710,76 @@
     .end local v0           #fos:Ljava/io/FileOutputStream;
     .end local v2           #outStream:Ljava/io/PrintWriter;
     .restart local v1       #outStream:Ljava/io/PrintWriter;
-    :cond_1d
-    :goto_1d
+    :cond_0
+    :goto_0
     invoke-static {}, Ldalvik/system/VMDebug;->startEmulatorTracing()V
 
     .line 375
     return-void
 
     .line 368
-    :catch_21
+    :catch_0
     move-exception v3
 
     .line 370
-    :goto_22
-    if-eqz v1, :cond_1d
+    :goto_1
+    if-eqz v1, :cond_0
 
     .line 371
     invoke-virtual {v1}, Ljava/io/PrintWriter;->close()V
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 370
-    :catchall_28
+    :catchall_0
     move-exception v3
 
-    :goto_29
-    if-eqz v1, :cond_2e
+    :goto_2
+    if-eqz v1, :cond_1
 
     .line 371
     invoke-virtual {v1}, Ljava/io/PrintWriter;->close()V
 
-    :cond_2e
+    :cond_1
     throw v3
 
     .line 370
     .end local v1           #outStream:Ljava/io/PrintWriter;
     .restart local v0       #fos:Ljava/io/FileOutputStream;
     .restart local v2       #outStream:Ljava/io/PrintWriter;
-    :catchall_2f
+    :catchall_1
     move-exception v3
 
     move-object v1, v2
 
     .end local v2           #outStream:Ljava/io/PrintWriter;
     .restart local v1       #outStream:Ljava/io/PrintWriter;
-    goto :goto_29
+    goto :goto_2
 
     .line 368
     .end local v1           #outStream:Ljava/io/PrintWriter;
     .restart local v2       #outStream:Ljava/io/PrintWriter;
-    :catch_32
+    :catch_1
     move-exception v3
 
     move-object v1, v2
 
     .end local v2           #outStream:Ljava/io/PrintWriter;
     .restart local v1       #outStream:Ljava/io/PrintWriter;
-    goto :goto_22
+    goto :goto_1
 
     .end local v1           #outStream:Ljava/io/PrintWriter;
     .restart local v2       #outStream:Ljava/io/PrintWriter;
-    :cond_35
+    :cond_2
     move-object v1, v2
 
     .end local v2           #outStream:Ljava/io/PrintWriter;
     .restart local v1       #outStream:Ljava/io/PrintWriter;
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method public static stopAllocCounting()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 577
@@ -1790,7 +1790,7 @@
 .end method
 
 .method public static stopMethodTracing()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 536
@@ -1801,7 +1801,7 @@
 .end method
 
 .method public static stopNativeTracing()V
-    .registers 4
+    .locals 4
 
     .prologue
     .line 388
@@ -1812,7 +1812,7 @@
 
     .line 393
     .local v1, outStream:Ljava/io/PrintWriter;
-    :try_start_4
+    :try_start_0
     new-instance v0, Ljava/io/FileOutputStream;
 
     const-string v3, "/sys/qemu_trace/state"
@@ -1828,23 +1828,23 @@
     invoke-direct {v3, v0}, Ljava/io/OutputStreamWriter;-><init>(Ljava/io/OutputStream;)V
 
     invoke-direct {v2, v3}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
-    :try_end_15
-    .catchall {:try_start_4 .. :try_end_15} :catchall_28
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_15} :catch_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 395
     .end local v1           #outStream:Ljava/io/PrintWriter;
     .local v2, outStream:Ljava/io/PrintWriter;
-    :try_start_15
+    :try_start_1
     const-string v3, "0"
 
     invoke-virtual {v2, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-    :try_end_1a
-    .catchall {:try_start_15 .. :try_end_1a} :catchall_2f
-    .catch Ljava/lang/Exception; {:try_start_15 .. :try_end_1a} :catch_32
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 400
-    if-eqz v2, :cond_35
+    if-eqz v2, :cond_2
 
     .line 401
     invoke-virtual {v2}, Ljava/io/PrintWriter;->close()V
@@ -1855,73 +1855,73 @@
     .end local v0           #fos:Ljava/io/FileOutputStream;
     .end local v2           #outStream:Ljava/io/PrintWriter;
     .restart local v1       #outStream:Ljava/io/PrintWriter;
-    :cond_20
-    :goto_20
+    :cond_0
+    :goto_0
     return-void
 
     .line 396
-    :catch_21
+    :catch_0
     move-exception v3
 
     .line 400
-    :goto_22
-    if-eqz v1, :cond_20
+    :goto_1
+    if-eqz v1, :cond_0
 
     .line 401
     invoke-virtual {v1}, Ljava/io/PrintWriter;->close()V
 
-    goto :goto_20
+    goto :goto_0
 
     .line 400
-    :catchall_28
+    :catchall_0
     move-exception v3
 
-    :goto_29
-    if-eqz v1, :cond_2e
+    :goto_2
+    if-eqz v1, :cond_1
 
     .line 401
     invoke-virtual {v1}, Ljava/io/PrintWriter;->close()V
 
-    :cond_2e
+    :cond_1
     throw v3
 
     .line 400
     .end local v1           #outStream:Ljava/io/PrintWriter;
     .restart local v0       #fos:Ljava/io/FileOutputStream;
     .restart local v2       #outStream:Ljava/io/PrintWriter;
-    :catchall_2f
+    :catchall_1
     move-exception v3
 
     move-object v1, v2
 
     .end local v2           #outStream:Ljava/io/PrintWriter;
     .restart local v1       #outStream:Ljava/io/PrintWriter;
-    goto :goto_29
+    goto :goto_2
 
     .line 396
     .end local v1           #outStream:Ljava/io/PrintWriter;
     .restart local v2       #outStream:Ljava/io/PrintWriter;
-    :catch_32
+    :catch_1
     move-exception v3
 
     move-object v1, v2
 
     .end local v2           #outStream:Ljava/io/PrintWriter;
     .restart local v1       #outStream:Ljava/io/PrintWriter;
-    goto :goto_22
+    goto :goto_1
 
     .end local v1           #outStream:Ljava/io/PrintWriter;
     .restart local v2       #outStream:Ljava/io/PrintWriter;
-    :cond_35
+    :cond_2
     move-object v1, v2
 
     .end local v2           #outStream:Ljava/io/PrintWriter;
     .restart local v1       #outStream:Ljava/io/PrintWriter;
-    goto :goto_20
+    goto :goto_0
 .end method
 
 .method public static threadCpuTimeNanos()J
-    .registers 2
+    .locals 2
 
     .prologue
     .line 551
@@ -1933,7 +1933,7 @@
 .end method
 
 .method public static waitForDebugger()V
-    .registers 8
+    .locals 8
 
     .prologue
     const/4 v7, 0x1
@@ -1945,26 +1945,26 @@
 
     move-result v4
 
-    if-nez v4, :cond_9
+    if-nez v4, :cond_1
 
     .line 291
     .local v0, data:[B
     .local v1, delta:J
     .local v3, waitChunk:Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     return-void
 
     .line 248
     .end local v0           #data:[B
     .end local v1           #delta:J
     .end local v3           #waitChunk:Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    :cond_9
+    :cond_1
     invoke-static {}, Landroid/os/Debug;->isDebuggerConnected()Z
 
     move-result v4
 
-    if-nez v4, :cond_8
+    if-nez v4, :cond_0
 
     .line 252
     sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -1998,31 +1998,31 @@
     sput-boolean v7, Landroid/os/Debug;->mWaiting:Z
 
     .line 258
-    :goto_2a
+    :goto_1
     invoke-static {}, Landroid/os/Debug;->isDebuggerConnected()Z
 
     move-result v4
 
-    if-nez v4, :cond_38
+    if-nez v4, :cond_2
 
     .line 259
     const-wide/16 v4, 0xc8
 
-    :try_start_32
+    :try_start_0
     invoke-static {v4, v5}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_35
-    .catch Ljava/lang/InterruptedException; {:try_start_32 .. :try_end_35} :catch_36
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_2a
+    goto :goto_1
 
     .line 260
-    :catch_36
+    :catch_0
     move-exception v4
 
-    goto :goto_2a
+    goto :goto_1
 
     .line 262
-    :cond_38
+    :cond_2
     sput-boolean v6, Landroid/os/Debug;->mWaiting:Z
 
     .line 264
@@ -2033,7 +2033,7 @@
     invoke-virtual {v4, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 276
-    :goto_41
+    :goto_2
     invoke-static {}, Ldalvik/system/VMDebug;->lastDebuggerActivity()J
 
     move-result-wide v1
@@ -2044,7 +2044,7 @@
 
     cmp-long v4, v1, v4
 
-    if-gez v4, :cond_53
+    if-gez v4, :cond_3
 
     .line 278
     sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -2053,15 +2053,15 @@
 
     invoke-virtual {v4, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 282
-    :cond_53
+    :cond_3
     const-wide/16 v4, 0x514
 
     cmp-long v4, v1, v4
 
-    if-gez v4, :cond_69
+    if-gez v4, :cond_4
 
     .line 283
     sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
@@ -2073,21 +2073,21 @@
     .line 284
     const-wide/16 v4, 0xc8
 
-    :try_start_63
+    :try_start_1
     invoke-static {v4, v5}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_66
-    .catch Ljava/lang/InterruptedException; {:try_start_63 .. :try_end_66} :catch_67
+    :try_end_1
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto :goto_41
+    goto :goto_2
 
     .line 285
-    :catch_67
+    :catch_1
     move-exception v4
 
-    goto :goto_41
+    goto :goto_2
 
     .line 287
-    :cond_69
+    :cond_4
     sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -2116,11 +2116,11 @@
 
     invoke-virtual {v4, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public static waitingForDebugger()Z
-    .registers 1
+    .locals 1
 
     .prologue
     .line 298

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 28
@@ -16,7 +16,7 @@
 .end method
 
 .method public constructor <init>(FFFF)V
-    .registers 11
+    .locals 6
     .parameter "x"
     .parameter "y"
     .parameter "width"
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;)V
-    .registers 7
+    .locals 4
     .parameter "origin"
     .parameter "size"
 
@@ -90,7 +90,7 @@
 .end method
 
 .method private constructor <init>(Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;)V
-    .registers 5
+    .locals 0
     .parameter "p0"
     .parameter "p1"
     .parameter "p2"
@@ -105,7 +105,7 @@
 .end method
 
 .method public static fromCenterVerticalAxis(Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;)Landroid/filterfw/geometry/Rectangle;
-    .registers 10
+    .locals 7
     .parameter "center"
     .parameter "vAxis"
     .parameter "size"
@@ -180,7 +180,7 @@
 .end method
 
 .method public static fromRotatedRect(Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;F)Landroid/filterfw/geometry/Rectangle;
-    .registers 12
+    .locals 9
     .parameter "center"
     .parameter "size"
     .parameter "rotation"
@@ -303,7 +303,7 @@
 
 # virtual methods
 .method public center()Landroid/filterfw/geometry/Point;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 78
@@ -337,7 +337,7 @@
 .end method
 
 .method public getHeight()F
-    .registers 3
+    .locals 2
 
     .prologue
     .line 74
@@ -357,7 +357,7 @@
 .end method
 
 .method public getWidth()F
-    .registers 3
+    .locals 2
 
     .prologue
     .line 70
@@ -377,7 +377,7 @@
 .end method
 
 .method public bridge synthetic scaled(F)Landroid/filterfw/geometry/Quad;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -390,7 +390,7 @@
 .end method
 
 .method public bridge synthetic scaled(FF)Landroid/filterfw/geometry/Quad;
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -404,7 +404,7 @@
 .end method
 
 .method public scaled(F)Landroid/filterfw/geometry/Rectangle;
-    .registers 7
+    .locals 5
     .parameter "s"
 
     .prologue
@@ -441,7 +441,7 @@
 .end method
 
 .method public scaled(FF)Landroid/filterfw/geometry/Rectangle;
-    .registers 8
+    .locals 5
     .parameter "x"
     .parameter "y"
 

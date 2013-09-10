@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/pm/PackageManager;)V
-    .registers 3
+    .locals 1
     .parameter "pm"
 
     .prologue
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public final compare(Landroid/content/pm/PermissionInfo;Landroid/content/pm/PermissionInfo;)I
-    .registers 6
+    .locals 3
     .parameter "a"
     .parameter "b"
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 

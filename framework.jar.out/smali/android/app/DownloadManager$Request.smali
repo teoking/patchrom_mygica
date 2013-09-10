@@ -77,7 +77,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 334
@@ -87,23 +87,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     sput-boolean v0, Landroid/app/DownloadManager$Request;->$assertionsDisabled:Z
 
     return-void
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public constructor <init>(Landroid/net/Uri;)V
-    .registers 6
+    .locals 4
     .parameter "uri"
 
     .prologue
@@ -145,7 +145,7 @@
     iput v2, p0, Landroid/app/DownloadManager$Request;->mNotificationVisibility:I
 
     .line 406
-    if-nez p1, :cond_23
+    if-nez p1, :cond_0
 
     .line 407
     new-instance v1, Ljava/lang/NullPointerException;
@@ -155,14 +155,14 @@
     throw v1
 
     .line 409
-    :cond_23
+    :cond_0
     invoke-virtual {p1}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
     move-result-object v0
 
     .line 410
     .local v0, scheme:Ljava/lang/String;
-    if-eqz v0, :cond_39
+    if-eqz v0, :cond_1
 
     const-string v1, "http"
 
@@ -170,7 +170,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_52
+    if-nez v1, :cond_2
 
     const-string v1, "https"
 
@@ -178,10 +178,10 @@
 
     move-result v1
 
-    if-nez v1, :cond_52
+    if-nez v1, :cond_2
 
     .line 411
-    :cond_39
+    :cond_1
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -207,7 +207,7 @@
     throw v1
 
     .line 413
-    :cond_52
+    :cond_2
     iput-object p1, p0, Landroid/app/DownloadManager$Request;->mUri:Landroid/net/Uri;
 
     .line 414
@@ -215,7 +215,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "uriString"
 
     .prologue
@@ -268,7 +268,7 @@
 .end method
 
 .method private encodeHttpHeaders(Landroid/content/ContentValues;)V
-    .registers 8
+    .locals 6
     .parameter "values"
 
     .prologue
@@ -284,12 +284,12 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :goto_7
+    :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_4b
+    if-eqz v4, :cond_0
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -355,24 +355,24 @@
     add-int/lit8 v3, v3, 0x1
 
     .line 708
-    goto :goto_7
+    goto :goto_0
 
     .line 709
     .end local v0           #header:Landroid/util/Pair;,"Landroid/util/Pair<Ljava/lang/String;Ljava/lang/String;>;"
     .end local v1           #headerString:Ljava/lang/String;
-    :cond_4b
+    :cond_0
     return-void
 .end method
 
 .method private putIfNonNull(Landroid/content/ContentValues;Ljava/lang/String;Ljava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "contentValues"
     .parameter "key"
     .parameter "value"
 
     .prologue
     .line 712
-    if-eqz p3, :cond_9
+    if-eqz p3, :cond_0
 
     .line 713
     invoke-virtual {p3}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -382,18 +382,18 @@
     invoke-virtual {p1, p2, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 715
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method private setDestinationFromBase(Ljava/io/File;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "base"
     .parameter "subPath"
 
     .prologue
     .line 505
-    if-nez p2, :cond_b
+    if-nez p2, :cond_0
 
     .line 506
     new-instance v0, Ljava/lang/NullPointerException;
@@ -405,7 +405,7 @@
     throw v0
 
     .line 508
-    :cond_b
+    :cond_0
     invoke-static {p1}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
 
     move-result-object v0
@@ -423,13 +423,13 @@
 
 # virtual methods
 .method public addRequestHeader(Ljava/lang/String;Ljava/lang/String;)Landroid/app/DownloadManager$Request;
-    .registers 5
+    .locals 2
     .parameter "header"
     .parameter "value"
 
     .prologue
     .line 529
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 530
     new-instance v0, Ljava/lang/NullPointerException;
@@ -441,14 +441,14 @@
     throw v0
 
     .line 532
-    :cond_a
+    :cond_0
     const-string v0, ":"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_1
 
     .line 533
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -460,14 +460,14 @@
     throw v0
 
     .line 535
-    :cond_1a
-    if-nez p2, :cond_1e
+    :cond_1
+    if-nez p2, :cond_2
 
     .line 536
     const-string p2, ""
 
     .line 538
-    :cond_1e
+    :cond_2
     iget-object v0, p0, Landroid/app/DownloadManager$Request;->mRequestHeaders:Ljava/util/List;
 
     invoke-static {p1, p2}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
@@ -481,7 +481,7 @@
 .end method
 
 .method public allowScanningByMediaScanner()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 516
@@ -494,7 +494,7 @@
 .end method
 
 .method public setAllowedNetworkTypes(I)Landroid/app/DownloadManager$Request;
-    .registers 2
+    .locals 0
     .parameter "flags"
 
     .prologue
@@ -506,7 +506,7 @@
 .end method
 
 .method public setAllowedOverMetered(Z)Landroid/app/DownloadManager$Request;
-    .registers 2
+    .locals 0
     .parameter "allow"
 
     .prologue
@@ -518,7 +518,7 @@
 .end method
 
 .method public setAllowedOverRoaming(Z)Landroid/app/DownloadManager$Request;
-    .registers 2
+    .locals 0
     .parameter "allowed"
 
     .prologue
@@ -530,7 +530,7 @@
 .end method
 
 .method public setDescription(Ljava/lang/CharSequence;)Landroid/app/DownloadManager$Request;
-    .registers 2
+    .locals 0
     .parameter "description"
 
     .prologue
@@ -542,7 +542,7 @@
 .end method
 
 .method public setDestinationInExternalFilesDir(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/app/DownloadManager$Request;
-    .registers 5
+    .locals 1
     .parameter "context"
     .parameter "dirType"
     .parameter "subPath"
@@ -560,7 +560,7 @@
 .end method
 
 .method public setDestinationInExternalPublicDir(Ljava/lang/String;Ljava/lang/String;)Landroid/app/DownloadManager$Request;
-    .registers 7
+    .locals 4
     .parameter "dirType"
     .parameter "subPath"
 
@@ -576,14 +576,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2d
+    if-eqz v1, :cond_0
 
     .line 490
     invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
 
     move-result v1
 
-    if-nez v1, :cond_50
+    if-nez v1, :cond_1
 
     .line 491
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -615,12 +615,12 @@
     throw v1
 
     .line 495
-    :cond_2d
+    :cond_0
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
     move-result v1
 
-    if-nez v1, :cond_50
+    if-nez v1, :cond_1
 
     .line 496
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -652,7 +652,7 @@
     throw v1
 
     .line 500
-    :cond_50
+    :cond_1
     invoke-direct {p0, v0, p2}, Landroid/app/DownloadManager$Request;->setDestinationFromBase(Ljava/io/File;Ljava/lang/String;)V
 
     .line 501
@@ -660,7 +660,7 @@
 .end method
 
 .method public setDestinationToSystemCache()Landroid/app/DownloadManager$Request;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 452
@@ -673,7 +673,7 @@
 .end method
 
 .method public setDestinationUri(Landroid/net/Uri;)Landroid/app/DownloadManager$Request;
-    .registers 2
+    .locals 0
     .parameter "uri"
 
     .prologue
@@ -685,7 +685,7 @@
 .end method
 
 .method public setMimeType(Ljava/lang/String;)Landroid/app/DownloadManager$Request;
-    .registers 2
+    .locals 0
     .parameter "mimeType"
 
     .prologue
@@ -697,7 +697,7 @@
 .end method
 
 .method public setNotificationVisibility(I)Landroid/app/DownloadManager$Request;
-    .registers 2
+    .locals 0
     .parameter "visibility"
 
     .prologue
@@ -709,14 +709,14 @@
 .end method
 
 .method public setShowRunningNotification(Z)Landroid/app/DownloadManager$Request;
-    .registers 3
+    .locals 1
     .parameter "show"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .prologue
     .line 589
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x0
 
@@ -724,21 +724,21 @@
 
     move-result-object v0
 
-    :goto_7
+    :goto_0
     return-object v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x2
 
     invoke-virtual {p0, v0}, Landroid/app/DownloadManager$Request;->setNotificationVisibility(I)Landroid/app/DownloadManager$Request;
 
     move-result-object v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)Landroid/app/DownloadManager$Request;
-    .registers 2
+    .locals 0
     .parameter "title"
 
     .prologue
@@ -750,7 +750,7 @@
 .end method
 
 .method public setVisibleInDownloadsUi(Z)Landroid/app/DownloadManager$Request;
-    .registers 2
+    .locals 0
     .parameter "isVisible"
 
     .prologue
@@ -762,7 +762,7 @@
 .end method
 
 .method toContentValues(Ljava/lang/String;)Landroid/content/ContentValues;
-    .registers 6
+    .locals 4
     .parameter "packageName"
 
     .prologue
@@ -777,11 +777,11 @@
     .local v0, values:Landroid/content/ContentValues;
     sget-boolean v1, Landroid/app/DownloadManager$Request;->$assertionsDisabled:Z
 
-    if-nez v1, :cond_14
+    if-nez v1, :cond_0
 
     iget-object v1, p0, Landroid/app/DownloadManager$Request;->mUri:Landroid/net/Uri;
 
-    if-nez v1, :cond_14
+    if-nez v1, :cond_0
 
     new-instance v1, Ljava/lang/AssertionError;
 
@@ -790,7 +790,7 @@
     throw v1
 
     .line 668
-    :cond_14
+    :cond_0
     const-string/jumbo v1, "uri"
 
     iget-object v3, p0, Landroid/app/DownloadManager$Request;->mUri:Landroid/net/Uri;
@@ -820,7 +820,7 @@
     .line 672
     iget-object v1, p0, Landroid/app/DownloadManager$Request;->mDestinationUri:Landroid/net/Uri;
 
-    if-eqz v1, :cond_b3
+    if-eqz v1, :cond_3
 
     .line 673
     const-string v1, "destination"
@@ -845,16 +845,16 @@
     invoke-virtual {v0, v1, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 682
-    :goto_49
+    :goto_0
     const-string/jumbo v1, "scanned"
 
     iget-boolean v3, p0, Landroid/app/DownloadManager$Request;->mScannable:Z
 
-    if-eqz v3, :cond_51
+    if-eqz v3, :cond_1
 
     const/4 v2, 0x0
 
-    :cond_51
+    :cond_1
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -868,13 +868,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_63
+    if-nez v1, :cond_2
 
     .line 686
     invoke-direct {p0, v0}, Landroid/app/DownloadManager$Request;->encodeHttpHeaders(Landroid/content/ContentValues;)V
 
     .line 689
-    :cond_63
+    :cond_2
     const-string/jumbo v1, "title"
 
     iget-object v2, p0, Landroid/app/DownloadManager$Request;->mTitle:Ljava/lang/CharSequence;
@@ -954,26 +954,26 @@
     return-object v0
 
     .line 676
-    :cond_b3
+    :cond_3
     const-string v3, "destination"
 
     iget-boolean v1, p0, Landroid/app/DownloadManager$Request;->mUseSystemCache:Z
 
-    if-eqz v1, :cond_c2
+    if-eqz v1, :cond_4
 
     const/4 v1, 0x5
 
-    :goto_ba
+    :goto_1
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
     invoke-virtual {v0, v3, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    goto :goto_49
+    goto :goto_0
 
-    :cond_c2
+    :cond_4
     move v1, v2
 
-    goto :goto_ba
+    goto :goto_1
 .end method

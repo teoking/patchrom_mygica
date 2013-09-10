@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/SerializedFrame;I)V
-    .registers 5
+    .locals 2
     .parameter
     .parameter "size"
 
@@ -59,7 +59,7 @@
 .end method
 
 .method private final ensureFit(I)V
-    .registers 6
+    .locals 4
     .parameter "bytesToWrite"
 
     .prologue
@@ -74,7 +74,7 @@
 
     array-length v2, v2
 
-    if-le v1, v2, :cond_22
+    if-le v1, v2, :cond_0
 
     .line 72
     iget-object v0, p0, Landroid/filterfw/core/SerializedFrame$DirectByteOutputStream;->mBuffer:[B
@@ -108,14 +108,14 @@
 
     .line 77
     .end local v0           #oldBuffer:[B
-    :cond_22
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public getByteArray()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 88
@@ -125,7 +125,7 @@
 .end method
 
 .method public final getInputStream()Landroid/filterfw/core/SerializedFrame$DirectByteInputStream;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 114
@@ -143,7 +143,7 @@
 .end method
 
 .method public final getSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84
@@ -153,7 +153,7 @@
 .end method
 
 .method public final markHeaderEnd()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 80
@@ -166,7 +166,7 @@
 .end method
 
 .method public final reset()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 110
@@ -179,7 +179,7 @@
 .end method
 
 .method public final write(I)V
-    .registers 5
+    .locals 3
     .parameter "b"
 
     .prologue
@@ -206,7 +206,7 @@
 .end method
 
 .method public final write([B)V
-    .registers 4
+    .locals 2
     .parameter "b"
 
     .prologue
@@ -222,7 +222,7 @@
 .end method
 
 .method public final write([BII)V
-    .registers 6
+    .locals 2
     .parameter "b"
     .parameter "off"
     .parameter "len"

@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1436
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public queueIdle()Z
-    .registers 7
+    .locals 6
 
     .prologue
     .line 1438
@@ -51,7 +51,7 @@
 
     cmp-long v2, v2, v4
 
-    if-lez v2, :cond_16
+    if-lez v2, :cond_0
 
     .line 1440
     invoke-static {v0, v1}, Landroid/os/StrictMode;->access$1502(J)J
@@ -60,7 +60,7 @@
     invoke-static {}, Landroid/os/StrictMode;->conditionallyCheckInstanceCounts()V
 
     .line 1443
-    :cond_16
+    :cond_0
     const/4 v2, 0x1
 
     return v2

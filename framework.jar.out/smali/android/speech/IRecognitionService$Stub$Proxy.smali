@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 97
@@ -50,7 +50,7 @@
 .end method
 
 .method public cancel(Landroid/speech/IRecognitionListener;)V
-    .registers 7
+    .locals 5
     .parameter "listener"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -68,19 +68,19 @@
 
     .line 160
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "android.speech.IRecognitionService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 161
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/speech/IRecognitionListener;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    :cond_10
+    :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 162
@@ -93,8 +93,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1b
-    .catchall {:try_start_5 .. :try_end_1b} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 165
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -103,7 +103,7 @@
     return-void
 
     .line 165
-    :catchall_1f
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -112,7 +112,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 101
@@ -122,7 +122,7 @@
 .end method
 
 .method public startListening(Landroid/content/Intent;Landroid/speech/IRecognitionListener;)V
-    .registers 8
+    .locals 5
     .parameter "recognizerIntent"
     .parameter "listener"
     .annotation system Ldalvik/annotation/Throws;
@@ -141,13 +141,13 @@
 
     .line 117
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "android.speech.IRecognitionService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 118
-    if-eqz p1, :cond_29
+    if-eqz p1, :cond_1
 
     .line 119
     const/4 v2, 0x1
@@ -160,14 +160,14 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 125
-    :goto_14
-    if-eqz p2, :cond_1a
+    :goto_0
+    if-eqz p2, :cond_0
 
     invoke-interface {p2}, Landroid/speech/IRecognitionListener;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    :cond_1a
+    :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 126
@@ -180,8 +180,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_25
-    .catchall {:try_start_5 .. :try_end_25} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 129
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -190,18 +190,18 @@
     return-void
 
     .line 123
-    :cond_29
+    :cond_1
     const/4 v2, 0x0
 
-    :try_start_2a
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2d
-    .catchall {:try_start_2a .. :try_end_2d} :catchall_2e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_14
+    goto :goto_0
 
     .line 129
-    :catchall_2e
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -210,7 +210,7 @@
 .end method
 
 .method public stopListening(Landroid/speech/IRecognitionListener;)V
-    .registers 7
+    .locals 5
     .parameter "listener"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -228,19 +228,19 @@
 
     .line 143
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "android.speech.IRecognitionService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 144
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/speech/IRecognitionListener;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    :cond_10
+    :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 145
@@ -253,8 +253,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1b
-    .catchall {:try_start_5 .. :try_end_1b} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 148
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -263,7 +263,7 @@
     return-void
 
     .line 148
-    :catchall_1f
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V

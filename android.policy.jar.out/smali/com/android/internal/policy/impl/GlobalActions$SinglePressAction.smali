@@ -27,7 +27,7 @@
 
 # direct methods
 .method protected constructor <init>(II)V
-    .registers 4
+    .locals 1
     .parameter "iconResId"
     .parameter "messageResId"
 
@@ -51,7 +51,7 @@
 .end method
 
 .method protected constructor <init>(ILjava/lang/CharSequence;)V
-    .registers 4
+    .locals 1
     .parameter "iconResId"
     .parameter "message"
 
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public create(Landroid/content/Context;Landroid/view/View;Landroid/view/ViewGroup;Landroid/view/LayoutInflater;)Landroid/view/View;
-    .registers 10
+    .locals 5
     .parameter "context"
     .parameter "convertView"
     .parameter "parent"
@@ -141,7 +141,7 @@
     .line 476
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessage:Ljava/lang/CharSequence;
 
-    if-eqz v3, :cond_3d
+    if-eqz v3, :cond_0
 
     .line 477
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessage:Ljava/lang/CharSequence;
@@ -149,20 +149,20 @@
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 482
-    :goto_3c
+    :goto_0
     return-object v2
 
     .line 479
-    :cond_3d
+    :cond_0
     iget v3, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessageResId:I
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(I)V
 
-    goto :goto_3c
+    goto :goto_0
 .end method
 
 .method public isEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 457
@@ -172,7 +172,7 @@
 .end method
 
 .method public onLongPress()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 463

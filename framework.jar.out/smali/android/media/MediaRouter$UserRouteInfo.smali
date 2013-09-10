@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/MediaRouter$RouteCategory;)V
-    .registers 3
+    .locals 1
     .parameter "category"
 
     .prologue
@@ -47,7 +47,7 @@
 .end method
 
 .method private setPlaybackInfoOnRcc(II)V
-    .registers 4
+    .locals 1
     .parameter "what"
     .parameter "value"
 
@@ -55,7 +55,7 @@
     .line 1124
     iget-object v0, p0, Landroid/media/MediaRouter$UserRouteInfo;->mRcc:Landroid/media/RemoteControlClient;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 1125
     iget-object v0, p0, Landroid/media/MediaRouter$UserRouteInfo;->mRcc:Landroid/media/RemoteControlClient;
@@ -63,18 +63,18 @@
     invoke-virtual {v0, p1, p2}, Landroid/media/RemoteControlClient;->setPlaybackInformation(II)V
 
     .line 1127
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method private updatePlaybackInfoOnRcc()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 1102
     iget-object v1, p0, Landroid/media/MediaRouter$UserRouteInfo;->mRcc:Landroid/media/RemoteControlClient;
 
-    if-eqz v1, :cond_44
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/media/MediaRouter$UserRouteInfo;->mRcc:Landroid/media/RemoteControlClient;
 
@@ -84,7 +84,7 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_44
+    if-eq v1, v2, :cond_0
 
     .line 1103
     iget-object v1, p0, Landroid/media/MediaRouter$UserRouteInfo;->mRcc:Landroid/media/RemoteControlClient;
@@ -132,7 +132,7 @@
     invoke-virtual {v1, v2, v3}, Landroid/media/RemoteControlClient;->setPlaybackInformation(II)V
 
     .line 1115
-    :try_start_35
+    :try_start_0
     sget-object v1, Landroid/media/MediaRouter;->sStatic:Landroid/media/MediaRouter$Static;
 
     iget-object v1, v1, Landroid/media/MediaRouter$Static;->mAudioService:Landroid/media/IAudioService;
@@ -146,16 +146,16 @@
     iget-object v3, p0, Landroid/media/MediaRouter$RouteInfo;->mRemoteVolObserver:Landroid/media/IRemoteVolumeObserver$Stub;
 
     invoke-interface {v1, v2, v3}, Landroid/media/IAudioService;->registerRemoteVolumeObserverForRcc(ILandroid/media/IRemoteVolumeObserver;)V
-    :try_end_44
-    .catch Landroid/os/RemoteException; {:try_start_35 .. :try_end_44} :catch_45
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1121
-    :cond_44
-    :goto_44
+    :cond_0
+    :goto_0
     return-void
 
     .line 1117
-    :catch_45
+    :catch_0
     move-exception v0
 
     .line 1118
@@ -166,13 +166,13 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_44
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getRemoteControlClient()Landroid/media/RemoteControlClient;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 980
@@ -182,7 +182,7 @@
 .end method
 
 .method public requestSetVolume(I)V
-    .registers 4
+    .locals 2
     .parameter "volume"
 
     .prologue
@@ -191,12 +191,12 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_10
+    if-ne v0, v1, :cond_0
 
     .line 1058
     iget-object v0, p0, Landroid/media/MediaRouter$RouteInfo;->mVcb:Landroid/media/MediaRouter$VolumeCallbackInfo;
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_1
 
     .line 1059
     const-string v0, "MediaRouter"
@@ -206,23 +206,23 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1064
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     return-void
 
     .line 1062
-    :cond_11
+    :cond_1
     iget-object v0, p0, Landroid/media/MediaRouter$RouteInfo;->mVcb:Landroid/media/MediaRouter$VolumeCallbackInfo;
 
     iget-object v0, v0, Landroid/media/MediaRouter$VolumeCallbackInfo;->vcb:Landroid/media/MediaRouter$VolumeCallback;
 
     invoke-virtual {v0, p0, p1}, Landroid/media/MediaRouter$VolumeCallback;->onVolumeSetRequest(Landroid/media/MediaRouter$RouteInfo;I)V
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public requestUpdateVolume(I)V
-    .registers 4
+    .locals 2
     .parameter "direction"
 
     .prologue
@@ -231,12 +231,12 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_10
+    if-ne v0, v1, :cond_0
 
     .line 1069
     iget-object v0, p0, Landroid/media/MediaRouter$RouteInfo;->mVcb:Landroid/media/MediaRouter$VolumeCallbackInfo;
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_1
 
     .line 1070
     const-string v0, "MediaRouter"
@@ -246,23 +246,23 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1075
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     return-void
 
     .line 1073
-    :cond_11
+    :cond_1
     iget-object v0, p0, Landroid/media/MediaRouter$RouteInfo;->mVcb:Landroid/media/MediaRouter$VolumeCallbackInfo;
 
     iget-object v0, v0, Landroid/media/MediaRouter$VolumeCallbackInfo;->vcb:Landroid/media/MediaRouter$VolumeCallback;
 
     invoke-virtual {v0, p0, p1}, Landroid/media/MediaRouter$VolumeCallback;->onVolumeUpdateRequest(Landroid/media/MediaRouter$RouteInfo;I)V
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public setIconDrawable(Landroid/graphics/drawable/Drawable;)V
-    .registers 2
+    .locals 0
     .parameter "icon"
 
     .prologue
@@ -274,7 +274,7 @@
 .end method
 
 .method public setIconResource(I)V
-    .registers 3
+    .locals 1
     .parameter "resId"
 
     .prologue
@@ -294,7 +294,7 @@
 .end method
 
 .method public setName(I)V
-    .registers 3
+    .locals 1
     .parameter "resId"
 
     .prologue
@@ -314,7 +314,7 @@
 .end method
 
 .method public setName(Ljava/lang/CharSequence;)V
-    .registers 2
+    .locals 0
     .parameter "name"
 
     .prologue
@@ -329,14 +329,14 @@
 .end method
 
 .method public setPlaybackStream(I)V
-    .registers 3
+    .locals 1
     .parameter "stream"
 
     .prologue
     .line 1095
     iget v0, p0, Landroid/media/MediaRouter$RouteInfo;->mPlaybackStream:I
 
-    if-eq v0, p1, :cond_a
+    if-eq v0, p1, :cond_0
 
     .line 1096
     iput p1, p0, Landroid/media/MediaRouter$RouteInfo;->mPlaybackStream:I
@@ -347,19 +347,19 @@
     invoke-direct {p0, v0, p1}, Landroid/media/MediaRouter$UserRouteInfo;->setPlaybackInfoOnRcc(II)V
 
     .line 1099
-    :cond_a
+    :cond_0
     return-void
 .end method
 
 .method public setPlaybackType(I)V
-    .registers 3
+    .locals 1
     .parameter "type"
 
     .prologue
     .line 1018
     iget v0, p0, Landroid/media/MediaRouter$RouteInfo;->mPlaybackType:I
 
-    if-eq v0, p1, :cond_a
+    if-eq v0, p1, :cond_0
 
     .line 1019
     iput p1, p0, Landroid/media/MediaRouter$RouteInfo;->mPlaybackType:I
@@ -370,12 +370,12 @@
     invoke-direct {p0, v0, p1}, Landroid/media/MediaRouter$UserRouteInfo;->setPlaybackInfoOnRcc(II)V
 
     .line 1022
-    :cond_a
+    :cond_0
     return-void
 .end method
 
 .method public setRemoteControlClient(Landroid/media/RemoteControlClient;)V
-    .registers 2
+    .locals 0
     .parameter "rcc"
 
     .prologue
@@ -390,7 +390,7 @@
 .end method
 
 .method public setStatus(Ljava/lang/CharSequence;)V
-    .registers 2
+    .locals 0
     .parameter "status"
 
     .prologue
@@ -402,7 +402,7 @@
 .end method
 
 .method public setVolume(I)V
-    .registers 4
+    .locals 2
     .parameter "volume"
 
     .prologue
@@ -424,7 +424,7 @@
     .line 1045
     iget v0, p0, Landroid/media/MediaRouter$RouteInfo;->mVolume:I
 
-    if-eq v0, p1, :cond_23
+    if-eq v0, p1, :cond_0
 
     .line 1046
     iput p1, p0, Landroid/media/MediaRouter$RouteInfo;->mVolume:I
@@ -440,7 +440,7 @@
     .line 1049
     iget-object v0, p0, Landroid/media/MediaRouter$RouteInfo;->mGroup:Landroid/media/MediaRouter$RouteGroup;
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     .line 1050
     iget-object v0, p0, Landroid/media/MediaRouter$RouteInfo;->mGroup:Landroid/media/MediaRouter$RouteGroup;
@@ -448,12 +448,12 @@
     invoke-virtual {v0, p0}, Landroid/media/MediaRouter$RouteGroup;->memberVolumeChanged(Landroid/media/MediaRouter$RouteInfo;)V
 
     .line 1053
-    :cond_23
+    :cond_0
     return-void
 .end method
 
 .method public setVolumeCallback(Landroid/media/MediaRouter$VolumeCallback;)V
-    .registers 3
+    .locals 1
     .parameter "vcb"
 
     .prologue
@@ -469,14 +469,14 @@
 .end method
 
 .method public setVolumeHandling(I)V
-    .registers 3
+    .locals 1
     .parameter "volumeHandling"
 
     .prologue
     .line 1031
     iget v0, p0, Landroid/media/MediaRouter$RouteInfo;->mVolumeHandling:I
 
-    if-eq v0, p1, :cond_a
+    if-eq v0, p1, :cond_0
 
     .line 1032
     iput p1, p0, Landroid/media/MediaRouter$RouteInfo;->mVolumeHandling:I
@@ -487,19 +487,19 @@
     invoke-direct {p0, v0, p1}, Landroid/media/MediaRouter$UserRouteInfo;->setPlaybackInfoOnRcc(II)V
 
     .line 1036
-    :cond_a
+    :cond_0
     return-void
 .end method
 
 .method public setVolumeMax(I)V
-    .registers 3
+    .locals 1
     .parameter "volumeMax"
 
     .prologue
     .line 1084
     iget v0, p0, Landroid/media/MediaRouter$RouteInfo;->mVolumeMax:I
 
-    if-eq v0, p1, :cond_a
+    if-eq v0, p1, :cond_0
 
     .line 1085
     iput p1, p0, Landroid/media/MediaRouter$RouteInfo;->mVolumeMax:I
@@ -510,6 +510,6 @@
     invoke-direct {p0, v0, p1}, Landroid/media/MediaRouter$UserRouteInfo;->setPlaybackInfoOnRcc(II)V
 
     .line 1088
-    :cond_a
+    :cond_0
     return-void
 .end method

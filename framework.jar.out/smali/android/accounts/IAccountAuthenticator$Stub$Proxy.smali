@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public addAccount(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;)V
-    .registers 11
+    .locals 5
     .parameter "response"
     .parameter "accountType"
     .parameter "authTokenType"
@@ -62,19 +62,19 @@
 
     .line 217
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "android.accounts.IAccountAuthenticator"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 218
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/accounts/IAccountAuthenticatorResponse;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    :cond_10
+    :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 219
@@ -87,7 +87,7 @@
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
     .line 222
-    if-eqz p5, :cond_32
+    if-eqz p5, :cond_1
 
     .line 223
     const/4 v1, 0x1
@@ -100,7 +100,7 @@
     invoke-virtual {p5, v0, v1}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 229
-    :goto_26
+    :goto_0
     iget-object v1, p0, Landroid/accounts/IAccountAuthenticator$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x1
@@ -110,8 +110,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_2e
-    .catchall {:try_start_5 .. :try_end_2e} :catchall_37
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 232
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -120,18 +120,18 @@
     return-void
 
     .line 227
-    :cond_32
+    :cond_1
     const/4 v1, 0x0
 
-    :try_start_33
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_36
-    .catchall {:try_start_33 .. :try_end_36} :catchall_37
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_26
+    goto :goto_0
 
     .line 232
-    :catchall_37
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -140,7 +140,7 @@
 .end method
 
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 204
@@ -150,7 +150,7 @@
 .end method
 
 .method public confirmCredentials(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;Landroid/os/Bundle;)V
-    .registers 9
+    .locals 5
     .parameter "response"
     .parameter "account"
     .parameter "options"
@@ -170,23 +170,23 @@
 
     .line 242
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "android.accounts.IAccountAuthenticator"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 243
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/accounts/IAccountAuthenticatorResponse;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    :cond_10
+    :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 244
-    if-eqz p2, :cond_33
+    if-eqz p2, :cond_1
 
     .line 245
     const/4 v1, 0x1
@@ -199,8 +199,8 @@
     invoke-virtual {p2, v0, v1}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 251
-    :goto_1d
-    if-eqz p3, :cond_3d
+    :goto_0
+    if-eqz p3, :cond_2
 
     .line 252
     const/4 v1, 0x1
@@ -213,7 +213,7 @@
     invoke-virtual {p3, v0, v1}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 258
-    :goto_27
+    :goto_1
     iget-object v1, p0, Landroid/accounts/IAccountAuthenticator$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x2
@@ -223,8 +223,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_2f
-    .catchall {:try_start_5 .. :try_end_2f} :catchall_38
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 261
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -233,18 +233,18 @@
     return-void
 
     .line 249
-    :cond_33
+    :cond_1
     const/4 v1, 0x0
 
-    :try_start_34
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_37
-    .catchall {:try_start_34 .. :try_end_37} :catchall_38
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 261
-    :catchall_38
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -252,19 +252,19 @@
     throw v1
 
     .line 256
-    :cond_3d
+    :cond_2
     const/4 v1, 0x0
 
-    :try_start_3e
+    :try_start_2
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_41
-    .catchall {:try_start_3e .. :try_end_41} :catchall_38
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_27
+    goto :goto_1
 .end method
 
 .method public editProperties(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "response"
     .parameter "accountType"
     .annotation system Ldalvik/annotation/Throws;
@@ -283,19 +283,19 @@
 
     .line 347
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "android.accounts.IAccountAuthenticator"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 348
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/accounts/IAccountAuthenticatorResponse;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    :cond_10
+    :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 349
@@ -311,8 +311,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1e
-    .catchall {:try_start_5 .. :try_end_1e} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 353
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -321,7 +321,7 @@
     return-void
 
     .line 353
-    :catchall_22
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -330,7 +330,7 @@
 .end method
 
 .method public getAccountRemovalAllowed(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;)V
-    .registers 8
+    .locals 5
     .parameter "response"
     .parameter "account"
     .annotation system Ldalvik/annotation/Throws;
@@ -349,23 +349,23 @@
 
     .line 387
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "android.accounts.IAccountAuthenticator"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 388
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/accounts/IAccountAuthenticatorResponse;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    :cond_10
+    :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 389
-    if-eqz p2, :cond_2a
+    if-eqz p2, :cond_1
 
     .line 390
     const/4 v1, 0x1
@@ -378,7 +378,7 @@
     invoke-virtual {p2, v0, v1}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 396
-    :goto_1d
+    :goto_0
     iget-object v1, p0, Landroid/accounts/IAccountAuthenticator$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v2, 0x8
@@ -388,8 +388,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_26
-    .catchall {:try_start_5 .. :try_end_26} :catchall_2f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 399
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -398,18 +398,18 @@
     return-void
 
     .line 394
-    :cond_2a
+    :cond_1
     const/4 v1, 0x0
 
-    :try_start_2b
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2e
-    .catchall {:try_start_2b .. :try_end_2e} :catchall_2f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 399
-    :catchall_2f
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -418,7 +418,7 @@
 .end method
 
 .method public getAuthToken(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)V
-    .registers 10
+    .locals 5
     .parameter "response"
     .parameter "account"
     .parameter "authTokenType"
@@ -439,23 +439,23 @@
 
     .line 271
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "android.accounts.IAccountAuthenticator"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 272
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/accounts/IAccountAuthenticatorResponse;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    :cond_10
+    :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 273
-    if-eqz p2, :cond_36
+    if-eqz p2, :cond_1
 
     .line 274
     const/4 v1, 0x1
@@ -468,11 +468,11 @@
     invoke-virtual {p2, v0, v1}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 280
-    :goto_1d
+    :goto_0
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 281
-    if-eqz p4, :cond_40
+    if-eqz p4, :cond_2
 
     .line 282
     const/4 v1, 0x1
@@ -485,7 +485,7 @@
     invoke-virtual {p4, v0, v1}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 288
-    :goto_2a
+    :goto_1
     iget-object v1, p0, Landroid/accounts/IAccountAuthenticator$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x3
@@ -495,8 +495,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_32
-    .catchall {:try_start_5 .. :try_end_32} :catchall_3b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 291
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -505,18 +505,18 @@
     return-void
 
     .line 278
-    :cond_36
+    :cond_1
     const/4 v1, 0x0
 
-    :try_start_37
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_3a
-    .catchall {:try_start_37 .. :try_end_3a} :catchall_3b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 291
-    :catchall_3b
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -524,19 +524,19 @@
     throw v1
 
     .line 286
-    :cond_40
+    :cond_2
     const/4 v1, 0x0
 
-    :try_start_41
+    :try_start_2
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_44
-    .catchall {:try_start_41 .. :try_end_44} :catchall_3b
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_2a
+    goto :goto_1
 .end method
 
 .method public getAuthTokenLabel(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "response"
     .parameter "authTokenType"
     .annotation system Ldalvik/annotation/Throws;
@@ -555,19 +555,19 @@
 
     .line 301
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "android.accounts.IAccountAuthenticator"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 302
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/accounts/IAccountAuthenticatorResponse;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    :cond_10
+    :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 303
@@ -583,8 +583,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1e
-    .catchall {:try_start_5 .. :try_end_1e} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 307
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -593,7 +593,7 @@
     return-void
 
     .line 307
-    :catchall_22
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -602,7 +602,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 208
@@ -612,7 +612,7 @@
 .end method
 
 .method public hasFeatures(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;[Ljava/lang/String;)V
-    .registers 9
+    .locals 5
     .parameter "response"
     .parameter "account"
     .parameter "features"
@@ -632,23 +632,23 @@
 
     .line 364
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "android.accounts.IAccountAuthenticator"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 365
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/accounts/IAccountAuthenticatorResponse;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    :cond_10
+    :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 366
-    if-eqz p2, :cond_2c
+    if-eqz p2, :cond_1
 
     .line 367
     const/4 v1, 0x1
@@ -661,7 +661,7 @@
     invoke-virtual {p2, v0, v1}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 373
-    :goto_1d
+    :goto_0
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
     .line 374
@@ -674,8 +674,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_28
-    .catchall {:try_start_5 .. :try_end_28} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 377
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -684,18 +684,18 @@
     return-void
 
     .line 371
-    :cond_2c
+    :cond_1
     const/4 v1, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 377
-    :catchall_31
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -704,7 +704,7 @@
 .end method
 
 .method public updateCredentials(Landroid/accounts/IAccountAuthenticatorResponse;Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)V
-    .registers 10
+    .locals 5
     .parameter "response"
     .parameter "account"
     .parameter "authTokenType"
@@ -725,23 +725,23 @@
 
     .line 317
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "android.accounts.IAccountAuthenticator"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 318
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/accounts/IAccountAuthenticatorResponse;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    :cond_10
+    :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 319
-    if-eqz p2, :cond_36
+    if-eqz p2, :cond_1
 
     .line 320
     const/4 v1, 0x1
@@ -754,11 +754,11 @@
     invoke-virtual {p2, v0, v1}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 326
-    :goto_1d
+    :goto_0
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 327
-    if-eqz p4, :cond_40
+    if-eqz p4, :cond_2
 
     .line 328
     const/4 v1, 0x1
@@ -771,7 +771,7 @@
     invoke-virtual {p4, v0, v1}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 334
-    :goto_2a
+    :goto_1
     iget-object v1, p0, Landroid/accounts/IAccountAuthenticator$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x5
@@ -781,8 +781,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_32
-    .catchall {:try_start_5 .. :try_end_32} :catchall_3b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 337
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -791,18 +791,18 @@
     return-void
 
     .line 324
-    :cond_36
+    :cond_1
     const/4 v1, 0x0
 
-    :try_start_37
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_3a
-    .catchall {:try_start_37 .. :try_end_3a} :catchall_3b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 337
-    :catchall_3b
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -810,13 +810,13 @@
     throw v1
 
     .line 332
-    :cond_40
+    :cond_2
     const/4 v1, 0x0
 
-    :try_start_41
+    :try_start_2
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_44
-    .catchall {:try_start_41 .. :try_end_44} :catchall_3b
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_2a
+    goto :goto_1
 .end method

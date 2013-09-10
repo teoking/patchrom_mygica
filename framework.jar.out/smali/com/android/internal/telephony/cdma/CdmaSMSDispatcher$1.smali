@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 17
+    .locals 14
     .parameter "context"
     .parameter "intent"
 
@@ -49,19 +49,19 @@
     .local v7, rc:I
     const/4 v11, -0x1
 
-    if-eq v7, v11, :cond_a
+    if-eq v7, v11, :cond_0
 
     const/4 v11, 0x1
 
-    if-ne v7, v11, :cond_26
+    if-ne v7, v11, :cond_1
 
-    :cond_a
+    :cond_0
     const/4 v10, 0x1
 
     .line 442
     .local v10, success:Z
-    :goto_b
-    if-nez v10, :cond_28
+    :goto_0
+    if-nez v10, :cond_2
 
     .line 443
     const-string v11, "CDMA"
@@ -87,19 +87,19 @@
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 499
-    :goto_25
+    :goto_1
     return-void
 
     .line 441
     .end local v10           #success:Z
-    :cond_26
+    :cond_1
     const/4 v10, 0x0
 
-    goto :goto_b
+    goto :goto_0
 
     .line 446
     .restart local v10       #success:Z
-    :cond_28
+    :cond_2
     const/4 v11, 0x0
 
     invoke-virtual {p0, v11}, Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher$1;->getResultExtras(Z)Landroid/os/Bundle;
@@ -108,7 +108,7 @@
 
     .line 447
     .local v6, extras:Landroid/os/Bundle;
-    if-nez v6, :cond_37
+    if-nez v6, :cond_3
 
     .line 448
     const-string v11, "CDMA"
@@ -117,10 +117,10 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_25
+    goto :goto_1
 
     .line 451
-    :cond_37
+    :cond_3
     const-string/jumbo v11, "sender"
 
     invoke-virtual {v6, v11}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -129,7 +129,7 @@
 
     .line 452
     .local v9, sender:Ljava/lang/String;
-    if-nez v9, :cond_48
+    if-nez v9, :cond_4
 
     .line 453
     const-string v11, "CDMA"
@@ -138,10 +138,10 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_25
+    goto :goto_1
 
     .line 456
-    :cond_48
+    :cond_4
     const-string/jumbo v11, "results"
 
     invoke-virtual {v6, v11}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
@@ -150,7 +150,7 @@
 
     .line 458
     .local v8, results:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/telephony/cdma/CdmaSmsCbProgramResults;>;"
-    if-nez v8, :cond_59
+    if-nez v8, :cond_5
 
     .line 459
     const-string v11, "CDMA"
@@ -159,10 +159,10 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_25
+    goto :goto_1
 
     .line 463
-    :cond_59
+    :cond_5
     new-instance v0, Lcom/android/internal/telephony/cdma/sms/BearerData;
 
     invoke-direct {v0}, Lcom/android/internal/telephony/cdma/sms/BearerData;-><init>()V
@@ -206,7 +206,7 @@
     .local v3, dos:Ljava/io/DataOutputStream;
     const/16 v11, 0x1006
 
-    :try_start_7b
+    :try_start_0
     invoke-virtual {v3, v11}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 473
@@ -295,6 +295,7 @@
     .line 490
     iget-object v11, p0, Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;
 
+    #getter for: Lcom/android/internal/telephony/SMSDispatcher;->mCm:Lcom/android/internal/telephony/CommandsInterface;
     invoke-static {v11}, Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;->access$000(Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;)Lcom/android/internal/telephony/CommandsInterface;
 
     move-result-object v11
@@ -306,66 +307,66 @@
     const/4 v13, 0x0
 
     invoke-interface {v11, v12, v13}, Lcom/android/internal/telephony/CommandsInterface;->sendCdmaSms([BLandroid/os/Message;)V
-    :try_end_d3
-    .catchall {:try_start_7b .. :try_end_d3} :catchall_e8
-    .catch Ljava/io/IOException; {:try_start_7b .. :try_end_d3} :catch_db
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 495
-    :try_start_d3
+    :try_start_1
     invoke-virtual {v3}, Ljava/io/DataOutputStream;->close()V
-    :try_end_d6
-    .catch Ljava/io/IOException; {:try_start_d3 .. :try_end_d6} :catch_d8
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto/16 :goto_25
+    goto/16 :goto_1
 
     .line 496
     .end local v2           #destAddr:Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;
-    :catch_d8
+    :catch_0
     move-exception v11
 
-    goto/16 :goto_25
+    goto/16 :goto_1
 
     .line 491
-    :catch_db
+    :catch_1
     move-exception v4
 
     .line 492
     .local v4, e:Ljava/io/IOException;
-    :try_start_dc
+    :try_start_2
     const-string v11, "CDMA"
 
     const-string v12, "exception creating SCP results PDU"
 
     invoke-static {v11, v12, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_e3
-    .catchall {:try_start_dc .. :try_end_e3} :catchall_e8
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 495
-    :try_start_e3
+    :try_start_3
     invoke-virtual {v3}, Ljava/io/DataOutputStream;->close()V
-    :try_end_e6
-    .catch Ljava/io/IOException; {:try_start_e3 .. :try_end_e6} :catch_d8
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
-    goto/16 :goto_25
+    goto/16 :goto_1
 
     .line 494
     .end local v4           #e:Ljava/io/IOException;
-    :catchall_e8
+    :catchall_0
     move-exception v11
 
     .line 495
-    :try_start_e9
+    :try_start_4
     invoke-virtual {v3}, Ljava/io/DataOutputStream;->close()V
-    :try_end_ec
-    .catch Ljava/io/IOException; {:try_start_e9 .. :try_end_ec} :catch_ed
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
 
     .line 494
-    :goto_ec
+    :goto_2
     throw v11
 
     .line 496
-    :catch_ed
+    :catch_2
     move-exception v12
 
-    goto :goto_ec
+    goto :goto_2
 .end method

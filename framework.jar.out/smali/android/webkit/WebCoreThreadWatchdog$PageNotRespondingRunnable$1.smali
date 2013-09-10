@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/WebCoreThreadWatchdog$PageNotRespondingRunnable;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,19 +38,21 @@
 
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
-    .registers 6
+    .locals 4
     .parameter "dialog"
 
     .prologue
     .line 268
     iget-object v0, p0, Landroid/webkit/WebCoreThreadWatchdog$PageNotRespondingRunnable$1;->this$1:Landroid/webkit/WebCoreThreadWatchdog$PageNotRespondingRunnable;
 
+    #getter for: Landroid/webkit/WebCoreThreadWatchdog$PageNotRespondingRunnable;->mWatchdogHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/webkit/WebCoreThreadWatchdog$PageNotRespondingRunnable;->access$400(Landroid/webkit/WebCoreThreadWatchdog$PageNotRespondingRunnable;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/webkit/WebCoreThreadWatchdog$PageNotRespondingRunnable$1;->this$1:Landroid/webkit/WebCoreThreadWatchdog$PageNotRespondingRunnable;
 
+    #getter for: Landroid/webkit/WebCoreThreadWatchdog$PageNotRespondingRunnable;->mWatchdogHandler:Landroid/os/Handler;
     invoke-static {v1}, Landroid/webkit/WebCoreThreadWatchdog$PageNotRespondingRunnable;->access$400(Landroid/webkit/WebCoreThreadWatchdog$PageNotRespondingRunnable;)Landroid/os/Handler;
 
     move-result-object v1

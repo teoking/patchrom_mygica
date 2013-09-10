@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/database/IContentObserver;Landroid/os/IBinder$DeathRecipient;)V
-    .registers 5
+    .locals 2
     .parameter "remoteObserver"
     .parameter "recipient"
 
@@ -34,7 +34,7 @@
     iput-object p1, p0, Landroid/database/CursorToBulkCursorAdaptor$ContentObserverProxy;->mRemote:Landroid/database/IContentObserver;
 
     .line 65
-    :try_start_6
+    :try_start_0
     invoke-interface {p1}, Landroid/database/IContentObserver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v0
@@ -42,24 +42,24 @@
     const/4 v1, 0x0
 
     invoke-interface {v0, p2, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
-    :try_end_e
-    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_e} :catch_f
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 69
-    :goto_e
+    :goto_0
     return-void
 
     .line 66
-    :catch_f
+    :catch_0
     move-exception v0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public deliverSelfNotifications()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 78
@@ -69,7 +69,7 @@
 .end method
 
 .method public onChange(ZLandroid/net/Uri;)V
-    .registers 4
+    .locals 1
     .parameter "selfChange"
     .parameter "uri"
 
@@ -79,22 +79,22 @@
     iget-object v0, p0, Landroid/database/CursorToBulkCursorAdaptor$ContentObserverProxy;->mRemote:Landroid/database/IContentObserver;
 
     invoke-interface {v0, p1, p2}, Landroid/database/IContentObserver;->onChange(ZLandroid/net/Uri;)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 88
-    :goto_5
+    :goto_0
     return-void
 
     .line 85
-    :catch_6
+    :catch_0
     move-exception v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public unlinkToDeath(Landroid/os/IBinder$DeathRecipient;)Z
-    .registers 4
+    .locals 2
     .parameter "recipient"
 
     .prologue

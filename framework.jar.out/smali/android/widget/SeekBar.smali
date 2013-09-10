@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 4
+    .locals 0
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -83,7 +83,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .registers 3
+    .locals 1
     .parameter "info"
 
     .prologue
@@ -104,7 +104,7 @@
 .end method
 
 .method onProgressRefresh(FZ)V
-    .registers 5
+    .locals 2
     .parameter "scale"
     .parameter "fromUser"
 
@@ -115,7 +115,7 @@
     .line 90
     iget-object v0, p0, Landroid/widget/SeekBar;->mOnSeekBarChangeListener:Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 91
     iget-object v0, p0, Landroid/widget/SeekBar;->mOnSeekBarChangeListener:Landroid/widget/SeekBar$OnSeekBarChangeListener;
@@ -127,12 +127,12 @@
     invoke-interface {v0, p0, v1, p2}, Landroid/widget/SeekBar$OnSeekBarChangeListener;->onProgressChanged(Landroid/widget/SeekBar;IZ)V
 
     .line 93
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method onStartTrackingTouch()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 109
@@ -141,7 +141,7 @@
     .line 110
     iget-object v0, p0, Landroid/widget/SeekBar;->mOnSeekBarChangeListener:Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 111
     iget-object v0, p0, Landroid/widget/SeekBar;->mOnSeekBarChangeListener:Landroid/widget/SeekBar$OnSeekBarChangeListener;
@@ -149,12 +149,12 @@
     invoke-interface {v0, p0}, Landroid/widget/SeekBar$OnSeekBarChangeListener;->onStartTrackingTouch(Landroid/widget/SeekBar;)V
 
     .line 113
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method onStopTrackingTouch()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 117
@@ -163,7 +163,7 @@
     .line 118
     iget-object v0, p0, Landroid/widget/SeekBar;->mOnSeekBarChangeListener:Landroid/widget/SeekBar$OnSeekBarChangeListener;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 119
     iget-object v0, p0, Landroid/widget/SeekBar;->mOnSeekBarChangeListener:Landroid/widget/SeekBar$OnSeekBarChangeListener;
@@ -171,12 +171,12 @@
     invoke-interface {v0, p0}, Landroid/widget/SeekBar$OnSeekBarChangeListener;->onStopTrackingTouch(Landroid/widget/SeekBar;)V
 
     .line 121
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
-    .registers 2
+    .locals 0
     .parameter "l"
 
     .prologue

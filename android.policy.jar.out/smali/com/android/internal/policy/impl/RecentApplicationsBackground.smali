@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -66,7 +66,7 @@
 .end method
 
 .method private getChildBounds(Landroid/graphics/Rect;)V
-    .registers 7
+    .locals 5
     .parameter "r"
 
     .prologue
@@ -94,8 +94,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_12
-    if-ge v1, v0, :cond_51
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 149
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/RecentApplicationsBackground;->getChildAt(I)Landroid/view/View;
@@ -108,7 +108,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_4e
+    if-nez v3, :cond_0
 
     .line 151
     iget v3, p1, Landroid/graphics/Rect;->left:I
@@ -163,19 +163,19 @@
     iput v3, p1, Landroid/graphics/Rect;->bottom:I
 
     .line 148
-    :cond_4e
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_12
+    goto :goto_0
 
     .line 157
     .end local v2           #v:Landroid/view/View;
-    :cond_51
+    :cond_1
     return-void
 .end method
 
 .method private init()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -207,7 +207,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .registers 12
+    .locals 10
     .parameter "canvas"
 
     .prologue
@@ -218,12 +218,12 @@
 
     .line 92
     .local v0, background:Landroid/graphics/drawable/Drawable;
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_0
 
     .line 93
     iget-boolean v7, p0, Lcom/android/internal/policy/impl/RecentApplicationsBackground;->mBackgroundSizeChanged:Z
 
-    if-eqz v7, :cond_2b
+    if-eqz v7, :cond_0
 
     .line 94
     iput-boolean v9, p0, Lcom/android/internal/policy/impl/RecentApplicationsBackground;->mBackgroundSizeChanged:Z
@@ -280,7 +280,7 @@
     .end local v4           #left:I
     .end local v5           #right:I
     .end local v6           #top:I
-    :cond_2b
+    :cond_0
     iget-object v7, p0, Lcom/android/internal/policy/impl/RecentApplicationsBackground;->mBackground:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v7, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
@@ -298,7 +298,7 @@
 .end method
 
 .method protected drawableStateChanged()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 82
@@ -306,13 +306,13 @@
 
     .line 83
     .local v0, d:Landroid/graphics/drawable/Drawable;
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->isStateful()Z
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_0
 
     .line 84
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/RecentApplicationsBackground;->getDrawableState()[I
@@ -322,7 +322,7 @@
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
     .line 86
-    :cond_11
+    :cond_0
     invoke-super {p0}, Landroid/widget/LinearLayout;->drawableStateChanged()V
 
     .line 87
@@ -330,7 +330,7 @@
 .end method
 
 .method public jumpDrawablesToCurrentState()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -339,19 +339,19 @@
     .line 77
     iget-object v0, p0, Lcom/android/internal/policy/impl/RecentApplicationsBackground;->mBackground:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/RecentApplicationsBackground;->mBackground:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->jumpToCurrentState()V
 
     .line 78
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method protected onAttachedToWindow()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 133
@@ -372,7 +372,7 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 140
@@ -390,7 +390,7 @@
 .end method
 
 .method protected setFrame(IIII)Z
-    .registers 6
+    .locals 1
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -405,28 +405,28 @@
     .line 63
     iget v0, p0, Lcom/android/internal/policy/impl/RecentApplicationsBackground;->mLeft:I
 
-    if-ne v0, p1, :cond_14
+    if-ne v0, p1, :cond_0
 
     iget v0, p0, Lcom/android/internal/policy/impl/RecentApplicationsBackground;->mRight:I
 
-    if-ne v0, p3, :cond_14
+    if-ne v0, p3, :cond_0
 
     iget v0, p0, Lcom/android/internal/policy/impl/RecentApplicationsBackground;->mTop:I
 
-    if-ne v0, p2, :cond_14
+    if-ne v0, p2, :cond_0
 
     iget v0, p0, Lcom/android/internal/policy/impl/RecentApplicationsBackground;->mBottom:I
 
-    if-eq v0, p4, :cond_17
+    if-eq v0, p4, :cond_1
 
     .line 64
-    :cond_14
+    :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/RecentApplicationsBackground;->mBackgroundSizeChanged:Z
 
     .line 66
-    :cond_17
+    :cond_1
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/LinearLayout;->setFrame(IIII)Z
 
     move-result v0
@@ -435,29 +435,29 @@
 .end method
 
 .method protected verifyDrawable(Landroid/graphics/drawable/Drawable;)Z
-    .registers 3
+    .locals 1
     .parameter "who"
 
     .prologue
     .line 71
     iget-object v0, p0, Lcom/android/internal/policy/impl/RecentApplicationsBackground;->mBackground:Landroid/graphics/drawable/Drawable;
 
-    if-eq p1, v0, :cond_a
+    if-eq p1, v0, :cond_0
 
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->verifyDrawable(Landroid/graphics/drawable/Drawable;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_1
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method

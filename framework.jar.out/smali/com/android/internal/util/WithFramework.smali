@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 25
@@ -15,7 +15,7 @@
 .end method
 
 .method public static main([Ljava/lang/String;)V
-    .registers 9
+    .locals 8
     .parameter "args"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -31,17 +31,17 @@
     .line 31
     array-length v3, p0
 
-    if-nez v3, :cond_9
+    if-nez v3, :cond_0
 
     .line 32
     invoke-static {}, Lcom/android/internal/util/WithFramework;->printUsage()V
 
     .line 47
-    :goto_8
+    :goto_0
     return-void
 
     .line 36
-    :cond_9
+    :cond_0
     aget-object v3, p0, v6
 
     invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
@@ -59,7 +59,7 @@
 
     move-result v3
 
-    if-gez v3, :cond_22
+    if-gez v3, :cond_1
 
     .line 40
     new-instance v3, Ljava/lang/RuntimeException;
@@ -71,7 +71,7 @@
     throw v3
 
     .line 43
-    :cond_22
+    :cond_1
     array-length v3, p0
 
     add-int/lit8 v3, v3, -0x1
@@ -107,11 +107,11 @@
 
     invoke-virtual {v1, v3, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method private static printUsage()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 50

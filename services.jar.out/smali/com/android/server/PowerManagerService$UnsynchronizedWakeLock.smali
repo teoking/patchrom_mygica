@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/PowerManagerService;ILjava/lang/String;Z)V
-    .registers 6
+    .locals 1
     .parameter
     .parameter "flags"
     .parameter "tag"
@@ -72,13 +72,13 @@
 
 # virtual methods
 .method public acquire()V
-    .registers 10
+    .locals 9
 
     .prologue
     .line 382
     iget-boolean v0, p0, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->mRefCounted:Z
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     iget v0, p0, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->mCount:I
 
@@ -86,17 +86,17 @@
 
     iput v1, p0, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->mCount:I
 
-    if-nez v0, :cond_2e
+    if-nez v0, :cond_1
 
     .line 383
-    :cond_c
+    :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v7
 
     .line 385
     .local v7, ident:J
-    :try_start_10
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->this$0:Lcom/android/server/PowerManagerService;
 
     iget v1, p0, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->mFlags:I
@@ -105,12 +105,14 @@
 
     iget-object v3, p0, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->this$0:Lcom/android/server/PowerManagerService;
 
+    #getter for: Lcom/android/server/PowerManagerService;->MY_UID:I
     invoke-static {v3}, Lcom/android/server/PowerManagerService;->access$300(Lcom/android/server/PowerManagerService;)I
 
     move-result v3
 
     iget-object v4, p0, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->this$0:Lcom/android/server/PowerManagerService;
 
+    #getter for: Lcom/android/server/PowerManagerService;->MY_PID:I
     invoke-static {v4}, Lcom/android/server/PowerManagerService;->access$400(Lcom/android/server/PowerManagerService;)I
 
     move-result v4
@@ -125,20 +127,20 @@
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->mHeld:Z
-    :try_end_2b
-    .catchall {:try_start_10 .. :try_end_2b} :catchall_2f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 389
     invoke-static {v7, v8}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     .line 392
     .end local v7           #ident:J
-    :cond_2e
+    :cond_1
     return-void
 
     .line 389
     .restart local v7       #ident:J
-    :catchall_2f
+    :catchall_0
     move-exception v0
 
     invoke-static {v7, v8}, Landroid/os/Binder;->restoreCallingIdentity(J)V
@@ -147,7 +149,7 @@
 .end method
 
 .method public isHeld()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 406
@@ -157,7 +159,7 @@
 .end method
 
 .method public release()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -165,7 +167,7 @@
     .line 395
     iget-boolean v0, p0, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->mRefCounted:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     iget v0, p0, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->mCount:I
 
@@ -173,24 +175,25 @@
 
     iput v0, p0, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->mCount:I
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_1
 
     .line 396
-    :cond_d
+    :cond_0
     iget-object v0, p0, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->this$0:Lcom/android/server/PowerManagerService;
 
     iget-object v1, p0, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->mToken:Landroid/os/IBinder;
 
+    #calls: Lcom/android/server/PowerManagerService;->releaseWakeLockLocked(Landroid/os/IBinder;IZ)V
     invoke-static {v0, v1, v2, v2}, Lcom/android/server/PowerManagerService;->access$500(Lcom/android/server/PowerManagerService;Landroid/os/IBinder;IZ)V
 
     .line 397
     iput-boolean v2, p0, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->mHeld:Z
 
     .line 399
-    :cond_16
+    :cond_1
     iget v0, p0, Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;->mCount:I
 
-    if-gez v0, :cond_35
+    if-gez v0, :cond_2
 
     .line 400
     new-instance v0, Ljava/lang/RuntimeException;
@@ -220,12 +223,12 @@
     throw v0
 
     .line 402
-    :cond_35
+    :cond_2
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 410

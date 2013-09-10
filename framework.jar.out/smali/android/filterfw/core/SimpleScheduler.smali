@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/FilterGraph;)V
-    .registers 2
+    .locals 0
     .parameter "graph"
 
     .prologue
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public reset()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 34
@@ -27,7 +27,7 @@
 .end method
 
 .method public scheduleNextNode()Landroid/filterfw/core/Filter;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 38
@@ -44,12 +44,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :cond_c
+    :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -63,15 +63,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_0
 
     .line 42
     .end local v0           #filter:Landroid/filterfw/core/Filter;
-    :goto_1e
+    :goto_0
     return-object v0
 
-    :cond_1f
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_1e
+    goto :goto_0
 .end method

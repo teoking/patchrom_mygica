@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "fileType"
     .parameter "mimeType"
 

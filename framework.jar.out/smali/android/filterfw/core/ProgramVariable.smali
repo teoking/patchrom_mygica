@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/Program;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "program"
     .parameter "varName"
 
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public getProgram()Landroid/filterfw/core/Program;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 34
@@ -42,13 +42,13 @@
 .end method
 
 .method public getValue()Ljava/lang/Object;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 50
     iget-object v0, p0, Landroid/filterfw/core/ProgramVariable;->mProgram:Landroid/filterfw/core/Program;
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 51
     new-instance v0, Ljava/lang/RuntimeException;
@@ -84,7 +84,7 @@
     throw v0
 
     .line 54
-    :cond_25
+    :cond_0
     iget-object v0, p0, Landroid/filterfw/core/ProgramVariable;->mProgram:Landroid/filterfw/core/Program;
 
     iget-object v1, p0, Landroid/filterfw/core/ProgramVariable;->mVarName:Ljava/lang/String;
@@ -97,7 +97,7 @@
 .end method
 
 .method public getVariableName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 38
@@ -107,14 +107,14 @@
 .end method
 
 .method public setValue(Ljava/lang/Object;)V
-    .registers 5
+    .locals 3
     .parameter "value"
 
     .prologue
     .line 42
     iget-object v0, p0, Landroid/filterfw/core/ProgramVariable;->mProgram:Landroid/filterfw/core/Program;
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 43
     new-instance v0, Ljava/lang/RuntimeException;
@@ -150,7 +150,7 @@
     throw v0
 
     .line 46
-    :cond_25
+    :cond_0
     iget-object v0, p0, Landroid/filterfw/core/ProgramVariable;->mProgram:Landroid/filterfw/core/Program;
 
     iget-object v1, p0, Landroid/filterfw/core/ProgramVariable;->mVarName:Ljava/lang/String;

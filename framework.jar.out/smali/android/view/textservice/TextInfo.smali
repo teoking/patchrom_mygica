@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 97
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -76,7 +76,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "text"
 
     .prologue
@@ -90,7 +90,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;II)V
-    .registers 5
+    .locals 1
     .parameter "text"
     .parameter "cookie"
     .parameter "sequence"
@@ -104,7 +104,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 47
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -114,7 +114,7 @@
     throw v0
 
     .line 49
-    :cond_f
+    :cond_0
     iput-object p1, p0, Landroid/view/textservice/TextInfo;->mText:Ljava/lang/String;
 
     .line 50
@@ -130,7 +130,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 115
@@ -140,7 +140,7 @@
 .end method
 
 .method public getCookie()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84
@@ -150,7 +150,7 @@
 .end method
 
 .method public getSequence()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 91
@@ -160,7 +160,7 @@
 .end method
 
 .method public getText()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 77
@@ -170,7 +170,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

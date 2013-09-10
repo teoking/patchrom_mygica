@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/Account;ILjava/lang/String;I)V
-    .registers 9
+    .locals 4
     .parameter "account"
     .parameter "userId"
     .parameter "authority"
@@ -121,7 +121,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/SyncStorageEngine$AuthorityInfo;)V
-    .registers 7
+    .locals 5
     .parameter "toCopy"
 
     .prologue
@@ -188,12 +188,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_34
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_55
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -221,10 +221,10 @@
 
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_34
+    goto :goto_0
 
     .line 221
     .end local v1           #sync:Landroid/util/Pair;,"Landroid/util/Pair<Landroid/os/Bundle;Ljava/lang/Long;>;"
-    :cond_55
+    :cond_0
     return-void
 .end method

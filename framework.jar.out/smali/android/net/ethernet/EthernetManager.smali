@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/ethernet/IEthernetManager;Landroid/os/Handler;)V
-    .registers 5
+    .locals 2
     .parameter "service"
     .parameter "handler"
 
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public ethConfigured()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 90
@@ -69,28 +69,28 @@
     iget-object v1, p0, Landroid/net/ethernet/EthernetManager;->mService:Landroid/net/ethernet/IEthernetManager;
 
     invoke-interface {v1}, Landroid/net/ethernet/IEthernetManager;->isEthConfigured()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 92
-    :goto_6
+    :goto_0
     return v1
 
     .line 91
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 92
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public ethSetDefaultConf()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 114
@@ -100,22 +100,22 @@
     const-string v1, "dhcp"
 
     invoke-interface {v0, v1}, Landroid/net/ethernet/IEthernetManager;->setEthMode(Ljava/lang/String;)V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 117
-    :goto_7
+    :goto_0
     return-void
 
     .line 115
-    :catch_8
+    :catch_0
     move-exception v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getDeviceNameList()[Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 66
@@ -123,28 +123,28 @@
     iget-object v1, p0, Landroid/net/ethernet/EthernetManager;->mService:Landroid/net/ethernet/IEthernetManager;
 
     invoke-interface {v1}, Landroid/net/ethernet/IEthernetManager;->getDeviceNameList()[Ljava/lang/String;
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 68
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 67
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 68
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getDhcpInfo()Landroid/net/DhcpInfo;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 98
@@ -152,28 +152,28 @@
     iget-object v1, p0, Landroid/net/ethernet/EthernetManager;->mService:Landroid/net/ethernet/IEthernetManager;
 
     invoke-interface {v1}, Landroid/net/ethernet/IEthernetManager;->getDhcpInfo()Landroid/net/DhcpInfo;
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 100
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 99
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 100
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getEthState()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 82
@@ -181,28 +181,28 @@
     iget-object v1, p0, Landroid/net/ethernet/EthernetManager;->mService:Landroid/net/ethernet/IEthernetManager;
 
     invoke-interface {v1}, Landroid/net/ethernet/IEthernetManager;->getEthState()I
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 84
-    :goto_6
+    :goto_0
     return v1
 
     .line 83
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 84
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getSavedEthConfig()Landroid/net/ethernet/EthernetDevInfo;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 49
@@ -210,17 +210,17 @@
     iget-object v1, p0, Landroid/net/ethernet/EthernetManager;->mService:Landroid/net/ethernet/IEthernetManager;
 
     invoke-interface {v1}, Landroid/net/ethernet/IEthernetManager;->getSavedEthConfig()Landroid/net/ethernet/EthernetDevInfo;
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 53
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 50
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 51
@@ -234,11 +234,11 @@
     .line 53
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getTotalInterface()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 106
@@ -246,28 +246,28 @@
     iget-object v1, p0, Landroid/net/ethernet/EthernetManager;->mService:Landroid/net/ethernet/IEthernetManager;
 
     invoke-interface {v1}, Landroid/net/ethernet/IEthernetManager;->getTotalInterface()I
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 108
-    :goto_6
+    :goto_0
     return v1
 
     .line 107
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 108
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public isEthConfigured()Z
-    .registers 4
+    .locals 3
 
     .prologue
     .line 40
@@ -275,17 +275,17 @@
     iget-object v1, p0, Landroid/net/ethernet/EthernetManager;->mService:Landroid/net/ethernet/IEthernetManager;
 
     invoke-interface {v1}, Landroid/net/ethernet/IEthernetManager;->isEthConfigured()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 44
-    :goto_6
+    :goto_0
     return v1
 
     .line 41
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 42
@@ -299,11 +299,11 @@
     .line 44
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public isEthDeviceAdded()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 129
@@ -311,28 +311,28 @@
     iget-object v1, p0, Landroid/net/ethernet/EthernetManager;->mService:Landroid/net/ethernet/IEthernetManager;
 
     invoke-interface {v1}, Landroid/net/ethernet/IEthernetManager;->isEthDeviceAdded()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 131
-    :goto_6
+    :goto_0
     return v1
 
     .line 130
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 131
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public isEthDeviceUp()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 121
@@ -340,28 +340,28 @@
     iget-object v1, p0, Landroid/net/ethernet/EthernetManager;->mService:Landroid/net/ethernet/IEthernetManager;
 
     invoke-interface {v1}, Landroid/net/ethernet/IEthernetManager;->isEthDeviceUp()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 123
-    :goto_6
+    :goto_0
     return v1
 
     .line 122
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 123
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public setEthEnabled(Z)V
-    .registers 5
+    .locals 3
     .parameter "enable"
 
     .prologue
@@ -369,27 +369,27 @@
     :try_start_0
     iget-object v2, p0, Landroid/net/ethernet/EthernetManager;->mService:Landroid/net/ethernet/IEthernetManager;
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
     const/4 v1, 0x2
 
-    :goto_5
+    :goto_0
     invoke-interface {v2, v1}, Landroid/net/ethernet/IEthernetManager;->setEthState(I)V
-    :try_end_8
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_8} :catch_b
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 78
-    :goto_8
+    :goto_1
     return-void
 
     .line 74
-    :cond_9
+    :cond_0
     const/4 v1, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 75
-    :catch_b
+    :catch_0
     move-exception v0
 
     .line 76
@@ -400,11 +400,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_8
+    goto :goto_1
 .end method
 
 .method public updateEthDevInfo(Landroid/net/ethernet/EthernetDevInfo;)V
-    .registers 5
+    .locals 3
     .parameter "info"
 
     .prologue
@@ -413,15 +413,15 @@
     iget-object v1, p0, Landroid/net/ethernet/EthernetManager;->mService:Landroid/net/ethernet/IEthernetManager;
 
     invoke-interface {v1, p1}, Landroid/net/ethernet/IEthernetManager;->UpdateEthDevInfo(Landroid/net/ethernet/EthernetDevInfo;)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 62
-    :goto_5
+    :goto_0
     return-void
 
     .line 59
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 60
@@ -432,5 +432,5 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5
+    goto :goto_0
 .end method

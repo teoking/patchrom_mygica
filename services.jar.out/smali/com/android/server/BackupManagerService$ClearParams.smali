@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService;Lcom/android/internal/backup/IBackupTransport;Landroid/content/pm/PackageInfo;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "_transport"
     .parameter "_info"

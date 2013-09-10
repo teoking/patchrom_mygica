@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "ctx"
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "o"
 
     .prologue
@@ -44,16 +44,16 @@
     const/4 v2, 0x0
 
     .line 38
-    if-ne p0, p1, :cond_5
+    if-ne p0, p1, :cond_1
 
     .line 43
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 39
-    :cond_5
-    if-eqz p1, :cond_11
+    :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -63,14 +63,14 @@
 
     move-result-object v4
 
-    if-eq v3, v4, :cond_13
+    if-eq v3, v4, :cond_3
 
-    :cond_11
+    :cond_2
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_13
+    :cond_3
     move-object v0, p1
 
     .line 41
@@ -82,15 +82,15 @@
 
     iget v4, v0, Lcom/google/android/gles_jni/EGLContextImpl;->mEGLContext:I
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_0
 
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public getGL()Ljavax/microedition/khronos/opengles/GL;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 33
@@ -100,7 +100,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 48

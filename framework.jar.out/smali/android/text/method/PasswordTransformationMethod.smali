@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 266
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 35
@@ -48,7 +48,7 @@
 .end method
 
 .method static synthetic access$100()C
-    .registers 1
+    .locals 1
 
     .prologue
     .line 35
@@ -58,23 +58,23 @@
 .end method
 
 .method public static getInstance()Landroid/text/method/PasswordTransformationMethod;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 64
     sget-object v0, Landroid/text/method/PasswordTransformationMethod;->sInstance:Landroid/text/method/PasswordTransformationMethod;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 65
     sget-object v0, Landroid/text/method/PasswordTransformationMethod;->sInstance:Landroid/text/method/PasswordTransformationMethod;
 
     .line 68
-    :goto_6
+    :goto_0
     return-object v0
 
     .line 67
-    :cond_7
+    :cond_0
     new-instance v0, Landroid/text/method/PasswordTransformationMethod;
 
     invoke-direct {v0}, Landroid/text/method/PasswordTransformationMethod;-><init>()V
@@ -84,11 +84,11 @@
     .line 68
     sget-object v0, Landroid/text/method/PasswordTransformationMethod;->sInstance:Landroid/text/method/PasswordTransformationMethod;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method private static removeVisibleSpans(Landroid/text/Spannable;)V
-    .registers 6
+    .locals 5
     .parameter "sp"
 
     .prologue
@@ -112,10 +112,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_e
+    :goto_0
     array-length v2, v1
 
-    if-ge v0, v2, :cond_19
+    if-ge v0, v2, :cond_0
 
     .line 135
     aget-object v2, v1, v0
@@ -125,17 +125,17 @@
     .line 134
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 137
-    :cond_19
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .registers 2
+    .locals 0
     .parameter "s"
 
     .prologue
@@ -144,7 +144,7 @@
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 5
+    .locals 0
     .parameter "s"
     .parameter "start"
     .parameter "count"
@@ -156,7 +156,7 @@
 .end method
 
 .method public getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;
-    .registers 9
+    .locals 6
     .parameter "source"
     .parameter "view"
 
@@ -166,7 +166,7 @@
     .line 39
     instance-of v3, p1, Landroid/text/Spannable;
 
-    if-eqz v3, :cond_2d
+    if-eqz v3, :cond_1
 
     move-object v1, p1
 
@@ -192,10 +192,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_15
+    :goto_0
     array-length v3, v2
 
-    if-ge v0, v3, :cond_20
+    if-ge v0, v3, :cond_0
 
     .line 51
     aget-object v3, v2, v0
@@ -205,10 +205,10 @@
     .line 50
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_15
+    goto :goto_0
 
     .line 54
-    :cond_20
+    :cond_0
     invoke-static {v1}, Landroid/text/method/PasswordTransformationMethod;->removeVisibleSpans(Landroid/text/Spannable;)V
 
     .line 56
@@ -224,7 +224,7 @@
     .end local v0           #i:I
     .end local v1           #sp:Landroid/text/Spannable;
     .end local v2           #vr:[Landroid/text/method/PasswordTransformationMethod$ViewReference;
-    :cond_2d
+    :cond_1
     new-instance v3, Landroid/text/method/PasswordTransformationMethod$PasswordCharSequence;
 
     invoke-direct {v3, p1}, Landroid/text/method/PasswordTransformationMethod$PasswordCharSequence;-><init>(Ljava/lang/CharSequence;)V
@@ -233,7 +233,7 @@
 .end method
 
 .method public onFocusChanged(Landroid/view/View;Ljava/lang/CharSequence;ZILandroid/graphics/Rect;)V
-    .registers 8
+    .locals 2
     .parameter "view"
     .parameter "sourceText"
     .parameter "focused"
@@ -242,12 +242,12 @@
 
     .prologue
     .line 123
-    if-nez p3, :cond_c
+    if-nez p3, :cond_0
 
     .line 124
     instance-of v1, p2, Landroid/text/Spannable;
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_0
 
     move-object v0, p2
 
@@ -260,12 +260,12 @@
 
     .line 130
     .end local v0           #sp:Landroid/text/Spannable;
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .registers 13
+    .locals 8
     .parameter "s"
     .parameter "start"
     .parameter "before"
@@ -275,7 +275,7 @@
     .line 78
     instance-of v5, p1, Landroid/text/Spannable;
 
-    if-eqz v5, :cond_17
+    if-eqz v5, :cond_0
 
     move-object v2, p1
 
@@ -302,19 +302,19 @@
     .local v4, vr:[Landroid/text/method/PasswordTransformationMethod$ViewReference;
     array-length v5, v4
 
-    if-nez v5, :cond_18
+    if-nez v5, :cond_1
 
     .line 114
     .end local v2           #sp:Landroid/text/Spannable;
     .end local v4           #vr:[Landroid/text/method/PasswordTransformationMethod$ViewReference;
-    :cond_17
-    :goto_17
+    :cond_0
+    :goto_0
     return-void
 
     .line 93
     .restart local v2       #sp:Landroid/text/Spannable;
     .restart local v4       #vr:[Landroid/text/method/PasswordTransformationMethod$ViewReference;
-    :cond_18
+    :cond_1
     const/4 v3, 0x0
 
     .line 94
@@ -322,12 +322,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1a
-    if-nez v3, :cond_2a
+    :goto_1
+    if-nez v3, :cond_2
 
     array-length v5, v4
 
-    if-ge v0, v5, :cond_2a
+    if-ge v0, v5, :cond_2
 
     .line 95
     aget-object v5, v4, v0
@@ -343,11 +343,11 @@
     .restart local v3       #v:Landroid/view/View;
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1a
+    goto :goto_1
 
     .line 98
-    :cond_2a
-    if-eqz v3, :cond_17
+    :cond_2
+    if-eqz v3, :cond_0
 
     .line 102
     invoke-static {}, Landroid/text/method/TextKeyListener;->getInstance()Landroid/text/method/TextKeyListener;
@@ -366,10 +366,10 @@
     .local v1, pref:I
     and-int/lit8 v5, v1, 0x8
 
-    if-eqz v5, :cond_17
+    if-eqz v5, :cond_0
 
     .line 104
-    if-lez p4, :cond_17
+    if-lez p4, :cond_0
 
     .line 105
     invoke-static {v2}, Landroid/text/method/PasswordTransformationMethod;->removeVisibleSpans(Landroid/text/Spannable;)V
@@ -377,7 +377,7 @@
     .line 107
     const/4 v5, 0x1
 
-    if-ne p4, v5, :cond_17
+    if-ne p4, v5, :cond_0
 
     .line 108
     new-instance v5, Landroid/text/method/PasswordTransformationMethod$Visible;
@@ -390,5 +390,5 @@
 
     invoke-interface {v2, v5, p2, v6, v7}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
 
-    goto :goto_17
+    goto :goto_0
 .end method

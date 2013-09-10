@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/Looper;)V
-    .registers 3
+    .locals 1
     .parameter "looper"
 
     .prologue
@@ -45,7 +45,7 @@
 .end method
 
 .method private countActiveLines()I
-    .registers 14
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/test/InvalidStateEx;
@@ -85,12 +85,12 @@
     const/4 v6, 0x0
 
     .local v6, i:I
-    :goto_9
+    :goto_0
     iget-object v11, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v11, v11
 
-    if-ge v6, v11, :cond_7b
+    if-ge v6, v11, :cond_7
 
     .line 774
     iget-object v11, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -99,27 +99,27 @@
 
     .line 776
     .local v0, call:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_3e
+    if-eqz v0, :cond_1
 
     .line 777
-    if-nez v4, :cond_43
+    if-nez v4, :cond_3
 
     iget-boolean v11, v0, Lcom/android/internal/telephony/test/CallInfo;->isMpty:Z
 
-    if-eqz v11, :cond_43
+    if-eqz v11, :cond_3
 
     .line 778
     iget-object v11, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v12, Lcom/android/internal/telephony/test/CallInfo$State;->HOLDING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v11, v12, :cond_41
+    if-ne v11, v12, :cond_2
 
     move v7, v9
 
     .line 791
-    :cond_21
-    :goto_21
+    :cond_0
+    :goto_1
     iget-boolean v11, v0, Lcom/android/internal/telephony/test/CallInfo;->isMpty:Z
 
     or-int/2addr v4, v11
@@ -129,11 +129,11 @@
 
     sget-object v12, Lcom/android/internal/telephony/test/CallInfo$State;->HOLDING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v11, v12, :cond_77
+    if-ne v11, v12, :cond_5
 
     move v11, v9
 
-    :goto_2b
+    :goto_2
     or-int/2addr v3, v11
 
     .line 793
@@ -141,11 +141,11 @@
 
     sget-object v12, Lcom/android/internal/telephony/test/CallInfo$State;->ACTIVE:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v11, v12, :cond_79
+    if-ne v11, v12, :cond_6
 
     move v11, v9
 
-    :goto_33
+    :goto_3
     or-int/2addr v1, v11
 
     .line 794
@@ -163,30 +163,30 @@
     or-int/2addr v5, v11
 
     .line 773
-    :cond_3e
+    :cond_1
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
-    :cond_41
+    :cond_2
     move v7, v10
 
     .line 778
-    goto :goto_21
+    goto :goto_1
 
     .line 779
-    :cond_43
+    :cond_3
     iget-boolean v11, v0, Lcom/android/internal/telephony/test/CallInfo;->isMpty:Z
 
-    if-eqz v11, :cond_5c
+    if-eqz v11, :cond_4
 
-    if-eqz v7, :cond_5c
+    if-eqz v7, :cond_4
 
     iget-object v11, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v12, Lcom/android/internal/telephony/test/CallInfo$State;->ACTIVE:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v11, v12, :cond_5c
+    if-ne v11, v12, :cond_4
 
     .line 782
     const-string v9, "ModelInterpreter"
@@ -203,20 +203,20 @@
     throw v9
 
     .line 784
-    :cond_5c
+    :cond_4
     iget-boolean v11, v0, Lcom/android/internal/telephony/test/CallInfo;->isMpty:Z
 
-    if-nez v11, :cond_21
+    if-nez v11, :cond_0
 
-    if-eqz v4, :cond_21
+    if-eqz v4, :cond_0
 
-    if-eqz v7, :cond_21
+    if-eqz v7, :cond_0
 
     iget-object v11, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v12, Lcom/android/internal/telephony/test/CallInfo$State;->HOLDING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v11, v12, :cond_21
+    if-ne v11, v12, :cond_0
 
     .line 787
     const-string v9, "ModelInterpreter"
@@ -232,56 +232,56 @@
 
     throw v9
 
-    :cond_77
+    :cond_5
     move v11, v10
 
     .line 792
-    goto :goto_2b
+    goto :goto_2
 
-    :cond_79
+    :cond_6
     move v11, v10
 
     .line 793
-    goto :goto_33
+    goto :goto_3
 
     .line 799
     .end local v0           #call:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_7b
+    :cond_7
     const/4 v8, 0x0
 
     .line 801
     .local v8, ret:I
-    if-eqz v3, :cond_80
+    if-eqz v3, :cond_8
 
     add-int/lit8 v8, v8, 0x1
 
     .line 802
-    :cond_80
-    if-eqz v1, :cond_84
+    :cond_8
+    if-eqz v1, :cond_9
 
     add-int/lit8 v8, v8, 0x1
 
     .line 803
-    :cond_84
-    if-eqz v2, :cond_88
+    :cond_9
+    if-eqz v2, :cond_a
 
     add-int/lit8 v8, v8, 0x1
 
     .line 804
-    :cond_88
-    if-eqz v5, :cond_8c
+    :cond_a
+    if-eqz v5, :cond_b
 
     add-int/lit8 v8, v8, 0x1
 
     .line 806
-    :cond_8c
+    :cond_b
     return v8
 .end method
 
 
 # virtual methods
 .method public conference()Z
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v3, 0x1
@@ -294,12 +294,12 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_3
+    :goto_0
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v4, v4
 
-    if-ge v2, v4, :cond_1b
+    if-ge v2, v4, :cond_2
 
     .line 611
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -308,7 +308,7 @@
 
     .line 613
     .local v0, c:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_1
 
     .line 614
     add-int/lit8 v1, v1, 0x1
@@ -318,34 +318,34 @@
 
     move-result v4
 
-    if-eqz v4, :cond_18
+    if-eqz v4, :cond_1
 
     .line 617
     const/4 v3, 0x0
 
     .line 632
     .end local v0           #c:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_17
+    :cond_0
     return v3
 
     .line 610
     .restart local v0       #c:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_18
+    :cond_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 621
     .end local v0           #c:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_1b
+    :cond_2
     const/4 v2, 0x0
 
-    :goto_1c
+    :goto_1
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v4, v4
 
-    if-ge v2, v4, :cond_17
+    if-ge v2, v4, :cond_0
 
     .line 622
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -354,7 +354,7 @@
 
     .line 624
     .restart local v0       #c:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_2f
+    if-eqz v0, :cond_3
 
     .line 625
     sget-object v4, Lcom/android/internal/telephony/test/CallInfo$State;->ACTIVE:Lcom/android/internal/telephony/test/CallInfo$State;
@@ -362,20 +362,20 @@
     iput-object v4, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     .line 626
-    if-lez v1, :cond_2f
+    if-lez v1, :cond_3
 
     .line 627
     iput-boolean v3, v0, Lcom/android/internal/telephony/test/CallInfo;->isMpty:Z
 
     .line 621
-    :cond_2f
+    :cond_3
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1c
+    goto :goto_1
 .end method
 
 .method public explicitCallTransfer()Z
-    .registers 5
+    .locals 4
 
     .prologue
     .line 637
@@ -386,12 +386,12 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_2
+    :goto_0
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_1a
+    if-ge v2, v3, :cond_1
 
     .line 641
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -400,7 +400,7 @@
 
     .line 643
     .local v0, c:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 644
     add-int/lit8 v1, v1, 0x1
@@ -410,35 +410,35 @@
 
     move-result v3
 
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_0
 
     .line 647
     const/4 v3, 0x0
 
     .line 653
     .end local v0           #c:Lcom/android/internal/telephony/test/CallInfo;
-    :goto_16
+    :goto_1
     return v3
 
     .line 640
     .restart local v0       #c:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_17
+    :cond_0
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 653
     .end local v0           #c:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_1a
+    :cond_1
     invoke-virtual {p0}, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->triggerHangupAll()Z
 
     move-result v3
 
-    goto :goto_16
+    goto :goto_1
 .end method
 
 .method public getClccLines()Ljava/util/List;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -464,12 +464,12 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_9
+    :goto_0
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v3, v3
 
-    if-ge v1, v3, :cond_20
+    if-ge v1, v3, :cond_1
 
     .line 754
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -478,7 +478,7 @@
 
     .line 756
     .local v0, c:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_0
 
     .line 757
     add-int/lit8 v3, v1, 0x1
@@ -490,19 +490,19 @@
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 753
-    :cond_1d
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 761
     .end local v0           #c:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_20
+    :cond_1
     return-object v2
 .end method
 
 .method public getDriverCalls()Ljava/util/List;
-    .registers 8
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -528,12 +528,12 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_9
+    :goto_0
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v4, v4
 
-    if-ge v2, v4, :cond_20
+    if-ge v2, v4, :cond_1
 
     .line 734
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -542,7 +542,7 @@
 
     .line 736
     .local v0, c:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_0
 
     .line 739
     add-int/lit8 v4, v2, 0x1
@@ -557,14 +557,14 @@
 
     .line 733
     .end local v1           #dc:Lcom/android/internal/telephony/DriverCall;
-    :cond_1d
+    :cond_0
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 744
     .end local v0           #c:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_20
+    :cond_1
     const-string v4, "GSM"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -592,52 +592,52 @@
 .end method
 
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "msg"
 
     .prologue
     .line 160
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_10
+    packed-switch v0, :pswitch_data_0
 
     .line 167
-    :goto_6
+    :goto_0
     monitor-exit p0
 
     .line 168
     return-void
 
     .line 165
-    :pswitch_8
+    :pswitch_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->progressConnectingCallState()V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 167
-    :catchall_c
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_e
-    .catchall {:try_start_1 .. :try_end_e} :catchall_c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 160
     nop
 
-    :pswitch_data_10
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_8
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public onAnswer()Z
-    .registers 5
+    .locals 4
 
     .prologue
     .line 358
@@ -647,13 +647,13 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_2
-    :try_start_2
+    :goto_0
+    :try_start_0
     iget-object v2, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_22
+    if-ge v1, v2, :cond_2
 
     .line 360
     iget-object v2, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -662,22 +662,22 @@
 
     .line 362
     .local v0, call:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_1
 
     iget-object v2, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v3, Lcom/android/internal/telephony/test/CallInfo$State;->INCOMING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-eq v2, v3, :cond_19
+    if-eq v2, v3, :cond_0
 
     iget-object v2, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v3, Lcom/android/internal/telephony/test/CallInfo$State;->WAITING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v2, v3, :cond_1f
+    if-ne v2, v3, :cond_1
 
     .line 366
-    :cond_19
+    :cond_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->switchActiveAndHeldOrWaiting()Z
 
     move-result v2
@@ -686,39 +686,39 @@
 
     .line 371
     .end local v0           #call:Lcom/android/internal/telephony/test/CallInfo;
-    :goto_1e
+    :goto_1
     return v2
 
     .line 359
     .restart local v0       #call:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_1f
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 369
     .end local v0           #call:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_22
+    :cond_2
     monitor-exit p0
 
     .line 371
     const/4 v2, 0x0
 
-    goto :goto_1e
+    goto :goto_1
 
     .line 369
-    :catchall_25
+    :catchall_0
     move-exception v2
 
     monitor-exit p0
-    :try_end_27
-    .catchall {:try_start_2 .. :try_end_27} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method
 
 .method public onChld(CC)Z
-    .registers 7
+    .locals 4
     .parameter "c0"
     .parameter "c1"
 
@@ -728,53 +728,53 @@
 
     .line 395
     .local v0, callIndex:I
-    if-eqz p2, :cond_e
+    if-eqz p2, :cond_1
 
     .line 396
     add-int/lit8 v0, p2, -0x31
 
     .line 398
-    if-ltz v0, :cond_c
+    if-ltz v0, :cond_0
 
     iget-object v2, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v2, v2
 
-    if-lt v0, v2, :cond_e
+    if-lt v0, v2, :cond_1
 
     .line 399
-    :cond_c
+    :cond_0
     const/4 v1, 0x0
 
     .line 443
-    :goto_d
+    :goto_0
     return v1
 
     .line 403
-    :cond_e
-    packed-switch p1, :pswitch_data_46
+    :cond_1
+    packed-switch p1, :pswitch_data_0
 
     .line 439
     const/4 v1, 0x0
 
     .local v1, ret:Z
-    goto :goto_d
+    goto :goto_0
 
     .line 405
     .end local v1           #ret:Z
-    :pswitch_13
+    :pswitch_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->releaseHeldOrUDUB()Z
 
     move-result v1
 
     .line 406
     .restart local v1       #ret:Z
-    goto :goto_d
+    goto :goto_0
 
     .line 408
     .end local v1           #ret:Z
-    :pswitch_18
-    if-gtz p2, :cond_1f
+    :pswitch_1
+    if-gtz p2, :cond_2
 
     .line 409
     invoke-virtual {p0}, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->releaseActiveAcceptHeldOrWaiting()Z
@@ -782,26 +782,26 @@
     move-result v1
 
     .restart local v1       #ret:Z
-    goto :goto_d
+    goto :goto_0
 
     .line 411
     .end local v1           #ret:Z
-    :cond_1f
+    :cond_2
     iget-object v2, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     aget-object v2, v2, v0
 
-    if-nez v2, :cond_27
+    if-nez v2, :cond_3
 
     .line 412
     const/4 v1, 0x0
 
     .restart local v1       #ret:Z
-    goto :goto_d
+    goto :goto_0
 
     .line 414
     .end local v1           #ret:Z
-    :cond_27
+    :cond_3
     iget-object v2, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     const/4 v3, 0x0
@@ -813,12 +813,12 @@
 
     .line 418
     .restart local v1       #ret:Z
-    goto :goto_d
+    goto :goto_0
 
     .line 420
     .end local v1           #ret:Z
-    :pswitch_2e
-    if-gtz p2, :cond_35
+    :pswitch_2
+    if-gtz p2, :cond_4
 
     .line 421
     invoke-virtual {p0}, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->switchActiveAndHeldOrWaiting()Z
@@ -826,64 +826,64 @@
     move-result v1
 
     .restart local v1       #ret:Z
-    goto :goto_d
+    goto :goto_0
 
     .line 423
     .end local v1           #ret:Z
-    :cond_35
+    :cond_4
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->separateCall(I)Z
 
     move-result v1
 
     .line 425
     .restart local v1       #ret:Z
-    goto :goto_d
+    goto :goto_0
 
     .line 427
     .end local v1           #ret:Z
-    :pswitch_3a
+    :pswitch_3
     invoke-virtual {p0}, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->conference()Z
 
     move-result v1
 
     .line 428
     .restart local v1       #ret:Z
-    goto :goto_d
+    goto :goto_0
 
     .line 430
     .end local v1           #ret:Z
-    :pswitch_3f
+    :pswitch_4
     invoke-virtual {p0}, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->explicitCallTransfer()Z
 
     move-result v1
 
     .line 431
     .restart local v1       #ret:Z
-    goto :goto_d
+    goto :goto_0
 
     .line 435
     .end local v1           #ret:Z
-    :pswitch_44
+    :pswitch_5
     const/4 v1, 0x0
 
     .line 437
     .restart local v1       #ret:Z
-    goto :goto_d
+    goto :goto_0
 
     .line 403
-    :pswitch_data_46
+    :pswitch_data_0
     .packed-switch 0x30
-        :pswitch_13
-        :pswitch_18
-        :pswitch_2e
-        :pswitch_3a
-        :pswitch_3f
-        :pswitch_44
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method public onDial(Ljava/lang/String;)Z
-    .registers 11
+    .locals 9
     .parameter "address"
 
     .prologue
@@ -927,7 +927,7 @@
     .line 663
     iget-boolean v6, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->nextDialFailImmediately:Z
 
-    if-eqz v6, :cond_2f
+    if-eqz v6, :cond_0
 
     .line 664
     iput-boolean v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->nextDialFailImmediately:Z
@@ -940,11 +940,11 @@
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 726
-    :goto_2e
+    :goto_0
     return v4
 
     .line 670
-    :cond_2f
+    :cond_0
     invoke-static {p1}, Landroid/telephony/PhoneNumberUtils;->extractNetworkPortion(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
@@ -955,7 +955,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_41
+    if-nez v6, :cond_1
 
     .line 673
     const-string v5, "GSM"
@@ -964,17 +964,17 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 678
-    :cond_41
+    :cond_1
     const-string v6, "*99"
 
     invoke-virtual {v3, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_5a
+    if-eqz v6, :cond_2
 
     const-string v6, "#"
 
@@ -982,7 +982,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_5a
+    if-eqz v6, :cond_2
 
     .line 679
     const-string v4, "GSM"
@@ -994,16 +994,16 @@
     move v4, v5
 
     .line 680
-    goto :goto_2e
+    goto :goto_0
 
     .line 686
-    :cond_5a
-    :try_start_5a
+    :cond_2
+    :try_start_0
     invoke-direct {p0}, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->countActiveLines()I
 
     move-result v6
 
-    if-le v6, v5, :cond_71
+    if-le v6, v5, :cond_3
 
     .line 687
     const-string v5, "GSM"
@@ -1011,13 +1011,13 @@
     const-string v6, "SC< dial fail (invalid call state)"
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_67
-    .catch Lcom/android/internal/telephony/test/InvalidStateEx; {:try_start_5a .. :try_end_67} :catch_68
+    :try_end_0
+    .catch Lcom/android/internal/telephony/test/InvalidStateEx; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 690
-    :catch_68
+    :catch_0
     move-exception v0
 
     .line 691
@@ -1028,40 +1028,40 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 695
     .end local v0           #ex:Lcom/android/internal/telephony/test/InvalidStateEx;
-    :cond_71
+    :cond_3
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_72
+    :goto_1
     iget-object v6, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v6, v6
 
-    if-ge v2, v6, :cond_b3
+    if-ge v2, v6, :cond_7
 
     .line 696
-    if-gez v1, :cond_80
+    if-gez v1, :cond_4
 
     iget-object v6, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     aget-object v6, v6, v2
 
-    if-nez v6, :cond_80
+    if-nez v6, :cond_4
 
     .line 697
     move v1, v2
 
     .line 700
-    :cond_80
+    :cond_4
     iget-object v6, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     aget-object v6, v6, v2
 
-    if-eqz v6, :cond_98
+    if-eqz v6, :cond_5
 
     iget-object v6, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
@@ -1071,7 +1071,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_98
+    if-nez v6, :cond_5
 
     .line 703
     const-string v5, "GSM"
@@ -1080,15 +1080,15 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 705
-    :cond_98
+    :cond_5
     iget-object v6, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     aget-object v6, v6, v2
 
-    if-eqz v6, :cond_b0
+    if-eqz v6, :cond_6
 
     iget-object v6, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
@@ -1098,7 +1098,7 @@
 
     sget-object v7, Lcom/android/internal/telephony/test/CallInfo$State;->ACTIVE:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v6, v7, :cond_b0
+    if-ne v6, v7, :cond_6
 
     .line 707
     iget-object v6, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1110,14 +1110,14 @@
     iput-object v7, v6, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     .line 695
-    :cond_b0
+    :cond_6
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_72
+    goto :goto_1
 
     .line 711
-    :cond_b3
-    if-gez v1, :cond_be
+    :cond_7
+    if-gez v1, :cond_8
 
     .line 712
     const-string v5, "GSM"
@@ -1126,10 +1126,10 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_2e
+    goto/16 :goto_0
 
     .line 716
-    :cond_be
+    :cond_8
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     invoke-static {v3}, Lcom/android/internal/telephony/test/CallInfo;->createOutgoingCall(Ljava/lang/String;)Lcom/android/internal/telephony/test/CallInfo;
@@ -1141,7 +1141,7 @@
     .line 718
     iget-boolean v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->autoProgressConnecting:Z
 
-    if-eqz v4, :cond_d7
+    if-eqz v4, :cond_9
 
     .line 719
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1157,7 +1157,7 @@
     invoke-virtual {p0, v4, v6, v7}, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     .line 724
-    :cond_d7
+    :cond_9
     const-string v4, "GSM"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1189,11 +1189,11 @@
     move v4, v5
 
     .line 726
-    goto/16 :goto_2e
+    goto/16 :goto_0
 .end method
 
 .method public onHangup()Z
-    .registers 6
+    .locals 5
 
     .prologue
     .line 376
@@ -1204,12 +1204,12 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_2
+    :goto_0
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_1c
+    if-ge v2, v3, :cond_1
 
     .line 379
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1218,13 +1218,13 @@
 
     .line 381
     .local v0, call:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     iget-object v3, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v4, Lcom/android/internal/telephony/test/CallInfo$State;->WAITING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-eq v3, v4, :cond_19
+    if-eq v3, v4, :cond_0
 
     .line 382
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1237,19 +1237,19 @@
     const/4 v1, 0x1
 
     .line 378
-    :cond_19
+    :cond_0
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 387
     .end local v0           #call:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_1c
+    :cond_1
     return v1
 .end method
 
 .method public progressConnectingCallState()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 219
@@ -1259,13 +1259,13 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_2
-    :try_start_2
+    :goto_0
+    :try_start_0
     iget-object v2, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_25
+    if-ge v1, v2, :cond_0
 
     .line 221
     iget-object v2, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1274,13 +1274,13 @@
 
     .line 223
     .local v0, call:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_1
 
     iget-object v2, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v3, Lcom/android/internal/telephony/test/CallInfo$State;->DIALING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v2, v3, :cond_27
+    if-ne v2, v3, :cond_1
 
     .line 224
     sget-object v2, Lcom/android/internal/telephony/test/CallInfo$State;->ALERTING:Lcom/android/internal/telephony/test/CallInfo$State;
@@ -1290,7 +1290,7 @@
     .line 226
     iget-boolean v2, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->autoProgressConnecting:Z
 
-    if-eqz v2, :cond_25
+    if-eqz v2, :cond_0
 
     .line 227
     const/4 v2, 0x1
@@ -1305,8 +1305,8 @@
 
     .line 239
     .end local v0           #call:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_25
-    :goto_25
+    :cond_0
+    :goto_1
     monitor-exit p0
 
     .line 240
@@ -1314,43 +1314,43 @@
 
     .line 232
     .restart local v0       #call:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_27
-    if-eqz v0, :cond_37
+    :cond_1
+    if-eqz v0, :cond_2
 
     iget-object v2, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v3, Lcom/android/internal/telephony/test/CallInfo$State;->ALERTING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v2, v3, :cond_37
+    if-ne v2, v3, :cond_2
 
     .line 235
     sget-object v2, Lcom/android/internal/telephony/test/CallInfo$State;->ACTIVE:Lcom/android/internal/telephony/test/CallInfo$State;
 
     iput-object v2, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    goto :goto_25
+    goto :goto_1
 
     .line 239
     .end local v0           #call:Lcom/android/internal/telephony/test/CallInfo;
-    :catchall_34
+    :catchall_0
     move-exception v2
 
     monitor-exit p0
-    :try_end_36
-    .catchall {:try_start_2 .. :try_end_36} :catchall_34
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 
     .line 220
     .restart local v0       #call:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_37
+    :cond_2
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_0
 .end method
 
 .method public progressConnectingToActive()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 245
@@ -1360,13 +1360,13 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_2
-    :try_start_2
+    :goto_0
+    :try_start_0
     iget-object v2, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_1d
+    if-ge v1, v2, :cond_1
 
     .line 247
     iget-object v2, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1375,29 +1375,29 @@
 
     .line 249
     .local v0, call:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_2
 
     iget-object v2, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v3, Lcom/android/internal/telephony/test/CallInfo$State;->DIALING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-eq v2, v3, :cond_19
+    if-eq v2, v3, :cond_0
 
     iget-object v2, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v3, Lcom/android/internal/telephony/test/CallInfo$State;->ALERTING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v2, v3, :cond_1f
+    if-ne v2, v3, :cond_2
 
     .line 252
-    :cond_19
+    :cond_0
     sget-object v2, Lcom/android/internal/telephony/test/CallInfo$State;->ACTIVE:Lcom/android/internal/telephony/test/CallInfo$State;
 
     iput-object v2, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     .line 256
     .end local v0           #call:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_1d
+    :cond_1
     monitor-exit p0
 
     .line 257
@@ -1405,25 +1405,25 @@
 
     .line 246
     .restart local v0       #call:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_1f
+    :cond_2
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 256
     .end local v0           #call:Lcom/android/internal/telephony/test/CallInfo;
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     monitor-exit p0
-    :try_end_24
-    .catchall {:try_start_2 .. :try_end_24} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method
 
 .method public releaseActiveAcceptHeldOrWaiting()Z
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v7, 0x0
@@ -1442,12 +1442,12 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_5
+    :goto_0
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v4, v4
 
-    if-ge v3, v4, :cond_1e
+    if-ge v3, v4, :cond_1
 
     .line 482
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1456,13 +1456,13 @@
 
     .line 484
     .local v0, c:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_0
 
     iget-object v4, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v5, Lcom/android/internal/telephony/test/CallInfo$State;->ACTIVE:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v4, v5, :cond_1b
+    if-ne v4, v5, :cond_0
 
     .line 485
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1473,25 +1473,25 @@
     const/4 v1, 0x1
 
     .line 481
-    :cond_1b
+    :cond_0
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 490
     .end local v0           #c:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_1e
-    if-nez v1, :cond_40
+    :cond_1
+    if-nez v1, :cond_4
 
     .line 493
     const/4 v3, 0x0
 
-    :goto_21
+    :goto_1
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v4, v4
 
-    if-ge v3, v4, :cond_40
+    if-ge v3, v4, :cond_4
 
     .line 494
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1500,22 +1500,22 @@
 
     .line 496
     .restart local v0       #c:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_3d
+    if-eqz v0, :cond_3
 
     iget-object v4, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v5, Lcom/android/internal/telephony/test/CallInfo$State;->DIALING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-eq v4, v5, :cond_38
+    if-eq v4, v5, :cond_2
 
     iget-object v4, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v5, Lcom/android/internal/telephony/test/CallInfo$State;->ALERTING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v4, v5, :cond_3d
+    if-ne v4, v5, :cond_3
 
     .line 500
-    :cond_38
+    :cond_2
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     aput-object v7, v4, v3
@@ -1524,22 +1524,22 @@
     const/4 v1, 0x1
 
     .line 493
-    :cond_3d
+    :cond_3
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_21
+    goto :goto_1
 
     .line 506
     .end local v0           #c:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_40
+    :cond_4
     const/4 v3, 0x0
 
-    :goto_41
+    :goto_2
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v4, v4
 
-    if-ge v3, v4, :cond_5a
+    if-ge v3, v4, :cond_6
 
     .line 507
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1548,13 +1548,13 @@
 
     .line 509
     .restart local v0       #c:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_57
+    if-eqz v0, :cond_5
 
     iget-object v4, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v5, Lcom/android/internal/telephony/test/CallInfo$State;->HOLDING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v4, v5, :cond_57
+    if-ne v4, v5, :cond_5
 
     .line 510
     sget-object v4, Lcom/android/internal/telephony/test/CallInfo$State;->ACTIVE:Lcom/android/internal/telephony/test/CallInfo$State;
@@ -1565,31 +1565,31 @@
     const/4 v2, 0x1
 
     .line 506
-    :cond_57
+    :cond_5
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_41
+    goto :goto_2
 
     .line 515
     .end local v0           #c:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_5a
-    if-eqz v2, :cond_5d
+    :cond_6
+    if-eqz v2, :cond_8
 
     .line 528
-    :cond_5c
-    :goto_5c
+    :cond_7
+    :goto_3
     return v6
 
     .line 519
-    :cond_5d
+    :cond_8
     const/4 v3, 0x0
 
-    :goto_5e
+    :goto_4
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v4, v4
 
-    if-ge v3, v4, :cond_5c
+    if-ge v3, v4, :cond_7
 
     .line 520
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1598,30 +1598,30 @@
 
     .line 522
     .restart local v0       #c:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_74
+    if-eqz v0, :cond_9
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/test/CallInfo;->isRinging()Z
 
     move-result v4
 
-    if-eqz v4, :cond_74
+    if-eqz v4, :cond_9
 
     .line 523
     sget-object v4, Lcom/android/internal/telephony/test/CallInfo$State;->ACTIVE:Lcom/android/internal/telephony/test/CallInfo$State;
 
     iput-object v4, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    goto :goto_5c
+    goto :goto_3
 
     .line 519
-    :cond_74
+    :cond_9
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_5e
+    goto :goto_4
 .end method
 
 .method public releaseHeldOrUDUB()Z
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v5, 0x0
@@ -1634,12 +1634,12 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_3
+    :goto_0
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_19
+    if-ge v2, v3, :cond_0
 
     .line 451
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1648,13 +1648,13 @@
 
     .line 453
     .local v0, c:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_35
+    if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/test/CallInfo;->isRinging()Z
 
     move-result v3
 
-    if-eqz v3, :cond_35
+    if-eqz v3, :cond_2
 
     .line 454
     const/4 v1, 0x1
@@ -1666,18 +1666,18 @@
 
     .line 460
     .end local v0           #c:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_19
-    if-nez v1, :cond_38
+    :cond_0
+    if-nez v1, :cond_3
 
     .line 461
     const/4 v2, 0x0
 
-    :goto_1c
+    :goto_1
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_38
+    if-ge v2, v3, :cond_3
 
     .line 462
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1686,13 +1686,13 @@
 
     .line 464
     .restart local v0       #c:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_1
 
     iget-object v3, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v4, Lcom/android/internal/telephony/test/CallInfo$State;->HOLDING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v3, v4, :cond_32
+    if-ne v3, v4, :cond_1
 
     .line 465
     const/4 v1, 0x1
@@ -1703,27 +1703,27 @@
     aput-object v5, v3, v2
 
     .line 461
-    :cond_32
+    :cond_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1c
+    goto :goto_1
 
     .line 450
-    :cond_35
+    :cond_2
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 472
     .end local v0           #c:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_38
+    :cond_3
     const/4 v3, 0x1
 
     return v3
 .end method
 
 .method public separateCall(I)Z
-    .registers 12
+    .locals 10
     .parameter "index"
 
     .prologue
@@ -1732,39 +1732,39 @@
     const/4 v7, 0x0
 
     .line 569
-    :try_start_2
+    :try_start_0
     iget-object v8, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     aget-object v0, v8, p1
 
     .line 571
     .local v0, c:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/test/CallInfo;->isConnecting()Z
 
     move-result v8
 
-    if-nez v8, :cond_14
+    if-nez v8, :cond_0
 
     invoke-direct {p0}, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->countActiveLines()I
 
     move-result v8
 
-    if-eq v8, v6, :cond_16
+    if-eq v8, v6, :cond_2
 
-    :cond_14
+    :cond_0
     move v6, v7
 
     .line 599
     .end local v0           #c:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_15
-    :goto_15
+    :cond_1
+    :goto_0
     return v6
 
     .line 575
     .restart local v0       #c:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_16
+    :cond_2
     sget-object v8, Lcom/android/internal/telephony/test/CallInfo$State;->ACTIVE:Lcom/android/internal/telephony/test/CallInfo$State;
 
     iput-object v8, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
@@ -1778,12 +1778,12 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_1e
+    :goto_1
     iget-object v8, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v8, v8
 
-    if-ge v4, v8, :cond_15
+    if-ge v4, v8, :cond_1
 
     .line 579
     const/4 v2, 0x0
@@ -1793,7 +1793,7 @@
 
     .line 581
     .local v5, lastHeld:I
-    if-eq v4, p1, :cond_3a
+    if-eq v4, p1, :cond_3
 
     .line 582
     iget-object v8, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1802,13 +1802,13 @@
 
     .line 584
     .local v1, cb:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v1, :cond_3a
+    if-eqz v1, :cond_3
 
     iget-object v8, v1, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v9, Lcom/android/internal/telephony/test/CallInfo$State;->ACTIVE:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v8, v9, :cond_3a
+    if-ne v8, v9, :cond_3
 
     .line 585
     sget-object v8, Lcom/android/internal/telephony/test/CallInfo$State;->HOLDING:Lcom/android/internal/telephony/test/CallInfo$State;
@@ -1823,8 +1823,8 @@
 
     .line 591
     .end local v1           #cb:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_3a
-    if-ne v2, v6, :cond_43
+    :cond_3
+    if-ne v2, v6, :cond_4
 
     .line 593
     iget-object v8, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1834,32 +1834,32 @@
     const/4 v9, 0x0
 
     iput-boolean v9, v8, Lcom/android/internal/telephony/test/CallInfo;->isMpty:Z
-    :try_end_43
-    .catch Lcom/android/internal/telephony/test/InvalidStateEx; {:try_start_2 .. :try_end_43} :catch_46
+    :try_end_0
+    .catch Lcom/android/internal/telephony/test/InvalidStateEx; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 578
-    :cond_43
+    :cond_4
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1e
+    goto :goto_1
 
     .line 598
     .end local v0           #c:Lcom/android/internal/telephony/test/CallInfo;
     .end local v2           #countHeld:I
     .end local v4           #i:I
     .end local v5           #lastHeld:I
-    :catch_46
+    :catch_0
     move-exception v3
 
     .local v3, ex:Lcom/android/internal/telephony/test/InvalidStateEx;
     move v6, v7
 
     .line 599
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public setAutoProgressConnectingCall(Z)V
-    .registers 2
+    .locals 0
     .parameter "b"
 
     .prologue
@@ -1871,7 +1871,7 @@
 .end method
 
 .method public setNextDialFailImmediately(Z)V
-    .registers 2
+    .locals 0
     .parameter "b"
 
     .prologue
@@ -1883,7 +1883,7 @@
 .end method
 
 .method public switchActiveAndHeldOrWaiting()Z
-    .registers 6
+    .locals 5
 
     .prologue
     .line 533
@@ -1894,12 +1894,12 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_2
+    :goto_0
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_14
+    if-ge v2, v3, :cond_0
 
     .line 537
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1908,28 +1908,28 @@
 
     .line 539
     .local v0, c:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_2d
+    if-eqz v0, :cond_2
 
     iget-object v3, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v4, Lcom/android/internal/telephony/test/CallInfo$State;->HOLDING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v3, v4, :cond_2d
+    if-ne v3, v4, :cond_2
 
     .line 540
     const/4 v1, 0x1
 
     .line 546
     .end local v0           #c:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_14
+    :cond_0
     const/4 v2, 0x0
 
-    :goto_15
+    :goto_1
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_48
+    if-ge v2, v3, :cond_5
 
     .line 547
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -1938,14 +1938,14 @@
 
     .line 549
     .restart local v0       #c:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_1
 
     .line 550
     iget-object v3, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v4, Lcom/android/internal/telephony/test/CallInfo$State;->ACTIVE:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v3, v4, :cond_30
+    if-ne v3, v4, :cond_3
 
     .line 551
     sget-object v3, Lcom/android/internal/telephony/test/CallInfo$State;->HOLDING:Lcom/android/internal/telephony/test/CallInfo$State;
@@ -1953,60 +1953,60 @@
     iput-object v3, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     .line 546
-    :cond_2a
-    :goto_2a
+    :cond_1
+    :goto_2
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_15
+    goto :goto_1
 
     .line 536
-    :cond_2d
+    :cond_2
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 552
-    :cond_30
+    :cond_3
     iget-object v3, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v4, Lcom/android/internal/telephony/test/CallInfo$State;->HOLDING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v3, v4, :cond_3b
+    if-ne v3, v4, :cond_4
 
     .line 553
     sget-object v3, Lcom/android/internal/telephony/test/CallInfo$State;->ACTIVE:Lcom/android/internal/telephony/test/CallInfo$State;
 
     iput-object v3, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    goto :goto_2a
+    goto :goto_2
 
     .line 554
-    :cond_3b
-    if-nez v1, :cond_2a
+    :cond_4
+    if-nez v1, :cond_1
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/test/CallInfo;->isRinging()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2a
+    if-eqz v3, :cond_1
 
     .line 555
     sget-object v3, Lcom/android/internal/telephony/test/CallInfo$State;->ACTIVE:Lcom/android/internal/telephony/test/CallInfo$State;
 
     iput-object v3, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    goto :goto_2a
+    goto :goto_2
 
     .line 560
     .end local v0           #c:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_48
+    :cond_5
     const/4 v3, 0x1
 
     return v3
 .end method
 
 .method public triggerHangupAll()Z
-    .registers 6
+    .locals 5
 
     .prologue
     .line 339
@@ -2020,13 +2020,13 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_3
-    :try_start_3
+    :goto_0
+    :try_start_0
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_1b
+    if-ge v2, v3, :cond_1
 
     .line 343
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -2039,13 +2039,13 @@
 
     aget-object v3, v3, v2
 
-    if-eqz v3, :cond_13
+    if-eqz v3, :cond_0
 
     .line 346
     const/4 v1, 0x1
 
     .line 349
-    :cond_13
+    :cond_0
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     const/4 v4, 0x0
@@ -2055,28 +2055,28 @@
     .line 342
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 352
     .end local v0           #call:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_1b
+    :cond_1
     monitor-exit p0
 
     return v1
 
     .line 353
-    :catchall_1d
+    :catchall_0
     move-exception v3
 
     monitor-exit p0
-    :try_end_1f
-    .catchall {:try_start_3 .. :try_end_1f} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v3
 .end method
 
 .method public triggerHangupBackground()Z
-    .registers 6
+    .locals 5
 
     .prologue
     .line 317
@@ -2090,13 +2090,13 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_3
-    :try_start_3
+    :goto_0
+    :try_start_0
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_1d
+    if-ge v2, v3, :cond_1
 
     .line 321
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -2105,13 +2105,13 @@
 
     .line 323
     .local v0, call:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     iget-object v3, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v4, Lcom/android/internal/telephony/test/CallInfo$State;->HOLDING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v3, v4, :cond_1a
+    if-ne v3, v4, :cond_0
 
     .line 324
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -2124,31 +2124,31 @@
     const/4 v1, 0x1
 
     .line 320
-    :cond_1a
+    :cond_0
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 329
     .end local v0           #call:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_1d
+    :cond_1
     monitor-exit p0
 
     return v1
 
     .line 330
-    :catchall_1f
+    :catchall_0
     move-exception v3
 
     monitor-exit p0
-    :try_end_21
-    .catchall {:try_start_3 .. :try_end_21} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v3
 .end method
 
 .method public triggerHangupForeground()Z
-    .registers 6
+    .locals 5
 
     .prologue
     .line 278
@@ -2162,13 +2162,13 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_3
-    :try_start_3
+    :goto_0
+    :try_start_0
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_23
+    if-ge v2, v3, :cond_2
 
     .line 284
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -2177,22 +2177,22 @@
 
     .line 286
     .local v0, call:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1
 
     iget-object v3, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v4, Lcom/android/internal/telephony/test/CallInfo$State;->INCOMING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-eq v3, v4, :cond_1a
+    if-eq v3, v4, :cond_0
 
     iget-object v3, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v4, Lcom/android/internal/telephony/test/CallInfo$State;->WAITING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v3, v4, :cond_20
+    if-ne v3, v4, :cond_1
 
     .line 290
-    :cond_1a
+    :cond_0
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     const/4 v4, 0x0
@@ -2203,22 +2203,22 @@
     const/4 v1, 0x1
 
     .line 283
-    :cond_20
+    :cond_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 295
     .end local v0           #call:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_23
+    :cond_2
     const/4 v2, 0x0
 
-    :goto_24
+    :goto_1
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v3, v3
 
-    if-ge v2, v3, :cond_4a
+    if-ge v2, v3, :cond_5
 
     .line 296
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -2227,28 +2227,28 @@
 
     .line 298
     .restart local v0       #call:Lcom/android/internal/telephony/test/CallInfo;
-    if-eqz v0, :cond_47
+    if-eqz v0, :cond_4
 
     iget-object v3, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v4, Lcom/android/internal/telephony/test/CallInfo$State;->DIALING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-eq v3, v4, :cond_41
+    if-eq v3, v4, :cond_3
 
     iget-object v3, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v4, Lcom/android/internal/telephony/test/CallInfo$State;->ACTIVE:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-eq v3, v4, :cond_41
+    if-eq v3, v4, :cond_3
 
     iget-object v3, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v4, Lcom/android/internal/telephony/test/CallInfo$State;->ALERTING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v3, v4, :cond_47
+    if-ne v3, v4, :cond_4
 
     .line 303
-    :cond_41
+    :cond_3
     iget-object v3, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     const/4 v4, 0x0
@@ -2259,31 +2259,31 @@
     const/4 v1, 0x1
 
     .line 295
-    :cond_47
+    :cond_4
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_24
+    goto :goto_1
 
     .line 307
     .end local v0           #call:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_4a
+    :cond_5
     monitor-exit p0
 
     return v1
 
     .line 308
-    :catchall_4c
+    :catchall_0
     move-exception v3
 
     monitor-exit p0
-    :try_end_4e
-    .catchall {:try_start_3 .. :try_end_4e} :catchall_4c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v3
 .end method
 
 .method public triggerRing(Ljava/lang/String;)Z
-    .registers 9
+    .locals 7
     .parameter "number"
 
     .prologue
@@ -2304,13 +2304,13 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_5
-    :try_start_5
+    :goto_0
+    :try_start_0
     iget-object v5, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     array-length v5, v5
 
-    if-ge v2, v5, :cond_32
+    if-ge v2, v5, :cond_4
 
     .line 184
     iget-object v5, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -2319,38 +2319,38 @@
 
     .line 186
     .local v0, call:Lcom/android/internal/telephony/test/CallInfo;
-    if-nez v0, :cond_16
+    if-nez v0, :cond_1
 
-    if-gez v1, :cond_16
+    if-gez v1, :cond_1
 
     .line 187
     move v1, v2
 
     .line 183
-    :cond_13
-    :goto_13
+    :cond_0
+    :goto_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 188
-    :cond_16
-    if-eqz v0, :cond_2e
+    :cond_1
+    if-eqz v0, :cond_3
 
     iget-object v5, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v6, Lcom/android/internal/telephony/test/CallInfo$State;->INCOMING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-eq v5, v6, :cond_24
+    if-eq v5, v6, :cond_2
 
     iget-object v5, v0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v6, Lcom/android/internal/telephony/test/CallInfo$State;->WAITING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v5, v6, :cond_2e
+    if-ne v5, v6, :cond_3
 
     .line 192
-    :cond_24
+    :cond_2
     const-string v5, "ModelInterpreter"
 
     const-string/jumbo v6, "triggerRing failed; phone already ringing"
@@ -2362,23 +2362,23 @@
 
     .line 213
     .end local v0           #call:Lcom/android/internal/telephony/test/CallInfo;
-    :goto_2d
+    :goto_2
     return v4
 
     .line 195
     .restart local v0       #call:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_2e
-    if-eqz v0, :cond_13
+    :cond_3
+    if-eqz v0, :cond_0
 
     .line 196
     const/4 v3, 0x1
 
-    goto :goto_13
+    goto :goto_1
 
     .line 200
     .end local v0           #call:Lcom/android/internal/telephony/test/CallInfo;
-    :cond_32
-    if-gez v1, :cond_41
+    :cond_4
+    if-gez v1, :cond_5
 
     .line 201
     const-string v5, "ModelInterpreter"
@@ -2390,21 +2390,21 @@
     .line 202
     monitor-exit p0
 
-    goto :goto_2d
+    goto :goto_2
 
     .line 212
-    :catchall_3e
+    :catchall_0
     move-exception v4
 
     monitor-exit p0
-    :try_end_40
-    .catchall {:try_start_5 .. :try_end_40} :catchall_3e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v4
 
     .line 205
-    :cond_41
-    :try_start_41
+    :cond_5
+    :try_start_1
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
 
     invoke-static {p1}, Landroid/telephony/PhoneNumberUtils;->extractNetworkPortion(Ljava/lang/String;)Ljava/lang/String;
@@ -2418,7 +2418,7 @@
     aput-object v5, v4, v1
 
     .line 208
-    if-eqz v3, :cond_57
+    if-eqz v3, :cond_6
 
     .line 209
     iget-object v4, p0, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->calls:[Lcom/android/internal/telephony/test/CallInfo;
@@ -2430,13 +2430,13 @@
     iput-object v5, v4, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     .line 212
-    :cond_57
+    :cond_6
     monitor-exit p0
-    :try_end_58
-    .catchall {:try_start_41 .. :try_end_58} :catchall_3e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 213
     const/4 v4, 0x1
 
-    goto :goto_2d
+    goto :goto_2
 .end method

@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 8
+    .locals 8
 
     .prologue
     const/4 v7, 0x4
@@ -170,7 +170,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IZ)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter "mShowStatusLines"
@@ -192,7 +192,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/policy/impl/KeyguardStatusViewManager$StatusMode;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -209,7 +209,7 @@
 .end method
 
 .method public static values()[Lcom/android/internal/policy/impl/KeyguardStatusViewManager$StatusMode;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 568
@@ -227,7 +227,7 @@
 
 # virtual methods
 .method public shouldShowStatusLines()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 617

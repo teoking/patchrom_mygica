@@ -65,7 +65,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 623
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 252
@@ -90,7 +90,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/pm/ResolveInfo;Landroid/content/Context;)V
-    .registers 20
+    .locals 17
     .parameter "resolveInfo"
     .parameter "context"
     .annotation system Ldalvik/annotation/Throws;
@@ -141,7 +141,7 @@
 
     .line 275
     .local v9, parser:Landroid/content/res/XmlResourceParser;
-    :try_start_21
+    :try_start_0
     invoke-virtual/range {p2 .. p2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v7
@@ -151,51 +151,51 @@
     const-string v14, "android.accessibilityservice"
 
     invoke-virtual {v12, v7, v14}, Landroid/content/pm/ServiceInfo;->loadXmlMetaData(Landroid/content/pm/PackageManager;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
-    :try_end_2a
-    .catchall {:try_start_21 .. :try_end_2a} :catchall_71
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_21 .. :try_end_2a} :catch_53
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v9
 
     .line 278
-    if-nez v9, :cond_33
+    if-nez v9, :cond_1
 
     .line 333
-    if-eqz v9, :cond_32
+    if-eqz v9, :cond_0
 
     .line 334
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->close()V
 
     .line 337
-    :cond_32
-    :goto_32
+    :cond_0
+    :goto_0
     return-void
 
     .line 282
-    :cond_33
+    :cond_1
     const/4 v13, 0x0
 
     .line 283
     .local v13, type:I
-    :goto_34
+    :goto_1
     const/4 v14, 0x1
 
-    if-eq v13, v14, :cond_3f
+    if-eq v13, v14, :cond_2
 
     const/4 v14, 0x2
 
-    if-eq v13, v14, :cond_3f
+    if-eq v13, v14, :cond_2
 
     .line 284
-    :try_start_3a
+    :try_start_1
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v13
 
-    goto :goto_34
+    goto :goto_1
 
     .line 287
-    :cond_3f
+    :cond_2
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v5
@@ -208,7 +208,7 @@
 
     move-result v14
 
-    if-nez v14, :cond_78
+    if-nez v14, :cond_4
 
     .line 289
     new-instance v14, Lorg/xmlpull/v1/XmlPullParserException;
@@ -218,20 +218,20 @@
     invoke-direct {v14, v15}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
     throw v14
-    :try_end_53
-    .catchall {:try_start_3a .. :try_end_53} :catchall_71
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_3a .. :try_end_53} :catch_53
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 329
     .end local v5           #nodeName:Ljava/lang/String;
     .end local v7           #packageManager:Landroid/content/pm/PackageManager;
     .end local v13           #type:I
-    :catch_53
+    :catch_0
     move-exception v4
 
     .line 330
     .local v4, e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    :try_start_54
+    :try_start_2
     new-instance v14, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance v15, Ljava/lang/StringBuilder;
@@ -259,28 +259,28 @@
     invoke-direct {v14, v15}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
     throw v14
-    :try_end_71
-    .catchall {:try_start_54 .. :try_end_71} :catchall_71
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 333
     .end local v4           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    :catchall_71
+    :catchall_0
     move-exception v14
 
-    if-eqz v9, :cond_77
+    if-eqz v9, :cond_3
 
     .line 334
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->close()V
 
-    :cond_77
+    :cond_3
     throw v14
 
     .line 293
     .restart local v5       #nodeName:Ljava/lang/String;
     .restart local v7       #packageManager:Landroid/content/pm/PackageManager;
     .restart local v13       #type:I
-    :cond_78
-    :try_start_78
+    :cond_4
+    :try_start_3
     invoke-static {v9}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v2
@@ -324,7 +324,7 @@
 
     .line 303
     .local v8, packageNamez:Ljava/lang/String;
-    if-eqz v8, :cond_a3
+    if-eqz v8, :cond_5
 
     .line 304
     const-string v14, "(\\s)*,(\\s)*"
@@ -338,7 +338,7 @@
     iput-object v14, v0, Landroid/accessibilityservice/AccessibilityServiceInfo;->packageNames:[Ljava/lang/String;
 
     .line 306
-    :cond_a3
+    :cond_5
     const/4 v14, 0x4
 
     const/4 v15, 0x0
@@ -412,7 +412,7 @@
 
     .line 321
     .local v10, peekedValue:Landroid/util/TypedValue;
-    if-eqz v10, :cond_f4
+    if-eqz v10, :cond_6
 
     .line 322
     iget v14, v10, Landroid/util/TypedValue;->resourceId:I
@@ -428,7 +428,7 @@
 
     .line 324
     .local v6, nonLocalizedDescription:Ljava/lang/CharSequence;
-    if-eqz v6, :cond_f4
+    if-eqz v6, :cond_6
 
     .line 325
     invoke-virtual {v6}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -445,23 +445,23 @@
 
     .line 328
     .end local v6           #nonLocalizedDescription:Ljava/lang/CharSequence;
-    :cond_f4
+    :cond_6
     invoke-virtual {v3}, Landroid/content/res/TypedArray;->recycle()V
-    :try_end_f7
-    .catchall {:try_start_78 .. :try_end_f7} :catchall_71
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_78 .. :try_end_f7} :catch_53
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_3 .. :try_end_3} :catch_0
 
     .line 333
-    if-eqz v9, :cond_32
+    if-eqz v9, :cond_0
 
     .line 334
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->close()V
 
-    goto/16 :goto_32
+    goto/16 :goto_0
 .end method
 
 .method static synthetic access$000(Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/os/Parcel;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -473,7 +473,7 @@
 .end method
 
 .method private static appendEventTypes(Ljava/lang/StringBuilder;I)V
-    .registers 5
+    .locals 3
     .parameter "stringBuilder"
     .parameter "eventTypes"
 
@@ -489,9 +489,9 @@
     invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 525
-    :cond_a
-    :goto_a
-    if-eqz p1, :cond_25
+    :cond_0
+    :goto_0
+    if-eqz p1, :cond_1
 
     .line 526
     const/4 v1, 0x1
@@ -516,18 +516,18 @@
     and-int/2addr p1, v1
 
     .line 529
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_0
 
     .line 530
     const-string v1, ", "
 
     invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_a
+    goto :goto_0
 
     .line 533
     .end local v0           #eventTypeBit:I
-    :cond_25
+    :cond_1
     const-string v1, "]"
 
     invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -537,7 +537,7 @@
 .end method
 
 .method private static appendFeedbackTypes(Ljava/lang/StringBuilder;I)V
-    .registers 5
+    .locals 3
     .parameter "stringBuilder"
     .parameter "feedbackTypes"
 
@@ -553,9 +553,9 @@
     invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 496
-    :cond_a
-    :goto_a
-    if-eqz p1, :cond_25
+    :cond_0
+    :goto_0
+    if-eqz p1, :cond_1
 
     .line 497
     const/4 v1, 0x1
@@ -580,18 +580,18 @@
     and-int/2addr p1, v1
 
     .line 500
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_0
 
     .line 501
     const-string v1, ", "
 
     invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_a
+    goto :goto_0
 
     .line 504
     .end local v0           #feedbackTypeBit:I
-    :cond_25
+    :cond_1
     const-string v1, "]"
 
     invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -601,7 +601,7 @@
 .end method
 
 .method private static appendFlags(Ljava/lang/StringBuilder;I)V
-    .registers 5
+    .locals 3
     .parameter "stringBuilder"
     .parameter "flags"
 
@@ -617,9 +617,9 @@
     invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 539
-    :cond_a
-    :goto_a
-    if-eqz p1, :cond_25
+    :cond_0
+    :goto_0
+    if-eqz p1, :cond_1
 
     .line 540
     const/4 v1, 0x1
@@ -644,18 +644,18 @@
     and-int/2addr p1, v1
 
     .line 543
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_0
 
     .line 544
     const-string v1, ", "
 
     invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_a
+    goto :goto_0
 
     .line 547
     .end local v0           #flagBit:I
-    :cond_25
+    :cond_1
     const-string v1, "]"
 
     invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -665,7 +665,7 @@
 .end method
 
 .method private static appendPackageNames(Ljava/lang/StringBuilder;[Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "stringBuilder"
     .parameter "packageNames"
 
@@ -681,7 +681,7 @@
     invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 510
-    if-eqz p1, :cond_22
+    if-eqz p1, :cond_1
 
     .line 511
     array-length v1, p1
@@ -691,8 +691,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_f
-    if-ge v0, v1, :cond_22
+    :goto_0
+    if-ge v0, v1, :cond_1
 
     .line 513
     aget-object v2, p1, v0
@@ -702,7 +702,7 @@
     .line 514
     add-int/lit8 v2, v1, -0x1
 
-    if-ge v0, v2, :cond_1f
+    if-ge v0, v2, :cond_0
 
     .line 515
     const-string v2, ", "
@@ -710,15 +710,15 @@
     invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 512
-    :cond_1f
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 519
     .end local v0           #i:I
     .end local v1           #packageNameCount:I
-    :cond_22
+    :cond_1
     const-string v2, "]"
 
     invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -728,7 +728,7 @@
 .end method
 
 .method public static feedbackTypeToString(I)Ljava/lang/String;
-    .registers 5
+    .locals 4
     .parameter "feedbackType"
 
     .prologue
@@ -746,8 +746,8 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 560
-    :goto_b
-    if-eqz p0, :cond_6f
+    :goto_0
+    if-eqz p0, :cond_5
 
     .line 561
     invoke-static {p0}, Ljava/lang/Integer;->numberOfTrailingZeros(I)I
@@ -763,17 +763,17 @@
     and-int/2addr p0, v2
 
     .line 563
-    sparse-switch v1, :sswitch_data_7a
+    sparse-switch v1, :sswitch_data_0
 
-    goto :goto_b
+    goto :goto_0
 
     .line 583
-    :sswitch_1a
+    :sswitch_0
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v2
 
-    if-le v2, v3, :cond_25
+    if-le v2, v3, :cond_0
 
     .line 584
     const-string v2, ", "
@@ -781,20 +781,20 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 586
-    :cond_25
+    :cond_0
     const-string v2, "FEEDBACK_SPOKEN"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_b
+    goto :goto_0
 
     .line 565
-    :sswitch_2b
+    :sswitch_1
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v2
 
-    if-le v2, v3, :cond_36
+    if-le v2, v3, :cond_1
 
     .line 566
     const-string v2, ", "
@@ -802,20 +802,20 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 568
-    :cond_36
+    :cond_1
     const-string v2, "FEEDBACK_AUDIBLE"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_b
+    goto :goto_0
 
     .line 571
-    :sswitch_3c
+    :sswitch_2
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v2
 
-    if-le v2, v3, :cond_47
+    if-le v2, v3, :cond_2
 
     .line 572
     const-string v2, ", "
@@ -823,20 +823,20 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 574
-    :cond_47
+    :cond_2
     const-string v2, "FEEDBACK_HAPTIC"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_b
+    goto :goto_0
 
     .line 577
-    :sswitch_4d
+    :sswitch_3
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v2
 
-    if-le v2, v3, :cond_58
+    if-le v2, v3, :cond_3
 
     .line 578
     const-string v2, ", "
@@ -844,20 +844,20 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 580
-    :cond_58
+    :cond_3
     const-string v2, "FEEDBACK_GENERIC"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_b
+    goto :goto_0
 
     .line 589
-    :sswitch_5e
+    :sswitch_4
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v2
 
-    if-le v2, v3, :cond_69
+    if-le v2, v3, :cond_4
 
     .line 590
     const-string v2, ", "
@@ -865,16 +865,16 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 592
-    :cond_69
+    :cond_4
     const-string v2, "FEEDBACK_VISUAL"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_b
+    goto :goto_0
 
     .line 596
     .end local v1           #feedbackTypeFlag:I
-    :cond_6f
+    :cond_5
     const-string v2, "]"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -889,61 +889,61 @@
     .line 563
     nop
 
-    :sswitch_data_7a
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_1a
-        0x2 -> :sswitch_3c
-        0x4 -> :sswitch_2b
-        0x8 -> :sswitch_5e
-        0x10 -> :sswitch_4d
+        0x1 -> :sswitch_0
+        0x2 -> :sswitch_2
+        0x4 -> :sswitch_1
+        0x8 -> :sswitch_4
+        0x10 -> :sswitch_3
     .end sparse-switch
 .end method
 
 .method public static flagToString(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "flag"
 
     .prologue
     .line 608
-    packed-switch p0, :pswitch_data_e
+    packed-switch p0, :pswitch_data_0
 
     .line 616
-    :pswitch_3
+    :pswitch_0
     const/4 v0, 0x0
 
-    :goto_4
+    :goto_0
     return-object v0
 
     .line 610
-    :pswitch_5
+    :pswitch_1
     const-string v0, "DEFAULT"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 612
-    :pswitch_8
+    :pswitch_2
     const-string v0, "FLAG_INCLUDE_NOT_IMPORTANT_VIEWS"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 614
-    :pswitch_b
+    :pswitch_3
     const-string v0, "FLAG_REQUEST_TOUCH_EXPLORATION_MODE"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 608
-    :pswitch_data_e
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_5
-        :pswitch_8
+        :pswitch_1
+        :pswitch_2
+        :pswitch_0
         :pswitch_3
-        :pswitch_b
     .end packed-switch
 .end method
 
 .method private initFromParcel(Landroid/os/Parcel;)V
-    .registers 6
+    .locals 4
     .parameter "parcel"
 
     .prologue
@@ -1014,11 +1014,11 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_4a
+    if-ne v0, v1, :cond_0
 
     move v0, v1
 
-    :goto_3b
+    :goto_0
     iput-boolean v0, p0, Landroid/accessibilityservice/AccessibilityServiceInfo;->mCanRetrieveWindowContent:Z
 
     .line 466
@@ -1039,16 +1039,16 @@
     return-void
 
     .line 465
-    :cond_4a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_3b
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 439
@@ -1058,7 +1058,7 @@
 .end method
 
 .method public getCanRetrieveWindowContent()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 397
@@ -1068,7 +1068,7 @@
 .end method
 
 .method public getDescription()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 411
@@ -1078,7 +1078,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 362
@@ -1088,7 +1088,7 @@
 .end method
 
 .method public getResolveInfo()Landroid/content/pm/ResolveInfo;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 373
@@ -1098,7 +1098,7 @@
 .end method
 
 .method public getSettingsActivityName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 385
@@ -1108,24 +1108,24 @@
 .end method
 
 .method public loadDescription(Landroid/content/pm/PackageManager;)Ljava/lang/String;
-    .registers 7
+    .locals 5
     .parameter "packageManager"
 
     .prologue
     .line 423
     iget v2, p0, Landroid/accessibilityservice/AccessibilityServiceInfo;->mDescriptionResId:I
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_0
 
     .line 424
     iget-object v2, p0, Landroid/accessibilityservice/AccessibilityServiceInfo;->mNonLocalizedDescription:Ljava/lang/String;
 
     .line 432
-    :goto_6
+    :goto_0
     return-object v2
 
     .line 426
-    :cond_7
+    :cond_0
     iget-object v2, p0, Landroid/accessibilityservice/AccessibilityServiceInfo;->mResolveInfo:Landroid/content/pm/ResolveInfo;
 
     iget-object v1, v2, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
@@ -1144,7 +1144,7 @@
 
     .line 429
     .local v0, description:Ljava/lang/CharSequence;
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1
 
     .line 430
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -1155,17 +1155,17 @@
 
     move-result-object v2
 
-    goto :goto_6
+    goto :goto_0
 
     .line 432
-    :cond_20
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 472
@@ -1298,7 +1298,7 @@
 .end method
 
 .method public updateDynamicallyConfigurableProperties(Landroid/accessibilityservice/AccessibilityServiceInfo;)V
-    .registers 4
+    .locals 2
     .parameter "other"
 
     .prologue
@@ -1332,7 +1332,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "parcel"
     .parameter "flagz"
 
@@ -1382,11 +1382,11 @@
     .line 451
     iget-boolean v1, p0, Landroid/accessibilityservice/AccessibilityServiceInfo;->mCanRetrieveWindowContent:Z
 
-    if-eqz v1, :cond_2e
+    if-eqz v1, :cond_0
 
     const/4 v0, 0x1
 
-    :cond_2e
+    :cond_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 452

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 68
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/location/GeocoderParams;
-    .registers 7
+    .locals 5
     .parameter "in"
 
     .prologue
@@ -76,6 +76,7 @@
 
     invoke-direct {v4, v2, v0, v3}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    #setter for: Landroid/location/GeocoderParams;->mLocale:Ljava/util/Locale;
     invoke-static {v1, v4}, Landroid/location/GeocoderParams;->access$102(Landroid/location/GeocoderParams;Ljava/util/Locale;)Ljava/util/Locale;
 
     .line 75
@@ -83,6 +84,7 @@
 
     move-result-object v4
 
+    #setter for: Landroid/location/GeocoderParams;->mPackageName:Ljava/lang/String;
     invoke-static {v1, v4}, Landroid/location/GeocoderParams;->access$202(Landroid/location/GeocoderParams;Ljava/lang/String;)Ljava/lang/String;
 
     .line 76
@@ -90,7 +92,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -103,7 +105,7 @@
 .end method
 
 .method public newArray(I)[Landroid/location/GeocoderParams;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -114,7 +116,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

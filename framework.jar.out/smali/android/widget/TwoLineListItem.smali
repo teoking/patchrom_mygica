@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -27,7 +27,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 7
+    .locals 3
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public getText1()Landroid/widget/TextView;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 77
@@ -81,7 +81,7 @@
 .end method
 
 .method public getText2()Landroid/widget/TextView;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 85
@@ -91,7 +91,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 66
@@ -124,7 +124,7 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -145,7 +145,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .registers 3
+    .locals 1
     .parameter "info"
 
     .prologue

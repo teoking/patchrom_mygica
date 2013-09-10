@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "rate"
 
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public disable()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 90
@@ -81,7 +81,7 @@
 .end method
 
 .method public enable()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 83
@@ -94,7 +94,7 @@
 .end method
 
 .method public onAccuracyChanged(II)V
-    .registers 3
+    .locals 0
     .parameter "sensor"
     .parameter "accuracy"
 
@@ -107,7 +107,7 @@
 .end method
 
 .method public onSensorChanged(I[F)V
-    .registers 3
+    .locals 0
     .parameter "sensor"
     .parameter "values"
 

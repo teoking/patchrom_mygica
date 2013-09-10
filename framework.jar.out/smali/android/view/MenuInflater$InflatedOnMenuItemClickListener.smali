@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 206
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "realOwner"
     .parameter "methodName"
 
@@ -75,7 +75,7 @@
 
     .line 215
     .local v0, c:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :try_start_9
+    :try_start_0
     sget-object v3, Landroid/view/MenuInflater$InflatedOnMenuItemClickListener;->PARAM_TYPES:[Ljava/lang/Class;
 
     invoke-virtual {v0, p2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
@@ -83,14 +83,14 @@
     move-result-object v3
 
     iput-object v3, p0, Landroid/view/MenuInflater$InflatedOnMenuItemClickListener;->mMethod:Ljava/lang/reflect/Method;
-    :try_end_11
-    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_11} :catch_12
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 223
     return-void
 
     .line 216
-    :catch_12
+    :catch_0
     move-exception v1
 
     .line 217
@@ -142,14 +142,14 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .registers 8
+    .locals 6
     .parameter "item"
 
     .prologue
     const/4 v1, 0x1
 
     .line 227
-    :try_start_1
+    :try_start_0
     iget-object v2, p0, Landroid/view/MenuInflater$InflatedOnMenuItemClickListener;->mMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v2}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
@@ -158,7 +158,7 @@
 
     sget-object v3, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    if-ne v2, v3, :cond_20
+    if-ne v2, v3, :cond_0
 
     .line 228
     iget-object v1, p0, Landroid/view/MenuInflater$InflatedOnMenuItemClickListener;->mMethod:Ljava/lang/reflect/Method;
@@ -184,11 +184,11 @@
     move-result v1
 
     .line 231
-    :goto_1f
+    :goto_0
     return v1
 
     .line 230
-    :cond_20
+    :cond_0
     iget-object v2, p0, Landroid/view/MenuInflater$InflatedOnMenuItemClickListener;->mMethod:Ljava/lang/reflect/Method;
 
     iget-object v3, p0, Landroid/view/MenuInflater$InflatedOnMenuItemClickListener;->mRealOwner:Ljava/lang/Object;
@@ -202,13 +202,13 @@
     aput-object p1, v4, v5
 
     invoke-virtual {v2, v3, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_2d
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_2d} :catch_2e
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 233
-    :catch_2e
+    :catch_0
     move-exception v0
 
     .line 234

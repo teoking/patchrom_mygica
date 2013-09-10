@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/service/wallpaper/WallpaperService$Engine;Landroid/view/InputChannel;Landroid/os/Looper;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "inputChannel"
     .parameter "looper"
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onInputEvent(Landroid/view/InputEvent;)V
-    .registers 6
+    .locals 4
     .parameter "event"
 
     .prologue
@@ -48,10 +48,10 @@
 
     .line 241
     .local v2, handled:Z
-    :try_start_1
+    :try_start_0
     instance-of v3, p1, Landroid/view/MotionEvent;
 
-    if-eqz v3, :cond_1b
+    if-eqz v3, :cond_0
 
     invoke-virtual {p1}, Landroid/view/InputEvent;->getSource()I
 
@@ -59,7 +59,7 @@
 
     and-int/lit8 v3, v3, 0x2
 
-    if-eqz v3, :cond_1b
+    if-eqz v3, :cond_0
 
     .line 243
     move-object v0, p1
@@ -76,23 +76,24 @@
     .local v1, dup:Landroid/view/MotionEvent;
     iget-object v3, p0, Landroid/service/wallpaper/WallpaperService$Engine$WallpaperInputEventReceiver;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
 
+    #calls: Landroid/service/wallpaper/WallpaperService$Engine;->dispatchPointer(Landroid/view/MotionEvent;)V
     invoke-static {v3, v1}, Landroid/service/wallpaper/WallpaperService$Engine;->access$000(Landroid/service/wallpaper/WallpaperService$Engine;Landroid/view/MotionEvent;)V
-    :try_end_1a
-    .catchall {:try_start_1 .. :try_end_1a} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 245
     const/4 v2, 0x1
 
     .line 248
     .end local v1           #dup:Landroid/view/MotionEvent;
-    :cond_1b
+    :cond_0
     invoke-virtual {p0, p1, v2}, Landroid/service/wallpaper/WallpaperService$Engine$WallpaperInputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 
     .line 250
     return-void
 
     .line 248
-    :catchall_1f
+    :catchall_0
     move-exception v3
 
     invoke-virtual {p0, p1, v2}, Landroid/service/wallpaper/WallpaperService$Engine$WallpaperInputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V

@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;[Ljava/lang/String;[Ljava/lang/String;)V
-    .registers 12
+    .locals 8
     .parameter "context"
     .parameter "files"
     .parameter "keys"
@@ -89,16 +89,16 @@
 
     cmpg-double v4, v4, v6
 
-    if-lez v4, :cond_2e
+    if-lez v4, :cond_0
 
     iget-wide v4, p0, Landroid/app/backup/WallpaperBackupHelper;->mDesiredMinHeight:D
 
     cmpg-double v4, v4, v6
 
-    if-gtz v4, :cond_4d
+    if-gtz v4, :cond_1
 
     .line 81
-    :cond_2e
+    :cond_0
     const-string/jumbo v4, "window"
 
     invoke-virtual {p1, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -141,14 +141,14 @@
     .end local v0           #d:Landroid/view/Display;
     .end local v1           #size:Landroid/graphics/Point;
     .end local v2           #wm:Landroid/view/WindowManager;
-    :cond_4d
+    :cond_1
     return-void
 .end method
 
 
 # virtual methods
 .method public performBackup(Landroid/os/ParcelFileDescriptor;Landroid/app/backup/BackupDataOutput;Landroid/os/ParcelFileDescriptor;)V
-    .registers 6
+    .locals 2
     .parameter "oldState"
     .parameter "data"
     .parameter "newState"
@@ -166,7 +166,7 @@
 .end method
 
 .method public restoreEntity(Landroid/app/backup/BackupDataInputStream;)V
-    .registers 13
+    .locals 11
     .parameter "data"
 
     .prologue
@@ -183,7 +183,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_64
+    if-eqz v7, :cond_0
 
     .line 112
     const-string v7, "/data/data/com.android.settings/files/wallpaper"
@@ -192,7 +192,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_69
+    if-eqz v7, :cond_2
 
     .line 114
     new-instance v0, Ljava/io/File;
@@ -207,7 +207,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_64
+    if-eqz v7, :cond_0
 
     .line 118
     new-instance v4, Landroid/graphics/BitmapFactory$Options;
@@ -250,25 +250,25 @@
 
     cmpl-double v7, v5, v7
 
-    if-lez v7, :cond_65
+    if-lez v7, :cond_1
 
     const-wide v7, 0x3ff547ae147ae148L
 
     cmpg-double v7, v5, v7
 
-    if-gez v7, :cond_65
+    if-gez v7, :cond_1
 
     const-wide/16 v7, 0x0
 
     cmpl-double v7, v1, v7
 
-    if-lez v7, :cond_65
+    if-lez v7, :cond_1
 
     const-wide v7, 0x3ff547ae147ae148L
 
     cmpg-double v7, v1, v7
 
-    if-gez v7, :cond_65
+    if-gez v7, :cond_1
 
     .line 137
     new-instance v7, Ljava/io/File;
@@ -284,8 +284,8 @@
     .end local v1           #heightRatio:D
     .end local v4           #options:Landroid/graphics/BitmapFactory$Options;
     .end local v5           #widthRatio:D
-    :cond_64
-    :goto_64
+    :cond_0
+    :goto_0
     return-void
 
     .line 144
@@ -293,24 +293,24 @@
     .restart local v1       #heightRatio:D
     .restart local v4       #options:Landroid/graphics/BitmapFactory$Options;
     .restart local v5       #widthRatio:D
-    :cond_65
+    :cond_1
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    goto :goto_64
+    goto :goto_0
 
     .line 147
     .end local v0           #f:Ljava/io/File;
     .end local v1           #heightRatio:D
     .end local v4           #options:Landroid/graphics/BitmapFactory$Options;
     .end local v5           #widthRatio:D
-    :cond_69
+    :cond_2
     const-string v7, "/data/system/wallpaper_info.xml"
 
     invoke-virtual {v3, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_64
+    if-eqz v7, :cond_0
 
     .line 149
     new-instance v0, Ljava/io/File;
@@ -323,11 +323,11 @@
     .restart local v0       #f:Ljava/io/File;
     invoke-virtual {p0, v0, p1}, Landroid/app/backup/WallpaperBackupHelper;->writeFile(Ljava/io/File;Landroid/app/backup/BackupDataInputStream;)Z
 
-    goto :goto_64
+    goto :goto_0
 .end method
 
 .method public bridge synthetic writeNewStateDescription(Landroid/os/ParcelFileDescriptor;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue

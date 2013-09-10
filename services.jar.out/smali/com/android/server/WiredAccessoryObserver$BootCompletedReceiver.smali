@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/WiredAccessoryObserver;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/WiredAccessoryObserver;Lcom/android/server/WiredAccessoryObserver$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 8
+    .locals 5
     .parameter "context"
     .parameter "intent"
 
@@ -55,13 +55,14 @@
     .line 161
     iget-object v2, p0, Lcom/android/server/WiredAccessoryObserver$BootCompletedReceiver;->this$0:Lcom/android/server/WiredAccessoryObserver;
 
+    #calls: Lcom/android/server/WiredAccessoryObserver;->init()V
     invoke-static {v2}, Lcom/android/server/WiredAccessoryObserver;->access$100(Lcom/android/server/WiredAccessoryObserver;)V
 
     .line 162
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_6
+    :goto_0
     invoke-static {}, Lcom/android/server/WiredAccessoryObserver;->access$200()Ljava/util/List;
 
     move-result-object v2
@@ -70,7 +71,7 @@
 
     move-result v2
 
-    if-ge v0, v2, :cond_39
+    if-ge v0, v2, :cond_0
 
     .line 163
     invoke-static {}, Lcom/android/server/WiredAccessoryObserver;->access$200()Ljava/util/List;
@@ -114,10 +115,10 @@
     .line 162
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 166
     .end local v1           #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
-    :cond_39
+    :cond_0
     return-void
 .end method

@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;JI)V
-    .registers 6
+    .locals 0
     .parameter "_label"
     .parameter "_shortLabel"
     .parameter "_pss"

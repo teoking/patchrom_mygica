@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 8
+    .locals 8
 
     .prologue
     const/4 v7, 0x4
@@ -188,7 +188,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -205,7 +205,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/view/ViewDebug$HierarchyTraceType;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -222,7 +222,7 @@
 .end method
 
 .method public static values()[Landroid/view/ViewDebug$HierarchyTraceType;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 279

@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/16 v2, 0x8
@@ -92,7 +92,7 @@
 .end method
 
 .method public constructor <init>(Landroid/renderscript/RenderScriptGL$SurfaceConfig;)V
-    .registers 5
+    .locals 3
     .parameter "sc"
 
     .prologue
@@ -200,7 +200,7 @@
 .end method
 
 .method private validateRange(IIII)V
-    .registers 7
+    .locals 2
     .parameter "umin"
     .parameter "upref"
     .parameter "rmin"
@@ -208,12 +208,12 @@
 
     .prologue
     .line 95
-    if-lt p1, p3, :cond_4
+    if-lt p1, p3, :cond_0
 
-    if-le p1, p4, :cond_c
+    if-le p1, p4, :cond_1
 
     .line 96
-    :cond_4
+    :cond_0
     new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
 
     const-string v1, "Minimum value provided out of range."
@@ -223,8 +223,8 @@
     throw v0
 
     .line 98
-    :cond_c
-    if-ge p2, p1, :cond_17
+    :cond_1
+    if-ge p2, p1, :cond_2
 
     .line 99
     new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
@@ -236,14 +236,14 @@
     throw v0
 
     .line 101
-    :cond_17
+    :cond_2
     return-void
 .end method
 
 
 # virtual methods
 .method public setAlpha(II)V
-    .registers 5
+    .locals 2
     .parameter "minimum"
     .parameter "preferred"
 
@@ -266,7 +266,7 @@
 .end method
 
 .method public setColor(II)V
-    .registers 5
+    .locals 2
     .parameter "minimum"
     .parameter "preferred"
 
@@ -289,7 +289,7 @@
 .end method
 
 .method public setDepth(II)V
-    .registers 5
+    .locals 2
     .parameter "minimum"
     .parameter "preferred"
 
@@ -312,7 +312,7 @@
 .end method
 
 .method public setSamples(IIF)V
-    .registers 6
+    .locals 2
     .parameter "minimum"
     .parameter "preferred"
     .parameter "Q"
@@ -330,16 +330,16 @@
 
     cmpg-float v0, p3, v0
 
-    if-ltz v0, :cond_11
+    if-ltz v0, :cond_0
 
     const/high16 v0, 0x3f80
 
     cmpl-float v0, p3, v0
 
-    if-lez v0, :cond_19
+    if-lez v0, :cond_1
 
     .line 161
-    :cond_11
+    :cond_0
     new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
 
     const-string v1, "Quality out of 0-1 range."
@@ -349,7 +349,7 @@
     throw v0
 
     .line 163
-    :cond_19
+    :cond_1
     iput p1, p0, Landroid/renderscript/RenderScriptGL$SurfaceConfig;->mSamplesMin:I
 
     .line 164

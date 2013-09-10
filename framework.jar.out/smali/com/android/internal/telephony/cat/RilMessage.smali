@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "msgId"
     .parameter "rawData"
 
@@ -32,7 +32,7 @@
 .end method
 
 .method constructor <init>(Lcom/android/internal/telephony/cat/RilMessage;)V
-    .registers 3
+    .locals 1
     .parameter "other"
 
     .prologue

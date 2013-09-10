@@ -15,7 +15,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/String;Ljava/lang/String;Landroid/net/wifi/SupplicantState;)V
-    .registers 5
+    .locals 0
     .parameter "networkId"
     .parameter "SSID"
     .parameter "BSSID"

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/WebViewDatabaseClassic;Landroid/content/Context;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 106
@@ -48,6 +48,7 @@
 
     iget-object v1, p0, Landroid/webkit/WebViewDatabaseClassic$1;->val$context:Landroid/content/Context;
 
+    #calls: Landroid/webkit/WebViewDatabaseClassic;->init(Landroid/content/Context;)V
     invoke-static {v0, v1}, Landroid/webkit/WebViewDatabaseClassic;->access$000(Landroid/webkit/WebViewDatabaseClassic;Landroid/content/Context;)V
 
     .line 107

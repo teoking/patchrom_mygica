@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 87
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Landroid/filterfw/core/FrameManager;Landroid/filterfw/io/GraphReader;)V
-    .registers 4
+    .locals 1
     .parameter "frameManager"
     .parameter "reader"
 
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public addGraph(Landroid/filterfw/core/FilterGraph;)I
-    .registers 4
+    .locals 2
     .parameter "graph"
 
     .prologue
@@ -107,7 +107,7 @@
 .end method
 
 .method public varargs addReferences([Ljava/lang/Object;)V
-    .registers 3
+    .locals 1
     .parameter "references"
 
     .prologue
@@ -123,12 +123,12 @@
 .end method
 
 .method public getGraph(I)Landroid/filterfw/core/FilterGraph;
-    .registers 5
+    .locals 3
     .parameter "graphId"
 
     .prologue
     .line 166
-    if-ltz p1, :cond_a
+    if-ltz p1, :cond_0
 
     iget-object v0, p0, Landroid/filterfw/GraphEnvironment;->mGraphs:Ljava/util/ArrayList;
 
@@ -136,10 +136,10 @@
 
     move-result v0
 
-    if-lt p1, v0, :cond_29
+    if-lt p1, v0, :cond_1
 
     .line 167
-    :cond_a
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -171,7 +171,7 @@
     throw v0
 
     .line 170
-    :cond_29
+    :cond_1
     iget-object v0, p0, Landroid/filterfw/GraphEnvironment;->mGraphs:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -188,13 +188,13 @@
 .end method
 
 .method public getGraphReader()Landroid/filterfw/io/GraphReader;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 108
     iget-object v0, p0, Landroid/filterfw/GraphEnvironment;->mGraphReader:Landroid/filterfw/io/GraphReader;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 109
     new-instance v0, Landroid/filterfw/io/TextGraphReader;
@@ -204,20 +204,20 @@
     iput-object v0, p0, Landroid/filterfw/GraphEnvironment;->mGraphReader:Landroid/filterfw/io/GraphReader;
 
     .line 111
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/filterfw/GraphEnvironment;->mGraphReader:Landroid/filterfw/io/GraphReader;
 
     return-object v0
 .end method
 
 .method public getRunner(II)Landroid/filterfw/core/GraphRunner;
-    .registers 6
+    .locals 3
     .parameter "graphId"
     .parameter "executionMode"
 
     .prologue
     .line 184
-    packed-switch p2, :pswitch_data_44
+    packed-switch p2, :pswitch_data_0
 
     .line 192
     new-instance v0, Ljava/lang/RuntimeException;
@@ -251,7 +251,7 @@
     throw v0
 
     .line 186
-    :pswitch_22
+    :pswitch_0
     iget-object v0, p0, Landroid/filterfw/GraphEnvironment;->mGraphs:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -269,10 +269,10 @@
     move-result-object v0
 
     .line 189
-    :goto_32
+    :goto_0
     return-object v0
 
-    :pswitch_33
+    :pswitch_1
     iget-object v0, p0, Landroid/filterfw/GraphEnvironment;->mGraphs:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -289,18 +289,18 @@
 
     move-result-object v0
 
-    goto :goto_32
+    goto :goto_0
 
     .line 184
-    :pswitch_data_44
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_22
-        :pswitch_33
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public loadGraph(Landroid/content/Context;I)I
-    .registers 8
+    .locals 5
     .parameter "context"
     .parameter "resourceId"
 
@@ -310,14 +310,14 @@
 
     .line 135
     .local v1, graph:Landroid/filterfw/core/FilterGraph;
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0}, Landroid/filterfw/GraphEnvironment;->getGraphReader()Landroid/filterfw/io/GraphReader;
 
     move-result-object v2
 
     invoke-virtual {v2, p1, p2}, Landroid/filterfw/io/GraphReader;->readGraphResource(Landroid/content/Context;I)Landroid/filterfw/core/FilterGraph;
-    :try_end_8
-    .catch Landroid/filterfw/io/GraphIOException; {:try_start_1 .. :try_end_8} :catch_e
+    :try_end_0
+    .catch Landroid/filterfw/io/GraphIOException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
@@ -329,7 +329,7 @@
     return v2
 
     .line 136
-    :catch_e
+    :catch_0
     move-exception v0
 
     .line 137

@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -48,7 +48,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/server/SamplingProfilerService;Ljava/io/File;Landroid/os/DropBoxManager;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -61,7 +61,7 @@
 .end method
 
 .method private handleSnapshotFile(Ljava/io/File;Landroid/os/DropBoxManager;)V
-    .registers 7
+    .locals 4
     .parameter "file"
     .parameter "dropbox"
 
@@ -73,24 +73,24 @@
     const/4 v2, 0x0
 
     invoke-virtual {p2, v1, p1, v2}, Landroid/os/DropBoxManager;->addFile(Ljava/lang/String;Ljava/io/File;I)V
-    :try_end_6
-    .catchall {:try_start_0 .. :try_end_6} :catchall_2e
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 86
-    :goto_6
+    :goto_0
     invoke-virtual {p1}, Ljava/io/File;->delete()Z
 
     .line 88
     return-void
 
     .line 83
-    :catch_a
+    :catch_0
     move-exception v0
 
     .line 84
     .local v0, e:Ljava/io/IOException;
-    :try_start_b
+    :try_start_1
     const-string v1, "SamplingProfilerService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -122,14 +122,14 @@
     move-result-object v2
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_2d
-    .catchall {:try_start_b .. :try_end_2d} :catchall_2e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 86
     .end local v0           #e:Ljava/io/IOException;
-    :catchall_2e
+    :catchall_0
     move-exception v1
 
     invoke-virtual {p1}, Ljava/io/File;->delete()Z
@@ -138,7 +138,7 @@
 .end method
 
 .method private registerSettingObserver(Landroid/content/Context;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
@@ -168,7 +168,7 @@
 .end method
 
 .method private startWorking(Landroid/content/Context;)V
-    .registers 8
+    .locals 6
     .parameter "context"
 
     .prologue
@@ -198,12 +198,12 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_14
-    if-eqz v2, :cond_21
+    :goto_0
+    if-eqz v2, :cond_0
 
     array-length v3, v2
 
-    if-ge v1, v3, :cond_21
+    if-ge v1, v3, :cond_0
 
     .line 61
     aget-object v3, v2, v1
@@ -213,10 +213,10 @@
     .line 60
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_14
+    goto :goto_0
 
     .line 68
-    :cond_21
+    :cond_0
     new-instance v3, Lcom/android/server/SamplingProfilerService$1;
 
     const-string v4, "/data/snapshots"
@@ -239,7 +239,7 @@
 
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 7
+    .locals 3
     .parameter "fd"
     .parameter "pw"
     .parameter "args"

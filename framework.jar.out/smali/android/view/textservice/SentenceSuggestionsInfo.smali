@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 132
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 5
+    .locals 3
     .parameter "source"
 
     .prologue
@@ -101,7 +101,7 @@
 .end method
 
 .method public constructor <init>([Landroid/view/textservice/SuggestionsInfo;[I[I)V
-    .registers 7
+    .locals 3
     .parameter "suggestionsInfos"
     .parameter "offsets"
     .parameter "lengths"
@@ -111,14 +111,14 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 47
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
-    if-eqz p2, :cond_9
+    if-eqz p2, :cond_0
 
-    if-nez p3, :cond_f
+    if-nez p3, :cond_1
 
     .line 48
-    :cond_9
+    :cond_0
     new-instance v1, Ljava/lang/NullPointerException;
 
     invoke-direct {v1}, Ljava/lang/NullPointerException;-><init>()V
@@ -126,21 +126,21 @@
     throw v1
 
     .line 50
-    :cond_f
+    :cond_1
     array-length v1, p1
 
     array-length v2, p2
 
-    if-ne v1, v2, :cond_17
+    if-ne v1, v2, :cond_2
 
     array-length v1, p2
 
     array-length v2, p3
 
-    if-eq v1, v2, :cond_1d
+    if-eq v1, v2, :cond_3
 
     .line 51
-    :cond_17
+    :cond_2
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v1}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -148,7 +148,7 @@
     throw v1
 
     .line 53
-    :cond_1d
+    :cond_3
     array-length v0, p1
 
     .line 54
@@ -182,7 +182,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 86
@@ -192,18 +192,18 @@
 .end method
 
 .method public getLengthAt(I)I
-    .registers 3
+    .locals 1
     .parameter "i"
 
     .prologue
     .line 123
-    if-ltz p1, :cond_c
+    if-ltz p1, :cond_0
 
     iget-object v0, p0, Landroid/view/textservice/SentenceSuggestionsInfo;->mLengths:[I
 
     array-length v0, v0
 
-    if-ge p1, v0, :cond_c
+    if-ge p1, v0, :cond_0
 
     .line 124
     iget-object v0, p0, Landroid/view/textservice/SentenceSuggestionsInfo;->mLengths:[I
@@ -211,28 +211,28 @@
     aget v0, v0, p1
 
     .line 126
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, -0x1
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public getOffsetAt(I)I
-    .registers 3
+    .locals 1
     .parameter "i"
 
     .prologue
     .line 112
-    if-ltz p1, :cond_c
+    if-ltz p1, :cond_0
 
     iget-object v0, p0, Landroid/view/textservice/SentenceSuggestionsInfo;->mOffsets:[I
 
     array-length v0, v0
 
-    if-ge p1, v0, :cond_c
+    if-ge p1, v0, :cond_0
 
     .line 113
     iget-object v0, p0, Landroid/view/textservice/SentenceSuggestionsInfo;->mOffsets:[I
@@ -240,17 +240,17 @@
     aget v0, v0, p1
 
     .line 115
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, -0x1
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public getSuggestionsCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 93
@@ -262,18 +262,18 @@
 .end method
 
 .method public getSuggestionsInfoAt(I)Landroid/view/textservice/SuggestionsInfo;
-    .registers 3
+    .locals 1
     .parameter "i"
 
     .prologue
     .line 101
-    if-ltz p1, :cond_c
+    if-ltz p1, :cond_0
 
     iget-object v0, p0, Landroid/view/textservice/SentenceSuggestionsInfo;->mSuggestionsInfos:[Landroid/view/textservice/SuggestionsInfo;
 
     array-length v0, v0
 
-    if-ge p1, v0, :cond_c
+    if-ge p1, v0, :cond_0
 
     .line 102
     iget-object v0, p0, Landroid/view/textservice/SentenceSuggestionsInfo;->mSuggestionsInfos:[Landroid/view/textservice/SuggestionsInfo;
@@ -281,17 +281,17 @@
     aget-object v0, v0, p1
 
     .line 104
-    :goto_b
+    :goto_0
     return-object v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "dest"
     .parameter "flags"
 

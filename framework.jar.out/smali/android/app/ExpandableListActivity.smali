@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 155
@@ -34,31 +34,31 @@
 .end method
 
 .method private ensureList()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 270
     iget-object v0, p0, Landroid/app/ExpandableListActivity;->mList:Landroid/widget/ExpandableListView;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
     .line 274
-    :goto_4
+    :goto_0
     return-void
 
     .line 273
-    :cond_5
+    :cond_0
     const v0, 0x1090001
 
     invoke-virtual {p0, v0}, Landroid/app/ExpandableListActivity;->setContentView(I)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getExpandableListAdapter()Landroid/widget/ExpandableListAdapter;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 266
@@ -68,7 +68,7 @@
 .end method
 
 .method public getExpandableListView()Landroid/widget/ExpandableListView;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 257
@@ -81,7 +81,7 @@
 .end method
 
 .method public getSelectedId()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 282
@@ -95,7 +95,7 @@
 .end method
 
 .method public getSelectedPosition()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 297
@@ -109,7 +109,7 @@
 .end method
 
 .method public onChildClick(Landroid/widget/ExpandableListView;Landroid/view/View;IIJ)Z
-    .registers 8
+    .locals 1
     .parameter "parent"
     .parameter "v"
     .parameter "groupPosition"
@@ -124,7 +124,7 @@
 .end method
 
 .method public onContentChanged()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 218
@@ -152,7 +152,7 @@
     .line 221
     iget-object v1, p0, Landroid/app/ExpandableListActivity;->mList:Landroid/widget/ExpandableListView;
 
-    if-nez v1, :cond_21
+    if-nez v1, :cond_0
 
     .line 222
     new-instance v1, Ljava/lang/RuntimeException;
@@ -164,8 +164,8 @@
     throw v1
 
     .line 226
-    :cond_21
-    if-eqz v0, :cond_28
+    :cond_0
+    if-eqz v0, :cond_1
 
     .line 227
     iget-object v1, p0, Landroid/app/ExpandableListActivity;->mList:Landroid/widget/ExpandableListView;
@@ -173,7 +173,7 @@
     invoke-virtual {v1, v0}, Landroid/widget/ExpandableListView;->setEmptyView(Landroid/view/View;)V
 
     .line 229
-    :cond_28
+    :cond_1
     iget-object v1, p0, Landroid/app/ExpandableListActivity;->mList:Landroid/widget/ExpandableListView;
 
     invoke-virtual {v1, p0}, Landroid/widget/ExpandableListView;->setOnChildClickListener(Landroid/widget/ExpandableListView$OnChildClickListener;)V
@@ -191,7 +191,7 @@
     .line 233
     iget-boolean v1, p0, Landroid/app/ExpandableListActivity;->mFinishedStart:Z
 
-    if-eqz v1, :cond_40
+    if-eqz v1, :cond_2
 
     .line 234
     iget-object v1, p0, Landroid/app/ExpandableListActivity;->mAdapter:Landroid/widget/ExpandableListAdapter;
@@ -199,7 +199,7 @@
     invoke-virtual {p0, v1}, Landroid/app/ExpandableListActivity;->setListAdapter(Landroid/widget/ExpandableListAdapter;)V
 
     .line 236
-    :cond_40
+    :cond_2
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/app/ExpandableListActivity;->mFinishedStart:Z
@@ -209,7 +209,7 @@
 .end method
 
 .method public onCreateContextMenu(Landroid/view/ContextMenu;Landroid/view/View;Landroid/view/ContextMenu$ContextMenuInfo;)V
-    .registers 4
+    .locals 0
     .parameter "menu"
     .parameter "v"
     .parameter "menuInfo"
@@ -220,7 +220,7 @@
 .end method
 
 .method public onGroupCollapse(I)V
-    .registers 2
+    .locals 0
     .parameter "groupPosition"
 
     .prologue
@@ -229,7 +229,7 @@
 .end method
 
 .method public onGroupExpand(I)V
-    .registers 2
+    .locals 0
     .parameter "groupPosition"
 
     .prologue
@@ -238,7 +238,7 @@
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Bundle;)V
-    .registers 2
+    .locals 0
     .parameter "state"
 
     .prologue
@@ -253,7 +253,7 @@
 .end method
 
 .method public setListAdapter(Landroid/widget/ExpandableListAdapter;)V
-    .registers 3
+    .locals 1
     .parameter "adapter"
 
     .prologue
@@ -261,7 +261,7 @@
     monitor-enter p0
 
     .line 244
-    :try_start_1
+    :try_start_0
     invoke-direct {p0}, Landroid/app/ExpandableListActivity;->ensureList()V
 
     .line 245
@@ -279,18 +279,18 @@
     return-void
 
     .line 247
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_f
-    .catchall {:try_start_1 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setSelectedChild(IIZ)Z
-    .registers 5
+    .locals 1
     .parameter "groupPosition"
     .parameter "childPosition"
     .parameter "shouldExpandGroup"
@@ -307,7 +307,7 @@
 .end method
 
 .method public setSelectedGroup(I)V
-    .registers 3
+    .locals 1
     .parameter "groupPosition"
 
     .prologue

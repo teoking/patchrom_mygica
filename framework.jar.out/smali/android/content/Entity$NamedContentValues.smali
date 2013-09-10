@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/Uri;Landroid/content/ContentValues;)V
-    .registers 3
+    .locals 0
     .parameter "uri"
     .parameter "values"
 

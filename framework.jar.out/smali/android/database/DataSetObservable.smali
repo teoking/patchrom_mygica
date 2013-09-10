@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public notifyChanged()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 31
@@ -37,7 +37,7 @@
     monitor-enter v2
 
     .line 36
-    :try_start_3
+    :try_start_0
     iget-object v1, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -47,8 +47,8 @@
     add-int/lit8 v0, v1, -0x1
 
     .local v0, i:I
-    :goto_b
-    if-ltz v0, :cond_1b
+    :goto_0
+    if-ltz v0, :cond_0
 
     .line 37
     iget-object v1, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
@@ -64,10 +64,10 @@
     .line 36
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 39
-    :cond_1b
+    :cond_0
     monitor-exit v2
 
     .line 40
@@ -75,18 +75,18 @@
 
     .line 39
     .end local v0           #i:I
-    :catchall_1d
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_1f
-    .catchall {:try_start_3 .. :try_end_1f} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public notifyInvalidated()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 48
@@ -95,7 +95,7 @@
     monitor-enter v2
 
     .line 49
-    :try_start_3
+    :try_start_0
     iget-object v1, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -105,8 +105,8 @@
     add-int/lit8 v0, v1, -0x1
 
     .local v0, i:I
-    :goto_b
-    if-ltz v0, :cond_1b
+    :goto_0
+    if-ltz v0, :cond_0
 
     .line 50
     iget-object v1, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
@@ -122,10 +122,10 @@
     .line 49
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 52
-    :cond_1b
+    :cond_0
     monitor-exit v2
 
     .line 53
@@ -133,12 +133,12 @@
 
     .line 52
     .end local v0           #i:I
-    :catchall_1d
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_1f
-    .catchall {:try_start_3 .. :try_end_1f} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method

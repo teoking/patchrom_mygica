@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 34
@@ -58,7 +58,7 @@
 .end method
 
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 45
@@ -83,7 +83,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 203
@@ -93,7 +93,7 @@
 .end method
 
 .method public final getDevice()Landroid/view/InputDevice;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 66
@@ -118,7 +118,7 @@
 .end method
 
 .method public getSequenceNumber()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 199
@@ -134,7 +134,7 @@
 .end method
 
 .method protected prepareForReuse()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 134
@@ -161,13 +161,13 @@
 .end method
 
 .method public recycle()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 107
     iget-boolean v0, p0, Landroid/view/InputEvent;->mRecycled:Z
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_0
 
     .line 108
     new-instance v0, Ljava/lang/RuntimeException;
@@ -199,7 +199,7 @@
     throw v0
 
     .line 110
-    :cond_21
+    :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/view/InputEvent;->mRecycled:Z
@@ -209,7 +209,7 @@
 .end method
 
 .method public recycleIfNeededAfterDispatch()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 126

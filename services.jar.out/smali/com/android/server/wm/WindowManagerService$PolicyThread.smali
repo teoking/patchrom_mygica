@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/WindowManagerPolicy;Lcom/android/server/wm/WindowManagerService;Landroid/content/Context;Lcom/android/server/PowerManagerService;)V
-    .registers 6
+    .locals 1
     .parameter "policy"
     .parameter "service"
     .parameter "context"
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 885
@@ -106,7 +106,7 @@
     .line 896
     const/4 v0, 0x1
 
-    :try_start_21
+    :try_start_0
     iput-boolean v0, p0, Lcom/android/server/wm/WindowManagerService$PolicyThread;->mRunning:Z
 
     .line 897
@@ -114,15 +114,15 @@
 
     .line 898
     monitor-exit p0
-    :try_end_27
-    .catchall {:try_start_21 .. :try_end_27} :catchall_38
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 901
     invoke-static {}, Landroid/os/StrictMode;->conditionallyEnableDebugLogging()Z
 
     move-result v0
 
-    if-eqz v0, :cond_34
+    if-eqz v0, :cond_0
 
     .line 902
     const-string v0, "WindowManager"
@@ -132,20 +132,20 @@
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 905
-    :cond_34
+    :cond_0
     invoke-static {}, Landroid/os/Looper;->loop()V
 
     .line 906
     return-void
 
     .line 898
-    :catchall_38
+    :catchall_0
     move-exception v0
 
-    :try_start_39
+    :try_start_1
     monitor-exit p0
-    :try_end_3a
-    .catchall {:try_start_39 .. :try_end_3a} :catchall_38
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method

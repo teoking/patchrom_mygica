@@ -32,7 +32,7 @@
 
 # direct methods
 .method private constructor <init>(IIIIIII)V
-    .registers 8
+    .locals 0
     .parameter "codec"
     .parameter "minBitRate"
     .parameter "maxBitRate"

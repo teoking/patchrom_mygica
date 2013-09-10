@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 3
+    .locals 0
     .parameter "itemLayoutRes"
     .parameter "themeRes"
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "itemLayoutRes"
 
@@ -91,7 +91,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/view/menu/ListMenuPresenter;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public collapseItemActionView(Lcom/android/internal/view/menu/MenuBuilder;Lcom/android/internal/view/menu/MenuItemImpl;)Z
-    .registers 4
+    .locals 1
     .parameter "menu"
     .parameter "item"
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public expandItemActionView(Lcom/android/internal/view/menu/MenuBuilder;Lcom/android/internal/view/menu/MenuItemImpl;)Z
-    .registers 4
+    .locals 1
     .parameter "menu"
     .parameter "item"
 
@@ -128,7 +128,7 @@
 .end method
 
 .method public flagActionItems()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 171
@@ -138,13 +138,13 @@
 .end method
 
 .method public getAdapter()Landroid/widget/ListAdapter;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 118
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mAdapter:Lcom/android/internal/view/menu/ListMenuPresenter$MenuAdapter;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 119
     new-instance v0, Lcom/android/internal/view/menu/ListMenuPresenter$MenuAdapter;
@@ -154,14 +154,14 @@
     iput-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mAdapter:Lcom/android/internal/view/menu/ListMenuPresenter$MenuAdapter;
 
     .line 121
-    :cond_b
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mAdapter:Lcom/android/internal/view/menu/ListMenuPresenter$MenuAdapter;
 
     return-object v0
 .end method
 
 .method public getId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 203
@@ -171,7 +171,7 @@
 .end method
 
 .method getItemIndexOffset()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 154
@@ -181,14 +181,14 @@
 .end method
 
 .method public getMenuView(Landroid/view/ViewGroup;)Lcom/android/internal/view/menu/MenuView;
-    .registers 5
+    .locals 3
     .parameter "root"
 
     .prologue
     .line 98
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mMenuView:Lcom/android/internal/view/menu/ExpandedMenuView;
 
-    if-nez v0, :cond_29
+    if-nez v0, :cond_1
 
     .line 99
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mInflater:Landroid/view/LayoutInflater;
@@ -208,7 +208,7 @@
     .line 101
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mAdapter:Lcom/android/internal/view/menu/ListMenuPresenter$MenuAdapter;
 
-    if-nez v0, :cond_1d
+    if-nez v0, :cond_0
 
     .line 102
     new-instance v0, Lcom/android/internal/view/menu/ListMenuPresenter$MenuAdapter;
@@ -218,7 +218,7 @@
     iput-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mAdapter:Lcom/android/internal/view/menu/ListMenuPresenter$MenuAdapter;
 
     .line 104
-    :cond_1d
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mMenuView:Lcom/android/internal/view/menu/ExpandedMenuView;
 
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mAdapter:Lcom/android/internal/view/menu/ListMenuPresenter$MenuAdapter;
@@ -231,14 +231,14 @@
     invoke-virtual {v0, p0}, Lcom/android/internal/view/menu/ExpandedMenuView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     .line 107
-    :cond_29
+    :cond_1
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mMenuView:Lcom/android/internal/view/menu/ExpandedMenuView;
 
     return-object v0
 .end method
 
 .method public initForMenu(Landroid/content/Context;Lcom/android/internal/view/menu/MenuBuilder;)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "menu"
 
@@ -246,7 +246,7 @@
     .line 81
     iget v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mThemeRes:I
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_2
 
     .line 82
     new-instance v0, Landroid/view/ContextThemeWrapper;
@@ -267,14 +267,14 @@
     iput-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mInflater:Landroid/view/LayoutInflater;
 
     .line 90
-    :cond_15
-    :goto_15
+    :cond_0
+    :goto_0
     iput-object p2, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     .line 91
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mAdapter:Lcom/android/internal/view/menu/ListMenuPresenter$MenuAdapter;
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1
 
     .line 92
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mAdapter:Lcom/android/internal/view/menu/ListMenuPresenter$MenuAdapter;
@@ -282,14 +282,14 @@
     invoke-virtual {v0}, Lcom/android/internal/view/menu/ListMenuPresenter$MenuAdapter;->notifyDataSetChanged()V
 
     .line 94
-    :cond_20
+    :cond_1
     return-void
 
     .line 84
-    :cond_21
+    :cond_2
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mContext:Landroid/content/Context;
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 85
     iput-object p1, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mContext:Landroid/content/Context;
@@ -297,7 +297,7 @@
     .line 86
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mInflater:Landroid/view/LayoutInflater;
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_0
 
     .line 87
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mContext:Landroid/content/Context;
@@ -308,11 +308,11 @@
 
     iput-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mInflater:Landroid/view/LayoutInflater;
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
-    .registers 4
+    .locals 1
     .parameter "menu"
     .parameter "allMenusAreClosing"
 
@@ -320,7 +320,7 @@
     .line 148
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 149
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
@@ -328,12 +328,12 @@
     invoke-interface {v0, p1, p2}, Lcom/android/internal/view/menu/MenuPresenter$Callback;->onCloseMenu(Lcom/android/internal/view/menu/MenuBuilder;Z)V
 
     .line 151
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 9
+    .locals 3
     .parameter
     .parameter "view"
     .parameter "position"
@@ -368,7 +368,7 @@
 .end method
 
 .method public onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .registers 2
+    .locals 0
     .parameter "state"
 
     .prologue
@@ -383,23 +383,23 @@
 .end method
 
 .method public onSaveInstanceState()Landroid/os/Parcelable;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 208
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mMenuView:Lcom/android/internal/view/menu/ExpandedMenuView;
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_0
 
     .line 209
     const/4 v0, 0x0
 
     .line 214
-    :goto_5
+    :goto_0
     return-object v0
 
     .line 212
-    :cond_6
+    :cond_0
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
@@ -408,11 +408,11 @@
     .local v0, state:Landroid/os/Bundle;
     invoke-virtual {p0, v0}, Lcom/android/internal/view/menu/ListMenuPresenter;->saveHierarchyState(Landroid/os/Bundle;)V
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public onSubMenuSelected(Lcom/android/internal/view/menu/SubMenuBuilder;)Z
-    .registers 4
+    .locals 2
     .parameter "subMenu"
 
     .prologue
@@ -421,16 +421,16 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
     .line 143
-    :goto_7
+    :goto_0
     return v0
 
     .line 139
-    :cond_8
+    :cond_0
     new-instance v0, Lcom/android/internal/view/menu/MenuDialogHelper;
 
     invoke-direct {v0, p1}, Lcom/android/internal/view/menu/MenuDialogHelper;-><init>(Lcom/android/internal/view/menu/MenuBuilder;)V
@@ -442,7 +442,7 @@
     .line 140
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_1
 
     .line 141
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mCallback:Lcom/android/internal/view/menu/MenuPresenter$Callback;
@@ -450,14 +450,14 @@
     invoke-interface {v0, p1}, Lcom/android/internal/view/menu/MenuPresenter$Callback;->onOpenSubMenu(Lcom/android/internal/view/menu/MenuBuilder;)Z
 
     .line 143
-    :cond_1a
+    :cond_1
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public restoreHierarchyState(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
     .parameter "inState"
 
     .prologue
@@ -470,7 +470,7 @@
 
     .line 192
     .local v0, viewStates:Landroid/util/SparseArray;,"Landroid/util/SparseArray<Landroid/os/Parcelable;>;"
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 193
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mMenuView:Lcom/android/internal/view/menu/ExpandedMenuView;
@@ -478,12 +478,12 @@
     invoke-virtual {v1, v0}, Landroid/view/View;->restoreHierarchyState(Landroid/util/SparseArray;)V
 
     .line 195
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method public saveHierarchyState(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
     .parameter "outState"
 
     .prologue
@@ -496,7 +496,7 @@
     .local v0, viewStates:Landroid/util/SparseArray;,"Landroid/util/SparseArray<Landroid/os/Parcelable;>;"
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mMenuView:Lcom/android/internal/view/menu/ExpandedMenuView;
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_0
 
     .line 185
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mMenuView:Lcom/android/internal/view/menu/ExpandedMenuView;
@@ -504,7 +504,7 @@
     invoke-virtual {v1, v0}, Landroid/view/View;->saveHierarchyState(Landroid/util/SparseArray;)V
 
     .line 187
-    :cond_e
+    :cond_0
     const-string v1, "android:menu:list"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putSparseParcelableArray(Ljava/lang/String;Landroid/util/SparseArray;)V
@@ -514,7 +514,7 @@
 .end method
 
 .method public setCallback(Lcom/android/internal/view/menu/MenuPresenter$Callback;)V
-    .registers 2
+    .locals 0
     .parameter "cb"
 
     .prologue
@@ -526,7 +526,7 @@
 .end method
 
 .method public setId(I)V
-    .registers 2
+    .locals 0
     .parameter "id"
 
     .prologue
@@ -538,7 +538,7 @@
 .end method
 
 .method public setItemIndexOffset(I)V
-    .registers 3
+    .locals 1
     .parameter "offset"
 
     .prologue
@@ -548,7 +548,7 @@
     .line 159
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mMenuView:Lcom/android/internal/view/menu/ExpandedMenuView;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 160
     const/4 v0, 0x0
@@ -556,25 +556,25 @@
     invoke-virtual {p0, v0}, Lcom/android/internal/view/menu/ListMenuPresenter;->updateMenuView(Z)V
 
     .line 162
-    :cond_a
+    :cond_0
     return-void
 .end method
 
 .method public updateMenuView(Z)V
-    .registers 3
+    .locals 1
     .parameter "cleared"
 
     .prologue
     .line 126
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mAdapter:Lcom/android/internal/view/menu/ListMenuPresenter$MenuAdapter;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mAdapter:Lcom/android/internal/view/menu/ListMenuPresenter$MenuAdapter;
 
     invoke-virtual {v0}, Lcom/android/internal/view/menu/ListMenuPresenter$MenuAdapter;->notifyDataSetChanged()V
 
     .line 127
-    :cond_9
+    :cond_0
     return-void
 .end method

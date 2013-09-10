@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/ProgressBar;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/ProgressBar;Landroid/widget/ProgressBar$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 10
+    .locals 9
 
     .prologue
     .line 574
@@ -59,9 +59,10 @@
     monitor-enter v4
 
     .line 575
-    :try_start_3
+    :try_start_0
     iget-object v3, p0, Landroid/widget/ProgressBar$RefreshProgressRunnable;->this$0:Landroid/widget/ProgressBar;
 
+    #getter for: Landroid/widget/ProgressBar;->mRefreshData:Ljava/util/ArrayList;
     invoke-static {v3}, Landroid/widget/ProgressBar;->access$000(Landroid/widget/ProgressBar;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -75,12 +76,13 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_e
-    if-ge v1, v0, :cond_2e
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 577
     iget-object v3, p0, Landroid/widget/ProgressBar$RefreshProgressRunnable;->this$0:Landroid/widget/ProgressBar;
 
+    #getter for: Landroid/widget/ProgressBar;->mRefreshData:Ljava/util/ArrayList;
     invoke-static {v3}, Landroid/widget/ProgressBar;->access$000(Landroid/widget/ProgressBar;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -103,6 +105,7 @@
 
     const/4 v8, 0x1
 
+    #calls: Landroid/widget/ProgressBar;->doRefreshProgress(IIZZ)V
     invoke-static {v3, v5, v6, v7, v8}, Landroid/widget/ProgressBar;->access$100(Landroid/widget/ProgressBar;IIZZ)V
 
     .line 579
@@ -111,13 +114,14 @@
     .line 576
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 581
     .end local v2           #rd:Landroid/widget/ProgressBar$RefreshData;
-    :cond_2e
+    :cond_0
     iget-object v3, p0, Landroid/widget/ProgressBar$RefreshProgressRunnable;->this$0:Landroid/widget/ProgressBar;
 
+    #getter for: Landroid/widget/ProgressBar;->mRefreshData:Ljava/util/ArrayList;
     invoke-static {v3}, Landroid/widget/ProgressBar;->access$000(Landroid/widget/ProgressBar;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -129,6 +133,7 @@
 
     const/4 v5, 0x0
 
+    #setter for: Landroid/widget/ProgressBar;->mRefreshIsPosted:Z
     invoke-static {v3, v5}, Landroid/widget/ProgressBar;->access$202(Landroid/widget/ProgressBar;Z)Z
 
     .line 583
@@ -140,12 +145,12 @@
     .line 583
     .end local v0           #count:I
     .end local v1           #i:I
-    :catchall_3f
+    :catchall_0
     move-exception v3
 
     monitor-exit v4
-    :try_end_41
-    .catchall {:try_start_3 .. :try_end_41} :catchall_3f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v3
 .end method

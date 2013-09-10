@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/view/menu/ActionMenuPresenter;Landroid/content/Context;)V
-    .registers 6
+    .locals 3
     .parameter
     .parameter "context"
 
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public needsDividerAfter()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 577
@@ -71,7 +71,7 @@
 .end method
 
 .method public needsDividerBefore()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 573
@@ -81,7 +81,7 @@
 .end method
 
 .method public performClick()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x1
@@ -91,14 +91,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     .line 569
-    :goto_7
+    :goto_0
     return v1
 
     .line 567
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowMenuButton;->playSoundEffect(I)V
@@ -108,5 +108,5 @@
 
     invoke-virtual {v0}, Lcom/android/internal/view/menu/ActionMenuPresenter;->showOverflowMenu()Z
 
-    goto :goto_7
+    goto :goto_0
 .end method

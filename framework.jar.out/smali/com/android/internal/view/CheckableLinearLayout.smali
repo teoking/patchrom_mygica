@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "attrs"
 
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 4
+    .locals 0
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public isChecked()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 58
@@ -67,7 +67,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 47
@@ -89,7 +89,7 @@
 .end method
 
 .method public setChecked(Z)V
-    .registers 3
+    .locals 1
     .parameter "checked"
 
     .prologue
@@ -103,7 +103,7 @@
 .end method
 
 .method public toggle()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 63

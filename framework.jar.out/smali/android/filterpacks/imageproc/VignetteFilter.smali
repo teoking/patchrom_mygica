@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "name"
 
     .prologue
@@ -83,7 +83,7 @@
 .end method
 
 .method private initParameters()V
-    .registers 8
+    .locals 7
 
     .prologue
     const/high16 v6, 0x3f80
@@ -95,7 +95,7 @@
     .line 96
     iget-object v2, p0, Landroid/filterpacks/imageproc/VignetteFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v2, :cond_58
+    if-eqz v2, :cond_0
 
     .line 97
     const/4 v2, 0x2
@@ -108,7 +108,7 @@
 
     iget v3, p0, Landroid/filterpacks/imageproc/VignetteFilter;->mHeight:I
 
-    if-le v2, v3, :cond_59
+    if-le v2, v3, :cond_1
 
     .line 99
     aput v6, v1, v4
@@ -127,7 +127,7 @@
     aput v2, v1, v5
 
     .line 105
-    :goto_1c
+    :goto_0
     aget v2, v1, v4
 
     aget v3, v1, v4
@@ -194,12 +194,12 @@
     .line 112
     .end local v0           #max_dist:F
     .end local v1           #scale:[F
-    :cond_58
+    :cond_0
     return-void
 
     .line 102
     .restart local v1       #scale:[F
-    :cond_59
+    :cond_1
     iget v2, p0, Landroid/filterpacks/imageproc/VignetteFilter;->mWidth:I
 
     int-to-float v2, v2
@@ -215,11 +215,11 @@
     .line 103
     aput v6, v1, v5
 
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 .method private updateParameters()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 118
@@ -258,7 +258,7 @@
 
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "context"
 
@@ -266,18 +266,18 @@
     .line 123
     iget-object v0, p0, Landroid/filterpacks/imageproc/VignetteFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 124
     invoke-direct {p0}, Landroid/filterpacks/imageproc/VignetteFilter;->updateParameters()V
 
     .line 126
-    :cond_7
+    :cond_0
     return-void
 .end method
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -287,13 +287,13 @@
 .end method
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "target"
 
     .prologue
     .line 81
-    packed-switch p2, :pswitch_data_34
+    packed-switch p2, :pswitch_data_0
 
     .line 89
     new-instance v1, Ljava/lang/RuntimeException;
@@ -327,7 +327,7 @@
     throw v1
 
     .line 83
-    :pswitch_22
+    :pswitch_0
     new-instance v0, Landroid/filterfw/core/ShaderProgram;
 
     const-string/jumbo v1, "precision mediump float;\nuniform sampler2D tex_sampler_0;\nuniform float range;\nuniform float inv_max_dist;\nuniform float shade;\nuniform vec2 scale;\nvarying vec2 v_texcoord;\nvoid main() {\n  const float slope = 20.0;\n  vec2 coord = v_texcoord - vec2(0.5, 0.5);\n  float dist = length(coord * scale);\n  float lumen = shade / (1.0 + exp((dist * inv_max_dist - range) * slope)) + (1.0 - shade);\n  vec4 color = texture2D(tex_sampler_0, v_texcoord);\n  gl_FragColor = vec4(color.rgb * lumen, color.a);\n}\n"
@@ -350,14 +350,14 @@
     return-void
 
     .line 81
-    :pswitch_data_34
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_22
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -378,7 +378,7 @@
     .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
     iget-object v3, p0, Landroid/filterpacks/imageproc/VignetteFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v3, :cond_16
+    if-eqz v3, :cond_0
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
@@ -386,10 +386,10 @@
 
     iget v4, p0, Landroid/filterpacks/imageproc/VignetteFilter;->mTarget:I
 
-    if-eq v3, v4, :cond_1d
+    if-eq v3, v4, :cond_1
 
     .line 136
-    :cond_16
+    :cond_0
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
     move-result v3
@@ -397,14 +397,14 @@
     invoke-virtual {p0, p1, v3}, Landroid/filterpacks/imageproc/VignetteFilter;->initProgram(Landroid/filterfw/core/FilterContext;I)V
 
     .line 140
-    :cond_1d
+    :cond_1
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v3
 
     iget v4, p0, Landroid/filterpacks/imageproc/VignetteFilter;->mWidth:I
 
-    if-ne v3, v4, :cond_2d
+    if-ne v3, v4, :cond_2
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getHeight()I
 
@@ -412,10 +412,10 @@
 
     iget v4, p0, Landroid/filterpacks/imageproc/VignetteFilter;->mHeight:I
 
-    if-eq v3, v4, :cond_3c
+    if-eq v3, v4, :cond_3
 
     .line 141
-    :cond_2d
+    :cond_2
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v3
@@ -433,7 +433,7 @@
     invoke-direct {p0}, Landroid/filterpacks/imageproc/VignetteFilter;->initParameters()V
 
     .line 147
-    :cond_3c
+    :cond_3
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v3
@@ -461,7 +461,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 71

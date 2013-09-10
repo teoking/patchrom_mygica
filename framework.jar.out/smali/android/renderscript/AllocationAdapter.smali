@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;Landroid/renderscript/Allocation;)V
-    .registers 6
+    .locals 2
     .parameter "id"
     .parameter "rs"
     .parameter "alloc"
@@ -26,7 +26,7 @@
 .end method
 
 .method public static create1D(Landroid/renderscript/RenderScript;Landroid/renderscript/Allocation;)Landroid/renderscript/AllocationAdapter;
-    .registers 5
+    .locals 3
     .parameter "rs"
     .parameter "a"
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public static create2D(Landroid/renderscript/RenderScript;Landroid/renderscript/Allocation;)Landroid/renderscript/AllocationAdapter;
-    .registers 8
+    .locals 6
     .parameter "rs"
     .parameter "a"
 
@@ -127,7 +127,7 @@
 
 # virtual methods
 .method getID(Landroid/renderscript/RenderScript;)I
-    .registers 4
+    .locals 2
     .parameter "rs"
 
     .prologue
@@ -142,7 +142,7 @@
 .end method
 
 .method initLOD(I)V
-    .registers 10
+    .locals 8
     .parameter "lod"
 
     .prologue
@@ -151,7 +151,7 @@
     const/4 v6, 0x1
 
     .line 100
-    if-gez p1, :cond_23
+    if-gez p1, :cond_0
 
     .line 101
     new-instance v4, Landroid/renderscript/RSIllegalArgumentException;
@@ -185,7 +185,7 @@
     throw v4
 
     .line 104
-    :cond_23
+    :cond_0
     iget-object v4, p0, Landroid/renderscript/Allocation;->mAdaptedAllocation:Landroid/renderscript/Allocation;
 
     iget-object v4, v4, Landroid/renderscript/Allocation;->mType:Landroid/renderscript/Type;
@@ -219,15 +219,15 @@
     const/4 v0, 0x0
 
     .local v0, ct:I
-    :goto_3c
-    if-ge v0, p1, :cond_72
+    :goto_0
+    if-ge v0, p1, :cond_5
 
     .line 109
-    if-ne v1, v6, :cond_63
+    if-ne v1, v6, :cond_1
 
-    if-ne v2, v6, :cond_63
+    if-ne v2, v6, :cond_1
 
-    if-ne v3, v6, :cond_63
+    if-ne v3, v6, :cond_1
 
     .line 110
     new-instance v4, Landroid/renderscript/RSIllegalArgumentException;
@@ -261,31 +261,31 @@
     throw v4
 
     .line 113
-    :cond_63
-    if-le v1, v6, :cond_67
+    :cond_1
+    if-le v1, v6, :cond_2
 
     shr-int/lit8 v1, v1, 0x1
 
     .line 114
-    :cond_67
-    if-le v2, v6, :cond_6b
+    :cond_2
+    if-le v2, v6, :cond_3
 
     shr-int/lit8 v2, v2, 0x1
 
     .line 115
-    :cond_6b
-    if-le v3, v6, :cond_6f
+    :cond_3
+    if-le v3, v6, :cond_4
 
     shr-int/lit8 v3, v3, 0x1
 
     .line 108
-    :cond_6f
+    :cond_4
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 118
-    :cond_72
+    :cond_5
     iput v1, p0, Landroid/renderscript/Allocation;->mCurrentDimX:I
 
     .line 119
@@ -302,7 +302,7 @@
     .line 122
     iget v4, p0, Landroid/renderscript/Allocation;->mCurrentDimY:I
 
-    if-le v4, v6, :cond_87
+    if-le v4, v6, :cond_6
 
     .line 123
     iget v4, p0, Landroid/renderscript/Allocation;->mCurrentCount:I
@@ -314,10 +314,10 @@
     iput v4, p0, Landroid/renderscript/Allocation;->mCurrentCount:I
 
     .line 125
-    :cond_87
+    :cond_6
     iget v4, p0, Landroid/renderscript/Allocation;->mCurrentDimZ:I
 
-    if-le v4, v6, :cond_92
+    if-le v4, v6, :cond_7
 
     .line 126
     iget v4, p0, Landroid/renderscript/Allocation;->mCurrentCount:I
@@ -329,7 +329,7 @@
     iput v4, p0, Landroid/renderscript/Allocation;->mCurrentCount:I
 
     .line 128
-    :cond_92
+    :cond_7
     iput v7, p0, Landroid/renderscript/Allocation;->mSelectedY:I
 
     .line 129
@@ -340,7 +340,7 @@
 .end method
 
 .method public readData([F)V
-    .registers 2
+    .locals 0
     .parameter "d"
 
     .prologue
@@ -352,7 +352,7 @@
 .end method
 
 .method public readData([I)V
-    .registers 2
+    .locals 0
     .parameter "d"
 
     .prologue
@@ -364,14 +364,14 @@
 .end method
 
 .method public declared-synchronized resize(I)V
-    .registers 4
+    .locals 2
     .parameter "dimX"
 
     .prologue
     .line 245
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/renderscript/RSInvalidStateException;
 
     const-string v1, "Resize not allowed for Adapters."
@@ -379,10 +379,10 @@
     invoke-direct {v0, v1}, Landroid/renderscript/RSInvalidStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_9
-    .catchall {:try_start_1 .. :try_end_9} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -391,7 +391,7 @@
 .end method
 
 .method public setFace(Landroid/renderscript/Type$CubemapFace;)V
-    .registers 4
+    .locals 2
     .parameter "cf"
 
     .prologue
@@ -406,7 +406,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 160
     new-instance v0, Landroid/renderscript/RSInvalidStateException;
@@ -418,10 +418,10 @@
     throw v0
 
     .line 162
-    :cond_14
+    :cond_0
     iget-boolean v0, p0, Landroid/renderscript/Allocation;->mConstrainedFace:Z
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_1
 
     .line 163
     new-instance v0, Landroid/renderscript/RSInvalidStateException;
@@ -433,8 +433,8 @@
     throw v0
 
     .line 165
-    :cond_20
-    if-nez p1, :cond_2a
+    :cond_1
+    if-nez p1, :cond_2
 
     .line 166
     new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
@@ -446,7 +446,7 @@
     throw v0
 
     .line 169
-    :cond_2a
+    :cond_2
     iput-object p1, p0, Landroid/renderscript/Allocation;->mSelectedFace:Landroid/renderscript/Type$CubemapFace;
 
     .line 170
@@ -454,7 +454,7 @@
 .end method
 
 .method public setLOD(I)V
-    .registers 4
+    .locals 2
     .parameter "lod"
 
     .prologue
@@ -469,7 +469,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 143
     new-instance v0, Landroid/renderscript/RSInvalidStateException;
@@ -481,10 +481,10 @@
     throw v0
 
     .line 145
-    :cond_14
+    :cond_0
     iget-boolean v0, p0, Landroid/renderscript/Allocation;->mConstrainedLOD:Z
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_1
 
     .line 146
     new-instance v0, Landroid/renderscript/RSInvalidStateException;
@@ -496,7 +496,7 @@
     throw v0
 
     .line 149
-    :cond_20
+    :cond_1
     invoke-virtual {p0, p1}, Landroid/renderscript/AllocationAdapter;->initLOD(I)V
 
     .line 150
@@ -504,7 +504,7 @@
 .end method
 
 .method public setY(I)V
-    .registers 4
+    .locals 2
     .parameter "y"
 
     .prologue
@@ -519,7 +519,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 181
     new-instance v0, Landroid/renderscript/RSInvalidStateException;
@@ -531,7 +531,7 @@
     throw v0
 
     .line 183
-    :cond_14
+    :cond_0
     iget-object v0, p0, Landroid/renderscript/Allocation;->mAdaptedAllocation:Landroid/renderscript/Allocation;
 
     invoke-virtual {v0}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
@@ -542,7 +542,7 @@
 
     move-result v0
 
-    if-gt v0, p1, :cond_28
+    if-gt v0, p1, :cond_1
 
     .line 184
     new-instance v0, Landroid/renderscript/RSInvalidStateException;
@@ -554,10 +554,10 @@
     throw v0
 
     .line 186
-    :cond_28
+    :cond_1
     iget-boolean v0, p0, Landroid/renderscript/Allocation;->mConstrainedY:Z
 
-    if-nez v0, :cond_34
+    if-nez v0, :cond_2
 
     .line 187
     new-instance v0, Landroid/renderscript/RSInvalidStateException;
@@ -569,7 +569,7 @@
     throw v0
 
     .line 190
-    :cond_34
+    :cond_2
     iput p1, p0, Landroid/renderscript/Allocation;->mSelectedY:I
 
     .line 191
@@ -577,7 +577,7 @@
 .end method
 
 .method public setZ(I)V
-    .registers 4
+    .locals 2
     .parameter "z"
 
     .prologue
@@ -592,7 +592,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 202
     new-instance v0, Landroid/renderscript/RSInvalidStateException;
@@ -604,7 +604,7 @@
     throw v0
 
     .line 204
-    :cond_14
+    :cond_0
     iget-object v0, p0, Landroid/renderscript/Allocation;->mAdaptedAllocation:Landroid/renderscript/Allocation;
 
     invoke-virtual {v0}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
@@ -615,7 +615,7 @@
 
     move-result v0
 
-    if-gt v0, p1, :cond_28
+    if-gt v0, p1, :cond_1
 
     .line 205
     new-instance v0, Landroid/renderscript/RSInvalidStateException;
@@ -627,10 +627,10 @@
     throw v0
 
     .line 207
-    :cond_28
+    :cond_1
     iget-boolean v0, p0, Landroid/renderscript/Allocation;->mConstrainedZ:Z
 
-    if-nez v0, :cond_34
+    if-nez v0, :cond_2
 
     .line 208
     new-instance v0, Landroid/renderscript/RSInvalidStateException;
@@ -642,7 +642,7 @@
     throw v0
 
     .line 211
-    :cond_34
+    :cond_2
     iput p1, p0, Landroid/renderscript/Allocation;->mSelectedZ:I
 
     .line 212
@@ -650,7 +650,7 @@
 .end method
 
 .method public subData(ILandroid/renderscript/FieldPacker;)V
-    .registers 3
+    .locals 0
     .parameter "xoff"
     .parameter "fp"
 
@@ -663,7 +663,7 @@
 .end method
 
 .method public subData1D(II[B)V
-    .registers 4
+    .locals 0
     .parameter "off"
     .parameter "count"
     .parameter "d"
@@ -677,7 +677,7 @@
 .end method
 
 .method public subData1D(II[F)V
-    .registers 4
+    .locals 0
     .parameter "off"
     .parameter "count"
     .parameter "d"
@@ -691,7 +691,7 @@
 .end method
 
 .method public subData1D(II[I)V
-    .registers 4
+    .locals 0
     .parameter "off"
     .parameter "count"
     .parameter "d"
@@ -705,7 +705,7 @@
 .end method
 
 .method public subData1D(II[S)V
-    .registers 4
+    .locals 0
     .parameter "off"
     .parameter "count"
     .parameter "d"
@@ -719,7 +719,7 @@
 .end method
 
 .method public subData2D(IIII[F)V
-    .registers 6
+    .locals 0
     .parameter "xoff"
     .parameter "yoff"
     .parameter "w"
@@ -735,7 +735,7 @@
 .end method
 
 .method public subData2D(IIII[I)V
-    .registers 6
+    .locals 0
     .parameter "xoff"
     .parameter "yoff"
     .parameter "w"
@@ -751,7 +751,7 @@
 .end method
 
 .method public subElementData(IILandroid/renderscript/FieldPacker;)V
-    .registers 4
+    .locals 0
     .parameter "xoff"
     .parameter "component_number"
     .parameter "fp"

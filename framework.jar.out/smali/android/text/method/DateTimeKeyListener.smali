@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 56
@@ -19,13 +19,13 @@
 
     new-array v0, v0, [C
 
-    fill-array-data v0, :array_a
+    fill-array-data v0, :array_0
 
     sput-object v0, Landroid/text/method/DateTimeKeyListener;->CHARACTERS:[C
 
     return-void
 
-    :array_a
+    :array_0
     .array-data 0x2
         0x30t 0x0t
         0x31t 0x0t
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 29
@@ -58,23 +58,23 @@
 .end method
 
 .method public static getInstance()Landroid/text/method/DateTimeKeyListener;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 43
     sget-object v0, Landroid/text/method/DateTimeKeyListener;->sInstance:Landroid/text/method/DateTimeKeyListener;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 44
     sget-object v0, Landroid/text/method/DateTimeKeyListener;->sInstance:Landroid/text/method/DateTimeKeyListener;
 
     .line 47
-    :goto_6
+    :goto_0
     return-object v0
 
     .line 46
-    :cond_7
+    :cond_0
     new-instance v0, Landroid/text/method/DateTimeKeyListener;
 
     invoke-direct {v0}, Landroid/text/method/DateTimeKeyListener;-><init>()V
@@ -84,13 +84,13 @@
     .line 47
     sget-object v0, Landroid/text/method/DateTimeKeyListener;->sInstance:Landroid/text/method/DateTimeKeyListener;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected getAcceptedChars()[C
-    .registers 2
+    .locals 1
 
     .prologue
     .line 39
@@ -100,7 +100,7 @@
 .end method
 
 .method public getInputType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 32

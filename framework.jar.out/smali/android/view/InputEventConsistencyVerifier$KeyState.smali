@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 697
@@ -48,7 +48,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 706
@@ -59,7 +59,7 @@
 .end method
 
 .method public static obtain(III)Landroid/view/InputEventConsistencyVerifier$KeyState;
-    .registers 6
+    .locals 3
     .parameter "deviceId"
     .parameter "source"
     .parameter "keyCode"
@@ -71,12 +71,12 @@
     monitor-enter v2
 
     .line 712
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/view/InputEventConsistencyVerifier$KeyState;->mRecycledList:Landroid/view/InputEventConsistencyVerifier$KeyState;
 
     .line 713
     .local v0, state:Landroid/view/InputEventConsistencyVerifier$KeyState;
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 714
     iget-object v1, v0, Landroid/view/InputEventConsistencyVerifier$KeyState;->next:Landroid/view/InputEventConsistencyVerifier$KeyState;
@@ -84,10 +84,10 @@
     sput-object v1, Landroid/view/InputEventConsistencyVerifier$KeyState;->mRecycledList:Landroid/view/InputEventConsistencyVerifier$KeyState;
 
     .line 718
-    :goto_b
+    :goto_0
     monitor-exit v2
-    :try_end_c
-    .catchall {:try_start_3 .. :try_end_c} :catchall_1c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 719
     iput p0, v0, Landroid/view/InputEventConsistencyVerifier$KeyState;->deviceId:I
@@ -107,24 +107,24 @@
     return-object v0
 
     .line 716
-    :cond_16
-    :try_start_16
+    :cond_0
+    :try_start_1
     new-instance v0, Landroid/view/InputEventConsistencyVerifier$KeyState;
 
     .end local v0           #state:Landroid/view/InputEventConsistencyVerifier$KeyState;
     invoke-direct {v0}, Landroid/view/InputEventConsistencyVerifier$KeyState;-><init>()V
 
     .restart local v0       #state:Landroid/view/InputEventConsistencyVerifier$KeyState;
-    goto :goto_b
+    goto :goto_0
 
     .line 718
     .end local v0           #state:Landroid/view/InputEventConsistencyVerifier$KeyState;
-    :catchall_1c
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_1e
-    .catchall {:try_start_16 .. :try_end_1e} :catchall_1c
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method public recycle()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 727
@@ -141,7 +141,7 @@
     monitor-enter v1
 
     .line 728
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/view/InputEventConsistencyVerifier$KeyState;->mRecycledList:Landroid/view/InputEventConsistencyVerifier$KeyState;
 
     iput-object v0, p0, Landroid/view/InputEventConsistencyVerifier$KeyState;->next:Landroid/view/InputEventConsistencyVerifier$KeyState;
@@ -158,12 +158,12 @@
     return-void
 
     .line 730
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_3 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

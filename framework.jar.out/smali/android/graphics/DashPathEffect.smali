@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>([FF)V
-    .registers 5
+    .locals 2
     .parameter "intervals"
     .parameter "phase"
 
@@ -18,7 +18,7 @@
 
     const/4 v1, 0x2
 
-    if-ge v0, v1, :cond_d
+    if-ge v0, v1, :cond_0
 
     .line 36
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
@@ -28,7 +28,7 @@
     throw v0
 
     .line 38
-    :cond_d
+    :cond_0
     invoke-static {p1, p2}, Landroid/graphics/DashPathEffect;->nativeCreate([FF)I
 
     move-result v0

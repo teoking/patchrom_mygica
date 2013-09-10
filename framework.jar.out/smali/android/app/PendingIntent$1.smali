@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 690
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/app/PendingIntent;
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -52,23 +52,23 @@
 
     .line 693
     .local v0, target:Landroid/os/IBinder;
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     new-instance v1, Landroid/app/PendingIntent;
 
     invoke-direct {v1, v0}, Landroid/app/PendingIntent;-><init>(Landroid/os/IBinder;)V
 
-    :goto_b
+    :goto_0
     return-object v1
 
-    :cond_c
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -81,7 +81,7 @@
 .end method
 
 .method public newArray(I)[Landroid/app/PendingIntent;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -92,7 +92,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

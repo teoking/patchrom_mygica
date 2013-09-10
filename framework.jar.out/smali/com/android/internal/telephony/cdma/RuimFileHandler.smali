@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/IccCard;Ljava/lang/String;Lcom/android/internal/telephony/CommandsInterface;)V
-    .registers 4
+    .locals 0
     .parameter "card"
     .parameter "aid"
     .parameter "ci"
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 49
@@ -40,40 +40,40 @@
 .end method
 
 .method protected getEFPath(I)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "efid"
 
     .prologue
     .line 72
-    sparse-switch p1, :sswitch_data_c
+    sparse-switch p1, :sswitch_data_0
 
     .line 78
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/cdma/RuimFileHandler;->getCommonIccEFPath(I)Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_7
+    :goto_0
     return-object v0
 
     .line 76
-    :sswitch_8
+    :sswitch_0
     const-string v0, "3F007F25"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 72
     nop
 
-    :sswitch_data_c
+    :sswitch_data_0
     .sparse-switch
-        0x6f32 -> :sswitch_8
-        0x6f3c -> :sswitch_8
-        0x6f41 -> :sswitch_8
+        0x6f32 -> :sswitch_0
+        0x6f3c -> :sswitch_0
+        0x6f41 -> :sswitch_0
     .end sparse-switch
 .end method
 
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "msg"
 
     .prologue
@@ -85,7 +85,7 @@
 .end method
 
 .method public loadEFImgTransparent(IIIILandroid/os/Message;)V
-    .registers 18
+    .locals 12
     .parameter "fileid"
     .parameter "highOffset"
     .parameter "lowOffset"
@@ -133,7 +133,7 @@
 .end method
 
 .method protected logd(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
@@ -165,7 +165,7 @@
 .end method
 
 .method protected loge(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue

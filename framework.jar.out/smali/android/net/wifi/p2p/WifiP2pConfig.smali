@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 141
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 62
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/wifi/p2p/WifiP2pConfig;)V
-    .registers 4
+    .locals 2
     .parameter "source"
 
     .prologue
@@ -106,7 +106,7 @@
     iput-object v0, p0, Landroid/net/wifi/p2p/WifiP2pConfig;->persist:Landroid/net/wifi/p2p/WifiP2pConfig$Persist;
 
     .line 124
-    if-eqz p1, :cond_21
+    if-eqz p1, :cond_0
 
     .line 125
     iget-object v0, p1, Landroid/net/wifi/p2p/WifiP2pConfig;->deviceAddress:Ljava/lang/String;
@@ -133,12 +133,12 @@
     iput-object v0, p0, Landroid/net/wifi/p2p/WifiP2pConfig;->persist:Landroid/net/wifi/p2p/WifiP2pConfig$Persist;
 
     .line 130
-    :cond_21
+    :cond_0
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 11
+    .locals 9
     .parameter "supplicantEvent"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -177,7 +177,7 @@
     .local v3, tokens:[Ljava/lang/String;
     array-length v4, v3
 
-    if-lt v4, v6, :cond_20
+    if-lt v4, v6, :cond_0
 
     aget-object v4, v3, v7
 
@@ -187,10 +187,10 @@
 
     move-result v4
 
-    if-nez v4, :cond_28
+    if-nez v4, :cond_1
 
     .line 73
-    :cond_20
+    :cond_0
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
     const-string v5, "Malformed supplicant event"
@@ -200,7 +200,7 @@
     throw v4
 
     .line 76
-    :cond_28
+    :cond_1
     aget-object v4, v3, v8
 
     iput-object v4, p0, Landroid/net/wifi/p2p/WifiP2pConfig;->deviceAddress:Ljava/lang/String;
@@ -215,7 +215,7 @@
     .line 79
     array-length v4, v3
 
-    if-le v4, v6, :cond_4c
+    if-le v4, v6, :cond_2
 
     .line 80
     aget-object v4, v3, v6
@@ -230,22 +230,22 @@
     .local v2, nameVal:[Ljava/lang/String;
     const/4 v4, 0x1
 
-    :try_start_3f
+    :try_start_0
     aget-object v4, v2, v4
 
     invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_44
-    .catch Ljava/lang/NumberFormatException; {:try_start_3f .. :try_end_44} :catch_4d
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v0
 
     .line 88
     .local v0, devPasswdId:I
-    :goto_45
-    packed-switch v0, :pswitch_data_60
+    :goto_0
+    packed-switch v0, :pswitch_data_0
 
     .line 102
-    :pswitch_48
+    :pswitch_0
     iget-object v4, p0, Landroid/net/wifi/p2p/WifiP2pConfig;->wps:Landroid/net/wifi/WpsInfo;
 
     iput v7, v4, Landroid/net/wifi/WpsInfo;->setup:I
@@ -253,13 +253,13 @@
     .line 106
     .end local v0           #devPasswdId:I
     .end local v2           #nameVal:[Ljava/lang/String;
-    :cond_4c
-    :goto_4c
+    :cond_2
+    :goto_1
     return-void
 
     .line 84
     .restart local v2       #nameVal:[Ljava/lang/String;
-    :catch_4d
+    :catch_0
     move-exception v1
 
     .line 85
@@ -267,50 +267,50 @@
     const/4 v0, 0x0
 
     .restart local v0       #devPasswdId:I
-    goto :goto_45
+    goto :goto_0
 
     .line 91
     .end local v1           #e:Ljava/lang/NumberFormatException;
-    :pswitch_50
+    :pswitch_1
     iget-object v4, p0, Landroid/net/wifi/p2p/WifiP2pConfig;->wps:Landroid/net/wifi/WpsInfo;
 
     iput v8, v4, Landroid/net/wifi/WpsInfo;->setup:I
 
-    goto :goto_4c
+    goto :goto_1
 
     .line 95
-    :pswitch_55
+    :pswitch_2
     iget-object v4, p0, Landroid/net/wifi/p2p/WifiP2pConfig;->wps:Landroid/net/wifi/WpsInfo;
 
     iput v7, v4, Landroid/net/wifi/WpsInfo;->setup:I
 
-    goto :goto_4c
+    goto :goto_1
 
     .line 99
-    :pswitch_5a
+    :pswitch_3
     iget-object v4, p0, Landroid/net/wifi/p2p/WifiP2pConfig;->wps:Landroid/net/wifi/WpsInfo;
 
     iput v6, v4, Landroid/net/wifi/WpsInfo;->setup:I
 
-    goto :goto_4c
+    goto :goto_1
 
     .line 88
     nop
 
-    :pswitch_data_60
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_50
-        :pswitch_48
-        :pswitch_48
-        :pswitch_55
-        :pswitch_5a
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 119
@@ -320,7 +320,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 109
@@ -386,7 +386,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

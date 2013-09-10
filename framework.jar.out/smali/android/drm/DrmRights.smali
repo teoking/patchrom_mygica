@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/drm/ProcessedData;Ljava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "data"
     .parameter "mimeType"
 
@@ -24,7 +24,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 119
-    if-nez p1, :cond_d
+    if-nez p1, :cond_0
 
     .line 120
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -36,7 +36,7 @@
     throw v1
 
     .line 123
-    :cond_d
+    :cond_0
     invoke-virtual {p1}, Landroid/drm/ProcessedData;->getData()[B
 
     move-result-object v1
@@ -65,7 +65,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_55
+    if-nez v1, :cond_1
 
     .line 129
     new-instance v1, Ljava/lang/StringBuilder;
@@ -116,12 +116,12 @@
 
     .line 133
     .end local v0           #msg:Ljava/lang/String;
-    :cond_55
+    :cond_1
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/File;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "rightsFile"
     .parameter "mimeType"
 
@@ -137,7 +137,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "rightsFilePath"
     .parameter "mimeType"
 
@@ -159,7 +159,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "rightsFilePath"
     .parameter "mimeType"
     .parameter "accountId"
@@ -176,7 +176,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 0
     .parameter "rightsFilePath"
     .parameter "mimeType"
     .parameter "accountId"
@@ -197,7 +197,7 @@
 .end method
 
 .method private instantiate(Ljava/io/File;Ljava/lang/String;)V
-    .registers 7
+    .locals 4
     .parameter "rightsFile"
     .parameter "mimeType"
 
@@ -209,11 +209,11 @@
     move-result-object v2
 
     iput-object v2, p0, Landroid/drm/DrmRights;->mData:[B
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_3c
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 103
-    :goto_6
+    :goto_0
     iput-object p2, p0, Landroid/drm/DrmRights;->mMimeType:Ljava/lang/String;
 
     .line 104
@@ -221,7 +221,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_41
+    if-nez v2, :cond_0
 
     .line 105
     new-instance v2, Ljava/lang/StringBuilder;
@@ -272,25 +272,25 @@
 
     .line 99
     .end local v1           #msg:Ljava/lang/String;
-    :catch_3c
+    :catch_0
     move-exception v0
 
     .line 100
     .local v0, e:Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 109
     .end local v0           #e:Ljava/io/IOException;
-    :cond_41
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public getAccountId()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 159
@@ -300,7 +300,7 @@
 .end method
 
 .method public getData()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 141
@@ -310,7 +310,7 @@
 .end method
 
 .method public getMimeType()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 150
@@ -320,7 +320,7 @@
 .end method
 
 .method public getSubscriptionId()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 168
@@ -330,13 +330,13 @@
 .end method
 
 .method isValid()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 177
     iget-object v0, p0, Landroid/drm/DrmRights;->mMimeType:Ljava/lang/String;
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/drm/DrmRights;->mMimeType:Ljava/lang/String;
 
@@ -346,25 +346,25 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/drm/DrmRights;->mData:[B
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/drm/DrmRights;->mData:[B
 
     array-length v0, v0
 
-    if-lez v0, :cond_19
+    if-lez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_18
+    :goto_0
     return v0
 
-    :cond_19
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_18
+    goto :goto_0
 .end method

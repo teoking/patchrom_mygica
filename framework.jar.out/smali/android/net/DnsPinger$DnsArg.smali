@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/DnsPinger;Ljava/net/InetAddress;I)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "d"
     .parameter "s"

@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(IZ)V
-    .registers 4
+    .locals 1
     .parameter "obj"
     .parameter "useSparse"
 
@@ -72,7 +72,7 @@
 .end method
 
 .method public constructor <init>([BIIZ)V
-    .registers 6
+    .locals 1
     .parameter "data"
     .parameter "offset"
     .parameter "size"
@@ -107,7 +107,7 @@
 .end method
 
 .method public constructor <init>([BZ)V
-    .registers 5
+    .locals 2
     .parameter "data"
     .parameter "useSparse"
 
@@ -144,7 +144,7 @@
 .end method
 
 .method private static addParagraphSpan(Landroid/text/Spannable;Ljava/lang/Object;II)V
-    .registers 7
+    .locals 3
     .parameter "buffer"
     .parameter "what"
     .parameter "start"
@@ -160,9 +160,9 @@
 
     .line 300
     .local v0, len:I
-    if-eqz p2, :cond_1e
+    if-eqz p2, :cond_0
 
-    if-eq p2, v0, :cond_1e
+    if-eq p2, v0, :cond_0
 
     add-int/lit8 v1, p2, -0x1
 
@@ -170,13 +170,13 @@
 
     move-result v1
 
-    if-eq v1, v2, :cond_1e
+    if-eq v1, v2, :cond_0
 
     .line 301
     add-int/lit8 p2, p2, -0x1
 
-    :goto_14
-    if-lez p2, :cond_1e
+    :goto_0
+    if-lez p2, :cond_0
 
     .line 302
     add-int/lit8 v1, p2, -0x1
@@ -185,13 +185,13 @@
 
     move-result v1
 
-    if-ne v1, v2, :cond_3c
+    if-ne v1, v2, :cond_2
 
     .line 308
-    :cond_1e
-    if-eqz p3, :cond_36
+    :cond_0
+    if-eqz p3, :cond_1
 
-    if-eq p3, v0, :cond_36
+    if-eq p3, v0, :cond_1
 
     add-int/lit8 v1, p3, -0x1
 
@@ -199,13 +199,13 @@
 
     move-result v1
 
-    if-eq v1, v2, :cond_36
+    if-eq v1, v2, :cond_1
 
     .line 309
     add-int/lit8 p3, p3, 0x1
 
-    :goto_2c
-    if-ge p3, v0, :cond_36
+    :goto_1
+    if-ge p3, v0, :cond_1
 
     .line 310
     add-int/lit8 v1, p3, -0x1
@@ -214,10 +214,10 @@
 
     move-result v1
 
-    if-ne v1, v2, :cond_3f
+    if-ne v1, v2, :cond_3
 
     .line 316
-    :cond_36
+    :cond_1
     const/16 v1, 0x33
 
     invoke-interface {p0, p1, p2, p3, v1}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
@@ -226,20 +226,20 @@
     return-void
 
     .line 301
-    :cond_3c
+    :cond_2
     add-int/lit8 p2, p2, -0x1
 
-    goto :goto_14
+    goto :goto_0
 
     .line 309
-    :cond_3f
+    :cond_3
     add-int/lit8 p3, p3, 0x1
 
-    goto :goto_2c
+    goto :goto_1
 .end method
 
 .method private applyStyles(Ljava/lang/String;[ILandroid/content/res/StringBlock$StyleIDs;)Ljava/lang/CharSequence;
-    .registers 25
+    .locals 21
     .parameter "str"
     .parameter "style"
     .parameter "ids"
@@ -252,16 +252,16 @@
 
     move/from16 v17, v0
 
-    if-nez v17, :cond_8
+    if-nez v17, :cond_0
 
     .line 288
     .end local p1
-    :goto_7
+    :goto_0
     return-object p1
 
     .line 165
     .restart local p1
-    :cond_8
+    :cond_0
     new-instance v4, Landroid/text/SpannableString;
 
     move-object/from16 v0, p1
@@ -274,7 +274,7 @@
 
     .line 167
     .local v7, i:I
-    :goto_10
+    :goto_1
     move-object/from16 v0, p2
 
     array-length v0, v0
@@ -283,20 +283,21 @@
 
     move/from16 v0, v17
 
-    if-ge v7, v0, :cond_325
+    if-ge v7, v0, :cond_13
 
     .line 168
     aget v15, p2, v7
 
     .line 173
     .local v15, type:I
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->boldId:I
     invoke-static/range {p3 .. p3}, Landroid/content/res/StringBlock$StyleIDs;->access$000(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v17
 
     move/from16 v0, v17
 
-    if-ne v15, v0, :cond_44
+    if-ne v15, v0, :cond_2
 
     .line 174
     new-instance v17, Landroid/text/style/StyleSpan;
@@ -328,22 +329,23 @@
     invoke-virtual {v4, v0, v1, v2, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
     .line 286
-    :cond_41
-    :goto_41
+    :cond_1
+    :goto_2
     add-int/lit8 v7, v7, 0x3
 
     .line 287
-    goto :goto_10
+    goto :goto_1
 
     .line 177
-    :cond_44
+    :cond_2
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->italicId:I
     invoke-static/range {p3 .. p3}, Landroid/content/res/StringBlock$StyleIDs;->access$100(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v17
 
     move/from16 v0, v17
 
-    if-ne v15, v0, :cond_6b
+    if-ne v15, v0, :cond_3
 
     .line 178
     new-instance v17, Landroid/text/style/StyleSpan;
@@ -374,17 +376,18 @@
 
     invoke-virtual {v4, v0, v1, v2, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    goto :goto_41
+    goto :goto_2
 
     .line 181
-    :cond_6b
+    :cond_3
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->underlineId:I
     invoke-static/range {p3 .. p3}, Landroid/content/res/StringBlock$StyleIDs;->access$200(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v17
 
     move/from16 v0, v17
 
-    if-ne v15, v0, :cond_90
+    if-ne v15, v0, :cond_4
 
     .line 182
     new-instance v17, Landroid/text/style/UnderlineSpan;
@@ -413,17 +416,18 @@
 
     invoke-virtual {v4, v0, v1, v2, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    goto :goto_41
+    goto :goto_2
 
     .line 185
-    :cond_90
+    :cond_4
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->ttId:I
     invoke-static/range {p3 .. p3}, Landroid/content/res/StringBlock$StyleIDs;->access$300(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v17
 
     move/from16 v0, v17
 
-    if-ne v15, v0, :cond_b8
+    if-ne v15, v0, :cond_5
 
     .line 186
     new-instance v17, Landroid/text/style/TypefaceSpan;
@@ -454,17 +458,18 @@
 
     invoke-virtual {v4, v0, v1, v2, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    goto :goto_41
+    goto :goto_2
 
     .line 189
-    :cond_b8
+    :cond_5
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->bigId:I
     invoke-static/range {p3 .. p3}, Landroid/content/res/StringBlock$StyleIDs;->access$400(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v17
 
     move/from16 v0, v17
 
-    if-ne v15, v0, :cond_e0
+    if-ne v15, v0, :cond_6
 
     .line 190
     new-instance v17, Landroid/text/style/RelativeSizeSpan;
@@ -495,17 +500,18 @@
 
     invoke-virtual {v4, v0, v1, v2, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    goto/16 :goto_41
+    goto/16 :goto_2
 
     .line 193
-    :cond_e0
+    :cond_6
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->smallId:I
     invoke-static/range {p3 .. p3}, Landroid/content/res/StringBlock$StyleIDs;->access$500(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v17
 
     move/from16 v0, v17
 
-    if-ne v15, v0, :cond_109
+    if-ne v15, v0, :cond_7
 
     .line 194
     new-instance v17, Landroid/text/style/RelativeSizeSpan;
@@ -536,17 +542,18 @@
 
     invoke-virtual {v4, v0, v1, v2, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    goto/16 :goto_41
+    goto/16 :goto_2
 
     .line 197
-    :cond_109
+    :cond_7
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->subId:I
     invoke-static/range {p3 .. p3}, Landroid/content/res/StringBlock$StyleIDs;->access$600(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v17
 
     move/from16 v0, v17
 
-    if-ne v15, v0, :cond_12f
+    if-ne v15, v0, :cond_8
 
     .line 198
     new-instance v17, Landroid/text/style/SubscriptSpan;
@@ -575,17 +582,18 @@
 
     invoke-virtual {v4, v0, v1, v2, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    goto/16 :goto_41
+    goto/16 :goto_2
 
     .line 201
-    :cond_12f
+    :cond_8
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->supId:I
     invoke-static/range {p3 .. p3}, Landroid/content/res/StringBlock$StyleIDs;->access$700(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v17
 
     move/from16 v0, v17
 
-    if-ne v15, v0, :cond_155
+    if-ne v15, v0, :cond_9
 
     .line 202
     new-instance v17, Landroid/text/style/SuperscriptSpan;
@@ -614,17 +622,18 @@
 
     invoke-virtual {v4, v0, v1, v2, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    goto/16 :goto_41
+    goto/16 :goto_2
 
     .line 205
-    :cond_155
+    :cond_9
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->strikeId:I
     invoke-static/range {p3 .. p3}, Landroid/content/res/StringBlock$StyleIDs;->access$800(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v17
 
     move/from16 v0, v17
 
-    if-ne v15, v0, :cond_17b
+    if-ne v15, v0, :cond_a
 
     .line 206
     new-instance v17, Landroid/text/style/StrikethroughSpan;
@@ -653,17 +662,18 @@
 
     invoke-virtual {v4, v0, v1, v2, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    goto/16 :goto_41
+    goto/16 :goto_2
 
     .line 209
-    :cond_17b
+    :cond_a
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->listItemId:I
     invoke-static/range {p3 .. p3}, Landroid/content/res/StringBlock$StyleIDs;->access$900(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v17
 
     move/from16 v0, v17
 
-    if-ne v15, v0, :cond_19f
+    if-ne v15, v0, :cond_b
 
     .line 210
     new-instance v17, Landroid/text/style/BulletSpan;
@@ -690,17 +700,18 @@
 
     invoke-static {v4, v0, v1, v2}, Landroid/content/res/StringBlock;->addParagraphSpan(Landroid/text/Spannable;Ljava/lang/Object;II)V
 
-    goto/16 :goto_41
+    goto/16 :goto_2
 
     .line 212
-    :cond_19f
+    :cond_b
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->marqueeId:I
     invoke-static/range {p3 .. p3}, Landroid/content/res/StringBlock$StyleIDs;->access$1000(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v17
 
     move/from16 v0, v17
 
-    if-ne v15, v0, :cond_1c2
+    if-ne v15, v0, :cond_c
 
     .line 213
     sget-object v17, Landroid/text/TextUtils$TruncateAt;->MARQUEE:Landroid/text/TextUtils$TruncateAt;
@@ -727,10 +738,10 @@
 
     invoke-virtual {v4, v0, v1, v2, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    goto/16 :goto_41
+    goto/16 :goto_2
 
     .line 217
-    :cond_1c2
+    :cond_c
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/content/res/StringBlock;->mNative:I
@@ -753,7 +764,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_292
+    if-eqz v17, :cond_10
 
     .line 222
     const-string v17, ";height="
@@ -766,7 +777,7 @@
 
     .line 223
     .local v12, sub:Ljava/lang/String;
-    if-eqz v12, :cond_200
+    if-eqz v12, :cond_d
 
     .line 224
     invoke-static {v12}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -801,7 +812,7 @@
 
     .line 229
     .end local v11           #size:I
-    :cond_200
+    :cond_d
     const-string v17, ";size="
 
     move-object/from16 v0, v17
@@ -811,7 +822,7 @@
     move-result-object v12
 
     .line 230
-    if-eqz v12, :cond_230
+    if-eqz v12, :cond_e
 
     .line 231
     invoke-static {v12}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -854,7 +865,7 @@
 
     .line 237
     .end local v11           #size:I
-    :cond_230
+    :cond_e
     const-string v17, ";fgcolor="
 
     move-object/from16 v0, v17
@@ -864,7 +875,7 @@
     move-result-object v12
 
     .line 238
-    if-eqz v12, :cond_260
+    if-eqz v12, :cond_f
 
     .line 239
     const/16 v17, -0x1
@@ -907,7 +918,7 @@
 
     .line 245
     .end local v5           #color:I
-    :cond_260
+    :cond_f
     const-string v17, ";bgcolor="
 
     move-object/from16 v0, v17
@@ -917,7 +928,7 @@
     move-result-object v12
 
     .line 246
-    if-eqz v12, :cond_41
+    if-eqz v12, :cond_1
 
     .line 247
     const/16 v17, -0x1
@@ -958,12 +969,12 @@
 
     invoke-virtual {v4, v0, v1, v2, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    goto/16 :goto_41
+    goto/16 :goto_2
 
     .line 252
     .end local v5           #color:I
     .end local v12           #sub:Ljava/lang/String;
-    :cond_292
+    :cond_10
     const-string v17, "a;"
 
     move-object/from16 v0, v17
@@ -972,7 +983,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_2c6
+    if-eqz v17, :cond_11
 
     .line 255
     const-string v17, ";href="
@@ -985,7 +996,7 @@
 
     .line 256
     .restart local v12       #sub:Ljava/lang/String;
-    if-eqz v12, :cond_41
+    if-eqz v12, :cond_1
 
     .line 257
     new-instance v17, Landroid/text/style/URLSpan;
@@ -1016,11 +1027,11 @@
 
     invoke-virtual {v4, v0, v1, v2, v3}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    goto/16 :goto_41
+    goto/16 :goto_2
 
     .line 261
     .end local v12           #sub:Ljava/lang/String;
-    :cond_2c6
+    :cond_11
     const-string v17, "annotation;"
 
     move-object/from16 v0, v17
@@ -1029,7 +1040,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_41
+    if-eqz v17, :cond_1
 
     .line 262
     invoke-virtual {v14}, Ljava/lang/String;->length()I
@@ -1047,8 +1058,8 @@
     move-result v13
 
     .local v13, t:I
-    :goto_2dc
-    if-ge v13, v9, :cond_41
+    :goto_3
+    if-ge v13, v9, :cond_1
 
     .line 266
     const/16 v17, 0x3d
@@ -1061,7 +1072,7 @@
 
     .line 267
     .local v6, eq:I
-    if-ltz v6, :cond_41
+    if-ltz v6, :cond_1
 
     .line 271
     const/16 v17, 0x3b
@@ -1074,13 +1085,13 @@
 
     .line 272
     .local v10, next:I
-    if-gez v10, :cond_2f3
+    if-gez v10, :cond_12
 
     .line 273
     move v10, v9
 
     .line 276
-    :cond_2f3
+    :cond_12
     add-int/lit8 v17, v13, 0x1
 
     move/from16 v0, v17
@@ -1134,7 +1145,7 @@
     .line 265
     move v13, v10
 
-    goto :goto_2dc
+    goto :goto_3
 
     .line 288
     .end local v6           #eq:I
@@ -1145,7 +1156,7 @@
     .end local v14           #tag:Ljava/lang/String;
     .end local v15           #type:I
     .end local v16           #value:Ljava/lang/String;
-    :cond_325
+    :cond_13
     new-instance p1, Landroid/text/SpannedString;
 
     .end local p1
@@ -1153,7 +1164,7 @@
 
     invoke-direct {v0, v4}, Landroid/text/SpannedString;-><init>(Ljava/lang/CharSequence;)V
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 .end method
 
 .method private static final native nativeCreate([BII)I
@@ -1172,7 +1183,7 @@
 .end method
 
 .method private static subtag(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 5
+    .locals 3
     .parameter "full"
     .parameter "attribute"
 
@@ -1184,17 +1195,17 @@
 
     .line 321
     .local v1, start:I
-    if-gez v1, :cond_8
+    if-gez v1, :cond_0
 
     .line 322
     const/4 v2, 0x0
 
     .line 331
-    :goto_7
+    :goto_0
     return-object v2
 
     .line 325
-    :cond_8
+    :cond_0
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
@@ -1210,28 +1221,28 @@
 
     .line 328
     .local v0, end:I
-    if-gez v0, :cond_1a
+    if-gez v0, :cond_1
 
     .line 329
     invoke-virtual {p0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_7
+    goto :goto_0
 
     .line 331
-    :cond_1a
+    :cond_1
     invoke-virtual {p0, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -1242,7 +1253,7 @@
     .line 142
     iget-boolean v0, p0, Landroid/content/res/StringBlock;->mOwnsNative:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 143
     iget v0, p0, Landroid/content/res/StringBlock;->mNative:I
@@ -1250,12 +1261,12 @@
     invoke-static {v0}, Landroid/content/res/StringBlock;->nativeDestroy(I)V
 
     .line 145
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public get(I)Ljava/lang/CharSequence;
-    .registers 10
+    .locals 8
     .parameter "idx"
 
     .prologue
@@ -1263,10 +1274,10 @@
     monitor-enter p0
 
     .line 63
-    :try_start_1
+    :try_start_0
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStrings:[Ljava/lang/CharSequence;
 
-    if-eqz v7, :cond_d
+    if-eqz v7, :cond_0
 
     .line 64
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStrings:[Ljava/lang/CharSequence;
@@ -1275,21 +1286,21 @@
 
     .line 65
     .local v1, res:Ljava/lang/CharSequence;
-    if-eqz v1, :cond_35
+    if-eqz v1, :cond_2
 
     .line 66
     monitor-exit p0
 
     .line 137
-    :goto_c
+    :goto_0
     return-object v1
 
     .line 68
     .end local v1           #res:Ljava/lang/CharSequence;
-    :cond_d
+    :cond_0
     iget-object v7, p0, Landroid/content/res/StringBlock;->mSparseStrings:Landroid/util/SparseArray;
 
-    if-eqz v7, :cond_20
+    if-eqz v7, :cond_1
 
     .line 69
     iget-object v7, p0, Landroid/content/res/StringBlock;->mSparseStrings:Landroid/util/SparseArray;
@@ -1302,27 +1313,27 @@
 
     .line 70
     .restart local v1       #res:Ljava/lang/CharSequence;
-    if-eqz v1, :cond_35
+    if-eqz v1, :cond_2
 
     .line 71
     monitor-exit p0
 
-    goto :goto_c
+    goto :goto_0
 
     .line 138
     .end local v1           #res:Ljava/lang/CharSequence;
-    :catchall_1d
+    :catchall_0
     move-exception v7
 
     monitor-exit p0
-    :try_end_1f
-    .catchall {:try_start_1 .. :try_end_1f} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v7
 
     .line 74
-    :cond_20
-    :try_start_20
+    :cond_1
+    :try_start_1
     iget v7, p0, Landroid/content/res/StringBlock;->mNative:I
 
     invoke-static {v7}, Landroid/content/res/StringBlock;->nativeGetSize(I)I
@@ -1333,11 +1344,11 @@
     .local v0, num:I
     iget-boolean v7, p0, Landroid/content/res/StringBlock;->mUseSparse:Z
 
-    if-eqz v7, :cond_b0
+    if-eqz v7, :cond_5
 
     const/16 v7, 0xfa
 
-    if-le v0, v7, :cond_b0
+    if-le v0, v7, :cond_5
 
     .line 76
     new-instance v7, Landroid/util/SparseArray;
@@ -1348,8 +1359,8 @@
 
     .line 81
     .end local v0           #num:I
-    :cond_35
-    :goto_35
+    :cond_2
+    :goto_1
     iget v7, p0, Landroid/content/res/StringBlock;->mNative:I
 
     invoke-static {v7, p1}, Landroid/content/res/StringBlock;->nativeGetString(II)Ljava/lang/String;
@@ -1370,12 +1381,12 @@
 
     .line 86
     .local v3, style:[I
-    if-eqz v3, :cond_166
+    if-eqz v3, :cond_12
 
     .line 87
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
-    if-nez v7, :cond_4f
+    if-nez v7, :cond_3
 
     .line 88
     new-instance v7, Landroid/content/res/StringBlock$StyleIDs;
@@ -1385,14 +1396,14 @@
     iput-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
     .line 93
-    :cond_4f
+    :cond_3
     const/4 v5, 0x0
 
     .local v5, styleIndex:I
-    :goto_50
+    :goto_2
     array-length v7, v3
 
-    if-ge v5, v7, :cond_160
+    if-ge v5, v7, :cond_11
 
     .line 94
     aget v4, v3, v5
@@ -1401,98 +1412,109 @@
     .local v4, styleId:I
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->boldId:I
     invoke-static {v7}, Landroid/content/res/StringBlock$StyleIDs;->access$000(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v7
 
-    if-eq v4, v7, :cond_ad
+    if-eq v4, v7, :cond_4
 
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->italicId:I
     invoke-static {v7}, Landroid/content/res/StringBlock$StyleIDs;->access$100(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v7
 
-    if-eq v4, v7, :cond_ad
+    if-eq v4, v7, :cond_4
 
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->underlineId:I
     invoke-static {v7}, Landroid/content/res/StringBlock$StyleIDs;->access$200(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v7
 
-    if-eq v4, v7, :cond_ad
+    if-eq v4, v7, :cond_4
 
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->ttId:I
     invoke-static {v7}, Landroid/content/res/StringBlock$StyleIDs;->access$300(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v7
 
-    if-eq v4, v7, :cond_ad
+    if-eq v4, v7, :cond_4
 
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->bigId:I
     invoke-static {v7}, Landroid/content/res/StringBlock$StyleIDs;->access$400(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v7
 
-    if-eq v4, v7, :cond_ad
+    if-eq v4, v7, :cond_4
 
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->smallId:I
     invoke-static {v7}, Landroid/content/res/StringBlock$StyleIDs;->access$500(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v7
 
-    if-eq v4, v7, :cond_ad
+    if-eq v4, v7, :cond_4
 
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->subId:I
     invoke-static {v7}, Landroid/content/res/StringBlock$StyleIDs;->access$600(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v7
 
-    if-eq v4, v7, :cond_ad
+    if-eq v4, v7, :cond_4
 
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->supId:I
     invoke-static {v7}, Landroid/content/res/StringBlock$StyleIDs;->access$700(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v7
 
-    if-eq v4, v7, :cond_ad
+    if-eq v4, v7, :cond_4
 
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->strikeId:I
     invoke-static {v7}, Landroid/content/res/StringBlock$StyleIDs;->access$800(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v7
 
-    if-eq v4, v7, :cond_ad
+    if-eq v4, v7, :cond_4
 
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->listItemId:I
     invoke-static {v7}, Landroid/content/res/StringBlock$StyleIDs;->access$900(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v7
 
-    if-eq v4, v7, :cond_ad
+    if-eq v4, v7, :cond_4
 
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #getter for: Landroid/content/res/StringBlock$StyleIDs;->marqueeId:I
     invoke-static {v7}, Landroid/content/res/StringBlock$StyleIDs;->access$1000(Landroid/content/res/StringBlock$StyleIDs;)I
 
     move-result v7
 
-    if-ne v4, v7, :cond_b5
+    if-ne v4, v7, :cond_6
 
     .line 93
-    :cond_ad
-    :goto_ad
+    :cond_4
+    :goto_3
     add-int/lit8 v5, v5, 0x3
 
-    goto :goto_50
+    goto :goto_2
 
     .line 78
     .end local v1           #res:Ljava/lang/CharSequence;
@@ -1501,12 +1523,12 @@
     .end local v4           #styleId:I
     .end local v5           #styleIndex:I
     .restart local v0       #num:I
-    :cond_b0
+    :cond_5
     new-array v7, v0, [Ljava/lang/CharSequence;
 
     iput-object v7, p0, Landroid/content/res/StringBlock;->mStrings:[Ljava/lang/CharSequence;
 
-    goto :goto_35
+    goto :goto_1
 
     .line 106
     .end local v0           #num:I
@@ -1515,7 +1537,7 @@
     .restart local v3       #style:[I
     .restart local v4       #styleId:I
     .restart local v5       #styleIndex:I
-    :cond_b5
+    :cond_6
     iget v7, p0, Landroid/content/res/StringBlock;->mNative:I
 
     invoke-static {v7, v4}, Landroid/content/res/StringBlock;->nativeGetString(II)Ljava/lang/String;
@@ -1530,189 +1552,200 @@
 
     move-result v7
 
-    if-eqz v7, :cond_c9
+    if-eqz v7, :cond_7
 
     .line 109
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #setter for: Landroid/content/res/StringBlock$StyleIDs;->boldId:I
     invoke-static {v7, v4}, Landroid/content/res/StringBlock$StyleIDs;->access$002(Landroid/content/res/StringBlock$StyleIDs;I)I
 
-    goto :goto_ad
+    goto :goto_3
 
     .line 110
-    :cond_c9
+    :cond_7
     const-string v7, "i"
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_d7
+    if-eqz v7, :cond_8
 
     .line 111
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #setter for: Landroid/content/res/StringBlock$StyleIDs;->italicId:I
     invoke-static {v7, v4}, Landroid/content/res/StringBlock$StyleIDs;->access$102(Landroid/content/res/StringBlock$StyleIDs;I)I
 
-    goto :goto_ad
+    goto :goto_3
 
     .line 112
-    :cond_d7
+    :cond_8
     const-string/jumbo v7, "u"
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_e6
+    if-eqz v7, :cond_9
 
     .line 113
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #setter for: Landroid/content/res/StringBlock$StyleIDs;->underlineId:I
     invoke-static {v7, v4}, Landroid/content/res/StringBlock$StyleIDs;->access$202(Landroid/content/res/StringBlock$StyleIDs;I)I
 
-    goto :goto_ad
+    goto :goto_3
 
     .line 114
-    :cond_e6
+    :cond_9
     const-string/jumbo v7, "tt"
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_f5
+    if-eqz v7, :cond_a
 
     .line 115
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #setter for: Landroid/content/res/StringBlock$StyleIDs;->ttId:I
     invoke-static {v7, v4}, Landroid/content/res/StringBlock$StyleIDs;->access$302(Landroid/content/res/StringBlock$StyleIDs;I)I
 
-    goto :goto_ad
+    goto :goto_3
 
     .line 116
-    :cond_f5
+    :cond_a
     const-string v7, "big"
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_103
+    if-eqz v7, :cond_b
 
     .line 117
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #setter for: Landroid/content/res/StringBlock$StyleIDs;->bigId:I
     invoke-static {v7, v4}, Landroid/content/res/StringBlock$StyleIDs;->access$402(Landroid/content/res/StringBlock$StyleIDs;I)I
 
-    goto :goto_ad
+    goto :goto_3
 
     .line 118
-    :cond_103
+    :cond_b
     const-string/jumbo v7, "small"
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_112
+    if-eqz v7, :cond_c
 
     .line 119
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #setter for: Landroid/content/res/StringBlock$StyleIDs;->smallId:I
     invoke-static {v7, v4}, Landroid/content/res/StringBlock$StyleIDs;->access$502(Landroid/content/res/StringBlock$StyleIDs;I)I
 
-    goto :goto_ad
+    goto :goto_3
 
     .line 120
-    :cond_112
+    :cond_c
     const-string/jumbo v7, "sup"
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_121
+    if-eqz v7, :cond_d
 
     .line 121
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #setter for: Landroid/content/res/StringBlock$StyleIDs;->supId:I
     invoke-static {v7, v4}, Landroid/content/res/StringBlock$StyleIDs;->access$702(Landroid/content/res/StringBlock$StyleIDs;I)I
 
-    goto :goto_ad
+    goto :goto_3
 
     .line 122
-    :cond_121
+    :cond_d
     const-string/jumbo v7, "sub"
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_131
+    if-eqz v7, :cond_e
 
     .line 123
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #setter for: Landroid/content/res/StringBlock$StyleIDs;->subId:I
     invoke-static {v7, v4}, Landroid/content/res/StringBlock$StyleIDs;->access$602(Landroid/content/res/StringBlock$StyleIDs;I)I
 
-    goto/16 :goto_ad
+    goto/16 :goto_3
 
     .line 124
-    :cond_131
+    :cond_e
     const-string/jumbo v7, "strike"
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_141
+    if-eqz v7, :cond_f
 
     .line 125
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #setter for: Landroid/content/res/StringBlock$StyleIDs;->strikeId:I
     invoke-static {v7, v4}, Landroid/content/res/StringBlock$StyleIDs;->access$802(Landroid/content/res/StringBlock$StyleIDs;I)I
 
-    goto/16 :goto_ad
+    goto/16 :goto_3
 
     .line 126
-    :cond_141
+    :cond_f
     const-string v7, "li"
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_150
+    if-eqz v7, :cond_10
 
     .line 127
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #setter for: Landroid/content/res/StringBlock$StyleIDs;->listItemId:I
     invoke-static {v7, v4}, Landroid/content/res/StringBlock$StyleIDs;->access$902(Landroid/content/res/StringBlock$StyleIDs;I)I
 
-    goto/16 :goto_ad
+    goto/16 :goto_3
 
     .line 128
-    :cond_150
+    :cond_10
     const-string/jumbo v7, "marquee"
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_ad
+    if-eqz v7, :cond_4
 
     .line 129
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
+    #setter for: Landroid/content/res/StringBlock$StyleIDs;->marqueeId:I
     invoke-static {v7, v4}, Landroid/content/res/StringBlock$StyleIDs;->access$1002(Landroid/content/res/StringBlock$StyleIDs;I)I
 
-    goto/16 :goto_ad
+    goto/16 :goto_3
 
     .line 133
     .end local v4           #styleId:I
     .end local v6           #styleTag:Ljava/lang/String;
-    :cond_160
+    :cond_11
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStyleIDs:Landroid/content/res/StringBlock$StyleIDs;
 
     invoke-direct {p0, v2, v3, v7}, Landroid/content/res/StringBlock;->applyStyles(Ljava/lang/String;[ILandroid/content/res/StringBlock$StyleIDs;)Ljava/lang/CharSequence;
@@ -1721,28 +1754,28 @@
 
     .line 135
     .end local v5           #styleIndex:I
-    :cond_166
+    :cond_12
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStrings:[Ljava/lang/CharSequence;
 
-    if-eqz v7, :cond_171
+    if-eqz v7, :cond_13
 
     iget-object v7, p0, Landroid/content/res/StringBlock;->mStrings:[Ljava/lang/CharSequence;
 
     aput-object v1, v7, p1
 
     .line 137
-    :goto_16e
+    :goto_4
     monitor-exit p0
 
-    goto/16 :goto_c
+    goto/16 :goto_0
 
     .line 136
-    :cond_171
+    :cond_13
     iget-object v7, p0, Landroid/content/res/StringBlock;->mSparseStrings:Landroid/util/SparseArray;
 
     invoke-virtual {v7, p1, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-    :try_end_176
-    .catchall {:try_start_20 .. :try_end_176} :catchall_1d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_16e
+    goto :goto_4
 .end method

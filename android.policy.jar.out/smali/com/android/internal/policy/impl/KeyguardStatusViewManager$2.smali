@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/KeyguardStatusViewManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,13 +38,14 @@
 
 # virtual methods
 .method public onSimStateChanged(Lcom/android/internal/telephony/IccCard$State;)V
-    .registers 3
+    .locals 1
     .parameter "simState"
 
     .prologue
     .line 667
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$2;->this$0:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
+    #calls: Lcom/android/internal/policy/impl/KeyguardStatusViewManager;->updateCarrierStateWithSimStatus(Lcom/android/internal/telephony/IccCard$State;)V
     invoke-static {v0, p1}, Lcom/android/internal/policy/impl/KeyguardStatusViewManager;->access$1000(Lcom/android/internal/policy/impl/KeyguardStatusViewManager;Lcom/android/internal/telephony/IccCard$State;)V
 
     .line 668

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 118
@@ -50,7 +50,7 @@
 .end method
 
 .method public endRestoreSession()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -71,7 +71,7 @@
 
     .line 265
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.backup.IRestoreSession"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -87,8 +87,8 @@
 
     .line 267
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_17
-    .catchall {:try_start_8 .. :try_end_17} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 270
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -100,7 +100,7 @@
     return-void
 
     .line 270
-    :catchall_1e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -112,7 +112,7 @@
 .end method
 
 .method public getAvailableRestoreSets(Landroid/app/backup/IRestoreObserver;)I
-    .registers 8
+    .locals 6
     .parameter "observer"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -134,19 +134,19 @@
 
     .line 138
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.backup.IRestoreSession"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 139
-    if-eqz p1, :cond_2b
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/backup/IRestoreObserver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 140
@@ -163,8 +163,8 @@
 
     .line 142
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_23
-    .catchall {:try_start_8 .. :try_end_23} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -180,13 +180,13 @@
 
     .line 139
     .end local v2           #_result:I
-    :cond_2b
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 145
-    :catchall_2d
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -198,7 +198,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 122
@@ -208,7 +208,7 @@
 .end method
 
 .method public restoreAll(JLandroid/app/backup/IRestoreObserver;)I
-    .registers 10
+    .locals 6
     .parameter "token"
     .parameter "observer"
     .annotation system Ldalvik/annotation/Throws;
@@ -231,7 +231,7 @@
 
     .line 169
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.backup.IRestoreSession"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -240,13 +240,13 @@
     invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 171
-    if-eqz p3, :cond_2e
+    if-eqz p3, :cond_0
 
     invoke-interface {p3}, Landroid/app/backup/IRestoreObserver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
-    :goto_16
+    :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 172
@@ -263,8 +263,8 @@
 
     .line 174
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_26
-    .catchall {:try_start_8 .. :try_end_26} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -280,13 +280,13 @@
 
     .line 171
     .end local v2           #_result:I
-    :cond_2e
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 177
-    :catchall_30
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -298,7 +298,7 @@
 .end method
 
 .method public restorePackage(Ljava/lang/String;Landroid/app/backup/IRestoreObserver;)I
-    .registers 9
+    .locals 6
     .parameter "packageName"
     .parameter "observer"
     .annotation system Ldalvik/annotation/Throws;
@@ -321,7 +321,7 @@
 
     .line 240
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.backup.IRestoreSession"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -330,13 +330,13 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 242
-    if-eqz p2, :cond_2e
+    if-eqz p2, :cond_0
 
     invoke-interface {p2}, Landroid/app/backup/IRestoreObserver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
-    :goto_16
+    :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 243
@@ -353,8 +353,8 @@
 
     .line 245
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_26
-    .catchall {:try_start_8 .. :try_end_26} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -370,13 +370,13 @@
 
     .line 242
     .end local v2           #_result:I
-    :cond_2e
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 248
-    :catchall_30
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -388,7 +388,7 @@
 .end method
 
 .method public restoreSome(JLandroid/app/backup/IRestoreObserver;[Ljava/lang/String;)I
-    .registers 11
+    .locals 6
     .parameter "token"
     .parameter "observer"
     .parameter "packages"
@@ -412,7 +412,7 @@
 
     .line 205
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.backup.IRestoreSession"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -421,13 +421,13 @@
     invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 207
-    if-eqz p3, :cond_31
+    if-eqz p3, :cond_0
 
     invoke-interface {p3}, Landroid/app/backup/IRestoreObserver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
-    :goto_16
+    :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 208
@@ -447,8 +447,8 @@
 
     .line 211
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_29
-    .catchall {:try_start_8 .. :try_end_29} :catchall_33
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -464,13 +464,13 @@
 
     .line 207
     .end local v2           #_result:I
-    :cond_31
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 214
-    :catchall_33
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

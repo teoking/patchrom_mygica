@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 22
@@ -23,7 +23,7 @@
 .end method
 
 .method public static final getAppId(I)I
-    .registers 2
+    .locals 1
     .parameter "uid"
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method public static final getCallingUserId()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 86
@@ -52,7 +52,7 @@
 .end method
 
 .method public static final getUid(II)I
-    .registers 4
+    .locals 2
     .parameter "userId"
     .parameter "appId"
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public static final getUserId(I)I
-    .registers 2
+    .locals 1
     .parameter "uid"
 
     .prologue
@@ -83,14 +83,14 @@
 .end method
 
 .method public static isApp(I)Z
-    .registers 3
+    .locals 2
     .parameter "uid"
 
     .prologue
     const/4 v0, 0x0
 
     .line 65
-    if-lez p0, :cond_10
+    if-lez p0, :cond_0
 
     .line 66
     invoke-static {p0}, Landroid/os/UserId;->getAppId(I)I
@@ -100,21 +100,21 @@
     .line 67
     const/16 v1, 0x2710
 
-    if-lt p0, v1, :cond_10
+    if-lt p0, v1, :cond_0
 
     const/16 v1, 0x4e1f
 
-    if-gt p0, v1, :cond_10
+    if-gt p0, v1, :cond_0
 
     const/4 v0, 0x1
 
     .line 69
-    :cond_10
+    :cond_0
     return v0
 .end method
 
 .method public static final isIsolated(I)Z
-    .registers 2
+    .locals 1
     .parameter "uid"
 
     .prologue
@@ -126,25 +126,25 @@
     .line 61
     const v0, 0x182b8
 
-    if-lt p0, v0, :cond_10
+    if-lt p0, v0, :cond_0
 
     const v0, 0x1869f
 
-    if-gt p0, v0, :cond_10
+    if-gt p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public static final isSameApp(II)Z
-    .registers 4
+    .locals 2
     .parameter "uid1"
     .parameter "uid2"
 
@@ -158,21 +158,21 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_c
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public static final isSameUser(II)Z
-    .registers 4
+    .locals 2
     .parameter "uid1"
     .parameter "uid2"
 
@@ -186,21 +186,21 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_c
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public static final myUserId()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 114

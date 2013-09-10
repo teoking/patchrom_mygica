@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/DevicePolicyManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
@@ -53,7 +53,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_14
+    if-nez v1, :cond_0
 
     const-string v1, "com.android.server.ACTION_EXPIRED_PASSWORD_NOTIFICATION"
 
@@ -61,10 +61,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_38
+    if-eqz v1, :cond_1
 
     .line 128
-    :cond_14
+    :cond_0
     const-string v1, "DevicePolicyManagerService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -99,6 +99,6 @@
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     .line 135
-    :cond_38
+    :cond_1
     return-void
 .end method

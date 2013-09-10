@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/hardware/SystemSensorManager;Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;Landroid/os/Handler;)V
-    .registers 7
+    .locals 2
     .parameter
     .parameter "listener"
     .parameter "sensor"
@@ -85,7 +85,7 @@
     iput-object p2, p0, Landroid/hardware/SystemSensorManager$ListenerDelegate;->mSensorEventListener:Landroid/hardware/SensorEventListener;
 
     .line 184
-    if-eqz p4, :cond_34
+    if-eqz p4, :cond_0
 
     invoke-virtual {p4}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
@@ -93,7 +93,7 @@
 
     .line 188
     .local v0, looper:Landroid/os/Looper;
-    :goto_29
+    :goto_0
     new-instance v1, Landroid/hardware/SystemSensorManager$ListenerDelegate$1;
 
     invoke-direct {v1, p0, v0, p1}, Landroid/hardware/SystemSensorManager$ListenerDelegate$1;-><init>(Landroid/hardware/SystemSensorManager$ListenerDelegate;Landroid/os/Looper;Landroid/hardware/SystemSensorManager;)V
@@ -108,14 +108,14 @@
 
     .line 184
     .end local v0           #looper:Landroid/os/Looper;
-    :cond_34
+    :cond_0
     iget-object v0, p1, Landroid/hardware/SystemSensorManager;->mMainLooper:Landroid/os/Looper;
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method static synthetic access$100(Landroid/hardware/SystemSensorManager$ListenerDelegate;)Landroid/hardware/SensorEventListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -128,7 +128,7 @@
 
 # virtual methods
 .method addSensor(Landroid/hardware/Sensor;)V
-    .registers 5
+    .locals 3
     .parameter "sensor"
 
     .prologue
@@ -153,7 +153,7 @@
 .end method
 
 .method getListener()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 232
@@ -163,7 +163,7 @@
 .end method
 
 .method getSensors()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -182,7 +182,7 @@
 .end method
 
 .method hasSensor(Landroid/hardware/Sensor;)Z
-    .registers 4
+    .locals 2
     .parameter "sensor"
 
     .prologue
@@ -201,7 +201,7 @@
 .end method
 
 .method onSensorChangedLocked(Landroid/hardware/Sensor;[F[JI)V
-    .registers 12
+    .locals 7
     .parameter "sensor"
     .parameter "values"
     .parameter "timestamp"
@@ -277,7 +277,7 @@
 .end method
 
 .method removeSensor(Landroid/hardware/Sensor;)I
-    .registers 4
+    .locals 2
     .parameter "sensor"
 
     .prologue

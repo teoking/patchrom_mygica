@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/nfc/NfcActivityManager;Landroid/app/Application;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "app"
 
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public register()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 60
@@ -64,7 +64,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_12
+    if-ne v0, v1, :cond_0
 
     .line 62
     iget-object v0, p0, Landroid/nfc/NfcActivityManager$NfcApplicationState;->app:Landroid/app/Application;
@@ -74,12 +74,12 @@
     invoke-virtual {v0, v1}, Landroid/app/Application;->registerActivityLifecycleCallbacks(Landroid/app/Application$ActivityLifecycleCallbacks;)V
 
     .line 64
-    :cond_12
+    :cond_0
     return-void
 .end method
 
 .method public unregister()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 66
@@ -92,7 +92,7 @@
     .line 67
     iget v0, p0, Landroid/nfc/NfcActivityManager$NfcApplicationState;->refCount:I
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_1
 
     .line 68
     iget-object v0, p0, Landroid/nfc/NfcActivityManager$NfcApplicationState;->app:Landroid/app/Application;
@@ -102,15 +102,15 @@
     invoke-virtual {v0, v1}, Landroid/app/Application;->unregisterActivityLifecycleCallbacks(Landroid/app/Application$ActivityLifecycleCallbacks;)V
 
     .line 72
-    :cond_11
-    :goto_11
+    :cond_0
+    :goto_0
     return-void
 
     .line 69
-    :cond_12
+    :cond_1
     iget v0, p0, Landroid/nfc/NfcActivityManager$NfcApplicationState;->refCount:I
 
-    if-gez v0, :cond_11
+    if-gez v0, :cond_0
 
     .line 70
     const-string v0, "NFC"
@@ -137,5 +137,5 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_11
+    goto :goto_0
 .end method

@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/AccessibilityInteractionController;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "looper"
 
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public getMessageName(Landroid/os/Message;)Ljava/lang/String;
-    .registers 6
+    .locals 4
     .parameter "message"
 
     .prologue
@@ -61,7 +61,7 @@
 
     .line 962
     .local v0, type:I
-    packed-switch v0, :pswitch_data_30
+    packed-switch v0, :pswitch_data_0
 
     .line 976
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -89,57 +89,57 @@
     throw v1
 
     .line 964
-    :pswitch_1e
+    :pswitch_0
     const-string v1, "MSG_PERFORM_ACCESSIBILITY_ACTION"
 
     .line 974
-    :goto_20
+    :goto_0
     return-object v1
 
     .line 966
-    :pswitch_21
+    :pswitch_1
     const-string v1, "MSG_FIND_ACCESSIBLITY_NODE_INFO_BY_ACCESSIBILITY_ID"
 
-    goto :goto_20
+    goto :goto_0
 
     .line 968
-    :pswitch_24
+    :pswitch_2
     const-string v1, "MSG_FIND_ACCESSIBLITY_NODE_INFO_BY_VIEW_ID"
 
-    goto :goto_20
+    goto :goto_0
 
     .line 970
-    :pswitch_27
+    :pswitch_3
     const-string v1, "MSG_FIND_ACCESSIBLITY_NODE_INFO_BY_TEXT"
 
-    goto :goto_20
+    goto :goto_0
 
     .line 972
-    :pswitch_2a
+    :pswitch_4
     const-string v1, "MSG_FIND_FOCUS"
 
-    goto :goto_20
+    goto :goto_0
 
     .line 974
-    :pswitch_2d
+    :pswitch_5
     const-string v1, "MSG_FOCUS_SEARCH"
 
-    goto :goto_20
+    goto :goto_0
 
     .line 962
-    :pswitch_data_30
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_1e
-        :pswitch_21
-        :pswitch_24
-        :pswitch_27
-        :pswitch_2a
-        :pswitch_2d
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "message"
 
     .prologue
@@ -148,7 +148,7 @@
 
     .line 983
     .local v0, type:I
-    packed-switch v0, :pswitch_data_42
+    packed-switch v0, :pswitch_data_0
 
     .line 1003
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -176,63 +176,69 @@
     throw v1
 
     .line 985
-    :pswitch_1e
+    :pswitch_0
     iget-object v1, p0, Landroid/view/AccessibilityInteractionController$PrivateHandler;->this$0:Landroid/view/AccessibilityInteractionController;
 
+    #calls: Landroid/view/AccessibilityInteractionController;->findAccessibilityNodeInfoByAccessibilityIdUiThread(Landroid/os/Message;)V
     invoke-static {v1, p1}, Landroid/view/AccessibilityInteractionController;->access$400(Landroid/view/AccessibilityInteractionController;Landroid/os/Message;)V
 
     .line 1005
-    :goto_23
+    :goto_0
     return-void
 
     .line 988
-    :pswitch_24
+    :pswitch_1
     iget-object v1, p0, Landroid/view/AccessibilityInteractionController$PrivateHandler;->this$0:Landroid/view/AccessibilityInteractionController;
 
+    #calls: Landroid/view/AccessibilityInteractionController;->perfromAccessibilityActionUiThread(Landroid/os/Message;)V
     invoke-static {v1, p1}, Landroid/view/AccessibilityInteractionController;->access$500(Landroid/view/AccessibilityInteractionController;Landroid/os/Message;)V
 
-    goto :goto_23
+    goto :goto_0
 
     .line 991
-    :pswitch_2a
+    :pswitch_2
     iget-object v1, p0, Landroid/view/AccessibilityInteractionController$PrivateHandler;->this$0:Landroid/view/AccessibilityInteractionController;
 
+    #calls: Landroid/view/AccessibilityInteractionController;->findAccessibilityNodeInfoByViewIdUiThread(Landroid/os/Message;)V
     invoke-static {v1, p1}, Landroid/view/AccessibilityInteractionController;->access$600(Landroid/view/AccessibilityInteractionController;Landroid/os/Message;)V
 
-    goto :goto_23
+    goto :goto_0
 
     .line 994
-    :pswitch_30
+    :pswitch_3
     iget-object v1, p0, Landroid/view/AccessibilityInteractionController$PrivateHandler;->this$0:Landroid/view/AccessibilityInteractionController;
 
+    #calls: Landroid/view/AccessibilityInteractionController;->findAccessibilityNodeInfosByTextUiThread(Landroid/os/Message;)V
     invoke-static {v1, p1}, Landroid/view/AccessibilityInteractionController;->access$700(Landroid/view/AccessibilityInteractionController;Landroid/os/Message;)V
 
-    goto :goto_23
+    goto :goto_0
 
     .line 997
-    :pswitch_36
+    :pswitch_4
     iget-object v1, p0, Landroid/view/AccessibilityInteractionController$PrivateHandler;->this$0:Landroid/view/AccessibilityInteractionController;
 
+    #calls: Landroid/view/AccessibilityInteractionController;->findFocusUiThread(Landroid/os/Message;)V
     invoke-static {v1, p1}, Landroid/view/AccessibilityInteractionController;->access$800(Landroid/view/AccessibilityInteractionController;Landroid/os/Message;)V
 
-    goto :goto_23
+    goto :goto_0
 
     .line 1000
-    :pswitch_3c
+    :pswitch_5
     iget-object v1, p0, Landroid/view/AccessibilityInteractionController$PrivateHandler;->this$0:Landroid/view/AccessibilityInteractionController;
 
+    #calls: Landroid/view/AccessibilityInteractionController;->focusSearchUiThread(Landroid/os/Message;)V
     invoke-static {v1, p1}, Landroid/view/AccessibilityInteractionController;->access$900(Landroid/view/AccessibilityInteractionController;Landroid/os/Message;)V
 
-    goto :goto_23
+    goto :goto_0
 
     .line 983
-    :pswitch_data_42
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_24
-        :pswitch_1e
-        :pswitch_2a
-        :pswitch_30
-        :pswitch_36
-        :pswitch_3c
+        :pswitch_1
+        :pswitch_0
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
     .end packed-switch
 .end method

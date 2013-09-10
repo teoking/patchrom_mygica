@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "renderer"
 
     .prologue
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -49,9 +49,10 @@
     :try_start_0
     iget v0, p0, Landroid/view/GLES20Canvas$CanvasFinalizer;->mRenderer:I
 
+    #calls: Landroid/view/GLES20Canvas;->nDestroyRenderer(I)V
     invoke-static {v0}, Landroid/view/GLES20Canvas;->access$000(I)V
-    :try_end_5
-    .catchall {:try_start_0 .. :try_end_5} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 142
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -60,7 +61,7 @@
     return-void
 
     .line 142
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V

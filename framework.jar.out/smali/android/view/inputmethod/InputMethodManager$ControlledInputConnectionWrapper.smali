@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/Looper;Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/InputMethodManager;)V
-    .registers 5
+    .locals 1
     .parameter "mainLooper"
     .parameter "conn"
     .parameter "inputMethodManager"
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method deactivate()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 485
@@ -59,7 +59,7 @@
 .end method
 
 .method public isActive()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 481
@@ -67,19 +67,19 @@
 
     iget-boolean v0, v0, Landroid/view/inputmethod/InputMethodManager;->mActive:Z
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     iget-boolean v0, p0, Landroid/view/inputmethod/InputMethodManager$ControlledInputConnectionWrapper;->mActive:Z
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method

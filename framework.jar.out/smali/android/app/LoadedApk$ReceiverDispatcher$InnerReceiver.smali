@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/LoadedApk$ReceiverDispatcher;Z)V
-    .registers 4
+    .locals 1
     .parameter "rd"
     .parameter "strong"
 
@@ -47,10 +47,10 @@
     iput-object v0, p0, Landroid/app/LoadedApk$ReceiverDispatcher$InnerReceiver;->mDispatcher:Ljava/lang/ref/WeakReference;
 
     .line 668
-    if-eqz p2, :cond_f
+    if-eqz p2, :cond_0
 
     .end local p1
-    :goto_c
+    :goto_0
     iput-object p1, p0, Landroid/app/LoadedApk$ReceiverDispatcher$InnerReceiver;->mStrongRef:Landroid/app/LoadedApk$ReceiverDispatcher;
 
     .line 669
@@ -58,16 +58,16 @@
 
     .line 668
     .restart local p1
-    :cond_f
+    :cond_0
     const/4 p1, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZ)V
-    .registers 15
+    .locals 8
     .parameter "intent"
     .parameter "resultCode"
     .parameter "data"
@@ -87,7 +87,7 @@
 
     .line 678
     .local v0, rd:Landroid/app/LoadedApk$ReceiverDispatcher;
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     move-object v1, p1
 
@@ -105,27 +105,27 @@
     invoke-virtual/range {v0 .. v6}, Landroid/app/LoadedApk$ReceiverDispatcher;->performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZ)V
 
     .line 698
-    :goto_13
+    :goto_0
     return-void
 
     .line 688
-    :cond_14
+    :cond_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
     move-result-object v1
 
     .line 690
     .local v1, mgr:Landroid/app/IActivityManager;
-    if-eqz p4, :cond_1e
+    if-eqz p4, :cond_1
 
     .line 691
     const/4 v2, 0x0
 
-    :try_start_1b
+    :try_start_0
     invoke-virtual {p4, v2}, Landroid/os/Bundle;->setAllowFds(Z)Z
 
     .line 693
-    :cond_1e
+    :cond_1
     const/4 v6, 0x0
 
     move-object v2, p0
@@ -137,13 +137,13 @@
     move-object v5, p4
 
     invoke-interface/range {v1 .. v6}, Landroid/app/IActivityManager;->finishReceiver(Landroid/os/IBinder;ILjava/lang/String;Landroid/os/Bundle;Z)V
-    :try_end_26
-    .catch Landroid/os/RemoteException; {:try_start_1b .. :try_end_26} :catch_27
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 694
-    :catch_27
+    :catch_0
     move-exception v7
 
     .line 695
@@ -154,5 +154,5 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_13
+    goto :goto_0
 .end method

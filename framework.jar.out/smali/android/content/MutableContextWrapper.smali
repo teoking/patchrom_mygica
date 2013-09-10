@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "base"
 
     .prologue
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public setBaseContext(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "base"
 
     .prologue

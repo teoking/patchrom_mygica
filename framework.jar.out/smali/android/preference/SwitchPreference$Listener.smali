@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/preference/SwitchPreference;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/preference/SwitchPreference;Landroid/preference/SwitchPreference$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .registers 5
+    .locals 2
     .parameter "buttonView"
     .parameter "isChecked"
 
@@ -66,31 +66,31 @@
 
     move-result v0
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_1
 
     .line 50
-    if-nez p2, :cond_13
+    if-nez p2, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_f
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
     .line 55
-    :goto_12
+    :goto_1
     return-void
 
     .line 50
-    :cond_13
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 
     .line 54
-    :cond_15
+    :cond_1
     iget-object v0, p0, Landroid/preference/SwitchPreference$Listener;->this$0:Landroid/preference/SwitchPreference;
 
     invoke-virtual {v0, p2}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    goto :goto_12
+    goto :goto_1
 .end method

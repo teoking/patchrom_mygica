@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/media/AudioService;III)V
-    .registers 6
+    .locals 1
     .parameter
     .parameter "id"
     .parameter "vol"
@@ -59,7 +59,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/media/AudioService;IIILandroid/media/AudioService$1;)V
-    .registers 6
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"

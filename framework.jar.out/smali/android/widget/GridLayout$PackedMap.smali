@@ -47,7 +47,7 @@
 
 # direct methods
 .method private constructor <init>([Ljava/lang/Object;[Ljava/lang/Object;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -93,7 +93,7 @@
 .end method
 
 .method synthetic constructor <init>([Ljava/lang/Object;[Ljava/lang/Object;Landroid/widget/GridLayout$1;)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -107,7 +107,7 @@
 .end method
 
 .method private static compact([Ljava/lang/Object;[I)[Ljava/lang/Object;
-    .registers 8
+    .locals 6
     .parameter
     .parameter "index"
     .annotation system Ldalvik/annotation/Signature;
@@ -158,8 +158,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_1a
-    if-ge v1, v3, :cond_25
+    :goto_0
+    if-ge v1, v3, :cond_0
 
     .line 2165
     aget v4, p1, v1
@@ -171,15 +171,15 @@
     .line 2164
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 2167
-    :cond_25
+    :cond_0
     return-object v2
 .end method
 
 .method private static createIndex([Ljava/lang/Object;)[I
-    .registers 8
+    .locals 7
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -209,8 +209,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_9
-    if-ge v0, v5, :cond_29
+    :goto_0
+    if-ge v0, v5, :cond_1
 
     .line 2144
     aget-object v2, p0, v0
@@ -225,7 +225,7 @@
 
     .line 2146
     .local v1, index:Ljava/lang/Integer;
-    if-nez v1, :cond_20
+    if-nez v1, :cond_0
 
     .line 2147
     invoke-interface {v3}, Ljava/util/Map;->size()I
@@ -240,7 +240,7 @@
     invoke-interface {v3, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 2150
-    :cond_20
+    :cond_0
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v6
@@ -250,19 +250,19 @@
     .line 2143
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 2152
     .end local v1           #index:Ljava/lang/Integer;
     .end local v2           #key:Ljava/lang/Object;,"TK;"
-    :cond_29
+    :cond_1
     return-object v4
 .end method
 
 
 # virtual methods
 .method public getValue(I)Ljava/lang/Object;
-    .registers 4
+    .locals 2
     .parameter "i"
     .annotation system Ldalvik/annotation/Signature;
         value = {

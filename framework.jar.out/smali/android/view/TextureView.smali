@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "attrs"
 
@@ -126,7 +126,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 6
+    .locals 2
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -167,7 +167,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/view/TextureView;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -178,7 +178,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/view/TextureView;)[Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -189,7 +189,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/view/TextureView;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -201,17 +201,17 @@
 .end method
 
 .method private applyTransformMatrix()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 482
     iget-boolean v0, p0, Landroid/view/TextureView;->mMatrixChanged:Z
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 483
     iget-object v0, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
@@ -226,35 +226,35 @@
     iput-boolean v0, p0, Landroid/view/TextureView;->mMatrixChanged:Z
 
     .line 486
-    :cond_12
+    :cond_0
     return-void
 .end method
 
 .method private applyUpdate()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 418
     iget-object v0, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_1
 
     .line 435
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-void
 
     .line 422
-    :cond_5
+    :cond_1
     iget-object v1, p0, Landroid/view/TextureView;->mLock:[Ljava/lang/Object;
 
     monitor-enter v1
 
     .line 423
-    :try_start_8
+    :try_start_0
     iget-boolean v0, p0, Landroid/view/TextureView;->mUpdateLayer:Z
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_2
 
     .line 424
     const/4 v0, 0x0
@@ -263,8 +263,8 @@
 
     .line 428
     monitor-exit v1
-    :try_end_10
-    .catchall {:try_start_8 .. :try_end_10} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 430
     iget-object v0, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
@@ -284,7 +284,7 @@
     .line 432
     iget-object v0, p0, Landroid/view/TextureView;->mListener:Landroid/view/TextureView$SurfaceTextureListener;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_0
 
     .line 433
     iget-object v0, p0, Landroid/view/TextureView;->mListener:Landroid/view/TextureView$SurfaceTextureListener;
@@ -293,28 +293,28 @@
 
     invoke-interface {v0, v1}, Landroid/view/TextureView$SurfaceTextureListener;->onSurfaceTextureUpdated(Landroid/graphics/SurfaceTexture;)V
 
-    goto :goto_4
+    goto :goto_0
 
     .line 426
-    :cond_2b
-    :try_start_2b
+    :cond_2
+    :try_start_1
     monitor-exit v1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 428
-    :catchall_2d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_2f
-    .catchall {:try_start_2b .. :try_end_2f} :catchall_2d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method
 
 .method private destroySurface()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x0
@@ -322,7 +322,7 @@
     .line 225
     iget-object v1, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
 
-    if-eqz v1, :cond_2e
+    if-eqz v1, :cond_2
 
     .line 226
     iget-object v1, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
@@ -336,7 +336,7 @@
     .local v0, shouldRelease:Z
     iget-object v1, p0, Landroid/view/TextureView;->mListener:Landroid/view/TextureView$SurfaceTextureListener;
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_0
 
     .line 230
     iget-object v1, p0, Landroid/view/TextureView;->mListener:Landroid/view/TextureView$SurfaceTextureListener;
@@ -348,19 +348,19 @@
     move-result v0
 
     .line 233
-    :cond_17
+    :cond_0
     iget-object v2, p0, Landroid/view/TextureView;->mNativeWindowLock:[Ljava/lang/Object;
 
     monitor-enter v2
 
     .line 234
-    :try_start_1a
+    :try_start_0
     invoke-direct {p0}, Landroid/view/TextureView;->nDestroyNativeWindow()V
 
     .line 235
     monitor-exit v2
-    :try_end_1e
-    .catchall {:try_start_1a .. :try_end_1e} :catchall_2f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 237
     iget-object v1, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
@@ -368,14 +368,14 @@
     invoke-virtual {v1}, Landroid/view/HardwareLayer;->destroy()V
 
     .line 238
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_1
 
     iget-object v1, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
     invoke-virtual {v1}, Landroid/graphics/SurfaceTexture;->release()V
 
     .line 239
-    :cond_2a
+    :cond_1
     iput-object v3, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
     .line 240
@@ -383,24 +383,24 @@
 
     .line 242
     .end local v0           #shouldRelease:Z
-    :cond_2e
+    :cond_2
     return-void
 
     .line 235
     .restart local v0       #shouldRelease:Z
-    :catchall_2f
+    :catchall_0
     move-exception v1
 
-    :try_start_30
+    :try_start_1
     monitor-exit v2
-    :try_end_31
-    .catchall {:try_start_30 .. :try_end_31} :catchall_2f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
 
 .method private init()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 170
@@ -430,7 +430,7 @@
 .end method
 
 .method private updateLayer()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 413
@@ -448,7 +448,7 @@
 
 # virtual methods
 .method public buildLayer()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 283
@@ -456,7 +456,7 @@
 .end method
 
 .method protected destroyHardwareResources()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 328
@@ -478,7 +478,7 @@
 .end method
 
 .method destroyLayer(Z)Z
-    .registers 3
+    .locals 1
     .parameter "valid"
 
     .prologue
@@ -489,7 +489,7 @@
 .end method
 
 .method public final draw(Landroid/graphics/Canvas;)V
-    .registers 2
+    .locals 0
     .parameter "canvas"
 
     .prologue
@@ -504,7 +504,7 @@
 .end method
 
 .method public getBitmap()Landroid/graphics/Bitmap;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 509
@@ -524,7 +524,7 @@
 .end method
 
 .method public getBitmap(II)Landroid/graphics/Bitmap;
-    .registers 4
+    .locals 1
     .parameter "width"
     .parameter "height"
 
@@ -534,11 +534,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
-    if-lez p1, :cond_15
+    if-lez p1, :cond_0
 
-    if-lez p2, :cond_15
+    if-lez p2, :cond_0
 
     .line 537
     sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
@@ -552,39 +552,39 @@
     move-result-object v0
 
     .line 539
-    :goto_14
+    :goto_0
     return-object v0
 
-    :cond_15
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public getBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
-    .registers 5
+    .locals 3
     .parameter "bitmap"
 
     .prologue
     .line 566
-    if-eqz p1, :cond_42
+    if-eqz p1, :cond_2
 
     invoke-virtual {p0}, Landroid/view/TextureView;->isAvailable()Z
 
     move-result v1
 
-    if-eqz v1, :cond_42
+    if-eqz v1, :cond_2
 
     .line 567
     iget-object v0, p0, Landroid/view/View;->mAttachInfo:Landroid/view/View$AttachInfo;
 
     .line 568
     .local v0, info:Landroid/view/View$AttachInfo;
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_0
 
     iget-object v1, v0, Landroid/view/View$AttachInfo;->mHardwareRenderer:Landroid/view/HardwareRenderer;
 
-    if-eqz v1, :cond_28
+    if-eqz v1, :cond_0
 
     iget-object v1, v0, Landroid/view/View$AttachInfo;->mHardwareRenderer:Landroid/view/HardwareRenderer;
 
@@ -592,7 +592,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_28
+    if-eqz v1, :cond_0
 
     .line 570
     iget-object v1, v0, Landroid/view/View$AttachInfo;->mHardwareRenderer:Landroid/view/HardwareRenderer;
@@ -601,7 +601,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_28
+    if-nez v1, :cond_0
 
     .line 571
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -613,7 +613,7 @@
     throw v1
 
     .line 575
-    :cond_28
+    :cond_0
     invoke-direct {p0}, Landroid/view/TextureView;->applyUpdate()V
 
     .line 576
@@ -622,20 +622,20 @@
     .line 582
     iget-object v1, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
 
-    if-nez v1, :cond_39
+    if-nez v1, :cond_1
 
     iget-boolean v1, p0, Landroid/view/TextureView;->mUpdateSurface:Z
 
-    if-eqz v1, :cond_39
+    if-eqz v1, :cond_1
 
     .line 583
     invoke-virtual {p0}, Landroid/view/TextureView;->getHardwareLayer()Landroid/view/HardwareLayer;
 
     .line 586
-    :cond_39
+    :cond_1
     iget-object v1, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
 
-    if-eqz v1, :cond_42
+    if-eqz v1, :cond_2
 
     .line 587
     iget-object v1, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
@@ -644,12 +644,12 @@
 
     .line 590
     .end local v0           #info:Landroid/view/View$AttachInfo;
-    :cond_42
+    :cond_2
     return-object p1
 .end method
 
 .method getHardwareLayer()Landroid/view/HardwareLayer;
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v4, 0x1
@@ -657,29 +657,29 @@
     .line 336
     iget-object v0, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
 
-    if-nez v0, :cond_64
+    if-nez v0, :cond_3
 
     .line 337
     iget-object v0, p0, Landroid/view/View;->mAttachInfo:Landroid/view/View$AttachInfo;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/view/View;->mAttachInfo:Landroid/view/View$AttachInfo;
 
     iget-object v0, v0, Landroid/view/View$AttachInfo;->mHardwareRenderer:Landroid/view/HardwareRenderer;
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_1
 
     .line 338
-    :cond_f
+    :cond_0
     const/4 v0, 0x0
 
     .line 392
-    :goto_10
+    :goto_0
     return-object v0
 
     .line 341
-    :cond_11
+    :cond_1
     iget-object v0, p0, Landroid/view/View;->mAttachInfo:Landroid/view/View$AttachInfo;
 
     iget-object v0, v0, Landroid/view/View$AttachInfo;->mHardwareRenderer:Landroid/view/HardwareRenderer;
@@ -695,7 +695,7 @@
     .line 342
     iget-boolean v0, p0, Landroid/view/TextureView;->mUpdateSurface:Z
 
-    if-nez v0, :cond_2d
+    if-nez v0, :cond_2
 
     .line 344
     iget-object v0, p0, Landroid/view/View;->mAttachInfo:Landroid/view/View$AttachInfo;
@@ -711,7 +711,7 @@
     iput-object v0, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
     .line 346
-    :cond_2d
+    :cond_2
     iget-object v0, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
     invoke-virtual {p0}, Landroid/view/TextureView;->getWidth()I
@@ -746,11 +746,11 @@
     .line 367
     iget-object v0, p0, Landroid/view/TextureView;->mListener:Landroid/view/TextureView$SurfaceTextureListener;
 
-    if-eqz v0, :cond_64
+    if-eqz v0, :cond_3
 
     iget-boolean v0, p0, Landroid/view/TextureView;->mUpdateSurface:Z
 
-    if-nez v0, :cond_64
+    if-nez v0, :cond_3
 
     .line 368
     iget-object v0, p0, Landroid/view/TextureView;->mListener:Landroid/view/TextureView$SurfaceTextureListener;
@@ -768,10 +768,10 @@
     invoke-interface {v0, v1, v2, v3}, Landroid/view/TextureView$SurfaceTextureListener;->onSurfaceTextureAvailable(Landroid/graphics/SurfaceTexture;II)V
 
     .line 372
-    :cond_64
+    :cond_3
     iget-boolean v0, p0, Landroid/view/TextureView;->mUpdateSurface:Z
 
-    if-eqz v0, :cond_8c
+    if-eqz v0, :cond_4
 
     .line 376
     const/4 v0, 0x0
@@ -786,13 +786,13 @@
     .line 381
     const/4 v0, 0x1
 
-    :try_start_6f
+    :try_start_0
     iput-boolean v0, p0, Landroid/view/TextureView;->mUpdateLayer:Z
 
     .line 382
     monitor-exit v1
-    :try_end_72
-    .catchall {:try_start_6f .. :try_end_72} :catchall_96
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 383
     iput-boolean v4, p0, Landroid/view/TextureView;->mMatrixChanged:Z
@@ -822,7 +822,7 @@
     invoke-static {v0, v1, v2}, Landroid/view/TextureView;->nSetDefaultBufferSize(Landroid/graphics/SurfaceTexture;II)V
 
     .line 389
-    :cond_8c
+    :cond_4
     invoke-direct {p0}, Landroid/view/TextureView;->applyUpdate()V
 
     .line 390
@@ -831,22 +831,22 @@
     .line 392
     iget-object v0, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
 
-    goto/16 :goto_10
+    goto/16 :goto_0
 
     .line 382
-    :catchall_96
+    :catchall_0
     move-exception v0
 
-    :try_start_97
+    :try_start_1
     monitor-exit v1
-    :try_end_98
-    .catchall {:try_start_97 .. :try_end_98} :catchall_96
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method
 
 .method public getLayerType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 270
@@ -856,7 +856,7 @@
 .end method
 
 .method public getSurfaceTexture()Landroid/graphics/SurfaceTexture;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 687
@@ -866,7 +866,7 @@
 .end method
 
 .method public getSurfaceTextureListener()Landroid/view/TextureView$SurfaceTextureListener;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 725
@@ -876,12 +876,12 @@
 .end method
 
 .method public getTransform(Landroid/graphics/Matrix;)Landroid/graphics/Matrix;
-    .registers 3
+    .locals 1
     .parameter "transform"
 
     .prologue
     .line 472
-    if-nez p1, :cond_7
+    if-nez p1, :cond_0
 
     .line 473
     new-instance p1, Landroid/graphics/Matrix;
@@ -891,7 +891,7 @@
 
     .line 476
     .restart local p1
-    :cond_7
+    :cond_0
     iget-object v0, p0, Landroid/view/TextureView;->mMatrix:Landroid/graphics/Matrix;
 
     invoke-virtual {p1, v0}, Landroid/graphics/Matrix;->set(Landroid/graphics/Matrix;)V
@@ -901,7 +901,7 @@
 .end method
 
 .method hasStaticLayer()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 275
@@ -911,27 +911,27 @@
 .end method
 
 .method public isAvailable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 599
     iget-object v0, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public isOpaque()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 178
@@ -941,7 +941,7 @@
 .end method
 
 .method public lockCanvas()Landroid/graphics/Canvas;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 626
@@ -955,7 +955,7 @@
 .end method
 
 .method public lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
-    .registers 5
+    .locals 3
     .parameter "dirty"
 
     .prologue
@@ -964,19 +964,19 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
     .line 654
-    :goto_7
+    :goto_0
     return-object v0
 
     .line 645
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/view/TextureView;->mCanvas:Landroid/graphics/Canvas;
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_1
 
     .line 646
     new-instance v0, Landroid/graphics/Canvas;
@@ -986,13 +986,13 @@
     iput-object v0, p0, Landroid/view/TextureView;->mCanvas:Landroid/graphics/Canvas;
 
     .line 649
-    :cond_13
+    :cond_1
     iget-object v1, p0, Landroid/view/TextureView;->mNativeWindowLock:[Ljava/lang/Object;
 
     monitor-enter v1
 
     .line 650
-    :try_start_16
+    :try_start_0
     iget v0, p0, Landroid/view/TextureView;->mNativeWindow:I
 
     iget-object v2, p0, Landroid/view/TextureView;->mCanvas:Landroid/graphics/Canvas;
@@ -1001,8 +1001,8 @@
 
     .line 651
     monitor-exit v1
-    :try_end_1e
-    .catchall {:try_start_16 .. :try_end_1e} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 652
     iget-object v0, p0, Landroid/view/TextureView;->mCanvas:Landroid/graphics/Canvas;
@@ -1016,22 +1016,22 @@
     .line 654
     iget-object v0, p0, Landroid/view/TextureView;->mCanvas:Landroid/graphics/Canvas;
 
-    goto :goto_7
+    goto :goto_0
 
     .line 651
-    :catchall_29
+    :catchall_0
     move-exception v0
 
-    :try_start_2a
+    :try_start_1
     monitor-exit v1
-    :try_end_2b
-    .catchall {:try_start_2a .. :try_end_2b} :catchall_29
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method
 
 .method protected onAttachedToWindow()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 199
@@ -1042,7 +1042,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 202
     const-string v0, "TextureView"
@@ -1052,12 +1052,12 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 205
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method protected onDetachedFromWindow()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 209
@@ -1066,17 +1066,17 @@
     .line 210
     iget-object v1, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
 
-    if-eqz v1, :cond_38
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/view/View;->mAttachInfo:Landroid/view/View$AttachInfo;
 
-    if-eqz v1, :cond_38
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/view/View;->mAttachInfo:Landroid/view/View$AttachInfo;
 
     iget-object v1, v1, Landroid/view/View$AttachInfo;->mHardwareRenderer:Landroid/view/HardwareRenderer;
 
-    if-eqz v1, :cond_38
+    if-eqz v1, :cond_0
 
     .line 211
     iget-object v1, p0, Landroid/view/View;->mAttachInfo:Landroid/view/View$AttachInfo;
@@ -1093,7 +1093,7 @@
 
     .line 218
     .local v0, success:Z
-    if-nez v0, :cond_38
+    if-nez v0, :cond_0
 
     .line 219
     const-string v1, "TextureView"
@@ -1120,12 +1120,12 @@
 
     .line 222
     .end local v0           #success:Z
-    :cond_38
+    :cond_0
     return-void
 .end method
 
 .method protected final onDraw(Landroid/graphics/Canvas;)V
-    .registers 2
+    .locals 0
     .parameter "canvas"
 
     .prologue
@@ -1134,7 +1134,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .registers 9
+    .locals 4
     .parameter "w"
     .parameter "h"
     .parameter "oldw"
@@ -1147,7 +1147,7 @@
     .line 310
     iget-object v0, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_0
 
     .line 311
     iget-object v0, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
@@ -1165,7 +1165,7 @@
     .line 312
     iget-object v0, p0, Landroid/view/TextureView;->mListener:Landroid/view/TextureView$SurfaceTextureListener;
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_0
 
     .line 313
     iget-object v0, p0, Landroid/view/TextureView;->mListener:Landroid/view/TextureView$SurfaceTextureListener;
@@ -1183,12 +1183,12 @@
     invoke-interface {v0, v1, v2, v3}, Landroid/view/TextureView$SurfaceTextureListener;->onSurfaceTextureSizeChanged(Landroid/graphics/SurfaceTexture;II)V
 
     .line 316
-    :cond_27
+    :cond_0
     return-void
 .end method
 
 .method protected onVisibilityChanged(Landroid/view/View;I)V
-    .registers 5
+    .locals 2
     .parameter "changedView"
     .parameter "visibility"
 
@@ -1199,10 +1199,10 @@
     .line 399
     iget-object v0, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 403
-    if-nez p2, :cond_14
+    if-nez p2, :cond_1
 
     .line 404
     iget-object v0, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
@@ -1215,23 +1215,23 @@
     invoke-direct {p0}, Landroid/view/TextureView;->updateLayer()V
 
     .line 410
-    :cond_13
-    :goto_13
+    :cond_0
+    :goto_0
     return-void
 
     .line 407
-    :cond_14
+    :cond_1
     iget-object v0, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/graphics/SurfaceTexture;->setOnFrameAvailableListener(Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;)V
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public setLayerType(ILandroid/graphics/Paint;)V
-    .registers 4
+    .locals 1
     .parameter "layerType"
     .parameter "paint"
 
@@ -1239,7 +1239,7 @@
     .line 259
     iget-object v0, p0, Landroid/view/View;->mLayerPaint:Landroid/graphics/Paint;
 
-    if-eq p2, v0, :cond_9
+    if-eq p2, v0, :cond_0
 
     .line 260
     iput-object p2, p0, Landroid/view/View;->mLayerPaint:Landroid/graphics/Paint;
@@ -1248,19 +1248,19 @@
     invoke-virtual {p0}, Landroid/view/TextureView;->invalidate()V
 
     .line 263
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public setOpaque(Z)V
-    .registers 3
+    .locals 1
     .parameter "opaque"
 
     .prologue
     .line 189
     iget-boolean v0, p0, Landroid/view/TextureView;->mOpaque:Z
 
-    if-eq p1, v0, :cond_d
+    if-eq p1, v0, :cond_0
 
     .line 190
     iput-boolean p1, p0, Landroid/view/TextureView;->mOpaque:Z
@@ -1268,23 +1268,23 @@
     .line 191
     iget-object v0, p0, Landroid/view/TextureView;->mLayer:Landroid/view/HardwareLayer;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 192
     invoke-direct {p0}, Landroid/view/TextureView;->updateLayer()V
 
     .line 195
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method public setSurfaceTexture(Landroid/graphics/SurfaceTexture;)V
-    .registers 4
+    .locals 2
     .parameter "surfaceTexture"
 
     .prologue
     .line 706
-    if-nez p1, :cond_b
+    if-nez p1, :cond_0
 
     .line 707
     new-instance v0, Ljava/lang/NullPointerException;
@@ -1296,10 +1296,10 @@
     throw v0
 
     .line 709
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_1
 
     .line 710
     iget-object v0, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
@@ -1307,7 +1307,7 @@
     invoke-virtual {v0}, Landroid/graphics/SurfaceTexture;->release()V
 
     .line 712
-    :cond_14
+    :cond_1
     iput-object p1, p0, Landroid/view/TextureView;->mSurface:Landroid/graphics/SurfaceTexture;
 
     .line 713
@@ -1323,7 +1323,7 @@
 .end method
 
 .method public setSurfaceTextureListener(Landroid/view/TextureView$SurfaceTextureListener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue
@@ -1335,7 +1335,7 @@
 .end method
 
 .method public setTransform(Landroid/graphics/Matrix;)V
-    .registers 3
+    .locals 1
     .parameter "transform"
 
     .prologue
@@ -1357,18 +1357,18 @@
 .end method
 
 .method public unlockCanvasAndPost(Landroid/graphics/Canvas;)V
-    .registers 5
+    .locals 3
     .parameter "canvas"
 
     .prologue
     .line 669
     iget-object v0, p0, Landroid/view/TextureView;->mCanvas:Landroid/graphics/Canvas;
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/view/TextureView;->mCanvas:Landroid/graphics/Canvas;
 
-    if-ne p1, v0, :cond_1b
+    if-ne p1, v0, :cond_0
 
     .line 670
     iget v0, p0, Landroid/view/TextureView;->mSaveCount:I
@@ -1386,7 +1386,7 @@
     monitor-enter v1
 
     .line 674
-    :try_start_13
+    :try_start_0
     iget v0, p0, Landroid/view/TextureView;->mNativeWindow:I
 
     iget-object v2, p0, Landroid/view/TextureView;->mCanvas:Landroid/graphics/Canvas;
@@ -1397,16 +1397,16 @@
     monitor-exit v1
 
     .line 677
-    :cond_1b
+    :cond_0
     return-void
 
     .line 675
-    :catchall_1c
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1e
-    .catchall {:try_start_13 .. :try_end_1e} :catchall_1c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

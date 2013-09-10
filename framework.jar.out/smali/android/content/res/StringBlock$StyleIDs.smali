@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, -0x1
@@ -85,7 +85,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/content/res/StringBlock$StyleIDs;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -96,7 +96,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/content/res/StringBlock$StyleIDs;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -108,7 +108,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/content/res/StringBlock$StyleIDs;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -119,7 +119,7 @@
 .end method
 
 .method static synthetic access$1000(Landroid/content/res/StringBlock$StyleIDs;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -130,7 +130,7 @@
 .end method
 
 .method static synthetic access$1002(Landroid/content/res/StringBlock$StyleIDs;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -142,7 +142,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/content/res/StringBlock$StyleIDs;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -154,7 +154,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/content/res/StringBlock$StyleIDs;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -165,7 +165,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/content/res/StringBlock$StyleIDs;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -177,7 +177,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/content/res/StringBlock$StyleIDs;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -188,7 +188,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/content/res/StringBlock$StyleIDs;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -200,7 +200,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/content/res/StringBlock$StyleIDs;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -211,7 +211,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/content/res/StringBlock$StyleIDs;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -223,7 +223,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/content/res/StringBlock$StyleIDs;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -234,7 +234,7 @@
 .end method
 
 .method static synthetic access$502(Landroid/content/res/StringBlock$StyleIDs;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -246,7 +246,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/content/res/StringBlock$StyleIDs;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -257,7 +257,7 @@
 .end method
 
 .method static synthetic access$602(Landroid/content/res/StringBlock$StyleIDs;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -269,7 +269,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/content/res/StringBlock$StyleIDs;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -280,7 +280,7 @@
 .end method
 
 .method static synthetic access$702(Landroid/content/res/StringBlock$StyleIDs;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -292,7 +292,7 @@
 .end method
 
 .method static synthetic access$800(Landroid/content/res/StringBlock$StyleIDs;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -303,7 +303,7 @@
 .end method
 
 .method static synthetic access$802(Landroid/content/res/StringBlock$StyleIDs;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -315,7 +315,7 @@
 .end method
 
 .method static synthetic access$900(Landroid/content/res/StringBlock$StyleIDs;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -326,7 +326,7 @@
 .end method
 
 .method static synthetic access$902(Landroid/content/res/StringBlock$StyleIDs;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

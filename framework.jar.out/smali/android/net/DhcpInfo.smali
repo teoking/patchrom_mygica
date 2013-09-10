@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 89
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 38
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/DhcpInfo;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -70,7 +70,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 43
-    if-eqz p1, :cond_21
+    if-eqz p1, :cond_0
 
     .line 44
     iget v0, p1, Landroid/net/DhcpInfo;->ipAddress:I
@@ -108,12 +108,12 @@
     iput v0, p0, Landroid/net/DhcpInfo;->leaseDuration:I
 
     .line 52
-    :cond_21
+    :cond_0
     return-void
 .end method
 
 .method private static putAddress(Ljava/lang/StringBuffer;I)V
-    .registers 3
+    .locals 1
     .parameter "buf"
     .parameter "addr"
 
@@ -136,7 +136,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 74
@@ -146,7 +146,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 55
@@ -235,7 +235,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

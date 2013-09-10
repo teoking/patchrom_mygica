@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 41
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method oops()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 43
@@ -42,7 +42,7 @@
 .end method
 
 .method public postConcat(Landroid/graphics/Matrix;)Z
-    .registers 3
+    .locals 1
     .parameter "other"
 
     .prologue
@@ -56,7 +56,7 @@
 .end method
 
 .method public postRotate(F)Z
-    .registers 3
+    .locals 1
     .parameter "degrees"
 
     .prologue
@@ -70,7 +70,7 @@
 .end method
 
 .method public postRotate(FFF)Z
-    .registers 5
+    .locals 1
     .parameter "degrees"
     .parameter "px"
     .parameter "py"
@@ -86,7 +86,7 @@
 .end method
 
 .method public postScale(FF)Z
-    .registers 4
+    .locals 1
     .parameter "sx"
     .parameter "sy"
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public postScale(FFFF)Z
-    .registers 6
+    .locals 1
     .parameter "sx"
     .parameter "sy"
     .parameter "px"
@@ -118,7 +118,7 @@
 .end method
 
 .method public postSkew(FF)Z
-    .registers 4
+    .locals 1
     .parameter "kx"
     .parameter "ky"
 
@@ -133,7 +133,7 @@
 .end method
 
 .method public postSkew(FFFF)Z
-    .registers 6
+    .locals 1
     .parameter "kx"
     .parameter "ky"
     .parameter "px"
@@ -150,7 +150,7 @@
 .end method
 
 .method public postTranslate(FF)Z
-    .registers 4
+    .locals 1
     .parameter "dx"
     .parameter "dy"
 
@@ -165,7 +165,7 @@
 .end method
 
 .method public preConcat(Landroid/graphics/Matrix;)Z
-    .registers 3
+    .locals 1
     .parameter "other"
 
     .prologue
@@ -179,7 +179,7 @@
 .end method
 
 .method public preRotate(F)Z
-    .registers 3
+    .locals 1
     .parameter "degrees"
 
     .prologue
@@ -193,7 +193,7 @@
 .end method
 
 .method public preRotate(FFF)Z
-    .registers 5
+    .locals 1
     .parameter "degrees"
     .parameter "px"
     .parameter "py"
@@ -209,7 +209,7 @@
 .end method
 
 .method public preScale(FF)Z
-    .registers 4
+    .locals 1
     .parameter "sx"
     .parameter "sy"
 
@@ -224,7 +224,7 @@
 .end method
 
 .method public preScale(FFFF)Z
-    .registers 6
+    .locals 1
     .parameter "sx"
     .parameter "sy"
     .parameter "px"
@@ -241,7 +241,7 @@
 .end method
 
 .method public preSkew(FF)Z
-    .registers 4
+    .locals 1
     .parameter "kx"
     .parameter "ky"
 
@@ -256,7 +256,7 @@
 .end method
 
 .method public preSkew(FFFF)Z
-    .registers 6
+    .locals 1
     .parameter "kx"
     .parameter "ky"
     .parameter "px"
@@ -273,7 +273,7 @@
 .end method
 
 .method public preTranslate(FF)Z
-    .registers 4
+    .locals 1
     .parameter "dx"
     .parameter "dy"
 
@@ -288,7 +288,7 @@
 .end method
 
 .method public reset()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 53
@@ -299,7 +299,7 @@
 .end method
 
 .method public set(Landroid/graphics/Matrix;)V
-    .registers 2
+    .locals 0
     .parameter "src"
 
     .prologue
@@ -311,7 +311,7 @@
 .end method
 
 .method public setConcat(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z
-    .registers 4
+    .locals 1
     .parameter "a"
     .parameter "b"
 
@@ -326,7 +326,7 @@
 .end method
 
 .method public setPolyToPoly([FI[FII)Z
-    .registers 7
+    .locals 1
     .parameter "src"
     .parameter "srcIndex"
     .parameter "dst"
@@ -344,7 +344,7 @@
 .end method
 
 .method public setRectToRect(Landroid/graphics/RectF;Landroid/graphics/RectF;Landroid/graphics/Matrix$ScaleToFit;)Z
-    .registers 5
+    .locals 1
     .parameter "src"
     .parameter "dst"
     .parameter "stf"
@@ -360,7 +360,7 @@
 .end method
 
 .method public setRotate(F)V
-    .registers 2
+    .locals 0
     .parameter "degrees"
 
     .prologue
@@ -372,7 +372,7 @@
 .end method
 
 .method public setRotate(FFF)V
-    .registers 4
+    .locals 0
     .parameter "degrees"
     .parameter "px"
     .parameter "py"
@@ -386,7 +386,7 @@
 .end method
 
 .method public setScale(FF)V
-    .registers 3
+    .locals 0
     .parameter "sx"
     .parameter "sy"
 
@@ -399,7 +399,7 @@
 .end method
 
 .method public setScale(FFFF)V
-    .registers 5
+    .locals 0
     .parameter "sx"
     .parameter "sy"
     .parameter "px"
@@ -414,7 +414,7 @@
 .end method
 
 .method public setSinCos(FF)V
-    .registers 3
+    .locals 0
     .parameter "sinValue"
     .parameter "cosValue"
 
@@ -427,7 +427,7 @@
 .end method
 
 .method public setSinCos(FFFF)V
-    .registers 5
+    .locals 0
     .parameter "sinValue"
     .parameter "cosValue"
     .parameter "px"
@@ -442,7 +442,7 @@
 .end method
 
 .method public setSkew(FF)V
-    .registers 3
+    .locals 0
     .parameter "kx"
     .parameter "ky"
 
@@ -455,7 +455,7 @@
 .end method
 
 .method public setSkew(FFFF)V
-    .registers 5
+    .locals 0
     .parameter "kx"
     .parameter "ky"
     .parameter "px"
@@ -470,7 +470,7 @@
 .end method
 
 .method public setTranslate(FF)V
-    .registers 3
+    .locals 0
     .parameter "dx"
     .parameter "dy"
 
@@ -483,7 +483,7 @@
 .end method
 
 .method public setValues([F)V
-    .registers 2
+    .locals 0
     .parameter "values"
 
     .prologue

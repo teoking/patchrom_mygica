@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 72
@@ -80,7 +80,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
@@ -163,7 +163,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/server/NetworkTimeUpdateService;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -174,7 +174,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/android/server/NetworkTimeUpdateService;J)J
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -186,7 +186,7 @@
 .end method
 
 .method static synthetic access$202(Lcom/android/server/NetworkTimeUpdateService;J)J
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -198,7 +198,7 @@
 .end method
 
 .method static synthetic access$302(Lcom/android/server/NetworkTimeUpdateService;J)J
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -210,7 +210,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/android/server/NetworkTimeUpdateService;I)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -222,7 +222,7 @@
 .end method
 
 .method private isAutomaticTimeRequested()Z
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v0, 0x0
@@ -240,16 +240,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_0
 
     const/4 v0, 0x1
 
-    :cond_10
+    :cond_0
     return v0
 .end method
 
 .method private onPollNetworkTime(I)V
-    .registers 16
+    .locals 14
     .parameter "event"
 
     .prologue
@@ -264,14 +264,14 @@
 
     move-result v6
 
-    if-nez v6, :cond_d
+    if-nez v6, :cond_0
 
     .line 216
-    :goto_c
+    :goto_0
     return-void
 
     .line 158
-    :cond_d
+    :cond_0
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v4
@@ -282,7 +282,7 @@
 
     cmp-long v6, v6, v12
 
-    if-eqz v6, :cond_23
+    if-eqz v6, :cond_1
 
     iget-wide v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mNitzTimeSetTime:J
 
@@ -290,15 +290,15 @@
 
     cmp-long v6, v6, v10
 
-    if-gez v6, :cond_23
+    if-gez v6, :cond_1
 
     .line 162
     invoke-direct {p0, v10, v11}, Lcom/android/server/NetworkTimeUpdateService;->resetAlarm(J)V
 
-    goto :goto_c
+    goto :goto_0
 
     .line 165
-    :cond_23
+    :cond_1
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
@@ -309,7 +309,7 @@
 
     cmp-long v6, v6, v12
 
-    if-eqz v6, :cond_37
+    if-eqz v6, :cond_2
 
     iget-wide v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mLastNtpFetchTime:J
 
@@ -317,14 +317,14 @@
 
     cmp-long v6, v4, v6
 
-    if-gez v6, :cond_37
+    if-gez v6, :cond_2
 
     const/4 v6, 0x1
 
-    if-ne p1, v6, :cond_84
+    if-ne p1, v6, :cond_7
 
     .line 175
-    :cond_37
+    :cond_2
     iget-object v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mTime:Landroid/util/TrustedTime;
 
     invoke-interface {v6}, Landroid/util/TrustedTime;->getCacheAge()J
@@ -333,22 +333,22 @@
 
     cmp-long v6, v6, v10
 
-    if-gez v6, :cond_47
+    if-gez v6, :cond_3
 
     invoke-virtual {p0}, Lcom/android/server/NetworkTimeUpdateService;->isDongle()Z
 
     move-result v6
 
-    if-eqz v6, :cond_4c
+    if-eqz v6, :cond_4
 
     .line 177
-    :cond_47
+    :cond_3
     iget-object v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mTime:Landroid/util/TrustedTime;
 
     invoke-interface {v6}, Landroid/util/TrustedTime;->forceRefresh()Z
 
     .line 181
-    :cond_4c
+    :cond_4
     iget-object v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mTime:Landroid/util/TrustedTime;
 
     invoke-interface {v6}, Landroid/util/TrustedTime;->getCacheAge()J
@@ -357,7 +357,7 @@
 
     cmp-long v6, v6, v10
 
-    if-gez v6, :cond_88
+    if-gez v6, :cond_8
 
     .line 182
     iget-object v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mTime:Landroid/util/TrustedTime;
@@ -381,16 +381,16 @@
 
     cmp-long v6, v6, v8
 
-    if-gtz v6, :cond_70
+    if-gtz v6, :cond_5
 
     iget-wide v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mLastNtpFetchTime:J
 
     cmp-long v6, v6, v12
 
-    if-nez v6, :cond_7e
+    if-nez v6, :cond_6
 
     .line 195
-    :cond_70
+    :cond_5
     const-wide/16 v6, 0x3e8
 
     div-long v6, v2, v6
@@ -399,13 +399,13 @@
 
     cmp-long v6, v6, v8
 
-    if-gez v6, :cond_7e
+    if-gez v6, :cond_6
 
     .line 196
     invoke-static {v2, v3}, Landroid/os/SystemClock;->setCurrentTimeMillis(J)Z
 
     .line 201
-    :cond_7e
+    :cond_6
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v6
@@ -414,13 +414,13 @@
 
     .line 215
     .end local v2           #ntp:J
-    :cond_84
+    :cond_7
     invoke-direct {p0, v10, v11}, Lcom/android/server/NetworkTimeUpdateService;->resetAlarm(J)V
 
-    goto :goto_c
+    goto :goto_0
 
     .line 204
-    :cond_88
+    :cond_8
     iget v6, p0, Lcom/android/server/NetworkTimeUpdateService;->mTryAgainCounter:I
 
     add-int/lit8 v6, v6, 0x1
@@ -432,27 +432,27 @@
 
     const/4 v7, 0x3
 
-    if-gt v6, v7, :cond_9b
+    if-gt v6, v7, :cond_9
 
     .line 206
     const-wide/32 v6, 0xea60
 
     invoke-direct {p0, v6, v7}, Lcom/android/server/NetworkTimeUpdateService;->resetAlarm(J)V
 
-    goto/16 :goto_c
+    goto/16 :goto_0
 
     .line 209
-    :cond_9b
+    :cond_9
     iput v8, p0, Lcom/android/server/NetworkTimeUpdateService;->mTryAgainCounter:I
 
     .line 210
     invoke-direct {p0, v10, v11}, Lcom/android/server/NetworkTimeUpdateService;->resetAlarm(J)V
 
-    goto/16 :goto_c
+    goto/16 :goto_0
 .end method
 
 .method private registerForAlarms()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 139
@@ -475,7 +475,7 @@
 .end method
 
 .method private registerForConnectivityIntents()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 149
@@ -501,7 +501,7 @@
 .end method
 
 .method private registerForTelephonyIntents()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 131
@@ -537,7 +537,7 @@
 .end method
 
 .method private resetAlarm(J)V
-    .registers 10
+    .locals 7
     .parameter "interval"
 
     .prologue
@@ -574,7 +574,7 @@
 
 # virtual methods
 .method public isDongle()Z
-    .registers 5
+    .locals 4
 
     .prologue
     .line 106
@@ -617,23 +617,23 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2a
+    if-eqz v1, :cond_0
 
     .line 109
     const/4 v1, 0x1
 
     .line 111
-    :goto_29
+    :goto_0
     return v1
 
-    :cond_2a
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method public systemReady()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 116

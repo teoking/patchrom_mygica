@@ -67,7 +67,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 87
@@ -81,7 +81,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 33
@@ -101,7 +101,7 @@
 .end method
 
 .method public static getIntentForConfirmation()Landroid/content/Intent;
-    .registers 3
+    .locals 3
 
     .prologue
     .line 42
@@ -122,7 +122,7 @@
 .end method
 
 .method public static getIntentForStatusPanel(Landroid/content/Context;Lcom/android/internal/net/VpnConfig;)Landroid/app/PendingIntent;
-    .registers 5
+    .locals 3
     .parameter "context"
     .parameter "config"
 
@@ -153,27 +153,27 @@
     .line 53
     const/4 v2, 0x0
 
-    if-nez p1, :cond_20
+    if-nez p1, :cond_0
 
     const/high16 v1, 0x2000
 
-    :goto_1b
+    :goto_0
     invoke-static {p0, v2, v0, v1}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v1
 
     return-object v1
 
-    :cond_20
+    :cond_0
     const/high16 v1, 0x1000
 
-    goto :goto_1b
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 70
@@ -183,7 +183,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "out"
     .parameter "flags"
 

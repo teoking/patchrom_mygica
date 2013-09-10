@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/test/InstrumentationTestCase;Ljava/lang/reflect/Method;IZ[Ljava/lang/Throwable;)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 189
@@ -71,16 +71,17 @@
 
     iget-boolean v4, p0, Landroid/test/InstrumentationTestCase$2;->val$repetitive:Z
 
+    #calls: Landroid/test/InstrumentationTestCase;->runMethod(Ljava/lang/reflect/Method;IZ)V
     invoke-static {v1, v2, v3, v4}, Landroid/test/InstrumentationTestCase;->access$000(Landroid/test/InstrumentationTestCase;Ljava/lang/reflect/Method;IZ)V
-    :try_end_b
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_b} :catch_c
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 193
-    :goto_b
+    :goto_0
     return-void
 
     .line 190
-    :catch_c
+    :catch_0
     move-exception v0
 
     .line 191
@@ -91,5 +92,5 @@
 
     aput-object v0, v1, v2
 
-    goto :goto_b
+    goto :goto_0
 .end method

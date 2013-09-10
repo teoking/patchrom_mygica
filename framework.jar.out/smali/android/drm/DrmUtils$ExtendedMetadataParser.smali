@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>([B)V
-    .registers 8
+    .locals 6
     .parameter "constraintData"
 
     .prologue
@@ -49,10 +49,10 @@
 
     .line 155
     .local v0, index:I
-    :goto_b
+    :goto_0
     array-length v5, p1
 
-    if-ge v0, v5, :cond_34
+    if-ge v0, v5, :cond_1
 
     .line 157
     invoke-direct {p0, p1, v0}, Landroid/drm/DrmUtils$ExtendedMetadataParser;->readByte([BI)I
@@ -94,13 +94,13 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2d
+    if-eqz v5, :cond_0
 
     .line 171
     const-string v3, ""
 
     .line 173
-    :cond_2d
+    :cond_0
     add-int/2addr v0, v4
 
     .line 174
@@ -108,19 +108,19 @@
 
     invoke-virtual {v5, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_b
+    goto :goto_0
 
     .line 176
     .end local v1           #keyLength:I
     .end local v2           #strKey:Ljava/lang/String;
     .end local v3           #strValue:Ljava/lang/String;
     .end local v4           #valueLength:I
-    :cond_34
+    :cond_1
     return-void
 .end method
 
 .method synthetic constructor <init>([BLandroid/drm/DrmUtils$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -132,7 +132,7 @@
 .end method
 
 .method private readByte([BI)I
-    .registers 4
+    .locals 1
     .parameter "constraintData"
     .parameter "arrayIndex"
 
@@ -144,7 +144,7 @@
 .end method
 
 .method private readMultipleBytes([BII)Ljava/lang/String;
-    .registers 8
+    .locals 4
     .parameter "constraintData"
     .parameter "numberOfBytes"
     .parameter "arrayIndex"
@@ -161,10 +161,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_4
+    :goto_0
     add-int v3, p3, p2
 
-    if-ge v1, v3, :cond_11
+    if-ge v1, v3, :cond_0
 
     .line 142
     aget-byte v3, p1, v1
@@ -176,10 +176,10 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 144
-    :cond_11
+    :cond_0
     new-instance v3, Ljava/lang/String;
 
     invoke-direct {v3, v2}, Ljava/lang/String;-><init>([B)V
@@ -190,7 +190,7 @@
 
 # virtual methods
 .method public get(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -207,7 +207,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -234,7 +234,7 @@
 .end method
 
 .method public keyIterator()Ljava/util/Iterator;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

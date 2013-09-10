@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(FLandroid/graphics/BlurMaskFilter$Blur;)V
-    .registers 4
+    .locals 1
     .parameter "radius"
     .parameter "style"
 

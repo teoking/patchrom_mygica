@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/LocationManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onPackageAdded(Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
     .parameter "packageName"
     .parameter "uid"
 
@@ -43,6 +43,7 @@
     .line 2126
     iget-object v0, p0, Lcom/android/server/LocationManagerService$2;->this$0:Lcom/android/server/LocationManagerService;
 
+    #getter for: Lcom/android/server/LocationManagerService;->mLocationHandler:Lcom/android/server/LocationManagerService$LocationWorkerHandler;
     invoke-static {v0}, Lcom/android/server/LocationManagerService;->access$200(Lcom/android/server/LocationManagerService;)Lcom/android/server/LocationManagerService$LocationWorkerHandler;
 
     move-result-object v0
@@ -60,7 +61,7 @@
 .end method
 
 .method public onPackageUpdateFinished(Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
     .parameter "packageName"
     .parameter "uid"
 
@@ -68,6 +69,7 @@
     .line 2121
     iget-object v0, p0, Lcom/android/server/LocationManagerService$2;->this$0:Lcom/android/server/LocationManagerService;
 
+    #getter for: Lcom/android/server/LocationManagerService;->mLocationHandler:Lcom/android/server/LocationManagerService$LocationWorkerHandler;
     invoke-static {v0}, Lcom/android/server/LocationManagerService;->access$200(Lcom/android/server/LocationManagerService;)Lcom/android/server/LocationManagerService$LocationWorkerHandler;
 
     move-result-object v0

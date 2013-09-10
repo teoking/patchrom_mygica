@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public bridge synthetic post([Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -62,7 +62,7 @@
 .end method
 
 .method public varargs post([Ljava/lang/Void;)V
-    .registers 2
+    .locals 0
     .parameter "data"
 
     .prologue
@@ -71,7 +71,7 @@
 .end method
 
 .method public bridge synthetic pre()[Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 499
@@ -83,7 +83,7 @@
 .end method
 
 .method public pre()[Ljava/lang/Void;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 501
@@ -93,7 +93,7 @@
 .end method
 
 .method public bridge synthetic run([Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -107,7 +107,7 @@
 .end method
 
 .method public varargs run([Ljava/lang/Void;)V
-    .registers 7
+    .locals 5
     .parameter "data"
 
     .prologue

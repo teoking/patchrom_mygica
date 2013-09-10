@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/database/Cursor;)V
-    .registers 3
+    .locals 1
     .parameter "cursor"
 
     .prologue
@@ -41,13 +41,13 @@
 
 # virtual methods
 .method public final close()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 106
     iget-boolean v0, p0, Landroid/content/CursorEntityIterator;->mIsClosed:Z
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 107
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -59,7 +59,7 @@
     throw v0
 
     .line 109
-    :cond_c
+    :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/content/CursorEntityIterator;->mIsClosed:Z
@@ -82,13 +82,13 @@
 .end method
 
 .method public final hasNext()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 59
     iget-boolean v0, p0, Landroid/content/CursorEntityIterator;->mIsClosed:Z
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 60
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -100,34 +100,34 @@
     throw v0
 
     .line 63
-    :cond_c
+    :cond_0
     iget-object v0, p0, Landroid/content/CursorEntityIterator;->mCursor:Landroid/database/Cursor;
 
     invoke-interface {v0}, Landroid/database/Cursor;->isAfterLast()Z
 
     move-result v0
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_1
 
     const/4 v0, 0x1
 
-    :goto_15
+    :goto_0
     return v0
 
-    :cond_16
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public next()Landroid/content/Entity;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 76
     iget-boolean v1, p0, Landroid/content/CursorEntityIterator;->mIsClosed:Z
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_0
 
     .line 77
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -139,12 +139,12 @@
     throw v1
 
     .line 79
-    :cond_c
+    :cond_0
     invoke-virtual {p0}, Landroid/content/CursorEntityIterator;->hasNext()Z
 
     move-result v1
 
-    if-nez v1, :cond_1b
+    if-nez v1, :cond_1
 
     .line 80
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -156,20 +156,20 @@
     throw v1
 
     .line 84
-    :cond_1b
-    :try_start_1b
+    :cond_1
+    :try_start_0
     iget-object v1, p0, Landroid/content/CursorEntityIterator;->mCursor:Landroid/database/Cursor;
 
     invoke-virtual {p0, v1}, Landroid/content/CursorEntityIterator;->getEntityAndIncrementCursor(Landroid/database/Cursor;)Landroid/content/Entity;
-    :try_end_20
-    .catch Landroid/os/RemoteException; {:try_start_1b .. :try_end_20} :catch_22
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     return-object v1
 
     .line 85
-    :catch_22
+    :catch_0
     move-exception v0
 
     .line 86
@@ -184,7 +184,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 27
@@ -196,7 +196,7 @@
 .end method
 
 .method public remove()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 91
@@ -210,13 +210,13 @@
 .end method
 
 .method public final reset()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 95
     iget-boolean v0, p0, Landroid/content/CursorEntityIterator;->mIsClosed:Z
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 96
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -228,7 +228,7 @@
     throw v0
 
     .line 98
-    :cond_c
+    :cond_0
     iget-object v0, p0, Landroid/content/CursorEntityIterator;->mCursor:Landroid/database/Cursor;
 
     invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z

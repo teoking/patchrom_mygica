@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/FileDescriptor;)V
-    .registers 5
+    .locals 3
     .parameter "fd"
 
     .prologue
@@ -17,7 +17,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 69
-    if-nez p1, :cond_b
+    if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -26,7 +26,7 @@
     throw v0
 
     .line 70
-    :cond_b
+    :cond_0
     invoke-static {p1}, Landroid/app/backup/BackupDataOutput;->ctor(Ljava/io/FileDescriptor;)I
 
     move-result v0
@@ -36,7 +36,7 @@
     .line 71
     iget v0, p0, Landroid/app/backup/BackupDataOutput;->mBackupWriter:I
 
-    if-nez v0, :cond_2e
+    if-nez v0, :cond_1
 
     .line 72
     new-instance v0, Ljava/lang/RuntimeException;
@@ -64,7 +64,7 @@
     throw v0
 
     .line 74
-    :cond_2e
+    :cond_1
     return-void
 .end method
 
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -99,8 +99,8 @@
     iget v0, p0, Landroid/app/backup/BackupDataOutput;->mBackupWriter:I
 
     invoke-static {v0}, Landroid/app/backup/BackupDataOutput;->dtor(I)V
-    :try_end_5
-    .catchall {:try_start_0 .. :try_end_5} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 120
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -109,7 +109,7 @@
     return-void
 
     .line 120
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -118,7 +118,7 @@
 .end method
 
 .method public setKeyPrefix(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "keyPrefix"
 
     .prologue
@@ -132,7 +132,7 @@
 .end method
 
 .method public writeEntityData([BI)I
-    .registers 7
+    .locals 4
     .parameter "data"
     .parameter "size"
     .annotation system Ldalvik/annotation/Throws;
@@ -151,13 +151,13 @@
 
     .line 103
     .local v0, result:I
-    if-ltz v0, :cond_9
+    if-ltz v0, :cond_0
 
     .line 104
     return v0
 
     .line 106
-    :cond_9
+    :cond_0
     new-instance v1, Ljava/io/IOException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -188,7 +188,7 @@
 .end method
 
 .method public writeEntityHeader(Ljava/lang/String;I)I
-    .registers 7
+    .locals 4
     .parameter "key"
     .parameter "dataSize"
     .annotation system Ldalvik/annotation/Throws;
@@ -207,13 +207,13 @@
 
     .line 87
     .local v0, result:I
-    if-ltz v0, :cond_9
+    if-ltz v0, :cond_0
 
     .line 88
     return v0
 
     .line 90
-    :cond_9
+    :cond_0
     new-instance v1, Ljava/io/IOException;
 
     new-instance v2, Ljava/lang/StringBuilder;

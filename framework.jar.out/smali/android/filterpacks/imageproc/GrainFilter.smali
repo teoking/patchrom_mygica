@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "name"
 
     .prologue
@@ -99,7 +99,7 @@
 .end method
 
 .method private updateFrameSize(II)V
-    .registers 7
+    .locals 4
     .parameter "width"
     .parameter "height"
 
@@ -115,7 +115,7 @@
     .line 142
     iget-object v0, p0, Landroid/filterpacks/imageproc/GrainFilter;->mGrainProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v0, :cond_2f
+    if-eqz v0, :cond_0
 
     .line 143
     iget-object v0, p0, Landroid/filterpacks/imageproc/GrainFilter;->mGrainProgram:Landroid/filterfw/core/Program;
@@ -155,12 +155,12 @@
     invoke-direct {p0}, Landroid/filterpacks/imageproc/GrainFilter;->updateParameters()V
 
     .line 147
-    :cond_2f
+    :cond_0
     return-void
 .end method
 
 .method private updateParameters()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 132
@@ -216,7 +216,7 @@
 
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "context"
 
@@ -224,22 +224,22 @@
     .line 151
     iget-object v0, p0, Landroid/filterpacks/imageproc/GrainFilter;->mGrainProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/filterpacks/imageproc/GrainFilter;->mNoiseProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 152
     invoke-direct {p0}, Landroid/filterpacks/imageproc/GrainFilter;->updateParameters()V
 
     .line 154
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -249,13 +249,13 @@
 .end method
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "target"
 
     .prologue
     .line 113
-    packed-switch p2, :pswitch_data_44
+    packed-switch p2, :pswitch_data_0
 
     .line 125
     new-instance v1, Ljava/lang/RuntimeException;
@@ -289,7 +289,7 @@
     throw v1
 
     .line 115
-    :pswitch_22
+    :pswitch_0
     new-instance v0, Landroid/filterfw/core/ShaderProgram;
 
     const-string/jumbo v1, "precision mediump float;\nuniform vec2 seed;\nvarying vec2 v_texcoord;\nfloat rand(vec2 loc) {\n  float theta1 = dot(loc, vec2(0.9898, 0.233));\n  float theta2 = dot(loc, vec2(12.0, 78.0));\n  float value = cos(theta1) * sin(theta2) + sin(theta1) * cos(theta2);\n  float temp = mod(197.0 * value, 1.0) + value;\n  float part1 = mod(220.0 * temp, 1.0) + temp;\n  float part2 = value * 0.5453;\n  float part3 = cos(theta1 + theta2) * 0.43758;\n  return fract(part1 + part2 + part3);\n}\nvoid main() {\n  gl_FragColor = vec4(rand(v_texcoord + seed), 0.0, 0.0, 1.0);\n}\n"
@@ -331,14 +331,14 @@
     .line 113
     nop
 
-    :pswitch_data_44
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_22
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 13
+    .locals 11
     .parameter "context"
 
     .prologue
@@ -401,11 +401,11 @@
     .local v6, output:Landroid/filterfw/core/Frame;
     iget-object v7, p0, Landroid/filterpacks/imageproc/GrainFilter;->mNoiseProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v7, :cond_3c
+    if-eqz v7, :cond_0
 
     iget-object v7, p0, Landroid/filterpacks/imageproc/GrainFilter;->mGrainProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v7, :cond_3c
+    if-eqz v7, :cond_0
 
     invoke-virtual {v2}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
@@ -413,10 +413,10 @@
 
     iget v8, p0, Landroid/filterpacks/imageproc/GrainFilter;->mTarget:I
 
-    if-eq v7, v8, :cond_46
+    if-eq v7, v8, :cond_1
 
     .line 175
-    :cond_3c
+    :cond_0
     invoke-virtual {v2}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
     move-result v7
@@ -427,14 +427,14 @@
     invoke-direct {p0}, Landroid/filterpacks/imageproc/GrainFilter;->updateParameters()V
 
     .line 180
-    :cond_46
+    :cond_1
     invoke-virtual {v2}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v7
 
     iget v8, p0, Landroid/filterpacks/imageproc/GrainFilter;->mWidth:I
 
-    if-ne v7, v8, :cond_56
+    if-ne v7, v8, :cond_2
 
     invoke-virtual {v2}, Landroid/filterfw/core/FrameFormat;->getHeight()I
 
@@ -442,10 +442,10 @@
 
     iget v8, p0, Landroid/filterpacks/imageproc/GrainFilter;->mHeight:I
 
-    if-eq v7, v8, :cond_61
+    if-eq v7, v8, :cond_3
 
     .line 181
-    :cond_56
+    :cond_2
     invoke-virtual {v2}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v7
@@ -457,7 +457,7 @@
     invoke-direct {p0, v7, v8}, Landroid/filterpacks/imageproc/GrainFilter;->updateFrameSize(II)V
 
     .line 184
-    :cond_61
+    :cond_3
     new-array v0, v9, [Landroid/filterfw/core/Frame;
 
     .line 185
@@ -499,7 +499,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 103

@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/FilterGraph;)V
-    .registers 3
+    .locals 1
     .parameter "graph"
 
     .prologue
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public reset()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 38
@@ -41,7 +41,7 @@
 .end method
 
 .method public scheduleNextNode()Landroid/filterfw/core/Filter;
-    .registers 9
+    .locals 8
 
     .prologue
     .line 43
@@ -61,14 +61,14 @@
 
     move-result v7
 
-    if-lt v6, v7, :cond_13
+    if-lt v6, v7, :cond_0
 
     const/4 v6, -0x1
 
     iput v6, p0, Landroid/filterfw/core/RoundRobinScheduler;->mLastPos:I
 
     .line 45
-    :cond_13
+    :cond_0
     const/4 v5, 0x0
 
     .line 46
@@ -86,12 +86,12 @@
     move-result-object v4
 
     .local v4, i$:Ljava/util/Iterator;
-    :goto_1a
+    :goto_0
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3a
+    if-eqz v6, :cond_3
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -105,15 +105,15 @@
 
     move-result v6
 
-    if-eqz v6, :cond_34
+    if-eqz v6, :cond_1
 
     .line 50
     iget v6, p0, Landroid/filterfw/core/RoundRobinScheduler;->mLastPos:I
 
-    if-gt v5, v6, :cond_37
+    if-gt v5, v6, :cond_2
 
     .line 51
-    if-nez v2, :cond_34
+    if-nez v2, :cond_1
 
     .line 53
     move-object v2, v1
@@ -122,23 +122,23 @@
     move v3, v5
 
     .line 62
-    :cond_34
+    :cond_1
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 58
-    :cond_37
+    :cond_2
     iput v5, p0, Landroid/filterfw/core/RoundRobinScheduler;->mLastPos:I
 
     .line 71
     .end local v1           #filter:Landroid/filterfw/core/Filter;
-    :goto_39
+    :goto_1
     return-object v1
 
     .line 65
-    :cond_3a
-    if-eqz v2, :cond_40
+    :cond_3
+    if-eqz v2, :cond_4
 
     .line 66
     iput v3, p0, Landroid/filterfw/core/RoundRobinScheduler;->mLastPos:I
@@ -146,11 +146,11 @@
     move-object v1, v2
 
     .line 67
-    goto :goto_39
+    goto :goto_1
 
     .line 71
-    :cond_40
+    :cond_4
     const/4 v1, 0x0
 
-    goto :goto_39
+    goto :goto_1
 .end method

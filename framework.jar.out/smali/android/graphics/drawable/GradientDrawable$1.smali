@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 701
@@ -34,7 +34,7 @@
 
     sput-object v0, Landroid/graphics/drawable/GradientDrawable$1;->$SwitchMap$android$graphics$drawable$GradientDrawable$Orientation:[I
 
-    :try_start_9
+    :try_start_0
     sget-object v0, Landroid/graphics/drawable/GradientDrawable$1;->$SwitchMap$android$graphics$drawable$GradientDrawable$Orientation:[I
 
     sget-object v1, Landroid/graphics/drawable/GradientDrawable$Orientation;->TOP_BOTTOM:Landroid/graphics/drawable/GradientDrawable$Orientation;
@@ -46,11 +46,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_14
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_14} :catch_63
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_6
 
-    :goto_14
-    :try_start_14
+    :goto_0
+    :try_start_1
     sget-object v0, Landroid/graphics/drawable/GradientDrawable$1;->$SwitchMap$android$graphics$drawable$GradientDrawable$Orientation:[I
 
     sget-object v1, Landroid/graphics/drawable/GradientDrawable$Orientation;->TR_BL:Landroid/graphics/drawable/GradientDrawable$Orientation;
@@ -62,11 +62,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_1f} :catch_61
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_5
 
-    :goto_1f
-    :try_start_1f
+    :goto_1
+    :try_start_2
     sget-object v0, Landroid/graphics/drawable/GradientDrawable$1;->$SwitchMap$android$graphics$drawable$GradientDrawable$Orientation:[I
 
     sget-object v1, Landroid/graphics/drawable/GradientDrawable$Orientation;->RIGHT_LEFT:Landroid/graphics/drawable/GradientDrawable$Orientation;
@@ -78,11 +78,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_2a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1f .. :try_end_2a} :catch_5f
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_4
 
-    :goto_2a
-    :try_start_2a
+    :goto_2
+    :try_start_3
     sget-object v0, Landroid/graphics/drawable/GradientDrawable$1;->$SwitchMap$android$graphics$drawable$GradientDrawable$Orientation:[I
 
     sget-object v1, Landroid/graphics/drawable/GradientDrawable$Orientation;->BR_TL:Landroid/graphics/drawable/GradientDrawable$Orientation;
@@ -94,11 +94,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_35
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2a .. :try_end_35} :catch_5d
+    :try_end_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_3
 
-    :goto_35
-    :try_start_35
+    :goto_3
+    :try_start_4
     sget-object v0, Landroid/graphics/drawable/GradientDrawable$1;->$SwitchMap$android$graphics$drawable$GradientDrawable$Orientation:[I
 
     sget-object v1, Landroid/graphics/drawable/GradientDrawable$Orientation;->BOTTOM_TOP:Landroid/graphics/drawable/GradientDrawable$Orientation;
@@ -110,11 +110,11 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_40
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_35 .. :try_end_40} :catch_5b
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_2
 
-    :goto_40
-    :try_start_40
+    :goto_4
+    :try_start_5
     sget-object v0, Landroid/graphics/drawable/GradientDrawable$1;->$SwitchMap$android$graphics$drawable$GradientDrawable$Orientation:[I
 
     sget-object v1, Landroid/graphics/drawable/GradientDrawable$Orientation;->BL_TR:Landroid/graphics/drawable/GradientDrawable$Orientation;
@@ -126,11 +126,11 @@
     const/4 v2, 0x6
 
     aput v2, v0, v1
-    :try_end_4b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_40 .. :try_end_4b} :catch_59
+    :try_end_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_1
 
-    :goto_4b
-    :try_start_4b
+    :goto_5
+    :try_start_6
     sget-object v0, Landroid/graphics/drawable/GradientDrawable$1;->$SwitchMap$android$graphics$drawable$GradientDrawable$Orientation:[I
 
     sget-object v1, Landroid/graphics/drawable/GradientDrawable$Orientation;->LEFT_RIGHT:Landroid/graphics/drawable/GradientDrawable$Orientation;
@@ -142,44 +142,44 @@
     const/4 v2, 0x7
 
     aput v2, v0, v1
-    :try_end_56
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4b .. :try_end_56} :catch_57
+    :try_end_6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_0
 
-    :goto_56
+    :goto_6
     return-void
 
-    :catch_57
+    :catch_0
     move-exception v0
 
-    goto :goto_56
+    goto :goto_6
 
-    :catch_59
+    :catch_1
     move-exception v0
 
-    goto :goto_4b
+    goto :goto_5
 
-    :catch_5b
+    :catch_2
     move-exception v0
 
-    goto :goto_40
+    goto :goto_4
 
-    :catch_5d
+    :catch_3
     move-exception v0
 
-    goto :goto_35
+    goto :goto_3
 
-    :catch_5f
+    :catch_4
     move-exception v0
 
-    goto :goto_2a
+    goto :goto_2
 
-    :catch_61
+    :catch_5
     move-exception v0
 
-    goto :goto_1f
+    goto :goto_1
 
-    :catch_63
+    :catch_6
     move-exception v0
 
-    goto :goto_14
+    goto :goto_0
 .end method

@@ -50,7 +50,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Class;Ljava/lang/Class;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -81,7 +81,7 @@
 .end method
 
 .method public static of(Ljava/lang/Class;Ljava/lang/Class;)Landroid/widget/GridLayout$Assoc;
-    .registers 3
+    .locals 1
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public pack()Landroid/widget/GridLayout$PackedMap;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -163,8 +163,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_1b
-    if-ge v1, v0, :cond_34
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 2100
     invoke-virtual {p0, v1}, Landroid/widget/GridLayout$Assoc;->get(I)Ljava/lang/Object;
@@ -191,10 +191,10 @@
     .line 2099
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 2103
-    :cond_34
+    :cond_0
     new-instance v4, Landroid/widget/GridLayout$PackedMap;
 
     const/4 v5, 0x0
@@ -205,7 +205,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;

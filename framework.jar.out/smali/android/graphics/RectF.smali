@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 549
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 42
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(FFFF)V
-    .registers 5
+    .locals 0
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -82,7 +82,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/Rect;)V
-    .registers 3
+    .locals 1
     .parameter "r"
 
     .prologue
@@ -122,7 +122,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/RectF;)V
-    .registers 3
+    .locals 1
     .parameter "r"
 
     .prologue
@@ -154,7 +154,7 @@
 .end method
 
 .method public static intersects(Landroid/graphics/RectF;Landroid/graphics/RectF;)Z
-    .registers 4
+    .locals 2
     .parameter "a"
     .parameter "b"
 
@@ -166,7 +166,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_22
+    if-gez v0, :cond_0
 
     iget v0, p1, Landroid/graphics/RectF;->left:F
 
@@ -174,7 +174,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_22
+    if-gez v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->top:F
 
@@ -182,7 +182,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_22
+    if-gez v0, :cond_0
 
     iget v0, p1, Landroid/graphics/RectF;->top:F
 
@@ -190,23 +190,23 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_22
+    if-gez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_21
+    :goto_0
     return v0
 
-    :cond_22
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_21
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public final centerX()F
-    .registers 3
+    .locals 2
 
     .prologue
     .line 162
@@ -224,7 +224,7 @@
 .end method
 
 .method public final centerY()F
-    .registers 3
+    .locals 2
 
     .prologue
     .line 170
@@ -242,7 +242,7 @@
 .end method
 
 .method public contains(FF)Z
-    .registers 5
+    .locals 2
     .parameter "x"
     .parameter "y"
 
@@ -254,7 +254,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_2a
+    if-gez v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->top:F
 
@@ -262,45 +262,45 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_2a
+    if-gez v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->left:F
 
     cmpl-float v0, p1, v0
 
-    if-ltz v0, :cond_2a
+    if-ltz v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->right:F
 
     cmpg-float v0, p1, v0
 
-    if-gez v0, :cond_2a
+    if-gez v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->top:F
 
     cmpl-float v0, p2, v0
 
-    if-ltz v0, :cond_2a
+    if-ltz v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->bottom:F
 
     cmpg-float v0, p2, v0
 
-    if-gez v0, :cond_2a
+    if-gez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_29
+    :goto_0
     return v0
 
-    :cond_2a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method public contains(FFFF)Z
-    .registers 7
+    .locals 2
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -314,7 +314,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_2a
+    if-gez v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->top:F
 
@@ -322,45 +322,45 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_2a
+    if-gez v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->left:F
 
     cmpg-float v0, v0, p1
 
-    if-gtz v0, :cond_2a
+    if-gtz v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->top:F
 
     cmpg-float v0, v0, p2
 
-    if-gtz v0, :cond_2a
+    if-gtz v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->right:F
 
     cmpl-float v0, v0, p3
 
-    if-ltz v0, :cond_2a
+    if-ltz v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->bottom:F
 
     cmpl-float v0, v0, p4
 
-    if-ltz v0, :cond_2a
+    if-ltz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_29
+    :goto_0
     return v0
 
-    :cond_2a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method public contains(Landroid/graphics/RectF;)Z
-    .registers 4
+    .locals 2
     .parameter "r"
 
     .prologue
@@ -371,7 +371,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_32
+    if-gez v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->top:F
 
@@ -379,7 +379,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_32
+    if-gez v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->left:F
 
@@ -387,7 +387,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gtz v0, :cond_32
+    if-gtz v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->top:F
 
@@ -395,7 +395,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gtz v0, :cond_32
+    if-gtz v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->right:F
 
@@ -403,7 +403,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-ltz v0, :cond_32
+    if-ltz v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->bottom:F
 
@@ -411,21 +411,21 @@
 
     cmpl-float v0, v0, v1
 
-    if-ltz v0, :cond_32
+    if-ltz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_31
+    :goto_0
     return v0
 
-    :cond_32
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_31
+    goto :goto_0
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 534
@@ -435,7 +435,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "o"
 
     .prologue
@@ -444,16 +444,16 @@
     const/4 v2, 0x0
 
     .line 84
-    if-ne p0, p1, :cond_5
+    if-ne p0, p1, :cond_1
 
     .line 88
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 85
-    :cond_5
-    if-eqz p1, :cond_11
+    :cond_1
+    if-eqz p1, :cond_2
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -463,14 +463,14 @@
 
     move-result-object v4
 
-    if-eq v3, v4, :cond_13
+    if-eq v3, v4, :cond_3
 
-    :cond_11
+    :cond_2
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_13
+    :cond_3
     move-object v0, p1
 
     .line 87
@@ -484,7 +484,7 @@
 
     cmpl-float v3, v3, v4
 
-    if-nez v3, :cond_36
+    if-nez v3, :cond_4
 
     iget v3, p0, Landroid/graphics/RectF;->top:F
 
@@ -492,7 +492,7 @@
 
     cmpl-float v3, v3, v4
 
-    if-nez v3, :cond_36
+    if-nez v3, :cond_4
 
     iget v3, p0, Landroid/graphics/RectF;->right:F
 
@@ -500,7 +500,7 @@
 
     cmpl-float v3, v3, v4
 
-    if-nez v3, :cond_36
+    if-nez v3, :cond_4
 
     iget v3, p0, Landroid/graphics/RectF;->bottom:F
 
@@ -508,16 +508,16 @@
 
     cmpl-float v3, v3, v4
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_0
 
-    :cond_36
+    :cond_4
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v1, 0x0
@@ -529,7 +529,7 @@
 
     cmpl-float v2, v2, v4
 
-    if-eqz v2, :cond_3f
+    if-eqz v2, :cond_1
 
     iget v2, p0, Landroid/graphics/RectF;->left:F
 
@@ -539,14 +539,14 @@
 
     .line 94
     .local v0, result:I
-    :goto_e
+    :goto_0
     mul-int/lit8 v3, v0, 0x1f
 
     iget v2, p0, Landroid/graphics/RectF;->top:F
 
     cmpl-float v2, v2, v4
 
-    if-eqz v2, :cond_41
+    if-eqz v2, :cond_2
 
     iget v2, p0, Landroid/graphics/RectF;->top:F
 
@@ -554,7 +554,7 @@
 
     move-result v2
 
-    :goto_1c
+    :goto_1
     add-int v0, v3, v2
 
     .line 95
@@ -564,7 +564,7 @@
 
     cmpl-float v2, v2, v4
 
-    if-eqz v2, :cond_43
+    if-eqz v2, :cond_3
 
     iget v2, p0, Landroid/graphics/RectF;->right:F
 
@@ -572,7 +572,7 @@
 
     move-result v2
 
-    :goto_2c
+    :goto_2
     add-int v0, v3, v2
 
     .line 96
@@ -582,7 +582,7 @@
 
     cmpl-float v3, v3, v4
 
-    if-eqz v3, :cond_3c
+    if-eqz v3, :cond_0
 
     iget v1, p0, Landroid/graphics/RectF;->bottom:F
 
@@ -590,35 +590,35 @@
 
     move-result v1
 
-    :cond_3c
+    :cond_0
     add-int v0, v2, v1
 
     .line 97
     return v0
 
     .end local v0           #result:I
-    :cond_3f
+    :cond_1
     move v0, v1
 
     .line 93
-    goto :goto_e
+    goto :goto_0
 
     .restart local v0       #result:I
-    :cond_41
+    :cond_2
     move v2, v1
 
     .line 94
-    goto :goto_1c
+    goto :goto_1
 
-    :cond_43
+    :cond_3
     move v2, v1
 
     .line 95
-    goto :goto_2c
+    goto :goto_2
 .end method
 
 .method public final height()F
-    .registers 3
+    .locals 2
 
     .prologue
     .line 154
@@ -632,7 +632,7 @@
 .end method
 
 .method public inset(FF)V
-    .registers 4
+    .locals 1
     .parameter "dx"
     .parameter "dy"
 
@@ -670,7 +670,7 @@
 .end method
 
 .method public intersect(FFFF)Z
-    .registers 6
+    .locals 1
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -682,85 +682,85 @@
 
     cmpg-float v0, v0, p3
 
-    if-gez v0, :cond_3a
+    if-gez v0, :cond_4
 
     iget v0, p0, Landroid/graphics/RectF;->right:F
 
     cmpg-float v0, p1, v0
 
-    if-gez v0, :cond_3a
+    if-gez v0, :cond_4
 
     iget v0, p0, Landroid/graphics/RectF;->top:F
 
     cmpg-float v0, v0, p4
 
-    if-gez v0, :cond_3a
+    if-gez v0, :cond_4
 
     iget v0, p0, Landroid/graphics/RectF;->bottom:F
 
     cmpg-float v0, p2, v0
 
-    if-gez v0, :cond_3a
+    if-gez v0, :cond_4
 
     .line 340
     iget v0, p0, Landroid/graphics/RectF;->left:F
 
     cmpg-float v0, v0, p1
 
-    if-gez v0, :cond_20
+    if-gez v0, :cond_0
 
     .line 341
     iput p1, p0, Landroid/graphics/RectF;->left:F
 
     .line 343
-    :cond_20
+    :cond_0
     iget v0, p0, Landroid/graphics/RectF;->top:F
 
     cmpg-float v0, v0, p2
 
-    if-gez v0, :cond_28
+    if-gez v0, :cond_1
 
     .line 344
     iput p2, p0, Landroid/graphics/RectF;->top:F
 
     .line 346
-    :cond_28
+    :cond_1
     iget v0, p0, Landroid/graphics/RectF;->right:F
 
     cmpl-float v0, v0, p3
 
-    if-lez v0, :cond_30
+    if-lez v0, :cond_2
 
     .line 347
     iput p3, p0, Landroid/graphics/RectF;->right:F
 
     .line 349
-    :cond_30
+    :cond_2
     iget v0, p0, Landroid/graphics/RectF;->bottom:F
 
     cmpl-float v0, v0, p4
 
-    if-lez v0, :cond_38
+    if-lez v0, :cond_3
 
     .line 350
     iput p4, p0, Landroid/graphics/RectF;->bottom:F
 
     .line 352
-    :cond_38
+    :cond_3
     const/4 v0, 0x1
 
     .line 354
-    :goto_39
+    :goto_0
     return v0
 
-    :cond_3a
+    :cond_4
     const/4 v0, 0x0
 
-    goto :goto_39
+    goto :goto_0
 .end method
 
 .method public intersect(Landroid/graphics/RectF;)Z
-    .registers 6
+    .locals 4
     .parameter "r"
 
     .prologue
@@ -781,7 +781,7 @@
 .end method
 
 .method public intersects(FFFF)Z
-    .registers 6
+    .locals 1
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -793,39 +793,39 @@
 
     cmpg-float v0, v0, p3
 
-    if-gez v0, :cond_1a
+    if-gez v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->right:F
 
     cmpg-float v0, p1, v0
 
-    if-gez v0, :cond_1a
+    if-gez v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->top:F
 
     cmpg-float v0, v0, p4
 
-    if-gez v0, :cond_1a
+    if-gez v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->bottom:F
 
     cmpg-float v0, p2, v0
 
-    if-gez v0, :cond_1a
+    if-gez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_19
+    :goto_0
     return v0
 
-    :cond_1a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public final isEmpty()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 138
@@ -835,7 +835,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-gez v0, :cond_10
+    if-gez v0, :cond_0
 
     iget v0, p0, Landroid/graphics/RectF;->top:F
 
@@ -843,22 +843,22 @@
 
     cmpl-float v0, v0, v1
 
-    if-ltz v0, :cond_12
+    if-ltz v0, :cond_1
 
-    :cond_10
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_11
+    :goto_0
     return v0
 
-    :cond_12
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public offset(FF)V
-    .registers 4
+    .locals 1
     .parameter "dx"
     .parameter "dy"
 
@@ -896,7 +896,7 @@
 .end method
 
 .method public offsetTo(FF)V
-    .registers 5
+    .locals 2
     .parameter "newLeft"
     .parameter "newTop"
 
@@ -934,7 +934,7 @@
 .end method
 
 .method public printShortString(Ljava/io/PrintWriter;)V
-    .registers 4
+    .locals 2
     .parameter "pw"
 
     .prologue
@@ -980,7 +980,7 @@
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -1017,7 +1017,7 @@
 .end method
 
 .method public round(Landroid/graphics/Rect;)V
-    .registers 6
+    .locals 4
     .parameter "dst"
 
     .prologue
@@ -1053,7 +1053,7 @@
 .end method
 
 .method public roundOut(Landroid/graphics/Rect;)V
-    .registers 6
+    .locals 4
     .parameter "dst"
 
     .prologue
@@ -1097,7 +1097,7 @@
 .end method
 
 .method public set(FFFF)V
-    .registers 5
+    .locals 0
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -1121,7 +1121,7 @@
 .end method
 
 .method public set(Landroid/graphics/Rect;)V
-    .registers 3
+    .locals 1
     .parameter "src"
 
     .prologue
@@ -1158,7 +1158,7 @@
 .end method
 
 .method public set(Landroid/graphics/RectF;)V
-    .registers 3
+    .locals 1
     .parameter "src"
 
     .prologue
@@ -1187,7 +1187,7 @@
 .end method
 
 .method public setEmpty()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 177
@@ -1206,7 +1206,7 @@
 .end method
 
 .method public setIntersect(Landroid/graphics/RectF;Landroid/graphics/RectF;)Z
-    .registers 5
+    .locals 2
     .parameter "a"
     .parameter "b"
 
@@ -1218,7 +1218,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_4a
+    if-gez v0, :cond_0
 
     iget v0, p2, Landroid/graphics/RectF;->left:F
 
@@ -1226,7 +1226,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_4a
+    if-gez v0, :cond_0
 
     iget v0, p1, Landroid/graphics/RectF;->top:F
 
@@ -1234,7 +1234,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_4a
+    if-gez v0, :cond_0
 
     iget v0, p2, Landroid/graphics/RectF;->top:F
 
@@ -1242,7 +1242,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_4a
+    if-gez v0, :cond_0
 
     .line 387
     iget v0, p1, Landroid/graphics/RectF;->left:F
@@ -1292,17 +1292,17 @@
     const/4 v0, 0x1
 
     .line 393
-    :goto_49
+    :goto_0
     return v0
 
-    :cond_4a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_49
+    goto :goto_0
 .end method
 
 .method public sort()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 518
@@ -1312,7 +1312,7 @@
 
     cmpl-float v1, v1, v2
 
-    if-lez v1, :cond_10
+    if-lez v1, :cond_0
 
     .line 519
     iget v0, p0, Landroid/graphics/RectF;->left:F
@@ -1328,14 +1328,14 @@
 
     .line 523
     .end local v0           #temp:F
-    :cond_10
+    :cond_0
     iget v1, p0, Landroid/graphics/RectF;->top:F
 
     iget v2, p0, Landroid/graphics/RectF;->bottom:F
 
     cmpl-float v1, v1, v2
 
-    if-lez v1, :cond_20
+    if-lez v1, :cond_1
 
     .line 524
     iget v0, p0, Landroid/graphics/RectF;->top:F
@@ -1351,12 +1351,12 @@
 
     .line 528
     .end local v0           #temp:F
-    :cond_20
+    :cond_1
     return-void
 .end method
 
 .method public toShortString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 109
@@ -1374,7 +1374,7 @@
 .end method
 
 .method public toShortString(Ljava/lang/StringBuilder;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "sb"
 
     .prologue
@@ -1429,7 +1429,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 101
@@ -1499,7 +1499,7 @@
 .end method
 
 .method public union(FF)V
-    .registers 4
+    .locals 1
     .parameter "x"
     .parameter "y"
 
@@ -1509,57 +1509,57 @@
 
     cmpg-float v0, p1, v0
 
-    if-gez v0, :cond_11
+    if-gez v0, :cond_2
 
     .line 499
     iput p1, p0, Landroid/graphics/RectF;->left:F
 
     .line 503
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     iget v0, p0, Landroid/graphics/RectF;->top:F
 
     cmpg-float v0, p2, v0
 
-    if-gez v0, :cond_1a
+    if-gez v0, :cond_3
 
     .line 504
     iput p2, p0, Landroid/graphics/RectF;->top:F
 
     .line 508
-    :cond_10
-    :goto_10
+    :cond_1
+    :goto_1
     return-void
 
     .line 500
-    :cond_11
+    :cond_2
     iget v0, p0, Landroid/graphics/RectF;->right:F
 
     cmpl-float v0, p1, v0
 
-    if-lez v0, :cond_8
+    if-lez v0, :cond_0
 
     .line 501
     iput p1, p0, Landroid/graphics/RectF;->right:F
 
-    goto :goto_8
+    goto :goto_0
 
     .line 505
-    :cond_1a
+    :cond_3
     iget v0, p0, Landroid/graphics/RectF;->bottom:F
 
     cmpl-float v0, p2, v0
 
-    if-lez v0, :cond_10
+    if-lez v0, :cond_1
 
     .line 506
     iput p2, p0, Landroid/graphics/RectF;->bottom:F
 
-    goto :goto_10
+    goto :goto_1
 .end method
 
 .method public union(FFFF)V
-    .registers 7
+    .locals 2
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -1569,11 +1569,11 @@
     .line 460
     cmpg-float v0, p1, p3
 
-    if-gez v0, :cond_38
+    if-gez v0, :cond_3
 
     cmpg-float v0, p2, p4
 
-    if-gez v0, :cond_38
+    if-gez v0, :cond_3
 
     .line 461
     iget v0, p0, Landroid/graphics/RectF;->left:F
@@ -1582,7 +1582,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_39
+    if-gez v0, :cond_4
 
     iget v0, p0, Landroid/graphics/RectF;->top:F
 
@@ -1590,58 +1590,58 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_39
+    if-gez v0, :cond_4
 
     .line 462
     iget v0, p0, Landroid/graphics/RectF;->left:F
 
     cmpl-float v0, v0, p1
 
-    if-lez v0, :cond_20
+    if-lez v0, :cond_0
 
     .line 463
     iput p1, p0, Landroid/graphics/RectF;->left:F
 
     .line 464
-    :cond_20
+    :cond_0
     iget v0, p0, Landroid/graphics/RectF;->top:F
 
     cmpl-float v0, v0, p2
 
-    if-lez v0, :cond_28
+    if-lez v0, :cond_1
 
     .line 465
     iput p2, p0, Landroid/graphics/RectF;->top:F
 
     .line 466
-    :cond_28
+    :cond_1
     iget v0, p0, Landroid/graphics/RectF;->right:F
 
     cmpg-float v0, v0, p3
 
-    if-gez v0, :cond_30
+    if-gez v0, :cond_2
 
     .line 467
     iput p3, p0, Landroid/graphics/RectF;->right:F
 
     .line 468
-    :cond_30
+    :cond_2
     iget v0, p0, Landroid/graphics/RectF;->bottom:F
 
     cmpg-float v0, v0, p4
 
-    if-gez v0, :cond_38
+    if-gez v0, :cond_3
 
     .line 469
     iput p4, p0, Landroid/graphics/RectF;->bottom:F
 
     .line 477
-    :cond_38
-    :goto_38
+    :cond_3
+    :goto_0
     return-void
 
     .line 471
-    :cond_39
+    :cond_4
     iput p1, p0, Landroid/graphics/RectF;->left:F
 
     .line 472
@@ -1653,11 +1653,11 @@
     .line 474
     iput p4, p0, Landroid/graphics/RectF;->bottom:F
 
-    goto :goto_38
+    goto :goto_0
 .end method
 
 .method public union(Landroid/graphics/RectF;)V
-    .registers 6
+    .locals 4
     .parameter "r"
 
     .prologue
@@ -1677,7 +1677,7 @@
 .end method
 
 .method public final width()F
-    .registers 3
+    .locals 2
 
     .prologue
     .line 146
@@ -1691,7 +1691,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 

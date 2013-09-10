@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/BackupManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/BackupManagerService;Lcom/android/server/BackupManagerService$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 9
+    .locals 6
     .parameter "context"
     .parameter "intent"
 
@@ -63,7 +63,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_37
+    if-eqz v2, :cond_0
 
     .line 860
     iget-object v2, p0, Lcom/android/server/BackupManagerService$RunBackupReceiver;->this$0:Lcom/android/server/BackupManagerService;
@@ -73,7 +73,7 @@
     monitor-enter v3
 
     .line 861
-    :try_start_11
+    :try_start_0
     iget-object v2, p0, Lcom/android/server/BackupManagerService$RunBackupReceiver;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-object v2, v2, Lcom/android/server/BackupManagerService;->mPendingInits:Ljava/util/HashSet;
@@ -82,7 +82,7 @@
 
     move-result v2
 
-    if-lez v2, :cond_44
+    if-lez v2, :cond_1
 
     .line 864
     const-string v2, "BackupManagerService"
@@ -90,13 +90,14 @@
     const-string v4, "Init pending at scheduled backup"
 
     invoke-static {v2, v4}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_22
-    .catchall {:try_start_11 .. :try_end_22} :catchall_41
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 866
-    :try_start_22
+    :try_start_1
     iget-object v2, p0, Lcom/android/server/BackupManagerService$RunBackupReceiver;->this$0:Lcom/android/server/BackupManagerService;
 
+    #getter for: Lcom/android/server/BackupManagerService;->mAlarmManager:Landroid/app/AlarmManager;
     invoke-static {v2}, Lcom/android/server/BackupManagerService;->access$400(Lcom/android/server/BackupManagerService;)Landroid/app/AlarmManager;
 
     move-result-object v2
@@ -113,21 +114,21 @@
     iget-object v2, v2, Lcom/android/server/BackupManagerService;->mRunInitIntent:Landroid/app/PendingIntent;
 
     invoke-virtual {v2}, Landroid/app/PendingIntent;->send()V
-    :try_end_36
-    .catchall {:try_start_22 .. :try_end_36} :catchall_41
-    .catch Landroid/app/PendingIntent$CanceledException; {:try_start_22 .. :try_end_36} :catch_38
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Landroid/app/PendingIntent$CanceledException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 893
-    :goto_36
-    :try_start_36
+    :goto_0
+    :try_start_2
     monitor-exit v3
 
     .line 895
-    :cond_37
+    :cond_0
     return-void
 
     .line 868
-    :catch_38
+    :catch_0
     move-exception v0
 
     .line 869
@@ -138,40 +139,40 @@
 
     invoke-static {v2, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_36
+    goto :goto_0
 
     .line 893
     .end local v0           #ce:Landroid/app/PendingIntent$CanceledException;
-    :catchall_41
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_43
-    .catchall {:try_start_36 .. :try_end_43} :catchall_41
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v2
 
     .line 875
-    :cond_44
-    :try_start_44
+    :cond_1
+    :try_start_3
     iget-object v2, p0, Lcom/android/server/BackupManagerService$RunBackupReceiver;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-boolean v2, v2, Lcom/android/server/BackupManagerService;->mEnabled:Z
 
-    if-eqz v2, :cond_82
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Lcom/android/server/BackupManagerService$RunBackupReceiver;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-boolean v2, v2, Lcom/android/server/BackupManagerService;->mProvisioned:Z
 
-    if-eqz v2, :cond_82
+    if-eqz v2, :cond_3
 
     .line 876
     iget-object v2, p0, Lcom/android/server/BackupManagerService$RunBackupReceiver;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-boolean v2, v2, Lcom/android/server/BackupManagerService;->mBackupRunning:Z
 
-    if-nez v2, :cond_7a
+    if-nez v2, :cond_2
 
     .line 877
     const-string v2, "BackupManagerService"
@@ -213,21 +214,21 @@
 
     invoke-virtual {v2, v1}, Lcom/android/server/BackupManagerService$BackupHandler;->sendMessage(Landroid/os/Message;)Z
 
-    goto :goto_36
+    goto :goto_0
 
     .line 887
     .end local v1           #msg:Landroid/os/Message;
-    :cond_7a
+    :cond_2
     const-string v2, "BackupManagerService"
 
     const-string v4, "Backup time but one already running"
 
     invoke-static {v2, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_36
+    goto :goto_0
 
     .line 890
-    :cond_82
+    :cond_3
     const-string v2, "BackupManagerService"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -267,8 +268,8 @@
     move-result-object v4
 
     invoke-static {v2, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_ac
-    .catchall {:try_start_44 .. :try_end_ac} :catchall_41
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto :goto_36
+    goto :goto_0
 .end method

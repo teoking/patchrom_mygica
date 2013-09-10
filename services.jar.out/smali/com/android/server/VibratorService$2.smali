@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/VibratorService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,12 +38,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 266
     iget-object v0, p0, Lcom/android/server/VibratorService$2;->this$0:Lcom/android/server/VibratorService;
 
+    #getter for: Lcom/android/server/VibratorService;->mVibrations:Ljava/util/LinkedList;
     invoke-static {v0}, Lcom/android/server/VibratorService;->access$000(Lcom/android/server/VibratorService;)Ljava/util/LinkedList;
 
     move-result-object v1
@@ -51,14 +52,16 @@
     monitor-enter v1
 
     .line 267
-    :try_start_7
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/VibratorService$2;->this$0:Lcom/android/server/VibratorService;
 
+    #calls: Lcom/android/server/VibratorService;->doCancelVibrateLocked()V
     invoke-static {v0}, Lcom/android/server/VibratorService;->access$200(Lcom/android/server/VibratorService;)V
 
     .line 268
     iget-object v0, p0, Lcom/android/server/VibratorService$2;->this$0:Lcom/android/server/VibratorService;
 
+    #calls: Lcom/android/server/VibratorService;->startNextVibrationLocked()V
     invoke-static {v0}, Lcom/android/server/VibratorService;->access$300(Lcom/android/server/VibratorService;)V
 
     .line 269
@@ -68,12 +71,12 @@
     return-void
 
     .line 269
-    :catchall_13
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_15
-    .catchall {:try_start_7 .. :try_end_15} :catchall_13
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

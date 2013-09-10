@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>([BIII[I)V
-    .registers 8
+    .locals 2
     .parameter "yuv"
     .parameter "format"
     .parameter "width"
@@ -35,11 +35,11 @@
     .line 80
     const/16 v0, 0x11
 
-    if-eq p2, v0, :cond_14
+    if-eq p2, v0, :cond_0
 
     const/16 v0, 0x14
 
-    if-eq p2, v0, :cond_14
+    if-eq p2, v0, :cond_0
 
     .line 82
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -51,13 +51,13 @@
     throw v0
 
     .line 87
-    :cond_14
-    if-lez p3, :cond_18
+    :cond_0
+    if-lez p3, :cond_1
 
-    if-gtz p4, :cond_21
+    if-gtz p4, :cond_2
 
     .line 88
-    :cond_18
+    :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "width and height must large than 0"
@@ -67,8 +67,8 @@
     throw v0
 
     .line 92
-    :cond_21
-    if-nez p1, :cond_2c
+    :cond_2
+    if-nez p1, :cond_3
 
     .line 93
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -80,8 +80,8 @@
     throw v0
 
     .line 96
-    :cond_2c
-    if-nez p5, :cond_3d
+    :cond_3
+    if-nez p5, :cond_4
 
     .line 97
     invoke-direct {p0, p3, p2}, Landroid/graphics/YuvImage;->calculateStrides(II)[I
@@ -91,7 +91,7 @@
     iput-object v0, p0, Landroid/graphics/YuvImage;->mStrides:[I
 
     .line 102
-    :goto_34
+    :goto_0
     iput-object p1, p0, Landroid/graphics/YuvImage;->mData:[B
 
     .line 103
@@ -107,14 +107,14 @@
     return-void
 
     .line 99
-    :cond_3d
+    :cond_4
     iput-object p5, p0, Landroid/graphics/YuvImage;->mStrides:[I
 
-    goto :goto_34
+    goto :goto_0
 .end method
 
 .method private adjustRectangle(Landroid/graphics/Rect;)V
-    .registers 6
+    .locals 4
     .parameter "rect"
 
     .prologue
@@ -135,7 +135,7 @@
 
     const/16 v3, 0x11
 
-    if-ne v2, v3, :cond_28
+    if-ne v2, v3, :cond_0
 
     .line 219
     and-int/lit8 v1, v1, -0x2
@@ -172,12 +172,12 @@
     iput v2, p1, Landroid/graphics/Rect;->bottom:I
 
     .line 227
-    :cond_28
+    :cond_0
     iget v2, p0, Landroid/graphics/YuvImage;->mFormat:I
 
     const/16 v3, 0x14
 
-    if-ne v2, v3, :cond_3b
+    if-ne v2, v3, :cond_1
 
     .line 229
     and-int/lit8 v1, v1, -0x2
@@ -197,12 +197,12 @@
     iput v2, p1, Landroid/graphics/Rect;->right:I
 
     .line 233
-    :cond_3b
+    :cond_1
     return-void
 .end method
 
 .method private calculateStrides(II)[I
-    .registers 8
+    .locals 5
     .parameter "width"
     .parameter "format"
 
@@ -218,7 +218,7 @@
     .local v0, strides:[I
     const/16 v2, 0x11
 
-    if-ne p2, v2, :cond_10
+    if-ne p2, v2, :cond_0
 
     .line 202
     const/4 v2, 0x2
@@ -236,16 +236,16 @@
     .line 211
     .end local v0           #strides:[I
     .local v1, strides:[I
-    :goto_f
+    :goto_0
     return-object v1
 
     .line 206
     .end local v1           #strides:[I
     .restart local v0       #strides:[I
-    :cond_10
+    :cond_0
     const/16 v2, 0x14
 
-    if-ne p2, v2, :cond_1c
+    if-ne p2, v2, :cond_1
 
     .line 207
     new-array v0, v4, [I
@@ -261,17 +261,17 @@
     .line 208
     .end local v0           #strides:[I
     .restart local v1       #strides:[I
-    goto :goto_f
+    goto :goto_0
 
     .end local v1           #strides:[I
     .restart local v0       #strides:[I
-    :cond_1c
+    :cond_1
     move-object v1, v0
 
     .line 211
     .end local v0           #strides:[I
     .restart local v1       #strides:[I
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method private static native nativeCompressToJpeg([BIII[I[IILjava/io/OutputStream;[B)Z
@@ -280,7 +280,7 @@
 
 # virtual methods
 .method calculateOffsets(II)[I
-    .registers 9
+    .locals 6
     .parameter "left"
     .parameter "top"
 
@@ -298,7 +298,7 @@
 
     const/16 v3, 0x11
 
-    if-ne v2, v3, :cond_2c
+    if-ne v2, v3, :cond_0
 
     .line 185
     const/4 v2, 0x2
@@ -348,18 +348,18 @@
     .line 196
     .end local v0           #offsets:[I
     .local v1, offsets:[I
-    :goto_2b
+    :goto_0
     return-object v1
 
     .line 191
     .end local v1           #offsets:[I
     .restart local v0       #offsets:[I
-    :cond_2c
+    :cond_0
     iget v2, p0, Landroid/graphics/YuvImage;->mFormat:I
 
     const/16 v3, 0x14
 
-    if-ne v2, v3, :cond_42
+    if-ne v2, v3, :cond_1
 
     .line 192
     new-array v0, v5, [I
@@ -385,21 +385,21 @@
     .line 193
     .end local v0           #offsets:[I
     .restart local v1       #offsets:[I
-    goto :goto_2b
+    goto :goto_0
 
     .end local v1           #offsets:[I
     .restart local v0       #offsets:[I
-    :cond_42
+    :cond_1
     move-object v1, v0
 
     .line 196
     .end local v0           #offsets:[I
     .restart local v1       #offsets:[I
-    goto :goto_2b
+    goto :goto_0
 .end method
 
 .method public compressToJpeg(Landroid/graphics/Rect;ILjava/io/OutputStream;)Z
-    .registers 14
+    .locals 10
     .parameter "rectangle"
     .parameter "quality"
     .parameter "stream"
@@ -422,7 +422,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_0
 
     .line 126
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -434,15 +434,15 @@
     throw v0
 
     .line 130
-    :cond_19
-    if-ltz p2, :cond_1f
+    :cond_0
+    if-ltz p2, :cond_1
 
     const/16 v0, 0x64
 
-    if-le p2, v0, :cond_28
+    if-le p2, v0, :cond_2
 
     .line 131
-    :cond_1f
+    :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "quality must be 0..100"
@@ -452,8 +452,8 @@
     throw v0
 
     .line 134
-    :cond_28
-    if-nez p3, :cond_33
+    :cond_2
+    if-nez p3, :cond_3
 
     .line 135
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -465,7 +465,7 @@
     throw v0
 
     .line 138
-    :cond_33
+    :cond_3
     invoke-direct {p0, p1}, Landroid/graphics/YuvImage;->adjustRectangle(Landroid/graphics/Rect;)V
 
     .line 139
@@ -509,7 +509,7 @@
 .end method
 
 .method public getHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 179
@@ -519,7 +519,7 @@
 .end method
 
 .method public getStrides()[I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 165
@@ -529,7 +529,7 @@
 .end method
 
 .method public getWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 172
@@ -539,7 +539,7 @@
 .end method
 
 .method public getYuvData()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 151
@@ -549,7 +549,7 @@
 .end method
 
 .method public getYuvFormat()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 158

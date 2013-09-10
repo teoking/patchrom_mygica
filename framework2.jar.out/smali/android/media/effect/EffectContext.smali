@@ -21,7 +21,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x3
@@ -80,7 +80,7 @@
 .end method
 
 .method public static createWithCurrentGlContext()Landroid/media/effect/EffectContext;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 60
@@ -97,7 +97,7 @@
 .end method
 
 .method private initInCurrentGlContext()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 99
@@ -105,7 +105,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_0
 
     .line 100
     new-instance v1, Ljava/lang/RuntimeException;
@@ -117,7 +117,7 @@
     throw v1
 
     .line 103
-    :cond_e
+    :cond_0
     new-instance v0, Landroid/filterfw/core/GLEnvironment;
 
     invoke-direct {v0}, Landroid/filterfw/core/GLEnvironment;-><init>()V
@@ -138,7 +138,7 @@
 
 # virtual methods
 .method final assertValidGLState()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 109
@@ -150,21 +150,21 @@
 
     .line 110
     .local v0, glEnv:Landroid/filterfw/core/GLEnvironment;
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/filterfw/core/GLEnvironment;->isContextActive()Z
 
     move-result v1
 
-    if-nez v1, :cond_24
+    if-nez v1, :cond_2
 
     .line 111
-    :cond_e
+    :cond_0
     invoke-static {}, Landroid/filterfw/core/GLEnvironment;->isAnyContextActive()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1c
+    if-eqz v1, :cond_1
 
     .line 112
     new-instance v1, Ljava/lang/RuntimeException;
@@ -176,7 +176,7 @@
     throw v1
 
     .line 114
-    :cond_1c
+    :cond_1
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Attempting to apply effect without valid GL context!"
@@ -186,12 +186,12 @@
     throw v1
 
     .line 117
-    :cond_24
+    :cond_2
     return-void
 .end method
 
 .method public getFactory()Landroid/media/effect/EffectFactory;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 74
@@ -201,7 +201,7 @@
 .end method
 
 .method public release()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 88
@@ -219,7 +219,7 @@
 .end method
 
 .method final restoreGLState()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 126
@@ -258,7 +258,7 @@
 .end method
 
 .method final saveGLState()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 120

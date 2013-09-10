@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/StatusBarManagerService;II)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 313
@@ -56,10 +56,10 @@
 
     iget-object v0, v0, Lcom/android/server/StatusBarManagerService;->mBar:Lcom/android/internal/statusbar/IStatusBar;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 315
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/StatusBarManagerService$4;->this$0:Lcom/android/server/StatusBarManagerService;
 
     iget-object v0, v0, Lcom/android/server/StatusBarManagerService;->mBar:Lcom/android/internal/statusbar/IStatusBar;
@@ -69,17 +69,17 @@
     iget v2, p0, Lcom/android/server/StatusBarManagerService$4;->val$mask:I
 
     invoke-interface {v0, v1, v2}, Lcom/android/internal/statusbar/IStatusBar;->setSystemUiVisibility(II)V
-    :try_end_11
-    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_11} :catch_12
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 319
-    :cond_11
-    :goto_11
+    :cond_0
+    :goto_0
     return-void
 
     .line 316
-    :catch_12
+    :catch_0
     move-exception v0
 
-    goto :goto_11
+    goto :goto_0
 .end method

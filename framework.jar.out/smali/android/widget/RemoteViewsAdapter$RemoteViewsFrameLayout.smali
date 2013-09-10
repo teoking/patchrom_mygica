@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public onRemoteViewsLoaded(Landroid/widget/RemoteViews;)V
-    .registers 5
+    .locals 3
     .parameter "view"
 
     .prologue
@@ -48,15 +48,15 @@
     move-result-object v1
 
     invoke-virtual {p0, v1}, Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;->addView(Landroid/view/View;)V
-    :try_end_e
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_e} :catch_f
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 288
-    :goto_e
+    :goto_0
     return-void
 
     .line 285
-    :catch_f
+    :catch_0
     move-exception v0
 
     .line 286
@@ -67,5 +67,5 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_e
+    goto :goto_0
 .end method

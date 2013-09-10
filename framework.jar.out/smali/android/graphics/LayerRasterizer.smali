@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 20
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public addLayer(Landroid/graphics/Paint;)V
-    .registers 5
+    .locals 3
     .parameter "paint"
 
     .prologue
@@ -49,7 +49,7 @@
 .end method
 
 .method public addLayer(Landroid/graphics/Paint;FF)V
-    .registers 6
+    .locals 2
     .parameter "paint"
     .parameter "dx"
     .parameter "dy"

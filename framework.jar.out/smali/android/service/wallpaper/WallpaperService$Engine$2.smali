@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/service/wallpaper/WallpaperService$Engine;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public isCreating()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 210
@@ -53,7 +53,7 @@
 .end method
 
 .method public onAllowLockCanvas()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 194
@@ -65,7 +65,7 @@
 .end method
 
 .method public onRelayoutContainer()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 199
@@ -92,7 +92,7 @@
 .end method
 
 .method public onUpdateSurface()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 205
@@ -119,7 +119,7 @@
 .end method
 
 .method public setFixedSize(II)V
-    .registers 5
+    .locals 2
     .parameter "width"
     .parameter "height"
 
@@ -129,7 +129,7 @@
 
     iget-boolean v0, v0, Landroid/service/wallpaper/WallpaperService$Engine;->mFixedSizeAllowed:Z
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 219
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -141,7 +141,7 @@
     throw v0
 
     .line 222
-    :cond_e
+    :cond_0
     invoke-super {p0, p1, p2}, Lcom/android/internal/view/BaseSurfaceHolder;->setFixedSize(II)V
 
     .line 223
@@ -149,7 +149,7 @@
 .end method
 
 .method public setKeepScreenOn(Z)V
-    .registers 4
+    .locals 2
     .parameter "screenOn"
 
     .prologue

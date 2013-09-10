@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/location/LocationBasedCountryDetector;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,12 +38,12 @@
 
 # virtual methods
 .method public onLocationChanged(Landroid/location/Location;)V
-    .registers 3
+    .locals 1
     .parameter "location"
 
     .prologue
     .line 161
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_0
 
     .line 162
     iget-object v0, p0, Lcom/android/server/location/LocationBasedCountryDetector$1;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
@@ -53,15 +53,16 @@
     .line 163
     iget-object v0, p0, Lcom/android/server/location/LocationBasedCountryDetector$1;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
 
+    #calls: Lcom/android/server/location/LocationBasedCountryDetector;->queryCountryCode(Landroid/location/Location;)V
     invoke-static {v0, p1}, Lcom/android/server/location/LocationBasedCountryDetector;->access$000(Lcom/android/server/location/LocationBasedCountryDetector;Landroid/location/Location;)V
 
     .line 165
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public onProviderDisabled(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "provider"
 
     .prologue
@@ -70,7 +71,7 @@
 .end method
 
 .method public onProviderEnabled(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "provider"
 
     .prologue
@@ -79,7 +80,7 @@
 .end method
 
 .method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
-    .registers 4
+    .locals 0
     .parameter "provider"
     .parameter "status"
     .parameter "extras"

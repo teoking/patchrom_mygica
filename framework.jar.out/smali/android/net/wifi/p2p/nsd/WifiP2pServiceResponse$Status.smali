@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 106
@@ -36,49 +36,49 @@
 .end method
 
 .method public static toString(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "status"
 
     .prologue
     .line 91
-    packed-switch p0, :pswitch_data_12
+    packed-switch p0, :pswitch_data_0
 
     .line 101
     const-string v0, "UNKNOWN"
 
-    :goto_5
+    :goto_0
     return-object v0
 
     .line 93
-    :pswitch_6
+    :pswitch_0
     const-string v0, "SUCCESS"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 95
-    :pswitch_9
+    :pswitch_1
     const-string v0, "SERVICE_PROTOCOL_NOT_AVAILABLE"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 97
-    :pswitch_c
+    :pswitch_2
     const-string v0, "REQUESTED_INFORMATION_NOT_AVAILABLE"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 99
-    :pswitch_f
+    :pswitch_3
     const-string v0, "BAD_REQUEST"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 91
-    :pswitch_data_12
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_6
-        :pswitch_9
-        :pswitch_c
-        :pswitch_f
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method

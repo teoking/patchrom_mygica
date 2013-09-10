@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/AudioRecord;Landroid/media/AudioRecord;Landroid/os/Looper;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "recorder"
     .parameter "looper"
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "msg"
 
     .prologue
@@ -55,6 +55,7 @@
     .local v0, listener:Landroid/media/AudioRecord$OnRecordPositionUpdateListener;
     iget-object v1, p0, Landroid/media/AudioRecord$NativeEventHandler;->this$0:Landroid/media/AudioRecord;
 
+    #getter for: Landroid/media/AudioRecord;->mPositionListenerLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/media/AudioRecord;->access$000(Landroid/media/AudioRecord;)Ljava/lang/Object;
 
     move-result-object v2
@@ -62,22 +63,23 @@
     monitor-enter v2
 
     .line 753
-    :try_start_8
+    :try_start_0
     iget-object v1, p0, Landroid/media/AudioRecord$NativeEventHandler;->mAudioRecord:Landroid/media/AudioRecord;
 
+    #getter for: Landroid/media/AudioRecord;->mPositionListener:Landroid/media/AudioRecord$OnRecordPositionUpdateListener;
     invoke-static {v1}, Landroid/media/AudioRecord;->access$100(Landroid/media/AudioRecord;)Landroid/media/AudioRecord$OnRecordPositionUpdateListener;
 
     move-result-object v0
 
     .line 754
     monitor-exit v2
-    :try_end_f
-    .catchall {:try_start_8 .. :try_end_f} :catchall_2f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 756
     iget v1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v1, :pswitch_data_42
+    packed-switch v1, :pswitch_data_0
 
     .line 768
     const-string v1, "AudioRecord-Java"
@@ -105,47 +107,47 @@
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 772
-    :cond_2e
-    :goto_2e
+    :cond_0
+    :goto_0
     return-void
 
     .line 754
-    :catchall_2f
+    :catchall_0
     move-exception v1
 
-    :try_start_30
+    :try_start_1
     monitor-exit v2
-    :try_end_31
-    .catchall {:try_start_30 .. :try_end_31} :catchall_2f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 
     .line 758
-    :pswitch_32
-    if-eqz v0, :cond_2e
+    :pswitch_0
+    if-eqz v0, :cond_0
 
     .line 759
     iget-object v1, p0, Landroid/media/AudioRecord$NativeEventHandler;->mAudioRecord:Landroid/media/AudioRecord;
 
     invoke-interface {v0, v1}, Landroid/media/AudioRecord$OnRecordPositionUpdateListener;->onMarkerReached(Landroid/media/AudioRecord;)V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 763
-    :pswitch_3a
-    if-eqz v0, :cond_2e
+    :pswitch_1
+    if-eqz v0, :cond_0
 
     .line 764
     iget-object v1, p0, Landroid/media/AudioRecord$NativeEventHandler;->mAudioRecord:Landroid/media/AudioRecord;
 
     invoke-interface {v0, v1}, Landroid/media/AudioRecord$OnRecordPositionUpdateListener;->onPeriodicNotification(Landroid/media/AudioRecord;)V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 756
-    :pswitch_data_42
+    :pswitch_data_0
     .packed-switch 0x2
-        :pswitch_32
-        :pswitch_3a
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

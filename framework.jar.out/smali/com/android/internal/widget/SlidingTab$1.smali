@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/SlidingTab;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,13 +38,14 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .registers 3
+    .locals 1
     .parameter "animation"
 
     .prologue
     .line 100
     iget-object v0, p0, Lcom/android/internal/widget/SlidingTab$1;->this$0:Lcom/android/internal/widget/SlidingTab;
 
+    #calls: Lcom/android/internal/widget/SlidingTab;->onAnimationDone()V
     invoke-static {v0}, Lcom/android/internal/widget/SlidingTab;->access$000(Lcom/android/internal/widget/SlidingTab;)V
 
     .line 101
@@ -52,7 +53,7 @@
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
-    .registers 2
+    .locals 0
     .parameter "animation"
 
     .prologue
@@ -61,7 +62,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
-    .registers 2
+    .locals 0
     .parameter "animation"
 
     .prologue

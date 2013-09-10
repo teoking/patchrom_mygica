@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 136
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Landroid/location/Country;)V
-    .registers 4
+    .locals 2
     .parameter "country"
 
     .prologue
@@ -80,7 +80,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
     .parameter "countryIso"
     .parameter "source"
 
@@ -89,16 +89,16 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 82
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_0
 
-    if-ltz p2, :cond_a
+    if-ltz p2, :cond_0
 
     const/4 v0, 0x3
 
-    if-le p2, v0, :cond_10
+    if-le p2, v0, :cond_1
 
     .line 84
-    :cond_a
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -106,7 +106,7 @@
     throw v0
 
     .line 86
-    :cond_10
+    :cond_1
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
@@ -130,7 +130,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IJ)V
-    .registers 6
+    .locals 1
     .parameter "countryIso"
     .parameter "source"
     .parameter "timestamp"
@@ -140,16 +140,16 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 92
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_0
 
-    if-ltz p2, :cond_a
+    if-ltz p2, :cond_0
 
     const/4 v0, 0x3
 
-    if-le p2, v0, :cond_10
+    if-le p2, v0, :cond_1
 
     .line 94
-    :cond_a
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -157,7 +157,7 @@
     throw v0
 
     .line 96
-    :cond_10
+    :cond_1
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
@@ -177,7 +177,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;IJLandroid/location/Country$1;)V
-    .registers 6
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -193,7 +193,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 147
@@ -203,7 +203,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "object"
 
     .prologue
@@ -212,18 +212,18 @@
     const/4 v2, 0x0
 
     .line 163
-    if-ne p1, p0, :cond_5
+    if-ne p1, p0, :cond_1
 
     .line 171
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 166
-    :cond_5
+    :cond_1
     instance-of v3, p1, Landroid/location/Country;
 
-    if-eqz v3, :cond_22
+    if-eqz v3, :cond_3
 
     move-object v0, p1
 
@@ -242,7 +242,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_2
 
     iget v3, p0, Landroid/location/Country;->mSource:I
 
@@ -250,28 +250,28 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_0
 
-    :cond_20
+    :cond_2
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 
     .end local v0           #c:Landroid/location/Country;
-    :cond_22
+    :cond_3
     move v1, v2
 
     .line 171
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public equalsIgnoreSource(Landroid/location/Country;)Z
-    .registers 4
+    .locals 2
     .parameter "country"
 
     .prologue
     .line 195
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Landroid/location/Country;->mCountryIso:Ljava/lang/String;
 
@@ -283,21 +283,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public final getCountryIso()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 111
@@ -307,7 +307,7 @@
 .end method
 
 .method public final getSource()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 125
@@ -317,7 +317,7 @@
 .end method
 
 .method public final getTimestamp()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 133
@@ -327,7 +327,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 176
@@ -335,7 +335,7 @@
 
     .line 177
     .local v0, hash:I
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 178
     const/16 v0, 0x11
@@ -360,14 +360,14 @@
     iput v0, p0, Landroid/location/Country;->mHashCode:I
 
     .line 183
-    :cond_16
+    :cond_0
     iget v1, p0, Landroid/location/Country;->mHashCode:I
 
     return v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 200
@@ -425,7 +425,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "parcel"
     .parameter "flags"
 

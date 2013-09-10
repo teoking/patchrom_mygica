@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "init"
 
     .prologue
@@ -111,7 +111,7 @@
 
 # virtual methods
 .method public isDefault()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 78
@@ -119,15 +119,15 @@
 
     iget v1, p0, Landroid/net/NetworkConfig;->radio:I
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method

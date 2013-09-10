@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/Path;Z)V
-    .registers 4
+    .locals 1
     .parameter "path"
     .parameter "forceClosed"
 
@@ -54,13 +54,13 @@
     iput-object p1, p0, Landroid/graphics/PathMeasure;->mPath:Landroid/graphics/Path;
 
     .line 53
-    if-eqz p1, :cond_12
+    if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Landroid/graphics/Path;->ni()I
 
     move-result v0
 
-    :goto_b
+    :goto_0
     invoke-static {v0, p2}, Landroid/graphics/PathMeasure;->native_create(IZ)I
 
     move-result v0
@@ -71,10 +71,10 @@
     return-void
 
     .line 53
-    :cond_12
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method private static native native_create(IZ)I
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -125,7 +125,7 @@
 .end method
 
 .method public getLength()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 72
@@ -139,7 +139,7 @@
 .end method
 
 .method public getMatrix(FLandroid/graphics/Matrix;I)Z
-    .registers 6
+    .locals 2
     .parameter "distance"
     .parameter "matrix"
     .parameter "flags"
@@ -158,7 +158,7 @@
 .end method
 
 .method public getPosTan(F[F[F)Z
-    .registers 6
+    .locals 2
     .parameter "distance"
     .parameter "pos"
     .parameter "tan"
@@ -167,21 +167,21 @@
     const/4 v1, 0x2
 
     .line 87
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_0
 
     array-length v0, p2
 
-    if-lt v0, v1, :cond_b
+    if-lt v0, v1, :cond_1
 
-    :cond_6
-    if-eqz p3, :cond_11
+    :cond_0
+    if-eqz p3, :cond_2
 
     array-length v0, p3
 
-    if-ge v0, v1, :cond_11
+    if-ge v0, v1, :cond_2
 
     .line 89
-    :cond_b
+    :cond_1
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     invoke-direct {v0}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>()V
@@ -189,7 +189,7 @@
     throw v0
 
     .line 91
-    :cond_11
+    :cond_2
     iget v0, p0, Landroid/graphics/PathMeasure;->native_instance:I
 
     invoke-static {v0, p1, p2, p3}, Landroid/graphics/PathMeasure;->native_getPosTan(IF[F[F)Z
@@ -200,7 +200,7 @@
 .end method
 
 .method public getSegment(FFLandroid/graphics/Path;Z)Z
-    .registers 7
+    .locals 2
     .parameter "startD"
     .parameter "stopD"
     .parameter "dst"
@@ -222,7 +222,7 @@
 .end method
 
 .method public isClosed()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 126
@@ -236,7 +236,7 @@
 .end method
 
 .method public nextContour()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 134
@@ -250,7 +250,7 @@
 .end method
 
 .method public setPath(Landroid/graphics/Path;Z)V
-    .registers 5
+    .locals 2
     .parameter "path"
     .parameter "forceClosed"
 
@@ -261,21 +261,21 @@
     .line 62
     iget v1, p0, Landroid/graphics/PathMeasure;->native_instance:I
 
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Landroid/graphics/Path;->ni()I
 
     move-result v0
 
-    :goto_a
+    :goto_0
     invoke-static {v1, v0, p2}, Landroid/graphics/PathMeasure;->native_setPath(IIZ)V
 
     .line 65
     return-void
 
     .line 62
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method

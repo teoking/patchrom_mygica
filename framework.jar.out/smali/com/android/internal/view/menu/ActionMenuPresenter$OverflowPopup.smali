@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/view/menu/ActionMenuPresenter;Landroid/content/Context;Lcom/android/internal/view/menu/MenuBuilder;Landroid/view/View;Z)V
-    .registers 7
+    .locals 1
     .parameter
     .parameter "context"
     .parameter "menu"
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onDismiss()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 590
@@ -64,6 +64,7 @@
 
     const/4 v1, 0x0
 
+    #setter for: Lcom/android/internal/view/menu/ActionMenuPresenter;->mOverflowPopup:Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;
     invoke-static {v0, v1}, Lcom/android/internal/view/menu/ActionMenuPresenter;->access$102(Lcom/android/internal/view/menu/ActionMenuPresenter;Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;)Lcom/android/internal/view/menu/ActionMenuPresenter$OverflowPopup;
 
     .line 593

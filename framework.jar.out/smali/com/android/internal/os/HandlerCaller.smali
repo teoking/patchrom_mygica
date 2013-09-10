@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/internal/os/HandlerCaller$Callback;)V
-    .registers 6
+    .locals 2
     .parameter "context"
     .parameter "looper"
     .parameter "callback"
@@ -69,7 +69,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/android/internal/os/HandlerCaller$Callback;)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "callback"
 
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public executeOrSendMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
@@ -117,7 +117,7 @@
 
     iget-object v1, p0, Lcom/android/internal/os/HandlerCaller;->mMainLooper:Landroid/os/Looper;
 
-    if-ne v0, v1, :cond_11
+    if-ne v0, v1, :cond_0
 
     .line 111
     iget-object v0, p0, Lcom/android/internal/os/HandlerCaller;->mCallback:Lcom/android/internal/os/HandlerCaller$Callback;
@@ -128,20 +128,20 @@
     invoke-virtual {p1}, Landroid/os/Message;->recycle()V
 
     .line 117
-    :goto_10
+    :goto_0
     return-void
 
     .line 116
-    :cond_11
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/os/HandlerCaller;->mH:Landroid/os/Handler;
 
     invoke-virtual {v0, p1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public hasMessages(I)Z
-    .registers 3
+    .locals 1
     .parameter "what"
 
     .prologue
@@ -156,7 +156,7 @@
 .end method
 
 .method public obtainArgs()Lcom/android/internal/os/HandlerCaller$SomeArgs;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 84
@@ -165,12 +165,12 @@
     monitor-enter v2
 
     .line 85
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/os/HandlerCaller;->mArgsPool:Lcom/android/internal/os/HandlerCaller$SomeArgs;
 
     .line 86
     .local v0, args:Lcom/android/internal/os/HandlerCaller$SomeArgs;
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 87
     iget-object v1, v0, Lcom/android/internal/os/HandlerCaller$SomeArgs;->next:Lcom/android/internal/os/HandlerCaller$SomeArgs;
@@ -194,15 +194,15 @@
 
     .line 93
     .end local v0           #args:Lcom/android/internal/os/HandlerCaller$SomeArgs;
-    :goto_15
+    :goto_0
     return-object v0
 
     .line 92
     .restart local v0       #args:Lcom/android/internal/os/HandlerCaller$SomeArgs;
-    :cond_16
+    :cond_0
     monitor-exit v2
-    :try_end_17
-    .catchall {:try_start_3 .. :try_end_17} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 93
     new-instance v0, Lcom/android/internal/os/HandlerCaller$SomeArgs;
@@ -210,22 +210,22 @@
     .end local v0           #args:Lcom/android/internal/os/HandlerCaller$SomeArgs;
     invoke-direct {v0}, Lcom/android/internal/os/HandlerCaller$SomeArgs;-><init>()V
 
-    goto :goto_15
+    goto :goto_0
 
     .line 92
-    :catchall_1d
+    :catchall_0
     move-exception v1
 
-    :try_start_1e
+    :try_start_1
     monitor-exit v2
-    :try_end_1f
-    .catchall {:try_start_1e .. :try_end_1f} :catchall_1d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
 
 .method public obtainMessage(I)Landroid/os/Message;
-    .registers 3
+    .locals 1
     .parameter "what"
 
     .prologue
@@ -240,7 +240,7 @@
 .end method
 
 .method public obtainMessageBO(IZLjava/lang/Object;)Landroid/os/Message;
-    .registers 7
+    .locals 3
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -251,25 +251,25 @@
     .line 140
     iget-object v2, p0, Lcom/android/internal/os/HandlerCaller;->mH:Landroid/os/Handler;
 
-    if-eqz p2, :cond_b
+    if-eqz p2, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     invoke-virtual {v2, p1, v0, v1, p3}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 
     return-object v0
 
-    :cond_b
+    :cond_0
     move v0, v1
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public obtainMessageBOO(IZLjava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
-    .registers 9
+    .locals 4
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -293,25 +293,25 @@
     .line 147
     iget-object v3, p0, Lcom/android/internal/os/HandlerCaller;->mH:Landroid/os/Handler;
 
-    if-eqz p2, :cond_13
+    if-eqz p2, :cond_0
 
     const/4 v1, 0x1
 
-    :goto_e
+    :goto_0
     invoke-virtual {v3, p1, v1, v2, v0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v1
 
     return-object v1
 
-    :cond_13
+    :cond_0
     move v1, v2
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public obtainMessageI(II)Landroid/os/Message;
-    .registers 5
+    .locals 2
     .parameter "what"
     .parameter "arg1"
 
@@ -329,7 +329,7 @@
 .end method
 
 .method public obtainMessageII(III)Landroid/os/Message;
-    .registers 5
+    .locals 1
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -346,7 +346,7 @@
 .end method
 
 .method public obtainMessageIIII(IIIII)Landroid/os/Message;
-    .registers 9
+    .locals 3
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -385,7 +385,7 @@
 .end method
 
 .method public obtainMessageIIIIII(IIIIIII)Landroid/os/Message;
-    .registers 11
+    .locals 3
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -432,7 +432,7 @@
 .end method
 
 .method public obtainMessageIIIIO(IIIIILjava/lang/Object;)Landroid/os/Message;
-    .registers 10
+    .locals 3
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -475,7 +475,7 @@
 .end method
 
 .method public obtainMessageIIO(IIILjava/lang/Object;)Landroid/os/Message;
-    .registers 6
+    .locals 1
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -493,7 +493,7 @@
 .end method
 
 .method public obtainMessageIIOO(IIILjava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
-    .registers 8
+    .locals 2
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -524,7 +524,7 @@
 .end method
 
 .method public obtainMessageIO(IILjava/lang/Object;)Landroid/os/Message;
-    .registers 6
+    .locals 2
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -543,7 +543,7 @@
 .end method
 
 .method public obtainMessageIOO(IILjava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
-    .registers 8
+    .locals 3
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -575,7 +575,7 @@
 .end method
 
 .method public obtainMessageO(ILjava/lang/Object;)Landroid/os/Message;
-    .registers 5
+    .locals 2
     .parameter "what"
     .parameter "arg1"
 
@@ -593,7 +593,7 @@
 .end method
 
 .method public obtainMessageOO(ILjava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
-    .registers 7
+    .locals 3
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -624,7 +624,7 @@
 .end method
 
 .method public obtainMessageOOO(ILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
-    .registers 8
+    .locals 3
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -659,7 +659,7 @@
 .end method
 
 .method public obtainMessageOOOO(ILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Landroid/os/Message;
-    .registers 9
+    .locals 3
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -698,7 +698,7 @@
 .end method
 
 .method public recycleArgs(Lcom/android/internal/os/HandlerCaller$SomeArgs;)V
-    .registers 5
+    .locals 3
     .parameter "args"
 
     .prologue
@@ -708,12 +708,12 @@
     monitor-enter v1
 
     .line 98
-    :try_start_3
+    :try_start_0
     iget v0, p0, Lcom/android/internal/os/HandlerCaller;->mArgsPoolSize:I
 
     const/16 v2, 0xa
 
-    if-ge v0, v2, :cond_15
+    if-ge v0, v2, :cond_0
 
     .line 99
     iget-object v0, p0, Lcom/android/internal/os/HandlerCaller;->mArgsPool:Lcom/android/internal/os/HandlerCaller$SomeArgs;
@@ -731,25 +731,25 @@
     iput v0, p0, Lcom/android/internal/os/HandlerCaller;->mArgsPoolSize:I
 
     .line 103
-    :cond_15
+    :cond_0
     monitor-exit v1
 
     .line 104
     return-void
 
     .line 103
-    :catchall_17
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_19
-    .catchall {:try_start_3 .. :try_end_19} :catchall_17
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public removeMessages(I)V
-    .registers 3
+    .locals 1
     .parameter "what"
 
     .prologue
@@ -763,7 +763,7 @@
 .end method
 
 .method public removeMessages(ILjava/lang/Object;)V
-    .registers 4
+    .locals 1
     .parameter "what"
     .parameter "obj"
 
@@ -778,7 +778,7 @@
 .end method
 
 .method public sendMessage(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "msg"
 
     .prologue

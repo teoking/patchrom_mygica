@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/android/mms/pdu/PduComposer;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -52,7 +52,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/android/mms/pdu/PduComposer;Lcom/google/android/mms/pdu/PduComposer$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method copy()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 1109
@@ -98,7 +98,7 @@
 .end method
 
 .method mark()Lcom/google/android/mms/pdu/PduComposer$PositionMarker;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1119
@@ -116,11 +116,13 @@
 
     iget v1, v1, Lcom/google/android/mms/pdu/PduComposer;->mPosition:I
 
+    #setter for: Lcom/google/android/mms/pdu/PduComposer$PositionMarker;->c_pos:I
     invoke-static {v0, v1}, Lcom/google/android/mms/pdu/PduComposer$PositionMarker;->access$402(Lcom/google/android/mms/pdu/PduComposer$PositionMarker;I)I
 
     .line 1122
     iget v1, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->stackSize:I
 
+    #setter for: Lcom/google/android/mms/pdu/PduComposer$PositionMarker;->currentStackSize:I
     invoke-static {v0, v1}, Lcom/google/android/mms/pdu/PduComposer$PositionMarker;->access$502(Lcom/google/android/mms/pdu/PduComposer$PositionMarker;I)I
 
     .line 1124
@@ -128,13 +130,13 @@
 .end method
 
 .method newbuf()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1067
     iget-object v1, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->toCopy:Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_0
 
     .line 1068
     new-instance v1, Ljava/lang/RuntimeException;
@@ -146,7 +148,7 @@
     throw v1
 
     .line 1071
-    :cond_c
+    :cond_0
     new-instance v0, Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;
 
     const/4 v1, 0x0
@@ -204,7 +206,7 @@
 .end method
 
 .method pop()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 1089

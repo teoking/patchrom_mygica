@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/Filter;Ljava/lang/String;Ljava/lang/reflect/Field;Z)V
-    .registers 5
+    .locals 0
     .parameter "filter"
     .parameter "name"
     .parameter "field"
@@ -22,7 +22,7 @@
 
 # virtual methods
 .method protected declared-synchronized setFieldFrame(Landroid/filterfw/core/Frame;Z)V
-    .registers 6
+    .locals 3
     .parameter "frame"
     .parameter "isAssignment"
 
@@ -30,7 +30,7 @@
     .line 33
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0}, Landroid/filterfw/core/FinalPort;->assertPortIsOpen()V
 
     .line 34
@@ -43,7 +43,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_31
+    if-eqz v0, :cond_0
 
     .line 36
     new-instance v0, Ljava/lang/RuntimeException;
@@ -75,11 +75,11 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_2e
-    .catchall {:try_start_1 .. :try_end_2e} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 33
-    :catchall_2e
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -87,16 +87,16 @@
     throw v0
 
     .line 38
-    :cond_31
-    :try_start_31
+    :cond_0
+    :try_start_1
     invoke-super {p0, p1, p2}, Landroid/filterfw/core/FieldPort;->setFieldFrame(Landroid/filterfw/core/Frame;Z)V
 
     .line 39
     const/4 v0, 0x0
 
     invoke-super {p0, v0}, Landroid/filterfw/core/FieldPort;->transfer(Landroid/filterfw/core/FilterContext;)V
-    :try_end_38
-    .catchall {:try_start_31 .. :try_end_38} :catchall_2e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 41
     monitor-exit p0
@@ -105,7 +105,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 45

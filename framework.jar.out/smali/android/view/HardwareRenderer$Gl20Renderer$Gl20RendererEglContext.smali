@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Ljavax/microedition/khronos/egl/EGLContext;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onTerminate(Ljavax/microedition/khronos/egl/EGLContext;)V
-    .registers 8
+    .locals 6
     .parameter "eglContext"
 
     .prologue
@@ -56,7 +56,7 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_17
+    if-eq v0, v1, :cond_0
 
     .line 1328
     iget-object v0, p0, Landroid/view/HardwareRenderer$Gl20Renderer$Gl20RendererEglContext;->mHandler:Landroid/os/Handler;
@@ -68,38 +68,38 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     .line 1361
-    :goto_16
+    :goto_0
     return-void
 
     .line 1337
-    :cond_17
+    :cond_0
     sget-object v1, Landroid/view/HardwareRenderer$GlRenderer;->sEglLock:[Ljava/lang/Object;
 
     monitor-enter v1
 
     .line 1338
-    :try_start_1a
+    :try_start_0
     sget-object v0, Landroid/view/HardwareRenderer$GlRenderer;->sEgl:Ljavax/microedition/khronos/egl/EGL10;
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_1
 
     monitor-exit v1
 
-    goto :goto_16
+    goto :goto_0
 
     .line 1360
-    :catchall_20
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_22
-    .catchall {:try_start_1a .. :try_end_22} :catchall_20
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 1340
-    :cond_23
-    :try_start_23
+    :cond_1
+    :try_start_1
     sget-object v0, Landroid/view/HardwareRenderer$GlRenderer;->sEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
 
     invoke-static {v0}, Lcom/google/android/gles_jni/EGLImpl;->getInitCount(Ljavax/microedition/khronos/egl/EGLDisplay;)I
@@ -108,9 +108,10 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_75
+    if-ne v0, v2, :cond_2
 
     .line 1341
+    #calls: Landroid/view/HardwareRenderer$Gl20Renderer;->usePbufferSurface(Ljavax/microedition/khronos/egl/EGLContext;)V
     invoke-static {p1}, Landroid/view/HardwareRenderer$Gl20Renderer;->access$300(Ljavax/microedition/khronos/egl/EGLContext;)V
 
     .line 1342
@@ -192,10 +193,10 @@
     invoke-static {v0}, Landroid/view/HardwareRenderer$Gl20Renderer;->access$402(Ljavax/microedition/khronos/egl/EGLSurface;)Ljavax/microedition/khronos/egl/EGLSurface;
 
     .line 1360
-    :cond_75
+    :cond_2
     monitor-exit v1
-    :try_end_76
-    .catchall {:try_start_23 .. :try_end_76} :catchall_20
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_16
+    goto :goto_0
 .end method

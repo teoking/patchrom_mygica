@@ -378,7 +378,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 5
+    .locals 5
 
     .prologue
     const/4 v4, 0x2
@@ -392,7 +392,7 @@
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_34
+    fill-array-data v0, :array_0
 
     sput-object v0, Landroid/filterpacks/videoproc/BackDropperFilter;->DEFAULT_BG_FIT_TRANSFORM:[F
 
@@ -439,7 +439,7 @@
     return-void
 
     .line 180
-    :array_34
+    :array_0
     .array-data 0x4
         0x0t 0x0t 0x80t 0x3ft
         0x0t 0x0t 0x0t 0x0t
@@ -454,7 +454,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 9
+    .locals 7
     .parameter "name"
 
     .prologue
@@ -624,10 +624,10 @@
 
     move-result v2
 
-    if-lez v2, :cond_b7
+    if-lez v2, :cond_0
 
     .line 518
-    :try_start_86
+    :try_start_0
     iget v2, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mAcceptStddev:F
 
     invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
@@ -641,7 +641,7 @@
     .line 519
     iget-boolean v2, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mLogVerbose:Z
 
-    if-eqz v2, :cond_b7
+    if-eqz v2, :cond_0
 
     .line 520
     const-string v2, "BackDropperFilter"
@@ -677,16 +677,16 @@
     move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_b7
-    .catch Ljava/lang/NumberFormatException; {:try_start_86 .. :try_end_b7} :catch_b8
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 528
-    :cond_b7
-    :goto_b7
+    :cond_0
+    :goto_0
     return-void
 
     .line 523
-    :catch_b8
+    :catch_0
     move-exception v1
 
     .line 524
@@ -713,11 +713,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_b7
+    goto :goto_0
 .end method
 
 .method private allocateFrames(Landroid/filterfw/core/FrameFormat;Landroid/filterfw/core/FilterContext;)V
-    .registers 16
+    .locals 13
     .parameter "inputFormat"
     .parameter "context"
 
@@ -733,17 +733,17 @@
 
     move-result v6
 
-    if-nez v6, :cond_a
+    if-nez v6, :cond_0
 
     .line 697
-    :goto_9
+    :goto_0
     return-void
 
     .line 613
-    :cond_a
+    :cond_0
     iget-boolean v6, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mLogVerbose:Z
 
-    if-eqz v6, :cond_15
+    if-eqz v6, :cond_1
 
     const-string v6, "BackDropperFilter"
 
@@ -752,7 +752,7 @@
     invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 616
-    :cond_15
+    :cond_1
     iget-object v6, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mMaskFormat:Landroid/filterfw/core/MutableFrameFormat;
 
     invoke-virtual {v6}, Landroid/filterfw/core/MutableFrameFormat;->getSize()I
@@ -776,8 +776,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_22
-    if-ge v0, v4, :cond_31
+    :goto_1
+    if-ge v0, v4, :cond_2
 
     .line 621
     const/16 v6, -0x80
@@ -795,14 +795,14 @@
     .line 620
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_22
+    goto :goto_1
 
     .line 627
-    :cond_31
+    :cond_2
     const/4 v0, 0x0
 
-    :goto_32
-    if-ge v0, v12, :cond_7c
+    :goto_2
+    if-ge v0, v12, :cond_3
 
     .line 628
     iget-object v7, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgMean:[Landroid/filterfw/core/GLFrame;
@@ -879,13 +879,13 @@
     .line 627
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_32
+    goto :goto_2
 
     .line 639
-    :cond_7c
+    :cond_3
     iget-boolean v6, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mLogVerbose:Z
 
-    if-eqz v6, :cond_87
+    if-eqz v6, :cond_4
 
     const-string v6, "BackDropperFilter"
 
@@ -894,7 +894,7 @@
     invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 641
-    :cond_87
+    :cond_4
     invoke-virtual {p2}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v6
@@ -1188,7 +1188,7 @@
     .line 663
     iget-boolean v6, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mUseTheForce:Z
 
-    if-eqz v6, :cond_306
+    if-eqz v6, :cond_6
 
     .line 664
     new-instance v6, Landroid/filterfw/core/ShaderProgram;
@@ -1224,7 +1224,7 @@
     iput-object v6, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgSubtractProgram:Landroid/filterfw/core/ShaderProgram;
 
     .line 668
-    :goto_1ca
+    :goto_3
     iget-object v6, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgSubtractProgram:Landroid/filterfw/core/ShaderProgram;
 
     const-string v7, "bg_fit_transform"
@@ -1487,7 +1487,7 @@
     .line 691
     iget-boolean v6, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mLogVerbose:Z
 
-    if-eqz v6, :cond_2fc
+    if-eqz v6, :cond_5
 
     const-string v6, "BackDropperFilter"
 
@@ -1518,7 +1518,7 @@
     invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 693
-    :cond_2fc
+    :cond_5
     const/high16 v6, 0x3f80
 
     iput v6, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mRelativeAspect:F
@@ -1529,10 +1529,10 @@
     .line 696
     iput-boolean v11, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mStartLearning:Z
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 666
-    :cond_306
+    :cond_6
     new-instance v6, Landroid/filterfw/core/ShaderProgram;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -1565,11 +1565,11 @@
 
     iput-object v6, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgSubtractProgram:Landroid/filterfw/core/ShaderProgram;
 
-    goto/16 :goto_1ca
+    goto/16 :goto_3
 .end method
 
 .method private createMemoryFormat(Landroid/filterfw/core/FrameFormat;)Z
-    .registers 13
+    .locals 11
     .parameter "inputFormat"
 
     .prologue
@@ -1580,31 +1580,31 @@
     .line 565
     iget-object v7, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mMemoryFormat:Landroid/filterfw/core/MutableFrameFormat;
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_0
 
     .line 566
     const/4 v6, 0x0
 
     .line 597
-    :goto_8
+    :goto_0
     return v6
 
     .line 569
-    :cond_9
+    :cond_0
     invoke-virtual {p1}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v7
 
-    if-eqz v7, :cond_15
+    if-eqz v7, :cond_1
 
     invoke-virtual {p1}, Landroid/filterfw/core/FrameFormat;->getHeight()I
 
     move-result v7
 
-    if-nez v7, :cond_1d
+    if-nez v7, :cond_2
 
     .line 571
-    :cond_15
+    :cond_1
     new-instance v6, Ljava/lang/RuntimeException;
 
     const-string v7, "Attempting to process input frame with unknown size"
@@ -1614,7 +1614,7 @@
     throw v6
 
     .line 574
-    :cond_1d
+    :cond_2
     invoke-virtual {p1}, Landroid/filterfw/core/FrameFormat;->mutableCopy()Landroid/filterfw/core/MutableFrameFormat;
 
     move-result-object v7
@@ -1760,7 +1760,7 @@
     .line 589
     iget-boolean v7, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mLogVerbose:Z
 
-    if-eqz v7, :cond_fc
+    if-eqz v7, :cond_3
 
     .line 590
     const-string v7, "BackDropperFilter"
@@ -1862,7 +1862,7 @@
     invoke-static {v7, v8}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 595
-    :cond_fc
+    :cond_3
     invoke-virtual {p1}, Landroid/filterfw/core/FrameFormat;->mutableCopy()Landroid/filterfw/core/MutableFrameFormat;
 
     move-result-object v7
@@ -1874,11 +1874,11 @@
 
     invoke-virtual {v7, v6, v6}, Landroid/filterfw/core/MutableFrameFormat;->setDimensions(II)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 .end method
 
 .method private pyramidLevel(I)I
-    .registers 6
+    .locals 4
     .parameter "size"
 
     .prologue
@@ -1909,7 +1909,7 @@
 .end method
 
 .method private updateBgScaling(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;Z)V
-    .registers 15
+    .locals 11
     .parameter "video"
     .parameter "background"
     .parameter "fitModeChanged"
@@ -1972,12 +1972,12 @@
 
     cmpl-float v8, v2, v8
 
-    if-nez v8, :cond_32
+    if-nez v8, :cond_0
 
-    if-eqz p3, :cond_d0
+    if-eqz p3, :cond_5
 
     .line 933
-    :cond_32
+    :cond_0
     iput v2, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mRelativeAspect:F
 
     .line 934
@@ -1996,19 +1996,19 @@
     .local v7, yWidth:F
     iget v8, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBackgroundFitMode:I
 
-    packed-switch v8, :pswitch_data_128
+    packed-switch v8, :pswitch_data_0
 
     .line 973
-    :goto_3f
-    :pswitch_3f
+    :goto_0
+    :pswitch_0
     iget-boolean v8, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mMirrorBg:Z
 
-    if-eqz v8, :cond_5d
+    if-eqz v8, :cond_3
 
     .line 974
     iget-boolean v8, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mLogVerbose:Z
 
-    if-eqz v8, :cond_4e
+    if-eqz v8, :cond_1
 
     const-string v8, "BackDropperFilter"
 
@@ -2017,19 +2017,19 @@
     invoke-static {v8, v9}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 976
-    :cond_4e
+    :cond_1
     iget v8, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mOrientation:I
 
-    if-eqz v8, :cond_58
+    if-eqz v8, :cond_2
 
     iget v8, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mOrientation:I
 
     const/16 v9, 0xb4
 
-    if-ne v8, v9, :cond_121
+    if-ne v8, v9, :cond_8
 
     .line 977
-    :cond_58
+    :cond_2
     neg-float v5, v5
 
     .line 978
@@ -2038,11 +2038,11 @@
     sub-float v4, v8, v4
 
     .line 985
-    :cond_5d
-    :goto_5d
+    :cond_3
+    :goto_1
     iget-boolean v8, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mLogVerbose:Z
 
-    if-eqz v8, :cond_a3
+    if-eqz v8, :cond_4
 
     const-string v8, "BackDropperFilter"
 
@@ -2109,7 +2109,7 @@
     invoke-static {v8, v9}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 989
-    :cond_a3
+    :cond_4
     const/16 v8, 0x9
 
     new-array v1, v8, [F
@@ -2174,7 +2174,7 @@
     .end local v5           #xWidth:F
     .end local v6           #yMin:F
     .end local v7           #yWidth:F
-    :cond_d0
+    :cond_5
     return-void
 
     .line 940
@@ -2182,14 +2182,14 @@
     .restart local v5       #xWidth:F
     .restart local v6       #yMin:F
     .restart local v7       #yWidth:F
-    :pswitch_d1
+    :pswitch_1
     iget v8, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mRelativeAspect:F
 
     const/high16 v9, 0x3f80
 
     cmpl-float v8, v8, v9
 
-    if-lez v8, :cond_ea
+    if-lez v8, :cond_6
 
     .line 943
     const/high16 v8, 0x3f00
@@ -2209,10 +2209,10 @@
 
     mul-float v5, v8, v9
 
-    goto/16 :goto_3f
+    goto/16 :goto_0
 
     .line 948
-    :cond_ea
+    :cond_6
     const/high16 v8, 0x3f00
 
     const/high16 v9, 0x3f00
@@ -2231,17 +2231,17 @@
     div-float v7, v8, v9
 
     .line 951
-    goto/16 :goto_3f
+    goto/16 :goto_0
 
     .line 953
-    :pswitch_fb
+    :pswitch_2
     iget v8, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mRelativeAspect:F
 
     const/high16 v9, 0x3f80
 
     cmpl-float v8, v8, v9
 
-    if-lez v8, :cond_114
+    if-lez v8, :cond_7
 
     .line 956
     const/high16 v8, 0x3f00
@@ -2261,10 +2261,10 @@
 
     div-float v7, v8, v9
 
-    goto/16 :goto_3f
+    goto/16 :goto_0
 
     .line 961
-    :cond_114
+    :cond_7
     const/high16 v8, 0x3f00
 
     const/high16 v9, 0x3f00
@@ -2278,10 +2278,10 @@
     .line 962
     iget v5, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mRelativeAspect:F
 
-    goto/16 :goto_3f
+    goto/16 :goto_0
 
     .line 981
-    :cond_121
+    :cond_8
     neg-float v7, v7
 
     .line 982
@@ -2289,38 +2289,38 @@
 
     sub-float v6, v8, v6
 
-    goto/16 :goto_5d
+    goto/16 :goto_1
 
     .line 935
-    :pswitch_data_128
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_3f
-        :pswitch_d1
-        :pswitch_fb
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public close(Landroid/filterfw/core/FilterContext;)V
-    .registers 5
+    .locals 3
     .parameter "context"
 
     .prologue
     .line 865
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mMemoryFormat:Landroid/filterfw/core/MutableFrameFormat;
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_0
 
     .line 883
-    :goto_4
+    :goto_0
     return-void
 
     .line 869
-    :cond_5
+    :cond_0
     iget-boolean v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mLogVerbose:Z
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_1
 
     const-string v1, "BackDropperFilter"
 
@@ -2329,14 +2329,14 @@
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 870
-    :cond_10
+    :cond_1
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_11
+    :goto_1
     const/4 v1, 0x2
 
-    if-ge v0, v1, :cond_2c
+    if-ge v0, v1, :cond_2
 
     .line 871
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgMean:[Landroid/filterfw/core/GLFrame;
@@ -2362,10 +2362,10 @@
     .line 870
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_11
+    goto :goto_1
 
     .line 875
-    :cond_2c
+    :cond_2
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mDistance:Landroid/filterfw/core/GLFrame;
 
     invoke-virtual {v1}, Landroid/filterfw/core/GLFrame;->release()Landroid/filterfw/core/Frame;
@@ -2400,11 +2400,11 @@
 
     iput-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mMemoryFormat:Landroid/filterfw/core/MutableFrameFormat;
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
-    .registers 8
+    .locals 5
     .parameter "name"
     .parameter "context"
 
@@ -2418,25 +2418,25 @@
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_1
 
     .line 895
     iput-boolean v3, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBackgroundFitModeChanged:Z
 
     .line 926
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return-void
 
     .line 896
-    :cond_c
+    :cond_1
     const-string v1, "acceptStddev"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_25
+    if-eqz v1, :cond_2
 
     .line 897
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgMaskProgram:Landroid/filterfw/core/ShaderProgram;
@@ -2455,17 +2455,17 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_b
+    goto :goto_0
 
     .line 898
-    :cond_25
+    :cond_2
     const-string v1, "hierLrgScale"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3c
+    if-eqz v1, :cond_3
 
     .line 899
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgMaskProgram:Landroid/filterfw/core/ShaderProgram;
@@ -2480,17 +2480,17 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_b
+    goto :goto_0
 
     .line 900
-    :cond_3c
+    :cond_3
     const-string v1, "hierMidScale"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_53
+    if-eqz v1, :cond_4
 
     .line 901
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgMaskProgram:Landroid/filterfw/core/ShaderProgram;
@@ -2505,17 +2505,17 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_b
+    goto :goto_0
 
     .line 902
-    :cond_53
+    :cond_4
     const-string v1, "hierSmlScale"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_6a
+    if-eqz v1, :cond_5
 
     .line 903
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgMaskProgram:Landroid/filterfw/core/ShaderProgram;
@@ -2530,17 +2530,17 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_b
+    goto :goto_0
 
     .line 904
-    :cond_6a
+    :cond_5
     const-string v1, "hierLrgExp"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_84
+    if-eqz v1, :cond_6
 
     .line 905
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgMaskProgram:Landroid/filterfw/core/ShaderProgram;
@@ -2561,17 +2561,17 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_b
+    goto :goto_0
 
     .line 906
-    :cond_84
+    :cond_6
     const-string v1, "hierMidExp"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_9f
+    if-eqz v1, :cond_7
 
     .line 907
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgMaskProgram:Landroid/filterfw/core/ShaderProgram;
@@ -2592,17 +2592,17 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto/16 :goto_b
+    goto/16 :goto_0
 
     .line 908
-    :cond_9f
+    :cond_7
     const-string v1, "hierSmlExp"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_ba
+    if-eqz v1, :cond_8
 
     .line 909
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgMaskProgram:Landroid/filterfw/core/ShaderProgram;
@@ -2623,17 +2623,17 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto/16 :goto_b
+    goto/16 :goto_0
 
     .line 910
-    :cond_ba
+    :cond_8
     const-string v1, "lumScale"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_ca
+    if-nez v1, :cond_9
 
     const-string v1, "chromaScale"
 
@@ -2641,10 +2641,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_e0
+    if-eqz v1, :cond_a
 
     .line 911
-    :cond_ca
+    :cond_9
     const/4 v1, 0x2
 
     new-array v0, v1, [F
@@ -2667,18 +2667,18 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto/16 :goto_b
+    goto/16 :goto_0
 
     .line 913
     .end local v0           #yuvWeights:[F
-    :cond_e0
+    :cond_a
     const-string/jumbo v1, "maskBg"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_f9
+    if-eqz v1, :cond_b
 
     .line 914
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgSubtractProgram:Landroid/filterfw/core/ShaderProgram;
@@ -2693,17 +2693,17 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto/16 :goto_b
+    goto/16 :goto_0
 
     .line 915
-    :cond_f9
+    :cond_b
     const-string/jumbo v1, "maskFg"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_112
+    if-eqz v1, :cond_c
 
     .line 916
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgSubtractProgram:Landroid/filterfw/core/ShaderProgram;
@@ -2718,17 +2718,17 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto/16 :goto_b
+    goto/16 :goto_0
 
     .line 917
-    :cond_112
+    :cond_c
     const-string v1, "exposureChange"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_129
+    if-eqz v1, :cond_d
 
     .line 918
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgSubtractProgram:Landroid/filterfw/core/ShaderProgram;
@@ -2743,17 +2743,17 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto/16 :goto_b
+    goto/16 :goto_0
 
     .line 919
-    :cond_129
+    :cond_d
     const-string/jumbo v1, "whitebalanceredChange"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_142
+    if-eqz v1, :cond_e
 
     .line 920
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgSubtractProgram:Landroid/filterfw/core/ShaderProgram;
@@ -2768,17 +2768,17 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto/16 :goto_b
+    goto/16 :goto_0
 
     .line 921
-    :cond_142
+    :cond_e
     const-string/jumbo v1, "whitebalanceblueChange"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_15b
+    if-eqz v1, :cond_f
 
     .line 922
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgSubtractProgram:Landroid/filterfw/core/ShaderProgram;
@@ -2793,17 +2793,17 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto/16 :goto_b
+    goto/16 :goto_0
 
     .line 923
-    :cond_15b
+    :cond_f
     const-string v1, "autowbToggle"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
     .line 924
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mAutomaticWhiteBalanceProgram:Landroid/filterfw/core/ShaderProgram;
@@ -2818,11 +2818,11 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto/16 :goto_b
+    goto/16 :goto_0
 .end method
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 6
+    .locals 3
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -2846,18 +2846,18 @@
 
     move-result v1
 
-    if-nez v1, :cond_14
+    if-nez v1, :cond_0
 
     .line 558
     invoke-virtual {v0, v2, v2}, Landroid/filterfw/core/MutableFrameFormat;->setDimensions(II)V
 
     .line 560
-    :cond_14
+    :cond_0
     return-object v0
 .end method
 
 .method public prepare(Landroid/filterfw/core/FilterContext;)V
-    .registers 5
+    .locals 3
     .parameter "context"
 
     .prologue
@@ -2866,7 +2866,7 @@
     .line 601
     iget-boolean v0, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mLogVerbose:Z
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     const-string v0, "BackDropperFilter"
 
@@ -2875,7 +2875,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 603
-    :cond_c
+    :cond_0
     new-array v0, v2, [Landroid/filterfw/core/GLFrame;
 
     iput-object v0, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgMean:[Landroid/filterfw/core/GLFrame;
@@ -2902,7 +2902,7 @@
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 34
+    .locals 32
     .parameter "context"
 
     .prologue
@@ -2950,7 +2950,7 @@
 
     move/from16 v21, v0
 
-    if-eqz v21, :cond_95
+    if-eqz v21, :cond_1
 
     .line 707
     move-object/from16 v0, p0
@@ -2959,7 +2959,7 @@
 
     move/from16 v21, v0
 
-    if-eqz v21, :cond_39
+    if-eqz v21, :cond_0
 
     const-string v21, "BackDropperFilter"
 
@@ -2968,7 +2968,7 @@
     invoke-static/range {v21 .. v22}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 708
-    :cond_39
+    :cond_0
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgUpdateMeanProgram:Landroid/filterfw/core/ShaderProgram;
@@ -3062,44 +3062,44 @@
     iput v0, v1, Landroid/filterpacks/videoproc/BackDropperFilter;->mFrameCount:I
 
     .line 716
-    :cond_95
+    :cond_1
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/filterpacks/videoproc/BackDropperFilter;->mPingPong:Z
 
     move/from16 v21, v0
 
-    if-eqz v21, :cond_4a1
+    if-eqz v21, :cond_a
 
     const/4 v11, 0x0
 
     .line 717
     .local v11, inputIndex:I
-    :goto_9e
+    :goto_0
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/filterpacks/videoproc/BackDropperFilter;->mPingPong:Z
 
     move/from16 v21, v0
 
-    if-eqz v21, :cond_4a4
+    if-eqz v21, :cond_b
 
     const/16 v17, 0x1
 
     .line 718
     .local v17, outputIndex:I
-    :goto_a8
+    :goto_1
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/filterpacks/videoproc/BackDropperFilter;->mPingPong:Z
 
     move/from16 v21, v0
 
-    if-nez v21, :cond_4a8
+    if-nez v21, :cond_c
 
     const/16 v21, 0x1
 
-    :goto_b2
+    :goto_2
     move/from16 v0, v21
 
     move-object/from16 v1, p0
@@ -3221,7 +3221,7 @@
 
     move/from16 v21, v0
 
-    if-eqz v21, :cond_14a
+    if-eqz v21, :cond_2
 
     .line 738
     move-object/from16 v0, p0
@@ -3256,7 +3256,7 @@
     iput-boolean v0, v1, Landroid/filterpacks/videoproc/BackDropperFilter;->mStartLearning:Z
 
     .line 743
-    :cond_14a
+    :cond_2
     const/16 v21, 0x3
 
     move/from16 v0, v21
@@ -3446,7 +3446,7 @@
 
     move/from16 v1, v22
 
-    if-gt v0, v1, :cond_539
+    if-gt v0, v1, :cond_10
 
     .line 759
     const-string/jumbo v21, "video"
@@ -3484,7 +3484,7 @@
 
     move/from16 v1, v22
 
-    if-ne v0, v1, :cond_4ac
+    if-ne v0, v1, :cond_d
 
     .line 762
     move-object/from16 v0, p0
@@ -3594,8 +3594,8 @@
     invoke-virtual/range {v21 .. v23}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
     .line 780
-    :cond_296
-    :goto_296
+    :cond_3
+    :goto_3
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/filterpacks/videoproc/BackDropperFilter;->mFrameCount:I
@@ -3612,7 +3612,7 @@
 
     move/from16 v1, v22
 
-    if-ne v0, v1, :cond_310
+    if-ne v0, v1, :cond_5
 
     .line 783
     move-object/from16 v0, p0
@@ -3672,7 +3672,7 @@
 
     move/from16 v21, v0
 
-    if-eqz v21, :cond_302
+    if-eqz v21, :cond_4
 
     .line 789
     const-string v21, "BackDropperFilter"
@@ -3712,12 +3712,12 @@
     invoke-static/range {v21 .. v22}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 794
-    :cond_302
+    :cond_4
     const/16 v21, 0x14
 
     move/from16 v0, v21
 
-    if-lt v5, v0, :cond_513
+    if-lt v5, v0, :cond_e
 
     .line 795
     const/16 v21, 0x1
@@ -3732,8 +3732,8 @@
     .end local v5           #bi:I
     .end local v12           #mMaskAverageByteBuffer:Ljava/nio/ByteBuffer;
     .end local v14           #mask_average:[B
-    :cond_310
-    :goto_310
+    :cond_5
+    :goto_4
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/filterpacks/videoproc/BackDropperFilter;->mFrameCount:I
@@ -3758,7 +3758,7 @@
 
     move/from16 v1, v22
 
-    if-lt v0, v1, :cond_34c
+    if-lt v0, v1, :cond_6
 
     move-object/from16 v0, p0
 
@@ -3776,7 +3776,7 @@
 
     cmpl-double v21, v21, v23
 
-    if-gtz v21, :cond_34c
+    if-gtz v21, :cond_6
 
     move-object/from16 v0, p0
 
@@ -3794,10 +3794,10 @@
 
     cmpl-double v21, v21, v23
 
-    if-lez v21, :cond_406
+    if-lez v21, :cond_7
 
     .line 814
-    :cond_34c
+    :cond_6
     const/16 v21, 0x3
 
     move/from16 v0, v21
@@ -3990,14 +3990,14 @@
     .line 830
     .end local v15           #meanUpdateInputs:[Landroid/filterfw/core/Frame;
     .end local v19           #varianceUpdateInputs:[Landroid/filterfw/core/Frame;
-    :cond_406
+    :cond_7
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/filterpacks/videoproc/BackDropperFilter;->mProvideDebugOutputs:Z
 
     move/from16 v21, v0
 
-    if-eqz v21, :cond_460
+    if-eqz v21, :cond_8
 
     .line 831
     invoke-virtual/range {p1 .. p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
@@ -4088,7 +4088,7 @@
     .line 842
     .end local v6           #dbg1:Landroid/filterfw/core/Frame;
     .end local v7           #dbg2:Landroid/filterfw/core/Frame;
-    :cond_460
+    :cond_8
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/filterpacks/videoproc/BackDropperFilter;->mFrameCount:I
@@ -4110,7 +4110,7 @@
 
     move/from16 v21, v0
 
-    if-eqz v21, :cond_4a0
+    if-eqz v21, :cond_9
 
     .line 845
     move-object/from16 v0, p0
@@ -4121,7 +4121,7 @@
 
     rem-int/lit8 v21, v21, 0x1e
 
-    if-nez v21, :cond_4a0
+    if-nez v21, :cond_9
 
     .line 846
     move-object/from16 v0, p0
@@ -4134,7 +4134,7 @@
 
     cmp-long v21, v21, v23
 
-    if-nez v21, :cond_589
+    if-nez v21, :cond_11
 
     .line 847
     invoke-virtual/range {p1 .. p1}, Landroid/filterfw/core/FilterContext;->getGLEnvironment()Landroid/filterfw/core/GLEnvironment;
@@ -4158,8 +4158,8 @@
     iput-wide v0, v2, Landroid/filterpacks/videoproc/BackDropperFilter;->startTime:J
 
     .line 860
-    :cond_4a0
-    :goto_4a0
+    :cond_9
+    :goto_5
     return-void
 
     .line 716
@@ -4167,29 +4167,29 @@
     .end local v8           #distInputs:[Landroid/filterfw/core/Frame;
     .end local v11           #inputIndex:I
     .end local v17           #outputIndex:I
-    :cond_4a1
+    :cond_a
     const/4 v11, 0x1
 
-    goto/16 :goto_9e
+    goto/16 :goto_0
 
     .line 717
     .restart local v11       #inputIndex:I
-    :cond_4a4
+    :cond_b
     const/16 v17, 0x0
 
-    goto/16 :goto_a8
+    goto/16 :goto_1
 
     .line 718
     .restart local v17       #outputIndex:I
-    :cond_4a8
+    :cond_c
     const/16 v21, 0x0
 
-    goto/16 :goto_b2
+    goto/16 :goto_2
 
     .line 770
     .restart local v3       #autoWBInputs:[Landroid/filterfw/core/Frame;
     .restart local v8       #distInputs:[Landroid/filterfw/core/Frame;
-    :cond_4ac
+    :cond_d
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/filterpacks/videoproc/BackDropperFilter;->mFrameCount:I
@@ -4214,7 +4214,7 @@
 
     move/from16 v1, v22
 
-    if-le v0, v1, :cond_296
+    if-le v0, v1, :cond_3
 
     .line 773
     const/16 v21, 0x2
@@ -4293,21 +4293,21 @@
 
     invoke-virtual/range {v21 .. v23}, Landroid/filterfw/core/GLFrame;->setTextureParameter(II)V
 
-    goto/16 :goto_296
+    goto/16 :goto_3
 
     .line 797
     .end local v13           #maskVerifyInputs:[Landroid/filterfw/core/Frame;
     .restart local v5       #bi:I
     .restart local v12       #mMaskAverageByteBuffer:Ljava/nio/ByteBuffer;
     .restart local v14       #mask_average:[B
-    :cond_513
+    :cond_e
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/filterpacks/videoproc/BackDropperFilter;->mLogVerbose:Z
 
     move/from16 v21, v0
 
-    if-eqz v21, :cond_522
+    if-eqz v21, :cond_f
 
     const-string v21, "BackDropperFilter"
 
@@ -4316,14 +4316,14 @@
     invoke-static/range {v21 .. v22}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 798
-    :cond_522
+    :cond_f
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/filterpacks/videoproc/BackDropperFilter;->mLearningDoneListener:Landroid/filterpacks/videoproc/BackDropperFilter$LearningDoneListener;
 
     move-object/from16 v21, v0
 
-    if-eqz v21, :cond_310
+    if-eqz v21, :cond_5
 
     .line 799
     move-object/from16 v0, p0
@@ -4338,13 +4338,13 @@
 
     invoke-interface {v0, v1}, Landroid/filterpacks/videoproc/BackDropperFilter$LearningDoneListener;->onLearningDone(Landroid/filterpacks/videoproc/BackDropperFilter;)V
 
-    goto/16 :goto_310
+    goto/16 :goto_4
 
     .line 804
     .end local v5           #bi:I
     .end local v12           #mMaskAverageByteBuffer:Ljava/nio/ByteBuffer;
     .end local v14           #mask_average:[B
-    :cond_539
+    :cond_10
     invoke-virtual/range {p1 .. p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v21
@@ -4425,12 +4425,12 @@
     .line 808
     invoke-virtual/range {v16 .. v16}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
 
-    goto/16 :goto_310
+    goto/16 :goto_4
 
     .line 851
     .end local v16           #output:Landroid/filterfw/core/Frame;
     .end local v18           #subtractInputs:[Landroid/filterfw/core/Frame;
-    :cond_589
+    :cond_11
     invoke-virtual/range {p1 .. p1}, Landroid/filterfw/core/FilterContext;->getGLEnvironment()Landroid/filterfw/core/GLEnvironment;
 
     move-result-object v21
@@ -4568,11 +4568,11 @@
 
     iput-wide v9, v0, Landroid/filterpacks/videoproc/BackDropperFilter;->startTime:J
 
-    goto/16 :goto_4a0
+    goto/16 :goto_5
 .end method
 
 .method public declared-synchronized relearn()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 888
@@ -4580,10 +4580,10 @@
 
     const/4 v0, 0x1
 
-    :try_start_2
+    :try_start_0
     iput-boolean v0, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mStartLearning:Z
-    :try_end_4
-    .catchall {:try_start_2 .. :try_end_4} :catchall_6
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 889
     monitor-exit p0
@@ -4591,7 +4591,7 @@
     return-void
 
     .line 888
-    :catchall_6
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -4600,7 +4600,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 9
+    .locals 8
 
     .prologue
     .line 534
@@ -4623,8 +4623,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_a
-    if-ge v1, v4, :cond_14
+    :goto_0
+    if-ge v1, v4, :cond_0
 
     aget-object v3, v0, v1
 
@@ -4635,19 +4635,19 @@
     .line 536
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 540
     .end local v3           #inputName:Ljava/lang/String;
-    :cond_14
+    :cond_0
     sget-object v0, Landroid/filterpacks/videoproc/BackDropperFilter;->mOutputNames:[Ljava/lang/String;
 
     array-length v4, v0
 
     const/4 v1, 0x0
 
-    :goto_18
-    if-ge v1, v4, :cond_25
+    :goto_1
+    if-ge v1, v4, :cond_1
 
     aget-object v5, v0, v1
 
@@ -4660,14 +4660,14 @@
     .line 540
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_18
+    goto :goto_1
 
     .line 545
     .end local v5           #outputName:Ljava/lang/String;
-    :cond_25
+    :cond_1
     iget-boolean v6, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mProvideDebugOutputs:Z
 
-    if-eqz v6, :cond_3a
+    if-eqz v6, :cond_2
 
     .line 546
     sget-object v0, Landroid/filterpacks/videoproc/BackDropperFilter;->mDebugOutputNames:[Ljava/lang/String;
@@ -4676,8 +4676,8 @@
 
     const/4 v1, 0x0
 
-    :goto_2d
-    if-ge v1, v4, :cond_3a
+    :goto_2
+    if-ge v1, v4, :cond_2
 
     aget-object v5, v0, v1
 
@@ -4690,10 +4690,10 @@
     .line 546
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2d
+    goto :goto_2
 
     .line 550
     .end local v5           #outputName:Ljava/lang/String;
-    :cond_3a
+    :cond_2
     return-void
 .end method

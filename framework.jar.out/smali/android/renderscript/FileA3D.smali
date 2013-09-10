@@ -21,7 +21,7 @@
 
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;Ljava/io/InputStream;)V
-    .registers 4
+    .locals 0
     .parameter "id"
     .parameter "rs"
     .parameter "stream"
@@ -38,7 +38,7 @@
 .end method
 
 .method public static createFromAsset(Landroid/renderscript/RenderScript;Landroid/content/res/AssetManager;Ljava/lang/String;)Landroid/renderscript/FileA3D;
-    .registers 8
+    .locals 5
     .parameter "rs"
     .parameter "mgr"
     .parameter "path"
@@ -54,7 +54,7 @@
 
     .line 236
     .local v1, fileId:I
-    if-nez v1, :cond_22
+    if-nez v1, :cond_0
 
     .line 237
     new-instance v2, Landroid/renderscript/RSRuntimeException;
@@ -82,7 +82,7 @@
     throw v2
 
     .line 239
-    :cond_22
+    :cond_0
     new-instance v0, Landroid/renderscript/FileA3D;
 
     const/4 v2, 0x0
@@ -98,7 +98,7 @@
 .end method
 
 .method public static createFromFile(Landroid/renderscript/RenderScript;Ljava/io/File;)Landroid/renderscript/FileA3D;
-    .registers 3
+    .locals 1
     .parameter "rs"
     .parameter "path"
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public static createFromFile(Landroid/renderscript/RenderScript;Ljava/lang/String;)Landroid/renderscript/FileA3D;
-    .registers 7
+    .locals 5
     .parameter "rs"
     .parameter "path"
 
@@ -128,7 +128,7 @@
 
     .line 256
     .local v1, fileId:I
-    if-nez v1, :cond_1f
+    if-nez v1, :cond_0
 
     .line 257
     new-instance v2, Landroid/renderscript/RSRuntimeException;
@@ -156,7 +156,7 @@
     throw v2
 
     .line 259
-    :cond_1f
+    :cond_0
     new-instance v0, Landroid/renderscript/FileA3D;
 
     const/4 v2, 0x0
@@ -172,7 +172,7 @@
 .end method
 
 .method public static createFromResource(Landroid/renderscript/RenderScript;Landroid/content/res/Resources;I)Landroid/renderscript/FileA3D;
-    .registers 11
+    .locals 8
     .parameter "rs"
     .parameter "res"
     .parameter "id"
@@ -186,10 +186,10 @@
 
     .line 292
     .local v4, is:Ljava/io/InputStream;
-    :try_start_4
+    :try_start_0
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
-    :try_end_7
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_7} :catch_33
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v4
 
@@ -200,7 +200,7 @@
     .local v3, fileId:I
     instance-of v5, v4, Landroid/content/res/AssetManager$AssetInputStream;
 
-    if-eqz v5, :cond_4d
+    if-eqz v5, :cond_0
 
     move-object v5, v4
 
@@ -218,7 +218,7 @@
     move-result v3
 
     .line 305
-    if-nez v3, :cond_55
+    if-nez v3, :cond_1
 
     .line 306
     new-instance v5, Landroid/renderscript/RSRuntimeException;
@@ -248,7 +248,7 @@
     .line 293
     .end local v0           #asset:I
     .end local v3           #fileId:I
-    :catch_33
+    :catch_0
     move-exception v1
 
     .line 294
@@ -280,7 +280,7 @@
     .line 302
     .end local v1           #e:Ljava/lang/Exception;
     .restart local v3       #fileId:I
-    :cond_4d
+    :cond_0
     new-instance v5, Landroid/renderscript/RSRuntimeException;
 
     const-string v6, "Unsupported asset stream"
@@ -291,7 +291,7 @@
 
     .line 308
     .restart local v0       #asset:I
-    :cond_55
+    :cond_1
     new-instance v2, Landroid/renderscript/FileA3D;
 
     invoke-direct {v2, v3, p0, v4}, Landroid/renderscript/FileA3D;-><init>(ILandroid/renderscript/RenderScript;Ljava/io/InputStream;)V
@@ -305,7 +305,7 @@
 .end method
 
 .method private initEntries()V
-    .registers 11
+    .locals 10
 
     .prologue
     .line 177
@@ -323,14 +323,14 @@
 
     .line 178
     .local v8, numFileEntries:I
-    if-gtz v8, :cond_f
+    if-gtz v8, :cond_1
 
     .line 191
-    :cond_e
+    :cond_0
     return-void
 
     .line 182
-    :cond_f
+    :cond_1
     new-array v0, v8, [Landroid/renderscript/FileA3D$IndexEntry;
 
     iput-object v0, p0, Landroid/renderscript/FileA3D;->mFileEntries:[Landroid/renderscript/FileA3D$IndexEntry;
@@ -358,8 +358,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_23
-    if-ge v2, v8, :cond_e
+    :goto_0
+    if-ge v2, v8, :cond_0
 
     .line 189
     iget-object v9, p0, Landroid/renderscript/FileA3D;->mFileEntries:[Landroid/renderscript/FileA3D$IndexEntry;
@@ -389,13 +389,13 @@
     .line 188
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_23
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getIndexEntry(I)Landroid/renderscript/FileA3D$IndexEntry;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -404,52 +404,52 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
-    if-ltz p1, :cond_d
+    if-ltz p1, :cond_0
 
     iget-object v0, p0, Landroid/renderscript/FileA3D;->mFileEntries:[Landroid/renderscript/FileA3D$IndexEntry;
 
     array-length v0, v0
 
-    if-lt p1, v0, :cond_f
+    if-lt p1, v0, :cond_1
 
     .line 217
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
     .line 219
-    :goto_e
+    :goto_0
     return-object v0
 
-    :cond_f
+    :cond_1
     iget-object v0, p0, Landroid/renderscript/FileA3D;->mFileEntries:[Landroid/renderscript/FileA3D$IndexEntry;
 
     aget-object v0, v0, p1
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public getIndexEntryCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 200
     iget-object v0, p0, Landroid/renderscript/FileA3D;->mFileEntries:[Landroid/renderscript/FileA3D$IndexEntry;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     .line 201
     const/4 v0, 0x0
 
     .line 203
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     iget-object v0, p0, Landroid/renderscript/FileA3D;->mFileEntries:[Landroid/renderscript/FileA3D$IndexEntry;
 
     array-length v0, v0
 
-    goto :goto_5
+    goto :goto_0
 .end method

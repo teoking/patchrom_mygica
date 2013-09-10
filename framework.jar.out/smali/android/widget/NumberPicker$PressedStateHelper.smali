@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/NumberPicker;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public buttonPressDelayed(I)V
-    .registers 5
+    .locals 3
     .parameter "button"
 
     .prologue
@@ -93,7 +93,7 @@
 .end method
 
 .method public buttonTapped(I)V
-    .registers 3
+    .locals 1
     .parameter "button"
 
     .prologue
@@ -118,7 +118,7 @@
 .end method
 
 .method public cancel()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v4, 0x0
@@ -137,15 +137,17 @@
     .line 1963
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/widget/NumberPicker;->mIncrementVirtualButtonPressed:Z
     invoke-static {v0}, Landroid/widget/NumberPicker;->access$1300(Landroid/widget/NumberPicker;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_0
 
     .line 1964
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #setter for: Landroid/widget/NumberPicker;->mIncrementVirtualButtonPressed:Z
     invoke-static {v0, v4}, Landroid/widget/NumberPicker;->access$1302(Landroid/widget/NumberPicker;Z)Z
 
     .line 1965
@@ -153,18 +155,21 @@
 
     iget-object v1, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/widget/NumberPicker;->mBottomSelectionDividerBottom:I
     invoke-static {v1}, Landroid/widget/NumberPicker;->access$1400(Landroid/widget/NumberPicker;)I
 
     move-result v1
 
     iget-object v2, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/view/View;->mRight:I
     invoke-static {v2}, Landroid/widget/NumberPicker;->access$1500(Landroid/widget/NumberPicker;)I
 
     move-result v2
 
     iget-object v3, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/view/View;->mBottom:I
     invoke-static {v3}, Landroid/widget/NumberPicker;->access$1600(Landroid/widget/NumberPicker;)I
 
     move-result v3
@@ -172,31 +177,35 @@
     invoke-virtual {v0, v4, v1, v2, v3}, Landroid/widget/NumberPicker;->invalidate(IIII)V
 
     .line 1967
-    :cond_2e
+    :cond_0
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #setter for: Landroid/widget/NumberPicker;->mDecrementVirtualButtonPressed:Z
     invoke-static {v0, v4}, Landroid/widget/NumberPicker;->access$1702(Landroid/widget/NumberPicker;Z)Z
 
     .line 1968
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/widget/NumberPicker;->mDecrementVirtualButtonPressed:Z
     invoke-static {v0}, Landroid/widget/NumberPicker;->access$1700(Landroid/widget/NumberPicker;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4c
+    if-eqz v0, :cond_1
 
     .line 1969
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
     iget-object v1, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/view/View;->mRight:I
     invoke-static {v1}, Landroid/widget/NumberPicker;->access$1800(Landroid/widget/NumberPicker;)I
 
     move-result v1
 
     iget-object v2, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/widget/NumberPicker;->mTopSelectionDividerTop:I
     invoke-static {v2}, Landroid/widget/NumberPicker;->access$1900(Landroid/widget/NumberPicker;)I
 
     move-result v2
@@ -204,12 +213,12 @@
     invoke-virtual {v0, v4, v4, v1, v2}, Landroid/widget/NumberPicker;->invalidate(IIII)V
 
     .line 1971
-    :cond_4c
+    :cond_1
     return-void
 .end method
 
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v3, 0x1
@@ -219,24 +228,25 @@
     .line 1989
     iget v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->mMode:I
 
-    packed-switch v0, :pswitch_data_a2
+    packed-switch v0, :pswitch_data_0
 
     .line 2023
-    :goto_7
+    :goto_0
     return-void
 
     .line 1991
-    :pswitch_8
+    :pswitch_0
     iget v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->mManagedButton:I
 
-    packed-switch v0, :pswitch_data_aa
+    packed-switch v0, :pswitch_data_1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 1993
-    :pswitch_e
+    :pswitch_1
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #setter for: Landroid/widget/NumberPicker;->mIncrementVirtualButtonPressed:Z
     invoke-static {v0, v3}, Landroid/widget/NumberPicker;->access$1302(Landroid/widget/NumberPicker;Z)Z
 
     .line 1994
@@ -244,30 +254,34 @@
 
     iget-object v1, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/widget/NumberPicker;->mBottomSelectionDividerBottom:I
     invoke-static {v1}, Landroid/widget/NumberPicker;->access$1400(Landroid/widget/NumberPicker;)I
 
     move-result v1
 
     iget-object v2, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/view/View;->mRight:I
     invoke-static {v2}, Landroid/widget/NumberPicker;->access$2000(Landroid/widget/NumberPicker;)I
 
     move-result v2
 
     iget-object v3, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/view/View;->mBottom:I
     invoke-static {v3}, Landroid/widget/NumberPicker;->access$2100(Landroid/widget/NumberPicker;)I
 
     move-result v3
 
     invoke-virtual {v0, v4, v1, v2, v3}, Landroid/widget/NumberPicker;->invalidate(IIII)V
 
-    goto :goto_7
+    goto :goto_0
 
     .line 1997
-    :pswitch_2b
+    :pswitch_2
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #setter for: Landroid/widget/NumberPicker;->mDecrementVirtualButtonPressed:Z
     invoke-static {v0, v3}, Landroid/widget/NumberPicker;->access$1702(Landroid/widget/NumberPicker;Z)Z
 
     .line 1998
@@ -275,37 +289,40 @@
 
     iget-object v1, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/view/View;->mRight:I
     invoke-static {v1}, Landroid/widget/NumberPicker;->access$2200(Landroid/widget/NumberPicker;)I
 
     move-result v1
 
     iget-object v2, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/widget/NumberPicker;->mTopSelectionDividerTop:I
     invoke-static {v2}, Landroid/widget/NumberPicker;->access$1900(Landroid/widget/NumberPicker;)I
 
     move-result v2
 
     invoke-virtual {v0, v4, v4, v1, v2}, Landroid/widget/NumberPicker;->invalidate(IIII)V
 
-    goto :goto_7
+    goto :goto_0
 
     .line 2003
-    :pswitch_42
+    :pswitch_3
     iget v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->mManagedButton:I
 
-    packed-switch v0, :pswitch_data_b2
+    packed-switch v0, :pswitch_data_2
 
-    goto :goto_7
+    goto :goto_0
 
     .line 2005
-    :pswitch_48
+    :pswitch_4
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/widget/NumberPicker;->mIncrementVirtualButtonPressed:Z
     invoke-static {v0}, Landroid/widget/NumberPicker;->access$1300(Landroid/widget/NumberPicker;)Z
 
     move-result v0
 
-    if-nez v0, :cond_5a
+    if-nez v0, :cond_0
 
     .line 2006
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
@@ -319,7 +336,7 @@
     invoke-virtual {v0, p0, v1, v2}, Landroid/widget/NumberPicker;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 2009
-    :cond_5a
+    :cond_0
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
     invoke-static {v0, v3}, Landroid/widget/NumberPicker;->access$1380(Landroid/widget/NumberPicker;I)Z
@@ -329,35 +346,39 @@
 
     iget-object v1, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/widget/NumberPicker;->mBottomSelectionDividerBottom:I
     invoke-static {v1}, Landroid/widget/NumberPicker;->access$1400(Landroid/widget/NumberPicker;)I
 
     move-result v1
 
     iget-object v2, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/view/View;->mRight:I
     invoke-static {v2}, Landroid/widget/NumberPicker;->access$2300(Landroid/widget/NumberPicker;)I
 
     move-result v2
 
     iget-object v3, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/view/View;->mBottom:I
     invoke-static {v3}, Landroid/widget/NumberPicker;->access$2400(Landroid/widget/NumberPicker;)I
 
     move-result v3
 
     invoke-virtual {v0, v4, v1, v2, v3}, Landroid/widget/NumberPicker;->invalidate(IIII)V
 
-    goto :goto_7
+    goto :goto_0
 
     .line 2013
-    :pswitch_77
+    :pswitch_5
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/widget/NumberPicker;->mDecrementVirtualButtonPressed:Z
     invoke-static {v0}, Landroid/widget/NumberPicker;->access$1700(Landroid/widget/NumberPicker;)Z
 
     move-result v0
 
-    if-nez v0, :cond_89
+    if-nez v0, :cond_1
 
     .line 2014
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
@@ -371,7 +392,7 @@
     invoke-virtual {v0, p0, v1, v2}, Landroid/widget/NumberPicker;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 2017
-    :cond_89
+    :cond_1
     iget-object v0, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
     invoke-static {v0, v3}, Landroid/widget/NumberPicker;->access$1780(Landroid/widget/NumberPicker;I)Z
@@ -381,40 +402,42 @@
 
     iget-object v1, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/view/View;->mRight:I
     invoke-static {v1}, Landroid/widget/NumberPicker;->access$2500(Landroid/widget/NumberPicker;)I
 
     move-result v1
 
     iget-object v2, p0, Landroid/widget/NumberPicker$PressedStateHelper;->this$0:Landroid/widget/NumberPicker;
 
+    #getter for: Landroid/widget/NumberPicker;->mTopSelectionDividerTop:I
     invoke-static {v2}, Landroid/widget/NumberPicker;->access$1900(Landroid/widget/NumberPicker;)I
 
     move-result v2
 
     invoke-virtual {v0, v4, v4, v1, v2}, Landroid/widget/NumberPicker;->invalidate(IIII)V
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 1989
     nop
 
-    :pswitch_data_a2
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_8
-        :pswitch_42
+        :pswitch_0
+        :pswitch_3
     .end packed-switch
 
     .line 1991
-    :pswitch_data_aa
+    :pswitch_data_1
     .packed-switch 0x1
-        :pswitch_e
-        :pswitch_2b
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 
     .line 2003
-    :pswitch_data_b2
+    :pswitch_data_2
     .packed-switch 0x1
-        :pswitch_48
-        :pswitch_77
+        :pswitch_4
+        :pswitch_5
     .end packed-switch
 .end method

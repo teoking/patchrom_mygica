@@ -15,7 +15,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/InputStream;)V
-    .registers 3
+    .locals 1
     .parameter "s"
 
     .prologue
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method getNextLine()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 62
@@ -53,7 +53,7 @@
 .end method
 
 .method getNextLine(Z)Ljava/lang/String;
-    .registers 11
+    .locals 9
     .parameter "ctrlZ"
 
     .prologue
@@ -68,20 +68,20 @@
     .line 87
     .end local v1           #i:I
     .local v2, i:I
-    :goto_3
-    :try_start_3
+    :goto_0
+    :try_start_0
     iget-object v5, p0, Lcom/android/internal/telephony/test/LineReader;->inStream:Ljava/io/InputStream;
 
     invoke-virtual {v5}, Ljava/io/InputStream;->read()I
-    :try_end_8
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_8} :catch_34
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_3 .. :try_end_8} :catch_37
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result v3
 
     .line 89
     .local v3, result:I
-    if-gez v3, :cond_d
+    if-gez v3, :cond_0
 
     move v1, v2
 
@@ -89,29 +89,29 @@
     .end local v2           #i:I
     .end local v3           #result:I
     .restart local v1       #i:I
-    :goto_c
+    :goto_1
     return-object v4
 
     .line 93
     .end local v1           #i:I
     .restart local v2       #i:I
     .restart local v3       #result:I
-    :cond_d
-    if-eqz p1, :cond_20
+    :cond_0
+    if-eqz p1, :cond_2
 
     const/16 v5, 0x1a
 
-    if-ne v3, v5, :cond_20
+    if-ne v3, v5, :cond_2
 
-    :cond_13
+    :cond_1
     move v1, v2
 
     .line 113
     .end local v2           #i:I
     .end local v3           #result:I
     .restart local v1       #i:I
-    :goto_14
-    :try_start_14
+    :goto_2
+    :try_start_1
     new-instance v5, Ljava/lang/String;
 
     iget-object v6, p0, Lcom/android/internal/telephony/test/LineReader;->buffer:[B
@@ -121,39 +121,39 @@
     const-string v8, "US-ASCII"
 
     invoke-direct {v5, v6, v7, v1, v8}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
-    :try_end_1e
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_14 .. :try_end_1e} :catch_41
+    :try_end_1
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_1 .. :try_end_1} :catch_2
 
     move-object v4, v5
 
-    goto :goto_c
+    goto :goto_1
 
     .line 95
     .end local v1           #i:I
     .restart local v2       #i:I
     .restart local v3       #result:I
-    :cond_20
+    :cond_2
     const/16 v5, 0xd
 
-    if-eq v3, v5, :cond_28
+    if-eq v3, v5, :cond_3
 
     const/16 v5, 0xa
 
-    if-ne v3, v5, :cond_2b
+    if-ne v3, v5, :cond_4
 
     .line 96
-    :cond_28
-    if-nez v2, :cond_13
+    :cond_3
+    if-nez v2, :cond_1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 104
-    :cond_2b
-    :try_start_2b
+    :cond_4
+    :try_start_2
     iget-object v5, p0, Lcom/android/internal/telephony/test/LineReader;->buffer:[B
-    :try_end_2d
-    .catch Ljava/io/IOException; {:try_start_2b .. :try_end_2d} :catch_34
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_2b .. :try_end_2d} :catch_37
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_2 .. :try_end_2} :catch_1
 
     add-int/lit8 v1, v2, 0x1
 
@@ -161,22 +161,22 @@
     .restart local v1       #i:I
     int-to-byte v6, v3
 
-    :try_start_30
+    :try_start_3
     aput-byte v6, v5, v2
-    :try_end_32
-    .catch Ljava/io/IOException; {:try_start_30 .. :try_end_32} :catch_4c
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_30 .. :try_end_32} :catch_4a
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_4
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_3 .. :try_end_3} :catch_3
 
     move v2, v1
 
     .line 105
     .end local v1           #i:I
     .restart local v2       #i:I
-    goto :goto_3
+    goto :goto_0
 
     .line 106
     .end local v3           #result:I
-    :catch_34
+    :catch_0
     move-exception v0
 
     move v1, v2
@@ -185,14 +185,14 @@
     .end local v2           #i:I
     .local v0, ex:Ljava/io/IOException;
     .restart local v1       #i:I
-    :goto_36
-    goto :goto_c
+    :goto_3
+    goto :goto_1
 
     .line 108
     .end local v0           #ex:Ljava/io/IOException;
     .end local v1           #i:I
     .restart local v2       #i:I
-    :catch_37
+    :catch_1
     move-exception v0
 
     move v1, v2
@@ -201,18 +201,18 @@
     .end local v2           #i:I
     .local v0, ex:Ljava/lang/IndexOutOfBoundsException;
     .restart local v1       #i:I
-    :goto_39
+    :goto_4
     sget-object v5, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
     const-string v6, "ATChannel: buffer overflow"
 
     invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    goto :goto_14
+    goto :goto_2
 
     .line 114
     .end local v0           #ex:Ljava/lang/IndexOutOfBoundsException;
-    :catch_41
+    :catch_2
     move-exception v0
 
     .line 115
@@ -223,25 +223,25 @@
 
     invoke-virtual {v5, v6}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    goto :goto_c
+    goto :goto_1
 
     .line 108
     .end local v0           #ex:Ljava/io/UnsupportedEncodingException;
     .restart local v3       #result:I
-    :catch_4a
+    :catch_3
     move-exception v0
 
-    goto :goto_39
+    goto :goto_4
 
     .line 106
-    :catch_4c
+    :catch_4
     move-exception v0
 
-    goto :goto_36
+    goto :goto_3
 .end method
 
 .method getNextLineCtrlZ()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 68

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(II)V
-    .registers 3
+    .locals 0
     .parameter "delayTime"
     .parameter "randomizationTime"
 

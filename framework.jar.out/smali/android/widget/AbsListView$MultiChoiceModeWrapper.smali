@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/AbsListView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onActionItemClicked(Landroid/view/ActionMode;Landroid/view/MenuItem;)Z
-    .registers 4
+    .locals 1
     .parameter "mode"
     .parameter "item"
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public onCreateActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
-    .registers 5
+    .locals 2
     .parameter "mode"
     .parameter "menu"
 
@@ -70,7 +70,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_0
 
     .line 6096
     iget-object v1, p0, Landroid/widget/AbsListView$MultiChoiceModeWrapper;->this$0:Landroid/widget/AbsListView;
@@ -81,12 +81,12 @@
     const/4 v0, 0x1
 
     .line 6099
-    :cond_f
+    :cond_0
     return v0
 .end method
 
 .method public onDestroyActionMode(Landroid/view/ActionMode;)V
-    .registers 5
+    .locals 3
     .parameter "mode"
 
     .prologue
@@ -134,7 +134,7 @@
 .end method
 
 .method public onItemCheckedStateChanged(Landroid/view/ActionMode;IJZ)V
-    .registers 12
+    .locals 6
     .parameter "mode"
     .parameter "position"
     .parameter "id"
@@ -161,18 +161,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 6130
     invoke-virtual {p1}, Landroid/view/ActionMode;->finish()V
 
     .line 6132
-    :cond_14
+    :cond_0
     return-void
 .end method
 
 .method public onPrepareActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
-    .registers 4
+    .locals 1
     .parameter "mode"
     .parameter "menu"
 
@@ -188,7 +188,7 @@
 .end method
 
 .method public setWrapped(Landroid/widget/AbsListView$MultiChoiceModeListener;)V
-    .registers 2
+    .locals 0
     .parameter "wrapped"
 
     .prologue

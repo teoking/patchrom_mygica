@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 137
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(IIII)V
-    .registers 5
+    .locals 0
     .parameter "address"
     .parameter "attributes"
     .parameter "maxPacketSize"
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 153
@@ -84,7 +84,7 @@
 .end method
 
 .method public getAddress()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 61
@@ -94,7 +94,7 @@
 .end method
 
 .method public getAttributes()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 94
@@ -104,7 +104,7 @@
 .end method
 
 .method public getDirection()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 85
@@ -116,7 +116,7 @@
 .end method
 
 .method public getEndpointNumber()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 70
@@ -128,7 +128,7 @@
 .end method
 
 .method public getInterval()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 128
@@ -138,7 +138,7 @@
 .end method
 
 .method public getMaxPacketSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 119
@@ -148,7 +148,7 @@
 .end method
 
 .method public getType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 110
@@ -160,7 +160,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 133
@@ -230,7 +230,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "parcel"
     .parameter "flags"
 

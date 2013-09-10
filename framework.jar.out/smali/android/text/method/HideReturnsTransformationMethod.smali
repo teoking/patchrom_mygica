@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 4
+    .locals 4
 
     .prologue
     const/4 v3, 0x1
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 31
@@ -52,23 +52,23 @@
 .end method
 
 .method public static getInstance()Landroid/text/method/HideReturnsTransformationMethod;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 51
     sget-object v0, Landroid/text/method/HideReturnsTransformationMethod;->sInstance:Landroid/text/method/HideReturnsTransformationMethod;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 52
     sget-object v0, Landroid/text/method/HideReturnsTransformationMethod;->sInstance:Landroid/text/method/HideReturnsTransformationMethod;
 
     .line 55
-    :goto_6
+    :goto_0
     return-object v0
 
     .line 54
-    :cond_7
+    :cond_0
     new-instance v0, Landroid/text/method/HideReturnsTransformationMethod;
 
     invoke-direct {v0}, Landroid/text/method/HideReturnsTransformationMethod;-><init>()V
@@ -78,13 +78,13 @@
     .line 55
     sget-object v0, Landroid/text/method/HideReturnsTransformationMethod;->sInstance:Landroid/text/method/HideReturnsTransformationMethod;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected getOriginal()[C
-    .registers 2
+    .locals 1
 
     .prologue
     .line 40
@@ -94,7 +94,7 @@
 .end method
 
 .method protected getReplacement()[C
-    .registers 2
+    .locals 1
 
     .prologue
     .line 47

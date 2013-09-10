@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 47
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 31
@@ -57,7 +57,7 @@
 .end method
 
 .method private static getImageEncodingQualityLevels(I)[I
-    .registers 7
+    .locals 6
     .parameter "cameraId"
 
     .prologue
@@ -70,7 +70,7 @@
     .local v2, nLevels:I
     const/4 v3, 0x3
 
-    if-eq v2, v3, :cond_20
+    if-eq v2, v3, :cond_0
 
     .line 99
     new-instance v3, Ljava/lang/RuntimeException;
@@ -98,7 +98,7 @@
     throw v3
 
     .line 102
-    :cond_20
+    :cond_0
     new-array v1, v2, [I
 
     .line 103
@@ -106,8 +106,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_23
-    if-ge v0, v2, :cond_2e
+    :goto_0
+    if-ge v0, v2, :cond_1
 
     .line 104
     invoke-static {p0, v0}, Landroid/media/CameraProfile;->native_get_image_encoding_quality_level(II)I
@@ -119,10 +119,10 @@
     .line 103
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_23
+    goto :goto_0
 
     .line 106
-    :cond_2e
+    :cond_1
     invoke-static {v1}, Ljava/util/Arrays;->sort([I)V
 
     .line 107
@@ -130,7 +130,7 @@
 .end method
 
 .method public static getJpegEncodingQualityParameter(I)I
-    .registers 5
+    .locals 4
     .parameter "quality"
 
     .prologue
@@ -150,8 +150,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_a
-    if-ge v1, v2, :cond_1b
+    :goto_0
+    if-ge v1, v2, :cond_1
 
     .line 61
     invoke-static {v1, v0}, Landroid/hardware/Camera;->getCameraInfo(ILandroid/hardware/Camera$CameraInfo;)V
@@ -159,7 +159,7 @@
     .line 62
     iget v3, v0, Landroid/hardware/Camera$CameraInfo;->facing:I
 
-    if-nez v3, :cond_18
+    if-nez v3, :cond_0
 
     .line 63
     invoke-static {v1, p0}, Landroid/media/CameraProfile;->getJpegEncodingQualityParameter(II)I
@@ -167,37 +167,37 @@
     move-result v3
 
     .line 66
-    :goto_17
+    :goto_1
     return v3
 
     .line 60
-    :cond_18
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 66
-    :cond_1b
+    :cond_1
     const/4 v3, 0x0
 
-    goto :goto_17
+    goto :goto_1
 .end method
 
 .method public static getJpegEncodingQualityParameter(II)I
-    .registers 6
+    .locals 4
     .parameter "cameraId"
     .parameter "quality"
 
     .prologue
     .line 78
-    if-ltz p1, :cond_5
+    if-ltz p1, :cond_0
 
     const/4 v1, 0x2
 
-    if-le p1, v1, :cond_1e
+    if-le p1, v1, :cond_1
 
     .line 79
-    :cond_5
+    :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -223,13 +223,13 @@
     throw v1
 
     .line 81
-    :cond_1e
+    :cond_1
     sget-object v2, Landroid/media/CameraProfile;->sCache:Ljava/util/HashMap;
 
     monitor-enter v2
 
     .line 82
-    :try_start_21
+    :try_start_0
     sget-object v1, Landroid/media/CameraProfile;->sCache:Ljava/util/HashMap;
 
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -244,7 +244,7 @@
 
     .line 83
     .local v0, levels:[I
-    if-nez v0, :cond_3c
+    if-nez v0, :cond_2
 
     .line 84
     invoke-static {p0}, Landroid/media/CameraProfile;->getImageEncodingQualityLevels(I)[I
@@ -261,7 +261,7 @@
     invoke-virtual {v1, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 87
-    :cond_3c
+    :cond_2
     aget v1, v0, p1
 
     monitor-exit v2
@@ -270,12 +270,12 @@
 
     .line 88
     .end local v0           #levels:[I
-    :catchall_40
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_42
-    .catchall {:try_start_21 .. :try_end_42} :catchall_40
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method

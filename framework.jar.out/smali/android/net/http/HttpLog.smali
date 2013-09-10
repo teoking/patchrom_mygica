@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 30
@@ -23,7 +23,7 @@
 .end method
 
 .method static e(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "logMe"
 
     .prologue
@@ -37,7 +37,7 @@
 .end method
 
 .method static v(Ljava/lang/String;)V
-    .registers 5
+    .locals 4
     .parameter "logMe"
 
     .prologue

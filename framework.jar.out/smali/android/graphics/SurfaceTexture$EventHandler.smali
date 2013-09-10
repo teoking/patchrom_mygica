@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/SurfaceTexture;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "looper"
 
@@ -38,22 +38,24 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
     .line 278
     iget-object v0, p0, Landroid/graphics/SurfaceTexture$EventHandler;->this$0:Landroid/graphics/SurfaceTexture;
 
+    #getter for: Landroid/graphics/SurfaceTexture;->mOnFrameAvailableListener:Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;
     invoke-static {v0}, Landroid/graphics/SurfaceTexture;->access$000(Landroid/graphics/SurfaceTexture;)Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;
 
     move-result-object v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 279
     iget-object v0, p0, Landroid/graphics/SurfaceTexture$EventHandler;->this$0:Landroid/graphics/SurfaceTexture;
 
+    #getter for: Landroid/graphics/SurfaceTexture;->mOnFrameAvailableListener:Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;
     invoke-static {v0}, Landroid/graphics/SurfaceTexture;->access$000(Landroid/graphics/SurfaceTexture;)Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;
 
     move-result-object v0
@@ -63,6 +65,6 @@
     invoke-interface {v0, v1}, Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;->onFrameAvailable(Landroid/graphics/SurfaceTexture;)V
 
     .line 281
-    :cond_13
+    :cond_0
     return-void
 .end method

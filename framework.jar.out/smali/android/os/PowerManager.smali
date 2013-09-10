@@ -64,7 +64,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 563
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/IPowerManager;Landroid/os/Handler;)V
-    .registers 3
+    .locals 0
     .parameter "service"
     .parameter "handler"
 
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public getSupportedWakeLockFlags()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 520
@@ -104,28 +104,28 @@
     iget-object v1, p0, Landroid/os/PowerManager;->mService:Landroid/os/IPowerManager;
 
     invoke-interface {v1}, Landroid/os/IPowerManager;->getSupportedWakeLockFlags()I
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 522
-    :goto_6
+    :goto_0
     return v1
 
     .line 521
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 522
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public goToSleep(J)V
-    .registers 4
+    .locals 1
     .parameter "time"
 
     .prologue
@@ -134,22 +134,22 @@
     iget-object v0, p0, Landroid/os/PowerManager;->mService:Landroid/os/IPowerManager;
 
     invoke-interface {v0, p1, p2}, Landroid/os/IPowerManager;->goToSleep(J)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 483
-    :goto_5
+    :goto_0
     return-void
 
     .line 481
-    :catch_6
+    :catch_0
     move-exception v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public isScreenOn()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 540
@@ -157,34 +157,34 @@
     iget-object v1, p0, Landroid/os/PowerManager;->mService:Landroid/os/IPowerManager;
 
     invoke-interface {v1}, Landroid/os/IPowerManager;->isScreenOn()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 542
-    :goto_6
+    :goto_0
     return v1
 
     .line 541
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 542
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
-    .registers 5
+    .locals 2
     .parameter "flags"
     .parameter "tag"
 
     .prologue
     .line 440
-    if-nez p2, :cond_b
+    if-nez p2, :cond_0
 
     .line 441
     new-instance v0, Ljava/lang/NullPointerException;
@@ -196,7 +196,7 @@
     throw v0
 
     .line 443
-    :cond_b
+    :cond_0
     new-instance v0, Landroid/os/PowerManager$WakeLock;
 
     invoke-direct {v0, p0, p1, p2}, Landroid/os/PowerManager$WakeLock;-><init>(Landroid/os/PowerManager;ILjava/lang/String;)V
@@ -205,7 +205,7 @@
 .end method
 
 .method public reboot(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "reason"
 
     .prologue
@@ -214,22 +214,22 @@
     iget-object v0, p0, Landroid/os/PowerManager;->mService:Landroid/os/IPowerManager;
 
     invoke-interface {v0, p1}, Landroid/os/IPowerManager;->reboot(Ljava/lang/String;)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 560
-    :goto_5
+    :goto_0
     return-void
 
     .line 558
-    :catch_6
+    :catch_0
     move-exception v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public setBacklightBrightness(I)V
-    .registers 3
+    .locals 1
     .parameter "brightness"
 
     .prologue
@@ -238,22 +238,22 @@
     iget-object v0, p0, Landroid/os/PowerManager;->mService:Landroid/os/IPowerManager;
 
     invoke-interface {v0, p1}, Landroid/os/IPowerManager;->setBacklightBrightness(I)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 498
-    :goto_5
+    :goto_0
     return-void
 
     .line 496
-    :catch_6
+    :catch_0
     move-exception v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public userActivity(JZ)V
-    .registers 5
+    .locals 1
     .parameter "when"
     .parameter "noChangeLights"
 
@@ -263,16 +263,16 @@
     iget-object v0, p0, Landroid/os/PowerManager;->mService:Landroid/os/IPowerManager;
 
     invoke-interface {v0, p1, p2, p3}, Landroid/os/IPowerManager;->userActivity(JZ)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 467
-    :goto_5
+    :goto_0
     return-void
 
     .line 465
-    :catch_6
+    :catch_0
     move-exception v0
 
-    goto :goto_5
+    goto :goto_0
 .end method

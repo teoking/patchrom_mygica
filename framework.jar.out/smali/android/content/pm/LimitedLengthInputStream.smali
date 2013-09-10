@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;JJ)V
-    .registers 9
+    .locals 3
     .parameter "in"
     .parameter "offset"
     .parameter "length"
@@ -28,7 +28,7 @@
     invoke-direct {p0, p1}, Ljava/io/FilterInputStream;-><init>(Ljava/io/InputStream;)V
 
     .line 35
-    if-nez p1, :cond_f
+    if-nez p1, :cond_0
 
     .line 36
     new-instance v0, Ljava/io/IOException;
@@ -40,10 +40,10 @@
     throw v0
 
     .line 39
-    :cond_f
+    :cond_0
     cmp-long v0, p2, v1
 
-    if-gez v0, :cond_1c
+    if-gez v0, :cond_1
 
     .line 40
     new-instance v0, Ljava/io/IOException;
@@ -55,10 +55,10 @@
     throw v0
 
     .line 43
-    :cond_1c
+    :cond_1
     cmp-long v0, p4, v1
 
-    if-gez v0, :cond_28
+    if-gez v0, :cond_2
 
     .line 44
     new-instance v0, Ljava/io/IOException;
@@ -70,14 +70,14 @@
     throw v0
 
     .line 47
-    :cond_28
+    :cond_2
     const-wide v0, 0x7fffffffffffffffL
 
     sub-long/2addr v0, p2
 
     cmp-long v0, p4, v0
 
-    if-lez v0, :cond_3b
+    if-lez v0, :cond_3
 
     .line 48
     new-instance v0, Ljava/io/IOException;
@@ -89,7 +89,7 @@
     throw v0
 
     .line 51
-    :cond_3b
+    :cond_3
     add-long v0, p2, p4
 
     iput-wide v0, p0, Landroid/content/pm/LimitedLengthInputStream;->mEnd:J
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public declared-synchronized read()I
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -118,29 +118,29 @@
     .line 59
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-wide v0, p0, Landroid/content/pm/LimitedLengthInputStream;->mOffset:J
 
     iget-wide v2, p0, Landroid/content/pm/LimitedLengthInputStream;->mEnd:J
-    :try_end_5
-    .catchall {:try_start_1 .. :try_end_5} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     cmp-long v0, v0, v2
 
-    if-ltz v0, :cond_c
+    if-ltz v0, :cond_0
 
     .line 60
     const/4 v0, -0x1
 
     .line 64
-    :goto_a
+    :goto_0
     monitor-exit p0
 
     return v0
 
     .line 63
-    :cond_c
-    :try_start_c
+    :cond_0
+    :try_start_1
     iget-wide v0, p0, Landroid/content/pm/LimitedLengthInputStream;->mOffset:J
 
     const-wide/16 v2, 0x1
@@ -151,15 +151,15 @@
 
     .line 64
     invoke-super {p0}, Ljava/io/FilterInputStream;->read()I
-    :try_end_16
-    .catchall {:try_start_c .. :try_end_16} :catchall_18
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result v0
 
-    goto :goto_a
+    goto :goto_0
 
     .line 59
-    :catchall_18
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -168,7 +168,7 @@
 .end method
 
 .method public read([B)I
-    .registers 4
+    .locals 2
     .parameter "buffer"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -190,7 +190,7 @@
 .end method
 
 .method public read([BII)I
-    .registers 12
+    .locals 8
     .parameter "buffer"
     .parameter "offset"
     .parameter "byteCount"
@@ -208,17 +208,17 @@
 
     cmp-long v2, v2, v4
 
-    if-ltz v2, :cond_a
+    if-ltz v2, :cond_0
 
     .line 70
     const/4 v1, -0x1
 
     .line 87
-    :goto_9
+    :goto_0
     return v1
 
     .line 73
-    :cond_a
+    :cond_0
     array-length v0, p1
 
     .line 74
@@ -236,7 +236,7 @@
 
     cmp-long v2, v2, v4
 
-    if-lez v2, :cond_41
+    if-lez v2, :cond_1
 
     .line 77
     new-instance v2, Ljava/io/IOException;
@@ -276,7 +276,7 @@
     throw v2
 
     .line 80
-    :cond_41
+    :cond_1
     iget-wide v2, p0, Landroid/content/pm/LimitedLengthInputStream;->mOffset:J
 
     int-to-long v4, p3
@@ -287,7 +287,7 @@
 
     cmp-long v2, v2, v4
 
-    if-lez v2, :cond_51
+    if-lez v2, :cond_2
 
     .line 81
     iget-wide v2, p0, Landroid/content/pm/LimitedLengthInputStream;->mEnd:J
@@ -299,7 +299,7 @@
     long-to-int p3, v2
 
     .line 84
-    :cond_51
+    :cond_2
     invoke-super {p0, p1, p2, p3}, Ljava/io/FilterInputStream;->read([BII)I
 
     move-result v1
@@ -314,5 +314,5 @@
 
     iput-wide v2, p0, Landroid/content/pm/LimitedLengthInputStream;->mOffset:J
 
-    goto :goto_9
+    goto :goto_0
 .end method

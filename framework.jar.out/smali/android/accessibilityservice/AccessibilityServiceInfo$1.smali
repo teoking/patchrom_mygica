@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 624
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/accessibilityservice/AccessibilityServiceInfo;
-    .registers 3
+    .locals 1
     .parameter "parcel"
 
     .prologue
@@ -52,6 +52,7 @@
 
     .line 627
     .local v0, info:Landroid/accessibilityservice/AccessibilityServiceInfo;
+    #calls: Landroid/accessibilityservice/AccessibilityServiceInfo;->initFromParcel(Landroid/os/Parcel;)V
     invoke-static {v0, p1}, Landroid/accessibilityservice/AccessibilityServiceInfo;->access$000(Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/os/Parcel;)V
 
     .line 628
@@ -59,7 +60,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -72,7 +73,7 @@
 .end method
 
 .method public newArray(I)[Landroid/accessibilityservice/AccessibilityServiceInfo;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -83,7 +84,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

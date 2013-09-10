@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 90
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 58
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/pm/FeatureInfo;)V
-    .registers 3
+    .locals 1
     .parameter "orig"
 
     .prologue
@@ -85,7 +85,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -118,7 +118,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/FeatureInfo$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -142,7 +142,7 @@
 .end method
 
 .method public getGlEsVersion()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 113
@@ -198,13 +198,13 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 68
     iget-object v0, p0, Landroid/content/pm/FeatureInfo;->name:Ljava/lang/String;
 
-    if-eqz v0, :cond_43
+    if-eqz v0, :cond_0
 
     .line 69
     new-instance v0, Ljava/lang/StringBuilder;
@@ -268,10 +268,10 @@
     move-result-object v0
 
     .line 73
-    :goto_42
+    :goto_0
     return-object v0
 
-    :cond_43
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -334,11 +334,11 @@
 
     move-result-object v0
 
-    goto :goto_42
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "parcelableFlags"
 

@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 43
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "handler"
 
@@ -81,7 +81,7 @@
 .end method
 
 .method private updateShortcuts()V
-    .registers 8
+    .locals 7
 
     .prologue
     .line 73
@@ -93,7 +93,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_10
+    if-nez v5, :cond_1
 
     .line 75
     const-string v5, "ShortcutManager"
@@ -103,23 +103,23 @@
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 93
-    :cond_f
+    :cond_0
     return-void
 
     .line 79
-    :cond_10
+    :cond_1
     iget-object v5, p0, Lcom/android/internal/policy/impl/ShortcutManager;->mShortcutIntents:Landroid/util/SparseArray;
 
     invoke-virtual {v5}, Landroid/util/SparseArray;->clear()V
 
     .line 80
-    :cond_15
-    :goto_15
+    :cond_2
+    :goto_0
     invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_0
 
     .line 81
     const/4 v5, 0x0
@@ -130,7 +130,7 @@
 
     .line 82
     .local v4, shortcut:I
-    if-eqz v4, :cond_15
+    if-eqz v4, :cond_2
 
     .line 83
     const/4 v5, 0x1
@@ -145,26 +145,26 @@
 
     .line 86
     .local v2, intent:Landroid/content/Intent;
-    :try_start_28
+    :try_start_0
     invoke-static {v3}, Landroid/content/Intent;->getIntent(Ljava/lang/String;)Landroid/content/Intent;
-    :try_end_2b
-    .catch Ljava/net/URISyntaxException; {:try_start_28 .. :try_end_2b} :catch_34
+    :try_end_0
+    .catch Ljava/net/URISyntaxException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v2
 
     .line 90
-    :goto_2c
-    if-eqz v2, :cond_15
+    :goto_1
+    if-eqz v2, :cond_2
 
     .line 91
     iget-object v5, p0, Lcom/android/internal/policy/impl/ShortcutManager;->mShortcutIntents:Landroid/util/SparseArray;
 
     invoke-virtual {v5, v4, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    goto :goto_15
+    goto :goto_0
 
     .line 87
-    :catch_34
+    :catch_0
     move-exception v1
 
     .line 88
@@ -175,13 +175,13 @@
 
     invoke-static {v5, v6, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_2c
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public getIntent(Landroid/view/KeyCharacterMap;II)Landroid/content/Intent;
-    .registers 7
+    .locals 3
     .parameter "kcm"
     .parameter "keyCode"
     .parameter "metaState"
@@ -198,7 +198,7 @@
 
     .line 115
     .local v1, shortcut:I
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_0
 
     .line 116
     iget-object v2, p0, Lcom/android/internal/policy/impl/ShortcutManager;->mShortcutIntents:Landroid/util/SparseArray;
@@ -212,8 +212,8 @@
 
     .line 120
     .restart local v0       #intent:Landroid/content/Intent;
-    :cond_f
-    if-nez v0, :cond_23
+    :cond_0
+    if-nez v0, :cond_1
 
     .line 121
     invoke-virtual {p1, p2}, Landroid/view/KeyCharacterMap;->getDisplayLabel(I)C
@@ -225,7 +225,7 @@
     move-result v1
 
     .line 122
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_1
 
     .line 123
     iget-object v2, p0, Lcom/android/internal/policy/impl/ShortcutManager;->mShortcutIntents:Landroid/util/SparseArray;
@@ -239,12 +239,12 @@
 
     .line 127
     .restart local v0       #intent:Landroid/content/Intent;
-    :cond_23
+    :cond_1
     return-object v0
 .end method
 
 .method public observe()V
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v3, 0x0
@@ -283,7 +283,7 @@
 .end method
 
 .method public onChange(Z)V
-    .registers 2
+    .locals 0
     .parameter "selfChange"
 
     .prologue

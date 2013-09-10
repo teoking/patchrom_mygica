@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/internal/telephony/sip/SipPhone;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/telephony/sip/SipPhone;Lcom/android/internal/telephony/sip/SipPhone$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public onCallBusy(Landroid/net/sip/SipAudioCall;)V
-    .registers 3
+    .locals 1
     .parameter "call"
 
     .prologue
@@ -61,7 +61,7 @@
 .end method
 
 .method public onCallEnded(Landroid/net/sip/SipAudioCall;)V
-    .registers 3
+    .locals 1
     .parameter "call"
 
     .prologue
@@ -70,38 +70,38 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->NORMAL:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
-    :goto_8
+    :goto_0
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;->onCallEnded(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
 
     .line 893
     return-void
 
     .line 890
-    :cond_c
+    :cond_0
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->INCOMING_MISSED:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method protected abstract onCallEnded(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
 .end method
 
 .method public onError(Landroid/net/sip/SipAudioCall;ILjava/lang/String;)V
-    .registers 7
+    .locals 3
     .parameter "call"
     .parameter "errorCode"
     .parameter "errorMessage"
 
     .prologue
     .line 903
-    packed-switch p2, :pswitch_data_60
+    packed-switch p2, :pswitch_data_0
 
     .line 932
-    :pswitch_3
+    :pswitch_0
     const-string v0, "SipPhone"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -144,89 +144,89 @@
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;->onError(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
 
     .line 936
-    :goto_2e
+    :goto_0
     return-void
 
     .line 905
-    :pswitch_2f
+    :pswitch_1
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->SERVER_UNREACHABLE:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;->onError(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 908
-    :pswitch_35
+    :pswitch_2
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->NUMBER_UNREACHABLE:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;->onError(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 911
-    :pswitch_3b
+    :pswitch_3
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->INVALID_NUMBER:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;->onError(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 915
-    :pswitch_41
+    :pswitch_4
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->TIMED_OUT:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;->onError(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 918
-    :pswitch_47
+    :pswitch_5
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->LOST_SIGNAL:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;->onError(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 921
-    :pswitch_4d
+    :pswitch_6
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->INVALID_CREDENTIALS:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;->onError(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 924
-    :pswitch_53
+    :pswitch_7
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->OUT_OF_NETWORK:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;->onError(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 927
-    :pswitch_59
+    :pswitch_8
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->SERVER_ERROR:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;->onError(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 903
     nop
 
-    :pswitch_data_60
+    :pswitch_data_0
     .packed-switch -0xc
-        :pswitch_2f
-        :pswitch_53
-        :pswitch_47
+        :pswitch_1
+        :pswitch_7
+        :pswitch_5
+        :pswitch_0
+        :pswitch_6
+        :pswitch_2
         :pswitch_3
-        :pswitch_4d
-        :pswitch_35
-        :pswitch_3b
-        :pswitch_41
-        :pswitch_3
-        :pswitch_41
-        :pswitch_59
+        :pswitch_4
+        :pswitch_0
+        :pswitch_4
+        :pswitch_8
     .end packed-switch
 .end method
 

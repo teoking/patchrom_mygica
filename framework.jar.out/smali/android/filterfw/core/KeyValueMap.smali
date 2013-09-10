@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 27
@@ -27,7 +27,7 @@
 .end method
 
 .method public static varargs fromKeyValues([Ljava/lang/Object;)Landroid/filterfw/core/KeyValueMap;
-    .registers 2
+    .locals 1
     .parameter "keyValues"
 
     .prologue
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public getFloat(Ljava/lang/String;)F
-    .registers 4
+    .locals 2
     .parameter "key"
 
     .prologue
@@ -58,12 +58,12 @@
 
     .line 63
     .local v0, result:Ljava/lang/Object;
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     check-cast v0, Ljava/lang/Float;
 
     .end local v0           #result:Ljava/lang/Object;
-    :goto_8
+    :goto_0
     invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
 
     move-result v1
@@ -71,14 +71,14 @@
     return v1
 
     .restart local v0       #result:Ljava/lang/Object;
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getInt(Ljava/lang/String;)I
-    .registers 4
+    .locals 2
     .parameter "key"
 
     .prologue
@@ -89,12 +89,12 @@
 
     .line 58
     .local v0, result:Ljava/lang/Object;
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     check-cast v0, Ljava/lang/Integer;
 
     .end local v0           #result:Ljava/lang/Object;
-    :goto_8
+    :goto_0
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
@@ -102,14 +102,14 @@
     return v1
 
     .restart local v0       #result:Ljava/lang/Object;
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getString(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -120,23 +120,23 @@
 
     .line 53
     .local v0, result:Ljava/lang/Object;
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     check-cast v0, Ljava/lang/String;
 
     .end local v0           #result:Ljava/lang/Object;
-    :goto_8
+    :goto_0
     return-object v0
 
     .restart local v0       #result:Ljava/lang/Object;
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public varargs setKeyValues([Ljava/lang/Object;)V
-    .registers 8
+    .locals 6
     .parameter "keyValues"
 
     .prologue
@@ -145,7 +145,7 @@
 
     rem-int/lit8 v3, v3, 0x2
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_0
 
     .line 31
     new-instance v3, Ljava/lang/RuntimeException;
@@ -157,21 +157,21 @@
     throw v3
 
     .line 34
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_e
+    :goto_0
     array-length v3, p1
 
-    if-ge v0, v3, :cond_5a
+    if-ge v0, v3, :cond_2
 
     .line 35
     aget-object v3, p1, v0
 
     instance-of v3, v3, Ljava/lang/String;
 
-    if-nez v3, :cond_4c
+    if-nez v3, :cond_1
 
     .line 36
     new-instance v3, Ljava/lang/RuntimeException;
@@ -227,7 +227,7 @@
     throw v3
 
     .line 39
-    :cond_4c
+    :cond_1
     aget-object v1, p1, v0
 
     check-cast v1, Ljava/lang/String;
@@ -245,17 +245,17 @@
     .line 34
     add-int/lit8 v0, v0, 0x2
 
-    goto :goto_e
+    goto :goto_0
 
     .line 43
     .end local v1           #key:Ljava/lang/String;
     .end local v2           #value:Ljava/lang/Object;
-    :cond_5a
+    :cond_2
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 8
+    .locals 7
 
     .prologue
     .line 68
@@ -274,12 +274,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_d
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_66
+    if-eqz v5, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -297,7 +297,7 @@
     .local v2, value:Ljava/lang/Object;
     instance-of v5, v2, Ljava/lang/String;
 
-    if-eqz v5, :cond_61
+    if-eqz v5, :cond_0
 
     .line 73
     new-instance v5, Ljava/lang/StringBuilder;
@@ -326,7 +326,7 @@
 
     .line 77
     .local v3, valueString:Ljava/lang/String;
-    :goto_3a
+    :goto_1
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -363,23 +363,23 @@
 
     invoke-virtual {v4, v5}, Ljava/io/StringWriter;->write(Ljava/lang/String;)V
 
-    goto :goto_d
+    goto :goto_0
 
     .line 75
     .end local v3           #valueString:Ljava/lang/String;
-    :cond_61
+    :cond_0
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v3
 
     .restart local v3       #valueString:Ljava/lang/String;
-    goto :goto_3a
+    goto :goto_1
 
     .line 79
     .end local v0           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;"
     .end local v2           #value:Ljava/lang/Object;
     .end local v3           #valueString:Ljava/lang/String;
-    :cond_66
+    :cond_1
     invoke-virtual {v4}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 
     move-result-object v5

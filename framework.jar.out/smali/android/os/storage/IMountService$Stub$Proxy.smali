@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 46
@@ -50,7 +50,7 @@
 .end method
 
 .method public changeEncryptionPassword(Ljava/lang/String;)I
-    .registers 8
+    .locals 6
     .parameter "password"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -72,7 +72,7 @@
 
     .line 690
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -94,8 +94,8 @@
 
     .line 694
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -111,7 +111,7 @@
 
     .line 696
     .end local v2           #_result:I
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -123,7 +123,7 @@
 .end method
 
 .method public createSecureContainer(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;IZ)I
-    .registers 13
+    .locals 6
     .parameter "id"
     .parameter "sizeMb"
     .parameter "fstype"
@@ -152,7 +152,7 @@
 
     .line 300
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v4, "IMountService"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -173,11 +173,11 @@
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 306
-    if-eqz p6, :cond_20
+    if-eqz p6, :cond_0
 
     const/4 v3, 0x1
 
-    :cond_20
+    :cond_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 307
@@ -194,8 +194,8 @@
 
     .line 309
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_31
-    .catchall {:try_start_9 .. :try_end_31} :catchall_39
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -211,7 +211,7 @@
 
     .line 311
     .end local v2           #_result:I
-    :catchall_39
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -223,7 +223,7 @@
 .end method
 
 .method public decryptStorage(Ljava/lang/String;)I
-    .registers 8
+    .locals 6
     .parameter "password"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -245,7 +245,7 @@
 
     .line 656
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -267,8 +267,8 @@
 
     .line 660
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -284,7 +284,7 @@
 
     .line 662
     .end local v2           #_result:I
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -296,7 +296,7 @@
 .end method
 
 .method public destroySecureContainer(Ljava/lang/String;Z)I
-    .registers 9
+    .locals 6
     .parameter "id"
     .parameter "force"
     .annotation system Ldalvik/annotation/Throws;
@@ -321,7 +321,7 @@
 
     .line 327
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v4, "IMountService"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -330,11 +330,11 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 329
-    if-eqz p2, :cond_14
+    if-eqz p2, :cond_0
 
     const/4 v3, 0x1
 
-    :cond_14
+    :cond_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 330
@@ -351,8 +351,8 @@
 
     .line 332
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_25
-    .catchall {:try_start_9 .. :try_end_25} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -368,7 +368,7 @@
 
     .line 334
     .end local v2           #_result:I
-    :catchall_2d
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -380,7 +380,7 @@
 .end method
 
 .method public encryptStorage(Ljava/lang/String;)I
-    .registers 8
+    .locals 6
     .parameter "password"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -402,7 +402,7 @@
 
     .line 673
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -424,8 +424,8 @@
 
     .line 677
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -441,7 +441,7 @@
 
     .line 679
     .end local v2           #_result:I
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -453,7 +453,7 @@
 .end method
 
 .method public finalizeSecureContainer(Ljava/lang/String;)I
-    .registers 8
+    .locals 6
     .parameter "id"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -475,7 +475,7 @@
 
     .line 350
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -497,8 +497,8 @@
 
     .line 354
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -514,7 +514,7 @@
 
     .line 356
     .end local v2           #_result:I
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -526,7 +526,7 @@
 .end method
 
 .method public finishMediaUpdate()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -547,7 +547,7 @@
 
     .line 516
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "IMountService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -563,8 +563,8 @@
 
     .line 518
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 520
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -576,7 +576,7 @@
     return-void
 
     .line 520
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -588,7 +588,7 @@
 .end method
 
 .method public fixPermissionsSecureContainer(Ljava/lang/String;ILjava/lang/String;)I
-    .registers 10
+    .locals 6
     .parameter "id"
     .parameter "gid"
     .parameter "filename"
@@ -612,7 +612,7 @@
 
     .line 865
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -640,8 +640,8 @@
 
     .line 871
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_2c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -657,7 +657,7 @@
 
     .line 873
     .end local v2           #_result:I
-    :catchall_2c
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -669,7 +669,7 @@
 .end method
 
 .method public formatVolume(Ljava/lang/String;)I
-    .registers 8
+    .locals 6
     .parameter "mountPoint"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -691,7 +691,7 @@
 
     .line 218
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -713,8 +713,8 @@
 
     .line 222
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -730,7 +730,7 @@
 
     .line 224
     .end local v2           #_result:I
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -742,7 +742,7 @@
 .end method
 
 .method public getAllVolume()Ljava/util/ArrayList;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -773,7 +773,7 @@
 
     .line 784
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -792,8 +792,8 @@
 
     .line 787
     invoke-virtual {v1}, Landroid/os/Parcel;->createStringArrayList()Ljava/util/ArrayList;
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -809,7 +809,7 @@
 
     .line 789
     .end local v2           #_result:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :catchall_23
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -821,7 +821,7 @@
 .end method
 
 .method public getEncryptionState()I
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -842,7 +842,7 @@
 
     .line 640
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -861,8 +861,8 @@
 
     .line 643
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -878,7 +878,7 @@
 
     .line 645
     .end local v2           #_result:I
-    :catchall_23
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -890,7 +890,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 50
@@ -900,7 +900,7 @@
 .end method
 
 .method public getMountedObbPath(Ljava/lang/String;)Ljava/lang/String;
-    .registers 8
+    .locals 6
     .parameter "filename"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -922,7 +922,7 @@
 
     .line 604
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -944,8 +944,8 @@
 
     .line 608
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -961,7 +961,7 @@
 
     .line 610
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -973,7 +973,7 @@
 .end method
 
 .method public getSecureContainerFilesystemPath(Ljava/lang/String;)Ljava/lang/String;
-    .registers 8
+    .locals 6
     .parameter "id"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -995,7 +995,7 @@
 
     .line 744
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1017,8 +1017,8 @@
 
     .line 748
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -1034,7 +1034,7 @@
 
     .line 750
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1046,7 +1046,7 @@
 .end method
 
 .method public getSecureContainerList()[Ljava/lang/String;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1067,7 +1067,7 @@
 
     .line 478
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1086,8 +1086,8 @@
 
     .line 481
     invoke-virtual {v1}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -1103,7 +1103,7 @@
 
     .line 483
     .end local v2           #_result:[Ljava/lang/String;
-    :catchall_23
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1115,7 +1115,7 @@
 .end method
 
 .method public getSecureContainerPath(Ljava/lang/String;)Ljava/lang/String;
-    .registers 8
+    .locals 6
     .parameter "id"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1137,7 +1137,7 @@
 
     .line 458
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1159,8 +1159,8 @@
 
     .line 462
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -1176,7 +1176,7 @@
 
     .line 464
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1188,7 +1188,7 @@
 .end method
 
 .method public getStorageUsers(Ljava/lang/String;)[I
-    .registers 8
+    .locals 6
     .parameter "path"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1210,7 +1210,7 @@
 
     .line 238
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1232,8 +1232,8 @@
 
     .line 242
     invoke-virtual {v1}, Landroid/os/Parcel;->createIntArray()[I
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -1249,7 +1249,7 @@
 
     .line 244
     .end local v2           #_result:[I
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1261,7 +1261,7 @@
 .end method
 
 .method public getVolumeFSLabel(Ljava/lang/String;)Ljava/lang/String;
-    .registers 8
+    .locals 6
     .parameter "mountPoint"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1283,7 +1283,7 @@
 
     .line 764
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1305,8 +1305,8 @@
 
     .line 768
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -1322,7 +1322,7 @@
 
     .line 770
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1334,7 +1334,7 @@
 .end method
 
 .method public getVolumeLabel(Ljava/lang/String;)Ljava/lang/String;
-    .registers 8
+    .locals 6
     .parameter "mountPoint"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1356,7 +1356,7 @@
 
     .line 278
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1378,8 +1378,8 @@
 
     .line 282
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -1395,7 +1395,7 @@
 
     .line 284
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1407,7 +1407,7 @@
 .end method
 
 .method public getVolumeList()[Landroid/os/Parcelable;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1428,7 +1428,7 @@
 
     .line 725
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1453,8 +1453,8 @@
     move-result-object v3
 
     invoke-virtual {v1, v3}, Landroid/os/Parcel;->readParcelableArray(Ljava/lang/ClassLoader;)[Landroid/os/Parcelable;
-    :try_end_21
-    .catchall {:try_start_8 .. :try_end_21} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -1470,7 +1470,7 @@
 
     .line 730
     .end local v2           #_result:[Landroid/os/Parcelable;
-    :catchall_29
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1482,7 +1482,7 @@
 .end method
 
 .method public getVolumeState(Ljava/lang/String;)Ljava/lang/String;
-    .registers 8
+    .locals 6
     .parameter "mountPoint"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1504,7 +1504,7 @@
 
     .line 258
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1526,8 +1526,8 @@
 
     .line 262
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -1543,7 +1543,7 @@
 
     .line 264
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1555,7 +1555,7 @@
 .end method
 
 .method public getVolumeUUID(Ljava/lang/String;)Ljava/lang/String;
-    .registers 8
+    .locals 6
     .parameter "mountPoint"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1577,7 +1577,7 @@
 
     .line 843
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1599,8 +1599,8 @@
 
     .line 847
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -1616,7 +1616,7 @@
 
     .line 849
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1628,7 +1628,7 @@
 .end method
 
 .method public getVolumedevnode(Ljava/lang/String;)I
-    .registers 8
+    .locals 6
     .parameter "mountPoint"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1650,7 +1650,7 @@
 
     .line 823
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1672,8 +1672,8 @@
 
     .line 827
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -1689,7 +1689,7 @@
 
     .line 829
     .end local v2           #_result:I
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1701,7 +1701,7 @@
 .end method
 
 .method public getVolumedevtype(Ljava/lang/String;)I
-    .registers 8
+    .locals 6
     .parameter "mountPoint"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1723,7 +1723,7 @@
 
     .line 803
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1745,8 +1745,8 @@
 
     .line 807
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -1762,7 +1762,7 @@
 
     .line 809
     .end local v2           #_result:I
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1774,7 +1774,7 @@
 .end method
 
 .method public isExternalStorageEmulated()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1797,7 +1797,7 @@
 
     .line 624
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1816,18 +1816,18 @@
 
     .line 627
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1c
-    .catchall {:try_start_9 .. :try_end_1c} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 629
     .local v2, _result:Z
-    :cond_20
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 630
@@ -1838,7 +1838,7 @@
 
     .line 629
     .end local v2           #_result:Z
-    :catchall_27
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1850,7 +1850,7 @@
 .end method
 
 .method public isObbMounted(Ljava/lang/String;)Z
-    .registers 8
+    .locals 6
     .parameter "filename"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1874,7 +1874,7 @@
 
     .line 584
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1896,18 +1896,18 @@
 
     .line 588
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1f
-    .catchall {:try_start_9 .. :try_end_1f} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_23
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 590
     .local v2, _result:Z
-    :cond_23
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 591
@@ -1918,7 +1918,7 @@
 
     .line 590
     .end local v2           #_result:Z
-    :catchall_2a
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1930,7 +1930,7 @@
 .end method
 
 .method public isSecureContainerMounted(Ljava/lang/String;)Z
-    .registers 8
+    .locals 6
     .parameter "id"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1954,7 +1954,7 @@
 
     .line 416
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1976,18 +1976,18 @@
 
     .line 420
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1f
-    .catchall {:try_start_9 .. :try_end_1f} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_23
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 422
     .local v2, _result:Z
-    :cond_23
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 423
@@ -1998,7 +1998,7 @@
 
     .line 422
     .end local v2           #_result:Z
-    :catchall_2a
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2010,7 +2010,7 @@
 .end method
 
 .method public isUsbMassStorageAllEnabled()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2033,7 +2033,7 @@
 
     .line 155
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2052,18 +2052,18 @@
 
     .line 158
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1c
-    .catchall {:try_start_9 .. :try_end_1c} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 160
     .local v2, _result:Z
-    :cond_20
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 161
@@ -2074,7 +2074,7 @@
 
     .line 160
     .end local v2           #_result:Z
-    :catchall_27
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2086,7 +2086,7 @@
 .end method
 
 .method public isUsbMassStorageConnected()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2109,7 +2109,7 @@
 
     .line 96
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2128,18 +2128,18 @@
 
     .line 99
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_9 .. :try_end_1b} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_1f
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 101
     .local v2, _result:Z
-    :cond_1f
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 102
@@ -2150,7 +2150,7 @@
 
     .line 101
     .end local v2           #_result:Z
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2162,7 +2162,7 @@
 .end method
 
 .method public isUsbMassStorageEnabled()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2185,7 +2185,7 @@
 
     .line 135
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2204,18 +2204,18 @@
 
     .line 138
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_9 .. :try_end_1b} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_1f
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 140
     .local v2, _result:Z
-    :cond_1f
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 141
@@ -2226,7 +2226,7 @@
 
     .line 140
     .end local v2           #_result:Z
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2238,7 +2238,7 @@
 .end method
 
 .method public mountObb(Ljava/lang/String;Ljava/lang/String;Landroid/os/storage/IObbActionListener;I)V
-    .registers 10
+    .locals 5
     .parameter "filename"
     .parameter "key"
     .parameter "token"
@@ -2263,7 +2263,7 @@
 
     .line 537
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "IMountService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2275,13 +2275,13 @@
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 540
-    if-eqz p3, :cond_31
+    if-eqz p3, :cond_0
 
     invoke-interface {p3}, Landroid/os/storage/IObbActionListener;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_19
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 541
@@ -2298,8 +2298,8 @@
 
     .line 543
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_2a
-    .catchall {:try_start_8 .. :try_end_2a} :catchall_33
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 545
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2311,13 +2311,13 @@
     return-void
 
     .line 540
-    :cond_31
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 545
-    :catchall_33
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2329,7 +2329,7 @@
 .end method
 
 .method public mountSecureContainer(Ljava/lang/String;Ljava/lang/String;I)I
-    .registers 10
+    .locals 6
     .parameter "id"
     .parameter "key"
     .parameter "ownerUid"
@@ -2353,7 +2353,7 @@
 
     .line 372
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2381,8 +2381,8 @@
 
     .line 378
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_2c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -2398,7 +2398,7 @@
 
     .line 380
     .end local v2           #_result:I
-    :catchall_2c
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2410,7 +2410,7 @@
 .end method
 
 .method public mountVolume(Ljava/lang/String;)I
-    .registers 8
+    .locals 6
     .parameter "mountPoint"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2432,7 +2432,7 @@
 
     .line 175
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2454,8 +2454,8 @@
 
     .line 179
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -2471,7 +2471,7 @@
 
     .line 181
     .end local v2           #_result:I
-    :catchall_25
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2483,7 +2483,7 @@
 .end method
 
 .method public registerListener(Landroid/os/storage/IMountServiceListener;)V
-    .registers 7
+    .locals 5
     .parameter "listener"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2505,19 +2505,19 @@
 
     .line 61
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "IMountService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 62
-    if-eqz p1, :cond_27
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/os/storage/IMountServiceListener;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 63
@@ -2531,8 +2531,8 @@
 
     .line 64
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 66
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2544,13 +2544,13 @@
     return-void
 
     .line 62
-    :cond_27
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 66
-    :catchall_29
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2562,7 +2562,7 @@
 .end method
 
 .method public renameSecureContainer(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 9
+    .locals 6
     .parameter "oldId"
     .parameter "newId"
     .annotation system Ldalvik/annotation/Throws;
@@ -2585,7 +2585,7 @@
 
     .line 437
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2610,8 +2610,8 @@
 
     .line 442
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_21
-    .catchall {:try_start_8 .. :try_end_21} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -2627,7 +2627,7 @@
 
     .line 444
     .end local v2           #_result:I
-    :catchall_29
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2639,7 +2639,7 @@
 .end method
 
 .method public setUsbMassStorageEnabled(Z)V
-    .registers 7
+    .locals 5
     .parameter "enable"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2663,17 +2663,17 @@
 
     .line 116
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 117
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     const/4 v2, 0x1
 
-    :cond_11
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 118
@@ -2687,8 +2687,8 @@
 
     .line 119
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1e
-    .catchall {:try_start_9 .. :try_end_1e} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 121
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2700,7 +2700,7 @@
     return-void
 
     .line 121
-    :catchall_25
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2712,7 +2712,7 @@
 .end method
 
 .method public shutdown(Landroid/os/storage/IMountShutdownObserver;)V
-    .registers 7
+    .locals 5
     .parameter "observer"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2734,19 +2734,19 @@
 
     .line 498
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "IMountService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 499
-    if-eqz p1, :cond_28
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/os/storage/IMountShutdownObserver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 500
@@ -2760,8 +2760,8 @@
 
     .line 501
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_8 .. :try_end_21} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 503
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2773,13 +2773,13 @@
     return-void
 
     .line 499
-    :cond_28
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 503
-    :catchall_2a
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2791,7 +2791,7 @@
 .end method
 
 .method public unmountObb(Ljava/lang/String;ZLandroid/os/storage/IObbActionListener;I)V
-    .registers 10
+    .locals 5
     .parameter "filename"
     .parameter "force"
     .parameter "token"
@@ -2818,7 +2818,7 @@
 
     .line 562
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2827,21 +2827,21 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 564
-    if-eqz p2, :cond_14
+    if-eqz p2, :cond_0
 
     const/4 v2, 0x1
 
-    :cond_14
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 565
-    if-eqz p3, :cond_35
+    if-eqz p3, :cond_1
 
     invoke-interface {p3}, Landroid/os/storage/IObbActionListener;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_1d
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 566
@@ -2858,8 +2858,8 @@
 
     .line 568
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_2e
-    .catchall {:try_start_9 .. :try_end_2e} :catchall_37
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 570
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2871,13 +2871,13 @@
     return-void
 
     .line 565
-    :cond_35
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 570
-    :catchall_37
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2889,7 +2889,7 @@
 .end method
 
 .method public unmountSecureContainer(Ljava/lang/String;Z)I
-    .registers 9
+    .locals 6
     .parameter "id"
     .parameter "force"
     .annotation system Ldalvik/annotation/Throws;
@@ -2914,7 +2914,7 @@
 
     .line 395
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v4, "IMountService"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2923,11 +2923,11 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 397
-    if-eqz p2, :cond_14
+    if-eqz p2, :cond_0
 
     const/4 v3, 0x1
 
-    :cond_14
+    :cond_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 398
@@ -2944,8 +2944,8 @@
 
     .line 400
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_25
-    .catchall {:try_start_9 .. :try_end_25} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -2961,7 +2961,7 @@
 
     .line 402
     .end local v2           #_result:I
-    :catchall_2d
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2973,7 +2973,7 @@
 .end method
 
 .method public unmountVolume(Ljava/lang/String;ZZ)V
-    .registers 9
+    .locals 5
     .parameter "mountPoint"
     .parameter "force"
     .parameter "removeEncryption"
@@ -3001,7 +3001,7 @@
 
     .line 197
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "IMountService"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -3010,17 +3010,17 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 199
-    if-eqz p2, :cond_2e
+    if-eqz p2, :cond_0
 
     move v4, v2
 
-    :goto_15
+    :goto_0
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 200
-    if-eqz p3, :cond_30
+    if-eqz p3, :cond_1
 
-    :goto_1a
+    :goto_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 201
@@ -3034,8 +3034,8 @@
 
     .line 202
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_27
-    .catchall {:try_start_a .. :try_end_27} :catchall_32
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 204
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3046,20 +3046,20 @@
     .line 207
     return-void
 
-    :cond_2e
+    :cond_0
     move v4, v3
 
     .line 199
-    goto :goto_15
+    goto :goto_0
 
-    :cond_30
+    :cond_1
     move v2, v3
 
     .line 200
-    goto :goto_1a
+    goto :goto_1
 
     .line 204
-    :catchall_32
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3071,7 +3071,7 @@
 .end method
 
 .method public unregisterListener(Landroid/os/storage/IMountServiceListener;)V
-    .registers 7
+    .locals 5
     .parameter "listener"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3093,19 +3093,19 @@
 
     .line 78
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "IMountService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 79
-    if-eqz p1, :cond_27
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/os/storage/IMountServiceListener;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 80
@@ -3119,8 +3119,8 @@
 
     .line 81
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 83
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3132,13 +3132,13 @@
     return-void
 
     .line 79
-    :cond_27
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 83
-    :catchall_29
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3150,7 +3150,7 @@
 .end method
 
 .method public verifyEncryptionPassword(Ljava/lang/String;)I
-    .registers 8
+    .locals 6
     .parameter "password"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3172,7 +3172,7 @@
 
     .line 708
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "IMountService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -3194,8 +3194,8 @@
 
     .line 712
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -3211,7 +3211,7 @@
 
     .line 714
     .end local v2           #_result:I
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

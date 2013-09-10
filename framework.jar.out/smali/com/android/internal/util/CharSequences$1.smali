@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>([B)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public charAt(I)C
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -53,7 +53,7 @@
 .end method
 
 .method public length()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 37
@@ -65,7 +65,7 @@
 .end method
 
 .method public subSequence(II)Ljava/lang/CharSequence;
-    .registers 4
+    .locals 1
     .parameter "start"
     .parameter "end"
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 45

@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 18
@@ -49,22 +49,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/accounts/IAccountManagerResponse;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 27
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 28
     const/4 v0, 0x0
 
     .line 34
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 30
-    :cond_4
+    :cond_0
     const-string v1, "android.accounts.IAccountManagerResponse"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -73,31 +73,31 @@
 
     .line 31
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/accounts/IAccountManagerResponse;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 32
     check-cast v0, Landroid/accounts/IAccountManagerResponse;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 34
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/accounts/IAccountManagerResponse$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/accounts/IAccountManagerResponse$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 38
@@ -105,7 +105,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 9
+    .locals 4
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -120,26 +120,26 @@
     const/4 v2, 0x1
 
     .line 42
-    sparse-switch p1, :sswitch_data_3a
+    sparse-switch p1, :sswitch_data_0
 
     .line 73
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
 
-    :goto_8
+    :goto_0
     return v2
 
     .line 46
-    :sswitch_9
+    :sswitch_0
     const-string v3, "android.accounts.IAccountManagerResponse"
 
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 51
-    :sswitch_f
+    :sswitch_1
     const-string v3, "android.accounts.IAccountManagerResponse"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -149,7 +149,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_0
 
     .line 54
     sget-object v3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -162,22 +162,22 @@
 
     .line 59
     .local v0, _arg0:Landroid/os/Bundle;
-    :goto_22
+    :goto_1
     invoke-virtual {p0, v0}, Landroid/accounts/IAccountManagerResponse$Stub;->onResult(Landroid/os/Bundle;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 57
     .end local v0           #_arg0:Landroid/os/Bundle;
-    :cond_26
+    :cond_0
     const/4 v0, 0x0
 
     .restart local v0       #_arg0:Landroid/os/Bundle;
-    goto :goto_22
+    goto :goto_1
 
     .line 64
     .end local v0           #_arg0:Landroid/os/Bundle;
-    :sswitch_28
+    :sswitch_2
     const-string v3, "android.accounts.IAccountManagerResponse"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -197,15 +197,15 @@
     .local v1, _arg1:Ljava/lang/String;
     invoke-virtual {p0, v0, v1}, Landroid/accounts/IAccountManagerResponse$Stub;->onError(ILjava/lang/String;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 42
     nop
 
-    :sswitch_data_3a
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_f
-        0x2 -> :sswitch_28
-        0x5f4e5446 -> :sswitch_9
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

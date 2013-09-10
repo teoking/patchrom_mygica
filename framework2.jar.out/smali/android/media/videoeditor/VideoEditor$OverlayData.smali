@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 173
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 178
@@ -72,38 +72,38 @@
 
 # virtual methods
 .method public needsRendering()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 200
     iget-boolean v0, p0, Landroid/media/videoeditor/VideoEditor$OverlayData;->mClear:Z
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/media/videoeditor/VideoEditor$OverlayData;->mOverlayBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_1
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public release()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 188
     iget-object v0, p0, Landroid/media/videoeditor/VideoEditor$OverlayData;->mOverlayBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 189
     iget-object v0, p0, Landroid/media/videoeditor/VideoEditor$OverlayData;->mOverlayBitmap:Landroid/graphics/Bitmap;
@@ -116,12 +116,12 @@
     iput-object v0, p0, Landroid/media/videoeditor/VideoEditor$OverlayData;->mOverlayBitmap:Landroid/graphics/Bitmap;
 
     .line 192
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public renderOverlay(Landroid/graphics/Bitmap;)V
-    .registers 16
+    .locals 14
     .parameter "destBitmap"
 
     .prologue
@@ -130,21 +130,21 @@
     .line 230
     iget-boolean v11, p0, Landroid/media/videoeditor/VideoEditor$OverlayData;->mClear:Z
 
-    if-eqz v11, :cond_9
+    if-eqz v11, :cond_1
 
     .line 231
     invoke-virtual {p1, v13}, Landroid/graphics/Bitmap;->eraseColor(I)V
 
     .line 315
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     return-void
 
     .line 232
-    :cond_9
+    :cond_1
     iget-object v11, p0, Landroid/media/videoeditor/VideoEditor$OverlayData;->mOverlayBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v11, :cond_8
+    if-eqz v11, :cond_0
 
     .line 233
     new-instance v7, Landroid/graphics/Canvas;
@@ -155,7 +155,7 @@
     .local v7, overlayCanvas:Landroid/graphics/Canvas;
     iget v11, p0, Landroid/media/videoeditor/VideoEditor$OverlayData;->mRenderingMode:I
 
-    packed-switch v11, :pswitch_data_156
+    packed-switch v11, :pswitch_data_0
 
     .line 306
     new-instance v11, Ljava/lang/IllegalStateException;
@@ -185,7 +185,7 @@
     throw v11
 
     .line 238
-    :pswitch_32
+    :pswitch_0
     new-instance v3, Landroid/graphics/Rect;
 
     invoke-virtual {v7}, Landroid/graphics/Canvas;->getWidth()I
@@ -218,7 +218,7 @@
 
     .line 310
     .local v9, srcRect:Landroid/graphics/Rect;
-    :goto_50
+    :goto_1
     invoke-virtual {p1, v13}, Landroid/graphics/Bitmap;->eraseColor(I)V
 
     .line 311
@@ -233,12 +233,12 @@
 
     invoke-virtual {v11}, Landroid/graphics/Bitmap;->recycle()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 248
     .end local v3           #destRect:Landroid/graphics/Rect;
     .end local v9           #srcRect:Landroid/graphics/Rect;
-    :pswitch_60
+    :pswitch_1
     iget-object v11, p0, Landroid/media/videoeditor/VideoEditor$OverlayData;->mOverlayBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v11}, Landroid/graphics/Bitmap;->getWidth()I
@@ -277,7 +277,7 @@
     .local v0, aRCanvas:F
     cmpl-float v11, v1, v0
 
-    if-lez v11, :cond_b8
+    if-lez v11, :cond_2
 
     .line 255
     invoke-virtual {v7}, Landroid/graphics/Canvas;->getWidth()I
@@ -327,7 +327,7 @@
     .line 270
     .end local v5           #newHeight:I
     .local v2, bottom:I
-    :goto_a1
+    :goto_2
     new-instance v3, Landroid/graphics/Rect;
 
     invoke-direct {v3, v4, v10, v8, v2}, Landroid/graphics/Rect;-><init>(IIII)V
@@ -352,7 +352,7 @@
 
     .line 272
     .restart local v9       #srcRect:Landroid/graphics/Rect;
-    goto :goto_50
+    goto :goto_1
 
     .line 262
     .end local v2           #bottom:I
@@ -361,7 +361,7 @@
     .end local v8           #right:I
     .end local v9           #srcRect:Landroid/graphics/Rect;
     .end local v10           #top:I
-    :cond_b8
+    :cond_2
     invoke-virtual {v7}, Landroid/graphics/Canvas;->getHeight()I
 
     move-result v11
@@ -407,7 +407,7 @@
     move-result v2
 
     .restart local v2       #bottom:I
-    goto :goto_a1
+    goto :goto_2
 
     .line 279
     .end local v0           #aRCanvas:F
@@ -417,7 +417,7 @@
     .end local v6           #newWidth:I
     .end local v8           #right:I
     .end local v10           #top:I
-    :pswitch_da
+    :pswitch_2
     iget-object v11, p0, Landroid/media/videoeditor/VideoEditor$OverlayData;->mOverlayBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v11}, Landroid/graphics/Bitmap;->getWidth()I
@@ -456,7 +456,7 @@
     .restart local v0       #aRCanvas:F
     cmpg-float v11, v1, v0
 
-    if-gez v11, :cond_131
+    if-gez v11, :cond_3
 
     .line 284
     iget-object v11, p0, Landroid/media/videoeditor/VideoEditor$OverlayData;->mOverlayBitmap:Landroid/graphics/Bitmap;
@@ -508,7 +508,7 @@
     .line 300
     .end local v5           #newHeight:I
     .restart local v2       #bottom:I
-    :goto_11d
+    :goto_3
     new-instance v9, Landroid/graphics/Rect;
 
     invoke-direct {v9, v4, v10, v8, v2}, Landroid/graphics/Rect;-><init>(IIII)V
@@ -529,7 +529,7 @@
 
     .line 302
     .restart local v3       #destRect:Landroid/graphics/Rect;
-    goto/16 :goto_50
+    goto/16 :goto_1
 
     .line 292
     .end local v2           #bottom:I
@@ -538,7 +538,7 @@
     .end local v8           #right:I
     .end local v9           #srcRect:Landroid/graphics/Rect;
     .end local v10           #top:I
-    :cond_131
+    :cond_3
     iget-object v11, p0, Landroid/media/videoeditor/VideoEditor$OverlayData;->mOverlayBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v11}, Landroid/graphics/Bitmap;->getHeight()I
@@ -586,21 +586,21 @@
     move-result v2
 
     .restart local v2       #bottom:I
-    goto :goto_11d
+    goto :goto_3
 
     .line 236
     nop
 
-    :pswitch_data_156
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_32
-        :pswitch_da
-        :pswitch_60
+        :pswitch_0
+        :pswitch_2
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method set(Landroid/graphics/Bitmap;I)V
-    .registers 4
+    .locals 1
     .parameter "overlayBitmap"
     .parameter "renderingMode"
 
@@ -621,7 +621,7 @@
 .end method
 
 .method setClear()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 219

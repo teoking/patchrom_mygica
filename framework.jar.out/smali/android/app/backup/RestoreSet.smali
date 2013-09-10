@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 71
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 49
@@ -54,7 +54,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -87,7 +87,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/app/backup/RestoreSet$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -99,7 +99,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;J)V
-    .registers 5
+    .locals 0
     .parameter "_name"
     .parameter "_dev"
     .parameter "_token"
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 62
@@ -134,7 +134,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "out"
     .parameter "flags"
 

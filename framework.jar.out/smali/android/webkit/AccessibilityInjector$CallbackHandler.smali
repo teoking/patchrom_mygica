@@ -34,7 +34,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "interfaceName"
 
     .prologue
@@ -73,7 +73,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;Landroid/webkit/AccessibilityInjector$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -85,7 +85,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/webkit/AccessibilityInjector$CallbackHandler;Landroid/webkit/WebView;Ljava/lang/String;)Z
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -100,7 +100,7 @@
 .end method
 
 .method private clearResultLocked()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 600
@@ -118,7 +118,7 @@
 .end method
 
 .method private getResultAndClear(I)Z
-    .registers 6
+    .locals 4
     .parameter "resultId"
 
     .prologue
@@ -128,20 +128,20 @@
     monitor-enter v3
 
     .line 589
-    :try_start_3
+    :try_start_0
     invoke-direct {p0, p1}, Landroid/webkit/AccessibilityInjector$CallbackHandler;->waitForResultTimedLocked(I)Z
 
     move-result v1
 
     .line 590
     .local v1, success:Z
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_0
 
     iget-boolean v0, p0, Landroid/webkit/AccessibilityInjector$CallbackHandler;->mResult:Z
 
     .line 591
     .local v0, result:Z
-    :goto_b
+    :goto_0
     invoke-direct {p0}, Landroid/webkit/AccessibilityInjector$CallbackHandler;->clearResultLocked()V
 
     .line 592
@@ -151,25 +151,25 @@
 
     .line 590
     .end local v0           #result:Z
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 
     .line 593
     .end local v1           #success:Z
-    :catchall_12
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_14
-    .catchall {:try_start_3 .. :try_end_14} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method
 
 .method private performAction(Landroid/webkit/WebView;Ljava/lang/String;)Z
-    .registers 9
+    .locals 6
     .parameter "webView"
     .parameter "code"
 
@@ -224,7 +224,7 @@
 .end method
 
 .method private waitForResultTimedLocked(I)Z
-    .registers 13
+    .locals 11
     .parameter "resultId"
 
     .prologue
@@ -241,32 +241,32 @@
 
     .line 615
     .local v2, startTimeMillis:J
-    :goto_7
-    :try_start_7
+    :goto_0
+    :try_start_0
     iget-wide v7, p0, Landroid/webkit/AccessibilityInjector$CallbackHandler;->mResultId:J
 
     int-to-long v9, p1
 
     cmp-long v7, v7, v9
 
-    if-nez v7, :cond_10
+    if-nez v7, :cond_1
 
     .line 616
     const/4 v6, 0x1
 
     .line 624
-    :cond_f
+    :cond_0
     return v6
 
     .line 618
-    :cond_10
+    :cond_1
     iget-wide v7, p0, Landroid/webkit/AccessibilityInjector$CallbackHandler;->mResultId:J
 
     int-to-long v9, p1
 
     cmp-long v7, v7, v9
 
-    if-gtz v7, :cond_f
+    if-gtz v7, :cond_0
 
     .line 621
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -286,29 +286,29 @@
 
     cmp-long v7, v4, v7
 
-    if-lez v7, :cond_f
+    if-lez v7, :cond_0
 
     .line 626
     iget-object v7, p0, Landroid/webkit/AccessibilityInjector$CallbackHandler;->mResultLock:Ljava/lang/Object;
 
     invoke-virtual {v7, v4, v5}, Ljava/lang/Object;->wait(J)V
-    :try_end_2c
-    .catch Ljava/lang/InterruptedException; {:try_start_7 .. :try_end_2c} :catch_2d
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 627
     .end local v0           #elapsedTimeMillis:J
-    :catch_2d
+    :catch_0
     move-exception v7
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public onResult(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 10
+    .locals 7
     .parameter "id"
     .parameter "result"
     .annotation runtime Landroid/webkit/JavascriptInterface;
@@ -318,8 +318,8 @@
     .line 646
     :try_start_0
     invoke-static {p1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-    :try_end_3
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_3} :catch_1c
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-wide v1
 
@@ -330,12 +330,12 @@
     monitor-enter v4
 
     .line 652
-    :try_start_7
+    :try_start_1
     iget-wide v5, p0, Landroid/webkit/AccessibilityInjector$CallbackHandler;->mResultId:J
 
     cmp-long v3, v1, v5
 
-    if-lez v3, :cond_15
+    if-lez v3, :cond_0
 
     .line 653
     invoke-static {p2}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
@@ -348,7 +348,7 @@
     iput-wide v1, p0, Landroid/webkit/AccessibilityInjector$CallbackHandler;->mResultId:J
 
     .line 656
-    :cond_15
+    :cond_0
     iget-object v3, p0, Landroid/webkit/AccessibilityInjector$CallbackHandler;->mResultLock:Ljava/lang/Object;
 
     invoke-virtual {v3}, Ljava/lang/Object;->notifyAll()V
@@ -358,26 +358,26 @@
 
     .line 658
     .end local v1           #resultId:J
-    :goto_1b
+    :goto_0
     return-void
 
     .line 647
-    :catch_1c
+    :catch_0
     move-exception v0
 
     .line 648
     .local v0, e:Ljava/lang/NumberFormatException;
-    goto :goto_1b
+    goto :goto_0
 
     .line 657
     .end local v0           #e:Ljava/lang/NumberFormatException;
     .restart local v1       #resultId:J
-    :catchall_1e
+    :catchall_0
     move-exception v3
 
     monitor-exit v4
-    :try_end_20
-    .catchall {:try_start_7 .. :try_end_20} :catchall_1e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v3
 .end method

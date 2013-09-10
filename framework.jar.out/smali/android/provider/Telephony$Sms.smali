@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 198
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 184
@@ -64,7 +64,7 @@
 .end method
 
 .method public static addMessageToUri(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ZZ)Landroid/net/Uri;
-    .registers 18
+    .locals 10
     .parameter "resolver"
     .parameter "uri"
     .parameter "address"
@@ -102,7 +102,7 @@
 .end method
 
 .method public static addMessageToUri(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;ZZJ)Landroid/net/Uri;
-    .registers 13
+    .locals 3
     .parameter "resolver"
     .parameter "uri"
     .parameter "address"
@@ -128,7 +128,7 @@
     invoke-virtual {v0, v1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 246
-    if-eqz p5, :cond_12
+    if-eqz p5, :cond_0
 
     .line 247
     const-string v1, "date"
@@ -136,10 +136,10 @@
     invoke-virtual {v0, v1, p5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
     .line 249
-    :cond_12
+    :cond_0
     const-string/jumbo v2, "read"
 
-    if-eqz p6, :cond_4d
+    if-eqz p6, :cond_3
 
     const/4 v1, 0x1
 
@@ -147,7 +147,7 @@
 
     move-result-object v1
 
-    :goto_1c
+    :goto_0
     invoke-virtual {v0, v2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 250
@@ -161,7 +161,7 @@
     invoke-virtual {v0, v1, p3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 252
-    if-eqz p7, :cond_38
+    if-eqz p7, :cond_1
 
     .line 253
     const-string/jumbo v1, "status"
@@ -175,12 +175,12 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 255
-    :cond_38
+    :cond_1
     const-wide/16 v1, -0x1
 
     cmp-long v1, p8, v1
 
-    if-eqz v1, :cond_48
+    if-eqz v1, :cond_2
 
     .line 256
     const-string/jumbo v1, "thread_id"
@@ -192,7 +192,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
     .line 258
-    :cond_48
+    :cond_2
     invoke-virtual {p0, p1, v0}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
 
     move-result-object v1
@@ -200,52 +200,52 @@
     return-object v1
 
     .line 249
-    :cond_4d
+    :cond_3
     const/4 v1, 0x0
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 .method public static isOutgoingFolder(I)Z
-    .registers 2
+    .locals 1
     .parameter "messageType"
 
     .prologue
     .line 312
     const/4 v0, 0x5
 
-    if-eq p0, v0, :cond_c
+    if-eq p0, v0, :cond_0
 
     const/4 v0, 0x4
 
-    if-eq p0, v0, :cond_c
+    if-eq p0, v0, :cond_0
 
     const/4 v0, 0x2
 
-    if-eq p0, v0, :cond_c
+    if-eq p0, v0, :cond_0
 
     const/4 v0, 0x6
 
-    if-ne p0, v0, :cond_e
+    if-ne p0, v0, :cond_1
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public static moveMessageToFolder(Landroid/content/Context;Landroid/net/Uri;II)Z
-    .registers 14
+    .locals 10
     .parameter "context"
     .parameter "uri"
     .parameter "folder"
@@ -259,14 +259,14 @@
     const/4 v9, 0x0
 
     .line 271
-    if-nez p1, :cond_6
+    if-nez p1, :cond_0
 
     .line 303
-    :goto_5
+    :goto_0
     return v9
 
     .line 275
-    :cond_6
+    :cond_0
     const/4 v7, 0x0
 
     .line 276
@@ -275,13 +275,13 @@
 
     .line 277
     .local v6, markAsRead:Z
-    packed-switch p2, :pswitch_data_54
+    packed-switch p2, :pswitch_data_0
 
-    goto :goto_5
+    goto :goto_0
 
     .line 293
-    :goto_c
-    :pswitch_c
+    :goto_1
+    :pswitch_0
     new-instance v3, Landroid/content/ContentValues;
 
     const/4 v0, 0x3
@@ -299,7 +299,7 @@
     invoke-virtual {v3, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 296
-    if-eqz v7, :cond_45
+    if-eqz v7, :cond_2
 
     .line 297
     const-string/jumbo v0, "read"
@@ -311,8 +311,8 @@
     invoke-virtual {v3, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 301
-    :cond_28
-    :goto_28
+    :cond_1
+    :goto_2
     const-string v0, "error_code"
 
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -336,34 +336,34 @@
 
     move-result v0
 
-    if-ne v8, v0, :cond_52
+    if-ne v8, v0, :cond_3
 
     move v0, v8
 
-    :goto_3f
+    :goto_3
     move v9, v0
 
-    goto :goto_5
+    goto :goto_0
 
     .line 283
     .end local v3           #values:Landroid/content/ContentValues;
-    :pswitch_41
+    :pswitch_1
     const/4 v6, 0x1
 
     .line 284
-    goto :goto_c
+    goto :goto_1
 
     .line 287
-    :pswitch_43
+    :pswitch_2
     const/4 v7, 0x1
 
     .line 288
-    goto :goto_c
+    goto :goto_1
 
     .line 298
     .restart local v3       #values:Landroid/content/ContentValues;
-    :cond_45
-    if-eqz v6, :cond_28
+    :cond_2
+    if-eqz v6, :cond_1
 
     .line 299
     const-string/jumbo v0, "read"
@@ -374,28 +374,28 @@
 
     invoke-virtual {v3, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    goto :goto_28
+    goto :goto_2
 
-    :cond_52
+    :cond_3
     move v0, v9
 
     .line 303
-    goto :goto_3f
+    goto :goto_3
 
     .line 277
-    :pswitch_data_54
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_c
-        :pswitch_41
-        :pswitch_c
-        :pswitch_41
-        :pswitch_43
-        :pswitch_43
+        :pswitch_0
+        :pswitch_1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public static final query(Landroid/content/ContentResolver;[Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 8
+    .locals 6
     .parameter "cr"
     .parameter "projection"
 
@@ -421,7 +421,7 @@
 .end method
 
 .method public static final query(Landroid/content/ContentResolver;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 10
+    .locals 6
     .parameter "cr"
     .parameter "projection"
     .parameter "where"
@@ -433,11 +433,11 @@
 
     const/4 v4, 0x0
 
-    if-nez p3, :cond_f
+    if-nez p3, :cond_0
 
     const-string v5, "date DESC"
 
-    :goto_7
+    :goto_0
     move-object v0, p0
 
     move-object v2, p1
@@ -450,8 +450,8 @@
 
     return-object v0
 
-    :cond_f
+    :cond_0
     move-object v5, p3
 
-    goto :goto_7
+    goto :goto_0
 .end method

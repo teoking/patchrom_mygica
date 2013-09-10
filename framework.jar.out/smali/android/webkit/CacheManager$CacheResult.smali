@@ -51,7 +51,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 63
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public getContentDisposition()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 187
@@ -73,7 +73,7 @@
 .end method
 
 .method public getContentLength()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 98
@@ -83,7 +83,7 @@
 .end method
 
 .method public getETag()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 148
@@ -93,7 +93,7 @@
 .end method
 
 .method public getEncoding()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 176
@@ -103,7 +103,7 @@
 .end method
 
 .method public getExpires()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 119
@@ -113,7 +113,7 @@
 .end method
 
 .method public getExpiresString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 129
@@ -123,7 +123,7 @@
 .end method
 
 .method public getHttpStatusCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 89
@@ -133,7 +133,7 @@
 .end method
 
 .method public getInputStream()Ljava/io/InputStream;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 198
@@ -143,7 +143,7 @@
 .end method
 
 .method public getLastModified()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 139
@@ -153,7 +153,7 @@
 .end method
 
 .method public getLocalPath()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 109
@@ -163,7 +163,7 @@
 .end method
 
 .method public getLocation()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 167
@@ -173,7 +173,7 @@
 .end method
 
 .method public getMimeType()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 157
@@ -183,7 +183,7 @@
 .end method
 
 .method public getOutputStream()Ljava/io/OutputStream;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 210
@@ -193,7 +193,7 @@
 .end method
 
 .method public setContentLength(J)V
-    .registers 3
+    .locals 0
     .parameter "contentLength"
 
     .prologue
@@ -205,7 +205,7 @@
 .end method
 
 .method public setEncoding(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "encoding"
 
     .prologue
@@ -217,7 +217,7 @@
 .end method
 
 .method public setInputStream(Ljava/io/InputStream;)V
-    .registers 2
+    .locals 0
     .parameter "stream"
 
     .prologue

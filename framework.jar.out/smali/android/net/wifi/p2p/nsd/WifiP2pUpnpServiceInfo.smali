@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/util/List;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -31,7 +31,7 @@
 .end method
 
 .method private static createSupplicantQuery(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 7
+    .locals 5
     .parameter "uuid"
     .parameter "data"
 
@@ -79,7 +79,7 @@
     invoke-virtual {v0, p0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 104
-    if-eqz p1, :cond_33
+    if-eqz p1, :cond_0
 
     .line 105
     const-string v1, "::"
@@ -90,7 +90,7 @@
     invoke-virtual {v0, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 108
-    :cond_33
+    :cond_0
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -99,7 +99,7 @@
 .end method
 
 .method public static newInstance(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceInfo;
-    .registers 8
+    .locals 5
     .parameter "uuid"
     .parameter "device"
     .parameter
@@ -119,12 +119,12 @@
     .prologue
     .line 72
     .local p2, services:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_0
 
-    if-nez p1, :cond_d
+    if-nez p1, :cond_1
 
     .line 73
-    :cond_4
+    :cond_0
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v4, "uuid or device cannnot be null"
@@ -134,7 +134,7 @@
     throw v3
 
     .line 75
-    :cond_d
+    :cond_1
     invoke-static {p0}, Ljava/util/UUID;->fromString(Ljava/lang/String;)Ljava/util/UUID;
 
     .line 77
@@ -169,7 +169,7 @@
     invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 82
-    if-eqz p2, :cond_48
+    if-eqz p2, :cond_2
 
     .line 83
     invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -177,12 +177,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_34
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_48
+    if-eqz v3, :cond_2
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -198,12 +198,12 @@
 
     invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_34
+    goto :goto_0
 
     .line 88
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v2           #service:Ljava/lang/String;
-    :cond_48
+    :cond_2
     new-instance v3, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceInfo;
 
     invoke-direct {v3, v1}, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceInfo;-><init>(Ljava/util/List;)V

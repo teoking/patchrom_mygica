@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 4924
@@ -59,7 +59,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 4919
@@ -69,7 +69,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/provider/ContactsContract$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -80,58 +80,58 @@
 .end method
 
 .method public static final getPresenceIconResourceId(I)I
-    .registers 2
+    .locals 1
     .parameter "status"
 
     .prologue
     .line 4939
-    packed-switch p0, :pswitch_data_18
+    packed-switch p0, :pswitch_data_0
 
     .line 4951
     const v0, 0x108006a
 
-    :goto_6
+    :goto_0
     return v0
 
     .line 4941
-    :pswitch_7
+    :pswitch_0
     const v0, 0x108006b
 
-    goto :goto_6
+    goto :goto_0
 
     .line 4944
-    :pswitch_b
+    :pswitch_1
     const v0, 0x1080067
 
-    goto :goto_6
+    goto :goto_0
 
     .line 4946
-    :pswitch_f
+    :pswitch_2
     const v0, 0x1080068
 
-    goto :goto_6
+    goto :goto_0
 
     .line 4948
-    :pswitch_13
+    :pswitch_3
     const v0, 0x1080069
 
-    goto :goto_6
+    goto :goto_0
 
     .line 4939
     nop
 
-    :pswitch_data_18
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_13
-        :pswitch_b
-        :pswitch_b
-        :pswitch_f
-        :pswitch_7
+        :pswitch_3
+        :pswitch_1
+        :pswitch_1
+        :pswitch_2
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static final getPresencePrecedence(I)I
-    .registers 1
+    .locals 0
     .parameter "status"
 
     .prologue

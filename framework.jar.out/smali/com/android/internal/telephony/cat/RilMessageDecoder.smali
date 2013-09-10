@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 38
@@ -47,7 +47,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Handler;Lcom/android/internal/telephony/IccFileHandler;)V
-    .registers 5
+    .locals 2
     .parameter "caller"
     .parameter "fh"
 
@@ -112,7 +112,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/internal/telephony/cat/RilMessageDecoder;Lcom/android/internal/telephony/cat/RilMessage;)Z
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -126,7 +126,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/internal/telephony/cat/RilMessageDecoder;)Lcom/android/internal/telephony/cat/RilMessageDecoder$StateCmdParamsReady;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -137,7 +137,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/android/internal/telephony/cat/RilMessageDecoder;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -149,7 +149,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/android/internal/telephony/cat/RilMessageDecoder;)Lcom/android/internal/telephony/cat/RilMessage;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -160,7 +160,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/android/internal/telephony/cat/RilMessageDecoder;Lcom/android/internal/telephony/cat/RilMessage;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -172,7 +172,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/android/internal/telephony/cat/RilMessageDecoder;)Lcom/android/internal/telephony/cat/RilMessageDecoder$StateStart;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -183,7 +183,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/android/internal/telephony/cat/RilMessageDecoder;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -195,7 +195,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/android/internal/telephony/cat/RilMessageDecoder;Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -207,7 +207,7 @@
 .end method
 
 .method private decodeMessageParams(Lcom/android/internal/telephony/cat/RilMessage;)Z
-    .registers 7
+    .locals 5
     .parameter "rilMsg"
 
     .prologue
@@ -217,19 +217,19 @@
     .line 140
     iget v3, p1, Lcom/android/internal/telephony/cat/RilMessage;->mId:I
 
-    packed-switch v3, :pswitch_data_58
+    packed-switch v3, :pswitch_data_0
 
     .line 172
     const/4 v0, 0x0
 
     .line 175
     .local v0, decodingStarted:Z
-    :goto_8
+    :goto_0
     return v0
 
     .line 143
     .end local v0           #decodingStarted:Z
-    :pswitch_9
+    :pswitch_0
     iget-object v3, p0, Lcom/android/internal/telephony/cat/RilMessageDecoder;->mCurrentRilMessage:Lcom/android/internal/telephony/cat/RilMessage;
 
     sget-object v4, Lcom/android/internal/telephony/cat/ResultCode;->OK:Lcom/android/internal/telephony/cat/ResultCode;
@@ -246,28 +246,28 @@
 
     .line 146
     .restart local v0       #decodingStarted:Z
-    goto :goto_8
+    goto :goto_0
 
     .line 150
     .end local v0           #decodingStarted:Z
-    :pswitch_16
+    :pswitch_1
     const/4 v2, 0x0
 
     .line 152
     .local v2, rawData:[B
-    :try_start_17
+    :try_start_0
     iget-object v3, p1, Lcom/android/internal/telephony/cat/RilMessage;->mData:Ljava/lang/Object;
 
     check-cast v3, Ljava/lang/String;
 
     invoke-static {v3}, Lcom/android/internal/telephony/IccUtils;->hexStringToBytes(Ljava/lang/String;)[B
-    :try_end_1e
-    .catch Ljava/lang/Exception; {:try_start_17 .. :try_end_1e} :catch_2a
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v2
 
     .line 161
-    :try_start_1f
+    :try_start_1
     iget-object v3, p0, Lcom/android/internal/telephony/cat/RilMessageDecoder;->mCmdParamsFactory:Lcom/android/internal/telephony/cat/CommandParamsFactory;
 
     invoke-static {v2}, Lcom/android/internal/telephony/cat/BerTlv;->decode([B)Lcom/android/internal/telephony/cat/BerTlv;
@@ -275,18 +275,18 @@
     move-result-object v4
 
     invoke-virtual {v3, v4}, Lcom/android/internal/telephony/cat/CommandParamsFactory;->make(Lcom/android/internal/telephony/cat/BerTlv;)V
-    :try_end_28
-    .catch Lcom/android/internal/telephony/cat/ResultException; {:try_start_1f .. :try_end_28} :catch_32
+    :try_end_1
+    .catch Lcom/android/internal/telephony/cat/ResultException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 162
     const/4 v0, 0x1
 
     .restart local v0       #decodingStarted:Z
-    goto :goto_8
+    goto :goto_0
 
     .line 153
     .end local v0           #decodingStarted:Z
-    :catch_2a
+    :catch_0
     move-exception v1
 
     .line 155
@@ -300,12 +300,12 @@
 
     .line 157
     .restart local v0       #decodingStarted:Z
-    goto :goto_8
+    goto :goto_0
 
     .line 163
     .end local v0           #decodingStarted:Z
     .end local v1           #e:Ljava/lang/Exception;
-    :catch_32
+    :catch_1
     move-exception v1
 
     .line 165
@@ -349,21 +349,21 @@
 
     .line 170
     .restart local v0       #decodingStarted:Z
-    goto :goto_8
+    goto :goto_0
 
     .line 140
-    :pswitch_data_58
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_9
-        :pswitch_16
-        :pswitch_16
-        :pswitch_9
-        :pswitch_16
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public static declared-synchronized getInstance(Landroid/os/Handler;Lcom/android/internal/telephony/IccFileHandler;)Lcom/android/internal/telephony/cat/RilMessageDecoder;
-    .registers 4
+    .locals 2
     .parameter "caller"
     .parameter "fh"
 
@@ -373,10 +373,10 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     sget-object v0, Lcom/android/internal/telephony/cat/RilMessageDecoder;->sInstance:Lcom/android/internal/telephony/cat/RilMessageDecoder;
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     .line 56
     new-instance v0, Lcom/android/internal/telephony/cat/RilMessageDecoder;
@@ -391,17 +391,17 @@
     invoke-virtual {v0}, Lcom/android/internal/telephony/cat/RilMessageDecoder;->start()V
 
     .line 59
-    :cond_13
+    :cond_0
     sget-object v0, Lcom/android/internal/telephony/cat/RilMessageDecoder;->sInstance:Lcom/android/internal/telephony/cat/RilMessageDecoder;
-    :try_end_15
-    .catchall {:try_start_3 .. :try_end_15} :catchall_17
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
     return-object v0
 
     .line 55
-    :catchall_17
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -410,7 +410,7 @@
 .end method
 
 .method private sendCmdForExecution(Lcom/android/internal/telephony/cat/RilMessage;)V
-    .registers 6
+    .locals 4
     .parameter "rilMsg"
 
     .prologue
@@ -438,7 +438,7 @@
 
 # virtual methods
 .method public sendMsgParamsDecoded(Lcom/android/internal/telephony/cat/ResultCode;Lcom/android/internal/telephony/cat/CommandParams;)V
-    .registers 5
+    .locals 2
     .parameter "resCode"
     .parameter "cmdParams"
 
@@ -469,7 +469,7 @@
 .end method
 
 .method public sendStartDecodingMessageParams(Lcom/android/internal/telephony/cat/RilMessage;)V
-    .registers 4
+    .locals 2
     .parameter "rilMsg"
 
     .prologue

@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 80
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 41
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/wifi/p2p/WifiP2pInfo;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -62,7 +62,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 59
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 60
     iget-boolean v0, p1, Landroid/net/wifi/p2p/WifiP2pInfo;->groupFormed:Z
@@ -80,14 +80,14 @@
     iput-object v0, p0, Landroid/net/wifi/p2p/WifiP2pInfo;->groupOwnerAddress:Ljava/net/InetAddress;
 
     .line 64
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 54
@@ -97,7 +97,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 45
@@ -150,7 +150,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "dest"
     .parameter "flags"
 
@@ -162,27 +162,27 @@
     .line 68
     iget-boolean v0, p0, Landroid/net/wifi/p2p/WifiP2pInfo;->groupFormed:Z
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_7
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
     .line 69
     iget-boolean v0, p0, Landroid/net/wifi/p2p/WifiP2pInfo;->isGroupOwner:Z
 
-    if-eqz v0, :cond_25
+    if-eqz v0, :cond_1
 
     move v0, v1
 
-    :goto_f
+    :goto_1
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
     .line 71
     iget-object v0, p0, Landroid/net/wifi/p2p/WifiP2pInfo;->groupOwnerAddress:Ljava/net/InetAddress;
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_2
 
     .line 72
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeByte(B)V
@@ -197,24 +197,24 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByteArray([B)V
 
     .line 77
-    :goto_22
+    :goto_2
     return-void
 
-    :cond_23
+    :cond_0
     move v0, v2
 
     .line 68
-    goto :goto_7
+    goto :goto_0
 
-    :cond_25
+    :cond_1
     move v0, v2
 
     .line 69
-    goto :goto_f
+    goto :goto_1
 
     .line 75
-    :cond_27
+    :cond_2
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeByte(B)V
 
-    goto :goto_22
+    goto :goto_2
 .end method

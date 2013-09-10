@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/DhcpStateMachine;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,14 +35,14 @@
 
 # virtual methods
 .method public processMessage(Landroid/os/Message;)Z
-    .registers 5
+    .locals 3
     .parameter "message"
 
     .prologue
     .line 170
     iget v0, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v0, :sswitch_data_58
+    sparse-switch v0, :sswitch_data_0
 
     .line 180
     const-string v0, "DhcpStateMachine"
@@ -68,14 +68,14 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 183
-    :goto_1d
+    :goto_0
     const/4 v0, 0x1
 
-    :goto_1e
+    :goto_1
     return v0
 
     .line 172
-    :sswitch_1f
+    :sswitch_0
     const-string v0, "DhcpStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -90,6 +90,7 @@
 
     iget-object v2, p0, Landroid/net/DhcpStateMachine$DefaultState;->this$0:Landroid/net/DhcpStateMachine;
 
+    #getter for: Landroid/net/DhcpStateMachine;->mInterfaceName:Ljava/lang/String;
     invoke-static {v2}, Landroid/net/DhcpStateMachine;->access$100(Landroid/net/DhcpStateMachine;)Ljava/lang/String;
 
     move-result-object v2
@@ -107,24 +108,27 @@
     .line 173
     iget-object v0, p0, Landroid/net/DhcpStateMachine$DefaultState;->this$0:Landroid/net/DhcpStateMachine;
 
+    #getter for: Landroid/net/DhcpStateMachine;->mDhcpRenewWakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {v0}, Landroid/net/DhcpStateMachine;->access$000(Landroid/net/DhcpStateMachine;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 176
-    :sswitch_47
+    :sswitch_1
     iget-object v0, p0, Landroid/net/DhcpStateMachine$DefaultState;->this$0:Landroid/net/DhcpStateMachine;
 
+    #getter for: Landroid/net/DhcpStateMachine;->mContext:Landroid/content/Context;
     invoke-static {v0}, Landroid/net/DhcpStateMachine;->access$300(Landroid/net/DhcpStateMachine;)Landroid/content/Context;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/net/DhcpStateMachine$DefaultState;->this$0:Landroid/net/DhcpStateMachine;
 
+    #getter for: Landroid/net/DhcpStateMachine;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
     invoke-static {v1}, Landroid/net/DhcpStateMachine;->access$200(Landroid/net/DhcpStateMachine;)Landroid/content/BroadcastReceiver;
 
     move-result-object v1
@@ -134,12 +138,12 @@
     .line 178
     const/4 v0, 0x0
 
-    goto :goto_1e
+    goto :goto_1
 
     .line 170
-    :sswitch_data_58
+    :sswitch_data_0
     .sparse-switch
-        -0x1 -> :sswitch_47
-        0x30003 -> :sswitch_1f
+        -0x1 -> :sswitch_1
+        0x30003 -> :sswitch_0
     .end sparse-switch
 .end method

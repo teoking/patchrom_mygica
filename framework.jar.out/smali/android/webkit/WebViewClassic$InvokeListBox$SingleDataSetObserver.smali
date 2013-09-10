@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/webkit/WebViewClassic$InvokeListBox;JLandroid/widget/ListView;Landroid/widget/Adapter;)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter "id"
     .parameter "l"
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .registers 10
+    .locals 9
 
     .prologue
     .line 8193
@@ -78,7 +78,7 @@
 
     cmp-long v5, v5, v2
 
-    if-eqz v5, :cond_32
+    if-eqz v5, :cond_0
 
     .line 8198
     iget-object v5, p0, Landroid/webkit/WebViewClassic$InvokeListBox$SingleDataSetObserver;->mListView:Landroid/widget/ListView;
@@ -97,8 +97,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_1e
-    if-ge v1, v0, :cond_32
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 8203
     iget-object v5, p0, Landroid/webkit/WebViewClassic$InvokeListBox$SingleDataSetObserver;->mAdapter:Landroid/widget/Adapter;
@@ -111,7 +111,7 @@
 
     cmp-long v5, v5, v7
 
-    if-nez v5, :cond_33
+    if-nez v5, :cond_1
 
     .line 8204
     iget-object v5, p0, Landroid/webkit/WebViewClassic$InvokeListBox$SingleDataSetObserver;->mListView:Landroid/widget/ListView;
@@ -123,14 +123,14 @@
     .line 8209
     .end local v0           #count:I
     .end local v1           #i:I
-    :cond_32
+    :cond_0
     return-void
 
     .line 8202
     .restart local v0       #count:I
     .restart local v1       #i:I
-    :cond_33
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1e
+    goto :goto_0
 .end method

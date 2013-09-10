@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 44
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/content/pm/ResolveInfo;)V
-    .registers 24
+    .locals 21
     .parameter "context"
     .parameter "service"
     .annotation system Ldalvik/annotation/Throws;
@@ -147,7 +147,7 @@
 
     .line 76
     .local v9, parser:Landroid/content/res/XmlResourceParser;
-    :try_start_36
+    :try_start_0
     const-string v18, "android.view.textservice.scs"
 
     move-object/from16 v0, v18
@@ -157,7 +157,7 @@
     move-result-object v9
 
     .line 77
-    if-nez v9, :cond_87
+    if-nez v9, :cond_1
 
     .line 78
     new-instance v18, Lorg/xmlpull/v1/XmlPullParserException;
@@ -167,17 +167,17 @@
     invoke-direct/range {v18 .. v19}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
     throw v18
-    :try_end_48
-    .catchall {:try_start_36 .. :try_end_48} :catchall_80
-    .catch Ljava/lang/Exception; {:try_start_36 .. :try_end_48} :catch_48
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 124
-    :catch_48
+    :catch_0
     move-exception v6
 
     .line 125
     .local v6, e:Ljava/lang/Exception;
-    :try_start_49
+    :try_start_1
     sget-object v18, Landroid/view/textservice/SpellCheckerInfo;->TAG:Ljava/lang/String;
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -230,24 +230,24 @@
     invoke-direct/range {v18 .. v19}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
     throw v18
-    :try_end_80
-    .catchall {:try_start_49 .. :try_end_80} :catchall_80
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 129
     .end local v6           #e:Ljava/lang/Exception;
-    :catchall_80
+    :catchall_0
     move-exception v18
 
-    if-eqz v9, :cond_86
+    if-eqz v9, :cond_0
 
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->close()V
 
-    :cond_86
+    :cond_0
     throw v18
 
     .line 82
-    :cond_87
-    :try_start_87
+    :cond_1
+    :try_start_2
     iget-object v0, v14, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     move-object/from16 v18, v0
@@ -266,7 +266,7 @@
 
     .line 86
     .local v4, attrs:Landroid/util/AttributeSet;
-    :cond_95
+    :cond_2
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v17
@@ -278,7 +278,7 @@
 
     move/from16 v1, v18
 
-    if-eq v0, v1, :cond_a9
+    if-eq v0, v1, :cond_3
 
     const/16 v18, 0x2
 
@@ -286,10 +286,10 @@
 
     move/from16 v1, v18
 
-    if-ne v0, v1, :cond_95
+    if-ne v0, v1, :cond_2
 
     .line 89
-    :cond_a9
+    :cond_3
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
 
     move-result-object v8
@@ -304,7 +304,7 @@
 
     move-result v18
 
-    if-nez v18, :cond_c0
+    if-nez v18, :cond_4
 
     .line 91
     new-instance v18, Lorg/xmlpull/v1/XmlPullParserException;
@@ -316,7 +316,7 @@
     throw v18
 
     .line 95
-    :cond_c0
+    :cond_4
     sget-object v18, Lcom/android/internal/R$styleable;->SpellChecker:[I
 
     move-object/from16 v0, v18
@@ -358,8 +358,8 @@
 
     .line 105
     .local v5, depth:I
-    :cond_e3
-    :goto_e3
+    :cond_5
+    :goto_0
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v17
@@ -370,7 +370,7 @@
 
     move/from16 v1, v18
 
-    if-ne v0, v1, :cond_f7
+    if-ne v0, v1, :cond_6
 
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->getDepth()I
 
@@ -378,16 +378,16 @@
 
     move/from16 v0, v18
 
-    if-le v0, v5, :cond_15b
+    if-le v0, v5, :cond_8
 
-    :cond_f7
+    :cond_6
     const/16 v18, 0x1
 
     move/from16 v0, v17
 
     move/from16 v1, v18
 
-    if-eq v0, v1, :cond_15b
+    if-eq v0, v1, :cond_8
 
     .line 106
     const/16 v18, 0x2
@@ -396,7 +396,7 @@
 
     move/from16 v1, v18
 
-    if-ne v0, v1, :cond_e3
+    if-ne v0, v1, :cond_5
 
     .line 107
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->getName()Ljava/lang/String;
@@ -415,7 +415,7 @@
 
     move-result v18
 
-    if-nez v18, :cond_120
+    if-nez v18, :cond_7
 
     .line 109
     new-instance v18, Lorg/xmlpull/v1/XmlPullParserException;
@@ -427,7 +427,7 @@
     throw v18
 
     .line 112
-    :cond_120
+    :cond_7
     sget-object v18, Lcom/android/internal/R$styleable;->SpellChecker_Subtype:[I
 
     move-object/from16 v0, v18
@@ -487,23 +487,23 @@
     move-object/from16 v0, v18
 
     invoke-virtual {v0, v15}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_15a
-    .catchall {:try_start_87 .. :try_end_15a} :catchall_80
-    .catch Ljava/lang/Exception; {:try_start_87 .. :try_end_15a} :catch_48
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto :goto_e3
+    goto :goto_0
 
     .line 129
     .end local v3           #a:Landroid/content/res/TypedArray;
     .end local v15           #subtype:Landroid/view/textservice/SpellCheckerSubtype;
     .end local v16           #subtypeNodeName:Ljava/lang/String;
-    :cond_15b
-    if-eqz v9, :cond_160
+    :cond_8
+    if-eqz v9, :cond_9
 
     invoke-interface {v9}, Landroid/content/res/XmlResourceParser;->close()V
 
     .line 131
-    :cond_160
+    :cond_9
     move-object/from16 v0, p0
 
     iput v7, v0, Landroid/view/textservice/SpellCheckerInfo;->mLabel:I
@@ -518,7 +518,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "source"
 
     .prologue
@@ -578,7 +578,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 264
@@ -588,7 +588,7 @@
 .end method
 
 .method public getComponent()Landroid/content/ComponentName;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 159
@@ -612,7 +612,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 152
@@ -622,7 +622,7 @@
 .end method
 
 .method public getPackageName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 167
@@ -636,7 +636,7 @@
 .end method
 
 .method public getServiceInfo()Landroid/content/pm/ServiceInfo;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 227
@@ -648,7 +648,7 @@
 .end method
 
 .method public getSettingsActivity()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 240
@@ -658,7 +658,7 @@
 .end method
 
 .method public getSubtypeAt(I)Landroid/view/textservice/SpellCheckerSubtype;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -675,7 +675,7 @@
 .end method
 
 .method public getSubtypeCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 247
@@ -689,7 +689,7 @@
 .end method
 
 .method public loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 1
     .parameter "pm"
 
     .prologue
@@ -704,25 +704,25 @@
 .end method
 
 .method public loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
-    .registers 5
+    .locals 3
     .parameter "pm"
 
     .prologue
     .line 208
     iget v0, p0, Landroid/view/textservice/SpellCheckerInfo;->mLabel:I
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
-    if-nez p1, :cond_9
+    if-nez p1, :cond_1
 
-    :cond_6
+    :cond_0
     const-string v0, ""
 
     .line 209
-    :goto_8
+    :goto_0
     return-object v0
 
-    :cond_9
+    :cond_1
     invoke-virtual {p0}, Landroid/view/textservice/SpellCheckerInfo;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
@@ -739,11 +739,11 @@
 
     move-result-object v0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

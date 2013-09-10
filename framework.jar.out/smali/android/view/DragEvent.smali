@@ -65,7 +65,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 139
@@ -96,7 +96,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 252
@@ -107,7 +107,7 @@
 .end method
 
 .method private init(IFFLandroid/content/ClipDescription;Landroid/content/ClipData;Ljava/lang/Object;Z)V
-    .registers 8
+    .locals 0
     .parameter "action"
     .parameter "x"
     .parameter "y"
@@ -143,7 +143,7 @@
 .end method
 
 .method static obtain()Landroid/view/DragEvent;
-    .registers 7
+    .locals 7
 
     .prologue
     const/4 v0, 0x0
@@ -169,7 +169,7 @@
 .end method
 
 .method public static obtain(IFFLjava/lang/Object;Landroid/content/ClipDescription;Landroid/content/ClipData;Z)Landroid/view/DragEvent;
-    .registers 17
+    .locals 10
     .parameter "action"
     .parameter "x"
     .parameter "y"
@@ -185,10 +185,10 @@
     monitor-enter v9
 
     .line 275
-    :try_start_3
+    :try_start_0
     sget-object v1, Landroid/view/DragEvent;->gRecyclerTop:Landroid/view/DragEvent;
 
-    if-nez v1, :cond_1a
+    if-nez v1, :cond_0
 
     .line 276
     new-instance v0, Landroid/view/DragEvent;
@@ -221,12 +221,12 @@
     .line 290
     .end local v0           #ev:Landroid/view/DragEvent;
     .local v8, ev:Ljava/lang/Object;
-    :goto_19
+    :goto_0
     return-object v8
 
     .line 280
     .end local v8           #ev:Ljava/lang/Object;
-    :cond_1a
+    :cond_0
     sget-object v0, Landroid/view/DragEvent;->gRecyclerTop:Landroid/view/DragEvent;
 
     .line 281
@@ -244,8 +244,8 @@
 
     .line 283
     monitor-exit v9
-    :try_end_27
-    .catchall {:try_start_3 .. :try_end_27} :catchall_3d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 284
     const/4 v1, 0x0
@@ -283,24 +283,24 @@
 
     .line 290
     .restart local v8       #ev:Ljava/lang/Object;
-    goto :goto_19
+    goto :goto_0
 
     .line 283
     .end local v0           #ev:Landroid/view/DragEvent;
     .end local v8           #ev:Ljava/lang/Object;
-    :catchall_3d
+    :catchall_0
     move-exception v1
 
-    :try_start_3e
+    :try_start_1
     monitor-exit v9
-    :try_end_3f
-    .catchall {:try_start_3e .. :try_end_3f} :catchall_3d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
 
 .method public static obtain(Landroid/view/DragEvent;)Landroid/view/DragEvent;
-    .registers 8
+    .locals 7
     .parameter "source"
 
     .prologue
@@ -329,7 +329,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 455
@@ -339,7 +339,7 @@
 .end method
 
 .method public getAction()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 313
@@ -349,7 +349,7 @@
 .end method
 
 .method public getClipData()Landroid/content/ClipData;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 343
@@ -359,7 +359,7 @@
 .end method
 
 .method public getClipDescription()Landroid/content/ClipDescription;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 357
@@ -369,7 +369,7 @@
 .end method
 
 .method public getLocalState()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 371
@@ -379,7 +379,7 @@
 .end method
 
 .method public getResult()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 398
@@ -389,7 +389,7 @@
 .end method
 
 .method public getX()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 322
@@ -399,7 +399,7 @@
 .end method
 
 .method public getY()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 332
@@ -409,7 +409,7 @@
 .end method
 
 .method public final recycle()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v1, 0x0
@@ -417,7 +417,7 @@
     .line 415
     iget-boolean v0, p0, Landroid/view/DragEvent;->mRecycled:Z
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_0
 
     .line 416
     new-instance v0, Ljava/lang/RuntimeException;
@@ -449,7 +449,7 @@
     throw v0
 
     .line 418
-    :cond_22
+    :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/view/DragEvent;->mRecycled:Z
@@ -469,12 +469,12 @@
     monitor-enter v1
 
     .line 426
-    :try_start_2e
+    :try_start_0
     sget v0, Landroid/view/DragEvent;->gRecyclerUsed:I
 
     const/16 v2, 0xa
 
-    if-ge v0, v2, :cond_40
+    if-ge v0, v2, :cond_1
 
     .line 427
     sget v0, Landroid/view/DragEvent;->gRecyclerUsed:I
@@ -492,25 +492,25 @@
     sput-object p0, Landroid/view/DragEvent;->gRecyclerTop:Landroid/view/DragEvent;
 
     .line 431
-    :cond_40
+    :cond_1
     monitor-exit v1
 
     .line 432
     return-void
 
     .line 431
-    :catchall_42
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_44
-    .catchall {:try_start_2e .. :try_end_44} :catchall_42
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 441
@@ -634,7 +634,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "dest"
     .parameter "flags"
 
@@ -661,42 +661,42 @@
     .line 467
     iget-boolean v0, p0, Landroid/view/DragEvent;->mDragResult:Z
 
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_16
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 468
     iget-object v0, p0, Landroid/view/DragEvent;->mClipData:Landroid/content/ClipData;
 
-    if-nez v0, :cond_2a
+    if-nez v0, :cond_1
 
     .line 469
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 474
-    :goto_20
+    :goto_1
     iget-object v0, p0, Landroid/view/DragEvent;->mClipDescription:Landroid/content/ClipDescription;
 
-    if-nez v0, :cond_33
+    if-nez v0, :cond_2
 
     .line 475
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 480
-    :goto_27
+    :goto_2
     return-void
 
-    :cond_28
+    :cond_0
     move v0, v2
 
     .line 467
-    goto :goto_16
+    goto :goto_0
 
     .line 471
-    :cond_2a
+    :cond_1
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 472
@@ -704,10 +704,10 @@
 
     invoke-virtual {v0, p1, p2}, Landroid/content/ClipData;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_20
+    goto :goto_1
 
     .line 477
-    :cond_33
+    :cond_2
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 478
@@ -715,5 +715,5 @@
 
     invoke-virtual {v0, p1, p2}, Landroid/content/ClipDescription;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_27
+    goto :goto_2
 .end method

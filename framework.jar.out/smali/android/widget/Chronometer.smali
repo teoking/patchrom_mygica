@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 8
+    .locals 4
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -141,7 +141,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/widget/Chronometer;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -152,7 +152,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/widget/Chronometer;J)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -164,7 +164,7 @@
 .end method
 
 .method private init()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 112
@@ -184,7 +184,7 @@
 .end method
 
 .method private updateRunning()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v3, 0x2
@@ -192,23 +192,23 @@
     .line 254
     iget-boolean v1, p0, Landroid/widget/Chronometer;->mVisible:Z
 
-    if-eqz v1, :cond_2a
+    if-eqz v1, :cond_1
 
     iget-boolean v1, p0, Landroid/widget/Chronometer;->mStarted:Z
 
-    if-eqz v1, :cond_2a
+    if-eqz v1, :cond_1
 
     const/4 v0, 0x1
 
     .line 255
     .local v0, running:Z
-    :goto_a
+    :goto_0
     iget-boolean v1, p0, Landroid/widget/Chronometer;->mRunning:Z
 
-    if-eq v0, v1, :cond_29
+    if-eq v0, v1, :cond_0
 
     .line 256
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_2
 
     .line 257
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -234,39 +234,39 @@
     invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     .line 263
-    :goto_27
+    :goto_1
     iput-boolean v0, p0, Landroid/widget/Chronometer;->mRunning:Z
 
     .line 265
-    :cond_29
+    :cond_0
     return-void
 
     .line 254
     .end local v0           #running:Z
-    :cond_2a
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 
     .line 261
     .restart local v0       #running:Z
-    :cond_2c
+    :cond_2
     iget-object v1, p0, Landroid/widget/Chronometer;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v3}, Landroid/os/Handler;->removeMessages(I)V
 
-    goto :goto_27
+    goto :goto_1
 .end method
 
 .method private declared-synchronized updateText(J)V
-    .registers 11
+    .locals 8
     .parameter "now"
 
     .prologue
     .line 228
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-wide v5, p0, Landroid/widget/Chronometer;->mBase:J
 
     sub-long v2, p1, v5
@@ -288,7 +288,7 @@
     .local v4, text:Ljava/lang/String;
     iget-object v5, p0, Landroid/widget/Chronometer;->mFormat:Ljava/lang/String;
 
-    if-eqz v5, :cond_47
+    if-eqz v5, :cond_2
 
     .line 233
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -299,7 +299,7 @@
     .local v1, loc:Ljava/util/Locale;
     iget-object v5, p0, Landroid/widget/Chronometer;->mFormatter:Ljava/util/Formatter;
 
-    if-eqz v5, :cond_22
+    if-eqz v5, :cond_0
 
     iget-object v5, p0, Landroid/widget/Chronometer;->mFormatterLocale:Ljava/util/Locale;
 
@@ -307,10 +307,10 @@
 
     move-result v5
 
-    if-nez v5, :cond_2d
+    if-nez v5, :cond_1
 
     .line 235
-    :cond_22
+    :cond_0
     iput-object v1, p0, Landroid/widget/Chronometer;->mFormatterLocale:Ljava/util/Locale;
 
     .line 236
@@ -323,7 +323,7 @@
     iput-object v5, p0, Landroid/widget/Chronometer;->mFormatter:Ljava/util/Formatter;
 
     .line 238
-    :cond_2d
+    :cond_1
     iget-object v5, p0, Landroid/widget/Chronometer;->mFormatBuilder:Ljava/lang/StringBuilder;
 
     const/4 v6, 0x0
@@ -336,11 +336,11 @@
     const/4 v6, 0x0
 
     aput-object v4, v5, v6
-    :try_end_38
-    .catchall {:try_start_1 .. :try_end_38} :catchall_6f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 241
-    :try_start_38
+    :try_start_1
     iget-object v5, p0, Landroid/widget/Chronometer;->mFormatter:Ljava/util/Formatter;
 
     iget-object v6, p0, Landroid/widget/Chronometer;->mFormat:Ljava/lang/String;
@@ -353,20 +353,20 @@
     iget-object v5, p0, Landroid/widget/Chronometer;->mFormatBuilder:Ljava/lang/StringBuilder;
 
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    :try_end_46
-    .catchall {:try_start_38 .. :try_end_46} :catchall_6f
-    .catch Ljava/util/IllegalFormatException; {:try_start_38 .. :try_end_46} :catch_4c
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/util/IllegalFormatException; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result-object v4
 
     .line 250
     .end local v1           #loc:Ljava/util/Locale;
-    :cond_47
-    :goto_47
-    :try_start_47
+    :cond_2
+    :goto_0
+    :try_start_2
     invoke-virtual {p0, v4}, Landroid/widget/Chronometer;->setText(Ljava/lang/CharSequence;)V
-    :try_end_4a
-    .catchall {:try_start_47 .. :try_end_4a} :catchall_6f
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 251
     monitor-exit p0
@@ -375,15 +375,15 @@
 
     .line 243
     .restart local v1       #loc:Ljava/util/Locale;
-    :catch_4c
+    :catch_0
     move-exception v0
 
     .line 244
     .local v0, ex:Ljava/util/IllegalFormatException;
-    :try_start_4d
+    :try_start_3
     iget-boolean v5, p0, Landroid/widget/Chronometer;->mLogged:Z
 
-    if-nez v5, :cond_47
+    if-nez v5, :cond_2
 
     .line 245
     const-string v5, "Chronometer"
@@ -414,17 +414,17 @@
     const/4 v5, 0x1
 
     iput-boolean v5, p0, Landroid/widget/Chronometer;->mLogged:Z
-    :try_end_6e
-    .catchall {:try_start_4d .. :try_end_6e} :catchall_6f
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto :goto_47
+    goto :goto_0
 
     .line 228
     .end local v0           #ex:Ljava/util/IllegalFormatException;
     .end local v1           #loc:Ljava/util/Locale;
     .end local v2           #seconds:J
     .end local v4           #text:Ljava/lang/String;
-    :catchall_6f
+    :catchall_0
     move-exception v5
 
     monitor-exit p0
@@ -435,13 +435,13 @@
 
 # virtual methods
 .method dispatchChronometerTick()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 278
     iget-object v0, p0, Landroid/widget/Chronometer;->mOnChronometerTickListener:Landroid/widget/Chronometer$OnChronometerTickListener;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 279
     iget-object v0, p0, Landroid/widget/Chronometer;->mOnChronometerTickListener:Landroid/widget/Chronometer$OnChronometerTickListener;
@@ -449,12 +449,12 @@
     invoke-interface {v0, p0}, Landroid/widget/Chronometer$OnChronometerTickListener;->onChronometerTick(Landroid/widget/Chronometer;)V
 
     .line 281
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public getBase()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 132
@@ -464,7 +464,7 @@
 .end method
 
 .method public getFormat()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 158
@@ -474,7 +474,7 @@
 .end method
 
 .method public getOnChronometerTickListener()Landroid/widget/Chronometer$OnChronometerTickListener;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 175
@@ -484,7 +484,7 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 215
@@ -503,7 +503,7 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -524,7 +524,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .registers 3
+    .locals 1
     .parameter "info"
 
     .prologue
@@ -545,7 +545,7 @@
 .end method
 
 .method protected onWindowVisibilityChanged(I)V
-    .registers 3
+    .locals 1
     .parameter "visibility"
 
     .prologue
@@ -553,11 +553,11 @@
     invoke-super {p0, p1}, Landroid/widget/TextView;->onWindowVisibilityChanged(I)V
 
     .line 223
-    if-nez p1, :cond_c
+    if-nez p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     iput-boolean v0, p0, Landroid/widget/Chronometer;->mVisible:Z
 
     .line 224
@@ -567,14 +567,14 @@
     return-void
 
     .line 223
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public setBase(J)V
-    .registers 5
+    .locals 2
     .parameter "base"
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
@@ -598,7 +598,7 @@
 .end method
 
 .method public setFormat(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "format"
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
@@ -608,11 +608,11 @@
     iput-object p1, p0, Landroid/widget/Chronometer;->mFormat:Ljava/lang/String;
 
     .line 149
-    if-eqz p1, :cond_15
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Landroid/widget/Chronometer;->mFormatBuilder:Ljava/lang/StringBuilder;
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_0
 
     .line 150
     new-instance v0, Ljava/lang/StringBuilder;
@@ -628,12 +628,12 @@
     iput-object v0, p0, Landroid/widget/Chronometer;->mFormatBuilder:Ljava/lang/StringBuilder;
 
     .line 152
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method public setOnChronometerTickListener(Landroid/widget/Chronometer$OnChronometerTickListener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue
@@ -645,7 +645,7 @@
 .end method
 
 .method public setStarted(Z)V
-    .registers 2
+    .locals 0
     .parameter "started"
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
@@ -662,7 +662,7 @@
 .end method
 
 .method public start()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 187
@@ -678,7 +678,7 @@
 .end method
 
 .method public stop()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 199

@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/google/android/mms/pdu/PduComposer;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -37,7 +37,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/android/mms/pdu/PduComposer;Lcom/google/android/mms/pdu/PduComposer$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -49,7 +49,7 @@
 .end method
 
 .method static synthetic access$402(Lcom/google/android/mms/pdu/PduComposer$PositionMarker;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -61,7 +61,7 @@
 .end method
 
 .method static synthetic access$502(Lcom/google/android/mms/pdu/PduComposer$PositionMarker;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method getLength()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1041
@@ -83,13 +83,14 @@
 
     iget-object v1, p0, Lcom/google/android/mms/pdu/PduComposer$PositionMarker;->this$0:Lcom/google/android/mms/pdu/PduComposer;
 
+    #getter for: Lcom/google/android/mms/pdu/PduComposer;->mStack:Lcom/google/android/mms/pdu/PduComposer$BufferStack;
     invoke-static {v1}, Lcom/google/android/mms/pdu/PduComposer;->access$100(Lcom/google/android/mms/pdu/PduComposer;)Lcom/google/android/mms/pdu/PduComposer$BufferStack;
 
     move-result-object v1
 
     iget v1, v1, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->stackSize:I
 
-    if-eq v0, v1, :cond_14
+    if-eq v0, v1, :cond_0
 
     .line 1042
     new-instance v0, Ljava/lang/RuntimeException;
@@ -101,7 +102,7 @@
     throw v0
 
     .line 1045
-    :cond_14
+    :cond_0
     iget-object v0, p0, Lcom/google/android/mms/pdu/PduComposer$PositionMarker;->this$0:Lcom/google/android/mms/pdu/PduComposer;
 
     iget v0, v0, Lcom/google/android/mms/pdu/PduComposer;->mPosition:I

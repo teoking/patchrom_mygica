@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 4
+    .locals 1
     .parameter "uplink"
     .parameter "downlink"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 257

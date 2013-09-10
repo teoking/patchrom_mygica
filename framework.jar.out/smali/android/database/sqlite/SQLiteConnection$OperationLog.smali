@@ -32,7 +32,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1284
@@ -49,7 +49,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/database/sqlite/SQLiteConnection$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -60,7 +60,7 @@
 .end method
 
 .method private endOperationDeferLogLocked(I)Z
-    .registers 9
+    .locals 7
     .parameter "cookie"
 
     .prologue
@@ -75,7 +75,7 @@
 
     .line 1363
     .local v0, operation:Landroid/database/sqlite/SQLiteConnection$Operation;
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_1
 
     .line 1364
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -90,7 +90,7 @@
     .line 1366
     sget-boolean v3, Landroid/database/sqlite/SQLiteDebug;->DEBUG_LOG_SLOW_QUERIES:Z
 
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_0
 
     iget-wide v3, v0, Landroid/database/sqlite/SQLiteConnection$Operation;->mEndTime:J
 
@@ -102,27 +102,27 @@
 
     move-result v3
 
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_0
 
     .line 1369
-    :goto_1f
+    :goto_0
     return v1
 
-    :cond_20
+    :cond_0
     move v1, v2
 
     .line 1366
-    goto :goto_1f
+    goto :goto_0
 
-    :cond_22
+    :cond_1
     move v1, v2
 
     .line 1369
-    goto :goto_1f
+    goto :goto_0
 .end method
 
 .method private getOperationLocked(I)Landroid/database/sqlite/SQLiteConnection$Operation;
-    .registers 5
+    .locals 3
     .parameter "cookie"
 
     .prologue
@@ -139,21 +139,21 @@
     .local v1, operation:Landroid/database/sqlite/SQLiteConnection$Operation;
     iget v2, v1, Landroid/database/sqlite/SQLiteConnection$Operation;->mCookie:I
 
-    if-ne v2, p1, :cond_b
+    if-ne v2, p1, :cond_0
 
     .end local v1           #operation:Landroid/database/sqlite/SQLiteConnection$Operation;
-    :goto_a
+    :goto_0
     return-object v1
 
     .restart local v1       #operation:Landroid/database/sqlite/SQLiteConnection$Operation;
-    :cond_b
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method private logOperationLocked(ILjava/lang/String;)V
-    .registers 7
+    .locals 4
     .parameter "cookie"
     .parameter "detail"
 
@@ -174,7 +174,7 @@
     invoke-virtual {v1, v0}, Landroid/database/sqlite/SQLiteConnection$Operation;->describe(Ljava/lang/StringBuilder;)V
 
     .line 1376
-    if-eqz p2, :cond_17
+    if-eqz p2, :cond_0
 
     .line 1377
     const-string v2, ", "
@@ -186,7 +186,7 @@
     invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1379
-    :cond_17
+    :cond_0
     const-string v2, "SQLiteConnection"
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -200,7 +200,7 @@
 .end method
 
 .method private newOperationCookieLocked(I)I
-    .registers 4
+    .locals 2
     .parameter "index"
 
     .prologue
@@ -223,7 +223,7 @@
 
 # virtual methods
 .method public beginOperation(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)I
-    .registers 12
+    .locals 8
     .parameter "kind"
     .parameter "sql"
     .parameter "bindArgs"
@@ -235,7 +235,7 @@
     monitor-enter v5
 
     .line 1295
-    :try_start_3
+    :try_start_0
     iget v4, p0, Landroid/database/sqlite/SQLiteConnection$OperationLog;->mIndex:I
 
     add-int/lit8 v4, v4, 0x1
@@ -250,7 +250,7 @@
 
     .line 1297
     .local v3, operation:Landroid/database/sqlite/SQLiteConnection$Operation;
-    if-nez v3, :cond_48
+    if-nez v3, :cond_1
 
     .line 1298
     new-instance v3, Landroid/database/sqlite/SQLiteConnection$Operation;
@@ -267,8 +267,8 @@
     aput-object v3, v4, v2
 
     .line 1307
-    :cond_19
-    :goto_19
+    :cond_0
+    :goto_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v6
@@ -282,12 +282,12 @@
     iput-object p2, v3, Landroid/database/sqlite/SQLiteConnection$Operation;->mSql:Ljava/lang/String;
 
     .line 1310
-    if-eqz p3, :cond_67
+    if-eqz p3, :cond_4
 
     .line 1311
     iget-object v4, v3, Landroid/database/sqlite/SQLiteConnection$Operation;->mBindArgs:Ljava/util/ArrayList;
 
-    if-nez v4, :cond_5b
+    if-nez v4, :cond_2
 
     .line 1312
     new-instance v4, Ljava/util/ArrayList;
@@ -297,25 +297,25 @@
     iput-object v4, v3, Landroid/database/sqlite/SQLiteConnection$Operation;->mBindArgs:Ljava/util/ArrayList;
 
     .line 1316
-    :goto_30
+    :goto_1
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_31
+    :goto_2
     array-length v4, p3
 
-    if-ge v1, v4, :cond_67
+    if-ge v1, v4, :cond_4
 
     .line 1317
     aget-object v0, p3, v1
 
     .line 1318
     .local v0, arg:Ljava/lang/Object;
-    if-eqz v0, :cond_61
+    if-eqz v0, :cond_3
 
     instance-of v4, v0, [B
 
-    if-eqz v4, :cond_61
+    if-eqz v4, :cond_3
 
     .line 1320
     iget-object v4, v3, Landroid/database/sqlite/SQLiteConnection$Operation;->mBindArgs:Ljava/util/ArrayList;
@@ -327,15 +327,15 @@
     invoke-virtual {v4, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 1316
-    :goto_45
+    :goto_3
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_31
+    goto :goto_2
 
     .line 1301
     .end local v0           #arg:Ljava/lang/Object;
     .end local v1           #i:I
-    :cond_48
+    :cond_1
     const/4 v4, 0x0
 
     iput-boolean v4, v3, Landroid/database/sqlite/SQLiteConnection$Operation;->mFinished:Z
@@ -348,52 +348,52 @@
     .line 1303
     iget-object v4, v3, Landroid/database/sqlite/SQLiteConnection$Operation;->mBindArgs:Ljava/util/ArrayList;
 
-    if-eqz v4, :cond_19
+    if-eqz v4, :cond_0
 
     .line 1304
     iget-object v4, v3, Landroid/database/sqlite/SQLiteConnection$Operation;->mBindArgs:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->clear()V
 
-    goto :goto_19
+    goto :goto_0
 
     .line 1329
     .end local v2           #index:I
     .end local v3           #operation:Landroid/database/sqlite/SQLiteConnection$Operation;
-    :catchall_58
+    :catchall_0
     move-exception v4
 
     monitor-exit v5
-    :try_end_5a
-    .catchall {:try_start_3 .. :try_end_5a} :catchall_58
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v4
 
     .line 1314
     .restart local v2       #index:I
     .restart local v3       #operation:Landroid/database/sqlite/SQLiteConnection$Operation;
-    :cond_5b
-    :try_start_5b
+    :cond_2
+    :try_start_1
     iget-object v4, v3, Landroid/database/sqlite/SQLiteConnection$Operation;->mBindArgs:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->clear()V
 
-    goto :goto_30
+    goto :goto_1
 
     .line 1322
     .restart local v0       #arg:Ljava/lang/Object;
     .restart local v1       #i:I
-    :cond_61
+    :cond_3
     iget-object v4, v3, Landroid/database/sqlite/SQLiteConnection$Operation;->mBindArgs:Ljava/util/ArrayList;
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_45
+    goto :goto_3
 
     .line 1326
     .end local v0           #arg:Ljava/lang/Object;
     .end local v1           #i:I
-    :cond_67
+    :cond_4
     invoke-direct {p0, v2}, Landroid/database/sqlite/SQLiteConnection$OperationLog;->newOperationCookieLocked(I)I
 
     move-result v4
@@ -407,14 +407,14 @@
     iget v4, v3, Landroid/database/sqlite/SQLiteConnection$Operation;->mCookie:I
 
     monitor-exit v5
-    :try_end_72
-    .catchall {:try_start_5b .. :try_end_72} :catchall_58
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     return v4
 .end method
 
 .method public describeCurrentOperation()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 1394
@@ -423,7 +423,7 @@
     monitor-enter v3
 
     .line 1395
-    :try_start_3
+    :try_start_0
     iget-object v2, p0, Landroid/database/sqlite/SQLiteConnection$OperationLog;->mOperations:[Landroid/database/sqlite/SQLiteConnection$Operation;
 
     iget v4, p0, Landroid/database/sqlite/SQLiteConnection$OperationLog;->mIndex:I
@@ -432,11 +432,11 @@
 
     .line 1396
     .local v1, operation:Landroid/database/sqlite/SQLiteConnection$Operation;
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_0
 
     iget-boolean v2, v1, Landroid/database/sqlite/SQLiteConnection$Operation;->mFinished:Z
 
-    if-nez v2, :cond_1d
+    if-nez v2, :cond_0
 
     .line 1397
     new-instance v0, Ljava/lang/StringBuilder;
@@ -456,30 +456,30 @@
 
     .line 1401
     .end local v0           #msg:Ljava/lang/StringBuilder;
-    :goto_1c
+    :goto_0
     return-object v2
 
-    :cond_1d
+    :cond_0
     const/4 v2, 0x0
 
     monitor-exit v3
 
-    goto :goto_1c
+    goto :goto_0
 
     .line 1402
     .end local v1           #operation:Landroid/database/sqlite/SQLiteConnection$Operation;
-    :catchall_20
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_22
-    .catchall {:try_start_3 .. :try_end_22} :catchall_20
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method
 
 .method public dump(Landroid/util/Printer;)V
-    .registers 9
+    .locals 7
     .parameter "printer"
 
     .prologue
@@ -489,7 +489,7 @@
     monitor-enter v5
 
     .line 1407
-    :try_start_3
+    :try_start_0
     const-string v4, "  Most recently executed operations:"
 
     invoke-interface {p1, v4}, Landroid/util/Printer;->println(Ljava/lang/String;)V
@@ -505,14 +505,14 @@
 
     .line 1410
     .local v3, operation:Landroid/database/sqlite/SQLiteConnection$Operation;
-    if-eqz v3, :cond_50
+    if-eqz v3, :cond_3
 
     .line 1411
     const/4 v2, 0x0
 
     .line 1413
     .local v2, n:I
-    :cond_11
+    :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -534,6 +534,7 @@
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1415
+    #calls: Landroid/database/sqlite/SQLiteConnection$Operation;->getFormattedStartTime()Ljava/lang/String;
     invoke-static {v3}, Landroid/database/sqlite/SQLiteConnection$Operation;->access$600(Landroid/database/sqlite/SQLiteConnection$Operation;)Ljava/lang/String;
 
     move-result-object v4
@@ -556,13 +557,13 @@
     invoke-interface {p1, v4}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 1420
-    if-lez v0, :cond_4d
+    if-lez v0, :cond_2
 
     .line 1421
     add-int/lit8 v0, v0, -0x1
 
     .line 1425
-    :goto_3f
+    :goto_0
     add-int/lit8 v2, v2, 0x1
 
     .line 1426
@@ -571,17 +572,17 @@
     aget-object v3, v4, v0
 
     .line 1427
-    if-eqz v3, :cond_4b
+    if-eqz v3, :cond_1
 
     const/16 v4, 0x14
 
-    if-lt v2, v4, :cond_11
+    if-lt v2, v4, :cond_0
 
     .line 1431
     .end local v1           #msg:Ljava/lang/StringBuilder;
     .end local v2           #n:I
-    :cond_4b
-    :goto_4b
+    :cond_1
+    :goto_1
     monitor-exit v5
 
     .line 1432
@@ -590,36 +591,36 @@
     .line 1423
     .restart local v1       #msg:Ljava/lang/StringBuilder;
     .restart local v2       #n:I
-    :cond_4d
+    :cond_2
     const/16 v0, 0x13
 
-    goto :goto_3f
+    goto :goto_0
 
     .line 1429
     .end local v1           #msg:Ljava/lang/StringBuilder;
     .end local v2           #n:I
-    :cond_50
+    :cond_3
     const-string v4, "    <none>"
 
     invoke-interface {p1, v4}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
-    goto :goto_4b
+    goto :goto_1
 
     .line 1431
     .end local v0           #index:I
     .end local v3           #operation:Landroid/database/sqlite/SQLiteConnection$Operation;
-    :catchall_56
+    :catchall_0
     move-exception v4
 
     monitor-exit v5
-    :try_end_58
-    .catchall {:try_start_3 .. :try_end_58} :catchall_56
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v4
 .end method
 
 .method public endOperation(I)V
-    .registers 4
+    .locals 2
     .parameter "cookie"
 
     .prologue
@@ -629,12 +630,12 @@
     monitor-enter v1
 
     .line 1343
-    :try_start_3
+    :try_start_0
     invoke-direct {p0, p1}, Landroid/database/sqlite/SQLiteConnection$OperationLog;->endOperationDeferLogLocked(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 1344
     const/4 v0, 0x0
@@ -642,25 +643,25 @@
     invoke-direct {p0, p1, v0}, Landroid/database/sqlite/SQLiteConnection$OperationLog;->logOperationLocked(ILjava/lang/String;)V
 
     .line 1346
-    :cond_d
+    :cond_0
     monitor-exit v1
 
     .line 1347
     return-void
 
     .line 1346
-    :catchall_f
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_11
-    .catchall {:try_start_3 .. :try_end_11} :catchall_f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public endOperationDeferLog(I)Z
-    .registers 4
+    .locals 2
     .parameter "cookie"
 
     .prologue
@@ -670,7 +671,7 @@
     monitor-enter v1
 
     .line 1351
-    :try_start_3
+    :try_start_0
     invoke-direct {p0, p1}, Landroid/database/sqlite/SQLiteConnection$OperationLog;->endOperationDeferLogLocked(I)Z
 
     move-result v0
@@ -680,18 +681,18 @@
     return v0
 
     .line 1352
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_b
-    .catchall {:try_start_3 .. :try_end_b} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public failOperation(ILjava/lang/Exception;)V
-    .registers 6
+    .locals 3
     .parameter "cookie"
     .parameter "ex"
 
@@ -702,20 +703,20 @@
     monitor-enter v2
 
     .line 1334
-    :try_start_3
+    :try_start_0
     invoke-direct {p0, p1}, Landroid/database/sqlite/SQLiteConnection$OperationLog;->getOperationLocked(I)Landroid/database/sqlite/SQLiteConnection$Operation;
 
     move-result-object v0
 
     .line 1335
     .local v0, operation:Landroid/database/sqlite/SQLiteConnection$Operation;
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 1336
     iput-object p2, v0, Landroid/database/sqlite/SQLiteConnection$Operation;->mException:Ljava/lang/Exception;
 
     .line 1338
-    :cond_b
+    :cond_0
     monitor-exit v2
 
     .line 1339
@@ -723,18 +724,18 @@
 
     .line 1338
     .end local v0           #operation:Landroid/database/sqlite/SQLiteConnection$Operation;
-    :catchall_d
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_f
-    .catchall {:try_start_3 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public logOperation(ILjava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "cookie"
     .parameter "detail"
 
@@ -745,7 +746,7 @@
     monitor-enter v1
 
     .line 1357
-    :try_start_3
+    :try_start_0
     invoke-direct {p0, p1, p2}, Landroid/database/sqlite/SQLiteConnection$OperationLog;->logOperationLocked(ILjava/lang/String;)V
 
     .line 1358
@@ -755,12 +756,12 @@
     return-void
 
     .line 1358
-    :catchall_8
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_a
-    .catchall {:try_start_3 .. :try_end_a} :catchall_8
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

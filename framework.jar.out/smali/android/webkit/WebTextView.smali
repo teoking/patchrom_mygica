@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 25
@@ -37,7 +37,7 @@
 .end method
 
 .method static urlForAutoCompleteData(Ljava/lang/String;)Ljava/lang/String;
-    .registers 7
+    .locals 6
     .parameter "urlString"
 
     .prologue
@@ -46,12 +46,12 @@
 
     .line 45
     .local v1, url:Ljava/net/URL;
-    :try_start_1
+    :try_start_0
     new-instance v2, Ljava/net/URL;
 
     invoke-direct {v2, p0}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
-    :try_end_6
-    .catch Ljava/net/MalformedURLException; {:try_start_1 .. :try_end_6} :catch_31
+    :try_end_0
+    .catch Ljava/net/MalformedURLException; {:try_start_0 .. :try_end_0} :catch_0
 
     .end local v1           #url:Ljava/net/URL;
     .local v2, url:Ljava/net/URL;
@@ -60,8 +60,8 @@
     .line 50
     .end local v2           #url:Ljava/net/URL;
     .restart local v1       #url:Ljava/net/URL;
-    :goto_7
-    if-eqz v1, :cond_4b
+    :goto_0
+    if-eqz v1, :cond_0
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -101,11 +101,11 @@
 
     move-result-object v3
 
-    :goto_30
+    :goto_1
     return-object v3
 
     .line 46
-    :catch_31
+    :catch_0
     move-exception v0
 
     .line 47
@@ -132,12 +132,12 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_7
+    goto :goto_0
 
     .line 50
     .end local v0           #e:Ljava/net/MalformedURLException;
-    :cond_4b
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_30
+    goto :goto_1
 .end method

@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(IILandroid/graphics/AvoidXfermode$Mode;)V
-    .registers 6
+    .locals 2
     .parameter "opColor"
     .parameter "tolerance"
     .parameter "mode"
@@ -26,14 +26,14 @@
     invoke-direct {p0}, Landroid/graphics/Xfermode;-><init>()V
 
     .line 53
-    if-ltz p2, :cond_9
+    if-ltz p2, :cond_0
 
     const/16 v0, 0xff
 
-    if-le p2, v0, :cond_12
+    if-le p2, v0, :cond_1
 
     .line 54
-    :cond_9
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "tolerance must be 0..255"
@@ -43,7 +43,7 @@
     throw v0
 
     .line 56
-    :cond_12
+    :cond_1
     iget v0, p3, Landroid/graphics/AvoidXfermode$Mode;->nativeInt:I
 
     invoke-static {p1, p2, v0}, Landroid/graphics/AvoidXfermode;->nativeCreate(III)I

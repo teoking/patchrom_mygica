@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager$13;Landroid/os/Looper;Landroid/content/ServiceConnection;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
@@ -55,7 +55,7 @@
     monitor-enter v1
 
     .line 3735
-    :try_start_7
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$13$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$13;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager$13;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -64,7 +64,7 @@
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$13$1;->val$myConn:Landroid/content/ServiceConnection;
 
-    if-ne v0, v2, :cond_36
+    if-ne v0, v2, :cond_0
 
     .line 3736
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$13$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$13;
@@ -106,19 +106,19 @@
     invoke-virtual {v0, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     .line 3740
-    :cond_36
+    :cond_0
     monitor-exit v1
 
     .line 3741
     return-void
 
     .line 3740
-    :catchall_38
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_3a
-    .catchall {:try_start_7 .. :try_end_3a} :catchall_38
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

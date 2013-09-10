@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 169
@@ -58,7 +58,7 @@
 .end method
 
 .method protected constructor <init>(Ljava/util/List;)V
-    .registers 4
+    .locals 2
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -76,7 +76,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 95
-    if-nez p1, :cond_e
+    if-nez p1, :cond_0
 
     .line 96
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -88,7 +88,7 @@
     throw v0
 
     .line 98
-    :cond_e
+    :cond_0
     iput-object p1, p0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;->mQueryList:Ljava/util/List;
 
     .line 99
@@ -96,7 +96,7 @@
 .end method
 
 .method static bin2HexStr([B)Ljava/lang/String;
-    .registers 10
+    .locals 9
     .parameter "data"
 
     .prologue
@@ -116,8 +116,8 @@
     const/4 v3, 0x0
 
     .local v3, i$:I
-    :goto_8
-    if-ge v3, v4, :cond_2b
+    :goto_0
+    if-ge v3, v4, :cond_1
 
     aget-byte v1, v0, v3
 
@@ -129,10 +129,10 @@
     .local v5, s:Ljava/lang/String;
     and-int/lit16 v7, v1, 0xff
 
-    :try_start_f
+    :try_start_0
     invoke-static {v7}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-    :try_end_12
-    .catch Ljava/lang/Exception; {:try_start_f .. :try_end_12} :catch_25
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v5
 
@@ -143,7 +143,7 @@
 
     const/4 v8, 0x1
 
-    if-ne v7, v8, :cond_1f
+    if-ne v7, v8, :cond_0
 
     .line 131
     const/16 v7, 0x30
@@ -151,16 +151,16 @@
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     .line 133
-    :cond_1f
+    :cond_0
     invoke-virtual {v6, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 121
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 125
-    :catch_25
+    :catch_0
     move-exception v2
 
     .line 126
@@ -174,21 +174,21 @@
     .end local v1           #b:B
     .end local v2           #e:Ljava/lang/Exception;
     .end local v5           #s:Ljava/lang/String;
-    :goto_2a
+    :goto_1
     return-object v7
 
-    :cond_2b
+    :cond_1
     invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v7
 
-    goto :goto_2a
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 160
@@ -198,32 +198,32 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 5
+    .locals 3
     .parameter "o"
 
     .prologue
     .line 140
-    if-ne p1, p0, :cond_4
+    if-ne p1, p0, :cond_0
 
     .line 141
     const/4 v1, 0x1
 
     .line 148
-    :goto_3
+    :goto_0
     return v1
 
     .line 143
-    :cond_4
+    :cond_0
     instance-of v1, p1, Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_1
 
     .line 144
     const/4 v1, 0x0
 
-    goto :goto_3
+    goto :goto_0
 
-    :cond_a
+    :cond_1
     move-object v0, p1
 
     .line 147
@@ -239,11 +239,11 @@
 
     move-result v1
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public getSupplicantQueryList()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -262,7 +262,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 153
@@ -272,29 +272,29 @@
     .local v0, result:I
     iget-object v1, p0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;->mQueryList:Ljava/util/List;
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_0
 
     const/4 v1, 0x0
 
-    :goto_7
+    :goto_0
     add-int/lit16 v0, v1, 0x20f
 
     .line 155
     return v0
 
     .line 154
-    :cond_a
+    :cond_0
     iget-object v1, p0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceInfo;->mQueryList:Ljava/util/List;
 
     invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
 
     move-result v1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

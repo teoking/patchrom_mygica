@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;II)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter "x1"
@@ -37,12 +37,13 @@
 
 # virtual methods
 .method public onLongPress()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 214
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$2;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
+    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mWindowManagerFuncs:Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
     invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$500(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
 
     move-result-object v0
@@ -56,12 +57,13 @@
 .end method
 
 .method public onPress()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 210
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$2;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
+    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mWindowManagerFuncs:Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
     invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$500(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
 
     move-result-object v0
@@ -73,7 +75,7 @@
 .end method
 
 .method public showBeforeProvisioning()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 223
@@ -83,7 +85,7 @@
 .end method
 
 .method public showDuringKeyguard()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 219

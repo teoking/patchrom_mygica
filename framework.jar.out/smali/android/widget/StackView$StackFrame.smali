@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -54,13 +54,13 @@
 
 # virtual methods
 .method cancelSliderAnimator()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 501
     iget-object v1, p0, Landroid/widget/StackView$StackFrame;->sliderAnimator:Ljava/lang/ref/WeakReference;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 502
     iget-object v1, p0, Landroid/widget/StackView$StackFrame;->sliderAnimator:Ljava/lang/ref/WeakReference;
@@ -73,7 +73,7 @@
 
     .line 503
     .local v0, oa:Landroid/animation/ObjectAnimator;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 504
     invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->cancel()V
@@ -83,23 +83,23 @@
 
     .line 508
     .end local v0           #oa:Landroid/animation/ObjectAnimator;
-    :goto_12
+    :goto_0
     return v1
 
-    :cond_13
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method cancelTransformAnimator()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 490
     iget-object v1, p0, Landroid/widget/StackView$StackFrame;->transformAnimator:Ljava/lang/ref/WeakReference;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 491
     iget-object v1, p0, Landroid/widget/StackView$StackFrame;->transformAnimator:Ljava/lang/ref/WeakReference;
@@ -112,7 +112,7 @@
 
     .line 492
     .local v0, oa:Landroid/animation/ObjectAnimator;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 493
     invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->cancel()V
@@ -122,17 +122,17 @@
 
     .line 497
     .end local v0           #oa:Landroid/animation/ObjectAnimator;
-    :goto_12
+    :goto_0
     return v1
 
-    :cond_13
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method setSliderAnimator(Landroid/animation/ObjectAnimator;)V
-    .registers 3
+    .locals 1
     .parameter "oa"
 
     .prologue
@@ -148,7 +148,7 @@
 .end method
 
 .method setTransformAnimator(Landroid/animation/ObjectAnimator;)V
-    .registers 3
+    .locals 1
     .parameter "oa"
 
     .prologue

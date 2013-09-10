@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/database/sqlite/SQLiteDatabase;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method protected initialValue()Landroid/database/sqlite/SQLiteSession;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84
@@ -58,7 +58,7 @@
 .end method
 
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81

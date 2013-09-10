@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 632
@@ -26,7 +26,7 @@
 .end method
 
 .method public static readFullLongArray(Ljava/io/DataInputStream;)[J
-    .registers 6
+    .locals 5
     .parameter "in"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -52,10 +52,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_7
+    :goto_0
     array-length v3, v2
 
-    if-ge v0, v3, :cond_13
+    if-ge v0, v3, :cond_0
 
     .line 638
     invoke-virtual {p0}, Ljava/io/DataInputStream;->readLong()J
@@ -67,15 +67,15 @@
     .line 637
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 640
-    :cond_13
+    :cond_0
     return-object v2
 .end method
 
 .method public static readVarLong(Ljava/io/DataInputStream;)J
-    .registers 7
+    .locals 6
     .parameter "in"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -93,10 +93,10 @@
 
     .line 649
     .local v1, result:J
-    :goto_3
+    :goto_0
     const/16 v4, 0x40
 
-    if-ge v3, v4, :cond_18
+    if-ge v3, v4, :cond_1
 
     .line 650
     invoke-virtual {p0}, Ljava/io/DataInputStream;->readByte()B
@@ -116,21 +116,21 @@
     .line 652
     and-int/lit16 v4, v0, 0x80
 
-    if-nez v4, :cond_15
+    if-nez v4, :cond_0
 
     .line 653
     return-wide v1
 
     .line 654
-    :cond_15
+    :cond_0
     add-int/lit8 v3, v3, 0x7
 
     .line 655
-    goto :goto_3
+    goto :goto_0
 
     .line 656
     .end local v0           #b:B
-    :cond_18
+    :cond_1
     new-instance v4, Ljava/net/ProtocolException;
 
     const-string/jumbo v5, "malformed long"
@@ -141,7 +141,7 @@
 .end method
 
 .method public static readVarLongArray(Ljava/io/DataInputStream;)[J
-    .registers 6
+    .locals 5
     .parameter "in"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -159,16 +159,16 @@
     .local v1, size:I
     const/4 v3, -0x1
 
-    if-ne v1, v3, :cond_9
+    if-ne v1, v3, :cond_1
 
     const/4 v2, 0x0
 
     .line 681
-    :cond_8
+    :cond_0
     return-object v2
 
     .line 677
-    :cond_9
+    :cond_1
     new-array v2, v1, [J
 
     .line 678
@@ -176,10 +176,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_c
+    :goto_0
     array-length v3, v2
 
-    if-ge v0, v3, :cond_8
+    if-ge v0, v3, :cond_0
 
     .line 679
     invoke-static {p0}, Landroid/net/NetworkStatsHistory$DataStreamUtils;->readVarLong(Ljava/io/DataInputStream;)J
@@ -191,11 +191,11 @@
     .line 678
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public static writeVarLong(Ljava/io/DataOutputStream;J)V
-    .registers 7
+    .locals 4
     .parameter "out"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -215,7 +215,7 @@
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 665
     long-to-int v0, p1
@@ -226,7 +226,7 @@
     return-void
 
     .line 668
-    :cond_e
+    :cond_0
     long-to-int v0, p1
 
     and-int/lit8 v0, v0, 0x7f
@@ -244,7 +244,7 @@
 .end method
 
 .method public static writeVarLongArray(Ljava/io/DataOutputStream;[JI)V
-    .registers 6
+    .locals 3
     .parameter "out"
     .parameter "values"
     .parameter "size"
@@ -256,7 +256,7 @@
 
     .prologue
     .line 686
-    if-nez p1, :cond_7
+    if-nez p1, :cond_1
 
     .line 687
     const/4 v1, -0x1
@@ -264,14 +264,14 @@
     invoke-virtual {p0, v1}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 697
-    :cond_6
+    :cond_0
     return-void
 
     .line 690
-    :cond_7
+    :cond_1
     array-length v1, p1
 
-    if-le p2, v1, :cond_13
+    if-le p2, v1, :cond_2
 
     .line 691
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -283,15 +283,15 @@
     throw v1
 
     .line 693
-    :cond_13
+    :cond_2
     invoke-virtual {p0, p2}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 694
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_17
-    if-ge v0, p2, :cond_6
+    :goto_0
+    if-ge v0, p2, :cond_0
 
     .line 695
     aget-wide v1, p1, v0
@@ -301,5 +301,5 @@
     .line 694
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_17
+    goto :goto_0
 .end method

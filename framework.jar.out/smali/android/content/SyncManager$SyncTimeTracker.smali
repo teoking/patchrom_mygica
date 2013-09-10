@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/content/SyncManager;)V
-    .registers 4
+    .locals 2
     .parameter
 
     .prologue
@@ -49,7 +49,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/content/SyncManager;Landroid/content/SyncManager$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -63,30 +63,30 @@
 
 # virtual methods
 .method public declared-synchronized timeSpentSyncing()J
-    .registers 7
+    .locals 6
 
     .prologue
     .line 1543
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-boolean v2, p0, Landroid/content/SyncManager$SyncTimeTracker;->mLastWasSyncing:Z
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_0
 
     iget-wide v2, p0, Landroid/content/SyncManager$SyncTimeTracker;->mTimeSpentSyncing:J
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_15
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1546
-    :goto_7
+    :goto_0
     monitor-exit p0
 
     return-wide v2
 
     .line 1545
-    :cond_9
-    :try_start_9
+    :cond_0
+    :try_start_1
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
@@ -96,18 +96,18 @@
     iget-wide v2, p0, Landroid/content/SyncManager$SyncTimeTracker;->mTimeSpentSyncing:J
 
     iget-wide v4, p0, Landroid/content/SyncManager$SyncTimeTracker;->mWhenSyncStarted:J
-    :try_end_11
-    .catchall {:try_start_9 .. :try_end_11} :catchall_15
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     sub-long v4, v0, v4
 
     add-long/2addr v2, v4
 
-    goto :goto_7
+    goto :goto_0
 
     .line 1543
     .end local v0           #now:J
-    :catchall_15
+    :catchall_0
     move-exception v2
 
     monitor-exit p0
@@ -116,13 +116,13 @@
 .end method
 
 .method public declared-synchronized update()V
-    .registers 8
+    .locals 7
 
     .prologue
     .line 1530
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v3, p0, Landroid/content/SyncManager$SyncTimeTracker;->this$0:Landroid/content/SyncManager;
 
     iget-object v3, v3, Landroid/content/SyncManager;->mActiveSyncContexts:Ljava/util/ArrayList;
@@ -131,59 +131,59 @@
 
     move-result v3
 
-    if-nez v3, :cond_12
+    if-nez v3, :cond_0
 
     const/4 v0, 0x1
 
     .line 1531
     .local v0, isSyncInProgress:Z
-    :goto_c
+    :goto_0
     iget-boolean v3, p0, Landroid/content/SyncManager$SyncTimeTracker;->mLastWasSyncing:Z
-    :try_end_e
-    .catchall {:try_start_1 .. :try_end_e} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-ne v0, v3, :cond_14
+    if-ne v0, v3, :cond_1
 
     .line 1539
-    :goto_10
+    :goto_1
     monitor-exit p0
 
     return-void
 
     .line 1530
     .end local v0           #isSyncInProgress:Z
-    :cond_12
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_c
+    goto :goto_0
 
     .line 1532
     .restart local v0       #isSyncInProgress:Z
-    :cond_14
-    :try_start_14
+    :cond_1
+    :try_start_1
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v1
 
     .line 1533
     .local v1, now:J
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_2
 
     .line 1534
     iput-wide v1, p0, Landroid/content/SyncManager$SyncTimeTracker;->mWhenSyncStarted:J
 
     .line 1538
-    :goto_1c
+    :goto_2
     iput-boolean v0, p0, Landroid/content/SyncManager$SyncTimeTracker;->mLastWasSyncing:Z
-    :try_end_1e
-    .catchall {:try_start_14 .. :try_end_1e} :catchall_1f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_10
+    goto :goto_1
 
     .line 1530
     .end local v0           #isSyncInProgress:Z
     .end local v1           #now:J
-    :catchall_1f
+    :catchall_0
     move-exception v3
 
     monitor-exit p0
@@ -193,8 +193,8 @@
     .line 1536
     .restart local v0       #isSyncInProgress:Z
     .restart local v1       #now:J
-    :cond_22
-    :try_start_22
+    :cond_2
+    :try_start_2
     iget-wide v3, p0, Landroid/content/SyncManager$SyncTimeTracker;->mTimeSpentSyncing:J
 
     iget-wide v5, p0, Landroid/content/SyncManager$SyncTimeTracker;->mWhenSyncStarted:J
@@ -204,8 +204,8 @@
     add-long/2addr v3, v5
 
     iput-wide v3, p0, Landroid/content/SyncManager$SyncTimeTracker;->mTimeSpentSyncing:J
-    :try_end_2b
-    .catchall {:try_start_22 .. :try_end_2b} :catchall_1f
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_1c
+    goto :goto_2
 .end method

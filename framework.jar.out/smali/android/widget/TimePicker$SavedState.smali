@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 341
@@ -49,7 +49,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -75,7 +75,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/widget/TimePicker$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -87,7 +87,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcelable;II)V
-    .registers 4
+    .locals 0
     .parameter "superState"
     .parameter "hour"
     .parameter "minute"
@@ -107,7 +107,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcelable;IILandroid/widget/TimePicker$1;)V
-    .registers 5
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method public getHour()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 326
@@ -133,7 +133,7 @@
 .end method
 
 .method public getMinute()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 330
@@ -143,7 +143,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

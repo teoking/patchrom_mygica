@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 226
@@ -71,7 +71,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 167
@@ -82,7 +82,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -94,7 +94,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 175
     new-instance v0, Landroid/content/ComponentName;
@@ -104,7 +104,7 @@
     iput-object v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->provider:Landroid/content/ComponentName;
 
     .line 177
-    :cond_10
+    :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -151,7 +151,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_41
+    if-eqz v0, :cond_1
 
     .line 184
     new-instance v0, Landroid/content/ComponentName;
@@ -161,7 +161,7 @@
     iput-object v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->configure:Landroid/content/ComponentName;
 
     .line 186
-    :cond_41
+    :cond_1
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
@@ -203,7 +203,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 220
@@ -213,7 +213,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 241
@@ -247,7 +247,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "out"
     .parameter "flags"
 
@@ -259,7 +259,7 @@
     .line 194
     iget-object v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->provider:Landroid/content/ComponentName;
 
-    if-eqz v0, :cond_52
+    if-eqz v0, :cond_0
 
     .line 195
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -270,7 +270,7 @@
     invoke-virtual {v0, p1, p2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 200
-    :goto_e
+    :goto_0
     iget v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->minWidth:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
@@ -303,7 +303,7 @@
     .line 206
     iget-object v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->configure:Landroid/content/ComponentName;
 
-    if-eqz v0, :cond_56
+    if-eqz v0, :cond_1
 
     .line 207
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -314,7 +314,7 @@
     invoke-virtual {v0, p1, p2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 212
-    :goto_38
+    :goto_1
     iget-object v0, p0, Landroid/appwidget/AppWidgetProviderInfo;->label:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
@@ -343,14 +343,14 @@
     return-void
 
     .line 198
-    :cond_52
+    :cond_0
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 210
-    :cond_56
+    :cond_1
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_38
+    goto :goto_1
 .end method

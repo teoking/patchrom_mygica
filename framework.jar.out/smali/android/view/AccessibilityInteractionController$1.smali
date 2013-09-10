@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/AccessibilityInteractionController;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public bridge synthetic newInstance()Landroid/util/Poolable;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 80
@@ -60,7 +60,7 @@
 .end method
 
 .method public newInstance()Landroid/view/AccessibilityInteractionController$SomeArgs;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 82
@@ -76,7 +76,7 @@
 .end method
 
 .method public bridge synthetic onAcquired(Landroid/util/Poolable;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -90,7 +90,7 @@
 .end method
 
 .method public onAcquired(Landroid/view/AccessibilityInteractionController$SomeArgs;)V
-    .registers 2
+    .locals 0
     .parameter "info"
 
     .prologue
@@ -99,7 +99,7 @@
 .end method
 
 .method public bridge synthetic onReleased(Landroid/util/Poolable;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -113,11 +113,12 @@
 .end method
 
 .method public onReleased(Landroid/view/AccessibilityInteractionController$SomeArgs;)V
-    .registers 2
+    .locals 0
     .parameter "info"
 
     .prologue
     .line 90
+    #calls: Landroid/view/AccessibilityInteractionController$SomeArgs;->clear()V
     invoke-static {p1}, Landroid/view/AccessibilityInteractionController$SomeArgs;->access$200(Landroid/view/AccessibilityInteractionController$SomeArgs;)V
 
     .line 91

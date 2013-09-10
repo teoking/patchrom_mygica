@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 33
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "color"
 
     .prologue
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "src"
 
     .prologue
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 51
@@ -81,7 +81,7 @@
 .end method
 
 .method public drawLeadingMargin(Landroid/graphics/Canvas;Landroid/graphics/Paint;IIIIILjava/lang/CharSequence;IIZLandroid/text/Layout;)V
-    .registers 21
+    .locals 8
     .parameter "c"
     .parameter "p"
     .parameter "x"
@@ -148,7 +148,7 @@
 .end method
 
 .method public getColor()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 59
@@ -158,7 +158,7 @@
 .end method
 
 .method public getLeadingMargin(Z)I
-    .registers 3
+    .locals 1
     .parameter "first"
 
     .prologue
@@ -169,7 +169,7 @@
 .end method
 
 .method public getSpanTypeId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 47
@@ -179,7 +179,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

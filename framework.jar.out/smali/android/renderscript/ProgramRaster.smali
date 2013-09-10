@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
-    .registers 4
+    .locals 1
     .parameter "id"
     .parameter "rs"
 
@@ -43,14 +43,14 @@
 .end method
 
 .method public static CULL_BACK(Landroid/renderscript/RenderScript;)Landroid/renderscript/ProgramRaster;
-    .registers 3
+    .locals 2
     .parameter "rs"
 
     .prologue
     .line 86
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramRaster_CULL_BACK:Landroid/renderscript/ProgramRaster;
 
-    if-nez v1, :cond_14
+    if-nez v1, :cond_0
 
     .line 87
     new-instance v0, Landroid/renderscript/ProgramRaster$Builder;
@@ -72,21 +72,21 @@
 
     .line 91
     .end local v0           #builder:Landroid/renderscript/ProgramRaster$Builder;
-    :cond_14
+    :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramRaster_CULL_BACK:Landroid/renderscript/ProgramRaster;
 
     return-object v1
 .end method
 
 .method public static CULL_FRONT(Landroid/renderscript/RenderScript;)Landroid/renderscript/ProgramRaster;
-    .registers 3
+    .locals 2
     .parameter "rs"
 
     .prologue
     .line 98
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramRaster_CULL_FRONT:Landroid/renderscript/ProgramRaster;
 
-    if-nez v1, :cond_14
+    if-nez v1, :cond_0
 
     .line 99
     new-instance v0, Landroid/renderscript/ProgramRaster$Builder;
@@ -108,21 +108,21 @@
 
     .line 103
     .end local v0           #builder:Landroid/renderscript/ProgramRaster$Builder;
-    :cond_14
+    :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramRaster_CULL_FRONT:Landroid/renderscript/ProgramRaster;
 
     return-object v1
 .end method
 
 .method public static CULL_NONE(Landroid/renderscript/RenderScript;)Landroid/renderscript/ProgramRaster;
-    .registers 3
+    .locals 2
     .parameter "rs"
 
     .prologue
     .line 110
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramRaster_CULL_NONE:Landroid/renderscript/ProgramRaster;
 
-    if-nez v1, :cond_14
+    if-nez v1, :cond_0
 
     .line 111
     new-instance v0, Landroid/renderscript/ProgramRaster$Builder;
@@ -144,7 +144,7 @@
 
     .line 115
     .end local v0           #builder:Landroid/renderscript/ProgramRaster$Builder;
-    :cond_14
+    :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramRaster_CULL_NONE:Landroid/renderscript/ProgramRaster;
 
     return-object v1
@@ -153,7 +153,7 @@
 
 # virtual methods
 .method public getCullMode()Landroid/renderscript/ProgramRaster$CullMode;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 79
@@ -163,7 +163,7 @@
 .end method
 
 .method public isPointSpriteEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 70

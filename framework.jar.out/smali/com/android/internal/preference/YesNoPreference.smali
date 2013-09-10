@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 4
+    .locals 0
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public getValue()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -72,7 +72,7 @@
 .end method
 
 .method protected onDialogClosed(Z)V
-    .registers 3
+    .locals 1
     .parameter "positiveResult"
 
     .prologue
@@ -88,18 +88,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 52
     invoke-virtual {p0, p1}, Lcom/android/internal/preference/YesNoPreference;->setValue(Z)V
 
     .line 54
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method protected onGetDefaultValue(Landroid/content/res/TypedArray;I)Ljava/lang/Object;
-    .registers 4
+    .locals 1
     .parameter "a"
     .parameter "index"
 
@@ -119,7 +119,7 @@
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .registers 5
+    .locals 3
     .parameter "state"
 
     .prologue
@@ -134,16 +134,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_0
 
     .line 112
     invoke-super {p0, p1}, Landroid/preference/DialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
     .line 119
-    :goto_f
+    :goto_0
     return-void
 
-    :cond_10
+    :cond_0
     move-object v0, p1
 
     .line 116
@@ -162,11 +162,11 @@
 
     invoke-virtual {p0, v1}, Lcom/android/internal/preference/YesNoPreference;->setValue(Z)V
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method protected onSaveInstanceState()Landroid/os/Parcelable;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 97
@@ -180,16 +180,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_0
 
     .line 105
     .end local v1           #superState:Landroid/os/Parcelable;
-    :goto_a
+    :goto_0
     return-object v1
 
     .line 103
     .restart local v1       #superState:Landroid/os/Parcelable;
-    :cond_b
+    :cond_0
     new-instance v0, Lcom/android/internal/preference/YesNoPreference$SavedState;
 
     invoke-direct {v0, v1}, Lcom/android/internal/preference/YesNoPreference$SavedState;-><init>(Landroid/os/Parcelable;)V
@@ -205,17 +205,17 @@
     move-object v1, v0
 
     .line 105
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method protected onSetInitialValue(ZLjava/lang/Object;)V
-    .registers 4
+    .locals 1
     .parameter "restorePersistedValue"
     .parameter "defaultValue"
 
     .prologue
     .line 86
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_0
 
     iget-boolean v0, p0, Lcom/android/internal/preference/YesNoPreference;->mWasPositiveResult:Z
 
@@ -224,7 +224,7 @@
     move-result v0
 
     .end local p2
-    :goto_8
+    :goto_0
     invoke-virtual {p0, v0}, Lcom/android/internal/preference/YesNoPreference;->setValue(Z)V
 
     .line 88
@@ -232,7 +232,7 @@
 
     .line 86
     .restart local p2
-    :cond_c
+    :cond_0
     check-cast p2, Ljava/lang/Boolean;
 
     .end local p2
@@ -240,11 +240,11 @@
 
     move-result v0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setValue(Z)V
-    .registers 3
+    .locals 1
     .parameter "value"
 
     .prologue
@@ -255,46 +255,46 @@
     invoke-virtual {p0, p1}, Lcom/android/internal/preference/YesNoPreference;->persistBoolean(Z)Z
 
     .line 67
-    if-nez p1, :cond_c
+    if-nez p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_8
+    :goto_0
     invoke-virtual {p0, v0}, Lcom/android/internal/preference/YesNoPreference;->notifyDependencyChange(Z)V
 
     .line 68
     return-void
 
     .line 67
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public shouldDisableDependents()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 92
     iget-boolean v0, p0, Lcom/android/internal/preference/YesNoPreference;->mWasPositiveResult:Z
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     invoke-super {p0}, Landroid/preference/DialogPreference;->shouldDisableDependents()Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_1
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method

@@ -119,7 +119,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -133,7 +133,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -148,7 +148,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 8
+    .locals 4
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyleAttr"
@@ -233,7 +233,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/widget/StackView;)Landroid/widget/ImageView;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -244,7 +244,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/widget/StackView;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -255,7 +255,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/widget/StackView;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -266,7 +266,7 @@
 .end method
 
 .method private beginGestureIfNeeded(F)V
-    .registers 14
+    .locals 12
     .parameter "deltaY"
 
     .prologue
@@ -285,24 +285,24 @@
 
     iget v11, p0, Landroid/widget/StackView;->mTouchSlop:I
 
-    if-le v10, v11, :cond_20
+    if-le v10, v11, :cond_0
 
     iget v10, p0, Landroid/widget/StackView;->mSwipeGestureType:I
 
-    if-nez v10, :cond_20
+    if-nez v10, :cond_0
 
     .line 653
     const/4 v10, 0x0
 
     cmpg-float v10, p1, v10
 
-    if-gez v10, :cond_21
+    if-gez v10, :cond_1
 
     move v5, v7
 
     .line 654
     .local v5, swipeGestureType:I
-    :goto_16
+    :goto_0
     invoke-virtual {p0}, Landroid/widget/StackView;->cancelLongPress()V
 
     .line 655
@@ -311,23 +311,23 @@
     .line 657
     iget-object v10, p0, Landroid/widget/AdapterViewAnimator;->mAdapter:Landroid/widget/Adapter;
 
-    if-nez v10, :cond_23
+    if-nez v10, :cond_2
 
     .line 697
     .end local v5           #swipeGestureType:I
-    :cond_20
-    :goto_20
+    :cond_0
+    :goto_1
     return-void
 
-    :cond_21
+    :cond_1
     move v5, v8
 
     .line 653
-    goto :goto_16
+    goto :goto_0
 
     .line 658
     .restart local v5       #swipeGestureType:I
-    :cond_23
+    :cond_2
     invoke-virtual {p0}, Landroid/widget/StackView;->getCount()I
 
     move-result v1
@@ -336,83 +336,83 @@
     .local v1, adapterCount:I
     iget v10, p0, Landroid/widget/StackView;->mStackMode:I
 
-    if-nez v10, :cond_72
+    if-nez v10, :cond_8
 
     .line 662
-    if-ne v5, v8, :cond_70
+    if-ne v5, v8, :cond_7
 
     move v0, v9
 
     .line 667
     .local v0, activeIndex:I
-    :goto_2e
+    :goto_2
     iget-boolean v10, p0, Landroid/widget/AdapterViewAnimator;->mLoopViews:Z
 
-    if-eqz v10, :cond_78
+    if-eqz v10, :cond_a
 
-    if-ne v1, v7, :cond_78
+    if-ne v1, v7, :cond_a
 
     iget v10, p0, Landroid/widget/StackView;->mStackMode:I
 
-    if-nez v10, :cond_3a
+    if-nez v10, :cond_3
 
-    if-eq v5, v7, :cond_40
+    if-eq v5, v7, :cond_4
 
-    :cond_3a
+    :cond_3
     iget v10, p0, Landroid/widget/StackView;->mStackMode:I
 
-    if-ne v10, v7, :cond_78
+    if-ne v10, v7, :cond_a
 
-    if-ne v5, v8, :cond_78
+    if-ne v5, v8, :cond_a
 
-    :cond_40
+    :cond_4
     move v3, v7
 
     .line 670
     .local v3, endOfStack:Z
-    :goto_41
+    :goto_3
     iget-boolean v10, p0, Landroid/widget/AdapterViewAnimator;->mLoopViews:Z
 
-    if-eqz v10, :cond_7a
+    if-eqz v10, :cond_b
 
-    if-ne v1, v7, :cond_7a
+    if-ne v1, v7, :cond_b
 
     iget v10, p0, Landroid/widget/StackView;->mStackMode:I
 
-    if-ne v10, v7, :cond_4d
+    if-ne v10, v7, :cond_5
 
-    if-eq v5, v7, :cond_53
+    if-eq v5, v7, :cond_6
 
-    :cond_4d
+    :cond_5
     iget v10, p0, Landroid/widget/StackView;->mStackMode:I
 
-    if-nez v10, :cond_7a
+    if-nez v10, :cond_b
 
-    if-ne v5, v8, :cond_7a
+    if-ne v5, v8, :cond_b
 
-    :cond_53
+    :cond_6
     move v2, v7
 
     .line 675
     .local v2, beginningOfStack:Z
-    :goto_54
+    :goto_4
     iget-boolean v8, p0, Landroid/widget/AdapterViewAnimator;->mLoopViews:Z
 
-    if-eqz v8, :cond_7c
+    if-eqz v8, :cond_c
 
-    if-nez v2, :cond_7c
+    if-nez v2, :cond_c
 
-    if-nez v3, :cond_7c
+    if-nez v3, :cond_c
 
     .line 676
     const/4 v4, 0x0
 
     .line 686
     .local v4, stackMode:I
-    :goto_5d
-    if-nez v4, :cond_95
+    :goto_5
+    if-nez v4, :cond_11
 
-    :goto_5f
+    :goto_6
     iput-boolean v7, p0, Landroid/widget/StackView;->mTransitionIsSetup:Z
 
     .line 688
@@ -422,7 +422,7 @@
 
     .line 689
     .local v6, v:Landroid/view/View;
-    if-eqz v6, :cond_20
+    if-eqz v6, :cond_0
 
     .line 691
     invoke-direct {p0, v6, v4}, Landroid/widget/StackView;->setupStackSlider(Landroid/view/View;I)V
@@ -433,109 +433,109 @@
     .line 695
     invoke-virtual {p0}, Landroid/widget/StackView;->cancelHandleClick()V
 
-    goto :goto_20
+    goto :goto_1
 
     .end local v0           #activeIndex:I
     .end local v2           #beginningOfStack:Z
     .end local v3           #endOfStack:Z
     .end local v4           #stackMode:I
     .end local v6           #v:Landroid/view/View;
-    :cond_70
+    :cond_7
     move v0, v7
 
     .line 662
-    goto :goto_2e
+    goto :goto_2
 
     .line 664
-    :cond_72
-    if-ne v5, v8, :cond_76
+    :cond_8
+    if-ne v5, v8, :cond_9
 
     move v0, v7
 
     .restart local v0       #activeIndex:I
-    :goto_75
-    goto :goto_2e
+    :goto_7
+    goto :goto_2
 
     .end local v0           #activeIndex:I
-    :cond_76
+    :cond_9
     move v0, v9
 
-    goto :goto_75
+    goto :goto_7
 
     .restart local v0       #activeIndex:I
-    :cond_78
+    :cond_a
     move v3, v9
 
     .line 667
-    goto :goto_41
+    goto :goto_3
 
     .restart local v3       #endOfStack:Z
-    :cond_7a
+    :cond_b
     move v2, v9
 
     .line 670
-    goto :goto_54
+    goto :goto_4
 
     .line 677
     .restart local v2       #beginningOfStack:Z
-    :cond_7c
+    :cond_c
     iget v8, p0, Landroid/widget/AdapterViewAnimator;->mCurrentWindowStartUnbounded:I
 
     add-int/2addr v8, v0
 
     const/4 v10, -0x1
 
-    if-eq v8, v10, :cond_84
+    if-eq v8, v10, :cond_d
 
-    if-eqz v2, :cond_88
+    if-eqz v2, :cond_e
 
     .line 678
-    :cond_84
+    :cond_d
     add-int/lit8 v0, v0, 0x1
 
     .line 679
     const/4 v4, 0x1
 
     .restart local v4       #stackMode:I
-    goto :goto_5d
+    goto :goto_5
 
     .line 680
     .end local v4           #stackMode:I
-    :cond_88
+    :cond_e
     iget v8, p0, Landroid/widget/AdapterViewAnimator;->mCurrentWindowStartUnbounded:I
 
     add-int/2addr v8, v0
 
     add-int/lit8 v10, v1, -0x1
 
-    if-eq v8, v10, :cond_91
+    if-eq v8, v10, :cond_f
 
-    if-eqz v3, :cond_93
+    if-eqz v3, :cond_10
 
     .line 681
-    :cond_91
+    :cond_f
     const/4 v4, 0x2
 
     .restart local v4       #stackMode:I
-    goto :goto_5d
+    goto :goto_5
 
     .line 683
     .end local v4           #stackMode:I
-    :cond_93
+    :cond_10
     const/4 v4, 0x0
 
     .restart local v4       #stackMode:I
-    goto :goto_5d
+    goto :goto_5
 
-    :cond_95
+    :cond_11
     move v7, v9
 
     .line 686
-    goto :goto_5f
+    goto :goto_6
 .end method
 
 .method private handlePointerUp(Landroid/view/MotionEvent;)V
-    .registers 15
+    .locals 13
     .parameter "ev"
 
     .prologue
@@ -571,7 +571,7 @@
     .line 810
     iget-object v9, p0, Landroid/widget/StackView;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v9, :cond_2e
+    if-eqz v9, :cond_0
 
     .line 811
     iget-object v9, p0, Landroid/widget/StackView;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -598,10 +598,10 @@
     iput v9, p0, Landroid/widget/StackView;->mYVelocity:I
 
     .line 815
-    :cond_2e
+    :cond_0
     iget-object v9, p0, Landroid/widget/StackView;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v9, :cond_3a
+    if-eqz v9, :cond_1
 
     .line 816
     iget-object v9, p0, Landroid/widget/StackView;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -614,22 +614,22 @@
     iput-object v9, p0, Landroid/widget/StackView;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     .line 820
-    :cond_3a
+    :cond_1
     iget v9, p0, Landroid/widget/StackView;->mSwipeThreshold:I
 
-    if-le v1, v9, :cond_63
+    if-le v1, v9, :cond_4
 
     iget v9, p0, Landroid/widget/StackView;->mSwipeGestureType:I
 
     const/4 v10, 0x2
 
-    if-ne v9, v10, :cond_63
+    if-ne v9, v10, :cond_4
 
     iget-object v9, p0, Landroid/widget/StackView;->mStackSlider:Landroid/widget/StackView$StackSlider;
 
     iget v9, v9, Landroid/widget/StackView$StackSlider;->mMode:I
 
-    if-nez v9, :cond_63
+    if-nez v9, :cond_4
 
     .line 824
     const/4 v9, 0x0
@@ -639,20 +639,20 @@
     .line 827
     iget v9, p0, Landroid/widget/StackView;->mStackMode:I
 
-    if-nez v9, :cond_5f
+    if-nez v9, :cond_3
 
     .line 828
     invoke-virtual {p0}, Landroid/widget/StackView;->showPrevious()V
 
     .line 832
-    :goto_53
+    :goto_0
     iget-object v9, p0, Landroid/widget/StackView;->mHighlight:Landroid/widget/ImageView;
 
     invoke-virtual {v9}, Landroid/widget/ImageView;->bringToFront()V
 
     .line 885
-    :cond_58
-    :goto_58
+    :cond_2
+    :goto_1
     const/4 v9, -0x1
 
     iput v9, p0, Landroid/widget/StackView;->mActivePointerId:I
@@ -666,30 +666,30 @@
     return-void
 
     .line 830
-    :cond_5f
+    :cond_3
     invoke-virtual {p0}, Landroid/widget/StackView;->showNext()V
 
-    goto :goto_53
+    goto :goto_0
 
     .line 833
-    :cond_63
+    :cond_4
     iget v9, p0, Landroid/widget/StackView;->mSwipeThreshold:I
 
     neg-int v9, v9
 
-    if-ge v1, v9, :cond_87
+    if-ge v1, v9, :cond_6
 
     iget v9, p0, Landroid/widget/StackView;->mSwipeGestureType:I
 
     const/4 v10, 0x1
 
-    if-ne v9, v10, :cond_87
+    if-ne v9, v10, :cond_6
 
     iget-object v9, p0, Landroid/widget/StackView;->mStackSlider:Landroid/widget/StackView$StackSlider;
 
     iget v9, v9, Landroid/widget/StackView$StackSlider;->mMode:I
 
-    if-nez v9, :cond_87
+    if-nez v9, :cond_6
 
     .line 837
     const/4 v9, 0x0
@@ -699,57 +699,57 @@
     .line 840
     iget v9, p0, Landroid/widget/StackView;->mStackMode:I
 
-    if-nez v9, :cond_83
+    if-nez v9, :cond_5
 
     .line 841
     invoke-virtual {p0}, Landroid/widget/StackView;->showNext()V
 
     .line 846
-    :goto_7d
+    :goto_2
     iget-object v9, p0, Landroid/widget/StackView;->mHighlight:Landroid/widget/ImageView;
 
     invoke-virtual {v9}, Landroid/widget/ImageView;->bringToFront()V
 
-    goto :goto_58
+    goto :goto_1
 
     .line 843
-    :cond_83
+    :cond_5
     invoke-virtual {p0}, Landroid/widget/StackView;->showPrevious()V
 
-    goto :goto_7d
+    goto :goto_2
 
     .line 847
-    :cond_87
+    :cond_6
     iget v9, p0, Landroid/widget/StackView;->mSwipeGestureType:I
 
     const/4 v10, 0x1
 
-    if-ne v9, v10, :cond_f2
+    if-ne v9, v10, :cond_a
 
     .line 850
     iget v9, p0, Landroid/widget/StackView;->mStackMode:I
 
     const/4 v10, 0x1
 
-    if-ne v9, v10, :cond_e5
+    if-ne v9, v10, :cond_8
 
     const/high16 v3, 0x3f80
 
     .line 851
     .local v3, finalYProgress:F
-    :goto_93
+    :goto_3
     iget v9, p0, Landroid/widget/StackView;->mStackMode:I
 
-    if-eqz v9, :cond_9d
+    if-eqz v9, :cond_7
 
     iget-object v9, p0, Landroid/widget/StackView;->mStackSlider:Landroid/widget/StackView$StackSlider;
 
     iget v9, v9, Landroid/widget/StackView$StackSlider;->mMode:I
 
-    if-eqz v9, :cond_e7
+    if-eqz v9, :cond_9
 
     .line 852
-    :cond_9d
+    :cond_7
     iget-object v9, p0, Landroid/widget/StackView;->mStackSlider:Landroid/widget/StackView$StackSlider;
 
     invoke-virtual {v9}, Landroid/widget/StackView$StackSlider;->getDurationForNeutralPosition()F
@@ -762,7 +762,7 @@
 
     .line 857
     .local v2, duration:I
-    :goto_a7
+    :goto_4
     new-instance v0, Landroid/widget/StackView$StackSlider;
 
     iget-object v9, p0, Landroid/widget/StackView;->mStackSlider:Landroid/widget/StackView$StackSlider;
@@ -837,7 +837,7 @@
     .line 864
     invoke-virtual {v5}, Landroid/animation/ObjectAnimator;->start()V
 
-    goto/16 :goto_58
+    goto/16 :goto_1
 
     .line 850
     .end local v0           #animationSlider:Landroid/widget/StackView$StackSlider;
@@ -846,14 +846,14 @@
     .end local v5           #pa:Landroid/animation/ObjectAnimator;
     .end local v7           #snapBackX:Landroid/animation/PropertyValuesHolder;
     .end local v8           #snapBackY:Landroid/animation/PropertyValuesHolder;
-    :cond_e5
+    :cond_8
     const/4 v3, 0x0
 
-    goto :goto_93
+    goto :goto_3
 
     .line 854
     .restart local v3       #finalYProgress:F
-    :cond_e7
+    :cond_9
     iget-object v9, p0, Landroid/widget/StackView;->mStackSlider:Landroid/widget/StackView$StackSlider;
 
     invoke-virtual {v9}, Landroid/widget/StackView$StackSlider;->getDurationForOffscreenPosition()F
@@ -865,44 +865,44 @@
     move-result v2
 
     .restart local v2       #duration:I
-    goto :goto_a7
+    goto :goto_4
 
     .line 865
     .end local v2           #duration:I
     .end local v3           #finalYProgress:F
-    :cond_f2
+    :cond_a
     iget v9, p0, Landroid/widget/StackView;->mSwipeGestureType:I
 
     const/4 v10, 0x2
 
-    if-ne v9, v10, :cond_58
+    if-ne v9, v10, :cond_2
 
     .line 867
     iget v9, p0, Landroid/widget/StackView;->mStackMode:I
 
     const/4 v10, 0x1
 
-    if-ne v9, v10, :cond_148
+    if-ne v9, v10, :cond_c
 
     const/4 v3, 0x0
 
     .line 869
     .restart local v3       #finalYProgress:F
-    :goto_fd
+    :goto_5
     iget v9, p0, Landroid/widget/StackView;->mStackMode:I
 
     const/4 v10, 0x1
 
-    if-eq v9, v10, :cond_108
+    if-eq v9, v10, :cond_b
 
     iget-object v9, p0, Landroid/widget/StackView;->mStackSlider:Landroid/widget/StackView$StackSlider;
 
     iget v9, v9, Landroid/widget/StackView$StackSlider;->mMode:I
 
-    if-eqz v9, :cond_14b
+    if-eqz v9, :cond_d
 
     .line 870
-    :cond_108
+    :cond_b
     iget-object v9, p0, Landroid/widget/StackView;->mStackSlider:Landroid/widget/StackView$StackSlider;
 
     invoke-virtual {v9}, Landroid/widget/StackView$StackSlider;->getDurationForNeutralPosition()F
@@ -915,7 +915,7 @@
 
     .line 875
     .restart local v2       #duration:I
-    :goto_112
+    :goto_6
     new-instance v0, Landroid/widget/StackView$StackSlider;
 
     iget-object v9, p0, Landroid/widget/StackView;->mStackSlider:Landroid/widget/StackView$StackSlider;
@@ -983,7 +983,7 @@
     .line 882
     invoke-virtual {v5}, Landroid/animation/ObjectAnimator;->start()V
 
-    goto/16 :goto_58
+    goto/16 :goto_1
 
     .line 867
     .end local v0           #animationSlider:Landroid/widget/StackView$StackSlider;
@@ -992,14 +992,14 @@
     .end local v5           #pa:Landroid/animation/ObjectAnimator;
     .end local v7           #snapBackX:Landroid/animation/PropertyValuesHolder;
     .end local v8           #snapBackY:Landroid/animation/PropertyValuesHolder;
-    :cond_148
+    :cond_c
     const/high16 v3, 0x3f80
 
-    goto :goto_fd
+    goto :goto_5
 
     .line 872
     .restart local v3       #finalYProgress:F
-    :cond_14b
+    :cond_d
     iget-object v9, p0, Landroid/widget/StackView;->mStackSlider:Landroid/widget/StackView$StackSlider;
 
     invoke-virtual {v9}, Landroid/widget/StackView$StackSlider;->getDurationForOffscreenPosition()F
@@ -1011,11 +1011,11 @@
     move-result v2
 
     .restart local v2       #duration:I
-    goto :goto_112
+    goto :goto_6
 .end method
 
 .method private initStackView()V
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v7, 0x0
@@ -1142,7 +1142,7 @@
     .line 203
     sget-object v2, Landroid/widget/StackView;->sHolographicHelper:Landroid/widget/StackView$HolographicHelper;
 
-    if-nez v2, :cond_80
+    if-nez v2, :cond_0
 
     .line 204
     new-instance v2, Landroid/widget/StackView$HolographicHelper;
@@ -1154,7 +1154,7 @@
     sput-object v2, Landroid/widget/StackView;->sHolographicHelper:Landroid/widget/StackView$HolographicHelper;
 
     .line 206
-    :cond_80
+    :cond_0
     invoke-virtual {p0, v7}, Landroid/widget/StackView;->setClipChildren(Z)V
 
     .line 207
@@ -1200,7 +1200,7 @@
 .end method
 
 .method private measureChildren()V
-    .registers 14
+    .locals 13
 
     .prologue
     .line 1127
@@ -1273,8 +1273,8 @@
     const/4 v6, 0x0
 
     .local v6, i:I
-    :goto_2f
-    if-ge v6, v5, :cond_5d
+    :goto_0
+    if-ge v6, v5, :cond_2
 
     .line 1141
     invoke-virtual {p0, v6}, Landroid/widget/StackView;->getChildAt(I)Landroid/view/View;
@@ -1300,11 +1300,11 @@
     .line 1145
     iget-object v11, p0, Landroid/widget/StackView;->mHighlight:Landroid/widget/ImageView;
 
-    if-eq v0, v11, :cond_5a
+    if-eq v0, v11, :cond_1
 
     iget-object v11, p0, Landroid/widget/StackView;->mClickFeedback:Landroid/widget/ImageView;
 
-    if-eq v0, v11, :cond_5a
+    if-eq v0, v11, :cond_1
 
     .line 1146
     invoke-virtual {v0}, Landroid/view/View;->getMeasuredWidth()I
@@ -1319,14 +1319,14 @@
 
     .line 1148
     .local v2, childMeasuredHeight:I
-    if-le v3, v8, :cond_57
+    if-le v3, v8, :cond_0
 
     .line 1149
     move v8, v3
 
     .line 1151
-    :cond_57
-    if-le v2, v7, :cond_5a
+    :cond_0
+    if-le v2, v7, :cond_1
 
     .line 1152
     move v7, v2
@@ -1334,14 +1334,14 @@
     .line 1140
     .end local v2           #childMeasuredHeight:I
     .end local v3           #childMeasuredWidth:I
-    :cond_5a
+    :cond_1
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_2f
+    goto :goto_0
 
     .line 1157
     .end local v0           #child:Landroid/view/View;
-    :cond_5d
+    :cond_2
     const v11, 0x3dcccccd
 
     int-to-float v12, v10
@@ -1360,11 +1360,11 @@
     iput v11, p0, Landroid/widget/StackView;->mNewPerspectiveShiftY:F
 
     .line 1161
-    if-lez v8, :cond_76
+    if-lez v8, :cond_3
 
-    if-lez v5, :cond_76
+    if-lez v5, :cond_3
 
-    if-ge v8, v4, :cond_76
+    if-ge v8, v4, :cond_3
 
     .line 1162
     sub-int v11, v10, v8
@@ -1374,12 +1374,12 @@
     iput v11, p0, Landroid/widget/StackView;->mNewPerspectiveShiftX:F
 
     .line 1165
-    :cond_76
-    if-lez v7, :cond_81
+    :cond_3
+    if-lez v7, :cond_4
 
-    if-lez v5, :cond_81
+    if-lez v5, :cond_4
 
-    if-ge v7, v1, :cond_81
+    if-ge v7, v1, :cond_4
 
     .line 1166
     sub-int v11, v9, v7
@@ -1389,18 +1389,18 @@
     iput v11, p0, Landroid/widget/StackView;->mNewPerspectiveShiftY:F
 
     .line 1168
-    :cond_81
+    :cond_4
     return-void
 .end method
 
 .method private onLayout()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 557
     iget-boolean v1, p0, Landroid/widget/StackView;->mFirstLayoutHappened:Z
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_0
 
     .line 558
     const/4 v1, 0x1
@@ -1411,7 +1411,7 @@
     invoke-direct {p0}, Landroid/widget/StackView;->updateChildTransforms()V
 
     .line 562
-    :cond_a
+    :cond_0
     const v1, 0x3f333333
 
     invoke-virtual {p0}, Landroid/widget/StackView;->getMeasuredHeight()I
@@ -1430,7 +1430,7 @@
     .local v0, newSlideAmount:I
     iget v1, p0, Landroid/widget/StackView;->mSlideAmount:I
 
-    if-eq v1, v0, :cond_28
+    if-eq v1, v0, :cond_1
 
     .line 564
     iput v0, p0, Landroid/widget/StackView;->mSlideAmount:I
@@ -1449,7 +1449,7 @@
     iput v1, p0, Landroid/widget/StackView;->mSwipeThreshold:I
 
     .line 568
-    :cond_28
+    :cond_1
     iget v1, p0, Landroid/widget/StackView;->mPerspectiveShiftY:F
 
     iget v2, p0, Landroid/widget/StackView;->mNewPerspectiveShiftY:F
@@ -1458,7 +1458,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3c
+    if-nez v1, :cond_2
 
     iget v1, p0, Landroid/widget/StackView;->mPerspectiveShiftX:F
 
@@ -1468,10 +1468,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_47
+    if-eqz v1, :cond_3
 
     .line 571
-    :cond_3c
+    :cond_2
     iget v1, p0, Landroid/widget/StackView;->mNewPerspectiveShiftY:F
 
     iput v1, p0, Landroid/widget/StackView;->mPerspectiveShiftY:F
@@ -1485,12 +1485,12 @@
     invoke-direct {p0}, Landroid/widget/StackView;->updateChildTransforms()V
 
     .line 575
-    :cond_47
+    :cond_3
     return-void
 .end method
 
 .method private onSecondaryPointerUp(Landroid/view/MotionEvent;)V
-    .registers 16
+    .locals 14
     .parameter "ev"
 
     .prologue
@@ -1509,57 +1509,57 @@
     .local v5, pointerId:I
     iget v9, p0, Landroid/widget/StackView;->mActivePointerId:I
 
-    if-ne v5, v9, :cond_18
+    if-ne v5, v9, :cond_0
 
     .line 765
     iget v9, p0, Landroid/widget/StackView;->mSwipeGestureType:I
 
     const/4 v10, 0x2
 
-    if-ne v9, v10, :cond_19
+    if-ne v9, v10, :cond_1
 
     const/4 v1, 0x0
 
     .line 767
     .local v1, activeViewIndex:I
-    :goto_12
+    :goto_0
     invoke-virtual {p0, v1}, Landroid/widget/StackView;->getViewAtRelativeIndex(I)Landroid/view/View;
 
     move-result-object v6
 
     .line 768
     .local v6, v:Landroid/view/View;
-    if-nez v6, :cond_1b
+    if-nez v6, :cond_2
 
     .line 802
     .end local v1           #activeViewIndex:I
     .end local v6           #v:Landroid/view/View;
-    :cond_18
-    :goto_18
+    :cond_0
+    :goto_1
     return-void
 
     .line 765
-    :cond_19
+    :cond_1
     const/4 v1, 0x1
 
-    goto :goto_12
+    goto :goto_0
 
     .line 774
     .restart local v1       #activeViewIndex:I
     .restart local v6       #v:Landroid/view/View;
-    :cond_1b
+    :cond_2
     const/4 v2, 0x0
 
     .local v2, index:I
-    :goto_1c
+    :goto_2
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v9
 
-    if-ge v2, v9, :cond_7a
+    if-ge v2, v9, :cond_4
 
     .line 775
-    if-eq v2, v0, :cond_77
+    if-eq v2, v0, :cond_3
 
     .line 777
     invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getX(I)F
@@ -1609,7 +1609,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_77
+    if-eqz v9, :cond_3
 
     .line 782
     invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getX(I)F
@@ -1651,34 +1651,34 @@
     .line 790
     iget-object v9, p0, Landroid/widget/StackView;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v9, :cond_18
+    if-eqz v9, :cond_0
 
     .line 791
     iget-object v9, p0, Landroid/widget/StackView;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v9}, Landroid/view/VelocityTracker;->clear()V
 
-    goto :goto_18
+    goto :goto_1
 
     .line 774
     .end local v3           #oldX:F
     .end local v4           #oldY:F
     .end local v7           #x:F
     .end local v8           #y:F
-    :cond_77
+    :cond_3
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1c
+    goto :goto_2
 
     .line 800
-    :cond_7a
+    :cond_4
     invoke-direct {p0, p1}, Landroid/widget/StackView;->handlePointerUp(Landroid/view/MotionEvent;)V
 
-    goto :goto_18
+    goto :goto_1
 .end method
 
 .method private pacedScroll(Z)V
-    .registers 8
+    .locals 6
     .parameter "up"
 
     .prologue
@@ -1697,16 +1697,16 @@
 
     cmp-long v2, v0, v2
 
-    if-lez v2, :cond_19
+    if-lez v2, :cond_0
 
     .line 600
-    if-eqz p1, :cond_1a
+    if-eqz p1, :cond_1
 
     .line 601
     invoke-virtual {p0}, Landroid/widget/StackView;->showPrevious()V
 
     .line 605
-    :goto_13
+    :goto_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
@@ -1714,18 +1714,18 @@
     iput-wide v2, p0, Landroid/widget/StackView;->mLastScrollTime:J
 
     .line 607
-    :cond_19
+    :cond_0
     return-void
 
     .line 603
-    :cond_1a
+    :cond_1
     invoke-virtual {p0}, Landroid/widget/StackView;->showNext()V
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method private setupStackSlider(Landroid/view/View;I)V
-    .registers 6
+    .locals 3
     .parameter "v"
     .parameter "mode"
 
@@ -1736,7 +1736,7 @@
     invoke-virtual {v0, p2}, Landroid/widget/StackView$StackSlider;->setMode(I)V
 
     .line 368
-    if-eqz p1, :cond_40
+    if-eqz p1, :cond_0
 
     .line 369
     iget-object v0, p0, Landroid/widget/StackView;->mHighlight:Landroid/widget/ImageView;
@@ -1797,12 +1797,12 @@
     invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 379
-    :cond_40
+    :cond_0
     return-void
 .end method
 
 .method private transformViewAtIndex(ILandroid/view/View;Z)V
-    .registers 24
+    .locals 20
     .parameter "index"
     .parameter "view"
     .parameter "animate"
@@ -1833,7 +1833,7 @@
 
     move/from16 v1, v18
 
-    if-ne v0, v1, :cond_127
+    if-ne v0, v1, :cond_3
 
     .line 318
     move-object/from16 v0, p0
@@ -1859,13 +1859,13 @@
 
     move/from16 v1, v17
 
-    if-ne v0, v1, :cond_30
+    if-ne v0, v1, :cond_0
 
     add-int/lit8 p1, p1, -0x1
 
     .line 325
-    :cond_30
-    :goto_30
+    :cond_0
+    :goto_0
     move/from16 v0, p1
 
     int-to-float v0, v0
@@ -1986,7 +1986,7 @@
 
     move/from16 v17, v0
 
-    if-eqz v17, :cond_9f
+    if-eqz v17, :cond_1
 
     move-object/from16 v17, p2
 
@@ -1996,8 +1996,8 @@
     invoke-virtual/range {v17 .. v17}, Landroid/widget/StackView$StackFrame;->cancelTransformAnimator()Z
 
     .line 345
-    :cond_9f
-    if-eqz p3, :cond_12f
+    :cond_1
+    if-eqz p3, :cond_4
 
     .line 346
     const-string/jumbo v17, "translationX"
@@ -2127,7 +2127,7 @@
 
     move/from16 v17, v0
 
-    if-eqz v17, :cond_123
+    if-eqz v17, :cond_2
 
     .line 355
     check-cast p2, Landroid/widget/StackView$StackFrame;
@@ -2138,7 +2138,7 @@
     invoke-virtual {v0, v4}, Landroid/widget/StackView$StackFrame;->setTransformAnimator(Landroid/animation/ObjectAnimator;)V
 
     .line 357
-    :cond_123
+    :cond_2
     invoke-virtual {v4}, Landroid/animation/ObjectAnimator;->start()V
 
     .line 364
@@ -2147,7 +2147,7 @@
     .end local v10           #scalePropY:Landroid/animation/PropertyValuesHolder;
     .end local v15           #translationX:Landroid/animation/PropertyValuesHolder;
     .end local v16           #translationY:Landroid/animation/PropertyValuesHolder;
-    :goto_126
+    :goto_1
     return-void
 
     .line 321
@@ -2160,15 +2160,15 @@
     .end local v13           #transX:F
     .end local v14           #transY:F
     .restart local p2
-    :cond_127
+    :cond_3
     add-int/lit8 p1, p1, -0x1
 
     .line 322
-    if-gez p1, :cond_30
+    if-gez p1, :cond_0
 
     add-int/lit8 p1, p1, 0x1
 
-    goto/16 :goto_30
+    goto/16 :goto_0
 
     .line 359
     .restart local v5       #perspectiveTranslationX:F
@@ -2179,7 +2179,7 @@
     .restart local v12       #scaleShiftCorrectionY:F
     .restart local v13       #transX:F
     .restart local v14       #transY:F
-    :cond_12f
+    :cond_4
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v13}, Landroid/view/View;->setTranslationX(F)V
@@ -2199,23 +2199,23 @@
 
     invoke-virtual {v0, v8}, Landroid/view/View;->setScaleY(F)V
 
-    goto :goto_126
+    goto :goto_1
 .end method
 
 .method private updateChildTransforms()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 465
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     invoke-virtual {p0}, Landroid/widget/StackView;->getNumActiveViews()I
 
     move-result v2
 
-    if-ge v0, v2, :cond_14
+    if-ge v0, v2, :cond_1
 
     .line 466
     invoke-virtual {p0, v0}, Landroid/widget/StackView;->getViewAtRelativeIndex(I)Landroid/view/View;
@@ -2224,7 +2224,7 @@
 
     .line 467
     .local v1, v:Landroid/view/View;
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_0
 
     .line 468
     const/4 v2, 0x0
@@ -2232,21 +2232,21 @@
     invoke-direct {p0, v0, v1, v2}, Landroid/widget/StackView;->transformViewAtIndex(ILandroid/view/View;Z)V
 
     .line 465
-    :cond_11
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 471
     .end local v1           #v:Landroid/view/View;
-    :cond_14
+    :cond_1
     return-void
 .end method
 
 
 # virtual methods
 .method public advance()V
-    .registers 8
+    .locals 7
 
     .prologue
     .line 1114
@@ -2262,15 +2262,15 @@
     .local v1, timeSinceLastInteraction:J
     iget-object v3, p0, Landroid/widget/AdapterViewAnimator;->mAdapter:Landroid/widget/Adapter;
 
-    if-nez v3, :cond_d
+    if-nez v3, :cond_1
 
     .line 1124
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     return-void
 
     .line 1117
-    :cond_d
+    :cond_1
     invoke-virtual {p0}, Landroid/widget/StackView;->getCount()I
 
     move-result v0
@@ -2279,32 +2279,32 @@
     .local v0, adapterCount:I
     const/4 v3, 0x1
 
-    if-ne v0, v3, :cond_18
+    if-ne v0, v3, :cond_2
 
     iget-boolean v3, p0, Landroid/widget/AdapterViewAnimator;->mLoopViews:Z
 
-    if-nez v3, :cond_c
+    if-nez v3, :cond_0
 
     .line 1120
-    :cond_18
+    :cond_2
     iget v3, p0, Landroid/widget/StackView;->mSwipeGestureType:I
 
-    if-nez v3, :cond_c
+    if-nez v3, :cond_0
 
     const-wide/16 v3, 0x1388
 
     cmp-long v3, v1, v3
 
-    if-lez v3, :cond_c
+    if-lez v3, :cond_0
 
     .line 1122
     invoke-virtual {p0}, Landroid/widget/StackView;->showNext()V
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method applyTransformForChildAtIndex(Landroid/view/View;I)V
-    .registers 3
+    .locals 0
     .parameter "child"
     .parameter "relativeIndex"
 
@@ -2314,7 +2314,7 @@
 .end method
 
 .method bridge synthetic createOrReuseLayoutParams(Landroid/view/View;)Landroid/view/ViewGroup$LayoutParams;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -2327,7 +2327,7 @@
 .end method
 
 .method createOrReuseLayoutParams(Landroid/view/View;)Landroid/widget/StackView$LayoutParams;
-    .registers 6
+    .locals 4
     .parameter "v"
 
     .prologue
@@ -2342,7 +2342,7 @@
     .local v0, currentLp:Landroid/view/ViewGroup$LayoutParams;
     instance-of v2, v0, Landroid/widget/StackView$LayoutParams;
 
-    if-eqz v2, :cond_17
+    if-eqz v2, :cond_0
 
     move-object v1, v0
 
@@ -2364,19 +2364,19 @@
 
     .line 1090
     .end local v1           #lp:Landroid/widget/StackView$LayoutParams;
-    :goto_16
+    :goto_0
     return-object v1
 
-    :cond_17
+    :cond_0
     new-instance v1, Landroid/widget/StackView$LayoutParams;
 
     invoke-direct {v1, p0, p1}, Landroid/widget/StackView$LayoutParams;-><init>(Landroid/widget/StackView;Landroid/view/View;)V
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method protected dispatchDraw(Landroid/graphics/Canvas;)V
-    .registers 10
+    .locals 8
     .parameter "canvas"
 
     .prologue
@@ -2399,8 +2399,8 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_b
-    if-ge v4, v1, :cond_44
+    :goto_0
+    if-ge v4, v1, :cond_4
 
     .line 532
     invoke-virtual {p0, v4}, Landroid/widget/StackView;->getChildAt(I)Landroid/view/View;
@@ -2419,13 +2419,13 @@
     .local v5, lp:Landroid/widget/StackView$LayoutParams;
     iget v6, v5, Landroid/widget/StackView$LayoutParams;->horizontalOffset:I
 
-    if-nez v6, :cond_1f
+    if-nez v6, :cond_0
 
     iget v6, v5, Landroid/widget/StackView$LayoutParams;->verticalOffset:I
 
-    if-eqz v6, :cond_2e
+    if-eqz v6, :cond_1
 
-    :cond_1f
+    :cond_0
     invoke-virtual {v0}, Landroid/view/View;->getAlpha()F
 
     move-result v6
@@ -2434,20 +2434,20 @@
 
     cmpl-float v6, v6, v7
 
-    if-eqz v6, :cond_2e
+    if-eqz v6, :cond_1
 
     invoke-virtual {v0}, Landroid/view/View;->getVisibility()I
 
     move-result v6
 
-    if-eqz v6, :cond_31
+    if-eqz v6, :cond_2
 
     .line 536
-    :cond_2e
+    :cond_1
     invoke-virtual {v5}, Landroid/widget/StackView$LayoutParams;->resetInvalidateRect()V
 
     .line 538
-    :cond_31
+    :cond_2
     invoke-virtual {v5}, Landroid/widget/StackView$LayoutParams;->getInvalidateRect()Landroid/graphics/Rect;
 
     move-result-object v2
@@ -2458,7 +2458,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_41
+    if-nez v6, :cond_3
 
     .line 540
     const/4 v3, 0x1
@@ -2469,17 +2469,17 @@
     invoke-virtual {v6, v2}, Landroid/graphics/Rect;->union(Landroid/graphics/Rect;)V
 
     .line 531
-    :cond_41
+    :cond_3
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 546
     .end local v0           #child:Landroid/view/View;
     .end local v2           #childInvalidateRect:Landroid/graphics/Rect;
     .end local v5           #lp:Landroid/widget/StackView$LayoutParams;
-    :cond_44
-    if-eqz v3, :cond_58
+    :cond_4
+    if-eqz v3, :cond_5
 
     .line 547
     const/4 v6, 0x2
@@ -2500,18 +2500,18 @@
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 554
-    :goto_57
+    :goto_1
     return-void
 
     .line 552
-    :cond_58
+    :cond_5
     invoke-super {p0, p1}, Landroid/widget/AdapterViewAnimator;->dispatchDraw(Landroid/graphics/Canvas;)V
 
-    goto :goto_57
+    goto :goto_1
 .end method
 
 .method getFrameForChild()Landroid/widget/FrameLayout;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 514
@@ -2538,7 +2538,7 @@
 .end method
 
 .method hideTapFeedback(Landroid/view/View;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -2557,7 +2557,7 @@
 .end method
 
 .method public onGenericMotionEvent(Landroid/view/MotionEvent;)Z
-    .registers 6
+    .locals 4
     .parameter "event"
 
     .prologue
@@ -2572,26 +2572,26 @@
 
     and-int/lit8 v2, v2, 0x2
 
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_0
 
     .line 580
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v2
 
-    packed-switch v2, :pswitch_data_2e
+    packed-switch v2, :pswitch_data_0
 
     .line 593
-    :cond_11
+    :cond_0
     invoke-super {p0, p1}, Landroid/widget/AdapterViewAnimator;->onGenericMotionEvent(Landroid/view/MotionEvent;)Z
 
     move-result v1
 
-    :goto_15
+    :goto_0
     return v1
 
     .line 582
-    :pswitch_16
+    :pswitch_0
     const/16 v2, 0x9
 
     invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getAxisValue(I)F
@@ -2602,37 +2602,37 @@
     .local v0, vscroll:F
     cmpg-float v2, v0, v3
 
-    if-gez v2, :cond_25
+    if-gez v2, :cond_1
 
     .line 584
     const/4 v2, 0x0
 
     invoke-direct {p0, v2}, Landroid/widget/StackView;->pacedScroll(Z)V
 
-    goto :goto_15
+    goto :goto_0
 
     .line 586
-    :cond_25
+    :cond_1
     cmpl-float v2, v0, v3
 
-    if-lez v2, :cond_11
+    if-lez v2, :cond_0
 
     .line 587
     invoke-direct {p0, v1}, Landroid/widget/StackView;->pacedScroll(Z)V
 
-    goto :goto_15
+    goto :goto_0
 
     .line 580
     nop
 
-    :pswitch_data_2e
+    :pswitch_data_0
     .packed-switch 0x8
-        :pswitch_16
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -2653,7 +2653,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .registers 4
+    .locals 2
     .parameter "info"
 
     .prologue
@@ -2676,9 +2676,9 @@
 
     move-result v1
 
-    if-le v1, v0, :cond_39
+    if-le v1, v0, :cond_2
 
-    :goto_13
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setScrollable(Z)V
 
     .line 1233
@@ -2686,7 +2686,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_38
+    if-eqz v0, :cond_1
 
     .line 1234
     invoke-virtual {p0}, Landroid/widget/StackView;->getDisplayedChild()I
@@ -2699,7 +2699,7 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    if-ge v0, v1, :cond_2d
+    if-ge v0, v1, :cond_0
 
     .line 1235
     const/16 v0, 0x1000
@@ -2707,12 +2707,12 @@
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->addAction(I)V
 
     .line 1237
-    :cond_2d
+    :cond_0
     invoke-virtual {p0}, Landroid/widget/StackView;->getDisplayedChild()I
 
     move-result v0
 
-    if-lez v0, :cond_38
+    if-lez v0, :cond_1
 
     .line 1238
     const/16 v0, 0x2000
@@ -2720,18 +2720,18 @@
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->addAction(I)V
 
     .line 1241
-    :cond_38
+    :cond_1
     return-void
 
     .line 1232
-    :cond_39
+    :cond_2
     const/4 v0, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
-    .registers 9
+    .locals 7
     .parameter "ev"
 
     .prologue
@@ -2748,27 +2748,27 @@
     .local v0, action:I
     and-int/lit16 v5, v0, 0xff
 
-    packed-switch v5, :pswitch_data_4e
+    packed-switch v5, :pswitch_data_0
 
     .line 648
-    :cond_b
-    :goto_b
-    :pswitch_b
+    :cond_0
+    :goto_0
+    :pswitch_0
     iget v5, p0, Landroid/widget/StackView;->mSwipeGestureType:I
 
-    if-eqz v5, :cond_10
+    if-eqz v5, :cond_1
 
     const/4 v4, 0x1
 
-    :cond_10
-    :goto_10
+    :cond_1
+    :goto_1
     return v4
 
     .line 617
-    :pswitch_11
+    :pswitch_1
     iget v5, p0, Landroid/widget/StackView;->mActivePointerId:I
 
-    if-ne v5, v6, :cond_b
+    if-ne v5, v6, :cond_0
 
     .line 618
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -2791,10 +2791,10 @@
 
     iput v5, p0, Landroid/widget/StackView;->mActivePointerId:I
 
-    goto :goto_b
+    goto :goto_0
 
     .line 625
-    :pswitch_28
+    :pswitch_2
     iget v5, p0, Landroid/widget/StackView;->mActivePointerId:I
 
     invoke-virtual {p1, v5}, Landroid/view/MotionEvent;->findPointerIndex(I)I
@@ -2803,7 +2803,7 @@
 
     .line 626
     .local v3, pointerIndex:I
-    if-ne v3, v6, :cond_38
+    if-ne v3, v6, :cond_2
 
     .line 628
     const-string v5, "StackView"
@@ -2812,10 +2812,10 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_10
+    goto :goto_1
 
     .line 631
-    :cond_38
+    :cond_2
     invoke-virtual {p1, v3}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v2
@@ -2830,43 +2830,43 @@
     .local v1, deltaY:F
     invoke-direct {p0, v1}, Landroid/widget/StackView;->beginGestureIfNeeded(F)V
 
-    goto :goto_b
+    goto :goto_0
 
     .line 638
     .end local v1           #deltaY:F
     .end local v2           #newY:F
     .end local v3           #pointerIndex:I
-    :pswitch_44
+    :pswitch_3
     invoke-direct {p0, p1}, Landroid/widget/StackView;->onSecondaryPointerUp(Landroid/view/MotionEvent;)V
 
-    goto :goto_b
+    goto :goto_0
 
     .line 643
-    :pswitch_48
+    :pswitch_4
     iput v6, p0, Landroid/widget/StackView;->mActivePointerId:I
 
     .line 644
     iput v4, p0, Landroid/widget/StackView;->mSwipeGestureType:I
 
-    goto :goto_b
+    goto :goto_0
 
     .line 615
     nop
 
-    :pswitch_data_4e
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_11
-        :pswitch_48
-        :pswitch_28
-        :pswitch_48
-        :pswitch_b
-        :pswitch_b
-        :pswitch_44
+        :pswitch_1
+        :pswitch_4
+        :pswitch_2
+        :pswitch_4
+        :pswitch_0
+        :pswitch_0
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method protected onLayout(ZIIII)V
-    .registers 16
+    .locals 10
     .parameter "changed"
     .parameter "left"
     .parameter "top"
@@ -2887,8 +2887,8 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_8
-    if-ge v4, v2, :cond_3a
+    :goto_0
+    if-ge v4, v2, :cond_0
 
     .line 1099
     invoke-virtual {p0, v4}, Landroid/widget/StackView;->getChildAt(I)Landroid/view/View;
@@ -2950,14 +2950,14 @@
     .line 1098
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1109
     .end local v0           #child:Landroid/view/View;
     .end local v1           #childBottom:I
     .end local v3           #childRight:I
     .end local v5           #lp:Landroid/widget/StackView$LayoutParams;
-    :cond_3a
+    :cond_0
     invoke-direct {p0}, Landroid/widget/StackView;->onLayout()V
 
     .line 1110
@@ -2965,7 +2965,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .registers 14
+    .locals 11
     .parameter "widthMeasureSpec"
     .parameter "heightMeasureSpec"
 
@@ -2999,27 +2999,27 @@
 
     const/4 v10, -0x1
 
-    if-eq v9, v10, :cond_54
+    if-eq v9, v10, :cond_2
 
     iget v9, p0, Landroid/widget/AdapterViewAnimator;->mReferenceChildHeight:I
 
     const/4 v10, -0x1
 
-    if-eq v9, v10, :cond_54
+    if-eq v9, v10, :cond_2
 
     const/4 v2, 0x1
 
     .line 1181
     .local v2, haveChildRefSize:Z
-    :goto_1b
+    :goto_0
     const v1, 0x3f8e38e4
 
     .line 1182
     .local v1, factorY:F
-    if-nez v4, :cond_58
+    if-nez v4, :cond_4
 
     .line 1183
-    if-eqz v2, :cond_56
+    if-eqz v2, :cond_3
 
     iget v9, p0, Landroid/widget/AdapterViewAnimator;->mReferenceChildHeight:I
 
@@ -3044,16 +3044,16 @@
     add-int v5, v9, v10
 
     .line 1201
-    :cond_34
-    :goto_34
+    :cond_0
+    :goto_1
     const v0, 0x3f8e38e4
 
     .line 1202
     .local v0, factorX:F
-    if-nez v7, :cond_7c
+    if-nez v7, :cond_8
 
     .line 1203
-    if-eqz v2, :cond_7a
+    if-eqz v2, :cond_7
 
     iget v9, p0, Landroid/widget/AdapterViewAnimator;->mReferenceChildWidth:I
 
@@ -3078,8 +3078,8 @@
     add-int v8, v9, v10
 
     .line 1218
-    :cond_4d
-    :goto_4d
+    :cond_1
+    :goto_2
     invoke-virtual {p0, v8, v5}, Landroid/widget/StackView;->setMeasuredDimension(II)V
 
     .line 1219
@@ -3092,27 +3092,27 @@
     .end local v0           #factorX:F
     .end local v1           #factorY:F
     .end local v2           #haveChildRefSize:Z
-    :cond_54
+    :cond_2
     const/4 v2, 0x0
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 1183
     .restart local v1       #factorY:F
     .restart local v2       #haveChildRefSize:Z
-    :cond_56
+    :cond_3
     const/4 v5, 0x0
 
-    goto :goto_34
+    goto :goto_1
 
     .line 1186
-    :cond_58
+    :cond_4
     const/high16 v9, -0x8000
 
-    if-ne v4, v9, :cond_34
+    if-ne v4, v9, :cond_0
 
     .line 1187
-    if-eqz v2, :cond_78
+    if-eqz v2, :cond_6
 
     .line 1188
     iget v9, p0, Landroid/widget/AdapterViewAnimator;->mReferenceChildHeight:I
@@ -3139,43 +3139,43 @@
 
     .line 1190
     .local v3, height:I
-    if-gt v3, v5, :cond_74
+    if-gt v3, v5, :cond_5
 
     .line 1191
     move v5, v3
 
-    goto :goto_34
+    goto :goto_1
 
     .line 1193
-    :cond_74
+    :cond_5
     const/high16 v9, 0x100
 
     or-int/2addr v5, v9
 
-    goto :goto_34
+    goto :goto_1
 
     .line 1197
     .end local v3           #height:I
-    :cond_78
+    :cond_6
     const/4 v5, 0x0
 
-    goto :goto_34
+    goto :goto_1
 
     .line 1203
     .restart local v0       #factorX:F
-    :cond_7a
+    :cond_7
     const/4 v8, 0x0
 
-    goto :goto_4d
+    goto :goto_2
 
     .line 1206
-    :cond_7c
+    :cond_8
     const/high16 v9, -0x8000
 
-    if-ne v4, v9, :cond_4d
+    if-ne v4, v9, :cond_1
 
     .line 1207
-    if-eqz v2, :cond_93
+    if-eqz v2, :cond_a
 
     .line 1208
     iget v9, p0, Landroid/widget/AdapterViewAnimator;->mReferenceChildWidth:I
@@ -3190,31 +3190,31 @@
 
     .line 1209
     .local v6, width:I
-    if-gt v6, v8, :cond_8f
+    if-gt v6, v8, :cond_9
 
     .line 1210
     move v8, v6
 
-    goto :goto_4d
+    goto :goto_2
 
     .line 1212
-    :cond_8f
+    :cond_9
     const/high16 v9, 0x100
 
     or-int/2addr v8, v9
 
-    goto :goto_4d
+    goto :goto_2
 
     .line 1215
     .end local v6           #width:I
-    :cond_93
+    :cond_a
     const/4 v8, 0x0
 
-    goto :goto_4d
+    goto :goto_2
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .registers 15
+    .locals 13
     .parameter "ev"
 
     .prologue
@@ -3244,7 +3244,7 @@
 
     .line 708
     .local v5, pointerIndex:I
-    if-ne v5, v12, :cond_1c
+    if-ne v5, v12, :cond_0
 
     .line 710
     const-string v9, "StackView"
@@ -3254,11 +3254,11 @@
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 757
-    :goto_1b
+    :goto_0
     return v8
 
     .line 714
-    :cond_1c
+    :cond_0
     invoke-virtual {p1, v5}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v4
@@ -3285,7 +3285,7 @@
     .local v1, deltaX:F
     iget-object v10, p0, Landroid/widget/StackView;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-nez v10, :cond_36
+    if-nez v10, :cond_1
 
     .line 719
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
@@ -3295,7 +3295,7 @@
     iput-object v10, p0, Landroid/widget/StackView;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     .line 721
-    :cond_36
+    :cond_1
     iget-object v10, p0, Landroid/widget/StackView;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v10, p1}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
@@ -3303,18 +3303,18 @@
     .line 723
     and-int/lit16 v10, v0, 0xff
 
-    packed-switch v10, :pswitch_data_a0
+    packed-switch v10, :pswitch_data_0
 
-    :cond_40
-    :goto_40
-    :pswitch_40
+    :cond_2
+    :goto_1
+    :pswitch_0
     move v8, v9
 
     .line 757
-    goto :goto_1b
+    goto :goto_0
 
     .line 725
-    :pswitch_42
+    :pswitch_1
     invoke-direct {p0, v2}, Landroid/widget/StackView;->beginGestureIfNeeded(F)V
 
     .line 727
@@ -3332,7 +3332,7 @@
 
     const/4 v10, 0x2
 
-    if-ne v8, v10, :cond_70
+    if-ne v8, v10, :cond_4
 
     .line 729
     iget v8, p0, Landroid/widget/StackView;->mTouchSlop:I
@@ -3355,12 +3355,12 @@
     .local v6, r:F
     iget v8, p0, Landroid/widget/StackView;->mStackMode:I
 
-    if-ne v8, v9, :cond_62
+    if-ne v8, v9, :cond_3
 
     sub-float v6, v11, v6
 
     .line 731
-    :cond_62
+    :cond_3
     iget-object v8, p0, Landroid/widget/StackView;->mStackSlider:Landroid/widget/StackView$StackSlider;
 
     sub-float v10, v11, v6
@@ -3375,14 +3375,14 @@
     move v8, v9
 
     .line 733
-    goto :goto_1b
+    goto :goto_0
 
     .line 734
     .end local v6           #r:F
-    :cond_70
+    :cond_4
     iget v8, p0, Landroid/widget/StackView;->mSwipeGestureType:I
 
-    if-ne v8, v9, :cond_40
+    if-ne v8, v9, :cond_2
 
     .line 735
     iget v8, p0, Landroid/widget/StackView;->mTouchSlop:I
@@ -3407,12 +3407,12 @@
     .restart local v6       #r:F
     iget v8, p0, Landroid/widget/StackView;->mStackMode:I
 
-    if-ne v8, v9, :cond_86
+    if-ne v8, v9, :cond_5
 
     sub-float v6, v11, v6
 
     .line 737
-    :cond_86
+    :cond_5
     iget-object v8, p0, Landroid/widget/StackView;->mStackSlider:Landroid/widget/StackView$StackSlider;
 
     invoke-virtual {v8, v6}, Landroid/widget/StackView$StackSlider;->setYProgress(F)V
@@ -3425,47 +3425,47 @@
     move v8, v9
 
     .line 739
-    goto :goto_1b
+    goto :goto_0
 
     .line 744
     .end local v6           #r:F
     .end local v7           #rx:F
-    :pswitch_92
+    :pswitch_2
     invoke-direct {p0, p1}, Landroid/widget/StackView;->handlePointerUp(Landroid/view/MotionEvent;)V
 
-    goto :goto_40
+    goto :goto_1
 
     .line 748
-    :pswitch_96
+    :pswitch_3
     invoke-direct {p0, p1}, Landroid/widget/StackView;->onSecondaryPointerUp(Landroid/view/MotionEvent;)V
 
-    goto :goto_40
+    goto :goto_1
 
     .line 752
-    :pswitch_9a
+    :pswitch_4
     iput v12, p0, Landroid/widget/StackView;->mActivePointerId:I
 
     .line 753
     iput v8, p0, Landroid/widget/StackView;->mSwipeGestureType:I
 
-    goto :goto_40
+    goto :goto_1
 
     .line 723
     nop
 
-    :pswitch_data_a0
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_92
-        :pswitch_42
-        :pswitch_9a
-        :pswitch_40
-        :pswitch_40
-        :pswitch_96
+        :pswitch_2
+        :pswitch_1
+        :pswitch_4
+        :pswitch_0
+        :pswitch_0
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method public performAccessibilityAction(ILandroid/os/Bundle;)Z
-    .registers 7
+    .locals 4
     .parameter "action"
     .parameter "arguments"
 
@@ -3479,36 +3479,36 @@
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_0
 
     .line 1265
-    :goto_8
+    :goto_0
     return v0
 
     .line 1248
-    :cond_9
+    :cond_0
     invoke-virtual {p0}, Landroid/widget/StackView;->isEnabled()Z
 
     move-result v2
 
-    if-nez v2, :cond_11
+    if-nez v2, :cond_1
 
     move v0, v1
 
     .line 1249
-    goto :goto_8
+    goto :goto_0
 
     .line 1251
-    :cond_11
-    sparse-switch p1, :sswitch_data_34
+    :cond_1
+    sparse-switch p1, :sswitch_data_0
 
     move v0, v1
 
     .line 1265
-    goto :goto_8
+    goto :goto_0
 
     .line 1253
-    :sswitch_16
+    :sswitch_0
     invoke-virtual {p0}, Landroid/widget/StackView;->getDisplayedChild()I
 
     move-result v2
@@ -3519,48 +3519,48 @@
 
     add-int/lit8 v3, v3, -0x1
 
-    if-ge v2, v3, :cond_26
+    if-ge v2, v3, :cond_2
 
     .line 1254
     invoke-virtual {p0}, Landroid/widget/StackView;->showNext()V
 
-    goto :goto_8
+    goto :goto_0
 
-    :cond_26
+    :cond_2
     move v0, v1
 
     .line 1257
-    goto :goto_8
+    goto :goto_0
 
     .line 1259
-    :sswitch_28
+    :sswitch_1
     invoke-virtual {p0}, Landroid/widget/StackView;->getDisplayedChild()I
 
     move-result v2
 
-    if-lez v2, :cond_32
+    if-lez v2, :cond_3
 
     .line 1260
     invoke-virtual {p0}, Landroid/widget/StackView;->showPrevious()V
 
-    goto :goto_8
+    goto :goto_0
 
-    :cond_32
+    :cond_3
     move v0, v1
 
     .line 1263
-    goto :goto_8
+    goto :goto_0
 
     .line 1251
-    :sswitch_data_34
+    :sswitch_data_0
     .sparse-switch
-        0x1000 -> :sswitch_16
-        0x2000 -> :sswitch_28
+        0x1000 -> :sswitch_0
+        0x2000 -> :sswitch_1
     .end sparse-switch
 .end method
 
 .method public showNext()V
-    .registers 4
+    .locals 3
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
 
@@ -3570,17 +3570,17 @@
     .line 387
     iget v1, p0, Landroid/widget/StackView;->mSwipeGestureType:I
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_0
 
     .line 397
-    :goto_5
+    :goto_0
     return-void
 
     .line 388
-    :cond_6
+    :cond_0
     iget-boolean v1, p0, Landroid/widget/StackView;->mTransitionIsSetup:Z
 
-    if-nez v1, :cond_1f
+    if-nez v1, :cond_1
 
     .line 389
     const/4 v1, 0x1
@@ -3591,7 +3591,7 @@
 
     .line 390
     .local v0, v:Landroid/view/View;
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_1
 
     .line 391
     const/4 v1, 0x0
@@ -3610,14 +3610,14 @@
 
     .line 396
     .end local v0           #v:Landroid/view/View;
-    :cond_1f
+    :cond_1
     invoke-super {p0}, Landroid/widget/AdapterViewAnimator;->showNext()V
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method showOnly(IZ)V
-    .registers 10
+    .locals 7
     .parameter "childIndex"
     .parameter "animate"
 
@@ -3631,10 +3631,10 @@
     iget v0, p0, Landroid/widget/AdapterViewAnimator;->mCurrentWindowEnd:I
 
     .local v0, i:I
-    :goto_6
+    :goto_0
     iget v4, p0, Landroid/widget/AdapterViewAnimator;->mCurrentWindowStart:I
 
-    if-lt v0, v4, :cond_36
+    if-lt v0, v4, :cond_1
 
     .line 423
     invoke-virtual {p0}, Landroid/widget/StackView;->getWindowSize()I
@@ -3661,7 +3661,7 @@
 
     .line 425
     .local v3, vm:Landroid/widget/AdapterViewAnimator$ViewAndMetaData;
-    if-eqz v3, :cond_33
+    if-eqz v3, :cond_0
 
     .line 426
     iget-object v4, p0, Landroid/widget/AdapterViewAnimator;->mViewsMap:Ljava/util/HashMap;
@@ -3680,24 +3680,24 @@
 
     .line 427
     .local v2, v:Landroid/view/View;
-    if-eqz v2, :cond_33
+    if-eqz v2, :cond_0
 
     invoke-virtual {v2}, Landroid/view/View;->bringToFront()V
 
     .line 422
     .end local v2           #v:Landroid/view/View;
-    :cond_33
+    :cond_0
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 430
     .end local v1           #index:I
     .end local v3           #vm:Landroid/widget/AdapterViewAnimator$ViewAndMetaData;
-    :cond_36
+    :cond_1
     iget-object v4, p0, Landroid/widget/StackView;->mHighlight:Landroid/widget/ImageView;
 
-    if-eqz v4, :cond_3f
+    if-eqz v4, :cond_2
 
     .line 431
     iget-object v4, p0, Landroid/widget/StackView;->mHighlight:Landroid/widget/ImageView;
@@ -3705,7 +3705,7 @@
     invoke-virtual {v4}, Landroid/widget/ImageView;->bringToFront()V
 
     .line 433
-    :cond_3f
+    :cond_2
     iput-boolean v6, p0, Landroid/widget/StackView;->mTransitionIsSetup:Z
 
     .line 434
@@ -3716,7 +3716,7 @@
 .end method
 
 .method public showPrevious()V
-    .registers 4
+    .locals 3
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
 
@@ -3726,17 +3726,17 @@
     .line 405
     iget v1, p0, Landroid/widget/StackView;->mSwipeGestureType:I
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_0
 
     .line 415
-    :goto_5
+    :goto_0
     return-void
 
     .line 406
-    :cond_6
+    :cond_0
     iget-boolean v1, p0, Landroid/widget/StackView;->mTransitionIsSetup:Z
 
-    if-nez v1, :cond_20
+    if-nez v1, :cond_1
 
     .line 407
     invoke-virtual {p0, v2}, Landroid/widget/StackView;->getViewAtRelativeIndex(I)Landroid/view/View;
@@ -3745,7 +3745,7 @@
 
     .line 408
     .local v0, v:Landroid/view/View;
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1
 
     .line 409
     invoke-direct {p0, v0, v2}, Landroid/widget/StackView;->setupStackSlider(Landroid/view/View;I)V
@@ -3766,14 +3766,14 @@
 
     .line 414
     .end local v0           #v:Landroid/view/View;
-    :cond_20
+    :cond_1
     invoke-super {p0}, Landroid/widget/AdapterViewAnimator;->showPrevious()V
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method showTapFeedback(Landroid/view/View;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -3800,7 +3800,7 @@
 .end method
 
 .method transformViewForTransition(IILandroid/view/View;Z)V
-    .registers 22
+    .locals 17
     .parameter "fromIndex"
     .parameter "toIndex"
     .parameter "view"
@@ -3808,7 +3808,7 @@
 
     .prologue
     .line 227
-    if-nez p4, :cond_1d
+    if-nez p4, :cond_0
 
     move-object/from16 v13, p3
 
@@ -3844,12 +3844,12 @@
 
     .line 235
     .end local v6           #lp:Landroid/widget/StackView$LayoutParams;
-    :cond_1d
+    :cond_0
     const/4 v13, -0x1
 
     move/from16 v0, p1
 
-    if-ne v0, v13, :cond_54
+    if-ne v0, v13, :cond_3
 
     invoke-virtual/range {p0 .. p0}, Landroid/widget/StackView;->getNumActiveViews()I
 
@@ -3859,7 +3859,7 @@
 
     move/from16 v0, p2
 
-    if-ne v0, v13, :cond_54
+    if-ne v0, v13, :cond_3
 
     .line 236
     const/4 v13, 0x0
@@ -3887,13 +3887,13 @@
     invoke-virtual {v0, v13}, Landroid/view/View;->setAlpha(F)V
 
     .line 308
-    :cond_43
-    :goto_43
+    :cond_1
+    :goto_0
     const/4 v13, -0x1
 
     move/from16 v0, p2
 
-    if-eq v0, v13, :cond_53
+    if-eq v0, v13, :cond_2
 
     .line 309
     move-object/from16 v0, p0
@@ -3907,18 +3907,18 @@
     invoke-direct {v0, v1, v2, v3}, Landroid/widget/StackView;->transformViewAtIndex(ILandroid/view/View;Z)V
 
     .line 311
-    :cond_53
+    :cond_2
     return-void
 
     .line 239
-    :cond_54
-    if-nez p1, :cond_d6
+    :cond_3
+    if-nez p1, :cond_5
 
     const/4 v13, 0x1
 
     move/from16 v0, p2
 
-    if-ne v0, v13, :cond_d6
+    if-ne v0, v13, :cond_5
 
     move-object/from16 v13, p3
 
@@ -3972,7 +3972,7 @@
     invoke-virtual {v4, v0}, Landroid/widget/StackView$StackSlider;->setView(Landroid/view/View;)V
 
     .line 248
-    if-eqz p4, :cond_cc
+    if-eqz p4, :cond_4
 
     .line 249
     const-string v13, "YProgress"
@@ -4050,13 +4050,13 @@
     .line 256
     invoke-virtual {v7}, Landroid/animation/ObjectAnimator;->start()V
 
-    goto/16 :goto_43
+    goto/16 :goto_0
 
     .line 258
     .end local v7           #slideIn:Landroid/animation/ObjectAnimator;
     .end local v8           #slideInX:Landroid/animation/PropertyValuesHolder;
     .end local v9           #slideInY:Landroid/animation/PropertyValuesHolder;
-    :cond_cc
+    :cond_4
     const/4 v13, 0x0
 
     invoke-virtual {v4, v13}, Landroid/widget/StackView$StackSlider;->setYProgress(F)V
@@ -4066,19 +4066,19 @@
 
     invoke-virtual {v4, v13}, Landroid/widget/StackView$StackSlider;->setXProgress(F)V
 
-    goto/16 :goto_43
+    goto/16 :goto_0
 
     .line 261
     .end local v4           #animationSlider:Landroid/widget/StackView$StackSlider;
     .end local v5           #duration:I
-    :cond_d6
+    :cond_5
     const/4 v13, 0x1
 
     move/from16 v0, p1
 
-    if-ne v0, v13, :cond_153
+    if-ne v0, v13, :cond_7
 
-    if-nez p2, :cond_153
+    if-nez p2, :cond_7
 
     move-object/from16 v13, p3
 
@@ -4125,7 +4125,7 @@
     invoke-virtual {v4, v0}, Landroid/widget/StackView$StackSlider;->setView(Landroid/view/View;)V
 
     .line 268
-    if-eqz p4, :cond_148
+    if-eqz p4, :cond_6
 
     .line 269
     const-string v13, "YProgress"
@@ -4203,13 +4203,13 @@
     .line 276
     invoke-virtual {v10}, Landroid/animation/ObjectAnimator;->start()V
 
-    goto/16 :goto_43
+    goto/16 :goto_0
 
     .line 278
     .end local v10           #slideOut:Landroid/animation/ObjectAnimator;
     .end local v11           #slideOutX:Landroid/animation/PropertyValuesHolder;
     .end local v12           #slideOutY:Landroid/animation/PropertyValuesHolder;
-    :cond_148
+    :cond_6
     const/high16 v13, 0x3f80
 
     invoke-virtual {v4, v13}, Landroid/widget/StackView$StackSlider;->setYProgress(F)V
@@ -4219,13 +4219,13 @@
 
     invoke-virtual {v4, v13}, Landroid/widget/StackView$StackSlider;->setXProgress(F)V
 
-    goto/16 :goto_43
+    goto/16 :goto_0
 
     .line 281
     .end local v4           #animationSlider:Landroid/widget/StackView$StackSlider;
     .end local v5           #duration:I
-    :cond_153
-    if-nez p2, :cond_163
+    :cond_7
+    if-nez p2, :cond_8
 
     .line 283
     const/4 v13, 0x0
@@ -4241,24 +4241,24 @@
 
     invoke-virtual {v0, v13}, Landroid/view/View;->setVisibility(I)V
 
-    goto/16 :goto_43
+    goto/16 :goto_0
 
     .line 285
-    :cond_163
-    if-eqz p1, :cond_16a
+    :cond_8
+    if-eqz p1, :cond_9
 
     const/4 v13, 0x1
 
     move/from16 v0, p1
 
-    if-ne v0, v13, :cond_192
+    if-ne v0, v13, :cond_a
 
-    :cond_16a
+    :cond_9
     const/4 v13, 0x1
 
     move/from16 v0, p2
 
-    if-le v0, v13, :cond_192
+    if-le v0, v13, :cond_a
 
     .line 286
     const/4 v13, 0x0
@@ -4299,16 +4299,16 @@
 
     invoke-virtual {v6, v13}, Landroid/widget/StackView$LayoutParams;->setHorizontalOffset(I)V
 
-    goto/16 :goto_43
+    goto/16 :goto_0
 
     .line 292
     .end local v6           #lp:Landroid/widget/StackView$LayoutParams;
-    :cond_192
+    :cond_a
     const/4 v13, -0x1
 
     move/from16 v0, p1
 
-    if-ne v0, v13, :cond_1a6
+    if-ne v0, v13, :cond_b
 
     .line 293
     const/high16 v13, 0x3f80
@@ -4324,18 +4324,18 @@
 
     invoke-virtual {v0, v13}, Landroid/view/View;->setVisibility(I)V
 
-    goto/16 :goto_43
+    goto/16 :goto_0
 
     .line 295
-    :cond_1a6
+    :cond_b
     const/4 v13, -0x1
 
     move/from16 v0, p2
 
-    if-ne v0, v13, :cond_43
+    if-ne v0, v13, :cond_1
 
     .line 296
-    if-eqz p4, :cond_1bf
+    if-eqz p4, :cond_c
 
     .line 297
     new-instance v13, Landroid/widget/StackView$1;
@@ -4352,21 +4352,21 @@
 
     invoke-virtual {v0, v13, v14, v15}, Landroid/widget/StackView;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto/16 :goto_43
+    goto/16 :goto_0
 
     .line 303
-    :cond_1bf
+    :cond_c
     const/4 v13, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v13}, Landroid/view/View;->setAlpha(F)V
 
-    goto/16 :goto_43
+    goto/16 :goto_0
 .end method
 
 .method updateClickFeedback()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v4, 0x1
@@ -4374,7 +4374,7 @@
     .line 438
     iget-boolean v1, p0, Landroid/widget/StackView;->mClickFeedbackIsValid:Z
 
-    if-nez v1, :cond_2c
+    if-nez v1, :cond_1
 
     .line 439
     invoke-virtual {p0, v4}, Landroid/widget/StackView;->getViewAtRelativeIndex(I)Landroid/view/View;
@@ -4383,7 +4383,7 @@
 
     .line 440
     .local v0, v:Landroid/view/View;
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_0
 
     .line 441
     iget-object v1, p0, Landroid/widget/StackView;->mClickFeedback:Landroid/widget/ImageView;
@@ -4417,11 +4417,11 @@
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setTranslationY(F)V
 
     .line 446
-    :cond_2a
+    :cond_0
     iput-boolean v4, p0, Landroid/widget/StackView;->mClickFeedbackIsValid:Z
 
     .line 448
     .end local v0           #v:Landroid/view/View;
-    :cond_2c
+    :cond_1
     return-void
 .end method

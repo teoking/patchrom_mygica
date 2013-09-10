@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/SyncManager;Landroid/content/SyncManager$ActiveSyncContext;Landroid/content/ISyncAdapter;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "activeSyncContext"
     .parameter "syncAdapter"

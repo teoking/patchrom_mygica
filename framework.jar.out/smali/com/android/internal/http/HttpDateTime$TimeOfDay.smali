@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(III)V
-    .registers 4
+    .locals 0
     .parameter "h"
     .parameter "m"
     .parameter "s"

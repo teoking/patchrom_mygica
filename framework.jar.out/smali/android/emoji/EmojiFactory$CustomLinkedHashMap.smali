@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/emoji/EmojiFactory;)V
-    .registers 5
+    .locals 3
     .parameter
 
     .prologue
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method protected removeEldestEntry(Ljava/util/Map$Entry;)Z
-    .registers 4
+    .locals 2
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -76,19 +76,20 @@
 
     iget-object v1, p0, Landroid/emoji/EmojiFactory$CustomLinkedHashMap;->this$0:Landroid/emoji/EmojiFactory;
 
+    #getter for: Landroid/emoji/EmojiFactory;->sCacheSize:I
     invoke-static {v1}, Landroid/emoji/EmojiFactory;->access$000(Landroid/emoji/EmojiFactory;)I
 
     move-result v1
 
-    if-le v0, v1, :cond_e
+    if-le v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method

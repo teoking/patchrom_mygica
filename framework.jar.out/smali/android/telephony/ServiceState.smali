@@ -109,7 +109,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 237
@@ -123,7 +123,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 164
@@ -139,7 +139,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 5
+    .locals 3
     .parameter "in"
 
     .prologue
@@ -165,11 +165,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6d
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_14
+    :goto_0
     iput-boolean v0, p0, Landroid/telephony/ServiceState;->mRoaming:Z
 
     .line 200
@@ -198,11 +198,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6f
+    if-eqz v0, :cond_1
 
     move v0, v1
 
-    :goto_2f
+    :goto_1
     iput-boolean v0, p0, Landroid/telephony/ServiceState;->mIsManualNetworkSelection:Z
 
     .line 204
@@ -217,11 +217,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_71
+    if-eqz v0, :cond_2
 
     move v0, v1
 
-    :goto_3e
+    :goto_2
     iput-boolean v0, p0, Landroid/telephony/ServiceState;->mCssIndicator:Z
 
     .line 206
@@ -271,41 +271,41 @@
 
     move-result v0
 
-    if-eqz v0, :cond_73
+    if-eqz v0, :cond_3
 
-    :goto_6a
+    :goto_3
     iput-boolean v1, p0, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
 
     .line 213
     return-void
 
-    :cond_6d
+    :cond_0
     move v0, v2
 
     .line 199
-    goto :goto_14
+    goto :goto_0
 
-    :cond_6f
+    :cond_1
     move v0, v2
 
     .line 203
-    goto :goto_2f
+    goto :goto_1
 
-    :cond_71
+    :cond_2
     move v0, v2
 
     .line 205
-    goto :goto_3e
+    goto :goto_2
 
-    :cond_73
+    :cond_3
     move v1, v2
 
     .line 212
-    goto :goto_6a
+    goto :goto_3
 .end method
 
 .method public constructor <init>(Landroid/telephony/ServiceState;)V
-    .registers 3
+    .locals 1
     .parameter "s"
 
     .prologue
@@ -325,134 +325,134 @@
 .end method
 
 .method private static equalsHandlesNulls(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .registers 3
+    .locals 1
     .parameter "a"
     .parameter "b"
 
     .prologue
     .line 585
-    if-nez p0, :cond_8
+    if-nez p0, :cond_1
 
-    if-nez p1, :cond_6
+    if-nez p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 
-    :cond_8
+    :cond_1
     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public static isCdma(I)Z
-    .registers 2
+    .locals 1
     .parameter "radioTechnology"
 
     .prologue
     .line 725
     const/4 v0, 0x4
 
-    if-eq p0, v0, :cond_18
+    if-eq p0, v0, :cond_0
 
     const/4 v0, 0x5
 
-    if-eq p0, v0, :cond_18
+    if-eq p0, v0, :cond_0
 
     const/4 v0, 0x6
 
-    if-eq p0, v0, :cond_18
+    if-eq p0, v0, :cond_0
 
     const/4 v0, 0x7
 
-    if-eq p0, v0, :cond_18
+    if-eq p0, v0, :cond_0
 
     const/16 v0, 0x8
 
-    if-eq p0, v0, :cond_18
+    if-eq p0, v0, :cond_0
 
     const/16 v0, 0xc
 
-    if-eq p0, v0, :cond_18
+    if-eq p0, v0, :cond_0
 
     const/16 v0, 0xd
 
-    if-ne p0, v0, :cond_1a
+    if-ne p0, v0, :cond_1
 
-    :cond_18
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_19
+    :goto_0
     return v0
 
-    :cond_1a
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public static isGsm(I)Z
-    .registers 3
+    .locals 2
     .parameter "radioTechnology"
 
     .prologue
     const/4 v0, 0x1
 
     .line 712
-    if-eq p0, v0, :cond_21
+    if-eq p0, v0, :cond_0
 
     const/4 v1, 0x2
 
-    if-eq p0, v1, :cond_21
+    if-eq p0, v1, :cond_0
 
     const/4 v1, 0x3
 
-    if-eq p0, v1, :cond_21
+    if-eq p0, v1, :cond_0
 
     const/16 v1, 0x9
 
-    if-eq p0, v1, :cond_21
+    if-eq p0, v1, :cond_0
 
     const/16 v1, 0xa
 
-    if-eq p0, v1, :cond_21
+    if-eq p0, v1, :cond_0
 
     const/16 v1, 0xb
 
-    if-eq p0, v1, :cond_21
+    if-eq p0, v1, :cond_0
 
     const/16 v1, 0xe
 
-    if-eq p0, v1, :cond_21
+    if-eq p0, v1, :cond_0
 
     const/16 v1, 0xf
 
-    if-eq p0, v1, :cond_21
+    if-eq p0, v1, :cond_0
 
     const/16 v1, 0x10
 
-    if-ne p0, v1, :cond_22
+    if-ne p0, v1, :cond_1
 
-    :cond_21
-    :goto_21
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_22
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_21
+    goto :goto_0
 .end method
 
 .method public static newFromBundle(Landroid/os/Bundle;)Landroid/telephony/ServiceState;
-    .registers 2
+    .locals 1
     .parameter "m"
 
     .prologue
@@ -470,12 +470,12 @@
 .end method
 
 .method public static rilRadioTechnologyToString(I)Ljava/lang/String;
-    .registers 5
+    .locals 4
     .parameter "rt"
 
     .prologue
     .line 409
-    packed-switch p0, :pswitch_data_52
+    packed-switch p0, :pswitch_data_0
 
     .line 462
     const-string v0, "Unexpected"
@@ -505,189 +505,189 @@
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 466
-    :goto_1d
+    :goto_0
     return-object v0
 
     .line 411
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_1e
+    :pswitch_0
     const-string v0, "Unknown"
 
     .line 412
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 414
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_21
+    :pswitch_1
     const-string v0, "GPRS"
 
     .line 415
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 417
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_24
+    :pswitch_2
     const-string v0, "EDGE"
 
     .line 418
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 420
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_27
+    :pswitch_3
     const-string v0, "UMTS"
 
     .line 421
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 423
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_2a
+    :pswitch_4
     const-string v0, "CDMA-IS95A"
 
     .line 424
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 426
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_2d
+    :pswitch_5
     const-string v0, "CDMA-IS95B"
 
     .line 427
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 429
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_30
+    :pswitch_6
     const-string v0, "1xRTT"
 
     .line 430
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 432
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_33
+    :pswitch_7
     const-string v0, "EvDo-rev.0"
 
     .line 433
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 435
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_36
+    :pswitch_8
     const-string v0, "EvDo-rev.A"
 
     .line 436
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 438
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_39
+    :pswitch_9
     const-string v0, "HSDPA"
 
     .line 439
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 441
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_3c
+    :pswitch_a
     const-string v0, "HSUPA"
 
     .line 442
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 444
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_3f
+    :pswitch_b
     const-string v0, "HSPA"
 
     .line 445
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 447
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_42
+    :pswitch_c
     const-string v0, "EvDo-rev.B"
 
     .line 448
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 450
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_45
+    :pswitch_d
     const-string v0, "eHRPD"
 
     .line 451
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 453
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_48
+    :pswitch_e
     const-string v0, "LTE"
 
     .line 454
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 456
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_4b
+    :pswitch_f
     const-string v0, "HSPAP"
 
     .line 457
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 459
     .end local v0           #rtString:Ljava/lang/String;
-    :pswitch_4e
+    :pswitch_10
     const-string v0, "GSM"
 
     .line 460
     .restart local v0       #rtString:Ljava/lang/String;
-    goto :goto_1d
+    goto :goto_0
 
     .line 409
     nop
 
-    :pswitch_data_52
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_1e
-        :pswitch_21
-        :pswitch_24
-        :pswitch_27
-        :pswitch_2a
-        :pswitch_2d
-        :pswitch_30
-        :pswitch_33
-        :pswitch_36
-        :pswitch_39
-        :pswitch_3c
-        :pswitch_3f
-        :pswitch_42
-        :pswitch_45
-        :pswitch_48
-        :pswitch_4b
-        :pswitch_4e
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
+        :pswitch_a
+        :pswitch_b
+        :pswitch_c
+        :pswitch_d
+        :pswitch_e
+        :pswitch_f
+        :pswitch_10
     .end packed-switch
 .end method
 
 .method private setFromNotifierBundle(Landroid/os/Bundle;)V
-    .registers 3
+    .locals 1
     .parameter "m"
 
     .prologue
@@ -813,7 +813,7 @@
 .end method
 
 .method private setNullState(I)V
-    .registers 5
+    .locals 3
     .parameter "state"
 
     .prologue
@@ -875,7 +875,7 @@
 
 # virtual methods
 .method protected copyFrom(Landroid/telephony/ServiceState;)V
-    .registers 3
+    .locals 1
     .parameter "s"
 
     .prologue
@@ -959,7 +959,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 234
@@ -969,61 +969,61 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 8
+    .locals 6
     .parameter "o"
 
     .prologue
     const/4 v3, 0x0
 
     .line 373
-    :try_start_1
+    :try_start_0
     move-object v0, p1
 
     check-cast v0, Landroid/telephony/ServiceState;
 
     move-object v2, v0
-    :try_end_5
-    .catch Ljava/lang/ClassCastException; {:try_start_1 .. :try_end_5} :catch_8
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 378
     .local v2, s:Landroid/telephony/ServiceState;
-    if-nez p1, :cond_a
+    if-nez p1, :cond_1
 
     .line 382
     .end local v2           #s:Landroid/telephony/ServiceState;
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     return v3
 
     .line 374
-    :catch_8
+    :catch_0
     move-exception v1
 
     .line 375
     .local v1, ex:Ljava/lang/ClassCastException;
-    goto :goto_7
+    goto :goto_0
 
     .line 382
     .end local v1           #ex:Ljava/lang/ClassCastException;
     .restart local v2       #s:Landroid/telephony/ServiceState;
-    :cond_a
+    :cond_1
     iget v4, p0, Landroid/telephony/ServiceState;->mState:I
 
     iget v5, v2, Landroid/telephony/ServiceState;->mState:I
 
-    if-ne v4, v5, :cond_7
+    if-ne v4, v5, :cond_0
 
     iget-boolean v4, p0, Landroid/telephony/ServiceState;->mRoaming:Z
 
     iget-boolean v5, v2, Landroid/telephony/ServiceState;->mRoaming:Z
 
-    if-ne v4, v5, :cond_7
+    if-ne v4, v5, :cond_0
 
     iget-boolean v4, p0, Landroid/telephony/ServiceState;->mIsManualNetworkSelection:Z
 
     iget-boolean v5, v2, Landroid/telephony/ServiceState;->mIsManualNetworkSelection:Z
 
-    if-ne v4, v5, :cond_7
+    if-ne v4, v5, :cond_0
 
     iget-object v4, p0, Landroid/telephony/ServiceState;->mOperatorAlphaLong:Ljava/lang/String;
 
@@ -1033,7 +1033,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_0
 
     iget-object v4, p0, Landroid/telephony/ServiceState;->mOperatorAlphaShort:Ljava/lang/String;
 
@@ -1043,7 +1043,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_0
 
     iget-object v4, p0, Landroid/telephony/ServiceState;->mOperatorNumeric:Ljava/lang/String;
 
@@ -1053,7 +1053,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_0
 
     iget v4, p0, Landroid/telephony/ServiceState;->mRadioTechnology:I
 
@@ -1071,7 +1071,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_0
 
     iget-boolean v4, p0, Landroid/telephony/ServiceState;->mCssIndicator:Z
 
@@ -1089,7 +1089,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_0
 
     iget v4, p0, Landroid/telephony/ServiceState;->mNetworkId:I
 
@@ -1107,7 +1107,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_0
 
     iget v4, p0, Landroid/telephony/ServiceState;->mSystemId:I
 
@@ -1125,7 +1125,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_0
 
     iget v4, p0, Landroid/telephony/ServiceState;->mCdmaRoamingIndicator:I
 
@@ -1143,7 +1143,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_0
 
     iget v4, p0, Landroid/telephony/ServiceState;->mCdmaDefaultRoamingIndicator:I
 
@@ -1161,21 +1161,21 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_0
 
     iget-boolean v4, p0, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
 
     iget-boolean v5, v2, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
 
-    if-ne v4, v5, :cond_7
+    if-ne v4, v5, :cond_0
 
     const/4 v3, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 .end method
 
 .method public fillInNotifierBundle(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
     .parameter "m"
 
     .prologue
@@ -1299,7 +1299,7 @@
 .end method
 
 .method public getCdmaDefaultRoamingIndicator()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 290
@@ -1309,7 +1309,7 @@
 .end method
 
 .method public getCdmaEriIconIndex()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 297
@@ -1319,7 +1319,7 @@
 .end method
 
 .method public getCdmaEriIconMode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 304
@@ -1329,7 +1329,7 @@
 .end method
 
 .method public getCdmaRoamingIndicator()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 283
@@ -1339,27 +1339,27 @@
 .end method
 
 .method public getCssIndicator()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 697
     iget-boolean v0, p0, Landroid/telephony/ServiceState;->mCssIndicator:Z
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public getIsManualSelection()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 352
@@ -1369,7 +1369,7 @@
 .end method
 
 .method public getNetworkId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 702
@@ -1379,127 +1379,127 @@
 .end method
 
 .method public getNetworkType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 660
     iget v0, p0, Landroid/telephony/ServiceState;->mRadioTechnology:I
 
-    packed-switch v0, :pswitch_data_2a
+    packed-switch v0, :pswitch_data_0
 
     .line 691
     const/4 v0, 0x0
 
-    :goto_6
+    :goto_0
     return v0
 
     .line 662
-    :pswitch_7
+    :pswitch_0
     const/4 v0, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 664
-    :pswitch_9
+    :pswitch_1
     const/4 v0, 0x2
 
-    goto :goto_6
+    goto :goto_0
 
     .line 666
-    :pswitch_b
+    :pswitch_2
     const/4 v0, 0x3
 
-    goto :goto_6
+    goto :goto_0
 
     .line 668
-    :pswitch_d
+    :pswitch_3
     const/16 v0, 0x8
 
-    goto :goto_6
+    goto :goto_0
 
     .line 670
-    :pswitch_10
+    :pswitch_4
     const/16 v0, 0x9
 
-    goto :goto_6
+    goto :goto_0
 
     .line 672
-    :pswitch_13
+    :pswitch_5
     const/16 v0, 0xa
 
-    goto :goto_6
+    goto :goto_0
 
     .line 675
-    :pswitch_16
+    :pswitch_6
     const/4 v0, 0x4
 
-    goto :goto_6
+    goto :goto_0
 
     .line 677
-    :pswitch_18
+    :pswitch_7
     const/4 v0, 0x7
 
-    goto :goto_6
+    goto :goto_0
 
     .line 679
-    :pswitch_1a
+    :pswitch_8
     const/4 v0, 0x5
 
-    goto :goto_6
+    goto :goto_0
 
     .line 681
-    :pswitch_1c
+    :pswitch_9
     const/4 v0, 0x6
 
-    goto :goto_6
+    goto :goto_0
 
     .line 683
-    :pswitch_1e
+    :pswitch_a
     const/16 v0, 0xc
 
-    goto :goto_6
+    goto :goto_0
 
     .line 685
-    :pswitch_21
+    :pswitch_b
     const/16 v0, 0xe
 
-    goto :goto_6
+    goto :goto_0
 
     .line 687
-    :pswitch_24
+    :pswitch_c
     const/16 v0, 0xd
 
-    goto :goto_6
+    goto :goto_0
 
     .line 689
-    :pswitch_27
+    :pswitch_d
     const/16 v0, 0xf
 
-    goto :goto_6
+    goto :goto_0
 
     .line 660
-    :pswitch_data_2a
+    :pswitch_data_0
     .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_6
+        :pswitch_6
         :pswitch_7
+        :pswitch_8
         :pswitch_9
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_a
         :pswitch_b
-        :pswitch_16
-        :pswitch_16
-        :pswitch_18
-        :pswitch_1a
-        :pswitch_1c
+        :pswitch_c
         :pswitch_d
-        :pswitch_10
-        :pswitch_13
-        :pswitch_1e
-        :pswitch_21
-        :pswitch_24
-        :pswitch_27
     .end packed-switch
 .end method
 
 .method public getOperatorAlphaLong()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 316
@@ -1509,7 +1509,7 @@
 .end method
 
 .method public getOperatorAlphaShort()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 327
@@ -1519,7 +1519,7 @@
 .end method
 
 .method public getOperatorNumeric()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 343
@@ -1529,7 +1529,7 @@
 .end method
 
 .method public getRadioTechnology()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 655
@@ -1541,7 +1541,7 @@
 .end method
 
 .method public getRilRadioTechnology()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 651
@@ -1551,7 +1551,7 @@
 .end method
 
 .method public getRoaming()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 269
@@ -1561,7 +1561,7 @@
 .end method
 
 .method public getState()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 257
@@ -1571,7 +1571,7 @@
 .end method
 
 .method public getSystemId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 707
@@ -1581,7 +1581,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x1
@@ -1595,47 +1595,47 @@
 
     iget-boolean v0, p0, Landroid/telephony/ServiceState;->mRoaming:Z
 
-    if-eqz v0, :cond_30
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_b
+    :goto_0
     add-int/2addr v3, v0
 
     iget-boolean v0, p0, Landroid/telephony/ServiceState;->mIsManualNetworkSelection:Z
 
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_1
 
     move v0, v1
 
-    :goto_11
+    :goto_1
     add-int/2addr v3, v0
 
     iget-object v0, p0, Landroid/telephony/ServiceState;->mOperatorAlphaLong:Ljava/lang/String;
 
-    if-nez v0, :cond_34
+    if-nez v0, :cond_2
 
     move v0, v2
 
-    :goto_17
+    :goto_2
     add-int/2addr v3, v0
 
     iget-object v0, p0, Landroid/telephony/ServiceState;->mOperatorAlphaShort:Ljava/lang/String;
 
-    if-nez v0, :cond_3b
+    if-nez v0, :cond_3
 
     move v0, v2
 
-    :goto_1d
+    :goto_3
     add-int/2addr v3, v0
 
     iget-object v0, p0, Landroid/telephony/ServiceState;->mOperatorNumeric:Ljava/lang/String;
 
-    if-nez v0, :cond_42
+    if-nez v0, :cond_4
 
     move v0, v2
 
-    :goto_23
+    :goto_4
     add-int/2addr v0, v3
 
     iget v3, p0, Landroid/telephony/ServiceState;->mCdmaRoamingIndicator:I
@@ -1648,58 +1648,58 @@
 
     iget-boolean v3, p0, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
 
-    if-eqz v3, :cond_49
+    if-eqz v3, :cond_5
 
-    :goto_2e
+    :goto_5
     add-int/2addr v0, v1
 
     return v0
 
-    :cond_30
+    :cond_0
     move v0, v2
 
-    goto :goto_b
+    goto :goto_0
 
-    :cond_32
+    :cond_1
     move v0, v2
 
-    goto :goto_11
+    goto :goto_1
 
-    :cond_34
+    :cond_2
     iget-object v0, p0, Landroid/telephony/ServiceState;->mOperatorAlphaLong:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
     move-result v0
 
-    goto :goto_17
+    goto :goto_2
 
-    :cond_3b
+    :cond_3
     iget-object v0, p0, Landroid/telephony/ServiceState;->mOperatorAlphaShort:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
     move-result v0
 
-    goto :goto_1d
+    goto :goto_3
 
-    :cond_42
+    :cond_4
     iget-object v0, p0, Landroid/telephony/ServiceState;->mOperatorNumeric:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
     move-result v0
 
-    goto :goto_23
+    goto :goto_4
 
-    :cond_49
+    :cond_5
     move v1, v2
 
-    goto :goto_2e
+    goto :goto_5
 .end method
 
 .method public isEmergencyOnly()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 276
@@ -1709,7 +1709,7 @@
 .end method
 
 .method public setCdmaDefaultRoamingIndicator(I)V
-    .registers 2
+    .locals 0
     .parameter "roaming"
 
     .prologue
@@ -1721,7 +1721,7 @@
 .end method
 
 .method public setCdmaEriIconIndex(I)V
-    .registers 2
+    .locals 0
     .parameter "index"
 
     .prologue
@@ -1733,7 +1733,7 @@
 .end method
 
 .method public setCdmaEriIconMode(I)V
-    .registers 2
+    .locals 0
     .parameter "mode"
 
     .prologue
@@ -1745,7 +1745,7 @@
 .end method
 
 .method public setCdmaRoamingIndicator(I)V
-    .registers 2
+    .locals 0
     .parameter "roaming"
 
     .prologue
@@ -1757,30 +1757,30 @@
 .end method
 
 .method public setCssIndicator(I)V
-    .registers 3
+    .locals 1
     .parameter "css"
 
     .prologue
     .line 640
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_3
+    :goto_0
     iput-boolean v0, p0, Landroid/telephony/ServiceState;->mCssIndicator:Z
 
     .line 641
     return-void
 
     .line 640
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public setEmergencyOnly(Z)V
-    .registers 2
+    .locals 0
     .parameter "emergencyOnly"
 
     .prologue
@@ -1792,7 +1792,7 @@
 .end method
 
 .method public setIsManualSelection(Z)V
-    .registers 2
+    .locals 0
     .parameter "isManual"
 
     .prologue
@@ -1804,7 +1804,7 @@
 .end method
 
 .method public setOperatorAlphaLong(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "longName"
 
     .prologue
@@ -1816,7 +1816,7 @@
 .end method
 
 .method public setOperatorName(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "longName"
     .parameter "shortName"
     .parameter "numeric"
@@ -1836,7 +1836,7 @@
 .end method
 
 .method public setRadioTechnology(I)V
-    .registers 2
+    .locals 0
     .parameter "state"
 
     .prologue
@@ -1848,7 +1848,7 @@
 .end method
 
 .method public setRoaming(Z)V
-    .registers 2
+    .locals 0
     .parameter "roaming"
 
     .prologue
@@ -1860,7 +1860,7 @@
 .end method
 
 .method public setState(I)V
-    .registers 2
+    .locals 0
     .parameter "state"
 
     .prologue
@@ -1872,7 +1872,7 @@
 .end method
 
 .method public setStateOff()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 510
@@ -1885,7 +1885,7 @@
 .end method
 
 .method public setStateOutOfService()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 506
@@ -1898,7 +1898,7 @@
 .end method
 
 .method public setSystemAndNetworkId(II)V
-    .registers 3
+    .locals 0
     .parameter "systemId"
     .parameter "networkId"
 
@@ -1914,7 +1914,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 471
@@ -1944,11 +1944,11 @@
 
     iget-boolean v1, p0, Landroid/telephony/ServiceState;->mRoaming:Z
 
-    if-eqz v1, :cond_b1
+    if-eqz v1, :cond_0
 
     const-string/jumbo v1, "roaming"
 
-    :goto_1e
+    :goto_0
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -1997,11 +1997,11 @@
 
     iget-boolean v1, p0, Landroid/telephony/ServiceState;->mIsManualNetworkSelection:Z
 
-    if-eqz v1, :cond_b5
+    if-eqz v1, :cond_1
 
     const-string v1, "(manual)"
 
-    :goto_52
+    :goto_1
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -2024,11 +2024,11 @@
 
     iget-boolean v1, p0, Landroid/telephony/ServiceState;->mCssIndicator:Z
 
-    if-eqz v1, :cond_b8
+    if-eqz v1, :cond_2
 
     const-string v1, "CSS supported"
 
-    :goto_6c
+    :goto_2
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -2099,24 +2099,24 @@
 
     return-object v1
 
-    :cond_b1
+    :cond_0
     const-string v1, "home"
 
-    goto/16 :goto_1e
+    goto/16 :goto_0
 
-    :cond_b5
+    :cond_1
     const-string v1, ""
 
-    goto :goto_52
+    goto :goto_1
 
-    :cond_b8
+    :cond_2
     const-string v1, "CSS not supported"
 
-    goto :goto_6c
+    goto :goto_2
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "out"
     .parameter "flags"
 
@@ -2133,11 +2133,11 @@
     .line 217
     iget-boolean v0, p0, Landroid/telephony/ServiceState;->mRoaming:Z
 
-    if-eqz v0, :cond_59
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_c
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 218
@@ -2158,11 +2158,11 @@
     .line 221
     iget-boolean v0, p0, Landroid/telephony/ServiceState;->mIsManualNetworkSelection:Z
 
-    if-eqz v0, :cond_5b
+    if-eqz v0, :cond_1
 
     move v0, v1
 
-    :goto_23
+    :goto_1
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 222
@@ -2173,11 +2173,11 @@
     .line 223
     iget-boolean v0, p0, Landroid/telephony/ServiceState;->mCssIndicator:Z
 
-    if-eqz v0, :cond_5d
+    if-eqz v0, :cond_2
 
     move v0, v1
 
-    :goto_30
+    :goto_2
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 224
@@ -2213,35 +2213,35 @@
     .line 230
     iget-boolean v0, p0, Landroid/telephony/ServiceState;->mIsEmergencyOnly:Z
 
-    if-eqz v0, :cond_5f
+    if-eqz v0, :cond_3
 
-    :goto_55
+    :goto_3
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 231
     return-void
 
-    :cond_59
+    :cond_0
     move v0, v2
 
     .line 217
-    goto :goto_c
+    goto :goto_0
 
-    :cond_5b
+    :cond_1
     move v0, v2
 
     .line 221
-    goto :goto_23
+    goto :goto_1
 
-    :cond_5d
+    :cond_2
     move v0, v2
 
     .line 223
-    goto :goto_30
+    goto :goto_2
 
-    :cond_5f
+    :cond_3
     move v1, v2
 
     .line 230
-    goto :goto_55
+    goto :goto_3
 .end method

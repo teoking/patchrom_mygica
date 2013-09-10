@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -60,7 +60,7 @@
 .end method
 
 .method private calcOutputFormatForInput(Landroid/filterfw/core/Frame;)V
-    .registers 4
+    .locals 2
     .parameter "frame"
 
     .prologue
@@ -145,7 +145,7 @@
 
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -155,7 +155,7 @@
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 14
+    .locals 12
     .parameter "context"
 
     .prologue
@@ -164,7 +164,7 @@
     .line 93
     iget v7, p0, Landroid/filterpacks/imageproc/ImageSlicer;->mSliceIndex:I
 
-    if-nez v7, :cond_12
+    if-nez v7, :cond_0
 
     .line 94
     const-string v7, "image"
@@ -181,7 +181,7 @@
     invoke-direct {p0, v7}, Landroid/filterpacks/imageproc/ImageSlicer;->calcOutputFormatForInput(Landroid/filterfw/core/Frame;)V
 
     .line 98
-    :cond_12
+    :cond_0
     iget-object v7, p0, Landroid/filterpacks/imageproc/ImageSlicer;->mOriginalFrame:Landroid/filterfw/core/Frame;
 
     invoke-virtual {v7}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
@@ -215,7 +215,7 @@
     .local v1, output:Landroid/filterfw/core/Frame;
     iget-object v7, p0, Landroid/filterpacks/imageproc/ImageSlicer;->mProgram:Landroid/filterfw/core/Program;
 
-    if-nez v7, :cond_35
+    if-nez v7, :cond_1
 
     .line 107
     invoke-static {p1}, Landroid/filterfw/core/ShaderProgram;->createIdentity(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/ShaderProgram;
@@ -225,7 +225,7 @@
     iput-object v7, p0, Landroid/filterpacks/imageproc/ImageSlicer;->mProgram:Landroid/filterfw/core/Program;
 
     .line 111
-    :cond_35
+    :cond_1
     iget v7, p0, Landroid/filterpacks/imageproc/ImageSlicer;->mSliceIndex:I
 
     iget v8, p0, Landroid/filterpacks/imageproc/ImageSlicer;->mXSlices:I
@@ -327,7 +327,7 @@
 
     mul-int/2addr v8, v9
 
-    if-ne v7, v8, :cond_9a
+    if-ne v7, v8, :cond_2
 
     .line 127
     iput v11, p0, Landroid/filterpacks/imageproc/ImageSlicer;->mSliceIndex:I
@@ -345,7 +345,7 @@
     invoke-virtual {p0, v7, v8}, Landroid/filterpacks/imageproc/ImageSlicer;->setWaitsOnInputPort(Ljava/lang/String;Z)V
 
     .line 137
-    :goto_91
+    :goto_0
     const-string v7, "image"
 
     invoke-virtual {p0, v7, v1}, Landroid/filterpacks/imageproc/ImageSlicer;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
@@ -357,7 +357,7 @@
     return-void
 
     .line 132
-    :cond_9a
+    :cond_2
     iget-object v7, p0, Landroid/filterpacks/imageproc/ImageSlicer;->mOriginalFrame:Landroid/filterfw/core/Frame;
 
     invoke-virtual {v7}, Landroid/filterfw/core/Frame;->retain()Landroid/filterfw/core/Frame;
@@ -367,11 +367,11 @@
 
     invoke-virtual {p0, v7, v11}, Landroid/filterpacks/imageproc/ImageSlicer;->setWaitsOnInputPort(Ljava/lang/String;Z)V
 
-    goto :goto_91
+    goto :goto_0
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x3

@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/speech/tts/TextToSpeechService;)V
-    .registers 4
+    .locals 2
     .parameter
 
     .prologue
@@ -49,7 +49,7 @@
 .end method
 
 .method private broadcastTtsQueueProcessingCompleted()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 252
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method protected onLooperPrepared()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 238
@@ -91,13 +91,13 @@
 .end method
 
 .method public queueIdle()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 243
     iget-boolean v0, p0, Landroid/speech/tts/TextToSpeechService$SynthThread;->mFirstIdle:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 244
     const/4 v0, 0x0
@@ -105,14 +105,14 @@
     iput-boolean v0, p0, Landroid/speech/tts/TextToSpeechService$SynthThread;->mFirstIdle:Z
 
     .line 248
-    :goto_7
+    :goto_0
     const/4 v0, 0x1
 
     return v0
 
     .line 246
-    :cond_9
+    :cond_0
     invoke-direct {p0}, Landroid/speech/tts/TextToSpeechService$SynthThread;->broadcastTtsQueueProcessingCompleted()V
 
-    goto :goto_7
+    goto :goto_0
 .end method

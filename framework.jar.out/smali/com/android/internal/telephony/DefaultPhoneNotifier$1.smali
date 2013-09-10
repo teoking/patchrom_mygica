@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 249
@@ -38,7 +38,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/DefaultPhoneNotifier$1;->$SwitchMap$com$android$internal$telephony$Phone$DataActivityState:[I
 
-    :try_start_9
+    :try_start_0
     sget-object v0, Lcom/android/internal/telephony/DefaultPhoneNotifier$1;->$SwitchMap$com$android$internal$telephony$Phone$DataActivityState:[I
 
     sget-object v1, Lcom/android/internal/telephony/Phone$DataActivityState;->DATAIN:Lcom/android/internal/telephony/Phone$DataActivityState;
@@ -50,11 +50,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_14
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_14} :catch_8f
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_8
 
-    :goto_14
-    :try_start_14
+    :goto_0
+    :try_start_1
     sget-object v0, Lcom/android/internal/telephony/DefaultPhoneNotifier$1;->$SwitchMap$com$android$internal$telephony$Phone$DataActivityState:[I
 
     sget-object v1, Lcom/android/internal/telephony/Phone$DataActivityState;->DATAOUT:Lcom/android/internal/telephony/Phone$DataActivityState;
@@ -66,11 +66,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_1f} :catch_8d
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_7
 
-    :goto_1f
-    :try_start_1f
+    :goto_1
+    :try_start_2
     sget-object v0, Lcom/android/internal/telephony/DefaultPhoneNotifier$1;->$SwitchMap$com$android$internal$telephony$Phone$DataActivityState:[I
 
     sget-object v1, Lcom/android/internal/telephony/Phone$DataActivityState;->DATAINANDOUT:Lcom/android/internal/telephony/Phone$DataActivityState;
@@ -82,11 +82,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_2a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1f .. :try_end_2a} :catch_8b
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_6
 
-    :goto_2a
-    :try_start_2a
+    :goto_2
+    :try_start_3
     sget-object v0, Lcom/android/internal/telephony/DefaultPhoneNotifier$1;->$SwitchMap$com$android$internal$telephony$Phone$DataActivityState:[I
 
     sget-object v1, Lcom/android/internal/telephony/Phone$DataActivityState;->DORMANT:Lcom/android/internal/telephony/Phone$DataActivityState;
@@ -98,11 +98,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_35
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2a .. :try_end_35} :catch_89
+    :try_end_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_5
 
     .line 215
-    :goto_35
+    :goto_3
     invoke-static {}, Lcom/android/internal/telephony/Phone$DataState;->values()[Lcom/android/internal/telephony/Phone$DataState;
 
     move-result-object v0
@@ -113,7 +113,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/DefaultPhoneNotifier$1;->$SwitchMap$com$android$internal$telephony$Phone$DataState:[I
 
-    :try_start_3e
+    :try_start_4
     sget-object v0, Lcom/android/internal/telephony/DefaultPhoneNotifier$1;->$SwitchMap$com$android$internal$telephony$Phone$DataState:[I
 
     sget-object v1, Lcom/android/internal/telephony/Phone$DataState;->CONNECTING:Lcom/android/internal/telephony/Phone$DataState;
@@ -125,11 +125,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_49
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3e .. :try_end_49} :catch_87
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_4
 
-    :goto_49
-    :try_start_49
+    :goto_4
+    :try_start_5
     sget-object v0, Lcom/android/internal/telephony/DefaultPhoneNotifier$1;->$SwitchMap$com$android$internal$telephony$Phone$DataState:[I
 
     sget-object v1, Lcom/android/internal/telephony/Phone$DataState;->CONNECTED:Lcom/android/internal/telephony/Phone$DataState;
@@ -141,11 +141,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_54
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_49 .. :try_end_54} :catch_85
+    :try_end_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_3
 
-    :goto_54
-    :try_start_54
+    :goto_5
+    :try_start_6
     sget-object v0, Lcom/android/internal/telephony/DefaultPhoneNotifier$1;->$SwitchMap$com$android$internal$telephony$Phone$DataState:[I
 
     sget-object v1, Lcom/android/internal/telephony/Phone$DataState;->SUSPENDED:Lcom/android/internal/telephony/Phone$DataState;
@@ -157,11 +157,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_5f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_54 .. :try_end_5f} :catch_83
+    :try_end_6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_2
 
     .line 185
-    :goto_5f
+    :goto_6
     invoke-static {}, Lcom/android/internal/telephony/Phone$State;->values()[Lcom/android/internal/telephony/Phone$State;
 
     move-result-object v0
@@ -172,7 +172,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/DefaultPhoneNotifier$1;->$SwitchMap$com$android$internal$telephony$Phone$State:[I
 
-    :try_start_68
+    :try_start_7
     sget-object v0, Lcom/android/internal/telephony/DefaultPhoneNotifier$1;->$SwitchMap$com$android$internal$telephony$Phone$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/Phone$State;->RINGING:Lcom/android/internal/telephony/Phone$State;
@@ -184,11 +184,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_73
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_68 .. :try_end_73} :catch_81
+    :try_end_7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_1
 
-    :goto_73
-    :try_start_73
+    :goto_7
+    :try_start_8
     sget-object v0, Lcom/android/internal/telephony/DefaultPhoneNotifier$1;->$SwitchMap$com$android$internal$telephony$Phone$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/Phone$State;->OFFHOOK:Lcom/android/internal/telephony/Phone$State;
@@ -200,56 +200,56 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_7e
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_73 .. :try_end_7e} :catch_7f
+    :try_end_8
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_0
 
-    :goto_7e
+    :goto_8
     return-void
 
-    :catch_7f
+    :catch_0
     move-exception v0
 
-    goto :goto_7e
+    goto :goto_8
 
-    :catch_81
+    :catch_1
     move-exception v0
 
-    goto :goto_73
+    goto :goto_7
 
     .line 215
-    :catch_83
+    :catch_2
     move-exception v0
 
-    goto :goto_5f
+    goto :goto_6
 
-    :catch_85
+    :catch_3
     move-exception v0
 
-    goto :goto_54
+    goto :goto_5
 
-    :catch_87
+    :catch_4
     move-exception v0
 
-    goto :goto_49
+    goto :goto_4
 
     .line 249
-    :catch_89
+    :catch_5
     move-exception v0
 
-    goto :goto_35
+    goto :goto_3
 
-    :catch_8b
+    :catch_6
     move-exception v0
 
-    goto :goto_2a
+    goto :goto_2
 
-    :catch_8d
+    :catch_7
     move-exception v0
 
-    goto :goto_1f
+    goto :goto_1
 
-    :catch_8f
+    :catch_8
     move-exception v0
 
-    goto :goto_14
+    goto :goto_0
 .end method

@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 277
@@ -45,23 +45,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     sput-boolean v0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->$assertionsDisabled:Z
 
     return-void
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 277
@@ -78,7 +78,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/input/PersistentDataStore$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -89,7 +89,7 @@
 .end method
 
 .method private updateCurrentKeyboardLayoutIfRemoved(Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
     .parameter "removedKeyboardLayout"
     .parameter "removedIndex"
 
@@ -101,7 +101,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_24
+    if-eqz v1, :cond_1
 
     .line 326
     iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
@@ -110,7 +110,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_25
+    if-nez v1, :cond_2
 
     .line 327
     move v0, p2
@@ -123,13 +123,13 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_1a
+    if-ne v0, v1, :cond_0
 
     .line 329
     const/4 v0, 0x0
 
     .line 331
-    :cond_1a
+    :cond_0
     iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -142,23 +142,23 @@
 
     .line 336
     .end local v0           #index:I
-    :cond_24
-    :goto_24
+    :cond_1
+    :goto_0
     return-void
 
     .line 333
-    :cond_25
+    :cond_2
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
-    goto :goto_24
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public addKeyboardLayout(Ljava/lang/String;)Z
-    .registers 5
+    .locals 3
     .parameter "keyboardLayout"
 
     .prologue
@@ -171,17 +171,17 @@
 
     .line 303
     .local v0, index:I
-    if-ltz v0, :cond_a
+    if-ltz v0, :cond_0
 
     .line 304
     const/4 v1, 0x0
 
     .line 310
-    :goto_9
+    :goto_0
     return v1
 
     .line 306
-    :cond_a
+    :cond_0
     iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
     neg-int v2, v0
@@ -193,20 +193,20 @@
     .line 307
     iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
-    if-nez v1, :cond_18
+    if-nez v1, :cond_1
 
     .line 308
     iput-object p1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
     .line 310
-    :cond_18
+    :cond_1
     const/4 v1, 0x1
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public getCurrentKeyboardLayout()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 282
@@ -216,7 +216,7 @@
 .end method
 
 .method public getKeyboardLayouts()[Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 295
@@ -226,7 +226,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 296
     const-class v0, Ljava/lang/String;
@@ -240,10 +240,10 @@
     check-cast v0, [Ljava/lang/String;
 
     .line 298
-    :goto_12
+    :goto_0
     return-object v0
 
-    :cond_13
+    :cond_0
     iget-object v0, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
@@ -260,11 +260,11 @@
 
     check-cast v0, [Ljava/lang/String;
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public loadFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
-    .registers 8
+    .locals 6
     .parameter "parser"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -283,13 +283,13 @@
 
     .line 371
     .local v2, outerDepth:I
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     invoke-static {p1, v2}, Lcom/android/internal/util/XmlUtils;->nextElementWithin(Lorg/xmlpull/v1/XmlPullParser;I)Z
 
     move-result v3
 
-    if-eqz v3, :cond_5b
+    if-eqz v3, :cond_4
 
     .line 372
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
@@ -302,7 +302,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_0
 
     .line 373
     const-string v3, "descriptor"
@@ -313,7 +313,7 @@
 
     .line 374
     .local v1, descriptor:Ljava/lang/String;
-    if-nez v1, :cond_27
+    if-nez v1, :cond_1
 
     .line 375
     new-instance v3, Lorg/xmlpull/v1/XmlPullParserException;
@@ -325,7 +325,7 @@
     throw v3
 
     .line 378
-    :cond_27
+    :cond_1
     const-string v3, "current"
 
     invoke-interface {p1, v5, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -340,7 +340,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3d
+    if-eqz v3, :cond_2
 
     .line 380
     new-instance v3, Lorg/xmlpull/v1/XmlPullParserException;
@@ -352,13 +352,13 @@
     throw v3
 
     .line 384
-    :cond_3d
+    :cond_2
     iget-object v3, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 385
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
     const-string v3, "true"
 
@@ -366,12 +366,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_0
 
     .line 386
     iget-object v3, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
-    if-eqz v3, :cond_58
+    if-eqz v3, :cond_3
 
     .line 387
     new-instance v3, Lorg/xmlpull/v1/XmlPullParserException;
@@ -383,15 +383,15 @@
     throw v3
 
     .line 390
-    :cond_58
+    :cond_3
     iput-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
-    goto :goto_5
+    goto :goto_0
 
     .line 396
     .end local v0           #current:Ljava/lang/String;
     .end local v1           #descriptor:Ljava/lang/String;
-    :cond_5b
+    :cond_4
     iget-object v3, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
     invoke-static {v3}, Ljava/util/Collections;->sort(Ljava/util/List;)V
@@ -399,7 +399,7 @@
     .line 400
     iget-object v3, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
-    if-nez v3, :cond_77
+    if-nez v3, :cond_5
 
     iget-object v3, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
@@ -407,7 +407,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_77
+    if-nez v3, :cond_5
 
     .line 401
     iget-object v3, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
@@ -423,12 +423,12 @@
     iput-object v3, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
 
     .line 403
-    :cond_77
+    :cond_5
     return-void
 .end method
 
 .method public removeKeyboardLayout(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "keyboardLayout"
 
     .prologue
@@ -441,17 +441,17 @@
 
     .line 315
     .local v0, index:I
-    if-gez v0, :cond_a
+    if-gez v0, :cond_0
 
     .line 316
     const/4 v1, 0x0
 
     .line 320
-    :goto_9
+    :goto_0
     return v1
 
     .line 318
-    :cond_a
+    :cond_0
     iget-object v1, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
@@ -462,11 +462,11 @@
     .line 320
     const/4 v1, 0x1
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public removeUninstalledKeyboardLayouts(Ljava/util/Set;)Z
-    .registers 9
+    .locals 7
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -496,12 +496,12 @@
 
     .end local v1           #i:I
     .local v2, i:I
-    :goto_8
+    :goto_0
     add-int/lit8 v1, v2, -0x1
 
     .end local v2           #i:I
     .restart local v1       #i:I
-    if-lez v2, :cond_3d
+    if-lez v2, :cond_1
 
     .line 357
     iget-object v4, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
@@ -518,7 +518,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_3b
+    if-nez v4, :cond_0
 
     .line 359
     const-string v4, "InputManager"
@@ -554,24 +554,24 @@
     .line 362
     const/4 v0, 0x1
 
-    :cond_3b
+    :cond_0
     move v2, v1
 
     .line 364
     .end local v1           #i:I
     .restart local v2       #i:I
-    goto :goto_8
+    goto :goto_0
 
     .line 365
     .end local v2           #i:I
     .end local v3           #keyboardLayout:Ljava/lang/String;
     .restart local v1       #i:I
-    :cond_3d
+    :cond_1
     return v0
 .end method
 
 .method public saveToXml(Lorg/xmlpull/v1/XmlSerializer;)V
-    .registers 7
+    .locals 5
     .parameter "serializer"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -590,12 +590,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_7
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_32
+    if-eqz v2, :cond_1
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -621,7 +621,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2c
+    if-eqz v2, :cond_0
 
     .line 410
     const-string v2, "current"
@@ -631,21 +631,21 @@
     invoke-interface {p1, v4, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     .line 412
-    :cond_2c
+    :cond_0
     const-string v2, "keyboard-layout"
 
     invoke-interface {p1, v4, v2}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    goto :goto_7
+    goto :goto_0
 
     .line 414
     .end local v1           #layout:Ljava/lang/String;
-    :cond_32
+    :cond_1
     return-void
 .end method
 
 .method public setCurrentKeyboardLayout(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "keyboardLayout"
 
     .prologue
@@ -656,17 +656,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 287
     const/4 v0, 0x0
 
     .line 291
-    :goto_9
+    :goto_0
     return v0
 
     .line 289
-    :cond_a
+    :cond_0
     invoke-virtual {p0, p1}, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->addKeyboardLayout(Ljava/lang/String;)Z
 
     .line 290
@@ -675,11 +675,11 @@
     .line 291
     const/4 v0, 0x1
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public switchKeyboardLayout(I)Z
-    .registers 6
+    .locals 4
     .parameter "direction"
 
     .prologue
@@ -694,17 +694,17 @@
     .local v1, size:I
     const/4 v2, 0x2
 
-    if-ge v1, v2, :cond_b
+    if-ge v1, v2, :cond_0
 
     .line 341
     const/4 v2, 0x0
 
     .line 351
-    :goto_a
+    :goto_0
     return v2
 
     .line 343
-    :cond_b
+    :cond_0
     iget-object v2, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
     iget-object v3, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mCurrentKeyboardLayout:Ljava/lang/String;
@@ -717,9 +717,9 @@
     .local v0, index:I
     sget-boolean v2, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->$assertionsDisabled:Z
 
-    if-nez v2, :cond_1f
+    if-nez v2, :cond_1
 
-    if-gez v0, :cond_1f
+    if-gez v0, :cond_1
 
     new-instance v2, Ljava/lang/AssertionError;
 
@@ -728,8 +728,8 @@
     throw v2
 
     .line 345
-    :cond_1f
-    if-lez p1, :cond_31
+    :cond_1
+    if-lez p1, :cond_2
 
     .line 346
     add-int/lit8 v2, v0, 0x1
@@ -737,7 +737,7 @@
     rem-int v0, v2, v1
 
     .line 350
-    :goto_25
+    :goto_1
     iget-object v2, p0, Lcom/android/server/input/PersistentDataStore$InputDeviceState;->mKeyboardLayouts:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -751,15 +751,15 @@
     .line 351
     const/4 v2, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 348
-    :cond_31
+    :cond_2
     add-int v2, v0, v1
 
     add-int/lit8 v2, v2, -0x1
 
     rem-int v0, v2, v1
 
-    goto :goto_25
+    goto :goto_1
 .end method

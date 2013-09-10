@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/webkit/BrowserFrame;Ljava/lang/Object;Z)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "object"
     .parameter "requireAnnotation"

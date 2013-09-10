@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService$2;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 33
+    .locals 32
 
     .prologue
     .line 1245
@@ -175,7 +175,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1265
-    :try_start_79
+    :try_start_0
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v2
@@ -218,26 +218,26 @@
 
     .line 1272
     .local v24, in:Ljava/io/BufferedReader;
-    :goto_9d
+    :goto_0
     invoke-virtual/range {v24 .. v24}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v25
 
     .line 1273
     .local v25, line:Ljava/lang/String;
-    if-nez v25, :cond_140
+    if-nez v25, :cond_1
 
     .line 1283
     invoke-virtual/range {v22 .. v22}, Ljava/io/InputStreamReader;->close()V
-    :try_end_a6
-    .catch Ljava/io/IOException; {:try_start_79 .. :try_end_a6} :catch_164
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1286
     .end local v22           #converter:Ljava/io/InputStreamReader;
     .end local v24           #in:Ljava/io/BufferedReader;
     .end local v25           #line:Ljava/lang/String;
     .end local v31           #proc:Ljava/lang/Process;
-    :goto_a6
+    :goto_1
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityManagerService$2$1;->this$1:Lcom/android/server/am/ActivityManagerService$2;
@@ -247,7 +247,7 @@
     monitor-enter v3
 
     .line 1287
-    :try_start_ad
+    :try_start_1
     invoke-virtual {v8}, Ljava/io/PrintWriter;->println()V
 
     .line 1288
@@ -325,8 +325,8 @@
 
     .line 1293
     monitor-exit v3
-    :try_end_ee
-    .catchall {:try_start_ad .. :try_end_ee} :catchall_167
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 1294
     invoke-virtual/range {v21 .. v21}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
@@ -387,7 +387,7 @@
     monitor-enter v3
 
     .line 1299
-    :try_start_124
+    :try_start_2
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v27
@@ -404,7 +404,7 @@
 
     cmp-long v2, v11, v27
 
-    if-gez v2, :cond_13e
+    if-gez v2, :cond_0
 
     .line 1301
     move-object/from16 v0, p0
@@ -418,10 +418,10 @@
     iput-wide v0, v2, Lcom/android/server/am/ActivityManagerService;->mLastMemUsageReportTime:J
 
     .line 1303
-    :cond_13e
+    :cond_0
     monitor-exit v3
-    :try_end_13f
-    .catchall {:try_start_124 .. :try_end_13f} :catchall_16a
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 1304
     return-void
@@ -432,13 +432,13 @@
     .restart local v24       #in:Ljava/io/BufferedReader;
     .restart local v25       #line:Ljava/lang/String;
     .restart local v31       #proc:Ljava/lang/Process;
-    :cond_140
-    :try_start_140
+    :cond_1
+    :try_start_3
     invoke-virtual/range {v25 .. v25}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-lez v2, :cond_154
+    if-lez v2, :cond_2
 
     .line 1277
     move-object/from16 v0, v26
@@ -455,7 +455,7 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 1280
-    :cond_154
+    :cond_2
     move-object/from16 v0, v23
 
     move-object/from16 v1, v25
@@ -468,40 +468,40 @@
     move-object/from16 v0, v23
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-    :try_end_162
-    .catch Ljava/io/IOException; {:try_start_140 .. :try_end_162} :catch_164
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
-    goto/16 :goto_9d
+    goto/16 :goto_0
 
     .line 1284
     .end local v22           #converter:Ljava/io/InputStreamReader;
     .end local v24           #in:Ljava/io/BufferedReader;
     .end local v25           #line:Ljava/lang/String;
     .end local v31           #proc:Ljava/lang/Process;
-    :catch_164
+    :catch_0
     move-exception v2
 
-    goto/16 :goto_a6
+    goto/16 :goto_1
 
     .line 1293
-    :catchall_167
+    :catchall_0
     move-exception v2
 
-    :try_start_168
+    :try_start_4
     monitor-exit v3
-    :try_end_169
-    .catchall {:try_start_168 .. :try_end_169} :catchall_167
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     throw v2
 
     .line 1303
-    :catchall_16a
+    :catchall_1
     move-exception v2
 
-    :try_start_16b
+    :try_start_5
     monitor-exit v3
-    :try_end_16c
-    .catchall {:try_start_16b .. :try_end_16c} :catchall_16a
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     throw v2
 .end method

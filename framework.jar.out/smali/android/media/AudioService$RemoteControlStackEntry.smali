@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/PendingIntent;Landroid/content/ComponentName;)V
-    .registers 4
+    .locals 1
     .parameter "mediaIntent"
     .parameter "eventReceiver"
 
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -109,7 +109,7 @@
 .end method
 
 .method public resetPlaybackInfo()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/16 v2, 0xf
@@ -148,26 +148,28 @@
 .end method
 
 .method public unlinkToRcClientDeath()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 4356
     iget-object v1, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mRcClientDeathHandler:Landroid/media/AudioService$RcClientDeathHandler;
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mRcClientDeathHandler:Landroid/media/AudioService$RcClientDeathHandler;
 
+    #getter for: Landroid/media/AudioService$RcClientDeathHandler;->mCb:Landroid/os/IBinder;
     invoke-static {v1}, Landroid/media/AudioService$RcClientDeathHandler;->access$8200(Landroid/media/AudioService$RcClientDeathHandler;)Landroid/os/IBinder;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_0
 
     .line 4358
-    :try_start_c
+    :try_start_0
     iget-object v1, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mRcClientDeathHandler:Landroid/media/AudioService$RcClientDeathHandler;
 
+    #getter for: Landroid/media/AudioService$RcClientDeathHandler;->mCb:Landroid/os/IBinder;
     invoke-static {v1}, Landroid/media/AudioService$RcClientDeathHandler;->access$8200(Landroid/media/AudioService$RcClientDeathHandler;)Landroid/os/IBinder;
 
     move-result-object v1
@@ -182,16 +184,16 @@
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mRcClientDeathHandler:Landroid/media/AudioService$RcClientDeathHandler;
-    :try_end_1b
-    .catch Ljava/util/NoSuchElementException; {:try_start_c .. :try_end_1b} :catch_1c
+    :try_end_0
+    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 4366
-    :cond_1b
-    :goto_1b
+    :cond_0
+    :goto_0
     return-void
 
     .line 4360
-    :catch_1c
+    :catch_0
     move-exception v0
 
     .line 4362
@@ -227,5 +229,5 @@
     .line 4363
     invoke-virtual {v0}, Ljava/util/NoSuchElementException;->printStackTrace()V
 
-    goto :goto_1b
+    goto :goto_0
 .end method

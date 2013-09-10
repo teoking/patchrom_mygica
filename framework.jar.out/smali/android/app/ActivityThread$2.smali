@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/ActivityThread;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .registers 5
+    .locals 3
     .parameter "newConfig"
 
     .prologue
@@ -50,7 +50,7 @@
     monitor-enter v1
 
     .line 4678
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Landroid/app/ActivityThread$2;->this$0:Landroid/app/ActivityThread;
 
     const/4 v2, 0x0
@@ -59,14 +59,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_29
+    if-eqz v0, :cond_1
 
     .line 4681
     iget-object v0, p0, Landroid/app/ActivityThread$2;->this$0:Landroid/app/ActivityThread;
 
     iget-object v0, v0, Landroid/app/ActivityThread;->mPendingConfiguration:Landroid/content/res/Configuration;
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/app/ActivityThread$2;->this$0:Landroid/app/ActivityThread;
 
@@ -76,10 +76,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_29
+    if-eqz v0, :cond_1
 
     .line 4683
-    :cond_1e
+    :cond_0
     iget-object v0, p0, Landroid/app/ActivityThread$2;->this$0:Landroid/app/ActivityThread;
 
     iput-object p1, v0, Landroid/app/ActivityThread;->mPendingConfiguration:Landroid/content/res/Configuration;
@@ -89,28 +89,29 @@
 
     const/16 v2, 0x76
 
+    #calls: Landroid/app/ActivityThread;->queueOrSendMessage(ILjava/lang/Object;)V
     invoke-static {v0, v2, p1}, Landroid/app/ActivityThread;->access$300(Landroid/app/ActivityThread;ILjava/lang/Object;)V
 
     .line 4688
-    :cond_29
+    :cond_1
     monitor-exit v1
 
     .line 4689
     return-void
 
     .line 4688
-    :catchall_2b
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_2d
-    .catchall {:try_start_5 .. :try_end_2d} :catchall_2b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public onLowMemory()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 4691
@@ -118,7 +119,7 @@
 .end method
 
 .method public onTrimMemory(I)V
-    .registers 2
+    .locals 0
     .parameter "level"
 
     .prologue

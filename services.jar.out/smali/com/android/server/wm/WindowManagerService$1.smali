@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/wm/WindowManagerService;Landroid/os/Handler;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter "x1"
@@ -37,17 +37,18 @@
 
 # virtual methods
 .method public acquired()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 298
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$1;->this$0:Lcom/android/server/wm/WindowManagerService;
 
+    #calls: Lcom/android/server/wm/WindowManagerService;->shouldAllowDisableKeyguard()Z
     invoke-static {v0}, Lcom/android/server/wm/WindowManagerService;->access$000(Lcom/android/server/wm/WindowManagerService;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 299
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$1;->this$0:Lcom/android/server/wm/WindowManagerService;
@@ -63,25 +64,26 @@
 
     const/4 v1, 0x1
 
+    #setter for: Lcom/android/server/wm/WindowManagerService;->mKeyguardDisabled:Z
     invoke-static {v0, v1}, Lcom/android/server/wm/WindowManagerService;->access$102(Lcom/android/server/wm/WindowManagerService;Z)Z
 
     .line 304
-    :goto_16
+    :goto_0
     return-void
 
     .line 302
-    :cond_17
+    :cond_0
     const-string v0, "WindowManager"
 
     const-string v1, "Not disabling keyguard since device policy is enforced"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method public released()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 307
@@ -101,11 +103,12 @@
     monitor-enter v1
 
     .line 309
-    :try_start_d
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$1;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     const/4 v2, 0x0
 
+    #setter for: Lcom/android/server/wm/WindowManagerService;->mKeyguardDisabled:Z
     invoke-static {v0, v2}, Lcom/android/server/wm/WindowManagerService;->access$102(Lcom/android/server/wm/WindowManagerService;Z)Z
 
     .line 310
@@ -122,12 +125,12 @@
     return-void
 
     .line 311
-    :catchall_1c
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1e
-    .catchall {:try_start_d .. :try_end_1e} :catchall_1c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

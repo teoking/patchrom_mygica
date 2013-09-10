@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/LocationManagerService;IDDFJLandroid/app/PendingIntent;Ljava/lang/String;)V
-    .registers 14
+    .locals 2
     .parameter
     .parameter "uid"
     .parameter "latitude"
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .registers 7
+    .locals 4
     .parameter "pw"
     .parameter "prefix"
 
@@ -281,7 +281,7 @@
 .end method
 
 .method getExpiration()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1485
@@ -291,7 +291,7 @@
 .end method
 
 .method getIntent()Landroid/app/PendingIntent;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1489
@@ -301,7 +301,7 @@
 .end method
 
 .method isInProximity(DDF)Z
-    .registers 11
+    .locals 5
     .parameter "latitude"
     .parameter "longitude"
     .parameter "accuracy"
@@ -342,21 +342,21 @@
 
     cmpg-double v3, v1, v3
 
-    if-gtz v3, :cond_21
+    if-gtz v3, :cond_0
 
     const/4 v3, 0x1
 
-    :goto_20
+    :goto_0
     return v3
 
-    :cond_21
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_20
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1503

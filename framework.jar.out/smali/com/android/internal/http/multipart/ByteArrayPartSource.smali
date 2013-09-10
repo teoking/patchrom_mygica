@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;[B)V
-    .registers 3
+    .locals 0
     .parameter "fileName"
     .parameter "bytes"
 
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public createInputStream()Ljava/io/InputStream;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 83
@@ -49,7 +49,7 @@
 .end method
 
 .method public getFileName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -59,7 +59,7 @@
 .end method
 
 .method public getLength()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 69

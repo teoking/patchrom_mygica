@@ -65,7 +65,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 199
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>(IIIIILjava/lang/String;)V
-    .registers 7
+    .locals 0
     .parameter "operation"
     .parameter "category"
     .parameter "language"
@@ -114,7 +114,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -170,7 +170,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 194
@@ -180,7 +180,7 @@
 .end method
 
 .method public getAlertOption()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 170
@@ -190,7 +190,7 @@
 .end method
 
 .method public getCategory()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 146
@@ -200,7 +200,7 @@
 .end method
 
 .method public getCategoryName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 178
@@ -210,7 +210,7 @@
 .end method
 
 .method public getLanguage()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 154
@@ -220,7 +220,7 @@
 .end method
 
 .method public getMaxMessages()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 162
@@ -230,7 +230,7 @@
 .end method
 
 .method public getOperation()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 138
@@ -240,7 +240,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 183
@@ -334,7 +334,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

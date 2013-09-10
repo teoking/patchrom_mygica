@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 6
+    .locals 3
     .parameter "activityContext"
     .parameter "attr"
 
@@ -87,7 +87,7 @@
     .line 414
     iget v1, p0, Landroid/app/SearchableInfo$ActionKeyInfo;->mKeyCode:I
 
-    if-nez v1, :cond_34
+    if-nez v1, :cond_0
 
     .line 415
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -99,18 +99,18 @@
     throw v1
 
     .line 416
-    :cond_34
+    :cond_0
     iget-object v1, p0, Landroid/app/SearchableInfo$ActionKeyInfo;->mQueryActionMsg:Ljava/lang/String;
 
-    if-nez v1, :cond_48
+    if-nez v1, :cond_1
 
     iget-object v1, p0, Landroid/app/SearchableInfo$ActionKeyInfo;->mSuggestActionMsg:Ljava/lang/String;
 
-    if-nez v1, :cond_48
+    if-nez v1, :cond_1
 
     iget-object v1, p0, Landroid/app/SearchableInfo$ActionKeyInfo;->mSuggestActionMsgColumn:Ljava/lang/String;
 
-    if-nez v1, :cond_48
+    if-nez v1, :cond_1
 
     .line 419
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -122,12 +122,12 @@
     throw v1
 
     .line 421
-    :cond_48
+    :cond_1
     return-void
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -167,7 +167,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/app/SearchableInfo$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -181,7 +181,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 470
@@ -191,7 +191,7 @@
 .end method
 
 .method public getKeyCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 442
@@ -201,7 +201,7 @@
 .end method
 
 .method public getQueryActionMsg()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 450
@@ -211,7 +211,7 @@
 .end method
 
 .method public getSuggestActionMsg()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 458
@@ -221,7 +221,7 @@
 .end method
 
 .method public getSuggestActionMsgColumn()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 466
@@ -231,7 +231,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

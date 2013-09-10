@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 284
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public createStaticService()Ljava/lang/Object;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 286

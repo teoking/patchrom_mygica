@@ -509,7 +509,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 22
@@ -519,38 +519,38 @@
 .end method
 
 .method public static isAbstractObject(I)Z
-    .registers 2
+    .locals 1
     .parameter "format"
 
     .prologue
     .line 280
-    sparse-switch p0, :sswitch_data_8
+    sparse-switch p0, :sswitch_data_0
 
     .line 292
     const/4 v0, 0x0
 
-    :goto_4
+    :goto_0
     return v0
 
     .line 290
-    :sswitch_5
+    :sswitch_0
     const/4 v0, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 280
     nop
 
-    :sswitch_data_8
+    :sswitch_data_0
     .sparse-switch
-        0xba01 -> :sswitch_5
-        0xba02 -> :sswitch_5
-        0xba03 -> :sswitch_5
-        0xba04 -> :sswitch_5
-        0xba05 -> :sswitch_5
-        0xba09 -> :sswitch_5
-        0xba0a -> :sswitch_5
-        0xba0b -> :sswitch_5
-        0xba81 -> :sswitch_5
+        0xba01 -> :sswitch_0
+        0xba02 -> :sswitch_0
+        0xba03 -> :sswitch_0
+        0xba04 -> :sswitch_0
+        0xba05 -> :sswitch_0
+        0xba09 -> :sswitch_0
+        0xba0a -> :sswitch_0
+        0xba0b -> :sswitch_0
+        0xba81 -> :sswitch_0
     .end sparse-switch
 .end method

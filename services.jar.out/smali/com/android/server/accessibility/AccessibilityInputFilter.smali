@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/accessibility/AccessibilityManagerService;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "service"
 
@@ -67,14 +67,14 @@
 
 # virtual methods
 .method public onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
     .line 126
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityInputFilter;->mTouchExplorer:Lcom/android/server/accessibility/TouchExplorer;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 127
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityInputFilter;->mTouchExplorer:Lcom/android/server/accessibility/TouchExplorer;
@@ -82,12 +82,12 @@
     invoke-virtual {v0, p1}, Lcom/android/server/accessibility/TouchExplorer;->onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
     .line 129
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public onInputEvent(Landroid/view/InputEvent;I)V
-    .registers 9
+    .locals 6
     .parameter "event"
     .parameter "policyFlags"
 
@@ -99,7 +99,7 @@
 
     const/16 v3, 0x1002
 
-    if-ne v2, v3, :cond_35
+    if-ne v2, v3, :cond_2
 
     move-object v1, p1
 
@@ -116,7 +116,7 @@
     .local v0, deviceId:I
     iget v2, p0, Lcom/android/server/accessibility/AccessibilityInputFilter;->mTouchscreenSourceDeviceId:I
 
-    if-eq v2, v0, :cond_1a
+    if-eq v2, v0, :cond_0
 
     .line 111
     iput v0, p0, Lcom/android/server/accessibility/AccessibilityInputFilter;->mTouchscreenSourceDeviceId:I
@@ -127,12 +127,12 @@
     invoke-virtual {v2, v1, p2}, Lcom/android/server/accessibility/TouchExplorer;->clear(Landroid/view/MotionEvent;I)V
 
     .line 114
-    :cond_1a
+    :cond_0
     const/high16 v2, 0x4000
 
     and-int/2addr v2, p2
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_1
 
     .line 115
     iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityInputFilter;->mPm:Landroid/os/PowerManager;
@@ -153,30 +153,30 @@
     .line 123
     .end local v0           #deviceId:I
     .end local v1           #motionEvent:Landroid/view/MotionEvent;
-    :goto_2e
+    :goto_0
     return-void
 
     .line 118
     .restart local v0       #deviceId:I
     .restart local v1       #motionEvent:Landroid/view/MotionEvent;
-    :cond_2f
+    :cond_1
     iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityInputFilter;->mTouchExplorer:Lcom/android/server/accessibility/TouchExplorer;
 
     invoke-virtual {v2, v1, p2}, Lcom/android/server/accessibility/TouchExplorer;->clear(Landroid/view/MotionEvent;I)V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 121
     .end local v0           #deviceId:I
     .end local v1           #motionEvent:Landroid/view/MotionEvent;
-    :cond_35
+    :cond_2
     invoke-super {p0, p1, p2}, Lcom/android/server/input/InputFilter;->onInputEvent(Landroid/view/InputEvent;I)V
 
-    goto :goto_2e
+    goto :goto_0
 .end method
 
 .method public onInstalled()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 88
@@ -198,7 +198,7 @@
 .end method
 
 .method public onUninstalled()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 97

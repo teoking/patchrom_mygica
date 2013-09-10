@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "attrs"
 
@@ -54,7 +54,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/view/LayoutInflater$BlinkLayout;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -65,7 +65,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/view/LayoutInflater$BlinkLayout;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -76,7 +76,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/view/LayoutInflater$BlinkLayout;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -88,7 +88,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/view/LayoutInflater$BlinkLayout;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -99,7 +99,7 @@
 .end method
 
 .method private makeBlink()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 901
@@ -126,25 +126,25 @@
 
 # virtual methods
 .method protected dispatchDraw(Landroid/graphics/Canvas;)V
-    .registers 3
+    .locals 1
     .parameter "canvas"
 
     .prologue
     .line 927
     iget-boolean v0, p0, Landroid/view/LayoutInflater$BlinkLayout;->mBlinkState:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 928
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchDraw(Landroid/graphics/Canvas;)V
 
     .line 930
-    :cond_7
+    :cond_0
     return-void
 .end method
 
 .method protected onAttachedToWindow()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x1
@@ -166,7 +166,7 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 917

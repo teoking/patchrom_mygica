@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 333
@@ -36,7 +36,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/gsm/GSMPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$Activity:[I
 
-    :try_start_9
+    :try_start_0
     sget-object v0, Lcom/android/internal/telephony/gsm/GSMPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$Activity:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$Activity;->DATAIN:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
@@ -48,11 +48,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_14
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_14} :catch_93
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_9
 
-    :goto_14
-    :try_start_14
+    :goto_0
+    :try_start_1
     sget-object v0, Lcom/android/internal/telephony/gsm/GSMPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$Activity:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$Activity;->DATAOUT:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
@@ -64,11 +64,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_1f} :catch_91
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_8
 
-    :goto_1f
-    :try_start_1f
+    :goto_1
+    :try_start_2
     sget-object v0, Lcom/android/internal/telephony/gsm/GSMPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$Activity:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$Activity;->DATAINANDOUT:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
@@ -80,11 +80,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_2a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1f .. :try_end_2a} :catch_8f
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_7
 
     .line 302
-    :goto_2a
+    :goto_2
     invoke-static {}, Lcom/android/internal/telephony/DataConnectionTracker$State;->values()[Lcom/android/internal/telephony/DataConnectionTracker$State;
 
     move-result-object v0
@@ -95,7 +95,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/gsm/GSMPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
-    :try_start_33
+    :try_start_3
     sget-object v0, Lcom/android/internal/telephony/gsm/GSMPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->FAILED:Lcom/android/internal/telephony/DataConnectionTracker$State;
@@ -107,11 +107,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_3e
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_33 .. :try_end_3e} :catch_8d
+    :try_end_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_6
 
-    :goto_3e
-    :try_start_3e
+    :goto_3
+    :try_start_4
     sget-object v0, Lcom/android/internal/telephony/gsm/GSMPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->IDLE:Lcom/android/internal/telephony/DataConnectionTracker$State;
@@ -123,11 +123,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_49
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3e .. :try_end_49} :catch_8b
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_5
 
-    :goto_49
-    :try_start_49
+    :goto_4
+    :try_start_5
     sget-object v0, Lcom/android/internal/telephony/gsm/GSMPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->CONNECTED:Lcom/android/internal/telephony/DataConnectionTracker$State;
@@ -139,11 +139,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_54
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_49 .. :try_end_54} :catch_89
+    :try_end_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_4
 
-    :goto_54
-    :try_start_54
+    :goto_5
+    :try_start_6
     sget-object v0, Lcom/android/internal/telephony/gsm/GSMPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->DISCONNECTING:Lcom/android/internal/telephony/DataConnectionTracker$State;
@@ -155,11 +155,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_5f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_54 .. :try_end_5f} :catch_87
+    :try_end_6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_3
 
-    :goto_5f
-    :try_start_5f
+    :goto_6
+    :try_start_7
     sget-object v0, Lcom/android/internal/telephony/gsm/GSMPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->INITING:Lcom/android/internal/telephony/DataConnectionTracker$State;
@@ -171,11 +171,11 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_6a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5f .. :try_end_6a} :catch_85
+    :try_end_7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_2
 
-    :goto_6a
-    :try_start_6a
+    :goto_7
+    :try_start_8
     sget-object v0, Lcom/android/internal/telephony/gsm/GSMPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->CONNECTING:Lcom/android/internal/telephony/DataConnectionTracker$State;
@@ -187,11 +187,11 @@
     const/4 v2, 0x6
 
     aput v2, v0, v1
-    :try_end_75
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6a .. :try_end_75} :catch_83
+    :try_end_8
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_1
 
-    :goto_75
-    :try_start_75
+    :goto_8
+    :try_start_9
     sget-object v0, Lcom/android/internal/telephony/gsm/GSMPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->SCANNING:Lcom/android/internal/telephony/DataConnectionTracker$State;
@@ -203,60 +203,60 @@
     const/4 v2, 0x7
 
     aput v2, v0, v1
-    :try_end_80
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_75 .. :try_end_80} :catch_81
+    :try_end_9
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_0
 
-    :goto_80
+    :goto_9
     return-void
 
-    :catch_81
+    :catch_0
     move-exception v0
 
-    goto :goto_80
+    goto :goto_9
 
-    :catch_83
+    :catch_1
     move-exception v0
 
-    goto :goto_75
+    goto :goto_8
 
-    :catch_85
+    :catch_2
     move-exception v0
 
-    goto :goto_6a
+    goto :goto_7
 
-    :catch_87
+    :catch_3
     move-exception v0
 
-    goto :goto_5f
+    goto :goto_6
 
-    :catch_89
+    :catch_4
     move-exception v0
 
-    goto :goto_54
+    goto :goto_5
 
-    :catch_8b
+    :catch_5
     move-exception v0
 
-    goto :goto_49
+    goto :goto_4
 
-    :catch_8d
+    :catch_6
     move-exception v0
 
-    goto :goto_3e
+    goto :goto_3
 
     .line 333
-    :catch_8f
+    :catch_7
     move-exception v0
 
-    goto :goto_2a
+    goto :goto_2
 
-    :catch_91
+    :catch_8
     move-exception v0
 
-    goto :goto_1f
+    goto :goto_1
 
-    :catch_93
+    :catch_9
     move-exception v0
 
-    goto :goto_14
+    goto :goto_0
 .end method

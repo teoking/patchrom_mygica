@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/hardware/usb/UsbDevice;)V
-    .registers 2
+    .locals 0
     .parameter "device"
 
     .prologue
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public bulkTransfer(Landroid/hardware/usb/UsbEndpoint;[BII)I
-    .registers 6
+    .locals 1
     .parameter "endpoint"
     .parameter "buffer"
     .parameter "length"
@@ -82,7 +82,7 @@
 .end method
 
 .method public claimInterface(Landroid/hardware/usb/UsbInterface;Z)Z
-    .registers 4
+    .locals 1
     .parameter "intf"
     .parameter "force"
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public close()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 57
@@ -111,7 +111,7 @@
 .end method
 
 .method public controlTransfer(IIII[BII)I
-    .registers 9
+    .locals 1
     .parameter "requestType"
     .parameter "request"
     .parameter "value"
@@ -130,7 +130,7 @@
 .end method
 
 .method public getFileDescriptor()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 68
@@ -142,7 +142,7 @@
 .end method
 
 .method public getRawDescriptors()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 79
@@ -154,7 +154,7 @@
 .end method
 
 .method public getSerial()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 168
@@ -166,7 +166,7 @@
 .end method
 
 .method open(Ljava/lang/String;Landroid/os/ParcelFileDescriptor;)Z
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "pfd"
 
@@ -184,7 +184,7 @@
 .end method
 
 .method public releaseInterface(Landroid/hardware/usb/UsbInterface;)Z
-    .registers 3
+    .locals 1
     .parameter "intf"
 
     .prologue
@@ -201,7 +201,7 @@
 .end method
 
 .method public requestWait()Landroid/hardware/usb/UsbRequest;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 154
@@ -211,12 +211,12 @@
 
     .line 155
     .local v0, request:Landroid/hardware/usb/UsbRequest;
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 156
     invoke-virtual {v0}, Landroid/hardware/usb/UsbRequest;->dequeue()V
 
     .line 158
-    :cond_9
+    :cond_0
     return-object v0
 .end method

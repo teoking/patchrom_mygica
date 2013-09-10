@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;)V
-    .registers 2
+    .locals 0
     .parameter "display"
 
     .prologue
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public getSpanEnd(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "tag"
 
     .prologue
@@ -58,7 +58,7 @@
 .end method
 
 .method public getSpanFlags(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "tag"
 
     .prologue
@@ -73,7 +73,7 @@
 .end method
 
 .method public getSpanStart(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "tag"
 
     .prologue
@@ -88,7 +88,7 @@
 .end method
 
 .method public getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
-    .registers 5
+    .locals 1
     .parameter "start"
     .parameter "end"
     .parameter
@@ -115,7 +115,7 @@
 .end method
 
 .method public nextSpanTransition(IILjava/lang/Class;)I
-    .registers 5
+    .locals 1
     .parameter "start"
     .parameter "limit"
     .parameter "type"
@@ -132,7 +132,7 @@
 .end method
 
 .method public subSequence(II)Ljava/lang/CharSequence;
-    .registers 10
+    .locals 7
     .parameter "start"
     .parameter "end"
 

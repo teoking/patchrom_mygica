@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/res/Resources;Landroid/inputmethodservice/Keyboard;Landroid/content/res/XmlResourceParser;)V
-    .registers 10
+    .locals 6
     .parameter "res"
     .parameter "parent"
     .parameter "parser"
@@ -79,10 +79,12 @@
 
     .line 191
     .local v0, a:Landroid/content/res/TypedArray;
+    #getter for: Landroid/inputmethodservice/Keyboard;->mDisplayWidth:I
     invoke-static {p2}, Landroid/inputmethodservice/Keyboard;->access$000(Landroid/inputmethodservice/Keyboard;)I
 
     move-result v1
 
+    #getter for: Landroid/inputmethodservice/Keyboard;->mDefaultWidth:I
     invoke-static {p2}, Landroid/inputmethodservice/Keyboard;->access$100(Landroid/inputmethodservice/Keyboard;)I
 
     move-result v2
@@ -94,10 +96,12 @@
     iput v1, p0, Landroid/inputmethodservice/Keyboard$Row;->defaultWidth:I
 
     .line 194
+    #getter for: Landroid/inputmethodservice/Keyboard;->mDisplayHeight:I
     invoke-static {p2}, Landroid/inputmethodservice/Keyboard;->access$200(Landroid/inputmethodservice/Keyboard;)I
 
     move-result v1
 
+    #getter for: Landroid/inputmethodservice/Keyboard;->mDefaultHeight:I
     invoke-static {p2}, Landroid/inputmethodservice/Keyboard;->access$300(Landroid/inputmethodservice/Keyboard;)I
 
     move-result v2
@@ -111,10 +115,12 @@
     .line 197
     const/4 v1, 0x2
 
+    #getter for: Landroid/inputmethodservice/Keyboard;->mDisplayWidth:I
     invoke-static {p2}, Landroid/inputmethodservice/Keyboard;->access$000(Landroid/inputmethodservice/Keyboard;)I
 
     move-result v2
 
+    #getter for: Landroid/inputmethodservice/Keyboard;->mDefaultHorizontalGap:I
     invoke-static {p2}, Landroid/inputmethodservice/Keyboard;->access$400(Landroid/inputmethodservice/Keyboard;)I
 
     move-result v3
@@ -128,10 +134,12 @@
     .line 200
     const/4 v1, 0x3
 
+    #getter for: Landroid/inputmethodservice/Keyboard;->mDisplayHeight:I
     invoke-static {p2}, Landroid/inputmethodservice/Keyboard;->access$200(Landroid/inputmethodservice/Keyboard;)I
 
     move-result v2
 
+    #getter for: Landroid/inputmethodservice/Keyboard;->mDefaultVerticalGap:I
     invoke-static {p2}, Landroid/inputmethodservice/Keyboard;->access$500(Landroid/inputmethodservice/Keyboard;)I
 
     move-result v3
@@ -175,7 +183,7 @@
 .end method
 
 .method public constructor <init>(Landroid/inputmethodservice/Keyboard;)V
-    .registers 3
+    .locals 1
     .parameter "parent"
 
     .prologue
@@ -197,7 +205,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/inputmethodservice/Keyboard$Row;)Landroid/inputmethodservice/Keyboard;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue

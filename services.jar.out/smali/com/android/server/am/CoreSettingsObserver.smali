@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 37
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
-    .registers 3
+    .locals 1
     .parameter "activityManagerService"
 
     .prologue
@@ -90,7 +90,7 @@
 .end method
 
 .method private beginObserveCoreSettings()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 75
@@ -105,12 +105,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_a
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_27
+    if-eqz v3, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -138,17 +138,17 @@
 
     invoke-virtual {v3, v2, v4, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    goto :goto_a
+    goto :goto_0
 
     .line 80
     .end local v1           #setting:Ljava/lang/String;
     .end local v2           #uri:Landroid/net/Uri;
-    :cond_27
+    :cond_0
     return-void
 .end method
 
 .method private populateCoreSettings(Landroid/os/Bundle;)V
-    .registers 13
+    .locals 11
     .parameter "snapshot"
 
     .prologue
@@ -170,13 +170,13 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :cond_e
-    :goto_e
+    :cond_0
+    :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_86
+    if-eqz v8, :cond_4
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -202,10 +202,10 @@
 
     .line 88
     .local v5, type:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :try_start_26
+    :try_start_0
     const-class v8, Ljava/lang/String;
 
-    if-ne v5, v8, :cond_56
+    if-ne v5, v8, :cond_1
 
     .line 89
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -219,14 +219,14 @@
     .line 91
     .local v6, value:Ljava/lang/String;
     invoke-virtual {p1, v3, v6}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_35
-    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_26 .. :try_end_35} :catch_36
+    :try_end_0
+    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_e
+    goto :goto_0
 
     .line 105
     .end local v6           #value:Ljava/lang/String;
-    :catch_36
+    :catch_0
     move-exception v4
 
     .line 106
@@ -259,15 +259,15 @@
 
     invoke-static {v8, v9, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_e
+    goto :goto_0
 
     .line 92
     .end local v4           #snfe:Landroid/provider/Settings$SettingNotFoundException;
-    :cond_56
-    :try_start_56
+    :cond_1
+    :try_start_1
     sget-object v8, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne v5, v8, :cond_66
+    if-ne v5, v8, :cond_2
 
     .line 93
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -282,14 +282,14 @@
     .local v6, value:I
     invoke-virtual {p1, v3, v6}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 96
     .end local v6           #value:I
-    :cond_66
+    :cond_2
     sget-object v8, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    if-ne v5, v8, :cond_76
+    if-ne v5, v8, :cond_3
 
     .line 97
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -304,14 +304,14 @@
     .local v6, value:F
     invoke-virtual {p1, v3, v6}, Landroid/os/Bundle;->putFloat(Ljava/lang/String;F)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 100
     .end local v6           #value:F
-    :cond_76
+    :cond_3
     sget-object v8, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne v5, v8, :cond_e
+    if-ne v5, v8, :cond_0
 
     .line 101
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -325,22 +325,22 @@
     .line 103
     .local v6, value:J
     invoke-virtual {p1, v3, v6, v7}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
-    :try_end_85
-    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_56 .. :try_end_85} :catch_36
+    :try_end_1
+    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_e
+    goto :goto_0
 
     .line 109
     .end local v1           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Class<*>;>;"
     .end local v3           #setting:Ljava/lang/String;
     .end local v5           #type:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     .end local v6           #value:J
-    :cond_86
+    :cond_4
     return-void
 .end method
 
 .method private sendCoreSettings()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 70
@@ -362,7 +362,7 @@
 
 # virtual methods
 .method public getCoreSettingsLocked()Landroid/os/Bundle;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 59
@@ -378,7 +378,7 @@
 .end method
 
 .method public onChange(Z)V
-    .registers 4
+    .locals 2
     .parameter "selfChange"
 
     .prologue
@@ -388,7 +388,7 @@
     monitor-enter v1
 
     .line 65
-    :try_start_3
+    :try_start_0
     invoke-direct {p0}, Lcom/android/server/am/CoreSettingsObserver;->sendCoreSettings()V
 
     .line 66
@@ -398,12 +398,12 @@
     return-void
 
     .line 66
-    :catchall_8
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_a
-    .catchall {:try_start_3 .. :try_end_a} :catchall_8
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

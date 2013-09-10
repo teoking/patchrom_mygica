@@ -25,7 +25,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/TabHost;Ljava/lang/CharSequence;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "label"
 
@@ -43,7 +43,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/TabHost;Ljava/lang/CharSequence;Landroid/widget/TabHost$1;)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public createIndicatorView()Landroid/view/View;
-    .registers 8
+    .locals 7
 
     .prologue
     .line 540
@@ -82,12 +82,14 @@
     .local v1, inflater:Landroid/view/LayoutInflater;
     iget-object v4, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->this$0:Landroid/widget/TabHost;
 
+    #getter for: Landroid/widget/TabHost;->mTabLayoutId:I
     invoke-static {v4}, Landroid/widget/TabHost;->access$900(Landroid/widget/TabHost;)I
 
     move-result v4
 
     iget-object v5, p0, Landroid/widget/TabHost$LabelIndicatorStrategy;->this$0:Landroid/widget/TabHost;
 
+    #getter for: Landroid/widget/TabHost;->mTabWidget:Landroid/widget/TabWidget;
     invoke-static {v5}, Landroid/widget/TabHost;->access$1000(Landroid/widget/TabHost;)Landroid/widget/TabWidget;
 
     move-result-object v5
@@ -123,7 +125,7 @@
 
     const/4 v5, 0x4
 
-    if-gt v4, v5, :cond_4a
+    if-gt v4, v5, :cond_0
 
     .line 552
     const v4, 0x1080598
@@ -144,6 +146,6 @@
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
 
     .line 556
-    :cond_4a
+    :cond_0
     return-object v2
 .end method

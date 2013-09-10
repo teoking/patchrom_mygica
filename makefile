@@ -36,7 +36,6 @@ include $(PORT_BUILD)/porting.mk
 local-pre-zip-misc:
 	#cp other/spn-conf.xml $(ZIP_DIR)/system/etc/spn-conf.xml
 	cp other/build.prop $(ZIP_DIR)/system/build.prop
-	#cp other/AxT9IME.apk $(ZIP_DIR)/system/app
 	#rm -rf $(ZIP_DIR)/system/csc
 
 local-rom-zip := lerom_magica.zip

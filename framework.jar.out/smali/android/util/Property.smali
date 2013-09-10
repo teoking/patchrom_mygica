@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "name"
     .annotation system Ldalvik/annotation/Signature;
@@ -61,7 +61,7 @@
 .end method
 
 .method public static of(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)Landroid/util/Property;
-    .registers 4
+    .locals 1
     .parameter
     .parameter
     .parameter "name"
@@ -105,7 +105,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 97
@@ -116,7 +116,7 @@
 .end method
 
 .method public getType()Ljava/lang/Class;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -134,7 +134,7 @@
 .end method
 
 .method public isReadOnly()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -145,7 +145,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .registers 6
+    .locals 3
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;

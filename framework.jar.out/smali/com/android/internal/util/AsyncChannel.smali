@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 154
@@ -117,7 +117,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 201
@@ -128,7 +128,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/util/AsyncChannel;I)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -140,7 +140,7 @@
 .end method
 
 .method static synthetic access$502(Lcom/android/internal/util/AsyncChannel;Landroid/os/Messenger;)Landroid/os/Messenger;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -152,7 +152,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/android/internal/util/AsyncChannel;I)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -164,7 +164,7 @@
 .end method
 
 .method protected static cmdToString(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "cmd"
 
     .prologue
@@ -174,13 +174,13 @@
     sub-int/2addr p0, v0
 
     .line 164
-    if-ltz p0, :cond_10
+    if-ltz p0, :cond_0
 
     sget-object v0, Lcom/android/internal/util/AsyncChannel;->sCmdToString:[Ljava/lang/String;
 
     array-length v0, v0
 
-    if-ge p0, v0, :cond_10
+    if-ge p0, v0, :cond_0
 
     .line 165
     sget-object v0, Lcom/android/internal/util/AsyncChannel;->sCmdToString:[Ljava/lang/String;
@@ -188,17 +188,17 @@
     aget-object v0, v0, p0
 
     .line 167
-    :goto_f
+    :goto_0
     return-object v0
 
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method private static log(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "s"
 
     .prologue
@@ -212,7 +212,7 @@
 .end method
 
 .method private replyDisconnected(I)V
-    .registers 5
+    .locals 3
     .parameter "status"
 
     .prologue
@@ -247,7 +247,7 @@
 .end method
 
 .method private replyHalfConnected(I)V
-    .registers 5
+    .locals 3
     .parameter "status"
 
     .prologue
@@ -284,7 +284,7 @@
 
 # virtual methods
 .method public connect(Landroid/content/Context;Landroid/os/Handler;Landroid/os/Handler;)V
-    .registers 5
+    .locals 1
     .parameter "srcContext"
     .parameter "srcHandler"
     .parameter "dstHandler"
@@ -302,7 +302,7 @@
 .end method
 
 .method public connect(Landroid/content/Context;Landroid/os/Handler;Landroid/os/Messenger;)V
-    .registers 5
+    .locals 1
     .parameter "srcContext"
     .parameter "srcHandler"
     .parameter "dstMessenger"
@@ -321,7 +321,7 @@
 .end method
 
 .method public connect(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/Class;)V
-    .registers 6
+    .locals 2
     .parameter "srcContext"
     .parameter "srcHandler"
     .parameter
@@ -357,7 +357,7 @@
 .end method
 
 .method public connect(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 11
+    .locals 6
     .parameter "srcContext"
     .parameter "srcHandler"
     .parameter "dstPackageName"
@@ -392,7 +392,7 @@
 .end method
 
 .method public connect(Lcom/android/internal/util/AsyncService;Landroid/os/Messenger;)V
-    .registers 4
+    .locals 1
     .parameter "srcAsyncService"
     .parameter "dstMessenger"
 
@@ -409,7 +409,7 @@
 .end method
 
 .method public connectSrcHandlerToPackageSync(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;Ljava/lang/String;)I
-    .registers 9
+    .locals 4
     .parameter "srcContext"
     .parameter "srcHandler"
     .parameter "dstPackageName"
@@ -463,16 +463,16 @@
 
     .line 239
     .local v1, result:Z
-    if-eqz v1, :cond_29
+    if-eqz v1, :cond_0
 
     const/4 v2, 0x0
 
-    :cond_29
+    :cond_0
     return v2
 .end method
 
 .method public connectSync(Landroid/content/Context;Landroid/os/Handler;Landroid/os/Handler;)I
-    .registers 5
+    .locals 1
     .parameter "srcContext"
     .parameter "srcHandler"
     .parameter "dstHandler"
@@ -491,7 +491,7 @@
 .end method
 
 .method public connectSync(Landroid/content/Context;Landroid/os/Handler;Landroid/os/Messenger;)I
-    .registers 5
+    .locals 1
     .parameter "srcContext"
     .parameter "srcHandler"
     .parameter "dstMessenger"
@@ -507,7 +507,7 @@
 .end method
 
 .method public connected(Landroid/content/Context;Landroid/os/Handler;Landroid/os/Messenger;)V
-    .registers 6
+    .locals 2
     .parameter "srcContext"
     .parameter "srcHandler"
     .parameter "dstMessenger"
@@ -536,17 +536,17 @@
 .end method
 
 .method public disconnect()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 444
     iget-object v0, p0, Lcom/android/internal/util/AsyncChannel;->mConnection:Lcom/android/internal/util/AsyncChannel$AsyncChannelConnection;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/util/AsyncChannel;->mSrcContext:Landroid/content/Context;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 445
     iget-object v0, p0, Lcom/android/internal/util/AsyncChannel;->mSrcContext:Landroid/content/Context;
@@ -556,10 +556,10 @@
     invoke-virtual {v0, v1}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
     .line 447
-    :cond_f
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/util/AsyncChannel;->mSrcHandler:Landroid/os/Handler;
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_1
 
     .line 448
     const/4 v0, 0x0
@@ -567,12 +567,12 @@
     invoke-direct {p0, v0}, Lcom/android/internal/util/AsyncChannel;->replyDisconnected(I)V
 
     .line 450
-    :cond_17
+    :cond_1
     return-void
 .end method
 
 .method public disconnected()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -597,7 +597,7 @@
 .end method
 
 .method public fullyConnectSync(Landroid/content/Context;Landroid/os/Handler;Landroid/os/Handler;)I
-    .registers 7
+    .locals 3
     .parameter "srcContext"
     .parameter "srcHandler"
     .parameter "dstHandler"
@@ -610,7 +610,7 @@
 
     .line 288
     .local v1, status:I
-    if-nez v1, :cond_f
+    if-nez v1, :cond_0
 
     .line 289
     const v2, 0x11001
@@ -625,12 +625,12 @@
 
     .line 292
     .end local v0           #response:Landroid/os/Message;
-    :cond_f
+    :cond_0
     return v1
 .end method
 
 .method public replyToMessage(Landroid/os/Message;I)V
-    .registers 4
+    .locals 1
     .parameter "srcMsg"
     .parameter "what"
 
@@ -652,7 +652,7 @@
 .end method
 
 .method public replyToMessage(Landroid/os/Message;II)V
-    .registers 5
+    .locals 1
     .parameter "srcMsg"
     .parameter "what"
     .parameter "arg1"
@@ -678,7 +678,7 @@
 .end method
 
 .method public replyToMessage(Landroid/os/Message;III)V
-    .registers 6
+    .locals 1
     .parameter "srcMsg"
     .parameter "what"
     .parameter "arg1"
@@ -708,7 +708,7 @@
 .end method
 
 .method public replyToMessage(Landroid/os/Message;IIILjava/lang/Object;)V
-    .registers 7
+    .locals 1
     .parameter "srcMsg"
     .parameter "what"
     .parameter "arg1"
@@ -742,7 +742,7 @@
 .end method
 
 .method public replyToMessage(Landroid/os/Message;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "srcMsg"
     .parameter "what"
     .parameter "obj"
@@ -768,7 +768,7 @@
 .end method
 
 .method public replyToMessage(Landroid/os/Message;Landroid/os/Message;)V
-    .registers 6
+    .locals 3
     .parameter "srcMsg"
     .parameter "dstMsg"
 
@@ -783,15 +783,15 @@
     iget-object v1, p1, Landroid/os/Message;->replyTo:Landroid/os/Messenger;
 
     invoke-virtual {v1, p2}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
-    :try_end_9
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_9} :catch_a
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 549
-    :goto_9
+    :goto_0
     return-void
 
     .line 545
-    :catch_a
+    :catch_0
     move-exception v0
 
     .line 546
@@ -819,11 +819,11 @@
     .line 547
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public sendMessage(I)V
-    .registers 3
+    .locals 1
     .parameter "what"
 
     .prologue
@@ -844,7 +844,7 @@
 .end method
 
 .method public sendMessage(II)V
-    .registers 4
+    .locals 1
     .parameter "what"
     .parameter "arg1"
 
@@ -869,7 +869,7 @@
 .end method
 
 .method public sendMessage(III)V
-    .registers 5
+    .locals 1
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -898,7 +898,7 @@
 .end method
 
 .method public sendMessage(IIILjava/lang/Object;)V
-    .registers 6
+    .locals 1
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -931,7 +931,7 @@
 .end method
 
 .method public sendMessage(ILjava/lang/Object;)V
-    .registers 4
+    .locals 1
     .parameter "what"
     .parameter "obj"
 
@@ -956,7 +956,7 @@
 .end method
 
 .method public sendMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
@@ -966,19 +966,19 @@
     iput-object v1, p1, Landroid/os/Message;->replyTo:Landroid/os/Messenger;
 
     .line 460
-    :try_start_4
+    :try_start_0
     iget-object v1, p0, Lcom/android/internal/util/AsyncChannel;->mDstMessenger:Landroid/os/Messenger;
 
     invoke-virtual {v1, p1}, Landroid/os/Messenger;->send(Landroid/os/Message;)V
-    :try_end_9
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_9} :catch_a
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 464
-    :goto_9
+    :goto_0
     return-void
 
     .line 461
-    :catch_a
+    :catch_0
     move-exception v0
 
     .line 462
@@ -987,11 +987,11 @@
 
     invoke-direct {p0, v1}, Lcom/android/internal/util/AsyncChannel;->replyDisconnected(I)V
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public sendMessageSynchronously(I)Landroid/os/Message;
-    .registers 4
+    .locals 2
     .parameter "what"
 
     .prologue
@@ -1015,7 +1015,7 @@
 .end method
 
 .method public sendMessageSynchronously(II)Landroid/os/Message;
-    .registers 5
+    .locals 2
     .parameter "what"
     .parameter "arg1"
 
@@ -1043,7 +1043,7 @@
 .end method
 
 .method public sendMessageSynchronously(III)Landroid/os/Message;
-    .registers 6
+    .locals 2
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -1075,7 +1075,7 @@
 .end method
 
 .method public sendMessageSynchronously(IIILjava/lang/Object;)Landroid/os/Message;
-    .registers 7
+    .locals 2
     .parameter "what"
     .parameter "arg1"
     .parameter "arg2"
@@ -1111,7 +1111,7 @@
 .end method
 
 .method public sendMessageSynchronously(ILjava/lang/Object;)Landroid/os/Message;
-    .registers 5
+    .locals 2
     .parameter "what"
     .parameter "obj"
 
@@ -1139,13 +1139,14 @@
 .end method
 
 .method public sendMessageSynchronously(Landroid/os/Message;)Landroid/os/Message;
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
     .line 632
     iget-object v1, p0, Lcom/android/internal/util/AsyncChannel;->mDstMessenger:Landroid/os/Messenger;
 
+    #calls: Lcom/android/internal/util/AsyncChannel$SyncMessenger;->sendMessageSynchronously(Landroid/os/Messenger;Landroid/os/Message;)Landroid/os/Message;
     invoke-static {v1, p1}, Lcom/android/internal/util/AsyncChannel$SyncMessenger;->access$100(Landroid/os/Messenger;Landroid/os/Message;)Landroid/os/Message;
 
     move-result-object v0

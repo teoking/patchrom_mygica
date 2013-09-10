@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/accessibility/AccessibilityManager;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "mainLooper"
 
@@ -38,14 +38,14 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "message"
 
     .prologue
     .line 121
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_28
+    packed-switch v0, :pswitch_data_0
 
     .line 126
     const-string v0, "AccessibilityManager"
@@ -73,22 +73,23 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 128
-    :goto_1f
+    :goto_0
     return-void
 
     .line 123
-    :pswitch_20
+    :pswitch_0
     iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager$MyHandler;->this$0:Landroid/view/accessibility/AccessibilityManager;
 
     iget v1, p1, Landroid/os/Message;->arg1:I
 
+    #calls: Landroid/view/accessibility/AccessibilityManager;->setState(I)V
     invoke-static {v0, v1}, Landroid/view/accessibility/AccessibilityManager;->access$000(Landroid/view/accessibility/AccessibilityManager;I)V
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 121
-    :pswitch_data_28
+    :pswitch_data_0
     .packed-switch 0xa
-        :pswitch_20
+        :pswitch_0
     .end packed-switch
 .end method

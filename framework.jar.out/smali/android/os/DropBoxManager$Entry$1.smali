@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 222
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/os/DropBoxManager$Entry;
-    .registers 8
+    .locals 6
     .parameter "in"
 
     .prologue
@@ -56,7 +56,7 @@
     .local v5, flags:I
     and-int/lit8 v0, v5, 0x8
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     .line 229
     new-instance v0, Landroid/os/DropBoxManager$Entry;
@@ -71,11 +71,11 @@
 
     .line 231
     .end local v5           #flags:I
-    :goto_1b
+    :goto_0
     return-object v0
 
     .restart local v5       #flags:I
-    :cond_1c
+    :cond_0
     new-instance v0, Landroid/os/DropBoxManager$Entry;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readFileDescriptor()Landroid/os/ParcelFileDescriptor;
@@ -84,11 +84,11 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/os/DropBoxManager$Entry;-><init>(Ljava/lang/String;JLandroid/os/ParcelFileDescriptor;I)V
 
-    goto :goto_1b
+    goto :goto_0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -101,7 +101,7 @@
 .end method
 
 .method public newArray(I)[Landroid/os/DropBoxManager$Entry;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -112,7 +112,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

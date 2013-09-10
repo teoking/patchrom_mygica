@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 34
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/OutputStream;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/OutputStream;IZ)V
-    .registers 6
+    .locals 2
     .parameter "out"
     .parameter "flags"
     .parameter "encode"
@@ -71,7 +71,7 @@
     iput p2, p0, Landroid/util/Base64OutputStream;->flags:I
 
     .line 63
-    if-eqz p3, :cond_15
+    if-eqz p3, :cond_0
 
     .line 64
     new-instance v0, Landroid/util/Base64$Encoder;
@@ -81,45 +81,45 @@
     iput-object v0, p0, Landroid/util/Base64OutputStream;->coder:Landroid/util/Base64$Coder;
 
     .line 68
-    :goto_14
+    :goto_0
     return-void
 
     .line 66
-    :cond_15
+    :cond_0
     new-instance v0, Landroid/util/Base64$Decoder;
 
     invoke-direct {v0, p2, v1}, Landroid/util/Base64$Decoder;-><init>(I[B)V
 
     iput-object v0, p0, Landroid/util/Base64OutputStream;->coder:Landroid/util/Base64$Coder;
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method private embiggen([BI)[B
-    .registers 4
+    .locals 1
     .parameter "b"
     .parameter "len"
 
     .prologue
     .line 149
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_0
 
     array-length v0, p1
 
-    if-ge v0, p2, :cond_7
+    if-ge v0, p2, :cond_1
 
     .line 150
-    :cond_5
+    :cond_0
     new-array p1, p2, [B
 
     .line 152
     .end local p1
-    :cond_7
+    :cond_1
     return-object p1
 .end method
 
 .method private flushBuffer()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -132,7 +132,7 @@
     .line 92
     iget v0, p0, Landroid/util/Base64OutputStream;->bpos:I
 
-    if-lez v0, :cond_e
+    if-lez v0, :cond_0
 
     .line 93
     iget-object v0, p0, Landroid/util/Base64OutputStream;->buffer:[B
@@ -145,12 +145,12 @@
     iput v2, p0, Landroid/util/Base64OutputStream;->bpos:I
 
     .line 96
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method private internalWrite([BIIZ)V
-    .registers 9
+    .locals 4
     .parameter "b"
     .parameter "off"
     .parameter "len"
@@ -188,7 +188,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_0
 
     .line 139
     new-instance v0, Landroid/util/Base64DataException;
@@ -200,7 +200,7 @@
     throw v0
 
     .line 141
-    :cond_22
+    :cond_0
     iget-object v0, p0, Landroid/util/Base64OutputStream;->out:Ljava/io/OutputStream;
 
     iget-object v1, p0, Landroid/util/Base64OutputStream;->coder:Landroid/util/Base64$Coder;
@@ -222,7 +222,7 @@
 
 # virtual methods
 .method public close()V
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -235,7 +235,7 @@
 
     .line 107
     .local v1, thrown:Ljava/io/IOException;
-    :try_start_1
+    :try_start_0
     invoke-direct {p0}, Landroid/util/Base64OutputStream;->flushBuffer()V
 
     .line 108
@@ -248,76 +248,76 @@
     const/4 v5, 0x1
 
     invoke-direct {p0, v2, v3, v4, v5}, Landroid/util/Base64OutputStream;->internalWrite([BIIZ)V
-    :try_end_c
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_c} :catch_1a
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 114
-    :goto_c
-    :try_start_c
+    :goto_0
+    :try_start_1
     iget v2, p0, Landroid/util/Base64OutputStream;->flags:I
 
     and-int/lit8 v2, v2, 0x10
 
-    if-nez v2, :cond_1d
+    if-nez v2, :cond_1
 
     .line 115
     iget-object v2, p0, Landroid/util/Base64OutputStream;->out:Ljava/io/OutputStream;
 
     invoke-virtual {v2}, Ljava/io/OutputStream;->close()V
-    :try_end_17
-    .catch Ljava/io/IOException; {:try_start_c .. :try_end_17} :catch_23
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 125
-    :cond_17
-    :goto_17
-    if-eqz v1, :cond_28
+    :cond_0
+    :goto_1
+    if-eqz v1, :cond_2
 
     .line 126
     throw v1
 
     .line 109
-    :catch_1a
+    :catch_0
     move-exception v0
 
     .line 110
     .local v0, e:Ljava/io/IOException;
     move-object v1, v0
 
-    goto :goto_c
+    goto :goto_0
 
     .line 117
     .end local v0           #e:Ljava/io/IOException;
-    :cond_1d
-    :try_start_1d
+    :cond_1
+    :try_start_2
     iget-object v2, p0, Landroid/util/Base64OutputStream;->out:Ljava/io/OutputStream;
 
     invoke-virtual {v2}, Ljava/io/OutputStream;->flush()V
-    :try_end_22
-    .catch Ljava/io/IOException; {:try_start_1d .. :try_end_22} :catch_23
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
-    goto :goto_17
+    goto :goto_1
 
     .line 119
-    :catch_23
+    :catch_1
     move-exception v0
 
     .line 120
     .restart local v0       #e:Ljava/io/IOException;
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_0
 
     .line 121
     move-object v1, v0
 
-    goto :goto_17
+    goto :goto_1
 
     .line 128
     .end local v0           #e:Ljava/io/IOException;
-    :cond_28
+    :cond_2
     return-void
 .end method
 
 .method public write(I)V
-    .registers 5
+    .locals 3
     .parameter "b"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -331,7 +331,7 @@
     .line 76
     iget-object v0, p0, Landroid/util/Base64OutputStream;->buffer:[B
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 77
     const/16 v0, 0x400
@@ -341,14 +341,14 @@
     iput-object v0, p0, Landroid/util/Base64OutputStream;->buffer:[B
 
     .line 79
-    :cond_b
+    :cond_0
     iget v0, p0, Landroid/util/Base64OutputStream;->bpos:I
 
     iget-object v1, p0, Landroid/util/Base64OutputStream;->buffer:[B
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_1b
+    if-lt v0, v1, :cond_1
 
     .line 81
     iget-object v0, p0, Landroid/util/Base64OutputStream;->buffer:[B
@@ -361,7 +361,7 @@
     iput v2, p0, Landroid/util/Base64OutputStream;->bpos:I
 
     .line 84
-    :cond_1b
+    :cond_1
     iget-object v0, p0, Landroid/util/Base64OutputStream;->buffer:[B
 
     iget v1, p0, Landroid/util/Base64OutputStream;->bpos:I
@@ -379,7 +379,7 @@
 .end method
 
 .method public write([BII)V
-    .registers 5
+    .locals 1
     .parameter "b"
     .parameter "off"
     .parameter "len"
@@ -391,14 +391,14 @@
 
     .prologue
     .line 99
-    if-gtz p3, :cond_3
+    if-gtz p3, :cond_0
 
     .line 102
-    :goto_2
+    :goto_0
     return-void
 
     .line 100
-    :cond_3
+    :cond_0
     invoke-direct {p0}, Landroid/util/Base64OutputStream;->flushBuffer()V
 
     .line 101
@@ -406,5 +406,5 @@
 
     invoke-direct {p0, p1, p2, p3, v0}, Landroid/util/Base64OutputStream;->internalWrite([BIIZ)V
 
-    goto :goto_2
+    goto :goto_0
 .end method

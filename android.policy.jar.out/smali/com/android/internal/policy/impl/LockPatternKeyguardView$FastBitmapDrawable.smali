@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/graphics/Bitmap;)V
-    .registers 3
+    .locals 1
     .parameter "bitmap"
 
     .prologue
@@ -39,27 +39,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     const/4 v0, -0x3
 
-    :goto_e
+    :goto_0
     iput v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$FastBitmapDrawable;->mOpacity:I
 
     .line 1163
     return-void
 
     .line 1162
-    :cond_11
+    :cond_0
     const/4 v0, -0x1
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .registers 6
+    .locals 4
     .parameter "canvas"
 
     .prologue
@@ -113,7 +113,7 @@
 .end method
 
 .method public getIntrinsicHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1194
@@ -127,7 +127,7 @@
 .end method
 
 .method public getIntrinsicWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1189
@@ -141,7 +141,7 @@
 .end method
 
 .method public getMinimumHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1204
@@ -155,7 +155,7 @@
 .end method
 
 .method public getMinimumWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1199
@@ -169,7 +169,7 @@
 .end method
 
 .method public getOpacity()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1176
@@ -179,7 +179,7 @@
 .end method
 
 .method public setAlpha(I)V
-    .registers 2
+    .locals 0
     .parameter "alpha"
 
     .prologue
@@ -188,7 +188,7 @@
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
-    .registers 2
+    .locals 0
     .parameter "cf"
 
     .prologue

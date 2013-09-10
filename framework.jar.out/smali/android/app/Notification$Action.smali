@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 486
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 450
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
-    .registers 4
+    .locals 0
     .parameter "icon_"
     .parameter "title_"
     .parameter "intent_"
@@ -87,7 +87,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -119,7 +119,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_24
+    if-ne v0, v1, :cond_0
 
     .line 455
     sget-object v0, Landroid/app/PendingIntent;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -133,12 +133,12 @@
     iput-object v0, p0, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
 
     .line 457
-    :cond_24
+    :cond_0
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/app/Notification$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -152,7 +152,7 @@
 
 # virtual methods
 .method public clone()Landroid/app/Notification$Action;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 465
@@ -174,7 +174,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -191,7 +191,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 473
@@ -201,7 +201,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 
@@ -219,7 +219,7 @@
     .line 479
     iget-object v0, p0, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
     .line 480
     const/4 v0, 0x1
@@ -232,14 +232,14 @@
     invoke-virtual {v0, p1, p2}, Landroid/app/PendingIntent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 485
-    :goto_17
+    :goto_0
     return-void
 
     .line 483
-    :cond_18
+    :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_17
+    goto :goto_0
 .end method

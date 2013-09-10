@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 35
@@ -24,23 +24,23 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/database/IBulkCursor;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 45
-    if-nez p0, :cond_4
+    if-nez p0, :cond_1
 
     .line 46
     const/4 v0, 0x0
 
     .line 53
-    :cond_3
-    :goto_3
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 48
-    :cond_4
+    :cond_1
     const-string v1, "android.content.IBulkCursor"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -51,7 +51,7 @@
 
     .line 49
     .local v0, in:Landroid/database/IBulkCursor;
-    if-nez v0, :cond_3
+    if-nez v0, :cond_0
 
     .line 53
     new-instance v0, Landroid/database/BulkCursorProxy;
@@ -59,13 +59,13 @@
     .end local v0           #in:Landroid/database/IBulkCursor;
     invoke-direct {v0, p0}, Landroid/database/BulkCursorProxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 135
@@ -73,7 +73,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 15
+    .locals 10
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -88,19 +88,19 @@
     const/4 v8, 0x1
 
     .line 60
-    packed-switch p1, :pswitch_data_9a
+    packed-switch p1, :pswitch_data_0
 
     .line 130
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v8
 
-    :goto_8
+    :goto_0
     return v8
 
     .line 62
-    :pswitch_9
-    :try_start_9
+    :pswitch_0
+    :try_start_0
     const-string v9, "android.content.IBulkCursor"
 
     invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -121,37 +121,37 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 66
-    if-nez v7, :cond_25
+    if-nez v7, :cond_0
 
     .line 67
     const/4 v9, 0x0
 
     invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_1f
-    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_1f} :catch_20
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_8
+    goto :goto_0
 
     .line 125
     .end local v6           #startPos:I
     .end local v7           #window:Landroid/database/CursorWindow;
-    :catch_20
+    :catch_0
     move-exception v1
 
     .line 126
     .local v1, e:Ljava/lang/Exception;
     invoke-static {p3, v1}, Landroid/database/DatabaseUtils;->writeExceptionToParcel(Landroid/os/Parcel;Ljava/lang/Exception;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 69
     .end local v1           #e:Ljava/lang/Exception;
     .restart local v6       #startPos:I
     .restart local v7       #window:Landroid/database/CursorWindow;
-    :cond_25
+    :cond_0
     const/4 v9, 0x1
 
-    :try_start_26
+    :try_start_1
     invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 70
@@ -159,12 +159,12 @@
 
     invoke-virtual {v7, p3, v9}, Landroid/database/CursorWindow;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 76
     .end local v6           #startPos:I
     .end local v7           #window:Landroid/database/CursorWindow;
-    :pswitch_2e
+    :pswitch_1
     const-string v9, "android.content.IBulkCursor"
 
     invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -175,10 +175,10 @@
     .line 78
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 83
-    :pswitch_3a
+    :pswitch_2
     const-string v9, "android.content.IBulkCursor"
 
     invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -189,10 +189,10 @@
     .line 85
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 90
-    :pswitch_46
+    :pswitch_3
     const-string v9, "android.content.IBulkCursor"
 
     invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -226,12 +226,12 @@
 
     invoke-virtual {p3, v9}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 101
     .end local v0           #count:I
     .end local v3           #observer:Landroid/database/IContentObserver;
-    :pswitch_65
+    :pswitch_4
     const-string v9, "android.content.IBulkCursor"
 
     invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -248,11 +248,11 @@
     .line 104
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 109
     .end local v4           #position:I
-    :pswitch_75
+    :pswitch_5
     const-string v9, "android.content.IBulkCursor"
 
     invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -269,11 +269,11 @@
     .line 112
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 117
     .end local v2           #extras:Landroid/os/Bundle;
-    :pswitch_85
+    :pswitch_6
     const-string v9, "android.content.IBulkCursor"
 
     invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -295,20 +295,20 @@
 
     .line 121
     invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
-    :try_end_98
-    .catch Ljava/lang/Exception; {:try_start_26 .. :try_end_98} :catch_20
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 60
-    :pswitch_data_9a
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_9
-        :pswitch_2e
-        :pswitch_46
-        :pswitch_65
-        :pswitch_75
-        :pswitch_85
-        :pswitch_3a
+        :pswitch_0
+        :pswitch_1
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_2
     .end packed-switch
 .end method

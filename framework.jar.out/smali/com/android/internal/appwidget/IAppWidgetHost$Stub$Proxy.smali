@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 98
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 102
@@ -60,7 +60,7 @@
 .end method
 
 .method public providerChanged(ILandroid/appwidget/AppWidgetProviderInfo;)V
-    .registers 8
+    .locals 5
     .parameter "appWidgetId"
     .parameter "info"
     .annotation system Ldalvik/annotation/Throws;
@@ -77,7 +77,7 @@
 
     .line 127
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "com.android.internal.appwidget.IAppWidgetHost"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -86,7 +86,7 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 129
-    if-eqz p2, :cond_22
+    if-eqz p2, :cond_0
 
     .line 130
     const/4 v1, 0x1
@@ -99,7 +99,7 @@
     invoke-virtual {p2, v0, v1}, Landroid/appwidget/AppWidgetProviderInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 136
-    :goto_16
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/appwidget/IAppWidgetHost$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x2
@@ -109,8 +109,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1e
-    .catchall {:try_start_4 .. :try_end_1e} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 139
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -119,18 +119,18 @@
     return-void
 
     .line 134
-    :cond_22
+    :cond_0
     const/4 v1, 0x0
 
-    :try_start_23
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_26
-    .catchall {:try_start_23 .. :try_end_26} :catchall_27
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 139
-    :catchall_27
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -139,7 +139,7 @@
 .end method
 
 .method public updateAppWidget(ILandroid/widget/RemoteViews;)V
-    .registers 8
+    .locals 5
     .parameter "appWidgetId"
     .parameter "views"
     .annotation system Ldalvik/annotation/Throws;
@@ -156,7 +156,7 @@
 
     .line 108
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "com.android.internal.appwidget.IAppWidgetHost"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -165,7 +165,7 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 110
-    if-eqz p2, :cond_22
+    if-eqz p2, :cond_0
 
     .line 111
     const/4 v1, 0x1
@@ -178,7 +178,7 @@
     invoke-virtual {p2, v0, v1}, Landroid/widget/RemoteViews;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 117
-    :goto_16
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/appwidget/IAppWidgetHost$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x1
@@ -188,8 +188,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1e
-    .catchall {:try_start_4 .. :try_end_1e} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 120
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -198,18 +198,18 @@
     return-void
 
     .line 115
-    :cond_22
+    :cond_0
     const/4 v1, 0x0
 
-    :try_start_23
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_26
-    .catchall {:try_start_23 .. :try_end_26} :catchall_27
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 120
-    :catchall_27
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -218,7 +218,7 @@
 .end method
 
 .method public viewDataChanged(II)V
-    .registers 8
+    .locals 5
     .parameter "appWidgetId"
     .parameter "viewId"
     .annotation system Ldalvik/annotation/Throws;
@@ -235,7 +235,7 @@
 
     .line 146
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "com.android.internal.appwidget.IAppWidgetHost"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -256,8 +256,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_17
-    .catchall {:try_start_4 .. :try_end_17} :catchall_1b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 152
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -266,7 +266,7 @@
     return-void
 
     .line 152
-    :catchall_1b
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V

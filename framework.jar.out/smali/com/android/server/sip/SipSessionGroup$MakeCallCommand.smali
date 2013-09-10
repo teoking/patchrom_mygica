@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/sip/SipSessionGroup;Landroid/net/sip/SipProfile;Ljava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter
     .parameter "peerProfile"
     .parameter "sessionDescription"
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(Lcom/android/server/sip/SipSessionGroup;Landroid/net/sip/SipProfile;Ljava/lang/String;I)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter "peerProfile"
     .parameter "sessionDescription"
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public getPeerProfile()Landroid/net/sip/SipProfile;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1782
@@ -80,7 +80,7 @@
 .end method
 
 .method public getSessionDescription()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1786
@@ -90,7 +90,7 @@
 .end method
 
 .method public getTimeout()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1790

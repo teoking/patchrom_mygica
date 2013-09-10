@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 5
+    .locals 3
     .parameter "context"
 
     .prologue
@@ -73,7 +73,7 @@
 .end method
 
 .method private fade(IFF)V
-    .registers 7
+    .locals 3
     .parameter "visibility"
     .parameter "startAlpha"
     .parameter "endAlpha"
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public hasFocus()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 148
@@ -117,7 +117,7 @@
 .end method
 
 .method public hide()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 137
@@ -134,7 +134,7 @@
 .end method
 
 .method public setOnZoomInClickListener(Landroid/view/View$OnClickListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
@@ -148,7 +148,7 @@
 .end method
 
 .method public setOnZoomOutClickListener(Landroid/view/View$OnClickListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
@@ -162,7 +162,7 @@
 .end method
 
 .method public show(Z)V
-    .registers 5
+    .locals 3
     .parameter "showZoom"
 
     .prologue
@@ -171,11 +171,11 @@
     .line 132
     iget-object v2, p0, Landroid/webkit/ZoomControlExternal$ExtendedZoomControls;->mPlusMinusZoomControls:Landroid/widget/ZoomControls;
 
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     move v0, v1
 
-    :goto_6
+    :goto_0
     invoke-virtual {v2, v0}, Landroid/widget/ZoomControls;->setVisibility(I)V
 
     .line 133
@@ -189,8 +189,8 @@
     return-void
 
     .line 132
-    :cond_10
+    :cond_0
     const/16 v0, 0x8
 
-    goto :goto_6
+    goto :goto_0
 .end method

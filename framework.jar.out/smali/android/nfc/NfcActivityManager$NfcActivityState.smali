@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/nfc/NfcActivityManager;Landroid/app/Activity;)V
-    .registers 5
+    .locals 2
     .parameter
     .parameter "activity"
 
@@ -75,7 +75,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_25
+    if-eqz v0, :cond_0
 
     .line 115
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -87,7 +87,7 @@
     throw v0
 
     .line 119
-    :cond_25
+    :cond_0
     invoke-virtual {p2}, Landroid/app/Activity;->isResumed()Z
 
     move-result v0
@@ -111,7 +111,7 @@
 
 # virtual methods
 .method public destroy()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -155,7 +155,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 8
+    .locals 7
 
     .prologue
     .line 136
@@ -209,7 +209,7 @@
     .line 139
     iget-object v5, p0, Landroid/nfc/NfcActivityManager$NfcActivityState;->uris:[Landroid/net/Uri;
 
-    if-eqz v5, :cond_53
+    if-eqz v5, :cond_0
 
     .line 140
     iget-object v0, p0, Landroid/nfc/NfcActivityManager$NfcActivityState;->uris:[Landroid/net/Uri;
@@ -221,8 +221,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_37
-    if-ge v1, v2, :cond_53
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     aget-object v4, v0, v1
 
@@ -251,14 +251,14 @@
     .line 140
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_37
+    goto :goto_0
 
     .line 144
     .end local v0           #arr$:[Landroid/net/Uri;
     .end local v1           #i$:I
     .end local v2           #len$:I
     .end local v4           #uri:Landroid/net/Uri;
-    :cond_53
+    :cond_0
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5

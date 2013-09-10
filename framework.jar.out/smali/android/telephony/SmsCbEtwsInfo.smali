@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 197
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(IZZ[B)V
-    .registers 5
+    .locals 0
     .parameter "warningType"
     .parameter "emergencyUserAlert"
     .parameter "activatePopup"
@@ -84,7 +84,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .registers 5
+    .locals 3
     .parameter "in"
 
     .prologue
@@ -107,11 +107,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_12
+    :goto_0
     iput-boolean v0, p0, Landroid/telephony/SmsCbEtwsInfo;->mEmergencyUserAlert:Z
 
     .line 84
@@ -119,9 +119,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_25
+    if-eqz v0, :cond_1
 
-    :goto_1a
+    :goto_1
     iput-boolean v1, p0, Landroid/telephony/SmsCbEtwsInfo;->mActivatePopup:Z
 
     .line 85
@@ -134,23 +134,23 @@
     .line 86
     return-void
 
-    :cond_23
+    :cond_0
     move v0, v2
 
     .line 83
-    goto :goto_12
+    goto :goto_0
 
-    :cond_25
+    :cond_1
     move v1, v2
 
     .line 84
-    goto :goto_1a
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 193
@@ -160,7 +160,7 @@
 .end method
 
 .method public getPrimaryNotificationSignature()[B
-    .registers 4
+    .locals 3
 
     .prologue
     const/16 v2, 0x32
@@ -168,23 +168,23 @@
     .line 175
     iget-object v0, p0, Landroid/telephony/SmsCbEtwsInfo;->mWarningSecurityInformation:[B
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/telephony/SmsCbEtwsInfo;->mWarningSecurityInformation:[B
 
     array-length v0, v0
 
-    if-ge v0, v2, :cond_d
+    if-ge v0, v2, :cond_1
 
     .line 176
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
     .line 178
-    :goto_c
+    :goto_0
     return-object v0
 
-    :cond_d
+    :cond_1
     iget-object v0, p0, Landroid/telephony/SmsCbEtwsInfo;->mWarningSecurityInformation:[B
 
     const/4 v1, 0x7
@@ -193,11 +193,11 @@
 
     move-result-object v0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public getPrimaryNotificationTimestamp()J
-    .registers 14
+    .locals 13
 
     .prologue
     const/4 v11, 0x1
@@ -205,7 +205,7 @@
     .line 132
     iget-object v9, p0, Landroid/telephony/SmsCbEtwsInfo;->mWarningSecurityInformation:[B
 
-    if-eqz v9, :cond_b
+    if-eqz v9, :cond_0
 
     iget-object v9, p0, Landroid/telephony/SmsCbEtwsInfo;->mWarningSecurityInformation:[B
 
@@ -213,18 +213,18 @@
 
     const/4 v10, 0x7
 
-    if-ge v9, v10, :cond_e
+    if-ge v9, v10, :cond_1
 
     .line 133
-    :cond_b
+    :cond_0
     const-wide/16 v9, 0x0
 
     .line 166
-    :goto_d
+    :goto_0
     return-wide v9
 
     .line 136
-    :cond_e
+    :cond_1
     iget-object v9, p0, Landroid/telephony/SmsCbEtwsInfo;->mWarningSecurityInformation:[B
 
     const/4 v10, 0x0
@@ -315,10 +315,10 @@
     .local v6, timezoneOffset:I
     and-int/lit8 v9, v7, 0x8
 
-    if-nez v9, :cond_77
+    if-nez v9, :cond_2
 
     .line 155
-    :goto_53
+    :goto_1
     new-instance v5, Landroid/text/format/Time;
 
     const-string v9, "UTC"
@@ -363,18 +363,18 @@
 
     sub-long/2addr v9, v11
 
-    goto :goto_d
+    goto :goto_0
 
     .line 153
     .end local v5           #time:Landroid/text/format/Time;
-    :cond_77
+    :cond_2
     neg-int v6, v6
 
-    goto :goto_53
+    goto :goto_1
 .end method
 
 .method public getWarningType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 107
@@ -384,7 +384,7 @@
 .end method
 
 .method public isEmergencyUserAlert()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 115
@@ -394,7 +394,7 @@
 .end method
 
 .method public isPopupAlert()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 123
@@ -404,7 +404,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 183
@@ -462,7 +462,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "dest"
     .parameter "flags"
 
@@ -479,19 +479,19 @@
     .line 97
     iget-boolean v0, p0, Landroid/telephony/SmsCbEtwsInfo;->mEmergencyUserAlert:Z
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_c
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 98
     iget-boolean v0, p0, Landroid/telephony/SmsCbEtwsInfo;->mActivatePopup:Z
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_1
 
-    :goto_13
+    :goto_1
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 99
@@ -502,15 +502,15 @@
     .line 100
     return-void
 
-    :cond_1c
+    :cond_0
     move v0, v2
 
     .line 97
-    goto :goto_c
+    goto :goto_0
 
-    :cond_1e
+    :cond_1
     move v1, v2
 
     .line 98
-    goto :goto_13
+    goto :goto_1
 .end method

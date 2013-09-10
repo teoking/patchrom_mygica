@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lcom/google/android/util/SmileyResources;)V
-    .registers 11
+    .locals 8
     .parameter "text"
     .parameter "res"
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method protected getResources()Lcom/google/android/util/AbstractMessageParser$Resources;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 47
@@ -53,7 +53,7 @@
 .end method
 
 .method public getSpannableString(Landroid/content/Context;)Ljava/lang/CharSequence;
-    .registers 13
+    .locals 11
     .parameter "context"
 
     .prologue
@@ -68,19 +68,19 @@
 
     move-result v8
 
-    if-nez v8, :cond_e
+    if-nez v8, :cond_1
 
     .line 59
     const-string v0, ""
 
     .line 80
     .end local v0           #builder:Landroid/text/SpannableStringBuilder;
-    :cond_d
+    :cond_0
     return-object v0
 
     .line 63
     .restart local v0       #builder:Landroid/text/SpannableStringBuilder;
-    :cond_e
+    :cond_1
     const/4 v8, 0x0
 
     invoke-virtual {p0, v8}, Lcom/google/android/util/SmileyParser;->getPart(I)Lcom/google/android/util/AbstractMessageParser$Part;
@@ -104,8 +104,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_1c
-    if-ge v1, v2, :cond_d
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     .line 67
     invoke-virtual {v7, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -135,7 +135,7 @@
 
     sget-object v9, Lcom/google/android/util/AbstractMessageParser$Token$Type;->SMILEY:Lcom/google/android/util/AbstractMessageParser$Token$Type;
 
-    if-ne v8, v9, :cond_52
+    if-ne v8, v9, :cond_2
 
     .line 71
     iget-object v8, p0, Lcom/google/android/util/SmileyParser;->mRes:Lcom/google/android/util/SmileyResources;
@@ -152,7 +152,7 @@
     .local v4, resid:I
     const/4 v8, -0x1
 
-    if-eq v4, v8, :cond_52
+    if-eq v4, v8, :cond_2
 
     .line 73
     new-instance v8, Landroid/text/style/ImageSpan;
@@ -169,8 +169,8 @@
 
     .line 66
     .end local v4           #resid:I
-    :cond_52
+    :cond_2
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1c
+    goto :goto_0
 .end method

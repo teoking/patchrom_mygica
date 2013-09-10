@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -51,14 +51,14 @@
 
 # virtual methods
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
     .line 52
     iget-object v0, p0, Landroid/filterpacks/base/FrameSource;->mFrame:Landroid/filterfw/core/Frame;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 54
     const-string v0, "frame"
@@ -68,10 +68,10 @@
     invoke-virtual {p0, v0, v1}, Landroid/filterpacks/base/FrameSource;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
 
     .line 57
-    :cond_b
+    :cond_0
     iget-boolean v0, p0, Landroid/filterpacks/base/FrameSource;->mRepeatFrame:Z
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_1
 
     .line 59
     const-string v0, "frame"
@@ -79,12 +79,12 @@
     invoke-virtual {p0, v0}, Landroid/filterpacks/base/FrameSource;->closeOutputPort(Ljava/lang/String;)V
 
     .line 61
-    :cond_14
+    :cond_1
     return-void
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 47

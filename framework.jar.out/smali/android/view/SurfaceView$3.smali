@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/SurfaceView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onPreDraw()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x1
@@ -54,7 +54,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_1d
+    if-lez v0, :cond_0
 
     iget-object v0, p0, Landroid/view/SurfaceView$3;->this$0:Landroid/view/SurfaceView;
 
@@ -62,24 +62,25 @@
 
     move-result v0
 
-    if-lez v0, :cond_1d
+    if-lez v0, :cond_0
 
     move v0, v1
 
-    :goto_15
+    :goto_0
     iput-boolean v0, v3, Landroid/view/SurfaceView;->mHaveFrame:Z
 
     .line 174
     iget-object v0, p0, Landroid/view/SurfaceView$3;->this$0:Landroid/view/SurfaceView;
 
+    #calls: Landroid/view/SurfaceView;->updateWindow(ZZ)V
     invoke-static {v0, v2, v2}, Landroid/view/SurfaceView;->access$000(Landroid/view/SurfaceView;ZZ)V
 
     .line 175
     return v1
 
-    :cond_1d
+    :cond_0
     move v0, v2
 
     .line 173
-    goto :goto_15
+    goto :goto_0
 .end method

@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 36
@@ -21,7 +21,7 @@
 
 # virtual methods
 .method protected checkPosition()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 136
@@ -30,7 +30,7 @@
     .line 138
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 139
     new-instance v0, Landroid/database/StaleDataException;
@@ -42,19 +42,19 @@
     throw v0
 
     .line 142
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method protected clearOrCreateWindow(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
     .line 197
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 198
     new-instance v0, Landroid/database/CursorWindow;
@@ -64,26 +64,26 @@
     iput-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
     .line 202
-    :goto_b
+    :goto_0
     return-void
 
     .line 200
-    :cond_c
+    :cond_0
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
     invoke-virtual {v0}, Landroid/database/CursorWindow;->clear()V
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method protected closeWindow()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 183
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 184
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
@@ -96,12 +96,12 @@
     iput-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
     .line 187
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public copyStringToBuffer(ILandroid/database/CharArrayBuffer;)V
-    .registers 5
+    .locals 2
     .parameter "columnIndex"
     .parameter "buffer"
 
@@ -121,7 +121,7 @@
 .end method
 
 .method public getBlob(I)[B
-    .registers 4
+    .locals 2
     .parameter "columnIndex"
 
     .prologue
@@ -141,7 +141,7 @@
 .end method
 
 .method public getDouble(I)D
-    .registers 4
+    .locals 2
     .parameter "columnIndex"
 
     .prologue
@@ -161,7 +161,7 @@
 .end method
 
 .method public getFloat(I)F
-    .registers 4
+    .locals 2
     .parameter "columnIndex"
 
     .prologue
@@ -181,7 +181,7 @@
 .end method
 
 .method public getInt(I)I
-    .registers 4
+    .locals 2
     .parameter "columnIndex"
 
     .prologue
@@ -201,7 +201,7 @@
 .end method
 
 .method public getLong(I)J
-    .registers 4
+    .locals 2
     .parameter "columnIndex"
 
     .prologue
@@ -221,7 +221,7 @@
 .end method
 
 .method public getShort(I)S
-    .registers 4
+    .locals 2
     .parameter "columnIndex"
 
     .prologue
@@ -241,7 +241,7 @@
 .end method
 
 .method public getString(I)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "columnIndex"
 
     .prologue
@@ -261,7 +261,7 @@
 .end method
 
 .method public getType(I)I
-    .registers 4
+    .locals 2
     .parameter "columnIndex"
 
     .prologue
@@ -281,7 +281,7 @@
 .end method
 
 .method public getWindow()Landroid/database/CursorWindow;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 146
@@ -291,27 +291,27 @@
 .end method
 
 .method public hasWindow()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 175
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public isBlob(I)Z
-    .registers 4
+    .locals 2
     .parameter "columnIndex"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -324,21 +324,21 @@
 
     const/4 v1, 0x4
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public isFloat(I)Z
-    .registers 4
+    .locals 2
     .parameter "columnIndex"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -351,21 +351,21 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public isLong(I)Z
-    .registers 4
+    .locals 2
     .parameter "columnIndex"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -378,19 +378,19 @@
 
     move-result v1
 
-    if-ne v1, v0, :cond_8
+    if-ne v1, v0, :cond_0
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public isNull(I)Z
-    .registers 4
+    .locals 2
     .parameter "columnIndex"
 
     .prologue
@@ -406,21 +406,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_e
+    :goto_0
     return v0
 
-    :cond_f
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public isString(I)Z
-    .registers 4
+    .locals 2
     .parameter "columnIndex"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -433,21 +433,21 @@
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method protected onDeactivateOrClose()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 207
@@ -461,14 +461,14 @@
 .end method
 
 .method public setWindow(Landroid/database/CursorWindow;)V
-    .registers 3
+    .locals 1
     .parameter "window"
 
     .prologue
     .line 163
     iget-object v0, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
-    if-eq p1, v0, :cond_9
+    if-eq p1, v0, :cond_0
 
     .line 164
     invoke-virtual {p0}, Landroid/database/AbstractWindowedCursor;->closeWindow()V
@@ -477,6 +477,6 @@
     iput-object p1, p0, Landroid/database/AbstractWindowedCursor;->mWindow:Landroid/database/CursorWindow;
 
     .line 167
-    :cond_9
+    :cond_0
     return-void
 .end method

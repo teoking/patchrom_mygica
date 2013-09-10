@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 180
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 54
@@ -78,7 +78,7 @@
 .end method
 
 .method public constructor <init>(III)V
-    .registers 5
+    .locals 1
     .parameter "devInfo"
     .parameter "ctrlPort"
     .parameter "maxTput"
@@ -106,7 +106,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/wifi/p2p/WifiP2pWfdInfo;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -114,7 +114,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 157
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 158
     iget v0, p1, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mDeviceInfo:I
@@ -132,14 +132,14 @@
     iput v0, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mMaxThroughput:I
 
     .line 162
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 152
@@ -149,7 +149,7 @@
 .end method
 
 .method public getControlPort()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 122
@@ -159,7 +159,7 @@
 .end method
 
 .method public getDeviceInfoHex()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 138
@@ -217,7 +217,7 @@
 .end method
 
 .method public getDeviceType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 73
@@ -229,7 +229,7 @@
 .end method
 
 .method public getMaxThroughput()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 134
@@ -239,7 +239,7 @@
 .end method
 
 .method public isCoupledSinkSupportedAtSink()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 97
@@ -247,21 +247,21 @@
 
     and-int/lit8 v0, v0, 0x8
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public isCoupledSinkSupportedAtSource()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 85
@@ -269,21 +269,21 @@
 
     and-int/lit8 v0, v0, 0x8
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public isSessionAvailable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 109
@@ -291,21 +291,21 @@
 
     and-int/lit8 v0, v0, 0x30
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public isWfdEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 65
@@ -315,7 +315,7 @@
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -326,9 +326,9 @@
 
     move-result v1
 
-    if-ne v1, v0, :cond_1c
+    if-ne v1, v0, :cond_0
 
-    :goto_7
+    :goto_0
     iput-boolean v0, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mWfdEnabled:Z
 
     .line 174
@@ -356,14 +356,14 @@
     return-void
 
     .line 173
-    :cond_1c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setControlPort(I)V
-    .registers 2
+    .locals 0
     .parameter "port"
 
     .prologue
@@ -375,12 +375,12 @@
 .end method
 
 .method public setCoupledSinkSupportAtSink(Z)V
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
     .line 101
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
     .line 102
     iget v0, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mDeviceInfo:I
@@ -390,27 +390,27 @@
     iput v0, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mDeviceInfo:I
 
     .line 106
-    :goto_8
+    :goto_0
     return-void
 
     .line 104
-    :cond_9
+    :cond_0
     iget v0, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mDeviceInfo:I
 
     and-int/lit8 v0, v0, -0x9
 
     iput v0, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mDeviceInfo:I
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setCoupledSinkSupportAtSource(Z)V
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
     .line 89
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
     .line 90
     iget v0, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mDeviceInfo:I
@@ -420,31 +420,31 @@
     iput v0, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mDeviceInfo:I
 
     .line 94
-    :goto_8
+    :goto_0
     return-void
 
     .line 92
-    :cond_9
+    :cond_0
     iget v0, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mDeviceInfo:I
 
     and-int/lit8 v0, v0, -0x9
 
     iput v0, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mDeviceInfo:I
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setDeviceType(I)Z
-    .registers 3
+    .locals 1
     .parameter "deviceType"
 
     .prologue
     .line 77
-    if-ltz p1, :cond_c
+    if-ltz p1, :cond_0
 
     const/4 v0, 0x3
 
-    if-gt p1, v0, :cond_c
+    if-gt p1, v0, :cond_0
 
     .line 78
     iget v0, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mDeviceInfo:I
@@ -457,17 +457,17 @@
     const/4 v0, 0x1
 
     .line 81
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public setMaxThroughput(I)V
-    .registers 2
+    .locals 0
     .parameter "maxThroughput"
 
     .prologue
@@ -479,12 +479,12 @@
 .end method
 
 .method public setSessionAvailable(Z)V
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
     .line 113
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_0
 
     .line 114
     iget v0, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mDeviceInfo:I
@@ -501,22 +501,22 @@
     iput v0, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mDeviceInfo:I
 
     .line 119
-    :goto_e
+    :goto_0
     return-void
 
     .line 117
-    :cond_f
+    :cond_0
     iget v0, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mDeviceInfo:I
 
     and-int/lit8 v0, v0, -0x31
 
     iput v0, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mDeviceInfo:I
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public setWfdEnabled(Z)V
-    .registers 2
+    .locals 0
     .parameter "enabled"
 
     .prologue
@@ -528,7 +528,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 142
@@ -590,7 +590,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 
@@ -598,11 +598,11 @@
     .line 166
     iget-boolean v0, p0, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->mWfdEnabled:Z
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 167
@@ -624,8 +624,8 @@
     return-void
 
     .line 166
-    :cond_18
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method

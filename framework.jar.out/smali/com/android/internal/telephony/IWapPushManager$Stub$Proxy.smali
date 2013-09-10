@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public addPackage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IZZ)Z
-    .registers 15
+    .locals 7
     .parameter "x_app_id"
     .parameter "content_type"
     .parameter "package_name"
@@ -72,7 +72,7 @@
 
     .line 183
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "com.android.internal.telephony.IWapPushManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -93,19 +93,19 @@
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 189
-    if-eqz p6, :cond_41
+    if-eqz p6, :cond_0
 
     move v4, v2
 
-    :goto_21
+    :goto_0
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 190
-    if-eqz p7, :cond_43
+    if-eqz p7, :cond_1
 
     move v4, v2
 
-    :goto_27
+    :goto_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 191
@@ -122,16 +122,16 @@
 
     .line 193
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_37
-    .catchall {:try_start_a .. :try_end_37} :catchall_47
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_45
+    if-eqz v4, :cond_2
 
     .line 196
     .local v2, _result:Z
-    :goto_3a
+    :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 197
@@ -141,26 +141,26 @@
     return v2
 
     .end local v2           #_result:Z
-    :cond_41
+    :cond_0
     move v4, v3
 
     .line 189
-    goto :goto_21
+    goto :goto_0
 
-    :cond_43
+    :cond_1
     move v4, v3
 
     .line 190
-    goto :goto_27
+    goto :goto_1
 
-    :cond_45
+    :cond_2
     move v2, v3
 
     .line 193
-    goto :goto_3a
+    goto :goto_2
 
     .line 196
-    :catchall_47
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -172,7 +172,7 @@
 .end method
 
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 136
@@ -182,7 +182,7 @@
 .end method
 
 .method public deletePackage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
-    .registers 11
+    .locals 6
     .parameter "x_app_id"
     .parameter "content_type"
     .parameter "package_name"
@@ -209,7 +209,7 @@
 
     .line 239
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "com.android.internal.telephony.IWapPushManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -240,18 +240,18 @@
 
     .line 246
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_27
-    .catchall {:try_start_9 .. :try_end_27} :catchall_32
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_2b
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 249
     .local v2, _result:Z
-    :cond_2b
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 250
@@ -262,7 +262,7 @@
 
     .line 249
     .end local v2           #_result:Z
-    :catchall_32
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -274,7 +274,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 140
@@ -284,7 +284,7 @@
 .end method
 
 .method public processMessage(Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;)I
-    .registers 10
+    .locals 6
     .parameter "app_id"
     .parameter "content_type"
     .parameter "intent"
@@ -308,7 +308,7 @@
 
     .line 152
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.telephony.IWapPushManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -320,7 +320,7 @@
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 155
-    if-eqz p3, :cond_32
+    if-eqz p3, :cond_0
 
     .line 156
     const/4 v3, 0x1
@@ -333,7 +333,7 @@
     invoke-virtual {p3, v0, v3}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 162
-    :goto_1d
+    :goto_0
     iget-object v3, p0, Lcom/android/internal/telephony/IWapPushManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x1
@@ -347,8 +347,8 @@
 
     .line 164
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_2a
-    .catchall {:try_start_8 .. :try_end_2a} :catchall_37
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -364,18 +364,18 @@
 
     .line 160
     .end local v2           #_result:I
-    :cond_32
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_33
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_36
-    .catchall {:try_start_33 .. :try_end_36} :catchall_37
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 167
-    :catchall_37
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -387,7 +387,7 @@
 .end method
 
 .method public updatePackage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IZZ)Z
-    .registers 15
+    .locals 7
     .parameter "x_app_id"
     .parameter "content_type"
     .parameter "package_name"
@@ -419,7 +419,7 @@
 
     .line 211
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "com.android.internal.telephony.IWapPushManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -440,19 +440,19 @@
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 217
-    if-eqz p6, :cond_41
+    if-eqz p6, :cond_0
 
     move v4, v2
 
-    :goto_21
+    :goto_0
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 218
-    if-eqz p7, :cond_43
+    if-eqz p7, :cond_1
 
     move v4, v2
 
-    :goto_27
+    :goto_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 219
@@ -469,16 +469,16 @@
 
     .line 221
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_37
-    .catchall {:try_start_a .. :try_end_37} :catchall_47
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_45
+    if-eqz v4, :cond_2
 
     .line 224
     .local v2, _result:Z
-    :goto_3a
+    :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 225
@@ -488,26 +488,26 @@
     return v2
 
     .end local v2           #_result:Z
-    :cond_41
+    :cond_0
     move v4, v3
 
     .line 217
-    goto :goto_21
+    goto :goto_0
 
-    :cond_43
+    :cond_1
     move v4, v3
 
     .line 218
-    goto :goto_27
+    goto :goto_1
 
-    :cond_45
+    :cond_2
     move v2, v3
 
     .line 221
-    goto :goto_3a
+    goto :goto_2
 
     .line 224
-    :catchall_47
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/service/textservice/SpellCheckerService;)V
-    .registers 3
+    .locals 1
     .parameter "service"
 
     .prologue
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public getISpellCheckerSession(Ljava/lang/String;Lcom/android/internal/textservice/ISpellCheckerSessionListener;Landroid/os/Bundle;)Lcom/android/internal/textservice/ISpellCheckerSession;
-    .registers 8
+    .locals 4
     .parameter "locale"
     .parameter "listener"
     .parameter "bundle"
@@ -67,16 +67,16 @@
 
     .line 319
     .local v1, service:Landroid/service/textservice/SpellCheckerService;
-    if-nez v1, :cond_c
+    if-nez v1, :cond_0
 
     const/4 v0, 0x0
 
     .line 324
-    :goto_b
+    :goto_0
     return-object v0
 
     .line 320
-    :cond_c
+    :cond_0
     invoke-virtual {v1}, Landroid/service/textservice/SpellCheckerService;->createSession()Landroid/service/textservice/SpellCheckerService$Session;
 
     move-result-object v2
@@ -91,5 +91,5 @@
     .local v0, internalSession:Landroid/service/textservice/SpellCheckerService$InternalISpellCheckerSession;
     invoke-virtual {v2}, Landroid/service/textservice/SpellCheckerService$Session;->onCreate()V
 
-    goto :goto_b
+    goto :goto_0
 .end method

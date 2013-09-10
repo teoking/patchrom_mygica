@@ -18,7 +18,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 24
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method addInstance(Landroid/gesture/Instance;)V
-    .registers 3
+    .locals 1
     .parameter "instance"
 
     .prologue
@@ -63,7 +63,7 @@
 .end method
 
 .method getInstances()Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -82,7 +82,7 @@
 .end method
 
 .method removeInstance(J)V
-    .registers 9
+    .locals 6
     .parameter "id"
 
     .prologue
@@ -100,8 +100,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_18
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 54
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -116,26 +116,26 @@
 
     cmp-long v4, p1, v4
 
-    if-nez v4, :cond_19
+    if-nez v4, :cond_1
 
     .line 56
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     .line 60
     .end local v2           #instance:Landroid/gesture/Instance;
-    :cond_18
+    :cond_0
     return-void
 
     .line 53
     .restart local v2       #instance:Landroid/gesture/Instance;
-    :cond_19
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method removeInstances(Ljava/lang/String;)V
-    .registers 8
+    .locals 6
     .parameter "name"
 
     .prologue
@@ -159,8 +159,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_c
-    if-ge v1, v0, :cond_2c
+    :goto_0
+    if-ge v1, v0, :cond_3
 
     .line 73
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -173,14 +173,14 @@
     .local v2, instance:Landroid/gesture/Instance;
     iget-object v5, v2, Landroid/gesture/Instance;->label:Ljava/lang/String;
 
-    if-nez v5, :cond_1a
+    if-nez v5, :cond_0
 
-    if-eqz p1, :cond_26
+    if-eqz p1, :cond_1
 
-    :cond_1a
+    :cond_0
     iget-object v5, v2, Landroid/gesture/Instance;->label:Ljava/lang/String;
 
-    if-eqz v5, :cond_29
+    if-eqz v5, :cond_2
 
     iget-object v5, v2, Landroid/gesture/Instance;->label:Ljava/lang/String;
 
@@ -188,21 +188,21 @@
 
     move-result v5
 
-    if-eqz v5, :cond_29
+    if-eqz v5, :cond_2
 
     .line 77
-    :cond_26
+    :cond_1
     invoke-virtual {v4, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 72
-    :cond_29
+    :cond_2
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_c
+    goto :goto_0
 
     .line 80
     .end local v2           #instance:Landroid/gesture/Instance;
-    :cond_2c
+    :cond_3
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->removeAll(Ljava/util/Collection;)Z
 
     .line 81

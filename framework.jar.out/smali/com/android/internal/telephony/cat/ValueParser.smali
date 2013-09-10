@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 27
@@ -15,7 +15,7 @@
 .end method
 
 .method static retrieveAlphaId(Lcom/android/internal/telephony/cat/ComprehensionTlv;)Ljava/lang/String;
-    .registers 7
+    .locals 6
     .parameter "ctlv"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -25,7 +25,7 @@
 
     .prologue
     .line 276
-    if-eqz p0, :cond_21
+    if-eqz p0, :cond_1
 
     .line 277
     invoke-virtual {p0}, Lcom/android/internal/telephony/cat/ComprehensionTlv;->getRawValue()[B
@@ -46,13 +46,13 @@
 
     .line 280
     .local v1, length:I
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_0
 
     .line 282
-    :try_start_10
+    :try_start_0
     invoke-static {v2, v3, v1}, Lcom/android/internal/telephony/IccUtils;->adnStringFieldToString([BII)Ljava/lang/String;
-    :try_end_13
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_10 .. :try_end_13} :catch_15
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v4
 
@@ -60,14 +60,14 @@
     .end local v1           #length:I
     .end local v2           #rawValue:[B
     .end local v3           #valueIndex:I
-    :goto_14
+    :goto_0
     return-object v4
 
     .line 284
     .restart local v1       #length:I
     .restart local v2       #rawValue:[B
     .restart local v3       #valueIndex:I
-    :catch_15
+    :catch_0
     move-exception v0
 
     .line 285
@@ -82,23 +82,23 @@
 
     .line 288
     .end local v0           #e:Ljava/lang/IndexOutOfBoundsException;
-    :cond_1e
+    :cond_0
     const-string v4, "Defualt Message"
 
-    goto :goto_14
+    goto :goto_0
 
     .line 291
     .end local v1           #length:I
     .end local v2           #rawValue:[B
     .end local v3           #valueIndex:I
-    :cond_21
+    :cond_1
     const-string v4, "Defualt Message"
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method static retrieveCommandDetails(Lcom/android/internal/telephony/cat/ComprehensionTlv;)Lcom/android/internal/telephony/cat/CommandDetails;
-    .registers 7
+    .locals 6
     .parameter "ctlv"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -126,7 +126,7 @@
 
     .line 44
     .local v3, valueIndex:I
-    :try_start_d
+    :try_start_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/cat/ComprehensionTlv;->isComprehensionRequired()Z
 
     move-result v4
@@ -157,14 +157,14 @@
     and-int/lit16 v4, v4, 0xff
 
     iput v4, v0, Lcom/android/internal/telephony/cat/CommandDetails;->commandQualifier:I
-    :try_end_29
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_d .. :try_end_29} :catch_2a
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 48
     return-object v0
 
     .line 49
-    :catch_2a
+    :catch_0
     move-exception v1
 
     .line 50
@@ -179,7 +179,7 @@
 .end method
 
 .method static retrieveDeviceIdentities(Lcom/android/internal/telephony/cat/ComprehensionTlv;)Lcom/android/internal/telephony/cat/DeviceIdentities;
-    .registers 7
+    .locals 6
     .parameter "ctlv"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -207,7 +207,7 @@
 
     .line 69
     .local v3, valueIndex:I
-    :try_start_d
+    :try_start_0
     aget-byte v4, v2, v3
 
     and-int/lit16 v4, v4, 0xff
@@ -222,14 +222,14 @@
     and-int/lit16 v4, v4, 0xff
 
     iput v4, v0, Lcom/android/internal/telephony/cat/DeviceIdentities;->destinationId:I
-    :try_end_1b
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_d .. :try_end_1b} :catch_1c
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 71
     return-object v0
 
     .line 72
-    :catch_1c
+    :catch_0
     move-exception v1
 
     .line 73
@@ -244,7 +244,7 @@
 .end method
 
 .method static retrieveDuration(Lcom/android/internal/telephony/cat/ComprehensionTlv;)Lcom/android/internal/telephony/cat/Duration;
-    .registers 8
+    .locals 7
     .parameter "ctlv"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -274,7 +274,7 @@
 
     .line 93
     .local v4, valueIndex:I
-    :try_start_b
+    :try_start_0
     invoke-static {}, Lcom/android/internal/telephony/cat/Duration$TimeUnit;->values()[Lcom/android/internal/telephony/cat/Duration$TimeUnit;
 
     move-result-object v5
@@ -289,8 +289,8 @@
     add-int/lit8 v5, v4, 0x1
 
     aget-byte v5, v1, v5
-    :try_end_19
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_b .. :try_end_19} :catch_21
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     and-int/lit16 v2, v5, 0xff
 
@@ -302,7 +302,7 @@
     return-object v5
 
     .line 95
-    :catch_21
+    :catch_0
     move-exception v0
 
     .line 96
@@ -317,7 +317,7 @@
 .end method
 
 .method static retrieveIconId(Lcom/android/internal/telephony/cat/ComprehensionTlv;)Lcom/android/internal/telephony/cat/IconId;
-    .registers 8
+    .locals 7
     .parameter "ctlv"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -349,16 +349,16 @@
 
     .end local v3           #valueIndex:I
     .local v4, valueIndex:I
-    :try_start_f
+    :try_start_0
     aget-byte v5, v2, v3
 
     and-int/lit16 v5, v5, 0xff
 
-    if-nez v5, :cond_1f
+    if-nez v5, :cond_0
 
     const/4 v5, 0x1
 
-    :goto_16
+    :goto_0
     iput-boolean v5, v1, Lcom/android/internal/telephony/cat/IconId;->selfExplanatory:Z
 
     .line 167
@@ -367,20 +367,20 @@
     and-int/lit16 v5, v5, 0xff
 
     iput v5, v1, Lcom/android/internal/telephony/cat/IconId;->recordNumber:I
-    :try_end_1e
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_f .. :try_end_1e} :catch_21
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 172
     return-object v1
 
     .line 166
-    :cond_1f
+    :cond_0
     const/4 v5, 0x0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 168
-    :catch_21
+    :catch_0
     move-exception v0
 
     .line 169
@@ -395,7 +395,7 @@
 .end method
 
 .method static retrieveItem(Lcom/android/internal/telephony/cat/ComprehensionTlv;)Lcom/android/internal/telephony/cat/Item;
-    .registers 11
+    .locals 10
     .parameter "ctlv"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -427,14 +427,14 @@
 
     .line 115
     .local v3, length:I
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_0
 
     .line 116
     add-int/lit8 v6, v3, -0x1
 
     .line 119
     .local v6, textLen:I
-    :try_start_11
+    :try_start_0
     aget-byte v8, v4, v7
 
     and-int/lit16 v1, v8, 0xff
@@ -453,21 +453,21 @@
 
     .end local v2           #item:Lcom/android/internal/telephony/cat/Item;
     invoke-direct {v2, v1, v5}, Lcom/android/internal/telephony/cat/Item;-><init>(ILjava/lang/String;)V
-    :try_end_20
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_11 .. :try_end_20} :catch_21
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 128
     .end local v1           #id:I
     .end local v5           #text:Ljava/lang/String;
     .end local v6           #textLen:I
     .restart local v2       #item:Lcom/android/internal/telephony/cat/Item;
-    :cond_20
+    :cond_0
     return-object v2
 
     .line 123
     .end local v2           #item:Lcom/android/internal/telephony/cat/Item;
     .restart local v6       #textLen:I
-    :catch_21
+    :catch_0
     move-exception v0
 
     .line 124
@@ -482,7 +482,7 @@
 .end method
 
 .method static retrieveItemId(Lcom/android/internal/telephony/cat/ComprehensionTlv;)I
-    .registers 7
+    .locals 6
     .parameter "ctlv"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -508,10 +508,10 @@
 
     .line 145
     .local v3, valueIndex:I
-    :try_start_9
+    :try_start_0
     aget-byte v4, v2, v3
-    :try_end_b
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_9 .. :try_end_b} :catch_e
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     and-int/lit16 v1, v4, 0xff
 
@@ -519,7 +519,7 @@
     return v1
 
     .line 146
-    :catch_e
+    :catch_0
     move-exception v0
 
     .line 147
@@ -534,7 +534,7 @@
 .end method
 
 .method static retrieveItemsIconId(Lcom/android/internal/telephony/cat/ComprehensionTlv;)Lcom/android/internal/telephony/cat/ItemsIconId;
-    .registers 11
+    .locals 10
     .parameter "ctlv"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -586,16 +586,16 @@
 
     .end local v6           #valueIndex:I
     .local v7, valueIndex:I
-    :try_start_21
+    :try_start_0
     aget-byte v8, v5, v6
 
     and-int/lit16 v8, v8, 0xff
 
-    if-nez v8, :cond_3b
+    if-nez v8, :cond_0
 
     const/4 v8, 0x1
 
-    :goto_28
+    :goto_0
     iput-boolean v8, v1, Lcom/android/internal/telephony/cat/ItemsIconId;->selfExplanatory:Z
 
     .line 197
@@ -606,13 +606,13 @@
 
     .end local v2           #index:I
     .local v3, index:I
-    :goto_2c
-    if-ge v3, v4, :cond_47
+    :goto_1
+    if-ge v3, v4, :cond_1
 
     .line 198
     iget-object v8, v1, Lcom/android/internal/telephony/cat/ItemsIconId;->recordNumbers:[I
-    :try_end_30
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_21 .. :try_end_30} :catch_3d
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     add-int/lit8 v2, v3, 0x1
 
@@ -622,12 +622,12 @@
 
     .end local v7           #valueIndex:I
     .restart local v6       #valueIndex:I
-    :try_start_34
+    :try_start_1
     aget-byte v9, v5, v7
 
     aput v9, v8, v3
-    :try_end_38
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_34 .. :try_end_38} :catch_48
+    :try_end_1
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_1
 
     move v3, v2
 
@@ -637,17 +637,17 @@
 
     .end local v6           #valueIndex:I
     .restart local v7       #valueIndex:I
-    goto :goto_2c
+    goto :goto_1
 
     .line 195
     .end local v3           #index:I
-    :cond_3b
+    :cond_0
     const/4 v8, 0x0
 
-    goto :goto_28
+    goto :goto_0
 
     .line 200
-    :catch_3d
+    :catch_0
     move-exception v0
 
     move v6, v7
@@ -656,7 +656,7 @@
     .end local v7           #valueIndex:I
     .local v0, e:Ljava/lang/IndexOutOfBoundsException;
     .restart local v6       #valueIndex:I
-    :goto_3f
+    :goto_2
     new-instance v8, Lcom/android/internal/telephony/cat/ResultException;
 
     sget-object v9, Lcom/android/internal/telephony/cat/ResultCode;->CMD_DATA_NOT_UNDERSTOOD:Lcom/android/internal/telephony/cat/ResultCode;
@@ -670,7 +670,7 @@
     .end local v6           #valueIndex:I
     .restart local v3       #index:I
     .restart local v7       #valueIndex:I
-    :cond_47
+    :cond_1
     return-object v1
 
     .line 200
@@ -678,14 +678,14 @@
     .end local v7           #valueIndex:I
     .restart local v2       #index:I
     .restart local v6       #valueIndex:I
-    :catch_48
+    :catch_1
     move-exception v0
 
-    goto :goto_3f
+    goto :goto_2
 .end method
 
 .method static retrieveTextAttribute(Lcom/android/internal/telephony/cat/ComprehensionTlv;)Ljava/util/List;
-    .registers 25
+    .locals 24
     .parameter "ctlv"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -731,7 +731,7 @@
 
     .line 222
     .local v17, length:I
-    if-eqz v17, :cond_84
+    if-eqz v17, :cond_5
 
     .line 224
     div-int/lit8 v16, v17, 0x4
@@ -741,13 +741,13 @@
     const/4 v15, 0x0
 
     .local v15, i:I
-    :goto_16
+    :goto_0
     move/from16 v0, v16
 
-    if-ge v15, v0, :cond_86
+    if-ge v15, v0, :cond_6
 
     .line 228
-    :try_start_1a
+    :try_start_0
     aget-byte v22, v19, v21
 
     move/from16 v0, v22
@@ -808,51 +808,51 @@
 
     .line 238
     .local v5, size:Lcom/android/internal/telephony/cat/FontSize;
-    if-nez v5, :cond_4a
+    if-nez v5, :cond_0
 
     .line 240
     sget-object v5, Lcom/android/internal/telephony/cat/FontSize;->NORMAL:Lcom/android/internal/telephony/cat/FontSize;
 
     .line 243
-    :cond_4a
+    :cond_0
     and-int/lit8 v22, v14, 0x10
 
-    if-eqz v22, :cond_73
+    if-eqz v22, :cond_1
 
     const/4 v6, 0x1
 
     .line 244
     .local v6, bold:Z
-    :goto_4f
+    :goto_1
     and-int/lit8 v22, v14, 0x20
 
-    if-eqz v22, :cond_75
+    if-eqz v22, :cond_2
 
     const/4 v7, 0x1
 
     .line 245
     .local v7, italic:Z
-    :goto_54
+    :goto_2
     and-int/lit8 v22, v14, 0x40
 
-    if-eqz v22, :cond_77
+    if-eqz v22, :cond_3
 
     const/4 v8, 0x1
 
     .line 246
     .local v8, underlined:Z
-    :goto_59
+    :goto_3
     and-int/lit16 v0, v14, 0x80
 
     move/from16 v22, v0
 
-    if-eqz v22, :cond_79
+    if-eqz v22, :cond_4
 
     const/4 v9, 0x1
 
     .line 248
     .local v9, strikeThrough:Z
-    :goto_60
+    :goto_4
     invoke-static {v12}, Lcom/android/internal/telephony/cat/TextColor;->fromInt(I)Lcom/android/internal/telephony/cat/TextColor;
 
     move-result-object v10
@@ -868,15 +868,15 @@
     move-object/from16 v0, v18
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_6e
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_1a .. :try_end_6e} :catch_7b
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 227
     add-int/lit8 v15, v15, 0x1
 
     add-int/lit8 v21, v21, 0x4
 
-    goto :goto_16
+    goto :goto_0
 
     .line 243
     .end local v1           #attr:Lcom/android/internal/telephony/cat/TextAttribute;
@@ -885,31 +885,31 @@
     .end local v8           #underlined:Z
     .end local v9           #strikeThrough:Z
     .end local v10           #color:Lcom/android/internal/telephony/cat/TextColor;
-    :cond_73
+    :cond_1
     const/4 v6, 0x0
 
-    goto :goto_4f
+    goto :goto_1
 
     .line 244
     .restart local v6       #bold:Z
-    :cond_75
+    :cond_2
     const/4 v7, 0x0
 
-    goto :goto_54
+    goto :goto_2
 
     .line 245
     .restart local v7       #italic:Z
-    :cond_77
+    :cond_3
     const/4 v8, 0x0
 
-    goto :goto_59
+    goto :goto_3
 
     .line 246
     .restart local v8       #underlined:Z
-    :cond_79
+    :cond_4
     const/4 v9, 0x0
 
-    goto :goto_60
+    goto :goto_4
 
     .line 258
     .end local v2           #start:I
@@ -923,7 +923,7 @@
     .end local v12           #colorValue:I
     .end local v14           #format:I
     .end local v20           #sizeValue:I
-    :catch_7b
+    :catch_0
     move-exception v13
 
     .line 259
@@ -940,16 +940,16 @@
     .end local v13           #e:Ljava/lang/IndexOutOfBoundsException;
     .end local v15           #i:I
     .end local v16           #itemCount:I
-    :cond_84
+    :cond_5
     const/16 v18, 0x0
 
     .end local v18           #lst:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/cat/TextAttribute;>;"
-    :cond_86
+    :cond_6
     return-object v18
 .end method
 
 .method static retrieveTextString(Lcom/android/internal/telephony/cat/ComprehensionTlv;)Ljava/lang/String;
-    .registers 10
+    .locals 9
     .parameter "ctlv"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -985,24 +985,24 @@
 
     .line 311
     .local v5, textLen:I
-    if-nez v5, :cond_12
+    if-nez v5, :cond_0
 
     move-object v4, v3
 
     .line 333
     .end local v3           #text:Ljava/lang/String;
     .local v4, text:Ljava/lang/String;
-    :goto_11
+    :goto_0
     return-object v4
 
     .line 315
     .end local v4           #text:Ljava/lang/String;
     .restart local v3       #text:Ljava/lang/String;
-    :cond_12
+    :cond_0
     add-int/lit8 v5, v5, -0x1
 
     .line 319
-    :try_start_14
+    :try_start_0
     aget-byte v7, v2, v6
 
     and-int/lit8 v7, v7, 0xc
@@ -1010,7 +1010,7 @@
     int-to-byte v0, v7
 
     .line 321
-    if-nez v0, :cond_27
+    if-nez v0, :cond_1
 
     .line 322
     add-int/lit8 v7, v6, 0x1
@@ -1023,21 +1023,21 @@
 
     move-result-object v3
 
-    :goto_25
+    :goto_1
     move-object v4, v3
 
     .line 333
     .end local v3           #text:Ljava/lang/String;
     .restart local v4       #text:Ljava/lang/String;
-    goto :goto_11
+    goto :goto_0
 
     .line 324
     .end local v4           #text:Ljava/lang/String;
     .restart local v3       #text:Ljava/lang/String;
-    :cond_27
+    :cond_1
     const/4 v7, 0x4
 
-    if-ne v0, v7, :cond_31
+    if-ne v0, v7, :cond_2
 
     .line 325
     add-int/lit8 v7, v6, 0x1
@@ -1046,13 +1046,13 @@
 
     move-result-object v3
 
-    goto :goto_25
+    goto :goto_1
 
     .line 327
-    :cond_31
+    :cond_2
     const/16 v7, 0x8
 
-    if-ne v0, v7, :cond_3f
+    if-ne v0, v7, :cond_3
 
     .line 328
     new-instance v3, Ljava/lang/String;
@@ -1065,10 +1065,10 @@
     invoke-direct {v3, v2, v7, v5, v8}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
 
     .restart local v3       #text:Ljava/lang/String;
-    goto :goto_25
+    goto :goto_1
 
     .line 330
-    :cond_3f
+    :cond_3
     new-instance v7, Lcom/android/internal/telephony/cat/ResultException;
 
     sget-object v8, Lcom/android/internal/telephony/cat/ResultCode;->CMD_DATA_NOT_UNDERSTOOD:Lcom/android/internal/telephony/cat/ResultCode;
@@ -1076,13 +1076,13 @@
     invoke-direct {v7, v8}, Lcom/android/internal/telephony/cat/ResultException;-><init>(Lcom/android/internal/telephony/cat/ResultCode;)V
 
     throw v7
-    :try_end_47
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_14 .. :try_end_47} :catch_47
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_14 .. :try_end_47} :catch_50
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 334
     .end local v3           #text:Ljava/lang/String;
-    :catch_47
+    :catch_0
     move-exception v1
 
     .line 335
@@ -1097,7 +1097,7 @@
 
     .line 336
     .end local v1           #e:Ljava/lang/IndexOutOfBoundsException;
-    :catch_50
+    :catch_1
     move-exception v1
 
     .line 338

@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 14
@@ -53,22 +53,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/IWapPushManager;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 23
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 24
     const/4 v0, 0x0
 
     .line 30
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 26
-    :cond_4
+    :cond_0
     const-string v1, "com.android.internal.telephony.IWapPushManager"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -77,31 +77,31 @@
 
     .line 27
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/telephony/IWapPushManager;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 28
     check-cast v0, Lcom/android/internal/telephony/IWapPushManager;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 30
-    :cond_13
+    :cond_1
     new-instance v0, Lcom/android/internal/telephony/IWapPushManager$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/telephony/IWapPushManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 34
@@ -109,7 +109,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 16
+    .locals 11
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -126,26 +126,26 @@
     const/4 v9, 0x1
 
     .line 38
-    sparse-switch p1, :sswitch_data_d2
+    sparse-switch p1, :sswitch_data_0
 
     .line 125
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v9
 
-    :goto_9
+    :goto_0
     return v9
 
     .line 42
-    :sswitch_a
+    :sswitch_0
     const-string v0, "com.android.internal.telephony.IWapPushManager"
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 47
-    :sswitch_10
+    :sswitch_1
     const-string v0, "com.android.internal.telephony.IWapPushManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -167,7 +167,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_36
+    if-eqz v0, :cond_0
 
     .line 54
     sget-object v0, Landroid/content/Intent;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -180,7 +180,7 @@
 
     .line 59
     .local v3, _arg2:Landroid/content/Intent;
-    :goto_2b
+    :goto_1
     invoke-virtual {p0, v1, v2, v3}, Lcom/android/internal/telephony/IWapPushManager$Stub;->processMessage(Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;)I
 
     move-result v8
@@ -192,22 +192,22 @@
     .line 61
     invoke-virtual {p3, v8}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 57
     .end local v3           #_arg2:Landroid/content/Intent;
     .end local v8           #_result:I
-    :cond_36
+    :cond_0
     const/4 v3, 0x0
 
     .restart local v3       #_arg2:Landroid/content/Intent;
-    goto :goto_2b
+    goto :goto_1
 
     .line 66
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:Landroid/content/Intent;
-    :sswitch_38
+    :sswitch_2
     const-string v0, "com.android.internal.telephony.IWapPushManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -247,23 +247,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6e
+    if-eqz v0, :cond_2
 
     move v6, v9
 
     .line 80
     .local v6, _arg5:Z
-    :goto_58
+    :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_70
+    if-eqz v0, :cond_3
 
     move v7, v9
 
     .local v7, _arg6:Z
-    :goto_5f
+    :goto_3
     move-object v0, p0
 
     .line 81
@@ -276,30 +276,30 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 83
-    if-eqz v8, :cond_6a
+    if-eqz v8, :cond_1
 
     move v10, v9
 
-    :cond_6a
+    :cond_1
     invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .end local v6           #_arg5:Z
     .end local v7           #_arg6:Z
     .end local v8           #_result:Z
-    :cond_6e
+    :cond_2
     move v6, v10
 
     .line 78
-    goto :goto_58
+    goto :goto_2
 
     .restart local v6       #_arg5:Z
-    :cond_70
+    :cond_3
     move v7, v10
 
     .line 80
-    goto :goto_5f
+    goto :goto_3
 
     .line 88
     .end local v1           #_arg0:Ljava/lang/String;
@@ -308,7 +308,7 @@
     .end local v4           #_arg3:Ljava/lang/String;
     .end local v5           #_arg4:I
     .end local v6           #_arg5:Z
-    :sswitch_72
+    :sswitch_3
     const-string v0, "com.android.internal.telephony.IWapPushManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -348,23 +348,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a9
+    if-eqz v0, :cond_5
 
     move v6, v9
 
     .line 102
     .restart local v6       #_arg5:Z
-    :goto_92
+    :goto_4
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_ab
+    if-eqz v0, :cond_6
 
     move v7, v9
 
     .restart local v7       #_arg6:Z
-    :goto_99
+    :goto_5
     move-object v0, p0
 
     .line 103
@@ -377,30 +377,30 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 105
-    if-eqz v8, :cond_a4
+    if-eqz v8, :cond_4
 
     move v10, v9
 
-    :cond_a4
+    :cond_4
     invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .end local v6           #_arg5:Z
     .end local v7           #_arg6:Z
     .end local v8           #_result:Z
-    :cond_a9
+    :cond_5
     move v6, v10
 
     .line 100
-    goto :goto_92
+    goto :goto_4
 
     .restart local v6       #_arg5:Z
-    :cond_ab
+    :cond_6
     move v7, v10
 
     .line 102
-    goto :goto_99
+    goto :goto_5
 
     .line 110
     .end local v1           #_arg0:Ljava/lang/String;
@@ -409,7 +409,7 @@
     .end local v4           #_arg3:Ljava/lang/String;
     .end local v5           #_arg4:I
     .end local v6           #_arg5:Z
-    :sswitch_ad
+    :sswitch_4
     const-string v0, "com.android.internal.telephony.IWapPushManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -448,24 +448,24 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 121
-    if-eqz v8, :cond_cc
+    if-eqz v8, :cond_7
 
     move v10, v9
 
-    :cond_cc
+    :cond_7
     invoke-virtual {p3, v10}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 38
     nop
 
-    :sswitch_data_d2
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_10
-        0x2 -> :sswitch_38
-        0x3 -> :sswitch_72
-        0x4 -> :sswitch_ad
-        0x5f4e5446 -> :sswitch_a
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

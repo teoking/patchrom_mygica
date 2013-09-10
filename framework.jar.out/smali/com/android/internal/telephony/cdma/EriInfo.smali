@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(IIILjava/lang/String;II)V
-    .registers 7
+    .locals 0
     .parameter "roamingIndicator"
     .parameter "iconIndex"
     .parameter "iconMode"

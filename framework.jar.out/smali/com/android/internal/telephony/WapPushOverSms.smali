@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/Phone;Lcom/android/internal/telephony/SMSDispatcher;)V
-    .registers 5
+    .locals 2
     .parameter "phone"
     .parameter "smsDispatcher"
 
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public dispatchWapPdu([B)I
-    .registers 26
+    .locals 24
     .parameter "pdu"
 
     .prologue
@@ -128,23 +128,23 @@
 
     move/from16 v0, v22
 
-    if-eq v15, v0, :cond_23
+    if-eq v15, v0, :cond_0
 
     const/16 v22, 0x7
 
     move/from16 v0, v22
 
-    if-eq v15, v0, :cond_23
+    if-eq v15, v0, :cond_0
 
     .line 147
     const/16 v22, 0x1
 
     .line 273
-    :goto_22
+    :goto_0
     return v22
 
     .line 150
-    :cond_23
+    :cond_0
     new-instance v22, Lcom/android/internal/telephony/WspTypeDecoder;
 
     move-object/from16 v0, v22
@@ -172,15 +172,15 @@
 
     move-result v22
 
-    if-nez v22, :cond_43
+    if-nez v22, :cond_1
 
     .line 160
     const/16 v22, 0x2
 
-    goto :goto_22
+    goto :goto_0
 
     .line 162
-    :cond_43
+    :cond_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/WapPushOverSms;->pduDecoder:Lcom/android/internal/telephony/WspTypeDecoder;
@@ -225,15 +225,15 @@
 
     move-result v22
 
-    if-nez v22, :cond_6e
+    if-nez v22, :cond_2
 
     .line 181
     const/16 v22, 0x2
 
-    goto :goto_22
+    goto :goto_0
 
     .line 184
-    :cond_6e
+    :cond_2
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/WapPushOverSms;->pduDecoder:Lcom/android/internal/telephony/WspTypeDecoder;
@@ -290,7 +290,7 @@
     invoke-static {v0, v9, v7, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 193
-    if-eqz v14, :cond_111
+    if-eqz v14, :cond_5
 
     const-string v22, "application/vnd.wap.coc"
 
@@ -300,14 +300,14 @@
 
     move-result v22
 
-    if-eqz v22, :cond_111
+    if-eqz v22, :cond_5
 
     .line 194
     move-object/from16 v13, p1
 
     .line 207
     .local v13, intentData:[B
-    :goto_ac
+    :goto_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/WapPushOverSms;->pduDecoder:Lcom/android/internal/telephony/WspTypeDecoder;
@@ -326,7 +326,7 @@
 
     move-result v22
 
-    if-eqz v22, :cond_17e
+    if-eqz v22, :cond_8
 
     .line 208
     move-object/from16 v0, p0
@@ -367,7 +367,7 @@
 
     .line 211
     .local v20, wapAppId:Ljava/lang/String;
-    if-nez v20, :cond_f7
+    if-nez v20, :cond_3
 
     .line 212
     move-object/from16 v0, p0
@@ -391,8 +391,8 @@
     move-result-object v20
 
     .line 215
-    :cond_f7
-    if-nez v14, :cond_12d
+    :cond_3
+    if-nez v14, :cond_6
 
     invoke-static {v3, v4}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
@@ -400,12 +400,12 @@
 
     .line 220
     .local v5, contentType:Ljava/lang/String;
-    :goto_fd
+    :goto_2
     const/16 v18, 0x1
 
     .line 221
     .local v18, processFurther:Z
-    :try_start_ff
+    :try_start_0
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/WapPushOverSms;->mWapConn:Lcom/android/internal/telephony/WapPushOverSms$WapPushConnection;
@@ -413,24 +413,24 @@
     move-object/from16 v22, v0
 
     invoke-virtual/range {v22 .. v22}, Lcom/android/internal/telephony/WapPushOverSms$WapPushConnection;->getWapPushManager()Lcom/android/internal/telephony/IWapPushManager;
-    :try_end_108
-    .catch Landroid/os/RemoteException; {:try_start_ff .. :try_end_108} :catch_17d
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v21
 
     .line 223
     .local v21, wapPushMan:Lcom/android/internal/telephony/IWapPushManager;
-    if-nez v21, :cond_12f
+    if-nez v21, :cond_7
 
     .line 241
-    :cond_10b
-    :goto_10b
-    if-nez v18, :cond_17e
+    :cond_4
+    :goto_3
+    if-nez v18, :cond_8
 
     .line 242
     const/16 v22, 0x1
 
-    goto/16 :goto_22
+    goto/16 :goto_0
 
     .line 196
     .end local v5           #contentType:Ljava/lang/String;
@@ -438,7 +438,7 @@
     .end local v18           #processFurther:Z
     .end local v20           #wapAppId:Ljava/lang/String;
     .end local v21           #wapPushMan:Lcom/android/internal/telephony/IWapPushManager;
-    :cond_111
+    :cond_5
     add-int v6, v9, v8
 
     .line 197
@@ -471,22 +471,22 @@
 
     invoke-static {v0, v6, v13, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    goto :goto_ac
+    goto :goto_1
 
     .end local v6           #dataIndex:I
     .restart local v20       #wapAppId:Ljava/lang/String;
-    :cond_12d
+    :cond_6
     move-object v5, v14
 
     .line 215
-    goto :goto_fd
+    goto :goto_2
 
     .line 226
     .restart local v5       #contentType:Ljava/lang/String;
     .restart local v18       #processFurther:Z
     .restart local v21       #wapPushMan:Lcom/android/internal/telephony/IWapPushManager;
-    :cond_12f
-    :try_start_12f
+    :cond_7
+    :try_start_1
     new-instance v12, Landroid/content/Intent;
 
     invoke-direct {v12}, Landroid/content/Intent;-><init>()V
@@ -547,8 +547,8 @@
     move-object/from16 v1, v20
 
     invoke-interface {v0, v1, v5, v12}, Lcom/android/internal/telephony/IWapPushManager;->processMessage(Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;)I
-    :try_end_16e
-    .catch Landroid/os/RemoteException; {:try_start_12f .. :try_end_16e} :catch_17d
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result v17
 
@@ -556,40 +556,40 @@
     .local v17, procRet:I
     and-int/lit8 v22, v17, 0x1
 
-    if-lez v22, :cond_10b
+    if-lez v22, :cond_4
 
     const v22, 0x8000
 
     and-int v22, v22, v17
 
-    if-nez v22, :cond_10b
+    if-nez v22, :cond_4
 
     .line 238
     const/16 v18, 0x0
 
-    goto :goto_10b
+    goto :goto_3
 
     .line 244
     .end local v12           #intent:Landroid/content/Intent;
     .end local v17           #procRet:I
     .end local v21           #wapPushMan:Lcom/android/internal/telephony/IWapPushManager;
-    :catch_17d
+    :catch_0
     move-exception v22
 
     .line 250
     .end local v5           #contentType:Ljava/lang/String;
     .end local v18           #processFurther:Z
     .end local v20           #wapAppId:Ljava/lang/String;
-    :cond_17e
-    if-nez v14, :cond_184
+    :cond_8
+    if-nez v14, :cond_9
 
     .line 252
     const/16 v22, 0x2
 
-    goto/16 :goto_22
+    goto/16 :goto_0
 
     .line 257
-    :cond_184
+    :cond_9
     const-string v22, "application/vnd.wap.mms-message"
 
     move-object/from16 v0, v22
@@ -598,14 +598,14 @@
 
     move-result v22
 
-    if-eqz v22, :cond_1e0
+    if-eqz v22, :cond_a
 
     .line 258
     const-string v16, "android.permission.RECEIVE_MMS"
 
     .line 263
     .local v16, permission:Ljava/lang/String;
-    :goto_190
+    :goto_4
     new-instance v12, Landroid/content/Intent;
 
     const-string v22, "android.provider.Telephony.WAP_PUSH_RECEIVED"
@@ -683,14 +683,14 @@
     .line 273
     const/16 v22, -0x1
 
-    goto/16 :goto_22
+    goto/16 :goto_0
 
     .line 260
     .end local v12           #intent:Landroid/content/Intent;
     .end local v16           #permission:Ljava/lang/String;
-    :cond_1e0
+    :cond_a
     const-string v16, "android.permission.RECEIVE_WAP_PUSH"
 
     .restart local v16       #permission:Ljava/lang/String;
-    goto :goto_190
+    goto :goto_4
 .end method

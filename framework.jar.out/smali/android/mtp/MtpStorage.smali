@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/storage/StorageVolume;Landroid/content/Context;)V
-    .registers 5
+    .locals 2
     .parameter "volume"
     .parameter "context"
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public static getStorageId(I)I
-    .registers 2
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public final getDescription()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 83
@@ -111,7 +111,7 @@
 .end method
 
 .method public getMaxFileSize()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 111
@@ -121,7 +121,7 @@
 .end method
 
 .method public final getPath()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 74
@@ -131,7 +131,7 @@
 .end method
 
 .method public final getReserveSpace()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 93
@@ -141,7 +141,7 @@
 .end method
 
 .method public final getStorageId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 53
@@ -151,7 +151,7 @@
 .end method
 
 .method public final isRemovable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 102

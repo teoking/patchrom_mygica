@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 35
@@ -20,7 +20,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/android/mms/pdu/PduHeaders;)V
-    .registers 2
+    .locals 0
     .parameter "headers"
 
     .prologue
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(Lcom/google/android/mms/pdu/PduHeaders;Lcom/google/android/mms/pdu/PduBody;)V
-    .registers 3
+    .locals 0
     .parameter "header"
     .parameter "body"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public addTo(Lcom/google/android/mms/pdu/EncodedStringValue;)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -66,7 +66,7 @@
 .end method
 
 .method public getBody()Lcom/google/android/mms/pdu/PduBody;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 64
@@ -76,7 +76,7 @@
 .end method
 
 .method public getDate()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 139
@@ -92,7 +92,7 @@
 .end method
 
 .method public getPriority()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 120
@@ -108,7 +108,7 @@
 .end method
 
 .method public getSubject()Lcom/google/android/mms/pdu/EncodedStringValue;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 82
@@ -124,7 +124,7 @@
 .end method
 
 .method public getTo()[Lcom/google/android/mms/pdu/EncodedStringValue;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 101
@@ -140,7 +140,7 @@
 .end method
 
 .method public setBody(Lcom/google/android/mms/pdu/PduBody;)V
-    .registers 2
+    .locals 0
     .parameter "body"
 
     .prologue
@@ -152,7 +152,7 @@
 .end method
 
 .method public setDate(J)V
-    .registers 5
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -168,7 +168,7 @@
 .end method
 
 .method public setPriority(I)V
-    .registers 4
+    .locals 2
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -189,7 +189,7 @@
 .end method
 
 .method public setSubject(Lcom/google/android/mms/pdu/EncodedStringValue;)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue

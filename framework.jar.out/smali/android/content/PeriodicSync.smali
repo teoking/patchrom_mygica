@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 57
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;J)V
-    .registers 7
+    .locals 1
     .parameter "account"
     .parameter "authority"
     .parameter "extras"
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 47
@@ -88,7 +88,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 9
+    .locals 7
     .parameter "o"
 
     .prologue
@@ -97,25 +97,25 @@
     const/4 v2, 0x0
 
     .line 69
-    if-ne p1, p0, :cond_5
+    if-ne p1, p0, :cond_1
 
     .line 79
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 73
-    :cond_5
+    :cond_1
     instance-of v3, p1, Landroid/content/PeriodicSync;
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_2
 
     move v1, v2
 
     .line 74
-    goto :goto_4
+    goto :goto_0
 
-    :cond_b
+    :cond_2
     move-object v0, p1
 
     .line 77
@@ -131,7 +131,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_34
+    if-eqz v3, :cond_3
 
     iget-object v3, p0, Landroid/content/PeriodicSync;->authority:Ljava/lang/String;
 
@@ -141,7 +141,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_34
+    if-eqz v3, :cond_3
 
     iget-wide v3, p0, Landroid/content/PeriodicSync;->period:J
 
@@ -149,7 +149,7 @@
 
     cmp-long v3, v3, v5
 
-    if-nez v3, :cond_34
+    if-nez v3, :cond_3
 
     iget-object v3, p0, Landroid/content/PeriodicSync;->extras:Landroid/os/Bundle;
 
@@ -159,16 +159,16 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_0
 
-    :cond_34
+    :cond_3
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 

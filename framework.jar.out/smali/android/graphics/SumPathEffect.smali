@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/PathEffect;Landroid/graphics/PathEffect;)V
-    .registers 5
+    .locals 2
     .parameter "first"
     .parameter "second"
 

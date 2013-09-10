@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/GeolocationPermissionsClassic;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,21 +35,21 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 8
+    .locals 6
     .parameter "msg"
 
     .prologue
     .line 72
     iget v5, p1, Landroid/os/Message;->what:I
 
-    packed-switch v5, :pswitch_data_38
+    packed-switch v5, :pswitch_data_0
 
     .line 86
-    :goto_5
+    :goto_0
     return-void
 
     .line 74
-    :pswitch_6
+    :pswitch_0
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v4, Ljava/util/Map;
@@ -78,13 +78,13 @@
     .local v2, callback:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/util/Set<Ljava/lang/String;>;>;"
     invoke-interface {v2, v3}, Landroid/webkit/ValueCallback;->onReceiveValue(Ljava/lang/Object;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 80
     .end local v2           #callback:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/util/Set<Ljava/lang/String;>;>;"
     .end local v3           #origins:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
     .end local v4           #values:Ljava/util/Map;
-    :pswitch_1f
+    :pswitch_1
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v4, Ljava/util/Map;
@@ -113,14 +113,14 @@
     .local v1, callback:Landroid/webkit/ValueCallback;,"Landroid/webkit/ValueCallback<Ljava/lang/Boolean;>;"
     invoke-interface {v1, v0}, Landroid/webkit/ValueCallback;->onReceiveValue(Ljava/lang/Object;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 72
     nop
 
-    :pswitch_data_38
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_6
-        :pswitch_1f
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

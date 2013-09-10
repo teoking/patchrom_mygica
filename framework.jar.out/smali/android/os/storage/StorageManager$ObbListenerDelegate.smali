@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/storage/StorageManager;Landroid/os/storage/OnObbStateChangeListener;)V
-    .registers 5
+    .locals 2
     .parameter
     .parameter "listener"
 
@@ -46,6 +46,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 146
+    #calls: Landroid/os/storage/StorageManager;->getNextNonce()I
     invoke-static {p1}, Landroid/os/storage/StorageManager;->access$300(Landroid/os/storage/StorageManager;)I
 
     move-result v0
@@ -73,7 +74,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/os/storage/StorageManager$ObbListenerDelegate;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -86,22 +87,22 @@
 
 # virtual methods
 .method getListener()Landroid/os/storage/OnObbStateChangeListener;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 169
     iget-object v0, p0, Landroid/os/storage/StorageManager$ObbListenerDelegate;->mObbEventListenerRef:Ljava/lang/ref/WeakReference;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     .line 170
     const/4 v0, 0x0
 
     .line 172
-    :goto_5
+    :goto_0
     return-object v0
 
-    :cond_6
+    :cond_0
     iget-object v0, p0, Landroid/os/storage/StorageManager$ObbListenerDelegate;->mObbEventListenerRef:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -110,11 +111,11 @@
 
     check-cast v0, Landroid/os/storage/OnObbStateChangeListener;
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method sendObbStateChanged(Ljava/lang/String;I)V
-    .registers 6
+    .locals 3
     .parameter "path"
     .parameter "state"
 

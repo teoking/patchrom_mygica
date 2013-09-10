@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityStack;Lcom/android/server/am/TaskAccessInfo;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -40,12 +40,12 @@
 
 # virtual methods
 .method public getThumbnail(I)Landroid/graphics/Bitmap;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
     .line 4418
-    if-ltz p1, :cond_c
+    if-ltz p1, :cond_0
 
     iget-object v0, p0, Lcom/android/server/am/ActivityStack$2;->val$thumbs:Lcom/android/server/am/TaskAccessInfo;
 
@@ -55,17 +55,17 @@
 
     move-result v0
 
-    if-lt p1, v0, :cond_e
+    if-lt p1, v0, :cond_1
 
     .line 4419
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
     .line 4421
-    :goto_d
+    :goto_0
     return-object v0
 
-    :cond_e
+    :cond_1
     iget-object v0, p0, Lcom/android/server/am/ActivityStack$2;->val$thumbs:Lcom/android/server/am/TaskAccessInfo;
 
     iget-object v0, v0, Lcom/android/server/am/TaskAccessInfo;->subtasks:Ljava/util/ArrayList;
@@ -78,5 +78,5 @@
 
     iget-object v0, v0, Lcom/android/server/am/TaskAccessInfo$SubTask;->thumbnail:Landroid/graphics/Bitmap;
 
-    goto :goto_d
+    goto :goto_0
 .end method

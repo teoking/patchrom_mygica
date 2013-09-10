@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 122
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 126
@@ -60,7 +60,7 @@
 .end method
 
 .method public isPlaying(Landroid/os/IBinder;)Z
-    .registers 8
+    .locals 6
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -84,7 +84,7 @@
 
     .line 173
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.media.IRingtonePlayer"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -106,18 +106,18 @@
 
     .line 177
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1e
-    .catchall {:try_start_9 .. :try_end_1e} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_22
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 180
     .local v2, _result:Z
-    :cond_22
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 181
@@ -128,7 +128,7 @@
 
     .line 180
     .end local v2           #_result:Z
-    :catchall_29
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -140,7 +140,7 @@
 .end method
 
 .method public play(Landroid/os/IBinder;Landroid/net/Uri;I)V
-    .registers 9
+    .locals 5
     .parameter "token"
     .parameter "uri"
     .parameter "streamType"
@@ -164,7 +164,7 @@
 
     .line 134
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.media.IRingtonePlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -173,7 +173,7 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 136
-    if-eqz p2, :cond_2e
+    if-eqz p2, :cond_0
 
     .line 137
     const/4 v2, 0x1
@@ -186,7 +186,7 @@
     invoke-virtual {p2, v0, v2}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 143
-    :goto_1a
+    :goto_0
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 144
@@ -200,8 +200,8 @@
 
     .line 145
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_27
-    .catchall {:try_start_8 .. :try_end_27} :catchall_33
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 148
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -213,18 +213,18 @@
     return-void
 
     .line 141
-    :cond_2e
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2f
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_32
-    .catchall {:try_start_2f .. :try_end_32} :catchall_33
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 148
-    :catchall_33
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -236,7 +236,7 @@
 .end method
 
 .method public playAsync(Landroid/net/Uri;ZI)V
-    .registers 9
+    .locals 5
     .parameter "uri"
     .parameter "looping"
     .parameter "streamType"
@@ -264,13 +264,13 @@
 
     .line 191
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.media.IRingtonePlayer"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 192
-    if-eqz p1, :cond_32
+    if-eqz p1, :cond_0
 
     .line 193
     const/4 v4, 0x1
@@ -283,10 +283,10 @@
     invoke-virtual {p1, v0, v4}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 199
-    :goto_19
-    if-eqz p2, :cond_3f
+    :goto_0
+    if-eqz p2, :cond_1
 
-    :goto_1b
+    :goto_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 200
@@ -303,8 +303,8 @@
 
     .line 202
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_2b
-    .catchall {:try_start_a .. :try_end_2b} :catchall_37
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 205
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -316,18 +316,18 @@
     return-void
 
     .line 197
-    :cond_32
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_33
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_36
-    .catchall {:try_start_33 .. :try_end_36} :catchall_37
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 205
-    :catchall_37
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -337,15 +337,15 @@
 
     throw v2
 
-    :cond_3f
+    :cond_1
     move v2, v3
 
     .line 199
-    goto :goto_1b
+    goto :goto_1
 .end method
 
 .method public stop(Landroid/os/IBinder;)V
-    .registers 7
+    .locals 5
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -367,7 +367,7 @@
 
     .line 157
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.media.IRingtonePlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -386,8 +386,8 @@
 
     .line 160
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 163
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -399,7 +399,7 @@
     return-void
 
     .line 163
-    :catchall_21
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -411,7 +411,7 @@
 .end method
 
 .method public stopAsync()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -432,7 +432,7 @@
 
     .line 214
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.media.IRingtonePlayer"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -448,8 +448,8 @@
 
     .line 216
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_17
-    .catchall {:try_start_8 .. :try_end_17} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 219
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -461,7 +461,7 @@
     return-void
 
     .line 219
-    :catchall_1e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

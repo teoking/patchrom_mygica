@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(I[Ljava/lang/Object;)V
-    .registers 3
+    .locals 0
     .parameter "increment"
     .parameter "spans"
 
@@ -40,7 +40,7 @@
 .end method
 
 .method public static nextDefaultStop(FI)F
-    .registers 4
+    .locals 2
     .parameter "h"
     .parameter "inc"
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method nextTab(F)F
-    .registers 7
+    .locals 5
     .parameter "h"
 
     .prologue
@@ -75,7 +75,7 @@
 
     .line 1604
     .local v1, ns:I
-    if-lez v1, :cond_15
+    if-lez v1, :cond_1
 
     .line 1605
     iget-object v3, p0, Landroid/text/Layout$TabStops;->mStops:[I
@@ -85,8 +85,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_7
-    if-ge v0, v1, :cond_15
+    :goto_0
+    if-ge v0, v1, :cond_1
 
     .line 1607
     aget v2, v3, v0
@@ -97,7 +97,7 @@
 
     cmpl-float v4, v4, p1
 
-    if-lez v4, :cond_12
+    if-lez v4, :cond_0
 
     .line 1609
     int-to-float v4, v2
@@ -106,34 +106,34 @@
     .end local v0           #i:I
     .end local v2           #stop:I
     .end local v3           #stops:[I
-    :goto_11
+    :goto_1
     return v4
 
     .line 1606
     .restart local v0       #i:I
     .restart local v2       #stop:I
     .restart local v3       #stops:[I
-    :cond_12
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 1613
     .end local v0           #i:I
     .end local v2           #stop:I
     .end local v3           #stops:[I
-    :cond_15
+    :cond_1
     iget v4, p0, Landroid/text/Layout$TabStops;->mIncrement:I
 
     invoke-static {p1, v4}, Landroid/text/Layout$TabStops;->nextDefaultStop(FI)F
 
     move-result v4
 
-    goto :goto_11
+    goto :goto_1
 .end method
 
 .method reset(I[Ljava/lang/Object;)V
-    .registers 13
+    .locals 10
     .parameter "increment"
     .parameter "spans"
 
@@ -146,7 +146,7 @@
 
     .line 1576
     .local v4, ns:I
-    if-eqz p2, :cond_48
+    if-eqz p2, :cond_6
 
     .line 1577
     iget-object v8, p0, Landroid/text/Layout$TabStops;->mStops:[I
@@ -166,8 +166,8 @@
 
     .end local v4           #ns:I
     .local v5, ns:I
-    :goto_b
-    if-ge v2, v3, :cond_3a
+    :goto_0
+    if-ge v2, v3, :cond_3
 
     aget-object v7, v0, v2
 
@@ -175,10 +175,10 @@
     .local v7, o:Ljava/lang/Object;
     instance-of v9, v7, Landroid/text/style/TabStopSpan;
 
-    if-eqz v9, :cond_4b
+    if-eqz v9, :cond_7
 
     .line 1580
-    if-nez v8, :cond_27
+    if-nez v8, :cond_1
 
     .line 1581
     const/16 v9, 0xa
@@ -186,8 +186,8 @@
     new-array v8, v9, [I
 
     .line 1589
-    :cond_19
-    :goto_19
+    :cond_0
+    :goto_1
     add-int/lit8 v4, v5, 0x1
 
     .end local v5           #ns:I
@@ -202,21 +202,21 @@
     aput v9, v8, v5
 
     .line 1578
-    :goto_23
+    :goto_2
     add-int/lit8 v2, v2, 0x1
 
     move v5, v4
 
     .end local v4           #ns:I
     .restart local v5       #ns:I
-    goto :goto_b
+    goto :goto_0
 
     .line 1582
     .restart local v7       #o:Ljava/lang/Object;
-    :cond_27
+    :cond_1
     array-length v9, v8
 
-    if-ne v5, v9, :cond_19
+    if-ne v5, v9, :cond_0
 
     .line 1583
     mul-int/lit8 v9, v5, 0x2
@@ -228,8 +228,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_2f
-    if-ge v1, v5, :cond_38
+    :goto_3
+    if-ge v1, v5, :cond_2
 
     .line 1585
     aget v9, v8, v1
@@ -239,22 +239,22 @@
     .line 1584
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2f
+    goto :goto_3
 
     .line 1587
-    :cond_38
+    :cond_2
     move-object v8, v6
 
-    goto :goto_19
+    goto :goto_1
 
     .line 1592
     .end local v1           #i:I
     .end local v6           #nstops:[I
     .end local v7           #o:Ljava/lang/Object;
-    :cond_3a
+    :cond_3
     const/4 v9, 0x1
 
-    if-le v5, v9, :cond_41
+    if-le v5, v9, :cond_4
 
     .line 1593
     const/4 v9, 0x0
@@ -262,15 +262,15 @@
     invoke-static {v8, v9, v5}, Ljava/util/Arrays;->sort([III)V
 
     .line 1595
-    :cond_41
+    :cond_4
     iget-object v9, p0, Landroid/text/Layout$TabStops;->mStops:[I
 
-    if-eq v8, v9, :cond_47
+    if-eq v8, v9, :cond_5
 
     .line 1596
     iput-object v8, p0, Landroid/text/Layout$TabStops;->mStops:[I
 
-    :cond_47
+    :cond_5
     move v4, v5
 
     .line 1599
@@ -280,7 +280,7 @@
     .end local v5           #ns:I
     .end local v8           #stops:[I
     .restart local v4       #ns:I
-    :cond_48
+    :cond_6
     iput v4, p0, Landroid/text/Layout$TabStops;->mNumStops:I
 
     .line 1600
@@ -293,10 +293,10 @@
     .restart local v5       #ns:I
     .restart local v7       #o:Ljava/lang/Object;
     .restart local v8       #stops:[I
-    :cond_4b
+    :cond_7
     move v4, v5
 
     .end local v5           #ns:I
     .restart local v4       #ns:I
-    goto :goto_23
+    goto :goto_2
 .end method

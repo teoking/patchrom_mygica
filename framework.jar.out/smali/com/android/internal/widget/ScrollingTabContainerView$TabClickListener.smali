@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/internal/widget/ScrollingTabContainerView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/widget/ScrollingTabContainerView;Lcom/android/internal/widget/ScrollingTabContainerView$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 7
+    .locals 5
     .parameter "view"
 
     .prologue
@@ -70,6 +70,7 @@
     .line 490
     iget-object v4, p0, Lcom/android/internal/widget/ScrollingTabContainerView$TabClickListener;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
+    #getter for: Lcom/android/internal/widget/ScrollingTabContainerView;->mTabLayout:Landroid/widget/LinearLayout;
     invoke-static {v4}, Lcom/android/internal/widget/ScrollingTabContainerView;->access$200(Lcom/android/internal/widget/ScrollingTabContainerView;)Landroid/widget/LinearLayout;
 
     move-result-object v4
@@ -83,12 +84,13 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_15
-    if-ge v1, v2, :cond_2c
+    :goto_0
+    if-ge v1, v2, :cond_1
 
     .line 492
     iget-object v4, p0, Lcom/android/internal/widget/ScrollingTabContainerView$TabClickListener;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
+    #getter for: Lcom/android/internal/widget/ScrollingTabContainerView;->mTabLayout:Landroid/widget/LinearLayout;
     invoke-static {v4}, Lcom/android/internal/widget/ScrollingTabContainerView;->access$200(Lcom/android/internal/widget/ScrollingTabContainerView;)Landroid/widget/LinearLayout;
 
     move-result-object v4
@@ -99,26 +101,26 @@
 
     .line 493
     .local v0, child:Landroid/view/View;
-    if-ne v0, p1, :cond_2a
+    if-ne v0, p1, :cond_0
 
     const/4 v4, 0x1
 
-    :goto_24
+    :goto_1
     invoke-virtual {v0, v4}, Landroid/view/View;->setSelected(Z)V
 
     .line 491
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_15
+    goto :goto_0
 
     .line 493
-    :cond_2a
+    :cond_0
     const/4 v4, 0x0
 
-    goto :goto_24
+    goto :goto_1
 
     .line 495
     .end local v0           #child:Landroid/view/View;
-    :cond_2c
+    :cond_1
     return-void
 .end method

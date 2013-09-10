@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1785
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected initialValue()Landroid/os/StrictMode$ThreadSpanState;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1787
@@ -51,7 +51,7 @@
 .end method
 
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1785

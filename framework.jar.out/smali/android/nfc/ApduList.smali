@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 27
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 16
@@ -64,7 +64,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 7
+    .locals 5
     .parameter "in"
 
     .prologue
@@ -88,8 +88,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_f
-    if-ge v2, v1, :cond_22
+    :goto_0
+    if-ge v2, v1, :cond_0
 
     .line 45
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -112,17 +112,17 @@
     .line 43
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 50
     .end local v0           #cmd:[B
     .end local v3           #length:I
-    :cond_22
+    :cond_0
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/nfc/ApduList$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -136,7 +136,7 @@
 
 # virtual methods
 .method public add([B)V
-    .registers 3
+    .locals 1
     .parameter "command"
 
     .prologue
@@ -150,7 +150,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 54
@@ -160,7 +160,7 @@
 .end method
 
 .method public get()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -177,7 +177,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "dest"
     .parameter "flags"
 
@@ -199,12 +199,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_f
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_23
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -221,10 +221,10 @@
     .line 63
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    goto :goto_f
+    goto :goto_0
 
     .line 65
     .end local v0           #cmd:[B
-    :cond_23
+    :cond_0
     return-void
 .end method

@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "length"
 
     .prologue
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public release()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 144
@@ -62,7 +62,7 @@
     monitor-enter v1
 
     .line 148
-    :try_start_8
+    :try_start_0
     invoke-static {}, Landroid/webkit/ByteArrayBuilder;->access$000()Ljava/util/LinkedList;
 
     move-result-object v0
@@ -91,12 +91,12 @@
     return-void
 
     .line 150
-    :catchall_21
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_23
-    .catchall {:try_start_8 .. :try_end_23} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

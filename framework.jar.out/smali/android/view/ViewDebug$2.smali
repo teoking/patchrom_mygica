@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -46,7 +46,7 @@
 .end method
 
 .method private forceLayout(Landroid/view/View;)V
-    .registers 6
+    .locals 4
     .parameter "view"
 
     .prologue
@@ -56,7 +56,7 @@
     .line 480
     instance-of v3, p1, Landroid/view/ViewGroup;
 
-    if-eqz v3, :cond_1b
+    if-eqz v3, :cond_0
 
     move-object v1, p1
 
@@ -74,8 +74,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_f
-    if-ge v2, v0, :cond_1b
+    :goto_0
+    if-ge v2, v0, :cond_0
 
     .line 484
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -87,20 +87,20 @@
     .line 483
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 487
     .end local v0           #count:I
     .end local v1           #group:Landroid/view/ViewGroup;
     .end local v2           #i:I
-    :cond_1b
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public bridge synthetic post([Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -114,7 +114,7 @@
 .end method
 
 .method public varargs post([Ljava/lang/Void;)V
-    .registers 2
+    .locals 0
     .parameter "data"
 
     .prologue
@@ -123,7 +123,7 @@
 .end method
 
 .method public bridge synthetic pre()[Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 472
@@ -135,7 +135,7 @@
 .end method
 
 .method public pre()[Ljava/lang/Void;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 474
@@ -150,7 +150,7 @@
 .end method
 
 .method public bridge synthetic run([Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -164,7 +164,7 @@
 .end method
 
 .method public varargs run([Ljava/lang/Void;)V
-    .registers 5
+    .locals 3
     .parameter "data"
 
     .prologue

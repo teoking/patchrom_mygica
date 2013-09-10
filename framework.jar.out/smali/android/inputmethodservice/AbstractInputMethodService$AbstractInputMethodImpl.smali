@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/inputmethodservice/AbstractInputMethodService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public createSession(Landroid/view/inputmethod/InputMethod$SessionCallback;)V
-    .registers 3
+    .locals 1
     .parameter "callback"
 
     .prologue
@@ -56,7 +56,7 @@
 .end method
 
 .method public revokeSession(Landroid/view/inputmethod/InputMethodSession;)V
-    .registers 2
+    .locals 0
     .parameter "session"
 
     .prologue
@@ -71,7 +71,7 @@
 .end method
 
 .method public setSessionEnabled(Landroid/view/inputmethod/InputMethodSession;Z)V
-    .registers 3
+    .locals 0
     .parameter "session"
     .parameter "enabled"
 

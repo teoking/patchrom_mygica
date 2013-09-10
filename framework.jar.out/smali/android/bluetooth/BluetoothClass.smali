@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 87
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "classInt"
 
     .prologue
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84
@@ -89,7 +89,7 @@
 .end method
 
 .method public doesClassMatch(I)Z
-    .registers 6
+    .locals 4
     .parameter "profile"
 
     .prologue
@@ -100,62 +100,62 @@
     const/4 v0, 0x1
 
     .line 297
-    if-ne p1, v0, :cond_16
+    if-ne p1, v0, :cond_2
 
     .line 298
     invoke-virtual {p0, v2}, Landroid/bluetooth/BluetoothClass;->hasService(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_1
 
     .line 360
-    :cond_c
-    :goto_c
-    :sswitch_c
+    :cond_0
+    :goto_0
+    :sswitch_0
     return v0
 
     .line 304
-    :cond_d
+    :cond_1
     invoke-virtual {p0}, Landroid/bluetooth/BluetoothClass;->getDeviceClass()I
 
     move-result v2
 
-    sparse-switch v2, :sswitch_data_66
+    sparse-switch v2, :sswitch_data_0
 
     move v0, v1
 
     .line 311
-    goto :goto_c
+    goto :goto_0
 
     .line 313
-    :cond_16
-    if-nez p1, :cond_27
+    :cond_2
+    if-nez p1, :cond_3
 
     .line 316
     invoke-virtual {p0, v2}, Landroid/bluetooth/BluetoothClass;->hasService(I)Z
 
     move-result v2
 
-    if-nez v2, :cond_c
+    if-nez v2, :cond_0
 
     .line 320
     invoke-virtual {p0}, Landroid/bluetooth/BluetoothClass;->getDeviceClass()I
 
     move-result v2
 
-    sparse-switch v2, :sswitch_data_78
+    sparse-switch v2, :sswitch_data_1
 
     move v0, v1
 
     .line 326
-    goto :goto_c
+    goto :goto_0
 
     .line 328
-    :cond_27
+    :cond_3
     const/4 v2, 0x2
 
-    if-ne p1, v2, :cond_3b
+    if-ne p1, v2, :cond_4
 
     .line 329
     const/high16 v2, 0x10
@@ -164,25 +164,25 @@
 
     move-result v2
 
-    if-nez v2, :cond_c
+    if-nez v2, :cond_0
 
     .line 333
     invoke-virtual {p0}, Landroid/bluetooth/BluetoothClass;->getDeviceClass()I
 
     move-result v2
 
-    sparse-switch v2, :sswitch_data_86
+    sparse-switch v2, :sswitch_data_2
 
     move v0, v1
 
     .line 349
-    goto :goto_c
+    goto :goto_0
 
     .line 351
-    :cond_3b
+    :cond_4
     const/4 v2, 0x3
 
-    if-ne p1, v2, :cond_4a
+    if-ne p1, v2, :cond_5
 
     .line 352
     invoke-virtual {p0}, Landroid/bluetooth/BluetoothClass;->getDeviceClass()I
@@ -193,31 +193,31 @@
 
     const/16 v3, 0x500
 
-    if-eq v2, v3, :cond_c
+    if-eq v2, v3, :cond_0
 
     move v0, v1
 
-    goto :goto_c
+    goto :goto_0
 
     .line 353
-    :cond_4a
+    :cond_5
     const/4 v2, 0x4
 
-    if-eq p1, v2, :cond_50
+    if-eq p1, v2, :cond_6
 
     const/4 v2, 0x5
 
-    if-ne p1, v2, :cond_64
+    if-ne p1, v2, :cond_7
 
     .line 355
-    :cond_50
+    :cond_6
     const/high16 v2, 0x2
 
     invoke-virtual {p0, v2}, Landroid/bluetooth/BluetoothClass;->hasService(I)Z
 
     move-result v2
 
-    if-nez v2, :cond_c
+    if-nez v2, :cond_0
 
     .line 358
     invoke-virtual {p0}, Landroid/bluetooth/BluetoothClass;->getDeviceClass()I
@@ -228,56 +228,56 @@
 
     const/16 v3, 0x300
 
-    if-eq v2, v3, :cond_c
+    if-eq v2, v3, :cond_0
 
     move v0, v1
 
-    goto :goto_c
+    goto :goto_0
 
-    :cond_64
+    :cond_7
     move v0, v1
 
     .line 360
-    goto :goto_c
+    goto :goto_0
 
     .line 304
-    :sswitch_data_66
+    :sswitch_data_0
     .sparse-switch
-        0x414 -> :sswitch_c
-        0x418 -> :sswitch_c
-        0x420 -> :sswitch_c
-        0x428 -> :sswitch_c
+        0x414 -> :sswitch_0
+        0x418 -> :sswitch_0
+        0x420 -> :sswitch_0
+        0x428 -> :sswitch_0
     .end sparse-switch
 
     .line 320
-    :sswitch_data_78
+    :sswitch_data_1
     .sparse-switch
-        0x404 -> :sswitch_c
-        0x408 -> :sswitch_c
-        0x420 -> :sswitch_c
+        0x404 -> :sswitch_0
+        0x408 -> :sswitch_0
+        0x420 -> :sswitch_0
     .end sparse-switch
 
     .line 333
-    :sswitch_data_86
+    :sswitch_data_2
     .sparse-switch
-        0x100 -> :sswitch_c
-        0x104 -> :sswitch_c
-        0x108 -> :sswitch_c
-        0x10c -> :sswitch_c
-        0x110 -> :sswitch_c
-        0x114 -> :sswitch_c
-        0x118 -> :sswitch_c
-        0x200 -> :sswitch_c
-        0x204 -> :sswitch_c
-        0x208 -> :sswitch_c
-        0x20c -> :sswitch_c
-        0x210 -> :sswitch_c
-        0x214 -> :sswitch_c
+        0x100 -> :sswitch_0
+        0x104 -> :sswitch_0
+        0x108 -> :sswitch_0
+        0x10c -> :sswitch_0
+        0x110 -> :sswitch_0
+        0x114 -> :sswitch_0
+        0x118 -> :sswitch_0
+        0x200 -> :sswitch_0
+        0x204 -> :sswitch_0
+        0x208 -> :sswitch_0
+        0x20c -> :sswitch_0
+        0x210 -> :sswitch_0
+        0x214 -> :sswitch_0
     .end sparse-switch
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 5
+    .locals 3
     .parameter "o"
 
     .prologue
@@ -286,7 +286,7 @@
     .line 67
     instance-of v1, p1, Landroid/bluetooth/BluetoothClass;
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_0
 
     .line 68
     iget v1, p0, Landroid/bluetooth/BluetoothClass;->mClass:I
@@ -296,17 +296,17 @@
     .end local p1
     iget v2, p1, Landroid/bluetooth/BluetoothClass;->mClass:I
 
-    if-ne v1, v2, :cond_e
+    if-ne v1, v2, :cond_0
 
     const/4 v0, 0x1
 
     .line 70
-    :cond_e
+    :cond_0
     return v0
 .end method
 
 .method public getDeviceClass()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 271
@@ -318,7 +318,7 @@
 .end method
 
 .method public getMajorDeviceClass()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 258
@@ -330,7 +330,7 @@
 .end method
 
 .method public hasService(I)Z
-    .registers 4
+    .locals 2
     .parameter "service"
 
     .prologue
@@ -343,21 +343,21 @@
 
     and-int/2addr v0, p1
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 75
@@ -367,7 +367,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 80
@@ -381,7 +381,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 

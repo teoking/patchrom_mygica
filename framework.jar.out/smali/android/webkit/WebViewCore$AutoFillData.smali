@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 929
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "queryId"
     .parameter "preview"
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public getPreviewString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 944
@@ -74,7 +74,7 @@
 .end method
 
 .method public getQueryId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 940

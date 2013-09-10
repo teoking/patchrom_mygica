@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 26
@@ -15,7 +15,7 @@
 .end method
 
 .method public static formatFileSize(Landroid/content/Context;J)Ljava/lang/String;
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "number"
 
@@ -31,7 +31,7 @@
 .end method
 
 .method private static formatFileSize(Landroid/content/Context;JZ)Ljava/lang/String;
-    .registers 12
+    .locals 8
     .parameter "context"
     .parameter "number"
     .parameter "shorter"
@@ -46,17 +46,17 @@
     const/4 v6, 0x0
 
     .line 48
-    if-nez p0, :cond_b
+    if-nez p0, :cond_0
 
     .line 49
     const-string v3, ""
 
     .line 92
-    :goto_a
+    :goto_0
     return-object v3
 
     .line 52
-    :cond_b
+    :cond_0
     long-to-float v0, p1
 
     .line 53
@@ -67,7 +67,7 @@
     .local v1, suffix:I
     cmpl-float v3, v0, v4
 
-    if-lez v3, :cond_17
+    if-lez v3, :cond_1
 
     .line 55
     const v1, 0x10400be
@@ -76,10 +76,10 @@
     div-float/2addr v0, v5
 
     .line 58
-    :cond_17
+    :cond_1
     cmpl-float v3, v0, v4
 
-    if-lez v3, :cond_1f
+    if-lez v3, :cond_2
 
     .line 59
     const v1, 0x10400bf
@@ -88,10 +88,10 @@
     div-float/2addr v0, v5
 
     .line 62
-    :cond_1f
+    :cond_2
     cmpl-float v3, v0, v4
 
-    if-lez v3, :cond_27
+    if-lez v3, :cond_3
 
     .line 63
     const v1, 0x10400c0
@@ -100,10 +100,10 @@
     div-float/2addr v0, v5
 
     .line 66
-    :cond_27
+    :cond_3
     cmpl-float v3, v0, v4
 
-    if-lez v3, :cond_2f
+    if-lez v3, :cond_4
 
     .line 67
     const v1, 0x10400c1
@@ -112,10 +112,10 @@
     div-float/2addr v0, v5
 
     .line 70
-    :cond_2f
+    :cond_4
     cmpl-float v3, v0, v4
 
-    if-lez v3, :cond_37
+    if-lez v3, :cond_5
 
     .line 71
     const v1, 0x10400c2
@@ -124,12 +124,12 @@
     div-float/2addr v0, v5
 
     .line 75
-    :cond_37
+    :cond_5
     const/high16 v3, 0x3f80
 
     cmpg-float v3, v0, v3
 
-    if-gez v3, :cond_62
+    if-gez v3, :cond_6
 
     .line 76
     const-string v3, "%.2f"
@@ -148,7 +148,7 @@
 
     .line 92
     .local v2, value:Ljava/lang/String;
-    :goto_4b
+    :goto_1
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -171,19 +171,19 @@
 
     move-result-object v3
 
-    goto :goto_a
+    goto :goto_0
 
     .line 77
     .end local v2           #value:Ljava/lang/String;
-    :cond_62
+    :cond_6
     const/high16 v3, 0x4120
 
     cmpg-float v3, v0, v3
 
-    if-gez v3, :cond_88
+    if-gez v3, :cond_8
 
     .line 78
-    if-eqz p3, :cond_79
+    if-eqz p3, :cond_7
 
     .line 79
     const-string v3, "%.1f"
@@ -201,11 +201,11 @@
     move-result-object v2
 
     .restart local v2       #value:Ljava/lang/String;
-    goto :goto_4b
+    goto :goto_1
 
     .line 81
     .end local v2           #value:Ljava/lang/String;
-    :cond_79
+    :cond_7
     const-string v3, "%.2f"
 
     new-array v4, v7, [Ljava/lang/Object;
@@ -221,19 +221,19 @@
     move-result-object v2
 
     .restart local v2       #value:Ljava/lang/String;
-    goto :goto_4b
+    goto :goto_1
 
     .line 83
     .end local v2           #value:Ljava/lang/String;
-    :cond_88
+    :cond_8
     const/high16 v3, 0x42c8
 
     cmpg-float v3, v0, v3
 
-    if-gez v3, :cond_ae
+    if-gez v3, :cond_a
 
     .line 84
-    if-eqz p3, :cond_9f
+    if-eqz p3, :cond_9
 
     .line 85
     const-string v3, "%.0f"
@@ -251,11 +251,11 @@
     move-result-object v2
 
     .restart local v2       #value:Ljava/lang/String;
-    goto :goto_4b
+    goto :goto_1
 
     .line 87
     .end local v2           #value:Ljava/lang/String;
-    :cond_9f
+    :cond_9
     const-string v3, "%.2f"
 
     new-array v4, v7, [Ljava/lang/Object;
@@ -271,11 +271,11 @@
     move-result-object v2
 
     .restart local v2       #value:Ljava/lang/String;
-    goto :goto_4b
+    goto :goto_1
 
     .line 90
     .end local v2           #value:Ljava/lang/String;
-    :cond_ae
+    :cond_a
     const-string v3, "%.0f"
 
     new-array v4, v7, [Ljava/lang/Object;
@@ -291,11 +291,11 @@
     move-result-object v2
 
     .restart local v2       #value:Ljava/lang/String;
-    goto :goto_4b
+    goto :goto_1
 .end method
 
 .method public static formatIpAddress(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "ipv4Address"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -314,7 +314,7 @@
 .end method
 
 .method public static formatShortFileSize(Landroid/content/Context;J)Ljava/lang/String;
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "number"
 

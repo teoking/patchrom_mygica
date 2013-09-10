@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(I[B)V
-    .registers 4
+    .locals 1
     .parameter "mmsVersion"
     .parameter "transactionId"
     .annotation system Ldalvik/annotation/Throws;
@@ -34,7 +34,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/android/mms/pdu/PduHeaders;)V
-    .registers 2
+    .locals 0
     .parameter "headers"
 
     .prologue
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public getReportAllowed()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 58
@@ -64,7 +64,7 @@
 .end method
 
 .method public getTransactionId()[B
-    .registers 3
+    .locals 2
 
     .prologue
     .line 77
@@ -80,7 +80,7 @@
 .end method
 
 .method public setReportAllowed(I)V
-    .registers 4
+    .locals 2
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -101,7 +101,7 @@
 .end method
 
 .method public setTransactionId([B)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue

@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 29
@@ -29,13 +29,13 @@
 
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_a
+    fill-array-data v0, :array_0
 
     sput-object v0, Landroid/gesture/Instance;->ORIENTATIONS:[F
 
     return-void
 
-    :array_a
+    :array_0
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0xdbt 0xft 0x49t 0x3ft
@@ -51,7 +51,7 @@
 .end method
 
 .method private constructor <init>(J[FLjava/lang/String;)V
-    .registers 5
+    .locals 0
     .parameter "id"
     .parameter "sample"
     .parameter "sampleName"
@@ -74,7 +74,7 @@
 .end method
 
 .method static createInstance(IILandroid/gesture/Gesture;Ljava/lang/String;)Landroid/gesture/Instance;
-    .registers 8
+    .locals 4
     .parameter "sequenceType"
     .parameter "orientationType"
     .parameter "gesture"
@@ -84,7 +84,7 @@
     .line 75
     const/4 v2, 0x2
 
-    if-ne p0, v2, :cond_14
+    if-ne p0, v2, :cond_0
 
     .line 76
     invoke-static {p1, p2}, Landroid/gesture/Instance;->temporalSampler(ILandroid/gesture/Gesture;)[F
@@ -106,13 +106,13 @@
     invoke-direct {v0}, Landroid/gesture/Instance;->normalize()V
 
     .line 83
-    :goto_13
+    :goto_0
     return-object v0
 
     .line 80
     .end local v0           #instance:Landroid/gesture/Instance;
     .end local v1           #pts:[F
-    :cond_14
+    :cond_0
     invoke-static {p2}, Landroid/gesture/Instance;->spatialSampler(Landroid/gesture/Gesture;)[F
 
     move-result-object v1
@@ -128,11 +128,11 @@
     invoke-direct {v0, v2, v3, v1, p3}, Landroid/gesture/Instance;-><init>(J[FLjava/lang/String;)V
 
     .restart local v0       #instance:Landroid/gesture/Instance;
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method private normalize()V
-    .registers 8
+    .locals 7
 
     .prologue
     .line 51
@@ -151,8 +151,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_5
-    if-ge v0, v3, :cond_10
+    :goto_0
+    if-ge v0, v3, :cond_0
 
     .line 56
     aget v5, v2, v0
@@ -166,10 +166,10 @@
     .line 55
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 59
-    :cond_10
+    :cond_0
     float-to-double v5, v4
 
     invoke-static {v5, v6}, Ljava/lang/Math;->sqrt(D)D
@@ -182,8 +182,8 @@
     .local v1, magnitude:F
     const/4 v0, 0x0
 
-    :goto_17
-    if-ge v0, v3, :cond_21
+    :goto_1
+    if-ge v0, v3, :cond_1
 
     .line 61
     aget v5, v2, v0
@@ -195,15 +195,15 @@
     .line 60
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_17
+    goto :goto_1
 
     .line 63
-    :cond_21
+    :cond_1
     return-void
 .end method
 
 .method private static spatialSampler(Landroid/gesture/Gesture;)[F
-    .registers 3
+    .locals 2
     .parameter "gesture"
 
     .prologue
@@ -220,7 +220,7 @@
 .end method
 
 .method private static temporalSampler(ILandroid/gesture/Gesture;)[F
-    .registers 15
+    .locals 13
     .parameter "orientationType"
     .parameter "gesture"
 
@@ -282,7 +282,7 @@
 
     .line 97
     .local v0, adjustment:F
-    if-eq p0, v12, :cond_46
+    if-eq p0, v12, :cond_1
 
     .line 98
     sget-object v7, Landroid/gesture/Instance;->ORIENTATIONS:[F
@@ -294,8 +294,8 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_2e
-    if-ge v4, v2, :cond_46
+    :goto_0
+    if-ge v4, v2, :cond_1
 
     .line 100
     sget-object v7, Landroid/gesture/Instance;->ORIENTATIONS:[F
@@ -316,22 +316,22 @@
 
     cmpg-float v7, v7, v8
 
-    if-gez v7, :cond_43
+    if-gez v7, :cond_0
 
     .line 102
     move v0, v3
 
     .line 99
-    :cond_43
+    :cond_0
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 107
     .end local v2           #count:I
     .end local v3           #delta:F
     .end local v4           #i:I
-    :cond_46
+    :cond_1
     aget v7, v1, v11
 
     neg-float v7, v7

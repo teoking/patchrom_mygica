@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/AudioService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,28 +35,28 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "intent"
 
     .prologue
     .line 4203
-    if-nez p2, :cond_3
+    if-nez p2, :cond_1
 
     .line 4213
-    :cond_2
-    :goto_2
+    :cond_0
+    :goto_0
     return-void
 
     .line 4206
-    :cond_3
+    :cond_1
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v0
 
     .line 4207
     .local v0, extras:Landroid/os/Bundle;
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
     .line 4210
     const-string v1, "android.media.AudioService.WAKELOCK_ACQUIRED"
@@ -65,16 +65,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_0
 
     .line 4211
     iget-object v1, p0, Landroid/media/AudioService$4;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mMediaEventWakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {v1}, Landroid/media/AudioService;->access$6100(Landroid/media/AudioService;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    goto :goto_2
+    goto :goto_0
 .end method

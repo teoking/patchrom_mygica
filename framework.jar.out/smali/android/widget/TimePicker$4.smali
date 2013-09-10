@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/TimePicker;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 4
+    .locals 2
     .parameter "button"
 
     .prologue
@@ -50,33 +50,37 @@
 
     iget-object v0, p0, Landroid/widget/TimePicker$4;->this$0:Landroid/widget/TimePicker;
 
+    #getter for: Landroid/widget/TimePicker;->mIsAm:Z
     invoke-static {v0}, Landroid/widget/TimePicker;->access$100(Landroid/widget/TimePicker;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_e
+    :goto_0
+    #setter for: Landroid/widget/TimePicker;->mIsAm:Z
     invoke-static {v1, v0}, Landroid/widget/TimePicker;->access$102(Landroid/widget/TimePicker;Z)Z
 
     .line 215
     iget-object v0, p0, Landroid/widget/TimePicker$4;->this$0:Landroid/widget/TimePicker;
 
+    #calls: Landroid/widget/TimePicker;->updateAmPmControl()V
     invoke-static {v0}, Landroid/widget/TimePicker;->access$200(Landroid/widget/TimePicker;)V
 
     .line 216
     iget-object v0, p0, Landroid/widget/TimePicker$4;->this$0:Landroid/widget/TimePicker;
 
+    #calls: Landroid/widget/TimePicker;->onTimeChanged()V
     invoke-static {v0}, Landroid/widget/TimePicker;->access$300(Landroid/widget/TimePicker;)V
 
     .line 217
     return-void
 
     .line 214
-    :cond_1c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method

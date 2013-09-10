@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 49
@@ -71,7 +71,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v5, -0x1
@@ -119,12 +119,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_24
+    :goto_0
     iget-object v1, p0, Landroid/media/MediaActionSound;->mSoundIds:[I
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_30
+    if-ge v0, v1, :cond_0
 
     .line 102
     iget-object v1, p0, Landroid/media/MediaActionSound;->mSoundIds:[I
@@ -134,10 +134,10 @@
     .line 101
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_24
+    goto :goto_0
 
     .line 104
-    :cond_30
+    :cond_0
     iput v5, p0, Landroid/media/MediaActionSound;->mSoundIdToPlay:I
 
     .line 105
@@ -145,7 +145,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/media/MediaActionSound;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -156,7 +156,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/media/MediaActionSound;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -170,24 +170,24 @@
 
 # virtual methods
 .method public declared-synchronized load(I)V
-    .registers 6
+    .locals 4
     .parameter "soundName"
 
     .prologue
     .line 120
     monitor-enter p0
 
-    if-ltz p1, :cond_8
+    if-ltz p1, :cond_0
 
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/media/MediaActionSound;->SOUND_FILES:[Ljava/lang/String;
 
     array-length v0, v0
 
-    if-lt p1, v0, :cond_24
+    if-lt p1, v0, :cond_1
 
     .line 121
-    :cond_8
+    :cond_0
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -211,11 +211,11 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_21
-    .catchall {:try_start_3 .. :try_end_21} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 120
-    :catchall_21
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -223,15 +223,15 @@
     throw v0
 
     .line 123
-    :cond_24
-    :try_start_24
+    :cond_1
+    :try_start_1
     iget-object v0, p0, Landroid/media/MediaActionSound;->mSoundIds:[I
 
     aget v0, v0, p1
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_3a
+    if-ne v0, v1, :cond_2
 
     .line 124
     iget-object v0, p0, Landroid/media/MediaActionSound;->mSoundIds:[I
@@ -249,35 +249,35 @@
     move-result v1
 
     aput v1, v0, p1
-    :try_end_3a
-    .catchall {:try_start_24 .. :try_end_3a} :catchall_21
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 127
-    :cond_3a
+    :cond_2
     monitor-exit p0
 
     return-void
 .end method
 
 .method public declared-synchronized play(I)V
-    .registers 9
+    .locals 7
     .parameter "soundName"
 
     .prologue
     .line 159
     monitor-enter p0
 
-    if-ltz p1, :cond_8
+    if-ltz p1, :cond_0
 
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/media/MediaActionSound;->SOUND_FILES:[Ljava/lang/String;
 
     array-length v0, v0
 
-    if-lt p1, v0, :cond_24
+    if-lt p1, v0, :cond_1
 
     .line 160
-    :cond_8
+    :cond_0
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -301,11 +301,11 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_21
-    .catchall {:try_start_3 .. :try_end_21} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 159
-    :catchall_21
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -313,15 +313,15 @@
     throw v0
 
     .line 162
-    :cond_24
-    :try_start_24
+    :cond_1
+    :try_start_1
     iget-object v0, p0, Landroid/media/MediaActionSound;->mSoundIds:[I
 
     aget v0, v0, p1
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_40
+    if-ne v0, v1, :cond_2
 
     .line 163
     iget-object v0, p0, Landroid/media/MediaActionSound;->mSoundPool:Landroid/media/SoundPool;
@@ -344,18 +344,18 @@
     iget v1, p0, Landroid/media/MediaActionSound;->mSoundIdToPlay:I
 
     aput v1, v0, p1
-    :try_end_3e
-    .catchall {:try_start_24 .. :try_end_3e} :catchall_21
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 169
-    :goto_3e
+    :goto_0
     monitor-exit p0
 
     return-void
 
     .line 167
-    :cond_40
-    :try_start_40
+    :cond_2
+    :try_start_2
     iget-object v0, p0, Landroid/media/MediaActionSound;->mSoundPool:Landroid/media/SoundPool;
 
     iget-object v1, p0, Landroid/media/MediaActionSound;->mSoundIds:[I
@@ -373,20 +373,20 @@
     const/high16 v6, 0x3f80
 
     invoke-virtual/range {v0 .. v6}, Landroid/media/SoundPool;->play(IFFIIF)I
-    :try_end_51
-    .catchall {:try_start_40 .. :try_end_51} :catchall_21
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_3e
+    goto :goto_0
 .end method
 
 .method public release()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 193
     iget-object v0, p0, Landroid/media/MediaActionSound;->mSoundPool:Landroid/media/SoundPool;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 194
     iget-object v0, p0, Landroid/media/MediaActionSound;->mSoundPool:Landroid/media/SoundPool;
@@ -399,6 +399,6 @@
     iput-object v0, p0, Landroid/media/MediaActionSound;->mSoundPool:Landroid/media/SoundPool;
 
     .line 197
-    :cond_c
+    :cond_0
     return-void
 .end method

@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Z)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "autoInitialize"
 
@@ -63,7 +63,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ZZ)V
-    .registers 6
+    .locals 2
     .parameter "context"
     .parameter "autoInitialize"
     .parameter "allowParallelSyncs"
@@ -118,7 +118,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/content/AbstractThreadedSyncAdapter;Landroid/accounts/Account;)Landroid/accounts/Account;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -132,7 +132,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -143,7 +143,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/util/HashMap;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -154,7 +154,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/content/AbstractThreadedSyncAdapter;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -165,7 +165,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/util/concurrent/atomic/AtomicInteger;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -176,7 +176,7 @@
 .end method
 
 .method static synthetic access$800(Landroid/content/AbstractThreadedSyncAdapter;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -187,7 +187,7 @@
 .end method
 
 .method static synthetic access$900(Landroid/content/AbstractThreadedSyncAdapter;)Landroid/content/Context;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -198,31 +198,31 @@
 .end method
 
 .method private toSyncKey(Landroid/accounts/Account;)Landroid/accounts/Account;
-    .registers 3
+    .locals 1
     .parameter "account"
 
     .prologue
     .line 142
     iget-boolean v0, p0, Landroid/content/AbstractThreadedSyncAdapter;->mAllowParallelSyncs:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
     .line 145
     .end local p1
-    :goto_4
+    :goto_0
     return-object p1
 
     .restart local p1
-    :cond_5
+    :cond_0
     const/4 p1, 0x0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getContext()Landroid/content/Context;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 138
@@ -232,7 +232,7 @@
 .end method
 
 .method public final getSyncAdapterBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 285
@@ -249,7 +249,7 @@
 .end method
 
 .method public onSyncCanceled()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 313
@@ -258,7 +258,7 @@
     monitor-enter v2
 
     .line 314
-    :try_start_3
+    :try_start_0
     iget-object v1, p0, Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreads:Ljava/util/HashMap;
 
     const/4 v3, 0x0
@@ -272,34 +272,34 @@
     .line 315
     .local v0, syncThread:Landroid/content/AbstractThreadedSyncAdapter$SyncThread;
     monitor-exit v2
-    :try_end_d
-    .catchall {:try_start_3 .. :try_end_d} :catchall_13
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 316
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 317
     invoke-virtual {v0}, Landroid/content/AbstractThreadedSyncAdapter$SyncThread;->interrupt()V
 
     .line 319
-    :cond_12
+    :cond_0
     return-void
 
     .line 315
     .end local v0           #syncThread:Landroid/content/AbstractThreadedSyncAdapter$SyncThread;
-    :catchall_13
+    :catchall_0
     move-exception v1
 
-    :try_start_14
+    :try_start_1
     monitor-exit v2
-    :try_end_15
-    .catchall {:try_start_14 .. :try_end_15} :catchall_13
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
 
 .method public onSyncCanceled(Ljava/lang/Thread;)V
-    .registers 2
+    .locals 0
     .parameter "thread"
 
     .prologue

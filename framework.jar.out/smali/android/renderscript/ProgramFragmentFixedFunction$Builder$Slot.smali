@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/renderscript/ProgramFragmentFixedFunction$Builder;Landroid/renderscript/ProgramFragmentFixedFunction$Builder$EnvMode;Landroid/renderscript/ProgramFragmentFixedFunction$Builder$Format;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "_env"
     .parameter "_fmt"

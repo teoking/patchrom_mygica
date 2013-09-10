@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Instrumentation;Landroid/app/Instrumentation$ActivityWaiter;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "waiter"
 
@@ -45,12 +45,13 @@
 
 # virtual methods
 .method public final queueIdle()Z
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1648
     iget-object v0, p0, Landroid/app/Instrumentation$ActivityGoing;->this$0:Landroid/app/Instrumentation;
 
+    #getter for: Landroid/app/Instrumentation;->mSync:Ljava/lang/Object;
     invoke-static {v0}, Landroid/app/Instrumentation;->access$200(Landroid/app/Instrumentation;)Ljava/lang/Object;
 
     move-result-object v1
@@ -58,9 +59,10 @@
     monitor-enter v1
 
     .line 1649
-    :try_start_7
+    :try_start_0
     iget-object v0, p0, Landroid/app/Instrumentation$ActivityGoing;->this$0:Landroid/app/Instrumentation;
 
+    #getter for: Landroid/app/Instrumentation;->mWaitingActivities:Ljava/util/List;
     invoke-static {v0}, Landroid/app/Instrumentation;->access$300(Landroid/app/Instrumentation;)Ljava/util/List;
 
     move-result-object v0
@@ -72,6 +74,7 @@
     .line 1650
     iget-object v0, p0, Landroid/app/Instrumentation$ActivityGoing;->this$0:Landroid/app/Instrumentation;
 
+    #getter for: Landroid/app/Instrumentation;->mSync:Ljava/lang/Object;
     invoke-static {v0}, Landroid/app/Instrumentation;->access$200(Landroid/app/Instrumentation;)Ljava/lang/Object;
 
     move-result-object v0
@@ -87,12 +90,12 @@
     return v0
 
     .line 1651
-    :catchall_1e
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_20
-    .catchall {:try_start_7 .. :try_end_20} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

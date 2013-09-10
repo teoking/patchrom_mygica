@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/ClientCertRequestHandler;[B[[B)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,18 +48,20 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 95
     iget-object v0, p0, Landroid/webkit/ClientCertRequestHandler$3;->this$0:Landroid/webkit/ClientCertRequestHandler;
 
+    #getter for: Landroid/webkit/ClientCertRequestHandler;->mBrowserFrame:Landroid/webkit/BrowserFrame;
     invoke-static {v0}, Landroid/webkit/ClientCertRequestHandler;->access$100(Landroid/webkit/ClientCertRequestHandler;)Landroid/webkit/BrowserFrame;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/webkit/ClientCertRequestHandler$3;->this$0:Landroid/webkit/ClientCertRequestHandler;
 
+    #getter for: Landroid/webkit/ClientCertRequestHandler;->mHandle:I
     invoke-static {v1}, Landroid/webkit/ClientCertRequestHandler;->access$000(Landroid/webkit/ClientCertRequestHandler;)I
 
     move-result v1

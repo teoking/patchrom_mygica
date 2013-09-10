@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/hardware/Camera;II)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "w"
     .parameter "h"
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
     .parameter "obj"
 
     .prologue
@@ -57,14 +57,14 @@
     .line 1464
     instance-of v2, p1, Landroid/hardware/Camera$Size;
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_1
 
     .line 1468
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return v1
 
-    :cond_6
+    :cond_1
     move-object v0, p1
 
     .line 1467
@@ -76,21 +76,21 @@
 
     iget v3, v0, Landroid/hardware/Camera$Size;->width:I
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_0
 
     iget v2, p0, Landroid/hardware/Camera$Size;->height:I
 
     iget v3, v0, Landroid/hardware/Camera$Size;->height:I
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_0
 
     const/4 v1, 0x1
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1472

@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 3
+    .locals 0
     .parameter "horizontal"
     .parameter "vertical"
 

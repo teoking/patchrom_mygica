@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>([Ljava/lang/String;[I)V
-    .registers 7
+    .locals 4
     .parameter "smilies"
     .parameter "smileyResIds"
 
@@ -50,10 +50,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_12
+    :goto_0
     array-length v1, p1
 
-    if-ge v0, v1, :cond_2e
+    if-ge v0, v1, :cond_0
 
     .line 37
     iget-object v1, p0, Lcom/google/android/util/SmileyResources;->smileys:Lcom/google/android/util/AbstractMessageParser$TrieNode;
@@ -80,17 +80,17 @@
     .line 36
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_12
+    goto :goto_0
 
     .line 40
-    :cond_2e
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public getAcronyms()Lcom/google/android/util/AbstractMessageParser$TrieNode;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 71
@@ -100,7 +100,7 @@
 .end method
 
 .method public getDomainSuffixes()Lcom/google/android/util/AbstractMessageParser$TrieNode;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 63
@@ -110,7 +110,7 @@
 .end method
 
 .method public getSchemes()Ljava/util/Set;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -129,7 +129,7 @@
 .end method
 
 .method public getSmileyRes(Ljava/lang/String;)I
-    .registers 4
+    .locals 2
     .parameter "smiley"
 
     .prologue
@@ -144,25 +144,25 @@
 
     .line 50
     .local v0, i:Ljava/lang/Integer;
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 51
     const/4 v1, -0x1
 
     .line 53
-    :goto_b
+    :goto_0
     return v1
 
-    :cond_c
+    :cond_0
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public getSmileys()Lcom/google/android/util/AbstractMessageParser$TrieNode;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 67

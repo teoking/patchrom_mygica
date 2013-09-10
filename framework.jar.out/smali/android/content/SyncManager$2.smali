@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/SyncManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "intent"
 
@@ -43,6 +43,7 @@
     .line 190
     iget-object v0, p0, Landroid/content/SyncManager$2;->this$0:Landroid/content/SyncManager;
 
+    #getter for: Landroid/content/SyncManager;->mSyncHandler:Landroid/content/SyncManager$SyncHandler;
     invoke-static {v0}, Landroid/content/SyncManager;->access$200(Landroid/content/SyncManager;)Landroid/content/SyncManager$SyncHandler;
 
     move-result-object v0

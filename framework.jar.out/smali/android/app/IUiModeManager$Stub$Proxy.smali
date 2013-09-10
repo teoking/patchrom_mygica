@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 104
@@ -50,7 +50,7 @@
 .end method
 
 .method public disableCarMode(I)V
-    .registers 7
+    .locals 5
     .parameter "flags"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -72,7 +72,7 @@
 
     .line 137
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.IUiModeManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -91,8 +91,8 @@
 
     .line 140
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 143
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -104,7 +104,7 @@
     return-void
 
     .line 143
-    :catchall_21
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -116,7 +116,7 @@
 .end method
 
 .method public enableCarMode(I)V
-    .registers 7
+    .locals 5
     .parameter "flags"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -138,7 +138,7 @@
 
     .line 119
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.IUiModeManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -157,8 +157,8 @@
 
     .line 122
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 125
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -170,7 +170,7 @@
     return-void
 
     .line 125
-    :catchall_21
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -182,7 +182,7 @@
 .end method
 
 .method public getCurrentModeType()I
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -203,7 +203,7 @@
 
     .line 156
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.IUiModeManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -222,8 +222,8 @@
 
     .line 159
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -239,7 +239,7 @@
 
     .line 162
     .end local v2           #_result:I
-    :catchall_22
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -251,7 +251,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 108
@@ -261,7 +261,7 @@
 .end method
 
 .method public getNightMode()I
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -282,7 +282,7 @@
 
     .line 199
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.IUiModeManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -301,8 +301,8 @@
 
     .line 202
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -318,7 +318,7 @@
 
     .line 205
     .end local v2           #_result:I
-    :catchall_22
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -330,7 +330,7 @@
 .end method
 
 .method public setNightMode(I)V
-    .registers 7
+    .locals 5
     .parameter "mode"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -352,7 +352,7 @@
 
     .line 179
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.IUiModeManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -371,8 +371,8 @@
 
     .line 182
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 185
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -384,7 +384,7 @@
     return-void
 
     .line 185
-    :catchall_21
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

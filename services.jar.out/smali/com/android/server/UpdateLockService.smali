@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .registers 5
+    .locals 3
     .parameter "context"
 
     .prologue
@@ -60,7 +60,7 @@
 .end method
 
 .method private makeTag(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "tag"
 
     .prologue
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method public acquireUpdateLock(Landroid/os/IBinder;Ljava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "token"
     .parameter "tag"
     .annotation system Ldalvik/annotation/Throws;
@@ -156,7 +156,7 @@
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 6
+    .locals 2
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -171,7 +171,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_0
 
     .line 117
     new-instance v0, Ljava/lang/StringBuilder;
@@ -213,20 +213,20 @@
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 124
-    :goto_32
+    :goto_0
     return-void
 
     .line 123
-    :cond_33
+    :cond_0
     iget-object v0, p0, Lcom/android/server/UpdateLockService;->mLocks:Lcom/android/server/UpdateLockService$LockWatcher;
 
     invoke-virtual {v0, p2}, Lcom/android/server/UpdateLockService$LockWatcher;->dump(Ljava/io/PrintWriter;)V
 
-    goto :goto_32
+    goto :goto_0
 .end method
 
 .method public releaseUpdateLock(Landroid/os/IBinder;)V
-    .registers 5
+    .locals 3
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -254,7 +254,7 @@
 .end method
 
 .method sendLockChangedBroadcast(Z)V
-    .registers 9
+    .locals 7
     .parameter "state"
 
     .prologue
@@ -265,7 +265,7 @@
 
     .line 77
     .local v1, oldIdent:J
-    :try_start_4
+    :try_start_0
     new-instance v3, Landroid/content/Intent;
 
     const-string v4, "android.os.UpdateLock.UPDATE_LOCK_CHANGED"
@@ -299,8 +299,8 @@
     iget-object v3, p0, Lcom/android/server/UpdateLockService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3, v0}, Landroid/content/Context;->sendStickyBroadcast(Landroid/content/Intent;)V
-    :try_end_26
-    .catchall {:try_start_4 .. :try_end_26} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 83
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
@@ -310,7 +310,7 @@
 
     .line 83
     .end local v0           #intent:Landroid/content/Intent;
-    :catchall_2a
+    :catchall_0
     move-exception v3
 
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V

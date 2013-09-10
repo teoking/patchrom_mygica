@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/os/Message;)V
-    .registers 3
+    .locals 0
     .parameter "reason"
     .parameter "onCompletedMsg"
 

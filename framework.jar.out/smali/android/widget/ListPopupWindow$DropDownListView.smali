@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Z)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "hijackFocus"
 
@@ -51,7 +51,7 @@
 .end method
 
 .method static synthetic access$502(Landroid/widget/ListPopupWindow$DropDownListView;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -65,120 +65,120 @@
 
 # virtual methods
 .method public hasFocus()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1230
     iget-boolean v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mHijackFocus:Z
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     invoke-super {p0}, Landroid/widget/ListView;->hasFocus()Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_1
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public hasWindowFocus()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1210
     iget-boolean v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mHijackFocus:Z
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     invoke-super {p0}, Landroid/widget/ListView;->hasWindowFocus()Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_1
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public isFocused()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1220
     iget-boolean v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mHijackFocus:Z
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     invoke-super {p0}, Landroid/widget/ListView;->isFocused()Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_1
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public isInTouchMode()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1200
     iget-boolean v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mHijackFocus:Z
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     iget-boolean v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mListSelectionHidden:Z
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_1
 
-    :cond_8
+    :cond_0
     invoke-super {p0}, Landroid/widget/ListView;->isInTouchMode()Z
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_2
 
-    :cond_e
+    :cond_1
     const/4 v0, 0x1
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_2
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method obtainView(I[Z)Landroid/view/View;
-    .registers 6
+    .locals 3
     .parameter "position"
     .parameter "isScrap"
 
@@ -192,7 +192,7 @@
     .local v0, view:Landroid/view/View;
     instance-of v1, v0, Landroid/widget/TextView;
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_0
 
     move-object v1, v0
 
@@ -204,6 +204,6 @@
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setHorizontallyScrolling(Z)V
 
     .line 1194
-    :cond_f
+    :cond_0
     return-object v0
 .end method

@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "attrs"
 
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public dispatchHoverEvent(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -66,7 +66,7 @@
 .end method
 
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -80,7 +80,7 @@
 .end method
 
 .method public getLeftOffset()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1294
@@ -92,21 +92,21 @@
 
     const/16 v1, 0x8
 
-    if-ne v0, v1, :cond_d
+    if-ne v0, v1, :cond_0
 
     iget v0, p0, Lcom/android/internal/widget/ActionBarView$HomeView;->mUpWidth:I
 
-    :goto_c
+    :goto_0
     return v0
 
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method protected onFinishInflate()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1289
@@ -134,7 +134,7 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .registers 23
+    .locals 17
     .parameter "changed"
     .parameter "l"
     .parameter "t"
@@ -167,7 +167,7 @@
 
     const/16 v15, 0x8
 
-    if-eq v14, v15, :cond_47
+    if-eq v14, v15, :cond_0
 
     .line 1346
     move-object/from16 v0, p0
@@ -240,7 +240,7 @@
     .end local v8           #upLp:Landroid/widget/FrameLayout$LayoutParams;
     .end local v10           #upTop:I
     .end local v11           #upWidth:I
-    :cond_47
+    :cond_0
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/internal/widget/ActionBarView$HomeView;->mIconView:Landroid/widget/ImageView;
@@ -322,7 +322,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .registers 16
+    .locals 13
     .parameter "widthMeasureSpec"
     .parameter "heightMeasureSpec"
 
@@ -378,13 +378,13 @@
 
     const/16 v1, 0x8
 
-    if-ne v0, v1, :cond_80
+    if-ne v0, v1, :cond_0
 
     const/4 v3, 0x0
 
     .line 1303
     .local v3, width:I
-    :goto_2b
+    :goto_0
     iget v0, v10, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView$HomeView;->mUpView:Landroid/view/View;
@@ -484,14 +484,14 @@
 
     .line 1315
     .local v8, heightSize:I
-    sparse-switch v11, :sswitch_data_92
+    sparse-switch v11, :sswitch_data_0
 
     .line 1326
-    :goto_79
-    sparse-switch v7, :sswitch_data_9c
+    :goto_1
+    sparse-switch v7, :sswitch_data_1
 
     .line 1337
-    :goto_7c
+    :goto_2
     invoke-virtual {p0, v3, v6}, Lcom/android/internal/widget/ActionBarView$HomeView;->setMeasuredDimension(II)V
 
     .line 1338
@@ -505,10 +505,10 @@
     .end local v9           #iconLp:Landroid/widget/FrameLayout$LayoutParams;
     .end local v11           #widthMode:I
     .end local v12           #widthSize:I
-    :cond_80
+    :cond_0
     iget v3, p0, Lcom/android/internal/widget/ActionBarView$HomeView;->mUpWidth:I
 
-    goto :goto_2b
+    goto :goto_0
 
     .line 1317
     .restart local v3       #width:I
@@ -518,56 +518,56 @@
     .restart local v9       #iconLp:Landroid/widget/FrameLayout$LayoutParams;
     .restart local v11       #widthMode:I
     .restart local v12       #widthSize:I
-    :sswitch_83
+    :sswitch_0
     invoke-static {v3, v12}, Ljava/lang/Math;->min(II)I
 
     move-result v3
 
     .line 1318
-    goto :goto_79
+    goto :goto_1
 
     .line 1320
-    :sswitch_88
+    :sswitch_1
     move v3, v12
 
     .line 1321
-    goto :goto_79
+    goto :goto_1
 
     .line 1328
-    :sswitch_8a
+    :sswitch_2
     invoke-static {v6, v8}, Ljava/lang/Math;->min(II)I
 
     move-result v6
 
     .line 1329
-    goto :goto_7c
+    goto :goto_2
 
     .line 1331
-    :sswitch_8f
+    :sswitch_3
     move v6, v8
 
     .line 1332
-    goto :goto_7c
+    goto :goto_2
 
     .line 1315
     nop
 
-    :sswitch_data_92
+    :sswitch_data_0
     .sparse-switch
-        -0x80000000 -> :sswitch_83
-        0x40000000 -> :sswitch_88
+        -0x80000000 -> :sswitch_0
+        0x40000000 -> :sswitch_1
     .end sparse-switch
 
     .line 1326
-    :sswitch_data_9c
+    :sswitch_data_1
     .sparse-switch
-        -0x80000000 -> :sswitch_8a
-        0x40000000 -> :sswitch_8f
+        -0x80000000 -> :sswitch_2
+        0x40000000 -> :sswitch_3
     .end sparse-switch
 .end method
 
 .method public onPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 4
+    .locals 2
     .parameter "event"
 
     .prologue
@@ -585,7 +585,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_14
+    if-nez v1, :cond_0
 
     .line 1277
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
@@ -595,12 +595,12 @@
     invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1279
-    :cond_14
+    :cond_0
     return-void
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)V
-    .registers 3
+    .locals 1
     .parameter "icon"
 
     .prologue
@@ -614,26 +614,26 @@
 .end method
 
 .method public setUp(Z)V
-    .registers 4
+    .locals 2
     .parameter "isUp"
 
     .prologue
     .line 1259
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView$HomeView;->mUpView:Landroid/view/View;
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_5
+    :goto_0
     invoke-virtual {v1, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 1260
     return-void
 
     .line 1259
-    :cond_9
+    :cond_0
     const/16 v0, 0x8
 
-    goto :goto_5
+    goto :goto_0
 .end method

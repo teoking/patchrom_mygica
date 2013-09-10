@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViews$SetPendingIntentTemplate;Landroid/widget/RemoteViews$OnClickHandler;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 17
+    .locals 11
     .parameter
     .parameter "view"
     .parameter "position"
@@ -63,7 +63,7 @@
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     instance-of v9, p2, Landroid/view/ViewGroup;
 
-    if-eqz v9, :cond_14
+    if-eqz v9, :cond_1
 
     move-object v8, p2
 
@@ -74,7 +74,7 @@
     .local v8, vg:Landroid/view/ViewGroup;
     instance-of v9, p1, Landroid/widget/AdapterViewAnimator;
 
-    if-eqz v9, :cond_12
+    if-eqz v9, :cond_0
 
     .line 361
     const/4 v9, 0x0
@@ -88,18 +88,18 @@
 
     .line 363
     .restart local v8       #vg:Landroid/view/ViewGroup;
-    :cond_12
-    if-nez v8, :cond_15
+    :cond_0
+    if-nez v8, :cond_2
 
     .line 391
     .end local v8           #vg:Landroid/view/ViewGroup;
-    :cond_14
-    :goto_14
+    :cond_1
+    :goto_0
     return-void
 
     .line 365
     .restart local v8       #vg:Landroid/view/ViewGroup;
-    :cond_15
+    :cond_2
     const/4 v2, 0x0
 
     .line 366
@@ -113,8 +113,8 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_1b
-    if-ge v3, v1, :cond_2f
+    :goto_1
+    if-ge v3, v1, :cond_3
 
     .line 368
     invoke-virtual {v8, v3}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -131,7 +131,7 @@
     .local v7, tag:Ljava/lang/Object;
     instance-of v9, v7, Landroid/content/Intent;
 
-    if-eqz v9, :cond_92
+    if-eqz v9, :cond_4
 
     move-object v2, v7
 
@@ -140,8 +140,8 @@
 
     .line 374
     .end local v7           #tag:Ljava/lang/Object;
-    :cond_2f
-    if-eqz v2, :cond_14
+    :cond_3
+    if-eqz v2, :cond_1
 
     .line 376
     invoke-virtual {p2}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -272,7 +272,7 @@
 
     invoke-virtual {v9, p2, v10, v2}, Landroid/widget/RemoteViews$OnClickHandler;->onClickHandler(Landroid/view/View;Landroid/app/PendingIntent;Landroid/content/Intent;)Z
 
-    goto :goto_14
+    goto :goto_0
 
     .line 367
     .end local v0           #appScale:F
@@ -280,8 +280,8 @@
     .end local v5           #pos:[I
     .end local v6           #rect:Landroid/graphics/Rect;
     .restart local v7       #tag:Ljava/lang/Object;
-    :cond_92
+    :cond_4
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1b
+    goto :goto_1
 .end method

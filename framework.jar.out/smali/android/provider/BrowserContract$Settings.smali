@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 699
@@ -44,7 +44,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 694
@@ -54,7 +54,7 @@
 .end method
 
 .method public static isSyncEnabled(Landroid/content/Context;)Z
-    .registers 11
+    .locals 10
     .parameter "context"
 
     .prologue
@@ -67,7 +67,7 @@
 
     .line 722
     .local v6, cursor:Landroid/database/Cursor;
-    :try_start_3
+    :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -103,72 +103,72 @@
     move-result-object v6
 
     .line 724
-    if-eqz v6, :cond_2a
+    if-eqz v6, :cond_0
 
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
-    :try_end_27
-    .catchall {:try_start_3 .. :try_end_27} :catchall_41
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
-    if-nez v0, :cond_31
+    if-nez v0, :cond_3
 
     .line 729
-    :cond_2a
-    if-eqz v6, :cond_2f
+    :cond_0
+    if-eqz v6, :cond_1
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_2f
+    :cond_1
     move v0, v8
 
-    :cond_30
-    :goto_30
+    :cond_2
+    :goto_0
     return v0
 
     .line 727
-    :cond_31
+    :cond_3
     const/4 v0, 0x0
 
-    :try_start_32
+    :try_start_1
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getInt(I)I
-    :try_end_35
-    .catchall {:try_start_32 .. :try_end_35} :catchall_41
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result v0
 
-    if-eqz v0, :cond_3f
+    if-eqz v0, :cond_4
 
     move v0, v7
 
     .line 729
-    :goto_39
-    if-eqz v6, :cond_30
+    :goto_1
+    if-eqz v6, :cond_2
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    goto :goto_30
+    goto :goto_0
 
-    :cond_3f
+    :cond_4
     move v0, v8
 
     .line 727
-    goto :goto_39
+    goto :goto_1
 
     .line 729
-    :catchall_41
+    :catchall_0
     move-exception v0
 
-    if-eqz v6, :cond_47
+    if-eqz v6, :cond_5
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_47
+    :cond_5
     throw v0
 .end method
 
 .method public static setSyncEnabled(Landroid/content/Context;Z)V
-    .registers 5
+    .locals 3
     .parameter "context"
     .parameter "enabled"
 
@@ -189,11 +189,11 @@
     .line 739
     const-string/jumbo v2, "value"
 
-    if-eqz p1, :cond_24
+    if-eqz p1, :cond_0
 
     const/4 v1, 0x1
 
-    :goto_13
+    :goto_0
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
@@ -213,8 +213,8 @@
     return-void
 
     .line 739
-    :cond_24
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method

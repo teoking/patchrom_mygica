@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/ContentResolver;Landroid/database/Cursor;Landroid/content/IContentProvider;)V
-    .registers 6
+    .locals 2
     .parameter
     .parameter "cursor"
     .parameter "icp"
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public close()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1840
@@ -87,7 +87,7 @@
     .line 1844
     iget-object v0, p0, Landroid/content/ContentResolver$CursorWrapperInner;->mCloseGuard:Ldalvik/system/CloseGuard;
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 1845
     iget-object v0, p0, Landroid/content/ContentResolver$CursorWrapperInner;->mCloseGuard:Ldalvik/system/CloseGuard;
@@ -95,12 +95,12 @@
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->close()V
 
     .line 1847
-    :cond_16
+    :cond_0
     return-void
 .end method
 
 .method protected finalize()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -112,7 +112,7 @@
     :try_start_0
     iget-object v0, p0, Landroid/content/ContentResolver$CursorWrapperInner;->mCloseGuard:Ldalvik/system/CloseGuard;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 1853
     iget-object v0, p0, Landroid/content/ContentResolver$CursorWrapperInner;->mCloseGuard:Ldalvik/system/CloseGuard;
@@ -120,14 +120,14 @@
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->warnIfOpen()V
 
     .line 1856
-    :cond_9
+    :cond_0
     iget-boolean v0, p0, Landroid/content/ContentResolver$CursorWrapperInner;->mProviderReleased:Z
 
-    if-nez v0, :cond_1f
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Landroid/content/ContentResolver$CursorWrapperInner;->mContentProvider:Landroid/content/IContentProvider;
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_1
 
     .line 1859
     const-string v0, "CursorWrapperInner"
@@ -142,18 +142,18 @@
     iget-object v1, p0, Landroid/content/ContentResolver$CursorWrapperInner;->mContentProvider:Landroid/content/IContentProvider;
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->releaseProvider(Landroid/content/IContentProvider;)Z
-    :try_end_1f
-    .catchall {:try_start_0 .. :try_end_1f} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1863
-    :cond_1f
+    :cond_1
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
     .line 1865
     return-void
 
     .line 1863
-    :catchall_23
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V

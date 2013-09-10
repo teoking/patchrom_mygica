@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public createProgram(Landroid/filterfw/core/FilterContext;Landroid/filterfw/core/FrameFormat;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "format"
 
@@ -47,7 +47,7 @@
     .line 70
     iget-object v0, p0, Landroid/filterpacks/imageproc/ToRGBFilter;->mLastFormat:Landroid/filterfw/core/FrameFormat;
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/filterpacks/imageproc/ToRGBFilter;->mLastFormat:Landroid/filterfw/core/FrameFormat;
 
@@ -57,23 +57,23 @@
 
     iget v1, p0, Landroid/filterpacks/imageproc/ToRGBFilter;->mInputBPP:I
 
-    if-ne v0, v1, :cond_15
+    if-ne v0, v1, :cond_0
 
     .line 82
-    :goto_14
+    :goto_0
     return-void
 
     .line 71
-    :cond_15
+    :cond_0
     iput-object p2, p0, Landroid/filterpacks/imageproc/ToRGBFilter;->mLastFormat:Landroid/filterfw/core/FrameFormat;
 
     .line 72
     iget v0, p0, Landroid/filterpacks/imageproc/ToRGBFilter;->mInputBPP:I
 
-    packed-switch v0, :pswitch_data_56
+    packed-switch v0, :pswitch_data_0
 
     .line 80
-    :pswitch_1c
+    :pswitch_0
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -107,7 +107,7 @@
     throw v0
 
     .line 74
-    :pswitch_3d
+    :pswitch_1
     new-instance v0, Landroid/filterfw/core/NativeProgram;
 
     const-string v1, "filterpack_imageproc"
@@ -118,10 +118,10 @@
 
     iput-object v0, p0, Landroid/filterpacks/imageproc/ToRGBFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    goto :goto_14
+    goto :goto_0
 
     .line 77
-    :pswitch_49
+    :pswitch_2
     new-instance v0, Landroid/filterfw/core/NativeProgram;
 
     const-string v1, "filterpack_imageproc"
@@ -132,20 +132,20 @@
 
     iput-object v0, p0, Landroid/filterpacks/imageproc/ToRGBFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    goto :goto_14
+    goto :goto_0
 
     .line 72
-    :pswitch_data_56
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_3d
-        :pswitch_1c
-        :pswitch_1c
-        :pswitch_49
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public getConvertedFormat(Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 5
+    .locals 3
     .parameter "format"
 
     .prologue
@@ -176,7 +176,7 @@
 .end method
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 4
+    .locals 1
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -190,7 +190,7 @@
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
@@ -245,7 +245,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v1, 0x2

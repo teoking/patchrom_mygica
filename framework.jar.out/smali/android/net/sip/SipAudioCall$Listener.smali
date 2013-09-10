@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 73
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public onCallBusy(Landroid/net/sip/SipAudioCall;)V
-    .registers 2
+    .locals 0
     .parameter "call"
 
     .prologue
@@ -40,7 +40,7 @@
 .end method
 
 .method public onCallEnded(Landroid/net/sip/SipAudioCall;)V
-    .registers 2
+    .locals 0
     .parameter "call"
 
     .prologue
@@ -52,7 +52,7 @@
 .end method
 
 .method public onCallEstablished(Landroid/net/sip/SipAudioCall;)V
-    .registers 2
+    .locals 0
     .parameter "call"
 
     .prologue
@@ -64,7 +64,7 @@
 .end method
 
 .method public onCallHeld(Landroid/net/sip/SipAudioCall;)V
-    .registers 2
+    .locals 0
     .parameter "call"
 
     .prologue
@@ -76,7 +76,7 @@
 .end method
 
 .method public onCalling(Landroid/net/sip/SipAudioCall;)V
-    .registers 2
+    .locals 0
     .parameter "call"
 
     .prologue
@@ -88,7 +88,7 @@
 .end method
 
 .method public onChanged(Landroid/net/sip/SipAudioCall;)V
-    .registers 2
+    .locals 0
     .parameter "call"
 
     .prologue
@@ -97,7 +97,7 @@
 .end method
 
 .method public onError(Landroid/net/sip/SipAudioCall;ILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "call"
     .parameter "errorCode"
     .parameter "errorMessage"
@@ -108,7 +108,7 @@
 .end method
 
 .method public onReadyToCall(Landroid/net/sip/SipAudioCall;)V
-    .registers 2
+    .locals 0
     .parameter "call"
 
     .prologue
@@ -120,7 +120,7 @@
 .end method
 
 .method public onRinging(Landroid/net/sip/SipAudioCall;Landroid/net/sip/SipProfile;)V
-    .registers 3
+    .locals 0
     .parameter "call"
     .parameter "caller"
 
@@ -133,7 +133,7 @@
 .end method
 
 .method public onRingingBack(Landroid/net/sip/SipAudioCall;)V
-    .registers 2
+    .locals 0
     .parameter "call"
 
     .prologue

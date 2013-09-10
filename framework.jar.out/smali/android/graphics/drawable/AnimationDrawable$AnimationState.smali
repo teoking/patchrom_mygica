@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/AnimationDrawable$AnimationState;Landroid/graphics/drawable/AnimationDrawable;Landroid/content/res/Resources;)V
-    .registers 5
+    .locals 1
     .parameter "orig"
     .parameter "owner"
     .parameter "res"
@@ -32,7 +32,7 @@
     invoke-direct {p0, p1, p2, p3}, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;-><init>(Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;Landroid/graphics/drawable/DrawableContainer;Landroid/content/res/Resources;)V
 
     .line 321
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_0
 
     .line 322
     iget-object v0, p1, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mDurations:[I
@@ -45,11 +45,11 @@
     iput-boolean v0, p0, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mOneShot:Z
 
     .line 328
-    :goto_d
+    :goto_0
     return-void
 
     .line 325
-    :cond_e
+    :cond_0
     invoke-virtual {p0}, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->getChildren()[Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -65,11 +65,11 @@
 
     iput-boolean v0, p0, Landroid/graphics/drawable/AnimationDrawable$AnimationState;->mOneShot:Z
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method static synthetic access$000(Landroid/graphics/drawable/AnimationDrawable$AnimationState;)[I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -80,7 +80,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/graphics/drawable/AnimationDrawable$AnimationState;[I)[I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -92,7 +92,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/graphics/drawable/AnimationDrawable$AnimationState;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -103,7 +103,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/graphics/drawable/AnimationDrawable$AnimationState;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -117,7 +117,7 @@
 
 # virtual methods
 .method public addFrame(Landroid/graphics/drawable/Drawable;I)V
-    .registers 5
+    .locals 2
     .parameter "dr"
     .parameter "dur"
 
@@ -138,7 +138,7 @@
 .end method
 
 .method public growArray(II)V
-    .registers 6
+    .locals 3
     .parameter "oldSize"
     .parameter "newSize"
 
@@ -165,7 +165,7 @@
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -179,7 +179,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .registers 4
+    .locals 2
     .parameter "res"
 
     .prologue

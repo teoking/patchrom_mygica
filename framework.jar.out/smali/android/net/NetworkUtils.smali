@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 32
@@ -25,7 +25,7 @@
 .end method
 
 .method public static addressTypeMatches(Ljava/net/InetAddress;Ljava/net/InetAddress;)Z
-    .registers 3
+    .locals 1
     .parameter "left"
     .parameter "right"
 
@@ -33,31 +33,31 @@
     .line 215
     instance-of v0, p0, Ljava/net/Inet4Address;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     instance-of v0, p1, Ljava/net/Inet4Address;
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_1
 
-    :cond_8
+    :cond_0
     instance-of v0, p0, Ljava/net/Inet6Address;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_2
 
     instance-of v0, p1, Ljava/net/Inet6Address;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_2
 
-    :cond_10
+    :cond_1
     const/4 v0, 0x1
 
-    :goto_11
+    :goto_0
     return v0
 
-    :cond_12
+    :cond_2
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public static native disableInterface(Ljava/lang/String;)I
@@ -70,13 +70,13 @@
 .end method
 
 .method public static getNetworkPart(Ljava/net/InetAddress;I)Ljava/net/InetAddress;
-    .registers 11
+    .locals 9
     .parameter "address"
     .parameter "prefixLength"
 
     .prologue
     .line 179
-    if-nez p0, :cond_a
+    if-nez p0, :cond_0
 
     .line 180
     new-instance v6, Ljava/lang/RuntimeException;
@@ -88,23 +88,23 @@
     throw v6
 
     .line 183
-    :cond_a
+    :cond_0
     invoke-virtual {p0}, Ljava/net/InetAddress;->getAddress()[B
 
     move-result-object v0
 
     .line 185
     .local v0, array:[B
-    if-ltz p1, :cond_15
+    if-ltz p1, :cond_1
 
     array-length v6, v0
 
     mul-int/lit8 v6, v6, 0x8
 
-    if-le p1, v6, :cond_1d
+    if-le p1, v6, :cond_2
 
     .line 186
-    :cond_15
+    :cond_1
     new-instance v6, Ljava/lang/RuntimeException;
 
     const-string v7, "getNetworkPart - bad prefixLength"
@@ -114,7 +114,7 @@
     throw v6
 
     .line 189
-    :cond_1d
+    :cond_2
     div-int/lit8 v4, p1, 0x8
 
     .line 190
@@ -135,7 +135,7 @@
     .local v2, mask:B
     array-length v6, v0
 
-    if-ge v4, v6, :cond_30
+    if-ge v4, v6, :cond_3
 
     aget-byte v6, v0, v4
 
@@ -146,14 +146,14 @@
     aput-byte v6, v0, v4
 
     .line 195
-    :cond_30
+    :cond_3
     add-int/lit8 v4, v4, 0x1
 
     .line 197
-    :goto_32
+    :goto_0
     array-length v6, v0
 
-    if-ge v4, v6, :cond_3b
+    if-ge v4, v6, :cond_4
 
     .line 198
     const/4 v6, 0x0
@@ -163,18 +163,18 @@
     .line 197
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_32
+    goto :goto_0
 
     .line 201
-    :cond_3b
+    :cond_4
     const/4 v3, 0x0
 
     .line 203
     .local v3, netPart:Ljava/net/InetAddress;
-    :try_start_3c
+    :try_start_0
     invoke-static {v0}, Ljava/net/InetAddress;->getByAddress([B)Ljava/net/InetAddress;
-    :try_end_3f
-    .catch Ljava/net/UnknownHostException; {:try_start_3c .. :try_end_3f} :catch_41
+    :try_end_0
+    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v3
 
@@ -182,7 +182,7 @@
     return-object v3
 
     .line 204
-    :catch_41
+    :catch_0
     move-exception v1
 
     .line 205
@@ -217,7 +217,7 @@
 .end method
 
 .method public static hexToInet6Address(Ljava/lang/String;)Ljava/net/InetAddress;
-    .registers 7
+    .locals 6
     .parameter "addrHexString"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -335,15 +335,15 @@
     move-result-object v1
 
     invoke-static {v1}, Landroid/net/NetworkUtils;->numericToInetAddress(Ljava/lang/String;)Ljava/net/InetAddress;
-    :try_end_62
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_62} :catch_64
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     return-object v1
 
     .line 234
-    :catch_64
+    :catch_0
     move-exception v0
 
     .line 235
@@ -389,7 +389,7 @@
 .end method
 
 .method public static inetAddressToInt(Ljava/net/InetAddress;)I
-    .registers 4
+    .locals 3
     .parameter "inetAddr"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -409,7 +409,7 @@
 
     const/4 v2, 0x4
 
-    if-eq v1, v2, :cond_10
+    if-eq v1, v2, :cond_0
 
     .line 131
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -421,7 +421,7 @@
     throw v1
 
     .line 133
-    :cond_10
+    :cond_0
     const/4 v1, 0x3
 
     aget-byte v1, v0, v1
@@ -462,7 +462,7 @@
 .end method
 
 .method public static intToInetAddress(I)Ljava/net/InetAddress;
-    .registers 5
+    .locals 4
     .parameter "hostAddress"
 
     .prologue
@@ -511,17 +511,17 @@
 
     .line 116
     .local v0, addressBytes:[B
-    :try_start_21
+    :try_start_0
     invoke-static {v0}, Ljava/net/InetAddress;->getByAddress([B)Ljava/net/InetAddress;
-    :try_end_24
-    .catch Ljava/net/UnknownHostException; {:try_start_21 .. :try_end_24} :catch_26
+    :try_end_0
+    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v2
 
     return-object v2
 
     .line 117
-    :catch_26
+    :catch_0
     move-exception v1
 
     .line 118
@@ -534,7 +534,7 @@
 .end method
 
 .method public static makeStrings(Ljava/util/Collection;)[Ljava/lang/String;
-    .registers 7
+    .locals 6
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -567,12 +567,12 @@
     move-result-object v3
 
     .local v3, i$:Ljava/util/Iterator;
-    :goto_b
+    :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_21
+    if-eqz v5, :cond_0
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -596,16 +596,16 @@
 
     .end local v2           #i:I
     .restart local v1       #i:I
-    goto :goto_b
+    goto :goto_0
 
     .line 251
     .end local v0           #addr:Ljava/net/InetAddress;
-    :cond_21
+    :cond_0
     return-object v4
 .end method
 
 .method public static netmaskIntToPrefixLength(I)I
-    .registers 2
+    .locals 1
     .parameter "netmask"
 
     .prologue
@@ -618,7 +618,7 @@
 .end method
 
 .method public static numericToInetAddress(Ljava/lang/String;)Ljava/net/InetAddress;
-    .registers 2
+    .locals 1
     .parameter "addrString"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -636,7 +636,7 @@
 .end method
 
 .method public static prefixLengthToNetmaskInt(I)I
-    .registers 4
+    .locals 3
     .parameter "prefixLength"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -646,14 +646,14 @@
 
     .prologue
     .line 144
-    if-ltz p0, :cond_6
+    if-ltz p0, :cond_0
 
     const/16 v1, 0x20
 
-    if-le p0, v1, :cond_e
+    if-le p0, v1, :cond_1
 
     .line 145
-    :cond_6
+    :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "Invalid prefix length (0 <= prefix <= 32)"
@@ -663,7 +663,7 @@
     throw v1
 
     .line 147
-    :cond_e
+    :cond_1
     const/4 v1, -0x1
 
     rsub-int/lit8 v2, p0, 0x20
@@ -695,7 +695,7 @@
 .end method
 
 .method public static trimV4AddrZeros(Ljava/lang/String;)Ljava/lang/String;
-    .registers 9
+    .locals 8
     .parameter "addr"
 
     .prologue
@@ -704,21 +704,21 @@
     const/4 v6, 0x3
 
     .line 264
-    if-nez p0, :cond_6
+    if-nez p0, :cond_1
 
     const/4 p0, 0x0
 
     .line 279
     .end local p0
     .local v3, octets:[Ljava/lang/String;
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return-object p0
 
     .line 265
     .end local v3           #octets:[Ljava/lang/String;
     .restart local p0
-    :cond_6
+    :cond_1
     const-string v5, "\\."
 
     invoke-virtual {p0, v5}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -729,7 +729,7 @@
     .restart local v3       #octets:[Ljava/lang/String;
     array-length v5, v3
 
-    if-ne v5, v7, :cond_5
+    if-ne v5, v7, :cond_0
 
     .line 267
     new-instance v0, Ljava/lang/StringBuilder;
@@ -747,18 +747,18 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_18
-    if-ge v2, v7, :cond_37
+    :goto_1
+    if-ge v2, v7, :cond_3
 
     .line 271
-    :try_start_1a
+    :try_start_0
     aget-object v5, v3, v2
 
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
     move-result v5
 
-    if-gt v5, v6, :cond_5
+    if-gt v5, v6, :cond_0
 
     .line 272
     aget-object v5, v3, v2
@@ -768,33 +768,33 @@
     move-result v5
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-    :try_end_2b
-    .catch Ljava/lang/NumberFormatException; {:try_start_1a .. :try_end_2b} :catch_35
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 276
-    if-ge v2, v6, :cond_32
+    if-ge v2, v6, :cond_2
 
     const/16 v5, 0x2e
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 269
-    :cond_32
+    :cond_2
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_18
+    goto :goto_1
 
     .line 273
-    :catch_35
+    :catch_0
     move-exception v1
 
     .line 274
     .local v1, e:Ljava/lang/NumberFormatException;
-    goto :goto_5
+    goto :goto_0
 
     .line 278
     .end local v1           #e:Ljava/lang/NumberFormatException;
-    :cond_37
+    :cond_3
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -802,5 +802,5 @@
     move-object p0, v4
 
     .line 279
-    goto :goto_5
+    goto :goto_0
 .end method

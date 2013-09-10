@@ -153,7 +153,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/IWindowSession;Landroid/view/IWindow;Landroid/view/ViewRootImpl;Landroid/os/Handler;Landroid/view/View$AttachInfo$Callbacks;)V
-    .registers 9
+    .locals 3
     .parameter "session"
     .parameter "window"
     .parameter "viewRootImpl"

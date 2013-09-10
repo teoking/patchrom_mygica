@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 33
@@ -20,7 +20,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "msg"
 
     .prologue
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .registers 3
+    .locals 0
     .parameter "msg"
     .parameter "t"
 
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Throwable;)V
-    .registers 2
+    .locals 0
     .parameter "t"
 
     .prologue

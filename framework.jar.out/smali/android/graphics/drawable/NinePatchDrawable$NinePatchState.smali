@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/NinePatch;Landroid/graphics/Rect;)V
-    .registers 5
+    .locals 2
     .parameter "ninePatch"
     .parameter "padding"
 
@@ -49,7 +49,7 @@
 .end method
 
 .method constructor <init>(Landroid/graphics/NinePatch;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
-    .registers 5
+    .locals 1
     .parameter "ninePatch"
     .parameter "padding"
     .parameter "layoutInsets"
@@ -65,7 +65,7 @@
 .end method
 
 .method constructor <init>(Landroid/graphics/NinePatch;Landroid/graphics/Rect;Landroid/graphics/Rect;Z)V
-    .registers 6
+    .locals 1
     .parameter "ninePatch"
     .parameter "rect"
     .parameter "layoutInsets"
@@ -101,7 +101,7 @@
 .end method
 
 .method constructor <init>(Landroid/graphics/drawable/NinePatchDrawable$NinePatchState;)V
-    .registers 4
+    .locals 2
     .parameter "state"
 
     .prologue
@@ -154,7 +154,7 @@
 
 # virtual methods
 .method public getChangingConfigurations()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 444
@@ -164,7 +164,7 @@
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -178,7 +178,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .registers 4
+    .locals 2
     .parameter "res"
 
     .prologue

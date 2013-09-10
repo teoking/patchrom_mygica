@@ -246,7 +246,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;Landroid/app/IApplicationThread;Landroid/content/pm/ApplicationInfo;Ljava/lang/String;I)V
-    .registers 10
+    .locals 4
     .parameter "_batteryStats"
     .parameter "_thread"
     .parameter "_info"
@@ -326,11 +326,11 @@
     .line 309
     iget v0, p3, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    if-eq v0, p5, :cond_71
+    if-eq v0, p5, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_47
+    :goto_0
     iput-boolean v0, p0, Lcom/android/server/am/ProcessRecord;->isolated:Z
 
     .line 310
@@ -385,17 +385,17 @@
     .line 321
     return-void
 
-    :cond_71
+    :cond_0
     move v0, v1
 
     .line 309
-    goto :goto_47
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public addPackage(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "pkg"
 
     .prologue
@@ -406,7 +406,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 417
     iget-object v0, p0, Lcom/android/server/am/ProcessRecord;->pkgList:Ljava/util/HashSet;
@@ -417,17 +417,17 @@
     const/4 v0, 0x1
 
     .line 420
-    :goto_e
+    :goto_0
     return v0
 
-    :cond_f
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .registers 26
+    .locals 23
     .parameter "pw"
     .parameter "prefix"
 
@@ -511,7 +511,7 @@
 
     move/from16 v1, v18
 
-    if-eq v0, v1, :cond_67
+    if-eq v0, v1, :cond_0
 
     .line 160
     const-string v17, " ISOLATED uid="
@@ -535,7 +535,7 @@
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(I)V
 
     .line 162
-    :cond_67
+    :cond_0
     invoke-virtual/range {p1 .. p1}, Ljava/io/PrintWriter;->println()V
 
     .line 163
@@ -551,7 +551,7 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_97
+    if-eqz v17, :cond_1
 
     .line 164
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -583,7 +583,7 @@
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 166
-    :cond_97
+    :cond_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
@@ -596,7 +596,7 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_c4
+    if-eqz v17, :cond_2
 
     .line 167
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -629,7 +629,7 @@
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 170
-    :cond_c4
+    :cond_2
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v17, "dir="
@@ -765,7 +765,7 @@
 
     move-object/from16 v17, v0
 
-    if-nez v17, :cond_165
+    if-nez v17, :cond_3
 
     move-object/from16 v0, p0
 
@@ -773,7 +773,7 @@
 
     move-object/from16 v17, v0
 
-    if-nez v17, :cond_165
+    if-nez v17, :cond_3
 
     move-object/from16 v0, p0
 
@@ -781,10 +781,10 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_1f7
+    if-eqz v17, :cond_4
 
     .line 177
-    :cond_165
+    :cond_3
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v17, "instrumentationClass="
@@ -885,7 +885,7 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_1f7
+    if-eqz v17, :cond_4
 
     .line 186
     move-object/from16 v0, p0
@@ -927,7 +927,7 @@
     invoke-virtual/range {v17 .. v19}, Landroid/content/pm/ApplicationInfo;->dump(Landroid/util/Printer;Ljava/lang/String;)V
 
     .line 189
-    :cond_1f7
+    :cond_4
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v17, "thread="
@@ -1624,7 +1624,7 @@
 
     move/from16 v17, v0
 
-    if-nez v17, :cond_58a
+    if-nez v17, :cond_5
 
     .line 223
     move-object/from16 v0, p0
@@ -1640,7 +1640,7 @@
     monitor-enter v18
 
     .line 224
-    :try_start_4e5
+    :try_start_0
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->batteryStats:Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;
@@ -1688,8 +1688,8 @@
     .line 226
     .local v15, wtime:J
     monitor-exit v18
-    :try_end_512
-    .catchall {:try_start_4e5 .. :try_end_512} :catchall_733
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 227
     move-object/from16 v0, p0
@@ -1810,7 +1810,7 @@
     .line 235
     .end local v13           #timeUsed:J
     .end local v15           #wtime:J
-    :cond_58a
+    :cond_5
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v17, "lastRequestedGc="
@@ -1884,7 +1884,7 @@
 
     move/from16 v17, v0
 
-    if-nez v17, :cond_5df
+    if-nez v17, :cond_6
 
     move-object/from16 v0, p0
 
@@ -1892,10 +1892,10 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_60e
+    if-eqz v17, :cond_7
 
     .line 241
-    :cond_5df
+    :cond_6
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v17, "killedBackground="
@@ -1940,14 +1940,14 @@
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 244
-    :cond_60e
+    :cond_7
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/server/am/ProcessRecord;->debugging:Z
 
     move/from16 v17, v0
 
-    if-nez v17, :cond_63e
+    if-nez v17, :cond_8
 
     move-object/from16 v0, p0
 
@@ -1955,7 +1955,7 @@
 
     move/from16 v17, v0
 
-    if-nez v17, :cond_63e
+    if-nez v17, :cond_8
 
     move-object/from16 v0, p0
 
@@ -1963,7 +1963,7 @@
 
     move-object/from16 v17, v0
 
-    if-nez v17, :cond_63e
+    if-nez v17, :cond_8
 
     move-object/from16 v0, p0
 
@@ -1971,7 +1971,7 @@
 
     move/from16 v17, v0
 
-    if-nez v17, :cond_63e
+    if-nez v17, :cond_8
 
     move-object/from16 v0, p0
 
@@ -1979,7 +1979,7 @@
 
     move-object/from16 v17, v0
 
-    if-nez v17, :cond_63e
+    if-nez v17, :cond_8
 
     move-object/from16 v0, p0
 
@@ -1987,10 +1987,10 @@
 
     move/from16 v17, v0
 
-    if-eqz v17, :cond_6ea
+    if-eqz v17, :cond_a
 
     .line 246
-    :cond_63e
+    :cond_8
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v17, "debugging="
@@ -2125,7 +2125,7 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_6e7
+    if-eqz v17, :cond_9
 
     .line 255
     const-string v17, " errorReportReceiver="
@@ -2154,11 +2154,11 @@
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 258
-    :cond_6e7
+    :cond_9
     invoke-virtual/range {p1 .. p1}, Ljava/io/PrintWriter;->println()V
 
     .line 260
-    :cond_6ea
+    :cond_a
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->activities:Ljava/util/ArrayList;
@@ -2169,7 +2169,7 @@
 
     move-result v17
 
-    if-lez v17, :cond_736
+    if-lez v17, :cond_b
 
     .line 261
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2186,7 +2186,7 @@
     const/4 v7, 0x0
 
     .local v7, i:I
-    :goto_703
+    :goto_0
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->activities:Ljava/util/ArrayList;
@@ -2199,7 +2199,7 @@
 
     move/from16 v0, v17
 
-    if-ge v7, v0, :cond_736
+    if-ge v7, v0, :cond_b
 
     .line 263
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2233,22 +2233,22 @@
     .line 262
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_703
+    goto :goto_0
 
     .line 226
     .end local v7           #i:I
-    :catchall_733
+    :catchall_0
     move-exception v17
 
-    :try_start_734
+    :try_start_1
     monitor-exit v18
-    :try_end_735
-    .catchall {:try_start_734 .. :try_end_735} :catchall_733
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v17
 
     .line 266
-    :cond_736
+    :cond_b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->services:Ljava/util/HashSet;
@@ -2259,7 +2259,7 @@
 
     move-result v17
 
-    if-lez v17, :cond_776
+    if-lez v17, :cond_c
 
     .line 267
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2284,12 +2284,12 @@
     move-result-object v8
 
     .local v8, i$:Ljava/util/Iterator;
-    :goto_758
+    :goto_1
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v17
 
-    if-eqz v17, :cond_776
+    if-eqz v17, :cond_c
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2313,12 +2313,12 @@
 
     invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    goto :goto_758
+    goto :goto_1
 
     .line 272
     .end local v8           #i$:Ljava/util/Iterator;
     .end local v12           #sr:Lcom/android/server/am/ServiceRecord;
-    :cond_776
+    :cond_c
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->executingServices:Ljava/util/HashSet;
@@ -2329,7 +2329,7 @@
 
     move-result v17
 
-    if-lez v17, :cond_7b6
+    if-lez v17, :cond_d
 
     .line 273
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2354,12 +2354,12 @@
     move-result-object v8
 
     .restart local v8       #i$:Ljava/util/Iterator;
-    :goto_798
+    :goto_2
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v17
 
-    if-eqz v17, :cond_7b6
+    if-eqz v17, :cond_d
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2383,12 +2383,12 @@
 
     invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    goto :goto_798
+    goto :goto_2
 
     .line 278
     .end local v8           #i$:Ljava/util/Iterator;
     .end local v12           #sr:Lcom/android/server/am/ServiceRecord;
-    :cond_7b6
+    :cond_d
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->connections:Ljava/util/HashSet;
@@ -2399,7 +2399,7 @@
 
     move-result v17
 
-    if-lez v17, :cond_7f6
+    if-lez v17, :cond_e
 
     .line 279
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2424,12 +2424,12 @@
     move-result-object v8
 
     .restart local v8       #i$:Ljava/util/Iterator;
-    :goto_7d8
+    :goto_3
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v17
 
-    if-eqz v17, :cond_7f6
+    if-eqz v17, :cond_e
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2453,12 +2453,12 @@
 
     invoke-virtual {v0, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    goto :goto_7d8
+    goto :goto_3
 
     .line 284
     .end local v5           #cr:Lcom/android/server/am/ConnectionRecord;
     .end local v8           #i$:Ljava/util/Iterator;
-    :cond_7f6
+    :cond_e
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->pubProviders:Ljava/util/HashMap;
@@ -2469,7 +2469,7 @@
 
     move-result v17
 
-    if-lez v17, :cond_859
+    if-lez v17, :cond_f
 
     .line 285
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2498,12 +2498,12 @@
     move-result-object v8
 
     .restart local v8       #i$:Ljava/util/Iterator;
-    :goto_81c
+    :goto_4
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v17
 
-    if-eqz v17, :cond_859
+    if-eqz v17, :cond_f
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2556,12 +2556,12 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    goto :goto_81c
+    goto :goto_4
 
     .line 291
     .end local v6           #ent:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Lcom/android/server/am/ContentProviderRecord;>;"
     .end local v8           #i$:Ljava/util/Iterator;
-    :cond_859
+    :cond_f
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->conProviders:Ljava/util/ArrayList;
@@ -2572,7 +2572,7 @@
 
     move-result v17
 
-    if-lez v17, :cond_8a8
+    if-lez v17, :cond_10
 
     .line 292
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2589,7 +2589,7 @@
     const/4 v7, 0x0
 
     .restart local v7       #i:I
-    :goto_872
+    :goto_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->conProviders:Ljava/util/ArrayList;
@@ -2602,7 +2602,7 @@
 
     move/from16 v0, v17
 
-    if-ge v7, v0, :cond_8a8
+    if-ge v7, v0, :cond_10
 
     .line 294
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2642,11 +2642,11 @@
     .line 293
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_872
+    goto :goto_5
 
     .line 297
     .end local v7           #i:I
-    :cond_8a8
+    :cond_10
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/am/ProcessRecord;->receivers:Ljava/util/HashSet;
@@ -2657,7 +2657,7 @@
 
     move-result v17
 
-    if-lez v17, :cond_8e8
+    if-lez v17, :cond_11
 
     .line 298
     invoke-virtual/range {p1 .. p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2682,12 +2682,12 @@
     move-result-object v8
 
     .restart local v8       #i$:Ljava/util/Iterator;
-    :goto_8ca
+    :goto_6
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v17
 
-    if-eqz v17, :cond_8e8
+    if-eqz v17, :cond_11
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2711,17 +2711,17 @@
 
     invoke-virtual {v0, v11}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    goto :goto_8ca
+    goto :goto_6
 
     .line 303
     .end local v8           #i$:Ljava/util/Iterator;
     .end local v11           #rl:Lcom/android/server/am/ReceiverList;
-    :cond_8e8
+    :cond_11
     return-void
 .end method
 
 .method public getPackageList()[Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 432
@@ -2733,17 +2733,17 @@
 
     .line 433
     .local v1, size:I
-    if-nez v1, :cond_a
+    if-nez v1, :cond_0
 
     .line 434
     const/4 v0, 0x0
 
     .line 438
-    :goto_9
+    :goto_0
     return-object v0
 
     .line 436
-    :cond_a
+    :cond_0
     new-array v0, v1, [Ljava/lang/String;
 
     .line 437
@@ -2752,11 +2752,11 @@
 
     invoke-virtual {v2, v0}, Ljava/util/HashSet;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public isInterestingToUserLocked()Z
-    .registers 5
+    .locals 4
 
     .prologue
     .line 334
@@ -2771,8 +2771,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_7
-    if-ge v0, v2, :cond_1c
+    :goto_0
+    if-ge v0, v2, :cond_1
 
     .line 336
     iget-object v3, p0, Lcom/android/server/am/ProcessRecord;->activities:Ljava/util/ArrayList;
@@ -2789,33 +2789,33 @@
 
     move-result v3
 
-    if-eqz v3, :cond_19
+    if-eqz v3, :cond_0
 
     .line 338
     const/4 v3, 0x1
 
     .line 341
     .end local v1           #r:Lcom/android/server/am/ActivityRecord;
-    :goto_18
+    :goto_1
     return v3
 
     .line 335
     .restart local v1       #r:Lcom/android/server/am/ActivityRecord;
-    :cond_19
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 341
     .end local v1           #r:Lcom/android/server/am/ActivityRecord;
-    :cond_1c
+    :cond_1
     const/4 v3, 0x0
 
-    goto :goto_18
+    goto :goto_1
 .end method
 
 .method public resetPackageList()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 427
@@ -2837,7 +2837,7 @@
 .end method
 
 .method public setPid(I)V
-    .registers 3
+    .locals 1
     .parameter "_pid"
 
     .prologue
@@ -2857,7 +2857,7 @@
 .end method
 
 .method public stopFreezingAllLocked()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 345
@@ -2869,8 +2869,8 @@
 
     .line 346
     .local v0, i:I
-    :goto_6
-    if-lez v0, :cond_17
+    :goto_0
+    if-lez v0, :cond_0
 
     .line 347
     add-int/lit8 v0, v0, -0x1
@@ -2888,31 +2888,31 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/am/ActivityRecord;->stopFreezingScreenLocked(Z)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 350
-    :cond_17
+    :cond_0
     return-void
 .end method
 
 .method public toShortString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 372
     iget-object v1, p0, Lcom/android/server/am/ProcessRecord;->shortStringName:Ljava/lang/String;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_0
 
     .line 373
     iget-object v1, p0, Lcom/android/server/am/ProcessRecord;->shortStringName:Ljava/lang/String;
 
     .line 377
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 375
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x80
@@ -2930,11 +2930,11 @@
 
     iput-object v1, p0, Lcom/android/server/am/ProcessRecord;->shortStringName:Ljava/lang/String;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method toShortString(Ljava/lang/StringBuilder;)V
-    .registers 4
+    .locals 2
     .parameter "sb"
 
     .prologue
@@ -2965,7 +2965,7 @@
 
     const/16 v1, 0x2710
 
-    if-ge v0, v1, :cond_22
+    if-ge v0, v1, :cond_1
 
     .line 386
     iget v0, p0, Lcom/android/server/am/ProcessRecord;->uid:I
@@ -2973,12 +2973,12 @@
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 397
-    :cond_21
-    :goto_21
+    :cond_0
+    :goto_0
     return-void
 
     .line 388
-    :cond_22
+    :cond_1
     const/16 v0, 0x75
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -3009,7 +3009,7 @@
 
     iget v1, v1, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    if-eq v0, v1, :cond_21
+    if-eq v0, v1, :cond_0
 
     .line 393
     const/16 v0, 0x69
@@ -3029,27 +3029,27 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    goto :goto_21
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 400
     iget-object v1, p0, Lcom/android/server/am/ProcessRecord;->stringName:Ljava/lang/String;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_0
 
     .line 401
     iget-object v1, p0, Lcom/android/server/am/ProcessRecord;->stringName:Ljava/lang/String;
 
     .line 409
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 403
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x80
@@ -3093,21 +3093,21 @@
 
     iput-object v1, p0, Lcom/android/server/am/ProcessRecord;->stringName:Ljava/lang/String;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public unlinkDeathRecipient()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 353
     iget-object v0, p0, Lcom/android/server/am/ProcessRecord;->deathRecipient:Landroid/os/IBinder$DeathRecipient;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 354
     iget-object v0, p0, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
@@ -3123,7 +3123,7 @@
     invoke-interface {v0, v1, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
     .line 356
-    :cond_14
+    :cond_0
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/am/ProcessRecord;->deathRecipient:Landroid/os/IBinder$DeathRecipient;
@@ -3133,7 +3133,7 @@
 .end method
 
 .method updateHasAboveClientLocked()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 360
@@ -3148,7 +3148,7 @@
 
     move-result v2
 
-    if-lez v2, :cond_26
+    if-lez v2, :cond_1
 
     .line 362
     iget-object v2, p0, Lcom/android/server/am/ProcessRecord;->connections:Ljava/util/HashSet;
@@ -3158,12 +3158,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :cond_11
+    :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_26
+    if-eqz v2, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3177,7 +3177,7 @@
 
     and-int/lit8 v2, v2, 0x8
 
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_0
 
     .line 364
     const/4 v2, 0x1
@@ -3187,6 +3187,6 @@
     .line 369
     .end local v0           #cr:Lcom/android/server/am/ConnectionRecord;
     .end local v1           #i$:Ljava/util/Iterator;
-    :cond_26
+    :cond_1
     return-void
 .end method

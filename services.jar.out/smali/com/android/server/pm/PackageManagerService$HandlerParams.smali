@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/pm/PackageManagerService;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -44,7 +44,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageManagerService$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -72,7 +72,7 @@
 .end method
 
 .method final serviceError()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 5640
@@ -86,7 +86,7 @@
 .end method
 
 .method final startCopy()Z
-    .registers 5
+    .locals 4
 
     .prologue
     .line 5620
@@ -99,7 +99,7 @@
 
     const/4 v3, 0x4
 
-    if-le v2, v3, :cond_1e
+    if-le v2, v3, :cond_0
 
     .line 5621
     const-string v2, "PackageManager"
@@ -124,28 +124,28 @@
     const/4 v1, 0x0
 
     .line 5635
-    :goto_1d
+    :goto_0
     return v1
 
     .line 5626
-    :cond_1e
+    :cond_0
     invoke-virtual {p0}, Lcom/android/server/pm/PackageManagerService$HandlerParams;->handleStartCopy()V
-    :try_end_21
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_21} :catch_26
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 5627
     const/4 v1, 0x1
 
     .line 5634
     .local v1, res:Z
-    :goto_22
+    :goto_1
     invoke-virtual {p0}, Lcom/android/server/pm/PackageManagerService$HandlerParams;->handleReturnCode()V
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 5629
     .end local v1           #res:Z
-    :catch_26
+    :catch_0
     move-exception v0
 
     .line 5631
@@ -162,5 +162,5 @@
     const/4 v1, 0x0
 
     .restart local v1       #res:Z
-    goto :goto_22
+    goto :goto_1
 .end method

@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 8
+    .locals 8
 
     .prologue
     const/4 v7, 0x0
@@ -477,7 +477,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;Ljava/io/OutputStream;)V
-    .registers 4
+    .locals 1
     .parameter "in"
     .parameter "out"
 
@@ -506,7 +506,7 @@
 .end method
 
 .method public constructor <init>(Ljava/net/InetSocketAddress;)V
-    .registers 4
+    .locals 2
     .parameter "sa"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -552,7 +552,7 @@
 .end method
 
 .method private conference()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/test/InterpreterEx;
@@ -569,7 +569,7 @@
 
     .line 530
     .local v0, success:Z
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 531
     new-instance v1, Lcom/android/internal/telephony/test/InterpreterEx;
@@ -581,12 +581,12 @@
     throw v1
 
     .line 533
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method private init()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 189
@@ -632,7 +632,7 @@
 .end method
 
 .method private onAnswer()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/test/InterpreterEx;
@@ -649,7 +649,7 @@
 
     .line 435
     .local v0, success:Z
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 436
     new-instance v1, Lcom/android/internal/telephony/test/InterpreterEx;
@@ -661,12 +661,12 @@
     throw v1
 
     .line 438
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method private onCHLD(Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "command"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -694,7 +694,7 @@
 
     const/16 v4, 0x8
 
-    if-lt v3, v4, :cond_13
+    if-lt v3, v4, :cond_0
 
     .line 465
     const/4 v3, 0x7
@@ -704,7 +704,7 @@
     move-result v1
 
     .line 468
-    :cond_13
+    :cond_0
     iget-object v3, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->simulatedCallState:Lcom/android/internal/telephony/test/SimulatedGsmCallState;
 
     invoke-virtual {v3, v0, v1}, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->onChld(CC)Z
@@ -713,7 +713,7 @@
 
     .line 470
     .local v2, success:Z
-    if-nez v2, :cond_23
+    if-nez v2, :cond_1
 
     .line 471
     new-instance v3, Lcom/android/internal/telephony/test/InterpreterEx;
@@ -725,12 +725,12 @@
     throw v3
 
     .line 473
-    :cond_23
+    :cond_1
     return-void
 .end method
 
 .method private onCLCC()V
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/test/InterpreterEx;
@@ -755,8 +755,8 @@
     move-result v2
 
     .local v2, s:I
-    :goto_b
-    if-ge v0, v2, :cond_19
+    :goto_0
+    if-ge v0, v2, :cond_0
 
     .line 555
     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -770,15 +770,15 @@
     .line 554
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 557
-    :cond_19
+    :cond_0
     return-void
 .end method
 
 .method private onDial(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "command"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -802,7 +802,7 @@
 
     .line 542
     .local v0, success:Z
-    if-nez v0, :cond_15
+    if-nez v0, :cond_0
 
     .line 543
     new-instance v1, Lcom/android/internal/telephony/test/InterpreterEx;
@@ -814,12 +814,12 @@
     throw v1
 
     .line 545
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method private onHangup()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/test/InterpreterEx;
@@ -839,7 +839,7 @@
     move-result v0
 
     .line 447
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 448
     new-instance v1, Lcom/android/internal/telephony/test/InterpreterEx;
@@ -851,7 +851,7 @@
     throw v1
 
     .line 451
-    :cond_11
+    :cond_0
     const-string v1, "NO CARRIER"
 
     iput-object v1, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->finalResponse:Ljava/lang/String;
@@ -861,7 +861,7 @@
 .end method
 
 .method private onSMSSend(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "command"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -893,7 +893,7 @@
 .end method
 
 .method private releaseActiveAcceptHeldOrWaiting()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/test/InterpreterEx;
@@ -910,7 +910,7 @@
 
     .line 494
     .local v0, success:Z
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 495
     new-instance v1, Lcom/android/internal/telephony/test/InterpreterEx;
@@ -922,12 +922,12 @@
     throw v1
 
     .line 497
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method private releaseHeldOrUDUB()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/test/InterpreterEx;
@@ -944,7 +944,7 @@
 
     .line 482
     .local v0, success:Z
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 483
     new-instance v1, Lcom/android/internal/telephony/test/InterpreterEx;
@@ -956,12 +956,12 @@
     throw v1
 
     .line 485
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method private separateCall(I)V
-    .registers 5
+    .locals 3
     .parameter "index"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -979,7 +979,7 @@
 
     .line 518
     .local v0, success:Z
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 519
     new-instance v1, Lcom/android/internal/telephony/test/InterpreterEx;
@@ -991,12 +991,12 @@
     throw v1
 
     .line 521
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method private switchActiveAndHeldOrWaiting()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/internal/telephony/test/InterpreterEx;
@@ -1013,7 +1013,7 @@
 
     .line 506
     .local v0, success:Z
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 507
     new-instance v1, Lcom/android/internal/telephony/test/InterpreterEx;
@@ -1025,14 +1025,14 @@
     throw v1
 
     .line 509
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public pauseResponses()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 409
@@ -1041,7 +1041,7 @@
     monitor-enter v1
 
     .line 410
-    :try_start_3
+    :try_start_0
     iget v0, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->pausedResponseCount:I
 
     add-int/lit8 v0, v0, 0x1
@@ -1055,18 +1055,18 @@
     return-void
 
     .line 411
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_d
-    .catchall {:try_start_3 .. :try_end_d} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method print(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "s"
 
     .prologue
@@ -1074,7 +1074,7 @@
     monitor-enter p0
 
     .line 671
-    :try_start_1
+    :try_start_0
     const-string v2, "US-ASCII"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
@@ -1086,43 +1086,43 @@
     iget-object v2, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->out:Ljava/io/OutputStream;
 
     invoke-virtual {v2, v0}, Ljava/io/OutputStream;->write([B)V
-    :try_end_c
-    .catchall {:try_start_1 .. :try_end_c} :catchall_13
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_c} :catch_e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 679
     .end local v0           #bytes:[B
-    :goto_c
-    :try_start_c
+    :goto_0
+    :try_start_1
     monitor-exit p0
 
     .line 680
     return-void
 
     .line 676
-    :catch_e
+    :catch_0
     move-exception v1
 
     .line 677
     .local v1, ex:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_c
+    goto :goto_0
 
     .line 679
     .end local v1           #ex:Ljava/io/IOException;
-    :catchall_13
+    :catchall_0
     move-exception v2
 
     monitor-exit p0
-    :try_end_15
-    .catchall {:try_start_c .. :try_end_15} :catchall_13
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v2
 .end method
 
 .method println(Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "s"
 
     .prologue
@@ -1130,7 +1130,7 @@
     monitor-enter p0
 
     .line 654
-    :try_start_1
+    :try_start_0
     const-string v2, "US-ASCII"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
@@ -1149,43 +1149,43 @@
     const/16 v3, 0xd
 
     invoke-virtual {v2, v3}, Ljava/io/OutputStream;->write(I)V
-    :try_end_13
-    .catchall {:try_start_1 .. :try_end_13} :catchall_1a
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_13} :catch_15
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 663
     .end local v0           #bytes:[B
-    :goto_13
-    :try_start_13
+    :goto_0
+    :try_start_1
     monitor-exit p0
 
     .line 664
     return-void
 
     .line 660
-    :catch_15
+    :catch_0
     move-exception v1
 
     .line 661
     .local v1, ex:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_13
+    goto :goto_0
 
     .line 663
     .end local v1           #ex:Ljava/io/IOException;
-    :catchall_1a
+    :catchall_0
     move-exception v2
 
     monitor-exit p0
-    :try_end_1c
-    .catchall {:try_start_13 .. :try_end_1c} :catchall_1a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v2
 .end method
 
 .method processLine(Ljava/lang/String;)V
-    .registers 10
+    .locals 8
     .parameter "line"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1204,10 +1204,10 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_5
+    :goto_0
     array-length v6, v1
 
-    if-ge v3, v6, :cond_82
+    if-ge v3, v6, :cond_a
 
     .line 578
     aget-object v0, v1, v3
@@ -1220,95 +1220,95 @@
 
     move-result v6
 
-    if-eqz v6, :cond_18
+    if-eqz v6, :cond_1
 
     .line 581
     invoke-direct {p0}, Lcom/android/internal/telephony/test/ModelInterpreter;->onAnswer()V
 
     .line 577
-    :cond_15
-    :goto_15
+    :cond_0
+    :goto_1
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 582
-    :cond_18
+    :cond_1
     const-string v6, "H"
 
     invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_24
+    if-eqz v6, :cond_2
 
     .line 583
     invoke-direct {p0}, Lcom/android/internal/telephony/test/ModelInterpreter;->onHangup()V
 
-    goto :goto_15
+    goto :goto_1
 
     .line 584
-    :cond_24
+    :cond_2
     const-string v6, "+CHLD="
 
     invoke-virtual {v0, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_30
+    if-eqz v6, :cond_3
 
     .line 585
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/test/ModelInterpreter;->onCHLD(Ljava/lang/String;)V
 
-    goto :goto_15
+    goto :goto_1
 
     .line 586
-    :cond_30
+    :cond_3
     const-string v6, "+CLCC"
 
     invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_3c
+    if-eqz v6, :cond_4
 
     .line 587
     invoke-direct {p0}, Lcom/android/internal/telephony/test/ModelInterpreter;->onCLCC()V
 
-    goto :goto_15
+    goto :goto_1
 
     .line 588
-    :cond_3c
+    :cond_4
     const-string v6, "D"
 
     invoke-virtual {v0, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_48
+    if-eqz v6, :cond_5
 
     .line 589
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/test/ModelInterpreter;->onDial(Ljava/lang/String;)V
 
-    goto :goto_15
+    goto :goto_1
 
     .line 590
-    :cond_48
+    :cond_5
     const-string v6, "+CMGS="
 
     invoke-virtual {v0, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_54
+    if-eqz v6, :cond_6
 
     .line 591
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/test/ModelInterpreter;->onSMSSend(Ljava/lang/String;)V
 
-    goto :goto_15
+    goto :goto_1
 
     .line 593
-    :cond_54
+    :cond_6
     const/4 v2, 0x0
 
     .line 595
@@ -1316,12 +1316,12 @@
     const/4 v4, 0x0
 
     .local v4, j:I
-    :goto_56
+    :goto_2
     sget-object v6, Lcom/android/internal/telephony/test/ModelInterpreter;->sDefaultResponses:[[Ljava/lang/String;
 
     array-length v6, v6
 
-    if-ge v4, v6, :cond_75
+    if-ge v4, v6, :cond_8
 
     .line 596
     sget-object v6, Lcom/android/internal/telephony/test/ModelInterpreter;->sDefaultResponses:[[Ljava/lang/String;
@@ -1336,7 +1336,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_7f
+    if-eqz v6, :cond_9
 
     .line 597
     sget-object v6, Lcom/android/internal/telephony/test/ModelInterpreter;->sDefaultResponses:[[Ljava/lang/String;
@@ -1349,19 +1349,19 @@
 
     .line 598
     .local v5, r:Ljava/lang/String;
-    if-eqz v5, :cond_74
+    if-eqz v5, :cond_7
 
     .line 599
     invoke-virtual {p0, v5}, Lcom/android/internal/telephony/test/ModelInterpreter;->println(Ljava/lang/String;)V
 
     .line 601
-    :cond_74
+    :cond_7
     const/4 v2, 0x1
 
     .line 606
     .end local v5           #r:Ljava/lang/String;
-    :cond_75
-    if-nez v2, :cond_15
+    :cond_8
+    if-nez v2, :cond_0
 
     .line 607
     new-instance v6, Lcom/android/internal/telephony/test/InterpreterEx;
@@ -1373,21 +1373,21 @@
     throw v6
 
     .line 595
-    :cond_7f
+    :cond_9
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_56
+    goto :goto_2
 
     .line 611
     .end local v0           #command:Ljava/lang/String;
     .end local v2           #found:Z
     .end local v4           #j:I
-    :cond_82
+    :cond_a
     return-void
 .end method
 
 .method public progressConnectingCallState()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 294
@@ -1400,7 +1400,7 @@
 .end method
 
 .method public progressConnectingToActive()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 302
@@ -1413,7 +1413,7 @@
 .end method
 
 .method public resumeResponses()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 417
@@ -1422,7 +1422,7 @@
     monitor-enter v1
 
     .line 418
-    :try_start_3
+    :try_start_0
     iget v0, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->pausedResponseCount:I
 
     add-int/lit8 v0, v0, -0x1
@@ -1432,7 +1432,7 @@
     .line 420
     iget v0, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->pausedResponseCount:I
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 421
     iget-object v0, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->pausedResponseMonitor:Ljava/lang/Object;
@@ -1440,25 +1440,25 @@
     invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
 
     .line 423
-    :cond_12
+    :cond_0
     monitor-exit v1
 
     .line 424
     return-void
 
     .line 423
-    :catchall_14
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_16
-    .catchall {:try_start_3 .. :try_end_16} :catchall_14
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 201
@@ -1466,21 +1466,21 @@
     :goto_0
     iget-object v3, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->ss:Ljava/net/ServerSocket;
 
-    if-eqz v3, :cond_1d
+    if-eqz v3, :cond_1
 
     .line 205
-    :try_start_4
+    :try_start_0
     iget-object v3, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->ss:Ljava/net/ServerSocket;
 
     invoke-virtual {v3}, Ljava/net/ServerSocket;->accept()Ljava/net/Socket;
-    :try_end_9
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_9} :catch_3f
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v2
 
     .line 213
     .local v2, s:Ljava/net/Socket;
-    :try_start_a
+    :try_start_1
     invoke-virtual {v2}, Ljava/net/Socket;->getInputStream()Ljava/io/InputStream;
 
     move-result-object v3
@@ -1493,8 +1493,8 @@
     move-result-object v3
 
     iput-object v3, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->out:Ljava/io/OutputStream;
-    :try_end_16
-    .catch Ljava/io/IOException; {:try_start_a .. :try_end_16} :catch_48
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 221
     const-string v3, "ModelInterpreter"
@@ -1505,7 +1505,7 @@
 
     .line 225
     .end local v2           #s:Ljava/net/Socket;
-    :cond_1d
+    :cond_1
     new-instance v3, Lcom/android/internal/telephony/test/LineReader;
 
     iget-object v4, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->in:Ljava/io/InputStream;
@@ -1520,7 +1520,7 @@
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/test/ModelInterpreter;->println(Ljava/lang/String;)V
 
     .line 232
-    :goto_2b
+    :goto_1
     iget-object v3, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->lineReader:Lcom/android/internal/telephony/test/LineReader;
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/test/LineReader;->getNextLine()Ljava/lang/String;
@@ -1529,7 +1529,7 @@
 
     .line 236
     .local v1, line:Ljava/lang/String;
-    if-nez v1, :cond_51
+    if-nez v1, :cond_2
 
     .line 263
     const-string v3, "ModelInterpreter"
@@ -1545,11 +1545,11 @@
 
     .line 270
     .end local v1           #line:Ljava/lang/String;
-    :goto_3e
+    :goto_2
     return-void
 
     .line 206
-    :catch_3f
+    :catch_0
     move-exception v0
 
     .line 207
@@ -1560,12 +1560,12 @@
 
     invoke-static {v3, v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_3e
+    goto :goto_2
 
     .line 215
     .end local v0           #ex:Ljava/io/IOException;
     .restart local v2       #s:Ljava/net/Socket;
-    :catch_48
+    :catch_1
     move-exception v0
 
     .line 216
@@ -1582,49 +1582,49 @@
     .end local v0           #ex:Ljava/io/IOException;
     .end local v2           #s:Ljava/net/Socket;
     .restart local v1       #line:Ljava/lang/String;
-    :cond_51
+    :cond_2
     iget-object v4, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->pausedResponseMonitor:Ljava/lang/Object;
 
     monitor-enter v4
 
     .line 241
-    :goto_54
-    :try_start_54
+    :goto_3
+    :try_start_2
     iget v3, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->pausedResponseCount:I
-    :try_end_56
-    .catchall {:try_start_54 .. :try_end_56} :catchall_73
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    if-lez v3, :cond_60
+    if-lez v3, :cond_3
 
     .line 243
-    :try_start_58
+    :try_start_3
     iget-object v3, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->pausedResponseMonitor:Ljava/lang/Object;
 
     invoke-virtual {v3}, Ljava/lang/Object;->wait()V
-    :try_end_5d
-    .catchall {:try_start_58 .. :try_end_5d} :catchall_73
-    .catch Ljava/lang/InterruptedException; {:try_start_58 .. :try_end_5d} :catch_5e
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    .catch Ljava/lang/InterruptedException; {:try_start_3 .. :try_end_3} :catch_2
 
-    goto :goto_54
+    goto :goto_3
 
     .line 244
-    :catch_5e
+    :catch_2
     move-exception v3
 
-    goto :goto_54
+    goto :goto_3
 
     .line 247
-    :cond_60
-    :try_start_60
+    :cond_3
+    :try_start_4
     monitor-exit v4
-    :try_end_61
-    .catchall {:try_start_60 .. :try_end_61} :catchall_73
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     .line 249
     monitor-enter p0
 
     .line 251
-    :try_start_62
+    :try_start_5
     const-string v3, "OK"
 
     iput-object v3, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->finalResponse:Ljava/lang/String;
@@ -1636,54 +1636,54 @@
     iget-object v3, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->finalResponse:Ljava/lang/String;
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/test/ModelInterpreter;->println(Ljava/lang/String;)V
-    :try_end_6e
-    .catchall {:try_start_62 .. :try_end_6e} :catchall_70
-    .catch Lcom/android/internal/telephony/test/InterpreterEx; {:try_start_62 .. :try_end_6e} :catch_76
-    .catch Ljava/lang/RuntimeException; {:try_start_62 .. :try_end_6e} :catch_7d
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    .catch Lcom/android/internal/telephony/test/InterpreterEx; {:try_start_5 .. :try_end_5} :catch_3
+    .catch Ljava/lang/RuntimeException; {:try_start_5 .. :try_end_5} :catch_4
 
     .line 260
-    :goto_6e
-    :try_start_6e
+    :goto_4
+    :try_start_6
     monitor-exit p0
 
-    goto :goto_2b
+    goto :goto_1
 
-    :catchall_70
+    :catchall_0
     move-exception v3
 
     monitor-exit p0
-    :try_end_72
-    .catchall {:try_start_6e .. :try_end_72} :catchall_70
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     throw v3
 
     .line 247
-    :catchall_73
+    :catchall_1
     move-exception v3
 
-    :try_start_74
+    :try_start_7
     monitor-exit v4
-    :try_end_75
-    .catchall {:try_start_74 .. :try_end_75} :catchall_73
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
     throw v3
 
     .line 254
-    :catch_76
+    :catch_3
     move-exception v0
 
     .line 255
     .local v0, ex:Lcom/android/internal/telephony/test/InterpreterEx;
-    :try_start_77
+    :try_start_8
     iget-object v3, v0, Lcom/android/internal/telephony/test/InterpreterEx;->result:Ljava/lang/String;
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/test/ModelInterpreter;->println(Ljava/lang/String;)V
 
-    goto :goto_6e
+    goto :goto_4
 
     .line 256
     .end local v0           #ex:Lcom/android/internal/telephony/test/InterpreterEx;
-    :catch_7d
+    :catch_4
     move-exception v0
 
     .line 257
@@ -1694,14 +1694,14 @@
     const-string v3, "ERROR"
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/test/ModelInterpreter;->println(Ljava/lang/String;)V
-    :try_end_86
-    .catchall {:try_start_77 .. :try_end_86} :catchall_70
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
-    goto :goto_6e
+    goto :goto_4
 .end method
 
 .method public sendUnsolicited(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "unsol"
 
     .prologue
@@ -1709,7 +1709,7 @@
     monitor-enter p0
 
     .line 370
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/test/ModelInterpreter;->println(Ljava/lang/String;)V
 
     .line 371
@@ -1719,18 +1719,18 @@
     return-void
 
     .line 371
-    :catchall_6
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_8
-    .catchall {:try_start_1 .. :try_end_8} :catchall_6
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setAutoProgressConnectingCall(Z)V
-    .registers 3
+    .locals 1
     .parameter "b"
 
     .prologue
@@ -1744,7 +1744,7 @@
 .end method
 
 .method public setNextCallFailCause(I)V
-    .registers 2
+    .locals 0
     .parameter "gsmCause"
 
     .prologue
@@ -1753,7 +1753,7 @@
 .end method
 
 .method public setNextDialFailImmediately(Z)V
-    .registers 3
+    .locals 1
     .parameter "b"
 
     .prologue
@@ -1767,7 +1767,7 @@
 .end method
 
 .method public shutdown()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 686
@@ -1779,48 +1779,48 @@
 
     .line 687
     .local v0, looper:Landroid/os/Looper;
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 688
     invoke-virtual {v0}, Landroid/os/Looper;->quit()V
 
     .line 692
-    :cond_b
-    :try_start_b
+    :cond_0
+    :try_start_0
     iget-object v1, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->in:Ljava/io/InputStream;
 
     invoke-virtual {v1}, Ljava/io/InputStream;->close()V
-    :try_end_10
-    .catch Ljava/io/IOException; {:try_start_b .. :try_end_10} :catch_18
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 696
-    :goto_10
-    :try_start_10
+    :goto_0
+    :try_start_1
     iget-object v1, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->out:Ljava/io/OutputStream;
 
     invoke-virtual {v1}, Ljava/io/OutputStream;->close()V
-    :try_end_15
-    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_15} :catch_16
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 699
-    :goto_15
+    :goto_1
     return-void
 
     .line 697
-    :catch_16
+    :catch_0
     move-exception v1
 
-    goto :goto_15
+    goto :goto_1
 
     .line 693
-    :catch_18
+    :catch_1
     move-exception v1
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method splitCommands(Ljava/lang/String;)[Ljava/lang/String;
-    .registers 6
+    .locals 4
     .parameter "line"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1840,7 +1840,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_12
+    if-nez v1, :cond_0
 
     .line 618
     new-instance v1, Lcom/android/internal/telephony/test/InterpreterEx;
@@ -1852,22 +1852,22 @@
     throw v1
 
     .line 621
-    :cond_12
+    :cond_0
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-ne v1, v3, :cond_1b
+    if-ne v1, v3, :cond_1
 
     .line 623
     new-array v0, v2, [Ljava/lang/String;
 
     .line 631
-    :goto_1a
+    :goto_0
     return-object v0
 
     .line 626
-    :cond_1b
+    :cond_1
     const/4 v1, 0x1
 
     new-array v0, v1, [Ljava/lang/String;
@@ -1880,11 +1880,11 @@
 
     aput-object v1, v0, v2
 
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 .method public triggerHangupAll()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 359
@@ -1896,7 +1896,7 @@
 
     .line 361
     .local v0, success:Z
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 362
     const-string v1, "NO CARRIER"
@@ -1904,12 +1904,12 @@
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/test/ModelInterpreter;->println(Ljava/lang/String;)V
 
     .line 364
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method public triggerHangupBackground()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 345
@@ -1921,7 +1921,7 @@
 
     .line 347
     .local v0, success:Z
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 348
     const-string v1, "NO CARRIER"
@@ -1929,12 +1929,12 @@
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/test/ModelInterpreter;->println(Ljava/lang/String;)V
 
     .line 350
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method public triggerHangupForeground()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 332
@@ -1946,7 +1946,7 @@
 
     .line 334
     .local v0, success:Z
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 335
     const-string v1, "NO CARRIER"
@@ -1954,12 +1954,12 @@
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/test/ModelInterpreter;->println(Ljava/lang/String;)V
 
     .line 337
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method public triggerIncomingSMS(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "message"
 
     .prologue
@@ -1968,7 +1968,7 @@
 .end method
 
 .method public triggerIncomingUssd(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "statusCode"
     .parameter "message"
 
@@ -1978,7 +1978,7 @@
 .end method
 
 .method public triggerRing(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "number"
 
     .prologue
@@ -1986,7 +1986,7 @@
     monitor-enter p0
 
     .line 282
-    :try_start_1
+    :try_start_0
     iget-object v1, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->simulatedCallState:Lcom/android/internal/telephony/test/SimulatedGsmCallState;
 
     invoke-virtual {v1, p1}, Lcom/android/internal/telephony/test/SimulatedGsmCallState;->triggerRing(Ljava/lang/String;)Z
@@ -1995,7 +1995,7 @@
 
     .line 284
     .local v0, success:Z
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 285
     const-string v1, "RING"
@@ -2003,7 +2003,7 @@
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/test/ModelInterpreter;->println(Ljava/lang/String;)V
 
     .line 287
-    :cond_e
+    :cond_0
     monitor-exit p0
 
     .line 288
@@ -2011,18 +2011,18 @@
 
     .line 287
     .end local v0           #success:Z
-    :catchall_10
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
-    :try_end_12
-    .catchall {:try_start_1 .. :try_end_12} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public triggerSsn(II)V
-    .registers 3
+    .locals 0
     .parameter "a"
     .parameter "b"
 

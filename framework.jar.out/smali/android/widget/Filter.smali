@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 56
@@ -66,7 +66,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/widget/Filter;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -77,7 +77,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/widget/Filter;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -88,7 +88,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/widget/Filter;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -99,7 +99,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/widget/Filter;Landroid/os/Handler;)Landroid/os/Handler;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -113,28 +113,28 @@
 
 # virtual methods
 .method public convertResultToString(Ljava/lang/Object;)Ljava/lang/CharSequence;
-    .registers 3
+    .locals 1
     .parameter "resultValue"
 
     .prologue
     .line 173
-    if-nez p1, :cond_5
+    if-nez p1, :cond_0
 
     const-string v0, ""
 
-    :goto_4
+    :goto_0
     return-object v0
 
-    :cond_5
+    :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public final filter(Ljava/lang/CharSequence;)V
-    .registers 3
+    .locals 1
     .parameter "constraint"
 
     .prologue
@@ -148,7 +148,7 @@
 .end method
 
 .method public final filter(Ljava/lang/CharSequence;Landroid/widget/Filter$FilterListener;)V
-    .registers 12
+    .locals 9
     .parameter "constraint"
     .parameter "listener"
 
@@ -161,10 +161,10 @@
     monitor-enter v6
 
     .line 103
-    :try_start_4
+    :try_start_0
     iget-object v7, p0, Landroid/widget/Filter;->mThreadHandler:Landroid/os/Handler;
 
-    if-nez v7, :cond_1f
+    if-nez v7, :cond_0
 
     .line 104
     new-instance v4, Landroid/os/HandlerThread;
@@ -192,16 +192,16 @@
 
     .line 110
     .end local v4           #thread:Landroid/os/HandlerThread;
-    :cond_1f
+    :cond_0
     iget-object v7, p0, Landroid/widget/Filter;->mDelayer:Landroid/widget/Filter$Delayer;
 
-    if-nez v7, :cond_57
+    if-nez v7, :cond_2
 
     const-wide/16 v1, 0x0
 
     .line 112
     .local v1, delay:J
-    :goto_25
+    :goto_0
     iget-object v7, p0, Landroid/widget/Filter;->mThreadHandler:Landroid/os/Handler;
 
     const v8, -0x2f2f0ff3
@@ -220,13 +220,13 @@
 
     .line 117
     .local v0, args:Landroid/widget/Filter$RequestArguments;
-    if-eqz p1, :cond_3a
+    if-eqz p1, :cond_1
 
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    :cond_3a
+    :cond_1
     iput-object v5, v0, Landroid/widget/Filter$RequestArguments;->constraint:Ljava/lang/CharSequence;
 
     .line 118
@@ -264,22 +264,22 @@
     .end local v0           #args:Landroid/widget/Filter$RequestArguments;
     .end local v1           #delay:J
     .end local v3           #message:Landroid/os/Message;
-    :cond_57
+    :cond_2
     iget-object v7, p0, Landroid/widget/Filter;->mDelayer:Landroid/widget/Filter$Delayer;
 
     invoke-interface {v7, p1}, Landroid/widget/Filter$Delayer;->getPostingDelay(Ljava/lang/CharSequence;)J
 
     move-result-wide v1
 
-    goto :goto_25
+    goto :goto_0
 
     .line 124
-    :catchall_5e
+    :catchall_0
     move-exception v5
 
     monitor-exit v6
-    :try_end_60
-    .catchall {:try_start_4 .. :try_end_60} :catchall_5e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v5
 .end method
@@ -291,7 +291,7 @@
 .end method
 
 .method public setDelayer(Landroid/widget/Filter$Delayer;)V
-    .registers 4
+    .locals 2
     .parameter "delayer"
 
     .prologue
@@ -301,7 +301,7 @@
     monitor-enter v1
 
     .line 70
-    :try_start_3
+    :try_start_0
     iput-object p1, p0, Landroid/widget/Filter;->mDelayer:Landroid/widget/Filter$Delayer;
 
     .line 71
@@ -311,12 +311,12 @@
     return-void
 
     .line 71
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_9
-    .catchall {:try_start_3 .. :try_end_9} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

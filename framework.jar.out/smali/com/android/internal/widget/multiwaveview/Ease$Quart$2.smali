@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 80
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getInterpolation(F)F
-    .registers 5
+    .locals 3
     .parameter "input"
 
     .prologue

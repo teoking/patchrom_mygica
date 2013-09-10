@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/webkit/WebViewClassic;)V
-    .registers 9
+    .locals 7
     .parameter
 
     .prologue
@@ -39,6 +39,7 @@
     iput-object p1, p0, Landroid/webkit/WebViewClassic$PastePopupWindow;->this$0:Landroid/webkit/WebViewClassic;
 
     .line 601
+    #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
     invoke-static {p1}, Landroid/webkit/WebViewClassic;->access$600(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v3
@@ -55,6 +56,7 @@
     .line 604
     new-instance v1, Landroid/widget/LinearLayout;
 
+    #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
     invoke-static {p1}, Landroid/webkit/WebViewClassic;->access$600(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v3
@@ -78,6 +80,7 @@
     invoke-virtual {v3, v4}, Landroid/view/ViewGroup;->setBackgroundResource(I)V
 
     .line 610
+    #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
     invoke-static {p1}, Landroid/webkit/WebViewClassic;->access$600(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v3
@@ -144,7 +147,7 @@
 
 # virtual methods
 .method public hide()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 650
@@ -155,7 +158,7 @@
 .end method
 
 .method protected measureContent()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/high16 v4, -0x8000
@@ -163,6 +166,7 @@
     .line 660
     iget-object v1, p0, Landroid/webkit/WebViewClassic$PastePopupWindow;->this$0:Landroid/webkit/WebViewClassic;
 
+    #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
     invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$600(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v1
@@ -198,7 +202,7 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .registers 3
+    .locals 1
     .parameter "view"
 
     .prologue
@@ -217,7 +221,7 @@
 .end method
 
 .method public show(Landroid/graphics/Point;Landroid/graphics/Point;II)V
-    .registers 11
+    .locals 6
     .parameter "cursorBottom"
     .parameter "cursorTop"
     .parameter "windowLeft"
@@ -258,11 +262,12 @@
 
     .line 633
     .local v2, x:I
-    if-ge v3, p4, :cond_34
+    if-ge v3, p4, :cond_0
 
     .line 636
     iget-object v4, p0, Landroid/webkit/WebViewClassic$PastePopupWindow;->this$0:Landroid/webkit/WebViewClassic;
 
+    #calls: Landroid/webkit/WebViewClassic;->ensureSelectionHandles()V
     invoke-static {v4}, Landroid/webkit/WebViewClassic;->access$700(Landroid/webkit/WebViewClassic;)V
 
     .line 637
@@ -270,6 +275,7 @@
 
     iget-object v5, p0, Landroid/webkit/WebViewClassic$PastePopupWindow;->this$0:Landroid/webkit/WebViewClassic;
 
+    #getter for: Landroid/webkit/WebViewClassic;->mSelectHandleCenter:Landroid/graphics/drawable/Drawable;
     invoke-static {v5}, Landroid/webkit/WebViewClassic;->access$800(Landroid/webkit/WebViewClassic;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v5
@@ -288,23 +294,24 @@
     sub-int v2, v4, v5
 
     .line 640
-    :cond_34
-    if-ge v2, p3, :cond_37
+    :cond_0
+    if-ge v2, p3, :cond_1
 
     .line 641
     move v2, p3
 
     .line 643
-    :cond_37
+    :cond_1
     invoke-virtual {p0}, Landroid/webkit/WebViewClassic$PastePopupWindow;->isShowing()Z
 
     move-result v4
 
-    if-nez v4, :cond_47
+    if-nez v4, :cond_2
 
     .line 644
     iget-object v4, p0, Landroid/webkit/WebViewClassic$PastePopupWindow;->this$0:Landroid/webkit/WebViewClassic;
 
+    #getter for: Landroid/webkit/WebViewClassic;->mWebView:Landroid/webkit/WebView;
     invoke-static {v4}, Landroid/webkit/WebViewClassic;->access$000(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebView;
 
     move-result-object v4
@@ -314,7 +321,7 @@
     invoke-virtual {p0, v4, v5, v2, v3}, Landroid/webkit/WebViewClassic$PastePopupWindow;->showAtLocation(Landroid/view/View;III)V
 
     .line 646
-    :cond_47
+    :cond_2
     invoke-virtual {p0, v2, v3, v1, v0}, Landroid/webkit/WebViewClassic$PastePopupWindow;->update(IIII)V
 
     .line 647

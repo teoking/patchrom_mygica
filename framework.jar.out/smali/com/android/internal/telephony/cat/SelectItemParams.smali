@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/Menu;Z)V
-    .registers 5
+    .locals 1
     .parameter "cmdDet"
     .parameter "menu"
     .parameter "loadTitleIcon"
@@ -43,27 +43,27 @@
 
 # virtual methods
 .method setIcon(Landroid/graphics/Bitmap;)Z
-    .registers 5
+    .locals 3
     .parameter "icon"
 
     .prologue
     .line 140
-    if-eqz p1, :cond_31
+    if-eqz p1, :cond_3
 
     iget-object v2, p0, Lcom/android/internal/telephony/cat/SelectItemParams;->menu:Lcom/android/internal/telephony/cat/Menu;
 
-    if-eqz v2, :cond_31
+    if-eqz v2, :cond_3
 
     .line 141
     iget-boolean v2, p0, Lcom/android/internal/telephony/cat/SelectItemParams;->loadTitleIcon:Z
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/internal/telephony/cat/SelectItemParams;->menu:Lcom/android/internal/telephony/cat/Menu;
 
     iget-object v2, v2, Lcom/android/internal/telephony/cat/Menu;->titleIcon:Landroid/graphics/Bitmap;
 
-    if-nez v2, :cond_16
+    if-nez v2, :cond_1
 
     .line 142
     iget-object v2, p0, Lcom/android/internal/telephony/cat/SelectItemParams;->menu:Lcom/android/internal/telephony/cat/Menu;
@@ -71,16 +71,16 @@
     iput-object p1, v2, Lcom/android/internal/telephony/cat/Menu;->titleIcon:Landroid/graphics/Bitmap;
 
     .line 152
-    :cond_14
-    :goto_14
+    :cond_0
+    :goto_0
     const/4 v2, 0x1
 
     .line 154
-    :goto_15
+    :goto_1
     return v2
 
     .line 144
-    :cond_16
+    :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/cat/SelectItemParams;->menu:Lcom/android/internal/telephony/cat/Menu;
 
     iget-object v2, v2, Lcom/android/internal/telephony/cat/Menu;->items:Ljava/util/List;
@@ -90,12 +90,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :cond_1e
+    :cond_2
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -107,18 +107,18 @@
     .local v1, item:Lcom/android/internal/telephony/cat/Item;
     iget-object v2, v1, Lcom/android/internal/telephony/cat/Item;->icon:Landroid/graphics/Bitmap;
 
-    if-nez v2, :cond_1e
+    if-nez v2, :cond_2
 
     .line 148
     iput-object p1, v1, Lcom/android/internal/telephony/cat/Item;->icon:Landroid/graphics/Bitmap;
 
-    goto :goto_14
+    goto :goto_0
 
     .line 154
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #item:Lcom/android/internal/telephony/cat/Item;
-    :cond_31
+    :cond_3
     const/4 v2, 0x0
 
-    goto :goto_15
+    goto :goto_1
 .end method

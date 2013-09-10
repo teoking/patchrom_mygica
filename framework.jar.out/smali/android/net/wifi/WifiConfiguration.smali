@@ -131,7 +131,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 72
@@ -176,7 +176,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 12
+    .locals 11
 
     .prologue
     const/4 v10, 0x4
@@ -405,12 +405,12 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_cf
+    :goto_0
     iget-object v5, p0, Landroid/net/wifi/WifiConfiguration;->wepKeys:[Ljava/lang/String;
 
     array-length v5, v5
 
-    if-ge v2, v5, :cond_db
+    if-ge v2, v5, :cond_0
 
     .line 416
     iget-object v5, p0, Landroid/net/wifi/WifiConfiguration;->wepKeys:[Ljava/lang/String;
@@ -420,10 +420,10 @@
     .line 415
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_cf
+    goto :goto_0
 
     .line 417
-    :cond_db
+    :cond_0
     iget-object v0, p0, Landroid/net/wifi/WifiConfiguration;->enterpriseFields:[Landroid/net/wifi/WifiConfiguration$EnterpriseField;
 
     .local v0, arr$:[Landroid/net/wifi/WifiConfiguration$EnterpriseField;
@@ -433,8 +433,8 @@
     const/4 v3, 0x0
 
     .local v3, i$:I
-    :goto_df
-    if-ge v3, v4, :cond_e9
+    :goto_1
+    if-ge v3, v4, :cond_1
 
     aget-object v1, v0, v3
 
@@ -445,11 +445,11 @@
     .line 417
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_df
+    goto :goto_1
 
     .line 420
     .end local v1           #field:Landroid/net/wifi/WifiConfiguration$EnterpriseField;
-    :cond_e9
+    :cond_1
     sget-object v5, Landroid/net/wifi/WifiConfiguration$IpAssignment;->UNASSIGNED:Landroid/net/wifi/WifiConfiguration$IpAssignment;
 
     iput-object v5, p0, Landroid/net/wifi/WifiConfiguration;->ipAssignment:Landroid/net/wifi/WifiConfiguration$IpAssignment;
@@ -471,7 +471,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/wifi/WifiConfiguration;)V
-    .registers 7
+    .locals 5
     .parameter "source"
 
     .prologue
@@ -638,7 +638,7 @@
     iput-object v1, p0, Landroid/net/wifi/WifiConfiguration;->enterpriseFields:[Landroid/net/wifi/WifiConfiguration$EnterpriseField;
 
     .line 567
-    if-eqz p1, :cond_130
+    if-eqz p1, :cond_2
 
     .line 568
     iget v1, p1, Landroid/net/wifi/WifiConfiguration;->networkId:I
@@ -679,12 +679,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_b9
+    :goto_0
     iget-object v1, p0, Landroid/net/wifi/WifiConfiguration;->wepKeys:[Ljava/lang/String;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_c9
+    if-ge v0, v1, :cond_0
 
     .line 577
     iget-object v1, p0, Landroid/net/wifi/WifiConfiguration;->wepKeys:[Ljava/lang/String;
@@ -698,10 +698,10 @@
     .line 576
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_b9
+    goto :goto_0
 
     .line 579
-    :cond_c9
+    :cond_0
     iget v1, p1, Landroid/net/wifi/WifiConfiguration;->wepTxKeyIndex:I
 
     iput v1, p0, Landroid/net/wifi/WifiConfiguration;->wepTxKeyIndex:I
@@ -774,12 +774,12 @@
     .line 588
     const/4 v0, 0x0
 
-    :goto_108
+    :goto_1
     iget-object v1, p1, Landroid/net/wifi/WifiConfiguration;->enterpriseFields:[Landroid/net/wifi/WifiConfiguration$EnterpriseField;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_11f
+    if-ge v0, v1, :cond_1
 
     .line 589
     iget-object v1, p0, Landroid/net/wifi/WifiConfiguration;->enterpriseFields:[Landroid/net/wifi/WifiConfiguration$EnterpriseField;
@@ -799,10 +799,10 @@
     .line 588
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_108
+    goto :goto_1
 
     .line 591
-    :cond_11f
+    :cond_1
     iget-object v1, p1, Landroid/net/wifi/WifiConfiguration;->ipAssignment:Landroid/net/wifi/WifiConfiguration$IpAssignment;
 
     iput-object v1, p0, Landroid/net/wifi/WifiConfiguration;->ipAssignment:Landroid/net/wifi/WifiConfiguration$IpAssignment;
@@ -823,12 +823,12 @@
 
     .line 595
     .end local v0           #i:I
-    :cond_130
+    :cond_2
     return-void
 .end method
 
 .method static synthetic access$100(Landroid/os/Parcel;)Ljava/util/BitSet;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -841,7 +841,7 @@
 .end method
 
 .method private static readBitSet(Landroid/os/Parcel;)Ljava/util/BitSet;
-    .registers 5
+    .locals 4
     .parameter "src"
 
     .prologue
@@ -861,8 +861,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_a
-    if-ge v1, v0, :cond_16
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 532
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
@@ -874,15 +874,15 @@
     .line 531
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 534
-    :cond_16
+    :cond_0
     return-object v2
 .end method
 
 .method private static writeBitSet(Landroid/os/Parcel;Ljava/util/BitSet;)V
-    .registers 4
+    .locals 2
     .parameter "dest"
     .parameter "set"
 
@@ -899,7 +899,7 @@
     invoke-virtual {p0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 542
-    :goto_8
+    :goto_0
     add-int/lit8 v1, v0, 0x1
 
     invoke-virtual {p1, v1}, Ljava/util/BitSet;->nextSetBit(I)I
@@ -908,22 +908,22 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_15
+    if-eq v0, v1, :cond_0
 
     .line 543
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 544
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 562
@@ -933,7 +933,7 @@
 .end method
 
 .method public getAuthType()I
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v1, 0x4
@@ -951,66 +951,66 @@
 
     move-result v4
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_0
 
     .line 557
-    :goto_c
+    :goto_0
     return v0
 
     .line 550
-    :cond_d
+    :cond_0
     iget-object v0, p0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
     invoke-virtual {v0, v1}, Ljava/util/BitSet;->get(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_1
 
     move v0, v1
 
     .line 551
-    goto :goto_c
+    goto :goto_0
 
     .line 552
-    :cond_17
+    :cond_1
     iget-object v0, p0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
     invoke-virtual {v0, v2}, Ljava/util/BitSet;->get(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_2
 
     move v0, v2
 
     .line 553
-    goto :goto_c
+    goto :goto_0
 
     .line 554
-    :cond_21
+    :cond_2
     iget-object v0, p0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
     invoke-virtual {v0, v3}, Ljava/util/BitSet;->get(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_3
 
     move v0, v3
 
     .line 555
-    goto :goto_c
+    goto :goto_0
 
     .line 557
-    :cond_2b
+    :cond_3
     const/4 v0, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 16
+    .locals 15
 
     .prologue
     const/16 v14, 0xa
@@ -1024,7 +1024,7 @@
     .local v9, sbuf:Ljava/lang/StringBuilder;
     iget v11, p0, Landroid/net/wifi/WifiConfiguration;->status:I
 
-    if-nez v11, :cond_6d
+    if-nez v11, :cond_2
 
     .line 429
     const-string v11, "* "
@@ -1032,8 +1032,8 @@
     invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 433
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     const-string v11, "ID: "
 
     invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1093,14 +1093,14 @@
     const/4 v5, 0x0
 
     .local v5, k:I
-    :goto_49
+    :goto_1
     iget-object v11, p0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
     invoke-virtual {v11}, Ljava/util/BitSet;->size()I
 
     move-result v11
 
-    if-ge v5, v11, :cond_8a
+    if-ge v5, v11, :cond_4
 
     .line 438
     iget-object v11, p0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
@@ -1109,7 +1109,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_6a
+    if-eqz v11, :cond_1
 
     .line 439
     const-string v11, " "
@@ -1121,7 +1121,7 @@
 
     array-length v11, v11
 
-    if-ge v5, v11, :cond_84
+    if-ge v5, v11, :cond_3
 
     .line 441
     sget-object v11, Landroid/net/wifi/WifiConfiguration$KeyMgmt;->strings:[Ljava/lang/String;
@@ -1131,20 +1131,20 @@
     invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 437
-    :cond_6a
-    :goto_6a
+    :cond_1
+    :goto_2
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_49
+    goto :goto_1
 
     .line 430
     .end local v5           #k:I
-    :cond_6d
+    :cond_2
     iget v11, p0, Landroid/net/wifi/WifiConfiguration;->status:I
 
     const/4 v12, 0x1
 
-    if-ne v11, v12, :cond_10
+    if-ne v11, v12, :cond_0
 
     .line 431
     const-string v11, "- DSBLE: "
@@ -1163,19 +1163,19 @@
 
     invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_10
+    goto :goto_0
 
     .line 443
     .restart local v5       #k:I
-    :cond_84
+    :cond_3
     const-string v11, "??"
 
     invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_6a
+    goto :goto_2
 
     .line 447
-    :cond_8a
+    :cond_4
     const-string v11, " Protocols:"
 
     invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1184,14 +1184,14 @@
     const/4 v7, 0x0
 
     .local v7, p:I
-    :goto_90
+    :goto_3
     iget-object v11, p0, Landroid/net/wifi/WifiConfiguration;->allowedProtocols:Ljava/util/BitSet;
 
     invoke-virtual {v11}, Ljava/util/BitSet;->size()I
 
     move-result v11
 
-    if-ge v7, v11, :cond_ba
+    if-ge v7, v11, :cond_7
 
     .line 449
     iget-object v11, p0, Landroid/net/wifi/WifiConfiguration;->allowedProtocols:Ljava/util/BitSet;
@@ -1200,7 +1200,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_b1
+    if-eqz v11, :cond_5
 
     .line 450
     const-string v11, " "
@@ -1212,7 +1212,7 @@
 
     array-length v11, v11
 
-    if-ge v7, v11, :cond_b4
+    if-ge v7, v11, :cond_6
 
     .line 452
     sget-object v11, Landroid/net/wifi/WifiConfiguration$Protocol;->strings:[Ljava/lang/String;
@@ -1222,22 +1222,22 @@
     invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 448
-    :cond_b1
-    :goto_b1
+    :cond_5
+    :goto_4
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_90
+    goto :goto_3
 
     .line 454
-    :cond_b4
+    :cond_6
     const-string v11, "??"
 
     invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_b1
+    goto :goto_4
 
     .line 458
-    :cond_ba
+    :cond_7
     invoke-virtual {v9, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 459
@@ -1249,14 +1249,14 @@
     const/4 v0, 0x0
 
     .local v0, a:I
-    :goto_c3
+    :goto_5
     iget-object v11, p0, Landroid/net/wifi/WifiConfiguration;->allowedAuthAlgorithms:Ljava/util/BitSet;
 
     invoke-virtual {v11}, Ljava/util/BitSet;->size()I
 
     move-result v11
 
-    if-ge v0, v11, :cond_ed
+    if-ge v0, v11, :cond_a
 
     .line 461
     iget-object v11, p0, Landroid/net/wifi/WifiConfiguration;->allowedAuthAlgorithms:Ljava/util/BitSet;
@@ -1265,7 +1265,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_e4
+    if-eqz v11, :cond_8
 
     .line 462
     const-string v11, " "
@@ -1277,7 +1277,7 @@
 
     array-length v11, v11
 
-    if-ge v0, v11, :cond_e7
+    if-ge v0, v11, :cond_9
 
     .line 464
     sget-object v11, Landroid/net/wifi/WifiConfiguration$AuthAlgorithm;->strings:[Ljava/lang/String;
@@ -1287,22 +1287,22 @@
     invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 460
-    :cond_e4
-    :goto_e4
+    :cond_8
+    :goto_6
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_c3
+    goto :goto_5
 
     .line 466
-    :cond_e7
+    :cond_9
     const-string v11, "??"
 
     invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_e4
+    goto :goto_6
 
     .line 470
-    :cond_ed
+    :cond_a
     invoke-virtual {v9, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 471
@@ -1314,14 +1314,14 @@
     const/4 v8, 0x0
 
     .local v8, pc:I
-    :goto_f6
+    :goto_7
     iget-object v11, p0, Landroid/net/wifi/WifiConfiguration;->allowedPairwiseCiphers:Ljava/util/BitSet;
 
     invoke-virtual {v11}, Ljava/util/BitSet;->size()I
 
     move-result v11
 
-    if-ge v8, v11, :cond_120
+    if-ge v8, v11, :cond_d
 
     .line 473
     iget-object v11, p0, Landroid/net/wifi/WifiConfiguration;->allowedPairwiseCiphers:Ljava/util/BitSet;
@@ -1330,7 +1330,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_117
+    if-eqz v11, :cond_b
 
     .line 474
     const-string v11, " "
@@ -1342,7 +1342,7 @@
 
     array-length v11, v11
 
-    if-ge v8, v11, :cond_11a
+    if-ge v8, v11, :cond_c
 
     .line 476
     sget-object v11, Landroid/net/wifi/WifiConfiguration$PairwiseCipher;->strings:[Ljava/lang/String;
@@ -1352,22 +1352,22 @@
     invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 472
-    :cond_117
-    :goto_117
+    :cond_b
+    :goto_8
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_f6
+    goto :goto_7
 
     .line 478
-    :cond_11a
+    :cond_c
     const-string v11, "??"
 
     invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_117
+    goto :goto_8
 
     .line 482
-    :cond_120
+    :cond_d
     invoke-virtual {v9, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 483
@@ -1379,14 +1379,14 @@
     const/4 v3, 0x0
 
     .local v3, gc:I
-    :goto_129
+    :goto_9
     iget-object v11, p0, Landroid/net/wifi/WifiConfiguration;->allowedGroupCiphers:Ljava/util/BitSet;
 
     invoke-virtual {v11}, Ljava/util/BitSet;->size()I
 
     move-result v11
 
-    if-ge v3, v11, :cond_153
+    if-ge v3, v11, :cond_10
 
     .line 485
     iget-object v11, p0, Landroid/net/wifi/WifiConfiguration;->allowedGroupCiphers:Ljava/util/BitSet;
@@ -1395,7 +1395,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_14a
+    if-eqz v11, :cond_e
 
     .line 486
     const-string v11, " "
@@ -1407,7 +1407,7 @@
 
     array-length v11, v11
 
-    if-ge v3, v11, :cond_14d
+    if-ge v3, v11, :cond_f
 
     .line 488
     sget-object v11, Landroid/net/wifi/WifiConfiguration$GroupCipher;->strings:[Ljava/lang/String;
@@ -1417,22 +1417,22 @@
     invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 484
-    :cond_14a
-    :goto_14a
+    :cond_e
+    :goto_a
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_129
+    goto :goto_9
 
     .line 490
-    :cond_14d
+    :cond_f
     const-string v11, "??"
 
     invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_14a
+    goto :goto_a
 
     .line 494
-    :cond_153
+    :cond_10
     invoke-virtual {v9, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     move-result-object v11
@@ -1444,7 +1444,7 @@
     .line 495
     iget-object v11, p0, Landroid/net/wifi/WifiConfiguration;->preSharedKey:Ljava/lang/String;
 
-    if-eqz v11, :cond_165
+    if-eqz v11, :cond_11
 
     .line 496
     const/16 v11, 0x2a
@@ -1452,7 +1452,7 @@
     invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 499
-    :cond_165
+    :cond_11
     iget-object v1, p0, Landroid/net/wifi/WifiConfiguration;->enterpriseFields:[Landroid/net/wifi/WifiConfiguration$EnterpriseField;
 
     .local v1, arr$:[Landroid/net/wifi/WifiConfiguration$EnterpriseField;
@@ -1462,8 +1462,8 @@
     const/4 v4, 0x0
 
     .local v4, i$:I
-    :goto_169
-    if-ge v4, v6, :cond_19d
+    :goto_b
+    if-ge v4, v6, :cond_13
 
     aget-object v2, v1, v4
 
@@ -1510,20 +1510,20 @@
 
     .line 502
     .local v10, value:Ljava/lang/String;
-    if-eqz v10, :cond_19a
+    if-eqz v10, :cond_12
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 499
-    :cond_19a
+    :cond_12
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_169
+    goto :goto_b
 
     .line 504
     .end local v2           #field:Landroid/net/wifi/WifiConfiguration$EnterpriseField;
     .end local v10           #value:Ljava/lang/String;
-    :cond_19d
+    :cond_13
     invoke-virtual {v9, v14}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 505
@@ -1613,7 +1613,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 9
+    .locals 6
     .parameter "dest"
     .parameter "flags"
 
@@ -1658,8 +1658,8 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_22
-    if-ge v2, v3, :cond_2c
+    :goto_0
+    if-ge v2, v3, :cond_0
 
     aget-object v4, v0, v2
 
@@ -1670,11 +1670,11 @@
     .line 605
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_22
+    goto :goto_0
 
     .line 607
     .end local v4           #wepKey:Ljava/lang/String;
-    :cond_2c
+    :cond_0
     iget v5, p0, Landroid/net/wifi/WifiConfiguration;->wepTxKeyIndex:I
 
     invoke-virtual {p1, v5}, Landroid/os/Parcel;->writeInt(I)V
@@ -1687,11 +1687,11 @@
     .line 609
     iget-boolean v5, p0, Landroid/net/wifi/WifiConfiguration;->hiddenSSID:Z
 
-    if-eqz v5, :cond_69
+    if-eqz v5, :cond_1
 
     const/4 v5, 0x1
 
-    :goto_3b
+    :goto_1
     invoke-virtual {p1, v5}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 611
@@ -1727,8 +1727,8 @@
 
     const/4 v2, 0x0
 
-    :goto_5b
-    if-ge v2, v3, :cond_6b
+    :goto_2
+    if-ge v2, v3, :cond_2
 
     aget-object v1, v0, v2
 
@@ -1743,19 +1743,19 @@
     .line 617
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_5b
+    goto :goto_2
 
     .line 609
     .end local v1           #field:Landroid/net/wifi/WifiConfiguration$EnterpriseField;
     .local v0, arr$:[Ljava/lang/String;
-    :cond_69
+    :cond_1
     const/4 v5, 0x0
 
-    goto :goto_3b
+    goto :goto_1
 
     .line 620
     .local v0, arr$:[Landroid/net/wifi/WifiConfiguration$EnterpriseField;
-    :cond_6b
+    :cond_2
     iget-object v5, p0, Landroid/net/wifi/WifiConfiguration;->ipAssignment:Landroid/net/wifi/WifiConfiguration$IpAssignment;
 
     invoke-virtual {v5}, Landroid/net/wifi/WifiConfiguration$IpAssignment;->name()Ljava/lang/String;

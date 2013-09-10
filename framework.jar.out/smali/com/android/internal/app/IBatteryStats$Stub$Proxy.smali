@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 525
@@ -50,7 +50,7 @@
 .end method
 
 .method public getAwakeTimeBattery()J
-    .registers 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -71,7 +71,7 @@
 
     .line 1235
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v4, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -90,8 +90,8 @@
 
     .line 1238
     invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v2
 
@@ -107,7 +107,7 @@
 
     .line 1241
     .end local v2           #_result:J
-    :catchall_23
+    :catchall_0
     move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -119,7 +119,7 @@
 .end method
 
 .method public getAwakeTimePlugged()J
-    .registers 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -140,7 +140,7 @@
 
     .line 1252
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v4, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -159,8 +159,8 @@
 
     .line 1255
     invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v2
 
@@ -176,7 +176,7 @@
 
     .line 1258
     .end local v2           #_result:J
-    :catchall_23
+    :catchall_0
     move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -188,7 +188,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 529
@@ -198,7 +198,7 @@
 .end method
 
 .method public getStatistics()[B
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -219,7 +219,7 @@
 
     .line 537
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -238,8 +238,8 @@
 
     .line 540
     invoke-virtual {v1}, Landroid/os/Parcel;->createByteArray()[B
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -255,7 +255,7 @@
 
     .line 543
     .end local v2           #_result:[B
-    :catchall_22
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -267,7 +267,7 @@
 .end method
 
 .method public noteBluetoothOff()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -288,7 +288,7 @@
 
     .line 968
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -304,8 +304,8 @@
 
     .line 970
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 973
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -317,7 +317,7 @@
     return-void
 
     .line 973
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -329,7 +329,7 @@
 .end method
 
 .method public noteBluetoothOn()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -350,7 +350,7 @@
 
     .line 954
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -366,8 +366,8 @@
 
     .line 956
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 959
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -379,7 +379,7 @@
     return-void
 
     .line 959
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -391,7 +391,7 @@
 .end method
 
 .method public noteFullWifiLockAcquired(I)V
-    .registers 7
+    .locals 5
     .parameter "uid"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -413,7 +413,7 @@
 
     .line 982
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -432,8 +432,8 @@
 
     .line 985
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 988
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -445,7 +445,7 @@
     return-void
 
     .line 988
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -457,7 +457,7 @@
 .end method
 
 .method public noteFullWifiLockAcquiredFromSource(Landroid/os/WorkSource;)V
-    .registers 7
+    .locals 5
     .parameter "ws"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -479,13 +479,13 @@
 
     .line 1072
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1073
-    if-eqz p1, :cond_29
+    if-eqz p1, :cond_0
 
     .line 1074
     const/4 v2, 0x1
@@ -498,7 +498,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1080
-    :goto_17
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x21
@@ -509,8 +509,8 @@
 
     .line 1081
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_22
-    .catchall {:try_start_8 .. :try_end_22} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1084
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -522,18 +522,18 @@
     return-void
 
     .line 1078
-    :cond_29
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2a
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2d
-    .catchall {:try_start_2a .. :try_end_2d} :catchall_2e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1084
-    :catchall_2e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -545,7 +545,7 @@
 .end method
 
 .method public noteFullWifiLockReleased(I)V
-    .registers 7
+    .locals 5
     .parameter "uid"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -567,7 +567,7 @@
 
     .line 997
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -586,8 +586,8 @@
 
     .line 1000
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1003
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -599,7 +599,7 @@
     return-void
 
     .line 1003
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -611,7 +611,7 @@
 .end method
 
 .method public noteFullWifiLockReleasedFromSource(Landroid/os/WorkSource;)V
-    .registers 7
+    .locals 5
     .parameter "ws"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -633,13 +633,13 @@
 
     .line 1093
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1094
-    if-eqz p1, :cond_29
+    if-eqz p1, :cond_0
 
     .line 1095
     const/4 v2, 0x1
@@ -652,7 +652,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1101
-    :goto_17
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x22
@@ -663,8 +663,8 @@
 
     .line 1102
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_22
-    .catchall {:try_start_8 .. :try_end_22} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1105
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -676,18 +676,18 @@
     return-void
 
     .line 1099
-    :cond_29
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2a
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2d
-    .catchall {:try_start_2a .. :try_end_2d} :catchall_2e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1105
-    :catchall_2e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -699,7 +699,7 @@
 .end method
 
 .method public noteInputEvent()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -720,7 +720,7 @@
 
     .line 746
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -736,8 +736,8 @@
 
     .line 748
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 751
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -749,7 +749,7 @@
     return-void
 
     .line 751
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -761,7 +761,7 @@
 .end method
 
 .method public noteNetworkInterfaceType(Ljava/lang/String;I)V
-    .registers 8
+    .locals 5
     .parameter "iface"
     .parameter "type"
     .annotation system Ldalvik/annotation/Throws;
@@ -784,7 +784,7 @@
 
     .line 1198
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -806,8 +806,8 @@
 
     .line 1202
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1205
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -819,7 +819,7 @@
     return-void
 
     .line 1205
-    :catchall_25
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -831,7 +831,7 @@
 .end method
 
 .method public notePhoneDataConnectionState(IZ)V
-    .registers 8
+    .locals 5
     .parameter "dataType"
     .parameter "hasData"
     .annotation system Ldalvik/annotation/Throws;
@@ -856,7 +856,7 @@
 
     .line 825
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -865,11 +865,11 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 827
-    if-eqz p2, :cond_14
+    if-eqz p2, :cond_0
 
     const/4 v2, 0x1
 
-    :cond_14
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 828
@@ -883,8 +883,8 @@
 
     .line 829
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_22
-    .catchall {:try_start_9 .. :try_end_22} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 832
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -896,7 +896,7 @@
     return-void
 
     .line 832
-    :catchall_29
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -908,7 +908,7 @@
 .end method
 
 .method public notePhoneOff()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -929,7 +929,7 @@
 
     .line 790
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -945,8 +945,8 @@
 
     .line 792
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 795
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -958,7 +958,7 @@
     return-void
 
     .line 795
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -970,7 +970,7 @@
 .end method
 
 .method public notePhoneOn()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -991,7 +991,7 @@
 
     .line 776
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1007,8 +1007,8 @@
 
     .line 778
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 781
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1020,7 +1020,7 @@
     return-void
 
     .line 781
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1032,7 +1032,7 @@
 .end method
 
 .method public notePhoneSignalStrength(Landroid/telephony/SignalStrength;)V
-    .registers 7
+    .locals 5
     .parameter "signalStrength"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1054,13 +1054,13 @@
 
     .line 804
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 805
-    if-eqz p1, :cond_29
+    if-eqz p1, :cond_0
 
     .line 806
     const/4 v2, 0x1
@@ -1073,7 +1073,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/telephony/SignalStrength;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 812
-    :goto_17
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x11
@@ -1084,8 +1084,8 @@
 
     .line 813
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_22
-    .catchall {:try_start_8 .. :try_end_22} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 816
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1097,18 +1097,18 @@
     return-void
 
     .line 810
-    :cond_29
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2a
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2d
-    .catchall {:try_start_2a .. :try_end_2d} :catchall_2e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 816
-    :catchall_2e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1120,7 +1120,7 @@
 .end method
 
 .method public notePhoneState(I)V
-    .registers 7
+    .locals 5
     .parameter "phoneState"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1142,7 +1142,7 @@
 
     .line 841
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1161,8 +1161,8 @@
 
     .line 844
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 847
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1174,7 +1174,7 @@
     return-void
 
     .line 847
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1186,7 +1186,7 @@
 .end method
 
 .method public noteScanWifiLockAcquired(I)V
-    .registers 7
+    .locals 5
     .parameter "uid"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1208,7 +1208,7 @@
 
     .line 1012
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1227,8 +1227,8 @@
 
     .line 1015
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1018
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1240,7 +1240,7 @@
     return-void
 
     .line 1018
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1252,7 +1252,7 @@
 .end method
 
 .method public noteScanWifiLockAcquiredFromSource(Landroid/os/WorkSource;)V
-    .registers 7
+    .locals 5
     .parameter "ws"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1274,13 +1274,13 @@
 
     .line 1114
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1115
-    if-eqz p1, :cond_29
+    if-eqz p1, :cond_0
 
     .line 1116
     const/4 v2, 0x1
@@ -1293,7 +1293,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1122
-    :goto_17
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x23
@@ -1304,8 +1304,8 @@
 
     .line 1123
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_22
-    .catchall {:try_start_8 .. :try_end_22} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1126
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1317,18 +1317,18 @@
     return-void
 
     .line 1120
-    :cond_29
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2a
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2d
-    .catchall {:try_start_2a .. :try_end_2d} :catchall_2e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1126
-    :catchall_2e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1340,7 +1340,7 @@
 .end method
 
 .method public noteScanWifiLockReleased(I)V
-    .registers 7
+    .locals 5
     .parameter "uid"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1362,7 +1362,7 @@
 
     .line 1027
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1381,8 +1381,8 @@
 
     .line 1030
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1033
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1394,7 +1394,7 @@
     return-void
 
     .line 1033
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1406,7 +1406,7 @@
 .end method
 
 .method public noteScanWifiLockReleasedFromSource(Landroid/os/WorkSource;)V
-    .registers 7
+    .locals 5
     .parameter "ws"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1428,13 +1428,13 @@
 
     .line 1135
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1136
-    if-eqz p1, :cond_29
+    if-eqz p1, :cond_0
 
     .line 1137
     const/4 v2, 0x1
@@ -1447,7 +1447,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1143
-    :goto_17
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x24
@@ -1458,8 +1458,8 @@
 
     .line 1144
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_22
-    .catchall {:try_start_8 .. :try_end_22} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1147
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1471,18 +1471,18 @@
     return-void
 
     .line 1141
-    :cond_29
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2a
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2d
-    .catchall {:try_start_2a .. :try_end_2d} :catchall_2e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1147
-    :catchall_2e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1494,7 +1494,7 @@
 .end method
 
 .method public noteScreenBrightness(I)V
-    .registers 7
+    .locals 5
     .parameter "brightness"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1516,7 +1516,7 @@
 
     .line 717
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1535,8 +1535,8 @@
 
     .line 720
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 723
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1548,7 +1548,7 @@
     return-void
 
     .line 723
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1560,7 +1560,7 @@
 .end method
 
 .method public noteScreenOff()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1581,7 +1581,7 @@
 
     .line 732
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1597,8 +1597,8 @@
 
     .line 734
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 737
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1610,7 +1610,7 @@
     return-void
 
     .line 737
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1622,7 +1622,7 @@
 .end method
 
 .method public noteScreenOn()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1643,7 +1643,7 @@
 
     .line 703
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1659,8 +1659,8 @@
 
     .line 705
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 708
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1672,7 +1672,7 @@
     return-void
 
     .line 708
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1684,7 +1684,7 @@
 .end method
 
 .method public noteStartGps(I)V
-    .registers 7
+    .locals 5
     .parameter "uid"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1706,7 +1706,7 @@
 
     .line 673
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1725,8 +1725,8 @@
 
     .line 676
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 679
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1738,7 +1738,7 @@
     return-void
 
     .line 679
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1750,7 +1750,7 @@
 .end method
 
 .method public noteStartSensor(II)V
-    .registers 8
+    .locals 5
     .parameter "uid"
     .parameter "sensor"
     .annotation system Ldalvik/annotation/Throws;
@@ -1773,7 +1773,7 @@
 
     .line 591
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1795,8 +1795,8 @@
 
     .line 595
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 598
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1808,7 +1808,7 @@
     return-void
 
     .line 598
-    :catchall_24
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1820,7 +1820,7 @@
 .end method
 
 .method public noteStartWakelock(IILjava/lang/String;I)V
-    .registers 10
+    .locals 5
     .parameter "uid"
     .parameter "pid"
     .parameter "name"
@@ -1845,7 +1845,7 @@
 
     .line 553
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1873,8 +1873,8 @@
 
     .line 559
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_23
-    .catchall {:try_start_8 .. :try_end_23} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 562
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1886,7 +1886,7 @@
     return-void
 
     .line 562
-    :catchall_2a
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1898,7 +1898,7 @@
 .end method
 
 .method public noteStartWakelockFromSource(Landroid/os/WorkSource;ILjava/lang/String;I)V
-    .registers 10
+    .locals 5
     .parameter "ws"
     .parameter "pid"
     .parameter "name"
@@ -1923,13 +1923,13 @@
 
     .line 625
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 626
-    if-eqz p1, :cond_31
+    if-eqz p1, :cond_0
 
     .line 627
     const/4 v2, 0x1
@@ -1942,7 +1942,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 633
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 634
@@ -1962,8 +1962,8 @@
 
     .line 637
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_2a
-    .catchall {:try_start_8 .. :try_end_2a} :catchall_36
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 640
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1975,18 +1975,18 @@
     return-void
 
     .line 631
-    :cond_31
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_32
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_35
-    .catchall {:try_start_32 .. :try_end_35} :catchall_36
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 640
-    :catchall_36
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1998,7 +1998,7 @@
 .end method
 
 .method public noteStopGps(I)V
-    .registers 7
+    .locals 5
     .parameter "uid"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2020,7 +2020,7 @@
 
     .line 688
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2039,8 +2039,8 @@
 
     .line 691
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 694
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2052,7 +2052,7 @@
     return-void
 
     .line 694
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2064,7 +2064,7 @@
 .end method
 
 .method public noteStopSensor(II)V
-    .registers 8
+    .locals 5
     .parameter "uid"
     .parameter "sensor"
     .annotation system Ldalvik/annotation/Throws;
@@ -2087,7 +2087,7 @@
 
     .line 609
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2109,8 +2109,8 @@
 
     .line 613
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 616
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2122,7 +2122,7 @@
     return-void
 
     .line 616
-    :catchall_24
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2134,7 +2134,7 @@
 .end method
 
 .method public noteStopWakelock(IILjava/lang/String;I)V
-    .registers 10
+    .locals 5
     .parameter "uid"
     .parameter "pid"
     .parameter "name"
@@ -2159,7 +2159,7 @@
 
     .line 571
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2187,8 +2187,8 @@
 
     .line 577
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_23
-    .catchall {:try_start_8 .. :try_end_23} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 580
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2200,7 +2200,7 @@
     return-void
 
     .line 580
-    :catchall_2a
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2212,7 +2212,7 @@
 .end method
 
 .method public noteStopWakelockFromSource(Landroid/os/WorkSource;ILjava/lang/String;I)V
-    .registers 10
+    .locals 5
     .parameter "ws"
     .parameter "pid"
     .parameter "name"
@@ -2237,13 +2237,13 @@
 
     .line 649
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 650
-    if-eqz p1, :cond_31
+    if-eqz p1, :cond_0
 
     .line 651
     const/4 v2, 0x1
@@ -2256,7 +2256,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 657
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 658
@@ -2276,8 +2276,8 @@
 
     .line 661
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_2a
-    .catchall {:try_start_8 .. :try_end_2a} :catchall_36
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 664
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2289,18 +2289,18 @@
     return-void
 
     .line 655
-    :cond_31
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_32
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_35
-    .catchall {:try_start_32 .. :try_end_35} :catchall_36
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 664
-    :catchall_36
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2312,7 +2312,7 @@
 .end method
 
 .method public noteUserActivity(II)V
-    .registers 8
+    .locals 5
     .parameter "uid"
     .parameter "event"
     .annotation system Ldalvik/annotation/Throws;
@@ -2335,7 +2335,7 @@
 
     .line 760
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2357,8 +2357,8 @@
 
     .line 764
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 767
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2370,7 +2370,7 @@
     return-void
 
     .line 767
-    :catchall_25
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2382,7 +2382,7 @@
 .end method
 
 .method public noteWifiMulticastDisabled(I)V
-    .registers 7
+    .locals 5
     .parameter "uid"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2404,7 +2404,7 @@
 
     .line 1057
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2423,8 +2423,8 @@
 
     .line 1060
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1063
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2436,7 +2436,7 @@
     return-void
 
     .line 1063
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2448,7 +2448,7 @@
 .end method
 
 .method public noteWifiMulticastDisabledFromSource(Landroid/os/WorkSource;)V
-    .registers 7
+    .locals 5
     .parameter "ws"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2470,13 +2470,13 @@
 
     .line 1177
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1178
-    if-eqz p1, :cond_29
+    if-eqz p1, :cond_0
 
     .line 1179
     const/4 v2, 0x1
@@ -2489,7 +2489,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1185
-    :goto_17
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x26
@@ -2500,8 +2500,8 @@
 
     .line 1186
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_22
-    .catchall {:try_start_8 .. :try_end_22} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1189
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2513,18 +2513,18 @@
     return-void
 
     .line 1183
-    :cond_29
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2a
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2d
-    .catchall {:try_start_2a .. :try_end_2d} :catchall_2e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1189
-    :catchall_2e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2536,7 +2536,7 @@
 .end method
 
 .method public noteWifiMulticastEnabled(I)V
-    .registers 7
+    .locals 5
     .parameter "uid"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2558,7 +2558,7 @@
 
     .line 1042
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2577,8 +2577,8 @@
 
     .line 1045
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1048
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2590,7 +2590,7 @@
     return-void
 
     .line 1048
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2602,7 +2602,7 @@
 .end method
 
 .method public noteWifiMulticastEnabledFromSource(Landroid/os/WorkSource;)V
-    .registers 7
+    .locals 5
     .parameter "ws"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2624,13 +2624,13 @@
 
     .line 1156
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1157
-    if-eqz p1, :cond_29
+    if-eqz p1, :cond_0
 
     .line 1158
     const/4 v2, 0x1
@@ -2643,7 +2643,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1164
-    :goto_17
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x25
@@ -2654,8 +2654,8 @@
 
     .line 1165
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_22
-    .catchall {:try_start_8 .. :try_end_22} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1168
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2667,18 +2667,18 @@
     return-void
 
     .line 1162
-    :cond_29
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2a
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2d
-    .catchall {:try_start_2a .. :try_end_2d} :catchall_2e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1168
-    :catchall_2e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2690,7 +2690,7 @@
 .end method
 
 .method public noteWifiOff()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2711,7 +2711,7 @@
 
     .line 870
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2727,8 +2727,8 @@
 
     .line 872
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 875
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2740,7 +2740,7 @@
     return-void
 
     .line 875
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2752,7 +2752,7 @@
 .end method
 
 .method public noteWifiOn()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2773,7 +2773,7 @@
 
     .line 856
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2789,8 +2789,8 @@
 
     .line 858
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 861
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2802,7 +2802,7 @@
     return-void
 
     .line 861
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2814,7 +2814,7 @@
 .end method
 
 .method public noteWifiRunning(Landroid/os/WorkSource;)V
-    .registers 7
+    .locals 5
     .parameter "ws"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2836,13 +2836,13 @@
 
     .line 884
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 885
-    if-eqz p1, :cond_29
+    if-eqz p1, :cond_0
 
     .line 886
     const/4 v2, 0x1
@@ -2855,7 +2855,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 892
-    :goto_17
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x16
@@ -2866,8 +2866,8 @@
 
     .line 893
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_22
-    .catchall {:try_start_8 .. :try_end_22} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 896
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2879,18 +2879,18 @@
     return-void
 
     .line 890
-    :cond_29
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2a
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2d
-    .catchall {:try_start_2a .. :try_end_2d} :catchall_2e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 896
-    :catchall_2e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2902,7 +2902,7 @@
 .end method
 
 .method public noteWifiRunningChanged(Landroid/os/WorkSource;Landroid/os/WorkSource;)V
-    .registers 8
+    .locals 5
     .parameter "oldWs"
     .parameter "newWs"
     .annotation system Ldalvik/annotation/Throws;
@@ -2925,13 +2925,13 @@
 
     .line 905
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 906
-    if-eqz p1, :cond_33
+    if-eqz p1, :cond_0
 
     .line 907
     const/4 v2, 0x1
@@ -2944,8 +2944,8 @@
     invoke-virtual {p1, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 913
-    :goto_17
-    if-eqz p2, :cond_40
+    :goto_0
+    if-eqz p2, :cond_1
 
     .line 914
     const/4 v2, 0x1
@@ -2958,7 +2958,7 @@
     invoke-virtual {p2, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 920
-    :goto_21
+    :goto_1
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x17
@@ -2969,8 +2969,8 @@
 
     .line 921
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_2c
-    .catchall {:try_start_8 .. :try_end_2c} :catchall_38
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 924
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2982,18 +2982,18 @@
     return-void
 
     .line 911
-    :cond_33
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_34
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_37
-    .catchall {:try_start_34 .. :try_end_37} :catchall_38
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 924
-    :catchall_38
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3004,19 +3004,19 @@
     throw v2
 
     .line 918
-    :cond_40
+    :cond_1
     const/4 v2, 0x0
 
-    :try_start_41
+    :try_start_2
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_44
-    .catchall {:try_start_41 .. :try_end_44} :catchall_38
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_21
+    goto :goto_1
 .end method
 
 .method public noteWifiStopped(Landroid/os/WorkSource;)V
-    .registers 7
+    .locals 5
     .parameter "ws"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3038,13 +3038,13 @@
 
     .line 933
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 934
-    if-eqz p1, :cond_29
+    if-eqz p1, :cond_0
 
     .line 935
     const/4 v2, 0x1
@@ -3057,7 +3057,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 941
-    :goto_17
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/app/IBatteryStats$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x18
@@ -3068,8 +3068,8 @@
 
     .line 942
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_22
-    .catchall {:try_start_8 .. :try_end_22} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 945
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3081,18 +3081,18 @@
     return-void
 
     .line 939
-    :cond_29
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2a
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2d
-    .catchall {:try_start_2a .. :try_end_2d} :catchall_2e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 945
-    :catchall_2e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3104,7 +3104,7 @@
 .end method
 
 .method public setBatteryState(IIIIII)V
-    .registers 12
+    .locals 5
     .parameter "status"
     .parameter "health"
     .parameter "plugType"
@@ -3131,7 +3131,7 @@
 
     .line 1214
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.app.IBatteryStats"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -3165,8 +3165,8 @@
 
     .line 1222
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_2a
-    .catchall {:try_start_8 .. :try_end_2a} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1225
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3178,7 +3178,7 @@
     return-void
 
     .line 1225
-    :catchall_31
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

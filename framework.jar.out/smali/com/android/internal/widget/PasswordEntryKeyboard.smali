@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "xmlLayoutResId"
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;II)V
-    .registers 9
+    .locals 5
     .parameter "context"
     .parameter "xmlLayoutResId"
     .parameter "mode"
@@ -104,7 +104,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;III)V
-    .registers 11
+    .locals 6
     .parameter "context"
     .parameter "xmlLayoutResId"
     .parameter "width"
@@ -131,7 +131,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;IIII)V
-    .registers 11
+    .locals 5
     .parameter "context"
     .parameter "xmlLayoutResId"
     .parameter "mode"
@@ -179,7 +179,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILjava/lang/CharSequence;II)V
-    .registers 11
+    .locals 5
     .parameter "context"
     .parameter "layoutTemplateResId"
     .parameter "characters"
@@ -224,7 +224,7 @@
 .end method
 
 .method private init(Landroid/content/Context;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -268,7 +268,7 @@
 
 # virtual methods
 .method protected createKeyFromXml(Landroid/content/res/Resources;Landroid/inputmethodservice/Keyboard$Row;IILandroid/content/res/XmlResourceParser;)Landroid/inputmethodservice/Keyboard$Key;
-    .registers 14
+    .locals 8
     .parameter "res"
     .parameter "parent"
     .parameter "x"
@@ -301,22 +301,22 @@
 
     .line 92
     .local v6, code:I
-    if-ltz v6, :cond_24
+    if-ltz v6, :cond_1
 
     const/16 v1, 0xa
 
-    if-eq v6, v1, :cond_24
+    if-eq v6, v1, :cond_1
 
     const/16 v1, 0x20
 
-    if-lt v6, v1, :cond_1d
+    if-lt v6, v1, :cond_0
 
     const/16 v1, 0x7f
 
-    if-le v6, v1, :cond_24
+    if-le v6, v1, :cond_1
 
     .line 94
-    :cond_1d
+    :cond_0
     const-string v1, " "
 
     iput-object v1, v0, Landroid/inputmethodservice/Keyboard$Key;->label:Ljava/lang/CharSequence;
@@ -325,48 +325,48 @@
     invoke-virtual {v0, v7}, Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;->setEnabled(Z)V
 
     .line 97
-    :cond_24
+    :cond_1
     iget-object v1, v0, Landroid/inputmethodservice/Keyboard$Key;->codes:[I
 
     aget v1, v1, v7
 
-    sparse-switch v1, :sswitch_data_36
+    sparse-switch v1, :sswitch_data_0
 
     .line 108
-    :goto_2b
+    :goto_0
     return-object v0
 
     .line 99
-    :sswitch_2c
+    :sswitch_0
     iput-object v0, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mEnterKey:Landroid/inputmethodservice/Keyboard$Key;
 
-    goto :goto_2b
+    goto :goto_0
 
     .line 102
-    :sswitch_2f
+    :sswitch_1
     iput-object v0, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mF1Key:Landroid/inputmethodservice/Keyboard$Key;
 
-    goto :goto_2b
+    goto :goto_0
 
     .line 105
-    :sswitch_32
+    :sswitch_2
     iput-object v0, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mSpaceKey:Landroid/inputmethodservice/Keyboard$Key;
 
-    goto :goto_2b
+    goto :goto_0
 
     .line 97
     nop
 
-    :sswitch_data_36
+    :sswitch_data_0
     .sparse-switch
-        -0x67 -> :sswitch_2f
-        0xa -> :sswitch_2c
-        0x20 -> :sswitch_32
+        -0x67 -> :sswitch_1
+        0xa -> :sswitch_0
+        0x20 -> :sswitch_2
     .end sparse-switch
 .end method
 
 .method enableShiftLock()V
-    .registers 8
+    .locals 7
 
     .prologue
     .line 143
@@ -385,20 +385,20 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_7
-    if-ge v2, v4, :cond_40
+    :goto_0
+    if-ge v2, v4, :cond_2
 
     aget v3, v0, v2
 
     .line 145
     .local v3, index:I
-    if-ltz v3, :cond_3d
+    if-ltz v3, :cond_1
 
     iget-object v5, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftKeys:[Landroid/inputmethodservice/Keyboard$Key;
 
     array-length v5, v5
 
-    if-ge v1, v5, :cond_3d
+    if-ge v1, v5, :cond_1
 
     .line 146
     iget-object v6, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftKeys:[Landroid/inputmethodservice/Keyboard$Key;
@@ -422,7 +422,7 @@
 
     instance-of v5, v5, Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;
 
-    if-eqz v5, :cond_31
+    if-eqz v5, :cond_0
 
     .line 148
     iget-object v5, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftKeys:[Landroid/inputmethodservice/Keyboard$Key;
@@ -434,7 +434,7 @@
     invoke-virtual {v5}, Lcom/android/internal/widget/PasswordEntryKeyboard$LatinKey;->enableShiftLock()V
 
     .line 150
-    :cond_31
+    :cond_0
     iget-object v5, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mOldShiftIcons:[Landroid/graphics/drawable/Drawable;
 
     iget-object v6, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftKeys:[Landroid/inputmethodservice/Keyboard$Key;
@@ -449,19 +449,19 @@
     add-int/lit8 v1, v1, 0x1
 
     .line 144
-    :cond_3d
+    :cond_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 154
     .end local v3           #index:I
-    :cond_40
+    :cond_2
     return-void
 .end method
 
 .method public isShifted()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x0
@@ -471,30 +471,30 @@
 
     aget-object v1, v1, v0
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_1
 
     .line 213
     iget v1, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftState:I
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_0
 
     const/4 v0, 0x1
 
     .line 215
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_d
+    :cond_1
     invoke-super {p0}, Landroid/inputmethodservice/Keyboard;->isShifted()Z
 
     move-result v0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method setEnterKeyResources(Landroid/content/res/Resources;III)V
-    .registers 9
+    .locals 4
     .parameter "res"
     .parameter "previewId"
     .parameter "iconId"
@@ -508,7 +508,7 @@
     .line 119
     iget-object v0, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mEnterKey:Landroid/inputmethodservice/Keyboard$Key;
 
-    if-eqz v0, :cond_47
+    if-eqz v0, :cond_0
 
     .line 121
     iget-object v0, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mEnterKey:Landroid/inputmethodservice/Keyboard$Key;
@@ -557,7 +557,7 @@
 
     iget-object v0, v0, Landroid/inputmethodservice/Keyboard$Key;->iconPreview:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_47
+    if-eqz v0, :cond_0
 
     .line 131
     iget-object v0, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mEnterKey:Landroid/inputmethodservice/Keyboard$Key;
@@ -583,12 +583,12 @@
     invoke-virtual {v0, v3, v3, v1, v2}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 136
-    :cond_47
+    :cond_0
     return-void
 .end method
 
 .method setShiftLocked(Z)V
-    .registers 7
+    .locals 5
     .parameter "shiftLocked"
 
     .prologue
@@ -602,14 +602,14 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_4
-    if-ge v1, v2, :cond_13
+    :goto_0
+    if-ge v1, v2, :cond_1
 
     aget-object v3, v0, v1
 
     .line 165
     .local v3, shiftKey:Landroid/inputmethodservice/Keyboard$Key;
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_0
 
     .line 166
     iput-boolean p1, v3, Landroid/inputmethodservice/Keyboard$Key;->on:Z
@@ -620,33 +620,33 @@
     iput-object v4, v3, Landroid/inputmethodservice/Keyboard$Key;->icon:Landroid/graphics/drawable/Drawable;
 
     .line 164
-    :cond_10
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 170
     .end local v3           #shiftKey:Landroid/inputmethodservice/Keyboard$Key;
-    :cond_13
-    if-eqz p1, :cond_19
+    :cond_1
+    if-eqz p1, :cond_2
 
     const/4 v4, 0x2
 
-    :goto_16
+    :goto_1
     iput v4, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftState:I
 
     .line 171
     return-void
 
     .line 170
-    :cond_19
+    :cond_2
     const/4 v4, 0x1
 
-    goto :goto_16
+    goto :goto_1
 .end method
 
 .method public setShifted(Z)Z
-    .registers 7
+    .locals 5
     .parameter "shiftState"
 
     .prologue
@@ -659,41 +659,41 @@
 
     .line 183
     .local v1, shiftChanged:Z
-    if-nez p1, :cond_2f
+    if-nez p1, :cond_3
 
     .line 184
     iget v4, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftState:I
 
-    if-eqz v4, :cond_2d
+    if-eqz v4, :cond_2
 
     move v1, v2
 
     .line 185
-    :goto_a
+    :goto_0
     iput v3, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftState:I
 
     .line 190
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_1
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_d
+    :goto_2
     iget-object v2, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftKeys:[Landroid/inputmethodservice/Keyboard$Key;
 
     array-length v2, v2
 
-    if-ge v0, v2, :cond_50
+    if-ge v0, v2, :cond_6
 
     .line 191
     iget-object v2, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftKeys:[Landroid/inputmethodservice/Keyboard$Key;
 
     aget-object v2, v2, v0
 
-    if-eqz v2, :cond_2a
+    if-eqz v2, :cond_1
 
     .line 192
-    if-nez p1, :cond_3d
+    if-nez p1, :cond_5
 
     .line 193
     iget-object v2, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftKeys:[Landroid/inputmethodservice/Keyboard$Key;
@@ -714,50 +714,50 @@
     iput-object v4, v2, Landroid/inputmethodservice/Keyboard$Key;->icon:Landroid/graphics/drawable/Drawable;
 
     .line 190
-    :cond_2a
-    :goto_2a
+    :cond_1
+    :goto_3
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_d
+    goto :goto_2
 
     .end local v0           #i:I
-    :cond_2d
+    :cond_2
     move v1, v3
 
     .line 184
-    goto :goto_a
+    goto :goto_0
 
     .line 186
-    :cond_2f
+    :cond_3
     iget v4, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftState:I
 
-    if-nez v4, :cond_c
+    if-nez v4, :cond_0
 
     .line 187
     iget v4, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftState:I
 
-    if-nez v4, :cond_3b
+    if-nez v4, :cond_4
 
     move v1, v2
 
     .line 188
-    :goto_38
+    :goto_4
     iput v2, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftState:I
 
-    goto :goto_c
+    goto :goto_1
 
-    :cond_3b
+    :cond_4
     move v1, v3
 
     .line 187
-    goto :goto_38
+    goto :goto_4
 
     .line 195
     .restart local v0       #i:I
-    :cond_3d
+    :cond_5
     iget v2, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftState:I
 
-    if-nez v2, :cond_2a
+    if-nez v2, :cond_1
 
     .line 196
     iget-object v2, p0, Lcom/android/internal/widget/PasswordEntryKeyboard;->mShiftKeys:[Landroid/inputmethodservice/Keyboard$Key;
@@ -775,9 +775,9 @@
 
     iput-object v4, v2, Landroid/inputmethodservice/Keyboard$Key;->icon:Landroid/graphics/drawable/Drawable;
 
-    goto :goto_2a
+    goto :goto_3
 
     .line 203
-    :cond_50
+    :cond_6
     return v1
 .end method

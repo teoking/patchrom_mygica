@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1598
@@ -29,7 +29,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/app/Instrumentation$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1600

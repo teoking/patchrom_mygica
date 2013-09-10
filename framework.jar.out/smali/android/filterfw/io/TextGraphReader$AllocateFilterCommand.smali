@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterfw/io/TextGraphReader;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "className"
     .parameter "filterName"
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public execute(Landroid/filterfw/io/TextGraphReader;)V
-    .registers 7
+    .locals 5
     .parameter "reader"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -65,7 +65,8 @@
 
     .line 95
     .local v1, filter:Landroid/filterfw/core/Filter;
-    :try_start_1
+    :try_start_0
+    #getter for: Landroid/filterfw/io/TextGraphReader;->mFactory:Landroid/filterfw/core/FilterFactory;
     invoke-static {p1}, Landroid/filterfw/io/TextGraphReader;->access$000(Landroid/filterfw/io/TextGraphReader;)Landroid/filterfw/core/FilterFactory;
 
     move-result-object v2
@@ -75,19 +76,20 @@
     iget-object v4, p0, Landroid/filterfw/io/TextGraphReader$AllocateFilterCommand;->mFilterName:Ljava/lang/String;
 
     invoke-virtual {v2, v3, v4}, Landroid/filterfw/core/FilterFactory;->createFilterByClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/filterfw/core/Filter;
-    :try_end_c
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_c} :catch_11
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 101
+    #setter for: Landroid/filterfw/io/TextGraphReader;->mCurrentFilter:Landroid/filterfw/core/Filter;
     invoke-static {p1, v1}, Landroid/filterfw/io/TextGraphReader;->access$102(Landroid/filterfw/io/TextGraphReader;Landroid/filterfw/core/Filter;)Landroid/filterfw/core/Filter;
 
     .line 102
     return-void
 
     .line 96
-    :catch_11
+    :catch_0
     move-exception v0
 
     .line 97

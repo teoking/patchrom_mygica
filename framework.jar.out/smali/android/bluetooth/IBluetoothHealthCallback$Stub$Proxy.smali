@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 110
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 114
@@ -60,7 +60,7 @@
 .end method
 
 .method public onHealthAppConfigurationStatusChange(Landroid/bluetooth/BluetoothHealthAppConfiguration;I)V
-    .registers 8
+    .locals 5
     .parameter "config"
     .parameter "status"
     .annotation system Ldalvik/annotation/Throws;
@@ -83,13 +83,13 @@
 
     .line 121
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.bluetooth.IBluetoothHealthCallback"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 122
-    if-eqz p1, :cond_2b
+    if-eqz p1, :cond_0
 
     .line 123
     const/4 v2, 0x1
@@ -102,7 +102,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/bluetooth/BluetoothHealthAppConfiguration;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 129
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 130
@@ -116,8 +116,8 @@
 
     .line 131
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 134
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -129,18 +129,18 @@
     return-void
 
     .line 127
-    :cond_2b
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2c
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2f
-    .catchall {:try_start_2c .. :try_end_2f} :catchall_30
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 134
-    :catchall_30
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -152,7 +152,7 @@
 .end method
 
 .method public onHealthChannelStateChange(Landroid/bluetooth/BluetoothHealthAppConfiguration;Landroid/bluetooth/BluetoothDevice;IILandroid/os/ParcelFileDescriptor;I)V
-    .registers 12
+    .locals 5
     .parameter "config"
     .parameter "device"
     .parameter "prevState"
@@ -179,13 +179,13 @@
 
     .line 143
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.bluetooth.IBluetoothHealthCallback"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 144
-    if-eqz p1, :cond_45
+    if-eqz p1, :cond_0
 
     .line 145
     const/4 v2, 0x1
@@ -198,8 +198,8 @@
     invoke-virtual {p1, v0, v2}, Landroid/bluetooth/BluetoothHealthAppConfiguration;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 151
-    :goto_17
-    if-eqz p2, :cond_52
+    :goto_0
+    if-eqz p2, :cond_1
 
     .line 152
     const/4 v2, 0x1
@@ -212,14 +212,14 @@
     invoke-virtual {p2, v0, v2}, Landroid/bluetooth/BluetoothDevice;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 158
-    :goto_21
+    :goto_1
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 159
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 160
-    if-eqz p5, :cond_57
+    if-eqz p5, :cond_2
 
     .line 161
     const/4 v2, 0x1
@@ -232,7 +232,7 @@
     invoke-virtual {p5, v0, v2}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 167
-    :goto_31
+    :goto_2
     invoke-virtual {v0, p6}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 168
@@ -246,8 +246,8 @@
 
     .line 169
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_3e
-    .catchall {:try_start_8 .. :try_end_3e} :catchall_4a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 172
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -259,18 +259,18 @@
     return-void
 
     .line 149
-    :cond_45
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_46
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_49
-    .catchall {:try_start_46 .. :try_end_49} :catchall_4a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 172
-    :catchall_4a
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -281,21 +281,21 @@
     throw v2
 
     .line 156
-    :cond_52
+    :cond_1
     const/4 v2, 0x0
 
-    :try_start_53
+    :try_start_2
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_21
+    goto :goto_1
 
     .line 165
-    :cond_57
+    :cond_2
     const/4 v2, 0x0
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_5b
-    .catchall {:try_start_53 .. :try_end_5b} :catchall_4a
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_31
+    goto :goto_2
 .end method

@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 113
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public final acceptMatch(Ljava/lang/CharSequence;II)Z
-    .registers 7
+    .locals 3
     .parameter "s"
     .parameter "start"
     .parameter "end"
@@ -45,8 +45,8 @@
     move v1, p2
 
     .local v1, i:I
-    :goto_2
-    if-ge v1, p3, :cond_18
+    :goto_0
+    if-ge v1, p3, :cond_1
 
     .line 118
     invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -57,7 +57,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_15
+    if-eqz v2, :cond_0
 
     .line 119
     add-int/lit8 v0, v0, 0x1
@@ -65,24 +65,24 @@
     .line 120
     const/4 v2, 0x5
 
-    if-lt v0, v2, :cond_15
+    if-lt v0, v2, :cond_0
 
     .line 121
     const/4 v2, 0x1
 
     .line 125
-    :goto_14
+    :goto_1
     return v2
 
     .line 117
-    :cond_15
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 125
-    :cond_18
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_14
+    goto :goto_1
 .end method

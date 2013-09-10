@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 118
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -100,7 +100,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/pm/ProviderInfo;)V
-    .registers 4
+    .locals 2
     .parameter "orig"
 
     .prologue
@@ -188,7 +188,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 5
+    .locals 3
     .parameter "in"
 
     .prologue
@@ -254,11 +254,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5f
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_31
+    :goto_0
     iput-boolean v0, p0, Landroid/content/pm/ProviderInfo;->grantUriPermissions:Z
 
     .line 140
@@ -288,11 +288,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_61
+    if-eqz v0, :cond_1
 
     move v0, v1
 
-    :goto_4e
+    :goto_1
     iput-boolean v0, p0, Landroid/content/pm/ProviderInfo;->multiprocess:Z
 
     .line 143
@@ -307,35 +307,35 @@
 
     move-result v0
 
-    if-eqz v0, :cond_63
+    if-eqz v0, :cond_2
 
-    :goto_5c
+    :goto_2
     iput-boolean v1, p0, Landroid/content/pm/ProviderInfo;->isSyncable:Z
 
     .line 145
     return-void
 
-    :cond_5f
+    :cond_0
     move v0, v2
 
     .line 139
-    goto :goto_31
+    goto :goto_0
 
-    :cond_61
+    :cond_1
     move v0, v2
 
     .line 142
-    goto :goto_4e
+    goto :goto_1
 
-    :cond_63
+    :cond_2
     move v1, v2
 
     .line 144
-    goto :goto_5c
+    goto :goto_2
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/ProviderInfo$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -349,7 +349,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 102
@@ -359,7 +359,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 130
@@ -399,11 +399,11 @@
 
     iget-boolean v0, p0, Landroid/content/pm/ProviderInfo;->isSyncable:Z
 
-    if-eqz v0, :cond_3a
+    if-eqz v0, :cond_0
 
     const-string/jumbo v0, "true"
 
-    :goto_2a
+    :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -420,14 +420,14 @@
 
     return-object v0
 
-    :cond_3a
+    :cond_0
     const-string v0, "false"
 
-    goto :goto_2a
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "out"
     .parameter "parcelableFlags"
 
@@ -457,11 +457,11 @@
     .line 110
     iget-boolean v0, p0, Landroid/content/pm/ProviderInfo;->grantUriPermissions:Z
 
-    if-eqz v0, :cond_3b
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_19
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 111
@@ -477,11 +477,11 @@
     .line 113
     iget-boolean v0, p0, Landroid/content/pm/ProviderInfo;->multiprocess:Z
 
-    if-eqz v0, :cond_3d
+    if-eqz v0, :cond_1
 
     move v0, v1
 
-    :goto_2b
+    :goto_1
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 114
@@ -492,29 +492,29 @@
     .line 115
     iget-boolean v0, p0, Landroid/content/pm/ProviderInfo;->isSyncable:Z
 
-    if-eqz v0, :cond_3f
+    if-eqz v0, :cond_2
 
-    :goto_37
+    :goto_2
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 116
     return-void
 
-    :cond_3b
+    :cond_0
     move v0, v2
 
     .line 110
-    goto :goto_19
+    goto :goto_0
 
-    :cond_3d
+    :cond_1
     move v0, v2
 
     .line 113
-    goto :goto_2b
+    goto :goto_1
 
-    :cond_3f
+    :cond_2
     move v1, v2
 
     .line 115
-    goto :goto_37
+    goto :goto_2
 .end method

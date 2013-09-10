@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 343
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/p2p/WifiP2pDevice;
-    .registers 5
+    .locals 3
     .parameter "in"
 
     .prologue
@@ -114,7 +114,7 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_46
+    if-ne v1, v2, :cond_0
 
     .line 355
     sget-object v1, Landroid/net/wifi/p2p/WifiP2pWfdInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -128,12 +128,12 @@
     iput-object v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->wfdInfo:Landroid/net/wifi/p2p/WifiP2pWfdInfo;
 
     .line 357
-    :cond_46
+    :cond_0
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -146,7 +146,7 @@
 .end method
 
 .method public newArray(I)[Landroid/net/wifi/p2p/WifiP2pDevice;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -157,7 +157,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

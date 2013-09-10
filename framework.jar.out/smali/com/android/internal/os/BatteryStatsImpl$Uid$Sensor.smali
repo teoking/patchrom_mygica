@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/os/BatteryStatsImpl$Uid;I)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "handle"
 
@@ -42,7 +42,7 @@
 .end method
 
 .method private readTimerFromParcel(Ljava/util/ArrayList;Landroid/os/Parcel;)Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;
-    .registers 9
+    .locals 6
     .parameter
     .parameter "in"
     .annotation system Ldalvik/annotation/Signature;
@@ -65,17 +65,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     .line 3095
     const/4 v0, 0x0
 
     .line 3103
-    :goto_7
+    :goto_0
     return-object v0
 
     .line 3098
-    :cond_8
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Sensor;->this$1:Lcom/android/internal/os/BatteryStatsImpl$Uid;
 
     iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl$Uid;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
@@ -92,7 +92,7 @@
 
     .line 3099
     .local v3, pool:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;>;"
-    if-nez v3, :cond_28
+    if-nez v3, :cond_1
 
     .line 3100
     new-instance v3, Ljava/util/ArrayList;
@@ -113,7 +113,7 @@
     invoke-virtual {v0, v1, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 3103
-    :cond_28
+    :cond_1
     new-instance v0, Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;
 
     iget-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Sensor;->this$1:Lcom/android/internal/os/BatteryStatsImpl$Uid;
@@ -126,13 +126,13 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;-><init>(Lcom/android/internal/os/BatteryStatsImpl$Uid;ILjava/util/ArrayList;Ljava/util/ArrayList;Landroid/os/Parcel;)V
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getHandle()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 3129
@@ -142,7 +142,7 @@
 .end method
 
 .method public bridge synthetic getSensorTime()Landroid/os/BatteryStats$Timer;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 3084
@@ -154,7 +154,7 @@
 .end method
 
 .method public getSensorTime()Lcom/android/internal/os/BatteryStatsImpl$Timer;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 3124
@@ -164,7 +164,7 @@
 .end method
 
 .method readFromParcelLocked(Ljava/util/ArrayList;Landroid/os/Parcel;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "in"
     .annotation system Ldalvik/annotation/Signature;
@@ -193,7 +193,7 @@
 .end method
 
 .method reset()Z
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v0, 0x1
@@ -209,7 +209,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_0
 
     .line 3108
     const/4 v1, 0x0
@@ -217,17 +217,17 @@
     iput-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Sensor;->mTimer:Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;
 
     .line 3111
-    :goto_10
+    :goto_0
     return v0
 
-    :cond_11
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method writeToParcelLocked(Landroid/os/Parcel;J)V
-    .registers 5
+    .locals 1
     .parameter "out"
     .parameter "batteryRealtime"
 

@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 731
@@ -48,7 +48,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 740
@@ -59,7 +59,7 @@
 .end method
 
 .method public static obtain()Landroid/view/KeyCharacterMap$FallbackAction;
-    .registers 3
+    .locals 3
 
     .prologue
     .line 745
@@ -68,10 +68,10 @@
     monitor-enter v2
 
     .line 746
-    :try_start_3
+    :try_start_0
     sget-object v1, Landroid/view/KeyCharacterMap$FallbackAction;->sRecycleBin:Landroid/view/KeyCharacterMap$FallbackAction;
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_0
 
     .line 747
     new-instance v0, Landroid/view/KeyCharacterMap$FallbackAction;
@@ -80,7 +80,7 @@
 
     .line 754
     .local v0, target:Landroid/view/KeyCharacterMap$FallbackAction;
-    :goto_c
+    :goto_0
     monitor-exit v2
 
     .line 755
@@ -88,7 +88,7 @@
 
     .line 749
     .end local v0           #target:Landroid/view/KeyCharacterMap$FallbackAction;
-    :cond_e
+    :cond_0
     sget-object v0, Landroid/view/KeyCharacterMap$FallbackAction;->sRecycleBin:Landroid/view/KeyCharacterMap$FallbackAction;
 
     .line 750
@@ -109,15 +109,15 @@
 
     iput-object v1, v0, Landroid/view/KeyCharacterMap$FallbackAction;->next:Landroid/view/KeyCharacterMap$FallbackAction;
 
-    goto :goto_c
+    goto :goto_0
 
     .line 754
-    :catchall_1e
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_20
-    .catchall {:try_start_3 .. :try_end_20} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
@@ -125,7 +125,7 @@
 
 # virtual methods
 .method public recycle()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 759
@@ -134,12 +134,12 @@
     monitor-enter v1
 
     .line 760
-    :try_start_3
+    :try_start_0
     sget v0, Landroid/view/KeyCharacterMap$FallbackAction;->sRecycledCount:I
 
     const/16 v2, 0xa
 
-    if-ge v0, v2, :cond_17
+    if-ge v0, v2, :cond_0
 
     .line 761
     sget-object v0, Landroid/view/KeyCharacterMap$FallbackAction;->sRecycleBin:Landroid/view/KeyCharacterMap$FallbackAction;
@@ -157,27 +157,27 @@
     sput v0, Landroid/view/KeyCharacterMap$FallbackAction;->sRecycledCount:I
 
     .line 767
-    :goto_15
+    :goto_0
     monitor-exit v1
 
     .line 768
     return-void
 
     .line 765
-    :cond_17
+    :cond_0
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/view/KeyCharacterMap$FallbackAction;->next:Landroid/view/KeyCharacterMap$FallbackAction;
 
-    goto :goto_15
+    goto :goto_0
 
     .line 767
-    :catchall_1b
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1d
-    .catchall {:try_start_3 .. :try_end_1d} :catchall_1b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

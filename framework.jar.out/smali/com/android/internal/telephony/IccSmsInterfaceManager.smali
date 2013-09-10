@@ -13,7 +13,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/android/internal/telephony/PhoneBase;)V
-    .registers 3
+    .locals 1
     .parameter "phone"
 
     .prologue
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected buildValidRawData(Ljava/util/ArrayList;)Ljava/util/ArrayList;
-    .registers 8
+    .locals 6
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -69,8 +69,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_a
-    if-ge v2, v1, :cond_2d
+    :goto_0
+    if-ge v2, v1, :cond_1
 
     .line 181
     invoke-virtual {p1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -85,7 +85,7 @@
 
     aget-byte v4, v0, v4
 
-    if-nez v4, :cond_1e
+    if-nez v4, :cond_0
 
     .line 183
     const/4 v4, 0x0
@@ -93,13 +93,13 @@
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 180
-    :goto_1b
+    :goto_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 185
-    :cond_1e
+    :cond_0
     new-instance v5, Lcom/android/internal/telephony/SmsRawData;
 
     invoke-virtual {p1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -112,16 +112,16 @@
 
     invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1b
+    goto :goto_1
 
     .line 189
     .end local v0           #ba:[B
-    :cond_2d
+    :cond_1
     return-object v3
 .end method
 
 .method protected enforceReceiveAndSend(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "message"
 
     .prologue
@@ -147,7 +147,7 @@
 .end method
 
 .method protected makeSmsRecordData(I[B)[B
-    .registers 9
+    .locals 6
     .parameter "status"
     .parameter "pdu"
 
@@ -180,8 +180,8 @@
     add-int/lit8 v1, v2, 0x1
 
     .local v1, j:I
-    :goto_12
-    if-ge v1, v5, :cond_1a
+    :goto_0
+    if-ge v1, v5, :cond_0
 
     .line 209
     const/4 v2, -0x1
@@ -191,15 +191,15 @@
     .line 208
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_12
+    goto :goto_0
 
     .line 212
-    :cond_1a
+    :cond_0
     return-object v0
 .end method
 
 .method public sendData(Ljava/lang/String;Ljava/lang/String;I[BLandroid/app/PendingIntent;Landroid/app/PendingIntent;)V
-    .registers 14
+    .locals 7
     .parameter "destAddr"
     .parameter "scAddr"
     .parameter "destPort"
@@ -230,7 +230,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_63
+    if-eqz v0, :cond_0
 
     .line 82
     new-instance v0, Ljava/lang/StringBuilder;
@@ -308,7 +308,7 @@
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->log(Ljava/lang/String;)V
 
     .line 86
-    :cond_63
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mDispatcher:Lcom/android/internal/telephony/SMSDispatcher;
 
     move-object v1, p1
@@ -330,7 +330,7 @@
 .end method
 
 .method public sendMultipartText(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
-    .registers 16
+    .locals 10
     .parameter "destAddr"
     .parameter "scAddr"
     .parameter
@@ -382,7 +382,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_60
+    if-eqz v0, :cond_0
 
     .line 157
     const/4 v6, 0x0
@@ -394,12 +394,12 @@
     move-result-object v8
 
     .local v8, i$:Ljava/util/Iterator;
-    :goto_1b
+    :goto_0
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_60
+    if-eqz v0, :cond_0
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -467,13 +467,13 @@
 
     .end local v7           #i:I
     .restart local v6       #i:I
-    goto :goto_1b
+    goto :goto_0
 
     .line 163
     .end local v6           #i:I
     .end local v8           #i$:Ljava/util/Iterator;
     .end local v9           #part:Ljava/lang/String;
-    :cond_60
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mDispatcher:Lcom/android/internal/telephony/SMSDispatcher;
 
     move-object v3, p3
@@ -499,7 +499,7 @@
 .end method
 
 .method public sendText(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V
-    .registers 12
+    .locals 6
     .parameter "destAddr"
     .parameter "scAddr"
     .parameter "text"
@@ -529,7 +529,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_55
+    if-eqz v0, :cond_0
 
     .line 119
     new-instance v0, Ljava/lang/StringBuilder;
@@ -593,7 +593,7 @@
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->log(Ljava/lang/String;)V
 
     .line 123
-    :cond_55
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mDispatcher:Lcom/android/internal/telephony/SMSDispatcher;
 
     move-object v1, p1

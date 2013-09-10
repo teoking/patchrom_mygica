@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -46,7 +46,7 @@
 .end method
 
 .method protected static getSeekBar(Landroid/view/View;)Landroid/widget/SeekBar;
-    .registers 2
+    .locals 1
     .parameter "dialogView"
 
     .prologue
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public createActionButtons()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 48
@@ -83,7 +83,7 @@
 .end method
 
 .method protected onBindDialogView(Landroid/view/View;)V
-    .registers 4
+    .locals 2
     .parameter "view"
 
     .prologue
@@ -103,7 +103,7 @@
     .local v0, iconView:Landroid/widget/ImageView;
     iget-object v1, p0, Landroid/preference/SeekBarDialogPreference;->mMyIcon:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v1, :cond_16
+    if-eqz v1, :cond_0
 
     .line 58
     iget-object v1, p0, Landroid/preference/SeekBarDialogPreference;->mMyIcon:Landroid/graphics/drawable/Drawable;
@@ -111,14 +111,14 @@
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 62
-    :goto_15
+    :goto_0
     return-void
 
     .line 60
-    :cond_16
+    :cond_0
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    goto :goto_15
+    goto :goto_0
 .end method

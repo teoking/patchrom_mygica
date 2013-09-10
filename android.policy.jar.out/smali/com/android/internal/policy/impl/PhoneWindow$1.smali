@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindow;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -46,6 +46,7 @@
     .line 2928
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$1;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
+    #calls: Lcom/android/internal/policy/impl/PhoneWindow;->getPanelState(IZ)Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;
     invoke-static {v1, v2, v2}, Lcom/android/internal/policy/impl/PhoneWindow;->access$700(Lcom/android/internal/policy/impl/PhoneWindow;IZ)Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;
 
     move-result-object v0
@@ -58,16 +59,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_1c
+    if-nez v1, :cond_1
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     iget-object v1, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->menu:Lcom/android/internal/view/menu/MenuBuilder;
 
-    if-nez v1, :cond_1c
+    if-nez v1, :cond_1
 
     .line 2930
-    :cond_15
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$1;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     const/16 v2, 0x8
@@ -75,6 +76,6 @@
     invoke-virtual {v1, v2}, Lcom/android/internal/policy/impl/PhoneWindow;->invalidatePanelMenu(I)V
 
     .line 2932
-    :cond_1c
+    :cond_1
     return-void
 .end method

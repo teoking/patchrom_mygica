@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 400
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/LinkProperties;
-    .registers 10
+    .locals 8
     .parameter "in"
 
     .prologue
@@ -60,16 +60,16 @@
 
     .line 404
     .local v3, iface:Ljava/lang/String;
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_0
 
     .line 406
-    :try_start_c
+    :try_start_0
     invoke-virtual {v4, v3}, Landroid/net/LinkProperties;->setInterfaceName(Ljava/lang/String;)V
-    :try_end_f
-    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_f} :catch_22
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 411
-    :cond_f
+    :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -79,8 +79,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_14
-    if-ge v2, v0, :cond_25
+    :goto_0
+    if-ge v2, v0, :cond_2
 
     .line 413
     invoke-virtual {p1, v6}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
@@ -94,12 +94,12 @@
     .line 412
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_14
+    goto :goto_0
 
     .line 407
     .end local v0           #addressCount:I
     .end local v2           #i:I
-    :catch_22
+    :catch_0
     move-exception v1
 
     .local v1, e:Ljava/lang/Exception;
@@ -108,15 +108,15 @@
     .line 428
     .end local v1           #e:Ljava/lang/Exception;
     .end local v4           #netProp:Landroid/net/LinkProperties;
-    :cond_24
-    :goto_24
+    :cond_1
+    :goto_1
     return-object v4
 
     .line 415
     .restart local v0       #addressCount:I
     .restart local v2       #i:I
     .restart local v4       #netProp:Landroid/net/LinkProperties;
-    :cond_25
+    :cond_2
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -124,11 +124,11 @@
     .line 416
     const/4 v2, 0x0
 
-    :goto_2a
-    if-ge v2, v0, :cond_3a
+    :goto_2
+    if-ge v2, v0, :cond_3
 
     .line 418
-    :try_start_2c
+    :try_start_1
     invoke-virtual {p1}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v5
@@ -138,17 +138,17 @@
     move-result-object v5
 
     invoke-virtual {v4, v5}, Landroid/net/LinkProperties;->addDns(Ljava/net/InetAddress;)V
-    :try_end_37
-    .catch Ljava/net/UnknownHostException; {:try_start_2c .. :try_end_37} :catch_5e
+    :try_end_1
+    .catch Ljava/net/UnknownHostException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 416
-    :goto_37
+    :goto_3
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2a
+    goto :goto_2
 
     .line 421
-    :cond_3a
+    :cond_3
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -156,8 +156,8 @@
     .line 422
     const/4 v2, 0x0
 
-    :goto_3f
-    if-ge v2, v0, :cond_4d
+    :goto_4
+    if-ge v2, v0, :cond_4
 
     .line 423
     invoke-virtual {p1, v6}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
@@ -171,17 +171,17 @@
     .line 422
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3f
+    goto :goto_4
 
     .line 425
-    :cond_4d
+    :cond_4
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
     move-result v5
 
     const/4 v7, 0x1
 
-    if-ne v5, v7, :cond_24
+    if-ne v5, v7, :cond_1
 
     .line 426
     invoke-virtual {p1, v6}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
@@ -192,17 +192,17 @@
 
     invoke-virtual {v4, v5}, Landroid/net/LinkProperties;->setHttpProxy(Landroid/net/ProxyProperties;)V
 
-    goto :goto_24
+    goto :goto_1
 
     .line 419
-    :catch_5e
+    :catch_1
     move-exception v5
 
-    goto :goto_37
+    goto :goto_3
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -215,7 +215,7 @@
 .end method
 
 .method public newArray(I)[Landroid/net/LinkProperties;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -226,7 +226,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

@@ -52,7 +52,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/view/ScaleGestureDetector$OnScaleGestureListener;)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "listener"
 
@@ -65,7 +65,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_0
 
     new-instance v0, Landroid/view/InputEventConsistencyVerifier;
 
@@ -73,7 +73,7 @@
 
     invoke-direct {v0, p0, v1}, Landroid/view/InputEventConsistencyVerifier;-><init>(Ljava/lang/Object;I)V
 
-    :goto_f
+    :goto_0
     iput-object v0, p0, Landroid/view/ScaleGestureDetector;->mInputEventConsistencyVerifier:Landroid/view/InputEventConsistencyVerifier;
 
     .line 149
@@ -99,16 +99,16 @@
     return-void
 
     .line 144
-    :cond_22
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getCurrentSpan()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 312
@@ -118,7 +118,7 @@
 .end method
 
 .method public getCurrentSpanX()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 322
@@ -128,7 +128,7 @@
 .end method
 
 .method public getCurrentSpanY()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 332
@@ -138,7 +138,7 @@
 .end method
 
 .method public getEventTime()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 392
@@ -148,7 +148,7 @@
 .end method
 
 .method public getFocusX()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 288
@@ -158,7 +158,7 @@
 .end method
 
 .method public getFocusY()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 302
@@ -168,7 +168,7 @@
 .end method
 
 .method public getPreviousSpan()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 342
@@ -178,7 +178,7 @@
 .end method
 
 .method public getPreviousSpanX()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 352
@@ -188,7 +188,7 @@
 .end method
 
 .method public getPreviousSpanY()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 362
@@ -198,7 +198,7 @@
 .end method
 
 .method public getScaleFactor()F
-    .registers 3
+    .locals 2
 
     .prologue
     .line 373
@@ -208,7 +208,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_d
+    if-lez v0, :cond_0
 
     iget v0, p0, Landroid/view/ScaleGestureDetector;->mCurrSpan:F
 
@@ -216,17 +216,17 @@
 
     div-float/2addr v0, v1
 
-    :goto_c
+    :goto_0
     return v0
 
-    :cond_d
+    :cond_0
     const/high16 v0, 0x3f80
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public getTimeDelta()J
-    .registers 5
+    .locals 4
 
     .prologue
     .line 383
@@ -240,7 +240,7 @@
 .end method
 
 .method public isInProgress()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 274
@@ -250,7 +250,7 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .registers 28
+    .locals 26
     .parameter "event"
 
     .prologue
@@ -261,7 +261,7 @@
 
     move-object/from16 v24, v0
 
-    if-eqz v24, :cond_19
+    if-eqz v24, :cond_0
 
     .line 168
     move-object/from16 v0, p0
@@ -281,7 +281,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/view/InputEventConsistencyVerifier;->onTouchEvent(Landroid/view/MotionEvent;I)V
 
     .line 171
-    :cond_19
+    :cond_0
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v3
@@ -292,33 +292,33 @@
 
     move/from16 v0, v24
 
-    if-eq v3, v0, :cond_29
+    if-eq v3, v0, :cond_1
 
     const/16 v24, 0x3
 
     move/from16 v0, v24
 
-    if-ne v3, v0, :cond_59
+    if-ne v3, v0, :cond_4
 
-    :cond_29
+    :cond_1
     const/16 v19, 0x1
 
     .line 175
     .local v19, streamComplete:Z
-    :goto_2b
-    if-eqz v3, :cond_2f
+    :goto_0
+    if-eqz v3, :cond_2
 
-    if-eqz v19, :cond_5c
+    if-eqz v19, :cond_5
 
     .line 179
-    :cond_2f
+    :cond_2
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/view/ScaleGestureDetector;->mInProgress:Z
 
     move/from16 v24, v0
 
-    if-eqz v24, :cond_54
+    if-eqz v24, :cond_3
 
     .line 180
     move-object/from16 v0, p0
@@ -352,56 +352,56 @@
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mInitialSpan:F
 
     .line 185
-    :cond_54
-    if-eqz v19, :cond_5c
+    :cond_3
+    if-eqz v19, :cond_5
 
     .line 186
     const/16 v24, 0x1
 
     .line 267
-    :goto_58
+    :goto_1
     return v24
 
     .line 173
     .end local v19           #streamComplete:Z
-    :cond_59
+    :cond_4
     const/16 v19, 0x0
 
-    goto :goto_2b
+    goto :goto_0
 
     .line 190
     .restart local v19       #streamComplete:Z
-    :cond_5c
+    :cond_5
     const/16 v24, 0x6
 
     move/from16 v0, v24
 
-    if-eq v3, v0, :cond_68
+    if-eq v3, v0, :cond_6
 
     const/16 v24, 0x5
 
     move/from16 v0, v24
 
-    if-ne v3, v0, :cond_86
+    if-ne v3, v0, :cond_7
 
-    :cond_68
+    :cond_6
     const/4 v4, 0x1
 
     .line 193
     .local v4, configChanged:Z
-    :goto_69
+    :goto_2
     const/16 v24, 0x6
 
     move/from16 v0, v24
 
-    if-ne v3, v0, :cond_88
+    if-ne v3, v0, :cond_8
 
     const/4 v14, 0x1
 
     .line 194
     .local v14, pointerUp:Z
-    :goto_70
-    if-eqz v14, :cond_8a
+    :goto_3
+    if-eqz v14, :cond_9
 
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
@@ -409,7 +409,7 @@
 
     .line 197
     .local v15, skipIndex:I
-    :goto_76
+    :goto_4
     const/16 v20, 0x0
 
     .local v20, sumX:F
@@ -426,17 +426,17 @@
     const/4 v13, 0x0
 
     .local v13, i:I
-    :goto_7f
-    if-ge v13, v5, :cond_9d
+    :goto_5
+    if-ge v13, v5, :cond_b
 
     .line 200
-    if-ne v15, v13, :cond_8c
+    if-ne v15, v13, :cond_a
 
     .line 199
-    :goto_83
+    :goto_6
     add-int/lit8 v13, v13, 0x1
 
-    goto :goto_7f
+    goto :goto_5
 
     .line 190
     .end local v4           #configChanged:Z
@@ -446,24 +446,24 @@
     .end local v15           #skipIndex:I
     .end local v20           #sumX:F
     .end local v21           #sumY:F
-    :cond_86
+    :cond_7
     const/4 v4, 0x0
 
-    goto :goto_69
+    goto :goto_2
 
     .line 193
     .restart local v4       #configChanged:Z
-    :cond_88
+    :cond_8
     const/4 v14, 0x0
 
-    goto :goto_70
+    goto :goto_3
 
     .line 194
     .restart local v14       #pointerUp:Z
-    :cond_8a
+    :cond_9
     const/4 v15, -0x1
 
-    goto :goto_76
+    goto :goto_4
 
     .line 201
     .restart local v5       #count:I
@@ -471,7 +471,7 @@
     .restart local v15       #skipIndex:I
     .restart local v20       #sumX:F
     .restart local v21       #sumY:F
-    :cond_8c
+    :cond_a
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v13}, Landroid/view/MotionEvent;->getX(I)F
@@ -489,17 +489,17 @@
 
     add-float v21, v21, v24
 
-    goto :goto_83
+    goto :goto_6
 
     .line 204
-    :cond_9d
-    if-eqz v14, :cond_b5
+    :cond_b
+    if-eqz v14, :cond_c
 
     add-int/lit8 v10, v5, -0x1
 
     .line 205
     .local v10, div:I
-    :goto_a1
+    :goto_7
     int-to-float v0, v10
 
     move/from16 v24, v0
@@ -525,28 +525,28 @@
     .local v7, devSumY:F
     const/4 v13, 0x0
 
-    :goto_ae
-    if-ge v13, v5, :cond_d4
+    :goto_8
+    if-ge v13, v5, :cond_e
 
     .line 211
-    if-ne v15, v13, :cond_b7
+    if-ne v15, v13, :cond_d
 
     .line 210
-    :goto_b2
+    :goto_9
     add-int/lit8 v13, v13, 0x1
 
-    goto :goto_ae
+    goto :goto_8
 
     .end local v6           #devSumX:F
     .end local v7           #devSumY:F
     .end local v10           #div:I
     .end local v11           #focusX:F
     .end local v12           #focusY:F
-    :cond_b5
+    :cond_c
     move v10, v5
 
     .line 204
-    goto :goto_a1
+    goto :goto_7
 
     .line 212
     .restart local v6       #devSumX:F
@@ -554,7 +554,7 @@
     .restart local v10       #div:I
     .restart local v11       #focusX:F
     .restart local v12       #focusY:F
-    :cond_b7
+    :cond_d
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v13}, Landroid/view/MotionEvent;->getX(I)F
@@ -584,10 +584,10 @@
 
     add-float v7, v7, v24
 
-    goto :goto_b2
+    goto :goto_9
 
     .line 215
-    :cond_d4
+    :cond_e
     int-to-float v0, v10
 
     move/from16 v24, v0
@@ -652,18 +652,18 @@
 
     move/from16 v24, v0
 
-    if-eqz v24, :cond_129
+    if-eqz v24, :cond_10
 
     const/16 v24, 0x0
 
     cmpl-float v24, v16, v24
 
-    if-eqz v24, :cond_10e
+    if-eqz v24, :cond_f
 
-    if-eqz v4, :cond_129
+    if-eqz v4, :cond_10
 
     .line 232
-    :cond_10e
+    :cond_f
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/view/ScaleGestureDetector;->mListener:Landroid/view/ScaleGestureDetector$OnScaleGestureListener;
@@ -693,8 +693,8 @@
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mInitialSpan:F
 
     .line 236
-    :cond_129
-    if-eqz v4, :cond_155
+    :cond_10
+    if-eqz v4, :cond_11
 
     .line 237
     move/from16 v0, v17
@@ -742,22 +742,22 @@
     iput v0, v1, Landroid/view/ScaleGestureDetector;->mInitialSpan:F
 
     .line 241
-    :cond_155
+    :cond_11
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/view/ScaleGestureDetector;->mInProgress:Z
 
     move/from16 v24, v0
 
-    if-nez v24, :cond_1b8
+    if-nez v24, :cond_13
 
     const/16 v24, 0x0
 
     cmpl-float v24, v16, v24
 
-    if-eqz v24, :cond_1b8
+    if-eqz v24, :cond_13
 
-    if-nez v23, :cond_180
+    if-nez v23, :cond_12
 
     move-object/from16 v0, p0
 
@@ -785,10 +785,10 @@
 
     cmpl-float v24, v24, v25
 
-    if-lez v24, :cond_1b8
+    if-lez v24, :cond_13
 
     .line 243
-    :cond_180
+    :cond_12
     move/from16 v0, v17
 
     move-object/from16 v1, p0
@@ -849,12 +849,12 @@
     iput-boolean v0, v1, Landroid/view/ScaleGestureDetector;->mInProgress:Z
 
     .line 250
-    :cond_1b8
+    :cond_13
     const/16 v24, 0x2
 
     move/from16 v0, v24
 
-    if-ne v3, v0, :cond_20e
+    if-ne v3, v0, :cond_15
 
     .line 251
     move/from16 v0, v17
@@ -888,7 +888,7 @@
 
     move/from16 v24, v0
 
-    if-eqz v24, :cond_1e8
+    if-eqz v24, :cond_14
 
     .line 257
     move-object/from16 v0, p0
@@ -906,8 +906,8 @@
     move-result v22
 
     .line 260
-    :cond_1e8
-    if-eqz v22, :cond_20e
+    :cond_14
+    if-eqz v22, :cond_15
 
     .line 261
     move-object/from16 v0, p0
@@ -950,8 +950,8 @@
 
     .line 267
     .end local v22           #updatePrev:Z
-    :cond_20e
+    :cond_15
     const/16 v24, 0x1
 
-    goto/16 :goto_58
+    goto/16 :goto_1
 .end method

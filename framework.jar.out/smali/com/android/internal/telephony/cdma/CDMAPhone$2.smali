@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 629
@@ -36,7 +36,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cdma/CDMAPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
-    :try_start_9
+    :try_start_0
     sget-object v0, Lcom/android/internal/telephony/cdma/CDMAPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->FAILED:Lcom/android/internal/telephony/DataConnectionTracker$State;
@@ -48,11 +48,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_14
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_14} :catch_a0
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_a
 
-    :goto_14
-    :try_start_14
+    :goto_0
+    :try_start_1
     sget-object v0, Lcom/android/internal/telephony/cdma/CDMAPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->IDLE:Lcom/android/internal/telephony/DataConnectionTracker$State;
@@ -64,11 +64,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_1f} :catch_9e
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_9
 
-    :goto_1f
-    :try_start_1f
+    :goto_1
+    :try_start_2
     sget-object v0, Lcom/android/internal/telephony/cdma/CDMAPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->CONNECTED:Lcom/android/internal/telephony/DataConnectionTracker$State;
@@ -80,11 +80,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_2a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1f .. :try_end_2a} :catch_9c
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_8
 
-    :goto_2a
-    :try_start_2a
+    :goto_2
+    :try_start_3
     sget-object v0, Lcom/android/internal/telephony/cdma/CDMAPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->DISCONNECTING:Lcom/android/internal/telephony/DataConnectionTracker$State;
@@ -96,11 +96,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_35
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2a .. :try_end_35} :catch_9a
+    :try_end_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_7
 
-    :goto_35
-    :try_start_35
+    :goto_3
+    :try_start_4
     sget-object v0, Lcom/android/internal/telephony/cdma/CDMAPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->INITING:Lcom/android/internal/telephony/DataConnectionTracker$State;
@@ -112,11 +112,11 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_40
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_35 .. :try_end_40} :catch_98
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_6
 
-    :goto_40
-    :try_start_40
+    :goto_4
+    :try_start_5
     sget-object v0, Lcom/android/internal/telephony/cdma/CDMAPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->CONNECTING:Lcom/android/internal/telephony/DataConnectionTracker$State;
@@ -128,11 +128,11 @@
     const/4 v2, 0x6
 
     aput v2, v0, v1
-    :try_end_4b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_40 .. :try_end_4b} :catch_96
+    :try_end_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_5
 
-    :goto_4b
-    :try_start_4b
+    :goto_5
+    :try_start_6
     sget-object v0, Lcom/android/internal/telephony/cdma/CDMAPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->SCANNING:Lcom/android/internal/telephony/DataConnectionTracker$State;
@@ -144,11 +144,11 @@
     const/4 v2, 0x7
 
     aput v2, v0, v1
-    :try_end_56
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4b .. :try_end_56} :catch_94
+    :try_end_6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_4
 
     .line 337
-    :goto_56
+    :goto_6
     invoke-static {}, Lcom/android/internal/telephony/DataConnectionTracker$Activity;->values()[Lcom/android/internal/telephony/DataConnectionTracker$Activity;
 
     move-result-object v0
@@ -159,7 +159,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cdma/CDMAPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$Activity:[I
 
-    :try_start_5f
+    :try_start_7
     sget-object v0, Lcom/android/internal/telephony/cdma/CDMAPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$Activity:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$Activity;->DATAIN:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
@@ -171,11 +171,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_6a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5f .. :try_end_6a} :catch_92
+    :try_end_7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_3
 
-    :goto_6a
-    :try_start_6a
+    :goto_7
+    :try_start_8
     sget-object v0, Lcom/android/internal/telephony/cdma/CDMAPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$Activity:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$Activity;->DATAOUT:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
@@ -187,11 +187,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_75
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6a .. :try_end_75} :catch_90
+    :try_end_8
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_2
 
-    :goto_75
-    :try_start_75
+    :goto_8
+    :try_start_9
     sget-object v0, Lcom/android/internal/telephony/cdma/CDMAPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$Activity:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$Activity;->DATAINANDOUT:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
@@ -203,11 +203,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_80
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_75 .. :try_end_80} :catch_8e
+    :try_end_9
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_1
 
-    :goto_80
-    :try_start_80
+    :goto_9
+    :try_start_a
     sget-object v0, Lcom/android/internal/telephony/cdma/CDMAPhone$2;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$Activity:[I
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$Activity;->DORMANT:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
@@ -219,65 +219,65 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_8b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_80 .. :try_end_8b} :catch_8c
+    :try_end_a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_0
 
-    :goto_8b
+    :goto_a
     return-void
 
-    :catch_8c
+    :catch_0
     move-exception v0
 
-    goto :goto_8b
+    goto :goto_a
 
-    :catch_8e
+    :catch_1
     move-exception v0
 
-    goto :goto_80
+    goto :goto_9
 
-    :catch_90
+    :catch_2
     move-exception v0
 
-    goto :goto_75
+    goto :goto_8
 
-    :catch_92
+    :catch_3
     move-exception v0
 
-    goto :goto_6a
+    goto :goto_7
 
     .line 629
-    :catch_94
+    :catch_4
     move-exception v0
 
-    goto :goto_56
+    goto :goto_6
 
-    :catch_96
+    :catch_5
     move-exception v0
 
-    goto :goto_4b
+    goto :goto_5
 
-    :catch_98
+    :catch_6
     move-exception v0
 
-    goto :goto_40
+    goto :goto_4
 
-    :catch_9a
+    :catch_7
     move-exception v0
 
-    goto :goto_35
+    goto :goto_3
 
-    :catch_9c
+    :catch_8
     move-exception v0
 
-    goto :goto_2a
+    goto :goto_2
 
-    :catch_9e
+    :catch_9
     move-exception v0
 
-    goto :goto_1f
+    goto :goto_1
 
-    :catch_a0
+    :catch_a
     move-exception v0
 
-    goto/16 :goto_14
+    goto/16 :goto_0
 .end method

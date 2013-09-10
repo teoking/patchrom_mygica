@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
-    .registers 3
+    .locals 1
     .parameter "rs"
 
     .prologue
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public addIndexSetAllocation(Landroid/renderscript/Allocation;Landroid/renderscript/Mesh$Primitive;)Landroid/renderscript/Mesh$AllocationBuilder;
-    .registers 5
+    .locals 2
     .parameter "a"
     .parameter "p"
 
@@ -95,7 +95,7 @@
 .end method
 
 .method public addIndexSetType(Landroid/renderscript/Mesh$Primitive;)Landroid/renderscript/Mesh$AllocationBuilder;
-    .registers 4
+    .locals 2
     .parameter "p"
 
     .prologue
@@ -123,7 +123,7 @@
 .end method
 
 .method public addVertexAllocation(Landroid/renderscript/Allocation;)Landroid/renderscript/Mesh$AllocationBuilder;
-    .registers 5
+    .locals 3
     .parameter "a"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -139,7 +139,7 @@
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_f
+    if-lt v0, v1, :cond_0
 
     .line 457
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -151,7 +151,7 @@
     throw v0
 
     .line 460
-    :cond_f
+    :cond_0
     iget-object v0, p0, Landroid/renderscript/Mesh$AllocationBuilder;->mVertexTypes:[Landroid/renderscript/Mesh$AllocationBuilder$Entry;
 
     iget v1, p0, Landroid/renderscript/Mesh$AllocationBuilder;->mVertexTypeCount:I
@@ -183,7 +183,7 @@
 .end method
 
 .method public create()Landroid/renderscript/Mesh;
-    .registers 14
+    .locals 13
 
     .prologue
     .line 506
@@ -247,10 +247,10 @@
     const/4 v1, 0x0
 
     .local v1, ct:I
-    :goto_2e
+    :goto_0
     iget v11, p0, Landroid/renderscript/Mesh$AllocationBuilder;->mVertexTypeCount:I
 
-    if-ge v1, v11, :cond_47
+    if-ge v1, v11, :cond_0
 
     .line 517
     iget-object v11, p0, Landroid/renderscript/Mesh$AllocationBuilder;->mVertexTypes:[Landroid/renderscript/Mesh$AllocationBuilder$Entry;
@@ -277,21 +277,21 @@
     .line 516
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 522
     .end local v2           #entry:Landroid/renderscript/Mesh$AllocationBuilder$Entry;
-    :cond_47
+    :cond_0
     const/4 v1, 0x0
 
-    :goto_48
+    :goto_1
     iget-object v11, p0, Landroid/renderscript/Mesh$AllocationBuilder;->mIndexTypes:Ljava/util/Vector;
 
     invoke-virtual {v11}, Ljava/util/Vector;->size()I
 
     move-result v11
 
-    if-ge v1, v11, :cond_79
+    if-ge v1, v11, :cond_2
 
     .line 523
     iget-object v11, p0, Landroid/renderscript/Mesh$AllocationBuilder;->mIndexTypes:Ljava/util/Vector;
@@ -306,13 +306,13 @@
     .restart local v2       #entry:Landroid/renderscript/Mesh$AllocationBuilder$Entry;
     iget-object v11, v2, Landroid/renderscript/Mesh$AllocationBuilder$Entry;->a:Landroid/renderscript/Allocation;
 
-    if-nez v11, :cond_70
+    if-nez v11, :cond_1
 
     const/4 v0, 0x0
 
     .line 525
     .local v0, allocID:I
-    :goto_5d
+    :goto_2
     iget-object v11, v2, Landroid/renderscript/Mesh$AllocationBuilder$Entry;->a:Landroid/renderscript/Allocation;
 
     aput-object v11, v5, v1
@@ -335,11 +335,11 @@
     .line 522
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_48
+    goto :goto_1
 
     .line 524
     .end local v0           #allocID:I
-    :cond_70
+    :cond_1
     iget-object v11, v2, Landroid/renderscript/Mesh$AllocationBuilder$Entry;->a:Landroid/renderscript/Allocation;
 
     iget-object v12, p0, Landroid/renderscript/Mesh$AllocationBuilder;->mRS:Landroid/renderscript/RenderScript;
@@ -348,11 +348,11 @@
 
     move-result v0
 
-    goto :goto_5d
+    goto :goto_2
 
     .line 532
     .end local v2           #entry:Landroid/renderscript/Mesh$AllocationBuilder$Entry;
-    :cond_79
+    :cond_2
     iget-object v11, p0, Landroid/renderscript/Mesh$AllocationBuilder;->mRS:Landroid/renderscript/RenderScript;
 
     invoke-virtual {v11, v10, v4, v7}, Landroid/renderscript/RenderScript;->nMeshCreate([I[I[I)I
@@ -382,7 +382,7 @@
 .end method
 
 .method public getCurrentIndexSetIndex()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 443
@@ -398,7 +398,7 @@
 .end method
 
 .method public getCurrentVertexTypeIndex()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 434

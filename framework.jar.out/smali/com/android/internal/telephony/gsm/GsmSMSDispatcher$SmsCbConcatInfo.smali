@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/gsm/SmsCbHeader;Landroid/telephony/SmsCbLocation;)V
-    .registers 3
+    .locals 0
     .parameter "header"
     .parameter "location"
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
     .parameter "obj"
 
     .prologue
@@ -52,7 +52,7 @@
     .line 341
     instance-of v2, p1, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_0
 
     move-object v0, p1
 
@@ -73,7 +73,7 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_21
+    if-ne v2, v3, :cond_0
 
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;->mLocation:Landroid/telephony/SmsCbLocation;
 
@@ -83,18 +83,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_0
 
     const/4 v1, 0x1
 
     .line 351
     .end local v0           #other:Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$SmsCbConcatInfo;
-    :cond_21
+    :cond_0
     return v1
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 336
@@ -118,7 +118,7 @@
 .end method
 
 .method public matchesLocation(Ljava/lang/String;II)Z
-    .registers 5
+    .locals 1
     .parameter "plmn"
     .parameter "lac"
     .parameter "cid"

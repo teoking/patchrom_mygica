@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/IBinder;)V
-    .registers 3
+    .locals 1
     .parameter "remote"
 
     .prologue
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 152
@@ -46,7 +46,7 @@
 .end method
 
 .method public close()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -67,7 +67,7 @@
 
     .line 212
     .local v1, reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.content.IBulkCursor"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -83,8 +83,8 @@
 
     .line 215
     invoke-static {v1}, Landroid/database/DatabaseUtils;->readExceptionFromParcel(Landroid/os/Parcel;)V
-    :try_end_17
-    .catchall {:try_start_8 .. :try_end_17} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 217
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -96,7 +96,7 @@
     return-void
 
     .line 217
-    :catchall_1e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -108,7 +108,7 @@
 .end method
 
 .method public deactivate()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -129,7 +129,7 @@
 
     .line 197
     .local v1, reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.content.IBulkCursor"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -145,8 +145,8 @@
 
     .line 200
     invoke-static {v1}, Landroid/database/DatabaseUtils;->readExceptionFromParcel(Landroid/os/Parcel;)V
-    :try_end_17
-    .catchall {:try_start_8 .. :try_end_17} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 202
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -158,7 +158,7 @@
     return-void
 
     .line 202
-    :catchall_1e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -170,7 +170,7 @@
 .end method
 
 .method public getExtras()Landroid/os/Bundle;
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -181,7 +181,7 @@
     .line 247
     iget-object v2, p0, Landroid/database/BulkCursorProxy;->mExtras:Landroid/os/Bundle;
 
-    if-nez v2, :cond_27
+    if-nez v2, :cond_0
 
     .line 248
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -196,7 +196,7 @@
 
     .line 251
     .local v1, reply:Landroid/os/Parcel;
-    :try_start_c
+    :try_start_0
     const-string v2, "android.content.IBulkCursor"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -219,8 +219,8 @@
     move-result-object v2
 
     iput-object v2, p0, Landroid/database/BulkCursorProxy;->mExtras:Landroid/os/Bundle;
-    :try_end_21
-    .catchall {:try_start_c .. :try_end_21} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 258
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -231,7 +231,7 @@
     .line 262
     .end local v0           #data:Landroid/os/Parcel;
     .end local v1           #reply:Landroid/os/Parcel;
-    :cond_27
+    :cond_0
     iget-object v2, p0, Landroid/database/BulkCursorProxy;->mExtras:Landroid/os/Bundle;
 
     return-object v2
@@ -239,7 +239,7 @@
     .line 258
     .restart local v0       #data:Landroid/os/Parcel;
     .restart local v1       #reply:Landroid/os/Parcel;
-    :catchall_2a
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -251,7 +251,7 @@
 .end method
 
 .method public getWindow(I)Landroid/database/CursorWindow;
-    .registers 9
+    .locals 7
     .parameter "position"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -275,7 +275,7 @@
 
     .line 160
     .local v1, reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.content.IBulkCursor"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -304,17 +304,17 @@
 
     move-result v3
 
-    if-ne v3, v6, :cond_26
+    if-ne v3, v6, :cond_0
 
     .line 168
     invoke-static {v1}, Landroid/database/CursorWindow;->newFromParcel(Landroid/os/Parcel;)Landroid/database/CursorWindow;
-    :try_end_25
-    .catchall {:try_start_9 .. :try_end_25} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
     .line 172
-    :cond_26
+    :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 173
@@ -324,7 +324,7 @@
 
     .line 172
     .end local v2           #window:Landroid/database/CursorWindow;
-    :catchall_2d
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -336,7 +336,7 @@
 .end method
 
 .method public onMove(I)V
-    .registers 7
+    .locals 5
     .parameter "position"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -358,7 +358,7 @@
 
     .line 181
     .local v1, reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.content.IBulkCursor"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -377,8 +377,8 @@
 
     .line 185
     invoke-static {v1}, Landroid/database/DatabaseUtils;->readExceptionFromParcel(Landroid/os/Parcel;)V
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 187
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -390,7 +390,7 @@
     return-void
 
     .line 187
-    :catchall_21
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -402,7 +402,7 @@
 .end method
 
 .method public requery(Landroid/database/IContentObserver;)I
-    .registers 9
+    .locals 7
     .parameter "observer"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -424,7 +424,7 @@
 
     .line 226
     .local v2, reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v4, "android.content.IBulkCursor"
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -446,18 +446,18 @@
     .line 230
     .local v3, result:Z
     invoke-static {v2}, Landroid/database/DatabaseUtils;->readExceptionFromParcel(Landroid/os/Parcel;)V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 233
-    if-nez v3, :cond_25
+    if-nez v3, :cond_0
 
     .line 234
     const/4 v0, -0x1
 
     .line 241
     .local v0, count:I
-    :goto_1e
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 242
@@ -467,8 +467,8 @@
 
     .line 236
     .end local v0           #count:I
-    :cond_25
-    :try_start_25
+    :cond_0
+    :try_start_1
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -480,15 +480,15 @@
     move-result-object v4
 
     iput-object v4, p0, Landroid/database/BulkCursorProxy;->mExtras:Landroid/os/Bundle;
-    :try_end_2f
-    .catchall {:try_start_25 .. :try_end_2f} :catchall_30
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 241
     .end local v0           #count:I
     .end local v3           #result:Z
-    :catchall_30
+    :catchall_0
     move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -500,7 +500,7 @@
 .end method
 
 .method public respond(Landroid/os/Bundle;)Landroid/os/Bundle;
-    .registers 8
+    .locals 6
     .parameter "extras"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -522,7 +522,7 @@
 
     .line 269
     .local v1, reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.content.IBulkCursor"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -544,8 +544,8 @@
 
     .line 275
     invoke-virtual {v1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -560,7 +560,7 @@
 
     .line 278
     .end local v2           #returnExtras:Landroid/os/Bundle;
-    :catchall_25
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V

@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 596
@@ -80,7 +80,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 587
@@ -90,7 +90,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/ProgressBar$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -101,7 +101,7 @@
 .end method
 
 .method public static obtain(IIZ)Landroid/widget/ProgressBar$RefreshData;
-    .registers 5
+    .locals 2
     .parameter "id"
     .parameter "progress"
     .parameter "fromUser"
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method public getNextPoolable()Landroid/widget/ProgressBar$RefreshData;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 631
@@ -143,7 +143,7 @@
 .end method
 
 .method public bridge synthetic getNextPoolable()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 587
@@ -155,7 +155,7 @@
 .end method
 
 .method public isPooled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 636
@@ -165,7 +165,7 @@
 .end method
 
 .method public recycle()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 621
@@ -178,7 +178,7 @@
 .end method
 
 .method public setNextPoolable(Landroid/widget/ProgressBar$RefreshData;)V
-    .registers 2
+    .locals 0
     .parameter "element"
 
     .prologue
@@ -190,7 +190,7 @@
 .end method
 
 .method public bridge synthetic setNextPoolable(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -204,7 +204,7 @@
 .end method
 
 .method public setPooled(Z)V
-    .registers 2
+    .locals 0
     .parameter "isPooled"
 
     .prologue

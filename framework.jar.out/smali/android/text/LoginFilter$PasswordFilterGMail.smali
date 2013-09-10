@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 198
@@ -29,7 +29,7 @@
 .end method
 
 .method public constructor <init>(Z)V
-    .registers 2
+    .locals 0
     .parameter "appendInvalid"
 
     .prologue
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public isAllowed(C)Z
-    .registers 4
+    .locals 2
     .parameter "c"
 
     .prologue
@@ -52,30 +52,30 @@
     .line 208
     const/16 v1, 0x20
 
-    if-gt v1, p1, :cond_a
+    if-gt v1, p1, :cond_1
 
     const/16 v1, 0x7f
 
-    if-gt p1, v1, :cond_a
+    if-gt p1, v1, :cond_1
 
     .line 213
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return v0
 
     .line 211
-    :cond_a
+    :cond_1
     const/16 v1, 0xa0
 
-    if-gt v1, p1, :cond_12
+    if-gt v1, p1, :cond_2
 
     const/16 v1, 0xff
 
-    if-le p1, v1, :cond_9
+    if-le p1, v1, :cond_0
 
     .line 213
-    :cond_12
+    :cond_2
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method

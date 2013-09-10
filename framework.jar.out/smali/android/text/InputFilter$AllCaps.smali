@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 49
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public filter(Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
-    .registers 16
+    .locals 9
     .parameter "source"
     .parameter "start"
     .parameter "end"
@@ -48,8 +48,8 @@
     move v6, p2
 
     .local v6, i:I
-    :goto_3
-    if-ge v6, p3, :cond_36
+    :goto_0
+    if-ge v6, p3, :cond_2
 
     .line 53
     invoke-interface {p1, v6}, Ljava/lang/CharSequence;->charAt(I)C
@@ -60,7 +60,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_1
 
     .line 54
     sub-int v0, p3, p2
@@ -84,7 +84,7 @@
     .local v7, s:Ljava/lang/String;
     instance-of v0, p1, Landroid/text/Spanned;
 
-    if-eqz v0, :cond_31
+    if-eqz v0, :cond_0
 
     .line 59
     new-instance v4, Landroid/text/SpannableString;
@@ -107,28 +107,28 @@
     .end local v4           #sp:Landroid/text/SpannableString;
     .end local v7           #s:Ljava/lang/String;
     .end local v8           #v:[C
-    :goto_30
+    :goto_1
     return-object v4
 
     .restart local v7       #s:Ljava/lang/String;
     .restart local v8       #v:[C
-    :cond_31
+    :cond_0
     move-object v4, v7
 
     .line 64
-    goto :goto_30
+    goto :goto_1
 
     .line 52
     .end local v7           #s:Ljava/lang/String;
     .end local v8           #v:[C
-    :cond_33
+    :cond_1
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
-    :cond_36
+    :cond_2
     move-object v4, v3
 
     .line 69
-    goto :goto_30
+    goto :goto_1
 .end method

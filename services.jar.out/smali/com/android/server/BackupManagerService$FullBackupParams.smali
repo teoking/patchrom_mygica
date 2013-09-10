@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService;Landroid/os/ParcelFileDescriptor;ZZZZ[Ljava/lang/String;)V
-    .registers 8
+    .locals 0
     .parameter
     .parameter "output"
     .parameter "saveApks"

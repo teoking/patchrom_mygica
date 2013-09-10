@@ -22,7 +22,7 @@
 
 # direct methods
 .method public varargs constructor <init>(Landroid/content/Context;[Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "files"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public performBackup(Landroid/os/ParcelFileDescriptor;Landroid/app/backup/BackupDataOutput;Landroid/os/ParcelFileDescriptor;)V
-    .registers 11
+    .locals 7
     .parameter "oldState"
     .parameter "data"
     .parameter "newState"
@@ -80,8 +80,8 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_c
-    if-ge v4, v0, :cond_1e
+    :goto_0
+    if-ge v4, v0, :cond_0
 
     .line 81
     new-instance v5, Ljava/io/File;
@@ -99,10 +99,10 @@
     .line 80
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_c
+    goto :goto_0
 
     .line 85
-    :cond_1e
+    :cond_0
     invoke-static {p1, p2, p3, v3, v2}, Landroid/app/backup/FileBackupHelper;->performBackup_checked(Landroid/os/ParcelFileDescriptor;Landroid/app/backup/BackupDataOutput;Landroid/os/ParcelFileDescriptor;[Ljava/lang/String;[Ljava/lang/String;)V
 
     .line 86
@@ -110,7 +110,7 @@
 .end method
 
 .method public restoreEntity(Landroid/app/backup/BackupDataInputStream;)V
-    .registers 5
+    .locals 3
     .parameter "data"
 
     .prologue
@@ -127,7 +127,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_0
 
     .line 98
     new-instance v0, Ljava/io/File;
@@ -142,12 +142,12 @@
 
     .line 101
     .end local v0           #f:Ljava/io/File;
-    :cond_16
+    :cond_0
     return-void
 .end method
 
 .method public bridge synthetic writeNewStateDescription(Landroid/os/ParcelFileDescriptor;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue

@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -68,7 +68,7 @@
 .end method
 
 .method private initParameters()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 144
@@ -80,7 +80,7 @@
 
     new-array v1, v2, [F
 
-    fill-array-data v1, :array_2a
+    fill-array-data v1, :array_0
 
     .line 147
     .local v1, weights:[F
@@ -117,7 +117,7 @@
     .line 145
     nop
 
-    :array_2a
+    :array_0
     .array-data 0x4
         0x0t 0x0t 0x80t 0x3et
         0x0t 0x0t 0x20t 0x3ft
@@ -126,7 +126,7 @@
 .end method
 
 .method private updateParameters()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/high16 v4, 0x3f80
@@ -138,7 +138,7 @@
 
     cmpl-float v1, v1, v2
 
-    if-lez v1, :cond_32
+    if-lez v1, :cond_0
 
     .line 158
     const/4 v1, 0x3
@@ -194,11 +194,11 @@
 
     .line 168
     .end local v0           #exponents:[F
-    :goto_31
+    :goto_0
     return-void
 
     .line 166
-    :cond_32
+    :cond_0
     iget-object v1, p0, Landroid/filterpacks/imageproc/SaturateFilter;->mBenProgram:Landroid/filterfw/core/Program;
 
     const-string/jumbo v2, "scale"
@@ -213,13 +213,13 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/filterfw/core/Program;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_31
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "context"
 
@@ -227,22 +227,22 @@
     .line 110
     iget-object v0, p0, Landroid/filterpacks/imageproc/SaturateFilter;->mBenProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/filterpacks/imageproc/SaturateFilter;->mHerfProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 111
     invoke-direct {p0}, Landroid/filterpacks/imageproc/SaturateFilter;->updateParameters()V
 
     .line 113
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -252,13 +252,13 @@
 .end method
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "target"
 
     .prologue
     .line 89
-    packed-switch p2, :pswitch_data_44
+    packed-switch p2, :pswitch_data_0
 
     .line 102
     new-instance v1, Ljava/lang/RuntimeException;
@@ -292,7 +292,7 @@
     throw v1
 
     .line 91
-    :pswitch_22
+    :pswitch_0
     new-instance v0, Landroid/filterfw/core/ShaderProgram;
 
     const-string/jumbo v1, "precision mediump float;\nuniform sampler2D tex_sampler_0;\nuniform float scale;\nuniform float shift;\nuniform vec3 weights;\nvarying vec2 v_texcoord;\nvoid main() {\n  vec4 color = texture2D(tex_sampler_0, v_texcoord);\n  float kv = dot(color.rgb, weights) + shift;\n  vec3 new_color = scale * color.rgb + (1.0 - scale) * kv;\n  gl_FragColor = vec4(new_color, color.a);\n}\n"
@@ -334,14 +334,14 @@
     .line 89
     nop
 
-    :pswitch_data_44
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_22
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -362,7 +362,7 @@
     .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
     iget-object v3, p0, Landroid/filterpacks/imageproc/SaturateFilter;->mBenProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v3, :cond_16
+    if-eqz v3, :cond_0
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
@@ -370,10 +370,10 @@
 
     iget v4, p0, Landroid/filterpacks/imageproc/SaturateFilter;->mTarget:I
 
-    if-eq v3, v4, :cond_20
+    if-eq v3, v4, :cond_1
 
     .line 123
-    :cond_16
+    :cond_0
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
     move-result v3
@@ -384,7 +384,7 @@
     invoke-direct {p0}, Landroid/filterpacks/imageproc/SaturateFilter;->initParameters()V
 
     .line 128
-    :cond_20
+    :cond_1
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v3
@@ -401,7 +401,7 @@
 
     cmpl-float v3, v3, v4
 
-    if-lez v3, :cond_3d
+    if-lez v3, :cond_2
 
     .line 132
     iget-object v3, p0, Landroid/filterpacks/imageproc/SaturateFilter;->mHerfProgram:Landroid/filterfw/core/Program;
@@ -409,7 +409,7 @@
     invoke-virtual {v3, v0, v2}, Landroid/filterfw/core/Program;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
 
     .line 137
-    :goto_34
+    :goto_0
     const-string v3, "image"
 
     invoke-virtual {p0, v3, v2}, Landroid/filterpacks/imageproc/SaturateFilter;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
@@ -421,16 +421,16 @@
     return-void
 
     .line 134
-    :cond_3d
+    :cond_2
     iget-object v3, p0, Landroid/filterpacks/imageproc/SaturateFilter;->mBenProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v3, v0, v2}, Landroid/filterfw/core/Program;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
 
-    goto :goto_34
+    goto :goto_0
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 79

@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Calendar;)V
-    .registers 2
+    .locals 0
     .parameter "cal"
 
     .prologue
@@ -24,16 +24,16 @@
 .end method
 
 .method private byteToBCD(I)B
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
     .line 255
-    if-gez p1, :cond_24
+    if-gez p1, :cond_0
 
     const/16 v0, 0x63
 
-    if-le p1, v0, :cond_24
+    if-le p1, v0, :cond_0
 
     .line 256
     new-instance v0, Ljava/lang/StringBuilder;
@@ -66,10 +66,10 @@
     const/4 v0, 0x0
 
     .line 261
-    :goto_23
+    :goto_0
     return v0
 
-    :cond_24
+    :cond_0
     div-int/lit8 v0, p1, 0xa
 
     rem-int/lit8 v1, p1, 0xa
@@ -80,11 +80,11 @@
 
     int-to-byte v0, v0
 
-    goto :goto_23
+    goto :goto_0
 .end method
 
 .method private getTZOffSetByte(J)B
-    .registers 11
+    .locals 8
     .parameter "offSetVal"
 
     .prologue
@@ -95,24 +95,24 @@
 
     cmp-long v6, p1, v6
 
-    if-gez v6, :cond_1e
+    if-gez v6, :cond_1
 
     move v2, v5
 
     .line 273
     .local v2, isNegative:Z
-    :goto_8
+    :goto_0
     const-wide/32 v6, 0xdbba0
 
     div-long v3, p1, v6
 
     .line 274
     .local v3, tzOffset:J
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_0
 
     const/4 v5, -0x1
 
-    :cond_10
+    :cond_0
     int-to-long v5, v5
 
     mul-long/2addr v3, v5
@@ -126,7 +126,7 @@
 
     .line 277
     .local v0, bcdVal:B
-    if-eqz v2, :cond_20
+    if-eqz v2, :cond_2
 
     or-int/lit8 v5, v0, 0x8
 
@@ -136,34 +136,34 @@
 
     .end local v0           #bcdVal:B
     .local v1, bcdVal:B
-    :goto_1d
+    :goto_1
     return v0
 
     .line 265
     .end local v1           #bcdVal:B
     .end local v2           #isNegative:Z
     .end local v3           #tzOffset:J
-    :cond_1e
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_8
+    goto :goto_0
 
     .restart local v0       #bcdVal:B
     .restart local v2       #isNegative:Z
     .restart local v3       #tzOffset:J
-    :cond_20
+    :cond_2
     move v1, v0
 
     .line 277
     .end local v0           #bcdVal:B
     .restart local v1       #bcdVal:B
-    goto :goto_1d
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public format(Ljava/io/ByteArrayOutputStream;)V
-    .registers 16
+    .locals 14
     .parameter "buf"
 
     .prologue
@@ -176,14 +176,14 @@
     const/4 v12, 0x7
 
     .line 207
-    if-nez p1, :cond_7
+    if-nez p1, :cond_1
 
     .line 252
-    :cond_6
+    :cond_0
     return-void
 
     .line 212
-    :cond_7
+    :cond_1
     sget-object v9, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->PROVIDE_LOCAL_INFORMATION:Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
     invoke-virtual {v9}, Lcom/android/internal/telephony/cat/AppInterface$CommandType;->value()I
@@ -210,7 +210,7 @@
     .line 219
     iget-object v9, p0, Lcom/android/internal/telephony/cat/DTTZResponseData;->calendar:Ljava/util/Calendar;
 
-    if-nez v9, :cond_23
+    if-nez v9, :cond_2
 
     .line 220
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
@@ -220,7 +220,7 @@
     iput-object v9, p0, Lcom/android/internal/telephony/cat/DTTZResponseData;->calendar:Ljava/util/Calendar;
 
     .line 223
-    :cond_23
+    :cond_2
     iget-object v9, p0, Lcom/android/internal/telephony/cat/DTTZResponseData;->calendar:Ljava/util/Calendar;
 
     invoke-virtual {v9, v10}, Ljava/util/Calendar;->get(I)I
@@ -329,7 +329,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_97
+    if-eqz v9, :cond_3
 
     .line 242
     const/4 v9, -0x1
@@ -337,7 +337,7 @@
     aput-byte v9, v2, v12
 
     .line 249
-    :goto_8a
+    :goto_0
     move-object v0, v2
 
     .local v0, arr$:[B
@@ -347,8 +347,8 @@
     const/4 v3, 0x0
 
     .local v3, i$:I
-    :goto_8d
-    if-ge v3, v4, :cond_6
+    :goto_1
+    if-ge v3, v4, :cond_0
 
     aget-byte v1, v0, v3
 
@@ -359,14 +359,14 @@
     .line 249
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_8d
+    goto :goto_1
 
     .line 244
     .end local v0           #arr$:[B
     .end local v1           #b:B
     .end local v3           #i$:I
     .end local v4           #len$:I
-    :cond_97
+    :cond_3
     invoke-static {v6}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
     move-result-object v7
@@ -393,5 +393,5 @@
 
     aput-byte v9, v2, v12
 
-    goto :goto_8a
+    goto :goto_0
 .end method

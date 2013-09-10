@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/Rasterizer;)V
-    .registers 2
+    .locals 0
     .parameter "r"
 
     .prologue
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public getRasterizer()Landroid/graphics/Rasterizer;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 31
@@ -39,7 +39,7 @@
 .end method
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
-    .registers 3
+    .locals 1
     .parameter "ds"
 
     .prologue

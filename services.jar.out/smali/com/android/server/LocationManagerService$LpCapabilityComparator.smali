@@ -41,7 +41,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/LocationManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -54,7 +54,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/LocationManagerService;Lcom/android/server/LocationManagerService$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -66,7 +66,7 @@
 .end method
 
 .method private score(Lcom/android/server/location/LocationProviderInterface;)I
-    .registers 6
+    .locals 4
     .parameter "p"
 
     .prologue
@@ -79,53 +79,53 @@
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_9
+    :goto_0
     invoke-interface {p1}, Lcom/android/server/location/LocationProviderInterface;->supportsBearing()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1b
+    if-eqz v3, :cond_1
 
     move v3, v1
 
-    :goto_10
+    :goto_1
     add-int/2addr v0, v3
 
     invoke-interface {p1}, Lcom/android/server/location/LocationProviderInterface;->supportsSpeed()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1d
+    if-eqz v3, :cond_2
 
-    :goto_17
+    :goto_2
     add-int/2addr v0, v1
 
     return v0
 
-    :cond_19
+    :cond_0
     move v0, v2
 
-    goto :goto_9
+    goto :goto_0
 
-    :cond_1b
+    :cond_1
     move v3, v2
 
-    goto :goto_10
+    goto :goto_1
 
-    :cond_1d
+    :cond_2
     move v1, v2
 
-    goto :goto_17
+    goto :goto_2
 .end method
 
 
 # virtual methods
 .method public compare(Lcom/android/server/location/LocationProviderInterface;Lcom/android/server/location/LocationProviderInterface;)I
-    .registers 5
+    .locals 2
     .parameter "l1"
     .parameter "l2"
 
@@ -145,7 +145,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -165,7 +165,7 @@
 .end method
 
 .method public equals(Lcom/android/server/location/LocationProviderInterface;Lcom/android/server/location/LocationProviderInterface;)Z
-    .registers 5
+    .locals 2
     .parameter "l1"
     .parameter "l2"
 
@@ -179,15 +179,15 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_c
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method

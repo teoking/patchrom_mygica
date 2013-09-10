@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 373
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/nfc/Tag;
-    .registers 9
+    .locals 7
     .parameter "in"
 
     .prologue
@@ -85,7 +85,7 @@
 
     .line 385
     .local v6, isMock:I
-    if-nez v6, :cond_2d
+    if-nez v6, :cond_0
 
     .line 386
     invoke-virtual {p1}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
@@ -98,7 +98,7 @@
 
     .line 392
     .local v5, tagService:Landroid/nfc/INfcTag;
-    :goto_27
+    :goto_0
     new-instance v0, Landroid/nfc/Tag;
 
     invoke-direct/range {v0 .. v5}, Landroid/nfc/Tag;-><init>([B[I[Landroid/os/Bundle;ILandroid/nfc/INfcTag;)V
@@ -107,15 +107,15 @@
 
     .line 389
     .end local v5           #tagService:Landroid/nfc/INfcTag;
-    :cond_2d
+    :cond_0
     const/4 v5, 0x0
 
     .restart local v5       #tagService:Landroid/nfc/INfcTag;
-    goto :goto_27
+    goto :goto_0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -128,7 +128,7 @@
 .end method
 
 .method public newArray(I)[Landroid/nfc/Tag;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -139,7 +139,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/BroadcastQueue;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
@@ -44,22 +44,22 @@
     .line 125
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_1e
+    packed-switch v0, :pswitch_data_0
 
     .line 137
-    :goto_6
+    :goto_0
     return-void
 
     .line 129
-    :pswitch_7
+    :pswitch_0
     iget-object v0, p0, Lcom/android/server/am/BroadcastQueue$1;->this$0:Lcom/android/server/am/BroadcastQueue;
 
     invoke-virtual {v0, v1}, Lcom/android/server/am/BroadcastQueue;->processNextBroadcast(Z)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 132
-    :pswitch_d
+    :pswitch_1
     iget-object v0, p0, Lcom/android/server/am/BroadcastQueue$1;->this$0:Lcom/android/server/am/BroadcastQueue;
 
     iget-object v1, v0, Lcom/android/server/am/BroadcastQueue;->mService:Lcom/android/server/am/ActivityManagerService;
@@ -67,7 +67,7 @@
     monitor-enter v1
 
     .line 133
-    :try_start_12
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BroadcastQueue$1;->this$0:Lcom/android/server/am/BroadcastQueue;
 
     const/4 v2, 0x1
@@ -77,23 +77,23 @@
     .line 134
     monitor-exit v1
 
-    goto :goto_6
+    goto :goto_0
 
-    :catchall_1a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1c
-    .catchall {:try_start_12 .. :try_end_1c} :catchall_1a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 125
     nop
 
-    :pswitch_data_1e
+    :pswitch_data_0
     .packed-switch 0xc8
-        :pswitch_7
-        :pswitch_d
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 26
@@ -21,7 +21,7 @@
 
 # virtual methods
 .method public onHealthAppConfigurationStatusChange(Landroid/bluetooth/BluetoothHealthAppConfiguration;I)V
-    .registers 6
+    .locals 3
     .parameter "config"
     .parameter "status"
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public onHealthChannelStateChange(Landroid/bluetooth/BluetoothHealthAppConfiguration;Landroid/bluetooth/BluetoothDevice;IILandroid/os/ParcelFileDescriptor;I)V
-    .registers 10
+    .locals 3
     .parameter "config"
     .parameter "device"
     .parameter "prevState"

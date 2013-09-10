@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/AsyncTaskLoader;)V
-    .registers 4
+    .locals 2
     .parameter
 
     .prologue
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -80,7 +80,7 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Object;
-    .registers 5
+    .locals 3
     .parameter "params"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -97,17 +97,17 @@
     iget-object v2, p0, Landroid/content/AsyncTaskLoader$LoadTask;->this$0:Landroid/content/AsyncTaskLoader;
 
     invoke-virtual {v2}, Landroid/content/AsyncTaskLoader;->onLoadInBackground()Ljava/lang/Object;
-    :try_end_5
-    .catch Landroid/os/OperationCanceledException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/OperationCanceledException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
     .line 82
-    :goto_6
+    :goto_0
     return-object v0
 
     .line 71
-    :catch_7
+    :catch_0
     move-exception v1
 
     .line 72
@@ -116,20 +116,20 @@
 
     move-result v2
 
-    if-nez v2, :cond_f
+    if-nez v2, :cond_0
 
     .line 79
     throw v1
 
     .line 82
-    :cond_f
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method protected onCancelled(Ljava/lang/Object;)V
-    .registers 4
+    .locals 2
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -145,8 +145,8 @@
     iget-object v0, p0, Landroid/content/AsyncTaskLoader$LoadTask;->this$0:Landroid/content/AsyncTaskLoader;
 
     invoke-virtual {v0, p0, p1}, Landroid/content/AsyncTaskLoader;->dispatchOnCancelled(Landroid/content/AsyncTaskLoader$LoadTask;Ljava/lang/Object;)V
-    :try_end_5
-    .catchall {:try_start_0 .. :try_end_5} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 104
     iget-object v0, p0, Landroid/content/AsyncTaskLoader$LoadTask;->mDone:Ljava/util/concurrent/CountDownLatch;
@@ -157,7 +157,7 @@
     return-void
 
     .line 104
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     iget-object v1, p0, Landroid/content/AsyncTaskLoader$LoadTask;->mDone:Ljava/util/concurrent/CountDownLatch;
@@ -168,7 +168,7 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Object;)V
-    .registers 4
+    .locals 2
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -184,8 +184,8 @@
     iget-object v0, p0, Landroid/content/AsyncTaskLoader$LoadTask;->this$0:Landroid/content/AsyncTaskLoader;
 
     invoke-virtual {v0, p0, p1}, Landroid/content/AsyncTaskLoader;->dispatchOnLoadComplete(Landroid/content/AsyncTaskLoader$LoadTask;Ljava/lang/Object;)V
-    :try_end_5
-    .catchall {:try_start_0 .. :try_end_5} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 93
     iget-object v0, p0, Landroid/content/AsyncTaskLoader$LoadTask;->mDone:Ljava/util/concurrent/CountDownLatch;
@@ -196,7 +196,7 @@
     return-void
 
     .line 93
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     iget-object v1, p0, Landroid/content/AsyncTaskLoader$LoadTask;->mDone:Ljava/util/concurrent/CountDownLatch;
@@ -207,7 +207,7 @@
 .end method
 
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 112
@@ -226,7 +226,7 @@
 .end method
 
 .method public waitForLoader()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 119
@@ -235,16 +235,16 @@
     iget-object v0, p0, Landroid/content/AsyncTaskLoader$LoadTask;->mDone:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->await()V
-    :try_end_5
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 123
-    :goto_5
+    :goto_0
     return-void
 
     .line 120
-    :catch_6
+    :catch_0
     move-exception v0
 
-    goto :goto_5
+    goto :goto_0
 .end method

@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 16
+    .locals 15
 
     .prologue
     const/4 v3, 0x0
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>(JJJJJ)V
-    .registers 26
+    .locals 15
     .parameter "rxBytes"
     .parameter "rxPackets"
     .parameter "txBytes"
@@ -103,7 +103,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;IIIJJJJJ)V
-    .registers 15
+    .locals 0
     .parameter "iface"
     .parameter "uid"
     .parameter "set"
@@ -152,7 +152,7 @@
 
 # virtual methods
 .method public add(Landroid/net/NetworkStats$Entry;)V
-    .registers 6
+    .locals 4
     .parameter "another"
 
     .prologue
@@ -206,7 +206,7 @@
 .end method
 
 .method public isEmpty()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const-wide/16 v2, 0x0
@@ -216,45 +216,45 @@
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_0
 
     iget-wide v0, p0, Landroid/net/NetworkStats$Entry;->rxPackets:J
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_0
 
     iget-wide v0, p0, Landroid/net/NetworkStats$Entry;->txBytes:J
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_0
 
     iget-wide v0, p0, Landroid/net/NetworkStats$Entry;->txPackets:J
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_0
 
     iget-wide v0, p0, Landroid/net/NetworkStats$Entry;->operations:J
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_21
+    :goto_0
     return v0
 
-    :cond_22
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_21
+    goto :goto_0
 .end method
 
 .method public isNegative()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const-wide/16 v2, 0x0
@@ -264,46 +264,46 @@
 
     cmp-long v0, v0, v2
 
-    if-ltz v0, :cond_20
+    if-ltz v0, :cond_0
 
     iget-wide v0, p0, Landroid/net/NetworkStats$Entry;->rxPackets:J
 
     cmp-long v0, v0, v2
 
-    if-ltz v0, :cond_20
+    if-ltz v0, :cond_0
 
     iget-wide v0, p0, Landroid/net/NetworkStats$Entry;->txBytes:J
 
     cmp-long v0, v0, v2
 
-    if-ltz v0, :cond_20
+    if-ltz v0, :cond_0
 
     iget-wide v0, p0, Landroid/net/NetworkStats$Entry;->txPackets:J
 
     cmp-long v0, v0, v2
 
-    if-ltz v0, :cond_20
+    if-ltz v0, :cond_0
 
     iget-wide v0, p0, Landroid/net/NetworkStats$Entry;->operations:J
 
     cmp-long v0, v0, v2
 
-    if-gez v0, :cond_22
+    if-gez v0, :cond_1
 
-    :cond_20
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_21
+    :goto_0
     return v0
 
-    :cond_22
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_21
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 124

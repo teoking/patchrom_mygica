@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/SMSDispatcher;Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "tracker"
 
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
-    .registers 6
+    .locals 4
     .parameter "dialog"
 
     .prologue
@@ -77,7 +77,7 @@
 .end method
 
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 7
+    .locals 4
     .parameter "dialog"
     .parameter "which"
 
@@ -85,7 +85,7 @@
     .line 1125
     const/4 v0, -0x1
 
-    if-ne p2, v0, :cond_19
+    if-ne p2, v0, :cond_1
 
     .line 1126
     const-string v0, "SMS"
@@ -110,15 +110,15 @@
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/SMSDispatcher;->sendMessage(Landroid/os/Message;)Z
 
     .line 1132
-    :cond_18
-    :goto_18
+    :cond_0
+    :goto_0
     return-void
 
     .line 1128
-    :cond_19
+    :cond_1
     const/4 v0, -0x2
 
-    if-ne p2, v0, :cond_18
+    if-ne p2, v0, :cond_0
 
     .line 1129
     const-string v0, "SMS"
@@ -142,5 +142,5 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/SMSDispatcher;->sendMessage(Landroid/os/Message;)Z
 
-    goto :goto_18
+    goto :goto_0
 .end method

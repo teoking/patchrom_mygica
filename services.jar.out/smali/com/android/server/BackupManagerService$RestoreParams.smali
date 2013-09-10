@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService;Lcom/android/internal/backup/IBackupTransport;Landroid/app/backup/IRestoreObserver;JLandroid/content/pm/PackageInfo;IZ)V
-    .registers 10
+    .locals 1
     .parameter
     .parameter "_transport"
     .parameter "_obs"
@@ -77,7 +77,7 @@
 .end method
 
 .method constructor <init>(Lcom/android/server/BackupManagerService;Lcom/android/internal/backup/IBackupTransport;Landroid/app/backup/IRestoreObserver;JZ)V
-    .registers 9
+    .locals 2
     .parameter
     .parameter "_transport"
     .parameter "_obs"
@@ -120,7 +120,7 @@
 .end method
 
 .method constructor <init>(Lcom/android/server/BackupManagerService;Lcom/android/internal/backup/IBackupTransport;Landroid/app/backup/IRestoreObserver;J[Ljava/lang/String;Z)V
-    .registers 9
+    .locals 1
     .parameter
     .parameter "_transport"
     .parameter "_obs"

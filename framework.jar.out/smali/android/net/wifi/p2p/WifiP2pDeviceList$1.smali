@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 156
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/wifi/p2p/WifiP2pDeviceList;
-    .registers 6
+    .locals 4
     .parameter "in"
 
     .prologue
@@ -61,8 +61,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_a
-    if-ge v2, v0, :cond_19
+    :goto_0
+    if-ge v2, v0, :cond_0
 
     .line 162
     const/4 v3, 0x0
@@ -78,15 +78,15 @@
     .line 161
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 164
-    :cond_19
+    :cond_0
     return-object v1
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -99,7 +99,7 @@
 .end method
 
 .method public newArray(I)[Landroid/net/wifi/p2p/WifiP2pDeviceList;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -110,7 +110,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

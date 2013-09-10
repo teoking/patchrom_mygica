@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 3
+    .locals 0
     .parameter "code"
     .parameter "callerUid"
 

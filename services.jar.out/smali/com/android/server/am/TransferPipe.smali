@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -72,7 +72,7 @@
 .end method
 
 .method static go(Lcom/android/server/am/TransferPipe$Caller;Landroid/os/IInterface;Ljava/io/FileDescriptor;Ljava/lang/String;[Ljava/lang/String;)V
-    .registers 12
+    .locals 7
     .parameter "caller"
     .parameter "iface"
     .parameter "out"
@@ -106,7 +106,7 @@
 .end method
 
 .method static go(Lcom/android/server/am/TransferPipe$Caller;Landroid/os/IInterface;Ljava/io/FileDescriptor;Ljava/lang/String;[Ljava/lang/String;J)V
-    .registers 9
+    .locals 2
     .parameter "caller"
     .parameter "iface"
     .parameter "out"
@@ -128,27 +128,27 @@
 
     instance-of v1, v1, Landroid/os/Binder;
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_0
 
     .line 83
-    :try_start_8
+    :try_start_0
     invoke-interface {p0, p1, p2, p3, p4}, Lcom/android/server/am/TransferPipe$Caller;->go(Landroid/os/IInterface;Ljava/io/FileDescriptor;Ljava/lang/String;[Ljava/lang/String;)V
-    :try_end_b
-    .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_b} :catch_28
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 96
-    :goto_b
+    :goto_0
     return-void
 
     .line 89
-    :cond_c
+    :cond_0
     new-instance v0, Lcom/android/server/am/TransferPipe;
 
     invoke-direct {v0}, Lcom/android/server/am/TransferPipe;-><init>()V
 
     .line 91
     .local v0, tp:Lcom/android/server/am/TransferPipe;
-    :try_start_11
+    :try_start_1
     invoke-virtual {v0}, Lcom/android/server/am/TransferPipe;->getWriteFd()Landroid/os/ParcelFileDescriptor;
 
     move-result-object v1
@@ -161,15 +161,15 @@
 
     .line 92
     invoke-virtual {v0, p2, p5, p6}, Lcom/android/server/am/TransferPipe;->go(Ljava/io/FileDescriptor;J)V
-    :try_end_1f
-    .catchall {:try_start_11 .. :try_end_1f} :catchall_23
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 94
     invoke-virtual {v0}, Lcom/android/server/am/TransferPipe;->kill()V
 
-    goto :goto_b
+    goto :goto_0
 
-    :catchall_23
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Lcom/android/server/am/TransferPipe;->kill()V
@@ -178,14 +178,14 @@
 
     .line 84
     .end local v0           #tp:Lcom/android/server/am/TransferPipe;
-    :catch_28
+    :catch_0
     move-exception v1
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method static goDump(Landroid/os/IBinder;Ljava/io/FileDescriptor;[Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "binder"
     .parameter "out"
     .parameter "args"
@@ -207,7 +207,7 @@
 .end method
 
 .method static goDump(Landroid/os/IBinder;Ljava/io/FileDescriptor;[Ljava/lang/String;J)V
-    .registers 7
+    .locals 2
     .parameter "binder"
     .parameter "out"
     .parameter "args"
@@ -223,27 +223,27 @@
     .line 105
     instance-of v1, p0, Landroid/os/Binder;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_0
 
     .line 108
-    :try_start_4
+    :try_start_0
     invoke-interface {p0, p1, p2}, Landroid/os/IBinder;->dump(Ljava/io/FileDescriptor;[Ljava/lang/String;)V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_7} :catch_24
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 121
-    :goto_7
+    :goto_0
     return-void
 
     .line 114
-    :cond_8
+    :cond_0
     new-instance v0, Lcom/android/server/am/TransferPipe;
 
     invoke-direct {v0}, Lcom/android/server/am/TransferPipe;-><init>()V
 
     .line 116
     .local v0, tp:Lcom/android/server/am/TransferPipe;
-    :try_start_d
+    :try_start_1
     invoke-virtual {v0}, Lcom/android/server/am/TransferPipe;->getWriteFd()Landroid/os/ParcelFileDescriptor;
 
     move-result-object v1
@@ -256,15 +256,15 @@
 
     .line 117
     invoke-virtual {v0, p1, p3, p4}, Lcom/android/server/am/TransferPipe;->go(Ljava/io/FileDescriptor;J)V
-    :try_end_1b
-    .catchall {:try_start_d .. :try_end_1b} :catchall_1f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 119
     invoke-virtual {v0}, Lcom/android/server/am/TransferPipe;->kill()V
 
-    goto :goto_7
+    goto :goto_0
 
-    :catchall_1f
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Lcom/android/server/am/TransferPipe;->kill()V
@@ -273,16 +273,16 @@
 
     .line 109
     .end local v0           #tp:Lcom/android/server/am/TransferPipe;
-    :catch_24
+    :catch_0
     move-exception v1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method closeFd(I)V
-    .registers 4
+    .locals 2
     .parameter "num"
 
     .prologue
@@ -291,20 +291,20 @@
 
     aget-object v0, v0, p1
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 169
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/TransferPipe;->mFds:[Landroid/os/ParcelFileDescriptor;
 
     aget-object v0, v0, p1
 
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_d
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_d} :catch_13
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 172
-    :goto_d
+    :goto_0
     iget-object v0, p0, Lcom/android/server/am/TransferPipe;->mFds:[Landroid/os/ParcelFileDescriptor;
 
     const/4 v1, 0x0
@@ -312,18 +312,18 @@
     aput-object v1, v0, p1
 
     .line 174
-    :cond_12
+    :cond_0
     return-void
 
     .line 170
-    :catch_13
+    :catch_0
     move-exception v0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method getReadFd()Landroid/os/ParcelFileDescriptor;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 62
@@ -337,7 +337,7 @@
 .end method
 
 .method getWriteFd()Landroid/os/ParcelFileDescriptor;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 66
@@ -351,7 +351,7 @@
 .end method
 
 .method go(Ljava/io/FileDescriptor;)V
-    .registers 4
+    .locals 2
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -370,7 +370,7 @@
 .end method
 
 .method go(Ljava/io/FileDescriptor;J)V
-    .registers 10
+    .locals 6
     .parameter "out"
     .parameter "timeout"
     .annotation system Ldalvik/annotation/Throws;
@@ -383,8 +383,8 @@
     .line 129
     :try_start_0
     monitor-enter p0
-    :try_end_1
-    .catchall {:try_start_0 .. :try_end_1} :catchall_39
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 130
     :try_start_1
@@ -410,14 +410,14 @@
     invoke-virtual {v2}, Ljava/lang/Thread;->start()V
 
     .line 141
-    :goto_13
+    :goto_0
     iget-object v2, p0, Lcom/android/server/am/TransferPipe;->mFailure:Ljava/lang/String;
 
-    if-nez v2, :cond_44
+    if-nez v2, :cond_1
 
     iget-boolean v2, p0, Lcom/android/server/am/TransferPipe;->mComplete:Z
 
-    if-nez v2, :cond_44
+    if-nez v2, :cond_1
 
     .line 142
     iget-wide v2, p0, Lcom/android/server/am/TransferPipe;->mEndTime:J
@@ -434,7 +434,7 @@
 
     cmp-long v2, v0, v2
 
-    if-gtz v2, :cond_3e
+    if-gtz v2, :cond_0
 
     .line 145
     iget-object v2, p0, Lcom/android/server/am/TransferPipe;->mThread:Ljava/lang/Thread;
@@ -452,20 +452,20 @@
 
     .line 159
     .end local v0           #waitTime:J
-    :catchall_36
+    :catchall_0
     move-exception v2
 
     monitor-exit p0
-    :try_end_38
-    .catchall {:try_start_1 .. :try_end_38} :catchall_36
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :try_start_38
+    :try_start_2
     throw v2
-    :try_end_39
-    .catchall {:try_start_38 .. :try_end_39} :catchall_39
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 161
-    :catchall_39
+    :catchall_1
     move-exception v2
 
     invoke-virtual {p0}, Lcom/android/server/am/TransferPipe;->kill()V
@@ -474,28 +474,28 @@
 
     .line 150
     .restart local v0       #waitTime:J
-    :cond_3e
-    :try_start_3e
+    :cond_0
+    :try_start_3
     invoke-virtual {p0, v0, v1}, Ljava/lang/Object;->wait(J)V
-    :try_end_41
-    .catchall {:try_start_3e .. :try_end_41} :catchall_36
-    .catch Ljava/lang/InterruptedException; {:try_start_3e .. :try_end_41} :catch_42
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_3 .. :try_end_3} :catch_0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 151
-    :catch_42
+    :catch_0
     move-exception v2
 
-    goto :goto_13
+    goto :goto_0
 
     .line 156
     .end local v0           #waitTime:J
-    :cond_44
-    :try_start_44
+    :cond_1
+    :try_start_4
     iget-object v2, p0, Lcom/android/server/am/TransferPipe;->mFailure:Ljava/lang/String;
 
-    if-eqz v2, :cond_50
+    if-eqz v2, :cond_2
 
     .line 157
     new-instance v2, Ljava/io/IOException;
@@ -507,10 +507,10 @@
     throw v2
 
     .line 159
-    :cond_50
+    :cond_2
     monitor-exit p0
-    :try_end_51
-    .catchall {:try_start_44 .. :try_end_51} :catchall_36
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     .line 161
     invoke-virtual {p0}, Lcom/android/server/am/TransferPipe;->kill()V
@@ -520,7 +520,7 @@
 .end method
 
 .method kill()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 177
@@ -538,7 +538,7 @@
 .end method
 
 .method public run()V
-    .registers 12
+    .locals 11
 
     .prologue
     const/16 v10, 0xa
@@ -582,7 +582,7 @@
     .local v6, needPrefix:Z
     iget-object v9, p0, Lcom/android/server/am/TransferPipe;->mBufferPrefix:Ljava/lang/String;
 
-    if-eqz v9, :cond_26
+    if-eqz v9, :cond_0
 
     .line 191
     iget-object v9, p0, Lcom/android/server/am/TransferPipe;->mBufferPrefix:Ljava/lang/String;
@@ -592,31 +592,31 @@
     move-result-object v1
 
     .line 196
-    :cond_26
-    :goto_26
-    :try_start_26
+    :cond_0
+    :goto_0
+    :try_start_0
     invoke-virtual {v3, v0}, Ljava/io/FileInputStream;->read([B)I
 
     move-result v7
 
     .local v7, size:I
-    if-lez v7, :cond_6c
+    if-lez v7, :cond_7
 
     .line 198
-    if-nez v1, :cond_40
+    if-nez v1, :cond_1
 
     .line 199
     const/4 v9, 0x0
 
     invoke-virtual {v4, v0, v9, v7}, Ljava/io/FileOutputStream;->write([BII)V
-    :try_end_32
-    .catch Ljava/io/IOException; {:try_start_26 .. :try_end_32} :catch_33
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_26
+    goto :goto_0
 
     .line 229
     .end local v7           #size:I
-    :catch_33
+    :catch_0
     move-exception v2
 
     .line 230
@@ -624,7 +624,7 @@
     monitor-enter p0
 
     .line 231
-    :try_start_35
+    :try_start_1
     invoke-virtual {v2}, Ljava/io/IOException;->toString()Ljava/lang/String;
 
     move-result-object v9
@@ -636,17 +636,17 @@
 
     .line 233
     monitor-exit p0
-    :try_end_3f
-    .catchall {:try_start_35 .. :try_end_3f} :catchall_80
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 241
     .end local v2           #e:Ljava/io/IOException;
-    :goto_3f
+    :goto_1
     return-void
 
     .line 201
     .restart local v7       #size:I
-    :cond_40
+    :cond_1
     const/4 v8, 0x0
 
     .line 202
@@ -654,17 +654,17 @@
     const/4 v5, 0x0
 
     .local v5, i:I
-    :goto_42
-    if-ge v5, v7, :cond_64
+    :goto_2
+    if-ge v5, v7, :cond_6
 
     .line 203
-    :try_start_44
+    :try_start_2
     aget-byte v9, v0, v5
 
-    if-eq v9, v10, :cond_61
+    if-eq v9, v10, :cond_5
 
     .line 204
-    if-le v5, v8, :cond_4f
+    if-le v5, v8, :cond_2
 
     .line 205
     sub-int v9, v5, v8
@@ -672,11 +672,11 @@
     invoke-virtual {v4, v0, v8, v9}, Ljava/io/FileOutputStream;->write([BII)V
 
     .line 207
-    :cond_4f
+    :cond_2
     move v8, v5
 
     .line 208
-    if-eqz v6, :cond_56
+    if-eqz v6, :cond_3
 
     .line 209
     invoke-virtual {v4, v1}, Ljava/io/FileOutputStream;->write([B)V
@@ -685,62 +685,62 @@
     const/4 v6, 0x0
 
     .line 213
-    :cond_56
+    :cond_3
     add-int/lit8 v5, v5, 0x1
 
     .line 214
-    if-ge v5, v7, :cond_5e
+    if-ge v5, v7, :cond_4
 
     aget-byte v9, v0, v5
 
-    if-ne v9, v10, :cond_56
+    if-ne v9, v10, :cond_3
 
     .line 215
-    :cond_5e
-    if-ge v5, v7, :cond_61
+    :cond_4
+    if-ge v5, v7, :cond_5
 
     .line 216
     const/4 v6, 0x1
 
     .line 202
-    :cond_61
+    :cond_5
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_42
+    goto :goto_2
 
     .line 220
-    :cond_64
-    if-le v7, v8, :cond_26
+    :cond_6
+    if-le v7, v8, :cond_0
 
     .line 221
     sub-int v9, v7, v8
 
     invoke-virtual {v4, v0, v8, v9}, Ljava/io/FileOutputStream;->write([BII)V
 
-    goto :goto_26
+    goto :goto_0
 
     .line 226
     .end local v5           #i:I
     .end local v8           #start:I
-    :cond_6c
+    :cond_7
     iget-object v9, p0, Lcom/android/server/am/TransferPipe;->mThread:Ljava/lang/Thread;
 
     invoke-virtual {v9}, Ljava/lang/Thread;->isInterrupted()Z
-    :try_end_71
-    .catch Ljava/io/IOException; {:try_start_44 .. :try_end_71} :catch_33
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
     move-result v9
 
-    if-eqz v9, :cond_74
+    if-eqz v9, :cond_8
 
     .line 237
-    :cond_74
+    :cond_8
     monitor-enter p0
 
     .line 238
     const/4 v9, 0x1
 
-    :try_start_76
+    :try_start_3
     iput-boolean v9, p0, Lcom/android/server/am/TransferPipe;->mComplete:Z
 
     .line 239
@@ -749,33 +749,33 @@
     .line 240
     monitor-exit p0
 
-    goto :goto_3f
+    goto :goto_1
 
-    :catchall_7d
+    :catchall_0
     move-exception v9
 
     monitor-exit p0
-    :try_end_7f
-    .catchall {:try_start_76 .. :try_end_7f} :catchall_7d
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v9
 
     .line 234
     .end local v7           #size:I
     .restart local v2       #e:Ljava/io/IOException;
-    :catchall_80
+    :catchall_1
     move-exception v9
 
-    :try_start_81
+    :try_start_4
     monitor-exit p0
-    :try_end_82
-    .catchall {:try_start_81 .. :try_end_82} :catchall_80
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     throw v9
 .end method
 
 .method setBufferPrefix(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "prefix"
 
     .prologue

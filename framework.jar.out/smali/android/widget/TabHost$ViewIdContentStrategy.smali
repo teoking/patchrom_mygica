@@ -25,7 +25,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/TabHost;I)V
-    .registers 6
+    .locals 3
     .parameter
     .parameter "viewId"
 
@@ -36,6 +36,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 629
+    #getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
     invoke-static {p1}, Landroid/widget/TabHost;->access$100(Landroid/widget/TabHost;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -49,7 +50,7 @@
     .line 630
     iget-object v0, p0, Landroid/widget/TabHost$ViewIdContentStrategy;->mView:Landroid/view/View;
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_0
 
     .line 631
     iget-object v0, p0, Landroid/widget/TabHost$ViewIdContentStrategy;->mView:Landroid/view/View;
@@ -62,7 +63,7 @@
     return-void
 
     .line 633
-    :cond_1b
+    :cond_0
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -89,7 +90,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/TabHost;ILandroid/widget/TabHost$1;)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -104,7 +105,7 @@
 
 # virtual methods
 .method public getContentView()Landroid/view/View;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 639
@@ -121,7 +122,7 @@
 .end method
 
 .method public tabClosed()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 644

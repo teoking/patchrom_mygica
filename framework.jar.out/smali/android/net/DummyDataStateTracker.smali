@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "netType"
     .parameter "tag"
 
@@ -70,7 +70,7 @@
 .end method
 
 .method private static log(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "s"
 
     .prologue
@@ -84,7 +84,7 @@
 .end method
 
 .method private static loge(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "s"
 
     .prologue
@@ -98,7 +98,7 @@
 .end method
 
 .method private setDetailedState(Landroid/net/NetworkInfo$DetailedState;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 8
+    .locals 4
     .parameter "state"
     .parameter "reason"
     .parameter "extraInfo"
@@ -168,7 +168,7 @@
 
 # virtual methods
 .method public defaultRouteSet(Z)V
-    .registers 2
+    .locals 0
     .parameter "enabled"
 
     .prologue
@@ -180,7 +180,7 @@
 .end method
 
 .method public getLinkCapabilities()Landroid/net/LinkCapabilities;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 195
@@ -194,7 +194,7 @@
 .end method
 
 .method public getLinkProperties()Landroid/net/LinkProperties;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 188
@@ -208,7 +208,7 @@
 .end method
 
 .method public getNetworkInfo()Landroid/net/NetworkInfo;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 79
@@ -218,7 +218,7 @@
 .end method
 
 .method public getTcpBufferSizesPropName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 108
@@ -228,7 +228,7 @@
 .end method
 
 .method public isAvailable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 100
@@ -238,7 +238,7 @@
 .end method
 
 .method public isDefaultRouteSet()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 83
@@ -248,7 +248,7 @@
 .end method
 
 .method public isPrivateDnsRouteSet()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 71
@@ -258,7 +258,7 @@
 .end method
 
 .method public isTeardownRequested()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 145
@@ -268,7 +268,7 @@
 .end method
 
 .method public privateDnsRouteSet(Z)V
-    .registers 2
+    .locals 0
     .parameter "enabled"
 
     .prologue
@@ -280,7 +280,7 @@
 .end method
 
 .method public reconnect()Z
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -311,7 +311,7 @@
 .end method
 
 .method public releaseWakeLock()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 94
@@ -319,7 +319,7 @@
 .end method
 
 .method public setDependencyMet(Z)V
-    .registers 2
+    .locals 0
     .parameter "met"
 
     .prologue
@@ -328,7 +328,7 @@
 .end method
 
 .method public setPolicyDataEnable(Z)V
-    .registers 2
+    .locals 0
     .parameter "enabled"
 
     .prologue
@@ -337,7 +337,7 @@
 .end method
 
 .method public setRadio(Z)Z
-    .registers 3
+    .locals 1
     .parameter "turnOn"
 
     .prologue
@@ -348,7 +348,7 @@
 .end method
 
 .method public setTeardownRequested(Z)V
-    .registers 2
+    .locals 0
     .parameter "isRequested"
 
     .prologue
@@ -360,7 +360,7 @@
 .end method
 
 .method public setUserDataEnable(Z)V
-    .registers 2
+    .locals 0
     .parameter "enabled"
 
     .prologue
@@ -369,7 +369,7 @@
 .end method
 
 .method public startMonitoring(Landroid/content/Context;Landroid/os/Handler;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "target"
 
@@ -385,7 +385,7 @@
 .end method
 
 .method public teardown()Z
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -411,7 +411,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 180

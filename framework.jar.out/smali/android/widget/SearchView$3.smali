@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/SearchView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,31 +38,34 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 158
     iget-object v0, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
 
+    #getter for: Landroid/widget/SearchView;->mSuggestionsAdapter:Landroid/widget/CursorAdapter;
     invoke-static {v0}, Landroid/widget/SearchView;->access$100(Landroid/widget/SearchView;)Landroid/widget/CursorAdapter;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
 
+    #getter for: Landroid/widget/SearchView;->mSuggestionsAdapter:Landroid/widget/CursorAdapter;
     invoke-static {v0}, Landroid/widget/SearchView;->access$100(Landroid/widget/SearchView;)Landroid/widget/CursorAdapter;
 
     move-result-object v0
 
     instance-of v0, v0, Landroid/widget/SuggestionsAdapter;
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     .line 159
     iget-object v0, p0, Landroid/widget/SearchView$3;->this$0:Landroid/widget/SearchView;
 
+    #getter for: Landroid/widget/SearchView;->mSuggestionsAdapter:Landroid/widget/CursorAdapter;
     invoke-static {v0}, Landroid/widget/SearchView;->access$100(Landroid/widget/SearchView;)Landroid/widget/CursorAdapter;
 
     move-result-object v0
@@ -72,6 +75,6 @@
     invoke-virtual {v0, v1}, Landroid/widget/CursorAdapter;->changeCursor(Landroid/database/Cursor;)V
 
     .line 161
-    :cond_1c
+    :cond_0
     return-void
 .end method

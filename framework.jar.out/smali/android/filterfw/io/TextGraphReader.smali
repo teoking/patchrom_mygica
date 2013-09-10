@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 39
@@ -59,7 +59,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/filterfw/io/TextGraphReader;)Landroid/filterfw/core/FilterFactory;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -70,7 +70,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/filterfw/io/TextGraphReader;)Landroid/filterfw/core/Filter;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/filterfw/io/TextGraphReader;Landroid/filterfw/core/Filter;)Landroid/filterfw/core/Filter;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -93,7 +93,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/filterfw/io/TextGraphReader;)Landroid/filterfw/core/FilterGraph;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -104,7 +104,7 @@
 .end method
 
 .method private applySettings()V
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/filterfw/io/GraphIOException;
@@ -124,12 +124,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_a
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_b1
+    if-eqz v3, :cond_5
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -153,7 +153,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_78
+    if-eqz v3, :cond_3
 
     .line 455
     const-class v3, Ljava/lang/String;
@@ -167,7 +167,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_39
+    if-eqz v3, :cond_0
 
     .line 457
     iget-object v3, p0, Landroid/filterfw/io/TextGraphReader;->mCurrentGraph:Landroid/filterfw/core/FilterGraph;
@@ -176,17 +176,17 @@
 
     invoke-virtual {v3, v4}, Landroid/filterfw/core/FilterGraph;->setAutoBranchMode(I)V
 
-    goto :goto_a
+    goto :goto_0
 
     .line 458
-    :cond_39
+    :cond_0
     const-string/jumbo v3, "unsynced"
 
     invoke-virtual {v2, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_49
+    if-eqz v3, :cond_1
 
     .line 459
     iget-object v3, p0, Landroid/filterfw/io/TextGraphReader;->mCurrentGraph:Landroid/filterfw/core/FilterGraph;
@@ -195,17 +195,17 @@
 
     invoke-virtual {v3, v4}, Landroid/filterfw/core/FilterGraph;->setAutoBranchMode(I)V
 
-    goto :goto_a
+    goto :goto_0
 
     .line 460
-    :cond_49
+    :cond_1
     const-string/jumbo v3, "off"
 
     invoke-virtual {v2, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_59
+    if-eqz v3, :cond_2
 
     .line 461
     iget-object v3, p0, Landroid/filterfw/io/TextGraphReader;->mCurrentGraph:Landroid/filterfw/core/FilterGraph;
@@ -214,10 +214,10 @@
 
     invoke-virtual {v3, v4}, Landroid/filterfw/core/FilterGraph;->setAutoBranchMode(I)V
 
-    goto :goto_a
+    goto :goto_0
 
     .line 463
-    :cond_59
+    :cond_2
     new-instance v3, Landroid/filterfw/io/GraphIOException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -249,14 +249,14 @@
     throw v3
 
     .line 465
-    :cond_78
+    :cond_3
     const-string v3, "discardUnconnectedOutputs"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_92
+    if-eqz v3, :cond_4
 
     .line 466
     const-class v3, Ljava/lang/Boolean;
@@ -275,11 +275,11 @@
 
     invoke-virtual {v3, v4}, Landroid/filterfw/core/FilterGraph;->setDiscardUnconnectedOutputs(Z)V
 
-    goto/16 :goto_a
+    goto/16 :goto_0
 
     .line 469
     .restart local v2       #value:Ljava/lang/Object;
-    :cond_92
+    :cond_4
     new-instance v3, Landroid/filterfw/io/GraphIOException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -313,12 +313,12 @@
     .line 472
     .end local v1           #setting:Ljava/lang/String;
     .end local v2           #value:Ljava/lang/Object;
-    :cond_b1
+    :cond_5
     return-void
 .end method
 
 .method private bindExternal(Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -334,7 +334,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_0
 
     .line 427
     iget-object v1, p0, Landroid/filterfw/io/GraphReader;->mReferences:Landroid/filterfw/core/KeyValueMap;
@@ -354,7 +354,7 @@
 
     .line 430
     .end local v0           #value:Ljava/lang/Object;
-    :cond_14
+    :cond_0
     new-instance v1, Landroid/filterfw/io/GraphIOException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -399,7 +399,7 @@
 .end method
 
 .method private checkReferences()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/filterfw/io/GraphIOException;
@@ -419,12 +419,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :cond_a
+    :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_43
+    if-eqz v2, :cond_1
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -440,7 +440,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_0
 
     .line 444
     new-instance v2, Landroid/filterfw/io/GraphIOException;
@@ -481,12 +481,12 @@
 
     .line 449
     .end local v1           #reference:Ljava/lang/String;
-    :cond_43
+    :cond_1
     return-void
 .end method
 
 .method private executeCommands()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/filterfw/io/GraphIOException;
@@ -502,12 +502,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_6
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -519,16 +519,16 @@
     .local v0, command:Landroid/filterfw/io/TextGraphReader$Command;
     invoke-interface {v0, p0}, Landroid/filterfw/io/TextGraphReader$Command;->execute(Landroid/filterfw/io/TextGraphReader;)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 488
     .end local v0           #command:Landroid/filterfw/io/TextGraphReader$Command;
-    :cond_16
+    :cond_0
     return-void
 .end method
 
 .method private expectSettingClass(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Class;)V
-    .registers 7
+    .locals 3
     .parameter "setting"
     .parameter "value"
     .parameter "expectedClass"
@@ -544,7 +544,7 @@
 
     move-result-object v0
 
-    if-eq v0, p3, :cond_45
+    if-eq v0, p3, :cond_0
 
     .line 478
     new-instance v0, Landroid/filterfw/io/GraphIOException;
@@ -610,12 +610,12 @@
     throw v0
 
     .line 482
-    :cond_45
+    :cond_0
     return-void
 .end method
 
 .method private parseString(Ljava/lang/String;)V
-    .registers 51
+    .locals 49
     .parameter "graphString"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -809,20 +809,20 @@
 
     .line 209
     .local v8, curTargetPortName:Ljava/lang/String;
-    :goto_6c
+    :goto_0
     invoke-virtual/range {v43 .. v43}, Landroid/filterfw/io/PatternScanner;->atEnd()Z
 
     move-result v3
 
-    if-nez v3, :cond_265
+    if-nez v3, :cond_7
 
     .line 210
-    packed-switch v46, :pswitch_data_276
+    packed-switch v46, :pswitch_data_0
 
-    goto :goto_6c
+    goto :goto_0
 
     .line 212
-    :pswitch_76
+    :pswitch_0
     const-string v3, "<command>"
 
     move-object/from16 v0, v43
@@ -843,15 +843,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_8d
+    if-eqz v3, :cond_0
 
     .line 214
     const/16 v46, 0x1
 
-    goto :goto_6c
+    goto :goto_0
 
     .line 215
-    :cond_8d
+    :cond_0
     const-string v3, "@library"
 
     move-object/from16 v0, v29
@@ -860,15 +860,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_9a
+    if-eqz v3, :cond_1
 
     .line 216
     const/16 v46, 0x2
 
-    goto :goto_6c
+    goto :goto_0
 
     .line 217
-    :cond_9a
+    :cond_1
     const-string v3, "@filter"
 
     move-object/from16 v0, v29
@@ -877,15 +877,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_a7
+    if-eqz v3, :cond_2
 
     .line 218
     const/16 v46, 0x3
 
-    goto :goto_6c
+    goto :goto_0
 
     .line 219
-    :cond_a7
+    :cond_2
     const-string v3, "@connect"
 
     move-object/from16 v0, v29
@@ -894,15 +894,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b4
+    if-eqz v3, :cond_3
 
     .line 220
     const/16 v46, 0x8
 
-    goto :goto_6c
+    goto :goto_0
 
     .line 221
-    :cond_b4
+    :cond_3
     const-string v3, "@set"
 
     move-object/from16 v0, v29
@@ -911,15 +911,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_c1
+    if-eqz v3, :cond_4
 
     .line 222
     const/16 v46, 0xd
 
-    goto :goto_6c
+    goto :goto_0
 
     .line 223
-    :cond_c1
+    :cond_4
     const-string v3, "@external"
 
     move-object/from16 v0, v29
@@ -928,15 +928,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_ce
+    if-eqz v3, :cond_5
 
     .line 224
     const/16 v46, 0xe
 
-    goto :goto_6c
+    goto :goto_0
 
     .line 225
-    :cond_ce
+    :cond_5
     const-string v3, "@setting"
 
     move-object/from16 v0, v29
@@ -945,15 +945,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_db
+    if-eqz v3, :cond_6
 
     .line 226
     const/16 v46, 0xf
 
-    goto :goto_6c
+    goto :goto_0
 
     .line 228
-    :cond_db
+    :cond_6
     new-instance v3, Landroid/filterfw/io/GraphIOException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -992,7 +992,7 @@
 
     .line 234
     .end local v29           #curCommand:Ljava/lang/String;
-    :pswitch_100
+    :pswitch_1
     const-string v3, "<package-name>"
 
     move-object/from16 v0, v43
@@ -1023,11 +1023,11 @@
     const/16 v46, 0x10
 
     .line 237
-    goto/16 :goto_6c
+    goto/16 :goto_0
 
     .line 241
     .end local v37           #packageName:Ljava/lang/String;
-    :pswitch_11e
+    :pswitch_2
     const-string v3, "<library-name>"
 
     move-object/from16 v0, v43
@@ -1058,11 +1058,11 @@
     const/16 v46, 0x10
 
     .line 244
-    goto/16 :goto_6c
+    goto/16 :goto_0
 
     .line 248
     .end local v35           #libraryName:Ljava/lang/String;
-    :pswitch_13c
+    :pswitch_3
     const-string v3, "<class-name>"
 
     move-object/from16 v0, v43
@@ -1077,10 +1077,10 @@
     const/16 v46, 0x4
 
     .line 250
-    goto/16 :goto_6c
+    goto/16 :goto_0
 
     .line 253
-    :pswitch_14a
+    :pswitch_4
     const-string v3, "<filter-name>"
 
     move-object/from16 v0, v43
@@ -1113,11 +1113,11 @@
     const/16 v46, 0x5
 
     .line 256
-    goto/16 :goto_6c
+    goto/16 :goto_0
 
     .line 260
     .end local v30           #curFilterName:Ljava/lang/String;
-    :pswitch_16a
+    :pswitch_5
     const-string/jumbo v3, "{"
 
     move-object/from16 v0, v43
@@ -1130,10 +1130,10 @@
     const/16 v46, 0x6
 
     .line 262
-    goto/16 :goto_6c
+    goto/16 :goto_0
 
     .line 265
-    :pswitch_178
+    :pswitch_6
     move-object/from16 v0, p0
 
     move-object/from16 v1, v43
@@ -1164,11 +1164,11 @@
     const/16 v46, 0x7
 
     .line 268
-    goto/16 :goto_6c
+    goto/16 :goto_0
 
     .line 272
     .end local v39           #params:Landroid/filterfw/core/KeyValueMap;
-    :pswitch_196
+    :pswitch_7
     const-string/jumbo v3, "}"
 
     move-object/from16 v0, v43
@@ -1181,10 +1181,10 @@
     const/16 v46, 0x0
 
     .line 274
-    goto/16 :goto_6c
+    goto/16 :goto_0
 
     .line 277
-    :pswitch_1a4
+    :pswitch_8
     const-string v3, "<source-filter-name>"
 
     move-object/from16 v0, v43
@@ -1199,10 +1199,10 @@
     const/16 v46, 0x9
 
     .line 279
-    goto/16 :goto_6c
+    goto/16 :goto_0
 
     .line 282
-    :pswitch_1b2
+    :pswitch_9
     const-string v3, "[<source-port-name>]"
 
     move-object/from16 v0, v43
@@ -1233,11 +1233,11 @@
     const/16 v46, 0xa
 
     .line 285
-    goto/16 :goto_6c
+    goto/16 :goto_0
 
     .line 289
     .end local v41           #portString:Ljava/lang/String;
-    :pswitch_1cd
+    :pswitch_a
     const-string v3, "=>"
 
     move-object/from16 v0, v43
@@ -1250,10 +1250,10 @@
     const/16 v46, 0xb
 
     .line 291
-    goto/16 :goto_6c
+    goto/16 :goto_0
 
     .line 294
-    :pswitch_1da
+    :pswitch_b
     const-string v3, "<target-filter-name>"
 
     move-object/from16 v0, v43
@@ -1268,10 +1268,10 @@
     const/16 v46, 0xc
 
     .line 296
-    goto/16 :goto_6c
+    goto/16 :goto_0
 
     .line 299
-    :pswitch_1e8
+    :pswitch_c
     const-string v3, "[<target-port-name>]"
 
     move-object/from16 v0, v43
@@ -1319,11 +1319,11 @@
     const/16 v46, 0x10
 
     .line 306
-    goto/16 :goto_6c
+    goto/16 :goto_0
 
     .line 310
     .end local v41           #portString:Ljava/lang/String;
-    :pswitch_215
+    :pswitch_d
     move-object/from16 v0, p0
 
     move-object/from16 v1, v43
@@ -1348,11 +1348,11 @@
     const/16 v46, 0x10
 
     .line 313
-    goto/16 :goto_6c
+    goto/16 :goto_0
 
     .line 317
     .end local v26           #assignment:Landroid/filterfw/core/KeyValueMap;
-    :pswitch_22c
+    :pswitch_e
     const-string v3, "<external-identifier>"
 
     move-object/from16 v0, v43
@@ -1375,11 +1375,11 @@
     const/16 v46, 0x10
 
     .line 320
-    goto/16 :goto_6c
+    goto/16 :goto_0
 
     .line 324
     .end local v33           #externalName:Ljava/lang/String;
-    :pswitch_241
+    :pswitch_f
     move-object/from16 v0, p0
 
     move-object/from16 v1, v43
@@ -1404,11 +1404,11 @@
     const/16 v46, 0x10
 
     .line 327
-    goto/16 :goto_6c
+    goto/16 :goto_0
 
     .line 331
     .end local v45           #setting:Landroid/filterfw/core/KeyValueMap;
-    :pswitch_258
+    :pswitch_10
     const-string v3, ";"
 
     move-object/from16 v0, v43
@@ -1420,17 +1420,17 @@
     .line 332
     const/16 v46, 0x0
 
-    goto/16 :goto_6c
+    goto/16 :goto_0
 
     .line 338
-    :cond_265
+    :cond_7
     const/16 v3, 0x10
 
     move/from16 v0, v46
 
-    if-eq v0, v3, :cond_275
+    if-eq v0, v3, :cond_8
 
-    if-eqz v46, :cond_275
+    if-eqz v46, :cond_8
 
     .line 339
     new-instance v3, Landroid/filterfw/io/GraphIOException;
@@ -1442,34 +1442,34 @@
     throw v3
 
     .line 341
-    :cond_275
+    :cond_8
     return-void
 
     .line 210
-    :pswitch_data_276
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_76
-        :pswitch_100
-        :pswitch_11e
-        :pswitch_13c
-        :pswitch_14a
-        :pswitch_16a
-        :pswitch_178
-        :pswitch_196
-        :pswitch_1a4
-        :pswitch_1b2
-        :pswitch_1cd
-        :pswitch_1da
-        :pswitch_1e8
-        :pswitch_215
-        :pswitch_22c
-        :pswitch_241
-        :pswitch_258
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
+        :pswitch_a
+        :pswitch_b
+        :pswitch_c
+        :pswitch_d
+        :pswitch_e
+        :pswitch_f
+        :pswitch_10
     .end packed-switch
 .end method
 
 .method private readKeyValueAssignments(Landroid/filterfw/io/PatternScanner;Ljava/util/regex/Pattern;)Landroid/filterfw/core/KeyValueMap;
-    .registers 27
+    .locals 24
     .parameter "scanner"
     .parameter "endPattern"
     .annotation system Ldalvik/annotation/Throws;
@@ -1578,29 +1578,29 @@
 
     .line 372
     .local v9, curValue:Ljava/lang/String;
-    :goto_3e
+    :goto_0
     invoke-virtual/range {p1 .. p1}, Landroid/filterfw/io/PatternScanner;->atEnd()Z
 
     move-result v21
 
-    if-nez v21, :cond_146
+    if-nez v21, :cond_8
 
-    if-eqz p2, :cond_4c
+    if-eqz p2, :cond_0
 
     invoke-virtual/range {p1 .. p2}, Landroid/filterfw/io/PatternScanner;->peek(Ljava/util/regex/Pattern;)Z
 
     move-result v21
 
-    if-nez v21, :cond_146
+    if-nez v21, :cond_8
 
     .line 373
-    :cond_4c
-    packed-switch v18, :pswitch_data_174
+    :cond_0
+    packed-switch v18, :pswitch_data_0
 
-    goto :goto_3e
+    goto :goto_0
 
     .line 375
-    :pswitch_50
+    :pswitch_0
     const-string v21, "<identifier>"
 
     move-object/from16 v0, p1
@@ -1617,10 +1617,10 @@
     const/16 v18, 0x1
 
     .line 377
-    goto :goto_3e
+    goto :goto_0
 
     .line 380
-    :pswitch_5f
+    :pswitch_1
     const-string v21, "="
 
     move-object/from16 v0, p1
@@ -1633,10 +1633,10 @@
     const/16 v18, 0x2
 
     .line 382
-    goto :goto_3e
+    goto :goto_0
 
     .line 385
-    :pswitch_6b
+    :pswitch_2
     move-object/from16 v0, p1
 
     move-object/from16 v1, v19
@@ -1645,7 +1645,7 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_8d
+    if-eqz v9, :cond_1
 
     .line 386
     const/16 v21, 0x1
@@ -1669,21 +1669,21 @@
     invoke-virtual {v13, v8, v0}, Landroid/filterfw/core/KeyValueMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 406
-    :goto_8a
+    :goto_1
     const/16 v18, 0x3
 
     .line 407
-    goto :goto_3e
+    goto :goto_0
 
     .line 387
-    :cond_8d
+    :cond_1
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v15}, Landroid/filterfw/io/PatternScanner;->tryEat(Ljava/util/regex/Pattern;)Ljava/lang/String;
 
     move-result-object v9
 
-    if-eqz v9, :cond_e3
+    if-eqz v9, :cond_4
 
     .line 388
     const/16 v21, 0x1
@@ -1708,7 +1708,7 @@
 
     move-object/from16 v21, v0
 
-    if-eqz v21, :cond_da
+    if-eqz v21, :cond_2
 
     move-object/from16 v0, p0
 
@@ -1724,8 +1724,8 @@
 
     .line 392
     .local v16, referencedObject:Ljava/lang/Object;
-    :goto_b7
-    if-nez v16, :cond_dd
+    :goto_2
+    if-nez v16, :cond_3
 
     .line 393
     new-instance v21, Landroid/filterfw/io/GraphIOException;
@@ -1762,31 +1762,31 @@
 
     .line 389
     .end local v16           #referencedObject:Ljava/lang/Object;
-    :cond_da
+    :cond_2
     const/16 v16, 0x0
 
-    goto :goto_b7
+    goto :goto_2
 
     .line 396
     .restart local v16       #referencedObject:Ljava/lang/Object;
-    :cond_dd
+    :cond_3
     move-object/from16 v0, v16
 
     invoke-virtual {v13, v8, v0}, Landroid/filterfw/core/KeyValueMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_8a
+    goto :goto_1
 
     .line 397
     .end local v14           #refName:Ljava/lang/String;
     .end local v16           #referencedObject:Ljava/lang/Object;
-    :cond_e3
+    :cond_4
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v7}, Landroid/filterfw/io/PatternScanner;->tryEat(Ljava/util/regex/Pattern;)Ljava/lang/String;
 
     move-result-object v9
 
-    if-eqz v9, :cond_f9
+    if-eqz v9, :cond_5
 
     .line 398
     invoke-static {v9}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
@@ -1801,17 +1801,17 @@
 
     invoke-virtual {v13, v8, v0}, Landroid/filterfw/core/KeyValueMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_8a
+    goto :goto_1
 
     .line 399
-    :cond_f9
+    :cond_5
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v11}, Landroid/filterfw/io/PatternScanner;->tryEat(Ljava/util/regex/Pattern;)Ljava/lang/String;
 
     move-result-object v9
 
-    if-eqz v9, :cond_110
+    if-eqz v9, :cond_6
 
     .line 400
     invoke-static {v9}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
@@ -1826,17 +1826,17 @@
 
     invoke-virtual {v13, v8, v0}, Landroid/filterfw/core/KeyValueMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_8a
+    goto/16 :goto_1
 
     .line 401
-    :cond_110
+    :cond_6
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v12}, Landroid/filterfw/io/PatternScanner;->tryEat(Ljava/util/regex/Pattern;)Ljava/lang/String;
 
     move-result-object v9
 
-    if-eqz v9, :cond_127
+    if-eqz v9, :cond_7
 
     .line 402
     invoke-static {v9}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -1851,10 +1851,10 @@
 
     invoke-virtual {v13, v8, v0}, Landroid/filterfw/core/KeyValueMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_8a
+    goto/16 :goto_1
 
     .line 404
-    :cond_127
+    :cond_7
     new-instance v21, Landroid/filterfw/io/GraphIOException;
 
     const-string v22, "<value>"
@@ -1872,7 +1872,7 @@
     throw v21
 
     .line 410
-    :pswitch_137
+    :pswitch_3
     const-string v21, ";"
 
     move-object/from16 v0, p1
@@ -1886,11 +1886,11 @@
     .line 411
     const/16 v18, 0x0
 
-    goto/16 :goto_3e
+    goto/16 :goto_0
 
     .line 417
-    :cond_146
-    if-eqz v18, :cond_173
+    :cond_8
+    if-eqz v18, :cond_9
 
     const/16 v21, 0x3
 
@@ -1898,7 +1898,7 @@
 
     move/from16 v1, v21
 
-    if-eq v0, v1, :cond_173
+    if-eq v0, v1, :cond_9
 
     .line 418
     new-instance v21, Landroid/filterfw/io/GraphIOException;
@@ -1936,21 +1936,21 @@
     throw v21
 
     .line 422
-    :cond_173
+    :cond_9
     return-object v13
 
     .line 373
-    :pswitch_data_174
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_50
-        :pswitch_5f
-        :pswitch_6b
-        :pswitch_137
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method private reset()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -1994,7 +1994,7 @@
 
 # virtual methods
 .method public readGraphString(Ljava/lang/String;)Landroid/filterfw/core/FilterGraph;
-    .registers 3
+    .locals 1
     .parameter "graphString"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2032,7 +2032,7 @@
 .end method
 
 .method public readKeyValueAssignments(Ljava/lang/String;)Landroid/filterfw/core/KeyValueMap;
-    .registers 5
+    .locals 3
     .parameter "assignments"
     .annotation system Ldalvik/annotation/Throws;
         value = {

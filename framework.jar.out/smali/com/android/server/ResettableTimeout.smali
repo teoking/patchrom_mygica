@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 29
@@ -41,7 +41,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/server/ResettableTimeout;)Landroid/os/ConditionVariable;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -52,7 +52,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/server/ResettableTimeout;)J
-    .registers 3
+    .locals 2
     .parameter "x0"
 
     .prologue
@@ -63,7 +63,7 @@
 .end method
 
 .method static synthetic access$302(Lcom/android/server/ResettableTimeout;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -75,7 +75,7 @@
 .end method
 
 .method static synthetic access$402(Lcom/android/server/ResettableTimeout;Ljava/lang/Thread;)Ljava/lang/Thread;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public cancel()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 85
@@ -98,13 +98,13 @@
     .line 86
     const-wide/16 v0, 0x0
 
-    :try_start_3
+    :try_start_0
     iput-wide v0, p0, Lcom/android/server/ResettableTimeout;->mOffAt:J
 
     .line 87
     iget-object v0, p0, Lcom/android/server/ResettableTimeout;->mThread:Ljava/lang/Thread;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 88
     iget-object v0, p0, Lcom/android/server/ResettableTimeout;->mThread:Ljava/lang/Thread;
@@ -117,10 +117,10 @@
     iput-object v0, p0, Lcom/android/server/ResettableTimeout;->mThread:Ljava/lang/Thread;
 
     .line 91
-    :cond_11
+    :cond_0
     iget-boolean v0, p0, Lcom/android/server/ResettableTimeout;->mOffCalled:Z
 
-    if-nez v0, :cond_1b
+    if-nez v0, :cond_1
 
     .line 92
     const/4 v0, 0x1
@@ -131,25 +131,25 @@
     invoke-virtual {p0}, Lcom/android/server/ResettableTimeout;->off()V
 
     .line 95
-    :cond_1b
+    :cond_1
     monitor-exit p0
 
     .line 96
     return-void
 
     .line 95
-    :catchall_1d
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_1f
-    .catchall {:try_start_3 .. :try_end_1f} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public go(J)V
-    .registers 6
+    .locals 3
     .parameter "milliseconds"
 
     .prologue
@@ -157,7 +157,7 @@
     monitor-enter p0
 
     .line 55
-    :try_start_1
+    :try_start_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v1
@@ -169,7 +169,7 @@
     .line 64
     iget-object v1, p0, Lcom/android/server/ResettableTimeout;->mThread:Ljava/lang/Thread;
 
-    if-nez v1, :cond_2c
+    if-nez v1, :cond_0
 
     .line 65
     const/4 v0, 0x0
@@ -205,7 +205,7 @@
     iput-boolean v1, p0, Lcom/android/server/ResettableTimeout;->mOffCalled:Z
 
     .line 76
-    :goto_27
+    :goto_0
     invoke-virtual {p0, v0}, Lcom/android/server/ResettableTimeout;->on(Z)V
 
     .line 77
@@ -216,7 +216,7 @@
 
     .line 72
     .end local v0           #alreadyOn:Z
-    :cond_2c
+    :cond_0
     const/4 v0, 0x1
 
     .line 74
@@ -225,16 +225,16 @@
 
     invoke-virtual {v1}, Ljava/lang/Thread;->interrupt()V
 
-    goto :goto_27
+    goto :goto_0
 
     .line 77
     .end local v0           #alreadyOn:Z
-    :catchall_33
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
-    :try_end_35
-    .catchall {:try_start_1 .. :try_end_35} :catchall_33
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method

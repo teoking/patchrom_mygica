@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 47
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Locale;)V
-    .registers 3
+    .locals 1
     .parameter "locale"
 
     .prologue
@@ -54,12 +54,12 @@
 .end method
 
 .method private checkOffsetIsValid(I)V
-    .registers 6
+    .locals 4
     .parameter "shiftedOffset"
 
     .prologue
     .line 175
-    if-ltz p1, :cond_a
+    if-ltz p1, :cond_0
 
     iget-object v0, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
 
@@ -67,10 +67,10 @@
 
     move-result v0
 
-    if-le p1, v0, :cond_4b
+    if-le p1, v0, :cond_1
 
     .line 176
-    :cond_a
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -138,19 +138,19 @@
     throw v0
 
     .line 180
-    :cond_4b
+    :cond_1
     return-void
 .end method
 
 .method private isAfterLetterOrDigit(I)Z
-    .registers 5
+    .locals 3
     .parameter "shiftedOffset"
 
     .prologue
     const/4 v1, 0x1
 
     .line 159
-    if-lt p1, v1, :cond_18
+    if-lt p1, v1, :cond_0
 
     iget-object v2, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
 
@@ -158,7 +158,7 @@
 
     move-result v2
 
-    if-gt p1, v2, :cond_18
+    if-gt p1, v2, :cond_0
 
     .line 160
     iget-object v2, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
@@ -173,26 +173,26 @@
 
     move-result v2
 
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_0
 
     .line 163
     .end local v0           #codePoint:I
-    :goto_17
+    :goto_0
     return v1
 
-    :cond_18
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method private isOnLetterOrDigit(I)Z
-    .registers 4
+    .locals 2
     .parameter "shiftedOffset"
 
     .prologue
     .line 167
-    if-ltz p1, :cond_18
+    if-ltz p1, :cond_0
 
     iget-object v1, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
 
@@ -200,7 +200,7 @@
 
     move-result v1
 
-    if-ge p1, v1, :cond_18
+    if-ge p1, v1, :cond_0
 
     .line 168
     iget-object v1, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
@@ -215,25 +215,25 @@
 
     move-result v1
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_0
 
     const/4 v1, 0x1
 
     .line 171
     .end local v0           #codePoint:I
-    :goto_17
+    :goto_0
     return v1
 
-    :cond_18
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_17
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public following(I)I
-    .registers 5
+    .locals 3
     .parameter "offset"
 
     .prologue
@@ -246,7 +246,7 @@
 
     .line 88
     .local v0, shiftedOffset:I
-    :cond_5
+    :cond_0
     iget-object v2, p0, Landroid/text/method/WordIterator;->mIterator:Ljava/text/BreakIterator;
 
     invoke-virtual {v2, v0}, Ljava/text/BreakIterator;->following(I)I
@@ -254,30 +254,30 @@
     move-result v0
 
     .line 89
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_1
 
     .line 93
-    :goto_d
+    :goto_0
     return v1
 
     .line 92
-    :cond_e
+    :cond_1
     invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->isAfterLetterOrDigit(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_0
 
     .line 93
     iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
 
     add-int/2addr v1, v0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public getBeginning(I)I
-    .registers 5
+    .locals 3
     .parameter "offset"
 
     .prologue
@@ -295,7 +295,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_1
 
     .line 115
     iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Ljava/text/BreakIterator;
@@ -304,7 +304,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_0
 
     .line 116
     iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
@@ -312,11 +312,11 @@
     add-int/2addr v1, v0
 
     .line 125
-    :goto_18
+    :goto_0
     return v1
 
     .line 118
-    :cond_19
+    :cond_0
     iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Ljava/text/BreakIterator;
 
     invoke-virtual {v1, v0}, Ljava/text/BreakIterator;->preceding(I)I
@@ -327,15 +327,15 @@
 
     add-int/2addr v1, v2
 
-    goto :goto_18
+    goto :goto_0
 
     .line 121
-    :cond_23
+    :cond_1
     invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->isAfterLetterOrDigit(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_33
+    if-eqz v1, :cond_2
 
     .line 122
     iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Ljava/text/BreakIterator;
@@ -348,17 +348,17 @@
 
     add-int/2addr v1, v2
 
-    goto :goto_18
+    goto :goto_0
 
     .line 125
-    :cond_33
+    :cond_2
     const/4 v1, -0x1
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method public getEnd(I)I
-    .registers 5
+    .locals 3
     .parameter "offset"
 
     .prologue
@@ -376,7 +376,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_1
 
     .line 145
     iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Ljava/text/BreakIterator;
@@ -385,7 +385,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_0
 
     .line 146
     iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
@@ -393,11 +393,11 @@
     add-int/2addr v1, v0
 
     .line 155
-    :goto_18
+    :goto_0
     return v1
 
     .line 148
-    :cond_19
+    :cond_0
     iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Ljava/text/BreakIterator;
 
     invoke-virtual {v1, v0}, Ljava/text/BreakIterator;->following(I)I
@@ -408,15 +408,15 @@
 
     add-int/2addr v1, v2
 
-    goto :goto_18
+    goto :goto_0
 
     .line 151
-    :cond_23
+    :cond_1
     invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->isOnLetterOrDigit(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_33
+    if-eqz v1, :cond_2
 
     .line 152
     iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Ljava/text/BreakIterator;
@@ -429,17 +429,17 @@
 
     add-int/2addr v1, v2
 
-    goto :goto_18
+    goto :goto_0
 
     .line 155
-    :cond_33
+    :cond_2
     const/4 v1, -0x1
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method public preceding(I)I
-    .registers 5
+    .locals 3
     .parameter "offset"
 
     .prologue
@@ -452,7 +452,7 @@
 
     .line 74
     .local v0, shiftedOffset:I
-    :cond_5
+    :cond_0
     iget-object v2, p0, Landroid/text/method/WordIterator;->mIterator:Ljava/text/BreakIterator;
 
     invoke-virtual {v2, v0}, Ljava/text/BreakIterator;->preceding(I)I
@@ -460,30 +460,30 @@
     move-result v0
 
     .line 75
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_1
 
     .line 79
-    :goto_d
+    :goto_0
     return v1
 
     .line 78
-    :cond_e
+    :cond_1
     invoke-direct {p0, v0}, Landroid/text/method/WordIterator;->isOnLetterOrDigit(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_0
 
     .line 79
     iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
 
     add-int/2addr v1, v0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public setCharSequence(Ljava/lang/CharSequence;II)V
-    .registers 7
+    .locals 3
     .parameter "charSequence"
     .parameter "start"
     .parameter "end"
@@ -515,7 +515,7 @@
     .local v0, windowEnd:I
     instance-of v1, p1, Landroid/text/SpannableStringBuilder;
 
-    if-eqz v1, :cond_29
+    if-eqz v1, :cond_0
 
     .line 63
     check-cast p1, Landroid/text/SpannableStringBuilder;
@@ -530,7 +530,7 @@
     iput-object v1, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
 
     .line 67
-    :goto_21
+    :goto_0
     iget-object v1, p0, Landroid/text/method/WordIterator;->mIterator:Ljava/text/BreakIterator;
 
     iget-object v2, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
@@ -542,7 +542,7 @@
 
     .line 65
     .restart local p1
-    :cond_29
+    :cond_0
     iget v1, p0, Landroid/text/method/WordIterator;->mOffsetShift:I
 
     invoke-interface {p1, v1, v0}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
@@ -555,5 +555,5 @@
 
     iput-object v1, p0, Landroid/text/method/WordIterator;->mString:Ljava/lang/String;
 
-    goto :goto_21
+    goto :goto_0
 .end method

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/pm/RegisteredServicesCache;Landroid/content/pm/RegisteredServicesCacheListener;Ljava/lang/Object;Z)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 171

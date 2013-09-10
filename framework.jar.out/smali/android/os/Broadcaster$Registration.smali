@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/os/Broadcaster;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -43,7 +43,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Broadcaster;Landroid/os/Broadcaster$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

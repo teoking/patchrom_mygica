@@ -70,7 +70,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 86
@@ -105,7 +105,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 143
@@ -142,7 +142,7 @@
 .end method
 
 .method private applyCompatibilityScaleIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;F)V
-    .registers 5
+    .locals 2
     .parameter "info"
     .parameter "scale"
 
@@ -152,14 +152,14 @@
 
     cmpl-float v1, p2, v1
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_0
 
     .line 624
-    :goto_6
+    :goto_0
     return-void
 
     .line 616
-    :cond_7
+    :cond_0
     iget-object v0, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mTempBounds:Landroid/graphics/Rect;
 
     .line 617
@@ -181,11 +181,11 @@
     .line 623
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setBoundsInScreen(Landroid/graphics/Rect;)V
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method private checkFindAccessibilityNodeInfoResultIntegrity(Ljava/util/List;)V
-    .registers 21
+    .locals 19
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -204,15 +204,15 @@
 
     move-result v15
 
-    if-nez v15, :cond_7
+    if-nez v15, :cond_1
 
     .line 760
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return-void
 
     .line 720
-    :cond_7
+    :cond_1
     const/4 v15, 0x0
 
     move-object/from16 v0, p1
@@ -234,15 +234,15 @@
     const/4 v10, 0x1
 
     .local v10, i:I
-    :goto_15
-    if-ge v10, v11, :cond_35
+    :goto_1
+    if-ge v10, v11, :cond_4
 
     .line 723
     move v12, v10
 
     .local v12, j:I
-    :goto_18
-    if-ge v12, v11, :cond_2f
+    :goto_2
+    if-ge v12, v11, :cond_2
 
     .line 724
     move-object/from16 v0, p1
@@ -265,30 +265,30 @@
 
     cmp-long v15, v15, v17
 
-    if-nez v15, :cond_32
+    if-nez v15, :cond_3
 
     .line 726
     move-object v13, v1
 
     .line 722
     .end local v1           #candidate:Landroid/view/accessibility/AccessibilityNodeInfo;
-    :cond_2f
+    :cond_2
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_15
+    goto :goto_1
 
     .line 723
     .restart local v1       #candidate:Landroid/view/accessibility/AccessibilityNodeInfo;
-    :cond_32
+    :cond_3
     add-int/lit8 v12, v12, 0x1
 
-    goto :goto_18
+    goto :goto_2
 
     .line 731
     .end local v1           #candidate:Landroid/view/accessibility/AccessibilityNodeInfo;
     .end local v12           #j:I
-    :cond_35
-    if-nez v13, :cond_3e
+    :cond_4
+    if-nez v13, :cond_5
 
     .line 732
     const-string v15, "AccessibilityInteractionClient"
@@ -298,7 +298,7 @@
     invoke-static/range {v15 .. v16}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 735
-    :cond_3e
+    :cond_5
     new-instance v14, Ljava/util/HashSet;
 
     invoke-direct {v14}, Ljava/util/HashSet;-><init>()V
@@ -314,12 +314,12 @@
     invoke-interface {v9, v13}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
 
     .line 738
-    :cond_4b
+    :cond_6
     invoke-interface {v9}, Ljava/util/Queue;->isEmpty()Z
 
     move-result v15
 
-    if-nez v15, :cond_90
+    if-nez v15, :cond_a
 
     .line 739
     invoke-interface {v9}, Ljava/util/Queue;->poll()Ljava/lang/Object;
@@ -334,7 +334,7 @@
 
     move-result v15
 
-    if-nez v15, :cond_65
+    if-nez v15, :cond_7
 
     .line 741
     const-string v15, "AccessibilityInteractionClient"
@@ -343,10 +343,10 @@
 
     invoke-static/range {v15 .. v16}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_6
+    goto :goto_0
 
     .line 744
-    :cond_65
+    :cond_7
     invoke-virtual {v7}, Landroid/view/accessibility/AccessibilityNodeInfo;->getChildNodeIds()Landroid/util/SparseLongArray;
 
     move-result-object v6
@@ -361,8 +361,8 @@
     .local v3, childCount:I
     const/4 v10, 0x0
 
-    :goto_6e
-    if-ge v10, v3, :cond_4b
+    :goto_3
+    if-ge v10, v3, :cond_6
 
     .line 747
     invoke-virtual {v6, v10}, Landroid/util/SparseLongArray;->valueAt(I)J
@@ -374,8 +374,8 @@
     const/4 v12, 0x0
 
     .restart local v12       #j:I
-    :goto_75
-    if-ge v12, v11, :cond_8d
+    :goto_4
+    if-ge v12, v11, :cond_9
 
     .line 749
     move-object/from16 v0, p1
@@ -394,23 +394,23 @@
 
     cmp-long v15, v15, v4
 
-    if-nez v15, :cond_8a
+    if-nez v15, :cond_8
 
     .line 751
     invoke-interface {v9, v2}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
 
     .line 748
-    :cond_8a
+    :cond_8
     add-int/lit8 v12, v12, 0x1
 
-    goto :goto_75
+    goto :goto_4
 
     .line 746
     .end local v2           #child:Landroid/view/accessibility/AccessibilityNodeInfo;
-    :cond_8d
+    :cond_9
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_6e
+    goto :goto_3
 
     .line 756
     .end local v3           #childCount:I
@@ -418,7 +418,7 @@
     .end local v6           #childIds:Landroid/util/SparseLongArray;
     .end local v7           #current:Landroid/view/accessibility/AccessibilityNodeInfo;
     .end local v12           #j:I
-    :cond_90
+    :cond_a
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->size()I
 
     move-result v15
@@ -431,7 +431,7 @@
 
     .line 757
     .local v8, disconnectedCount:I
-    if-lez v8, :cond_6
+    if-lez v8, :cond_0
 
     .line 758
     const-string v15, "AccessibilityInteractionClient"
@@ -458,11 +458,11 @@
 
     invoke-static/range {v15 .. v16}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_6
+    goto/16 :goto_0
 .end method
 
 .method private clearResultLocked()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -488,14 +488,14 @@
 .end method
 
 .method private finalizeAndCacheAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;IF)V
-    .registers 5
+    .locals 1
     .parameter "info"
     .parameter "connectionId"
     .parameter "windowScale"
 
     .prologue
     .line 635
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 636
     invoke-direct {p0, p1, p3}, Landroid/view/accessibility/AccessibilityInteractionClient;->applyCompatibilityScaleIfNeeded(Landroid/view/accessibility/AccessibilityNodeInfo;F)V
@@ -514,12 +514,12 @@
     invoke-virtual {v0, p1}, Landroid/view/accessibility/AccessibilityNodeInfoCache;->add(Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
     .line 641
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 .method private finalizeAndCacheAccessibilityNodeInfos(Ljava/util/List;IF)V
-    .registers 7
+    .locals 3
     .parameter
     .parameter "connectionId"
     .parameter "windowScale"
@@ -536,7 +536,7 @@
     .prologue
     .line 652
     .local p1, infos:Ljava/util/List;,"Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
-    if-eqz p1, :cond_15
+    if-eqz p1, :cond_0
 
     .line 653
     invoke-interface {p1}, Ljava/util/List;->size()I
@@ -548,8 +548,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_7
-    if-ge v0, v2, :cond_15
+    :goto_0
+    if-ge v0, v2, :cond_0
 
     .line 655
     invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -565,18 +565,18 @@
     .line 654
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 659
     .end local v0           #i:I
     .end local v1           #info:Landroid/view/accessibility/AccessibilityNodeInfo;
     .end local v2           #infosCount:I
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method private getFindAccessibilityNodeInfoResultAndClear(I)Landroid/view/accessibility/AccessibilityNodeInfo;
-    .registers 6
+    .locals 4
     .parameter "interactionId"
 
     .prologue
@@ -586,20 +586,20 @@
     monitor-enter v3
 
     .line 463
-    :try_start_3
+    :try_start_0
     invoke-direct {p0, p1}, Landroid/view/accessibility/AccessibilityInteractionClient;->waitForResultTimedLocked(I)Z
 
     move-result v1
 
     .line 464
     .local v1, success:Z
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_0
 
     iget-object v0, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mFindAccessibilityNodeInfoResult:Landroid/view/accessibility/AccessibilityNodeInfo;
 
     .line 465
     .local v0, result:Landroid/view/accessibility/AccessibilityNodeInfo;
-    :goto_b
+    :goto_0
     invoke-direct {p0}, Landroid/view/accessibility/AccessibilityInteractionClient;->clearResultLocked()V
 
     .line 466
@@ -609,25 +609,25 @@
 
     .line 464
     .end local v0           #result:Landroid/view/accessibility/AccessibilityNodeInfo;
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 
     .line 467
     .end local v1           #success:Z
-    :catchall_12
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_14
-    .catchall {:try_start_3 .. :try_end_14} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method
 
 .method private getFindAccessibilityNodeInfosResultAndClear(I)Ljava/util/List;
-    .registers 6
+    .locals 4
     .parameter "interactionId"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -646,7 +646,7 @@
     monitor-enter v3
 
     .line 493
-    :try_start_3
+    :try_start_0
     invoke-direct {p0, p1}, Landroid/view/accessibility/AccessibilityInteractionClient;->waitForResultTimedLocked(I)Z
 
     move-result v1
@@ -657,52 +657,52 @@
 
     .line 495
     .local v0, result:Ljava/util/List;,"Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_1
 
     .line 496
     iget-object v0, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mFindAccessibilityNodeInfosResult:Ljava/util/List;
 
     .line 500
-    :goto_c
+    :goto_0
     invoke-direct {p0}, Landroid/view/accessibility/AccessibilityInteractionClient;->clearResultLocked()V
 
     .line 501
     sget-boolean v2, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_0
 
     .line 502
     invoke-direct {p0, v0}, Landroid/view/accessibility/AccessibilityInteractionClient;->checkFindAccessibilityNodeInfoResultIntegrity(Ljava/util/List;)V
 
     .line 504
-    :cond_16
+    :cond_0
     monitor-exit v3
 
     return-object v0
 
     .line 498
-    :cond_18
+    :cond_1
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
-    goto :goto_c
+    goto :goto_0
 
     .line 505
     .end local v0           #result:Ljava/util/List;,"Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
     .end local v1           #success:Z
-    :catchall_1d
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_1f
-    .catchall {:try_start_3 .. :try_end_1f} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method
 
 .method public static getInstance()Landroid/view/accessibility/AccessibilityInteractionClient;
-    .registers 3
+    .locals 3
 
     .prologue
     .line 120
@@ -724,7 +724,7 @@
 .end method
 
 .method public static getInstanceForThread(J)Landroid/view/accessibility/AccessibilityInteractionClient;
-    .registers 5
+    .locals 3
     .parameter "threadId"
 
     .prologue
@@ -734,7 +734,7 @@
     monitor-enter v2
 
     .line 134
-    :try_start_3
+    :try_start_0
     sget-object v1, Landroid/view/accessibility/AccessibilityInteractionClient;->sClients:Landroid/util/LongSparseArray;
 
     invoke-virtual {v1, p0, p1}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
@@ -745,7 +745,7 @@
 
     .line 135
     .local v0, client:Landroid/view/accessibility/AccessibilityInteractionClient;
-    if-nez v0, :cond_17
+    if-nez v0, :cond_0
 
     .line 136
     new-instance v0, Landroid/view/accessibility/AccessibilityInteractionClient;
@@ -760,25 +760,25 @@
     invoke-virtual {v1, p0, p1, v0}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
 
     .line 139
-    :cond_17
+    :cond_0
     monitor-exit v2
 
     return-object v0
 
     .line 140
     .end local v0           #client:Landroid/view/accessibility/AccessibilityInteractionClient;
-    :catchall_19
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_1b
-    .catchall {:try_start_3 .. :try_end_1b} :catchall_19
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method private getPerformAccessibilityActionResultAndClear(I)Z
-    .registers 6
+    .locals 4
     .parameter "interactionId"
 
     .prologue
@@ -788,20 +788,20 @@
     monitor-enter v3
 
     .line 542
-    :try_start_3
+    :try_start_0
     invoke-direct {p0, p1}, Landroid/view/accessibility/AccessibilityInteractionClient;->waitForResultTimedLocked(I)Z
 
     move-result v1
 
     .line 543
     .local v1, success:Z
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_0
 
     iget-boolean v0, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mPerformAccessibilityActionResult:Z
 
     .line 544
     .local v0, result:Z
-    :goto_b
+    :goto_0
     invoke-direct {p0}, Landroid/view/accessibility/AccessibilityInteractionClient;->clearResultLocked()V
 
     .line 545
@@ -811,25 +811,25 @@
 
     .line 543
     .end local v0           #result:Z
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 
     .line 546
     .end local v1           #success:Z
-    :catchall_12
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_14
-    .catchall {:try_start_3 .. :try_end_14} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method
 
 .method private getSameProcessMessageAndClear()Landroid/os/Message;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 668
@@ -838,7 +838,7 @@
     monitor-enter v2
 
     .line 669
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mSameThreadMessage:Landroid/os/Message;
 
     .line 670
@@ -854,18 +854,18 @@
 
     .line 672
     .end local v0           #result:Landroid/os/Message;
-    :catchall_a
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_c
-    .catchall {:try_start_3 .. :try_end_c} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method private waitForResultTimedLocked(I)Z
-    .registers 12
+    .locals 10
     .parameter "interactionId"
 
     .prologue
@@ -882,15 +882,15 @@
 
     .line 583
     .local v3, startTimeMillis:J
-    :goto_7
-    :try_start_7
+    :goto_0
+    :try_start_0
     invoke-direct {p0}, Landroid/view/accessibility/AccessibilityInteractionClient;->getSameProcessMessageAndClear()Landroid/os/Message;
 
     move-result-object v2
 
     .line 584
     .local v2, sameProcessMessage:Landroid/os/Message;
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_0
 
     .line 585
     invoke-virtual {v2}, Landroid/os/Message;->getTarget()Landroid/os/Handler;
@@ -900,23 +900,23 @@
     invoke-virtual {v8, v2}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
     .line 588
-    :cond_14
+    :cond_0
     iget v8, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInteractionId:I
 
-    if-ne v8, p1, :cond_1a
+    if-ne v8, p1, :cond_2
 
     .line 589
     const/4 v7, 0x1
 
     .line 597
-    :cond_19
+    :cond_1
     return v7
 
     .line 591
-    :cond_1a
+    :cond_2
     iget v8, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInteractionId:I
 
-    if-gt v8, p1, :cond_19
+    if-gt v8, p1, :cond_1
 
     .line 594
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -936,30 +936,30 @@
 
     cmp-long v8, v5, v8
 
-    if-lez v8, :cond_19
+    if-lez v8, :cond_1
 
     .line 599
     iget-object v8, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInstanceLock:Ljava/lang/Object;
 
     invoke-virtual {v8, v5, v6}, Ljava/lang/Object;->wait(J)V
-    :try_end_33
-    .catch Ljava/lang/InterruptedException; {:try_start_7 .. :try_end_33} :catch_34
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 600
     .end local v0           #elapsedTimeMillis:J
     .end local v2           #sameProcessMessage:Landroid/os/Message;
-    :catch_34
+    :catch_0
     move-exception v8
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public addConnection(ILandroid/accessibilityservice/IAccessibilityServiceConnection;)V
-    .registers 5
+    .locals 2
     .parameter "connectionId"
     .parameter "connection"
 
@@ -970,7 +970,7 @@
     monitor-enter v1
 
     .line 695
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/view/accessibility/AccessibilityInteractionClient;->sConnectionCache:Landroid/util/SparseArray;
 
     invoke-virtual {v0, p1, p2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
@@ -982,18 +982,18 @@
     return-void
 
     .line 696
-    :catchall_a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_c
-    .catchall {:try_start_3 .. :try_end_c} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public clearCache()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 448
@@ -1006,7 +1006,7 @@
 .end method
 
 .method public findAccessibilityNodeInfoByAccessibilityId(IIJI)Landroid/view/accessibility/AccessibilityNodeInfo;
-    .registers 20
+    .locals 14
     .parameter "connectionId"
     .parameter "accessibilityWindowId"
     .parameter "accessibilityNodeId"
@@ -1021,7 +1021,7 @@
 
     .line 190
     .local v2, connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
-    if-eqz v2, :cond_48
+    if-eqz v2, :cond_1
 
     .line 191
     sget-object v3, Landroid/view/accessibility/AccessibilityInteractionClient;->sAccessibilityNodeInfoCache:Landroid/view/accessibility/AccessibilityNodeInfoCache;
@@ -1034,18 +1034,18 @@
 
     .line 193
     .local v11, cachedInfo:Landroid/view/accessibility/AccessibilityNodeInfo;
-    if-eqz v11, :cond_11
+    if-eqz v11, :cond_0
 
     .line 220
     .end local v2           #connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
     .end local v11           #cachedInfo:Landroid/view/accessibility/AccessibilityNodeInfo;
-    :goto_10
+    :goto_0
     return-object v11
 
     .line 196
     .restart local v2       #connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
     .restart local v11       #cachedInfo:Landroid/view/accessibility/AccessibilityNodeInfo;
-    :cond_11
+    :cond_0
     iget-object v3, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInteractionIdCounter:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v3}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
@@ -1080,7 +1080,7 @@
 
     cmpl-float v3, v13, v3
 
-    if-lez v3, :cond_48
+    if-lez v3, :cond_1
 
     .line 202
     invoke-direct {p0, v6}, Landroid/view/accessibility/AccessibilityInteractionClient;->getFindAccessibilityNodeInfosResultAndClear(I)Ljava/util/List;
@@ -1092,13 +1092,13 @@
     invoke-direct {p0, v12, p1, v13}, Landroid/view/accessibility/AccessibilityInteractionClient;->finalizeAndCacheAccessibilityNodeInfos(Ljava/util/List;IF)V
 
     .line 205
-    if-eqz v12, :cond_48
+    if-eqz v12, :cond_1
 
     invoke-interface {v12}, Ljava/util/List;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_48
+    if-nez v3, :cond_1
 
     .line 206
     const/4 v3, 0x0
@@ -1108,12 +1108,12 @@
     move-result-object v3
 
     check-cast v3, Landroid/view/accessibility/AccessibilityNodeInfo;
-    :try_end_45
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_45} :catch_47
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-object v11, v3
 
-    goto :goto_10
+    goto :goto_0
 
     .line 214
     .end local v2           #connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
@@ -1121,18 +1121,18 @@
     .end local v11           #cachedInfo:Landroid/view/accessibility/AccessibilityNodeInfo;
     .end local v12           #infos:Ljava/util/List;,"Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
     .end local v13           #windowScale:F
-    :catch_47
+    :catch_0
     move-exception v3
 
     .line 220
-    :cond_48
+    :cond_1
     const/4 v11, 0x0
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public findAccessibilityNodeInfoByViewId(IIJI)Landroid/view/accessibility/AccessibilityNodeInfo;
-    .registers 17
+    .locals 11
     .parameter "connectionId"
     .parameter "accessibilityWindowId"
     .parameter "accessibilityNodeId"
@@ -1147,7 +1147,7 @@
 
     .line 243
     .local v0, connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_0
 
     .line 244
     iget-object v1, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInteractionIdCounter:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -1184,7 +1184,7 @@
 
     cmpl-float v1, v10, v1
 
-    if-lez v1, :cond_2b
+    if-lez v1, :cond_0
 
     .line 251
     invoke-direct {p0, v5}, Landroid/view/accessibility/AccessibilityInteractionClient;->getFindAccessibilityNodeInfoResultAndClear(I)Landroid/view/accessibility/AccessibilityNodeInfo;
@@ -1194,30 +1194,30 @@
     .line 253
     .local v9, info:Landroid/view/accessibility/AccessibilityNodeInfo;
     invoke-direct {p0, v9, p1, v10}, Landroid/view/accessibility/AccessibilityInteractionClient;->finalizeAndCacheAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;IF)V
-    :try_end_29
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_29} :catch_2a
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 267
     .end local v0           #connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
     .end local v5           #interactionId:I
     .end local v9           #info:Landroid/view/accessibility/AccessibilityNodeInfo;
     .end local v10           #windowScale:F
-    :goto_29
+    :goto_0
     return-object v9
 
     .line 261
-    :catch_2a
+    :catch_0
     move-exception v1
 
     .line 267
-    :cond_2b
+    :cond_0
     const/4 v9, 0x0
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method public findAccessibilityNodeInfosByText(IIJLjava/lang/String;)Ljava/util/List;
-    .registers 17
+    .locals 11
     .parameter "connectionId"
     .parameter "accessibilityWindowId"
     .parameter "accessibilityNodeId"
@@ -1243,7 +1243,7 @@
 
     .line 291
     .local v0, connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_0
 
     .line 292
     iget-object v1, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInteractionIdCounter:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -1280,7 +1280,7 @@
 
     cmpl-float v1, v10, v1
 
-    if-lez v1, :cond_2b
+    if-lez v1, :cond_0
 
     .line 298
     invoke-direct {p0, v5}, Landroid/view/accessibility/AccessibilityInteractionClient;->getFindAccessibilityNodeInfosResultAndClear(I)Ljava/util/List;
@@ -1290,32 +1290,32 @@
     .line 300
     .local v9, infos:Ljava/util/List;,"Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
     invoke-direct {p0, v9, p1, v10}, Landroid/view/accessibility/AccessibilityInteractionClient;->finalizeAndCacheAccessibilityNodeInfos(Ljava/util/List;IF)V
-    :try_end_29
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_29} :catch_2a
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 314
     .end local v0           #connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
     .end local v5           #interactionId:I
     .end local v9           #infos:Ljava/util/List;,"Ljava/util/List<Landroid/view/accessibility/AccessibilityNodeInfo;>;"
     .end local v10           #windowScale:F
-    :goto_29
+    :goto_0
     return-object v9
 
     .line 308
-    :catch_2a
+    :catch_0
     move-exception v1
 
     .line 314
-    :cond_2b
+    :cond_0
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v9
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method public findFocus(IIJI)Landroid/view/accessibility/AccessibilityNodeInfo;
-    .registers 17
+    .locals 11
     .parameter "connectionId"
     .parameter "accessibilityWindowId"
     .parameter "accessibilityNodeId"
@@ -1330,7 +1330,7 @@
 
     .line 337
     .local v0, connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_0
 
     .line 338
     iget-object v1, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInteractionIdCounter:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -1367,7 +1367,7 @@
 
     cmpl-float v1, v10, v1
 
-    if-lez v1, :cond_2b
+    if-lez v1, :cond_0
 
     .line 344
     invoke-direct {p0, v5}, Landroid/view/accessibility/AccessibilityInteractionClient;->getFindAccessibilityNodeInfoResultAndClear(I)Landroid/view/accessibility/AccessibilityNodeInfo;
@@ -1377,30 +1377,30 @@
     .line 346
     .local v9, info:Landroid/view/accessibility/AccessibilityNodeInfo;
     invoke-direct {p0, v9, p1, v10}, Landroid/view/accessibility/AccessibilityInteractionClient;->finalizeAndCacheAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;IF)V
-    :try_end_29
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_29} :catch_2a
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 359
     .end local v0           #connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
     .end local v5           #interactionId:I
     .end local v9           #info:Landroid/view/accessibility/AccessibilityNodeInfo;
     .end local v10           #windowScale:F
-    :goto_29
+    :goto_0
     return-object v9
 
     .line 354
-    :catch_2a
+    :catch_0
     move-exception v1
 
     .line 359
-    :cond_2b
+    :cond_0
     const/4 v9, 0x0
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method public focusSearch(IIJI)Landroid/view/accessibility/AccessibilityNodeInfo;
-    .registers 17
+    .locals 11
     .parameter "connectionId"
     .parameter "accessibilityWindowId"
     .parameter "accessibilityNodeId"
@@ -1415,7 +1415,7 @@
 
     .line 382
     .local v0, connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_0
 
     .line 383
     iget-object v1, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInteractionIdCounter:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -1452,7 +1452,7 @@
 
     cmpl-float v1, v10, v1
 
-    if-lez v1, :cond_2b
+    if-lez v1, :cond_0
 
     .line 389
     invoke-direct {p0, v5}, Landroid/view/accessibility/AccessibilityInteractionClient;->getFindAccessibilityNodeInfoResultAndClear(I)Landroid/view/accessibility/AccessibilityNodeInfo;
@@ -1462,30 +1462,30 @@
     .line 391
     .local v9, info:Landroid/view/accessibility/AccessibilityNodeInfo;
     invoke-direct {p0, v9, p1, v10}, Landroid/view/accessibility/AccessibilityInteractionClient;->finalizeAndCacheAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;IF)V
-    :try_end_29
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_29} :catch_2a
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 404
     .end local v0           #connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
     .end local v5           #interactionId:I
     .end local v9           #info:Landroid/view/accessibility/AccessibilityNodeInfo;
     .end local v10           #windowScale:F
-    :goto_29
+    :goto_0
     return-object v9
 
     .line 399
-    :catch_2a
+    :catch_0
     move-exception v1
 
     .line 404
-    :cond_2b
+    :cond_0
     const/4 v9, 0x0
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method public getConnection(I)Landroid/accessibilityservice/IAccessibilityServiceConnection;
-    .registers 4
+    .locals 2
     .parameter "connectionId"
 
     .prologue
@@ -1495,7 +1495,7 @@
     monitor-enter v1
 
     .line 683
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/view/accessibility/AccessibilityInteractionClient;->sConnectionCache:Landroid/util/SparseArray;
 
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -1509,18 +1509,18 @@
     return-object v0
 
     .line 684
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_3 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public getRootInActiveWindow(I)Landroid/view/accessibility/AccessibilityNodeInfo;
-    .registers 8
+    .locals 6
     .parameter "connectionId"
 
     .prologue
@@ -1543,7 +1543,7 @@
 .end method
 
 .method public onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -1557,7 +1557,7 @@
 .end method
 
 .method public performAccessibilityAction(IIJILandroid/os/Bundle;)Z
-    .registers 18
+    .locals 11
     .parameter "connectionId"
     .parameter "accessibilityWindowId"
     .parameter "accessibilityNodeId"
@@ -1573,7 +1573,7 @@
 
     .line 426
     .local v0, connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_0
 
     .line 427
     iget-object v1, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInteractionIdCounter:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -1608,12 +1608,12 @@
 
     .line 431
     .local v10, success:Z
-    if-eqz v10, :cond_27
+    if-eqz v10, :cond_0
 
     .line 432
     invoke-direct {p0, v6}, Landroid/view/accessibility/AccessibilityInteractionClient;->getPerformAccessibilityActionResultAndClear(I)Z
-    :try_end_24
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_24} :catch_26
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
@@ -1621,22 +1621,22 @@
     .end local v0           #connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
     .end local v6           #interactionId:I
     .end local v10           #success:Z
-    :goto_25
+    :goto_0
     return v1
 
     .line 439
-    :catch_26
+    :catch_0
     move-exception v1
 
     .line 444
-    :cond_27
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_25
+    goto :goto_0
 .end method
 
 .method public removeConnection(I)V
-    .registers 4
+    .locals 2
     .parameter "connectionId"
 
     .prologue
@@ -1646,7 +1646,7 @@
     monitor-enter v1
 
     .line 706
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/view/accessibility/AccessibilityInteractionClient;->sConnectionCache:Landroid/util/SparseArray;
 
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->remove(I)V
@@ -1658,18 +1658,18 @@
     return-void
 
     .line 707
-    :catchall_a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_c
-    .catchall {:try_start_3 .. :try_end_c} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setFindAccessibilityNodeInfoResult(Landroid/view/accessibility/AccessibilityNodeInfo;I)V
-    .registers 5
+    .locals 2
     .parameter "info"
     .parameter "interactionId"
 
@@ -1680,10 +1680,10 @@
     monitor-enter v1
 
     .line 476
-    :try_start_3
+    :try_start_0
     iget v0, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInteractionId:I
 
-    if-le p2, v0, :cond_b
+    if-le p2, v0, :cond_0
 
     .line 477
     iput-object p1, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mFindAccessibilityNodeInfoResult:Landroid/view/accessibility/AccessibilityNodeInfo;
@@ -1692,7 +1692,7 @@
     iput p2, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInteractionId:I
 
     .line 480
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInstanceLock:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
@@ -1704,18 +1704,18 @@
     return-void
 
     .line 481
-    :catchall_12
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_14
-    .catchall {:try_start_3 .. :try_end_14} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setFindAccessibilityNodeInfosResult(Ljava/util/List;I)V
-    .registers 7
+    .locals 4
     .parameter
     .parameter "interactionId"
     .annotation system Ldalvik/annotation/Signature;
@@ -1736,13 +1736,13 @@
     monitor-enter v2
 
     .line 514
-    :try_start_3
+    :try_start_0
     iget v1, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInteractionId:I
 
-    if-le p2, v1, :cond_1f
+    if-le p2, v1, :cond_0
 
     .line 515
-    if-eqz p1, :cond_2e
+    if-eqz p1, :cond_3
 
     .line 518
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
@@ -1753,14 +1753,14 @@
 
     move-result v3
 
-    if-eq v1, v3, :cond_26
+    if-eq v1, v3, :cond_1
 
     const/4 v0, 0x1
 
     .line 519
     .local v0, isIpcCall:Z
-    :goto_14
-    if-nez v0, :cond_28
+    :goto_0
+    if-nez v0, :cond_2
 
     .line 520
     new-instance v1, Ljava/util/ArrayList;
@@ -1771,11 +1771,11 @@
 
     .line 528
     .end local v0           #isIpcCall:Z
-    :goto_1d
+    :goto_1
     iput p2, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInteractionId:I
 
     .line 530
-    :cond_1f
+    :cond_0
     iget-object v1, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInstanceLock:Ljava/lang/Object;
 
     invoke-virtual {v1}, Ljava/lang/Object;->notifyAll()V
@@ -1787,45 +1787,45 @@
     return-void
 
     .line 518
-    :cond_26
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_14
+    goto :goto_0
 
     .line 523
     .restart local v0       #isIpcCall:Z
-    :cond_28
+    :cond_2
     iput-object p1, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mFindAccessibilityNodeInfosResult:Ljava/util/List;
 
-    goto :goto_1d
+    goto :goto_1
 
     .line 531
     .end local v0           #isIpcCall:Z
-    :catchall_2b
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_2d
-    .catchall {:try_start_3 .. :try_end_2d} :catchall_2b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 
     .line 526
-    :cond_2e
-    :try_start_2e
+    :cond_3
+    :try_start_1
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mFindAccessibilityNodeInfosResult:Ljava/util/List;
-    :try_end_34
-    .catchall {:try_start_2e .. :try_end_34} :catchall_2b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1d
+    goto :goto_1
 .end method
 
 .method public setPerformAccessibilityActionResult(ZI)V
-    .registers 5
+    .locals 2
     .parameter "succeeded"
     .parameter "interactionId"
 
@@ -1836,10 +1836,10 @@
     monitor-enter v1
 
     .line 554
-    :try_start_3
+    :try_start_0
     iget v0, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInteractionId:I
 
-    if-le p2, v0, :cond_b
+    if-le p2, v0, :cond_0
 
     .line 555
     iput-boolean p1, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mPerformAccessibilityActionResult:Z
@@ -1848,7 +1848,7 @@
     iput p2, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInteractionId:I
 
     .line 558
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mInstanceLock:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
@@ -1860,18 +1860,18 @@
     return-void
 
     .line 559
-    :catchall_12
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_14
-    .catchall {:try_start_3 .. :try_end_14} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setSameThreadMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "message"
 
     .prologue
@@ -1881,7 +1881,7 @@
     monitor-enter v1
 
     .line 155
-    :try_start_3
+    :try_start_0
     iput-object p1, p0, Landroid/view/accessibility/AccessibilityInteractionClient;->mSameThreadMessage:Landroid/os/Message;
 
     .line 156
@@ -1896,12 +1896,12 @@
     return-void
 
     .line 157
-    :catchall_c
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_e
-    .catchall {:try_start_3 .. :try_end_e} :catchall_c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

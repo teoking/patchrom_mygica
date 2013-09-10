@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -17,7 +17,7 @@
 
 # virtual methods
 .method onStorageStateChange(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "path"
     .parameter "oldState"
     .parameter "newState"
@@ -28,7 +28,7 @@
 .end method
 
 .method onUsbMassStorageConnectionChanged(Z)V
-    .registers 2
+    .locals 0
     .parameter "connected"
 
     .prologue

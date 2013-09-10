@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 331
@@ -34,7 +34,7 @@
 
     sput-object v0, Landroid/util/JsonReader$1;->$SwitchMap$android$util$JsonScope:[I
 
-    :try_start_9
+    :try_start_0
     sget-object v0, Landroid/util/JsonReader$1;->$SwitchMap$android$util$JsonScope:[I
 
     sget-object v1, Landroid/util/JsonScope;->EMPTY_DOCUMENT:Landroid/util/JsonScope;
@@ -46,11 +46,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_14
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_14} :catch_71
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_7
 
-    :goto_14
-    :try_start_14
+    :goto_0
+    :try_start_1
     sget-object v0, Landroid/util/JsonReader$1;->$SwitchMap$android$util$JsonScope:[I
 
     sget-object v1, Landroid/util/JsonScope;->EMPTY_ARRAY:Landroid/util/JsonScope;
@@ -62,11 +62,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_1f} :catch_6f
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_6
 
-    :goto_1f
-    :try_start_1f
+    :goto_1
+    :try_start_2
     sget-object v0, Landroid/util/JsonReader$1;->$SwitchMap$android$util$JsonScope:[I
 
     sget-object v1, Landroid/util/JsonScope;->NONEMPTY_ARRAY:Landroid/util/JsonScope;
@@ -78,11 +78,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_2a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1f .. :try_end_2a} :catch_6d
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_5
 
-    :goto_2a
-    :try_start_2a
+    :goto_2
+    :try_start_3
     sget-object v0, Landroid/util/JsonReader$1;->$SwitchMap$android$util$JsonScope:[I
 
     sget-object v1, Landroid/util/JsonScope;->EMPTY_OBJECT:Landroid/util/JsonScope;
@@ -94,11 +94,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_35
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2a .. :try_end_35} :catch_6b
+    :try_end_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_4
 
-    :goto_35
-    :try_start_35
+    :goto_3
+    :try_start_4
     sget-object v0, Landroid/util/JsonReader$1;->$SwitchMap$android$util$JsonScope:[I
 
     sget-object v1, Landroid/util/JsonScope;->DANGLING_NAME:Landroid/util/JsonScope;
@@ -110,11 +110,11 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_40
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_35 .. :try_end_40} :catch_69
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_3
 
-    :goto_40
-    :try_start_40
+    :goto_4
+    :try_start_5
     sget-object v0, Landroid/util/JsonReader$1;->$SwitchMap$android$util$JsonScope:[I
 
     sget-object v1, Landroid/util/JsonScope;->NONEMPTY_OBJECT:Landroid/util/JsonScope;
@@ -126,11 +126,11 @@
     const/4 v2, 0x6
 
     aput v2, v0, v1
-    :try_end_4b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_40 .. :try_end_4b} :catch_67
+    :try_end_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_2
 
-    :goto_4b
-    :try_start_4b
+    :goto_5
+    :try_start_6
     sget-object v0, Landroid/util/JsonReader$1;->$SwitchMap$android$util$JsonScope:[I
 
     sget-object v1, Landroid/util/JsonScope;->NONEMPTY_DOCUMENT:Landroid/util/JsonScope;
@@ -142,11 +142,11 @@
     const/4 v2, 0x7
 
     aput v2, v0, v1
-    :try_end_56
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4b .. :try_end_56} :catch_65
+    :try_end_6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_1
 
-    :goto_56
-    :try_start_56
+    :goto_6
+    :try_start_7
     sget-object v0, Landroid/util/JsonReader$1;->$SwitchMap$android$util$JsonScope:[I
 
     sget-object v1, Landroid/util/JsonScope;->CLOSED:Landroid/util/JsonScope;
@@ -158,49 +158,49 @@
     const/16 v2, 0x8
 
     aput v2, v0, v1
-    :try_end_62
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_56 .. :try_end_62} :catch_63
+    :try_end_7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_0
 
-    :goto_62
+    :goto_7
     return-void
 
-    :catch_63
+    :catch_0
     move-exception v0
 
-    goto :goto_62
+    goto :goto_7
 
-    :catch_65
+    :catch_1
     move-exception v0
 
-    goto :goto_56
+    goto :goto_6
 
-    :catch_67
+    :catch_2
     move-exception v0
 
-    goto :goto_4b
+    goto :goto_5
 
-    :catch_69
+    :catch_3
     move-exception v0
 
-    goto :goto_40
+    goto :goto_4
 
-    :catch_6b
+    :catch_4
     move-exception v0
 
-    goto :goto_35
+    goto :goto_3
 
-    :catch_6d
+    :catch_5
     move-exception v0
 
-    goto :goto_2a
+    goto :goto_2
 
-    :catch_6f
+    :catch_6
     move-exception v0
 
-    goto :goto_1f
+    goto :goto_1
 
-    :catch_71
+    :catch_7
     move-exception v0
 
-    goto :goto_14
+    goto :goto_0
 .end method

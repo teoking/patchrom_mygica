@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/media/audiofx/Srs;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -37,7 +37,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/media/audiofx/Srs;Landroid/media/audiofx/Srs$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public onParameterChange(Landroid/media/audiofx/AudioEffect;I[B[B)V
-    .registers 14
+    .locals 9
     .parameter "effect"
     .parameter "status"
     .parameter "param"
@@ -71,6 +71,7 @@
     .local v0, l:Landroid/media/audiofx/Srs$OnParameterChangeListener;
     iget-object v1, p0, Landroid/media/audiofx/Srs$BaseParameterListener;->this$0:Landroid/media/audiofx/Srs;
 
+    #getter for: Landroid/media/audiofx/Srs;->mParamListenerLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/media/audiofx/Srs;->access$000(Landroid/media/audiofx/Srs;)Ljava/lang/Object;
 
     move-result-object v2
@@ -78,30 +79,32 @@
     monitor-enter v2
 
     .line 300
-    :try_start_b
+    :try_start_0
     iget-object v1, p0, Landroid/media/audiofx/Srs$BaseParameterListener;->this$0:Landroid/media/audiofx/Srs;
 
+    #getter for: Landroid/media/audiofx/Srs;->mParamListener:Landroid/media/audiofx/Srs$OnParameterChangeListener;
     invoke-static {v1}, Landroid/media/audiofx/Srs;->access$100(Landroid/media/audiofx/Srs;)Landroid/media/audiofx/Srs$OnParameterChangeListener;
 
     move-result-object v1
 
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_0
 
     .line 301
     iget-object v1, p0, Landroid/media/audiofx/Srs$BaseParameterListener;->this$0:Landroid/media/audiofx/Srs;
 
+    #getter for: Landroid/media/audiofx/Srs;->mParamListener:Landroid/media/audiofx/Srs$OnParameterChangeListener;
     invoke-static {v1}, Landroid/media/audiofx/Srs;->access$100(Landroid/media/audiofx/Srs;)Landroid/media/audiofx/Srs$OnParameterChangeListener;
 
     move-result-object v0
 
     .line 303
-    :cond_19
+    :cond_0
     monitor-exit v2
-    :try_end_1a
-    .catchall {:try_start_b .. :try_end_1a} :catchall_48
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 304
-    if-eqz v0, :cond_47
+    if-eqz v0, :cond_3
 
     .line 305
     const/4 v3, -0x1
@@ -118,7 +121,7 @@
     .local v5, v:I
     array-length v1, p3
 
-    if-lt v1, v7, :cond_33
+    if-lt v1, v7, :cond_1
 
     .line 310
     iget-object v1, p0, Landroid/media/audiofx/Srs$BaseParameterListener;->this$0:Landroid/media/audiofx/Srs;
@@ -132,7 +135,7 @@
 
     const/16 v2, 0x8
 
-    if-lt v1, v2, :cond_33
+    if-lt v1, v2, :cond_1
 
     .line 312
     iget-object v1, p0, Landroid/media/audiofx/Srs$BaseParameterListener;->this$0:Landroid/media/audiofx/Srs;
@@ -142,12 +145,12 @@
     move-result v4
 
     .line 315
-    :cond_33
+    :cond_1
     array-length v1, p4
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_4b
+    if-ne v1, v2, :cond_4
 
     .line 316
     iget-object v1, p0, Landroid/media/audiofx/Srs$BaseParameterListener;->this$0:Landroid/media/audiofx/Srs;
@@ -157,11 +160,11 @@
     move-result v5
 
     .line 321
-    :cond_3d
-    :goto_3d
-    if-eq v3, v8, :cond_47
+    :cond_2
+    :goto_0
+    if-eq v3, v8, :cond_3
 
-    if-eq v5, v8, :cond_47
+    if-eq v5, v8, :cond_3
 
     .line 322
     iget-object v1, p0, Landroid/media/audiofx/Srs$BaseParameterListener;->this$0:Landroid/media/audiofx/Srs;
@@ -174,17 +177,17 @@
     .end local v3           #p1:I
     .end local v4           #p2:I
     .end local v5           #v:I
-    :cond_47
+    :cond_3
     return-void
 
     .line 303
-    :catchall_48
+    :catchall_0
     move-exception v1
 
-    :try_start_49
+    :try_start_1
     monitor-exit v2
-    :try_end_4a
-    .catchall {:try_start_49 .. :try_end_4a} :catchall_48
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 
@@ -192,10 +195,10 @@
     .restart local v3       #p1:I
     .restart local v4       #p2:I
     .restart local v5       #v:I
-    :cond_4b
+    :cond_4
     array-length v1, p4
 
-    if-ne v1, v7, :cond_3d
+    if-ne v1, v7, :cond_2
 
     .line 318
     iget-object v1, p0, Landroid/media/audiofx/Srs$BaseParameterListener;->this$0:Landroid/media/audiofx/Srs;
@@ -204,5 +207,5 @@
 
     move-result v5
 
-    goto :goto_3d
+    goto :goto_0
 .end method

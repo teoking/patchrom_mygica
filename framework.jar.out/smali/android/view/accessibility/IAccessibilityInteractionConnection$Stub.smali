@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 20
@@ -57,22 +57,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/view/accessibility/IAccessibilityInteractionConnection;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 29
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 30
     const/4 v0, 0x0
 
     .line 36
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 32
-    :cond_4
+    :cond_0
     const-string v1, "android.view.accessibility.IAccessibilityInteractionConnection"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -81,31 +81,31 @@
 
     .line 33
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 34
     check-cast v0, Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 36
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/view/accessibility/IAccessibilityInteractionConnection$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/view/accessibility/IAccessibilityInteractionConnection$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 40
@@ -113,7 +113,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 29
+    .locals 24
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -126,18 +126,18 @@
 
     .prologue
     .line 44
-    sparse-switch p1, :sswitch_data_198
+    sparse-switch p1, :sswitch_data_0
 
     .line 197
     invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v1
 
-    :goto_7
+    :goto_0
     return v1
 
     .line 48
-    :sswitch_8
+    :sswitch_0
     const-string v1, "android.view.accessibility.IAccessibilityInteractionConnection"
 
     move-object/from16 v0, p3
@@ -147,10 +147,10 @@
     .line 49
     const/4 v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 53
-    :sswitch_11
+    :sswitch_1
     const-string v1, "android.view.accessibility.IAccessibilityInteractionConnection"
 
     move-object/from16 v0, p2
@@ -217,7 +217,7 @@
     .line 71
     const/4 v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 75
     .end local v2           #_arg0:J
@@ -228,7 +228,7 @@
     .end local v8           #_arg5:I
     .end local v9           #_arg6:I
     .end local v10           #_arg7:J
-    :sswitch_43
+    :sswitch_2
     const-string v1, "android.view.accessibility.IAccessibilityInteractionConnection"
 
     move-object/from16 v0, p2
@@ -317,7 +317,7 @@
     .line 95
     const/4 v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 99
     .end local v2           #_arg0:J
@@ -329,7 +329,7 @@
     .end local v9           #_arg6:I
     .end local v10           #_arg7:I
     .end local v22           #_arg8:J
-    :sswitch_87
+    :sswitch_3
     const-string v1, "android.view.accessibility.IAccessibilityInteractionConnection"
 
     move-object/from16 v0, p2
@@ -418,7 +418,7 @@
     .line 119
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 123
     .end local v2           #_arg0:J
@@ -430,7 +430,7 @@
     .end local v9           #_arg6:I
     .end local v10           #_arg7:I
     .end local v22           #_arg8:J
-    :sswitch_cc
+    :sswitch_4
     const-string v1, "android.view.accessibility.IAccessibilityInteractionConnection"
 
     move-object/from16 v0, p2
@@ -519,7 +519,7 @@
     .line 143
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 147
     .end local v2           #_arg0:J
@@ -531,7 +531,7 @@
     .end local v9           #_arg6:I
     .end local v10           #_arg7:I
     .end local v22           #_arg8:J
-    :sswitch_111
+    :sswitch_5
     const-string v1, "android.view.accessibility.IAccessibilityInteractionConnection"
 
     move-object/from16 v0, p2
@@ -620,7 +620,7 @@
     .line 167
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 171
     .end local v2           #_arg0:J
@@ -632,7 +632,7 @@
     .end local v9           #_arg6:I
     .end local v10           #_arg7:I
     .end local v22           #_arg8:J
-    :sswitch_156
+    :sswitch_6
     const-string v1, "android.view.accessibility.IAccessibilityInteractionConnection"
 
     move-object/from16 v0, p2
@@ -656,7 +656,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_195
+    if-eqz v1, :cond_0
 
     .line 178
     sget-object v1, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -671,7 +671,7 @@
 
     .line 184
     .local v5, _arg2:Landroid/os/Bundle;
-    :goto_175
+    :goto_1
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
@@ -713,7 +713,7 @@
     .line 194
     const/4 v1, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 181
     .end local v5           #_arg2:Landroid/os/Bundle;
@@ -722,23 +722,23 @@
     .end local v8           #_arg5:I
     .end local v9           #_arg6:I
     .end local v10           #_arg7:J
-    :cond_195
+    :cond_0
     const/4 v5, 0x0
 
     .restart local v5       #_arg2:Landroid/os/Bundle;
-    goto :goto_175
+    goto :goto_1
 
     .line 44
     nop
 
-    :sswitch_data_198
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_11
-        0x2 -> :sswitch_43
-        0x3 -> :sswitch_87
-        0x4 -> :sswitch_cc
-        0x5 -> :sswitch_111
-        0x6 -> :sswitch_156
-        0x5f4e5446 -> :sswitch_8
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

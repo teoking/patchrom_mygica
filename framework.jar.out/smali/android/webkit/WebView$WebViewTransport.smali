@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/webkit/WebView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -37,22 +37,22 @@
 
 # virtual methods
 .method public declared-synchronized getWebView()Landroid/webkit/WebView;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 291
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/webkit/WebView$WebViewTransport;->mWebview:Landroid/webkit/WebView;
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -61,17 +61,17 @@
 .end method
 
 .method public declared-synchronized setWebView(Landroid/webkit/WebView;)V
-    .registers 3
+    .locals 1
     .parameter "webview"
 
     .prologue
     .line 282
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iput-object p1, p0, Landroid/webkit/WebView$WebViewTransport;->mWebview:Landroid/webkit/WebView;
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 283
     monitor-exit p0
@@ -79,7 +79,7 @@
     return-void
 
     .line 282
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0

@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "tag"
 
     .prologue
@@ -66,26 +66,26 @@
     iput v0, p0, Landroid/media/AsyncPlayer;->mState:I
 
     .line 145
-    if-eqz p1, :cond_12
+    if-eqz p1, :cond_0
 
     .line 146
     iput-object p1, p0, Landroid/media/AsyncPlayer;->mTag:Ljava/lang/String;
 
     .line 150
-    :goto_11
+    :goto_0
     return-void
 
     .line 148
-    :cond_12
+    :cond_0
     const-string v0, "AsyncPlayer"
 
     iput-object v0, p0, Landroid/media/AsyncPlayer;->mTag:Ljava/lang/String;
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method static synthetic access$000(Landroid/media/AsyncPlayer;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -96,7 +96,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/media/AsyncPlayer;)Ljava/util/LinkedList;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -107,7 +107,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/media/AsyncPlayer;Landroid/media/AsyncPlayer$Command;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -119,7 +119,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/media/AsyncPlayer;)Landroid/media/MediaPlayer;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -130,7 +130,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/media/AsyncPlayer;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -142,7 +142,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/media/AsyncPlayer;Landroid/media/AsyncPlayer$Thread;)Landroid/media/AsyncPlayer$Thread;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -154,7 +154,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/media/AsyncPlayer;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -165,13 +165,13 @@
 .end method
 
 .method private acquireWakeLock()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 231
     iget-object v0, p0, Landroid/media/AsyncPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 232
     iget-object v0, p0, Landroid/media/AsyncPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -179,12 +179,12 @@
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
     .line 234
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method private enqueueLocked(Landroid/media/AsyncPlayer$Command;)V
-    .registers 3
+    .locals 1
     .parameter "cmd"
 
     .prologue
@@ -196,7 +196,7 @@
     .line 199
     iget-object v0, p0, Landroid/media/AsyncPlayer;->mThread:Landroid/media/AsyncPlayer$Thread;
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_0
 
     .line 200
     invoke-direct {p0}, Landroid/media/AsyncPlayer;->acquireWakeLock()V
@@ -214,18 +214,18 @@
     invoke-virtual {v0}, Landroid/media/AsyncPlayer$Thread;->start()V
 
     .line 204
-    :cond_18
+    :cond_0
     return-void
 .end method
 
 .method private releaseWakeLock()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 237
     iget-object v0, p0, Landroid/media/AsyncPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 238
     iget-object v0, p0, Landroid/media/AsyncPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -233,12 +233,12 @@
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
     .line 240
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method private startSound(Landroid/media/AsyncPlayer$Command;)V
-    .registers 10
+    .locals 8
     .parameter "cmd"
 
     .prologue
@@ -275,7 +275,7 @@
     .line 66
     iget-object v4, p0, Landroid/media/AsyncPlayer;->mPlayer:Landroid/media/MediaPlayer;
 
-    if-eqz v4, :cond_25
+    if-eqz v4, :cond_0
 
     .line 67
     iget-object v4, p0, Landroid/media/AsyncPlayer;->mPlayer:Landroid/media/MediaPlayer;
@@ -283,7 +283,7 @@
     invoke-virtual {v4}, Landroid/media/MediaPlayer;->release()V
 
     .line 69
-    :cond_25
+    :cond_0
     iput-object v3, p0, Landroid/media/AsyncPlayer;->mPlayer:Landroid/media/MediaPlayer;
 
     .line 70
@@ -301,7 +301,7 @@
 
     cmp-long v4, v0, v4
 
-    if-lez v4, :cond_54
+    if-lez v4, :cond_1
 
     .line 72
     iget-object v4, p0, Landroid/media/AsyncPlayer;->mTag:Ljava/lang/String;
@@ -331,18 +331,18 @@
     move-result-object v5
 
     invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_54
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_54} :catch_55
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 78
     .end local v0           #delay:J
     .end local v3           #player:Landroid/media/MediaPlayer;
-    :cond_54
-    :goto_54
+    :cond_1
+    :goto_0
     return-void
 
     .line 75
-    :catch_55
+    :catch_0
     move-exception v2
 
     .line 76
@@ -371,13 +371,13 @@
 
     invoke-static {v4, v5, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_54
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public play(Landroid/content/Context;Landroid/net/Uri;ZI)V
-    .registers 9
+    .locals 4
     .parameter "context"
     .parameter "uri"
     .parameter "looping"
@@ -422,7 +422,7 @@
     monitor-enter v2
 
     .line 174
-    :try_start_1a
+    :try_start_0
     invoke-direct {p0, v0}, Landroid/media/AsyncPlayer;->enqueueLocked(Landroid/media/AsyncPlayer$Command;)V
 
     .line 175
@@ -437,32 +437,32 @@
     return-void
 
     .line 176
-    :catchall_22
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_24
-    .catchall {:try_start_1a .. :try_end_24} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public setUsesWakeLock(Landroid/content/Context;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
     .line 220
     iget-object v1, p0, Landroid/media/AsyncPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_0
 
     iget-object v1, p0, Landroid/media/AsyncPlayer;->mThread:Landroid/media/AsyncPlayer$Thread;
 
-    if-eqz v1, :cond_2f
+    if-eqz v1, :cond_1
 
     .line 223
-    :cond_8
+    :cond_0
     new-instance v1, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -502,7 +502,7 @@
     throw v1
 
     .line 226
-    :cond_2f
+    :cond_1
     const-string/jumbo v1, "power"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -528,7 +528,7 @@
 .end method
 
 .method public stop()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v3, 0x2
@@ -539,10 +539,10 @@
     monitor-enter v2
 
     .line 187
-    :try_start_4
+    :try_start_0
     iget v1, p0, Landroid/media/AsyncPlayer;->mState:I
 
-    if-eq v1, v3, :cond_1d
+    if-eq v1, v3, :cond_0
 
     .line 188
     new-instance v0, Landroid/media/AsyncPlayer$Command;
@@ -574,19 +574,19 @@
 
     .line 194
     .end local v0           #cmd:Landroid/media/AsyncPlayer$Command;
-    :cond_1d
+    :cond_0
     monitor-exit v2
 
     .line 195
     return-void
 
     .line 194
-    :catchall_1f
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_21
-    .catchall {:try_start_4 .. :try_end_21} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method

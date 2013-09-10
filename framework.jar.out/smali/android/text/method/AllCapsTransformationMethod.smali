@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;
-    .registers 5
+    .locals 2
     .parameter "source"
     .parameter "view"
 
@@ -53,10 +53,10 @@
     .line 42
     iget-boolean v0, p0, Landroid/text/method/AllCapsTransformationMethod;->mEnabled:Z
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     .line 43
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
@@ -69,17 +69,17 @@
     move-result-object v0
 
     .line 46
-    :goto_10
+    :goto_0
     return-object v0
 
     .line 43
-    :cond_11
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_10
+    goto :goto_0
 
     .line 45
-    :cond_13
+    :cond_1
     const-string v0, "AllCapsTransformationMethod"
 
     const-string v1, "Caller did not enable length changes; not transforming text"
@@ -89,11 +89,11 @@
     move-object v0, p1
 
     .line 46
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public onFocusChanged(Landroid/view/View;Ljava/lang/CharSequence;ZILandroid/graphics/Rect;)V
-    .registers 6
+    .locals 0
     .parameter "view"
     .parameter "sourceText"
     .parameter "focused"
@@ -106,7 +106,7 @@
 .end method
 
 .method public setLengthChangesAllowed(Z)V
-    .registers 2
+    .locals 0
     .parameter "allowLengthChanges"
 
     .prologue

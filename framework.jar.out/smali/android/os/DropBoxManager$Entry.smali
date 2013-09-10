@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 222
@@ -59,7 +59,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;J)V
-    .registers 6
+    .locals 2
     .parameter "tag"
     .parameter "millis"
 
@@ -70,7 +70,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 99
-    if-nez p1, :cond_f
+    if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -81,7 +81,7 @@
     throw v0
 
     .line 101
-    :cond_f
+    :cond_0
     iput-object p1, p0, Landroid/os/DropBoxManager$Entry;->mTag:Ljava/lang/String;
 
     .line 102
@@ -103,7 +103,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;JLandroid/os/ParcelFileDescriptor;I)V
-    .registers 9
+    .locals 3
     .parameter "tag"
     .parameter "millis"
     .parameter "data"
@@ -118,7 +118,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 142
-    if-nez p1, :cond_10
+    if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -129,18 +129,18 @@
     throw v0
 
     .line 143
-    :cond_10
+    :cond_0
     and-int/lit8 v2, p5, 0x1
 
-    if-eqz v2, :cond_32
+    if-eqz v2, :cond_1
 
     move v2, v0
 
-    :goto_15
-    if-nez p4, :cond_34
+    :goto_0
+    if-nez p4, :cond_2
 
-    :goto_17
-    if-eq v2, v0, :cond_36
+    :goto_1
+    if-eq v2, v0, :cond_3
 
     .line 144
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -167,19 +167,19 @@
 
     throw v0
 
-    :cond_32
+    :cond_1
     move v2, v1
 
     .line 143
-    goto :goto_15
+    goto :goto_0
 
-    :cond_34
+    :cond_2
     move v0, v1
 
-    goto :goto_17
+    goto :goto_1
 
     .line 147
-    :cond_36
+    :cond_3
     iput-object p1, p0, Landroid/os/DropBoxManager$Entry;->mTag:Ljava/lang/String;
 
     .line 148
@@ -201,7 +201,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;JLjava/io/File;I)V
-    .registers 9
+    .locals 3
     .parameter "tag"
     .parameter "millis"
     .parameter "data"
@@ -217,7 +217,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 159
-    if-nez p1, :cond_e
+    if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -228,10 +228,10 @@
     throw v0
 
     .line 160
-    :cond_e
+    :cond_0
     and-int/lit8 v0, p5, 0x1
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_1
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -258,7 +258,7 @@
     throw v0
 
     .line 162
-    :cond_2b
+    :cond_1
     iput-object p1, p0, Landroid/os/DropBoxManager$Entry;->mTag:Ljava/lang/String;
 
     .line 163
@@ -286,7 +286,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;JLjava/lang/String;)V
-    .registers 7
+    .locals 2
     .parameter "tag"
     .parameter "millis"
     .parameter "text"
@@ -296,7 +296,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 110
-    if-nez p1, :cond_e
+    if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -307,8 +307,8 @@
     throw v0
 
     .line 111
-    :cond_e
-    if-nez p4, :cond_19
+    :cond_0
+    if-nez p4, :cond_1
 
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -319,7 +319,7 @@
     throw v0
 
     .line 113
-    :cond_19
+    :cond_1
     iput-object p1, p0, Landroid/os/DropBoxManager$Entry;->mTag:Ljava/lang/String;
 
     .line 114
@@ -347,7 +347,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;J[BI)V
-    .registers 9
+    .locals 3
     .parameter "tag"
     .parameter "millis"
     .parameter "data"
@@ -362,7 +362,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 125
-    if-nez p1, :cond_10
+    if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/NullPointerException;
 
@@ -373,18 +373,18 @@
     throw v0
 
     .line 126
-    :cond_10
+    :cond_0
     and-int/lit8 v2, p5, 0x1
 
-    if-eqz v2, :cond_32
+    if-eqz v2, :cond_1
 
     move v2, v0
 
-    :goto_15
-    if-nez p4, :cond_34
+    :goto_0
+    if-nez p4, :cond_2
 
-    :goto_17
-    if-eq v2, v0, :cond_36
+    :goto_1
+    if-eq v2, v0, :cond_3
 
     .line 127
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -411,19 +411,19 @@
 
     throw v0
 
-    :cond_32
+    :cond_1
     move v2, v1
 
     .line 126
-    goto :goto_15
+    goto :goto_0
 
-    :cond_34
+    :cond_2
     move v0, v1
 
-    goto :goto_17
+    goto :goto_1
 
     .line 130
-    :cond_36
+    :cond_3
     iput-object p1, p0, Landroid/os/DropBoxManager$Entry;->mTag:Ljava/lang/String;
 
     .line 131
@@ -447,55 +447,55 @@
 
 # virtual methods
 .method public close()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 171
     :try_start_0
     iget-object v0, p0, Landroid/os/DropBoxManager$Entry;->mFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/os/DropBoxManager$Entry;->mFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_9
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_9} :catch_a
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 172
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return-void
 
     .line 171
-    :catch_a
+    :catch_0
     move-exception v0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 237
     iget-object v0, p0, Landroid/os/DropBoxManager$Entry;->mFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public getFlags()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 181
@@ -507,7 +507,7 @@
 .end method
 
 .method public getInputStream()Ljava/io/InputStream;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -518,7 +518,7 @@
     .line 212
     iget-object v1, p0, Landroid/os/DropBoxManager$Entry;->mData:[B
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_1
 
     .line 213
     new-instance v0, Ljava/io/ByteArrayInputStream;
@@ -529,12 +529,12 @@
 
     .line 219
     .local v0, is:Ljava/io/InputStream;
-    :goto_b
+    :goto_0
     iget v1, p0, Landroid/os/DropBoxManager$Entry;->mFlags:I
 
     and-int/lit8 v1, v1, 0x4
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_0
 
     new-instance v1, Ljava/util/zip/GZIPInputStream;
 
@@ -543,15 +543,15 @@
     move-object v0, v1
 
     .end local v0           #is:Ljava/io/InputStream;
-    :cond_17
-    :goto_17
+    :cond_0
+    :goto_1
     return-object v0
 
     .line 214
-    :cond_18
+    :cond_1
     iget-object v1, p0, Landroid/os/DropBoxManager$Entry;->mFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
-    if-eqz v1, :cond_24
+    if-eqz v1, :cond_2
 
     .line 215
     new-instance v0, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;
@@ -561,18 +561,18 @@
     invoke-direct {v0, v1}, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
 
     .restart local v0       #is:Ljava/io/InputStream;
-    goto :goto_b
+    goto :goto_0
 
     .line 217
     .end local v0           #is:Ljava/io/InputStream;
-    :cond_24
+    :cond_2
     const/4 v0, 0x0
 
-    goto :goto_17
+    goto :goto_1
 .end method
 
 .method public getTag()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 175
@@ -582,7 +582,7 @@
 .end method
 
 .method public getText(I)Ljava/lang/String;
-    .registers 11
+    .locals 9
     .parameter "maxBytes"
 
     .prologue
@@ -595,18 +595,18 @@
 
     and-int/lit8 v6, v6, 0x2
 
-    if-nez v6, :cond_9
+    if-nez v6, :cond_1
 
     .line 205
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     return-object v5
 
     .line 189
-    :cond_9
+    :cond_1
     iget-object v6, p0, Landroid/os/DropBoxManager$Entry;->mData:[B
 
-    if-eqz v6, :cond_1c
+    if-eqz v6, :cond_2
 
     new-instance v5, Ljava/lang/String;
 
@@ -622,43 +622,43 @@
 
     invoke-direct {v5, v6, v8, v7}, Ljava/lang/String;-><init>([BII)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 191
-    :cond_1c
+    :cond_2
     const/4 v2, 0x0
 
     .line 193
     .local v2, is:Ljava/io/InputStream;
-    :try_start_1d
+    :try_start_0
     invoke-virtual {p0}, Landroid/os/DropBoxManager$Entry;->getInputStream()Ljava/io/InputStream;
-    :try_end_20
-    .catchall {:try_start_1d .. :try_end_20} :catchall_51
-    .catch Ljava/io/IOException; {:try_start_1d .. :try_end_20} :catch_48
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v2
 
     .line 194
-    if-nez v2, :cond_2b
+    if-nez v2, :cond_3
 
     .line 205
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_0
 
-    :try_start_25
+    :try_start_1
     invoke-virtual {v2}, Ljava/io/InputStream;->close()V
-    :try_end_28
-    .catch Ljava/io/IOException; {:try_start_25 .. :try_end_28} :catch_29
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_8
+    goto :goto_0
 
-    :catch_29
+    :catch_0
     move-exception v6
 
-    goto :goto_8
+    goto :goto_0
 
     .line 195
-    :cond_2b
-    :try_start_2b
+    :cond_3
+    :try_start_2
     new-array v0, p1, [B
 
     .line 196
@@ -671,12 +671,12 @@
 
     .line 198
     .local v3, n:I
-    :goto_2f
-    if-ltz v3, :cond_3b
+    :goto_1
+    if-ltz v3, :cond_4
 
     add-int/2addr v4, v3
 
-    if-ge v4, p1, :cond_3b
+    if-ge v4, p1, :cond_4
 
     .line 199
     sub-int v6, p1, v4
@@ -685,90 +685,90 @@
 
     move-result v3
 
-    goto :goto_2f
+    goto :goto_1
 
     .line 201
-    :cond_3b
+    :cond_4
     new-instance v6, Ljava/lang/String;
 
     const/4 v7, 0x0
 
     invoke-direct {v6, v0, v7, v4}, Ljava/lang/String;-><init>([BII)V
-    :try_end_41
-    .catchall {:try_start_2b .. :try_end_41} :catchall_51
-    .catch Ljava/io/IOException; {:try_start_2b .. :try_end_41} :catch_48
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
     .line 205
-    if-eqz v2, :cond_46
+    if-eqz v2, :cond_5
 
-    :try_start_43
+    :try_start_3
     invoke-virtual {v2}, Ljava/io/InputStream;->close()V
-    :try_end_46
-    .catch Ljava/io/IOException; {:try_start_43 .. :try_end_46} :catch_58
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
 
-    :cond_46
-    :goto_46
+    :cond_5
+    :goto_2
     move-object v5, v6
 
-    goto :goto_8
+    goto :goto_0
 
     .line 202
     .end local v0           #buf:[B
     .end local v3           #n:I
     .end local v4           #readBytes:I
-    :catch_48
+    :catch_1
     move-exception v1
 
     .line 205
     .local v1, e:Ljava/io/IOException;
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_0
 
-    :try_start_4b
+    :try_start_4
     invoke-virtual {v2}, Ljava/io/InputStream;->close()V
-    :try_end_4e
-    .catch Ljava/io/IOException; {:try_start_4b .. :try_end_4e} :catch_4f
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
 
-    goto :goto_8
+    goto :goto_0
 
-    :catch_4f
+    :catch_2
     move-exception v6
 
-    goto :goto_8
+    goto :goto_0
 
     .end local v1           #e:Ljava/io/IOException;
-    :catchall_51
+    :catchall_0
     move-exception v5
 
-    if-eqz v2, :cond_57
+    if-eqz v2, :cond_6
 
-    :try_start_54
+    :try_start_5
     invoke-virtual {v2}, Ljava/io/InputStream;->close()V
-    :try_end_57
-    .catch Ljava/io/IOException; {:try_start_54 .. :try_end_57} :catch_5a
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_4
 
-    :cond_57
-    :goto_57
+    :cond_6
+    :goto_3
     throw v5
 
     .restart local v0       #buf:[B
     .restart local v3       #n:I
     .restart local v4       #readBytes:I
-    :catch_58
+    :catch_3
     move-exception v5
 
-    goto :goto_46
+    goto :goto_2
 
     .end local v0           #buf:[B
     .end local v3           #n:I
     .end local v4           #readBytes:I
-    :catch_5a
+    :catch_4
     move-exception v6
 
-    goto :goto_57
+    goto :goto_3
 .end method
 
 .method public getTimeMillis()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 178
@@ -778,7 +778,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "out"
     .parameter "flags"
 
@@ -796,7 +796,7 @@
     .line 243
     iget-object v0, p0, Landroid/os/DropBoxManager$Entry;->mFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_0
 
     .line 244
     iget v0, p0, Landroid/os/DropBoxManager$Entry;->mFlags:I
@@ -811,11 +811,11 @@
     invoke-virtual {v0, p1, p2}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 250
-    :goto_1a
+    :goto_0
     return-void
 
     .line 247
-    :cond_1b
+    :cond_0
     iget v0, p0, Landroid/os/DropBoxManager$Entry;->mFlags:I
 
     or-int/lit8 v0, v0, 0x8
@@ -827,5 +827,5 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    goto :goto_1a
+    goto :goto_0
 .end method

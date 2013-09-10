@@ -39,7 +39,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -70,7 +70,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/util/StateMachine$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method add(Landroid/os/Message;Ljava/lang/String;Lcom/android/internal/util/State;Lcom/android/internal/util/State;)V
-    .registers 8
+    .locals 3
     .parameter "msg"
     .parameter "messageInfo"
     .parameter "state"
@@ -106,7 +106,7 @@
 
     iget v2, p0, Lcom/android/internal/util/StateMachine$ProcessedMessages;->mMaxSize:I
 
-    if-ge v1, v2, :cond_1b
+    if-ge v1, v2, :cond_0
 
     .line 631
     iget-object v1, p0, Lcom/android/internal/util/StateMachine$ProcessedMessages;->mMessages:Ljava/util/Vector;
@@ -118,11 +118,11 @@
     invoke-virtual {v1, v2}, Ljava/util/Vector;->add(Ljava/lang/Object;)Z
 
     .line 640
-    :goto_1a
+    :goto_0
     return-void
 
     .line 633
-    :cond_1b
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/util/StateMachine$ProcessedMessages;->mMessages:Ljava/util/Vector;
 
     iget v2, p0, Lcom/android/internal/util/StateMachine$ProcessedMessages;->mOldestIndex:I
@@ -146,7 +146,7 @@
 
     iget v2, p0, Lcom/android/internal/util/StateMachine$ProcessedMessages;->mMaxSize:I
 
-    if-lt v1, v2, :cond_34
+    if-lt v1, v2, :cond_1
 
     .line 636
     const/4 v1, 0x0
@@ -154,14 +154,14 @@
     iput v1, p0, Lcom/android/internal/util/StateMachine$ProcessedMessages;->mOldestIndex:I
 
     .line 638
-    :cond_34
+    :cond_1
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/android/internal/util/StateMachine$ProcessedMessageInfo;->update(Landroid/os/Message;Ljava/lang/String;Lcom/android/internal/util/State;Lcom/android/internal/util/State;)V
 
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 .method cleanup()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 599
@@ -174,7 +174,7 @@
 .end method
 
 .method count()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 592
@@ -184,7 +184,7 @@
 .end method
 
 .method get(I)Lcom/android/internal/util/StateMachine$ProcessedMessageInfo;
-    .registers 4
+    .locals 2
     .parameter "index"
 
     .prologue
@@ -197,7 +197,7 @@
     .local v0, nextIndex:I
     iget v1, p0, Lcom/android/internal/util/StateMachine$ProcessedMessages;->mMaxSize:I
 
-    if-lt v0, v1, :cond_b
+    if-lt v0, v1, :cond_0
 
     .line 610
     iget v1, p0, Lcom/android/internal/util/StateMachine$ProcessedMessages;->mMaxSize:I
@@ -205,21 +205,21 @@
     sub-int/2addr v0, v1
 
     .line 612
-    :cond_b
+    :cond_0
     invoke-virtual {p0}, Lcom/android/internal/util/StateMachine$ProcessedMessages;->size()I
 
     move-result v1
 
-    if-lt v0, v1, :cond_13
+    if-lt v0, v1, :cond_1
 
     .line 613
     const/4 v1, 0x0
 
     .line 615
-    :goto_12
+    :goto_0
     return-object v1
 
-    :cond_13
+    :cond_1
     iget-object v1, p0, Lcom/android/internal/util/StateMachine$ProcessedMessages;->mMessages:Ljava/util/Vector;
 
     invoke-virtual {v1, v0}, Ljava/util/Vector;->get(I)Ljava/lang/Object;
@@ -228,11 +228,11 @@
 
     check-cast v1, Lcom/android/internal/util/StateMachine$ProcessedMessageInfo;
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method setSize(I)V
-    .registers 3
+    .locals 1
     .parameter "maxSize"
 
     .prologue
@@ -254,7 +254,7 @@
 .end method
 
 .method size()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 585

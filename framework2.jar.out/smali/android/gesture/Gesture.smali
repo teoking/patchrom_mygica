@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 43
@@ -78,7 +78,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 59
@@ -118,7 +118,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/gesture/Gesture;J)J
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -130,7 +130,7 @@
 .end method
 
 .method static deserialize(Ljava/io/DataInputStream;)Landroid/gesture/Gesture;
-    .registers 6
+    .locals 5
     .parameter "in"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -162,8 +162,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_10
-    if-ge v2, v0, :cond_1c
+    :goto_0
+    if-ge v2, v0, :cond_0
 
     .line 277
     invoke-static {p0}, Landroid/gesture/GestureStroke;->deserialize(Ljava/io/DataInputStream;)Landroid/gesture/GestureStroke;
@@ -175,17 +175,17 @@
     .line 276
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 280
-    :cond_1c
+    :cond_0
     return-object v1
 .end method
 
 
 # virtual methods
 .method public addStroke(Landroid/gesture/GestureStroke;)V
-    .registers 4
+    .locals 2
     .parameter "stroke"
 
     .prologue
@@ -206,7 +206,7 @@
 .end method
 
 .method public clone()Ljava/lang/Object;
-    .registers 10
+    .locals 9
 
     .prologue
     .line 65
@@ -248,8 +248,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_21
-    if-ge v2, v0, :cond_39
+    :goto_0
+    if-ge v2, v0, :cond_0
 
     .line 70
     iget-object v4, p0, Landroid/gesture/Gesture;->mStrokes:Ljava/util/ArrayList;
@@ -275,16 +275,16 @@
     .line 69
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_21
+    goto :goto_0
 
     .line 73
     .end local v3           #stroke:Landroid/gesture/GestureStroke;
-    :cond_39
+    :cond_0
     return-object v1
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 335
@@ -294,7 +294,7 @@
 .end method
 
 .method public getBoundingBox()Landroid/graphics/RectF;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 122
@@ -304,7 +304,7 @@
 .end method
 
 .method public getID()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 172
@@ -314,7 +314,7 @@
 .end method
 
 .method public getLength()F
-    .registers 7
+    .locals 6
 
     .prologue
     .line 107
@@ -335,8 +335,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_8
-    if-ge v1, v0, :cond_18
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 112
     int-to-float v5, v2
@@ -356,17 +356,17 @@
     .line 111
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 115
-    :cond_18
+    :cond_0
     int-to-float v4, v2
 
     return v4
 .end method
 
 .method public getStrokes()Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -385,7 +385,7 @@
 .end method
 
 .method public getStrokesCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 87
@@ -399,7 +399,7 @@
 .end method
 
 .method serialize(Ljava/io/DataOutputStream;)V
-    .registers 7
+    .locals 5
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -430,8 +430,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_f
-    if-ge v1, v0, :cond_1d
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 264
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -445,15 +445,15 @@
     .line 263
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 266
-    :cond_1d
+    :cond_0
     return-void
 .end method
 
 .method setID(J)V
-    .registers 3
+    .locals 0
     .parameter "id"
 
     .prologue
@@ -465,7 +465,7 @@
 .end method
 
 .method public toBitmap(IIII)Landroid/graphics/Bitmap;
-    .registers 18
+    .locals 13
     .parameter "width"
     .parameter "height"
     .parameter "inset"
@@ -575,13 +575,13 @@
     .local v8, sy:F
     cmpl-float v9, v7, v8
 
-    if-lez v9, :cond_8e
+    if-lez v9, :cond_0
 
     move v6, v8
 
     .line 241
     .local v6, scale:F
-    :goto_59
+    :goto_0
     const/high16 v9, 0x4000
 
     div-float/2addr v9, v6
@@ -652,15 +652,15 @@
     return-object v1
 
     .end local v6           #scale:F
-    :cond_8e
+    :cond_0
     move v6, v7
 
     .line 240
-    goto :goto_59
+    goto :goto_0
 .end method
 
 .method public toBitmap(IIIII)Landroid/graphics/Bitmap;
-    .registers 16
+    .locals 10
     .parameter "width"
     .parameter "height"
     .parameter "edge"
@@ -740,8 +740,8 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_3a
-    if-ge v3, v2, :cond_56
+    :goto_0
+    if-ge v3, v2, :cond_0
 
     .line 204
     invoke-virtual {v6, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -773,16 +773,16 @@
     .line 203
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3a
+    goto :goto_0
 
     .line 208
     .end local v5           #path:Landroid/graphics/Path;
-    :cond_56
+    :cond_0
     return-object v0
 .end method
 
 .method public toPath()Landroid/graphics/Path;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 126
@@ -796,7 +796,7 @@
 .end method
 
 .method public toPath(IIII)Landroid/graphics/Path;
-    .registers 11
+    .locals 6
     .parameter "width"
     .parameter "height"
     .parameter "edge"
@@ -824,12 +824,12 @@
 .end method
 
 .method public toPath(Landroid/graphics/Path;)Landroid/graphics/Path;
-    .registers 6
+    .locals 4
     .parameter "path"
 
     .prologue
     .line 130
-    if-nez p1, :cond_7
+    if-nez p1, :cond_0
 
     new-instance p1, Landroid/graphics/Path;
 
@@ -838,7 +838,7 @@
 
     .line 132
     .restart local p1
-    :cond_7
+    :cond_0
     iget-object v2, p0, Landroid/gesture/Gesture;->mStrokes:Ljava/util/ArrayList;
 
     .line 133
@@ -852,8 +852,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_e
-    if-ge v1, v0, :cond_20
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 136
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -871,15 +871,15 @@
     .line 135
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 139
-    :cond_20
+    :cond_1
     return-object p1
 .end method
 
 .method public toPath(Landroid/graphics/Path;IIII)Landroid/graphics/Path;
-    .registers 12
+    .locals 6
     .parameter "path"
     .parameter "width"
     .parameter "height"
@@ -888,7 +888,7 @@
 
     .prologue
     .line 147
-    if-nez p1, :cond_7
+    if-nez p1, :cond_0
 
     new-instance p1, Landroid/graphics/Path;
 
@@ -897,7 +897,7 @@
 
     .line 149
     .restart local p1
-    :cond_7
+    :cond_0
     iget-object v2, p0, Landroid/gesture/Gesture;->mStrokes:Ljava/util/ArrayList;
 
     .line 150
@@ -911,8 +911,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_e
-    if-ge v1, v0, :cond_2a
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 153
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -942,15 +942,15 @@
     .line 152
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 156
-    :cond_2a
+    :cond_1
     return-object p1
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 9
+    .locals 6
     .parameter "out"
     .parameter "flags"
 
@@ -979,11 +979,11 @@
 
     .line 320
     .local v2, outStream:Ljava/io/DataOutputStream;
-    :try_start_13
+    :try_start_0
     invoke-virtual {p0, v2}, Landroid/gesture/Gesture;->serialize(Ljava/io/DataOutputStream;)V
-    :try_end_16
-    .catchall {:try_start_13 .. :try_end_16} :catchall_36
-    .catch Ljava/io/IOException; {:try_start_13 .. :try_end_16} :catch_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 321
     const/4 v3, 0x1
@@ -995,8 +995,8 @@
     invoke-static {v0}, Landroid/gesture/GestureUtils;->closeStream(Ljava/io/Closeable;)V
 
     .line 329
-    :goto_1d
-    if-eqz v3, :cond_26
+    :goto_0
+    if-eqz v3, :cond_0
 
     .line 330
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
@@ -1006,23 +1006,23 @@
     invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeByteArray([B)V
 
     .line 332
-    :cond_26
+    :cond_0
     return-void
 
     .line 322
-    :catch_27
+    :catch_0
     move-exception v1
 
     .line 323
     .local v1, e:Ljava/io/IOException;
-    :try_start_28
+    :try_start_1
     const-string v4, "Gestures"
 
     const-string v5, "Error writing Gesture to parcel:"
 
     invoke-static {v4, v5, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_2f
-    .catchall {:try_start_28 .. :try_end_2f} :catchall_36
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 325
     invoke-static {v2}, Landroid/gesture/GestureUtils;->closeStream(Ljava/io/Closeable;)V
@@ -1030,11 +1030,11 @@
     .line 326
     invoke-static {v0}, Landroid/gesture/GestureUtils;->closeStream(Ljava/io/Closeable;)V
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 325
     .end local v1           #e:Ljava/io/IOException;
-    :catchall_36
+    :catchall_0
     move-exception v4
 
     invoke-static {v2}, Landroid/gesture/GestureUtils;->closeStream(Ljava/io/Closeable;)V

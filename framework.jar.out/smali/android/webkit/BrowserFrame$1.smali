@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/BrowserFrame;ZIZ)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public cancel()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1069
@@ -58,6 +58,7 @@
 
     iget v1, p0, Landroid/webkit/BrowserFrame$1;->val$handle:I
 
+    #calls: Landroid/webkit/BrowserFrame;->nativeAuthenticationCancel(I)V
     invoke-static {v0, v1}, Landroid/webkit/BrowserFrame;->access$100(Landroid/webkit/BrowserFrame;I)V
 
     .line 1070
@@ -65,7 +66,7 @@
 .end method
 
 .method public proceed(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "username"
     .parameter "password"
 
@@ -75,6 +76,7 @@
 
     iget v1, p0, Landroid/webkit/BrowserFrame$1;->val$handle:I
 
+    #calls: Landroid/webkit/BrowserFrame;->nativeAuthenticationProceed(ILjava/lang/String;Ljava/lang/String;)V
     invoke-static {v0, v1, p1, p2}, Landroid/webkit/BrowserFrame;->access$000(Landroid/webkit/BrowserFrame;ILjava/lang/String;Ljava/lang/String;)V
 
     .line 1065
@@ -82,7 +84,7 @@
 .end method
 
 .method public suppressDialog()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1074
@@ -92,7 +94,7 @@
 .end method
 
 .method public useHttpAuthUsernamePassword()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1059

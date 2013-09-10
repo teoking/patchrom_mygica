@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;JJ)V
-    .registers 6
+    .locals 0
     .parameter "targetView"
     .parameter "packedPosition"
     .parameter "id"

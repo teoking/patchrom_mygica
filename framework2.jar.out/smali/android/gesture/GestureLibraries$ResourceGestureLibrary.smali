@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "resourceId"
 
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public isReadOnly()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 119
@@ -66,7 +66,7 @@
 .end method
 
 .method public load()Z
-    .registers 9
+    .locals 8
 
     .prologue
     .line 127
@@ -84,7 +84,7 @@
 
     .line 129
     .local v0, context:Landroid/content/Context;
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     .line 130
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -99,27 +99,27 @@
 
     .line 132
     .local v2, in:Ljava/io/InputStream;
-    :try_start_15
+    :try_start_0
     iget-object v4, p0, Landroid/gesture/GestureLibrary;->mStore:Landroid/gesture/GestureStore;
 
     const/4 v5, 0x1
 
     invoke-virtual {v4, v2, v5}, Landroid/gesture/GestureStore;->load(Ljava/io/InputStream;Z)V
-    :try_end_1b
-    .catch Ljava/io/IOException; {:try_start_15 .. :try_end_1b} :catch_1d
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 133
     const/4 v3, 0x1
 
     .line 140
     .end local v2           #in:Ljava/io/InputStream;
-    :cond_1c
-    :goto_1c
+    :cond_0
+    :goto_0
     return v3
 
     .line 134
     .restart local v2       #in:Ljava/io/InputStream;
-    :catch_1d
+    :catch_0
     move-exception v1
 
     .line 135
@@ -156,11 +156,11 @@
 
     invoke-static {v4, v5, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 .method public save()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 123

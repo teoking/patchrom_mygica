@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager$GetAuthTokenByTypeAndFeaturesTask$1;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onError(ILjava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "errorCode"
     .parameter "errorMessage"
     .annotation system Ldalvik/annotation/Throws;
@@ -59,7 +59,7 @@
 .end method
 
 .method public onResult(Landroid/os/Bundle;)V
-    .registers 10
+    .locals 8
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
         value = {

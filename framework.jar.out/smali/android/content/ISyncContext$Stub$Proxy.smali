@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 82
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 86
@@ -60,7 +60,7 @@
 .end method
 
 .method public onFinished(Landroid/content/SyncResult;)V
-    .registers 7
+    .locals 5
     .parameter "result"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -82,13 +82,13 @@
 
     .line 116
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.content.ISyncContext"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 117
-    if-eqz p1, :cond_28
+    if-eqz p1, :cond_0
 
     .line 118
     const/4 v2, 0x1
@@ -101,7 +101,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/SyncResult;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 124
-    :goto_17
+    :goto_0
     iget-object v2, p0, Landroid/content/ISyncContext$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x2
@@ -112,8 +112,8 @@
 
     .line 125
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_8 .. :try_end_21} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 128
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -125,18 +125,18 @@
     return-void
 
     .line 122
-    :cond_28
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_29
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2c
-    .catchall {:try_start_29 .. :try_end_2c} :catchall_2d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 128
-    :catchall_2d
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -148,7 +148,7 @@
 .end method
 
 .method public sendHeartbeat()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -169,7 +169,7 @@
 
     .line 98
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.content.ISyncContext"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -185,8 +185,8 @@
 
     .line 100
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_17
-    .catchall {:try_start_8 .. :try_end_17} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 103
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -198,7 +198,7 @@
     return-void
 
     .line 103
-    :catchall_1e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

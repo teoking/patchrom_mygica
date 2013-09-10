@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 50
@@ -44,7 +44,7 @@
 .end method
 
 .method protected constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "verticalAlignment"
 
     .prologue
@@ -59,7 +59,7 @@
 .end method
 
 .method private getCachedDrawable()Landroid/graphics/drawable/Drawable;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 112
@@ -71,7 +71,7 @@
 
     .line 115
     .local v0, d:Landroid/graphics/drawable/Drawable;
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
     .line 116
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -83,8 +83,8 @@
 
     .line 118
     .restart local v0       #d:Landroid/graphics/drawable/Drawable;
-    :cond_b
-    if-nez v0, :cond_18
+    :cond_0
+    if-nez v0, :cond_1
 
     .line 119
     invoke-virtual {p0}, Landroid/text/style/DynamicDrawableSpan;->getDrawable()Landroid/graphics/drawable/Drawable;
@@ -99,14 +99,14 @@
     iput-object v2, p0, Landroid/text/style/DynamicDrawableSpan;->mDrawableRef:Ljava/lang/ref/WeakReference;
 
     .line 123
-    :cond_18
+    :cond_1
     return-object v0
 .end method
 
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;Ljava/lang/CharSequence;IIFIIILandroid/graphics/Paint;)V
-    .registers 14
+    .locals 4
     .parameter "canvas"
     .parameter "text"
     .parameter "start"
@@ -142,7 +142,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_1b
+    if-ne v2, v3, :cond_0
 
     .line 103
     invoke-virtual {p9}, Landroid/graphics/Paint;->getFontMetricsInt()Landroid/graphics/Paint$FontMetricsInt;
@@ -154,7 +154,7 @@
     sub-int/2addr v1, v2
 
     .line 106
-    :cond_1b
+    :cond_0
     int-to-float v2, v1
 
     invoke-virtual {p1, p5, v2}, Landroid/graphics/Canvas;->translate(FF)V
@@ -173,7 +173,7 @@
 .end method
 
 .method public getSize(Landroid/graphics/Paint;Ljava/lang/CharSequence;IILandroid/graphics/Paint$FontMetricsInt;)I
-    .registers 10
+    .locals 4
     .parameter "paint"
     .parameter "text"
     .parameter "start"
@@ -196,7 +196,7 @@
 
     .line 83
     .local v1, rect:Landroid/graphics/Rect;
-    if-eqz p5, :cond_18
+    if-eqz p5, :cond_0
 
     .line 84
     iget v2, v1, Landroid/graphics/Rect;->bottom:I
@@ -217,14 +217,14 @@
     iput v3, p5, Landroid/graphics/Paint$FontMetricsInt;->bottom:I
 
     .line 91
-    :cond_18
+    :cond_0
     iget v2, v1, Landroid/graphics/Rect;->right:I
 
     return v2
 .end method
 
 .method public getVerticalAlignment()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 66

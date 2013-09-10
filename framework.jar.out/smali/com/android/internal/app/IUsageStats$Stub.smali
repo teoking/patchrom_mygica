@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 14
@@ -55,22 +55,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IUsageStats;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 23
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 24
     const/4 v0, 0x0
 
     .line 30
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 26
-    :cond_4
+    :cond_0
     const-string v1, "com.android.internal.app.IUsageStats"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -79,31 +79,31 @@
 
     .line 27
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/app/IUsageStats;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 28
     check-cast v0, Lcom/android/internal/app/IUsageStats;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 30
-    :cond_13
+    :cond_1
     new-instance v0, Lcom/android/internal/app/IUsageStats$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/app/IUsageStats$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 34
@@ -111,7 +111,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 10
+    .locals 5
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -126,26 +126,26 @@
     const/4 v3, 0x1
 
     .line 38
-    sparse-switch p1, :sswitch_data_a4
+    sparse-switch p1, :sswitch_data_0
 
     .line 119
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v3
 
-    :goto_8
+    :goto_0
     return v3
 
     .line 42
-    :sswitch_9
+    :sswitch_0
     const-string v4, "com.android.internal.app.IUsageStats"
 
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 47
-    :sswitch_f
+    :sswitch_1
     const-string v4, "com.android.internal.app.IUsageStats"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -155,7 +155,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_29
+    if-eqz v4, :cond_0
 
     .line 50
     sget-object v4, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -168,25 +168,25 @@
 
     .line 55
     .local v0, _arg0:Landroid/content/ComponentName;
-    :goto_22
+    :goto_1
     invoke-virtual {p0, v0}, Lcom/android/internal/app/IUsageStats$Stub;->noteResumeComponent(Landroid/content/ComponentName;)V
 
     .line 56
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 53
     .end local v0           #_arg0:Landroid/content/ComponentName;
-    :cond_29
+    :cond_0
     const/4 v0, 0x0
 
     .restart local v0       #_arg0:Landroid/content/ComponentName;
-    goto :goto_22
+    goto :goto_1
 
     .line 61
     .end local v0           #_arg0:Landroid/content/ComponentName;
-    :sswitch_2b
+    :sswitch_2
     const-string v4, "com.android.internal.app.IUsageStats"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -196,7 +196,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_45
+    if-eqz v4, :cond_1
 
     .line 64
     sget-object v4, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -209,25 +209,25 @@
 
     .line 69
     .restart local v0       #_arg0:Landroid/content/ComponentName;
-    :goto_3e
+    :goto_2
     invoke-virtual {p0, v0}, Lcom/android/internal/app/IUsageStats$Stub;->notePauseComponent(Landroid/content/ComponentName;)V
 
     .line 70
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 67
     .end local v0           #_arg0:Landroid/content/ComponentName;
-    :cond_45
+    :cond_1
     const/4 v0, 0x0
 
     .restart local v0       #_arg0:Landroid/content/ComponentName;
-    goto :goto_3e
+    goto :goto_2
 
     .line 75
     .end local v0           #_arg0:Landroid/content/ComponentName;
-    :sswitch_47
+    :sswitch_3
     const-string v4, "com.android.internal.app.IUsageStats"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -237,7 +237,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_65
+    if-eqz v4, :cond_2
 
     .line 78
     sget-object v4, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -250,7 +250,7 @@
 
     .line 84
     .restart local v0       #_arg0:Landroid/content/ComponentName;
-    :goto_5a
+    :goto_3
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -262,20 +262,20 @@
     .line 86
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 81
     .end local v0           #_arg0:Landroid/content/ComponentName;
     .end local v1           #_arg1:I
-    :cond_65
+    :cond_2
     const/4 v0, 0x0
 
     .restart local v0       #_arg0:Landroid/content/ComponentName;
-    goto :goto_5a
+    goto :goto_3
 
     .line 91
     .end local v0           #_arg0:Landroid/content/ComponentName;
-    :sswitch_67
+    :sswitch_4
     const-string v4, "com.android.internal.app.IUsageStats"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -285,7 +285,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_8b
+    if-eqz v4, :cond_3
 
     .line 94
     sget-object v4, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -298,7 +298,7 @@
 
     .line 99
     .restart local v0       #_arg0:Landroid/content/ComponentName;
-    :goto_7a
+    :goto_4
     invoke-virtual {p0, v0}, Lcom/android/internal/app/IUsageStats$Stub;->getPkgUsageStats(Landroid/content/ComponentName;)Lcom/android/internal/os/PkgUsageStats;
 
     move-result-object v2
@@ -308,7 +308,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 101
-    if-eqz v2, :cond_8d
+    if-eqz v2, :cond_4
 
     .line 102
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -316,30 +316,30 @@
     .line 103
     invoke-virtual {v2, p3, v3}, Lcom/android/internal/os/PkgUsageStats;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 97
     .end local v0           #_arg0:Landroid/content/ComponentName;
     .end local v2           #_result:Lcom/android/internal/os/PkgUsageStats;
-    :cond_8b
+    :cond_3
     const/4 v0, 0x0
 
     .restart local v0       #_arg0:Landroid/content/ComponentName;
-    goto :goto_7a
+    goto :goto_4
 
     .line 106
     .restart local v2       #_result:Lcom/android/internal/os/PkgUsageStats;
-    :cond_8d
+    :cond_4
     const/4 v4, 0x0
 
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 112
     .end local v0           #_arg0:Landroid/content/ComponentName;
     .end local v2           #_result:Lcom/android/internal/os/PkgUsageStats;
-    :sswitch_93
+    :sswitch_5
     const-string v4, "com.android.internal.app.IUsageStats"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -356,16 +356,16 @@
     .line 115
     invoke-virtual {p3, v2, v3}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 38
-    :sswitch_data_a4
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_f
-        0x2 -> :sswitch_2b
-        0x3 -> :sswitch_47
-        0x4 -> :sswitch_67
-        0x5 -> :sswitch_93
-        0x5f4e5446 -> :sswitch_9
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

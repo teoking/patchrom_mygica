@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Lorg/apache/http/HttpHost;Landroid/net/http/RequestFeeder;)V
-    .registers 4
+    .locals 0
     .parameter "context"
     .parameter "host"
     .parameter "requestFeeder"
@@ -21,14 +21,14 @@
 
 # virtual methods
 .method closeConnection()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 74
     :try_start_0
     iget-object v1, p0, Landroid/net/http/Connection;->mHttpClientConnection:Landroid/net/http/AndroidHttpClientConnection;
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/net/http/Connection;->mHttpClientConnection:Landroid/net/http/AndroidHttpClientConnection;
 
@@ -36,33 +36,33 @@
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_0
 
     .line 75
     iget-object v1, p0, Landroid/net/http/Connection;->mHttpClientConnection:Landroid/net/http/AndroidHttpClientConnection;
 
     invoke-virtual {v1}, Landroid/net/http/AndroidHttpClientConnection;->close()V
-    :try_end_11
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_11} :catch_12
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 83
-    :cond_11
-    :goto_11
+    :cond_0
+    :goto_0
     return-void
 
     .line 77
-    :catch_12
+    :catch_0
     move-exception v0
 
     .line 81
     .local v0, e:Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method getScheme()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 93
@@ -72,7 +72,7 @@
 .end method
 
 .method openConnection(Landroid/net/http/Request;)Landroid/net/http/AndroidHttpClientConnection;
-    .registers 8
+    .locals 6
     .parameter "req"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -142,7 +142,7 @@
 .end method
 
 .method restartConnection(Z)V
-    .registers 2
+    .locals 0
     .parameter "abort"
 
     .prologue

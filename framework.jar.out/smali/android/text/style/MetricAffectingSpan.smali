@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 26
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public bridge synthetic getUnderlying()Landroid/text/style/CharacterStyle;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 26
@@ -41,7 +41,7 @@
 .end method
 
 .method public getUnderlying()Landroid/text/style/MetricAffectingSpan;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 39

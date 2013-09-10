@@ -56,7 +56,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -74,7 +74,7 @@
 .end method
 
 .method public constructor <init>(Landroid/media/videoeditor/VideoEditor;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 21
+    .locals 17
     .parameter "editor"
     .parameter "audioTrackId"
     .parameter "filename"
@@ -121,7 +121,7 @@
 .end method
 
 .method constructor <init>(Landroid/media/videoeditor/VideoEditor;Ljava/lang/String;Ljava/lang/String;JJJZIZZIILjava/lang/String;)V
-    .registers 27
+    .locals 10
     .parameter "editor"
     .parameter "audioTrackId"
     .parameter "filename"
@@ -160,7 +160,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_28
+    if-nez v6, :cond_0
 
     .line 132
     new-instance v6, Ljava/io/IOException;
@@ -188,7 +188,7 @@
     throw v6
 
     .line 136
-    :cond_28
+    :cond_0
     const-wide v6, 0x80000000L
 
     invoke-virtual {v3}, Ljava/io/File;->length()J
@@ -197,7 +197,7 @@
 
     cmp-long v6, v6, v8
 
-    if-gtz v6, :cond_3d
+    if-gtz v6, :cond_1
 
     .line 137
     new-instance v6, Ljava/lang/IllegalArgumentException;
@@ -209,10 +209,10 @@
     throw v6
 
     .line 140
-    :cond_3d
+    :cond_1
     instance-of v6, p1, Landroid/media/videoeditor/VideoEditorImpl;
 
-    if-eqz v6, :cond_73
+    if-eqz v6, :cond_2
 
     .line 141
     check-cast p1, Landroid/media/videoeditor/VideoEditorImpl;
@@ -225,12 +225,12 @@
     iput-object v6, p0, Landroid/media/videoeditor/AudioTrack;->mMANativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
 
     .line 146
-    :try_start_49
+    :try_start_0
     iget-object v6, p0, Landroid/media/videoeditor/AudioTrack;->mMANativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
 
     invoke-virtual {v6, p3}, Landroid/media/videoeditor/MediaArtistNativeHelper;->getMediaProperties(Ljava/lang/String;)Landroid/media/videoeditor/MediaArtistNativeHelper$Properties;
-    :try_end_4e
-    .catch Ljava/lang/Exception; {:try_start_49 .. :try_end_4e} :catch_7b
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v5
 
@@ -245,7 +245,7 @@
 
     .line 151
     .local v4, fileType:I
-    packed-switch v4, :pswitch_data_114
+    packed-switch v4, :pswitch_data_0
 
     .line 159
     new-instance v6, Ljava/lang/IllegalArgumentException;
@@ -275,7 +275,7 @@
     .line 143
     .end local v4           #fileType:I
     .restart local p1
-    :cond_73
+    :cond_2
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
     const-string v7, "editor is not of type VideoEditorImpl"
@@ -286,7 +286,7 @@
 
     .line 147
     .end local p1
-    :catch_7b
+    :catch_0
     move-exception v2
 
     .line 148
@@ -326,7 +326,7 @@
     .line 162
     .end local v2           #e:Ljava/lang/Exception;
     .restart local v4       #fileType:I
-    :pswitch_9d
+    :pswitch_0
     iget-object v6, p0, Landroid/media/videoeditor/AudioTrack;->mMANativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
 
     iget v7, v5, Landroid/media/videoeditor/MediaArtistNativeHelper$Properties;->audioFormat:I
@@ -335,10 +335,10 @@
 
     move-result v6
 
-    packed-switch v6, :pswitch_data_120
+    packed-switch v6, :pswitch_data_1
 
     .line 169
-    :pswitch_a8
+    :pswitch_1
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
     const-string v7, "Unsupported Audio Codec Format in Input File"
@@ -348,12 +348,12 @@
     throw v6
 
     .line 172
-    :pswitch_b0
+    :pswitch_2
     const-wide/16 v6, -0x1
 
     cmp-long v6, p8, v6
 
-    if-nez v6, :cond_bb
+    if-nez v6, :cond_3
 
     .line 173
     iget v6, v5, Landroid/media/videoeditor/MediaArtistNativeHelper$Properties;->audioDuration:I
@@ -363,7 +363,7 @@
     move-wide/from16 p8, v0
 
     .line 176
-    :cond_bb
+    :cond_3
     iput-object p2, p0, Landroid/media/videoeditor/AudioTrack;->mUniqueId:Ljava/lang/String;
 
     .line 177
@@ -450,7 +450,7 @@
     iput-object v0, p0, Landroid/media/videoeditor/AudioTrack;->mAudioWaveformFilename:Ljava/lang/String;
 
     .line 197
-    if-eqz p16, :cond_10f
+    if-eqz p16, :cond_4
 
     .line 198
     new-instance v6, Ljava/lang/ref/SoftReference;
@@ -466,52 +466,52 @@
     iput-object v6, p0, Landroid/media/videoeditor/AudioTrack;->mWaveformData:Ljava/lang/ref/SoftReference;
 
     .line 203
-    :goto_10e
+    :goto_0
     return-void
 
     .line 201
-    :cond_10f
+    :cond_4
     const/4 v6, 0x0
 
     iput-object v6, p0, Landroid/media/videoeditor/AudioTrack;->mWaveformData:Ljava/lang/ref/SoftReference;
 
-    goto :goto_10e
+    goto :goto_0
 
     .line 151
     nop
 
-    :pswitch_data_114
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_9d
-        :pswitch_9d
-        :pswitch_9d
-        :pswitch_9d
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 
     .line 162
-    :pswitch_data_120
+    :pswitch_data_1
     .packed-switch 0x1
-        :pswitch_b0
-        :pswitch_b0
-        :pswitch_a8
-        :pswitch_a8
-        :pswitch_b0
-        :pswitch_a8
-        :pswitch_a8
-        :pswitch_b0
+        :pswitch_2
+        :pswitch_2
+        :pswitch_1
+        :pswitch_1
+        :pswitch_2
+        :pswitch_1
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public disableDucking()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 446
     iget-boolean v0, p0, Landroid/media/videoeditor/AudioTrack;->mIsDuckingEnabled:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 450
     iget-object v0, p0, Landroid/media/videoeditor/AudioTrack;->mMANativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
@@ -526,18 +526,18 @@
     iput-boolean v0, p0, Landroid/media/videoeditor/AudioTrack;->mIsDuckingEnabled:Z
 
     .line 453
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method public disableLoop()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 424
     iget-boolean v0, p0, Landroid/media/videoeditor/AudioTrack;->mLoop:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 428
     iget-object v0, p0, Landroid/media/videoeditor/AudioTrack;->mMANativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
@@ -552,12 +552,12 @@
     iput-boolean v0, p0, Landroid/media/videoeditor/AudioTrack;->mLoop:Z
 
     .line 431
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method public enableDucking(II)V
-    .registers 6
+    .locals 3
     .parameter "threshold"
     .parameter "duckedTrackVolume"
 
@@ -565,14 +565,14 @@
     const/4 v1, 0x1
 
     .line 466
-    if-ltz p1, :cond_7
+    if-ltz p1, :cond_0
 
     const/16 v0, 0x5a
 
-    if-le p1, v0, :cond_20
+    if-le p1, v0, :cond_1
 
     .line 467
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -598,15 +598,15 @@
     throw v0
 
     .line 470
-    :cond_20
-    if-ltz p2, :cond_26
+    :cond_1
+    if-ltz p2, :cond_2
 
     const/16 v0, 0x64
 
-    if-le p2, v0, :cond_3f
+    if-le p2, v0, :cond_3
 
     .line 471
-    :cond_26
+    :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -632,7 +632,7 @@
     throw v0
 
     .line 478
-    :cond_3f
+    :cond_3
     iget-object v0, p0, Landroid/media/videoeditor/AudioTrack;->mMANativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
 
     invoke-virtual {v0, v1}, Landroid/media/videoeditor/MediaArtistNativeHelper;->setGeneratePreview(Z)V
@@ -651,7 +651,7 @@
 .end method
 
 .method public enableLoop()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x1
@@ -659,7 +659,7 @@
     .line 411
     iget-boolean v0, p0, Landroid/media/videoeditor/AudioTrack;->mLoop:Z
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 415
     iget-object v0, p0, Landroid/media/videoeditor/AudioTrack;->mMANativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
@@ -670,30 +670,30 @@
     iput-boolean v1, p0, Landroid/media/videoeditor/AudioTrack;->mLoop:Z
 
     .line 418
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 4
+    .locals 2
     .parameter "object"
 
     .prologue
     .line 645
     instance-of v0, p1, Landroid/media/videoeditor/AudioTrack;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     .line 646
     const/4 v0, 0x0
 
     .line 648
     .end local p1
-    :goto_5
+    :goto_0
     return v0
 
     .restart local p1
-    :cond_6
+    :cond_0
     iget-object v0, p0, Landroid/media/videoeditor/AudioTrack;->mUniqueId:Ljava/lang/String;
 
     check-cast p1, Landroid/media/videoeditor/AudioTrack;
@@ -705,11 +705,11 @@
 
     move-result v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public extractAudioWaveform(Landroid/media/videoeditor/ExtractAudioWaveformProgressListener;)V
-    .registers 13
+    .locals 11
     .parameter "listener"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -723,7 +723,7 @@
     .line 526
     iget-object v0, p0, Landroid/media/videoeditor/AudioTrack;->mAudioWaveformFilename:Ljava/lang/String;
 
-    if-nez v0, :cond_66
+    if-nez v0, :cond_0
 
     .line 530
     iget-object v0, p0, Landroid/media/videoeditor/AudioTrack;->mMANativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
@@ -784,10 +784,10 @@
 
     .line 541
     .local v9, codecType:I
-    packed-switch v9, :pswitch_data_84
+    packed-switch v9, :pswitch_data_0
 
     .line 571
-    :pswitch_3d
+    :pswitch_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -813,7 +813,7 @@
     throw v0
 
     .line 543
-    :pswitch_56
+    :pswitch_1
     const/4 v4, 0x5
 
     .line 545
@@ -822,7 +822,7 @@
 
     .line 576
     .local v6, sampleCount:I
-    :goto_59
+    :goto_0
     iget-object v0, p0, Landroid/media/videoeditor/AudioTrack;->mMANativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
 
     iget-object v1, p0, Landroid/media/videoeditor/AudioTrack;->mUniqueId:Ljava/lang/String;
@@ -844,7 +844,7 @@
     .end local v6           #sampleCount:I
     .end local v9           #codecType:I
     .end local v10           #projectPath:Ljava/lang/String;
-    :cond_66
+    :cond_0
     new-instance v0, Ljava/lang/ref/SoftReference;
 
     new-instance v1, Landroid/media/videoeditor/WaveformData;
@@ -864,7 +864,7 @@
     .restart local v3       #audioWaveFilename:Ljava/lang/String;
     .restart local v9       #codecType:I
     .restart local v10       #projectPath:Ljava/lang/String;
-    :pswitch_75
+    :pswitch_2
     const/16 v4, 0xa
 
     .line 552
@@ -873,12 +873,12 @@
 
     .line 553
     .restart local v6       #sampleCount:I
-    goto :goto_59
+    goto :goto_0
 
     .line 557
     .end local v4           #frameDuration:I
     .end local v6           #sampleCount:I
-    :pswitch_7a
+    :pswitch_3
     const/16 v4, 0x20
 
     .line 559
@@ -887,12 +887,12 @@
 
     .line 560
     .restart local v6       #sampleCount:I
-    goto :goto_59
+    goto :goto_0
 
     .line 564
     .end local v4           #frameDuration:I
     .end local v6           #sampleCount:I
-    :pswitch_7f
+    :pswitch_4
     const/16 v4, 0x24
 
     .line 566
@@ -901,24 +901,24 @@
 
     .line 567
     .restart local v6       #sampleCount:I
-    goto :goto_59
+    goto :goto_0
 
     .line 541
-    :pswitch_data_84
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_56
-        :pswitch_7a
-        :pswitch_3d
-        :pswitch_3d
-        :pswitch_7f
-        :pswitch_3d
-        :pswitch_3d
-        :pswitch_75
+        :pswitch_1
+        :pswitch_3
+        :pswitch_0
+        :pswitch_0
+        :pswitch_4
+        :pswitch_0
+        :pswitch_0
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public getAudioBitrate()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 257
@@ -928,7 +928,7 @@
 .end method
 
 .method public getAudioChannels()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 229
@@ -938,7 +938,7 @@
 .end method
 
 .method public getAudioSamplingFrequency()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 248
@@ -948,7 +948,7 @@
 .end method
 
 .method public getAudioType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 239
@@ -958,7 +958,7 @@
 .end method
 
 .method getAudioWaveformFilename()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 598
@@ -968,7 +968,7 @@
 .end method
 
 .method public getBoundaryBeginTime()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 392
@@ -978,7 +978,7 @@
 .end method
 
 .method public getBoundaryEndTime()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 401
@@ -988,7 +988,7 @@
 .end method
 
 .method public getDuckedTrackVolume()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 509
@@ -998,7 +998,7 @@
 .end method
 
 .method public getDuckingThreshhold()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 500
@@ -1008,7 +1008,7 @@
 .end method
 
 .method public getDuration()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 341
@@ -1018,7 +1018,7 @@
 .end method
 
 .method public getFilename()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 220
@@ -1028,7 +1028,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 211
@@ -1038,7 +1038,7 @@
 .end method
 
 .method public getStartTime()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 330
@@ -1048,7 +1048,7 @@
 .end method
 
 .method public getTimelineDuration()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 350
@@ -1058,7 +1058,7 @@
 .end method
 
 .method public getVolume()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 296
@@ -1068,7 +1068,7 @@
 .end method
 
 .method public getWaveformData()Landroid/media/videoeditor/WaveformData;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1081,17 +1081,17 @@
     .line 620
     iget-object v3, p0, Landroid/media/videoeditor/AudioTrack;->mWaveformData:Ljava/lang/ref/SoftReference;
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_1
 
     move-object v1, v2
 
     .line 636
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return-object v1
 
     .line 624
-    :cond_7
+    :cond_1
     iget-object v3, p0, Landroid/media/videoeditor/AudioTrack;->mWaveformData:Ljava/lang/ref/SoftReference;
 
     invoke-virtual {v3}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
@@ -1102,23 +1102,23 @@
 
     .line 625
     .local v1, waveformData:Landroid/media/videoeditor/WaveformData;
-    if-nez v1, :cond_6
+    if-nez v1, :cond_0
 
     .line 627
     iget-object v3, p0, Landroid/media/videoeditor/AudioTrack;->mAudioWaveformFilename:Ljava/lang/String;
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_2
 
     .line 629
-    :try_start_15
+    :try_start_0
     new-instance v1, Landroid/media/videoeditor/WaveformData;
 
     .end local v1           #waveformData:Landroid/media/videoeditor/WaveformData;
     iget-object v2, p0, Landroid/media/videoeditor/AudioTrack;->mAudioWaveformFilename:Ljava/lang/String;
 
     invoke-direct {v1, v2}, Landroid/media/videoeditor/WaveformData;-><init>(Ljava/lang/String;)V
-    :try_end_1c
-    .catch Ljava/io/IOException; {:try_start_15 .. :try_end_1c} :catch_24
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 633
     .restart local v1       #waveformData:Landroid/media/videoeditor/WaveformData;
@@ -1128,11 +1128,11 @@
 
     iput-object v2, p0, Landroid/media/videoeditor/AudioTrack;->mWaveformData:Ljava/lang/ref/SoftReference;
 
-    goto :goto_6
+    goto :goto_0
 
     .line 630
     .end local v1           #waveformData:Landroid/media/videoeditor/WaveformData;
-    :catch_24
+    :catch_0
     move-exception v0
 
     .line 631
@@ -1141,15 +1141,15 @@
 
     .end local v0           #e:Ljava/io/IOException;
     .restart local v1       #waveformData:Landroid/media/videoeditor/WaveformData;
-    :cond_26
+    :cond_2
     move-object v1, v2
 
     .line 636
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 656
@@ -1163,7 +1163,7 @@
 .end method
 
 .method invalidate()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -1171,7 +1171,7 @@
     .line 605
     iget-object v0, p0, Landroid/media/videoeditor/AudioTrack;->mAudioWaveformFilename:Ljava/lang/String;
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 606
     new-instance v0, Ljava/io/File;
@@ -1189,12 +1189,12 @@
     iput-object v2, p0, Landroid/media/videoeditor/AudioTrack;->mWaveformData:Ljava/lang/ref/SoftReference;
 
     .line 610
-    :cond_13
+    :cond_0
     return-void
 .end method
 
 .method public isDuckingEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 491
@@ -1204,7 +1204,7 @@
 .end method
 
 .method public isLooping()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 439
@@ -1214,7 +1214,7 @@
 .end method
 
 .method public isMuted()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 319
@@ -1224,7 +1224,7 @@
 .end method
 
 .method public setExtractBoundaries(JJ)V
-    .registers 9
+    .locals 4
     .parameter "beginMs"
     .parameter "endMs"
 
@@ -1236,7 +1236,7 @@
 
     cmp-long v0, p1, v0
 
-    if-lez v0, :cond_10
+    if-lez v0, :cond_0
 
     .line 363
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1248,12 +1248,12 @@
     throw v0
 
     .line 365
-    :cond_10
+    :cond_0
     iget-wide v0, p0, Landroid/media/videoeditor/AudioTrack;->mDurationMs:J
 
     cmp-long v0, p3, v0
 
-    if-lez v0, :cond_1e
+    if-lez v0, :cond_1
 
     .line 366
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1265,10 +1265,10 @@
     throw v0
 
     .line 368
-    :cond_1e
+    :cond_1
     cmp-long v0, p1, v2
 
-    if-gez v0, :cond_2a
+    if-gez v0, :cond_2
 
     .line 369
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1280,10 +1280,10 @@
     throw v0
 
     .line 371
-    :cond_2a
+    :cond_2
     cmp-long v0, p3, v2
 
-    if-gez v0, :cond_36
+    if-gez v0, :cond_3
 
     .line 372
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1295,7 +1295,7 @@
     throw v0
 
     .line 378
-    :cond_36
+    :cond_3
     iget-object v0, p0, Landroid/media/videoeditor/AudioTrack;->mMANativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
 
     const/4 v1, 0x1
@@ -1322,7 +1322,7 @@
 .end method
 
 .method public setMute(Z)V
-    .registers 4
+    .locals 2
     .parameter "muted"
 
     .prologue
@@ -1341,14 +1341,14 @@
 .end method
 
 .method public setVolume(I)V
-    .registers 4
+    .locals 2
     .parameter "volumePercent"
 
     .prologue
     .line 273
     const/16 v0, 0x64
 
-    if-le p1, v0, :cond_c
+    if-le p1, v0, :cond_0
 
     .line 274
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1360,8 +1360,8 @@
     throw v0
 
     .line 277
-    :cond_c
-    if-gez p1, :cond_16
+    :cond_0
+    if-gez p1, :cond_1
 
     .line 278
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1373,7 +1373,7 @@
     throw v0
 
     .line 284
-    :cond_16
+    :cond_1
     iget-object v0, p0, Landroid/media/videoeditor/AudioTrack;->mMANativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
 
     const/4 v1, 0x1

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService;Lcom/android/internal/backup/IBackupTransport;Landroid/content/pm/PackageInfo;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "transport"
     .parameter "packageInfo"
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 4697
@@ -90,40 +90,40 @@
     iget-object v4, p0, Lcom/android/server/BackupManagerService$PerformClearTask;->mPackage:Landroid/content/pm/PackageInfo;
 
     invoke-interface {v3, v4}, Lcom/android/internal/backup/IBackupTransport;->clearBackupData(Landroid/content/pm/PackageInfo;)I
-    :try_end_22
-    .catchall {:try_start_0 .. :try_end_22} :catchall_54
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_22} :catch_62
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_22} :catch_2f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 4711
-    :try_start_22
+    :try_start_1
     iget-object v3, p0, Lcom/android/server/BackupManagerService$PerformClearTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
 
     invoke-interface {v3}, Lcom/android/internal/backup/IBackupTransport;->finishBackup()I
-    :try_end_27
-    .catch Landroid/os/RemoteException; {:try_start_22 .. :try_end_27} :catch_6d
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_2
 
     .line 4717
-    :goto_27
+    :goto_0
     iget-object v3, p0, Lcom/android/server/BackupManagerService$PerformClearTask;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-object v3, v3, Lcom/android/server/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
 
     .end local v1           #stateDir:Ljava/io/File;
     .end local v2           #stateFile:Ljava/io/File;
-    :goto_2b
+    :goto_1
     invoke-virtual {v3}, Landroid/os/PowerManager$WakeLock;->release()V
 
     .line 4719
     return-void
 
     .line 4706
-    :catch_2f
+    :catch_0
     move-exception v0
 
     .line 4707
     .local v0, e:Ljava/lang/Exception;
-    :try_start_30
+    :try_start_2
     const-string v3, "BackupManagerService"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -147,40 +147,40 @@
     move-result-object v4
 
     invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_4a
-    .catchall {:try_start_30 .. :try_end_4a} :catchall_54
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 4711
-    :try_start_4a
+    :try_start_3
     iget-object v3, p0, Lcom/android/server/BackupManagerService$PerformClearTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
 
     invoke-interface {v3}, Lcom/android/internal/backup/IBackupTransport;->finishBackup()I
-    :try_end_4f
-    .catch Landroid/os/RemoteException; {:try_start_4a .. :try_end_4f} :catch_6f
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_3
 
     .line 4717
-    :goto_4f
+    :goto_2
     iget-object v3, p0, Lcom/android/server/BackupManagerService$PerformClearTask;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-object v3, v3, Lcom/android/server/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
 
-    goto :goto_2b
+    goto :goto_1
 
     .line 4709
     .end local v0           #e:Ljava/lang/Exception;
-    :catchall_54
+    :catchall_0
     move-exception v3
 
     .line 4711
-    :try_start_55
+    :try_start_4
     iget-object v4, p0, Lcom/android/server/BackupManagerService$PerformClearTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
 
     invoke-interface {v4}, Lcom/android/internal/backup/IBackupTransport;->finishBackup()I
-    :try_end_5a
-    .catch Landroid/os/RemoteException; {:try_start_55 .. :try_end_5a} :catch_71
+    :try_end_4
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_4
 
     .line 4717
-    :goto_5a
+    :goto_3
     iget-object v4, p0, Lcom/android/server/BackupManagerService$PerformClearTask;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-object v4, v4, Lcom/android/server/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
@@ -191,49 +191,49 @@
     throw v3
 
     .line 4704
-    :catch_62
+    :catch_1
     move-exception v3
 
     .line 4711
-    :try_start_63
+    :try_start_5
     iget-object v3, p0, Lcom/android/server/BackupManagerService$PerformClearTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
 
     invoke-interface {v3}, Lcom/android/internal/backup/IBackupTransport;->finishBackup()I
-    :try_end_68
-    .catch Landroid/os/RemoteException; {:try_start_63 .. :try_end_68} :catch_73
+    :try_end_5
+    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_5
 
     .line 4717
-    :goto_68
+    :goto_4
     iget-object v3, p0, Lcom/android/server/BackupManagerService$PerformClearTask;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-object v3, v3, Lcom/android/server/BackupManagerService;->mWakelock:Landroid/os/PowerManager$WakeLock;
 
-    goto :goto_2b
+    goto :goto_1
 
     .line 4712
     .restart local v1       #stateDir:Ljava/io/File;
     .restart local v2       #stateFile:Ljava/io/File;
-    :catch_6d
+    :catch_2
     move-exception v3
 
-    goto :goto_27
+    goto :goto_0
 
     .end local v1           #stateDir:Ljava/io/File;
     .end local v2           #stateFile:Ljava/io/File;
     .restart local v0       #e:Ljava/lang/Exception;
-    :catch_6f
+    :catch_3
     move-exception v3
 
-    goto :goto_4f
+    goto :goto_2
 
     .end local v0           #e:Ljava/lang/Exception;
-    :catch_71
+    :catch_4
     move-exception v4
 
-    goto :goto_5a
+    goto :goto_3
 
-    :catch_73
+    :catch_5
     move-exception v3
 
-    goto :goto_68
+    goto :goto_4
 .end method

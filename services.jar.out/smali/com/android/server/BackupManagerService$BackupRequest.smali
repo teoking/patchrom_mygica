@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "pkgName"
 
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 217

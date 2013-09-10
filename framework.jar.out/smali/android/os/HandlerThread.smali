@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "priority"
 
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public getLooper()Landroid/os/Looper;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 71
@@ -66,75 +66,75 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     .line 72
     const/4 v0, 0x0
 
     .line 84
-    :goto_7
+    :goto_0
     return-object v0
 
     .line 76
-    :cond_8
+    :cond_0
     monitor-enter p0
 
     .line 77
-    :goto_9
-    :try_start_9
+    :goto_1
+    :try_start_0
     invoke-virtual {p0}, Landroid/os/HandlerThread;->isAlive()Z
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Landroid/os/HandlerThread;->mLooper:Landroid/os/Looper;
-    :try_end_11
-    .catchall {:try_start_9 .. :try_end_11} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_1
 
     .line 79
-    :try_start_13
+    :try_start_1
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
-    :try_end_16
-    .catchall {:try_start_13 .. :try_end_16} :catchall_1d
-    .catch Ljava/lang/InterruptedException; {:try_start_13 .. :try_end_16} :catch_17
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_9
+    goto :goto_1
 
     .line 80
-    :catch_17
+    :catch_0
     move-exception v0
 
-    goto :goto_9
+    goto :goto_1
 
     .line 83
-    :cond_19
-    :try_start_19
+    :cond_1
+    :try_start_2
     monitor-exit p0
-    :try_end_1a
-    .catchall {:try_start_19 .. :try_end_1a} :catchall_1d
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 84
     iget-object v0, p0, Landroid/os/HandlerThread;->mLooper:Landroid/os/Looper;
 
-    goto :goto_7
+    goto :goto_0
 
     .line 83
-    :catchall_1d
+    :catchall_0
     move-exception v0
 
-    :try_start_1e
+    :try_start_3
     monitor-exit p0
-    :try_end_1f
-    .catchall {:try_start_1e .. :try_end_1f} :catchall_1d
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v0
 .end method
 
 .method public getThreadId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 106
@@ -144,7 +144,7 @@
 .end method
 
 .method protected onLooperPrepared()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 49
@@ -152,7 +152,7 @@
 .end method
 
 .method public quit()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 94
@@ -162,7 +162,7 @@
 
     .line 95
     .local v0, looper:Landroid/os/Looper;
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 96
     invoke-virtual {v0}, Landroid/os/Looper;->quit()V
@@ -171,17 +171,17 @@
     const/4 v1, 0x1
 
     .line 99
-    :goto_a
+    :goto_0
     return v1
 
-    :cond_b
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 52
@@ -198,7 +198,7 @@
     monitor-enter p0
 
     .line 55
-    :try_start_a
+    :try_start_0
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
     move-result-object v0
@@ -210,8 +210,8 @@
 
     .line 57
     monitor-exit p0
-    :try_end_14
-    .catchall {:try_start_a .. :try_end_14} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 58
     iget v0, p0, Landroid/os/HandlerThread;->mPriority:I
@@ -233,13 +233,13 @@
     return-void
 
     .line 57
-    :catchall_23
+    :catchall_0
     move-exception v0
 
-    :try_start_24
+    :try_start_1
     monitor-exit p0
-    :try_end_25
-    .catchall {:try_start_24 .. :try_end_25} :catchall_23
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method

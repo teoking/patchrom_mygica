@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "startingLength"
 
     .prologue
@@ -48,7 +48,7 @@
 .end method
 
 .method private possExpand(I)V
-    .registers 6
+    .locals 4
     .parameter "bits"
 
     .prologue
@@ -61,14 +61,14 @@
 
     iget v2, p0, Lcom/android/internal/util/BitwiseOutputStream;->mEnd:I
 
-    if-ge v1, v2, :cond_9
+    if-ge v1, v2, :cond_0
 
     .line 81
-    :goto_8
+    :goto_0
     return-void
 
     .line 77
-    :cond_9
+    :cond_0
     iget v1, p0, Lcom/android/internal/util/BitwiseOutputStream;->mPos:I
 
     add-int/2addr v1, p1
@@ -97,13 +97,13 @@
 
     iput v1, p0, Lcom/android/internal/util/BitwiseOutputStream;->mEnd:I
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public skip(I)V
-    .registers 3
+    .locals 1
     .parameter "bits"
 
     .prologue
@@ -122,7 +122,7 @@
 .end method
 
 .method public toByteArray()[B
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v3, 0x0
@@ -136,11 +136,11 @@
 
     and-int/lit8 v2, v2, 0x7
 
-    if-lez v2, :cond_16
+    if-lez v2, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_c
+    :goto_0
     add-int v0, v4, v2
 
     .line 65
@@ -158,15 +158,15 @@
 
     .end local v0           #len:I
     .end local v1           #newBuf:[B
-    :cond_16
+    :cond_0
     move v2, v3
 
     .line 64
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public write(II)V
-    .registers 9
+    .locals 6
     .parameter "bits"
     .parameter "data"
     .annotation system Ldalvik/annotation/Throws;
@@ -179,12 +179,12 @@
     const/16 v5, 0x8
 
     .line 93
-    if-ltz p1, :cond_6
+    if-ltz p1, :cond_0
 
-    if-le p1, v5, :cond_25
+    if-le p1, v5, :cond_1
 
     .line 94
-    :cond_6
+    :cond_0
     new-instance v2, Lcom/android/internal/util/BitwiseOutputStream$AccessException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -216,7 +216,7 @@
     throw v2
 
     .line 96
-    :cond_25
+    :cond_1
     invoke-direct {p0, p1}, Lcom/android/internal/util/BitwiseOutputStream;->possExpand(I)V
 
     .line 97
@@ -268,7 +268,7 @@
     aput-byte v3, v2, v0
 
     .line 103
-    if-ge v1, v5, :cond_57
+    if-ge v1, v5, :cond_2
 
     iget-object v2, p0, Lcom/android/internal/util/BitwiseOutputStream;->mBuf:[B
 
@@ -285,12 +285,12 @@
     aput-byte v4, v2, v3
 
     .line 104
-    :cond_57
+    :cond_2
     return-void
 .end method
 
 .method public writeByteArray(I[B)V
-    .registers 7
+    .locals 4
     .parameter "bits"
     .parameter "arr"
     .annotation system Ldalvik/annotation/Throws;
@@ -304,10 +304,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     array-length v2, p2
 
-    if-ge v0, v2, :cond_1c
+    if-ge v0, v2, :cond_1
 
     .line 114
     const/16 v2, 0x8
@@ -322,7 +322,7 @@
 
     .line 115
     .local v1, increment:I
-    if-lez v1, :cond_19
+    if-lez v1, :cond_0
 
     .line 116
     aget-byte v2, p2, v0
@@ -336,13 +336,13 @@
     invoke-virtual {p0, v1, v2}, Lcom/android/internal/util/BitwiseOutputStream;->write(II)V
 
     .line 113
-    :cond_19
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 119
     .end local v1           #increment:I
-    :cond_1c
+    :cond_1
     return-void
 .end method

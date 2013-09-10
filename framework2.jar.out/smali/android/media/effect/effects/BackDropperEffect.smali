@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/media/effect/EffectContext;Ljava/lang/String;)V
-    .registers 11
+    .locals 8
     .parameter "context"
     .parameter "name"
 
@@ -71,7 +71,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/media/effect/effects/BackDropperEffect;)Landroid/media/effect/EffectUpdateListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public setParameter(Ljava/lang/String;Ljava/lang/Object;)V
-    .registers 6
+    .locals 3
     .parameter "parameterKey"
     .parameter "value"
 
@@ -96,7 +96,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_0
 
     .line 92
     iget-object v1, p0, Landroid/media/effect/FilterGraphEffect;->mGraph:Landroid/filterfw/core/FilterGraph;
@@ -115,12 +115,12 @@
 
     .line 95
     .end local v0           #background:Landroid/filterfw/core/Filter;
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method public setUpdateListener(Landroid/media/effect/EffectUpdateListener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue

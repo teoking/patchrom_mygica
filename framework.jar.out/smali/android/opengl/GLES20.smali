@@ -611,7 +611,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 330
@@ -622,7 +622,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -1193,7 +1193,7 @@
 .end method
 
 .method public static glVertexAttribPointer(IIIZILjava/nio/Buffer;)V
-    .registers 13
+    .locals 7
     .parameter "indx"
     .parameter "size"
     .parameter "type"

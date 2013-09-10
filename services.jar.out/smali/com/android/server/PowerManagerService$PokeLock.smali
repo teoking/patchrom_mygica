@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/PowerManagerService;ILandroid/os/IBinder;Ljava/lang/String;)V
-    .registers 7
+    .locals 2
     .parameter
     .parameter "p"
     .parameter "b"
@@ -56,30 +56,30 @@
     .line 1087
     const/4 v1, 0x0
 
-    :try_start_c
+    :try_start_0
     invoke-interface {p3, p0, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_c .. :try_end_f} :catch_10
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1091
-    :goto_f
+    :goto_0
     return-void
 
     .line 1088
-    :catch_10
+    :catch_0
     move-exception v0
 
     .line 1089
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {p0}, Lcom/android/server/PowerManagerService$PokeLock;->binderDied()V
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public binderDied()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 1093

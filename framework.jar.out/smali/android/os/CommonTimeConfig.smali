@@ -75,7 +75,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -125,7 +125,7 @@
     .line 67
     iget-object v0, p0, Landroid/os/CommonTimeConfig;->mRemote:Landroid/os/IBinder;
 
-    if-nez v0, :cond_2c
+    if-nez v0, :cond_0
 
     .line 68
     new-instance v0, Landroid/os/RemoteException;
@@ -135,7 +135,7 @@
     throw v0
 
     .line 70
-    :cond_2c
+    :cond_0
     iget-object v0, p0, Landroid/os/CommonTimeConfig;->mRemote:Landroid/os/IBinder;
 
     invoke-interface {v0}, Landroid/os/IBinder;->getInterfaceDescriptor()Ljava/lang/String;
@@ -169,7 +169,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/os/CommonTimeConfig;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -180,7 +180,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/os/CommonTimeConfig;)Landroid/os/CommonTimeConfig$OnServerDiedListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -191,32 +191,32 @@
 .end method
 
 .method private checkDeadServer()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 407
     iget-object v0, p0, Landroid/os/CommonTimeConfig;->mRemote:Landroid/os/IBinder;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/os/CommonTimeConfig;->mUtils:Landroid/os/CommonTimeUtils;
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_1
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static create()Landroid/os/CommonTimeConfig;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 82
@@ -224,17 +224,17 @@
     new-instance v1, Landroid/os/CommonTimeConfig;
 
     invoke-direct {v1}, Landroid/os/CommonTimeConfig;-><init>()V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 88
     .local v1, retVal:Landroid/os/CommonTimeConfig;
-    :goto_5
+    :goto_0
     return-object v1
 
     .line 84
     .end local v1           #retVal:Landroid/os/CommonTimeConfig;
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 85
@@ -242,11 +242,11 @@
     const/4 v1, 0x0
 
     .restart local v1       #retVal:Landroid/os/CommonTimeConfig;
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method private throwOnDeadServer()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -259,7 +259,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 412
     new-instance v0, Landroid/os/RemoteException;
@@ -269,14 +269,14 @@
     throw v0
 
     .line 413
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method protected finalize()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -291,7 +291,7 @@
 .end method
 
 .method public forceNetworklessMasterMode()I
-    .registers 7
+    .locals 6
 
     .prologue
     .line 360
@@ -307,7 +307,7 @@
 
     .line 364
     .local v2, reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     iget-object v3, p0, Landroid/os/CommonTimeConfig;->mInterfaceDesc:Ljava/lang/String;
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -323,9 +323,9 @@
 
     .line 367
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_29
-    .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_18} :catch_20
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v3
 
@@ -335,11 +335,11 @@
     .line 374
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    :goto_1f
+    :goto_0
     return v3
 
     .line 369
-    :catch_20
+    :catch_0
     move-exception v1
 
     .line 370
@@ -352,11 +352,11 @@
     .line 374
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 373
     .end local v1           #e:Landroid/os/RemoteException;
-    :catchall_29
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
@@ -368,7 +368,7 @@
 .end method
 
 .method public getAutoDisable()Z
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -390,19 +390,19 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_f
+    if-ne v0, v1, :cond_0
 
-    :goto_e
+    :goto_0
     return v0
 
-    :cond_f
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public getClientSyncInterval()I
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -428,7 +428,7 @@
 .end method
 
 .method public getInterfaceBinding()Ljava/lang/String;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -452,24 +452,24 @@
 
     .line 206
     .local v0, ifaceName:Ljava/lang/String;
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-nez v2, :cond_14
+    if-nez v2, :cond_0
 
     move-object v0, v1
 
     .line 209
     .end local v0           #ifaceName:Ljava/lang/String;
-    :cond_14
+    :cond_0
     return-object v0
 .end method
 
 .method public getMasterAnnounceInterval()I
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -495,7 +495,7 @@
 .end method
 
 .method public getMasterElectionEndpoint()Ljava/net/InetSocketAddress;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -519,7 +519,7 @@
 .end method
 
 .method public getMasterElectionGroupId()J
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -545,7 +545,7 @@
 .end method
 
 .method public getMasterElectionPriority()B
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -573,7 +573,7 @@
 .end method
 
 .method public getPanicThreshold()I
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -599,7 +599,7 @@
 .end method
 
 .method public release()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x0
@@ -607,10 +607,10 @@
     .line 101
     iget-object v0, p0, Landroid/os/CommonTimeConfig;->mRemote:Landroid/os/IBinder;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 103
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Landroid/os/CommonTimeConfig;->mRemote:Landroid/os/IBinder;
 
     iget-object v1, p0, Landroid/os/CommonTimeConfig;->mDeathHandler:Landroid/os/IBinder$DeathRecipient;
@@ -618,29 +618,29 @@
     const/4 v2, 0x0
 
     invoke-interface {v0, v1, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
-    :try_end_d
-    .catch Ljava/util/NoSuchElementException; {:try_start_5 .. :try_end_d} :catch_12
+    :try_end_0
+    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 106
-    :goto_d
+    :goto_0
     iput-object v3, p0, Landroid/os/CommonTimeConfig;->mRemote:Landroid/os/IBinder;
 
     .line 108
-    :cond_f
+    :cond_0
     iput-object v3, p0, Landroid/os/CommonTimeConfig;->mUtils:Landroid/os/CommonTimeUtils;
 
     .line 109
     return-void
 
     .line 105
-    :catch_12
+    :catch_0
     move-exception v0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public setAutoDisable(Z)I
-    .registers 5
+    .locals 3
     .parameter "autoDisable"
 
     .prologue
@@ -649,39 +649,39 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     .line 339
     const/4 v0, -0x7
 
     .line 341
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     iget-object v1, p0, Landroid/os/CommonTimeConfig;->mUtils:Landroid/os/CommonTimeUtils;
 
     const/16 v2, 0x10
 
-    if-eqz p1, :cond_14
+    if-eqz p1, :cond_1
 
     const/4 v0, 0x1
 
-    :goto_f
+    :goto_1
     invoke-virtual {v1, v2, v0}, Landroid/os/CommonTimeUtils;->transactSetInt(II)I
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 
-    :cond_14
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_1
 .end method
 
 .method public setClientSyncInterval(I)I
-    .registers 4
+    .locals 2
     .parameter "interval"
 
     .prologue
@@ -690,16 +690,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     .line 280
     const/4 v0, -0x7
 
     .line 281
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/os/CommonTimeConfig;->mUtils:Landroid/os/CommonTimeUtils;
 
     const/16 v1, 0xc
@@ -708,11 +708,11 @@
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setMasterAnnounceInterval(I)I
-    .registers 4
+    .locals 2
     .parameter "interval"
 
     .prologue
@@ -721,16 +721,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     .line 253
     const/4 v0, -0x7
 
     .line 254
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/os/CommonTimeConfig;->mUtils:Landroid/os/CommonTimeUtils;
 
     const/16 v1, 0xa
@@ -739,11 +739,11 @@
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setMasterElectionEndpoint(Ljava/net/InetSocketAddress;)I
-    .registers 4
+    .locals 2
     .parameter "ep"
 
     .prologue
@@ -752,16 +752,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     .line 163
     const/4 v0, -0x7
 
     .line 164
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/os/CommonTimeConfig;->mUtils:Landroid/os/CommonTimeUtils;
 
     const/4 v1, 0x4
@@ -770,11 +770,11 @@
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setMasterElectionGroupId(J)I
-    .registers 5
+    .locals 2
     .parameter "id"
 
     .prologue
@@ -783,16 +783,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     .line 188
     const/4 v0, -0x7
 
     .line 189
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/os/CommonTimeConfig;->mUtils:Landroid/os/CommonTimeUtils;
 
     const/4 v1, 0x6
@@ -801,11 +801,11 @@
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setMasterElectionPriority(B)I
-    .registers 4
+    .locals 2
     .parameter "priority"
 
     .prologue
@@ -814,16 +814,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     .line 134
     const/4 v0, -0x7
 
     .line 135
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/os/CommonTimeConfig;->mUtils:Landroid/os/CommonTimeUtils;
 
     const/4 v1, 0x2
@@ -832,11 +832,11 @@
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setNetworkBinding(Ljava/lang/String;)I
-    .registers 4
+    .locals 2
     .parameter "ifaceName"
 
     .prologue
@@ -845,37 +845,37 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     .line 224
     const/4 v0, -0x7
 
     .line 226
     .end local p1
-    :goto_7
+    :goto_0
     return v0
 
     .restart local p1
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/os/CommonTimeConfig;->mUtils:Landroid/os/CommonTimeUtils;
 
     const/16 v1, 0x8
 
-    if-nez p1, :cond_10
+    if-nez p1, :cond_1
 
     const-string p1, ""
 
     .end local p1
-    :cond_10
+    :cond_1
     invoke-virtual {v0, v1, p1}, Landroid/os/CommonTimeUtils;->transactSetString(ILjava/lang/String;)I
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setPanicThreshold(I)I
-    .registers 4
+    .locals 2
     .parameter "threshold"
 
     .prologue
@@ -884,16 +884,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     .line 310
     const/4 v0, -0x7
 
     .line 311
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/os/CommonTimeConfig;->mUtils:Landroid/os/CommonTimeUtils;
 
     const/16 v1, 0xe
@@ -902,11 +902,11 @@
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setServerDiedListener(Landroid/os/CommonTimeConfig$OnServerDiedListener;)V
-    .registers 4
+    .locals 2
     .parameter "listener"
 
     .prologue
@@ -916,7 +916,7 @@
     monitor-enter v1
 
     .line 400
-    :try_start_3
+    :try_start_0
     iput-object p1, p0, Landroid/os/CommonTimeConfig;->mServerDiedListener:Landroid/os/CommonTimeConfig$OnServerDiedListener;
 
     .line 401
@@ -926,12 +926,12 @@
     return-void
 
     .line 401
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_9
-    .catchall {:try_start_3 .. :try_end_9} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

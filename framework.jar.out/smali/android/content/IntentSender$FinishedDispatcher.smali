@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/IntentSender;Landroid/content/IntentSender$OnFinished;Landroid/os/Handler;)V
-    .registers 4
+    .locals 0
     .parameter "pi"
     .parameter "who"
     .parameter "handler"
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZ)V
-    .registers 8
+    .locals 1
     .parameter "intent"
     .parameter "resultCode"
     .parameter "data"
@@ -84,26 +84,26 @@
     .line 122
     iget-object v0, p0, Landroid/content/IntentSender$FinishedDispatcher;->mHandler:Landroid/os/Handler;
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 123
     invoke-virtual {p0}, Landroid/content/IntentSender$FinishedDispatcher;->run()V
 
     .line 127
-    :goto_f
+    :goto_0
     return-void
 
     .line 125
-    :cond_10
+    :cond_0
     iget-object v0, p0, Landroid/content/IntentSender$FinishedDispatcher;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public run()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 129

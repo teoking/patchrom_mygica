@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(F)V
-    .registers 3
+    .locals 1
     .parameter "radius"
 
     .prologue

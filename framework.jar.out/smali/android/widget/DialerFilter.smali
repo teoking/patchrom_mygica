@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "attrs"
 
@@ -60,7 +60,7 @@
 .end method
 
 .method private makeDigitsPrimary()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 263
@@ -68,7 +68,7 @@
 
     iget-object v1, p0, Landroid/widget/DialerFilter;->mLetters:Landroid/widget/EditText;
 
-    if-ne v0, v1, :cond_a
+    if-ne v0, v1, :cond_0
 
     .line 264
     const/4 v0, 0x0
@@ -76,12 +76,12 @@
     invoke-direct {p0, v0}, Landroid/widget/DialerFilter;->swapPrimaryAndHint(Z)V
 
     .line 266
-    :cond_a
+    :cond_0
     return-void
 .end method
 
 .method private makeLettersPrimary()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 257
@@ -89,7 +89,7 @@
 
     iget-object v1, p0, Landroid/widget/DialerFilter;->mDigits:Landroid/widget/EditText;
 
-    if-ne v0, v1, :cond_a
+    if-ne v0, v1, :cond_0
 
     .line 258
     const/4 v0, 0x1
@@ -97,12 +97,12 @@
     invoke-direct {p0, v0}, Landroid/widget/DialerFilter;->swapPrimaryAndHint(Z)V
 
     .line 260
-    :cond_a
+    :cond_0
     return-void
 .end method
 
 .method private swapPrimaryAndHint(Z)V
-    .registers 8
+    .locals 6
     .parameter "makeLettersPrimary"
 
     .prologue
@@ -139,7 +139,7 @@
 
     .line 274
     .local v0, digitsInput:Landroid/text/method/KeyListener;
-    if-eqz p1, :cond_5f
+    if-eqz p1, :cond_0
 
     .line 275
     iget-object v4, p0, Landroid/widget/DialerFilter;->mPrimary:Landroid/widget/EditText;
@@ -152,7 +152,7 @@
     iput-object v4, p0, Landroid/widget/DialerFilter;->mDigits:Landroid/widget/EditText;
 
     .line 282
-    :goto_22
+    :goto_0
     iget-object v4, p0, Landroid/widget/DialerFilter;->mLetters:Landroid/widget/EditText;
 
     invoke-virtual {v4, v2}, Landroid/widget/EditText;->setKeyListener(Landroid/text/method/KeyListener;)V
@@ -218,7 +218,7 @@
     return-void
 
     .line 278
-    :cond_5f
+    :cond_0
     iget-object v4, p0, Landroid/widget/DialerFilter;->mHint:Landroid/widget/EditText;
 
     iput-object v4, p0, Landroid/widget/DialerFilter;->mLetters:Landroid/widget/EditText;
@@ -228,27 +228,27 @@
 
     iput-object v4, p0, Landroid/widget/DialerFilter;->mDigits:Landroid/widget/EditText;
 
-    goto :goto_22
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public append(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "text"
 
     .prologue
     .line 323
     iget v0, p0, Landroid/widget/DialerFilter;->mMode:I
 
-    packed-switch v0, :pswitch_data_2e
+    packed-switch v0, :pswitch_data_0
 
     .line 339
-    :goto_5
+    :goto_0
     return-void
 
     .line 325
-    :pswitch_6
+    :pswitch_0
     iget-object v0, p0, Landroid/widget/DialerFilter;->mDigits:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -266,10 +266,10 @@
 
     invoke-interface {v0, p1}, Landroid/text/Editable;->append(Ljava/lang/CharSequence;)Landroid/text/Editable;
 
-    goto :goto_5
+    goto :goto_0
 
     .line 331
-    :pswitch_19
+    :pswitch_1
     iget-object v0, p0, Landroid/widget/DialerFilter;->mDigits:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -278,10 +278,10 @@
 
     invoke-interface {v0, p1}, Landroid/text/Editable;->append(Ljava/lang/CharSequence;)Landroid/text/Editable;
 
-    goto :goto_5
+    goto :goto_0
 
     .line 336
-    :pswitch_23
+    :pswitch_2
     iget-object v0, p0, Landroid/widget/DialerFilter;->mLetters:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -290,23 +290,23 @@
 
     invoke-interface {v0, p1}, Landroid/text/Editable;->append(Ljava/lang/CharSequence;)Landroid/text/Editable;
 
-    goto :goto_5
+    goto :goto_0
 
     .line 323
     nop
 
-    :pswitch_data_2e
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_23
-        :pswitch_19
-        :pswitch_19
-        :pswitch_23
+        :pswitch_0
+        :pswitch_2
+        :pswitch_1
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public clearText()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 347
@@ -333,7 +333,7 @@
     .line 354
     iget-boolean v1, p0, Landroid/widget/DialerFilter;->mIsQwerty:Z
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_0
 
     .line 355
     const/4 v1, 0x1
@@ -341,20 +341,20 @@
     invoke-virtual {p0, v1}, Landroid/widget/DialerFilter;->setMode(I)V
 
     .line 359
-    :goto_1a
+    :goto_0
     return-void
 
     .line 357
-    :cond_1b
+    :cond_0
     const/4 v1, 0x4
 
     invoke-virtual {p0, v1}, Landroid/widget/DialerFilter;->setMode(I)V
 
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 .method public getDigits()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 307
@@ -364,7 +364,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 308
     iget-object v0, p0, Landroid/widget/DialerFilter;->mDigits:Landroid/widget/EditText;
@@ -374,17 +374,17 @@
     move-result-object v0
 
     .line 310
-    :goto_e
+    :goto_0
     return-object v0
 
-    :cond_f
+    :cond_0
     const-string v0, ""
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public getFilterText()Ljava/lang/CharSequence;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 315
@@ -392,7 +392,7 @@
 
     const/4 v1, 0x4
 
-    if-eq v0, v1, :cond_a
+    if-eq v0, v1, :cond_0
 
     .line 316
     invoke-virtual {p0}, Landroid/widget/DialerFilter;->getLetters()Ljava/lang/CharSequence;
@@ -400,19 +400,19 @@
     move-result-object v0
 
     .line 318
-    :goto_9
+    :goto_0
     return-object v0
 
-    :cond_a
+    :cond_0
     invoke-virtual {p0}, Landroid/widget/DialerFilter;->getDigits()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public getLetters()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 299
@@ -422,7 +422,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 300
     iget-object v0, p0, Landroid/widget/DialerFilter;->mLetters:Landroid/widget/EditText;
@@ -432,17 +432,17 @@
     move-result-object v0
 
     .line 302
-    :goto_e
+    :goto_0
     return-object v0
 
-    :cond_f
+    :cond_0
     const-string v0, ""
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public getMode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 210
@@ -452,7 +452,7 @@
 .end method
 
 .method public isQwertyKeyboard()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 103
@@ -462,7 +462,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v4, 0x0
@@ -499,7 +499,7 @@
     .line 56
     iget-object v0, p0, Landroid/widget/DialerFilter;->mHint:Landroid/widget/EditText;
 
-    if-nez v0, :cond_28
+    if-nez v0, :cond_0
 
     .line 57
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -511,7 +511,7 @@
     throw v0
 
     .line 59
-    :cond_28
+    :cond_0
     iget-object v0, p0, Landroid/widget/DialerFilter;->mHint:Landroid/widget/EditText;
 
     iget-object v1, p0, Landroid/widget/DialerFilter;->mInputFilters:[Landroid/text/InputFilter;
@@ -556,7 +556,7 @@
     .line 68
     iget-object v0, p0, Landroid/widget/DialerFilter;->mPrimary:Landroid/widget/EditText;
 
-    if-nez v0, :cond_5d
+    if-nez v0, :cond_1
 
     .line 69
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -568,7 +568,7 @@
     throw v0
 
     .line 71
-    :cond_5d
+    :cond_1
     iget-object v0, p0, Landroid/widget/DialerFilter;->mPrimary:Landroid/widget/EditText;
 
     iget-object v1, p0, Landroid/widget/DialerFilter;->mInputFilters:[Landroid/text/InputFilter;
@@ -624,7 +624,7 @@
 .end method
 
 .method protected onFocusChanged(ZILandroid/graphics/Rect;)V
-    .registers 6
+    .locals 2
     .parameter "focused"
     .parameter "direction"
     .parameter "previouslyFocusedRect"
@@ -636,31 +636,31 @@
     .line 96
     iget-object v0, p0, Landroid/widget/DialerFilter;->mIcon:Landroid/widget/ImageView;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 97
     iget-object v1, p0, Landroid/widget/DialerFilter;->mIcon:Landroid/widget/ImageView;
 
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_1
 
     const/4 v0, 0x0
 
-    :goto_c
+    :goto_0
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setVisibility(I)V
 
     .line 99
-    :cond_f
+    :cond_0
     return-void
 
     .line 97
-    :cond_10
+    :cond_1
     const/16 v0, 0x8
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .registers 9
+    .locals 6
     .parameter "keyCode"
     .parameter "event"
 
@@ -672,18 +672,18 @@
 
     .line 110
     .local v1, handled:Z
-    sparse-switch p1, :sswitch_data_c0
+    sparse-switch p1, :sswitch_data_0
 
     .line 154
     iget v4, p0, Landroid/widget/DialerFilter;->mMode:I
 
-    packed-switch v4, :pswitch_data_de
+    packed-switch v4, :pswitch_data_0
 
     .line 195
-    :cond_a
-    :goto_a
-    :sswitch_a
-    if-nez v1, :cond_10
+    :cond_0
+    :goto_0
+    :sswitch_0
+    if-nez v1, :cond_1
 
     .line 196
     invoke-super {p0, p1, p2}, Landroid/widget/RelativeLayout;->onKeyDown(ILandroid/view/KeyEvent;)Z
@@ -691,19 +691,19 @@
     move-result v3
 
     .line 198
-    :cond_10
+    :cond_1
     return v3
 
     .line 120
-    :sswitch_11
+    :sswitch_1
     iget v4, p0, Landroid/widget/DialerFilter;->mMode:I
 
-    packed-switch v4, :pswitch_data_ec
+    packed-switch v4, :pswitch_data_1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 122
-    :pswitch_17
+    :pswitch_0
     iget-object v4, p0, Landroid/widget/DialerFilter;->mDigits:Landroid/widget/EditText;
 
     invoke-virtual {v4, p1, p2}, Landroid/widget/EditText;->onKeyDown(ILandroid/view/KeyEvent;)Z
@@ -720,10 +720,10 @@
     and-int/2addr v1, v4
 
     .line 124
-    goto :goto_a
+    goto :goto_0
 
     .line 127
-    :pswitch_25
+    :pswitch_1
     iget-object v4, p0, Landroid/widget/DialerFilter;->mLetters:Landroid/widget/EditText;
 
     invoke-virtual {v4, p1, p2}, Landroid/widget/EditText;->onKeyDown(ILandroid/view/KeyEvent;)Z
@@ -751,15 +751,15 @@
 
     move-result v5
 
-    if-ne v4, v5, :cond_a
+    if-ne v4, v5, :cond_0
 
     .line 129
     invoke-virtual {p0, v3}, Landroid/widget/DialerFilter;->setMode(I)V
 
-    goto :goto_a
+    goto :goto_0
 
     .line 134
-    :pswitch_45
+    :pswitch_2
     iget-object v4, p0, Landroid/widget/DialerFilter;->mDigits:Landroid/widget/EditText;
 
     invoke-virtual {v4}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -780,7 +780,7 @@
 
     move-result v5
 
-    if-ne v4, v5, :cond_63
+    if-ne v4, v5, :cond_2
 
     .line 135
     iget-object v4, p0, Landroid/widget/DialerFilter;->mLetters:Landroid/widget/EditText;
@@ -791,7 +791,7 @@
     invoke-virtual {p0, v3}, Landroid/widget/DialerFilter;->setMode(I)V
 
     .line 138
-    :cond_63
+    :cond_2
     iget-object v4, p0, Landroid/widget/DialerFilter;->mDigits:Landroid/widget/EditText;
 
     invoke-virtual {v4, p1, p2}, Landroid/widget/EditText;->onKeyDown(ILandroid/view/KeyEvent;)Z
@@ -799,10 +799,10 @@
     move-result v1
 
     .line 139
-    goto :goto_a
+    goto :goto_0
 
     .line 142
-    :pswitch_6a
+    :pswitch_3
     iget-object v4, p0, Landroid/widget/DialerFilter;->mDigits:Landroid/widget/EditText;
 
     invoke-virtual {v4, p1, p2}, Landroid/widget/EditText;->onKeyDown(ILandroid/view/KeyEvent;)Z
@@ -810,20 +810,20 @@
     move-result v1
 
     .line 143
-    goto :goto_a
+    goto :goto_0
 
     .line 146
-    :pswitch_71
+    :pswitch_4
     iget-object v4, p0, Landroid/widget/DialerFilter;->mLetters:Landroid/widget/EditText;
 
     invoke-virtual {v4, p1, p2}, Landroid/widget/EditText;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result v1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 156
-    :pswitch_78
+    :pswitch_5
     iget-object v4, p0, Landroid/widget/DialerFilter;->mLetters:Landroid/widget/EditText;
 
     invoke-virtual {v4, p1, p2}, Landroid/widget/EditText;->onKeyDown(ILandroid/view/KeyEvent;)Z
@@ -835,7 +835,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_8b
+    if-eqz v4, :cond_3
 
     .line 161
     iget-object v4, p0, Landroid/widget/DialerFilter;->mDigits:Landroid/widget/EditText;
@@ -846,28 +846,28 @@
     const/4 v1, 0x1
 
     .line 163
-    goto :goto_a
+    goto :goto_0
 
     .line 171
-    :cond_8b
+    :cond_3
     invoke-virtual {p2}, Landroid/view/KeyEvent;->isPrintingKey()Z
 
     move-result v2
 
     .line 172
     .local v2, isPrint:Z
-    if-nez v2, :cond_99
+    if-nez v2, :cond_4
 
     const/16 v4, 0x3e
 
-    if-eq p1, v4, :cond_99
+    if-eq p1, v4, :cond_4
 
     const/16 v4, 0x3d
 
-    if-ne p1, v4, :cond_a
+    if-ne p1, v4, :cond_0
 
     .line 174
-    :cond_99
+    :cond_4
     sget-object v4, Landroid/text/method/DialerKeyListener;->CHARACTERS:[C
 
     invoke-virtual {p2, v4}, Landroid/view/KeyEvent;->getMatch([C)C
@@ -876,7 +876,7 @@
 
     .line 175
     .local v0, c:C
-    if-eqz v0, :cond_aa
+    if-eqz v0, :cond_5
 
     .line 176
     iget-object v4, p0, Landroid/widget/DialerFilter;->mDigits:Landroid/widget/EditText;
@@ -887,20 +887,20 @@
 
     and-int/2addr v1, v4
 
-    goto/16 :goto_a
+    goto/16 :goto_0
 
     .line 178
-    :cond_aa
+    :cond_5
     const/4 v4, 0x2
 
     invoke-virtual {p0, v4}, Landroid/widget/DialerFilter;->setMode(I)V
 
-    goto/16 :goto_a
+    goto/16 :goto_0
 
     .line 185
     .end local v0           #c:C
     .end local v2           #isPrint:Z
-    :pswitch_b0
+    :pswitch_6
     iget-object v4, p0, Landroid/widget/DialerFilter;->mDigits:Landroid/widget/EditText;
 
     invoke-virtual {v4, p1, p2}, Landroid/widget/EditText;->onKeyDown(ILandroid/view/KeyEvent;)Z
@@ -908,53 +908,53 @@
     move-result v1
 
     .line 186
-    goto/16 :goto_a
+    goto/16 :goto_0
 
     .line 190
-    :pswitch_b8
+    :pswitch_7
     iget-object v4, p0, Landroid/widget/DialerFilter;->mLetters:Landroid/widget/EditText;
 
     invoke-virtual {v4, p1, p2}, Landroid/widget/EditText;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result v1
 
-    goto/16 :goto_a
+    goto/16 :goto_0
 
     .line 110
-    :sswitch_data_c0
+    :sswitch_data_0
     .sparse-switch
-        0x13 -> :sswitch_a
-        0x14 -> :sswitch_a
-        0x15 -> :sswitch_a
-        0x16 -> :sswitch_a
-        0x17 -> :sswitch_a
-        0x42 -> :sswitch_a
-        0x43 -> :sswitch_11
+        0x13 -> :sswitch_0
+        0x14 -> :sswitch_0
+        0x15 -> :sswitch_0
+        0x16 -> :sswitch_0
+        0x17 -> :sswitch_0
+        0x42 -> :sswitch_0
+        0x43 -> :sswitch_1
     .end sparse-switch
 
     .line 154
-    :pswitch_data_de
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_78
-        :pswitch_b8
-        :pswitch_b0
-        :pswitch_b0
-        :pswitch_b8
+        :pswitch_5
+        :pswitch_7
+        :pswitch_6
+        :pswitch_6
+        :pswitch_7
     .end packed-switch
 
     .line 120
-    :pswitch_data_ec
+    :pswitch_data_1
     .packed-switch 0x1
-        :pswitch_17
-        :pswitch_25
-        :pswitch_45
-        :pswitch_6a
-        :pswitch_71
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
     .end packed-switch
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .registers 6
+    .locals 3
     .parameter "keyCode"
     .parameter "event"
 
@@ -976,24 +976,24 @@
 
     .line 206
     .local v1, b:Z
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_1
 
-    :cond_10
+    :cond_0
     const/4 v2, 0x1
 
-    :goto_11
+    :goto_0
     return v2
 
-    :cond_12
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method protected onModeChange(II)V
-    .registers 3
+    .locals 0
     .parameter "oldMode"
     .parameter "newMode"
 
@@ -1003,7 +1003,7 @@
 .end method
 
 .method public removeFilterWatcher(Landroid/text/TextWatcher;)V
-    .registers 5
+    .locals 3
     .parameter "watcher"
 
     .prologue
@@ -1012,7 +1012,7 @@
 
     const/4 v2, 0x4
 
-    if-eq v1, v2, :cond_f
+    if-eq v1, v2, :cond_0
 
     .line 384
     iget-object v1, p0, Landroid/widget/DialerFilter;->mLetters:Landroid/widget/EditText;
@@ -1023,7 +1023,7 @@
 
     .line 388
     .local v0, text:Landroid/text/Spannable;
-    :goto_b
+    :goto_0
     invoke-interface {v0, p1}, Landroid/text/Spannable;->removeSpan(Ljava/lang/Object;)V
 
     .line 389
@@ -1031,7 +1031,7 @@
 
     .line 386
     .end local v0           #text:Landroid/text/Spannable;
-    :cond_f
+    :cond_0
     iget-object v1, p0, Landroid/widget/DialerFilter;->mDigits:Landroid/widget/EditText;
 
     invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -1039,11 +1039,11 @@
     move-result-object v0
 
     .restart local v0       #text:Landroid/text/Spannable;
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public setDigitsWatcher(Landroid/text/TextWatcher;)V
-    .registers 7
+    .locals 5
     .parameter "watcher"
 
     .prologue
@@ -1077,7 +1077,7 @@
 .end method
 
 .method public setFilterWatcher(Landroid/text/TextWatcher;)V
-    .registers 4
+    .locals 2
     .parameter "watcher"
 
     .prologue
@@ -1086,24 +1086,24 @@
 
     const/4 v1, 0x4
 
-    if-eq v0, v1, :cond_9
+    if-eq v0, v1, :cond_0
 
     .line 375
     invoke-virtual {p0, p1}, Landroid/widget/DialerFilter;->setLettersWatcher(Landroid/text/TextWatcher;)V
 
     .line 379
-    :goto_8
+    :goto_0
     return-void
 
     .line 377
-    :cond_9
+    :cond_0
     invoke-virtual {p0, p1}, Landroid/widget/DialerFilter;->setDigitsWatcher(Landroid/text/TextWatcher;)V
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setLettersWatcher(Landroid/text/TextWatcher;)V
-    .registers 7
+    .locals 5
     .parameter "watcher"
 
     .prologue
@@ -1137,7 +1137,7 @@
 .end method
 
 .method public setMode(I)V
-    .registers 7
+    .locals 5
     .parameter "newMode"
 
     .prologue
@@ -1148,10 +1148,10 @@
     const/4 v2, 0x0
 
     .line 219
-    packed-switch p1, :pswitch_data_56
+    packed-switch p1, :pswitch_data_0
 
     .line 251
-    :goto_7
+    :goto_0
     iget v0, p0, Landroid/widget/DialerFilter;->mMode:I
 
     .line 252
@@ -1166,7 +1166,7 @@
 
     .line 221
     .end local v0           #oldMode:I
-    :pswitch_f
+    :pswitch_0
     invoke-direct {p0}, Landroid/widget/DialerFilter;->makeDigitsPrimary()V
 
     .line 222
@@ -1179,10 +1179,10 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setVisibility(I)V
 
-    goto :goto_7
+    goto :goto_0
 
     .line 227
-    :pswitch_1d
+    :pswitch_1
     invoke-direct {p0}, Landroid/widget/DialerFilter;->makeDigitsPrimary()V
 
     .line 228
@@ -1195,10 +1195,10 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setVisibility(I)V
 
-    goto :goto_7
+    goto :goto_0
 
     .line 233
-    :pswitch_2b
+    :pswitch_2
     invoke-direct {p0}, Landroid/widget/DialerFilter;->makeLettersPrimary()V
 
     .line 234
@@ -1211,10 +1211,10 @@
 
     invoke-virtual {v1, v4}, Landroid/widget/EditText;->setVisibility(I)V
 
-    goto :goto_7
+    goto :goto_0
 
     .line 239
-    :pswitch_39
+    :pswitch_3
     invoke-direct {p0}, Landroid/widget/DialerFilter;->makeDigitsPrimary()V
 
     .line 240
@@ -1227,10 +1227,10 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setVisibility(I)V
 
-    goto :goto_7
+    goto :goto_0
 
     .line 245
-    :pswitch_47
+    :pswitch_4
     invoke-direct {p0}, Landroid/widget/DialerFilter;->makeLettersPrimary()V
 
     .line 246
@@ -1243,17 +1243,17 @@
 
     invoke-virtual {v1, v3}, Landroid/widget/EditText;->setVisibility(I)V
 
-    goto :goto_7
+    goto :goto_0
 
     .line 219
     nop
 
-    :pswitch_data_56
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_f
-        :pswitch_47
-        :pswitch_39
-        :pswitch_1d
-        :pswitch_2b
+        :pswitch_0
+        :pswitch_4
+        :pswitch_3
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

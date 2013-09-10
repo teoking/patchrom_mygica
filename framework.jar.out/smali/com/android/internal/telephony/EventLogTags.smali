@@ -53,7 +53,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 11
@@ -63,7 +63,7 @@
 .end method
 
 .method public static writeBadIpAddress(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "ipAddress"
 
     .prologue
@@ -77,7 +77,7 @@
 .end method
 
 .method public static writeCallDrop(III)V
-    .registers 7
+    .locals 4
     .parameter "cause"
     .parameter "cid"
     .parameter "networkType"
@@ -121,7 +121,7 @@
 .end method
 
 .method public static writeCdmaDataDrop(II)V
-    .registers 6
+    .locals 4
     .parameter "cid"
     .parameter "networkType"
 
@@ -156,7 +156,7 @@
 .end method
 
 .method public static writeCdmaDataSetupFailed(III)V
-    .registers 7
+    .locals 4
     .parameter "cause"
     .parameter "cid"
     .parameter "networkType"
@@ -200,7 +200,7 @@
 .end method
 
 .method public static writeCdmaDataStateChange(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "oldstate"
     .parameter "newstate"
 
@@ -227,7 +227,7 @@
 .end method
 
 .method public static writeCdmaServiceStateChange(IIII)V
-    .registers 8
+    .locals 4
     .parameter "oldstate"
     .parameter "olddatastate"
     .parameter "newstate"
@@ -280,7 +280,7 @@
 .end method
 
 .method public static writeDataNetworkRegistrationFail(II)V
-    .registers 6
+    .locals 4
     .parameter "opNumeric"
     .parameter "cid"
 
@@ -315,7 +315,7 @@
 .end method
 
 .method public static writeDataNetworkStatusOnRadioOff(Ljava/lang/String;I)V
-    .registers 6
+    .locals 4
     .parameter "dcState"
     .parameter "enable"
 
@@ -346,7 +346,7 @@
 .end method
 
 .method public static writeDataStallRecoveryCleanup(I)V
-    .registers 2
+    .locals 1
     .parameter "outPacketCount"
 
     .prologue
@@ -360,7 +360,7 @@
 .end method
 
 .method public static writeDataStallRecoveryGetDataCallList(I)V
-    .registers 2
+    .locals 1
     .parameter "outPacketCount"
 
     .prologue
@@ -374,7 +374,7 @@
 .end method
 
 .method public static writeDataStallRecoveryRadioRestart(I)V
-    .registers 2
+    .locals 1
     .parameter "outPacketCount"
 
     .prologue
@@ -388,7 +388,7 @@
 .end method
 
 .method public static writeDataStallRecoveryRadioRestartWithProp(I)V
-    .registers 2
+    .locals 1
     .parameter "outPacketCount"
 
     .prologue
@@ -402,7 +402,7 @@
 .end method
 
 .method public static writeDataStallRecoveryReregister(I)V
-    .registers 2
+    .locals 1
     .parameter "outPacketCount"
 
     .prologue
@@ -416,7 +416,7 @@
 .end method
 
 .method public static writeGsmDataStateChange(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "oldstate"
     .parameter "newstate"
 
@@ -443,7 +443,7 @@
 .end method
 
 .method public static writeGsmRatSwitched(III)V
-    .registers 7
+    .locals 4
     .parameter "cid"
     .parameter "networkFrom"
     .parameter "networkTo"
@@ -487,7 +487,7 @@
 .end method
 
 .method public static writeGsmServiceStateChange(IIII)V
-    .registers 8
+    .locals 4
     .parameter "oldstate"
     .parameter "oldgprsstate"
     .parameter "newstate"
@@ -540,7 +540,7 @@
 .end method
 
 .method public static writePdpBadDnsAddress(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "dnsAddress"
 
     .prologue
@@ -554,7 +554,7 @@
 .end method
 
 .method public static writePdpContextReset(I)V
-    .registers 2
+    .locals 1
     .parameter "outPacketCount"
 
     .prologue
@@ -568,7 +568,7 @@
 .end method
 
 .method public static writePdpNetworkDrop(II)V
-    .registers 6
+    .locals 4
     .parameter "cid"
     .parameter "networkType"
 
@@ -603,7 +603,7 @@
 .end method
 
 .method public static writePdpRadioReset(I)V
-    .registers 2
+    .locals 1
     .parameter "outPacketCount"
 
     .prologue
@@ -617,7 +617,7 @@
 .end method
 
 .method public static writePdpRadioResetCountdownTriggered(I)V
-    .registers 2
+    .locals 1
     .parameter "outPacketCount"
 
     .prologue
@@ -631,7 +631,7 @@
 .end method
 
 .method public static writePdpReregisterNetwork(I)V
-    .registers 2
+    .locals 1
     .parameter "outPacketCount"
 
     .prologue
@@ -645,7 +645,7 @@
 .end method
 
 .method public static writePdpSetupFail(III)V
-    .registers 7
+    .locals 4
     .parameter "cause"
     .parameter "cid"
     .parameter "networkType"

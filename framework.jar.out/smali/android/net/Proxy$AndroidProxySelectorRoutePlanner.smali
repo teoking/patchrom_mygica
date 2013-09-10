@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/apache/http/conn/scheme/SchemeRegistry;Ljava/net/ProxySelector;Landroid/content/Context;)V
-    .registers 4
+    .locals 0
     .parameter "schreg"
     .parameter "prosel"
     .parameter "context"
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method protected chooseProxy(Ljava/util/List;Lorg/apache/http/HttpHost;Lorg/apache/http/HttpRequest;Lorg/apache/http/protocol/HttpContext;)Ljava/net/Proxy;
-    .registers 7
+    .locals 2
     .parameter
     .parameter "target"
     .parameter "request"
@@ -76,7 +76,7 @@
 .end method
 
 .method protected determineProxy(Lorg/apache/http/HttpHost;Lorg/apache/http/HttpRequest;Lorg/apache/http/protocol/HttpContext;)Lorg/apache/http/HttpHost;
-    .registers 6
+    .locals 2
     .parameter "target"
     .parameter "request"
     .parameter "context"
@@ -97,7 +97,7 @@
 .end method
 
 .method public determineRoute(Lorg/apache/http/HttpHost;Lorg/apache/http/HttpRequest;Lorg/apache/http/protocol/HttpContext;)Lorg/apache/http/conn/routing/HttpRoute;
-    .registers 8
+    .locals 4
     .parameter "target"
     .parameter "request"
     .parameter "context"
@@ -116,7 +116,7 @@
 
     .line 308
     .local v0, proxy:Lorg/apache/http/HttpHost;
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 309
     new-instance v1, Lorg/apache/http/conn/routing/HttpRoute;
@@ -124,10 +124,10 @@
     invoke-direct {v1, p1}, Lorg/apache/http/conn/routing/HttpRoute;-><init>(Lorg/apache/http/HttpHost;)V
 
     .line 311
-    :goto_11
+    :goto_0
     return-object v1
 
-    :cond_12
+    :cond_0
     new-instance v1, Lorg/apache/http/conn/routing/HttpRoute;
 
     const/4 v2, 0x0
@@ -136,5 +136,5 @@
 
     invoke-direct {v1, p1, v2, v0, v3}, Lorg/apache/http/conn/routing/HttpRoute;-><init>(Lorg/apache/http/HttpHost;Ljava/net/InetAddress;Lorg/apache/http/HttpHost;Z)V
 
-    goto :goto_11
+    goto :goto_0
 .end method

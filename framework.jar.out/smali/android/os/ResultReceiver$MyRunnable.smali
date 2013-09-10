@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/ResultReceiver;ILandroid/os/Bundle;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "resultCode"
     .parameter "resultData"
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 43

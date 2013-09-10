@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 50
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/nfc/TechListParcel;
-    .registers 6
+    .locals 4
     .parameter "source"
 
     .prologue
@@ -59,8 +59,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_12
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 56
     invoke-virtual {p1}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
@@ -72,10 +72,10 @@
     .line 55
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 58
-    :cond_12
+    :cond_0
     new-instance v3, Landroid/nfc/TechListParcel;
 
     invoke-direct {v3, v2}, Landroid/nfc/TechListParcel;-><init>([[Ljava/lang/String;)V
@@ -84,7 +84,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -97,7 +97,7 @@
 .end method
 
 .method public newArray(I)[Landroid/nfc/TechListParcel;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -108,7 +108,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

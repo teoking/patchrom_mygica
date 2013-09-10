@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/IccSmsInterfaceManager;)V
-    .registers 3
+    .locals 1
     .parameter "iccSmsInterfaceManager"
 
     .prologue
@@ -26,7 +26,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 31
     const-string v0, "isms"
@@ -34,14 +34,14 @@
     invoke-static {v0, p0}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     .line 33
-    :cond_12
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public copyMessageToIccEf(I[B[B)Z
-    .registers 5
+    .locals 1
     .parameter "status"
     .parameter "pdu"
     .parameter "smsc"
@@ -63,7 +63,7 @@
 .end method
 
 .method public disableCellBroadcast(I)Z
-    .registers 3
+    .locals 1
     .parameter "messageIdentifier"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -83,7 +83,7 @@
 .end method
 
 .method public disableCellBroadcastRange(II)Z
-    .registers 4
+    .locals 1
     .parameter "startMessageId"
     .parameter "endMessageId"
     .annotation system Ldalvik/annotation/Throws;
@@ -104,7 +104,7 @@
 .end method
 
 .method public enableCellBroadcast(I)Z
-    .registers 3
+    .locals 1
     .parameter "messageIdentifier"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -124,7 +124,7 @@
 .end method
 
 .method public enableCellBroadcastRange(II)Z
-    .registers 4
+    .locals 1
     .parameter "startMessageId"
     .parameter "endMessageId"
     .annotation system Ldalvik/annotation/Throws;
@@ -145,7 +145,7 @@
 .end method
 
 .method public getAllMessagesFromIccEf()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -174,7 +174,7 @@
 .end method
 
 .method public sendData(Ljava/lang/String;Ljava/lang/String;I[BLandroid/app/PendingIntent;Landroid/app/PendingIntent;)V
-    .registers 14
+    .locals 7
     .parameter "destAddr"
     .parameter "scAddr"
     .parameter "destPort"
@@ -205,7 +205,7 @@
 .end method
 
 .method public sendMultipartText(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;Ljava/util/List;)V
-    .registers 12
+    .locals 6
     .parameter "destAddr"
     .parameter "scAddr"
     .parameter
@@ -261,7 +261,7 @@
 .end method
 
 .method public sendText(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V
-    .registers 12
+    .locals 6
     .parameter "destAddr"
     .parameter "scAddr"
     .parameter "text"
@@ -289,7 +289,7 @@
 .end method
 
 .method public setmIccSmsInterfaceManager(Lcom/android/internal/telephony/IccSmsInterfaceManager;)V
-    .registers 2
+    .locals 0
     .parameter "iccSmsInterfaceManager"
 
     .prologue
@@ -301,7 +301,7 @@
 .end method
 
 .method public updateMessageOnIccEf(II[B)Z
-    .registers 5
+    .locals 1
     .parameter "index"
     .parameter "status"
     .parameter "pdu"

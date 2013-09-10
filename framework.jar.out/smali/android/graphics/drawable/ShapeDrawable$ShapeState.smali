@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/ShapeDrawable$ShapeState;)V
-    .registers 4
+    .locals 2
     .parameter "orig"
 
     .prologue
@@ -47,7 +47,7 @@
     iput v0, p0, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mAlpha:I
 
     .line 402
-    if-eqz p1, :cond_26
+    if-eqz p1, :cond_0
 
     .line 403
     iget-object v0, p1, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mPaint:Landroid/graphics/Paint;
@@ -85,11 +85,11 @@
     iput-object v0, p0, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mShaderFactory:Landroid/graphics/drawable/ShapeDrawable$ShaderFactory;
 
     .line 413
-    :goto_25
+    :goto_0
     return-void
 
     .line 411
-    :cond_26
+    :cond_0
     new-instance v0, Landroid/graphics/Paint;
 
     const/4 v1, 0x1
@@ -98,13 +98,13 @@
 
     iput-object v0, p0, Landroid/graphics/drawable/ShapeDrawable$ShapeState;->mPaint:Landroid/graphics/Paint;
 
-    goto :goto_25
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getChangingConfigurations()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 427
@@ -114,7 +114,7 @@
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 417
@@ -128,7 +128,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .registers 4
+    .locals 2
     .parameter "res"
 
     .prologue

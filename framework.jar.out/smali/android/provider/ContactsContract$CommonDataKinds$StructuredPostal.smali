@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 5792
@@ -68,7 +68,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 5775
@@ -79,29 +79,29 @@
 .end method
 
 .method public static final getTypeLabel(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .registers 5
+    .locals 2
     .parameter "res"
     .parameter "type"
     .parameter "label"
 
     .prologue
     .line 5884
-    if-nez p1, :cond_9
+    if-nez p1, :cond_0
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_0
 
     .line 5888
     .end local p2
-    :goto_8
+    :goto_0
     return-object p2
 
     .line 5887
     .restart local p2
-    :cond_9
+    :cond_0
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$StructuredPostal;->getTypeLabelResource(I)I
 
     move-result v0
@@ -112,48 +112,48 @@
 
     move-result-object p2
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public static final getTypeLabelResource(I)I
-    .registers 2
+    .locals 1
     .parameter "type"
 
     .prologue
     .line 5869
-    packed-switch p0, :pswitch_data_14
+    packed-switch p0, :pswitch_data_0
 
     .line 5873
     const v0, 0x10402c4
 
-    :goto_6
+    :goto_0
     return v0
 
     .line 5870
-    :pswitch_7
+    :pswitch_0
     const v0, 0x10402c5
 
-    goto :goto_6
+    goto :goto_0
 
     .line 5871
-    :pswitch_b
+    :pswitch_1
     const v0, 0x10402c6
 
-    goto :goto_6
+    goto :goto_0
 
     .line 5872
-    :pswitch_f
+    :pswitch_2
     const v0, 0x10402c7
 
-    goto :goto_6
+    goto :goto_0
 
     .line 5869
     nop
 
-    :pswitch_data_14
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_7
-        :pswitch_b
-        :pswitch_f
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/ZoomButtonsController;Landroid/content/Context;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "context"
 
@@ -38,28 +38,29 @@
 
 # virtual methods
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
     .line 698
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$Container;->this$0:Landroid/widget/ZoomButtonsController;
 
+    #calls: Landroid/widget/ZoomButtonsController;->onContainerKey(Landroid/view/KeyEvent;)Z
     invoke-static {v0, p1}, Landroid/widget/ZoomButtonsController;->access$800(Landroid/widget/ZoomButtonsController;Landroid/view/KeyEvent;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result v0
 
-    goto :goto_9
+    goto :goto_0
 .end method

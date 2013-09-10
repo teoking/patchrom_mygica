@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/internal/util/StateMachine$SmHandler;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/util/StateMachine$SmHandler;Lcom/android/internal/util/StateMachine$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,13 +47,14 @@
 
 # virtual methods
 .method public processMessage(Landroid/os/Message;)Z
-    .registers 3
+    .locals 1
     .parameter "msg"
 
     .prologue
     .line 726
     iget-object v0, p0, Lcom/android/internal/util/StateMachine$SmHandler$HaltingState;->this$0:Lcom/android/internal/util/StateMachine$SmHandler;
 
+    #getter for: Lcom/android/internal/util/StateMachine$SmHandler;->mSm:Lcom/android/internal/util/StateMachine;
     invoke-static {v0}, Lcom/android/internal/util/StateMachine$SmHandler;->access$300(Lcom/android/internal/util/StateMachine$SmHandler;)Lcom/android/internal/util/StateMachine;
 
     move-result-object v0

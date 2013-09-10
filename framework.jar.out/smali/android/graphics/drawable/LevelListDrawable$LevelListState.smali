@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/LevelListDrawable$LevelListState;Landroid/graphics/drawable/LevelListDrawable;Landroid/content/res/Resources;)V
-    .registers 5
+    .locals 1
     .parameter "orig"
     .parameter "owner"
     .parameter "res"
@@ -32,7 +32,7 @@
     invoke-direct {p0, p1, p2, p3}, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;-><init>(Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;Landroid/graphics/drawable/DrawableContainer;Landroid/content/res/Resources;)V
 
     .line 163
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_0
 
     .line 164
     iget-object v0, p1, Landroid/graphics/drawable/LevelListDrawable$LevelListState;->mLows:[I
@@ -45,11 +45,11 @@
     iput-object v0, p0, Landroid/graphics/drawable/LevelListDrawable$LevelListState;->mHighs:[I
 
     .line 170
-    :goto_d
+    :goto_0
     return-void
 
     .line 167
-    :cond_e
+    :cond_0
     invoke-virtual {p0}, Landroid/graphics/drawable/LevelListDrawable$LevelListState;->getChildren()[Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -71,11 +71,11 @@
 
     iput-object v0, p0, Landroid/graphics/drawable/LevelListDrawable$LevelListState;->mHighs:[I
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method static synthetic access$000(Landroid/graphics/drawable/LevelListDrawable$LevelListState;)[I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -86,7 +86,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/graphics/drawable/LevelListDrawable$LevelListState;[I)[I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -98,7 +98,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/graphics/drawable/LevelListDrawable$LevelListState;)[I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -109,7 +109,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/graphics/drawable/LevelListDrawable$LevelListState;[I)[I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method public addLevel(IILandroid/graphics/drawable/Drawable;)V
-    .registers 6
+    .locals 2
     .parameter "low"
     .parameter "high"
     .parameter "drawable"
@@ -150,7 +150,7 @@
 .end method
 
 .method public growArray(II)V
-    .registers 6
+    .locals 3
     .parameter "oldSize"
     .parameter "newSize"
 
@@ -188,7 +188,7 @@
 .end method
 
 .method public indexOfLevel(I)I
-    .registers 7
+    .locals 5
     .parameter "level"
 
     .prologue
@@ -210,39 +210,39 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_9
-    if-ge v2, v0, :cond_17
+    :goto_0
+    if-ge v2, v0, :cond_1
 
     .line 183
     aget v4, v3, v2
 
-    if-lt p1, v4, :cond_14
+    if-lt p1, v4, :cond_0
 
     aget v4, v1, v2
 
-    if-gt p1, v4, :cond_14
+    if-gt p1, v4, :cond_0
 
     .line 187
     .end local v2           #i:I
-    :goto_13
+    :goto_1
     return v2
 
     .line 182
     .restart local v2       #i:I
-    :cond_14
+    :cond_0
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 187
-    :cond_17
+    :cond_1
     const/4 v2, -0x1
 
-    goto :goto_13
+    goto :goto_1
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -256,7 +256,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .registers 4
+    .locals 2
     .parameter "res"
 
     .prologue

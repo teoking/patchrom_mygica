@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 90
@@ -50,7 +50,7 @@
 .end method
 
 .method public finished()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,7 +65,7 @@
 
     .line 126
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.app.IThumbnailReceiver"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -80,8 +80,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_11
-    .catchall {:try_start_4 .. :try_end_11} :catchall_15
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 130
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -90,7 +90,7 @@
     return-void
 
     .line 130
-    :catchall_15
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -99,7 +99,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 94
@@ -109,7 +109,7 @@
 .end method
 
 .method public newThumbnail(ILandroid/graphics/Bitmap;Ljava/lang/CharSequence;)V
-    .registers 9
+    .locals 5
     .parameter "id"
     .parameter "thumbnail"
     .parameter "description"
@@ -127,7 +127,7 @@
 
     .line 100
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.app.IThumbnailReceiver"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -136,7 +136,7 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 102
-    if-eqz p2, :cond_2c
+    if-eqz p2, :cond_0
 
     .line 103
     const/4 v1, 0x1
@@ -149,8 +149,8 @@
     invoke-virtual {p2, v0, v1}, Landroid/graphics/Bitmap;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 109
-    :goto_16
-    if-eqz p3, :cond_36
+    :goto_0
+    if-eqz p3, :cond_1
 
     .line 110
     const/4 v1, 0x1
@@ -163,7 +163,7 @@
     invoke-static {p3, v0, v1}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
 
     .line 116
-    :goto_20
+    :goto_1
     iget-object v1, p0, Landroid/app/IThumbnailReceiver$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x1
@@ -173,8 +173,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_28
-    .catchall {:try_start_4 .. :try_end_28} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 119
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -183,18 +183,18 @@
     return-void
 
     .line 107
-    :cond_2c
+    :cond_0
     const/4 v1, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 119
-    :catchall_31
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -202,13 +202,13 @@
     throw v1
 
     .line 114
-    :cond_36
+    :cond_1
     const/4 v1, 0x0
 
-    :try_start_37
+    :try_start_2
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_3a
-    .catchall {:try_start_37 .. :try_end_3a} :catchall_31
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_20
+    goto :goto_1
 .end method

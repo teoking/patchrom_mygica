@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 40
@@ -48,7 +48,7 @@
 .end method
 
 .method public static restoreFile(Landroid/os/ParcelFileDescriptor;JIJJLjava/io/File;)V
-    .registers 26
+    .locals 17
     .parameter "data"
     .parameter "size"
     .parameter "type"
@@ -67,23 +67,23 @@
 
     move/from16 v0, p3
 
-    if-ne v0, v13, :cond_2a
+    if-ne v0, v13, :cond_2
 
     .line 100
-    if-eqz p8, :cond_a
+    if-eqz p8, :cond_0
 
     invoke-virtual/range {p8 .. p8}, Ljava/io/File;->mkdirs()Z
 
     .line 148
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     const-wide/16 v13, 0x0
 
     cmp-long v13, p4, v13
 
-    if-ltz v13, :cond_29
+    if-ltz v13, :cond_1
 
-    if-eqz p8, :cond_29
+    if-eqz p8, :cond_1
 
     .line 151
     const-wide/16 v13, 0x1c0
@@ -91,7 +91,7 @@
     and-long p4, p4, v13
 
     .line 152
-    :try_start_16
+    :try_start_0
     sget-object v13, Llibcore/io/Libcore;->os:Llibcore/io/Os;
 
     invoke-virtual/range {p8 .. p8}, Ljava/io/File;->getPath()Ljava/lang/String;
@@ -103,11 +103,11 @@
     long-to-int v15, v0
 
     invoke-interface {v13, v14, v15}, Llibcore/io/Os;->chmod(Ljava/lang/String;I)V
-    :try_end_22
-    .catch Llibcore/io/ErrnoException; {:try_start_16 .. :try_end_22} :catch_e4
+    :try_end_0
+    .catch Llibcore/io/ErrnoException; {:try_start_0 .. :try_end_0} :catch_2
 
     .line 156
-    :goto_22
+    :goto_1
     move-object/from16 v0, p8
 
     move-wide/from16 v1, p6
@@ -115,19 +115,19 @@
     invoke-virtual {v0, v1, v2}, Ljava/io/File;->setLastModified(J)Z
 
     .line 158
-    :cond_29
+    :cond_1
     return-void
 
     .line 102
-    :cond_2a
+    :cond_2
     const/4 v9, 0x0
 
     .line 106
     .local v9, out:Ljava/io/FileOutputStream;
-    if-eqz p8, :cond_42
+    if-eqz p8, :cond_4
 
     .line 107
-    :try_start_2d
+    :try_start_1
     invoke-virtual/range {p8 .. p8}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
     move-result-object v11
@@ -138,20 +138,20 @@
 
     move-result v13
 
-    if-nez v13, :cond_3a
+    if-nez v13, :cond_3
 
     .line 111
     invoke-virtual {v11}, Ljava/io/File;->mkdirs()Z
 
     .line 113
-    :cond_3a
+    :cond_3
     new-instance v10, Ljava/io/FileOutputStream;
 
     move-object/from16 v0, p8
 
     invoke-direct {v10, v0}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
-    :try_end_41
-    .catch Ljava/io/IOException; {:try_start_2d .. :try_end_41} :catch_93
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
     .end local v9           #out:Ljava/io/FileOutputStream;
     .local v10, out:Ljava/io/FileOutputStream;
@@ -161,8 +161,8 @@
     .end local v10           #out:Ljava/io/FileOutputStream;
     .end local v11           #parent:Ljava/io/File;
     .restart local v9       #out:Ljava/io/FileOutputStream;
-    :cond_42
-    :goto_42
+    :cond_4
+    :goto_2
     const v13, 0x8000
 
     new-array v3, v13, [B
@@ -183,12 +183,12 @@
 
     .line 122
     .local v6, in:Ljava/io/FileInputStream;
-    :goto_52
+    :goto_3
     const-wide/16 v13, 0x0
 
     cmp-long v13, p1, v13
 
-    if-lez v13, :cond_8c
+    if-lez v13, :cond_5
 
     .line 123
     array-length v13, v3
@@ -197,13 +197,13 @@
 
     cmp-long v13, p1, v13
 
-    if-lez v13, :cond_b1
+    if-lez v13, :cond_6
 
     array-length v12, v3
 
     .line 124
     .local v12, toRead:I
-    :goto_5f
+    :goto_4
     const/4 v13, 0x0
 
     invoke-virtual {v6, v3, v13, v12}, Ljava/io/FileInputStream;->read([BII)I
@@ -212,7 +212,7 @@
 
     .line 125
     .local v5, got:I
-    if-gtz v5, :cond_b5
+    if-gtz v5, :cond_7
 
     .line 126
     const-string v13, "FullBackup"
@@ -254,18 +254,18 @@
     .line 144
     .end local v5           #got:I
     .end local v12           #toRead:I
-    :cond_8c
-    if-eqz v9, :cond_a
+    :cond_5
+    if-eqz v9, :cond_0
 
     invoke-virtual {v9}, Ljava/io/FileOutputStream;->close()V
 
-    goto/16 :goto_a
+    goto/16 :goto_0
 
     .line 115
     .end local v3           #buffer:[B
     .end local v6           #in:Ljava/io/FileInputStream;
     .end local v7           #origSize:J
-    :catch_93
+    :catch_0
     move-exception v4
 
     .line 116
@@ -296,46 +296,46 @@
 
     invoke-static {v13, v14, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_42
+    goto :goto_2
 
     .line 123
     .end local v4           #e:Ljava/io/IOException;
     .restart local v3       #buffer:[B
     .restart local v6       #in:Ljava/io/FileInputStream;
     .restart local v7       #origSize:J
-    :cond_b1
+    :cond_6
     move-wide/from16 v0, p1
 
     long-to-int v12, v0
 
-    goto :goto_5f
+    goto :goto_4
 
     .line 130
     .restart local v5       #got:I
     .restart local v12       #toRead:I
-    :cond_b5
-    if-eqz v9, :cond_bb
+    :cond_7
+    if-eqz v9, :cond_8
 
     .line 132
     const/4 v13, 0x0
 
-    :try_start_b8
+    :try_start_2
     invoke-virtual {v9, v3, v13, v5}, Ljava/io/FileOutputStream;->write([BII)V
-    :try_end_bb
-    .catch Ljava/io/IOException; {:try_start_b8 .. :try_end_bb} :catch_bf
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
     .line 142
-    :cond_bb
-    :goto_bb
+    :cond_8
+    :goto_5
     int-to-long v13, v5
 
     sub-long p1, p1, v13
 
     .line 143
-    goto :goto_52
+    goto :goto_3
 
     .line 133
-    :catch_bf
+    :catch_1
     move-exception v4
 
     .line 136
@@ -375,7 +375,7 @@
     .line 139
     invoke-virtual/range {p8 .. p8}, Ljava/io/File;->delete()Z
 
-    goto :goto_bb
+    goto :goto_5
 
     .line 153
     .end local v3           #buffer:[B
@@ -385,12 +385,12 @@
     .end local v7           #origSize:J
     .end local v9           #out:Ljava/io/FileOutputStream;
     .end local v12           #toRead:I
-    :catch_e4
+    :catch_2
     move-exception v4
 
     .line 154
     .local v4, e:Llibcore/io/ErrnoException;
     invoke-virtual {v4}, Llibcore/io/ErrnoException;->rethrowAsIOException()Ljava/io/IOException;
 
-    goto/16 :goto_22
+    goto/16 :goto_1
 .end method

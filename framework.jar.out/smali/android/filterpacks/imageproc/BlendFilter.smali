@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "name"
 
     .prologue
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method protected getNativeProgram(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/Program;
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -63,7 +63,7 @@
 .end method
 
 .method protected getShaderProgram(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/Program;
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue

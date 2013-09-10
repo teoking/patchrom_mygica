@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 8
+    .locals 4
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -122,7 +122,7 @@
 .end method
 
 .method private updateTextButtonVisibility()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x1
@@ -136,16 +136,16 @@
 
     move-result v3
 
-    if-nez v3, :cond_29
+    if-nez v3, :cond_2
 
     move v0, v1
 
     .line 130
     .local v0, visible:Z
-    :goto_b
+    :goto_0
     iget-object v3, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mIcon:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v3, :cond_1f
+    if-eqz v3, :cond_0
 
     iget-object v3, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mItemData:Lcom/android/internal/view/menu/MenuItemImpl;
 
@@ -153,52 +153,52 @@
 
     move-result v3
 
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_1
 
     iget-boolean v3, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mAllowTextWithIcon:Z
 
-    if-nez v3, :cond_1f
+    if-nez v3, :cond_0
 
     iget-boolean v3, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mExpandedFormat:Z
 
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_1
 
-    :cond_1f
+    :cond_0
     move v2, v1
 
-    :cond_20
+    :cond_1
     and-int/2addr v0, v2
 
     .line 133
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_3
 
     iget-object v1, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mTitle:Ljava/lang/CharSequence;
 
-    :goto_25
+    :goto_1
     invoke-virtual {p0, v1}, Lcom/android/internal/view/menu/ActionMenuItemView;->setText(Ljava/lang/CharSequence;)V
 
     .line 134
     return-void
 
     .end local v0           #visible:Z
-    :cond_29
+    :cond_2
     move v0, v2
 
     .line 129
-    goto :goto_b
+    goto :goto_0
 
     .line 133
     .restart local v0       #visible:Z
-    :cond_2b
+    :cond_3
     const/4 v1, 0x0
 
-    goto :goto_25
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public dispatchHoverEvent(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -211,7 +211,7 @@
 .end method
 
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -225,7 +225,7 @@
 .end method
 
 .method public getItemData()Lcom/android/internal/view/menu/MenuItemImpl;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 83
@@ -235,7 +235,7 @@
 .end method
 
 .method public hasText()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 144
@@ -247,21 +247,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public initialize(Lcom/android/internal/view/menu/MenuItemImpl;I)V
-    .registers 4
+    .locals 1
     .parameter "itemData"
     .parameter "menuType"
 
@@ -295,11 +295,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_29
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_1e
+    :goto_0
     invoke-virtual {p0, v0}, Lcom/android/internal/view/menu/ActionMenuItemView;->setVisibility(I)V
 
     .line 94
@@ -313,14 +313,14 @@
     return-void
 
     .line 93
-    :cond_29
+    :cond_0
     const/16 v0, 0x8
 
-    goto :goto_1e
+    goto :goto_0
 .end method
 
 .method public needsDividerAfter()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 188
@@ -332,7 +332,7 @@
 .end method
 
 .method public needsDividerBefore()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 184
@@ -340,7 +340,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mItemData:Lcom/android/internal/view/menu/MenuItemImpl;
 
@@ -348,28 +348,28 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
     .line 98
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mItemInvoker:Lcom/android/internal/view/menu/MenuBuilder$ItemInvoker;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 99
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mItemInvoker:Lcom/android/internal/view/menu/MenuBuilder$ItemInvoker;
@@ -379,12 +379,12 @@
     invoke-interface {v0, v1}, Lcom/android/internal/view/menu/MenuBuilder$ItemInvoker;->invokeItem(Lcom/android/internal/view/menu/MenuItemImpl;)Z
 
     .line 101
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method public onLongClick(Landroid/view/View;)Z
-    .registers 14
+    .locals 12
     .parameter "v"
 
     .prologue
@@ -397,14 +397,14 @@
 
     move-result v10
 
-    if-eqz v10, :cond_9
+    if-eqz v10, :cond_0
 
     .line 219
-    :goto_8
+    :goto_0
     return v8
 
     .line 198
-    :cond_9
+    :cond_0
     const/4 v10, 0x2
 
     new-array v5, v10, [I
@@ -477,7 +477,7 @@
 
     move-result v10
 
-    if-ge v4, v10, :cond_54
+    if-ge v4, v10, :cond_1
 
     .line 212
     const/16 v10, 0x35
@@ -493,25 +493,25 @@
     invoke-virtual {v0, v10, v8, v3}, Landroid/widget/Toast;->setGravity(III)V
 
     .line 218
-    :goto_4f
+    :goto_1
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     move v8, v9
 
     .line 219
-    goto :goto_8
+    goto :goto_0
 
     .line 216
-    :cond_54
+    :cond_1
     const/16 v10, 0x51
 
     invoke-virtual {v0, v10, v8, v3}, Landroid/widget/Toast;->setGravity(III)V
 
-    goto :goto_4f
+    goto :goto_1
 .end method
 
 .method protected onMeasure(II)V
-    .registers 15
+    .locals 12
     .parameter "widthMeasureSpec"
     .parameter "heightMeasureSpec"
 
@@ -525,11 +525,11 @@
 
     .line 225
     .local v3, textVisible:Z
-    if-eqz v3, :cond_1d
+    if-eqz v3, :cond_0
 
     iget v7, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mSavedPaddingLeft:I
 
-    if-ltz v7, :cond_1d
+    if-ltz v7, :cond_0
 
     .line 226
     iget v7, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mSavedPaddingLeft:I
@@ -549,7 +549,7 @@
     invoke-super {p0, v7, v8, v9, v10}, Landroid/widget/TextView;->setPadding(IIII)V
 
     .line 230
-    :cond_1d
+    :cond_0
     invoke-super {p0, p1, p2}, Landroid/widget/TextView;->onMeasure(II)V
 
     .line 232
@@ -573,7 +573,7 @@
     .local v1, oldMeasuredWidth:I
     const/high16 v7, -0x8000
 
-    if-ne v5, v7, :cond_69
+    if-ne v5, v7, :cond_3
 
     iget v7, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mMinWidth:I
 
@@ -583,14 +583,14 @@
 
     .line 238
     .local v2, targetWidth:I
-    :goto_36
-    if-eq v5, v11, :cond_45
+    :goto_0
+    if-eq v5, v11, :cond_1
 
     iget v7, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mMinWidth:I
 
-    if-lez v7, :cond_45
+    if-lez v7, :cond_1
 
-    if-ge v1, v2, :cond_45
+    if-ge v1, v2, :cond_1
 
     .line 240
     invoke-static {v2, v11}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
@@ -600,12 +600,12 @@
     invoke-super {p0, v7, p2}, Landroid/widget/TextView;->onMeasure(II)V
 
     .line 244
-    :cond_45
-    if-nez v3, :cond_68
+    :cond_1
+    if-nez v3, :cond_2
 
     iget-object v7, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mIcon:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v7, :cond_68
+    if-eqz v7, :cond_2
 
     .line 247
     invoke-virtual {p0}, Lcom/android/internal/view/menu/ActionMenuItemView;->getMeasuredWidth()I
@@ -643,19 +643,19 @@
     .line 251
     .end local v0           #dw:I
     .end local v4           #w:I
-    :cond_68
+    :cond_2
     return-void
 
     .line 235
     .end local v2           #targetWidth:I
-    :cond_69
+    :cond_3
     iget v2, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mMinWidth:I
 
-    goto :goto_36
+    goto :goto_0
 .end method
 
 .method public onPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 4
+    .locals 2
     .parameter "event"
 
     .prologue
@@ -673,7 +673,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_14
+    if-nez v1, :cond_0
 
     .line 169
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
@@ -683,12 +683,12 @@
     invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 171
-    :cond_14
+    :cond_0
     return-void
 .end method
 
 .method public prefersCondensedTitle()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 108
@@ -698,7 +698,7 @@
 .end method
 
 .method public setCheckable(Z)V
-    .registers 2
+    .locals 0
     .parameter "checkable"
 
     .prologue
@@ -707,7 +707,7 @@
 .end method
 
 .method public setChecked(Z)V
-    .registers 2
+    .locals 0
     .parameter "checked"
 
     .prologue
@@ -716,14 +716,14 @@
 .end method
 
 .method public setExpandedFormat(Z)V
-    .registers 3
+    .locals 1
     .parameter "expandedFormat"
 
     .prologue
     .line 120
     iget-boolean v0, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mExpandedFormat:Z
 
-    if-eq v0, p1, :cond_f
+    if-eq v0, p1, :cond_0
 
     .line 121
     iput-boolean p1, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mExpandedFormat:Z
@@ -731,7 +731,7 @@
     .line 122
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mItemData:Lcom/android/internal/view/menu/MenuItemImpl;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 123
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mItemData:Lcom/android/internal/view/menu/MenuItemImpl;
@@ -739,12 +739,12 @@
     invoke-virtual {v0}, Lcom/android/internal/view/menu/MenuItemImpl;->actionFormatChanged()V
 
     .line 126
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)V
-    .registers 3
+    .locals 1
     .parameter "icon"
 
     .prologue
@@ -764,7 +764,7 @@
 .end method
 
 .method public setItemInvoker(Lcom/android/internal/view/menu/MenuBuilder$ItemInvoker;)V
-    .registers 2
+    .locals 0
     .parameter "invoker"
 
     .prologue
@@ -776,7 +776,7 @@
 .end method
 
 .method public setPadding(IIII)V
-    .registers 5
+    .locals 0
     .parameter "l"
     .parameter "t"
     .parameter "r"
@@ -794,7 +794,7 @@
 .end method
 
 .method public setShortcut(ZC)V
-    .registers 3
+    .locals 0
     .parameter "showShortcut"
     .parameter "shortcutKey"
 
@@ -804,7 +804,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
-    .registers 3
+    .locals 1
     .parameter "title"
 
     .prologue
@@ -824,7 +824,7 @@
 .end method
 
 .method public showsIcon()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 180

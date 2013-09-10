@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 4195
@@ -38,7 +38,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$4;->$SwitchMap$com$android$server$BackupManagerService$RestoreState:[I
 
-    :try_start_9
+    :try_start_0
     sget-object v0, Lcom/android/server/BackupManagerService$4;->$SwitchMap$com$android$server$BackupManagerService$RestoreState:[I
 
     sget-object v1, Lcom/android/server/BackupManagerService$RestoreState;->INITIAL:Lcom/android/server/BackupManagerService$RestoreState;
@@ -50,11 +50,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_14
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_14} :catch_aa
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_a
 
-    :goto_14
-    :try_start_14
+    :goto_0
+    :try_start_1
     sget-object v0, Lcom/android/server/BackupManagerService$4;->$SwitchMap$com$android$server$BackupManagerService$RestoreState:[I
 
     sget-object v1, Lcom/android/server/BackupManagerService$RestoreState;->DOWNLOAD_DATA:Lcom/android/server/BackupManagerService$RestoreState;
@@ -66,11 +66,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_1f} :catch_a7
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_9
 
-    :goto_1f
-    :try_start_1f
+    :goto_1
+    :try_start_2
     sget-object v0, Lcom/android/server/BackupManagerService$4;->$SwitchMap$com$android$server$BackupManagerService$RestoreState:[I
 
     sget-object v1, Lcom/android/server/BackupManagerService$RestoreState;->PM_METADATA:Lcom/android/server/BackupManagerService$RestoreState;
@@ -82,11 +82,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_2a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1f .. :try_end_2a} :catch_a5
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_8
 
-    :goto_2a
-    :try_start_2a
+    :goto_2
+    :try_start_3
     sget-object v0, Lcom/android/server/BackupManagerService$4;->$SwitchMap$com$android$server$BackupManagerService$RestoreState:[I
 
     sget-object v1, Lcom/android/server/BackupManagerService$RestoreState;->RUNNING_QUEUE:Lcom/android/server/BackupManagerService$RestoreState;
@@ -98,11 +98,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_35
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2a .. :try_end_35} :catch_a3
+    :try_end_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_7
 
-    :goto_35
-    :try_start_35
+    :goto_3
+    :try_start_4
     sget-object v0, Lcom/android/server/BackupManagerService$4;->$SwitchMap$com$android$server$BackupManagerService$RestoreState:[I
 
     sget-object v1, Lcom/android/server/BackupManagerService$RestoreState;->FINAL:Lcom/android/server/BackupManagerService$RestoreState;
@@ -114,11 +114,11 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_40
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_35 .. :try_end_40} :catch_a1
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_6
 
     .line 3198
-    :goto_40
+    :goto_4
     invoke-static {}, Lcom/android/server/BackupManagerService$RestorePolicy;->values()[Lcom/android/server/BackupManagerService$RestorePolicy;
 
     move-result-object v0
@@ -129,7 +129,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$4;->$SwitchMap$com$android$server$BackupManagerService$RestorePolicy:[I
 
-    :try_start_49
+    :try_start_5
     sget-object v0, Lcom/android/server/BackupManagerService$4;->$SwitchMap$com$android$server$BackupManagerService$RestorePolicy:[I
 
     sget-object v1, Lcom/android/server/BackupManagerService$RestorePolicy;->IGNORE:Lcom/android/server/BackupManagerService$RestorePolicy;
@@ -141,11 +141,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_54
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_49 .. :try_end_54} :catch_9f
+    :try_end_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_5
 
-    :goto_54
-    :try_start_54
+    :goto_5
+    :try_start_6
     sget-object v0, Lcom/android/server/BackupManagerService$4;->$SwitchMap$com$android$server$BackupManagerService$RestorePolicy:[I
 
     sget-object v1, Lcom/android/server/BackupManagerService$RestorePolicy;->ACCEPT_IF_APK:Lcom/android/server/BackupManagerService$RestorePolicy;
@@ -157,11 +157,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_5f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_54 .. :try_end_5f} :catch_9d
+    :try_end_6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_4
 
-    :goto_5f
-    :try_start_5f
+    :goto_6
+    :try_start_7
     sget-object v0, Lcom/android/server/BackupManagerService$4;->$SwitchMap$com$android$server$BackupManagerService$RestorePolicy:[I
 
     sget-object v1, Lcom/android/server/BackupManagerService$RestorePolicy;->ACCEPT:Lcom/android/server/BackupManagerService$RestorePolicy;
@@ -173,11 +173,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_6a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5f .. :try_end_6a} :catch_9b
+    :try_end_7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_3
 
     .line 1838
-    :goto_6a
+    :goto_7
     invoke-static {}, Lcom/android/server/BackupManagerService$BackupState;->values()[Lcom/android/server/BackupManagerService$BackupState;
 
     move-result-object v0
@@ -188,7 +188,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$4;->$SwitchMap$com$android$server$BackupManagerService$BackupState:[I
 
-    :try_start_73
+    :try_start_8
     sget-object v0, Lcom/android/server/BackupManagerService$4;->$SwitchMap$com$android$server$BackupManagerService$BackupState:[I
 
     sget-object v1, Lcom/android/server/BackupManagerService$BackupState;->INITIAL:Lcom/android/server/BackupManagerService$BackupState;
@@ -200,11 +200,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_7e
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_73 .. :try_end_7e} :catch_99
+    :try_end_8
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_2
 
-    :goto_7e
-    :try_start_7e
+    :goto_8
+    :try_start_9
     sget-object v0, Lcom/android/server/BackupManagerService$4;->$SwitchMap$com$android$server$BackupManagerService$BackupState:[I
 
     sget-object v1, Lcom/android/server/BackupManagerService$BackupState;->RUNNING_QUEUE:Lcom/android/server/BackupManagerService$BackupState;
@@ -216,11 +216,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_89
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_7e .. :try_end_89} :catch_97
+    :try_end_9
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_1
 
-    :goto_89
-    :try_start_89
+    :goto_9
+    :try_start_a
     sget-object v0, Lcom/android/server/BackupManagerService$4;->$SwitchMap$com$android$server$BackupManagerService$BackupState:[I
 
     sget-object v1, Lcom/android/server/BackupManagerService$BackupState;->FINAL:Lcom/android/server/BackupManagerService$BackupState;
@@ -232,66 +232,66 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_94
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_89 .. :try_end_94} :catch_95
+    :try_end_a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_0
 
-    :goto_94
+    :goto_a
     return-void
 
-    :catch_95
+    :catch_0
     move-exception v0
 
-    goto :goto_94
+    goto :goto_a
 
-    :catch_97
+    :catch_1
     move-exception v0
 
-    goto :goto_89
+    goto :goto_9
 
-    :catch_99
+    :catch_2
     move-exception v0
 
-    goto :goto_7e
+    goto :goto_8
 
     .line 3198
-    :catch_9b
+    :catch_3
     move-exception v0
 
-    goto :goto_6a
+    goto :goto_7
 
-    :catch_9d
+    :catch_4
     move-exception v0
 
-    goto :goto_5f
+    goto :goto_6
 
-    :catch_9f
+    :catch_5
     move-exception v0
 
-    goto :goto_54
+    goto :goto_5
 
     .line 4195
-    :catch_a1
+    :catch_6
     move-exception v0
 
-    goto :goto_40
+    goto :goto_4
 
-    :catch_a3
+    :catch_7
     move-exception v0
 
-    goto :goto_35
+    goto :goto_3
 
-    :catch_a5
+    :catch_8
     move-exception v0
 
-    goto :goto_2a
+    goto :goto_2
 
-    :catch_a7
+    :catch_9
     move-exception v0
 
-    goto/16 :goto_1f
+    goto/16 :goto_1
 
-    :catch_aa
+    :catch_a
     move-exception v0
 
-    goto/16 :goto_14
+    goto/16 :goto_0
 .end method

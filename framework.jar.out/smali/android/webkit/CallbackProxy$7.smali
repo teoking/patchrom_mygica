@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/CallbackProxy;Landroid/webkit/JsPromptResult;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 4
+    .locals 1
     .parameter "dialog"
     .parameter "whichButton"
 

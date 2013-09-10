@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/LayerDrawable$LayerState;Landroid/graphics/drawable/LayerDrawable;Landroid/content/res/Resources;)V
-    .registers 10
+    .locals 6
     .parameter "orig"
     .parameter "owner"
     .parameter "res"
@@ -56,7 +56,7 @@
     iput-boolean v5, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mHaveStateful:Z
 
     .line 616
-    if-eqz p1, :cond_77
+    if-eqz p1, :cond_2
 
     .line 617
     iget-object v3, p1, Landroid/graphics/drawable/LayerDrawable$LayerState;->mChildren:[Landroid/graphics/drawable/LayerDrawable$ChildDrawable;
@@ -88,8 +88,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_1d
-    if-ge v1, v0, :cond_61
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 627
     iget-object v5, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mChildren:[Landroid/graphics/drawable/LayerDrawable$ChildDrawable;
@@ -106,7 +106,7 @@
 
     .line 629
     .local v2, or:Landroid/graphics/drawable/LayerDrawable$ChildDrawable;
-    if-eqz p3, :cond_54
+    if-eqz p3, :cond_0
 
     .line 630
     iget-object v5, v2, Landroid/graphics/drawable/LayerDrawable$ChildDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -122,7 +122,7 @@
     iput-object v5, v4, Landroid/graphics/drawable/LayerDrawable$ChildDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 634
-    :goto_38
+    :goto_1
     iget-object v5, v4, Landroid/graphics/drawable/LayerDrawable$ChildDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v5, p2}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
@@ -155,10 +155,10 @@
     .line 626
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 632
-    :cond_54
+    :cond_0
     iget-object v5, v2, Landroid/graphics/drawable/LayerDrawable$ChildDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v5}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
@@ -171,12 +171,12 @@
 
     iput-object v5, v4, Landroid/graphics/drawable/LayerDrawable$ChildDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    goto :goto_38
+    goto :goto_1
 
     .line 642
     .end local v2           #or:Landroid/graphics/drawable/LayerDrawable$ChildDrawable;
     .end local v4           #r:Landroid/graphics/drawable/LayerDrawable$ChildDrawable;
-    :cond_61
+    :cond_1
     iget-boolean v5, p1, Landroid/graphics/drawable/LayerDrawable$LayerState;->mHaveOpacity:Z
 
     iput-boolean v5, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mHaveOpacity:Z
@@ -207,11 +207,11 @@
     .end local v0           #N:I
     .end local v1           #i:I
     .end local v3           #origChildDrawable:[Landroid/graphics/drawable/LayerDrawable$ChildDrawable;
-    :goto_76
+    :goto_2
     return-void
 
     .line 648
-    :cond_77
+    :cond_2
     iput v5, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mNum:I
 
     .line 649
@@ -219,13 +219,13 @@
 
     iput-object v5, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mChildren:[Landroid/graphics/drawable/LayerDrawable$ChildDrawable;
 
-    goto :goto_76
+    goto :goto_2
 .end method
 
 
 # virtual methods
 .method public canConstantState()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x1
@@ -233,11 +233,11 @@
     .line 703
     iget-boolean v2, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mCheckedConstantState:Z
 
-    if-nez v2, :cond_21
+    if-nez v2, :cond_1
 
     iget-object v2, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mChildren:[Landroid/graphics/drawable/LayerDrawable$ChildDrawable;
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_1
 
     .line 704
     iput-boolean v3, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mCanConstantState:Z
@@ -250,8 +250,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_e
-    if-ge v1, v0, :cond_1f
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 707
     iget-object v2, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mChildren:[Landroid/graphics/drawable/LayerDrawable$ChildDrawable;
@@ -264,7 +264,7 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_24
+    if-nez v2, :cond_2
 
     .line 708
     const/4 v2, 0x0
@@ -272,13 +272,13 @@
     iput-boolean v2, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mCanConstantState:Z
 
     .line 712
-    :cond_1f
+    :cond_0
     iput-boolean v3, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mCheckedConstantState:Z
 
     .line 715
     .end local v0           #N:I
     .end local v1           #i:I
-    :cond_21
+    :cond_1
     iget-boolean v2, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mCanConstantState:Z
 
     return v2
@@ -286,14 +286,14 @@
     .line 706
     .restart local v0       #N:I
     .restart local v1       #i:I
-    :cond_24
+    :cond_2
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public getChangingConfigurations()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 665
@@ -303,28 +303,28 @@
 .end method
 
 .method public final getOpacity()I
-    .registers 6
+    .locals 5
 
     .prologue
     .line 669
     iget-boolean v3, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mHaveOpacity:Z
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_0
 
     .line 670
     iget v2, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mOpacity:I
 
     .line 680
-    :goto_6
+    :goto_0
     return v2
 
     .line 673
-    :cond_7
+    :cond_0
     iget v0, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mNum:I
 
     .line 674
     .local v0, N:I
-    if-lez v0, :cond_2a
+    if-lez v0, :cond_1
 
     iget-object v3, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mChildren:[Landroid/graphics/drawable/LayerDrawable$ChildDrawable;
 
@@ -340,12 +340,12 @@
 
     .line 675
     .local v2, op:I
-    :goto_16
+    :goto_1
     const/4 v1, 0x1
 
     .local v1, i:I
-    :goto_17
-    if-ge v1, v0, :cond_2c
+    :goto_2
+    if-ge v1, v0, :cond_2
 
     .line 676
     iget-object v3, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mChildren:[Landroid/graphics/drawable/LayerDrawable$ChildDrawable;
@@ -365,20 +365,20 @@
     .line 675
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_17
+    goto :goto_2
 
     .line 674
     .end local v1           #i:I
     .end local v2           #op:I
-    :cond_2a
+    :cond_1
     const/4 v2, -0x2
 
-    goto :goto_16
+    goto :goto_1
 
     .line 678
     .restart local v1       #i:I
     .restart local v2       #op:I
-    :cond_2c
+    :cond_2
     iput v2, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mOpacity:I
 
     .line 679
@@ -386,27 +386,27 @@
 
     iput-boolean v3, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mHaveOpacity:Z
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public final isStateful()Z
-    .registers 5
+    .locals 4
 
     .prologue
     .line 684
     iget-boolean v3, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mHaveStateful:Z
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_0
 
     .line 685
     iget-boolean v2, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mStateful:Z
 
     .line 699
-    :goto_6
+    :goto_0
     return v2
 
     .line 688
-    :cond_7
+    :cond_0
     const/4 v2, 0x0
 
     .line 689
@@ -418,8 +418,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_b
-    if-ge v1, v0, :cond_1a
+    :goto_1
+    if-ge v1, v0, :cond_1
 
     .line 691
     iget-object v3, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mChildren:[Landroid/graphics/drawable/LayerDrawable$ChildDrawable;
@@ -432,13 +432,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_2
 
     .line 692
     const/4 v2, 0x1
 
     .line 697
-    :cond_1a
+    :cond_1
     iput-boolean v2, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mStateful:Z
 
     .line 698
@@ -446,17 +446,17 @@
 
     iput-boolean v3, p0, Landroid/graphics/drawable/LayerDrawable$LayerState;->mHaveStateful:Z
 
-    goto :goto_6
+    goto :goto_0
 
     .line 690
-    :cond_20
+    :cond_2
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_b
+    goto :goto_1
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 655
@@ -470,7 +470,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 1
     .parameter "res"
 
     .prologue

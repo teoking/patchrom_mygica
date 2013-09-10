@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/WebIconDatabaseClassic$EventHandler;Ljava/lang/String;Landroid/graphics/Bitmap;Landroid/webkit/WebIconDatabase$IconListener;)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter "url"
     .parameter "icon"
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method dispatch()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 66

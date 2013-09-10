@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 8
+    .locals 8
 
     .prologue
     const/4 v7, 0x4
@@ -161,7 +161,7 @@
 .end method
 
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
-    .registers 3
+    .locals 0
     .parameter "id"
     .parameter "rs"
 
@@ -174,7 +174,7 @@
 .end method
 
 .method private static addFamilyToMap(Landroid/renderscript/Font$FontFamily;)V
-    .registers 4
+    .locals 3
     .parameter "family"
 
     .prologue
@@ -182,12 +182,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v1, p0, Landroid/renderscript/Font$FontFamily;->mNames:[Ljava/lang/String;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_12
+    if-ge v0, v1, :cond_0
 
     .line 99
     sget-object v1, Landroid/renderscript/Font;->sFontFamilyMap:Ljava/util/Map;
@@ -201,15 +201,15 @@
     .line 98
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 101
-    :cond_12
+    :cond_0
     return-void
 .end method
 
 .method public static create(Landroid/renderscript/RenderScript;Landroid/content/res/Resources;Ljava/lang/String;Landroid/renderscript/Font$Style;F)Landroid/renderscript/Font;
-    .registers 9
+    .locals 4
     .parameter "rs"
     .parameter "res"
     .parameter "familyName"
@@ -265,7 +265,7 @@
 .end method
 
 .method public static createFromAsset(Landroid/renderscript/RenderScript;Landroid/content/res/Resources;Ljava/lang/String;F)Landroid/renderscript/Font;
-    .registers 11
+    .locals 7
     .parameter "rs"
     .parameter "res"
     .parameter "path"
@@ -296,7 +296,7 @@
 
     .line 190
     .local v1, fontId:I
-    if-nez v1, :cond_2c
+    if-nez v1, :cond_0
 
     .line 191
     new-instance v4, Landroid/renderscript/RSRuntimeException;
@@ -324,7 +324,7 @@
     throw v4
 
     .line 193
-    :cond_2c
+    :cond_0
     new-instance v3, Landroid/renderscript/Font;
 
     invoke-direct {v3, v1, p0}, Landroid/renderscript/Font;-><init>(ILandroid/renderscript/RenderScript;)V
@@ -335,7 +335,7 @@
 .end method
 
 .method public static createFromFile(Landroid/renderscript/RenderScript;Landroid/content/res/Resources;Ljava/io/File;F)Landroid/renderscript/Font;
-    .registers 5
+    .locals 1
     .parameter "rs"
     .parameter "res"
     .parameter "path"
@@ -355,7 +355,7 @@
 .end method
 
 .method public static createFromFile(Landroid/renderscript/RenderScript;Landroid/content/res/Resources;Ljava/lang/String;F)Landroid/renderscript/Font;
-    .registers 10
+    .locals 6
     .parameter "rs"
     .parameter "res"
     .parameter "path"
@@ -380,7 +380,7 @@
 
     .line 166
     .local v1, fontId:I
-    if-nez v1, :cond_28
+    if-nez v1, :cond_0
 
     .line 167
     new-instance v3, Landroid/renderscript/RSRuntimeException;
@@ -408,7 +408,7 @@
     throw v3
 
     .line 169
-    :cond_28
+    :cond_0
     new-instance v2, Landroid/renderscript/Font;
 
     invoke-direct {v2, v1, p0}, Landroid/renderscript/Font;-><init>(ILandroid/renderscript/RenderScript;)V
@@ -419,7 +419,7 @@
 .end method
 
 .method public static createFromResource(Landroid/renderscript/RenderScript;Landroid/content/res/Resources;IF)Landroid/renderscript/Font;
-    .registers 14
+    .locals 10
     .parameter "rs"
     .parameter "res"
     .parameter "id"
@@ -458,10 +458,10 @@
 
     .line 206
     .local v4, is:Ljava/io/InputStream;
-    :try_start_1b
+    :try_start_0
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
-    :try_end_1e
-    .catch Ljava/lang/Exception; {:try_start_1b .. :try_end_1e} :catch_4f
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v4
 
@@ -480,7 +480,7 @@
     .local v3, fontId:I
     instance-of v7, v4, Landroid/content/res/AssetManager$AssetInputStream;
 
-    if-eqz v7, :cond_69
+    if-eqz v7, :cond_0
 
     .line 215
     check-cast v4, Landroid/content/res/AssetManager$AssetInputStream;
@@ -497,7 +497,7 @@
     move-result v3
 
     .line 221
-    if-nez v3, :cond_71
+    if-nez v3, :cond_1
 
     .line 222
     new-instance v7, Landroid/renderscript/RSRuntimeException;
@@ -529,7 +529,7 @@
     .end local v1           #dpi:I
     .end local v3           #fontId:I
     .restart local v4       #is:Ljava/io/InputStream;
-    :catch_4f
+    :catch_0
     move-exception v2
 
     .line 208
@@ -562,7 +562,7 @@
     .end local v2           #e:Ljava/lang/Exception;
     .restart local v1       #dpi:I
     .restart local v3       #fontId:I
-    :cond_69
+    :cond_0
     new-instance v7, Landroid/renderscript/RSRuntimeException;
 
     const-string v8, "Unsupported asset stream created"
@@ -574,7 +574,7 @@
     .line 224
     .end local v4           #is:Ljava/io/InputStream;
     .restart local v0       #asset:I
-    :cond_71
+    :cond_1
     new-instance v6, Landroid/renderscript/Font;
 
     invoke-direct {v6, v3, p0}, Landroid/renderscript/Font;-><init>(ILandroid/renderscript/RenderScript;)V
@@ -585,7 +585,7 @@
 .end method
 
 .method static getFontFileName(Ljava/lang/String;Landroid/renderscript/Font$Style;)Ljava/lang/String;
-    .registers 5
+    .locals 3
     .parameter "familyName"
     .parameter "style"
 
@@ -601,7 +601,7 @@
 
     .line 137
     .local v0, family:Landroid/renderscript/Font$FontFamily;
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 138
     sget-object v1, Landroid/renderscript/Font$1;->$SwitchMap$android$renderscript$Font$Style:[I
@@ -612,51 +612,51 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_24
+    packed-switch v1, :pswitch_data_0
 
     .line 150
-    :cond_15
+    :cond_0
     const-string v1, "DroidSans.ttf"
 
-    :goto_17
+    :goto_0
     return-object v1
 
     .line 140
-    :pswitch_18
+    :pswitch_0
     iget-object v1, v0, Landroid/renderscript/Font$FontFamily;->mNormalFileName:Ljava/lang/String;
 
-    goto :goto_17
+    goto :goto_0
 
     .line 142
-    :pswitch_1b
+    :pswitch_1
     iget-object v1, v0, Landroid/renderscript/Font$FontFamily;->mBoldFileName:Ljava/lang/String;
 
-    goto :goto_17
+    goto :goto_0
 
     .line 144
-    :pswitch_1e
+    :pswitch_2
     iget-object v1, v0, Landroid/renderscript/Font$FontFamily;->mItalicFileName:Ljava/lang/String;
 
-    goto :goto_17
+    goto :goto_0
 
     .line 146
-    :pswitch_21
+    :pswitch_3
     iget-object v1, v0, Landroid/renderscript/Font$FontFamily;->mBoldItalicFileName:Ljava/lang/String;
 
-    goto :goto_17
+    goto :goto_0
 
     .line 138
-    :pswitch_data_24
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_18
-        :pswitch_1b
-        :pswitch_1e
-        :pswitch_21
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method private static initFontFamilyMap()V
-    .registers 5
+    .locals 5
 
     .prologue
     const/4 v4, 0x0

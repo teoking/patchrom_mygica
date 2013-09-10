@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/OutputStream;Landroid/webkit/ValueCallback;)V
-    .registers 3
+    .locals 0
     .parameter "s"
     .parameter
     .annotation system Ldalvik/annotation/Signature;

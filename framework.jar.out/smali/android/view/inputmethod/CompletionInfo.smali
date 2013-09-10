@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 115
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(JILjava/lang/CharSequence;)V
-    .registers 6
+    .locals 1
     .parameter "id"
     .parameter "index"
     .parameter "text"
@@ -73,7 +73,7 @@
 .end method
 
 .method public constructor <init>(JILjava/lang/CharSequence;Ljava/lang/CharSequence;)V
-    .registers 6
+    .locals 0
     .parameter "id"
     .parameter "index"
     .parameter "text"
@@ -100,7 +100,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "source"
 
     .prologue
@@ -148,7 +148,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/view/inputmethod/CompletionInfo$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -162,7 +162,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 127
@@ -172,7 +172,7 @@
 .end method
 
 .method public getId()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 65
@@ -182,7 +182,7 @@
 .end method
 
 .method public getLabel()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 90
@@ -192,7 +192,7 @@
 .end method
 
 .method public getPosition()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 73
@@ -202,7 +202,7 @@
 .end method
 
 .method public getText()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -212,7 +212,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 95
@@ -282,7 +282,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 

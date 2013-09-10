@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, -0x1
@@ -34,7 +34,7 @@
 .end method
 
 .method constructor <init>(IIZ)V
-    .registers 4
+    .locals 0
     .parameter "width"
     .parameter "height"
     .parameter "isOpaque"
@@ -74,7 +74,7 @@
 .end method
 
 .method getDisplayList()Landroid/view/DisplayList;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 88
@@ -84,7 +84,7 @@
 .end method
 
 .method getHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 79
@@ -94,7 +94,7 @@
 .end method
 
 .method getWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 70
@@ -104,7 +104,7 @@
 .end method
 
 .method isOpaque()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 106
@@ -123,7 +123,7 @@
 .end method
 
 .method setDisplayList(Landroid/view/DisplayList;)V
-    .registers 2
+    .locals 0
     .parameter "displayList"
 
     .prologue
@@ -141,7 +141,7 @@
 .end method
 
 .method update(IIZ)V
-    .registers 4
+    .locals 0
     .parameter "width"
     .parameter "height"
     .parameter "isOpaque"

@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/os/Bundle;)V
-    .registers 4
+    .locals 1
     .parameter "text"
     .parameter "params"
 
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public getCountry()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 69
@@ -56,7 +56,7 @@
 .end method
 
 .method public getLanguage()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 62
@@ -66,7 +66,7 @@
 .end method
 
 .method public getParams()Landroid/os/Bundle;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 97
@@ -76,7 +76,7 @@
 .end method
 
 .method public getPitch()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 90
@@ -86,7 +86,7 @@
 .end method
 
 .method public getSpeechRate()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 83
@@ -96,7 +96,7 @@
 .end method
 
 .method public getText()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 55
@@ -106,7 +106,7 @@
 .end method
 
 .method public getVariant()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -116,7 +116,7 @@
 .end method
 
 .method setLanguage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "language"
     .parameter "country"
     .parameter "variant"
@@ -136,7 +136,7 @@
 .end method
 
 .method setPitch(I)V
-    .registers 2
+    .locals 0
     .parameter "pitch"
 
     .prologue
@@ -148,7 +148,7 @@
 .end method
 
 .method setSpeechRate(I)V
-    .registers 2
+    .locals 0
     .parameter "speechRate"
 
     .prologue

@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "handler"
 
     .prologue
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public deliverSelfNotifications()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 82
@@ -56,7 +56,7 @@
 .end method
 
 .method public final dispatchChange(Z)V
-    .registers 3
+    .locals 1
     .parameter "selfChange"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -72,7 +72,7 @@
 .end method
 
 .method public final dispatchChange(ZLandroid/net/Uri;)V
-    .registers 5
+    .locals 2
     .parameter "selfChange"
     .parameter "uri"
 
@@ -80,17 +80,17 @@
     .line 162
     iget-object v0, p0, Landroid/database/ContentObserver;->mHandler:Landroid/os/Handler;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     .line 163
     invoke-virtual {p0, p1, p2}, Landroid/database/ContentObserver;->onChange(ZLandroid/net/Uri;)V
 
     .line 167
-    :goto_7
+    :goto_0
     return-void
 
     .line 165
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/database/ContentObserver;->mHandler:Landroid/os/Handler;
 
     new-instance v1, Landroid/database/ContentObserver$NotificationRunnable;
@@ -99,11 +99,11 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getContentObserver()Landroid/database/IContentObserver;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 47
@@ -112,10 +112,10 @@
     monitor-enter v1
 
     .line 48
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/database/ContentObserver;->mTransport:Landroid/database/ContentObserver$Transport;
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 49
     new-instance v0, Landroid/database/ContentObserver$Transport;
@@ -125,7 +125,7 @@
     iput-object v0, p0, Landroid/database/ContentObserver;->mTransport:Landroid/database/ContentObserver$Transport;
 
     .line 51
-    :cond_e
+    :cond_0
     iget-object v0, p0, Landroid/database/ContentObserver;->mTransport:Landroid/database/ContentObserver$Transport;
 
     monitor-exit v1
@@ -133,18 +133,18 @@
     return-object v0
 
     .line 52
-    :catchall_12
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_14
-    .catchall {:try_start_3 .. :try_end_14} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public onChange(Z)V
-    .registers 2
+    .locals 0
     .parameter "selfChange"
 
     .prologue
@@ -153,7 +153,7 @@
 .end method
 
 .method public onChange(ZLandroid/net/Uri;)V
-    .registers 3
+    .locals 0
     .parameter "selfChange"
     .parameter "uri"
 
@@ -166,7 +166,7 @@
 .end method
 
 .method public releaseContentObserver()Landroid/database/IContentObserver;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 62
@@ -175,12 +175,12 @@
     monitor-enter v2
 
     .line 63
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/database/ContentObserver;->mTransport:Landroid/database/ContentObserver$Transport;
 
     .line 64
     .local v0, oldTransport:Landroid/database/ContentObserver$Transport;
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 65
     invoke-virtual {v0}, Landroid/database/ContentObserver$Transport;->releaseContentObserver()V
@@ -191,19 +191,19 @@
     iput-object v1, p0, Landroid/database/ContentObserver;->mTransport:Landroid/database/ContentObserver$Transport;
 
     .line 68
-    :cond_d
+    :cond_0
     monitor-exit v2
 
     return-object v0
 
     .line 69
     .end local v0           #oldTransport:Landroid/database/ContentObserver$Transport;
-    :catchall_f
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_11
-    .catchall {:try_start_3 .. :try_end_11} :catchall_f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method

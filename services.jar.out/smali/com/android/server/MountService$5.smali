@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/MountService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,13 +38,14 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 2224
     :try_start_0
     iget-object v1, p0, Lcom/android/server/MountService$5;->this$0:Lcom/android/server/MountService;
 
+    #getter for: Lcom/android/server/MountService;->mConnector:Lcom/android/server/NativeDaemonConnector;
     invoke-static {v1}, Lcom/android/server/MountService;->access$1700(Lcom/android/server/MountService;)Lcom/android/server/NativeDaemonConnector;
 
     move-result-object v1
@@ -62,15 +63,15 @@
     aput-object v5, v3, v4
 
     invoke-virtual {v1, v2, v3}, Lcom/android/server/NativeDaemonConnector;->execute(Ljava/lang/String;[Ljava/lang/Object;)Lcom/android/server/NativeDaemonEvent;
-    :try_end_13
-    .catch Lcom/android/server/NativeDaemonConnectorException; {:try_start_0 .. :try_end_13} :catch_14
+    :try_end_0
+    .catch Lcom/android/server/NativeDaemonConnectorException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 2228
-    :goto_13
+    :goto_0
     return-void
 
     .line 2225
-    :catch_14
+    :catch_0
     move-exception v0
 
     .line 2226
@@ -81,5 +82,5 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_13
+    goto :goto_0
 .end method

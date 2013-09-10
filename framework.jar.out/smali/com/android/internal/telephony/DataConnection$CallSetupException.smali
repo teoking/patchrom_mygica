@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "retryOverride"
 
     .prologue
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public getRetryOverride()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 199

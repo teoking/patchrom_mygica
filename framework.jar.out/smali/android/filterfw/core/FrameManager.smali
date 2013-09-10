@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 27
@@ -21,7 +21,7 @@
 
 # virtual methods
 .method public duplicateFrame(Landroid/filterfw/core/Frame;)Landroid/filterfw/core/Frame;
-    .registers 4
+    .locals 2
     .parameter "frame"
 
     .prologue
@@ -43,7 +43,7 @@
 .end method
 
 .method public duplicateFrameToTarget(Landroid/filterfw/core/Frame;I)Landroid/filterfw/core/Frame;
-    .registers 6
+    .locals 3
     .parameter "frame"
     .parameter "newTarget"
 
@@ -75,7 +75,7 @@
 .end method
 
 .method public getContext()Landroid/filterfw/core/FilterContext;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 54
@@ -85,13 +85,13 @@
 .end method
 
 .method public getGLEnvironment()Landroid/filterfw/core/GLEnvironment;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 58
     iget-object v0, p0, Landroid/filterfw/core/FrameManager;->mContext:Landroid/filterfw/core/FilterContext;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/filterfw/core/FrameManager;->mContext:Landroid/filterfw/core/FilterContext;
 
@@ -99,13 +99,13 @@
 
     move-result-object v0
 
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public abstract newBoundFrame(Landroid/filterfw/core/FrameFormat;IJ)Landroid/filterfw/core/Frame;
@@ -121,7 +121,7 @@
 .end method
 
 .method setContext(Landroid/filterfw/core/FilterContext;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -133,7 +133,7 @@
 .end method
 
 .method public tearDown()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 62

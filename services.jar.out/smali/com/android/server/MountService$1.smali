@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/MountService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 10
+    .locals 7
     .parameter "context"
     .parameter "intent"
 
@@ -57,11 +57,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_34
+    if-eqz v3, :cond_2
 
     .line 545
     iget-object v3, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
 
+    #setter for: Lcom/android/server/MountService;->mBooted:Z
     invoke-static {v3, v1}, Lcom/android/server/MountService;->access$802(Lcom/android/server/MountService;Z)Z
 
     .line 551
@@ -77,7 +78,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2b
+    if-eqz v3, :cond_1
 
     .line 552
     iget-object v3, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
@@ -88,32 +89,33 @@
 
     const/4 v6, 0x4
 
+    #calls: Lcom/android/server/MountService;->notifyVolumeStateChange(Ljava/lang/String;Ljava/lang/String;II)V
     invoke-static {v3, v4, v5, v2, v6}, Lcom/android/server/MountService;->access$900(Lcom/android/server/MountService;Ljava/lang/String;Ljava/lang/String;II)V
 
     .line 644
-    :cond_2a
-    :goto_2a
+    :cond_0
+    :goto_0
     return-void
 
     .line 556
-    :cond_2b
+    :cond_1
     new-instance v2, Lcom/android/server/MountService$1$1;
 
     invoke-direct {v2, p0}, Lcom/android/server/MountService$1$1;-><init>(Lcom/android/server/MountService$1;)V
 
     invoke-virtual {v2}, Lcom/android/server/MountService$1$1;->start()V
 
-    goto :goto_2a
+    goto :goto_0
 
     .line 639
-    :cond_34
+    :cond_2
     const-string v3, "android.hardware.usb.action.USB_STATE"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2a
+    if-eqz v3, :cond_0
 
     .line 640
     const-string v3, "connected"
@@ -122,7 +124,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_52
+    if-eqz v3, :cond_3
 
     const-string v3, "mass_storage"
 
@@ -130,21 +132,22 @@
 
     move-result v3
 
-    if-eqz v3, :cond_52
+    if-eqz v3, :cond_3
 
     .line 642
     .local v1, available:Z
-    :goto_4c
+    :goto_1
     iget-object v2, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
 
+    #calls: Lcom/android/server/MountService;->notifyShareAvailabilityChange(Z)V
     invoke-static {v2, v1}, Lcom/android/server/MountService;->access$1500(Lcom/android/server/MountService;Z)V
 
-    goto :goto_2a
+    goto :goto_0
 
     .end local v1           #available:Z
-    :cond_52
+    :cond_3
     move v1, v2
 
     .line 640
-    goto :goto_4c
+    goto :goto_1
 .end method

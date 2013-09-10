@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/location/GpsStatus;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public iterator()Ljava/util/Iterator;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -67,6 +67,7 @@
 
     iget-object v2, p0, Landroid/location/GpsStatus$1;->this$0:Landroid/location/GpsStatus;
 
+    #getter for: Landroid/location/GpsStatus;->mSatellites:[Landroid/location/GpsSatellite;
     invoke-static {v2}, Landroid/location/GpsStatus;->access$000(Landroid/location/GpsStatus;)[Landroid/location/GpsSatellite;
 
     move-result-object v2

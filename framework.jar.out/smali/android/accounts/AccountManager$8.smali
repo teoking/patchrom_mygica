@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;Landroid/app/Activity;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Landroid/accounts/Account;Landroid/os/Bundle;Landroid/app/Activity;)V
-    .registers 8
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter "x1"
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public doWork()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -65,6 +65,7 @@
     .line 1181
     iget-object v0, p0, Landroid/accounts/AccountManager$8;->this$0:Landroid/accounts/AccountManager;
 
+    #getter for: Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
     invoke-static {v0}, Landroid/accounts/AccountManager;->access$000(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
 
     move-result-object v1
@@ -77,19 +78,19 @@
 
     iget-object v0, p0, Landroid/accounts/AccountManager$8;->val$activity:Landroid/app/Activity;
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_11
+    :goto_0
     invoke-interface {v1, v2, v3, v4, v0}, Landroid/accounts/IAccountManager;->confirmCredentials(Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;Landroid/os/Bundle;Z)V
 
     .line 1182
     return-void
 
     .line 1181
-    :cond_15
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method

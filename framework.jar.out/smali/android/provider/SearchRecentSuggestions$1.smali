@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/provider/SearchRecentSuggestions;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 172
@@ -56,6 +56,7 @@
 
     iget-object v2, p0, Landroid/provider/SearchRecentSuggestions$1;->val$line2:Ljava/lang/String;
 
+    #calls: Landroid/provider/SearchRecentSuggestions;->saveRecentQueryBlocking(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v0, v1, v2}, Landroid/provider/SearchRecentSuggestions;->access$000(Landroid/provider/SearchRecentSuggestions;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 173

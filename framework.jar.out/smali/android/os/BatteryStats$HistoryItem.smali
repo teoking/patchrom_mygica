@@ -121,7 +121,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 474
@@ -137,7 +137,7 @@
 .end method
 
 .method public constructor <init>(JLandroid/os/Parcel;)V
-    .registers 5
+    .locals 1
     .parameter "time"
     .parameter "src"
 
@@ -161,7 +161,7 @@
 .end method
 
 .method private buildBatteryLevelInt()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 592
@@ -193,7 +193,7 @@
 .end method
 
 .method private buildStateInt()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 598
@@ -237,7 +237,7 @@
 .end method
 
 .method private readFromParcel(Landroid/os/Parcel;)V
-    .registers 5
+    .locals 3
     .parameter "src"
 
     .prologue
@@ -327,7 +327,7 @@
 
 # virtual methods
 .method public clear()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -366,7 +366,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 483
@@ -376,7 +376,7 @@
 .end method
 
 .method public readDelta(Landroid/os/Parcel;)V
-    .registers 14
+    .locals 12
     .parameter "src"
 
     .prologue
@@ -408,7 +408,7 @@
     iput-byte v6, p0, Landroid/os/BatteryStats$HistoryItem;->cmd:B
 
     .line 611
-    if-ge v3, v7, :cond_62
+    if-ge v3, v7, :cond_1
 
     .line 612
     iget-wide v6, p0, Landroid/os/BatteryStats$HistoryItem;->time:J
@@ -420,12 +420,12 @@
     iput-wide v6, p0, Landroid/os/BatteryStats$HistoryItem;->time:J
 
     .line 627
-    :goto_20
+    :goto_0
     const/high16 v6, 0x10
 
     and-int/2addr v6, v4
 
-    if-eqz v6, :cond_3c
+    if-eqz v6, :cond_0
 
     .line 628
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -460,12 +460,12 @@
 
     .line 639
     .end local v0           #batteryLevelInt:I
-    :cond_3c
+    :cond_0
     const/high16 v6, 0x20
 
     and-int/2addr v6, v4
 
-    if-eqz v6, :cond_88
+    if-eqz v6, :cond_4
 
     .line 640
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -511,12 +511,12 @@
 
     .line 654
     .end local v5           #stateInt:I
-    :goto_61
+    :goto_1
     return-void
 
     .line 613
-    :cond_62
-    if-ne v3, v7, :cond_6e
+    :cond_1
+    if-ne v3, v7, :cond_2
 
     .line 614
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
@@ -528,13 +528,13 @@
     .line 615
     invoke-direct {p0, p1}, Landroid/os/BatteryStats$HistoryItem;->readFromParcel(Landroid/os/Parcel;)V
 
-    goto :goto_61
+    goto :goto_1
 
     .line 617
-    :cond_6e
+    :cond_2
     const v6, 0x3fffe
 
-    if-ne v3, v6, :cond_7e
+    if-ne v3, v6, :cond_3
 
     .line 618
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -551,11 +551,11 @@
 
     iput-wide v6, p0, Landroid/os/BatteryStats$HistoryItem;->time:J
 
-    goto :goto_20
+    goto :goto_0
 
     .line 622
     .end local v1           #delta:I
-    :cond_7e
+    :cond_3
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v1
@@ -568,11 +568,11 @@
 
     iput-wide v6, p0, Landroid/os/BatteryStats$HistoryItem;->time:J
 
-    goto :goto_20
+    goto :goto_0
 
     .line 652
     .end local v1           #delta:J
-    :cond_88
+    :cond_4
     and-int v6, v4, v10
 
     iget v7, p0, Landroid/os/BatteryStats$HistoryItem;->states:I
@@ -583,11 +583,11 @@
 
     iput v6, p0, Landroid/os/BatteryStats$HistoryItem;->states:I
 
-    goto :goto_61
+    goto :goto_1
 .end method
 
 .method public same(Landroid/os/BatteryStats$HistoryItem;)Z
-    .registers 4
+    .locals 2
     .parameter "o"
 
     .prologue
@@ -596,57 +596,57 @@
 
     iget-byte v1, p1, Landroid/os/BatteryStats$HistoryItem;->batteryLevel:B
 
-    if-ne v0, v1, :cond_2c
+    if-ne v0, v1, :cond_0
 
     iget-byte v0, p0, Landroid/os/BatteryStats$HistoryItem;->batteryStatus:B
 
     iget-byte v1, p1, Landroid/os/BatteryStats$HistoryItem;->batteryStatus:B
 
-    if-ne v0, v1, :cond_2c
+    if-ne v0, v1, :cond_0
 
     iget-byte v0, p0, Landroid/os/BatteryStats$HistoryItem;->batteryHealth:B
 
     iget-byte v1, p1, Landroid/os/BatteryStats$HistoryItem;->batteryHealth:B
 
-    if-ne v0, v1, :cond_2c
+    if-ne v0, v1, :cond_0
 
     iget-byte v0, p0, Landroid/os/BatteryStats$HistoryItem;->batteryPlugType:B
 
     iget-byte v1, p1, Landroid/os/BatteryStats$HistoryItem;->batteryPlugType:B
 
-    if-ne v0, v1, :cond_2c
+    if-ne v0, v1, :cond_0
 
     iget-char v0, p0, Landroid/os/BatteryStats$HistoryItem;->batteryTemperature:C
 
     iget-char v1, p1, Landroid/os/BatteryStats$HistoryItem;->batteryTemperature:C
 
-    if-ne v0, v1, :cond_2c
+    if-ne v0, v1, :cond_0
 
     iget-char v0, p0, Landroid/os/BatteryStats$HistoryItem;->batteryVoltage:C
 
     iget-char v1, p1, Landroid/os/BatteryStats$HistoryItem;->batteryVoltage:C
 
-    if-ne v0, v1, :cond_2c
+    if-ne v0, v1, :cond_0
 
     iget v0, p0, Landroid/os/BatteryStats$HistoryItem;->states:I
 
     iget v1, p1, Landroid/os/BatteryStats$HistoryItem;->states:I
 
-    if-ne v0, v1, :cond_2c
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_2b
+    :goto_0
     return v0
 
-    :cond_2c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_2b
+    goto :goto_0
 .end method
 
 .method public setTo(JBLandroid/os/BatteryStats$HistoryItem;)V
-    .registers 6
+    .locals 1
     .parameter "time"
     .parameter "cmd"
     .parameter "o"
@@ -698,7 +698,7 @@
 .end method
 
 .method public setTo(Landroid/os/BatteryStats$HistoryItem;)V
-    .registers 4
+    .locals 2
     .parameter "o"
 
     .prologue
@@ -752,13 +752,13 @@
 .end method
 
 .method public writeDelta(Landroid/os/Parcel;Landroid/os/BatteryStats$HistoryItem;)V
-    .registers 18
+    .locals 15
     .parameter "dest"
     .parameter "last"
 
     .prologue
     .line 528
-    if-eqz p2, :cond_9
+    if-eqz p2, :cond_0
 
     move-object/from16 v0, p2
 
@@ -766,10 +766,10 @@
 
     const/4 v12, 0x1
 
-    if-eq v11, v12, :cond_18
+    if-eq v11, v12, :cond_2
 
     .line 529
-    :cond_9
+    :cond_0
     const v11, 0x3fffd
 
     move-object/from16 v0, p1
@@ -784,12 +784,12 @@
     invoke-virtual {p0, v0, v11}, Landroid/os/BatteryStats$HistoryItem;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 589
-    :cond_17
-    :goto_17
+    :cond_1
+    :goto_0
     return-void
 
     .line 534
-    :cond_18
+    :cond_2
     iget-wide v11, p0, Landroid/os/BatteryStats$HistoryItem;->time:J
 
     move-object/from16 v0, p2
@@ -816,21 +816,21 @@
 
     cmp-long v11, v3, v11
 
-    if-ltz v11, :cond_35
+    if-ltz v11, :cond_3
 
     const-wide/32 v11, 0x7fffffff
 
     cmp-long v11, v3, v11
 
-    if-lez v11, :cond_80
+    if-lez v11, :cond_8
 
     .line 540
-    :cond_35
+    :cond_3
     const v5, 0x3ffff
 
     .line 546
     .local v5, deltaTimeToken:I
-    :goto_38
+    :goto_1
     iget-byte v11, p0, Landroid/os/BatteryStats$HistoryItem;->cmd:B
 
     shl-int/lit8 v11, v11, 0x12
@@ -853,14 +853,14 @@
 
     .line 550
     .local v1, batteryLevelInt:I
-    if-eq v1, v7, :cond_8d
+    if-eq v1, v7, :cond_a
 
     const/4 v2, 0x1
 
     .line 551
     .local v2, batteryLevelIntChanged:Z
-    :goto_4b
-    if-eqz v2, :cond_50
+    :goto_2
+    if-eqz v2, :cond_4
 
     .line 552
     const/high16 v11, 0x10
@@ -868,21 +868,21 @@
     or-int/2addr v6, v11
 
     .line 554
-    :cond_50
+    :cond_4
     invoke-direct {p0}, Landroid/os/BatteryStats$HistoryItem;->buildStateInt()I
 
     move-result v9
 
     .line 555
     .local v9, stateInt:I
-    if-eq v9, v8, :cond_8f
+    if-eq v9, v8, :cond_b
 
     const/4 v10, 0x1
 
     .line 556
     .local v10, stateIntChanged:Z
-    :goto_57
-    if-eqz v10, :cond_5c
+    :goto_3
+    if-eqz v10, :cond_5
 
     .line 557
     const/high16 v11, 0x20
@@ -890,7 +890,7 @@
     or-int/2addr v6, v11
 
     .line 559
-    :cond_5c
+    :cond_5
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v6}, Landroid/os/Parcel;->writeInt(I)V
@@ -898,12 +898,12 @@
     .line 563
     const v11, 0x3fffe
 
-    if-lt v5, v11, :cond_71
+    if-lt v5, v11, :cond_6
 
     .line 564
     const v11, 0x3fffe
 
-    if-ne v5, v11, :cond_91
+    if-ne v5, v11, :cond_c
 
     .line 566
     long-to-int v11, v3
@@ -913,9 +913,9 @@
     invoke-virtual {v0, v11}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 572
-    :cond_71
-    :goto_71
-    if-eqz v2, :cond_78
+    :cond_6
+    :goto_4
+    if-eqz v2, :cond_7
 
     .line 573
     move-object/from16 v0, p1
@@ -923,15 +923,15 @@
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 580
-    :cond_78
-    if-eqz v10, :cond_17
+    :cond_7
+    if-eqz v10, :cond_1
 
     .line 581
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v9}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_17
+    goto :goto_0
 
     .line 541
     .end local v1           #batteryLevelInt:I
@@ -940,55 +940,55 @@
     .end local v6           #firstToken:I
     .end local v9           #stateInt:I
     .end local v10           #stateIntChanged:Z
-    :cond_80
+    :cond_8
     const-wide/32 v11, 0x3fffd
 
     cmp-long v11, v3, v11
 
-    if-ltz v11, :cond_8b
+    if-ltz v11, :cond_9
 
     .line 542
     const v5, 0x3fffe
 
     .restart local v5       #deltaTimeToken:I
-    goto :goto_38
+    goto :goto_1
 
     .line 544
     .end local v5           #deltaTimeToken:I
-    :cond_8b
+    :cond_9
     long-to-int v5, v3
 
     .restart local v5       #deltaTimeToken:I
-    goto :goto_38
+    goto :goto_1
 
     .line 550
     .restart local v1       #batteryLevelInt:I
     .restart local v6       #firstToken:I
-    :cond_8d
+    :cond_a
     const/4 v2, 0x0
 
-    goto :goto_4b
+    goto :goto_2
 
     .line 555
     .restart local v2       #batteryLevelIntChanged:Z
     .restart local v9       #stateInt:I
-    :cond_8f
+    :cond_b
     const/4 v10, 0x0
 
-    goto :goto_57
+    goto :goto_3
 
     .line 569
     .restart local v10       #stateIntChanged:Z
-    :cond_91
+    :cond_c
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v3, v4}, Landroid/os/Parcel;->writeLong(J)V
 
-    goto :goto_71
+    goto :goto_4
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 7
+    .locals 4
     .parameter "dest"
     .parameter "flags"
 

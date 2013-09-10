@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/ViewRootImpl;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public addCallback(Landroid/view/SurfaceHolder$Callback;)V
-    .registers 2
+    .locals 0
     .parameter "callback"
 
     .prologue
@@ -47,12 +47,13 @@
 .end method
 
 .method public getSurface()Landroid/view/Surface;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 5004
     iget-object v0, p0, Landroid/view/ViewRootImpl$2;->this$0:Landroid/view/ViewRootImpl;
 
+    #getter for: Landroid/view/ViewRootImpl;->mSurface:Landroid/view/Surface;
     invoke-static {v0}, Landroid/view/ViewRootImpl;->access$400(Landroid/view/ViewRootImpl;)Landroid/view/Surface;
 
     move-result-object v0
@@ -61,7 +62,7 @@
 .end method
 
 .method public getSurfaceFrame()Landroid/graphics/Rect;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 5043
@@ -71,7 +72,7 @@
 .end method
 
 .method public isCreating()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 5008
@@ -81,7 +82,7 @@
 .end method
 
 .method public lockCanvas()Landroid/graphics/Canvas;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 5033
@@ -91,7 +92,7 @@
 .end method
 
 .method public lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
-    .registers 3
+    .locals 1
     .parameter "dirty"
 
     .prologue
@@ -102,7 +103,7 @@
 .end method
 
 .method public removeCallback(Landroid/view/SurfaceHolder$Callback;)V
-    .registers 2
+    .locals 0
     .parameter "callback"
 
     .prologue
@@ -111,7 +112,7 @@
 .end method
 
 .method public setFixedSize(II)V
-    .registers 3
+    .locals 0
     .parameter "width"
     .parameter "height"
 
@@ -121,7 +122,7 @@
 .end method
 
 .method public setFormat(I)V
-    .registers 2
+    .locals 0
     .parameter "format"
 
     .prologue
@@ -130,7 +131,7 @@
 .end method
 
 .method public setKeepScreenOn(Z)V
-    .registers 2
+    .locals 0
     .parameter "screenOn"
 
     .prologue
@@ -139,7 +140,7 @@
 .end method
 
 .method public setSizeFromLayout()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 5021
@@ -147,7 +148,7 @@
 .end method
 
 .method public setType(I)V
-    .registers 2
+    .locals 0
     .parameter "type"
 
     .prologue
@@ -156,7 +157,7 @@
 .end method
 
 .method public unlockCanvasAndPost(Landroid/graphics/Canvas;)V
-    .registers 2
+    .locals 0
     .parameter "canvas"
 
     .prologue

@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 35
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/drawable/BitmapDrawable;)V
-    .registers 3
+    .locals 1
     .parameter "drawable"
 
     .prologue
@@ -80,7 +80,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/drawable/BitmapDrawable;FF)V
-    .registers 8
+    .locals 4
     .parameter "drawable"
     .parameter "x"
     .parameter "y"
@@ -166,13 +166,13 @@
 .end method
 
 .method private addAnimation(Landroid/animation/ObjectAnimator;Z)Lcom/android/internal/widget/DrawableHolder;
-    .registers 4
+    .locals 1
     .parameter "anim"
     .parameter "overwrite"
 
     .prologue
     .line 116
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_0
 
     .line 117
     iget-object v0, p0, Lcom/android/internal/widget/DrawableHolder;->mAnimators:Ljava/util/ArrayList;
@@ -180,7 +180,7 @@
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 118
-    :cond_7
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/widget/DrawableHolder;->mNeedToStart:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -192,7 +192,7 @@
 
 # virtual methods
 .method public addAnimTo(JJLjava/lang/String;FZ)Landroid/animation/ObjectAnimator;
-    .registers 11
+    .locals 3
     .parameter "duration"
     .parameter "delay"
     .parameter "property"
@@ -201,12 +201,12 @@
 
     .prologue
     .line 73
-    if-eqz p7, :cond_5
+    if-eqz p7, :cond_0
 
     invoke-virtual {p0, p5}, Lcom/android/internal/widget/DrawableHolder;->removeAnimationFor(Ljava/lang/String;)V
 
     .line 75
-    :cond_5
+    :cond_0
     const/4 v1, 0x1
 
     new-array v1, v1, [F
@@ -239,7 +239,7 @@
 .end method
 
 .method public clearAnimations()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 102
@@ -250,12 +250,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_6
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -267,11 +267,11 @@
     .local v0, currentAnim:Landroid/animation/ObjectAnimator;
     invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->cancel()V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 105
     .end local v0           #currentAnim:Landroid/animation/ObjectAnimator;
-    :cond_16
+    :cond_0
     iget-object v2, p0, Lcom/android/internal/widget/DrawableHolder;->mAnimators:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
@@ -281,7 +281,7 @@
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .registers 6
+    .locals 4
     .parameter "canvas"
 
     .prologue
@@ -298,14 +298,14 @@
 
     cmpg-float v1, v1, v2
 
-    if-gtz v1, :cond_d
+    if-gtz v1, :cond_0
 
     .line 138
-    :goto_c
+    :goto_0
     return-void
 
     .line 131
-    :cond_d
+    :cond_0
     const/4 v1, 0x1
 
     invoke-virtual {p1, v1}, Landroid/graphics/Canvas;->save(I)I
@@ -366,11 +366,11 @@
     .line 137
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public getAlpha()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 195
@@ -380,7 +380,7 @@
 .end method
 
 .method public getDrawable()Landroid/graphics/drawable/BitmapDrawable;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 199
@@ -390,7 +390,7 @@
 .end method
 
 .method public getHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 207
@@ -404,7 +404,7 @@
 .end method
 
 .method public getScaleX()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 187
@@ -414,7 +414,7 @@
 .end method
 
 .method public getScaleY()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 191
@@ -424,7 +424,7 @@
 .end method
 
 .method public getWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 203
@@ -438,7 +438,7 @@
 .end method
 
 .method public getX()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 179
@@ -448,7 +448,7 @@
 .end method
 
 .method public getY()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 183
@@ -458,7 +458,7 @@
 .end method
 
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .registers 2
+    .locals 0
     .parameter "animation"
 
     .prologue
@@ -467,7 +467,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .registers 3
+    .locals 1
     .parameter "animation"
 
     .prologue
@@ -481,7 +481,7 @@
 .end method
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .registers 2
+    .locals 0
     .parameter "animation"
 
     .prologue
@@ -490,7 +490,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .registers 2
+    .locals 0
     .parameter "animation"
 
     .prologue
@@ -499,7 +499,7 @@
 .end method
 
 .method public removeAnimationFor(Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "property"
 
     .prologue
@@ -519,13 +519,13 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -543,21 +543,21 @@
 
     move-result v3
 
-    if-eqz v3, :cond_c
+    if-eqz v3, :cond_0
 
     .line 93
     invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->cancel()V
 
-    goto :goto_c
+    goto :goto_0
 
     .line 96
     .end local v0           #currentAnim:Landroid/animation/ObjectAnimator;
-    :cond_26
+    :cond_1
     return-void
 .end method
 
 .method public setAlpha(F)V
-    .registers 2
+    .locals 0
     .parameter "alpha"
 
     .prologue
@@ -569,7 +569,7 @@
 .end method
 
 .method public setScaleX(F)V
-    .registers 2
+    .locals 0
     .parameter "value"
 
     .prologue
@@ -581,7 +581,7 @@
 .end method
 
 .method public setScaleY(F)V
-    .registers 2
+    .locals 0
     .parameter "value"
 
     .prologue
@@ -593,7 +593,7 @@
 .end method
 
 .method public setX(F)V
-    .registers 2
+    .locals 0
     .parameter "value"
 
     .prologue
@@ -605,7 +605,7 @@
 .end method
 
 .method public setY(F)V
-    .registers 2
+    .locals 0
     .parameter "value"
 
     .prologue
@@ -617,7 +617,7 @@
 .end method
 
 .method public startAnimations(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-    .registers 5
+    .locals 3
     .parameter "listener"
 
     .prologue
@@ -625,14 +625,14 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_1
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/widget/DrawableHolder;->mNeedToStart:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1d
+    if-ge v1, v2, :cond_0
 
     .line 149
     iget-object v2, p0, Lcom/android/internal/widget/DrawableHolder;->mNeedToStart:Ljava/util/ArrayList;
@@ -656,11 +656,11 @@
     .line 148
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 154
     .end local v0           #anim:Landroid/animation/ObjectAnimator;
-    :cond_1d
+    :cond_0
     iget-object v2, p0, Lcom/android/internal/widget/DrawableHolder;->mNeedToStart:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V

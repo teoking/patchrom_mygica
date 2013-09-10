@@ -116,7 +116,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     const/16 v1, 0x10
@@ -124,28 +124,28 @@
     .line 137
     new-array v0, v1, [F
 
-    fill-array-data v0, :array_20
+    fill-array-data v0, :array_0
 
     sput-object v0, Landroid/filterpacks/videosrc/MediaSource;->mSourceCoords_0:[F
 
     .line 141
     new-array v0, v1, [F
 
-    fill-array-data v0, :array_44
+    fill-array-data v0, :array_1
 
     sput-object v0, Landroid/filterpacks/videosrc/MediaSource;->mSourceCoords_270:[F
 
     .line 145
     new-array v0, v1, [F
 
-    fill-array-data v0, :array_68
+    fill-array-data v0, :array_2
 
     sput-object v0, Landroid/filterpacks/videosrc/MediaSource;->mSourceCoords_180:[F
 
     .line 149
     new-array v0, v1, [F
 
-    fill-array-data v0, :array_8c
+    fill-array-data v0, :array_3
 
     sput-object v0, Landroid/filterpacks/videosrc/MediaSource;->mSourceCoords_90:[F
 
@@ -154,7 +154,7 @@
     .line 137
     nop
 
-    :array_20
+    :array_0
     .array-data 0x4
         0x0t 0x0t 0x80t 0x3ft
         0x0t 0x0t 0x80t 0x3ft
@@ -175,7 +175,7 @@
     .end array-data
 
     .line 141
-    :array_44
+    :array_1
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x80t 0x3ft
@@ -196,7 +196,7 @@
     .end array-data
 
     .line 145
-    :array_68
+    :array_2
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
@@ -217,7 +217,7 @@
     .end array-data
 
     .line 149
-    :array_8c
+    :array_3
     .array-data 0x4
         0x0t 0x0t 0x80t 0x3ft
         0x0t 0x0t 0x0t 0x0t
@@ -239,7 +239,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "name"
 
     .prologue
@@ -329,7 +329,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/filterpacks/videosrc/MediaSource;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -340,7 +340,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/filterpacks/videosrc/MediaSource;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -351,7 +351,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/filterpacks/videosrc/MediaSource;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -363,7 +363,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/filterpacks/videosrc/MediaSource;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -374,7 +374,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/filterpacks/videosrc/MediaSource;)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -385,7 +385,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/filterpacks/videosrc/MediaSource;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -397,7 +397,7 @@
 .end method
 
 .method static synthetic access$502(Landroid/filterpacks/videosrc/MediaSource;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -409,7 +409,7 @@
 .end method
 
 .method static synthetic access$602(Landroid/filterpacks/videosrc/MediaSource;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -421,7 +421,7 @@
 .end method
 
 .method static synthetic access$702(Landroid/filterpacks/videosrc/MediaSource;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -433,7 +433,7 @@
 .end method
 
 .method static synthetic access$802(Landroid/filterpacks/videosrc/MediaSource;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -445,7 +445,7 @@
 .end method
 
 .method private createFormats()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x3
@@ -462,7 +462,7 @@
 .end method
 
 .method private declared-synchronized setupMediaPlayer(Z)Z
-    .registers 11
+    .locals 9
     .parameter "useUrl"
 
     .prologue
@@ -473,7 +473,7 @@
 
     const/4 v0, 0x0
 
-    :try_start_3
+    :try_start_0
     iput-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mPrepared:Z
 
     .line 436
@@ -504,7 +504,7 @@
     .line 442
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_0
 
     const-string v0, "MediaSource"
 
@@ -513,15 +513,15 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 444
-    :cond_1f
+    :cond_0
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
 
-    if-eqz v0, :cond_42
+    if-eqz v0, :cond_2
 
     .line 446
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_1
 
     const-string v0, "MediaSource"
 
@@ -530,16 +530,16 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 447
-    :cond_2e
+    :cond_1
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->reset()V
 
     .line 454
-    :goto_33
+    :goto_0
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
 
-    if-nez v0, :cond_55
+    if-nez v0, :cond_4
 
     .line 455
     new-instance v0, Ljava/lang/RuntimeException;
@@ -549,11 +549,11 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_3f
-    .catchall {:try_start_3 .. :try_end_3f} :catchall_3f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 435
-    :catchall_3f
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -561,11 +561,11 @@
     throw v0
 
     .line 450
-    :cond_42
-    :try_start_42
+    :cond_2
+    :try_start_1
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v0, :cond_4d
+    if-eqz v0, :cond_3
 
     const-string v0, "MediaSource"
 
@@ -574,26 +574,26 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 451
-    :cond_4d
+    :cond_3
     new-instance v0, Landroid/media/MediaPlayer;
 
     invoke-direct {v0}, Landroid/media/MediaPlayer;-><init>()V
 
     iput-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
-    :try_end_54
-    .catchall {:try_start_42 .. :try_end_54} :catchall_3f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_33
+    goto :goto_0
 
     .line 460
-    :cond_55
-    if-eqz p1, :cond_c9
+    :cond_4
+    if-eqz p1, :cond_7
 
     .line 461
-    :try_start_57
+    :try_start_2
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v0, :cond_75
+    if-eqz v0, :cond_5
 
     const-string v0, "MediaSource"
 
@@ -620,20 +620,20 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 462
-    :cond_75
+    :cond_5
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     iget-object v1, p0, Landroid/filterpacks/videosrc/MediaSource;->mSourceUrl:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/media/MediaPlayer;->setDataSource(Ljava/lang/String;)V
-    :try_end_7c
-    .catchall {:try_start_57 .. :try_end_7c} :catchall_3f
-    .catch Ljava/io/IOException; {:try_start_57 .. :try_end_7c} :catch_100
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_57 .. :try_end_7c} :catch_133
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_2 .. :try_end_2} :catch_1
 
     .line 485
-    :goto_7c
-    :try_start_7c
+    :goto_1
+    :try_start_3
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     iget-boolean v1, p0, Landroid/filterpacks/videosrc/MediaSource;->mLooping:Z
@@ -696,7 +696,7 @@
     .line 502
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v0, :cond_c2
+    if-eqz v0, :cond_6
 
     const-string v0, "MediaSource"
 
@@ -705,12 +705,12 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 503
-    :cond_c2
+    :cond_6
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->prepareAsync()V
-    :try_end_c7
-    .catchall {:try_start_7c .. :try_end_c7} :catchall_3f
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 505
     monitor-exit p0
@@ -719,11 +719,11 @@
 
     .line 464
     .end local v7           #surface:Landroid/view/Surface;
-    :cond_c9
-    :try_start_c9
+    :cond_7
+    :try_start_4
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v0, :cond_e7
+    if-eqz v0, :cond_8
 
     const-string v0, "MediaSource"
 
@@ -750,7 +750,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 465
-    :cond_e7
+    :cond_8
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     iget-object v1, p0, Landroid/filterpacks/videosrc/MediaSource;->mSourceAsset:Landroid/content/res/AssetFileDescriptor;
@@ -772,20 +772,20 @@
     move-result-wide v4
 
     invoke-virtual/range {v0 .. v5}, Landroid/media/MediaPlayer;->setDataSource(Ljava/io/FileDescriptor;JJ)V
-    :try_end_fe
-    .catchall {:try_start_c9 .. :try_end_fe} :catchall_3f
-    .catch Ljava/io/IOException; {:try_start_c9 .. :try_end_fe} :catch_100
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_c9 .. :try_end_fe} :catch_133
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_4 .. :try_end_4} :catch_1
 
-    goto/16 :goto_7c
+    goto/16 :goto_1
 
     .line 467
-    :catch_100
+    :catch_0
     move-exception v6
 
     .line 468
     .local v6, e:Ljava/io/IOException;
-    :try_start_101
+    :try_start_5
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->release()V
@@ -796,7 +796,7 @@
     iput-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     .line 470
-    if-eqz p1, :cond_11f
+    if-eqz p1, :cond_9
 
     .line 471
     new-instance v0, Ljava/lang/RuntimeException;
@@ -822,7 +822,7 @@
     throw v0
 
     .line 473
-    :cond_11f
+    :cond_9
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Unable to set MediaPlayer to asset %s!"
@@ -847,7 +847,7 @@
 
     .line 475
     .end local v6           #e:Ljava/io/IOException;
-    :catch_133
+    :catch_1
     move-exception v6
 
     .line 476
@@ -862,7 +862,7 @@
     iput-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     .line 478
-    if-eqz p1, :cond_152
+    if-eqz p1, :cond_a
 
     .line 479
     new-instance v0, Ljava/lang/RuntimeException;
@@ -888,7 +888,7 @@
     throw v0
 
     .line 481
-    :cond_152
+    :cond_a
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "Unable to set MediaPlayer to asset %s!"
@@ -910,14 +910,14 @@
     invoke-direct {v0, v1, v6}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw v0
-    :try_end_166
-    .catchall {:try_start_101 .. :try_end_166} :catchall_3f
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 .end method
 
 
 # virtual methods
 .method public close(Landroid/filterfw/core/FilterContext;)V
-    .registers 5
+    .locals 3
     .parameter "context"
 
     .prologue
@@ -932,7 +932,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 349
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
@@ -940,7 +940,7 @@
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->stop()V
 
     .line 351
-    :cond_f
+    :cond_0
     iput-boolean v1, p0, Landroid/filterpacks/videosrc/MediaSource;->mPrepared:Z
 
     .line 352
@@ -977,7 +977,7 @@
     .line 362
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v0, :cond_34
+    if-eqz v0, :cond_1
 
     const-string v0, "MediaSource"
 
@@ -986,12 +986,12 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 363
-    :cond_34
+    :cond_1
     return-void
 .end method
 
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
-    .registers 6
+    .locals 3
     .parameter "name"
     .parameter "context"
 
@@ -999,7 +999,7 @@
     .line 380
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     const-string v0, "MediaSource"
 
@@ -1008,26 +1008,26 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 381
-    :cond_b
+    :cond_0
     const-string/jumbo v0, "sourceUrl"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2f
+    if-eqz v0, :cond_3
 
     .line 382
     invoke-virtual {p0}, Landroid/filterpacks/videosrc/MediaSource;->isOpen()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_2
 
     .line 383
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v0, :cond_25
+    if-eqz v0, :cond_1
 
     const-string v0, "MediaSource"
 
@@ -1036,10 +1036,10 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 384
-    :cond_25
+    :cond_1
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mSelectedIsUrl:Z
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_2
 
     .line 385
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mSelectedIsUrl:Z
@@ -1047,31 +1047,31 @@
     invoke-direct {p0, v0}, Landroid/filterpacks/videosrc/MediaSource;->setupMediaPlayer(Z)Z
 
     .line 420
-    :cond_2e
-    :goto_2e
+    :cond_2
+    :goto_0
     return-void
 
     .line 388
-    :cond_2f
+    :cond_3
     const-string/jumbo v0, "sourceAsset"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_53
+    if-eqz v0, :cond_5
 
     .line 389
     invoke-virtual {p0}, Landroid/filterpacks/videosrc/MediaSource;->isOpen()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_2
 
     .line 390
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v0, :cond_49
+    if-eqz v0, :cond_4
 
     const-string v0, "MediaSource"
 
@@ -1080,34 +1080,34 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 391
-    :cond_49
+    :cond_4
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mSelectedIsUrl:Z
 
-    if-nez v0, :cond_2e
+    if-nez v0, :cond_2
 
     .line 392
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mSelectedIsUrl:Z
 
     invoke-direct {p0, v0}, Landroid/filterpacks/videosrc/MediaSource;->setupMediaPlayer(Z)Z
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 395
-    :cond_53
+    :cond_5
     const-string v0, "loop"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_69
+    if-eqz v0, :cond_6
 
     .line 396
     invoke-virtual {p0}, Landroid/filterpacks/videosrc/MediaSource;->isOpen()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_2
 
     .line 397
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
@@ -1116,34 +1116,34 @@
 
     invoke-virtual {v0, v1}, Landroid/media/MediaPlayer;->setLooping(Z)V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 399
-    :cond_69
+    :cond_6
     const-string/jumbo v0, "sourceIsUrl"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_99
+    if-eqz v0, :cond_9
 
     .line 400
     invoke-virtual {p0}, Landroid/filterpacks/videosrc/MediaSource;->isOpen()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_2
 
     .line 401
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mSelectedIsUrl:Z
 
-    if-eqz v0, :cond_8d
+    if-eqz v0, :cond_8
 
     .line 402
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v0, :cond_87
+    if-eqz v0, :cond_7
 
     const-string v0, "MediaSource"
 
@@ -1152,19 +1152,19 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 406
-    :cond_87
-    :goto_87
+    :cond_7
+    :goto_1
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mSelectedIsUrl:Z
 
     invoke-direct {p0, v0}, Landroid/filterpacks/videosrc/MediaSource;->setupMediaPlayer(Z)Z
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 404
-    :cond_8d
+    :cond_8
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v0, :cond_87
+    if-eqz v0, :cond_7
 
     const-string v0, "MediaSource"
 
@@ -1172,24 +1172,24 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_87
+    goto :goto_1
 
     .line 408
-    :cond_99
+    :cond_9
     const-string/jumbo v0, "volume"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_b3
+    if-eqz v0, :cond_a
 
     .line 409
     invoke-virtual {p0}, Landroid/filterpacks/videosrc/MediaSource;->isOpen()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_2
 
     .line 410
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
@@ -1200,35 +1200,35 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/media/MediaPlayer;->setVolume(FF)V
 
-    goto/16 :goto_2e
+    goto/16 :goto_0
 
     .line 412
-    :cond_b3
+    :cond_a
     const-string/jumbo v0, "orientation"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_2
 
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mGotSize:Z
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_2
 
     .line 413
     iget v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mOrientation:I
 
-    if-eqz v0, :cond_ca
+    if-eqz v0, :cond_b
 
     iget v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mOrientation:I
 
     const/16 v1, 0xb4
 
-    if-ne v0, v1, :cond_d8
+    if-ne v0, v1, :cond_c
 
     .line 414
-    :cond_ca
+    :cond_b
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mOutputFormat:Landroid/filterfw/core/MutableFrameFormat;
 
     iget v1, p0, Landroid/filterpacks/videosrc/MediaSource;->mWidth:I
@@ -1238,15 +1238,15 @@
     invoke-virtual {v0, v1, v2}, Landroid/filterfw/core/MutableFrameFormat;->setDimensions(II)V
 
     .line 418
-    :goto_d3
+    :goto_2
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mOrientationUpdated:Z
 
-    goto/16 :goto_2e
+    goto/16 :goto_0
 
     .line 416
-    :cond_d8
+    :cond_c
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mOutputFormat:Landroid/filterfw/core/MutableFrameFormat;
 
     iget v1, p0, Landroid/filterpacks/videosrc/MediaSource;->mHeight:I
@@ -1255,18 +1255,18 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/filterfw/core/MutableFrameFormat;->setDimensions(II)V
 
-    goto :goto_d3
+    goto :goto_2
 .end method
 
 .method public open(Landroid/filterfw/core/FilterContext;)V
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
     .line 198
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v0, :cond_29
+    if-eqz v0, :cond_0
 
     .line 199
     const-string v0, "MediaSource"
@@ -1278,7 +1278,7 @@
     .line 200
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mSelectedIsUrl:Z
 
-    if-eqz v0, :cond_58
+    if-eqz v0, :cond_1
 
     .line 201
     const-string v0, "MediaSource"
@@ -1306,8 +1306,8 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 207
-    :cond_29
-    :goto_29
+    :cond_0
+    :goto_0
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v0
@@ -1346,7 +1346,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_60
+    if-nez v0, :cond_2
 
     .line 215
     new-instance v0, Ljava/lang/RuntimeException;
@@ -1358,41 +1358,41 @@
     throw v0
 
     .line 203
-    :cond_58
+    :cond_1
     const-string v0, "MediaSource"
 
     const-string v1, "Current source is Asset!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_29
+    goto :goto_0
 
     .line 217
-    :cond_60
+    :cond_2
     return-void
 .end method
 
 .method public declared-synchronized pauseVideo(Z)V
-    .registers 3
+    .locals 1
     .parameter "pauseState"
 
     .prologue
     .line 423
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0}, Landroid/filterpacks/videosrc/MediaSource;->isOpen()Z
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 424
-    if-eqz p1, :cond_16
+    if-eqz p1, :cond_1
 
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mPaused:Z
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_1
 
     .line 425
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
@@ -1400,11 +1400,11 @@
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->pause()V
 
     .line 430
-    :cond_12
-    :goto_12
+    :cond_0
+    :goto_0
     iput-boolean p1, p0, Landroid/filterpacks/videosrc/MediaSource;->mPaused:Z
-    :try_end_14
-    .catchall {:try_start_1 .. :try_end_14} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 431
     monitor-exit p0
@@ -1412,25 +1412,25 @@
     return-void
 
     .line 426
-    :cond_16
-    if-nez p1, :cond_12
+    :cond_1
+    if-nez p1, :cond_0
 
-    :try_start_18
+    :try_start_1
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mPaused:Z
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 427
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->start()V
-    :try_end_21
-    .catchall {:try_start_18 .. :try_end_21} :catchall_22
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_12
+    goto :goto_0
 
     .line 423
-    :catchall_22
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1439,7 +1439,7 @@
 .end method
 
 .method protected prepare(Landroid/filterfw/core/FilterContext;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
@@ -1448,7 +1448,7 @@
     .line 186
     iget-boolean v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     const-string v0, "MediaSource"
 
@@ -1457,7 +1457,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 188
-    :cond_d
+    :cond_0
     new-instance v0, Landroid/filterfw/core/ShaderProgram;
 
     const-string v1, "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nuniform samplerExternalOES tex_sampler_0;\nvarying vec2 v_texcoord;\nvoid main() {\n  gl_FragColor = texture2D(tex_sampler_0, v_texcoord);\n}\n"
@@ -1483,7 +1483,7 @@
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 22
+    .locals 20
     .parameter "context"
 
     .prologue
@@ -1492,7 +1492,7 @@
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_0
 
     const-string v3, "MediaSource"
 
@@ -1501,12 +1501,12 @@
     invoke-static {v3, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 224
-    :cond_d
+    :cond_0
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
 
-    if-nez v3, :cond_1b
+    if-nez v3, :cond_1
 
     .line 226
     new-instance v3, Ljava/lang/NullPointerException;
@@ -1518,12 +1518,12 @@
     throw v3
 
     .line 229
-    :cond_1b
+    :cond_1
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mCompleted:Z
 
-    if-eqz v3, :cond_2a
+    if-eqz v3, :cond_2
 
     .line 231
     const-string/jumbo v3, "video"
@@ -1533,16 +1533,16 @@
     invoke-virtual {v0, v3}, Landroid/filterpacks/videosrc/MediaSource;->closeOutputPort(Ljava/lang/String;)V
 
     .line 344
-    :goto_29
+    :goto_0
     return-void
 
     .line 235
-    :cond_2a
+    :cond_2
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mPlaying:Z
 
-    if-nez v3, :cond_8c
+    if-nez v3, :cond_8
 
     .line 236
     const/16 v19, 0x0
@@ -1553,7 +1553,7 @@
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v3, :cond_3f
+    if-eqz v3, :cond_3
 
     const-string v3, "MediaSource"
 
@@ -1562,37 +1562,37 @@
     invoke-static {v3, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 238
-    :cond_3f
+    :cond_3
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mGotSize:Z
 
-    if-eqz v3, :cond_4b
+    if-eqz v3, :cond_4
 
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mPrepared:Z
 
-    if-nez v3, :cond_78
+    if-nez v3, :cond_6
 
     .line 240
-    :cond_4b
+    :cond_4
     const-wide/16 v5, 0x64
 
-    :try_start_4d
+    :try_start_0
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v5, v6}, Ljava/lang/Object;->wait(J)V
-    :try_end_52
-    .catch Ljava/lang/InterruptedException; {:try_start_4d .. :try_end_52} :catch_25c
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 244
-    :goto_52
+    :goto_1
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mCompleted:Z
 
-    if-eqz v3, :cond_61
+    if-eqz v3, :cond_5
 
     .line 246
     const-string/jumbo v3, "video"
@@ -1601,10 +1601,10 @@
 
     invoke-virtual {v0, v3}, Landroid/filterpacks/videosrc/MediaSource;->closeOutputPort(Ljava/lang/String;)V
 
-    goto :goto_29
+    goto :goto_0
 
     .line 249
-    :cond_61
+    :cond_5
     add-int/lit8 v19, v19, 0x1
 
     .line 250
@@ -1612,7 +1612,7 @@
 
     move/from16 v0, v19
 
-    if-ne v0, v3, :cond_3f
+    if-ne v0, v3, :cond_3
 
     .line 251
     move-object/from16 v0, p0
@@ -1631,12 +1631,12 @@
     throw v3
 
     .line 255
-    :cond_78
+    :cond_6
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v3, :cond_85
+    if-eqz v3, :cond_7
 
     const-string v3, "MediaSource"
 
@@ -1645,7 +1645,7 @@
     invoke-static {v3, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 256
-    :cond_85
+    :cond_7
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mMediaPlayer:Landroid/media/MediaPlayer;
@@ -1654,33 +1654,33 @@
 
     .line 261
     .end local v19           #waitCount:I
-    :cond_8c
+    :cond_8
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mPaused:Z
 
-    if-eqz v3, :cond_98
+    if-eqz v3, :cond_9
 
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mPlaying:Z
 
-    if-nez v3, :cond_108
+    if-nez v3, :cond_10
 
     .line 262
-    :cond_98
+    :cond_9
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mWaitForNewFrame:Z
 
-    if-eqz v3, :cond_fc
+    if-eqz v3, :cond_f
 
     .line 263
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v3, :cond_ab
+    if-eqz v3, :cond_a
 
     const-string v3, "MediaSource"
 
@@ -1689,31 +1689,31 @@
     invoke-static {v3, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 265
-    :cond_ab
+    :cond_a
     const/16 v19, 0x0
 
     .line 266
     .restart local v19       #waitCount:I
-    :goto_ad
+    :goto_2
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mNewFrameAvailable:Z
 
-    if-nez v3, :cond_ea
+    if-nez v3, :cond_e
 
     .line 267
     const/16 v3, 0xa
 
     move/from16 v0, v19
 
-    if-ne v0, v3, :cond_d1
+    if-ne v0, v3, :cond_c
 
     .line 268
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mCompleted:Z
 
-    if-eqz v3, :cond_c9
+    if-eqz v3, :cond_b
 
     .line 270
     const-string/jumbo v3, "video"
@@ -1722,10 +1722,10 @@
 
     invoke-virtual {v0, v3}, Landroid/filterpacks/videosrc/MediaSource;->closeOutputPort(Ljava/lang/String;)V
 
-    goto/16 :goto_29
+    goto/16 :goto_0
 
     .line 273
-    :cond_c9
+    :cond_b
     new-instance v3, Ljava/lang/RuntimeException;
 
     const-string v5, "Timeout waiting for new frame!"
@@ -1735,25 +1735,25 @@
     throw v3
 
     .line 277
-    :cond_d1
+    :cond_c
     const-wide/16 v5, 0x64
 
-    :try_start_d3
+    :try_start_1
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v5, v6}, Ljava/lang/Object;->wait(J)V
-    :try_end_d8
-    .catch Ljava/lang/InterruptedException; {:try_start_d3 .. :try_end_d8} :catch_db
+    :try_end_1
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 282
-    :cond_d8
-    :goto_d8
+    :cond_d
+    :goto_3
     add-int/lit8 v19, v19, 0x1
 
-    goto :goto_ad
+    goto :goto_2
 
     .line 278
-    :catch_db
+    :catch_0
     move-exception v14
 
     .line 279
@@ -1762,7 +1762,7 @@
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v3, :cond_d8
+    if-eqz v3, :cond_d
 
     const-string v3, "MediaSource"
 
@@ -1770,11 +1770,11 @@
 
     invoke-static {v3, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_d8
+    goto :goto_3
 
     .line 284
     .end local v14           #e:Ljava/lang/InterruptedException;
-    :cond_ea
+    :cond_e
     const/4 v3, 0x0
 
     move-object/from16 v0, p0
@@ -1786,7 +1786,7 @@
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v3, :cond_fc
+    if-eqz v3, :cond_f
 
     const-string v3, "MediaSource"
 
@@ -1796,7 +1796,7 @@
 
     .line 288
     .end local v19           #waitCount:I
-    :cond_fc
+    :cond_f
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
@@ -1811,12 +1811,12 @@
     iput-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mOrientationUpdated:Z
 
     .line 291
-    :cond_108
+    :cond_10
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mOrientationUpdated:Z
 
-    if-eqz v3, :cond_1db
+    if-eqz v3, :cond_12
 
     .line 292
     const/16 v3, 0x10
@@ -1842,7 +1842,7 @@
 
     iget v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mOrientation:I
 
-    sparse-switch v3, :sswitch_data_260
+    sparse-switch v3, :sswitch_data_0
 
     .line 299
     const/4 v3, 0x0
@@ -1856,12 +1856,12 @@
     invoke-static/range {v2 .. v7}, Landroid/opengl/Matrix;->multiplyMM([FI[FI[FI)V
 
     .line 319
-    :goto_12c
+    :goto_4
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v3, :cond_1b3
+    if-eqz v3, :cond_11
 
     .line 320
     const-string v3, "MediaSource"
@@ -2007,7 +2007,7 @@
 
     .line 326
     .end local v16           #temp:Ljava/lang/String;
-    :cond_1b3
+    :cond_11
     move-object/from16 v0, p0
 
     iget-object v5, v0, Landroid/filterpacks/videosrc/MediaSource;->mFrameExtractor:Landroid/filterfw/core/ShaderProgram;
@@ -2056,7 +2056,7 @@
     .line 333
     .end local v2           #sourceCoords:[F
     .end local v4           #surfaceTransform:[F
-    :cond_1db
+    :cond_12
     invoke-virtual/range {p1 .. p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v3
@@ -2096,7 +2096,7 @@
 
     iget-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mLogVerbose:Z
 
-    if-eqz v3, :cond_227
+    if-eqz v3, :cond_13
 
     const-string v3, "MediaSource"
 
@@ -2135,7 +2135,7 @@
     invoke-static {v3, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 338
-    :cond_227
+    :cond_13
     move-wide/from16 v0, v17
 
     invoke-virtual {v15, v0, v1}, Landroid/filterfw/core/Frame;->setTimestamp(J)V
@@ -2157,14 +2157,14 @@
 
     iput-boolean v3, v0, Landroid/filterpacks/videosrc/MediaSource;->mPlaying:Z
 
-    goto/16 :goto_29
+    goto/16 :goto_0
 
     .line 304
     .end local v15           #output:Landroid/filterfw/core/Frame;
     .end local v17           #timestamp:J
     .restart local v2       #sourceCoords:[F
     .restart local v4       #surfaceTransform:[F
-    :sswitch_23e
+    :sswitch_0
     const/4 v3, 0x0
 
     const/4 v5, 0x0
@@ -2175,10 +2175,10 @@
 
     invoke-static/range {v2 .. v7}, Landroid/opengl/Matrix;->multiplyMM([FI[FI[FI)V
 
-    goto/16 :goto_12c
+    goto/16 :goto_4
 
     .line 309
-    :sswitch_248
+    :sswitch_1
     const/4 v3, 0x0
 
     const/4 v5, 0x0
@@ -2189,10 +2189,10 @@
 
     invoke-static/range {v2 .. v7}, Landroid/opengl/Matrix;->multiplyMM([FI[FI[FI)V
 
-    goto/16 :goto_12c
+    goto/16 :goto_4
 
     .line 314
-    :sswitch_252
+    :sswitch_2
     const/4 v3, 0x0
 
     const/4 v5, 0x0
@@ -2203,30 +2203,30 @@
 
     invoke-static/range {v2 .. v7}, Landroid/opengl/Matrix;->multiplyMM([FI[FI[FI)V
 
-    goto/16 :goto_12c
+    goto/16 :goto_4
 
     .line 241
     .end local v2           #sourceCoords:[F
     .end local v4           #surfaceTransform:[F
     .restart local v19       #waitCount:I
-    :catch_25c
+    :catch_1
     move-exception v3
 
-    goto/16 :goto_52
+    goto/16 :goto_1
 
     .line 296
     nop
 
-    :sswitch_data_260
+    :sswitch_data_0
     .sparse-switch
-        0x5a -> :sswitch_23e
-        0xb4 -> :sswitch_248
-        0x10e -> :sswitch_252
+        0x5a -> :sswitch_0
+        0xb4 -> :sswitch_1
+        0x10e -> :sswitch_2
     .end sparse-switch
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x3
@@ -2245,14 +2245,14 @@
 .end method
 
 .method public tearDown(Landroid/filterfw/core/FilterContext;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
     .line 367
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaFrame:Landroid/filterfw/core/GLFrame;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 368
     iget-object v0, p0, Landroid/filterpacks/videosrc/MediaSource;->mMediaFrame:Landroid/filterfw/core/GLFrame;
@@ -2260,6 +2260,6 @@
     invoke-virtual {v0}, Landroid/filterfw/core/GLFrame;->release()Landroid/filterfw/core/Frame;
 
     .line 370
-    :cond_9
+    :cond_0
     return-void
 .end method

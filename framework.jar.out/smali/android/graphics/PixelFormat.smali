@@ -77,7 +77,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 90
@@ -87,7 +87,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 19
@@ -97,45 +97,45 @@
 .end method
 
 .method public static formatHasAlpha(I)Z
-    .registers 2
+    .locals 1
     .parameter "format"
 
     .prologue
     .line 94
-    packed-switch p0, :pswitch_data_8
+    packed-switch p0, :pswitch_data_0
 
     .line 104
-    :pswitch_3
+    :pswitch_0
     const/4 v0, 0x0
 
-    :goto_4
+    :goto_0
     return v0
 
     .line 102
-    :pswitch_5
+    :pswitch_1
     const/4 v0, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 94
     nop
 
-    :pswitch_data_8
+    :pswitch_data_0
     .packed-switch -0x3
-        :pswitch_5
-        :pswitch_5
-        :pswitch_3
-        :pswitch_3
-        :pswitch_5
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_5
-        :pswitch_5
-        :pswitch_5
-        :pswitch_3
-        :pswitch_5
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 

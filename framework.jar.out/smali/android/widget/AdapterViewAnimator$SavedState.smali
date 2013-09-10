@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 801
@@ -47,7 +47,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -66,7 +66,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/widget/AdapterViewAnimator$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -78,7 +78,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcelable;I)V
-    .registers 3
+    .locals 0
     .parameter "superState"
     .parameter "whichChild"
 
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 798
@@ -130,7 +130,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 

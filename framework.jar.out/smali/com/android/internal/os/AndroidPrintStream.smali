@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "priority"
     .parameter "tag"
 
@@ -20,7 +20,7 @@
     invoke-direct {p0}, Lcom/android/internal/os/LoggingPrintStream;-><init>()V
 
     .line 38
-    if-nez p2, :cond_e
+    if-nez p2, :cond_0
 
     .line 39
     new-instance v0, Ljava/lang/NullPointerException;
@@ -32,7 +32,7 @@
     throw v0
 
     .line 42
-    :cond_e
+    :cond_0
     iput p1, p0, Lcom/android/internal/os/AndroidPrintStream;->priority:I
 
     .line 43
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method protected log(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "line"
 
     .prologue

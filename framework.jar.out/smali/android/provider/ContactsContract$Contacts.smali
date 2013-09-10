@@ -61,7 +61,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 1410
@@ -167,7 +167,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1405
@@ -177,7 +177,7 @@
 .end method
 
 .method public static getLookupUri(JLjava/lang/String;)Landroid/net/Uri;
-    .registers 4
+    .locals 1
     .parameter "contactId"
     .parameter "lookupKey"
 
@@ -197,7 +197,7 @@
 .end method
 
 .method public static getLookupUri(Landroid/content/ContentResolver;Landroid/net/Uri;)Landroid/net/Uri;
-    .registers 12
+    .locals 10
     .parameter "resolver"
     .parameter "contactUri"
 
@@ -235,20 +235,20 @@
 
     .line 1481
     .local v6, c:Landroid/database/Cursor;
-    if-nez v6, :cond_19
+    if-nez v6, :cond_0
 
     .line 1494
-    :goto_18
+    :goto_0
     return-object v3
 
     .line 1486
-    :cond_19
-    :try_start_19
+    :cond_0
+    :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
-    if-eqz v0, :cond_31
+    if-eqz v0, :cond_1
 
     .line 1487
     const/4 v0, 0x0
@@ -268,24 +268,24 @@
     .line 1489
     .local v7, contactId:J
     invoke-static {v7, v8, v9}, Landroid/provider/ContactsContract$Contacts;->getLookupUri(JLjava/lang/String;)Landroid/net/Uri;
-    :try_end_2c
-    .catchall {:try_start_19 .. :try_end_2c} :catchall_35
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v3
 
     .line 1492
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    goto :goto_18
+    goto :goto_0
 
     .end local v7           #contactId:J
     .end local v9           #lookupKey:Ljava/lang/String;
-    :cond_31
+    :cond_1
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    goto :goto_18
+    goto :goto_0
 
-    :catchall_35
+    :catchall_0
     move-exception v0
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
@@ -294,7 +294,7 @@
 .end method
 
 .method public static lookupContact(Landroid/content/ContentResolver;Landroid/net/Uri;)Landroid/net/Uri;
-    .registers 11
+    .locals 9
     .parameter "resolver"
     .parameter "lookupUri"
 
@@ -304,15 +304,15 @@
     const/4 v3, 0x0
 
     .line 1512
-    if-nez p1, :cond_5
+    if-nez p1, :cond_1
 
     .line 1529
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-object v3
 
     .line 1516
-    :cond_5
+    :cond_1
     const/4 v0, 0x1
 
     new-array v2, v0, [Ljava/lang/String;
@@ -335,15 +335,15 @@
 
     .line 1517
     .local v6, c:Landroid/database/Cursor;
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_0
 
     .line 1522
-    :try_start_16
+    :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_2
 
     .line 1523
     const/4 v0, 0x0
@@ -357,23 +357,23 @@
     sget-object v0, Landroid/provider/ContactsContract$Contacts;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {v0, v7, v8}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;
-    :try_end_26
-    .catchall {:try_start_16 .. :try_end_26} :catchall_2f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v3
 
     .line 1527
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    goto :goto_4
+    goto :goto_0
 
     .end local v7           #contactId:J
-    :cond_2b
+    :cond_2
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    goto :goto_4
+    goto :goto_0
 
-    :catchall_2f
+    :catchall_0
     move-exception v0
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
@@ -382,7 +382,7 @@
 .end method
 
 .method public static markAsContacted(Landroid/content/ContentResolver;J)V
-    .registers 9
+    .locals 6
     .parameter "resolver"
     .parameter "contactId"
     .annotation runtime Ljava/lang/Deprecated;
@@ -426,7 +426,7 @@
 .end method
 
 .method public static openContactPhotoInputStream(Landroid/content/ContentResolver;Landroid/net/Uri;)Ljava/io/InputStream;
-    .registers 3
+    .locals 1
     .parameter "cr"
     .parameter "contactUri"
 
@@ -442,7 +442,7 @@
 .end method
 
 .method public static openContactPhotoInputStream(Landroid/content/ContentResolver;Landroid/net/Uri;Z)Ljava/io/InputStream;
-    .registers 13
+    .locals 10
     .parameter "cr"
     .parameter "contactUri"
     .parameter "preferHighres"
@@ -453,7 +453,7 @@
     const/4 v3, 0x0
 
     .line 1957
-    if-eqz p2, :cond_17
+    if-eqz p2, :cond_1
 
     .line 1958
     const-string v0, "display_photo"
@@ -464,7 +464,7 @@
 
     .line 1962
     .local v8, displayPhotoUri:Landroid/net/Uri;
-    :try_start_a
+    :try_start_0
     const-string/jumbo v0, "r"
 
     invoke-virtual {p0, v8, v0}, Landroid/content/ContentResolver;->openAssetFileDescriptor(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/res/AssetFileDescriptor;
@@ -474,26 +474,26 @@
     .line 1963
     .local v9, fd:Landroid/content/res/AssetFileDescriptor;
     invoke-virtual {v9}, Landroid/content/res/AssetFileDescriptor;->createInputStream()Ljava/io/FileInputStream;
-    :try_end_14
-    .catch Ljava/io/IOException; {:try_start_a .. :try_end_14} :catch_16
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v3
 
     .line 1988
     .end local v8           #displayPhotoUri:Landroid/net/Uri;
     .end local v9           #fd:Landroid/content/res/AssetFileDescriptor;
-    :cond_15
-    :goto_15
+    :cond_0
+    :goto_0
     return-object v3
 
     .line 1964
     .restart local v8       #displayPhotoUri:Landroid/net/Uri;
-    :catch_16
+    :catch_0
     move-exception v0
 
     .line 1969
     .end local v8           #displayPhotoUri:Landroid/net/Uri;
-    :cond_17
+    :cond_1
     const-string/jumbo v0, "photo"
 
     invoke-static {p1, v0}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
@@ -502,7 +502,7 @@
 
     .line 1970
     .local v1, photoUri:Landroid/net/Uri;
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_0
 
     .line 1973
     const/4 v0, 0x1
@@ -525,76 +525,76 @@
 
     .line 1978
     .local v6, cursor:Landroid/database/Cursor;
-    if-eqz v6, :cond_36
+    if-eqz v6, :cond_2
 
-    :try_start_30
+    :try_start_1
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
-    :try_end_33
-    .catchall {:try_start_30 .. :try_end_33} :catchall_54
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result v0
 
-    if-nez v0, :cond_3c
+    if-nez v0, :cond_3
 
     .line 1987
-    :cond_36
-    if-eqz v6, :cond_15
+    :cond_2
+    if-eqz v6, :cond_0
 
     .line 1988
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    goto :goto_15
+    goto :goto_0
 
     .line 1981
-    :cond_3c
+    :cond_3
     const/4 v0, 0x0
 
-    :try_start_3d
+    :try_start_2
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getBlob(I)[B
-    :try_end_40
-    .catchall {:try_start_3d .. :try_end_40} :catchall_54
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     move-result-object v7
 
     .line 1982
     .local v7, data:[B
-    if-nez v7, :cond_49
+    if-nez v7, :cond_4
 
     .line 1987
-    if-eqz v6, :cond_15
+    if-eqz v6, :cond_0
 
     .line 1988
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    goto :goto_15
+    goto :goto_0
 
     .line 1985
-    :cond_49
-    :try_start_49
+    :cond_4
+    :try_start_3
     new-instance v3, Ljava/io/ByteArrayInputStream;
 
     invoke-direct {v3, v7}, Ljava/io/ByteArrayInputStream;-><init>([B)V
-    :try_end_4e
-    .catchall {:try_start_49 .. :try_end_4e} :catchall_54
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 1987
-    if-eqz v6, :cond_15
+    if-eqz v6, :cond_0
 
     .line 1988
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    goto :goto_15
+    goto :goto_0
 
     .line 1987
     .end local v7           #data:[B
-    :catchall_54
+    :catchall_0
     move-exception v0
 
-    if-eqz v6, :cond_5a
+    if-eqz v6, :cond_5
 
     .line 1988
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_5a
+    :cond_5
     throw v0
 .end method

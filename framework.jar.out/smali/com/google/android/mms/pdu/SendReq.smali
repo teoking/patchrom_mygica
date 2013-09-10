@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 28
@@ -18,7 +18,7 @@
     .line 31
     const/16 v1, 0x80
 
-    :try_start_5
+    :try_start_0
     invoke-virtual {p0, v1}, Lcom/google/android/mms/pdu/SendReq;->setMessageType(I)V
 
     .line 32
@@ -54,14 +54,14 @@
     move-result-object v1
 
     invoke-virtual {p0, v1}, Lcom/google/android/mms/pdu/SendReq;->setTransactionId([B)V
-    :try_end_2b
-    .catch Lcom/google/android/mms/InvalidHeaderValueException; {:try_start_5 .. :try_end_2b} :catch_2c
+    :try_end_0
+    .catch Lcom/google/android/mms/InvalidHeaderValueException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 43
     return-void
 
     .line 38
-    :catch_2c
+    :catch_0
     move-exception v0
 
     .line 40
@@ -81,7 +81,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/android/mms/pdu/PduHeaders;)V
-    .registers 2
+    .locals 0
     .parameter "headers"
 
     .prologue
@@ -93,7 +93,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/android/mms/pdu/PduHeaders;Lcom/google/android/mms/pdu/PduBody;)V
-    .registers 3
+    .locals 0
     .parameter "headers"
     .parameter "body"
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public constructor <init>([BLcom/google/android/mms/pdu/EncodedStringValue;I[B)V
-    .registers 6
+    .locals 1
     .parameter "contentType"
     .parameter "from"
     .parameter "mmsVersion"
@@ -143,7 +143,7 @@
 .end method
 
 .method private generateTransactionId()[B
-    .registers 5
+    .locals 4
 
     .prologue
     .line 46
@@ -185,7 +185,7 @@
 
 # virtual methods
 .method public addBcc(Lcom/google/android/mms/pdu/EncodedStringValue;)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -201,7 +201,7 @@
 .end method
 
 .method public addCc(Lcom/google/android/mms/pdu/EncodedStringValue;)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -217,7 +217,7 @@
 .end method
 
 .method public getBcc()[Lcom/google/android/mms/pdu/EncodedStringValue;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 97
@@ -233,7 +233,7 @@
 .end method
 
 .method public getCc()[Lcom/google/android/mms/pdu/EncodedStringValue;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 126
@@ -249,7 +249,7 @@
 .end method
 
 .method public getContentType()[B
-    .registers 3
+    .locals 2
 
     .prologue
     .line 155
@@ -265,7 +265,7 @@
 .end method
 
 .method public getDeliveryReport()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 174
@@ -281,7 +281,7 @@
 .end method
 
 .method public getExpiry()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 196
@@ -297,7 +297,7 @@
 .end method
 
 .method public getMessageClass()[B
-    .registers 3
+    .locals 2
 
     .prologue
     .line 236
@@ -313,7 +313,7 @@
 .end method
 
 .method public getMessageSize()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 216
@@ -329,7 +329,7 @@
 .end method
 
 .method public getReadReport()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 255
@@ -345,7 +345,7 @@
 .end method
 
 .method public getTransactionId()[B
-    .registers 3
+    .locals 2
 
     .prologue
     .line 284
@@ -361,7 +361,7 @@
 .end method
 
 .method public setBcc([Lcom/google/android/mms/pdu/EncodedStringValue;)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -377,7 +377,7 @@
 .end method
 
 .method public setCc([Lcom/google/android/mms/pdu/EncodedStringValue;)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -393,7 +393,7 @@
 .end method
 
 .method public setContentType([B)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -409,7 +409,7 @@
 .end method
 
 .method public setDeliveryReport(I)V
-    .registers 4
+    .locals 2
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -430,7 +430,7 @@
 .end method
 
 .method public setExpiry(J)V
-    .registers 5
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -446,7 +446,7 @@
 .end method
 
 .method public setMessageClass([B)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -462,7 +462,7 @@
 .end method
 
 .method public setMessageSize(J)V
-    .registers 5
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -478,7 +478,7 @@
 .end method
 
 .method public setReadReport(I)V
-    .registers 4
+    .locals 2
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -499,7 +499,7 @@
 .end method
 
 .method public setTo([Lcom/google/android/mms/pdu/EncodedStringValue;)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -515,7 +515,7 @@
 .end method
 
 .method public setTransactionId([B)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue

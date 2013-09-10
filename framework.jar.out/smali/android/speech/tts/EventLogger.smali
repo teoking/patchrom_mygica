@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/speech/tts/SynthesisRequest;IILjava/lang/String;)V
-    .registers 8
+    .locals 3
     .parameter "request"
     .parameter "callerUid"
     .parameter "callerPid"
@@ -90,7 +90,7 @@
 .end method
 
 .method private getLocaleString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     const/16 v2, 0x2d
@@ -118,7 +118,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3d
+    if-nez v1, :cond_0
 
     .line 166
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -143,7 +143,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3d
+    if-nez v1, :cond_0
 
     .line 170
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -158,7 +158,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 175
-    :cond_3d
+    :cond_0
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -167,7 +167,7 @@
 .end method
 
 .method private getUtteranceLength()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 155
@@ -179,25 +179,25 @@
 
     .line 156
     .local v0, utterance:Ljava/lang/String;
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     const/4 v1, 0x0
 
-    :goto_9
+    :goto_0
     return v1
 
-    :cond_a
+    :cond_0
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public onAudioDataWritten()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 91
@@ -207,7 +207,7 @@
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 92
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -217,12 +217,12 @@
     iput-wide v0, p0, Landroid/speech/tts/EventLogger;->mPlaybackStartTime:J
 
     .line 94
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public onEngineComplete()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 79
@@ -237,7 +237,7 @@
 .end method
 
 .method public onEngineDataReceived()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 69
@@ -247,7 +247,7 @@
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 70
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -257,12 +257,12 @@
     iput-wide v0, p0, Landroid/speech/tts/EventLogger;->mEngineStartTime:J
 
     .line 72
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public onError()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 109
@@ -275,7 +275,7 @@
 .end method
 
 .method public onRequestProcessingStart()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 61
@@ -290,7 +290,7 @@
 .end method
 
 .method public onStopped()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 101
@@ -303,7 +303,7 @@
 .end method
 
 .method public onWriteData()V
-    .registers 16
+    .locals 15
 
     .prologue
     const-wide/16 v2, -0x1
@@ -311,15 +311,15 @@
     .line 117
     iget-boolean v0, p0, Landroid/speech/tts/EventLogger;->mLogWritten:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_1
 
     .line 148
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return-void
 
     .line 120
-    :cond_7
+    :cond_1
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/speech/tts/EventLogger;->mLogWritten:Z
@@ -333,22 +333,22 @@
     .local v13, completionTime:J
     iget-boolean v0, p0, Landroid/speech/tts/EventLogger;->mError:Z
 
-    if-nez v0, :cond_1e
+    if-nez v0, :cond_2
 
     iget-wide v0, p0, Landroid/speech/tts/EventLogger;->mPlaybackStartTime:J
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_2
 
     iget-wide v0, p0, Landroid/speech/tts/EventLogger;->mEngineCompleteTime:J
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_3c
+    if-nez v0, :cond_3
 
     .line 127
-    :cond_1e
+    :cond_2
     iget-object v0, p0, Landroid/speech/tts/EventLogger;->mServiceApp:Ljava/lang/String;
 
     iget v1, p0, Landroid/speech/tts/EventLogger;->mCallerUid:I
@@ -377,13 +377,13 @@
 
     invoke-static/range {v0 .. v6}, Landroid/speech/tts/EventLogTags;->writeTtsSpeakFailure(Ljava/lang/String;IIILjava/lang/String;II)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 136
-    :cond_3c
+    :cond_3
     iget-boolean v0, p0, Landroid/speech/tts/EventLogger;->mStopped:Z
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     .line 140
     iget-wide v0, p0, Landroid/speech/tts/EventLogger;->mPlaybackStartTime:J
@@ -438,5 +438,5 @@
 
     invoke-static/range {v0 .. v12}, Landroid/speech/tts/EventLogTags;->writeTtsSpeakSuccess(Ljava/lang/String;IIILjava/lang/String;IIJJJ)V
 
-    goto :goto_6
+    goto :goto_0
 .end method

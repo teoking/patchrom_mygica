@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -23,7 +23,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 4
+    .locals 0
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public isEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 62
@@ -64,14 +64,14 @@
 .end method
 
 .method protected onPrepareAddPreference(Landroid/preference/Preference;)Z
-    .registers 4
+    .locals 2
     .parameter "preference"
 
     .prologue
     .line 52
     instance-of v0, p1, Landroid/preference/PreferenceCategory;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 53
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -83,7 +83,7 @@
     throw v0
 
     .line 57
-    :cond_c
+    :cond_0
     invoke-super {p0, p1}, Landroid/preference/PreferenceGroup;->onPrepareAddPreference(Landroid/preference/Preference;)Z
 
     move-result v0

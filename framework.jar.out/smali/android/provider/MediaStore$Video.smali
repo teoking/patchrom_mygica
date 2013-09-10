@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1766
@@ -39,7 +39,7 @@
 .end method
 
 .method public static final query(Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 9
+    .locals 6
     .parameter "cr"
     .parameter "uri"
     .parameter "projection"

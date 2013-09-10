@@ -113,7 +113,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 299
@@ -127,7 +127,7 @@
 .end method
 
 .method public constructor <init>(IIIIII)V
-    .registers 7
+    .locals 0
     .parameter "messageClass"
     .parameter "category"
     .parameter "responseType"
@@ -162,7 +162,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -218,7 +218,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 294
@@ -228,7 +228,7 @@
 .end method
 
 .method public getCategory()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 246
@@ -238,7 +238,7 @@
 .end method
 
 .method public getCertainty()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 278
@@ -248,7 +248,7 @@
 .end method
 
 .method public getMessageClass()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 238
@@ -258,7 +258,7 @@
 .end method
 
 .method public getResponseType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 254
@@ -268,7 +268,7 @@
 .end method
 
 .method public getSeverity()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 262
@@ -278,7 +278,7 @@
 .end method
 
 .method public getUrgency()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 270
@@ -288,7 +288,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 283
@@ -382,7 +382,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

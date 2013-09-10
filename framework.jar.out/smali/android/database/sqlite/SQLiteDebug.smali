@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     const/4 v1, 0x2
@@ -65,7 +65,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 65
@@ -76,7 +76,7 @@
 .end method
 
 .method public static dump(Landroid/util/Printer;[Ljava/lang/String;)V
-    .registers 8
+    .locals 6
     .parameter "printer"
     .parameter "args"
 
@@ -95,8 +95,8 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_4
-    if-ge v2, v3, :cond_14
+    :goto_0
+    if-ge v2, v3, :cond_1
 
     aget-object v0, v1, v2
 
@@ -108,20 +108,20 @@
 
     move-result v5
 
-    if-eqz v5, :cond_11
+    if-eqz v5, :cond_0
 
     .line 166
     const/4 v4, 0x1
 
     .line 164
-    :cond_11
+    :cond_0
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 170
     .end local v0           #arg:Ljava/lang/String;
-    :cond_14
+    :cond_1
     invoke-static {p0, v4}, Landroid/database/sqlite/SQLiteDatabase;->dumpAll(Landroid/util/Printer;Z)V
 
     .line 171
@@ -129,7 +129,7 @@
 .end method
 
 .method public static getDatabaseInfo()Landroid/database/sqlite/SQLiteDebug$PagerStats;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 151
@@ -156,7 +156,7 @@
 .end method
 
 .method public static final shouldLogSlowQuery(J)Z
-    .registers 5
+    .locals 3
     .parameter "elapsedTimeMillis"
 
     .prologue
@@ -171,21 +171,21 @@
 
     .line 83
     .local v0, slowQueryMillis:I
-    if-ltz v0, :cond_10
+    if-ltz v0, :cond_0
 
     int-to-long v1, v0
 
     cmp-long v1, p0, v1
 
-    if-ltz v1, :cond_10
+    if-ltz v1, :cond_0
 
     const/4 v1, 0x1
 
-    :goto_f
+    :goto_0
     return v1
 
-    :cond_10
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method

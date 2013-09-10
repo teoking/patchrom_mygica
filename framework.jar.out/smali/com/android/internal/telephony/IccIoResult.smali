@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(IILjava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter "sw1"
     .parameter "sw2"
     .parameter "hexString"
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>(II[B)V
-    .registers 4
+    .locals 0
     .parameter "sw1"
     .parameter "sw2"
     .parameter "payload"
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public getException()Lcom/android/internal/telephony/IccException;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 57
@@ -64,19 +64,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x0
 
     .line 67
-    :goto_7
+    :goto_0
     return-object v0
 
     .line 59
-    :cond_8
+    :cond_0
     iget v0, p0, Lcom/android/internal/telephony/IccIoResult;->sw1:I
 
-    packed-switch v0, :pswitch_data_48
+    packed-switch v0, :pswitch_data_0
 
     .line 67
     new-instance v0, Lcom/android/internal/telephony/IccException;
@@ -115,42 +115,42 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/IccException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_7
+    goto :goto_0
 
     .line 61
-    :pswitch_35
+    :pswitch_0
     iget v0, p0, Lcom/android/internal/telephony/IccIoResult;->sw2:I
 
     const/16 v1, 0x8
 
-    if-ne v0, v1, :cond_41
+    if-ne v0, v1, :cond_1
 
     .line 62
     new-instance v0, Lcom/android/internal/telephony/IccFileTypeMismatch;
 
     invoke-direct {v0}, Lcom/android/internal/telephony/IccFileTypeMismatch;-><init>()V
 
-    goto :goto_7
+    goto :goto_0
 
     .line 64
-    :cond_41
+    :cond_1
     new-instance v0, Lcom/android/internal/telephony/IccFileNotFound;
 
     invoke-direct {v0}, Lcom/android/internal/telephony/IccFileNotFound;-><init>()V
 
-    goto :goto_7
+    goto :goto_0
 
     .line 59
     nop
 
-    :pswitch_data_48
+    :pswitch_data_0
     .packed-switch 0x94
-        :pswitch_35
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public success()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 50
@@ -158,40 +158,40 @@
 
     const/16 v1, 0x90
 
-    if-eq v0, v1, :cond_18
+    if-eq v0, v1, :cond_0
 
     iget v0, p0, Lcom/android/internal/telephony/IccIoResult;->sw1:I
 
     const/16 v1, 0x91
 
-    if-eq v0, v1, :cond_18
+    if-eq v0, v1, :cond_0
 
     iget v0, p0, Lcom/android/internal/telephony/IccIoResult;->sw1:I
 
     const/16 v1, 0x9e
 
-    if-eq v0, v1, :cond_18
+    if-eq v0, v1, :cond_0
 
     iget v0, p0, Lcom/android/internal/telephony/IccIoResult;->sw1:I
 
     const/16 v1, 0x9f
 
-    if-ne v0, v1, :cond_1a
+    if-ne v0, v1, :cond_1
 
-    :cond_18
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_19
+    :goto_0
     return v0
 
-    :cond_1a
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 40

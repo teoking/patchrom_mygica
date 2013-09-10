@@ -24,7 +24,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/android/internal/policy/impl/SimPukUnlockScreen;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "puk"
     .parameter "pin"
@@ -51,7 +51,7 @@
 .end method
 
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 163
@@ -83,16 +83,16 @@
     invoke-direct {v3, p0, v1}, Lcom/android/internal/policy/impl/SimPukUnlockScreen$CheckSimPuk$1;-><init>(Lcom/android/internal/policy/impl/SimPukUnlockScreen$CheckSimPuk;Z)V
 
     invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->post(Ljava/lang/Runnable;)Z
-    :try_end_1c
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_1c} :catch_1d
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 178
     .end local v1           #result:Z
-    :goto_1c
+    :goto_0
     return-void
 
     .line 171
-    :catch_1d
+    :catch_0
     move-exception v0
 
     .line 172
@@ -105,5 +105,5 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/SimPukUnlockScreen;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_1c
+    goto :goto_0
 .end method

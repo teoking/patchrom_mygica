@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 660
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "inName"
     .parameter "inType"
 
@@ -67,7 +67,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 668
     const/4 v0, 0x1
@@ -75,22 +75,22 @@
     iput v0, p0, Lcom/android/server/AlarmManagerService$AppBlacklistItem;->type:I
 
     .line 671
-    :goto_10
+    :goto_0
     return-void
 
     .line 670
-    :cond_11
+    :cond_0
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/AlarmManagerService$AppBlacklistItem;->type:I
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public dump(Ljava/io/PrintWriter;)V
-    .registers 3
+    .locals 1
     .parameter "pw"
 
     .prologue
@@ -102,7 +102,7 @@
     .line 689
     iget v0, p0, Lcom/android/server/AlarmManagerService$AppBlacklistItem;->type:I
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_0
 
     .line 690
     const-string v0, " REPLACE"
@@ -110,7 +110,7 @@
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 693
-    :goto_e
+    :goto_0
     const-string v0, " name="
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -123,16 +123,16 @@
     return-void
 
     .line 692
-    :cond_19
+    :cond_0
     const-string v0, " REMOVE"
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 676

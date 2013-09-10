@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/CursorTreeAdapter$MyCursorHelper;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/CursorTreeAdapter$MyCursorHelper;Landroid/widget/CursorTreeAdapter$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 511
@@ -55,6 +55,7 @@
 
     const/4 v1, 0x1
 
+    #setter for: Landroid/widget/CursorTreeAdapter$MyCursorHelper;->mDataValid:Z
     invoke-static {v0, v1}, Landroid/widget/CursorTreeAdapter$MyCursorHelper;->access$402(Landroid/widget/CursorTreeAdapter$MyCursorHelper;Z)Z
 
     .line 512
@@ -69,7 +70,7 @@
 .end method
 
 .method public onInvalidated()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 517
@@ -77,6 +78,7 @@
 
     const/4 v1, 0x0
 
+    #setter for: Landroid/widget/CursorTreeAdapter$MyCursorHelper;->mDataValid:Z
     invoke-static {v0, v1}, Landroid/widget/CursorTreeAdapter$MyCursorHelper;->access$402(Landroid/widget/CursorTreeAdapter$MyCursorHelper;Z)Z
 
     .line 518

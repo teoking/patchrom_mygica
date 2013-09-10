@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 309
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/view/PointerIcon;
-    .registers 9
+    .locals 7
     .parameter "in"
 
     .prologue
@@ -52,7 +52,7 @@
 
     .line 312
     .local v4, style:I
-    if-nez v4, :cond_b
+    if-nez v4, :cond_0
 
     .line 313
     invoke-static {}, Landroid/view/PointerIcon;->getNullIcon()Landroid/view/PointerIcon;
@@ -60,18 +60,18 @@
     move-result-object v3
 
     .line 326
-    :goto_a
+    :goto_0
     return-object v3
 
     .line 316
-    :cond_b
+    :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
     .line 317
     .local v5, systemIconResourceId:I
-    if-eqz v5, :cond_1b
+    if-eqz v5, :cond_1
 
     .line 318
     new-instance v3, Landroid/view/PointerIcon;
@@ -82,13 +82,14 @@
 
     .line 319
     .local v3, icon:Landroid/view/PointerIcon;
+    #setter for: Landroid/view/PointerIcon;->mSystemIconResourceId:I
     invoke-static {v3, v5}, Landroid/view/PointerIcon;->access$102(Landroid/view/PointerIcon;I)I
 
-    goto :goto_a
+    goto :goto_0
 
     .line 323
     .end local v3           #icon:Landroid/view/PointerIcon;
-    :cond_1b
+    :cond_1
     sget-object v6, Landroid/graphics/Bitmap;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v6, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -115,11 +116,11 @@
 
     move-result-object v3
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -132,7 +133,7 @@
 .end method
 
 .method public newArray(I)[Landroid/view/PointerIcon;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -143,7 +144,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

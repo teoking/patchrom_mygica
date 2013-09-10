@@ -33,7 +33,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 99
@@ -44,114 +44,114 @@
 .end method
 
 .method public static toString(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "errorCode"
 
     .prologue
     .line 67
-    packed-switch p0, :pswitch_data_2e
+    packed-switch p0, :pswitch_data_0
 
     .line 95
     const-string v0, "UNKNOWN"
 
-    :goto_5
+    :goto_0
     return-object v0
 
     .line 69
-    :pswitch_6
+    :pswitch_0
     const-string v0, "NO_ERROR"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 71
-    :pswitch_9
+    :pswitch_1
     const-string v0, "SOCKET_ERROR"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 73
-    :pswitch_c
+    :pswitch_2
     const-string v0, "SERVER_ERROR"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 75
-    :pswitch_f
+    :pswitch_3
     const-string v0, "TRANSACTION_TERMINTED"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 77
-    :pswitch_12
+    :pswitch_4
     const-string v0, "CLIENT_ERROR"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 79
-    :pswitch_15
+    :pswitch_5
     const-string v0, "TIME_OUT"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 81
-    :pswitch_18
+    :pswitch_6
     const-string v0, "INVALID_REMOTE_URI"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 83
-    :pswitch_1b
+    :pswitch_7
     const-string v0, "PEER_NOT_REACHABLE"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 85
-    :pswitch_1e
+    :pswitch_8
     const-string v0, "INVALID_CREDENTIALS"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 87
-    :pswitch_21
+    :pswitch_9
     const-string v0, "IN_PROGRESS"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 89
-    :pswitch_24
+    :pswitch_a
     const-string v0, "DATA_CONNECTION_LOST"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 91
-    :pswitch_27
+    :pswitch_b
     const-string v0, "CROSS_DOMAIN_AUTHENTICATION"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 93
-    :pswitch_2a
+    :pswitch_c
     const-string v0, "SERVER_UNREACHABLE"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 67
     nop
 
-    :pswitch_data_2e
+    :pswitch_data_0
     .packed-switch -0xc
-        :pswitch_2a
-        :pswitch_27
-        :pswitch_24
-        :pswitch_21
-        :pswitch_1e
-        :pswitch_1b
-        :pswitch_18
-        :pswitch_15
-        :pswitch_12
-        :pswitch_f
         :pswitch_c
+        :pswitch_b
+        :pswitch_a
         :pswitch_9
+        :pswitch_8
+        :pswitch_7
         :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method

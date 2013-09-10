@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(IIIZZZII)V
-    .registers 9
+    .locals 0
     .parameter "startChar"
     .parameter "endChar"
     .parameter "fontId"

@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "name"
 
     .prologue
@@ -60,7 +60,7 @@
 .end method
 
 .method private updateParameters()V
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v5, 0x0
@@ -72,40 +72,40 @@
     .line 112
     iget-boolean v7, p0, Landroid/filterpacks/imageproc/FlipFilter;->mHorizontal:Z
 
-    if-eqz v7, :cond_21
+    if-eqz v7, :cond_0
 
     move v2, v4
 
     .line 113
     .local v2, x_origin:F
-    :goto_a
+    :goto_0
     iget-boolean v7, p0, Landroid/filterpacks/imageproc/FlipFilter;->mVertical:Z
 
-    if-eqz v7, :cond_23
+    if-eqz v7, :cond_1
 
     move v3, v4
 
     .line 115
     .local v3, y_origin:F
-    :goto_f
+    :goto_1
     iget-boolean v5, p0, Landroid/filterpacks/imageproc/FlipFilter;->mHorizontal:Z
 
-    if-eqz v5, :cond_25
+    if-eqz v5, :cond_2
 
     move v1, v6
 
     .line 116
     .local v1, width:F
-    :goto_14
+    :goto_2
     iget-boolean v5, p0, Landroid/filterpacks/imageproc/FlipFilter;->mVertical:Z
 
-    if-eqz v5, :cond_27
+    if-eqz v5, :cond_3
 
     move v0, v6
 
     .line 118
     .local v0, height:F
-    :goto_19
+    :goto_3
     iget-object v4, p0, Landroid/filterpacks/imageproc/FlipFilter;->mProgram:Landroid/filterfw/core/Program;
 
     check-cast v4, Landroid/filterfw/core/ShaderProgram;
@@ -119,38 +119,38 @@
     .end local v1           #width:F
     .end local v2           #x_origin:F
     .end local v3           #y_origin:F
-    :cond_21
+    :cond_0
     move v2, v5
 
     .line 112
-    goto :goto_a
+    goto :goto_0
 
     .restart local v2       #x_origin:F
-    :cond_23
+    :cond_1
     move v3, v5
 
     .line 113
-    goto :goto_f
+    goto :goto_1
 
     .restart local v3       #y_origin:F
-    :cond_25
+    :cond_2
     move v1, v4
 
     .line 115
-    goto :goto_14
+    goto :goto_2
 
     .restart local v1       #width:F
-    :cond_27
+    :cond_3
     move v0, v4
 
     .line 116
-    goto :goto_19
+    goto :goto_3
 .end method
 
 
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "context"
 
@@ -158,18 +158,18 @@
     .line 82
     iget-object v0, p0, Landroid/filterpacks/imageproc/FlipFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 83
     invoke-direct {p0}, Landroid/filterpacks/imageproc/FlipFilter;->updateParameters()V
 
     .line 85
-    :cond_7
+    :cond_0
     return-void
 .end method
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -179,13 +179,13 @@
 .end method
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "target"
 
     .prologue
     .line 65
-    packed-switch p2, :pswitch_data_34
+    packed-switch p2, :pswitch_data_0
 
     .line 73
     new-instance v1, Ljava/lang/RuntimeException;
@@ -219,7 +219,7 @@
     throw v1
 
     .line 67
-    :pswitch_22
+    :pswitch_0
     invoke-static {p1}, Landroid/filterfw/core/ShaderProgram;->createIdentity(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/ShaderProgram;
 
     move-result-object v0
@@ -245,14 +245,14 @@
     .line 65
     nop
 
-    :pswitch_data_34
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_22
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -273,7 +273,7 @@
     .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
     iget-object v3, p0, Landroid/filterpacks/imageproc/FlipFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v3, :cond_16
+    if-eqz v3, :cond_0
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
@@ -281,10 +281,10 @@
 
     iget v4, p0, Landroid/filterpacks/imageproc/FlipFilter;->mTarget:I
 
-    if-eq v3, v4, :cond_1d
+    if-eq v3, v4, :cond_1
 
     .line 95
-    :cond_16
+    :cond_0
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
     move-result v3
@@ -292,7 +292,7 @@
     invoke-virtual {p0, p1, v3}, Landroid/filterpacks/imageproc/FlipFilter;->initProgram(Landroid/filterfw/core/FilterContext;I)V
 
     .line 99
-    :cond_1d
+    :cond_1
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v3
@@ -320,7 +320,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 55

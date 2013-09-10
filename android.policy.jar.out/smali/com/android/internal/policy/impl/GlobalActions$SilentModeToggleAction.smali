@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;)V
-    .registers 8
+    .locals 6
     .parameter
 
     .prologue
@@ -49,16 +49,17 @@
 
 # virtual methods
 .method onToggle(Z)V
-    .registers 4
+    .locals 2
     .parameter "on"
 
     .prologue
     .line 625
-    if-eqz p1, :cond_d
+    if-eqz p1, :cond_0
 
     .line 626
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$SilentModeToggleAction;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
+    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAudioManager:Landroid/media/AudioManager;
     invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$1200(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/media/AudioManager;
 
     move-result-object v0
@@ -68,13 +69,14 @@
     invoke-virtual {v0, v1}, Landroid/media/AudioManager;->setRingerMode(I)V
 
     .line 630
-    :goto_c
+    :goto_0
     return-void
 
     .line 628
-    :cond_d
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$SilentModeToggleAction;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
+    #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAudioManager:Landroid/media/AudioManager;
     invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$1200(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/media/AudioManager;
 
     move-result-object v0
@@ -83,11 +85,11 @@
 
     invoke-virtual {v0, v1}, Landroid/media/AudioManager;->setRingerMode(I)V
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public showBeforeProvisioning()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 637
@@ -97,7 +99,7 @@
 .end method
 
 .method public showDuringKeyguard()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 633

@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 37
@@ -26,7 +26,7 @@
 .end method
 
 .method public constructor <init>(Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;Landroid/filterfw/geometry/Point;)V
-    .registers 5
+    .locals 0
     .parameter "p0"
     .parameter "p1"
     .parameter "p2"
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public IsInUnitRange()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 48
@@ -65,7 +65,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/filterfw/geometry/Quad;->p1:Landroid/filterfw/geometry/Point;
 
@@ -73,7 +73,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/filterfw/geometry/Quad;->p2:Landroid/filterfw/geometry/Point;
 
@@ -81,7 +81,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/filterfw/geometry/Quad;->p3:Landroid/filterfw/geometry/Point;
 
@@ -89,21 +89,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_21
+    :goto_0
     return v0
 
-    :cond_22
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_21
+    goto :goto_0
 .end method
 
 .method public boundingBox()Landroid/filterfw/geometry/Rectangle;
-    .registers 14
+    .locals 13
 
     .prologue
     const/4 v12, 0x4
@@ -273,7 +273,7 @@
 .end method
 
 .method public getBoundingHeight()F
-    .registers 5
+    .locals 4
 
     .prologue
     .line 86
@@ -361,7 +361,7 @@
 .end method
 
 .method public getBoundingWidth()F
-    .registers 5
+    .locals 4
 
     .prologue
     .line 81
@@ -449,7 +449,7 @@
 .end method
 
 .method public scaled(F)Landroid/filterfw/geometry/Quad;
-    .registers 7
+    .locals 5
     .parameter "s"
 
     .prologue
@@ -486,7 +486,7 @@
 .end method
 
 .method public scaled(FF)Landroid/filterfw/geometry/Quad;
-    .registers 8
+    .locals 5
     .parameter "x"
     .parameter "y"
 
@@ -524,7 +524,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 92
@@ -594,7 +594,7 @@
 .end method
 
 .method public translated(FF)Landroid/filterfw/geometry/Quad;
-    .registers 8
+    .locals 5
     .parameter "x"
     .parameter "y"
 
@@ -632,7 +632,7 @@
 .end method
 
 .method public translated(Landroid/filterfw/geometry/Point;)Landroid/filterfw/geometry/Quad;
-    .registers 7
+    .locals 5
     .parameter "t"
 
     .prologue

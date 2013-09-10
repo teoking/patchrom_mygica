@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "packageName"
 
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public getFromLocation(DDILandroid/location/GeocoderParams;Ljava/util/List;)Ljava/lang/String;
-    .registers 17
+    .locals 9
     .parameter "latitude"
     .parameter "longitude"
     .parameter "maxResults"
@@ -93,7 +93,7 @@
     monitor-enter v2
 
     .line 97
-    :try_start_3
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/location/GeocoderProxy;->mServiceConnection:Lcom/android/server/location/GeocoderProxy$Connection;
 
     invoke-virtual {v1}, Lcom/android/server/location/GeocoderProxy$Connection;->getProvider()Landroid/location/IGeocodeProvider;
@@ -103,11 +103,11 @@
     .line 98
     .local v0, provider:Landroid/location/IGeocodeProvider;
     monitor-exit v2
-    :try_end_a
-    .catchall {:try_start_3 .. :try_end_a} :catchall_17
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 99
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_0
 
     move-wide v1, p1
 
@@ -120,32 +120,32 @@
     move-object/from16 v7, p7
 
     .line 101
-    :try_start_12
+    :try_start_1
     invoke-interface/range {v0 .. v7}, Landroid/location/IGeocodeProvider;->getFromLocation(DDILandroid/location/GeocoderParams;Ljava/util/List;)Ljava/lang/String;
-    :try_end_15
-    .catch Landroid/os/RemoteException; {:try_start_12 .. :try_end_15} :catch_1a
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result-object v1
 
     .line 107
-    :goto_16
+    :goto_0
     return-object v1
 
     .line 98
     .end local v0           #provider:Landroid/location/IGeocodeProvider;
-    :catchall_17
+    :catchall_0
     move-exception v1
 
-    :try_start_18
+    :try_start_2
     monitor-exit v2
-    :try_end_19
-    .catchall {:try_start_18 .. :try_end_19} :catchall_17
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v1
 
     .line 103
     .restart local v0       #provider:Landroid/location/IGeocodeProvider;
-    :catch_1a
+    :catch_0
     move-exception v8
 
     .line 104
@@ -158,14 +158,14 @@
 
     .line 107
     .end local v8           #e:Landroid/os/RemoteException;
-    :cond_22
+    :cond_0
     const-string v1, "Service not Available"
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method public getFromLocationName(Ljava/lang/String;DDDDILandroid/location/GeocoderParams;Ljava/util/List;)Ljava/lang/String;
-    .registers 27
+    .locals 14
     .parameter "locationName"
     .parameter "lowerLeftLatitude"
     .parameter "lowerLeftLongitude"
@@ -196,7 +196,7 @@
     monitor-enter v2
 
     .line 116
-    :try_start_3
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/location/GeocoderProxy;->mServiceConnection:Lcom/android/server/location/GeocoderProxy$Connection;
 
     invoke-virtual {v1}, Lcom/android/server/location/GeocoderProxy$Connection;->getProvider()Landroid/location/IGeocodeProvider;
@@ -206,11 +206,11 @@
     .line 117
     .local v0, provider:Landroid/location/IGeocodeProvider;
     monitor-exit v2
-    :try_end_a
-    .catchall {:try_start_3 .. :try_end_a} :catchall_20
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 118
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_0
 
     move-object v1, p1
 
@@ -229,32 +229,32 @@
     move-object/from16 v12, p12
 
     .line 120
-    :try_start_1b
+    :try_start_1
     invoke-interface/range {v0 .. v12}, Landroid/location/IGeocodeProvider;->getFromLocationName(Ljava/lang/String;DDDDILandroid/location/GeocoderParams;Ljava/util/List;)Ljava/lang/String;
-    :try_end_1e
-    .catch Landroid/os/RemoteException; {:try_start_1b .. :try_end_1e} :catch_23
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result-object v1
 
     .line 127
-    :goto_1f
+    :goto_0
     return-object v1
 
     .line 117
     .end local v0           #provider:Landroid/location/IGeocodeProvider;
-    :catchall_20
+    :catchall_0
     move-exception v1
 
-    :try_start_21
+    :try_start_2
     monitor-exit v2
-    :try_end_22
-    .catchall {:try_start_21 .. :try_end_22} :catchall_20
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v1
 
     .line 123
     .restart local v0       #provider:Landroid/location/IGeocodeProvider;
-    :catch_23
+    :catch_0
     move-exception v13
 
     .line 124
@@ -267,14 +267,14 @@
 
     .line 127
     .end local v13           #e:Landroid/os/RemoteException;
-    :cond_2b
+    :cond_0
     const-string v1, "Service not Available"
 
-    goto :goto_1f
+    goto :goto_0
 .end method
 
 .method public reconnect(Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "packageName"
 
     .prologue
@@ -284,10 +284,10 @@
     monitor-enter v1
 
     .line 59
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/location/GeocoderProxy;->mServiceConnection:Lcom/android/server/location/GeocoderProxy$Connection;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 60
     iget-object v0, p0, Lcom/android/server/location/GeocoderProxy;->mContext:Landroid/content/Context;
@@ -297,7 +297,7 @@
     invoke-virtual {v0, v2}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
     .line 62
-    :cond_e
+    :cond_0
     new-instance v0, Lcom/android/server/location/GeocoderProxy$Connection;
 
     const/4 v2, 0x0
@@ -329,12 +329,12 @@
     return-void
 
     .line 67
-    :catchall_28
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_2a
-    .catchall {:try_start_3 .. :try_end_2a} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

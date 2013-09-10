@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "attrs"
 
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 4
+    .locals 0
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method protected checkLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Z
-    .registers 3
+    .locals 1
     .parameter "p"
 
     .prologue
@@ -71,7 +71,7 @@
 .end method
 
 .method protected generateDefaultLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -87,7 +87,7 @@
 .end method
 
 .method public generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
-    .registers 4
+    .locals 2
     .parameter "attrs"
 
     .prologue
@@ -104,7 +104,7 @@
 .end method
 
 .method protected generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;
-    .registers 3
+    .locals 1
     .parameter "p"
 
     .prologue
@@ -117,7 +117,7 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .registers 14
+    .locals 8
     .parameter "changed"
     .parameter "l"
     .parameter "t"
@@ -135,8 +135,8 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_5
-    if-ge v4, v3, :cond_35
+    :goto_0
+    if-ge v4, v3, :cond_1
 
     .line 112
     invoke-virtual {p0, v4}, Landroid/widget/AbsoluteLayout;->getChildAt(I)Landroid/view/View;
@@ -151,7 +151,7 @@
 
     const/16 v7, 0x8
 
-    if-eq v6, v7, :cond_32
+    if-eq v6, v7, :cond_0
 
     .line 115
     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -196,19 +196,19 @@
     .end local v1           #childLeft:I
     .end local v2           #childTop:I
     .end local v5           #lp:Landroid/widget/AbsoluteLayout$LayoutParams;
-    :cond_32
+    :cond_0
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 126
     .end local v0           #child:Landroid/view/View;
-    :cond_35
+    :cond_1
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .registers 14
+    .locals 11
     .parameter "widthMeasureSpec"
     .parameter "heightMeasureSpec"
 
@@ -236,8 +236,8 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_b
-    if-ge v4, v3, :cond_3a
+    :goto_0
+    if-ge v4, v3, :cond_1
 
     .line 67
     invoke-virtual {p0, v4}, Landroid/widget/AbsoluteLayout;->getChildAt(I)Landroid/view/View;
@@ -252,7 +252,7 @@
 
     const/16 v9, 0x8
 
-    if-eq v8, v9, :cond_37
+    if-eq v8, v9, :cond_0
 
     .line 72
     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -296,14 +296,14 @@
     .end local v1           #childBottom:I
     .end local v2           #childRight:I
     .end local v5           #lp:Landroid/widget/AbsoluteLayout$LayoutParams;
-    :cond_37
+    :cond_0
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 84
     .end local v0           #child:Landroid/view/View;
-    :cond_3a
+    :cond_1
     iget v8, p0, Landroid/view/View;->mPaddingLeft:I
 
     iget v9, p0, Landroid/view/View;->mPaddingRight:I
@@ -355,7 +355,7 @@
 .end method
 
 .method public shouldDelayChildPressedState()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 146

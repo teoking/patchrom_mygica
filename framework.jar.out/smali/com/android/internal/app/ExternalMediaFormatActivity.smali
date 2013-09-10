@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 34
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 5
+    .locals 2
     .parameter "dialog"
     .parameter "which"
 
@@ -43,7 +43,7 @@
     .line 95
     const/4 v1, -0x1
 
-    if-ne p2, v1, :cond_12
+    if-ne p2, v1, :cond_0
 
     .line 96
     new-instance v0, Landroid/content/Intent;
@@ -63,7 +63,7 @@
 
     .line 102
     .end local v0           #intent:Landroid/content/Intent;
-    :cond_12
+    :cond_0
     invoke-virtual {p0}, Lcom/android/internal/app/ExternalMediaFormatActivity;->finish()V
 
     .line 103
@@ -71,7 +71,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 5
+    .locals 3
     .parameter "savedInstanceState"
 
     .prologue
@@ -144,7 +144,7 @@
 .end method
 
 .method protected onPause()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 85
@@ -160,7 +160,7 @@
 .end method
 
 .method protected onResume()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 73

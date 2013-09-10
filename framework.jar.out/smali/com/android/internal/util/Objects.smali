@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -15,36 +15,36 @@
 .end method
 
 .method public static equal(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .registers 3
+    .locals 1
     .parameter "a"
     .parameter "b"
 
     .prologue
     .line 40
-    if-eq p0, p1, :cond_a
+    if-eq p0, p1, :cond_0
 
-    if-eqz p0, :cond_c
+    if-eqz p0, :cond_1
 
     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_1
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public static varargs hashCode([Ljava/lang/Object;)I
-    .registers 2
+    .locals 1
     .parameter "objects"
 
     .prologue

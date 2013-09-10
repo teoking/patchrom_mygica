@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/text/Spannable;Landroid/text/method/PasswordTransformationMethod;)V
-    .registers 7
+    .locals 4
     .parameter "sp"
     .parameter "ptm"
 
@@ -56,7 +56,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/text/method/PasswordTransformationMethod$Visible;)Landroid/text/method/PasswordTransformationMethod;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 247

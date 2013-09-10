@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/Choreographer;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "looper"
 
@@ -38,21 +38,21 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "msg"
 
     .prologue
     .line 666
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_20
+    packed-switch v0, :pswitch_data_0
 
     .line 677
-    :goto_5
+    :goto_0
     return-void
 
     .line 668
-    :pswitch_6
+    :pswitch_0
     iget-object v0, p0, Landroid/view/Choreographer$FrameHandler;->this$0:Landroid/view/Choreographer;
 
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -63,33 +63,33 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/view/Choreographer;->doFrame(JI)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 671
-    :pswitch_11
+    :pswitch_1
     iget-object v0, p0, Landroid/view/Choreographer$FrameHandler;->this$0:Landroid/view/Choreographer;
 
     invoke-virtual {v0}, Landroid/view/Choreographer;->doScheduleVsync()V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 674
-    :pswitch_17
+    :pswitch_2
     iget-object v0, p0, Landroid/view/Choreographer$FrameHandler;->this$0:Landroid/view/Choreographer;
 
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     invoke-virtual {v0, v1}, Landroid/view/Choreographer;->doScheduleCallback(I)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 666
     nop
 
-    :pswitch_data_20
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_6
-        :pswitch_11
-        :pswitch_17
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

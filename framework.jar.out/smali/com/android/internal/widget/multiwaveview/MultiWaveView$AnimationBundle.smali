@@ -35,7 +35,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/internal/widget/multiwaveview/MultiWaveView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -48,7 +48,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/widget/multiwaveview/MultiWaveView;Lcom/android/internal/widget/multiwaveview/MultiWaveView$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public cancel()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 140
@@ -75,8 +75,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_5
-    if-ge v2, v1, :cond_15
+    :goto_0
+    if-ge v2, v1, :cond_0
 
     .line 142
     invoke-virtual {p0, v2}, Lcom/android/internal/widget/multiwaveview/MultiWaveView$AnimationBundle;->get(I)Ljava/lang/Object;
@@ -94,11 +94,11 @@
     .line 141
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 145
     .end local v0           #anim:Lcom/android/internal/widget/multiwaveview/Tweener;
-    :cond_15
+    :cond_0
     invoke-virtual {p0}, Lcom/android/internal/widget/multiwaveview/MultiWaveView$AnimationBundle;->clear()V
 
     .line 146
@@ -106,7 +106,7 @@
 .end method
 
 .method public setSuspended(Z)V
-    .registers 2
+    .locals 0
     .parameter "suspend"
 
     .prologue
@@ -118,20 +118,20 @@
 .end method
 
 .method public start()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 131
     iget-boolean v3, p0, Lcom/android/internal/widget/multiwaveview/MultiWaveView$AnimationBundle;->mSuspended:Z
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_1
 
     .line 137
-    :cond_4
+    :cond_0
     return-void
 
     .line 132
-    :cond_5
+    :cond_1
     invoke-virtual {p0}, Lcom/android/internal/widget/multiwaveview/MultiWaveView$AnimationBundle;->size()I
 
     move-result v1
@@ -141,8 +141,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_a
-    if-ge v2, v1, :cond_4
+    :goto_0
+    if-ge v2, v1, :cond_0
 
     .line 134
     invoke-virtual {p0, v2}, Lcom/android/internal/widget/multiwaveview/MultiWaveView$AnimationBundle;->get(I)Ljava/lang/Object;
@@ -160,11 +160,11 @@
     .line 133
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public stop()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 149
@@ -177,8 +177,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_5
-    if-ge v2, v1, :cond_15
+    :goto_0
+    if-ge v2, v1, :cond_0
 
     .line 151
     invoke-virtual {p0, v2}, Lcom/android/internal/widget/multiwaveview/MultiWaveView$AnimationBundle;->get(I)Ljava/lang/Object;
@@ -196,11 +196,11 @@
     .line 150
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 154
     .end local v0           #anim:Lcom/android/internal/widget/multiwaveview/Tweener;
-    :cond_15
+    :cond_0
     invoke-virtual {p0}, Lcom/android/internal/widget/multiwaveview/MultiWaveView$AnimationBundle;->clear()V
 
     .line 155

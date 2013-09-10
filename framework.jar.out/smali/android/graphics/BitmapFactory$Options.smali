@@ -54,7 +54,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 42
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public requestCancelDecode()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 280

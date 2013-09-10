@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/media/MediaRecorder;Landroid/media/MediaRecorder;Landroid/os/Looper;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "mr"
     .parameter "looper"
@@ -62,18 +62,19 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "msg"
 
     .prologue
     .line 910
     iget-object v0, p0, Landroid/media/MediaRecorder$EventHandler;->mMediaRecorder:Landroid/media/MediaRecorder;
 
+    #getter for: Landroid/media/MediaRecorder;->mNativeContext:I
     invoke-static {v0}, Landroid/media/MediaRecorder;->access$000(Landroid/media/MediaRecorder;)I
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_1
 
     .line 911
     const-string v0, "MediaRecorder"
@@ -83,15 +84,15 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 931
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     return-void
 
     .line 914
-    :cond_11
+    :cond_1
     iget v0, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v0, :sswitch_data_62
+    sparse-switch v0, :sswitch_data_0
 
     .line 930
     const-string v0, "MediaRecorder"
@@ -118,21 +119,23 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_10
+    goto :goto_0
 
     .line 917
-    :sswitch_31
+    :sswitch_0
     iget-object v0, p0, Landroid/media/MediaRecorder$EventHandler;->this$0:Landroid/media/MediaRecorder;
 
+    #getter for: Landroid/media/MediaRecorder;->mOnErrorListener:Landroid/media/MediaRecorder$OnErrorListener;
     invoke-static {v0}, Landroid/media/MediaRecorder;->access$100(Landroid/media/MediaRecorder;)Landroid/media/MediaRecorder$OnErrorListener;
 
     move-result-object v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 918
     iget-object v0, p0, Landroid/media/MediaRecorder$EventHandler;->this$0:Landroid/media/MediaRecorder;
 
+    #getter for: Landroid/media/MediaRecorder;->mOnErrorListener:Landroid/media/MediaRecorder$OnErrorListener;
     invoke-static {v0}, Landroid/media/MediaRecorder;->access$100(Landroid/media/MediaRecorder;)Landroid/media/MediaRecorder$OnErrorListener;
 
     move-result-object v0
@@ -145,21 +148,23 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/media/MediaRecorder$OnErrorListener;->onError(Landroid/media/MediaRecorder;II)V
 
-    goto :goto_10
+    goto :goto_0
 
     .line 924
-    :sswitch_49
+    :sswitch_1
     iget-object v0, p0, Landroid/media/MediaRecorder$EventHandler;->this$0:Landroid/media/MediaRecorder;
 
+    #getter for: Landroid/media/MediaRecorder;->mOnInfoListener:Landroid/media/MediaRecorder$OnInfoListener;
     invoke-static {v0}, Landroid/media/MediaRecorder;->access$200(Landroid/media/MediaRecorder;)Landroid/media/MediaRecorder$OnInfoListener;
 
     move-result-object v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 925
     iget-object v0, p0, Landroid/media/MediaRecorder$EventHandler;->this$0:Landroid/media/MediaRecorder;
 
+    #getter for: Landroid/media/MediaRecorder;->mOnInfoListener:Landroid/media/MediaRecorder$OnInfoListener;
     invoke-static {v0}, Landroid/media/MediaRecorder;->access$200(Landroid/media/MediaRecorder;)Landroid/media/MediaRecorder$OnInfoListener;
 
     move-result-object v0
@@ -172,16 +177,16 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/media/MediaRecorder$OnInfoListener;->onInfo(Landroid/media/MediaRecorder;II)V
 
-    goto :goto_10
+    goto :goto_0
 
     .line 914
     nop
 
-    :sswitch_data_62
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_31
-        0x2 -> :sswitch_49
-        0x64 -> :sswitch_31
-        0x65 -> :sswitch_49
+        0x1 -> :sswitch_0
+        0x2 -> :sswitch_1
+        0x64 -> :sswitch_0
+        0x65 -> :sswitch_1
     .end sparse-switch
 .end method

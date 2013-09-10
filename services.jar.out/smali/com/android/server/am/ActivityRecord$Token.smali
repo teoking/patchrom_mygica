@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityRecord;)V
-    .registers 3
+    .locals 1
     .parameter "activity"
 
     .prologue
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public getKeyDispatchingTimeout()J
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -69,7 +69,7 @@
 
     .line 288
     .local v0, activity:Lcom/android/server/am/ActivityRecord;
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 289
     invoke-virtual {v0}, Lcom/android/server/am/ActivityRecord;->getKeyDispatchingTimeout()J
@@ -77,17 +77,17 @@
     move-result-wide v1
 
     .line 291
-    :goto_e
+    :goto_0
     return-wide v1
 
-    :cond_f
+    :cond_0
     const-wide/16 v1, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public keyDispatchingTimedOut()Z
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -106,7 +106,7 @@
 
     .line 280
     .local v0, activity:Lcom/android/server/am/ActivityRecord;
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 281
     invoke-virtual {v0}, Lcom/android/server/am/ActivityRecord;->keyDispatchingTimedOut()Z
@@ -114,17 +114,17 @@
     move-result v1
 
     .line 283
-    :goto_e
+    :goto_0
     return v1
 
-    :cond_f
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 295
@@ -179,7 +179,7 @@
 .end method
 
 .method public windowsDrawn()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -198,18 +198,18 @@
 
     .line 259
     .local v0, activity:Lcom/android/server/am/ActivityRecord;
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 260
     invoke-virtual {v0}, Lcom/android/server/am/ActivityRecord;->windowsDrawn()V
 
     .line 262
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method public windowsGone()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -228,18 +228,18 @@
 
     .line 273
     .local v0, activity:Lcom/android/server/am/ActivityRecord;
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 274
     invoke-virtual {v0}, Lcom/android/server/am/ActivityRecord;->windowsGone()V
 
     .line 276
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method public windowsVisible()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -258,12 +258,12 @@
 
     .line 266
     .local v0, activity:Lcom/android/server/am/ActivityRecord;
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 267
     invoke-virtual {v0}, Lcom/android/server/am/ActivityRecord;->windowsVisible()V
 
     .line 269
-    :cond_d
+    :cond_0
     return-void
 .end method

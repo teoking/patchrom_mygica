@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 802
@@ -29,7 +29,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/opengl/GLSurfaceView$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public createWindowSurface(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;Ljava/lang/Object;)Ljavax/microedition/khronos/egl/EGLSurface;
-    .registers 9
+    .locals 4
     .parameter "egl"
     .parameter "display"
     .parameter "config"
@@ -56,19 +56,19 @@
     .local v1, result:Ljavax/microedition/khronos/egl/EGLSurface;
     const/4 v2, 0x0
 
-    :try_start_2
+    :try_start_0
     invoke-interface {p1, p2, p3, p4, v2}, Ljavax/microedition/khronos/egl/EGL10;->eglCreateWindowSurface(Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;Ljava/lang/Object;[I)Ljavax/microedition/khronos/egl/EGLSurface;
-    :try_end_5
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_2 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 818
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 809
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 816
@@ -79,11 +79,11 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public destroySurface(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLSurface;)V
-    .registers 4
+    .locals 0
     .parameter "egl"
     .parameter "display"
     .parameter "surface"

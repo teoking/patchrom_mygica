@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/sip/SipSessionGroup$KeepAliveProcessCallbackProxy;ILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,13 +48,14 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 1827
     :try_start_0
     iget-object v1, p0, Lcom/android/server/sip/SipSessionGroup$KeepAliveProcessCallbackProxy$2;->this$0:Lcom/android/server/sip/SipSessionGroup$KeepAliveProcessCallbackProxy;
 
+    #getter for: Lcom/android/server/sip/SipSessionGroup$KeepAliveProcessCallbackProxy;->mCallback:Lcom/android/server/sip/SipSessionGroup$KeepAliveProcessCallback;
     invoke-static {v1}, Lcom/android/server/sip/SipSessionGroup$KeepAliveProcessCallbackProxy;->access$3100(Lcom/android/server/sip/SipSessionGroup$KeepAliveProcessCallbackProxy;)Lcom/android/server/sip/SipSessionGroup$KeepAliveProcessCallback;
 
     move-result-object v1
@@ -64,15 +65,15 @@
     iget-object v3, p0, Lcom/android/server/sip/SipSessionGroup$KeepAliveProcessCallbackProxy$2;->val$description:Ljava/lang/String;
 
     invoke-interface {v1, v2, v3}, Lcom/android/server/sip/SipSessionGroup$KeepAliveProcessCallback;->onError(ILjava/lang/String;)V
-    :try_end_d
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_d} :catch_e
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1831
-    :goto_d
+    :goto_0
     return-void
 
     .line 1828
-    :catch_e
+    :catch_0
     move-exception v0
 
     .line 1829
@@ -83,5 +84,5 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_d
+    goto :goto_0
 .end method

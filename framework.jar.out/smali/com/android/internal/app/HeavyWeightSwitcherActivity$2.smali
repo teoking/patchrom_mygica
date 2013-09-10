@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/HeavyWeightSwitcherActivity;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 10
+    .locals 8
     .parameter "v"
 
     .prologue
@@ -49,17 +49,17 @@
     move-result-object v0
 
     invoke-interface {v0}, Landroid/app/IActivityManager;->finishHeavyWeightApp()V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_3b
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 140
-    :goto_7
-    :try_start_7
+    :goto_0
+    :try_start_1
     iget-object v0, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity$2;->this$0:Lcom/android/internal/app/HeavyWeightSwitcherActivity;
 
     iget-boolean v0, v0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mHasResult:Z
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     .line 141
     iget-object v0, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity$2;->this$0:Lcom/android/internal/app/HeavyWeightSwitcherActivity;
@@ -79,11 +79,11 @@
     const/4 v6, 0x0
 
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->startIntentSenderForResult(Landroid/content/IntentSender;ILandroid/content/Intent;III)V
-    :try_end_1d
-    .catch Landroid/content/IntentSender$SendIntentException; {:try_start_7 .. :try_end_1d} :catch_32
+    :try_end_1
+    .catch Landroid/content/IntentSender$SendIntentException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 150
-    :goto_1d
+    :goto_1
     iget-object v0, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity$2;->this$0:Lcom/android/internal/app/HeavyWeightSwitcherActivity;
 
     invoke-virtual {v0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->finish()V
@@ -92,8 +92,8 @@
     return-void
 
     .line 145
-    :cond_23
-    :try_start_23
+    :cond_0
+    :try_start_2
     iget-object v0, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity$2;->this$0:Lcom/android/internal/app/HeavyWeightSwitcherActivity;
 
     iget-object v1, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity$2;->this$0:Lcom/android/internal/app/HeavyWeightSwitcherActivity;
@@ -111,13 +111,13 @@
     const/4 v6, 0x0
 
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->startIntentSenderForResult(Landroid/content/IntentSender;ILandroid/content/Intent;III)V
-    :try_end_31
-    .catch Landroid/content/IntentSender$SendIntentException; {:try_start_23 .. :try_end_31} :catch_32
+    :try_end_2
+    .catch Landroid/content/IntentSender$SendIntentException; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto :goto_1d
+    goto :goto_1
 
     .line 147
-    :catch_32
+    :catch_0
     move-exception v7
 
     .line 148
@@ -128,12 +128,12 @@
 
     invoke-static {v0, v1, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1d
+    goto :goto_1
 
     .line 137
     .end local v7           #ex:Landroid/content/IntentSender$SendIntentException;
-    :catch_3b
+    :catch_1
     move-exception v0
 
-    goto :goto_7
+    goto :goto_0
 .end method

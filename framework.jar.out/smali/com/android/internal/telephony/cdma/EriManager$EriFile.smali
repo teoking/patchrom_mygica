@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/cdma/EriManager;)V
-    .registers 5
+    .locals 3
     .parameter
 
     .prologue

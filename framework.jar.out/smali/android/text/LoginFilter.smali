@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 36
@@ -38,7 +38,7 @@
 .end method
 
 .method constructor <init>(Z)V
-    .registers 2
+    .locals 0
     .parameter "appendInvalid"
 
     .prologue
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public filter(Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
-    .registers 12
+    .locals 5
     .parameter "source"
     .parameter "start"
     .parameter "end"
@@ -71,8 +71,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_4
-    if-ge v1, p5, :cond_16
+    :goto_0
+    if-ge v1, p5, :cond_1
 
     .line 57
     invoke-interface {p4, v1}, Landroid/text/Spanned;->charAt(I)C
@@ -85,19 +85,19 @@
 
     move-result v4
 
-    if-nez v4, :cond_13
+    if-nez v4, :cond_0
 
     invoke-virtual {p0, v0}, Landroid/text/LoginFilter;->onInvalidCharacter(C)V
 
     .line 56
-    :cond_13
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 62
     .end local v0           #c:C
-    :cond_16
+    :cond_1
     const/4 v2, 0x0
 
     .line 63
@@ -108,8 +108,8 @@
     .local v3, modoff:I
     move v1, p2
 
-    :goto_19
-    if-ge v1, p3, :cond_43
+    :goto_1
+    if-ge v1, p3, :cond_5
 
     .line 66
     invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
@@ -122,35 +122,35 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2a
+    if-eqz v4, :cond_2
 
     .line 69
     add-int/lit8 v3, v3, 0x1
 
     .line 65
-    :goto_27
+    :goto_2
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_19
+    goto :goto_1
 
     .line 71
-    :cond_2a
+    :cond_2
     iget-boolean v4, p0, Landroid/text/LoginFilter;->mAppendInvalid:Z
 
-    if-eqz v4, :cond_34
+    if-eqz v4, :cond_3
 
     .line 72
     add-int/lit8 v3, v3, 0x1
 
     .line 82
-    :goto_30
+    :goto_3
     invoke-virtual {p0, v0}, Landroid/text/LoginFilter;->onInvalidCharacter(C)V
 
-    goto :goto_27
+    goto :goto_2
 
     .line 74
-    :cond_34
-    if-nez v2, :cond_3d
+    :cond_3
+    if-nez v2, :cond_4
 
     .line 75
     new-instance v2, Landroid/text/SpannableStringBuilder;
@@ -163,24 +163,24 @@
     sub-int v3, v1, p2
 
     .line 79
-    :cond_3d
+    :cond_4
     add-int/lit8 v4, v3, 0x1
 
     invoke-virtual {v2, v3, v4}, Landroid/text/SpannableStringBuilder;->delete(II)Landroid/text/SpannableStringBuilder;
 
-    goto :goto_30
+    goto :goto_3
 
     .line 88
     .end local v0           #c:C
-    :cond_43
+    :cond_5
     move v1, p6
 
-    :goto_44
+    :goto_4
     invoke-interface {p4}, Landroid/text/Spanned;->length()I
 
     move-result v4
 
-    if-ge v1, v4, :cond_5a
+    if-ge v1, v4, :cond_7
 
     .line 89
     invoke-interface {p4, v1}, Landroid/text/Spanned;->charAt(I)C
@@ -193,19 +193,19 @@
 
     move-result v4
 
-    if-nez v4, :cond_57
+    if-nez v4, :cond_6
 
     invoke-virtual {p0, v0}, Landroid/text/LoginFilter;->onInvalidCharacter(C)V
 
     .line 88
-    :cond_57
+    :cond_6
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_44
+    goto :goto_4
 
     .line 93
     .end local v0           #c:C
-    :cond_5a
+    :cond_7
     invoke-virtual {p0}, Landroid/text/LoginFilter;->onStop()V
 
     .line 97
@@ -216,7 +216,7 @@
 .end method
 
 .method public onInvalidCharacter(C)V
-    .registers 2
+    .locals 0
     .parameter "c"
 
     .prologue
@@ -225,7 +225,7 @@
 .end method
 
 .method public onStart()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 105
@@ -233,7 +233,7 @@
 .end method
 
 .method public onStop()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 120

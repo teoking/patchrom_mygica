@@ -66,7 +66,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 58
@@ -82,7 +82,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -140,7 +140,7 @@
     monitor-enter v2
 
     .line 82
-    :try_start_2e
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/TextServicesManagerService;->mSpellCheckerList:Ljava/util/ArrayList;
 
     iget-object v3, p0, Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
@@ -149,8 +149,8 @@
 
     .line 83
     monitor-exit v2
-    :try_end_36
-    .catchall {:try_start_2e .. :try_end_36} :catchall_4a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 84
     invoke-virtual {p0, v4}, Lcom/android/server/TextServicesManagerService;->getCurrentSpellChecker(Ljava/lang/String;)Landroid/view/textservice/SpellCheckerInfo;
@@ -159,7 +159,7 @@
 
     .line 85
     .local v0, sci:Landroid/view/textservice/SpellCheckerInfo;
-    if-nez v0, :cond_49
+    if-nez v0, :cond_0
 
     .line 86
     invoke-direct {p0, v4, v4}, Lcom/android/server/TextServicesManagerService;->findAvailSpellCheckerLocked(Ljava/lang/String;Ljava/lang/String;)Landroid/view/textservice/SpellCheckerInfo;
@@ -167,7 +167,7 @@
     move-result-object v0
 
     .line 87
-    if-eqz v0, :cond_49
+    if-eqz v0, :cond_0
 
     .line 91
     invoke-virtual {v0}, Landroid/view/textservice/SpellCheckerInfo;->getId()Ljava/lang/String;
@@ -177,24 +177,24 @@
     invoke-direct {p0, v1}, Lcom/android/server/TextServicesManagerService;->setCurrentSpellCheckerLocked(Ljava/lang/String;)V
 
     .line 94
-    :cond_49
+    :cond_0
     return-void
 
     .line 83
     .end local v0           #sci:Landroid/view/textservice/SpellCheckerInfo;
-    :catchall_4a
+    :catchall_0
     move-exception v1
 
-    :try_start_4b
+    :try_start_1
     monitor-exit v2
-    :try_end_4c
-    .catchall {:try_start_4b .. :try_end_4c} :catchall_4a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
 
 .method static synthetic access$100(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -205,7 +205,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/android/server/TextServicesManagerService;)Ljava/util/HashMap;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -216,7 +216,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/server/TextServicesManagerService;)Landroid/content/Context;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -227,7 +227,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/server/TextServicesManagerService;)Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -238,7 +238,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/content/Context;Ljava/util/ArrayList;Ljava/util/HashMap;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -251,7 +251,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/android/server/TextServicesManagerService;Ljava/lang/String;Ljava/lang/String;)Landroid/view/textservice/SpellCheckerInfo;
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -266,7 +266,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/android/server/TextServicesManagerService;Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -278,7 +278,7 @@
 .end method
 
 .method private static buildSpellCheckerMapLocked(Landroid/content/Context;Ljava/util/ArrayList;Ljava/util/HashMap;)V
-    .registers 15
+    .locals 12
     .parameter "context"
     .parameter
     .parameter
@@ -337,8 +337,8 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_1c
-    if-ge v3, v0, :cond_c9
+    :goto_0
+    if-ge v3, v0, :cond_2
 
     .line 128
     invoke-interface {v7, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -371,7 +371,7 @@
 
     move-result v9
 
-    if-nez v9, :cond_60
+    if-nez v9, :cond_0
 
     .line 132
     sget-object v9, Lcom/android/server/TextServicesManagerService;->TAG:Ljava/lang/String;
@@ -409,14 +409,14 @@
     invoke-static {v9, v10}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 127
-    :goto_5d
+    :goto_1
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1c
+    goto :goto_0
 
     .line 139
-    :cond_60
-    :try_start_60
+    :cond_0
+    :try_start_0
     new-instance v6, Landroid/view/textservice/SpellCheckerInfo;
 
     invoke-direct {v6, p0, v5}, Landroid/view/textservice/SpellCheckerInfo;-><init>(Landroid/content/Context;Landroid/content/pm/ResolveInfo;)V
@@ -427,7 +427,7 @@
 
     move-result v9
 
-    if-gtz v9, :cond_a4
+    if-gtz v9, :cond_1
 
     .line 141
     sget-object v9, Lcom/android/server/TextServicesManagerService;->TAG:Ljava/lang/String;
@@ -457,15 +457,15 @@
     move-result-object v10
 
     invoke-static {v9, v10}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_89
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_60 .. :try_end_89} :catch_8a
-    .catch Ljava/io/IOException; {:try_start_60 .. :try_end_89} :catch_af
+    :try_end_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
-    goto :goto_5d
+    goto :goto_1
 
     .line 147
     .end local v6           #sci:Landroid/view/textservice/SpellCheckerInfo;
-    :catch_8a
+    :catch_0
     move-exception v2
 
     .line 148
@@ -492,13 +492,13 @@
 
     invoke-static {v9, v10, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_5d
+    goto :goto_1
 
     .line 145
     .end local v2           #e:Lorg/xmlpull/v1/XmlPullParserException;
     .restart local v6       #sci:Landroid/view/textservice/SpellCheckerInfo;
-    :cond_a4
-    :try_start_a4
+    :cond_1
+    :try_start_1
     invoke-virtual {p1, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 146
@@ -507,15 +507,15 @@
     move-result-object v9
 
     invoke-virtual {p2, v9, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_ae
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_a4 .. :try_end_ae} :catch_8a
-    .catch Ljava/io/IOException; {:try_start_a4 .. :try_end_ae} :catch_af
+    :try_end_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto :goto_5d
+    goto :goto_1
 
     .line 149
     .end local v6           #sci:Landroid/view/textservice/SpellCheckerInfo;
-    :catch_af
+    :catch_1
     move-exception v2
 
     .line 150
@@ -542,19 +542,19 @@
 
     invoke-static {v9, v10, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_5d
+    goto :goto_1
 
     .line 156
     .end local v1           #compName:Landroid/content/ComponentName;
     .end local v2           #e:Ljava/io/IOException;
     .end local v5           #ri:Landroid/content/pm/ResolveInfo;
     .end local v8           #si:Landroid/content/pm/ServiceInfo;
-    :cond_c9
+    :cond_2
     return-void
 .end method
 
 .method private findAvailSpellCheckerLocked(Ljava/lang/String;Ljava/lang/String;)Landroid/view/textservice/SpellCheckerInfo;
-    .registers 8
+    .locals 5
     .parameter "locale"
     .parameter "prefPackage"
 
@@ -568,7 +568,7 @@
 
     .line 161
     .local v2, spellCheckersCount:I
-    if-nez v2, :cond_11
+    if-nez v2, :cond_1
 
     .line 162
     sget-object v3, Lcom/android/server/TextServicesManagerService;->TAG:Ljava/lang/String;
@@ -581,20 +581,20 @@
     const/4 v1, 0x0
 
     .line 179
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     return-object v1
 
     .line 165
-    :cond_11
-    if-eqz p2, :cond_2b
+    :cond_1
+    if-eqz p2, :cond_2
 
     .line 166
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_14
-    if-ge v0, v2, :cond_2b
+    :goto_1
+    if-ge v0, v2, :cond_2
 
     .line 167
     iget-object v3, p0, Lcom/android/server/TextServicesManagerService;->mSpellCheckerList:Ljava/util/ArrayList;
@@ -615,20 +615,20 @@
 
     move-result v3
 
-    if-nez v3, :cond_10
+    if-nez v3, :cond_0
 
     .line 166
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_14
+    goto :goto_1
 
     .line 176
     .end local v0           #i:I
     .end local v1           #sci:Landroid/view/textservice/SpellCheckerInfo;
-    :cond_2b
+    :cond_2
     const/4 v3, 0x1
 
-    if-le v2, v3, :cond_35
+    if-le v2, v3, :cond_3
 
     .line 177
     sget-object v3, Lcom/android/server/TextServicesManagerService;->TAG:Ljava/lang/String;
@@ -638,7 +638,7 @@
     invoke-static {v3, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 179
-    :cond_35
+    :cond_3
     iget-object v3, p0, Lcom/android/server/TextServicesManagerService;->mSpellCheckerList:Ljava/util/ArrayList;
 
     const/4 v4, 0x0
@@ -651,11 +651,11 @@
 
     move-object v1, v3
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method private isSpellCheckerEnabledLocked()Z
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v2, 0x1
@@ -667,7 +667,7 @@
 
     .line 507
     .local v0, ident:J
-    :try_start_5
+    :try_start_0
     iget-object v3, p0, Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -679,16 +679,16 @@
     const/4 v5, 0x1
 
     invoke-static {v3, v4, v5}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-    :try_end_11
-    .catchall {:try_start_5 .. :try_end_11} :catchall_1a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-ne v3, v2, :cond_18
+    if-ne v3, v2, :cond_0
 
     .line 514
     .local v2, retval:Z
-    :goto_14
+    :goto_0
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     .line 512
@@ -696,13 +696,13 @@
 
     .line 507
     .end local v2           #retval:Z
-    :cond_18
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_14
+    goto :goto_0
 
     .line 514
-    :catchall_1a
+    :catchall_0
     move-exception v3
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
@@ -711,7 +711,7 @@
 .end method
 
 .method private setCurrentSpellCheckerLocked(Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "sciId"
 
     .prologue
@@ -720,7 +720,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_e
+    if-nez v3, :cond_0
 
     iget-object v3, p0, Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
 
@@ -728,15 +728,15 @@
 
     move-result v3
 
-    if-nez v3, :cond_f
+    if-nez v3, :cond_1
 
     .line 468
-    :cond_e
-    :goto_e
+    :cond_0
+    :goto_0
     return-void
 
     .line 455
-    :cond_f
+    :cond_1
     const/4 v3, 0x0
 
     invoke-virtual {p0, v3}, Lcom/android/server/TextServicesManagerService;->getCurrentSpellChecker(Ljava/lang/String;)Landroid/view/textservice/SpellCheckerInfo;
@@ -745,7 +745,7 @@
 
     .line 456
     .local v0, currentSci:Landroid/view/textservice/SpellCheckerInfo;
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Landroid/view/textservice/SpellCheckerInfo;->getId()Ljava/lang/String;
 
@@ -755,17 +755,17 @@
 
     move-result v3
 
-    if-nez v3, :cond_e
+    if-nez v3, :cond_0
 
     .line 460
-    :cond_20
+    :cond_2
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v1
 
     .line 462
     .local v1, ident:J
-    :try_start_24
+    :try_start_0
     iget-object v3, p0, Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -780,15 +780,15 @@
     const/4 v3, 0x0
 
     invoke-direct {p0, v3}, Lcom/android/server/TextServicesManagerService;->setCurrentSpellCheckerSubtypeLocked(I)V
-    :try_end_33
-    .catchall {:try_start_24 .. :try_end_33} :catchall_37
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 466
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    goto :goto_e
+    goto :goto_0
 
-    :catchall_37
+    :catchall_0
     move-exception v3
 
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
@@ -797,7 +797,7 @@
 .end method
 
 .method private setCurrentSpellCheckerSubtypeLocked(I)V
-    .registers 10
+    .locals 8
     .parameter "hashCode"
 
     .prologue
@@ -817,14 +817,14 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_7
-    if-eqz v3, :cond_1a
+    :goto_0
+    if-eqz v3, :cond_0
 
     invoke-virtual {v3}, Landroid/view/textservice/SpellCheckerInfo;->getSubtypeCount()I
 
     move-result v5
 
-    if-ge v0, v5, :cond_1a
+    if-ge v0, v5, :cond_0
 
     .line 477
     invoke-virtual {v3, v0}, Landroid/view/textservice/SpellCheckerInfo;->getSubtypeAt(I)Landroid/view/textservice/SpellCheckerSubtype;
@@ -835,20 +835,20 @@
 
     move-result v5
 
-    if-ne v5, p1, :cond_31
+    if-ne v5, p1, :cond_1
 
     .line 478
     move v4, p1
 
     .line 482
-    :cond_1a
+    :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v1
 
     .line 484
     .local v1, ident:J
-    :try_start_1e
+    :try_start_0
     iget-object v5, p0, Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -862,8 +862,8 @@
     move-result-object v7
 
     invoke-static {v5, v6, v7}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-    :try_end_2d
-    .catchall {:try_start_1e .. :try_end_2d} :catchall_34
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 487
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
@@ -873,14 +873,14 @@
 
     .line 476
     .end local v1           #ident:J
-    :cond_31
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 487
     .restart local v1       #ident:J
-    :catchall_34
+    :catchall_0
     move-exception v5
 
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
@@ -889,7 +889,7 @@
 .end method
 
 .method private setSpellCheckerEnabledLocked(Z)V
-    .registers 7
+    .locals 5
     .parameter "enabled"
 
     .prologue
@@ -900,7 +900,7 @@
 
     .line 497
     .local v0, ident:J
-    :try_start_4
+    :try_start_0
     iget-object v2, p0, Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -909,14 +909,14 @@
 
     const-string v4, "spell_checker_enabled"
 
-    if-eqz p1, :cond_16
+    if-eqz p1, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_f
+    :goto_0
     invoke-static {v3, v4, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-    :try_end_12
-    .catchall {:try_start_4 .. :try_end_12} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 500
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
@@ -925,13 +925,13 @@
     return-void
 
     .line 497
-    :cond_16
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_f
+    goto :goto_0
 
     .line 500
-    :catchall_18
+    :catchall_0
     move-exception v2
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
@@ -940,7 +940,7 @@
 .end method
 
 .method private startSpellCheckerServiceInnerLocked(Landroid/view/textservice/SpellCheckerInfo;Ljava/lang/String;Lcom/android/internal/textservice/ITextServicesSessionListener;Lcom/android/internal/textservice/ISpellCheckerSessionListener;ILandroid/os/Bundle;)V
-    .registers 18
+    .locals 11
     .parameter "info"
     .parameter "locale"
     .parameter "tsListener"
@@ -987,7 +987,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2a
+    if-nez v2, :cond_0
 
     .line 369
     sget-object v2, Lcom/android/server/TextServicesManagerService;->TAG:Ljava/lang/String;
@@ -997,11 +997,11 @@
     invoke-static {v2, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 375
-    :goto_29
+    :goto_0
     return-void
 
     .line 372
-    :cond_2a
+    :cond_0
     new-instance v1, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
 
     move-object v2, p0
@@ -1024,13 +1024,13 @@
 
     invoke-virtual {v2, v9, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 16
+    .locals 12
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -1045,7 +1045,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_33
+    if-eqz v10, :cond_0
 
     .line 523
     new-instance v10, Ljava/lang/StringBuilder;
@@ -1087,17 +1087,17 @@
     invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 576
-    :goto_32
+    :goto_0
     return-void
 
     .line 529
-    :cond_33
+    :cond_0
     iget-object v11, p0, Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
 
     monitor-enter v11
 
     .line 530
-    :try_start_36
+    :try_start_0
     const-string v10, "Current Text Services Manager state:"
 
     invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
@@ -1119,12 +1119,12 @@
     move-result-object v6
 
     .local v6, i$:Ljava/util/Iterator;
-    :cond_4a
+    :cond_1
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_d7
+    if-eqz v10, :cond_2
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1203,8 +1203,8 @@
     const/4 v5, 0x0
 
     .local v5, i:I
-    :goto_9a
-    if-ge v5, v1, :cond_4a
+    :goto_1
+    if-ge v5, v1, :cond_1
 
     .line 540
     invoke-virtual {v7, v5}, Landroid/view/textservice/SpellCheckerInfo;->getSubtypeAt(I)Landroid/view/textservice/SpellCheckerSubtype;
@@ -1261,7 +1261,7 @@
     .line 539
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_9a
+    goto :goto_1
 
     .line 547
     .end local v1           #NS:I
@@ -1269,7 +1269,7 @@
     .end local v5           #i:I
     .end local v7           #info:Landroid/view/textservice/SpellCheckerInfo;
     .end local v9           #st:Landroid/view/textservice/SpellCheckerSubtype;
-    :cond_d7
+    :cond_2
     const-string v10, ""
 
     invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
@@ -1290,12 +1290,12 @@
 
     move-result-object v6
 
-    :cond_eb
+    :cond_3
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_1c3
+    if-eqz v10, :cond_4
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1346,6 +1346,7 @@
     invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 555
+    #getter for: Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->mInternalConnection:Lcom/android/server/TextServicesManagerService$InternalServiceConnection;
     invoke-static {v4}, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->access$700(Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;)Lcom/android/server/TextServicesManagerService$InternalServiceConnection;
 
     move-result-object v10
@@ -1389,6 +1390,7 @@
     invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Z)V
 
     .line 560
+    #getter for: Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->mListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
     invoke-static {v4}, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->access$800(Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v10
@@ -1402,10 +1404,11 @@
     const/4 v5, 0x0
 
     .restart local v5       #i:I
-    :goto_15a
-    if-ge v5, v0, :cond_eb
+    :goto_2
+    if-ge v5, v0, :cond_3
 
     .line 562
+    #getter for: Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->mListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
     invoke-static {v4}, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->access$800(Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;)Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v10
@@ -1470,6 +1473,7 @@
     invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 569
+    #getter for: Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->mGroup:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
     invoke-static {v8}, Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;->access$900(Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;)Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
 
     move-result-object v10
@@ -1502,7 +1506,7 @@
     .line 561
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_15a
+    goto :goto_2
 
     .line 575
     .end local v0           #NL:I
@@ -1510,24 +1514,24 @@
     .end local v4           #grp:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
     .end local v5           #i:I
     .end local v8           #listener:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
-    :cond_1c3
+    :cond_4
     monitor-exit v11
 
-    goto/16 :goto_32
+    goto/16 :goto_0
 
     .end local v6           #i$:Ljava/util/Iterator;
-    :catchall_1c6
+    :catchall_0
     move-exception v10
 
     monitor-exit v11
-    :try_end_1c8
-    .catchall {:try_start_36 .. :try_end_1c8} :catchall_1c6
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v10
 .end method
 
 .method public finishSpellCheckerService(Lcom/android/internal/textservice/ISpellCheckerSessionListener;)V
-    .registers 9
+    .locals 7
     .parameter "listener"
 
     .prologue
@@ -1537,7 +1541,7 @@
     monitor-enter v6
 
     .line 394
-    :try_start_3
+    :try_start_0
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
@@ -1555,13 +1559,13 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :cond_12
-    :goto_12
+    :cond_0
+    :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_27
+    if-eqz v5, :cond_1
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1571,31 +1575,31 @@
 
     .line 397
     .local v0, group:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 399
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_12
+    goto :goto_0
 
     .line 405
     .end local v0           #group:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
     .end local v2           #i$:Ljava/util/Iterator;
     .end local v3           #removeList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;>;"
-    :catchall_24
+    :catchall_0
     move-exception v5
 
     monitor-exit v6
-    :try_end_26
-    .catchall {:try_start_3 .. :try_end_26} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v5
 
     .line 401
     .restart local v2       #i$:Ljava/util/Iterator;
     .restart local v3       #removeList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;>;"
-    :cond_27
-    :try_start_27
+    :cond_1
+    :try_start_1
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v4
@@ -1605,8 +1609,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_2c
-    if-ge v1, v4, :cond_3a
+    :goto_1
+    if-ge v1, v4, :cond_2
 
     .line 403
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1620,20 +1624,20 @@
     .line 402
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2c
+    goto :goto_1
 
     .line 405
-    :cond_3a
+    :cond_2
     monitor-exit v6
-    :try_end_3b
-    .catchall {:try_start_27 .. :try_end_3b} :catchall_24
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 406
     return-void
 .end method
 
 .method public getCurrentSpellChecker(Ljava/lang/String;)Landroid/view/textservice/SpellCheckerInfo;
-    .registers 6
+    .locals 4
     .parameter "locale"
 
     .prologue
@@ -1643,7 +1647,7 @@
     monitor-enter v2
 
     .line 187
-    :try_start_3
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1662,7 +1666,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_0
 
     .line 194
     const/4 v1, 0x0
@@ -1670,10 +1674,10 @@
     monitor-exit v2
 
     .line 196
-    :goto_17
+    :goto_0
     return-object v1
 
-    :cond_18
+    :cond_0
     iget-object v1, p0, Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
 
     invoke-virtual {v1, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1684,22 +1688,22 @@
 
     monitor-exit v2
 
-    goto :goto_17
+    goto :goto_0
 
     .line 197
     .end local v0           #curSpellCheckerId:Ljava/lang/String;
-    :catchall_22
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_24
-    .catchall {:try_start_3 .. :try_end_24} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public getCurrentSpellCheckerSubtype(Ljava/lang/String;Z)Landroid/view/textservice/SpellCheckerSubtype;
-    .registers 17
+    .locals 14
     .parameter "locale"
     .parameter "allowImplicitlySelectedSubtype"
 
@@ -1710,7 +1714,7 @@
     monitor-enter v12
 
     .line 206
-    :try_start_3
+    :try_start_0
     iget-object v11, p0, Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v11}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1733,31 +1737,31 @@
 
     .line 213
     .local v7, sci:Landroid/view/textservice/SpellCheckerInfo;
-    if-eqz v7, :cond_1c
+    if-eqz v7, :cond_0
 
     invoke-virtual {v7}, Landroid/view/textservice/SpellCheckerInfo;->getSubtypeCount()I
 
     move-result v11
 
-    if-nez v11, :cond_1f
+    if-nez v11, :cond_1
 
     .line 217
-    :cond_1c
+    :cond_0
     const/4 v8, 0x0
 
     monitor-exit v12
 
     .line 275
-    :goto_1e
+    :goto_0
     return-object v8
 
     .line 220
-    :cond_1f
+    :cond_1
     invoke-static {v10}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v11
 
-    if-nez v11, :cond_37
+    if-nez v11, :cond_2
 
     .line 221
     invoke-static {v10}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
@@ -1770,50 +1774,50 @@
 
     .line 225
     .local v3, hashCode:I
-    :goto_2d
-    if-nez v3, :cond_39
+    :goto_1
+    if-nez v3, :cond_3
 
-    if-nez p2, :cond_39
+    if-nez p2, :cond_3
 
     .line 226
     const/4 v8, 0x0
 
     monitor-exit v12
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 276
     .end local v3           #hashCode:I
     .end local v7           #sci:Landroid/view/textservice/SpellCheckerInfo;
     .end local v10           #subtypeHashCodeStr:Ljava/lang/String;
-    :catchall_34
+    :catchall_0
     move-exception v11
 
     monitor-exit v12
-    :try_end_36
-    .catchall {:try_start_3 .. :try_end_36} :catchall_34
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v11
 
     .line 223
     .restart local v7       #sci:Landroid/view/textservice/SpellCheckerInfo;
     .restart local v10       #subtypeHashCodeStr:Ljava/lang/String;
-    :cond_37
+    :cond_2
     const/4 v3, 0x0
 
     .restart local v3       #hashCode:I
-    goto :goto_2d
+    goto :goto_1
 
     .line 228
-    :cond_39
+    :cond_3
     const/4 v1, 0x0
 
     .line 229
     .local v1, candidateLocale:Ljava/lang/String;
-    if-nez v3, :cond_6b
+    if-nez v3, :cond_5
 
     .line 231
-    :try_start_3c
+    :try_start_1
     iget-object v11, p0, Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
 
     const-string v13, "input_method"
@@ -1826,7 +1830,7 @@
 
     .line 233
     .local v5, imm:Landroid/view/inputmethod/InputMethodManager;
-    if-eqz v5, :cond_59
+    if-eqz v5, :cond_4
 
     .line 234
     invoke-virtual {v5}, Landroid/view/inputmethod/InputMethodManager;->getCurrentInputMethodSubtype()Landroid/view/inputmethod/InputMethodSubtype;
@@ -1835,7 +1839,7 @@
 
     .line 236
     .local v2, currentInputMethodSubtype:Landroid/view/inputmethod/InputMethodSubtype;
-    if-eqz v2, :cond_59
+    if-eqz v2, :cond_4
 
     .line 237
     invoke-virtual {v2}, Landroid/view/inputmethod/InputMethodSubtype;->getLocale()Ljava/lang/String;
@@ -1848,7 +1852,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_59
+    if-nez v11, :cond_4
 
     .line 240
     move-object v1, v6
@@ -1856,8 +1860,8 @@
     .line 244
     .end local v2           #currentInputMethodSubtype:Landroid/view/inputmethod/InputMethodSubtype;
     .end local v6           #localeString:Ljava/lang/String;
-    :cond_59
-    if-nez v1, :cond_6b
+    :cond_4
+    if-nez v1, :cond_5
 
     .line 246
     iget-object v11, p0, Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
@@ -1878,7 +1882,7 @@
 
     .line 249
     .end local v5           #imm:Landroid/view/inputmethod/InputMethodManager;
-    :cond_6b
+    :cond_5
     const/4 v0, 0x0
 
     .line 250
@@ -1886,12 +1890,12 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_6d
+    :goto_2
     invoke-virtual {v7}, Landroid/view/textservice/SpellCheckerInfo;->getSubtypeCount()I
 
     move-result v11
 
-    if-ge v4, v11, :cond_a8
+    if-ge v4, v11, :cond_9
 
     .line 251
     invoke-virtual {v7, v4}, Landroid/view/textservice/SpellCheckerInfo;->getSubtypeAt(I)Landroid/view/textservice/SpellCheckerSubtype;
@@ -1900,7 +1904,7 @@
 
     .line 252
     .local v8, scs:Landroid/view/textservice/SpellCheckerSubtype;
-    if-nez v3, :cond_9f
+    if-nez v3, :cond_8
 
     .line 253
     invoke-virtual {v8}, Landroid/view/textservice/SpellCheckerSubtype;->getLocale()Ljava/lang/String;
@@ -1913,16 +1917,16 @@
 
     move-result v11
 
-    if-eqz v11, :cond_85
+    if-eqz v11, :cond_6
 
     .line 255
     monitor-exit v12
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 256
-    :cond_85
-    if-nez v0, :cond_9c
+    :cond_6
+    if-nez v0, :cond_7
 
     .line 257
     invoke-virtual {v1}, Ljava/lang/String;->length()I
@@ -1931,7 +1935,7 @@
 
     const/4 v13, 0x2
 
-    if-lt v11, v13, :cond_9c
+    if-lt v11, v13, :cond_7
 
     invoke-virtual {v9}, Ljava/lang/String;->length()I
 
@@ -1939,51 +1943,51 @@
 
     const/4 v13, 0x2
 
-    if-lt v11, v13, :cond_9c
+    if-lt v11, v13, :cond_7
 
     invoke-virtual {v1, v9}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v11
 
-    if-eqz v11, :cond_9c
+    if-eqz v11, :cond_7
 
     .line 260
     move-object v0, v8
 
     .line 250
     .end local v9           #scsLocale:Ljava/lang/String;
-    :cond_9c
+    :cond_7
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_6d
+    goto :goto_2
 
     .line 263
-    :cond_9f
+    :cond_8
     invoke-virtual {v8}, Landroid/view/textservice/SpellCheckerSubtype;->hashCode()I
 
     move-result v11
 
-    if-ne v11, v3, :cond_9c
+    if-ne v11, v3, :cond_7
 
     .line 269
     monitor-exit v12
 
-    goto/16 :goto_1e
+    goto/16 :goto_0
 
     .line 275
     .end local v8           #scs:Landroid/view/textservice/SpellCheckerSubtype;
-    :cond_a8
+    :cond_9
     monitor-exit v12
-    :try_end_a9
-    .catchall {:try_start_3c .. :try_end_a9} :catchall_34
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-object v8, v0
 
-    goto/16 :goto_1e
+    goto/16 :goto_0
 .end method
 
 .method public getEnabledSpellCheckers()[Landroid/view/textservice/SpellCheckerInfo;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 385
@@ -2007,7 +2011,7 @@
 .end method
 
 .method public getSpellCheckerService(Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/textservice/ITextServicesSessionListener;Lcom/android/internal/textservice/ISpellCheckerSessionListener;Landroid/os/Bundle;)V
-    .registers 27
+    .locals 21
     .parameter "sciId"
     .parameter "locale"
     .parameter "tsListener"
@@ -2020,36 +2024,36 @@
 
     iget-boolean v2, v0, Lcom/android/server/TextServicesManagerService;->mSystemReady:Z
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_0
 
     .line 344
-    :goto_6
+    :goto_0
     return-void
 
     .line 286
-    :cond_7
+    :cond_0
     invoke-static/range {p1 .. p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-nez v2, :cond_11
+    if-nez v2, :cond_1
 
-    if-eqz p3, :cond_11
+    if-eqz p3, :cond_1
 
-    if-nez p4, :cond_19
+    if-nez p4, :cond_2
 
     .line 287
-    :cond_11
+    :cond_1
     sget-object v2, Lcom/android/server/TextServicesManagerService;->TAG:Ljava/lang/String;
 
     const-string v3, "getSpellCheckerService: Invalid input."
 
     invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_6
+    goto :goto_0
 
     .line 290
-    :cond_19
+    :cond_2
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
@@ -2059,7 +2063,7 @@
     monitor-enter v20
 
     .line 291
-    :try_start_20
+    :try_start_0
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
@@ -2070,26 +2074,26 @@
 
     move-result v2
 
-    if-nez v2, :cond_31
+    if-nez v2, :cond_3
 
     .line 292
     monitor-exit v20
 
-    goto :goto_6
+    goto :goto_0
 
     .line 343
-    :catchall_2e
+    :catchall_0
     move-exception v2
 
     monitor-exit v20
-    :try_end_30
-    .catchall {:try_start_20 .. :try_end_30} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 
     .line 294
-    :cond_31
-    :try_start_31
+    :cond_3
+    :try_start_1
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/TextServicesManagerService;->mSpellCheckerMap:Ljava/util/HashMap;
@@ -2120,7 +2124,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8b
+    if-eqz v2, :cond_5
 
     .line 297
     move-object/from16 v0, p0
@@ -2137,7 +2141,7 @@
 
     .line 298
     .local v14, bindGroup:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
-    if-eqz v14, :cond_8b
+    if-eqz v14, :cond_5
 
     .line 299
     move-object/from16 v0, p0
@@ -2166,27 +2170,27 @@
 
     .line 302
     .local v18, recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
-    if-nez v18, :cond_77
+    if-nez v18, :cond_4
 
     .line 306
     monitor-exit v20
 
-    goto :goto_6
+    goto :goto_0
 
     .line 308
-    :cond_77
+    :cond_4
     iget-object v2, v14, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->mSpellChecker:Lcom/android/internal/textservice/ISpellCheckerService;
 
-    if-nez v2, :cond_a3
+    if-nez v2, :cond_6
 
     const/4 v2, 0x1
 
-    :goto_7c
+    :goto_1
     iget-boolean v3, v14, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->mConnected:Z
 
     and-int/2addr v2, v3
 
-    if-eqz v2, :cond_a5
+    if-eqz v2, :cond_7
 
     .line 309
     sget-object v2, Lcom/android/server/TextServicesManagerService;->TAG:Ljava/lang/String;
@@ -2201,11 +2205,11 @@
     .line 336
     .end local v14           #bindGroup:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
     .end local v18           #recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
-    :cond_8b
-    :goto_8b
+    :cond_5
+    :goto_2
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-    :try_end_8e
-    .catchall {:try_start_31 .. :try_end_8e} :catchall_2e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-wide v16
 
@@ -2223,39 +2227,39 @@
     move-object/from16 v13, p5
 
     .line 338
-    :try_start_9a
+    :try_start_2
     invoke-direct/range {v7 .. v13}, Lcom/android/server/TextServicesManagerService;->startSpellCheckerServiceInnerLocked(Landroid/view/textservice/SpellCheckerInfo;Ljava/lang/String;Lcom/android/internal/textservice/ITextServicesSessionListener;Lcom/android/internal/textservice/ISpellCheckerSessionListener;ILandroid/os/Bundle;)V
-    :try_end_9d
-    .catchall {:try_start_9a .. :try_end_9d} :catchall_e6
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 341
-    :try_start_9d
+    :try_start_3
     invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     .line 343
     monitor-exit v20
 
-    goto/16 :goto_6
+    goto/16 :goto_0
 
     .line 308
     .end local v16           #ident:J
     .restart local v14       #bindGroup:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
     .restart local v18       #recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
-    :cond_a3
+    :cond_6
     const/4 v2, 0x0
 
-    goto :goto_7c
+    goto :goto_1
 
     .line 311
-    :cond_a5
+    :cond_7
     iget-object v2, v14, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->mSpellChecker:Lcom/android/internal/textservice/ISpellCheckerService;
-    :try_end_a7
-    .catchall {:try_start_9d .. :try_end_a7} :catchall_2e
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    if-eqz v2, :cond_8b
+    if-eqz v2, :cond_5
 
     .line 317
-    :try_start_a9
+    :try_start_4
     iget-object v2, v14, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->mSpellChecker:Lcom/android/internal/textservice/ISpellCheckerService;
 
     move-object/from16 v0, v18
@@ -2274,7 +2278,7 @@
 
     .line 320
     .local v19, session:Lcom/android/internal/textservice/ISpellCheckerSession;
-    if-eqz v19, :cond_c5
+    if-eqz v19, :cond_8
 
     .line 321
     move-object/from16 v0, p3
@@ -2282,36 +2286,36 @@
     move-object/from16 v1, v19
 
     invoke-interface {v0, v1}, Lcom/android/internal/textservice/ITextServicesSessionListener;->onServiceConnected(Lcom/android/internal/textservice/ISpellCheckerSession;)V
-    :try_end_c2
-    .catchall {:try_start_a9 .. :try_end_c2} :catchall_2e
-    .catch Landroid/os/RemoteException; {:try_start_a9 .. :try_end_c2} :catch_c9
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_0
 
     .line 322
-    :try_start_c2
+    :try_start_5
     monitor-exit v20
-    :try_end_c3
-    .catchall {:try_start_c2 .. :try_end_c3} :catchall_2e
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    goto/16 :goto_6
+    goto/16 :goto_0
 
     .line 327
-    :cond_c5
-    :try_start_c5
+    :cond_8
+    :try_start_6
     invoke-virtual {v14}, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->removeAll()V
-    :try_end_c8
-    .catchall {:try_start_c5 .. :try_end_c8} :catchall_2e
-    .catch Landroid/os/RemoteException; {:try_start_c5 .. :try_end_c8} :catch_c9
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_0
 
-    goto :goto_8b
+    goto :goto_2
 
     .line 329
     .end local v19           #session:Lcom/android/internal/textservice/ISpellCheckerSession;
-    :catch_c9
+    :catch_0
     move-exception v15
 
     .line 330
     .local v15, e:Landroid/os/RemoteException;
-    :try_start_ca
+    :try_start_7
     sget-object v2, Lcom/android/server/TextServicesManagerService;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2337,25 +2341,25 @@
     .line 331
     invoke-virtual {v14}, Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;->removeAll()V
 
-    goto :goto_8b
+    goto :goto_2
 
     .line 341
     .end local v14           #bindGroup:Lcom/android/server/TextServicesManagerService$SpellCheckerBindGroup;
     .end local v15           #e:Landroid/os/RemoteException;
     .end local v18           #recipient:Lcom/android/server/TextServicesManagerService$InternalDeathRecipient;
     .restart local v16       #ident:J
-    :catchall_e6
+    :catchall_1
     move-exception v2
 
     invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v2
-    :try_end_eb
-    .catchall {:try_start_ca .. :try_end_eb} :catchall_2e
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
 .end method
 
 .method public isSpellCheckerEnabled()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 349
@@ -2364,7 +2368,7 @@
     monitor-enter v1
 
     .line 350
-    :try_start_3
+    :try_start_0
     invoke-direct {p0}, Lcom/android/server/TextServicesManagerService;->isSpellCheckerEnabledLocked()Z
 
     move-result v0
@@ -2374,18 +2378,18 @@
     return v0
 
     .line 351
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_b
-    .catchall {:try_start_3 .. :try_end_b} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setCurrentSpellChecker(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "locale"
     .parameter "sciId"
 
@@ -2396,7 +2400,7 @@
     monitor-enter v1
 
     .line 411
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.WRITE_SECURE_SETTINGS"
@@ -2405,7 +2409,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
     .line 414
     new-instance v0, Ljava/lang/SecurityException;
@@ -2417,31 +2421,31 @@
     throw v0
 
     .line 419
-    :catchall_15
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_17
-    .catchall {:try_start_3 .. :try_end_17} :catchall_15
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 418
-    :cond_18
-    :try_start_18
+    :cond_0
+    :try_start_1
     invoke-direct {p0, p2}, Lcom/android/server/TextServicesManagerService;->setCurrentSpellCheckerLocked(Ljava/lang/String;)V
 
     .line 419
     monitor-exit v1
-    :try_end_1c
-    .catchall {:try_start_18 .. :try_end_1c} :catchall_15
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 420
     return-void
 .end method
 
 .method public setCurrentSpellCheckerSubtype(Ljava/lang/String;I)V
-    .registers 6
+    .locals 3
     .parameter "locale"
     .parameter "hashCode"
 
@@ -2452,7 +2456,7 @@
     monitor-enter v1
 
     .line 425
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.WRITE_SECURE_SETTINGS"
@@ -2461,7 +2465,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
     .line 428
     new-instance v0, Ljava/lang/SecurityException;
@@ -2473,31 +2477,31 @@
     throw v0
 
     .line 433
-    :catchall_15
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_17
-    .catchall {:try_start_3 .. :try_end_17} :catchall_15
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 432
-    :cond_18
-    :try_start_18
+    :cond_0
+    :try_start_1
     invoke-direct {p0, p2}, Lcom/android/server/TextServicesManagerService;->setCurrentSpellCheckerSubtypeLocked(I)V
 
     .line 433
     monitor-exit v1
-    :try_end_1c
-    .catchall {:try_start_18 .. :try_end_1c} :catchall_15
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 434
     return-void
 .end method
 
 .method public setSpellCheckerEnabled(Z)V
-    .registers 5
+    .locals 3
     .parameter "enabled"
 
     .prologue
@@ -2507,7 +2511,7 @@
     monitor-enter v1
 
     .line 439
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/TextServicesManagerService;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.WRITE_SECURE_SETTINGS"
@@ -2516,7 +2520,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
     .line 442
     new-instance v0, Ljava/lang/SecurityException;
@@ -2528,37 +2532,37 @@
     throw v0
 
     .line 447
-    :catchall_15
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_17
-    .catchall {:try_start_3 .. :try_end_17} :catchall_15
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 446
-    :cond_18
-    :try_start_18
+    :cond_0
+    :try_start_1
     invoke-direct {p0, p1}, Lcom/android/server/TextServicesManagerService;->setSpellCheckerEnabledLocked(Z)V
 
     .line 447
     monitor-exit v1
-    :try_end_1c
-    .catchall {:try_start_18 .. :try_end_1c} :catchall_15
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 448
     return-void
 .end method
 
 .method public systemReady()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 71
     iget-boolean v0, p0, Lcom/android/server/TextServicesManagerService;->mSystemReady:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 72
     const/4 v0, 0x1
@@ -2566,6 +2570,6 @@
     iput-boolean v0, p0, Lcom/android/server/TextServicesManagerService;->mSystemReady:Z
 
     .line 74
-    :cond_7
+    :cond_0
     return-void
 .end method

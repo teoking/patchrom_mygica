@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeech;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Boolean;
-    .registers 3
+    .locals 1
     .parameter "service"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -70,7 +70,7 @@
 .end method
 
 .method public bridge synthetic run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .annotation system Ldalvik/annotation/Throws;
         value = {

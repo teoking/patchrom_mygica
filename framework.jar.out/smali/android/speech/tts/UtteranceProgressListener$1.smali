@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeech$OnUtteranceCompletedListener;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,19 +35,19 @@
 
 # virtual methods
 .method public declared-synchronized onDone(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "utteranceId"
 
     .prologue
     .line 57
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/speech/tts/UtteranceProgressListener$1;->val$listener:Landroid/speech/tts/TextToSpeech$OnUtteranceCompletedListener;
 
     invoke-interface {v0, p1}, Landroid/speech/tts/TextToSpeech$OnUtteranceCompletedListener;->onUtteranceCompleted(Ljava/lang/String;)V
-    :try_end_6
-    .catchall {:try_start_1 .. :try_end_6} :catchall_8
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 58
     monitor-exit p0
@@ -55,7 +55,7 @@
     return-void
 
     .line 57
-    :catchall_8
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -64,7 +64,7 @@
 .end method
 
 .method public onError(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "utteranceId"
 
     .prologue
@@ -78,7 +78,7 @@
 .end method
 
 .method public onStart(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "utteranceId"
 
     .prologue

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/VibratorService;Landroid/os/Handler;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "x0"
 
@@ -36,13 +36,14 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .registers 3
+    .locals 1
     .parameter "selfChange"
 
     .prologue
     .line 147
     iget-object v0, p0, Lcom/android/server/VibratorService$1;->this$0:Lcom/android/server/VibratorService;
 
+    #calls: Lcom/android/server/VibratorService;->updateInputDeviceVibrators()V
     invoke-static {v0}, Lcom/android/server/VibratorService;->access$400(Lcom/android/server/VibratorService;)V
 
     .line 148

@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 39
@@ -45,7 +45,7 @@
 .end method
 
 .method private read32([BI)J
-    .registers 16
+    .locals 13
     .parameter "buffer"
     .parameter "offset"
 
@@ -77,7 +77,7 @@
     .local v3, b3:B
     and-int/lit16 v8, v0, 0x80
 
-    if-ne v8, v9, :cond_41
+    if-ne v8, v9, :cond_0
 
     and-int/lit8 v8, v0, 0x7f
 
@@ -85,10 +85,10 @@
 
     .line 173
     .local v4, i0:I
-    :goto_18
+    :goto_0
     and-int/lit16 v8, v1, 0x80
 
-    if-ne v8, v9, :cond_43
+    if-ne v8, v9, :cond_1
 
     and-int/lit8 v8, v1, 0x7f
 
@@ -96,10 +96,10 @@
 
     .line 174
     .local v5, i1:I
-    :goto_20
+    :goto_1
     and-int/lit16 v8, v2, 0x80
 
-    if-ne v8, v9, :cond_45
+    if-ne v8, v9, :cond_2
 
     and-int/lit8 v8, v2, 0x7f
 
@@ -107,10 +107,10 @@
 
     .line 175
     .local v6, i2:I
-    :goto_28
+    :goto_2
     and-int/lit16 v8, v3, 0x80
 
-    if-ne v8, v9, :cond_47
+    if-ne v8, v9, :cond_3
 
     and-int/lit8 v8, v3, 0x7f
 
@@ -118,7 +118,7 @@
 
     .line 177
     .local v7, i3:I
-    :goto_30
+    :goto_3
     int-to-long v8, v4
 
     const/16 v10, 0x18
@@ -151,36 +151,36 @@
     .end local v5           #i1:I
     .end local v6           #i2:I
     .end local v7           #i3:I
-    :cond_41
+    :cond_0
     move v4, v0
 
     .line 172
-    goto :goto_18
+    goto :goto_0
 
     .restart local v4       #i0:I
-    :cond_43
+    :cond_1
     move v5, v1
 
     .line 173
-    goto :goto_20
+    goto :goto_1
 
     .restart local v5       #i1:I
-    :cond_45
+    :cond_2
     move v6, v2
 
     .line 174
-    goto :goto_28
+    goto :goto_2
 
     .restart local v6       #i2:I
-    :cond_47
+    :cond_3
     move v7, v3
 
     .line 175
-    goto :goto_30
+    goto :goto_3
 .end method
 
 .method private readTimeStamp([BI)J
-    .registers 13
+    .locals 10
     .parameter "buffer"
     .parameter "offset"
 
@@ -220,7 +220,7 @@
 .end method
 
 .method private writeTimeStamp([BIJ)V
-    .registers 16
+    .locals 11
     .parameter "buffer"
     .parameter "offset"
     .parameter "time"
@@ -386,7 +386,7 @@
 
 # virtual methods
 .method public getNtpTime()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 140
@@ -396,7 +396,7 @@
 .end method
 
 .method public getNtpTimeReference()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 150
@@ -406,7 +406,7 @@
 .end method
 
 .method public getRoundTripTime()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 159
@@ -416,7 +416,7 @@
 .end method
 
 .method public requestTime(Ljava/lang/String;I)Z
-    .registers 36
+    .locals 33
     .parameter "host"
     .parameter "timeout"
 
@@ -426,18 +426,18 @@
 
     .line 76
     .local v25, socket:Ljava/net/DatagramSocket;
-    :try_start_2
+    :try_start_0
     new-instance v26, Ljava/net/DatagramSocket;
 
     invoke-direct/range {v26 .. v26}, Ljava/net/DatagramSocket;-><init>()V
-    :try_end_7
-    .catchall {:try_start_2 .. :try_end_7} :catchall_b4
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_7} :catch_ab
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 77
     .end local v25           #socket:Ljava/net/DatagramSocket;
     .local v26, socket:Ljava/net/DatagramSocket;
-    :try_start_7
+    :try_start_1
     move-object/from16 v0, v26
 
     move/from16 v1, p2
@@ -620,18 +620,18 @@
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Landroid/net/SntpClient;->mRoundTripTime:J
-    :try_end_a1
-    .catchall {:try_start_7 .. :try_end_a1} :catchall_bb
-    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_a1} :catch_bf
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 126
-    if-eqz v26, :cond_a6
+    if-eqz v26, :cond_0
 
     .line 127
     invoke-virtual/range {v26 .. v26}, Ljava/net/DatagramSocket;->close()V
 
     .line 131
-    :cond_a6
+    :cond_0
     const/16 v29, 0x1
 
     move-object/from16 v25, v26
@@ -651,62 +651,62 @@
     .end local v26           #socket:Ljava/net/DatagramSocket;
     .end local v27           #transmitTime:J
     .restart local v25       #socket:Ljava/net/DatagramSocket;
-    :cond_aa
-    :goto_aa
+    :cond_1
+    :goto_0
     return v29
 
     .line 122
-    :catch_ab
+    :catch_0
     move-exception v8
 
     .line 124
     .local v8, e:Ljava/lang/Exception;
-    :goto_ac
+    :goto_1
     const/16 v29, 0x0
 
     .line 126
-    if-eqz v25, :cond_aa
+    if-eqz v25, :cond_1
 
     .line 127
     invoke-virtual/range {v25 .. v25}, Ljava/net/DatagramSocket;->close()V
 
-    goto :goto_aa
+    goto :goto_0
 
     .line 126
     .end local v8           #e:Ljava/lang/Exception;
-    :catchall_b4
+    :catchall_0
     move-exception v29
 
-    :goto_b5
-    if-eqz v25, :cond_ba
+    :goto_2
+    if-eqz v25, :cond_2
 
     .line 127
     invoke-virtual/range {v25 .. v25}, Ljava/net/DatagramSocket;->close()V
 
-    :cond_ba
+    :cond_2
     throw v29
 
     .line 126
     .end local v25           #socket:Ljava/net/DatagramSocket;
     .restart local v26       #socket:Ljava/net/DatagramSocket;
-    :catchall_bb
+    :catchall_1
     move-exception v29
 
     move-object/from16 v25, v26
 
     .end local v26           #socket:Ljava/net/DatagramSocket;
     .restart local v25       #socket:Ljava/net/DatagramSocket;
-    goto :goto_b5
+    goto :goto_2
 
     .line 122
     .end local v25           #socket:Ljava/net/DatagramSocket;
     .restart local v26       #socket:Ljava/net/DatagramSocket;
-    :catch_bf
+    :catch_1
     move-exception v8
 
     move-object/from16 v25, v26
 
     .end local v26           #socket:Ljava/net/DatagramSocket;
     .restart local v25       #socket:Ljava/net/DatagramSocket;
-    goto :goto_ac
+    goto :goto_1
 .end method

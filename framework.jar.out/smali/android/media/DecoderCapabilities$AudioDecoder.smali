@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -60,7 +60,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -77,7 +77,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/media/DecoderCapabilities$AudioDecoder;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -94,7 +94,7 @@
 .end method
 
 .method public static values()[Landroid/media/DecoderCapabilities$AudioDecoder;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 41

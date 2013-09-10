@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 42
@@ -59,7 +59,7 @@
 .end method
 
 .method public static convertFromPem([B)Ljava/util/List;
-    .registers 7
+    .locals 6
     .parameter "bytes"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -105,21 +105,21 @@
 
     .line 134
     .local v4, result:Ljava/util/List;,"Ljava/util/List<Ljava/lang/Object;>;"
-    :goto_16
+    :goto_0
     invoke-virtual {v2}, Lcom/android/org/bouncycastle/openssl/PEMReader;->readObject()Ljava/lang/Object;
 
     move-result-object v1
 
     .local v1, o:Ljava/lang/Object;
-    if-eqz v1, :cond_20
+    if-eqz v1, :cond_0
 
     .line 135
     invoke-interface {v4, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_16
+    goto :goto_0
 
     .line 137
-    :cond_20
+    :cond_0
     invoke-virtual {v2}, Lcom/android/org/bouncycastle/openssl/PEMReader;->close()V
 
     .line 138
@@ -127,7 +127,7 @@
 .end method
 
 .method public static varargs convertToPem([Ljava/lang/Object;)[B
-    .registers 9
+    .locals 8
     .parameter "objects"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -166,8 +166,8 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_14
-    if-ge v2, v3, :cond_1e
+    :goto_0
+    if-ge v2, v3, :cond_0
 
     aget-object v4, v0, v2
 
@@ -178,11 +178,11 @@
     .line 116
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_14
+    goto :goto_0
 
     .line 119
     .end local v4           #o:Ljava/lang/Object;
-    :cond_1e
+    :cond_0
     invoke-virtual {v5}, Lcom/android/org/bouncycastle/openssl/PEMWriter;->close()V
 
     .line 120
@@ -194,13 +194,13 @@
 .end method
 
 .method public static getInstance()Landroid/security/Credentials;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 144
     sget-object v0, Landroid/security/Credentials;->singleton:Landroid/security/Credentials;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 145
     new-instance v0, Landroid/security/Credentials;
@@ -210,7 +210,7 @@
     sput-object v0, Landroid/security/Credentials;->singleton:Landroid/security/Credentials;
 
     .line 147
-    :cond_b
+    :cond_0
     sget-object v0, Landroid/security/Credentials;->singleton:Landroid/security/Credentials;
 
     return-object v0
@@ -219,7 +219,7 @@
 
 # virtual methods
 .method public install(Landroid/content/Context;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
@@ -232,16 +232,16 @@
     .line 162
     .local v1, intent:Landroid/content/Intent;
     invoke-virtual {p1, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-    :try_end_7
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 166
     .end local v1           #intent:Landroid/content/Intent;
-    :goto_7
+    :goto_0
     return-void
 
     .line 163
-    :catch_8
+    :catch_0
     move-exception v0
 
     .line 164
@@ -254,11 +254,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public install(Landroid/content/Context;Ljava/lang/String;[B)V
-    .registers 8
+    .locals 4
     .parameter "context"
     .parameter "type"
     .parameter "value"
@@ -276,16 +276,16 @@
 
     .line 183
     invoke-virtual {p1, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-    :try_end_a
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_a} :catch_b
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 187
     .end local v1           #intent:Landroid/content/Intent;
-    :goto_a
+    :goto_0
     return-void
 
     .line 184
-    :catch_b
+    :catch_0
     move-exception v0
 
     .line 185
@@ -298,11 +298,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public install(Landroid/content/Context;Ljava/security/KeyPair;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "pair"
 
@@ -342,16 +342,16 @@
 
     .line 173
     invoke-virtual {p1, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-    :try_end_21
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_21} :catch_22
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 177
     .end local v1           #intent:Landroid/content/Intent;
-    :goto_21
+    :goto_0
     return-void
 
     .line 174
-    :catch_22
+    :catch_0
     move-exception v0
 
     .line 175
@@ -364,11 +364,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_21
+    goto :goto_0
 .end method
 
 .method public unlock(Landroid/content/Context;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
@@ -383,16 +383,16 @@
     .line 153
     .local v1, intent:Landroid/content/Intent;
     invoke-virtual {p1, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-    :try_end_a
-    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_a} :catch_b
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 157
     .end local v1           #intent:Landroid/content/Intent;
-    :goto_a
+    :goto_0
     return-void
 
     .line 154
-    :catch_b
+    :catch_0
     move-exception v0
 
     .line 155
@@ -405,5 +405,5 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_a
+    goto :goto_0
 .end method

@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/BrowserFrame;Landroid/net/http/SslError;II)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public cancel()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1119
@@ -65,7 +65,7 @@
 .end method
 
 .method public proceed()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1110

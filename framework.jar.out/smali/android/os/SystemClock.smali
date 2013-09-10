@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 94
@@ -31,7 +31,7 @@
 .end method
 
 .method public static sleep(J)V
-    .registers 12
+    .locals 10
     .parameter "ms"
 
     .prologue
@@ -50,14 +50,14 @@
 
     .line 114
     .local v3, interrupted:Z
-    :cond_6
-    :try_start_6
+    :cond_0
+    :try_start_0
     invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_9
-    .catch Ljava/lang/InterruptedException; {:try_start_6 .. :try_end_9} :catch_21
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 119
-    :goto_9
+    :goto_0
     add-long v6, v4, p0
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -71,10 +71,10 @@
 
     cmp-long v6, v0, v6
 
-    if-gtz v6, :cond_6
+    if-gtz v6, :cond_0
 
     .line 122
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_1
 
     .line 126
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -84,18 +84,18 @@
     invoke-virtual {v6}, Ljava/lang/Thread;->interrupt()V
 
     .line 128
-    :cond_20
+    :cond_1
     return-void
 
     .line 116
-    :catch_21
+    :catch_0
     move-exception v2
 
     .line 117
     .local v2, e:Ljava/lang/InterruptedException;
     const/4 v3, 0x1
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static native uptimeMillis()J

@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 30
@@ -22,7 +22,7 @@
 .end method
 
 .method public constructor <init>(FF)V
-    .registers 3
+    .locals 0
     .parameter "x"
     .parameter "y"
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public IsInUnitRange()Z
-    .registers 4
+    .locals 3
 
     .prologue
     const/high16 v2, 0x3f80
@@ -55,39 +55,39 @@
 
     cmpl-float v0, v0, v1
 
-    if-ltz v0, :cond_1d
+    if-ltz v0, :cond_0
 
     iget v0, p0, Landroid/filterfw/geometry/Point;->x:F
 
     cmpg-float v0, v0, v2
 
-    if-gtz v0, :cond_1d
+    if-gtz v0, :cond_0
 
     iget v0, p0, Landroid/filterfw/geometry/Point;->y:F
 
     cmpl-float v0, v0, v1
 
-    if-ltz v0, :cond_1d
+    if-ltz v0, :cond_0
 
     iget v0, p0, Landroid/filterfw/geometry/Point;->y:F
 
     cmpg-float v0, v0, v2
 
-    if-gtz v0, :cond_1d
+    if-gtz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_1c
+    :goto_0
     return v0
 
-    :cond_1d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 .method public distanceTo(Landroid/filterfw/geometry/Point;)F
-    .registers 3
+    .locals 1
     .parameter "p"
 
     .prologue
@@ -104,7 +104,7 @@
 .end method
 
 .method public length()F
-    .registers 4
+    .locals 3
 
     .prologue
     .line 73
@@ -134,7 +134,7 @@
 .end method
 
 .method public minus(FF)Landroid/filterfw/geometry/Point;
-    .registers 6
+    .locals 3
     .parameter "x"
     .parameter "y"
 
@@ -156,7 +156,7 @@
 .end method
 
 .method public minus(Landroid/filterfw/geometry/Point;)Landroid/filterfw/geometry/Point;
-    .registers 4
+    .locals 2
     .parameter "point"
 
     .prologue
@@ -173,7 +173,7 @@
 .end method
 
 .method public mult(FF)Landroid/filterfw/geometry/Point;
-    .registers 6
+    .locals 3
     .parameter "x"
     .parameter "y"
 
@@ -195,7 +195,7 @@
 .end method
 
 .method public normalize()Landroid/filterfw/geometry/Point;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 85
@@ -209,7 +209,7 @@
 .end method
 
 .method public plus(FF)Landroid/filterfw/geometry/Point;
-    .registers 6
+    .locals 3
     .parameter "x"
     .parameter "y"
 
@@ -231,7 +231,7 @@
 .end method
 
 .method public plus(Landroid/filterfw/geometry/Point;)Landroid/filterfw/geometry/Point;
-    .registers 4
+    .locals 2
     .parameter "point"
 
     .prologue
@@ -248,7 +248,7 @@
 .end method
 
 .method public rotated(F)Landroid/filterfw/geometry/Point;
-    .registers 10
+    .locals 8
     .parameter "radians"
 
     .prologue
@@ -317,7 +317,7 @@
 .end method
 
 .method public rotated90(I)Landroid/filterfw/geometry/Point;
-    .registers 7
+    .locals 5
     .parameter "count"
 
     .prologue
@@ -333,8 +333,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_5
-    if-ge v0, p1, :cond_d
+    :goto_0
+    if-ge v0, p1, :cond_0
 
     .line 92
     move v3, v1
@@ -349,11 +349,11 @@
     .line 91
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 96
     .end local v3           #ox:F
-    :cond_d
+    :cond_0
     new-instance v4, Landroid/filterfw/geometry/Point;
 
     invoke-direct {v4, v1, v2}, Landroid/filterfw/geometry/Point;-><init>(FF)V
@@ -362,7 +362,7 @@
 .end method
 
 .method public rotatedAround(Landroid/filterfw/geometry/Point;F)Landroid/filterfw/geometry/Point;
-    .registers 4
+    .locals 1
     .parameter "center"
     .parameter "radians"
 
@@ -384,7 +384,7 @@
 .end method
 
 .method public scaledTo(F)Landroid/filterfw/geometry/Point;
-    .registers 3
+    .locals 1
     .parameter "length"
 
     .prologue
@@ -403,7 +403,7 @@
 .end method
 
 .method public set(FF)V
-    .registers 3
+    .locals 0
     .parameter "x"
     .parameter "y"
 
@@ -419,7 +419,7 @@
 .end method
 
 .method public times(F)Landroid/filterfw/geometry/Point;
-    .registers 5
+    .locals 3
     .parameter "s"
 
     .prologue
@@ -440,7 +440,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 111

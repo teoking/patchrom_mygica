@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "prn"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public getAzimuth()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 87
@@ -50,7 +50,7 @@
 .end method
 
 .method public getElevation()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 77
@@ -60,7 +60,7 @@
 .end method
 
 .method public getPrn()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 58
@@ -70,7 +70,7 @@
 .end method
 
 .method public getSnr()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 67
@@ -80,7 +80,7 @@
 .end method
 
 .method public hasAlmanac()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 105
@@ -90,7 +90,7 @@
 .end method
 
 .method public hasEphemeris()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 96
@@ -100,7 +100,7 @@
 .end method
 
 .method setStatus(Landroid/location/GpsSatellite;)V
-    .registers 3
+    .locals 1
     .parameter "satellite"
 
     .prologue
@@ -144,7 +144,7 @@
 .end method
 
 .method public usedInFix()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 115

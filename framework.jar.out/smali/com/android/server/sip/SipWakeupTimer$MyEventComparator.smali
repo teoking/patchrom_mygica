@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 329
@@ -39,7 +39,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/sip/SipWakeupTimer$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -52,23 +52,23 @@
 
 # virtual methods
 .method public compare(Lcom/android/server/sip/SipWakeupTimer$MyEvent;Lcom/android/server/sip/SipWakeupTimer$MyEvent;)I
-    .registers 6
+    .locals 3
     .parameter "e1"
     .parameter "e2"
 
     .prologue
     .line 331
-    if-ne p1, p2, :cond_4
+    if-ne p1, p2, :cond_1
 
     const/4 v0, 0x0
 
     .line 334
-    :cond_3
-    :goto_3
+    :cond_0
+    :goto_0
     return v0
 
     .line 332
-    :cond_4
+    :cond_1
     iget v1, p1, Lcom/android/server/sip/SipWakeupTimer$MyEvent;->mMaxPeriod:I
 
     iget v2, p2, Lcom/android/server/sip/SipWakeupTimer$MyEvent;->mMaxPeriod:I
@@ -77,15 +77,15 @@
 
     .line 333
     .local v0, diff:I
-    if-nez v0, :cond_3
+    if-nez v0, :cond_0
 
     const/4 v0, -0x1
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -105,20 +105,20 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 3
+    .locals 1
     .parameter "that"
 
     .prologue
     .line 338
-    if-ne p0, p1, :cond_4
+    if-ne p0, p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_3
+    :goto_0
     return v0
 
-    :cond_4
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_3
+    goto :goto_0
 .end method

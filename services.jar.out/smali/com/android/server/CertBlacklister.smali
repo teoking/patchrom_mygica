@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 41
@@ -107,7 +107,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -126,7 +126,7 @@
 .end method
 
 .method private buildPubkeyObserver(Landroid/content/ContentResolver;)Lcom/android/server/CertBlacklister$BlacklistObserver;
-    .registers 6
+    .locals 4
     .parameter "cr"
 
     .prologue
@@ -145,7 +145,7 @@
 .end method
 
 .method private buildSerialObserver(Landroid/content/ContentResolver;)Lcom/android/server/CertBlacklister$BlacklistObserver;
-    .registers 6
+    .locals 4
     .parameter "cr"
 
     .prologue
@@ -164,7 +164,7 @@
 .end method
 
 .method private registerObservers(Landroid/content/ContentResolver;)V
-    .registers 5
+    .locals 3
     .parameter "cr"
 
     .prologue

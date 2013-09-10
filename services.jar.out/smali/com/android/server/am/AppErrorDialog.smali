@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/am/AppErrorResult;Lcom/android/server/am/ProcessRecord;)V
-    .registers 11
+    .locals 7
     .parameter "context"
     .parameter "result"
     .parameter "app"
@@ -62,7 +62,7 @@
 
     move-result v2
 
-    if-ne v2, v6, :cond_b7
+    if-ne v2, v6, :cond_2
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -75,7 +75,7 @@
     move-result-object v0
 
     .local v0, name:Ljava/lang/CharSequence;
-    if-eqz v0, :cond_b7
+    if-eqz v0, :cond_2
 
     .line 52
     const v2, 0x10403d0
@@ -103,7 +103,7 @@
     invoke-virtual {p0, v2}, Lcom/android/server/am/AppErrorDialog;->setMessage(Ljava/lang/CharSequence;)V
 
     .line 62
-    :goto_41
+    :goto_0
     invoke-virtual {p0, v5}, Lcom/android/server/am/AppErrorDialog;->setCancelable(Z)V
 
     .line 64
@@ -126,7 +126,7 @@
     .line 68
     iget-object v2, p3, Lcom/android/server/am/ProcessRecord;->errorReportReceiver:Landroid/content/ComponentName;
 
-    if-eqz v2, :cond_6a
+    if-eqz v2, :cond_0
 
     .line 69
     const/4 v2, -0x2
@@ -146,7 +146,7 @@
     invoke-virtual {p0, v2, v3, v4}, Lcom/android/server/am/AppErrorDialog;->setButton(ILjava/lang/CharSequence;Landroid/os/Message;)V
 
     .line 74
-    :cond_6a
+    :cond_0
     const v2, 0x10403cf
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
@@ -196,7 +196,7 @@
     .line 77
     iget-boolean v2, p3, Lcom/android/server/am/ProcessRecord;->persistent:Z
 
-    if-eqz v2, :cond_a8
+    if-eqz v2, :cond_1
 
     .line 78
     invoke-virtual {p0}, Lcom/android/server/am/AppErrorDialog;->getWindow()Landroid/view/Window;
@@ -208,7 +208,7 @@
     invoke-virtual {v2, v3}, Landroid/view/Window;->setType(I)V
 
     .line 82
-    :cond_a8
+    :cond_1
     iget-object v2, p0, Lcom/android/server/am/AppErrorDialog;->mHandler:Landroid/os/Handler;
 
     iget-object v3, p0, Lcom/android/server/am/AppErrorDialog;->mHandler:Landroid/os/Handler;
@@ -226,7 +226,7 @@
 
     .line 56
     .end local v0           #name:Ljava/lang/CharSequence;
-    :cond_b7
+    :cond_2
     iget-object v0, p3, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
     .line 57
@@ -247,11 +247,11 @@
 
     invoke-virtual {p0, v2}, Lcom/android/server/am/AppErrorDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    goto/16 :goto_41
+    goto/16 :goto_0
 .end method
 
 .method static synthetic access$000(Lcom/android/server/am/AppErrorDialog;)Lcom/android/server/am/ProcessRecord;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -262,7 +262,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/server/am/AppErrorDialog;)Lcom/android/server/am/AppErrorResult;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue

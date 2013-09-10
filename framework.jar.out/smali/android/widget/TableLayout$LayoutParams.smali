@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 711
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .registers 4
+    .locals 1
     .parameter "w"
     .parameter "h"
 
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>(IIF)V
-    .registers 5
+    .locals 1
     .parameter "w"
     .parameter "h"
     .parameter "initWeight"
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "c"
     .parameter "attrs"
 
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 2
+    .locals 0
     .parameter "p"
 
     .prologue
@@ -87,7 +87,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
-    .registers 2
+    .locals 0
     .parameter "source"
 
     .prologue
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method protected setBaseAttributes(Landroid/content/res/TypedArray;II)V
-    .registers 5
+    .locals 1
     .parameter "a"
     .parameter "widthAttr"
     .parameter "heightAttr"
@@ -117,7 +117,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 743
     const-string v0, "layout_height"
@@ -129,14 +129,14 @@
     iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     .line 747
-    :goto_11
+    :goto_0
     return-void
 
     .line 745
-    :cond_12
+    :cond_0
     const/4 v0, -0x2
 
     iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    goto :goto_11
+    goto :goto_0
 .end method

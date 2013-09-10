@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>([Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 65
@@ -77,21 +77,21 @@
 
     array-length v1, v1
 
-    if-eq v0, v1, :cond_9
+    if-eq v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -115,7 +115,7 @@
 .end method
 
 .method public remove()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 75

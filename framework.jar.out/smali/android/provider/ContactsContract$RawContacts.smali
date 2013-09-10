@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 2591
@@ -70,7 +70,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 2584
@@ -81,7 +81,7 @@
 .end method
 
 .method public static getContactLookupUri(Landroid/content/ContentResolver;Landroid/net/Uri;)Landroid/net/Uri;
-    .registers 13
+    .locals 11
     .parameter "resolver"
     .parameter "rawContactUri"
 
@@ -129,14 +129,14 @@
 
     .line 2668
     .local v10, lookupUri:Landroid/net/Uri;
-    if-eqz v8, :cond_38
+    if-eqz v8, :cond_1
 
-    :try_start_1e
+    :try_start_0
     invoke-interface {v8}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
-    if-eqz v0, :cond_38
+    if-eqz v0, :cond_1
 
     .line 2669
     const/4 v0, 0x0
@@ -156,46 +156,46 @@
     .line 2671
     .local v9, lookupKey:Ljava/lang/String;
     invoke-static {v6, v7, v9}, Landroid/provider/ContactsContract$Contacts;->getLookupUri(JLjava/lang/String;)Landroid/net/Uri;
-    :try_end_31
-    .catchall {:try_start_1e .. :try_end_31} :catchall_3e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v10
 
     .line 2674
     .end local v10           #lookupUri:Landroid/net/Uri;
-    if-eqz v8, :cond_37
+    if-eqz v8, :cond_0
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
     .line 2676
     .end local v6           #contactId:J
     .end local v9           #lookupKey:Ljava/lang/String;
-    :cond_37
-    :goto_37
+    :cond_0
+    :goto_0
     return-object v10
 
     .line 2674
     .restart local v10       #lookupUri:Landroid/net/Uri;
-    :cond_38
-    if-eqz v8, :cond_37
+    :cond_1
+    if-eqz v8, :cond_0
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    goto :goto_37
+    goto :goto_0
 
-    :catchall_3e
+    :catchall_0
     move-exception v0
 
-    if-eqz v8, :cond_44
+    if-eqz v8, :cond_2
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    :cond_44
+    :cond_2
     throw v0
 .end method
 
 .method public static newEntityIterator(Landroid/database/Cursor;)Landroid/content/EntityIterator;
-    .registers 2
+    .locals 1
     .parameter "cursor"
 
     .prologue

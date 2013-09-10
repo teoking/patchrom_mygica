@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 90
@@ -61,7 +61,7 @@
 .end method
 
 .method constructor <init>()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -116,7 +116,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 6
+    .locals 4
     .parameter "in"
 
     .prologue
@@ -171,11 +171,11 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_64
+    if-ne v0, v1, :cond_0
 
     move v0, v1
 
-    :goto_2d
+    :goto_0
     iput-boolean v0, p0, Lcom/android/internal/telephony/cat/Input;->ucs2:Z
 
     .line 63
@@ -183,11 +183,11 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_66
+    if-ne v0, v1, :cond_1
 
     move v0, v1
 
-    :goto_36
+    :goto_1
     iput-boolean v0, p0, Lcom/android/internal/telephony/cat/Input;->packed:Z
 
     .line 64
@@ -195,11 +195,11 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_68
+    if-ne v0, v1, :cond_2
 
     move v0, v1
 
-    :goto_3f
+    :goto_2
     iput-boolean v0, p0, Lcom/android/internal/telephony/cat/Input;->digitOnly:Z
 
     .line 65
@@ -207,11 +207,11 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_6a
+    if-ne v0, v1, :cond_3
 
     move v0, v1
 
-    :goto_48
+    :goto_3
     iput-boolean v0, p0, Lcom/android/internal/telephony/cat/Input;->echo:Z
 
     .line 66
@@ -219,11 +219,11 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_6c
+    if-ne v0, v1, :cond_4
 
     move v0, v1
 
-    :goto_51
+    :goto_4
     iput-boolean v0, p0, Lcom/android/internal/telephony/cat/Input;->yesNo:Z
 
     .line 67
@@ -231,9 +231,9 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_6e
+    if-ne v0, v1, :cond_5
 
-    :goto_59
+    :goto_5
     iput-boolean v1, p0, Lcom/android/internal/telephony/cat/Input;->helpAvailable:Z
 
     .line 68
@@ -248,45 +248,45 @@
     .line 69
     return-void
 
-    :cond_64
+    :cond_0
     move v0, v2
 
     .line 62
-    goto :goto_2d
+    goto :goto_0
 
-    :cond_66
+    :cond_1
     move v0, v2
 
     .line 63
-    goto :goto_36
+    goto :goto_1
 
-    :cond_68
+    :cond_2
     move v0, v2
 
     .line 64
-    goto :goto_3f
+    goto :goto_2
 
-    :cond_6a
+    :cond_3
     move v0, v2
 
     .line 65
-    goto :goto_48
+    goto :goto_3
 
-    :cond_6c
+    :cond_4
     move v0, v2
 
     .line 66
-    goto :goto_51
+    goto :goto_4
 
-    :cond_6e
+    :cond_5
     move v1, v2
 
     .line 67
-    goto :goto_59
+    goto :goto_5
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/android/internal/telephony/cat/Input$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -300,7 +300,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 72
@@ -310,7 +310,7 @@
 .end method
 
 .method setIcon(Landroid/graphics/Bitmap;)Z
-    .registers 3
+    .locals 1
     .parameter "Icon"
 
     .prologue
@@ -321,7 +321,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "dest"
     .parameter "flags"
 
@@ -358,59 +358,59 @@
     .line 81
     iget-boolean v0, p0, Lcom/android/internal/telephony/cat/Input;->ucs2:Z
 
-    if-eqz v0, :cond_50
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_20
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 82
     iget-boolean v0, p0, Lcom/android/internal/telephony/cat/Input;->packed:Z
 
-    if-eqz v0, :cond_52
+    if-eqz v0, :cond_1
 
     move v0, v1
 
-    :goto_28
+    :goto_1
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 83
     iget-boolean v0, p0, Lcom/android/internal/telephony/cat/Input;->digitOnly:Z
 
-    if-eqz v0, :cond_54
+    if-eqz v0, :cond_2
 
     move v0, v1
 
-    :goto_30
+    :goto_2
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 84
     iget-boolean v0, p0, Lcom/android/internal/telephony/cat/Input;->echo:Z
 
-    if-eqz v0, :cond_56
+    if-eqz v0, :cond_3
 
     move v0, v1
 
-    :goto_38
+    :goto_3
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 85
     iget-boolean v0, p0, Lcom/android/internal/telephony/cat/Input;->yesNo:Z
 
-    if-eqz v0, :cond_58
+    if-eqz v0, :cond_4
 
     move v0, v1
 
-    :goto_40
+    :goto_4
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 86
     iget-boolean v0, p0, Lcom/android/internal/telephony/cat/Input;->helpAvailable:Z
 
-    if-eqz v0, :cond_5a
+    if-eqz v0, :cond_5
 
-    :goto_47
+    :goto_5
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 87
@@ -421,39 +421,39 @@
     .line 88
     return-void
 
-    :cond_50
+    :cond_0
     move v0, v2
 
     .line 81
-    goto :goto_20
+    goto :goto_0
 
-    :cond_52
+    :cond_1
     move v0, v2
 
     .line 82
-    goto :goto_28
+    goto :goto_1
 
-    :cond_54
+    :cond_2
     move v0, v2
 
     .line 83
-    goto :goto_30
+    goto :goto_2
 
-    :cond_56
+    :cond_3
     move v0, v2
 
     .line 84
-    goto :goto_38
+    goto :goto_3
 
-    :cond_58
+    :cond_4
     move v0, v2
 
     .line 85
-    goto :goto_40
+    goto :goto_4
 
-    :cond_5a
+    :cond_5
     move v1, v2
 
     .line 86
-    goto :goto_47
+    goto :goto_5
 .end method

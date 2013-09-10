@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 191
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/os/storage/StorageVolume;
-    .registers 16
+    .locals 14
     .parameter "in"
 
     .prologue
@@ -100,43 +100,43 @@
     .local v8, maxFileSize:J
     new-instance v0, Landroid/os/storage/StorageVolume;
 
-    if-ne v13, v7, :cond_31
+    if-ne v13, v7, :cond_0
 
     move v3, v7
 
-    :goto_27
-    if-ne v12, v7, :cond_33
+    :goto_0
+    if-ne v12, v7, :cond_1
 
     move v4, v7
 
-    :goto_2a
-    if-ne v11, v7, :cond_35
+    :goto_1
+    if-ne v11, v7, :cond_2
 
-    :goto_2c
+    :goto_2
     const/4 v10, 0x0
 
     invoke-direct/range {v0 .. v10}, Landroid/os/storage/StorageVolume;-><init>(Ljava/lang/String;IZZIIZJLandroid/os/storage/StorageVolume$1;)V
 
     return-object v0
 
-    :cond_31
+    :cond_0
     move v3, v10
 
-    goto :goto_27
+    goto :goto_0
 
-    :cond_33
+    :cond_1
     move v4, v10
 
-    goto :goto_2a
+    goto :goto_1
 
-    :cond_35
+    :cond_2
     move v7, v10
 
-    goto :goto_2c
+    goto :goto_2
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -149,7 +149,7 @@
 .end method
 
 .method public newArray(I)[Landroid/os/storage/StorageVolume;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -160,7 +160,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

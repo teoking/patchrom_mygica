@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/Phone;)V
-    .registers 3
+    .locals 1
     .parameter "phone"
 
     .prologue
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public dispose()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 47
@@ -53,7 +53,7 @@
 .end method
 
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 6
+    .locals 2
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -68,7 +68,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_0
 
     .line 195
     new-instance v0, Ljava/lang/StringBuilder;
@@ -110,11 +110,11 @@
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 204
-    :goto_32
+    :goto_0
     return-void
 
     .line 201
-    :cond_33
+    :cond_0
     const-string v0, "Phone Subscriber Info:"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
@@ -173,21 +173,21 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    goto :goto_32
+    goto :goto_0
 .end method
 
 .method protected finalize()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 51
     :try_start_0
     invoke-super {p0}, Lcom/android/internal/telephony/IPhoneSubInfo$Stub;->finalize()V
-    :try_end_3
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_3} :catch_b
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 55
-    :goto_3
+    :goto_0
     const-string v1, "PHONE"
 
     const-string v2, "PhoneSubInfo finalized"
@@ -198,7 +198,7 @@
     return-void
 
     .line 52
-    :catch_b
+    :catch_0
     move-exception v0
 
     .line 53
@@ -209,11 +209,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public getCompleteVoiceMailNumber()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 131
@@ -245,7 +245,7 @@
 .end method
 
 .method public getDeviceId()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 62
@@ -268,7 +268,7 @@
 .end method
 
 .method public getDeviceSvn()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 71
@@ -291,7 +291,7 @@
 .end method
 
 .method public getIccSerialNumber()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 87
@@ -314,7 +314,7 @@
 .end method
 
 .method public getIsimDomain()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 166
@@ -335,7 +335,7 @@
 
     .line 169
     .local v0, isim:Lcom/android/internal/telephony/ims/IsimRecords;
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 170
     invoke-interface {v0}, Lcom/android/internal/telephony/ims/IsimRecords;->getIsimDomain()Ljava/lang/String;
@@ -343,17 +343,17 @@
     move-result-object v1
 
     .line 172
-    :goto_15
+    :goto_0
     return-object v1
 
-    :cond_16
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public getIsimImpi()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 151
@@ -374,7 +374,7 @@
 
     .line 154
     .local v0, isim:Lcom/android/internal/telephony/ims/IsimRecords;
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 155
     invoke-interface {v0}, Lcom/android/internal/telephony/ims/IsimRecords;->getIsimImpi()Ljava/lang/String;
@@ -382,17 +382,17 @@
     move-result-object v1
 
     .line 157
-    :goto_15
+    :goto_0
     return-object v1
 
-    :cond_16
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public getIsimImpu()[Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 182
@@ -413,7 +413,7 @@
 
     .line 185
     .local v0, isim:Lcom/android/internal/telephony/ims/IsimRecords;
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 186
     invoke-interface {v0}, Lcom/android/internal/telephony/ims/IsimRecords;->getIsimImpu()[Ljava/lang/String;
@@ -421,17 +421,17 @@
     move-result-object v1
 
     .line 188
-    :goto_15
+    :goto_0
     return-object v1
 
-    :cond_16
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public getLine1AlphaTag()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 103
@@ -454,7 +454,7 @@
 .end method
 
 .method public getLine1Number()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 95
@@ -477,7 +477,7 @@
 .end method
 
 .method public getMsisdn()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 111
@@ -500,7 +500,7 @@
 .end method
 
 .method public getSubscriberId()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 79
@@ -523,7 +523,7 @@
 .end method
 
 .method public getVoiceMailAlphaTag()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 142
@@ -546,7 +546,7 @@
 .end method
 
 .method public getVoiceMailNumber()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 119

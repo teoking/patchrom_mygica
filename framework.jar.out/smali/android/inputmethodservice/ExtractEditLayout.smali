@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "attrs"
 
@@ -48,13 +48,13 @@
 
 # virtual methods
 .method public finishActionMode()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 77
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout;->mActionMode:Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 78
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout;->mActionMode:Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;
@@ -62,32 +62,32 @@
     invoke-virtual {v0}, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->finish()V
 
     .line 80
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public isActionModeStarted()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 70
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout;->mActionMode:Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public onFinishInflate()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 84
@@ -129,7 +129,7 @@
 .end method
 
 .method public startActionModeForChild(Landroid/view/View;Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
-    .registers 6
+    .locals 3
     .parameter "sourceView"
     .parameter "cb"
 
@@ -145,7 +145,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_22
+    if-eqz v1, :cond_0
 
     .line 56
     invoke-virtual {v0}, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->invalidate()V
@@ -174,12 +174,12 @@
 
     .line 63
     .end local v0           #mode:Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;
-    :goto_21
+    :goto_0
     return-object v0
 
     .restart local v0       #mode:Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;
-    :cond_22
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_21
+    goto :goto_0
 .end method

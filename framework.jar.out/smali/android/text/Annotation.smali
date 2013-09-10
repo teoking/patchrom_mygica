@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "src"
 
     .prologue
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "key"
     .parameter "value"
 
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 45
@@ -71,7 +71,7 @@
 .end method
 
 .method public getKey()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 54
@@ -81,7 +81,7 @@
 .end method
 
 .method public getSpanTypeId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 41
@@ -91,7 +91,7 @@
 .end method
 
 .method public getValue()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 58
@@ -101,7 +101,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/IccCard;Ljava/lang/String;Lcom/android/internal/telephony/CommandsInterface;)V
-    .registers 4
+    .locals 0
     .parameter "card"
     .parameter "aid"
     .parameter "ci"
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 44
@@ -43,12 +43,12 @@
 .end method
 
 .method protected getEFPath(I)Ljava/lang/String;
-    .registers 5
+    .locals 3
     .parameter "efid"
 
     .prologue
     .line 57
-    sparse-switch p1, :sswitch_data_2e
+    sparse-switch p1, :sswitch_data_0
 
     .line 86
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/gsm/SIMFileHandler;->getCommonIccEFPath(I)Ljava/lang/String;
@@ -57,12 +57,12 @@
 
     .line 87
     .local v0, path:Ljava/lang/String;
-    if-nez v0, :cond_19
+    if-nez v0, :cond_0
 
     .line 91
     iget-object v1, p0, Lcom/android/internal/telephony/IccFileHandler;->mParentCard:Lcom/android/internal/telephony/IccCard;
 
-    if-eqz v1, :cond_26
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/internal/telephony/IccFileHandler;->mParentCard:Lcom/android/internal/telephony/IccCard;
 
@@ -72,79 +72,79 @@
 
     move-result v1
 
-    if-eqz v1, :cond_26
+    if-eqz v1, :cond_1
 
     .line 93
     const-string v0, "3F007F105F3A"
 
     .line 97
     .end local v0           #path:Ljava/lang/String;
-    :cond_19
-    :goto_19
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 59
-    :sswitch_1a
+    :sswitch_0
     const-string v0, "3F007F10"
 
-    goto :goto_19
+    goto :goto_0
 
     .line 71
-    :sswitch_1d
+    :sswitch_1
     const-string v0, "3F007F20"
 
-    goto :goto_19
+    goto :goto_0
 
     .line 80
-    :sswitch_20
+    :sswitch_2
     const-string v0, "3F007F20"
 
-    goto :goto_19
+    goto :goto_0
 
     .line 84
-    :sswitch_23
+    :sswitch_3
     const-string v0, "3F007F105F3A"
 
-    goto :goto_19
+    goto :goto_0
 
     .line 95
     .restart local v0       #path:Ljava/lang/String;
-    :cond_26
+    :cond_1
     const-string v1, "GSM"
 
     const-string v2, "Error: EF Path being returned in null"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_19
+    goto :goto_0
 
     .line 57
-    :sswitch_data_2e
+    :sswitch_data_0
     .sparse-switch
-        0x4f30 -> :sswitch_23
-        0x6f11 -> :sswitch_20
-        0x6f13 -> :sswitch_20
-        0x6f14 -> :sswitch_20
-        0x6f15 -> :sswitch_20
-        0x6f16 -> :sswitch_20
-        0x6f17 -> :sswitch_20
-        0x6f18 -> :sswitch_20
-        0x6f38 -> :sswitch_1d
-        0x6f3c -> :sswitch_1a
-        0x6f46 -> :sswitch_1d
-        0x6fad -> :sswitch_1d
-        0x6fc5 -> :sswitch_1d
-        0x6fc7 -> :sswitch_1d
-        0x6fc8 -> :sswitch_1d
-        0x6fc9 -> :sswitch_1d
-        0x6fca -> :sswitch_1d
-        0x6fcb -> :sswitch_1d
-        0x6fcd -> :sswitch_1d
+        0x4f30 -> :sswitch_3
+        0x6f11 -> :sswitch_2
+        0x6f13 -> :sswitch_2
+        0x6f14 -> :sswitch_2
+        0x6f15 -> :sswitch_2
+        0x6f16 -> :sswitch_2
+        0x6f17 -> :sswitch_2
+        0x6f18 -> :sswitch_2
+        0x6f38 -> :sswitch_1
+        0x6f3c -> :sswitch_0
+        0x6f46 -> :sswitch_1
+        0x6fad -> :sswitch_1
+        0x6fc5 -> :sswitch_1
+        0x6fc7 -> :sswitch_1
+        0x6fc8 -> :sswitch_1
+        0x6fc9 -> :sswitch_1
+        0x6fca -> :sswitch_1
+        0x6fcb -> :sswitch_1
+        0x6fcd -> :sswitch_1
     .end sparse-switch
 .end method
 
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "msg"
 
     .prologue
@@ -156,7 +156,7 @@
 .end method
 
 .method protected logd(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
@@ -188,7 +188,7 @@
 .end method
 
 .method protected loge(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue

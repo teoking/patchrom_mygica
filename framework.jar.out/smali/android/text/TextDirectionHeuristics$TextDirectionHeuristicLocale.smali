@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 248
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 239
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method protected defaultIsRtl()Z
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v1, 0x1
@@ -65,13 +65,13 @@
 
     .line 245
     .local v0, dir:I
-    if-ne v0, v1, :cond_c
+    if-ne v0, v1, :cond_0
 
-    :goto_b
+    :goto_0
     return v1
 
-    :cond_c
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method

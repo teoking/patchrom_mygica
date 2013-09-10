@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/UpdateLockService;Landroid/os/Handler;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "h"
     .parameter "tag"
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public acquired()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 54
@@ -54,7 +54,7 @@
 .end method
 
 .method public released()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 60

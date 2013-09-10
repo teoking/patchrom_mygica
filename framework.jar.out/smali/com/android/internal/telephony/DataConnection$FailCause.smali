@@ -99,7 +99,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 13
+    .locals 13
 
     .prologue
     const/4 v12, 0x2
@@ -625,8 +625,8 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_1f5
-    if-ge v2, v3, :cond_209
+    :goto_0
+    if-ge v2, v3, :cond_0
 
     aget-object v1, v0, v2
 
@@ -647,16 +647,16 @@
     .line 150
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1f5
+    goto :goto_0
 
     .line 153
     .end local v1           #fc:Lcom/android/internal/telephony/DataConnection$FailCause;
-    :cond_209
+    :cond_0
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter "errorCode"
@@ -678,7 +678,7 @@
 .end method
 
 .method public static fromInt(I)Lcom/android/internal/telephony/DataConnection$FailCause;
-    .registers 4
+    .locals 3
     .parameter "errorCode"
 
     .prologue
@@ -697,18 +697,18 @@
 
     .line 184
     .local v0, fc:Lcom/android/internal/telephony/DataConnection$FailCause;
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 185
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->UNKNOWN:Lcom/android/internal/telephony/DataConnection$FailCause;
 
     .line 187
-    :cond_10
+    :cond_0
     return-object v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/telephony/DataConnection$FailCause;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -725,7 +725,7 @@
 .end method
 
 .method public static values()[Lcom/android/internal/telephony/DataConnection$FailCause;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 108
@@ -743,7 +743,7 @@
 
 # virtual methods
 .method getErrorCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 160
@@ -753,115 +753,115 @@
 .end method
 
 .method public isEventLoggable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 172
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->OPERATOR_BARRED:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_30
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->INSUFFICIENT_RESOURCES:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_30
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->UNKNOWN_PDP_ADDRESS_TYPE:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_30
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->USER_AUTHENTICATION:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_30
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->ACTIVATION_REJECT_GGSN:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_30
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->ACTIVATION_REJECT_UNSPECIFIED:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_30
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->SERVICE_OPTION_NOT_SUBSCRIBED:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_30
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->SERVICE_OPTION_NOT_SUPPORTED:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_30
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->SERVICE_OPTION_OUT_OF_ORDER:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_30
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->NSAPI_IN_USE:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_30
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->PROTOCOL_ERRORS:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_30
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->UNACCEPTABLE_NETWORK_PARAMETER:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-ne p0, v0, :cond_32
+    if-ne p0, v0, :cond_1
 
-    :cond_30
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_31
+    :goto_0
     return v0
 
-    :cond_32
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_31
+    goto :goto_0
 .end method
 
 .method public isPermanentFail()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 164
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->OPERATOR_BARRED:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_20
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->MISSING_UNKNOWN_APN:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_20
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->UNKNOWN_PDP_ADDRESS_TYPE:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_20
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->USER_AUTHENTICATION:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_20
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->SERVICE_OPTION_NOT_SUPPORTED:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_20
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->SERVICE_OPTION_NOT_SUBSCRIBED:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_20
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->NSAPI_IN_USE:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-eq p0, v0, :cond_20
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/DataConnection$FailCause;->PROTOCOL_ERRORS:Lcom/android/internal/telephony/DataConnection$FailCause;
 
-    if-ne p0, v0, :cond_22
+    if-ne p0, v0, :cond_1
 
-    :cond_20
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_21
+    :goto_0
     return v0
 
-    :cond_22
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_21
+    goto :goto_0
 .end method

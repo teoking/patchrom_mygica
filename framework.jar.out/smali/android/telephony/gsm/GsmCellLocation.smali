@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, -0x1
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
     .parameter "bundle"
 
     .prologue
@@ -80,75 +80,75 @@
 .end method
 
 .method private static equalsHandlesNulls(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .registers 3
+    .locals 1
     .parameter "a"
     .parameter "b"
 
     .prologue
     .line 133
-    if-nez p0, :cond_8
+    if-nez p0, :cond_1
 
-    if-nez p1, :cond_6
+    if-nez p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 
-    :cond_8
+    :cond_1
     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 8
+    .locals 6
     .parameter "o"
 
     .prologue
     const/4 v3, 0x0
 
     .line 107
-    :try_start_1
+    :try_start_0
     move-object v0, p1
 
     check-cast v0, Landroid/telephony/gsm/GsmCellLocation;
 
     move-object v2, v0
-    :try_end_5
-    .catch Ljava/lang/ClassCastException; {:try_start_1 .. :try_end_5} :catch_8
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 112
     .local v2, s:Landroid/telephony/gsm/GsmCellLocation;
-    if-nez p1, :cond_a
+    if-nez p1, :cond_1
 
     .line 116
     .end local v2           #s:Landroid/telephony/gsm/GsmCellLocation;
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     return v3
 
     .line 108
-    :catch_8
+    :catch_0
     move-exception v1
 
     .line 109
     .local v1, ex:Ljava/lang/ClassCastException;
-    goto :goto_7
+    goto :goto_0
 
     .line 116
     .end local v1           #ex:Ljava/lang/ClassCastException;
     .restart local v2       #s:Landroid/telephony/gsm/GsmCellLocation;
-    :cond_a
+    :cond_1
     iget v4, p0, Landroid/telephony/gsm/GsmCellLocation;->mLac:I
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -165,7 +165,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_0
 
     iget v4, p0, Landroid/telephony/gsm/GsmCellLocation;->mCid:I
 
@@ -183,7 +183,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_0
 
     iget v4, p0, Landroid/telephony/gsm/GsmCellLocation;->mPsc:I
 
@@ -201,15 +201,15 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_0
 
     const/4 v3, 0x1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public fillInNotifierBundle(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
     .parameter "m"
 
     .prologue
@@ -239,7 +239,7 @@
 .end method
 
 .method public getCid()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 59
@@ -249,7 +249,7 @@
 .end method
 
 .method public getLac()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 52
@@ -259,7 +259,7 @@
 .end method
 
 .method public getPsc()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 69
@@ -269,7 +269,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 99
@@ -283,7 +283,7 @@
 .end method
 
 .method public isEmpty()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, -0x1
@@ -291,29 +291,29 @@
     .line 151
     iget v0, p0, Landroid/telephony/gsm/GsmCellLocation;->mLac:I
 
-    if-ne v0, v1, :cond_f
+    if-ne v0, v1, :cond_0
 
     iget v0, p0, Landroid/telephony/gsm/GsmCellLocation;->mCid:I
 
-    if-ne v0, v1, :cond_f
+    if-ne v0, v1, :cond_0
 
     iget v0, p0, Landroid/telephony/gsm/GsmCellLocation;->mPsc:I
 
-    if-ne v0, v1, :cond_f
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_e
+    :goto_0
     return v0
 
-    :cond_f
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public setLacAndCid(II)V
-    .registers 3
+    .locals 0
     .parameter "lac"
     .parameter "cid"
 
@@ -329,7 +329,7 @@
 .end method
 
 .method public setPsc(I)V
-    .registers 2
+    .locals 0
     .parameter "psc"
 
     .prologue
@@ -341,7 +341,7 @@
 .end method
 
 .method public setStateInvalid()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, -0x1
@@ -360,7 +360,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 122

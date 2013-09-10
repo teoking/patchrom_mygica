@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/ActivityChooserView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 120
@@ -44,6 +44,7 @@
     .line 121
     iget-object v0, p0, Landroid/widget/ActivityChooserView$1;->this$0:Landroid/widget/ActivityChooserView;
 
+    #getter for: Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
     invoke-static {v0}, Landroid/widget/ActivityChooserView;->access$000(Landroid/widget/ActivityChooserView;)Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
     move-result-object v0
@@ -55,7 +56,7 @@
 .end method
 
 .method public onInvalidated()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 125
@@ -64,6 +65,7 @@
     .line 126
     iget-object v0, p0, Landroid/widget/ActivityChooserView$1;->this$0:Landroid/widget/ActivityChooserView;
 
+    #getter for: Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
     invoke-static {v0}, Landroid/widget/ActivityChooserView;->access$000(Landroid/widget/ActivityChooserView;)Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
     move-result-object v0

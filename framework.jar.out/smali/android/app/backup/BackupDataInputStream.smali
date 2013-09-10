@@ -15,7 +15,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/backup/BackupDataInput;)V
-    .registers 2
+    .locals 0
     .parameter "data"
 
     .prologue
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public getKey()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 104
@@ -42,7 +42,7 @@
 .end method
 
 .method public read()I
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -61,7 +61,7 @@
     .local v0, one:[B
     iget-object v1, p0, Landroid/app/backup/BackupDataInputStream;->mOneByte:[B
 
-    if-nez v1, :cond_c
+    if-nez v1, :cond_0
 
     .line 61
     new-array v0, v3, [B
@@ -71,7 +71,7 @@
 
     .line 63
     .restart local v0       #one:[B
-    :cond_c
+    :cond_0
     iget-object v1, p0, Landroid/app/backup/BackupDataInputStream;->mData:Landroid/app/backup/BackupDataInput;
 
     invoke-virtual {v1, v0, v2, v3}, Landroid/app/backup/BackupDataInput;->readEntityData([BII)I
@@ -83,7 +83,7 @@
 .end method
 
 .method public read([B)I
-    .registers 5
+    .locals 3
     .parameter "b"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -107,7 +107,7 @@
 .end method
 
 .method public read([BII)I
-    .registers 5
+    .locals 1
     .parameter "b"
     .parameter "offset"
     .parameter "size"
@@ -129,7 +129,7 @@
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 114

@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/location/ILocationManager;)V
-    .registers 6
+    .locals 3
     .parameter "name"
     .parameter "service"
 
@@ -38,7 +38,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_0
 
     .line 59
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -72,7 +72,7 @@
     throw v0
 
     .line 62
-    :cond_2b
+    :cond_0
     iput-object p1, p0, Landroid/location/LocationProvider;->mName:Ljava/lang/String;
 
     .line 63
@@ -88,7 +88,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 70
@@ -104,7 +104,7 @@
 .end method
 
 .method public meetsCriteria(Landroid/location/Criteria;)Z
-    .registers 5
+    .locals 3
     .parameter "criteria"
 
     .prologue
@@ -115,17 +115,17 @@
     iget-object v2, p0, Landroid/location/LocationProvider;->mName:Ljava/lang/String;
 
     invoke-interface {v1, v2, p1}, Landroid/location/ILocationManager;->providerMeetsCriteria(Ljava/lang/String;Landroid/location/Criteria;)Z
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 82
-    :goto_8
+    :goto_0
     return v1
 
     .line 80
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 81
@@ -139,7 +139,7 @@
     .line 82
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public abstract requiresCell()Z

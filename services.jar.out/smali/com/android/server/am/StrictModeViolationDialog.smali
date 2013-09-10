@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/am/AppErrorResult;Lcom/android/server/am/ProcessRecord;)V
-    .registers 11
+    .locals 7
     .parameter "context"
     .parameter "result"
     .parameter "app"
@@ -62,7 +62,7 @@
 
     move-result v2
 
-    if-ne v2, v6, :cond_aa
+    if-ne v2, v6, :cond_1
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -75,7 +75,7 @@
     move-result-object v0
 
     .local v0, name:Ljava/lang/CharSequence;
-    if-eqz v0, :cond_aa
+    if-eqz v0, :cond_1
 
     .line 52
     const v2, 0x10403e1
@@ -103,7 +103,7 @@
     invoke-virtual {p0, v2}, Lcom/android/server/am/StrictModeViolationDialog;->setMessage(Ljava/lang/CharSequence;)V
 
     .line 62
-    :goto_41
+    :goto_0
     invoke-virtual {p0, v5}, Lcom/android/server/am/StrictModeViolationDialog;->setCancelable(Z)V
 
     .line 64
@@ -126,7 +126,7 @@
     .line 68
     iget-object v2, p3, Lcom/android/server/am/ProcessRecord;->errorReportReceiver:Landroid/content/ComponentName;
 
-    if-eqz v2, :cond_6a
+    if-eqz v2, :cond_0
 
     .line 69
     const/4 v2, -0x2
@@ -146,7 +146,7 @@
     invoke-virtual {p0, v2, v3, v4}, Lcom/android/server/am/StrictModeViolationDialog;->setButton(ILjava/lang/CharSequence;Landroid/os/Message;)V
 
     .line 74
-    :cond_6a
+    :cond_0
     const v2, 0x10403cf
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
@@ -211,7 +211,7 @@
 
     .line 56
     .end local v0           #name:Ljava/lang/CharSequence;
-    :cond_aa
+    :cond_1
     iget-object v0, p3, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
     .line 57
@@ -232,11 +232,11 @@
 
     invoke-virtual {p0, v2}, Lcom/android/server/am/StrictModeViolationDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    goto :goto_41
+    goto :goto_0
 .end method
 
 .method static synthetic access$000(Lcom/android/server/am/StrictModeViolationDialog;)Lcom/android/server/am/ProcessRecord;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -247,7 +247,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/server/am/StrictModeViolationDialog;)Lcom/android/server/am/AppErrorResult;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue

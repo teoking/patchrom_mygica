@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/security/KeyChainAliasCallback;)V
-    .registers 2
+    .locals 0
     .parameter "keyChainAliasResponse"
 
     .prologue
@@ -35,7 +35,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/security/KeyChainAliasCallback;Landroid/security/KeyChain$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public alias(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "alias"
 
     .prologue

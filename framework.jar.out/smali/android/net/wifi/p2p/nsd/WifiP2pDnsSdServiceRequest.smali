@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 46
@@ -20,7 +20,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "query"
 
     .prologue
@@ -34,7 +34,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .registers 6
+    .locals 2
     .parameter "dnsQuery"
     .parameter "dnsType"
     .parameter "version"
@@ -54,7 +54,7 @@
 .end method
 
 .method public static newInstance()Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceRequest;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 62
@@ -66,12 +66,12 @@
 .end method
 
 .method public static newInstance(Ljava/lang/String;)Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceRequest;
-    .registers 5
+    .locals 4
     .parameter "serviceType"
 
     .prologue
     .line 76
-    if-nez p0, :cond_b
+    if-nez p0, :cond_0
 
     .line 77
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -83,7 +83,7 @@
     throw v0
 
     .line 79
-    :cond_b
+    :cond_0
     new-instance v0, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceRequest;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -114,18 +114,18 @@
 .end method
 
 .method public static newInstance(Ljava/lang/String;Ljava/lang/String;)Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceRequest;
-    .registers 6
+    .locals 4
     .parameter "instanceName"
     .parameter "serviceType"
 
     .prologue
     .line 98
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_0
 
-    if-nez p1, :cond_c
+    if-nez p1, :cond_1
 
     .line 99
-    :cond_4
+    :cond_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "instance name or service type cannot be null"
@@ -135,7 +135,7 @@
     throw v1
 
     .line 102
-    :cond_c
+    :cond_1
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

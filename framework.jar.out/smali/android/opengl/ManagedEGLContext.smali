@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 52
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Ljavax/microedition/khronos/egl/EGLContext;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -54,7 +54,7 @@
     monitor-enter v1
 
     .line 62
-    :try_start_8
+    :try_start_0
     sget-object v0, Landroid/opengl/ManagedEGLContext;->sActive:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -66,18 +66,18 @@
     return-void
 
     .line 63
-    :catchall_f
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_11
-    .catchall {:try_start_8 .. :try_end_11} :catchall_f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public static doTerminate()Z
-    .registers 9
+    .locals 9
 
     .prologue
     const/4 v4, 0x0
@@ -91,7 +91,7 @@
 
     move-result-object v6
 
-    if-eq v5, v6, :cond_13
+    if-eq v5, v6, :cond_0
 
     .line 101
     new-instance v4, Ljava/lang/IllegalStateException;
@@ -103,20 +103,20 @@
     throw v4
 
     .line 104
-    :cond_13
+    :cond_0
     sget-object v5, Landroid/opengl/ManagedEGLContext;->sActive:Ljava/util/ArrayList;
 
     monitor-enter v5
 
     .line 107
-    :try_start_16
+    :try_start_0
     sget-object v6, Landroid/opengl/ManagedEGLContext;->sActive:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
 
     move-result v6
 
-    if-gtz v6, :cond_20
+    if-gtz v6, :cond_1
 
     .line 108
     monitor-exit v5
@@ -124,13 +124,13 @@
     .line 135
     .local v1, display:Ljavax/microedition/khronos/egl/EGLDisplay;
     .local v2, egl:Ljavax/microedition/khronos/egl/EGL10;
-    :goto_1f
+    :goto_0
     return v4
 
     .line 113
     .end local v1           #display:Ljavax/microedition/khronos/egl/EGLDisplay;
     .end local v2           #egl:Ljavax/microedition/khronos/egl/EGL10;
-    :cond_20
+    :cond_1
     invoke-static {}, Ljavax/microedition/khronos/egl/EGLContext;->getEGL()Ljavax/microedition/khronos/egl/EGL;
 
     move-result-object v2
@@ -149,7 +149,7 @@
     .restart local v1       #display:Ljavax/microedition/khronos/egl/EGLDisplay;
     sget-object v6, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_DISPLAY:Ljavax/microedition/khronos/egl/EGLDisplay;
 
-    if-ne v1, v6, :cond_3c
+    if-ne v1, v6, :cond_2
 
     .line 117
     const-string v6, "ManagedEGLContext"
@@ -161,23 +161,23 @@
     .line 118
     monitor-exit v5
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 129
     .end local v1           #display:Ljavax/microedition/khronos/egl/EGLDisplay;
-    :catchall_39
+    :catchall_0
     move-exception v4
 
     monitor-exit v5
-    :try_end_3b
-    .catchall {:try_start_16 .. :try_end_3b} :catchall_39
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v4
 
     .line 121
     .restart local v1       #display:Ljavax/microedition/khronos/egl/EGLDisplay;
-    :cond_3c
-    :try_start_3c
+    :cond_2
+    :try_start_1
     invoke-static {v1}, Lcom/google/android/gles_jni/EGLImpl;->getInitCount(Ljavax/microedition/khronos/egl/EGLDisplay;)I
 
     move-result v6
@@ -188,7 +188,7 @@
 
     move-result v7
 
-    if-eq v6, v7, :cond_76
+    if-eq v6, v7, :cond_3
 
     .line 122
     const-string v6, "ManagedEGLContext"
@@ -236,10 +236,10 @@
     .line 124
     monitor-exit v5
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 127
-    :cond_76
+    :cond_3
     new-instance v0, Ljava/util/ArrayList;
 
     sget-object v4, Landroid/opengl/ManagedEGLContext;->sActive:Ljava/util/ArrayList;
@@ -254,19 +254,19 @@
 
     .line 129
     monitor-exit v5
-    :try_end_83
-    .catchall {:try_start_3c .. :try_end_83} :catchall_39
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 131
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_84
+    :goto_1
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v4
 
-    if-ge v3, v4, :cond_96
+    if-ge v3, v4, :cond_4
 
     .line 132
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -280,19 +280,19 @@
     .line 131
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_84
+    goto :goto_1
 
     .line 135
-    :cond_96
+    :cond_4
     const/4 v4, 0x1
 
-    goto :goto_1f
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method execTerminate()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84
@@ -305,7 +305,7 @@
 .end method
 
 .method public getContext()Ljavax/microedition/khronos/egl/EGLContext;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 70
@@ -318,7 +318,7 @@
 .end method
 
 .method public terminate()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 80

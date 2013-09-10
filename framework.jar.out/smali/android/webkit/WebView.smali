@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 5
+    .locals 1
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -80,7 +80,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;ILjava/util/Map;Z)V
-    .registers 8
+    .locals 2
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -106,7 +106,7 @@
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/AbsoluteLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 505
-    if-nez p1, :cond_d
+    if-nez p1, :cond_0
 
     .line 506
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -118,7 +118,7 @@
     throw v0
 
     .line 508
-    :cond_d
+    :cond_0
     invoke-static {}, Landroid/webkit/WebView;->checkThread()V
 
     .line 510
@@ -134,7 +134,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IZ)V
-    .registers 11
+    .locals 6
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -161,7 +161,7 @@
 .end method
 
 .method static synthetic access$001(Landroid/webkit/WebView;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -174,7 +174,7 @@
 .end method
 
 .method static synthetic access$1001(Landroid/webkit/WebView;Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -186,7 +186,7 @@
 .end method
 
 .method static synthetic access$101(Landroid/webkit/WebView;II)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -199,7 +199,7 @@
 .end method
 
 .method static synthetic access$1100(Landroid/webkit/WebView;IIIIIIIIZ)Z
-    .registers 11
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -221,7 +221,7 @@
 .end method
 
 .method static synthetic access$1200(Landroid/webkit/WebView;I)Z
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -235,7 +235,7 @@
 .end method
 
 .method static synthetic access$1300(Landroid/webkit/WebView;IZ)Z
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -250,7 +250,7 @@
 .end method
 
 .method static synthetic access$1400(Landroid/webkit/WebView;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -263,7 +263,7 @@
 .end method
 
 .method static synthetic access$1500(Landroid/webkit/WebView;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -276,7 +276,7 @@
 .end method
 
 .method static synthetic access$1600(Landroid/webkit/WebView;II)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -289,7 +289,7 @@
 .end method
 
 .method static synthetic access$1700(Landroid/webkit/WebView;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -302,7 +302,7 @@
 .end method
 
 .method static synthetic access$1802(Landroid/webkit/WebView;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -314,7 +314,7 @@
 .end method
 
 .method static synthetic access$1902(Landroid/webkit/WebView;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -326,7 +326,7 @@
 .end method
 
 .method static synthetic access$201(Landroid/webkit/WebView;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -337,7 +337,7 @@
 .end method
 
 .method static synthetic access$301(Landroid/webkit/WebView;Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -351,7 +351,7 @@
 .end method
 
 .method static synthetic access$401(Landroid/webkit/WebView;ILandroid/os/Bundle;)Z
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -366,7 +366,7 @@
 .end method
 
 .method static synthetic access$501(Landroid/webkit/WebView;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -379,7 +379,7 @@
 .end method
 
 .method static synthetic access$601(Landroid/webkit/WebView;IIII)Z
-    .registers 6
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -396,7 +396,7 @@
 .end method
 
 .method static synthetic access$701(Landroid/webkit/WebView;Landroid/view/KeyEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -410,7 +410,7 @@
 .end method
 
 .method static synthetic access$801(Landroid/webkit/WebView;Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -424,7 +424,7 @@
 .end method
 
 .method static synthetic access$901(Landroid/webkit/WebView;ILandroid/graphics/Rect;)Z
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -439,7 +439,7 @@
 .end method
 
 .method private static checkThread()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 1795
@@ -451,7 +451,7 @@
 
     move-result-object v2
 
-    if-eq v1, v2, :cond_49
+    if-eq v1, v2, :cond_0
 
     .line 1796
     new-instance v0, Ljava/lang/Throwable;
@@ -516,12 +516,12 @@
     invoke-static {v0}, Landroid/os/StrictMode;->onWebViewMethodCalledOnWrongThread(Ljava/lang/Throwable;)V
 
     .line 1804
-    :cond_49
+    :cond_0
     return-void
 .end method
 
 .method public static disablePlatformNotifications()V
-    .registers 2
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -547,7 +547,7 @@
 .end method
 
 .method public static enablePlatformNotifications()V
-    .registers 2
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -573,7 +573,7 @@
 .end method
 
 .method private ensureProviderCreated()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1779
@@ -582,7 +582,7 @@
     .line 1780
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 1783
     invoke-static {}, Landroid/webkit/WebView;->getFactory()Landroid/webkit/WebViewFactoryProvider;
@@ -600,12 +600,12 @@
     iput-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     .line 1785
-    :cond_16
+    :cond_0
     return-void
 .end method
 
 .method public static findAddress(Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "addr"
 
     .prologue
@@ -629,7 +629,7 @@
 .end method
 
 .method private static declared-synchronized getFactory()Landroid/webkit/WebViewFactoryProvider;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 1790
@@ -637,13 +637,13 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     invoke-static {}, Landroid/webkit/WebView;->checkThread()V
 
     .line 1791
     invoke-static {}, Landroid/webkit/WebViewFactory;->getProvider()Landroid/webkit/WebViewFactoryProvider;
-    :try_end_9
-    .catchall {:try_start_3 .. :try_end_9} :catchall_c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
@@ -652,7 +652,7 @@
     return-object v0
 
     .line 1790
-    :catchall_c
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -661,7 +661,7 @@
 .end method
 
 .method public static declared-synchronized getPluginList()Landroid/webkit/PluginList;
-    .registers 2
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -671,22 +671,22 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     invoke-static {}, Landroid/webkit/WebView;->checkThread()V
 
     .line 1525
     new-instance v0, Landroid/webkit/PluginList;
 
     invoke-direct {v0}, Landroid/webkit/PluginList;-><init>()V
-    :try_end_b
-    .catchall {:try_start_3 .. :try_end_b} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
     return-object v0
 
     .line 1524
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -697,7 +697,7 @@
 
 # virtual methods
 .method public addJavascriptInterface(Ljava/lang/Object;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "object"
     .parameter "name"
 
@@ -715,7 +715,7 @@
 .end method
 
 .method public canGoBack()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 894
@@ -732,7 +732,7 @@
 .end method
 
 .method public canGoBackOrForward(I)Z
-    .registers 3
+    .locals 1
     .parameter "steps"
 
     .prologue
@@ -750,7 +750,7 @@
 .end method
 
 .method public canGoForward()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 912
@@ -767,7 +767,7 @@
 .end method
 
 .method public canZoomIn()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1612
@@ -784,7 +784,7 @@
 .end method
 
 .method public canZoomOut()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1622
@@ -801,7 +801,7 @@
 .end method
 
 .method public capturePicture()Landroid/graphics/Picture;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 998
@@ -818,7 +818,7 @@
 .end method
 
 .method public clearCache(Z)V
-    .registers 3
+    .locals 1
     .parameter "includeDiskFiles"
 
     .prologue
@@ -835,7 +835,7 @@
 .end method
 
 .method public clearFormData()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1253
@@ -851,7 +851,7 @@
 .end method
 
 .method public clearHistory()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1261
@@ -867,7 +867,7 @@
 .end method
 
 .method public clearMatches()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1393
@@ -883,7 +883,7 @@
 .end method
 
 .method public clearSslPreferences()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1270
@@ -899,7 +899,7 @@
 .end method
 
 .method public clearView()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 984
@@ -915,7 +915,7 @@
 .end method
 
 .method protected computeHorizontalScrollOffset()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1853
@@ -933,7 +933,7 @@
 .end method
 
 .method protected computeHorizontalScrollRange()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1848
@@ -951,7 +951,7 @@
 .end method
 
 .method public computeScroll()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1873
@@ -968,7 +968,7 @@
 .end method
 
 .method protected computeVerticalScrollExtent()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1868
@@ -986,7 +986,7 @@
 .end method
 
 .method protected computeVerticalScrollOffset()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1863
@@ -1004,7 +1004,7 @@
 .end method
 
 .method protected computeVerticalScrollRange()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1858
@@ -1022,7 +1022,7 @@
 .end method
 
 .method public copyBackForwardList()Landroid/webkit/WebBackForwardList;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1283
@@ -1039,7 +1039,7 @@
 .end method
 
 .method public debugDump()V
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1057,7 +1057,7 @@
 .end method
 
 .method public destroy()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 635
@@ -1073,7 +1073,7 @@
 .end method
 
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -1092,7 +1092,7 @@
 .end method
 
 .method public documentHasImages(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "response"
 
     .prologue
@@ -1109,7 +1109,7 @@
 .end method
 
 .method public emulateShiftHeld()V
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1127,7 +1127,7 @@
 .end method
 
 .method public findAll(Ljava/lang/String;)I
-    .registers 3
+    .locals 1
     .parameter "find"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1152,7 +1152,7 @@
 .end method
 
 .method public findAllAsync(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "find"
 
     .prologue
@@ -1169,7 +1169,7 @@
 .end method
 
 .method public findNext(Z)V
-    .registers 3
+    .locals 1
     .parameter "forward"
 
     .prologue
@@ -1186,7 +1186,7 @@
 .end method
 
 .method public flingScroll(II)V
-    .registers 4
+    .locals 1
     .parameter "vx"
     .parameter "vy"
 
@@ -1204,7 +1204,7 @@
 .end method
 
 .method public freeMemory()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1233
@@ -1220,7 +1220,7 @@
 .end method
 
 .method public getCertificate()Landroid/net/http/SslCertificate;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 571
@@ -1237,7 +1237,7 @@
 .end method
 
 .method public getContentHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1165
@@ -1254,7 +1254,7 @@
 .end method
 
 .method public getContentWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1176
@@ -1268,7 +1268,7 @@
 .end method
 
 .method public getFavicon()Landroid/graphics/Bitmap;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1134
@@ -1285,7 +1285,7 @@
 .end method
 
 .method public getHitTestResult()Landroid/webkit/WebView$HitTestResult;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1056
@@ -1302,7 +1302,7 @@
 .end method
 
 .method public getHttpAuthUsernamePassword(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
-    .registers 4
+    .locals 1
     .parameter "host"
     .parameter "realm"
 
@@ -1321,7 +1321,7 @@
 .end method
 
 .method public getOriginalUrl()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1112
@@ -1338,7 +1338,7 @@
 .end method
 
 .method public getProgress()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1155
@@ -1355,7 +1355,7 @@
 .end method
 
 .method public getScale()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1008
@@ -1372,7 +1372,7 @@
 .end method
 
 .method public getSettings()Landroid/webkit/WebSettings;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1511
@@ -1389,7 +1389,7 @@
 .end method
 
 .method public getTitle()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1123
@@ -1406,7 +1406,7 @@
 .end method
 
 .method public getTouchIconUrl()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1146
@@ -1420,7 +1420,7 @@
 .end method
 
 .method public getUrl()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1098
@@ -1437,7 +1437,7 @@
 .end method
 
 .method public getVisibleTitleHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 560
@@ -1454,7 +1454,7 @@
 .end method
 
 .method public getWebViewProvider()Landroid/webkit/WebViewProvider;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1667
@@ -1464,7 +1464,7 @@
 .end method
 
 .method public getZoomControls()Landroid/view/View;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1483,7 +1483,7 @@
 .end method
 
 .method public goBack()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 902
@@ -1499,7 +1499,7 @@
 .end method
 
 .method public goBackOrForward(I)V
-    .registers 3
+    .locals 1
     .parameter "steps"
 
     .prologue
@@ -1516,7 +1516,7 @@
 .end method
 
 .method public goForward()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 920
@@ -1532,7 +1532,7 @@
 .end method
 
 .method public invokeZoomPicker()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1033
@@ -1548,7 +1548,7 @@
 .end method
 
 .method public isPaused()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1225
@@ -1562,7 +1562,7 @@
 .end method
 
 .method public isPrivateBrowsingEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 953
@@ -1579,7 +1579,7 @@
 .end method
 
 .method public loadData(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter "data"
     .parameter "mimeType"
     .parameter "encoding"
@@ -1598,7 +1598,7 @@
 .end method
 
 .method public loadDataWithBaseURL(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 12
+    .locals 6
     .parameter "baseUrl"
     .parameter "data"
     .parameter "mimeType"
@@ -1629,7 +1629,7 @@
 .end method
 
 .method public loadUrl(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "url"
 
     .prologue
@@ -1646,7 +1646,7 @@
 .end method
 
 .method public loadUrl(Ljava/lang/String;Ljava/util/Map;)V
-    .registers 4
+    .locals 1
     .parameter "url"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -1676,7 +1676,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1815
@@ -1696,7 +1696,7 @@
 .end method
 
 .method public onChildViewAdded(Landroid/view/View;Landroid/view/View;)V
-    .registers 3
+    .locals 0
     .parameter "parent"
     .parameter "child"
     .annotation runtime Ljava/lang/Deprecated;
@@ -1708,7 +1708,7 @@
 .end method
 
 .method public onChildViewRemoved(Landroid/view/View;Landroid/view/View;)V
-    .registers 3
+    .locals 0
     .parameter "p"
     .parameter "child"
     .annotation runtime Ljava/lang/Deprecated;
@@ -1720,7 +1720,7 @@
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .registers 3
+    .locals 1
     .parameter "newConfig"
 
     .prologue
@@ -1738,7 +1738,7 @@
 .end method
 
 .method public onCreateInputConnection(Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;
-    .registers 3
+    .locals 1
     .parameter "outAttrs"
 
     .prologue
@@ -1757,7 +1757,7 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1821
@@ -1777,7 +1777,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .registers 3
+    .locals 1
     .parameter "canvas"
 
     .prologue
@@ -1795,7 +1795,7 @@
 .end method
 
 .method protected onDrawVerticalScrollBar(Landroid/graphics/Canvas;Landroid/graphics/drawable/Drawable;IIII)V
-    .registers 14
+    .locals 7
     .parameter "canvas"
     .parameter "scrollBar"
     .parameter "l"
@@ -1830,7 +1830,7 @@
 .end method
 
 .method protected onFocusChanged(ZILandroid/graphics/Rect;)V
-    .registers 5
+    .locals 1
     .parameter "focused"
     .parameter "direction"
     .parameter "previouslyFocusedRect"
@@ -1853,7 +1853,7 @@
 .end method
 
 .method public onGenericMotionEvent(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -1872,7 +1872,7 @@
 .end method
 
 .method public onGlobalFocusChanged(Landroid/view/View;Landroid/view/View;)V
-    .registers 3
+    .locals 0
     .parameter "oldFocus"
     .parameter "newFocus"
     .annotation runtime Ljava/lang/Deprecated;
@@ -1884,7 +1884,7 @@
 .end method
 
 .method public onHoverEvent(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -1903,7 +1903,7 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -1933,7 +1933,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .registers 3
+    .locals 1
     .parameter "info"
 
     .prologue
@@ -1963,7 +1963,7 @@
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 1
     .parameter "keyCode"
     .parameter "event"
 
@@ -1983,7 +1983,7 @@
 .end method
 
 .method public onKeyMultiple(IILandroid/view/KeyEvent;)Z
-    .registers 5
+    .locals 1
     .parameter "keyCode"
     .parameter "repeatCount"
     .parameter "event"
@@ -2004,7 +2004,7 @@
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 1
     .parameter "keyCode"
     .parameter "event"
 
@@ -2024,7 +2024,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .registers 4
+    .locals 1
     .parameter "widthMeasureSpec"
     .parameter "heightMeasureSpec"
     .annotation runtime Ljava/lang/Deprecated;
@@ -2048,7 +2048,7 @@
 .end method
 
 .method protected onOverScrolled(IIZZ)V
-    .registers 6
+    .locals 1
     .parameter "scrollX"
     .parameter "scrollY"
     .parameter "clampedX"
@@ -2069,7 +2069,7 @@
 .end method
 
 .method public onPause()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1206
@@ -2085,7 +2085,7 @@
 .end method
 
 .method public onResume()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1214
@@ -2101,7 +2101,7 @@
 .end method
 
 .method protected onScrollChanged(IIII)V
-    .registers 6
+    .locals 1
     .parameter "l"
     .parameter "t"
     .parameter "oldl"
@@ -2125,7 +2125,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .registers 6
+    .locals 1
     .parameter "w"
     .parameter "h"
     .parameter "ow"
@@ -2149,7 +2149,7 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -2168,7 +2168,7 @@
 .end method
 
 .method public onTrackballEvent(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -2187,7 +2187,7 @@
 .end method
 
 .method protected onVisibilityChanged(Landroid/view/View;I)V
-    .registers 4
+    .locals 1
     .parameter "changedView"
     .parameter "visibility"
 
@@ -2209,7 +2209,7 @@
 .end method
 
 .method public onWindowFocusChanged(Z)V
-    .registers 3
+    .locals 1
     .parameter "hasWindowFocus"
 
     .prologue
@@ -2230,7 +2230,7 @@
 .end method
 
 .method protected onWindowVisibilityChanged(I)V
-    .registers 3
+    .locals 1
     .parameter "visibility"
 
     .prologue
@@ -2251,7 +2251,7 @@
 .end method
 
 .method public overlayHorizontalScrollbar()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 540
@@ -2268,7 +2268,7 @@
 .end method
 
 .method public overlayVerticalScrollbar()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 550
@@ -2285,7 +2285,7 @@
 .end method
 
 .method public pageDown(Z)Z
-    .registers 3
+    .locals 1
     .parameter "bottom"
 
     .prologue
@@ -2303,7 +2303,7 @@
 .end method
 
 .method public pageUp(Z)Z
-    .registers 3
+    .locals 1
     .parameter "top"
 
     .prologue
@@ -2321,7 +2321,7 @@
 .end method
 
 .method public pauseTimers()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1185
@@ -2337,7 +2337,7 @@
 .end method
 
 .method public performAccessibilityAction(ILandroid/os/Bundle;)Z
-    .registers 4
+    .locals 1
     .parameter "action"
     .parameter "arguments"
 
@@ -2357,7 +2357,7 @@
 .end method
 
 .method public performLongClick()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1979
@@ -2375,7 +2375,7 @@
 .end method
 
 .method public postUrl(Ljava/lang/String;[B)V
-    .registers 4
+    .locals 1
     .parameter "url"
     .parameter "postData"
 
@@ -2393,7 +2393,7 @@
 .end method
 
 .method public refreshPlugins(Z)V
-    .registers 2
+    .locals 0
     .parameter "reloadOpenPages"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -2407,7 +2407,7 @@
 .end method
 
 .method public reload()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 884
@@ -2423,7 +2423,7 @@
 .end method
 
 .method public removeJavascriptInterface(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -2440,7 +2440,7 @@
 .end method
 
 .method public requestChildRectangleOnScreen(Landroid/view/View;Landroid/graphics/Rect;Z)Z
-    .registers 5
+    .locals 1
     .parameter "child"
     .parameter "rect"
     .parameter "immediate"
@@ -2461,7 +2461,7 @@
 .end method
 
 .method public requestFocus(ILandroid/graphics/Rect;)Z
-    .registers 4
+    .locals 1
     .parameter "direction"
     .parameter "previouslyFocusedRect"
 
@@ -2481,7 +2481,7 @@
 .end method
 
 .method public requestFocusNodeHref(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "hrefMsg"
 
     .prologue
@@ -2498,7 +2498,7 @@
 .end method
 
 .method public requestImageRef(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "msg"
 
     .prologue
@@ -2515,7 +2515,7 @@
 .end method
 
 .method public restorePicture(Landroid/os/Bundle;Ljava/io/File;)Z
-    .registers 4
+    .locals 1
     .parameter "b"
     .parameter "src"
     .annotation runtime Ljava/lang/Deprecated;
@@ -2536,7 +2536,7 @@
 .end method
 
 .method public restoreState(Landroid/os/Bundle;)Landroid/webkit/WebBackForwardList;
-    .registers 3
+    .locals 1
     .parameter "inState"
 
     .prologue
@@ -2554,7 +2554,7 @@
 .end method
 
 .method public resumeTimers()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1194
@@ -2570,7 +2570,7 @@
 .end method
 
 .method public savePassword(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter "host"
     .parameter "username"
     .parameter "password"
@@ -2589,7 +2589,7 @@
 .end method
 
 .method public savePicture(Landroid/os/Bundle;Ljava/io/File;)Z
-    .registers 4
+    .locals 1
     .parameter "b"
     .parameter "dest"
     .annotation runtime Ljava/lang/Deprecated;
@@ -2610,7 +2610,7 @@
 .end method
 
 .method public saveState(Landroid/os/Bundle;)Landroid/webkit/WebBackForwardList;
-    .registers 3
+    .locals 1
     .parameter "outState"
 
     .prologue
@@ -2628,7 +2628,7 @@
 .end method
 
 .method public saveWebArchive(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "filename"
 
     .prologue
@@ -2645,7 +2645,7 @@
 .end method
 
 .method public saveWebArchive(Ljava/lang/String;ZLandroid/webkit/ValueCallback;)V
-    .registers 5
+    .locals 1
     .parameter "basename"
     .parameter "autoname"
     .parameter
@@ -2676,7 +2676,7 @@
 .end method
 
 .method public setBackgroundColor(I)V
-    .registers 3
+    .locals 1
     .parameter "color"
 
     .prologue
@@ -2694,7 +2694,7 @@
 .end method
 
 .method public setCertificate(Landroid/net/http/SslCertificate;)V
-    .registers 3
+    .locals 1
     .parameter "certificate"
 
     .prologue
@@ -2711,7 +2711,7 @@
 .end method
 
 .method public setDownloadListener(Landroid/webkit/DownloadListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
@@ -2728,7 +2728,7 @@
 .end method
 
 .method public setFindListener(Landroid/webkit/WebView$FindListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
@@ -2745,7 +2745,7 @@
 .end method
 
 .method protected setFrame(IIII)Z
-    .registers 6
+    .locals 1
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -2767,7 +2767,7 @@
 .end method
 
 .method public setHorizontalScrollbarOverlay(Z)V
-    .registers 3
+    .locals 1
     .parameter "overlay"
 
     .prologue
@@ -2784,7 +2784,7 @@
 .end method
 
 .method public setHttpAuthUsernamePassword(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 6
+    .locals 1
     .parameter "host"
     .parameter "realm"
     .parameter "username"
@@ -2804,7 +2804,7 @@
 .end method
 
 .method public setInitialScale(I)V
-    .registers 3
+    .locals 1
     .parameter "scaleInPercent"
 
     .prologue
@@ -2821,7 +2821,7 @@
 .end method
 
 .method public setLayerType(ILandroid/graphics/Paint;)V
-    .registers 4
+    .locals 1
     .parameter "layerType"
     .parameter "paint"
 
@@ -2843,7 +2843,7 @@
 .end method
 
 .method public setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "params"
 
     .prologue
@@ -2861,7 +2861,7 @@
 .end method
 
 .method public setMapTrackballToArrowKeys(Z)V
-    .registers 3
+    .locals 1
     .parameter "setMap"
 
     .prologue
@@ -2878,7 +2878,7 @@
 .end method
 
 .method public setNetworkAvailable(Z)V
-    .registers 3
+    .locals 1
     .parameter "networkUp"
 
     .prologue
@@ -2895,7 +2895,7 @@
 .end method
 
 .method public setOverScrollMode(I)V
-    .registers 3
+    .locals 1
     .parameter "mode"
 
     .prologue
@@ -2919,7 +2919,7 @@
 .end method
 
 .method public setPictureListener(Landroid/webkit/WebView$PictureListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -2938,7 +2938,7 @@
 .end method
 
 .method public setScrollBarStyle(I)V
-    .registers 3
+    .locals 1
     .parameter "style"
 
     .prologue
@@ -2959,7 +2959,7 @@
 .end method
 
 .method public setVerticalScrollbarOverlay(Z)V
-    .registers 3
+    .locals 1
     .parameter "overlay"
 
     .prologue
@@ -2976,7 +2976,7 @@
 .end method
 
 .method public setWebChromeClient(Landroid/webkit/WebChromeClient;)V
-    .registers 3
+    .locals 1
     .parameter "client"
 
     .prologue
@@ -2993,7 +2993,7 @@
 .end method
 
 .method public setWebViewClient(Landroid/webkit/WebViewClient;)V
-    .registers 3
+    .locals 1
     .parameter "client"
 
     .prologue
@@ -3010,7 +3010,7 @@
 .end method
 
 .method public shouldDelayChildPressedState()Z
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -3030,7 +3030,7 @@
 .end method
 
 .method public showFindDialog(Ljava/lang/String;Z)Z
-    .registers 4
+    .locals 1
     .parameter "text"
     .parameter "showIme"
 
@@ -3049,7 +3049,7 @@
 .end method
 
 .method public stopLoading()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 876
@@ -3065,7 +3065,7 @@
 .end method
 
 .method public zoomIn()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1632
@@ -3082,7 +3082,7 @@
 .end method
 
 .method public zoomOut()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1642

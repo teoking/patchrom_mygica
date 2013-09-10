@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/Rect;I)V
-    .registers 3
+    .locals 0
     .parameter "rect"
     .parameter "weight"
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
     .parameter "obj"
 
     .prologue
@@ -52,14 +52,14 @@
     .line 1531
     instance-of v2, p1, Landroid/hardware/Camera$Area;
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_1
 
     .line 1540
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return v1
 
-    :cond_6
+    :cond_1
     move-object v0, p1
 
     .line 1534
@@ -69,27 +69,27 @@
     .local v0, a:Landroid/hardware/Camera$Area;
     iget-object v2, p0, Landroid/hardware/Camera$Area;->rect:Landroid/graphics/Rect;
 
-    if-nez v2, :cond_19
+    if-nez v2, :cond_3
 
     .line 1536
     iget-object v2, v0, Landroid/hardware/Camera$Area;->rect:Landroid/graphics/Rect;
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_0
 
     .line 1540
-    :cond_11
+    :cond_2
     iget v2, p0, Landroid/hardware/Camera$Area;->weight:I
 
     iget v3, v0, Landroid/hardware/Camera$Area;->weight:I
 
-    if-ne v2, v3, :cond_5
+    if-ne v2, v3, :cond_0
 
     const/4 v1, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 1538
-    :cond_19
+    :cond_3
     iget-object v2, p0, Landroid/hardware/Camera$Area;->rect:Landroid/graphics/Rect;
 
     iget-object v3, v0, Landroid/hardware/Camera$Area;->rect:Landroid/graphics/Rect;
@@ -98,7 +98,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_11
+    if-nez v2, :cond_2
 
-    goto :goto_5
+    goto :goto_0
 .end method

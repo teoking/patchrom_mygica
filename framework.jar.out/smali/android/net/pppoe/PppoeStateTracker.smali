@@ -70,7 +70,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "netType"
     .parameter "networkName"
 
@@ -159,7 +159,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5b
+    if-eqz v0, :cond_0
 
     .line 95
     const-string v0, "PppoeStateTracker"
@@ -169,11 +169,11 @@
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 103
-    :goto_5a
+    :goto_0
     return-void
 
     .line 98
-    :cond_5b
+    :cond_0
     const-string v0, "PppoeStateTracker"
 
     const-string v1, "Successed"
@@ -192,11 +192,11 @@
 
     iput-object v0, p0, Landroid/net/pppoe/PppoeStateTracker;->mMonitor:Landroid/net/pppoe/PppoeMonitor;
 
-    goto :goto_5a
+    goto :goto_0
 .end method
 
 .method static synthetic access$000(Landroid/net/pppoe/PppoeStateTracker;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -207,7 +207,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/net/pppoe/PppoeStateTracker;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -219,7 +219,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/net/pppoe/PppoeStateTracker;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -230,7 +230,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/net/pppoe/PppoeStateTracker;)Landroid/net/pppoe/PppoeManager;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -241,7 +241,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/net/pppoe/PppoeStateTracker;Landroid/net/pppoe/PppoeDevInfo;)Z
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .annotation system Ldalvik/annotation/Throws;
@@ -260,7 +260,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/net/pppoe/PppoeStateTracker;ZILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -274,7 +274,7 @@
 .end method
 
 .method private configureInterface(Landroid/net/pppoe/PppoeDevInfo;)Z
-    .registers 6
+    .locals 4
     .parameter "info"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -369,7 +369,7 @@
 .end method
 
 .method private configureInterfaceStatic(Ljava/lang/String;Landroid/net/DhcpInfoInternal;)Z
-    .registers 12
+    .locals 9
     .parameter "ifname"
     .parameter "dhcpInfoInternal"
 
@@ -427,7 +427,7 @@
     invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 131
-    :try_start_30
+    :try_start_0
     invoke-interface {v3, p1, v2}, Landroid/os/INetworkManagementService;->setInterfaceConfig(Ljava/lang/String;Landroid/net/InterfaceConfiguration;)V
 
     .line 132
@@ -448,19 +448,19 @@
     const-string v7, "IP configuration succeeded"
 
     invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_45
-    .catch Landroid/os/RemoteException; {:try_start_30 .. :try_end_45} :catch_47
-    .catch Ljava/lang/IllegalStateException; {:try_start_30 .. :try_end_45} :catch_61
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 135
     const/4 v5, 0x1
 
     .line 141
-    :goto_46
+    :goto_0
     return v5
 
     .line 136
-    :catch_47
+    :catch_0
     move-exception v4
 
     .line 137
@@ -487,11 +487,11 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_46
+    goto :goto_0
 
     .line 139
     .end local v4           #re:Landroid/os/RemoteException;
-    :catch_61
+    :catch_1
     move-exception v1
 
     .line 140
@@ -518,11 +518,11 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_46
+    goto :goto_0
 .end method
 
 .method private postNotification(ILjava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "event"
     .parameter "errcode"
 
@@ -567,7 +567,7 @@
 .end method
 
 .method private setPppoeState(ZILjava/lang/String;)V
-    .registers 10
+    .locals 6
     .parameter "state"
     .parameter "event"
     .parameter "errcode"
@@ -619,7 +619,7 @@
     .line 286
     const/4 v1, 0x5
 
-    if-eq p2, v1, :cond_35
+    if-eq p2, v1, :cond_0
 
     iget-object v1, p0, Landroid/net/pppoe/PppoeStateTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
 
@@ -627,10 +627,10 @@
 
     move-result v1
 
-    if-eq v1, p1, :cond_3d
+    if-eq v1, p1, :cond_1
 
     .line 287
-    :cond_35
+    :cond_0
     iget-object v1, p0, Landroid/net/pppoe/PppoeStateTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
 
     invoke-virtual {v1, p1}, Landroid/net/NetworkInfo;->setIsAvailable(Z)V
@@ -639,17 +639,17 @@
     invoke-direct {p0, p2, p3}, Landroid/net/pppoe/PppoeStateTracker;->postNotification(ILjava/lang/String;)V
 
     .line 291
-    :cond_3d
+    :cond_1
     iget-object v1, p0, Landroid/net/pppoe/PppoeStateTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
 
     invoke-virtual {v1}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result v1
 
-    if-eq v1, p1, :cond_65
+    if-eq v1, p1, :cond_3
 
     .line 292
-    if-eqz p1, :cond_66
+    if-eqz p1, :cond_4
 
     .line 293
     iget-object v1, p0, Landroid/net/pppoe/PppoeStateTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
@@ -659,8 +659,8 @@
     invoke-virtual {v1, v2, v4, v4}, Landroid/net/NetworkInfo;->setDetailedState(Landroid/net/NetworkInfo$DetailedState;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 302
-    :cond_4e
-    :goto_4e
+    :cond_2
+    :goto_0
     iget-object v1, p0, Landroid/net/pppoe/PppoeStateTracker;->mTarget:Landroid/os/Handler;
 
     const/4 v2, 0x3
@@ -689,11 +689,11 @@
 
     .line 308
     .end local v0           #msg:Landroid/os/Message;
-    :cond_65
+    :cond_3
     return-void
 
     .line 295
-    :cond_66
+    :cond_4
     iget-object v1, p0, Landroid/net/pppoe/PppoeStateTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
 
     sget-object v2, Landroid/net/NetworkInfo$DetailedState;->DISCONNECTED:Landroid/net/NetworkInfo$DetailedState;
@@ -703,7 +703,7 @@
     .line 296
     const/4 v1, 0x4
 
-    if-ne v1, p2, :cond_4e
+    if-ne v1, p2, :cond_2
 
     .line 297
     const-string v1, "PppoeStateTracker"
@@ -715,13 +715,13 @@
     .line 298
     invoke-virtual {p0, v5}, Landroid/net/pppoe/PppoeStateTracker;->stopInterface(Z)Z
 
-    goto :goto_4e
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public StartPolling()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 201
@@ -741,7 +741,7 @@
 .end method
 
 .method public captivePortalCheckComplete()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 272
@@ -749,7 +749,7 @@
 .end method
 
 .method public defaultRouteSet(Z)V
-    .registers 4
+    .locals 2
     .parameter "enabled"
 
     .prologue
@@ -770,7 +770,7 @@
 .end method
 
 .method public getDhcpInfo()Landroid/net/DhcpInfo;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 311
@@ -784,7 +784,7 @@
 .end method
 
 .method public getLinkCapabilities()Landroid/net/LinkCapabilities;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 449
@@ -798,7 +798,7 @@
 .end method
 
 .method public getLinkProperties()Landroid/net/LinkProperties;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 439
@@ -812,7 +812,7 @@
 .end method
 
 .method public getNetworkInfo()Landroid/net/NetworkInfo;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 431
@@ -826,7 +826,7 @@
 .end method
 
 .method public getTcpBufferSizesPropName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 197
@@ -836,7 +836,7 @@
 .end method
 
 .method public isAvailable()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x1
@@ -848,7 +848,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/net/pppoe/PppoeStateTracker;->mEM:Landroid/net/pppoe/PppoeManager;
 
@@ -856,19 +856,19 @@
 
     move-result v1
 
-    if-eq v1, v0, :cond_12
+    if-eq v1, v0, :cond_0
 
-    :goto_11
+    :goto_0
     return v0
 
-    :cond_12
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public isDefaultRouteSet()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 483
@@ -889,7 +889,7 @@
 .end method
 
 .method public isPrivateDnsRouteSet()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 466
@@ -910,7 +910,7 @@
 .end method
 
 .method public isTeardownRequested()Z
-    .registers 5
+    .locals 4
 
     .prologue
     .line 502
@@ -949,7 +949,7 @@
 .end method
 
 .method public notifyPppConnected(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "ifname"
 
     .prologue
@@ -980,7 +980,7 @@
     monitor-enter p0
 
     .line 411
-    :try_start_1a
+    :try_start_0
     iget-object v0, p0, Landroid/net/pppoe/PppoeStateTracker;->mTrackerTarget:Landroid/os/Handler;
 
     const/4 v1, 0x3
@@ -994,18 +994,18 @@
     return-void
 
     .line 412
-    :catchall_22
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_24
-    .catchall {:try_start_1a .. :try_end_24} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public notifyStateChange(Ljava/lang/String;Landroid/net/NetworkInfo$DetailedState;)V
-    .registers 6
+    .locals 3
     .parameter "ifname"
     .parameter "state"
 
@@ -1054,7 +1054,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_47
+    if-eqz v0, :cond_0
 
     .line 418
     const-string v0, "PppoeStateTracker"
@@ -1067,7 +1067,7 @@
     monitor-enter p0
 
     .line 420
-    :try_start_38
+    :try_start_0
     iget-object v1, p0, Landroid/net/pppoe/PppoeStateTracker;->mTrackerTarget:Landroid/os/Handler;
 
     sget-object v0, Landroid/net/NetworkInfo$DetailedState;->CONNECTED:Landroid/net/NetworkInfo$DetailedState;
@@ -1076,39 +1076,39 @@
 
     move-result v0
 
-    if-eqz v0, :cond_48
+    if-eqz v0, :cond_1
 
     const/4 v0, 0x3
 
-    :goto_43
+    :goto_0
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     .line 422
     monitor-exit p0
 
     .line 424
-    :cond_47
+    :cond_0
     return-void
 
     .line 420
-    :cond_48
+    :cond_1
     const/4 v0, 0x4
 
-    goto :goto_43
+    goto :goto_0
 
     .line 422
-    :catchall_4a
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_4c
-    .catchall {:try_start_38 .. :try_end_4c} :catchall_4a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public privateDnsRouteSet(Z)V
-    .registers 4
+    .locals 2
     .parameter "enabled"
 
     .prologue
@@ -1129,7 +1129,7 @@
 .end method
 
 .method public reconnect()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x1
@@ -1142,14 +1142,14 @@
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 214
-    :try_start_8
+    :try_start_0
     iget-object v1, p0, Landroid/net/pppoe/PppoeStateTracker;->mEM:Landroid/net/pppoe/PppoeManager;
 
     invoke-virtual {v1}, Landroid/net/pppoe/PppoeManager;->getPppoeState()I
 
     move-result v1
 
-    if-eq v1, v3, :cond_2c
+    if-eq v1, v3, :cond_1
 
     .line 216
     iget-object v1, p0, Landroid/net/pppoe/PppoeStateTracker;->mEM:Landroid/net/pppoe/PppoeManager;
@@ -1165,7 +1165,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_23
+    if-nez v1, :cond_0
 
     .line 218
     iget-object v1, p0, Landroid/net/pppoe/PppoeStateTracker;->mEM:Landroid/net/pppoe/PppoeManager;
@@ -1173,19 +1173,19 @@
     invoke-virtual {v1}, Landroid/net/pppoe/PppoeManager;->pppoeSetDefaultConf()V
 
     .line 220
-    :cond_23
+    :cond_0
     invoke-virtual {p0}, Landroid/net/pppoe/PppoeStateTracker;->resetInterface()Z
-    :try_end_26
-    .catch Ljava/net/UnknownHostException; {:try_start_8 .. :try_end_26} :catch_28
+    :try_end_0
+    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 226
-    :goto_27
+    :goto_0
     return v1
 
     .line 222
-    :catch_28
+    :catch_0
     move-exception v0
 
     .line 224
@@ -1194,14 +1194,14 @@
 
     .line 226
     .end local v0           #e:Ljava/net/UnknownHostException;
-    :cond_2c
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_27
+    goto :goto_0
 .end method
 
 .method public resetInterface()Z
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/UnknownHostException;
@@ -1219,7 +1219,7 @@
     .line 167
     iget-object v1, p0, Landroid/net/pppoe/PppoeStateTracker;->mEM:Landroid/net/pppoe/PppoeManager;
 
-    if-eqz v1, :cond_e2
+    if-eqz v1, :cond_1
 
     .line 168
     const-string v1, "PppoeStateTracker"
@@ -1259,7 +1259,7 @@
 
     .line 171
     .local v0, info:Landroid/net/pppoe/PppoeDevInfo;
-    if-eqz v0, :cond_e2
+    if-eqz v0, :cond_1
 
     iget-object v1, p0, Landroid/net/pppoe/PppoeStateTracker;->mEM:Landroid/net/pppoe/PppoeManager;
 
@@ -1267,7 +1267,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_e2
+    if-eqz v1, :cond_1
 
     .line 172
     const-string v1, "PppoeStateTracker"
@@ -1381,10 +1381,10 @@
     monitor-enter p0
 
     .line 178
-    :try_start_ab
+    :try_start_0
     iget-object v1, p0, Landroid/net/pppoe/PppoeStateTracker;->mInterfaceName:Ljava/lang/String;
 
-    if-eqz v1, :cond_d0
+    if-eqz v1, :cond_0
 
     .line 179
     const-string v1, "PppoeStateTracker"
@@ -1419,7 +1419,7 @@
     invoke-static {v1, v2}, Landroid/net/NetworkUtils;->resetConnections(Ljava/lang/String;I)I
 
     .line 183
-    :cond_d0
+    :cond_0
     const-string v1, "PppoeStateTracker"
 
     const-string v2, "Force the connection disconnected before configuration"
@@ -1443,25 +1443,25 @@
 
     .line 190
     .end local v0           #info:Landroid/net/pppoe/PppoeDevInfo;
-    :cond_e2
+    :cond_1
     const/4 v1, 0x1
 
     return v1
 
     .line 187
     .restart local v0       #info:Landroid/net/pppoe/PppoeDevInfo;
-    :catchall_e4
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
-    :try_end_e6
-    .catchall {:try_start_ab .. :try_end_e6} :catchall_e4
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public setDependencyMet(Z)V
-    .registers 2
+    .locals 0
     .parameter "met"
 
     .prologue
@@ -1470,7 +1470,7 @@
 .end method
 
 .method public setPolicyDataEnable(Z)V
-    .registers 5
+    .locals 3
     .parameter "enabled"
 
     .prologue
@@ -1508,7 +1508,7 @@
 .end method
 
 .method public setRadio(Z)Z
-    .registers 3
+    .locals 1
     .parameter "turnOn"
 
     .prologue
@@ -1519,7 +1519,7 @@
 .end method
 
 .method public setTeardownRequested(Z)V
-    .registers 5
+    .locals 3
     .parameter "isRequested"
 
     .prologue
@@ -1562,7 +1562,7 @@
 .end method
 
 .method public setUserDataEnable(Z)V
-    .registers 5
+    .locals 3
     .parameter "enabled"
 
     .prologue
@@ -1600,7 +1600,7 @@
 .end method
 
 .method public startMonitoring(Landroid/content/Context;Landroid/os/Handler;)V
-    .registers 9
+    .locals 6
     .parameter "context"
     .parameter "target"
 
@@ -1617,7 +1617,7 @@
     .line 239
     iget-boolean v2, p0, Landroid/net/pppoe/PppoeStateTracker;->mServiceStarted:Z
 
-    if-eqz v2, :cond_36
+    if-eqz v2, :cond_0
 
     .line 240
     iput-object p1, p0, Landroid/net/pppoe/PppoeStateTracker;->mContext:Landroid/content/Context;
@@ -1654,7 +1654,7 @@
     .line 244
     iget-object v2, p0, Landroid/net/pppoe/PppoeStateTracker;->mEM:Landroid/net/pppoe/PppoeManager;
 
-    if-nez v2, :cond_37
+    if-nez v2, :cond_1
 
     .line 245
     const-string v2, "PppoeStateTracker"
@@ -1664,12 +1664,12 @@
     invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 263
-    :cond_36
-    :goto_36
+    :cond_0
+    :goto_0
     return-void
 
     .line 249
-    :cond_37
+    :cond_1
     iget-object v2, p0, Landroid/net/pppoe/PppoeStateTracker;->mEM:Landroid/net/pppoe/PppoeManager;
 
     invoke-virtual {v2}, Landroid/net/pppoe/PppoeManager;->getPppoeState()I
@@ -1680,31 +1680,31 @@
     .local v1, state:I
     iget-object v2, p0, Landroid/net/pppoe/PppoeStateTracker;->mEM:Landroid/net/pppoe/PppoeManager;
 
-    if-eq v1, v5, :cond_36
+    if-eq v1, v5, :cond_0
 
     .line 251
     iget-object v2, p0, Landroid/net/pppoe/PppoeStateTracker;->mEM:Landroid/net/pppoe/PppoeManager;
 
-    if-nez v1, :cond_4b
+    if-nez v1, :cond_2
 
     .line 253
     iget-object v2, p0, Landroid/net/pppoe/PppoeStateTracker;->mEM:Landroid/net/pppoe/PppoeManager;
 
     invoke-virtual {v2, v5}, Landroid/net/pppoe/PppoeManager;->setPppoeEnabled(Z)V
 
-    goto :goto_36
+    goto :goto_0
 
     .line 256
-    :cond_4b
-    :try_start_4b
+    :cond_2
+    :try_start_0
     invoke-virtual {p0}, Landroid/net/pppoe/PppoeStateTracker;->resetInterface()Z
-    :try_end_4e
-    .catch Ljava/net/UnknownHostException; {:try_start_4b .. :try_end_4e} :catch_4f
+    :try_end_0
+    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_36
+    goto :goto_0
 
     .line 257
-    :catch_4f
+    :catch_0
     move-exception v0
 
     .line 258
@@ -1715,11 +1715,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_36
+    goto :goto_0
 .end method
 
 .method public stopInterface(Z)Z
-    .registers 7
+    .locals 5
     .parameter "suspend"
 
     .prologue
@@ -1728,7 +1728,7 @@
     .line 106
     iget-object v2, p0, Landroid/net/pppoe/PppoeStateTracker;->mEM:Landroid/net/pppoe/PppoeManager;
 
-    if-eqz v2, :cond_2c
+    if-eqz v2, :cond_0
 
     .line 107
     iget-object v2, p0, Landroid/net/pppoe/PppoeStateTracker;->mEM:Landroid/net/pppoe/PppoeManager;
@@ -1739,7 +1739,7 @@
 
     .line 108
     .local v1, info:Landroid/net/pppoe/PppoeDevInfo;
-    if-eqz v1, :cond_2c
+    if-eqz v1, :cond_0
 
     iget-object v2, p0, Landroid/net/pppoe/PppoeStateTracker;->mEM:Landroid/net/pppoe/PppoeManager;
 
@@ -1747,7 +1747,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2c
+    if-eqz v2, :cond_0
 
     .line 110
     iput-boolean v4, p0, Landroid/net/pppoe/PppoeStateTracker;->mInterfaceStopped:Z
@@ -1771,7 +1771,7 @@
     invoke-static {v0, v2}, Landroid/net/NetworkUtils;->resetConnections(Ljava/lang/String;I)I
 
     .line 115
-    if-nez p1, :cond_2c
+    if-nez p1, :cond_0
 
     .line 116
     invoke-static {v0}, Landroid/net/NetworkUtils;->disableInterface(Ljava/lang/String;)I
@@ -1779,12 +1779,12 @@
     .line 120
     .end local v0           #ifname:Ljava/lang/String;
     .end local v1           #info:Landroid/net/pppoe/PppoeDevInfo;
-    :cond_2c
+    :cond_0
     return v4
 .end method
 
 .method public teardown()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x0
@@ -1792,12 +1792,12 @@
     .line 267
     iget-object v1, p0, Landroid/net/pppoe/PppoeStateTracker;->mEM:Landroid/net/pppoe/PppoeManager;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_0
 
     invoke-virtual {p0, v0}, Landroid/net/pppoe/PppoeStateTracker;->stopInterface(Z)Z
 
     move-result v0
 
-    :cond_9
+    :cond_0
     return v0
 .end method

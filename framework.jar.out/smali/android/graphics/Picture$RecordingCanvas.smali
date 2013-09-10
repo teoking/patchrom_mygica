@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/Picture;I)V
-    .registers 3
+    .locals 0
     .parameter "pict"
     .parameter "nativeCanvas"
 
@@ -38,14 +38,14 @@
 
 # virtual methods
 .method public drawPicture(Landroid/graphics/Picture;)V
-    .registers 4
+    .locals 2
     .parameter "picture"
 
     .prologue
     .line 187
     iget-object v0, p0, Landroid/graphics/Picture$RecordingCanvas;->mPicture:Landroid/graphics/Picture;
 
-    if-ne v0, p1, :cond_c
+    if-ne v0, p1, :cond_0
 
     .line 188
     new-instance v0, Ljava/lang/RuntimeException;
@@ -57,7 +57,7 @@
     throw v0
 
     .line 191
-    :cond_c
+    :cond_0
     invoke-super {p0, p1}, Landroid/graphics/Canvas;->drawPicture(Landroid/graphics/Picture;)V
 
     .line 192
@@ -65,7 +65,7 @@
 .end method
 
 .method public setBitmap(Landroid/graphics/Bitmap;)V
-    .registers 4
+    .locals 2
     .parameter "bitmap"
 
     .prologue

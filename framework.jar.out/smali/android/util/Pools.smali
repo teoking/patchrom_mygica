@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 23
@@ -16,7 +16,7 @@
 .end method
 
 .method public static finitePool(Landroid/util/PoolableManager;I)Landroid/util/Pool;
-    .registers 3
+    .locals 1
     .parameter
     .parameter "limit"
     .annotation system Ldalvik/annotation/Signature;
@@ -42,7 +42,7 @@
 .end method
 
 .method public static simplePool(Landroid/util/PoolableManager;)Landroid/util/Pool;
-    .registers 2
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -67,7 +67,7 @@
 .end method
 
 .method public static synchronizedPool(Landroid/util/Pool;)Landroid/util/Pool;
-    .registers 2
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -92,7 +92,7 @@
 .end method
 
 .method public static synchronizedPool(Landroid/util/Pool;Ljava/lang/Object;)Landroid/util/Pool;
-    .registers 3
+    .locals 1
     .parameter
     .parameter "lock"
     .annotation system Ldalvik/annotation/Signature;

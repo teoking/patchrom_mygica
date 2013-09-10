@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 33
@@ -17,7 +17,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
-    .registers 4
+    .locals 1
     .parameter "canvas"
     .parameter "paint"
 

@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "attrs"
 
@@ -111,7 +111,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/widget/DateTimeView;)J
-    .registers 3
+    .locals 2
     .parameter "x0"
 
     .prologue
@@ -122,7 +122,7 @@
 .end method
 
 .method private getDateFormat()Ljava/text/DateFormat;
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v4, 0x3
@@ -144,7 +144,7 @@
 
     .line 206
     .local v1, format:Ljava/lang/String;
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_0
 
     const-string v2, ""
 
@@ -152,31 +152,31 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1e
+    if-eqz v2, :cond_1
 
     .line 207
-    :cond_19
+    :cond_0
     invoke-static {v4}, Ljava/text/DateFormat;->getDateInstance(I)Ljava/text/DateFormat;
 
     move-result-object v2
 
     .line 213
-    :goto_1d
+    :goto_0
     return-object v2
 
     .line 210
-    :cond_1e
-    :try_start_1e
+    :cond_1
+    :try_start_0
     new-instance v2, Ljava/text/SimpleDateFormat;
 
     invoke-direct {v2, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
-    :try_end_23
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_1e .. :try_end_23} :catch_24
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 211
-    :catch_24
+    :catch_0
     move-exception v0
 
     .line 213
@@ -185,11 +185,11 @@
 
     move-result-object v2
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method private getTimeFormat()Ljava/text/DateFormat;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 193
@@ -203,14 +203,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_0
 
     .line 195
     const v2, 0x1040082
 
     .line 199
     .local v2, res:I
-    :goto_d
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
@@ -226,15 +226,15 @@
     .line 197
     .end local v1           #format:Ljava/lang/String;
     .end local v2           #res:I
-    :cond_17
+    :cond_0
     const v2, 0x1040081
 
     .restart local v2       #res:I
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method private registerReceivers()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 219
@@ -298,7 +298,7 @@
 .end method
 
 .method private unregisterReceivers()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 233
@@ -328,7 +328,7 @@
 
 # virtual methods
 .method protected onAttachedToWindow()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -347,7 +347,7 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 88
@@ -366,7 +366,7 @@
 .end method
 
 .method public setTime(J)V
-    .registers 11
+    .locals 8
     .parameter "time"
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
@@ -420,7 +420,7 @@
 .end method
 
 .method update()V
-    .registers 26
+    .locals 25
 
     .prologue
     .line 104
@@ -430,14 +430,14 @@
 
     move-object/from16 v22, v0
 
-    if-nez v22, :cond_9
+    if-nez v22, :cond_0
 
     .line 189
-    :goto_8
+    :goto_0
     return-void
 
     .line 108
-    :cond_9
+    :cond_0
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v13
@@ -590,28 +590,28 @@
     .line 134
     cmp-long v22, v11, v9
 
-    if-ltz v22, :cond_90
+    if-ltz v22, :cond_1
 
     cmp-long v22, v11, v7
 
-    if-ltz v22, :cond_98
+    if-ltz v22, :cond_2
 
-    :cond_90
+    :cond_1
     cmp-long v22, v11, v20
 
-    if-ltz v22, :cond_d4
+    if-ltz v22, :cond_3
 
     cmp-long v22, v11, v18
 
-    if-gez v22, :cond_d4
+    if-gez v22, :cond_3
 
     .line 136
-    :cond_98
+    :cond_2
     const/4 v3, 0x0
 
     .line 146
     .local v3, display:I
-    :goto_99
+    :goto_1
     move-object/from16 v0, p0
 
     iget v0, v0, Landroid/widget/DateTimeView;->mLastDisplay:I
@@ -620,7 +620,7 @@
 
     move/from16 v0, v22
 
-    if-ne v3, v0, :cond_d6
+    if-ne v3, v0, :cond_4
 
     move-object/from16 v0, p0
 
@@ -628,7 +628,7 @@
 
     move-object/from16 v22, v0
 
-    if-eqz v22, :cond_d6
+    if-eqz v22, :cond_4
 
     .line 148
     move-object/from16 v0, p0
@@ -637,7 +637,7 @@
 
     .line 164
     .local v6, format:Ljava/text/DateFormat;
-    :goto_af
+    :goto_2
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/DateTimeView;->mTime:Ljava/util/Date;
@@ -659,15 +659,15 @@
     invoke-virtual {v0, v1}, Landroid/widget/DateTimeView;->setText(Ljava/lang/CharSequence;)V
 
     .line 168
-    if-nez v3, :cond_106
+    if-nez v3, :cond_6
 
     .line 170
     cmp-long v22, v18, v7
 
-    if-lez v22, :cond_103
+    if-lez v22, :cond_5
 
     .end local v18           #twelveHoursAfter:J
-    :goto_c8
+    :goto_3
     move-wide/from16 v0, v18
 
     move-object/from16 v2, p0
@@ -676,14 +676,14 @@
 
     .line 188
     .end local v20           #twelveHoursBefore:J
-    :goto_ce
+    :goto_4
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v4
 
     .line 189
     .local v4, finish:J
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 140
     .end local v3           #display:I
@@ -692,15 +692,15 @@
     .end local v16           #text:Ljava/lang/String;
     .restart local v18       #twelveHoursAfter:J
     .restart local v20       #twelveHoursBefore:J
-    :cond_d4
+    :cond_3
     const/4 v3, 0x1
 
     .restart local v3       #display:I
-    goto :goto_99
+    goto :goto_1
 
     .line 150
-    :cond_d6
-    packed-switch v3, :pswitch_data_128
+    :cond_4
+    packed-switch v3, :pswitch_data_0
 
     .line 158
     new-instance v22, Ljava/lang/RuntimeException;
@@ -730,40 +730,40 @@
     throw v22
 
     .line 152
-    :pswitch_f5
+    :pswitch_0
     invoke-direct/range {p0 .. p0}, Landroid/widget/DateTimeView;->getTimeFormat()Ljava/text/DateFormat;
 
     move-result-object v6
 
     .line 160
     .restart local v6       #format:Ljava/text/DateFormat;
-    :goto_f9
+    :goto_5
     move-object/from16 v0, p0
 
     iput-object v6, v0, Landroid/widget/DateTimeView;->mLastFormat:Ljava/text/DateFormat;
 
-    goto :goto_af
+    goto :goto_2
 
     .line 155
     .end local v6           #format:Ljava/text/DateFormat;
-    :pswitch_fe
+    :pswitch_1
     invoke-direct/range {p0 .. p0}, Landroid/widget/DateTimeView;->getDateFormat()Ljava/text/DateFormat;
 
     move-result-object v6
 
     .line 156
     .restart local v6       #format:Ljava/text/DateFormat;
-    goto :goto_f9
+    goto :goto_5
 
     .restart local v16       #text:Ljava/lang/String;
-    :cond_103
+    :cond_5
     move-wide/from16 v18, v7
 
     .line 170
-    goto :goto_c8
+    goto :goto_3
 
     .line 173
-    :cond_106
+    :cond_6
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Landroid/widget/DateTimeView;->mTimeMillis:J
@@ -772,7 +772,7 @@
 
     cmp-long v22, v22, v11
 
-    if-gez v22, :cond_119
+    if-gez v22, :cond_7
 
     .line 175
     const-wide/16 v22, 0x0
@@ -783,36 +783,36 @@
 
     iput-wide v0, v2, Landroid/widget/DateTimeView;->mUpdateTimeMillis:J
 
-    goto :goto_ce
+    goto :goto_4
 
     .line 179
-    :cond_119
+    :cond_7
     cmp-long v22, v20, v9
 
-    if-gez v22, :cond_124
+    if-gez v22, :cond_8
 
     .end local v20           #twelveHoursBefore:J
-    :goto_11d
+    :goto_6
     move-wide/from16 v0, v20
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Landroid/widget/DateTimeView;->mUpdateTimeMillis:J
 
-    goto :goto_ce
+    goto :goto_4
 
     .restart local v20       #twelveHoursBefore:J
-    :cond_124
+    :cond_8
     move-wide/from16 v20, v9
 
-    goto :goto_11d
+    goto :goto_6
 
     .line 150
     nop
 
-    :pswitch_data_128
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_f5
-        :pswitch_fe
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

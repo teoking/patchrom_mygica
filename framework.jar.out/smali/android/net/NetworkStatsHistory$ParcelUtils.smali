@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 704
@@ -26,7 +26,7 @@
 .end method
 
 .method public static readLongArray(Landroid/os/Parcel;)[J
-    .registers 6
+    .locals 5
     .parameter "in"
 
     .prologue
@@ -39,16 +39,16 @@
     .local v1, size:I
     const/4 v3, -0x1
 
-    if-ne v1, v3, :cond_9
+    if-ne v1, v3, :cond_1
 
     const/4 v2, 0x0
 
     .line 712
-    :cond_8
+    :cond_0
     return-object v2
 
     .line 708
-    :cond_9
+    :cond_1
     new-array v2, v1, [J
 
     .line 709
@@ -56,10 +56,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_c
+    :goto_0
     array-length v3, v2
 
-    if-ge v0, v3, :cond_8
+    if-ge v0, v3, :cond_0
 
     .line 710
     invoke-virtual {p0}, Landroid/os/Parcel;->readLong()J
@@ -71,18 +71,18 @@
     .line 709
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public static writeLongArray(Landroid/os/Parcel;[JI)V
-    .registers 6
+    .locals 3
     .parameter "out"
     .parameter "values"
     .parameter "size"
 
     .prologue
     .line 716
-    if-nez p1, :cond_7
+    if-nez p1, :cond_1
 
     .line 717
     const/4 v1, -0x1
@@ -90,14 +90,14 @@
     invoke-virtual {p0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 727
-    :cond_6
+    :cond_0
     return-void
 
     .line 720
-    :cond_7
+    :cond_1
     array-length v1, p1
 
-    if-le p2, v1, :cond_13
+    if-le p2, v1, :cond_2
 
     .line 721
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -109,15 +109,15 @@
     throw v1
 
     .line 723
-    :cond_13
+    :cond_2
     invoke-virtual {p0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 724
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_17
-    if-ge v0, p2, :cond_6
+    :goto_0
+    if-ge v0, p2, :cond_0
 
     .line 725
     aget-wide v1, p1, v0
@@ -127,5 +127,5 @@
     .line 724
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_17
+    goto :goto_0
 .end method

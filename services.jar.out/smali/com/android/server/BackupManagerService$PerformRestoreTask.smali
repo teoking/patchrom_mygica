@@ -100,7 +100,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService;Lcom/android/internal/backup/IBackupTransport;Landroid/app/backup/IRestoreObserver;JLandroid/content/pm/PackageInfo;IZ[Ljava/lang/String;)V
-    .registers 17
+    .locals 7
     .parameter
     .parameter "transport"
     .parameter "observer"
@@ -150,7 +150,7 @@
     iput-boolean p8, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mNeedFullBackup:Z
 
     .line 4175
-    if-eqz p9, :cond_34
+    if-eqz p9, :cond_0
 
     .line 4176
     new-instance v4, Ljava/util/HashSet;
@@ -169,8 +169,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_28
-    if-ge v1, v2, :cond_37
+    :goto_0
+    if-ge v1, v2, :cond_1
 
     aget-object v3, v0, v1
 
@@ -183,21 +183,21 @@
     .line 4177
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_28
+    goto :goto_0
 
     .line 4181
     .end local v0           #arr$:[Ljava/lang/String;
     .end local v1           #i$:I
     .end local v2           #len$:I
     .end local v3           #pkg:Ljava/lang/String;
-    :cond_34
+    :cond_0
     const/4 v4, 0x0
 
     iput-object v4, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mFilterSet:Ljava/util/HashSet;
 
     .line 4185
-    :cond_37
-    :try_start_37
+    :cond_1
+    :try_start_0
     new-instance v4, Ljava/io/File;
 
     iget-object v5, p1, Lcom/android/server/BackupManagerService;->mBaseStateDir:Ljava/io/File;
@@ -209,24 +209,24 @@
     invoke-direct {v4, v5, v6}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     iput-object v4, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mStateDir:Ljava/io/File;
-    :try_end_44
-    .catch Landroid/os/RemoteException; {:try_start_37 .. :try_end_44} :catch_45
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 4189
-    :goto_44
+    :goto_1
     return-void
 
     .line 4186
-    :catch_45
+    :catch_0
     move-exception v4
 
-    goto :goto_44
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method agentCleanup()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 4600
@@ -235,34 +235,34 @@
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
     .line 4601
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mBackupData:Landroid/os/ParcelFileDescriptor;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mBackupData:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_e
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_e} :catch_93
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
 
     .line 4602
-    :cond_e
-    :goto_e
-    :try_start_e
+    :cond_0
+    :goto_0
+    :try_start_1
     iget-object v0, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mNewState:Landroid/os/ParcelFileDescriptor;
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mNewState:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_17
-    .catch Ljava/io/IOException; {:try_start_e .. :try_end_17} :catch_91
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 4603
-    :cond_17
-    :goto_17
+    :cond_1
+    :goto_1
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mNewState:Landroid/os/ParcelFileDescriptor;
@@ -279,12 +279,13 @@
 
     iget-object v0, v0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    if-eqz v0, :cond_76
+    if-eqz v0, :cond_2
 
     .line 4625
-    :try_start_27
+    :try_start_2
     iget-object v0, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->this$0:Lcom/android/server/BackupManagerService;
 
+    #getter for: Lcom/android/server/BackupManagerService;->mActivityManager:Landroid/app/IActivityManager;
     invoke-static {v0}, Lcom/android/server/BackupManagerService;->access$800(Lcom/android/server/BackupManagerService;)Landroid/app/IActivityManager;
 
     move-result-object v0
@@ -298,7 +299,7 @@
     .line 4633
     iget-object v0, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mTargetPackage:Landroid/content/pm/PackageInfo;
 
-    if-nez v0, :cond_76
+    if-nez v0, :cond_2
 
     iget-object v0, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mCurrentPackage:Landroid/content/pm/PackageInfo;
 
@@ -310,7 +311,7 @@
 
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_76
+    if-eqz v0, :cond_2
 
     .line 4635
     const-string v0, "BackupManagerService"
@@ -344,6 +345,7 @@
     .line 4637
     iget-object v0, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->this$0:Lcom/android/server/BackupManagerService;
 
+    #getter for: Lcom/android/server/BackupManagerService;->mActivityManager:Landroid/app/IActivityManager;
     invoke-static {v0}, Lcom/android/server/BackupManagerService;->access$800(Lcom/android/server/BackupManagerService;)Landroid/app/IActivityManager;
 
     move-result-object v0
@@ -361,12 +363,12 @@
     iget v2, v2, Landroid/content/pm/ApplicationInfo;->uid:I
 
     invoke-interface {v0, v1, v2}, Landroid/app/IActivityManager;->killApplicationProcess(Ljava/lang/String;I)V
-    :try_end_76
-    .catch Landroid/os/RemoteException; {:try_start_27 .. :try_end_76} :catch_8f
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 4648
-    :cond_76
-    :goto_76
+    :cond_2
+    :goto_2
     iget-object v0, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-object v0, v0, Lcom/android/server/BackupManagerService;->mBackupHandler:Lcom/android/server/BackupManagerService$BackupHandler;
@@ -383,7 +385,7 @@
     monitor-enter v1
 
     .line 4650
-    :try_start_83
+    :try_start_3
     iget-object v0, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-object v0, v0, Lcom/android/server/BackupManagerService;->mCurrentOperations:Landroid/util/SparseArray;
@@ -397,36 +399,36 @@
     return-void
 
     .line 4651
-    :catchall_8c
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_8e
-    .catchall {:try_start_83 .. :try_end_8e} :catchall_8c
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v0
 
     .line 4641
-    :catch_8f
+    :catch_0
     move-exception v0
 
-    goto :goto_76
+    goto :goto_2
 
     .line 4602
-    :catch_91
+    :catch_1
     move-exception v0
 
-    goto :goto_17
+    goto :goto_1
 
     .line 4601
-    :catch_93
+    :catch_2
     move-exception v0
 
-    goto/16 :goto_e
+    goto/16 :goto_0
 .end method
 
 .method agentErrorCleanup()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 4595
@@ -446,7 +448,7 @@
 .end method
 
 .method beginRestore()V
-    .registers 11
+    .locals 10
 
     .prologue
     const/4 v6, 0x1
@@ -470,7 +472,7 @@
 
     const/4 v5, 0x2
 
-    :try_start_10
+    :try_start_0
     new-array v5, v5, [Ljava/lang/Object;
 
     const/4 v6, 0x0
@@ -530,12 +532,12 @@
     .line 4243
     iget-object v4, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mTargetPackage:Landroid/content/pm/PackageInfo;
 
-    if-nez v4, :cond_8e
+    if-nez v4, :cond_3
 
     .line 4246
     iget-object v4, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mFilterSet:Ljava/util/HashSet;
 
-    if-eqz v4, :cond_70
+    if-eqz v4, :cond_1
 
     .line 4247
     iget-object v4, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mAgentPackages:Ljava/util/List;
@@ -547,8 +549,8 @@
     add-int/lit8 v1, v4, -0x1
 
     .local v1, i:I
-    :goto_54
-    if-ltz v1, :cond_70
+    :goto_0
+    if-ltz v1, :cond_1
 
     .line 4248
     iget-object v4, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mAgentPackages:Ljava/util/List;
@@ -569,7 +571,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_6d
+    if-nez v4, :cond_0
 
     .line 4250
     iget-object v4, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mAgentPackages:Ljava/util/List;
@@ -577,15 +579,15 @@
     invoke-interface {v4, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     .line 4247
-    :cond_6d
+    :cond_0
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_54
+    goto :goto_0
 
     .line 4260
     .end local v1           #i:I
     .end local v3           #pkg:Landroid/content/pm/PackageInfo;
-    :cond_70
+    :cond_1
     iget-object v4, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mRestorePackages:Ljava/util/ArrayList;
 
     iget-object v5, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mAgentPackages:Ljava/util/List;
@@ -593,15 +595,15 @@
     invoke-virtual {v4, v5}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
     .line 4267
-    :goto_77
+    :goto_1
     iget-object v4, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mObserver:Landroid/app/backup/IRestoreObserver;
-    :try_end_79
-    .catch Landroid/os/RemoteException; {:try_start_10 .. :try_end_79} :catch_96
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-eqz v4, :cond_86
+    if-eqz v4, :cond_2
 
     .line 4271
-    :try_start_7b
+    :try_start_1
     iget-object v4, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mObserver:Landroid/app/backup/IRestoreObserver;
 
     iget-object v5, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mRestorePackages:Ljava/util/ArrayList;
@@ -611,12 +613,12 @@
     move-result v5
 
     invoke-interface {v4, v5}, Landroid/app/backup/IRestoreObserver;->restoreStarting(I)V
-    :try_end_86
-    .catch Landroid/os/RemoteException; {:try_start_7b .. :try_end_86} :catch_a4
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 4284
-    :cond_86
-    :goto_86
+    :cond_2
+    :goto_2
     iput v9, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mStatus:I
 
     .line 4285
@@ -626,26 +628,26 @@
 
     .line 4286
     .end local v2           #omPackage:Landroid/content/pm/PackageInfo;
-    :goto_8d
+    :goto_3
     return-void
 
     .line 4263
     .restart local v2       #omPackage:Landroid/content/pm/PackageInfo;
-    :cond_8e
-    :try_start_8e
+    :cond_3
+    :try_start_2
     iget-object v4, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mRestorePackages:Ljava/util/ArrayList;
 
     iget-object v5, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mTargetPackage:Landroid/content/pm/PackageInfo;
 
     invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_95
-    .catch Landroid/os/RemoteException; {:try_start_8e .. :try_end_95} :catch_96
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto :goto_77
+    goto :goto_1
 
     .line 4277
     .end local v2           #omPackage:Landroid/content/pm/PackageInfo;
-    :catch_96
+    :catch_0
     move-exception v0
 
     .line 4279
@@ -661,17 +663,17 @@
 
     invoke-virtual {p0, v4}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
 
-    goto :goto_8d
+    goto :goto_3
 
     .line 4272
     .end local v0           #e:Landroid/os/RemoteException;
     .restart local v2       #omPackage:Landroid/content/pm/PackageInfo;
-    :catch_a4
+    :catch_1
     move-exception v0
 
     .line 4273
     .restart local v0       #e:Landroid/os/RemoteException;
-    :try_start_a5
+    :try_start_3
     const-string v4, "BackupManagerService"
 
     const-string v5, "Restore observer died at restoreStarting"
@@ -682,14 +684,14 @@
     const/4 v4, 0x0
 
     iput-object v4, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mObserver:Landroid/app/backup/IRestoreObserver;
-    :try_end_af
-    .catch Landroid/os/RemoteException; {:try_start_a5 .. :try_end_af} :catch_96
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
 
-    goto :goto_86
+    goto :goto_2
 .end method
 
 .method downloadRestoreData()V
-    .registers 9
+    .locals 8
 
     .prologue
     const/16 v7, 0xb0f
@@ -697,7 +699,7 @@
     const/4 v6, 0x0
 
     .line 4297
-    :try_start_3
+    :try_start_0
     iget-object v2, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
 
     iget-wide v3, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mToken:J
@@ -723,7 +725,7 @@
     .line 4299
     iget v1, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mStatus:I
 
-    if-eqz v1, :cond_47
+    if-eqz v1, :cond_0
 
     .line 4300
     const-string v1, "BackupManagerService"
@@ -745,15 +747,15 @@
     sget-object v1, Lcom/android/server/BackupManagerService$RestoreState;->FINAL:Lcom/android/server/BackupManagerService$RestoreState;
 
     invoke-virtual {p0, v1}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
-    :try_end_30
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_30} :catch_31
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 4315
-    :goto_30
+    :goto_0
     return-void
 
     .line 4305
-    :catch_31
+    :catch_0
     move-exception v0
 
     .line 4306
@@ -779,20 +781,20 @@
 
     invoke-virtual {p0, v1}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
 
-    goto :goto_30
+    goto :goto_0
 
     .line 4314
     .end local v0           #e:Landroid/os/RemoteException;
-    :cond_47
+    :cond_0
     sget-object v1, Lcom/android/server/BackupManagerService$RestoreState;->PM_METADATA:Lcom/android/server/BackupManagerService$RestoreState;
 
     invoke-virtual {p0, v1}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
 
-    goto :goto_30
+    goto :goto_0
 .end method
 
 .method public execute()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 4195
@@ -806,77 +808,77 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_32
+    packed-switch v0, :pswitch_data_0
 
     .line 4220
-    :goto_d
+    :goto_0
     return-void
 
     .line 4197
-    :pswitch_e
+    :pswitch_0
     invoke-virtual {p0}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->beginRestore()V
 
-    goto :goto_d
+    goto :goto_0
 
     .line 4201
-    :pswitch_12
+    :pswitch_1
     invoke-virtual {p0}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->downloadRestoreData()V
 
-    goto :goto_d
+    goto :goto_0
 
     .line 4205
-    :pswitch_16
+    :pswitch_2
     invoke-virtual {p0}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->restorePmMetadata()V
 
-    goto :goto_d
+    goto :goto_0
 
     .line 4209
-    :pswitch_1a
+    :pswitch_3
     invoke-virtual {p0}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->restoreNextAgent()V
 
-    goto :goto_d
+    goto :goto_0
 
     .line 4213
-    :pswitch_1e
+    :pswitch_4
     iget-boolean v0, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mFinished:Z
 
-    if-nez v0, :cond_29
+    if-nez v0, :cond_0
 
     invoke-virtual {p0}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->finalizeRestore()V
 
     .line 4217
-    :goto_25
+    :goto_1
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mFinished:Z
 
-    goto :goto_d
+    goto :goto_0
 
     .line 4215
-    :cond_29
+    :cond_0
     const-string v0, "BackupManagerService"
 
     const-string v1, "Duplicate finish"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_25
+    goto :goto_1
 
     .line 4195
     nop
 
-    :pswitch_data_32
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_e
-        :pswitch_12
-        :pswitch_16
-        :pswitch_1a
-        :pswitch_1e
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
     .end packed-switch
 .end method
 
 .method executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
-    .registers 5
+    .locals 3
     .parameter "nextState"
 
     .prologue
@@ -907,45 +909,45 @@
 .end method
 
 .method finalizeRestore()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/16 v4, 0x8
 
     .line 4492
-    :try_start_2
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
 
     invoke-interface {v1}, Lcom/android/internal/backup/IBackupTransport;->finishRestore()V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_7} :catch_5c
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 4497
-    :goto_7
+    :goto_0
     iget-object v1, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mObserver:Landroid/app/backup/IRestoreObserver;
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_0
 
     .line 4499
-    :try_start_b
+    :try_start_1
     iget-object v1, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mObserver:Landroid/app/backup/IRestoreObserver;
 
     iget v2, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mStatus:I
 
     invoke-interface {v1, v2}, Landroid/app/backup/IRestoreObserver;->restoreFinished(I)V
-    :try_end_12
-    .catch Landroid/os/RemoteException; {:try_start_b .. :try_end_12} :catch_65
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 4508
-    :cond_12
-    :goto_12
+    :cond_0
+    :goto_1
     iget-object v1, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mTargetPackage:Landroid/content/pm/PackageInfo;
 
-    if-nez v1, :cond_2f
+    if-nez v1, :cond_1
 
     iget-object v1, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mPmAgent:Lcom/android/server/PackageManagerBackupAgent;
 
-    if-eqz v1, :cond_2f
+    if-eqz v1, :cond_1
 
     .line 4509
     iget-object v1, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->this$0:Lcom/android/server/BackupManagerService;
@@ -971,13 +973,13 @@
     invoke-virtual {v1}, Lcom/android/server/BackupManagerService;->writeRestoreTokens()V
 
     .line 4516
-    :cond_2f
+    :cond_1
     iget v1, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mPmToken:I
 
-    if-lez v1, :cond_3c
+    if-lez v1, :cond_2
 
     .line 4519
-    :try_start_33
+    :try_start_2
     iget-object v1, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-object v1, v1, Lcom/android/server/BackupManagerService;->mPackageManagerBinder:Landroid/content/pm/IPackageManager;
@@ -985,12 +987,12 @@
     iget v2, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mPmToken:I
 
     invoke-interface {v1, v2}, Landroid/content/pm/IPackageManager;->finishPackageInstall(I)V
-    :try_end_3c
-    .catch Landroid/os/RemoteException; {:try_start_33 .. :try_end_3c} :catch_6e
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_2
 
     .line 4524
-    :cond_3c
-    :goto_3c
+    :cond_2
+    :goto_2
     iget-object v1, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-object v1, v1, Lcom/android/server/BackupManagerService;->mBackupHandler:Lcom/android/server/BackupManagerService$BackupHandler;
@@ -1024,7 +1026,7 @@
     return-void
 
     .line 4493
-    :catch_5c
+    :catch_0
     move-exception v0
 
     .line 4494
@@ -1035,11 +1037,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_7
+    goto :goto_0
 
     .line 4500
     .end local v0           #e:Landroid/os/RemoteException;
-    :catch_65
+    :catch_1
     move-exception v0
 
     .line 4501
@@ -1050,18 +1052,18 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_12
+    goto :goto_1
 
     .line 4520
     .end local v0           #e:Landroid/os/RemoteException;
-    :catch_6e
+    :catch_2
     move-exception v1
 
-    goto :goto_3c
+    goto :goto_2
 .end method
 
 .method public handleTimeout()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 4668
@@ -1127,7 +1129,7 @@
 .end method
 
 .method initiateOneRestore(Landroid/content/pm/PackageInfo;ILandroid/app/IBackupAgent;Z)V
-    .registers 14
+    .locals 9
     .parameter "app"
     .parameter "appVersionCode"
     .parameter "agent"
@@ -1240,7 +1242,7 @@
 
     .line 4550
     .local v4, token:I
-    :try_start_66
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mBackupDataName:Ljava/io/File;
 
     const/high16 v1, 0x3c00
@@ -1260,7 +1262,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_aa
+    if-eqz v0, :cond_0
 
     .line 4558
     const-string v0, "BackupManagerService"
@@ -1310,11 +1312,11 @@
     invoke-virtual {p0, v0}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
 
     .line 4589
-    :goto_a9
+    :goto_0
     return-void
 
     .line 4567
-    :cond_aa
+    :cond_0
     iget-object v0, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mBackupData:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
@@ -1362,13 +1364,13 @@
     move v2, p2
 
     invoke-interface/range {v0 .. v5}, Landroid/app/IBackupAgent;->doRestore(Landroid/os/ParcelFileDescriptor;ILandroid/os/ParcelFileDescriptor;ILandroid/app/backup/IBackupManager;)V
-    :try_end_d8
-    .catch Ljava/lang/Exception; {:try_start_66 .. :try_end_d8} :catch_d9
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_a9
+    goto :goto_0
 
     .line 4579
-    :catch_d9
+    :catch_0
     move-exception v6
 
     .line 4580
@@ -1422,11 +1424,11 @@
 
     invoke-virtual {p0, v0}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
 
-    goto :goto_a9
+    goto :goto_0
 .end method
 
 .method public operationComplete()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 4657
@@ -1477,13 +1479,13 @@
 .end method
 
 .method restoreNextAgent()V
-    .registers 14
+    .locals 13
 
     .prologue
     const/4 v12, 0x1
 
     .line 4382
-    :try_start_1
+    :try_start_0
     iget-object v8, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
 
     invoke-interface {v8}, Lcom/android/internal/backup/IBackupTransport;->nextRestorePackage()Ljava/lang/String;
@@ -1492,7 +1494,7 @@
 
     .line 4384
     .local v7, packageName:Ljava/lang/String;
-    if-nez v7, :cond_1e
+    if-nez v7, :cond_0
 
     .line 4385
     const-string v8, "BackupManagerService"
@@ -1517,19 +1519,19 @@
 
     .line 4486
     .end local v7           #packageName:Ljava/lang/String;
-    :goto_1d
+    :goto_0
     return-void
 
     .line 4389
     .restart local v7       #packageName:Ljava/lang/String;
-    :cond_1e
+    :cond_0
     const-string v8, ""
 
     invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_63
+    if-eqz v8, :cond_1
 
     .line 4390
     const-string v8, "BackupManagerService"
@@ -1581,15 +1583,15 @@
     sget-object v8, Lcom/android/server/BackupManagerService$RestoreState;->FINAL:Lcom/android/server/BackupManagerService$RestoreState;
 
     invoke-virtual {p0, v8}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
-    :try_end_52
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_52} :catch_53
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 4481
     .end local v5           #millis:I
     .end local v7           #packageName:Ljava/lang/String;
-    :catch_53
+    :catch_0
     move-exception v1
 
     .line 4482
@@ -1608,33 +1610,33 @@
 
     invoke-virtual {p0, v8}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 4397
     .end local v1           #e:Landroid/os/RemoteException;
     .restart local v7       #packageName:Ljava/lang/String;
-    :cond_63
-    :try_start_63
+    :cond_1
+    :try_start_1
     iget-object v8, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mObserver:Landroid/app/backup/IRestoreObserver;
-    :try_end_65
-    .catch Landroid/os/RemoteException; {:try_start_63 .. :try_end_65} :catch_53
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    if-eqz v8, :cond_6e
+    if-eqz v8, :cond_2
 
     .line 4399
-    :try_start_67
+    :try_start_2
     iget-object v8, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mObserver:Landroid/app/backup/IRestoreObserver;
 
     iget v9, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mCount:I
 
     invoke-interface {v8, v9, v7}, Landroid/app/backup/IRestoreObserver;->onUpdate(ILjava/lang/String;)V
-    :try_end_6e
-    .catch Landroid/os/RemoteException; {:try_start_67 .. :try_end_6e} :catch_a5
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
 
     .line 4406
-    :cond_6e
-    :goto_6e
-    :try_start_6e
+    :cond_2
+    :goto_1
+    :try_start_3
     iget-object v8, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mPmAgent:Lcom/android/server/PackageManagerBackupAgent;
 
     invoke-virtual {v8, v7}, Lcom/android/server/PackageManagerBackupAgent;->getRestoredMetadata(Ljava/lang/String;)Lcom/android/server/PackageManagerBackupAgent$Metadata;
@@ -1643,7 +1645,7 @@
 
     .line 4407
     .local v4, metaInfo:Lcom/android/server/PackageManagerBackupAgent$Metadata;
-    if-nez v4, :cond_b1
+    if-nez v4, :cond_3
 
     .line 4408
     const-string v8, "BackupManagerService"
@@ -1692,11 +1694,11 @@
 
     invoke-virtual {p0, v8}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
 
-    goto/16 :goto_1d
+    goto/16 :goto_0
 
     .line 4400
     .end local v4           #metaInfo:Lcom/android/server/PackageManagerBackupAgent$Metadata;
-    :catch_a5
+    :catch_1
     move-exception v1
 
     .line 4401
@@ -1711,41 +1713,42 @@
     const/4 v8, 0x0
 
     iput-object v8, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mObserver:Landroid/app/backup/IRestoreObserver;
-    :try_end_b0
-    .catch Landroid/os/RemoteException; {:try_start_6e .. :try_end_b0} :catch_53
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
 
-    goto :goto_6e
+    goto :goto_1
 
     .line 4417
     .end local v1           #e:Landroid/os/RemoteException;
     .restart local v4       #metaInfo:Lcom/android/server/PackageManagerBackupAgent$Metadata;
-    :cond_b1
+    :cond_3
     const/16 v2, 0x40
 
     .line 4418
     .local v2, flags:I
-    :try_start_b3
+    :try_start_4
     iget-object v8, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->this$0:Lcom/android/server/BackupManagerService;
 
+    #getter for: Lcom/android/server/BackupManagerService;->mPackageManager:Landroid/content/pm/PackageManager;
     invoke-static {v8}, Lcom/android/server/BackupManagerService;->access$600(Lcom/android/server/BackupManagerService;)Landroid/content/pm/PackageManager;
 
     move-result-object v8
 
     invoke-virtual {v8, v7, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
-    :try_end_bc
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_b3 .. :try_end_bc} :catch_124
-    .catch Landroid/os/RemoteException; {:try_start_b3 .. :try_end_bc} :catch_53
+    :try_end_4
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_4 .. :try_end_4} :catch_2
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_0
 
     move-result-object v6
 
     .line 4427
     .local v6, packageInfo:Landroid/content/pm/PackageInfo;
-    :try_start_bd
+    :try_start_5
     iget v8, v4, Lcom/android/server/PackageManagerBackupAgent$Metadata;->versionCode:I
 
     iget v9, v6, Landroid/content/pm/PackageInfo;->versionCode:I
 
-    if-le v8, v9, :cond_16f
+    if-le v8, v9, :cond_5
 
     .line 4431
     iget-object v8, v6, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
@@ -1756,7 +1759,7 @@
 
     and-int/2addr v8, v9
 
-    if-nez v8, :cond_143
+    if-nez v8, :cond_4
 
     .line 4433
     new-instance v8, Ljava/lang/StringBuilder;
@@ -1847,12 +1850,12 @@
 
     invoke-virtual {p0, v8}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
 
-    goto/16 :goto_1d
+    goto/16 :goto_0
 
     .line 4419
     .end local v3           #message:Ljava/lang/String;
     .end local v6           #packageInfo:Landroid/content/pm/PackageInfo;
-    :catch_124
+    :catch_2
     move-exception v1
 
     .line 4420
@@ -1887,12 +1890,12 @@
 
     invoke-virtual {p0, v8}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
 
-    goto/16 :goto_1d
+    goto/16 :goto_0
 
     .line 4441
     .end local v1           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     .restart local v6       #packageInfo:Landroid/content/pm/PackageInfo;
-    :cond_143
+    :cond_4
     const-string v8, "BackupManagerService"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -1936,16 +1939,17 @@
     invoke-static {v8, v9}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 4447
-    :cond_16f
+    :cond_5
     iget-object v8, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->this$0:Lcom/android/server/BackupManagerService;
 
     iget-object v9, v4, Lcom/android/server/PackageManagerBackupAgent$Metadata;->signatures:[Landroid/content/pm/Signature;
 
+    #calls: Lcom/android/server/BackupManagerService;->signaturesMatch([Landroid/content/pm/Signature;Landroid/content/pm/PackageInfo;)Z
     invoke-static {v8, v9, v6}, Lcom/android/server/BackupManagerService;->access$1700(Lcom/android/server/BackupManagerService;[Landroid/content/pm/Signature;Landroid/content/pm/PackageInfo;)Z
 
     move-result v8
 
-    if-nez v8, :cond_1a8
+    if-nez v8, :cond_6
 
     .line 4448
     const-string v8, "BackupManagerService"
@@ -1994,10 +1998,10 @@
 
     invoke-virtual {p0, v8}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
 
-    goto/16 :goto_1d
+    goto/16 :goto_0
 
     .line 4455
-    :cond_1a8
+    :cond_6
     const-string v8, "BackupManagerService"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -2063,7 +2067,7 @@
 
     .line 4464
     .local v0, agent:Landroid/app/IBackupAgent;
-    if-nez v0, :cond_218
+    if-nez v0, :cond_7
 
     .line 4465
     const-string v8, "BackupManagerService"
@@ -2111,14 +2115,14 @@
     sget-object v8, Lcom/android/server/BackupManagerService$RestoreState;->RUNNING_QUEUE:Lcom/android/server/BackupManagerService$RestoreState;
 
     invoke-virtual {p0, v8}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
-    :try_end_216
-    .catch Landroid/os/RemoteException; {:try_start_bd .. :try_end_216} :catch_53
+    :try_end_5
+    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_0
 
-    goto/16 :goto_1d
+    goto/16 :goto_0
 
     .line 4474
-    :cond_218
-    :try_start_218
+    :cond_7
+    :try_start_6
     iget v8, v4, Lcom/android/server/PackageManagerBackupAgent$Metadata;->versionCode:I
 
     iget-boolean v9, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mNeedFullBackup:Z
@@ -2131,19 +2135,19 @@
     add-int/lit8 v8, v8, 0x1
 
     iput v8, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mCount:I
-    :try_end_225
-    .catch Ljava/lang/Exception; {:try_start_218 .. :try_end_225} :catch_227
-    .catch Landroid/os/RemoteException; {:try_start_218 .. :try_end_225} :catch_53
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_3
+    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_0
 
-    goto/16 :goto_1d
+    goto/16 :goto_0
 
     .line 4476
-    :catch_227
+    :catch_3
     move-exception v1
 
     .line 4477
     .local v1, e:Ljava/lang/Exception;
-    :try_start_228
+    :try_start_7
     const-string v8, "BackupManagerService"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -2177,14 +2181,14 @@
     sget-object v8, Lcom/android/server/BackupManagerService$RestoreState;->RUNNING_QUEUE:Lcom/android/server/BackupManagerService$RestoreState;
 
     invoke-virtual {p0, v8}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
-    :try_end_24c
-    .catch Landroid/os/RemoteException; {:try_start_228 .. :try_end_24c} :catch_53
+    :try_end_7
+    .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_7} :catch_0
 
-    goto/16 :goto_1d
+    goto/16 :goto_0
 .end method
 
 .method restorePmMetadata()V
-    .registers 13
+    .locals 12
 
     .prologue
     const/16 v11, 0xb0f
@@ -2196,7 +2200,7 @@
     const/4 v8, 0x0
 
     .line 4319
-    :try_start_6
+    :try_start_0
     iget-object v4, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->mTransport:Lcom/android/internal/backup/IBackupTransport;
 
     invoke-interface {v4}, Lcom/android/internal/backup/IBackupTransport;->nextRestorePackage()Ljava/lang/String;
@@ -2205,7 +2209,7 @@
 
     .line 4320
     .local v3, packageName:Ljava/lang/String;
-    if-nez v3, :cond_26
+    if-nez v3, :cond_1
 
     .line 4321
     const-string v4, "BackupManagerService"
@@ -2235,20 +2239,20 @@
 
     .line 4378
     .end local v3           #packageName:Ljava/lang/String;
-    :cond_25
-    :goto_25
+    :cond_0
+    :goto_0
     return-void
 
     .line 4326
     .restart local v3       #packageName:Ljava/lang/String;
-    :cond_26
+    :cond_1
     const-string v4, ""
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_79
+    if-eqz v4, :cond_2
 
     .line 4327
     const-string v4, "BackupManagerService"
@@ -2305,15 +2309,15 @@
     sget-object v4, Lcom/android/server/BackupManagerService$RestoreState;->FINAL:Lcom/android/server/BackupManagerService$RestoreState;
 
     invoke-virtual {p0, v4}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
-    :try_end_5c
-    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_5c} :catch_5d
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_25
+    goto :goto_0
 
     .line 4367
     .end local v1           #millis:I
     .end local v3           #packageName:Ljava/lang/String;
-    :catch_5d
+    :catch_0
     move-exception v0
 
     .line 4368
@@ -2344,20 +2348,20 @@
 
     invoke-virtual {p0, v4}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
 
-    goto :goto_25
+    goto :goto_0
 
     .line 4333
     .end local v0           #e:Landroid/os/RemoteException;
     .restart local v3       #packageName:Ljava/lang/String;
-    :cond_79
-    :try_start_79
+    :cond_2
+    :try_start_1
     const-string v4, "@pm@"
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-nez v4, :cond_b8
+    if-nez v4, :cond_3
 
     .line 4334
     const-string v4, "BackupManagerService"
@@ -2414,10 +2418,10 @@
 
     invoke-virtual {p0, v4}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
 
-    goto/16 :goto_25
+    goto/16 :goto_0
 
     .line 4343
-    :cond_b8
+    :cond_3
     new-instance v2, Landroid/content/pm/PackageInfo;
 
     invoke-direct {v2}, Landroid/content/pm/PackageInfo;-><init>()V
@@ -2433,6 +2437,7 @@
 
     iget-object v5, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask;->this$0:Lcom/android/server/BackupManagerService;
 
+    #getter for: Lcom/android/server/BackupManagerService;->mPackageManager:Landroid/content/pm/PackageManager;
     invoke-static {v5}, Lcom/android/server/BackupManagerService;->access$600(Lcom/android/server/BackupManagerService;)Landroid/content/pm/PackageManager;
 
     move-result-object v5
@@ -2467,7 +2472,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_25
+    if-nez v4, :cond_0
 
     .line 4359
     const-string v4, "BackupManagerService"
@@ -2515,8 +2520,8 @@
     sget-object v4, Lcom/android/server/BackupManagerService$RestoreState;->FINAL:Lcom/android/server/BackupManagerService$RestoreState;
 
     invoke-virtual {p0, v4}, Lcom/android/server/BackupManagerService$PerformRestoreTask;->executeNextState(Lcom/android/server/BackupManagerService$RestoreState;)V
-    :try_end_112
-    .catch Landroid/os/RemoteException; {:try_start_79 .. :try_end_112} :catch_5d
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto/16 :goto_25
+    goto/16 :goto_0
 .end method

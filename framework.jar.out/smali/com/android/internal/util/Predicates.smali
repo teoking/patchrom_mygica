@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 27
@@ -27,7 +27,7 @@
 .end method
 
 .method public static and(Ljava/lang/Iterable;)Lcom/android/internal/util/Predicate;
-    .registers 3
+    .locals 2
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -56,7 +56,7 @@
 .end method
 
 .method public static varargs and([Lcom/android/internal/util/Predicate;)Lcom/android/internal/util/Predicate;
-    .registers 2
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -85,7 +85,7 @@
 .end method
 
 .method public static not(Lcom/android/internal/util/Predicate;)Lcom/android/internal/util/Predicate;
-    .registers 3
+    .locals 2
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -112,7 +112,7 @@
 .end method
 
 .method public static or(Ljava/lang/Iterable;)Lcom/android/internal/util/Predicate;
-    .registers 3
+    .locals 2
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -141,7 +141,7 @@
 .end method
 
 .method public static varargs or([Lcom/android/internal/util/Predicate;)Lcom/android/internal/util/Predicate;
-    .registers 2
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {

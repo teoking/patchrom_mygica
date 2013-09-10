@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)V
-    .registers 19
+    .locals 1
     .parameter "id"
     .parameter "numeric"
     .parameter "carrier"
@@ -130,21 +130,21 @@
 .end method
 
 .method public static fromString(Ljava/lang/String;)Lcom/android/internal/telephony/ApnSetting;
-    .registers 23
+    .locals 22
     .parameter "data"
 
     .prologue
     .line 102
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     const/4 v1, 0x0
 
     .line 151
-    :goto_3
+    :goto_0
     return-object v1
 
     .line 106
-    :cond_4
+    :cond_0
     const-string v1, "^\\[ApnSettingV2\\]\\s*.*"
 
     move-object/from16 v0, p0
@@ -153,7 +153,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2b
+    if-eqz v1, :cond_1
 
     .line 107
     const/16 v21, 0x2
@@ -171,7 +171,7 @@
     move-result-object p0
 
     .line 113
-    :goto_1a
+    :goto_1
     const-string v1, "\\s*,\\s*"
 
     move-object/from16 v0, p0
@@ -188,44 +188,44 @@
 
     const/16 v2, 0xe
 
-    if-ge v1, v2, :cond_2e
+    if-ge v1, v2, :cond_2
 
     .line 115
     const/4 v1, 0x0
 
-    goto :goto_3
+    goto :goto_0
 
     .line 110
     .end local v19           #a:[Ljava/lang/String;
     .end local v21           #version:I
-    :cond_2b
+    :cond_1
     const/16 v21, 0x1
 
     .restart local v21       #version:I
-    goto :goto_1a
+    goto :goto_1
 
     .line 120
     .restart local v19       #a:[Ljava/lang/String;
-    :cond_2e
+    :cond_2
     const/16 v1, 0xc
 
-    :try_start_30
+    :try_start_0
     aget-object v1, v19, v1
 
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_35
-    .catch Ljava/lang/Exception; {:try_start_30 .. :try_end_35} :catch_95
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v13
 
     .line 129
     .local v13, authType:I
-    :goto_36
+    :goto_2
     const/4 v1, 0x1
 
     move/from16 v0, v21
 
-    if-ne v0, v1, :cond_98
+    if-ne v0, v1, :cond_3
 
     .line 130
     move-object/from16 v0, v19
@@ -269,7 +269,7 @@
 
     .line 151
     .local v18, bearer:I
-    :goto_57
+    :goto_3
     new-instance v1, Lcom/android/internal/telephony/ApnSetting;
 
     const/4 v2, -0x1
@@ -336,7 +336,7 @@
 
     invoke-direct/range {v1 .. v18}, Lcom/android/internal/telephony/ApnSetting;-><init>(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZI)V
 
-    goto/16 :goto_3
+    goto/16 :goto_0
 
     .line 121
     .end local v13           #authType:I
@@ -345,7 +345,7 @@
     .end local v16           #roamingProtocol:Ljava/lang/String;
     .end local v17           #carrierEnabled:Z
     .end local v18           #bearer:I
-    :catch_95
+    :catch_0
     move-exception v20
 
     .line 122
@@ -353,26 +353,26 @@
     const/4 v13, 0x0
 
     .restart local v13       #authType:I
-    goto :goto_36
+    goto :goto_2
 
     .line 137
     .end local v20           #e:Ljava/lang/Exception;
-    :cond_98
+    :cond_3
     move-object/from16 v0, v19
 
     array-length v1, v0
 
     const/16 v2, 0x12
 
-    if-ge v1, v2, :cond_a2
+    if-ge v1, v2, :cond_4
 
     .line 138
     const/4 v1, 0x0
 
-    goto/16 :goto_3
+    goto/16 :goto_0
 
     .line 140
-    :cond_a2
+    :cond_4
     const/16 v1, 0xd
 
     aget-object v1, v19, v1
@@ -399,18 +399,18 @@
     .restart local v16       #roamingProtocol:Ljava/lang/String;
     const/16 v1, 0x10
 
-    :try_start_b6
+    :try_start_1
     aget-object v1, v19, v1
 
     invoke-static {v1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-    :try_end_bb
-    .catch Ljava/lang/Exception; {:try_start_b6 .. :try_end_bb} :catch_c5
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result v17
 
     .line 148
     .restart local v17       #carrierEnabled:Z
-    :goto_bc
+    :goto_4
     const/16 v1, 0x11
 
     aget-object v1, v19, v1
@@ -420,12 +420,12 @@
     move-result v18
 
     .restart local v18       #bearer:I
-    goto :goto_57
+    goto :goto_3
 
     .line 145
     .end local v17           #carrierEnabled:Z
     .end local v18           #bearer:I
-    :catch_c5
+    :catch_1
     move-exception v20
 
     .line 146
@@ -433,13 +433,13 @@
     const/16 v17, 0x1
 
     .restart local v17       #carrierEnabled:Z
-    goto :goto_bc
+    goto :goto_4
 .end method
 
 
 # virtual methods
 .method public canHandleType(Ljava/lang/String;)Z
-    .registers 7
+    .locals 5
     .parameter "type"
 
     .prologue
@@ -453,8 +453,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_4
-    if-ge v1, v2, :cond_2b
+    :goto_0
+    if-ge v1, v2, :cond_2
 
     aget-object v3, v0, v1
 
@@ -464,7 +464,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_26
+    if-nez v4, :cond_0
 
     const-string v4, "*"
 
@@ -472,7 +472,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_26
+    if-nez v4, :cond_0
 
     const-string v4, "default"
 
@@ -480,7 +480,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_28
+    if-eqz v4, :cond_1
 
     const-string v4, "hipri"
 
@@ -488,49 +488,49 @@
 
     move-result v4
 
-    if-eqz v4, :cond_28
+    if-eqz v4, :cond_1
 
     .line 188
-    :cond_26
+    :cond_0
     const/4 v4, 0x1
 
     .line 191
     .end local v3           #t:Ljava/lang/String;
-    :goto_27
+    :goto_1
     return v4
 
     .line 182
     .restart local v3       #t:Ljava/lang/String;
-    :cond_28
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 191
     .end local v3           #t:Ljava/lang/String;
-    :cond_2b
+    :cond_2
     const/4 v4, 0x0
 
-    goto :goto_27
+    goto :goto_1
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 4
+    .locals 2
     .parameter "o"
 
     .prologue
     .line 197
     instance-of v0, p1, Lcom/android/internal/telephony/ApnSetting;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
     .line 198
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/ApnSetting;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -543,11 +543,11 @@
 
     move-result v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 156
@@ -685,12 +685,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_83
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/telephony/ApnSetting;->types:[Ljava/lang/String;
 
     array-length v2, v2
 
-    if-ge v0, v2, :cond_9e
+    if-ge v0, v2, :cond_1
 
     .line 169
     iget-object v2, p0, Lcom/android/internal/telephony/ApnSetting;->types:[Ljava/lang/String;
@@ -706,7 +706,7 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    if-ge v0, v2, :cond_9b
+    if-ge v0, v2, :cond_0
 
     .line 171
     const-string v2, " | "
@@ -714,13 +714,13 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 168
-    :cond_9b
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_83
+    goto :goto_0
 
     .line 174
-    :cond_9e
+    :cond_1
     const-string v2, ", "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "name"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .registers 3
+    .locals 1
     .parameter "intent"
 
     .prologue
@@ -51,7 +51,7 @@
 .end method
 
 .method public onCreate()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 106
@@ -113,7 +113,7 @@
 .end method
 
 .method public onDestroy()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 136
@@ -129,7 +129,7 @@
 .end method
 
 .method public onStart(Landroid/content/Intent;I)V
-    .registers 5
+    .locals 2
     .parameter "intent"
     .parameter "startId"
 
@@ -158,7 +158,7 @@
 .end method
 
 .method public onStartCommand(Landroid/content/Intent;II)I
-    .registers 5
+    .locals 1
     .parameter "intent"
     .parameter "flags"
     .parameter "startId"
@@ -170,21 +170,21 @@
     .line 131
     iget-boolean v0, p0, Landroid/app/IntentService;->mRedelivery:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x3
 
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x2
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setIntentRedelivery(Z)V
-    .registers 2
+    .locals 0
     .parameter "enabled"
 
     .prologue

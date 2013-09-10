@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/Looper;)V
-    .registers 4
+    .locals 2
     .parameter "looper"
 
     .prologue
@@ -64,7 +64,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/app/WallpaperManager$Globals;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -76,7 +76,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/app/WallpaperManager$Globals;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -88,7 +88,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -99,13 +99,13 @@
 .end method
 
 .method private getCurrentWallpaperLocked()Landroid/graphics/Bitmap;
-    .registers 11
+    .locals 10
 
     .prologue
     const/4 v8, 0x0
 
     .line 269
-    :try_start_1
+    :try_start_0
     new-instance v5, Landroid/os/Bundle;
 
     invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
@@ -120,7 +120,7 @@
 
     .line 271
     .local v2, fd:Landroid/os/ParcelFileDescriptor;
-    if-eqz v2, :cond_40
+    if-eqz v2, :cond_0
 
     .line 272
     const-string/jumbo v7, "width"
@@ -138,14 +138,14 @@
     const/4 v9, 0x0
 
     invoke-virtual {v5, v7, v9}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-    :try_end_1c
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1c} :catch_47
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result v3
 
     .line 276
     .local v3, height:I
-    :try_start_1d
+    :try_start_1
     new-instance v4, Landroid/graphics/BitmapFactory$Options;
 
     invoke-direct {v4}, Landroid/graphics/BitmapFactory$Options;-><init>()V
@@ -165,18 +165,18 @@
     .line 279
     .local v0, bm:Landroid/graphics/Bitmap;
     invoke-static {v0, v6, v3}, Landroid/app/WallpaperManager;->generateBitmap(Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
-    :try_end_2e
-    .catchall {:try_start_1d .. :try_end_2e} :catchall_42
-    .catch Ljava/lang/OutOfMemoryError; {:try_start_1d .. :try_end_2e} :catch_33
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result-object v7
 
     .line 284
-    :try_start_2f
+    :try_start_2
     invoke-virtual {v2}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_32
-    .catch Ljava/io/IOException; {:try_start_2f .. :try_end_32} :catch_4d
-    .catch Landroid/os/RemoteException; {:try_start_2f .. :try_end_32} :catch_47
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_4
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
 
     .line 293
     .end local v0           #bm:Landroid/graphics/Bitmap;
@@ -185,7 +185,7 @@
     .end local v4           #options:Landroid/graphics/BitmapFactory$Options;
     .end local v5           #params:Landroid/os/Bundle;
     .end local v6           #width:I
-    :goto_32
+    :goto_0
     return-object v7
 
     .line 280
@@ -193,12 +193,12 @@
     .restart local v3       #height:I
     .restart local v5       #params:Landroid/os/Bundle;
     .restart local v6       #width:I
-    :catch_33
+    :catch_0
     move-exception v1
 
     .line 281
     .local v1, e:Ljava/lang/OutOfMemoryError;
-    :try_start_34
+    :try_start_3
     invoke-static {}, Landroid/app/WallpaperManager;->access$200()Ljava/lang/String;
 
     move-result-object v7
@@ -206,94 +206,94 @@
     const-string v9, "Can\'t decode file"
 
     invoke-static {v7, v9, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_3d
-    .catchall {:try_start_34 .. :try_end_3d} :catchall_42
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 284
-    :try_start_3d
+    :try_start_4
     invoke-virtual {v2}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_40
-    .catch Ljava/io/IOException; {:try_start_3d .. :try_end_40} :catch_4b
-    .catch Landroid/os/RemoteException; {:try_start_3d .. :try_end_40} :catch_47
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_1
 
     .end local v1           #e:Ljava/lang/OutOfMemoryError;
     .end local v2           #fd:Landroid/os/ParcelFileDescriptor;
     .end local v3           #height:I
     .end local v5           #params:Landroid/os/Bundle;
     .end local v6           #width:I
-    :cond_40
-    :goto_40
+    :cond_0
+    :goto_1
     move-object v7, v8
 
     .line 293
-    goto :goto_32
+    goto :goto_0
 
     .line 283
     .restart local v2       #fd:Landroid/os/ParcelFileDescriptor;
     .restart local v3       #height:I
     .restart local v5       #params:Landroid/os/Bundle;
     .restart local v6       #width:I
-    :catchall_42
+    :catchall_0
     move-exception v7
 
     .line 284
-    :try_start_43
+    :try_start_5
     invoke-virtual {v2}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_46
-    .catch Ljava/io/IOException; {:try_start_43 .. :try_end_46} :catch_49
-    .catch Landroid/os/RemoteException; {:try_start_43 .. :try_end_46} :catch_47
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
+    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_1
 
     .line 283
-    :goto_46
-    :try_start_46
+    :goto_2
+    :try_start_6
     throw v7
-    :try_end_47
-    .catch Landroid/os/RemoteException; {:try_start_46 .. :try_end_47} :catch_47
+    :try_end_6
+    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_1
 
     .line 290
     .end local v2           #fd:Landroid/os/ParcelFileDescriptor;
     .end local v3           #height:I
     .end local v5           #params:Landroid/os/Bundle;
     .end local v6           #width:I
-    :catch_47
+    :catch_1
     move-exception v7
 
-    goto :goto_40
+    goto :goto_1
 
     .line 285
     .restart local v2       #fd:Landroid/os/ParcelFileDescriptor;
     .restart local v3       #height:I
     .restart local v5       #params:Landroid/os/Bundle;
     .restart local v6       #width:I
-    :catch_49
+    :catch_2
     move-exception v9
 
-    goto :goto_46
+    goto :goto_2
 
     .restart local v1       #e:Ljava/lang/OutOfMemoryError;
-    :catch_4b
+    :catch_3
     move-exception v7
 
-    goto :goto_40
+    goto :goto_1
 
     .end local v1           #e:Ljava/lang/OutOfMemoryError;
     .restart local v0       #bm:Landroid/graphics/Bitmap;
     .restart local v4       #options:Landroid/graphics/BitmapFactory$Options;
-    :catch_4d
+    :catch_4
     move-exception v8
 
-    goto :goto_32
+    goto :goto_0
 .end method
 
 .method private getDefaultWallpaperLocked(Landroid/content/Context;)Landroid/graphics/Bitmap;
-    .registers 11
+    .locals 9
     .parameter "context"
 
     .prologue
     const/4 v7, 0x0
 
     .line 298
-    :try_start_1
+    :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
@@ -306,7 +306,7 @@
 
     .line 300
     .local v3, is:Ljava/io/InputStream;
-    if-eqz v3, :cond_39
+    if-eqz v3, :cond_0
 
     .line 301
     iget-object v6, p0, Landroid/app/WallpaperManager$Globals;->mService:Landroid/app/IWallpaperManager;
@@ -320,14 +320,14 @@
     iget-object v6, p0, Landroid/app/WallpaperManager$Globals;->mService:Landroid/app/IWallpaperManager;
 
     invoke-interface {v6}, Landroid/app/IWallpaperManager;->getHeightHint()I
-    :try_end_19
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_19} :catch_40
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result v2
 
     .line 305
     .local v2, height:I
-    :try_start_1a
+    :try_start_1
     new-instance v4, Landroid/graphics/BitmapFactory$Options;
 
     invoke-direct {v4}, Landroid/graphics/BitmapFactory$Options;-><init>()V
@@ -343,18 +343,18 @@
     .line 307
     .local v0, bm:Landroid/graphics/Bitmap;
     invoke-static {v0, v5, v2}, Landroid/app/WallpaperManager;->generateBitmap(Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
-    :try_end_27
-    .catchall {:try_start_1a .. :try_end_27} :catchall_3b
-    .catch Ljava/lang/OutOfMemoryError; {:try_start_1a .. :try_end_27} :catch_2c
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result-object v6
 
     .line 312
-    :try_start_28
+    :try_start_2
     invoke-virtual {v3}, Ljava/io/InputStream;->close()V
-    :try_end_2b
-    .catch Ljava/io/IOException; {:try_start_28 .. :try_end_2b} :catch_46
-    .catch Landroid/os/RemoteException; {:try_start_28 .. :try_end_2b} :catch_40
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_4
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
 
     .line 321
     .end local v0           #bm:Landroid/graphics/Bitmap;
@@ -362,19 +362,19 @@
     .end local v3           #is:Ljava/io/InputStream;
     .end local v4           #options:Landroid/graphics/BitmapFactory$Options;
     .end local v5           #width:I
-    :goto_2b
+    :goto_0
     return-object v6
 
     .line 308
     .restart local v2       #height:I
     .restart local v3       #is:Ljava/io/InputStream;
     .restart local v5       #width:I
-    :catch_2c
+    :catch_0
     move-exception v1
 
     .line 309
     .local v1, e:Ljava/lang/OutOfMemoryError;
-    :try_start_2d
+    :try_start_3
     invoke-static {}, Landroid/app/WallpaperManager;->access$200()Ljava/lang/String;
 
     move-result-object v6
@@ -382,85 +382,85 @@
     const-string v8, "Can\'t decode stream"
 
     invoke-static {v6, v8, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_36
-    .catchall {:try_start_2d .. :try_end_36} :catchall_3b
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 312
-    :try_start_36
+    :try_start_4
     invoke-virtual {v3}, Ljava/io/InputStream;->close()V
-    :try_end_39
-    .catch Ljava/io/IOException; {:try_start_36 .. :try_end_39} :catch_44
-    .catch Landroid/os/RemoteException; {:try_start_36 .. :try_end_39} :catch_40
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_1
 
     .end local v1           #e:Ljava/lang/OutOfMemoryError;
     .end local v2           #height:I
     .end local v3           #is:Ljava/io/InputStream;
     .end local v5           #width:I
-    :cond_39
-    :goto_39
+    :cond_0
+    :goto_1
     move-object v6, v7
 
     .line 321
-    goto :goto_2b
+    goto :goto_0
 
     .line 311
     .restart local v2       #height:I
     .restart local v3       #is:Ljava/io/InputStream;
     .restart local v5       #width:I
-    :catchall_3b
+    :catchall_0
     move-exception v6
 
     .line 312
-    :try_start_3c
+    :try_start_5
     invoke-virtual {v3}, Ljava/io/InputStream;->close()V
-    :try_end_3f
-    .catch Ljava/io/IOException; {:try_start_3c .. :try_end_3f} :catch_42
-    .catch Landroid/os/RemoteException; {:try_start_3c .. :try_end_3f} :catch_40
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
+    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_1
 
     .line 311
-    :goto_3f
-    :try_start_3f
+    :goto_2
+    :try_start_6
     throw v6
-    :try_end_40
-    .catch Landroid/os/RemoteException; {:try_start_3f .. :try_end_40} :catch_40
+    :try_end_6
+    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_1
 
     .line 318
     .end local v2           #height:I
     .end local v3           #is:Ljava/io/InputStream;
     .end local v5           #width:I
-    :catch_40
+    :catch_1
     move-exception v6
 
-    goto :goto_39
+    goto :goto_1
 
     .line 313
     .restart local v2       #height:I
     .restart local v3       #is:Ljava/io/InputStream;
     .restart local v5       #width:I
-    :catch_42
+    :catch_2
     move-exception v8
 
-    goto :goto_3f
+    goto :goto_2
 
     .restart local v1       #e:Ljava/lang/OutOfMemoryError;
-    :catch_44
+    :catch_3
     move-exception v6
 
-    goto :goto_39
+    goto :goto_1
 
     .end local v1           #e:Ljava/lang/OutOfMemoryError;
     .restart local v0       #bm:Landroid/graphics/Bitmap;
     .restart local v4       #options:Landroid/graphics/BitmapFactory$Options;
-    :catch_46
+    :catch_4
     move-exception v7
 
-    goto :goto_2b
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public forgetLoadedWallpaper()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 261
@@ -469,7 +469,7 @@
     .line 262
     const/4 v0, 0x0
 
-    :try_start_2
+    :try_start_0
     iput-object v0, p0, Landroid/app/WallpaperManager$Globals;->mWallpaper:Landroid/graphics/Bitmap;
 
     .line 263
@@ -484,18 +484,18 @@
     return-void
 
     .line 264
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_b
-    .catchall {:try_start_2 .. :try_end_b} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public onWallpaperChanged()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 231
@@ -510,7 +510,7 @@
 .end method
 
 .method public peekWallpaperBitmap(Landroid/content/Context;Z)Landroid/graphics/Bitmap;
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "returnDefault"
 
@@ -519,10 +519,10 @@
     monitor-enter p0
 
     .line 236
-    :try_start_1
+    :try_start_0
     iget-object v1, p0, Landroid/app/WallpaperManager$Globals;->mWallpaper:Landroid/graphics/Bitmap;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_0
 
     .line 237
     iget-object v1, p0, Landroid/app/WallpaperManager$Globals;->mWallpaper:Landroid/graphics/Bitmap;
@@ -530,61 +530,61 @@
     monitor-exit p0
 
     .line 256
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 239
-    :cond_9
+    :cond_0
     iget-object v1, p0, Landroid/app/WallpaperManager$Globals;->mDefaultWallpaper:Landroid/graphics/Bitmap;
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_1
 
     .line 240
     iget-object v1, p0, Landroid/app/WallpaperManager$Globals;->mDefaultWallpaper:Landroid/graphics/Bitmap;
 
     monitor-exit p0
 
-    goto :goto_8
+    goto :goto_0
 
     .line 257
-    :catchall_11
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
-    :try_end_13
-    .catchall {:try_start_1 .. :try_end_13} :catchall_11
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 
     .line 242
-    :cond_14
+    :cond_1
     const/4 v1, 0x0
 
-    :try_start_15
+    :try_start_1
     iput-object v1, p0, Landroid/app/WallpaperManager$Globals;->mWallpaper:Landroid/graphics/Bitmap;
-    :try_end_17
-    .catchall {:try_start_15 .. :try_end_17} :catchall_11
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 244
-    :try_start_17
+    :try_start_2
     invoke-direct {p0}, Landroid/app/WallpaperManager$Globals;->getCurrentWallpaperLocked()Landroid/graphics/Bitmap;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/app/WallpaperManager$Globals;->mWallpaper:Landroid/graphics/Bitmap;
-    :try_end_1d
-    .catchall {:try_start_17 .. :try_end_1d} :catchall_11
-    .catch Ljava/lang/OutOfMemoryError; {:try_start_17 .. :try_end_1d} :catch_2d
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 248
-    :goto_1d
-    if-eqz p2, :cond_3b
+    :goto_1
+    if-eqz p2, :cond_3
 
     .line 249
-    :try_start_1f
+    :try_start_3
     iget-object v1, p0, Landroid/app/WallpaperManager$Globals;->mWallpaper:Landroid/graphics/Bitmap;
 
-    if-nez v1, :cond_38
+    if-nez v1, :cond_2
 
     .line 250
     invoke-direct {p0, p1}, Landroid/app/WallpaperManager$Globals;->getDefaultWallpaperLocked(Landroid/content/Context;)Landroid/graphics/Bitmap;
@@ -598,10 +598,10 @@
 
     monitor-exit p0
 
-    goto :goto_8
+    goto :goto_0
 
     .line 245
-    :catch_2d
+    :catch_0
     move-exception v0
 
     .line 246
@@ -614,22 +614,22 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1d
+    goto :goto_1
 
     .line 253
     .end local v0           #e:Ljava/lang/OutOfMemoryError;
-    :cond_38
+    :cond_2
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/app/WallpaperManager$Globals;->mDefaultWallpaper:Landroid/graphics/Bitmap;
 
     .line 256
-    :cond_3b
+    :cond_3
     iget-object v1, p0, Landroid/app/WallpaperManager$Globals;->mWallpaper:Landroid/graphics/Bitmap;
 
     monitor-exit p0
-    :try_end_3e
-    .catchall {:try_start_1f .. :try_end_3e} :catchall_11
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto :goto_8
+    goto :goto_0
 .end method

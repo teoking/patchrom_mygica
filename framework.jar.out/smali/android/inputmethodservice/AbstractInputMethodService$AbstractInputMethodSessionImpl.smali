@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/inputmethodservice/AbstractInputMethodService;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public dispatchKeyEvent(ILandroid/view/KeyEvent;Landroid/view/inputmethod/InputMethodSession$EventCallback;)V
-    .registers 7
+    .locals 3
     .parameter "seq"
     .parameter "event"
     .parameter "callback"
@@ -66,18 +66,18 @@
 
     .line 137
     .local v0, handled:Z
-    if-eqz p3, :cond_f
+    if-eqz p3, :cond_0
 
     .line 138
     invoke-interface {p3, p1, v0}, Landroid/view/inputmethod/InputMethodSession$EventCallback;->finishedEvent(IZ)V
 
     .line 140
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method public dispatchTrackballEvent(ILandroid/view/MotionEvent;Landroid/view/inputmethod/InputMethodSession$EventCallback;)V
-    .registers 6
+    .locals 2
     .parameter "seq"
     .parameter "event"
     .parameter "callback"
@@ -92,18 +92,18 @@
 
     .line 148
     .local v0, handled:Z
-    if-eqz p3, :cond_b
+    if-eqz p3, :cond_0
 
     .line 149
     invoke-interface {p3, p1, v0}, Landroid/view/inputmethod/InputMethodSession$EventCallback;->finishedEvent(IZ)V
 
     .line 151
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method public isEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 99
@@ -113,7 +113,7 @@
 .end method
 
 .method public isRevoked()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 108
@@ -123,7 +123,7 @@
 .end method
 
 .method public revokeSelf()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 126
@@ -141,19 +141,19 @@
 .end method
 
 .method public setEnabled(Z)V
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
     .line 116
     iget-boolean v0, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->mRevoked:Z
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     .line 117
     iput-boolean p1, p0, Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodSessionImpl;->mEnabled:Z
 
     .line 119
-    :cond_6
+    :cond_0
     return-void
 .end method

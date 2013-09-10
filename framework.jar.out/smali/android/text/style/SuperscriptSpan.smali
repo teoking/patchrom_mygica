@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 25
@@ -19,7 +19,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 2
+    .locals 0
     .parameter "src"
 
     .prologue
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 36
@@ -43,7 +43,7 @@
 .end method
 
 .method public getSpanTypeId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 32
@@ -53,7 +53,7 @@
 .end method
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
-    .registers 5
+    .locals 3
     .parameter "tp"
 
     .prologue
@@ -79,7 +79,7 @@
 .end method
 
 .method public updateMeasureState(Landroid/text/TextPaint;)V
-    .registers 5
+    .locals 3
     .parameter "tp"
 
     .prologue
@@ -105,7 +105,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 3
+    .locals 0
     .parameter "dest"
     .parameter "flags"
 

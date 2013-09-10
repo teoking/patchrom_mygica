@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1087
@@ -41,18 +41,19 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/graphics/Bitmap;
-    .registers 5
+    .locals 3
     .parameter "p"
 
     .prologue
     .line 1095
+    #calls: Landroid/graphics/Bitmap;->nativeCreateFromParcel(Landroid/os/Parcel;)Landroid/graphics/Bitmap;
     invoke-static {p1}, Landroid/graphics/Bitmap;->access$000(Landroid/os/Parcel;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
     .line 1096
     .local v0, bm:Landroid/graphics/Bitmap;
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 1097
     new-instance v1, Ljava/lang/RuntimeException;
@@ -64,12 +65,12 @@
     throw v1
 
     .line 1099
-    :cond_e
+    :cond_0
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -82,7 +83,7 @@
 .end method
 
 .method public newArray(I)[Landroid/graphics/Bitmap;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -93,7 +94,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

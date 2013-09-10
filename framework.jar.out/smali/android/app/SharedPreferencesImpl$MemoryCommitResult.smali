@@ -55,7 +55,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 270
@@ -79,7 +79,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/app/SharedPreferencesImpl$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public setDiskWriteResult(Z)V
-    .registers 3
+    .locals 1
     .parameter "result"
 
     .prologue

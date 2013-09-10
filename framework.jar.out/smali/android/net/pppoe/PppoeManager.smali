@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/pppoe/IPppoeManager;Landroid/os/Handler;)V
-    .registers 5
+    .locals 2
     .parameter "service"
     .parameter "handler"
 
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public UpdatePppoeDevInfo(Landroid/net/pppoe/PppoeDevInfo;)V
-    .registers 5
+    .locals 3
     .parameter "info"
 
     .prologue
@@ -74,15 +74,15 @@
     iget-object v1, p0, Landroid/net/pppoe/PppoeManager;->mService:Landroid/net/pppoe/IPppoeManager;
 
     invoke-interface {v1, p1}, Landroid/net/pppoe/IPppoeManager;->UpdatePppoeDevInfo(Landroid/net/pppoe/PppoeDevInfo;)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 67
-    :goto_5
+    :goto_0
     return-void
 
     .line 64
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 65
@@ -93,11 +93,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public getDeviceNameList()[Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 71
@@ -105,28 +105,28 @@
     iget-object v1, p0, Landroid/net/pppoe/PppoeManager;->mService:Landroid/net/pppoe/IPppoeManager;
 
     invoke-interface {v1}, Landroid/net/pppoe/IPppoeManager;->getDeviceNameList()[Ljava/lang/String;
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 73
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 72
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 73
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getDhcpInfo()Landroid/net/DhcpInfo;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 103
@@ -134,28 +134,28 @@
     iget-object v1, p0, Landroid/net/pppoe/PppoeManager;->mService:Landroid/net/pppoe/IPppoeManager;
 
     invoke-interface {v1}, Landroid/net/pppoe/IPppoeManager;->getDhcpInfo()Landroid/net/DhcpInfo;
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 105
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 104
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 105
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getPppoeState()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 87
@@ -163,28 +163,28 @@
     iget-object v1, p0, Landroid/net/pppoe/PppoeManager;->mService:Landroid/net/pppoe/IPppoeManager;
 
     invoke-interface {v1}, Landroid/net/pppoe/IPppoeManager;->getPppoeState()I
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 89
-    :goto_6
+    :goto_0
     return v1
 
     .line 88
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 89
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getSavedPppoeConfig()Landroid/net/pppoe/PppoeDevInfo;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 54
@@ -192,17 +192,17 @@
     iget-object v1, p0, Landroid/net/pppoe/PppoeManager;->mService:Landroid/net/pppoe/IPppoeManager;
 
     invoke-interface {v1}, Landroid/net/pppoe/IPppoeManager;->getSavedPppoeConfig()Landroid/net/pppoe/PppoeDevInfo;
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 58
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 55
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 56
@@ -216,11 +216,11 @@
     .line 58
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getTotalInterface()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 111
@@ -228,28 +228,28 @@
     iget-object v1, p0, Landroid/net/pppoe/PppoeManager;->mService:Landroid/net/pppoe/IPppoeManager;
 
     invoke-interface {v1}, Landroid/net/pppoe/IPppoeManager;->getTotalInterface()I
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 113
-    :goto_6
+    :goto_0
     return v1
 
     .line 112
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 113
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public isPppoeConfigured()Z
-    .registers 4
+    .locals 3
 
     .prologue
     .line 45
@@ -257,17 +257,17 @@
     iget-object v1, p0, Landroid/net/pppoe/PppoeManager;->mService:Landroid/net/pppoe/IPppoeManager;
 
     invoke-interface {v1}, Landroid/net/pppoe/IPppoeManager;->isPppoeConfigured()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 49
-    :goto_6
+    :goto_0
     return v1
 
     .line 46
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 47
@@ -281,11 +281,11 @@
     .line 49
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public isPppoeDeviceUp()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 126
@@ -293,28 +293,28 @@
     iget-object v1, p0, Landroid/net/pppoe/PppoeManager;->mService:Landroid/net/pppoe/IPppoeManager;
 
     invoke-interface {v1}, Landroid/net/pppoe/IPppoeManager;->isPppoeDeviceUp()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 128
-    :goto_6
+    :goto_0
     return v1
 
     .line 127
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 128
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public pppoeConfigured()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 95
@@ -322,28 +322,28 @@
     iget-object v1, p0, Landroid/net/pppoe/PppoeManager;->mService:Landroid/net/pppoe/IPppoeManager;
 
     invoke-interface {v1}, Landroid/net/pppoe/IPppoeManager;->isPppoeConfigured()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 97
-    :goto_6
+    :goto_0
     return v1
 
     .line 96
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 97
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public pppoeSetDefaultConf()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 119
@@ -353,22 +353,22 @@
     const-string v1, "dhcp"
 
     invoke-interface {v0, v1}, Landroid/net/pppoe/IPppoeManager;->setPppoeMode(Ljava/lang/String;)V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 122
-    :goto_7
+    :goto_0
     return-void
 
     .line 120
-    :catch_8
+    :catch_0
     move-exception v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setPppoeEnabled(Z)V
-    .registers 5
+    .locals 3
     .parameter "enable"
 
     .prologue
@@ -376,27 +376,27 @@
     :try_start_0
     iget-object v2, p0, Landroid/net/pppoe/PppoeManager;->mService:Landroid/net/pppoe/IPppoeManager;
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
     const/4 v1, 0x2
 
-    :goto_5
+    :goto_0
     invoke-interface {v2, v1}, Landroid/net/pppoe/IPppoeManager;->setPppoeState(I)V
-    :try_end_8
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_8} :catch_b
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 83
-    :goto_8
+    :goto_1
     return-void
 
     .line 79
-    :cond_9
+    :cond_0
     const/4 v1, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 80
-    :catch_b
+    :catch_0
     move-exception v0
 
     .line 81
@@ -407,5 +407,5 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_8
+    goto :goto_1
 .end method

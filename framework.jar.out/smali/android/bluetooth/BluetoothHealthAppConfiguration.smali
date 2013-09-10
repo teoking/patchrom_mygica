@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 141
@@ -45,7 +45,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "dataType"
 
@@ -74,7 +74,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/String;III)V
-    .registers 5
+    .locals 0
     .parameter "name"
     .parameter "dataType"
     .parameter "role"
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 98
@@ -113,7 +113,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
     .parameter "o"
 
     .prologue
@@ -122,7 +122,7 @@
     .line 69
     instance-of v2, p1, Landroid/bluetooth/BluetoothHealthAppConfiguration;
 
-    if-eqz v2, :cond_2d
+    if-eqz v2, :cond_0
 
     move-object v0, p1
 
@@ -141,7 +141,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2d
+    if-eqz v2, :cond_0
 
     iget v2, p0, Landroid/bluetooth/BluetoothHealthAppConfiguration;->mDataType:I
 
@@ -149,7 +149,7 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_2d
+    if-ne v2, v3, :cond_0
 
     iget v2, p0, Landroid/bluetooth/BluetoothHealthAppConfiguration;->mRole:I
 
@@ -157,7 +157,7 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_2d
+    if-ne v2, v3, :cond_0
 
     iget v2, p0, Landroid/bluetooth/BluetoothHealthAppConfiguration;->mChannelType:I
 
@@ -165,18 +165,18 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_2d
+    if-ne v2, v3, :cond_0
 
     const/4 v1, 0x1
 
     .line 77
     .end local v0           #config:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    :cond_2d
+    :cond_0
     return v1
 .end method
 
 .method public getChannelType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 138
@@ -186,7 +186,7 @@
 .end method
 
 .method public getDataType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 107
@@ -196,7 +196,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 116
@@ -206,7 +206,7 @@
 .end method
 
 .method public getRole()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 126
@@ -216,7 +216,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 82
@@ -226,7 +226,7 @@
     .local v0, result:I
     iget-object v1, p0, Landroid/bluetooth/BluetoothHealthAppConfiguration;->mName:Ljava/lang/String;
 
-    if-eqz v1, :cond_21
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/bluetooth/BluetoothHealthAppConfiguration;->mName:Ljava/lang/String;
 
@@ -234,7 +234,7 @@
 
     move-result v1
 
-    :goto_c
+    :goto_0
     add-int/lit16 v0, v1, 0x20f
 
     .line 84
@@ -262,14 +262,14 @@
     return v0
 
     .line 83
-    :cond_21
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 92
@@ -339,7 +339,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 

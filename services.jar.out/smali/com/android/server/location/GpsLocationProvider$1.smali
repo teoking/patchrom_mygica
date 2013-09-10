@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/location/GpsLocationProvider;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public addGpsStatusListener(Landroid/location/IGpsStatusListener;)V
-    .registers 9
+    .locals 7
     .parameter "listener"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -45,7 +45,7 @@
 
     .prologue
     .line 300
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 301
     new-instance v5, Ljava/lang/NullPointerException;
@@ -57,9 +57,10 @@
     throw v5
 
     .line 304
-    :cond_a
+    :cond_0
     iget-object v5, p0, Lcom/android/server/location/GpsLocationProvider$1;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
+    #getter for: Lcom/android/server/location/GpsLocationProvider;->mListeners:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/server/location/GpsLocationProvider;->access$000(Lcom/android/server/location/GpsLocationProvider;)Ljava/util/ArrayList;
 
     move-result-object v6
@@ -67,7 +68,7 @@
     monitor-enter v6
 
     .line 305
-    :try_start_11
+    :try_start_0
     invoke-interface {p1}, Landroid/location/IGpsStatusListener;->asBinder()Landroid/os/IBinder;
 
     move-result-object v0
@@ -76,6 +77,7 @@
     .local v0, binder:Landroid/os/IBinder;
     iget-object v5, p0, Lcom/android/server/location/GpsLocationProvider$1;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
+    #getter for: Lcom/android/server/location/GpsLocationProvider;->mListeners:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/server/location/GpsLocationProvider;->access$000(Lcom/android/server/location/GpsLocationProvider;)Ljava/util/ArrayList;
 
     move-result-object v5
@@ -89,12 +91,13 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_20
-    if-ge v1, v3, :cond_3f
+    :goto_0
+    if-ge v1, v3, :cond_2
 
     .line 308
     iget-object v5, p0, Lcom/android/server/location/GpsLocationProvider$1;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
+    #getter for: Lcom/android/server/location/GpsLocationProvider;->mListeners:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/server/location/GpsLocationProvider;->access$000(Lcom/android/server/location/GpsLocationProvider;)Ljava/util/ArrayList;
 
     move-result-object v5
@@ -117,26 +120,26 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3c
+    if-eqz v5, :cond_1
 
     .line 311
     monitor-exit v6
 
     .line 319
     .end local v4           #test:Lcom/android/server/location/GpsLocationProvider$Listener;
-    :goto_3b
+    :goto_1
     return-void
 
     .line 307
     .restart local v4       #test:Lcom/android/server/location/GpsLocationProvider$Listener;
-    :cond_3c
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_20
+    goto :goto_0
 
     .line 315
     .end local v4           #test:Lcom/android/server/location/GpsLocationProvider$Listener;
-    :cond_3f
+    :cond_2
     new-instance v2, Lcom/android/server/location/GpsLocationProvider$Listener;
 
     iget-object v5, p0, Lcom/android/server/location/GpsLocationProvider$1;->this$0:Lcom/android/server/location/GpsLocationProvider;
@@ -152,6 +155,7 @@
     .line 317
     iget-object v5, p0, Lcom/android/server/location/GpsLocationProvider$1;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
+    #getter for: Lcom/android/server/location/GpsLocationProvider;->mListeners:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/server/location/GpsLocationProvider;->access$000(Lcom/android/server/location/GpsLocationProvider;)Ljava/util/ArrayList;
 
     move-result-object v5
@@ -161,29 +165,29 @@
     .line 318
     monitor-exit v6
 
-    goto :goto_3b
+    goto :goto_1
 
     .end local v0           #binder:Landroid/os/IBinder;
     .end local v1           #i:I
     .end local v2           #l:Lcom/android/server/location/GpsLocationProvider$Listener;
     .end local v3           #size:I
-    :catchall_55
+    :catchall_0
     move-exception v5
 
     monitor-exit v6
-    :try_end_57
-    .catchall {:try_start_11 .. :try_end_57} :catchall_55
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v5
 .end method
 
 .method public removeGpsStatusListener(Landroid/location/IGpsStatusListener;)V
-    .registers 9
+    .locals 7
     .parameter "listener"
 
     .prologue
     .line 322
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 323
     new-instance v5, Ljava/lang/NullPointerException;
@@ -195,9 +199,10 @@
     throw v5
 
     .line 326
-    :cond_a
+    :cond_0
     iget-object v5, p0, Lcom/android/server/location/GpsLocationProvider$1;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
+    #getter for: Lcom/android/server/location/GpsLocationProvider;->mListeners:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/server/location/GpsLocationProvider;->access$000(Lcom/android/server/location/GpsLocationProvider;)Ljava/util/ArrayList;
 
     move-result-object v6
@@ -205,7 +210,7 @@
     monitor-enter v6
 
     .line 327
-    :try_start_11
+    :try_start_0
     invoke-interface {p1}, Landroid/location/IGpsStatusListener;->asBinder()Landroid/os/IBinder;
 
     move-result-object v0
@@ -218,6 +223,7 @@
     .local v2, l:Lcom/android/server/location/GpsLocationProvider$Listener;
     iget-object v5, p0, Lcom/android/server/location/GpsLocationProvider$1;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
+    #getter for: Lcom/android/server/location/GpsLocationProvider;->mListeners:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/server/location/GpsLocationProvider;->access$000(Lcom/android/server/location/GpsLocationProvider;)Ljava/util/ArrayList;
 
     move-result-object v5
@@ -231,14 +237,15 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_21
-    if-ge v1, v3, :cond_41
+    :goto_0
+    if-ge v1, v3, :cond_2
 
-    if-nez v2, :cond_41
+    if-nez v2, :cond_2
 
     .line 331
     iget-object v5, p0, Lcom/android/server/location/GpsLocationProvider$1;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
+    #getter for: Lcom/android/server/location/GpsLocationProvider;->mListeners:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/server/location/GpsLocationProvider;->access$000(Lcom/android/server/location/GpsLocationProvider;)Ljava/util/ArrayList;
 
     move-result-object v5
@@ -261,25 +268,26 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3e
+    if-eqz v5, :cond_1
 
     .line 333
     move-object v2, v4
 
     .line 330
-    :cond_3e
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_21
+    goto :goto_0
 
     .line 337
     .end local v4           #test:Lcom/android/server/location/GpsLocationProvider$Listener;
-    :cond_41
-    if-eqz v2, :cond_50
+    :cond_2
+    if-eqz v2, :cond_3
 
     .line 338
     iget-object v5, p0, Lcom/android/server/location/GpsLocationProvider$1;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
+    #getter for: Lcom/android/server/location/GpsLocationProvider;->mListeners:Ljava/util/ArrayList;
     invoke-static {v5}, Lcom/android/server/location/GpsLocationProvider;->access$000(Lcom/android/server/location/GpsLocationProvider;)Ljava/util/ArrayList;
 
     move-result-object v5
@@ -292,7 +300,7 @@
     invoke-interface {v0, v2, v5}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
     .line 341
-    :cond_50
+    :cond_3
     monitor-exit v6
 
     .line 342
@@ -303,12 +311,12 @@
     .end local v1           #i:I
     .end local v2           #l:Lcom/android/server/location/GpsLocationProvider$Listener;
     .end local v3           #size:I
-    :catchall_52
+    :catchall_0
     move-exception v5
 
     monitor-exit v6
-    :try_end_54
-    .catchall {:try_start_11 .. :try_end_54} :catchall_52
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v5
 .end method

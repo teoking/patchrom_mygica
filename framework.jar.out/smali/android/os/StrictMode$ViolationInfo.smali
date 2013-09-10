@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;Z)V
-    .registers 6
+    .locals 3
     .parameter "in"
     .parameter "unsetGatheringBit"
 
@@ -121,7 +121,7 @@
 
     .line 2103
     .local v0, rawPolicy:I
-    if-eqz p2, :cond_49
+    if-eqz p2, :cond_0
 
     .line 2104
     and-int/lit16 v1, v0, -0x101
@@ -129,7 +129,7 @@
     iput v1, p0, Landroid/os/StrictMode$ViolationInfo;->policy:I
 
     .line 2108
-    :goto_1e
+    :goto_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -182,14 +182,14 @@
     return-void
 
     .line 2106
-    :cond_49
+    :cond_0
     iput v0, p0, Landroid/os/StrictMode$ViolationInfo;->policy:I
 
-    goto :goto_1e
+    goto :goto_0
 .end method
 
 .method public constructor <init>(Ljava/lang/Throwable;I)V
-    .registers 10
+    .locals 7
     .parameter "tr"
     .parameter "policy"
 
@@ -243,7 +243,7 @@
 
     .line 2044
     .local v0, broadcastIntent:Landroid/content/Intent;
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_0
 
     .line 2045
     invoke-virtual {v0}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -253,7 +253,7 @@
     iput-object v5, p0, Landroid/os/StrictMode$ViolationInfo;->broadcastIntentAction:Ljava/lang/String;
 
     .line 2047
-    :cond_2e
+    :cond_0
     invoke-static {}, Landroid/os/StrictMode;->access$2200()Ljava/lang/ThreadLocal;
 
     move-result-object v5
@@ -268,7 +268,7 @@
     .local v4, state:Landroid/os/StrictMode$ThreadSpanState;
     instance-of v5, p1, Landroid/os/StrictMode$InstanceCountViolation;
 
-    if-eqz v5, :cond_42
+    if-eqz v5, :cond_1
 
     .line 2049
     check-cast p1, Landroid/os/StrictMode$InstanceCountViolation;
@@ -279,25 +279,25 @@
     iput-wide v5, p0, Landroid/os/StrictMode$ViolationInfo;->numInstances:J
 
     .line 2051
-    :cond_42
+    :cond_1
     monitor-enter v4
 
     .line 2052
-    :try_start_43
+    :try_start_0
     iget v3, v4, Landroid/os/StrictMode$ThreadSpanState;->mActiveSize:I
 
     .line 2053
     .local v3, spanActiveCount:I
     const/16 v5, 0x14
 
-    if-le v3, v5, :cond_4b
+    if-le v3, v5, :cond_2
 
     .line 2054
     const/16 v3, 0x14
 
     .line 2056
-    :cond_4b
-    if-eqz v3, :cond_67
+    :cond_2
+    if-eqz v3, :cond_3
 
     .line 2057
     new-array v5, v3, [Ljava/lang/String;
@@ -313,14 +313,15 @@
 
     .line 2060
     .local v1, index:I
-    :goto_54
-    if-eqz v2, :cond_67
+    :goto_0
+    if-eqz v2, :cond_3
 
-    if-ge v1, v3, :cond_67
+    if-ge v1, v3, :cond_3
 
     .line 2061
     iget-object v5, p0, Landroid/os/StrictMode$ViolationInfo;->tags:[Ljava/lang/String;
 
+    #getter for: Landroid/os/StrictMode$Span;->mName:Ljava/lang/String;
     invoke-static {v2}, Landroid/os/StrictMode$Span;->access$1900(Landroid/os/StrictMode$Span;)Ljava/lang/String;
 
     move-result-object v6
@@ -331,16 +332,17 @@
     add-int/lit8 v1, v1, 0x1
 
     .line 2063
+    #getter for: Landroid/os/StrictMode$Span;->mNext:Landroid/os/StrictMode$Span;
     invoke-static {v2}, Landroid/os/StrictMode$Span;->access$1800(Landroid/os/StrictMode$Span;)Landroid/os/StrictMode$Span;
 
     move-result-object v2
 
-    goto :goto_54
+    goto :goto_0
 
     .line 2066
     .end local v1           #index:I
     .end local v2           #iter:Landroid/os/StrictMode$Span;
-    :cond_67
+    :cond_3
     monitor-exit v4
 
     .line 2067
@@ -348,12 +350,12 @@
 
     .line 2066
     .end local v3           #spanActiveCount:I
-    :catchall_69
+    :catchall_0
     move-exception v5
 
     monitor-exit v4
-    :try_end_6b
-    .catchall {:try_start_43 .. :try_end_6b} :catchall_69
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v5
 .end method
@@ -361,7 +363,7 @@
 
 # virtual methods
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
-    .registers 13
+    .locals 10
     .parameter "pw"
     .parameter "prefix"
 
@@ -403,7 +405,7 @@
 
     const/4 v7, -0x1
 
-    if-eq v6, v7, :cond_43
+    if-eq v6, v7, :cond_0
 
     .line 2140
     new-instance v6, Ljava/lang/StringBuilder;
@@ -433,14 +435,14 @@
     invoke-interface {p1, v6}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 2142
-    :cond_43
+    :cond_0
     iget-wide v6, p0, Landroid/os/StrictMode$ViolationInfo;->numInstances:J
 
     const-wide/16 v8, -0x1
 
     cmp-long v6, v6, v8
 
-    if-eqz v6, :cond_68
+    if-eqz v6, :cond_1
 
     .line 2143
     new-instance v6, Ljava/lang/StringBuilder;
@@ -470,10 +472,10 @@
     invoke-interface {p1, v6}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 2145
-    :cond_68
+    :cond_1
     iget v6, p0, Landroid/os/StrictMode$ViolationInfo;->violationNumThisLoop:I
 
-    if-eqz v6, :cond_89
+    if-eqz v6, :cond_2
 
     .line 2146
     new-instance v6, Ljava/lang/StringBuilder;
@@ -503,10 +505,10 @@
     invoke-interface {p1, v6}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 2148
-    :cond_89
+    :cond_2
     iget v6, p0, Landroid/os/StrictMode$ViolationInfo;->numAnimationsRunning:I
 
-    if-eqz v6, :cond_aa
+    if-eqz v6, :cond_3
 
     .line 2149
     new-instance v6, Ljava/lang/StringBuilder;
@@ -536,7 +538,7 @@
     invoke-interface {p1, v6}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 2151
-    :cond_aa
+    :cond_3
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -566,7 +568,7 @@
     .line 2152
     iget-object v6, p0, Landroid/os/StrictMode$ViolationInfo;->broadcastIntentAction:Ljava/lang/String;
 
-    if-eqz v6, :cond_e7
+    if-eqz v6, :cond_4
 
     .line 2153
     new-instance v6, Ljava/lang/StringBuilder;
@@ -596,10 +598,10 @@
     invoke-interface {p1, v6}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 2155
-    :cond_e7
+    :cond_4
     iget-object v6, p0, Landroid/os/StrictMode$ViolationInfo;->tags:[Ljava/lang/String;
 
-    if-eqz v6, :cond_120
+    if-eqz v6, :cond_5
 
     .line 2156
     const/4 v2, 0x0
@@ -619,8 +621,8 @@
 
     .end local v2           #index:I
     .local v3, index:I
-    :goto_f1
-    if-ge v1, v4, :cond_120
+    :goto_0
+    if-ge v1, v4, :cond_5
 
     aget-object v5, v0, v1
 
@@ -671,7 +673,7 @@
 
     .end local v2           #index:I
     .restart local v3       #index:I
-    goto :goto_f1
+    goto :goto_0
 
     .line 2161
     .end local v0           #arr$:[Ljava/lang/String;
@@ -679,12 +681,12 @@
     .end local v3           #index:I
     .end local v4           #len$:I
     .end local v5           #tag:Ljava/lang/String;
-    :cond_120
+    :cond_5
     return-void
 .end method
 
 .method public hashCode()I
-    .registers 8
+    .locals 7
 
     .prologue
     .line 2071
@@ -705,16 +707,16 @@
     .line 2073
     iget v5, p0, Landroid/os/StrictMode$ViolationInfo;->numAnimationsRunning:I
 
-    if-eqz v5, :cond_12
+    if-eqz v5, :cond_0
 
     .line 2074
     mul-int/lit8 v3, v3, 0x25
 
     .line 2076
-    :cond_12
+    :cond_0
     iget-object v5, p0, Landroid/os/StrictMode$ViolationInfo;->broadcastIntentAction:Ljava/lang/String;
 
-    if-eqz v5, :cond_20
+    if-eqz v5, :cond_1
 
     .line 2077
     mul-int/lit8 v5, v3, 0x25
@@ -728,10 +730,10 @@
     add-int v3, v5, v6
 
     .line 2079
-    :cond_20
+    :cond_1
     iget-object v5, p0, Landroid/os/StrictMode$ViolationInfo;->tags:[Ljava/lang/String;
 
-    if-eqz v5, :cond_37
+    if-eqz v5, :cond_2
 
     .line 2080
     iget-object v0, p0, Landroid/os/StrictMode$ViolationInfo;->tags:[Ljava/lang/String;
@@ -743,8 +745,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_28
-    if-ge v1, v2, :cond_37
+    :goto_0
+    if-ge v1, v2, :cond_2
 
     aget-object v4, v0, v1
 
@@ -761,19 +763,19 @@
     .line 2080
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_28
+    goto :goto_0
 
     .line 2084
     .end local v0           #arr$:[Ljava/lang/String;
     .end local v1           #i$:I
     .end local v2           #len$:I
     .end local v4           #tag:Ljava/lang/String;
-    :cond_37
+    :cond_2
     return v3
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 

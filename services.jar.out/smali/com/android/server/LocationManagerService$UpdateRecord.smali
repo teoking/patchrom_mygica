@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/LocationManagerService;Ljava/lang/String;JFZLcom/android/server/LocationManagerService$Receiver;I)V
-    .registers 11
+    .locals 2
     .parameter
     .parameter "provider"
     .parameter "minTime"
@@ -70,6 +70,7 @@
     iput p8, p0, Lcom/android/server/LocationManagerService$UpdateRecord;->mUid:I
 
     .line 1085
+    #getter for: Lcom/android/server/LocationManagerService;->mRecordsByProvider:Ljava/util/HashMap;
     invoke-static {p1}, Lcom/android/server/LocationManagerService;->access$1400(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -82,7 +83,7 @@
 
     .line 1086
     .local v0, records:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$UpdateRecord;>;"
-    if-nez v0, :cond_29
+    if-nez v0, :cond_0
 
     .line 1087
     new-instance v0, Ljava/util/ArrayList;
@@ -92,6 +93,7 @@
 
     .line 1088
     .restart local v0       #records:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$UpdateRecord;>;"
+    #getter for: Lcom/android/server/LocationManagerService;->mRecordsByProvider:Ljava/util/HashMap;
     invoke-static {p1}, Lcom/android/server/LocationManagerService;->access$1400(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -99,30 +101,31 @@
     invoke-virtual {v1, p2, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1090
-    :cond_29
+    :cond_0
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_32
+    if-nez v1, :cond_1
 
     .line 1091
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 1093
-    :cond_32
+    :cond_1
     return-void
 .end method
 
 
 # virtual methods
 .method disposeLocked()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1100
     iget-object v1, p0, Lcom/android/server/LocationManagerService$UpdateRecord;->this$0:Lcom/android/server/LocationManagerService;
 
+    #getter for: Lcom/android/server/LocationManagerService;->mRecordsByProvider:Ljava/util/HashMap;
     invoke-static {v1}, Lcom/android/server/LocationManagerService;->access$1400(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -137,18 +140,18 @@
 
     .line 1101
     .local v0, records:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/server/LocationManagerService$UpdateRecord;>;"
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 1102
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     .line 1104
-    :cond_13
+    :cond_0
     return-void
 .end method
 
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .registers 7
+    .locals 4
     .parameter "pw"
     .parameter "prefix"
 
@@ -328,7 +331,7 @@
     .line 1120
     iget-object v0, p0, Lcom/android/server/LocationManagerService$UpdateRecord;->mLastFixBroadcast:Landroid/location/Location;
 
-    if-eqz v0, :cond_d3
+    if-eqz v0, :cond_0
 
     .line 1121
     iget-object v0, p0, Lcom/android/server/LocationManagerService$UpdateRecord;->mLastFixBroadcast:Landroid/location/Location;
@@ -358,7 +361,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/location/Location;->dump(Landroid/util/Printer;Ljava/lang/String;)V
 
     .line 1123
-    :cond_d3
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -390,7 +393,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1108

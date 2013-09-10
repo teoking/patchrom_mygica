@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(IILandroid/os/Message;)V
-    .registers 5
+    .locals 1
     .parameter "efid"
     .parameter "recordNum"
     .parameter "onLoaded"
@@ -67,7 +67,7 @@
 .end method
 
 .method constructor <init>(ILandroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "efid"
     .parameter "onLoaded"
 

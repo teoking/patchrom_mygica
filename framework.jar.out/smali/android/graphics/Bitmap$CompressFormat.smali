@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 5
+    .locals 5
 
     .prologue
     const/4 v4, 0x2
@@ -98,7 +98,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter "nativeInt"
@@ -120,7 +120,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/graphics/Bitmap$CompressFormat;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -137,7 +137,7 @@
 .end method
 
 .method public static values()[Landroid/graphics/Bitmap$CompressFormat;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 729

@@ -25,7 +25,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/view/ViewRootImpl;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/view/ViewRootImpl;Landroid/view/ViewRootImpl$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -52,13 +52,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 5315
     iget-object v0, p0, Landroid/view/ViewRootImpl$SendWindowContentChangedAccessibilityEvent;->mSource:Landroid/view/View;
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 5316
     iget-object v0, p0, Landroid/view/ViewRootImpl$SendWindowContentChangedAccessibilityEvent;->mSource:Landroid/view/View;
@@ -78,6 +78,6 @@
     iput-object v0, p0, Landroid/view/ViewRootImpl$SendWindowContentChangedAccessibilityEvent;->mSource:Landroid/view/View;
 
     .line 5320
-    :cond_13
+    :cond_0
     return-void
 .end method

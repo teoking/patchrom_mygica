@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/StateListDrawable$StateListState;Landroid/graphics/drawable/StateListDrawable;Landroid/content/res/Resources;)V
-    .registers 5
+    .locals 1
     .parameter "orig"
     .parameter "owner"
     .parameter "res"
@@ -30,7 +30,7 @@
     invoke-direct {p0, p1, p2, p3}, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;-><init>(Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;Landroid/graphics/drawable/DrawableContainer;Landroid/content/res/Resources;)V
 
     .line 270
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_0
 
     .line 271
     iget-object v0, p1, Landroid/graphics/drawable/StateListDrawable$StateListState;->mStateSets:[[I
@@ -38,11 +38,11 @@
     iput-object v0, p0, Landroid/graphics/drawable/StateListDrawable$StateListState;->mStateSets:[[I
 
     .line 275
-    :goto_9
+    :goto_0
     return-void
 
     .line 273
-    :cond_a
+    :cond_0
     invoke-virtual {p0}, Landroid/graphics/drawable/StateListDrawable$StateListState;->getChildren()[Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -53,11 +53,11 @@
 
     iput-object v0, p0, Landroid/graphics/drawable/StateListDrawable$StateListState;->mStateSets:[[I
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method static synthetic access$000(Landroid/graphics/drawable/StateListDrawable$StateListState;[I)I
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -71,7 +71,7 @@
 .end method
 
 .method private indexOfStateSet([I)I
-    .registers 6
+    .locals 4
     .parameter "stateSet"
 
     .prologue
@@ -89,8 +89,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_15
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 287
     aget-object v3, v2, v1
@@ -99,31 +99,31 @@
 
     move-result v3
 
-    if-eqz v3, :cond_12
+    if-eqz v3, :cond_0
 
     .line 291
     .end local v1           #i:I
-    :goto_11
+    :goto_1
     return v1
 
     .line 286
     .restart local v1       #i:I
-    :cond_12
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 291
-    :cond_15
+    :cond_1
     const/4 v1, -0x1
 
-    goto :goto_11
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method addStateSet([ILandroid/graphics/drawable/Drawable;)I
-    .registers 5
+    .locals 2
     .parameter "stateSet"
     .parameter "drawable"
 
@@ -144,7 +144,7 @@
 .end method
 
 .method public growArray(II)V
-    .registers 6
+    .locals 3
     .parameter "oldSize"
     .parameter "newSize"
 
@@ -171,7 +171,7 @@
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -185,7 +185,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .registers 4
+    .locals 2
     .parameter "res"
 
     .prologue

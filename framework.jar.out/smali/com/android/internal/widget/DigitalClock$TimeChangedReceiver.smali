@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/widget/DigitalClock;)V
-    .registers 3
+    .locals 1
     .parameter "clock"
 
     .prologue
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
@@ -87,9 +87,10 @@
 
     .line 85
     .local v0, clock:Lcom/android/internal/widget/DigitalClock;
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_0
 
     .line 86
+    #getter for: Lcom/android/internal/widget/DigitalClock;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/internal/widget/DigitalClock;->access$100(Lcom/android/internal/widget/DigitalClock;)Landroid/os/Handler;
 
     move-result-object v2
@@ -101,23 +102,23 @@
     invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     .line 101
-    :goto_20
+    :goto_0
     return-void
 
     .line 96
-    :cond_21
-    :try_start_21
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Lcom/android/internal/widget/DigitalClock$TimeChangedReceiver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
-    :try_end_26
-    .catch Ljava/lang/RuntimeException; {:try_start_21 .. :try_end_26} :catch_27
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_20
+    goto :goto_0
 
     .line 97
-    :catch_27
+    :catch_0
     move-exception v2
 
-    goto :goto_20
+    goto :goto_0
 .end method

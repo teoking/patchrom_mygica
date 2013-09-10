@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/sax/Element;Ljava/lang/String;Ljava/lang/String;II)V
-    .registers 6
+    .locals 0
     .parameter "parent"
     .parameter "uri"
     .parameter "localName"

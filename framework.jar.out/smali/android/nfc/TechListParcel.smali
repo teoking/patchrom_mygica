@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 50
@@ -39,7 +39,7 @@
 .end method
 
 .method public varargs constructor <init>([[Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "strings"
 
     .prologue
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 37
@@ -66,7 +66,7 @@
 .end method
 
 .method public getTechLists()[[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 32
@@ -76,7 +76,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 7
+    .locals 4
     .parameter "dest"
     .parameter "flags"
 
@@ -94,8 +94,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_13
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 45
     iget-object v3, p0, Landroid/nfc/TechListParcel;->mTechLists:[[Ljava/lang/String;
@@ -109,10 +109,10 @@
     .line 44
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 48
     .end local v2           #techList:[Ljava/lang/String;
-    :cond_13
+    :cond_0
     return-void
 .end method

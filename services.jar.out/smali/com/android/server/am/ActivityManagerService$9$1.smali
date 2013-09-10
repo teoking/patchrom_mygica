@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService$9;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 7594
@@ -49,7 +49,7 @@
     monitor-enter v1
 
     .line 7595
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$9$1;->this$1:Lcom/android/server/am/ActivityManagerService$9;
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService$9;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -60,14 +60,15 @@
 
     .line 7596
     monitor-exit v1
-    :try_end_d
-    .catchall {:try_start_5 .. :try_end_d} :catchall_35
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 7597
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$9$1;->this$1:Lcom/android/server/am/ActivityManagerService$9;
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService$9;->val$doneReceivers:Ljava/util/ArrayList;
 
+    #calls: Lcom/android/server/am/ActivityManagerService;->writeLastDonePreBootReceivers(Ljava/util/ArrayList;)V
     invoke-static {v0}, Lcom/android/server/am/ActivityManagerService;->access$800(Ljava/util/ArrayList;)V
 
     .line 7598
@@ -106,13 +107,13 @@
     return-void
 
     .line 7596
-    :catchall_35
+    :catchall_0
     move-exception v0
 
-    :try_start_36
+    :try_start_1
     monitor-exit v1
-    :try_end_37
-    .catchall {:try_start_36 .. :try_end_37} :catchall_35
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method

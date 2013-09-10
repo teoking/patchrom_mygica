@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/inputmethod/InputMethodManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 10
+    .locals 6
     .parameter "fd"
     .parameter "fout"
     .parameter "args"
@@ -85,29 +85,29 @@
     .line 502
     const-wide/16 v3, 0x5
 
-    :try_start_24
+    :try_start_0
     sget-object v5, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
     invoke-virtual {v1, v3, v4, v5}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
 
     move-result v3
 
-    if-nez v3, :cond_31
+    if-nez v3, :cond_0
 
     .line 503
     const-string v3, "Timeout waiting for dump"
 
     invoke-virtual {p2, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-    :try_end_31
-    .catch Ljava/lang/InterruptedException; {:try_start_24 .. :try_end_31} :catch_32
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 508
-    :cond_31
-    :goto_31
+    :cond_0
+    :goto_0
     return-void
 
     .line 505
-    :catch_32
+    :catch_0
     move-exception v0
 
     .line 506
@@ -116,11 +116,11 @@
 
     invoke-virtual {p2, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    goto :goto_31
+    goto :goto_0
 .end method
 
 .method public onBindMethod(Lcom/android/internal/view/InputBindResult;)V
-    .registers 5
+    .locals 3
     .parameter "res"
 
     .prologue
@@ -146,7 +146,7 @@
 .end method
 
 .method public onUnbindMethod(I)V
-    .registers 6
+    .locals 4
     .parameter "sequence"
 
     .prologue
@@ -174,7 +174,7 @@
 .end method
 
 .method public setActive(Z)V
-    .registers 7
+    .locals 5
     .parameter "active"
 
     .prologue
@@ -191,11 +191,11 @@
 
     const/4 v4, 0x4
 
-    if-eqz p1, :cond_15
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     invoke-virtual {v3, v4, v0, v1}, Landroid/view/inputmethod/InputMethodManager$H;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v0
@@ -205,15 +205,15 @@
     .line 523
     return-void
 
-    :cond_15
+    :cond_0
     move v0, v1
 
     .line 522
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public setUsingInputMethod(Z)V
-    .registers 2
+    .locals 0
     .parameter "state"
 
     .prologue

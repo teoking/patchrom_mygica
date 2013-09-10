@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 37
@@ -248,7 +248,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 29
@@ -258,7 +258,7 @@
 .end method
 
 .method public static containsAllUuids([Landroid/os/ParcelUuid;[Landroid/os/ParcelUuid;)Z
-    .registers 10
+    .locals 8
     .parameter "uuidA"
     .parameter "uuidB"
 
@@ -268,31 +268,31 @@
     const/4 v5, 0x1
 
     .line 168
-    if-nez p0, :cond_7
+    if-nez p0, :cond_1
 
-    if-nez p1, :cond_7
+    if-nez p1, :cond_1
 
     .line 180
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return v5
 
     .line 170
-    :cond_7
-    if-nez p0, :cond_e
+    :cond_1
+    if-nez p0, :cond_2
 
     .line 171
     array-length v7, p1
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_0
 
     move v5, v6
 
-    goto :goto_6
+    goto :goto_0
 
     .line 174
-    :cond_e
-    if-eqz p1, :cond_6
+    :cond_2
+    if-eqz p1, :cond_0
 
     .line 176
     new-instance v4, Ljava/util/HashSet;
@@ -314,8 +314,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_1c
-    if-ge v1, v2, :cond_6
+    :goto_1
+    if-ge v1, v2, :cond_0
 
     aget-object v3, v0, v1
 
@@ -325,21 +325,21 @@
 
     move-result v7
 
-    if-nez v7, :cond_28
+    if-nez v7, :cond_3
 
     move v5, v6
 
-    goto :goto_6
+    goto :goto_0
 
     .line 177
-    :cond_28
+    :cond_3
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1c
+    goto :goto_1
 .end method
 
 .method public static containsAnyUuid([Landroid/os/ParcelUuid;[Landroid/os/ParcelUuid;)Z
-    .registers 10
+    .locals 8
     .parameter "uuidA"
     .parameter "uuidB"
 
@@ -349,43 +349,43 @@
     const/4 v5, 0x1
 
     .line 142
-    if-nez p0, :cond_7
+    if-nez p0, :cond_1
 
-    if-nez p1, :cond_7
+    if-nez p1, :cond_1
 
     .line 156
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return v5
 
     .line 144
-    :cond_7
-    if-nez p0, :cond_e
+    :cond_1
+    if-nez p0, :cond_2
 
     .line 145
     array-length v7, p1
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_0
 
     move v5, v6
 
-    goto :goto_6
+    goto :goto_0
 
     .line 148
-    :cond_e
-    if-nez p1, :cond_15
+    :cond_2
+    if-nez p1, :cond_3
 
     .line 149
     array-length v7, p0
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_0
 
     move v5, v6
 
-    goto :goto_6
+    goto :goto_0
 
     .line 152
-    :cond_15
+    :cond_3
     new-instance v4, Ljava/util/HashSet;
 
     invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -405,8 +405,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_21
-    if-ge v1, v2, :cond_2e
+    :goto_1
+    if-ge v1, v2, :cond_4
 
     aget-object v3, v0, v1
 
@@ -416,23 +416,23 @@
 
     move-result v7
 
-    if-nez v7, :cond_6
+    if-nez v7, :cond_0
 
     .line 153
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_21
+    goto :goto_1
 
     .end local v3           #uuid:Landroid/os/ParcelUuid;
-    :cond_2e
+    :cond_4
     move v5, v6
 
     .line 156
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public static getServiceIdentifierFromParcelUuid(Landroid/os/ParcelUuid;)I
-    .registers 8
+    .locals 7
     .parameter "parcelUuid"
 
     .prologue
@@ -463,7 +463,7 @@
 .end method
 
 .method public static isAdvAudioDist(Landroid/os/ParcelUuid;)Z
-    .registers 2
+    .locals 1
     .parameter "uuid"
 
     .prologue
@@ -478,7 +478,7 @@
 .end method
 
 .method public static isAudioSink(Landroid/os/ParcelUuid;)Z
-    .registers 2
+    .locals 1
     .parameter "uuid"
 
     .prologue
@@ -493,7 +493,7 @@
 .end method
 
 .method public static isAudioSource(Landroid/os/ParcelUuid;)Z
-    .registers 2
+    .locals 1
     .parameter "uuid"
 
     .prologue
@@ -508,7 +508,7 @@
 .end method
 
 .method public static isAvrcpController(Landroid/os/ParcelUuid;)Z
-    .registers 2
+    .locals 1
     .parameter "uuid"
 
     .prologue
@@ -523,7 +523,7 @@
 .end method
 
 .method public static isAvrcpTarget(Landroid/os/ParcelUuid;)Z
-    .registers 2
+    .locals 1
     .parameter "uuid"
 
     .prologue
@@ -538,7 +538,7 @@
 .end method
 
 .method public static isBnep(Landroid/os/ParcelUuid;)Z
-    .registers 2
+    .locals 1
     .parameter "uuid"
 
     .prologue
@@ -553,7 +553,7 @@
 .end method
 
 .method public static isHandsfree(Landroid/os/ParcelUuid;)Z
-    .registers 2
+    .locals 1
     .parameter "uuid"
 
     .prologue
@@ -568,7 +568,7 @@
 .end method
 
 .method public static isHeadset(Landroid/os/ParcelUuid;)Z
-    .registers 2
+    .locals 1
     .parameter "uuid"
 
     .prologue
@@ -583,7 +583,7 @@
 .end method
 
 .method public static isInputDevice(Landroid/os/ParcelUuid;)Z
-    .registers 2
+    .locals 1
     .parameter "uuid"
 
     .prologue
@@ -598,7 +598,7 @@
 .end method
 
 .method public static isNap(Landroid/os/ParcelUuid;)Z
-    .registers 2
+    .locals 1
     .parameter "uuid"
 
     .prologue
@@ -613,7 +613,7 @@
 .end method
 
 .method public static isPanu(Landroid/os/ParcelUuid;)Z
-    .registers 2
+    .locals 1
     .parameter "uuid"
 
     .prologue
@@ -628,7 +628,7 @@
 .end method
 
 .method public static isUuidPresent([Landroid/os/ParcelUuid;Landroid/os/ParcelUuid;)Z
-    .registers 9
+    .locals 7
     .parameter "uuidArray"
     .parameter "uuid"
 
@@ -638,25 +638,25 @@
     const/4 v4, 0x0
 
     .line 122
-    if-eqz p0, :cond_7
+    if-eqz p0, :cond_0
 
     array-length v6, p0
 
-    if-nez v6, :cond_b
+    if-nez v6, :cond_2
 
-    :cond_7
-    if-nez p1, :cond_b
+    :cond_0
+    if-nez p1, :cond_2
 
     move v4, v5
 
     .line 131
-    :cond_a
-    :goto_a
+    :cond_1
+    :goto_0
     return v4
 
     .line 125
-    :cond_b
-    if-eqz p0, :cond_a
+    :cond_2
+    if-eqz p0, :cond_1
 
     .line 128
     move-object v0, p0
@@ -668,8 +668,8 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_10
-    if-ge v2, v3, :cond_a
+    :goto_1
+    if-ge v2, v3, :cond_1
 
     aget-object v1, v0, v2
 
@@ -679,15 +679,15 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1c
+    if-eqz v6, :cond_3
 
     move v4, v5
 
-    goto :goto_a
+    goto :goto_0
 
     .line 128
-    :cond_1c
+    :cond_3
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_10
+    goto :goto_1
 .end method

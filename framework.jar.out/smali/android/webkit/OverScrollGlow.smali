@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/webkit/WebViewClassic;)V
-    .registers 4
+    .locals 2
     .parameter "host"
 
     .prologue
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public absorbGlow(IIIIII)V
-    .registers 9
+    .locals 2
     .parameter "x"
     .parameter "y"
     .parameter "oldX"
@@ -82,7 +82,7 @@
 
     .prologue
     .line 123
-    if-gtz p6, :cond_e
+    if-gtz p6, :cond_0
 
     iget-object v0, p0, Landroid/webkit/OverScrollGlow;->mHostView:Landroid/webkit/WebViewClassic;
 
@@ -94,13 +94,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_2d
+    if-nez v0, :cond_1
 
     .line 124
-    :cond_e
-    if-gez p2, :cond_4f
+    :cond_0
+    if-gez p2, :cond_3
 
-    if-ltz p4, :cond_4f
+    if-ltz p4, :cond_3
 
     .line 125
     iget-object v0, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
@@ -124,7 +124,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2d
+    if-nez v0, :cond_1
 
     .line 127
     iget-object v0, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
@@ -132,14 +132,14 @@
     invoke-virtual {v0}, Landroid/widget/EdgeEffect;->onRelease()V
 
     .line 137
-    :cond_2d
-    :goto_2d
-    if-lez p5, :cond_4e
+    :cond_1
+    :goto_0
+    if-lez p5, :cond_2
 
     .line 138
-    if-gez p1, :cond_6f
+    if-gez p1, :cond_4
 
-    if-ltz p3, :cond_6f
+    if-ltz p3, :cond_4
 
     .line 139
     iget-object v0, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
@@ -163,7 +163,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4e
+    if-nez v0, :cond_2
 
     .line 141
     iget-object v0, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
@@ -171,15 +171,15 @@
     invoke-virtual {v0}, Landroid/widget/EdgeEffect;->onRelease()V
 
     .line 150
-    :cond_4e
-    :goto_4e
+    :cond_2
+    :goto_1
     return-void
 
     .line 129
-    :cond_4f
-    if-le p2, p6, :cond_2d
+    :cond_3
+    if-le p2, p6, :cond_1
 
-    if-gt p4, p6, :cond_2d
+    if-gt p4, p6, :cond_1
 
     .line 130
     iget-object v0, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
@@ -203,20 +203,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_2d
+    if-nez v0, :cond_1
 
     .line 132
     iget-object v0, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
 
     invoke-virtual {v0}, Landroid/widget/EdgeEffect;->onRelease()V
 
-    goto :goto_2d
+    goto :goto_0
 
     .line 143
-    :cond_6f
-    if-le p1, p5, :cond_4e
+    :cond_4
+    if-le p1, p5, :cond_2
 
-    if-gt p3, p5, :cond_4e
+    if-gt p3, p5, :cond_2
 
     .line 144
     iget-object v0, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
@@ -240,18 +240,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_4e
+    if-nez v0, :cond_2
 
     .line 146
     iget-object v0, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
 
     invoke-virtual {v0}, Landroid/widget/EdgeEffect;->onRelease()V
 
-    goto :goto_4e
+    goto :goto_1
 .end method
 
 .method public drawEdgeGlows(Landroid/graphics/Canvas;)Z
-    .registers 12
+    .locals 10
     .parameter "canvas"
 
     .prologue
@@ -300,7 +300,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_45
+    if-nez v6, :cond_0
 
     .line 166
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
@@ -346,14 +346,14 @@
 
     .line 173
     .end local v2           #restoreCount:I
-    :cond_45
+    :cond_0
     iget-object v6, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
 
     invoke-virtual {v6}, Landroid/widget/EdgeEffect;->isFinished()Z
 
     move-result v6
 
-    if-nez v6, :cond_79
+    if-nez v6, :cond_1
 
     .line 174
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
@@ -412,14 +412,14 @@
 
     .line 183
     .end local v2           #restoreCount:I
-    :cond_79
+    :cond_1
     iget-object v6, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
 
     invoke-virtual {v6}, Landroid/widget/EdgeEffect;->isFinished()Z
 
     move-result v6
 
-    if-nez v6, :cond_a4
+    if-nez v6, :cond_2
 
     .line 184
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
@@ -466,14 +466,14 @@
 
     .line 192
     .end local v2           #restoreCount:I
-    :cond_a4
+    :cond_2
     iget-object v6, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
 
     invoke-virtual {v6}, Landroid/widget/EdgeEffect;->isFinished()Z
 
     move-result v6
 
-    if-nez v6, :cond_d5
+    if-nez v6, :cond_3
 
     .line 193
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
@@ -526,12 +526,12 @@
 
     .line 202
     .end local v2           #restoreCount:I
-    :cond_d5
+    :cond_3
     return v1
 .end method
 
 .method public isAnimating()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 209
@@ -541,7 +541,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
 
@@ -549,7 +549,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
 
@@ -557,7 +557,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
 
@@ -565,22 +565,22 @@
 
     move-result v0
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_1
 
-    :cond_20
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_21
+    :goto_0
     return v0
 
-    :cond_22
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_21
+    goto :goto_0
 .end method
 
 .method public pullGlow(IIIIII)V
-    .registers 13
+    .locals 6
     .parameter "x"
     .parameter "y"
     .parameter "oldX"
@@ -598,7 +598,7 @@
 
     move-result v2
 
-    if-ne p3, v2, :cond_6b
+    if-ne p3, v2, :cond_4
 
     iget-object v2, p0, Landroid/webkit/OverScrollGlow;->mHostView:Landroid/webkit/WebViewClassic;
 
@@ -606,10 +606,10 @@
 
     move-result v2
 
-    if-ne p4, v2, :cond_6b
+    if-ne p4, v2, :cond_4
 
     .line 67
-    if-lez p5, :cond_38
+    if-lez p5, :cond_1
 
     .line 68
     iget v2, p0, Landroid/webkit/OverScrollGlow;->mOverScrollDeltaX:I
@@ -618,7 +618,7 @@
 
     .line 69
     .local v0, pulledToX:I
-    if-gez v0, :cond_6c
+    if-gez v0, :cond_5
 
     .line 70
     iget-object v2, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
@@ -646,7 +646,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_36
+    if-nez v2, :cond_0
 
     .line 72
     iget-object v2, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
@@ -654,14 +654,14 @@
     invoke-virtual {v2}, Landroid/widget/EdgeEffect;->onRelease()V
 
     .line 80
-    :cond_36
-    :goto_36
+    :cond_0
+    :goto_0
     iput v5, p0, Landroid/webkit/OverScrollGlow;->mOverScrollDeltaX:I
 
     .line 83
     .end local v0           #pulledToX:I
-    :cond_38
-    if-gtz p6, :cond_46
+    :cond_1
+    if-gtz p6, :cond_2
 
     iget-object v2, p0, Landroid/webkit/OverScrollGlow;->mHostView:Landroid/webkit/WebViewClassic;
 
@@ -673,17 +673,17 @@
 
     move-result v2
 
-    if-nez v2, :cond_6b
+    if-nez v2, :cond_4
 
     .line 84
-    :cond_46
+    :cond_2
     iget v2, p0, Landroid/webkit/OverScrollGlow;->mOverScrollDeltaY:I
 
     add-int v1, p4, v2
 
     .line 85
     .local v1, pulledToY:I
-    if-gez v1, :cond_8c
+    if-gez v1, :cond_6
 
     .line 86
     iget-object v2, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
@@ -711,7 +711,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_69
+    if-nez v2, :cond_3
 
     .line 88
     iget-object v2, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
@@ -719,19 +719,19 @@
     invoke-virtual {v2}, Landroid/widget/EdgeEffect;->onRelease()V
 
     .line 96
-    :cond_69
-    :goto_69
+    :cond_3
+    :goto_1
     iput v5, p0, Landroid/webkit/OverScrollGlow;->mOverScrollDeltaY:I
 
     .line 99
     .end local v1           #pulledToY:I
-    :cond_6b
+    :cond_4
     return-void
 
     .line 74
     .restart local v0       #pulledToX:I
-    :cond_6c
-    if-le v0, p5, :cond_36
+    :cond_5
+    if-le v0, p5, :cond_0
 
     .line 75
     iget-object v2, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowRight:Landroid/widget/EdgeEffect;
@@ -759,20 +759,20 @@
 
     move-result v2
 
-    if-nez v2, :cond_36
+    if-nez v2, :cond_0
 
     .line 77
     iget-object v2, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowLeft:Landroid/widget/EdgeEffect;
 
     invoke-virtual {v2}, Landroid/widget/EdgeEffect;->onRelease()V
 
-    goto :goto_36
+    goto :goto_0
 
     .line 90
     .end local v0           #pulledToX:I
     .restart local v1       #pulledToY:I
-    :cond_8c
-    if-le v1, p6, :cond_69
+    :cond_6
+    if-le v1, p6, :cond_3
 
     .line 91
     iget-object v2, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowBottom:Landroid/widget/EdgeEffect;
@@ -800,18 +800,18 @@
 
     move-result v2
 
-    if-nez v2, :cond_69
+    if-nez v2, :cond_3
 
     .line 93
     iget-object v2, p0, Landroid/webkit/OverScrollGlow;->mEdgeGlowTop:Landroid/widget/EdgeEffect;
 
     invoke-virtual {v2}, Landroid/widget/EdgeEffect;->onRelease()V
 
-    goto :goto_69
+    goto :goto_1
 .end method
 
 .method public releaseAll()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 217
@@ -839,7 +839,7 @@
 .end method
 
 .method public setOverScrollDeltas(II)V
-    .registers 3
+    .locals 0
     .parameter "deltaX"
     .parameter "deltaY"
 

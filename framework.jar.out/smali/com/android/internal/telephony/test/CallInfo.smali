@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(ZLcom/android/internal/telephony/test/CallInfo$State;ZLjava/lang/String;)V
-    .registers 7
+    .locals 2
     .parameter "isMT"
     .parameter "state"
     .parameter "isMpty"
@@ -52,7 +52,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_1f
+    if-lez v0, :cond_0
 
     const/4 v0, 0x0
 
@@ -62,7 +62,7 @@
 
     const/16 v1, 0x2b
 
-    if-ne v0, v1, :cond_1f
+    if-ne v0, v1, :cond_0
 
     .line 58
     const/16 v0, 0x91
@@ -70,20 +70,20 @@
     iput v0, p0, Lcom/android/internal/telephony/test/CallInfo;->TOA:I
 
     .line 62
-    :goto_1e
+    :goto_0
     return-void
 
     .line 60
-    :cond_1f
+    :cond_0
     const/16 v0, 0x81
 
     iput v0, p0, Lcom/android/internal/telephony/test/CallInfo;->TOA:I
 
-    goto :goto_1e
+    goto :goto_0
 .end method
 
 .method static createIncomingCall(Ljava/lang/String;)Lcom/android/internal/telephony/test/CallInfo;
-    .registers 5
+    .locals 4
     .parameter "number"
 
     .prologue
@@ -102,7 +102,7 @@
 .end method
 
 .method static createOutgoingCall(Ljava/lang/String;)Lcom/android/internal/telephony/test/CallInfo;
-    .registers 4
+    .locals 3
     .parameter "number"
 
     .prologue
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method isActiveOrHeld()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 110
@@ -129,28 +129,28 @@
 
     sget-object v1, Lcom/android/internal/telephony/test/CallInfo$State;->ACTIVE:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-eq v0, v1, :cond_c
+    if-eq v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v1, Lcom/android/internal/telephony/test/CallInfo$State;->HOLDING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_1
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method isConnecting()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 115
@@ -158,28 +158,28 @@
 
     sget-object v1, Lcom/android/internal/telephony/test/CallInfo$State;->DIALING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-eq v0, v1, :cond_c
+    if-eq v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v1, Lcom/android/internal/telephony/test/CallInfo$State;->ALERTING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_1
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method isRinging()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 120
@@ -187,28 +187,28 @@
 
     sget-object v1, Lcom/android/internal/telephony/test/CallInfo$State;->INCOMING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-eq v0, v1, :cond_c
+    if-eq v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     sget-object v1, Lcom/android/internal/telephony/test/CallInfo$State;->WAITING:Lcom/android/internal/telephony/test/CallInfo$State;
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_1
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method toCLCCLine(I)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "index"
 
     .prologue
@@ -235,11 +235,11 @@
 
     iget-boolean v0, p0, Lcom/android/internal/telephony/test/CallInfo;->isMT:Z
 
-    if-eqz v0, :cond_5c
+    if-eqz v0, :cond_0
 
     const-string v0, "1"
 
-    :goto_1b
+    :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -268,11 +268,11 @@
 
     iget-boolean v0, p0, Lcom/android/internal/telephony/test/CallInfo;->isMpty:Z
 
-    if-eqz v0, :cond_5f
+    if-eqz v0, :cond_1
 
     const-string v0, "1"
 
-    :goto_3b
+    :goto_1
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -307,19 +307,19 @@
 
     return-object v0
 
-    :cond_5c
+    :cond_0
     const-string v0, "0"
 
-    goto :goto_1b
+    goto :goto_0
 
-    :cond_5f
+    :cond_1
     const-string v0, "0"
 
-    goto :goto_3b
+    goto :goto_1
 .end method
 
 .method toDriverCall(I)Lcom/android/internal/telephony/DriverCall;
-    .registers 6
+    .locals 4
     .parameter "index"
 
     .prologue
@@ -338,7 +338,7 @@
     iput-boolean v2, v1, Lcom/android/internal/telephony/DriverCall;->isMT:Z
 
     .line 93
-    :try_start_b
+    :try_start_0
     iget-object v2, p0, Lcom/android/internal/telephony/test/CallInfo;->state:Lcom/android/internal/telephony/test/CallInfo$State;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/test/CallInfo$State;->value()I
@@ -350,8 +350,8 @@
     move-result-object v2
 
     iput-object v2, v1, Lcom/android/internal/telephony/DriverCall;->state:Lcom/android/internal/telephony/DriverCall$State;
-    :try_end_17
-    .catch Lcom/android/internal/telephony/ATParseEx; {:try_start_b .. :try_end_17} :catch_2a
+    :try_end_0
+    .catch Lcom/android/internal/telephony/ATParseEx; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 98
     iget-boolean v2, p0, Lcom/android/internal/telephony/test/CallInfo;->isMpty:Z
@@ -382,7 +382,7 @@
     return-object v1
 
     .line 94
-    :catch_2a
+    :catch_0
     move-exception v0
 
     .line 95

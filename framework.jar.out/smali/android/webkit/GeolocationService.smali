@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;J)V
-    .registers 6
+    .locals 2
     .parameter "context"
     .parameter "nativeObject"
 
@@ -51,7 +51,7 @@
     .line 55
     iget-object v0, p0, Landroid/webkit/GeolocationService;->mLocationManager:Landroid/location/LocationManager;
 
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_0
 
     .line 56
     const-string v0, "geolocationService"
@@ -61,27 +61,27 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 58
-    :cond_1a
+    :cond_0
     return-void
 .end method
 
 .method private maybeReportError(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "message"
 
     .prologue
     .line 193
     iget-boolean v0, p0, Landroid/webkit/GeolocationService;->mIsRunning:Z
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     iget-boolean v0, p0, Landroid/webkit/GeolocationService;->mIsNetworkProviderAvailable:Z
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     iget-boolean v0, p0, Landroid/webkit/GeolocationService;->mIsGpsProviderAvailable:Z
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 194
     iget-wide v0, p0, Landroid/webkit/GeolocationService;->mNativeObject:J
@@ -89,7 +89,7 @@
     invoke-static {v0, v1, p1}, Landroid/webkit/GeolocationService;->nativeNewErrorAvailable(JLjava/lang/String;)V
 
     .line 196
-    :cond_11
+    :cond_0
     return-void
 .end method
 
@@ -100,7 +100,7 @@
 .end method
 
 .method private registerForLocationUpdates()V
-    .registers 8
+    .locals 7
 
     .prologue
     .line 162
@@ -121,21 +121,21 @@
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/webkit/GeolocationService;->mIsNetworkProviderAvailable:Z
-    :try_end_f
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_f} :catch_2d
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_f} :catch_22
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 165
-    :goto_f
-    :try_start_f
+    :goto_0
+    :try_start_1
     iget-boolean v0, p0, Landroid/webkit/GeolocationService;->mIsGpsEnabled:Z
-    :try_end_11
-    .catch Ljava/lang/SecurityException; {:try_start_f .. :try_end_11} :catch_22
+    :try_end_1
+    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_0
 
     .line 167
-    :try_start_13
+    :try_start_2
     iget-object v0, p0, Landroid/webkit/GeolocationService;->mLocationManager:Landroid/location/LocationManager;
 
     const-string v1, "gps"
@@ -152,17 +152,17 @@
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/webkit/GeolocationService;->mIsGpsProviderAvailable:Z
-    :try_end_21
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_13 .. :try_end_21} :catch_2b
-    .catch Ljava/lang/SecurityException; {:try_start_13 .. :try_end_21} :catch_22
+    :try_end_2
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Ljava/lang/SecurityException; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 175
-    :cond_21
-    :goto_21
+    :cond_0
+    :goto_1
     return-void
 
     .line 171
-    :catch_22
+    :catch_0
     move-exception v6
 
     .line 172
@@ -173,24 +173,24 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_21
+    goto :goto_1
 
     .line 169
     .end local v6           #e:Ljava/lang/SecurityException;
-    :catch_2b
+    :catch_1
     move-exception v0
 
-    goto :goto_21
+    goto :goto_1
 
     .line 164
-    :catch_2d
+    :catch_2
     move-exception v0
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method private unregisterFromLocationUpdates()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -213,14 +213,14 @@
 
 # virtual methods
 .method public onLocationChanged(Landroid/location/Location;)V
-    .registers 4
+    .locals 2
     .parameter "location"
 
     .prologue
     .line 104
     iget-boolean v0, p0, Landroid/webkit/GeolocationService;->mIsRunning:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 105
     iget-wide v0, p0, Landroid/webkit/GeolocationService;->mNativeObject:J
@@ -228,12 +228,12 @@
     invoke-static {v0, v1, p1}, Landroid/webkit/GeolocationService;->nativeNewLocationAvailable(JLandroid/location/Location;)V
 
     .line 107
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public onProviderDisabled(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "providerName"
 
     .prologue
@@ -246,14 +246,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_1
 
     .line 148
     iput-boolean v1, p0, Landroid/webkit/GeolocationService;->mIsNetworkProviderAvailable:Z
 
     .line 152
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     const-string v0, "The last location provider was disabled"
 
     invoke-direct {p0, v0}, Landroid/webkit/GeolocationService;->maybeReportError(Ljava/lang/String;)V
@@ -262,23 +262,23 @@
     return-void
 
     .line 149
-    :cond_12
+    :cond_1
     const-string v0, "gps"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 150
     iput-boolean v1, p0, Landroid/webkit/GeolocationService;->mIsGpsProviderAvailable:Z
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public onProviderEnabled(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "providerName"
 
     .prologue
@@ -291,34 +291,34 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_1
 
     .line 135
     iput-boolean v1, p0, Landroid/webkit/GeolocationService;->mIsNetworkProviderAvailable:Z
 
     .line 139
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     return-void
 
     .line 136
-    :cond_d
+    :cond_1
     const-string v0, "gps"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 137
     iput-boolean v1, p0, Landroid/webkit/GeolocationService;->mIsGpsProviderAvailable:Z
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
-    .registers 6
+    .locals 2
     .parameter "providerName"
     .parameter "status"
     .parameter "extras"
@@ -327,27 +327,27 @@
     .line 117
     const/4 v1, 0x2
 
-    if-ne p2, v1, :cond_15
+    if-ne p2, v1, :cond_1
 
     const/4 v0, 0x1
 
     .line 118
     .local v0, isAvailable:Z
-    :goto_4
+    :goto_0
     const-string/jumbo v1, "network"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_2
 
     .line 119
     iput-boolean v0, p0, Landroid/webkit/GeolocationService;->mIsNetworkProviderAvailable:Z
 
     .line 123
-    :cond_f
-    :goto_f
+    :cond_0
+    :goto_1
     const-string v1, "The last location provider is no longer available"
 
     invoke-direct {p0, v1}, Landroid/webkit/GeolocationService;->maybeReportError(Ljava/lang/String;)V
@@ -357,37 +357,37 @@
 
     .line 117
     .end local v0           #isAvailable:Z
-    :cond_15
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_4
+    goto :goto_0
 
     .line 120
     .restart local v0       #isAvailable:Z
-    :cond_17
+    :cond_2
     const-string v1, "gps"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_0
 
     .line 121
     iput-boolean v0, p0, Landroid/webkit/GeolocationService;->mIsGpsProviderAvailable:Z
 
-    goto :goto_f
+    goto :goto_1
 .end method
 
 .method public setEnableGps(Z)V
-    .registers 3
+    .locals 1
     .parameter "enable"
 
     .prologue
     .line 82
     iget-boolean v0, p0, Landroid/webkit/GeolocationService;->mIsGpsEnabled:Z
 
-    if-eq v0, p1, :cond_15
+    if-eq v0, p1, :cond_0
 
     .line 83
     iput-boolean p1, p0, Landroid/webkit/GeolocationService;->mIsGpsEnabled:Z
@@ -395,7 +395,7 @@
     .line 84
     iget-boolean v0, p0, Landroid/webkit/GeolocationService;->mIsRunning:Z
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 87
     invoke-direct {p0}, Landroid/webkit/GeolocationService;->unregisterFromLocationUpdates()V
@@ -409,12 +409,12 @@
     invoke-direct {p0, v0}, Landroid/webkit/GeolocationService;->maybeReportError(Ljava/lang/String;)V
 
     .line 93
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method public start()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x1
@@ -428,24 +428,24 @@
     .line 66
     iget-boolean v1, p0, Landroid/webkit/GeolocationService;->mIsNetworkProviderAvailable:Z
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_0
 
     iget-boolean v1, p0, Landroid/webkit/GeolocationService;->mIsGpsProviderAvailable:Z
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_1
 
-    :cond_e
-    :goto_e
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_f
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public stop()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 73

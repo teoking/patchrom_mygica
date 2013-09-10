@@ -32,7 +32,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 199
@@ -42,7 +42,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/app/MediaRouteChooserDialogFragment$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue

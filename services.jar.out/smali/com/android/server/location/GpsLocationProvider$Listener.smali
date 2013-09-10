@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/location/GpsLocationProvider;Landroid/location/IGpsStatusListener;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "listener"
 
@@ -52,12 +52,13 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 876
     iget-object v0, p0, Lcom/android/server/location/GpsLocationProvider$Listener;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
+    #getter for: Lcom/android/server/location/GpsLocationProvider;->mListeners:Ljava/util/ArrayList;
     invoke-static {v0}, Lcom/android/server/location/GpsLocationProvider;->access$000(Lcom/android/server/location/GpsLocationProvider;)Ljava/util/ArrayList;
 
     move-result-object v1
@@ -65,9 +66,10 @@
     monitor-enter v1
 
     .line 877
-    :try_start_7
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/location/GpsLocationProvider$Listener;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
+    #getter for: Lcom/android/server/location/GpsLocationProvider;->mListeners:Ljava/util/ArrayList;
     invoke-static {v0}, Lcom/android/server/location/GpsLocationProvider;->access$000(Lcom/android/server/location/GpsLocationProvider;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -76,13 +78,13 @@
 
     .line 878
     monitor-exit v1
-    :try_end_11
-    .catchall {:try_start_7 .. :try_end_11} :catchall_20
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 879
     iget-object v0, p0, Lcom/android/server/location/GpsLocationProvider$Listener;->mListener:Landroid/location/IGpsStatusListener;
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_0
 
     .line 880
     iget-object v0, p0, Lcom/android/server/location/GpsLocationProvider$Listener;->mListener:Landroid/location/IGpsStatusListener;
@@ -96,17 +98,17 @@
     invoke-interface {v0, p0, v1}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
     .line 882
-    :cond_1f
+    :cond_0
     return-void
 
     .line 878
-    :catchall_20
+    :catchall_0
     move-exception v0
 
-    :try_start_21
+    :try_start_1
     monitor-exit v1
-    :try_end_22
-    .catchall {:try_start_21 .. :try_end_22} :catchall_20
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method

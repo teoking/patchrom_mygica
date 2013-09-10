@@ -18,7 +18,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/IntentFilter;I[Landroid/content/ComponentName;Landroid/content/ComponentName;)V
-    .registers 6
+    .locals 1
     .parameter "filter"
     .parameter "match"
     .parameter "set"
@@ -40,7 +40,7 @@
 .end method
 
 .method constructor <init>(Lorg/xmlpull/v1/XmlPullParser;)V
-    .registers 3
+    .locals 1
     .parameter "parser"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method public onReadTag(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;)Z
-    .registers 6
+    .locals 3
     .parameter "tagName"
     .parameter "parser"
     .annotation system Ldalvik/annotation/Throws;
@@ -85,19 +85,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 61
     invoke-virtual {p0, p2}, Lcom/android/server/pm/PreferredActivity;->readFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
 
     .line 71
-    :goto_b
+    :goto_0
     const/4 v0, 0x1
 
     return v0
 
     .line 67
-    :cond_d
+    :cond_0
     const/4 v0, 0x5
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -127,11 +127,11 @@
     .line 69
     invoke-static {p2}, Lcom/android/internal/util/XmlUtils;->skipCurrentTag(Lorg/xmlpull/v1/XmlPullParser;)V
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public writeToXml(Lorg/xmlpull/v1/XmlSerializer;)V
-    .registers 4
+    .locals 2
     .parameter "serializer"
     .annotation system Ldalvik/annotation/Throws;
         value = {

@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/filterfw/core/FrameFormat;Landroid/filterfw/core/FrameManager;)V
-    .registers 5
+    .locals 2
     .parameter "format"
     .parameter "frameManager"
 
@@ -80,7 +80,7 @@
 .end method
 
 .method constructor <init>(Landroid/filterfw/core/FrameFormat;Landroid/filterfw/core/FrameManager;IJ)V
-    .registers 8
+    .locals 2
     .parameter "format"
     .parameter "frameManager"
     .parameter "bindingType"
@@ -137,7 +137,7 @@
 .end method
 
 .method protected static convertBitmapToRGBA(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
-    .registers 4
+    .locals 3
     .parameter "bitmap"
 
     .prologue
@@ -148,16 +148,16 @@
 
     sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    if-ne v1, v2, :cond_9
+    if-ne v1, v2, :cond_0
 
     .line 191
     .end local p0
-    :goto_8
+    :goto_0
     return-object p0
 
     .line 185
     .restart local p0
-    :cond_9
+    :cond_0
     sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     const/4 v2, 0x0
@@ -168,7 +168,7 @@
 
     .line 186
     .local v0, result:Landroid/graphics/Bitmap;
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_1
 
     .line 187
     new-instance v1, Ljava/lang/RuntimeException;
@@ -180,7 +180,7 @@
     throw v1
 
     .line 188
-    :cond_1a
+    :cond_1
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getRowBytes()I
 
     move-result v1
@@ -191,7 +191,7 @@
 
     mul-int/lit8 v2, v2, 0x4
 
-    if-eq v1, v2, :cond_2e
+    if-eq v1, v2, :cond_2
 
     .line 189
     new-instance v1, Ljava/lang/RuntimeException;
@@ -202,17 +202,17 @@
 
     throw v1
 
-    :cond_2e
+    :cond_2
     move-object p0, v0
 
     .line 191
-    goto :goto_8
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected assertFrameMutable()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 163
@@ -220,7 +220,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 164
     new-instance v0, Ljava/lang/RuntimeException;
@@ -232,12 +232,12 @@
     throw v0
 
     .line 166
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method final decRefCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 224
@@ -254,7 +254,7 @@
 .end method
 
 .method public getBindingId()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 75
@@ -264,7 +264,7 @@
 .end method
 
 .method public getBindingType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 71
@@ -277,7 +277,7 @@
 .end method
 
 .method public getCapacity()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 63
@@ -299,7 +299,7 @@
 .end method
 
 .method public getFormat()Landroid/filterfw/core/FrameFormat;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 59
@@ -309,7 +309,7 @@
 .end method
 
 .method public getFrameManager()Landroid/filterfw/core/FrameManager;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 159
@@ -325,7 +325,7 @@
 .end method
 
 .method public getRefCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 139
@@ -335,7 +335,7 @@
 .end method
 
 .method public getTimestamp()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 127
@@ -348,7 +348,7 @@
 .end method
 
 .method final incRefCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 219
@@ -365,7 +365,7 @@
 .end method
 
 .method public isReadOnly()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 67
@@ -375,7 +375,7 @@
 .end method
 
 .method final isReusable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 229
@@ -385,7 +385,7 @@
 .end method
 
 .method final markReadOnly()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 233
@@ -398,7 +398,7 @@
 .end method
 
 .method protected onFrameFetch()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 211
@@ -406,7 +406,7 @@
 .end method
 
 .method protected onFrameStore()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 205
@@ -414,13 +414,13 @@
 .end method
 
 .method public release()Landroid/filterfw/core/Frame;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 143
     iget-object v0, p0, Landroid/filterfw/core/Frame;->mFrameManager:Landroid/filterfw/core/FrameManager;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 144
     iget-object v0, p0, Landroid/filterfw/core/Frame;->mFrameManager:Landroid/filterfw/core/FrameManager;
@@ -431,7 +431,7 @@
 
     .line 146
     .end local p0
-    :cond_a
+    :cond_0
     return-object p0
 .end method
 
@@ -439,7 +439,7 @@
 .end method
 
 .method protected requestResize([I)Z
-    .registers 3
+    .locals 1
     .parameter "newDimensions"
 
     .prologue
@@ -450,7 +450,7 @@
 .end method
 
 .method protected reset(Landroid/filterfw/core/FrameFormat;)V
-    .registers 3
+    .locals 1
     .parameter "newFormat"
 
     .prologue
@@ -476,13 +476,13 @@
 .end method
 
 .method public retain()Landroid/filterfw/core/Frame;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 151
     iget-object v0, p0, Landroid/filterfw/core/Frame;->mFrameManager:Landroid/filterfw/core/FrameManager;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 152
     iget-object v0, p0, Landroid/filterfw/core/Frame;->mFrameManager:Landroid/filterfw/core/FrameManager;
@@ -493,7 +493,7 @@
 
     .line 154
     .end local p0
-    :cond_a
+    :cond_0
     return-object p0
 .end method
 
@@ -501,7 +501,7 @@
 .end method
 
 .method public setData(Ljava/nio/ByteBuffer;)V
-    .registers 4
+    .locals 2
     .parameter "buffer"
 
     .prologue
@@ -522,7 +522,7 @@
 .end method
 
 .method public setData([BII)V
-    .registers 5
+    .locals 1
     .parameter "bytes"
     .parameter "offset"
     .parameter "length"
@@ -540,7 +540,7 @@
 .end method
 
 .method public setDataFromFrame(Landroid/filterfw/core/Frame;)V
-    .registers 3
+    .locals 1
     .parameter "frame"
 
     .prologue
@@ -559,7 +559,7 @@
 .end method
 
 .method protected setFormat(Landroid/filterfw/core/FrameFormat;)V
-    .registers 3
+    .locals 1
     .parameter "format"
 
     .prologue
@@ -575,7 +575,7 @@
 .end method
 
 .method protected setGenericObjectValue(Ljava/lang/Object;)V
-    .registers 5
+    .locals 3
     .parameter "value"
 
     .prologue
@@ -613,7 +613,7 @@
 .end method
 
 .method public setObjectValue(Ljava/lang/Object;)V
-    .registers 3
+    .locals 1
     .parameter "object"
 
     .prologue
@@ -623,7 +623,7 @@
     .line 83
     instance-of v0, p1, [I
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 84
     check-cast p1, [I
@@ -634,15 +634,15 @@
     invoke-virtual {p0, p1}, Landroid/filterfw/core/Frame;->setInts([I)V
 
     .line 94
-    :goto_e
+    :goto_0
     return-void
 
     .line 85
     .restart local p1
-    :cond_f
+    :cond_0
     instance-of v0, p1, [F
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_1
 
     .line 86
     check-cast p1, [F
@@ -652,14 +652,14 @@
 
     invoke-virtual {p0, p1}, Landroid/filterfw/core/Frame;->setFloats([F)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 87
     .restart local p1
-    :cond_1b
+    :cond_1
     instance-of v0, p1, Ljava/nio/ByteBuffer;
 
-    if-eqz v0, :cond_25
+    if-eqz v0, :cond_2
 
     .line 88
     check-cast p1, Ljava/nio/ByteBuffer;
@@ -667,14 +667,14 @@
     .end local p1
     invoke-virtual {p0, p1}, Landroid/filterfw/core/Frame;->setData(Ljava/nio/ByteBuffer;)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 89
     .restart local p1
-    :cond_25
+    :cond_2
     instance-of v0, p1, Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_2f
+    if-eqz v0, :cond_3
 
     .line 90
     check-cast p1, Landroid/graphics/Bitmap;
@@ -682,18 +682,18 @@
     .end local p1
     invoke-virtual {p0, p1}, Landroid/filterfw/core/Frame;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 92
     .restart local p1
-    :cond_2f
+    :cond_3
     invoke-virtual {p0, p1}, Landroid/filterfw/core/Frame;->setGenericObjectValue(Ljava/lang/Object;)V
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method protected setReusable(Z)V
-    .registers 2
+    .locals 0
     .parameter "reusable"
 
     .prologue
@@ -705,7 +705,7 @@
 .end method
 
 .method public setTimestamp(J)V
-    .registers 3
+    .locals 0
     .parameter "timestamp"
 
     .prologue

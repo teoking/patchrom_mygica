@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;ILjava/lang/CharSequence;Landroid/content/pm/UserInfo;)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter "x1"
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onPress()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 252
@@ -60,20 +60,21 @@
     .line 253
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$3;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
+    #calls: Lcom/android/internal/policy/impl/GlobalActions;->getWindowManager()Landroid/view/IWindowManager;
     invoke-static {v1}, Lcom/android/internal/policy/impl/GlobalActions;->access$600(Lcom/android/internal/policy/impl/GlobalActions;)Landroid/view/IWindowManager;
 
     move-result-object v1
 
     invoke-interface {v1}, Landroid/view/IWindowManager;->lockNow()V
-    :try_end_14
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_14} :catch_15
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 257
-    :goto_14
+    :goto_0
     return-void
 
     .line 254
-    :catch_15
+    :catch_0
     move-exception v0
 
     .line 255
@@ -100,11 +101,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public showBeforeProvisioning()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 264
@@ -114,7 +115,7 @@
 .end method
 
 .method public showDuringKeyguard()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 260

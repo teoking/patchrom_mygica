@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 48
@@ -24,23 +24,23 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/os/IServiceManager;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 35
-    if-nez p0, :cond_4
+    if-nez p0, :cond_1
 
     .line 36
     const/4 v0, 0x0
 
     .line 44
-    :cond_3
-    :goto_3
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 38
-    :cond_4
+    :cond_1
     const-string v1, "android.os.IServiceManager"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -51,7 +51,7 @@
 
     .line 40
     .local v0, in:Landroid/os/IServiceManager;
-    if-nez v0, :cond_3
+    if-nez v0, :cond_0
 
     .line 44
     new-instance v0, Landroid/os/ServiceManagerProxy;
@@ -59,13 +59,13 @@
     .end local v0           #in:Landroid/os/IServiceManager;
     invoke-direct {v0, p0}, Landroid/os/ServiceManagerProxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 105
@@ -73,7 +73,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 13
+    .locals 8
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -85,19 +85,19 @@
     const/4 v5, 0x1
 
     .line 55
-    packed-switch p1, :pswitch_data_64
+    packed-switch p1, :pswitch_data_0
 
-    :goto_5
-    :pswitch_5
+    :goto_0
+    :pswitch_0
     move v5, v6
 
     .line 100
-    :goto_6
+    :goto_1
     return v5
 
     .line 57
-    :pswitch_7
-    :try_start_7
+    :pswitch_1
+    :try_start_0
     const-string v7, "android.os.IServiceManager"
 
     invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -117,18 +117,18 @@
     .local v4, service:Landroid/os/IBinder;
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    goto :goto_6
+    goto :goto_1
 
     .line 97
     .end local v3           #name:Ljava/lang/String;
     .end local v4           #service:Landroid/os/IBinder;
-    :catch_18
+    :catch_0
     move-exception v5
 
-    goto :goto_5
+    goto :goto_0
 
     .line 65
-    :pswitch_1a
+    :pswitch_2
     const-string v7, "android.os.IServiceManager"
 
     invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -148,12 +148,12 @@
     .restart local v4       #service:Landroid/os/IBinder;
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    goto :goto_6
+    goto :goto_1
 
     .line 73
     .end local v3           #name:Ljava/lang/String;
     .end local v4           #service:Landroid/os/IBinder;
-    :pswitch_2b
+    :pswitch_3
     const-string v7, "android.os.IServiceManager"
 
     invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -175,28 +175,28 @@
 
     move-result v7
 
-    if-eqz v7, :cond_43
+    if-eqz v7, :cond_0
 
     move v0, v5
 
     .line 77
     .local v0, allowIsolated:Z
-    :goto_3f
+    :goto_2
     invoke-virtual {p0, v3, v4, v0}, Landroid/os/ServiceManagerNative;->addService(Ljava/lang/String;Landroid/os/IBinder;Z)V
 
-    goto :goto_6
+    goto :goto_1
 
     .end local v0           #allowIsolated:Z
-    :cond_43
+    :cond_0
     move v0, v6
 
     .line 76
-    goto :goto_3f
+    goto :goto_2
 
     .line 82
     .end local v3           #name:Ljava/lang/String;
     .end local v4           #service:Landroid/os/IBinder;
-    :pswitch_45
+    :pswitch_4
     const-string v7, "android.os.IServiceManager"
 
     invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -210,11 +210,11 @@
     .local v2, list:[Ljava/lang/String;
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
-    goto :goto_6
+    goto :goto_1
 
     .line 89
     .end local v2           #list:[Ljava/lang/String;
-    :pswitch_52
+    :pswitch_5
     const-string v7, "android.os.IServiceManager"
 
     invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -231,21 +231,21 @@
     .line 93
     .local v1, controller:Landroid/os/IPermissionController;
     invoke-virtual {p0, v1}, Landroid/os/ServiceManagerNative;->setPermissionController(Landroid/os/IPermissionController;)V
-    :try_end_62
-    .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_62} :catch_18
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_6
+    goto :goto_1
 
     .line 55
     nop
 
-    :pswitch_data_64
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_7
-        :pswitch_1a
-        :pswitch_2b
-        :pswitch_45
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_0
         :pswitch_5
-        :pswitch_52
     .end packed-switch
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/net/VpnService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/net/VpnService;Landroid/net/VpnService$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method protected onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 6
+    .locals 1
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -57,7 +57,7 @@
     .line 239
     const v0, 0xffffff
 
-    if-ne p1, v0, :cond_c
+    if-ne p1, v0, :cond_0
 
     .line 240
     iget-object v0, p0, Landroid/net/VpnService$Callback;->this$0:Landroid/net/VpnService;
@@ -68,11 +68,11 @@
     const/4 v0, 0x1
 
     .line 243
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method

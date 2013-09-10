@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 31
@@ -41,7 +41,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 39
@@ -51,7 +51,7 @@
 .end method
 
 .method public static getAppName()Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 83
@@ -61,7 +61,7 @@
 .end method
 
 .method public static register()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 44
@@ -69,7 +69,7 @@
 .end method
 
 .method private static sendAPNM(Ljava/lang/String;)V
-    .registers 4
+    .locals 3
     .parameter "appName"
 
     .prologue
@@ -118,38 +118,38 @@
 .end method
 
 .method public static setAppName(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
     .line 73
-    if-eqz p0, :cond_8
+    if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_1
 
     .line 80
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     return-void
 
     .line 76
-    :cond_9
+    :cond_1
     sput-object p0, Landroid/ddm/DdmHandleAppName;->mAppName:Ljava/lang/String;
 
     .line 79
     invoke-static {p0}, Landroid/ddm/DdmHandleAppName;->sendAPNM(Ljava/lang/String;)V
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public connected()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 50
@@ -157,7 +157,7 @@
 .end method
 
 .method public disconnected()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 56
@@ -165,7 +165,7 @@
 .end method
 
 .method public handleChunk(Lorg/apache/harmony/dalvik/ddmc/Chunk;)Lorg/apache/harmony/dalvik/ddmc/Chunk;
-    .registers 3
+    .locals 1
     .parameter "request"
 
     .prologue

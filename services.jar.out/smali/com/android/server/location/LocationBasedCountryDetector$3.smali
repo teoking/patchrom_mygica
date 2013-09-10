@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/location/LocationBasedCountryDetector;Landroid/location/Location;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v4, 0x0
@@ -55,7 +55,7 @@
     .local v0, countryIso:Ljava/lang/String;
     iget-object v1, p0, Lcom/android/server/location/LocationBasedCountryDetector$3;->val$location:Landroid/location/Location;
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_0
 
     .line 230
     iget-object v1, p0, Lcom/android/server/location/LocationBasedCountryDetector$3;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
@@ -67,8 +67,8 @@
     move-result-object v0
 
     .line 232
-    :cond_e
-    if-eqz v0, :cond_28
+    :cond_0
+    if-eqz v0, :cond_1
 
     .line 233
     iget-object v1, p0, Lcom/android/server/location/LocationBasedCountryDetector$3;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
@@ -82,7 +82,7 @@
     iput-object v2, v1, Lcom/android/server/location/CountryDetectorBase;->mDetectedCountry:Landroid/location/Country;
 
     .line 237
-    :goto_1a
+    :goto_0
     iget-object v1, p0, Lcom/android/server/location/LocationBasedCountryDetector$3;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
 
     iget-object v2, p0, Lcom/android/server/location/LocationBasedCountryDetector$3;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
@@ -100,10 +100,10 @@
     return-void
 
     .line 235
-    :cond_28
+    :cond_1
     iget-object v1, p0, Lcom/android/server/location/LocationBasedCountryDetector$3;->this$0:Lcom/android/server/location/LocationBasedCountryDetector;
 
     iput-object v4, v1, Lcom/android/server/location/CountryDetectorBase;->mDetectedCountry:Landroid/location/Country;
 
-    goto :goto_1a
+    goto :goto_0
 .end method

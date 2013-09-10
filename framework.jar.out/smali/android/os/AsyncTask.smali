@@ -92,7 +92,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 9
+    .locals 9
 
     .prologue
     const/4 v8, 0x0
@@ -155,7 +155,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 280
@@ -202,7 +202,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/os/AsyncTask;)Ljava/util/concurrent/atomic/AtomicBoolean;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -213,7 +213,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/os/AsyncTask;Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -227,7 +227,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/os/AsyncTask;Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -239,7 +239,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/os/AsyncTask;Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -251,7 +251,7 @@
 .end method
 
 .method public static execute(Ljava/lang/Runnable;)V
-    .registers 2
+    .locals 1
     .parameter "runnable"
 
     .prologue
@@ -265,7 +265,7 @@
 .end method
 
 .method private finish(Ljava/lang/Object;)V
-    .registers 3
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -281,13 +281,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 629
     invoke-virtual {p0, p1}, Landroid/os/AsyncTask;->onCancelled(Ljava/lang/Object;)V
 
     .line 633
-    :goto_9
+    :goto_0
     sget-object v0, Landroid/os/AsyncTask$Status;->FINISHED:Landroid/os/AsyncTask$Status;
 
     iput-object v0, p0, Landroid/os/AsyncTask;->mStatus:Landroid/os/AsyncTask$Status;
@@ -296,14 +296,14 @@
     return-void
 
     .line 631
-    :cond_e
+    :cond_0
     invoke-virtual {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static init()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 269
@@ -316,7 +316,7 @@
 .end method
 
 .method private postResult(Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 8
+    .locals 6
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -355,7 +355,7 @@
 .end method
 
 .method private postResultIfNotInvoked(Ljava/lang/Object;)V
-    .registers 4
+    .locals 2
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -375,18 +375,18 @@
 
     .line 310
     .local v0, wasTaskInvoked:Z
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 311
     invoke-direct {p0, p1}, Landroid/os/AsyncTask;->postResult(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 313
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method public static setDefaultExecutor(Ljava/util/concurrent/Executor;)V
-    .registers 1
+    .locals 0
     .parameter "exec"
 
     .prologue
@@ -400,7 +400,7 @@
 
 # virtual methods
 .method public final cancel(Z)Z
-    .registers 4
+    .locals 2
     .parameter "mayInterruptIfRunning"
 
     .prologue
@@ -431,7 +431,7 @@
 .end method
 
 .method public final varargs execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
-    .registers 3
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -455,7 +455,7 @@
 .end method
 
 .method public final varargs executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
-    .registers 5
+    .locals 2
     .parameter "exec"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -476,7 +476,7 @@
 
     sget-object v1, Landroid/os/AsyncTask$Status;->PENDING:Landroid/os/AsyncTask$Status;
 
-    if-eq v0, v1, :cond_13
+    if-eq v0, v1, :cond_0
 
     .line 573
     sget-object v0, Landroid/os/AsyncTask$4;->$SwitchMap$android$os$AsyncTask$Status:[I
@@ -489,10 +489,10 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_34
+    packed-switch v0, :pswitch_data_0
 
     .line 584
-    :cond_13
+    :cond_0
     sget-object v0, Landroid/os/AsyncTask$Status;->RUNNING:Landroid/os/AsyncTask$Status;
 
     iput-object v0, p0, Landroid/os/AsyncTask;->mStatus:Landroid/os/AsyncTask$Status;
@@ -514,7 +514,7 @@
     return-object p0
 
     .line 575
-    :pswitch_24
+    :pswitch_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Cannot execute task: the task is already running."
@@ -524,7 +524,7 @@
     throw v0
 
     .line 578
-    :pswitch_2c
+    :pswitch_1
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Cannot execute task: the task has already been executed (a task can be executed only once)"
@@ -534,15 +534,15 @@
     throw v0
 
     .line 573
-    :pswitch_data_34
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_24
-        :pswitch_2c
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public final get()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TResult;"
@@ -569,7 +569,7 @@
 .end method
 
 .method public final get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
-    .registers 5
+    .locals 1
     .parameter "timeout"
     .parameter "unit"
     .annotation system Ldalvik/annotation/Signature;
@@ -601,7 +601,7 @@
 .end method
 
 .method public final getStatus()Landroid/os/AsyncTask$Status;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 329
@@ -612,7 +612,7 @@
 .end method
 
 .method public final isCancelled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 433
@@ -627,7 +627,7 @@
 .end method
 
 .method protected onCancelled()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 420
@@ -636,7 +636,7 @@
 .end method
 
 .method protected onCancelled(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -655,7 +655,7 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -671,7 +671,7 @@
 .end method
 
 .method protected onPreExecute()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 357
@@ -680,7 +680,7 @@
 .end method
 
 .method protected varargs onProgressUpdate([Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -696,7 +696,7 @@
 .end method
 
 .method protected final varargs publishProgress([Ljava/lang/Object;)V
-    .registers 5
+    .locals 3
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -712,7 +712,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_0
 
     .line 622
     sget-object v0, Landroid/os/AsyncTask;->sHandler:Landroid/os/AsyncTask$InternalHandler;
@@ -730,6 +730,6 @@
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     .line 625
-    :cond_15
+    :cond_0
     return-void
 .end method

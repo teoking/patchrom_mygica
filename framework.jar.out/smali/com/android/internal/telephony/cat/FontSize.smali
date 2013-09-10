@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 5
+    .locals 5
 
     .prologue
     const/4 v4, 0x2
@@ -89,7 +89,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter "value"
@@ -111,7 +111,7 @@
 .end method
 
 .method public static fromInt(I)Lcom/android/internal/telephony/cat/FontSize;
-    .registers 6
+    .locals 5
     .parameter "value"
 
     .prologue
@@ -127,8 +127,8 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_6
-    if-ge v2, v3, :cond_12
+    :goto_0
+    if-ge v2, v3, :cond_1
 
     aget-object v1, v0, v2
 
@@ -136,30 +136,30 @@
     .local v1, e:Lcom/android/internal/telephony/cat/FontSize;
     iget v4, v1, Lcom/android/internal/telephony/cat/FontSize;->mValue:I
 
-    if-ne v4, p0, :cond_f
+    if-ne v4, p0, :cond_0
 
     .line 48
     .end local v1           #e:Lcom/android/internal/telephony/cat/FontSize;
-    :goto_e
+    :goto_1
     return-object v1
 
     .line 43
     .restart local v1       #e:Lcom/android/internal/telephony/cat/FontSize;
-    :cond_f
+    :cond_0
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 48
     .end local v1           #e:Lcom/android/internal/telephony/cat/FontSize;
-    :cond_12
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_e
+    goto :goto_1
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/telephony/cat/FontSize;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -176,7 +176,7 @@
 .end method
 
 .method public static values()[Lcom/android/internal/telephony/cat/FontSize;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 25

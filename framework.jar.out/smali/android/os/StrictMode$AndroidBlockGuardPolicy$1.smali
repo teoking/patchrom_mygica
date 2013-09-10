@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/StrictMode$AndroidBlockGuardPolicy;Landroid/view/IWindowManager;Ljava/util/ArrayList;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 1206
@@ -60,32 +60,32 @@
     .local v0, loopFinishTime:J
     iget-object v4, p0, Landroid/os/StrictMode$AndroidBlockGuardPolicy$1;->val$windowManager:Landroid/view/IWindowManager;
 
-    if-eqz v4, :cond_e
+    if-eqz v4, :cond_0
 
     .line 1214
-    :try_start_8
+    :try_start_0
     iget-object v4, p0, Landroid/os/StrictMode$AndroidBlockGuardPolicy$1;->val$windowManager:Landroid/view/IWindowManager;
 
     const/4 v5, 0x0
 
     invoke-interface {v4, v5}, Landroid/view/IWindowManager;->showStrictModeViolation(Z)V
-    :try_end_e
-    .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_e} :catch_38
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1219
-    :cond_e
-    :goto_e
+    :cond_0
+    :goto_0
     const/4 v2, 0x0
 
     .local v2, n:I
-    :goto_f
+    :goto_1
     iget-object v4, p0, Landroid/os/StrictMode$AndroidBlockGuardPolicy$1;->val$records:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
     move-result v4
 
-    if-ge v2, v4, :cond_32
+    if-ge v2, v4, :cond_1
 
     .line 1220
     iget-object v4, p0, Landroid/os/StrictMode$AndroidBlockGuardPolicy$1;->val$records:Ljava/util/ArrayList;
@@ -119,11 +119,11 @@
     .line 1219
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_f
+    goto :goto_1
 
     .line 1226
     .end local v3           #v:Landroid/os/StrictMode$ViolationInfo;
-    :cond_32
+    :cond_1
     iget-object v4, p0, Landroid/os/StrictMode$AndroidBlockGuardPolicy$1;->val$records:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->clear()V
@@ -133,8 +133,8 @@
 
     .line 1215
     .end local v2           #n:I
-    :catch_38
+    :catch_0
     move-exception v4
 
-    goto :goto_e
+    goto :goto_0
 .end method

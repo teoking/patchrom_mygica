@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 43
@@ -67,7 +67,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x1
@@ -80,7 +80,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/view/GLES20RecordingCanvas$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -91,7 +91,7 @@
 .end method
 
 .method static obtain(Landroid/view/GLES20DisplayList;)Landroid/view/GLES20RecordingCanvas;
-    .registers 3
+    .locals 2
     .parameter "displayList"
 
     .prologue
@@ -113,12 +113,12 @@
 .end method
 
 .method private recordShaderBitmap(Landroid/graphics/Paint;)V
-    .registers 5
+    .locals 3
     .parameter "paint"
 
     .prologue
     .line 86
-    if-eqz p1, :cond_15
+    if-eqz p1, :cond_0
 
     .line 87
     invoke-virtual {p1}, Landroid/graphics/Paint;->getShader()Landroid/graphics/Shader;
@@ -129,7 +129,7 @@
     .local v0, shader:Landroid/graphics/Shader;
     instance-of v1, v0, Landroid/graphics/BitmapShader;
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_0
 
     .line 89
     iget-object v1, p0, Landroid/view/GLES20RecordingCanvas;->mDisplayList:Landroid/view/GLES20DisplayList;
@@ -144,14 +144,14 @@
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 92
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
-    .registers 6
+    .locals 1
     .parameter "bitmap"
     .parameter "left"
     .parameter "top"
@@ -173,7 +173,7 @@
 .end method
 
 .method public drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Matrix;Landroid/graphics/Paint;)V
-    .registers 5
+    .locals 1
     .parameter "bitmap"
     .parameter "matrix"
     .parameter "paint"
@@ -194,7 +194,7 @@
 .end method
 
 .method public drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
-    .registers 6
+    .locals 1
     .parameter "bitmap"
     .parameter "src"
     .parameter "dst"
@@ -216,7 +216,7 @@
 .end method
 
 .method public drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/RectF;Landroid/graphics/Paint;)V
-    .registers 6
+    .locals 1
     .parameter "bitmap"
     .parameter "src"
     .parameter "dst"
@@ -238,7 +238,7 @@
 .end method
 
 .method public drawBitmap([IIIFFIIZLandroid/graphics/Paint;)V
-    .registers 10
+    .locals 0
     .parameter "colors"
     .parameter "offset"
     .parameter "stride"
@@ -258,7 +258,7 @@
 .end method
 
 .method public drawBitmap([IIIIIIIZLandroid/graphics/Paint;)V
-    .registers 10
+    .locals 0
     .parameter "colors"
     .parameter "offset"
     .parameter "stride"
@@ -278,7 +278,7 @@
 .end method
 
 .method public drawBitmapMesh(Landroid/graphics/Bitmap;II[FI[IILandroid/graphics/Paint;)V
-    .registers 10
+    .locals 1
     .parameter "bitmap"
     .parameter "meshWidth"
     .parameter "meshHeight"
@@ -304,7 +304,7 @@
 .end method
 
 .method public drawCircle(FFFLandroid/graphics/Paint;)V
-    .registers 5
+    .locals 0
     .parameter "cx"
     .parameter "cy"
     .parameter "radius"
@@ -322,7 +322,7 @@
 .end method
 
 .method public drawLine(FFFFLandroid/graphics/Paint;)V
-    .registers 6
+    .locals 0
     .parameter "startX"
     .parameter "startY"
     .parameter "stopX"
@@ -341,7 +341,7 @@
 .end method
 
 .method public drawLines([FIILandroid/graphics/Paint;)V
-    .registers 5
+    .locals 0
     .parameter "pts"
     .parameter "offset"
     .parameter "count"
@@ -359,7 +359,7 @@
 .end method
 
 .method public drawLines([FLandroid/graphics/Paint;)V
-    .registers 3
+    .locals 0
     .parameter "pts"
     .parameter "paint"
 
@@ -375,7 +375,7 @@
 .end method
 
 .method public drawOval(Landroid/graphics/RectF;Landroid/graphics/Paint;)V
-    .registers 3
+    .locals 0
     .parameter "oval"
     .parameter "paint"
 
@@ -391,7 +391,7 @@
 .end method
 
 .method public drawPaint(Landroid/graphics/Paint;)V
-    .registers 2
+    .locals 0
     .parameter "paint"
 
     .prologue
@@ -406,7 +406,7 @@
 .end method
 
 .method public drawPatch(Landroid/graphics/Bitmap;[BLandroid/graphics/RectF;Landroid/graphics/Paint;)V
-    .registers 6
+    .locals 1
     .parameter "bitmap"
     .parameter "chunks"
     .parameter "dst"
@@ -428,7 +428,7 @@
 .end method
 
 .method public drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
-    .registers 3
+    .locals 0
     .parameter "path"
     .parameter "paint"
 
@@ -444,7 +444,7 @@
 .end method
 
 .method public drawPoint(FFLandroid/graphics/Paint;)V
-    .registers 4
+    .locals 0
     .parameter "x"
     .parameter "y"
     .parameter "paint"
@@ -461,7 +461,7 @@
 .end method
 
 .method public drawPoints([FIILandroid/graphics/Paint;)V
-    .registers 5
+    .locals 0
     .parameter "pts"
     .parameter "offset"
     .parameter "count"
@@ -479,7 +479,7 @@
 .end method
 
 .method public drawPoints([FLandroid/graphics/Paint;)V
-    .registers 3
+    .locals 0
     .parameter "pts"
     .parameter "paint"
 
@@ -495,7 +495,7 @@
 .end method
 
 .method public drawPosText(Ljava/lang/String;[FLandroid/graphics/Paint;)V
-    .registers 4
+    .locals 0
     .parameter "text"
     .parameter "pos"
     .parameter "paint"
@@ -512,7 +512,7 @@
 .end method
 
 .method public drawPosText([CII[FLandroid/graphics/Paint;)V
-    .registers 6
+    .locals 0
     .parameter "text"
     .parameter "index"
     .parameter "count"
@@ -531,7 +531,7 @@
 .end method
 
 .method public drawRect(FFFFLandroid/graphics/Paint;)V
-    .registers 6
+    .locals 0
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -550,7 +550,7 @@
 .end method
 
 .method public drawRect(Landroid/graphics/Rect;Landroid/graphics/Paint;)V
-    .registers 3
+    .locals 0
     .parameter "r"
     .parameter "paint"
 
@@ -566,7 +566,7 @@
 .end method
 
 .method public drawRect(Landroid/graphics/RectF;Landroid/graphics/Paint;)V
-    .registers 3
+    .locals 0
     .parameter "r"
     .parameter "paint"
 
@@ -582,7 +582,7 @@
 .end method
 
 .method public drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
-    .registers 5
+    .locals 0
     .parameter "rect"
     .parameter "rx"
     .parameter "ry"
@@ -600,7 +600,7 @@
 .end method
 
 .method public drawText(Ljava/lang/CharSequence;IIFFLandroid/graphics/Paint;)V
-    .registers 7
+    .locals 0
     .parameter "text"
     .parameter "start"
     .parameter "end"
@@ -620,7 +620,7 @@
 .end method
 
 .method public drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
-    .registers 5
+    .locals 0
     .parameter "text"
     .parameter "x"
     .parameter "y"
@@ -638,7 +638,7 @@
 .end method
 
 .method public drawText(Ljava/lang/String;IIFFLandroid/graphics/Paint;)V
-    .registers 7
+    .locals 0
     .parameter "text"
     .parameter "start"
     .parameter "end"
@@ -658,7 +658,7 @@
 .end method
 
 .method public drawText([CIIFFLandroid/graphics/Paint;)V
-    .registers 7
+    .locals 0
     .parameter "text"
     .parameter "index"
     .parameter "count"
@@ -678,7 +678,7 @@
 .end method
 
 .method public drawTextOnPath(Ljava/lang/String;Landroid/graphics/Path;FFLandroid/graphics/Paint;)V
-    .registers 6
+    .locals 0
     .parameter "text"
     .parameter "path"
     .parameter "hOffset"
@@ -697,7 +697,7 @@
 .end method
 
 .method public drawTextOnPath([CIILandroid/graphics/Path;FFLandroid/graphics/Paint;)V
-    .registers 8
+    .locals 0
     .parameter "text"
     .parameter "index"
     .parameter "count"
@@ -718,7 +718,7 @@
 .end method
 
 .method public drawTextRun(Ljava/lang/CharSequence;IIIIFFILandroid/graphics/Paint;)V
-    .registers 10
+    .locals 0
     .parameter "text"
     .parameter "start"
     .parameter "end"
@@ -741,7 +741,7 @@
 .end method
 
 .method public drawTextRun([CIIIIFFILandroid/graphics/Paint;)V
-    .registers 10
+    .locals 0
     .parameter "text"
     .parameter "index"
     .parameter "count"
@@ -764,7 +764,7 @@
 .end method
 
 .method public drawVertices(Landroid/graphics/Canvas$VertexMode;I[FI[FI[II[SIILandroid/graphics/Paint;)V
-    .registers 13
+    .locals 0
     .parameter "mode"
     .parameter "vertexCount"
     .parameter "verts"
@@ -790,7 +790,7 @@
 .end method
 
 .method end(I)I
-    .registers 3
+    .locals 1
     .parameter "nativeDisplayList"
 
     .prologue
@@ -803,7 +803,7 @@
 .end method
 
 .method public getNextPoolable()Landroid/view/GLES20RecordingCanvas;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 310
@@ -813,7 +813,7 @@
 .end method
 
 .method public bridge synthetic getNextPoolable()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 38
@@ -825,7 +825,7 @@
 .end method
 
 .method public isPooled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 320
@@ -835,7 +835,7 @@
 .end method
 
 .method recycle()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 72
@@ -856,7 +856,7 @@
 .end method
 
 .method public setNextPoolable(Landroid/view/GLES20RecordingCanvas;)V
-    .registers 2
+    .locals 0
     .parameter "element"
 
     .prologue
@@ -868,7 +868,7 @@
 .end method
 
 .method public bridge synthetic setNextPoolable(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -882,7 +882,7 @@
 .end method
 
 .method public setPooled(Z)V
-    .registers 2
+    .locals 0
     .parameter "isPooled"
 
     .prologue
@@ -894,7 +894,7 @@
 .end method
 
 .method start()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 78

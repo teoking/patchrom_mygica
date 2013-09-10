@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 111
@@ -19,13 +19,13 @@
 
     new-array v0, v0, [C
 
-    fill-array-data v0, :array_a
+    fill-array-data v0, :array_0
 
     sput-object v0, Landroid/text/method/DialerKeyListener;->CHARACTERS:[C
 
     return-void
 
-    :array_a
+    :array_0
     .array-data 0x2
         0x30t 0x0t
         0x31t 0x0t
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 31
@@ -63,23 +63,23 @@
 .end method
 
 .method public static getInstance()Landroid/text/method/DialerKeyListener;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 40
     sget-object v0, Landroid/text/method/DialerKeyListener;->sInstance:Landroid/text/method/DialerKeyListener;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 41
     sget-object v0, Landroid/text/method/DialerKeyListener;->sInstance:Landroid/text/method/DialerKeyListener;
 
     .line 44
-    :goto_6
+    :goto_0
     return-object v0
 
     .line 43
-    :cond_7
+    :cond_0
     new-instance v0, Landroid/text/method/DialerKeyListener;
 
     invoke-direct {v0}, Landroid/text/method/DialerKeyListener;-><init>()V
@@ -89,13 +89,13 @@
     .line 44
     sget-object v0, Landroid/text/method/DialerKeyListener;->sInstance:Landroid/text/method/DialerKeyListener;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected getAcceptedChars()[C
-    .registers 2
+    .locals 1
 
     .prologue
     .line 36
@@ -105,7 +105,7 @@
 .end method
 
 .method public getInputType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 48
@@ -115,7 +115,7 @@
 .end method
 
 .method protected lookup(Landroid/view/KeyEvent;Landroid/text/Spannable;)I
-    .registers 11
+    .locals 8
     .parameter "event"
     .parameter "content"
 
@@ -141,36 +141,36 @@
     .local v5, number:I
     and-int/lit8 v6, v4, 0x3
 
-    if-nez v6, :cond_15
+    if-nez v6, :cond_1
 
     .line 64
-    if-eqz v5, :cond_15
+    if-eqz v5, :cond_1
 
     .line 100
     .end local v5           #number:I
-    :cond_14
-    :goto_14
+    :cond_0
+    :goto_0
     return v5
 
     .line 69
     .restart local v5       #number:I
-    :cond_15
+    :cond_1
     invoke-super {p0, p1, p2}, Landroid/text/method/NumberKeyListener;->lookup(Landroid/view/KeyEvent;Landroid/text/Spannable;)I
 
     move-result v3
 
     .line 71
     .local v3, match:I
-    if-eqz v3, :cond_1d
+    if-eqz v3, :cond_2
 
     move v5, v3
 
     .line 72
-    goto :goto_14
+    goto :goto_0
 
     .line 81
-    :cond_1d
-    if-eqz v4, :cond_14
+    :cond_2
+    if-eqz v4, :cond_0
 
     .line 82
     new-instance v2, Landroid/view/KeyCharacterMap$KeyData;
@@ -189,18 +189,18 @@
 
     move-result v6
 
-    if-eqz v6, :cond_14
+    if-eqz v6, :cond_0
 
     .line 86
     const/4 v1, 0x1
 
     .local v1, i:I
-    :goto_2f
+    :goto_1
     iget-object v6, v2, Landroid/view/KeyCharacterMap$KeyData;->meta:[C
 
     array-length v6, v6
 
-    if-ge v1, v6, :cond_14
+    if-ge v1, v6, :cond_0
 
     .line 87
     iget-object v6, v2, Landroid/view/KeyCharacterMap$KeyData;->meta:[C
@@ -211,18 +211,18 @@
 
     move-result v6
 
-    if-eqz v6, :cond_43
+    if-eqz v6, :cond_3
 
     .line 88
     iget-object v6, v2, Landroid/view/KeyCharacterMap$KeyData;->meta:[C
 
     aget-char v5, v6, v1
 
-    goto :goto_14
+    goto :goto_0
 
     .line 86
-    :cond_43
+    :cond_3
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2f
+    goto :goto_1
 .end method

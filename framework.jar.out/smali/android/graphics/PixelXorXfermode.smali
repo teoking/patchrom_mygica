@@ -10,7 +10,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "opColor"
 
     .prologue

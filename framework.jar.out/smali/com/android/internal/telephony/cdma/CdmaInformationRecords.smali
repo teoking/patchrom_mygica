@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 11
+    .locals 9
     .parameter "p"
 
     .prologue
@@ -61,10 +61,10 @@
 
     .line 41
     .local v1, id:I
-    packed-switch v1, :pswitch_data_c2
+    packed-switch v1, :pswitch_data_0
 
     .line 79
-    :pswitch_a
+    :pswitch_0
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -100,7 +100,7 @@
     throw v0
 
     .line 44
-    :pswitch_2d
+    :pswitch_1
     new-instance v0, Lcom/android/internal/telephony/cdma/CdmaInformationRecords$CdmaDisplayInfoRec;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -112,11 +112,11 @@
     iput-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaInformationRecords;->record:Ljava/lang/Object;
 
     .line 83
-    :goto_38
+    :goto_0
     return-void
 
     .line 50
-    :pswitch_39
+    :pswitch_2
     new-instance v0, Lcom/android/internal/telephony/cdma/CdmaInformationRecords$CdmaNumberInfoRec;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -143,10 +143,10 @@
 
     iput-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaInformationRecords;->record:Ljava/lang/Object;
 
-    goto :goto_38
+    goto :goto_0
 
     .line 55
-    :pswitch_55
+    :pswitch_3
     new-instance v0, Lcom/android/internal/telephony/cdma/CdmaInformationRecords$CdmaSignalInfoRec;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -169,10 +169,10 @@
 
     iput-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaInformationRecords;->record:Ljava/lang/Object;
 
-    goto :goto_38
+    goto :goto_0
 
     .line 59
-    :pswitch_6d
+    :pswitch_4
     new-instance v2, Lcom/android/internal/telephony/cdma/CdmaInformationRecords$CdmaRedirectingNumberInfoRec;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -203,10 +203,10 @@
 
     iput-object v2, p0, Lcom/android/internal/telephony/cdma/CdmaInformationRecords;->record:Ljava/lang/Object;
 
-    goto :goto_38
+    goto :goto_0
 
     .line 64
-    :pswitch_8d
+    :pswitch_5
     new-instance v0, Lcom/android/internal/telephony/cdma/CdmaInformationRecords$CdmaLineControlInfoRec;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -229,10 +229,10 @@
 
     iput-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaInformationRecords;->record:Ljava/lang/Object;
 
-    goto :goto_38
+    goto :goto_0
 
     .line 69
-    :pswitch_a5
+    :pswitch_6
     new-instance v0, Lcom/android/internal/telephony/cdma/CdmaInformationRecords$CdmaT53ClirInfoRec;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -243,10 +243,10 @@
 
     iput-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaInformationRecords;->record:Ljava/lang/Object;
 
-    goto :goto_38
+    goto :goto_0
 
     .line 73
-    :pswitch_b1
+    :pswitch_7
     new-instance v0, Lcom/android/internal/telephony/cdma/CdmaInformationRecords$CdmaT53AudioControlInfoRec;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -261,120 +261,120 @@
 
     iput-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaInformationRecords;->record:Ljava/lang/Object;
 
-    goto/16 :goto_38
+    goto/16 :goto_0
 
     .line 41
-    :pswitch_data_c2
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_2d
-        :pswitch_39
-        :pswitch_39
-        :pswitch_39
-        :pswitch_55
-        :pswitch_6d
-        :pswitch_8d
-        :pswitch_2d
-        :pswitch_a5
-        :pswitch_a
-        :pswitch_b1
+        :pswitch_1
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_1
+        :pswitch_6
+        :pswitch_0
+        :pswitch_7
     .end packed-switch
 .end method
 
 .method public static idToString(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "id"
 
     .prologue
     .line 86
-    packed-switch p0, :pswitch_data_28
+    packed-switch p0, :pswitch_data_0
 
     .line 98
     const-string v0, "<unknown record>"
 
-    :goto_5
+    :goto_0
     return-object v0
 
     .line 87
-    :pswitch_6
+    :pswitch_0
     const-string v0, "RIL_CDMA_DISPLAY_INFO_REC"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 88
-    :pswitch_9
+    :pswitch_1
     const-string v0, "RIL_CDMA_CALLED_PARTY_NUMBER_INFO_REC"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 89
-    :pswitch_c
+    :pswitch_2
     const-string v0, "RIL_CDMA_CALLING_PARTY_NUMBER_INFO_REC"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 90
-    :pswitch_f
+    :pswitch_3
     const-string v0, "RIL_CDMA_CONNECTED_NUMBER_INFO_REC"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 91
-    :pswitch_12
+    :pswitch_4
     const-string v0, "RIL_CDMA_SIGNAL_INFO_REC"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 92
-    :pswitch_15
+    :pswitch_5
     const-string v0, "RIL_CDMA_REDIRECTING_NUMBER_INFO_REC"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 93
-    :pswitch_18
+    :pswitch_6
     const-string v0, "RIL_CDMA_LINE_CONTROL_INFO_REC"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 94
-    :pswitch_1b
+    :pswitch_7
     const-string v0, "RIL_CDMA_EXTENDED_DISPLAY_INFO_REC"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 95
-    :pswitch_1e
+    :pswitch_8
     const-string v0, "RIL_CDMA_T53_CLIR_INFO_REC"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 96
-    :pswitch_21
+    :pswitch_9
     const-string v0, "RIL_CDMA_T53_RELEASE_INFO_REC"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 97
-    :pswitch_24
+    :pswitch_a
     const-string v0, "RIL_CDMA_T53_AUDIO_CONTROL_INFO_REC"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 86
     nop
 
-    :pswitch_data_28
+    :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
         :pswitch_6
+        :pswitch_7
+        :pswitch_8
         :pswitch_9
-        :pswitch_c
-        :pswitch_f
-        :pswitch_12
-        :pswitch_15
-        :pswitch_18
-        :pswitch_1b
-        :pswitch_1e
-        :pswitch_21
-        :pswitch_24
+        :pswitch_a
     .end packed-switch
 .end method

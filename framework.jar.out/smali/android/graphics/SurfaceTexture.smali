@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 317
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "texName"
 
     .prologue
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(IZ)V
-    .registers 5
+    .locals 2
     .parameter "texName"
     .parameter "allowSynchronousMode"
 
@@ -61,7 +61,7 @@
     move-result-object v0
 
     .local v0, looper:Landroid/os/Looper;
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     .line 114
     new-instance v1, Landroid/graphics/SurfaceTexture$EventHandler;
@@ -71,7 +71,7 @@
     iput-object v1, p0, Landroid/graphics/SurfaceTexture;->mEventHandler:Landroid/graphics/SurfaceTexture$EventHandler;
 
     .line 120
-    :goto_10
+    :goto_0
     new-instance v1, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v1, p0}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
@@ -82,12 +82,12 @@
     return-void
 
     .line 115
-    :cond_19
+    :cond_0
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v0
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_1
 
     .line 116
     new-instance v1, Landroid/graphics/SurfaceTexture$EventHandler;
@@ -96,19 +96,19 @@
 
     iput-object v1, p0, Landroid/graphics/SurfaceTexture;->mEventHandler:Landroid/graphics/SurfaceTexture$EventHandler;
 
-    goto :goto_10
+    goto :goto_0
 
     .line 118
-    :cond_27
+    :cond_1
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/graphics/SurfaceTexture;->mEventHandler:Landroid/graphics/SurfaceTexture$EventHandler;
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method static synthetic access$000(Landroid/graphics/SurfaceTexture;)Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -152,7 +152,7 @@
 .end method
 
 .method private static postEventFromNative(Ljava/lang/Object;)V
-    .registers 5
+    .locals 4
     .parameter "selfRef"
 
     .prologue
@@ -171,18 +171,18 @@
 
     .line 291
     .local v1, st:Landroid/graphics/SurfaceTexture;
-    if-nez v1, :cond_c
+    if-nez v1, :cond_1
 
     .line 299
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return-void
 
     .line 295
-    :cond_c
+    :cond_1
     iget-object v3, v1, Landroid/graphics/SurfaceTexture;->mEventHandler:Landroid/graphics/SurfaceTexture$EventHandler;
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_0
 
     .line 296
     iget-object v3, v1, Landroid/graphics/SurfaceTexture;->mEventHandler:Landroid/graphics/SurfaceTexture$EventHandler;
@@ -197,13 +197,13 @@
 
     invoke-virtual {v3, v0}, Landroid/graphics/SurfaceTexture$EventHandler;->sendMessage(Landroid/os/Message;)Z
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public attachToGLContext(I)V
-    .registers 5
+    .locals 3
     .parameter "texName"
 
     .prologue
@@ -214,7 +214,7 @@
 
     .line 198
     .local v0, err:I
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 199
     new-instance v1, Ljava/lang/RuntimeException;
@@ -226,12 +226,12 @@
     throw v1
 
     .line 201
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public detachFromGLContext()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 177
@@ -241,7 +241,7 @@
 
     .line 178
     .local v0, err:I
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 179
     new-instance v1, Ljava/lang/RuntimeException;
@@ -253,12 +253,12 @@
     throw v1
 
     .line 181
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -269,8 +269,8 @@
     .line 265
     :try_start_0
     invoke-direct {p0}, Landroid/graphics/SurfaceTexture;->nativeFinalize()V
-    :try_end_3
-    .catchall {:try_start_0 .. :try_end_3} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 267
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -279,7 +279,7 @@
     return-void
 
     .line 267
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -288,7 +288,7 @@
 .end method
 
 .method public getTimestamp()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 241
@@ -300,7 +300,7 @@
 .end method
 
 .method public getTransformMatrix([F)V
-    .registers 4
+    .locals 2
     .parameter "mtx"
 
     .prologue
@@ -309,7 +309,7 @@
 
     const/16 v1, 0x10
 
-    if-eq v0, v1, :cond_b
+    if-eq v0, v1, :cond_0
 
     .line 222
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -319,7 +319,7 @@
     throw v0
 
     .line 224
-    :cond_b
+    :cond_0
     invoke-direct {p0, p1}, Landroid/graphics/SurfaceTexture;->nativeGetTransformMatrix([F)V
 
     .line 225
@@ -327,7 +327,7 @@
 .end method
 
 .method public release()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 260
@@ -338,7 +338,7 @@
 .end method
 
 .method public setDefaultBufferSize(II)V
-    .registers 3
+    .locals 0
     .parameter "width"
     .parameter "height"
 
@@ -351,7 +351,7 @@
 .end method
 
 .method public setOnFrameAvailableListener(Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;)V
-    .registers 2
+    .locals 0
     .parameter "l"
 
     .prologue
@@ -363,7 +363,7 @@
 .end method
 
 .method public updateTexImage()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 162

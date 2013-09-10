@@ -20,7 +20,7 @@
 
 # direct methods
 .method public varargs constructor <init>(Landroid/content/Context;[Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "files"
 
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public performBackup(Landroid/os/ParcelFileDescriptor;Landroid/app/backup/BackupDataOutput;Landroid/os/ParcelFileDescriptor;)V
-    .registers 6
+    .locals 2
     .parameter "oldState"
     .parameter "data"
     .parameter "newState"
@@ -59,7 +59,7 @@
 .end method
 
 .method public restoreEntity(Landroid/app/backup/BackupDataInputStream;)V
-    .registers 5
+    .locals 3
     .parameter "data"
 
     .prologue
@@ -76,7 +76,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_0
 
     .line 70
     new-instance v0, Ljava/io/File;
@@ -89,12 +89,12 @@
 
     .line 73
     .end local v0           #f:Ljava/io/File;
-    :cond_14
+    :cond_0
     return-void
 .end method
 
 .method public bridge synthetic writeNewStateDescription(Landroid/os/ParcelFileDescriptor;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue

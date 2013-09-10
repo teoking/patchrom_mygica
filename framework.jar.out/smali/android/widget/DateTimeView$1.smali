@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/DateTimeView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 8
+    .locals 5
     .parameter "context"
     .parameter "intent"
 
@@ -53,7 +53,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_0
 
     .line 243
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -62,20 +62,21 @@
 
     iget-object v3, p0, Landroid/widget/DateTimeView$1;->this$0:Landroid/widget/DateTimeView;
 
+    #getter for: Landroid/widget/DateTimeView;->mUpdateTimeMillis:J
     invoke-static {v3}, Landroid/widget/DateTimeView;->access$000(Landroid/widget/DateTimeView;)J
 
     move-result-wide v3
 
     cmp-long v1, v1, v3
 
-    if-gez v1, :cond_1b
+    if-gez v1, :cond_0
 
     .line 253
-    :goto_1a
+    :goto_0
     return-void
 
     .line 251
-    :cond_1b
+    :cond_0
     iget-object v1, p0, Landroid/widget/DateTimeView$1;->this$0:Landroid/widget/DateTimeView;
 
     const/4 v2, 0x0
@@ -87,5 +88,5 @@
 
     invoke-virtual {v1}, Landroid/widget/DateTimeView;->update()V
 
-    goto :goto_1a
+    goto :goto_0
 .end method

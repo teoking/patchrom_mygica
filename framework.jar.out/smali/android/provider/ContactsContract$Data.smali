@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 4324
@@ -43,7 +43,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 4318
@@ -53,7 +53,7 @@
 .end method
 
 .method public static getContactLookupUri(Landroid/content/ContentResolver;Landroid/net/Uri;)Landroid/net/Uri;
-    .registers 13
+    .locals 11
     .parameter "resolver"
     .parameter "dataUri"
 
@@ -95,14 +95,14 @@
 
     .line 4351
     .local v10, lookupUri:Landroid/net/Uri;
-    if-eqz v8, :cond_33
+    if-eqz v8, :cond_1
 
-    :try_start_19
+    :try_start_0
     invoke-interface {v8}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_1
 
     .line 4352
     const/4 v0, 0x0
@@ -122,40 +122,40 @@
     .line 4354
     .local v9, lookupKey:Ljava/lang/String;
     invoke-static {v6, v7, v9}, Landroid/provider/ContactsContract$Contacts;->getLookupUri(JLjava/lang/String;)Landroid/net/Uri;
-    :try_end_2c
-    .catchall {:try_start_19 .. :try_end_2c} :catchall_39
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v10
 
     .line 4357
     .end local v10           #lookupUri:Landroid/net/Uri;
-    if-eqz v8, :cond_32
+    if-eqz v8, :cond_0
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
     .line 4359
     .end local v6           #contactId:J
     .end local v9           #lookupKey:Ljava/lang/String;
-    :cond_32
-    :goto_32
+    :cond_0
+    :goto_0
     return-object v10
 
     .line 4357
     .restart local v10       #lookupUri:Landroid/net/Uri;
-    :cond_33
-    if-eqz v8, :cond_32
+    :cond_1
+    if-eqz v8, :cond_0
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    goto :goto_32
+    goto :goto_0
 
-    :catchall_39
+    :catchall_0
     move-exception v0
 
-    if-eqz v8, :cond_3f
+    if-eqz v8, :cond_2
 
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    :cond_3f
+    :cond_2
     throw v0
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 168
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Z)V
-    .registers 2
+    .locals 0
     .parameter "appendInvalid"
 
     .prologue
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public isAllowed(C)Z
-    .registers 5
+    .locals 3
     .parameter "c"
 
     .prologue
@@ -56,39 +56,39 @@
     .line 178
     const/16 v1, 0x30
 
-    if-gt v1, p1, :cond_a
+    if-gt v1, p1, :cond_1
 
     const/16 v1, 0x39
 
-    if-gt p1, v1, :cond_a
+    if-gt p1, v1, :cond_1
 
     .line 186
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return v0
 
     .line 180
-    :cond_a
+    :cond_1
     const/16 v1, 0x61
 
-    if-gt v1, p1, :cond_12
+    if-gt v1, p1, :cond_2
 
     const/16 v1, 0x7a
 
-    if-le p1, v1, :cond_9
+    if-le p1, v1, :cond_0
 
     .line 182
-    :cond_12
+    :cond_2
     const/16 v1, 0x41
 
-    if-gt v1, p1, :cond_1a
+    if-gt v1, p1, :cond_3
 
     const/16 v1, 0x5a
 
-    if-le p1, v1, :cond_9
+    if-le p1, v1, :cond_0
 
     .line 184
-    :cond_1a
+    :cond_3
     const-string v1, "@_-+."
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->indexOf(I)I
@@ -97,10 +97,10 @@
 
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_9
+    if-ne v1, v2, :cond_0
 
     .line 186
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method

@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "valueCount"
 
     .prologue
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .registers 4
+    .locals 1
     .parameter "valueCount"
     .parameter "frameCount"
 
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -112,7 +112,7 @@
 .end method
 
 .method public final getKeyFrameCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 56
@@ -122,7 +122,7 @@
 .end method
 
 .method public final getValueCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60
@@ -132,7 +132,7 @@
 .end method
 
 .method public reset(I)V
-    .registers 3
+    .locals 1
     .parameter "valueCount"
 
     .prologue
@@ -146,7 +146,7 @@
 .end method
 
 .method public reset(II)V
-    .registers 4
+    .locals 1
     .parameter "valueCount"
     .parameter "frameCount"
 
@@ -167,7 +167,7 @@
 .end method
 
 .method public setKeyFrame(II[F)V
-    .registers 5
+    .locals 1
     .parameter "index"
     .parameter "msec"
     .parameter "values"
@@ -183,7 +183,7 @@
 .end method
 
 .method public setKeyFrame(II[F[F)V
-    .registers 7
+    .locals 2
     .parameter "index"
     .parameter "msec"
     .parameter "values"
@@ -191,14 +191,14 @@
 
     .prologue
     .line 88
-    if-ltz p1, :cond_6
+    if-ltz p1, :cond_0
 
     iget v0, p0, Landroid/graphics/Interpolator;->mFrameCount:I
 
-    if-lt p1, v0, :cond_c
+    if-lt p1, v0, :cond_1
 
     .line 89
-    :cond_6
+    :cond_0
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
@@ -206,12 +206,12 @@
     throw v0
 
     .line 91
-    :cond_c
+    :cond_1
     array-length v0, p3
 
     iget v1, p0, Landroid/graphics/Interpolator;->mValueCount:I
 
-    if-ge v0, v1, :cond_17
+    if-ge v0, v1, :cond_2
 
     .line 92
     new-instance v0, Ljava/lang/ArrayStoreException;
@@ -221,14 +221,14 @@
     throw v0
 
     .line 94
-    :cond_17
-    if-eqz p4, :cond_23
+    :cond_2
+    if-eqz p4, :cond_3
 
     array-length v0, p4
 
     const/4 v1, 0x4
 
-    if-ge v0, v1, :cond_23
+    if-ge v0, v1, :cond_3
 
     .line 95
     new-instance v0, Ljava/lang/ArrayStoreException;
@@ -238,7 +238,7 @@
     throw v0
 
     .line 97
-    :cond_23
+    :cond_3
     iget v0, p0, Landroid/graphics/Interpolator;->native_instance:I
 
     invoke-static {v0, p1, p2, p3, p4}, Landroid/graphics/Interpolator;->nativeSetKeyFrame(III[F[F)V
@@ -248,7 +248,7 @@
 .end method
 
 .method public setRepeatMirror(FZ)V
-    .registers 4
+    .locals 1
     .parameter "repeatCount"
     .parameter "mirror"
 
@@ -258,7 +258,7 @@
 
     cmpl-float v0, p1, v0
 
-    if-ltz v0, :cond_a
+    if-ltz v0, :cond_0
 
     .line 107
     iget v0, p0, Landroid/graphics/Interpolator;->native_instance:I
@@ -266,24 +266,24 @@
     invoke-static {v0, p1, p2}, Landroid/graphics/Interpolator;->nativeSetRepeatMirror(IFZ)V
 
     .line 109
-    :cond_a
+    :cond_0
     return-void
 .end method
 
 .method public timeToValues(I[F)Landroid/graphics/Interpolator$Result;
-    .registers 5
+    .locals 2
     .parameter "msec"
     .parameter "values"
 
     .prologue
     .line 137
-    if-eqz p2, :cond_d
+    if-eqz p2, :cond_0
 
     array-length v0, p2
 
     iget v1, p0, Landroid/graphics/Interpolator;->mValueCount:I
 
-    if-ge v0, v1, :cond_d
+    if-ge v0, v1, :cond_0
 
     .line 138
     new-instance v0, Ljava/lang/ArrayStoreException;
@@ -293,45 +293,45 @@
     throw v0
 
     .line 140
-    :cond_d
+    :cond_0
     iget v0, p0, Landroid/graphics/Interpolator;->native_instance:I
 
     invoke-static {v0, p1, p2}, Landroid/graphics/Interpolator;->nativeTimeToValues(II[F)I
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_20
+    packed-switch v0, :pswitch_data_0
 
     .line 143
     sget-object v0, Landroid/graphics/Interpolator$Result;->FREEZE_END:Landroid/graphics/Interpolator$Result;
 
-    :goto_18
+    :goto_0
     return-object v0
 
     .line 141
-    :pswitch_19
+    :pswitch_0
     sget-object v0, Landroid/graphics/Interpolator$Result;->NORMAL:Landroid/graphics/Interpolator$Result;
 
-    goto :goto_18
+    goto :goto_0
 
     .line 142
-    :pswitch_1c
+    :pswitch_1
     sget-object v0, Landroid/graphics/Interpolator$Result;->FREEZE_START:Landroid/graphics/Interpolator$Result;
 
-    goto :goto_18
+    goto :goto_0
 
     .line 140
     nop
 
-    :pswitch_data_20
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_19
-        :pswitch_1c
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public timeToValues([F)Landroid/graphics/Interpolator$Result;
-    .registers 4
+    .locals 2
     .parameter "values"
 
     .prologue

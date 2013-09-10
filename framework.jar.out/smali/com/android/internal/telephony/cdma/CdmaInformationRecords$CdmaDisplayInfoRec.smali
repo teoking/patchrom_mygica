@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "id"
     .parameter "alpha"
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 142

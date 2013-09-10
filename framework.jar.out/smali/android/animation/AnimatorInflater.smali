@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 42
@@ -29,7 +29,7 @@
 .end method
 
 .method private static createAnimatorFromXml(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;)Landroid/animation/Animator;
-    .registers 5
+    .locals 3
     .parameter "c"
     .parameter "parser"
     .annotation system Ldalvik/annotation/Throws;
@@ -57,7 +57,7 @@
 .end method
 
 .method private static createAnimatorFromXml(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/animation/AnimatorSet;I)Landroid/animation/Animator;
-    .registers 22
+    .locals 17
     .parameter "c"
     .parameter "parser"
     .parameter "attrs"
@@ -86,8 +86,8 @@
 
     .line 108
     .local v7, depth:I
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v13
@@ -95,23 +95,23 @@
     .local v13, type:I
     const/4 v14, 0x3
 
-    if-ne v13, v14, :cond_13
+    if-ne v13, v14, :cond_1
 
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
     move-result v14
 
-    if-le v14, v7, :cond_98
+    if-le v14, v7, :cond_6
 
-    :cond_13
+    :cond_1
     const/4 v14, 0x1
 
-    if-eq v13, v14, :cond_98
+    if-eq v13, v14, :cond_6
 
     .line 110
     const/4 v14, 0x2
 
-    if-ne v13, v14, :cond_6
+    if-ne v13, v14, :cond_0
 
     .line 114
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
@@ -126,7 +126,7 @@
 
     move-result v14
 
-    if-eqz v14, :cond_3b
+    if-eqz v14, :cond_3
 
     .line 117
     move-object/from16 v0, p0
@@ -138,11 +138,11 @@
     move-result-object v4
 
     .line 132
-    :goto_2e
-    if-eqz p3, :cond_6
+    :goto_1
+    if-eqz p3, :cond_0
 
     .line 133
-    if-nez v6, :cond_37
+    if-nez v6, :cond_2
 
     .line 134
     new-instance v6, Ljava/util/ArrayList;
@@ -152,20 +152,20 @@
 
     .line 136
     .restart local v6       #childAnims:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/animation/Animator;>;"
-    :cond_37
+    :cond_2
     invoke-virtual {v6, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_6
+    goto :goto_0
 
     .line 118
-    :cond_3b
+    :cond_3
     const-string v14, "animator"
 
     invoke-virtual {v11, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-eqz v14, :cond_4d
+    if-eqz v14, :cond_4
 
     .line 119
     const/4 v14, 0x0
@@ -178,17 +178,17 @@
 
     move-result-object v4
 
-    goto :goto_2e
+    goto :goto_1
 
     .line 120
-    :cond_4d
+    :cond_4
     const-string/jumbo v14, "set"
 
     invoke-virtual {v11, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-eqz v14, :cond_7b
+    if-eqz v14, :cond_5
 
     .line 121
     new-instance v4, Landroid/animation/AnimatorSet;
@@ -235,12 +235,12 @@
     .line 127
     invoke-virtual {v3}, Landroid/content/res/TypedArray;->recycle()V
 
-    goto :goto_2e
+    goto :goto_1
 
     .line 129
     .end local v3           #a:Landroid/content/res/TypedArray;
     .end local v12           #ordering:I
-    :cond_7b
+    :cond_5
     new-instance v14, Ljava/lang/RuntimeException;
 
     new-instance v15, Ljava/lang/StringBuilder;
@@ -271,10 +271,10 @@
 
     .line 139
     .end local v11           #name:Ljava/lang/String;
-    :cond_98
-    if-eqz p3, :cond_c0
+    :cond_6
+    if-eqz p3, :cond_8
 
-    if-eqz v6, :cond_c0
+    if-eqz v6, :cond_8
 
     .line 140
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
@@ -294,12 +294,12 @@
     move-result-object v8
 
     .local v8, i$:Ljava/util/Iterator;
-    :goto_a7
+    :goto_2
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v14
 
-    if-eqz v14, :cond_b9
+    if-eqz v14, :cond_7
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -319,12 +319,12 @@
 
     .end local v10           #index:I
     .restart local v9       #index:I
-    goto :goto_a7
+    goto :goto_2
 
     .line 145
     .end local v3           #a:Landroid/animation/Animator;
-    :cond_b9
-    if-nez p4, :cond_c1
+    :cond_7
+    if-nez p4, :cond_9
 
     .line 146
     move-object/from16 v0, p3
@@ -335,24 +335,24 @@
     .end local v5           #animsArray:[Landroid/animation/Animator;
     .end local v8           #i$:Ljava/util/Iterator;
     .end local v9           #index:I
-    :cond_c0
-    :goto_c0
+    :cond_8
+    :goto_3
     return-object v4
 
     .line 148
     .restart local v5       #animsArray:[Landroid/animation/Animator;
     .restart local v8       #i$:Ljava/util/Iterator;
     .restart local v9       #index:I
-    :cond_c1
+    :cond_9
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v5}, Landroid/animation/AnimatorSet;->playSequentially([Landroid/animation/Animator;)V
 
-    goto :goto_c0
+    goto :goto_3
 .end method
 
 .method public static loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
-    .registers 7
+    .locals 5
     .parameter "context"
     .parameter "id"
     .annotation system Ldalvik/annotation/Throws;
@@ -367,7 +367,7 @@
 
     .line 71
     .local v1, parser:Landroid/content/res/XmlResourceParser;
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -378,28 +378,28 @@
 
     .line 72
     invoke-static {p0, v1}, Landroid/animation/AnimatorInflater;->createAnimatorFromXml(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;)Landroid/animation/Animator;
-    :try_end_c
-    .catchall {:try_start_1 .. :try_end_c} :catchall_34
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_c} :catch_13
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_c} :catch_3b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v3
 
     .line 86
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_0
 
     invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->close()V
 
-    :cond_12
+    :cond_0
     return-object v3
 
     .line 73
-    :catch_13
+    :catch_0
     move-exception v0
 
     .line 74
     .local v0, ex:Lorg/xmlpull/v1/XmlPullParserException;
-    :try_start_14
+    :try_start_1
     new-instance v2, Landroid/content/res/Resources$NotFoundException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -432,29 +432,29 @@
 
     .line 78
     throw v2
-    :try_end_34
-    .catchall {:try_start_14 .. :try_end_34} :catchall_34
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 86
     .end local v0           #ex:Lorg/xmlpull/v1/XmlPullParserException;
     .end local v2           #rnf:Landroid/content/res/Resources$NotFoundException;
-    :catchall_34
+    :catchall_0
     move-exception v3
 
-    if-eqz v1, :cond_3a
+    if-eqz v1, :cond_1
 
     invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->close()V
 
-    :cond_3a
+    :cond_1
     throw v3
 
     .line 79
-    :catch_3b
+    :catch_1
     move-exception v0
 
     .line 80
     .local v0, ex:Ljava/io/IOException;
-    :try_start_3c
+    :try_start_2
     new-instance v2, Landroid/content/res/Resources$NotFoundException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -487,12 +487,12 @@
 
     .line 84
     throw v2
-    :try_end_5c
-    .catchall {:try_start_3c .. :try_end_5c} :catchall_34
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 .end method
 
 .method private static loadAnimator(Landroid/content/Context;Landroid/util/AttributeSet;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
-    .registers 27
+    .locals 24
     .parameter "context"
     .parameter "attrs"
     .parameter "anim"
@@ -568,7 +568,7 @@
 
     .line 195
     .local v21, valueType:I
-    if-nez p2, :cond_3d
+    if-nez p2, :cond_0
 
     .line 196
     new-instance p2, Landroid/animation/ValueAnimator;
@@ -578,7 +578,7 @@
 
     .line 198
     .restart local p2
-    :cond_3d
+    :cond_0
     const/4 v6, 0x0
 
     .line 200
@@ -591,13 +591,13 @@
 
     .line 203
     .local v20, valueToIndex:I
-    if-nez v21, :cond_131
+    if-nez v21, :cond_9
 
     const/4 v8, 0x1
 
     .line 205
     .local v8, getFloats:Z
-    :goto_45
+    :goto_0
     move/from16 v0, v18
 
     invoke-virtual {v3, v0}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
@@ -606,20 +606,20 @@
 
     .line 206
     .local v15, tvFrom:Landroid/util/TypedValue;
-    if-eqz v15, :cond_134
+    if-eqz v15, :cond_a
 
     const/4 v9, 0x1
 
     .line 207
     .local v9, hasFrom:Z
-    :goto_4e
-    if-eqz v9, :cond_137
+    :goto_1
+    if-eqz v9, :cond_b
 
     iget v7, v15, Landroid/util/TypedValue;->type:I
 
     .line 208
     .local v7, fromType:I
-    :goto_52
+    :goto_2
     move/from16 v0, v20
 
     invoke-virtual {v3, v0}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
@@ -628,14 +628,14 @@
 
     .line 209
     .local v16, tvTo:Landroid/util/TypedValue;
-    if-eqz v16, :cond_13a
+    if-eqz v16, :cond_c
 
     const/4 v10, 0x1
 
     .line 210
     .local v10, hasTo:Z
-    :goto_5b
-    if-eqz v10, :cond_13d
+    :goto_3
+    if-eqz v10, :cond_d
 
     move-object/from16 v0, v16
 
@@ -643,38 +643,38 @@
 
     .line 212
     .local v14, toType:I
-    :goto_61
-    if-eqz v9, :cond_6f
+    :goto_4
+    if-eqz v9, :cond_1
 
     const/16 v22, 0x1c
 
     move/from16 v0, v22
 
-    if-lt v7, v0, :cond_6f
+    if-lt v7, v0, :cond_1
 
     const/16 v22, 0x1f
 
     move/from16 v0, v22
 
-    if-le v7, v0, :cond_7d
+    if-le v7, v0, :cond_2
 
-    :cond_6f
-    if-eqz v10, :cond_8a
+    :cond_1
+    if-eqz v10, :cond_3
 
     const/16 v22, 0x1c
 
     move/from16 v0, v22
 
-    if-lt v14, v0, :cond_8a
+    if-lt v14, v0, :cond_3
 
     const/16 v22, 0x1f
 
     move/from16 v0, v22
 
-    if-gt v14, v0, :cond_8a
+    if-gt v14, v0, :cond_3
 
     .line 217
-    :cond_7d
+    :cond_2
     const/4 v8, 0x0
 
     .line 218
@@ -689,18 +689,18 @@
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setEvaluator(Landroid/animation/TypeEvaluator;)V
 
     .line 221
-    :cond_8a
-    if-eqz v8, :cond_19d
+    :cond_3
+    if-eqz v8, :cond_13
 
     .line 224
-    if-eqz v9, :cond_16d
+    if-eqz v9, :cond_11
 
     .line 225
     const/16 v22, 0x5
 
     move/from16 v0, v22
 
-    if-ne v7, v0, :cond_140
+    if-ne v7, v0, :cond_e
 
     .line 226
     const/16 v22, 0x0
@@ -715,15 +715,15 @@
 
     .line 230
     .local v17, valueFrom:F
-    :goto_9e
-    if-eqz v10, :cond_158
+    :goto_5
+    if-eqz v10, :cond_10
 
     .line 231
     const/16 v22, 0x5
 
     move/from16 v0, v22
 
-    if-ne v14, v0, :cond_14c
+    if-ne v14, v0, :cond_f
 
     .line 232
     const/16 v22, 0x0
@@ -738,7 +738,7 @@
 
     .line 236
     .local v19, valueTo:F
-    :goto_b0
+    :goto_6
     const/16 v22, 0x2
 
     move/from16 v0, v22
@@ -764,8 +764,8 @@
     .line 288
     .end local v17           #valueFrom:F
     .end local v19           #valueTo:F
-    :cond_c7
-    :goto_c7
+    :cond_4
+    :goto_7
     move-object/from16 v0, p2
 
     invoke-virtual {v0, v4, v5}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
@@ -784,7 +784,7 @@
 
     move-result v22
 
-    if-eqz v22, :cond_ee
+    if-eqz v22, :cond_5
 
     .line 292
     const/16 v22, 0x3
@@ -806,7 +806,7 @@
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setRepeatCount(I)V
 
     .line 295
-    :cond_ee
+    :cond_5
     const/16 v22, 0x4
 
     move/from16 v0, v22
@@ -815,7 +815,7 @@
 
     move-result v22
 
-    if-eqz v22, :cond_10b
+    if-eqz v22, :cond_6
 
     .line 296
     const/16 v22, 0x4
@@ -837,8 +837,8 @@
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setRepeatMode(I)V
 
     .line 300
-    :cond_10b
-    if-eqz v6, :cond_112
+    :cond_6
+    if-eqz v6, :cond_7
 
     .line 301
     move-object/from16 v0, p2
@@ -846,7 +846,7 @@
     invoke-virtual {v0, v6}, Landroid/animation/ValueAnimator;->setEvaluator(Landroid/animation/TypeEvaluator;)V
 
     .line 304
-    :cond_112
+    :cond_7
     const/16 v22, 0x0
 
     const/16 v23, 0x0
@@ -861,7 +861,7 @@
 
     .line 306
     .local v11, resID:I
-    if-lez v11, :cond_12d
+    if-lez v11, :cond_8
 
     .line 307
     move-object/from16 v0, p0
@@ -877,7 +877,7 @@
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
     .line 309
-    :cond_12d
+    :cond_8
     invoke-virtual {v3}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 311
@@ -892,44 +892,44 @@
     .end local v14           #toType:I
     .end local v15           #tvFrom:Landroid/util/TypedValue;
     .end local v16           #tvTo:Landroid/util/TypedValue;
-    :cond_131
+    :cond_9
     const/4 v8, 0x0
 
-    goto/16 :goto_45
+    goto/16 :goto_0
 
     .line 206
     .restart local v8       #getFloats:Z
     .restart local v15       #tvFrom:Landroid/util/TypedValue;
-    :cond_134
+    :cond_a
     const/4 v9, 0x0
 
-    goto/16 :goto_4e
+    goto/16 :goto_1
 
     .line 207
     .restart local v9       #hasFrom:Z
-    :cond_137
+    :cond_b
     const/4 v7, 0x0
 
-    goto/16 :goto_52
+    goto/16 :goto_2
 
     .line 209
     .restart local v7       #fromType:I
     .restart local v16       #tvTo:Landroid/util/TypedValue;
-    :cond_13a
+    :cond_c
     const/4 v10, 0x0
 
-    goto/16 :goto_5b
+    goto/16 :goto_3
 
     .line 210
     .restart local v10       #hasTo:Z
-    :cond_13d
+    :cond_d
     const/4 v14, 0x0
 
-    goto/16 :goto_61
+    goto/16 :goto_4
 
     .line 228
     .restart local v14       #toType:I
-    :cond_140
+    :cond_e
     const/16 v22, 0x0
 
     move/from16 v0, v18
@@ -941,10 +941,10 @@
     move-result v17
 
     .restart local v17       #valueFrom:F
-    goto/16 :goto_9e
+    goto/16 :goto_5
 
     .line 234
-    :cond_14c
+    :cond_f
     const/16 v22, 0x0
 
     move/from16 v0, v20
@@ -956,11 +956,11 @@
     move-result v19
 
     .restart local v19       #valueTo:F
-    goto/16 :goto_b0
+    goto/16 :goto_6
 
     .line 238
     .end local v19           #valueTo:F
-    :cond_158
+    :cond_10
     const/16 v22, 0x1
 
     move/from16 v0, v22
@@ -979,16 +979,16 @@
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setFloatValues([F)V
 
-    goto/16 :goto_c7
+    goto/16 :goto_7
 
     .line 241
     .end local v17           #valueFrom:F
-    :cond_16d
+    :cond_11
     const/16 v22, 0x5
 
     move/from16 v0, v22
 
-    if-ne v14, v0, :cond_192
+    if-ne v14, v0, :cond_12
 
     .line 242
     const/16 v22, 0x0
@@ -1003,7 +1003,7 @@
 
     .line 246
     .restart local v19       #valueTo:F
-    :goto_17d
+    :goto_8
     const/16 v22, 0x1
 
     move/from16 v0, v22
@@ -1022,11 +1022,11 @@
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setFloatValues([F)V
 
-    goto/16 :goto_c7
+    goto/16 :goto_7
 
     .line 244
     .end local v19           #valueTo:F
-    :cond_192
+    :cond_12
     const/16 v22, 0x0
 
     move/from16 v0, v20
@@ -1038,19 +1038,19 @@
     move-result v19
 
     .restart local v19       #valueTo:F
-    goto :goto_17d
+    goto :goto_8
 
     .line 251
     .end local v19           #valueTo:F
-    :cond_19d
-    if-eqz v9, :cond_23d
+    :cond_13
+    if-eqz v9, :cond_19
 
     .line 252
     const/16 v22, 0x5
 
     move/from16 v0, v22
 
-    if-ne v7, v0, :cond_1e4
+    if-ne v7, v0, :cond_14
 
     .line 253
     const/16 v22, 0x0
@@ -1071,15 +1071,15 @@
 
     .line 260
     .local v17, valueFrom:I
-    :goto_1b4
-    if-eqz v10, :cond_228
+    :goto_9
+    if-eqz v10, :cond_18
 
     .line 261
     const/16 v22, 0x5
 
     move/from16 v0, v22
 
-    if-ne v14, v0, :cond_206
+    if-ne v14, v0, :cond_16
 
     .line 262
     const/16 v22, 0x0
@@ -1100,7 +1100,7 @@
 
     .line 269
     .local v19, valueTo:I
-    :goto_1cb
+    :goto_a
     const/16 v22, 0x2
 
     move/from16 v0, v22
@@ -1123,23 +1123,23 @@
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setIntValues([I)V
 
-    goto/16 :goto_c7
+    goto/16 :goto_7
 
     .line 254
     .end local v17           #valueFrom:I
     .end local v19           #valueTo:I
-    :cond_1e4
+    :cond_14
     const/16 v22, 0x1c
 
     move/from16 v0, v22
 
-    if-lt v7, v0, :cond_1fb
+    if-lt v7, v0, :cond_15
 
     const/16 v22, 0x1f
 
     move/from16 v0, v22
 
-    if-gt v7, v0, :cond_1fb
+    if-gt v7, v0, :cond_15
 
     .line 256
     const/16 v22, 0x0
@@ -1153,11 +1153,11 @@
     move-result v17
 
     .restart local v17       #valueFrom:I
-    goto :goto_1b4
+    goto :goto_9
 
     .line 258
     .end local v17           #valueFrom:I
-    :cond_1fb
+    :cond_15
     const/16 v22, 0x0
 
     move/from16 v0, v18
@@ -1169,21 +1169,21 @@
     move-result v17
 
     .restart local v17       #valueFrom:I
-    goto :goto_1b4
+    goto :goto_9
 
     .line 263
-    :cond_206
+    :cond_16
     const/16 v22, 0x1c
 
     move/from16 v0, v22
 
-    if-lt v14, v0, :cond_21d
+    if-lt v14, v0, :cond_17
 
     const/16 v22, 0x1f
 
     move/from16 v0, v22
 
-    if-gt v14, v0, :cond_21d
+    if-gt v14, v0, :cond_17
 
     .line 265
     const/16 v22, 0x0
@@ -1197,11 +1197,11 @@
     move-result v19
 
     .restart local v19       #valueTo:I
-    goto :goto_1cb
+    goto :goto_a
 
     .line 267
     .end local v19           #valueTo:I
-    :cond_21d
+    :cond_17
     const/16 v22, 0x0
 
     move/from16 v0, v20
@@ -1213,11 +1213,11 @@
     move-result v19
 
     .restart local v19       #valueTo:I
-    goto :goto_1cb
+    goto :goto_a
 
     .line 271
     .end local v19           #valueTo:I
-    :cond_228
+    :cond_18
     const/16 v22, 0x1
 
     move/from16 v0, v22
@@ -1236,19 +1236,19 @@
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setIntValues([I)V
 
-    goto/16 :goto_c7
+    goto/16 :goto_7
 
     .line 274
     .end local v17           #valueFrom:I
-    :cond_23d
-    if-eqz v10, :cond_c7
+    :cond_19
+    if-eqz v10, :cond_4
 
     .line 275
     const/16 v22, 0x5
 
     move/from16 v0, v22
 
-    if-ne v14, v0, :cond_269
+    if-ne v14, v0, :cond_1a
 
     .line 276
     const/16 v22, 0x0
@@ -1269,7 +1269,7 @@
 
     .line 283
     .restart local v19       #valueTo:I
-    :goto_254
+    :goto_b
     const/16 v22, 0x1
 
     move/from16 v0, v22
@@ -1288,22 +1288,22 @@
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setIntValues([I)V
 
-    goto/16 :goto_c7
+    goto/16 :goto_7
 
     .line 277
     .end local v19           #valueTo:I
-    :cond_269
+    :cond_1a
     const/16 v22, 0x1c
 
     move/from16 v0, v22
 
-    if-lt v14, v0, :cond_280
+    if-lt v14, v0, :cond_1b
 
     const/16 v22, 0x1f
 
     move/from16 v0, v22
 
-    if-gt v14, v0, :cond_280
+    if-gt v14, v0, :cond_1b
 
     .line 279
     const/16 v22, 0x0
@@ -1317,11 +1317,11 @@
     move-result v19
 
     .restart local v19       #valueTo:I
-    goto :goto_254
+    goto :goto_b
 
     .line 281
     .end local v19           #valueTo:I
-    :cond_280
+    :cond_1b
     const/16 v22, 0x0
 
     move/from16 v0, v20
@@ -1333,11 +1333,11 @@
     move-result v19
 
     .restart local v19       #valueTo:I
-    goto :goto_254
+    goto :goto_b
 .end method
 
 .method private static loadObjectAnimator(Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/animation/ObjectAnimator;
-    .registers 6
+    .locals 4
     .parameter "context"
     .parameter "attrs"
     .annotation system Ldalvik/annotation/Throws;

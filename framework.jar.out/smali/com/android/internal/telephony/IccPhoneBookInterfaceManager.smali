@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/PhoneBase;)V
-    .registers 3
+    .locals 1
     .parameter "phone"
 
     .prologue
@@ -71,14 +71,14 @@
 .end method
 
 .method private updateEfForIccType(I)I
-    .registers 4
+    .locals 2
     .parameter "efid"
 
     .prologue
     .line 281
     const/16 v0, 0x6f3a
 
-    if-ne p1, v0, :cond_14
+    if-ne p1, v0, :cond_0
 
     .line 282
     iget-object v0, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->phone:Lcom/android/internal/telephony/PhoneBase;
@@ -93,21 +93,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 283
     const/16 p1, 0x4f30
 
     .line 286
     .end local p1
-    :cond_14
+    :cond_0
     return p1
 .end method
 
 
 # virtual methods
 .method protected checkThread()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 261
@@ -125,7 +125,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_0
 
     .line 262
     const-string/jumbo v0, "query() called on the main UI thread!"
@@ -142,12 +142,12 @@
     throw v0
 
     .line 267
-    :cond_1e
+    :cond_0
     return-void
 .end method
 
 .method public dispose()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 109
@@ -155,7 +155,7 @@
 .end method
 
 .method public getAdnRecordsInEf(I)Ljava/util/List;
-    .registers 7
+    .locals 5
     .parameter "efid"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -181,7 +181,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_0
 
     .line 241
     new-instance v2, Ljava/lang/SecurityException;
@@ -193,7 +193,7 @@
     throw v2
 
     .line 245
-    :cond_16
+    :cond_0
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->updateEfForIccType(I)I
 
     move-result p1
@@ -225,7 +225,7 @@
     monitor-enter v3
 
     .line 249
-    :try_start_33
+    :try_start_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->checkThread()V
 
     .line 250
@@ -262,8 +262,8 @@
 
     .line 254
     monitor-exit v3
-    :try_end_52
-    .catchall {:try_start_33 .. :try_end_52} :catchall_55
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 255
     iget-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->records:Ljava/util/List;
@@ -273,13 +273,13 @@
     .line 254
     .end local v0           #response:Landroid/os/Message;
     .end local v1           #status:Ljava/util/concurrent/atomic/AtomicBoolean;
-    :catchall_55
+    :catchall_0
     move-exception v2
 
-    :try_start_56
+    :try_start_1
     monitor-exit v3
-    :try_end_57
-    .catchall {:try_start_56 .. :try_end_57} :catchall_55
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v2
 .end method
@@ -294,7 +294,7 @@
 .end method
 
 .method protected publish()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 113
@@ -307,7 +307,7 @@
 .end method
 
 .method public updateAdnRecordsInEfByIndex(ILjava/lang/String;Ljava/lang/String;ILjava/lang/String;)Z
-    .registers 14
+    .locals 8
     .parameter "efid"
     .parameter "newTag"
     .parameter "newPhoneNumber"
@@ -328,7 +328,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 197
     new-instance v0, Ljava/lang/SecurityException;
@@ -340,7 +340,7 @@
     throw v0
 
     .line 201
-    :cond_16
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -419,7 +419,7 @@
     monitor-enter v7
 
     .line 205
-    :try_start_64
+    :try_start_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->checkThread()V
 
     .line 206
@@ -467,8 +467,8 @@
 
     .line 212
     monitor-exit v7
-    :try_end_88
-    .catchall {:try_start_64 .. :try_end_88} :catchall_8b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 213
     iget-boolean v0, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->success:Z
@@ -479,19 +479,19 @@
     .end local v2           #newAdn:Lcom/android/internal/telephony/AdnRecord;
     .end local v5           #response:Landroid/os/Message;
     .end local v6           #status:Ljava/util/concurrent/atomic/AtomicBoolean;
-    :catchall_8b
+    :catchall_0
     move-exception v0
 
-    :try_start_8c
+    :try_start_1
     monitor-exit v7
-    :try_end_8d
-    .catchall {:try_start_8c .. :try_end_8d} :catchall_8b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method
 
 .method public updateAdnRecordsInEfBySearch(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
-    .registers 15
+    .locals 8
     .parameter "efid"
     .parameter "oldTag"
     .parameter "oldPhoneNumber"
@@ -513,7 +513,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 149
     new-instance v0, Ljava/lang/SecurityException;
@@ -525,7 +525,7 @@
     throw v0
 
     .line 154
-    :cond_16
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -625,7 +625,7 @@
     monitor-enter v7
 
     .line 161
-    :try_start_78
+    :try_start_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->checkThread()V
 
     .line 162
@@ -677,8 +677,8 @@
 
     .line 169
     monitor-exit v7
-    :try_end_a0
-    .catchall {:try_start_78 .. :try_end_a0} :catchall_a3
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 170
     iget-boolean v0, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->success:Z
@@ -690,19 +690,19 @@
     .end local v3           #newAdn:Lcom/android/internal/telephony/AdnRecord;
     .end local v5           #response:Landroid/os/Message;
     .end local v6           #status:Ljava/util/concurrent/atomic/AtomicBoolean;
-    :catchall_a3
+    :catchall_0
     move-exception v0
 
-    :try_start_a4
+    :try_start_1
     monitor-exit v7
-    :try_end_a5
-    .catchall {:try_start_a4 .. :try_end_a5} :catchall_a3
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method
 
 .method protected waitForResult(Ljava/util/concurrent/atomic/AtomicBoolean;)V
-    .registers 4
+    .locals 2
     .parameter "status"
 
     .prologue
@@ -712,20 +712,20 @@
 
     move-result v1
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_0
 
     .line 272
-    :try_start_6
+    :try_start_0
     iget-object v1, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mLock:Ljava/lang/Object;
 
     invoke-virtual {v1}, Ljava/lang/Object;->wait()V
-    :try_end_b
-    .catch Ljava/lang/InterruptedException; {:try_start_6 .. :try_end_b} :catch_c
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     .line 273
-    :catch_c
+    :catch_0
     move-exception v0
 
     .line 274
@@ -738,6 +738,6 @@
 
     .line 277
     .end local v0           #e:Ljava/lang/InterruptedException;
-    :cond_13
+    :cond_0
     return-void
 .end method

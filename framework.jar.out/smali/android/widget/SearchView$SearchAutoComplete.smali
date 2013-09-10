@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 5
+    .locals 1
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -82,7 +82,7 @@
 .end method
 
 .method static synthetic access$1600(Landroid/widget/SearchView$SearchAutoComplete;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -95,7 +95,7 @@
 .end method
 
 .method private isEmpty()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1668
@@ -107,50 +107,50 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public enoughToFilter()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1721
     iget v0, p0, Landroid/widget/SearchView$SearchAutoComplete;->mThreshold:I
 
-    if-lez v0, :cond_a
+    if-lez v0, :cond_0
 
     invoke-super {p0}, Landroid/widget/AutoCompleteTextView;->enoughToFilter()Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_1
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method protected onFocusChanged(ZILandroid/graphics/Rect;)V
-    .registers 5
+    .locals 1
     .parameter "focused"
     .parameter "direction"
     .parameter "previouslyFocusedRect"
@@ -169,7 +169,7 @@
 .end method
 
 .method public onKeyPreIme(ILandroid/view/KeyEvent;)Z
-    .registers 7
+    .locals 4
     .parameter "keyCode"
     .parameter "event"
 
@@ -179,20 +179,20 @@
     .line 1726
     const/4 v2, 0x4
 
-    if-ne p1, v2, :cond_41
+    if-ne p1, v2, :cond_3
 
     .line 1729
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v2
 
-    if-nez v2, :cond_1a
+    if-nez v2, :cond_1
 
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getRepeatCount()I
 
     move-result v2
 
-    if-nez v2, :cond_1a
+    if-nez v2, :cond_1
 
     .line 1730
     invoke-virtual {p0}, Landroid/widget/SearchView$SearchAutoComplete;->getKeyDispatcherState()Landroid/view/KeyEvent$DispatcherState;
@@ -201,24 +201,24 @@
 
     .line 1731
     .local v0, state:Landroid/view/KeyEvent$DispatcherState;
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     .line 1732
     invoke-virtual {v0, p2, p0}, Landroid/view/KeyEvent$DispatcherState;->startTracking(Landroid/view/KeyEvent;Ljava/lang/Object;)V
 
     .line 1747
     .end local v0           #state:Landroid/view/KeyEvent$DispatcherState;
-    :cond_19
-    :goto_19
+    :cond_0
+    :goto_0
     return v1
 
     .line 1735
-    :cond_1a
+    :cond_1
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v2
 
-    if-ne v2, v1, :cond_41
+    if-ne v2, v1, :cond_3
 
     .line 1736
     invoke-virtual {p0}, Landroid/widget/SearchView$SearchAutoComplete;->getKeyDispatcherState()Landroid/view/KeyEvent$DispatcherState;
@@ -227,24 +227,24 @@
 
     .line 1737
     .restart local v0       #state:Landroid/view/KeyEvent$DispatcherState;
-    if-eqz v0, :cond_29
+    if-eqz v0, :cond_2
 
     .line 1738
     invoke-virtual {v0, p2}, Landroid/view/KeyEvent$DispatcherState;->handleUpEvent(Landroid/view/KeyEvent;)V
 
     .line 1740
-    :cond_29
+    :cond_2
     invoke-virtual {p2}, Landroid/view/KeyEvent;->isTracking()Z
 
     move-result v2
 
-    if-eqz v2, :cond_41
+    if-eqz v2, :cond_3
 
     invoke-virtual {p2}, Landroid/view/KeyEvent;->isCanceled()Z
 
     move-result v2
 
-    if-nez v2, :cond_41
+    if-nez v2, :cond_3
 
     .line 1741
     iget-object v2, p0, Landroid/widget/SearchView$SearchAutoComplete;->mSearchView:Landroid/widget/SearchView;
@@ -256,22 +256,23 @@
 
     const/4 v3, 0x0
 
+    #calls: Landroid/widget/SearchView;->setImeVisibility(Z)V
     invoke-static {v2, v3}, Landroid/widget/SearchView;->access$2100(Landroid/widget/SearchView;Z)V
 
-    goto :goto_19
+    goto :goto_0
 
     .line 1747
     .end local v0           #state:Landroid/view/KeyEvent$DispatcherState;
-    :cond_41
+    :cond_3
     invoke-super {p0, p1, p2}, Landroid/widget/AutoCompleteTextView;->onKeyPreIme(ILandroid/view/KeyEvent;)Z
 
     move-result v1
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public onWindowFocusChanged(Z)V
-    .registers 5
+    .locals 3
     .parameter "hasWindowFocus"
 
     .prologue
@@ -279,7 +280,7 @@
     invoke-super {p0, p1}, Landroid/widget/AutoCompleteTextView;->onWindowFocusChanged(Z)V
 
     .line 1697
-    if-eqz p1, :cond_31
+    if-eqz p1, :cond_0
 
     iget-object v1, p0, Landroid/widget/SearchView$SearchAutoComplete;->mSearchView:Landroid/widget/SearchView;
 
@@ -287,13 +288,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_31
+    if-eqz v1, :cond_0
 
     invoke-virtual {p0}, Landroid/widget/SearchView$SearchAutoComplete;->getVisibility()I
 
     move-result v1
 
-    if-nez v1, :cond_31
+    if-nez v1, :cond_0
 
     .line 1698
     invoke-virtual {p0}, Landroid/widget/SearchView$SearchAutoComplete;->getContext()Landroid/content/Context;
@@ -323,7 +324,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_31
+    if-eqz v1, :cond_0
 
     .line 1704
     const/4 v1, 0x1
@@ -332,12 +333,12 @@
 
     .line 1707
     .end local v0           #inputManager:Landroid/view/inputmethod/InputMethodManager;
-    :cond_31
+    :cond_0
     return-void
 .end method
 
 .method public performCompletion()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1687
@@ -345,7 +346,7 @@
 .end method
 
 .method protected replaceText(Ljava/lang/CharSequence;)V
-    .registers 2
+    .locals 0
     .parameter "text"
 
     .prologue
@@ -354,7 +355,7 @@
 .end method
 
 .method setSearchView(Landroid/widget/SearchView;)V
-    .registers 2
+    .locals 0
     .parameter "searchView"
 
     .prologue
@@ -366,7 +367,7 @@
 .end method
 
 .method public setThreshold(I)V
-    .registers 2
+    .locals 0
     .parameter "threshold"
 
     .prologue

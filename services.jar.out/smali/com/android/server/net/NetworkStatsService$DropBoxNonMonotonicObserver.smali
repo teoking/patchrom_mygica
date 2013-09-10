@@ -33,7 +33,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/net/NetworkStatsService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -46,7 +46,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/net/NetworkStatsService;Lcom/android/server/net/NetworkStatsService$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public bridge synthetic foundNonMonotonic(Landroid/net/NetworkStats;ILandroid/net/NetworkStats;ILjava/lang/Object;)V
-    .registers 12
+    .locals 6
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -89,7 +89,7 @@
 .end method
 
 .method public foundNonMonotonic(Landroid/net/NetworkStats;ILandroid/net/NetworkStats;ILjava/lang/String;)V
-    .registers 11
+    .locals 5
     .parameter "left"
     .parameter "leftIndex"
     .parameter "right"
@@ -188,6 +188,7 @@
     .line 1201
     iget-object v2, p0, Lcom/android/server/net/NetworkStatsService$DropBoxNonMonotonicObserver;->this$0:Lcom/android/server/net/NetworkStatsService;
 
+    #getter for: Lcom/android/server/net/NetworkStatsService;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lcom/android/server/net/NetworkStatsService;->access$1200(Lcom/android/server/net/NetworkStatsService;)Landroid/content/Context;
 
     move-result-object v2

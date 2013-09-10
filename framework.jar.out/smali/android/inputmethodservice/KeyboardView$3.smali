@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/inputmethodservice/KeyboardView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onKey(I[I)V
-    .registers 4
+    .locals 1
     .parameter "primaryCode"
     .parameter "keyCodes"
 
@@ -46,6 +46,7 @@
     .line 1100
     iget-object v0, p0, Landroid/inputmethodservice/KeyboardView$3;->this$0:Landroid/inputmethodservice/KeyboardView;
 
+    #getter for: Landroid/inputmethodservice/KeyboardView;->mKeyboardActionListener:Landroid/inputmethodservice/KeyboardView$OnKeyboardActionListener;
     invoke-static {v0}, Landroid/inputmethodservice/KeyboardView;->access$1300(Landroid/inputmethodservice/KeyboardView;)Landroid/inputmethodservice/KeyboardView$OnKeyboardActionListener;
 
     move-result-object v0
@@ -55,6 +56,7 @@
     .line 1101
     iget-object v0, p0, Landroid/inputmethodservice/KeyboardView$3;->this$0:Landroid/inputmethodservice/KeyboardView;
 
+    #calls: Landroid/inputmethodservice/KeyboardView;->dismissPopupKeyboard()V
     invoke-static {v0}, Landroid/inputmethodservice/KeyboardView;->access$1400(Landroid/inputmethodservice/KeyboardView;)V
 
     .line 1102
@@ -62,13 +64,14 @@
 .end method
 
 .method public onPress(I)V
-    .registers 3
+    .locals 1
     .parameter "primaryCode"
 
     .prologue
     .line 1114
     iget-object v0, p0, Landroid/inputmethodservice/KeyboardView$3;->this$0:Landroid/inputmethodservice/KeyboardView;
 
+    #getter for: Landroid/inputmethodservice/KeyboardView;->mKeyboardActionListener:Landroid/inputmethodservice/KeyboardView$OnKeyboardActionListener;
     invoke-static {v0}, Landroid/inputmethodservice/KeyboardView;->access$1300(Landroid/inputmethodservice/KeyboardView;)Landroid/inputmethodservice/KeyboardView$OnKeyboardActionListener;
 
     move-result-object v0
@@ -80,13 +83,14 @@
 .end method
 
 .method public onRelease(I)V
-    .registers 3
+    .locals 1
     .parameter "primaryCode"
 
     .prologue
     .line 1117
     iget-object v0, p0, Landroid/inputmethodservice/KeyboardView$3;->this$0:Landroid/inputmethodservice/KeyboardView;
 
+    #getter for: Landroid/inputmethodservice/KeyboardView;->mKeyboardActionListener:Landroid/inputmethodservice/KeyboardView$OnKeyboardActionListener;
     invoke-static {v0}, Landroid/inputmethodservice/KeyboardView;->access$1300(Landroid/inputmethodservice/KeyboardView;)Landroid/inputmethodservice/KeyboardView$OnKeyboardActionListener;
 
     move-result-object v0
@@ -98,13 +102,14 @@
 .end method
 
 .method public onText(Ljava/lang/CharSequence;)V
-    .registers 3
+    .locals 1
     .parameter "text"
 
     .prologue
     .line 1105
     iget-object v0, p0, Landroid/inputmethodservice/KeyboardView$3;->this$0:Landroid/inputmethodservice/KeyboardView;
 
+    #getter for: Landroid/inputmethodservice/KeyboardView;->mKeyboardActionListener:Landroid/inputmethodservice/KeyboardView$OnKeyboardActionListener;
     invoke-static {v0}, Landroid/inputmethodservice/KeyboardView;->access$1300(Landroid/inputmethodservice/KeyboardView;)Landroid/inputmethodservice/KeyboardView$OnKeyboardActionListener;
 
     move-result-object v0
@@ -114,6 +119,7 @@
     .line 1106
     iget-object v0, p0, Landroid/inputmethodservice/KeyboardView$3;->this$0:Landroid/inputmethodservice/KeyboardView;
 
+    #calls: Landroid/inputmethodservice/KeyboardView;->dismissPopupKeyboard()V
     invoke-static {v0}, Landroid/inputmethodservice/KeyboardView;->access$1400(Landroid/inputmethodservice/KeyboardView;)V
 
     .line 1107
@@ -121,7 +127,7 @@
 .end method
 
 .method public swipeDown()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1112
@@ -129,7 +135,7 @@
 .end method
 
 .method public swipeLeft()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1109
@@ -137,7 +143,7 @@
 .end method
 
 .method public swipeRight()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1110
@@ -145,7 +151,7 @@
 .end method
 
 .method public swipeUp()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1111

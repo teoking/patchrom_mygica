@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 26
@@ -17,7 +17,7 @@
 
 # virtual methods
 .method public onUpdate(ILjava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "nowBeingRestored"
     .parameter "currentPackage"
 
@@ -27,7 +27,7 @@
 .end method
 
 .method public restoreFinished(I)V
-    .registers 2
+    .locals 0
     .parameter "error"
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method public restoreSetsAvailable([Landroid/app/backup/RestoreSet;)V
-    .registers 2
+    .locals 0
     .parameter "result"
 
     .prologue
@@ -45,7 +45,7 @@
 .end method
 
 .method public restoreStarting(I)V
-    .registers 2
+    .locals 0
     .parameter "numPackages"
 
     .prologue

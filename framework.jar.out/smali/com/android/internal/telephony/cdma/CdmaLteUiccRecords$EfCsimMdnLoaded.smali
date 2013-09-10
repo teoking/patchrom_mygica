@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public getEfName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 158
@@ -60,7 +60,7 @@
 .end method
 
 .method public onRecordLoaded(Landroid/os/AsyncResult;)V
-    .registers 7
+    .locals 5
     .parameter "ar"
 
     .prologue
@@ -118,6 +118,7 @@
 
     move-result-object v3
 
+    #setter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mMdn:Ljava/lang/String;
     invoke-static {v2, v3}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$802(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Ljava/lang/String;)Ljava/lang/String;
 
     .line 166
@@ -135,6 +136,7 @@
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords$EfCsimMdnLoaded;->this$0:Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;
 
+    #getter for: Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mMdn:Ljava/lang/String;
     invoke-static {v4}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->access$800(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)Ljava/lang/String;
 
     move-result-object v4

@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(FF)V
-    .registers 3
+    .locals 0
     .parameter "fromAlpha"
     .parameter "toAlpha"
 
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "attrs"
 
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method protected applyTransformation(FLandroid/view/animation/Transformation;)V
-    .registers 5
+    .locals 2
     .parameter "interpolatedTime"
     .parameter "t"
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public hasAlpha()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 87
@@ -111,7 +111,7 @@
 .end method
 
 .method public willChangeBounds()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 79
@@ -121,7 +121,7 @@
 .end method
 
 .method public willChangeTransformationMatrix()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 74

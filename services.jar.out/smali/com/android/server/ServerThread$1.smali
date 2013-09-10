@@ -73,7 +73,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/ServerThread;Landroid/content/Context;ZLcom/android/server/BatteryService;Lcom/android/server/NetworkManagementService;Lcom/android/server/net/NetworkStatsService;Lcom/android/server/net/NetworkPolicyManagerService;Lcom/android/server/ConnectivityService;Lcom/android/server/DockObserver;Lcom/android/server/usb/UsbService;Lcom/android/server/UiModeManagerService;Lcom/android/server/RecognitionManagerService;Lcom/android/server/AppWidgetService;ZLcom/android/server/WallpaperManagerService;Lcom/android/server/InputMethodManagerService;Lcom/android/server/StatusBarManagerService;Lcom/android/server/LocationManagerService;Lcom/android/server/CountryDetectorService;Lcom/android/server/ThrottleService;Lcom/android/server/NetworkTimeUpdateService;Lcom/android/server/CommonTimeManagementService;Lcom/android/server/TextServicesManagerService;Landroid/service/dreams/DreamManagerService;Lcom/android/server/input/InputManagerService;Landroid/server/BluetoothService;)V
-    .registers 28
+    .locals 1
     .parameter
     .parameter
     .parameter
@@ -187,7 +187,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 784
@@ -208,140 +208,140 @@
     .local v1, remoteControlService:Lcom/android/server/RemoteControlService;
     iget-boolean v2, p0, Lcom/android/server/ServerThread$1;->val$headless:Z
 
-    if-nez v2, :cond_17
+    if-nez v2, :cond_0
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$contextF:Landroid/content/Context;
 
     invoke-static {v2}, Lcom/android/server/ServerThread;->startSystemUi(Landroid/content/Context;)V
 
     .line 788
-    :cond_17
-    :try_start_17
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$batteryF:Lcom/android/server/BatteryService;
 
-    if-eqz v2, :cond_20
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$batteryF:Lcom/android/server/BatteryService;
 
     invoke-virtual {v2}, Lcom/android/server/BatteryService;->systemReady()V
-    :try_end_20
-    .catch Ljava/lang/Throwable; {:try_start_17 .. :try_end_20} :catch_d9
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 793
-    :cond_20
-    :goto_20
-    :try_start_20
+    :cond_1
+    :goto_0
+    :try_start_1
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$networkManagementF:Lcom/android/server/NetworkManagementService;
 
-    if-eqz v2, :cond_29
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$networkManagementF:Lcom/android/server/NetworkManagementService;
 
     invoke-virtual {v2}, Lcom/android/server/NetworkManagementService;->systemReady()V
-    :try_end_29
-    .catch Ljava/lang/Throwable; {:try_start_20 .. :try_end_29} :catch_e3
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 798
-    :cond_29
-    :goto_29
-    :try_start_29
+    :cond_2
+    :goto_1
+    :try_start_2
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$networkStatsF:Lcom/android/server/net/NetworkStatsService;
 
-    if-eqz v2, :cond_32
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$networkStatsF:Lcom/android/server/net/NetworkStatsService;
 
     invoke-virtual {v2}, Lcom/android/server/net/NetworkStatsService;->systemReady()V
-    :try_end_32
-    .catch Ljava/lang/Throwable; {:try_start_29 .. :try_end_32} :catch_ed
+    :try_end_2
+    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_2
 
     .line 803
-    :cond_32
-    :goto_32
-    :try_start_32
+    :cond_3
+    :goto_2
+    :try_start_3
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$networkPolicyF:Lcom/android/server/net/NetworkPolicyManagerService;
 
-    if-eqz v2, :cond_3b
+    if-eqz v2, :cond_4
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$networkPolicyF:Lcom/android/server/net/NetworkPolicyManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/net/NetworkPolicyManagerService;->systemReady()V
-    :try_end_3b
-    .catch Ljava/lang/Throwable; {:try_start_32 .. :try_end_3b} :catch_f7
+    :try_end_3
+    .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_3
 
     .line 808
-    :cond_3b
-    :goto_3b
-    :try_start_3b
+    :cond_4
+    :goto_3
+    :try_start_4
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$connectivityF:Lcom/android/server/ConnectivityService;
 
-    if-eqz v2, :cond_44
+    if-eqz v2, :cond_5
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$connectivityF:Lcom/android/server/ConnectivityService;
 
     invoke-virtual {v2}, Lcom/android/server/ConnectivityService;->systemReady()V
-    :try_end_44
-    .catch Ljava/lang/Throwable; {:try_start_3b .. :try_end_44} :catch_101
+    :try_end_4
+    .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_4
 
     .line 813
-    :cond_44
-    :goto_44
-    :try_start_44
+    :cond_5
+    :goto_4
+    :try_start_5
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$dockF:Lcom/android/server/DockObserver;
 
-    if-eqz v2, :cond_4d
+    if-eqz v2, :cond_6
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$dockF:Lcom/android/server/DockObserver;
 
     invoke-virtual {v2}, Lcom/android/server/DockObserver;->systemReady()V
-    :try_end_4d
-    .catch Ljava/lang/Throwable; {:try_start_44 .. :try_end_4d} :catch_10b
+    :try_end_5
+    .catch Ljava/lang/Throwable; {:try_start_5 .. :try_end_5} :catch_5
 
     .line 818
-    :cond_4d
-    :goto_4d
-    :try_start_4d
+    :cond_6
+    :goto_5
+    :try_start_6
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$usbF:Lcom/android/server/usb/UsbService;
 
-    if-eqz v2, :cond_56
+    if-eqz v2, :cond_7
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$usbF:Lcom/android/server/usb/UsbService;
 
     invoke-virtual {v2}, Lcom/android/server/usb/UsbService;->systemReady()V
-    :try_end_56
-    .catch Ljava/lang/Throwable; {:try_start_4d .. :try_end_56} :catch_115
+    :try_end_6
+    .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_6} :catch_6
 
     .line 823
-    :cond_56
-    :goto_56
-    :try_start_56
+    :cond_7
+    :goto_6
+    :try_start_7
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$uiModeF:Lcom/android/server/UiModeManagerService;
 
-    if-eqz v2, :cond_5f
+    if-eqz v2, :cond_8
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$uiModeF:Lcom/android/server/UiModeManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/UiModeManagerService;->systemReady()V
-    :try_end_5f
-    .catch Ljava/lang/Throwable; {:try_start_56 .. :try_end_5f} :catch_11f
+    :try_end_7
+    .catch Ljava/lang/Throwable; {:try_start_7 .. :try_end_7} :catch_7
 
     .line 828
-    :cond_5f
-    :goto_5f
-    :try_start_5f
+    :cond_8
+    :goto_7
+    :try_start_8
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$recognitionF:Lcom/android/server/RecognitionManagerService;
 
-    if-eqz v2, :cond_68
+    if-eqz v2, :cond_9
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$recognitionF:Lcom/android/server/RecognitionManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/RecognitionManagerService;->systemReady()V
-    :try_end_68
-    .catch Ljava/lang/Throwable; {:try_start_5f .. :try_end_68} :catch_129
+    :try_end_8
+    .catch Ljava/lang/Throwable; {:try_start_8 .. :try_end_8} :catch_8
 
     .line 832
-    :cond_68
-    :goto_68
+    :cond_9
+    :goto_8
     invoke-static {}, Lcom/android/server/Watchdog;->getInstance()Lcom/android/server/Watchdog;
 
     move-result-object v2
@@ -349,170 +349,170 @@
     invoke-virtual {v2}, Lcom/android/server/Watchdog;->start()V
 
     .line 838
-    :try_start_6f
+    :try_start_9
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$appWidgetF:Lcom/android/server/AppWidgetService;
 
-    if-eqz v2, :cond_7a
+    if-eqz v2, :cond_a
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$appWidgetF:Lcom/android/server/AppWidgetService;
 
     iget-boolean v3, p0, Lcom/android/server/ServerThread$1;->val$safeMode:Z
 
     invoke-virtual {v2, v3}, Lcom/android/server/AppWidgetService;->systemReady(Z)V
-    :try_end_7a
-    .catch Ljava/lang/Throwable; {:try_start_6f .. :try_end_7a} :catch_133
+    :try_end_9
+    .catch Ljava/lang/Throwable; {:try_start_9 .. :try_end_9} :catch_9
 
     .line 843
-    :cond_7a
-    :goto_7a
-    :try_start_7a
+    :cond_a
+    :goto_9
+    :try_start_a
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$wallpaperF:Lcom/android/server/WallpaperManagerService;
 
-    if-eqz v2, :cond_83
+    if-eqz v2, :cond_b
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$wallpaperF:Lcom/android/server/WallpaperManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/WallpaperManagerService;->systemReady()V
-    :try_end_83
-    .catch Ljava/lang/Throwable; {:try_start_7a .. :try_end_83} :catch_13d
+    :try_end_a
+    .catch Ljava/lang/Throwable; {:try_start_a .. :try_end_a} :catch_a
 
     .line 848
-    :cond_83
-    :goto_83
-    :try_start_83
+    :cond_b
+    :goto_a
+    :try_start_b
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$immF:Lcom/android/server/InputMethodManagerService;
 
-    if-eqz v2, :cond_8e
+    if-eqz v2, :cond_c
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$immF:Lcom/android/server/InputMethodManagerService;
 
     iget-object v3, p0, Lcom/android/server/ServerThread$1;->val$statusBarF:Lcom/android/server/StatusBarManagerService;
 
     invoke-virtual {v2, v3}, Lcom/android/server/InputMethodManagerService;->systemReady(Lcom/android/server/StatusBarManagerService;)V
-    :try_end_8e
-    .catch Ljava/lang/Throwable; {:try_start_83 .. :try_end_8e} :catch_147
+    :try_end_b
+    .catch Ljava/lang/Throwable; {:try_start_b .. :try_end_b} :catch_b
 
     .line 853
-    :cond_8e
-    :goto_8e
-    :try_start_8e
+    :cond_c
+    :goto_b
+    :try_start_c
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$locationF:Lcom/android/server/LocationManagerService;
 
-    if-eqz v2, :cond_97
+    if-eqz v2, :cond_d
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$locationF:Lcom/android/server/LocationManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/LocationManagerService;->systemReady()V
-    :try_end_97
-    .catch Ljava/lang/Throwable; {:try_start_8e .. :try_end_97} :catch_151
+    :try_end_c
+    .catch Ljava/lang/Throwable; {:try_start_c .. :try_end_c} :catch_c
 
     .line 858
-    :cond_97
-    :goto_97
-    :try_start_97
+    :cond_d
+    :goto_c
+    :try_start_d
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$countryDetectorF:Lcom/android/server/CountryDetectorService;
 
-    if-eqz v2, :cond_a0
+    if-eqz v2, :cond_e
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$countryDetectorF:Lcom/android/server/CountryDetectorService;
 
     invoke-virtual {v2}, Lcom/android/server/CountryDetectorService;->systemReady()V
-    :try_end_a0
-    .catch Ljava/lang/Throwable; {:try_start_97 .. :try_end_a0} :catch_15b
+    :try_end_d
+    .catch Ljava/lang/Throwable; {:try_start_d .. :try_end_d} :catch_d
 
     .line 863
-    :cond_a0
-    :goto_a0
-    :try_start_a0
+    :cond_e
+    :goto_d
+    :try_start_e
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$throttleF:Lcom/android/server/ThrottleService;
 
-    if-eqz v2, :cond_a9
+    if-eqz v2, :cond_f
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$throttleF:Lcom/android/server/ThrottleService;
 
     invoke-virtual {v2}, Lcom/android/server/ThrottleService;->systemReady()V
-    :try_end_a9
-    .catch Ljava/lang/Throwable; {:try_start_a0 .. :try_end_a9} :catch_165
+    :try_end_e
+    .catch Ljava/lang/Throwable; {:try_start_e .. :try_end_e} :catch_e
 
     .line 868
-    :cond_a9
-    :goto_a9
-    :try_start_a9
+    :cond_f
+    :goto_e
+    :try_start_f
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$networkTimeUpdaterF:Lcom/android/server/NetworkTimeUpdateService;
 
-    if-eqz v2, :cond_b2
+    if-eqz v2, :cond_10
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$networkTimeUpdaterF:Lcom/android/server/NetworkTimeUpdateService;
 
     invoke-virtual {v2}, Lcom/android/server/NetworkTimeUpdateService;->systemReady()V
-    :try_end_b2
-    .catch Ljava/lang/Throwable; {:try_start_a9 .. :try_end_b2} :catch_16f
+    :try_end_f
+    .catch Ljava/lang/Throwable; {:try_start_f .. :try_end_f} :catch_f
 
     .line 873
-    :cond_b2
-    :goto_b2
-    :try_start_b2
+    :cond_10
+    :goto_f
+    :try_start_10
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$commonTimeMgmtServiceF:Lcom/android/server/CommonTimeManagementService;
 
-    if-eqz v2, :cond_bb
+    if-eqz v2, :cond_11
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$commonTimeMgmtServiceF:Lcom/android/server/CommonTimeManagementService;
 
     invoke-virtual {v2}, Lcom/android/server/CommonTimeManagementService;->systemReady()V
-    :try_end_bb
-    .catch Ljava/lang/Throwable; {:try_start_b2 .. :try_end_bb} :catch_179
+    :try_end_10
+    .catch Ljava/lang/Throwable; {:try_start_10 .. :try_end_10} :catch_10
 
     .line 878
-    :cond_bb
-    :goto_bb
-    :try_start_bb
+    :cond_11
+    :goto_10
+    :try_start_11
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$textServiceManagerServiceF:Lcom/android/server/TextServicesManagerService;
 
-    if-eqz v2, :cond_c4
+    if-eqz v2, :cond_12
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$textServiceManagerServiceF:Lcom/android/server/TextServicesManagerService;
 
     invoke-virtual {v2}, Lcom/android/server/TextServicesManagerService;->systemReady()V
-    :try_end_c4
-    .catch Ljava/lang/Throwable; {:try_start_bb .. :try_end_c4} :catch_183
+    :try_end_11
+    .catch Ljava/lang/Throwable; {:try_start_11 .. :try_end_11} :catch_11
 
     .line 883
-    :cond_c4
-    :goto_c4
-    :try_start_c4
+    :cond_12
+    :goto_11
+    :try_start_12
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$dreamyF:Landroid/service/dreams/DreamManagerService;
 
-    if-eqz v2, :cond_cd
+    if-eqz v2, :cond_13
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$dreamyF:Landroid/service/dreams/DreamManagerService;
 
     invoke-virtual {v2}, Landroid/service/dreams/DreamManagerService;->systemReady()V
-    :try_end_cd
-    .catch Ljava/lang/Throwable; {:try_start_c4 .. :try_end_cd} :catch_18d
+    :try_end_12
+    .catch Ljava/lang/Throwable; {:try_start_12 .. :try_end_12} :catch_12
 
     .line 888
-    :cond_cd
-    :goto_cd
-    :try_start_cd
+    :cond_13
+    :goto_12
+    :try_start_13
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$inputManagerF:Lcom/android/server/input/InputManagerService;
 
-    if-eqz v2, :cond_d8
+    if-eqz v2, :cond_14
 
     iget-object v2, p0, Lcom/android/server/ServerThread$1;->val$inputManagerF:Lcom/android/server/input/InputManagerService;
 
     iget-object v3, p0, Lcom/android/server/ServerThread$1;->val$bluetoothF:Landroid/server/BluetoothService;
 
     invoke-virtual {v2, v3}, Lcom/android/server/input/InputManagerService;->systemReady(Landroid/server/BluetoothService;)V
-    :try_end_d8
-    .catch Ljava/lang/Throwable; {:try_start_cd .. :try_end_d8} :catch_197
+    :try_end_13
+    .catch Ljava/lang/Throwable; {:try_start_13 .. :try_end_13} :catch_13
 
     .line 892
-    :cond_d8
-    :goto_d8
+    :cond_14
+    :goto_13
     return-void
 
     .line 789
-    :catch_d9
+    :catch_0
     move-exception v0
 
     .line 790
@@ -523,11 +523,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_20
+    goto/16 :goto_0
 
     .line 794
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_e3
+    :catch_1
     move-exception v0
 
     .line 795
@@ -538,11 +538,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_29
+    goto/16 :goto_1
 
     .line 799
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_ed
+    :catch_2
     move-exception v0
 
     .line 800
@@ -553,11 +553,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_32
+    goto/16 :goto_2
 
     .line 804
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_f7
+    :catch_3
     move-exception v0
 
     .line 805
@@ -568,11 +568,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_3b
+    goto/16 :goto_3
 
     .line 809
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_101
+    :catch_4
     move-exception v0
 
     .line 810
@@ -583,11 +583,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_44
+    goto/16 :goto_4
 
     .line 814
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_10b
+    :catch_5
     move-exception v0
 
     .line 815
@@ -598,11 +598,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_4d
+    goto/16 :goto_5
 
     .line 819
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_115
+    :catch_6
     move-exception v0
 
     .line 820
@@ -613,11 +613,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_56
+    goto/16 :goto_6
 
     .line 824
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_11f
+    :catch_7
     move-exception v0
 
     .line 825
@@ -628,11 +628,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_5f
+    goto/16 :goto_7
 
     .line 829
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_129
+    :catch_8
     move-exception v0
 
     .line 830
@@ -643,11 +643,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_68
+    goto/16 :goto_8
 
     .line 839
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_133
+    :catch_9
     move-exception v0
 
     .line 840
@@ -658,11 +658,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_7a
+    goto/16 :goto_9
 
     .line 844
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_13d
+    :catch_a
     move-exception v0
 
     .line 845
@@ -673,11 +673,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_83
+    goto/16 :goto_a
 
     .line 849
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_147
+    :catch_b
     move-exception v0
 
     .line 850
@@ -688,11 +688,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_8e
+    goto/16 :goto_b
 
     .line 854
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_151
+    :catch_c
     move-exception v0
 
     .line 855
@@ -703,11 +703,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_97
+    goto/16 :goto_c
 
     .line 859
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_15b
+    :catch_d
     move-exception v0
 
     .line 860
@@ -718,11 +718,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_a0
+    goto/16 :goto_d
 
     .line 864
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_165
+    :catch_e
     move-exception v0
 
     .line 865
@@ -733,11 +733,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_a9
+    goto/16 :goto_e
 
     .line 869
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_16f
+    :catch_f
     move-exception v0
 
     .line 870
@@ -748,11 +748,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_b2
+    goto/16 :goto_f
 
     .line 874
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_179
+    :catch_10
     move-exception v0
 
     .line 875
@@ -763,11 +763,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_bb
+    goto/16 :goto_10
 
     .line 879
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_183
+    :catch_11
     move-exception v0
 
     .line 880
@@ -778,11 +778,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_c4
+    goto/16 :goto_11
 
     .line 884
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_18d
+    :catch_12
     move-exception v0
 
     .line 885
@@ -793,11 +793,11 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_cd
+    goto/16 :goto_12
 
     .line 889
     .end local v0           #e:Ljava/lang/Throwable;
-    :catch_197
+    :catch_13
     move-exception v0
 
     .line 890
@@ -808,5 +808,5 @@
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/ServerThread;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto/16 :goto_d8
+    goto/16 :goto_13
 .end method

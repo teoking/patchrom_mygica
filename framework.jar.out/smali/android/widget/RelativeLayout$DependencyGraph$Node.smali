@@ -75,7 +75,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 1471
@@ -99,7 +99,7 @@
 .end method
 
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1448
@@ -123,7 +123,7 @@
 .end method
 
 .method static acquire(Landroid/view/View;)Landroid/widget/RelativeLayout$DependencyGraph$Node;
-    .registers 3
+    .locals 2
     .parameter "view"
 
     .prologue
@@ -147,7 +147,7 @@
 
 # virtual methods
 .method public getNextPoolable()Landroid/widget/RelativeLayout$DependencyGraph$Node;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1493
@@ -157,7 +157,7 @@
 .end method
 
 .method public bridge synthetic getNextPoolable()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1448
@@ -169,7 +169,7 @@
 .end method
 
 .method public isPooled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1497
@@ -179,7 +179,7 @@
 .end method
 
 .method release()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1512
@@ -207,7 +207,7 @@
 .end method
 
 .method public setNextPoolable(Landroid/widget/RelativeLayout$DependencyGraph$Node;)V
-    .registers 2
+    .locals 0
     .parameter "element"
 
     .prologue
@@ -219,7 +219,7 @@
 .end method
 
 .method public bridge synthetic setNextPoolable(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -233,7 +233,7 @@
 .end method
 
 .method public setPooled(Z)V
-    .registers 2
+    .locals 0
     .parameter "isPooled"
 
     .prologue

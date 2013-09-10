@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 23
@@ -23,7 +23,7 @@
 .end method
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
-    .registers 2
+    .locals 0
     .parameter "ds"
 
     .prologue
@@ -32,7 +32,7 @@
 .end method
 
 .method public updateMeasureState(Landroid/text/TextPaint;)V
-    .registers 2
+    .locals 0
     .parameter "p"
 
     .prologue

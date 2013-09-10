@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 17
@@ -53,22 +53,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/IExtendedNetworkService;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 26
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 27
     const/4 v0, 0x0
 
     .line 33
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 29
-    :cond_4
+    :cond_0
     const-string v1, "com.android.internal.telephony.IExtendedNetworkService"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -77,31 +77,31 @@
 
     .line 30
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/telephony/IExtendedNetworkService;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 31
     check-cast v0, Lcom/android/internal/telephony/IExtendedNetworkService;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 33
-    :cond_13
+    :cond_1
     new-instance v0, Lcom/android/internal/telephony/IExtendedNetworkService$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/telephony/IExtendedNetworkService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 37
@@ -109,7 +109,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 10
+    .locals 5
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -126,26 +126,26 @@
     const/4 v2, 0x1
 
     .line 41
-    sparse-switch p1, :sswitch_data_6e
+    sparse-switch p1, :sswitch_data_0
 
     .line 100
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
 
-    :goto_9
+    :goto_0
     return v2
 
     .line 45
-    :sswitch_a
+    :sswitch_0
     const-string v3, "com.android.internal.telephony.IExtendedNetworkService"
 
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 50
-    :sswitch_10
+    :sswitch_1
     const-string v3, "com.android.internal.telephony.IExtendedNetworkService"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -162,11 +162,11 @@
     .line 54
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 59
     .end local v0           #_arg0:Ljava/lang/String;
-    :sswitch_20
+    :sswitch_2
     const-string v3, "com.android.internal.telephony.IExtendedNetworkService"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -181,7 +181,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 62
-    if-eqz v1, :cond_35
+    if-eqz v1, :cond_0
 
     .line 63
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -189,17 +189,17 @@
     .line 64
     invoke-static {v1, p3, v2}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 67
-    :cond_35
+    :cond_0
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 73
     .end local v1           #_result:Ljava/lang/CharSequence;
-    :sswitch_39
+    :sswitch_3
     const-string v3, "com.android.internal.telephony.IExtendedNetworkService"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -209,7 +209,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5c
+    if-eqz v3, :cond_1
 
     .line 76
     sget-object v3, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
@@ -222,7 +222,7 @@
 
     .line 81
     .local v0, _arg0:Ljava/lang/CharSequence;
-    :goto_4c
+    :goto_1
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/IExtendedNetworkService$Stub;->getUserMessage(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     move-result-object v1
@@ -232,7 +232,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 83
-    if-eqz v1, :cond_5e
+    if-eqz v1, :cond_2
 
     .line 84
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -240,28 +240,28 @@
     .line 85
     invoke-static {v1, p3, v2}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 79
     .end local v0           #_arg0:Ljava/lang/CharSequence;
     .end local v1           #_result:Ljava/lang/CharSequence;
-    :cond_5c
+    :cond_1
     const/4 v0, 0x0
 
     .restart local v0       #_arg0:Ljava/lang/CharSequence;
-    goto :goto_4c
+    goto :goto_1
 
     .line 88
     .restart local v1       #_result:Ljava/lang/CharSequence;
-    :cond_5e
+    :cond_2
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 94
     .end local v0           #_arg0:Ljava/lang/CharSequence;
     .end local v1           #_result:Ljava/lang/CharSequence;
-    :sswitch_62
+    :sswitch_4
     const-string v3, "com.android.internal.telephony.IExtendedNetworkService"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -272,15 +272,15 @@
     .line 96
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 41
-    :sswitch_data_6e
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_10
-        0x2 -> :sswitch_20
-        0x3 -> :sswitch_39
-        0x4 -> :sswitch_62
-        0x5f4e5446 -> :sswitch_a
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 154
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(Landroid/app/FragmentManagerImpl;Landroid/app/BackStackRecord;)V
-    .registers 11
+    .locals 8
     .parameter "fm"
     .parameter "bse"
 
@@ -72,13 +72,13 @@
 
     .line 42
     .local v3, op:Landroid/app/BackStackRecord$Op;
-    :goto_6
-    if-eqz v3, :cond_16
+    :goto_0
+    if-eqz v3, :cond_1
 
     .line 43
     iget-object v6, v3, Landroid/app/BackStackRecord$Op;->removed:Ljava/util/ArrayList;
 
-    if-eqz v6, :cond_13
+    if-eqz v6, :cond_0
 
     iget-object v6, v3, Landroid/app/BackStackRecord$Op;->removed:Ljava/util/ArrayList;
 
@@ -89,13 +89,13 @@
     add-int/2addr v2, v6
 
     .line 44
-    :cond_13
+    :cond_0
     iget-object v3, v3, Landroid/app/BackStackRecord$Op;->next:Landroid/app/BackStackRecord$Op;
 
-    goto :goto_6
+    goto :goto_0
 
     .line 46
-    :cond_16
+    :cond_1
     iget v6, p2, Landroid/app/BackStackRecord;->mNumOp:I
 
     mul-int/lit8 v6, v6, 0x7
@@ -109,7 +109,7 @@
     .line 48
     iget-boolean v6, p2, Landroid/app/BackStackRecord;->mAddToBackStack:Z
 
-    if-nez v6, :cond_2b
+    if-nez v6, :cond_2
 
     .line 49
     new-instance v6, Ljava/lang/IllegalStateException;
@@ -121,7 +121,7 @@
     throw v6
 
     .line 52
-    :cond_2b
+    :cond_2
     iget-object v3, p2, Landroid/app/BackStackRecord;->mHead:Landroid/app/BackStackRecord$Op;
 
     .line 53
@@ -133,8 +133,8 @@
     .line 54
     .end local v4           #pos:I
     .local v5, pos:I
-    :goto_2f
-    if-eqz v3, :cond_9e
+    :goto_1
+    if-eqz v3, :cond_6
 
     .line 55
     iget-object v6, p0, Landroid/app/BackStackState;->mOps:[I
@@ -156,13 +156,13 @@
     .restart local v5       #pos:I
     iget-object v6, v3, Landroid/app/BackStackRecord$Op;->fragment:Landroid/app/Fragment;
 
-    if-eqz v6, :cond_8f
+    if-eqz v6, :cond_3
 
     iget-object v6, v3, Landroid/app/BackStackRecord$Op;->fragment:Landroid/app/Fragment;
 
     iget v6, v6, Landroid/app/Fragment;->mIndex:I
 
-    :goto_45
+    :goto_2
     aput v6, v7, v4
 
     .line 57
@@ -212,7 +212,7 @@
     .line 61
     iget-object v6, v3, Landroid/app/BackStackRecord$Op;->removed:Ljava/util/ArrayList;
 
-    if-eqz v6, :cond_96
+    if-eqz v6, :cond_5
 
     .line 62
     iget-object v6, v3, Landroid/app/BackStackRecord$Op;->removed:Ljava/util/ArrayList;
@@ -239,8 +239,8 @@
 
     .end local v4           #pos:I
     .restart local v5       #pos:I
-    :goto_79
-    if-ge v1, v0, :cond_91
+    :goto_3
+    if-ge v1, v0, :cond_4
 
     .line 65
     iget-object v7, p0, Landroid/app/BackStackState;->mOps:[I
@@ -268,19 +268,19 @@
 
     .end local v4           #pos:I
     .restart local v5       #pos:I
-    goto :goto_79
+    goto :goto_3
 
     .line 56
     .end local v0           #N:I
     .end local v1           #i:I
-    :cond_8f
+    :cond_3
     const/4 v6, -0x1
 
-    goto :goto_45
+    goto :goto_2
 
     .restart local v0       #N:I
     .restart local v1       #i:I
-    :cond_91
+    :cond_4
     move v4, v5
 
     .line 70
@@ -288,17 +288,17 @@
     .end local v1           #i:I
     .end local v5           #pos:I
     .restart local v4       #pos:I
-    :goto_92
+    :goto_4
     iget-object v3, v3, Landroid/app/BackStackRecord$Op;->next:Landroid/app/BackStackRecord$Op;
 
     move v5, v4
 
     .end local v4           #pos:I
     .restart local v5       #pos:I
-    goto :goto_2f
+    goto :goto_1
 
     .line 68
-    :cond_96
+    :cond_5
     iget-object v6, p0, Landroid/app/BackStackState;->mOps:[I
 
     add-int/lit8 v4, v5, 0x1
@@ -309,12 +309,12 @@
 
     aput v7, v6, v5
 
-    goto :goto_92
+    goto :goto_4
 
     .line 72
     .end local v4           #pos:I
     .restart local v5       #pos:I
-    :cond_9e
+    :cond_6
     iget v6, p2, Landroid/app/BackStackRecord;->mTransition:I
 
     iput v6, p0, Landroid/app/BackStackState;->mTransition:I
@@ -359,7 +359,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -444,7 +444,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 139
@@ -454,7 +454,7 @@
 .end method
 
 .method public instantiate(Landroid/app/FragmentManagerImpl;)Landroid/app/BackStackRecord;
-    .registers 15
+    .locals 13
     .parameter "fm"
 
     .prologue
@@ -471,12 +471,12 @@
 
     .line 97
     .local v6, pos:I
-    :goto_7
+    :goto_0
     iget-object v9, p0, Landroid/app/BackStackState;->mOps:[I
 
     array-length v9, v9
 
-    if-ge v6, v9, :cond_d2
+    if-ge v6, v9, :cond_4
 
     .line 98
     new-instance v5, Landroid/app/BackStackRecord$Op;
@@ -498,7 +498,7 @@
     .line 100
     sget-boolean v9, Landroid/app/FragmentManagerImpl;->DEBUG:Z
 
-    if-eqz v9, :cond_43
+    if-eqz v9, :cond_0
 
     const-string v9, "FragmentManager"
 
@@ -537,7 +537,7 @@
     invoke-static {v9, v10}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 102
-    :cond_43
+    :cond_0
     iget-object v9, p0, Landroid/app/BackStackState;->mOps:[I
 
     add-int/lit8 v6, v7, 0x1
@@ -548,7 +548,7 @@
 
     .line 103
     .local v3, findex:I
-    if-ltz v3, :cond_c8
+    if-ltz v3, :cond_2
 
     .line 104
     iget-object v9, p1, Landroid/app/FragmentManagerImpl;->mActive:Ljava/util/ArrayList;
@@ -565,7 +565,7 @@
 
     .line 109
     .end local v2           #f:Landroid/app/Fragment;
-    :goto_55
+    :goto_1
     iget-object v9, p0, Landroid/app/BackStackState;->mOps:[I
 
     add-int/lit8 v7, v6, 0x1
@@ -620,7 +620,7 @@
 
     .line 114
     .local v0, N:I
-    if-lez v0, :cond_cc
+    if-lez v0, :cond_3
 
     .line 115
     new-instance v9, Ljava/util/ArrayList;
@@ -633,13 +633,13 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_85
-    if-ge v4, v0, :cond_cc
+    :goto_2
+    if-ge v4, v0, :cond_3
 
     .line 117
     sget-boolean v9, Landroid/app/FragmentManagerImpl;->DEBUG:Z
 
-    if-eqz v9, :cond_b1
+    if-eqz v9, :cond_1
 
     const-string v9, "FragmentManager"
 
@@ -678,7 +678,7 @@
     invoke-static {v9, v10}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 119
-    :cond_b1
+    :cond_1
     iget-object v9, p1, Landroid/app/FragmentManagerImpl;->mActive:Ljava/util/ArrayList;
 
     iget-object v10, p0, Landroid/app/BackStackState;->mOps:[I
@@ -708,7 +708,7 @@
 
     .end local v6           #pos:I
     .restart local v7       #pos:I
-    goto :goto_85
+    goto :goto_2
 
     .line 107
     .end local v0           #N:I
@@ -716,17 +716,17 @@
     .end local v7           #pos:I
     .end local v8           #r:Landroid/app/Fragment;
     .restart local v6       #pos:I
-    :cond_c8
+    :cond_2
     const/4 v9, 0x0
 
     iput-object v9, v5, Landroid/app/BackStackRecord$Op;->fragment:Landroid/app/Fragment;
 
-    goto :goto_55
+    goto :goto_1
 
     .end local v6           #pos:I
     .restart local v0       #N:I
     .restart local v7       #pos:I
-    :cond_cc
+    :cond_3
     move v6, v7
 
     .line 123
@@ -734,13 +734,13 @@
     .restart local v6       #pos:I
     invoke-virtual {v1, v5}, Landroid/app/BackStackRecord;->addOp(Landroid/app/BackStackRecord$Op;)V
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 125
     .end local v0           #N:I
     .end local v3           #findex:I
     .end local v5           #op:Landroid/app/BackStackRecord$Op;
-    :cond_d2
+    :cond_4
     iget v9, p0, Landroid/app/BackStackState;->mTransition:I
 
     iput v9, v1, Landroid/app/BackStackRecord;->mTransition:I
@@ -791,7 +791,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 

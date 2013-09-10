@@ -132,7 +132,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 767
@@ -146,7 +146,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 504
@@ -174,7 +174,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/CharSequence;J)V
-    .registers 6
+    .locals 1
     .parameter "icon"
     .parameter "tickerText"
     .parameter "when"
@@ -204,7 +204,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILjava/lang/CharSequence;JLjava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/content/Intent;)V
-    .registers 11
+    .locals 2
     .parameter "context"
     .parameter "icon"
     .parameter "tickerText"
@@ -245,7 +245,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 5
+    .locals 3
     .parameter "parcel"
 
     .prologue
@@ -289,7 +289,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2c
+    if-eqz v1, :cond_0
 
     .line 553
     sget-object v1, Landroid/app/PendingIntent;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -303,12 +303,12 @@
     iput-object v1, p0, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
 
     .line 555
-    :cond_2c
+    :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    if-eqz v1, :cond_3c
+    if-eqz v1, :cond_1
 
     .line 556
     sget-object v1, Landroid/app/PendingIntent;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -322,12 +322,12 @@
     iput-object v1, p0, Landroid/app/Notification;->deleteIntent:Landroid/app/PendingIntent;
 
     .line 558
-    :cond_3c
+    :cond_1
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    if-eqz v1, :cond_4c
+    if-eqz v1, :cond_2
 
     .line 559
     sget-object v1, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
@@ -341,12 +341,12 @@
     iput-object v1, p0, Landroid/app/Notification;->tickerText:Ljava/lang/CharSequence;
 
     .line 561
-    :cond_4c
+    :cond_2
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    if-eqz v1, :cond_5c
+    if-eqz v1, :cond_3
 
     .line 562
     sget-object v1, Landroid/widget/RemoteViews;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -360,12 +360,12 @@
     iput-object v1, p0, Landroid/app/Notification;->tickerView:Landroid/widget/RemoteViews;
 
     .line 564
-    :cond_5c
+    :cond_3
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    if-eqz v1, :cond_6c
+    if-eqz v1, :cond_4
 
     .line 565
     sget-object v1, Landroid/widget/RemoteViews;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -379,12 +379,12 @@
     iput-object v1, p0, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
 
     .line 567
-    :cond_6c
+    :cond_4
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    if-eqz v1, :cond_7c
+    if-eqz v1, :cond_5
 
     .line 568
     sget-object v1, Landroid/graphics/Bitmap;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -398,7 +398,7 @@
     iput-object v1, p0, Landroid/app/Notification;->largeIcon:Landroid/graphics/Bitmap;
 
     .line 570
-    :cond_7c
+    :cond_5
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -417,7 +417,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_98
+    if-eqz v1, :cond_6
 
     .line 573
     sget-object v1, Landroid/net/Uri;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -431,7 +431,7 @@
     iput-object v1, p0, Landroid/app/Notification;->sound:Landroid/net/Uri;
 
     .line 576
-    :cond_98
+    :cond_6
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -478,7 +478,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_cc
+    if-eqz v1, :cond_7
 
     .line 584
     sget-object v1, Landroid/app/PendingIntent;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -492,7 +492,7 @@
     iput-object v1, p0, Landroid/app/Notification;->fullScreenIntent:Landroid/app/PendingIntent;
 
     .line 587
-    :cond_cc
+    :cond_7
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -511,7 +511,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_e4
+    if-eqz v1, :cond_8
 
     .line 592
     invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
@@ -521,7 +521,7 @@
     iput-object v1, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
     .line 595
-    :cond_e4
+    :cond_8
     sget-object v1, Landroid/app/Notification$Action;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->createTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
@@ -537,7 +537,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_fe
+    if-eqz v1, :cond_9
 
     .line 597
     sget-object v1, Landroid/widget/RemoteViews;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -551,12 +551,12 @@
     iput-object v1, p0, Landroid/app/Notification;->bigContentView:Landroid/widget/RemoteViews;
 
     .line 599
-    :cond_fe
+    :cond_9
     return-void
 .end method
 
 .method static synthetic access$102(Landroid/app/Notification;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -568,7 +568,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/app/Notification;)[Landroid/app/Notification$Action;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -579,7 +579,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/app/Notification;[Landroid/app/Notification$Action;)[Landroid/app/Notification$Action;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -593,7 +593,7 @@
 
 # virtual methods
 .method public clone()Landroid/app/Notification;
-    .registers 11
+    .locals 10
 
     .prologue
     const/4 v9, 0x0
@@ -637,7 +637,7 @@
     .line 614
     iget-object v7, p0, Landroid/app/Notification;->tickerText:Ljava/lang/CharSequence;
 
-    if-eqz v7, :cond_2a
+    if-eqz v7, :cond_0
 
     .line 615
     iget-object v7, p0, Landroid/app/Notification;->tickerText:Ljava/lang/CharSequence;
@@ -649,10 +649,10 @@
     iput-object v7, v2, Landroid/app/Notification;->tickerText:Ljava/lang/CharSequence;
 
     .line 617
-    :cond_2a
+    :cond_0
     iget-object v7, p0, Landroid/app/Notification;->tickerView:Landroid/widget/RemoteViews;
 
-    if-eqz v7, :cond_36
+    if-eqz v7, :cond_1
 
     .line 618
     iget-object v7, p0, Landroid/app/Notification;->tickerView:Landroid/widget/RemoteViews;
@@ -664,10 +664,10 @@
     iput-object v7, v2, Landroid/app/Notification;->tickerView:Landroid/widget/RemoteViews;
 
     .line 620
-    :cond_36
+    :cond_1
     iget-object v7, p0, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
 
-    if-eqz v7, :cond_42
+    if-eqz v7, :cond_2
 
     .line 621
     iget-object v7, p0, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
@@ -679,10 +679,10 @@
     iput-object v7, v2, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
 
     .line 623
-    :cond_42
+    :cond_2
     iget-object v7, p0, Landroid/app/Notification;->largeIcon:Landroid/graphics/Bitmap;
 
-    if-eqz v7, :cond_4e
+    if-eqz v7, :cond_3
 
     .line 624
     iget-object v7, p0, Landroid/app/Notification;->largeIcon:Landroid/graphics/Bitmap;
@@ -694,7 +694,7 @@
     iput-object v7, v2, Landroid/app/Notification;->largeIcon:Landroid/graphics/Bitmap;
 
     .line 626
-    :cond_4e
+    :cond_3
     iget v7, p0, Landroid/app/Notification;->iconLevel:I
 
     iput v7, v2, Landroid/app/Notification;->iconLevel:I
@@ -714,7 +714,7 @@
 
     .line 631
     .local v6, vibrate:[J
-    if-eqz v6, :cond_66
+    if-eqz v6, :cond_4
 
     .line 632
     array-length v0, v6
@@ -732,7 +732,7 @@
     .line 637
     .end local v0           #N:I
     .end local v5           #vib:[J
-    :cond_66
+    :cond_4
     iget v7, p0, Landroid/app/Notification;->ledARGB:I
 
     iput v7, v2, Landroid/app/Notification;->ledARGB:I
@@ -767,7 +767,7 @@
 
     .line 647
     .local v4, thiskind:[Ljava/lang/String;
-    if-eqz v4, :cond_8a
+    if-eqz v4, :cond_5
 
     .line 648
     array-length v0, v4
@@ -785,10 +785,10 @@
     .line 653
     .end local v0           #N:I
     .end local v3           #thatkind:[Ljava/lang/String;
-    :cond_8a
+    :cond_5
     iget-object v7, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
-    if-eqz v7, :cond_97
+    if-eqz v7, :cond_6
 
     .line 654
     new-instance v7, Landroid/os/Bundle;
@@ -800,7 +800,7 @@
     iput-object v7, v2, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
     .line 658
-    :cond_97
+    :cond_6
     iget-object v7, p0, Landroid/app/Notification;->actions:[Landroid/app/Notification$Action;
 
     array-length v7, v7
@@ -813,12 +813,12 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_9f
+    :goto_0
     iget-object v7, p0, Landroid/app/Notification;->actions:[Landroid/app/Notification$Action;
 
     array-length v7, v7
 
-    if-ge v1, v7, :cond_b3
+    if-ge v1, v7, :cond_7
 
     .line 660
     iget-object v7, v2, Landroid/app/Notification;->actions:[Landroid/app/Notification$Action;
@@ -836,13 +836,13 @@
     .line 659
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_9f
+    goto :goto_0
 
     .line 662
-    :cond_b3
+    :cond_7
     iget-object v7, p0, Landroid/app/Notification;->bigContentView:Landroid/widget/RemoteViews;
 
-    if-eqz v7, :cond_bf
+    if-eqz v7, :cond_8
 
     .line 663
     iget-object v7, p0, Landroid/app/Notification;->bigContentView:Landroid/widget/RemoteViews;
@@ -854,12 +854,12 @@
     iput-object v7, v2, Landroid/app/Notification;->bigContentView:Landroid/widget/RemoteViews;
 
     .line 666
-    :cond_bf
+    :cond_8
     return-object v2
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -876,7 +876,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 670
@@ -886,7 +886,7 @@
 .end method
 
 .method public setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
-    .registers 12
+    .locals 7
     .parameter "context"
     .parameter "contentTitle"
     .parameter "contentText"
@@ -914,7 +914,7 @@
     .local v0, contentView:Landroid/widget/RemoteViews;
     iget v2, p0, Landroid/app/Notification;->icon:I
 
-    if-eqz v2, :cond_1b
+    if-eqz v2, :cond_0
 
     .line 806
     iget v2, p0, Landroid/app/Notification;->icon:I
@@ -922,12 +922,12 @@
     invoke-virtual {v0, v4, v2}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
     .line 808
-    :cond_1b
+    :cond_0
     iget v2, p0, Landroid/app/Notification;->priority:I
 
     const/4 v3, -0x1
 
-    if-ge v2, v3, :cond_35
+    if-ge v2, v3, :cond_1
 
     .line 809
     const-string/jumbo v2, "setBackgroundResource"
@@ -946,8 +946,8 @@
     invoke-virtual {v0, v2, v3, v4}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 
     .line 814
-    :cond_35
-    if-eqz p2, :cond_3d
+    :cond_1
+    if-eqz p2, :cond_2
 
     .line 815
     const v2, 0x1020016
@@ -955,8 +955,8 @@
     invoke-virtual {v0, v2, p2}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
     .line 817
-    :cond_3d
-    if-eqz p3, :cond_45
+    :cond_2
+    if-eqz p3, :cond_3
 
     .line 818
     const v2, 0x1020046
@@ -964,14 +964,14 @@
     invoke-virtual {v0, v2, p3}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
     .line 820
-    :cond_45
+    :cond_3
     iget-wide v2, p0, Landroid/app/Notification;->when:J
 
     const-wide/16 v4, 0x0
 
     cmp-long v2, v2, v4
 
-    if-eqz v2, :cond_59
+    if-eqz v2, :cond_4
 
     .line 821
     const/4 v2, 0x0
@@ -986,10 +986,10 @@
     invoke-virtual {v0, v6, v2, v3, v4}, Landroid/widget/RemoteViews;->setLong(ILjava/lang/String;J)V
 
     .line 824
-    :cond_59
+    :cond_4
     iget v2, p0, Landroid/app/Notification;->number:I
 
-    if-eqz v2, :cond_6e
+    if-eqz v2, :cond_5
 
     .line 825
     invoke-static {}, Ljava/text/NumberFormat;->getIntegerInstance()Ljava/text/NumberFormat;
@@ -1012,7 +1012,7 @@
 
     .line 829
     .end local v1           #f:Ljava/text/NumberFormat;
-    :cond_6e
+    :cond_5
     iput-object v0, p0, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
 
     .line 830
@@ -1023,7 +1023,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 835
@@ -1050,7 +1050,7 @@
     .line 839
     iget-object v3, p0, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
 
-    if-eqz v3, :cond_58
+    if-eqz v3, :cond_0
 
     .line 840
     iget-object v3, p0, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
@@ -1080,7 +1080,7 @@
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 847
-    :goto_33
+    :goto_0
     const-string v3, " vibrate="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1088,7 +1088,7 @@
     .line 848
     iget-object v3, p0, Landroid/app/Notification;->vibrate:[J
 
-    if-eqz v3, :cond_da
+    if-eqz v3, :cond_5
 
     .line 849
     iget-object v3, p0, Landroid/app/Notification;->vibrate:[J
@@ -1107,8 +1107,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_47
-    if-ge v1, v0, :cond_5f
+    :goto_1
+    if-ge v1, v0, :cond_1
 
     .line 852
     iget-object v3, p0, Landroid/app/Notification;->vibrate:[J
@@ -1125,25 +1125,25 @@
     .line 851
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_47
+    goto :goto_1
 
     .line 844
     .end local v0           #N:I
     .end local v1           #i:I
-    :cond_58
+    :cond_0
     const-string/jumbo v3, "null"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_33
+    goto :goto_0
 
     .line 855
     .restart local v0       #N:I
     .restart local v1       #i:I
-    :cond_5f
+    :cond_1
     const/4 v3, -0x1
 
-    if-eq v0, v3, :cond_69
+    if-eq v0, v3, :cond_2
 
     .line 856
     iget-object v3, p0, Landroid/app/Notification;->vibrate:[J
@@ -1153,7 +1153,7 @@
     invoke-virtual {v2, v3, v4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     .line 858
-    :cond_69
+    :cond_2
     const-string v3, "]"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1161,7 +1161,7 @@
     .line 864
     .end local v0           #N:I
     .end local v1           #i:I
-    :goto_6e
+    :goto_2
     const-string v3, " sound="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1169,7 +1169,7 @@
     .line 865
     iget-object v3, p0, Landroid/app/Notification;->sound:Landroid/net/Uri;
 
-    if-eqz v3, :cond_ed
+    if-eqz v3, :cond_7
 
     .line 866
     iget-object v3, p0, Landroid/app/Notification;->sound:Landroid/net/Uri;
@@ -1181,7 +1181,7 @@
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 872
-    :goto_80
+    :goto_3
     const-string v3, " defaults=0x"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1217,7 +1217,7 @@
     .line 877
     iget-object v3, p0, Landroid/app/Notification;->kind:[Ljava/lang/String;
 
-    if-nez v3, :cond_100
+    if-nez v3, :cond_9
 
     .line 878
     const-string/jumbo v3, "null"
@@ -1225,7 +1225,7 @@
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 885
-    :cond_ab
+    :cond_3
     const-string v3, "]"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1233,7 +1233,7 @@
     .line 886
     iget-object v3, p0, Landroid/app/Notification;->actions:[Landroid/app/Notification$Action;
 
-    if-eqz v3, :cond_d0
+    if-eqz v3, :cond_4
 
     .line 887
     const-string v3, " "
@@ -1259,14 +1259,14 @@
 
     const/4 v4, 0x1
 
-    if-le v3, v4, :cond_d0
+    if-le v3, v4, :cond_4
 
     const-string/jumbo v3, "s"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 892
-    :cond_d0
+    :cond_4
     const-string v3, ")"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1279,72 +1279,72 @@
     return-object v3
 
     .line 859
-    :cond_da
+    :cond_5
     iget v3, p0, Landroid/app/Notification;->defaults:I
 
     and-int/lit8 v3, v3, 0x2
 
-    if-eqz v3, :cond_e6
+    if-eqz v3, :cond_6
 
     .line 860
     const-string v3, "default"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_6e
+    goto :goto_2
 
     .line 862
-    :cond_e6
+    :cond_6
     const-string/jumbo v3, "null"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_6e
+    goto :goto_2
 
     .line 867
-    :cond_ed
+    :cond_7
     iget v3, p0, Landroid/app/Notification;->defaults:I
 
     and-int/lit8 v3, v3, 0x1
 
-    if-eqz v3, :cond_f9
+    if-eqz v3, :cond_8
 
     .line 868
     const-string v3, "default"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_80
+    goto :goto_3
 
     .line 870
-    :cond_f9
+    :cond_8
     const-string/jumbo v3, "null"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_80
+    goto :goto_3
 
     .line 880
-    :cond_100
+    :cond_9
     const/4 v1, 0x0
 
     .restart local v1       #i:I
-    :goto_101
+    :goto_4
     iget-object v3, p0, Landroid/app/Notification;->kind:[Ljava/lang/String;
 
     array-length v3, v3
 
-    if-ge v1, v3, :cond_ab
+    if-ge v1, v3, :cond_3
 
     .line 881
-    if-lez v1, :cond_10d
+    if-lez v1, :cond_a
 
     const-string v3, ","
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 882
-    :cond_10d
+    :cond_a
     iget-object v3, p0, Landroid/app/Notification;->kind:[Ljava/lang/String;
 
     aget-object v3, v3, v1
@@ -1354,11 +1354,11 @@
     .line 880
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_101
+    goto :goto_4
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 7
+    .locals 4
     .parameter "parcel"
     .parameter "flags"
 
@@ -1388,7 +1388,7 @@
     .line 683
     iget-object v0, p0, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
 
-    if-eqz v0, :cond_c4
+    if-eqz v0, :cond_0
 
     .line 684
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -1399,10 +1399,10 @@
     invoke-virtual {v0, p1, v2}, Landroid/app/PendingIntent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 689
-    :goto_20
+    :goto_0
     iget-object v0, p0, Landroid/app/Notification;->deleteIntent:Landroid/app/PendingIntent;
 
-    if-eqz v0, :cond_c9
+    if-eqz v0, :cond_1
 
     .line 690
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -1413,10 +1413,10 @@
     invoke-virtual {v0, p1, v2}, Landroid/app/PendingIntent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 695
-    :goto_2c
+    :goto_1
     iget-object v0, p0, Landroid/app/Notification;->tickerText:Ljava/lang/CharSequence;
 
-    if-eqz v0, :cond_ce
+    if-eqz v0, :cond_2
 
     .line 696
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -1427,10 +1427,10 @@
     invoke-static {v0, p1, p2}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
 
     .line 701
-    :goto_38
+    :goto_2
     iget-object v0, p0, Landroid/app/Notification;->tickerView:Landroid/widget/RemoteViews;
 
-    if-eqz v0, :cond_d3
+    if-eqz v0, :cond_3
 
     .line 702
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -1441,10 +1441,10 @@
     invoke-virtual {v0, p1, v2}, Landroid/widget/RemoteViews;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 707
-    :goto_44
+    :goto_3
     iget-object v0, p0, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
 
-    if-eqz v0, :cond_d8
+    if-eqz v0, :cond_4
 
     .line 708
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -1455,10 +1455,10 @@
     invoke-virtual {v0, p1, v2}, Landroid/widget/RemoteViews;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 713
-    :goto_50
+    :goto_4
     iget-object v0, p0, Landroid/app/Notification;->largeIcon:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_dd
+    if-eqz v0, :cond_5
 
     .line 714
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -1469,7 +1469,7 @@
     invoke-virtual {v0, p1, v2}, Landroid/graphics/Bitmap;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 720
-    :goto_5c
+    :goto_5
     iget v0, p0, Landroid/app/Notification;->defaults:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
@@ -1482,7 +1482,7 @@
     .line 723
     iget-object v0, p0, Landroid/app/Notification;->sound:Landroid/net/Uri;
 
-    if-eqz v0, :cond_e2
+    if-eqz v0, :cond_6
 
     .line 724
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -1493,7 +1493,7 @@
     invoke-virtual {v0, p1, v2}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 729
-    :goto_72
+    :goto_6
     iget v0, p0, Landroid/app/Notification;->audioStreamType:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
@@ -1526,7 +1526,7 @@
     .line 736
     iget-object v0, p0, Landroid/app/Notification;->fullScreenIntent:Landroid/app/PendingIntent;
 
-    if-eqz v0, :cond_e6
+    if-eqz v0, :cond_7
 
     .line 737
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -1537,7 +1537,7 @@
     invoke-virtual {v0, p1, v2}, Landroid/app/PendingIntent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 743
-    :goto_9c
+    :goto_7
     iget v0, p0, Landroid/app/Notification;->priority:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
@@ -1550,7 +1550,7 @@
     .line 747
     iget-object v0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
-    if-eqz v0, :cond_ea
+    if-eqz v0, :cond_8
 
     .line 748
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -1561,7 +1561,7 @@
     invoke-virtual {v0, p1, v2}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 754
-    :goto_b2
+    :goto_8
     iget-object v0, p0, Landroid/app/Notification;->actions:[Landroid/app/Notification$Action;
 
     invoke-virtual {p1, v0, v2}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
@@ -1569,7 +1569,7 @@
     .line 756
     iget-object v0, p0, Landroid/app/Notification;->bigContentView:Landroid/widget/RemoteViews;
 
-    if-eqz v0, :cond_ee
+    if-eqz v0, :cond_9
 
     .line 757
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -1580,66 +1580,66 @@
     invoke-virtual {v0, p1, v2}, Landroid/widget/RemoteViews;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 762
-    :goto_c3
+    :goto_9
     return-void
 
     .line 687
-    :cond_c4
+    :cond_0
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_20
+    goto/16 :goto_0
 
     .line 693
-    :cond_c9
+    :cond_1
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_2c
+    goto/16 :goto_1
 
     .line 699
-    :cond_ce
+    :cond_2
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_38
+    goto/16 :goto_2
 
     .line 705
-    :cond_d3
+    :cond_3
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_44
+    goto/16 :goto_3
 
     .line 711
-    :cond_d8
+    :cond_4
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_50
+    goto/16 :goto_4
 
     .line 717
-    :cond_dd
+    :cond_5
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_5c
+    goto/16 :goto_5
 
     .line 727
-    :cond_e2
+    :cond_6
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_72
+    goto :goto_6
 
     .line 740
-    :cond_e6
+    :cond_7
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9c
+    goto :goto_7
 
     .line 751
-    :cond_ea
+    :cond_8
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_b2
+    goto :goto_8
 
     .line 760
-    :cond_ee
+    :cond_9
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_c3
+    goto :goto_9
 .end method

@@ -55,7 +55,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 422
@@ -69,7 +69,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/ParcelFileDescriptor;)V
-    .registers 3
+    .locals 1
     .parameter "descriptor"
 
     .prologue
@@ -91,7 +91,7 @@
 .end method
 
 .method constructor <init>(Ljava/io/FileDescriptor;)V
-    .registers 4
+    .locals 2
     .parameter "descriptor"
 
     .prologue
@@ -99,7 +99,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 394
-    if-nez p1, :cond_d
+    if-nez p1, :cond_0
 
     .line 395
     new-instance v0, Ljava/lang/NullPointerException;
@@ -111,7 +111,7 @@
     throw v0
 
     .line 397
-    :cond_d
+    :cond_0
     iput-object p1, p0, Landroid/os/ParcelFileDescriptor;->mFileDescriptor:Ljava/io/FileDescriptor;
 
     .line 398
@@ -124,7 +124,7 @@
 .end method
 
 .method public static adoptFd(I)Landroid/os/ParcelFileDescriptor;
-    .registers 3
+    .locals 2
     .parameter "fd"
 
     .prologue
@@ -143,7 +143,7 @@
 .end method
 
 .method public static createPipe()[Landroid/os/ParcelFileDescriptor;
-    .registers 6
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -199,7 +199,7 @@
 .end method
 
 .method public static dup(Ljava/io/FileDescriptor;)Landroid/os/ParcelFileDescriptor;
-    .registers 3
+    .locals 2
     .parameter "orig"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -215,23 +215,23 @@
 
     .line 129
     .local v0, fd:Ljava/io/FileDescriptor;
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     new-instance v1, Landroid/os/ParcelFileDescriptor;
 
     invoke-direct {v1, v0}, Landroid/os/ParcelFileDescriptor;-><init>(Ljava/io/FileDescriptor;)V
 
-    :goto_b
+    :goto_0
     return-object v1
 
-    :cond_c
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public static fromData([BLjava/lang/String;)Landroid/os/ParcelFileDescriptor;
-    .registers 7
+    .locals 5
     .parameter "data"
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
@@ -249,15 +249,15 @@
     const/4 v4, 0x0
 
     .line 237
-    if-nez p0, :cond_5
+    if-nez p0, :cond_1
 
     .line 244
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-object v2
 
     .line 238
-    :cond_5
+    :cond_1
     new-instance v1, Landroid/os/MemoryFile;
 
     array-length v3, p0
@@ -268,7 +268,7 @@
     .local v1, file:Landroid/os/MemoryFile;
     array-length v3, p0
 
-    if-lez v3, :cond_12
+    if-lez v3, :cond_2
 
     .line 240
     array-length v3, p0
@@ -276,7 +276,7 @@
     invoke-virtual {v1, p0, v4, v4, v3}, Landroid/os/MemoryFile;->writeBytes([BIII)V
 
     .line 242
-    :cond_12
+    :cond_2
     invoke-virtual {v1}, Landroid/os/MemoryFile;->deactivate()V
 
     .line 243
@@ -286,17 +286,17 @@
 
     .line 244
     .local v0, fd:Ljava/io/FileDescriptor;
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_0
 
     new-instance v2, Landroid/os/ParcelFileDescriptor;
 
     invoke-direct {v2, v0}, Landroid/os/ParcelFileDescriptor;-><init>(Ljava/io/FileDescriptor;)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static fromDatagramSocket(Ljava/net/DatagramSocket;)Landroid/os/ParcelFileDescriptor;
-    .registers 3
+    .locals 2
     .parameter "datagramSocket"
 
     .prologue
@@ -307,23 +307,23 @@
 
     .line 206
     .local v0, fd:Ljava/io/FileDescriptor;
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     new-instance v1, Landroid/os/ParcelFileDescriptor;
 
     invoke-direct {v1, v0}, Landroid/os/ParcelFileDescriptor;-><init>(Ljava/io/FileDescriptor;)V
 
-    :goto_b
+    :goto_0
     return-object v1
 
-    :cond_c
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public static fromFd(I)Landroid/os/ParcelFileDescriptor;
-    .registers 3
+    .locals 2
     .parameter "fd"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -347,7 +347,7 @@
 .end method
 
 .method public static fromSocket(Ljava/net/Socket;)Landroid/os/ParcelFileDescriptor;
-    .registers 3
+    .locals 2
     .parameter "socket"
 
     .prologue
@@ -358,19 +358,19 @@
 
     .line 192
     .local v0, fd:Ljava/io/FileDescriptor;
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     new-instance v1, Landroid/os/ParcelFileDescriptor;
 
     invoke-direct {v1, v0}, Landroid/os/ParcelFileDescriptor;-><init>(Ljava/io/FileDescriptor;)V
 
-    :goto_b
+    :goto_0
     return-object v1
 
-    :cond_c
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method private native getFdNative()I
@@ -388,7 +388,7 @@
 .end method
 
 .method public static open(Ljava/io/File;I)Landroid/os/ParcelFileDescriptor;
-    .registers 7
+    .locals 5
     .parameter "file"
     .parameter "mode"
     .annotation system Ldalvik/annotation/Throws;
@@ -411,7 +411,7 @@
 
     .line 105
     .local v2, security:Ljava/lang/SecurityManager;
-    if-eqz v2, :cond_15
+    if-eqz v2, :cond_0
 
     .line 106
     invoke-virtual {v2, v1}, Ljava/lang/SecurityManager;->checkRead(Ljava/lang/String;)V
@@ -421,18 +421,18 @@
 
     and-int/2addr v3, p1
 
-    if-eqz v3, :cond_15
+    if-eqz v3, :cond_0
 
     .line 108
     invoke-virtual {v2, v1}, Ljava/lang/SecurityManager;->checkWrite(Ljava/lang/String;)V
 
     .line 112
-    :cond_15
+    :cond_0
     const/high16 v3, 0x3000
 
     and-int/2addr v3, p1
 
-    if-nez v3, :cond_22
+    if-nez v3, :cond_1
 
     .line 113
     new-instance v3, Ljava/lang/IllegalArgumentException;
@@ -444,32 +444,32 @@
     throw v3
 
     .line 117
-    :cond_22
+    :cond_1
     invoke-static {v1, p1}, Landroid/os/Parcel;->openFileDescriptor(Ljava/lang/String;I)Ljava/io/FileDescriptor;
 
     move-result-object v0
 
     .line 118
     .local v0, fd:Ljava/io/FileDescriptor;
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_2
 
     new-instance v3, Landroid/os/ParcelFileDescriptor;
 
     invoke-direct {v3, v0}, Landroid/os/ParcelFileDescriptor;-><init>(Ljava/io/FileDescriptor;)V
 
-    :goto_2d
+    :goto_0
     return-object v3
 
-    :cond_2e
+    :cond_2
     const/4 v3, 0x0
 
-    goto :goto_2d
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public close()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -481,62 +481,62 @@
     monitor-enter p0
 
     .line 312
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/os/ParcelFileDescriptor;->mClosed:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     monitor-exit p0
 
     .line 322
-    :goto_6
+    :goto_0
     return-void
 
     .line 313
-    :cond_7
+    :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/os/ParcelFileDescriptor;->mClosed:Z
 
     .line 314
     monitor-exit p0
-    :try_end_b
-    .catchall {:try_start_1 .. :try_end_b} :catchall_15
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 315
     iget-object v0, p0, Landroid/os/ParcelFileDescriptor;->mParcelDescriptor:Landroid/os/ParcelFileDescriptor;
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_1
 
     .line 318
     iget-object v0, p0, Landroid/os/ParcelFileDescriptor;->mParcelDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 314
-    :catchall_15
+    :catchall_0
     move-exception v0
 
-    :try_start_16
+    :try_start_1
     monitor-exit p0
-    :try_end_17
-    .catchall {:try_start_16 .. :try_end_17} :catchall_15
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 
     .line 320
-    :cond_18
+    :cond_1
     iget-object v0, p0, Landroid/os/ParcelFileDescriptor;->mFileDescriptor:Ljava/io/FileDescriptor;
 
     invoke-static {v0}, Landroid/os/Parcel;->closeFileDescriptor(Ljava/io/FileDescriptor;)V
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 403
@@ -546,7 +546,7 @@
 .end method
 
 .method public detachFd()I
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x1
@@ -554,7 +554,7 @@
     .line 289
     iget-boolean v2, p0, Landroid/os/ParcelFileDescriptor;->mClosed:Z
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_0
 
     .line 290
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -566,10 +566,10 @@
     throw v2
 
     .line 292
-    :cond_d
+    :cond_0
     iget-object v2, p0, Landroid/os/ParcelFileDescriptor;->mParcelDescriptor:Landroid/os/ParcelFileDescriptor;
 
-    if-eqz v2, :cond_1b
+    if-eqz v2, :cond_1
 
     .line 293
     iget-object v2, p0, Landroid/os/ParcelFileDescriptor;->mParcelDescriptor:Landroid/os/ParcelFileDescriptor;
@@ -587,12 +587,12 @@
     .line 300
     .end local v0           #fd:I
     .local v1, fd:I
-    :goto_1a
+    :goto_0
     return v1
 
     .line 297
     .end local v1           #fd:I
-    :cond_1b
+    :cond_1
     invoke-virtual {p0}, Landroid/os/ParcelFileDescriptor;->getFd()I
 
     move-result v0
@@ -611,11 +611,11 @@
     .line 300
     .end local v0           #fd:I
     .restart local v1       #fd:I
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 .method public dup()Landroid/os/ParcelFileDescriptor;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -636,7 +636,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -648,22 +648,22 @@
     :try_start_0
     iget-boolean v0, p0, Landroid/os/ParcelFileDescriptor;->mClosed:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 379
     invoke-virtual {p0}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_7
-    .catchall {:try_start_0 .. :try_end_7} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 382
-    :cond_7
+    :cond_0
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
     .line 384
     return-void
 
     .line 382
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -672,13 +672,13 @@
 .end method
 
 .method public getFd()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 275
     iget-boolean v0, p0, Landroid/os/ParcelFileDescriptor;->mClosed:Z
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 276
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -690,7 +690,7 @@
     throw v0
 
     .line 278
-    :cond_c
+    :cond_0
     invoke-direct {p0}, Landroid/os/ParcelFileDescriptor;->getFdNative()I
 
     move-result v0
@@ -699,7 +699,7 @@
 .end method
 
 .method public getFileDescriptor()Ljava/io/FileDescriptor;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 253
@@ -715,7 +715,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 372
@@ -749,7 +749,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 
@@ -762,26 +762,26 @@
     .line 413
     and-int/lit8 v0, p2, 0x1
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     iget-boolean v0, p0, Landroid/os/ParcelFileDescriptor;->mClosed:Z
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 415
-    :try_start_d
+    :try_start_0
     invoke-virtual {p0}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_10
-    .catch Ljava/io/IOException; {:try_start_d .. :try_end_10} :catch_11
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 420
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     return-void
 
     .line 416
-    :catch_11
+    :catch_0
     move-exception v0
 
-    goto :goto_10
+    goto :goto_0
 .end method

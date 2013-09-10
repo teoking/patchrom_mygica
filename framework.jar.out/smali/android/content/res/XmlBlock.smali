@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/res/AssetManager;I)V
-    .registers 6
+    .locals 3
     .parameter "assets"
     .parameter "xmlBlock"
 
@@ -69,7 +69,7 @@
 .end method
 
 .method public constructor <init>([B)V
-    .registers 5
+    .locals 3
     .parameter "data"
 
     .prologue
@@ -118,7 +118,7 @@
 .end method
 
 .method public constructor <init>([BII)V
-    .registers 7
+    .locals 3
     .parameter "data"
     .parameter "offset"
     .parameter "size"
@@ -167,7 +167,7 @@
 .end method
 
 .method static synthetic access$008(Landroid/content/res/XmlBlock;)I
-    .registers 3
+    .locals 2
     .parameter "x0"
 
     .prologue
@@ -182,7 +182,7 @@
 .end method
 
 .method static synthetic access$100(I)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -195,7 +195,7 @@
 .end method
 
 .method static synthetic access$1000(ILjava/lang/String;Ljava/lang/String;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -210,7 +210,7 @@
 .end method
 
 .method static synthetic access$1100(II)I
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -224,7 +224,7 @@
 .end method
 
 .method static synthetic access$1200(I)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -237,7 +237,7 @@
 .end method
 
 .method static synthetic access$1300(I)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -250,7 +250,7 @@
 .end method
 
 .method static synthetic access$1400(I)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -263,7 +263,7 @@
 .end method
 
 .method static synthetic access$1500(I)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -274,7 +274,7 @@
 .end method
 
 .method static synthetic access$1600(Landroid/content/res/XmlBlock;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -285,7 +285,7 @@
 .end method
 
 .method static synthetic access$200(I)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -298,7 +298,7 @@
 .end method
 
 .method static synthetic access$300(I)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -311,7 +311,7 @@
 .end method
 
 .method static synthetic access$400(II)I
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -325,7 +325,7 @@
 .end method
 
 .method static synthetic access$500(II)I
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -339,7 +339,7 @@
 .end method
 
 .method static synthetic access$600(I)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -352,7 +352,7 @@
 .end method
 
 .method static synthetic access$700(II)I
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -366,7 +366,7 @@
 .end method
 
 .method static synthetic access$800(II)I
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -380,7 +380,7 @@
 .end method
 
 .method static synthetic access$900(II)I
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -394,7 +394,7 @@
 .end method
 
 .method private decOpenCountLocked()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 59
@@ -407,7 +407,7 @@
     .line 60
     iget v0, p0, Landroid/content/res/XmlBlock;->mOpenCount:I
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_0
 
     .line 61
     iget v0, p0, Landroid/content/res/XmlBlock;->mNative:I
@@ -417,7 +417,7 @@
     .line 62
     iget-object v0, p0, Landroid/content/res/XmlBlock;->mAssets:Landroid/content/res/AssetManager;
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     .line 63
     iget-object v0, p0, Landroid/content/res/XmlBlock;->mAssets:Landroid/content/res/AssetManager;
@@ -429,7 +429,7 @@
     invoke-virtual {v0, v1}, Landroid/content/res/AssetManager;->xmlBlockGone(I)V
 
     .line 66
-    :cond_1c
+    :cond_0
     return-void
 .end method
 
@@ -499,17 +499,17 @@
 
 # virtual methods
 .method public close()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 50
     monitor-enter p0
 
     .line 51
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/content/res/XmlBlock;->mOpen:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 52
     const/4 v0, 0x0
@@ -520,25 +520,25 @@
     invoke-direct {p0}, Landroid/content/res/XmlBlock;->decOpenCountLocked()V
 
     .line 55
-    :cond_b
+    :cond_0
     monitor-exit p0
 
     .line 56
     return-void
 
     .line 55
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_f
-    .catchall {:try_start_1 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method protected finalize()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -554,17 +554,17 @@
 .end method
 
 .method public newParser()Landroid/content/res/XmlResourceParser;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 69
     monitor-enter p0
 
     .line 70
-    :try_start_1
+    :try_start_0
     iget v0, p0, Landroid/content/res/XmlBlock;->mNative:I
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 71
     new-instance v0, Landroid/content/res/XmlBlock$Parser;
@@ -580,23 +580,23 @@
     monitor-exit p0
 
     .line 73
-    :goto_11
+    :goto_0
     return-object v0
 
-    :cond_12
+    :cond_0
     const/4 v0, 0x0
 
     monitor-exit p0
 
-    goto :goto_11
+    goto :goto_0
 
     .line 74
-    :catchall_15
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_17
-    .catchall {:try_start_1 .. :try_end_17} :catchall_15
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

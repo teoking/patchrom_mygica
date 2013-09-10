@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/ref/WeakReference;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -64,19 +64,19 @@
 .end method
 
 .method private destroySurfaceImp()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 1154
     iget-object v1, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
-    if-eqz v1, :cond_31
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
     sget-object v2, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_SURFACE:Ljavax/microedition/khronos/egl/EGLSurface;
 
-    if-eq v1, v2, :cond_31
+    if-eq v1, v2, :cond_1
 
     .line 1155
     iget-object v1, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEgl:Ljavax/microedition/khronos/egl/EGL10;
@@ -102,9 +102,10 @@
 
     .line 1159
     .local v0, view:Landroid/opengl/GLSurfaceView;
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_0
 
     .line 1160
+    #getter for: Landroid/opengl/GLSurfaceView;->mEGLWindowSurfaceFactory:Landroid/opengl/GLSurfaceView$EGLWindowSurfaceFactory;
     invoke-static {v0}, Landroid/opengl/GLSurfaceView;->access$500(Landroid/opengl/GLSurfaceView;)Landroid/opengl/GLSurfaceView$EGLWindowSurfaceFactory;
 
     move-result-object v1
@@ -118,19 +119,19 @@
     invoke-interface {v1, v2, v3, v4}, Landroid/opengl/GLSurfaceView$EGLWindowSurfaceFactory;->destroySurface(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLSurface;)V
 
     .line 1162
-    :cond_2e
+    :cond_0
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
     .line 1164
     .end local v0           #view:Landroid/opengl/GLSurfaceView;
-    :cond_31
+    :cond_1
     return-void
 .end method
 
 .method public static formatEglError(Ljava/lang/String;I)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "function"
     .parameter "error"
 
@@ -166,7 +167,7 @@
 .end method
 
 .method public static logEglErrorAsWarning(Ljava/lang/String;Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
     .parameter "tag"
     .parameter "function"
     .parameter "error"
@@ -184,7 +185,7 @@
 .end method
 
 .method private throwEglException(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "function"
 
     .prologue
@@ -202,7 +203,7 @@
 .end method
 
 .method public static throwEglException(Ljava/lang/String;I)V
-    .registers 4
+    .locals 2
     .parameter "function"
     .parameter "error"
 
@@ -224,7 +225,7 @@
 
 # virtual methods
 .method createGL()Ljavax/microedition/khronos/opengles/GL;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 1113
@@ -246,16 +247,18 @@
 
     .line 1115
     .local v3, view:Landroid/opengl/GLSurfaceView;
-    if-eqz v3, :cond_43
+    if-eqz v3, :cond_3
 
     .line 1116
+    #getter for: Landroid/opengl/GLSurfaceView;->mGLWrapper:Landroid/opengl/GLSurfaceView$GLWrapper;
     invoke-static {v3}, Landroid/opengl/GLSurfaceView;->access$600(Landroid/opengl/GLSurfaceView;)Landroid/opengl/GLSurfaceView$GLWrapper;
 
     move-result-object v4
 
-    if-eqz v4, :cond_1e
+    if-eqz v4, :cond_0
 
     .line 1117
+    #getter for: Landroid/opengl/GLSurfaceView;->mGLWrapper:Landroid/opengl/GLSurfaceView$GLWrapper;
     invoke-static {v3}, Landroid/opengl/GLSurfaceView;->access$600(Landroid/opengl/GLSurfaceView;)Landroid/opengl/GLSurfaceView$GLWrapper;
 
     move-result-object v4
@@ -265,14 +268,15 @@
     move-result-object v1
 
     .line 1120
-    :cond_1e
+    :cond_0
+    #getter for: Landroid/opengl/GLSurfaceView;->mDebugFlags:I
     invoke-static {v3}, Landroid/opengl/GLSurfaceView;->access$700(Landroid/opengl/GLSurfaceView;)I
 
     move-result v4
 
     and-int/lit8 v4, v4, 0x3
 
-    if-eqz v4, :cond_43
+    if-eqz v4, :cond_3
 
     .line 1121
     const/4 v0, 0x0
@@ -283,26 +287,28 @@
 
     .line 1123
     .local v2, log:Ljava/io/Writer;
+    #getter for: Landroid/opengl/GLSurfaceView;->mDebugFlags:I
     invoke-static {v3}, Landroid/opengl/GLSurfaceView;->access$700(Landroid/opengl/GLSurfaceView;)I
 
     move-result v4
 
     and-int/lit8 v4, v4, 0x1
 
-    if-eqz v4, :cond_32
+    if-eqz v4, :cond_1
 
     .line 1124
     or-int/lit8 v0, v0, 0x1
 
     .line 1126
-    :cond_32
+    :cond_1
+    #getter for: Landroid/opengl/GLSurfaceView;->mDebugFlags:I
     invoke-static {v3}, Landroid/opengl/GLSurfaceView;->access$700(Landroid/opengl/GLSurfaceView;)I
 
     move-result v4
 
     and-int/lit8 v4, v4, 0x2
 
-    if-eqz v4, :cond_3f
+    if-eqz v4, :cond_2
 
     .line 1127
     new-instance v2, Landroid/opengl/GLSurfaceView$LogWriter;
@@ -312,7 +318,7 @@
 
     .line 1129
     .restart local v2       #log:Ljava/io/Writer;
-    :cond_3f
+    :cond_2
     invoke-static {v1, v0, v2}, Landroid/opengl/GLDebugHelper;->wrap(Ljavax/microedition/khronos/opengles/GL;ILjava/io/Writer;)Ljavax/microedition/khronos/opengles/GL;
 
     move-result-object v1
@@ -320,12 +326,12 @@
     .line 1132
     .end local v0           #configFlags:I
     .end local v2           #log:Ljava/io/Writer;
-    :cond_43
+    :cond_3
     return-object v1
 .end method
 
 .method public createSurface()Z
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v2, 0x0
@@ -333,7 +339,7 @@
     .line 1056
     iget-object v3, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEgl:Ljavax/microedition/khronos/egl/EGL10;
 
-    if-nez v3, :cond_d
+    if-nez v3, :cond_0
 
     .line 1057
     new-instance v2, Ljava/lang/RuntimeException;
@@ -345,10 +351,10 @@
     throw v2
 
     .line 1059
-    :cond_d
+    :cond_0
     iget-object v3, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
 
-    if-nez v3, :cond_19
+    if-nez v3, :cond_1
 
     .line 1060
     new-instance v2, Ljava/lang/RuntimeException;
@@ -360,10 +366,10 @@
     throw v2
 
     .line 1062
-    :cond_19
+    :cond_1
     iget-object v3, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglConfig:Ljavax/microedition/khronos/egl/EGLConfig;
 
-    if-nez v3, :cond_25
+    if-nez v3, :cond_2
 
     .line 1063
     new-instance v2, Ljava/lang/RuntimeException;
@@ -375,7 +381,7 @@
     throw v2
 
     .line 1070
-    :cond_25
+    :cond_2
     invoke-direct {p0}, Landroid/opengl/GLSurfaceView$EglHelper;->destroySurfaceImp()V
 
     .line 1075
@@ -389,9 +395,10 @@
 
     .line 1076
     .local v1, view:Landroid/opengl/GLSurfaceView;
-    if-eqz v1, :cond_62
+    if-eqz v1, :cond_5
 
     .line 1077
+    #getter for: Landroid/opengl/GLSurfaceView;->mEGLWindowSurfaceFactory:Landroid/opengl/GLSurfaceView$EGLWindowSurfaceFactory;
     invoke-static {v1}, Landroid/opengl/GLSurfaceView;->access$500(Landroid/opengl/GLSurfaceView;)Landroid/opengl/GLSurfaceView$EGLWindowSurfaceFactory;
 
     move-result-object v3
@@ -413,19 +420,19 @@
     iput-object v3, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
     .line 1083
-    :goto_46
+    :goto_0
     iget-object v3, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
-    if-eqz v3, :cond_50
+    if-eqz v3, :cond_3
 
     iget-object v3, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
     sget-object v4, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_SURFACE:Ljavax/microedition/khronos/egl/EGLSurface;
 
-    if-ne v3, v4, :cond_66
+    if-ne v3, v4, :cond_6
 
     .line 1084
-    :cond_50
+    :cond_3
     iget-object v3, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEgl:Ljavax/microedition/khronos/egl/EGL10;
 
     invoke-interface {v3}, Ljavax/microedition/khronos/egl/EGL10;->eglGetError()I
@@ -436,7 +443,7 @@
     .local v0, error:I
     const/16 v3, 0x300b
 
-    if-ne v0, v3, :cond_61
+    if-ne v0, v3, :cond_4
 
     .line 1086
     const-string v3, "EglHelper"
@@ -447,20 +454,20 @@
 
     .line 1104
     .end local v0           #error:I
-    :cond_61
-    :goto_61
+    :cond_4
+    :goto_1
     return v2
 
     .line 1080
-    :cond_62
+    :cond_5
     const/4 v3, 0x0
 
     iput-object v3, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
-    goto :goto_46
+    goto :goto_0
 
     .line 1095
-    :cond_66
+    :cond_6
     iget-object v3, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEgl:Ljavax/microedition/khronos/egl/EGL10;
 
     iget-object v4, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
@@ -475,7 +482,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_84
+    if-nez v3, :cond_7
 
     .line 1100
     const-string v3, "EGLHelper"
@@ -490,17 +497,17 @@
 
     invoke-static {v3, v4, v5}, Landroid/opengl/GLSurfaceView$EglHelper;->logEglErrorAsWarning(Ljava/lang/String;Ljava/lang/String;I)V
 
-    goto :goto_61
+    goto :goto_1
 
     .line 1104
-    :cond_84
+    :cond_7
     const/4 v2, 0x1
 
-    goto :goto_61
+    goto :goto_1
 .end method
 
 .method public destroySurface()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1150
@@ -511,7 +518,7 @@
 .end method
 
 .method public finish()V
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v5, 0x0
@@ -519,7 +526,7 @@
     .line 1170
     iget-object v1, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglContext:Ljavax/microedition/khronos/egl/EGLContext;
 
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_1
 
     .line 1171
     iget-object v1, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mGLSurfaceViewWeakRef:Ljava/lang/ref/WeakReference;
@@ -532,9 +539,10 @@
 
     .line 1172
     .local v0, view:Landroid/opengl/GLSurfaceView;
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     .line 1173
+    #getter for: Landroid/opengl/GLSurfaceView;->mEGLContextFactory:Landroid/opengl/GLSurfaceView$EGLContextFactory;
     invoke-static {v0}, Landroid/opengl/GLSurfaceView;->access$400(Landroid/opengl/GLSurfaceView;)Landroid/opengl/GLSurfaceView$EGLContextFactory;
 
     move-result-object v1
@@ -548,15 +556,15 @@
     invoke-interface {v1, v2, v3, v4}, Landroid/opengl/GLSurfaceView$EGLContextFactory;->destroyContext(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLContext;)V
 
     .line 1175
-    :cond_1c
+    :cond_0
     iput-object v5, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglContext:Ljavax/microedition/khronos/egl/EGLContext;
 
     .line 1177
     .end local v0           #view:Landroid/opengl/GLSurfaceView;
-    :cond_1e
+    :cond_1
     iget-object v1, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
 
-    if-eqz v1, :cond_2b
+    if-eqz v1, :cond_2
 
     .line 1178
     iget-object v1, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEgl:Ljavax/microedition/khronos/egl/EGL10;
@@ -569,12 +577,12 @@
     iput-object v5, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
 
     .line 1181
-    :cond_2b
+    :cond_2
     return-void
 .end method
 
 .method public start()V
-    .registers 8
+    .locals 7
 
     .prologue
     const/4 v6, 0x0
@@ -604,7 +612,7 @@
 
     sget-object v3, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_DISPLAY:Ljavax/microedition/khronos/egl/EGLDisplay;
 
-    if-ne v2, v3, :cond_21
+    if-ne v2, v3, :cond_0
 
     .line 1009
     new-instance v2, Ljava/lang/RuntimeException;
@@ -616,7 +624,7 @@
     throw v2
 
     .line 1015
-    :cond_21
+    :cond_0
     const/4 v2, 0x2
 
     new-array v0, v2, [I
@@ -631,7 +639,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_36
+    if-nez v2, :cond_1
 
     .line 1017
     new-instance v2, Ljava/lang/RuntimeException;
@@ -643,7 +651,7 @@
     throw v2
 
     .line 1019
-    :cond_36
+    :cond_1
     iget-object v2, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mGLSurfaceViewWeakRef:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -654,7 +662,7 @@
 
     .line 1020
     .local v1, view:Landroid/opengl/GLSurfaceView;
-    if-nez v1, :cond_58
+    if-nez v1, :cond_4
 
     .line 1021
     iput-object v6, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglConfig:Ljavax/microedition/khronos/egl/EGLConfig;
@@ -663,19 +671,19 @@
     iput-object v6, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglContext:Ljavax/microedition/khronos/egl/EGLContext;
 
     .line 1032
-    :goto_44
+    :goto_0
     iget-object v2, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglContext:Ljavax/microedition/khronos/egl/EGLContext;
 
-    if-eqz v2, :cond_4e
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglContext:Ljavax/microedition/khronos/egl/EGLContext;
 
     sget-object v3, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_CONTEXT:Ljavax/microedition/khronos/egl/EGLContext;
 
-    if-ne v2, v3, :cond_55
+    if-ne v2, v3, :cond_3
 
     .line 1033
-    :cond_4e
+    :cond_2
     iput-object v6, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglContext:Ljavax/microedition/khronos/egl/EGLContext;
 
     .line 1034
@@ -684,14 +692,15 @@
     invoke-direct {p0, v2}, Landroid/opengl/GLSurfaceView$EglHelper;->throwEglException(Ljava/lang/String;)V
 
     .line 1040
-    :cond_55
+    :cond_3
     iput-object v6, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
     .line 1041
     return-void
 
     .line 1024
-    :cond_58
+    :cond_4
+    #getter for: Landroid/opengl/GLSurfaceView;->mEGLConfigChooser:Landroid/opengl/GLSurfaceView$EGLConfigChooser;
     invoke-static {v1}, Landroid/opengl/GLSurfaceView;->access$300(Landroid/opengl/GLSurfaceView;)Landroid/opengl/GLSurfaceView$EGLConfigChooser;
 
     move-result-object v2
@@ -707,6 +716,7 @@
     iput-object v2, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglConfig:Ljavax/microedition/khronos/egl/EGLConfig;
 
     .line 1030
+    #getter for: Landroid/opengl/GLSurfaceView;->mEGLContextFactory:Landroid/opengl/GLSurfaceView$EGLContextFactory;
     invoke-static {v1}, Landroid/opengl/GLSurfaceView;->access$400(Landroid/opengl/GLSurfaceView;)Landroid/opengl/GLSurfaceView$EGLContextFactory;
 
     move-result-object v2
@@ -723,11 +733,11 @@
 
     iput-object v2, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEglContext:Ljavax/microedition/khronos/egl/EGLContext;
 
-    goto :goto_44
+    goto :goto_0
 .end method
 
 .method public swap()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1140
@@ -741,7 +751,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     .line 1141
     iget-object v0, p0, Landroid/opengl/GLSurfaceView$EglHelper;->mEgl:Ljavax/microedition/khronos/egl/EGL10;
@@ -751,11 +761,11 @@
     move-result v0
 
     .line 1143
-    :goto_12
+    :goto_0
     return v0
 
-    :cond_13
+    :cond_0
     const/16 v0, 0x3000
 
-    goto :goto_12
+    goto :goto_0
 .end method

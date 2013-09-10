@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -59,7 +59,7 @@
 .end method
 
 .method private initParameters()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 119
@@ -67,7 +67,7 @@
 
     new-array v0, v1, [F
 
-    fill-array-data v0, :array_12
+    fill-array-data v0, :array_0
 
     .line 120
     .local v0, color_ratio:[F
@@ -86,7 +86,7 @@
     .line 119
     nop
 
-    :array_12
+    :array_0
     .array-data 0x4
         0x3dt 0xat 0x57t 0x3et
         0x8ft 0xc2t 0x35t 0x3ft
@@ -95,7 +95,7 @@
 .end method
 
 .method private updateParameters()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/high16 v3, 0x437f
@@ -162,7 +162,7 @@
 
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "context"
 
@@ -170,18 +170,18 @@
     .line 88
     iget-object v0, p0, Landroid/filterpacks/imageproc/TintFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 89
     invoke-direct {p0}, Landroid/filterpacks/imageproc/TintFilter;->updateParameters()V
 
     .line 91
-    :cond_7
+    :cond_0
     return-void
 .end method
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -191,13 +191,13 @@
 .end method
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "target"
 
     .prologue
     .line 72
-    packed-switch p2, :pswitch_data_34
+    packed-switch p2, :pswitch_data_0
 
     .line 80
     new-instance v1, Ljava/lang/RuntimeException;
@@ -231,7 +231,7 @@
     throw v1
 
     .line 74
-    :pswitch_22
+    :pswitch_0
     new-instance v0, Landroid/filterfw/core/ShaderProgram;
 
     const-string/jumbo v1, "precision mediump float;\nuniform sampler2D tex_sampler_0;\nuniform vec3 tint;\nuniform vec3 color_ratio;\nvarying vec2 v_texcoord;\nvoid main() {\n  vec4 color = texture2D(tex_sampler_0, v_texcoord);\n  float avg_color = dot(color_ratio, color.rgb);\n  vec3 new_color = min(0.8 * avg_color + 0.2 * tint, 1.0);\n  gl_FragColor = vec4(new_color.rgb, color.a);\n}\n"
@@ -254,14 +254,14 @@
     return-void
 
     .line 72
-    :pswitch_data_34
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_22
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -282,7 +282,7 @@
     .local v1, inputFormat:Landroid/filterfw/core/FrameFormat;
     iget-object v3, p0, Landroid/filterpacks/imageproc/TintFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v3, :cond_16
+    if-eqz v3, :cond_0
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
@@ -290,10 +290,10 @@
 
     iget v4, p0, Landroid/filterpacks/imageproc/TintFilter;->mTarget:I
 
-    if-eq v3, v4, :cond_20
+    if-eq v3, v4, :cond_1
 
     .line 101
-    :cond_16
+    :cond_0
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
     move-result v3
@@ -304,7 +304,7 @@
     invoke-direct {p0}, Landroid/filterpacks/imageproc/TintFilter;->initParameters()V
 
     .line 106
-    :cond_20
+    :cond_1
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
     move-result-object v3
@@ -332,7 +332,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 62

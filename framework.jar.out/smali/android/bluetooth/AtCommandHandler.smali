@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 25
@@ -17,7 +17,7 @@
 
 # virtual methods
 .method public handleActionCommand()Landroid/bluetooth/AtCommandResult;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 48
@@ -31,7 +31,7 @@
 .end method
 
 .method public handleBasicCommand(Ljava/lang/String;)Landroid/bluetooth/AtCommandResult;
-    .registers 4
+    .locals 2
     .parameter "arg"
 
     .prologue
@@ -46,7 +46,7 @@
 .end method
 
 .method public handleReadCommand()Landroid/bluetooth/AtCommandResult;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 58
@@ -60,7 +60,7 @@
 .end method
 
 .method public handleSetCommand([Ljava/lang/Object;)Landroid/bluetooth/AtCommandResult;
-    .registers 4
+    .locals 2
     .parameter "args"
 
     .prologue
@@ -75,7 +75,7 @@
 .end method
 
 .method public handleTestCommand()Landroid/bluetooth/AtCommandResult;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 91

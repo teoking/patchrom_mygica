@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 5
+    .locals 5
 
     .prologue
     const/4 v4, 0x3
@@ -50,15 +50,15 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_10
-    if-ge v0, v4, :cond_26
+    :goto_0
+    if-ge v0, v4, :cond_1
 
     .line 143
     const/4 v1, 0x0
 
     .local v1, j:I
-    :goto_13
-    if-ge v1, v4, :cond_23
+    :goto_1
+    if-ge v1, v4, :cond_0
 
     .line 144
     sget-object v2, Lcom/android/internal/widget/LockPatternView$Cell;->sCells:[[Lcom/android/internal/widget/LockPatternView$Cell;
@@ -74,22 +74,22 @@
     .line 143
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_13
+    goto :goto_1
 
     .line 142
-    :cond_23
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 147
     .end local v1           #j:I
-    :cond_26
+    :cond_1
     return-void
 .end method
 
 .method private constructor <init>(II)V
-    .registers 3
+    .locals 0
     .parameter "row"
     .parameter "column"
 
@@ -111,7 +111,7 @@
 .end method
 
 .method private static checkRange(II)V
-    .registers 4
+    .locals 2
     .parameter "row"
     .parameter "column"
 
@@ -119,12 +119,12 @@
     const/4 v0, 0x2
 
     .line 177
-    if-ltz p0, :cond_5
+    if-ltz p0, :cond_0
 
-    if-le p0, v0, :cond_e
+    if-le p0, v0, :cond_1
 
     .line 178
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "row must be in range 0-2"
@@ -134,13 +134,13 @@
     throw v0
 
     .line 180
-    :cond_e
-    if-ltz p1, :cond_12
+    :cond_1
+    if-ltz p1, :cond_2
 
-    if-le p1, v0, :cond_1a
+    if-le p1, v0, :cond_3
 
     .line 181
-    :cond_12
+    :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "column must be in range 0-2"
@@ -150,12 +150,12 @@
     throw v0
 
     .line 183
-    :cond_1a
+    :cond_3
     return-void
 .end method
 
 .method public static declared-synchronized of(II)Lcom/android/internal/widget/LockPatternView$Cell;
-    .registers 4
+    .locals 2
     .parameter "row"
     .parameter "column"
 
@@ -165,7 +165,7 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     invoke-static {p0, p1}, Lcom/android/internal/widget/LockPatternView$Cell;->checkRange(II)V
 
     .line 173
@@ -174,15 +174,15 @@
     aget-object v0, v0, p0
 
     aget-object v0, v0, p1
-    :try_end_c
-    .catchall {:try_start_3 .. :try_end_c} :catchall_e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
     return-object v0
 
     .line 172
-    :catchall_e
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -193,7 +193,7 @@
 
 # virtual methods
 .method public getColumn()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 164
@@ -203,7 +203,7 @@
 .end method
 
 .method public getRow()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 160
@@ -213,7 +213,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 186

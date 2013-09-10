@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 75
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>(Ljavax/sip/SipStack;Ljavax/sip/SipProvider;)V
-    .registers 5
+    .locals 2
     .parameter "sipStack"
     .parameter "sipProvider"
     .annotation system Ldalvik/annotation/Throws;
@@ -92,7 +92,7 @@
 .end method
 
 .method private createCSeqHeader(Ljava/lang/String;)Ljavax/sip/header/CSeqHeader;
-    .registers 8
+    .locals 6
     .parameter "method"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -125,7 +125,7 @@
 .end method
 
 .method private createCallIdHeader()Ljavax/sip/header/CallIdHeader;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 111
@@ -139,7 +139,7 @@
 .end method
 
 .method private createContactHeader(Landroid/net/sip/SipProfile;)Ljavax/sip/header/ContactHeader;
-    .registers 4
+    .locals 2
     .parameter "profile"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -162,7 +162,7 @@
 .end method
 
 .method private createContactHeader(Landroid/net/sip/SipProfile;Ljava/lang/String;I)Ljavax/sip/header/ContactHeader;
-    .registers 9
+    .locals 5
     .parameter "profile"
     .parameter "ip"
     .parameter "port"
@@ -175,7 +175,7 @@
 
     .prologue
     .line 162
-    if-nez p2, :cond_26
+    if-nez p2, :cond_0
 
     invoke-virtual {p1}, Landroid/net/sip/SipProfile;->getUserName()Ljava/lang/String;
 
@@ -195,7 +195,7 @@
 
     .line 168
     .local v1, contactURI:Ljavax/sip/address/SipURI;
-    :goto_12
+    :goto_0
     iget-object v2, p0, Lcom/android/server/sip/SipHelper;->mAddressFactory:Ljavax/sip/address/AddressFactory;
 
     invoke-interface {v2, v1}, Ljavax/sip/address/AddressFactory;->createAddress(Ljavax/sip/address/URI;)Ljavax/sip/address/Address;
@@ -222,7 +222,7 @@
     .line 162
     .end local v0           #contactAddress:Ljavax/sip/address/Address;
     .end local v1           #contactURI:Ljavax/sip/address/SipURI;
-    :cond_26
+    :cond_0
     invoke-virtual {p1}, Landroid/net/sip/SipProfile;->getUserName()Ljava/lang/String;
 
     move-result-object v2
@@ -235,11 +235,11 @@
 
     move-result-object v1
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method private createFromHeader(Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljavax/sip/header/FromHeader;
-    .registers 5
+    .locals 2
     .parameter "profile"
     .parameter "tag"
     .annotation system Ldalvik/annotation/Throws;
@@ -264,7 +264,7 @@
 .end method
 
 .method private createMaxForwardsHeader()Ljavax/sip/header/MaxForwardsHeader;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/sip/InvalidArgumentException;
@@ -285,7 +285,7 @@
 .end method
 
 .method private createMaxForwardsHeader(I)Ljavax/sip/header/MaxForwardsHeader;
-    .registers 3
+    .locals 1
     .parameter "max"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -305,7 +305,7 @@
 .end method
 
 .method private createRequest(Ljava/lang/String;Landroid/net/sip/SipProfile;Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljavax/sip/message/Request;
-    .registers 15
+    .locals 10
     .parameter "requestType"
     .parameter "caller"
     .parameter "callee"
@@ -382,7 +382,7 @@
 .end method
 
 .method private createRequest(Ljava/lang/String;Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljavax/sip/message/Request;
-    .registers 19
+    .locals 15
     .parameter "requestType"
     .parameter "userProfile"
     .parameter "tag"
@@ -512,7 +512,7 @@
 .end method
 
 .method private createSipUri(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Ljavax/sip/address/SipURI;
-    .registers 8
+    .locals 3
     .parameter "username"
     .parameter "transport"
     .parameter "ip"
@@ -533,19 +533,19 @@
 
     .line 189
     .local v1, uri:Ljavax/sip/address/SipURI;
-    :try_start_6
+    :try_start_0
     invoke-interface {v1, p4}, Ljavax/sip/address/SipURI;->setPort(I)V
 
     .line 190
     invoke-interface {v1, p2}, Ljavax/sip/address/SipURI;->setTransportParam(Ljava/lang/String;)V
-    :try_end_c
-    .catch Ljavax/sip/InvalidArgumentException; {:try_start_6 .. :try_end_c} :catch_d
+    :try_end_0
+    .catch Ljavax/sip/InvalidArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 194
     return-object v1
 
     .line 191
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 192
@@ -558,7 +558,7 @@
 .end method
 
 .method private createSipUri(Ljava/lang/String;Ljava/lang/String;Ljavax/sip/ListeningPoint;)Ljavax/sip/address/SipURI;
-    .registers 6
+    .locals 2
     .parameter "username"
     .parameter "transport"
     .parameter "lp"
@@ -586,7 +586,7 @@
 .end method
 
 .method private createToHeader(Landroid/net/sip/SipProfile;)Ljavax/sip/header/ToHeader;
-    .registers 3
+    .locals 1
     .parameter "profile"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -606,7 +606,7 @@
 .end method
 
 .method private createToHeader(Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljavax/sip/header/ToHeader;
-    .registers 5
+    .locals 2
     .parameter "profile"
     .parameter "tag"
     .annotation system Ldalvik/annotation/Throws;
@@ -631,7 +631,7 @@
 .end method
 
 .method private createViaHeaders()Ljava/util/List;
-    .registers 9
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -697,7 +697,7 @@
 .end method
 
 .method private createWildcardContactHeader()Ljavax/sip/header/ContactHeader;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 175
@@ -716,24 +716,24 @@
 .end method
 
 .method public static getCallId(Ljava/util/EventObject;)Ljava/lang/String;
-    .registers 5
+    .locals 4
     .parameter "event"
 
     .prologue
     .line 497
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     const/4 v3, 0x0
 
     .line 518
-    :goto_3
+    :goto_0
     return-object v3
 
     .line 498
-    :cond_4
+    :cond_0
     instance-of v3, p0, Ljavax/sip/RequestEvent;
 
-    if-eqz v3, :cond_13
+    if-eqz v3, :cond_1
 
     .line 499
     check-cast p0, Ljavax/sip/RequestEvent;
@@ -747,14 +747,14 @@
 
     move-result-object v3
 
-    goto :goto_3
+    goto :goto_0
 
     .line 500
     .restart local p0
-    :cond_13
+    :cond_1
     instance-of v3, p0, Ljavax/sip/ResponseEvent;
 
-    if-eqz v3, :cond_22
+    if-eqz v3, :cond_2
 
     .line 501
     check-cast p0, Ljavax/sip/ResponseEvent;
@@ -768,14 +768,14 @@
 
     move-result-object v3
 
-    goto :goto_3
+    goto :goto_0
 
     .line 502
     .restart local p0
-    :cond_22
+    :cond_2
     instance-of v3, p0, Ljavax/sip/DialogTerminatedEvent;
 
-    if-eqz v3, :cond_38
+    if-eqz v3, :cond_3
 
     move-object v3, p0
 
@@ -799,15 +799,15 @@
 
     move-result-object v3
 
-    goto :goto_3
+    goto :goto_0
 
     .line 505
     .end local v0           #dialog:Ljavax/sip/Dialog;
     .restart local p0
-    :cond_38
+    :cond_3
     instance-of v3, p0, Ljavax/sip/TransactionTerminatedEvent;
 
-    if-eqz v3, :cond_53
+    if-eqz v3, :cond_5
 
     move-object v1, p0
 
@@ -820,29 +820,29 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4e
+    if-eqz v3, :cond_4
 
     invoke-virtual {v1}, Ljavax/sip/TransactionTerminatedEvent;->getServerTransaction()Ljavax/sip/ServerTransaction;
 
     move-result-object v3
 
-    :goto_49
+    :goto_1
     invoke-static {v3}, Lcom/android/server/sip/SipHelper;->getCallId(Ljavax/sip/Transaction;)Ljava/lang/String;
 
     move-result-object v3
 
-    goto :goto_3
+    goto :goto_0
 
-    :cond_4e
+    :cond_4
     invoke-virtual {v1}, Ljavax/sip/TransactionTerminatedEvent;->getClientTransaction()Ljavax/sip/ClientTransaction;
 
     move-result-object v3
 
-    goto :goto_49
+    goto :goto_1
 
     .line 511
     .end local v1           #e:Ljavax/sip/TransactionTerminatedEvent;
-    :cond_53
+    :cond_5
     invoke-virtual {p0}, Ljava/util/EventObject;->getSource()Ljava/lang/Object;
 
     move-result-object v2
@@ -851,7 +851,7 @@
     .local v2, source:Ljava/lang/Object;
     instance-of v3, v2, Ljavax/sip/Transaction;
 
-    if-eqz v3, :cond_62
+    if-eqz v3, :cond_6
 
     .line 513
     check-cast v2, Ljavax/sip/Transaction;
@@ -861,14 +861,14 @@
 
     move-result-object v3
 
-    goto :goto_3
+    goto :goto_0
 
     .line 514
     .restart local v2       #source:Ljava/lang/Object;
-    :cond_62
+    :cond_6
     instance-of v3, v2, Ljavax/sip/Dialog;
 
-    if-eqz v3, :cond_6d
+    if-eqz v3, :cond_7
 
     .line 515
     check-cast v2, Ljavax/sip/Dialog;
@@ -878,18 +878,18 @@
 
     move-result-object v3
 
-    goto :goto_3
+    goto :goto_0
 
     .line 518
     .restart local v2       #source:Ljava/lang/Object;
-    :cond_6d
+    :cond_7
     const-string v3, ""
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method private static getCallId(Ljavax/sip/Dialog;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "dialog"
 
     .prologue
@@ -906,12 +906,12 @@
 .end method
 
 .method public static getCallId(Ljavax/sip/Transaction;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "transaction"
 
     .prologue
     .line 522
-    if-eqz p0, :cond_b
+    if-eqz p0, :cond_0
 
     invoke-interface {p0}, Ljavax/sip/Transaction;->getRequest()Ljavax/sip/message/Request;
 
@@ -921,17 +921,17 @@
 
     move-result-object v0
 
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     const-string v0, ""
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method private static getCallId(Ljavax/sip/message/Message;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "message"
 
     .prologue
@@ -954,7 +954,7 @@
 .end method
 
 .method private getListeningPoint()Ljavax/sip/ListeningPoint;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/sip/SipException;
@@ -973,7 +973,7 @@
 
     .line 132
     .local v0, lp:Ljavax/sip/ListeningPoint;
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     iget-object v2, p0, Lcom/android/server/sip/SipHelper;->mSipProvider:Ljavax/sip/SipProvider;
 
@@ -984,8 +984,8 @@
     move-result-object v0
 
     .line 133
-    :cond_12
-    if-nez v0, :cond_22
+    :cond_0
+    if-nez v0, :cond_1
 
     .line 134
     iget-object v2, p0, Lcom/android/server/sip/SipHelper;->mSipProvider:Ljavax/sip/SipProvider;
@@ -996,11 +996,11 @@
 
     .line 135
     .local v1, lps:[Ljavax/sip/ListeningPoint;
-    if-eqz v1, :cond_22
+    if-eqz v1, :cond_1
 
     array-length v2, v1
 
-    if-lez v2, :cond_22
+    if-lez v2, :cond_1
 
     const/4 v2, 0x0
 
@@ -1008,8 +1008,8 @@
 
     .line 137
     .end local v1           #lps:[Ljavax/sip/ListeningPoint;
-    :cond_22
-    if-nez v0, :cond_2d
+    :cond_1
+    if-nez v0, :cond_2
 
     .line 138
     new-instance v2, Ljavax/sip/SipException;
@@ -1021,14 +1021,14 @@
     throw v2
 
     .line 140
-    :cond_2d
+    :cond_2
     return-object v0
 .end method
 
 
 # virtual methods
 .method public getServerTransaction(Ljavax/sip/RequestEvent;)Ljavax/sip/ServerTransaction;
-    .registers 5
+    .locals 3
     .parameter "event"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1044,7 +1044,7 @@
 
     .line 340
     .local v1, transaction:Ljavax/sip/ServerTransaction;
-    if-nez v1, :cond_10
+    if-nez v1, :cond_0
 
     .line 341
     invoke-virtual {p1}, Ljavax/sip/RequestEvent;->getRequest()Ljavax/sip/message/Request;
@@ -1062,12 +1062,12 @@
     .line 344
     .end local v0           #request:Ljavax/sip/message/Request;
     .end local v1           #transaction:Ljavax/sip/ServerTransaction;
-    :cond_10
+    :cond_0
     return-object v1
 .end method
 
 .method public handleChallenge(Ljavax/sip/ResponseEvent;Lgov/nist/javax/sip/clientauthutils/AccountManager;)Ljavax/sip/ClientTransaction;
-    .registers 9
+    .locals 6
     .parameter "responseEvent"
     .parameter "accountManager"
     .annotation system Ldalvik/annotation/Throws;
@@ -1117,7 +1117,7 @@
 .end method
 
 .method public sendBye(Ljavax/sip/Dialog;)V
-    .registers 4
+    .locals 2
     .parameter "dialog"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1148,7 +1148,7 @@
 .end method
 
 .method public sendCancel(Ljavax/sip/ClientTransaction;)V
-    .registers 4
+    .locals 2
     .parameter "inviteTransaction"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1177,7 +1177,7 @@
 .end method
 
 .method public sendInvite(Landroid/net/sip/SipProfile;Landroid/net/sip/SipProfile;Ljava/lang/String;Ljava/lang/String;Lgov/nist/javax/sip/header/extensions/ReferredByHeader;Ljava/lang/String;)Ljavax/sip/ClientTransaction;
-    .registers 13
+    .locals 6
     .parameter "caller"
     .parameter "callee"
     .parameter "sessionDescription"
@@ -1201,13 +1201,13 @@
 
     .line 294
     .local v2, request:Ljavax/sip/message/Request;
-    if-eqz p5, :cond_b
+    if-eqz p5, :cond_0
 
     invoke-interface {v2, p5}, Ljavax/sip/message/Request;->addHeader(Ljavax/sip/header/Header;)V
 
     .line 295
-    :cond_b
-    if-eqz p6, :cond_18
+    :cond_0
+    if-eqz p6, :cond_1
 
     .line 296
     iget-object v3, p0, Lcom/android/server/sip/SipHelper;->mHeaderFactory:Ljavax/sip/header/HeaderFactory;
@@ -1221,7 +1221,7 @@
     invoke-interface {v2, v3}, Ljavax/sip/message/Request;->addHeader(Ljavax/sip/header/Header;)V
 
     .line 299
-    :cond_18
+    :cond_1
     iget-object v3, p0, Lcom/android/server/sip/SipHelper;->mHeaderFactory:Ljavax/sip/header/HeaderFactory;
 
     const-string v4, "application"
@@ -1244,8 +1244,8 @@
     .line 305
     .local v0, clientTransaction:Ljavax/sip/ClientTransaction;
     invoke-interface {v0}, Ljavax/sip/ClientTransaction;->sendRequest()V
-    :try_end_2f
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_2f} :catch_30
+    :try_end_0
+    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 306
     return-object v0
@@ -1253,7 +1253,7 @@
     .line 307
     .end local v0           #clientTransaction:Ljavax/sip/ClientTransaction;
     .end local v2           #request:Ljavax/sip/message/Request;
-    :catch_30
+    :catch_0
     move-exception v1
 
     .line 308
@@ -1268,7 +1268,7 @@
 .end method
 
 .method public sendInviteAck(Ljavax/sip/ResponseEvent;Ljavax/sip/Dialog;)V
-    .registers 8
+    .locals 5
     .parameter "event"
     .parameter "dialog"
     .annotation system Ldalvik/annotation/Throws;
@@ -1312,7 +1312,7 @@
 .end method
 
 .method public sendInviteBusyHere(Ljavax/sip/RequestEvent;Ljavax/sip/ServerTransaction;)V
-    .registers 8
+    .locals 5
     .parameter "event"
     .parameter "inviteTransaction"
     .annotation system Ldalvik/annotation/Throws;
@@ -1340,7 +1340,7 @@
 
     .line 410
     .local v2, response:Ljavax/sip/message/Response;
-    if-nez p2, :cond_12
+    if-nez p2, :cond_0
 
     .line 411
     invoke-virtual {p0, p1}, Lcom/android/server/sip/SipHelper;->getServerTransaction(Ljavax/sip/RequestEvent;)Ljavax/sip/ServerTransaction;
@@ -1348,28 +1348,28 @@
     move-result-object p2
 
     .line 414
-    :cond_12
+    :cond_0
     invoke-interface {p2}, Ljavax/sip/ServerTransaction;->getState()Ljavax/sip/TransactionState;
 
     move-result-object v3
 
     sget-object v4, Ljavax/sip/TransactionState;->COMPLETED:Ljavax/sip/TransactionState;
 
-    if-eq v3, v4, :cond_1d
+    if-eq v3, v4, :cond_1
 
     .line 416
     invoke-interface {p2, v2}, Ljavax/sip/ServerTransaction;->sendResponse(Ljavax/sip/message/Response;)V
-    :try_end_1d
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_1d} :catch_1e
+    :try_end_0
+    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 421
-    :cond_1d
+    :cond_1
     return-void
 
     .line 418
     .end local v1           #request:Ljavax/sip/message/Request;
     .end local v2           #response:Ljavax/sip/message/Response;
-    :catch_1e
+    :catch_0
     move-exception v0
 
     .line 419
@@ -1384,7 +1384,7 @@
 .end method
 
 .method public sendInviteOk(Ljavax/sip/RequestEvent;Landroid/net/sip/SipProfile;Ljava/lang/String;Ljavax/sip/ServerTransaction;Ljava/lang/String;I)Ljavax/sip/ServerTransaction;
-    .registers 13
+    .locals 6
     .parameter "event"
     .parameter "localProfile"
     .parameter "sessionDescription"
@@ -1436,7 +1436,7 @@
     invoke-interface {v2, p3, v3}, Ljavax/sip/message/Response;->setContent(Ljava/lang/Object;Ljavax/sip/header/ContentTypeHeader;)V
 
     .line 388
-    if-nez p4, :cond_27
+    if-nez p4, :cond_0
 
     .line 389
     invoke-virtual {p0, p1}, Lcom/android/server/sip/SipHelper;->getServerTransaction(Ljavax/sip/RequestEvent;)Ljavax/sip/ServerTransaction;
@@ -1444,28 +1444,28 @@
     move-result-object p4
 
     .line 392
-    :cond_27
+    :cond_0
     invoke-interface {p4}, Ljavax/sip/ServerTransaction;->getState()Ljavax/sip/TransactionState;
 
     move-result-object v3
 
     sget-object v4, Ljavax/sip/TransactionState;->COMPLETED:Ljavax/sip/TransactionState;
 
-    if-eq v3, v4, :cond_32
+    if-eq v3, v4, :cond_1
 
     .line 394
     invoke-interface {p4, v2}, Ljavax/sip/ServerTransaction;->sendResponse(Ljavax/sip/message/Response;)V
-    :try_end_32
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_32} :catch_33
+    :try_end_0
+    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 397
-    :cond_32
+    :cond_1
     return-object p4
 
     .line 398
     .end local v1           #request:Ljavax/sip/message/Request;
     .end local v2           #response:Ljavax/sip/message/Response;
-    :catch_33
+    :catch_0
     move-exception v0
 
     .line 399
@@ -1480,7 +1480,7 @@
 .end method
 
 .method public sendInviteRequestTerminated(Ljavax/sip/message/Request;Ljavax/sip/ServerTransaction;)V
-    .registers 7
+    .locals 4
     .parameter "inviteRequest"
     .parameter "inviteTransaction"
     .annotation system Ldalvik/annotation/Throws;
@@ -1503,15 +1503,15 @@
     .line 490
     .local v1, response:Ljavax/sip/message/Response;
     invoke-interface {p2, v1}, Ljavax/sip/ServerTransaction;->sendResponse(Ljavax/sip/message/Response;)V
-    :try_end_b
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_b} :catch_c
+    :try_end_0
+    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 494
     return-void
 
     .line 491
     .end local v1           #response:Ljavax/sip/message/Response;
-    :catch_c
+    :catch_0
     move-exception v0
 
     .line 492
@@ -1526,7 +1526,7 @@
 .end method
 
 .method public sendOptions(Landroid/net/sip/SipProfile;Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljavax/sip/ClientTransaction;
-    .registers 9
+    .locals 5
     .parameter "caller"
     .parameter "callee"
     .parameter "tag"
@@ -1538,9 +1538,9 @@
 
     .prologue
     .line 200
-    if-ne p1, p2, :cond_12
+    if-ne p1, p2, :cond_0
 
-    :try_start_2
+    :try_start_0
     const-string v3, "OPTIONS"
 
     invoke-direct {p0, v3, p1, p3}, Lcom/android/server/sip/SipHelper;->createRequest(Ljava/lang/String;Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljavax/sip/message/Request;
@@ -1549,7 +1549,7 @@
 
     .line 204
     .local v2, request:Ljavax/sip/message/Request;
-    :goto_8
+    :goto_0
     iget-object v3, p0, Lcom/android/server/sip/SipHelper;->mSipProvider:Ljavax/sip/SipProvider;
 
     invoke-interface {v3, v2}, Ljavax/sip/SipProvider;->getNewClientTransaction(Ljavax/sip/message/Request;)Ljavax/sip/ClientTransaction;
@@ -1566,19 +1566,19 @@
     .line 200
     .end local v0           #clientTransaction:Ljavax/sip/ClientTransaction;
     .end local v2           #request:Ljavax/sip/message/Request;
-    :cond_12
+    :cond_0
     const-string v3, "OPTIONS"
 
     invoke-direct {p0, v3, p1, p2, p3}, Lcom/android/server/sip/SipHelper;->createRequest(Ljava/lang/String;Landroid/net/sip/SipProfile;Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljavax/sip/message/Request;
-    :try_end_17
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_17} :catch_19
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v2
 
-    goto :goto_8
+    goto :goto_0
 
     .line 208
-    :catch_19
+    :catch_0
     move-exception v1
 
     .line 209
@@ -1593,7 +1593,7 @@
 .end method
 
 .method public sendReferNotify(Ljavax/sip/Dialog;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "dialog"
     .parameter "content"
     .annotation system Ldalvik/annotation/Throws;
@@ -1655,15 +1655,15 @@
     move-result-object v2
 
     invoke-interface {p1, v2}, Ljavax/sip/Dialog;->sendRequest(Ljavax/sip/ClientTransaction;)V
-    :try_end_35
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_35} :catch_36
+    :try_end_0
+    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 482
     return-void
 
     .line 479
     .end local v1           #request:Ljavax/sip/message/Request;
-    :catch_36
+    :catch_0
     move-exception v0
 
     .line 480
@@ -1678,7 +1678,7 @@
 .end method
 
 .method public sendRegister(Landroid/net/sip/SipProfile;Ljava/lang/String;I)Ljavax/sip/ClientTransaction;
-    .registers 9
+    .locals 5
     .parameter "userProfile"
     .parameter "tag"
     .parameter "expiry"
@@ -1699,7 +1699,7 @@
 
     .line 217
     .local v2, request:Ljavax/sip/message/Request;
-    if-nez p3, :cond_22
+    if-nez p3, :cond_0
 
     .line 220
     invoke-direct {p0}, Lcom/android/server/sip/SipHelper;->createWildcardContactHeader()Ljavax/sip/header/ContactHeader;
@@ -1709,7 +1709,7 @@
     invoke-interface {v2, v3}, Ljavax/sip/message/Request;->addHeader(Ljavax/sip/header/Header;)V
 
     .line 224
-    :goto_f
+    :goto_0
     iget-object v3, p0, Lcom/android/server/sip/SipHelper;->mHeaderFactory:Ljavax/sip/header/HeaderFactory;
 
     invoke-interface {v3, p3}, Ljavax/sip/header/HeaderFactory;->createExpiresHeader(I)Ljavax/sip/header/ExpiresHeader;
@@ -1734,20 +1734,20 @@
 
     .line 222
     .end local v0           #clientTransaction:Ljavax/sip/ClientTransaction;
-    :cond_22
+    :cond_0
     invoke-direct {p0, p1}, Lcom/android/server/sip/SipHelper;->createContactHeader(Landroid/net/sip/SipProfile;)Ljavax/sip/header/ContactHeader;
 
     move-result-object v3
 
     invoke-interface {v2, v3}, Ljavax/sip/message/Request;->addHeader(Ljavax/sip/header/Header;)V
-    :try_end_29
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_29} :catch_2a
+    :try_end_0
+    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_f
+    goto :goto_0
 
     .line 230
     .end local v2           #request:Ljavax/sip/message/Request;
-    :catch_2a
+    :catch_0
     move-exception v1
 
     .line 231
@@ -1762,7 +1762,7 @@
 .end method
 
 .method public sendReinvite(Ljavax/sip/Dialog;Ljava/lang/String;)Ljavax/sip/ClientTransaction;
-    .registers 10
+    .locals 7
     .parameter "dialog"
     .parameter "sessionDescription"
     .annotation system Ldalvik/annotation/Throws;
@@ -1805,12 +1805,12 @@
 
     .line 325
     .local v3, viaHeader:Ljavax/sip/header/ViaHeader;
-    if-eqz v3, :cond_21
+    if-eqz v3, :cond_0
 
     invoke-interface {v3}, Ljavax/sip/header/ViaHeader;->setRPort()V
 
     .line 327
-    :cond_21
+    :cond_0
     iget-object v4, p0, Lcom/android/server/sip/SipHelper;->mSipProvider:Ljavax/sip/SipProvider;
 
     invoke-interface {v4, v2}, Ljavax/sip/SipProvider;->getNewClientTransaction(Ljavax/sip/message/Request;)Ljavax/sip/ClientTransaction;
@@ -1820,8 +1820,8 @@
     .line 330
     .local v0, clientTransaction:Ljavax/sip/ClientTransaction;
     invoke-interface {p1, v0}, Ljavax/sip/Dialog;->sendRequest(Ljavax/sip/ClientTransaction;)V
-    :try_end_2a
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_2a} :catch_2b
+    :try_end_0
+    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 331
     return-object v0
@@ -1830,7 +1830,7 @@
     .end local v0           #clientTransaction:Ljavax/sip/ClientTransaction;
     .end local v2           #request:Ljavax/sip/message/Request;
     .end local v3           #viaHeader:Ljavax/sip/header/ViaHeader;
-    :catch_2b
+    :catch_0
     move-exception v1
 
     .line 333
@@ -1845,7 +1845,7 @@
 .end method
 
 .method public sendResponse(Ljavax/sip/RequestEvent;I)V
-    .registers 8
+    .locals 5
     .parameter "event"
     .parameter "responseCode"
     .annotation system Ldalvik/annotation/Throws;
@@ -1876,8 +1876,8 @@
     move-result-object v3
 
     invoke-interface {v3, v2}, Ljavax/sip/ServerTransaction;->sendResponse(Ljavax/sip/message/Response;)V
-    :try_end_11
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_11} :catch_12
+    :try_end_0
+    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 463
     return-void
@@ -1885,7 +1885,7 @@
     .line 460
     .end local v1           #request:Ljavax/sip/message/Request;
     .end local v2           #response:Ljavax/sip/message/Response;
-    :catch_12
+    :catch_0
     move-exception v0
 
     .line 461
@@ -1900,7 +1900,7 @@
 .end method
 
 .method public sendRinging(Ljavax/sip/RequestEvent;Ljava/lang/String;)Ljavax/sip/ServerTransaction;
-    .registers 10
+    .locals 7
     .parameter "event"
     .parameter "tag"
     .annotation system Ldalvik/annotation/Throws;
@@ -1951,8 +1951,8 @@
 
     .line 364
     invoke-interface {v4, v2}, Ljavax/sip/ServerTransaction;->sendResponse(Ljavax/sip/message/Response;)V
-    :try_end_21
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_21} :catch_22
+    :try_end_0
+    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 365
     return-object v4
@@ -1962,7 +1962,7 @@
     .end local v2           #response:Ljavax/sip/message/Response;
     .end local v3           #toHeader:Ljavax/sip/header/ToHeader;
     .end local v4           #transaction:Ljavax/sip/ServerTransaction;
-    :catch_22
+    :catch_0
     move-exception v0
 
     .line 367

@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/CharSequence;[CII)V
-    .registers 11
+    .locals 6
     .parameter "source"
     .parameter "sub"
     .parameter "substart"
@@ -56,7 +56,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/CharSequence;[CIILandroid/text/AlteredCharSequence$1;)V
-    .registers 6
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public getSpanEnd(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "span"
 
     .prologue
@@ -88,7 +88,7 @@
 .end method
 
 .method public getSpanFlags(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "span"
 
     .prologue
@@ -103,7 +103,7 @@
 .end method
 
 .method public getSpanStart(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "span"
 
     .prologue
@@ -118,7 +118,7 @@
 .end method
 
 .method public getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
-    .registers 5
+    .locals 1
     .parameter "start"
     .parameter "end"
     .parameter
@@ -145,7 +145,7 @@
 .end method
 
 .method public nextSpanTransition(IILjava/lang/Class;)I
-    .registers 5
+    .locals 1
     .parameter "start"
     .parameter "end"
     .parameter "kind"

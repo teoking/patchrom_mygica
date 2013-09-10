@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 430
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onEvent(ILjava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "event"
     .parameter "path"
 

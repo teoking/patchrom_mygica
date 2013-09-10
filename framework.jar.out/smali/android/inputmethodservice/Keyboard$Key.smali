@@ -70,7 +70,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 5
+    .locals 5
 
     .prologue
     const/4 v4, 0x2
@@ -82,7 +82,7 @@
     .line 285
     new-array v0, v4, [I
 
-    fill-array-data v0, :array_30
+    fill-array-data v0, :array_0
 
     sput-object v0, Landroid/inputmethodservice/Keyboard$Key;->KEY_STATE_NORMAL_ON:[I
 
@@ -91,7 +91,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_38
+    fill-array-data v0, :array_1
 
     sput-object v0, Landroid/inputmethodservice/Keyboard$Key;->KEY_STATE_PRESSED_ON:[I
 
@@ -107,7 +107,7 @@
     .line 300
     new-array v0, v4, [I
 
-    fill-array-data v0, :array_42
+    fill-array-data v0, :array_2
 
     sput-object v0, Landroid/inputmethodservice/Keyboard$Key;->KEY_STATE_PRESSED_OFF:[I
 
@@ -128,14 +128,14 @@
     return-void
 
     .line 285
-    :array_30
+    :array_0
     .array-data 0x4
         0x9ft 0x0t 0x1t 0x1t
         0xa0t 0x0t 0x1t 0x1t
     .end array-data
 
     .line 290
-    :array_38
+    :array_1
     .array-data 0x4
         0xa7t 0x0t 0x1t 0x1t
         0x9ft 0x0t 0x1t 0x1t
@@ -143,7 +143,7 @@
     .end array-data
 
     .line 300
-    :array_42
+    :array_2
     .array-data 0x4
         0xa7t 0x0t 0x1t 0x1t
         0x9ft 0x0t 0x1t 0x1t
@@ -151,7 +151,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/res/Resources;Landroid/inputmethodservice/Keyboard$Row;IILandroid/content/res/XmlResourceParser;)V
-    .registers 15
+    .locals 9
     .parameter "res"
     .parameter "parent"
     .parameter "x"
@@ -191,6 +191,7 @@
     .local v0, a:Landroid/content/res/TypedArray;
     iget-object v2, p0, Landroid/inputmethodservice/Keyboard$Key;->keyboard:Landroid/inputmethodservice/Keyboard;
 
+    #getter for: Landroid/inputmethodservice/Keyboard;->mDisplayWidth:I
     invoke-static {v2}, Landroid/inputmethodservice/Keyboard;->access$000(Landroid/inputmethodservice/Keyboard;)I
 
     move-result v2
@@ -206,6 +207,7 @@
     .line 342
     iget-object v2, p0, Landroid/inputmethodservice/Keyboard$Key;->keyboard:Landroid/inputmethodservice/Keyboard;
 
+    #getter for: Landroid/inputmethodservice/Keyboard;->mDisplayHeight:I
     invoke-static {v2}, Landroid/inputmethodservice/Keyboard;->access$200(Landroid/inputmethodservice/Keyboard;)I
 
     move-result v2
@@ -221,6 +223,7 @@
     .line 345
     iget-object v2, p0, Landroid/inputmethodservice/Keyboard$Key;->keyboard:Landroid/inputmethodservice/Keyboard;
 
+    #getter for: Landroid/inputmethodservice/Keyboard;->mDisplayWidth:I
     invoke-static {v2}, Landroid/inputmethodservice/Keyboard;->access$000(Landroid/inputmethodservice/Keyboard;)I
 
     move-result v2
@@ -270,16 +273,16 @@
 
     const/16 v3, 0x10
 
-    if-eq v2, v3, :cond_67
+    if-eq v2, v3, :cond_0
 
     iget v2, v1, Landroid/util/TypedValue;->type:I
 
     const/16 v3, 0x11
 
-    if-ne v2, v3, :cond_102
+    if-ne v2, v3, :cond_5
 
     .line 357
-    :cond_67
+    :cond_0
     new-array v2, v6, [I
 
     iget v3, v1, Landroid/util/TypedValue;->data:I
@@ -289,8 +292,8 @@
     iput-object v2, p0, Landroid/inputmethodservice/Keyboard$Key;->codes:[I
 
     .line 362
-    :cond_6f
-    :goto_6f
+    :cond_1
+    :goto_0
     const/4 v2, 0x7
 
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -302,7 +305,7 @@
     .line 363
     iget-object v2, p0, Landroid/inputmethodservice/Keyboard$Key;->iconPreview:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v2, :cond_8b
+    if-eqz v2, :cond_2
 
     .line 364
     iget-object v2, p0, Landroid/inputmethodservice/Keyboard$Key;->iconPreview:Landroid/graphics/drawable/Drawable;
@@ -322,7 +325,7 @@
     invoke-virtual {v2, v5, v5, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 367
-    :cond_8b
+    :cond_2
     invoke-virtual {v0, v7}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v2
@@ -391,7 +394,7 @@
     .line 382
     iget-object v2, p0, Landroid/inputmethodservice/Keyboard$Key;->icon:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v2, :cond_d6
+    if-eqz v2, :cond_3
 
     .line 383
     iget-object v2, p0, Landroid/inputmethodservice/Keyboard$Key;->icon:Landroid/graphics/drawable/Drawable;
@@ -411,7 +414,7 @@
     invoke-virtual {v2, v5, v5, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 385
-    :cond_d6
+    :cond_3
     const/16 v2, 0x9
 
     invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
@@ -432,7 +435,7 @@
     .line 388
     iget-object v2, p0, Landroid/inputmethodservice/Keyboard$Key;->codes:[I
 
-    if-nez v2, :cond_fe
+    if-nez v2, :cond_4
 
     iget-object v2, p0, Landroid/inputmethodservice/Keyboard$Key;->label:Ljava/lang/CharSequence;
 
@@ -440,7 +443,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_fe
+    if-nez v2, :cond_4
 
     .line 389
     new-array v2, v6, [I
@@ -456,17 +459,17 @@
     iput-object v2, p0, Landroid/inputmethodservice/Keyboard$Key;->codes:[I
 
     .line 391
-    :cond_fe
+    :cond_4
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 392
     return-void
 
     .line 358
-    :cond_102
+    :cond_5
     iget v2, v1, Landroid/util/TypedValue;->type:I
 
-    if-ne v2, v8, :cond_6f
+    if-ne v2, v8, :cond_1
 
     .line 359
     iget-object v2, v1, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
@@ -481,11 +484,11 @@
 
     iput-object v2, p0, Landroid/inputmethodservice/Keyboard$Key;->codes:[I
 
-    goto/16 :goto_6f
+    goto/16 :goto_0
 .end method
 
 .method public constructor <init>(Landroid/inputmethodservice/Keyboard$Row;)V
-    .registers 3
+    .locals 1
     .parameter "parent"
 
     .prologue
@@ -493,6 +496,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 314
+    #getter for: Landroid/inputmethodservice/Keyboard$Row;->parent:Landroid/inputmethodservice/Keyboard;
     invoke-static {p1}, Landroid/inputmethodservice/Keyboard$Row;->access$600(Landroid/inputmethodservice/Keyboard$Row;)Landroid/inputmethodservice/Keyboard;
 
     move-result-object v0
@@ -526,7 +530,7 @@
 
 # virtual methods
 .method public getCurrentDrawableState()[I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 479
@@ -536,63 +540,63 @@
     .local v0, states:[I
     iget-boolean v1, p0, Landroid/inputmethodservice/Keyboard$Key;->on:Z
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_2
 
     .line 482
     iget-boolean v1, p0, Landroid/inputmethodservice/Keyboard$Key;->pressed:Z
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_1
 
     .line 483
     sget-object v0, Landroid/inputmethodservice/Keyboard$Key;->KEY_STATE_PRESSED_ON:[I
 
     .line 500
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 485
-    :cond_d
+    :cond_1
     sget-object v0, Landroid/inputmethodservice/Keyboard$Key;->KEY_STATE_NORMAL_ON:[I
 
-    goto :goto_c
+    goto :goto_0
 
     .line 488
-    :cond_10
+    :cond_2
     iget-boolean v1, p0, Landroid/inputmethodservice/Keyboard$Key;->sticky:Z
 
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_4
 
     .line 489
     iget-boolean v1, p0, Landroid/inputmethodservice/Keyboard$Key;->pressed:Z
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_3
 
     .line 490
     sget-object v0, Landroid/inputmethodservice/Keyboard$Key;->KEY_STATE_PRESSED_OFF:[I
 
-    goto :goto_c
+    goto :goto_0
 
     .line 492
-    :cond_1b
+    :cond_3
     sget-object v0, Landroid/inputmethodservice/Keyboard$Key;->KEY_STATE_NORMAL_OFF:[I
 
-    goto :goto_c
+    goto :goto_0
 
     .line 495
-    :cond_1e
+    :cond_4
     iget-boolean v1, p0, Landroid/inputmethodservice/Keyboard$Key;->pressed:Z
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_0
 
     .line 496
     sget-object v0, Landroid/inputmethodservice/Keyboard$Key;->KEY_STATE_PRESSED:[I
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public isInside(II)Z
-    .registers 11
+    .locals 8
     .parameter "x"
     .parameter "y"
 
@@ -606,81 +610,81 @@
 
     and-int/lit8 v6, v6, 0x1
 
-    if-lez v6, :cond_53
+    if-lez v6, :cond_4
 
     move v1, v4
 
     .line 448
     .local v1, leftEdge:Z
-    :goto_9
+    :goto_0
     iget v6, p0, Landroid/inputmethodservice/Keyboard$Key;->edgeFlags:I
 
     and-int/lit8 v6, v6, 0x2
 
-    if-lez v6, :cond_55
+    if-lez v6, :cond_5
 
     move v2, v4
 
     .line 449
     .local v2, rightEdge:Z
-    :goto_10
+    :goto_1
     iget v6, p0, Landroid/inputmethodservice/Keyboard$Key;->edgeFlags:I
 
     and-int/lit8 v6, v6, 0x4
 
-    if-lez v6, :cond_57
+    if-lez v6, :cond_6
 
     move v3, v4
 
     .line 450
     .local v3, topEdge:Z
-    :goto_17
+    :goto_2
     iget v6, p0, Landroid/inputmethodservice/Keyboard$Key;->edgeFlags:I
 
     and-int/lit8 v6, v6, 0x8
 
-    if-lez v6, :cond_59
+    if-lez v6, :cond_7
 
     move v0, v4
 
     .line 451
     .local v0, bottomEdge:Z
-    :goto_1e
+    :goto_3
     iget v6, p0, Landroid/inputmethodservice/Keyboard$Key;->x:I
 
-    if-ge p1, v6, :cond_2b
+    if-ge p1, v6, :cond_0
 
-    if-eqz v1, :cond_5b
+    if-eqz v1, :cond_8
 
-    iget v6, p0, Landroid/inputmethodservice/Keyboard$Key;->x:I
-
-    iget v7, p0, Landroid/inputmethodservice/Keyboard$Key;->width:I
-
-    add-int/2addr v6, v7
-
-    if-gt p1, v6, :cond_5b
-
-    :cond_2b
     iget v6, p0, Landroid/inputmethodservice/Keyboard$Key;->x:I
 
     iget v7, p0, Landroid/inputmethodservice/Keyboard$Key;->width:I
 
     add-int/2addr v6, v7
 
-    if-lt p1, v6, :cond_38
+    if-gt p1, v6, :cond_8
 
-    if-eqz v2, :cond_5b
+    :cond_0
+    iget v6, p0, Landroid/inputmethodservice/Keyboard$Key;->x:I
+
+    iget v7, p0, Landroid/inputmethodservice/Keyboard$Key;->width:I
+
+    add-int/2addr v6, v7
+
+    if-lt p1, v6, :cond_1
+
+    if-eqz v2, :cond_8
 
     iget v6, p0, Landroid/inputmethodservice/Keyboard$Key;->x:I
 
-    if-lt p1, v6, :cond_5b
+    if-lt p1, v6, :cond_8
 
-    :cond_38
+    :cond_1
     iget v6, p0, Landroid/inputmethodservice/Keyboard$Key;->y:I
 
-    if-ge p2, v6, :cond_45
+    if-ge p2, v6, :cond_2
 
-    if-eqz v3, :cond_5b
+    if-eqz v3, :cond_8
 
     iget v6, p0, Landroid/inputmethodservice/Keyboard$Key;->y:I
 
@@ -688,93 +692,93 @@
 
     add-int/2addr v6, v7
 
-    if-gt p2, v6, :cond_5b
+    if-gt p2, v6, :cond_8
 
-    :cond_45
+    :cond_2
     iget v6, p0, Landroid/inputmethodservice/Keyboard$Key;->y:I
 
     iget v7, p0, Landroid/inputmethodservice/Keyboard$Key;->height:I
 
     add-int/2addr v6, v7
 
-    if-lt p2, v6, :cond_52
+    if-lt p2, v6, :cond_3
 
-    if-eqz v0, :cond_5b
+    if-eqz v0, :cond_8
 
     iget v6, p0, Landroid/inputmethodservice/Keyboard$Key;->y:I
 
-    if-lt p2, v6, :cond_5b
+    if-lt p2, v6, :cond_8
 
     .line 457
-    :cond_52
-    :goto_52
+    :cond_3
+    :goto_4
     return v4
 
     .end local v0           #bottomEdge:Z
     .end local v1           #leftEdge:Z
     .end local v2           #rightEdge:Z
     .end local v3           #topEdge:Z
-    :cond_53
+    :cond_4
     move v1, v5
 
     .line 447
-    goto :goto_9
+    goto :goto_0
 
     .restart local v1       #leftEdge:Z
-    :cond_55
+    :cond_5
     move v2, v5
 
     .line 448
-    goto :goto_10
+    goto :goto_1
 
     .restart local v2       #rightEdge:Z
-    :cond_57
+    :cond_6
     move v3, v5
 
     .line 449
-    goto :goto_17
+    goto :goto_2
 
     .restart local v3       #topEdge:Z
-    :cond_59
+    :cond_7
     move v0, v5
 
     .line 450
-    goto :goto_1e
+    goto :goto_3
 
     .restart local v0       #bottomEdge:Z
-    :cond_5b
+    :cond_8
     move v4, v5
 
     .line 457
-    goto :goto_52
+    goto :goto_4
 .end method
 
 .method public onPressed()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 400
     iget-boolean v0, p0, Landroid/inputmethodservice/Keyboard$Key;->pressed:Z
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     iput-boolean v0, p0, Landroid/inputmethodservice/Keyboard$Key;->pressed:Z
 
     .line 401
     return-void
 
     .line 400
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public onReleased(Z)V
-    .registers 5
+    .locals 3
     .parameter "inside"
 
     .prologue
@@ -785,45 +789,45 @@
     .line 410
     iget-boolean v0, p0, Landroid/inputmethodservice/Keyboard$Key;->pressed:Z
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_1
 
     move v0, v1
 
-    :goto_7
+    :goto_0
     iput-boolean v0, p0, Landroid/inputmethodservice/Keyboard$Key;->pressed:Z
 
     .line 411
     iget-boolean v0, p0, Landroid/inputmethodservice/Keyboard$Key;->sticky:Z
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 412
     iget-boolean v0, p0, Landroid/inputmethodservice/Keyboard$Key;->on:Z
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_2
 
-    :goto_11
+    :goto_1
     iput-boolean v1, p0, Landroid/inputmethodservice/Keyboard$Key;->on:Z
 
     .line 414
-    :cond_13
+    :cond_0
     return-void
 
-    :cond_14
+    :cond_1
     move v0, v2
 
     .line 410
-    goto :goto_7
+    goto :goto_0
 
-    :cond_16
+    :cond_2
     move v1, v2
 
     .line 412
-    goto :goto_11
+    goto :goto_1
 .end method
 
 .method parseCSV(Ljava/lang/String;)[I
-    .registers 11
+    .locals 9
     .parameter "value"
 
     .prologue
@@ -840,13 +844,13 @@
 
     move-result v6
 
-    if-lez v6, :cond_17
+    if-lez v6, :cond_0
 
     .line 420
     add-int/lit8 v0, v0, 0x1
 
     .line 421
-    :goto_a
+    :goto_0
     const-string v6, ","
 
     add-int/lit8 v7, v2, 0x1
@@ -855,15 +859,15 @@
 
     move-result v2
 
-    if-lez v2, :cond_17
+    if-lez v2, :cond_0
 
     .line 422
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 425
-    :cond_17
+    :cond_0
     new-array v5, v0, [I
 
     .line 426
@@ -879,19 +883,19 @@
 
     .line 428
     .local v4, st:Ljava/util/StringTokenizer;
-    :goto_21
+    :goto_1
     invoke-virtual {v4}, Ljava/util/StringTokenizer;->hasMoreTokens()Z
 
     move-result v6
 
-    if-eqz v6, :cond_50
+    if-eqz v6, :cond_1
 
     .line 430
     add-int/lit8 v1, v0, 0x1
 
     .end local v0           #count:I
     .local v1, count:I
-    :try_start_29
+    :try_start_0
     invoke-virtual {v4}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v6
@@ -901,20 +905,20 @@
     move-result v6
 
     aput v6, v5, v0
-    :try_end_33
-    .catch Ljava/lang/NumberFormatException; {:try_start_29 .. :try_end_33} :catch_35
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move v0, v1
 
     .line 433
     .end local v1           #count:I
     .restart local v0       #count:I
-    goto :goto_21
+    goto :goto_1
 
     .line 431
     .end local v0           #count:I
     .restart local v1       #count:I
-    :catch_35
+    :catch_0
     move-exception v3
 
     .line 432
@@ -946,16 +950,16 @@
     .line 433
     .end local v1           #count:I
     .restart local v0       #count:I
-    goto :goto_21
+    goto :goto_1
 
     .line 435
     .end local v3           #nfe:Ljava/lang/NumberFormatException;
-    :cond_50
+    :cond_1
     return-object v5
 .end method
 
 .method public squaredDistanceFrom(II)I
-    .registers 7
+    .locals 4
     .parameter "x"
     .parameter "y"
 

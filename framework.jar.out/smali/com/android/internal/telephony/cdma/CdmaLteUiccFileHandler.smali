@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/IccCard;Ljava/lang/String;Lcom/android/internal/telephony/CommandsInterface;)V
-    .registers 4
+    .locals 0
     .parameter "card"
     .parameter "aid"
     .parameter "ci"
@@ -25,59 +25,59 @@
 
 # virtual methods
 .method protected getEFPath(I)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "efid"
 
     .prologue
     .line 38
-    sparse-switch p1, :sswitch_data_12
+    sparse-switch p1, :sswitch_data_0
 
     .line 53
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/cdma/CdmaLteUiccFileHandler;->getCommonIccEFPath(I)Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_7
+    :goto_0
     return-object v0
 
     .line 45
-    :sswitch_8
+    :sswitch_0
     const-string v0, "3F007F25"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 47
-    :sswitch_b
+    :sswitch_1
     const-string v0, "3F007F20"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 51
-    :sswitch_e
+    :sswitch_2
     const-string v0, "3F007FFF"
 
-    goto :goto_7
+    goto :goto_0
 
     .line 38
     nop
 
-    :sswitch_data_12
+    :sswitch_data_0
     .sparse-switch
-        0x6f02 -> :sswitch_e
-        0x6f03 -> :sswitch_e
-        0x6f04 -> :sswitch_e
-        0x6f22 -> :sswitch_8
-        0x6f28 -> :sswitch_8
-        0x6f3a -> :sswitch_8
-        0x6f41 -> :sswitch_8
-        0x6f44 -> :sswitch_8
-        0x6f5a -> :sswitch_8
-        0x6fad -> :sswitch_b
+        0x6f02 -> :sswitch_2
+        0x6f03 -> :sswitch_2
+        0x6f04 -> :sswitch_2
+        0x6f22 -> :sswitch_0
+        0x6f28 -> :sswitch_0
+        0x6f3a -> :sswitch_0
+        0x6f41 -> :sswitch_0
+        0x6f44 -> :sswitch_0
+        0x6f5a -> :sswitch_0
+        0x6fad -> :sswitch_1
     .end sparse-switch
 .end method
 
 .method public loadEFTransparent(ILandroid/os/Message;)V
-    .registers 14
+    .locals 11
     .parameter "fileid"
     .parameter "onLoaded"
 
@@ -89,7 +89,7 @@
     .line 58
     const/16 v0, 0x6f5a
 
-    if-ne p1, v0, :cond_1d
+    if-ne p1, v0, :cond_0
 
     .line 61
     iget-object v0, p0, Lcom/android/internal/telephony/IccFileHandler;->mCi:Lcom/android/internal/telephony/CommandsInterface;
@@ -119,18 +119,18 @@
     invoke-interface/range {v0 .. v10}, Lcom/android/internal/telephony/CommandsInterface;->iccIOForApp(IILjava/lang/String;IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
 
     .line 68
-    :goto_1c
+    :goto_0
     return-void
 
     .line 66
-    :cond_1d
+    :cond_0
     invoke-super {p0, p1, p2}, Lcom/android/internal/telephony/IccFileHandler;->loadEFTransparent(ILandroid/os/Message;)V
 
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 .method protected logd(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
@@ -162,7 +162,7 @@
 .end method
 
 .method protected loge(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue

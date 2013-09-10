@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViewsAdapter;)V
-    .registers 3
+    .locals 1
     .parameter "adapter"
 
     .prologue
@@ -54,7 +54,7 @@
 .end method
 
 .method static synthetic access$802(Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -66,7 +66,7 @@
 .end method
 
 .method static synthetic access$902(Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public declared-synchronized bind(Landroid/content/Context;ILandroid/content/Intent;)V
-    .registers 9
+    .locals 5
     .parameter "context"
     .parameter "appWidgetId"
     .parameter "intent"
@@ -89,15 +89,15 @@
     .line 145
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-boolean v2, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;->mIsConnecting:Z
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_39
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v2, :cond_13
+    if-nez v2, :cond_0
 
     .line 147
-    :try_start_5
+    :try_start_1
     invoke-static {p1}, Landroid/appwidget/AppWidgetManager;->getInstance(Landroid/content/Context;)Landroid/appwidget/AppWidgetManager;
 
     move-result-object v1
@@ -114,25 +114,25 @@
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;->mIsConnecting:Z
-    :try_end_13
-    .catchall {:try_start_5 .. :try_end_13} :catchall_39
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_13} :catch_15
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 156
     .end local v1           #mgr:Landroid/appwidget/AppWidgetManager;
-    :cond_13
-    :goto_13
+    :cond_0
+    :goto_0
     monitor-exit p0
 
     return-void
 
     .line 150
-    :catch_15
+    :catch_0
     move-exception v0
 
     .line 151
     .local v0, e:Ljava/lang/Exception;
-    :try_start_16
+    :try_start_2
     const-string v2, "RemoteViewsAdapterServiceConnection"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -168,14 +168,14 @@
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;->mIsConnected:Z
-    :try_end_38
-    .catchall {:try_start_16 .. :try_end_38} :catchall_39
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 145
     .end local v0           #e:Ljava/lang/Exception;
-    :catchall_39
+    :catchall_0
     move-exception v2
 
     monitor-exit p0
@@ -184,22 +184,22 @@
 .end method
 
 .method public declared-synchronized getRemoteViewsFactory()Lcom/android/internal/widget/IRemoteViewsFactory;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 258
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;->mRemoteViewsFactory:Lcom/android/internal/widget/IRemoteViewsFactory;
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -208,22 +208,22 @@
 .end method
 
 .method public declared-synchronized isConnected()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 262
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;->mIsConnected:Z
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -232,14 +232,14 @@
 .end method
 
 .method public declared-synchronized onServiceConnected(Landroid/os/IBinder;)V
-    .registers 5
+    .locals 3
     .parameter "service"
 
     .prologue
     .line 171
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-static {p1}, Lcom/android/internal/widget/IRemoteViewsFactory$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/widget/IRemoteViewsFactory;
 
     move-result-object v1
@@ -254,22 +254,23 @@
     move-result-object v0
 
     check-cast v0, Landroid/widget/RemoteViewsAdapter;
-    :try_end_f
-    .catchall {:try_start_1 .. :try_end_f} :catchall_20
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 175
     .local v0, adapter:Landroid/widget/RemoteViewsAdapter;
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     .line 232
-    :goto_11
+    :goto_0
     monitor-exit p0
 
     return-void
 
     .line 178
-    :cond_13
-    :try_start_13
+    :cond_0
+    :try_start_1
+    #getter for: Landroid/widget/RemoteViewsAdapter;->mWorkerQueue:Landroid/os/Handler;
     invoke-static {v0}, Landroid/widget/RemoteViewsAdapter;->access$1000(Landroid/widget/RemoteViewsAdapter;)Landroid/os/Handler;
 
     move-result-object v1
@@ -279,14 +280,14 @@
     invoke-direct {v2, p0, v0}, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection$1;-><init>(Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;Landroid/widget/RemoteViewsAdapter;)V
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_1f
-    .catchall {:try_start_13 .. :try_end_1f} :catchall_20
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_11
+    goto :goto_0
 
     .line 171
     .end local v0           #adapter:Landroid/widget/RemoteViewsAdapter;
-    :catchall_20
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
@@ -295,7 +296,7 @@
 .end method
 
 .method public declared-synchronized onServiceDisconnected()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 235
@@ -303,7 +304,7 @@
 
     const/4 v1, 0x0
 
-    :try_start_2
+    :try_start_0
     iput-boolean v1, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;->mIsConnected:Z
 
     .line 236
@@ -324,22 +325,23 @@
     move-result-object v0
 
     check-cast v0, Landroid/widget/RemoteViewsAdapter;
-    :try_end_12
-    .catchall {:try_start_2 .. :try_end_12} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 241
     .local v0, adapter:Landroid/widget/RemoteViewsAdapter;
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 255
-    :goto_14
+    :goto_0
     monitor-exit p0
 
     return-void
 
     .line 243
-    :cond_16
-    :try_start_16
+    :cond_0
+    :try_start_1
+    #getter for: Landroid/widget/RemoteViewsAdapter;->mMainQueue:Landroid/os/Handler;
     invoke-static {v0}, Landroid/widget/RemoteViewsAdapter;->access$600(Landroid/widget/RemoteViewsAdapter;)Landroid/os/Handler;
 
     move-result-object v1
@@ -349,14 +351,14 @@
     invoke-direct {v2, p0, v0}, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection$2;-><init>(Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;Landroid/widget/RemoteViewsAdapter;)V
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_22
-    .catchall {:try_start_16 .. :try_end_22} :catchall_23
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_14
+    goto :goto_0
 
     .line 235
     .end local v0           #adapter:Landroid/widget/RemoteViewsAdapter;
-    :catchall_23
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
@@ -365,7 +367,7 @@
 .end method
 
 .method public declared-synchronized unbind(Landroid/content/Context;ILandroid/content/Intent;)V
-    .registers 9
+    .locals 5
     .parameter "context"
     .parameter "appWidgetId"
     .parameter "intent"
@@ -374,7 +376,7 @@
     .line 160
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-static {p1}, Landroid/appwidget/AppWidgetManager;->getInstance(Landroid/content/Context;)Landroid/appwidget/AppWidgetManager;
 
     move-result-object v1
@@ -387,24 +389,24 @@
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;->mIsConnecting:Z
-    :try_end_b
-    .catchall {:try_start_1 .. :try_end_b} :catchall_32
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_b} :catch_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 168
     .end local v1           #mgr:Landroid/appwidget/AppWidgetManager;
-    :goto_b
+    :goto_0
     monitor-exit p0
 
     return-void
 
     .line 163
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 164
     .local v0, e:Ljava/lang/Exception;
-    :try_start_e
+    :try_start_1
     const-string v2, "RemoteViewsAdapterServiceConnection"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -440,14 +442,14 @@
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;->mIsConnected:Z
-    :try_end_31
-    .catchall {:try_start_e .. :try_end_31} :catchall_32
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_b
+    goto :goto_0
 
     .line 160
     .end local v0           #e:Ljava/lang/Exception;
-    :catchall_32
+    :catchall_0
     move-exception v2
 
     monitor-exit p0

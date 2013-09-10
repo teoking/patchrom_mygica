@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Looper;Landroid/accessibilityservice/AccessibilityService$Callbacks;)V
-    .registers 5
+    .locals 1
     .parameter "context"
     .parameter "looper"
     .parameter "callback"
@@ -63,14 +63,14 @@
 
 # virtual methods
 .method public executeMessage(Landroid/os/Message;)V
-    .registers 9
+    .locals 7
     .parameter "message"
 
     .prologue
     .line 579
     iget v4, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v4, :sswitch_data_6c
+    sparse-switch v4, :sswitch_data_0
 
     .line 610
     const-string v4, "AccessibilityService"
@@ -98,19 +98,19 @@
     invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 612
-    :cond_1f
-    :goto_1f
+    :cond_0
+    :goto_0
     return-void
 
     .line 581
-    :sswitch_20
+    :sswitch_0
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Landroid/view/accessibility/AccessibilityEvent;
 
     .line 582
     .local v2, event:Landroid/view/accessibility/AccessibilityEvent;
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_0
 
     .line 583
     invoke-static {}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstance()Landroid/view/accessibility/AccessibilityInteractionClient;
@@ -127,19 +127,19 @@
     .line 585
     invoke-virtual {v2}, Landroid/view/accessibility/AccessibilityEvent;->recycle()V
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 589
     .end local v2           #event:Landroid/view/accessibility/AccessibilityEvent;
-    :sswitch_36
+    :sswitch_1
     iget-object v4, p0, Landroid/accessibilityservice/AccessibilityService$IAccessibilityServiceClientWrapper;->mCallback:Landroid/accessibilityservice/AccessibilityService$Callbacks;
 
     invoke-interface {v4}, Landroid/accessibilityservice/AccessibilityService$Callbacks;->onInterrupt()V
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 592
-    :sswitch_3c
+    :sswitch_2
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     .line 593
@@ -150,7 +150,7 @@
 
     .line 595
     .local v0, connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
-    if-eqz v0, :cond_56
+    if-eqz v0, :cond_1
 
     .line 596
     invoke-static {}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstance()Landroid/view/accessibility/AccessibilityInteractionClient;
@@ -169,10 +169,10 @@
 
     invoke-interface {v4}, Landroid/accessibilityservice/AccessibilityService$Callbacks;->onServiceConnected()V
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 601
-    :cond_56
+    :cond_1
     invoke-static {}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstance()Landroid/view/accessibility/AccessibilityInteractionClient;
 
     move-result-object v4
@@ -186,12 +186,12 @@
 
     invoke-interface {v4, v5}, Landroid/accessibilityservice/AccessibilityService$Callbacks;->onSetConnectionId(I)V
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 606
     .end local v0           #connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
     .end local v1           #connectionId:I
-    :sswitch_64
+    :sswitch_3
     iget v3, p1, Landroid/os/Message;->arg1:I
 
     .line 607
@@ -200,20 +200,20 @@
 
     invoke-interface {v4, v3}, Landroid/accessibilityservice/AccessibilityService$Callbacks;->onGesture(I)Z
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 579
-    :sswitch_data_6c
+    :sswitch_data_0
     .sparse-switch
-        0xa -> :sswitch_3c
-        0x14 -> :sswitch_36
-        0x1e -> :sswitch_20
-        0x28 -> :sswitch_64
+        0xa -> :sswitch_2
+        0x14 -> :sswitch_1
+        0x1e -> :sswitch_0
+        0x28 -> :sswitch_3
     .end sparse-switch
 .end method
 
 .method public onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 5
+    .locals 3
     .parameter "event"
 
     .prologue
@@ -237,7 +237,7 @@
 .end method
 
 .method public onGesture(I)V
-    .registers 5
+    .locals 3
     .parameter "gestureId"
 
     .prologue
@@ -261,7 +261,7 @@
 .end method
 
 .method public onInterrupt()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 564
@@ -284,7 +284,7 @@
 .end method
 
 .method public setConnection(Landroid/accessibilityservice/IAccessibilityServiceConnection;I)V
-    .registers 6
+    .locals 3
     .parameter "connection"
     .parameter "connectionId"
 

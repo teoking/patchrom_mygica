@@ -15,7 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 248
@@ -28,7 +28,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 48
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Landroid/filterfw/core/FilterContext;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "fragmentShader"
 
@@ -84,7 +84,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_0
 
     .line 58
     new-instance v0, Ljava/lang/RuntimeException;
@@ -96,7 +96,7 @@
     throw v0
 
     .line 60
-    :cond_22
+    :cond_0
     invoke-direct {p0}, Landroid/filterfw/core/ShaderProgram;->setTimer()V
 
     .line 61
@@ -104,7 +104,7 @@
 .end method
 
 .method public constructor <init>(Landroid/filterfw/core/FilterContext;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 6
+    .locals 2
     .parameter "context"
     .parameter "vertexShader"
     .parameter "fragmentShader"
@@ -140,7 +140,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_22
+    if-nez v0, :cond_0
 
     .line 67
     new-instance v0, Ljava/lang/RuntimeException;
@@ -152,7 +152,7 @@
     throw v0
 
     .line 69
-    :cond_22
+    :cond_0
     invoke-direct {p0}, Landroid/filterfw/core/ShaderProgram;->setTimer()V
 
     .line 70
@@ -160,7 +160,7 @@
 .end method
 
 .method private constructor <init>(Landroid/filterfw/core/NativeAllocatorTag;)V
-    .registers 3
+    .locals 1
     .parameter "tag"
 
     .prologue
@@ -191,7 +191,7 @@
 .end method
 
 .method public static createIdentity(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/ShaderProgram;
-    .registers 3
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -216,12 +216,12 @@
 .end method
 
 .method private static getGLEnvironment(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/GLEnvironment;
-    .registers 4
+    .locals 3
     .parameter "context"
 
     .prologue
     .line 239
-    if-eqz p0, :cond_10
+    if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Landroid/filterfw/core/FilterContext;->getGLEnvironment()Landroid/filterfw/core/GLEnvironment;
 
@@ -229,8 +229,8 @@
 
     .line 240
     .local v0, result:Landroid/filterfw/core/GLEnvironment;
-    :goto_6
-    if-nez v0, :cond_12
+    :goto_0
+    if-nez v0, :cond_1
 
     .line 241
     new-instance v1, Ljava/lang/NullPointerException;
@@ -243,14 +243,14 @@
 
     .line 239
     .end local v0           #result:Landroid/filterfw/core/GLEnvironment;
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 244
     .restart local v0       #result:Landroid/filterfw/core/GLEnvironment;
-    :cond_12
+    :cond_1
     return-object v0
 .end method
 
@@ -291,7 +291,7 @@
 .end method
 
 .method private setTimer()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 44
@@ -314,7 +314,7 @@
 
 # virtual methods
 .method public beginDrawing()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 233
@@ -322,7 +322,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 234
     new-instance v0, Ljava/lang/RuntimeException;
@@ -334,12 +334,12 @@
     throw v0
 
     .line 236
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method protected finalize()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -355,7 +355,7 @@
 .end method
 
 .method public getGLEnvironment()Landroid/filterfw/core/GLEnvironment;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84
@@ -365,7 +365,7 @@
 .end method
 
 .method public getHostValue(Ljava/lang/String;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "variableName"
 
     .prologue
@@ -378,7 +378,7 @@
 .end method
 
 .method public process([Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
-    .registers 11
+    .locals 8
     .parameter "inputs"
     .parameter "output"
 
@@ -388,7 +388,7 @@
 
     iget-boolean v5, v5, Landroid/filterfw/core/StopWatchMap;->LOG_MFF_RUNNING_TIMES:Z
 
-    if-eqz v5, :cond_17
+    if-eqz v5, :cond_0
 
     .line 90
     iget-object v5, p0, Landroid/filterfw/core/ShaderProgram;->mTimer:Landroid/filterfw/core/StopWatchMap;
@@ -408,7 +408,7 @@
     invoke-virtual {v5, v6}, Landroid/filterfw/core/StopWatchMap;->stop(Ljava/lang/String;)V
 
     .line 97
-    :cond_17
+    :cond_0
     array-length v5, p1
 
     new-array v0, v5, [Landroid/filterfw/core/GLFrame;
@@ -418,17 +418,17 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_1b
+    :goto_0
     array-length v5, p1
 
-    if-ge v2, v5, :cond_4c
+    if-ge v2, v5, :cond_2
 
     .line 99
     aget-object v5, p1, v2
 
     instance-of v5, v5, Landroid/filterfw/core/GLFrame;
 
-    if-eqz v5, :cond_2d
+    if-eqz v5, :cond_1
 
     .line 100
     aget-object v5, p1, v2
@@ -440,10 +440,10 @@
     .line 98
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 102
-    :cond_2d
+    :cond_1
     new-instance v5, Ljava/lang/RuntimeException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -475,14 +475,14 @@
     throw v5
 
     .line 107
-    :cond_4c
+    :cond_2
     const/4 v1, 0x0
 
     .line 108
     .local v1, glOutput:Landroid/filterfw/core/GLFrame;
     instance-of v5, p2, Landroid/filterfw/core/GLFrame;
 
-    if-eqz v5, :cond_8b
+    if-eqz v5, :cond_4
 
     move-object v1, p2
 
@@ -492,7 +492,7 @@
     .line 115
     iget v5, p0, Landroid/filterfw/core/ShaderProgram;->mMaxTileSize:I
 
-    if-lez v5, :cond_7d
+    if-lez v5, :cond_3
 
     .line 116
     invoke-virtual {p2}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
@@ -540,12 +540,12 @@
     .line 122
     .end local v3           #xTiles:I
     .end local v4           #yTiles:I
-    :cond_7d
+    :cond_3
     invoke-direct {p0, v0, v1}, Landroid/filterfw/core/ShaderProgram;->shaderProcess([Landroid/filterfw/core/GLFrame;Landroid/filterfw/core/GLFrame;)Z
 
     move-result v5
 
-    if-nez v5, :cond_93
+    if-nez v5, :cond_5
 
     .line 123
     new-instance v5, Ljava/lang/RuntimeException;
@@ -557,7 +557,7 @@
     throw v5
 
     .line 111
-    :cond_8b
+    :cond_4
     new-instance v5, Ljava/lang/RuntimeException;
 
     const-string v6, "ShaderProgram got non-GL output frame!"
@@ -567,23 +567,23 @@
     throw v5
 
     .line 126
-    :cond_93
+    :cond_5
     iget-object v5, p0, Landroid/filterfw/core/ShaderProgram;->mTimer:Landroid/filterfw/core/StopWatchMap;
 
     iget-boolean v5, v5, Landroid/filterfw/core/StopWatchMap;->LOG_MFF_RUNNING_TIMES:Z
 
-    if-eqz v5, :cond_9c
+    if-eqz v5, :cond_6
 
     .line 127
     invoke-static {}, Landroid/opengl/GLES20;->glFinish()V
 
     .line 129
-    :cond_9c
+    :cond_6
     return-void
 .end method
 
 .method public setAttributeValues(Ljava/lang/String;Landroid/filterfw/core/VertexFrame;IIIIZ)V
-    .registers 11
+    .locals 3
     .parameter "attributeName"
     .parameter "vertexData"
     .parameter "type"
@@ -598,7 +598,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 165
     new-instance v0, Ljava/lang/RuntimeException;
@@ -632,12 +632,12 @@
     throw v0
 
     .line 168
-    :cond_25
+    :cond_0
     return-void
 .end method
 
 .method public setAttributeValues(Ljava/lang/String;[FI)V
-    .registers 7
+    .locals 3
     .parameter "attributeName"
     .parameter "data"
     .parameter "componentCount"
@@ -648,7 +648,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 146
     new-instance v0, Ljava/lang/RuntimeException;
@@ -682,12 +682,12 @@
     throw v0
 
     .line 149
-    :cond_25
+    :cond_0
     return-void
 .end method
 
 .method public setBlendEnabled(Z)V
-    .registers 5
+    .locals 3
     .parameter "enable"
 
     .prologue
@@ -696,7 +696,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 206
     new-instance v0, Ljava/lang/RuntimeException;
@@ -730,12 +730,12 @@
     throw v0
 
     .line 208
-    :cond_25
+    :cond_0
     return-void
 .end method
 
 .method public setBlendFunc(II)V
-    .registers 6
+    .locals 3
     .parameter "sfactor"
     .parameter "dfactor"
 
@@ -745,7 +745,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2f
+    if-nez v0, :cond_0
 
     .line 212
     new-instance v0, Ljava/lang/RuntimeException;
@@ -789,12 +789,12 @@
     throw v0
 
     .line 214
-    :cond_2f
+    :cond_0
     return-void
 .end method
 
 .method public setClearColor(FFF)V
-    .registers 7
+    .locals 3
     .parameter "r"
     .parameter "g"
     .parameter "b"
@@ -805,7 +805,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_39
+    if-nez v0, :cond_0
 
     .line 200
     new-instance v0, Ljava/lang/RuntimeException;
@@ -859,12 +859,12 @@
     throw v0
 
     .line 202
-    :cond_39
+    :cond_0
     return-void
 .end method
 
 .method public setClearsOutput(Z)V
-    .registers 5
+    .locals 3
     .parameter "clears"
 
     .prologue
@@ -873,7 +873,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 194
     new-instance v0, Ljava/lang/RuntimeException;
@@ -907,12 +907,12 @@
     throw v0
 
     .line 196
-    :cond_25
+    :cond_0
     return-void
 .end method
 
 .method public setDrawMode(I)V
-    .registers 5
+    .locals 3
     .parameter "drawMode"
 
     .prologue
@@ -921,7 +921,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 218
     new-instance v0, Ljava/lang/RuntimeException;
@@ -955,12 +955,12 @@
     throw v0
 
     .line 220
-    :cond_25
+    :cond_0
     return-void
 .end method
 
 .method public setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
-    .registers 6
+    .locals 3
     .parameter "variableName"
     .parameter "value"
 
@@ -970,7 +970,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 134
     new-instance v0, Ljava/lang/RuntimeException;
@@ -1004,12 +1004,12 @@
     throw v0
 
     .line 137
-    :cond_25
+    :cond_0
     return-void
 .end method
 
 .method public setMaximumTileSize(I)V
-    .registers 2
+    .locals 0
     .parameter "size"
 
     .prologue
@@ -1021,7 +1021,7 @@
 .end method
 
 .method public setSourceRect(FFFF)V
-    .registers 14
+    .locals 9
     .parameter "x"
     .parameter "y"
     .parameter "width"
@@ -1054,7 +1054,7 @@
 .end method
 
 .method public setSourceRegion(Landroid/filterfw/geometry/Quad;)V
-    .registers 11
+    .locals 9
     .parameter "region"
 
     .prologue
@@ -1103,7 +1103,7 @@
 .end method
 
 .method public setTargetRect(FFFF)V
-    .registers 14
+    .locals 9
     .parameter "x"
     .parameter "y"
     .parameter "width"
@@ -1136,7 +1136,7 @@
 .end method
 
 .method public setTargetRegion(Landroid/filterfw/geometry/Quad;)V
-    .registers 11
+    .locals 9
     .parameter "region"
 
     .prologue
@@ -1182,7 +1182,7 @@
 .end method
 
 .method public setVertexCount(I)V
-    .registers 5
+    .locals 3
     .parameter "count"
 
     .prologue
@@ -1191,7 +1191,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 224
     new-instance v0, Ljava/lang/RuntimeException;
@@ -1225,6 +1225,6 @@
     throw v0
 
     .line 226
-    :cond_25
+    :cond_0
     return-void
 .end method

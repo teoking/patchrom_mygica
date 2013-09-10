@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/TimePicker;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onValueChange(Landroid/widget/NumberPicker;II)V
-    .registers 7
+    .locals 3
     .parameter "spinner"
     .parameter "oldVal"
     .parameter "newVal"
@@ -51,6 +51,7 @@
     .line 150
     iget-object v0, p0, Landroid/widget/TimePicker$2;->this$0:Landroid/widget/TimePicker;
 
+    #calls: Landroid/widget/TimePicker;->updateInputState()V
     invoke-static {v0}, Landroid/widget/TimePicker;->access$000(Landroid/widget/TimePicker;)V
 
     .line 151
@@ -60,52 +61,56 @@
 
     move-result v0
 
-    if-nez v0, :cond_2c
+    if-nez v0, :cond_2
 
     .line 152
-    if-ne p2, v1, :cond_15
+    if-ne p2, v1, :cond_0
 
-    if-eq p3, v2, :cond_19
+    if-eq p3, v2, :cond_1
 
-    :cond_15
-    if-ne p2, v2, :cond_2c
+    :cond_0
+    if-ne p2, v2, :cond_2
 
-    if-ne p3, v1, :cond_2c
+    if-ne p3, v1, :cond_2
 
     .line 154
-    :cond_19
+    :cond_1
     iget-object v1, p0, Landroid/widget/TimePicker$2;->this$0:Landroid/widget/TimePicker;
 
     iget-object v0, p0, Landroid/widget/TimePicker$2;->this$0:Landroid/widget/TimePicker;
 
+    #getter for: Landroid/widget/TimePicker;->mIsAm:Z
     invoke-static {v0}, Landroid/widget/TimePicker;->access$100(Landroid/widget/TimePicker;)Z
 
     move-result v0
 
-    if-nez v0, :cond_32
+    if-nez v0, :cond_3
 
     const/4 v0, 0x1
 
-    :goto_24
+    :goto_0
+    #setter for: Landroid/widget/TimePicker;->mIsAm:Z
     invoke-static {v1, v0}, Landroid/widget/TimePicker;->access$102(Landroid/widget/TimePicker;Z)Z
 
     .line 155
     iget-object v0, p0, Landroid/widget/TimePicker$2;->this$0:Landroid/widget/TimePicker;
 
+    #calls: Landroid/widget/TimePicker;->updateAmPmControl()V
     invoke-static {v0}, Landroid/widget/TimePicker;->access$200(Landroid/widget/TimePicker;)V
 
     .line 158
-    :cond_2c
+    :cond_2
     iget-object v0, p0, Landroid/widget/TimePicker$2;->this$0:Landroid/widget/TimePicker;
 
+    #calls: Landroid/widget/TimePicker;->onTimeChanged()V
     invoke-static {v0}, Landroid/widget/TimePicker;->access$300(Landroid/widget/TimePicker;)V
 
     .line 159
     return-void
 
     .line 154
-    :cond_32
+    :cond_3
     const/4 v0, 0x0
 
-    goto :goto_24
+    goto :goto_0
 .end method

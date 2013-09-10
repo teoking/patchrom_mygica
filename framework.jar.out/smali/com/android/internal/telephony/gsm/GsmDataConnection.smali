@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/internal/telephony/PhoneBase;Ljava/lang/String;ILcom/android/internal/telephony/RetryManager;Lcom/android/internal/telephony/DataConnectionTracker;)V
-    .registers 7
+    .locals 1
     .parameter "phone"
     .parameter "name"
     .parameter "id"
@@ -34,20 +34,20 @@
 .end method
 
 .method private isIpAddress(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "address"
 
     .prologue
     .line 156
-    if-nez p1, :cond_4
+    if-nez p1, :cond_0
 
     const/4 v0, 0x0
 
     .line 158
-    :goto_3
+    :goto_0
     return v0
 
-    :cond_4
+    :cond_0
     sget-object v0, Landroid/util/Patterns;->IP_ADDRESS:Ljava/util/regex/Pattern;
 
     invoke-virtual {v0, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -58,11 +58,11 @@
 
     move-result v0
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method static makeDataConnection(Lcom/android/internal/telephony/PhoneBase;ILcom/android/internal/telephony/RetryManager;Lcom/android/internal/telephony/DataConnectionTracker;)Lcom/android/internal/telephony/gsm/GsmDataConnection;
-    .registers 10
+    .locals 6
     .parameter "phone"
     .parameter "id"
     .parameter "rm"
@@ -75,7 +75,7 @@
     monitor-enter v2
 
     .line 60
-    :try_start_3
+    :try_start_0
     sget v1, Lcom/android/internal/telephony/gsm/GsmDataConnection;->mCount:I
 
     add-int/lit8 v1, v1, 0x1
@@ -84,8 +84,8 @@
 
     .line 61
     monitor-exit v2
-    :try_end_a
-    .catchall {:try_start_3 .. :try_end_a} :catchall_46
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 62
     new-instance v0, Lcom/android/internal/telephony/gsm/GsmDataConnection;
@@ -154,13 +154,13 @@
 
     .line 61
     .end local v0           #gsmDc:Lcom/android/internal/telephony/gsm/GsmDataConnection;
-    :catchall_46
+    :catchall_0
     move-exception v1
 
-    :try_start_47
+    :try_start_1
     monitor-exit v2
-    :try_end_48
-    .catchall {:try_start_47 .. :try_end_48} :catchall_46
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
@@ -168,7 +168,7 @@
 
 # virtual methods
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 6
+    .locals 2
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -210,7 +210,7 @@
 .end method
 
 .method public getProfileId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 118
@@ -220,7 +220,7 @@
 .end method
 
 .method protected isDnsOk([Ljava/lang/String;)Z
-    .registers 7
+    .locals 5
     .parameter "domainNameServers"
 
     .prologue
@@ -237,7 +237,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_67
+    if-eqz v2, :cond_1
 
     const-string v2, "0.0.0.0"
 
@@ -247,7 +247,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_67
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/internal/telephony/DataConnection;->phone:Lcom/android/internal/telephony/PhoneBase;
 
@@ -255,7 +255,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_67
+    if-nez v2, :cond_1
 
     .line 138
     iget-object v2, p0, Lcom/android/internal/telephony/DataConnection;->mApn:Lcom/android/internal/telephony/ApnSetting;
@@ -270,7 +270,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_37
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Lcom/android/internal/telephony/DataConnection;->mApn:Lcom/android/internal/telephony/ApnSetting;
 
@@ -280,10 +280,10 @@
 
     move-result v2
 
-    if-nez v2, :cond_67
+    if-nez v2, :cond_1
 
     .line 140
-    :cond_37
+    :cond_0
     const-string v2, "isDnsOk: return false apn.types[0]=%s APN_TYPE_MMS=%s isIpAddress(%s)=%s"
 
     const/4 v3, 0x4
@@ -333,17 +333,17 @@
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/gsm/GsmDataConnection;->log(Ljava/lang/String;)V
 
     .line 147
-    :goto_66
+    :goto_0
     return v0
 
-    :cond_67
+    :cond_1
     move v0, v1
 
-    goto :goto_66
+    goto :goto_0
 .end method
 
 .method protected log(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "s"
 
     .prologue
@@ -389,7 +389,7 @@
 .end method
 
 .method protected onConnect(Lcom/android/internal/telephony/DataConnection$ConnectionParams;)V
-    .registers 12
+    .locals 10
     .parameter "cp"
 
     .prologue
@@ -498,7 +498,7 @@
     .local v9, authType:I
     const/4 v0, -0x1
 
-    if-ne v9, v0, :cond_6d
+    if-ne v9, v0, :cond_0
 
     .line 94
     iget-object v0, p0, Lcom/android/internal/telephony/DataConnection;->mApn:Lcom/android/internal/telephony/ApnSetting;
@@ -509,13 +509,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a4
+    if-eqz v0, :cond_1
 
     const/4 v9, 0x0
 
     .line 99
-    :cond_6d
-    :goto_6d
+    :cond_0
+    :goto_0
     iget-object v0, p0, Lcom/android/internal/telephony/DataConnection;->phone:Lcom/android/internal/telephony/PhoneBase;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneBase;->getServiceState()Landroid/telephony/ServiceState;
@@ -526,7 +526,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a6
+    if-eqz v0, :cond_2
 
     .line 100
     iget-object v0, p0, Lcom/android/internal/telephony/DataConnection;->mApn:Lcom/android/internal/telephony/ApnSetting;
@@ -535,7 +535,7 @@
 
     .line 105
     .local v7, protocol:Ljava/lang/String;
-    :goto_7d
+    :goto_1
     iget-object v0, p0, Lcom/android/internal/telephony/DataConnection;->phone:Lcom/android/internal/telephony/PhoneBase;
 
     iget-object v0, v0, Lcom/android/internal/telephony/PhoneBase;->mCM:Lcom/android/internal/telephony/CommandsInterface;
@@ -579,23 +579,23 @@
 
     .line 94
     .end local v7           #protocol:Ljava/lang/String;
-    :cond_a4
+    :cond_1
     const/4 v9, 0x3
 
-    goto :goto_6d
+    goto :goto_0
 
     .line 102
-    :cond_a6
+    :cond_2
     iget-object v0, p0, Lcom/android/internal/telephony/DataConnection;->mApn:Lcom/android/internal/telephony/ApnSetting;
 
     iget-object v7, v0, Lcom/android/internal/telephony/ApnSetting;->protocol:Ljava/lang/String;
 
     .restart local v7       #protocol:Ljava/lang/String;
-    goto :goto_7d
+    goto :goto_1
 .end method
 
 .method public setProfileId(I)V
-    .registers 2
+    .locals 0
     .parameter "profileId"
 
     .prologue
@@ -607,7 +607,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 123

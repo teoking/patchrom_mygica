@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "parameterName"
 
@@ -39,7 +39,7 @@
 .end method
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -52,7 +52,7 @@
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
@@ -105,16 +105,16 @@
 .end method
 
 .method public setupPorts()V
-    .registers 8
+    .locals 7
 
     .prologue
     .line 51
     iget-object v0, p0, Landroid/filterpacks/imageproc/SimpleImageFilter;->mParameterName:Ljava/lang/String;
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
     .line 53
-    :try_start_4
+    :try_start_0
     const-class v0, Landroid/filterpacks/imageproc/SimpleImageFilter;
 
     const-string/jumbo v1, "mProgram"
@@ -136,12 +136,12 @@
     move-object v0, p0
 
     invoke-virtual/range {v0 .. v5}, Landroid/filterpacks/imageproc/SimpleImageFilter;->addProgramPort(Ljava/lang/String;Ljava/lang/String;Ljava/lang/reflect/Field;Ljava/lang/Class;Z)V
-    :try_end_18
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_4 .. :try_end_18} :catch_2a
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 59
     .end local v3           #programField:Ljava/lang/reflect/Field;
-    :cond_18
+    :cond_0
     const-string v0, "image"
 
     const/4 v1, 0x3
@@ -163,7 +163,7 @@
     return-void
 
     .line 55
-    :catch_2a
+    :catch_0
     move-exception v6
 
     .line 56
@@ -178,7 +178,7 @@
 .end method
 
 .method protected updateProgramWithTarget(ILandroid/filterfw/core/FilterContext;)V
-    .registers 6
+    .locals 3
     .parameter "target"
     .parameter "context"
 
@@ -186,10 +186,10 @@
     .line 91
     iget v0, p0, Landroid/filterpacks/imageproc/SimpleImageFilter;->mCurrentTarget:I
 
-    if-eq p1, v0, :cond_42
+    if-eq p1, v0, :cond_1
 
     .line 92
-    packed-switch p1, :pswitch_data_44
+    packed-switch p1, :pswitch_data_0
 
     .line 102
     const/4 v0, 0x0
@@ -197,10 +197,10 @@
     iput-object v0, p0, Landroid/filterpacks/imageproc/SimpleImageFilter;->mProgram:Landroid/filterfw/core/Program;
 
     .line 105
-    :goto_a
+    :goto_0
     iget-object v0, p0, Landroid/filterpacks/imageproc/SimpleImageFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-nez v0, :cond_3b
+    if-nez v0, :cond_0
 
     .line 106
     new-instance v0, Ljava/lang/RuntimeException;
@@ -234,27 +234,27 @@
     throw v0
 
     .line 94
-    :pswitch_2d
+    :pswitch_0
     invoke-virtual {p0, p2}, Landroid/filterpacks/imageproc/SimpleImageFilter;->getNativeProgram(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/Program;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/filterpacks/imageproc/SimpleImageFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    goto :goto_a
+    goto :goto_0
 
     .line 98
-    :pswitch_34
+    :pswitch_1
     invoke-virtual {p0, p2}, Landroid/filterpacks/imageproc/SimpleImageFilter;->getShaderProgram(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/Program;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/filterpacks/imageproc/SimpleImageFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    goto :goto_a
+    goto :goto_0
 
     .line 108
-    :cond_3b
+    :cond_0
     iget-object v0, p0, Landroid/filterpacks/imageproc/SimpleImageFilter;->mProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {p0, v0, p2}, Landroid/filterpacks/imageproc/SimpleImageFilter;->initProgramInputs(Landroid/filterfw/core/Program;Landroid/filterfw/core/FilterContext;)V
@@ -263,15 +263,15 @@
     iput p1, p0, Landroid/filterpacks/imageproc/SimpleImageFilter;->mCurrentTarget:I
 
     .line 111
-    :cond_42
+    :cond_1
     return-void
 
     .line 92
     nop
 
-    :pswitch_data_44
+    :pswitch_data_0
     .packed-switch 0x2
-        :pswitch_2d
-        :pswitch_34
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

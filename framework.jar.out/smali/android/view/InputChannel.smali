@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 35
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 65
@@ -72,12 +72,12 @@
 .end method
 
 .method public static openInputChannelPair(Ljava/lang/String;)[Landroid/view/InputChannel;
-    .registers 3
+    .locals 2
     .parameter "name"
 
     .prologue
     .line 84
-    if-nez p0, :cond_b
+    if-nez p0, :cond_0
 
     .line 85
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -89,7 +89,7 @@
     throw v0
 
     .line 91
-    :cond_b
+    :cond_0
     invoke-static {p0}, Landroid/view/InputChannel;->nativeOpenInputChannelPair(Ljava/lang/String;)[Landroid/view/InputChannel;
 
     move-result-object v0
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 127
@@ -110,7 +110,7 @@
 .end method
 
 .method public dispose()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 109
@@ -123,7 +123,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -134,10 +134,10 @@
     .line 71
     const/4 v0, 0x1
 
-    :try_start_1
+    :try_start_0
     invoke-direct {p0, v0}, Landroid/view/InputChannel;->nativeDispose(Z)V
-    :try_end_4
-    .catchall {:try_start_1 .. :try_end_4} :catchall_8
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 73
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -146,7 +146,7 @@
     return-void
 
     .line 73
-    :catchall_8
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -155,7 +155,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 99
@@ -165,26 +165,26 @@
 
     .line 100
     .local v0, name:Ljava/lang/String;
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .end local v0           #name:Ljava/lang/String;
-    :goto_6
+    :goto_0
     return-object v0
 
     .restart local v0       #name:Ljava/lang/String;
-    :cond_7
+    :cond_0
     const-string/jumbo v0, "uninitialized"
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
     .line 131
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 132
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -196,7 +196,7 @@
     throw v0
 
     .line 135
-    :cond_a
+    :cond_0
     invoke-direct {p0, p1}, Landroid/view/InputChannel;->nativeReadFromParcel(Landroid/os/Parcel;)V
 
     .line 136
@@ -204,7 +204,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 152
@@ -216,12 +216,12 @@
 .end method
 
 .method public transferTo(Landroid/view/InputChannel;)V
-    .registers 4
+    .locals 2
     .parameter "outParameter"
 
     .prologue
     .line 119
-    if-nez p1, :cond_b
+    if-nez p1, :cond_0
 
     .line 120
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -233,7 +233,7 @@
     throw v0
 
     .line 123
-    :cond_b
+    :cond_0
     invoke-direct {p0, p1}, Landroid/view/InputChannel;->nativeTransferTo(Landroid/view/InputChannel;)V
 
     .line 124
@@ -241,13 +241,13 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "out"
     .parameter "flags"
 
     .prologue
     .line 139
-    if-nez p1, :cond_b
+    if-nez p1, :cond_0
 
     .line 140
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -259,18 +259,18 @@
     throw v0
 
     .line 143
-    :cond_b
+    :cond_0
     invoke-direct {p0, p1}, Landroid/view/InputChannel;->nativeWriteToParcel(Landroid/os/Parcel;)V
 
     .line 145
     and-int/lit8 v0, p2, 0x1
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_1
 
     .line 146
     invoke-virtual {p0}, Landroid/view/InputChannel;->dispose()V
 
     .line 148
-    :cond_15
+    :cond_1
     return-void
 .end method

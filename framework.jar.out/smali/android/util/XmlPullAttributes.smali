@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Lorg/xmlpull/v1/XmlPullParser;)V
-    .registers 2
+    .locals 0
     .parameter "parser"
 
     .prologue
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public getAttributeBooleanValue(IZ)Z
-    .registers 4
+    .locals 1
     .parameter "index"
     .parameter "defaultValue"
 
@@ -47,7 +47,7 @@
 .end method
 
 .method public getAttributeBooleanValue(Ljava/lang/String;Ljava/lang/String;Z)Z
-    .registers 5
+    .locals 1
     .parameter "namespace"
     .parameter "attribute"
     .parameter "defaultValue"
@@ -66,7 +66,7 @@
 .end method
 
 .method public getAttributeCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 34
@@ -80,7 +80,7 @@
 .end method
 
 .method public getAttributeFloatValue(IF)F
-    .registers 4
+    .locals 1
     .parameter "index"
     .parameter "defaultValue"
 
@@ -92,7 +92,7 @@
 
     .line 124
     .local v0, s:Ljava/lang/String;
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 125
     invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
@@ -101,12 +101,12 @@
 
     .line 127
     .end local p2
-    :cond_a
+    :cond_0
     return p2
 .end method
 
 .method public getAttributeFloatValue(Ljava/lang/String;Ljava/lang/String;F)F
-    .registers 5
+    .locals 1
     .parameter "namespace"
     .parameter "attribute"
     .parameter "defaultValue"
@@ -119,7 +119,7 @@
 
     .line 90
     .local v0, s:Ljava/lang/String;
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 91
     invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
@@ -128,12 +128,12 @@
 
     .line 93
     .end local p3
-    :cond_a
+    :cond_0
     return p3
 .end method
 
 .method public getAttributeIntValue(II)I
-    .registers 4
+    .locals 1
     .parameter "index"
     .parameter "defaultValue"
 
@@ -151,7 +151,7 @@
 .end method
 
 .method public getAttributeIntValue(Ljava/lang/String;Ljava/lang/String;I)I
-    .registers 5
+    .locals 1
     .parameter "namespace"
     .parameter "attribute"
     .parameter "defaultValue"
@@ -170,7 +170,7 @@
 .end method
 
 .method public getAttributeListValue(I[Ljava/lang/String;I)I
-    .registers 5
+    .locals 1
     .parameter "index"
     .parameter "options"
     .parameter "defaultValue"
@@ -189,7 +189,7 @@
 .end method
 
 .method public getAttributeListValue(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;I)I
-    .registers 6
+    .locals 1
     .parameter "namespace"
     .parameter "attribute"
     .parameter "options"
@@ -209,7 +209,7 @@
 .end method
 
 .method public getAttributeName(I)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -224,7 +224,7 @@
 .end method
 
 .method public getAttributeNameResource(I)I
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -235,7 +235,7 @@
 .end method
 
 .method public getAttributeResourceValue(II)I
-    .registers 4
+    .locals 1
     .parameter "index"
     .parameter "defaultValue"
 
@@ -253,7 +253,7 @@
 .end method
 
 .method public getAttributeResourceValue(Ljava/lang/String;Ljava/lang/String;I)I
-    .registers 5
+    .locals 1
     .parameter "namespace"
     .parameter "attribute"
     .parameter "defaultValue"
@@ -272,7 +272,7 @@
 .end method
 
 .method public getAttributeUnsignedIntValue(II)I
-    .registers 4
+    .locals 1
     .parameter "index"
     .parameter "defaultValue"
 
@@ -290,7 +290,7 @@
 .end method
 
 .method public getAttributeUnsignedIntValue(Ljava/lang/String;Ljava/lang/String;I)I
-    .registers 5
+    .locals 1
     .parameter "namespace"
     .parameter "attribute"
     .parameter "defaultValue"
@@ -309,7 +309,7 @@
 .end method
 
 .method public getAttributeValue(I)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -324,7 +324,7 @@
 .end method
 
 .method public getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 1
     .parameter "namespace"
     .parameter "name"
 
@@ -340,7 +340,7 @@
 .end method
 
 .method public getClassAttribute()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 135
@@ -356,7 +356,7 @@
 .end method
 
 .method public getIdAttribute()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 131
@@ -372,7 +372,7 @@
 .end method
 
 .method public getIdAttributeResourceValue(I)I
-    .registers 4
+    .locals 2
     .parameter "defaultValue"
 
     .prologue
@@ -389,7 +389,7 @@
 .end method
 
 .method public getPositionDescription()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 50
@@ -403,7 +403,7 @@
 .end method
 
 .method public getStyleAttribute()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 143

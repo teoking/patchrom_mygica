@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/InputMethodManagerService$InputMethodAndSubtypeListManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -48,37 +48,38 @@
 
 # virtual methods
 .method public compare(Landroid/view/inputmethod/InputMethodInfo;Landroid/view/inputmethod/InputMethodInfo;)I
-    .registers 7
+    .locals 4
     .parameter "imi1"
     .parameter "imi2"
 
     .prologue
     .line 3112
-    if-nez p2, :cond_4
+    if-nez p2, :cond_0
 
     const/4 v2, 0x0
 
     .line 3119
-    :goto_3
+    :goto_0
     return v2
 
     .line 3113
-    :cond_4
-    if-nez p1, :cond_8
+    :cond_0
+    if-nez p1, :cond_1
 
     const/4 v2, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 3114
-    :cond_8
+    :cond_1
     iget-object v2, p0, Lcom/android/server/InputMethodManagerService$InputMethodAndSubtypeListManager$1;->this$0:Lcom/android/server/InputMethodManagerService$InputMethodAndSubtypeListManager;
 
+    #getter for: Lcom/android/server/InputMethodManagerService$InputMethodAndSubtypeListManager;->mPm:Landroid/content/pm/PackageManager;
     invoke-static {v2}, Lcom/android/server/InputMethodManagerService$InputMethodAndSubtypeListManager;->access$1500(Lcom/android/server/InputMethodManagerService$InputMethodAndSubtypeListManager;)Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
-    if-nez v2, :cond_1d
+    if-nez v2, :cond_2
 
     .line 3115
     invoke-virtual {p1}, Landroid/view/inputmethod/InputMethodInfo;->getId()Ljava/lang/String;
@@ -93,16 +94,17 @@
 
     move-result v2
 
-    goto :goto_3
+    goto :goto_0
 
     .line 3117
-    :cond_1d
+    :cond_2
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     iget-object v3, p0, Lcom/android/server/InputMethodManagerService$InputMethodAndSubtypeListManager$1;->this$0:Lcom/android/server/InputMethodManagerService$InputMethodAndSubtypeListManager;
 
+    #getter for: Lcom/android/server/InputMethodManagerService$InputMethodAndSubtypeListManager;->mPm:Landroid/content/pm/PackageManager;
     invoke-static {v3}, Lcom/android/server/InputMethodManagerService$InputMethodAndSubtypeListManager;->access$1500(Lcom/android/server/InputMethodManagerService$InputMethodAndSubtypeListManager;)Landroid/content/pm/PackageManager;
 
     move-result-object v3
@@ -141,6 +143,7 @@
 
     iget-object v3, p0, Lcom/android/server/InputMethodManagerService$InputMethodAndSubtypeListManager$1;->this$0:Lcom/android/server/InputMethodManagerService$InputMethodAndSubtypeListManager;
 
+    #getter for: Lcom/android/server/InputMethodManagerService$InputMethodAndSubtypeListManager;->mPm:Landroid/content/pm/PackageManager;
     invoke-static {v3}, Lcom/android/server/InputMethodManagerService$InputMethodAndSubtypeListManager;->access$1500(Lcom/android/server/InputMethodManagerService$InputMethodAndSubtypeListManager;)Landroid/content/pm/PackageManager;
 
     move-result-object v3
@@ -185,11 +188,11 @@
 
     move-result v2
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 

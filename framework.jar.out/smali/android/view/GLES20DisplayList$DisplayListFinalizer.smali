@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "nativeDisplayList"
 
     .prologue
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -50,8 +50,8 @@
     iget v0, p0, Landroid/view/GLES20DisplayList$DisplayListFinalizer;->mNativeDisplayList:I
 
     invoke-static {v0}, Landroid/view/GLES20Canvas;->destroyDisplayList(I)V
-    :try_end_5
-    .catchall {:try_start_0 .. :try_end_5} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 340
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -60,7 +60,7 @@
     return-void
 
     .line 340
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V

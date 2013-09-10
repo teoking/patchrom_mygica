@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(JLjava/lang/String;JI)V
-    .registers 8
+    .locals 1
     .parameter "rowId"
     .parameter "path"
     .parameter "lastModified"
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 368

@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(FFFF)V
-    .registers 7
+    .locals 2
     .parameter "fromXDelta"
     .parameter "toXDelta"
     .parameter "fromYDelta"
@@ -98,7 +98,7 @@
 .end method
 
 .method public constructor <init>(IFIFIFIF)V
-    .registers 11
+    .locals 2
     .parameter "fromXType"
     .parameter "fromXValue"
     .parameter "toXType"
@@ -169,7 +169,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "attrs"
 
@@ -306,7 +306,7 @@
 
 # virtual methods
 .method protected applyTransformation(FLandroid/view/animation/Transformation;)V
-    .registers 8
+    .locals 5
     .parameter "interpolatedTime"
     .parameter "t"
 
@@ -326,7 +326,7 @@
 
     cmpl-float v2, v2, v3
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_0
 
     .line 154
     iget v2, p0, Landroid/view/animation/TranslateAnimation;->mFromXDelta:F
@@ -342,14 +342,14 @@
     add-float v0, v2, v3
 
     .line 156
-    :cond_16
+    :cond_0
     iget v2, p0, Landroid/view/animation/TranslateAnimation;->mFromYDelta:F
 
     iget v3, p0, Landroid/view/animation/TranslateAnimation;->mToYDelta:F
 
     cmpl-float v2, v2, v3
 
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_1
 
     .line 157
     iget v2, p0, Landroid/view/animation/TranslateAnimation;->mFromYDelta:F
@@ -365,7 +365,7 @@
     add-float v1, v2, v3
 
     .line 159
-    :cond_28
+    :cond_1
     invoke-virtual {p2}, Landroid/view/animation/Transformation;->getMatrix()Landroid/graphics/Matrix;
 
     move-result-object v2
@@ -377,7 +377,7 @@
 .end method
 
 .method public initialize(IIII)V
-    .registers 7
+    .locals 2
     .parameter "width"
     .parameter "height"
     .parameter "parentWidth"

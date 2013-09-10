@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/KeyguardViewManager;Lcom/android/internal/policy/impl/KeyguardViewManager$ShowListener;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,12 +43,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 237
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager$1;->this$0:Lcom/android/internal/policy/impl/KeyguardViewManager;
 
+    #getter for: Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
     invoke-static {v0}, Lcom/android/internal/policy/impl/KeyguardViewManager;->access$100(Lcom/android/internal/policy/impl/KeyguardViewManager;)Landroid/widget/FrameLayout;
 
     move-result-object v0
@@ -57,13 +58,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_0
 
     .line 238
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager$1;->val$showListener:Lcom/android/internal/policy/impl/KeyguardViewManager$ShowListener;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager$1;->this$0:Lcom/android/internal/policy/impl/KeyguardViewManager;
 
+    #getter for: Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
     invoke-static {v1}, Lcom/android/internal/policy/impl/KeyguardViewManager;->access$100(Lcom/android/internal/policy/impl/KeyguardViewManager;)Landroid/widget/FrameLayout;
 
     move-result-object v1
@@ -75,16 +77,16 @@
     invoke-interface {v0, v1}, Lcom/android/internal/policy/impl/KeyguardViewManager$ShowListener;->onShown(Landroid/os/IBinder;)V
 
     .line 242
-    :goto_1b
+    :goto_0
     return-void
 
     .line 240
-    :cond_1c
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager$1;->val$showListener:Lcom/android/internal/policy/impl/KeyguardViewManager$ShowListener;
 
     const/4 v1, 0x0
 
     invoke-interface {v0, v1}, Lcom/android/internal/policy/impl/KeyguardViewManager$ShowListener;->onShown(Landroid/os/IBinder;)V
 
-    goto :goto_1b
+    goto :goto_0
 .end method

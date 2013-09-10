@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeech;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public bridge synthetic run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -66,7 +66,7 @@
 .end method
 
 .method public run(Landroid/speech/tts/ITextToSpeechService;)Ljava/util/Locale;
-    .registers 7
+    .locals 5
     .parameter "service"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -82,13 +82,13 @@
 
     .line 1063
     .local v0, locStrings:[Ljava/lang/String;
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     array-length v1, v0
 
     const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_19
+    if-ne v1, v2, :cond_0
 
     .line 1064
     new-instance v1, Ljava/util/Locale;
@@ -108,11 +108,11 @@
     invoke-direct {v1, v2, v3, v4}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1066
-    :goto_18
+    :goto_0
     return-object v1
 
-    :cond_19
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_18
+    goto :goto_0
 .end method

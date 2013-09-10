@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 308
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 58
@@ -81,7 +81,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 175
@@ -110,7 +110,7 @@
 .end method
 
 .method public getTrackFormat(I)Landroid/media/MediaFormat;
-    .registers 4
+    .locals 2
     .parameter "index"
 
     .prologue
@@ -142,7 +142,7 @@
 .end method
 
 .method public final setDataSource(Landroid/content/Context;Landroid/net/Uri;Ljava/util/Map;)V
-    .registers 13
+    .locals 9
     .parameter "context"
     .parameter "uri"
     .parameter
@@ -174,7 +174,7 @@
 
     .line 73
     .local v8, scheme:Ljava/lang/String;
-    if-eqz v8, :cond_e
+    if-eqz v8, :cond_0
 
     const-string v0, "file"
 
@@ -182,10 +182,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_2
 
     .line 74
-    :cond_e
+    :cond_0
     invoke-virtual {p2}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
     move-result-object v0
@@ -193,17 +193,17 @@
     invoke-virtual {p0, v0}, Landroid/media/MediaExtractor;->setDataSource(Ljava/lang/String;)V
 
     .line 106
-    :cond_15
-    :goto_15
+    :cond_1
+    :goto_0
     return-void
 
     .line 78
-    :cond_16
+    :cond_2
     const/4 v6, 0x0
 
     .line 80
     .local v6, fd:Landroid/content/res/AssetFileDescriptor;
-    :try_start_17
+    :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v7
@@ -213,28 +213,28 @@
     const-string/jumbo v0, "r"
 
     invoke-virtual {v7, p2, v0}, Landroid/content/ContentResolver;->openAssetFileDescriptor(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/res/AssetFileDescriptor;
-    :try_end_21
-    .catchall {:try_start_17 .. :try_end_21} :catchall_5d
-    .catch Ljava/lang/SecurityException; {:try_start_17 .. :try_end_21} :catch_4f
-    .catch Ljava/io/IOException; {:try_start_17 .. :try_end_21} :catch_64
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v6
 
     .line 82
-    if-nez v6, :cond_2a
+    if-nez v6, :cond_3
 
     .line 100
-    if-eqz v6, :cond_15
+    if-eqz v6, :cond_1
 
     .line 101
-    :goto_26
+    :goto_1
     invoke-virtual {v6}, Landroid/content/res/AssetFileDescriptor;->close()V
 
-    goto :goto_15
+    goto :goto_0
 
     .line 88
-    :cond_2a
-    :try_start_2a
+    :cond_3
+    :try_start_1
     invoke-virtual {v6}, Landroid/content/res/AssetFileDescriptor;->getDeclaredLength()J
 
     move-result-wide v0
@@ -243,7 +243,7 @@
 
     cmp-long v0, v0, v2
 
-    if-gez v0, :cond_3e
+    if-gez v0, :cond_4
 
     .line 89
     invoke-virtual {v6}, Landroid/content/res/AssetFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
@@ -253,13 +253,13 @@
     invoke-virtual {p0, v0}, Landroid/media/MediaExtractor;->setDataSource(Ljava/io/FileDescriptor;)V
 
     .line 100
-    :goto_3b
-    if-eqz v6, :cond_15
+    :goto_2
+    if-eqz v6, :cond_1
 
-    goto :goto_26
+    goto :goto_1
 
     .line 91
-    :cond_3e
+    :cond_4
     invoke-virtual {v6}, Landroid/content/res/AssetFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v1
@@ -275,60 +275,60 @@
     move-object v0, p0
 
     invoke-virtual/range {v0 .. v5}, Landroid/media/MediaExtractor;->setDataSource(Ljava/io/FileDescriptor;JJ)V
-    :try_end_4e
-    .catchall {:try_start_2a .. :try_end_4e} :catchall_5d
-    .catch Ljava/lang/SecurityException; {:try_start_2a .. :try_end_4e} :catch_4f
-    .catch Ljava/io/IOException; {:try_start_2a .. :try_end_4e} :catch_64
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto :goto_3b
+    goto :goto_2
 
     .line 97
     .end local v7           #resolver:Landroid/content/ContentResolver;
-    :catch_4f
+    :catch_0
     move-exception v0
 
     .line 100
-    if-eqz v6, :cond_55
+    if-eqz v6, :cond_5
 
     .line 101
-    :goto_52
+    :goto_3
     invoke-virtual {v6}, Landroid/content/res/AssetFileDescriptor;->close()V
 
     .line 105
-    :cond_55
+    :cond_5
     invoke-virtual {p2}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {p0, v0, p3}, Landroid/media/MediaExtractor;->setDataSource(Ljava/lang/String;Ljava/util/Map;)V
 
-    goto :goto_15
+    goto :goto_0
 
     .line 100
-    :catchall_5d
+    :catchall_0
     move-exception v0
 
-    if-eqz v6, :cond_63
+    if-eqz v6, :cond_6
 
     .line 101
     invoke-virtual {v6}, Landroid/content/res/AssetFileDescriptor;->close()V
 
     .line 100
-    :cond_63
+    :cond_6
     throw v0
 
     .line 98
-    :catch_64
+    :catch_1
     move-exception v0
 
     .line 100
-    if-eqz v6, :cond_55
+    if-eqz v6, :cond_5
 
-    goto :goto_52
+    goto :goto_3
 .end method
 
 .method public final setDataSource(Ljava/io/FileDescriptor;)V
-    .registers 8
+    .locals 6
     .parameter "fd"
 
     .prologue
@@ -351,7 +351,7 @@
 .end method
 
 .method public final setDataSource(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "path"
 
     .prologue
@@ -365,7 +365,7 @@
 .end method
 
 .method public final setDataSource(Ljava/lang/String;Ljava/util/Map;)V
-    .registers 9
+    .locals 6
     .parameter "path"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -391,7 +391,7 @@
 
     .line 118
     .local v4, values:[Ljava/lang/String;
-    if-eqz p2, :cond_38
+    if-eqz p2, :cond_0
 
     .line 119
     invoke-interface {p2}, Ljava/util/Map;->size()I
@@ -421,12 +421,12 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :goto_19
+    :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_38
+    if-eqz v5, :cond_0
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -456,13 +456,13 @@
     .line 126
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_19
+    goto :goto_0
 
     .line 129
     .end local v0           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     .end local v1           #i:I
     .end local v2           #i$:Ljava/util/Iterator;
-    :cond_38
+    :cond_0
     invoke-direct {p0, p1, v3, v4}, Landroid/media/MediaExtractor;->setDataSource(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V
 
     .line 130

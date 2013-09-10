@@ -22,7 +22,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;)V
-    .registers 3
+    .locals 1
     .parameter "spb"
 
     .prologue
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 104

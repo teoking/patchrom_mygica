@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/GrantCredentialsPermissionActivity$1;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 101
@@ -55,7 +55,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1b
+    if-nez v0, :cond_0
 
     .line 102
     iget-object v0, p0, Landroid/accounts/GrantCredentialsPermissionActivity$1$1;->this$1:Landroid/accounts/GrantCredentialsPermissionActivity$1;
@@ -76,6 +76,6 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 105
-    :cond_1b
+    :cond_0
     return-void
 .end method

@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/IContentProvider;Landroid/net/Uri;)V
-    .registers 5
+    .locals 2
     .parameter "provider"
     .parameter "baseUri"
 
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public delete(J)V
-    .registers 6
+    .locals 3
     .parameter "id"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -88,7 +88,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 1217
     iget-object v0, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->whereClause:Ljava/lang/StringBuilder;
@@ -98,7 +98,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1219
-    :cond_f
+    :cond_0
     iget-object v0, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->whereClause:Ljava/lang/StringBuilder;
 
     const-string v1, "?"
@@ -137,18 +137,18 @@
 
     const/16 v1, 0x64
 
-    if-le v0, v1, :cond_3b
+    if-le v0, v1, :cond_1
 
     .line 1222
     invoke-virtual {p0}, Landroid/media/MediaScanner$MediaBulkDeleter;->flush()V
 
     .line 1224
-    :cond_3b
+    :cond_1
     return-void
 .end method
 
 .method public flush()V
-    .registers 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -165,7 +165,7 @@
 
     .line 1227
     .local v2, size:I
-    if-lez v2, :cond_44
+    if-lez v2, :cond_0
 
     .line 1228
     new-array v0, v2, [Ljava/lang/String;
@@ -237,6 +237,6 @@
     .line 1236
     .end local v0           #foo:[Ljava/lang/String;
     .end local v1           #numrows:I
-    :cond_44
+    :cond_0
     return-void
 .end method

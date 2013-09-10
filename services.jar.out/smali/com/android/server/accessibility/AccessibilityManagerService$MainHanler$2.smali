@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/accessibility/AccessibilityManagerService$MainHanler;Lcom/android/server/accessibility/AccessibilityManagerService$Service;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 6
+    .locals 3
     .parameter "dialog"
     .parameter "which"
 
@@ -53,6 +53,7 @@
 
     iget-object v0, v0, Lcom/android/server/accessibility/AccessibilityManagerService$MainHanler;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
+    #getter for: Lcom/android/server/accessibility/AccessibilityManagerService;->mTouchExplorationGrantedServices:Ljava/util/Set;
     invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$600(Lcom/android/server/accessibility/AccessibilityManagerService;)Ljava/util/Set;
 
     move-result-object v0
@@ -74,10 +75,12 @@
 
     iget-object v2, v2, Lcom/android/server/accessibility/AccessibilityManagerService$MainHanler;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
+    #getter for: Lcom/android/server/accessibility/AccessibilityManagerService;->mTouchExplorationGrantedServices:Ljava/util/Set;
     invoke-static {v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$600(Lcom/android/server/accessibility/AccessibilityManagerService;)Ljava/util/Set;
 
     move-result-object v2
 
+    #calls: Lcom/android/server/accessibility/AccessibilityManagerService;->persistComponentNamesToSettingLocked(Ljava/lang/String;Ljava/util/Set;)V
     invoke-static {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$500(Lcom/android/server/accessibility/AccessibilityManagerService;Ljava/lang/String;Ljava/util/Set;)V
 
     .line 1092

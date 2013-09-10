@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 993
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 899
@@ -80,7 +80,7 @@
 .end method
 
 .method public static cancelThumbnailRequest(Landroid/content/ContentResolver;J)V
-    .registers 9
+    .locals 6
     .parameter "cr"
     .parameter "origId"
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public static cancelThumbnailRequest(Landroid/content/ContentResolver;JJ)V
-    .registers 11
+    .locals 6
     .parameter "cr"
     .parameter "origId"
     .parameter "groupId"
@@ -123,7 +123,7 @@
 .end method
 
 .method public static getContentUri(Ljava/lang/String;)Landroid/net/Uri;
-    .registers 3
+    .locals 2
     .parameter "volumeName"
 
     .prologue
@@ -160,7 +160,7 @@
 .end method
 
 .method public static getThumbnail(Landroid/content/ContentResolver;JILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
-    .registers 14
+    .locals 9
     .parameter "cr"
     .parameter "origId"
     .parameter "kind"
@@ -190,7 +190,7 @@
 .end method
 
 .method public static getThumbnail(Landroid/content/ContentResolver;JJILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
-    .registers 16
+    .locals 9
     .parameter "cr"
     .parameter "origId"
     .parameter "groupId"
@@ -221,7 +221,7 @@
 .end method
 
 .method public static final query(Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 9
+    .locals 6
     .parameter "cr"
     .parameter "uri"
     .parameter "projection"
@@ -248,7 +248,7 @@
 .end method
 
 .method public static final queryMiniThumbnail(Landroid/content/ContentResolver;JI[Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 11
+    .locals 6
     .parameter "cr"
     .parameter "origId"
     .parameter "kind"
@@ -314,7 +314,7 @@
 .end method
 
 .method public static final queryMiniThumbnails(Landroid/content/ContentResolver;Landroid/net/Uri;I[Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 10
+    .locals 6
     .parameter "cr"
     .parameter "uri"
     .parameter "kind"

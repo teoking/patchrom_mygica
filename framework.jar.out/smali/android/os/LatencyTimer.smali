@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 4
+    .locals 1
     .parameter "sampleSize"
     .parameter "scaleFactor"
 
@@ -45,13 +45,13 @@
     iput-object v0, p0, Landroid/os/LatencyTimer;->store:Ljava/util/HashMap;
 
     .line 51
-    if-nez p2, :cond_11
+    if-nez p2, :cond_0
 
     .line 52
     const/4 p2, 0x1
 
     .line 54
-    :cond_11
+    :cond_0
     iput p2, p0, Landroid/os/LatencyTimer;->mScaleFactor:I
 
     .line 55
@@ -62,7 +62,7 @@
 .end method
 
 .method private getArray(Ljava/lang/String;)[J
-    .registers 8
+    .locals 6
     .parameter "tag"
 
     .prologue
@@ -77,7 +77,7 @@
 
     .line 82
     .local v1, data:[J
-    if-nez v1, :cond_2b
+    if-nez v1, :cond_1
 
     .line 83
     iget-object v3, p0, Landroid/os/LatencyTimer;->store:Ljava/util/HashMap;
@@ -85,7 +85,7 @@
     monitor-enter v3
 
     .line 84
-    :try_start_d
+    :try_start_0
     iget-object v2, p0, Landroid/os/LatencyTimer;->store:Ljava/util/HashMap;
 
     invoke-virtual {v2, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -99,7 +99,7 @@
     move-object v1, v0
 
     .line 85
-    if-nez v1, :cond_2a
+    if-nez v1, :cond_0
 
     .line 86
     iget v2, p0, Landroid/os/LatencyTimer;->mSampleSize:I
@@ -121,20 +121,20 @@
     aput-wide v4, v1, v2
 
     .line 90
-    :cond_2a
+    :cond_0
     monitor-exit v3
 
     .line 92
-    :cond_2b
+    :cond_1
     return-object v1
 
     .line 90
-    :catchall_2c
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_2e
-    .catchall {:try_start_d .. :try_end_2e} :catchall_2c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method
@@ -142,7 +142,7 @@
 
 # virtual methods
 .method public sample(Ljava/lang/String;J)V
-    .registers 18
+    .locals 14
     .parameter "tag"
     .parameter "delta"
 
@@ -181,7 +181,7 @@
 
     cmp-long v9, v9, v11
 
-    if-nez v9, :cond_54
+    if-nez v9, :cond_1
 
     .line 71
     const-wide/16 v7, 0x0
@@ -197,8 +197,8 @@
     const/4 v4, 0x0
 
     .local v4, i$:I
-    :goto_20
-    if-ge v4, v6, :cond_2d
+    :goto_0
+    if-ge v4, v6, :cond_0
 
     aget-wide v2, v0, v4
 
@@ -215,11 +215,11 @@
     .line 72
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_20
+    goto :goto_0
 
     .line 75
     .end local v2           #d:J
-    :cond_2d
+    :cond_0
     iget v9, p0, Landroid/os/LatencyTimer;->mSampleSize:I
 
     const-wide/16 v10, 0x0
@@ -264,6 +264,6 @@
     .end local v4           #i$:I
     .end local v6           #len$:I
     .end local v7           #totalDelta:J
-    :cond_54
+    :cond_1
     return-void
 .end method

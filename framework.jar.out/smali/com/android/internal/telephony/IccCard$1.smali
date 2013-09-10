@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/IccCard;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 6
+    .locals 3
     .parameter "dialog"
     .parameter "which"
 
@@ -46,23 +46,24 @@
     .line 608
     const/4 v1, -0x1
 
-    if-ne p2, v1, :cond_26
+    if-ne p2, v1, :cond_1
 
     .line 609
     iget-object v1, p0, Lcom/android/internal/telephony/IccCard$1;->this$0:Lcom/android/internal/telephony/IccCard;
 
     iget-boolean v1, v1, Lcom/android/internal/telephony/IccCard;->mDbg:Z
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/android/internal/telephony/IccCard$1;->this$0:Lcom/android/internal/telephony/IccCard;
 
     const-string v2, "Reboot due to SIM swap"
 
+    #calls: Lcom/android/internal/telephony/IccCard;->log(Ljava/lang/String;)V
     invoke-static {v1, v2}, Lcom/android/internal/telephony/IccCard;->access$000(Lcom/android/internal/telephony/IccCard;Ljava/lang/String;)V
 
     .line 610
-    :cond_10
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/IccCard$1;->this$0:Lcom/android/internal/telephony/IccCard;
 
     iget-object v1, v1, Lcom/android/internal/telephony/IccCard;->mPhone:Lcom/android/internal/telephony/PhoneBase;
@@ -87,6 +88,6 @@
 
     .line 614
     .end local v0           #pm:Landroid/os/PowerManager;
-    :cond_26
+    :cond_1
     return-void
 .end method

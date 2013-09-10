@@ -44,7 +44,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/media/FaceDetector;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -58,7 +58,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/media/FaceDetector;Landroid/media/FaceDetector$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public confidence()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 51
@@ -82,7 +82,7 @@
 .end method
 
 .method public eyesDistance()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 66
@@ -92,7 +92,7 @@
 .end method
 
 .method public getMidPoint(Landroid/graphics/PointF;)V
-    .registers 4
+    .locals 2
     .parameter "point"
 
     .prologue
@@ -108,44 +108,44 @@
 .end method
 
 .method public pose(I)F
-    .registers 3
+    .locals 1
     .parameter "euler"
 
     .prologue
     .line 79
-    if-nez p1, :cond_5
+    if-nez p1, :cond_0
 
     .line 80
     iget v0, p0, Landroid/media/FaceDetector$Face;->mPoseEulerX:F
 
     .line 84
-    :goto_4
+    :goto_0
     return v0
 
     .line 81
-    :cond_5
+    :cond_0
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_b
+    if-ne p1, v0, :cond_1
 
     .line 82
     iget v0, p0, Landroid/media/FaceDetector$Face;->mPoseEulerY:F
 
-    goto :goto_4
+    goto :goto_0
 
     .line 83
-    :cond_b
+    :cond_1
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_11
+    if-ne p1, v0, :cond_2
 
     .line 84
     iget v0, p0, Landroid/media/FaceDetector$Face;->mPoseEulerZ:F
 
-    goto :goto_4
+    goto :goto_0
 
     .line 85
-    :cond_11
+    :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V

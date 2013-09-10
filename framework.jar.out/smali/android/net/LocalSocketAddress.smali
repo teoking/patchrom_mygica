@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Landroid/net/LocalSocketAddress$Namespace;)V
-    .registers 3
+    .locals 0
     .parameter "name"
     .parameter "namespace"
 
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 89
@@ -64,7 +64,7 @@
 .end method
 
 .method public getNamespace()Landroid/net/LocalSocketAddress$Namespace;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 98

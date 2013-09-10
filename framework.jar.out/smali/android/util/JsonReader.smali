@@ -63,7 +63,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/Reader;)V
-    .registers 5
+    .locals 3
     .parameter "in"
 
     .prologue
@@ -119,7 +119,7 @@
     iput-boolean v1, p0, Landroid/util/JsonReader;->skipping:Z
 
     .line 234
-    if-nez p1, :cond_34
+    if-nez p1, :cond_0
 
     .line 235
     new-instance v0, Ljava/lang/NullPointerException;
@@ -131,7 +131,7 @@
     throw v0
 
     .line 237
-    :cond_34
+    :cond_0
     iput-object p1, p0, Landroid/util/JsonReader;->in:Ljava/io/Reader;
 
     .line 238
@@ -139,7 +139,7 @@
 .end method
 
 .method private advance()Landroid/util/JsonToken;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -170,7 +170,7 @@
 .end method
 
 .method private checkLenient()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -181,7 +181,7 @@
     .line 834
     iget-boolean v0, p0, Landroid/util/JsonReader;->lenient:Z
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 835
     const-string v0, "Use JsonReader.setLenient(true) to accept malformed JSON"
@@ -193,12 +193,12 @@
     throw v0
 
     .line 837
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method private decodeLiteral()Landroid/util/JsonToken;
-    .registers 9
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -221,20 +221,20 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_11
+    if-ne v0, v1, :cond_0
 
     .line 1068
     sget-object v0, Landroid/util/JsonToken;->STRING:Landroid/util/JsonToken;
 
     .line 1093
-    :goto_10
+    :goto_0
     return-object v0
 
     .line 1069
-    :cond_11
+    :cond_0
     iget v0, p0, Landroid/util/JsonReader;->valueLength:I
 
-    if-ne v0, v5, :cond_6f
+    if-ne v0, v5, :cond_5
 
     const/16 v0, 0x6e
 
@@ -244,7 +244,7 @@
 
     aget-char v1, v1, v2
 
-    if-eq v0, v1, :cond_29
+    if-eq v0, v1, :cond_1
 
     const/16 v0, 0x4e
 
@@ -254,9 +254,9 @@
 
     aget-char v1, v1, v2
 
-    if-ne v0, v1, :cond_6f
+    if-ne v0, v1, :cond_5
 
-    :cond_29
+    :cond_1
     const/16 v0, 0x75
 
     iget-object v1, p0, Landroid/util/JsonReader;->buffer:[C
@@ -267,7 +267,7 @@
 
     aget-char v1, v1, v2
 
-    if-eq v0, v1, :cond_3f
+    if-eq v0, v1, :cond_2
 
     iget-object v0, p0, Landroid/util/JsonReader;->buffer:[C
 
@@ -277,9 +277,9 @@
 
     aget-char v0, v0, v1
 
-    if-ne v7, v0, :cond_6f
+    if-ne v7, v0, :cond_5
 
-    :cond_3f
+    :cond_2
     iget-object v0, p0, Landroid/util/JsonReader;->buffer:[C
 
     iget v1, p0, Landroid/util/JsonReader;->valuePos:I
@@ -288,7 +288,7 @@
 
     aget-char v0, v0, v1
 
-    if-eq v4, v0, :cond_53
+    if-eq v4, v0, :cond_3
 
     iget-object v0, p0, Landroid/util/JsonReader;->buffer:[C
 
@@ -298,9 +298,9 @@
 
     aget-char v0, v0, v1
 
-    if-ne v3, v0, :cond_6f
+    if-ne v3, v0, :cond_5
 
-    :cond_53
+    :cond_3
     iget-object v0, p0, Landroid/util/JsonReader;->buffer:[C
 
     iget v1, p0, Landroid/util/JsonReader;->valuePos:I
@@ -309,7 +309,7 @@
 
     aget-char v0, v0, v1
 
-    if-eq v4, v0, :cond_67
+    if-eq v4, v0, :cond_4
 
     iget-object v0, p0, Landroid/util/JsonReader;->buffer:[C
 
@@ -319,10 +319,10 @@
 
     aget-char v0, v0, v1
 
-    if-ne v3, v0, :cond_6f
+    if-ne v3, v0, :cond_5
 
     .line 1074
-    :cond_67
+    :cond_4
     const-string/jumbo v0, "null"
 
     iput-object v0, p0, Landroid/util/JsonReader;->value:Ljava/lang/String;
@@ -330,13 +330,13 @@
     .line 1075
     sget-object v0, Landroid/util/JsonToken;->NULL:Landroid/util/JsonToken;
 
-    goto :goto_10
+    goto :goto_0
 
     .line 1076
-    :cond_6f
+    :cond_5
     iget v0, p0, Landroid/util/JsonReader;->valueLength:I
 
-    if-ne v0, v5, :cond_d4
+    if-ne v0, v5, :cond_a
 
     const/16 v0, 0x74
 
@@ -346,7 +346,7 @@
 
     aget-char v1, v1, v2
 
-    if-eq v0, v1, :cond_87
+    if-eq v0, v1, :cond_6
 
     const/16 v0, 0x54
 
@@ -356,9 +356,9 @@
 
     aget-char v1, v1, v2
 
-    if-ne v0, v1, :cond_d4
+    if-ne v0, v1, :cond_a
 
-    :cond_87
+    :cond_6
     const/16 v0, 0x72
 
     iget-object v1, p0, Landroid/util/JsonReader;->buffer:[C
@@ -369,7 +369,7 @@
 
     aget-char v1, v1, v2
 
-    if-eq v0, v1, :cond_9f
+    if-eq v0, v1, :cond_7
 
     const/16 v0, 0x52
 
@@ -381,9 +381,9 @@
 
     aget-char v1, v1, v2
 
-    if-ne v0, v1, :cond_d4
+    if-ne v0, v1, :cond_a
 
-    :cond_9f
+    :cond_7
     const/16 v0, 0x75
 
     iget-object v1, p0, Landroid/util/JsonReader;->buffer:[C
@@ -394,7 +394,7 @@
 
     aget-char v1, v1, v2
 
-    if-eq v0, v1, :cond_b5
+    if-eq v0, v1, :cond_8
 
     iget-object v0, p0, Landroid/util/JsonReader;->buffer:[C
 
@@ -404,9 +404,9 @@
 
     aget-char v0, v0, v1
 
-    if-ne v7, v0, :cond_d4
+    if-ne v7, v0, :cond_a
 
-    :cond_b5
+    :cond_8
     const/16 v0, 0x65
 
     iget-object v1, p0, Landroid/util/JsonReader;->buffer:[C
@@ -417,7 +417,7 @@
 
     aget-char v1, v1, v2
 
-    if-eq v0, v1, :cond_cb
+    if-eq v0, v1, :cond_9
 
     iget-object v0, p0, Landroid/util/JsonReader;->buffer:[C
 
@@ -427,10 +427,10 @@
 
     aget-char v0, v0, v1
 
-    if-ne v6, v0, :cond_d4
+    if-ne v6, v0, :cond_a
 
     .line 1081
-    :cond_cb
+    :cond_9
     const-string/jumbo v0, "true"
 
     iput-object v0, p0, Landroid/util/JsonReader;->value:Ljava/lang/String;
@@ -438,15 +438,15 @@
     .line 1082
     sget-object v0, Landroid/util/JsonToken;->BOOLEAN:Landroid/util/JsonToken;
 
-    goto/16 :goto_10
+    goto/16 :goto_0
 
     .line 1083
-    :cond_d4
+    :cond_a
     iget v0, p0, Landroid/util/JsonReader;->valueLength:I
 
     const/4 v1, 0x5
 
-    if-ne v0, v1, :cond_14f
+    if-ne v0, v1, :cond_10
 
     const/16 v0, 0x66
 
@@ -456,7 +456,7 @@
 
     aget-char v1, v1, v2
 
-    if-eq v0, v1, :cond_ed
+    if-eq v0, v1, :cond_b
 
     const/16 v0, 0x46
 
@@ -466,9 +466,9 @@
 
     aget-char v1, v1, v2
 
-    if-ne v0, v1, :cond_14f
+    if-ne v0, v1, :cond_10
 
-    :cond_ed
+    :cond_b
     const/16 v0, 0x61
 
     iget-object v1, p0, Landroid/util/JsonReader;->buffer:[C
@@ -479,7 +479,7 @@
 
     aget-char v1, v1, v2
 
-    if-eq v0, v1, :cond_105
+    if-eq v0, v1, :cond_c
 
     const/16 v0, 0x41
 
@@ -491,9 +491,9 @@
 
     aget-char v1, v1, v2
 
-    if-ne v0, v1, :cond_14f
+    if-ne v0, v1, :cond_10
 
-    :cond_105
+    :cond_c
     iget-object v0, p0, Landroid/util/JsonReader;->buffer:[C
 
     iget v1, p0, Landroid/util/JsonReader;->valuePos:I
@@ -502,7 +502,7 @@
 
     aget-char v0, v0, v1
 
-    if-eq v4, v0, :cond_119
+    if-eq v4, v0, :cond_d
 
     iget-object v0, p0, Landroid/util/JsonReader;->buffer:[C
 
@@ -512,9 +512,9 @@
 
     aget-char v0, v0, v1
 
-    if-ne v3, v0, :cond_14f
+    if-ne v3, v0, :cond_10
 
-    :cond_119
+    :cond_d
     const/16 v0, 0x73
 
     iget-object v1, p0, Landroid/util/JsonReader;->buffer:[C
@@ -525,7 +525,7 @@
 
     aget-char v1, v1, v2
 
-    if-eq v0, v1, :cond_131
+    if-eq v0, v1, :cond_e
 
     const/16 v0, 0x53
 
@@ -537,9 +537,9 @@
 
     aget-char v1, v1, v2
 
-    if-ne v0, v1, :cond_14f
+    if-ne v0, v1, :cond_10
 
-    :cond_131
+    :cond_e
     const/16 v0, 0x65
 
     iget-object v1, p0, Landroid/util/JsonReader;->buffer:[C
@@ -550,7 +550,7 @@
 
     aget-char v1, v1, v2
 
-    if-eq v0, v1, :cond_147
+    if-eq v0, v1, :cond_f
 
     iget-object v0, p0, Landroid/util/JsonReader;->buffer:[C
 
@@ -560,10 +560,10 @@
 
     aget-char v0, v0, v1
 
-    if-ne v6, v0, :cond_14f
+    if-ne v6, v0, :cond_10
 
     .line 1089
-    :cond_147
+    :cond_f
     const-string v0, "false"
 
     iput-object v0, p0, Landroid/util/JsonReader;->value:Ljava/lang/String;
@@ -571,10 +571,10 @@
     .line 1090
     sget-object v0, Landroid/util/JsonToken;->BOOLEAN:Landroid/util/JsonToken;
 
-    goto/16 :goto_10
+    goto/16 :goto_0
 
     .line 1092
-    :cond_14f
+    :cond_10
     iget-object v0, p0, Landroid/util/JsonReader;->stringPool:Llibcore/internal/StringPool;
 
     iget-object v1, p0, Landroid/util/JsonReader;->buffer:[C
@@ -600,11 +600,11 @@
 
     move-result-object v0
 
-    goto/16 :goto_10
+    goto/16 :goto_0
 .end method
 
 .method private decodeNumber([CII)Landroid/util/JsonToken;
-    .registers 10
+    .locals 6
     .parameter "chars"
     .parameter "offset"
     .parameter "length"
@@ -625,7 +625,7 @@
 
     .line 1107
     .local v0, c:I
-    if-ne v0, v5, :cond_f
+    if-ne v0, v5, :cond_0
 
     .line 1108
     add-int/lit8 v1, v1, 0x1
@@ -633,8 +633,8 @@
     aget-char v0, p1, v1
 
     .line 1111
-    :cond_f
-    if-ne v0, v3, :cond_26
+    :cond_0
+    if-ne v0, v3, :cond_2
 
     .line 1112
     add-int/lit8 v1, v1, 0x1
@@ -642,10 +642,10 @@
     aget-char v0, p1, v1
 
     .line 1122
-    :cond_15
+    :cond_1
     const/16 v2, 0x2e
 
-    if-ne v0, v2, :cond_3c
+    if-ne v0, v2, :cond_4
 
     .line 1123
     add-int/lit8 v1, v1, 0x1
@@ -653,25 +653,25 @@
     aget-char v0, p1, v1
 
     .line 1124
-    :goto_1d
-    if-lt v0, v3, :cond_3c
+    :goto_0
+    if-lt v0, v3, :cond_4
 
-    if-gt v0, v4, :cond_3c
+    if-gt v0, v4, :cond_4
 
     .line 1125
     add-int/lit8 v1, v1, 0x1
 
     aget-char v0, p1, v1
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 1113
-    :cond_26
+    :cond_2
     const/16 v2, 0x31
 
-    if-lt v0, v2, :cond_39
+    if-lt v0, v2, :cond_3
 
-    if-gt v0, v4, :cond_39
+    if-gt v0, v4, :cond_3
 
     .line 1114
     add-int/lit8 v1, v1, 0x1
@@ -679,38 +679,38 @@
     aget-char v0, p1, v1
 
     .line 1115
-    :goto_30
-    if-lt v0, v3, :cond_15
+    :goto_1
+    if-lt v0, v3, :cond_1
 
-    if-gt v0, v4, :cond_15
+    if-gt v0, v4, :cond_1
 
     .line 1116
     add-int/lit8 v1, v1, 0x1
 
     aget-char v0, p1, v1
 
-    goto :goto_30
+    goto :goto_1
 
     .line 1119
-    :cond_39
+    :cond_3
     sget-object v2, Landroid/util/JsonToken;->STRING:Landroid/util/JsonToken;
 
     .line 1147
-    :goto_3b
+    :goto_2
     return-object v2
 
     .line 1129
-    :cond_3c
+    :cond_4
     const/16 v2, 0x65
 
-    if-eq v0, v2, :cond_44
+    if-eq v0, v2, :cond_5
 
     const/16 v2, 0x45
 
-    if-ne v0, v2, :cond_66
+    if-ne v0, v2, :cond_9
 
     .line 1130
-    :cond_44
+    :cond_5
     add-int/lit8 v1, v1, 0x1
 
     aget-char v0, p1, v1
@@ -718,21 +718,21 @@
     .line 1131
     const/16 v2, 0x2b
 
-    if-eq v0, v2, :cond_4e
+    if-eq v0, v2, :cond_6
 
-    if-ne v0, v5, :cond_52
+    if-ne v0, v5, :cond_7
 
     .line 1132
-    :cond_4e
+    :cond_6
     add-int/lit8 v1, v1, 0x1
 
     aget-char v0, p1, v1
 
     .line 1134
-    :cond_52
-    if-lt v0, v3, :cond_63
+    :cond_7
+    if-lt v0, v3, :cond_8
 
-    if-gt v0, v4, :cond_63
+    if-gt v0, v4, :cond_8
 
     .line 1135
     add-int/lit8 v1, v1, 0x1
@@ -740,44 +740,44 @@
     aget-char v0, p1, v1
 
     .line 1136
-    :goto_5a
-    if-lt v0, v3, :cond_66
+    :goto_3
+    if-lt v0, v3, :cond_9
 
-    if-gt v0, v4, :cond_66
+    if-gt v0, v4, :cond_9
 
     .line 1137
     add-int/lit8 v1, v1, 0x1
 
     aget-char v0, p1, v1
 
-    goto :goto_5a
+    goto :goto_3
 
     .line 1140
-    :cond_63
+    :cond_8
     sget-object v2, Landroid/util/JsonToken;->STRING:Landroid/util/JsonToken;
 
-    goto :goto_3b
+    goto :goto_2
 
     .line 1144
-    :cond_66
+    :cond_9
     add-int v2, p2, p3
 
-    if-ne v1, v2, :cond_6d
+    if-ne v1, v2, :cond_a
 
     .line 1145
     sget-object v2, Landroid/util/JsonToken;->NUMBER:Landroid/util/JsonToken;
 
-    goto :goto_3b
+    goto :goto_2
 
     .line 1147
-    :cond_6d
+    :cond_a
     sget-object v2, Landroid/util/JsonToken;->STRING:Landroid/util/JsonToken;
 
-    goto :goto_3b
+    goto :goto_2
 .end method
 
 .method private expect(Landroid/util/JsonToken;)V
-    .registers 5
+    .locals 3
     .parameter "expected"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -792,7 +792,7 @@
     .line 309
     iget-object v0, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
-    if-eq v0, p1, :cond_2e
+    if-eq v0, p1, :cond_0
 
     .line 310
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -834,7 +834,7 @@
     throw v0
 
     .line 312
-    :cond_2e
+    :cond_0
     invoke-direct {p0}, Landroid/util/JsonReader;->advance()Landroid/util/JsonToken;
 
     .line 313
@@ -842,7 +842,7 @@
 .end method
 
 .method private fillBuffer(I)Z
-    .registers 11
+    .locals 9
     .parameter "minimum"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -859,10 +859,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_3
+    :goto_0
     iget v4, p0, Landroid/util/JsonReader;->pos:I
 
-    if-ge v0, v4, :cond_21
+    if-ge v0, v4, :cond_1
 
     .line 722
     iget-object v4, p0, Landroid/util/JsonReader;->buffer:[C
@@ -871,7 +871,7 @@
 
     const/16 v5, 0xa
 
-    if-ne v4, v5, :cond_1a
+    if-ne v4, v5, :cond_0
 
     .line 723
     iget v4, p0, Landroid/util/JsonReader;->bufferStartLine:I
@@ -884,28 +884,28 @@
     iput v2, p0, Landroid/util/JsonReader;->bufferStartColumn:I
 
     .line 721
-    :goto_17
+    :goto_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 726
-    :cond_1a
+    :cond_0
     iget v4, p0, Landroid/util/JsonReader;->bufferStartColumn:I
 
     add-int/lit8 v4, v4, 0x1
 
     iput v4, p0, Landroid/util/JsonReader;->bufferStartColumn:I
 
-    goto :goto_17
+    goto :goto_1
 
     .line 730
-    :cond_21
+    :cond_1
     iget v4, p0, Landroid/util/JsonReader;->limit:I
 
     iget v5, p0, Landroid/util/JsonReader;->pos:I
 
-    if-eq v4, v5, :cond_79
+    if-eq v4, v5, :cond_4
 
     .line 731
     iget v4, p0, Landroid/util/JsonReader;->limit:I
@@ -928,11 +928,11 @@
     invoke-static {v4, v5, v6, v3, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 737
-    :goto_39
+    :goto_2
     iput v3, p0, Landroid/util/JsonReader;->pos:I
 
     .line 739
-    :cond_3b
+    :cond_2
     iget-object v4, p0, Landroid/util/JsonReader;->in:Ljava/io/Reader;
 
     iget-object v5, p0, Landroid/util/JsonReader;->buffer:[C
@@ -954,7 +954,7 @@
     .local v1, total:I
     const/4 v4, -0x1
 
-    if-eq v1, v4, :cond_7c
+    if-eq v1, v4, :cond_5
 
     .line 740
     iget v4, p0, Landroid/util/JsonReader;->limit:I
@@ -966,15 +966,15 @@
     .line 743
     iget v4, p0, Landroid/util/JsonReader;->bufferStartLine:I
 
-    if-ne v4, v2, :cond_74
+    if-ne v4, v2, :cond_3
 
     iget v4, p0, Landroid/util/JsonReader;->bufferStartColumn:I
 
-    if-ne v4, v2, :cond_74
+    if-ne v4, v2, :cond_3
 
     iget v4, p0, Landroid/util/JsonReader;->limit:I
 
-    if-lez v4, :cond_74
+    if-lez v4, :cond_3
 
     iget-object v4, p0, Landroid/util/JsonReader;->buffer:[C
 
@@ -982,7 +982,7 @@
 
     const v5, 0xfeff
 
-    if-ne v4, v5, :cond_74
+    if-ne v4, v5, :cond_3
 
     .line 745
     iget v4, p0, Landroid/util/JsonReader;->pos:I
@@ -999,32 +999,32 @@
     iput v4, p0, Landroid/util/JsonReader;->bufferStartColumn:I
 
     .line 749
-    :cond_74
+    :cond_3
     iget v4, p0, Landroid/util/JsonReader;->limit:I
 
-    if-lt v4, p1, :cond_3b
+    if-lt v4, p1, :cond_2
 
     .line 753
-    :goto_78
+    :goto_3
     return v2
 
     .line 734
     .end local v1           #total:I
-    :cond_79
+    :cond_4
     iput v3, p0, Landroid/util/JsonReader;->limit:I
 
-    goto :goto_39
+    goto :goto_2
 
     .restart local v1       #total:I
-    :cond_7c
+    :cond_5
     move v2, v3
 
     .line 753
-    goto :goto_78
+    goto :goto_3
 .end method
 
 .method private getColumnNumber()I
-    .registers 5
+    .locals 4
 
     .prologue
     .line 767
@@ -1035,10 +1035,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_3
+    :goto_0
     iget v2, p0, Landroid/util/JsonReader;->pos:I
 
-    if-ge v0, v2, :cond_16
+    if-ge v0, v2, :cond_1
 
     .line 769
     iget-object v2, p0, Landroid/util/JsonReader;->buffer:[C
@@ -1047,30 +1047,30 @@
 
     const/16 v3, 0xa
 
-    if-ne v2, v3, :cond_13
+    if-ne v2, v3, :cond_0
 
     .line 770
     const/4 v1, 0x1
 
     .line 768
-    :goto_10
+    :goto_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 772
-    :cond_13
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_10
+    goto :goto_1
 
     .line 775
-    :cond_16
+    :cond_1
     return v1
 .end method
 
 .method private getLineNumber()I
-    .registers 5
+    .locals 4
 
     .prologue
     .line 757
@@ -1081,10 +1081,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_3
+    :goto_0
     iget v2, p0, Landroid/util/JsonReader;->pos:I
 
-    if-ge v0, v2, :cond_14
+    if-ge v0, v2, :cond_1
 
     .line 759
     iget-object v2, p0, Landroid/util/JsonReader;->buffer:[C
@@ -1093,24 +1093,24 @@
 
     const/16 v3, 0xa
 
-    if-ne v2, v3, :cond_11
+    if-ne v2, v3, :cond_0
 
     .line 760
     add-int/lit8 v1, v1, 0x1
 
     .line 758
-    :cond_11
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 763
-    :cond_14
+    :cond_1
     return v1
 .end method
 
 .method private getSnippet()Ljava/lang/CharSequence;
-    .registers 7
+    .locals 6
 
     .prologue
     const/16 v5, 0x14
@@ -1162,7 +1162,7 @@
 .end method
 
 .method private nextInArray(Z)Landroid/util/JsonToken;
-    .registers 3
+    .locals 1
     .parameter "firstElement"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1172,7 +1172,7 @@
 
     .prologue
     .line 583
-    if-eqz p1, :cond_19
+    if-eqz p1, :cond_0
 
     .line 584
     sget-object v0, Landroid/util/JsonScope;->NONEMPTY_ARRAY:Landroid/util/JsonScope;
@@ -1180,13 +1180,13 @@
     invoke-direct {p0, v0}, Landroid/util/JsonReader;->replaceTop(Landroid/util/JsonScope;)V
 
     .line 600
-    :goto_7
-    :sswitch_7
+    :goto_0
+    :sswitch_0
     invoke-direct {p0}, Landroid/util/JsonReader;->nextNonWhitespace()I
 
     move-result v0
 
-    sparse-switch v0, :sswitch_data_50
+    sparse-switch v0, :sswitch_data_0
 
     .line 615
     iget v0, p0, Landroid/util/JsonReader;->pos:I
@@ -1200,16 +1200,16 @@
 
     move-result-object v0
 
-    :goto_18
+    :goto_1
     return-object v0
 
     .line 587
-    :cond_19
+    :cond_0
     invoke-direct {p0}, Landroid/util/JsonReader;->nextNonWhitespace()I
 
     move-result v0
 
-    sparse-switch v0, :sswitch_data_5e
+    sparse-switch v0, :sswitch_data_1
 
     .line 596
     const-string v0, "Unterminated array"
@@ -1221,7 +1221,7 @@
     throw v0
 
     .line 589
-    :sswitch_27
+    :sswitch_1
     invoke-direct {p0}, Landroid/util/JsonReader;->pop()Landroid/util/JsonScope;
 
     .line 590
@@ -1229,17 +1229,17 @@
 
     iput-object v0, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
-    goto :goto_18
+    goto :goto_1
 
     .line 592
-    :sswitch_2f
+    :sswitch_2
     invoke-direct {p0}, Landroid/util/JsonReader;->checkLenient()V
 
-    goto :goto_7
+    goto :goto_0
 
     .line 602
-    :sswitch_33
-    if-eqz p1, :cond_3d
+    :sswitch_3
+    if-eqz p1, :cond_1
 
     .line 603
     invoke-direct {p0}, Landroid/util/JsonReader;->pop()Landroid/util/JsonScope;
@@ -1249,11 +1249,11 @@
 
     iput-object v0, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
-    goto :goto_18
+    goto :goto_1
 
     .line 610
-    :cond_3d
-    :sswitch_3d
+    :cond_1
+    :sswitch_4
     invoke-direct {p0}, Landroid/util/JsonReader;->checkLenient()V
 
     .line 611
@@ -1273,27 +1273,27 @@
 
     iput-object v0, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
-    goto :goto_18
+    goto :goto_1
 
     .line 600
-    :sswitch_data_50
+    :sswitch_data_0
     .sparse-switch
-        0x2c -> :sswitch_3d
-        0x3b -> :sswitch_3d
-        0x5d -> :sswitch_33
+        0x2c -> :sswitch_4
+        0x3b -> :sswitch_4
+        0x5d -> :sswitch_3
     .end sparse-switch
 
     .line 587
-    :sswitch_data_5e
+    :sswitch_data_1
     .sparse-switch
-        0x2c -> :sswitch_7
-        0x3b -> :sswitch_2f
-        0x5d -> :sswitch_27
+        0x2c -> :sswitch_0
+        0x3b -> :sswitch_2
+        0x5d -> :sswitch_1
     .end sparse-switch
 .end method
 
 .method private nextInObject(Z)Landroid/util/JsonToken;
-    .registers 4
+    .locals 2
     .parameter "firstElement"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1303,14 +1303,14 @@
 
     .prologue
     .line 626
-    if-eqz p1, :cond_3d
+    if-eqz p1, :cond_0
 
     .line 628
     invoke-direct {p0}, Landroid/util/JsonReader;->nextNonWhitespace()I
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_68
+    packed-switch v1, :pswitch_data_0
 
     .line 633
     iget v1, p0, Landroid/util/JsonReader;->pos:I
@@ -1320,14 +1320,14 @@
     iput v1, p0, Landroid/util/JsonReader;->pos:I
 
     .line 649
-    :sswitch_f
+    :sswitch_0
     invoke-direct {p0}, Landroid/util/JsonReader;->nextNonWhitespace()I
 
     move-result v0
 
     .line 650
     .local v0, quote:I
-    sparse-switch v0, :sswitch_data_6e
+    sparse-switch v0, :sswitch_data_0
 
     .line 657
     invoke-direct {p0}, Landroid/util/JsonReader;->checkLenient()V
@@ -1355,7 +1355,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5d
+    if-eqz v1, :cond_1
 
     .line 661
     const-string v1, "Expected name"
@@ -1368,7 +1368,7 @@
 
     .line 630
     .end local v0           #quote:I
-    :pswitch_35
+    :pswitch_0
     invoke-direct {p0}, Landroid/util/JsonReader;->pop()Landroid/util/JsonScope;
 
     .line 631
@@ -1377,16 +1377,16 @@
     iput-object v1, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
     .line 666
-    :goto_3c
+    :goto_0
     return-object v1
 
     .line 636
-    :cond_3d
+    :cond_0
     invoke-direct {p0}, Landroid/util/JsonReader;->nextNonWhitespace()I
 
     move-result v1
 
-    sparse-switch v1, :sswitch_data_78
+    sparse-switch v1, :sswitch_data_1
 
     .line 644
     const-string v1, "Unterminated object"
@@ -1398,7 +1398,7 @@
     throw v1
 
     .line 638
-    :sswitch_4b
+    :sswitch_1
     invoke-direct {p0}, Landroid/util/JsonReader;->pop()Landroid/util/JsonScope;
 
     .line 639
@@ -1406,15 +1406,15 @@
 
     iput-object v1, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 652
     .restart local v0       #quote:I
-    :sswitch_53
+    :sswitch_2
     invoke-direct {p0}, Landroid/util/JsonReader;->checkLenient()V
 
     .line 654
-    :sswitch_56
+    :sswitch_3
     int-to-char v1, v0
 
     invoke-direct {p0, v1}, Landroid/util/JsonReader;->nextString(C)Ljava/lang/String;
@@ -1424,7 +1424,7 @@
     iput-object v1, p0, Landroid/util/JsonReader;->name:Ljava/lang/String;
 
     .line 665
-    :cond_5d
+    :cond_1
     sget-object v1, Landroid/util/JsonScope;->DANGLING_NAME:Landroid/util/JsonScope;
 
     invoke-direct {p0, v1}, Landroid/util/JsonReader;->replaceTop(Landroid/util/JsonScope;)V
@@ -1434,34 +1434,34 @@
 
     iput-object v1, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 628
     nop
 
-    :pswitch_data_68
+    :pswitch_data_0
     .packed-switch 0x7d
-        :pswitch_35
+        :pswitch_0
     .end packed-switch
 
     .line 650
-    :sswitch_data_6e
+    :sswitch_data_0
     .sparse-switch
-        0x22 -> :sswitch_56
-        0x27 -> :sswitch_53
+        0x22 -> :sswitch_3
+        0x27 -> :sswitch_2
     .end sparse-switch
 
     .line 636
-    :sswitch_data_78
+    :sswitch_data_1
     .sparse-switch
-        0x2c -> :sswitch_f
-        0x3b -> :sswitch_f
-        0x7d -> :sswitch_4b
+        0x2c -> :sswitch_0
+        0x3b -> :sswitch_0
+        0x7d -> :sswitch_1
     .end sparse-switch
 .end method
 
 .method private nextLiteral(Z)Ljava/lang/String;
-    .registers 8
+    .locals 6
     .parameter "assignOffsetsOnly"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1489,15 +1489,15 @@
 
     .line 929
     .local v1, i:I
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     iget v3, p0, Landroid/util/JsonReader;->pos:I
 
     add-int/2addr v3, v1
 
     iget v4, p0, Landroid/util/JsonReader;->limit:I
 
-    if-ge v3, v4, :cond_33
+    if-ge v3, v4, :cond_1
 
     .line 930
     iget-object v3, p0, Landroid/util/JsonReader;->buffer:[C
@@ -1508,23 +1508,23 @@
 
     aget-char v3, v3, v4
 
-    sparse-switch v3, :sswitch_data_8a
+    sparse-switch v3, :sswitch_data_0
 
     .line 929
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 936
-    :sswitch_1c
+    :sswitch_0
     invoke-direct {p0}, Landroid/util/JsonReader;->checkLenient()V
 
     .line 980
-    :goto_1f
-    :sswitch_1f
-    if-eqz p1, :cond_68
+    :goto_1
+    :sswitch_1
+    if-eqz p1, :cond_4
 
-    if-nez v0, :cond_68
+    if-nez v0, :cond_4
 
     .line 981
     iget v3, p0, Landroid/util/JsonReader;->pos:I
@@ -1536,7 +1536,7 @@
 
     .line 991
     .local v2, result:Ljava/lang/String;
-    :goto_28
+    :goto_2
     iget v3, p0, Landroid/util/JsonReader;->valueLength:I
 
     add-int/2addr v3, v1
@@ -1555,12 +1555,12 @@
 
     .line 957
     .end local v2           #result:Ljava/lang/String;
-    :cond_33
+    :cond_1
     iget-object v3, p0, Landroid/util/JsonReader;->buffer:[C
 
     array-length v3, v3
 
-    if-ge v1, v3, :cond_47
+    if-ge v1, v3, :cond_2
 
     .line 958
     add-int/lit8 v3, v1, 0x1
@@ -1569,7 +1569,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_0
 
     .line 961
     iget-object v3, p0, Landroid/util/JsonReader;->buffer:[C
@@ -1578,11 +1578,11 @@
 
     aput-char v5, v3, v4
 
-    goto :goto_1f
+    goto :goto_1
 
     .line 967
-    :cond_47
-    if-nez v0, :cond_4e
+    :cond_2
+    if-nez v0, :cond_3
 
     .line 968
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1592,7 +1592,7 @@
 
     .line 970
     .restart local v0       #builder:Ljava/lang/StringBuilder;
-    :cond_4e
+    :cond_3
     iget-object v3, p0, Landroid/util/JsonReader;->buffer:[C
 
     iget v4, p0, Landroid/util/JsonReader;->pos:I
@@ -1623,26 +1623,26 @@
 
     move-result v3
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_0
 
-    goto :goto_1f
+    goto :goto_1
 
     .line 983
-    :cond_68
+    :cond_4
     iget-boolean v3, p0, Landroid/util/JsonReader;->skipping:Z
 
-    if-eqz v3, :cond_70
+    if-eqz v3, :cond_5
 
     .line 984
     const-string/jumbo v2, "skipped!"
 
     .restart local v2       #result:Ljava/lang/String;
-    goto :goto_28
+    goto :goto_2
 
     .line 985
     .end local v2           #result:Ljava/lang/String;
-    :cond_70
-    if-nez v0, :cond_7d
+    :cond_5
+    if-nez v0, :cond_6
 
     .line 986
     iget-object v3, p0, Landroid/util/JsonReader;->stringPool:Llibcore/internal/StringPool;
@@ -1656,11 +1656,11 @@
     move-result-object v2
 
     .restart local v2       #result:Ljava/lang/String;
-    goto :goto_28
+    goto :goto_2
 
     .line 988
     .end local v2           #result:Ljava/lang/String;
-    :cond_7d
+    :cond_6
     iget-object v3, p0, Landroid/util/JsonReader;->buffer:[C
 
     iget v4, p0, Landroid/util/JsonReader;->pos:I
@@ -1673,34 +1673,34 @@
     move-result-object v2
 
     .restart local v2       #result:Ljava/lang/String;
-    goto :goto_28
+    goto :goto_2
 
     .line 930
     nop
 
-    :sswitch_data_8a
+    :sswitch_data_0
     .sparse-switch
-        0x9 -> :sswitch_1f
-        0xa -> :sswitch_1f
-        0xc -> :sswitch_1f
-        0xd -> :sswitch_1f
-        0x20 -> :sswitch_1f
-        0x23 -> :sswitch_1c
-        0x2c -> :sswitch_1f
-        0x2f -> :sswitch_1c
-        0x3a -> :sswitch_1f
-        0x3b -> :sswitch_1c
-        0x3d -> :sswitch_1c
-        0x5b -> :sswitch_1f
-        0x5c -> :sswitch_1c
-        0x5d -> :sswitch_1f
-        0x7b -> :sswitch_1f
-        0x7d -> :sswitch_1f
+        0x9 -> :sswitch_1
+        0xa -> :sswitch_1
+        0xc -> :sswitch_1
+        0xd -> :sswitch_1
+        0x20 -> :sswitch_1
+        0x23 -> :sswitch_0
+        0x2c -> :sswitch_1
+        0x2f -> :sswitch_0
+        0x3a -> :sswitch_1
+        0x3b -> :sswitch_0
+        0x3d -> :sswitch_0
+        0x5b -> :sswitch_1
+        0x5c -> :sswitch_0
+        0x5d -> :sswitch_1
+        0x7b -> :sswitch_1
+        0x7d -> :sswitch_1
     .end sparse-switch
 .end method
 
 .method private nextNonWhitespace()I
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1711,22 +1711,22 @@
     const/4 v5, 0x1
 
     .line 779
-    :goto_1
-    :sswitch_1
+    :goto_0
+    :sswitch_0
     iget v2, p0, Landroid/util/JsonReader;->pos:I
 
     iget v3, p0, Landroid/util/JsonReader;->limit:I
 
-    if-lt v2, v3, :cond_d
+    if-lt v2, v3, :cond_0
 
     invoke-direct {p0, v5}, Landroid/util/JsonReader;->fillBuffer(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_61
+    if-eqz v2, :cond_4
 
     .line 780
-    :cond_d
+    :cond_0
     iget-object v2, p0, Landroid/util/JsonReader;->buffer:[C
 
     iget v3, p0, Landroid/util/JsonReader;->pos:I
@@ -1739,29 +1739,29 @@
 
     .line 781
     .local v0, c:I
-    sparse-switch v0, :sswitch_data_6a
+    sparse-switch v0, :sswitch_data_0
 
     .line 826
-    :cond_1a
-    :goto_1a
+    :cond_1
+    :goto_1
     return v0
 
     .line 789
-    :sswitch_1b
+    :sswitch_1
     iget v2, p0, Landroid/util/JsonReader;->pos:I
 
     iget v3, p0, Landroid/util/JsonReader;->limit:I
 
-    if-ne v2, v3, :cond_27
+    if-ne v2, v3, :cond_2
 
     invoke-direct {p0, v5}, Landroid/util/JsonReader;->fillBuffer(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_1
 
     .line 793
-    :cond_27
+    :cond_2
     invoke-direct {p0}, Landroid/util/JsonReader;->checkLenient()V
 
     .line 794
@@ -1773,12 +1773,12 @@
 
     .line 795
     .local v1, peek:C
-    sparse-switch v1, :sswitch_data_84
+    sparse-switch v1, :sswitch_data_1
 
-    goto :goto_1a
+    goto :goto_1
 
     .line 798
-    :sswitch_34
+    :sswitch_2
     iget v2, p0, Landroid/util/JsonReader;->pos:I
 
     add-int/lit8 v2, v2, 0x1
@@ -1792,7 +1792,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_49
+    if-nez v2, :cond_3
 
     .line 800
     const-string v2, "Unterminated comment"
@@ -1804,17 +1804,17 @@
     throw v2
 
     .line 802
-    :cond_49
+    :cond_3
     iget v2, p0, Landroid/util/JsonReader;->pos:I
 
     add-int/lit8 v2, v2, 0x2
 
     iput v2, p0, Landroid/util/JsonReader;->pos:I
 
-    goto :goto_1
+    goto :goto_0
 
     .line 807
-    :sswitch_50
+    :sswitch_3
     iget v2, p0, Landroid/util/JsonReader;->pos:I
 
     add-int/lit8 v2, v2, 0x1
@@ -1824,21 +1824,21 @@
     .line 808
     invoke-direct {p0}, Landroid/util/JsonReader;->skipToEndOfLine()V
 
-    goto :goto_1
+    goto :goto_0
 
     .line 821
     .end local v1           #peek:C
-    :sswitch_5a
+    :sswitch_4
     invoke-direct {p0}, Landroid/util/JsonReader;->checkLenient()V
 
     .line 822
     invoke-direct {p0}, Landroid/util/JsonReader;->skipToEndOfLine()V
 
-    goto :goto_1
+    goto :goto_0
 
     .line 830
     .end local v0           #c:I
-    :cond_61
+    :cond_4
     new-instance v2, Ljava/io/EOFException;
 
     const-string v3, "End of input"
@@ -1850,26 +1850,26 @@
     .line 781
     nop
 
-    :sswitch_data_6a
+    :sswitch_data_0
     .sparse-switch
-        0x9 -> :sswitch_1
-        0xa -> :sswitch_1
-        0xd -> :sswitch_1
-        0x20 -> :sswitch_1
-        0x23 -> :sswitch_5a
-        0x2f -> :sswitch_1b
+        0x9 -> :sswitch_0
+        0xa -> :sswitch_0
+        0xd -> :sswitch_0
+        0x20 -> :sswitch_0
+        0x23 -> :sswitch_4
+        0x2f -> :sswitch_1
     .end sparse-switch
 
     .line 795
-    :sswitch_data_84
+    :sswitch_data_1
     .sparse-switch
-        0x2a -> :sswitch_34
-        0x2f -> :sswitch_50
+        0x2a -> :sswitch_2
+        0x2f -> :sswitch_3
     .end sparse-switch
 .end method
 
 .method private nextString(C)Ljava/lang/String;
-    .registers 8
+    .locals 6
     .parameter "quote"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1883,18 +1883,18 @@
 
     .line 880
     .local v0, builder:Ljava/lang/StringBuilder;
-    :cond_1
+    :cond_0
     iget v2, p0, Landroid/util/JsonReader;->pos:I
 
     .line 881
     .local v2, start:I
-    :cond_3
-    :goto_3
+    :cond_1
+    :goto_0
     iget v3, p0, Landroid/util/JsonReader;->pos:I
 
     iget v4, p0, Landroid/util/JsonReader;->limit:I
 
-    if-ge v3, v4, :cond_5b
+    if-ge v3, v4, :cond_6
 
     .line 882
     iget-object v3, p0, Landroid/util/JsonReader;->buffer:[C
@@ -1909,23 +1909,23 @@
 
     .line 884
     .local v1, c:I
-    if-ne v1, p1, :cond_3c
+    if-ne v1, p1, :cond_4
 
     .line 885
     iget-boolean v3, p0, Landroid/util/JsonReader;->skipping:Z
 
-    if-eqz v3, :cond_1d
+    if-eqz v3, :cond_2
 
     .line 886
     const-string/jumbo v3, "skipped!"
 
     .line 891
-    :goto_1c
+    :goto_1
     return-object v3
 
     .line 887
-    :cond_1d
-    if-nez v0, :cond_2d
+    :cond_2
+    if-nez v0, :cond_3
 
     .line 888
     iget-object v3, p0, Landroid/util/JsonReader;->stringPool:Llibcore/internal/StringPool;
@@ -1942,10 +1942,10 @@
 
     move-result-object v3
 
-    goto :goto_1c
+    goto :goto_1
 
     .line 890
-    :cond_2d
+    :cond_3
     iget-object v3, p0, Landroid/util/JsonReader;->buffer:[C
 
     iget v4, p0, Landroid/util/JsonReader;->pos:I
@@ -1961,16 +1961,16 @@
 
     move-result-object v3
 
-    goto :goto_1c
+    goto :goto_1
 
     .line 894
-    :cond_3c
+    :cond_4
     const/16 v3, 0x5c
 
-    if-ne v1, v3, :cond_3
+    if-ne v1, v3, :cond_1
 
     .line 895
-    if-nez v0, :cond_47
+    if-nez v0, :cond_5
 
     .line 896
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1980,7 +1980,7 @@
 
     .line 898
     .restart local v0       #builder:Ljava/lang/StringBuilder;
-    :cond_47
+    :cond_5
     iget-object v3, p0, Landroid/util/JsonReader;->buffer:[C
 
     iget v4, p0, Landroid/util/JsonReader;->pos:I
@@ -2001,12 +2001,12 @@
     .line 900
     iget v2, p0, Landroid/util/JsonReader;->pos:I
 
-    goto :goto_3
+    goto :goto_0
 
     .line 904
     .end local v1           #c:I
-    :cond_5b
-    if-nez v0, :cond_62
+    :cond_6
+    if-nez v0, :cond_7
 
     .line 905
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2016,7 +2016,7 @@
 
     .line 907
     .restart local v0       #builder:Ljava/lang/StringBuilder;
-    :cond_62
+    :cond_7
     iget-object v3, p0, Landroid/util/JsonReader;->buffer:[C
 
     iget v4, p0, Landroid/util/JsonReader;->pos:I
@@ -2032,7 +2032,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_0
 
     .line 910
     const-string v3, "Unterminated string"
@@ -2045,7 +2045,7 @@
 .end method
 
 .method private nextValue()Landroid/util/JsonToken;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2060,7 +2060,7 @@
 
     .line 693
     .local v0, c:I
-    sparse-switch v0, :sswitch_data_36
+    sparse-switch v0, :sswitch_data_0
 
     .line 709
     iget v1, p0, Landroid/util/JsonReader;->pos:I
@@ -2074,11 +2074,11 @@
 
     move-result-object v1
 
-    :goto_11
+    :goto_0
     return-object v1
 
     .line 695
-    :sswitch_12
+    :sswitch_0
     sget-object v1, Landroid/util/JsonScope;->EMPTY_OBJECT:Landroid/util/JsonScope;
 
     invoke-direct {p0, v1}, Landroid/util/JsonReader;->push(Landroid/util/JsonScope;)V
@@ -2088,10 +2088,10 @@
 
     iput-object v1, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
-    goto :goto_11
+    goto :goto_0
 
     .line 699
-    :sswitch_1c
+    :sswitch_1
     sget-object v1, Landroid/util/JsonScope;->EMPTY_ARRAY:Landroid/util/JsonScope;
 
     invoke-direct {p0, v1}, Landroid/util/JsonReader;->push(Landroid/util/JsonScope;)V
@@ -2101,14 +2101,14 @@
 
     iput-object v1, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
-    goto :goto_11
+    goto :goto_0
 
     .line 703
-    :sswitch_26
+    :sswitch_2
     invoke-direct {p0}, Landroid/util/JsonReader;->checkLenient()V
 
     .line 705
-    :sswitch_29
+    :sswitch_3
     int-to-char v1, v0
 
     invoke-direct {p0, v1}, Landroid/util/JsonReader;->nextString(C)Ljava/lang/String;
@@ -2122,22 +2122,22 @@
 
     iput-object v1, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
-    goto :goto_11
+    goto :goto_0
 
     .line 693
     nop
 
-    :sswitch_data_36
+    :sswitch_data_0
     .sparse-switch
-        0x22 -> :sswitch_29
-        0x27 -> :sswitch_26
-        0x5b -> :sswitch_1c
-        0x7b -> :sswitch_12
+        0x22 -> :sswitch_3
+        0x27 -> :sswitch_2
+        0x5b -> :sswitch_1
+        0x7b -> :sswitch_0
     .end sparse-switch
 .end method
 
 .method private objectValue()Landroid/util/JsonToken;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2150,10 +2150,10 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_38
+    packed-switch v0, :pswitch_data_0
 
     .line 684
-    :pswitch_7
+    :pswitch_0
     const-string v0, "Expected \':\'"
 
     invoke-direct {p0, v0}, Landroid/util/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
@@ -2163,7 +2163,7 @@
     throw v0
 
     .line 678
-    :pswitch_e
+    :pswitch_1
     invoke-direct {p0}, Landroid/util/JsonReader;->checkLenient()V
 
     .line 679
@@ -2171,7 +2171,7 @@
 
     iget v1, p0, Landroid/util/JsonReader;->limit:I
 
-    if-lt v0, v1, :cond_1e
+    if-lt v0, v1, :cond_0
 
     const/4 v0, 0x1
 
@@ -2179,9 +2179,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_1
 
-    :cond_1e
+    :cond_0
     iget-object v0, p0, Landroid/util/JsonReader;->buffer:[C
 
     iget v1, p0, Landroid/util/JsonReader;->pos:I
@@ -2190,7 +2190,7 @@
 
     const/16 v1, 0x3e
 
-    if-ne v0, v1, :cond_2e
+    if-ne v0, v1, :cond_1
 
     .line 680
     iget v0, p0, Landroid/util/JsonReader;->pos:I
@@ -2200,8 +2200,8 @@
     iput v0, p0, Landroid/util/JsonReader;->pos:I
 
     .line 687
-    :cond_2e
-    :pswitch_2e
+    :cond_1
+    :pswitch_2
     sget-object v0, Landroid/util/JsonScope;->NONEMPTY_OBJECT:Landroid/util/JsonScope;
 
     invoke-direct {p0, v0}, Landroid/util/JsonReader;->replaceTop(Landroid/util/JsonScope;)V
@@ -2214,17 +2214,17 @@
     return-object v0
 
     .line 674
-    :pswitch_data_38
+    :pswitch_data_0
     .packed-switch 0x3a
-        :pswitch_2e
-        :pswitch_7
-        :pswitch_7
-        :pswitch_e
+        :pswitch_2
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method private peekStack()Landroid/util/JsonScope;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 564
@@ -2248,7 +2248,7 @@
 .end method
 
 .method private pop()Landroid/util/JsonScope;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 568
@@ -2272,7 +2272,7 @@
 .end method
 
 .method private push(Landroid/util/JsonScope;)V
-    .registers 3
+    .locals 1
     .parameter "newTop"
 
     .prologue
@@ -2286,7 +2286,7 @@
 .end method
 
 .method private readEscapeCharacter()C
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2301,7 +2301,7 @@
 
     iget v3, p0, Landroid/util/JsonReader;->limit:I
 
-    if-ne v2, v3, :cond_15
+    if-ne v2, v3, :cond_0
 
     const/4 v2, 0x1
 
@@ -2309,7 +2309,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_15
+    if-nez v2, :cond_0
 
     .line 1011
     const-string v2, "Unterminated escape sequence"
@@ -2321,7 +2321,7 @@
     throw v2
 
     .line 1014
-    :cond_15
+    :cond_0
     iget-object v2, p0, Landroid/util/JsonReader;->buffer:[C
 
     iget v3, p0, Landroid/util/JsonReader;->pos:I
@@ -2334,29 +2334,29 @@
 
     .line 1015
     .local v0, escaped:C
-    sparse-switch v0, :sswitch_data_60
+    sparse-switch v0, :sswitch_data_0
 
     .line 1043
     .end local v0           #escaped:C
-    :goto_22
+    :goto_0
     return v0
 
     .line 1017
     .restart local v0       #escaped:C
-    :sswitch_23
+    :sswitch_0
     iget v2, p0, Landroid/util/JsonReader;->pos:I
 
     add-int/lit8 v2, v2, 0x4
 
     iget v3, p0, Landroid/util/JsonReader;->limit:I
 
-    if-le v2, v3, :cond_38
+    if-le v2, v3, :cond_1
 
     invoke-direct {p0, v5}, Landroid/util/JsonReader;->fillBuffer(I)Z
 
     move-result v2
 
-    if-nez v2, :cond_38
+    if-nez v2, :cond_1
 
     .line 1018
     const-string v2, "Unterminated escape sequence"
@@ -2368,7 +2368,7 @@
     throw v2
 
     .line 1020
-    :cond_38
+    :cond_1
     iget-object v2, p0, Landroid/util/JsonReader;->stringPool:Llibcore/internal/StringPool;
 
     iget-object v3, p0, Landroid/util/JsonReader;->buffer:[C
@@ -2396,55 +2396,55 @@
 
     int-to-char v0, v2
 
-    goto :goto_22
+    goto :goto_0
 
     .line 1025
     .end local v1           #hex:Ljava/lang/String;
-    :sswitch_50
+    :sswitch_1
     const/16 v0, 0x9
 
-    goto :goto_22
+    goto :goto_0
 
     .line 1028
-    :sswitch_53
+    :sswitch_2
     const/16 v0, 0x8
 
-    goto :goto_22
+    goto :goto_0
 
     .line 1031
-    :sswitch_56
+    :sswitch_3
     const/16 v0, 0xa
 
-    goto :goto_22
+    goto :goto_0
 
     .line 1034
-    :sswitch_59
+    :sswitch_4
     const/16 v0, 0xd
 
-    goto :goto_22
+    goto :goto_0
 
     .line 1037
-    :sswitch_5c
+    :sswitch_5
     const/16 v0, 0xc
 
-    goto :goto_22
+    goto :goto_0
 
     .line 1015
     nop
 
-    :sswitch_data_60
+    :sswitch_data_0
     .sparse-switch
-        0x62 -> :sswitch_53
-        0x66 -> :sswitch_5c
-        0x6e -> :sswitch_56
-        0x72 -> :sswitch_59
-        0x74 -> :sswitch_50
-        0x75 -> :sswitch_23
+        0x62 -> :sswitch_2
+        0x66 -> :sswitch_5
+        0x6e -> :sswitch_3
+        0x72 -> :sswitch_4
+        0x74 -> :sswitch_1
+        0x75 -> :sswitch_0
     .end sparse-switch
 .end method
 
 .method private readLiteral()Landroid/util/JsonToken;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2464,7 +2464,7 @@
     .line 1052
     iget v0, p0, Landroid/util/JsonReader;->valueLength:I
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 1053
     const-string v0, "Expected literal value"
@@ -2476,7 +2476,7 @@
     throw v0
 
     .line 1055
-    :cond_12
+    :cond_0
     invoke-direct {p0}, Landroid/util/JsonReader;->decodeLiteral()Landroid/util/JsonToken;
 
     move-result-object v0
@@ -2488,20 +2488,20 @@
 
     sget-object v1, Landroid/util/JsonToken;->STRING:Landroid/util/JsonToken;
 
-    if-ne v0, v1, :cond_21
+    if-ne v0, v1, :cond_1
 
     .line 1057
     invoke-direct {p0}, Landroid/util/JsonReader;->checkLenient()V
 
     .line 1059
-    :cond_21
+    :cond_1
     iget-object v0, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
     return-object v0
 .end method
 
 .method private replaceTop(Landroid/util/JsonScope;)V
-    .registers 4
+    .locals 2
     .parameter "newTop"
 
     .prologue
@@ -2523,7 +2523,7 @@
 .end method
 
 .method private skipTo(Ljava/lang/String;)Z
-    .registers 5
+    .locals 3
     .parameter "toFind"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2544,7 +2544,7 @@
 
     iget v2, p0, Landroid/util/JsonReader;->limit:I
 
-    if-le v1, v2, :cond_15
+    if-le v1, v2, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -2554,19 +2554,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_35
+    if-eqz v1, :cond_3
 
     .line 856
-    :cond_15
+    :cond_0
     const/4 v0, 0x0
 
     .local v0, c:I
-    :goto_16
+    :goto_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_33
+    if-ge v0, v1, :cond_2
 
     .line 857
     iget-object v1, p0, Landroid/util/JsonReader;->buffer:[C
@@ -2581,7 +2581,7 @@
 
     move-result v2
 
-    if-eq v1, v2, :cond_30
+    if-eq v1, v2, :cond_1
 
     .line 855
     iget v1, p0, Landroid/util/JsonReader;->pos:I
@@ -2593,28 +2593,28 @@
     goto :goto_0
 
     .line 856
-    :cond_30
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_16
+    goto :goto_1
 
     .line 861
-    :cond_33
+    :cond_2
     const/4 v1, 0x1
 
     .line 863
     .end local v0           #c:I
-    :goto_34
+    :goto_2
     return v1
 
-    :cond_35
+    :cond_3
     const/4 v1, 0x0
 
-    goto :goto_34
+    goto :goto_2
 .end method
 
 .method private skipToEndOfLine()V
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2628,7 +2628,7 @@
 
     iget v2, p0, Landroid/util/JsonReader;->limit:I
 
-    if-lt v1, v2, :cond_d
+    if-lt v1, v2, :cond_1
 
     const/4 v1, 0x1
 
@@ -2636,10 +2636,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1f
+    if-eqz v1, :cond_2
 
     .line 846
-    :cond_d
+    :cond_1
     iget-object v1, p0, Landroid/util/JsonReader;->buffer:[C
 
     iget v2, p0, Landroid/util/JsonReader;->pos:I
@@ -2654,7 +2654,7 @@
     .local v0, c:C
     const/16 v1, 0xd
 
-    if-eq v0, v1, :cond_1f
+    if-eq v0, v1, :cond_2
 
     const/16 v1, 0xa
 
@@ -2662,12 +2662,12 @@
 
     .line 851
     .end local v0           #c:C
-    :cond_1f
+    :cond_2
     return-void
 .end method
 
 .method private syntaxError(Ljava/lang/String;)Ljava/io/IOException;
-    .registers 5
+    .locals 3
     .parameter "message"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2727,7 +2727,7 @@
 
 # virtual methods
 .method public beginArray()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2745,7 +2745,7 @@
 .end method
 
 .method public beginObject()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2763,7 +2763,7 @@
 .end method
 
 .method public close()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2801,7 +2801,7 @@
 .end method
 
 .method public endArray()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2819,7 +2819,7 @@
 .end method
 
 .method public endObject()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2837,7 +2837,7 @@
 .end method
 
 .method public hasNext()Z
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2853,27 +2853,27 @@
 
     sget-object v1, Landroid/util/JsonToken;->END_OBJECT:Landroid/util/JsonToken;
 
-    if-eq v0, v1, :cond_11
+    if-eq v0, v1, :cond_0
 
     iget-object v0, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
     sget-object v1, Landroid/util/JsonToken;->END_ARRAY:Landroid/util/JsonToken;
 
-    if-eq v0, v1, :cond_11
+    if-eq v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_10
+    :goto_0
     return v0
 
-    :cond_11
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public isLenient()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 269
@@ -2883,7 +2883,7 @@
 .end method
 
 .method public nextBoolean()Z
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2899,7 +2899,7 @@
 
     sget-object v2, Landroid/util/JsonToken;->BOOLEAN:Landroid/util/JsonToken;
 
-    if-eq v1, v2, :cond_24
+    if-eq v1, v2, :cond_0
 
     .line 426
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -2929,18 +2929,18 @@
     throw v1
 
     .line 429
-    :cond_24
+    :cond_0
     iget-object v1, p0, Landroid/util/JsonReader;->value:Ljava/lang/String;
 
     const-string/jumbo v2, "true"
 
-    if-ne v1, v2, :cond_30
+    if-ne v1, v2, :cond_1
 
     const/4 v0, 0x1
 
     .line 430
     .local v0, result:Z
-    :goto_2c
+    :goto_0
     invoke-direct {p0}, Landroid/util/JsonReader;->advance()Landroid/util/JsonToken;
 
     .line 431
@@ -2948,14 +2948,14 @@
 
     .line 429
     .end local v0           #result:Z
-    :cond_30
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_2c
+    goto :goto_0
 .end method
 
 .method public nextDouble()D
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2971,13 +2971,13 @@
 
     sget-object v3, Landroid/util/JsonToken;->STRING:Landroid/util/JsonToken;
 
-    if-eq v2, v3, :cond_2a
+    if-eq v2, v3, :cond_0
 
     iget-object v2, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
     sget-object v3, Landroid/util/JsonToken;->NUMBER:Landroid/util/JsonToken;
 
-    if-eq v2, v3, :cond_2a
+    if-eq v2, v3, :cond_0
 
     .line 460
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -3007,7 +3007,7 @@
     throw v2
 
     .line 463
-    :cond_2a
+    :cond_0
     iget-object v2, p0, Landroid/util/JsonReader;->value:Ljava/lang/String;
 
     invoke-static {v2}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
@@ -3023,7 +3023,7 @@
 .end method
 
 .method public nextInt()I
-    .registers 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3039,13 +3039,13 @@
 
     sget-object v5, Landroid/util/JsonToken;->STRING:Landroid/util/JsonToken;
 
-    if-eq v4, v5, :cond_2a
+    if-eq v4, v5, :cond_0
 
     iget-object v4, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
     sget-object v5, Landroid/util/JsonToken;->NUMBER:Landroid/util/JsonToken;
 
-    if-eq v4, v5, :cond_2a
+    if-eq v4, v5, :cond_0
 
     .line 512
     new-instance v4, Ljava/lang/IllegalStateException;
@@ -3075,19 +3075,19 @@
     throw v4
 
     .line 517
-    :cond_2a
-    :try_start_2a
+    :cond_0
+    :try_start_0
     iget-object v4, p0, Landroid/util/JsonReader;->value:Ljava/lang/String;
 
     invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_2f
-    .catch Ljava/lang/NumberFormatException; {:try_start_2a .. :try_end_2f} :catch_34
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v3
 
     .line 526
     .local v3, result:I
-    :cond_30
+    :cond_1
     invoke-direct {p0}, Landroid/util/JsonReader;->advance()Landroid/util/JsonToken;
 
     .line 527
@@ -3095,7 +3095,7 @@
 
     .line 518
     .end local v3           #result:I
-    :catch_34
+    :catch_0
     move-exception v2
 
     .line 519
@@ -3116,7 +3116,7 @@
 
     cmpl-double v4, v4, v0
 
-    if-eqz v4, :cond_30
+    if-eqz v4, :cond_1
 
     .line 522
     new-instance v4, Ljava/lang/NumberFormatException;
@@ -3129,7 +3129,7 @@
 .end method
 
 .method public nextLong()J
-    .registers 9
+    .locals 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3145,13 +3145,13 @@
 
     sget-object v6, Landroid/util/JsonToken;->STRING:Landroid/util/JsonToken;
 
-    if-eq v5, v6, :cond_2a
+    if-eq v5, v6, :cond_0
 
     iget-object v5, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
     sget-object v6, Landroid/util/JsonToken;->NUMBER:Landroid/util/JsonToken;
 
-    if-eq v5, v6, :cond_2a
+    if-eq v5, v6, :cond_0
 
     .line 481
     new-instance v5, Ljava/lang/IllegalStateException;
@@ -3181,19 +3181,19 @@
     throw v5
 
     .line 486
-    :cond_2a
-    :try_start_2a
+    :cond_0
+    :try_start_0
     iget-object v5, p0, Landroid/util/JsonReader;->value:Ljava/lang/String;
 
     invoke-static {v5}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-    :try_end_2f
-    .catch Ljava/lang/NumberFormatException; {:try_start_2a .. :try_end_2f} :catch_34
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-wide v3
 
     .line 495
     .local v3, result:J
-    :cond_30
+    :cond_1
     invoke-direct {p0}, Landroid/util/JsonReader;->advance()Landroid/util/JsonToken;
 
     .line 496
@@ -3201,7 +3201,7 @@
 
     .line 487
     .end local v3           #result:J
-    :catch_34
+    :catch_0
     move-exception v2
 
     .line 488
@@ -3222,7 +3222,7 @@
 
     cmpl-double v5, v5, v0
 
-    if-eqz v5, :cond_30
+    if-eqz v5, :cond_1
 
     .line 491
     new-instance v5, Ljava/lang/NumberFormatException;
@@ -3235,7 +3235,7 @@
 .end method
 
 .method public nextName()Ljava/lang/String;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3251,7 +3251,7 @@
 
     sget-object v2, Landroid/util/JsonToken;->NAME:Landroid/util/JsonToken;
 
-    if-eq v1, v2, :cond_26
+    if-eq v1, v2, :cond_0
 
     .line 390
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -3283,7 +3283,7 @@
     throw v1
 
     .line 392
-    :cond_26
+    :cond_0
     iget-object v0, p0, Landroid/util/JsonReader;->name:Ljava/lang/String;
 
     .line 393
@@ -3295,7 +3295,7 @@
 .end method
 
 .method public nextNull()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3311,7 +3311,7 @@
 
     sget-object v1, Landroid/util/JsonToken;->NULL:Landroid/util/JsonToken;
 
-    if-eq v0, v1, :cond_24
+    if-eq v0, v1, :cond_0
 
     .line 444
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -3341,7 +3341,7 @@
     throw v0
 
     .line 447
-    :cond_24
+    :cond_0
     invoke-direct {p0}, Landroid/util/JsonReader;->advance()Landroid/util/JsonToken;
 
     .line 448
@@ -3349,7 +3349,7 @@
 .end method
 
 .method public nextString()Ljava/lang/String;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3365,13 +3365,13 @@
 
     sget-object v2, Landroid/util/JsonToken;->STRING:Landroid/util/JsonToken;
 
-    if-eq v1, v2, :cond_2c
+    if-eq v1, v2, :cond_0
 
     iget-object v1, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
     sget-object v2, Landroid/util/JsonToken;->NUMBER:Landroid/util/JsonToken;
 
-    if-eq v1, v2, :cond_2c
+    if-eq v1, v2, :cond_0
 
     .line 408
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -3403,7 +3403,7 @@
     throw v1
 
     .line 411
-    :cond_2c
+    :cond_0
     iget-object v0, p0, Landroid/util/JsonReader;->value:Ljava/lang/String;
 
     .line 412
@@ -3415,7 +3415,7 @@
 .end method
 
 .method public peek()Landroid/util/JsonToken;
-    .registers 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3430,18 +3430,18 @@
     .line 327
     iget-object v3, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_1
 
     .line 328
     iget-object v1, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
     .line 358
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     return-object v1
 
     .line 331
-    :cond_9
+    :cond_1
     sget-object v3, Landroid/util/JsonReader$1;->$SwitchMap$android$util$JsonScope:[I
 
     invoke-direct {p0}, Landroid/util/JsonReader;->peekStack()Landroid/util/JsonScope;
@@ -3454,7 +3454,7 @@
 
     aget v3, v3, v4
 
-    packed-switch v3, :pswitch_data_8a
+    packed-switch v3, :pswitch_data_0
 
     .line 363
     new-instance v3, Ljava/lang/AssertionError;
@@ -3464,7 +3464,7 @@
     throw v3
 
     .line 333
-    :pswitch_1e
+    :pswitch_0
     sget-object v3, Landroid/util/JsonScope;->NONEMPTY_DOCUMENT:Landroid/util/JsonScope;
 
     invoke-direct {p0, v3}, Landroid/util/JsonReader;->replaceTop(Landroid/util/JsonScope;)V
@@ -3478,19 +3478,19 @@
     .local v1, firstToken:Landroid/util/JsonToken;
     iget-boolean v3, p0, Landroid/util/JsonReader;->lenient:Z
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_0
 
     iget-object v3, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
     sget-object v4, Landroid/util/JsonToken;->BEGIN_ARRAY:Landroid/util/JsonToken;
 
-    if-eq v3, v4, :cond_8
+    if-eq v3, v4, :cond_0
 
     iget-object v3, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
     sget-object v4, Landroid/util/JsonToken;->BEGIN_OBJECT:Landroid/util/JsonToken;
 
-    if-eq v3, v4, :cond_8
+    if-eq v3, v4, :cond_0
 
     .line 336
     new-instance v3, Ljava/io/IOException;
@@ -3521,48 +3521,48 @@
 
     .line 341
     .end local v1           #firstToken:Landroid/util/JsonToken;
-    :pswitch_52
+    :pswitch_1
     invoke-direct {p0, v6}, Landroid/util/JsonReader;->nextInArray(Z)Landroid/util/JsonToken;
 
     move-result-object v1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 343
-    :pswitch_57
+    :pswitch_2
     invoke-direct {p0, v5}, Landroid/util/JsonReader;->nextInArray(Z)Landroid/util/JsonToken;
 
     move-result-object v1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 345
-    :pswitch_5c
+    :pswitch_3
     invoke-direct {p0, v6}, Landroid/util/JsonReader;->nextInObject(Z)Landroid/util/JsonToken;
 
     move-result-object v1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 347
-    :pswitch_61
+    :pswitch_4
     invoke-direct {p0}, Landroid/util/JsonReader;->objectValue()Landroid/util/JsonToken;
 
     move-result-object v1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 349
-    :pswitch_66
+    :pswitch_5
     invoke-direct {p0, v5}, Landroid/util/JsonReader;->nextInObject(Z)Landroid/util/JsonToken;
 
     move-result-object v1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 352
-    :pswitch_6b
-    :try_start_6b
+    :pswitch_6
+    :try_start_0
     invoke-direct {p0}, Landroid/util/JsonReader;->nextValue()Landroid/util/JsonToken;
 
     move-result-object v2
@@ -3571,15 +3571,15 @@
     .local v2, token:Landroid/util/JsonToken;
     iget-boolean v3, p0, Landroid/util/JsonReader;->lenient:Z
 
-    if-eqz v3, :cond_75
+    if-eqz v3, :cond_2
 
     move-object v1, v2
 
     .line 354
-    goto :goto_8
+    goto :goto_0
 
     .line 356
-    :cond_75
+    :cond_2
     const-string v3, "Expected EOF"
 
     invoke-direct {p0, v3}, Landroid/util/JsonReader;->syntaxError(Ljava/lang/String;)Ljava/io/IOException;
@@ -3587,12 +3587,12 @@
     move-result-object v3
 
     throw v3
-    :try_end_7c
-    .catch Ljava/io/EOFException; {:try_start_6b .. :try_end_7c} :catch_7c
+    :try_end_0
+    .catch Ljava/io/EOFException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 357
     .end local v2           #token:Landroid/util/JsonToken;
-    :catch_7c
+    :catch_0
     move-exception v0
 
     .line 358
@@ -3601,11 +3601,11 @@
 
     iput-object v1, p0, Landroid/util/JsonReader;->token:Landroid/util/JsonToken;
 
-    goto :goto_8
+    goto :goto_0
 
     .line 361
     .end local v0           #e:Ljava/io/EOFException;
-    :pswitch_82
+    :pswitch_7
     new-instance v3, Ljava/lang/IllegalStateException;
 
     const-string v4, "JsonReader is closed"
@@ -3615,21 +3615,21 @@
     throw v3
 
     .line 331
-    :pswitch_data_8a
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_1e
-        :pswitch_52
-        :pswitch_57
-        :pswitch_5c
-        :pswitch_61
-        :pswitch_66
-        :pswitch_6b
-        :pswitch_82
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
     .end packed-switch
 .end method
 
 .method public setLenient(Z)V
-    .registers 2
+    .locals 0
     .parameter "lenient"
 
     .prologue
@@ -3641,7 +3641,7 @@
 .end method
 
 .method public skipValue()V
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3661,8 +3661,8 @@
 
     .line 551
     .local v0, count:I
-    :cond_5
-    :try_start_5
+    :cond_0
+    :try_start_0
     invoke-direct {p0}, Landroid/util/JsonReader;->advance()Landroid/util/JsonToken;
 
     move-result-object v1
@@ -3671,22 +3671,22 @@
     .local v1, token:Landroid/util/JsonToken;
     sget-object v2, Landroid/util/JsonToken;->BEGIN_ARRAY:Landroid/util/JsonToken;
 
-    if-eq v1, v2, :cond_11
+    if-eq v1, v2, :cond_1
 
     sget-object v2, Landroid/util/JsonToken;->BEGIN_OBJECT:Landroid/util/JsonToken;
-    :try_end_f
-    .catchall {:try_start_5 .. :try_end_f} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-ne v1, v2, :cond_18
+    if-ne v1, v2, :cond_3
 
     .line 553
-    :cond_11
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
     .line 557
-    :cond_13
-    :goto_13
-    if-nez v0, :cond_5
+    :cond_2
+    :goto_0
+    if-nez v0, :cond_0
 
     .line 559
     iput-boolean v3, p0, Landroid/util/JsonReader;->skipping:Z
@@ -3695,27 +3695,27 @@
     return-void
 
     .line 554
-    :cond_18
-    :try_start_18
+    :cond_3
+    :try_start_1
     sget-object v2, Landroid/util/JsonToken;->END_ARRAY:Landroid/util/JsonToken;
 
-    if-eq v1, v2, :cond_20
+    if-eq v1, v2, :cond_4
 
     sget-object v2, Landroid/util/JsonToken;->END_OBJECT:Landroid/util/JsonToken;
-    :try_end_1e
-    .catchall {:try_start_18 .. :try_end_1e} :catchall_23
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-ne v1, v2, :cond_13
+    if-ne v1, v2, :cond_2
 
     .line 555
-    :cond_20
+    :cond_4
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_13
+    goto :goto_0
 
     .line 559
     .end local v1           #token:Landroid/util/JsonToken;
-    :catchall_23
+    :catchall_0
     move-exception v2
 
     iput-boolean v3, p0, Landroid/util/JsonReader;->skipping:Z
@@ -3724,7 +3724,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 997

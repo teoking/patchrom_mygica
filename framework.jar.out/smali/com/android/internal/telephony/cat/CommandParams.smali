@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/cat/CommandDetails;)V
-    .registers 2
+    .locals 0
     .parameter "cmdDet"
 
     .prologue
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method getCommandType()Lcom/android/internal/telephony/cat/AppInterface$CommandType;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 33
@@ -42,7 +42,7 @@
 .end method
 
 .method setIcon(Landroid/graphics/Bitmap;)Z
-    .registers 3
+    .locals 1
     .parameter "icon"
 
     .prologue
@@ -53,7 +53,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 40

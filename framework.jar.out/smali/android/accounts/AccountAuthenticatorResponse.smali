@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 88
@@ -41,7 +41,7 @@
 .end method
 
 .method constructor <init>(Landroid/accounts/IAccountAuthenticatorResponse;)V
-    .registers 2
+    .locals 0
     .parameter "response"
 
     .prologue
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "parcel"
 
     .prologue
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -91,7 +91,7 @@
 .end method
 
 .method public onError(ILjava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "errorCode"
     .parameter "errorMessage"
 
@@ -105,7 +105,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_0
 
     .line 71
     const-string v0, "AccountAuthenticator"
@@ -141,27 +141,27 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 74
-    :cond_2b
-    :try_start_2b
+    :cond_0
+    :try_start_0
     iget-object v0, p0, Landroid/accounts/AccountAuthenticatorResponse;->mAccountAuthenticatorResponse:Landroid/accounts/IAccountAuthenticatorResponse;
 
     invoke-interface {v0, p1, p2}, Landroid/accounts/IAccountAuthenticatorResponse;->onError(ILjava/lang/String;)V
-    :try_end_30
-    .catch Landroid/os/RemoteException; {:try_start_2b .. :try_end_30} :catch_31
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 78
-    :goto_30
+    :goto_0
     return-void
 
     .line 75
-    :catch_31
+    :catch_0
     move-exception v0
 
-    goto :goto_30
+    goto :goto_0
 .end method
 
 .method public onRequestContinued()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 59
@@ -173,7 +173,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 60
     const-string v0, "AccountAuthenticator"
@@ -183,27 +183,27 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 63
-    :cond_10
-    :try_start_10
+    :cond_0
+    :try_start_0
     iget-object v0, p0, Landroid/accounts/AccountAuthenticatorResponse;->mAccountAuthenticatorResponse:Landroid/accounts/IAccountAuthenticatorResponse;
 
     invoke-interface {v0}, Landroid/accounts/IAccountAuthenticatorResponse;->onRequestContinued()V
-    :try_end_15
-    .catch Landroid/os/RemoteException; {:try_start_10 .. :try_end_15} :catch_16
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 67
-    :goto_15
+    :goto_0
     return-void
 
     .line 64
-    :catch_16
+    :catch_0
     move-exception v0
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public onResult(Landroid/os/Bundle;)V
-    .registers 5
+    .locals 3
     .parameter "result"
 
     .prologue
@@ -216,7 +216,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_0
 
     .line 47
     invoke-virtual {p1}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
@@ -249,27 +249,27 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 52
-    :cond_28
-    :try_start_28
+    :cond_0
+    :try_start_0
     iget-object v0, p0, Landroid/accounts/AccountAuthenticatorResponse;->mAccountAuthenticatorResponse:Landroid/accounts/IAccountAuthenticatorResponse;
 
     invoke-interface {v0, p1}, Landroid/accounts/IAccountAuthenticatorResponse;->onResult(Landroid/os/Bundle;)V
-    :try_end_2d
-    .catch Landroid/os/RemoteException; {:try_start_28 .. :try_end_2d} :catch_2e
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 56
-    :goto_2d
+    :goto_0
     return-void
 
     .line 53
-    :catch_2e
+    :catch_0
     move-exception v0
 
-    goto :goto_2d
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

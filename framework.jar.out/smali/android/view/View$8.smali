@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public get(Landroid/view/View;)Ljava/lang/Float;
-    .registers 3
+    .locals 1
     .parameter "object"
 
     .prologue
@@ -55,7 +55,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -71,7 +71,7 @@
 .end method
 
 .method public setValue(Landroid/view/View;F)V
-    .registers 3
+    .locals 0
     .parameter "object"
     .parameter "value"
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public bridge synthetic setValue(Ljava/lang/Object;F)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

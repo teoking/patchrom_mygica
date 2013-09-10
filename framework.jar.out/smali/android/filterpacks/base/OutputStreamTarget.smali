@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "name"
 
     .prologue
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 10
+    .locals 8
     .parameter "context"
 
     .prologue
@@ -50,7 +50,7 @@
 
     const-class v5, Ljava/lang/String;
 
-    if-ne v4, v5, :cond_34
+    if-ne v4, v5, :cond_0
 
     .line 53
     invoke-virtual {v2}, Landroid/filterfw/core/Frame;->getObjectValue()Ljava/lang/Object;
@@ -72,8 +72,8 @@
     .line 59
     .end local v3           #stringVal:Ljava/lang/String;
     .local v0, data:Ljava/nio/ByteBuffer;
-    :goto_20
-    :try_start_20
+    :goto_0
+    :try_start_0
     iget-object v4, p0, Landroid/filterpacks/base/OutputStreamTarget;->mOutputStream:Ljava/io/OutputStream;
 
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->array()[B
@@ -92,24 +92,24 @@
     iget-object v4, p0, Landroid/filterpacks/base/OutputStreamTarget;->mOutputStream:Ljava/io/OutputStream;
 
     invoke-virtual {v4}, Ljava/io/OutputStream;->flush()V
-    :try_end_33
-    .catch Ljava/io/IOException; {:try_start_20 .. :try_end_33} :catch_39
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 65
     return-void
 
     .line 56
     .end local v0           #data:Ljava/nio/ByteBuffer;
-    :cond_34
+    :cond_0
     invoke-virtual {v2}, Landroid/filterfw/core/Frame;->getData()Ljava/nio/ByteBuffer;
 
     move-result-object v0
 
     .restart local v0       #data:Ljava/nio/ByteBuffer;
-    goto :goto_20
+    goto :goto_0
 
     .line 61
-    :catch_39
+    :catch_0
     move-exception v1
 
     .line 62
@@ -150,7 +150,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 44

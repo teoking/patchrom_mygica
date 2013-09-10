@@ -15,7 +15,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 4
+    .locals 3
 
     .prologue
     const-wide/16 v1, 0x0
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroid/media/videoeditor/MediaItem;Ljava/lang/String;JJ)V
-    .registers 11
+    .locals 4
     .parameter "mediaItem"
     .parameter "effectId"
     .parameter "startTimeMs"
@@ -55,7 +55,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 64
-    if-nez p1, :cond_f
+    if-nez p1, :cond_0
 
     .line 65
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -67,17 +67,17 @@
     throw v0
 
     .line 68
-    :cond_f
+    :cond_0
     cmp-long v0, p3, v1
 
-    if-ltz v0, :cond_17
+    if-ltz v0, :cond_1
 
     cmp-long v0, p5, v1
 
-    if-gez v0, :cond_1f
+    if-gez v0, :cond_2
 
     .line 69
-    :cond_17
+    :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid start time Or/And Duration"
@@ -87,7 +87,7 @@
     throw v0
 
     .line 71
-    :cond_1f
+    :cond_2
     add-long v0, p3, p5
 
     invoke-virtual {p1}, Landroid/media/videoeditor/MediaItem;->getDuration()J
@@ -96,7 +96,7 @@
 
     cmp-long v0, v0, v2
 
-    if-lez v0, :cond_31
+    if-lez v0, :cond_3
 
     .line 72
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -108,7 +108,7 @@
     throw v0
 
     .line 75
-    :cond_31
+    :cond_3
     iput-object p1, p0, Landroid/media/videoeditor/Effect;->mMediaItem:Landroid/media/videoeditor/MediaItem;
 
     .line 76
@@ -127,25 +127,25 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 4
+    .locals 2
     .parameter "object"
 
     .prologue
     .line 185
     instance-of v0, p1, Landroid/media/videoeditor/Effect;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     .line 186
     const/4 v0, 0x0
 
     .line 188
     .end local p1
-    :goto_5
+    :goto_0
     return v0
 
     .restart local p1
-    :cond_6
+    :cond_0
     iget-object v0, p0, Landroid/media/videoeditor/Effect;->mUniqueId:Ljava/lang/String;
 
     check-cast p1, Landroid/media/videoeditor/Effect;
@@ -157,11 +157,11 @@
 
     move-result v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public getDuration()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 119
@@ -171,7 +171,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 87
@@ -181,7 +181,7 @@
 .end method
 
 .method public getMediaItem()Landroid/media/videoeditor/MediaItem;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 177
@@ -191,7 +191,7 @@
 .end method
 
 .method public getStartTime()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 147
@@ -201,7 +201,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 196
@@ -215,7 +215,7 @@
 .end method
 
 .method public setDuration(J)V
-    .registers 12
+    .locals 9
     .parameter "durationMs"
 
     .prologue
@@ -224,7 +224,7 @@
 
     cmp-long v0, p1, v0
 
-    if-gez v0, :cond_e
+    if-gez v0, :cond_0
 
     .line 98
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -236,7 +236,7 @@
     throw v0
 
     .line 101
-    :cond_e
+    :cond_0
     iget-wide v0, p0, Landroid/media/videoeditor/Effect;->mStartTimeMs:J
 
     add-long/2addr v0, p1
@@ -249,7 +249,7 @@
 
     cmp-long v0, v0, v5
 
-    if-lez v0, :cond_23
+    if-lez v0, :cond_1
 
     .line 102
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -261,7 +261,7 @@
     throw v0
 
     .line 105
-    :cond_23
+    :cond_1
     invoke-virtual {p0}, Landroid/media/videoeditor/Effect;->getMediaItem()Landroid/media/videoeditor/MediaItem;
 
     move-result-object v0
@@ -297,7 +297,7 @@
 .end method
 
 .method public setStartTime(J)V
-    .registers 12
+    .locals 9
     .parameter "startTimeMs"
 
     .prologue
@@ -314,7 +314,7 @@
 
     cmp-long v0, v3, v5
 
-    if-lez v0, :cond_15
+    if-lez v0, :cond_0
 
     .line 131
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -326,7 +326,7 @@
     throw v0
 
     .line 134
-    :cond_15
+    :cond_0
     invoke-virtual {p0}, Landroid/media/videoeditor/Effect;->getMediaItem()Landroid/media/videoeditor/MediaItem;
 
     move-result-object v0
@@ -362,7 +362,7 @@
 .end method
 
 .method public setStartTimeAndDuration(JJ)V
-    .registers 14
+    .locals 9
     .parameter "startTimeMs"
     .parameter "durationMs"
 
@@ -378,7 +378,7 @@
 
     cmp-long v0, v5, v7
 
-    if-lez v0, :cond_14
+    if-lez v0, :cond_0
 
     .line 158
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -390,7 +390,7 @@
     throw v0
 
     .line 161
-    :cond_14
+    :cond_0
     invoke-virtual {p0}, Landroid/media/videoeditor/Effect;->getMediaItem()Landroid/media/videoeditor/MediaItem;
 
     move-result-object v0

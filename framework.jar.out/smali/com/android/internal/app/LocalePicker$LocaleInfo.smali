@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 51
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/util/Locale;)V
-    .registers 3
+    .locals 0
     .parameter "label"
     .parameter "locale"
 
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public compareTo(Lcom/android/internal/app/LocalePicker$LocaleInfo;)I
-    .registers 5
+    .locals 3
     .parameter "another"
 
     .prologue
@@ -93,7 +93,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -109,7 +109,7 @@
 .end method
 
 .method public getLabel()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 62
@@ -119,7 +119,7 @@
 .end method
 
 .method public getLocale()Ljava/util/Locale;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 66
@@ -129,7 +129,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 71

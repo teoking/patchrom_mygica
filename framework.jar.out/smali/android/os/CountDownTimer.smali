@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(JJ)V
-    .registers 6
+    .locals 1
     .parameter "millisInFuture"
     .parameter "countDownInterval"
 
@@ -45,7 +45,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/os/CountDownTimer;)J
-    .registers 3
+    .locals 2
     .parameter "x0"
 
     .prologue
@@ -56,7 +56,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/os/CountDownTimer;)J
-    .registers 3
+    .locals 2
     .parameter "x0"
 
     .prologue
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public final cancel()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 76
@@ -90,32 +90,32 @@
 .end method
 
 .method public final declared-synchronized start()Landroid/os/CountDownTimer;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 83
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-wide v1, p0, Landroid/os/CountDownTimer;->mMillisInFuture:J
 
     const-wide/16 v3, 0x0
 
     cmp-long v1, v1, v3
 
-    if-gtz v1, :cond_f
+    if-gtz v1, :cond_0
 
     .line 84
     invoke-virtual {p0}, Landroid/os/CountDownTimer;->onFinish()V
-    :try_end_c
-    .catchall {:try_start_1 .. :try_end_c} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-object v0, p0
 
     .line 89
     .end local p0
     .local v0, this:Landroid/os/CountDownTimer;
-    :goto_d
+    :goto_0
     monitor-exit p0
 
     return-object v0
@@ -123,8 +123,8 @@
     .line 87
     .end local v0           #this:Landroid/os/CountDownTimer;
     .restart local p0
-    :cond_f
-    :try_start_f
+    :cond_0
+    :try_start_1
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v1
@@ -147,20 +147,20 @@
     move-result-object v2
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-    :try_end_24
-    .catchall {:try_start_f .. :try_end_24} :catchall_26
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-object v0, p0
 
     .line 89
     .end local p0
     .restart local v0       #this:Landroid/os/CountDownTimer;
-    goto :goto_d
+    goto :goto_0
 
     .line 83
     .end local v0           #this:Landroid/os/CountDownTimer;
     .restart local p0
-    :catchall_26
+    :catchall_0
     move-exception v1
 
     monitor-exit p0

@@ -37,7 +37,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 91
@@ -47,7 +47,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/preference/PreferenceGroupAdapter$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -58,7 +58,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -70,7 +70,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -82,7 +82,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public compareTo(Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;)I
-    .registers 5
+    .locals 3
     .parameter "other"
 
     .prologue
@@ -111,55 +111,55 @@
 
     .line 98
     .local v0, compareNames:I
-    if-nez v0, :cond_17
+    if-nez v0, :cond_0
 
     .line 99
     iget v1, p0, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->resId:I
 
     iget v2, p1, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->resId:I
 
-    if-ne v1, v2, :cond_1f
+    if-ne v1, v2, :cond_2
 
     .line 100
     iget v1, p0, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->widgetResId:I
 
     iget v2, p1, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->widgetResId:I
 
-    if-ne v1, v2, :cond_18
+    if-ne v1, v2, :cond_1
 
     .line 101
     const/4 v0, 0x0
 
     .line 109
     .end local v0           #compareNames:I
-    :cond_17
-    :goto_17
+    :cond_0
+    :goto_0
     return v0
 
     .line 103
     .restart local v0       #compareNames:I
-    :cond_18
+    :cond_1
     iget v1, p0, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->widgetResId:I
 
     iget v2, p1, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->widgetResId:I
 
     sub-int v0, v1, v2
 
-    goto :goto_17
+    goto :goto_0
 
     .line 106
-    :cond_1f
+    :cond_2
     iget v1, p0, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->resId:I
 
     iget v2, p1, Landroid/preference/PreferenceGroupAdapter$PreferenceLayout;->resId:I
 
     sub-int v0, v1, v2
 
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

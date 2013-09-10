@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/accessibility/TouchExplorer;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/accessibility/TouchExplorer;Lcom/android/server/accessibility/TouchExplorer$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,12 +50,13 @@
 
 # virtual methods
 .method public post()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1284
     iget-object v0, p0, Lcom/android/server/accessibility/TouchExplorer$ExitGestureDetectionModeDelayed;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
+    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/accessibility/TouchExplorer;->access$1800(Lcom/android/server/accessibility/TouchExplorer;)Landroid/os/Handler;
 
     move-result-object v0
@@ -69,12 +70,13 @@
 .end method
 
 .method public remove()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1288
     iget-object v0, p0, Lcom/android/server/accessibility/TouchExplorer$ExitGestureDetectionModeDelayed;->this$0:Lcom/android/server/accessibility/TouchExplorer;
 
+    #getter for: Lcom/android/server/accessibility/TouchExplorer;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/accessibility/TouchExplorer;->access$1800(Lcom/android/server/accessibility/TouchExplorer;)Landroid/os/Handler;
 
     move-result-object v0
@@ -86,7 +88,7 @@
 .end method
 
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1293

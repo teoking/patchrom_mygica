@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/view/IInputMethodCallback;)V
-    .registers 2
+    .locals 0
     .parameter "cb"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public finishedEvent(IZ)V
-    .registers 4
+    .locals 1
     .parameter "seq"
     .parameter "handled"
 
@@ -50,16 +50,16 @@
     iget-object v0, p0, Landroid/inputmethodservice/IInputMethodSessionWrapper$InputMethodEventCallbackWrapper;->mCb:Lcom/android/internal/view/IInputMethodCallback;
 
     invoke-interface {v0, p1, p2}, Lcom/android/internal/view/IInputMethodCallback;->finishedEvent(IZ)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 66
-    :goto_5
+    :goto_0
     return-void
 
     .line 64
-    :catch_6
+    :catch_0
     move-exception v0
 
-    goto :goto_5
+    goto :goto_0
 .end method

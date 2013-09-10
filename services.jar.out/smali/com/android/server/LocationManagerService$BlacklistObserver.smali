@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/LocationManagerService;Landroid/os/Handler;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "handler"
 
@@ -38,13 +38,14 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .registers 3
+    .locals 1
     .parameter "selfChange"
 
     .prologue
     .line 2360
     iget-object v0, p0, Lcom/android/server/LocationManagerService$BlacklistObserver;->this$0:Lcom/android/server/LocationManagerService;
 
+    #calls: Lcom/android/server/LocationManagerService;->reloadBlacklist()V
     invoke-static {v0}, Lcom/android/server/LocationManagerService;->access$2700(Lcom/android/server/LocationManagerService;)V
 
     .line 2361

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 127
@@ -50,7 +50,7 @@
 .end method
 
 .method public getFlashlightEnabled()Z
-    .registers 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -75,7 +75,7 @@
 
     .line 141
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.os.IHardwareService"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -94,16 +94,16 @@
 
     .line 144
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1c
-    .catchall {:try_start_a .. :try_end_1c} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_26
+    if-eqz v4, :cond_0
 
     .line 147
     .local v2, _result:Z
-    :goto_1f
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 148
@@ -113,14 +113,14 @@
     return v2
 
     .end local v2           #_result:Z
-    :cond_26
+    :cond_0
     move v2, v3
 
     .line 144
-    goto :goto_1f
+    goto :goto_0
 
     .line 147
-    :catchall_28
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -133,7 +133,7 @@
 .end method
 
 .method public getI2cData(II)Ljava/lang/String;
-    .registers 9
+    .locals 6
     .parameter "offset"
     .parameter "size"
     .annotation system Ldalvik/annotation/Throws;
@@ -156,7 +156,7 @@
 
     .line 173
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.os.IHardwareService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -181,8 +181,8 @@
 
     .line 178
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -198,7 +198,7 @@
 
     .line 181
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_28
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -211,7 +211,7 @@
 .end method
 
 .method public getI2cDataSize(II)I
-    .registers 9
+    .locals 6
     .parameter "offset"
     .parameter "size"
     .annotation system Ldalvik/annotation/Throws;
@@ -234,7 +234,7 @@
 
     .line 192
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.os.IHardwareService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -259,8 +259,8 @@
 
     .line 197
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -276,7 +276,7 @@
 
     .line 200
     .end local v2           #_result:I
-    :catchall_28
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -289,7 +289,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 131
@@ -299,7 +299,7 @@
 .end method
 
 .method public getMAC()Ljava/lang/String;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -320,7 +320,7 @@
 
     .line 230
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.os.IHardwareService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -339,8 +339,8 @@
 
     .line 233
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -356,7 +356,7 @@
 
     .line 236
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_22
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -369,7 +369,7 @@
 .end method
 
 .method public getMCID()Ljava/lang/String;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -390,7 +390,7 @@
 
     .line 247
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.os.IHardwareService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -409,8 +409,8 @@
 
     .line 250
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -426,7 +426,7 @@
 
     .line 253
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_22
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -439,7 +439,7 @@
 .end method
 
 .method public setFlashlightEnabled(Z)V
-    .registers 7
+    .locals 5
     .parameter "on"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -463,17 +463,17 @@
 
     .line 157
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.os.IHardwareService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 158
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     const/4 v2, 0x1
 
-    :cond_11
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 159
@@ -487,8 +487,8 @@
 
     .line 160
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1e
-    .catchall {:try_start_9 .. :try_end_1e} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 163
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -500,7 +500,7 @@
     return-void
 
     .line 163
-    :catchall_25
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -513,7 +513,7 @@
 .end method
 
 .method public writeI2cData(ILjava/lang/String;)I
-    .registers 9
+    .locals 6
     .parameter "offset"
     .parameter "data"
     .annotation system Ldalvik/annotation/Throws;
@@ -536,7 +536,7 @@
 
     .line 211
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.os.IHardwareService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -561,8 +561,8 @@
 
     .line 216
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -578,7 +578,7 @@
 
     .line 219
     .end local v2           #_result:I
-    :catchall_28
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "ctx"
 
     .prologue
@@ -42,7 +42,7 @@
 .end method
 
 .method private getDefaultLocale()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 359
@@ -62,7 +62,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_0
 
     .line 367
     const-string v2, "TtsEngines"
@@ -75,11 +75,11 @@
     const-string v2, ""
 
     .line 382
-    :goto_17
+    :goto_0
     return-object v2
 
     .line 371
-    :cond_18
+    :cond_0
     invoke-virtual {v1}, Ljava/util/Locale;->getISO3Country()Ljava/lang/String;
 
     move-result-object v2
@@ -88,7 +88,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_64
+    if-nez v2, :cond_2
 
     .line 372
     new-instance v2, Ljava/lang/StringBuilder;
@@ -126,7 +126,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_62
+    if-nez v2, :cond_1
 
     .line 379
     new-instance v2, Ljava/lang/StringBuilder;
@@ -155,21 +155,21 @@
 
     move-result-object v0
 
-    :cond_62
+    :cond_1
     move-object v2, v0
 
     .line 382
-    goto :goto_17
+    goto :goto_0
 
-    :cond_64
+    :cond_2
     move-object v2, v0
 
     .line 376
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method private getEngineInfo(Landroid/content/pm/ResolveInfo;Landroid/content/pm/PackageManager;)Landroid/speech/tts/TextToSpeech$EngineInfo;
-    .registers 7
+    .locals 4
     .parameter "resolve"
     .parameter "pm"
 
@@ -179,7 +179,7 @@
 
     .line 240
     .local v2, service:Landroid/content/pm/ServiceInfo;
-    if-eqz v2, :cond_31
+    if-eqz v2, :cond_1
 
     .line 241
     new-instance v0, Landroid/speech/tts/TextToSpeech$EngineInfo;
@@ -203,11 +203,11 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2c
+    if-eqz v3, :cond_0
 
     iget-object v3, v0, Landroid/speech/tts/TextToSpeech$EngineInfo;->name:Ljava/lang/String;
 
-    :goto_19
+    :goto_0
     iput-object v3, v0, Landroid/speech/tts/TextToSpeech$EngineInfo;->label:Ljava/lang/String;
 
     .line 247
@@ -232,30 +232,30 @@
     .line 253
     .end local v0           #engine:Landroid/speech/tts/TextToSpeech$EngineInfo;
     .end local v1           #label:Ljava/lang/CharSequence;
-    :goto_2b
+    :goto_1
     return-object v0
 
     .line 246
     .restart local v0       #engine:Landroid/speech/tts/TextToSpeech$EngineInfo;
     .restart local v1       #label:Ljava/lang/CharSequence;
-    :cond_2c
+    :cond_0
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    goto :goto_19
+    goto :goto_0
 
     .line 253
     .end local v0           #engine:Landroid/speech/tts/TextToSpeech$EngineInfo;
     .end local v1           #label:Ljava/lang/CharSequence;
-    :cond_31
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_2b
+    goto :goto_1
 .end method
 
 .method private getV1Locale()Ljava/lang/String;
-    .registers 8
+    .locals 7
 
     .prologue
     .line 334
@@ -295,7 +295,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_26
+    if-eqz v5, :cond_1
 
     .line 341
     invoke-direct {p0}, Landroid/speech/tts/TtsEngines;->getDefaultLocale()Ljava/lang/String;
@@ -303,12 +303,12 @@
     move-result-object v3
 
     .line 355
-    :cond_25
-    :goto_25
+    :cond_0
+    :goto_0
     return-object v3
 
     .line 344
-    :cond_26
+    :cond_1
     move-object v3, v2
 
     .line 345
@@ -317,7 +317,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_25
+    if-nez v5, :cond_0
 
     .line 346
     new-instance v5, Ljava/lang/StringBuilder;
@@ -347,7 +347,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_25
+    if-nez v5, :cond_0
 
     .line 352
     new-instance v5, Ljava/lang/StringBuilder;
@@ -372,11 +372,11 @@
 
     move-result-object v3
 
-    goto :goto_25
+    goto :goto_0
 .end method
 
 .method private isSystemEngine(Landroid/content/pm/ServiceInfo;)Z
-    .registers 4
+    .locals 2
     .parameter "info"
 
     .prologue
@@ -385,27 +385,27 @@
 
     .line 141
     .local v0, appInfo:Landroid/content/pm/ApplicationInfo;
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     iget v1, v0, Landroid/content/pm/ApplicationInfo;->flags:I
 
     and-int/lit8 v1, v1, 0x1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_0
 
     const/4 v1, 0x1
 
-    :goto_b
+    :goto_0
     return v1
 
-    :cond_c
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method private static parseEnginePrefFromList(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 10
+    .locals 8
     .parameter "prefValue"
     .parameter "engineName"
 
@@ -417,15 +417,15 @@
 
     move-result v7
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_1
 
     .line 407
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     return-object v6
 
     .line 396
-    :cond_8
+    :cond_1
     const-string v7, ","
 
     invoke-virtual {p0, v7}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -443,8 +443,8 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_11
-    if-ge v2, v3, :cond_7
+    :goto_1
+    if-ge v2, v3, :cond_0
 
     aget-object v5, v0, v2
 
@@ -458,7 +458,7 @@
 
     .line 400
     .local v1, delimiter:I
-    if-lez v1, :cond_2f
+    if-lez v1, :cond_2
 
     .line 401
     const/4 v7, 0x0
@@ -471,7 +471,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2f
+    if-eqz v7, :cond_2
 
     .line 402
     add-int/lit8 v6, v1, 0x1
@@ -480,17 +480,17 @@
 
     move-result-object v6
 
-    goto :goto_7
+    goto :goto_0
 
     .line 398
-    :cond_2f
+    :cond_2
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_11
+    goto :goto_1
 .end method
 
 .method public static parseLocalePref(Ljava/lang/String;)[Ljava/lang/String;
-    .registers 6
+    .locals 5
     .parameter "pref"
 
     .prologue
@@ -523,7 +523,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_22
+    if-nez v2, :cond_0
 
     .line 316
     const-string v2, "-"
@@ -540,12 +540,12 @@
 
     .line 323
     .end local v1           #split:[Ljava/lang/String;
-    :cond_22
+    :cond_0
     return-object v0
 .end method
 
 .method private settingsActivityFromServiceInfo(Landroid/content/pm/ServiceInfo;Landroid/content/pm/PackageManager;)Ljava/lang/String;
-    .registers 14
+    .locals 11
     .parameter "si"
     .parameter "pm"
 
@@ -557,7 +557,7 @@
 
     .line 193
     .local v3, parser:Landroid/content/res/XmlResourceParser;
-    :try_start_2
+    :try_start_0
     const-string v8, "android.speech.tts"
 
     invoke-virtual {p1, p2, v8}, Landroid/content/pm/ServiceInfo;->loadXmlMetaData(Landroid/content/pm/PackageManager;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
@@ -565,7 +565,7 @@
     move-result-object v3
 
     .line 194
-    if-nez v3, :cond_29
+    if-nez v3, :cond_2
 
     .line 195
     const-string v8, "TtsEngines"
@@ -589,28 +589,28 @@
     move-result-object v9
 
     invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_22
-    .catchall {:try_start_2 .. :try_end_22} :catchall_109
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_22} :catch_92
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_22} :catch_b3
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_22} :catch_de
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
 
     .line 232
-    if-eqz v3, :cond_27
+    if-eqz v3, :cond_0
 
     .line 233
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
 
-    :cond_27
+    :cond_0
     move-object v5, v7
 
-    :cond_28
-    :goto_28
+    :cond_1
+    :goto_0
     return-object v5
 
     .line 199
-    :cond_29
-    :try_start_29
+    :cond_2
+    :try_start_1
     iget-object v8, p1, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     invoke-virtual {p2, v8}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;
@@ -619,7 +619,7 @@
 
     .line 202
     .local v4, res:Landroid/content/res/Resources;
-    :cond_2f
+    :cond_3
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v6
@@ -627,12 +627,12 @@
     .local v6, type:I
     const/4 v8, 0x1
 
-    if-eq v6, v8, :cond_8b
+    if-eq v6, v8, :cond_6
 
     .line 203
     const/4 v8, 0x2
 
-    if-ne v6, v8, :cond_2f
+    if-ne v6, v8, :cond_3
 
     .line 204
     const-string/jumbo v8, "tts-engine"
@@ -645,7 +645,7 @@
 
     move-result v8
 
-    if-nez v8, :cond_73
+    if-nez v8, :cond_5
 
     .line 205
     const-string v8, "TtsEngines"
@@ -683,26 +683,26 @@
     move-result-object v9
 
     invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_6c
-    .catchall {:try_start_29 .. :try_end_6c} :catchall_109
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_29 .. :try_end_6c} :catch_92
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_29 .. :try_end_6c} :catch_b3
-    .catch Ljava/io/IOException; {:try_start_29 .. :try_end_6c} :catch_de
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
 
     .line 232
-    if-eqz v3, :cond_71
+    if-eqz v3, :cond_4
 
     .line 233
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
 
-    :cond_71
+    :cond_4
     move-object v5, v7
 
-    goto :goto_28
+    goto :goto_0
 
     .line 210
-    :cond_73
-    :try_start_73
+    :cond_5
+    :try_start_2
     invoke-static {v3}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v1
@@ -726,44 +726,44 @@
     .line 215
     .local v5, settings:Ljava/lang/String;
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
-    :try_end_85
-    .catchall {:try_start_73 .. :try_end_85} :catchall_109
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_73 .. :try_end_85} :catch_92
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_73 .. :try_end_85} :catch_b3
-    .catch Ljava/io/IOException; {:try_start_73 .. :try_end_85} :catch_de
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
     .line 232
-    if-eqz v3, :cond_28
+    if-eqz v3, :cond_1
 
     .line 233
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
 
-    goto :goto_28
+    goto :goto_0
 
     .line 232
     .end local v0           #array:Landroid/content/res/TypedArray;
     .end local v1           #attrs:Landroid/util/AttributeSet;
     .end local v5           #settings:Ljava/lang/String;
-    :cond_8b
-    if-eqz v3, :cond_90
+    :cond_6
+    if-eqz v3, :cond_7
 
     .line 233
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
 
-    :cond_90
+    :cond_7
     move-object v5, v7
 
-    goto :goto_28
+    goto :goto_0
 
     .line 222
     .end local v4           #res:Landroid/content/res/Resources;
     .end local v6           #type:I
-    :catch_92
+    :catch_0
     move-exception v2
 
     .line 223
     .local v2, e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    :try_start_93
+    :try_start_3
     const-string v8, "TtsEngines"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -785,28 +785,28 @@
     move-result-object v9
 
     invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_ab
-    .catchall {:try_start_93 .. :try_end_ab} :catchall_109
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 232
-    if-eqz v3, :cond_b0
+    if-eqz v3, :cond_8
 
     .line 233
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
 
-    :cond_b0
+    :cond_8
     move-object v5, v7
 
-    goto/16 :goto_28
+    goto/16 :goto_0
 
     .line 225
     .end local v2           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    :catch_b3
+    :catch_1
     move-exception v2
 
     .line 226
     .local v2, e:Lorg/xmlpull/v1/XmlPullParserException;
-    :try_start_b4
+    :try_start_4
     const-string v8, "TtsEngines"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -838,28 +838,28 @@
     move-result-object v9
 
     invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_d6
-    .catchall {:try_start_b4 .. :try_end_d6} :catchall_109
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     .line 232
-    if-eqz v3, :cond_db
+    if-eqz v3, :cond_9
 
     .line 233
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
 
-    :cond_db
+    :cond_9
     move-object v5, v7
 
-    goto/16 :goto_28
+    goto/16 :goto_0
 
     .line 228
     .end local v2           #e:Lorg/xmlpull/v1/XmlPullParserException;
-    :catch_de
+    :catch_2
     move-exception v2
 
     .line 229
     .local v2, e:Ljava/io/IOException;
-    :try_start_df
+    :try_start_5
     const-string v8, "TtsEngines"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -891,36 +891,36 @@
     move-result-object v9
 
     invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_101
-    .catchall {:try_start_df .. :try_end_101} :catchall_109
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     .line 232
-    if-eqz v3, :cond_106
+    if-eqz v3, :cond_a
 
     .line 233
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
 
-    :cond_106
+    :cond_a
     move-object v5, v7
 
-    goto/16 :goto_28
+    goto/16 :goto_0
 
     .line 232
     .end local v2           #e:Ljava/io/IOException;
-    :catchall_109
+    :catchall_0
     move-exception v7
 
-    if-eqz v3, :cond_10f
+    if-eqz v3, :cond_b
 
     .line 233
     invoke-interface {v3}, Landroid/content/res/XmlResourceParser;->close()V
 
-    :cond_10f
+    :cond_b
     throw v7
 .end method
 
 .method private updateValueInCommaSeparatedList(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 16
+    .locals 12
     .parameter "list"
     .parameter "key"
     .parameter "newValue"
@@ -941,7 +941,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_1f
+    if-eqz v9, :cond_1
 
     .line 437
     invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -955,8 +955,8 @@
     invoke-virtual {v9, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 475
-    :cond_1a
-    :goto_1a
+    :cond_0
+    :goto_0
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v9
@@ -964,7 +964,7 @@
     return-object v9
 
     .line 439
-    :cond_1f
+    :cond_1
     const-string v9, ","
 
     invoke-virtual {p1, v9}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -990,8 +990,8 @@
     const/4 v4, 0x0
 
     .local v4, i$:I
-    :goto_2a
-    if-ge v4, v5, :cond_60
+    :goto_1
+    if-ge v4, v5, :cond_6
 
     aget-object v8, v0, v4
 
@@ -1003,7 +1003,7 @@
 
     .line 446
     .local v1, delimiter:I
-    if-lez v1, :cond_4e
+    if-lez v1, :cond_2
 
     .line 447
     const/4 v9, 0x0
@@ -1016,16 +1016,16 @@
 
     move-result v9
 
-    if-eqz v9, :cond_55
+    if-eqz v9, :cond_4
 
     .line 448
-    if-eqz v2, :cond_51
+    if-eqz v2, :cond_3
 
     .line 449
     const/4 v2, 0x0
 
     .line 453
-    :goto_42
+    :goto_2
     const/4 v3, 0x1
 
     .line 454
@@ -1040,42 +1040,42 @@
     invoke-virtual {v9, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 444
-    :cond_4e
-    :goto_4e
+    :cond_2
+    :goto_3
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2a
+    goto :goto_1
 
     .line 451
-    :cond_51
+    :cond_3
     invoke-virtual {v6, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_42
+    goto :goto_2
 
     .line 456
-    :cond_55
-    if-eqz v2, :cond_5c
+    :cond_4
+    if-eqz v2, :cond_5
 
     .line 457
     const/4 v2, 0x0
 
     .line 462
-    :goto_58
+    :goto_4
     invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_4e
+    goto :goto_3
 
     .line 459
-    :cond_5c
+    :cond_5
     invoke-virtual {v6, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_58
+    goto :goto_4
 
     .line 467
     .end local v1           #delimiter:I
     .end local v8           #value:Ljava/lang/String;
-    :cond_60
-    if-nez v3, :cond_1a
+    :cond_6
+    if-nez v3, :cond_0
 
     .line 470
     invoke-virtual {v6, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -1091,13 +1091,13 @@
 
     invoke-virtual {v9, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getDefaultEngine()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 75
@@ -1119,23 +1119,23 @@
 
     move-result v1
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_0
 
     .end local v0           #engine:Ljava/lang/String;
-    :goto_13
+    :goto_0
     return-object v0
 
     .restart local v0       #engine:Ljava/lang/String;
-    :cond_14
+    :cond_0
     invoke-virtual {p0}, Landroid/speech/tts/TtsEngines;->getHighestRankedEngineName()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public getEngineInfo(Ljava/lang/String;)Landroid/speech/tts/TextToSpeech$EngineInfo;
-    .registers 7
+    .locals 5
     .parameter "packageName"
 
     .prologue
@@ -1167,7 +1167,7 @@
 
     .line 107
     .local v2, resolveInfos:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    if-eqz v2, :cond_2b
+    if-eqz v2, :cond_0
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
@@ -1175,7 +1175,7 @@
 
     const/4 v4, 0x1
 
-    if-ne v3, v4, :cond_2b
+    if-ne v3, v4, :cond_0
 
     .line 108
     const/4 v3, 0x0
@@ -1191,17 +1191,17 @@
     move-result-object v3
 
     .line 111
-    :goto_2a
+    :goto_0
     return-object v3
 
-    :cond_2b
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_2a
+    goto :goto_0
 .end method
 
 .method public getEngines()Ljava/util/List;
-    .registers 9
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1238,18 +1238,18 @@
 
     .line 124
     .local v6, resolveInfos:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    if-nez v6, :cond_1a
+    if-nez v6, :cond_0
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v1
 
     .line 136
-    :goto_19
+    :goto_0
     return-object v1
 
     .line 126
-    :cond_1a
+    :cond_0
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-interface {v6}, Ljava/util/List;->size()I
@@ -1265,13 +1265,13 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :cond_27
-    :goto_27
+    :cond_1
+    :goto_1
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_3d
+    if-eqz v7, :cond_2
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1287,26 +1287,26 @@
 
     .line 130
     .local v0, engine:Landroid/speech/tts/TextToSpeech$EngineInfo;
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_1
 
     .line 131
     invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_27
+    goto :goto_1
 
     .line 134
     .end local v0           #engine:Landroid/speech/tts/TextToSpeech$EngineInfo;
     .end local v5           #resolveInfo:Landroid/content/pm/ResolveInfo;
-    :cond_3d
+    :cond_2
     sget-object v7, Landroid/speech/tts/TtsEngines$EngineInfoComparator;->INSTANCE:Landroid/speech/tts/TtsEngines$EngineInfoComparator;
 
     invoke-static {v1, v7}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public getHighestRankedEngineName()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -1322,7 +1322,7 @@
 
     move-result v1
 
-    if-lez v1, :cond_1e
+    if-lez v1, :cond_0
 
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -1332,7 +1332,7 @@
 
     iget-boolean v1, v1, Landroid/speech/tts/TextToSpeech$EngineInfo;->system:Z
 
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_0
 
     .line 88
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1344,17 +1344,17 @@
     iget-object v1, v1, Landroid/speech/tts/TextToSpeech$EngineInfo;->name:Ljava/lang/String;
 
     .line 91
-    :goto_1d
+    :goto_0
     return-object v1
 
-    :cond_1e
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method public getLocalePrefForEngine(Ljava/lang/String;)Ljava/lang/String;
-    .registers 5
+    .locals 3
     .parameter "engineName"
 
     .prologue
@@ -1381,7 +1381,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_0
 
     .line 300
     invoke-direct {p0}, Landroid/speech/tts/TtsEngines;->getV1Locale()Ljava/lang/String;
@@ -1389,12 +1389,12 @@
     move-result-object v0
 
     .line 305
-    :cond_1b
+    :cond_0
     return-object v0
 .end method
 
 .method public getSettingsIntent(Ljava/lang/String;)Landroid/content/Intent;
-    .registers 10
+    .locals 8
     .parameter "engine"
 
     .prologue
@@ -1426,7 +1426,7 @@
 
     .line 167
     .local v3, resolveInfos:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    if-eqz v3, :cond_3a
+    if-eqz v3, :cond_0
 
     invoke-interface {v3}, Ljava/util/List;->size()I
 
@@ -1434,7 +1434,7 @@
 
     const/4 v7, 0x1
 
-    if-ne v6, v7, :cond_3a
+    if-ne v6, v7, :cond_0
 
     .line 168
     const/4 v6, 0x0
@@ -1449,7 +1449,7 @@
 
     .line 169
     .local v4, service:Landroid/content/pm/ServiceInfo;
-    if-eqz v4, :cond_3a
+    if-eqz v4, :cond_0
 
     .line 170
     invoke-direct {p0, v4, v2}, Landroid/speech/tts/TtsEngines;->settingsActivityFromServiceInfo(Landroid/content/pm/ServiceInfo;Landroid/content/pm/PackageManager;)Ljava/lang/String;
@@ -1458,7 +1458,7 @@
 
     .line 171
     .local v5, settings:Ljava/lang/String;
-    if-eqz v5, :cond_3a
+    if-eqz v5, :cond_0
 
     .line 172
     new-instance v0, Landroid/content/Intent;
@@ -1473,44 +1473,44 @@
     .end local v0           #i:Landroid/content/Intent;
     .end local v4           #service:Landroid/content/pm/ServiceInfo;
     .end local v5           #settings:Ljava/lang/String;
-    :goto_39
+    :goto_0
     return-object v0
 
-    :cond_3a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_39
+    goto :goto_0
 .end method
 
 .method public isEngineInstalled(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "engine"
 
     .prologue
     const/4 v0, 0x0
 
     .line 148
-    if-nez p1, :cond_4
+    if-nez p1, :cond_1
 
     .line 152
-    :cond_3
-    :goto_3
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_4
+    :cond_1
     invoke-virtual {p0, p1}, Landroid/speech/tts/TtsEngines;->getEngineInfo(Ljava/lang/String;)Landroid/speech/tts/TextToSpeech$EngineInfo;
 
     move-result-object v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_0
 
     const/4 v0, 0x1
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public declared-synchronized updateLocalePrefForEngine(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "name"
     .parameter "newLocale"
 
@@ -1518,7 +1518,7 @@
     .line 411
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v2, p0, Landroid/speech/tts/TtsEngines;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1552,8 +1552,8 @@
     move-result-object v4
 
     invoke-static {v2, v3, v4}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-    :try_end_22
-    .catchall {:try_start_1 .. :try_end_22} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 425
     monitor-exit p0
@@ -1563,7 +1563,7 @@
     .line 411
     .end local v0           #newPrefList:Ljava/lang/String;
     .end local v1           #prefList:Ljava/lang/String;
-    :catchall_24
+    :catchall_0
     move-exception v2
 
     monitor-exit p0

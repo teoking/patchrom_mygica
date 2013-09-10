@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/animation/AnimatorSet$Node;I)V
-    .registers 3
+    .locals 0
     .parameter "node"
     .parameter "rule"
 

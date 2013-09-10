@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 14
+    .locals 13
 
     .prologue
     .line 443
@@ -51,6 +51,7 @@
     .local v1, preRxPkts:J
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mTxPkts:J
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$000(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)J
 
     move-result-wide v3
@@ -58,6 +59,7 @@
     .line 448
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mRxPkts:J
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$100(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)J
 
     move-result-wide v1
@@ -69,6 +71,7 @@
 
     move-result-wide v10
 
+    #setter for: Lcom/android/internal/telephony/DataConnectionTracker;->mTxPkts:J
     invoke-static {v9, v10, v11}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$202(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;J)J
 
     .line 451
@@ -78,33 +81,36 @@
 
     move-result-wide v10
 
+    #setter for: Lcom/android/internal/telephony/DataConnectionTracker;->mRxPkts:J
     invoke-static {v9, v10, v11}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$302(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;J)J
 
     .line 455
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mNetStatPollEnabled:Z
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$400(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_79
+    if-eqz v9, :cond_1
 
     const-wide/16 v9, 0x0
 
     cmp-long v9, v3, v9
 
-    if-gtz v9, :cond_36
+    if-gtz v9, :cond_0
 
     const-wide/16 v9, 0x0
 
     cmp-long v9, v1, v9
 
-    if-lez v9, :cond_79
+    if-lez v9, :cond_1
 
     .line 456
-    :cond_36
+    :cond_0
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mTxPkts:J
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$500(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)J
 
     move-result-wide v9
@@ -115,6 +121,7 @@
     .local v7, sent:J
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mRxPkts:J
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$600(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)J
 
     move-result-wide v9
@@ -127,19 +134,20 @@
 
     cmp-long v9, v7, v9
 
-    if-lez v9, :cond_c8
+    if-lez v9, :cond_4
 
     const-wide/16 v9, 0x0
 
     cmp-long v9, v5, v9
 
-    if-lez v9, :cond_c8
+    if-lez v9, :cond_4
 
     .line 460
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
     const-wide/16 v10, 0x0
 
+    #setter for: Lcom/android/internal/telephony/DataConnectionTracker;->mSentSinceLastRecv:J
     invoke-static {v9, v10, v11}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$702(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;J)J
 
     .line 461
@@ -147,31 +155,35 @@
 
     .line 479
     .local v0, newActivity:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
-    :goto_5b
+    :goto_0
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mActivity:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$1700(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)Lcom/android/internal/telephony/DataConnectionTracker$Activity;
 
     move-result-object v9
 
-    if-eq v9, v0, :cond_79
+    if-eq v9, v0, :cond_1
 
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mIsScreenOn:Z
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$1800(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_79
+    if-eqz v9, :cond_1
 
     .line 480
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #setter for: Lcom/android/internal/telephony/DataConnectionTracker;->mActivity:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
     invoke-static {v9, v0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$1902(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;Lcom/android/internal/telephony/DataConnectionTracker$Activity;)Lcom/android/internal/telephony/DataConnectionTracker$Activity;
 
     .line 481
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mPhone:Lcom/android/internal/telephony/PhoneBase;
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$2000(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)Lcom/android/internal/telephony/PhoneBase;
 
     move-result-object v9
@@ -182,9 +194,10 @@
     .end local v0           #newActivity:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
     .end local v5           #received:J
     .end local v7           #sent:J
-    :cond_79
+    :cond_1
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mSentSinceLastRecv:J
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$2100(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)J
 
     move-result-wide v9
@@ -193,22 +206,24 @@
 
     cmp-long v9, v9, v11
 
-    if-ltz v9, :cond_189
+    if-ltz v9, :cond_c
 
     .line 488
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mNoRecvPollCount:I
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$2200(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)I
 
     move-result v9
 
-    if-nez v9, :cond_99
+    if-nez v9, :cond_2
 
     .line 489
     const v9, 0xc3b5
 
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mSentSinceLastRecv:J
     invoke-static {v10}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$2300(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)J
 
     move-result-wide v10
@@ -216,16 +231,17 @@
     invoke-static {v9, v10, v11}, Landroid/util/EventLog;->writeEvent(IJ)I
 
     .line 494
-    :cond_99
+    :cond_2
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mNoRecvPollCount:I
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$2400(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)I
 
     move-result v9
 
     const/16 v10, 0x18
 
-    if-ge v9, v10, :cond_147
+    if-ge v9, v10, :cond_b
 
     .line 495
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
@@ -237,27 +253,31 @@
 
     const/16 v10, 0x1388
 
+    #setter for: Lcom/android/internal/telephony/DataConnectionTracker;->mNetStatPollPeriod:I
     invoke-static {v9, v10}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$2602(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;I)I
 
     .line 512
-    :goto_af
+    :goto_1
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mNetStatPollEnabled:Z
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$3100(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_c7
+    if-eqz v9, :cond_3
 
     .line 513
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mDataConnectionTracker:Landroid/os/Handler;
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$3300(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)Landroid/os/Handler;
 
     move-result-object v9
 
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mNetStatPollPeriod:I
     invoke-static {v10}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$3200(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)I
 
     move-result v10
@@ -267,28 +287,29 @@
     invoke-virtual {v9, p0, v10, v11}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 515
-    :cond_c7
+    :cond_3
     return-void
 
     .line 462
     .restart local v5       #received:J
     .restart local v7       #sent:J
-    :cond_c8
+    :cond_4
     const-wide/16 v9, 0x0
 
     cmp-long v9, v7, v9
 
-    if-lez v9, :cond_f3
+    if-lez v9, :cond_6
 
     const-wide/16 v9, 0x0
 
     cmp-long v9, v5, v9
 
-    if-nez v9, :cond_f3
+    if-nez v9, :cond_6
 
     .line 463
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mPhone:Lcom/android/internal/telephony/PhoneBase;
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$800(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)Lcom/android/internal/telephony/PhoneBase;
 
     move-result-object v9
@@ -299,7 +320,7 @@
 
     sget-object v10, Lcom/android/internal/telephony/Phone$State;->IDLE:Lcom/android/internal/telephony/Phone$State;
 
-    if-ne v9, v10, :cond_eb
+    if-ne v9, v10, :cond_5
 
     .line 464
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
@@ -307,131 +328,138 @@
     invoke-static {v9, v7, v8}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$914(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;J)J
 
     .line 468
-    :goto_e7
+    :goto_2
     sget-object v0, Lcom/android/internal/telephony/DataConnectionTracker$Activity;->DATAOUT:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
 
     .restart local v0       #newActivity:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
-    goto/16 :goto_5b
+    goto/16 :goto_0
 
     .line 466
     .end local v0           #newActivity:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
-    :cond_eb
+    :cond_5
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
     const-wide/16 v10, 0x0
 
+    #setter for: Lcom/android/internal/telephony/DataConnectionTracker;->mSentSinceLastRecv:J
     invoke-static {v9, v10, v11}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$1002(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;J)J
 
-    goto :goto_e7
+    goto :goto_2
 
     .line 469
-    :cond_f3
+    :cond_6
     const-wide/16 v9, 0x0
 
     cmp-long v9, v7, v9
 
-    if-nez v9, :cond_10a
+    if-nez v9, :cond_7
 
     const-wide/16 v9, 0x0
 
     cmp-long v9, v5, v9
 
-    if-lez v9, :cond_10a
+    if-lez v9, :cond_7
 
     .line 470
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
     const-wide/16 v10, 0x0
 
+    #setter for: Lcom/android/internal/telephony/DataConnectionTracker;->mSentSinceLastRecv:J
     invoke-static {v9, v10, v11}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$1102(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;J)J
 
     .line 471
     sget-object v0, Lcom/android/internal/telephony/DataConnectionTracker$Activity;->DATAIN:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
 
     .restart local v0       #newActivity:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
-    goto/16 :goto_5b
+    goto/16 :goto_0
 
     .line 472
     .end local v0           #newActivity:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
-    :cond_10a
+    :cond_7
     const-wide/16 v9, 0x0
 
     cmp-long v9, v7, v9
 
-    if-nez v9, :cond_12b
+    if-nez v9, :cond_9
 
     const-wide/16 v9, 0x0
 
     cmp-long v9, v5, v9
 
-    if-nez v9, :cond_12b
+    if-nez v9, :cond_9
 
     .line 473
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mActivity:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$1200(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)Lcom/android/internal/telephony/DataConnectionTracker$Activity;
 
     move-result-object v9
 
     sget-object v10, Lcom/android/internal/telephony/DataConnectionTracker$Activity;->DORMANT:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
 
-    if-ne v9, v10, :cond_128
+    if-ne v9, v10, :cond_8
 
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mActivity:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$1300(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)Lcom/android/internal/telephony/DataConnectionTracker$Activity;
 
     move-result-object v0
 
     .restart local v0       #newActivity:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
-    :goto_126
-    goto/16 :goto_5b
+    :goto_3
+    goto/16 :goto_0
 
     .end local v0           #newActivity:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
-    :cond_128
+    :cond_8
     sget-object v0, Lcom/android/internal/telephony/DataConnectionTracker$Activity;->NONE:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
 
-    goto :goto_126
+    goto :goto_3
 
     .line 475
-    :cond_12b
+    :cond_9
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
     const-wide/16 v10, 0x0
 
+    #setter for: Lcom/android/internal/telephony/DataConnectionTracker;->mSentSinceLastRecv:J
     invoke-static {v9, v10, v11}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$1402(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;J)J
 
     .line 476
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mActivity:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$1500(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)Lcom/android/internal/telephony/DataConnectionTracker$Activity;
 
     move-result-object v9
 
     sget-object v10, Lcom/android/internal/telephony/DataConnectionTracker$Activity;->DORMANT:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
 
-    if-ne v9, v10, :cond_144
+    if-ne v9, v10, :cond_a
 
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mActivity:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
     invoke-static {v9}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$1600(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)Lcom/android/internal/telephony/DataConnectionTracker$Activity;
 
     move-result-object v0
 
     .restart local v0       #newActivity:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
-    :goto_142
-    goto/16 :goto_5b
+    :goto_4
+    goto/16 :goto_0
 
     .end local v0           #newActivity:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
-    :cond_144
+    :cond_a
     sget-object v0, Lcom/android/internal/telephony/DataConnectionTracker$Activity;->NONE:Lcom/android/internal/telephony/DataConnectionTracker$Activity;
 
-    goto :goto_142
+    goto :goto_4
 
     .line 499
     .end local v5           #received:J
     .end local v7           #sent:J
-    :cond_147
+    :cond_b
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -446,6 +474,7 @@
 
     iget-object v11, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
+    #getter for: Lcom/android/internal/telephony/DataConnectionTracker;->mSentSinceLastRecv:J
     invoke-static {v11}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$2700(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)J
 
     move-result-wide v11
@@ -475,6 +504,7 @@
 
     const/4 v10, 0x0
 
+    #setter for: Lcom/android/internal/telephony/DataConnectionTracker;->mNetStatPollEnabled:Z
     invoke-static {v9, v10}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$2802(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;Z)Z
 
     .line 503
@@ -494,14 +524,15 @@
 
     invoke-static {v9, v10}, Landroid/util/EventLog;->writeEvent(II)I
 
-    goto/16 :goto_af
+    goto/16 :goto_1
 
     .line 508
-    :cond_189
+    :cond_c
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
     const/4 v10, 0x0
 
+    #setter for: Lcom/android/internal/telephony/DataConnectionTracker;->mNoRecvPollCount:I
     invoke-static {v9, v10}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$2902(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;I)I
 
     .line 509
@@ -509,7 +540,8 @@
 
     const/16 v10, 0x3e8
 
+    #setter for: Lcom/android/internal/telephony/DataConnectionTracker;->mNetStatPollPeriod:I
     invoke-static {v9, v10}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$3002(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;I)I
 
-    goto/16 :goto_af
+    goto/16 :goto_1
 .end method

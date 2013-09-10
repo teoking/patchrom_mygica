@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/SearchDialog;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,12 +38,13 @@
 
 # virtual methods
 .method public onClose()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 676
     iget-object v0, p0, Landroid/app/SearchDialog$3;->this$0:Landroid/app/SearchDialog;
 
+    #calls: Landroid/app/SearchDialog;->onClosePressed()Z
     invoke-static {v0}, Landroid/app/SearchDialog;->access$000(Landroid/app/SearchDialog;)Z
 
     move-result v0

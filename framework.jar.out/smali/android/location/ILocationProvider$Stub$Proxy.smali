@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public addListener(I)V
-    .registers 7
+    .locals 5
     .parameter "uid"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -62,7 +62,7 @@
 
     .line 671
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -81,8 +81,8 @@
 
     .line 674
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 677
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -94,7 +94,7 @@
     return-void
 
     .line 677
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -107,7 +107,7 @@
 .end method
 
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 293
@@ -117,7 +117,7 @@
 .end method
 
 .method public disable()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -138,7 +138,7 @@
 
     .line 495
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -154,8 +154,8 @@
 
     .line 497
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 500
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -167,7 +167,7 @@
     return-void
 
     .line 500
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -180,7 +180,7 @@
 .end method
 
 .method public enable()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -201,7 +201,7 @@
 
     .line 481
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -217,8 +217,8 @@
 
     .line 483
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 486
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -230,7 +230,7 @@
     return-void
 
     .line 486
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -243,7 +243,7 @@
 .end method
 
 .method public enableLocationTracking(Z)V
-    .registers 7
+    .locals 5
     .parameter "enable"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -267,17 +267,17 @@
 
     .line 563
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 564
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     const/4 v2, 0x1
 
-    :cond_11
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 565
@@ -291,8 +291,8 @@
 
     .line 566
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1f
-    .catchall {:try_start_9 .. :try_end_1f} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 569
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -304,7 +304,7 @@
     return-void
 
     .line 569
-    :catchall_26
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -317,7 +317,7 @@
 .end method
 
 .method public getAccuracy()I
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -338,7 +338,7 @@
 
     .line 465
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -357,8 +357,8 @@
 
     .line 468
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -374,7 +374,7 @@
 
     .line 471
     .end local v2           #_result:I
-    :catchall_23
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -387,7 +387,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 297
@@ -397,7 +397,7 @@
 .end method
 
 .method public getInternalState()Ljava/lang/String;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -418,7 +418,7 @@
 
     .line 547
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -437,8 +437,8 @@
 
     .line 550
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -454,7 +454,7 @@
 
     .line 553
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_23
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -467,7 +467,7 @@
 .end method
 
 .method public getPowerRequirement()I
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -488,7 +488,7 @@
 
     .line 424
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -507,8 +507,8 @@
 
     .line 427
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -524,7 +524,7 @@
 
     .line 430
     .end local v2           #_result:I
-    :catchall_23
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -537,7 +537,7 @@
 .end method
 
 .method public getStatus(Landroid/os/Bundle;)I
-    .registers 8
+    .locals 6
     .parameter "extras"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -559,7 +559,7 @@
 
     .line 510
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -587,15 +587,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_25
+    if-eqz v3, :cond_0
 
     .line 515
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->readFromParcel(Landroid/os/Parcel;)V
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_2c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 519
-    :cond_25
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 520
@@ -606,7 +606,7 @@
 
     .line 519
     .end local v2           #_result:I
-    :catchall_2c
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -619,7 +619,7 @@
 .end method
 
 .method public getStatusUpdateTime()J
-    .registers 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -640,7 +640,7 @@
 
     .line 530
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v4, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -659,8 +659,8 @@
 
     .line 533
     invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v2
 
@@ -676,7 +676,7 @@
 
     .line 536
     .end local v2           #_result:J
-    :catchall_23
+    :catchall_0
     move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -689,7 +689,7 @@
 .end method
 
 .method public hasMonetaryCost()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -712,7 +712,7 @@
 
     .line 356
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -731,18 +731,18 @@
 
     .line 359
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_9 .. :try_end_1b} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_1f
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 362
     .local v2, _result:Z
-    :cond_1f
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 363
@@ -753,7 +753,7 @@
 
     .line 362
     .end local v2           #_result:Z
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -766,7 +766,7 @@
 .end method
 
 .method public meetsCriteria(Landroid/location/Criteria;)Z
-    .registers 9
+    .locals 7
     .parameter "criteria"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -792,13 +792,13 @@
 
     .line 441
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 442
-    if-eqz p1, :cond_31
+    if-eqz p1, :cond_0
 
     .line 443
     const/4 v4, 0x1
@@ -811,7 +811,7 @@
     invoke-virtual {p1, v0, v4}, Landroid/location/Criteria;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 449
-    :goto_19
+    :goto_0
     iget-object v4, p0, Landroid/location/ILocationProvider$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x9
@@ -825,16 +825,16 @@
 
     .line 451
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_27
-    .catchall {:try_start_a .. :try_end_27} :catchall_36
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_3e
+    if-eqz v4, :cond_1
 
     .line 454
     .local v2, _result:Z
-    :goto_2a
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 455
@@ -845,18 +845,18 @@
 
     .line 447
     .end local v2           #_result:Z
-    :cond_31
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_32
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_35
-    .catchall {:try_start_32 .. :try_end_35} :catchall_36
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 454
-    :catchall_36
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -867,15 +867,15 @@
     .line 454
     throw v3
 
-    :cond_3e
+    :cond_1
     move v2, v3
 
     .line 451
-    goto :goto_2a
+    goto :goto_1
 .end method
 
 .method public removeListener(I)V
-    .registers 7
+    .locals 5
     .parameter "uid"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -897,7 +897,7 @@
 
     .line 686
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -916,8 +916,8 @@
 
     .line 689
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 692
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -929,7 +929,7 @@
     return-void
 
     .line 692
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -942,7 +942,7 @@
 .end method
 
 .method public requiresCell()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -965,7 +965,7 @@
 
     .line 339
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -984,18 +984,18 @@
 
     .line 342
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_9 .. :try_end_1b} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_1f
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 345
     .local v2, _result:Z
-    :cond_1f
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 346
@@ -1006,7 +1006,7 @@
 
     .line 345
     .end local v2           #_result:Z
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1019,7 +1019,7 @@
 .end method
 
 .method public requiresNetwork()Z
-    .registers 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1044,7 +1044,7 @@
 
     .line 305
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1063,16 +1063,16 @@
 
     .line 308
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1c
-    .catchall {:try_start_a .. :try_end_1c} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_26
+    if-eqz v4, :cond_0
 
     .line 311
     .local v2, _result:Z
-    :goto_1f
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 312
@@ -1082,14 +1082,14 @@
     return v2
 
     .end local v2           #_result:Z
-    :cond_26
+    :cond_0
     move v2, v3
 
     .line 308
-    goto :goto_1f
+    goto :goto_0
 
     .line 311
-    :catchall_28
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1102,7 +1102,7 @@
 .end method
 
 .method public requiresSatellite()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1125,7 +1125,7 @@
 
     .line 322
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1144,18 +1144,18 @@
 
     .line 325
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_9 .. :try_end_1b} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_1f
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 328
     .local v2, _result:Z
-    :cond_1f
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 329
@@ -1166,7 +1166,7 @@
 
     .line 328
     .end local v2           #_result:Z
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1179,7 +1179,7 @@
 .end method
 
 .method public sendExtraCommand(Ljava/lang/String;Landroid/os/Bundle;)Z
-    .registers 10
+    .locals 7
     .parameter "command"
     .parameter "extras"
     .annotation system Ldalvik/annotation/Throws;
@@ -1206,7 +1206,7 @@
 
     .line 644
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1215,7 +1215,7 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 646
-    if-eqz p2, :cond_3d
+    if-eqz p2, :cond_1
 
     .line 647
     const/4 v4, 0x1
@@ -1228,7 +1228,7 @@
     invoke-virtual {p2, v0, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 653
-    :goto_1c
+    :goto_0
     iget-object v4, p0, Landroid/location/ILocationProvider$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x14
@@ -1245,24 +1245,24 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4a
+    if-eqz v4, :cond_2
 
     .line 656
     .local v2, _result:Z
-    :goto_2d
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    if-eqz v3, :cond_36
+    if-eqz v3, :cond_0
 
     .line 657
     invoke-virtual {p2, v1}, Landroid/os/Bundle;->readFromParcel(Landroid/os/Parcel;)V
-    :try_end_36
-    .catchall {:try_start_a .. :try_end_36} :catchall_42
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 661
-    :cond_36
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 662
@@ -1273,18 +1273,18 @@
 
     .line 651
     .end local v2           #_result:Z
-    :cond_3d
+    :cond_1
     const/4 v4, 0x0
 
-    :try_start_3e
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_41
-    .catchall {:try_start_3e .. :try_end_41} :catchall_42
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1c
+    goto :goto_0
 
     .line 661
-    :catchall_42
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1295,15 +1295,15 @@
     .line 661
     throw v3
 
-    :cond_4a
+    :cond_2
     move v2, v3
 
     .line 655
-    goto :goto_2d
+    goto :goto_1
 .end method
 
 .method public setMinTime(JLandroid/os/WorkSource;)V
-    .registers 9
+    .locals 5
     .parameter "minTime"
     .parameter "ws"
     .annotation system Ldalvik/annotation/Throws;
@@ -1326,7 +1326,7 @@
 
     .line 578
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1335,7 +1335,7 @@
     invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 580
-    if-eqz p3, :cond_2c
+    if-eqz p3, :cond_0
 
     .line 581
     const/4 v2, 0x1
@@ -1348,7 +1348,7 @@
     invoke-virtual {p3, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 587
-    :goto_1a
+    :goto_0
     iget-object v2, p0, Landroid/location/ILocationProvider$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x11
@@ -1359,8 +1359,8 @@
 
     .line 588
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 591
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1372,18 +1372,18 @@
     return-void
 
     .line 585
-    :cond_2c
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 591
-    :catchall_31
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1396,7 +1396,7 @@
 .end method
 
 .method public supportsAltitude()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1419,7 +1419,7 @@
 
     .line 373
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1438,18 +1438,18 @@
 
     .line 376
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_9 .. :try_end_1b} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_1f
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 379
     .local v2, _result:Z
-    :cond_1f
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 380
@@ -1460,7 +1460,7 @@
 
     .line 379
     .end local v2           #_result:Z
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1473,7 +1473,7 @@
 .end method
 
 .method public supportsBearing()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1496,7 +1496,7 @@
 
     .line 407
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1515,18 +1515,18 @@
 
     .line 410
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_9 .. :try_end_1b} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_1f
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 413
     .local v2, _result:Z
-    :cond_1f
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 414
@@ -1537,7 +1537,7 @@
 
     .line 413
     .end local v2           #_result:Z
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1550,7 +1550,7 @@
 .end method
 
 .method public supportsSpeed()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1573,7 +1573,7 @@
 
     .line 390
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1592,18 +1592,18 @@
 
     .line 393
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_9 .. :try_end_1b} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_1f
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 396
     .local v2, _result:Z
-    :cond_1f
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 397
@@ -1614,7 +1614,7 @@
 
     .line 396
     .end local v2           #_result:Z
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1627,7 +1627,7 @@
 .end method
 
 .method public updateLocation(Landroid/location/Location;)V
-    .registers 7
+    .locals 5
     .parameter "location"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1649,13 +1649,13 @@
 
     .line 622
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 623
-    if-eqz p1, :cond_29
+    if-eqz p1, :cond_0
 
     .line 624
     const/4 v2, 0x1
@@ -1668,7 +1668,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/location/Location;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 630
-    :goto_17
+    :goto_0
     iget-object v2, p0, Landroid/location/ILocationProvider$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x13
@@ -1679,8 +1679,8 @@
 
     .line 631
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_22
-    .catchall {:try_start_8 .. :try_end_22} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 634
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1692,18 +1692,18 @@
     return-void
 
     .line 628
-    :cond_29
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2a
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2d
-    .catchall {:try_start_2a .. :try_end_2d} :catchall_2e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 634
-    :catchall_2e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1716,7 +1716,7 @@
 .end method
 
 .method public updateNetworkState(ILandroid/net/NetworkInfo;)V
-    .registers 8
+    .locals 5
     .parameter "state"
     .parameter "info"
     .annotation system Ldalvik/annotation/Throws;
@@ -1739,7 +1739,7 @@
 
     .line 600
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.location.ILocationProvider"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1748,7 +1748,7 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 602
-    if-eqz p2, :cond_2c
+    if-eqz p2, :cond_0
 
     .line 603
     const/4 v2, 0x1
@@ -1761,7 +1761,7 @@
     invoke-virtual {p2, v0, v2}, Landroid/net/NetworkInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 609
-    :goto_1a
+    :goto_0
     iget-object v2, p0, Landroid/location/ILocationProvider$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x12
@@ -1772,8 +1772,8 @@
 
     .line 610
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 613
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1785,18 +1785,18 @@
     return-void
 
     .line 607
-    :cond_2c
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 613
-    :catchall_31
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

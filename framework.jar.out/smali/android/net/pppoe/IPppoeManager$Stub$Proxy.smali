@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public UpdatePppoeDevInfo(Landroid/net/pppoe/PppoeDevInfo;)V
-    .registers 7
+    .locals 5
     .parameter "info"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -62,13 +62,13 @@
 
     .line 217
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.pppoe.IPppoeManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 218
-    if-eqz p1, :cond_28
+    if-eqz p1, :cond_0
 
     .line 219
     const/4 v2, 0x1
@@ -81,7 +81,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/net/pppoe/PppoeDevInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 225
-    :goto_17
+    :goto_0
     iget-object v2, p0, Landroid/net/pppoe/IPppoeManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x4
@@ -92,8 +92,8 @@
 
     .line 226
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_8 .. :try_end_21} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 229
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -105,18 +105,18 @@
     return-void
 
     .line 223
-    :cond_28
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_29
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2c
-    .catchall {:try_start_29 .. :try_end_2c} :catchall_2d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 229
-    :catchall_2d
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -128,7 +128,7 @@
 .end method
 
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 157
@@ -138,7 +138,7 @@
 .end method
 
 .method public getDeviceNameList()[Ljava/lang/String;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -159,7 +159,7 @@
 
     .line 169
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.net.pppoe.IPppoeManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -178,8 +178,8 @@
 
     .line 172
     invoke-virtual {v1}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -195,7 +195,7 @@
 
     .line 175
     .end local v2           #_result:[Ljava/lang/String;
-    :catchall_22
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -207,7 +207,7 @@
 .end method
 
 .method public getDhcpInfo()Landroid/net/DhcpInfo;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -228,7 +228,7 @@
 
     .line 327
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.net.pppoe.IPppoeManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -250,7 +250,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2d
+    if-eqz v3, :cond_0
 
     .line 331
     sget-object v3, Landroid/net/DhcpInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -260,12 +260,12 @@
     move-result-object v2
 
     check-cast v2, Landroid/net/DhcpInfo;
-    :try_end_26
-    .catchall {:try_start_8 .. :try_end_26} :catchall_2f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 338
     .local v2, _result:Landroid/net/DhcpInfo;
-    :goto_26
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 339
@@ -276,15 +276,15 @@
 
     .line 334
     .end local v2           #_result:Landroid/net/DhcpInfo;
-    :cond_2d
+    :cond_0
     const/4 v2, 0x0
 
     .restart local v2       #_result:Landroid/net/DhcpInfo;
-    goto :goto_26
+    goto :goto_0
 
     .line 338
     .end local v2           #_result:Landroid/net/DhcpInfo;
-    :catchall_2f
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -296,7 +296,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 161
@@ -306,7 +306,7 @@
 .end method
 
 .method public getPppoeState()I
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -327,7 +327,7 @@
 
     .line 201
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.net.pppoe.IPppoeManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -346,8 +346,8 @@
 
     .line 204
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -363,7 +363,7 @@
 
     .line 207
     .end local v2           #_result:I
-    :catchall_22
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -375,7 +375,7 @@
 .end method
 
 .method public getSavedPppoeConfig()Landroid/net/pppoe/PppoeDevInfo;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -396,7 +396,7 @@
 
     .line 256
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.net.pppoe.IPppoeManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -418,7 +418,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2c
+    if-eqz v3, :cond_0
 
     .line 260
     sget-object v3, Landroid/net/pppoe/PppoeDevInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -428,12 +428,12 @@
     move-result-object v2
 
     check-cast v2, Landroid/net/pppoe/PppoeDevInfo;
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 267
     .local v2, _result:Landroid/net/pppoe/PppoeDevInfo;
-    :goto_25
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 268
@@ -444,15 +444,15 @@
 
     .line 263
     .end local v2           #_result:Landroid/net/pppoe/PppoeDevInfo;
-    :cond_2c
+    :cond_0
     const/4 v2, 0x0
 
     .restart local v2       #_result:Landroid/net/pppoe/PppoeDevInfo;
-    goto :goto_25
+    goto :goto_0
 
     .line 267
     .end local v2           #_result:Landroid/net/pppoe/PppoeDevInfo;
-    :catchall_2e
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -464,7 +464,7 @@
 .end method
 
 .method public getTotalInterface()I
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -485,7 +485,7 @@
 
     .line 278
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.net.pppoe.IPppoeManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -504,8 +504,8 @@
 
     .line 281
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -521,7 +521,7 @@
 
     .line 284
     .end local v2           #_result:I
-    :catchall_22
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -533,7 +533,7 @@
 .end method
 
 .method public isPppoeConfigured()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -556,7 +556,7 @@
 
     .line 239
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.net.pppoe.IPppoeManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -575,18 +575,18 @@
 
     .line 242
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_9 .. :try_end_1b} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_1f
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 245
     .local v2, _result:Z
-    :cond_1f
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 246
@@ -597,7 +597,7 @@
 
     .line 245
     .end local v2           #_result:Z
-    :catchall_26
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -609,7 +609,7 @@
 .end method
 
 .method public isPppoeDeviceUp()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -632,7 +632,7 @@
 
     .line 310
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.net.pppoe.IPppoeManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -651,18 +651,18 @@
 
     .line 313
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1c
-    .catchall {:try_start_9 .. :try_end_1c} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 316
     .local v2, _result:Z
-    :cond_20
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 317
@@ -673,7 +673,7 @@
 
     .line 316
     .end local v2           #_result:Z
-    :catchall_27
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -685,7 +685,7 @@
 .end method
 
 .method public setPppoeMode(Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "mode"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -707,7 +707,7 @@
 
     .line 294
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.pppoe.IPppoeManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -726,8 +726,8 @@
 
     .line 297
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 300
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -739,7 +739,7 @@
     return-void
 
     .line 300
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -751,7 +751,7 @@
 .end method
 
 .method public setPppoeState(I)V
-    .registers 7
+    .locals 5
     .parameter "state"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -773,7 +773,7 @@
 
     .line 185
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.pppoe.IPppoeManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -792,8 +792,8 @@
 
     .line 188
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 191
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -805,7 +805,7 @@
     return-void
 
     .line 191
-    :catchall_21
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

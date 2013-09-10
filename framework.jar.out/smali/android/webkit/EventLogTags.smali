@@ -15,7 +15,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 11
@@ -25,7 +25,7 @@
 .end method
 
 .method public static writeBrowserDoubleTapDuration(IJ)V
-    .registers 7
+    .locals 4
     .parameter "duration"
     .parameter "time"
 
@@ -60,7 +60,7 @@
 .end method
 
 .method public static writeBrowserSnapCenter()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 34
@@ -77,7 +77,7 @@
 .end method
 
 .method public static writeBrowserTextSizeChange(II)V
-    .registers 6
+    .locals 4
     .parameter "oldsize"
     .parameter "newsize"
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public static writeBrowserZoomLevelChange(IIJ)V
-    .registers 8
+    .locals 4
     .parameter "startLevel"
     .parameter "endLevel"
     .parameter "time"

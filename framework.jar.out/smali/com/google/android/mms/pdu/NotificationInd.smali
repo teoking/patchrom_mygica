@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/android/mms/InvalidHeaderValueException;
@@ -26,7 +26,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/android/mms/pdu/PduHeaders;)V
-    .registers 2
+    .locals 0
     .parameter "headers"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public getContentClass()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 55
@@ -56,7 +56,7 @@
 .end method
 
 .method public getContentLocation()[B
-    .registers 3
+    .locals 2
 
     .prologue
     .line 77
@@ -72,7 +72,7 @@
 .end method
 
 .method public getDeliveryReport()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 223
@@ -88,7 +88,7 @@
 .end method
 
 .method public getExpiry()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 100
@@ -104,7 +104,7 @@
 .end method
 
 .method public getFrom()Lcom/google/android/mms/pdu/EncodedStringValue;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 121
@@ -120,7 +120,7 @@
 .end method
 
 .method public getMessageClass()[B
-    .registers 3
+    .locals 2
 
     .prologue
     .line 143
@@ -136,7 +136,7 @@
 .end method
 
 .method public getMessageSize()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 164
@@ -152,7 +152,7 @@
 .end method
 
 .method public getSubject()Lcom/google/android/mms/pdu/EncodedStringValue;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 183
@@ -168,7 +168,7 @@
 .end method
 
 .method public getTransactionId()[B
-    .registers 3
+    .locals 2
 
     .prologue
     .line 203
@@ -184,7 +184,7 @@
 .end method
 
 .method public setContentClass(I)V
-    .registers 4
+    .locals 2
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -205,7 +205,7 @@
 .end method
 
 .method public setContentLocation([B)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -221,7 +221,7 @@
 .end method
 
 .method public setDeliveryReport(I)V
-    .registers 4
+    .locals 2
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -242,7 +242,7 @@
 .end method
 
 .method public setExpiry(J)V
-    .registers 5
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -258,7 +258,7 @@
 .end method
 
 .method public setFrom(Lcom/google/android/mms/pdu/EncodedStringValue;)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -274,7 +274,7 @@
 .end method
 
 .method public setMessageClass([B)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -290,7 +290,7 @@
 .end method
 
 .method public setMessageSize(J)V
-    .registers 5
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -306,7 +306,7 @@
 .end method
 
 .method public setSubject(Lcom/google/android/mms/pdu/EncodedStringValue;)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -322,7 +322,7 @@
 .end method
 
 .method public setTransactionId([B)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue

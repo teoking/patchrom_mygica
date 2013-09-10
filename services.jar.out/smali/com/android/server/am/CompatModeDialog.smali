@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/am/ActivityManagerService;Landroid/content/Context;Landroid/content/pm/ApplicationInfo;)V
-    .registers 6
+    .locals 2
     .parameter "service"
     .parameter "context"
     .parameter "appInfo"
@@ -131,7 +131,7 @@
 
 # virtual methods
 .method updateControls()V
-    .registers 8
+    .locals 7
 
     .prologue
     const/4 v3, 0x1
@@ -144,7 +144,7 @@
     monitor-enter v4
 
     .line 82
-    :try_start_5
+    :try_start_0
     iget-object v5, p0, Lcom/android/server/am/CompatModeDialog;->mService:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v5, v5, Lcom/android/server/am/ActivityManagerService;->mCompatModePackages:Lcom/android/server/am/CompatModePackages;
@@ -159,9 +159,9 @@
     .local v1, mode:I
     iget-object v5, p0, Lcom/android/server/am/CompatModeDialog;->mCompatEnabled:Landroid/widget/Switch;
 
-    if-ne v1, v3, :cond_31
+    if-ne v1, v3, :cond_1
 
-    :goto_13
+    :goto_0
     invoke-virtual {v5, v3}, Landroid/widget/Switch;->setChecked(Z)V
 
     .line 84
@@ -186,11 +186,11 @@
     .line 87
     iget-object v3, p0, Lcom/android/server/am/CompatModeDialog;->mHint:Landroid/view/View;
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_0
 
     const/4 v2, 0x4
 
-    :cond_2c
+    :cond_0
     invoke-virtual {v3, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 88
@@ -200,20 +200,20 @@
     return-void
 
     .end local v0           #ask:Z
-    :cond_31
+    :cond_1
     move v3, v2
 
     .line 83
-    goto :goto_13
+    goto :goto_0
 
     .line 88
     .end local v1           #mode:I
-    :catchall_33
+    :catchall_0
     move-exception v2
 
     monitor-exit v4
-    :try_end_35
-    .catchall {:try_start_5 .. :try_end_35} :catchall_33
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method

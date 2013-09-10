@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 488
@@ -36,7 +36,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$policy$impl$KeyguardStatusViewManager$StatusMode:[I
 
-    :try_start_9
+    :try_start_0
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$policy$impl$KeyguardStatusViewManager$StatusMode:[I
 
     sget-object v1, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$StatusMode;->Normal:Lcom/android/internal/policy/impl/KeyguardStatusViewManager$StatusMode;
@@ -48,11 +48,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_14
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_14} :catch_da
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_e
 
-    :goto_14
-    :try_start_14
+    :goto_0
+    :try_start_1
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$policy$impl$KeyguardStatusViewManager$StatusMode:[I
 
     sget-object v1, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$StatusMode;->NetworkLocked:Lcom/android/internal/policy/impl/KeyguardStatusViewManager$StatusMode;
@@ -64,11 +64,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_1f} :catch_d7
+    :try_end_1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_d
 
-    :goto_1f
-    :try_start_1f
+    :goto_1
+    :try_start_2
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$policy$impl$KeyguardStatusViewManager$StatusMode:[I
 
     sget-object v1, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$StatusMode;->SimMissing:Lcom/android/internal/policy/impl/KeyguardStatusViewManager$StatusMode;
@@ -80,11 +80,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_2a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1f .. :try_end_2a} :catch_d4
+    :try_end_2
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_c
 
-    :goto_2a
-    :try_start_2a
+    :goto_2
+    :try_start_3
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$policy$impl$KeyguardStatusViewManager$StatusMode:[I
 
     sget-object v1, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$StatusMode;->SimPermDisabled:Lcom/android/internal/policy/impl/KeyguardStatusViewManager$StatusMode;
@@ -96,11 +96,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_35
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2a .. :try_end_35} :catch_d1
+    :try_end_3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_b
 
-    :goto_35
-    :try_start_35
+    :goto_3
+    :try_start_4
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$policy$impl$KeyguardStatusViewManager$StatusMode:[I
 
     sget-object v1, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$StatusMode;->SimMissingLocked:Lcom/android/internal/policy/impl/KeyguardStatusViewManager$StatusMode;
@@ -112,11 +112,11 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_40
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_35 .. :try_end_40} :catch_ce
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_a
 
-    :goto_40
-    :try_start_40
+    :goto_4
+    :try_start_5
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$policy$impl$KeyguardStatusViewManager$StatusMode:[I
 
     sget-object v1, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$StatusMode;->SimLocked:Lcom/android/internal/policy/impl/KeyguardStatusViewManager$StatusMode;
@@ -128,11 +128,11 @@
     const/4 v2, 0x6
 
     aput v2, v0, v1
-    :try_end_4b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_40 .. :try_end_4b} :catch_cb
+    :try_end_5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_9
 
-    :goto_4b
-    :try_start_4b
+    :goto_5
+    :try_start_6
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$policy$impl$KeyguardStatusViewManager$StatusMode:[I
 
     sget-object v1, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$StatusMode;->SimPukLocked:Lcom/android/internal/policy/impl/KeyguardStatusViewManager$StatusMode;
@@ -144,11 +144,11 @@
     const/4 v2, 0x7
 
     aput v2, v0, v1
-    :try_end_56
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4b .. :try_end_56} :catch_c9
+    :try_end_6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_8
 
     .line 449
-    :goto_56
+    :goto_6
     invoke-static {}, Lcom/android/internal/telephony/IccCard$State;->values()[Lcom/android/internal/telephony/IccCard$State;
 
     move-result-object v0
@@ -159,7 +159,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
 
-    :try_start_5f
+    :try_start_7
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/IccCard$State;->ABSENT:Lcom/android/internal/telephony/IccCard$State;
@@ -171,11 +171,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_6a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5f .. :try_end_6a} :catch_c7
+    :try_end_7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_7
 
-    :goto_6a
-    :try_start_6a
+    :goto_7
+    :try_start_8
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/IccCard$State;->NETWORK_LOCKED:Lcom/android/internal/telephony/IccCard$State;
@@ -187,11 +187,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_75
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6a .. :try_end_75} :catch_c5
+    :try_end_8
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_6
 
-    :goto_75
-    :try_start_75
+    :goto_8
+    :try_start_9
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/IccCard$State;->NOT_READY:Lcom/android/internal/telephony/IccCard$State;
@@ -203,11 +203,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_80
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_75 .. :try_end_80} :catch_c3
+    :try_end_9
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_5
 
-    :goto_80
-    :try_start_80
+    :goto_9
+    :try_start_a
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/IccCard$State;->PIN_REQUIRED:Lcom/android/internal/telephony/IccCard$State;
@@ -219,11 +219,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_8b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_80 .. :try_end_8b} :catch_c1
+    :try_end_a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_4
 
-    :goto_8b
-    :try_start_8b
+    :goto_a
+    :try_start_b
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/IccCard$State;->PUK_REQUIRED:Lcom/android/internal/telephony/IccCard$State;
@@ -235,11 +235,11 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_96
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_8b .. :try_end_96} :catch_bf
+    :try_end_b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_3
 
-    :goto_96
-    :try_start_96
+    :goto_b
+    :try_start_c
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/IccCard$State;->READY:Lcom/android/internal/telephony/IccCard$State;
@@ -251,11 +251,11 @@
     const/4 v2, 0x6
 
     aput v2, v0, v1
-    :try_end_a1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_96 .. :try_end_a1} :catch_bd
+    :try_end_c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_c .. :try_end_c} :catch_2
 
-    :goto_a1
-    :try_start_a1
+    :goto_c
+    :try_start_d
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/IccCard$State;->PERM_DISABLED:Lcom/android/internal/telephony/IccCard$State;
@@ -267,11 +267,11 @@
     const/4 v2, 0x7
 
     aput v2, v0, v1
-    :try_end_ac
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_a1 .. :try_end_ac} :catch_bb
+    :try_end_d
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_d .. :try_end_d} :catch_1
 
-    :goto_ac
-    :try_start_ac
+    :goto_d
+    :try_start_e
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$3;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
 
     sget-object v1, Lcom/android/internal/telephony/IccCard$State;->UNKNOWN:Lcom/android/internal/telephony/IccCard$State;
@@ -283,85 +283,85 @@
     const/16 v2, 0x8
 
     aput v2, v0, v1
-    :try_end_b8
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_ac .. :try_end_b8} :catch_b9
+    :try_end_e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_e .. :try_end_e} :catch_0
 
-    :goto_b8
+    :goto_e
     return-void
 
-    :catch_b9
+    :catch_0
     move-exception v0
 
-    goto :goto_b8
+    goto :goto_e
 
-    :catch_bb
+    :catch_1
     move-exception v0
 
-    goto :goto_ac
+    goto :goto_d
 
-    :catch_bd
+    :catch_2
     move-exception v0
 
-    goto :goto_a1
+    goto :goto_c
 
-    :catch_bf
+    :catch_3
     move-exception v0
 
-    goto :goto_96
+    goto :goto_b
 
-    :catch_c1
+    :catch_4
     move-exception v0
 
-    goto :goto_8b
+    goto :goto_a
 
-    :catch_c3
+    :catch_5
     move-exception v0
 
-    goto :goto_80
+    goto :goto_9
 
-    :catch_c5
+    :catch_6
     move-exception v0
 
-    goto :goto_75
+    goto :goto_8
 
-    :catch_c7
+    :catch_7
     move-exception v0
 
-    goto :goto_6a
+    goto :goto_7
 
     .line 488
-    :catch_c9
+    :catch_8
     move-exception v0
 
-    goto :goto_56
+    goto :goto_6
 
-    :catch_cb
+    :catch_9
     move-exception v0
 
-    goto/16 :goto_4b
+    goto/16 :goto_5
 
-    :catch_ce
+    :catch_a
     move-exception v0
 
-    goto/16 :goto_40
+    goto/16 :goto_4
 
-    :catch_d1
+    :catch_b
     move-exception v0
 
-    goto/16 :goto_35
+    goto/16 :goto_3
 
-    :catch_d4
+    :catch_c
     move-exception v0
 
-    goto/16 :goto_2a
+    goto/16 :goto_2
 
-    :catch_d7
+    :catch_d
     move-exception v0
 
-    goto/16 :goto_1f
+    goto/16 :goto_1
 
-    :catch_da
+    :catch_e
     move-exception v0
 
-    goto/16 :goto_14
+    goto/16 :goto_0
 .end method

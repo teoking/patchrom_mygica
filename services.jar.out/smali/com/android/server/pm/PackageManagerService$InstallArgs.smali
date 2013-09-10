@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/Uri;Landroid/content/pm/IPackageInstallObserver;ILjava/lang/String;Landroid/content/pm/ManifestDigest;)V
-    .registers 6
+    .locals 0
     .parameter "packageURI"
     .parameter "observer"
     .parameter "flags"
@@ -83,7 +83,7 @@
 .end method
 
 .method doPostCopy(I)I
-    .registers 3
+    .locals 1
     .parameter "uid"
 
     .prologue
@@ -100,7 +100,7 @@
 .end method
 
 .method doPreCopy()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 6250
@@ -125,7 +125,7 @@
 .end method
 
 .method protected isFwdLocked()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 6265
@@ -133,15 +133,15 @@
 
     and-int/lit8 v0, v0, 0x1
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method

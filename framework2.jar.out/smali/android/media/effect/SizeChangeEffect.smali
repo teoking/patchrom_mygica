@@ -5,7 +5,7 @@
 
 # direct methods
 .method public varargs constructor <init>(Landroid/media/effect/EffectContext;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
-    .registers 7
+    .locals 0
     .parameter "context"
     .parameter "name"
     .parameter "filterClass"
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public apply(IIII)V
-    .registers 14
+    .locals 9
     .parameter "inputTexId"
     .parameter "width"
     .parameter "height"

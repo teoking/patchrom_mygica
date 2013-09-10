@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/webkit/WebViewClassic;Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;ZZ)V
-    .registers 8
+    .locals 1
     .parameter
     .parameter "name"
     .parameter "url"
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 4766
@@ -94,12 +94,12 @@
     .local v1, pastEntries:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     iget-boolean v2, p0, Landroid/webkit/WebViewClassic$RequestFormData;->mAutoFillable:Z
 
-    if-eqz v2, :cond_58
+    if-eqz v2, :cond_0
 
     .line 4772
     iget-object v2, p0, Landroid/webkit/WebViewClassic$RequestFormData;->mWebSettings:Landroid/webkit/WebSettingsClassic;
 
-    if-eqz v2, :cond_8b
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Landroid/webkit/WebViewClassic$RequestFormData;->mWebSettings:Landroid/webkit/WebSettingsClassic;
 
@@ -107,7 +107,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_8b
+    if-eqz v2, :cond_3
 
     .line 4773
     new-instance v2, Ljava/lang/StringBuilder;
@@ -116,6 +116,7 @@
 
     iget-object v3, p0, Landroid/webkit/WebViewClassic$RequestFormData;->this$0:Landroid/webkit/WebViewClassic;
 
+    #getter for: Landroid/webkit/WebViewClassic;->mWebView:Landroid/webkit/WebView;
     invoke-static {v3}, Landroid/webkit/WebViewClassic;->access$000(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebView;
 
     move-result-object v3
@@ -146,6 +147,7 @@
 
     iget-object v3, p0, Landroid/webkit/WebViewClassic$RequestFormData;->this$0:Landroid/webkit/WebViewClassic;
 
+    #getter for: Landroid/webkit/WebViewClassic;->mAutoFillData:Landroid/webkit/WebViewCore$AutoFillData;
     invoke-static {v3}, Landroid/webkit/WebViewClassic;->access$2300(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore$AutoFillData;
 
     move-result-object v3
@@ -167,6 +169,7 @@
     .line 4777
     iget-object v2, p0, Landroid/webkit/WebViewClassic$RequestFormData;->this$0:Landroid/webkit/WebViewClassic;
 
+    #getter for: Landroid/webkit/WebViewClassic;->mAutoCompletePopup:Landroid/webkit/AutoCompletePopup;
     invoke-static {v2}, Landroid/webkit/WebViewClassic;->access$500(Landroid/webkit/WebViewClassic;)Landroid/webkit/AutoCompletePopup;
 
     move-result-object v2
@@ -176,15 +179,16 @@
     invoke-virtual {v2, v3}, Landroid/webkit/AutoCompletePopup;->setIsAutoFillProfileSet(Z)V
 
     .line 4787
-    :cond_58
-    :goto_58
+    :cond_0
+    :goto_0
     iget-boolean v2, p0, Landroid/webkit/WebViewClassic$RequestFormData;->mAutoComplete:Z
 
-    if-eqz v2, :cond_6d
+    if-eqz v2, :cond_1
 
     .line 4788
     iget-object v2, p0, Landroid/webkit/WebViewClassic$RequestFormData;->this$0:Landroid/webkit/WebViewClassic;
 
+    #getter for: Landroid/webkit/WebViewClassic;->mDatabase:Landroid/webkit/WebViewDatabaseClassic;
     invoke-static {v2}, Landroid/webkit/WebViewClassic;->access$2400(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewDatabaseClassic;
 
     move-result-object v2
@@ -200,18 +204,19 @@
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
     .line 4791
-    :cond_6d
+    :cond_1
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-lez v2, :cond_8a
+    if-lez v2, :cond_2
 
     .line 4792
     new-instance v0, Landroid/widget/ArrayAdapter;
 
     iget-object v2, p0, Landroid/webkit/WebViewClassic$RequestFormData;->this$0:Landroid/webkit/WebViewClassic;
 
+    #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
     invoke-static {v2}, Landroid/webkit/WebViewClassic;->access$600(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v2
@@ -233,13 +238,14 @@
 
     .line 4799
     .end local v0           #adapter:Landroid/widget/ArrayAdapter;,"Landroid/widget/ArrayAdapter<Ljava/lang/String;>;"
-    :cond_8a
+    :cond_2
     return-void
 
     .line 4781
-    :cond_8b
+    :cond_3
     iget-object v2, p0, Landroid/webkit/WebViewClassic$RequestFormData;->this$0:Landroid/webkit/WebViewClassic;
 
+    #getter for: Landroid/webkit/WebViewClassic;->mWebView:Landroid/webkit/WebView;
     invoke-static {v2}, Landroid/webkit/WebViewClassic;->access$000(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebView;
 
     move-result-object v2
@@ -263,6 +269,7 @@
     .line 4783
     iget-object v2, p0, Landroid/webkit/WebViewClassic$RequestFormData;->this$0:Landroid/webkit/WebViewClassic;
 
+    #getter for: Landroid/webkit/WebViewClassic;->mAutoCompletePopup:Landroid/webkit/AutoCompletePopup;
     invoke-static {v2}, Landroid/webkit/WebViewClassic;->access$500(Landroid/webkit/WebViewClassic;)Landroid/webkit/AutoCompletePopup;
 
     move-result-object v2
@@ -271,5 +278,5 @@
 
     invoke-virtual {v2, v3}, Landroid/webkit/AutoCompletePopup;->setIsAutoFillProfileSet(Z)V
 
-    goto :goto_58
+    goto :goto_0
 .end method

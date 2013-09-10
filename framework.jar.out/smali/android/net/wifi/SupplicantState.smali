@@ -67,7 +67,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 8
+    .locals 8
 
     .prologue
     const/4 v7, 0x4
@@ -299,7 +299,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -317,7 +317,7 @@
 .end method
 
 .method static isConnecting(Landroid/net/wifi/SupplicantState;)Z
-    .registers 3
+    .locals 2
     .parameter "state"
 
     .prologue
@@ -330,7 +330,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_18
+    packed-switch v0, :pswitch_data_0
 
     .line 215
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -342,41 +342,41 @@
     throw v0
 
     .line 205
-    :pswitch_13
+    :pswitch_0
     const/4 v0, 0x1
 
     .line 213
-    :goto_14
+    :goto_0
     return v0
 
-    :pswitch_15
+    :pswitch_1
     const/4 v0, 0x0
 
-    goto :goto_14
+    goto :goto_0
 
     .line 198
     nop
 
-    :pswitch_data_18
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_13
-        :pswitch_13
-        :pswitch_13
-        :pswitch_13
-        :pswitch_13
-        :pswitch_13
-        :pswitch_15
-        :pswitch_15
-        :pswitch_15
-        :pswitch_15
-        :pswitch_15
-        :pswitch_15
-        :pswitch_15
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method static isDriverActive(Landroid/net/wifi/SupplicantState;)Z
-    .registers 3
+    .locals 2
     .parameter "state"
 
     .prologue
@@ -389,7 +389,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_18
+    packed-switch v0, :pswitch_data_0
 
     .line 237
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -401,41 +401,41 @@
     throw v0
 
     .line 231
-    :pswitch_13
+    :pswitch_0
     const/4 v0, 0x1
 
     .line 235
-    :goto_14
+    :goto_0
     return v0
 
-    :pswitch_15
+    :pswitch_1
     const/4 v0, 0x0
 
-    goto :goto_14
+    goto :goto_0
 
     .line 220
     nop
 
-    :pswitch_data_18
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_13
-        :pswitch_13
-        :pswitch_13
-        :pswitch_13
-        :pswitch_13
-        :pswitch_13
-        :pswitch_13
-        :pswitch_15
-        :pswitch_13
-        :pswitch_13
-        :pswitch_13
-        :pswitch_15
-        :pswitch_15
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public static isHandshakeState(Landroid/net/wifi/SupplicantState;)Z
-    .registers 3
+    .locals 2
     .parameter "state"
 
     .prologue
@@ -448,7 +448,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_18
+    packed-switch v0, :pswitch_data_0
 
     .line 193
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -460,66 +460,66 @@
     throw v0
 
     .line 182
-    :pswitch_13
+    :pswitch_0
     const/4 v0, 0x1
 
     .line 191
-    :goto_14
+    :goto_0
     return v0
 
-    :pswitch_15
+    :pswitch_1
     const/4 v0, 0x0
 
-    goto :goto_14
+    goto :goto_0
 
     .line 176
     nop
 
-    :pswitch_data_18
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_13
-        :pswitch_13
-        :pswitch_13
-        :pswitch_13
-        :pswitch_13
-        :pswitch_15
-        :pswitch_15
-        :pswitch_15
-        :pswitch_15
-        :pswitch_15
-        :pswitch_15
-        :pswitch_15
-        :pswitch_15
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public static isValidState(Landroid/net/wifi/SupplicantState;)Z
-    .registers 2
+    .locals 1
     .parameter "state"
 
     .prologue
     .line 170
     sget-object v0, Landroid/net/wifi/SupplicantState;->UNINITIALIZED:Landroid/net/wifi/SupplicantState;
 
-    if-eq p0, v0, :cond_a
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Landroid/net/wifi/SupplicantState;->INVALID:Landroid/net/wifi/SupplicantState;
 
-    if-eq p0, v0, :cond_a
+    if-eq p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/net/wifi/SupplicantState;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -536,7 +536,7 @@
 .end method
 
 .method public static values()[Landroid/net/wifi/SupplicantState;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 33
@@ -554,7 +554,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 243
@@ -564,7 +564,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

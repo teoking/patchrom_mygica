@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 548
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/appwidget/AppWidgetHostView$ParcelableSparseArray;
-    .registers 8
+    .locals 6
     .parameter "source"
 
     .prologue
@@ -73,8 +73,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_13
-    if-ge v2, v1, :cond_23
+    :goto_0
+    if-ge v2, v1, :cond_0
 
     .line 554
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -90,15 +90,15 @@
     .line 553
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_13
+    goto :goto_0
 
     .line 556
-    :cond_23
+    :cond_0
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -111,7 +111,7 @@
 .end method
 
 .method public newArray(I)[Landroid/appwidget/AppWidgetHostView$ParcelableSparseArray;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -122,7 +122,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

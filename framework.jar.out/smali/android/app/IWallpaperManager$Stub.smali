@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 15
@@ -61,22 +61,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/app/IWallpaperManager;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 24
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 25
     const/4 v0, 0x0
 
     .line 31
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 27
-    :cond_4
+    :cond_0
     const-string v1, "android.app.IWallpaperManager"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -85,31 +85,31 @@
 
     .line 28
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/app/IWallpaperManager;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 29
     check-cast v0, Landroid/app/IWallpaperManager;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 31
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/app/IWallpaperManager$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/app/IWallpaperManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 35
@@ -117,7 +117,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 11
+    .locals 6
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -134,26 +134,26 @@
     const/4 v3, 0x1
 
     .line 39
-    sparse-switch p1, :sswitch_data_da
+    sparse-switch p1, :sswitch_data_0
 
     .line 150
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v3
 
-    :goto_9
+    :goto_0
     return v3
 
     .line 43
-    :sswitch_a
+    :sswitch_0
     const-string v4, "android.app.IWallpaperManager"
 
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 48
-    :sswitch_10
+    :sswitch_1
     const-string v4, "android.app.IWallpaperManager"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -174,7 +174,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 53
-    if-eqz v2, :cond_29
+    if-eqz v2, :cond_0
 
     .line 54
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -182,18 +182,18 @@
     .line 55
     invoke-virtual {v2, p3, v3}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 58
-    :cond_29
+    :cond_0
     invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 64
     .end local v0           #_arg0:Ljava/lang/String;
     .end local v2           #_result:Landroid/os/ParcelFileDescriptor;
-    :sswitch_2d
+    :sswitch_2
     const-string v4, "android.app.IWallpaperManager"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -203,7 +203,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_47
+    if-eqz v4, :cond_1
 
     .line 67
     sget-object v4, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -216,25 +216,25 @@
 
     .line 72
     .local v0, _arg0:Landroid/content/ComponentName;
-    :goto_40
+    :goto_1
     invoke-virtual {p0, v0}, Landroid/app/IWallpaperManager$Stub;->setWallpaperComponent(Landroid/content/ComponentName;)V
 
     .line 73
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 70
     .end local v0           #_arg0:Landroid/content/ComponentName;
-    :cond_47
+    :cond_1
     const/4 v0, 0x0
 
     .restart local v0       #_arg0:Landroid/content/ComponentName;
-    goto :goto_40
+    goto :goto_1
 
     .line 78
     .end local v0           #_arg0:Landroid/content/ComponentName;
-    :sswitch_49
+    :sswitch_3
     const-string v4, "android.app.IWallpaperManager"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -265,7 +265,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 85
-    if-eqz v2, :cond_73
+    if-eqz v2, :cond_2
 
     .line 86
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -274,8 +274,8 @@
     invoke-virtual {v2, p3, v3}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 92
-    :goto_6a
-    if-eqz v1, :cond_77
+    :goto_2
+    if-eqz v1, :cond_3
 
     .line 93
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -283,25 +283,25 @@
     .line 94
     invoke-virtual {v1, p3, v3}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 90
-    :cond_73
+    :cond_2
     invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_6a
+    goto :goto_2
 
     .line 97
-    :cond_77
+    :cond_3
     invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 103
     .end local v0           #_arg0:Landroid/app/IWallpaperManagerCallback;
     .end local v1           #_arg1:Landroid/os/Bundle;
     .end local v2           #_result:Landroid/os/ParcelFileDescriptor;
-    :sswitch_7b
+    :sswitch_4
     const-string v4, "android.app.IWallpaperManager"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -316,7 +316,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 106
-    if-eqz v2, :cond_91
+    if-eqz v2, :cond_4
 
     .line 107
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -324,17 +324,17 @@
     .line 108
     invoke-virtual {v2, p3, v3}, Landroid/app/WallpaperInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 111
-    :cond_91
+    :cond_4
     invoke-virtual {p3, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 117
     .end local v2           #_result:Landroid/app/WallpaperInfo;
-    :sswitch_96
+    :sswitch_5
     const-string v4, "android.app.IWallpaperManager"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -345,10 +345,10 @@
     .line 119
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 124
-    :sswitch_a3
+    :sswitch_6
     const-string v4, "android.app.IWallpaperManager"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -371,12 +371,12 @@
     .line 130
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 135
     .end local v0           #_arg0:I
     .end local v1           #_arg1:I
-    :sswitch_b8
+    :sswitch_7
     const-string v4, "android.app.IWallpaperManager"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -393,11 +393,11 @@
     .line 138
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 143
     .end local v2           #_result:I
-    :sswitch_c9
+    :sswitch_8
     const-string v4, "android.app.IWallpaperManager"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -414,19 +414,19 @@
     .line 146
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 39
-    :sswitch_data_da
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_10
-        0x2 -> :sswitch_2d
-        0x3 -> :sswitch_49
-        0x4 -> :sswitch_7b
-        0x5 -> :sswitch_96
-        0x6 -> :sswitch_a3
-        0x7 -> :sswitch_b8
-        0x8 -> :sswitch_c9
-        0x5f4e5446 -> :sswitch_a
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
+        0x8 -> :sswitch_8
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

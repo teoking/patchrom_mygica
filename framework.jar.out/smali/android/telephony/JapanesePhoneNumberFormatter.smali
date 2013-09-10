@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 34
@@ -17,13 +17,13 @@
 
     new-array v0, v0, [S
 
-    fill-array-data v0, :array_a
+    fill-array-data v0, :array_0
 
     sput-object v0, Landroid/telephony/JapanesePhoneNumberFormatter;->FORMAT_MAP:[S
 
     return-void
 
-    :array_a
+    :array_0
     .array-data 0x2
         0x9ct 0xfft
         0xat 0x0t
@@ -1239,7 +1239,7 @@
 .end method
 
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 33
@@ -1249,7 +1249,7 @@
 .end method
 
 .method public static format(Landroid/text/Editable;)V
-    .registers 14
+    .locals 13
     .parameter "text"
 
     .prologue
@@ -1268,7 +1268,7 @@
 
     .line 163
     .local v5, length:I
-    if-le v5, v12, :cond_33
+    if-le v5, v12, :cond_1
 
     invoke-interface {p0, v11, v12}, Landroid/text/Editable;->subSequence(II)Ljava/lang/CharSequence;
 
@@ -1284,13 +1284,13 @@
 
     move-result v9
 
-    if-eqz v9, :cond_33
+    if-eqz v9, :cond_1
 
     .line 165
     const/4 v6, 0x3
 
     .line 170
-    :cond_1a
+    :cond_0
     invoke-interface {p0, v11, v5}, Landroid/text/Editable;->subSequence(II)Ljava/lang/CharSequence;
 
     move-result-object v7
@@ -1301,12 +1301,12 @@
 
     .line 174
     .local v4, i:I
-    :goto_1f
+    :goto_0
     invoke-interface {p0}, Landroid/text/Editable;->length()I
 
     move-result v9
 
-    if-ge v4, v9, :cond_42
+    if-ge v4, v9, :cond_4
 
     .line 175
     invoke-interface {p0, v4}, Landroid/text/Editable;->charAt(I)C
@@ -1315,22 +1315,22 @@
 
     const/16 v10, 0x2d
 
-    if-ne v9, v10, :cond_3f
+    if-ne v9, v10, :cond_3
 
     .line 176
     add-int/lit8 v9, v4, 0x1
 
     invoke-interface {p0, v4, v9}, Landroid/text/Editable;->delete(II)Landroid/text/Editable;
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 166
     .end local v4           #i:I
     .end local v7           #saved:Ljava/lang/CharSequence;
-    :cond_33
+    :cond_1
     const/4 v9, 0x1
 
-    if-lt v5, v9, :cond_3e
+    if-lt v5, v9, :cond_2
 
     invoke-interface {p0, v11}, Landroid/text/Editable;->charAt(I)C
 
@@ -1338,23 +1338,23 @@
 
     const/16 v10, 0x30
 
-    if-eq v9, v10, :cond_1a
+    if-eq v9, v10, :cond_0
 
     .line 217
-    :cond_3e
-    :goto_3e
+    :cond_2
+    :goto_1
     return-void
 
     .line 178
     .restart local v4       #i:I
     .restart local v7       #saved:Ljava/lang/CharSequence;
-    :cond_3f
+    :cond_3
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 182
-    :cond_42
+    :cond_4
     invoke-interface {p0}, Landroid/text/Editable;->length()I
 
     move-result v5
@@ -1367,8 +1367,8 @@
 
     .line 187
     .local v0, base:I
-    :goto_48
-    if-ge v4, v5, :cond_88
+    :goto_2
+    if-ge v4, v5, :cond_8
 
     .line 188
     invoke-interface {p0, v4}, Landroid/text/Editable;->charAt(I)C
@@ -1381,15 +1381,15 @@
 
     move-result v9
 
-    if-nez v9, :cond_58
+    if-nez v9, :cond_5
 
     .line 190
     invoke-interface {p0, v11, v5, v7}, Landroid/text/Editable;->replace(IILjava/lang/CharSequence;)Landroid/text/Editable;
 
-    goto :goto_3e
+    goto :goto_1
 
     .line 193
-    :cond_58
+    :cond_5
     sget-object v9, Landroid/telephony/JapanesePhoneNumberFormatter;->FORMAT_MAP:[S
 
     add-int v10, v0, v1
@@ -1400,20 +1400,20 @@
 
     .line 194
     .local v8, value:S
-    if-gez v8, :cond_92
+    if-gez v8, :cond_9
 
     .line 195
     const/16 v9, -0x64
 
-    if-gt v8, v9, :cond_6a
+    if-gt v8, v9, :cond_6
 
     .line 196
     invoke-interface {p0, v11, v5, v7}, Landroid/text/Editable;->replace(IILjava/lang/CharSequence;)Landroid/text/Editable;
 
-    goto :goto_3e
+    goto :goto_1
 
     .line 199
-    :cond_6a
+    :cond_6
     invoke-static {v8}, Ljava/lang/Math;->abs(I)I
 
     move-result v9
@@ -1424,7 +1424,7 @@
 
     .line 200
     .local v3, dashPos2:I
-    if-le v5, v3, :cond_79
+    if-le v5, v3, :cond_7
 
     .line 201
     const-string v9, "-"
@@ -1432,7 +1432,7 @@
     invoke-interface {p0, v3, v9}, Landroid/text/Editable;->insert(ILjava/lang/CharSequence;)Landroid/text/Editable;
 
     .line 203
-    :cond_79
+    :cond_7
     invoke-static {v8}, Ljava/lang/Math;->abs(I)I
 
     move-result v9
@@ -1443,7 +1443,7 @@
 
     .line 204
     .local v2, dashPos1:I
-    if-le v5, v2, :cond_88
+    if-le v5, v2, :cond_8
 
     .line 205
     const-string v9, "-"
@@ -1455,27 +1455,27 @@
     .end local v2           #dashPos1:I
     .end local v3           #dashPos2:I
     .end local v8           #value:S
-    :cond_88
-    if-le v5, v12, :cond_3e
+    :cond_8
+    if-le v5, v12, :cond_2
 
-    if-ne v6, v12, :cond_3e
+    if-ne v6, v12, :cond_2
 
     .line 215
     const-string v9, "-"
 
     invoke-interface {p0, v6, v9}, Landroid/text/Editable;->insert(ILjava/lang/CharSequence;)Landroid/text/Editable;
 
-    goto :goto_3e
+    goto :goto_1
 
     .line 209
     .restart local v1       #ch:C
     .restart local v8       #value:S
-    :cond_92
+    :cond_9
     move v0, v8
 
     .line 210
     add-int/lit8 v4, v4, 0x1
 
     .line 212
-    goto :goto_48
+    goto :goto_2
 .end method

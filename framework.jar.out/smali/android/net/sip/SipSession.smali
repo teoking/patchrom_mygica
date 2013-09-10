@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/sip/ISipSession;)V
-    .registers 6
+    .locals 4
     .parameter "realSession"
 
     .prologue
@@ -35,25 +35,25 @@
     iput-object p1, p0, Landroid/net/sip/SipSession;->mSession:Landroid/net/sip/ISipSession;
 
     .line 241
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_0
 
     .line 243
-    :try_start_7
+    :try_start_0
     invoke-direct {p0}, Landroid/net/sip/SipSession;->createListener()Landroid/net/sip/ISipSessionListener;
 
     move-result-object v1
 
     invoke-interface {p1, v1}, Landroid/net/sip/ISipSession;->setListener(Landroid/net/sip/ISipSessionListener;)V
-    :try_end_e
-    .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_e} :catch_f
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 248
-    :cond_e
-    :goto_e
+    :cond_0
+    :goto_0
     return-void
 
     .line 244
-    :catch_f
+    :catch_0
     move-exception v0
 
     .line 245
@@ -80,11 +80,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method constructor <init>(Landroid/net/sip/ISipSession;Landroid/net/sip/SipSession$Listener;)V
-    .registers 3
+    .locals 0
     .parameter "realSession"
     .parameter "listener"
 
@@ -100,7 +100,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/net/sip/SipSession;)Landroid/net/sip/SipSession$Listener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -111,7 +111,7 @@
 .end method
 
 .method private createListener()Landroid/net/sip/ISipSessionListener;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 465
@@ -125,7 +125,7 @@
 
 # virtual methods
 .method public answerCall(Ljava/lang/String;I)V
-    .registers 7
+    .locals 4
     .parameter "sessionDescription"
     .parameter "timeout"
 
@@ -135,15 +135,15 @@
     iget-object v1, p0, Landroid/net/sip/SipSession;->mSession:Landroid/net/sip/ISipSession;
 
     invoke-interface {v1, p1, p2}, Landroid/net/sip/ISipSession;->answerCall(Ljava/lang/String;I)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 425
-    :goto_5
+    :goto_0
     return-void
 
     .line 422
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 423
@@ -170,11 +170,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public changeCall(Ljava/lang/String;I)V
-    .registers 7
+    .locals 4
     .parameter "sessionDescription"
     .parameter "timeout"
 
@@ -184,15 +184,15 @@
     iget-object v1, p0, Landroid/net/sip/SipSession;->mSession:Landroid/net/sip/ISipSession;
 
     invoke-interface {v1, p1, p2}, Landroid/net/sip/ISipSession;->changeCall(Ljava/lang/String;I)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 458
-    :goto_5
+    :goto_0
     return-void
 
     .line 455
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 456
@@ -219,11 +219,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public endCall()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 437
@@ -231,15 +231,15 @@
     iget-object v1, p0, Landroid/net/sip/SipSession;->mSession:Landroid/net/sip/ISipSession;
 
     invoke-interface {v1}, Landroid/net/sip/ISipSession;->endCall()V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 441
-    :goto_5
+    :goto_0
     return-void
 
     .line 438
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 439
@@ -266,11 +266,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public getCallId()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 334
@@ -278,17 +278,17 @@
     iget-object v1, p0, Landroid/net/sip/SipSession;->mSession:Landroid/net/sip/ISipSession;
 
     invoke-interface {v1}, Landroid/net/sip/ISipSession;->getCallId()Ljava/lang/String;
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 337
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 335
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 336
@@ -318,11 +318,11 @@
     .line 337
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getLocalIp()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 262
@@ -330,17 +330,17 @@
     iget-object v1, p0, Landroid/net/sip/SipSession;->mSession:Landroid/net/sip/ISipSession;
 
     invoke-interface {v1}, Landroid/net/sip/ISipSession;->getLocalIp()Ljava/lang/String;
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 265
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 263
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 264
@@ -370,11 +370,11 @@
     .line 265
     const-string v1, "127.0.0.1"
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getLocalProfile()Landroid/net/sip/SipProfile;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 276
@@ -382,17 +382,17 @@
     iget-object v1, p0, Landroid/net/sip/SipSession;->mSession:Landroid/net/sip/ISipSession;
 
     invoke-interface {v1}, Landroid/net/sip/ISipSession;->getLocalProfile()Landroid/net/sip/SipProfile;
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 279
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 277
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 278
@@ -422,11 +422,11 @@
     .line 279
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getPeerProfile()Landroid/net/sip/SipProfile;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 291
@@ -434,17 +434,17 @@
     iget-object v1, p0, Landroid/net/sip/SipSession;->mSession:Landroid/net/sip/ISipSession;
 
     invoke-interface {v1}, Landroid/net/sip/ISipSession;->getPeerProfile()Landroid/net/sip/SipProfile;
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 294
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 292
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 293
@@ -474,11 +474,11 @@
     .line 294
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method getRealSession()Landroid/net/sip/ISipSession;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 461
@@ -488,7 +488,7 @@
 .end method
 
 .method public getState()I
-    .registers 5
+    .locals 4
 
     .prologue
     .line 306
@@ -496,17 +496,17 @@
     iget-object v1, p0, Landroid/net/sip/SipSession;->mSession:Landroid/net/sip/ISipSession;
 
     invoke-interface {v1}, Landroid/net/sip/ISipSession;->getState()I
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 309
-    :goto_6
+    :goto_0
     return v1
 
     .line 307
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 308
@@ -536,11 +536,11 @@
     .line 309
     const/16 v1, 0x65
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public isInCall()Z
-    .registers 5
+    .locals 4
 
     .prologue
     .line 320
@@ -548,17 +548,17 @@
     iget-object v1, p0, Landroid/net/sip/SipSession;->mSession:Landroid/net/sip/ISipSession;
 
     invoke-interface {v1}, Landroid/net/sip/ISipSession;->isInCall()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 323
-    :goto_6
+    :goto_0
     return v1
 
     .line 321
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 322
@@ -588,11 +588,11 @@
     .line 323
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public makeCall(Landroid/net/sip/SipProfile;Ljava/lang/String;I)V
-    .registers 8
+    .locals 4
     .parameter "callee"
     .parameter "sessionDescription"
     .parameter "timeout"
@@ -603,15 +603,15 @@
     iget-object v1, p0, Landroid/net/sip/SipSession;->mSession:Landroid/net/sip/ISipSession;
 
     invoke-interface {v1, p1, p2, p3}, Landroid/net/sip/ISipSession;->makeCall(Landroid/net/sip/SipProfile;Ljava/lang/String;I)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 407
-    :goto_5
+    :goto_0
     return-void
 
     .line 404
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 405
@@ -638,11 +638,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public register(I)V
-    .registers 6
+    .locals 4
     .parameter "duration"
 
     .prologue
@@ -651,15 +651,15 @@
     iget-object v1, p0, Landroid/net/sip/SipSession;->mSession:Landroid/net/sip/ISipSession;
 
     invoke-interface {v1, p1}, Landroid/net/sip/ISipSession;->register(I)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 369
-    :goto_5
+    :goto_0
     return-void
 
     .line 366
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 367
@@ -686,11 +686,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public setListener(Landroid/net/sip/SipSession$Listener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue
@@ -702,7 +702,7 @@
 .end method
 
 .method public unregister()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 382
@@ -710,15 +710,15 @@
     iget-object v1, p0, Landroid/net/sip/SipSession;->mSession:Landroid/net/sip/ISipSession;
 
     invoke-interface {v1}, Landroid/net/sip/ISipSession;->unregister()V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 386
-    :goto_5
+    :goto_0
     return-void
 
     .line 383
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 384
@@ -745,5 +745,5 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5
+    goto :goto_0
 .end method

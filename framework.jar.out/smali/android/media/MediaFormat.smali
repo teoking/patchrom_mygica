@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 173
@@ -73,7 +73,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/Map;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -99,7 +99,7 @@
 .end method
 
 .method public static final createAudioFormat(Ljava/lang/String;II)Landroid/media/MediaFormat;
-    .registers 5
+    .locals 2
     .parameter "mime"
     .parameter "sampleRate"
     .parameter "channelCount"
@@ -131,7 +131,7 @@
 .end method
 
 .method public static final createVideoFormat(Ljava/lang/String;II)Landroid/media/MediaFormat;
-    .registers 5
+    .locals 2
     .parameter "mime"
     .parameter "width"
     .parameter "height"
@@ -165,7 +165,7 @@
 
 # virtual methods
 .method public final containsKey(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -180,7 +180,7 @@
 .end method
 
 .method public final getByteBuffer(Ljava/lang/String;)Ljava/nio/ByteBuffer;
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -197,7 +197,7 @@
 .end method
 
 .method public final getFloat(Ljava/lang/String;)F
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -218,7 +218,7 @@
 .end method
 
 .method public final getInteger(Ljava/lang/String;)I
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -239,7 +239,7 @@
 .end method
 
 .method public final getLong(Ljava/lang/String;)J
-    .registers 4
+    .locals 2
     .parameter "name"
 
     .prologue
@@ -260,7 +260,7 @@
 .end method
 
 .method getMap()Ljava/util/Map;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -280,7 +280,7 @@
 .end method
 
 .method public final getString(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -297,7 +297,7 @@
 .end method
 
 .method public final setByteBuffer(Ljava/lang/String;Ljava/nio/ByteBuffer;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "bytes"
 
@@ -312,7 +312,7 @@
 .end method
 
 .method public final setFloat(Ljava/lang/String;F)V
-    .registers 5
+    .locals 2
     .parameter "name"
     .parameter "value"
 
@@ -331,7 +331,7 @@
 .end method
 
 .method public final setInteger(Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
     .parameter "name"
     .parameter "value"
 
@@ -350,7 +350,7 @@
 .end method
 
 .method public final setLong(Ljava/lang/String;J)V
-    .registers 6
+    .locals 2
     .parameter "name"
     .parameter "value"
 
@@ -369,7 +369,7 @@
 .end method
 
 .method public final setString(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "value"
 
@@ -384,7 +384,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 296

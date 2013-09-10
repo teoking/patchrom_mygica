@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/preference/ListPreference;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 5
+    .locals 2
     .parameter "dialog"
     .parameter "which"
 
@@ -46,6 +46,7 @@
     .line 240
     iget-object v0, p0, Landroid/preference/ListPreference$1;->this$0:Landroid/preference/ListPreference;
 
+    #setter for: Landroid/preference/ListPreference;->mClickedDialogEntryIndex:I
     invoke-static {v0, p2}, Landroid/preference/ListPreference;->access$002(Landroid/preference/ListPreference;I)I
 
     .line 246

@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1026
@@ -48,7 +48,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/net/Uri$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -59,13 +59,13 @@
 .end method
 
 .method private getUserInfoPart()Landroid/net/Uri$Part;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1043
     iget-object v0, p0, Landroid/net/Uri$AbstractHierarchicalUri;->userInfo:Landroid/net/Uri$Part;
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     invoke-direct {p0}, Landroid/net/Uri$AbstractHierarchicalUri;->parseUserInfo()Ljava/lang/String;
 
@@ -77,17 +77,17 @@
 
     iput-object v0, p0, Landroid/net/Uri$AbstractHierarchicalUri;->userInfo:Landroid/net/Uri$Part;
 
-    :goto_e
+    :goto_0
     return-object v0
 
-    :cond_f
+    :cond_0
     iget-object v0, p0, Landroid/net/Uri$AbstractHierarchicalUri;->userInfo:Landroid/net/Uri$Part;
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method private parseHost()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 1075
@@ -97,17 +97,17 @@
 
     .line 1076
     .local v0, authority:Ljava/lang/String;
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     .line 1077
     const/4 v4, 0x0
 
     .line 1088
-    :goto_7
+    :goto_0
     return-object v4
 
     .line 1081
-    :cond_8
+    :cond_0
     const/16 v4, 0x40
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->indexOf(I)I
@@ -126,7 +126,7 @@
     .local v2, portSeparator:I
     const/4 v4, -0x1
 
-    if-ne v2, v4, :cond_22
+    if-ne v2, v4, :cond_1
 
     add-int/lit8 v4, v3, 0x1
 
@@ -136,27 +136,27 @@
 
     .line 1088
     .local v1, encodedHost:Ljava/lang/String;
-    :goto_1d
+    :goto_1
     invoke-static {v1}, Landroid/net/Uri$AbstractHierarchicalUri;->decode(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_7
+    goto :goto_0
 
     .line 1084
     .end local v1           #encodedHost:Ljava/lang/String;
-    :cond_22
+    :cond_1
     add-int/lit8 v4, v3, 0x1
 
     invoke-virtual {v0, v4, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_1d
+    goto :goto_1
 .end method
 
 .method private parsePort()I
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v5, -0x1
@@ -168,15 +168,15 @@
 
     .line 1101
     .local v0, authority:Ljava/lang/String;
-    if-nez v0, :cond_8
+    if-nez v0, :cond_1
 
     .line 1119
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     return v5
 
     .line 1107
-    :cond_8
+    :cond_1
     const/16 v6, 0x40
 
     invoke-virtual {v0, v6}, Ljava/lang/String;->indexOf(I)I
@@ -193,7 +193,7 @@
 
     .line 1110
     .local v2, portSeparator:I
-    if-eq v2, v5, :cond_7
+    if-eq v2, v5, :cond_0
 
     .line 1114
     add-int/lit8 v6, v2, 0x1
@@ -208,17 +208,17 @@
 
     .line 1116
     .local v3, portString:Ljava/lang/String;
-    :try_start_20
+    :try_start_0
     invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_23
-    .catch Ljava/lang/NumberFormatException; {:try_start_20 .. :try_end_23} :catch_25
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v5
 
-    goto :goto_7
+    goto :goto_0
 
     .line 1117
-    :catch_25
+    :catch_0
     move-exception v1
 
     .line 1118
@@ -231,11 +231,11 @@
 
     invoke-static {v6, v7, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method private parseUserInfo()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v2, 0x0
@@ -247,15 +247,15 @@
 
     .line 1053
     .local v0, authority:Ljava/lang/String;
-    if-nez v0, :cond_8
+    if-nez v0, :cond_1
 
     .line 1058
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     return-object v2
 
     .line 1057
-    :cond_8
+    :cond_1
     const/16 v3, 0x40
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->indexOf(I)I
@@ -266,7 +266,7 @@
     .local v1, end:I
     const/4 v3, -0x1
 
-    if-eq v1, v3, :cond_7
+    if-eq v1, v3, :cond_0
 
     const/4 v2, 0x0
 
@@ -274,13 +274,13 @@
 
     move-result-object v2
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -296,7 +296,7 @@
 .end method
 
 .method public final getEncodedUserInfo()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1048
@@ -312,7 +312,7 @@
 .end method
 
 .method public getHost()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1069
@@ -322,41 +322,41 @@
 
     move-result-object v2
 
-    if-eq v1, v2, :cond_e
+    if-eq v1, v2, :cond_0
 
     const/4 v0, 0x1
 
     .line 1070
     .local v0, cached:Z
-    :goto_9
-    if-eqz v0, :cond_10
+    :goto_0
+    if-eqz v0, :cond_1
 
     iget-object v1, p0, Landroid/net/Uri$AbstractHierarchicalUri;->host:Ljava/lang/String;
 
-    :goto_d
+    :goto_1
     return-object v1
 
     .line 1069
     .end local v0           #cached:Z
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 
     .line 1070
     .restart local v0       #cached:Z
-    :cond_10
+    :cond_1
     invoke-direct {p0}, Landroid/net/Uri$AbstractHierarchicalUri;->parseHost()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/net/Uri$AbstractHierarchicalUri;->host:Ljava/lang/String;
 
-    goto :goto_d
+    goto :goto_1
 .end method
 
 .method public getLastPathSegment()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1032
@@ -372,16 +372,16 @@
 
     .line 1034
     .local v1, size:I
-    if-nez v1, :cond_c
+    if-nez v1, :cond_0
 
     .line 1035
     const/4 v2, 0x0
 
     .line 1037
-    :goto_b
+    :goto_0
     return-object v2
 
-    :cond_c
+    :cond_0
     add-int/lit8 v2, v1, -0x1
 
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -390,11 +390,11 @@
 
     check-cast v2, Ljava/lang/String;
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public getPort()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1094
@@ -402,7 +402,7 @@
 
     const/4 v1, -0x2
 
-    if-ne v0, v1, :cond_c
+    if-ne v0, v1, :cond_0
 
     invoke-direct {p0}, Landroid/net/Uri$AbstractHierarchicalUri;->parsePort()I
 
@@ -410,17 +410,17 @@
 
     iput v0, p0, Landroid/net/Uri$AbstractHierarchicalUri;->port:I
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     iget v0, p0, Landroid/net/Uri$AbstractHierarchicalUri;->port:I
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public getUserInfo()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1062

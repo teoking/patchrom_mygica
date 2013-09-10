@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 312
@@ -46,7 +46,7 @@
 .end method
 
 .method private constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "mask"
 
     .prologue
@@ -61,7 +61,7 @@
 .end method
 
 .method synthetic constructor <init>(ILandroid/os/StrictMode$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 322

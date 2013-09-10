@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1141
@@ -56,7 +56,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -86,7 +86,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/widget/ExpandableListView$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -98,7 +98,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcelable;Ljava/util/ArrayList;)V
-    .registers 3
+    .locals 0
     .parameter "superState"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -127,7 +127,7 @@
 
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 

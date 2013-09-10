@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/Bitmap;Landroid/graphics/Shader$TileMode;Landroid/graphics/Shader$TileMode;)V
-    .registers 8
+    .locals 4
     .parameter "bitmap"
     .parameter "tileX"
     .parameter "tileY"

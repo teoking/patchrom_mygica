@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/Bitmap;[BLjava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter "bitmap"
     .parameter "chunk"
     .parameter "srcName"
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/NinePatch;)V
-    .registers 4
+    .locals 2
     .parameter "patch"
 
     .prologue
@@ -88,7 +88,7 @@
     .line 66
     iget-object v0, p1, Landroid/graphics/NinePatch;->mPaint:Landroid/graphics/Paint;
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     .line 67
     new-instance v0, Landroid/graphics/Paint;
@@ -100,7 +100,7 @@
     iput-object v0, p0, Landroid/graphics/NinePatch;->mPaint:Landroid/graphics/Paint;
 
     .line 69
-    :cond_23
+    :cond_0
     iget-object v0, p0, Landroid/graphics/NinePatch;->mBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->ni()I
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
-    .registers 10
+    .locals 7
     .parameter "canvas"
     .parameter "location"
 
@@ -143,7 +143,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_1
 
     .line 101
     iget v0, p1, Landroid/graphics/Canvas;->mNativeCanvas:I
@@ -158,13 +158,13 @@
 
     iget-object v1, p0, Landroid/graphics/NinePatch;->mPaint:Landroid/graphics/Paint;
 
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/graphics/NinePatch;->mPaint:Landroid/graphics/Paint;
 
     iget v4, v1, Landroid/graphics/Paint;->mNativePaint:I
 
-    :goto_18
+    :goto_0
     iget v5, p1, Landroid/graphics/Canvas;->mDensity:I
 
     iget-object v1, p0, Landroid/graphics/NinePatch;->mBitmap:Landroid/graphics/Bitmap;
@@ -176,17 +176,17 @@
     invoke-static/range {v0 .. v6}, Landroid/graphics/NinePatch;->nativeDraw(ILandroid/graphics/Rect;I[BIII)V
 
     .line 109
-    :goto_22
+    :goto_1
     return-void
 
     .line 101
-    :cond_23
+    :cond_0
     const/4 v4, 0x0
 
-    goto :goto_18
+    goto :goto_0
 
     .line 106
-    :cond_25
+    :cond_1
     iget-object v0, p0, Landroid/graphics/NinePatch;->mRect:Landroid/graphics/RectF;
 
     invoke-virtual {v0, p2}, Landroid/graphics/RectF;->set(Landroid/graphics/Rect;)V
@@ -202,11 +202,11 @@
 
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawPatch(Landroid/graphics/Bitmap;[BLandroid/graphics/RectF;Landroid/graphics/Paint;)V
 
-    goto :goto_22
+    goto :goto_1
 .end method
 
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
-    .registers 11
+    .locals 7
     .parameter "canvas"
     .parameter "location"
     .parameter "paint"
@@ -217,7 +217,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_21
+    if-nez v0, :cond_1
 
     .line 120
     iget v0, p1, Landroid/graphics/Canvas;->mNativeCanvas:I
@@ -230,11 +230,11 @@
 
     iget-object v3, p0, Landroid/graphics/NinePatch;->mChunk:[B
 
-    if-eqz p3, :cond_1f
+    if-eqz p3, :cond_0
 
     iget v4, p3, Landroid/graphics/Paint;->mNativePaint:I
 
-    :goto_14
+    :goto_0
     iget v5, p1, Landroid/graphics/Canvas;->mDensity:I
 
     iget-object v1, p0, Landroid/graphics/NinePatch;->mBitmap:Landroid/graphics/Bitmap;
@@ -246,17 +246,17 @@
     invoke-static/range {v0 .. v6}, Landroid/graphics/NinePatch;->nativeDraw(ILandroid/graphics/Rect;I[BIII)V
 
     .line 127
-    :goto_1e
+    :goto_1
     return-void
 
     .line 120
-    :cond_1f
+    :cond_0
     const/4 v4, 0x0
 
-    goto :goto_14
+    goto :goto_0
 
     .line 124
-    :cond_21
+    :cond_1
     iget-object v0, p0, Landroid/graphics/NinePatch;->mRect:Landroid/graphics/RectF;
 
     invoke-virtual {v0, p2}, Landroid/graphics/RectF;->set(Landroid/graphics/Rect;)V
@@ -270,11 +270,11 @@
 
     invoke-virtual {p1, v0, v1, v2, p3}, Landroid/graphics/Canvas;->drawPatch(Landroid/graphics/Bitmap;[BLandroid/graphics/RectF;Landroid/graphics/Paint;)V
 
-    goto :goto_1e
+    goto :goto_1
 .end method
 
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/RectF;)V
-    .registers 10
+    .locals 7
     .parameter "canvas"
     .parameter "location"
 
@@ -284,7 +284,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_1
 
     .line 84
     iget v0, p1, Landroid/graphics/Canvas;->mNativeCanvas:I
@@ -299,13 +299,13 @@
 
     iget-object v1, p0, Landroid/graphics/NinePatch;->mPaint:Landroid/graphics/Paint;
 
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/graphics/NinePatch;->mPaint:Landroid/graphics/Paint;
 
     iget v4, v1, Landroid/graphics/Paint;->mNativePaint:I
 
-    :goto_18
+    :goto_0
     iget v5, p1, Landroid/graphics/Canvas;->mDensity:I
 
     iget-object v1, p0, Landroid/graphics/NinePatch;->mBitmap:Landroid/graphics/Bitmap;
@@ -317,17 +317,17 @@
     invoke-static/range {v0 .. v6}, Landroid/graphics/NinePatch;->nativeDraw(ILandroid/graphics/RectF;I[BIII)V
 
     .line 91
-    :goto_22
+    :goto_1
     return-void
 
     .line 84
-    :cond_23
+    :cond_0
     const/4 v4, 0x0
 
-    goto :goto_18
+    goto :goto_0
 
     .line 89
-    :cond_25
+    :cond_1
     iget-object v0, p0, Landroid/graphics/NinePatch;->mBitmap:Landroid/graphics/Bitmap;
 
     iget-object v1, p0, Landroid/graphics/NinePatch;->mChunk:[B
@@ -336,11 +336,11 @@
 
     invoke-virtual {p1, v0, v1, p2, v2}, Landroid/graphics/Canvas;->drawPatch(Landroid/graphics/Bitmap;[BLandroid/graphics/RectF;Landroid/graphics/Paint;)V
 
-    goto :goto_22
+    goto :goto_1
 .end method
 
 .method public getDensity()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 134
@@ -352,7 +352,7 @@
 .end method
 
 .method public getHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 142
@@ -366,7 +366,7 @@
 .end method
 
 .method public final getTransparentRegion(Landroid/graphics/Rect;)Landroid/graphics/Region;
-    .registers 5
+    .locals 3
     .parameter "location"
 
     .prologue
@@ -385,23 +385,23 @@
 
     .line 151
     .local v0, r:I
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     new-instance v1, Landroid/graphics/Region;
 
     invoke-direct {v1, v0}, Landroid/graphics/Region;-><init>(I)V
 
-    :goto_13
+    :goto_0
     return-object v1
 
-    :cond_14
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public getWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 138
@@ -415,7 +415,7 @@
 .end method
 
 .method public final hasAlpha()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 146
@@ -429,7 +429,7 @@
 .end method
 
 .method public setPaint(Landroid/graphics/Paint;)V
-    .registers 2
+    .locals 0
     .parameter "p"
 
     .prologue

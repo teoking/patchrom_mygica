@@ -171,7 +171,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -185,7 +185,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 15
+    .locals 12
     .parameter "context"
     .parameter "attrs"
 
@@ -402,7 +402,7 @@
 
     .line 226
     .local v3, pointId:I
-    if-eqz v3, :cond_be
+    if-eqz v3, :cond_0
 
     invoke-virtual {v4, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -410,7 +410,7 @@
 
     .line 227
     .local v2, pointDrawable:Landroid/graphics/drawable/Drawable;
-    :cond_be
+    :cond_0
     const/4 v8, 0x5
 
     invoke-virtual {v0, v8, v10}, Landroid/content/res/TypedArray;->getDimension(IF)F
@@ -432,7 +432,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_d6
+    if-eqz v8, :cond_1
 
     .line 233
     iget v8, v1, Landroid/util/TypedValue;->resourceId:I
@@ -440,10 +440,10 @@
     invoke-direct {p0, v8}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->internalSetTargetResources(I)V
 
     .line 235
-    :cond_d6
+    :cond_1
     iget-object v8, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDrawables:Ljava/util/ArrayList;
 
-    if-eqz v8, :cond_e2
+    if-eqz v8, :cond_2
 
     iget-object v8, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDrawables:Ljava/util/ArrayList;
 
@@ -451,10 +451,10 @@
 
     move-result v8
 
-    if-nez v8, :cond_ea
+    if-nez v8, :cond_3
 
     .line 236
-    :cond_e2
+    :cond_2
     new-instance v6, Ljava/lang/IllegalStateException;
 
     const-string v7, "Must specify at least one target drawable"
@@ -464,19 +464,19 @@
     throw v6
 
     .line 240
-    :cond_ea
+    :cond_3
     invoke-virtual {v0, v6, v1}, Landroid/content/res/TypedArray;->getValue(ILandroid/util/TypedValue;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_ff
+    if-eqz v8, :cond_5
 
     .line 241
     iget v5, v1, Landroid/util/TypedValue;->resourceId:I
 
     .line 242
     .local v5, resourceId:I
-    if-nez v5, :cond_fc
+    if-nez v5, :cond_4
 
     .line 243
     new-instance v6, Ljava/lang/IllegalStateException;
@@ -488,26 +488,26 @@
     throw v6
 
     .line 245
-    :cond_fc
+    :cond_4
     invoke-virtual {p0, v5}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->setTargetDescriptionsResourceId(I)V
 
     .line 249
     .end local v5           #resourceId:I
-    :cond_ff
+    :cond_5
     const/4 v8, 0x2
 
     invoke-virtual {v0, v8, v1}, Landroid/content/res/TypedArray;->getValue(ILandroid/util/TypedValue;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_115
+    if-eqz v8, :cond_7
 
     .line 250
     iget v5, v1, Landroid/util/TypedValue;->resourceId:I
 
     .line 251
     .restart local v5       #resourceId:I
-    if-nez v5, :cond_112
+    if-nez v5, :cond_6
 
     .line 252
     new-instance v6, Ljava/lang/IllegalStateException;
@@ -519,12 +519,12 @@
     throw v6
 
     .line 254
-    :cond_112
+    :cond_6
     invoke-virtual {p0, v5}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->setDirectionDescriptionsResourceId(I)V
 
     .line 257
     .end local v5           #resourceId:I
-    :cond_115
+    :cond_7
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 260
@@ -549,9 +549,9 @@
     .line 264
     iget v8, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mVibrationDuration:I
 
-    if-lez v8, :cond_14d
+    if-lez v8, :cond_8
 
-    :goto_12d
+    :goto_0
     invoke-virtual {p0, v6}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->setVibrateEnabled(Z)V
 
     .line 266
@@ -585,15 +585,15 @@
     .line 271
     return-void
 
-    :cond_14d
+    :cond_8
     move v6, v7
 
     .line 264
-    goto :goto_12d
+    goto :goto_0
 .end method
 
 .method static synthetic access$100(Lcom/android/internal/widget/multiwaveview/GlowPadView;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -604,7 +604,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/internal/widget/multiwaveview/GlowPadView;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -615,7 +615,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/internal/widget/multiwaveview/GlowPadView;IFF)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -629,7 +629,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/android/internal/widget/multiwaveview/GlowPadView;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -640,7 +640,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/android/internal/widget/multiwaveview/GlowPadView;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -651,7 +651,7 @@
 .end method
 
 .method static synthetic access$502(Lcom/android/internal/widget/multiwaveview/GlowPadView;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -663,7 +663,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/android/internal/widget/multiwaveview/GlowPadView;I)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -675,7 +675,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/android/internal/widget/multiwaveview/GlowPadView;ZZ)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -688,7 +688,7 @@
 .end method
 
 .method static synthetic access$802(Lcom/android/internal/widget/multiwaveview/GlowPadView;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -700,7 +700,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/android/internal/widget/multiwaveview/GlowPadView;)Lcom/android/internal/widget/multiwaveview/PointCloud;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -711,7 +711,7 @@
 .end method
 
 .method private announceTargets()V
-    .registers 9
+    .locals 8
 
     .prologue
     .line 1082
@@ -732,8 +732,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_c
-    if-ge v1, v2, :cond_32
+    :goto_0
+    if-ge v1, v2, :cond_1
 
     .line 1085
     invoke-direct {p0, v1}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->getTargetDescription(I)Ljava/lang/String;
@@ -752,13 +752,13 @@
 
     move-result v6
 
-    if-nez v6, :cond_2f
+    if-nez v6, :cond_0
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v6
 
-    if-nez v6, :cond_2f
+    if-nez v6, :cond_0
 
     .line 1089
     const/4 v6, 0x1
@@ -779,20 +779,20 @@
 
     .line 1084
     .end local v4           #text:Ljava/lang/String;
-    :cond_2f
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_c
+    goto :goto_0
 
     .line 1093
     .end local v0           #directionDescription:Ljava/lang/String;
     .end local v3           #targetDescription:Ljava/lang/String;
-    :cond_32
+    :cond_1
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->length()I
 
     move-result v6
 
-    if-lez v6, :cond_3f
+    if-lez v6, :cond_2
 
     .line 1094
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -802,12 +802,12 @@
     invoke-virtual {p0, v6}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->announceForAccessibility(Ljava/lang/CharSequence;)V
 
     .line 1096
-    :cond_3f
+    :cond_2
     return-void
 .end method
 
 .method private assignDefaultsIfNeeded()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x0
@@ -817,7 +817,7 @@
 
     cmpl-float v0, v0, v3
 
-    if-nez v0, :cond_1d
+    if-nez v0, :cond_0
 
     .line 948
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mOuterRing:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
@@ -845,12 +845,12 @@
     iput v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mOuterRadius:F
 
     .line 950
-    :cond_1d
+    :cond_0
     iget v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mSnapMargin:F
 
     cmpl-float v0, v0, v3
 
-    if-nez v0, :cond_38
+    if-nez v0, :cond_1
 
     .line 951
     const/4 v0, 0x1
@@ -876,12 +876,12 @@
     iput v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mSnapMargin:F
 
     .line 954
-    :cond_38
+    :cond_1
     iget v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mInnerRadius:F
 
     cmpl-float v0, v0, v3
 
-    if-nez v0, :cond_4a
+    if-nez v0, :cond_2
 
     .line 955
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mHandleDrawable:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
@@ -899,12 +899,12 @@
     iput v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mInnerRadius:F
 
     .line 957
-    :cond_4a
+    :cond_2
     return-void
 .end method
 
 .method private computeInsets(II)V
-    .registers 7
+    .locals 4
     .parameter "dx"
     .parameter "dy"
 
@@ -928,19 +928,19 @@
     .local v0, absoluteGravity:I
     and-int/lit8 v2, v0, 0x7
 
-    packed-switch v2, :pswitch_data_2a
+    packed-switch v2, :pswitch_data_0
 
     .line 972
-    :pswitch_10
+    :pswitch_0
     div-int/lit8 v2, p1, 0x2
 
     iput v2, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mHorizontalInset:I
 
     .line 975
-    :goto_14
+    :goto_0
     and-int/lit8 v2, v0, 0x70
 
-    sparse-switch v2, :sswitch_data_34
+    sparse-switch v2, :sswitch_data_0
 
     .line 984
     div-int/lit8 v2, p2, 0x2
@@ -948,51 +948,51 @@
     iput v2, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mVerticalInset:I
 
     .line 987
-    :goto_1d
+    :goto_1
     return-void
 
     .line 965
-    :pswitch_1e
+    :pswitch_1
     iput v3, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mHorizontalInset:I
 
-    goto :goto_14
+    goto :goto_0
 
     .line 968
-    :pswitch_21
+    :pswitch_2
     iput p1, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mHorizontalInset:I
 
-    goto :goto_14
+    goto :goto_0
 
     .line 977
-    :sswitch_24
+    :sswitch_0
     iput v3, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mVerticalInset:I
 
-    goto :goto_1d
+    goto :goto_1
 
     .line 980
-    :sswitch_27
+    :sswitch_1
     iput p2, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mVerticalInset:I
 
-    goto :goto_1d
+    goto :goto_1
 
     .line 963
-    :pswitch_data_2a
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_1e
-        :pswitch_10
-        :pswitch_21
+        :pswitch_1
+        :pswitch_0
+        :pswitch_2
     .end packed-switch
 
     .line 975
-    :sswitch_data_34
+    :sswitch_data_0
     .sparse-switch
-        0x30 -> :sswitch_24
-        0x50 -> :sswitch_27
+        0x30 -> :sswitch_0
+        0x50 -> :sswitch_1
     .end sparse-switch
 .end method
 
 .method private deactivateTargets()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 414
@@ -1007,8 +1007,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_19
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 416
     iget-object v3, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDrawables:Ljava/util/ArrayList;
@@ -1028,11 +1028,11 @@
     .line 415
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 419
     .end local v2           #target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
-    :cond_19
+    :cond_0
     const/4 v3, -0x1
 
     iput v3, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mActiveTarget:I
@@ -1042,13 +1042,13 @@
 .end method
 
 .method private dispatchOnFinishFinalAnimation()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 434
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mOnTriggerListener:Lcom/android/internal/widget/multiwaveview/GlowPadView$OnTriggerListener;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 435
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mOnTriggerListener:Lcom/android/internal/widget/multiwaveview/GlowPadView$OnTriggerListener;
@@ -1056,12 +1056,12 @@
     invoke-interface {v0}, Lcom/android/internal/widget/multiwaveview/GlowPadView$OnTriggerListener;->onFinishFinalAnimation()V
 
     .line 437
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method private dispatchTriggerEvent(I)V
-    .registers 3
+    .locals 1
     .parameter "whichTarget"
 
     .prologue
@@ -1071,7 +1071,7 @@
     .line 428
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mOnTriggerListener:Lcom/android/internal/widget/multiwaveview/GlowPadView$OnTriggerListener;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 429
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mOnTriggerListener:Lcom/android/internal/widget/multiwaveview/GlowPadView$OnTriggerListener;
@@ -1079,12 +1079,12 @@
     invoke-interface {v0, p0, p1}, Lcom/android/internal/widget/multiwaveview/GlowPadView$OnTriggerListener;->onTrigger(Landroid/view/View;I)V
 
     .line 431
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method private dist2(FF)F
-    .registers 5
+    .locals 2
     .parameter "dx"
     .parameter "dy"
 
@@ -1100,7 +1100,7 @@
 .end method
 
 .method private doFinish()V
-    .registers 8
+    .locals 7
 
     .prologue
     const/16 v6, 0xc8
@@ -1118,14 +1118,14 @@
     .local v0, activeTarget:I
     const/4 v4, -0x1
 
-    if-eq v0, v4, :cond_27
+    if-eq v0, v4, :cond_1
 
     move v1, v2
 
     .line 443
     .local v1, targetHit:Z
-    :goto_b
-    if-eqz v1, :cond_29
+    :goto_0
+    if-eqz v1, :cond_2
 
     .line 446
     invoke-direct {p0, v0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->highlightSelected(I)V
@@ -1143,7 +1143,7 @@
     .line 451
     iget-boolean v2, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mAlwaysTrackFinger:Z
 
-    if-nez v2, :cond_23
+    if-nez v2, :cond_0
 
     .line 453
     iget-object v2, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetAnimations:Lcom/android/internal/widget/multiwaveview/GlowPadView$AnimationBundle;
@@ -1151,23 +1151,23 @@
     invoke-virtual {v2}, Lcom/android/internal/widget/multiwaveview/GlowPadView$AnimationBundle;->stop()V
 
     .line 461
-    :cond_23
-    :goto_23
+    :cond_0
+    :goto_1
     invoke-direct {p0, v3}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->setGrabbedState(I)V
 
     .line 462
     return-void
 
     .end local v1           #targetHit:Z
-    :cond_27
+    :cond_1
     move v1, v3
 
     .line 441
-    goto :goto_b
+    goto :goto_0
 
     .line 457
     .restart local v1       #targetHit:Z
-    :cond_29
+    :cond_2
     iget-object v4, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mResetListenerWithPing:Landroid/animation/Animator$AnimatorListener;
 
     invoke-direct {p0, v6, v3, v5, v4}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->hideGlow(IIFLandroid/animation/Animator$AnimatorListener;)V
@@ -1175,11 +1175,11 @@
     .line 458
     invoke-direct {p0, v2, v3}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->hideTargets(ZZ)V
 
-    goto :goto_23
+    goto :goto_1
 .end method
 
 .method private dump()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 279
@@ -1362,14 +1362,14 @@
 .end method
 
 .method private getDirectionDescription(I)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "index"
 
     .prologue
     .line 1111
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mDirectionDescriptions:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mDirectionDescriptions:Ljava/util/ArrayList;
 
@@ -1377,10 +1377,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_1
 
     .line 1112
-    :cond_c
+    :cond_0
     iget v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mDirectionDescriptionsResourceId:I
 
     invoke-direct {p0, v0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->loadDescriptions(I)Ljava/util/ArrayList;
@@ -1402,7 +1402,7 @@
 
     move-result v1
 
-    if-eq v0, v1, :cond_2b
+    if-eq v0, v1, :cond_1
 
     .line 1114
     const-string v0, "GlowPadView"
@@ -1415,10 +1415,10 @@
     const/4 v0, 0x0
 
     .line 1119
-    :goto_2a
+    :goto_0
     return-object v0
 
-    :cond_2b
+    :cond_1
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mDirectionDescriptions:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1427,11 +1427,11 @@
 
     check-cast v0, Ljava/lang/String;
 
-    goto :goto_2a
+    goto :goto_0
 .end method
 
 .method private getResourceId(Landroid/content/res/TypedArray;I)I
-    .registers 5
+    .locals 2
     .parameter "a"
     .parameter "id"
 
@@ -1443,21 +1443,21 @@
 
     .line 275
     .local v0, tv:Landroid/util/TypedValue;
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v1, 0x0
 
-    :goto_7
+    :goto_0
     return v1
 
-    :cond_8
+    :cond_0
     iget v1, v0, Landroid/util/TypedValue;->resourceId:I
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method private getScaledGlowRadiusSquared()F
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1073
@@ -1471,7 +1471,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_0
 
     .line 1074
     const v1, 0x3fa66666
@@ -1482,7 +1482,7 @@
 
     .line 1078
     .local v0, scaledTapRadius:F
-    :goto_13
+    :goto_0
     invoke-direct {p0, v0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->square(F)F
 
     move-result v1
@@ -1491,22 +1491,22 @@
 
     .line 1076
     .end local v0           #scaledTapRadius:F
-    :cond_18
+    :cond_0
     iget v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mGlowRadius:F
 
     .restart local v0       #scaledTapRadius:F
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method private getTargetDescription(I)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "index"
 
     .prologue
     .line 1099
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDescriptions:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDescriptions:Ljava/util/ArrayList;
 
@@ -1514,10 +1514,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_1
 
     .line 1100
-    :cond_c
+    :cond_0
     iget v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDescriptionsResourceId:I
 
     invoke-direct {p0, v0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->loadDescriptions(I)Ljava/util/ArrayList;
@@ -1539,7 +1539,7 @@
 
     move-result v1
 
-    if-eq v0, v1, :cond_2b
+    if-eq v0, v1, :cond_1
 
     .line 1102
     const-string v0, "GlowPadView"
@@ -1552,10 +1552,10 @@
     const/4 v0, 0x0
 
     .line 1107
-    :goto_2a
+    :goto_0
     return-object v0
 
-    :cond_2b
+    :cond_1
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDescriptions:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1564,11 +1564,11 @@
 
     check-cast v0, Ljava/lang/String;
 
-    goto :goto_2a
+    goto :goto_0
 .end method
 
 .method private handleCancel(Landroid/view/MotionEvent;)V
-    .registers 5
+    .locals 3
     .parameter "event"
 
     .prologue
@@ -1595,7 +1595,7 @@
 .end method
 
 .method private handleDown(Landroid/view/MotionEvent;)V
-    .registers 5
+    .locals 3
     .parameter "event"
 
     .prologue
@@ -1621,7 +1621,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_16
+    if-nez v2, :cond_0
 
     .line 784
     const/4 v2, 0x0
@@ -1629,18 +1629,18 @@
     iput-boolean v2, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mDragging:Z
 
     .line 788
-    :goto_15
+    :goto_0
     return-void
 
     .line 786
-    :cond_16
+    :cond_0
     invoke-direct {p0, v0, v1}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->updateGlowPosition(FF)V
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method private handleMove(Landroid/view/MotionEvent;)V
-    .registers 37
+    .locals 35
     .parameter "event"
 
     .prologue
@@ -1680,15 +1680,15 @@
     const/4 v12, 0x0
 
     .local v12, k:I
-    :goto_14
+    :goto_0
     add-int/lit8 v31, v10, 0x1
 
     move/from16 v0, v31
 
-    if-ge v12, v0, :cond_12c
+    if-ge v12, v0, :cond_9
 
     .line 816
-    if-ge v12, v10, :cond_112
+    if-ge v12, v10, :cond_4
 
     move-object/from16 v0, p1
 
@@ -1698,8 +1698,8 @@
 
     .line 817
     .local v8, eventX:F
-    :goto_22
-    if-ge v12, v10, :cond_118
+    :goto_1
+    if-ge v12, v10, :cond_5
 
     move-object/from16 v0, p1
 
@@ -1709,7 +1709,7 @@
 
     .line 819
     .local v9, eventY:F
-    :goto_2a
+    :goto_2
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mWaveCenterX:F
@@ -1766,7 +1766,7 @@
 
     cmpl-float v31, v26, v31
 
-    if-lez v31, :cond_11e
+    if-lez v31, :cond_6
 
     move-object/from16 v0, p0
 
@@ -1778,7 +1778,7 @@
 
     .line 823
     .local v16, scale:F
-    :goto_64
+    :goto_3
     mul-float v13, v27, v16
 
     .line 824
@@ -1817,7 +1817,7 @@
 
     move/from16 v31, v0
 
-    if-nez v31, :cond_88
+    if-nez v31, :cond_0
 
     .line 828
     move-object/from16 v0, p0
@@ -1825,14 +1825,14 @@
     invoke-direct {v0, v8, v9}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->trySwitchToFirstTouchState(FF)Z
 
     .line 831
-    :cond_88
+    :cond_0
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mDragging:Z
 
     move/from16 v31, v0
 
-    if-eqz v31, :cond_124
+    if-eqz v31, :cond_8
 
     .line 833
     move-object/from16 v0, p0
@@ -1858,8 +1858,8 @@
     const/4 v11, 0x0
 
     .local v11, i:I
-    :goto_a1
-    if-ge v11, v15, :cond_124
+    :goto_4
+    if-ge v11, v15, :cond_8
 
     .line 837
     move-object/from16 v0, v25
@@ -1924,25 +1924,25 @@
 
     move-result v31
 
-    if-eqz v31, :cond_10f
+    if-eqz v31, :cond_3
 
     .line 842
     cmpl-double v31, v6, v23
 
-    if-lez v31, :cond_e7
+    if-lez v31, :cond_1
 
     cmpg-double v31, v6, v21
 
-    if-lez v31, :cond_fd
+    if-lez v31, :cond_2
 
-    :cond_e7
+    :cond_1
     const-wide v31, 0x401921fb54442d18L
 
     add-double v31, v31, v6
 
     cmpl-double v31, v31, v23
 
-    if-lez v31, :cond_122
+    if-lez v31, :cond_7
 
     const-wide v31, 0x401921fb54442d18L
 
@@ -1950,15 +1950,15 @@
 
     cmpg-double v31, v31, v21
 
-    if-gtz v31, :cond_122
+    if-gtz v31, :cond_7
 
-    :cond_fd
+    :cond_2
     const/4 v5, 0x1
 
     .line 846
     .local v5, angleMatches:Z
-    :goto_fe
-    if-eqz v5, :cond_10f
+    :goto_5
+    if-eqz v5, :cond_3
 
     move-object/from16 v0, p0
 
@@ -1972,17 +1972,17 @@
 
     cmpl-float v31, v31, v17
 
-    if-lez v31, :cond_10f
+    if-lez v31, :cond_3
 
     .line 847
     move v4, v11
 
     .line 836
     .end local v5           #angleMatches:Z
-    :cond_10f
+    :cond_3
     add-int/lit8 v11, v11, 0x1
 
-    goto :goto_a1
+    goto :goto_4
 
     .line 816
     .end local v6           #angleRad:D
@@ -2000,31 +2000,31 @@
     .end local v26           #touchRadius:F
     .end local v27           #tx:F
     .end local v28           #ty:F
-    :cond_112
+    :cond_4
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v8
 
-    goto/16 :goto_22
+    goto/16 :goto_1
 
     .line 817
     .restart local v8       #eventX:F
-    :cond_118
+    :cond_5
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v9
 
-    goto/16 :goto_2a
+    goto/16 :goto_2
 
     .line 822
     .restart local v9       #eventY:F
     .restart local v26       #touchRadius:F
     .restart local v27       #tx:F
     .restart local v28       #ty:F
-    :cond_11e
+    :cond_6
     const/high16 v16, 0x3f80
 
-    goto/16 :goto_64
+    goto/16 :goto_3
 
     .line 842
     .restart local v6       #angleRad:D
@@ -2037,10 +2037,10 @@
     .restart local v19       #target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
     .restart local v21       #targetMaxRad:D
     .restart local v23       #targetMinRad:D
-    :cond_122
+    :cond_7
     const/4 v5, 0x0
 
-    goto :goto_fe
+    goto :goto_5
 
     .line 852
     .end local v11           #i:I
@@ -2049,7 +2049,7 @@
     .end local v19           #target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
     .end local v21           #targetMaxRad:D
     .end local v23           #targetMinRad:D
-    :cond_124
+    :cond_8
     move/from16 v29, v13
 
     .line 853
@@ -2058,7 +2058,7 @@
     .line 815
     add-int/lit8 v12, v12, 0x1
 
-    goto/16 :goto_14
+    goto/16 :goto_0
 
     .line 856
     .end local v6           #angleRad:D
@@ -2070,26 +2070,26 @@
     .end local v26           #touchRadius:F
     .end local v27           #tx:F
     .end local v28           #ty:F
-    :cond_12c
+    :cond_9
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mDragging:Z
 
     move/from16 v31, v0
 
-    if-nez v31, :cond_135
+    if-nez v31, :cond_a
 
     .line 889
-    :goto_134
+    :goto_6
     return-void
 
     .line 860
-    :cond_135
+    :cond_a
     const/16 v31, -0x1
 
     move/from16 v0, v31
 
-    if-eq v4, v0, :cond_1d4
+    if-eq v4, v0, :cond_e
 
     .line 861
     const/16 v31, 0x4
@@ -2114,7 +2114,7 @@
     invoke-direct {v0, v1, v2}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->updateGlowPosition(FF)V
 
     .line 868
-    :goto_151
+    :goto_7
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mActiveTarget:I
@@ -2123,7 +2123,7 @@
 
     move/from16 v0, v31
 
-    if-eq v0, v4, :cond_1ce
+    if-eq v0, v4, :cond_d
 
     .line 870
     move-object/from16 v0, p0
@@ -2138,7 +2138,7 @@
 
     move/from16 v1, v32
 
-    if-eq v0, v1, :cond_18e
+    if-eq v0, v1, :cond_b
 
     .line 871
     move-object/from16 v0, p0
@@ -2169,7 +2169,7 @@
 
     move-result v31
 
-    if-eqz v31, :cond_18e
+    if-eqz v31, :cond_b
 
     .line 873
     sget-object v31, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->STATE_INACTIVE:[I
@@ -2182,12 +2182,12 @@
 
     .line 877
     .end local v19           #target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
-    :cond_18e
+    :cond_b
     const/16 v31, -0x1
 
     move/from16 v0, v31
 
-    if-eq v4, v0, :cond_1ce
+    if-eq v4, v0, :cond_d
 
     .line 878
     move-object/from16 v0, v25
@@ -2210,7 +2210,7 @@
 
     move-result v31
 
-    if-eqz v31, :cond_1b1
+    if-eqz v31, :cond_c
 
     .line 880
     sget-object v31, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->STATE_FOCUSED:[I
@@ -2222,7 +2222,7 @@
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->setState([I)V
 
     .line 882
-    :cond_1b1
+    :cond_c
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/view/View;->mContext:Landroid/content/Context;
@@ -2237,7 +2237,7 @@
 
     move-result v31
 
-    if-eqz v31, :cond_1ce
+    if-eqz v31, :cond_d
 
     .line 883
     move-object/from16 v0, p0
@@ -2257,15 +2257,15 @@
     .line 888
     .end local v19           #target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
     .end local v20           #targetContentDescription:Ljava/lang/String;
-    :cond_1ce
+    :cond_d
     move-object/from16 v0, p0
 
     iput v4, v0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mActiveTarget:I
 
-    goto/16 :goto_134
+    goto/16 :goto_6
 
     .line 864
-    :cond_1d4
+    :cond_e
     const/16 v31, 0x3
 
     move-object/from16 v0, p0
@@ -2287,11 +2287,11 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->updateGlowPosition(FF)V
 
-    goto/16 :goto_151
+    goto/16 :goto_7
 .end method
 
 .method private handleUp(Landroid/view/MotionEvent;)V
-    .registers 5
+    .locals 3
     .parameter "event"
 
     .prologue
@@ -2313,7 +2313,7 @@
 .end method
 
 .method private hideGlow(IIFLandroid/animation/Animator$AnimatorListener;)V
-    .registers 13
+    .locals 8
     .parameter "duration"
     .parameter "delay"
     .parameter "finalAlpha"
@@ -2446,7 +2446,7 @@
 .end method
 
 .method private hideTargets(ZZ)V
-    .registers 20
+    .locals 17
     .parameter "animate"
     .parameter "expanded"
 
@@ -2466,27 +2466,27 @@
     iput-boolean v0, v1, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mAnimatingTargets:Z
 
     .line 483
-    if-eqz p1, :cond_94
+    if-eqz p1, :cond_0
 
     const/16 v3, 0xc8
 
     .line 484
     .local v3, duration:I
-    :goto_11
-    if-eqz p1, :cond_97
+    :goto_0
+    if-eqz p1, :cond_1
 
     const/16 v2, 0xc8
 
     .line 486
     .local v2, delay:I
-    :goto_15
-    if-eqz p2, :cond_9a
+    :goto_1
+    if-eqz p2, :cond_2
 
     const/high16 v9, 0x3f80
 
     .line 488
     .local v9, targetScale:F
-    :goto_19
+    :goto_2
     move-object/from16 v0, p0
 
     iget-object v10, v0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDrawables:Ljava/util/ArrayList;
@@ -2504,8 +2504,8 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_24
-    if-ge v4, v6, :cond_9f
+    :goto_3
+    if-ge v4, v6, :cond_3
 
     .line 491
     move-object/from16 v0, p0
@@ -2626,7 +2626,7 @@
     .line 490
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_24
+    goto :goto_3
 
     .line 483
     .end local v2           #delay:I
@@ -2636,38 +2636,38 @@
     .end local v6           #length:I
     .end local v8           #target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
     .end local v9           #targetScale:F
-    :cond_94
+    :cond_0
     const/4 v3, 0x0
 
-    goto/16 :goto_11
+    goto/16 :goto_0
 
     .line 484
     .restart local v3       #duration:I
-    :cond_97
+    :cond_1
     const/4 v2, 0x0
 
-    goto/16 :goto_15
+    goto/16 :goto_1
 
     .line 486
     .restart local v2       #delay:I
-    :cond_9a
+    :cond_2
     const v9, 0x3f4ccccd
 
-    goto/16 :goto_19
+    goto/16 :goto_2
 
     .line 502
     .restart local v4       #i:I
     .restart local v5       #interpolator:Landroid/animation/TimeInterpolator;
     .restart local v6       #length:I
     .restart local v9       #targetScale:F
-    :cond_9f
-    if-eqz p2, :cond_11f
+    :cond_3
+    if-eqz p2, :cond_4
 
     const/high16 v7, 0x3f80
 
     .line 504
     .local v7, ringScaleTarget:F
-    :goto_a3
+    :goto_4
     move-object/from16 v0, p0
 
     iget-object v10, v0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetAnimations:Lcom/android/internal/widget/multiwaveview/GlowPadView$AnimationBundle;
@@ -2800,14 +2800,14 @@
 
     .line 502
     .end local v7           #ringScaleTarget:F
-    :cond_11f
+    :cond_4
     const/high16 v7, 0x3f00
 
-    goto :goto_a3
+    goto :goto_4
 .end method
 
 .method private hideUnselected(I)V
-    .registers 5
+    .locals 3
     .parameter "active"
 
     .prologue
@@ -2815,17 +2815,17 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDrawables:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1a
+    if-ge v0, v1, :cond_1
 
     .line 472
-    if-eq v0, p1, :cond_17
+    if-eq v0, p1, :cond_0
 
     .line 473
     iget-object v1, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDrawables:Ljava/util/ArrayList;
@@ -2841,18 +2841,18 @@
     invoke-virtual {v1, v2}, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->setAlpha(F)V
 
     .line 471
-    :cond_17
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 476
-    :cond_1a
+    :cond_1
     return-void
 .end method
 
 .method private highlightSelected(I)V
-    .registers 4
+    .locals 2
     .parameter "activeTarget"
 
     .prologue
@@ -2877,7 +2877,7 @@
 .end method
 
 .method private internalSetTargetResources(I)V
-    .registers 10
+    .locals 8
     .parameter "resourceId"
 
     .prologue
@@ -2919,8 +2919,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_19
-    if-ge v1, v0, :cond_34
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 574
     invoke-virtual {v5, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -2951,21 +2951,21 @@
     .line 573
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_19
+    goto :goto_0
 
     .line 578
     .end local v4           #target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
-    :cond_34
+    :cond_0
     iget v6, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mMaxTargetWidth:I
 
-    if-ne v6, v3, :cond_3c
+    if-ne v6, v3, :cond_1
 
     iget v6, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mMaxTargetHeight:I
 
-    if-eq v6, v2, :cond_44
+    if-eq v6, v2, :cond_2
 
     .line 579
-    :cond_3c
+    :cond_1
     iput v3, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mMaxTargetWidth:I
 
     .line 580
@@ -2975,11 +2975,11 @@
     invoke-virtual {p0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->requestLayout()V
 
     .line 586
-    :goto_43
+    :goto_1
     return-void
 
     .line 583
-    :cond_44
+    :cond_2
     iget v6, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mWaveCenterX:F
 
     iget v7, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mWaveCenterY:F
@@ -2993,11 +2993,11 @@
 
     invoke-direct {p0, v6, v7}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->updatePointCloudPosition(FF)V
 
-    goto :goto_43
+    goto :goto_1
 .end method
 
 .method private loadDescriptions(I)Ljava/util/ArrayList;
-    .registers 8
+    .locals 6
     .parameter "resourceId"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3040,8 +3040,8 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_16
-    if-ge v3, v2, :cond_22
+    :goto_0
+    if-ge v3, v2, :cond_0
 
     .line 1127
     invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
@@ -3055,11 +3055,11 @@
     .line 1126
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_16
+    goto :goto_0
 
     .line 1130
     .end local v1           #contentDescription:Ljava/lang/String;
-    :cond_22
+    :cond_0
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 1131
@@ -3067,7 +3067,7 @@
 .end method
 
 .method private loadDrawableArray(I)Ljava/util/ArrayList;
-    .registers 10
+    .locals 8
     .parameter "resourceId"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3112,8 +3112,8 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_16
-    if-ge v3, v1, :cond_2d
+    :goto_0
+    if-ge v3, v1, :cond_1
 
     .line 557
     invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
@@ -3124,11 +3124,11 @@
     .local v6, value:Landroid/util/TypedValue;
     new-instance v5, Lcom/android/internal/widget/multiwaveview/TargetDrawable;
 
-    if-eqz v6, :cond_2b
+    if-eqz v6, :cond_0
 
     iget v7, v6, Landroid/util/TypedValue;->resourceId:I
 
-    :goto_22
+    :goto_1
     invoke-direct {v5, v4, v7}, Lcom/android/internal/widget/multiwaveview/TargetDrawable;-><init>(Landroid/content/res/Resources;I)V
 
     .line 559
@@ -3138,18 +3138,18 @@
     .line 556
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_16
+    goto :goto_0
 
     .line 558
     .end local v5           #target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
-    :cond_2b
+    :cond_0
     const/4 v7, 0x0
 
-    goto :goto_22
+    goto :goto_1
 
     .line 561
     .end local v6           #value:Landroid/util/TypedValue;
-    :cond_2d
+    :cond_1
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 562
@@ -3157,28 +3157,28 @@
 .end method
 
 .method private replaceTargetDrawables(Landroid/content/res/Resources;II)Z
-    .registers 10
+    .locals 6
     .parameter "res"
     .parameter "existingResourceId"
     .parameter "newResourceId"
 
     .prologue
     .line 1166
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_0
 
-    if-nez p3, :cond_6
+    if-nez p3, :cond_2
 
     .line 1167
-    :cond_4
+    :cond_0
     const/4 v2, 0x0
 
     .line 1185
-    :cond_5
-    :goto_5
+    :cond_1
+    :goto_0
     return v2
 
     .line 1170
-    :cond_6
+    :cond_2
     const/4 v2, 0x0
 
     .line 1171
@@ -3196,8 +3196,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_e
-    if-ge v1, v3, :cond_25
+    :goto_1
+    if-ge v1, v3, :cond_4
 
     .line 1174
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -3208,13 +3208,13 @@
 
     .line 1175
     .local v4, target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
-    if-eqz v4, :cond_22
+    if-eqz v4, :cond_3
 
     invoke-virtual {v4}, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->getResourceId()I
 
     move-result v5
 
-    if-ne v5, p2, :cond_22
+    if-ne v5, p2, :cond_3
 
     .line 1176
     invoke-virtual {v4, p1, p3}, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->setDrawable(Landroid/content/res/Resources;I)V
@@ -3223,24 +3223,24 @@
     const/4 v2, 0x1
 
     .line 1173
-    :cond_22
+    :cond_3
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_e
+    goto :goto_1
 
     .line 1181
     .end local v4           #target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
-    :cond_25
-    if-eqz v2, :cond_5
+    :cond_4
+    if-eqz v2, :cond_1
 
     .line 1182
     invoke-virtual {p0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->requestLayout()V
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method private resolveMeasured(II)I
-    .registers 6
+    .locals 3
     .parameter "measureSpec"
     .parameter "desired"
 
@@ -3260,43 +3260,43 @@
 
     move-result v2
 
-    sparse-switch v2, :sswitch_data_16
+    sparse-switch v2, :sswitch_data_0
 
     .line 330
     move v0, v1
 
     .line 332
-    :goto_d
+    :goto_0
     return v0
 
     .line 323
-    :sswitch_e
+    :sswitch_0
     move v0, p2
 
     .line 324
-    goto :goto_d
+    goto :goto_0
 
     .line 326
-    :sswitch_10
+    :sswitch_1
     invoke-static {v1, p2}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
     .line 327
-    goto :goto_d
+    goto :goto_0
 
     .line 321
     nop
 
-    :sswitch_data_16
+    :sswitch_data_0
     .sparse-switch
-        -0x80000000 -> :sswitch_10
-        0x0 -> :sswitch_e
+        -0x80000000 -> :sswitch_1
+        0x0 -> :sswitch_0
     .end sparse-switch
 .end method
 
 .method private setGrabbedState(I)V
-    .registers 4
+    .locals 2
     .parameter "newState"
 
     .prologue
@@ -3305,25 +3305,25 @@
     .line 917
     iget v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mGrabbedState:I
 
-    if-eq p1, v0, :cond_1c
+    if-eq p1, v0, :cond_1
 
     .line 918
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_0
 
     .line 919
     invoke-direct {p0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->vibrate()V
 
     .line 921
-    :cond_a
+    :cond_0
     iput p1, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mGrabbedState:I
 
     .line 922
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mOnTriggerListener:Lcom/android/internal/widget/multiwaveview/GlowPadView$OnTriggerListener;
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_1
 
     .line 923
-    if-nez p1, :cond_1d
+    if-nez p1, :cond_2
 
     .line 924
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mOnTriggerListener:Lcom/android/internal/widget/multiwaveview/GlowPadView$OnTriggerListener;
@@ -3331,26 +3331,26 @@
     invoke-interface {v0, p0, v1}, Lcom/android/internal/widget/multiwaveview/GlowPadView$OnTriggerListener;->onReleased(Landroid/view/View;I)V
 
     .line 928
-    :goto_17
+    :goto_0
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mOnTriggerListener:Lcom/android/internal/widget/multiwaveview/GlowPadView$OnTriggerListener;
 
     invoke-interface {v0, p0, p1}, Lcom/android/internal/widget/multiwaveview/GlowPadView$OnTriggerListener;->onGrabbedStateChange(Landroid/view/View;I)V
 
     .line 931
-    :cond_1c
+    :cond_1
     return-void
 
     .line 926
-    :cond_1d
+    :cond_2
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mOnTriggerListener:Lcom/android/internal/widget/multiwaveview/GlowPadView$OnTriggerListener;
 
     invoke-interface {v0, p0, v1}, Lcom/android/internal/widget/multiwaveview/GlowPadView$OnTriggerListener;->onGrabbed(Landroid/view/View;I)V
 
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method private showGlow(IIFLandroid/animation/Animator$AnimatorListener;)V
-    .registers 12
+    .locals 7
     .parameter "duration"
     .parameter "delay"
     .parameter "finalAlpha"
@@ -3453,7 +3453,7 @@
 .end method
 
 .method private showTargets(Z)V
-    .registers 14
+    .locals 12
     .parameter "animate"
 
     .prologue
@@ -3466,20 +3466,20 @@
     iput-boolean p1, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mAnimatingTargets:Z
 
     .line 519
-    if-eqz p1, :cond_87
+    if-eqz p1, :cond_0
 
     const/16 v0, 0x32
 
     .line 520
     .local v0, delay:I
-    :goto_b
-    if-eqz p1, :cond_89
+    :goto_0
+    if-eqz p1, :cond_1
 
     const/16 v1, 0xc8
 
     .line 521
     .local v1, duration:I
-    :goto_f
+    :goto_1
     iget-object v5, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDrawables:Ljava/util/ArrayList;
 
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
@@ -3491,8 +3491,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_16
-    if-ge v2, v3, :cond_8b
+    :goto_2
+    if-ge v2, v3, :cond_2
 
     .line 523
     iget-object v5, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDrawables:Ljava/util/ArrayList;
@@ -3613,7 +3613,7 @@
     .line 522
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_16
+    goto :goto_2
 
     .line 519
     .end local v0           #delay:I
@@ -3621,23 +3621,23 @@
     .end local v2           #i:I
     .end local v3           #length:I
     .end local v4           #target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
-    :cond_87
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 
     .line 520
     .restart local v0       #delay:I
-    :cond_89
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_f
+    goto :goto_1
 
     .line 533
     .restart local v1       #duration:I
     .restart local v2       #i:I
     .restart local v3       #length:I
-    :cond_8b
+    :cond_2
     iget-object v5, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetAnimations:Lcom/android/internal/widget/multiwaveview/GlowPadView$AnimationBundle;
 
     iget-object v6, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mOuterRing:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
@@ -3762,7 +3762,7 @@
 .end method
 
 .method private square(F)F
-    .registers 3
+    .locals 1
     .parameter "d"
 
     .prologue
@@ -3773,7 +3773,7 @@
 .end method
 
 .method private startBackgroundAnimation(IF)V
-    .registers 9
+    .locals 6
     .parameter "duration"
     .parameter "alpha"
 
@@ -3787,14 +3787,14 @@
     .local v0, background:Landroid/graphics/drawable/Drawable;
     iget-boolean v1, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mAlwaysTrackFinger:Z
 
-    if-eqz v1, :cond_4e
+    if-eqz v1, :cond_1
 
-    if-eqz v0, :cond_4e
+    if-eqz v0, :cond_1
 
     .line 727
     iget-object v1, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mBackgroundAnimator:Lcom/android/internal/widget/multiwaveview/Tweener;
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_0
 
     .line 728
     iget-object v1, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mBackgroundAnimator:Lcom/android/internal/widget/multiwaveview/Tweener;
@@ -3804,7 +3804,7 @@
     invoke-virtual {v1}, Landroid/animation/ObjectAnimator;->cancel()V
 
     .line 730
-    :cond_15
+    :cond_0
     int-to-long v1, p1
 
     const/4 v3, 0x6
@@ -3873,12 +3873,12 @@
     invoke-virtual {v1}, Landroid/animation/ObjectAnimator;->start()V
 
     .line 736
-    :cond_4e
+    :cond_1
     return-void
 .end method
 
 .method private startWaveAnimation()V
-    .registers 10
+    .locals 9
 
     .prologue
     const/4 v8, 0x0
@@ -4013,7 +4013,7 @@
 .end method
 
 .method private stopAndHideWaveAnimation()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 685
@@ -4035,7 +4035,7 @@
 .end method
 
 .method private switchToState(IFF)V
-    .registers 10
+    .locals 6
     .parameter "state"
     .parameter "x"
     .parameter "y"
@@ -4052,15 +4052,15 @@
     const/4 v1, 0x0
 
     .line 346
-    packed-switch p1, :pswitch_data_5e
+    packed-switch p1, :pswitch_data_0
 
     .line 385
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return-void
 
     .line 348
-    :pswitch_a
+    :pswitch_0
     invoke-direct {p0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->deactivateTargets()V
 
     .line 349
@@ -4081,16 +4081,16 @@
 
     invoke-virtual {v0, v3}, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->setAlpha(F)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 356
-    :pswitch_20
+    :pswitch_1
     invoke-direct {p0, v1, v2}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->startBackgroundAnimation(IF)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 360
-    :pswitch_24
+    :pswitch_2
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mHandleDrawable:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
 
     invoke-virtual {v0, v2}, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->setAlpha(F)V
@@ -4120,15 +4120,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 366
     invoke-direct {p0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->announceTargets()V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 371
-    :pswitch_47
+    :pswitch_3
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mHandleDrawable:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
 
     invoke-virtual {v0, v2}, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->setAlpha(F)V
@@ -4136,10 +4136,10 @@
     .line 372
     invoke-direct {p0, v1, v1, v3, v4}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->showGlow(IIFLandroid/animation/Animator$AnimatorListener;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 377
-    :pswitch_50
+    :pswitch_4
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mHandleDrawable:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
 
     invoke-virtual {v0, v2}, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->setAlpha(F)V
@@ -4147,30 +4147,30 @@
     .line 378
     invoke-direct {p0, v1, v1, v2, v4}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->showGlow(IIFLandroid/animation/Animator$AnimatorListener;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 382
-    :pswitch_59
+    :pswitch_5
     invoke-direct {p0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->doFinish()V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 346
     nop
 
-    :pswitch_data_5e
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_a
-        :pswitch_20
-        :pswitch_24
-        :pswitch_47
-        :pswitch_50
-        :pswitch_59
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method private trySwitchToFirstTouchState(FF)Z
-    .registers 8
+    .locals 5
     .parameter "x"
     .parameter "y"
 
@@ -4192,7 +4192,7 @@
     .local v1, ty:F
     iget-boolean v3, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mAlwaysTrackFinger:Z
 
-    if-nez v3, :cond_19
+    if-nez v3, :cond_0
 
     invoke-direct {p0, v0, v1}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->dist2(FF)F
 
@@ -4204,10 +4204,10 @@
 
     cmpg-float v3, v3, v4
 
-    if-gtz v3, :cond_23
+    if-gtz v3, :cond_1
 
     .line 938
-    :cond_19
+    :cond_0
     const/4 v3, 0x2
 
     invoke-direct {p0, v3, p1, p2}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->switchToState(IFF)V
@@ -4219,17 +4219,17 @@
     iput-boolean v2, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mDragging:Z
 
     .line 943
-    :goto_22
+    :goto_0
     return v2
 
-    :cond_23
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_22
+    goto :goto_0
 .end method
 
 .method private updateGlowPosition(FF)V
-    .registers 4
+    .locals 1
     .parameter "x"
     .parameter "y"
 
@@ -4253,7 +4253,7 @@
 .end method
 
 .method private updatePointCloudPosition(FF)V
-    .registers 4
+    .locals 1
     .parameter "centerX"
     .parameter "centerY"
 
@@ -4268,7 +4268,7 @@
 .end method
 
 .method private updateTargetPositions(FF)V
-    .registers 13
+    .locals 10
     .parameter "centerX"
     .parameter "centerY"
 
@@ -4297,8 +4297,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_f
-    if-ge v2, v3, :cond_3b
+    :goto_0
+    if-ge v2, v3, :cond_0
 
     .line 1032
     invoke-virtual {v5, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -4353,23 +4353,23 @@
     .line 1031
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 1039
     .end local v1           #angle:F
     .end local v4           #targetIcon:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
-    :cond_3b
+    :cond_0
     return-void
 .end method
 
 .method private vibrate()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 546
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mVibrator:Landroid/os/Vibrator;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 547
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mVibrator:Landroid/os/Vibrator;
@@ -4381,14 +4381,14 @@
     invoke-virtual {v0, v1, v2}, Landroid/os/Vibrator;->vibrate(J)V
 
     .line 549
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public getDirectionDescriptionsResourceId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 645
@@ -4398,7 +4398,7 @@
 .end method
 
 .method public getResourceIdForTarget(I)I
-    .registers 4
+    .locals 2
     .parameter "index"
 
     .prologue
@@ -4413,23 +4413,23 @@
 
     .line 1136
     .local v0, drawable:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     const/4 v1, 0x0
 
-    :goto_b
+    :goto_0
     return v1
 
-    :cond_c
+    :cond_0
     invoke-virtual {v0}, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->getResourceId()I
 
     move-result v1
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method protected getSuggestedMinimumHeight()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 314
@@ -4463,7 +4463,7 @@
 .end method
 
 .method protected getSuggestedMinimumWidth()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 307
@@ -4497,7 +4497,7 @@
 .end method
 
 .method public getTargetDescriptionsResourceId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 624
@@ -4507,7 +4507,7 @@
 .end method
 
 .method public getTargetPosition(I)I
-    .registers 5
+    .locals 3
     .parameter "resourceId"
 
     .prologue
@@ -4515,14 +4515,14 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDrawables:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ge v0, v2, :cond_1b
+    if-ge v0, v2, :cond_1
 
     .line 1156
     iget-object v2, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDrawables:Ljava/util/ArrayList;
@@ -4539,32 +4539,32 @@
 
     move-result v2
 
-    if-ne v2, p1, :cond_18
+    if-ne v2, p1, :cond_0
 
     .line 1161
     .end local v0           #i:I
     .end local v1           #target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
-    :goto_17
+    :goto_1
     return v0
 
     .line 1155
     .restart local v0       #i:I
     .restart local v1       #target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
-    :cond_18
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 1161
     .end local v1           #target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
-    :cond_1b
+    :cond_1
     const/4 v0, -0x1
 
-    goto :goto_17
+    goto :goto_1
 .end method
 
 .method public getTargetResourceId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 603
@@ -4574,7 +4574,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .registers 6
+    .locals 4
     .parameter "canvas"
 
     .prologue
@@ -4600,8 +4600,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_11
-    if-ge v0, v1, :cond_23
+    :goto_0
+    if-ge v0, v1, :cond_1
 
     .line 1051
     iget-object v3, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDrawables:Ljava/util/ArrayList;
@@ -4614,20 +4614,20 @@
 
     .line 1052
     .local v2, target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
-    if-eqz v2, :cond_20
+    if-eqz v2, :cond_0
 
     .line 1053
     invoke-virtual {v2, p1}, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->draw(Landroid/graphics/Canvas;)V
 
     .line 1050
-    :cond_20
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_11
+    goto :goto_0
 
     .line 1056
     .end local v2           #target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
-    :cond_23
+    :cond_1
     iget-object v3, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mHandleDrawable:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
 
     invoke-virtual {v3, p1}, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->draw(Landroid/graphics/Canvas;)V
@@ -4637,7 +4637,7 @@
 .end method
 
 .method public onHoverEvent(Landroid/view/MotionEvent;)Z
-    .registers 4
+    .locals 2
     .parameter "event"
 
     .prologue
@@ -4652,7 +4652,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_0
 
     .line 894
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
@@ -4661,11 +4661,11 @@
 
     .line 895
     .local v0, action:I
-    packed-switch v0, :pswitch_data_2e
+    packed-switch v0, :pswitch_data_0
 
     .line 906
-    :goto_13
-    :pswitch_13
+    :goto_0
+    :pswitch_0
     invoke-virtual {p0, p1}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     .line 907
@@ -4673,7 +4673,7 @@
 
     .line 909
     .end local v0           #action:I
-    :cond_19
+    :cond_0
     invoke-super {p0, p1}, Landroid/view/View;->onHoverEvent(Landroid/view/MotionEvent;)Z
 
     move-result v1
@@ -4682,43 +4682,43 @@
 
     .line 897
     .restart local v0       #action:I
-    :pswitch_1e
+    :pswitch_1
     const/4 v1, 0x0
 
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->setAction(I)V
 
-    goto :goto_13
+    goto :goto_0
 
     .line 900
-    :pswitch_23
+    :pswitch_2
     const/4 v1, 0x2
 
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->setAction(I)V
 
-    goto :goto_13
+    goto :goto_0
 
     .line 903
-    :pswitch_28
+    :pswitch_3
     const/4 v1, 0x1
 
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->setAction(I)V
 
-    goto :goto_13
+    goto :goto_0
 
     .line 895
     nop
 
-    :pswitch_data_2e
+    :pswitch_data_0
     .packed-switch 0x7
-        :pswitch_23
-        :pswitch_13
-        :pswitch_1e
-        :pswitch_28
+        :pswitch_2
+        :pswitch_0
+        :pswitch_1
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method protected onLayout(ZIIII)V
-    .registers 15
+    .locals 9
     .parameter "changed"
     .parameter "left"
     .parameter "top"
@@ -4828,7 +4828,7 @@
     .local v2, newWaveCenterY:F
     iget-boolean v6, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mInitialLayout:Z
 
-    if-eqz v6, :cond_58
+    if-eqz v6, :cond_0
 
     .line 1005
     invoke-direct {p0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->stopAndHideWaveAnimation()V
@@ -4846,7 +4846,7 @@
     iput-boolean v6, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mInitialLayout:Z
 
     .line 1010
-    :cond_58
+    :cond_0
     iget-object v6, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mOuterRing:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
 
     invoke-virtual {v6, v1}, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->setPositionX(F)V
@@ -4886,7 +4886,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .registers 9
+    .locals 6
     .parameter "widthMeasureSpec"
     .parameter "heightMeasureSpec"
 
@@ -4930,7 +4930,7 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .registers 5
+    .locals 3
     .parameter "event"
 
     .prologue
@@ -4945,22 +4945,22 @@
 
     .line 742
     .local v1, handled:Z
-    packed-switch v0, :pswitch_data_32
+    packed-switch v0, :pswitch_data_0
 
     .line 770
-    :goto_8
+    :goto_0
     invoke-virtual {p0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->invalidate()V
 
     .line 771
-    if-eqz v1, :cond_2c
+    if-eqz v1, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_e
+    :goto_1
     return v2
 
     .line 745
-    :pswitch_f
+    :pswitch_0
     invoke-direct {p0, p1}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->handleDown(Landroid/view/MotionEvent;)V
 
     .line 746
@@ -4970,20 +4970,20 @@
     const/4 v1, 0x1
 
     .line 748
-    goto :goto_8
+    goto :goto_0
 
     .line 752
-    :pswitch_17
+    :pswitch_1
     invoke-direct {p0, p1}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->handleMove(Landroid/view/MotionEvent;)V
 
     .line 753
     const/4 v1, 0x1
 
     .line 754
-    goto :goto_8
+    goto :goto_0
 
     .line 758
-    :pswitch_1c
+    :pswitch_2
     invoke-direct {p0, p1}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->handleMove(Landroid/view/MotionEvent;)V
 
     .line 759
@@ -4993,10 +4993,10 @@
     const/4 v1, 0x1
 
     .line 761
-    goto :goto_8
+    goto :goto_0
 
     .line 765
-    :pswitch_24
+    :pswitch_3
     invoke-direct {p0, p1}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->handleMove(Landroid/view/MotionEvent;)V
 
     .line 766
@@ -5005,30 +5005,30 @@
     .line 767
     const/4 v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 771
-    :cond_2c
+    :cond_0
     invoke-super {p0, p1}, Landroid/view/View;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v2
 
-    goto :goto_e
+    goto :goto_1
 
     .line 742
     nop
 
-    :pswitch_data_32
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_f
-        :pswitch_1c
-        :pswitch_17
-        :pswitch_24
+        :pswitch_0
+        :pswitch_2
+        :pswitch_1
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method public ping()V
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v5, 0x0
@@ -5036,7 +5036,7 @@
     .line 666
     iget v4, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mFeedbackCount:I
 
-    if-lez v4, :cond_34
+    if-lez v4, :cond_1
 
     .line 667
     const/4 v0, 0x1
@@ -5051,7 +5051,7 @@
 
     move-result v4
 
-    if-lez v4, :cond_2f
+    if-lez v4, :cond_0
 
     invoke-virtual {v3, v5}, Lcom/android/internal/widget/multiwaveview/GlowPadView$AnimationBundle;->get(I)Ljava/lang/Object;
 
@@ -5065,7 +5065,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2f
+    if-eqz v4, :cond_0
 
     .line 672
     invoke-virtual {v3, v5}, Lcom/android/internal/widget/multiwaveview/GlowPadView$AnimationBundle;->get(I)Ljava/lang/Object;
@@ -5086,15 +5086,15 @@
 
     cmp-long v4, v1, v4
 
-    if-gez v4, :cond_2f
+    if-gez v4, :cond_0
 
     .line 674
     const/4 v0, 0x0
 
     .line 678
     .end local v1           #t:J
-    :cond_2f
-    if-eqz v0, :cond_34
+    :cond_0
+    if-eqz v0, :cond_1
 
     .line 679
     invoke-direct {p0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->startWaveAnimation()V
@@ -5102,37 +5102,37 @@
     .line 682
     .end local v0           #doWaveAnimation:Z
     .end local v3           #waveAnimations:Lcom/android/internal/widget/multiwaveview/GlowPadView$AnimationBundle;
-    :cond_34
+    :cond_1
     return-void
 .end method
 
 .method public replaceTargetDrawablesIfPresent(Landroid/content/ComponentName;Ljava/lang/String;I)Z
-    .registers 14
+    .locals 10
     .parameter "component"
     .parameter "name"
     .parameter "existingResId"
 
     .prologue
     .line 1198
-    if-nez p3, :cond_4
+    if-nez p3, :cond_1
 
     const/4 v5, 0x0
 
     .line 1226
-    :cond_3
-    :goto_3
+    :cond_0
+    :goto_0
     return v5
 
     .line 1200
-    :cond_4
+    :cond_1
     const/4 v5, 0x0
 
     .line 1201
     .local v5, replaced:Z
-    if-eqz p1, :cond_25
+    if-eqz p1, :cond_2
 
     .line 1203
-    :try_start_7
+    :try_start_0
     iget-object v7, p0, Landroid/view/View;->mContext:Landroid/content/Context;
 
     invoke-virtual {v7}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -5151,7 +5151,7 @@
 
     .line 1207
     .local v2, metaData:Landroid/os/Bundle;
-    if-eqz v2, :cond_25
+    if-eqz v2, :cond_2
 
     .line 1208
     invoke-virtual {v2, p2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -5160,7 +5160,7 @@
 
     .line 1209
     .local v1, iconResId:I
-    if-eqz v1, :cond_25
+    if-eqz v1, :cond_2
 
     .line 1210
     invoke-virtual {v4, p1}, Landroid/content/pm/PackageManager;->getResourcesForActivity(Landroid/content/ComponentName;)Landroid/content/res/Resources;
@@ -5170,9 +5170,9 @@
     .line 1211
     .local v6, res:Landroid/content/res/Resources;
     invoke-direct {p0, v6, p3, v1}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->replaceTargetDrawables(Landroid/content/res/Resources;II)Z
-    :try_end_24
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_7 .. :try_end_24} :catch_31
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_7 .. :try_end_24} :catch_55
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result v5
 
@@ -5181,9 +5181,9 @@
     .end local v2           #metaData:Landroid/os/Bundle;
     .end local v4           #packageManager:Landroid/content/pm/PackageManager;
     .end local v6           #res:Landroid/content/res/Resources;
-    :cond_25
-    :goto_25
-    if-nez v5, :cond_3
+    :cond_2
+    :goto_1
+    if-nez v5, :cond_0
 
     .line 1224
     iget-object v7, p0, Landroid/view/View;->mContext:Landroid/content/Context;
@@ -5194,10 +5194,10 @@
 
     invoke-direct {p0, v7, p3, p3}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->replaceTargetDrawables(Landroid/content/res/Resources;II)Z
 
-    goto :goto_3
+    goto :goto_0
 
     .line 1214
-    :catch_31
+    :catch_0
     move-exception v0
 
     .line 1215
@@ -5234,11 +5234,11 @@
 
     invoke-static {v7, v8, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_25
+    goto :goto_1
 
     .line 1217
     .end local v0           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    :catch_55
+    :catch_1
     move-exception v3
 
     .line 1218
@@ -5269,11 +5269,11 @@
 
     invoke-static {v7, v8, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_25
+    goto :goto_1
 .end method
 
 .method public reset(Z)V
-    .registers 5
+    .locals 3
     .parameter "animate"
 
     .prologue
@@ -5315,7 +5315,7 @@
 .end method
 
 .method public resumeAnimations()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -5355,7 +5355,7 @@
 .end method
 
 .method public setDirectionDescriptionsResourceId(I)V
-    .registers 3
+    .locals 1
     .parameter "resourceId"
 
     .prologue
@@ -5365,7 +5365,7 @@
     .line 634
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mDirectionDescriptions:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 635
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mDirectionDescriptions:Ljava/util/ArrayList;
@@ -5373,12 +5373,12 @@
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
     .line 637
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method public setEnableTarget(IZ)V
-    .registers 6
+    .locals 3
     .parameter "resourceId"
     .parameter "enabled"
 
@@ -5387,14 +5387,14 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDrawables:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ge v0, v2, :cond_1a
+    if-ge v0, v2, :cond_0
 
     .line 1141
     iget-object v2, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDrawables:Ljava/util/ArrayList;
@@ -5411,26 +5411,26 @@
 
     move-result v2
 
-    if-ne v2, p1, :cond_1b
+    if-ne v2, p1, :cond_1
 
     .line 1143
     invoke-virtual {v1, p2}, Lcom/android/internal/widget/multiwaveview/TargetDrawable;->setEnabled(Z)V
 
     .line 1147
     .end local v1           #target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
-    :cond_1a
+    :cond_0
     return-void
 
     .line 1140
     .restart local v1       #target:Lcom/android/internal/widget/multiwaveview/TargetDrawable;
-    :cond_1b
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public setOnTriggerListener(Lcom/android/internal/widget/multiwaveview/GlowPadView$OnTriggerListener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue
@@ -5442,7 +5442,7 @@
 .end method
 
 .method public setTargetDescriptionsResourceId(I)V
-    .registers 3
+    .locals 1
     .parameter "resourceId"
 
     .prologue
@@ -5452,7 +5452,7 @@
     .line 613
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDescriptions:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 614
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mTargetDescriptions:Ljava/util/ArrayList;
@@ -5460,45 +5460,45 @@
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
     .line 616
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method public setTargetResources(I)V
-    .registers 3
+    .locals 1
     .parameter "resourceId"
 
     .prologue
     .line 594
     iget-boolean v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mAnimatingTargets:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 596
     iput p1, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mNewTargetResources:I
 
     .line 600
-    :goto_6
+    :goto_0
     return-void
 
     .line 598
-    :cond_7
+    :cond_0
     invoke-direct {p0, p1}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->internalSetTargetResources(I)V
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public setVibrateEnabled(Z)V
-    .registers 4
+    .locals 2
     .parameter "enabled"
 
     .prologue
     .line 654
-    if-eqz p1, :cond_16
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mVibrator:Landroid/os/Vibrator;
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 655
     invoke-virtual {p0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->getContext()Landroid/content/Context;
@@ -5516,20 +5516,20 @@
     iput-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mVibrator:Landroid/os/Vibrator;
 
     .line 659
-    :goto_15
+    :goto_0
     return-void
 
     .line 657
-    :cond_16
+    :cond_0
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView;->mVibrator:Landroid/os/Vibrator;
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public suspendAnimations()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x1

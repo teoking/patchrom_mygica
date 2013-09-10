@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/Gallery;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 130
@@ -46,6 +46,7 @@
 
     const/4 v1, 0x0
 
+    #setter for: Landroid/widget/Gallery;->mSuppressSelectionChanged:Z
     invoke-static {v0, v1}, Landroid/widget/Gallery;->access$002(Landroid/widget/Gallery;Z)Z
 
     .line 131

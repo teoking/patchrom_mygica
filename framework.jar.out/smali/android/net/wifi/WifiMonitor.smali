@@ -202,7 +202,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 61
@@ -227,7 +227,7 @@
 .end method
 
 .method public constructor <init>(Lcom/android/internal/util/StateMachine;Landroid/net/wifi/WifiNative;)V
-    .registers 4
+    .locals 1
     .parameter "wifiStateMachine"
     .parameter "wifiNative"
 
@@ -251,7 +251,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/net/wifi/WifiMonitor;)Lcom/android/internal/util/StateMachine;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -262,7 +262,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/net/wifi/WifiMonitor;)Landroid/net/wifi/WifiNative;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -273,7 +273,7 @@
 .end method
 
 .method static synthetic access$200()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 43
@@ -283,7 +283,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/net/wifi/WifiMonitor;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -295,7 +295,7 @@
 .end method
 
 .method static synthetic access$304(Landroid/net/wifi/WifiMonitor;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -310,7 +310,7 @@
 .end method
 
 .method static synthetic access$400(I)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -321,7 +321,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/net/wifi/WifiMonitor;Landroid/net/NetworkInfo$DetailedState;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -334,7 +334,7 @@
 .end method
 
 .method private handleNetworkStateChange(Landroid/net/NetworkInfo$DetailedState;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "newState"
     .parameter "data"
 
@@ -350,7 +350,7 @@
     .local v3, networkId:I
     sget-object v4, Landroid/net/NetworkInfo$DetailedState;->CONNECTED:Landroid/net/NetworkInfo$DetailedState;
 
-    if-ne p1, v4, :cond_12
+    if-ne p1, v4, :cond_0
 
     .line 693
     sget-object v4, Landroid/net/wifi/WifiMonitor;->mConnectedEventPattern:Ljava/util/regex/Pattern;
@@ -365,12 +365,12 @@
 
     move-result v4
 
-    if-nez v4, :cond_16
+    if-nez v4, :cond_1
 
     .line 705
     .end local v2           #match:Ljava/util/regex/Matcher;
-    :cond_12
-    :goto_12
+    :cond_0
+    :goto_0
     invoke-virtual {p0, p1, v0, v3}, Landroid/net/wifi/WifiMonitor;->notifyNetworkStateChange(Landroid/net/NetworkInfo$DetailedState;Ljava/lang/String;I)V
 
     .line 706
@@ -378,7 +378,7 @@
 
     .line 697
     .restart local v2       #match:Ljava/util/regex/Matcher;
-    :cond_16
+    :cond_1
     const/4 v4, 0x1
 
     invoke-virtual {v2, v4}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -388,32 +388,32 @@
     .line 699
     const/4 v4, 0x2
 
-    :try_start_1c
+    :try_start_0
     invoke-virtual {v2, v4}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object v4
 
     invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_23
-    .catch Ljava/lang/NumberFormatException; {:try_start_1c .. :try_end_23} :catch_25
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v3
 
-    goto :goto_12
+    goto :goto_0
 
     .line 700
-    :catch_25
+    :catch_0
     move-exception v1
 
     .line 701
     .local v1, e:Ljava/lang/NumberFormatException;
     const/4 v3, -0x1
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method private static nap(I)V
-    .registers 3
+    .locals 2
     .parameter "secs"
 
     .prologue
@@ -422,26 +422,26 @@
 
     int-to-long v0, v0
 
-    :try_start_3
+    :try_start_0
     invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_6
-    .catch Ljava/lang/InterruptedException; {:try_start_3 .. :try_end_6} :catch_7
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 752
-    :goto_6
+    :goto_0
     return-void
 
     .line 750
-    :catch_7
+    :catch_0
     move-exception v0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method notifyNetworkStateChange(Landroid/net/NetworkInfo$DetailedState;Ljava/lang/String;I)V
-    .registers 8
+    .locals 4
     .parameter "newState"
     .parameter "BSSID"
     .parameter "netId"
@@ -452,7 +452,7 @@
     .line 719
     sget-object v1, Landroid/net/NetworkInfo$DetailedState;->CONNECTED:Landroid/net/NetworkInfo$DetailedState;
 
-    if-ne p1, v1, :cond_14
+    if-ne p1, v1, :cond_0
 
     .line 720
     iget-object v1, p0, Landroid/net/wifi/WifiMonitor;->mStateMachine:Lcom/android/internal/util/StateMachine;
@@ -470,12 +470,12 @@
     invoke-virtual {v1, v0}, Lcom/android/internal/util/StateMachine;->sendMessage(Landroid/os/Message;)V
 
     .line 728
-    :goto_13
+    :goto_0
     return-void
 
     .line 724
     .end local v0           #m:Landroid/os/Message;
-    :cond_14
+    :cond_0
     iget-object v1, p0, Landroid/net/wifi/WifiMonitor;->mStateMachine:Lcom/android/internal/util/StateMachine;
 
     const v2, 0x24004
@@ -490,11 +490,11 @@
 
     invoke-virtual {v1, v0}, Lcom/android/internal/util/StateMachine;->sendMessage(Landroid/os/Message;)V
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method notifySupplicantStateChange(ILjava/lang/String;Ljava/lang/String;Landroid/net/wifi/SupplicantState;)V
-    .registers 9
+    .locals 4
     .parameter "networkId"
     .parameter "SSID"
     .parameter "BSSID"
@@ -523,7 +523,7 @@
 .end method
 
 .method public startMonitoring()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 351

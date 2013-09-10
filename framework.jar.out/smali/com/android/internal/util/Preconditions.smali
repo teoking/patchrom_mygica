@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 23
@@ -15,7 +15,7 @@
 .end method
 
 .method public static checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -28,7 +28,7 @@
     .prologue
     .line 34
     .local p0, reference:Ljava/lang/Object;,"TT;"
-    if-nez p0, :cond_8
+    if-nez p0, :cond_0
 
     .line 35
     new-instance v0, Ljava/lang/NullPointerException;
@@ -38,12 +38,12 @@
     throw v0
 
     .line 37
-    :cond_8
+    :cond_0
     return-object p0
 .end method
 
 .method public static checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 4
+    .locals 2
     .parameter
     .parameter "errorMessage"
     .annotation system Ldalvik/annotation/Signature;
@@ -59,7 +59,7 @@
     .prologue
     .line 51
     .local p0, reference:Ljava/lang/Object;,"TT;"
-    if-nez p0, :cond_c
+    if-nez p0, :cond_0
 
     .line 52
     new-instance v0, Ljava/lang/NullPointerException;
@@ -73,6 +73,6 @@
     throw v0
 
     .line 54
-    :cond_c
+    :cond_0
     return-object p0
 .end method

@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
-    .registers 2
+    .locals 0
     .parameter "rs"
 
     .prologue
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public addInput(Landroid/renderscript/Element;)Landroid/renderscript/ProgramVertex$Builder;
-    .registers 5
+    .locals 3
     .parameter "e"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -44,7 +44,7 @@
 
     const/16 v1, 0x8
 
-    if-lt v0, v1, :cond_e
+    if-lt v0, v1, :cond_0
 
     .line 109
     new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
@@ -56,12 +56,12 @@
     throw v0
 
     .line 111
-    :cond_e
+    :cond_0
     invoke-virtual {p1}, Landroid/renderscript/Element;->isComplex()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_1
 
     .line 112
     new-instance v0, Landroid/renderscript/RSIllegalArgumentException;
@@ -73,7 +73,7 @@
     throw v0
 
     .line 114
-    :cond_1c
+    :cond_1
     iget-object v0, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mInputs:[Landroid/renderscript/Element;
 
     iget v1, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mInputCount:I
@@ -89,7 +89,7 @@
 .end method
 
 .method public create()Landroid/renderscript/ProgramVertex;
-    .registers 10
+    .locals 9
 
     .prologue
     .line 125
@@ -131,10 +131,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1a
+    :goto_0
     iget v7, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mInputCount:I
 
-    if-ge v0, v7, :cond_37
+    if-ge v0, v7, :cond_0
 
     .line 131
     add-int/lit8 v3, v2, 0x1
@@ -167,16 +167,16 @@
     .line 130
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 134
-    :cond_37
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_38
+    :goto_1
     iget v7, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mOutputCount:I
 
-    if-ge v0, v7, :cond_55
+    if-ge v0, v7, :cond_1
 
     .line 135
     add-int/lit8 v3, v2, 0x1
@@ -209,16 +209,16 @@
     .line 134
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_38
+    goto :goto_1
 
     .line 138
-    :cond_55
+    :cond_1
     const/4 v0, 0x0
 
-    :goto_56
+    :goto_2
     iget v7, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mConstantCount:I
 
-    if-ge v0, v7, :cond_73
+    if-ge v0, v7, :cond_2
 
     .line 139
     add-int/lit8 v3, v2, 0x1
@@ -251,16 +251,16 @@
     .line 138
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_56
+    goto :goto_2
 
     .line 142
-    :cond_73
+    :cond_2
     const/4 v0, 0x0
 
-    :goto_74
+    :goto_3
     iget v7, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureCount:I
 
-    if-ge v0, v7, :cond_93
+    if-ge v0, v7, :cond_3
 
     .line 143
     add-int/lit8 v3, v2, 0x1
@@ -296,10 +296,10 @@
     .line 142
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_74
+    goto :goto_3
 
     .line 148
-    :cond_93
+    :cond_3
     iget-object v7, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v8, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mShader:Ljava/lang/String;

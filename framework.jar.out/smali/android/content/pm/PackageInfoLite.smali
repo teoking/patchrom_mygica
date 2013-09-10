@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 72
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 46
@@ -56,7 +56,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 5
+    .locals 3
     .parameter "source"
 
     .prologue
@@ -91,7 +91,7 @@
 
     .line 89
     .local v0, verifiersLength:I
-    if-nez v0, :cond_21
+    if-nez v0, :cond_0
 
     .line 90
     const/4 v1, 0x0
@@ -101,11 +101,11 @@
     iput-object v1, p0, Landroid/content/pm/PackageInfoLite;->verifiers:[Landroid/content/pm/VerifierInfo;
 
     .line 95
-    :goto_20
+    :goto_0
     return-void
 
     .line 92
-    :cond_21
+    :cond_0
     new-array v1, v0, [Landroid/content/pm/VerifierInfo;
 
     iput-object v1, p0, Landroid/content/pm/PackageInfoLite;->verifiers:[Landroid/content/pm/VerifierInfo;
@@ -117,11 +117,11 @@
 
     invoke-virtual {p1, v1, v2}, Landroid/os/Parcel;->readTypedArray([Ljava/lang/Object;Landroid/os/Parcelable$Creator;)V
 
-    goto :goto_20
+    goto :goto_0
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/PackageInfoLite$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -135,7 +135,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 56
@@ -145,7 +145,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 50
@@ -197,7 +197,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "parcelableFlags"
 
@@ -220,26 +220,26 @@
     .line 64
     iget-object v0, p0, Landroid/content/pm/PackageInfoLite;->verifiers:[Landroid/content/pm/VerifierInfo;
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/content/pm/PackageInfoLite;->verifiers:[Landroid/content/pm/VerifierInfo;
 
     array-length v0, v0
 
-    if-nez v0, :cond_1d
+    if-nez v0, :cond_1
 
     .line 65
-    :cond_18
+    :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 70
-    :goto_1c
+    :goto_0
     return-void
 
     .line 67
-    :cond_1d
+    :cond_1
     iget-object v0, p0, Landroid/content/pm/PackageInfoLite;->verifiers:[Landroid/content/pm/VerifierInfo;
 
     array-length v0, v0
@@ -251,5 +251,5 @@
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
 
-    goto :goto_1c
+    goto :goto_0
 .end method

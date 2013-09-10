@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 30
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;I)V
-    .registers 4
+    .locals 1
     .parameter "in"
     .parameter "flags"
 
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;IZ)V
-    .registers 8
+    .locals 4
     .parameter "in"
     .parameter "flags"
     .parameter "encode"
@@ -76,7 +76,7 @@
     iput-object v0, p0, Landroid/util/Base64InputStream;->inputBuffer:[B
 
     .line 65
-    if-eqz p3, :cond_27
+    if-eqz p3, :cond_0
 
     .line 66
     new-instance v0, Landroid/util/Base64$Encoder;
@@ -86,7 +86,7 @@
     iput-object v0, p0, Landroid/util/Base64InputStream;->coder:Landroid/util/Base64$Coder;
 
     .line 70
-    :goto_16
+    :goto_0
     iget-object v0, p0, Landroid/util/Base64InputStream;->coder:Landroid/util/Base64$Coder;
 
     iget-object v1, p0, Landroid/util/Base64InputStream;->coder:Landroid/util/Base64$Coder;
@@ -109,18 +109,18 @@
     return-void
 
     .line 68
-    :cond_27
+    :cond_0
     new-instance v0, Landroid/util/Base64$Decoder;
 
     invoke-direct {v0, p2, v1}, Landroid/util/Base64$Decoder;-><init>(I[B)V
 
     iput-object v0, p0, Landroid/util/Base64InputStream;->coder:Landroid/util/Base64$Coder;
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method private refill()V
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -135,14 +135,14 @@
     .line 138
     iget-boolean v2, p0, Landroid/util/Base64InputStream;->eof:Z
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_0
 
     .line 152
-    :goto_6
+    :goto_0
     return-void
 
     .line 139
-    :cond_7
+    :cond_0
     iget-object v2, p0, Landroid/util/Base64InputStream;->in:Ljava/io/InputStream;
 
     iget-object v3, p0, Landroid/util/Base64InputStream;->inputBuffer:[B
@@ -155,7 +155,7 @@
     .local v0, bytesRead:I
     const/4 v2, -0x1
 
-    if-ne v0, v2, :cond_26
+    if-ne v0, v2, :cond_1
 
     .line 142
     iput-boolean v5, p0, Landroid/util/Base64InputStream;->eof:Z
@@ -171,8 +171,8 @@
 
     .line 147
     .local v1, success:Z
-    :goto_1c
-    if-nez v1, :cond_2f
+    :goto_1
+    if-nez v1, :cond_2
 
     .line 148
     new-instance v2, Landroid/util/Base64DataException;
@@ -185,7 +185,7 @@
 
     .line 145
     .end local v1           #success:Z
-    :cond_26
+    :cond_1
     iget-object v2, p0, Landroid/util/Base64InputStream;->coder:Landroid/util/Base64$Coder;
 
     iget-object v3, p0, Landroid/util/Base64InputStream;->inputBuffer:[B
@@ -195,10 +195,10 @@
     move-result v1
 
     .restart local v1       #success:Z
-    goto :goto_1c
+    goto :goto_1
 
     .line 150
-    :cond_2f
+    :cond_2
     iget-object v2, p0, Landroid/util/Base64InputStream;->coder:Landroid/util/Base64$Coder;
 
     iget v2, v2, Landroid/util/Base64$Coder;->op:I
@@ -208,13 +208,13 @@
     .line 151
     iput v4, p0, Landroid/util/Base64InputStream;->outputStart:I
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public available()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 93
@@ -228,7 +228,7 @@
 .end method
 
 .method public close()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -251,7 +251,7 @@
 .end method
 
 .method public mark(I)V
-    .registers 3
+    .locals 1
     .parameter "readlimit"
 
     .prologue
@@ -264,7 +264,7 @@
 .end method
 
 .method public markSupported()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -274,7 +274,7 @@
 .end method
 
 .method public read()I
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -287,27 +287,27 @@
 
     iget v1, p0, Landroid/util/Base64InputStream;->outputEnd:I
 
-    if-lt v0, v1, :cond_9
+    if-lt v0, v1, :cond_0
 
     .line 110
     invoke-direct {p0}, Landroid/util/Base64InputStream;->refill()V
 
     .line 112
-    :cond_9
+    :cond_0
     iget v0, p0, Landroid/util/Base64InputStream;->outputStart:I
 
     iget v1, p0, Landroid/util/Base64InputStream;->outputEnd:I
 
-    if-lt v0, v1, :cond_11
+    if-lt v0, v1, :cond_1
 
     .line 113
     const/4 v0, -0x1
 
     .line 115
-    :goto_10
+    :goto_0
     return v0
 
-    :cond_11
+    :cond_1
     iget-object v0, p0, Landroid/util/Base64InputStream;->coder:Landroid/util/Base64$Coder;
 
     iget-object v0, v0, Landroid/util/Base64$Coder;->output:[B
@@ -322,11 +322,11 @@
 
     and-int/lit16 v0, v0, 0xff
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public read([BII)I
-    .registers 7
+    .locals 3
     .parameter "b"
     .parameter "off"
     .parameter "len"
@@ -342,28 +342,28 @@
 
     iget v2, p0, Landroid/util/Base64InputStream;->outputEnd:I
 
-    if-lt v1, v2, :cond_9
+    if-lt v1, v2, :cond_0
 
     .line 121
     invoke-direct {p0}, Landroid/util/Base64InputStream;->refill()V
 
     .line 123
-    :cond_9
+    :cond_0
     iget v1, p0, Landroid/util/Base64InputStream;->outputStart:I
 
     iget v2, p0, Landroid/util/Base64InputStream;->outputEnd:I
 
-    if-lt v1, v2, :cond_11
+    if-lt v1, v2, :cond_1
 
     .line 124
     const/4 v0, -0x1
 
     .line 129
-    :goto_10
+    :goto_0
     return v0
 
     .line 126
-    :cond_11
+    :cond_1
     iget v1, p0, Landroid/util/Base64InputStream;->outputEnd:I
 
     iget v2, p0, Landroid/util/Base64InputStream;->outputStart:I
@@ -391,11 +391,11 @@
 
     iput v1, p0, Landroid/util/Base64InputStream;->outputStart:I
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public reset()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84
@@ -407,7 +407,7 @@
 .end method
 
 .method public skip(J)J
-    .registers 7
+    .locals 4
     .parameter "n"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -421,28 +421,28 @@
 
     iget v3, p0, Landroid/util/Base64InputStream;->outputEnd:I
 
-    if-lt v2, v3, :cond_9
+    if-lt v2, v3, :cond_0
 
     .line 98
     invoke-direct {p0}, Landroid/util/Base64InputStream;->refill()V
 
     .line 100
-    :cond_9
+    :cond_0
     iget v2, p0, Landroid/util/Base64InputStream;->outputStart:I
 
     iget v3, p0, Landroid/util/Base64InputStream;->outputEnd:I
 
-    if-lt v2, v3, :cond_12
+    if-lt v2, v3, :cond_1
 
     .line 101
     const-wide/16 v0, 0x0
 
     .line 105
-    :goto_11
+    :goto_0
     return-wide v0
 
     .line 103
-    :cond_12
+    :cond_1
     iget v2, p0, Landroid/util/Base64InputStream;->outputEnd:I
 
     iget v3, p0, Landroid/util/Base64InputStream;->outputStart:I
@@ -467,5 +467,5 @@
 
     iput v2, p0, Landroid/util/Base64InputStream;->outputStart:I
 
-    goto :goto_11
+    goto :goto_0
 .end method

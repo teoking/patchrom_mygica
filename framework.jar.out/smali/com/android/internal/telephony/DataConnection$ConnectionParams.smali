@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/ApnSetting;Landroid/os/Message;)V
-    .registers 3
+    .locals 0
     .parameter "apn"
     .parameter "onCompletedMsg"
 

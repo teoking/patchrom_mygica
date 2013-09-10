@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/Gallery;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,12 +38,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1226
     iget-object v0, p0, Landroid/widget/Gallery$2;->this$0:Landroid/widget/Gallery;
 
+    #calls: Landroid/widget/Gallery;->dispatchUnpress()V
     invoke-static {v0}, Landroid/widget/Gallery;->access$300(Landroid/widget/Gallery;)V
 
     .line 1227

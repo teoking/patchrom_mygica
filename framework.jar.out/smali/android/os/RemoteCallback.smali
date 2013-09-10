@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 95
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "handler"
 
     .prologue
@@ -73,7 +73,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/IRemoteCallback;)V
-    .registers 3
+    .locals 1
     .parameter "target"
 
     .prologue
@@ -95,7 +95,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 88
@@ -105,24 +105,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 5
+    .locals 3
     .parameter "otherObj"
 
     .prologue
     const/4 v0, 0x0
 
     .line 72
-    if-nez p1, :cond_4
+    if-nez p1, :cond_0
 
     .line 80
     .end local p1
-    :goto_3
+    :goto_0
     return v0
 
     .line 76
     .restart local p1
-    :cond_4
-    :try_start_4
+    :cond_0
+    :try_start_0
     iget-object v1, p0, Landroid/os/RemoteCallback;->mTarget:Landroid/os/IRemoteCallback;
 
     invoke-interface {v1}, Landroid/os/IRemoteCallback;->asBinder()Landroid/os/IBinder;
@@ -139,22 +139,22 @@
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-    :try_end_15
-    .catch Ljava/lang/ClassCastException; {:try_start_4 .. :try_end_15} :catch_17
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v0
 
-    goto :goto_3
+    goto :goto_0
 
     .line 78
-    :catch_17
+    :catch_0
     move-exception v1
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84
@@ -175,7 +175,7 @@
 .end method
 
 .method public sendResult(Landroid/os/Bundle;)V
-    .registers 3
+    .locals 1
     .parameter "bundle"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -194,7 +194,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 

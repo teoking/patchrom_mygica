@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(FFII)V
-    .registers 5
+    .locals 0
     .parameter "x"
     .parameter "y"
     .parameter "scrollX"

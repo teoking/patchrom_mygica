@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/SearchView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 141
@@ -58,7 +58,7 @@
 
     .line 144
     .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 145
     const/4 v1, 0x0
@@ -68,6 +68,6 @@
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->showSoftInputUnchecked(ILandroid/os/ResultReceiver;)V
 
     .line 147
-    :cond_15
+    :cond_0
     return-void
 .end method

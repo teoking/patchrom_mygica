@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1879
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Landroid/app/Notification$Builder;)V
-    .registers 4
+    .locals 2
     .parameter "builder"
 
     .prologue
@@ -73,7 +73,7 @@
 .end method
 
 .method private makeBigContentView()Landroid/widget/RemoteViews;
-    .registers 14
+    .locals 13
 
     .prologue
     const v12, 0x1020322
@@ -87,6 +87,7 @@
 
     const/4 v9, 0x0
 
+    #setter for: Landroid/app/Notification$Builder;->mContentText:Ljava/lang/CharSequence;
     invoke-static {v8, v9}, Landroid/app/Notification$Builder;->access$702(Landroid/app/Notification$Builder;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     .line 1914
@@ -107,7 +108,7 @@
 
     new-array v6, v8, [I
 
-    fill-array-data v6, :array_68
+    fill-array-data v6, :array_0
 
     .line 1922
     .local v6, rowIds:[I
@@ -120,8 +121,8 @@
     const/4 v3, 0x0
 
     .local v3, i$:I
-    :goto_22
-    if-ge v3, v4, :cond_2c
+    :goto_0
+    if-ge v3, v4, :cond_0
 
     aget v5, v0, v3
 
@@ -132,27 +133,27 @@
     .line 1922
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_22
+    goto :goto_0
 
     .line 1926
     .end local v5           #rowId:I
-    :cond_2c
+    :cond_0
     const/4 v2, 0x0
 
     .line 1927
     .local v2, i:I
-    :goto_2d
+    :goto_1
     iget-object v8, p0, Landroid/app/Notification$InboxStyle;->mTexts:Ljava/util/ArrayList;
 
     invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
 
     move-result v8
 
-    if-ge v2, v8, :cond_57
+    if-ge v2, v8, :cond_2
 
     array-length v8, v6
 
-    if-ge v2, v8, :cond_57
+    if-ge v2, v8, :cond_2
 
     .line 1928
     iget-object v8, p0, Landroid/app/Notification$InboxStyle;->mTexts:Ljava/util/ArrayList;
@@ -165,7 +166,7 @@
 
     .line 1929
     .local v7, str:Ljava/lang/CharSequence;
-    if-eqz v7, :cond_54
+    if-eqz v7, :cond_1
 
     const-string v8, ""
 
@@ -173,7 +174,7 @@
 
     move-result v8
 
-    if-nez v8, :cond_54
+    if-nez v8, :cond_1
 
     .line 1930
     aget v8, v6, v2
@@ -186,15 +187,15 @@
     invoke-virtual {v1, v8, v7}, Landroid/widget/RemoteViews;->setTextViewText(ILjava/lang/CharSequence;)V
 
     .line 1933
-    :cond_54
+    :cond_1
     add-int/lit8 v2, v2, 0x1
 
     .line 1934
-    goto :goto_2d
+    goto :goto_1
 
     .line 1936
     .end local v7           #str:Ljava/lang/CharSequence;
-    :cond_57
+    :cond_2
     iget-object v8, p0, Landroid/app/Notification$InboxStyle;->mTexts:Ljava/util/ArrayList;
 
     invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
@@ -203,23 +204,23 @@
 
     array-length v9, v6
 
-    if-le v8, v9, :cond_64
+    if-le v8, v9, :cond_3
 
     .line 1937
     invoke-virtual {v1, v12, v11}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
     .line 1942
-    :goto_63
+    :goto_2
     return-object v1
 
     .line 1939
-    :cond_64
+    :cond_3
     invoke-virtual {v1, v12, v10}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
-    goto :goto_63
+    goto :goto_2
 
     .line 1918
-    :array_68
+    :array_0
     .array-data 0x4
         0x1bt 0x3t 0x2t 0x1t
         0x1ct 0x3t 0x2t 0x1t
@@ -234,7 +235,7 @@
 
 # virtual methods
 .method public addLine(Ljava/lang/CharSequence;)Landroid/app/Notification$InboxStyle;
-    .registers 3
+    .locals 1
     .parameter "cs"
 
     .prologue
@@ -248,7 +249,7 @@
 .end method
 
 .method public build()Landroid/app/Notification;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1947
@@ -257,6 +258,7 @@
     .line 1948
     iget-object v1, p0, Landroid/app/Notification$Style;->mBuilder:Landroid/app/Notification$Builder;
 
+    #calls: Landroid/app/Notification$Builder;->buildUnstyled()Landroid/app/Notification;
     invoke-static {v1}, Landroid/app/Notification$Builder;->access$500(Landroid/app/Notification$Builder;)Landroid/app/Notification;
 
     move-result-object v0
@@ -274,7 +276,7 @@
 .end method
 
 .method public setBigContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$InboxStyle;
-    .registers 2
+    .locals 0
     .parameter "title"
 
     .prologue
@@ -286,7 +288,7 @@
 .end method
 
 .method public setSummaryText(Ljava/lang/CharSequence;)Landroid/app/Notification$InboxStyle;
-    .registers 2
+    .locals 0
     .parameter "cs"
 
     .prologue

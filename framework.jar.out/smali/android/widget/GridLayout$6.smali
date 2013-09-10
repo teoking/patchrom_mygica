@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 2648
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public getAlignmentValue(Landroid/view/View;II)I
-    .registers 6
+    .locals 2
     .parameter "view"
     .parameter "viewSize"
     .parameter "mode"
@@ -43,23 +43,23 @@
     .local v0, baseline:I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_a
+    if-ne v0, v1, :cond_1
 
     .line 2658
     const/high16 v0, -0x8000
 
     .line 2663
     .end local v0           #baseline:I
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     return v0
 
     .line 2660
     .restart local v0       #baseline:I
-    :cond_a
+    :cond_1
     const/4 v1, 0x1
 
-    if-ne p3, v1, :cond_9
+    if-ne p3, v1, :cond_0
 
     .line 2661
     invoke-virtual {p1}, Landroid/view/View;->getOpticalInsets()Landroid/graphics/Insets;
@@ -70,11 +70,11 @@
 
     sub-int/2addr v0, v1
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public getBounds()Landroid/widget/GridLayout$Bounds;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2669
@@ -86,7 +86,7 @@
 .end method
 
 .method getGravityOffset(Landroid/view/View;I)I
-    .registers 4
+    .locals 1
     .parameter "view"
     .parameter "cellDelta"
 

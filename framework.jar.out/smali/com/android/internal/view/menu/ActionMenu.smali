@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -47,7 +47,7 @@
 .end method
 
 .method private findItemIndex(I)I
-    .registers 6
+    .locals 4
     .parameter "id"
 
     .prologue
@@ -65,8 +65,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_7
-    if-ge v0, v1, :cond_19
+    :goto_0
+    if-ge v0, v1, :cond_1
 
     .line 132
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -79,29 +79,29 @@
 
     move-result v3
 
-    if-ne v3, p1, :cond_16
+    if-ne v3, p1, :cond_0
 
     .line 137
     .end local v0           #i:I
-    :goto_15
+    :goto_1
     return v0
 
     .line 131
     .restart local v0       #i:I
-    :cond_16
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 137
-    :cond_19
+    :cond_1
     const/4 v0, -0x1
 
-    goto :goto_15
+    goto :goto_1
 .end method
 
 .method private findItemWithShortcut(ILandroid/view/KeyEvent;)Lcom/android/internal/view/menu/ActionMenuItem;
-    .registers 9
+    .locals 6
     .parameter "keyCode"
     .parameter "event"
 
@@ -124,8 +124,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_9
-    if-ge v0, v2, :cond_22
+    :goto_0
+    if-ge v0, v2, :cond_2
 
     .line 168
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -136,7 +136,7 @@
 
     .line 169
     .local v1, item:Lcom/android/internal/view/menu/ActionMenuItem;
-    if-eqz v4, :cond_1a
+    if-eqz v4, :cond_0
 
     invoke-virtual {v1}, Lcom/android/internal/view/menu/ActionMenuItem;->getAlphabeticShortcut()C
 
@@ -144,44 +144,44 @@
 
     .line 171
     .local v5, shortcut:C
-    :goto_17
-    if-ne p1, v5, :cond_1f
+    :goto_1
+    if-ne p1, v5, :cond_1
 
     .line 175
     .end local v1           #item:Lcom/android/internal/view/menu/ActionMenuItem;
     .end local v5           #shortcut:C
-    :goto_19
+    :goto_2
     return-object v1
 
     .line 169
     .restart local v1       #item:Lcom/android/internal/view/menu/ActionMenuItem;
-    :cond_1a
+    :cond_0
     invoke-virtual {v1}, Lcom/android/internal/view/menu/ActionMenuItem;->getNumericShortcut()C
 
     move-result v5
 
-    goto :goto_17
+    goto :goto_1
 
     .line 167
     .restart local v5       #shortcut:C
-    :cond_1f
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 175
     .end local v1           #item:Lcom/android/internal/view/menu/ActionMenuItem;
     .end local v5           #shortcut:C
-    :cond_22
+    :cond_2
     const/4 v1, 0x0
 
-    goto :goto_19
+    goto :goto_2
 .end method
 
 
 # virtual methods
 .method public add(I)Landroid/view/MenuItem;
-    .registers 3
+    .locals 1
     .parameter "titleRes"
 
     .prologue
@@ -196,7 +196,7 @@
 .end method
 
 .method public add(IIII)Landroid/view/MenuItem;
-    .registers 6
+    .locals 1
     .parameter "groupId"
     .parameter "itemId"
     .parameter "order"
@@ -222,7 +222,7 @@
 .end method
 
 .method public add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
-    .registers 12
+    .locals 7
     .parameter "groupId"
     .parameter "itemId"
     .parameter "order"
@@ -259,7 +259,7 @@
 .end method
 
 .method public add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
-    .registers 3
+    .locals 1
     .parameter "title"
 
     .prologue
@@ -274,7 +274,7 @@
 .end method
 
 .method public addIntentOptions(IIILandroid/content/ComponentName;[Landroid/content/Intent;Landroid/content/Intent;I[Landroid/view/MenuItem;)I
-    .registers 22
+    .locals 13
     .parameter "groupId"
     .parameter "itemId"
     .parameter "order"
@@ -308,7 +308,7 @@
 
     .line 76
     .local v6, lri:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    if-eqz v6, :cond_67
+    if-eqz v6, :cond_2
 
     invoke-interface {v6}, Ljava/util/List;->size()I
 
@@ -316,21 +316,21 @@
 
     .line 78
     .local v3, N:I
-    :goto_17
+    :goto_0
     and-int/lit8 v10, p7, 0x1
 
-    if-nez v10, :cond_1e
+    if-nez v10, :cond_0
 
     .line 79
     invoke-virtual {p0, p1}, Lcom/android/internal/view/menu/ActionMenu;->removeGroup(I)V
 
     .line 82
-    :cond_1e
+    :cond_0
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_1f
-    if-ge v4, v3, :cond_6e
+    :goto_1
+    if-ge v4, v3, :cond_4
 
     .line 83
     invoke-interface {v6, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -345,11 +345,11 @@
 
     iget v10, v8, Landroid/content/pm/ResolveInfo;->specificIndex:I
 
-    if-gez v10, :cond_69
+    if-gez v10, :cond_3
 
     move-object/from16 v10, p6
 
-    :goto_2f
+    :goto_2
     invoke-direct {v9, v10}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
 
     .line 86
@@ -395,11 +395,11 @@
 
     .line 92
     .local v5, item:Landroid/view/MenuItem;
-    if-eqz p8, :cond_64
+    if-eqz p8, :cond_1
 
     iget v10, v8, Landroid/content/pm/ResolveInfo;->specificIndex:I
 
-    if-ltz v10, :cond_64
+    if-ltz v10, :cond_1
 
     .line 93
     iget v10, v8, Landroid/content/pm/ResolveInfo;->specificIndex:I
@@ -407,10 +407,10 @@
     aput-object v5, p8, v10
 
     .line 82
-    :cond_64
+    :cond_1
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1f
+    goto :goto_1
 
     .line 76
     .end local v3           #N:I
@@ -418,30 +418,30 @@
     .end local v5           #item:Landroid/view/MenuItem;
     .end local v8           #ri:Landroid/content/pm/ResolveInfo;
     .end local v9           #rintent:Landroid/content/Intent;
-    :cond_67
+    :cond_2
     const/4 v3, 0x0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 84
     .restart local v3       #N:I
     .restart local v4       #i:I
     .restart local v8       #ri:Landroid/content/pm/ResolveInfo;
-    :cond_69
+    :cond_3
     iget v10, v8, Landroid/content/pm/ResolveInfo;->specificIndex:I
 
     aget-object v10, p5, v10
 
-    goto :goto_2f
+    goto :goto_2
 
     .line 97
     .end local v8           #ri:Landroid/content/pm/ResolveInfo;
-    :cond_6e
+    :cond_4
     return v3
 .end method
 
 .method public addSubMenu(I)Landroid/view/SubMenu;
-    .registers 3
+    .locals 1
     .parameter "titleRes"
 
     .prologue
@@ -452,7 +452,7 @@
 .end method
 
 .method public addSubMenu(IIII)Landroid/view/SubMenu;
-    .registers 6
+    .locals 1
     .parameter "groupId"
     .parameter "itemId"
     .parameter "order"
@@ -466,7 +466,7 @@
 .end method
 
 .method public addSubMenu(IIILjava/lang/CharSequence;)Landroid/view/SubMenu;
-    .registers 6
+    .locals 1
     .parameter "groupId"
     .parameter "itemId"
     .parameter "order"
@@ -480,7 +480,7 @@
 .end method
 
 .method public addSubMenu(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
-    .registers 3
+    .locals 1
     .parameter "title"
 
     .prologue
@@ -491,7 +491,7 @@
 .end method
 
 .method public clear()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 122
@@ -504,7 +504,7 @@
 .end method
 
 .method public close()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 126
@@ -512,7 +512,7 @@
 .end method
 
 .method public findItem(I)Landroid/view/MenuItem;
-    .registers 4
+    .locals 2
     .parameter "id"
 
     .prologue
@@ -533,7 +533,7 @@
 .end method
 
 .method public getContext()Landroid/content/Context;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 48
@@ -543,7 +543,7 @@
 .end method
 
 .method public getItem(I)Landroid/view/MenuItem;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -560,7 +560,7 @@
 .end method
 
 .method public hasVisibleItems()Z
-    .registers 5
+    .locals 4
 
     .prologue
     .line 149
@@ -577,8 +577,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_7
-    if-ge v0, v1, :cond_1a
+    :goto_0
+    if-ge v0, v1, :cond_1
 
     .line 153
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -591,30 +591,30 @@
 
     move-result v3
 
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_0
 
     .line 154
     const/4 v3, 0x1
 
     .line 158
-    :goto_16
+    :goto_1
     return v3
 
     .line 152
-    :cond_17
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 158
-    :cond_1a
+    :cond_1
     const/4 v3, 0x0
 
-    goto :goto_16
+    goto :goto_1
 .end method
 
 .method public isShortcutKey(ILandroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 1
     .parameter "keyCode"
     .parameter "event"
 
@@ -624,21 +624,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public performIdentifierAction(II)Z
-    .registers 5
+    .locals 2
     .parameter "id"
     .parameter "flags"
 
@@ -650,16 +650,16 @@
 
     .line 184
     .local v0, index:I
-    if-gez v0, :cond_8
+    if-gez v0, :cond_0
 
     .line 185
     const/4 v1, 0x0
 
     .line 188
-    :goto_7
+    :goto_0
     return v1
 
-    :cond_8
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/view/menu/ActionMenu;->mItems:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -672,11 +672,11 @@
 
     move-result v1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public performShortcut(ILandroid/view/KeyEvent;I)Z
-    .registers 6
+    .locals 2
     .parameter "keyCode"
     .parameter "event"
     .parameter "flags"
@@ -689,25 +689,25 @@
 
     .line 193
     .local v0, item:Lcom/android/internal/view/menu/ActionMenuItem;
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     .line 194
     const/4 v1, 0x0
 
     .line 197
-    :goto_7
+    :goto_0
     return v1
 
-    :cond_8
+    :cond_0
     invoke-virtual {v0}, Lcom/android/internal/view/menu/ActionMenuItem;->invoke()Z
 
     move-result v1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public removeGroup(I)V
-    .registers 6
+    .locals 4
     .parameter "groupId"
 
     .prologue
@@ -726,8 +726,8 @@
 
     .line 204
     .local v0, i:I
-    :goto_7
-    if-ge v0, v1, :cond_1e
+    :goto_0
+    if-ge v0, v1, :cond_1
 
     .line 205
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -740,7 +740,7 @@
 
     move-result v3
 
-    if-ne v3, p1, :cond_1b
+    if-ne v3, p1, :cond_0
 
     .line 206
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
@@ -748,21 +748,21 @@
     .line 207
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 209
-    :cond_1b
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 212
-    :cond_1e
+    :cond_1
     return-void
 .end method
 
 .method public removeItem(I)V
-    .registers 4
+    .locals 2
     .parameter "id"
 
     .prologue
@@ -780,7 +780,7 @@
 .end method
 
 .method public setGroupCheckable(IZZ)V
-    .registers 9
+    .locals 5
     .parameter "group"
     .parameter "checkable"
     .parameter "exclusive"
@@ -800,8 +800,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_7
-    if-ge v0, v2, :cond_1e
+    :goto_0
+    if-ge v0, v2, :cond_1
 
     .line 224
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -816,7 +816,7 @@
 
     move-result v4
 
-    if-ne v4, p1, :cond_1b
+    if-ne v4, p1, :cond_0
 
     .line 226
     invoke-virtual {v1, p2}, Lcom/android/internal/view/menu/ActionMenuItem;->setCheckable(Z)Landroid/view/MenuItem;
@@ -825,19 +825,19 @@
     invoke-virtual {v1, p3}, Lcom/android/internal/view/menu/ActionMenuItem;->setExclusiveCheckable(Z)Lcom/android/internal/view/menu/ActionMenuItem;
 
     .line 223
-    :cond_1b
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 230
     .end local v1           #item:Lcom/android/internal/view/menu/ActionMenuItem;
-    :cond_1e
+    :cond_1
     return-void
 .end method
 
 .method public setGroupEnabled(IZ)V
-    .registers 8
+    .locals 5
     .parameter "group"
     .parameter "enabled"
 
@@ -856,8 +856,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_7
-    if-ge v0, v2, :cond_1b
+    :goto_0
+    if-ge v0, v2, :cond_1
 
     .line 237
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -872,25 +872,25 @@
 
     move-result v4
 
-    if-ne v4, p1, :cond_18
+    if-ne v4, p1, :cond_0
 
     .line 239
     invoke-virtual {v1, p2}, Lcom/android/internal/view/menu/ActionMenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
     .line 236
-    :cond_18
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 242
     .end local v1           #item:Lcom/android/internal/view/menu/ActionMenuItem;
-    :cond_1b
+    :cond_1
     return-void
 .end method
 
 .method public setGroupVisible(IZ)V
-    .registers 8
+    .locals 5
     .parameter "group"
     .parameter "visible"
 
@@ -909,8 +909,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_7
-    if-ge v0, v2, :cond_1b
+    :goto_0
+    if-ge v0, v2, :cond_1
 
     .line 249
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -925,25 +925,25 @@
 
     move-result v4
 
-    if-ne v4, p1, :cond_18
+    if-ne v4, p1, :cond_0
 
     .line 251
     invoke-virtual {v1, p2}, Lcom/android/internal/view/menu/ActionMenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
     .line 248
-    :cond_18
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 254
     .end local v1           #item:Lcom/android/internal/view/menu/ActionMenuItem;
-    :cond_1b
+    :cond_1
     return-void
 .end method
 
 .method public setQwertyMode(Z)V
-    .registers 2
+    .locals 0
     .parameter "isQwerty"
 
     .prologue
@@ -955,7 +955,7 @@
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 261

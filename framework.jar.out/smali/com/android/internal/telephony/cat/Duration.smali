@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 70
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(ILcom/android/internal/telephony/cat/Duration$TimeUnit;)V
-    .registers 3
+    .locals 0
     .parameter "timeInterval"
     .parameter "timeUnit"
 
@@ -68,7 +68,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -100,7 +100,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/android/internal/telephony/cat/Duration$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 67
@@ -124,7 +124,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

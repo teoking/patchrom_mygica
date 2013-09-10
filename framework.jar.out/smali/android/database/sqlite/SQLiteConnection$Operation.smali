@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 1436
@@ -63,7 +63,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1435
@@ -73,7 +73,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/database/sqlite/SQLiteConnection$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -84,7 +84,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/database/sqlite/SQLiteConnection$Operation;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -97,7 +97,7 @@
 .end method
 
 .method private getFormattedStartTime()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 1493
@@ -117,40 +117,40 @@
 .end method
 
 .method private getStatus()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1486
     iget-boolean v0, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mFinished:Z
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     .line 1487
     const-string/jumbo v0, "running"
 
     .line 1489
-    :goto_7
+    :goto_0
     return-object v0
 
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mException:Ljava/lang/Exception;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_1
 
     const-string v0, "failed"
 
-    goto :goto_7
+    goto :goto_0
 
-    :cond_f
+    :cond_1
     const-string/jumbo v0, "succeeded"
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public describe(Ljava/lang/StringBuilder;)V
-    .registers 10
+    .locals 8
     .parameter "msg"
 
     .prologue
@@ -162,7 +162,7 @@
     .line 1450
     iget-boolean v3, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mFinished:Z
 
-    if-eqz v3, :cond_76
+    if-eqz v3, :cond_2
 
     .line 1451
     const-string v3, " took "
@@ -186,7 +186,7 @@
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1456
-    :goto_1e
+    :goto_0
     const-string v3, " - "
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -202,7 +202,7 @@
     .line 1457
     iget-object v3, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mSql:Ljava/lang/String;
 
-    if-eqz v3, :cond_44
+    if-eqz v3, :cond_0
 
     .line 1458
     const-string v3, ", sql=\""
@@ -213,6 +213,7 @@
 
     iget-object v4, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mSql:Ljava/lang/String;
 
+    #calls: Landroid/database/sqlite/SQLiteConnection;->trimSqlForDisplay(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v4}, Landroid/database/sqlite/SQLiteConnection;->access$300(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
@@ -226,10 +227,10 @@
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1460
-    :cond_44
+    :cond_0
     iget-object v3, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mBindArgs:Ljava/util/ArrayList;
 
-    if-eqz v3, :cond_b7
+    if-eqz v3, :cond_7
 
     iget-object v3, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mBindArgs:Ljava/util/ArrayList;
 
@@ -237,7 +238,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b7
+    if-eqz v3, :cond_7
 
     .line 1461
     const-string v3, ", bindArgs=["
@@ -256,8 +257,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_5c
-    if-ge v2, v1, :cond_b2
+    :goto_1
+    if-ge v2, v1, :cond_6
 
     .line 1464
     iget-object v3, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mBindArgs:Ljava/util/ArrayList;
@@ -268,7 +269,7 @@
 
     .line 1465
     .local v0, arg:Ljava/lang/Object;
-    if-eqz v2, :cond_6b
+    if-eqz v2, :cond_1
 
     .line 1466
     const-string v3, ", "
@@ -276,8 +277,8 @@
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1468
-    :cond_6b
-    if-nez v0, :cond_8e
+    :cond_1
+    if-nez v0, :cond_3
 
     .line 1469
     const-string/jumbo v3, "null"
@@ -286,15 +287,15 @@
 
     .line 1463
     .end local v0           #arg:Ljava/lang/Object;
-    :goto_73
+    :goto_2
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_5c
+    goto :goto_1
 
     .line 1453
     .end local v1           #count:I
     .end local v2           #i:I
-    :cond_76
+    :cond_2
     const-string v3, " started "
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -317,29 +318,29 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 1470
     .restart local v0       #arg:Ljava/lang/Object;
     .restart local v1       #count:I
     .restart local v2       #i:I
-    :cond_8e
+    :cond_3
     instance-of v3, v0, [B
 
-    if-eqz v3, :cond_98
+    if-eqz v3, :cond_4
 
     .line 1471
     const-string v3, "<byte[]>"
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_73
+    goto :goto_2
 
     .line 1472
-    :cond_98
+    :cond_4
     instance-of v3, v0, Ljava/lang/String;
 
-    if-eqz v3, :cond_ae
+    if-eqz v3, :cond_5
 
     .line 1473
     const-string v3, "\""
@@ -359,18 +360,18 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_73
+    goto :goto_2
 
     .line 1475
     .restart local v0       #arg:Ljava/lang/Object;
-    :cond_ae
+    :cond_5
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    goto :goto_73
+    goto :goto_2
 
     .line 1478
     .end local v0           #arg:Ljava/lang/Object;
-    :cond_b2
+    :cond_6
     const-string v3, "]"
 
     invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -378,10 +379,10 @@
     .line 1480
     .end local v1           #count:I
     .end local v2           #i:I
-    :cond_b7
+    :cond_7
     iget-object v3, p0, Landroid/database/sqlite/SQLiteConnection$Operation;->mException:Ljava/lang/Exception;
 
-    if-eqz v3, :cond_d0
+    if-eqz v3, :cond_8
 
     .line 1481
     const-string v3, ", exception=\""
@@ -405,6 +406,6 @@
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1483
-    :cond_d0
+    :cond_8
     return-void
 .end method

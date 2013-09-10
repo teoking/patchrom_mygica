@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 533
@@ -62,7 +62,7 @@
 .end method
 
 .method private constructor <init>(ILjava/util/HashMap;)V
-    .registers 5
+    .locals 2
     .parameter "mask"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -82,7 +82,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 541
-    if-nez p2, :cond_d
+    if-nez p2, :cond_0
 
     .line 542
     new-instance v0, Ljava/lang/NullPointerException;
@@ -94,7 +94,7 @@
     throw v0
 
     .line 544
-    :cond_d
+    :cond_0
     iput p1, p0, Landroid/os/StrictMode$VmPolicy;->mask:I
 
     .line 545
@@ -105,7 +105,7 @@
 .end method
 
 .method synthetic constructor <init>(ILjava/util/HashMap;Landroid/os/StrictMode$1;)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -120,7 +120,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 550

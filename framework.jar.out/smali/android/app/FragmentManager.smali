@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 62
@@ -29,7 +29,7 @@
 .end method
 
 .method public static enableDebugLogging(Z)V
-    .registers 1
+    .locals 0
     .parameter "enabled"
 
     .prologue
@@ -70,7 +70,7 @@
 .end method
 
 .method public invalidateOptionsMenu()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 343
@@ -78,7 +78,7 @@
 .end method
 
 .method public openTransaction()Landroid/app/FragmentTransaction;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

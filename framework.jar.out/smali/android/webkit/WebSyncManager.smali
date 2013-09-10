@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 30
@@ -56,7 +56,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "name"
 
@@ -68,7 +68,7 @@
     iput-object p2, p0, Landroid/webkit/WebSyncManager;->mThreadName:Ljava/lang/String;
 
     .line 67
-    if-eqz p1, :cond_1b
+    if-eqz p1, :cond_0
 
     .line 68
     new-instance v0, Ljava/lang/Thread;
@@ -93,7 +93,7 @@
     return-void
 
     .line 72
-    :cond_1b
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "WebSyncManager can\'t be created without context"
@@ -104,7 +104,7 @@
 .end method
 
 .method static synthetic access$000()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 26
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method protected clone()Ljava/lang/Object;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -135,7 +135,7 @@
 .end method
 
 .method protected onSyncInit()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 160
@@ -143,7 +143,7 @@
 .end method
 
 .method public resetSync()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/16 v2, 0x65
@@ -151,14 +151,14 @@
     .line 117
     iget-object v1, p0, Landroid/webkit/WebSyncManager;->mHandler:Landroid/os/Handler;
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_0
 
     .line 123
-    :goto_6
+    :goto_0
     return-void
 
     .line 120
-    :cond_7
+    :cond_0
     iget-object v1, p0, Landroid/webkit/WebSyncManager;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->removeMessages(I)V
@@ -180,11 +180,11 @@
 
     invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 83
@@ -234,21 +234,21 @@
 .end method
 
 .method public startSync()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 133
     iget-object v1, p0, Landroid/webkit/WebSyncManager;->mHandler:Landroid/os/Handler;
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_1
 
     .line 140
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-void
 
     .line 136
-    :cond_5
+    :cond_1
     iget v1, p0, Landroid/webkit/WebSyncManager;->mStartSyncRefCount:I
 
     add-int/lit8 v1, v1, 0x1
@@ -257,7 +257,7 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_4
+    if-ne v1, v2, :cond_0
 
     .line 137
     iget-object v1, p0, Landroid/webkit/WebSyncManager;->mHandler:Landroid/os/Handler;
@@ -278,32 +278,32 @@
 
     invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public stopSync()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 151
     iget-object v0, p0, Landroid/webkit/WebSyncManager;->mHandler:Landroid/os/Handler;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_1
 
     .line 157
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-void
 
     .line 154
-    :cond_5
+    :cond_1
     iget v0, p0, Landroid/webkit/WebSyncManager;->mStartSyncRefCount:I
 
     add-int/lit8 v0, v0, -0x1
 
     iput v0, p0, Landroid/webkit/WebSyncManager;->mStartSyncRefCount:I
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_0
 
     .line 155
     iget-object v0, p0, Landroid/webkit/WebSyncManager;->mHandler:Landroid/os/Handler;
@@ -312,11 +312,11 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public sync()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/16 v2, 0x65
@@ -324,14 +324,14 @@
     .line 102
     iget-object v1, p0, Landroid/webkit/WebSyncManager;->mHandler:Landroid/os/Handler;
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_0
 
     .line 108
-    :goto_6
+    :goto_0
     return-void
 
     .line 105
-    :cond_7
+    :cond_0
     iget-object v1, p0, Landroid/webkit/WebSyncManager;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->removeMessages(I)V
@@ -353,7 +353,7 @@
 
     invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method abstract syncFromRamToFlash()V

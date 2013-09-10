@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/AdapterViewAnimator;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -59,7 +59,7 @@
 
     move-result v1
 
-    if-lt v0, v1, :cond_2a
+    if-lt v0, v1, :cond_1
 
     .line 742
     iget-object v0, p0, Landroid/widget/AdapterViewAnimator$2;->this$0:Landroid/widget/AdapterViewAnimator;
@@ -76,8 +76,8 @@
     invoke-virtual {v0, v1, v2}, Landroid/widget/AdapterViewAnimator;->showOnly(IZ)V
 
     .line 748
-    :cond_1f
-    :goto_1f
+    :cond_0
+    :goto_0
     iget-object v0, p0, Landroid/widget/AdapterViewAnimator$2;->this$0:Landroid/widget/AdapterViewAnimator;
 
     invoke-virtual {v0}, Landroid/widget/AdapterViewAnimator;->refreshChildren()V
@@ -91,7 +91,7 @@
     return-void
 
     .line 745
-    :cond_2a
+    :cond_1
     iget-object v0, p0, Landroid/widget/AdapterViewAnimator$2;->this$0:Landroid/widget/AdapterViewAnimator;
 
     iget v0, v0, Landroid/widget/AdapterView;->mOldItemCount:I
@@ -102,7 +102,7 @@
 
     move-result v1
 
-    if-eq v0, v1, :cond_1f
+    if-eq v0, v1, :cond_0
 
     .line 746
     iget-object v0, p0, Landroid/widget/AdapterViewAnimator$2;->this$0:Landroid/widget/AdapterViewAnimator;
@@ -113,5 +113,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/AdapterViewAnimator;->showOnly(IZ)V
 
-    goto :goto_1f
+    goto :goto_0
 .end method

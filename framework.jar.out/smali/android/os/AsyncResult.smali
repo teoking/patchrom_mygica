@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V
-    .registers 4
+    .locals 0
     .parameter "uo"
     .parameter "r"
     .parameter "ex"
@@ -36,7 +36,7 @@
 .end method
 
 .method public static forMessage(Landroid/os/Message;)Landroid/os/AsyncResult;
-    .registers 4
+    .locals 3
     .parameter "m"
 
     .prologue
@@ -58,7 +58,7 @@
 .end method
 
 .method public static forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
-    .registers 5
+    .locals 2
     .parameter "m"
     .parameter "r"
     .parameter "ex"

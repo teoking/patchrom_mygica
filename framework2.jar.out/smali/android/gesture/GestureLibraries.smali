@@ -14,7 +14,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 32
@@ -25,7 +25,7 @@
 .end method
 
 .method public static fromFile(Ljava/io/File;)Landroid/gesture/GestureLibrary;
-    .registers 2
+    .locals 1
     .parameter "path"
 
     .prologue
@@ -38,7 +38,7 @@
 .end method
 
 .method public static fromFile(Ljava/lang/String;)Landroid/gesture/GestureLibrary;
-    .registers 2
+    .locals 1
     .parameter "path"
 
     .prologue
@@ -55,7 +55,7 @@
 .end method
 
 .method public static fromPrivateFile(Landroid/content/Context;Ljava/lang/String;)Landroid/gesture/GestureLibrary;
-    .registers 3
+    .locals 1
     .parameter "context"
     .parameter "name"
 
@@ -73,7 +73,7 @@
 .end method
 
 .method public static fromRawResource(Landroid/content/Context;I)Landroid/gesture/GestureLibrary;
-    .registers 3
+    .locals 1
     .parameter "context"
     .parameter "resourceId"
 

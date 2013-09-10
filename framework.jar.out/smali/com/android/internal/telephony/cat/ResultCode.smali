@@ -98,7 +98,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 9
+    .locals 9
 
     .prologue
     const/4 v8, 0x4
@@ -795,7 +795,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter "code"
@@ -817,7 +817,7 @@
 .end method
 
 .method public static fromInt(I)Lcom/android/internal/telephony/cat/ResultCode;
-    .registers 6
+    .locals 5
     .parameter "value"
 
     .prologue
@@ -833,8 +833,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_6
-    if-ge v1, v2, :cond_12
+    :goto_0
+    if-ge v1, v2, :cond_1
 
     aget-object v3, v0, v1
 
@@ -842,30 +842,30 @@
     .local v3, r:Lcom/android/internal/telephony/cat/ResultCode;
     iget v4, v3, Lcom/android/internal/telephony/cat/ResultCode;->mCode:I
 
-    if-ne v4, p0, :cond_f
+    if-ne v4, p0, :cond_0
 
     .line 184
     .end local v3           #r:Lcom/android/internal/telephony/cat/ResultCode;
-    :goto_e
+    :goto_1
     return-object v3
 
     .line 179
     .restart local v3       #r:Lcom/android/internal/telephony/cat/ResultCode;
-    :cond_f
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 184
     .end local v3           #r:Lcom/android/internal/telephony/cat/ResultCode;
-    :cond_12
+    :cond_1
     const/4 v3, 0x0
 
-    goto :goto_e
+    goto :goto_1
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/telephony/cat/ResultCode;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -882,7 +882,7 @@
 .end method
 
 .method public static values()[Lcom/android/internal/telephony/cat/ResultCode;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 27
@@ -900,7 +900,7 @@
 
 # virtual methods
 .method public value()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 175

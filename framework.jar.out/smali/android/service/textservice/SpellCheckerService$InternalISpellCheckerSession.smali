@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lcom/android/internal/textservice/ISpellCheckerSessionListener;Landroid/os/Bundle;Landroid/service/textservice/SpellCheckerService$Session;)V
-    .registers 5
+    .locals 0
     .parameter "locale"
     .parameter "listener"
     .parameter "bundle"
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public getBundle()Landroid/os/Bundle;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 304
@@ -68,7 +68,7 @@
 .end method
 
 .method public getLocale()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 300
@@ -78,7 +78,7 @@
 .end method
 
 .method public onCancel()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 278
@@ -94,15 +94,15 @@
     .local v0, pri:I
     const/16 v1, 0xa
 
-    :try_start_a
+    :try_start_0
     invoke-static {v1}, Landroid/os/Process;->setThreadPriority(I)V
 
     .line 281
     iget-object v1, p0, Landroid/service/textservice/SpellCheckerService$InternalISpellCheckerSession;->mSession:Landroid/service/textservice/SpellCheckerService$Session;
 
     invoke-virtual {v1}, Landroid/service/textservice/SpellCheckerService$Session;->onCancel()V
-    :try_end_12
-    .catchall {:try_start_a .. :try_end_12} :catchall_16
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 283
     invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
@@ -111,7 +111,7 @@
     return-void
 
     .line 283
-    :catchall_16
+    :catchall_0
     move-exception v1
 
     invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
@@ -120,7 +120,7 @@
 .end method
 
 .method public onClose()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -138,15 +138,15 @@
     .local v0, pri:I
     const/16 v1, 0xa
 
-    :try_start_b
+    :try_start_0
     invoke-static {v1}, Landroid/os/Process;->setThreadPriority(I)V
 
     .line 292
     iget-object v1, p0, Landroid/service/textservice/SpellCheckerService$InternalISpellCheckerSession;->mSession:Landroid/service/textservice/SpellCheckerService$Session;
 
     invoke-virtual {v1}, Landroid/service/textservice/SpellCheckerService$Session;->onClose()V
-    :try_end_13
-    .catchall {:try_start_b .. :try_end_13} :catchall_19
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 294
     invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
@@ -158,7 +158,7 @@
     return-void
 
     .line 294
-    :catchall_19
+    :catchall_0
     move-exception v1
 
     invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
@@ -171,7 +171,7 @@
 .end method
 
 .method public onGetSentenceSuggestionsMultiple([Landroid/view/textservice/TextInfo;I)V
-    .registers 5
+    .locals 2
     .parameter "textInfos"
     .parameter "suggestionsLimit"
 
@@ -187,22 +187,22 @@
     move-result-object v1
 
     invoke-interface {v0, v1}, Lcom/android/internal/textservice/ISpellCheckerSessionListener;->onGetSentenceSuggestions([Landroid/view/textservice/SentenceSuggestionsInfo;)V
-    :try_end_b
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_b} :catch_c
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 274
-    :goto_b
+    :goto_0
     return-void
 
     .line 272
-    :catch_c
+    :catch_0
     move-exception v0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public onGetSuggestionsMultiple([Landroid/view/textservice/TextInfo;IZ)V
-    .registers 7
+    .locals 3
     .parameter "textInfos"
     .parameter "suggestionsLimit"
     .parameter "sequentialWords"
@@ -221,7 +221,7 @@
     .local v0, pri:I
     const/16 v1, 0xa
 
-    :try_start_a
+    :try_start_0
     invoke-static {v1}, Landroid/os/Process;->setThreadPriority(I)V
 
     .line 258
@@ -234,19 +234,19 @@
     move-result-object v2
 
     invoke-interface {v1, v2}, Lcom/android/internal/textservice/ISpellCheckerSessionListener;->onGetSuggestions([Landroid/view/textservice/SuggestionsInfo;)V
-    :try_end_18
-    .catchall {:try_start_a .. :try_end_18} :catchall_1c
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_18} :catch_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 263
-    :goto_18
+    :goto_0
     invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
 
     .line 265
     return-void
 
     .line 263
-    :catchall_1c
+    :catchall_0
     move-exception v1
 
     invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
@@ -254,8 +254,8 @@
     throw v1
 
     .line 261
-    :catch_21
+    :catch_0
     move-exception v1
 
-    goto :goto_18
+    goto :goto_0
 .end method

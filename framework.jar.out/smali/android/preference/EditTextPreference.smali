@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 6
+    .locals 2
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public getEditText()Landroid/widget/EditText;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 168
@@ -95,7 +95,7 @@
 .end method
 
 .method public getText()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 102
@@ -105,7 +105,7 @@
 .end method
 
 .method protected needInputMethod()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 175
@@ -115,7 +115,7 @@
 .end method
 
 .method protected onAddEditTextToDialogView(Landroid/view/View;Landroid/widget/EditText;)V
-    .registers 6
+    .locals 3
     .parameter "dialogView"
     .parameter "editText"
 
@@ -131,7 +131,7 @@
 
     .line 129
     .local v0, container:Landroid/view/ViewGroup;
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 130
     const/4 v1, -0x1
@@ -141,12 +141,12 @@
     invoke-virtual {v0, p2, v1, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;II)V
 
     .line 133
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method protected onBindDialogView(Landroid/view/View;)V
-    .registers 5
+    .locals 3
     .parameter "view"
 
     .prologue
@@ -171,10 +171,10 @@
 
     .line 113
     .local v1, oldParent:Landroid/view/ViewParent;
-    if-eq v1, p1, :cond_1c
+    if-eq v1, p1, :cond_1
 
     .line 114
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_0
 
     .line 115
     check-cast v1, Landroid/view/ViewGroup;
@@ -183,16 +183,16 @@
     invoke-virtual {v1, v0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
     .line 117
-    :cond_19
+    :cond_0
     invoke-virtual {p0, p1, v0}, Landroid/preference/EditTextPreference;->onAddEditTextToDialogView(Landroid/view/View;Landroid/widget/EditText;)V
 
     .line 119
-    :cond_1c
+    :cond_1
     return-void
 .end method
 
 .method protected onDialogClosed(Z)V
-    .registers 4
+    .locals 2
     .parameter "positiveResult"
 
     .prologue
@@ -200,7 +200,7 @@
     invoke-super {p0, p1}, Landroid/preference/DialogPreference;->onDialogClosed(Z)V
 
     .line 139
-    if-eqz p1, :cond_18
+    if-eqz p1, :cond_0
 
     .line 140
     iget-object v1, p0, Landroid/preference/EditTextPreference;->mEditText:Landroid/widget/EditText;
@@ -219,19 +219,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_0
 
     .line 142
     invoke-virtual {p0, v0}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
     .line 145
     .end local v0           #value:Ljava/lang/String;
-    :cond_18
+    :cond_0
     return-void
 .end method
 
 .method protected onGetDefaultValue(Landroid/content/res/TypedArray;I)Ljava/lang/Object;
-    .registers 4
+    .locals 1
     .parameter "a"
     .parameter "index"
 
@@ -245,12 +245,12 @@
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .registers 5
+    .locals 3
     .parameter "state"
 
     .prologue
     .line 193
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -262,17 +262,17 @@
 
     move-result v1
 
-    if-nez v1, :cond_12
+    if-nez v1, :cond_1
 
     .line 195
-    :cond_e
+    :cond_0
     invoke-super {p0, p1}, Landroid/preference/DialogPreference;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
     .line 202
-    :goto_11
+    :goto_0
     return-void
 
-    :cond_12
+    :cond_1
     move-object v0, p1
 
     .line 199
@@ -291,11 +291,11 @@
 
     invoke-virtual {p0, v1}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method protected onSaveInstanceState()Landroid/os/Parcelable;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 180
@@ -309,16 +309,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_0
 
     .line 188
     .end local v1           #superState:Landroid/os/Parcelable;
-    :goto_a
+    :goto_0
     return-object v1
 
     .line 186
     .restart local v1       #superState:Landroid/os/Parcelable;
-    :cond_b
+    :cond_0
     new-instance v0, Landroid/preference/EditTextPreference$SavedState;
 
     invoke-direct {v0, v1}, Landroid/preference/EditTextPreference$SavedState;-><init>(Landroid/os/Parcelable;)V
@@ -334,17 +334,17 @@
     move-object v1, v0
 
     .line 188
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method protected onSetInitialValue(ZLjava/lang/Object;)V
-    .registers 4
+    .locals 1
     .parameter "restoreValue"
     .parameter "defaultValue"
 
     .prologue
     .line 154
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Landroid/preference/EditTextPreference;->mText:Ljava/lang/String;
 
@@ -353,7 +353,7 @@
     move-result-object p2
 
     .end local p2
-    :goto_8
+    :goto_0
     invoke-virtual {p0, p2}, Landroid/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
     .line 155
@@ -361,14 +361,14 @@
 
     .line 154
     .restart local p2
-    :cond_c
+    :cond_0
     check-cast p2, Ljava/lang/String;
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setText(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "text"
 
     .prologue
@@ -391,18 +391,18 @@
 
     .line 91
     .local v0, isBlocking:Z
-    if-eq v0, v1, :cond_12
+    if-eq v0, v1, :cond_0
 
     .line 92
     invoke-virtual {p0, v0}, Landroid/preference/EditTextPreference;->notifyDependencyChange(Z)V
 
     .line 94
-    :cond_12
+    :cond_0
     return-void
 .end method
 
 .method public shouldDisableDependents()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 159
@@ -412,22 +412,22 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     invoke-super {p0}, Landroid/preference/DialogPreference;->shouldDisableDependents()Z
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_1
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method

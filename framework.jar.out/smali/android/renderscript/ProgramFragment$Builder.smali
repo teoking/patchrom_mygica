@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
-    .registers 2
+    .locals 0
     .parameter "rs"
 
     .prologue
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public create()Landroid/renderscript/ProgramFragment;
-    .registers 10
+    .locals 9
 
     .prologue
     .line 66
@@ -72,10 +72,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1a
+    :goto_0
     iget v7, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mInputCount:I
 
-    if-ge v0, v7, :cond_37
+    if-ge v0, v7, :cond_0
 
     .line 72
     add-int/lit8 v3, v2, 0x1
@@ -108,16 +108,16 @@
     .line 71
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 75
-    :cond_37
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_38
+    :goto_1
     iget v7, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mOutputCount:I
 
-    if-ge v0, v7, :cond_55
+    if-ge v0, v7, :cond_1
 
     .line 76
     add-int/lit8 v3, v2, 0x1
@@ -150,16 +150,16 @@
     .line 75
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_38
+    goto :goto_1
 
     .line 79
-    :cond_55
+    :cond_1
     const/4 v0, 0x0
 
-    :goto_56
+    :goto_2
     iget v7, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mConstantCount:I
 
-    if-ge v0, v7, :cond_73
+    if-ge v0, v7, :cond_2
 
     .line 80
     add-int/lit8 v3, v2, 0x1
@@ -192,16 +192,16 @@
     .line 79
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_56
+    goto :goto_2
 
     .line 83
-    :cond_73
+    :cond_2
     const/4 v0, 0x0
 
-    :goto_74
+    :goto_3
     iget v7, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mTextureCount:I
 
-    if-ge v0, v7, :cond_93
+    if-ge v0, v7, :cond_3
 
     .line 84
     add-int/lit8 v3, v2, 0x1
@@ -237,10 +237,10 @@
     .line 83
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_74
+    goto :goto_3
 
     .line 89
-    :cond_93
+    :cond_3
     iget-object v7, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mRS:Landroid/renderscript/RenderScript;
 
     iget-object v8, p0, Landroid/renderscript/Program$BaseProgramBuilder;->mShader:Ljava/lang/String;

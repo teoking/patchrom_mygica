@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, -0x1
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "column"
 
     .prologue
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .registers 4
+    .locals 1
     .parameter "w"
     .parameter "h"
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public constructor <init>(IIF)V
-    .registers 5
+    .locals 1
     .parameter "w"
     .parameter "h"
     .parameter "initWeight"
@@ -144,7 +144,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 7
+    .locals 4
     .parameter "c"
     .parameter "attrs"
 
@@ -190,13 +190,13 @@
     .line 432
     iget v1, p0, Landroid/widget/TableRow$LayoutParams;->span:I
 
-    if-gt v1, v3, :cond_23
+    if-gt v1, v3, :cond_0
 
     .line 433
     iput v3, p0, Landroid/widget/TableRow$LayoutParams;->span:I
 
     .line 436
-    :cond_23
+    :cond_0
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 437
@@ -204,7 +204,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "p"
 
     .prologue
@@ -223,7 +223,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -242,7 +242,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/widget/TableRow$LayoutParams;)[I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -255,7 +255,7 @@
 
 # virtual methods
 .method protected setBaseAttributes(Landroid/content/res/TypedArray;II)V
-    .registers 5
+    .locals 1
     .parameter "a"
     .parameter "widthAttr"
     .parameter "heightAttr"
@@ -266,7 +266,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_0
 
     .line 507
     const-string v0, "layout_width"
@@ -278,12 +278,12 @@
     iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     .line 513
-    :goto_e
+    :goto_0
     invoke-virtual {p1, p3}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_1
 
     .line 514
     const-string v0, "layout_height"
@@ -295,22 +295,22 @@
     iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     .line 518
-    :goto_1c
+    :goto_1
     return-void
 
     .line 509
-    :cond_1d
+    :cond_0
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    goto :goto_e
+    goto :goto_0
 
     .line 516
-    :cond_21
+    :cond_1
     const/4 v0, -0x2
 
     iput v0, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    goto :goto_1c
+    goto :goto_1
 .end method

@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/hardware/input/InputManager;I)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "deviceId"
 
@@ -51,13 +51,14 @@
 
 # virtual methods
 .method public cancel()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 815
     :try_start_0
     iget-object v1, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->this$0:Landroid/hardware/input/InputManager;
 
+    #getter for: Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
     invoke-static {v1}, Landroid/hardware/input/InputManager;->access$200(Landroid/hardware/input/InputManager;)Landroid/hardware/input/IInputManager;
 
     move-result-object v1
@@ -67,15 +68,15 @@
     iget-object v3, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->mToken:Landroid/os/Binder;
 
     invoke-interface {v1, v2, v3}, Landroid/hardware/input/IInputManager;->cancelVibrate(ILandroid/os/IBinder;)V
-    :try_end_d
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_d} :catch_e
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 819
-    :goto_d
+    :goto_0
     return-void
 
     .line 816
-    :catch_e
+    :catch_0
     move-exception v0
 
     .line 817
@@ -86,11 +87,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public hasVibrator()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 792
@@ -100,7 +101,7 @@
 .end method
 
 .method public vibrate(J)V
-    .registers 7
+    .locals 4
     .parameter "milliseconds"
 
     .prologue
@@ -128,7 +129,7 @@
 .end method
 
 .method public vibrate([JI)V
-    .registers 7
+    .locals 4
     .parameter "pattern"
     .parameter "repeat"
 
@@ -136,7 +137,7 @@
     .line 802
     array-length v1, p1
 
-    if-lt p2, v1, :cond_9
+    if-lt p2, v1, :cond_0
 
     .line 803
     new-instance v1, Ljava/lang/ArrayIndexOutOfBoundsException;
@@ -146,10 +147,11 @@
     throw v1
 
     .line 806
-    :cond_9
-    :try_start_9
+    :cond_0
+    :try_start_0
     iget-object v1, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->this$0:Landroid/hardware/input/InputManager;
 
+    #getter for: Landroid/hardware/input/InputManager;->mIm:Landroid/hardware/input/IInputManager;
     invoke-static {v1}, Landroid/hardware/input/InputManager;->access$200(Landroid/hardware/input/InputManager;)Landroid/hardware/input/IInputManager;
 
     move-result-object v1
@@ -159,15 +161,15 @@
     iget-object v3, p0, Landroid/hardware/input/InputManager$InputDeviceVibrator;->mToken:Landroid/os/Binder;
 
     invoke-interface {v1, v2, p1, p2, v3}, Landroid/hardware/input/IInputManager;->vibrate(I[JILandroid/os/IBinder;)V
-    :try_end_16
-    .catch Landroid/os/RemoteException; {:try_start_9 .. :try_end_16} :catch_17
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 810
-    :goto_16
+    :goto_0
     return-void
 
     .line 807
-    :catch_17
+    :catch_0
     move-exception v0
 
     .line 808
@@ -178,5 +180,5 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_16
+    goto :goto_0
 .end method

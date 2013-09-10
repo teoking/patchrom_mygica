@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILandroid/app/DatePickerDialog$OnDateSetListener;III)V
-    .registers 12
+    .locals 5
     .parameter "context"
     .parameter "theme"
     .parameter "callBack"
@@ -131,7 +131,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/app/DatePickerDialog$OnDateSetListener;III)V
-    .registers 13
+    .locals 7
     .parameter "context"
     .parameter "callBack"
     .parameter "year"
@@ -161,13 +161,13 @@
 .end method
 
 .method private tryNotifyDateSet()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 146
     iget-object v0, p0, Landroid/app/DatePickerDialog;->mCallBack:Landroid/app/DatePickerDialog$OnDateSetListener;
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_0
 
     .line 147
     iget-object v0, p0, Landroid/app/DatePickerDialog;->mDatePicker:Landroid/widget/DatePicker;
@@ -200,12 +200,12 @@
     invoke-interface {v0, v1, v2, v3, v4}, Landroid/app/DatePickerDialog$OnDateSetListener;->onDateSet(Landroid/widget/DatePicker;III)V
 
     .line 151
-    :cond_22
+    :cond_0
     return-void
 .end method
 
 .method private updateTitle(III)V
-    .registers 10
+    .locals 6
     .parameter "year"
     .parameter "month"
     .parameter "day"
@@ -220,7 +220,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2f
+    if-nez v1, :cond_1
 
     .line 161
     iget-object v1, p0, Landroid/app/DatePickerDialog;->mCalendar:Ljava/util/Calendar;
@@ -265,15 +265,15 @@
 
     .line 179
     .end local v0           #title:Ljava/lang/String;
-    :cond_2e
-    :goto_2e
+    :cond_0
+    :goto_0
     return-void
 
     .line 174
-    :cond_2f
+    :cond_1
     iget-boolean v1, p0, Landroid/app/DatePickerDialog;->mTitleNeedsUpdate:Z
 
-    if-eqz v1, :cond_2e
+    if-eqz v1, :cond_0
 
     .line 175
     const/4 v1, 0x0
@@ -285,13 +285,13 @@
 
     invoke-virtual {p0, v1}, Landroid/app/DatePickerDialog;->setTitle(I)V
 
-    goto :goto_2e
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getDatePicker()Landroid/widget/DatePicker;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 131
@@ -301,7 +301,7 @@
 .end method
 
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 3
+    .locals 0
     .parameter "dialog"
     .parameter "which"
 
@@ -314,7 +314,7 @@
 .end method
 
 .method public onDateChanged(Landroid/widget/DatePicker;III)V
-    .registers 6
+    .locals 1
     .parameter "view"
     .parameter "year"
     .parameter "month"
@@ -334,7 +334,7 @@
 .end method
 
 .method public onRestoreInstanceState(Landroid/os/Bundle;)V
-    .registers 6
+    .locals 4
     .parameter "savedInstanceState"
 
     .prologue
@@ -375,7 +375,7 @@
 .end method
 
 .method public onSaveInstanceState()Landroid/os/Bundle;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 183
@@ -422,7 +422,7 @@
 .end method
 
 .method protected onStop()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 155
@@ -436,7 +436,7 @@
 .end method
 
 .method public updateDate(III)V
-    .registers 5
+    .locals 1
     .parameter "year"
     .parameter "monthOfYear"
     .parameter "dayOfMonth"

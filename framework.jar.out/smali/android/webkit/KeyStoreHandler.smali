@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "mimeType"
 
     .prologue
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public didReceiveData([BI)V
-    .registers 6
+    .locals 3
     .parameter "data"
     .parameter "length"
 
@@ -50,7 +50,7 @@
     monitor-enter v1
 
     .line 47
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/webkit/KeyStoreHandler;->mDataBuilder:Landroid/webkit/ByteArrayBuilder;
 
     const/4 v2, 0x0
@@ -64,18 +64,18 @@
     return-void
 
     .line 48
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_d
-    .catchall {:try_start_3 .. :try_end_d} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public installCert(Landroid/content/Context;)V
-    .registers 10
+    .locals 8
     .parameter "context"
 
     .prologue
@@ -88,20 +88,20 @@
 
     .line 53
     .local v3, type:Ljava/lang/String;
-    if-nez v3, :cond_9
+    if-nez v3, :cond_0
 
     .line 74
-    :goto_8
+    :goto_0
     return-void
 
     .line 57
-    :cond_9
+    :cond_0
     iget-object v5, p0, Landroid/webkit/KeyStoreHandler;->mDataBuilder:Landroid/webkit/ByteArrayBuilder;
 
     monitor-enter v5
 
     .line 61
-    :try_start_c
+    :try_start_0
     iget-object v4, p0, Landroid/webkit/KeyStoreHandler;->mDataBuilder:Landroid/webkit/ByteArrayBuilder;
 
     invoke-virtual {v4}, Landroid/webkit/ByteArrayBuilder;->getByteSize()I
@@ -116,7 +116,7 @@
 
     .line 64
     .local v2, offset:I
-    :goto_15
+    :goto_1
     iget-object v4, p0, Landroid/webkit/KeyStoreHandler;->mDataBuilder:Landroid/webkit/ByteArrayBuilder;
 
     invoke-virtual {v4}, Landroid/webkit/ByteArrayBuilder;->getFirstChunk()Landroid/webkit/ByteArrayBuilder$Chunk;
@@ -125,7 +125,7 @@
 
     .line 65
     .local v0, c:Landroid/webkit/ByteArrayBuilder$Chunk;
-    if-nez v0, :cond_25
+    if-nez v0, :cond_1
 
     .line 73
     invoke-static {p1, v3, v1}, Landroid/webkit/CertTool;->addCertificate(Landroid/content/Context;Ljava/lang/String;[B)V
@@ -133,18 +133,18 @@
     .line 74
     monitor-exit v5
 
-    goto :goto_8
+    goto :goto_0
 
     .line 75
     .end local v0           #c:Landroid/webkit/ByteArrayBuilder$Chunk;
     .end local v1           #cert:[B
     .end local v2           #offset:I
-    :catchall_22
+    :catchall_0
     move-exception v4
 
     monitor-exit v5
-    :try_end_24
-    .catchall {:try_start_c .. :try_end_24} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v4
 
@@ -152,11 +152,11 @@
     .restart local v0       #c:Landroid/webkit/ByteArrayBuilder$Chunk;
     .restart local v1       #cert:[B
     .restart local v2       #offset:I
-    :cond_25
-    :try_start_25
+    :cond_1
+    :try_start_1
     iget v4, v0, Landroid/webkit/ByteArrayBuilder$Chunk;->mLength:I
 
-    if-eqz v4, :cond_34
+    if-eqz v4, :cond_2
 
     .line 68
     iget-object v4, v0, Landroid/webkit/ByteArrayBuilder$Chunk;->mArray:[B
@@ -173,10 +173,10 @@
     add-int/2addr v2, v4
 
     .line 71
-    :cond_34
+    :cond_2
     invoke-virtual {v0}, Landroid/webkit/ByteArrayBuilder$Chunk;->release()V
-    :try_end_37
-    .catchall {:try_start_25 .. :try_end_37} :catchall_22
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_15
+    goto :goto_1
 .end method

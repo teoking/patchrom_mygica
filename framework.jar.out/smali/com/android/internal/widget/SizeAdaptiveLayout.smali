@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "attrs"
 
@@ -86,7 +86,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 4
+    .locals 0
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -103,7 +103,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/widget/SizeAdaptiveLayout;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -114,7 +114,7 @@
 .end method
 
 .method static synthetic access$008(Lcom/android/internal/widget/SizeAdaptiveLayout;)I
-    .registers 3
+    .locals 2
     .parameter "x0"
 
     .prologue
@@ -129,7 +129,7 @@
 .end method
 
 .method static synthetic access$010(Lcom/android/internal/widget/SizeAdaptiveLayout;)I
-    .registers 3
+    .locals 2
     .parameter "x0"
 
     .prologue
@@ -144,7 +144,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/internal/widget/SizeAdaptiveLayout;)Landroid/view/View;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -155,7 +155,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/android/internal/widget/SizeAdaptiveLayout;Landroid/view/View;)Landroid/view/View;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -167,7 +167,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/internal/widget/SizeAdaptiveLayout;)Landroid/view/View;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -178,7 +178,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/internal/widget/SizeAdaptiveLayout;)Landroid/view/View;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -189,7 +189,7 @@
 .end method
 
 .method static synthetic access$302(Lcom/android/internal/widget/SizeAdaptiveLayout;Landroid/view/View;)Landroid/view/View;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -201,7 +201,7 @@
 .end method
 
 .method private clampSizeToBounds(ILandroid/view/View;)I
-    .registers 9
+    .locals 6
     .parameter "measuredHeight"
     .parameter "child"
 
@@ -233,7 +233,7 @@
 
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_1c
+    if-eq v3, v4, :cond_0
 
     .line 176
     iget v3, v2, Lcom/android/internal/widget/SizeAdaptiveLayout$LayoutParams;->maxHeight:I
@@ -243,8 +243,8 @@
     move-result v0
 
     .line 179
-    :cond_1c
-    if-eq v1, v0, :cond_63
+    :cond_0
+    if-eq v1, v0, :cond_1
 
     .line 180
     const-string v3, "SizeAdaptiveLayout"
@@ -312,12 +312,12 @@
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 185
-    :cond_63
+    :cond_1
     return v0
 .end method
 
 .method private initialize()V
-    .registers 10
+    .locals 9
 
     .prologue
     const/4 v8, 0x1
@@ -348,7 +348,7 @@
     .local v0, background:Landroid/graphics/drawable/Drawable;
     instance-of v3, v0, Landroid/graphics/drawable/StateListDrawable;
 
-    if-eqz v3, :cond_23
+    if-eqz v3, :cond_0
 
     move-object v2, v0
 
@@ -368,10 +368,10 @@
 
     .line 105
     .end local v2           #sld:Landroid/graphics/drawable/StateListDrawable;
-    :cond_23
+    :cond_0
     instance-of v3, v0, Landroid/graphics/drawable/ColorDrawable;
 
-    if-eqz v3, :cond_80
+    if-eqz v3, :cond_1
 
     .line 106
     iget-object v3, p0, Lcom/android/internal/widget/SizeAdaptiveLayout;->mModestyPanel:Landroid/view/View;
@@ -379,7 +379,7 @@
     invoke-virtual {v3, v0}, Landroid/view/View;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 110
-    :goto_2c
+    :goto_0
     new-instance v1, Lcom/android/internal/widget/SizeAdaptiveLayout$LayoutParams;
 
     invoke-direct {v1, v5, v5}, Lcom/android/internal/widget/SizeAdaptiveLayout$LayoutParams;-><init>(II)V
@@ -471,18 +471,18 @@
 
     .line 108
     .end local v1           #layout:Lcom/android/internal/widget/SizeAdaptiveLayout$LayoutParams;
-    :cond_80
+    :cond_1
     iget-object v3, p0, Lcom/android/internal/widget/SizeAdaptiveLayout;->mModestyPanel:Landroid/view/View;
 
     const/high16 v4, -0x100
 
     invoke-virtual {v3, v4}, Landroid/view/View;->setBackgroundColor(I)V
 
-    goto :goto_2c
+    goto :goto_0
 .end method
 
 .method private selectActiveChild(I)Landroid/view/View;
-    .registers 14
+    .locals 12
     .parameter "heightMeasureSpec"
 
     .prologue
@@ -522,12 +522,12 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_10
+    :goto_0
     invoke-virtual {p0}, Lcom/android/internal/widget/SizeAdaptiveLayout;->getChildCount()I
 
     move-result v10
 
-    if-ge v3, v10, :cond_48
+    if-ge v3, v10, :cond_4
 
     .line 199
     invoke-virtual {p0, v3}, Lcom/android/internal/widget/SizeAdaptiveLayout;->getChildAt(I)Landroid/view/View;
@@ -538,7 +538,7 @@
     .local v0, child:Landroid/view/View;
     iget-object v10, p0, Lcom/android/internal/widget/SizeAdaptiveLayout;->mModestyPanel:Landroid/view/View;
 
-    if-eq v0, v10, :cond_45
+    if-eq v0, v10, :cond_3
 
     .line 201
     invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -553,18 +553,18 @@
 
     const/4 v11, -0x1
 
-    if-ne v10, v11, :cond_2c
+    if-ne v10, v11, :cond_0
 
-    if-nez v9, :cond_2c
+    if-nez v9, :cond_0
 
     .line 208
     move-object v9, v0
 
     .line 210
-    :cond_2c
+    :cond_0
     iget v10, v4, Lcom/android/internal/widget/SizeAdaptiveLayout$LayoutParams;->maxHeight:I
 
-    if-le v10, v8, :cond_33
+    if-le v10, v8, :cond_1
 
     .line 211
     iget v8, v4, Lcom/android/internal/widget/SizeAdaptiveLayout$LayoutParams;->maxHeight:I
@@ -573,10 +573,10 @@
     move-object v7, v0
 
     .line 214
-    :cond_33
+    :cond_1
     iget v10, v4, Lcom/android/internal/widget/SizeAdaptiveLayout$LayoutParams;->minHeight:I
 
-    if-ge v10, v6, :cond_3a
+    if-ge v10, v6, :cond_2
 
     .line 215
     iget v6, v4, Lcom/android/internal/widget/SizeAdaptiveLayout$LayoutParams;->minHeight:I
@@ -585,67 +585,67 @@
     move-object v5, v0
 
     .line 218
-    :cond_3a
-    if-eqz v1, :cond_45
+    :cond_2
+    if-eqz v1, :cond_3
 
     iget v10, v4, Lcom/android/internal/widget/SizeAdaptiveLayout$LayoutParams;->minHeight:I
 
-    if-lt v2, v10, :cond_45
+    if-lt v2, v10, :cond_3
 
     iget v10, v4, Lcom/android/internal/widget/SizeAdaptiveLayout$LayoutParams;->maxHeight:I
 
-    if-gt v2, v10, :cond_45
+    if-gt v2, v10, :cond_3
 
     .line 234
     .end local v0           #child:Landroid/view/View;
     .end local v4           #lp:Lcom/android/internal/widget/SizeAdaptiveLayout$LayoutParams;
-    :goto_44
+    :goto_1
     return-object v0
 
     .line 198
     .restart local v0       #child:Landroid/view/View;
-    :cond_45
+    :cond_3
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 225
     .end local v0           #child:Landroid/view/View;
-    :cond_48
-    if-eqz v9, :cond_4b
+    :cond_4
+    if-eqz v9, :cond_5
 
     .line 226
     move-object v7, v9
 
     .line 228
-    :cond_4b
-    if-nez v1, :cond_4f
+    :cond_5
+    if-nez v1, :cond_6
 
     move-object v0, v7
 
     .line 229
-    goto :goto_44
+    goto :goto_1
 
     .line 231
-    :cond_4f
-    if-le v2, v8, :cond_53
+    :cond_6
+    if-le v2, v8, :cond_7
 
     move-object v0, v7
 
     .line 232
-    goto :goto_44
+    goto :goto_1
 
-    :cond_53
+    :cond_7
     move-object v0, v5
 
     .line 234
-    goto :goto_44
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method protected checkLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Z
-    .registers 3
+    .locals 1
     .parameter "p"
 
     .prologue
@@ -656,7 +656,7 @@
 .end method
 
 .method protected bridge synthetic generateDefaultLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 51
@@ -668,7 +668,7 @@
 .end method
 
 .method protected generateDefaultLayoutParams()Lcom/android/internal/widget/SizeAdaptiveLayout$LayoutParams;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 296
@@ -680,7 +680,7 @@
 .end method
 
 .method public bridge synthetic generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -693,7 +693,7 @@
 .end method
 
 .method protected bridge synthetic generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -706,7 +706,7 @@
 .end method
 
 .method public generateLayoutParams(Landroid/util/AttributeSet;)Lcom/android/internal/widget/SizeAdaptiveLayout$LayoutParams;
-    .registers 4
+    .locals 2
     .parameter "attrs"
 
     .prologue
@@ -723,7 +723,7 @@
 .end method
 
 .method protected generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Lcom/android/internal/widget/SizeAdaptiveLayout$LayoutParams;
-    .registers 3
+    .locals 1
     .parameter "p"
 
     .prologue
@@ -736,7 +736,7 @@
 .end method
 
 .method public getModestyPanel()Landroid/view/View;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 137
@@ -746,7 +746,7 @@
 .end method
 
 .method public getTransitionAnimation()Landroid/animation/Animator;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 129
@@ -756,7 +756,7 @@
 .end method
 
 .method public onAttachedToWindow()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 142
@@ -768,12 +768,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_4
+    :goto_0
     invoke-virtual {p0}, Lcom/android/internal/widget/SizeAdaptiveLayout;->getChildCount()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_16
+    if-ge v0, v1, :cond_0
 
     .line 145
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/SizeAdaptiveLayout;->getChildAt(I)Landroid/view/View;
@@ -787,15 +787,15 @@
     .line 144
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 147
-    :cond_16
+    :cond_0
     return-void
 .end method
 
 .method protected onLayout(ZIIII)V
-    .registers 15
+    .locals 9
     .parameter "changed"
     .parameter "left"
     .parameter "top"
@@ -843,11 +843,11 @@
 
     iget-object v4, p0, Lcom/android/internal/widget/SizeAdaptiveLayout;->mActiveChild:Landroid/view/View;
 
-    if-eq v3, v4, :cond_7f
+    if-eq v3, v4, :cond_1
 
     iget-object v3, p0, Lcom/android/internal/widget/SizeAdaptiveLayout;->mLastActive:Landroid/view/View;
 
-    if-eqz v3, :cond_7f
+    if-eqz v3, :cond_1
 
     .line 250
     iget-object v3, p0, Lcom/android/internal/widget/SizeAdaptiveLayout;->mActiveChild:Landroid/view/View;
@@ -900,7 +900,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_5c
+    if-eqz v3, :cond_0
 
     .line 264
     iget-object v3, p0, Lcom/android/internal/widget/SizeAdaptiveLayout;->mTransitionAnimation:Landroid/animation/AnimatorSet;
@@ -908,7 +908,7 @@
     invoke-virtual {v3}, Landroid/animation/AnimatorSet;->cancel()V
 
     .line 266
-    :cond_5c
+    :cond_0
     iget-object v3, p0, Lcom/android/internal/widget/SizeAdaptiveLayout;->mFadeView:Landroid/animation/ObjectAnimator;
 
     iget-object v4, p0, Lcom/android/internal/widget/SizeAdaptiveLayout;->mLeavingView:Landroid/view/View;
@@ -944,7 +944,7 @@
     invoke-virtual {v3}, Landroid/animation/AnimatorSet;->start()V
 
     .line 272
-    :cond_7f
+    :cond_1
     iget-object v3, p0, Lcom/android/internal/widget/SizeAdaptiveLayout;->mActiveChild:Landroid/view/View;
 
     invoke-virtual {v3}, Landroid/view/View;->getMeasuredWidth()I
@@ -987,7 +987,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .registers 13
+    .locals 10
     .parameter "widthMeasureSpec"
     .parameter "heightMeasureSpec"
 

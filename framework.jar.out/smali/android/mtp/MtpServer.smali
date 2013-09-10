@@ -12,7 +12,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 28
@@ -25,7 +25,7 @@
 .end method
 
 .method public constructor <init>(Landroid/mtp/MtpDatabase;Z)V
-    .registers 3
+    .locals 0
     .parameter "database"
     .parameter "usePtp"
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public addStorage(Landroid/mtp/MtpStorage;)V
-    .registers 2
+    .locals 0
     .parameter "storage"
 
     .prologue
@@ -76,7 +76,7 @@
 .end method
 
 .method public removeStorage(Landroid/mtp/MtpStorage;)V
-    .registers 3
+    .locals 1
     .parameter "storage"
 
     .prologue
@@ -92,7 +92,7 @@
 .end method
 
 .method public run()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 42
@@ -106,7 +106,7 @@
 .end method
 
 .method public sendObjectAdded(I)V
-    .registers 2
+    .locals 0
     .parameter "handle"
 
     .prologue
@@ -118,7 +118,7 @@
 .end method
 
 .method public sendObjectRemoved(I)V
-    .registers 2
+    .locals 0
     .parameter "handle"
 
     .prologue
@@ -130,7 +130,7 @@
 .end method
 
 .method public start()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 36

@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 2188
@@ -65,7 +65,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 2194
@@ -75,7 +75,7 @@
 .end method
 
 .method public static final alarmExists(Landroid/content/ContentResolver;JJJ)Z
-    .registers 16
+    .locals 9
     .parameter "cr"
     .parameter "eventId"
     .parameter "begin"
@@ -137,46 +137,46 @@
 
     .line 2386
     .local v7, found:Z
-    if-eqz v6, :cond_32
+    if-eqz v6, :cond_0
 
-    :try_start_2b
+    :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
-    :try_end_2e
-    .catchall {:try_start_2b .. :try_end_2e} :catchall_38
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
-    if-lez v0, :cond_32
+    if-lez v0, :cond_0
 
     .line 2387
     const/4 v7, 0x1
 
     .line 2390
-    :cond_32
-    if-eqz v6, :cond_37
+    :cond_0
+    if-eqz v6, :cond_1
 
     .line 2391
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     .line 2394
-    :cond_37
+    :cond_1
     return v7
 
     .line 2390
-    :catchall_38
+    :catchall_0
     move-exception v0
 
-    if-eqz v6, :cond_3e
+    if-eqz v6, :cond_2
 
     .line 2391
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_3e
+    :cond_2
     throw v0
 .end method
 
 .method public static final findNextAlarmTime(Landroid/content/ContentResolver;J)J
-    .registers 13
+    .locals 10
     .parameter "cr"
     .parameter "millis"
 
@@ -240,50 +240,50 @@
 
     .line 2264
     .local v6, alarmTime:J
-    if-eqz v8, :cond_3d
+    if-eqz v8, :cond_0
 
-    :try_start_32
+    :try_start_0
     invoke-interface {v8}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3d
+    if-eqz v0, :cond_0
 
     .line 2265
     const/4 v0, 0x0
 
     invoke-interface {v8, v0}, Landroid/database/Cursor;->getLong(I)J
-    :try_end_3c
-    .catchall {:try_start_32 .. :try_end_3c} :catchall_43
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v6
 
     .line 2268
-    :cond_3d
-    if-eqz v8, :cond_42
+    :cond_0
+    if-eqz v8, :cond_1
 
     .line 2269
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
     .line 2272
-    :cond_42
+    :cond_1
     return-wide v6
 
     .line 2268
-    :catchall_43
+    :catchall_0
     move-exception v0
 
-    if-eqz v8, :cond_49
+    if-eqz v8, :cond_2
 
     .line 2269
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    :cond_49
+    :cond_2
     throw v0
 .end method
 
 .method public static final insert(Landroid/content/ContentResolver;JJJJI)Landroid/net/Uri;
-    .registers 16
+    .locals 6
     .parameter "cr"
     .parameter "eventId"
     .parameter "begin"
@@ -398,7 +398,7 @@
 .end method
 
 .method public static final rescheduleMissedAlarms(Landroid/content/ContentResolver;Landroid/content/Context;Landroid/app/AlarmManager;)V
-    .registers 20
+    .locals 17
     .parameter "cr"
     .parameter "context"
     .parameter "manager"
@@ -471,26 +471,26 @@
 
     .line 2302
     .local v12, cursor:Landroid/database/Cursor;
-    if-nez v12, :cond_39
+    if-nez v12, :cond_0
 
     .line 2326
-    :goto_38
+    :goto_0
     return-void
 
     .line 2311
-    :cond_39
+    :cond_0
     const-wide/16 v8, -0x1
 
     .line 2313
     .local v8, alarmTime:J
-    :cond_3b
-    :goto_3b
-    :try_start_3b
+    :cond_1
+    :goto_1
+    :try_start_0
     invoke-interface {v12}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_53
+    if-eqz v2, :cond_2
 
     .line 2314
     const/4 v2, 0x0
@@ -503,7 +503,7 @@
     .local v13, newAlarmTime:J
     cmp-long v2, v8, v13
 
-    if-eqz v2, :cond_3b
+    if-eqz v2, :cond_1
 
     .line 2319
     move-object/from16 v0, p1
@@ -511,22 +511,22 @@
     move-object/from16 v1, p2
 
     invoke-static {v0, v1, v13, v14}, Landroid/provider/CalendarContract$CalendarAlerts;->scheduleAlarm(Landroid/content/Context;Landroid/app/AlarmManager;J)V
-    :try_end_51
-    .catchall {:try_start_3b .. :try_end_51} :catchall_57
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 2320
     move-wide v8, v13
 
-    goto :goto_3b
+    goto :goto_1
 
     .line 2324
     .end local v13           #newAlarmTime:J
-    :cond_53
+    :cond_2
     invoke-interface {v12}, Landroid/database/Cursor;->close()V
 
-    goto :goto_38
+    goto :goto_0
 
-    :catchall_57
+    :catchall_0
     move-exception v2
 
     invoke-interface {v12}, Landroid/database/Cursor;->close()V
@@ -535,7 +535,7 @@
 .end method
 
 .method public static scheduleAlarm(Landroid/content/Context;Landroid/app/AlarmManager;J)V
-    .registers 8
+    .locals 4
     .parameter "context"
     .parameter "manager"
     .parameter "alarmTime"
@@ -544,7 +544,7 @@
     const/4 v3, 0x0
 
     .line 2350
-    if-nez p1, :cond_b
+    if-nez p1, :cond_0
 
     .line 2351
     const-string v2, "alarm"
@@ -558,7 +558,7 @@
 
     .line 2354
     .restart local p1
-    :cond_b
+    :cond_0
     new-instance v0, Landroid/content/Intent;
 
     const-string v2, "android.intent.action.EVENT_REMINDER"

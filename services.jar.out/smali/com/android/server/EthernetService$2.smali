@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/EthernetService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 8
+    .locals 5
     .parameter "context"
     .parameter "intent"
 
@@ -55,7 +55,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2e
+    if-eqz v1, :cond_1
 
     .line 192
     const-string v1, "EthernetService"
@@ -67,23 +67,26 @@
     .line 193
     iget-object v1, p0, Lcom/android/server/EthernetService$2;->this$0:Lcom/android/server/EthernetService;
 
+    #calls: Lcom/android/server/EthernetService;->getPersistedState()I
     invoke-static {v1}, Lcom/android/server/EthernetService;->access$100(Lcom/android/server/EthernetService;)I
 
     move-result v1
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_2d
+    if-ne v1, v2, :cond_0
 
     .line 194
     iget-object v1, p0, Lcom/android/server/EthernetService$2;->this$0:Lcom/android/server/EthernetService;
 
+    #getter for: Lcom/android/server/EthernetService;->mDelayedHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/server/EthernetService;->access$300(Lcom/android/server/EthernetService;)Landroid/os/Handler;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/server/EthernetService$2;->this$0:Lcom/android/server/EthernetService;
 
+    #getter for: Lcom/android/server/EthernetService;->mResetInterface:Ljava/lang/Runnable;
     invoke-static {v2}, Lcom/android/server/EthernetService;->access$200(Lcom/android/server/EthernetService;)Ljava/lang/Runnable;
 
     move-result-object v2
@@ -93,19 +96,19 @@
     invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 201
-    :cond_2d
-    :goto_2d
+    :cond_0
+    :goto_0
     return-void
 
     .line 196
-    :cond_2e
+    :cond_1
     const-string v1, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2d
+    if-eqz v1, :cond_0
 
     .line 197
     const-string v1, "EthernetService"
@@ -117,12 +120,14 @@
     .line 198
     iget-object v1, p0, Lcom/android/server/EthernetService$2;->this$0:Lcom/android/server/EthernetService;
 
+    #getter for: Lcom/android/server/EthernetService;->mDelayedHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/server/EthernetService;->access$300(Lcom/android/server/EthernetService;)Landroid/os/Handler;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/server/EthernetService$2;->this$0:Lcom/android/server/EthernetService;
 
+    #getter for: Lcom/android/server/EthernetService;->mResetInterface:Ljava/lang/Runnable;
     invoke-static {v2}, Lcom/android/server/EthernetService;->access$200(Lcom/android/server/EthernetService;)Ljava/lang/Runnable;
 
     move-result-object v2
@@ -132,6 +137,7 @@
     .line 199
     iget-object v1, p0, Lcom/android/server/EthernetService$2;->this$0:Lcom/android/server/EthernetService;
 
+    #getter for: Lcom/android/server/EthernetService;->mTracker:Landroid/net/ethernet/EthernetStateTracker;
     invoke-static {v1}, Lcom/android/server/EthernetService;->access$000(Lcom/android/server/EthernetService;)Landroid/net/ethernet/EthernetStateTracker;
 
     move-result-object v1
@@ -140,5 +146,5 @@
 
     invoke-virtual {v1, v2}, Landroid/net/ethernet/EthernetStateTracker;->stopInterface(Z)Z
 
-    goto :goto_2d
+    goto :goto_0
 .end method

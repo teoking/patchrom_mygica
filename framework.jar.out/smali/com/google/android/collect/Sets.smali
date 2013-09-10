@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 30
@@ -15,7 +15,7 @@
 .end method
 
 .method public static newHashSet()Ljava/util/HashSet;
-    .registers 1
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -36,7 +36,7 @@
 .end method
 
 .method public static varargs newHashSet([Ljava/lang/Object;)Ljava/util/HashSet;
-    .registers 4
+    .locals 3
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -74,7 +74,7 @@
 .end method
 
 .method public static newSortedSet()Ljava/util/SortedSet;
-    .registers 1
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -95,7 +95,7 @@
 .end method
 
 .method public static varargs newSortedSet([Ljava/lang/Object;)Ljava/util/SortedSet;
-    .registers 2
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {

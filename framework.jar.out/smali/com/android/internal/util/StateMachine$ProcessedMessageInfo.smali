@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/Message;Ljava/lang/String;Lcom/android/internal/util/State;Lcom/android/internal/util/State;)V
-    .registers 5
+    .locals 0
     .parameter "msg"
     .parameter "info"
     .parameter "state"
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public getInfo()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 500
@@ -58,7 +58,7 @@
 .end method
 
 .method public getOriginalState()Lcom/android/internal/util/State;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 514
@@ -68,7 +68,7 @@
 .end method
 
 .method public getState()Lcom/android/internal/util/State;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 507
@@ -78,7 +78,7 @@
 .end method
 
 .method public getTime()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 486
@@ -88,7 +88,7 @@
 .end method
 
 .method public getWhat()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 493
@@ -100,7 +100,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 522
@@ -170,11 +170,11 @@
     .line 528
     iget-object v2, p0, Lcom/android/internal/util/StateMachine$ProcessedMessageInfo;->mState:Lcom/android/internal/util/State;
 
-    if-nez v2, :cond_82
+    if-nez v2, :cond_1
 
     const-string v2, "<null>"
 
-    :goto_3d
+    :goto_0
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 529
@@ -185,11 +185,11 @@
     .line 530
     iget-object v2, p0, Lcom/android/internal/util/StateMachine$ProcessedMessageInfo;->mOrgState:Lcom/android/internal/util/State;
 
-    if-nez v2, :cond_89
+    if-nez v2, :cond_2
 
     const-string v2, "<null>"
 
-    :goto_4b
+    :goto_1
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 531
@@ -228,7 +228,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_7d
+    if-nez v2, :cond_0
 
     .line 537
     const-string v2, " "
@@ -241,7 +241,7 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 540
-    :cond_7d
+    :cond_0
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -249,28 +249,28 @@
     return-object v2
 
     .line 528
-    :cond_82
+    :cond_1
     iget-object v2, p0, Lcom/android/internal/util/StateMachine$ProcessedMessageInfo;->mState:Lcom/android/internal/util/State;
 
     invoke-virtual {v2}, Lcom/android/internal/util/State;->getName()Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_3d
+    goto :goto_0
 
     .line 530
-    :cond_89
+    :cond_2
     iget-object v2, p0, Lcom/android/internal/util/StateMachine$ProcessedMessageInfo;->mOrgState:Lcom/android/internal/util/State;
 
     invoke-virtual {v2}, Lcom/android/internal/util/State;->getName()Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_4b
+    goto :goto_1
 .end method
 
 .method public update(Landroid/os/Message;Ljava/lang/String;Lcom/android/internal/util/State;Lcom/android/internal/util/State;)V
-    .registers 7
+    .locals 2
     .parameter "msg"
     .parameter "info"
     .parameter "state"

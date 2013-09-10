@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/Looper;)V
-    .registers 4
+    .locals 2
     .parameter "looper"
 
     .prologue
@@ -32,7 +32,7 @@
     iput-object v0, p0, Landroid/view/DisplayEventReceiver;->mCloseGuard:Ldalvik/system/CloseGuard;
 
     .line 56
-    if-nez p1, :cond_13
+    if-nez p1, :cond_0
 
     .line 57
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -44,7 +44,7 @@
     throw v0
 
     .line 60
-    :cond_13
+    :cond_0
     invoke-virtual {p1}, Landroid/os/Looper;->getQueue()Landroid/os/MessageQueue;
 
     move-result-object v0
@@ -72,7 +72,7 @@
 .end method
 
 .method private dispatchVsync(JI)V
-    .registers 4
+    .locals 0
     .parameter "timestampNanos"
     .parameter "frame"
 
@@ -96,13 +96,13 @@
 
 # virtual methods
 .method public dispose()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 79
     iget-object v0, p0, Landroid/view/DisplayEventReceiver;->mCloseGuard:Ldalvik/system/CloseGuard;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 80
     iget-object v0, p0, Landroid/view/DisplayEventReceiver;->mCloseGuard:Ldalvik/system/CloseGuard;
@@ -110,10 +110,10 @@
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->close()V
 
     .line 82
-    :cond_9
+    :cond_0
     iget v0, p0, Landroid/view/DisplayEventReceiver;->mReceiverPtr:I
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_1
 
     .line 83
     iget v0, p0, Landroid/view/DisplayEventReceiver;->mReceiverPtr:I
@@ -126,7 +126,7 @@
     iput v0, p0, Landroid/view/DisplayEventReceiver;->mReceiverPtr:I
 
     .line 86
-    :cond_15
+    :cond_1
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/view/DisplayEventReceiver;->mMessageQueue:Landroid/os/MessageQueue;
@@ -136,7 +136,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -147,8 +147,8 @@
     .line 69
     :try_start_0
     invoke-virtual {p0}, Landroid/view/DisplayEventReceiver;->dispose()V
-    :try_end_3
-    .catchall {:try_start_0 .. :try_end_3} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 71
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -157,7 +157,7 @@
     return-void
 
     .line 71
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -166,7 +166,7 @@
 .end method
 
 .method public onVsync(JI)V
-    .registers 4
+    .locals 0
     .parameter "timestampNanos"
     .parameter "frame"
 
@@ -176,13 +176,13 @@
 .end method
 
 .method public scheduleVsync()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 106
     iget v0, p0, Landroid/view/DisplayEventReceiver;->mReceiverPtr:I
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 107
     const-string v0, "DisplayEventReceiver"
@@ -192,14 +192,14 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 112
-    :goto_b
+    :goto_0
     return-void
 
     .line 110
-    :cond_c
+    :cond_0
     iget v0, p0, Landroid/view/DisplayEventReceiver;->mReceiverPtr:I
 
     invoke-static {v0}, Landroid/view/DisplayEventReceiver;->nativeScheduleVsync(I)V
 
-    goto :goto_b
+    goto :goto_0
 .end method

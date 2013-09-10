@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService;Landroid/os/ParcelFileDescriptor;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "input"
 

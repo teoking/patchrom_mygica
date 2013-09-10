@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 289
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -85,7 +85,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .registers 3
+    .locals 0
     .parameter "rssi"
     .parameter "cid"
     .annotation runtime Ljava/lang/Deprecated;
@@ -106,7 +106,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;I)V
-    .registers 11
+    .locals 7
     .parameter "rssi"
     .parameter "location"
     .parameter "radioType"
@@ -143,25 +143,25 @@
 
     .line 124
     .local v2, l:I
-    if-le v2, v3, :cond_18
+    if-le v2, v3, :cond_1
 
     .line 157
-    :cond_17
-    :goto_17
+    :cond_0
+    :goto_0
     return-void
 
     .line 125
-    :cond_18
-    if-ge v2, v3, :cond_35
+    :cond_1
+    if-ge v2, v3, :cond_2
 
     .line 126
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_1b
+    :goto_1
     rsub-int/lit8 v3, v2, 0x8
 
-    if-ge v1, v3, :cond_35
+    if-ge v1, v3, :cond_2
 
     .line 127
     new-instance v3, Ljava/lang/StringBuilder;
@@ -185,19 +185,19 @@
     .line 126
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1b
+    goto :goto_1
 
     .line 132
     .end local v1           #i:I
-    :cond_35
-    packed-switch p3, :pswitch_data_80
+    :cond_2
+    packed-switch p3, :pswitch_data_0
 
-    :pswitch_38
-    goto :goto_17
+    :pswitch_0
+    goto :goto_0
 
     .line 135
-    :pswitch_39
-    :try_start_39
+    :pswitch_1
+    :try_start_0
     iput p3, p0, Landroid/telephony/NeighboringCellInfo;->mNetworkType:I
 
     .line 137
@@ -207,7 +207,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_17
+    if-nez v3, :cond_0
 
     .line 138
     const/4 v3, 0x4
@@ -248,13 +248,13 @@
     move-result v3
 
     iput v3, p0, Landroid/telephony/NeighboringCellInfo;->mLac:I
-    :try_end_66
-    .catch Ljava/lang/NumberFormatException; {:try_start_39 .. :try_end_66} :catch_67
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 150
-    :catch_67
+    :catch_0
     move-exception v0
 
     .line 152
@@ -270,12 +270,12 @@
     .line 155
     iput v6, p0, Landroid/telephony/NeighboringCellInfo;->mNetworkType:I
 
-    goto :goto_17
+    goto :goto_0
 
     .line 146
     .end local v0           #e:Ljava/lang/NumberFormatException;
-    :pswitch_71
-    :try_start_71
+    :pswitch_2
+    :try_start_1
     iput p3, p0, Landroid/telephony/NeighboringCellInfo;->mNetworkType:I
 
     .line 147
@@ -290,29 +290,29 @@
     move-result v3
 
     iput v3, p0, Landroid/telephony/NeighboringCellInfo;->mPsc:I
-    :try_end_7f
-    .catch Ljava/lang/NumberFormatException; {:try_start_71 .. :try_end_7f} :catch_67
+    :try_end_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 132
-    :pswitch_data_80
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_39
-        :pswitch_39
-        :pswitch_71
-        :pswitch_38
-        :pswitch_38
-        :pswitch_38
-        :pswitch_38
-        :pswitch_71
-        :pswitch_71
-        :pswitch_71
+        :pswitch_1
+        :pswitch_1
+        :pswitch_2
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -361,7 +361,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 278
@@ -371,7 +371,7 @@
 .end method
 
 .method public getCid()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 194
@@ -381,7 +381,7 @@
 .end method
 
 .method public getLac()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 186
@@ -391,7 +391,7 @@
 .end method
 
 .method public getNetworkType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 227
@@ -401,7 +401,7 @@
 .end method
 
 .method public getPsc()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 202
@@ -411,7 +411,7 @@
 .end method
 
 .method public getRssi()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 178
@@ -421,7 +421,7 @@
 .end method
 
 .method public setCid(I)V
-    .registers 2
+    .locals 0
     .parameter "cid"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -435,7 +435,7 @@
 .end method
 
 .method public setRssi(I)V
-    .registers 2
+    .locals 0
     .parameter "rssi"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -449,7 +449,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     const/16 v3, 0x63
@@ -470,7 +470,7 @@
     .line 264
     iget v1, p0, Landroid/telephony/NeighboringCellInfo;->mPsc:I
 
-    if-eq v1, v2, :cond_3b
+    if-eq v1, v2, :cond_2
 
     .line 265
     iget v1, p0, Landroid/telephony/NeighboringCellInfo;->mPsc:I
@@ -491,16 +491,16 @@
 
     iget v1, p0, Landroid/telephony/NeighboringCellInfo;->mRssi:I
 
-    if-ne v1, v3, :cond_34
+    if-ne v1, v3, :cond_1
 
     const-string v1, "-"
 
-    :goto_27
+    :goto_0
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 272
-    :cond_2a
-    :goto_2a
+    :cond_0
+    :goto_1
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -513,24 +513,24 @@
     return-object v1
 
     .line 265
-    :cond_34
+    :cond_1
     iget v1, p0, Landroid/telephony/NeighboringCellInfo;->mRssi:I
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    goto :goto_27
+    goto :goto_0
 
     .line 267
-    :cond_3b
+    :cond_2
     iget v1, p0, Landroid/telephony/NeighboringCellInfo;->mLac:I
 
-    if-eq v1, v2, :cond_2a
+    if-eq v1, v2, :cond_0
 
     iget v1, p0, Landroid/telephony/NeighboringCellInfo;->mCid:I
 
-    if-eq v1, v2, :cond_2a
+    if-eq v1, v2, :cond_0
 
     .line 268
     iget v1, p0, Landroid/telephony/NeighboringCellInfo;->mLac:I
@@ -561,27 +561,27 @@
 
     iget v1, p0, Landroid/telephony/NeighboringCellInfo;->mRssi:I
 
-    if-ne v1, v3, :cond_67
+    if-ne v1, v3, :cond_3
 
     const-string v1, "-"
 
-    :goto_63
+    :goto_2
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    goto :goto_2a
+    goto :goto_1
 
-    :cond_67
+    :cond_3
     iget v1, p0, Landroid/telephony/NeighboringCellInfo;->mRssi:I
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    goto :goto_63
+    goto :goto_2
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

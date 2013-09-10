@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 29
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(F)V
-    .registers 3
+    .locals 1
     .parameter "factor"
 
     .prologue
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "attrs"
 
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public getInterpolation(F)F
-    .registers 9
+    .locals 7
     .parameter "input"
 
     .prologue
@@ -99,7 +99,7 @@
 
     cmpl-float v1, v1, v3
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_0
 
     .line 55
     sub-float v1, v3, p1
@@ -112,12 +112,12 @@
 
     .line 59
     .local v0, result:F
-    :goto_f
+    :goto_0
     return v0
 
     .line 57
     .end local v0           #result:F
-    :cond_10
+    :cond_0
     const-wide/high16 v1, 0x3ff0
 
     sub-float/2addr v3, p1
@@ -141,5 +141,5 @@
     double-to-float v0, v1
 
     .restart local v0       #result:F
-    goto :goto_f
+    goto :goto_0
 .end method

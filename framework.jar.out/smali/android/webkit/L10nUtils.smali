@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 32
@@ -33,13 +33,13 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_a
+    fill-array-data v0, :array_0
 
     sput-object v0, Landroid/webkit/L10nUtils;->mIdsArray:[I
 
     return-void
 
-    :array_a
+    :array_0
     .array-data 0x4
         0x44t 0x3t 0x4t 0x1t
         0x45t 0x3t 0x4t 0x1t
@@ -102,7 +102,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 28
@@ -112,14 +112,14 @@
 .end method
 
 .method public static getLocalisedString(I)Ljava/lang/String;
-    .registers 5
+    .locals 4
     .parameter "id"
 
     .prologue
     .line 110
     sget-object v2, Landroid/webkit/L10nUtils;->mStrings:Ljava/util/Map;
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_0
 
     .line 113
     invoke-static {p0}, Landroid/webkit/L10nUtils;->loadString(I)Ljava/lang/String;
@@ -127,11 +127,11 @@
     move-result-object v2
 
     .line 118
-    :goto_8
+    :goto_0
     return-object v2
 
     .line 116
-    :cond_9
+    :cond_0
     sget-object v2, Landroid/webkit/L10nUtils;->mStrings:Ljava/util/Map;
 
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -146,56 +146,56 @@
 
     .line 117
     .local v1, ref:Ljava/lang/ref/SoftReference;,"Ljava/lang/ref/SoftReference<Ljava/lang/String;>;"
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_1
 
     invoke-virtual {v1}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
 
     move-result-object v2
 
-    if-nez v2, :cond_25
+    if-nez v2, :cond_2
 
-    :cond_1d
+    :cond_1
     const/4 v0, 0x1
 
     .line 118
     .local v0, needToLoad:Z
-    :goto_1e
-    if-eqz v0, :cond_27
+    :goto_1
+    if-eqz v0, :cond_3
 
     invoke-static {p0}, Landroid/webkit/L10nUtils;->loadString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_8
+    goto :goto_0
 
     .line 117
     .end local v0           #needToLoad:Z
-    :cond_25
+    :cond_2
     const/4 v0, 0x0
 
-    goto :goto_1e
+    goto :goto_1
 
     .line 118
     .restart local v0       #needToLoad:Z
-    :cond_27
+    :cond_3
     invoke-virtual {v1}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/lang/String;
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method private static loadString(I)Ljava/lang/String;
-    .registers 5
+    .locals 4
     .parameter "id"
 
     .prologue
     .line 100
     sget-object v1, Landroid/webkit/L10nUtils;->mStrings:Ljava/util/Map;
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_0
 
     .line 101
     new-instance v1, Ljava/util/HashMap;
@@ -209,7 +209,7 @@
     sput-object v1, Landroid/webkit/L10nUtils;->mStrings:Ljava/util/Map;
 
     .line 104
-    :cond_e
+    :cond_0
     sget-object v1, Landroid/webkit/L10nUtils;->mApplicationContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -243,7 +243,7 @@
 .end method
 
 .method public static setApplicationContext(Landroid/content/Context;)V
-    .registers 2
+    .locals 1
     .parameter "applicationContext"
 
     .prologue

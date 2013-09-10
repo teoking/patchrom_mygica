@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x5
@@ -52,7 +52,7 @@
 .end method
 
 .method private estimate(F[F)F
-    .registers 7
+    .locals 4
     .parameter "time"
     .parameter "c"
 
@@ -69,10 +69,10 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_4
+    :goto_0
     iget v3, p0, Landroid/view/VelocityTracker$Estimator;->degree:I
 
-    if-gt v1, v3, :cond_10
+    if-gt v1, v3, :cond_0
 
     .line 339
     aget v3, p2, v1
@@ -87,17 +87,17 @@
     .line 338
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 342
-    :cond_10
+    :cond_0
     return v0
 .end method
 
 
 # virtual methods
 .method public estimateX(F)F
-    .registers 3
+    .locals 1
     .parameter "time"
 
     .prologue
@@ -112,7 +112,7 @@
 .end method
 
 .method public estimateY(F)F
-    .registers 3
+    .locals 1
     .parameter "time"
 
     .prologue
@@ -127,47 +127,47 @@
 .end method
 
 .method public getXCoeff(I)F
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
     .line 323
     iget v0, p0, Landroid/view/VelocityTracker$Estimator;->degree:I
 
-    if-gt p1, v0, :cond_9
+    if-gt p1, v0, :cond_0
 
     iget-object v0, p0, Landroid/view/VelocityTracker$Estimator;->xCoeff:[F
 
     aget v0, v0, p1
 
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getYCoeff(I)F
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
     .line 332
     iget v0, p0, Landroid/view/VelocityTracker$Estimator;->degree:I
 
-    if-gt p1, v0, :cond_9
+    if-gt p1, v0, :cond_0
 
     iget-object v0, p0, Landroid/view/VelocityTracker$Estimator;->yCoeff:[F
 
     aget v0, v0, p1
 
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method

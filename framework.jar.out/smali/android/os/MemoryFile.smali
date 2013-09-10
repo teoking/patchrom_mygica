@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 38
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
     .parameter "name"
     .parameter "length"
     .annotation system Ldalvik/annotation/Throws;
@@ -74,7 +74,7 @@
     iput-object v0, p0, Landroid/os/MemoryFile;->mFD:Ljava/io/FileDescriptor;
 
     .line 72
-    if-lez p2, :cond_1a
+    if-lez p2, :cond_0
 
     .line 73
     iget-object v0, p0, Landroid/os/MemoryFile;->mFD:Ljava/io/FileDescriptor;
@@ -88,18 +88,18 @@
     iput v0, p0, Landroid/os/MemoryFile;->mAddress:I
 
     .line 77
-    :goto_19
+    :goto_0
     return-void
 
     .line 75
-    :cond_1a
+    :cond_0
     iput v1, p0, Landroid/os/MemoryFile;->mAddress:I
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method static synthetic access$200(Landroid/os/MemoryFile;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -110,7 +110,7 @@
 .end method
 
 .method public static getSize(Ljava/io/FileDescriptor;)I
-    .registers 2
+    .locals 1
     .parameter "fd"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -128,7 +128,7 @@
 .end method
 
 .method private isClosed()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 119
@@ -138,37 +138,37 @@
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method private isDeactivated()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 112
     iget v0, p0, Landroid/os/MemoryFile;->mAddress:I
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method private static native native_close(Ljava/io/FileDescriptor;)V
@@ -233,7 +233,7 @@
 
 # virtual methods
 .method public declared-synchronized allowPurging(Z)Z
-    .registers 5
+    .locals 3
     .parameter "allowPurging"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -245,43 +245,43 @@
     .line 156
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/os/MemoryFile;->mAllowPurging:Z
 
     .line 157
     .local v0, oldValue:Z
-    if-eq v0, p1, :cond_f
+    if-eq v0, p1, :cond_0
 
     .line 158
     iget-object v2, p0, Landroid/os/MemoryFile;->mFD:Ljava/io/FileDescriptor;
 
-    if-nez p1, :cond_11
+    if-nez p1, :cond_1
 
     const/4 v1, 0x1
 
-    :goto_a
+    :goto_0
     invoke-static {v2, v1}, Landroid/os/MemoryFile;->native_pin(Ljava/io/FileDescriptor;Z)V
 
     .line 159
     iput-boolean p1, p0, Landroid/os/MemoryFile;->mAllowPurging:Z
-    :try_end_f
-    .catchall {:try_start_1 .. :try_end_f} :catchall_13
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 161
-    :cond_f
+    :cond_0
     monitor-exit p0
 
     return v0
 
     .line 158
-    :cond_11
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_a
+    goto :goto_0
 
     .line 156
     .end local v0           #oldValue:Z
-    :catchall_13
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
@@ -290,7 +290,7 @@
 .end method
 
 .method public close()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84
@@ -301,7 +301,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 86
     iget-object v0, p0, Landroid/os/MemoryFile;->mFD:Ljava/io/FileDescriptor;
@@ -309,12 +309,12 @@
     invoke-static {v0}, Landroid/os/MemoryFile;->native_close(Ljava/io/FileDescriptor;)V
 
     .line 88
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method deactivate()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 98
@@ -322,10 +322,10 @@
 
     move-result v1
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_0
 
     .line 100
-    :try_start_6
+    :try_start_0
     iget v1, p0, Landroid/os/MemoryFile;->mAddress:I
 
     iget v2, p0, Landroid/os/MemoryFile;->mLength:I
@@ -336,16 +336,16 @@
     const/4 v1, 0x0
 
     iput v1, p0, Landroid/os/MemoryFile;->mAddress:I
-    :try_end_10
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_10} :catch_11
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 106
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     return-void
 
     .line 102
-    :catch_11
+    :catch_0
     move-exception v0
 
     .line 103
@@ -358,11 +358,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method protected finalize()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 124
@@ -370,7 +370,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 125
     sget-object v0, Landroid/os/MemoryFile;->TAG:Ljava/lang/String;
@@ -383,12 +383,12 @@
     invoke-virtual {p0}, Landroid/os/MemoryFile;->close()V
 
     .line 128
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method public getFileDescriptor()Ljava/io/FileDescriptor;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -403,7 +403,7 @@
 .end method
 
 .method public getInputStream()Ljava/io/InputStream;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 170
@@ -417,7 +417,7 @@
 .end method
 
 .method public getOutputStream()Ljava/io/OutputStream;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 179
@@ -431,7 +431,7 @@
 .end method
 
 .method public isPurgingAllowed()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 145
@@ -441,7 +441,7 @@
 .end method
 
 .method public length()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 136
@@ -451,7 +451,7 @@
 .end method
 
 .method public readBytes([BIII)I
-    .registers 12
+    .locals 7
     .parameter "buffer"
     .parameter "srcOffset"
     .parameter "destOffset"
@@ -468,7 +468,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 196
     new-instance v0, Ljava/io/IOException;
@@ -480,35 +480,35 @@
     throw v0
 
     .line 198
-    :cond_e
-    if-ltz p3, :cond_24
+    :cond_0
+    if-ltz p3, :cond_1
 
     array-length v0, p1
 
-    if-gt p3, v0, :cond_24
+    if-gt p3, v0, :cond_1
 
-    if-ltz p4, :cond_24
+    if-ltz p4, :cond_1
 
     array-length v0, p1
 
     sub-int/2addr v0, p3
 
-    if-gt p4, v0, :cond_24
+    if-gt p4, v0, :cond_1
 
-    if-ltz p2, :cond_24
+    if-ltz p2, :cond_1
 
     iget v0, p0, Landroid/os/MemoryFile;->mLength:I
 
-    if-gt p2, v0, :cond_24
+    if-gt p2, v0, :cond_1
 
     iget v0, p0, Landroid/os/MemoryFile;->mLength:I
 
     sub-int/2addr v0, p2
 
-    if-le p4, v0, :cond_2a
+    if-le p4, v0, :cond_2
 
     .line 202
-    :cond_24
+    :cond_1
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
@@ -516,7 +516,7 @@
     throw v0
 
     .line 204
-    :cond_2a
+    :cond_2
     iget-object v0, p0, Landroid/os/MemoryFile;->mFD:Ljava/io/FileDescriptor;
 
     iget v1, p0, Landroid/os/MemoryFile;->mAddress:I
@@ -539,7 +539,7 @@
 .end method
 
 .method public writeBytes([BIII)V
-    .registers 12
+    .locals 7
     .parameter "buffer"
     .parameter "srcOffset"
     .parameter "destOffset"
@@ -556,7 +556,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 220
     new-instance v0, Ljava/io/IOException;
@@ -568,35 +568,35 @@
     throw v0
 
     .line 222
-    :cond_e
-    if-ltz p2, :cond_24
+    :cond_0
+    if-ltz p2, :cond_1
 
     array-length v0, p1
 
-    if-gt p2, v0, :cond_24
+    if-gt p2, v0, :cond_1
 
-    if-ltz p4, :cond_24
+    if-ltz p4, :cond_1
 
     array-length v0, p1
 
     sub-int/2addr v0, p2
 
-    if-gt p4, v0, :cond_24
+    if-gt p4, v0, :cond_1
 
-    if-ltz p3, :cond_24
+    if-ltz p3, :cond_1
 
     iget v0, p0, Landroid/os/MemoryFile;->mLength:I
 
-    if-gt p3, v0, :cond_24
+    if-gt p3, v0, :cond_1
 
     iget v0, p0, Landroid/os/MemoryFile;->mLength:I
 
     sub-int/2addr v0, p3
 
-    if-le p4, v0, :cond_2a
+    if-le p4, v0, :cond_2
 
     .line 226
-    :cond_24
+    :cond_1
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
@@ -604,7 +604,7 @@
     throw v0
 
     .line 228
-    :cond_2a
+    :cond_2
     iget-object v0, p0, Landroid/os/MemoryFile;->mFD:Ljava/io/FileDescriptor;
 
     iget v1, p0, Landroid/os/MemoryFile;->mAddress:I

@@ -266,7 +266,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/16 v2, 0xff
@@ -325,7 +325,7 @@
 .end method
 
 .method public static calcTextEncodingDetails(Ljava/lang/CharSequence;Z)Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;
-    .registers 7
+    .locals 5
     .parameter "msg"
     .parameter "force7BitEncoding"
 
@@ -341,11 +341,11 @@
     .local v1, septets:I
     const/4 v3, -0x1
 
-    if-eq v1, v3, :cond_1c
+    if-eq v1, v3, :cond_1
 
     const/16 v3, 0xa0
 
-    if-gt v1, v3, :cond_1c
+    if-gt v1, v3, :cond_1
 
     .line 480
     new-instance v2, Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;
@@ -368,13 +368,13 @@
     iput v4, v2, Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;->codeUnitSize:I
 
     .line 505
-    :cond_1b
-    :goto_1b
+    :cond_0
+    :goto_0
     return-object v2
 
     .line 486
     .end local v2           #ted:Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;
-    :cond_1c
+    :cond_1
     invoke-static {p0, p1}, Lcom/android/internal/telephony/gsm/SmsMessage;->calculateLength(Ljava/lang/CharSequence;Z)Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;
 
     move-result-object v2
@@ -383,11 +383,11 @@
     .restart local v2       #ted:Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;
     iget v3, v2, Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;->msgCount:I
 
-    if-ne v3, v4, :cond_1b
+    if-ne v3, v4, :cond_0
 
     iget v3, v2, Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;->codeUnitSize:I
 
-    if-ne v3, v4, :cond_1b
+    if-ne v3, v4, :cond_0
 
     .line 491
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
@@ -405,7 +405,7 @@
     .local v0, octets:I
     const/16 v3, 0x8c
 
-    if-le v0, v3, :cond_49
+    if-le v0, v3, :cond_2
 
     .line 494
     add-int/lit16 v3, v0, 0x85
@@ -426,15 +426,15 @@
     iput v3, v2, Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;->codeUnitsRemaining:I
 
     .line 502
-    :goto_45
+    :goto_1
     const/4 v3, 0x3
 
     iput v3, v2, Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;->codeUnitSize:I
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 499
-    :cond_49
+    :cond_2
     iput v4, v2, Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;->msgCount:I
 
     .line 500
@@ -444,11 +444,11 @@
 
     iput v3, v2, Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;->codeUnitsRemaining:I
 
-    goto :goto_45
+    goto :goto_1
 .end method
 
 .method private static countAsciiSeptets(Ljava/lang/CharSequence;Z)I
-    .registers 7
+    .locals 5
     .parameter "msg"
     .parameter "force"
 
@@ -462,22 +462,22 @@
 
     .line 459
     .local v1, msgLen:I
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_1
 
     .line 465
     .end local v1           #msgLen:I
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     return v1
 
     .line 460
     .restart local v1       #msgLen:I
-    :cond_8
+    :cond_1
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_9
-    if-ge v0, v1, :cond_7
+    :goto_1
+    if-ge v0, v1, :cond_0
 
     .line 461
     sget-object v3, Lcom/android/internal/telephony/cdma/sms/UserData;->charToAscii:Landroid/util/SparseIntArray;
@@ -490,22 +490,22 @@
 
     move-result v3
 
-    if-ne v3, v2, :cond_19
+    if-ne v3, v2, :cond_2
 
     move v1, v2
 
     .line 462
-    goto :goto_7
+    goto :goto_0
 
     .line 460
-    :cond_19
+    :cond_2
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_9
+    goto :goto_1
 .end method
 
 .method public static decode([B)Lcom/android/internal/telephony/cdma/sms/BearerData;
-    .registers 2
+    .locals 1
     .parameter "smsData"
 
     .prologue
@@ -520,7 +520,7 @@
 .end method
 
 .method public static decode([BI)Lcom/android/internal/telephony/cdma/sms/BearerData;
-    .registers 12
+    .locals 10
     .parameter "smsData"
     .parameter "serviceCategory"
 
@@ -528,7 +528,7 @@
     const/4 v8, 0x1
 
     .line 1866
-    :try_start_1
+    :try_start_0
     new-instance v4, Lcom/android/internal/util/BitwiseInputStream;
 
     invoke-direct {v4, p0}, Lcom/android/internal/util/BitwiseInputStream;-><init>([B)V
@@ -545,13 +545,13 @@
 
     .line 1869
     .local v3, foundSubparamMask:I
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     invoke-virtual {v4}, Lcom/android/internal/util/BitwiseInputStream;->available()I
 
     move-result v7
 
-    if-lez v7, :cond_f8
+    if-lez v7, :cond_3
 
     .line 1870
     const/16 v7, 0x8
@@ -568,7 +568,7 @@
     .local v6, subparamIdBit:I
     and-int v7, v3, v6
 
-    if-eqz v7, :cond_58
+    if-eqz v7, :cond_2
 
     .line 1873
     new-instance v7, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
@@ -600,9 +600,9 @@
     invoke-direct {v7, v8}, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;-><init>(Ljava/lang/String;)V
 
     throw v7
-    :try_end_3d
-    .catch Lcom/android/internal/util/BitwiseInputStream$AccessException; {:try_start_1 .. :try_end_3d} :catch_3d
-    .catch Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException; {:try_start_1 .. :try_end_3d} :catch_7b
+    :try_end_0
+    .catch Lcom/android/internal/util/BitwiseInputStream$AccessException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 1961
     .end local v0           #bData:Lcom/android/internal/telephony/cdma/sms/BearerData;
@@ -610,7 +610,7 @@
     .end local v4           #inStream:Lcom/android/internal/util/BitwiseInputStream;
     .end local v5           #subparamId:I
     .end local v6           #subparamIdBit:I
-    :catch_3d
+    :catch_0
     move-exception v2
 
     .line 1962
@@ -639,11 +639,11 @@
 
     .line 1966
     .end local v2           #ex:Lcom/android/internal/util/BitwiseInputStream$AccessException;
-    :goto_56
+    :goto_1
     const/4 v0, 0x0
 
-    :cond_57
-    :goto_57
+    :cond_1
+    :goto_2
     return-object v0
 
     .line 1877
@@ -652,12 +652,12 @@
     .restart local v4       #inStream:Lcom/android/internal/util/BitwiseInputStream;
     .restart local v5       #subparamId:I
     .restart local v6       #subparamIdBit:I
-    :cond_58
-    packed-switch v5, :pswitch_data_14c
+    :cond_2
+    packed-switch v5, :pswitch_data_0
 
     .line 1936
-    :pswitch_5b
-    :try_start_5b
+    :pswitch_0
+    :try_start_1
     new-instance v7, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -687,9 +687,9 @@
     invoke-direct {v7, v8}, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;-><init>(Ljava/lang/String;)V
 
     throw v7
-    :try_end_7b
-    .catch Lcom/android/internal/util/BitwiseInputStream$AccessException; {:try_start_5b .. :try_end_7b} :catch_3d
-    .catch Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException; {:try_start_5b .. :try_end_7b} :catch_7b
+    :try_end_1
+    .catch Lcom/android/internal/util/BitwiseInputStream$AccessException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 1963
     .end local v0           #bData:Lcom/android/internal/telephony/cdma/sms/BearerData;
@@ -697,7 +697,7 @@
     .end local v4           #inStream:Lcom/android/internal/util/BitwiseInputStream;
     .end local v5           #subparamId:I
     .end local v6           #subparamIdBit:I
-    :catch_7b
+    :catch_1
     move-exception v2
 
     .line 1964
@@ -724,7 +724,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_56
+    goto :goto_1
 
     .line 1879
     .end local v2           #ex:Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
@@ -733,227 +733,227 @@
     .restart local v4       #inStream:Lcom/android/internal/util/BitwiseInputStream;
     .restart local v5       #subparamId:I
     .restart local v6       #subparamIdBit:I
-    :pswitch_95
-    :try_start_95
+    :pswitch_1
+    :try_start_2
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeMessageId(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1939
     .local v1, decodeSuccess:Z
-    :goto_99
-    if-eqz v1, :cond_c
+    :goto_3
+    if-eqz v1, :cond_0
 
     or-int/2addr v3, v6
 
-    goto/16 :goto_c
+    goto/16 :goto_0
 
     .line 1882
     .end local v1           #decodeSuccess:Z
-    :pswitch_9e
+    :pswitch_2
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeUserData(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1883
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1885
     .end local v1           #decodeSuccess:Z
-    :pswitch_a3
+    :pswitch_3
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeUserResponseCode(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1886
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1888
     .end local v1           #decodeSuccess:Z
-    :pswitch_a8
+    :pswitch_4
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeReplyOption(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1889
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1891
     .end local v1           #decodeSuccess:Z
-    :pswitch_ad
+    :pswitch_5
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeMsgCount(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1892
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1894
     .end local v1           #decodeSuccess:Z
-    :pswitch_b2
+    :pswitch_6
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeCallbackNumber(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1895
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1897
     .end local v1           #decodeSuccess:Z
-    :pswitch_b7
+    :pswitch_7
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeMsgStatus(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1898
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1900
     .end local v1           #decodeSuccess:Z
-    :pswitch_bc
+    :pswitch_8
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeMsgCenterTimeStamp(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1901
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1903
     .end local v1           #decodeSuccess:Z
-    :pswitch_c1
+    :pswitch_9
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeValidityAbs(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1904
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1906
     .end local v1           #decodeSuccess:Z
-    :pswitch_c6
+    :pswitch_a
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeValidityRel(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1907
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1909
     .end local v1           #decodeSuccess:Z
-    :pswitch_cb
+    :pswitch_b
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeDeferredDeliveryAbs(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1910
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1912
     .end local v1           #decodeSuccess:Z
-    :pswitch_d0
+    :pswitch_c
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeDeferredDeliveryRel(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1913
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1915
     .end local v1           #decodeSuccess:Z
-    :pswitch_d5
+    :pswitch_d
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodePrivacyIndicator(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1916
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1918
     .end local v1           #decodeSuccess:Z
-    :pswitch_da
+    :pswitch_e
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeLanguageIndicator(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1919
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1921
     .end local v1           #decodeSuccess:Z
-    :pswitch_df
+    :pswitch_f
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeDisplayMode(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1922
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1924
     .end local v1           #decodeSuccess:Z
-    :pswitch_e4
+    :pswitch_10
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodePriorityIndicator(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1925
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1927
     .end local v1           #decodeSuccess:Z
-    :pswitch_e9
+    :pswitch_11
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeMsgDeliveryAlert(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1928
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1930
     .end local v1           #decodeSuccess:Z
-    :pswitch_ee
+    :pswitch_12
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeDepositIndex(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1931
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1933
     .end local v1           #decodeSuccess:Z
-    :pswitch_f3
+    :pswitch_13
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeServiceCategoryProgramData(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
 
     move-result v1
 
     .line 1934
     .restart local v1       #decodeSuccess:Z
-    goto :goto_99
+    goto :goto_3
 
     .line 1941
     .end local v1           #decodeSuccess:Z
     .end local v5           #subparamId:I
     .end local v6           #subparamIdBit:I
-    :cond_f8
+    :cond_3
     and-int/lit8 v7, v3, 0x1
 
-    if-nez v7, :cond_105
+    if-nez v7, :cond_4
 
     .line 1942
     new-instance v7, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
@@ -965,37 +965,37 @@
     throw v7
 
     .line 1944
-    :cond_105
+    :cond_4
     iget-object v7, v0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
-    if-eqz v7, :cond_57
+    if-eqz v7, :cond_1
 
     .line 1945
     invoke-static {p1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->isCmasAlertCategory(I)Z
 
     move-result v7
 
-    if-eqz v7, :cond_114
+    if-eqz v7, :cond_5
 
     .line 1946
     invoke-static {v0, p1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeCmasUserData(Lcom/android/internal/telephony/cdma/sms/BearerData;I)V
 
-    goto/16 :goto_57
+    goto/16 :goto_2
 
     .line 1947
-    :cond_114
+    :cond_5
     iget-object v7, v0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
     iget v7, v7, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
-    if-ne v7, v8, :cond_143
+    if-ne v7, v8, :cond_7
 
     .line 1948
     xor-int/lit8 v7, v3, 0x1
 
     xor-int/lit8 v7, v7, 0x2
 
-    if-eqz v7, :cond_13e
+    if-eqz v7, :cond_6
 
     .line 1952
     const-string v7, "SMS"
@@ -1027,53 +1027,53 @@
     invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1955
-    :cond_13e
+    :cond_6
     invoke-static {v0}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeIs91(Lcom/android/internal/telephony/cdma/sms/BearerData;)V
 
-    goto/16 :goto_57
+    goto/16 :goto_2
 
     .line 1957
-    :cond_143
+    :cond_7
     iget-object v7, v0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
     iget-boolean v8, v0, Lcom/android/internal/telephony/cdma/sms/BearerData;->hasUserDataHeader:Z
 
     invoke-static {v7, v8}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeUserDataPayload(Lcom/android/internal/telephony/cdma/sms/UserData;Z)V
-    :try_end_14a
-    .catch Lcom/android/internal/util/BitwiseInputStream$AccessException; {:try_start_95 .. :try_end_14a} :catch_3d
-    .catch Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException; {:try_start_95 .. :try_end_14a} :catch_7b
+    :try_end_2
+    .catch Lcom/android/internal/util/BitwiseInputStream$AccessException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException; {:try_start_2 .. :try_end_2} :catch_1
 
-    goto/16 :goto_57
+    goto/16 :goto_2
 
     .line 1877
-    :pswitch_data_14c
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_95
-        :pswitch_9e
-        :pswitch_a3
-        :pswitch_bc
-        :pswitch_c1
-        :pswitch_c6
-        :pswitch_cb
-        :pswitch_d0
-        :pswitch_e4
-        :pswitch_d5
-        :pswitch_a8
-        :pswitch_ad
-        :pswitch_e9
-        :pswitch_da
-        :pswitch_b2
-        :pswitch_df
-        :pswitch_5b
-        :pswitch_ee
-        :pswitch_f3
-        :pswitch_5b
-        :pswitch_b7
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_8
+        :pswitch_9
+        :pswitch_a
+        :pswitch_b
+        :pswitch_c
+        :pswitch_10
+        :pswitch_d
+        :pswitch_4
+        :pswitch_5
+        :pswitch_11
+        :pswitch_e
+        :pswitch_6
+        :pswitch_f
+        :pswitch_0
+        :pswitch_12
+        :pswitch_13
+        :pswitch_0
+        :pswitch_7
     .end packed-switch
 .end method
 
 .method private static decode7bitAscii([BII)Ljava/lang/String;
-    .registers 14
+    .locals 11
     .parameter "data"
     .parameter "offset"
     .parameter "numFields"
@@ -1094,7 +1094,7 @@
     mul-int/lit8 p1, p1, 0x8
 
     .line 1038
-    :try_start_8
+    :try_start_0
     new-instance v4, Ljava/lang/StringBuffer;
 
     invoke-direct {v4, p2}, Ljava/lang/StringBuffer;-><init>(I)V
@@ -1119,7 +1119,7 @@
 
     move-result v6
 
-    if-ge v6, v5, :cond_65
+    if-ge v6, v5, :cond_0
 
     .line 1042
     new-instance v6, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
@@ -1165,14 +1165,14 @@
     invoke-direct {v6, v7}, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;-><init>(Ljava/lang/String;)V
 
     throw v6
-    :try_end_4b
-    .catch Lcom/android/internal/util/BitwiseInputStream$AccessException; {:try_start_8 .. :try_end_4b} :catch_4b
+    :try_end_0
+    .catch Lcom/android/internal/util/BitwiseInputStream$AccessException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1061
     .end local v3           #inStream:Lcom/android/internal/util/BitwiseInputStream;
     .end local v4           #strBuf:Ljava/lang/StringBuffer;
     .end local v5           #wantedBits:I
-    :catch_4b
+    :catch_0
     move-exception v1
 
     .line 1062
@@ -1206,16 +1206,16 @@
     .restart local v3       #inStream:Lcom/android/internal/util/BitwiseInputStream;
     .restart local v4       #strBuf:Ljava/lang/StringBuffer;
     .restart local v5       #wantedBits:I
-    :cond_65
-    :try_start_65
+    :cond_0
+    :try_start_1
     invoke-virtual {v3, p1}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1046
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_69
-    if-ge v2, p2, :cond_98
+    :goto_0
+    if-ge v2, p2, :cond_4
 
     .line 1047
     const/4 v6, 0x7
@@ -1226,11 +1226,11 @@
 
     .line 1048
     .local v0, charCode:I
-    if-lt v0, v10, :cond_82
+    if-lt v0, v10, :cond_1
 
     sget v6, Lcom/android/internal/telephony/cdma/sms/UserData;->ASCII_MAP_MAX_INDEX:I
 
-    if-gt v0, v6, :cond_82
+    if-gt v0, v6, :cond_1
 
     .line 1050
     sget-object v6, Lcom/android/internal/telephony/cdma/sms/UserData;->ASCII_MAP:[C
@@ -1242,47 +1242,47 @@
     invoke-virtual {v4, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     .line 1046
-    :goto_7f
+    :goto_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_69
+    goto :goto_0
 
     .line 1051
-    :cond_82
-    if-ne v0, v8, :cond_8a
+    :cond_1
+    if-ne v0, v8, :cond_2
 
     .line 1052
     const/16 v6, 0xa
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    goto :goto_7f
+    goto :goto_1
 
     .line 1053
-    :cond_8a
-    if-ne v0, v9, :cond_92
+    :cond_2
+    if-ne v0, v9, :cond_3
 
     .line 1054
     const/16 v6, 0xd
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    goto :goto_7f
+    goto :goto_1
 
     .line 1057
-    :cond_92
+    :cond_3
     const/16 v6, 0x20
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    goto :goto_7f
+    goto :goto_1
 
     .line 1060
     .end local v0           #charCode:I
-    :cond_98
+    :cond_4
     invoke-virtual {v4}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-    :try_end_9b
-    .catch Lcom/android/internal/util/BitwiseInputStream$AccessException; {:try_start_65 .. :try_end_9b} :catch_4b
+    :try_end_1
+    .catch Lcom/android/internal/util/BitwiseInputStream$AccessException; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result-object v6
 
@@ -1290,7 +1290,7 @@
 .end method
 
 .method private static decode7bitGsm([BII)Ljava/lang/String;
-    .registers 12
+    .locals 9
     .parameter "data"
     .parameter "offset"
     .parameter "numFields"
@@ -1337,7 +1337,7 @@
 
     .line 1076
     .local v8, result:Ljava/lang/String;
-    if-nez v8, :cond_1e
+    if-nez v8, :cond_0
 
     .line 1077
     new-instance v0, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
@@ -1349,12 +1349,12 @@
     throw v0
 
     .line 1079
-    :cond_1e
+    :cond_0
     return-object v8
 .end method
 
 .method private static decodeCallbackNumber(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 12
+    .locals 10
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -1401,7 +1401,7 @@
     .local v1, consumedBits:B
     iget v7, v0, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->digitMode:I
 
-    if-ne v7, v8, :cond_2b
+    if-ne v7, v8, :cond_0
 
     .line 1366
     const/4 v7, 0x3
@@ -1428,7 +1428,7 @@
     int-to-byte v1, v9
 
     .line 1371
-    :cond_2b
+    :cond_0
     invoke-virtual {p1, v9}, Lcom/android/internal/util/BitwiseInputStream;->read(I)I
 
     move-result v7
@@ -1455,7 +1455,7 @@
 
     .line 1376
     .local v4, paddingBits:I
-    if-ge v6, v2, :cond_71
+    if-ge v6, v2, :cond_1
 
     .line 1377
     new-instance v7, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
@@ -1509,7 +1509,7 @@
     throw v7
 
     .line 1381
-    :cond_71
+    :cond_1
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->readByteArray(I)[B
 
     move-result-object v7
@@ -1530,7 +1530,7 @@
 .end method
 
 .method private static decodeCharset([BIIILjava/lang/String;)Ljava/lang/String;
-    .registers 11
+    .locals 6
     .parameter "data"
     .parameter "offset"
     .parameter "numFields"
@@ -1544,7 +1544,7 @@
 
     .prologue
     .line 1014
-    if-ltz p2, :cond_8
+    if-ltz p2, :cond_0
 
     mul-int v3, p2, p3
 
@@ -1552,10 +1552,10 @@
 
     array-length v4, p0
 
-    if-le v3, v4, :cond_66
+    if-le v3, v4, :cond_2
 
     .line 1016
-    :cond_8
+    :cond_0
     rem-int v2, p1, p3
 
     .line 1017
@@ -1570,7 +1570,7 @@
 
     .line 1018
     .local v1, maxNumFields:I
-    if-gez v1, :cond_2a
+    if-gez v1, :cond_1
 
     .line 1019
     new-instance v3, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
@@ -1598,7 +1598,7 @@
     throw v3
 
     .line 1021
-    :cond_2a
+    :cond_1
     const-string v3, "SMS"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1663,20 +1663,20 @@
     .line 1027
     .end local v1           #maxNumFields:I
     .end local v2           #padding:I
-    :cond_66
-    :try_start_66
+    :cond_2
+    :try_start_0
     new-instance v3, Ljava/lang/String;
 
     mul-int v4, p2, p3
 
     invoke-direct {v3, p0, p1, v4, p4}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
-    :try_end_6d
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_66 .. :try_end_6d} :catch_6e
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object v3
 
     .line 1028
-    :catch_6e
+    :catch_0
     move-exception v0
 
     .line 1029
@@ -1711,7 +1711,7 @@
 .end method
 
 .method private static decodeCmasUserData(Lcom/android/internal/telephony/cdma/sms/BearerData;I)V
-    .registers 17
+    .locals 15
     .parameter "bData"
     .parameter "serviceCategory"
     .annotation system Ldalvik/annotation/Throws;
@@ -1739,7 +1739,7 @@
 
     const/16 v13, 0x8
 
-    if-ge v0, v13, :cond_19
+    if-ge v0, v13, :cond_0
 
     .line 1769
     new-instance v0, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
@@ -1751,7 +1751,7 @@
     throw v0
 
     .line 1771
-    :cond_19
+    :cond_0
     const/16 v0, 0x8
 
     invoke-virtual {v8, v0}, Lcom/android/internal/util/BitwiseInputStream;->read(I)I
@@ -1760,7 +1760,7 @@
 
     .line 1772
     .local v10, protocolVersion:I
-    if-eqz v10, :cond_3b
+    if-eqz v10, :cond_1
 
     .line 1773
     new-instance v0, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
@@ -1788,7 +1788,7 @@
     throw v0
 
     .line 1776
-    :cond_3b
+    :cond_1
     invoke-static/range {p1 .. p1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->serviceCategoryToCmasMessageClass(I)I
 
     move-result v1
@@ -1815,14 +1815,14 @@
 
     .line 1783
     .local v6, certainty:I
-    :goto_44
+    :goto_0
     invoke-virtual {v8}, Lcom/android/internal/util/BitwiseInputStream;->available()I
 
     move-result v0
 
     const/16 v13, 0x10
 
-    if-lt v0, v13, :cond_d8
+    if-lt v0, v13, :cond_2
 
     .line 1784
     const/16 v0, 0x8
@@ -1841,7 +1841,7 @@
 
     .line 1786
     .local v11, recordLen:I
-    packed-switch v12, :pswitch_data_e0
+    packed-switch v12, :pswitch_data_0
 
     .line 1830
     const-string v0, "SMS"
@@ -1871,10 +1871,10 @@
 
     invoke-virtual {v8, v0}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
-    goto :goto_44
+    goto :goto_0
 
     .line 1788
-    :pswitch_7a
+    :pswitch_0
     new-instance v7, Lcom/android/internal/telephony/cdma/sms/UserData;
 
     invoke-direct {v7}, Lcom/android/internal/telephony/cdma/sms/UserData;-><init>()V
@@ -1902,15 +1902,15 @@
     .line 1794
     iget v0, v7, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
-    packed-switch v0, :pswitch_data_e8
+    packed-switch v0, :pswitch_data_1
 
     .line 1811
-    :pswitch_91
+    :pswitch_1
     const/4 v9, 0x0
 
     .line 1814
     .local v9, numFields:I
-    :goto_92
+    :goto_1
     iput v9, v7, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
     .line 1815
@@ -1932,20 +1932,20 @@
     .line 1817
     iput-object v7, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
-    goto :goto_44
+    goto :goto_0
 
     .line 1797
     .end local v9           #numFields:I
-    :pswitch_a5
+    :pswitch_2
     add-int/lit8 v9, v11, -0x1
 
     .line 1798
     .restart local v9       #numFields:I
-    goto :goto_92
+    goto :goto_1
 
     .line 1803
     .end local v9           #numFields:I
-    :pswitch_a8
+    :pswitch_3
     mul-int/lit8 v0, v11, 0x8
 
     add-int/lit8 v0, v0, -0x5
@@ -1954,23 +1954,23 @@
 
     .line 1804
     .restart local v9       #numFields:I
-    goto :goto_92
+    goto :goto_1
 
     .line 1807
     .end local v9           #numFields:I
-    :pswitch_af
+    :pswitch_4
     add-int/lit8 v0, v11, -0x1
 
     div-int/lit8 v9, v0, 0x2
 
     .line 1808
     .restart local v9       #numFields:I
-    goto :goto_92
+    goto :goto_1
 
     .line 1821
     .end local v7           #alertUserData:Lcom/android/internal/telephony/cdma/sms/UserData;
     .end local v9           #numFields:I
-    :pswitch_b4
+    :pswitch_5
     const/16 v0, 0x8
 
     invoke-virtual {v8, v0}, Lcom/android/internal/util/BitwiseInputStream;->read(I)I
@@ -2012,12 +2012,12 @@
 
     invoke-virtual {v8, v0}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
-    goto/16 :goto_44
+    goto/16 :goto_0
 
     .line 1836
     .end local v11           #recordLen:I
     .end local v12           #recordType:I
-    :cond_d8
+    :cond_2
     new-instance v0, Landroid/telephony/SmsCbCmasInfo;
 
     invoke-direct/range {v0 .. v6}, Landroid/telephony/SmsCbCmasInfo;-><init>(IIIIII)V
@@ -2028,30 +2028,30 @@
     return-void
 
     .line 1786
-    :pswitch_data_e0
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_7a
-        :pswitch_b4
+        :pswitch_0
+        :pswitch_5
     .end packed-switch
 
     .line 1794
-    :pswitch_data_e8
+    :pswitch_data_1
     .packed-switch 0x0
-        :pswitch_a5
-        :pswitch_91
-        :pswitch_a8
-        :pswitch_a8
-        :pswitch_af
-        :pswitch_91
-        :pswitch_91
-        :pswitch_91
-        :pswitch_a5
-        :pswitch_a8
+        :pswitch_2
+        :pswitch_1
+        :pswitch_3
+        :pswitch_3
+        :pswitch_4
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method private static decodeDeferredDeliveryAbs(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 8
+    .locals 6
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -2083,7 +2083,7 @@
 
     .line 1456
     .local v2, paramBits:I
-    if-lt v2, v4, :cond_1c
+    if-lt v2, v4, :cond_0
 
     .line 1457
     add-int/lit8 v2, v2, -0x30
@@ -2103,13 +2103,13 @@
     iput-object v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->deferredDeliveryTimeAbsolute:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
 
     .line 1462
-    :cond_1c
-    if-eqz v1, :cond_20
+    :cond_0
+    if-eqz v1, :cond_1
 
-    if-lez v2, :cond_4d
+    if-lez v2, :cond_2
 
     .line 1463
-    :cond_20
+    :cond_1
     const-string v4, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2122,11 +2122,11 @@
 
     move-result-object v5
 
-    if-eqz v1, :cond_51
+    if-eqz v1, :cond_3
 
     const-string/jumbo v3, "succeeded"
 
-    :goto_32
+    :goto_0
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -2154,21 +2154,21 @@
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1467
-    :cond_4d
+    :cond_2
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1468
     return v1
 
     .line 1463
-    :cond_51
+    :cond_3
     const-string v3, "failed"
 
-    goto :goto_32
+    goto :goto_0
 .end method
 
 .method private static decodeDeferredDeliveryRel(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 8
+    .locals 6
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -2198,7 +2198,7 @@
 
     .line 1498
     .local v2, paramBits:I
-    if-lt v2, v4, :cond_16
+    if-lt v2, v4, :cond_0
 
     .line 1499
     add-int/lit8 v2, v2, -0x8
@@ -2214,13 +2214,13 @@
     iput v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->validityPeriodRelative:I
 
     .line 1503
-    :cond_16
-    if-eqz v1, :cond_1a
+    :cond_0
+    if-eqz v1, :cond_1
 
-    if-lez v2, :cond_47
+    if-lez v2, :cond_2
 
     .line 1504
-    :cond_1a
+    :cond_1
     const-string v4, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2233,11 +2233,11 @@
 
     move-result-object v5
 
-    if-eqz v1, :cond_4d
+    if-eqz v1, :cond_3
 
     const-string/jumbo v3, "succeeded"
 
-    :goto_2c
+    :goto_0
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -2265,7 +2265,7 @@
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1508
-    :cond_47
+    :cond_2
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1509
@@ -2275,14 +2275,14 @@
     return v1
 
     .line 1504
-    :cond_4d
+    :cond_3
     const-string v3, "failed"
 
-    goto :goto_2c
+    goto :goto_0
 .end method
 
 .method private static decodeDepositIndex(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 8
+    .locals 6
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -2314,7 +2314,7 @@
     .local v2, paramBits:I
     const/16 v3, 0x10
 
-    if-lt v2, v3, :cond_1f
+    if-lt v2, v3, :cond_0
 
     .line 1313
     add-int/lit8 v2, v2, -0x10
@@ -2338,13 +2338,13 @@
     iput v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->depositIndex:I
 
     .line 1317
-    :cond_1f
-    if-eqz v1, :cond_23
+    :cond_0
+    if-eqz v1, :cond_1
 
-    if-lez v2, :cond_50
+    if-lez v2, :cond_2
 
     .line 1318
-    :cond_23
+    :cond_1
     const-string v4, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2357,11 +2357,11 @@
 
     move-result-object v5
 
-    if-eqz v1, :cond_54
+    if-eqz v1, :cond_3
 
     const-string/jumbo v3, "succeeded"
 
-    :goto_35
+    :goto_0
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -2389,21 +2389,21 @@
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1322
-    :cond_50
+    :cond_2
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1323
     return v1
 
     .line 1318
-    :cond_54
+    :cond_3
     const-string v3, "failed"
 
-    goto :goto_35
+    goto :goto_0
 .end method
 
 .method private static decodeDisplayMode(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 8
+    .locals 6
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -2433,7 +2433,7 @@
 
     .line 1562
     .local v2, paramBits:I
-    if-lt v2, v4, :cond_1b
+    if-lt v2, v4, :cond_0
 
     .line 1563
     add-int/lit8 v2, v2, -0x8
@@ -2456,13 +2456,13 @@
     invoke-virtual {p1, v3}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1568
-    :cond_1b
-    if-eqz v1, :cond_1f
+    :cond_0
+    if-eqz v1, :cond_1
 
-    if-lez v2, :cond_4c
+    if-lez v2, :cond_2
 
     .line 1569
-    :cond_1f
+    :cond_1
     const-string v4, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2475,11 +2475,11 @@
 
     move-result-object v5
 
-    if-eqz v1, :cond_52
+    if-eqz v1, :cond_3
 
     const-string/jumbo v3, "succeeded"
 
-    :goto_31
+    :goto_0
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -2507,7 +2507,7 @@
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1573
-    :cond_4c
+    :cond_2
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1574
@@ -2517,14 +2517,14 @@
     return v1
 
     .line 1569
-    :cond_52
+    :cond_3
     const-string v3, "failed"
 
-    goto :goto_31
+    goto :goto_0
 .end method
 
 .method private static decodeDtmfSmsAddress([BI)Ljava/lang/String;
-    .registers 8
+    .locals 6
     .parameter "rawData"
     .parameter "numFields"
     .annotation system Ldalvik/annotation/Throws;
@@ -2546,8 +2546,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_8
-    if-ge v0, p1, :cond_63
+    :goto_0
+    if-ge v0, p1, :cond_4
 
     .line 1333
     div-int/lit8 v3, v0, 0x2
@@ -2568,11 +2568,11 @@
     .local v2, val:I
     const/4 v3, 0x1
 
-    if-lt v2, v3, :cond_28
+    if-lt v2, v3, :cond_0
 
     const/16 v3, 0x9
 
-    if-gt v2, v3, :cond_28
+    if-gt v2, v3, :cond_0
 
     invoke-static {v2, v5}, Ljava/lang/Integer;->toString(II)Ljava/lang/String;
 
@@ -2581,47 +2581,47 @@
     invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 1332
-    :goto_25
+    :goto_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1335
-    :cond_28
-    if-ne v2, v5, :cond_30
+    :cond_0
+    if-ne v2, v5, :cond_1
 
     const/16 v3, 0x30
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    goto :goto_25
+    goto :goto_1
 
     .line 1336
-    :cond_30
+    :cond_1
     const/16 v3, 0xb
 
-    if-ne v2, v3, :cond_3a
+    if-ne v2, v3, :cond_2
 
     const/16 v3, 0x2a
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    goto :goto_25
+    goto :goto_1
 
     .line 1337
-    :cond_3a
+    :cond_2
     const/16 v3, 0xc
 
-    if-ne v2, v3, :cond_44
+    if-ne v2, v3, :cond_3
 
     const/16 v3, 0x23
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    goto :goto_25
+    goto :goto_1
 
     .line 1338
-    :cond_44
+    :cond_3
     new-instance v3, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -2654,7 +2654,7 @@
 
     .line 1340
     .end local v2           #val:I
-    :cond_63
+    :cond_4
     invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -2663,7 +2663,7 @@
 .end method
 
 .method private static decodeIs91(Lcom/android/internal/telephony/cdma/sms/BearerData;)V
-    .registers 4
+    .locals 3
     .parameter "bData"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2678,7 +2678,7 @@
 
     iget v0, v0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgType:I
 
-    packed-switch v0, :pswitch_data_38
+    packed-switch v0, :pswitch_data_0
 
     .line 1257
     new-instance v0, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
@@ -2716,39 +2716,39 @@
     throw v0
 
     .line 1247
-    :pswitch_2b
+    :pswitch_0
     invoke-static {p0}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeIs91VoicemailStatus(Lcom/android/internal/telephony/cdma/sms/BearerData;)V
 
     .line 1260
-    :goto_2e
+    :goto_0
     return-void
 
     .line 1250
-    :pswitch_2f
+    :pswitch_1
     invoke-static {p0}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeIs91Cli(Lcom/android/internal/telephony/cdma/sms/BearerData;)V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 1254
-    :pswitch_33
+    :pswitch_2
     invoke-static {p0}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeIs91ShortMessage(Lcom/android/internal/telephony/cdma/sms/BearerData;)V
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 1245
     nop
 
-    :pswitch_data_38
+    :pswitch_data_0
     .packed-switch 0x82
-        :pswitch_2b
-        :pswitch_33
-        :pswitch_2f
-        :pswitch_33
+        :pswitch_0
+        :pswitch_2
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method private static decodeIs91Cli(Lcom/android/internal/telephony/cdma/sms/BearerData;)V
-    .registers 7
+    .locals 6
     .parameter "bData"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2784,16 +2784,16 @@
     .local v3, numFields:I
     const/16 v4, 0xe
 
-    if-gt v1, v4, :cond_1c
+    if-gt v1, v4, :cond_0
 
     const/4 v4, 0x3
 
-    if-lt v1, v4, :cond_1c
+    if-lt v1, v4, :cond_0
 
-    if-ge v1, v3, :cond_24
+    if-ge v1, v3, :cond_1
 
     .line 1232
-    :cond_1c
+    :cond_0
     new-instance v4, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
 
     const-string v5, "IS-91 voicemail status decoding failed"
@@ -2803,7 +2803,7 @@
     throw v4
 
     .line 1234
-    :cond_24
+    :cond_1
     new-instance v0, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;
 
     invoke-direct {v0}, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;-><init>()V
@@ -2837,7 +2837,7 @@
 .end method
 
 .method private static decodeIs91ShortMessage(Lcom/android/internal/telephony/cdma/sms/BearerData;)V
-    .registers 8
+    .locals 7
     .parameter "bData"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2874,12 +2874,12 @@
     .local v3, numFields:I
     const/16 v5, 0xe
 
-    if-gt v3, v5, :cond_19
+    if-gt v3, v5, :cond_0
 
-    if-ge v0, v3, :cond_21
+    if-ge v0, v3, :cond_1
 
     .line 1210
-    :cond_19
+    :cond_0
     new-instance v5, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
 
     const-string v6, "IS-91 short message decoding failed"
@@ -2889,7 +2889,7 @@
     throw v5
 
     .line 1212
-    :cond_21
+    :cond_1
     new-instance v4, Ljava/lang/StringBuffer;
 
     invoke-direct {v4, v0}, Ljava/lang/StringBuffer;-><init>(I)V
@@ -2899,8 +2899,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_27
-    if-ge v1, v3, :cond_38
+    :goto_0
+    if-ge v1, v3, :cond_2
 
     .line 1214
     sget-object v5, Lcom/android/internal/telephony/cdma/sms/UserData;->ASCII_MAP:[C
@@ -2918,10 +2918,10 @@
     .line 1213
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_27
+    goto :goto_0
 
     .line 1216
-    :cond_38
+    :cond_2
     iget-object v5, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
     invoke-virtual {v4}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
@@ -2935,7 +2935,7 @@
 .end method
 
 .method private static decodeIs91VoicemailStatus(Lcom/android/internal/telephony/cdma/sms/BearerData;)V
-    .registers 11
+    .locals 10
     .parameter "bData"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2976,14 +2976,14 @@
     .local v4, numFields:I
     const/16 v7, 0xe
 
-    if-gt v1, v7, :cond_1d
+    if-gt v1, v7, :cond_0
 
-    if-lt v1, v8, :cond_1d
+    if-lt v1, v8, :cond_0
 
-    if-ge v1, v4, :cond_25
+    if-ge v1, v4, :cond_1
 
     .line 1166
-    :cond_1d
+    :cond_0
     new-instance v7, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
 
     const-string v8, "IS-91 voicemail status decoding failed"
@@ -2993,20 +2993,20 @@
     throw v7
 
     .line 1169
-    :cond_25
-    :try_start_25
+    :cond_1
+    :try_start_0
     new-instance v6, Ljava/lang/StringBuffer;
 
     invoke-direct {v6, v1}, Ljava/lang/StringBuffer;-><init>(I)V
 
     .line 1170
     .local v6, strbuf:Ljava/lang/StringBuffer;
-    :goto_2a
+    :goto_0
     invoke-virtual {v3}, Lcom/android/internal/util/BitwiseInputStream;->available()I
 
     move-result v7
 
-    if-lt v7, v9, :cond_57
+    if-lt v7, v9, :cond_2
 
     .line 1171
     sget-object v7, Lcom/android/internal/telephony/cdma/sms/UserData;->ASCII_MAP:[C
@@ -3020,15 +3020,15 @@
     aget-char v7, v7, v8
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
-    :try_end_3c
-    .catch Ljava/lang/NumberFormatException; {:try_start_25 .. :try_end_3c} :catch_3d
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_25 .. :try_end_3c} :catch_8a
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_1
 
-    goto :goto_2a
+    goto :goto_0
 
     .line 1186
     .end local v6           #strbuf:Ljava/lang/StringBuffer;
-    :catch_3d
+    :catch_0
     move-exception v2
 
     .line 1187
@@ -3060,8 +3060,8 @@
     .line 1173
     .end local v2           #ex:Ljava/lang/NumberFormatException;
     .restart local v6       #strbuf:Ljava/lang/StringBuffer;
-    :cond_57
-    :try_start_57
+    :cond_2
+    :try_start_1
     invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -3093,7 +3093,7 @@
     .local v5, prioCode:C
     const/16 v7, 0x20
 
-    if-ne v5, v7, :cond_82
+    if-ne v5, v7, :cond_3
 
     .line 1177
     const/4 v7, 0x0
@@ -3101,7 +3101,7 @@
     iput v7, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->priority:I
 
     .line 1184
-    :goto_73
+    :goto_1
     const/4 v7, 0x1
 
     iput-boolean v7, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->priorityIndicatorSet:Z
@@ -3123,26 +3123,26 @@
     return-void
 
     .line 1178
-    :cond_82
+    :cond_3
     const/16 v7, 0x21
 
-    if-ne v5, v7, :cond_a4
+    if-ne v5, v7, :cond_4
 
     .line 1179
     const/4 v7, 0x2
 
     iput v7, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->priority:I
-    :try_end_89
-    .catch Ljava/lang/NumberFormatException; {:try_start_57 .. :try_end_89} :catch_3d
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_57 .. :try_end_89} :catch_8a
+    :try_end_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto :goto_73
+    goto :goto_1
 
     .line 1188
     .end local v0           #data:Ljava/lang/String;
     .end local v5           #prioCode:C
     .end local v6           #strbuf:Ljava/lang/StringBuffer;
-    :catch_8a
+    :catch_1
     move-exception v2
 
     .line 1189
@@ -3176,8 +3176,8 @@
     .restart local v0       #data:Ljava/lang/String;
     .restart local v5       #prioCode:C
     .restart local v6       #strbuf:Ljava/lang/StringBuffer;
-    :cond_a4
-    :try_start_a4
+    :cond_4
+    :try_start_2
     new-instance v7, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -3207,13 +3207,13 @@
     invoke-direct {v7, v8}, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;-><init>(Ljava/lang/String;)V
 
     throw v7
-    :try_end_c3
-    .catch Ljava/lang/NumberFormatException; {:try_start_a4 .. :try_end_c3} :catch_3d
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_a4 .. :try_end_c3} :catch_8a
+    :try_end_2
+    .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_2 .. :try_end_2} :catch_1
 .end method
 
 .method private static decodeLanguageIndicator(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 8
+    .locals 6
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -3243,7 +3243,7 @@
 
     .line 1541
     .local v2, paramBits:I
-    if-lt v2, v4, :cond_16
+    if-lt v2, v4, :cond_0
 
     .line 1542
     add-int/lit8 v2, v2, -0x8
@@ -3259,13 +3259,13 @@
     iput v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->language:I
 
     .line 1546
-    :cond_16
-    if-eqz v1, :cond_1a
+    :cond_0
+    if-eqz v1, :cond_1
 
-    if-lez v2, :cond_47
+    if-lez v2, :cond_2
 
     .line 1547
-    :cond_1a
+    :cond_1
     const-string v4, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -3278,11 +3278,11 @@
 
     move-result-object v5
 
-    if-eqz v1, :cond_4d
+    if-eqz v1, :cond_3
 
     const-string/jumbo v3, "succeeded"
 
-    :goto_2c
+    :goto_0
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -3310,7 +3310,7 @@
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1551
-    :cond_47
+    :cond_2
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1552
@@ -3320,14 +3320,14 @@
     return v1
 
     .line 1547
-    :cond_4d
+    :cond_3
     const-string v3, "failed"
 
-    goto :goto_2c
+    goto :goto_0
 .end method
 
 .method private static decodeLatin([BII)Ljava/lang/String;
-    .registers 5
+    .locals 2
     .parameter "data"
     .parameter "offset"
     .parameter "numFields"
@@ -3351,7 +3351,7 @@
 .end method
 
 .method private static decodeMessageId(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 8
+    .locals 6
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -3385,7 +3385,7 @@
     .local v2, paramBits:I
     const/16 v4, 0x18
 
-    if-lt v2, v4, :cond_37
+    if-lt v2, v4, :cond_0
 
     .line 958
     add-int/lit8 v2, v2, -0x18
@@ -3427,9 +3427,9 @@
 
     move-result v4
 
-    if-ne v4, v3, :cond_6c
+    if-ne v4, v3, :cond_3
 
-    :goto_31
+    :goto_0
     iput-boolean v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->hasUserDataHeader:Z
 
     .line 964
@@ -3438,13 +3438,13 @@
     invoke-virtual {p1, v3}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 966
-    :cond_37
-    if-eqz v1, :cond_3b
+    :cond_0
+    if-eqz v1, :cond_1
 
-    if-lez v2, :cond_68
+    if-lez v2, :cond_2
 
     .line 967
-    :cond_3b
+    :cond_1
     const-string v4, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -3457,11 +3457,11 @@
 
     move-result-object v5
 
-    if-eqz v1, :cond_6e
+    if-eqz v1, :cond_4
 
     const-string/jumbo v3, "succeeded"
 
-    :goto_4d
+    :goto_1
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -3489,27 +3489,27 @@
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 971
-    :cond_68
+    :cond_2
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 972
     return v1
 
     .line 963
-    :cond_6c
+    :cond_3
     const/4 v3, 0x0
 
-    goto :goto_31
+    goto :goto_0
 
     .line 967
-    :cond_6e
+    :cond_4
     const-string v3, "failed"
 
-    goto :goto_4d
+    goto :goto_1
 .end method
 
 .method private static decodeMsgCenterTimeStamp(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 8
+    .locals 6
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -3541,7 +3541,7 @@
 
     .line 1416
     .local v2, paramBits:I
-    if-lt v2, v4, :cond_1c
+    if-lt v2, v4, :cond_0
 
     .line 1417
     add-int/lit8 v2, v2, -0x30
@@ -3561,13 +3561,13 @@
     iput-object v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->msgCenterTimeStamp:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
 
     .line 1421
-    :cond_1c
-    if-eqz v1, :cond_20
+    :cond_0
+    if-eqz v1, :cond_1
 
-    if-lez v2, :cond_4d
+    if-lez v2, :cond_2
 
     .line 1422
-    :cond_20
+    :cond_1
     const-string v4, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -3580,11 +3580,11 @@
 
     move-result-object v5
 
-    if-eqz v1, :cond_51
+    if-eqz v1, :cond_3
 
     const-string/jumbo v3, "succeeded"
 
-    :goto_32
+    :goto_0
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -3612,21 +3612,21 @@
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1426
-    :cond_4d
+    :cond_2
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1427
     return v1
 
     .line 1422
-    :cond_51
+    :cond_3
     const-string v3, "failed"
 
-    goto :goto_32
+    goto :goto_0
 .end method
 
 .method private static decodeMsgCount(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 8
+    .locals 6
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -3656,7 +3656,7 @@
 
     .line 1292
     .local v2, paramBits:I
-    if-lt v2, v4, :cond_1b
+    if-lt v2, v4, :cond_0
 
     .line 1293
     add-int/lit8 v2, v2, -0x8
@@ -3678,13 +3678,13 @@
     iput v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->numberOfMessages:I
 
     .line 1297
-    :cond_1b
-    if-eqz v1, :cond_1f
+    :cond_0
+    if-eqz v1, :cond_1
 
-    if-lez v2, :cond_4c
+    if-lez v2, :cond_2
 
     .line 1298
-    :cond_1f
+    :cond_1
     const-string v4, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -3697,11 +3697,11 @@
 
     move-result-object v5
 
-    if-eqz v1, :cond_50
+    if-eqz v1, :cond_3
 
     const-string/jumbo v3, "succeeded"
 
-    :goto_31
+    :goto_0
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -3729,21 +3729,21 @@
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1302
-    :cond_4c
+    :cond_2
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1303
     return v1
 
     .line 1298
-    :cond_50
+    :cond_3
     const-string v3, "failed"
 
-    goto :goto_31
+    goto :goto_0
 .end method
 
 .method private static decodeMsgDeliveryAlert(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 8
+    .locals 6
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -3773,7 +3773,7 @@
 
     .line 1606
     .local v2, paramBits:I
-    if-lt v2, v4, :cond_1b
+    if-lt v2, v4, :cond_0
 
     .line 1607
     add-int/lit8 v2, v2, -0x8
@@ -3796,13 +3796,13 @@
     invoke-virtual {p1, v3}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1612
-    :cond_1b
-    if-eqz v1, :cond_1f
+    :cond_0
+    if-eqz v1, :cond_1
 
-    if-lez v2, :cond_4c
+    if-lez v2, :cond_2
 
     .line 1613
-    :cond_1f
+    :cond_1
     const-string v4, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -3815,11 +3815,11 @@
 
     move-result-object v5
 
-    if-eqz v1, :cond_52
+    if-eqz v1, :cond_3
 
     const-string/jumbo v3, "succeeded"
 
-    :goto_31
+    :goto_0
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -3847,7 +3847,7 @@
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1617
-    :cond_4c
+    :cond_2
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1618
@@ -3857,14 +3857,14 @@
     return v1
 
     .line 1613
-    :cond_52
+    :cond_3
     const-string v3, "failed"
 
-    goto :goto_31
+    goto :goto_0
 .end method
 
 .method private static decodeMsgStatus(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 8
+    .locals 6
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -3894,7 +3894,7 @@
 
     .line 1394
     .local v2, paramBits:I
-    if-lt v2, v4, :cond_1e
+    if-lt v2, v4, :cond_0
 
     .line 1395
     add-int/lit8 v2, v2, -0x8
@@ -3921,13 +3921,13 @@
     iput v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->messageStatus:I
 
     .line 1400
-    :cond_1e
-    if-eqz v1, :cond_22
+    :cond_0
+    if-eqz v1, :cond_1
 
-    if-lez v2, :cond_4f
+    if-lez v2, :cond_2
 
     .line 1401
-    :cond_22
+    :cond_1
     const-string v4, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -3940,11 +3940,11 @@
 
     move-result-object v5
 
-    if-eqz v1, :cond_55
+    if-eqz v1, :cond_3
 
     const-string/jumbo v3, "succeeded"
 
-    :goto_34
+    :goto_0
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -3972,7 +3972,7 @@
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1405
-    :cond_4f
+    :cond_2
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1406
@@ -3982,14 +3982,14 @@
     return v1
 
     .line 1401
-    :cond_55
+    :cond_3
     const-string v3, "failed"
 
-    goto :goto_34
+    goto :goto_0
 .end method
 
 .method private static decodePriorityIndicator(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 8
+    .locals 6
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -4019,7 +4019,7 @@
 
     .line 1584
     .local v2, paramBits:I
-    if-lt v2, v4, :cond_1b
+    if-lt v2, v4, :cond_0
 
     .line 1585
     add-int/lit8 v2, v2, -0x8
@@ -4042,13 +4042,13 @@
     invoke-virtual {p1, v3}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1590
-    :cond_1b
-    if-eqz v1, :cond_1f
+    :cond_0
+    if-eqz v1, :cond_1
 
-    if-lez v2, :cond_4c
+    if-lez v2, :cond_2
 
     .line 1591
-    :cond_1f
+    :cond_1
     const-string v4, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -4061,11 +4061,11 @@
 
     move-result-object v5
 
-    if-eqz v1, :cond_52
+    if-eqz v1, :cond_3
 
     const-string/jumbo v3, "succeeded"
 
-    :goto_31
+    :goto_0
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -4093,7 +4093,7 @@
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1595
-    :cond_4c
+    :cond_2
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1596
@@ -4103,14 +4103,14 @@
     return v1
 
     .line 1591
-    :cond_52
+    :cond_3
     const-string v3, "failed"
 
-    goto :goto_31
+    goto :goto_0
 .end method
 
 .method private static decodePrivacyIndicator(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 8
+    .locals 6
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -4140,7 +4140,7 @@
 
     .line 1519
     .local v2, paramBits:I
-    if-lt v2, v4, :cond_1b
+    if-lt v2, v4, :cond_0
 
     .line 1520
     add-int/lit8 v2, v2, -0x8
@@ -4163,13 +4163,13 @@
     invoke-virtual {p1, v3}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1525
-    :cond_1b
-    if-eqz v1, :cond_1f
+    :cond_0
+    if-eqz v1, :cond_1
 
-    if-lez v2, :cond_4c
+    if-lez v2, :cond_2
 
     .line 1526
-    :cond_1f
+    :cond_1
     const-string v4, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -4182,11 +4182,11 @@
 
     move-result-object v5
 
-    if-eqz v1, :cond_52
+    if-eqz v1, :cond_3
 
     const-string/jumbo v3, "succeeded"
 
-    :goto_31
+    :goto_0
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -4214,7 +4214,7 @@
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1530
-    :cond_4c
+    :cond_2
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1531
@@ -4224,14 +4224,14 @@
     return v1
 
     .line 1526
-    :cond_52
+    :cond_3
     const-string v3, "failed"
 
-    goto :goto_31
+    goto :goto_0
 .end method
 
 .method private static decodeReplyOption(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 9
+    .locals 7
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -4265,7 +4265,7 @@
 
     .line 1268
     .local v2, paramBits:I
-    if-lt v2, v6, :cond_39
+    if-lt v2, v6, :cond_0
 
     .line 1269
     add-int/lit8 v2, v2, -0x8
@@ -4278,11 +4278,11 @@
 
     move-result v3
 
-    if-ne v3, v4, :cond_6e
+    if-ne v3, v4, :cond_3
 
     move v3, v4
 
-    :goto_19
+    :goto_0
     iput-boolean v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userAckReq:Z
 
     .line 1272
@@ -4290,11 +4290,11 @@
 
     move-result v3
 
-    if-ne v3, v4, :cond_70
+    if-ne v3, v4, :cond_4
 
     move v3, v4
 
-    :goto_22
+    :goto_1
     iput-boolean v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->deliveryAckReq:Z
 
     .line 1273
@@ -4302,11 +4302,11 @@
 
     move-result v3
 
-    if-ne v3, v4, :cond_72
+    if-ne v3, v4, :cond_5
 
     move v3, v4
 
-    :goto_2b
+    :goto_2
     iput-boolean v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->readAckReq:Z
 
     .line 1274
@@ -4314,9 +4314,9 @@
 
     move-result v3
 
-    if-ne v3, v4, :cond_74
+    if-ne v3, v4, :cond_6
 
-    :goto_33
+    :goto_3
     iput-boolean v4, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->reportReq:Z
 
     .line 1275
@@ -4325,13 +4325,13 @@
     invoke-virtual {p1, v3}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1277
-    :cond_39
-    if-eqz v1, :cond_3d
+    :cond_0
+    if-eqz v1, :cond_1
 
-    if-lez v2, :cond_6a
+    if-lez v2, :cond_2
 
     .line 1278
-    :cond_3d
+    :cond_1
     const-string v4, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -4344,11 +4344,11 @@
 
     move-result-object v5
 
-    if-eqz v1, :cond_76
+    if-eqz v1, :cond_7
 
     const-string/jumbo v3, "succeeded"
 
-    :goto_4f
+    :goto_4
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -4376,45 +4376,45 @@
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1282
-    :cond_6a
+    :cond_2
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1283
     return v1
 
-    :cond_6e
+    :cond_3
     move v3, v5
 
     .line 1271
-    goto :goto_19
+    goto :goto_0
 
-    :cond_70
+    :cond_4
     move v3, v5
 
     .line 1272
-    goto :goto_22
+    goto :goto_1
 
-    :cond_72
+    :cond_5
     move v3, v5
 
     .line 1273
-    goto :goto_2b
+    goto :goto_2
 
-    :cond_74
+    :cond_6
     move v4, v5
 
     .line 1274
-    goto :goto_33
+    goto :goto_3
 
     .line 1278
-    :cond_76
+    :cond_7
     const-string v3, "failed"
 
-    goto :goto_4f
+    goto :goto_4
 .end method
 
 .method private static decodeServiceCategoryProgramData(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 22
+    .locals 20
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -4436,7 +4436,7 @@
 
     move/from16 v1, v18
 
-    if-ge v0, v1, :cond_2f
+    if-ge v0, v1, :cond_0
 
     .line 1647
     new-instance v17, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
@@ -4474,7 +4474,7 @@
     throw v17
 
     .line 1651
-    :cond_2f
+    :cond_0
     const/16 v17, 0x8
 
     move-object/from16 v0, p1
@@ -4510,7 +4510,7 @@
 
     move/from16 v0, v17
 
-    if-ge v0, v13, :cond_7e
+    if-ge v0, v13, :cond_1
 
     .line 1656
     new-instance v17, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
@@ -4560,7 +4560,7 @@
     throw v17
 
     .line 1660
-    :cond_7e
+    :cond_1
     new-instance v14, Ljava/util/ArrayList;
 
     invoke-direct {v14}, Ljava/util/ArrayList;-><init>()V
@@ -4575,12 +4575,12 @@
 
     .line 1664
     .local v10, decodeSuccess:Z
-    :goto_86
+    :goto_0
     const/16 v17, 0x30
 
     move/from16 v0, v17
 
-    if-lt v13, v0, :cond_147
+    if-lt v13, v0, :cond_3
 
     .line 1665
     const/16 v17, 0x4
@@ -4678,7 +4678,7 @@
 
     .line 1674
     .local v15, textBits:I
-    if-ge v13, v15, :cond_111
+    if-ge v13, v15, :cond_2
 
     .line 1675
     new-instance v17, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
@@ -4732,7 +4732,7 @@
     throw v17
 
     .line 1679
-    :cond_111
+    :cond_2
     new-instance v16, Lcom/android/internal/telephony/cdma/sms/UserData;
 
     invoke-direct/range {v16 .. v16}, Lcom/android/internal/telephony/cdma/sms/UserData;-><init>()V
@@ -4797,7 +4797,7 @@
     const/4 v10, 0x1
 
     .line 1693
-    goto/16 :goto_86
+    goto/16 :goto_0
 
     .line 1695
     .end local v2           #programData:Landroid/telephony/cdma/CdmaSmsCbProgramData;
@@ -4810,13 +4810,13 @@
     .end local v12           #numFields:I
     .end local v15           #textBits:I
     .end local v16           #userData:Lcom/android/internal/telephony/cdma/sms/UserData;
-    :cond_147
-    if-eqz v10, :cond_14b
+    :cond_3
+    if-eqz v10, :cond_4
 
-    if-lez v13, :cond_18e
+    if-lez v13, :cond_5
 
     .line 1696
-    :cond_14b
+    :cond_4
     const-string v18, "SMS"
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -4833,11 +4833,11 @@
 
     move-result-object v19
 
-    if-eqz v10, :cond_198
+    if-eqz v10, :cond_6
 
     const-string/jumbo v17, "succeeded"
 
-    :goto_161
+    :goto_1
     move-object/from16 v0, v19
 
     move-object/from16 v1, v17
@@ -4883,7 +4883,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1701
-    :cond_18e
+    :cond_5
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v13}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
@@ -4897,14 +4897,14 @@
     return v10
 
     .line 1696
-    :cond_198
+    :cond_6
     const-string v17, "failed"
 
-    goto :goto_161
+    goto :goto_1
 .end method
 
 .method private static decodeSmsAddress(Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;)V
-    .registers 7
+    .locals 6
     .parameter "addr"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -4918,10 +4918,10 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_1e
+    if-ne v1, v2, :cond_0
 
     .line 1348
-    :try_start_5
+    :try_start_0
     new-instance v1, Ljava/lang/String;
 
     iget-object v2, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
@@ -4937,15 +4937,15 @@
     invoke-direct {v1, v2, v3, v4, v5}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
 
     iput-object v1, p0, Lcom/android/internal/telephony/SmsAddress;->address:Ljava/lang/String;
-    :try_end_14
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_5 .. :try_end_14} :catch_15
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1355
-    :goto_14
+    :goto_0
     return-void
 
     .line 1349
-    :catch_15
+    :catch_0
     move-exception v0
 
     .line 1350
@@ -4960,7 +4960,7 @@
 
     .line 1353
     .end local v0           #ex:Ljava/io/UnsupportedEncodingException;
-    :cond_1e
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     iget v2, p0, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->numberOfDigits:I
@@ -4971,11 +4971,11 @@
 
     iput-object v1, p0, Lcom/android/internal/telephony/SmsAddress;->address:Ljava/lang/String;
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method private static decodeUserData(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 9
+    .locals 7
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -5036,7 +5036,7 @@
 
     iget v3, v3, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
-    if-eq v3, v5, :cond_31
+    if-eq v3, v5, :cond_0
 
     iget-object v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
@@ -5044,10 +5044,10 @@
 
     const/16 v4, 0xa
 
-    if-ne v3, v4, :cond_3b
+    if-ne v3, v4, :cond_1
 
     .line 986
-    :cond_31
+    :cond_0
     iget-object v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
     invoke-virtual {p1, v6}, Lcom/android/internal/util/BitwiseInputStream;->read(I)I
@@ -5060,7 +5060,7 @@
     add-int/lit8 v0, v0, 0x8
 
     .line 989
-    :cond_3b
+    :cond_1
     iget-object v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
     invoke-virtual {p1, v6}, Lcom/android/internal/util/BitwiseInputStream;->read(I)I
@@ -5090,7 +5090,7 @@
 .end method
 
 .method private static decodeUserDataPayload(Lcom/android/internal/telephony/cdma/sms/UserData;Z)V
-    .registers 11
+    .locals 9
     .parameter "userData"
     .parameter "hasUserDataHeader"
     .annotation system Ldalvik/annotation/Throws;
@@ -5107,7 +5107,7 @@
 
     .line 1092
     .local v3, offset:I
-    if-eqz p1, :cond_1b
+    if-eqz p1, :cond_0
 
     .line 1093
     iget-object v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
@@ -5143,13 +5143,13 @@
     .line 1099
     .end local v2           #headerData:[B
     .end local v5           #udhLen:I
-    :cond_1b
+    :cond_0
     iget v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
-    packed-switch v6, :pswitch_data_aa
+    packed-switch v6, :pswitch_data_0
 
     .line 1140
-    :pswitch_20
+    :pswitch_0
     new-instance v6, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -5183,7 +5183,7 @@
     throw v6
 
     .line 1104
-    :pswitch_42
+    :pswitch_1
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v6
@@ -5208,13 +5208,13 @@
 
     array-length v7, v7
 
-    if-ge v6, v7, :cond_6e
+    if-ge v6, v7, :cond_1
 
     iget v0, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
     .line 1114
     .local v0, copyLen:I
-    :goto_5a
+    :goto_0
     iget-object v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
     invoke-static {v6, v8, v4, v8, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
@@ -5223,7 +5223,7 @@
     iput-object v4, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
     .line 1117
-    if-nez v1, :cond_72
+    if-nez v1, :cond_2
 
     .line 1120
     iget-object v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
@@ -5240,22 +5240,22 @@
     .end local v0           #copyLen:I
     .end local v1           #decodingtypeUTF8:Z
     .end local v4           #payload:[B
-    :goto_6d
+    :goto_1
     return-void
 
     .line 1111
     .restart local v1       #decodingtypeUTF8:Z
     .restart local v4       #payload:[B
-    :cond_6e
+    :cond_1
     iget-object v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
     array-length v0, v6
 
-    goto :goto_5a
+    goto :goto_0
 
     .line 1122
     .restart local v0       #copyLen:I
-    :cond_72
+    :cond_2
     iget-object v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
     iget v7, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
@@ -5266,13 +5266,13 @@
 
     iput-object v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
-    goto :goto_6d
+    goto :goto_1
 
     .line 1128
     .end local v0           #copyLen:I
     .end local v1           #decodingtypeUTF8:Z
     .end local v4           #payload:[B
-    :pswitch_7d
+    :pswitch_2
     iget-object v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
     iget v7, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
@@ -5283,10 +5283,10 @@
 
     iput-object v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
-    goto :goto_6d
+    goto :goto_1
 
     .line 1131
-    :pswitch_88
+    :pswitch_3
     iget-object v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
     iget v7, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
@@ -5297,10 +5297,10 @@
 
     iput-object v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
-    goto :goto_6d
+    goto :goto_1
 
     .line 1134
-    :pswitch_93
+    :pswitch_4
     iget-object v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
     iget v7, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
@@ -5311,10 +5311,10 @@
 
     iput-object v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
-    goto :goto_6d
+    goto :goto_1
 
     .line 1137
-    :pswitch_9e
+    :pswitch_5
     iget-object v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
     iget v7, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
@@ -5325,28 +5325,28 @@
 
     iput-object v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
-    goto :goto_6d
+    goto :goto_1
 
     .line 1099
     nop
 
-    :pswitch_data_aa
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_42
-        :pswitch_20
-        :pswitch_7d
-        :pswitch_7d
-        :pswitch_88
-        :pswitch_20
-        :pswitch_20
-        :pswitch_20
-        :pswitch_9e
-        :pswitch_93
+        :pswitch_1
+        :pswitch_0
+        :pswitch_2
+        :pswitch_2
+        :pswitch_3
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_5
+        :pswitch_4
     .end packed-switch
 .end method
 
 .method private static decodeUserResponseCode(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 8
+    .locals 6
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -5376,7 +5376,7 @@
 
     .line 1628
     .local v2, paramBits:I
-    if-lt v2, v4, :cond_16
+    if-lt v2, v4, :cond_0
 
     .line 1629
     add-int/lit8 v2, v2, -0x8
@@ -5392,13 +5392,13 @@
     iput v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userResponseCode:I
 
     .line 1633
-    :cond_16
-    if-eqz v1, :cond_1a
+    :cond_0
+    if-eqz v1, :cond_1
 
-    if-lez v2, :cond_47
+    if-lez v2, :cond_2
 
     .line 1634
-    :cond_1a
+    :cond_1
     const-string v4, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -5411,11 +5411,11 @@
 
     move-result-object v5
 
-    if-eqz v1, :cond_4d
+    if-eqz v1, :cond_3
 
     const-string/jumbo v3, "succeeded"
 
-    :goto_2c
+    :goto_0
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -5443,7 +5443,7 @@
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1638
-    :cond_47
+    :cond_2
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1639
@@ -5453,14 +5453,14 @@
     return v1
 
     .line 1634
-    :cond_4d
+    :cond_3
     const-string v3, "failed"
 
-    goto :goto_2c
+    goto :goto_0
 .end method
 
 .method private static decodeUtf16([BII)Ljava/lang/String;
-    .registers 6
+    .locals 3
     .parameter "data"
     .parameter "offset"
     .parameter "numFields"
@@ -5495,7 +5495,7 @@
 .end method
 
 .method private static decodeUtf8([BII)Ljava/lang/String;
-    .registers 5
+    .locals 2
     .parameter "data"
     .parameter "offset"
     .parameter "numFields"
@@ -5519,7 +5519,7 @@
 .end method
 
 .method private static decodeValidityAbs(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 8
+    .locals 6
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -5551,7 +5551,7 @@
 
     .line 1436
     .local v2, paramBits:I
-    if-lt v2, v4, :cond_1c
+    if-lt v2, v4, :cond_0
 
     .line 1437
     add-int/lit8 v2, v2, -0x30
@@ -5571,13 +5571,13 @@
     iput-object v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->validityPeriodAbsolute:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
 
     .line 1441
-    :cond_1c
-    if-eqz v1, :cond_20
+    :cond_0
+    if-eqz v1, :cond_1
 
-    if-lez v2, :cond_4d
+    if-lez v2, :cond_2
 
     .line 1442
-    :cond_20
+    :cond_1
     const-string v4, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -5590,11 +5590,11 @@
 
     move-result-object v5
 
-    if-eqz v1, :cond_51
+    if-eqz v1, :cond_3
 
     const-string/jumbo v3, "succeeded"
 
-    :goto_32
+    :goto_0
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -5622,21 +5622,21 @@
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1446
-    :cond_4d
+    :cond_2
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1447
     return v1
 
     .line 1442
-    :cond_51
+    :cond_3
     const-string v3, "failed"
 
-    goto :goto_32
+    goto :goto_0
 .end method
 
 .method private static decodeValidityRel(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseInputStream;)Z
-    .registers 8
+    .locals 6
     .parameter "bData"
     .parameter "inStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -5666,7 +5666,7 @@
 
     .line 1477
     .local v2, paramBits:I
-    if-lt v2, v4, :cond_16
+    if-lt v2, v4, :cond_0
 
     .line 1478
     add-int/lit8 v2, v2, -0x8
@@ -5682,13 +5682,13 @@
     iput v3, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->deferredDeliveryTimeRelative:I
 
     .line 1482
-    :cond_16
-    if-eqz v1, :cond_1a
+    :cond_0
+    if-eqz v1, :cond_1
 
-    if-lez v2, :cond_47
+    if-lez v2, :cond_2
 
     .line 1483
-    :cond_1a
+    :cond_1
     const-string v4, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -5701,11 +5701,11 @@
 
     move-result-object v5
 
-    if-eqz v1, :cond_4d
+    if-eqz v1, :cond_3
 
     const-string/jumbo v3, "succeeded"
 
-    :goto_2c
+    :goto_0
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -5733,7 +5733,7 @@
     invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1487
-    :cond_47
+    :cond_2
     invoke-virtual {p1, v2}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 1488
@@ -5743,14 +5743,14 @@
     return v1
 
     .line 1483
-    :cond_4d
+    :cond_3
     const-string v3, "failed"
 
-    goto :goto_2c
+    goto :goto_0
 .end method
 
 .method public static encode(Lcom/android/internal/telephony/cdma/sms/BearerData;)[B
-    .registers 6
+    .locals 5
     .parameter "bData"
 
     .prologue
@@ -5761,19 +5761,19 @@
     .line 888
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
-    if-eqz v4, :cond_d5
+    if-eqz v4, :cond_d
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
     iget-object v4, v4, Lcom/android/internal/telephony/cdma/sms/UserData;->userDataHeader:Lcom/android/internal/telephony/SmsHeader;
 
-    if-eqz v4, :cond_d5
+    if-eqz v4, :cond_d
 
-    :goto_c
+    :goto_0
     iput-boolean v2, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->hasUserDataHeader:Z
 
     .line 891
-    :try_start_e
+    :try_start_0
     new-instance v1, Lcom/android/internal/util/BitwiseOutputStream;
 
     const/16 v2, 0xc8
@@ -5794,7 +5794,7 @@
     .line 894
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
-    if-eqz v2, :cond_2b
+    if-eqz v2, :cond_0
 
     .line 895
     const/16 v2, 0x8
@@ -5807,10 +5807,10 @@
     invoke-static {p0, v1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encodeUserData(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
 
     .line 898
-    :cond_2b
+    :cond_0
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->callbackNumber:Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;
 
-    if-eqz v2, :cond_39
+    if-eqz v2, :cond_1
 
     .line 899
     const/16 v2, 0x8
@@ -5823,25 +5823,25 @@
     invoke-static {p0, v1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encodeCallbackNumber(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
 
     .line 902
-    :cond_39
+    :cond_1
     iget-boolean v2, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userAckReq:Z
 
-    if-nez v2, :cond_49
+    if-nez v2, :cond_2
 
     iget-boolean v2, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->deliveryAckReq:Z
 
-    if-nez v2, :cond_49
+    if-nez v2, :cond_2
 
     iget-boolean v2, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->readAckReq:Z
 
-    if-nez v2, :cond_49
+    if-nez v2, :cond_2
 
     iget-boolean v2, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->reportReq:Z
 
-    if-eqz v2, :cond_53
+    if-eqz v2, :cond_3
 
     .line 903
-    :cond_49
+    :cond_2
     const/16 v2, 0x8
 
     const/16 v3, 0xa
@@ -5852,10 +5852,10 @@
     invoke-static {p0, v1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encodeReplyOption(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
 
     .line 906
-    :cond_53
+    :cond_3
     iget v2, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->numberOfMessages:I
 
-    if-eqz v2, :cond_61
+    if-eqz v2, :cond_4
 
     .line 907
     const/16 v2, 0x8
@@ -5868,10 +5868,10 @@
     invoke-static {p0, v1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encodeMsgCount(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
 
     .line 910
-    :cond_61
+    :cond_4
     iget-boolean v2, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->validityPeriodRelativeSet:Z
 
-    if-eqz v2, :cond_6e
+    if-eqz v2, :cond_5
 
     .line 911
     const/16 v2, 0x8
@@ -5884,10 +5884,10 @@
     invoke-static {p0, v1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encodeValidityPeriodRel(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
 
     .line 914
-    :cond_6e
+    :cond_5
     iget-boolean v2, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->privacyIndicatorSet:Z
 
-    if-eqz v2, :cond_7c
+    if-eqz v2, :cond_6
 
     .line 915
     const/16 v2, 0x8
@@ -5900,10 +5900,10 @@
     invoke-static {p0, v1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encodePrivacyIndicator(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
 
     .line 918
-    :cond_7c
+    :cond_6
     iget-boolean v2, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->languageIndicatorSet:Z
 
-    if-eqz v2, :cond_8a
+    if-eqz v2, :cond_7
 
     .line 919
     const/16 v2, 0x8
@@ -5916,10 +5916,10 @@
     invoke-static {p0, v1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encodeLanguageIndicator(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
 
     .line 922
-    :cond_8a
+    :cond_7
     iget-boolean v2, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->displayModeSet:Z
 
-    if-eqz v2, :cond_98
+    if-eqz v2, :cond_8
 
     .line 923
     const/16 v2, 0x8
@@ -5932,10 +5932,10 @@
     invoke-static {p0, v1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encodeDisplayMode(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
 
     .line 926
-    :cond_98
+    :cond_8
     iget-boolean v2, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->priorityIndicatorSet:Z
 
-    if-eqz v2, :cond_a6
+    if-eqz v2, :cond_9
 
     .line 927
     const/16 v2, 0x8
@@ -5948,10 +5948,10 @@
     invoke-static {p0, v1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encodePriorityIndicator(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
 
     .line 930
-    :cond_a6
+    :cond_9
     iget-boolean v2, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->alertIndicatorSet:Z
 
-    if-eqz v2, :cond_b4
+    if-eqz v2, :cond_a
 
     .line 931
     const/16 v2, 0x8
@@ -5964,10 +5964,10 @@
     invoke-static {p0, v1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encodeMsgDeliveryAlert(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
 
     .line 934
-    :cond_b4
+    :cond_a
     iget-boolean v2, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->messageStatusSet:Z
 
-    if-eqz v2, :cond_c2
+    if-eqz v2, :cond_b
 
     .line 935
     const/16 v2, 0x8
@@ -5980,10 +5980,10 @@
     invoke-static {p0, v1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encodeMsgStatus(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
 
     .line 938
-    :cond_c2
+    :cond_b
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->serviceCategoryProgramResults:Ljava/util/ArrayList;
 
-    if-eqz v2, :cond_d0
+    if-eqz v2, :cond_c
 
     .line 939
     const/16 v2, 0x8
@@ -5996,27 +5996,27 @@
     invoke-static {p0, v1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encodeScpResults(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
 
     .line 942
-    :cond_d0
+    :cond_c
     invoke-virtual {v1}, Lcom/android/internal/util/BitwiseOutputStream;->toByteArray()[B
-    :try_end_d3
-    .catch Lcom/android/internal/util/BitwiseOutputStream$AccessException; {:try_start_e .. :try_end_d3} :catch_d8
-    .catch Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException; {:try_start_e .. :try_end_d3} :catch_f3
+    :try_end_0
+    .catch Lcom/android/internal/util/BitwiseOutputStream$AccessException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v2
 
     .line 948
     .end local v1           #outStream:Lcom/android/internal/util/BitwiseOutputStream;
-    :goto_d4
+    :goto_1
     return-object v2
 
-    :cond_d5
+    :cond_d
     move v2, v3
 
     .line 888
-    goto/16 :goto_c
+    goto/16 :goto_0
 
     .line 943
-    :catch_d8
+    :catch_0
     move-exception v0
 
     .line 944
@@ -6045,13 +6045,13 @@
 
     .line 948
     .end local v0           #ex:Lcom/android/internal/util/BitwiseOutputStream$AccessException;
-    :goto_f1
+    :goto_2
     const/4 v2, 0x0
 
-    goto :goto_d4
+    goto :goto_1
 
     .line 945
-    :catch_f3
+    :catch_1
     move-exception v0
 
     .line 946
@@ -6078,11 +6078,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_f1
+    goto :goto_2
 .end method
 
 .method private static encode16bitEms(Lcom/android/internal/telephony/cdma/sms/UserData;[B)V
-    .registers 10
+    .locals 8
     .parameter "uData"
     .parameter "udhData"
     .annotation system Ldalvik/annotation/Throws;
@@ -6172,7 +6172,7 @@
 .end method
 
 .method private static encode7bitAscii(Ljava/lang/String;Z)[B
-    .registers 11
+    .locals 9
     .parameter "msg"
     .parameter "force"
     .annotation system Ldalvik/annotation/Throws;
@@ -6185,7 +6185,7 @@
     const/4 v8, -0x1
 
     .line 512
-    :try_start_1
+    :try_start_0
     new-instance v4, Lcom/android/internal/util/BitwiseOutputStream;
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -6205,8 +6205,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_f
-    if-ge v2, v3, :cond_6b
+    :goto_0
+    if-ge v2, v3, :cond_2
 
     .line 515
     sget-object v5, Lcom/android/internal/telephony/cdma/sms/UserData;->charToAscii:Landroid/util/SparseIntArray;
@@ -6223,10 +6223,10 @@
 
     .line 516
     .local v0, charCode:I
-    if-ne v0, v8, :cond_66
+    if-ne v0, v8, :cond_1
 
     .line 517
-    if-eqz p1, :cond_29
+    if-eqz p1, :cond_0
 
     .line 518
     const/4 v5, 0x7
@@ -6236,13 +6236,13 @@
     invoke-virtual {v4, v5, v6}, Lcom/android/internal/util/BitwiseOutputStream;->write(II)V
 
     .line 514
-    :goto_26
+    :goto_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 520
-    :cond_29
+    :cond_0
     new-instance v5, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -6276,15 +6276,15 @@
     invoke-direct {v5, v6}, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;-><init>(Ljava/lang/String;)V
 
     throw v5
-    :try_end_4c
-    .catch Lcom/android/internal/util/BitwiseOutputStream$AccessException; {:try_start_1 .. :try_end_4c} :catch_4c
+    :try_end_0
+    .catch Lcom/android/internal/util/BitwiseOutputStream$AccessException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 527
     .end local v0           #charCode:I
     .end local v2           #i:I
     .end local v3           #msgLen:I
     .end local v4           #outStream:Lcom/android/internal/util/BitwiseOutputStream;
-    :catch_4c
+    :catch_0
     move-exception v1
 
     .line 528
@@ -6319,20 +6319,20 @@
     .restart local v2       #i:I
     .restart local v3       #msgLen:I
     .restart local v4       #outStream:Lcom/android/internal/util/BitwiseOutputStream;
-    :cond_66
+    :cond_1
     const/4 v5, 0x7
 
-    :try_start_67
+    :try_start_1
     invoke-virtual {v4, v5, v0}, Lcom/android/internal/util/BitwiseOutputStream;->write(II)V
 
-    goto :goto_26
+    goto :goto_1
 
     .line 526
     .end local v0           #charCode:I
-    :cond_6b
+    :cond_2
     invoke-virtual {v4}, Lcom/android/internal/util/BitwiseOutputStream;->toByteArray()[B
-    :try_end_6e
-    .catch Lcom/android/internal/util/BitwiseOutputStream$AccessException; {:try_start_67 .. :try_end_6e} :catch_4c
+    :try_end_1
+    .catch Lcom/android/internal/util/BitwiseOutputStream$AccessException; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result-object v5
 
@@ -6340,7 +6340,7 @@
 .end method
 
 .method private static encode7bitEms(Lcom/android/internal/telephony/cdma/sms/UserData;[BZ)V
-    .registers 10
+    .locals 7
     .parameter "uData"
     .parameter "udhData"
     .parameter "force"
@@ -6416,7 +6416,7 @@
 .end method
 
 .method private static encode7bitGsm(Ljava/lang/String;IZ)Lcom/android/internal/telephony/cdma/sms/BearerData$Gsm7bitCodingResult;
-    .registers 10
+    .locals 7
     .parameter "msg"
     .parameter "septetOffset"
     .parameter "force"
@@ -6432,14 +6432,14 @@
     const/4 v4, 0x0
 
     .line 567
-    if-nez p2, :cond_29
+    if-nez p2, :cond_0
 
-    :goto_4
+    :goto_0
     const/4 v4, 0x0
 
     const/4 v5, 0x0
 
-    :try_start_6
+    :try_start_0
     invoke-static {p0, p1, v3, v4, v5}, Lcom/android/internal/telephony/GsmAlphabet;->stringToGsm7BitPacked(Ljava/lang/String;IZII)[B
 
     move-result-object v1
@@ -6483,22 +6483,22 @@
     and-int/lit16 v3, v3, 0xff
 
     iput v3, v2, Lcom/android/internal/telephony/cdma/sms/BearerData$Gsm7bitCodingResult;->septets:I
-    :try_end_28
-    .catch Lcom/android/internal/telephony/EncodeException; {:try_start_6 .. :try_end_28} :catch_2b
+    :try_end_0
+    .catch Lcom/android/internal/telephony/EncodeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 572
     return-object v2
 
     .end local v1           #fullData:[B
     .end local v2           #result:Lcom/android/internal/telephony/cdma/sms/BearerData$Gsm7bitCodingResult;
-    :cond_29
+    :cond_0
     move v3, v4
 
     .line 567
-    goto :goto_4
+    goto :goto_0
 
     .line 573
-    :catch_2b
+    :catch_0
     move-exception v0
 
     .line 574
@@ -6529,7 +6529,7 @@
 .end method
 
 .method private static encodeCallbackNumber(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
-    .registers 12
+    .locals 10
     .parameter "bData"
     .parameter "outStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -6564,7 +6564,7 @@
     .local v1, dataBits:I
     iget v5, v0, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->digitMode:I
 
-    if-ne v5, v6, :cond_4c
+    if-ne v5, v6, :cond_2
 
     .line 784
     add-int/lit8 v3, v3, 0x7
@@ -6575,7 +6575,7 @@
     mul-int/lit8 v1, v5, 0x8
 
     .line 789
-    :goto_16
+    :goto_0
     add-int/2addr v3, v1
 
     .line 790
@@ -6583,11 +6583,11 @@
 
     rem-int/lit8 v5, v3, 0x8
 
-    if-lez v5, :cond_51
+    if-lez v5, :cond_3
 
     move v5, v6
 
-    :goto_1e
+    :goto_1
     add-int v4, v8, v5
 
     .line 791
@@ -6608,7 +6608,7 @@
     .line 794
     iget v5, v0, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->digitMode:I
 
-    if-ne v5, v6, :cond_3c
+    if-ne v5, v6, :cond_0
 
     .line 795
     const/4 v5, 0x3
@@ -6625,7 +6625,7 @@
     invoke-virtual {p1, v5, v6}, Lcom/android/internal/util/BitwiseOutputStream;->write(II)V
 
     .line 798
-    :cond_3c
+    :cond_0
     iget v5, v0, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->numberOfDigits:I
 
     invoke-virtual {p1, v9, v5}, Lcom/android/internal/util/BitwiseOutputStream;->write(II)V
@@ -6636,33 +6636,33 @@
     invoke-virtual {p1, v1, v5}, Lcom/android/internal/util/BitwiseOutputStream;->writeByteArray(I[B)V
 
     .line 800
-    if-lez v2, :cond_4b
+    if-lez v2, :cond_1
 
     invoke-virtual {p1, v2, v7}, Lcom/android/internal/util/BitwiseOutputStream;->write(II)V
 
     .line 801
-    :cond_4b
+    :cond_1
     return-void
 
     .line 787
     .end local v2           #paddingBits:I
     .end local v4           #paramBytes:I
-    :cond_4c
+    :cond_2
     iget v5, v0, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->numberOfDigits:I
 
     mul-int/lit8 v1, v5, 0x4
 
-    goto :goto_16
+    goto :goto_0
 
-    :cond_51
+    :cond_3
     move v5, v7
 
     .line 790
-    goto :goto_1e
+    goto :goto_1
 .end method
 
 .method private static encodeCdmaSmsAddress(Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;)V
-    .registers 4
+    .locals 3
     .parameter "addr"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -6676,10 +6676,10 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_19
+    if-ne v1, v2, :cond_0
 
     .line 767
-    :try_start_5
+    :try_start_0
     iget-object v1, p0, Lcom/android/internal/telephony/SmsAddress;->address:Ljava/lang/String;
 
     const-string v2, "US-ASCII"
@@ -6689,15 +6689,15 @@
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
-    :try_end_f
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_5 .. :try_end_f} :catch_10
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 774
-    :goto_f
+    :goto_0
     return-void
 
     .line 768
-    :catch_10
+    :catch_0
     move-exception v0
 
     .line 769
@@ -6712,7 +6712,7 @@
 
     .line 772
     .end local v0           #ex:Ljava/io/UnsupportedEncodingException;
-    :cond_19
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/SmsAddress;->address:Ljava/lang/String;
 
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encodeDtmfSmsAddress(Ljava/lang/String;)[B
@@ -6721,11 +6721,11 @@
 
     iput-object v1, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method private static encodeDisplayMode(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "bData"
     .parameter "outStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -6759,7 +6759,7 @@
 .end method
 
 .method private static encodeDtmfSmsAddress(Ljava/lang/String;)[B
-    .registers 11
+    .locals 10
     .parameter "address"
 
     .prologue
@@ -6780,11 +6780,11 @@
     .local v2, dataBytes:I
     rem-int/lit8 v7, v1, 0x8
 
-    if-lez v7, :cond_35
+    if-lez v7, :cond_0
 
     const/4 v7, 0x1
 
-    :goto_d
+    :goto_0
     add-int/2addr v2, v7
 
     .line 744
@@ -6795,8 +6795,8 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_11
-    if-ge v4, v3, :cond_4d
+    :goto_1
+    if-ge v4, v3, :cond_5
 
     .line 746
     invoke-virtual {p0, v4}, Ljava/lang/String;->charAt(I)C
@@ -6811,16 +6811,16 @@
     .local v6, val:I
     const/16 v7, 0x31
 
-    if-lt v0, v7, :cond_37
+    if-lt v0, v7, :cond_1
 
     const/16 v7, 0x39
 
-    if-gt v0, v7, :cond_37
+    if-gt v0, v7, :cond_1
 
     add-int/lit8 v6, v0, -0x30
 
     .line 753
-    :goto_22
+    :goto_2
     div-int/lit8 v7, v4, 0x2
 
     aget-byte v8, v5, v7
@@ -6842,66 +6842,66 @@
     .line 745
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_11
+    goto :goto_1
 
     .line 743
     .end local v0           #c:C
     .end local v4           #i:I
     .end local v5           #rawData:[B
     .end local v6           #val:I
-    :cond_35
+    :cond_0
     const/4 v7, 0x0
 
-    goto :goto_d
+    goto :goto_0
 
     .line 749
     .restart local v0       #c:C
     .restart local v4       #i:I
     .restart local v5       #rawData:[B
     .restart local v6       #val:I
-    :cond_37
+    :cond_1
     const/16 v7, 0x30
 
-    if-ne v0, v7, :cond_3e
+    if-ne v0, v7, :cond_2
 
     const/16 v6, 0xa
 
-    goto :goto_22
+    goto :goto_2
 
     .line 750
-    :cond_3e
+    :cond_2
     const/16 v7, 0x2a
 
-    if-ne v0, v7, :cond_45
+    if-ne v0, v7, :cond_3
 
     const/16 v6, 0xb
 
-    goto :goto_22
+    goto :goto_2
 
     .line 751
-    :cond_45
+    :cond_3
     const/16 v7, 0x23
 
-    if-ne v0, v7, :cond_4c
+    if-ne v0, v7, :cond_4
 
     const/16 v6, 0xc
 
-    goto :goto_22
+    goto :goto_2
 
     .line 752
-    :cond_4c
+    :cond_4
     const/4 v5, 0x0
 
     .line 755
     .end local v0           #c:C
     .end local v5           #rawData:[B
     .end local v6           #val:I
-    :cond_4d
+    :cond_5
     return-object v5
 .end method
 
 .method private static encodeEmsUserDataPayload(Lcom/android/internal/telephony/cdma/sms/UserData;)V
-    .registers 6
+    .locals 5
     .parameter "uData"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -6921,14 +6921,14 @@
     .local v1, headerData:[B
     iget-boolean v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncodingSet:Z
 
-    if-eqz v2, :cond_40
+    if-eqz v2, :cond_2
 
     .line 613
     iget v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
     const/16 v3, 0x9
 
-    if-ne v2, v3, :cond_15
+    if-ne v2, v3, :cond_0
 
     .line 614
     const/4 v2, 0x1
@@ -6936,24 +6936,24 @@
     invoke-static {p0, v1, v2}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encode7bitEms(Lcom/android/internal/telephony/cdma/sms/UserData;[BZ)V
 
     .line 628
-    :goto_14
+    :goto_0
     return-void
 
     .line 615
-    :cond_15
+    :cond_0
     iget v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_1e
+    if-ne v2, v3, :cond_1
 
     .line 616
     invoke-static {p0, v1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encode16bitEms(Lcom/android/internal/telephony/cdma/sms/UserData;[B)V
 
-    goto :goto_14
+    goto :goto_0
 
     .line 618
-    :cond_1e
+    :cond_1
     new-instance v2, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -6987,29 +6987,29 @@
     throw v2
 
     .line 623
-    :cond_40
+    :cond_2
     const/4 v2, 0x0
 
-    :try_start_41
+    :try_start_0
     invoke-static {p0, v1, v2}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encode7bitEms(Lcom/android/internal/telephony/cdma/sms/UserData;[BZ)V
-    :try_end_44
-    .catch Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException; {:try_start_41 .. :try_end_44} :catch_45
+    :try_end_0
+    .catch Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_14
+    goto :goto_0
 
     .line 624
-    :catch_45
+    :catch_0
     move-exception v0
 
     .line 625
     .local v0, ex:Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
     invoke-static {p0, v1}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encode16bitEms(Lcom/android/internal/telephony/cdma/sms/UserData;[B)V
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method private static encodeLanguageIndicator(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "bData"
     .parameter "outStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -7036,7 +7036,7 @@
 .end method
 
 .method private static encodeMessageId(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
-    .registers 7
+    .locals 5
     .parameter "bData"
     .parameter "outStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -7077,11 +7077,11 @@
     .line 453
     iget-boolean v0, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->hasUserDataHeader:Z
 
-    if-eqz v0, :cond_25
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_1e
+    :goto_0
     invoke-virtual {p1, v1, v0}, Lcom/android/internal/util/BitwiseOutputStream;->write(II)V
 
     .line 454
@@ -7091,14 +7091,14 @@
     return-void
 
     .line 453
-    :cond_25
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_1e
+    goto :goto_0
 .end method
 
 .method private static encodeMsgCount(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "bData"
     .parameter "outStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -7125,7 +7125,7 @@
 .end method
 
 .method private static encodeMsgDeliveryAlert(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "bData"
     .parameter "outStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -7159,7 +7159,7 @@
 .end method
 
 .method private static encodeMsgStatus(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "bData"
     .parameter "outStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -7195,7 +7195,7 @@
 .end method
 
 .method private static encodePriorityIndicator(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "bData"
     .parameter "outStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -7229,7 +7229,7 @@
 .end method
 
 .method private static encodePrivacyIndicator(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "bData"
     .parameter "outStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -7263,7 +7263,7 @@
 .end method
 
 .method private static encodeReplyOption(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
-    .registers 5
+    .locals 3
     .parameter "bData"
     .parameter "outStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -7285,41 +7285,41 @@
     .line 732
     iget-boolean v0, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userAckReq:Z
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_c
+    :goto_0
     invoke-virtual {p1, v1, v0}, Lcom/android/internal/util/BitwiseOutputStream;->write(II)V
 
     .line 733
     iget-boolean v0, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->deliveryAckReq:Z
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_1
 
     move v0, v1
 
-    :goto_14
+    :goto_1
     invoke-virtual {p1, v1, v0}, Lcom/android/internal/util/BitwiseOutputStream;->write(II)V
 
     .line 734
     iget-boolean v0, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->readAckReq:Z
 
-    if-eqz v0, :cond_30
+    if-eqz v0, :cond_2
 
     move v0, v1
 
-    :goto_1c
+    :goto_2
     invoke-virtual {p1, v1, v0}, Lcom/android/internal/util/BitwiseOutputStream;->write(II)V
 
     .line 735
     iget-boolean v0, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->reportReq:Z
 
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_3
 
     move v0, v1
 
-    :goto_24
+    :goto_3
     invoke-virtual {p1, v1, v0}, Lcom/android/internal/util/BitwiseOutputStream;->write(II)V
 
     .line 736
@@ -7330,33 +7330,33 @@
     .line 737
     return-void
 
-    :cond_2c
+    :cond_0
     move v0, v2
 
     .line 732
-    goto :goto_c
+    goto :goto_0
 
-    :cond_2e
+    :cond_1
     move v0, v2
 
     .line 733
-    goto :goto_14
+    goto :goto_1
 
-    :cond_30
+    :cond_2
     move v0, v2
 
     .line 734
-    goto :goto_1c
+    goto :goto_2
 
-    :cond_32
+    :cond_3
     move v0, v2
 
     .line 735
-    goto :goto_24
+    goto :goto_3
 .end method
 
 .method private static encodeScpResults(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
-    .registers 9
+    .locals 7
     .parameter "bData"
     .parameter "outStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -7389,12 +7389,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_12
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3c
+    if-eqz v4, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -7434,17 +7434,17 @@
     .line 875
     invoke-virtual {p1, v6}, Lcom/android/internal/util/BitwiseOutputStream;->skip(I)V
 
-    goto :goto_12
+    goto :goto_0
 
     .line 877
     .end local v0           #category:I
     .end local v2           #result:Landroid/telephony/cdma/CdmaSmsCbProgramResults;
-    :cond_3c
+    :cond_0
     return-void
 .end method
 
 .method private static encodeUserData(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
-    .registers 12
+    .locals 10
     .parameter "bData"
     .parameter "outStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -7475,11 +7475,11 @@
 
     iget-object v4, v4, Lcom/android/internal/telephony/cdma/sms/UserData;->userDataHeader:Lcom/android/internal/telephony/SmsHeader;
 
-    if-eqz v4, :cond_4b
+    if-eqz v4, :cond_0
 
     move v4, v5
 
-    :goto_14
+    :goto_0
     iput-boolean v4, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->hasUserDataHeader:Z
 
     .line 696
@@ -7489,7 +7489,7 @@
 
     array-length v4, v4
 
-    if-le v4, v7, :cond_4d
+    if-le v4, v7, :cond_1
 
     .line 697
     new-instance v4, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
@@ -7538,14 +7538,14 @@
 
     throw v4
 
-    :cond_4b
+    :cond_0
     move v4, v6
 
     .line 694
-    goto :goto_14
+    goto :goto_0
 
     .line 709
-    :cond_4d
+    :cond_1
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
     iget-object v4, v4, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
@@ -7570,29 +7570,29 @@
 
     iget v4, v4, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
-    if-eq v4, v5, :cond_68
+    if-eq v4, v5, :cond_2
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
     iget v4, v4, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
-    if-ne v4, v9, :cond_6a
+    if-ne v4, v9, :cond_3
 
     .line 713
-    :cond_68
+    :cond_2
     add-int/lit8 v2, v2, 0x8
 
     .line 715
-    :cond_6a
+    :cond_3
     div-int/lit8 v7, v2, 0x8
 
     rem-int/lit8 v4, v2, 0x8
 
-    if-lez v4, :cond_a9
+    if-lez v4, :cond_7
 
     move v4, v5
 
-    :goto_71
+    :goto_1
     add-int v3, v7, v4
 
     .line 716
@@ -7619,16 +7619,16 @@
 
     iget v4, v4, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
-    if-eq v4, v5, :cond_8e
+    if-eq v4, v5, :cond_4
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
     iget v4, v4, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
-    if-ne v4, v9, :cond_95
+    if-ne v4, v9, :cond_5
 
     .line 721
-    :cond_8e
+    :cond_4
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
     iget v4, v4, Lcom/android/internal/telephony/cdma/sms/UserData;->msgType:I
@@ -7636,7 +7636,7 @@
     invoke-virtual {p1, v8, v4}, Lcom/android/internal/util/BitwiseOutputStream;->write(II)V
 
     .line 723
-    :cond_95
+    :cond_5
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
     iget v4, v4, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
@@ -7651,25 +7651,25 @@
     invoke-virtual {p1, v0, v4}, Lcom/android/internal/util/BitwiseOutputStream;->writeByteArray(I[B)V
 
     .line 725
-    if-lez v1, :cond_a8
+    if-lez v1, :cond_6
 
     invoke-virtual {p1, v1, v6}, Lcom/android/internal/util/BitwiseOutputStream;->write(II)V
 
     .line 726
-    :cond_a8
+    :cond_6
     return-void
 
     .end local v1           #paddingBits:I
     .end local v3           #paramBytes:I
-    :cond_a9
+    :cond_7
     move v4, v6
 
     .line 715
-    goto :goto_71
+    goto :goto_1
 .end method
 
 .method private static encodeUserDataPayload(Lcom/android/internal/telephony/cdma/sms/UserData;)V
-    .registers 9
+    .locals 8
     .parameter "uData"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -7689,11 +7689,11 @@
     .line 633
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
-    if-nez v2, :cond_18
+    if-nez v2, :cond_0
 
     iget v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_0
 
     .line 634
     const-string v2, "SMS"
@@ -7708,33 +7708,33 @@
     iput-object v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
     .line 638
-    :cond_18
+    :cond_0
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->userDataHeader:Lcom/android/internal/telephony/SmsHeader;
 
-    if-eqz v2, :cond_20
+    if-eqz v2, :cond_1
 
     .line 639
     invoke-static {p0}, Lcom/android/internal/telephony/cdma/sms/BearerData;->encodeEmsUserDataPayload(Lcom/android/internal/telephony/cdma/sms/UserData;)V
 
     .line 683
-    :goto_1f
+    :goto_0
     return-void
 
     .line 643
-    :cond_20
+    :cond_1
     iget-boolean v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncodingSet:Z
 
-    if-eqz v2, :cond_b2
+    if-eqz v2, :cond_8
 
     .line 644
     iget v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
-    if-nez v2, :cond_41
+    if-nez v2, :cond_3
 
     .line 645
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
-    if-nez v2, :cond_3b
+    if-nez v2, :cond_2
 
     .line 646
     const-string v2, "SMS"
@@ -7751,23 +7751,23 @@
     .line 648
     iput v4, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 650
-    :cond_3b
+    :cond_2
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
     array-length v2, v2
 
     iput v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 653
-    :cond_41
+    :cond_3
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
-    if-nez v2, :cond_51
+    if-nez v2, :cond_4
 
     .line 654
     const-string v2, "SMS"
@@ -7782,12 +7782,12 @@
     iput-object v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
     .line 657
-    :cond_51
+    :cond_4
     iget v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
     const/16 v3, 0x9
 
-    if-ne v2, v3, :cond_66
+    if-ne v2, v3, :cond_5
 
     .line 658
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
@@ -7807,14 +7807,14 @@
 
     iput v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 661
     .end local v1           #gcr:Lcom/android/internal/telephony/cdma/sms/BearerData$Gsm7bitCodingResult;
-    :cond_66
+    :cond_5
     iget v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
-    if-ne v2, v6, :cond_7b
+    if-ne v2, v6, :cond_6
 
     .line 662
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
@@ -7834,13 +7834,13 @@
 
     iput v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 664
-    :cond_7b
+    :cond_6
     iget v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
-    if-ne v2, v7, :cond_90
+    if-ne v2, v7, :cond_7
 
     .line 665
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
@@ -7860,10 +7860,10 @@
 
     iput v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 668
-    :cond_90
+    :cond_7
     new-instance v2, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -7897,8 +7897,8 @@
     throw v2
 
     .line 674
-    :cond_b2
-    :try_start_b2
+    :cond_8
+    :try_start_0
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
     const/4 v3, 0x0
@@ -7913,11 +7913,11 @@
     const/4 v2, 0x2
 
     iput v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
-    :try_end_be
-    .catch Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException; {:try_start_b2 .. :try_end_be} :catch_ca
+    :try_end_0
+    .catch Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 680
-    :goto_be
+    :goto_1
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I
@@ -7929,10 +7929,10 @@
     .line 681
     iput-boolean v5, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncodingSet:Z
 
-    goto/16 :goto_1f
+    goto/16 :goto_0
 
     .line 676
-    :catch_ca
+    :catch_0
     move-exception v0
 
     .line 677
@@ -7948,11 +7948,11 @@
     .line 678
     iput v7, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
-    goto :goto_be
+    goto :goto_1
 .end method
 
 .method private static encodeUtf16(Ljava/lang/String;)[B
-    .registers 5
+    .locals 4
     .parameter "msg"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -7966,15 +7966,15 @@
     const-string/jumbo v1, "utf-16be"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
-    :try_end_6
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_6} :catch_8
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     return-object v1
 
     .line 537
-    :catch_8
+    :catch_0
     move-exception v0
 
     .line 538
@@ -8005,7 +8005,7 @@
 .end method
 
 .method private static encodeValidityPeriodRel(Lcom/android/internal/telephony/cdma/sms/BearerData;Lcom/android/internal/util/BitwiseOutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "bData"
     .parameter "outStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -8032,7 +8032,7 @@
 .end method
 
 .method private static getBitsForNumFields(II)I
-    .registers 5
+    .locals 3
     .parameter "msgEncoding"
     .parameter "numFields"
     .annotation system Ldalvik/annotation/Throws;
@@ -8043,10 +8043,10 @@
 
     .prologue
     .line 1738
-    packed-switch p0, :pswitch_data_2c
+    packed-switch p0, :pswitch_data_0
 
     .line 1755
-    :pswitch_3
+    :pswitch_0
     new-instance v0, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -8078,198 +8078,198 @@
     throw v0
 
     .line 1744
-    :pswitch_23
+    :pswitch_1
     mul-int/lit8 v0, p1, 0x8
 
     .line 1752
-    :goto_25
+    :goto_0
     return v0
 
     .line 1749
-    :pswitch_26
+    :pswitch_2
     mul-int/lit8 v0, p1, 0x7
 
-    goto :goto_25
+    goto :goto_0
 
     .line 1752
-    :pswitch_29
+    :pswitch_3
     mul-int/lit8 v0, p1, 0x10
 
-    goto :goto_25
+    goto :goto_0
 
     .line 1738
-    :pswitch_data_2c
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_23
+        :pswitch_1
+        :pswitch_0
+        :pswitch_2
+        :pswitch_2
         :pswitch_3
-        :pswitch_26
-        :pswitch_26
-        :pswitch_29
-        :pswitch_23
-        :pswitch_23
-        :pswitch_23
-        :pswitch_23
-        :pswitch_26
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method private static getLanguageCodeForValue(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "languageValue"
 
     .prologue
     .line 383
-    packed-switch p0, :pswitch_data_1c
+    packed-switch p0, :pswitch_data_0
 
     .line 406
     const/4 v0, 0x0
 
-    :goto_4
+    :goto_0
     return-object v0
 
     .line 385
-    :pswitch_5
+    :pswitch_0
     const-string v0, "en"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 388
-    :pswitch_8
+    :pswitch_1
     const-string v0, "fr"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 391
-    :pswitch_b
+    :pswitch_2
     const-string v0, "es"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 394
-    :pswitch_e
+    :pswitch_3
     const-string v0, "ja"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 397
-    :pswitch_11
+    :pswitch_4
     const-string v0, "ko"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 400
-    :pswitch_14
+    :pswitch_5
     const-string/jumbo v0, "zh"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 403
-    :pswitch_18
+    :pswitch_6
     const-string v0, "he"
 
-    goto :goto_4
+    goto :goto_0
 
     .line 383
     nop
 
-    :pswitch_data_1c
+    :pswitch_data_0
     .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
         :pswitch_5
-        :pswitch_8
-        :pswitch_b
-        :pswitch_e
-        :pswitch_11
-        :pswitch_14
-        :pswitch_18
+        :pswitch_6
     .end packed-switch
 .end method
 
 .method private static isCmasAlertCategory(I)Z
-    .registers 2
+    .locals 1
     .parameter "category"
 
     .prologue
     .line 1852
     const/16 v0, 0x1000
 
-    if-lt p0, v0, :cond_a
+    if-lt p0, v0, :cond_0
 
     const/16 v0, 0x10ff
 
-    if-gt p0, v0, :cond_a
+    if-gt p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method private static serviceCategoryToCmasMessageClass(I)I
-    .registers 2
+    .locals 1
     .parameter "serviceCategory"
 
     .prologue
     .line 1707
-    packed-switch p0, :pswitch_data_10
+    packed-switch p0, :pswitch_data_0
 
     .line 1724
     const/4 v0, -0x1
 
-    :goto_4
+    :goto_0
     return v0
 
     .line 1709
-    :pswitch_5
+    :pswitch_0
     const/4 v0, 0x0
 
-    goto :goto_4
+    goto :goto_0
 
     .line 1712
-    :pswitch_7
+    :pswitch_1
     const/4 v0, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 1715
-    :pswitch_9
+    :pswitch_2
     const/4 v0, 0x2
 
-    goto :goto_4
+    goto :goto_0
 
     .line 1718
-    :pswitch_b
+    :pswitch_3
     const/4 v0, 0x3
 
-    goto :goto_4
+    goto :goto_0
 
     .line 1721
-    :pswitch_d
+    :pswitch_4
     const/4 v0, 0x4
 
-    goto :goto_4
+    goto :goto_0
 
     .line 1707
     nop
 
-    :pswitch_data_10
+    :pswitch_data_0
     .packed-switch 0x1000
-        :pswitch_5
-        :pswitch_7
-        :pswitch_9
-        :pswitch_b
-        :pswitch_d
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public getLanguage()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 374
@@ -8283,7 +8283,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 412
@@ -8356,7 +8356,7 @@
 
     iget-boolean v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->priorityIndicatorSet:Z
 
-    if-eqz v1, :cond_291
+    if-eqz v1, :cond_0
 
     iget v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->priority:I
 
@@ -8364,7 +8364,7 @@
 
     move-result-object v1
 
-    :goto_50
+    :goto_0
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -8388,7 +8388,7 @@
 
     iget-boolean v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->privacyIndicatorSet:Z
 
-    if-eqz v1, :cond_296
+    if-eqz v1, :cond_1
 
     iget v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->privacy:I
 
@@ -8396,7 +8396,7 @@
 
     move-result-object v1
 
-    :goto_70
+    :goto_1
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -8420,7 +8420,7 @@
 
     iget-boolean v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->alertIndicatorSet:Z
 
-    if-eqz v1, :cond_29b
+    if-eqz v1, :cond_2
 
     iget v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->alert:I
 
@@ -8428,7 +8428,7 @@
 
     move-result-object v1
 
-    :goto_90
+    :goto_2
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -8452,7 +8452,7 @@
 
     iget-boolean v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->displayModeSet:Z
 
-    if-eqz v1, :cond_2a0
+    if-eqz v1, :cond_3
 
     iget v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->displayMode:I
 
@@ -8460,7 +8460,7 @@
 
     move-result-object v1
 
-    :goto_b0
+    :goto_3
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -8484,7 +8484,7 @@
 
     iget-boolean v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->languageIndicatorSet:Z
 
-    if-eqz v1, :cond_2a5
+    if-eqz v1, :cond_4
 
     iget v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->language:I
 
@@ -8492,7 +8492,7 @@
 
     move-result-object v1
 
-    :goto_d0
+    :goto_4
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -8516,7 +8516,7 @@
 
     iget-boolean v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->messageStatusSet:Z
 
-    if-eqz v1, :cond_2aa
+    if-eqz v1, :cond_5
 
     iget v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->errorClass:I
 
@@ -8524,7 +8524,7 @@
 
     move-result-object v1
 
-    :goto_f0
+    :goto_5
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -8548,7 +8548,7 @@
 
     iget-boolean v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->messageStatusSet:Z
 
-    if-eqz v1, :cond_2af
+    if-eqz v1, :cond_6
 
     iget v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->messageStatus:I
 
@@ -8556,7 +8556,7 @@
 
     move-result-object v1
 
-    :goto_110
+    :goto_6
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -8580,11 +8580,11 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->msgCenterTimeStamp:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
 
-    if-eqz v1, :cond_2b4
+    if-eqz v1, :cond_7
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->msgCenterTimeStamp:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
 
-    :goto_12c
+    :goto_7
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -8608,11 +8608,11 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->validityPeriodAbsolute:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
 
-    if-eqz v1, :cond_2b9
+    if-eqz v1, :cond_8
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->validityPeriodAbsolute:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
 
-    :goto_148
+    :goto_8
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -8636,7 +8636,7 @@
 
     iget-boolean v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->validityPeriodRelativeSet:Z
 
-    if-eqz v1, :cond_2be
+    if-eqz v1, :cond_9
 
     iget v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->validityPeriodRelative:I
 
@@ -8644,7 +8644,7 @@
 
     move-result-object v1
 
-    :goto_168
+    :goto_9
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -8668,11 +8668,11 @@
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->deferredDeliveryTimeAbsolute:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
 
-    if-eqz v1, :cond_2c3
+    if-eqz v1, :cond_a
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->deferredDeliveryTimeAbsolute:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
 
-    :goto_184
+    :goto_a
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -8696,7 +8696,7 @@
 
     iget-boolean v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->deferredDeliveryTimeRelativeSet:Z
 
-    if-eqz v1, :cond_2c8
+    if-eqz v1, :cond_b
 
     iget v1, p0, Lcom/android/internal/telephony/cdma/sms/BearerData;->deferredDeliveryTimeRelative:I
 
@@ -8704,7 +8704,7 @@
 
     move-result-object v1
 
-    :goto_1a4
+    :goto_b
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -8935,74 +8935,74 @@
     return-object v1
 
     .line 416
-    :cond_291
+    :cond_0
     const-string/jumbo v1, "unset"
 
-    goto/16 :goto_50
+    goto/16 :goto_0
 
     .line 417
-    :cond_296
+    :cond_1
     const-string/jumbo v1, "unset"
 
-    goto/16 :goto_70
+    goto/16 :goto_1
 
     .line 418
-    :cond_29b
+    :cond_2
     const-string/jumbo v1, "unset"
 
-    goto/16 :goto_90
+    goto/16 :goto_2
 
     .line 419
-    :cond_2a0
+    :cond_3
     const-string/jumbo v1, "unset"
 
-    goto/16 :goto_b0
+    goto/16 :goto_3
 
     .line 420
-    :cond_2a5
+    :cond_4
     const-string/jumbo v1, "unset"
 
-    goto/16 :goto_d0
+    goto/16 :goto_4
 
     .line 421
-    :cond_2aa
+    :cond_5
     const-string/jumbo v1, "unset"
 
-    goto/16 :goto_f0
+    goto/16 :goto_5
 
     .line 422
-    :cond_2af
+    :cond_6
     const-string/jumbo v1, "unset"
 
-    goto/16 :goto_110
+    goto/16 :goto_6
 
     .line 423
-    :cond_2b4
+    :cond_7
     const-string/jumbo v1, "unset"
 
-    goto/16 :goto_12c
+    goto/16 :goto_7
 
     .line 425
-    :cond_2b9
+    :cond_8
     const-string/jumbo v1, "unset"
 
-    goto/16 :goto_148
+    goto/16 :goto_8
 
     .line 427
-    :cond_2be
+    :cond_9
     const-string/jumbo v1, "unset"
 
-    goto/16 :goto_168
+    goto/16 :goto_9
 
     .line 429
-    :cond_2c3
+    :cond_a
     const-string/jumbo v1, "unset"
 
-    goto/16 :goto_184
+    goto/16 :goto_a
 
     .line 431
-    :cond_2c8
+    :cond_b
     const-string/jumbo v1, "unset"
 
-    goto/16 :goto_1a4
+    goto/16 :goto_b
 .end method

@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
-    .registers 3
+    .locals 1
     .parameter "rs"
 
     .prologue
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public create()Landroid/renderscript/ProgramRaster;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 155
@@ -96,7 +96,7 @@
 .end method
 
 .method public setCullMode(Landroid/renderscript/ProgramRaster$CullMode;)Landroid/renderscript/ProgramRaster$Builder;
-    .registers 2
+    .locals 0
     .parameter "m"
 
     .prologue
@@ -108,7 +108,7 @@
 .end method
 
 .method public setPointSpriteEnabled(Z)Landroid/renderscript/ProgramRaster$Builder;
-    .registers 2
+    .locals 0
     .parameter "enable"
 
     .prologue

@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/speech/tts/AudioPlaybackHandler;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/speech/tts/AudioPlaybackHandler;Landroid/speech/tts/AudioPlaybackHandler$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 121
@@ -59,9 +59,10 @@
 
     .line 123
     .local v1, item:Landroid/speech/tts/PlaybackQueueItem;
-    :try_start_1
+    :try_start_0
     iget-object v2, p0, Landroid/speech/tts/AudioPlaybackHandler$MessageLoop;->this$0:Landroid/speech/tts/AudioPlaybackHandler;
 
+    #getter for: Landroid/speech/tts/AudioPlaybackHandler;->mQueue:Ljava/util/concurrent/LinkedBlockingQueue;
     invoke-static {v2}, Landroid/speech/tts/AudioPlaybackHandler;->access$100(Landroid/speech/tts/AudioPlaybackHandler;)Ljava/util/concurrent/LinkedBlockingQueue;
 
     move-result-object v2
@@ -72,13 +73,14 @@
 
     .end local v1           #item:Landroid/speech/tts/PlaybackQueueItem;
     check-cast v1, Landroid/speech/tts/PlaybackQueueItem;
-    :try_end_d
-    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_d} :catch_1c
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 133
     .restart local v1       #item:Landroid/speech/tts/PlaybackQueueItem;
     iget-object v2, p0, Landroid/speech/tts/AudioPlaybackHandler$MessageLoop;->this$0:Landroid/speech/tts/AudioPlaybackHandler;
 
+    #setter for: Landroid/speech/tts/AudioPlaybackHandler;->mCurrentWorkItem:Landroid/speech/tts/PlaybackQueueItem;
     invoke-static {v2, v1}, Landroid/speech/tts/AudioPlaybackHandler;->access$202(Landroid/speech/tts/AudioPlaybackHandler;Landroid/speech/tts/PlaybackQueueItem;)Landroid/speech/tts/PlaybackQueueItem;
 
     .line 134
@@ -89,13 +91,14 @@
 
     const/4 v3, 0x0
 
+    #setter for: Landroid/speech/tts/AudioPlaybackHandler;->mCurrentWorkItem:Landroid/speech/tts/PlaybackQueueItem;
     invoke-static {v2, v3}, Landroid/speech/tts/AudioPlaybackHandler;->access$202(Landroid/speech/tts/AudioPlaybackHandler;Landroid/speech/tts/PlaybackQueueItem;)Landroid/speech/tts/PlaybackQueueItem;
 
     goto :goto_0
 
     .line 124
     .end local v1           #item:Landroid/speech/tts/PlaybackQueueItem;
-    :catch_1c
+    :catch_0
     move-exception v0
 
     .line 126

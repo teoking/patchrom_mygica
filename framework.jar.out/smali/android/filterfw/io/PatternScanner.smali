@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "input"
 
     .prologue
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/util/regex/Pattern;)V
-    .registers 4
+    .locals 1
     .parameter "input"
     .parameter "ignorePattern"
 
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public atEnd()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 102
@@ -92,21 +92,21 @@
 
     move-result v1
 
-    if-lt v0, v1, :cond_c
+    if-lt v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public eat(Ljava/util/regex/Pattern;Ljava/lang/String;)Ljava/lang/String;
-    .registers 6
+    .locals 3
     .parameter "pattern"
     .parameter "tokenName"
 
@@ -118,7 +118,7 @@
 
     .line 72
     .local v0, result:Ljava/lang/String;
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 73
     new-instance v1, Ljava/lang/RuntimeException;
@@ -132,12 +132,12 @@
     throw v1
 
     .line 75
-    :cond_10
+    :cond_0
     return-object v0
 .end method
 
 .method public lineNo()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 106
@@ -147,14 +147,14 @@
 .end method
 
 .method public peek(Ljava/util/regex/Pattern;)Z
-    .registers 5
+    .locals 3
     .parameter "pattern"
 
     .prologue
     .line 80
     iget-object v1, p0, Landroid/filterfw/io/PatternScanner;->mIgnorePattern:Ljava/util/regex/Pattern;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_0
 
     .line 81
     iget-object v1, p0, Landroid/filterfw/io/PatternScanner;->mIgnorePattern:Ljava/util/regex/Pattern;
@@ -162,7 +162,7 @@
     invoke-virtual {p0, v1}, Landroid/filterfw/io/PatternScanner;->skip(Ljava/util/regex/Pattern;)V
 
     .line 85
-    :cond_9
+    :cond_0
     iget-object v1, p0, Landroid/filterfw/io/PatternScanner;->mInput:Ljava/lang/String;
 
     invoke-virtual {p1, v1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -190,7 +190,7 @@
 .end method
 
 .method public skip(Ljava/util/regex/Pattern;)V
-    .registers 5
+    .locals 3
     .parameter "pattern"
 
     .prologue
@@ -218,7 +218,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_26
+    if-eqz v1, :cond_0
 
     .line 96
     iget v1, p0, Landroid/filterfw/io/PatternScanner;->mOffset:I
@@ -237,19 +237,19 @@
     iput v1, p0, Landroid/filterfw/io/PatternScanner;->mOffset:I
 
     .line 99
-    :cond_26
+    :cond_0
     return-void
 .end method
 
 .method public tryEat(Ljava/util/regex/Pattern;)Ljava/lang/String;
-    .registers 7
+    .locals 5
     .parameter "pattern"
 
     .prologue
     .line 46
     iget-object v2, p0, Landroid/filterfw/io/PatternScanner;->mIgnorePattern:Ljava/util/regex/Pattern;
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_0
 
     .line 47
     iget-object v2, p0, Landroid/filterfw/io/PatternScanner;->mIgnorePattern:Ljava/util/regex/Pattern;
@@ -257,7 +257,7 @@
     invoke-virtual {p0, v2}, Landroid/filterfw/io/PatternScanner;->skip(Ljava/util/regex/Pattern;)V
 
     .line 51
-    :cond_9
+    :cond_0
     iget-object v2, p0, Landroid/filterfw/io/PatternScanner;->mInput:Ljava/lang/String;
 
     invoke-virtual {p1, v2}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -285,7 +285,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3e
+    if-eqz v2, :cond_1
 
     .line 57
     iget v2, p0, Landroid/filterfw/io/PatternScanner;->mOffset:I
@@ -319,12 +319,12 @@
     move-result-object v1
 
     .line 63
-    :cond_3e
-    if-eqz v1, :cond_49
+    :cond_1
+    if-eqz v1, :cond_2
 
     iget-object v2, p0, Landroid/filterfw/io/PatternScanner;->mIgnorePattern:Ljava/util/regex/Pattern;
 
-    if-eqz v2, :cond_49
+    if-eqz v2, :cond_2
 
     .line 64
     iget-object v2, p0, Landroid/filterfw/io/PatternScanner;->mIgnorePattern:Ljava/util/regex/Pattern;
@@ -332,12 +332,12 @@
     invoke-virtual {p0, v2}, Landroid/filterfw/io/PatternScanner;->skip(Ljava/util/regex/Pattern;)V
 
     .line 67
-    :cond_49
+    :cond_2
     return-object v1
 .end method
 
 .method public unexpectedTokenMessage(Ljava/lang/String;)Ljava/lang/String;
-    .registers 6
+    .locals 4
     .parameter "tokenName"
 
     .prologue
@@ -406,7 +406,7 @@
 .end method
 
 .method public updateLineCount(II)V
-    .registers 6
+    .locals 3
     .parameter "start"
     .parameter "end"
 
@@ -415,8 +415,8 @@
     move v0, p1
 
     .local v0, i:I
-    :goto_1
-    if-ge v0, p2, :cond_1a
+    :goto_0
+    if-ge v0, p2, :cond_1
 
     .line 117
     iget-object v1, p0, Landroid/filterfw/io/PatternScanner;->mInput:Ljava/lang/String;
@@ -427,7 +427,7 @@
 
     const/16 v2, 0xa
 
-    if-ne v1, v2, :cond_17
+    if-ne v1, v2, :cond_0
 
     .line 118
     iget v1, p0, Landroid/filterfw/io/PatternScanner;->mLineNo:I
@@ -442,12 +442,12 @@
     iput v1, p0, Landroid/filterfw/io/PatternScanner;->mStartOfLine:I
 
     .line 116
-    :cond_17
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 122
-    :cond_1a
+    :cond_1
     return-void
 .end method

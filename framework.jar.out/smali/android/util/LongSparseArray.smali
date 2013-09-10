@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 27
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 38
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 4
+    .locals 2
     .parameter "initialCapacity"
 
     .prologue
@@ -98,7 +98,7 @@
 .end method
 
 .method private static binarySearch([JIIJ)I
-    .registers 10
+    .locals 5
     .parameter "a"
     .parameter "start"
     .parameter "len"
@@ -113,12 +113,12 @@
 
     .line 339
     .local v2, low:I
-    :goto_4
+    :goto_0
     sub-int v3, v1, v2
 
     const/4 v4, 0x1
 
-    if-le v3, v4, :cond_17
+    if-le v3, v4, :cond_1
 
     .line 340
     add-int v3, v1, v2
@@ -131,25 +131,25 @@
 
     cmp-long v3, v3, p3
 
-    if-gez v3, :cond_15
+    if-gez v3, :cond_0
 
     .line 343
     move v2, v0
 
-    goto :goto_4
+    goto :goto_0
 
     .line 345
-    :cond_15
+    :cond_0
     move v1, v0
 
-    goto :goto_4
+    goto :goto_0
 
     .line 348
     .end local v0           #guess:I
-    :cond_17
+    :cond_1
     add-int v3, p1, p2
 
-    if-ne v1, v3, :cond_20
+    if-ne v1, v3, :cond_3
 
     .line 349
     add-int v3, p1, p2
@@ -158,27 +158,27 @@
 
     .line 353
     .end local v1           #high:I
-    :cond_1f
-    :goto_1f
+    :cond_2
+    :goto_1
     return v1
 
     .line 350
     .restart local v1       #high:I
-    :cond_20
+    :cond_3
     aget-wide v3, p0, v1
 
     cmp-long v3, v3, p3
 
-    if-eqz v3, :cond_1f
+    if-eqz v3, :cond_2
 
     .line 353
     xor-int/lit8 v1, v1, -0x1
 
-    goto :goto_1f
+    goto :goto_1
 .end method
 
 .method private gc()V
-    .registers 9
+    .locals 8
 
     .prologue
     .line 125
@@ -202,8 +202,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_8
-    if-ge v0, v2, :cond_20
+    :goto_0
+    if-ge v0, v2, :cond_2
 
     .line 131
     aget-object v4, v5, v0
@@ -212,10 +212,10 @@
     .local v4, val:Ljava/lang/Object;
     sget-object v6, Landroid/util/LongSparseArray;->DELETED:Ljava/lang/Object;
 
-    if-eq v4, v6, :cond_1d
+    if-eq v4, v6, :cond_1
 
     .line 134
-    if-eq v0, v3, :cond_1b
+    if-eq v0, v3, :cond_0
 
     .line 135
     aget-wide v6, v1, v0
@@ -231,18 +231,18 @@
     aput-object v6, v5, v0
 
     .line 140
-    :cond_1b
+    :cond_0
     add-int/lit8 v3, v3, 0x1
 
     .line 130
-    :cond_1d
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 144
     .end local v4           #val:Ljava/lang/Object;
-    :cond_20
+    :cond_2
     const/4 v6, 0x0
 
     iput-boolean v6, p0, Landroid/util/LongSparseArray;->mGarbage:Z
@@ -257,7 +257,7 @@
 
 # virtual methods
 .method public append(JLjava/lang/Object;)V
-    .registers 11
+    .locals 7
     .parameter "key"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -274,7 +274,7 @@
     .line 307
     iget v4, p0, Landroid/util/LongSparseArray;->mSize:I
 
-    if-eqz v4, :cond_15
+    if-eqz v4, :cond_0
 
     iget-object v4, p0, Landroid/util/LongSparseArray;->mKeys:[J
 
@@ -286,20 +286,20 @@
 
     cmp-long v4, p1, v4
 
-    if-gtz v4, :cond_15
+    if-gtz v4, :cond_0
 
     .line 308
     invoke-virtual {p0, p1, p2, p3}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
 
     .line 334
-    :goto_14
+    :goto_0
     return-void
 
     .line 312
-    :cond_15
+    :cond_0
     iget-boolean v4, p0, Landroid/util/LongSparseArray;->mGarbage:Z
 
-    if-eqz v4, :cond_23
+    if-eqz v4, :cond_1
 
     iget v4, p0, Landroid/util/LongSparseArray;->mSize:I
 
@@ -307,13 +307,13 @@
 
     array-length v5, v5
 
-    if-lt v4, v5, :cond_23
+    if-lt v4, v5, :cond_1
 
     .line 313
     invoke-direct {p0}, Landroid/util/LongSparseArray;->gc()V
 
     .line 316
-    :cond_23
+    :cond_1
     iget v3, p0, Landroid/util/LongSparseArray;->mSize:I
 
     .line 317
@@ -322,7 +322,7 @@
 
     array-length v4, v4
 
-    if-lt v3, v4, :cond_48
+    if-lt v3, v4, :cond_2
 
     .line 318
     add-int/lit8 v4, v3, 0x1
@@ -368,7 +368,7 @@
     .end local v0           #n:I
     .end local v1           #nkeys:[J
     .end local v2           #nvalues:[Ljava/lang/Object;
-    :cond_48
+    :cond_2
     iget-object v4, p0, Landroid/util/LongSparseArray;->mKeys:[J
 
     aput-wide p1, v4, v3
@@ -383,11 +383,11 @@
 
     iput v4, p0, Landroid/util/LongSparseArray;->mSize:I
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public clear()V
-    .registers 6
+    .locals 5
 
     .prologue
     .local p0, this:Landroid/util/LongSparseArray;,"Landroid/util/LongSparseArray<TE;>;"
@@ -405,8 +405,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_6
-    if-ge v0, v1, :cond_e
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 295
     const/4 v3, 0x0
@@ -416,10 +416,10 @@
     .line 294
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 298
-    :cond_e
+    :cond_0
     iput v4, p0, Landroid/util/LongSparseArray;->mSize:I
 
     .line 299
@@ -430,7 +430,7 @@
 .end method
 
 .method public clone()Landroid/util/LongSparseArray;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -446,7 +446,7 @@
 
     .line 59
     .local v1, clone:Landroid/util/LongSparseArray;,"Landroid/util/LongSparseArray<TE;>;"
-    :try_start_1
+    :try_start_0
     invoke-super {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v2
@@ -478,22 +478,22 @@
     check-cast v2, [Ljava/lang/Object;
 
     iput-object v2, v1, Landroid/util/LongSparseArray;->mValues:[Ljava/lang/Object;
-    :try_end_1d
-    .catch Ljava/lang/CloneNotSupportedException; {:try_start_1 .. :try_end_1d} :catch_1e
+    :try_end_0
+    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 65
-    :goto_1d
+    :goto_0
     return-object v1
 
     .line 62
-    :catch_1e
+    :catch_0
     move-exception v2
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -511,7 +511,7 @@
 .end method
 
 .method public delete(J)V
-    .registers 7
+    .locals 4
     .parameter "key"
 
     .prologue
@@ -529,7 +529,7 @@
 
     .line 97
     .local v0, i:I
-    if-ltz v0, :cond_1c
+    if-ltz v0, :cond_0
 
     .line 98
     iget-object v1, p0, Landroid/util/LongSparseArray;->mValues:[Ljava/lang/Object;
@@ -538,7 +538,7 @@
 
     sget-object v2, Landroid/util/LongSparseArray;->DELETED:Ljava/lang/Object;
 
-    if-eq v1, v2, :cond_1c
+    if-eq v1, v2, :cond_0
 
     .line 99
     iget-object v1, p0, Landroid/util/LongSparseArray;->mValues:[Ljava/lang/Object;
@@ -553,12 +553,12 @@
     iput-boolean v1, p0, Landroid/util/LongSparseArray;->mGarbage:Z
 
     .line 103
-    :cond_1c
+    :cond_0
     return-void
 .end method
 
 .method public get(J)Ljava/lang/Object;
-    .registers 4
+    .locals 1
     .parameter "key"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -579,7 +579,7 @@
 .end method
 
 .method public get(JLjava/lang/Object;)Ljava/lang/Object;
-    .registers 8
+    .locals 4
     .parameter "key"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -604,7 +604,7 @@
 
     .line 84
     .local v0, i:I
-    if-ltz v0, :cond_13
+    if-ltz v0, :cond_0
 
     iget-object v1, p0, Landroid/util/LongSparseArray;->mValues:[Ljava/lang/Object;
 
@@ -612,25 +612,25 @@
 
     sget-object v2, Landroid/util/LongSparseArray;->DELETED:Ljava/lang/Object;
 
-    if-ne v1, v2, :cond_14
+    if-ne v1, v2, :cond_1
 
     .line 87
     .end local p3           #valueIfKeyNotFound:Ljava/lang/Object;,"TE;"
-    :cond_13
-    :goto_13
+    :cond_0
+    :goto_0
     return-object p3
 
     .restart local p3       #valueIfKeyNotFound:Ljava/lang/Object;,"TE;"
-    :cond_14
+    :cond_1
     iget-object v1, p0, Landroid/util/LongSparseArray;->mValues:[Ljava/lang/Object;
 
     aget-object p3, v1, v0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public indexOfKey(J)I
-    .registers 6
+    .locals 3
     .parameter "key"
 
     .prologue
@@ -638,13 +638,13 @@
     .local p0, this:Landroid/util/LongSparseArray;,"Landroid/util/LongSparseArray<TE;>;"
     iget-boolean v0, p0, Landroid/util/LongSparseArray;->mGarbage:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 261
     invoke-direct {p0}, Landroid/util/LongSparseArray;->gc()V
 
     .line 264
-    :cond_7
+    :cond_0
     iget-object v0, p0, Landroid/util/LongSparseArray;->mKeys:[J
 
     const/4 v1, 0x0
@@ -659,7 +659,7 @@
 .end method
 
 .method public indexOfValue(Ljava/lang/Object;)I
-    .registers 4
+    .locals 2
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -673,49 +673,49 @@
     .local p1, value:Ljava/lang/Object;,"TE;"
     iget-boolean v1, p0, Landroid/util/LongSparseArray;->mGarbage:Z
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_0
 
     .line 277
     invoke-direct {p0}, Landroid/util/LongSparseArray;->gc()V
 
     .line 280
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_8
+    :goto_0
     iget v1, p0, Landroid/util/LongSparseArray;->mSize:I
 
-    if-ge v0, v1, :cond_16
+    if-ge v0, v1, :cond_2
 
     .line 281
     iget-object v1, p0, Landroid/util/LongSparseArray;->mValues:[Ljava/lang/Object;
 
     aget-object v1, v1, v0
 
-    if-ne v1, p1, :cond_13
+    if-ne v1, p1, :cond_1
 
     .line 284
     .end local v0           #i:I
-    :goto_12
+    :goto_1
     return v0
 
     .line 280
     .restart local v0       #i:I
-    :cond_13
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 284
-    :cond_16
+    :cond_2
     const/4 v0, -0x1
 
-    goto :goto_12
+    goto :goto_1
 .end method
 
 .method public keyAt(I)J
-    .registers 4
+    .locals 2
     .parameter "index"
 
     .prologue
@@ -723,13 +723,13 @@
     .local p0, this:Landroid/util/LongSparseArray;,"Landroid/util/LongSparseArray<TE;>;"
     iget-boolean v0, p0, Landroid/util/LongSparseArray;->mGarbage:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 221
     invoke-direct {p0}, Landroid/util/LongSparseArray;->gc()V
 
     .line 224
-    :cond_7
+    :cond_0
     iget-object v0, p0, Landroid/util/LongSparseArray;->mKeys:[J
 
     aget-wide v0, v0, p1
@@ -738,7 +738,7 @@
 .end method
 
 .method public put(JLjava/lang/Object;)V
-    .registers 12
+    .locals 8
     .parameter "key"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -763,7 +763,7 @@
 
     .line 158
     .local v0, i:I
-    if-ltz v0, :cond_10
+    if-ltz v0, :cond_0
 
     .line 159
     iget-object v4, p0, Landroid/util/LongSparseArray;->mValues:[Ljava/lang/Object;
@@ -771,17 +771,17 @@
     aput-object p3, v4, v0
 
     .line 200
-    :goto_f
+    :goto_0
     return-void
 
     .line 161
-    :cond_10
+    :cond_0
     xor-int/lit8 v0, v0, -0x1
 
     .line 163
     iget v4, p0, Landroid/util/LongSparseArray;->mSize:I
 
-    if-ge v0, v4, :cond_27
+    if-ge v0, v4, :cond_1
 
     iget-object v4, p0, Landroid/util/LongSparseArray;->mValues:[Ljava/lang/Object;
 
@@ -789,7 +789,7 @@
 
     sget-object v5, Landroid/util/LongSparseArray;->DELETED:Ljava/lang/Object;
 
-    if-ne v4, v5, :cond_27
+    if-ne v4, v5, :cond_1
 
     .line 164
     iget-object v4, p0, Landroid/util/LongSparseArray;->mKeys:[J
@@ -801,13 +801,13 @@
 
     aput-object p3, v4, v0
 
-    goto :goto_f
+    goto :goto_0
 
     .line 169
-    :cond_27
+    :cond_1
     iget-boolean v4, p0, Landroid/util/LongSparseArray;->mGarbage:Z
 
-    if-eqz v4, :cond_3f
+    if-eqz v4, :cond_2
 
     iget v4, p0, Landroid/util/LongSparseArray;->mSize:I
 
@@ -815,7 +815,7 @@
 
     array-length v5, v5
 
-    if-lt v4, v5, :cond_3f
+    if-lt v4, v5, :cond_2
 
     .line 170
     invoke-direct {p0}, Landroid/util/LongSparseArray;->gc()V
@@ -832,14 +832,14 @@
     xor-int/lit8 v0, v4, -0x1
 
     .line 176
-    :cond_3f
+    :cond_2
     iget v4, p0, Landroid/util/LongSparseArray;->mSize:I
 
     iget-object v5, p0, Landroid/util/LongSparseArray;->mKeys:[J
 
     array-length v5, v5
 
-    if-lt v4, v5, :cond_66
+    if-lt v4, v5, :cond_3
 
     .line 177
     iget v4, p0, Landroid/util/LongSparseArray;->mSize:I
@@ -887,12 +887,12 @@
     .end local v1           #n:I
     .end local v2           #nkeys:[J
     .end local v3           #nvalues:[Ljava/lang/Object;
-    :cond_66
+    :cond_3
     iget v4, p0, Landroid/util/LongSparseArray;->mSize:I
 
     sub-int/2addr v4, v0
 
-    if-eqz v4, :cond_83
+    if-eqz v4, :cond_4
 
     .line 192
     iget-object v4, p0, Landroid/util/LongSparseArray;->mKeys:[J
@@ -921,7 +921,7 @@
     invoke-static {v4, v0, v5, v6, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 196
-    :cond_83
+    :cond_4
     iget-object v4, p0, Landroid/util/LongSparseArray;->mKeys:[J
 
     aput-wide p1, v4, v0
@@ -938,11 +938,11 @@
 
     iput v4, p0, Landroid/util/LongSparseArray;->mSize:I
 
-    goto/16 :goto_f
+    goto/16 :goto_0
 .end method
 
 .method public remove(J)V
-    .registers 3
+    .locals 0
     .parameter "key"
 
     .prologue
@@ -955,7 +955,7 @@
 .end method
 
 .method public removeAt(I)V
-    .registers 4
+    .locals 2
     .parameter "index"
 
     .prologue
@@ -967,7 +967,7 @@
 
     sget-object v1, Landroid/util/LongSparseArray;->DELETED:Ljava/lang/Object;
 
-    if-eq v0, v1, :cond_11
+    if-eq v0, v1, :cond_0
 
     .line 117
     iget-object v0, p0, Landroid/util/LongSparseArray;->mValues:[Ljava/lang/Object;
@@ -982,12 +982,12 @@
     iput-boolean v0, p0, Landroid/util/LongSparseArray;->mGarbage:Z
 
     .line 120
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 .method public setValueAt(ILjava/lang/Object;)V
-    .registers 4
+    .locals 1
     .parameter "index"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -1002,13 +1002,13 @@
     .local p2, value:Ljava/lang/Object;,"TE;"
     iget-boolean v0, p0, Landroid/util/LongSparseArray;->mGarbage:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 248
     invoke-direct {p0}, Landroid/util/LongSparseArray;->gc()V
 
     .line 251
-    :cond_7
+    :cond_0
     iget-object v0, p0, Landroid/util/LongSparseArray;->mValues:[Ljava/lang/Object;
 
     aput-object p2, v0, p1
@@ -1018,27 +1018,27 @@
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 207
     .local p0, this:Landroid/util/LongSparseArray;,"Landroid/util/LongSparseArray<TE;>;"
     iget-boolean v0, p0, Landroid/util/LongSparseArray;->mGarbage:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 208
     invoke-direct {p0}, Landroid/util/LongSparseArray;->gc()V
 
     .line 211
-    :cond_7
+    :cond_0
     iget v0, p0, Landroid/util/LongSparseArray;->mSize:I
 
     return v0
 .end method
 
 .method public valueAt(I)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "index"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1051,13 +1051,13 @@
     .local p0, this:Landroid/util/LongSparseArray;,"Landroid/util/LongSparseArray<TE;>;"
     iget-boolean v0, p0, Landroid/util/LongSparseArray;->mGarbage:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 235
     invoke-direct {p0}, Landroid/util/LongSparseArray;->gc()V
 
     .line 238
-    :cond_7
+    :cond_0
     iget-object v0, p0, Landroid/util/LongSparseArray;->mValues:[Ljava/lang/Object;
 
     aget-object v0, v0, p1

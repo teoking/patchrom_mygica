@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/nfc/Tag;)V
-    .registers 4
+    .locals 2
     .parameter "tag"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -62,7 +62,7 @@
 .end method
 
 .method public static get(Landroid/nfc/Tag;)Landroid/nfc/tech/NfcA;
-    .registers 4
+    .locals 3
     .parameter "tag"
 
     .prologue
@@ -75,38 +75,38 @@
 
     move-result v2
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_0
 
     .line 62
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 60
-    :cond_9
-    :try_start_9
+    :cond_0
+    :try_start_0
     new-instance v2, Landroid/nfc/tech/NfcA;
 
     invoke-direct {v2, p0}, Landroid/nfc/tech/NfcA;-><init>(Landroid/nfc/Tag;)V
-    :try_end_e
-    .catch Landroid/os/RemoteException; {:try_start_9 .. :try_end_e} :catch_10
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-object v1, v2
 
-    goto :goto_8
+    goto :goto_0
 
     .line 61
-    :catch_10
+    :catch_0
     move-exception v0
 
     .line 62
     .local v0, e:Landroid/os/RemoteException;
-    goto :goto_8
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public bridge synthetic close()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -121,7 +121,7 @@
 .end method
 
 .method public bridge synthetic connect()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -136,7 +136,7 @@
 .end method
 
 .method public getAtqa()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 82
@@ -146,7 +146,7 @@
 .end method
 
 .method public getMaxTransceiveLength()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 128
@@ -158,7 +158,7 @@
 .end method
 
 .method public getSak()S
-    .registers 2
+    .locals 1
 
     .prologue
     .line 93
@@ -168,7 +168,7 @@
 .end method
 
 .method public bridge synthetic getTag()Landroid/nfc/Tag;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 37
@@ -180,7 +180,7 @@
 .end method
 
 .method public getTimeout()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 165
@@ -194,17 +194,17 @@
     const/4 v2, 0x1
 
     invoke-interface {v1, v2}, Landroid/nfc/INfcTag;->getTimeout(I)I
-    :try_end_a
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_a} :catch_c
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 168
-    :goto_b
+    :goto_0
     return v1
 
     .line 166
-    :catch_c
+    :catch_0
     move-exception v0
 
     .line 167
@@ -218,11 +218,11 @@
     .line 168
     const/4 v1, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public bridge synthetic isConnected()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 37
@@ -234,7 +234,7 @@
 .end method
 
 .method public bridge synthetic reconnect()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -249,7 +249,7 @@
 .end method
 
 .method public setTimeout(I)V
-    .registers 6
+    .locals 4
     .parameter "timeout"
 
     .prologue
@@ -269,7 +269,7 @@
 
     .line 148
     .local v1, err:I
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_0
 
     .line 149
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -279,12 +279,12 @@
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v2
-    :try_end_15
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_15} :catch_15
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 151
     .end local v1           #err:I
-    :catch_15
+    :catch_0
     move-exception v0
 
     .line 152
@@ -297,12 +297,12 @@
 
     .line 154
     .end local v0           #e:Landroid/os/RemoteException;
-    :cond_1d
+    :cond_0
     return-void
 .end method
 
 .method public transceive([B)[B
-    .registers 3
+    .locals 1
     .parameter "data"
     .annotation system Ldalvik/annotation/Throws;
         value = {

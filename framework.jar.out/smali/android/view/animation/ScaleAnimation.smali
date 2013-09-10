@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(FFFF)V
-    .registers 7
+    .locals 2
     .parameter "fromX"
     .parameter "toX"
     .parameter "fromY"
@@ -123,7 +123,7 @@
 .end method
 
 .method public constructor <init>(FFFFFF)V
-    .registers 9
+    .locals 2
     .parameter "fromX"
     .parameter "toX"
     .parameter "fromY"
@@ -212,7 +212,7 @@
 .end method
 
 .method public constructor <init>(FFFFIFIF)V
-    .registers 11
+    .locals 2
     .parameter "fromX"
     .parameter "toX"
     .parameter "fromY"
@@ -303,7 +303,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 10
+    .locals 7
     .parameter "context"
     .parameter "attrs"
 
@@ -380,12 +380,12 @@
     iput v5, p0, Landroid/view/animation/ScaleAnimation;->mFromX:F
 
     .line 73
-    if-eqz v2, :cond_3d
+    if-eqz v2, :cond_0
 
     .line 74
     iget v3, v2, Landroid/util/TypedValue;->type:I
 
-    if-ne v3, v6, :cond_9d
+    if-ne v3, v6, :cond_4
 
     .line 76
     invoke-virtual {v2}, Landroid/util/TypedValue;->getFloat()F
@@ -395,8 +395,8 @@
     iput v3, p0, Landroid/view/animation/ScaleAnimation;->mFromX:F
 
     .line 82
-    :cond_3d
-    :goto_3d
+    :cond_0
+    :goto_0
     const/4 v3, 0x3
 
     invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
@@ -407,12 +407,12 @@
     iput v5, p0, Landroid/view/animation/ScaleAnimation;->mToX:F
 
     .line 85
-    if-eqz v2, :cond_50
+    if-eqz v2, :cond_1
 
     .line 86
     iget v3, v2, Landroid/util/TypedValue;->type:I
 
-    if-ne v3, v6, :cond_a6
+    if-ne v3, v6, :cond_5
 
     .line 88
     invoke-virtual {v2}, Landroid/util/TypedValue;->getFloat()F
@@ -422,8 +422,8 @@
     iput v3, p0, Landroid/view/animation/ScaleAnimation;->mToX:F
 
     .line 95
-    :cond_50
-    :goto_50
+    :cond_1
+    :goto_1
     invoke-virtual {v0, v6}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
 
     move-result-object v2
@@ -432,12 +432,12 @@
     iput v5, p0, Landroid/view/animation/ScaleAnimation;->mFromY:F
 
     .line 98
-    if-eqz v2, :cond_62
+    if-eqz v2, :cond_2
 
     .line 99
     iget v3, v2, Landroid/util/TypedValue;->type:I
 
-    if-ne v3, v6, :cond_af
+    if-ne v3, v6, :cond_6
 
     .line 101
     invoke-virtual {v2}, Landroid/util/TypedValue;->getFloat()F
@@ -447,8 +447,8 @@
     iput v3, p0, Landroid/view/animation/ScaleAnimation;->mFromY:F
 
     .line 107
-    :cond_62
-    :goto_62
+    :cond_2
+    :goto_2
     const/4 v3, 0x5
 
     invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
@@ -459,12 +459,12 @@
     iput v5, p0, Landroid/view/animation/ScaleAnimation;->mToY:F
 
     .line 110
-    if-eqz v2, :cond_75
+    if-eqz v2, :cond_3
 
     .line 111
     iget v3, v2, Landroid/util/TypedValue;->type:I
 
-    if-ne v3, v6, :cond_b8
+    if-ne v3, v6, :cond_7
 
     .line 113
     invoke-virtual {v2}, Landroid/util/TypedValue;->getFloat()F
@@ -474,8 +474,8 @@
     iput v3, p0, Landroid/view/animation/ScaleAnimation;->mToY:F
 
     .line 120
-    :cond_75
-    :goto_75
+    :cond_3
+    :goto_3
     invoke-virtual {v0, v4}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
 
     move-result-object v3
@@ -527,7 +527,7 @@
 
     .line 78
     .end local v1           #d:Landroid/view/animation/Animation$Description;
-    :cond_9d
+    :cond_4
     iget v3, v2, Landroid/util/TypedValue;->type:I
 
     iput v3, p0, Landroid/view/animation/ScaleAnimation;->mFromXType:I
@@ -537,10 +537,10 @@
 
     iput v3, p0, Landroid/view/animation/ScaleAnimation;->mFromXData:I
 
-    goto :goto_3d
+    goto :goto_0
 
     .line 90
-    :cond_a6
+    :cond_5
     iget v3, v2, Landroid/util/TypedValue;->type:I
 
     iput v3, p0, Landroid/view/animation/ScaleAnimation;->mToXType:I
@@ -550,10 +550,10 @@
 
     iput v3, p0, Landroid/view/animation/ScaleAnimation;->mToXData:I
 
-    goto :goto_50
+    goto :goto_1
 
     .line 103
-    :cond_af
+    :cond_6
     iget v3, v2, Landroid/util/TypedValue;->type:I
 
     iput v3, p0, Landroid/view/animation/ScaleAnimation;->mFromYType:I
@@ -563,10 +563,10 @@
 
     iput v3, p0, Landroid/view/animation/ScaleAnimation;->mFromYData:I
 
-    goto :goto_62
+    goto :goto_2
 
     .line 115
-    :cond_b8
+    :cond_7
     iget v3, v2, Landroid/util/TypedValue;->type:I
 
     iput v3, p0, Landroid/view/animation/ScaleAnimation;->mToYType:I
@@ -576,17 +576,17 @@
 
     iput v3, p0, Landroid/view/animation/ScaleAnimation;->mToYData:I
 
-    goto :goto_75
+    goto :goto_3
 .end method
 
 .method private initializePivotPoint()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 232
     iget v0, p0, Landroid/view/animation/ScaleAnimation;->mPivotXType:I
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     .line 233
     iget v0, p0, Landroid/view/animation/ScaleAnimation;->mPivotXValue:F
@@ -594,10 +594,10 @@
     iput v0, p0, Landroid/view/animation/ScaleAnimation;->mPivotX:F
 
     .line 235
-    :cond_8
+    :cond_0
     iget v0, p0, Landroid/view/animation/ScaleAnimation;->mPivotYType:I
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_1
 
     .line 236
     iget v0, p0, Landroid/view/animation/ScaleAnimation;->mPivotYValue:F
@@ -605,14 +605,14 @@
     iput v0, p0, Landroid/view/animation/ScaleAnimation;->mPivotY:F
 
     .line 238
-    :cond_10
+    :cond_1
     return-void
 .end method
 
 
 # virtual methods
 .method protected applyTransformation(FLandroid/view/animation/Transformation;)V
-    .registers 11
+    .locals 8
     .parameter "interpolatedTime"
     .parameter "t"
 
@@ -640,16 +640,16 @@
 
     cmpl-float v3, v3, v6
 
-    if-nez v3, :cond_17
+    if-nez v3, :cond_0
 
     iget v3, p0, Landroid/view/animation/ScaleAnimation;->mToX:F
 
     cmpl-float v3, v3, v6
 
-    if-eqz v3, :cond_21
+    if-eqz v3, :cond_1
 
     .line 247
-    :cond_17
+    :cond_0
     iget v3, p0, Landroid/view/animation/ScaleAnimation;->mFromX:F
 
     iget v4, p0, Landroid/view/animation/ScaleAnimation;->mToX:F
@@ -663,21 +663,21 @@
     add-float v1, v3, v4
 
     .line 249
-    :cond_21
+    :cond_1
     iget v3, p0, Landroid/view/animation/ScaleAnimation;->mFromY:F
 
     cmpl-float v3, v3, v6
 
-    if-nez v3, :cond_2d
+    if-nez v3, :cond_2
 
     iget v3, p0, Landroid/view/animation/ScaleAnimation;->mToY:F
 
     cmpl-float v3, v3, v6
 
-    if-eqz v3, :cond_37
+    if-eqz v3, :cond_3
 
     .line 250
-    :cond_2d
+    :cond_2
     iget v3, p0, Landroid/view/animation/ScaleAnimation;->mFromY:F
 
     iget v4, p0, Landroid/view/animation/ScaleAnimation;->mToY:F
@@ -691,18 +691,18 @@
     add-float v2, v3, v4
 
     .line 253
-    :cond_37
+    :cond_3
     iget v3, p0, Landroid/view/animation/ScaleAnimation;->mPivotX:F
 
     cmpl-float v3, v3, v7
 
-    if-nez v3, :cond_4b
+    if-nez v3, :cond_4
 
     iget v3, p0, Landroid/view/animation/ScaleAnimation;->mPivotY:F
 
     cmpl-float v3, v3, v7
 
-    if-nez v3, :cond_4b
+    if-nez v3, :cond_4
 
     .line 254
     invoke-virtual {p2}, Landroid/view/animation/Transformation;->getMatrix()Landroid/graphics/Matrix;
@@ -712,11 +712,11 @@
     invoke-virtual {v3, v1, v2}, Landroid/graphics/Matrix;->setScale(FF)V
 
     .line 258
-    :goto_4a
+    :goto_0
     return-void
 
     .line 256
-    :cond_4b
+    :cond_4
     invoke-virtual {p2}, Landroid/view/animation/Transformation;->getMatrix()Landroid/graphics/Matrix;
 
     move-result-object v3
@@ -731,11 +731,11 @@
 
     invoke-virtual {v3, v1, v2, v4, v5}, Landroid/graphics/Matrix;->setScale(FFFF)V
 
-    goto :goto_4a
+    goto :goto_0
 .end method
 
 .method public initialize(IIII)V
-    .registers 11
+    .locals 6
     .parameter "width"
     .parameter "height"
     .parameter "parentWidth"
@@ -848,7 +848,7 @@
 .end method
 
 .method resolveScale(FIIII)F
-    .registers 9
+    .locals 3
     .parameter "scale"
     .parameter "type"
     .parameter "data"
@@ -859,7 +859,7 @@
     .line 262
     const/4 v1, 0x6
 
-    if-ne p2, v1, :cond_e
+    if-ne p2, v1, :cond_1
 
     .line 263
     int-to-float v1, p4
@@ -872,8 +872,8 @@
 
     .line 270
     .local v0, targetSize:F
-    :goto_9
-    if-nez p4, :cond_1c
+    :goto_0
+    if-nez p4, :cond_2
 
     .line 271
     const/high16 p1, 0x3f80
@@ -881,16 +881,16 @@
     .line 274
     .end local v0           #targetSize:F
     .end local p1
-    :cond_d
-    :goto_d
+    :cond_0
+    :goto_1
     return p1
 
     .line 264
     .restart local p1
-    :cond_e
+    :cond_1
     const/4 v1, 0x5
 
-    if-ne p2, v1, :cond_d
+    if-ne p2, v1, :cond_0
 
     .line 265
     iget-object v1, p0, Landroid/view/animation/ScaleAnimation;->mResources:Landroid/content/res/Resources;
@@ -904,13 +904,13 @@
     move-result v0
 
     .restart local v0       #targetSize:F
-    goto :goto_9
+    goto :goto_0
 
     .line 274
-    :cond_1c
+    :cond_2
     int-to-float v1, p4
 
     div-float p1, v0, v1
 
-    goto :goto_d
+    goto :goto_1
 .end method

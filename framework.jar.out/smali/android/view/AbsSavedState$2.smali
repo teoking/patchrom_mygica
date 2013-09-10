@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 75
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/view/AbsSavedState;
-    .registers 5
+    .locals 3
     .parameter "in"
 
     .prologue
@@ -54,7 +54,7 @@
 
     .line 79
     .local v0, superState:Landroid/os/Parcelable;
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 80
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -66,14 +66,14 @@
     throw v1
 
     .line 82
-    :cond_10
+    :cond_0
     sget-object v1, Landroid/view/AbsSavedState;->EMPTY_STATE:Landroid/view/AbsSavedState;
 
     return-object v1
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -86,7 +86,7 @@
 .end method
 
 .method public newArray(I)[Landroid/view/AbsSavedState;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -97,7 +97,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

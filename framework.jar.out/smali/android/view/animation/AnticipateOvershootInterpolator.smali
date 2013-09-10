@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 33
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(F)V
-    .registers 3
+    .locals 1
     .parameter "tension"
 
     .prologue
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(FF)V
-    .registers 4
+    .locals 1
     .parameter "tension"
     .parameter "extraTension"
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "attrs"
 
@@ -110,7 +110,7 @@
 .end method
 
 .method private static a(FF)F
-    .registers 4
+    .locals 2
     .parameter "t"
     .parameter "s"
 
@@ -132,7 +132,7 @@
 .end method
 
 .method private static o(FF)F
-    .registers 4
+    .locals 2
     .parameter "t"
     .parameter "s"
 
@@ -156,7 +156,7 @@
 
 # virtual methods
 .method public getInterpolation(F)F
-    .registers 6
+    .locals 4
     .parameter "t"
 
     .prologue
@@ -167,7 +167,7 @@
     .line 80
     cmpg-float v0, p1, v3
 
-    if-gez v0, :cond_12
+    if-gez v0, :cond_0
 
     mul-float v0, p1, v2
 
@@ -180,10 +180,10 @@
     mul-float/2addr v0, v3
 
     .line 81
-    :goto_11
+    :goto_0
     return v0
 
-    :cond_12
+    :cond_0
     mul-float v0, p1, v2
 
     sub-float/2addr v0, v2
@@ -198,5 +198,5 @@
 
     mul-float/2addr v0, v3
 
-    goto :goto_11
+    goto :goto_0
 .end method

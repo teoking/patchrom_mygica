@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 217
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 10
+    .locals 8
     .parameter "source"
 
     .prologue
@@ -74,38 +74,38 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2f
+    if-eqz v3, :cond_1
 
     move v3, v0
 
-    :goto_11
+    :goto_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
-    if-eqz v4, :cond_31
+    if-eqz v4, :cond_2
 
     move v4, v0
 
-    :goto_18
+    :goto_1
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
-    if-eqz v5, :cond_33
+    if-eqz v5, :cond_3
 
     move v5, v0
 
-    :goto_1f
+    :goto_2
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v7
 
-    if-eqz v7, :cond_26
+    if-eqz v7, :cond_0
 
     move v6, v0
 
-    :cond_26
+    :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v7
@@ -117,25 +117,25 @@
     .line 215
     return-void
 
-    :cond_2f
+    :cond_1
     move v3, v6
 
     .line 207
-    goto :goto_11
+    goto :goto_0
 
-    :cond_31
+    :cond_2
     move v4, v6
 
-    goto :goto_18
+    goto :goto_1
 
-    :cond_33
+    :cond_3
     move v5, v6
 
-    goto :goto_1f
+    goto :goto_2
 .end method
 
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "authority"
     .parameter "accountType"
 
@@ -152,7 +152,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_25
+    if-eqz v0, :cond_0
 
     .line 79
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -180,12 +180,12 @@
     throw v0
 
     .line 81
-    :cond_25
+    :cond_0
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_45
+    if-eqz v0, :cond_1
 
     .line 82
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -213,7 +213,7 @@
     throw v0
 
     .line 84
-    :cond_45
+    :cond_1
     iput-object p1, p0, Landroid/content/SyncAdapterType;->authority:Ljava/lang/String;
 
     .line 85
@@ -244,7 +244,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ZZ)V
-    .registers 8
+    .locals 3
     .parameter "authority"
     .parameter "accountType"
     .parameter "userVisible"
@@ -261,7 +261,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_0
 
     .line 40
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -289,12 +289,12 @@
     throw v0
 
     .line 42
-    :cond_24
+    :cond_0
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_44
+    if-eqz v0, :cond_1
 
     .line 43
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -322,7 +322,7 @@
     throw v0
 
     .line 45
-    :cond_44
+    :cond_1
     iput-object p1, p0, Landroid/content/SyncAdapterType;->authority:Ljava/lang/String;
 
     .line 46
@@ -353,7 +353,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ZZZZLjava/lang/String;)V
-    .registers 11
+    .locals 3
     .parameter "authority"
     .parameter "accountType"
     .parameter "userVisible"
@@ -371,7 +371,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     .line 62
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -399,12 +399,12 @@
     throw v0
 
     .line 64
-    :cond_23
+    :cond_0
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_43
+    if-eqz v0, :cond_1
 
     .line 65
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -432,7 +432,7 @@
     throw v0
 
     .line 67
-    :cond_43
+    :cond_1
     iput-object p1, p0, Landroid/content/SyncAdapterType;->authority:Ljava/lang/String;
 
     .line 68
@@ -463,7 +463,7 @@
 .end method
 
 .method public static newKey(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SyncAdapterType;
-    .registers 3
+    .locals 1
     .parameter "authority"
     .parameter "accountType"
 
@@ -479,13 +479,13 @@
 
 # virtual methods
 .method public allowParallelSyncs()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 116
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->isKey:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 117
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -497,14 +497,14 @@
     throw v0
 
     .line 120
-    :cond_d
+    :cond_0
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->allowParallelSyncs:Z
 
     return v0
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 189
@@ -514,7 +514,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "o"
 
     .prologue
@@ -523,24 +523,24 @@
     const/4 v2, 0x0
 
     .line 156
-    if-ne p1, p0, :cond_5
+    if-ne p1, p0, :cond_1
 
     .line 160
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 157
-    :cond_5
+    :cond_1
     instance-of v3, p1, Landroid/content/SyncAdapterType;
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_2
 
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_b
+    :cond_2
     move-object v0, p1
 
     .line 158
@@ -556,7 +556,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_22
+    if-eqz v3, :cond_3
 
     iget-object v3, p0, Landroid/content/SyncAdapterType;->accountType:Ljava/lang/String;
 
@@ -566,22 +566,22 @@
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_0
 
-    :cond_22
+    :cond_3
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public getSettingsActivity()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 144
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->isKey:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 145
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -593,14 +593,14 @@
     throw v0
 
     .line 148
-    :cond_d
+    :cond_0
     iget-object v0, p0, Landroid/content/SyncAdapterType;->settingsActivity:Ljava/lang/String;
 
     return-object v0
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 164
@@ -632,13 +632,13 @@
 .end method
 
 .method public isAlwaysSyncable()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 132
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->isKey:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 133
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -650,20 +650,20 @@
     throw v0
 
     .line 136
-    :cond_d
+    :cond_0
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->isAlwaysSyncable:Z
 
     return v0
 .end method
 
 .method public isUserVisible()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 103
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->isKey:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 104
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -675,20 +675,20 @@
     throw v0
 
     .line 107
-    :cond_d
+    :cond_0
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->userVisible:Z
 
     return v0
 .end method
 
 .method public supportsUploading()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 95
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->isKey:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 96
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -700,20 +700,20 @@
     throw v0
 
     .line 99
-    :cond_d
+    :cond_0
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->supportsUploading:Z
 
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 172
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->isKey:Z
 
-    if-eqz v0, :cond_2d
+    if-eqz v0, :cond_0
 
     .line 173
     new-instance v0, Ljava/lang/StringBuilder;
@@ -755,10 +755,10 @@
     move-result-object v0
 
     .line 177
-    :goto_2c
+    :goto_0
     return-object v0
 
-    :cond_2d
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -857,11 +857,11 @@
 
     move-result-object v0
 
-    goto :goto_2c
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "dest"
     .parameter "flags"
 
@@ -873,7 +873,7 @@
     .line 193
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->isKey:Z
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 194
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -885,7 +885,7 @@
     throw v0
 
     .line 197
-    :cond_e
+    :cond_0
     iget-object v0, p0, Landroid/content/SyncAdapterType;->authority:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
@@ -898,39 +898,39 @@
     .line 199
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->userVisible:Z
 
-    if-eqz v0, :cond_3d
+    if-eqz v0, :cond_1
 
     move v0, v1
 
-    :goto_1d
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 200
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->supportsUploading:Z
 
-    if-eqz v0, :cond_3f
+    if-eqz v0, :cond_2
 
     move v0, v1
 
-    :goto_25
+    :goto_1
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 201
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->isAlwaysSyncable:Z
 
-    if-eqz v0, :cond_41
+    if-eqz v0, :cond_3
 
     move v0, v1
 
-    :goto_2d
+    :goto_2
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 202
     iget-boolean v0, p0, Landroid/content/SyncAdapterType;->allowParallelSyncs:Z
 
-    if-eqz v0, :cond_43
+    if-eqz v0, :cond_4
 
-    :goto_34
+    :goto_3
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 203
@@ -941,27 +941,27 @@
     .line 204
     return-void
 
-    :cond_3d
+    :cond_1
     move v0, v2
 
     .line 199
-    goto :goto_1d
+    goto :goto_0
 
-    :cond_3f
+    :cond_2
     move v0, v2
 
     .line 200
-    goto :goto_25
+    goto :goto_1
 
-    :cond_41
+    :cond_3
     move v0, v2
 
     .line 201
-    goto :goto_2d
+    goto :goto_2
 
-    :cond_43
+    :cond_4
     move v1, v2
 
     .line 202
-    goto :goto_34
+    goto :goto_3
 .end method

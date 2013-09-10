@@ -11,7 +11,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 78
@@ -21,7 +21,7 @@
 .end method
 
 .method static deserializeViewState(Ljava/io/InputStream;)Landroid/webkit/WebViewCore$DrawData;
-    .registers 10
+    .locals 9
     .parameter "stream"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -45,7 +45,7 @@
     .local v5, version:I
     const/4 v6, 0x1
 
-    if-le v5, v6, :cond_25
+    if-le v5, v6, :cond_0
 
     .line 56
     new-instance v6, Ljava/io/IOException;
@@ -73,7 +73,7 @@
     throw v6
 
     .line 58
-    :cond_25
+    :cond_0
     invoke-virtual {v3}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v2
@@ -132,7 +132,7 @@
 .end method
 
 .method static serializeViewState(Ljava/io/OutputStream;Landroid/webkit/WebViewCore$DrawData;)Z
-    .registers 5
+    .locals 3
     .parameter "stream"
     .parameter "draw"
     .annotation system Ldalvik/annotation/Throws;
@@ -147,17 +147,17 @@
 
     .line 40
     .local v0, baseLayer:I
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     .line 41
     const/4 v2, 0x0
 
     .line 47
-    :goto_5
+    :goto_0
     return v2
 
     .line 43
-    :cond_6
+    :cond_0
     new-instance v1, Ljava/io/DataOutputStream;
 
     invoke-direct {v1, p0}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
@@ -191,5 +191,5 @@
 
     move-result v2
 
-    goto :goto_5
+    goto :goto_0
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>([Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "columnNames"
 
     .prologue
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>([Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
     .parameter "columnNames"
     .parameter "initialCapacity"
 
@@ -61,13 +61,13 @@
     .line 44
     const/4 v0, 0x1
 
-    if-ge p2, v0, :cond_f
+    if-ge p2, v0, :cond_0
 
     .line 45
     const/4 p2, 0x1
 
     .line 48
-    :cond_f
+    :cond_0
     iget v0, p0, Landroid/database/MatrixCursor;->columnCount:I
 
     mul-int/2addr v0, p2
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/database/MatrixCursor;)[Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -92,7 +92,7 @@
 .end method
 
 .method private addRow(Ljava/util/ArrayList;I)V
-    .registers 9
+    .locals 6
     .parameter
     .parameter "start"
     .annotation system Ldalvik/annotation/Signature;
@@ -114,7 +114,7 @@
     .local v2, size:I
     iget v3, p0, Landroid/database/MatrixCursor;->columnCount:I
 
-    if-eq v2, v3, :cond_2d
+    if-eq v2, v3, :cond_0
 
     .line 158
     new-instance v3, Ljava/lang/IllegalArgumentException;
@@ -154,7 +154,7 @@
     throw v3
 
     .line 162
-    :cond_2d
+    :cond_0
     iget v3, p0, Landroid/database/MatrixCursor;->rowCount:I
 
     add-int/lit8 v3, v3, 0x1
@@ -169,8 +169,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_36
-    if-ge v0, v2, :cond_43
+    :goto_0
+    if-ge v0, v2, :cond_1
 
     .line 165
     add-int v3, p2, v0
@@ -184,15 +184,15 @@
     .line 164
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_36
+    goto :goto_0
 
     .line 167
-    :cond_43
+    :cond_1
     return-void
 .end method
 
 .method private ensureCapacity(I)V
-    .registers 7
+    .locals 5
     .parameter "size"
 
     .prologue
@@ -203,7 +203,7 @@
 
     array-length v2, v2
 
-    if-le p1, v2, :cond_1a
+    if-le p1, v2, :cond_1
 
     .line 172
     iget-object v1, p0, Landroid/database/MatrixCursor;->data:[Ljava/lang/Object;
@@ -218,13 +218,13 @@
 
     .line 174
     .local v0, newSize:I
-    if-ge v0, p1, :cond_10
+    if-ge v0, p1, :cond_0
 
     .line 175
     move v0, p1
 
     .line 177
-    :cond_10
+    :cond_0
     new-array v2, v0, [Ljava/lang/Object;
 
     iput-object v2, p0, Landroid/database/MatrixCursor;->data:[Ljava/lang/Object;
@@ -239,24 +239,24 @@
     .line 180
     .end local v0           #newSize:I
     .end local v1           #oldData:[Ljava/lang/Object;
-    :cond_1a
+    :cond_1
     return-void
 .end method
 
 .method private get(I)Ljava/lang/Object;
-    .registers 5
+    .locals 3
     .parameter "column"
 
     .prologue
     .line 65
-    if-ltz p1, :cond_6
+    if-ltz p1, :cond_0
 
     iget v0, p0, Landroid/database/MatrixCursor;->columnCount:I
 
-    if-lt p1, v0, :cond_2b
+    if-lt p1, v0, :cond_1
 
     .line 66
-    :cond_6
+    :cond_0
     new-instance v0, Landroid/database/CursorIndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -294,10 +294,10 @@
     throw v0
 
     .line 69
-    :cond_2b
+    :cond_1
     iget v0, p0, Landroid/database/AbstractCursor;->mPos:I
 
-    if-gez v0, :cond_37
+    if-gez v0, :cond_2
 
     .line 70
     new-instance v0, Landroid/database/CursorIndexOutOfBoundsException;
@@ -309,12 +309,12 @@
     throw v0
 
     .line 72
-    :cond_37
+    :cond_2
     iget v0, p0, Landroid/database/AbstractCursor;->mPos:I
 
     iget v1, p0, Landroid/database/MatrixCursor;->rowCount:I
 
-    if-lt v0, v1, :cond_45
+    if-lt v0, v1, :cond_3
 
     .line 73
     new-instance v0, Landroid/database/CursorIndexOutOfBoundsException;
@@ -326,7 +326,7 @@
     throw v0
 
     .line 75
-    :cond_45
+    :cond_3
     iget-object v0, p0, Landroid/database/MatrixCursor;->data:[Ljava/lang/Object;
 
     iget v1, p0, Landroid/database/AbstractCursor;->mPos:I
@@ -345,7 +345,7 @@
 
 # virtual methods
 .method public addRow(Ljava/lang/Iterable;)V
-    .registers 11
+    .locals 9
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -377,7 +377,7 @@
     .line 128
     instance-of v7, p1, Ljava/util/ArrayList;
 
-    if-eqz v7, :cond_17
+    if-eqz v7, :cond_0
 
     .line 129
     check-cast p1, Ljava/util/ArrayList;
@@ -386,12 +386,12 @@
     invoke-direct {p0, p1, v6}, Landroid/database/MatrixCursor;->addRow(Ljava/util/ArrayList;I)V
 
     .line 152
-    :goto_16
+    :goto_0
     return-void
 
     .line 133
     .restart local p1       #columnValues:Ljava/lang/Iterable;,"Ljava/lang/Iterable<*>;"
-    :cond_17
+    :cond_0
     move v1, v6
 
     .line 134
@@ -405,12 +405,12 @@
     move-result-object v4
 
     .local v4, i$:Ljava/util/Iterator;
-    :goto_1e
+    :goto_1
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_38
+    if-eqz v7, :cond_2
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -418,7 +418,7 @@
 
     .line 136
     .local v0, columnValue:Ljava/lang/Object;
-    if-ne v1, v3, :cond_32
+    if-ne v1, v3, :cond_1
 
     .line 138
     new-instance v7, Ljava/lang/IllegalArgumentException;
@@ -430,7 +430,7 @@
     throw v7
 
     .line 141
-    :cond_32
+    :cond_1
     add-int/lit8 v2, v1, 0x1
 
     .end local v1           #current:I
@@ -441,12 +441,12 @@
 
     .end local v2           #current:I
     .restart local v1       #current:I
-    goto :goto_1e
+    goto :goto_1
 
     .line 144
     .end local v0           #columnValue:Ljava/lang/Object;
-    :cond_38
-    if-eq v1, v3, :cond_42
+    :cond_2
+    if-eq v1, v3, :cond_3
 
     .line 146
     new-instance v7, Ljava/lang/IllegalArgumentException;
@@ -458,18 +458,18 @@
     throw v7
 
     .line 151
-    :cond_42
+    :cond_3
     iget v7, p0, Landroid/database/MatrixCursor;->rowCount:I
 
     add-int/lit8 v7, v7, 0x1
 
     iput v7, p0, Landroid/database/MatrixCursor;->rowCount:I
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method public addRow([Ljava/lang/Object;)V
-    .registers 6
+    .locals 4
     .parameter "columnValues"
 
     .prologue
@@ -478,7 +478,7 @@
 
     iget v2, p0, Landroid/database/MatrixCursor;->columnCount:I
 
-    if-eq v1, v2, :cond_2b
+    if-eq v1, v2, :cond_0
 
     .line 104
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -520,7 +520,7 @@
     throw v1
 
     .line 109
-    :cond_2b
+    :cond_0
     iget v1, p0, Landroid/database/MatrixCursor;->rowCount:I
 
     add-int/lit8 v2, v1, 0x1
@@ -553,7 +553,7 @@
 .end method
 
 .method public getBlob(I)[B
-    .registers 3
+    .locals 1
     .parameter "column"
 
     .prologue
@@ -573,7 +573,7 @@
 .end method
 
 .method public getColumnNames()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 224
@@ -583,7 +583,7 @@
 .end method
 
 .method public getCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 219
@@ -593,7 +593,7 @@
 .end method
 
 .method public getDouble(I)D
-    .registers 5
+    .locals 3
     .parameter "column"
 
     .prologue
@@ -604,21 +604,21 @@
 
     .line 269
     .local v0, value:Ljava/lang/Object;
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     const-wide/16 v1, 0x0
 
     .line 271
     .end local v0           #value:Ljava/lang/Object;
-    :goto_8
+    :goto_0
     return-wide v1
 
     .line 270
     .restart local v0       #value:Ljava/lang/Object;
-    :cond_9
+    :cond_0
     instance-of v1, v0, Ljava/lang/Number;
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_1
 
     check-cast v0, Ljava/lang/Number;
 
@@ -627,11 +627,11 @@
 
     move-result-wide v1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 271
     .restart local v0       #value:Ljava/lang/Object;
-    :cond_14
+    :cond_1
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -640,11 +640,11 @@
 
     move-result-wide v1
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getFloat(I)F
-    .registers 4
+    .locals 2
     .parameter "column"
 
     .prologue
@@ -655,21 +655,21 @@
 
     .line 261
     .local v0, value:Ljava/lang/Object;
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v1, 0x0
 
     .line 263
     .end local v0           #value:Ljava/lang/Object;
-    :goto_7
+    :goto_0
     return v1
 
     .line 262
     .restart local v0       #value:Ljava/lang/Object;
-    :cond_8
+    :cond_0
     instance-of v1, v0, Ljava/lang/Number;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     check-cast v0, Ljava/lang/Number;
 
@@ -678,11 +678,11 @@
 
     move-result v1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 263
     .restart local v0       #value:Ljava/lang/Object;
-    :cond_13
+    :cond_1
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -691,11 +691,11 @@
 
     move-result v1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getInt(I)I
-    .registers 4
+    .locals 2
     .parameter "column"
 
     .prologue
@@ -706,21 +706,21 @@
 
     .line 245
     .local v0, value:Ljava/lang/Object;
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v1, 0x0
 
     .line 247
     .end local v0           #value:Ljava/lang/Object;
-    :goto_7
+    :goto_0
     return v1
 
     .line 246
     .restart local v0       #value:Ljava/lang/Object;
-    :cond_8
+    :cond_0
     instance-of v1, v0, Ljava/lang/Number;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     check-cast v0, Ljava/lang/Number;
 
@@ -729,11 +729,11 @@
 
     move-result v1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 247
     .restart local v0       #value:Ljava/lang/Object;
-    :cond_13
+    :cond_1
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -742,11 +742,11 @@
 
     move-result v1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getLong(I)J
-    .registers 5
+    .locals 3
     .parameter "column"
 
     .prologue
@@ -757,21 +757,21 @@
 
     .line 253
     .local v0, value:Ljava/lang/Object;
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     const-wide/16 v1, 0x0
 
     .line 255
     .end local v0           #value:Ljava/lang/Object;
-    :goto_8
+    :goto_0
     return-wide v1
 
     .line 254
     .restart local v0       #value:Ljava/lang/Object;
-    :cond_9
+    :cond_0
     instance-of v1, v0, Ljava/lang/Number;
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_1
 
     check-cast v0, Ljava/lang/Number;
 
@@ -780,11 +780,11 @@
 
     move-result-wide v1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 255
     .restart local v0       #value:Ljava/lang/Object;
-    :cond_14
+    :cond_1
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -793,11 +793,11 @@
 
     move-result-wide v1
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getShort(I)S
-    .registers 4
+    .locals 2
     .parameter "column"
 
     .prologue
@@ -808,21 +808,21 @@
 
     .line 237
     .local v0, value:Ljava/lang/Object;
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v1, 0x0
 
     .line 239
     .end local v0           #value:Ljava/lang/Object;
-    :goto_7
+    :goto_0
     return v1
 
     .line 238
     .restart local v0       #value:Ljava/lang/Object;
-    :cond_8
+    :cond_0
     instance-of v1, v0, Ljava/lang/Number;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     check-cast v0, Ljava/lang/Number;
 
@@ -831,11 +831,11 @@
 
     move-result v1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 239
     .restart local v0       #value:Ljava/lang/Object;
-    :cond_13
+    :cond_1
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -844,11 +844,11 @@
 
     move-result v1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getString(I)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "column"
 
     .prologue
@@ -859,24 +859,24 @@
 
     .line 230
     .local v0, value:Ljava/lang/Object;
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v1, 0x0
 
     .line 231
-    :goto_7
+    :goto_0
     return-object v1
 
-    :cond_8
+    :cond_0
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getType(I)I
-    .registers 3
+    .locals 1
     .parameter "column"
 
     .prologue
@@ -893,7 +893,7 @@
 .end method
 
 .method public isNull(I)Z
-    .registers 3
+    .locals 1
     .parameter "column"
 
     .prologue
@@ -902,21 +902,21 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public newRow()Landroid/database/MatrixCursor$RowBuilder;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 86

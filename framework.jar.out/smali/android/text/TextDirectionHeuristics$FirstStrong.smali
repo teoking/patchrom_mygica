@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 186
@@ -37,7 +37,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 183
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public checkRtl([CII)Landroid/text/TextDirectionHeuristics$TriState;
-    .registers 8
+    .locals 4
     .parameter "text"
     .parameter "start"
     .parameter "count"
@@ -67,12 +67,12 @@
     add-int v0, p2, p3
 
     .local v0, e:I
-    :goto_5
-    if-ge v1, v0, :cond_18
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     sget-object v3, Landroid/text/TextDirectionHeuristics$TriState;->UNKNOWN:Landroid/text/TextDirectionHeuristics$TriState;
 
-    if-ne v2, v3, :cond_18
+    if-ne v2, v3, :cond_0
 
     .line 178
     aget-char v3, p1, v1
@@ -81,6 +81,7 @@
 
     move-result v3
 
+    #calls: Landroid/text/TextDirectionHeuristics;->isRtlTextOrFormat(I)Landroid/text/TextDirectionHeuristics$TriState;
     invoke-static {v3}, Landroid/text/TextDirectionHeuristics;->access$100(I)Landroid/text/TextDirectionHeuristics$TriState;
 
     move-result-object v2
@@ -88,9 +89,9 @@
     .line 177
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 180
-    :cond_18
+    :cond_0
     return-object v2
 .end method

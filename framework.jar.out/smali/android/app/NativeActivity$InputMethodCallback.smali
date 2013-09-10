@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/NativeActivity;)V
-    .registers 3
+    .locals 1
     .parameter "na"
 
     .prologue
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public finishedEvent(IZ)V
-    .registers 5
+    .locals 2
     .parameter "seq"
     .parameter "handled"
 
@@ -66,22 +66,24 @@
 
     .line 132
     .local v0, na:Landroid/app/NativeActivity;
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 133
+    #getter for: Landroid/app/NativeActivity;->mNativeHandle:I
     invoke-static {v0}, Landroid/app/NativeActivity;->access$000(Landroid/app/NativeActivity;)I
 
     move-result v1
 
+    #calls: Landroid/app/NativeActivity;->finishPreDispatchKeyEventNative(IIZ)V
     invoke-static {v0, v1, p1, p2}, Landroid/app/NativeActivity;->access$100(Landroid/app/NativeActivity;IIZ)V
 
     .line 135
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 .method public sessionCreated(Lcom/android/internal/view/IInputMethodSession;)V
-    .registers 2
+    .locals 0
     .parameter "session"
 
     .prologue

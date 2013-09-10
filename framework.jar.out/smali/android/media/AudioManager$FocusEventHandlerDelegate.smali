@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/AudioManager;)V
-    .registers 4
+    .locals 2
     .parameter
 
     .prologue
@@ -37,7 +37,7 @@
     move-result-object v0
 
     .local v0, looper:Landroid/os/Looper;
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 1806
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -45,8 +45,8 @@
     move-result-object v0
 
     .line 1809
-    :cond_f
-    if-eqz v0, :cond_19
+    :cond_0
+    if-eqz v0, :cond_1
 
     .line 1811
     new-instance v1, Landroid/media/AudioManager$FocusEventHandlerDelegate$1;
@@ -56,22 +56,22 @@
     iput-object v1, p0, Landroid/media/AudioManager$FocusEventHandlerDelegate;->mHandler:Landroid/os/Handler;
 
     .line 1826
-    :goto_18
+    :goto_0
     return-void
 
     .line 1824
-    :cond_19
+    :cond_1
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/media/AudioManager$FocusEventHandlerDelegate;->mHandler:Landroid/os/Handler;
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method getHandler()Landroid/os/Handler;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1829

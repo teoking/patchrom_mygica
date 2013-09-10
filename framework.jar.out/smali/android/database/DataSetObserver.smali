@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -17,7 +17,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 31
@@ -25,7 +25,7 @@
 .end method
 
 .method public onInvalidated()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 40

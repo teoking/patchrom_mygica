@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/PackageManagerBackupAgent;I[Landroid/content/pm/Signature;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "version"
     .parameter "sigs"

@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViews;ILandroid/content/Intent;)V
-    .registers 5
+    .locals 1
     .parameter
     .parameter "id"
     .parameter "intent"
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "parcel"
 
@@ -89,7 +89,7 @@
 
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
-    .registers 10
+    .locals 6
     .parameter "root"
     .parameter "rootParent"
     .parameter "handler"
@@ -104,18 +104,18 @@
 
     .line 428
     .local v1, target:Landroid/view/View;
-    if-nez v1, :cond_9
+    if-nez v1, :cond_1
 
     .line 454
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     return-void
 
     .line 431
-    :cond_9
+    :cond_1
     instance-of v3, p2, Landroid/appwidget/AppWidgetHostView;
 
-    if-nez v3, :cond_2e
+    if-nez v3, :cond_2
 
     .line 432
     const-string v3, "RemoteViews"
@@ -148,17 +148,17 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_8
+    goto :goto_0
 
     .line 437
-    :cond_2e
+    :cond_2
     instance-of v3, v1, Landroid/widget/AbsListView;
 
-    if-nez v3, :cond_57
+    if-nez v3, :cond_3
 
     instance-of v3, v1, Landroid/widget/AdapterViewAnimator;
 
-    if-nez v3, :cond_57
+    if-nez v3, :cond_3
 
     .line 438
     const-string v3, "RemoteViews"
@@ -191,9 +191,9 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_8
+    goto :goto_0
 
-    :cond_57
+    :cond_3
     move-object v0, p2
 
     .line 445
@@ -214,7 +214,7 @@
     .line 447
     instance-of v3, v1, Landroid/widget/AbsListView;
 
-    if-eqz v3, :cond_73
+    if-eqz v3, :cond_4
 
     move-object v2, v1
 
@@ -227,14 +227,14 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/AbsListView;->setRemoteViewsAdapter(Landroid/content/Intent;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 450
     .end local v2           #v:Landroid/widget/AbsListView;
-    :cond_73
+    :cond_4
     instance-of v3, v1, Landroid/widget/AdapterViewAnimator;
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_0
 
     move-object v2, v1
 
@@ -247,11 +247,11 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/AdapterViewAnimator;->setRemoteViewsAdapter(Landroid/content/Intent;)V
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

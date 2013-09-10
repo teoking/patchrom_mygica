@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/ContentService$ObserverNode;Landroid/database/IContentObserver;Z)V
-    .registers 4
+    .locals 0
     .parameter "node"
     .parameter "observer"
     .parameter "selfChange"

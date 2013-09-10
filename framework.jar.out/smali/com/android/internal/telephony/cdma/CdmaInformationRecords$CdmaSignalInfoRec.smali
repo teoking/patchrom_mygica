@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 111
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>(IIII)V
-    .registers 6
+    .locals 1
     .parameter "isPresent"
     .parameter "signalType"
     .parameter "alertPitch"
@@ -47,11 +47,11 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 114
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     iput-boolean v0, p0, Lcom/android/internal/telephony/cdma/CdmaInformationRecords$CdmaSignalInfoRec;->isPresent:Z
 
     .line 115
@@ -67,16 +67,16 @@
     return-void
 
     .line 114
-    :cond_f
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 122

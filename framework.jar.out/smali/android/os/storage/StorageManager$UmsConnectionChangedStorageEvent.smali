@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/storage/StorageManager;Z)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "a"
 

@@ -13,7 +13,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 112
@@ -23,7 +23,7 @@
 .end method
 
 .method public static getInstance()Landroid/webkit/WebIconDatabase;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 106
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public bulkRequestIconForPageUrl(Landroid/content/ContentResolver;Ljava/lang/String;Landroid/webkit/WebIconDatabase$IconListener;)V
-    .registers 5
+    .locals 1
     .parameter "cr"
     .parameter "where"
     .parameter "listener"
@@ -56,7 +56,7 @@
 .end method
 
 .method public close()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 55
@@ -68,7 +68,7 @@
 .end method
 
 .method public open(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "path"
 
     .prologue
@@ -81,7 +81,7 @@
 .end method
 
 .method public releaseIconForPageUrl(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "url"
 
     .prologue
@@ -94,7 +94,7 @@
 .end method
 
 .method public removeAllIcons()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 62
@@ -106,7 +106,7 @@
 .end method
 
 .method public requestIconForPageUrl(Ljava/lang/String;Landroid/webkit/WebIconDatabase$IconListener;)V
-    .registers 4
+    .locals 1
     .parameter "url"
     .parameter "listener"
 
@@ -120,7 +120,7 @@
 .end method
 
 .method public retainIconForPageUrl(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "url"
 
     .prologue

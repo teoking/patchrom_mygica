@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViewsAdapter;ILandroid/widget/RemoteViews;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,12 +48,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 985
     iget-object v0, p0, Landroid/widget/RemoteViewsAdapter$4;->this$0:Landroid/widget/RemoteViewsAdapter;
 
+    #getter for: Landroid/widget/RemoteViewsAdapter;->mRequestedViews:Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayoutRefSet;
     invoke-static {v0}, Landroid/widget/RemoteViewsAdapter;->access$1700(Landroid/widget/RemoteViewsAdapter;)Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayoutRefSet;
 
     move-result-object v0

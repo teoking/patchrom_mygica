@@ -461,7 +461,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 8
+    .locals 8
 
     .prologue
     const/4 v7, 0x4
@@ -1150,7 +1150,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 785
@@ -1160,7 +1160,7 @@
 .end method
 
 .method public static clearConfiguration(Landroid/content/res/Configuration;)V
-    .registers 2
+    .locals 1
     .parameter "inoutConfig"
 
     .prologue
@@ -1174,7 +1174,7 @@
 .end method
 
 .method public static getConfiguration(Landroid/content/ContentResolver;Landroid/content/res/Configuration;)V
-    .registers 4
+    .locals 2
     .parameter "cr"
     .parameter "outConfig"
 
@@ -1197,7 +1197,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_15
+    if-gez v0, :cond_0
 
     .line 1100
     const/high16 v0, 0x3f80
@@ -1205,12 +1205,12 @@
     iput v0, p1, Landroid/content/res/Configuration;->fontScale:F
 
     .line 1102
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method public static getFloat(Landroid/content/ContentResolver;Ljava/lang/String;)F
-    .registers 5
+    .locals 3
     .parameter "cr"
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
@@ -1227,7 +1227,7 @@
 
     .line 1061
     .local v1, v:Ljava/lang/String;
-    if-nez v1, :cond_c
+    if-nez v1, :cond_0
 
     .line 1062
     new-instance v2, Landroid/provider/Settings$SettingNotFoundException;
@@ -1237,18 +1237,18 @@
     throw v2
 
     .line 1065
-    :cond_c
-    :try_start_c
+    :cond_0
+    :try_start_0
     invoke-static {v1}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-    :try_end_f
-    .catch Ljava/lang/NumberFormatException; {:try_start_c .. :try_end_f} :catch_11
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v2
 
     return v2
 
     .line 1066
-    :catch_11
+    :catch_0
     move-exception v0
 
     .line 1067
@@ -1261,7 +1261,7 @@
 .end method
 
 .method public static getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
-    .registers 5
+    .locals 2
     .parameter "cr"
     .parameter "name"
     .parameter "def"
@@ -1274,33 +1274,33 @@
 
     .line 1034
     .local v1, v:Ljava/lang/String;
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_0
 
-    :try_start_6
+    :try_start_0
     invoke-static {v1}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-    :try_end_9
-    .catch Ljava/lang/NumberFormatException; {:try_start_6 .. :try_end_9} :catch_b
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result p2
 
     .line 1036
     .end local p2
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return p2
 
     .line 1035
     .restart local p2
-    :catch_b
+    :catch_0
     move-exception v0
 
     .line 1036
     .local v0, e:Ljava/lang/NumberFormatException;
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public static getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
-    .registers 5
+    .locals 3
     .parameter "cr"
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
@@ -1317,17 +1317,17 @@
 
     .line 925
     .local v1, v:Ljava/lang/String;
-    :try_start_4
+    :try_start_0
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_7
-    .catch Ljava/lang/NumberFormatException; {:try_start_4 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v2
 
     return v2
 
     .line 926
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 927
@@ -1340,7 +1340,7 @@
 .end method
 
 .method public static getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-    .registers 5
+    .locals 2
     .parameter "cr"
     .parameter "name"
     .parameter "def"
@@ -1353,33 +1353,33 @@
 
     .line 897
     .local v1, v:Ljava/lang/String;
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_0
 
-    :try_start_6
+    :try_start_0
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_9
-    .catch Ljava/lang/NumberFormatException; {:try_start_6 .. :try_end_9} :catch_b
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result p2
 
     .line 899
     .end local p2
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return p2
 
     .line 898
     .restart local p2
-    :catch_b
+    :catch_0
     move-exception v0
 
     .line 899
     .local v0, e:Ljava/lang/NumberFormatException;
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public static getLong(Landroid/content/ContentResolver;Ljava/lang/String;)J
-    .registers 6
+    .locals 4
     .parameter "cr"
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
@@ -1396,17 +1396,17 @@
 
     .line 994
     .local v1, valString:Ljava/lang/String;
-    :try_start_4
+    :try_start_0
     invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-    :try_end_7
-    .catch Ljava/lang/NumberFormatException; {:try_start_4 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-wide v2
 
     return-wide v2
 
     .line 995
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 996
@@ -1419,7 +1419,7 @@
 .end method
 
 .method public static getLong(Landroid/content/ContentResolver;Ljava/lang/String;J)J
-    .registers 8
+    .locals 4
     .parameter "cr"
     .parameter "name"
     .parameter "def"
@@ -1432,29 +1432,29 @@
 
     .line 966
     .local v1, valString:Ljava/lang/String;
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
-    :try_start_6
+    :try_start_0
     invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-    :try_end_9
-    .catch Ljava/lang/NumberFormatException; {:try_start_6 .. :try_end_9} :catch_d
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-wide v2
 
     .line 970
     .local v2, value:J
-    :goto_a
+    :goto_0
     return-wide v2
 
     .end local v2           #value:J
-    :cond_b
+    :cond_0
     move-wide v2, p2
 
     .line 966
-    goto :goto_a
+    goto :goto_0
 
     .line 967
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 968
@@ -1462,11 +1462,11 @@
     move-wide v2, p2
 
     .restart local v2       #value:J
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public static getShowGTalkServiceStatus(Landroid/content/ContentResolver;)Z
-    .registers 3
+    .locals 2
     .parameter "cr"
 
     .prologue
@@ -1479,16 +1479,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_0
 
     const/4 v0, 0x1
 
-    :cond_a
+    :cond_0
     return v0
 .end method
 
 .method public static declared-synchronized getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-    .registers 7
+    .locals 5
     .parameter "resolver"
     .parameter "name"
 
@@ -1498,14 +1498,14 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/provider/Settings$System;->MOVED_TO_SECURE:Ljava/util/HashSet;
 
     invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_35
+    if-eqz v0, :cond_0
 
     .line 838
     const-string v0, "Settings"
@@ -1544,23 +1544,23 @@
 
     .line 840
     invoke-static {p0, p1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-    :try_end_32
-    .catchall {:try_start_3 .. :try_end_32} :catchall_4e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
     .line 846
-    :goto_33
+    :goto_0
     monitor-exit v1
 
     return-object v0
 
     .line 842
-    :cond_35
-    :try_start_35
+    :cond_0
+    :try_start_1
     sget-object v0, Landroid/provider/Settings$System;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
 
-    if-nez v0, :cond_47
+    if-nez v0, :cond_1
 
     .line 843
     new-instance v0, Landroid/provider/Settings$NameValueCache;
@@ -1576,19 +1576,19 @@
     sput-object v0, Landroid/provider/Settings$System;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
 
     .line 846
-    :cond_47
+    :cond_1
     sget-object v0, Landroid/provider/Settings$System;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
 
     invoke-virtual {v0, p0, p1}, Landroid/provider/Settings$NameValueCache;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-    :try_end_4c
-    .catchall {:try_start_35 .. :try_end_4c} :catchall_4e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v0
 
-    goto :goto_33
+    goto :goto_0
 
     .line 837
-    :catchall_4e
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -1597,7 +1597,7 @@
 .end method
 
 .method public static getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-    .registers 4
+    .locals 3
     .parameter "name"
 
     .prologue
@@ -1608,7 +1608,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_0
 
     .line 873
     const-string v0, "Settings"
@@ -1653,21 +1653,21 @@
     move-result-object v0
 
     .line 877
-    :goto_32
+    :goto_0
     return-object v0
 
-    :cond_33
+    :cond_0
     sget-object v0, Landroid/provider/Settings$System;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {v0, p0}, Landroid/provider/Settings$System;->getUriFor(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
-    goto :goto_32
+    goto :goto_0
 .end method
 
 .method public static hasInterestingConfigurationChanges(I)Z
-    .registers 2
+    .locals 1
     .parameter "changes"
 
     .prologue
@@ -1676,21 +1676,21 @@
 
     and-int/2addr v0, p0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public static putConfiguration(Landroid/content/ContentResolver;Landroid/content/res/Configuration;)Z
-    .registers 4
+    .locals 2
     .parameter "cr"
     .parameter "config"
 
@@ -1708,7 +1708,7 @@
 .end method
 
 .method public static putFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)Z
-    .registers 4
+    .locals 1
     .parameter "cr"
     .parameter "name"
     .parameter "value"
@@ -1727,7 +1727,7 @@
 .end method
 
 .method public static putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-    .registers 4
+    .locals 1
     .parameter "cr"
     .parameter "name"
     .parameter "value"
@@ -1746,7 +1746,7 @@
 .end method
 
 .method public static putLong(Landroid/content/ContentResolver;Ljava/lang/String;J)Z
-    .registers 5
+    .locals 1
     .parameter "cr"
     .parameter "name"
     .parameter "value"
@@ -1765,7 +1765,7 @@
 .end method
 
 .method public static putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-    .registers 6
+    .locals 3
     .parameter "resolver"
     .parameter "name"
     .parameter "value"
@@ -1778,7 +1778,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_0
 
     .line 858
     const-string v0, "Settings"
@@ -1819,21 +1819,21 @@
     const/4 v0, 0x0
 
     .line 862
-    :goto_2d
+    :goto_0
     return v0
 
-    :cond_2e
+    :cond_0
     sget-object v0, Landroid/provider/Settings$System;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {p0, v0, p1, p2}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v0
 
-    goto :goto_2d
+    goto :goto_0
 .end method
 
 .method public static setShowGTalkServiceStatus(Landroid/content/ContentResolver;Z)V
-    .registers 4
+    .locals 2
     .parameter "cr"
     .parameter "flag"
 
@@ -1841,19 +1841,19 @@
     .line 1134
     const-string v1, "SHOW_GTALK_SERVICE_STATUS"
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     invoke-static {p0, v1, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     .line 1135
     return-void
 
     .line 1134
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method

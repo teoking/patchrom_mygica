@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "text"
     .parameter "html"
 
@@ -38,7 +38,7 @@
 .end method
 
 .method private static trimLeadingWhitespace(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "text"
 
     .prologue
@@ -47,12 +47,12 @@
 
     .line 752
     .local v0, index:I
-    :goto_1
+    :goto_0
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_14
+    if-ge v0, v1, :cond_0
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
 
@@ -62,15 +62,15 @@
 
     move-result v1
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_0
 
     .line 754
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 756
-    :cond_14
+    :cond_0
     invoke-virtual {p0, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v1
@@ -79,7 +79,7 @@
 .end method
 
 .method public static trimTrailingWhitespace(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "text"
 
     .prologue
@@ -90,8 +90,8 @@
 
     .line 761
     .local v0, index:I
-    :goto_4
-    if-lez v0, :cond_15
+    :goto_0
+    if-lez v0, :cond_0
 
     add-int/lit8 v1, v0, -0x1
 
@@ -103,15 +103,15 @@
 
     move-result v1
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_0
 
     .line 762
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 764
-    :cond_15
+    :cond_0
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public getInfo()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -145,7 +145,7 @@
 .end method
 
 .method public isHtml()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 729
@@ -155,12 +155,12 @@
 .end method
 
 .method public toHtml(Z)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "caps"
 
     .prologue
     .line 731
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/google/android/util/AbstractMessageParser$Html;->html:Ljava/lang/String;
 
@@ -168,17 +168,17 @@
 
     move-result-object v0
 
-    :goto_8
+    :goto_0
     return-object v0
 
-    :cond_9
+    :cond_0
     iget-object v0, p0, Lcom/google/android/util/AbstractMessageParser$Html;->html:Ljava/lang/String;
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public trimLeadingWhitespace()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 741
@@ -204,7 +204,7 @@
 .end method
 
 .method public trimTrailingWhitespace()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 746

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/animation/AnimatorSet;Ljava/util/ArrayList;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .registers 3
+    .locals 1
     .parameter "anim"
 
     .prologue
@@ -61,14 +61,14 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .registers 7
+    .locals 5
     .parameter "anim"
 
     .prologue
     .line 523
     iget-boolean v3, p0, Landroid/animation/AnimatorSet$1;->canceled:Z
 
-    if-nez v3, :cond_28
+    if-nez v3, :cond_0
 
     .line 524
     iget-object v3, p0, Landroid/animation/AnimatorSet$1;->val$nodesToStart:Ljava/util/ArrayList;
@@ -82,8 +82,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_b
-    if-ge v0, v2, :cond_28
+    :goto_0
+    if-ge v0, v2, :cond_0
 
     .line 526
     iget-object v3, p0, Landroid/animation/AnimatorSet$1;->val$nodesToStart:Ljava/util/ArrayList;
@@ -103,6 +103,7 @@
     .line 528
     iget-object v3, p0, Landroid/animation/AnimatorSet$1;->this$0:Landroid/animation/AnimatorSet;
 
+    #getter for: Landroid/animation/AnimatorSet;->mPlayingSet:Ljava/util/ArrayList;
     invoke-static {v3}, Landroid/animation/AnimatorSet;->access$000(Landroid/animation/AnimatorSet;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -114,12 +115,12 @@
     .line 525
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 531
     .end local v0           #i:I
     .end local v1           #node:Landroid/animation/AnimatorSet$Node;
     .end local v2           #numNodes:I
-    :cond_28
+    :cond_0
     return-void
 .end method

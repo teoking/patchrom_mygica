@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 3471
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/MotionEvent$PointerProperties;)V
-    .registers 2
+    .locals 0
     .parameter "other"
 
     .prologue
@@ -51,7 +51,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/view/MotionEvent$PointerProperties;Landroid/view/MotionEvent$PointerProperties;)Z
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public static createArray(I)[Landroid/view/MotionEvent$PointerProperties;
-    .registers 4
+    .locals 3
     .parameter "size"
 
     .prologue
@@ -77,8 +77,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_3
-    if-ge v1, p0, :cond_f
+    :goto_0
+    if-ge v1, p0, :cond_0
 
     .line 3488
     new-instance v2, Landroid/view/MotionEvent$PointerProperties;
@@ -90,48 +90,48 @@
     .line 3487
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 3490
-    :cond_f
+    :cond_0
     return-object v0
 .end method
 
 .method private equals(Landroid/view/MotionEvent$PointerProperties;)Z
-    .registers 4
+    .locals 2
     .parameter "other"
 
     .prologue
     .line 3536
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     iget v0, p0, Landroid/view/MotionEvent$PointerProperties;->id:I
 
     iget v1, p1, Landroid/view/MotionEvent$PointerProperties;->id:I
 
-    if-ne v0, v1, :cond_10
+    if-ne v0, v1, :cond_0
 
     iget v0, p0, Landroid/view/MotionEvent$PointerProperties;->toolType:I
 
     iget v1, p1, Landroid/view/MotionEvent$PointerProperties;->toolType:I
 
-    if-ne v0, v1, :cond_10
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public clear()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 3513
@@ -149,7 +149,7 @@
 .end method
 
 .method public copyFrom(Landroid/view/MotionEvent$PointerProperties;)V
-    .registers 3
+    .locals 1
     .parameter "other"
 
     .prologue
@@ -168,14 +168,14 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 3
+    .locals 1
     .parameter "other"
 
     .prologue
     .line 3529
     instance-of v0, p1, Landroid/view/MotionEvent$PointerProperties;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 3530
     check-cast p1, Landroid/view/MotionEvent$PointerProperties;
@@ -186,18 +186,18 @@
     move-result v0
 
     .line 3532
-    :goto_a
+    :goto_0
     return v0
 
     .restart local p1
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3541

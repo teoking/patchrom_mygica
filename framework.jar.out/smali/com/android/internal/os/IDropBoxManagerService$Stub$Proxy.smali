@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public add(Landroid/os/DropBoxManager$Entry;)V
-    .registers 7
+    .locals 5
     .parameter "entry"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -62,13 +62,13 @@
 
     .line 122
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.os.IDropBoxManagerService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 123
-    if-eqz p1, :cond_28
+    if-eqz p1, :cond_0
 
     .line 124
     const/4 v2, 0x1
@@ -81,7 +81,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/os/DropBoxManager$Entry;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 130
-    :goto_17
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/os/IDropBoxManagerService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x1
@@ -92,8 +92,8 @@
 
     .line 131
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_8 .. :try_end_21} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 134
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -105,18 +105,18 @@
     return-void
 
     .line 128
-    :cond_28
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_29
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2c
-    .catchall {:try_start_29 .. :try_end_2c} :catchall_2d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 134
-    :catchall_2d
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -128,7 +128,7 @@
 .end method
 
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 106
@@ -138,7 +138,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 110
@@ -148,7 +148,7 @@
 .end method
 
 .method public getNextEntry(Ljava/lang/String;J)Landroid/os/DropBoxManager$Entry;
-    .registers 10
+    .locals 6
     .parameter "tag"
     .parameter "millis"
     .annotation system Ldalvik/annotation/Throws;
@@ -171,7 +171,7 @@
 
     .line 164
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.os.IDropBoxManagerService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -199,7 +199,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_32
+    if-eqz v3, :cond_0
 
     .line 170
     sget-object v3, Landroid/os/DropBoxManager$Entry;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -209,12 +209,12 @@
     move-result-object v2
 
     check-cast v2, Landroid/os/DropBoxManager$Entry;
-    :try_end_2b
-    .catchall {:try_start_8 .. :try_end_2b} :catchall_34
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 177
     .local v2, _result:Landroid/os/DropBoxManager$Entry;
-    :goto_2b
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 178
@@ -225,15 +225,15 @@
 
     .line 173
     .end local v2           #_result:Landroid/os/DropBoxManager$Entry;
-    :cond_32
+    :cond_0
     const/4 v2, 0x0
 
     .restart local v2       #_result:Landroid/os/DropBoxManager$Entry;
-    goto :goto_2b
+    goto :goto_0
 
     .line 177
     .end local v2           #_result:Landroid/os/DropBoxManager$Entry;
-    :catchall_34
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -245,7 +245,7 @@
 .end method
 
 .method public isTagEnabled(Ljava/lang/String;)Z
-    .registers 8
+    .locals 6
     .parameter "tag"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -269,7 +269,7 @@
 
     .line 145
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "com.android.internal.os.IDropBoxManagerService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -291,18 +291,18 @@
 
     .line 149
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1e
-    .catchall {:try_start_9 .. :try_end_1e} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_22
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 152
     .local v2, _result:Z
-    :cond_22
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 153
@@ -313,7 +313,7 @@
 
     .line 152
     .end local v2           #_result:Z
-    :catchall_29
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

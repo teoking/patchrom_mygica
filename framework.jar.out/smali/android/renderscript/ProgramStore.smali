@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
-    .registers 3
+    .locals 0
     .parameter "id"
     .parameter "rs"
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public static BLEND_ALPHA_DEPTH_NONE(Landroid/renderscript/RenderScript;)Landroid/renderscript/ProgramStore;
-    .registers 5
+    .locals 4
     .parameter "rs"
 
     .prologue
@@ -58,7 +58,7 @@
     .line 305
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramStore_BLEND_ALPHA_DEPTH_NO_DEPTH:Landroid/renderscript/ProgramStore;
 
-    if-nez v1, :cond_22
+    if-nez v1, :cond_0
 
     .line 306
     new-instance v0, Landroid/renderscript/ProgramStore$Builder;
@@ -93,21 +93,21 @@
 
     .line 313
     .end local v0           #builder:Landroid/renderscript/ProgramStore$Builder;
-    :cond_22
+    :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramStore_BLEND_ALPHA_DEPTH_NO_DEPTH:Landroid/renderscript/ProgramStore;
 
     return-object v1
 .end method
 
 .method public static BLEND_ALPHA_DEPTH_TEST(Landroid/renderscript/RenderScript;)Landroid/renderscript/ProgramStore;
-    .registers 4
+    .locals 3
     .parameter "rs"
 
     .prologue
     .line 283
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramStore_BLEND_ALPHA_DEPTH_TEST:Landroid/renderscript/ProgramStore;
 
-    if-nez v1, :cond_23
+    if-nez v1, :cond_0
 
     .line 284
     new-instance v0, Landroid/renderscript/ProgramStore$Builder;
@@ -146,14 +146,14 @@
 
     .line 291
     .end local v0           #builder:Landroid/renderscript/ProgramStore$Builder;
-    :cond_23
+    :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramStore_BLEND_ALPHA_DEPTH_TEST:Landroid/renderscript/ProgramStore;
 
     return-object v1
 .end method
 
 .method public static BLEND_NONE_DEPTH_NONE(Landroid/renderscript/RenderScript;)Landroid/renderscript/ProgramStore;
-    .registers 5
+    .locals 4
     .parameter "rs"
 
     .prologue
@@ -162,7 +162,7 @@
     .line 259
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramStore_BLEND_NONE_DEPTH_NO_DEPTH:Landroid/renderscript/ProgramStore;
 
-    if-nez v1, :cond_22
+    if-nez v1, :cond_0
 
     .line 260
     new-instance v0, Landroid/renderscript/ProgramStore$Builder;
@@ -197,21 +197,21 @@
 
     .line 267
     .end local v0           #builder:Landroid/renderscript/ProgramStore$Builder;
-    :cond_22
+    :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramStore_BLEND_NONE_DEPTH_NO_DEPTH:Landroid/renderscript/ProgramStore;
 
     return-object v1
 .end method
 
 .method public static BLEND_NONE_DEPTH_TEST(Landroid/renderscript/RenderScript;)Landroid/renderscript/ProgramStore;
-    .registers 4
+    .locals 3
     .parameter "rs"
 
     .prologue
     .line 238
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramStore_BLEND_NONE_DEPTH_TEST:Landroid/renderscript/ProgramStore;
 
-    if-nez v1, :cond_23
+    if-nez v1, :cond_0
 
     .line 239
     new-instance v0, Landroid/renderscript/ProgramStore$Builder;
@@ -250,7 +250,7 @@
 
     .line 246
     .end local v0           #builder:Landroid/renderscript/ProgramStore$Builder;
-    :cond_23
+    :cond_0
     iget-object v1, p0, Landroid/renderscript/RenderScript;->mProgramStore_BLEND_NONE_DEPTH_TEST:Landroid/renderscript/ProgramStore;
 
     return-object v1
@@ -259,7 +259,7 @@
 
 # virtual methods
 .method public getBlendDstFunc()Landroid/renderscript/ProgramStore$BlendDstFunc;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 214
@@ -269,7 +269,7 @@
 .end method
 
 .method public getBlendSrcFunc()Landroid/renderscript/ProgramStore$BlendSrcFunc;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 206
@@ -279,7 +279,7 @@
 .end method
 
 .method public getDepthFunc()Landroid/renderscript/ProgramStore$DepthFunc;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 158
@@ -289,7 +289,7 @@
 .end method
 
 .method public isColorMaskAlphaEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 198
@@ -299,7 +299,7 @@
 .end method
 
 .method public isColorMaskBlueEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 190
@@ -309,7 +309,7 @@
 .end method
 
 .method public isColorMaskGreenEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 182
@@ -319,7 +319,7 @@
 .end method
 
 .method public isColorMaskRedEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 174
@@ -329,7 +329,7 @@
 .end method
 
 .method public isDepthMaskEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 166
@@ -339,7 +339,7 @@
 .end method
 
 .method public isDitherEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 223

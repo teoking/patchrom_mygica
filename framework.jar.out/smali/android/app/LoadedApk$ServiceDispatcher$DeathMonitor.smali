@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/LoadedApk$ServiceDispatcher;Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "name"
     .parameter "service"
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1133

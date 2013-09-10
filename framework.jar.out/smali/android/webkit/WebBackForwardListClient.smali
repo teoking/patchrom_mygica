@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -17,7 +17,7 @@
 
 # virtual methods
 .method public onIndexChanged(Landroid/webkit/WebHistoryItem;I)V
-    .registers 3
+    .locals 0
     .parameter "item"
     .parameter "index"
 
@@ -27,7 +27,7 @@
 .end method
 
 .method public onNewHistoryItem(Landroid/webkit/WebHistoryItem;)V
-    .registers 2
+    .locals 0
     .parameter "item"
 
     .prologue

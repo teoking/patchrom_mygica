@@ -24,7 +24,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "origin"
 
     .prologue
@@ -52,7 +52,7 @@
 .end method
 
 .method protected constructor <init>(Ljava/lang/String;J)V
-    .registers 7
+    .locals 3
     .parameter "origin"
     .parameter "quota"
 
@@ -84,7 +84,7 @@
 .end method
 
 .method protected constructor <init>(Ljava/lang/String;JJ)V
-    .registers 9
+    .locals 3
     .parameter "origin"
     .parameter "quota"
     .parameter "usage"
@@ -122,7 +122,7 @@
 
 # virtual methods
 .method public getOrigin()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 93
@@ -132,7 +132,7 @@
 .end method
 
 .method public getQuota()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 104
@@ -142,7 +142,7 @@
 .end method
 
 .method public getUsage()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 114

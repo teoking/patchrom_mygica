@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/internal/util/StateMachine$SmHandler;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -39,7 +39,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/internal/util/StateMachine$SmHandler;Lcom/android/internal/util/StateMachine$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 701
@@ -97,11 +97,11 @@
 
     iget-object v0, p0, Lcom/android/internal/util/StateMachine$SmHandler$StateInfo;->parentStateInfo:Lcom/android/internal/util/StateMachine$SmHandler$StateInfo;
 
-    if-nez v0, :cond_38
+    if-nez v0, :cond_0
 
     const-string/jumbo v0, "null"
 
-    :goto_2f
+    :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -112,7 +112,7 @@
 
     return-object v0
 
-    :cond_38
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/util/StateMachine$SmHandler$StateInfo;->parentStateInfo:Lcom/android/internal/util/StateMachine$SmHandler$StateInfo;
 
     iget-object v0, v0, Lcom/android/internal/util/StateMachine$SmHandler$StateInfo;->state:Lcom/android/internal/util/State;
@@ -121,5 +121,5 @@
 
     move-result-object v0
 
-    goto :goto_2f
+    goto :goto_0
 .end method

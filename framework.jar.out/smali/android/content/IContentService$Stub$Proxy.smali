@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public addPeriodicSync(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;J)V
-    .registers 11
+    .locals 5
     .parameter "account"
     .parameter "providerName"
     .parameter "extras"
@@ -65,13 +65,13 @@
 
     .line 612
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.content.IContentService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 613
-    if-eqz p1, :cond_39
+    if-eqz p1, :cond_0
 
     .line 614
     const/4 v2, 0x1
@@ -84,11 +84,11 @@
     invoke-virtual {p1, v0, v2}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 620
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 621
-    if-eqz p3, :cond_46
+    if-eqz p3, :cond_1
 
     .line 622
     const/4 v2, 0x1
@@ -101,7 +101,7 @@
     invoke-virtual {p3, v0, v2}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 628
-    :goto_24
+    :goto_1
     invoke-virtual {v0, p4, p5}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 629
@@ -115,8 +115,8 @@
 
     .line 630
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_32
-    .catchall {:try_start_8 .. :try_end_32} :catchall_3e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 633
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -128,18 +128,18 @@
     return-void
 
     .line 618
-    :cond_39
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_3a
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_3d
-    .catchall {:try_start_3a .. :try_end_3d} :catchall_3e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 633
-    :catchall_3e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -150,19 +150,19 @@
     throw v2
 
     .line 626
-    :cond_46
+    :cond_1
     const/4 v2, 0x0
 
-    :try_start_47
+    :try_start_2
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_4a
-    .catchall {:try_start_47 .. :try_end_4a} :catchall_3e
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_24
+    goto :goto_1
 .end method
 
 .method public addStatusChangeListener(ILandroid/content/ISyncStatusObserver;)V
-    .registers 8
+    .locals 5
     .parameter "mask"
     .parameter "callback"
     .annotation system Ldalvik/annotation/Throws;
@@ -185,7 +185,7 @@
 
     .line 897
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.content.IContentService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -194,13 +194,13 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 899
-    if-eqz p2, :cond_2b
+    if-eqz p2, :cond_0
 
     invoke-interface {p2}, Landroid/content/ISyncStatusObserver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_16
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 900
@@ -214,8 +214,8 @@
 
     .line 901
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 904
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -227,13 +227,13 @@
     return-void
 
     .line 899
-    :cond_2b
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 904
-    :catchall_2d
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -245,7 +245,7 @@
 .end method
 
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 391
@@ -255,7 +255,7 @@
 .end method
 
 .method public cancelSync(Landroid/accounts/Account;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "account"
     .parameter "authority"
     .annotation system Ldalvik/annotation/Throws;
@@ -278,13 +278,13 @@
 
     .line 493
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.content.IContentService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 494
-    if-eqz p1, :cond_2b
+    if-eqz p1, :cond_0
 
     .line 495
     const/4 v2, 0x1
@@ -297,7 +297,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 501
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 502
@@ -311,8 +311,8 @@
 
     .line 503
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 506
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -324,18 +324,18 @@
     return-void
 
     .line 499
-    :cond_2b
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2c
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2f
-    .catchall {:try_start_2c .. :try_end_2f} :catchall_30
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 506
-    :catchall_30
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -347,7 +347,7 @@
 .end method
 
 .method public getCurrentSyncs()Ljava/util/List;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -378,7 +378,7 @@
 
     .line 796
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.content.IContentService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -399,8 +399,8 @@
     sget-object v3, Landroid/content/SyncInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {v1, v3}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -416,7 +416,7 @@
 
     .line 802
     .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/content/SyncInfo;>;"
-    :catchall_25
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -428,7 +428,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 395
@@ -438,7 +438,7 @@
 .end method
 
 .method public getIsSyncable(Landroid/accounts/Account;Ljava/lang/String;)I
-    .registers 9
+    .locals 6
     .parameter "account"
     .parameter "providerName"
     .annotation system Ldalvik/annotation/Throws;
@@ -461,13 +461,13 @@
 
     .line 683
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.content.IContentService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 684
-    if-eqz p1, :cond_30
+    if-eqz p1, :cond_0
 
     .line 685
     const/4 v3, 0x1
@@ -480,7 +480,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 691
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 692
@@ -497,8 +497,8 @@
 
     .line 694
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_28
-    .catchall {:try_start_8 .. :try_end_28} :catchall_35
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -514,18 +514,18 @@
 
     .line 689
     .end local v2           #_result:I
-    :cond_30
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_31
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_34
-    .catchall {:try_start_31 .. :try_end_34} :catchall_35
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 697
-    :catchall_35
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -537,7 +537,7 @@
 .end method
 
 .method public getMasterSyncAutomatically()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -560,7 +560,7 @@
 
     .line 750
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.content.IContentService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -579,18 +579,18 @@
 
     .line 753
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1c
-    .catchall {:try_start_9 .. :try_end_1c} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 756
     .local v2, _result:Z
-    :cond_20
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 757
@@ -601,7 +601,7 @@
 
     .line 756
     .end local v2           #_result:Z
-    :catchall_27
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -613,7 +613,7 @@
 .end method
 
 .method public getPeriodicSyncs(Landroid/accounts/Account;Ljava/lang/String;)Ljava/util/List;
-    .registers 9
+    .locals 6
     .parameter "account"
     .parameter "providerName"
     .annotation system Ldalvik/annotation/Signature;
@@ -649,13 +649,13 @@
 
     .line 581
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.content.IContentService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 582
-    if-eqz p1, :cond_32
+    if-eqz p1, :cond_0
 
     .line 583
     const/4 v3, 0x1
@@ -668,7 +668,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 589
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 590
@@ -687,8 +687,8 @@
     sget-object v3, Landroid/content/PeriodicSync;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {v1, v3}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
-    :try_end_2a
-    .catchall {:try_start_8 .. :try_end_2a} :catchall_37
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -704,18 +704,18 @@
 
     .line 587
     .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/content/PeriodicSync;>;"
-    :cond_32
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_33
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_36
-    .catchall {:try_start_33 .. :try_end_36} :catchall_37
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 595
-    :catchall_37
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -727,7 +727,7 @@
 .end method
 
 .method public getSyncAdapterTypes()[Landroid/content/SyncAdapterType;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -748,7 +748,7 @@
 
     .line 817
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.content.IContentService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -773,8 +773,8 @@
     move-result-object v2
 
     check-cast v2, [Landroid/content/SyncAdapterType;
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 823
     .local v2, _result:[Landroid/content/SyncAdapterType;
@@ -788,7 +788,7 @@
 
     .line 823
     .end local v2           #_result:[Landroid/content/SyncAdapterType;
-    :catchall_27
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -800,7 +800,7 @@
 .end method
 
 .method public getSyncAutomatically(Landroid/accounts/Account;Ljava/lang/String;)Z
-    .registers 10
+    .locals 7
     .parameter "account"
     .parameter "providerName"
     .annotation system Ldalvik/annotation/Throws;
@@ -827,13 +827,13 @@
 
     .line 521
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.content.IContentService"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 522
-    if-eqz p1, :cond_33
+    if-eqz p1, :cond_0
 
     .line 523
     const/4 v4, 0x1
@@ -846,7 +846,7 @@
     invoke-virtual {p1, v0, v4}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 529
-    :goto_19
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 530
@@ -863,16 +863,16 @@
 
     .line 532
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_29
-    .catchall {:try_start_a .. :try_end_29} :catchall_38
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_40
+    if-eqz v4, :cond_1
 
     .line 535
     .local v2, _result:Z
-    :goto_2c
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 536
@@ -883,18 +883,18 @@
 
     .line 527
     .end local v2           #_result:Z
-    :cond_33
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_34
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_37
-    .catchall {:try_start_34 .. :try_end_37} :catchall_38
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 535
-    :catchall_38
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -904,15 +904,15 @@
 
     throw v3
 
-    :cond_40
+    :cond_1
     move v2, v3
 
     .line 532
-    goto :goto_2c
+    goto :goto_1
 .end method
 
 .method public getSyncStatus(Landroid/accounts/Account;Ljava/lang/String;)Landroid/content/SyncStatusInfo;
-    .registers 9
+    .locals 6
     .parameter "account"
     .parameter "authority"
     .annotation system Ldalvik/annotation/Throws;
@@ -935,13 +935,13 @@
 
     .line 840
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.content.IContentService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 841
-    if-eqz p1, :cond_3a
+    if-eqz p1, :cond_0
 
     .line 842
     const/4 v3, 0x1
@@ -954,7 +954,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 848
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 849
@@ -974,7 +974,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_47
+    if-eqz v3, :cond_1
 
     .line 852
     sget-object v3, Landroid/content/SyncStatusInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -984,12 +984,12 @@
     move-result-object v2
 
     check-cast v2, Landroid/content/SyncStatusInfo;
-    :try_end_33
-    .catchall {:try_start_8 .. :try_end_33} :catchall_3f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 859
     .local v2, _result:Landroid/content/SyncStatusInfo;
-    :goto_33
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 860
@@ -1000,18 +1000,18 @@
 
     .line 846
     .end local v2           #_result:Landroid/content/SyncStatusInfo;
-    :cond_3a
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_3b
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_3e
-    .catchall {:try_start_3b .. :try_end_3e} :catchall_3f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 859
-    :catchall_3f
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1022,15 +1022,15 @@
     throw v3
 
     .line 855
-    :cond_47
+    :cond_1
     const/4 v2, 0x0
 
     .restart local v2       #_result:Landroid/content/SyncStatusInfo;
-    goto :goto_33
+    goto :goto_1
 .end method
 
 .method public isSyncActive(Landroid/accounts/Account;Ljava/lang/String;)Z
-    .registers 10
+    .locals 7
     .parameter "account"
     .parameter "authority"
     .annotation system Ldalvik/annotation/Throws;
@@ -1057,13 +1057,13 @@
 
     .line 771
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.content.IContentService"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 772
-    if-eqz p1, :cond_34
+    if-eqz p1, :cond_0
 
     .line 773
     const/4 v4, 0x1
@@ -1076,7 +1076,7 @@
     invoke-virtual {p1, v0, v4}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 779
-    :goto_19
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 780
@@ -1093,16 +1093,16 @@
 
     .line 782
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_2a
-    .catchall {:try_start_a .. :try_end_2a} :catchall_39
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_41
+    if-eqz v4, :cond_1
 
     .line 785
     .local v2, _result:Z
-    :goto_2d
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 786
@@ -1113,18 +1113,18 @@
 
     .line 777
     .end local v2           #_result:Z
-    :cond_34
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_35
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_38
-    .catchall {:try_start_35 .. :try_end_38} :catchall_39
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 785
-    :catchall_39
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1134,15 +1134,15 @@
 
     throw v3
 
-    :cond_41
+    :cond_1
     move v2, v3
 
     .line 782
-    goto :goto_2d
+    goto :goto_1
 .end method
 
 .method public isSyncPending(Landroid/accounts/Account;Ljava/lang/String;)Z
-    .registers 10
+    .locals 7
     .parameter "account"
     .parameter "authority"
     .annotation system Ldalvik/annotation/Throws;
@@ -1169,13 +1169,13 @@
 
     .line 873
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.content.IContentService"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 874
-    if-eqz p1, :cond_34
+    if-eqz p1, :cond_0
 
     .line 875
     const/4 v4, 0x1
@@ -1188,7 +1188,7 @@
     invoke-virtual {p1, v0, v4}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 881
-    :goto_19
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 882
@@ -1205,16 +1205,16 @@
 
     .line 884
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_2a
-    .catchall {:try_start_a .. :try_end_2a} :catchall_39
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_41
+    if-eqz v4, :cond_1
 
     .line 887
     .local v2, _result:Z
-    :goto_2d
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 888
@@ -1225,18 +1225,18 @@
 
     .line 879
     .end local v2           #_result:Z
-    :cond_34
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_35
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_38
-    .catchall {:try_start_35 .. :try_end_38} :catchall_39
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 887
-    :catchall_39
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1246,15 +1246,15 @@
 
     throw v3
 
-    :cond_41
+    :cond_1
     move v2, v3
 
     .line 884
-    goto :goto_2d
+    goto :goto_1
 .end method
 
 .method public notifyChange(Landroid/net/Uri;Landroid/database/IContentObserver;ZZ)V
-    .registers 10
+    .locals 5
     .parameter "uri"
     .parameter "observer"
     .parameter "observerWantsSelfNotifications"
@@ -1283,13 +1283,13 @@
 
     .line 440
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.content.IContentService"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 441
-    if-eqz p1, :cond_3e
+    if-eqz p1, :cond_0
 
     .line 442
     const/4 v4, 0x1
@@ -1302,28 +1302,28 @@
     invoke-virtual {p1, v0, v4}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 448
-    :goto_19
-    if-eqz p2, :cond_4b
+    :goto_0
+    if-eqz p2, :cond_1
 
     invoke-interface {p2}, Landroid/database/IContentObserver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v4
 
-    :goto_1f
+    :goto_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 449
-    if-eqz p3, :cond_4d
+    if-eqz p3, :cond_2
 
     move v4, v2
 
-    :goto_25
+    :goto_2
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 450
-    if-eqz p4, :cond_4f
+    if-eqz p4, :cond_3
 
-    :goto_2a
+    :goto_3
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 451
@@ -1337,8 +1337,8 @@
 
     .line 452
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_37
-    .catchall {:try_start_a .. :try_end_37} :catchall_43
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 455
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1350,18 +1350,18 @@
     return-void
 
     .line 446
-    :cond_3e
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_3f
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_42
-    .catchall {:try_start_3f .. :try_end_42} :catchall_43
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 455
-    :catchall_43
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1372,26 +1372,26 @@
     throw v2
 
     .line 448
-    :cond_4b
+    :cond_1
     const/4 v4, 0x0
 
-    goto :goto_1f
+    goto :goto_1
 
-    :cond_4d
+    :cond_2
     move v4, v3
 
     .line 449
-    goto :goto_25
+    goto :goto_2
 
-    :cond_4f
+    :cond_3
     move v2, v3
 
     .line 450
-    goto :goto_2a
+    goto :goto_3
 .end method
 
 .method public registerContentObserver(Landroid/net/Uri;ZLandroid/database/IContentObserver;)V
-    .registers 9
+    .locals 5
     .parameter "uri"
     .parameter "notifyForDescendentsn"
     .parameter "observer"
@@ -1419,13 +1419,13 @@
 
     .line 402
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.content.IContentService"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 403
-    if-eqz p1, :cond_38
+    if-eqz p1, :cond_0
 
     .line 404
     const/4 v4, 0x1
@@ -1438,20 +1438,20 @@
     invoke-virtual {p1, v0, v4}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 410
-    :goto_19
-    if-eqz p2, :cond_45
+    :goto_0
+    if-eqz p2, :cond_1
 
-    :goto_1b
+    :goto_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 411
-    if-eqz p3, :cond_47
+    if-eqz p3, :cond_2
 
     invoke-interface {p3}, Landroid/database/IContentObserver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_24
+    :goto_2
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 412
@@ -1465,8 +1465,8 @@
 
     .line 413
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_31
-    .catchall {:try_start_a .. :try_end_31} :catchall_3d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 416
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1478,18 +1478,18 @@
     return-void
 
     .line 408
-    :cond_38
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_39
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_3c
-    .catchall {:try_start_39 .. :try_end_3c} :catchall_3d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 416
-    :catchall_3d
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1499,21 +1499,21 @@
 
     throw v2
 
-    :cond_45
+    :cond_1
     move v2, v3
 
     .line 410
-    goto :goto_1b
+    goto :goto_1
 
     .line 411
-    :cond_47
+    :cond_2
     const/4 v2, 0x0
 
-    goto :goto_24
+    goto :goto_2
 .end method
 
 .method public removePeriodicSync(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)V
-    .registers 9
+    .locals 5
     .parameter "account"
     .parameter "providerName"
     .parameter "extras"
@@ -1537,13 +1537,13 @@
 
     .line 649
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.content.IContentService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 650
-    if-eqz p1, :cond_36
+    if-eqz p1, :cond_0
 
     .line 651
     const/4 v2, 0x1
@@ -1556,11 +1556,11 @@
     invoke-virtual {p1, v0, v2}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 657
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 658
-    if-eqz p3, :cond_43
+    if-eqz p3, :cond_1
 
     .line 659
     const/4 v2, 0x1
@@ -1573,7 +1573,7 @@
     invoke-virtual {p3, v0, v2}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 665
-    :goto_24
+    :goto_1
     iget-object v2, p0, Landroid/content/IContentService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xa
@@ -1584,8 +1584,8 @@
 
     .line 666
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_2f
-    .catchall {:try_start_8 .. :try_end_2f} :catchall_3b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 669
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1597,18 +1597,18 @@
     return-void
 
     .line 655
-    :cond_36
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_37
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_3a
-    .catchall {:try_start_37 .. :try_end_3a} :catchall_3b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 669
-    :catchall_3b
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1619,19 +1619,19 @@
     throw v2
 
     .line 663
-    :cond_43
+    :cond_1
     const/4 v2, 0x0
 
-    :try_start_44
+    :try_start_2
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_47
-    .catchall {:try_start_44 .. :try_end_47} :catchall_3b
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_24
+    goto :goto_1
 .end method
 
 .method public removeStatusChangeListener(Landroid/content/ISyncStatusObserver;)V
-    .registers 7
+    .locals 5
     .parameter "callback"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1653,19 +1653,19 @@
 
     .line 913
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.content.IContentService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 914
-    if-eqz p1, :cond_28
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/content/ISyncStatusObserver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 915
@@ -1679,8 +1679,8 @@
 
     .line 916
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_8 .. :try_end_21} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 919
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1692,13 +1692,13 @@
     return-void
 
     .line 914
-    :cond_28
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 919
-    :catchall_2a
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1710,7 +1710,7 @@
 .end method
 
 .method public requestSync(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)V
-    .registers 9
+    .locals 5
     .parameter "account"
     .parameter "authority"
     .parameter "extras"
@@ -1734,13 +1734,13 @@
 
     .line 464
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.content.IContentService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 465
-    if-eqz p1, :cond_35
+    if-eqz p1, :cond_0
 
     .line 466
     const/4 v2, 0x1
@@ -1753,11 +1753,11 @@
     invoke-virtual {p1, v0, v2}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 472
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 473
-    if-eqz p3, :cond_42
+    if-eqz p3, :cond_1
 
     .line 474
     const/4 v2, 0x1
@@ -1770,7 +1770,7 @@
     invoke-virtual {p3, v0, v2}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 480
-    :goto_24
+    :goto_1
     iget-object v2, p0, Landroid/content/IContentService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x4
@@ -1781,8 +1781,8 @@
 
     .line 481
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_2e
-    .catchall {:try_start_8 .. :try_end_2e} :catchall_3a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 484
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1794,18 +1794,18 @@
     return-void
 
     .line 470
-    :cond_35
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_36
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_39
-    .catchall {:try_start_36 .. :try_end_39} :catchall_3a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 484
-    :catchall_3a
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1816,19 +1816,19 @@
     throw v2
 
     .line 478
-    :cond_42
+    :cond_1
     const/4 v2, 0x0
 
-    :try_start_43
+    :try_start_2
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_46
-    .catchall {:try_start_43 .. :try_end_46} :catchall_3a
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_24
+    goto :goto_1
 .end method
 
 .method public setIsSyncable(Landroid/accounts/Account;Ljava/lang/String;I)V
-    .registers 9
+    .locals 5
     .parameter "account"
     .parameter "providerName"
     .parameter "syncable"
@@ -1852,13 +1852,13 @@
 
     .line 711
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.content.IContentService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 712
-    if-eqz p1, :cond_2f
+    if-eqz p1, :cond_0
 
     .line 713
     const/4 v2, 0x1
@@ -1871,7 +1871,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 719
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 720
@@ -1888,8 +1888,8 @@
 
     .line 722
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_28
-    .catchall {:try_start_8 .. :try_end_28} :catchall_34
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 725
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1901,18 +1901,18 @@
     return-void
 
     .line 717
-    :cond_2f
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_30
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_33
-    .catchall {:try_start_30 .. :try_end_33} :catchall_34
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 725
-    :catchall_34
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1924,7 +1924,7 @@
 .end method
 
 .method public setMasterSyncAutomatically(Z)V
-    .registers 7
+    .locals 5
     .parameter "flag"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1948,17 +1948,17 @@
 
     .line 734
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.content.IContentService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 735
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     const/4 v2, 0x1
 
-    :cond_11
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 736
@@ -1972,8 +1972,8 @@
 
     .line 737
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1f
-    .catchall {:try_start_9 .. :try_end_1f} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 740
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1985,7 +1985,7 @@
     return-void
 
     .line 740
-    :catchall_26
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1997,7 +1997,7 @@
 .end method
 
 .method public setSyncAutomatically(Landroid/accounts/Account;Ljava/lang/String;Z)V
-    .registers 9
+    .locals 5
     .parameter "account"
     .parameter "providerName"
     .parameter "sync"
@@ -2025,13 +2025,13 @@
 
     .line 551
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.content.IContentService"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 552
-    if-eqz p1, :cond_32
+    if-eqz p1, :cond_0
 
     .line 553
     const/4 v4, 0x1
@@ -2044,13 +2044,13 @@
     invoke-virtual {p1, v0, v4}, Landroid/accounts/Account;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 559
-    :goto_19
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 560
-    if-eqz p3, :cond_3f
+    if-eqz p3, :cond_1
 
-    :goto_1e
+    :goto_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 561
@@ -2064,8 +2064,8 @@
 
     .line 562
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_2b
-    .catchall {:try_start_a .. :try_end_2b} :catchall_37
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 565
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2077,18 +2077,18 @@
     return-void
 
     .line 557
-    :cond_32
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_33
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_36
-    .catchall {:try_start_33 .. :try_end_36} :catchall_37
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 565
-    :catchall_37
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2098,15 +2098,15 @@
 
     throw v2
 
-    :cond_3f
+    :cond_1
     move v2, v3
 
     .line 560
-    goto :goto_1e
+    goto :goto_1
 .end method
 
 .method public unregisterContentObserver(Landroid/database/IContentObserver;)V
-    .registers 7
+    .locals 5
     .parameter "observer"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2128,19 +2128,19 @@
 
     .line 425
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.content.IContentService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 426
-    if-eqz p1, :cond_27
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/database/IContentObserver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 427
@@ -2154,8 +2154,8 @@
 
     .line 428
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 431
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2167,13 +2167,13 @@
     return-void
 
     .line 426
-    :cond_27
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 431
-    :catchall_29
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

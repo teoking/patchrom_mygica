@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/cdma/EriManager;IILjava/lang/String;)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter "eriIconIndex"
     .parameter "eriIconMode"
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 83

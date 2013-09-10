@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/wifi/WifiApConfigStore;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,14 +35,14 @@
 
 # virtual methods
 .method public processMessage(Landroid/os/Message;)Z
-    .registers 5
+    .locals 3
     .parameter "message"
 
     .prologue
     .line 82
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_4c
+    packed-switch v0, :pswitch_data_0
 
     .line 92
     const-string v0, "WifiApConfigStore"
@@ -68,13 +68,13 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 95
-    :goto_1d
+    :goto_0
     const/4 v0, 0x1
 
     return v0
 
     .line 85
-    :pswitch_1f
+    :pswitch_0
     const-string v0, "WifiApConfigStore"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -97,12 +97,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 88
-    :pswitch_38
+    :pswitch_1
     iget-object v0, p0, Landroid/net/wifi/WifiApConfigStore$DefaultState;->this$0:Landroid/net/wifi/WifiApConfigStore;
 
+    #getter for: Landroid/net/wifi/WifiApConfigStore;->mReplyChannel:Lcom/android/internal/util/AsyncChannel;
     invoke-static {v0}, Landroid/net/wifi/WifiApConfigStore;->access$100(Landroid/net/wifi/WifiApConfigStore;)Lcom/android/internal/util/AsyncChannel;
 
     move-result-object v0
@@ -111,21 +112,22 @@
 
     iget-object v2, p0, Landroid/net/wifi/WifiApConfigStore$DefaultState;->this$0:Landroid/net/wifi/WifiApConfigStore;
 
+    #getter for: Landroid/net/wifi/WifiApConfigStore;->mWifiApConfig:Landroid/net/wifi/WifiConfiguration;
     invoke-static {v2}, Landroid/net/wifi/WifiApConfigStore;->access$000(Landroid/net/wifi/WifiApConfigStore;)Landroid/net/wifi/WifiConfiguration;
 
     move-result-object v2
 
     invoke-virtual {v0, p1, v1, v2}, Lcom/android/internal/util/AsyncChannel;->replyToMessage(Landroid/os/Message;ILjava/lang/Object;)V
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 82
     nop
 
-    :pswitch_data_4c
+    :pswitch_data_0
     .packed-switch 0x20019
-        :pswitch_1f
-        :pswitch_1f
-        :pswitch_38
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

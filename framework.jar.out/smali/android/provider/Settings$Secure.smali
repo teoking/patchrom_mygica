@@ -606,7 +606,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 4
+    .locals 4
 
     .prologue
     const/4 v0, 0x0
@@ -845,7 +845,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 2313
@@ -855,7 +855,7 @@
 .end method
 
 .method public static final getBluetoothA2dpSinkPriorityKey(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "address"
 
     .prologue
@@ -886,7 +886,7 @@
 .end method
 
 .method public static final getBluetoothHeadsetPriorityKey(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "address"
 
     .prologue
@@ -917,7 +917,7 @@
 .end method
 
 .method public static final getBluetoothInputDevicePriorityKey(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "address"
 
     .prologue
@@ -948,7 +948,7 @@
 .end method
 
 .method public static getFloat(Landroid/content/ContentResolver;Ljava/lang/String;)F
-    .registers 5
+    .locals 3
     .parameter "cr"
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
@@ -965,7 +965,7 @@
 
     .line 2562
     .local v1, v:Ljava/lang/String;
-    if-nez v1, :cond_c
+    if-nez v1, :cond_0
 
     .line 2563
     new-instance v2, Landroid/provider/Settings$SettingNotFoundException;
@@ -975,18 +975,18 @@
     throw v2
 
     .line 2566
-    :cond_c
-    :try_start_c
+    :cond_0
+    :try_start_0
     invoke-static {v1}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-    :try_end_f
-    .catch Ljava/lang/NumberFormatException; {:try_start_c .. :try_end_f} :catch_11
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v2
 
     return v2
 
     .line 2567
-    :catch_11
+    :catch_0
     move-exception v0
 
     .line 2568
@@ -999,7 +999,7 @@
 .end method
 
 .method public static getFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)F
-    .registers 5
+    .locals 2
     .parameter "cr"
     .parameter "name"
     .parameter "def"
@@ -1012,33 +1012,33 @@
 
     .line 2535
     .local v1, v:Ljava/lang/String;
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_0
 
-    :try_start_6
+    :try_start_0
     invoke-static {v1}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-    :try_end_9
-    .catch Ljava/lang/NumberFormatException; {:try_start_6 .. :try_end_9} :catch_b
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result p2
 
     .line 2537
     .end local p2
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return p2
 
     .line 2536
     .restart local p2
-    :catch_b
+    :catch_0
     move-exception v0
 
     .line 2537
     .local v0, e:Ljava/lang/NumberFormatException;
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public static getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
-    .registers 5
+    .locals 3
     .parameter "cr"
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
@@ -1055,17 +1055,17 @@
 
     .line 2426
     .local v1, v:Ljava/lang/String;
-    :try_start_4
+    :try_start_0
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_7
-    .catch Ljava/lang/NumberFormatException; {:try_start_4 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v2
 
     return v2
 
     .line 2427
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 2428
@@ -1078,7 +1078,7 @@
 .end method
 
 .method public static getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-    .registers 5
+    .locals 2
     .parameter "cr"
     .parameter "name"
     .parameter "def"
@@ -1091,33 +1091,33 @@
 
     .line 2398
     .local v1, v:Ljava/lang/String;
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_0
 
-    :try_start_6
+    :try_start_0
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_9
-    .catch Ljava/lang/NumberFormatException; {:try_start_6 .. :try_end_9} :catch_b
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result p2
 
     .line 2400
     .end local p2
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return p2
 
     .line 2399
     .restart local p2
-    :catch_b
+    :catch_0
     move-exception v0
 
     .line 2400
     .local v0, e:Ljava/lang/NumberFormatException;
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public static getLong(Landroid/content/ContentResolver;Ljava/lang/String;)J
-    .registers 6
+    .locals 4
     .parameter "cr"
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
@@ -1134,17 +1134,17 @@
 
     .line 2495
     .local v1, valString:Ljava/lang/String;
-    :try_start_4
+    :try_start_0
     invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-    :try_end_7
-    .catch Ljava/lang/NumberFormatException; {:try_start_4 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-wide v2
 
     return-wide v2
 
     .line 2496
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 2497
@@ -1157,7 +1157,7 @@
 .end method
 
 .method public static getLong(Landroid/content/ContentResolver;Ljava/lang/String;J)J
-    .registers 8
+    .locals 4
     .parameter "cr"
     .parameter "name"
     .parameter "def"
@@ -1170,29 +1170,29 @@
 
     .line 2467
     .local v1, valString:Ljava/lang/String;
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
-    :try_start_6
+    :try_start_0
     invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-    :try_end_9
-    .catch Ljava/lang/NumberFormatException; {:try_start_6 .. :try_end_9} :catch_d
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-wide v2
 
     .line 2471
     .local v2, value:J
-    :goto_a
+    :goto_0
     return-wide v2
 
     .end local v2           #value:J
-    :cond_b
+    :cond_0
     move-wide v2, p2
 
     .line 2467
-    goto :goto_a
+    goto :goto_0
 
     .line 2468
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 2469
@@ -1200,11 +1200,11 @@
     move-wide v2, p2
 
     .restart local v2       #value:J
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public static declared-synchronized getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-    .registers 7
+    .locals 5
     .parameter "resolver"
     .parameter "name"
 
@@ -1214,10 +1214,10 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/provider/Settings$Secure;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_0
 
     .line 2338
     new-instance v0, Landroid/provider/Settings$NameValueCache;
@@ -1233,10 +1233,10 @@
     sput-object v0, Landroid/provider/Settings$Secure;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
 
     .line 2342
-    :cond_15
+    :cond_0
     sget-object v0, Landroid/provider/Settings$Secure;->sLockSettings:Lcom/android/internal/widget/ILockSettings;
 
-    if-nez v0, :cond_30
+    if-nez v0, :cond_1
 
     .line 2343
     const-string v0, "lock_settings"
@@ -1258,35 +1258,35 @@
 
     const/16 v2, 0x3e8
 
-    if-ne v0, v2, :cond_4e
+    if-ne v0, v2, :cond_2
 
     const/4 v0, 0x1
 
-    :goto_2e
+    :goto_0
     sput-boolean v0, Landroid/provider/Settings$Secure;->sIsSystemProcess:Z
 
     .line 2347
-    :cond_30
+    :cond_1
     sget-object v0, Landroid/provider/Settings$Secure;->sLockSettings:Lcom/android/internal/widget/ILockSettings;
 
-    if-eqz v0, :cond_51
+    if-eqz v0, :cond_3
 
     sget-boolean v0, Landroid/provider/Settings$Secure;->sIsSystemProcess:Z
 
-    if-nez v0, :cond_51
+    if-nez v0, :cond_3
 
     sget-object v0, Landroid/provider/Settings$Secure;->MOVED_TO_LOCK_SETTINGS:Ljava/util/HashSet;
 
     invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
-    :try_end_3d
-    .catchall {:try_start_3 .. :try_end_3d} :catchall_58
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
-    if-eqz v0, :cond_51
+    if-eqz v0, :cond_3
 
     .line 2350
-    :try_start_40
+    :try_start_1
     sget-object v0, Landroid/provider/Settings$Secure;->sLockSettings:Lcom/android/internal/widget/ILockSettings;
 
     const-string v2, "0"
@@ -1296,43 +1296,43 @@
     move-result v3
 
     invoke-interface {v0, p1, v2, v3}, Lcom/android/internal/widget/ILockSettings;->getString(Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
-    :try_end_4b
-    .catchall {:try_start_40 .. :try_end_4b} :catchall_58
-    .catch Landroid/os/RemoteException; {:try_start_40 .. :try_end_4b} :catch_50
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result-object v0
 
     .line 2356
-    :goto_4c
+    :goto_1
     monitor-exit v1
 
     return-object v0
 
     .line 2345
-    :cond_4e
+    :cond_2
     const/4 v0, 0x0
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 2351
-    :catch_50
+    :catch_0
     move-exception v0
 
     .line 2356
-    :cond_51
-    :try_start_51
+    :cond_3
+    :try_start_2
     sget-object v0, Landroid/provider/Settings$Secure;->sNameValueCache:Landroid/provider/Settings$NameValueCache;
 
     invoke-virtual {v0, p0, p1}, Landroid/provider/Settings$NameValueCache;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-    :try_end_56
-    .catchall {:try_start_51 .. :try_end_56} :catchall_58
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     move-result-object v0
 
-    goto :goto_4c
+    goto :goto_1
 
     .line 2337
-    :catchall_58
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -1341,7 +1341,7 @@
 .end method
 
 .method public static getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -1356,7 +1356,7 @@
 .end method
 
 .method public static final isLocationProviderEnabled(Landroid/content/ContentResolver;Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "cr"
     .parameter "provider"
 
@@ -1380,7 +1380,7 @@
 .end method
 
 .method public static putFloat(Landroid/content/ContentResolver;Ljava/lang/String;F)Z
-    .registers 4
+    .locals 1
     .parameter "cr"
     .parameter "name"
     .parameter "value"
@@ -1399,7 +1399,7 @@
 .end method
 
 .method public static putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-    .registers 4
+    .locals 1
     .parameter "cr"
     .parameter "name"
     .parameter "value"
@@ -1418,7 +1418,7 @@
 .end method
 
 .method public static putLong(Landroid/content/ContentResolver;Ljava/lang/String;J)Z
-    .registers 5
+    .locals 1
     .parameter "cr"
     .parameter "name"
     .parameter "value"
@@ -1437,7 +1437,7 @@
 .end method
 
 .method public static putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-    .registers 4
+    .locals 1
     .parameter "resolver"
     .parameter "name"
     .parameter "value"
@@ -1454,14 +1454,14 @@
 .end method
 
 .method public static final setLocationProviderEnabled(Landroid/content/ContentResolver;Ljava/lang/String;Z)V
-    .registers 5
+    .locals 2
     .parameter "cr"
     .parameter "provider"
     .parameter "enabled"
 
     .prologue
     .line 4401
-    if-eqz p2, :cond_1b
+    if-eqz p2, :cond_0
 
     .line 4402
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1483,7 +1483,7 @@
     move-result-object p1
 
     .line 4406
-    :goto_15
+    :goto_0
     const-string v0, "location_providers_allowed"
 
     invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
@@ -1492,7 +1492,7 @@
     return-void
 
     .line 4404
-    :cond_1b
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1511,5 +1511,5 @@
 
     move-result-object p1
 
-    goto :goto_15
+    goto :goto_0
 .end method

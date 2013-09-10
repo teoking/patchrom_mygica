@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/text/method/CharacterPickerDialog;Landroid/content/Context;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "context"
 
@@ -38,12 +38,13 @@
 
 # virtual methods
 .method public final getCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 131
     iget-object v0, p0, Landroid/text/method/CharacterPickerDialog$OptionsAdapter;->this$0:Landroid/text/method/CharacterPickerDialog;
 
+    #getter for: Landroid/text/method/CharacterPickerDialog;->mOptions:Ljava/lang/String;
     invoke-static {v0}, Landroid/text/method/CharacterPickerDialog;->access$100(Landroid/text/method/CharacterPickerDialog;)Ljava/lang/String;
 
     move-result-object v0
@@ -56,13 +57,14 @@
 .end method
 
 .method public final getItem(I)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "position"
 
     .prologue
     .line 135
     iget-object v0, p0, Landroid/text/method/CharacterPickerDialog$OptionsAdapter;->this$0:Landroid/text/method/CharacterPickerDialog;
 
+    #getter for: Landroid/text/method/CharacterPickerDialog;->mOptions:Ljava/lang/String;
     invoke-static {v0}, Landroid/text/method/CharacterPickerDialog;->access$100(Landroid/text/method/CharacterPickerDialog;)Ljava/lang/String;
 
     move-result-object v0
@@ -79,7 +81,7 @@
 .end method
 
 .method public final getItemId(I)J
-    .registers 4
+    .locals 2
     .parameter "position"
 
     .prologue
@@ -90,7 +92,7 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .registers 8
+    .locals 4
     .parameter "position"
     .parameter "convertView"
     .parameter "parent"
@@ -99,6 +101,7 @@
     .line 123
     iget-object v1, p0, Landroid/text/method/CharacterPickerDialog$OptionsAdapter;->this$0:Landroid/text/method/CharacterPickerDialog;
 
+    #getter for: Landroid/text/method/CharacterPickerDialog;->mInflater:Landroid/view/LayoutInflater;
     invoke-static {v1}, Landroid/text/method/CharacterPickerDialog;->access$000(Landroid/text/method/CharacterPickerDialog;)Landroid/view/LayoutInflater;
 
     move-result-object v1
@@ -117,6 +120,7 @@
     .local v0, b:Landroid/widget/Button;
     iget-object v1, p0, Landroid/text/method/CharacterPickerDialog$OptionsAdapter;->this$0:Landroid/text/method/CharacterPickerDialog;
 
+    #getter for: Landroid/text/method/CharacterPickerDialog;->mOptions:Ljava/lang/String;
     invoke-static {v1}, Landroid/text/method/CharacterPickerDialog;->access$100(Landroid/text/method/CharacterPickerDialog;)Ljava/lang/String;
 
     move-result-object v1

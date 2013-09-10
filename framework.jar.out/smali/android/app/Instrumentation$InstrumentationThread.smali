@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Instrumentation;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "name"
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 1584
@@ -50,20 +50,21 @@
     .local v0, am:Landroid/app/IActivityManager;
     const/4 v2, -0x8
 
-    :try_start_5
+    :try_start_0
     invoke-static {v2}, Landroid/os/Process;->setThreadPriority(I)V
-    :try_end_8
-    .catch Ljava/lang/RuntimeException; {:try_start_5 .. :try_end_8} :catch_1b
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1591
-    :goto_8
+    :goto_0
     iget-object v2, p0, Landroid/app/Instrumentation$InstrumentationThread;->this$0:Landroid/app/Instrumentation;
 
+    #getter for: Landroid/app/Instrumentation;->mAutomaticPerformanceSnapshots:Z
     invoke-static {v2}, Landroid/app/Instrumentation;->access$100(Landroid/app/Instrumentation;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_15
+    if-eqz v2, :cond_0
 
     .line 1592
     iget-object v2, p0, Landroid/app/Instrumentation$InstrumentationThread;->this$0:Landroid/app/Instrumentation;
@@ -71,7 +72,7 @@
     invoke-virtual {v2}, Landroid/app/Instrumentation;->startPerformanceSnapshot()V
 
     .line 1594
-    :cond_15
+    :cond_0
     iget-object v2, p0, Landroid/app/Instrumentation$InstrumentationThread;->this$0:Landroid/app/Instrumentation;
 
     invoke-virtual {v2}, Landroid/app/Instrumentation;->onStart()V
@@ -80,7 +81,7 @@
     return-void
 
     .line 1587
-    :catch_1b
+    :catch_0
     move-exception v1
 
     .line 1588
@@ -111,5 +112,5 @@
 
     invoke-static {v2, v3, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_8
+    goto :goto_0
 .end method

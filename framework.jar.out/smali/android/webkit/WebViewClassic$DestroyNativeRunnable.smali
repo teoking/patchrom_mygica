@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "nativePtr"
 
     .prologue
@@ -40,12 +40,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2145
     iget v0, p0, Landroid/webkit/WebViewClassic$DestroyNativeRunnable;->mNativePtr:I
 
+    #calls: Landroid/webkit/WebViewClassic;->nativeDestroy(I)V
     invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$1800(I)V
 
     .line 2146

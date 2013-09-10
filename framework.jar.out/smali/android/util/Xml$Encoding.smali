@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 7
+    .locals 7
 
     .prologue
     const/4 v6, 0x3
@@ -123,7 +123,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter "expatName"
@@ -147,7 +147,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/util/Xml$Encoding;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -164,7 +164,7 @@
 .end method
 
 .method public static values()[Landroid/util/Xml$Encoding;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 129

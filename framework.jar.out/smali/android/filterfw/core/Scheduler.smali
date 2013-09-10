@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/filterfw/core/FilterGraph;)V
-    .registers 2
+    .locals 0
     .parameter "graph"
 
     .prologue
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method finished()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 45
@@ -36,7 +36,7 @@
 .end method
 
 .method getGraph()Landroid/filterfw/core/FilterGraph;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 36

@@ -39,7 +39,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/ActivityChooserModel;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -59,7 +59,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/ActivityChooserModel;Landroid/widget/ActivityChooserModel$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public sort(Landroid/content/Intent;Ljava/util/List;Ljava/util/List;)V
-    .registers 14
+    .locals 10
     .parameter "intent"
     .parameter
     .parameter
@@ -112,8 +112,8 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_a
-    if-ge v3, v1, :cond_21
+    :goto_0
+    if-ge v3, v1, :cond_0
 
     .line 940
     invoke-interface {p2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -142,12 +142,12 @@
     .line 939
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 946
     .end local v0           #activity:Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
     .end local v6           #packageName:Ljava/lang/String;
-    :cond_21
+    :cond_0
     invoke-interface {p3}, Ljava/util/List;->size()I
 
     move-result v8
@@ -162,8 +162,8 @@
     .local v5, nextRecordWeight:F
     move v3, v4
 
-    :goto_2a
-    if-ltz v3, :cond_4f
+    :goto_1
+    if-ltz v3, :cond_2
 
     .line 949
     invoke-interface {p3, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -190,7 +190,7 @@
 
     .line 952
     .restart local v0       #activity:Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
-    if-eqz v0, :cond_4c
+    if-eqz v0, :cond_1
 
     .line 953
     iget v8, v0, Landroid/widget/ActivityChooserModel$ActivityResolveInfo;->weight:F
@@ -209,16 +209,16 @@
     mul-float/2addr v5, v8
 
     .line 948
-    :cond_4c
+    :cond_1
     add-int/lit8 v3, v3, -0x1
 
-    goto :goto_2a
+    goto :goto_1
 
     .line 958
     .end local v0           #activity:Landroid/widget/ActivityChooserModel$ActivityResolveInfo;
     .end local v2           #historicalRecord:Landroid/widget/ActivityChooserModel$HistoricalRecord;
     .end local v6           #packageName:Ljava/lang/String;
-    :cond_4f
+    :cond_2
     invoke-static {p2}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
     .line 965

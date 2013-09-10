@@ -44,7 +44,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/net/wifi/p2p/WifiP2pService;Landroid/os/Messenger;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "m"
 
@@ -76,7 +76,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/net/wifi/p2p/WifiP2pService;Landroid/os/Messenger;Landroid/net/wifi/p2p/WifiP2pService$1;)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -89,7 +89,7 @@
 .end method
 
 .method static synthetic access$9600(Landroid/net/wifi/p2p/WifiP2pService$ClientInfo;)Landroid/util/SparseArray;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -100,7 +100,7 @@
 .end method
 
 .method static synthetic access$9700(Landroid/net/wifi/p2p/WifiP2pService$ClientInfo;)Ljava/util/List;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -111,7 +111,7 @@
 .end method
 
 .method static synthetic access$9800(Landroid/net/wifi/p2p/WifiP2pService$ClientInfo;)Landroid/os/Messenger;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue

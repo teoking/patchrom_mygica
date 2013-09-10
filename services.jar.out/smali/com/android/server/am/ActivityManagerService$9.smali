@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Ljava/util/ArrayList;Ljava/lang/Runnable;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZ)V
-    .registers 9
+    .locals 2
     .parameter "intent"
     .parameter "resultCode"
     .parameter "data"

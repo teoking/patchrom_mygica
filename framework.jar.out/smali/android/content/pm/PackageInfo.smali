@@ -77,7 +77,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 263
@@ -91,7 +91,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 221
@@ -107,7 +107,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 5
+    .locals 3
     .parameter "source"
 
     .prologue
@@ -161,7 +161,7 @@
 
     .line 281
     .local v0, hasApp:I
-    if-eqz v0, :cond_34
+    if-eqz v0, :cond_0
 
     .line 282
     sget-object v1, Landroid/content/pm/ApplicationInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -175,7 +175,7 @@
     iput-object v1, p0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     .line 284
-    :cond_34
+    :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v1
@@ -321,7 +321,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/PackageInfo$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -335,7 +335,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 231
@@ -345,7 +345,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 225
@@ -397,7 +397,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "parcelableFlags"
 
@@ -430,7 +430,7 @@
     .line 240
     iget-object v0, p0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    if-eqz v0, :cond_72
+    if-eqz v0, :cond_0
 
     .line 241
     const/4 v0, 0x1
@@ -443,7 +443,7 @@
     invoke-virtual {v0, p1, p2}, Landroid/content/pm/ApplicationInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 246
-    :goto_26
+    :goto_0
     iget-wide v0, p0, Landroid/content/pm/PackageInfo;->firstInstallTime:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
@@ -522,10 +522,10 @@
     return-void
 
     .line 244
-    :cond_72
+    :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_26
+    goto :goto_0
 .end method

@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>([BLjava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "data"
     .parameter "accountId"
 
@@ -42,7 +42,7 @@
 .end method
 
 .method constructor <init>([BLjava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter "data"
     .parameter "accountId"
     .parameter "subscriptionId"
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public getAccountId()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 71
@@ -87,7 +87,7 @@
 .end method
 
 .method public getData()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 62
@@ -97,7 +97,7 @@
 .end method
 
 .method public getSubscriptionId()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 80

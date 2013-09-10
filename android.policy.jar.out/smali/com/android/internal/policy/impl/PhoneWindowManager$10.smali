@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 3364
@@ -51,21 +51,21 @@
 
     .line 3365
     .local v1, statusbar:Lcom/android/internal/statusbar/IStatusBarService;
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
     .line 3366
     invoke-interface {v1}, Lcom/android/internal/statusbar/IStatusBarService;->collapse()V
-    :try_end_b
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_b} :catch_c
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 3372
     .end local v1           #statusbar:Lcom/android/internal/statusbar/IStatusBarService;
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return-void
 
     .line 3368
-    :catch_c
+    :catch_0
     move-exception v0
 
     .line 3370
@@ -76,5 +76,5 @@
 
     iput-object v3, v2, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
-    goto :goto_b
+    goto :goto_0
 .end method

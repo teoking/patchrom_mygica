@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/EthernetService;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "x0"
 
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 236
@@ -45,20 +45,21 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/EthernetService$4;->this$0:Lcom/android/server/EthernetService;
 
+    #getter for: Lcom/android/server/EthernetService;->mTracker:Landroid/net/ethernet/EthernetStateTracker;
     invoke-static {v1}, Lcom/android/server/EthernetService;->access$000(Lcom/android/server/EthernetService;)Landroid/net/ethernet/EthernetStateTracker;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/net/ethernet/EthernetStateTracker;->resetInterface()Z
-    :try_end_9
-    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_9} :catch_a
+    :try_end_0
+    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 240
-    :goto_9
+    :goto_0
     return-void
 
     .line 237
-    :catch_a
+    :catch_0
     move-exception v0
 
     .line 238
@@ -69,5 +70,5 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_9
+    goto :goto_0
 .end method

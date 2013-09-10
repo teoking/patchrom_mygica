@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 71
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 75
@@ -60,7 +60,7 @@
 .end method
 
 .method public onBluetoothStateChange(Z)V
-    .registers 7
+    .locals 5
     .parameter "on"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -86,15 +86,15 @@
 
     .line 82
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.bluetooth.IBluetoothStateChangeCallback"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 83
-    if-eqz p1, :cond_25
+    if-eqz p1, :cond_0
 
-    :goto_11
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 84
@@ -108,8 +108,8 @@
 
     .line 85
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1e
-    .catchall {:try_start_a .. :try_end_1e} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 88
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -120,14 +120,14 @@
     .line 91
     return-void
 
-    :cond_25
+    :cond_0
     move v2, v3
 
     .line 83
-    goto :goto_11
+    goto :goto_0
 
     .line 88
-    :catchall_27
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

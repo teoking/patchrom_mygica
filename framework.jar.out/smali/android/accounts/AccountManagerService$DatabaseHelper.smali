@@ -16,12 +16,13 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "userId"
 
     .prologue
     .line 1904
+    #calls: Landroid/accounts/AccountManagerService;->getDatabaseName(I)Ljava/lang/String;
     invoke-static {p2}, Landroid/accounts/AccountManagerService;->access$1900(I)Ljava/lang/String;
 
     move-result-object v0
@@ -37,7 +38,7 @@
 .end method
 
 .method private createAccountsDeletionTrigger(Landroid/database/sqlite/SQLiteDatabase;)V
-    .registers 3
+    .locals 1
     .parameter "db"
 
     .prologue
@@ -51,7 +52,7 @@
 .end method
 
 .method private createGrantsTable(Landroid/database/sqlite/SQLiteDatabase;)V
-    .registers 3
+    .locals 1
     .parameter "db"
 
     .prologue
@@ -67,7 +68,7 @@
 
 # virtual methods
 .method public onCreate(Landroid/database/sqlite/SQLiteDatabase;)V
-    .registers 3
+    .locals 1
     .parameter "db"
 
     .prologue
@@ -102,7 +103,7 @@
 .end method
 
 .method public onOpen(Landroid/database/sqlite/SQLiteDatabase;)V
-    .registers 4
+    .locals 2
     .parameter "db"
 
     .prologue
@@ -115,7 +116,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     const-string v0, "AccountManagerService"
 
@@ -124,12 +125,12 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1993
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 .method public onUpgrade(Landroid/database/sqlite/SQLiteDatabase;II)V
-    .registers 7
+    .locals 3
     .parameter "db"
     .parameter "oldVersion"
     .parameter "newVersion"
@@ -171,16 +172,16 @@
     .line 1970
     const/4 v0, 0x1
 
-    if-ne p2, v0, :cond_28
+    if-ne p2, v0, :cond_0
 
     .line 1973
     add-int/lit8 p2, p2, 0x1
 
     .line 1976
-    :cond_28
+    :cond_0
     const/4 v0, 0x2
 
-    if-ne p2, v0, :cond_38
+    if-ne p2, v0, :cond_1
 
     .line 1977
     invoke-direct {p0, p1}, Landroid/accounts/AccountManagerService$DatabaseHelper;->createGrantsTable(Landroid/database/sqlite/SQLiteDatabase;)V
@@ -197,10 +198,10 @@
     add-int/lit8 p2, p2, 0x1
 
     .line 1983
-    :cond_38
+    :cond_1
     const/4 v0, 0x3
 
-    if-ne p2, v0, :cond_42
+    if-ne p2, v0, :cond_2
 
     .line 1984
     const-string v0, "UPDATE accounts SET type = \'com.google\' WHERE type == \'com.google.GAIA\'"
@@ -211,6 +212,6 @@
     add-int/lit8 p2, p2, 0x1
 
     .line 1988
-    :cond_42
+    :cond_2
     return-void
 .end method

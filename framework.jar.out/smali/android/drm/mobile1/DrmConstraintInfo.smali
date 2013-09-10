@@ -15,7 +15,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 4
+    .locals 3
 
     .prologue
     const-wide/16 v1, -0x1
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 61
@@ -54,7 +54,7 @@
 .end method
 
 .method public getEndDate()Ljava/util/Date;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 82
@@ -64,27 +64,27 @@
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     .line 83
     const/4 v0, 0x0
 
     .line 85
-    :goto_9
+    :goto_0
     return-object v0
 
-    :cond_a
+    :cond_0
     new-instance v0, Ljava/util/Date;
 
     iget-wide v1, p0, Landroid/drm/mobile1/DrmConstraintInfo;->endDate:J
 
     invoke-direct {v0, v1, v2}, Ljava/util/Date;-><init>(J)V
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public getInterval()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 94
@@ -94,7 +94,7 @@
 .end method
 
 .method public getStartDate()Ljava/util/Date;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 70
@@ -104,21 +104,21 @@
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     .line 71
     const/4 v0, 0x0
 
     .line 73
-    :goto_9
+    :goto_0
     return-object v0
 
-    :cond_a
+    :cond_0
     new-instance v0, Ljava/util/Date;
 
     iget-wide v1, p0, Landroid/drm/mobile1/DrmConstraintInfo;->startDate:J
 
     invoke-direct {v0, v1, v2}, Ljava/util/Date;-><init>(J)V
 
-    goto :goto_9
+    goto :goto_0
 .end method

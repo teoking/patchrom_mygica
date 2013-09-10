@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 8
+    .locals 7
 
     .prologue
     const/4 v1, 0x0
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Landroid/media/videoeditor/MediaItem;Landroid/media/videoeditor/MediaItem;JI)V
-    .registers 7
+    .locals 0
     .parameter "transitionId"
     .parameter "afterMediaItem"
     .parameter "beforeMediaItem"
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method generate()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 60

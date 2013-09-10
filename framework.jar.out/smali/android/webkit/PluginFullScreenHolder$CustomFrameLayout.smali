@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/PluginFullScreenHolder;Landroid/content/Context;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "context"
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 1
     .parameter "keyCode"
     .parameter "event"
 
@@ -48,7 +48,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 102
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->onKeyDown(ILandroid/view/KeyEvent;)Z
@@ -56,13 +56,14 @@
     move-result v0
 
     .line 106
-    :goto_a
+    :goto_0
     return v0
 
     .line 104
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/webkit/PluginFullScreenHolder$CustomFrameLayout;->this$0:Landroid/webkit/PluginFullScreenHolder;
 
+    #getter for: Landroid/webkit/PluginFullScreenHolder;->mWebView:Landroid/webkit/WebViewClassic;
     invoke-static {v0}, Landroid/webkit/PluginFullScreenHolder;->access$000(Landroid/webkit/PluginFullScreenHolder;)Landroid/webkit/WebViewClassic;
 
     move-result-object v0
@@ -72,11 +73,11 @@
     .line 106
     const/4 v0, 0x1
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 1
     .parameter "keyCode"
     .parameter "event"
 
@@ -86,7 +87,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 112
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->onKeyUp(ILandroid/view/KeyEvent;)Z
@@ -94,13 +95,14 @@
     move-result v0
 
     .line 116
-    :goto_a
+    :goto_0
     return v0
 
     .line 114
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/webkit/PluginFullScreenHolder$CustomFrameLayout;->this$0:Landroid/webkit/PluginFullScreenHolder;
 
+    #getter for: Landroid/webkit/PluginFullScreenHolder;->mWebView:Landroid/webkit/WebViewClassic;
     invoke-static {v0}, Landroid/webkit/PluginFullScreenHolder;->access$000(Landroid/webkit/PluginFullScreenHolder;)Landroid/webkit/WebViewClassic;
 
     move-result-object v0
@@ -110,11 +112,11 @@
     .line 116
     const/4 v0, 0x1
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -125,13 +127,14 @@
 .end method
 
 .method public onTrackballEvent(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
     .line 127
     iget-object v0, p0, Landroid/webkit/PluginFullScreenHolder$CustomFrameLayout;->this$0:Landroid/webkit/PluginFullScreenHolder;
 
+    #getter for: Landroid/webkit/PluginFullScreenHolder;->mWebView:Landroid/webkit/WebViewClassic;
     invoke-static {v0}, Landroid/webkit/PluginFullScreenHolder;->access$000(Landroid/webkit/PluginFullScreenHolder;)Landroid/webkit/WebViewClassic;
 
     move-result-object v0

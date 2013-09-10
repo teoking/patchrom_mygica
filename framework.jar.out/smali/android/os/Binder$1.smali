@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/Binder;Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 296
@@ -65,8 +65,8 @@
     iget-object v3, p0, Landroid/os/Binder$1;->val$args:[Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Binder;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    :try_end_b
-    .catchall {:try_start_0 .. :try_end_b} :catchall_11
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 298
     iget-object v0, p0, Landroid/os/Binder$1;->val$pw:Ljava/io/PrintWriter;
@@ -77,7 +77,7 @@
     return-void
 
     .line 298
-    :catchall_11
+    :catchall_0
     move-exception v0
 
     iget-object v1, p0, Landroid/os/Binder$1;->val$pw:Ljava/io/PrintWriter;

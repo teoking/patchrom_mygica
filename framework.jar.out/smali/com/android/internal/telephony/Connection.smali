@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 26
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 23
@@ -78,7 +78,7 @@
 .end method
 
 .method public clearUserData()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 250
@@ -97,7 +97,7 @@
 .end method
 
 .method public getCnapName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 91
@@ -107,7 +107,7 @@
 .end method
 
 .method public getCnapNamePresentation()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 108
@@ -138,7 +138,7 @@
 .end method
 
 .method public getOrigDialString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 99
@@ -154,7 +154,7 @@
 .end method
 
 .method public getState()Lcom/android/internal/telephony/Call$State;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 177
@@ -164,28 +164,28 @@
 
     .line 179
     .local v0, c:Lcom/android/internal/telephony/Call;
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     .line 180
     sget-object v1, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
 
     .line 182
-    :goto_8
+    :goto_0
     return-object v1
 
-    :cond_9
+    :cond_0
     invoke-virtual {v0}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
 
     move-result-object v1
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public abstract getUUSInfo()Lcom/android/internal/telephony/UUSInfo;
 .end method
 
 .method public getUserData()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 210
@@ -203,7 +203,7 @@
 .end method
 
 .method public isAlive()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 194
@@ -222,7 +222,7 @@
 .end method
 
 .method public isRinging()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 202
@@ -252,7 +252,7 @@
 .end method
 
 .method public setUserData(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "userdata"
 
     .prologue
@@ -264,7 +264,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 295
@@ -284,7 +284,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_b7
+    if-eqz v1, :cond_0
 
     .line 298
     new-instance v1, Ljava/lang/StringBuilder;
@@ -448,7 +448,7 @@
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 305
-    :cond_b7
+    :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

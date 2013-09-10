@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 33
@@ -28,7 +28,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 31
@@ -38,7 +38,7 @@
 .end method
 
 .method private static getLayoutDirectionFromFirstChar(Ljava/util/Locale;)I
-    .registers 3
+    .locals 2
     .parameter "locale"
 
     .prologue
@@ -57,35 +57,35 @@
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_14
+    packed-switch v1, :pswitch_data_0
 
     .line 82
-    :goto_10
+    :goto_0
     return v0
 
     .line 78
-    :pswitch_11
+    :pswitch_0
     const/4 v0, 0x1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 75
     nop
 
-    :pswitch_data_14
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_11
-        :pswitch_11
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static getLayoutDirectionFromLocale(Ljava/util/Locale;)I
-    .registers 3
+    .locals 2
     .parameter "locale"
 
     .prologue
     .line 48
-    if-eqz p0, :cond_2f
+    if-eqz p0, :cond_2
 
     sget-object v1, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
 
@@ -93,7 +93,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2f
+    if-nez v1, :cond_2
 
     .line 49
     invoke-virtual {p0}, Ljava/util/Locale;->toString()Ljava/lang/String;
@@ -110,7 +110,7 @@
 
     .line 50
     .local v0, scriptSubtag:Ljava/lang/String;
-    if-nez v0, :cond_1d
+    if-nez v0, :cond_0
 
     invoke-static {p0}, Landroid/util/LocaleUtil;->getLayoutDirectionFromFirstChar(Ljava/util/Locale;)I
 
@@ -118,19 +118,19 @@
 
     .line 58
     .end local v0           #scriptSubtag:Ljava/lang/String;
-    :goto_1c
+    :goto_0
     return v1
 
     .line 52
     .restart local v0       #scriptSubtag:Ljava/lang/String;
-    :cond_1d
+    :cond_0
     sget-object v1, Landroid/util/LocaleUtil;->ARAB_SCRIPT_SUBTAG:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2d
+    if-nez v1, :cond_1
 
     sget-object v1, Landroid/util/LocaleUtil;->HEBR_SCRIPT_SUBTAG:Ljava/lang/String;
 
@@ -138,18 +138,18 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2f
+    if-eqz v1, :cond_2
 
     .line 54
-    :cond_2d
+    :cond_1
     const/4 v1, 0x1
 
-    goto :goto_1c
+    goto :goto_0
 
     .line 58
     .end local v0           #scriptSubtag:Ljava/lang/String;
-    :cond_2f
+    :cond_2
     const/4 v1, 0x0
 
-    goto :goto_1c
+    goto :goto_0
 .end method

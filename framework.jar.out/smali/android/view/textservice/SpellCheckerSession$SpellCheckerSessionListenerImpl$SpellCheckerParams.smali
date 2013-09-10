@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(I[Landroid/view/textservice/TextInfo;IZ)V
-    .registers 5
+    .locals 0
     .parameter "what"
     .parameter "textInfos"
     .parameter "suggestionsLimit"

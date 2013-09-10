@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 211
@@ -33,23 +33,23 @@
 .end method
 
 .method public static getInstance()Landroid/text/method/TextKeyListener$NullKeyListener;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 235
     sget-object v0, Landroid/text/method/TextKeyListener$NullKeyListener;->sInstance:Landroid/text/method/TextKeyListener$NullKeyListener;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 236
     sget-object v0, Landroid/text/method/TextKeyListener$NullKeyListener;->sInstance:Landroid/text/method/TextKeyListener$NullKeyListener;
 
     .line 239
-    :goto_6
+    :goto_0
     return-object v0
 
     .line 238
-    :cond_7
+    :cond_0
     new-instance v0, Landroid/text/method/TextKeyListener$NullKeyListener;
 
     invoke-direct {v0}, Landroid/text/method/TextKeyListener$NullKeyListener;-><init>()V
@@ -59,13 +59,13 @@
     .line 239
     sget-object v0, Landroid/text/method/TextKeyListener$NullKeyListener;->sInstance:Landroid/text/method/TextKeyListener$NullKeyListener;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public clearMetaKeyState(Landroid/view/View;Landroid/text/Editable;I)V
-    .registers 4
+    .locals 0
     .parameter "view"
     .parameter "content"
     .parameter "states"
@@ -76,7 +76,7 @@
 .end method
 
 .method public getInputType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 214
@@ -86,7 +86,7 @@
 .end method
 
 .method public onKeyDown(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
-    .registers 6
+    .locals 1
     .parameter "view"
     .parameter "content"
     .parameter "keyCode"
@@ -100,7 +100,7 @@
 .end method
 
 .method public onKeyOther(Landroid/view/View;Landroid/text/Editable;Landroid/view/KeyEvent;)Z
-    .registers 5
+    .locals 1
     .parameter "view"
     .parameter "content"
     .parameter "event"
@@ -113,7 +113,7 @@
 .end method
 
 .method public onKeyUp(Landroid/view/View;Landroid/text/Editable;ILandroid/view/KeyEvent;)Z
-    .registers 6
+    .locals 1
     .parameter "view"
     .parameter "content"
     .parameter "keyCode"

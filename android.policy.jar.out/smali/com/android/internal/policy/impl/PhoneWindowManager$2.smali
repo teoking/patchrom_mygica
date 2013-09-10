@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onUEvent(Landroid/os/UEventObserver$UEvent;)V
-    .registers 7
+    .locals 5
     .parameter "event"
 
     .prologue
@@ -69,7 +69,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 607
-    :try_start_1e
+    :try_start_0
     const-string v2, "window"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -94,30 +94,30 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3a
+    if-eqz v2, :cond_0
 
     .line 610
     invoke-interface {v1}, Landroid/view/IWindowManager;->thawRotation()V
 
     .line 617
     .end local v1           #wm:Landroid/view/IWindowManager;
-    :goto_39
+    :goto_0
     return-void
 
     .line 612
     .restart local v1       #wm:Landroid/view/IWindowManager;
-    :cond_3a
+    :cond_0
     const/4 v2, -0x1
 
     invoke-interface {v1, v2}, Landroid/view/IWindowManager;->freezeRotation(I)V
-    :try_end_3e
-    .catch Landroid/os/RemoteException; {:try_start_1e .. :try_end_3e} :catch_3f
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_39
+    goto :goto_0
 
     .line 614
     .end local v1           #wm:Landroid/view/IWindowManager;
-    :catch_3f
+    :catch_0
     move-exception v0
 
     .line 615
@@ -128,5 +128,5 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_39
+    goto :goto_0
 .end method

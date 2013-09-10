@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 31
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public cancel()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 54
@@ -37,7 +37,7 @@
 .end method
 
 .method public dismiss()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60
@@ -45,18 +45,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     .line 61
     invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->finish()V
 
     .line 63
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
     .parameter "savedInstanceState"
 
     .prologue
@@ -86,7 +86,7 @@
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 1
     .parameter "keyCode"
     .parameter "event"
 
@@ -98,24 +98,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
     .line 80
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 1
     .parameter "keyCode"
     .parameter "event"
 
@@ -127,24 +127,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
     .line 86
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyUp(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method protected setupAlert()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 73

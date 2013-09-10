@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 29
@@ -23,7 +23,7 @@
 .end method
 
 .method public static getInitialScrollX(Landroid/widget/TextView;Landroid/text/Spannable;)I
-    .registers 6
+    .locals 4
     .parameter "widget"
     .parameter "buffer"
 
@@ -47,23 +47,23 @@
     .local v0, ds:[Landroid/text/method/Touch$DragState;
     array-length v1, v0
 
-    if-lez v1, :cond_15
+    if-lez v1, :cond_0
 
     aget-object v1, v0, v3
 
     iget v1, v1, Landroid/text/method/Touch$DragState;->mScrollX:I
 
-    :goto_14
+    :goto_0
     return v1
 
-    :cond_15
+    :cond_0
     const/4 v1, -0x1
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public static getInitialScrollY(Landroid/widget/TextView;Landroid/text/Spannable;)I
-    .registers 6
+    .locals 4
     .parameter "widget"
     .parameter "buffer"
 
@@ -87,23 +87,23 @@
     .local v0, ds:[Landroid/text/method/Touch$DragState;
     array-length v1, v0
 
-    if-lez v1, :cond_15
+    if-lez v1, :cond_0
 
     aget-object v1, v0, v3
 
     iget v1, v1, Landroid/text/method/Touch$DragState;->mScrollY:I
 
-    :goto_14
+    :goto_0
     return v1
 
-    :cond_15
+    :cond_0
     const/4 v1, -0x1
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public static onTouchEvent(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z
-    .registers 25
+    .locals 22
     .parameter "widget"
     .parameter "buffer"
     .parameter "event"
@@ -114,17 +114,17 @@
 
     move-result v17
 
-    packed-switch v17, :pswitch_data_21c
+    packed-switch v17, :pswitch_data_0
 
     .line 174
-    :cond_7
+    :cond_0
     const/16 v17, 0x0
 
-    :goto_9
+    :goto_0
     return v17
 
     .line 92
-    :pswitch_a
+    :pswitch_0
     const/16 v17, 0x0
 
     invoke-interface/range {p1 .. p1}, Landroid/text/Spannable;->length()I
@@ -152,14 +152,14 @@
     const/4 v9, 0x0
 
     .local v9, i:I
-    :goto_21
+    :goto_1
     array-length v0, v6
 
     move/from16 v17, v0
 
     move/from16 v0, v17
 
-    if-ge v9, v0, :cond_34
+    if-ge v9, v0, :cond_1
 
     .line 95
     aget-object v17, v6, v9
@@ -173,10 +173,10 @@
     .line 94
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_21
+    goto :goto_1
 
     .line 98
-    :cond_34
+    :cond_1
     new-instance v17, Landroid/text/method/Touch$DragState;
 
     invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getX()F
@@ -218,12 +218,12 @@
     .line 101
     const/16 v17, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 104
     .end local v6           #ds:[Landroid/text/method/Touch$DragState;
     .end local v9           #i:I
-    :pswitch_5f
+    :pswitch_1
     const/16 v17, 0x0
 
     invoke-interface/range {p1 .. p1}, Landroid/text/Spannable;->length()I
@@ -251,14 +251,14 @@
     const/4 v9, 0x0
 
     .restart local v9       #i:I
-    :goto_76
+    :goto_2
     array-length v0, v6
 
     move/from16 v17, v0
 
     move/from16 v0, v17
 
-    if-ge v9, v0, :cond_89
+    if-ge v9, v0, :cond_2
 
     .line 107
     aget-object v17, v6, v9
@@ -272,15 +272,15 @@
     .line 106
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_76
+    goto :goto_2
 
     .line 110
-    :cond_89
+    :cond_2
     array-length v0, v6
 
     move/from16 v17, v0
 
-    if-lez v17, :cond_9e
+    if-lez v17, :cond_3
 
     const/16 v17, 0x0
 
@@ -292,23 +292,23 @@
 
     move/from16 v17, v0
 
-    if-eqz v17, :cond_9e
+    if-eqz v17, :cond_3
 
     .line 111
     const/16 v17, 0x1
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 113
-    :cond_9e
+    :cond_3
     const/16 v17, 0x0
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 117
     .end local v6           #ds:[Landroid/text/method/Touch$DragState;
     .end local v9           #i:I
-    :pswitch_a2
+    :pswitch_2
     const/16 v17, 0x0
 
     invoke-interface/range {p1 .. p1}, Landroid/text/Spannable;->length()I
@@ -337,7 +337,7 @@
 
     move/from16 v17, v0
 
-    if-lez v17, :cond_7
+    if-lez v17, :cond_0
 
     .line 120
     const/16 v17, 0x0
@@ -350,7 +350,7 @@
 
     move/from16 v17, v0
 
-    if-nez v17, :cond_11b
+    if-nez v17, :cond_5
 
     .line 121
     invoke-virtual/range {p0 .. p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
@@ -395,7 +395,7 @@
 
     cmpl-float v17, v17, v18
 
-    if-gez v17, :cond_10f
+    if-gez v17, :cond_4
 
     invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getY()F
 
@@ -425,10 +425,10 @@
 
     cmpl-float v17, v17, v18
 
-    if-ltz v17, :cond_11b
+    if-ltz v17, :cond_5
 
     .line 125
-    :cond_10f
+    :cond_4
     const/16 v17, 0x0
 
     aget-object v17, v6, v17
@@ -443,7 +443,7 @@
 
     .line 129
     .end local v16           #slop:I
-    :cond_11b
+    :cond_5
     const/16 v17, 0x0
 
     aget-object v17, v6, v17
@@ -454,7 +454,7 @@
 
     move/from16 v17, v0
 
-    if-eqz v17, :cond_7
+    if-eqz v17, :cond_0
 
     .line 130
     const/16 v17, 0x0
@@ -476,7 +476,7 @@
 
     and-int/lit8 v17, v17, 0x1
 
-    if-nez v17, :cond_159
+    if-nez v17, :cond_6
 
     const/16 v17, 0x1
 
@@ -494,7 +494,7 @@
 
     move/from16 v1, v18
 
-    if-eq v0, v1, :cond_159
+    if-eq v0, v1, :cond_6
 
     const/16 v17, 0x800
 
@@ -506,15 +506,15 @@
 
     move-result v17
 
-    if-eqz v17, :cond_1f6
+    if-eqz v17, :cond_9
 
-    :cond_159
+    :cond_6
     const/4 v5, 0x1
 
     .line 138
     .local v5, cap:Z
-    :goto_15a
-    if-eqz v5, :cond_1f9
+    :goto_3
+    if-eqz v5, :cond_a
 
     .line 141
     invoke-virtual/range {p2 .. p2}, Landroid/view/MotionEvent;->getX()F
@@ -553,7 +553,7 @@
 
     .line 147
     .local v8, dy:F
-    :goto_17c
+    :goto_4
     const/16 v17, 0x0
 
     aget-object v17, v6, v17
@@ -677,7 +677,7 @@
 
     move/from16 v0, v17
 
-    if-ne v13, v0, :cond_1ef
+    if-ne v13, v0, :cond_7
 
     invoke-virtual/range {p0 .. p0}, Landroid/widget/TextView;->getScrollY()I
 
@@ -685,17 +685,17 @@
 
     move/from16 v0, v17
 
-    if-eq v14, v0, :cond_1f2
+    if-eq v14, v0, :cond_8
 
     .line 166
-    :cond_1ef
+    :cond_7
     invoke-virtual/range {p0 .. p0}, Landroid/widget/TextView;->cancelLongPress()V
 
     .line 169
-    :cond_1f2
+    :cond_8
     const/16 v17, 0x1
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 131
     .end local v5           #cap:Z
@@ -707,14 +707,14 @@
     .end local v13           #oldX:I
     .end local v14           #oldY:I
     .end local v15           #padding:I
-    :cond_1f6
+    :cond_9
     const/4 v5, 0x0
 
-    goto/16 :goto_15a
+    goto/16 :goto_3
 
     .line 144
     .restart local v5       #cap:Z
-    :cond_1f9
+    :cond_a
     const/16 v17, 0x0
 
     aget-object v17, v6, v17
@@ -750,21 +750,21 @@
     sub-float v8, v17, v18
 
     .restart local v8       #dy:F
-    goto/16 :goto_17c
+    goto/16 :goto_4
 
     .line 90
     nop
 
-    :pswitch_data_21c
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_a
-        :pswitch_5f
-        :pswitch_a2
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public static scrollTo(Landroid/widget/TextView;Landroid/text/Layout;II)V
-    .registers 19
+    .locals 15
     .parameter "widget"
     .parameter "layout"
     .parameter "x"
@@ -816,18 +816,18 @@
 
     move-result v13
 
-    if-lez v13, :cond_66
+    if-lez v13, :cond_0
 
     const/4 v9, 0x1
 
     .line 46
     .local v9, ltr:Z
-    :goto_27
+    :goto_0
     invoke-virtual {p0}, Landroid/widget/TextView;->getHorizontallyScrolling()Z
 
     move-result v13
 
-    if-eqz v13, :cond_68
+    if-eqz v13, :cond_1
 
     .line 47
     invoke-virtual {p0}, Landroid/widget/TextView;->getTotalPaddingTop()I
@@ -869,8 +869,8 @@
     move v7, v11
 
     .local v7, i:I
-    :goto_49
-    if-gt v7, v5, :cond_6a
+    :goto_1
+    if-gt v7, v5, :cond_2
 
     .line 54
     int-to-float v13, v8
@@ -905,7 +905,7 @@
     .line 53
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_49
+    goto :goto_1
 
     .line 43
     .end local v5           #bottom:I
@@ -914,14 +914,14 @@
     .end local v9           #ltr:Z
     .end local v10           #right:I
     .end local v12           #verticalPadding:I
-    :cond_66
+    :cond_0
     const/4 v9, 0x0
 
-    goto :goto_27
+    goto :goto_0
 
     .line 58
     .restart local v9       #ltr:Z
-    :cond_68
+    :cond_1
     const/4 v8, 0x0
 
     .line 59
@@ -930,17 +930,17 @@
 
     .line 62
     .restart local v10       #right:I
-    :cond_6a
+    :cond_2
     sub-int v3, v10, v8
 
     .line 64
     .local v3, actualWidth:I
-    if-ge v3, v4, :cond_92
+    if-ge v3, v4, :cond_7
 
     .line 65
     sget-object v13, Landroid/text/Layout$Alignment;->ALIGN_CENTER:Landroid/text/Layout$Alignment;
 
-    if-ne v2, v13, :cond_80
+    if-ne v2, v13, :cond_3
 
     .line 66
     sub-int v13, v4, v3
@@ -950,7 +950,7 @@
     sub-int p2, v8, v13
 
     .line 79
-    :goto_78
+    :goto_2
     move/from16 v0, p2
 
     move/from16 v1, p3
@@ -961,34 +961,34 @@
     return-void
 
     .line 67
-    :cond_80
-    if-eqz v9, :cond_86
+    :cond_3
+    if-eqz v9, :cond_4
 
     sget-object v13, Landroid/text/Layout$Alignment;->ALIGN_OPPOSITE:Landroid/text/Layout$Alignment;
 
-    if-eq v2, v13, :cond_8a
+    if-eq v2, v13, :cond_5
 
-    :cond_86
+    :cond_4
     sget-object v13, Landroid/text/Layout$Alignment;->ALIGN_RIGHT:Landroid/text/Layout$Alignment;
 
-    if-ne v2, v13, :cond_8f
+    if-ne v2, v13, :cond_6
 
     .line 70
-    :cond_8a
+    :cond_5
     sub-int v13, v4, v3
 
     sub-int p2, v8, v13
 
-    goto :goto_78
+    goto :goto_2
 
     .line 72
-    :cond_8f
+    :cond_6
     move/from16 p2, v8
 
-    goto :goto_78
+    goto :goto_2
 
     .line 75
-    :cond_92
+    :cond_7
     sub-int v13, v10, v4
 
     move/from16 v0, p2
@@ -1004,5 +1004,5 @@
 
     move-result p2
 
-    goto :goto_78
+    goto :goto_2
 .end method

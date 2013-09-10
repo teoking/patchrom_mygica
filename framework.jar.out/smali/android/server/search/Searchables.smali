@@ -81,7 +81,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 63
@@ -105,7 +105,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -137,7 +137,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/content/pm/ResolveInfo;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -150,7 +150,7 @@
 .end method
 
 .method private findGlobalSearchActivities()Ljava/util/List;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -187,13 +187,13 @@
 
     .line 269
     .local v0, activities:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_20
+    if-nez v3, :cond_0
 
     .line 271
     sget-object v3, Landroid/server/search/Searchables;->GLOBAL_SEARCH_RANKER:Ljava/util/Comparator;
@@ -201,12 +201,12 @@
     invoke-static {v0, v3}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
     .line 274
-    :cond_20
+    :cond_0
     return-object v0
 .end method
 
 .method private findGlobalSearchActivity(Ljava/util/List;)Landroid/content/ComponentName;
-    .registers 5
+    .locals 3
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -232,7 +232,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_17
+    if-nez v2, :cond_0
 
     .line 285
     invoke-static {v1}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
@@ -241,43 +241,43 @@
 
     .line 287
     .local v0, globalSearchComponent:Landroid/content/ComponentName;
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     invoke-direct {p0, v0}, Landroid/server/search/Searchables;->isInstalled(Landroid/content/ComponentName;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_17
+    if-eqz v2, :cond_0
 
     .line 292
     .end local v0           #globalSearchComponent:Landroid/content/ComponentName;
-    :goto_16
+    :goto_0
     return-object v0
 
-    :cond_17
+    :cond_0
     invoke-direct {p0, p1}, Landroid/server/search/Searchables;->getDefaultGlobalSearchProvider(Ljava/util/List;)Landroid/content/ComponentName;
 
     move-result-object v0
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method private findWebSearchActivity(Landroid/content/ComponentName;)Landroid/content/ComponentName;
-    .registers 9
+    .locals 7
     .parameter "globalSearchActivity"
 
     .prologue
     const/4 v4, 0x0
 
     .line 372
-    if-nez p1, :cond_4
+    if-nez p1, :cond_0
 
     .line 387
-    :goto_3
+    :goto_0
     return-object v4
 
     .line 375
-    :cond_4
+    :cond_0
     new-instance v2, Landroid/content/Intent;
 
     const-string v5, "android.intent.action.WEB_SEARCH"
@@ -309,13 +309,13 @@
 
     .line 381
     .local v0, activities:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    if-eqz v0, :cond_39
+    if-eqz v0, :cond_1
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v5
 
-    if-nez v5, :cond_39
+    if-nez v5, :cond_1
 
     .line 382
     const/4 v4, 0x0
@@ -338,22 +338,22 @@
 
     invoke-direct {v4, v5, v6}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_0
 
     .line 386
     .end local v1           #ai:Landroid/content/pm/ActivityInfo;
-    :cond_39
+    :cond_1
     const-string v5, "Searchables"
 
     const-string v6, "No web search activity found"
 
     invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method private getDefaultGlobalSearchProvider(Ljava/util/List;)Landroid/content/ComponentName;
-    .registers 6
+    .locals 4
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -369,13 +369,13 @@
     .prologue
     .line 352
     .local p1, providerList:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    if-eqz p1, :cond_1b
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_1b
+    if-nez v1, :cond_0
 
     .line 353
     const/4 v1, 0x0
@@ -400,11 +400,11 @@
 
     .line 358
     .end local v0           #ai:Landroid/content/pm/ActivityInfo;
-    :goto_1a
+    :goto_0
     return-object v1
 
     .line 357
-    :cond_1b
+    :cond_0
     const-string v1, "Searchables"
 
     const-string v2, "No global search activity found"
@@ -414,11 +414,11 @@
     .line 358
     const/4 v1, 0x0
 
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 .method private getGlobalSearchProviderSetting()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 362
@@ -438,7 +438,7 @@
 .end method
 
 .method private isInstalled(Landroid/content/ComponentName;)Z
-    .registers 6
+    .locals 4
     .parameter "globalSearch"
 
     .prologue
@@ -470,29 +470,29 @@
 
     .line 308
     .local v0, activities:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_20
+    if-nez v3, :cond_0
 
     .line 309
     const/4 v3, 0x1
 
     .line 312
-    :goto_1f
+    :goto_0
     return v3
 
-    :cond_20
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_1f
+    goto :goto_0
 .end method
 
 .method private static final isSystemApp(Landroid/content/pm/ResolveInfo;)Z
-    .registers 2
+    .locals 1
     .parameter "res"
 
     .prologue
@@ -505,23 +505,23 @@
 
     and-int/lit8 v0, v0, 0x1
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public buildSearchableList()V
-    .registers 24
+    .locals 23
 
     .prologue
     .line 191
@@ -599,26 +599,26 @@
 
     .line 210
     .local v17, webSearchInfoList:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    if-nez v14, :cond_43
+    if-nez v14, :cond_0
 
-    if-eqz v17, :cond_b5
+    if-eqz v17, :cond_5
 
     .line 211
-    :cond_43
-    if-nez v14, :cond_9c
+    :cond_0
+    if-nez v14, :cond_2
 
     const/4 v15, 0x0
 
     .line 212
     .local v15, search_count:I
-    :goto_46
-    if-nez v17, :cond_a1
+    :goto_0
+    if-nez v17, :cond_3
 
     const/16 v19, 0x0
 
     .line 213
     .local v19, web_search_count:I
-    :goto_4a
+    :goto_1
     add-int v3, v15, v19
 
     .line 214
@@ -626,11 +626,11 @@
     const/4 v4, 0x0
 
     .local v4, ii:I
-    :goto_4d
-    if-ge v4, v3, :cond_b5
+    :goto_2
+    if-ge v4, v3, :cond_5
 
     .line 216
-    if-ge v4, v15, :cond_a6
+    if-ge v4, v15, :cond_4
 
     invoke-interface {v14, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -642,7 +642,7 @@
 
     .line 219
     .local v5, info:Landroid/content/pm/ResolveInfo;
-    :goto_59
+    :goto_3
     iget-object v2, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     .line 221
@@ -665,7 +665,7 @@
 
     move-result-object v20
 
-    if-nez v20, :cond_99
+    if-nez v20, :cond_1
 
     .line 222
     move-object/from16 v0, p0
@@ -682,7 +682,7 @@
 
     .line 223
     .local v16, searchable:Landroid/app/SearchableInfo;
-    if-eqz v16, :cond_99
+    if-eqz v16, :cond_1
 
     .line 224
     move-object/from16 v0, v16
@@ -705,7 +705,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_99
+    if-eqz v20, :cond_1
 
     .line 227
     move-object/from16 v0, v16
@@ -714,10 +714,10 @@
 
     .line 214
     .end local v16           #searchable:Landroid/app/SearchableInfo;
-    :cond_99
+    :cond_1
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_4d
+    goto :goto_2
 
     .line 211
     .end local v2           #ai:Landroid/content/pm/ActivityInfo;
@@ -726,27 +726,27 @@
     .end local v5           #info:Landroid/content/pm/ResolveInfo;
     .end local v15           #search_count:I
     .end local v19           #web_search_count:I
-    :cond_9c
+    :cond_2
     invoke-interface {v14}, Ljava/util/List;->size()I
 
     move-result v15
 
-    goto :goto_46
+    goto :goto_0
 
     .line 212
     .restart local v15       #search_count:I
-    :cond_a1
+    :cond_3
     invoke-interface/range {v17 .. v17}, Ljava/util/List;->size()I
 
     move-result v19
 
-    goto :goto_4a
+    goto :goto_1
 
     .line 216
     .restart local v3       #count:I
     .restart local v4       #ii:I
     .restart local v19       #web_search_count:I
-    :cond_a6
+    :cond_4
     sub-int v20, v4, v15
 
     move-object/from16 v0, v17
@@ -761,14 +761,14 @@
 
     move-object/from16 v5, v20
 
-    goto :goto_59
+    goto :goto_3
 
     .line 234
     .end local v3           #count:I
     .end local v4           #ii:I
     .end local v15           #search_count:I
     .end local v19           #web_search_count:I
-    :cond_b5
+    :cond_5
     invoke-direct/range {p0 .. p0}, Landroid/server/search/Searchables;->findGlobalSearchActivities()Ljava/util/List;
 
     move-result-object v7
@@ -794,7 +794,7 @@
     monitor-enter p0
 
     .line 245
-    :try_start_c6
+    :try_start_0
     move-object/from16 v0, p0
 
     iput-object v11, v0, Landroid/server/search/Searchables;->mSearchablesMap:Ljava/util/HashMap;
@@ -831,18 +831,18 @@
     return-void
 
     .line 251
-    :catchall_e0
+    :catchall_0
     move-exception v20
 
     monitor-exit p0
-    :try_end_e2
-    .catchall {:try_start_c6 .. :try_end_e2} :catchall_e0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v20
 .end method
 
 .method public declared-synchronized getGlobalSearchActivities()Ljava/util/ArrayList;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -857,20 +857,20 @@
     .line 409
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Ljava/util/ArrayList;
 
     iget-object v1, p0, Landroid/server/search/Searchables;->mGlobalSearchActivities:Ljava/util/List;
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-    :try_end_8
-    .catchall {:try_start_1 .. :try_end_8} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
-    :catchall_a
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -879,22 +879,22 @@
 .end method
 
 .method public declared-synchronized getGlobalSearchActivity()Landroid/content/ComponentName;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 416
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/server/search/Searchables;->mCurrentGlobalSearchActivity:Landroid/content/ComponentName;
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -903,7 +903,7 @@
 .end method
 
 .method public getSearchableInfo(Landroid/content/ComponentName;)Landroid/app/SearchableInfo;
-    .registers 12
+    .locals 10
     .parameter "activity"
 
     .prologue
@@ -913,7 +913,7 @@
     monitor-enter p0
 
     .line 107
-    :try_start_2
+    :try_start_0
     iget-object v7, p0, Landroid/server/search/Searchables;->mSearchablesMap:Ljava/util/HashMap;
 
     invoke-virtual {v7, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -924,28 +924,28 @@
 
     .line 108
     .local v6, result:Landroid/app/SearchableInfo;
-    if-eqz v6, :cond_f
+    if-eqz v6, :cond_0
 
     monitor-exit p0
 
     move-object v7, v6
 
     .line 165
-    :goto_e
+    :goto_0
     return-object v7
 
     .line 109
-    :cond_f
+    :cond_0
     monitor-exit p0
-    :try_end_10
-    .catchall {:try_start_2 .. :try_end_10} :catchall_42
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 116
     const/4 v1, 0x0
 
     .line 118
     .local v1, ai:Landroid/content/pm/ActivityInfo;
-    :try_start_11
+    :try_start_1
     iget-object v7, p0, Landroid/server/search/Searchables;->mContext:Landroid/content/Context;
 
     invoke-virtual {v7}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -967,7 +967,7 @@
 
     .line 124
     .local v2, md:Landroid/os/Bundle;
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_1
 
     .line 125
     const-string v7, "android.app.default_searchable"
@@ -977,8 +977,8 @@
     move-result-object v4
 
     .line 128
-    :cond_28
-    if-nez v4, :cond_36
+    :cond_1
+    if-nez v4, :cond_2
 
     .line 129
     iget-object v7, v1, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
@@ -986,7 +986,7 @@
     iget-object v2, v7, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
     .line 130
-    if-eqz v2, :cond_36
+    if-eqz v2, :cond_2
 
     .line 131
     const-string v7, "android.app.default_searchable"
@@ -996,37 +996,37 @@
     move-result-object v4
 
     .line 136
-    :cond_36
-    if-eqz v4, :cond_84
+    :cond_2
+    if-eqz v4, :cond_6
 
     .line 139
     const-string v7, "*"
 
     invoke-virtual {v4, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    :try_end_3d
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_11 .. :try_end_3d} :catch_89
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result v7
 
-    if-eqz v7, :cond_45
+    if-eqz v7, :cond_3
 
     move-object v7, v8
 
     .line 140
-    goto :goto_e
+    goto :goto_0
 
     .line 109
     .end local v1           #ai:Landroid/content/pm/ActivityInfo;
     .end local v2           #md:Landroid/os/Bundle;
     .end local v4           #refActivityName:Ljava/lang/String;
     .end local v6           #result:Landroid/app/SearchableInfo;
-    :catchall_42
+    :catchall_0
     move-exception v7
 
-    :try_start_43
+    :try_start_2
     monitor-exit p0
-    :try_end_44
-    .catchall {:try_start_43 .. :try_end_44} :catchall_42
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v7
 
@@ -1035,8 +1035,8 @@
     .restart local v2       #md:Landroid/os/Bundle;
     .restart local v4       #refActivityName:Ljava/lang/String;
     .restart local v6       #result:Landroid/app/SearchableInfo;
-    :cond_45
-    :try_start_45
+    :cond_3
+    :try_start_3
     invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v3
@@ -1051,7 +1051,7 @@
 
     const/16 v9, 0x2e
 
-    if-ne v7, v9, :cond_7d
+    if-ne v7, v9, :cond_4
 
     .line 145
     new-instance v5, Landroid/content/ComponentName;
@@ -1076,13 +1076,13 @@
 
     .line 152
     .local v5, referredActivity:Landroid/content/ComponentName;
-    :goto_68
+    :goto_1
     monitor-enter p0
-    :try_end_69
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_45 .. :try_end_69} :catch_89
+    :try_end_3
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_3 .. :try_end_3} :catch_0
 
     .line 153
-    :try_start_69
+    :try_start_4
     iget-object v7, p0, Landroid/server/search/Searchables;->mSearchablesMap:Ljava/util/HashMap;
 
     invoke-virtual {v7, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1096,7 +1096,7 @@
     move-object v6, v0
 
     .line 154
-    if-eqz v6, :cond_83
+    if-eqz v6, :cond_5
 
     .line 155
     iget-object v7, p0, Landroid/server/search/Searchables;->mSearchablesMap:Ljava/util/HashMap;
@@ -1105,72 +1105,72 @@
 
     .line 156
     monitor-exit p0
-    :try_end_7b
-    .catchall {:try_start_69 .. :try_end_7b} :catchall_86
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     move-object v7, v6
 
-    goto :goto_e
+    goto :goto_0
 
     .line 147
     .end local v5           #referredActivity:Landroid/content/ComponentName;
-    :cond_7d
-    :try_start_7d
+    :cond_4
+    :try_start_5
     new-instance v5, Landroid/content/ComponentName;
 
     invoke-direct {v5, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_82
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_7d .. :try_end_82} :catch_89
+    :try_end_5
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_5 .. :try_end_5} :catch_0
 
     .restart local v5       #referredActivity:Landroid/content/ComponentName;
-    goto :goto_68
+    goto :goto_1
 
     .line 158
-    :cond_83
-    :try_start_83
+    :cond_5
+    :try_start_6
     monitor-exit p0
 
     .end local v2           #md:Landroid/os/Bundle;
     .end local v3           #pkg:Ljava/lang/String;
     .end local v4           #refActivityName:Ljava/lang/String;
     .end local v5           #referredActivity:Landroid/content/ComponentName;
-    :cond_84
-    :goto_84
+    :cond_6
+    :goto_2
     move-object v7, v8
 
     .line 165
-    goto :goto_e
+    goto :goto_0
 
     .line 158
     .restart local v2       #md:Landroid/os/Bundle;
     .restart local v3       #pkg:Ljava/lang/String;
     .restart local v4       #refActivityName:Ljava/lang/String;
     .restart local v5       #referredActivity:Landroid/content/ComponentName;
-    :catchall_86
+    :catchall_1
     move-exception v7
 
     monitor-exit p0
-    :try_end_88
-    .catchall {:try_start_83 .. :try_end_88} :catchall_86
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    :try_start_88
+    :try_start_7
     throw v7
-    :try_end_89
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_88 .. :try_end_89} :catch_89
+    :try_end_7
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_7 .. :try_end_7} :catch_0
 
     .line 160
     .end local v2           #md:Landroid/os/Bundle;
     .end local v3           #pkg:Ljava/lang/String;
     .end local v4           #refActivityName:Ljava/lang/String;
     .end local v5           #referredActivity:Landroid/content/ComponentName;
-    :catch_89
+    :catch_0
     move-exception v7
 
-    goto :goto_84
+    goto :goto_2
 .end method
 
 .method public declared-synchronized getSearchablesInGlobalSearchList()Ljava/util/ArrayList;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1185,20 +1185,20 @@
     .line 402
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Ljava/util/ArrayList;
 
     iget-object v1, p0, Landroid/server/search/Searchables;->mSearchablesInGlobalSearchList:Ljava/util/ArrayList;
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-    :try_end_8
-    .catchall {:try_start_1 .. :try_end_8} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
-    :catchall_a
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -1207,7 +1207,7 @@
 .end method
 
 .method public declared-synchronized getSearchablesList()Ljava/util/ArrayList;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1222,14 +1222,14 @@
     .line 394
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Ljava/util/ArrayList;
 
     iget-object v1, p0, Landroid/server/search/Searchables;->mSearchablesList:Ljava/util/ArrayList;
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-    :try_end_8
-    .catchall {:try_start_1 .. :try_end_8} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 395
     .local v0, result:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/app/SearchableInfo;>;"
@@ -1239,7 +1239,7 @@
 
     .line 394
     .end local v0           #result:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/app/SearchableInfo;>;"
-    :catchall_a
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
@@ -1248,22 +1248,22 @@
 .end method
 
 .method public declared-synchronized getWebSearchActivity()Landroid/content/ComponentName;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 423
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/server/search/Searchables;->mWebSearchActivity:Landroid/content/ComponentName;
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0

@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Dialog;)V
-    .registers 3
+    .locals 1
     .parameter "dialog"
 
     .prologue
@@ -50,21 +50,21 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
     .line 1224
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_36
+    packed-switch v0, :pswitch_data_0
 
     .line 1235
-    :goto_5
+    :goto_0
     return-void
 
     .line 1226
-    :pswitch_6
+    :pswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/content/DialogInterface$OnDismissListener;
@@ -79,10 +79,10 @@
 
     invoke-interface {v0, v1}, Landroid/content/DialogInterface$OnDismissListener;->onDismiss(Landroid/content/DialogInterface;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 1229
-    :pswitch_16
+    :pswitch_1
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/content/DialogInterface$OnCancelListener;
@@ -97,10 +97,10 @@
 
     invoke-interface {v0, v1}, Landroid/content/DialogInterface$OnCancelListener;->onCancel(Landroid/content/DialogInterface;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 1232
-    :pswitch_26
+    :pswitch_2
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/content/DialogInterface$OnShowListener;
@@ -115,13 +115,13 @@
 
     invoke-interface {v0, v1}, Landroid/content/DialogInterface$OnShowListener;->onShow(Landroid/content/DialogInterface;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 1224
-    :pswitch_data_36
+    :pswitch_data_0
     .packed-switch 0x43
-        :pswitch_6
-        :pswitch_16
-        :pswitch_26
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

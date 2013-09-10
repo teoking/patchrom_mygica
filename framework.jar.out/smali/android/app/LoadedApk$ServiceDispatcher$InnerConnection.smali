@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/LoadedApk$ServiceDispatcher;)V
-    .registers 3
+    .locals 1
     .parameter "sd"
 
     .prologue
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public connected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 5
+    .locals 2
     .parameter "name"
     .parameter "service"
     .annotation system Ldalvik/annotation/Throws;
@@ -71,12 +71,12 @@
 
     .line 949
     .local v0, sd:Landroid/app/LoadedApk$ServiceDispatcher;
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 950
     invoke-virtual {v0, p1, p2}, Landroid/app/LoadedApk$ServiceDispatcher;->connected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
 
     .line 952
-    :cond_d
+    :cond_0
     return-void
 .end method

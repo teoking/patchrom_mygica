@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/CommonTimeManagementService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,13 +35,14 @@
 
 # virtual methods
 .method public interfaceAdded(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "iface"
 
     .prologue
     .line 117
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService$1;->this$0:Lcom/android/server/CommonTimeManagementService;
 
+    #calls: Lcom/android/server/CommonTimeManagementService;->reevaluateServiceState()V
     invoke-static {v0}, Lcom/android/server/CommonTimeManagementService;->access$000(Lcom/android/server/CommonTimeManagementService;)V
 
     .line 118
@@ -49,7 +50,7 @@
 .end method
 
 .method public interfaceLinkStateChanged(Ljava/lang/String;Z)V
-    .registers 4
+    .locals 1
     .parameter "iface"
     .parameter "up"
 
@@ -57,6 +58,7 @@
     .line 114
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService$1;->this$0:Lcom/android/server/CommonTimeManagementService;
 
+    #calls: Lcom/android/server/CommonTimeManagementService;->reevaluateServiceState()V
     invoke-static {v0}, Lcom/android/server/CommonTimeManagementService;->access$000(Lcom/android/server/CommonTimeManagementService;)V
 
     .line 115
@@ -64,13 +66,14 @@
 .end method
 
 .method public interfaceRemoved(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "iface"
 
     .prologue
     .line 120
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService$1;->this$0:Lcom/android/server/CommonTimeManagementService;
 
+    #calls: Lcom/android/server/CommonTimeManagementService;->reevaluateServiceState()V
     invoke-static {v0}, Lcom/android/server/CommonTimeManagementService;->access$000(Lcom/android/server/CommonTimeManagementService;)V
 
     .line 121
@@ -78,7 +81,7 @@
 .end method
 
 .method public interfaceStatusChanged(Ljava/lang/String;Z)V
-    .registers 4
+    .locals 1
     .parameter "iface"
     .parameter "up"
 
@@ -86,6 +89,7 @@
     .line 111
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService$1;->this$0:Lcom/android/server/CommonTimeManagementService;
 
+    #calls: Lcom/android/server/CommonTimeManagementService;->reevaluateServiceState()V
     invoke-static {v0}, Lcom/android/server/CommonTimeManagementService;->access$000(Lcom/android/server/CommonTimeManagementService;)V
 
     .line 112
@@ -93,7 +97,7 @@
 .end method
 
 .method public limitReached(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "limitName"
     .parameter "iface"
 

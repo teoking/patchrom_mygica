@@ -32,7 +32,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/view/VolumePanel;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -45,7 +45,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/view/VolumePanel;Landroid/view/VolumePanel$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

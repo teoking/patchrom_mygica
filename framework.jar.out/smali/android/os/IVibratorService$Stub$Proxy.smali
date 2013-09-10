@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 99
@@ -50,7 +50,7 @@
 .end method
 
 .method public cancelVibrate(Landroid/os/IBinder;)V
-    .registers 7
+    .locals 5
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -72,7 +72,7 @@
 
     .line 160
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -91,8 +91,8 @@
 
     .line 163
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 166
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -104,7 +104,7 @@
     return-void
 
     .line 166
-    :catchall_21
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -116,7 +116,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 103
@@ -126,7 +126,7 @@
 .end method
 
 .method public hasVibrator()Z
-    .registers 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -151,7 +151,7 @@
 
     .line 111
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.os.IVibratorService"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -170,16 +170,16 @@
 
     .line 114
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1c
-    .catchall {:try_start_a .. :try_end_1c} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_26
+    if-eqz v4, :cond_0
 
     .line 117
     .local v2, _result:Z
-    :goto_1f
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 118
@@ -189,14 +189,14 @@
     return v2
 
     .end local v2           #_result:Z
-    :cond_26
+    :cond_0
     move v2, v3
 
     .line 114
-    goto :goto_1f
+    goto :goto_0
 
     .line 117
-    :catchall_28
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -208,7 +208,7 @@
 .end method
 
 .method public vibrate(JLandroid/os/IBinder;)V
-    .registers 9
+    .locals 5
     .parameter "milliseconds"
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
@@ -231,7 +231,7 @@
 
     .line 127
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -253,8 +253,8 @@
 
     .line 131
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 134
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -266,7 +266,7 @@
     return-void
 
     .line 134
-    :catchall_24
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -278,7 +278,7 @@
 .end method
 
 .method public vibratePattern([JILandroid/os/IBinder;)V
-    .registers 9
+    .locals 5
     .parameter "pattern"
     .parameter "repeat"
     .parameter "token"
@@ -302,7 +302,7 @@
 
     .line 143
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.os.IVibratorService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -327,8 +327,8 @@
 
     .line 148
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 151
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -340,7 +340,7 @@
     return-void
 
     .line 151
-    :catchall_27
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

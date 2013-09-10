@@ -84,7 +84,7 @@
 
 # direct methods
 .method constructor <init>(IIZ)V
-    .registers 9
+    .locals 5
     .parameter "_pid"
     .parameter "parentPid"
     .parameter "includeThreads"
@@ -99,7 +99,7 @@
     iput p1, p0, Lcom/android/internal/os/ProcessStats$Stats;->pid:I
 
     .line 208
-    if-gez p2, :cond_54
+    if-gez p2, :cond_1
 
     .line 209
     new-instance v0, Ljava/io/File;
@@ -155,7 +155,7 @@
     iput-object v2, p0, Lcom/android/internal/os/ProcessStats$Stats;->threadsDir:Ljava/lang/String;
 
     .line 213
-    if-eqz p3, :cond_4f
+    if-eqz p3, :cond_0
 
     .line 214
     new-instance v2, Ljava/util/ArrayList;
@@ -172,21 +172,21 @@
     iput-object v2, p0, Lcom/android/internal/os/ProcessStats$Stats;->workingThreads:Ljava/util/ArrayList;
 
     .line 231
-    :goto_4e
+    :goto_0
     return-void
 
     .line 217
-    :cond_4f
+    :cond_0
     iput-object v4, p0, Lcom/android/internal/os/ProcessStats$Stats;->threadStats:Ljava/util/ArrayList;
 
     .line 218
     iput-object v4, p0, Lcom/android/internal/os/ProcessStats$Stats;->workingThreads:Ljava/util/ArrayList;
 
-    goto :goto_4e
+    goto :goto_0
 
     .line 221
     .end local v0           #procDir:Ljava/io/File;
-    :cond_54
+    :cond_1
     new-instance v0, Ljava/io/File;
 
     const-string v2, "/proc"
@@ -241,5 +241,5 @@
     .line 229
     iput-object v4, p0, Lcom/android/internal/os/ProcessStats$Stats;->workingThreads:Ljava/util/ArrayList;
 
-    goto :goto_4e
+    goto :goto_0
 .end method

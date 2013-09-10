@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public abandon()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 402
@@ -111,7 +111,7 @@
 .end method
 
 .method public cancelLoad()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 319
@@ -124,7 +124,7 @@
 .end method
 
 .method public dataToString(Ljava/lang/Object;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -161,14 +161,14 @@
 .end method
 
 .method public deliverCancellation()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 154
     .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
     iget-object v0, p0, Landroid/content/Loader;->mOnLoadCanceledListener:Landroid/content/Loader$OnLoadCanceledListener;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 155
     iget-object v0, p0, Landroid/content/Loader;->mOnLoadCanceledListener:Landroid/content/Loader$OnLoadCanceledListener;
@@ -176,12 +176,12 @@
     invoke-interface {v0, p0}, Landroid/content/Loader$OnLoadCanceledListener;->onLoadCanceled(Landroid/content/Loader;)V
 
     .line 157
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public deliverResult(Ljava/lang/Object;)V
-    .registers 3
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -195,7 +195,7 @@
     .local p1, data:Ljava/lang/Object;,"TD;"
     iget-object v0, p0, Landroid/content/Loader;->mListener:Landroid/content/Loader$OnLoadCompleteListener;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 143
     iget-object v0, p0, Landroid/content/Loader;->mListener:Landroid/content/Loader$OnLoadCompleteListener;
@@ -203,12 +203,12 @@
     invoke-interface {v0, p0, p1}, Landroid/content/Loader$OnLoadCompleteListener;->onLoadComplete(Landroid/content/Loader;Ljava/lang/Object;)V
 
     .line 145
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 6
+    .locals 1
     .parameter "prefix"
     .parameter "fd"
     .parameter "writer"
@@ -279,7 +279,7 @@
 .end method
 
 .method public forceLoad()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 346
@@ -291,7 +291,7 @@
 .end method
 
 .method public getContext()Landroid/content/Context;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 163
@@ -302,7 +302,7 @@
 .end method
 
 .method public getId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 170
@@ -313,7 +313,7 @@
 .end method
 
 .method public isAbandoned()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 252
@@ -324,7 +324,7 @@
 .end method
 
 .method public isReset()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 261
@@ -335,7 +335,7 @@
 .end method
 
 .method public isStarted()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 243
@@ -346,7 +346,7 @@
 .end method
 
 .method protected onAbandon()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 416
@@ -355,7 +355,7 @@
 .end method
 
 .method protected onCancelLoad()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 334
@@ -366,33 +366,33 @@
 .end method
 
 .method public onContentChanged()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 473
     .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
     iget-boolean v0, p0, Landroid/content/Loader;->mStarted:Z
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     .line 474
     invoke-virtual {p0}, Landroid/content/Loader;->forceLoad()V
 
     .line 481
-    :goto_7
+    :goto_0
     return-void
 
     .line 479
-    :cond_8
+    :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/content/Loader;->mContentChanged:Z
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method protected onForceLoad()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 354
@@ -401,7 +401,7 @@
 .end method
 
 .method protected onReset()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 451
@@ -410,7 +410,7 @@
 .end method
 
 .method protected onStartLoading()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 298
@@ -419,7 +419,7 @@
 .end method
 
 .method protected onStopLoading()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 388
@@ -428,7 +428,7 @@
 .end method
 
 .method public registerListener(ILandroid/content/Loader$OnLoadCompleteListener;)V
-    .registers 5
+    .locals 2
     .parameter "id"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -445,7 +445,7 @@
     .local p2, listener:Landroid/content/Loader$OnLoadCompleteListener;,"Landroid/content/Loader$OnLoadCompleteListener<TD;>;"
     iget-object v0, p0, Landroid/content/Loader;->mListener:Landroid/content/Loader$OnLoadCompleteListener;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 182
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -457,7 +457,7 @@
     throw v0
 
     .line 184
-    :cond_c
+    :cond_0
     iput-object p2, p0, Landroid/content/Loader;->mListener:Landroid/content/Loader$OnLoadCompleteListener;
 
     .line 185
@@ -468,7 +468,7 @@
 .end method
 
 .method public registerOnLoadCanceledListener(Landroid/content/Loader$OnLoadCanceledListener;)V
-    .registers 4
+    .locals 2
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -484,7 +484,7 @@
     .local p1, listener:Landroid/content/Loader$OnLoadCanceledListener;,"Landroid/content/Loader$OnLoadCanceledListener<TD;>;"
     iget-object v0, p0, Landroid/content/Loader;->mOnLoadCanceledListener:Landroid/content/Loader$OnLoadCanceledListener;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 214
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -496,7 +496,7 @@
     throw v0
 
     .line 216
-    :cond_c
+    :cond_0
     iput-object p1, p0, Landroid/content/Loader;->mOnLoadCanceledListener:Landroid/content/Loader$OnLoadCanceledListener;
 
     .line 217
@@ -504,7 +504,7 @@
 .end method
 
 .method public reset()V
-    .registers 3
+    .locals 2
 
     .prologue
     .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
@@ -532,7 +532,7 @@
 .end method
 
 .method public final startLoading()V
-    .registers 3
+    .locals 2
 
     .prologue
     .local p0, this:Landroid/content/Loader;,"Landroid/content/Loader<TD;>;"
@@ -557,7 +557,7 @@
 .end method
 
 .method public stopLoading()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 377
@@ -574,7 +574,7 @@
 .end method
 
 .method public takeContentChanged()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 459
@@ -592,7 +592,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 496
@@ -631,7 +631,7 @@
 .end method
 
 .method public unregisterListener(Landroid/content/Loader$OnLoadCompleteListener;)V
-    .registers 4
+    .locals 2
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -647,7 +647,7 @@
     .local p1, listener:Landroid/content/Loader$OnLoadCompleteListener;,"Landroid/content/Loader$OnLoadCompleteListener<TD;>;"
     iget-object v0, p0, Landroid/content/Loader;->mListener:Landroid/content/Loader$OnLoadCompleteListener;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 195
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -659,10 +659,10 @@
     throw v0
 
     .line 197
-    :cond_c
+    :cond_0
     iget-object v0, p0, Landroid/content/Loader;->mListener:Landroid/content/Loader$OnLoadCompleteListener;
 
-    if-eq v0, p1, :cond_18
+    if-eq v0, p1, :cond_1
 
     .line 198
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -674,7 +674,7 @@
     throw v0
 
     .line 200
-    :cond_18
+    :cond_1
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/content/Loader;->mListener:Landroid/content/Loader$OnLoadCompleteListener;
@@ -684,7 +684,7 @@
 .end method
 
 .method public unregisterOnLoadCanceledListener(Landroid/content/Loader$OnLoadCanceledListener;)V
-    .registers 4
+    .locals 2
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -700,7 +700,7 @@
     .local p1, listener:Landroid/content/Loader$OnLoadCanceledListener;,"Landroid/content/Loader$OnLoadCanceledListener<TD;>;"
     iget-object v0, p0, Landroid/content/Loader;->mOnLoadCanceledListener:Landroid/content/Loader$OnLoadCanceledListener;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 229
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -712,10 +712,10 @@
     throw v0
 
     .line 231
-    :cond_c
+    :cond_0
     iget-object v0, p0, Landroid/content/Loader;->mOnLoadCanceledListener:Landroid/content/Loader$OnLoadCanceledListener;
 
-    if-eq v0, p1, :cond_18
+    if-eq v0, p1, :cond_1
 
     .line 232
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -727,7 +727,7 @@
     throw v0
 
     .line 234
-    :cond_18
+    :cond_1
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/content/Loader;->mOnLoadCanceledListener:Landroid/content/Loader$OnLoadCanceledListener;

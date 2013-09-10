@@ -28,7 +28,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/google/android/util/AbstractMessageParser$Token$Type;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "type"
     .parameter "text"
 
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public controlCaps()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 716
@@ -59,7 +59,7 @@
 .end method
 
 .method public getInfo()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -93,7 +93,7 @@
 .end method
 
 .method public getRawText()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 707
@@ -103,7 +103,7 @@
 .end method
 
 .method public getType()Lcom/google/android/util/AbstractMessageParser$Token$Type;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 692
@@ -113,7 +113,7 @@
 .end method
 
 .method public isArray()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 711
@@ -121,24 +121,24 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public abstract isHtml()Z
 .end method
 
 .method public isMedia()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 709
@@ -148,7 +148,7 @@
 .end method
 
 .method public setCaps()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 717
@@ -158,7 +158,7 @@
 .end method
 
 .method public toHtml(Z)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "caps"
 
     .prologue

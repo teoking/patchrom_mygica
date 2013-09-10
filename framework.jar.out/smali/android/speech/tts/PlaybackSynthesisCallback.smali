@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(IFFLandroid/speech/tts/AudioPlaybackHandler;Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;Ljava/lang/Object;Landroid/speech/tts/EventLogger;)V
-    .registers 10
+    .locals 2
     .parameter "streamType"
     .parameter "volume"
     .parameter "pan"
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public audioAvailable([BII)I
-    .registers 11
+    .locals 7
     .parameter "buffer"
     .parameter "offset"
     .parameter "length"
@@ -113,12 +113,12 @@
 
     move-result v5
 
-    if-gt p3, v5, :cond_a
+    if-gt p3, v5, :cond_0
 
-    if-gtz p3, :cond_29
+    if-gtz p3, :cond_1
 
     .line 172
-    :cond_a
+    :cond_0
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -150,7 +150,7 @@
     throw v3
 
     .line 176
-    :cond_29
+    :cond_1
     const/4 v2, 0x0
 
     .line 177
@@ -160,33 +160,33 @@
     monitor-enter v5
 
     .line 178
-    :try_start_2d
+    :try_start_0
     iget-object v6, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mItem:Landroid/speech/tts/SynthesisPlaybackQueueItem;
 
-    if-eqz v6, :cond_35
+    if-eqz v6, :cond_2
 
     iget-boolean v6, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mStopped:Z
 
-    if-eqz v6, :cond_38
+    if-eqz v6, :cond_3
 
     .line 179
-    :cond_35
+    :cond_2
     monitor-exit v5
 
     move v3, v4
 
     .line 198
-    :goto_37
+    :goto_0
     return v3
 
     .line 181
-    :cond_38
+    :cond_3
     iget-object v2, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mItem:Landroid/speech/tts/SynthesisPlaybackQueueItem;
 
     .line 182
     monitor-exit v5
-    :try_end_3b
-    .catchall {:try_start_2d .. :try_end_3b} :catchall_49
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 185
     new-array v0, p3, [B
@@ -196,44 +196,44 @@
     invoke-static {p1, p2, v0, v3, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 191
-    :try_start_40
+    :try_start_1
     invoke-virtual {v2, v0}, Landroid/speech/tts/SynthesisPlaybackQueueItem;->put([B)V
-    :try_end_43
-    .catch Ljava/lang/InterruptedException; {:try_start_40 .. :try_end_43} :catch_4c
+    :try_end_1
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 196
     iget-object v4, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mLogger:Landroid/speech/tts/EventLogger;
 
     invoke-virtual {v4}, Landroid/speech/tts/EventLogger;->onEngineDataReceived()V
 
-    goto :goto_37
+    goto :goto_0
 
     .line 182
     .end local v0           #bufferCopy:[B
-    :catchall_49
+    :catchall_0
     move-exception v3
 
-    :try_start_4a
+    :try_start_2
     monitor-exit v5
-    :try_end_4b
-    .catchall {:try_start_4a .. :try_end_4b} :catchall_49
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v3
 
     .line 192
     .restart local v0       #bufferCopy:[B
-    :catch_4c
+    :catch_0
     move-exception v1
 
     .local v1, ie:Ljava/lang/InterruptedException;
     move v3, v4
 
     .line 193
-    goto :goto_37
+    goto :goto_0
 .end method
 
 .method public done()I
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v1, -0x1
@@ -248,10 +248,10 @@
     monitor-enter v2
 
     .line 207
-    :try_start_5
+    :try_start_0
     iget-boolean v3, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mDone:Z
 
-    if-eqz v3, :cond_12
+    if-eqz v3, :cond_0
 
     .line 208
     const-string v3, "PlaybackSynthesisRequest"
@@ -264,11 +264,11 @@
     monitor-exit v2
 
     .line 224
-    :goto_11
+    :goto_0
     return v1
 
     .line 212
-    :cond_12
+    :cond_0
     const/4 v3, 0x1
 
     iput-boolean v3, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mDone:Z
@@ -276,32 +276,32 @@
     .line 214
     iget-object v3, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mItem:Landroid/speech/tts/SynthesisPlaybackQueueItem;
 
-    if-nez v3, :cond_1e
+    if-nez v3, :cond_1
 
     .line 215
     monitor-exit v2
 
-    goto :goto_11
+    goto :goto_0
 
     .line 219
-    :catchall_1b
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_1d
-    .catchall {:try_start_5 .. :try_end_1d} :catchall_1b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 
     .line 218
-    :cond_1e
-    :try_start_1e
+    :cond_1
+    :try_start_1
     iget-object v0, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mItem:Landroid/speech/tts/SynthesisPlaybackQueueItem;
 
     .line 219
     monitor-exit v2
-    :try_end_21
-    .catchall {:try_start_1e .. :try_end_21} :catchall_1b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 221
     invoke-virtual {v0}, Landroid/speech/tts/SynthesisPlaybackQueueItem;->done()V
@@ -314,11 +314,11 @@
     .line 224
     const/4 v1, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public error()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 232
@@ -336,7 +336,7 @@
 .end method
 
 .method public getMaxBufferSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 128
@@ -346,7 +346,7 @@
 .end method
 
 .method isDone()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 133
@@ -356,7 +356,7 @@
 .end method
 
 .method public start(III)I
-    .registers 16
+    .locals 12
     .parameter "sampleRateInHz"
     .parameter "audioFormat"
     .parameter "channelCount"
@@ -371,7 +371,7 @@
 
     .line 144
     .local v10, channelConfig:I
-    if-nez v10, :cond_20
+    if-nez v10, :cond_0
 
     .line 145
     const-string v2, "PlaybackSynthesisRequest"
@@ -397,39 +397,39 @@
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 161
-    :goto_1f
+    :goto_0
     return v1
 
     .line 149
-    :cond_20
+    :cond_0
     iget-object v11, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mStateLock:Ljava/lang/Object;
 
     monitor-enter v11
 
     .line 150
-    :try_start_23
+    :try_start_0
     iget-boolean v2, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mStopped:Z
 
-    if-eqz v2, :cond_2c
+    if-eqz v2, :cond_1
 
     .line 152
     monitor-exit v11
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 159
-    :catchall_29
+    :catchall_0
     move-exception v1
 
     monitor-exit v11
-    :try_end_2b
-    .catchall {:try_start_23 .. :try_end_2b} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 
     .line 154
-    :cond_2c
-    :try_start_2c
+    :cond_1
+    :try_start_1
     new-instance v0, Landroid/speech/tts/SynthesisPlaybackQueueItem;
 
     iget v1, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mStreamType:I
@@ -463,17 +463,17 @@
 
     .line 159
     monitor-exit v11
-    :try_end_48
-    .catchall {:try_start_2c .. :try_end_48} :catchall_29
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 161
     const/4 v1, 0x0
 
-    goto :goto_1f
+    goto :goto_0
 .end method
 
 .method stop()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 83
@@ -486,7 +486,7 @@
 .end method
 
 .method stopImpl(Z)V
-    .registers 6
+    .locals 4
     .parameter "wasError"
 
     .prologue
@@ -501,10 +501,10 @@
     monitor-enter v2
 
     .line 94
-    :try_start_8
+    :try_start_0
     iget-boolean v1, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mStopped:Z
 
-    if-eqz v1, :cond_16
+    if-eqz v1, :cond_1
 
     .line 95
     const-string v1, "PlaybackSynthesisRequest"
@@ -517,12 +517,12 @@
     monitor-exit v2
 
     .line 122
-    :cond_15
-    :goto_15
+    :cond_0
+    :goto_0
     return-void
 
     .line 99
-    :cond_16
+    :cond_1
     iget-object v0, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mItem:Landroid/speech/tts/SynthesisPlaybackQueueItem;
 
     .line 100
@@ -533,43 +533,43 @@
 
     .line 101
     monitor-exit v2
-    :try_end_1c
-    .catchall {:try_start_8 .. :try_end_1c} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 103
-    if-eqz v0, :cond_25
+    if-eqz v0, :cond_2
 
     .line 108
     invoke-virtual {v0, p1}, Landroid/speech/tts/SynthesisPlaybackQueueItem;->stop(Z)V
 
-    goto :goto_15
+    goto :goto_0
 
     .line 101
     .end local v0           #item:Landroid/speech/tts/SynthesisPlaybackQueueItem;
-    :catchall_22
+    :catchall_0
     move-exception v1
 
-    :try_start_23
+    :try_start_1
     monitor-exit v2
-    :try_end_24
-    .catchall {:try_start_23 .. :try_end_24} :catchall_22
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 
     .line 115
     .restart local v0       #item:Landroid/speech/tts/SynthesisPlaybackQueueItem;
-    :cond_25
+    :cond_2
     iget-object v1, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mLogger:Landroid/speech/tts/EventLogger;
 
     invoke-virtual {v1}, Landroid/speech/tts/EventLogger;->onWriteData()V
 
     .line 117
-    if-eqz p1, :cond_15
+    if-eqz p1, :cond_0
 
     .line 119
     iget-object v1, p0, Landroid/speech/tts/PlaybackSynthesisCallback;->mDispatcher:Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
 
     invoke-interface {v1}, Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;->dispatchOnError()V
 
-    goto :goto_15
+    goto :goto_0
 .end method

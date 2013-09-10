@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/bluetooth/BluetoothDeviceProfileState;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -42,7 +42,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/bluetooth/BluetoothDeviceProfileState;Landroid/bluetooth/BluetoothDeviceProfileState$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public enter()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 565
@@ -74,6 +74,7 @@
 
     iget-object v2, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #calls: Landroid/bluetooth/BluetoothDeviceProfileState;->getCurrentMessage()Landroid/os/Message;
     invoke-static {v2}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$6300(Landroid/bluetooth/BluetoothDeviceProfileState;)Landroid/os/Message;
 
     move-result-object v2
@@ -93,6 +94,7 @@
     .line 566
     iget-object v0, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #calls: Landroid/bluetooth/BluetoothDeviceProfileState;->getCurrentMessage()Landroid/os/Message;
     invoke-static {v0}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$6400(Landroid/bluetooth/BluetoothDeviceProfileState;)Landroid/os/Message;
 
     move-result-object v0
@@ -106,13 +108,13 @@
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_4f
+    if-eq v0, v1, :cond_0
 
     iget v0, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->mCommand:I
 
     const/16 v1, 0x33
 
-    if-eq v0, v1, :cond_4f
+    if-eq v0, v1, :cond_0
 
     .line 569
     const-string v0, "BluetoothDeviceProfileState"
@@ -140,7 +142,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 571
-    :cond_4f
+    :cond_0
     iget-object v0, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
     iget v1, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->mCommand:I
@@ -154,7 +156,7 @@
     .line 572
     iget-boolean v0, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->mStatus:Z
 
-    if-nez v0, :cond_70
+    if-nez v0, :cond_1
 
     .line 573
     iget-object v0, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
@@ -166,6 +168,7 @@
     .line 574
     iget-object v0, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #getter for: Landroid/bluetooth/BluetoothDeviceProfileState;->mService:Landroid/server/BluetoothService;
     invoke-static {v0}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$3700(Landroid/bluetooth/BluetoothDeviceProfileState;)Landroid/server/BluetoothService;
 
     move-result-object v0
@@ -177,12 +180,12 @@
     invoke-virtual {v0, v1, v2}, Landroid/server/BluetoothService;->sendProfileStateMessage(II)V
 
     .line 577
-    :cond_70
+    :cond_1
     return-void
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
-    .registers 10
+    .locals 8
     .parameter "message"
 
     .prologue
@@ -215,49 +218,52 @@
 
     move-result-object v5
 
+    #calls: Landroid/bluetooth/BluetoothDeviceProfileState;->log(Ljava/lang/String;)V
     invoke-static {v4, v5}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$2100(Landroid/bluetooth/BluetoothDeviceProfileState;Ljava/lang/String;)V
 
     .line 582
     iget v4, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v4, :sswitch_data_92
+    sparse-switch v4, :sswitch_data_0
 
     .line 653
-    :goto_22
+    :goto_0
     return v2
 
     .line 584
-    :sswitch_23
+    :sswitch_0
     iget-object v2, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #calls: Landroid/bluetooth/BluetoothDeviceProfileState;->deferMessage(Landroid/os/Message;)V
     invoke-static {v2, p1}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$6500(Landroid/bluetooth/BluetoothDeviceProfileState;Landroid/os/Message;)V
 
-    :cond_28
-    :goto_28
-    :sswitch_28
+    :cond_0
+    :goto_1
+    :sswitch_1
     move v2, v3
 
     .line 653
-    goto :goto_22
+    goto :goto_0
 
     .line 588
-    :sswitch_2a
+    :sswitch_2
     const-string v2, "BluetoothDeviceProfileState"
 
     const-string v4, "Error: Incoming connection with a pending incoming connection"
 
     invoke-static {v2, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_28
+    goto :goto_1
 
     .line 591
-    :sswitch_32
+    :sswitch_3
     iget v0, p1, Landroid/os/Message;->arg1:I
 
     .line 592
     .local v0, val:I
     iget-object v2, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #setter for: Landroid/bluetooth/BluetoothDeviceProfileState;->mConnectionAccessReplyReceived:Z
     invoke-static {v2, v3}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$6602(Landroid/bluetooth/BluetoothDeviceProfileState;Z)Z
 
     .line 593
@@ -265,44 +271,49 @@
 
     .line 594
     .local v1, value:Z
-    if-ne v0, v3, :cond_3d
+    if-ne v0, v3, :cond_1
 
     .line 595
     const/4 v1, 0x1
 
     .line 597
-    :cond_3d
+    :cond_1
     iget-object v2, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #calls: Landroid/bluetooth/BluetoothDeviceProfileState;->setTrust(I)V
     invoke-static {v2, v0}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$800(Landroid/bluetooth/BluetoothDeviceProfileState;I)V
 
     .line 599
     iget-object v2, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #calls: Landroid/bluetooth/BluetoothDeviceProfileState;->handleIncomingConnection(IZ)Z
     invoke-static {v2, v7, v1}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$6700(Landroid/bluetooth/BluetoothDeviceProfileState;IZ)Z
 
-    goto :goto_28
+    goto :goto_1
 
     .line 602
     .end local v0           #val:I
     .end local v1           #value:Z
-    :sswitch_48
+    :sswitch_4
     iget-object v4, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #getter for: Landroid/bluetooth/BluetoothDeviceProfileState;->mConnectionAccessReplyReceived:Z
     invoke-static {v4}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$6600(Landroid/bluetooth/BluetoothDeviceProfileState;)Z
 
     move-result v4
 
-    if-nez v4, :cond_28
+    if-nez v4, :cond_0
 
     .line 603
     iget-object v4, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #calls: Landroid/bluetooth/BluetoothDeviceProfileState;->handleIncomingConnection(IZ)Z
     invoke-static {v4, v7, v2}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$6700(Landroid/bluetooth/BluetoothDeviceProfileState;IZ)Z
 
     .line 604
     iget-object v2, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #calls: Landroid/bluetooth/BluetoothDeviceProfileState;->sendConnectionAccessRemovalIntent()V
     invoke-static {v2}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$6800(Landroid/bluetooth/BluetoothDeviceProfileState;)V
 
     .line 605
@@ -312,91 +323,99 @@
 
     invoke-virtual {v2, v4}, Landroid/bluetooth/BluetoothDeviceProfileState;->sendMessage(I)V
 
-    goto :goto_28
+    goto :goto_1
 
     .line 610
-    :sswitch_62
+    :sswitch_5
     iget-object v2, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #calls: Landroid/bluetooth/BluetoothDeviceProfileState;->deferMessage(Landroid/os/Message;)V
     invoke-static {v2, p1}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$6900(Landroid/bluetooth/BluetoothDeviceProfileState;Landroid/os/Message;)V
 
-    goto :goto_28
+    goto :goto_1
 
     .line 613
-    :sswitch_68
+    :sswitch_6
     iget-object v2, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #calls: Landroid/bluetooth/BluetoothDeviceProfileState;->deferMessage(Landroid/os/Message;)V
     invoke-static {v2, p1}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$7000(Landroid/bluetooth/BluetoothDeviceProfileState;Landroid/os/Message;)V
 
-    goto :goto_28
+    goto :goto_1
 
     .line 620
-    :sswitch_6e
+    :sswitch_7
     iget-object v2, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #calls: Landroid/bluetooth/BluetoothDeviceProfileState;->deferMessage(Landroid/os/Message;)V
     invoke-static {v2, p1}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$7100(Landroid/bluetooth/BluetoothDeviceProfileState;Landroid/os/Message;)V
 
-    goto :goto_28
+    goto :goto_1
 
     .line 627
-    :sswitch_74
+    :sswitch_8
     iget-object v2, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #calls: Landroid/bluetooth/BluetoothDeviceProfileState;->deferMessage(Landroid/os/Message;)V
     invoke-static {v2, p1}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$7200(Landroid/bluetooth/BluetoothDeviceProfileState;Landroid/os/Message;)V
 
-    goto :goto_28
+    goto :goto_1
 
     .line 636
-    :sswitch_7a
+    :sswitch_9
     iget-object v2, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #calls: Landroid/bluetooth/BluetoothDeviceProfileState;->deferMessage(Landroid/os/Message;)V
     invoke-static {v2, p1}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$7300(Landroid/bluetooth/BluetoothDeviceProfileState;Landroid/os/Message;)V
 
-    goto :goto_28
+    goto :goto_1
 
     .line 645
-    :sswitch_80
+    :sswitch_a
     iget-object v2, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #calls: Landroid/bluetooth/BluetoothDeviceProfileState;->deferMessage(Landroid/os/Message;)V
     invoke-static {v2, p1}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$7400(Landroid/bluetooth/BluetoothDeviceProfileState;Landroid/os/Message;)V
 
-    goto :goto_28
+    goto :goto_1
 
     .line 648
-    :sswitch_86
+    :sswitch_b
     iget-object v2, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
     iget-object v4, p0, Landroid/bluetooth/BluetoothDeviceProfileState$IncomingHandsfree;->this$0:Landroid/bluetooth/BluetoothDeviceProfileState;
 
+    #getter for: Landroid/bluetooth/BluetoothDeviceProfileState;->mBondedDevice:Landroid/bluetooth/BluetoothDeviceProfileState$BondedDevice;
     invoke-static {v4}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$4600(Landroid/bluetooth/BluetoothDeviceProfileState;)Landroid/bluetooth/BluetoothDeviceProfileState$BondedDevice;
 
     move-result-object v4
 
+    #calls: Landroid/bluetooth/BluetoothDeviceProfileState;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v2, v4}, Landroid/bluetooth/BluetoothDeviceProfileState;->access$7500(Landroid/bluetooth/BluetoothDeviceProfileState;Lcom/android/internal/util/IState;)V
 
-    goto :goto_28
+    goto :goto_1
 
     .line 582
-    :sswitch_data_92
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_23
-        0x2 -> :sswitch_2a
-        0x3 -> :sswitch_68
-        0x4 -> :sswitch_62
-        0x5 -> :sswitch_7a
-        0x6 -> :sswitch_28
-        0x32 -> :sswitch_6e
-        0x33 -> :sswitch_28
-        0x34 -> :sswitch_74
-        0x35 -> :sswitch_28
-        0x36 -> :sswitch_7a
-        0x37 -> :sswitch_28
-        0x38 -> :sswitch_80
-        0x64 -> :sswitch_80
-        0x65 -> :sswitch_80
-        0x66 -> :sswitch_86
-        0x67 -> :sswitch_80
-        0x68 -> :sswitch_32
-        0x69 -> :sswitch_48
+        0x1 -> :sswitch_0
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_6
+        0x4 -> :sswitch_5
+        0x5 -> :sswitch_9
+        0x6 -> :sswitch_1
+        0x32 -> :sswitch_7
+        0x33 -> :sswitch_1
+        0x34 -> :sswitch_8
+        0x35 -> :sswitch_1
+        0x36 -> :sswitch_9
+        0x37 -> :sswitch_1
+        0x38 -> :sswitch_a
+        0x64 -> :sswitch_a
+        0x65 -> :sswitch_a
+        0x66 -> :sswitch_b
+        0x67 -> :sswitch_a
+        0x68 -> :sswitch_3
+        0x69 -> :sswitch_4
     .end sparse-switch
 .end method

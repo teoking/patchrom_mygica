@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "name"
 
     .prologue
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
-    .registers 5
+    .locals 2
     .parameter "name"
     .parameter "context"
 
@@ -84,7 +84,7 @@
     .line 87
     iget-object v0, p0, Landroid/filterpacks/imageproc/CropRectFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 88
     iget v0, p0, Landroid/filterpacks/imageproc/CropRectFilter;->mWidth:I
@@ -94,18 +94,18 @@
     invoke-virtual {p0, v0, v1}, Landroid/filterpacks/imageproc/CropRectFilter;->updateSourceRect(II)V
 
     .line 90
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "target"
 
     .prologue
     .line 71
-    packed-switch p2, :pswitch_data_30
+    packed-switch p2, :pswitch_data_0
 
     .line 79
     new-instance v1, Ljava/lang/RuntimeException;
@@ -139,7 +139,7 @@
     throw v1
 
     .line 73
-    :pswitch_22
+    :pswitch_0
     invoke-static {p1}, Landroid/filterfw/core/ShaderProgram;->createIdentity(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/ShaderProgram;
 
     move-result-object v0
@@ -160,14 +160,14 @@
     return-void
 
     .line 71
-    :pswitch_data_30
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_22
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 9
+    .locals 7
     .parameter "context"
 
     .prologue
@@ -210,7 +210,7 @@
     .local v2, output:Landroid/filterfw/core/Frame;
     iget-object v4, p0, Landroid/filterpacks/imageproc/CropRectFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v4, :cond_27
+    if-eqz v4, :cond_0
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
@@ -218,10 +218,10 @@
 
     iget v5, p0, Landroid/filterpacks/imageproc/CropRectFilter;->mTarget:I
 
-    if-eq v4, v5, :cond_2e
+    if-eq v4, v5, :cond_1
 
     .line 106
-    :cond_27
+    :cond_0
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
     move-result v4
@@ -229,14 +229,14 @@
     invoke-virtual {p0, p1, v4}, Landroid/filterpacks/imageproc/CropRectFilter;->initProgram(Landroid/filterfw/core/FilterContext;I)V
 
     .line 110
-    :cond_2e
+    :cond_1
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v4
 
     iget v5, p0, Landroid/filterpacks/imageproc/CropRectFilter;->mWidth:I
 
-    if-ne v4, v5, :cond_3e
+    if-ne v4, v5, :cond_2
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getHeight()I
 
@@ -244,10 +244,10 @@
 
     iget v5, p0, Landroid/filterpacks/imageproc/CropRectFilter;->mHeight:I
 
-    if-eq v4, v5, :cond_49
+    if-eq v4, v5, :cond_3
 
     .line 111
-    :cond_3e
+    :cond_2
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v4
@@ -259,7 +259,7 @@
     invoke-virtual {p0, v4, v5}, Landroid/filterpacks/imageproc/CropRectFilter;->updateSourceRect(II)V
 
     .line 115
-    :cond_49
+    :cond_3
     iget-object v4, p0, Landroid/filterpacks/imageproc/CropRectFilter;->mProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v4, v0, v2}, Landroid/filterfw/core/Program;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
@@ -277,7 +277,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 66
@@ -303,7 +303,7 @@
 .end method
 
 .method updateSourceRect(II)V
-    .registers 9
+    .locals 6
     .parameter "width"
     .parameter "height"
 

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 20
@@ -15,7 +15,7 @@
 .end method
 
 .method public static restart(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -29,7 +29,7 @@
 .end method
 
 .method public static start(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -43,7 +43,7 @@
 .end method
 
 .method public static stop(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue

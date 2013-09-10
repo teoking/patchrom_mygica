@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -74,7 +74,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/widget/DigitalClock;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -85,7 +85,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/widget/DigitalClock;)Ljava/lang/Runnable;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -96,7 +96,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/widget/DigitalClock;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -107,7 +107,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/widget/DigitalClock;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -118,7 +118,7 @@
 .end method
 
 .method private get24HourMode()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 110
@@ -134,7 +134,7 @@
 .end method
 
 .method private initClock(Landroid/content/Context;)V
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -149,7 +149,7 @@
     .local v0, r:Landroid/content/res/Resources;
     iget-object v1, p0, Landroid/widget/DigitalClock;->mCalendar:Ljava/util/Calendar;
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_0
 
     .line 67
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
@@ -159,7 +159,7 @@
     iput-object v1, p0, Landroid/widget/DigitalClock;->mCalendar:Ljava/util/Calendar;
 
     .line 70
-    :cond_10
+    :cond_0
     new-instance v1, Landroid/widget/DigitalClock$FormatChangeObserver;
 
     invoke-direct {v1, p0}, Landroid/widget/DigitalClock$FormatChangeObserver;-><init>(Landroid/widget/DigitalClock;)V
@@ -191,7 +191,7 @@
 .end method
 
 .method private setFormat()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 114
@@ -199,7 +199,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 115
     const-string v0, "k:mm:ss"
@@ -207,22 +207,22 @@
     iput-object v0, p0, Landroid/widget/DigitalClock;->mFormat:Ljava/lang/String;
 
     .line 119
-    :goto_a
+    :goto_0
     return-void
 
     .line 117
-    :cond_b
+    :cond_0
     const-string v0, "h:mm:ss aa"
 
     iput-object v0, p0, Landroid/widget/DigitalClock;->mFormat:Ljava/lang/String;
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected onAttachedToWindow()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 79
@@ -257,7 +257,7 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 102
@@ -273,7 +273,7 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -294,7 +294,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .registers 3
+    .locals 1
     .parameter "info"
 
     .prologue

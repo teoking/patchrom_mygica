@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/webkit/JsResult$ResultReceiver;)V
-    .registers 2
+    .locals 0
     .parameter "receiver"
 
     .prologue
@@ -34,7 +34,7 @@
 .end method
 
 .method private final wakeUp()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 70
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public final cancel()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 42
@@ -65,7 +65,7 @@
 .end method
 
 .method public final confirm()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 50
@@ -81,7 +81,7 @@
 .end method
 
 .method public final getResult()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 65

@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(IIII)V
-    .registers 5
+    .locals 0
     .parameter "startTimeMs"
     .parameter "endTimeMs"
     .parameter "startChar"

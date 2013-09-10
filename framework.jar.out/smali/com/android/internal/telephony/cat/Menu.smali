@@ -61,7 +61,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 96
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -126,7 +126,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 9
+    .locals 7
     .parameter "in"
 
     .prologue
@@ -172,8 +172,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_20
-    if-ge v0, v2, :cond_30
+    :goto_0
+    if-ge v0, v2, :cond_0
 
     .line 64
     invoke-virtual {p1, v6}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
@@ -191,11 +191,11 @@
     .line 63
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_20
+    goto :goto_0
 
     .line 67
     .end local v1           #item:Lcom/android/internal/telephony/cat/Item;
-    :cond_30
+    :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -207,11 +207,11 @@
 
     move-result v3
 
-    if-ne v3, v4, :cond_66
+    if-ne v3, v4, :cond_1
 
     move v3, v4
 
-    :goto_3d
+    :goto_1
     iput-boolean v3, p0, Lcom/android/internal/telephony/cat/Menu;->softKeyPreferred:Z
 
     .line 69
@@ -219,11 +219,11 @@
 
     move-result v3
 
-    if-ne v3, v4, :cond_68
+    if-ne v3, v4, :cond_2
 
     move v3, v4
 
-    :goto_46
+    :goto_2
     iput-boolean v3, p0, Lcom/android/internal/telephony/cat/Menu;->helpAvailable:Z
 
     .line 70
@@ -231,11 +231,11 @@
 
     move-result v3
 
-    if-ne v3, v4, :cond_6a
+    if-ne v3, v4, :cond_3
 
     move v3, v4
 
-    :goto_4f
+    :goto_3
     iput-boolean v3, p0, Lcom/android/internal/telephony/cat/Menu;->titleIconSelfExplanatory:Z
 
     .line 71
@@ -243,9 +243,9 @@
 
     move-result v3
 
-    if-ne v3, v4, :cond_6c
+    if-ne v3, v4, :cond_4
 
-    :goto_57
+    :goto_4
     iput-boolean v4, p0, Lcom/android/internal/telephony/cat/Menu;->itemsIconSelfExplanatory:Z
 
     .line 72
@@ -264,33 +264,33 @@
     .line 73
     return-void
 
-    :cond_66
+    :cond_1
     move v3, v5
 
     .line 68
-    goto :goto_3d
+    goto :goto_1
 
-    :cond_68
+    :cond_2
     move v3, v5
 
     .line 69
-    goto :goto_46
+    goto :goto_2
 
-    :cond_6a
+    :cond_3
     move v3, v5
 
     .line 70
-    goto :goto_4f
+    goto :goto_3
 
-    :cond_6c
+    :cond_4
     move v4, v5
 
     .line 71
-    goto :goto_57
+    goto :goto_4
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/android/internal/telephony/cat/Menu$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -304,7 +304,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -314,7 +314,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 8
+    .locals 5
     .parameter "dest"
     .parameter "flags"
 
@@ -348,8 +348,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_16
-    if-ge v0, v1, :cond_26
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 86
     iget-object v2, p0, Lcom/android/internal/telephony/cat/Menu;->items:Ljava/util/List;
@@ -365,10 +365,10 @@
     .line 85
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_16
+    goto :goto_0
 
     .line 88
-    :cond_26
+    :cond_0
     iget v2, p0, Lcom/android/internal/telephony/cat/Menu;->defaultItem:I
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -376,39 +376,39 @@
     .line 89
     iget-boolean v2, p0, Lcom/android/internal/telephony/cat/Menu;->softKeyPreferred:Z
 
-    if-eqz v2, :cond_54
+    if-eqz v2, :cond_1
 
     move v2, v3
 
-    :goto_30
+    :goto_1
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 90
     iget-boolean v2, p0, Lcom/android/internal/telephony/cat/Menu;->helpAvailable:Z
 
-    if-eqz v2, :cond_56
+    if-eqz v2, :cond_2
 
     move v2, v3
 
-    :goto_38
+    :goto_2
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 91
     iget-boolean v2, p0, Lcom/android/internal/telephony/cat/Menu;->titleIconSelfExplanatory:Z
 
-    if-eqz v2, :cond_58
+    if-eqz v2, :cond_3
 
     move v2, v3
 
-    :goto_40
+    :goto_3
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 92
     iget-boolean v2, p0, Lcom/android/internal/telephony/cat/Menu;->itemsIconSelfExplanatory:Z
 
-    if-eqz v2, :cond_5a
+    if-eqz v2, :cond_4
 
-    :goto_47
+    :goto_4
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 93
@@ -423,27 +423,27 @@
     .line 94
     return-void
 
-    :cond_54
+    :cond_1
     move v2, v4
 
     .line 89
-    goto :goto_30
+    goto :goto_1
 
-    :cond_56
+    :cond_2
     move v2, v4
 
     .line 90
-    goto :goto_38
+    goto :goto_2
 
-    :cond_58
+    :cond_3
     move v2, v4
 
     .line 91
-    goto :goto_40
+    goto :goto_3
 
-    :cond_5a
+    :cond_4
     move v3, v4
 
     .line 92
-    goto :goto_47
+    goto :goto_4
 .end method

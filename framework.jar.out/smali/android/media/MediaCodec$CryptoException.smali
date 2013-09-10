@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "errorCode"
     .parameter "detailMessage"
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public getErrorCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 292

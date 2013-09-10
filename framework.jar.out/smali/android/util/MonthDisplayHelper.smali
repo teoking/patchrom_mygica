@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 4
+    .locals 1
     .parameter "year"
     .parameter "month"
 
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(III)V
-    .registers 8
+    .locals 4
     .parameter "year"
     .parameter "month"
     .parameter "weekStartDay"
@@ -46,14 +46,14 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 48
-    if-lt p3, v3, :cond_a
+    if-lt p3, v3, :cond_0
 
     const/4 v0, 0x7
 
-    if-le p3, v0, :cond_10
+    if-le p3, v0, :cond_1
 
     .line 49
-    :cond_a
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -61,7 +61,7 @@
     throw v0
 
     .line 51
-    :cond_10
+    :cond_1
     iput p3, p0, Landroid/util/MonthDisplayHelper;->mWeekStartDay:I
 
     .line 53
@@ -124,7 +124,7 @@
 .end method
 
 .method private recalculate()V
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v5, 0x5
@@ -176,13 +176,13 @@
 
     .line 208
     .local v1, offset:I
-    if-gez v1, :cond_2a
+    if-gez v1, :cond_0
 
     .line 209
     add-int/lit8 v1, v1, 0x7
 
     .line 211
-    :cond_2a
+    :cond_0
     iput v1, p0, Landroid/util/MonthDisplayHelper;->mOffset:I
 
     .line 212
@@ -192,7 +192,7 @@
 
 # virtual methods
 .method public getColumnOf(I)I
-    .registers 3
+    .locals 1
     .parameter "day"
 
     .prologue
@@ -209,17 +209,17 @@
 .end method
 
 .method public getDayAt(II)I
-    .registers 6
+    .locals 3
     .parameter "row"
     .parameter "column"
 
     .prologue
     .line 136
-    if-nez p1, :cond_f
+    if-nez p1, :cond_1
 
     iget v1, p0, Landroid/util/MonthDisplayHelper;->mOffset:I
 
-    if-ge p2, v1, :cond_f
+    if-ge p2, v1, :cond_1
 
     .line 137
     iget v1, p0, Landroid/util/MonthDisplayHelper;->mNumDaysInPrevMonth:I
@@ -233,12 +233,12 @@
     add-int/lit8 v0, v1, 0x1
 
     .line 142
-    :cond_e
-    :goto_e
+    :cond_0
+    :goto_0
     return v0
 
     .line 140
-    :cond_f
+    :cond_1
     mul-int/lit8 v1, p1, 0x7
 
     add-int/2addr v1, p2
@@ -253,31 +253,31 @@
     .local v0, day:I
     iget v1, p0, Landroid/util/MonthDisplayHelper;->mNumDaysInMonth:I
 
-    if-le v0, v1, :cond_e
+    if-le v0, v1, :cond_0
 
     iget v1, p0, Landroid/util/MonthDisplayHelper;->mNumDaysInMonth:I
 
     sub-int/2addr v0, v1
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public getDigitsForRow(I)[I
-    .registers 7
+    .locals 5
     .parameter "row"
 
     .prologue
     const/4 v3, 0x7
 
     .line 116
-    if-ltz p1, :cond_6
+    if-ltz p1, :cond_0
 
     const/4 v2, 0x5
 
-    if-le p1, v2, :cond_26
+    if-le p1, v2, :cond_1
 
     .line 117
-    :cond_6
+    :cond_0
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -309,7 +309,7 @@
     throw v2
 
     .line 121
-    :cond_26
+    :cond_1
     new-array v1, v3, [I
 
     .line 122
@@ -317,8 +317,8 @@
     const/4 v0, 0x0
 
     .local v0, column:I
-    :goto_29
-    if-ge v0, v3, :cond_34
+    :goto_0
+    if-ge v0, v3, :cond_2
 
     .line 123
     invoke-virtual {p0, p1, v0}, Landroid/util/MonthDisplayHelper;->getDayAt(II)I
@@ -330,15 +330,15 @@
     .line 122
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_29
+    goto :goto_0
 
     .line 126
-    :cond_34
+    :cond_2
     return-object v1
 .end method
 
 .method public getFirstDayOfMonth()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 89
@@ -354,7 +354,7 @@
 .end method
 
 .method public getMonth()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 76
@@ -370,7 +370,7 @@
 .end method
 
 .method public getNumberOfDaysInMonth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 96
@@ -380,7 +380,7 @@
 .end method
 
 .method public getOffset()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 106
@@ -390,7 +390,7 @@
 .end method
 
 .method public getRowOf(I)I
-    .registers 3
+    .locals 1
     .parameter "day"
 
     .prologue
@@ -407,7 +407,7 @@
 .end method
 
 .method public getWeekStartDay()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -417,7 +417,7 @@
 .end method
 
 .method public getYear()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 72
@@ -433,7 +433,7 @@
 .end method
 
 .method public isWithinCurrentMonth(II)Z
-    .registers 7
+    .locals 4
     .parameter "row"
     .parameter "column"
 
@@ -441,33 +441,33 @@
     const/4 v1, 0x0
 
     .line 181
-    if-ltz p1, :cond_b
+    if-ltz p1, :cond_0
 
-    if-ltz p2, :cond_b
+    if-ltz p2, :cond_0
 
     const/4 v2, 0x5
 
-    if-gt p1, v2, :cond_b
+    if-gt p1, v2, :cond_0
 
     const/4 v2, 0x6
 
-    if-le p2, v2, :cond_c
+    if-le p2, v2, :cond_1
 
     .line 193
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return v1
 
     .line 185
-    :cond_c
-    if-nez p1, :cond_12
+    :cond_1
+    if-nez p1, :cond_2
 
     iget v2, p0, Landroid/util/MonthDisplayHelper;->mOffset:I
 
-    if-lt p2, v2, :cond_b
+    if-lt p2, v2, :cond_0
 
     .line 189
-    :cond_12
+    :cond_2
     mul-int/lit8 v2, p1, 0x7
 
     add-int/2addr v2, p2
@@ -482,16 +482,16 @@
     .local v0, day:I
     iget v2, p0, Landroid/util/MonthDisplayHelper;->mNumDaysInMonth:I
 
-    if-gt v0, v2, :cond_b
+    if-gt v0, v2, :cond_0
 
     .line 193
     const/4 v1, 0x1
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public nextMonth()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 172
@@ -511,7 +511,7 @@
 .end method
 
 .method public previousMonth()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 164

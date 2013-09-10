@@ -115,7 +115,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 777
@@ -129,7 +129,7 @@
 .end method
 
 .method private constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;Landroid/content/ComponentName;)V
-    .registers 12
+    .locals 8
     .parameter "activityContext"
     .parameter "attr"
     .parameter "cName"
@@ -362,7 +362,7 @@
     .local v3, suggestProviderPackage:Ljava/lang/String;
     iget-object v4, p0, Landroid/app/SearchableInfo;->mSuggestAuthority:Ljava/lang/String;
 
-    if-eqz v4, :cond_cc
+    if-eqz v4, :cond_0
 
     .line 362
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -379,7 +379,7 @@
 
     .line 364
     .local v1, pi:Landroid/content/pm/ProviderInfo;
-    if-eqz v1, :cond_cc
+    if-eqz v1, :cond_0
 
     .line 365
     iget-object v3, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
@@ -387,13 +387,13 @@
     .line 368
     .end local v1           #pi:Landroid/content/pm/ProviderInfo;
     .end local v2           #pm:Landroid/content/pm/PackageManager;
-    :cond_cc
+    :cond_0
     iput-object v3, p0, Landroid/app/SearchableInfo;->mSuggestProviderPackage:Ljava/lang/String;
 
     .line 371
     iget v4, p0, Landroid/app/SearchableInfo;->mLabelId:I
 
-    if-nez v4, :cond_da
+    if-nez v4, :cond_1
 
     .line 372
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -405,12 +405,12 @@
     throw v4
 
     .line 374
-    :cond_da
+    :cond_1
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .registers 7
+    .locals 5
     .parameter "in"
 
     .prologue
@@ -487,11 +487,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8d
+    if-eqz v1, :cond_0
 
     move v1, v2
 
-    :goto_3f
+    :goto_0
     iput-boolean v1, p0, Landroid/app/SearchableInfo;->mIncludeInGlobalSearch:Z
 
     .line 805
@@ -499,11 +499,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8f
+    if-eqz v1, :cond_1
 
     move v1, v2
 
-    :goto_48
+    :goto_1
     iput-boolean v1, p0, Landroid/app/SearchableInfo;->mQueryAfterZeroResults:Z
 
     .line 806
@@ -511,9 +511,9 @@
 
     move-result v1
 
-    if-eqz v1, :cond_91
+    if-eqz v1, :cond_2
 
-    :goto_50
+    :goto_2
     iput-boolean v2, p0, Landroid/app/SearchableInfo;->mAutoUrlDetect:Z
 
     .line 808
@@ -571,8 +571,8 @@
     move-result v0
 
     .local v0, count:I
-    :goto_80
-    if-lez v0, :cond_93
+    :goto_3
+    if-lez v0, :cond_3
 
     .line 817
     new-instance v1, Landroid/app/SearchableInfo$ActionKeyInfo;
@@ -584,30 +584,30 @@
     .line 816
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_80
+    goto :goto_3
 
     .end local v0           #count:I
-    :cond_8d
+    :cond_0
     move v1, v3
 
     .line 804
-    goto :goto_3f
+    goto :goto_0
 
-    :cond_8f
+    :cond_1
     move v1, v3
 
     .line 805
-    goto :goto_48
+    goto :goto_1
 
-    :cond_91
+    :cond_2
     move v2, v3
 
     .line 806
-    goto :goto_50
+    goto :goto_2
 
     .line 820
     .restart local v0       #count:I
-    :cond_93
+    :cond_3
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -654,14 +654,14 @@
 .end method
 
 .method private addActionKey(Landroid/app/SearchableInfo$ActionKeyInfo;)V
-    .registers 4
+    .locals 2
     .parameter "keyInfo"
 
     .prologue
     .line 497
     iget-object v0, p0, Landroid/app/SearchableInfo;->mActionKeys:Ljava/util/HashMap;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 498
     new-instance v0, Ljava/util/HashMap;
@@ -671,7 +671,7 @@
     iput-object v0, p0, Landroid/app/SearchableInfo;->mActionKeys:Ljava/util/HashMap;
 
     .line 500
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/app/SearchableInfo;->mActionKeys:Ljava/util/HashMap;
 
     invoke-virtual {p1}, Landroid/app/SearchableInfo$ActionKeyInfo;->getKeyCode()I
@@ -689,7 +689,7 @@
 .end method
 
 .method private static createActivityContext(Landroid/content/Context;Landroid/content/ComponentName;)Landroid/content/Context;
-    .registers 7
+    .locals 5
     .parameter "context"
     .parameter "activity"
 
@@ -699,7 +699,7 @@
 
     .line 259
     .local v1, theirContext:Landroid/content/Context;
-    :try_start_1
+    :try_start_0
     invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v2
@@ -707,18 +707,18 @@
     const/4 v3, 0x0
 
     invoke-virtual {p0, v2, v3}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
-    :try_end_9
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_9} :catch_b
-    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_9} :catch_29
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v1
 
     .line 266
-    :goto_a
+    :goto_0
     return-object v1
 
     .line 260
-    :catch_b
+    :catch_0
     move-exception v0
 
     .line 261
@@ -749,11 +749,11 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_a
+    goto :goto_0
 
     .line 262
     .end local v0           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
-    :catch_29
+    :catch_1
     move-exception v0
 
     .line 263
@@ -784,11 +784,11 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public static getActivityMetaData(Landroid/content/Context;Landroid/content/pm/ActivityInfo;)Landroid/app/SearchableInfo;
-    .registers 7
+    .locals 5
     .parameter "context"
     .parameter "activityInfo"
 
@@ -806,17 +806,17 @@
 
     .line 517
     .local v2, xml:Landroid/content/res/XmlResourceParser;
-    if-nez v2, :cond_e
+    if-nez v2, :cond_0
 
     .line 518
     const/4 v1, 0x0
 
     .line 539
-    :goto_d
+    :goto_0
     return-object v1
 
     .line 520
-    :cond_e
+    :cond_0
     new-instance v0, Landroid/content/ComponentName;
 
     iget-object v3, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
@@ -835,11 +835,11 @@
     .local v1, searchable:Landroid/app/SearchableInfo;
     invoke-interface {v2}, Landroid/content/res/XmlResourceParser;->close()V
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method private static getActivityMetaData(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/content/ComponentName;)Landroid/app/SearchableInfo;
-    .registers 14
+    .locals 11
     .parameter "context"
     .parameter "xml"
     .parameter "cName"
@@ -858,21 +858,21 @@
 
     .line 555
     .local v0, activityContext:Landroid/content/Context;
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     move-object v5, v7
 
     .line 601
-    :goto_9
+    :goto_0
     return-object v5
 
     .line 560
-    :cond_a
-    :try_start_a
+    :cond_0
+    :try_start_0
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
-    :try_end_d
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_a .. :try_end_d} :catch_b1
-    .catch Ljava/io/IOException; {:try_start_a .. :try_end_d} :catch_d1
+    :try_end_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_3
 
     move-result v6
 
@@ -882,18 +882,18 @@
     .line 561
     .end local v4           #result:Landroid/app/SearchableInfo;
     .local v5, result:Landroid/app/SearchableInfo;
-    :goto_f
+    :goto_1
     const/4 v8, 0x1
 
-    if-eq v6, v8, :cond_f1
+    if-eq v6, v8, :cond_3
 
     .line 562
     const/4 v8, 0x2
 
-    if-ne v6, v8, :cond_fa
+    if-ne v6, v8, :cond_4
 
     .line 563
-    :try_start_15
+    :try_start_1
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v8
@@ -904,40 +904,40 @@
 
     move-result v8
 
-    if-eqz v8, :cond_61
+    if-eqz v8, :cond_1
 
     .line 564
     invoke-static {p1}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
-    :try_end_25
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_15 .. :try_end_25} :catch_f7
-    .catch Ljava/io/IOException; {:try_start_15 .. :try_end_25} :catch_f4
+    :try_end_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_5
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
 
     move-result-object v1
 
     .line 565
     .local v1, attr:Landroid/util/AttributeSet;
-    if-eqz v1, :cond_fa
+    if-eqz v1, :cond_4
 
     .line 567
-    :try_start_28
+    :try_start_2
     new-instance v4, Landroid/app/SearchableInfo;
 
     invoke-direct {v4, v0, v1, p2}, Landroid/app/SearchableInfo;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;Landroid/content/ComponentName;)V
-    :try_end_2d
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_28 .. :try_end_2d} :catch_33
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_28 .. :try_end_2d} :catch_f7
-    .catch Ljava/io/IOException; {:try_start_28 .. :try_end_2d} :catch_f4
+    :try_end_2
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_5
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_4
 
     .line 591
     .end local v1           #attr:Landroid/util/AttributeSet;
     .end local v5           #result:Landroid/app/SearchableInfo;
     .restart local v4       #result:Landroid/app/SearchableInfo;
-    :goto_2d
-    :try_start_2d
+    :goto_2
+    :try_start_3
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
-    :try_end_30
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2d .. :try_end_30} :catch_b1
-    .catch Ljava/io/IOException; {:try_start_2d .. :try_end_30} :catch_d1
+    :try_end_3
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_3 .. :try_end_3} :catch_2
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
 
     move-result v6
 
@@ -945,16 +945,16 @@
 
     .end local v4           #result:Landroid/app/SearchableInfo;
     .restart local v5       #result:Landroid/app/SearchableInfo;
-    goto :goto_f
+    goto :goto_1
 
     .line 568
     .restart local v1       #attr:Landroid/util/AttributeSet;
-    :catch_33
+    :catch_0
     move-exception v3
 
     .line 569
     .local v3, ex:Ljava/lang/IllegalArgumentException;
-    :try_start_34
+    :try_start_4
     const-string v8, "SearchableInfo"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -1002,14 +1002,14 @@
     move-object v5, v7
 
     .line 571
-    goto :goto_9
+    goto :goto_0
 
     .line 574
     .end local v1           #attr:Landroid/util/AttributeSet;
     .end local v3           #ex:Ljava/lang/IllegalArgumentException;
     .end local v4           #result:Landroid/app/SearchableInfo;
     .restart local v5       #result:Landroid/app/SearchableInfo;
-    :cond_61
+    :cond_1
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v8
@@ -1020,10 +1020,10 @@
 
     move-result v8
 
-    if-eqz v8, :cond_fa
+    if-eqz v8, :cond_4
 
     .line 575
-    if-nez v5, :cond_72
+    if-nez v5, :cond_2
 
     move-object v4, v5
 
@@ -1032,51 +1032,51 @@
     move-object v5, v7
 
     .line 577
-    goto :goto_9
+    goto :goto_0
 
     .line 579
     .end local v4           #result:Landroid/app/SearchableInfo;
     .restart local v5       #result:Landroid/app/SearchableInfo;
-    :cond_72
+    :cond_2
     invoke-static {p1}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
-    :try_end_75
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_34 .. :try_end_75} :catch_f7
-    .catch Ljava/io/IOException; {:try_start_34 .. :try_end_75} :catch_f4
+    :try_end_4
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_4 .. :try_end_4} :catch_5
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_4
 
     move-result-object v1
 
     .line 580
     .restart local v1       #attr:Landroid/util/AttributeSet;
-    if-eqz v1, :cond_fa
+    if-eqz v1, :cond_4
 
     .line 582
-    :try_start_78
+    :try_start_5
     new-instance v8, Landroid/app/SearchableInfo$ActionKeyInfo;
 
     invoke-direct {v8, v0, v1}, Landroid/app/SearchableInfo$ActionKeyInfo;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     invoke-direct {v5, v8}, Landroid/app/SearchableInfo;->addActionKey(Landroid/app/SearchableInfo$ActionKeyInfo;)V
-    :try_end_80
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_78 .. :try_end_80} :catch_82
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_78 .. :try_end_80} :catch_f7
-    .catch Ljava/io/IOException; {:try_start_78 .. :try_end_80} :catch_f4
+    :try_end_5
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_5 .. :try_end_5} :catch_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_5 .. :try_end_5} :catch_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_4
 
     move-object v4, v5
 
     .line 587
     .end local v5           #result:Landroid/app/SearchableInfo;
     .restart local v4       #result:Landroid/app/SearchableInfo;
-    goto :goto_2d
+    goto :goto_2
 
     .line 583
     .end local v4           #result:Landroid/app/SearchableInfo;
     .restart local v5       #result:Landroid/app/SearchableInfo;
-    :catch_82
+    :catch_1
     move-exception v3
 
     .line 584
     .restart local v3       #ex:Ljava/lang/IllegalArgumentException;
-    :try_start_83
+    :try_start_6
     const-string v8, "SearchableInfo"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -1116,9 +1116,9 @@
     move-result-object v9
 
     invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_ad
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_83 .. :try_end_ad} :catch_f7
-    .catch Ljava/io/IOException; {:try_start_83 .. :try_end_ad} :catch_f4
+    :try_end_6
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_6 .. :try_end_6} :catch_5
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_4
 
     move-object v4, v5
 
@@ -1127,18 +1127,18 @@
     move-object v5, v7
 
     .line 586
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 593
     .end local v1           #attr:Landroid/util/AttributeSet;
     .end local v3           #ex:Ljava/lang/IllegalArgumentException;
     .end local v6           #tagType:I
-    :catch_b1
+    :catch_2
     move-exception v2
 
     .line 594
     .local v2, e:Lorg/xmlpull/v1/XmlPullParserException;
-    :goto_b2
+    :goto_3
     const-string v8, "SearchableInfo"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -1168,16 +1168,16 @@
     move-object v5, v7
 
     .line 595
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 596
     .end local v2           #e:Lorg/xmlpull/v1/XmlPullParserException;
-    :catch_d1
+    :catch_3
     move-exception v2
 
     .line 597
     .local v2, e:Ljava/io/IOException;
-    :goto_d2
+    :goto_4
     const-string v8, "SearchableInfo"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -1207,58 +1207,58 @@
     move-object v5, v7
 
     .line 598
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .end local v2           #e:Ljava/io/IOException;
     .end local v4           #result:Landroid/app/SearchableInfo;
     .restart local v5       #result:Landroid/app/SearchableInfo;
     .restart local v6       #tagType:I
-    :cond_f1
+    :cond_3
     move-object v4, v5
 
     .line 601
     .end local v5           #result:Landroid/app/SearchableInfo;
     .restart local v4       #result:Landroid/app/SearchableInfo;
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 596
     .end local v4           #result:Landroid/app/SearchableInfo;
     .restart local v5       #result:Landroid/app/SearchableInfo;
-    :catch_f4
+    :catch_4
     move-exception v2
 
     move-object v4, v5
 
     .end local v5           #result:Landroid/app/SearchableInfo;
     .restart local v4       #result:Landroid/app/SearchableInfo;
-    goto :goto_d2
+    goto :goto_4
 
     .line 593
     .end local v4           #result:Landroid/app/SearchableInfo;
     .restart local v5       #result:Landroid/app/SearchableInfo;
-    :catch_f7
+    :catch_5
     move-exception v2
 
     move-object v4, v5
 
     .end local v5           #result:Landroid/app/SearchableInfo;
     .restart local v4       #result:Landroid/app/SearchableInfo;
-    goto :goto_b2
+    goto :goto_3
 
     .end local v4           #result:Landroid/app/SearchableInfo;
     .restart local v5       #result:Landroid/app/SearchableInfo;
-    :cond_fa
+    :cond_4
     move-object v4, v5
 
     .end local v5           #result:Landroid/app/SearchableInfo;
     .restart local v4       #result:Landroid/app/SearchableInfo;
-    goto/16 :goto_2d
+    goto/16 :goto_2
 .end method
 
 
 # virtual methods
 .method public autoUrlDetect()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 771
@@ -1268,7 +1268,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 830
@@ -1278,23 +1278,23 @@
 .end method
 
 .method public findActionKey(I)Landroid/app/SearchableInfo$ActionKeyInfo;
-    .registers 4
+    .locals 2
     .parameter "keyCode"
 
     .prologue
     .line 490
     iget-object v0, p0, Landroid/app/SearchableInfo;->mActionKeys:Ljava/util/HashMap;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     .line 491
     const/4 v0, 0x0
 
     .line 493
-    :goto_5
+    :goto_0
     return-object v0
 
-    :cond_6
+    :cond_0
     iget-object v0, p0, Landroid/app/SearchableInfo;->mActionKeys:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1307,11 +1307,11 @@
 
     check-cast v0, Landroid/app/SearchableInfo$ActionKeyInfo;
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public getActivityContext(Landroid/content/Context;)Landroid/content/Context;
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -1326,7 +1326,7 @@
 .end method
 
 .method public getHintId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 625
@@ -1336,7 +1336,7 @@
 .end method
 
 .method public getIconId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 638
@@ -1346,7 +1346,7 @@
 .end method
 
 .method public getImeOptions()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 741
@@ -1356,7 +1356,7 @@
 .end method
 
 .method public getInputType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 729
@@ -1366,7 +1366,7 @@
 .end method
 
 .method public getLabelId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 614
@@ -1376,7 +1376,7 @@
 .end method
 
 .method public getProviderContext(Landroid/content/Context;Landroid/content/Context;)Landroid/content/Context;
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "activityContext"
 
@@ -1398,55 +1398,55 @@
 
     move-result v1
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_0
 
     .line 292
     .end local p2
-    :goto_f
+    :goto_0
     return-object p2
 
     .line 283
     .restart local p2
-    :cond_10
+    :cond_0
     iget-object v1, p0, Landroid/app/SearchableInfo;->mSuggestProviderPackage:Ljava/lang/String;
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_1
 
     .line 285
-    :try_start_14
+    :try_start_0
     iget-object v1, p0, Landroid/app/SearchableInfo;->mSuggestProviderPackage:Ljava/lang/String;
 
     const/4 v2, 0x0
 
     invoke-virtual {p1, v1, v2}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
-    :try_end_1a
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_14 .. :try_end_1a} :catch_1f
-    .catch Ljava/lang/SecurityException; {:try_start_14 .. :try_end_1a} :catch_1d
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
-    :cond_1b
-    :goto_1b
+    :cond_1
+    :goto_1
     move-object p2, v0
 
     .line 292
-    goto :goto_f
+    goto :goto_0
 
     .line 288
-    :catch_1d
+    :catch_0
     move-exception v1
 
-    goto :goto_1b
+    goto :goto_1
 
     .line 286
-    :catch_1f
+    :catch_1
     move-exception v1
 
-    goto :goto_1b
+    goto :goto_1
 .end method
 
 .method public getSearchActivity()Landroid/content/ComponentName;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 128
@@ -1456,7 +1456,7 @@
 .end method
 
 .method public getSearchButtonText()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 717
@@ -1466,7 +1466,7 @@
 .end method
 
 .method public getSettingsDescriptionId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 178
@@ -1476,7 +1476,7 @@
 .end method
 
 .method public getSuggestAuthority()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 111
@@ -1486,7 +1486,7 @@
 .end method
 
 .method public getSuggestIntentAction()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 212
@@ -1496,7 +1496,7 @@
 .end method
 
 .method public getSuggestIntentData()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 229
@@ -1506,7 +1506,7 @@
 .end method
 
 .method public getSuggestPackage()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 119
@@ -1516,7 +1516,7 @@
 .end method
 
 .method public getSuggestPath()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 188
@@ -1526,7 +1526,7 @@
 .end method
 
 .method public getSuggestSelection()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 197
@@ -1536,7 +1536,7 @@
 .end method
 
 .method public getSuggestThreshold()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 239
@@ -1546,7 +1546,7 @@
 .end method
 
 .method public getVoiceLanguageId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 695
@@ -1556,7 +1556,7 @@
 .end method
 
 .method public getVoiceLanguageModeId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 675
@@ -1566,7 +1566,7 @@
 .end method
 
 .method public getVoiceMaxResults()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 706
@@ -1576,7 +1576,7 @@
 .end method
 
 .method public getVoicePromptTextId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 685
@@ -1586,7 +1586,7 @@
 .end method
 
 .method public getVoiceSearchEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 647
@@ -1594,21 +1594,21 @@
 
     and-int/lit8 v0, v0, 0x1
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getVoiceSearchLaunchRecognizer()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 665
@@ -1616,21 +1616,21 @@
 
     and-int/lit8 v0, v0, 0x4
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getVoiceSearchLaunchWebSearch()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 656
@@ -1638,21 +1638,21 @@
 
     and-int/lit8 v0, v0, 0x2
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public queryAfterZeroResults()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 762
@@ -1662,7 +1662,7 @@
 .end method
 
 .method public shouldIncludeInGlobalSearch()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 752
@@ -1672,7 +1672,7 @@
 .end method
 
 .method public shouldRewriteQueryFromData()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 159
@@ -1680,21 +1680,21 @@
 
     and-int/lit8 v0, v0, 0x10
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public shouldRewriteQueryFromText()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 168
@@ -1702,21 +1702,21 @@
 
     and-int/lit8 v0, v0, 0x20
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public useBadgeIcon()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 150
@@ -1724,25 +1724,25 @@
 
     and-int/lit8 v0, v0, 0x8
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     iget v0, p0, Landroid/app/SearchableInfo;->mIconId:I
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public useBadgeLabel()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 139
@@ -1750,21 +1750,21 @@
 
     and-int/lit8 v0, v0, 0x4
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 8
+    .locals 5
     .parameter "dest"
     .parameter "flags"
 
@@ -1816,29 +1816,29 @@
     .line 842
     iget-boolean v2, p0, Landroid/app/SearchableInfo;->mIncludeInGlobalSearch:Z
 
-    if-eqz v2, :cond_8a
+    if-eqz v2, :cond_1
 
     move v2, v3
 
-    :goto_2f
+    :goto_0
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 843
     iget-boolean v2, p0, Landroid/app/SearchableInfo;->mQueryAfterZeroResults:Z
 
-    if-eqz v2, :cond_8c
+    if-eqz v2, :cond_2
 
     move v2, v3
 
-    :goto_37
+    :goto_1
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 844
     iget-boolean v2, p0, Landroid/app/SearchableInfo;->mAutoUrlDetect:Z
 
-    if-eqz v2, :cond_8e
+    if-eqz v2, :cond_3
 
-    :goto_3e
+    :goto_2
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 846
@@ -1879,13 +1879,13 @@
     .line 854
     iget-object v2, p0, Landroid/app/SearchableInfo;->mActionKeys:Ljava/util/HashMap;
 
-    if-nez v2, :cond_90
+    if-nez v2, :cond_4
 
     .line 855
     invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 863
-    :cond_6b
+    :cond_0
     iget-object v2, p0, Landroid/app/SearchableInfo;->mSuggestProviderPackage:Ljava/lang/String;
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
@@ -1918,26 +1918,26 @@
     .line 870
     return-void
 
-    :cond_8a
+    :cond_1
     move v2, v4
 
     .line 842
-    goto :goto_2f
+    goto :goto_0
 
-    :cond_8c
+    :cond_2
     move v2, v4
 
     .line 843
-    goto :goto_37
+    goto :goto_1
 
-    :cond_8e
+    :cond_3
     move v3, v4
 
     .line 844
-    goto :goto_3e
+    goto :goto_2
 
     .line 857
-    :cond_90
+    :cond_4
     iget-object v2, p0, Landroid/app/SearchableInfo;->mActionKeys:Ljava/util/HashMap;
 
     invoke-virtual {v2}, Ljava/util/HashMap;->size()I
@@ -1958,12 +1958,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_a3
+    :goto_3
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_6b
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1975,5 +1975,5 @@
     .local v0, actionKey:Landroid/app/SearchableInfo$ActionKeyInfo;
     invoke-virtual {v0, p1, p2}, Landroid/app/SearchableInfo$ActionKeyInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_a3
+    goto :goto_3
 .end method

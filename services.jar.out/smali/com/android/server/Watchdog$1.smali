@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/Watchdog;Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 11
+    .locals 10
 
     .prologue
     const/4 v2, 0x0

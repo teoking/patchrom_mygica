@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 7
+    .locals 7
 
     .prologue
     const/4 v6, 0x4
@@ -115,7 +115,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;I)V
-    .registers 6
+    .locals 2
     .parameter "context"
     .parameter "authority"
     .parameter "mode"
@@ -129,14 +129,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     and-int/lit8 v0, p3, 0x1
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_1
 
     .line 134
-    :cond_d
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -144,14 +144,14 @@
     throw v0
 
     .line 137
-    :cond_13
+    :cond_1
     and-int/lit8 v0, p3, 0x2
 
-    if-eqz v0, :cond_45
+    if-eqz v0, :cond_2
 
     const/4 v0, 0x1
 
-    :goto_18
+    :goto_0
     iput-boolean v0, p0, Landroid/provider/SearchRecentSuggestions;->mTwoLineDisplay:Z
 
     .line 140
@@ -201,14 +201,14 @@
     return-void
 
     .line 137
-    :cond_45
+    :cond_2
     const/4 v0, 0x0
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method static synthetic access$000(Landroid/provider/SearchRecentSuggestions;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -221,7 +221,7 @@
 .end method
 
 .method static synthetic access$100()Ljava/util/concurrent/Semaphore;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 55
@@ -231,7 +231,7 @@
 .end method
 
 .method private saveRecentQueryBlocking(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 10
+    .locals 7
     .parameter "queryString"
     .parameter "line2"
 
@@ -251,7 +251,7 @@
 
     .line 194
     .local v2, now:J
-    :try_start_a
+    :try_start_0
     new-instance v4, Landroid/content/ContentValues;
 
     invoke-direct {v4}, Landroid/content/ContentValues;-><init>()V
@@ -265,7 +265,7 @@
     .line 196
     iget-boolean v5, p0, Landroid/provider/SearchRecentSuggestions;->mTwoLineDisplay:Z
 
-    if-eqz v5, :cond_1d
+    if-eqz v5, :cond_0
 
     .line 197
     const-string v5, "display2"
@@ -273,7 +273,7 @@
     invoke-virtual {v4, v5, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 199
-    :cond_1d
+    :cond_0
     const-string/jumbo v5, "query"
 
     invoke-virtual {v4, v5, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
@@ -291,12 +291,12 @@
     iget-object v5, p0, Landroid/provider/SearchRecentSuggestions;->mSuggestionsUri:Landroid/net/Uri;
 
     invoke-virtual {v0, v5, v4}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
-    :try_end_31
-    .catch Ljava/lang/RuntimeException; {:try_start_a .. :try_end_31} :catch_37
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 207
     .end local v4           #values:Landroid/content/ContentValues;
-    :goto_31
+    :goto_0
     const/16 v5, 0xfa
 
     invoke-virtual {p0, v0, v5}, Landroid/provider/SearchRecentSuggestions;->truncateHistory(Landroid/content/ContentResolver;I)V
@@ -305,7 +305,7 @@
     return-void
 
     .line 202
-    :catch_37
+    :catch_0
     move-exception v1
 
     .line 203
@@ -316,13 +316,13 @@
 
     invoke-static {v5, v6, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_31
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public clearHistory()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 219
@@ -343,7 +343,7 @@
 .end method
 
 .method public saveRecentQuery(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "queryString"
     .parameter "line2"
 
@@ -353,23 +353,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 176
-    :goto_6
+    :goto_0
     return-void
 
     .line 165
-    :cond_7
+    :cond_0
     iget-boolean v0, p0, Landroid/provider/SearchRecentSuggestions;->mTwoLineDisplay:Z
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_1
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_1
 
     .line 166
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -379,7 +379,7 @@
     throw v0
 
     .line 169
-    :cond_17
+    :cond_1
     new-instance v0, Landroid/provider/SearchRecentSuggestions$1;
 
     const-string/jumbo v1, "saveRecentQuery"
@@ -388,17 +388,17 @@
 
     invoke-virtual {v0}, Landroid/provider/SearchRecentSuggestions$1;->start()V
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method protected truncateHistory(Landroid/content/ContentResolver;I)V
-    .registers 7
+    .locals 4
     .parameter "cr"
     .parameter "maxEntries"
 
     .prologue
     .line 230
-    if-gez p2, :cond_8
+    if-gez p2, :cond_0
 
     .line 231
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -408,15 +408,15 @@
     throw v2
 
     .line 236
-    :cond_8
+    :cond_0
     const/4 v1, 0x0
 
     .line 237
     .local v1, selection:Ljava/lang/String;
-    if-lez p2, :cond_28
+    if-lez p2, :cond_1
 
     .line 238
-    :try_start_b
+    :try_start_0
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -446,21 +446,21 @@
     move-result-object v1
 
     .line 243
-    :cond_28
+    :cond_1
     iget-object v2, p0, Landroid/provider/SearchRecentSuggestions;->mSuggestionsUri:Landroid/net/Uri;
 
     const/4 v3, 0x0
 
     invoke-virtual {p1, v2, v1, v3}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
-    :try_end_2e
-    .catch Ljava/lang/RuntimeException; {:try_start_b .. :try_end_2e} :catch_2f
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 247
-    :goto_2e
+    :goto_0
     return-void
 
     .line 244
-    :catch_2f
+    :catch_0
     move-exception v0
 
     .line 245
@@ -471,11 +471,11 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_2e
+    goto :goto_0
 .end method
 
 .method waitForSave()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 184

@@ -18,7 +18,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 24
@@ -28,23 +28,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     sput-boolean v0, Landroid/webkit/CookieManagerClassic;->$assertionsDisabled:Z
 
     return-void
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 32
@@ -60,7 +60,7 @@
 .end method
 
 .method static synthetic access$000()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 24
@@ -70,7 +70,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/webkit/CookieManagerClassic;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -81,7 +81,7 @@
 .end method
 
 .method public static declared-synchronized getInstance()Landroid/webkit/CookieManagerClassic;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 36
@@ -89,10 +89,10 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/webkit/CookieManagerClassic;->sRef:Landroid/webkit/CookieManagerClassic;
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 37
     new-instance v0, Landroid/webkit/CookieManagerClassic;
@@ -102,17 +102,17 @@
     sput-object v0, Landroid/webkit/CookieManagerClassic;->sRef:Landroid/webkit/CookieManagerClassic;
 
     .line 39
-    :cond_e
+    :cond_0
     sget-object v0, Landroid/webkit/CookieManagerClassic;->sRef:Landroid/webkit/CookieManagerClassic;
-    :try_end_10
-    .catchall {:try_start_3 .. :try_end_10} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
     return-object v0
 
     .line 36
-    :catchall_12
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -154,13 +154,13 @@
 .end method
 
 .method private declared-synchronized signalCookieOperationsComplete()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 115
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget v0, p0, Landroid/webkit/CookieManagerClassic;->mPendingCookieOperations:I
 
     add-int/lit8 v0, v0, -0x1
@@ -170,24 +170,24 @@
     .line 116
     sget-boolean v0, Landroid/webkit/CookieManagerClassic;->$assertionsDisabled:Z
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_0
 
     iget v0, p0, Landroid/webkit/CookieManagerClassic;->mPendingCookieOperations:I
 
     const/4 v1, -0x1
 
-    if-gt v0, v1, :cond_19
+    if-gt v0, v1, :cond_0
 
     new-instance v0, Ljava/lang/AssertionError;
 
     invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
     throw v0
-    :try_end_16
-    .catchall {:try_start_1 .. :try_end_16} :catchall_16
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 115
-    :catchall_16
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -195,11 +195,11 @@
     throw v0
 
     .line 117
-    :cond_19
-    :try_start_19
+    :cond_0
+    :try_start_1
     invoke-virtual {p0}, Ljava/lang/Object;->notify()V
-    :try_end_1c
-    .catchall {:try_start_19 .. :try_end_1c} :catchall_16
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 118
     monitor-exit p0
@@ -208,20 +208,20 @@
 .end method
 
 .method private declared-synchronized signalCookieOperationsStart()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 121
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget v0, p0, Landroid/webkit/CookieManagerClassic;->mPendingCookieOperations:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Landroid/webkit/CookieManagerClassic;->mPendingCookieOperations:I
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 122
     monitor-exit p0
@@ -229,7 +229,7 @@
     return-void
 
     .line 121
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -240,16 +240,16 @@
 
 # virtual methods
 .method public declared-synchronized acceptCookie()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 49
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-static {}, Landroid/webkit/CookieManagerClassic;->nativeAcceptCookie()Z
-    :try_end_4
-    .catchall {:try_start_1 .. :try_end_4} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
@@ -257,7 +257,7 @@
 
     return v0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -266,7 +266,7 @@
 .end method
 
 .method protected allowFileSchemeCookiesImpl()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 164
@@ -278,7 +278,7 @@
 .end method
 
 .method protected flushCookieStore()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 159
@@ -289,14 +289,14 @@
 .end method
 
 .method public declared-synchronized getCookie(Landroid/net/WebAddress;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "uri"
 
     .prologue
     .line 96
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-virtual {p1}, Landroid/net/WebAddress;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -304,8 +304,8 @@
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Landroid/webkit/CookieManagerClassic;->nativeGetCookie(Ljava/lang/String;Z)Ljava/lang/String;
-    :try_end_9
-    .catchall {:try_start_1 .. :try_end_9} :catchall_c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
@@ -313,7 +313,7 @@
 
     return-object v0
 
-    :catchall_c
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -322,7 +322,7 @@
 .end method
 
 .method public getCookie(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "url"
 
     .prologue
@@ -337,7 +337,7 @@
 .end method
 
 .method public getCookie(Ljava/lang/String;Z)Ljava/lang/String;
-    .registers 8
+    .locals 5
     .parameter "url"
     .parameter "privateBrowsing"
 
@@ -347,8 +347,8 @@
     new-instance v1, Landroid/net/WebAddress;
 
     invoke-direct {v1, p1}, Landroid/net/WebAddress;-><init>(Ljava/lang/String;)V
-    :try_end_5
-    .catch Landroid/net/ParseException; {:try_start_0 .. :try_end_5} :catch_e
+    :try_end_0
+    .catch Landroid/net/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 91
     .local v1, uri:Landroid/net/WebAddress;
@@ -361,11 +361,11 @@
     move-result-object v2
 
     .end local v1           #uri:Landroid/net/WebAddress;
-    :goto_d
+    :goto_0
     return-object v2
 
     .line 86
-    :catch_e
+    :catch_0
     move-exception v0
 
     .line 87
@@ -395,11 +395,11 @@
     .line 88
     const/4 v2, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public declared-synchronized hasCookies()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 144
@@ -407,10 +407,10 @@
 
     const/4 v0, 0x0
 
-    :try_start_2
+    :try_start_0
     invoke-virtual {p0, v0}, Landroid/webkit/CookieManagerClassic;->hasCookies(Z)Z
-    :try_end_5
-    .catchall {:try_start_2 .. :try_end_5} :catchall_8
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
@@ -418,7 +418,7 @@
 
     return v0
 
-    :catchall_8
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -427,17 +427,17 @@
 .end method
 
 .method public declared-synchronized hasCookies(Z)Z
-    .registers 3
+    .locals 1
     .parameter "privateBrowsing"
 
     .prologue
     .line 149
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-static {p1}, Landroid/webkit/CookieManagerClassic;->nativeHasCookies(Z)Z
-    :try_end_4
-    .catchall {:try_start_1 .. :try_end_4} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
@@ -445,7 +445,7 @@
 
     return v0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -454,7 +454,7 @@
 .end method
 
 .method public removeAllCookie()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 139
@@ -465,7 +465,7 @@
 .end method
 
 .method public removeExpiredCookie()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 154
@@ -476,7 +476,7 @@
 .end method
 
 .method public removeSessionCookie()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 126
@@ -498,17 +498,17 @@
 .end method
 
 .method public declared-synchronized setAcceptCookie(Z)V
-    .registers 3
+    .locals 1
     .parameter "accept"
 
     .prologue
     .line 44
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-static {p1}, Landroid/webkit/CookieManagerClassic;->nativeSetAcceptCookie(Z)V
-    :try_end_4
-    .catchall {:try_start_1 .. :try_end_4} :catchall_6
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 45
     monitor-exit p0
@@ -516,7 +516,7 @@
     return-void
 
     .line 44
-    :catchall_6
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -525,7 +525,7 @@
 .end method
 
 .method protected setAcceptFileSchemeCookiesImpl(Z)V
-    .registers 2
+    .locals 0
     .parameter "accept"
 
     .prologue
@@ -537,7 +537,7 @@
 .end method
 
 .method public setCookie(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "url"
     .parameter "value"
 
@@ -552,7 +552,7 @@
 .end method
 
 .method setCookie(Ljava/lang/String;Ljava/lang/String;Z)V
-    .registers 9
+    .locals 5
     .parameter "url"
     .parameter "value"
     .parameter "privateBrowsing"
@@ -563,8 +563,8 @@
     new-instance v1, Landroid/net/WebAddress;
 
     invoke-direct {v1, p1}, Landroid/net/WebAddress;-><init>(Ljava/lang/String;)V
-    :try_end_5
-    .catch Landroid/net/ParseException; {:try_start_0 .. :try_end_5} :catch_d
+    :try_end_0
+    .catch Landroid/net/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 73
     .local v1, uri:Landroid/net/WebAddress;
@@ -576,11 +576,11 @@
 
     .line 74
     .end local v1           #uri:Landroid/net/WebAddress;
-    :goto_c
+    :goto_0
     return-void
 
     .line 68
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 69
@@ -607,55 +607,55 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method waitForCookieOperationsToComplete()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 105
     monitor-enter p0
 
     .line 106
-    :goto_1
-    :try_start_1
+    :goto_0
+    :try_start_0
     iget v0, p0, Landroid/webkit/CookieManagerClassic;->mPendingCookieOperations:I
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-lez v0, :cond_b
+    if-lez v0, :cond_0
 
     .line 108
-    :try_start_5
+    :try_start_1
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
-    :try_end_8
-    .catchall {:try_start_5 .. :try_end_8} :catchall_d
-    .catch Ljava/lang/InterruptedException; {:try_start_5 .. :try_end_8} :catch_9
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_1
+    goto :goto_0
 
     .line 109
-    :catch_9
+    :catch_0
     move-exception v0
 
-    goto :goto_1
+    goto :goto_0
 
     .line 111
-    :cond_b
-    :try_start_b
+    :cond_0
+    :try_start_2
     monitor-exit p0
 
     .line 112
     return-void
 
     .line 111
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_f
-    .catchall {:try_start_b .. :try_end_f} :catchall_d
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v0
 .end method

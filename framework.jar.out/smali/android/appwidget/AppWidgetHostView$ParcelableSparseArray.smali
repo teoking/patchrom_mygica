@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 547
@@ -56,7 +56,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 533
@@ -66,7 +66,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/appwidget/AppWidgetHostView$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 535
@@ -89,7 +89,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 7
+    .locals 4
     .parameter "dest"
     .parameter "flags"
 
@@ -107,8 +107,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_8
-    if-ge v1, v0, :cond_1e
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 542
     invoke-virtual {p0, v1}, Landroid/appwidget/AppWidgetHostView$ParcelableSparseArray;->keyAt(I)I
@@ -131,9 +131,9 @@
     .line 541
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 545
-    :cond_1e
+    :cond_0
     return-void
 .end method

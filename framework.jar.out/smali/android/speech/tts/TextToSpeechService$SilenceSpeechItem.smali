@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/speech/tts/TextToSpeechService;Ljava/lang/Object;IILandroid/os/Bundle;J)V
-    .registers 8
+    .locals 0
     .parameter
     .parameter "callerIdentity"
     .parameter "callerUid"
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public isValid()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 733
@@ -57,12 +57,13 @@
 .end method
 
 .method protected playImpl()I
-    .registers 6
+    .locals 5
 
     .prologue
     .line 738
     iget-object v0, p0, Landroid/speech/tts/TextToSpeechService$SilenceSpeechItem;->this$0:Landroid/speech/tts/TextToSpeechService;
 
+    #getter for: Landroid/speech/tts/TextToSpeechService;->mAudioPlaybackHandler:Landroid/speech/tts/AudioPlaybackHandler;
     invoke-static {v0}, Landroid/speech/tts/TextToSpeechService;->access$200(Landroid/speech/tts/TextToSpeechService;)Landroid/speech/tts/AudioPlaybackHandler;
 
     move-result-object v0
@@ -86,7 +87,7 @@
 .end method
 
 .method protected stopImpl()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 746

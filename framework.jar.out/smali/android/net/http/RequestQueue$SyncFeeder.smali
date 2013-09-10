@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 352
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public getRequest()Landroid/net/http/Request;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 355
@@ -53,7 +53,7 @@
 .end method
 
 .method public getRequest(Lorg/apache/http/HttpHost;)Landroid/net/http/Request;
-    .registers 3
+    .locals 1
     .parameter "host"
 
     .prologue
@@ -66,28 +66,28 @@
 .end method
 
 .method public haveRequest(Lorg/apache/http/HttpHost;)Z
-    .registers 3
+    .locals 1
     .parameter "host"
 
     .prologue
     .line 363
     iget-object v0, p0, Landroid/net/http/RequestQueue$SyncFeeder;->mRequest:Landroid/net/http/Request;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public requeueRequest(Landroid/net/http/Request;)V
-    .registers 2
+    .locals 0
     .parameter "r"
 
     .prologue

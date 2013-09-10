@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/SharedPreferencesImpl;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "x0"
 
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 86
@@ -45,9 +45,10 @@
     monitor-enter v1
 
     .line 87
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/app/SharedPreferencesImpl$1;->this$0:Landroid/app/SharedPreferencesImpl;
 
+    #calls: Landroid/app/SharedPreferencesImpl;->loadFromDiskLocked()V
     invoke-static {v0}, Landroid/app/SharedPreferencesImpl;->access$000(Landroid/app/SharedPreferencesImpl;)V
 
     .line 88
@@ -57,12 +58,12 @@
     return-void
 
     .line 88
-    :catchall_a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_c
-    .catchall {:try_start_3 .. :try_end_c} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

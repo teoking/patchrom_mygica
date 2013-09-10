@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 40
@@ -25,7 +25,7 @@
 .end method
 
 .method public constructor <init>(Z)V
-    .registers 2
+    .locals 0
     .parameter "state"
 
     .prologue
@@ -42,57 +42,57 @@
 
 # virtual methods
 .method public block()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 94
     monitor-enter p0
 
     .line 95
-    :goto_1
-    :try_start_1
+    :goto_0
+    :try_start_0
     iget-boolean v0, p0, Landroid/os/ConditionVariable;->mCondition:Z
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 97
-    :try_start_5
+    :try_start_1
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
-    :try_end_8
-    .catchall {:try_start_5 .. :try_end_8} :catchall_d
-    .catch Ljava/lang/InterruptedException; {:try_start_5 .. :try_end_8} :catch_9
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_1
+    goto :goto_0
 
     .line 99
-    :catch_9
+    :catch_0
     move-exception v0
 
-    goto :goto_1
+    goto :goto_0
 
     .line 102
-    :cond_b
-    :try_start_b
+    :cond_0
+    :try_start_2
     monitor-exit p0
 
     .line 103
     return-void
 
     .line 102
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_f
-    .catchall {:try_start_b .. :try_end_f} :catchall_d
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v0
 .end method
 
 .method public block(J)Z
-    .registers 9
+    .locals 6
     .parameter "timeout"
 
     .prologue
@@ -101,13 +101,13 @@
 
     cmp-long v4, p1, v4
 
-    if-eqz v4, :cond_26
+    if-eqz v4, :cond_1
 
     .line 123
     monitor-enter p0
 
     .line 124
-    :try_start_7
+    :try_start_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
@@ -118,37 +118,37 @@
 
     .line 126
     .local v0, end:J
-    :goto_d
+    :goto_0
     iget-boolean v4, p0, Landroid/os/ConditionVariable;->mCondition:Z
-    :try_end_f
-    .catchall {:try_start_7 .. :try_end_f} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v4, :cond_1f
+    if-nez v4, :cond_0
 
     cmp-long v4, v2, v0
 
-    if-gez v4, :cond_1f
+    if-gez v4, :cond_0
 
     .line 128
     sub-long v4, v0, v2
 
-    :try_start_17
+    :try_start_1
     invoke-virtual {p0, v4, v5}, Ljava/lang/Object;->wait(J)V
-    :try_end_1a
-    .catchall {:try_start_17 .. :try_end_1a} :catchall_23
-    .catch Ljava/lang/InterruptedException; {:try_start_17 .. :try_end_1a} :catch_2b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 132
-    :goto_1a
-    :try_start_1a
+    :goto_1
+    :try_start_2
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
 
-    goto :goto_d
+    goto :goto_0
 
     .line 134
-    :cond_1f
+    :cond_0
     iget-boolean v4, p0, Landroid/os/ConditionVariable;->mCondition:Z
 
     monitor-exit p0
@@ -156,39 +156,39 @@
     .line 138
     .end local v0           #end:J
     .end local v2           #now:J
-    :goto_22
+    :goto_2
     return v4
 
     .line 135
-    :catchall_23
+    :catchall_0
     move-exception v4
 
     monitor-exit p0
-    :try_end_25
-    .catchall {:try_start_1a .. :try_end_25} :catchall_23
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v4
 
     .line 137
-    :cond_26
+    :cond_1
     invoke-virtual {p0}, Landroid/os/ConditionVariable;->block()V
 
     .line 138
     const/4 v4, 0x1
 
-    goto :goto_22
+    goto :goto_2
 
     .line 130
     .restart local v0       #end:J
     .restart local v2       #now:J
-    :catch_2b
+    :catch_0
     move-exception v4
 
-    goto :goto_1a
+    goto :goto_1
 .end method
 
 .method public close()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -197,7 +197,7 @@
     .line 82
     const/4 v0, 0x0
 
-    :try_start_2
+    :try_start_0
     iput-boolean v0, p0, Landroid/os/ConditionVariable;->mCondition:Z
 
     .line 83
@@ -207,25 +207,25 @@
     return-void
 
     .line 83
-    :catchall_6
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_8
-    .catchall {:try_start_2 .. :try_end_8} :catchall_6
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public open()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 64
     monitor-enter p0
 
     .line 65
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/os/ConditionVariable;->mCondition:Z
 
     .line 66
@@ -235,13 +235,13 @@
     iput-boolean v1, p0, Landroid/os/ConditionVariable;->mCondition:Z
 
     .line 67
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 68
     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
 
     .line 70
-    :cond_b
+    :cond_0
     monitor-exit p0
 
     .line 71
@@ -249,12 +249,12 @@
 
     .line 70
     .end local v0           #old:Z
-    :catchall_d
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
-    :try_end_f
-    .catchall {:try_start_1 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method

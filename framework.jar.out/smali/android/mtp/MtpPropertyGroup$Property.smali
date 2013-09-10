@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/mtp/MtpPropertyGroup;III)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter "code"
     .parameter "type"

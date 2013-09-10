@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 14
+    .locals 10
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -175,7 +175,7 @@
 
 # virtual methods
 .method public addView(Landroid/view/View;)V
-    .registers 13
+    .locals 11
     .parameter "child"
 
     .prologue
@@ -212,7 +212,7 @@
     .local v5, params:Landroid/view/ViewGroup$LayoutParams;
     instance-of v10, v5, Landroid/preference/PreferenceFrameLayout$LayoutParams;
 
-    if-eqz v10, :cond_57
+    if-eqz v10, :cond_3
 
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -224,17 +224,17 @@
 
     .line 94
     .local v4, layoutParams:Landroid/preference/PreferenceFrameLayout$LayoutParams;
-    :goto_1f
-    if-eqz v4, :cond_59
+    :goto_0
+    if-eqz v4, :cond_4
 
     iget-boolean v10, v4, Landroid/preference/PreferenceFrameLayout$LayoutParams;->removeBorders:Z
 
-    if-eqz v10, :cond_59
+    if-eqz v10, :cond_4
 
     .line 95
     iget-boolean v10, p0, Landroid/preference/PreferenceFrameLayout;->mPaddingApplied:Z
 
-    if-eqz v10, :cond_38
+    if-eqz v10, :cond_0
 
     .line 96
     iget v10, p0, Landroid/preference/PreferenceFrameLayout;->mBorderTop:I
@@ -262,8 +262,8 @@
     iput-boolean v10, p0, Landroid/preference/PreferenceFrameLayout;->mPaddingApplied:Z
 
     .line 114
-    :cond_38
-    :goto_38
+    :cond_0
+    :goto_1
     invoke-virtual {p0}, Landroid/preference/PreferenceFrameLayout;->getPaddingTop()I
 
     move-result v9
@@ -288,20 +288,20 @@
 
     .line 118
     .local v8, previousRight:I
-    if-ne v9, v3, :cond_50
+    if-ne v9, v3, :cond_1
 
-    if-ne v6, v0, :cond_50
+    if-ne v6, v0, :cond_1
 
-    if-ne v7, v1, :cond_50
+    if-ne v7, v1, :cond_1
 
-    if-eq v8, v2, :cond_53
+    if-eq v8, v2, :cond_2
 
     .line 120
-    :cond_50
+    :cond_1
     invoke-virtual {p0, v1, v3, v2, v0}, Landroid/preference/PreferenceFrameLayout;->setPadding(IIII)V
 
     .line 123
-    :cond_53
+    :cond_2
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
 
     .line 124
@@ -313,17 +313,17 @@
     .end local v7           #previousLeft:I
     .end local v8           #previousRight:I
     .end local v9           #previousTop:I
-    :cond_57
+    :cond_3
     const/4 v4, 0x0
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 105
     .restart local v4       #layoutParams:Landroid/preference/PreferenceFrameLayout$LayoutParams;
-    :cond_59
+    :cond_4
     iget-boolean v10, p0, Landroid/preference/PreferenceFrameLayout;->mPaddingApplied:Z
 
-    if-nez v10, :cond_38
+    if-nez v10, :cond_0
 
     .line 106
     iget v10, p0, Landroid/preference/PreferenceFrameLayout;->mBorderTop:I
@@ -350,11 +350,11 @@
 
     iput-boolean v10, p0, Landroid/preference/PreferenceFrameLayout;->mPaddingApplied:Z
 
-    goto :goto_38
+    goto :goto_1
 .end method
 
 .method public generateLayoutParams(Landroid/util/AttributeSet;)Landroid/preference/PreferenceFrameLayout$LayoutParams;
-    .registers 4
+    .locals 2
     .parameter "attrs"
 
     .prologue
@@ -371,7 +371,7 @@
 .end method
 
 .method public bridge synthetic generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -384,7 +384,7 @@
 .end method
 
 .method public bridge synthetic generateLayoutParams(Landroid/util/AttributeSet;)Landroid/widget/FrameLayout$LayoutParams;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

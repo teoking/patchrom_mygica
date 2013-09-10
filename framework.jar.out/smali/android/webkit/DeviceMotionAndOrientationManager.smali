@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 26
@@ -23,23 +23,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     sput-boolean v0, Landroid/webkit/DeviceMotionAndOrientationManager;->$assertionsDisabled:Z
 
     return-void
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public constructor <init>(Landroid/webkit/WebViewCore;)V
-    .registers 2
+    .locals 0
     .parameter "webViewCore"
 
     .prologue
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public onMotionChange(Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;D)V
-    .registers 18
+    .locals 12
     .parameter "x"
     .parameter "y"
     .parameter "z"
@@ -78,42 +78,42 @@
     .line 54
     iget-object v0, p0, Landroid/webkit/DeviceMotionAndOrientationManager;->mWebViewCore:Landroid/webkit/WebViewCore;
 
-    if-eqz p1, :cond_23
+    if-eqz p1, :cond_0
 
     const/4 v1, 0x1
 
-    :goto_5
-    if-eqz p1, :cond_25
+    :goto_0
+    if-eqz p1, :cond_1
 
     invoke-virtual {p1}, Ljava/lang/Double;->doubleValue()D
 
     move-result-wide v2
 
-    :goto_b
-    if-eqz p2, :cond_28
+    :goto_1
+    if-eqz p2, :cond_2
 
     const/4 v4, 0x1
 
-    :goto_e
-    if-eqz p2, :cond_2a
+    :goto_2
+    if-eqz p2, :cond_3
 
     invoke-virtual {p2}, Ljava/lang/Double;->doubleValue()D
 
     move-result-wide v5
 
-    :goto_14
-    if-eqz p3, :cond_2d
+    :goto_3
+    if-eqz p3, :cond_4
 
     const/4 v7, 0x1
 
-    :goto_17
-    if-eqz p3, :cond_2f
+    :goto_4
+    if-eqz p3, :cond_5
 
     invoke-virtual {p3}, Ljava/lang/Double;->doubleValue()D
 
     move-result-wide v8
 
-    :goto_1d
+    :goto_5
     move-wide/from16 v10, p4
 
     invoke-static/range {v0 .. v11}, Landroid/webkit/DeviceMotionAndOrientationManager;->nativeOnMotionChange(Landroid/webkit/WebViewCore;ZDZDZDD)V
@@ -122,39 +122,39 @@
     return-void
 
     .line 54
-    :cond_23
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_5
+    goto :goto_0
 
-    :cond_25
+    :cond_1
     const-wide/16 v2, 0x0
 
-    goto :goto_b
+    goto :goto_1
 
-    :cond_28
+    :cond_2
     const/4 v4, 0x0
 
-    goto :goto_e
+    goto :goto_2
 
-    :cond_2a
+    :cond_3
     const-wide/16 v5, 0x0
 
-    goto :goto_14
+    goto :goto_3
 
-    :cond_2d
+    :cond_4
     const/4 v7, 0x0
 
-    goto :goto_17
+    goto :goto_4
 
-    :cond_2f
+    :cond_5
     const-wide/16 v8, 0x0
 
-    goto :goto_1d
+    goto :goto_5
 .end method
 
 .method public onOrientationChange(Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;)V
-    .registers 15
+    .locals 11
     .parameter "alpha"
     .parameter "beta"
     .parameter "gamma"
@@ -169,74 +169,74 @@
     .line 61
     iget-object v0, p0, Landroid/webkit/DeviceMotionAndOrientationManager;->mWebViewCore:Landroid/webkit/WebViewCore;
 
-    if-eqz p1, :cond_24
+    if-eqz p1, :cond_1
 
     move v1, v7
 
-    :goto_9
-    if-eqz p1, :cond_26
+    :goto_0
+    if-eqz p1, :cond_2
 
     invoke-virtual {p1}, Ljava/lang/Double;->doubleValue()D
 
     move-result-wide v2
 
-    :goto_f
-    if-eqz p2, :cond_28
+    :goto_1
+    if-eqz p2, :cond_3
 
     move v4, v7
 
-    :goto_12
-    if-eqz p2, :cond_2a
+    :goto_2
+    if-eqz p2, :cond_4
 
     invoke-virtual {p2}, Ljava/lang/Double;->doubleValue()D
 
     move-result-wide v5
 
-    :goto_18
-    if-eqz p3, :cond_2c
+    :goto_3
+    if-eqz p3, :cond_5
 
-    :goto_1a
-    if-eqz p3, :cond_20
+    :goto_4
+    if-eqz p3, :cond_0
 
     invoke-virtual {p3}, Ljava/lang/Double;->doubleValue()D
 
     move-result-wide v8
 
-    :cond_20
+    :cond_0
     invoke-static/range {v0 .. v9}, Landroid/webkit/DeviceMotionAndOrientationManager;->nativeOnOrientationChange(Landroid/webkit/WebViewCore;ZDZDZD)V
 
     .line 65
     return-void
 
-    :cond_24
+    :cond_1
     move v1, v10
 
     .line 61
-    goto :goto_9
+    goto :goto_0
 
-    :cond_26
+    :cond_2
     move-wide v2, v8
 
-    goto :goto_f
+    goto :goto_1
 
-    :cond_28
+    :cond_3
     move v4, v10
 
-    goto :goto_12
+    goto :goto_2
 
-    :cond_2a
+    :cond_4
     move-wide v5, v8
 
-    goto :goto_18
+    goto :goto_3
 
-    :cond_2c
+    :cond_5
     move v7, v10
 
-    goto :goto_1a
+    goto :goto_4
 .end method
 
 .method public setMockOrientation(ZDZDZD)V
-    .registers 20
+    .locals 10
     .parameter "canProvideAlpha"
     .parameter "alpha"
     .parameter "canProvideBeta"
@@ -248,7 +248,7 @@
     .line 47
     sget-boolean v0, Landroid/webkit/DeviceMotionAndOrientationManager;->$assertionsDisabled:Z
 
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_0
 
     const-string v0, "WebViewCoreThread"
 
@@ -264,7 +264,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_0
 
     new-instance v0, Ljava/lang/AssertionError;
 
@@ -273,7 +273,7 @@
     throw v0
 
     .line 48
-    :cond_1a
+    :cond_0
     iget-object v0, p0, Landroid/webkit/DeviceMotionAndOrientationManager;->mWebViewCore:Landroid/webkit/WebViewCore;
 
     move v1, p1
@@ -295,13 +295,13 @@
 .end method
 
 .method public setUseMock()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 38
     sget-boolean v0, Landroid/webkit/DeviceMotionAndOrientationManager;->$assertionsDisabled:Z
 
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_0
 
     const-string v0, "WebViewCoreThread"
 
@@ -317,7 +317,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_0
 
     new-instance v0, Ljava/lang/AssertionError;
 
@@ -326,7 +326,7 @@
     throw v0
 
     .line 39
-    :cond_1a
+    :cond_0
     iget-object v0, p0, Landroid/webkit/DeviceMotionAndOrientationManager;->mWebViewCore:Landroid/webkit/WebViewCore;
 
     invoke-static {v0}, Landroid/webkit/DeviceMotionAndOrientationManager;->nativeSetUseMock(Landroid/webkit/WebViewCore;)V

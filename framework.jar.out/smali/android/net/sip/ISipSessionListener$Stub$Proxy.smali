@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 205
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 209
@@ -60,7 +60,7 @@
 .end method
 
 .method public onCallBusy(Landroid/net/sip/ISipSession;)V
-    .registers 7
+    .locals 5
     .parameter "session"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -82,19 +82,19 @@
 
     .line 333
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 334
-    if-eqz p1, :cond_27
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/net/sip/ISipSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 335
@@ -108,8 +108,8 @@
 
     .line 336
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 339
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -121,13 +121,13 @@
     return-void
 
     .line 334
-    :cond_27
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 339
-    :catchall_29
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -140,7 +140,7 @@
 .end method
 
 .method public onCallChangeFailed(Landroid/net/sip/ISipSession;ILjava/lang/String;)V
-    .registers 9
+    .locals 5
     .parameter "session"
     .parameter "errorCode"
     .parameter "errorMessage"
@@ -164,19 +164,19 @@
 
     .line 402
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 403
-    if-eqz p1, :cond_2e
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/net/sip/ISipSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 404
@@ -196,8 +196,8 @@
 
     .line 407
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_27
-    .catchall {:try_start_8 .. :try_end_27} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 410
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -209,13 +209,13 @@
     return-void
 
     .line 403
-    :cond_2e
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 410
-    :catchall_30
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -228,7 +228,7 @@
 .end method
 
 .method public onCallEnded(Landroid/net/sip/ISipSession;)V
-    .registers 7
+    .locals 5
     .parameter "session"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -250,19 +250,19 @@
 
     .line 313
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 314
-    if-eqz p1, :cond_27
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/net/sip/ISipSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 315
@@ -276,8 +276,8 @@
 
     .line 316
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 319
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -289,13 +289,13 @@
     return-void
 
     .line 314
-    :cond_27
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 319
-    :catchall_29
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -308,7 +308,7 @@
 .end method
 
 .method public onCallEstablished(Landroid/net/sip/ISipSession;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "session"
     .parameter "sessionDescription"
     .annotation system Ldalvik/annotation/Throws;
@@ -331,19 +331,19 @@
 
     .line 292
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 293
-    if-eqz p1, :cond_2a
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/net/sip/ISipSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 294
@@ -360,8 +360,8 @@
 
     .line 296
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_23
-    .catchall {:try_start_8 .. :try_end_23} :catchall_2c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 299
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -373,13 +373,13 @@
     return-void
 
     .line 293
-    :cond_2a
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 299
-    :catchall_2c
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -392,7 +392,7 @@
 .end method
 
 .method public onCallTransferring(Landroid/net/sip/ISipSession;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "newSession"
     .parameter "sessionDescription"
     .annotation system Ldalvik/annotation/Throws;
@@ -415,19 +415,19 @@
 
     .line 354
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 355
-    if-eqz p1, :cond_2a
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/net/sip/ISipSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 356
@@ -444,8 +444,8 @@
 
     .line 358
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_23
-    .catchall {:try_start_8 .. :try_end_23} :catchall_2c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 361
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -457,13 +457,13 @@
     return-void
 
     .line 355
-    :cond_2a
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 361
-    :catchall_2c
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -476,7 +476,7 @@
 .end method
 
 .method public onCalling(Landroid/net/sip/ISipSession;)V
-    .registers 7
+    .locals 5
     .parameter "session"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -498,19 +498,19 @@
 
     .line 221
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 222
-    if-eqz p1, :cond_27
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/net/sip/ISipSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 223
@@ -524,8 +524,8 @@
 
     .line 224
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 227
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -537,13 +537,13 @@
     return-void
 
     .line 222
-    :cond_27
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 227
-    :catchall_29
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -556,7 +556,7 @@
 .end method
 
 .method public onError(Landroid/net/sip/ISipSession;ILjava/lang/String;)V
-    .registers 9
+    .locals 5
     .parameter "session"
     .parameter "errorCode"
     .parameter "errorMessage"
@@ -580,19 +580,19 @@
 
     .line 378
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 379
-    if-eqz p1, :cond_2e
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/net/sip/ISipSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 380
@@ -612,8 +612,8 @@
 
     .line 383
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_27
-    .catchall {:try_start_8 .. :try_end_27} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 386
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -625,13 +625,13 @@
     return-void
 
     .line 379
-    :cond_2e
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 386
-    :catchall_30
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -644,7 +644,7 @@
 .end method
 
 .method public onRegistering(Landroid/net/sip/ISipSession;)V
-    .registers 7
+    .locals 5
     .parameter "session"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -666,19 +666,19 @@
 
     .line 424
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 425
-    if-eqz p1, :cond_28
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/net/sip/ISipSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 426
@@ -692,8 +692,8 @@
 
     .line 427
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_8 .. :try_end_21} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 430
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -705,13 +705,13 @@
     return-void
 
     .line 425
-    :cond_28
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 430
-    :catchall_2a
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -724,7 +724,7 @@
 .end method
 
 .method public onRegistrationDone(Landroid/net/sip/ISipSession;I)V
-    .registers 8
+    .locals 5
     .parameter "session"
     .parameter "duration"
     .annotation system Ldalvik/annotation/Throws;
@@ -747,19 +747,19 @@
 
     .line 445
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 446
-    if-eqz p1, :cond_2b
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/net/sip/ISipSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 447
@@ -776,8 +776,8 @@
 
     .line 449
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 452
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -789,13 +789,13 @@
     return-void
 
     .line 446
-    :cond_2b
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 452
-    :catchall_2d
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -808,7 +808,7 @@
 .end method
 
 .method public onRegistrationFailed(Landroid/net/sip/ISipSession;ILjava/lang/String;)V
-    .registers 9
+    .locals 5
     .parameter "session"
     .parameter "errorCode"
     .parameter "errorMessage"
@@ -832,19 +832,19 @@
 
     .line 468
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 469
-    if-eqz p1, :cond_2e
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/net/sip/ISipSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 470
@@ -864,8 +864,8 @@
 
     .line 473
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_27
-    .catchall {:try_start_8 .. :try_end_27} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 476
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -877,13 +877,13 @@
     return-void
 
     .line 469
-    :cond_2e
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 476
-    :catchall_30
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -896,7 +896,7 @@
 .end method
 
 .method public onRegistrationTimeout(Landroid/net/sip/ISipSession;)V
-    .registers 7
+    .locals 5
     .parameter "session"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -918,19 +918,19 @@
 
     .line 490
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 491
-    if-eqz p1, :cond_28
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/net/sip/ISipSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 492
@@ -944,8 +944,8 @@
 
     .line 493
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_8 .. :try_end_21} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 496
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -957,13 +957,13 @@
     return-void
 
     .line 491
-    :cond_28
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 496
-    :catchall_2a
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -976,7 +976,7 @@
 .end method
 
 .method public onRinging(Landroid/net/sip/ISipSession;Landroid/net/sip/SipProfile;Ljava/lang/String;)V
-    .registers 9
+    .locals 5
     .parameter "session"
     .parameter "caller"
     .parameter "sessionDescription"
@@ -1000,23 +1000,23 @@
 
     .line 243
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 244
-    if-eqz p1, :cond_34
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/net/sip/ISipSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 245
-    if-eqz p2, :cond_36
+    if-eqz p2, :cond_1
 
     .line 246
     const/4 v2, 0x1
@@ -1029,7 +1029,7 @@
     invoke-virtual {p2, v0, v2}, Landroid/net/sip/SipProfile;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 252
-    :goto_20
+    :goto_1
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 253
@@ -1043,8 +1043,8 @@
 
     .line 254
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_2d
-    .catchall {:try_start_8 .. :try_end_2d} :catchall_3b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 257
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1056,24 +1056,24 @@
     return-void
 
     .line 244
-    :cond_34
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 250
-    :cond_36
+    :cond_1
     const/4 v2, 0x0
 
-    :try_start_37
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_3a
-    .catchall {:try_start_37 .. :try_end_3a} :catchall_3b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_20
+    goto :goto_1
 
     .line 257
-    :catchall_3b
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1086,7 +1086,7 @@
 .end method
 
 .method public onRingingBack(Landroid/net/sip/ISipSession;)V
-    .registers 7
+    .locals 5
     .parameter "session"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1108,19 +1108,19 @@
 
     .line 271
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 272
-    if-eqz p1, :cond_27
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/net/sip/ISipSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 273
@@ -1134,8 +1134,8 @@
 
     .line 274
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 277
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1147,13 +1147,13 @@
     return-void
 
     .line 272
-    :cond_27
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 277
-    :catchall_29
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

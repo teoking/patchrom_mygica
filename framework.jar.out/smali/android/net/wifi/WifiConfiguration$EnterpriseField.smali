@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "varName"
 
@@ -47,7 +47,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Landroid/net/wifi/WifiConfiguration$1;)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public setValue(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "value"
 
     .prologue
@@ -74,7 +74,7 @@
 .end method
 
 .method public value()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 101
@@ -84,7 +84,7 @@
 .end method
 
 .method public varName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 97

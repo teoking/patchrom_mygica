@@ -21,7 +21,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/res/Resources;[I[II)V
-    .registers 6
+    .locals 1
     .parameter "resources"
     .parameter "data"
     .parameter "indices"
@@ -55,7 +55,7 @@
 .end method
 
 .method private getValueAt(ILandroid/util/TypedValue;)Z
-    .registers 6
+    .locals 3
     .parameter "index"
     .parameter "outValue"
 
@@ -71,17 +71,17 @@
 
     .line 702
     .local v1, type:I
-    if-nez v1, :cond_a
+    if-nez v1, :cond_0
 
     .line 703
     const/4 v2, 0x0
 
     .line 712
-    :goto_9
+    :goto_0
     return v2
 
     .line 705
-    :cond_a
+    :cond_0
     iput v1, p2, Landroid/util/TypedValue;->type:I
 
     .line 706
@@ -122,29 +122,29 @@
     .line 711
     const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_35
+    if-ne v1, v2, :cond_1
 
     invoke-direct {p0, p1}, Landroid/content/res/TypedArray;->loadStringValueAt(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    :goto_31
+    :goto_1
     iput-object v2, p2, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
     .line 712
     const/4 v2, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 711
-    :cond_35
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_31
+    goto :goto_1
 .end method
 
 .method private loadStringValueAt(I)Ljava/lang/CharSequence;
-    .registers 6
+    .locals 4
     .parameter "index"
 
     .prologue
@@ -159,12 +159,12 @@
 
     .line 718
     .local v0, cookie:I
-    if-gez v0, :cond_19
+    if-gez v0, :cond_1
 
     .line 719
     iget-object v2, p0, Landroid/content/res/TypedArray;->mXml:Landroid/content/res/XmlBlock$Parser;
 
-    if-eqz v2, :cond_17
+    if-eqz v2, :cond_0
 
     .line 720
     iget-object v2, p0, Landroid/content/res/TypedArray;->mXml:Landroid/content/res/XmlBlock$Parser;
@@ -178,17 +178,17 @@
     move-result-object v2
 
     .line 726
-    :goto_16
+    :goto_0
     return-object v2
 
     .line 723
-    :cond_17
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 726
-    :cond_19
+    :cond_1
     iget-object v2, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
 
     iget-object v2, v2, Landroid/content/res/Resources;->mAssets:Landroid/content/res/AssetManager;
@@ -201,13 +201,13 @@
 
     move-result-object v2
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getBoolean(IZ)Z
-    .registers 9
+    .locals 6
     .parameter "index"
     .parameter "defValue"
 
@@ -226,45 +226,45 @@
 
     .line 214
     .local v1, type:I
-    if-nez v1, :cond_b
+    if-nez v1, :cond_0
 
     .line 229
     .end local p2
-    :goto_a
+    :goto_0
     return p2
 
     .line 216
     .restart local p2
-    :cond_b
+    :cond_0
     const/16 v3, 0x10
 
-    if-lt v1, v3, :cond_1e
+    if-lt v1, v3, :cond_2
 
     const/16 v3, 0x1f
 
-    if-gt v1, v3, :cond_1e
+    if-gt v1, v3, :cond_2
 
     .line 218
     add-int/lit8 v3, p1, 0x1
 
     aget v3, v0, v3
 
-    if-eqz v3, :cond_1c
+    if-eqz v3, :cond_1
 
     const/4 v3, 0x1
 
-    :goto_1a
+    :goto_1
     move p2, v3
 
-    goto :goto_a
+    goto :goto_0
 
-    :cond_1c
+    :cond_1
     const/4 v3, 0x0
 
-    goto :goto_1a
+    goto :goto_1
 
     .line 221
-    :cond_1e
+    :cond_2
     iget-object v2, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 222
@@ -273,7 +273,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_47
+    if-eqz v3, :cond_3
 
     .line 223
     const-string v3, "Resources"
@@ -307,10 +307,10 @@
 
     move-result p2
 
-    goto :goto_a
+    goto :goto_0
 
     .line 227
-    :cond_47
+    :cond_3
     const-string v3, "Resources"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -337,11 +337,11 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getColor(II)I
-    .registers 10
+    .locals 7
     .parameter "index"
     .parameter "defValue"
 
@@ -360,37 +360,37 @@
 
     .line 311
     .local v2, type:I
-    if-nez v2, :cond_b
+    if-nez v2, :cond_1
 
     .line 323
     .end local p2
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return p2
 
     .line 313
     .restart local p2
-    :cond_b
+    :cond_1
     const/16 v4, 0x10
 
-    if-lt v2, v4, :cond_18
+    if-lt v2, v4, :cond_2
 
     const/16 v4, 0x1f
 
-    if-gt v2, v4, :cond_18
+    if-gt v2, v4, :cond_2
 
     .line 315
     add-int/lit8 v4, p1, 0x1
 
     aget p2, v1, v4
 
-    goto :goto_a
+    goto :goto_0
 
     .line 316
-    :cond_18
+    :cond_2
     const/4 v4, 0x3
 
-    if-ne v2, v4, :cond_30
+    if-ne v2, v4, :cond_3
 
     .line 317
     iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
@@ -401,7 +401,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_0
 
     .line 319
     iget-object v4, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
@@ -418,12 +418,12 @@
 
     move-result p2
 
-    goto :goto_a
+    goto :goto_0
 
     .line 326
     .end local v0           #csl:Landroid/content/res/ColorStateList;
     .end local v3           #value:Landroid/util/TypedValue;
-    :cond_30
+    :cond_3
     new-instance v4, Ljava/lang/UnsupportedOperationException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -454,7 +454,7 @@
 .end method
 
 .method public getColorStateList(I)Landroid/content/res/ColorStateList;
-    .registers 5
+    .locals 3
     .parameter "index"
 
     .prologue
@@ -469,7 +469,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 342
     iget-object v1, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
@@ -481,17 +481,17 @@
     move-result-object v1
 
     .line 344
-    :goto_12
+    :goto_0
     return-object v1
 
-    :cond_13
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public getDimension(IF)F
-    .registers 8
+    .locals 5
     .parameter "index"
     .parameter "defValue"
 
@@ -510,19 +510,19 @@
 
     .line 391
     .local v1, type:I
-    if-nez v1, :cond_b
+    if-nez v1, :cond_0
 
     .line 394
     .end local p2
-    :goto_a
+    :goto_0
     return p2
 
     .line 393
     .restart local p2
-    :cond_b
+    :cond_0
     const/4 v2, 0x5
 
-    if-ne v1, v2, :cond_1b
+    if-ne v1, v2, :cond_1
 
     .line 394
     add-int/lit8 v2, p1, 0x1
@@ -537,10 +537,10 @@
 
     move-result p2
 
-    goto :goto_a
+    goto :goto_0
 
     .line 398
-    :cond_1b
+    :cond_1
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -571,7 +571,7 @@
 .end method
 
 .method public getDimensionPixelOffset(II)I
-    .registers 8
+    .locals 5
     .parameter "index"
     .parameter "defValue"
 
@@ -590,19 +590,19 @@
 
     .line 423
     .local v1, type:I
-    if-nez v1, :cond_b
+    if-nez v1, :cond_0
 
     .line 426
     .end local p2
-    :goto_a
+    :goto_0
     return p2
 
     .line 425
     .restart local p2
-    :cond_b
+    :cond_0
     const/4 v2, 0x5
 
-    if-ne v1, v2, :cond_1b
+    if-ne v1, v2, :cond_1
 
     .line 426
     add-int/lit8 v2, p1, 0x1
@@ -617,10 +617,10 @@
 
     move-result p2
 
-    goto :goto_a
+    goto :goto_0
 
     .line 430
-    :cond_1b
+    :cond_1
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -651,7 +651,7 @@
 .end method
 
 .method public getDimensionPixelSize(II)I
-    .registers 8
+    .locals 5
     .parameter "index"
     .parameter "defValue"
 
@@ -670,19 +670,19 @@
 
     .line 456
     .local v1, type:I
-    if-nez v1, :cond_b
+    if-nez v1, :cond_0
 
     .line 459
     .end local p2
-    :goto_a
+    :goto_0
     return p2
 
     .line 458
     .restart local p2
-    :cond_b
+    :cond_0
     const/4 v2, 0x5
 
-    if-ne v1, v2, :cond_1b
+    if-ne v1, v2, :cond_1
 
     .line 459
     add-int/lit8 v2, p1, 0x1
@@ -697,10 +697,10 @@
 
     move-result p2
 
-    goto :goto_a
+    goto :goto_0
 
     .line 463
-    :cond_1b
+    :cond_1
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -731,7 +731,7 @@
 .end method
 
 .method public getDrawable(I)Landroid/graphics/drawable/Drawable;
-    .registers 5
+    .locals 3
     .parameter "index"
 
     .prologue
@@ -746,7 +746,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 601
     iget-object v1, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
@@ -758,17 +758,17 @@
     move-result-object v1
 
     .line 603
-    :goto_12
+    :goto_0
     return-object v1
 
-    :cond_13
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public getFloat(IF)F
-    .registers 10
+    .locals 7
     .parameter "index"
     .parameter "defValue"
 
@@ -787,19 +787,19 @@
 
     .line 273
     .local v2, type:I
-    if-nez v2, :cond_b
+    if-nez v2, :cond_0
 
     .line 292
     .end local p2
-    :goto_a
+    :goto_0
     return p2
 
     .line 275
     .restart local p2
-    :cond_b
+    :cond_0
     const/4 v4, 0x4
 
-    if-ne v2, v4, :cond_17
+    if-ne v2, v4, :cond_1
 
     .line 276
     add-int/lit8 v4, p1, 0x1
@@ -810,17 +810,17 @@
 
     move-result p2
 
-    goto :goto_a
+    goto :goto_0
 
     .line 277
-    :cond_17
+    :cond_1
     const/16 v4, 0x10
 
-    if-lt v2, v4, :cond_25
+    if-lt v2, v4, :cond_2
 
     const/16 v4, 0x1f
 
-    if-gt v2, v4, :cond_25
+    if-gt v2, v4, :cond_2
 
     .line 279
     add-int/lit8 v4, p1, 0x1
@@ -829,10 +829,10 @@
 
     int-to-float p2, v4
 
-    goto :goto_a
+    goto :goto_0
 
     .line 282
-    :cond_25
+    :cond_2
     iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 283
@@ -841,7 +841,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_54
+    if-eqz v4, :cond_3
 
     .line 284
     const-string v4, "Resources"
@@ -873,7 +873,7 @@
 
     .line 286
     .local v1, str:Ljava/lang/CharSequence;
-    if-eqz v1, :cond_54
+    if-eqz v1, :cond_3
 
     .line 287
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -884,11 +884,11 @@
 
     move-result p2
 
-    goto :goto_a
+    goto :goto_0
 
     .line 290
     .end local v1           #str:Ljava/lang/CharSequence;
-    :cond_54
+    :cond_3
     const-string v4, "Resources"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -915,11 +915,11 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getFraction(IIIF)F
-    .registers 10
+    .locals 5
     .parameter "index"
     .parameter "base"
     .parameter "pbase"
@@ -940,19 +940,19 @@
 
     .line 542
     .local v1, type:I
-    if-nez v1, :cond_b
+    if-nez v1, :cond_0
 
     .line 545
     .end local p4
-    :goto_a
+    :goto_0
     return p4
 
     .line 544
     .restart local p4
-    :cond_b
+    :cond_0
     const/4 v2, 0x6
 
-    if-ne v1, v2, :cond_19
+    if-ne v1, v2, :cond_1
 
     .line 545
     add-int/lit8 v2, p1, 0x1
@@ -967,10 +967,10 @@
 
     move-result p4
 
-    goto :goto_a
+    goto :goto_0
 
     .line 549
-    :cond_19
+    :cond_1
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1001,7 +1001,7 @@
 .end method
 
 .method public getIndex(I)I
-    .registers 4
+    .locals 2
     .parameter "at"
 
     .prologue
@@ -1016,7 +1016,7 @@
 .end method
 
 .method public getIndexCount()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 58
@@ -1030,7 +1030,7 @@
 .end method
 
 .method public getInt(II)I
-    .registers 9
+    .locals 6
     .parameter "index"
     .parameter "defValue"
 
@@ -1049,33 +1049,33 @@
 
     .line 244
     .local v1, type:I
-    if-nez v1, :cond_b
+    if-nez v1, :cond_0
 
     .line 259
     .end local p2
-    :goto_a
+    :goto_0
     return p2
 
     .line 246
     .restart local p2
-    :cond_b
+    :cond_0
     const/16 v3, 0x10
 
-    if-lt v1, v3, :cond_18
+    if-lt v1, v3, :cond_1
 
     const/16 v3, 0x1f
 
-    if-gt v1, v3, :cond_18
+    if-gt v1, v3, :cond_1
 
     .line 248
     add-int/lit8 v3, p1, 0x1
 
     aget p2, v0, v3
 
-    goto :goto_a
+    goto :goto_0
 
     .line 251
-    :cond_18
+    :cond_1
     iget-object v2, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 252
@@ -1084,7 +1084,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_41
+    if-eqz v3, :cond_2
 
     .line 253
     const-string v3, "Resources"
@@ -1118,10 +1118,10 @@
 
     move-result p2
 
-    goto :goto_a
+    goto :goto_0
 
     .line 257
-    :cond_41
+    :cond_2
     const-string v3, "Resources"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1148,11 +1148,11 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getInteger(II)I
-    .registers 8
+    .locals 5
     .parameter "index"
     .parameter "defValue"
 
@@ -1171,33 +1171,33 @@
 
     .line 360
     .local v1, type:I
-    if-nez v1, :cond_b
+    if-nez v1, :cond_0
 
     .line 364
     .end local p2
-    :goto_a
+    :goto_0
     return p2
 
     .line 362
     .restart local p2
-    :cond_b
+    :cond_0
     const/16 v2, 0x10
 
-    if-lt v1, v2, :cond_18
+    if-lt v1, v2, :cond_1
 
     const/16 v2, 0x1f
 
-    if-gt v1, v2, :cond_18
+    if-gt v1, v2, :cond_1
 
     .line 364
     add-int/lit8 v2, p1, 0x1
 
     aget p2, v0, v2
 
-    goto :goto_a
+    goto :goto_0
 
     .line 367
-    :cond_18
+    :cond_1
     new-instance v2, Ljava/lang/UnsupportedOperationException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1228,7 +1228,7 @@
 .end method
 
 .method public getLayoutDimension(II)I
-    .registers 7
+    .locals 4
     .parameter "index"
     .parameter "defValue"
 
@@ -1249,11 +1249,11 @@
     .local v1, type:I
     const/16 v2, 0x10
 
-    if-lt v1, v2, :cond_15
+    if-lt v1, v2, :cond_1
 
     const/16 v2, 0x1f
 
-    if-gt v1, v2, :cond_15
+    if-gt v1, v2, :cond_1
 
     .line 514
     add-int/lit8 v2, p1, 0x1
@@ -1262,16 +1262,16 @@
 
     .line 520
     .end local p2
-    :cond_14
-    :goto_14
+    :cond_0
+    :goto_0
     return p2
 
     .line 515
     .restart local p2
-    :cond_15
+    :cond_1
     const/4 v2, 0x5
 
-    if-ne v1, v2, :cond_14
+    if-ne v1, v2, :cond_0
 
     .line 516
     add-int/lit8 v2, p1, 0x1
@@ -1286,11 +1286,11 @@
 
     move-result p2
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public getLayoutDimension(ILjava/lang/String;)I
-    .registers 8
+    .locals 5
     .parameter "index"
     .parameter "name"
 
@@ -1311,11 +1311,11 @@
     .local v1, type:I
     const/16 v2, 0x10
 
-    if-lt v1, v2, :cond_15
+    if-lt v1, v2, :cond_0
 
     const/16 v2, 0x1f
 
-    if-gt v1, v2, :cond_15
+    if-gt v1, v2, :cond_0
 
     .line 485
     add-int/lit8 v2, p1, 0x1
@@ -1323,14 +1323,14 @@
     aget v2, v0, v2
 
     .line 487
-    :goto_14
+    :goto_0
     return v2
 
     .line 486
-    :cond_15
+    :cond_0
     const/4 v2, 0x5
 
-    if-ne v1, v2, :cond_25
+    if-ne v1, v2, :cond_1
 
     .line 487
     add-int/lit8 v2, p1, 0x1
@@ -1345,10 +1345,10 @@
 
     move-result v2
 
-    goto :goto_14
+    goto :goto_0
 
     .line 491
-    :cond_25
+    :cond_1
     new-instance v2, Ljava/lang/RuntimeException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1389,7 +1389,7 @@
 .end method
 
 .method public getNonConfigurationString(II)Ljava/lang/String;
-    .registers 11
+    .locals 8
     .parameter "index"
     .parameter "allowedChangingConfigs"
 
@@ -1418,21 +1418,21 @@
 
     and-int/2addr v5, v6
 
-    if-eqz v5, :cond_13
+    if-eqz v5, :cond_1
 
     .line 199
-    :cond_12
-    :goto_12
+    :cond_0
+    :goto_0
     return-object v4
 
     .line 185
-    :cond_13
-    if-eqz v2, :cond_12
+    :cond_1
+    if-eqz v2, :cond_0
 
     .line 187
     const/4 v5, 0x3
 
-    if-ne v2, v5, :cond_21
+    if-ne v2, v5, :cond_2
 
     .line 188
     invoke-direct {p0, p1}, Landroid/content/res/TypedArray;->loadStringValueAt(I)Ljava/lang/CharSequence;
@@ -1443,10 +1443,10 @@
 
     move-result-object v4
 
-    goto :goto_12
+    goto :goto_0
 
     .line 191
-    :cond_21
+    :cond_2
     iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 192
@@ -1455,7 +1455,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4c
+    if-eqz v5, :cond_3
 
     .line 193
     const-string v5, "Resources"
@@ -1487,17 +1487,17 @@
 
     .line 195
     .local v0, cs:Ljava/lang/CharSequence;
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_12
+    goto :goto_0
 
     .line 197
     .end local v0           #cs:Ljava/lang/CharSequence;
-    :cond_4c
+    :cond_3
     const-string v5, "Resources"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1524,11 +1524,11 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public getNonResourceString(I)Ljava/lang/String;
-    .registers 7
+    .locals 5
     .parameter "index"
 
     .prologue
@@ -1548,7 +1548,7 @@
     .local v2, type:I
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_20
+    if-ne v2, v3, :cond_0
 
     .line 157
     add-int/lit8 v3, p1, 0x2
@@ -1557,7 +1557,7 @@
 
     .line 158
     .local v0, cookie:I
-    if-gez v0, :cond_20
+    if-gez v0, :cond_0
 
     .line 159
     iget-object v3, p0, Landroid/content/res/TypedArray;->mXml:Landroid/content/res/XmlBlock$Parser;
@@ -1576,23 +1576,23 @@
 
     .line 163
     .end local v0           #cookie:I
-    :goto_1f
+    :goto_0
     return-object v3
 
-    :cond_20
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_1f
+    goto :goto_0
 .end method
 
 .method public getPositionDescription()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 683
     iget-object v0, p0, Landroid/content/res/TypedArray;->mXml:Landroid/content/res/XmlBlock$Parser;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/content/res/TypedArray;->mXml:Landroid/content/res/XmlBlock$Parser;
 
@@ -1600,17 +1600,17 @@
 
     move-result-object v0
 
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     const-string v0, "<internal>"
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getResourceId(II)I
-    .registers 6
+    .locals 3
     .parameter "index"
     .parameter "defValue"
 
@@ -1627,7 +1627,7 @@
 
     aget v2, v0, v2
 
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_0
 
     .line 571
     add-int/lit8 v2, p1, 0x3
@@ -1636,21 +1636,21 @@
 
     .line 572
     .local v1, resid:I
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_0
 
     .line 576
     .end local v1           #resid:I
-    :goto_10
+    :goto_0
     return v1
 
-    :cond_11
+    :cond_0
     move v1, p2
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public getResources()Landroid/content/res/Resources;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 78
@@ -1660,7 +1660,7 @@
 .end method
 
 .method public getString(I)Ljava/lang/String;
-    .registers 10
+    .locals 8
     .parameter "index"
 
     .prologue
@@ -1680,18 +1680,18 @@
 
     .line 121
     .local v2, type:I
-    if-nez v2, :cond_c
+    if-nez v2, :cond_1
 
     .line 135
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return-object v4
 
     .line 123
-    :cond_c
+    :cond_1
     const/4 v5, 0x3
 
-    if-ne v2, v5, :cond_18
+    if-ne v2, v5, :cond_2
 
     .line 124
     invoke-direct {p0, p1}, Landroid/content/res/TypedArray;->loadStringValueAt(I)Ljava/lang/CharSequence;
@@ -1702,10 +1702,10 @@
 
     move-result-object v4
 
-    goto :goto_b
+    goto :goto_0
 
     .line 127
-    :cond_18
+    :cond_2
     iget-object v3, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 128
@@ -1714,7 +1714,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_43
+    if-eqz v5, :cond_3
 
     .line 129
     const-string v5, "Resources"
@@ -1746,17 +1746,17 @@
 
     .line 131
     .local v0, cs:Ljava/lang/CharSequence;
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_b
+    goto :goto_0
 
     .line 133
     .end local v0           #cs:Ljava/lang/CharSequence;
-    :cond_43
+    :cond_3
     const-string v5, "Resources"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1783,11 +1783,11 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public getText(I)Ljava/lang/CharSequence;
-    .registers 9
+    .locals 7
     .parameter "index"
 
     .prologue
@@ -1807,27 +1807,27 @@
 
     .line 93
     .local v1, type:I
-    if-nez v1, :cond_c
+    if-nez v1, :cond_0
 
     .line 106
-    :goto_b
+    :goto_0
     return-object v3
 
     .line 95
-    :cond_c
+    :cond_0
     const/4 v4, 0x3
 
-    if-ne v1, v4, :cond_14
+    if-ne v1, v4, :cond_1
 
     .line 96
     invoke-direct {p0, p1}, Landroid/content/res/TypedArray;->loadStringValueAt(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    goto :goto_b
+    goto :goto_0
 
     .line 99
-    :cond_14
+    :cond_1
     iget-object v2, p0, Landroid/content/res/TypedArray;->mValue:Landroid/util/TypedValue;
 
     .line 100
@@ -1836,7 +1836,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_39
+    if-eqz v4, :cond_2
 
     .line 101
     const-string v3, "Resources"
@@ -1866,10 +1866,10 @@
 
     move-result-object v3
 
-    goto :goto_b
+    goto :goto_0
 
     .line 104
-    :cond_39
+    :cond_2
     const-string v4, "Resources"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1896,11 +1896,11 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public getTextArray(I)[Ljava/lang/CharSequence;
-    .registers 5
+    .locals 3
     .parameter "index"
 
     .prologue
@@ -1915,7 +1915,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 628
     iget-object v1, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
@@ -1927,17 +1927,17 @@
     move-result-object v1
 
     .line 630
-    :goto_12
+    :goto_0
     return-object v1
 
-    :cond_13
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public getValue(ILandroid/util/TypedValue;)Z
-    .registers 4
+    .locals 1
     .parameter "index"
     .parameter "outValue"
 
@@ -1953,7 +1953,7 @@
 .end method
 
 .method public hasValue(I)Z
-    .registers 5
+    .locals 3
     .parameter "index"
 
     .prologue
@@ -1971,21 +1971,21 @@
 
     .line 657
     .local v1, type:I
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_b
+    :goto_0
     return v2
 
-    :cond_c
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public length()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 51
@@ -1995,7 +1995,7 @@
 .end method
 
 .method public peekValue(I)Landroid/util/TypedValue;
-    .registers 4
+    .locals 2
     .parameter "index"
 
     .prologue
@@ -2010,22 +2010,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
     .line 676
     .end local v0           #value:Landroid/util/TypedValue;
-    :goto_a
+    :goto_0
     return-object v0
 
     .restart local v0       #value:Landroid/util/TypedValue;
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public recycle()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 690
@@ -2036,14 +2036,14 @@
     monitor-enter v2
 
     .line 691
-    :try_start_5
+    :try_start_0
     iget-object v1, p0, Landroid/content/res/TypedArray;->mResources:Landroid/content/res/Resources;
 
     iget-object v0, v1, Landroid/content/res/Resources;->mCachedStyledAttributes:Landroid/content/res/TypedArray;
 
     .line 692
     .local v0, cached:Landroid/content/res/TypedArray;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     iget-object v1, v0, Landroid/content/res/TypedArray;->mData:[I
 
@@ -2053,10 +2053,10 @@
 
     array-length v3, v3
 
-    if-ge v1, v3, :cond_1a
+    if-ge v1, v3, :cond_1
 
     .line 693
-    :cond_13
+    :cond_0
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/content/res/TypedArray;->mXml:Landroid/content/res/XmlBlock$Parser;
@@ -2067,7 +2067,7 @@
     iput-object p0, v1, Landroid/content/res/Resources;->mCachedStyledAttributes:Landroid/content/res/TypedArray;
 
     .line 696
-    :cond_1a
+    :cond_1
     monitor-exit v2
 
     .line 697
@@ -2075,18 +2075,18 @@
 
     .line 696
     .end local v0           #cached:Landroid/content/res/TypedArray;
-    :catchall_1c
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_1e
-    .catchall {:try_start_5 .. :try_end_1e} :catchall_1c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 738

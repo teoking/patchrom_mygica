@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 88
@@ -60,7 +60,7 @@
 .end method
 
 .method public onMeteredIfacesChanged([Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "meteredIfaces"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -76,7 +76,7 @@
 
     .line 107
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.net.INetworkPolicyListener"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -94,8 +94,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_14
-    .catchall {:try_start_4 .. :try_end_14} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 112
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -104,7 +104,7 @@
     return-void
 
     .line 112
-    :catchall_18
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -113,7 +113,7 @@
 .end method
 
 .method public onRestrictBackgroundChanged(Z)V
-    .registers 7
+    .locals 5
     .parameter "restrictBackground"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -131,15 +131,15 @@
 
     .line 119
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "android.net.INetworkPolicyListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 120
-    if-eqz p1, :cond_1b
+    if-eqz p1, :cond_0
 
-    :goto_c
+    :goto_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 121
@@ -152,8 +152,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_17
-    .catchall {:try_start_5 .. :try_end_17} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 124
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -162,13 +162,13 @@
     return-void
 
     .line 120
-    :cond_1b
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_c
+    goto :goto_0
 
     .line 124
-    :catchall_1d
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -177,7 +177,7 @@
 .end method
 
 .method public onUidRulesChanged(II)V
-    .registers 8
+    .locals 5
     .parameter "uid"
     .parameter "uidRules"
     .annotation system Ldalvik/annotation/Throws;
@@ -194,7 +194,7 @@
 
     .line 94
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.net.INetworkPolicyListener"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -215,8 +215,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_17
-    .catchall {:try_start_4 .. :try_end_17} :catchall_1b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 100
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -225,7 +225,7 @@
     return-void
 
     .line 100
-    :catchall_1b
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V

@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 38
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 37
@@ -60,7 +60,7 @@
 .end method
 
 .method static forceBinderGc()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 93
@@ -73,7 +73,7 @@
 .end method
 
 .method public static forceGc(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "reason"
 
     .prologue
@@ -97,7 +97,7 @@
 .end method
 
 .method public static getLastGcTime()J
-    .registers 2
+    .locals 2
 
     .prologue
     .line 68

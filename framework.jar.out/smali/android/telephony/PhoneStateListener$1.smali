@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/telephony/PhoneStateListener;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onCallForwardingIndicatorChanged(Z)V
-    .registers 7
+    .locals 5
     .parameter "cfi"
 
     .prologue
@@ -48,11 +48,11 @@
 
     const/16 v3, 0x8
 
-    if-eqz p1, :cond_13
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_a
+    :goto_0
     const/4 v4, 0x0
 
     invoke-static {v2, v3, v0, v1, v4}, Landroid/os/Message;->obtain(Landroid/os/Handler;IIILjava/lang/Object;)Landroid/os/Message;
@@ -64,15 +64,15 @@
     .line 322
     return-void
 
-    :cond_13
+    :cond_0
     move v0, v1
 
     .line 320
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public onCallStateChanged(ILjava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "state"
     .parameter "incomingNumber"
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public onCellInfoChanged(Landroid/telephony/CellInfo;)V
-    .registers 5
+    .locals 3
     .parameter "cellInfo"
 
     .prologue
@@ -121,7 +121,7 @@
 .end method
 
 .method public onCellLocationChanged(Landroid/os/Bundle;)V
-    .registers 6
+    .locals 4
     .parameter "bundle"
 
     .prologue
@@ -151,7 +151,7 @@
 .end method
 
 .method public onDataActivity(I)V
-    .registers 6
+    .locals 4
     .parameter "direction"
 
     .prologue
@@ -177,7 +177,7 @@
 .end method
 
 .method public onDataConnectionStateChanged(II)V
-    .registers 5
+    .locals 2
     .parameter "state"
     .parameter "networkType"
 
@@ -200,7 +200,7 @@
 .end method
 
 .method public onMessageWaitingIndicatorChanged(Z)V
-    .registers 7
+    .locals 5
     .parameter "mwi"
 
     .prologue
@@ -213,11 +213,11 @@
 
     const/4 v3, 0x4
 
-    if-eqz p1, :cond_12
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     const/4 v4, 0x0
 
     invoke-static {v2, v3, v0, v1, v4}, Landroid/os/Message;->obtain(Landroid/os/Handler;IIILjava/lang/Object;)Landroid/os/Message;
@@ -229,15 +229,15 @@
     .line 317
     return-void
 
-    :cond_12
+    :cond_0
     move v0, v1
 
     .line 315
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public onOtaspChanged(I)V
-    .registers 5
+    .locals 3
     .parameter "otaspMode"
 
     .prologue
@@ -261,7 +261,7 @@
 .end method
 
 .method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
-    .registers 5
+    .locals 3
     .parameter "serviceState"
 
     .prologue
@@ -285,7 +285,7 @@
 .end method
 
 .method public onSignalStrengthChanged(I)V
-    .registers 6
+    .locals 4
     .parameter "asu"
 
     .prologue
@@ -311,7 +311,7 @@
 .end method
 
 .method public onSignalStrengthsChanged(Landroid/telephony/SignalStrength;)V
-    .registers 5
+    .locals 3
     .parameter "signalStrength"
 
     .prologue

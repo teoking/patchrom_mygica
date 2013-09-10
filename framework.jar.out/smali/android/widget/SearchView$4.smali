@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/SearchView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onFocusChange(Landroid/view/View;Z)V
-    .registers 5
+    .locals 2
     .parameter "v"
     .parameter "hasFocus"
 
@@ -46,15 +46,17 @@
     .line 278
     iget-object v0, p0, Landroid/widget/SearchView$4;->this$0:Landroid/widget/SearchView;
 
+    #getter for: Landroid/widget/SearchView;->mOnQueryTextFocusChangeListener:Landroid/view/View$OnFocusChangeListener;
     invoke-static {v0}, Landroid/widget/SearchView;->access$200(Landroid/widget/SearchView;)Landroid/view/View$OnFocusChangeListener;
 
     move-result-object v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 279
     iget-object v0, p0, Landroid/widget/SearchView$4;->this$0:Landroid/widget/SearchView;
 
+    #getter for: Landroid/widget/SearchView;->mOnQueryTextFocusChangeListener:Landroid/view/View$OnFocusChangeListener;
     invoke-static {v0}, Landroid/widget/SearchView;->access$200(Landroid/widget/SearchView;)Landroid/view/View$OnFocusChangeListener;
 
     move-result-object v0
@@ -64,6 +66,6 @@
     invoke-interface {v0, v1, p2}, Landroid/view/View$OnFocusChangeListener;->onFocusChange(Landroid/view/View;Z)V
 
     .line 281
-    :cond_13
+    :cond_0
     return-void
 .end method

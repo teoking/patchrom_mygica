@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/QuickContactBadge;Landroid/content/ContentResolver;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "cr"
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method protected onQueryComplete(ILjava/lang/Object;Landroid/database/Cursor;)V
-    .registers 15
+    .locals 11
     .parameter "token"
     .parameter "cookie"
     .parameter "cursor"
@@ -57,32 +57,34 @@
 
     .line 267
     .local v6, trigger:Z
-    packed-switch p1, :pswitch_data_88
+    packed-switch p1, :pswitch_data_0
 
     .line 297
     .end local p2
-    :cond_6
-    :goto_6
-    if-eqz p3, :cond_b
+    :cond_0
+    :goto_0
+    if-eqz p3, :cond_1
 
     .line 298
     invoke-interface {p3}, Landroid/database/Cursor;->close()V
 
     .line 302
-    :cond_b
+    :cond_1
     iget-object v7, p0, Landroid/widget/QuickContactBadge$QueryHandler;->this$0:Landroid/widget/QuickContactBadge;
 
+    #setter for: Landroid/widget/QuickContactBadge;->mContactUri:Landroid/net/Uri;
     invoke-static {v7, v5}, Landroid/widget/QuickContactBadge;->access$002(Landroid/widget/QuickContactBadge;Landroid/net/Uri;)Landroid/net/Uri;
 
     .line 303
     iget-object v7, p0, Landroid/widget/QuickContactBadge$QueryHandler;->this$0:Landroid/widget/QuickContactBadge;
 
+    #calls: Landroid/widget/QuickContactBadge;->onContactUriChanged()V
     invoke-static {v7}, Landroid/widget/QuickContactBadge;->access$100(Landroid/widget/QuickContactBadge;)V
 
     .line 305
-    if-eqz v6, :cond_75
+    if-eqz v6, :cond_4
 
-    if-eqz v5, :cond_75
+    if-eqz v5, :cond_4
 
     .line 307
     iget-object v7, p0, Landroid/widget/QuickContactBadge$QueryHandler;->this$0:Landroid/widget/QuickContactBadge;
@@ -102,17 +104,17 @@
     invoke-static {v7, v8, v5, v9, v10}, Landroid/provider/ContactsContract$QuickContact;->showQuickContact(Landroid/content/Context;Landroid/view/View;Landroid/net/Uri;I[Ljava/lang/String;)V
 
     .line 314
-    :cond_29
-    :goto_29
+    :cond_2
+    :goto_1
     return-void
 
     .line 269
     .restart local p2
-    :pswitch_2a
+    :pswitch_0
     const/4 v6, 0x1
 
     .line 270
-    :try_start_2b
+    :try_start_0
     const-string/jumbo v7, "tel"
 
     check-cast p2, Ljava/lang/String;
@@ -125,14 +127,14 @@
     move-result-object v2
 
     .line 274
-    :pswitch_35
-    if-eqz p3, :cond_6
+    :pswitch_1
+    if-eqz p3, :cond_0
 
     invoke-interface {p3}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_0
 
     .line 275
     const/4 v7, 0x0
@@ -156,13 +158,13 @@
     move-result-object v5
 
     .line 278
-    goto :goto_6
+    goto :goto_0
 
     .line 283
     .end local v0           #contactId:J
     .end local v4           #lookupKey:Ljava/lang/String;
     .restart local p2
-    :pswitch_4c
+    :pswitch_2
     const/4 v6, 0x1
 
     .line 284
@@ -178,14 +180,14 @@
     move-result-object v2
 
     .line 288
-    :pswitch_57
-    if-eqz p3, :cond_6
+    :pswitch_3
+    if-eqz p3, :cond_0
 
     invoke-interface {p3}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v7
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_0
 
     .line 289
     const/4 v7, 0x0
@@ -205,31 +207,31 @@
     .line 291
     .restart local v4       #lookupKey:Ljava/lang/String;
     invoke-static {v0, v1, v4}, Landroid/provider/ContactsContract$Contacts;->getLookupUri(JLjava/lang/String;)Landroid/net/Uri;
-    :try_end_6c
-    .catchall {:try_start_2b .. :try_end_6c} :catchall_6e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v5
 
-    goto :goto_6
+    goto :goto_0
 
     .line 297
     .end local v0           #contactId:J
     .end local v4           #lookupKey:Ljava/lang/String;
-    :catchall_6e
+    :catchall_0
     move-exception v7
 
-    if-eqz p3, :cond_74
+    if-eqz p3, :cond_3
 
     .line 298
     invoke-interface {p3}, Landroid/database/Cursor;->close()V
 
     .line 297
-    :cond_74
+    :cond_3
     throw v7
 
     .line 309
-    :cond_75
-    if-eqz v2, :cond_29
+    :cond_4
+    if-eqz v2, :cond_2
 
     .line 311
     new-instance v3, Landroid/content/Intent;
@@ -248,14 +250,14 @@
 
     invoke-virtual {v7, v3}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    goto :goto_29
+    goto :goto_1
 
     .line 267
-    :pswitch_data_88
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_57
-        :pswitch_35
-        :pswitch_4c
-        :pswitch_2a
+        :pswitch_3
+        :pswitch_1
+        :pswitch_2
+        :pswitch_0
     .end packed-switch
 .end method

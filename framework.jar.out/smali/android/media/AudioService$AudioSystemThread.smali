@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/AudioService;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 2807
@@ -51,7 +51,7 @@
     monitor-enter v1
 
     .line 2810
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Landroid/media/AudioService$AudioSystemThread;->this$0:Landroid/media/AudioService;
 
     new-instance v2, Landroid/media/AudioService$AudioHandler;
@@ -62,6 +62,7 @@
 
     invoke-direct {v2, v3, v4}, Landroid/media/AudioService$AudioHandler;-><init>(Landroid/media/AudioService;Landroid/media/AudioService$1;)V
 
+    #setter for: Landroid/media/AudioService;->mAudioHandler:Landroid/media/AudioService$AudioHandler;
     invoke-static {v0, v2}, Landroid/media/AudioService;->access$102(Landroid/media/AudioService;Landroid/media/AudioService$AudioHandler;)Landroid/media/AudioService$AudioHandler;
 
     .line 2813
@@ -71,8 +72,8 @@
 
     .line 2814
     monitor-exit v1
-    :try_end_19
-    .catchall {:try_start_6 .. :try_end_19} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 2817
     invoke-static {}, Landroid/os/Looper;->loop()V
@@ -81,13 +82,13 @@
     return-void
 
     .line 2814
-    :catchall_1d
+    :catchall_0
     move-exception v0
 
-    :try_start_1e
+    :try_start_1
     monitor-exit v1
-    :try_end_1f
-    .catchall {:try_start_1e .. :try_end_1f} :catchall_1d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method

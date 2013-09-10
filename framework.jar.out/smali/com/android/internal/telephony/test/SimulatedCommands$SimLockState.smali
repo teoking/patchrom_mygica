@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 6
+    .locals 6
 
     .prologue
     const/4 v5, 0x3
@@ -111,7 +111,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -128,7 +128,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/telephony/test/SimulatedCommands$SimLockState;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -145,7 +145,7 @@
 .end method
 
 .method public static values()[Lcom/android/internal/telephony/test/SimulatedCommands$SimLockState;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 41

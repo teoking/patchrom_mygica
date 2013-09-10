@@ -35,7 +35,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/webkit/CallbackProxy;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -48,7 +48,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/webkit/CallbackProxy;Landroid/webkit/CallbackProxy$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public getResult()Landroid/net/Uri;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1576
@@ -72,7 +72,7 @@
 .end method
 
 .method public onReceiveValue(Landroid/net/Uri;)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -85,7 +85,7 @@
     monitor-enter v1
 
     .line 1572
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Landroid/webkit/CallbackProxy$UploadFile;->this$0:Landroid/webkit/CallbackProxy;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notify()V
@@ -97,18 +97,18 @@
     return-void
 
     .line 1573
-    :catchall_c
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_e
-    .catchall {:try_start_5 .. :try_end_e} :catchall_c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public bridge synthetic onReceiveValue(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue

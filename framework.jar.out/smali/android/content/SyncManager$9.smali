@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/SyncManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,13 +35,14 @@
 
 # virtual methods
 .method public onStatusChanged(I)V
-    .registers 3
+    .locals 1
     .parameter "which"
 
     .prologue
     .line 432
     iget-object v0, p0, Landroid/content/SyncManager$9;->this$0:Landroid/content/SyncManager;
 
+    #calls: Landroid/content/SyncManager;->sendCheckAlarmsMessage()V
     invoke-static {v0}, Landroid/content/SyncManager;->access$100(Landroid/content/SyncManager;)V
 
     .line 433

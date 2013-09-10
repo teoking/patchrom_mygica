@@ -111,7 +111,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 595
@@ -157,7 +157,7 @@
 .end method
 
 .method constructor <init>(IZ)V
-    .registers 12
+    .locals 9
     .parameter "glVersion"
     .parameter "translucent"
 
@@ -228,7 +228,7 @@
     .line 651
     iget-boolean v3, p0, Landroid/view/HardwareRenderer$GlRenderer;->mVsyncDisabled:Z
 
-    if-eqz v3, :cond_3f
+    if-eqz v3, :cond_0
 
     .line 652
     const-string v3, "HardwareRenderer"
@@ -238,7 +238,7 @@
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 655
-    :cond_3f
+    :cond_0
     const-string v3, "debug.hwui.profile"
 
     const-string v4, "false"
@@ -259,7 +259,7 @@
     .line 657
     iget-boolean v3, p0, Landroid/view/HardwareRenderer$GlRenderer;->mProfileEnabled:Z
 
-    if-eqz v3, :cond_5b
+    if-eqz v3, :cond_1
 
     .line 658
     const-string v3, "HardwareRenderer"
@@ -269,10 +269,10 @@
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 661
-    :cond_5b
+    :cond_1
     iget-boolean v3, p0, Landroid/view/HardwareRenderer$GlRenderer;->mProfileEnabled:Z
 
-    if-eqz v3, :cond_b8
+    if-eqz v3, :cond_4
 
     .line 662
     const-string v3, "debug.hwui.profile.maxframes"
@@ -308,12 +308,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_7a
+    :goto_0
     iget-object v3, p0, Landroid/view/HardwareRenderer$GlRenderer;->mProfileData:[F
 
     array-length v3, v3
 
-    if-ge v0, v3, :cond_94
+    if-ge v0, v3, :cond_2
 
     .line 667
     iget-object v3, p0, Landroid/view/HardwareRenderer$GlRenderer;->mProfileData:[F
@@ -337,10 +337,10 @@
     .line 666
     add-int/lit8 v0, v0, 0x3
 
-    goto :goto_7a
+    goto :goto_0
 
     .line 670
-    :cond_94
+    :cond_2
     new-instance v3, Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-direct {v3}, Ljava/util/concurrent/locks/ReentrantLock;-><init>()V
@@ -350,7 +350,7 @@
     .line 676
     .end local v0           #i:I
     .end local v1           #maxProfileFrames:I
-    :goto_9b
+    :goto_1
     const-string v3, "debug.hwui.show_dirty_regions"
 
     const-string v4, "false"
@@ -371,7 +371,7 @@
     .line 678
     iget-boolean v3, p0, Landroid/view/HardwareRenderer$GlRenderer;->mDebugDirtyRegions:Z
 
-    if-eqz v3, :cond_b7
+    if-eqz v3, :cond_3
 
     .line 679
     const-string v3, "HardwareRenderer"
@@ -381,21 +381,21 @@
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 681
-    :cond_b7
+    :cond_3
     return-void
 
     .line 672
-    :cond_b8
+    :cond_4
     iput-object v5, p0, Landroid/view/HardwareRenderer$GlRenderer;->mProfileData:[F
 
     .line 673
     iput-object v5, p0, Landroid/view/HardwareRenderer$GlRenderer;->mProfileLock:Ljava/util/concurrent/locks/ReentrantLock;
 
-    goto :goto_9b
+    goto :goto_1
 .end method
 
 .method static synthetic access$000(Landroid/view/HardwareRenderer$GlRenderer;)Landroid/graphics/Rect;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -406,7 +406,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/view/HardwareRenderer$GlRenderer;Landroid/view/View$AttachInfo;I)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -419,7 +419,7 @@
 .end method
 
 .method private chooseEglConfig()Ljavax/microedition/khronos/egl/EGLConfig;
-    .registers 20
+    .locals 19
 
     .prologue
     .line 833
@@ -463,7 +463,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4c
+    if-eqz v2, :cond_0
 
     .line 840
     sget-object v2, Landroid/view/HardwareRenderer$GlRenderer;->sEgl:Ljavax/microedition/khronos/egl/EGL10;
@@ -507,12 +507,12 @@
     const/16 v17, 0x0
 
     .local v17, i$:I
-    :goto_3e
+    :goto_0
     move/from16 v0, v17
 
     move/from16 v1, v18
 
-    if-ge v0, v1, :cond_4c
+    if-ge v0, v1, :cond_0
 
     aget-object v15, v14, v17
 
@@ -523,7 +523,7 @@
     .line 846
     add-int/lit8 v17, v17, 0x1
 
-    goto :goto_3e
+    goto :goto_0
 
     .line 851
     .end local v5           #debugConfigs:[Ljavax/microedition/khronos/egl/EGLConfig;
@@ -531,7 +531,7 @@
     .end local v15           #config:Ljavax/microedition/khronos/egl/EGLConfig;
     .end local v17           #i$:I
     .end local v18           #len$:I
-    :cond_4c
+    :cond_0
     sget-object v8, Landroid/view/HardwareRenderer$GlRenderer;->sEgl:Ljavax/microedition/khronos/egl/EGL10;
 
     sget-object v9, Landroid/view/HardwareRenderer$GlRenderer;->sEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
@@ -546,7 +546,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_7c
+    if-nez v2, :cond_1
 
     .line 852
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -584,12 +584,12 @@
     throw v2
 
     .line 854
-    :cond_7c
+    :cond_1
     const/4 v2, 0x0
 
     aget v2, v7, v2
 
-    if-lez v2, :cond_95
+    if-lez v2, :cond_3
 
     .line 855
     const-string v2, "choice"
@@ -600,7 +600,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_91
+    if-eqz v2, :cond_2
 
     .line 856
     const/4 v2, 0x0
@@ -610,23 +610,23 @@
     invoke-static {v2}, Landroid/view/HardwareRenderer$GlRenderer;->printConfig(Ljavax/microedition/khronos/egl/EGLConfig;)V
 
     .line 858
-    :cond_91
+    :cond_2
     const/4 v2, 0x0
 
     aget-object v2, v11, v2
 
     .line 861
-    :goto_94
+    :goto_1
     return-object v2
 
-    :cond_95
+    :cond_3
     const/4 v2, 0x0
 
-    goto :goto_94
+    goto :goto_1
 .end method
 
 .method private createSurface(Landroid/view/SurfaceHolder;)Z
-    .registers 7
+    .locals 5
     .parameter "holder"
 
     .prologue
@@ -648,16 +648,16 @@
     .line 1012
     iget-object v1, p0, Landroid/view/HardwareRenderer$GlRenderer;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/view/HardwareRenderer$GlRenderer;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
     sget-object v2, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_SURFACE:Ljavax/microedition/khronos/egl/EGLSurface;
 
-    if-ne v1, v2, :cond_47
+    if-ne v1, v2, :cond_2
 
     .line 1013
-    :cond_17
+    :cond_0
     sget-object v1, Landroid/view/HardwareRenderer$GlRenderer;->sEgl:Ljavax/microedition/khronos/egl/EGL10;
 
     invoke-interface {v1}, Ljavax/microedition/khronos/egl/EGL10;->eglGetError()I
@@ -668,7 +668,7 @@
     .local v0, error:I
     const/16 v1, 0x300b
 
-    if-ne v0, v1, :cond_2a
+    if-ne v0, v1, :cond_1
 
     .line 1015
     const-string v1, "HardwareRenderer"
@@ -682,12 +682,12 @@
 
     .line 1021
     .end local v0           #error:I
-    :goto_29
+    :goto_0
     return v1
 
     .line 1018
     .restart local v0       #error:I
-    :cond_2a
+    :cond_1
     new-instance v1, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -718,20 +718,20 @@
 
     .line 1021
     .end local v0           #error:I
-    :cond_47
+    :cond_2
     const/4 v1, 0x1
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method private enableDirtyRegions()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 934
     sget-boolean v0, Landroid/view/HardwareRenderer$GlRenderer;->sDirtyRegions:Z
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_1
 
     .line 935
     invoke-static {}, Landroid/view/HardwareRenderer$GlRenderer;->preserveBackBuffer()Z
@@ -740,7 +740,7 @@
 
     iput-boolean v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mDirtyRegionsEnabled:Z
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     .line 936
     const-string v0, "HardwareRenderer"
@@ -750,15 +750,15 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 947
-    :cond_13
-    :goto_13
+    :cond_0
+    :goto_0
     return-void
 
     .line 938
-    :cond_14
+    :cond_1
     sget-boolean v0, Landroid/view/HardwareRenderer$GlRenderer;->sDirtyRegionsRequested:Z
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 945
     invoke-static {}, Landroid/view/HardwareRenderer$GlRenderer;->isBackBufferPreserved()Z
@@ -767,11 +767,11 @@
 
     iput-boolean v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mDirtyRegionsEnabled:Z
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method private fallback(Z)V
-    .registers 4
+    .locals 2
     .parameter "fallback"
 
     .prologue
@@ -781,7 +781,7 @@
     invoke-virtual {p0, v0}, Landroid/view/HardwareRenderer$GlRenderer;->destroy(Z)V
 
     .line 736
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 738
     const/4 v0, 0x0
@@ -796,12 +796,12 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 742
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 .method private handleFunctorStatus(Landroid/view/View$AttachInfo;I)V
-    .registers 6
+    .locals 3
     .parameter "attachInfo"
     .parameter "status"
 
@@ -809,7 +809,7 @@
     .line 1235
     and-int/lit8 v0, p2, 0x1
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 1236
     iget-object v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mRedrawClip:Landroid/graphics/Rect;
@@ -818,7 +818,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_2
 
     .line 1237
     iget-object v0, p1, Landroid/view/View$AttachInfo;->mViewRootImpl:Landroid/view/ViewRootImpl;
@@ -826,11 +826,11 @@
     invoke-virtual {v0}, Landroid/view/ViewRootImpl;->invalidate()V
 
     .line 1244
-    :cond_11
-    :goto_11
+    :cond_0
+    :goto_0
     and-int/lit8 v0, p2, 0x2
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_1
 
     .line 1245
     const/4 v0, 0x1
@@ -838,11 +838,11 @@
     invoke-direct {p0, p1, v0}, Landroid/view/HardwareRenderer$GlRenderer;->scheduleFunctors(Landroid/view/View$AttachInfo;Z)V
 
     .line 1247
-    :cond_19
+    :cond_1
     return-void
 
     .line 1239
-    :cond_1a
+    :cond_2
     iget-object v0, p1, Landroid/view/View$AttachInfo;->mViewRootImpl:Landroid/view/ViewRootImpl;
 
     const/4 v1, 0x0
@@ -856,11 +856,11 @@
 
     invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method private static printConfig(Ljavax/microedition/khronos/egl/EGLConfig;)V
-    .registers 6
+    .locals 5
     .parameter "config"
 
     .prologue
@@ -1148,7 +1148,7 @@
 .end method
 
 .method private scheduleFunctors(Landroid/view/View$AttachInfo;Z)V
-    .registers 7
+    .locals 4
     .parameter "attachInfo"
     .parameter "delayed"
 
@@ -1167,35 +1167,35 @@
 
     move-result v0
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_0
 
     .line 1253
     iget-object v2, p1, Landroid/view/View$AttachInfo;->mHandler:Landroid/os/Handler;
 
     iget-object v3, p0, Landroid/view/HardwareRenderer$GlRenderer;->mFunctorsRunnable:Landroid/view/HardwareRenderer$GlRenderer$FunctorsRunnable;
 
-    if-eqz p2, :cond_1a
+    if-eqz p2, :cond_1
 
     const-wide/16 v0, 0x4
 
-    :goto_16
+    :goto_0
     invoke-virtual {v2, v3, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 1256
-    :cond_19
+    :cond_0
     return-void
 
     .line 1253
-    :cond_1a
+    :cond_1
     const-wide/16 v0, 0x0
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method attachFunctor(Landroid/view/View$AttachInfo;I)Z
-    .registers 5
+    .locals 2
     .parameter "attachInfo"
     .parameter "functor"
 
@@ -1205,7 +1205,7 @@
     .line 1267
     iget-object v1, p0, Landroid/view/HardwareRenderer$GlRenderer;->mCanvas:Landroid/view/HardwareCanvas;
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_0
 
     .line 1268
     iget-object v1, p0, Landroid/view/HardwareRenderer$GlRenderer;->mCanvas:Landroid/view/HardwareCanvas;
@@ -1219,36 +1219,36 @@
     const/4 v0, 0x1
 
     .line 1272
-    :cond_e
+    :cond_0
     return v0
 .end method
 
 .method canDraw()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1054
     iget-object v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mGl:Ljavax/microedition/khronos/opengles/GL;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mCanvas:Landroid/view/HardwareCanvas;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method checkCurrent()I
-    .registers 8
+    .locals 7
 
     .prologue
     const/4 v0, 0x1
@@ -1262,7 +1262,7 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_39
+    if-eq v2, v3, :cond_0
 
     .line 1284
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -1312,7 +1312,7 @@
     throw v0
 
     .line 1289
-    :cond_39
+    :cond_0
     iget-object v2, p0, Landroid/view/HardwareRenderer$GlRenderer;->mEglContext:Ljavax/microedition/khronos/egl/EGLContext;
 
     sget-object v3, Landroid/view/HardwareRenderer$GlRenderer;->sEgl:Ljavax/microedition/khronos/egl/EGL10;
@@ -1325,7 +1325,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_57
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Landroid/view/HardwareRenderer$GlRenderer;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
@@ -1341,10 +1341,10 @@
 
     move-result v2
 
-    if-nez v2, :cond_8d
+    if-nez v2, :cond_2
 
     .line 1291
-    :cond_57
+    :cond_1
     sget-object v2, Landroid/view/HardwareRenderer$GlRenderer;->sEgl:Ljavax/microedition/khronos/egl/EGL10;
 
     sget-object v3, Landroid/view/HardwareRenderer$GlRenderer;->sEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
@@ -1359,7 +1359,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_8e
+    if-nez v2, :cond_3
 
     .line 1292
     const-string v2, "HardwareRenderer"
@@ -1400,15 +1400,15 @@
     move v0, v1
 
     .line 1304
-    :cond_8d
-    :goto_8d
+    :cond_2
+    :goto_0
     return v0
 
     .line 1297
-    :cond_8e
+    :cond_3
     iget-boolean v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mUpdateDirtyRegions:Z
 
-    if-eqz v0, :cond_97
+    if-eqz v0, :cond_4
 
     .line 1298
     invoke-direct {p0}, Landroid/view/HardwareRenderer$GlRenderer;->enableDirtyRegions()V
@@ -1417,14 +1417,14 @@
     iput-boolean v1, p0, Landroid/view/HardwareRenderer$GlRenderer;->mUpdateDirtyRegions:Z
 
     .line 1301
-    :cond_97
+    :cond_4
     const/4 v0, 0x2
 
-    goto :goto_8d
+    goto :goto_0
 .end method
 
 .method checkEglErrors()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 723
@@ -1432,7 +1432,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_34
+    if-eqz v1, :cond_0
 
     .line 724
     sget-object v1, Landroid/view/HardwareRenderer$GlRenderer;->sEgl:Ljavax/microedition/khronos/egl/EGL10;
@@ -1445,7 +1445,7 @@
     .local v0, error:I
     const/16 v1, 0x3000
 
-    if-eq v0, v1, :cond_34
+    if-eq v0, v1, :cond_0
 
     .line 728
     const-string v1, "HardwareRenderer"
@@ -1477,31 +1477,31 @@
     .line 729
     const/16 v1, 0x300e
 
-    if-eq v0, v1, :cond_35
+    if-eq v0, v1, :cond_1
 
     const/4 v1, 0x1
 
-    :goto_31
+    :goto_0
     invoke-direct {p0, v1}, Landroid/view/HardwareRenderer$GlRenderer;->fallback(Z)V
 
     .line 732
     .end local v0           #error:I
-    :cond_34
+    :cond_0
     return-void
 
     .line 729
     .restart local v0       #error:I
-    :cond_35
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_31
+    goto :goto_0
 .end method
 
 .method abstract createCanvas()Landroid/view/HardwareCanvas;
 .end method
 
 .method createContext(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;)Ljavax/microedition/khronos/egl/EGLContext;
-    .registers 7
+    .locals 3
     .parameter "egl"
     .parameter "eglDisplay"
     .parameter "eglConfig"
@@ -1536,10 +1536,10 @@
 
     iget v2, p0, Landroid/view/HardwareRenderer$GlRenderer;->mGlVersion:I
 
-    if-eqz v2, :cond_1d
+    if-eqz v2, :cond_0
 
     .end local v0           #attribs:[I
-    :goto_18
+    :goto_0
     invoke-interface {p1, p2, p3, v1, v0}, Ljavax/microedition/khronos/egl/EGL10;->eglCreateContext(Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLConfig;Ljavax/microedition/khronos/egl/EGLContext;[I)Ljavax/microedition/khronos/egl/EGLContext;
 
     move-result-object v1
@@ -1547,14 +1547,14 @@
     return-object v1
 
     .restart local v0       #attribs:[I
-    :cond_1d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method createEglSurface(Landroid/view/SurfaceHolder;)Ljavax/microedition/khronos/opengles/GL;
-    .registers 7
+    .locals 5
     .parameter "holder"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1566,7 +1566,7 @@
     .line 893
     sget-object v0, Landroid/view/HardwareRenderer$GlRenderer;->sEgl:Ljavax/microedition/khronos/egl/EGL10;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 894
     new-instance v0, Ljava/lang/RuntimeException;
@@ -1578,10 +1578,10 @@
     throw v0
 
     .line 896
-    :cond_c
+    :cond_0
     sget-object v0, Landroid/view/HardwareRenderer$GlRenderer;->sEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_1
 
     .line 897
     new-instance v0, Ljava/lang/RuntimeException;
@@ -1593,10 +1593,10 @@
     throw v0
 
     .line 899
-    :cond_18
+    :cond_1
     sget-object v0, Landroid/view/HardwareRenderer$GlRenderer;->sEglConfig:Ljavax/microedition/khronos/egl/EGLConfig;
 
-    if-nez v0, :cond_24
+    if-nez v0, :cond_2
 
     .line 900
     new-instance v0, Ljava/lang/RuntimeException;
@@ -1608,14 +1608,14 @@
     throw v0
 
     .line 902
-    :cond_24
+    :cond_2
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/view/HardwareRenderer$GlRenderer;->mEglThread:Ljava/lang/Thread;
 
-    if-eq v0, v1, :cond_34
+    if-eq v0, v1, :cond_3
 
     .line 903
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -1627,7 +1627,7 @@
     throw v0
 
     .line 908
-    :cond_34
+    :cond_3
     invoke-virtual {p0}, Landroid/view/HardwareRenderer$GlRenderer;->destroySurface()V
 
     .line 911
@@ -1635,17 +1635,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_3f
+    if-nez v0, :cond_4
 
     .line 912
     const/4 v0, 0x0
 
     .line 928
-    :goto_3e
+    :goto_0
     return-object v0
 
     .line 919
-    :cond_3f
+    :cond_4
     sget-object v0, Landroid/view/HardwareRenderer$GlRenderer;->sEgl:Ljavax/microedition/khronos/egl/EGL10;
 
     sget-object v1, Landroid/view/HardwareRenderer$GlRenderer;->sEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
@@ -1660,7 +1660,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_72
+    if-nez v0, :cond_5
 
     .line 920
     new-instance v0, Landroid/view/Surface$OutOfResourcesException;
@@ -1698,7 +1698,7 @@
     throw v0
 
     .line 924
-    :cond_72
+    :cond_5
     invoke-virtual {p0}, Landroid/view/HardwareRenderer$GlRenderer;->initCaches()V
 
     .line 926
@@ -1711,14 +1711,14 @@
 
     move-result-object v0
 
-    goto :goto_3e
+    goto :goto_0
 .end method
 
 .method abstract createManagedContext(Ljavax/microedition/khronos/egl/EGLContext;)Landroid/opengl/ManagedEGLContext;
 .end method
 
 .method destroy(Z)V
-    .registers 5
+    .locals 3
     .parameter "full"
 
     .prologue
@@ -1727,37 +1727,37 @@
     const/4 v1, 0x0
 
     .line 960
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mCanvas:Landroid/view/HardwareCanvas;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 961
     iput-object v2, p0, Landroid/view/HardwareRenderer$GlRenderer;->mCanvas:Landroid/view/HardwareCanvas;
 
     .line 964
-    :cond_a
+    :cond_0
     invoke-virtual {p0}, Landroid/view/HardwareRenderer$GlRenderer;->isEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_1
 
     iget-boolean v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mDestroyed:Z
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_2
 
     .line 965
-    :cond_14
+    :cond_1
     invoke-virtual {p0, v1}, Landroid/view/HardwareRenderer$GlRenderer;->setEnabled(Z)V
 
     .line 974
-    :goto_17
+    :goto_0
     return-void
 
     .line 969
-    :cond_18
+    :cond_2
     invoke-virtual {p0}, Landroid/view/HardwareRenderer$GlRenderer;->destroySurface()V
 
     .line 970
@@ -1771,23 +1771,23 @@
     .line 973
     iput-object v2, p0, Landroid/view/HardwareRenderer$GlRenderer;->mGl:Ljavax/microedition/khronos/opengles/GL;
 
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method destroySurface()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 977
     iget-object v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
     sget-object v1, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_SURFACE:Ljavax/microedition/khronos/egl/EGLSurface;
 
-    if-eq v0, v1, :cond_23
+    if-eq v0, v1, :cond_0
 
     .line 978
     sget-object v0, Landroid/view/HardwareRenderer$GlRenderer;->sEgl:Ljavax/microedition/khronos/egl/EGL10;
@@ -1817,19 +1817,19 @@
     iput-object v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
     .line 982
-    :cond_23
+    :cond_0
     return-void
 .end method
 
 .method detachFunctor(I)V
-    .registers 3
+    .locals 1
     .parameter "functor"
 
     .prologue
     .line 1260
     iget-object v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mCanvas:Landroid/view/HardwareCanvas;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 1261
     iget-object v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mCanvas:Landroid/view/HardwareCanvas;
@@ -1837,12 +1837,12 @@
     invoke-virtual {v0, p1}, Landroid/view/HardwareCanvas;->detachFunctor(I)V
 
     .line 1263
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method draw(Landroid/view/View;Landroid/view/View$AttachInfo;Landroid/view/HardwareRenderer$HardwareDrawCallbacks;Landroid/graphics/Rect;)Z
-    .registers 28
+    .locals 23
     .parameter "view"
     .parameter "attachInfo"
     .parameter "callbacks"
@@ -1854,20 +1854,20 @@
 
     move-result v18
 
-    if-eqz v18, :cond_312
+    if-eqz v18, :cond_15
 
     .line 1086
     invoke-virtual/range {p0 .. p0}, Landroid/view/HardwareRenderer$GlRenderer;->hasDirtyRegions()Z
 
     move-result v18
 
-    if-nez v18, :cond_e
+    if-nez v18, :cond_0
 
     .line 1087
     const/16 p4, 0x0
 
     .line 1089
-    :cond_e
+    :cond_0
     const/16 v18, 0x1
 
     move/from16 v0, v18
@@ -1909,7 +1909,7 @@
 
     .line 1095
     .local v16, surfaceState:I
-    if-eqz v16, :cond_312
+    if-eqz v16, :cond_15
 
     .line 1096
     move-object/from16 v0, p0
@@ -1929,7 +1929,7 @@
 
     move/from16 v18, v0
 
-    if-eqz v18, :cond_4d
+    if-eqz v18, :cond_1
 
     .line 1100
     move-object/from16 v0, p0
@@ -1941,14 +1941,14 @@
     invoke-virtual/range {v18 .. v18}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
     .line 1104
-    :cond_4d
+    :cond_1
     const/16 v18, 0x2
 
     move/from16 v0, v16
 
     move/from16 v1, v18
 
-    if-ne v0, v1, :cond_23c
+    if-ne v0, v1, :cond_e
 
     .line 1105
     const/16 p4, 0x0
@@ -1956,11 +1956,12 @@
     .line 1106
     const/16 v18, 0x0
 
+    #calls: Landroid/view/HardwareRenderer;->beginFrame([I)V
     invoke-static/range {v18 .. v18}, Landroid/view/HardwareRenderer;->access$200([I)V
 
     .line 1121
-    :cond_5c
-    :goto_5c
+    :cond_2
+    :goto_0
     move-object/from16 v0, p0
 
     move-object/from16 v1, p4
@@ -1982,7 +1983,7 @@
     invoke-interface {v0, v3}, Landroid/view/HardwareRenderer$HardwareDrawCallbacks;->onHardwarePreDraw(Landroid/view/HardwareCanvas;)V
 
     .line 1126
-    :try_start_6d
+    :try_start_0
     move-object/from16 v0, p1
 
     iget v0, v0, Landroid/view/View;->mPrivateFlags:I
@@ -1999,11 +2000,11 @@
 
     move/from16 v1, v19
 
-    if-ne v0, v1, :cond_28e
+    if-ne v0, v1, :cond_10
 
     const/16 v18, 0x1
 
-    :goto_81
+    :goto_1
     move/from16 v0, v18
 
     move-object/from16 v1, p1
@@ -2038,7 +2039,7 @@
 
     move/from16 v18, v0
 
-    if-eqz v18, :cond_d3
+    if-eqz v18, :cond_4
 
     .line 1132
     move-object/from16 v0, p0
@@ -2078,7 +2079,7 @@
 
     move/from16 v1, v19
 
-    if-lt v0, v1, :cond_cf
+    if-lt v0, v1, :cond_3
 
     .line 1134
     const/16 v18, 0x0
@@ -2090,26 +2091,26 @@
     iput v0, v1, Landroid/view/HardwareRenderer$GlRenderer;->mProfileCurrentFrame:I
 
     .line 1137
-    :cond_cf
+    :cond_3
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v9
 
     .line 1142
-    :cond_d3
+    :cond_4
     const-wide/16 v18, 0x8
 
     const-string v20, "getDisplayList"
 
     invoke-static/range {v18 .. v20}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
-    :try_end_da
-    .catchall {:try_start_6d .. :try_end_da} :catchall_299
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 1144
-    :try_start_da
+    :try_start_1
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getDisplayList()Landroid/view/DisplayList;
-    :try_end_dd
-    .catchall {:try_start_da .. :try_end_dd} :catchall_292
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v4
 
@@ -2117,7 +2118,7 @@
     .local v4, displayList:Landroid/view/DisplayList;
     const-wide/16 v18, 0x8
 
-    :try_start_e0
+    :try_start_2
     invoke-static/range {v18 .. v19}, Landroid/os/Trace;->traceEnd(J)V
 
     .line 1149
@@ -2127,7 +2128,7 @@
 
     move/from16 v18, v0
 
-    if-eqz v18, :cond_109
+    if-eqz v18, :cond_5
 
     .line 1150
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -2167,8 +2168,8 @@
     .line 1156
     .end local v11           #now:J
     .end local v17           #total:F
-    :cond_109
-    if-eqz v4, :cond_307
+    :cond_5
+    if-eqz v4, :cond_13
 
     .line 1157
     const-wide/16 v5, 0x0
@@ -2181,7 +2182,7 @@
 
     move/from16 v18, v0
 
-    if-eqz v18, :cond_119
+    if-eqz v18, :cond_6
 
     .line 1159
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -2189,17 +2190,17 @@
     move-result-wide v5
 
     .line 1162
-    :cond_119
+    :cond_6
     const-wide/16 v18, 0x8
 
     const-string v20, "drawDisplayList"
 
     invoke-static/range {v18 .. v20}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
-    :try_end_120
-    .catchall {:try_start_e0 .. :try_end_120} :catchall_299
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 1164
-    :try_start_120
+    :try_start_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/view/HardwareRenderer$GlRenderer;->mRedrawClip:Landroid/graphics/Rect;
@@ -2213,8 +2214,8 @@
     move/from16 v1, v19
 
     invoke-virtual {v3, v4, v0, v1}, Landroid/view/HardwareCanvas;->drawDisplayList(Landroid/view/DisplayList;Landroid/graphics/Rect;I)I
-    :try_end_12f
-    .catchall {:try_start_120 .. :try_end_12f} :catchall_300
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
     move-result v18
 
@@ -2223,7 +2224,7 @@
     .line 1167
     const-wide/16 v18, 0x8
 
-    :try_start_134
+    :try_start_4
     invoke-static/range {v18 .. v19}, Landroid/os/Trace;->traceEnd(J)V
 
     .line 1170
@@ -2233,7 +2234,7 @@
 
     move/from16 v18, v0
 
-    if-eqz v18, :cond_15f
+    if-eqz v18, :cond_7
 
     .line 1171
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -2275,18 +2276,18 @@
     .line 1176
     .end local v11           #now:J
     .end local v17           #total:F
-    :cond_15f
+    :cond_7
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
 
     invoke-direct {v0, v1, v15}, Landroid/view/HardwareRenderer$GlRenderer;->handleFunctorStatus(Landroid/view/View$AttachInfo;I)V
-    :try_end_166
-    .catchall {:try_start_134 .. :try_end_166} :catchall_299
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     .line 1182
     .end local v5           #drawDisplayListStartTime:J
-    :goto_166
+    :goto_2
     move-object/from16 v0, p3
 
     invoke-interface {v0, v3}, Landroid/view/HardwareRenderer$HardwareDrawCallbacks;->onHardwarePostDraw(Landroid/view/HardwareCanvas;)V
@@ -2327,7 +2328,7 @@
 
     move/from16 v18, v0
 
-    if-eqz v18, :cond_1cb
+    if-eqz v18, :cond_9
 
     .line 1189
     move-object/from16 v0, p0
@@ -2336,7 +2337,7 @@
 
     move-object/from16 v18, v0
 
-    if-nez v18, :cond_1ac
+    if-nez v18, :cond_8
 
     .line 1190
     new-instance v18, Landroid/graphics/Paint;
@@ -2361,8 +2362,8 @@
     invoke-virtual/range {v18 .. v19}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 1194
-    :cond_1ac
-    if-eqz p4, :cond_1cb
+    :cond_8
+    if-eqz p4, :cond_9
 
     move-object/from16 v0, p0
 
@@ -2378,7 +2379,7 @@
 
     cmp-long v18, v18, v20
 
-    if-nez v18, :cond_1cb
+    if-nez v18, :cond_9
 
     .line 1195
     move-object/from16 v0, p0
@@ -2394,7 +2395,7 @@
     invoke-virtual {v3, v0, v1}, Landroid/view/HardwareCanvas;->drawRect(Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
     .line 1200
-    :cond_1cb
+    :cond_9
     invoke-virtual/range {p0 .. p0}, Landroid/view/HardwareRenderer$GlRenderer;->onPostDraw()V
 
     .line 1202
@@ -2415,7 +2416,7 @@
 
     move/from16 v1, v19
 
-    if-ne v0, v1, :cond_226
+    if-ne v0, v1, :cond_c
 
     .line 1205
     const-wide/16 v7, 0x0
@@ -2428,7 +2429,7 @@
 
     move/from16 v18, v0
 
-    if-eqz v18, :cond_1ee
+    if-eqz v18, :cond_a
 
     .line 1207
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -2436,7 +2437,7 @@
     move-result-wide v7
 
     .line 1210
-    :cond_1ee
+    :cond_a
     sget-object v18, Landroid/view/HardwareRenderer$GlRenderer;->sEgl:Ljavax/microedition/khronos/egl/EGL10;
 
     sget-object v19, Landroid/view/HardwareRenderer$GlRenderer;->sEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
@@ -2456,7 +2457,7 @@
 
     move/from16 v18, v0
 
-    if-eqz v18, :cond_223
+    if-eqz v18, :cond_b
 
     .line 1213
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -2498,19 +2499,19 @@
     .line 1218
     .end local v11           #now:J
     .end local v17           #total:F
-    :cond_223
+    :cond_b
     invoke-virtual/range {p0 .. p0}, Landroid/view/HardwareRenderer$GlRenderer;->checkEglErrors()V
 
     .line 1221
     .end local v7           #eglSwapBuffersStartTime:J
-    :cond_226
+    :cond_c
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Landroid/view/HardwareRenderer$GlRenderer;->mProfileEnabled:Z
 
     move/from16 v18, v0
 
-    if-eqz v18, :cond_237
+    if-eqz v18, :cond_d
 
     .line 1222
     move-object/from16 v0, p0
@@ -2522,8 +2523,8 @@
     invoke-virtual/range {v18 .. v18}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
     .line 1225
-    :cond_237
-    if-nez p4, :cond_30e
+    :cond_d
+    if-nez p4, :cond_14
 
     const/16 v18, 0x1
 
@@ -2534,19 +2535,20 @@
     .end local v13           #saveCount:I
     .end local v15           #status:I
     .end local v16           #surfaceState:I
-    :goto_23b
+    :goto_3
     return v18
 
     .line 1108
     .restart local v3       #canvas:Landroid/view/HardwareCanvas;
     .restart local v16       #surfaceState:I
-    :cond_23c
+    :cond_e
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/view/HardwareRenderer$GlRenderer;->mSurfaceSize:[I
 
     .line 1109
     .local v14, size:[I
+    #calls: Landroid/view/HardwareRenderer;->beginFrame([I)V
     invoke-static {v14}, Landroid/view/HardwareRenderer;->access$200([I)V
 
     .line 1111
@@ -2564,7 +2566,7 @@
 
     move/from16 v1, v19
 
-    if-ne v0, v1, :cond_263
+    if-ne v0, v1, :cond_f
 
     const/16 v18, 0x0
 
@@ -2580,10 +2582,10 @@
 
     move/from16 v1, v19
 
-    if-eq v0, v1, :cond_5c
+    if-eq v0, v1, :cond_2
 
     .line 1112
-    :cond_263
+    :cond_f
     const/16 v18, 0x0
 
     aget v18, v14, v18
@@ -2627,34 +2629,34 @@
     .line 1117
     const/16 p4, 0x0
 
-    goto/16 :goto_5c
+    goto/16 :goto_0
 
     .line 1126
     .end local v14           #size:[I
     .restart local v13       #saveCount:I
     .restart local v15       #status:I
-    :cond_28e
+    :cond_10
     const/16 v18, 0x0
 
-    goto/16 :goto_81
+    goto/16 :goto_1
 
     .line 1146
     .restart local v9       #getDisplayListStartTime:J
-    :catchall_292
+    :catchall_0
     move-exception v18
 
     const-wide/16 v19, 0x8
 
-    :try_start_295
+    :try_start_5
     invoke-static/range {v19 .. v20}, Landroid/os/Trace;->traceEnd(J)V
 
     throw v18
-    :try_end_299
-    .catchall {:try_start_295 .. :try_end_299} :catchall_299
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     .line 1182
     .end local v9           #getDisplayListStartTime:J
-    :catchall_299
+    :catchall_1
     move-exception v18
 
     move-object/from16 v0, p3
@@ -2697,7 +2699,7 @@
 
     move/from16 v19, v0
 
-    if-eqz v19, :cond_2ff
+    if-eqz v19, :cond_12
 
     .line 1189
     move-object/from16 v0, p0
@@ -2706,7 +2708,7 @@
 
     move-object/from16 v19, v0
 
-    if-nez v19, :cond_2e0
+    if-nez v19, :cond_11
 
     .line 1190
     new-instance v19, Landroid/graphics/Paint;
@@ -2731,8 +2733,8 @@
     invoke-virtual/range {v19 .. v20}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 1194
-    :cond_2e0
-    if-eqz p4, :cond_2ff
+    :cond_11
+    if-eqz p4, :cond_12
 
     move-object/from16 v0, p0
 
@@ -2748,7 +2750,7 @@
 
     cmp-long v19, v19, v21
 
-    if-nez v19, :cond_2ff
+    if-nez v19, :cond_12
 
     .line 1195
     move-object/from16 v0, p0
@@ -2764,39 +2766,39 @@
     invoke-virtual {v3, v0, v1}, Landroid/view/HardwareCanvas;->drawRect(Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
     .line 1182
-    :cond_2ff
+    :cond_12
     throw v18
 
     .line 1167
     .restart local v4       #displayList:Landroid/view/DisplayList;
     .restart local v5       #drawDisplayListStartTime:J
     .restart local v9       #getDisplayListStartTime:J
-    :catchall_300
+    :catchall_2
     move-exception v18
 
     const-wide/16 v19, 0x8
 
-    :try_start_303
+    :try_start_6
     invoke-static/range {v19 .. v20}, Landroid/os/Trace;->traceEnd(J)V
 
     throw v18
 
     .line 1179
     .end local v5           #drawDisplayListStartTime:J
-    :cond_307
+    :cond_13
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v3}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
-    :try_end_30c
-    .catchall {:try_start_303 .. :try_end_30c} :catchall_299
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    goto/16 :goto_166
+    goto/16 :goto_2
 
     .line 1225
-    :cond_30e
+    :cond_14
     const/16 v18, 0x0
 
-    goto/16 :goto_23b
+    goto/16 :goto_3
 
     .line 1229
     .end local v3           #canvas:Landroid/view/HardwareCanvas;
@@ -2805,14 +2807,14 @@
     .end local v13           #saveCount:I
     .end local v15           #status:I
     .end local v16           #surfaceState:I
-    :cond_312
+    :cond_15
     const/16 v18, 0x0
 
-    goto/16 :goto_23b
+    goto/16 :goto_3
 .end method
 
 .method dumpGfxInfo(Ljava/io/PrintWriter;)V
-    .registers 9
+    .locals 7
     .parameter "pw"
 
     .prologue
@@ -2821,7 +2823,7 @@
     .line 685
     iget-boolean v1, p0, Landroid/view/HardwareRenderer$GlRenderer;->mProfileEnabled:Z
 
-    if-eqz v1, :cond_2a
+    if-eqz v1, :cond_1
 
     .line 686
     const-string v1, "\n\tDraw\tProcess\tExecute\n"
@@ -2839,13 +2841,13 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_12
-    :try_start_12
+    :goto_0
+    :try_start_0
     iget-object v1, p0, Landroid/view/HardwareRenderer$GlRenderer;->mProfileData:[F
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_20
+    if-ge v0, v1, :cond_0
 
     .line 691
     iget-object v1, p0, Landroid/view/HardwareRenderer$GlRenderer;->mProfileData:[F
@@ -2856,17 +2858,17 @@
 
     cmpg-float v1, v1, v2
 
-    if-gez v1, :cond_2b
+    if-gez v1, :cond_2
 
     .line 698
-    :cond_20
+    :cond_0
     iget-object v1, p0, Landroid/view/HardwareRenderer$GlRenderer;->mProfileData:[F
 
     array-length v1, v1
 
     iput v1, p0, Landroid/view/HardwareRenderer$GlRenderer;->mProfileCurrentFrame:I
-    :try_end_25
-    .catchall {:try_start_12 .. :try_end_25} :catchall_6d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 700
     iget-object v1, p0, Landroid/view/HardwareRenderer$GlRenderer;->mProfileLock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -2875,13 +2877,13 @@
 
     .line 703
     .end local v0           #i:I
-    :cond_2a
+    :cond_1
     return-void
 
     .line 694
     .restart local v0       #i:I
-    :cond_2b
-    :try_start_2b
+    :cond_2
+    :try_start_1
     const-string v1, "\t%3.2f\t%3.2f\t%3.2f\n"
 
     const/4 v2, 0x3
@@ -2948,16 +2950,16 @@
     aput v6, v2, v3
 
     aput v6, v1, v0
-    :try_end_6a
-    .catchall {:try_start_2b .. :try_end_6a} :catchall_6d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 690
     add-int/lit8 v0, v0, 0x3
 
-    goto :goto_12
+    goto :goto_0
 
     .line 700
-    :catchall_6d
+    :catchall_0
     move-exception v1
 
     iget-object v2, p0, Landroid/view/HardwareRenderer$GlRenderer;->mProfileLock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -2968,7 +2970,7 @@
 .end method
 
 .method getCanvas()Landroid/view/HardwareCanvas;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1050
@@ -2981,7 +2983,7 @@
 .end method
 
 .method getFrameCount()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 707
@@ -2991,7 +2993,7 @@
 .end method
 
 .method getHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1045
@@ -3001,7 +3003,7 @@
 .end method
 
 .method getWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1040
@@ -3011,7 +3013,7 @@
 .end method
 
 .method hasDirtyRegions()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 714
@@ -3024,7 +3026,7 @@
 .end method
 
 .method initialize(Landroid/view/SurfaceHolder;)Z
-    .registers 7
+    .locals 5
     .parameter "holder"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3042,13 +3044,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4e
+    if-eqz v3, :cond_4
 
     invoke-virtual {p0}, Landroid/view/HardwareRenderer$GlRenderer;->isEnabled()Z
 
     move-result v3
 
-    if-nez v3, :cond_4e
+    if-nez v3, :cond_4
 
     .line 747
     invoke-virtual {p0}, Landroid/view/HardwareRenderer$GlRenderer;->initializeEgl()V
@@ -3066,7 +3068,7 @@
     .line 751
     iget-object v3, p0, Landroid/view/HardwareRenderer$GlRenderer;->mGl:Ljavax/microedition/khronos/opengles/GL;
 
-    if-eqz v3, :cond_4e
+    if-eqz v3, :cond_4
 
     .line 752
     sget-object v3, Landroid/view/HardwareRenderer$GlRenderer;->sEgl:Ljavax/microedition/khronos/egl/EGL10;
@@ -3079,7 +3081,7 @@
     .local v0, err:I
     const/16 v3, 0x3000
 
-    if-eq v0, v3, :cond_32
+    if-eq v0, v3, :cond_0
 
     .line 754
     invoke-virtual {p0, v1}, Landroid/view/HardwareRenderer$GlRenderer;->destroy(Z)V
@@ -3088,22 +3090,22 @@
     invoke-virtual {p0, v2}, Landroid/view/HardwareRenderer$GlRenderer;->setRequested(Z)V
 
     .line 767
-    :goto_2d
+    :goto_0
     iget-object v3, p0, Landroid/view/HardwareRenderer$GlRenderer;->mCanvas:Landroid/view/HardwareCanvas;
 
-    if-eqz v3, :cond_4c
+    if-eqz v3, :cond_3
 
     .line 770
     .end local v0           #err:I
-    :goto_31
+    :goto_1
     return v1
 
     .line 757
     .restart local v0       #err:I
-    :cond_32
+    :cond_0
     iget-object v3, p0, Landroid/view/HardwareRenderer$GlRenderer;->mCanvas:Landroid/view/HardwareCanvas;
 
-    if-nez v3, :cond_3c
+    if-nez v3, :cond_1
 
     .line 758
     invoke-virtual {p0}, Landroid/view/HardwareRenderer$GlRenderer;->createCanvas()Landroid/view/HardwareCanvas;
@@ -3113,42 +3115,42 @@
     iput-object v3, p0, Landroid/view/HardwareRenderer$GlRenderer;->mCanvas:Landroid/view/HardwareCanvas;
 
     .line 760
-    :cond_3c
+    :cond_1
     iget-object v3, p0, Landroid/view/HardwareRenderer$GlRenderer;->mCanvas:Landroid/view/HardwareCanvas;
 
-    if-eqz v3, :cond_44
+    if-eqz v3, :cond_2
 
     .line 761
     invoke-virtual {p0, v1}, Landroid/view/HardwareRenderer$GlRenderer;->setEnabled(Z)V
 
-    goto :goto_2d
+    goto :goto_0
 
     .line 763
-    :cond_44
+    :cond_2
     const-string v3, "HardwareRenderer"
 
     const-string v4, "Hardware accelerated Canvas could not be created"
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2d
+    goto :goto_0
 
-    :cond_4c
+    :cond_3
     move v1, v2
 
     .line 767
-    goto :goto_31
+    goto :goto_1
 
     .end local v0           #err:I
-    :cond_4e
+    :cond_4
     move v1, v2
 
     .line 770
-    goto :goto_31
+    goto :goto_1
 .end method
 
 .method initializeEgl()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 785
@@ -3157,14 +3159,14 @@
     monitor-enter v3
 
     .line 786
-    :try_start_3
+    :try_start_0
     sget-object v2, Landroid/view/HardwareRenderer$GlRenderer;->sEgl:Ljavax/microedition/khronos/egl/EGL10;
 
-    if-nez v2, :cond_a4
+    if-nez v2, :cond_3
 
     sget-object v2, Landroid/view/HardwareRenderer$GlRenderer;->sEglConfig:Ljavax/microedition/khronos/egl/EGLConfig;
 
-    if-nez v2, :cond_a4
+    if-nez v2, :cond_3
 
     .line 787
     invoke-static {}, Ljavax/microedition/khronos/egl/EGLContext;->getEGL()Ljavax/microedition/khronos/egl/EGL;
@@ -3191,7 +3193,7 @@
 
     sget-object v4, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_DISPLAY:Ljavax/microedition/khronos/egl/EGLDisplay;
 
-    if-ne v2, v4, :cond_49
+    if-ne v2, v4, :cond_0
 
     .line 793
     new-instance v2, Ljava/lang/RuntimeException;
@@ -3229,20 +3231,20 @@
     throw v2
 
     .line 818
-    :catchall_46
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_48
-    .catchall {:try_start_3 .. :try_end_48} :catchall_46
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 
     .line 798
-    :cond_49
+    :cond_0
     const/4 v2, 0x2
 
-    :try_start_4a
+    :try_start_1
     new-array v1, v2, [I
 
     .line 799
@@ -3255,7 +3257,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_79
+    if-nez v2, :cond_1
 
     .line 800
     new-instance v2, Ljava/lang/RuntimeException;
@@ -3293,7 +3295,7 @@
     throw v2
 
     .line 804
-    :cond_79
+    :cond_1
     invoke-direct {p0}, Landroid/view/HardwareRenderer$GlRenderer;->chooseEglConfig()Ljavax/microedition/khronos/egl/EGLConfig;
 
     move-result-object v2
@@ -3303,12 +3305,12 @@
     .line 805
     sget-object v2, Landroid/view/HardwareRenderer$GlRenderer;->sEglConfig:Ljavax/microedition/khronos/egl/EGLConfig;
 
-    if-nez v2, :cond_a4
+    if-nez v2, :cond_3
 
     .line 807
     sget-boolean v2, Landroid/view/HardwareRenderer$GlRenderer;->sDirtyRegions:Z
 
-    if-eqz v2, :cond_9c
+    if-eqz v2, :cond_2
 
     .line 808
     const/4 v2, 0x0
@@ -3325,7 +3327,7 @@
     .line 810
     sget-object v2, Landroid/view/HardwareRenderer$GlRenderer;->sEglConfig:Ljavax/microedition/khronos/egl/EGLConfig;
 
-    if-nez v2, :cond_a4
+    if-nez v2, :cond_3
 
     .line 811
     new-instance v2, Ljava/lang/RuntimeException;
@@ -3337,7 +3339,7 @@
     throw v2
 
     .line 814
-    :cond_9c
+    :cond_2
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v4, "eglConfig not initialized"
@@ -3348,10 +3350,10 @@
 
     .line 818
     .end local v1           #version:[I
-    :cond_a4
+    :cond_3
     monitor-exit v3
-    :try_end_a5
-    .catchall {:try_start_4a .. :try_end_a5} :catchall_46
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 820
     sget-object v2, Landroid/view/HardwareRenderer$GlRenderer;->sEglContextStorage:Ljava/lang/ThreadLocal;
@@ -3364,13 +3366,13 @@
 
     .line 821
     .local v0, managedContext:Landroid/opengl/ManagedEGLContext;
-    if-eqz v0, :cond_d7
+    if-eqz v0, :cond_5
 
     invoke-virtual {v0}, Landroid/opengl/ManagedEGLContext;->getContext()Ljavax/microedition/khronos/egl/EGLContext;
 
     move-result-object v2
 
-    :goto_b3
+    :goto_0
     iput-object v2, p0, Landroid/view/HardwareRenderer$GlRenderer;->mEglContext:Ljavax/microedition/khronos/egl/EGLContext;
 
     .line 822
@@ -3383,7 +3385,7 @@
     .line 824
     iget-object v2, p0, Landroid/view/HardwareRenderer$GlRenderer;->mEglContext:Ljavax/microedition/khronos/egl/EGLContext;
 
-    if-nez v2, :cond_d6
+    if-nez v2, :cond_4
 
     .line 825
     sget-object v2, Landroid/view/HardwareRenderer$GlRenderer;->sEgl:Ljavax/microedition/khronos/egl/EGL10;
@@ -3410,18 +3412,18 @@
     invoke-virtual {v2, v3}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
     .line 828
-    :cond_d6
+    :cond_4
     return-void
 
     .line 821
-    :cond_d7
+    :cond_5
     const/4 v2, 0x0
 
-    goto :goto_b3
+    goto :goto_0
 .end method
 
 .method invalidate(Landroid/view/SurfaceHolder;)V
-    .registers 8
+    .locals 6
     .parameter "holder"
 
     .prologue
@@ -3443,13 +3445,13 @@
     .line 990
     iget-object v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
     sget-object v1, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_SURFACE:Ljavax/microedition/khronos/egl/EGLSurface;
 
-    if-eq v0, v1, :cond_28
+    if-eq v0, v1, :cond_0
 
     .line 991
     sget-object v0, Landroid/view/HardwareRenderer$GlRenderer;->sEgl:Ljavax/microedition/khronos/egl/EGL10;
@@ -3471,7 +3473,7 @@
     invoke-virtual {p0, v0}, Landroid/view/HardwareRenderer$GlRenderer;->setEnabled(Z)V
 
     .line 996
-    :cond_28
+    :cond_0
     invoke-interface {p1}, Landroid/view/SurfaceHolder;->getSurface()Landroid/view/Surface;
 
     move-result-object v0
@@ -3480,37 +3482,37 @@
 
     move-result v0
 
-    if-eqz v0, :cond_38
+    if-eqz v0, :cond_1
 
     .line 997
     invoke-direct {p0, p1}, Landroid/view/HardwareRenderer$GlRenderer;->createSurface(Landroid/view/SurfaceHolder;)Z
 
     move-result v0
 
-    if-nez v0, :cond_39
+    if-nez v0, :cond_2
 
     .line 1007
-    :cond_38
-    :goto_38
+    :cond_1
+    :goto_0
     return-void
 
     .line 1001
-    :cond_39
+    :cond_2
     iput-boolean v5, p0, Landroid/view/HardwareRenderer$GlRenderer;->mUpdateDirtyRegions:Z
 
     .line 1003
     iget-object v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mCanvas:Landroid/view/HardwareCanvas;
 
-    if-eqz v0, :cond_38
+    if-eqz v0, :cond_1
 
     .line 1004
     invoke-virtual {p0, v5}, Landroid/view/HardwareRenderer$GlRenderer;->setEnabled(Z)V
 
-    goto :goto_38
+    goto :goto_0
 .end method
 
 .method onPostDraw()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1062
@@ -3518,7 +3520,7 @@
 .end method
 
 .method onPreDraw(Landroid/graphics/Rect;)I
-    .registers 3
+    .locals 1
     .parameter "dirty"
 
     .prologue
@@ -3529,7 +3531,7 @@
 .end method
 
 .method setup(II)V
-    .registers 4
+    .locals 1
     .parameter "width"
     .parameter "height"
 
@@ -3539,7 +3541,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 1032
     iget-object v0, p0, Landroid/view/HardwareRenderer$GlRenderer;->mCanvas:Landroid/view/HardwareCanvas;
@@ -3553,12 +3555,12 @@
     iput p2, p0, Landroid/view/HardwareRenderer$GlRenderer;->mHeight:I
 
     .line 1036
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method updateSurface(Landroid/view/SurfaceHolder;)V
-    .registers 3
+    .locals 1
     .parameter "holder"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3572,24 +3574,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Landroid/view/HardwareRenderer$GlRenderer;->isEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 776
     invoke-virtual {p0, p1}, Landroid/view/HardwareRenderer$GlRenderer;->createEglSurface(Landroid/view/SurfaceHolder;)Ljavax/microedition/khronos/opengles/GL;
 
     .line 778
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method validate()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1026
@@ -3597,15 +3599,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method

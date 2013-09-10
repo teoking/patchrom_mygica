@@ -21,7 +21,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/graphics/RectF;F[F[J)V
-    .registers 10
+    .locals 5
     .parameter "bbx"
     .parameter "len"
     .parameter "pts"
@@ -72,7 +72,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/ArrayList;)V
-    .registers 19
+    .locals 17
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -121,8 +121,8 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_11
-    if-ge v3, v2, :cond_7c
+    :goto_0
+    if-ge v3, v2, :cond_1
 
     .line 59
     move-object/from16 v0, p1
@@ -156,7 +156,7 @@
     aput-wide v9, v7, v4
 
     .line 64
-    if-nez v1, :cond_4a
+    if-nez v1, :cond_0
 
     .line 65
     new-instance v1, Landroid/graphics/RectF;
@@ -189,16 +189,16 @@
     const/4 v5, 0x0
 
     .line 76
-    :goto_45
+    :goto_1
     add-int/lit8 v4, v4, 0x1
 
     .line 58
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_11
+    goto :goto_0
 
     .line 72
-    :cond_4a
+    :cond_0
     float-to-double v9, v5
 
     iget v11, v6, Landroid/gesture/GesturePoint;->x:F
@@ -256,11 +256,11 @@
 
     invoke-virtual {v1, v9, v10}, Landroid/graphics/RectF;->union(FF)V
 
-    goto :goto_45
+    goto :goto_1
 
     .line 79
     .end local v6           #p:Landroid/gesture/GesturePoint;
-    :cond_7c
+    :cond_1
     move-object/from16 v0, p0
 
     iput-object v7, v0, Landroid/gesture/GestureStroke;->timestamps:[J
@@ -285,7 +285,7 @@
 .end method
 
 .method static deserialize(Ljava/io/DataInputStream;)Landroid/gesture/GestureStroke;
-    .registers 5
+    .locals 4
     .parameter "in"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -310,8 +310,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_a
-    if-ge v1, v0, :cond_16
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 225
     invoke-static {p0}, Landroid/gesture/GesturePoint;->deserialize(Ljava/io/DataInputStream;)Landroid/gesture/GesturePoint;
@@ -323,10 +323,10 @@
     .line 224
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 228
-    :cond_16
+    :cond_0
     new-instance v3, Landroid/gesture/GestureStroke;
 
     invoke-direct {v3, v2}, Landroid/gesture/GestureStroke;-><init>(Ljava/util/ArrayList;)V
@@ -335,7 +335,7 @@
 .end method
 
 .method private makePath()V
-    .registers 15
+    .locals 14
 
     .prologue
     const/high16 v13, 0x4040
@@ -366,8 +366,8 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_b
-    if-ge v3, v0, :cond_42
+    :goto_0
+    if-ge v3, v0, :cond_3
 
     .line 131
     aget v8, v4, v3
@@ -380,7 +380,7 @@
 
     .line 133
     .local v9, y:F
-    if-nez v7, :cond_22
+    if-nez v7, :cond_1
 
     .line 134
     new-instance v7, Landroid/graphics/Path;
@@ -399,14 +399,14 @@
     move v6, v9
 
     .line 130
-    :cond_1f
-    :goto_1f
+    :cond_0
+    :goto_1
     add-int/lit8 v3, v3, 0x2
 
-    goto :goto_b
+    goto :goto_0
 
     .line 139
-    :cond_22
+    :cond_1
     sub-float v10, v8, v5
 
     invoke-static {v10}, Ljava/lang/Math;->abs(F)F
@@ -425,14 +425,14 @@
     .local v2, dy:F
     cmpl-float v10, v1, v13
 
-    if-gez v10, :cond_36
+    if-gez v10, :cond_2
 
     cmpl-float v10, v2, v13
 
-    if-ltz v10, :cond_1f
+    if-ltz v10, :cond_0
 
     .line 142
-    :cond_36
+    :cond_2
     add-float v10, v8, v5
 
     div-float/2addr v10, v12
@@ -449,14 +449,14 @@
     .line 144
     move v6, v9
 
-    goto :goto_1f
+    goto :goto_1
 
     .line 149
     .end local v1           #dx:F
     .end local v2           #dy:F
     .end local v8           #x:F
     .end local v9           #y:F
-    :cond_42
+    :cond_3
     iput-object v7, p0, Landroid/gesture/GestureStroke;->mCachedPath:Landroid/graphics/Path;
 
     .line 150
@@ -466,25 +466,25 @@
 
 # virtual methods
 .method public clearPath()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 235
     iget-object v0, p0, Landroid/gesture/GestureStroke;->mCachedPath:Landroid/graphics/Path;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/gesture/GestureStroke;->mCachedPath:Landroid/graphics/Path;
 
     invoke-virtual {v0}, Landroid/graphics/Path;->rewind()V
 
     .line 236
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public clone()Ljava/lang/Object;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 97
@@ -504,7 +504,7 @@
 .end method
 
 .method public computeOrientedBoundingBox()Landroid/gesture/OrientedBoundingBox;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 244
@@ -518,7 +518,7 @@
 .end method
 
 .method draw(Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
-    .registers 4
+    .locals 1
     .parameter "canvas"
     .parameter "paint"
 
@@ -526,13 +526,13 @@
     .line 106
     iget-object v0, p0, Landroid/gesture/GestureStroke;->mCachedPath:Landroid/graphics/Path;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 107
     invoke-direct {p0}, Landroid/gesture/GestureStroke;->makePath()V
 
     .line 110
-    :cond_7
+    :cond_0
     iget-object v0, p0, Landroid/gesture/GestureStroke;->mCachedPath:Landroid/graphics/Path;
 
     invoke-virtual {p1, v0, p2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
@@ -542,26 +542,26 @@
 .end method
 
 .method public getPath()Landroid/graphics/Path;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 114
     iget-object v0, p0, Landroid/gesture/GestureStroke;->mCachedPath:Landroid/graphics/Path;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 115
     invoke-direct {p0}, Landroid/gesture/GestureStroke;->makePath()V
 
     .line 118
-    :cond_7
+    :cond_0
     iget-object v0, p0, Landroid/gesture/GestureStroke;->mCachedPath:Landroid/graphics/Path;
 
     return-object v0
 .end method
 
 .method serialize(Ljava/io/DataOutputStream;)V
-    .registers 8
+    .locals 6
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -593,8 +593,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_d
-    if-ge v1, v0, :cond_25
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 211
     aget v4, v2, v1
@@ -618,15 +618,15 @@
     .line 209
     add-int/lit8 v1, v1, 0x2
 
-    goto :goto_d
+    goto :goto_0
 
     .line 217
-    :cond_25
+    :cond_0
     return-void
 .end method
 
 .method public toPath(FFI)Landroid/graphics/Path;
-    .registers 23
+    .locals 19
     .parameter "width"
     .parameter "height"
     .parameter "numSample"
@@ -694,13 +694,13 @@
     .local v13, sy:F
     cmpl-float v16, v12, v13
 
-    if-lez v16, :cond_55
+    if-lez v16, :cond_1
 
     move v11, v13
 
     .line 170
     .local v11, scale:F
-    :goto_36
+    :goto_0
     invoke-static {v9, v11, v11}, Landroid/gesture/GestureUtils;->scale([FFF)[F
 
     .line 172
@@ -723,8 +723,8 @@
     const/4 v5, 0x0
 
     .local v5, i:I
-    :goto_3e
-    if-ge v5, v2, :cond_85
+    :goto_1
+    if-ge v5, v2, :cond_4
 
     .line 180
     aget v14, v9, v5
@@ -737,7 +737,7 @@
 
     .line 182
     .local v15, y:F
-    if-nez v8, :cond_57
+    if-nez v8, :cond_2
 
     .line 183
     new-instance v8, Landroid/graphics/Path;
@@ -756,11 +756,11 @@
     move v7, v15
 
     .line 179
-    :cond_52
-    :goto_52
+    :cond_0
+    :goto_2
     add-int/lit8 v5, v5, 0x2
 
-    goto :goto_3e
+    goto :goto_1
 
     .end local v2           #count:I
     .end local v5           #i:I
@@ -770,11 +770,11 @@
     .end local v11           #scale:F
     .end local v14           #x:F
     .end local v15           #y:F
-    :cond_55
+    :cond_1
     move v11, v12
 
     .line 169
-    goto :goto_36
+    goto :goto_0
 
     .line 188
     .restart local v2       #count:I
@@ -785,7 +785,7 @@
     .restart local v11       #scale:F
     .restart local v14       #x:F
     .restart local v15       #y:F
-    :cond_57
+    :cond_2
     sub-float v16, v14, v6
 
     invoke-static/range {v16 .. v16}, Ljava/lang/Math;->abs(F)F
@@ -806,16 +806,16 @@
 
     cmpl-float v16, v3, v16
 
-    if-gez v16, :cond_6f
+    if-gez v16, :cond_3
 
     const/high16 v16, 0x4040
 
     cmpl-float v16, v4, v16
 
-    if-ltz v16, :cond_52
+    if-ltz v16, :cond_0
 
     .line 191
-    :cond_6f
+    :cond_3
     add-float v16, v14, v6
 
     const/high16 v17, 0x4000
@@ -840,13 +840,13 @@
     .line 193
     move v7, v15
 
-    goto :goto_52
+    goto :goto_2
 
     .line 198
     .end local v3           #dx:F
     .end local v4           #dy:F
     .end local v14           #x:F
     .end local v15           #y:F
-    :cond_85
+    :cond_4
     return-object v8
 .end method

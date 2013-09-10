@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "src"
 
     .prologue
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Landroid/text/Layout$Alignment;)V
-    .registers 2
+    .locals 0
     .parameter "align"
 
     .prologue
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 42
@@ -74,7 +74,7 @@
 .end method
 
 .method public getAlignment()Landroid/text/Layout$Alignment;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 50
@@ -84,7 +84,7 @@
 .end method
 
 .method public getSpanTypeId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 38
@@ -94,7 +94,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

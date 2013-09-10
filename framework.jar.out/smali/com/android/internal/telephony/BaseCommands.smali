@@ -126,7 +126,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 673
@@ -160,7 +160,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -388,7 +388,7 @@
 .end method
 
 .method public static getLteOnCdmaModeStatic()I
-    .registers 7
+    .locals 7
 
     .prologue
     const/4 v5, -0x1
@@ -410,7 +410,7 @@
 
     .line 699
     .local v3, retVal:I
-    if-ne v3, v5, :cond_29
+    if-ne v3, v5, :cond_0
 
     .line 700
     sget-object v4, Lcom/android/internal/telephony/BaseCommands;->sProductTypePattern:Ljava/util/regex/Pattern;
@@ -427,7 +427,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_6a
+    if-eqz v4, :cond_2
 
     .line 702
     const/4 v4, 0x1
@@ -443,15 +443,15 @@
 
     move-result v4
 
-    if-eqz v4, :cond_68
+    if-eqz v4, :cond_1
 
     .line 704
     const/4 v3, 0x1
 
     .line 713
     .end local v1           #matcher:Ljava/util/regex/Matcher;
-    :cond_29
-    :goto_29
+    :cond_0
+    :goto_0
     const-string v4, "RILB"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -517,20 +517,20 @@
 
     .line 706
     .restart local v1       #matcher:Ljava/util/regex/Matcher;
-    :cond_68
+    :cond_1
     const/4 v3, 0x0
 
-    goto :goto_29
+    goto :goto_0
 
     .line 709
-    :cond_6a
+    :cond_2
     const/4 v3, 0x0
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method private static getProcCmdLine()Ljava/lang/String;
-    .registers 10
+    .locals 10
 
     .prologue
     .line 641
@@ -542,22 +542,22 @@
 
     .line 644
     .local v5, is:Ljava/io/FileInputStream;
-    :try_start_3
+    :try_start_0
     new-instance v6, Ljava/io/FileInputStream;
 
     const-string v7, "/proc/cmdline"
 
     invoke-direct {v6, v7}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
-    :try_end_a
-    .catchall {:try_start_3 .. :try_end_a} :catchall_5b
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_a} :catch_3a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 645
     .end local v5           #is:Ljava/io/FileInputStream;
     .local v6, is:Ljava/io/FileInputStream;
     const/16 v7, 0x800
 
-    :try_start_c
+    :try_start_1
     new-array v0, v7, [B
 
     .line 646
@@ -568,7 +568,7 @@
 
     .line 647
     .local v3, count:I
-    if-lez v3, :cond_1b
+    if-lez v3, :cond_0
 
     .line 648
     new-instance v2, Ljava/lang/String;
@@ -576,9 +576,9 @@
     const/4 v7, 0x0
 
     invoke-direct {v2, v0, v7, v3}, Ljava/lang/String;-><init>([BII)V
-    :try_end_1a
-    .catchall {:try_start_c .. :try_end_1a} :catchall_66
-    .catch Ljava/io/IOException; {:try_start_c .. :try_end_1a} :catch_69
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
 
     .end local v1           #cmdline:Ljava/lang/String;
     .local v2, cmdline:Ljava/lang/String;
@@ -587,17 +587,17 @@
     .line 653
     .end local v2           #cmdline:Ljava/lang/String;
     .restart local v1       #cmdline:Ljava/lang/String;
-    :cond_1b
-    if-eqz v6, :cond_20
+    :cond_0
+    if-eqz v6, :cond_1
 
     .line 655
-    :try_start_1d
+    :try_start_2
     invoke-virtual {v6}, Ljava/io/FileInputStream;->close()V
-    :try_end_20
-    .catch Ljava/io/IOException; {:try_start_1d .. :try_end_20} :catch_64
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
 
-    :cond_20
-    :goto_20
+    :cond_1
+    :goto_0
     move-object v5, v6
 
     .line 660
@@ -605,8 +605,8 @@
     .end local v3           #count:I
     .end local v6           #is:Ljava/io/FileInputStream;
     .restart local v5       #is:Ljava/io/FileInputStream;
-    :cond_21
-    :goto_21
+    :cond_2
+    :goto_1
     const-string v7, "RILB"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -633,13 +633,13 @@
     return-object v1
 
     .line 650
-    :catch_3a
+    :catch_0
     move-exception v4
 
     .line 651
     .local v4, e:Ljava/io/IOException;
-    :goto_3b
-    :try_start_3b
+    :goto_2
+    :try_start_3
     const-string v7, "RILB"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -661,89 +661,89 @@
     move-result-object v8
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_53
-    .catchall {:try_start_3b .. :try_end_53} :catchall_5b
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 653
-    if-eqz v5, :cond_21
+    if-eqz v5, :cond_2
 
     .line 655
-    :try_start_55
+    :try_start_4
     invoke-virtual {v5}, Ljava/io/FileInputStream;->close()V
-    :try_end_58
-    .catch Ljava/io/IOException; {:try_start_55 .. :try_end_58} :catch_59
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
 
-    goto :goto_21
+    goto :goto_1
 
     .line 656
-    :catch_59
+    :catch_1
     move-exception v7
 
-    goto :goto_21
+    goto :goto_1
 
     .line 653
     .end local v4           #e:Ljava/io/IOException;
-    :catchall_5b
+    :catchall_0
     move-exception v7
 
-    :goto_5c
-    if-eqz v5, :cond_61
+    :goto_3
+    if-eqz v5, :cond_3
 
     .line 655
-    :try_start_5e
+    :try_start_5
     invoke-virtual {v5}, Ljava/io/FileInputStream;->close()V
-    :try_end_61
-    .catch Ljava/io/IOException; {:try_start_5e .. :try_end_61} :catch_62
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
 
     .line 653
-    :cond_61
-    :goto_61
+    :cond_3
+    :goto_4
     throw v7
 
     .line 656
-    :catch_62
+    :catch_2
     move-exception v8
 
-    goto :goto_61
+    goto :goto_4
 
     .end local v5           #is:Ljava/io/FileInputStream;
     .restart local v0       #buffer:[B
     .restart local v3       #count:I
     .restart local v6       #is:Ljava/io/FileInputStream;
-    :catch_64
+    :catch_3
     move-exception v7
 
-    goto :goto_20
+    goto :goto_0
 
     .line 653
     .end local v0           #buffer:[B
     .end local v3           #count:I
-    :catchall_66
+    :catchall_1
     move-exception v7
 
     move-object v5, v6
 
     .end local v6           #is:Ljava/io/FileInputStream;
     .restart local v5       #is:Ljava/io/FileInputStream;
-    goto :goto_5c
+    goto :goto_3
 
     .line 650
     .end local v5           #is:Ljava/io/FileInputStream;
     .restart local v6       #is:Ljava/io/FileInputStream;
-    :catch_69
+    :catch_4
     move-exception v4
 
     move-object v5, v6
 
     .end local v6           #is:Ljava/io/FileInputStream;
     .restart local v5       #is:Ljava/io/FileInputStream;
-    goto :goto_3b
+    goto :goto_2
 .end method
 
 
 # virtual methods
 .method public getLteOnCdmaMode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 669
@@ -755,7 +755,7 @@
 .end method
 
 .method public getRadioState()Lcom/android/internal/telephony/CommandsInterface$RadioState;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 110
@@ -765,7 +765,7 @@
 .end method
 
 .method protected onRadioAvailable()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 634
@@ -773,7 +773,7 @@
 .end method
 
 .method public registerFoT53ClirlInfo(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -795,7 +795,7 @@
 .end method
 
 .method public registerForAvailable(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 10
+    .locals 6
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -813,7 +813,7 @@
     monitor-enter v2
 
     .line 150
-    :try_start_8
+    :try_start_0
     iget-object v1, p0, Lcom/android/internal/telephony/BaseCommands;->mAvailRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v1, v0}, Landroid/os/RegistrantList;->add(Landroid/os/Registrant;)V
@@ -825,7 +825,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_20
+    if-eqz v1, :cond_0
 
     .line 153
     new-instance v1, Landroid/os/AsyncResult;
@@ -841,25 +841,25 @@
     invoke-virtual {v0, v1}, Landroid/os/Registrant;->notifyRegistrant(Landroid/os/AsyncResult;)V
 
     .line 155
-    :cond_20
+    :cond_0
     monitor-exit v2
 
     .line 156
     return-void
 
     .line 155
-    :catchall_22
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public registerForCallStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -881,7 +881,7 @@
 .end method
 
 .method public registerForCallWaitingInfo(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -903,7 +903,7 @@
 .end method
 
 .method public registerForCdmaOtaProvision(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -925,7 +925,7 @@
 .end method
 
 .method public registerForCdmaPrlChanged(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -947,7 +947,7 @@
 .end method
 
 .method public registerForCdmaSubscriptionChanged(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -969,7 +969,7 @@
 .end method
 
 .method public registerForDataNetworkStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -991,7 +991,7 @@
 .end method
 
 .method public registerForDisplayInfo(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1013,7 +1013,7 @@
 .end method
 
 .method public registerForExitEmergencyCallbackMode(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1035,7 +1035,7 @@
 .end method
 
 .method public registerForIccRefresh(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1057,7 +1057,7 @@
 .end method
 
 .method public registerForIccStatusChanged(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1079,7 +1079,7 @@
 .end method
 
 .method public registerForInCallVoicePrivacyOff(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1101,7 +1101,7 @@
 .end method
 
 .method public registerForInCallVoicePrivacyOn(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1123,7 +1123,7 @@
 .end method
 
 .method public registerForLineControlInfo(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1145,7 +1145,7 @@
 .end method
 
 .method public registerForNotAvailable(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 10
+    .locals 6
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1163,7 +1163,7 @@
     monitor-enter v2
 
     .line 168
-    :try_start_8
+    :try_start_0
     iget-object v1, p0, Lcom/android/internal/telephony/BaseCommands;->mNotAvailRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v1, v0}, Landroid/os/RegistrantList;->add(Landroid/os/Registrant;)V
@@ -1175,7 +1175,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_20
+    if-nez v1, :cond_0
 
     .line 171
     new-instance v1, Landroid/os/AsyncResult;
@@ -1191,25 +1191,25 @@
     invoke-virtual {v0, v1}, Landroid/os/Registrant;->notifyRegistrant(Landroid/os/AsyncResult;)V
 
     .line 173
-    :cond_20
+    :cond_0
     monitor-exit v2
 
     .line 174
     return-void
 
     .line 173
-    :catchall_22
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public registerForNumberInfo(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1231,7 +1231,7 @@
 .end method
 
 .method public registerForOffOrNotAvailable(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 10
+    .locals 6
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1249,7 +1249,7 @@
     monitor-enter v2
 
     .line 186
-    :try_start_8
+    :try_start_0
     iget-object v1, p0, Lcom/android/internal/telephony/BaseCommands;->mOffOrNotAvailRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v1, v0}, Landroid/os/RegistrantList;->add(Landroid/os/Registrant;)V
@@ -1259,7 +1259,7 @@
 
     sget-object v3, Lcom/android/internal/telephony/CommandsInterface$RadioState;->RADIO_OFF:Lcom/android/internal/telephony/CommandsInterface$RadioState;
 
-    if-eq v1, v3, :cond_1b
+    if-eq v1, v3, :cond_0
 
     iget-object v1, p0, Lcom/android/internal/telephony/BaseCommands;->mState:Lcom/android/internal/telephony/CommandsInterface$RadioState;
 
@@ -1267,10 +1267,10 @@
 
     move-result v1
 
-    if-nez v1, :cond_26
+    if-nez v1, :cond_1
 
     .line 189
-    :cond_1b
+    :cond_0
     new-instance v1, Landroid/os/AsyncResult;
 
     const/4 v3, 0x0
@@ -1284,25 +1284,25 @@
     invoke-virtual {v0, v1}, Landroid/os/Registrant;->notifyRegistrant(Landroid/os/AsyncResult;)V
 
     .line 191
-    :cond_26
+    :cond_1
     monitor-exit v2
 
     .line 192
     return-void
 
     .line 191
-    :catchall_28
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_2a
-    .catchall {:try_start_8 .. :try_end_2a} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public registerForOn(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 10
+    .locals 6
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1320,7 +1320,7 @@
     monitor-enter v2
 
     .line 132
-    :try_start_8
+    :try_start_0
     iget-object v1, p0, Lcom/android/internal/telephony/BaseCommands;->mOnRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v1, v0}, Landroid/os/RegistrantList;->add(Landroid/os/Registrant;)V
@@ -1332,7 +1332,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_20
+    if-eqz v1, :cond_0
 
     .line 135
     new-instance v1, Landroid/os/AsyncResult;
@@ -1348,25 +1348,25 @@
     invoke-virtual {v0, v1}, Landroid/os/Registrant;->notifyRegistrant(Landroid/os/AsyncResult;)V
 
     .line 137
-    :cond_20
+    :cond_0
     monitor-exit v2
 
     .line 138
     return-void
 
     .line 137
-    :catchall_22
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public registerForRadioStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 7
+    .locals 3
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1384,7 +1384,7 @@
     monitor-enter v2
 
     .line 117
-    :try_start_8
+    :try_start_0
     iget-object v1, p0, Lcom/android/internal/telephony/BaseCommands;->mRadioStateChangedRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v1, v0}, Landroid/os/RegistrantList;->add(Landroid/os/Registrant;)V
@@ -1399,18 +1399,18 @@
     return-void
 
     .line 119
-    :catchall_12
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_14
-    .catchall {:try_start_8 .. :try_end_14} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public registerForRedirectedNumberInfo(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1432,7 +1432,7 @@
 .end method
 
 .method public registerForResendIncallMute(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1454,7 +1454,7 @@
 .end method
 
 .method public registerForRilConnected(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 9
+    .locals 5
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1511,7 +1511,7 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_5c
+    if-eq v1, v2, :cond_0
 
     .line 561
     const-string v1, "RILB"
@@ -1552,12 +1552,12 @@
     invoke-virtual {v0, v1}, Landroid/os/Registrant;->notifyRegistrant(Landroid/os/AsyncResult;)V
 
     .line 564
-    :cond_5c
+    :cond_0
     return-void
 .end method
 
 .method public registerForRingbackTone(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1579,7 +1579,7 @@
 .end method
 
 .method public registerForSignalInfo(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1601,7 +1601,7 @@
 .end method
 
 .method public registerForT53AudioControlInfo(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1623,7 +1623,7 @@
 .end method
 
 .method public registerForVoiceNetworkStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1645,7 +1645,7 @@
 .end method
 
 .method public registerForVoiceRadioTechChanged(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 6
+    .locals 2
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1667,7 +1667,7 @@
 .end method
 
 .method public setCurrentPreferredNetworkType()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 576
@@ -1675,7 +1675,7 @@
 .end method
 
 .method public setEmergencyCallbackMode(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1693,7 +1693,7 @@
 .end method
 
 .method public setOnCallRing(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1711,7 +1711,7 @@
 .end method
 
 .method public setOnCatCallSetUp(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1729,7 +1729,7 @@
 .end method
 
 .method public setOnCatEvent(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1747,7 +1747,7 @@
 .end method
 
 .method public setOnCatProactiveCmd(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1765,7 +1765,7 @@
 .end method
 
 .method public setOnCatSessionEnd(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1783,7 +1783,7 @@
 .end method
 
 .method public setOnIccRefresh(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 4
+    .locals 0
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1797,7 +1797,7 @@
 .end method
 
 .method public setOnIccSmsFull(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1815,7 +1815,7 @@
 .end method
 
 .method public setOnNITZTime(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1833,7 +1833,7 @@
 .end method
 
 .method public setOnNewCdmaSms(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1851,7 +1851,7 @@
 .end method
 
 .method public setOnNewGsmBroadcastSms(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1869,7 +1869,7 @@
 .end method
 
 .method public setOnNewGsmSms(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1887,7 +1887,7 @@
 .end method
 
 .method public setOnRestrictedStateChanged(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1905,7 +1905,7 @@
 .end method
 
 .method public setOnSignalStrengthUpdate(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1923,7 +1923,7 @@
 .end method
 
 .method public setOnSmsOnSim(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1941,7 +1941,7 @@
 .end method
 
 .method public setOnSmsStatus(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1959,7 +1959,7 @@
 .end method
 
 .method public setOnSuppServiceNotification(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1977,7 +1977,7 @@
 .end method
 
 .method public setOnUSSD(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -1995,7 +1995,7 @@
 .end method
 
 .method public setOnUnsolOemHookRaw(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -2013,7 +2013,7 @@
 .end method
 
 .method protected setRadioState(Lcom/android/internal/telephony/CommandsInterface$RadioState;)V
-    .registers 6
+    .locals 4
     .parameter "newState"
 
     .prologue
@@ -2023,7 +2023,7 @@
     monitor-enter v2
 
     .line 598
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/telephony/BaseCommands;->mState:Lcom/android/internal/telephony/CommandsInterface$RadioState;
 
     .line 599
@@ -2033,17 +2033,17 @@
     .line 601
     iget-object v1, p0, Lcom/android/internal/telephony/BaseCommands;->mState:Lcom/android/internal/telephony/CommandsInterface$RadioState;
 
-    if-ne v0, v1, :cond_d
+    if-ne v0, v1, :cond_0
 
     .line 603
     monitor-exit v2
 
     .line 631
-    :goto_c
+    :goto_0
     return-void
 
     .line 606
-    :cond_d
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/BaseCommands;->mRadioStateChangedRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v1}, Landroid/os/RegistrantList;->notifyRegistrants()V
@@ -2055,13 +2055,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2f
+    if-eqz v1, :cond_1
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/CommandsInterface$RadioState;->isAvailable()Z
 
     move-result v1
 
-    if-nez v1, :cond_2f
+    if-nez v1, :cond_1
 
     .line 609
     const-string v1, "RILB"
@@ -2079,20 +2079,20 @@
     invoke-virtual {p0}, Lcom/android/internal/telephony/BaseCommands;->onRadioAvailable()V
 
     .line 614
-    :cond_2f
+    :cond_1
     iget-object v1, p0, Lcom/android/internal/telephony/BaseCommands;->mState:Lcom/android/internal/telephony/CommandsInterface$RadioState;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/CommandsInterface$RadioState;->isAvailable()Z
 
     move-result v1
 
-    if-nez v1, :cond_49
+    if-nez v1, :cond_2
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/CommandsInterface$RadioState;->isAvailable()Z
 
     move-result v1
 
-    if-eqz v1, :cond_49
+    if-eqz v1, :cond_2
 
     .line 615
     const-string v1, "RILB"
@@ -2107,20 +2107,20 @@
     invoke-virtual {v1}, Landroid/os/RegistrantList;->notifyRegistrants()V
 
     .line 619
-    :cond_49
+    :cond_2
     iget-object v1, p0, Lcom/android/internal/telephony/BaseCommands;->mState:Lcom/android/internal/telephony/CommandsInterface$RadioState;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/CommandsInterface$RadioState;->isOn()Z
 
     move-result v1
 
-    if-eqz v1, :cond_63
+    if-eqz v1, :cond_3
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/CommandsInterface$RadioState;->isOn()Z
 
     move-result v1
 
-    if-nez v1, :cond_63
+    if-nez v1, :cond_3
 
     .line 620
     const-string v1, "RILB"
@@ -2135,14 +2135,14 @@
     invoke-virtual {v1}, Landroid/os/RegistrantList;->notifyRegistrants()V
 
     .line 624
-    :cond_63
+    :cond_3
     iget-object v1, p0, Lcom/android/internal/telephony/BaseCommands;->mState:Lcom/android/internal/telephony/CommandsInterface$RadioState;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/CommandsInterface$RadioState;->isOn()Z
 
     move-result v1
 
-    if-eqz v1, :cond_73
+    if-eqz v1, :cond_4
 
     iget-object v1, p0, Lcom/android/internal/telephony/BaseCommands;->mState:Lcom/android/internal/telephony/CommandsInterface$RadioState;
 
@@ -2150,20 +2150,20 @@
 
     move-result v1
 
-    if-nez v1, :cond_8b
+    if-nez v1, :cond_5
 
-    :cond_73
+    :cond_4
     invoke-virtual {v0}, Lcom/android/internal/telephony/CommandsInterface$RadioState;->isOn()Z
 
     move-result v1
 
-    if-eqz v1, :cond_8b
+    if-eqz v1, :cond_5
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/CommandsInterface$RadioState;->isAvailable()Z
 
     move-result v1
 
-    if-eqz v1, :cond_8b
+    if-eqz v1, :cond_5
 
     .line 627
     const-string v1, "RILB"
@@ -2178,24 +2178,24 @@
     invoke-virtual {v1}, Landroid/os/RegistrantList;->notifyRegistrants()V
 
     .line 630
-    :cond_8b
+    :cond_5
     monitor-exit v2
 
-    goto :goto_c
+    goto :goto_0
 
     .end local v0           #oldState:Lcom/android/internal/telephony/CommandsInterface$RadioState;
-    :catchall_8d
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_8f
-    .catchall {:try_start_3 .. :try_end_8f} :catchall_8d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public testingEmergencyCall()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 720
@@ -2203,7 +2203,7 @@
 .end method
 
 .method public unSetOnCallRing(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2217,7 +2217,7 @@
 .end method
 
 .method public unSetOnCatCallSetUp(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2231,7 +2231,7 @@
 .end method
 
 .method public unSetOnCatEvent(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2245,7 +2245,7 @@
 .end method
 
 .method public unSetOnCatProactiveCmd(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2259,7 +2259,7 @@
 .end method
 
 .method public unSetOnCatSessionEnd(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2273,7 +2273,7 @@
 .end method
 
 .method public unSetOnIccSmsFull(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2287,7 +2287,7 @@
 .end method
 
 .method public unSetOnNITZTime(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2301,7 +2301,7 @@
 .end method
 
 .method public unSetOnNewCdmaSms(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2315,7 +2315,7 @@
 .end method
 
 .method public unSetOnNewGsmBroadcastSms(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2329,7 +2329,7 @@
 .end method
 
 .method public unSetOnNewGsmSms(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2343,7 +2343,7 @@
 .end method
 
 .method public unSetOnRestrictedStateChanged(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2357,7 +2357,7 @@
 .end method
 
 .method public unSetOnSignalStrengthUpdate(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2371,7 +2371,7 @@
 .end method
 
 .method public unSetOnSmsOnSim(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2385,7 +2385,7 @@
 .end method
 
 .method public unSetOnSmsStatus(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2399,7 +2399,7 @@
 .end method
 
 .method public unSetOnSuppServiceNotification(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2413,7 +2413,7 @@
 .end method
 
 .method public unSetOnUSSD(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2427,7 +2427,7 @@
 .end method
 
 .method public unSetOnUnsolOemHookRaw(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2441,7 +2441,7 @@
 .end method
 
 .method public unregisterForAvailable(Landroid/os/Handler;)V
-    .registers 4
+    .locals 2
     .parameter "h"
 
     .prologue
@@ -2451,7 +2451,7 @@
     monitor-enter v1
 
     .line 160
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/telephony/BaseCommands;->mAvailRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
@@ -2463,18 +2463,18 @@
     return-void
 
     .line 161
-    :catchall_a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_c
-    .catchall {:try_start_3 .. :try_end_c} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public unregisterForCallStateChanged(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2488,7 +2488,7 @@
 .end method
 
 .method public unregisterForCallWaitingInfo(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2502,7 +2502,7 @@
 .end method
 
 .method public unregisterForCdmaOtaProvision(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2516,7 +2516,7 @@
 .end method
 
 .method public unregisterForCdmaPrlChanged(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2530,7 +2530,7 @@
 .end method
 
 .method public unregisterForCdmaSubscriptionChanged(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2544,7 +2544,7 @@
 .end method
 
 .method public unregisterForDataNetworkStateChanged(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2558,7 +2558,7 @@
 .end method
 
 .method public unregisterForDisplayInfo(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2572,7 +2572,7 @@
 .end method
 
 .method public unregisterForExitEmergencyCallbackMode(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2586,7 +2586,7 @@
 .end method
 
 .method public unregisterForIccRefresh(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2600,7 +2600,7 @@
 .end method
 
 .method public unregisterForIccStatusChanged(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2614,7 +2614,7 @@
 .end method
 
 .method public unregisterForInCallVoicePrivacyOff(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2628,7 +2628,7 @@
 .end method
 
 .method public unregisterForInCallVoicePrivacyOn(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2642,7 +2642,7 @@
 .end method
 
 .method public unregisterForLineControlInfo(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2656,7 +2656,7 @@
 .end method
 
 .method public unregisterForNotAvailable(Landroid/os/Handler;)V
-    .registers 4
+    .locals 2
     .parameter "h"
 
     .prologue
@@ -2666,7 +2666,7 @@
     monitor-enter v1
 
     .line 178
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/telephony/BaseCommands;->mNotAvailRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
@@ -2678,18 +2678,18 @@
     return-void
 
     .line 179
-    :catchall_a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_c
-    .catchall {:try_start_3 .. :try_end_c} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public unregisterForNumberInfo(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2703,7 +2703,7 @@
 .end method
 
 .method public unregisterForOffOrNotAvailable(Landroid/os/Handler;)V
-    .registers 4
+    .locals 2
     .parameter "h"
 
     .prologue
@@ -2713,7 +2713,7 @@
     monitor-enter v1
 
     .line 195
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/telephony/BaseCommands;->mOffOrNotAvailRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
@@ -2725,18 +2725,18 @@
     return-void
 
     .line 196
-    :catchall_a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_c
-    .catchall {:try_start_3 .. :try_end_c} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public unregisterForOn(Landroid/os/Handler;)V
-    .registers 4
+    .locals 2
     .parameter "h"
 
     .prologue
@@ -2746,7 +2746,7 @@
     monitor-enter v1
 
     .line 141
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/telephony/BaseCommands;->mOnRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
@@ -2758,18 +2758,18 @@
     return-void
 
     .line 142
-    :catchall_a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_c
-    .catchall {:try_start_3 .. :try_end_c} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public unregisterForRadioStateChanged(Landroid/os/Handler;)V
-    .registers 4
+    .locals 2
     .parameter "h"
 
     .prologue
@@ -2779,7 +2779,7 @@
     monitor-enter v1
 
     .line 124
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/telephony/BaseCommands;->mRadioStateChangedRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v0, p1}, Landroid/os/RegistrantList;->remove(Landroid/os/Handler;)V
@@ -2791,18 +2791,18 @@
     return-void
 
     .line 125
-    :catchall_a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_c
-    .catchall {:try_start_3 .. :try_end_c} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public unregisterForRedirectedNumberInfo(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2816,7 +2816,7 @@
 .end method
 
 .method public unregisterForResendIncallMute(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2830,7 +2830,7 @@
 .end method
 
 .method public unregisterForRilConnected(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2844,7 +2844,7 @@
 .end method
 
 .method public unregisterForRingbackTone(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2858,7 +2858,7 @@
 .end method
 
 .method public unregisterForSignalInfo(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2872,7 +2872,7 @@
 .end method
 
 .method public unregisterForT53AudioControlInfo(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2886,7 +2886,7 @@
 .end method
 
 .method public unregisterForT53ClirInfo(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2900,7 +2900,7 @@
 .end method
 
 .method public unregisterForVoiceNetworkStateChanged(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2914,7 +2914,7 @@
 .end method
 
 .method public unregisterForVoiceRadioTechChanged(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "h"
 
     .prologue
@@ -2928,7 +2928,7 @@
 .end method
 
 .method public unsetOnIccRefresh(Landroid/os/Handler;)V
-    .registers 2
+    .locals 0
     .parameter "h"
 
     .prologue

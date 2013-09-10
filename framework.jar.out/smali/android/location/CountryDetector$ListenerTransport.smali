@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/location/CountryListener;Landroid/os/Looper;)V
-    .registers 4
+    .locals 1
     .parameter "listener"
     .parameter "looper"
 
@@ -34,7 +34,7 @@
     iput-object p1, p0, Landroid/location/CountryDetector$ListenerTransport;->mListener:Landroid/location/CountryListener;
 
     .line 67
-    if-eqz p2, :cond_f
+    if-eqz p2, :cond_0
 
     .line 68
     new-instance v0, Landroid/os/Handler;
@@ -44,22 +44,22 @@
     iput-object v0, p0, Landroid/location/CountryDetector$ListenerTransport;->mHandler:Landroid/os/Handler;
 
     .line 72
-    :goto_e
+    :goto_0
     return-void
 
     .line 70
-    :cond_f
+    :cond_0
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Landroid/location/CountryDetector$ListenerTransport;->mHandler:Landroid/os/Handler;
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method static synthetic access$000(Landroid/location/CountryDetector$ListenerTransport;)Landroid/location/CountryListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public onCountryDetected(Landroid/location/Country;)V
-    .registers 4
+    .locals 2
     .parameter "country"
 
     .prologue

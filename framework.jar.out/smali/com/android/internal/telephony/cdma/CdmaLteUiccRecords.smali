@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/IccCard;Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;)V
-    .registers 5
+    .locals 1
     .parameter "card"
     .parameter "c"
     .parameter "ci"
@@ -74,7 +74,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -85,7 +85,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;[B)[B
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -97,7 +97,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)[B
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -108,7 +108,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -119,7 +119,7 @@
 .end method
 
 .method static synthetic access$1002(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -131,7 +131,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;[B)[B
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -143,7 +143,7 @@
 .end method
 
 .method static synthetic access$1102(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -155,7 +155,7 @@
 .end method
 
 .method static synthetic access$1202(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -167,7 +167,7 @@
 .end method
 
 .method static synthetic access$1300(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Landroid/os/AsyncResult;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -179,7 +179,7 @@
 .end method
 
 .method static synthetic access$202(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -191,7 +191,7 @@
 .end method
 
 .method static synthetic access$302(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -203,7 +203,7 @@
 .end method
 
 .method static synthetic access$402(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -215,7 +215,7 @@
 .end method
 
 .method static synthetic access$502(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -227,7 +227,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -238,7 +238,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -249,7 +249,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -260,7 +260,7 @@
 .end method
 
 .method static synthetic access$802(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -272,7 +272,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;I)I
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -286,7 +286,7 @@
 .end method
 
 .method private adjstMinDigits(I)I
-    .registers 3
+    .locals 1
     .parameter "digits"
 
     .prologue
@@ -296,37 +296,37 @@
     .line 321
     rem-int/lit8 v0, p1, 0xa
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     add-int/lit8 p1, p1, -0xa
 
     .line 322
-    :cond_8
+    :cond_0
     div-int/lit8 v0, p1, 0xa
 
     rem-int/lit8 v0, v0, 0xa
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_1
 
     add-int/lit8 p1, p1, -0x64
 
     .line 323
-    :cond_10
+    :cond_1
     div-int/lit8 v0, p1, 0x64
 
     rem-int/lit8 v0, v0, 0xa
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_2
 
     add-int/lit16 p1, p1, -0x3e8
 
     .line 324
-    :cond_18
+    :cond_2
     return p1
 .end method
 
 .method private findBestLanguage([B)Ljava/lang/String;
-    .registers 13
+    .locals 11
     .parameter "languages"
 
     .prologue
@@ -351,32 +351,32 @@
 
     .line 369
     .local v5, locales:[Ljava/lang/String;
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
-    if-nez v5, :cond_13
+    if-nez v5, :cond_2
 
-    :cond_11
+    :cond_0
     move-object v4, v6
 
     .line 387
-    :cond_12
-    :goto_12
+    :cond_1
+    :goto_0
     return-object v4
 
     .line 372
-    :cond_13
+    :cond_2
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_14
+    :goto_1
     add-int/lit8 v7, v2, 0x1
 
     array-length v8, p1
 
-    if-ge v7, v8, :cond_44
+    if-ge v7, v8, :cond_5
 
     .line 374
-    :try_start_19
+    :try_start_0
     new-instance v4, Ljava/lang/String;
 
     const/4 v7, 0x2
@@ -390,15 +390,15 @@
     const/4 v3, 0x0
 
     .local v3, j:I
-    :goto_22
+    :goto_2
     array-length v7, v5
 
-    if-ge v3, v7, :cond_42
+    if-ge v3, v7, :cond_4
 
     .line 376
     aget-object v7, v5, v3
 
-    if-eqz v7, :cond_3f
+    if-eqz v7, :cond_3
 
     aget-object v7, v5, v3
 
@@ -406,7 +406,7 @@
 
     move-result v7
 
-    if-lt v7, v10, :cond_3f
+    if-lt v7, v10, :cond_3
 
     aget-object v7, v5, v3
 
@@ -419,33 +419,33 @@
     move-result-object v7
 
     invoke-virtual {v7, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    :try_end_3c
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_19 .. :try_end_3c} :catch_46
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v7
 
-    if-nez v7, :cond_12
+    if-nez v7, :cond_1
 
     .line 375
-    :cond_3f
+    :cond_3
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_22
+    goto :goto_2
 
     .line 381
-    :cond_42
-    if-eqz v0, :cond_4c
+    :cond_4
+    if-eqz v0, :cond_6
 
     .end local v3           #j:I
     .end local v4           #lang:Ljava/lang/String;
-    :cond_44
+    :cond_5
     move-object v4, v6
 
     .line 387
-    goto :goto_12
+    goto :goto_0
 
     .line 382
-    :catch_46
+    :catch_0
     move-exception v1
 
     .line 383
@@ -456,14 +456,14 @@
 
     .line 372
     .end local v1           #e:Ljava/io/UnsupportedEncodingException;
-    :cond_4c
+    :cond_6
     add-int/lit8 v2, v2, 0x2
 
-    goto :goto_14
+    goto :goto_1
 .end method
 
 .method private onGetCSimEprlDone(Landroid/os/AsyncResult;)V
-    .registers 7
+    .locals 5
     .parameter "ar"
 
     .prologue
@@ -507,7 +507,7 @@
     .line 334
     array-length v2, v0
 
-    if-le v2, v4, :cond_38
+    if-le v2, v4, :cond_0
 
     .line 335
     const/4 v2, 0x2
@@ -534,7 +534,7 @@
 
     .line 338
     .end local v1           #prlId:I
-    :cond_38
+    :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -562,7 +562,7 @@
 .end method
 
 .method private setLocaleFromCsim()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 342
@@ -577,7 +577,7 @@
     move-result-object v2
 
     .line 346
-    if-nez v2, :cond_f
+    if-nez v2, :cond_0
 
     .line 347
     iget-object v3, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mEFpl:[B
@@ -587,8 +587,8 @@
     move-result-object v2
 
     .line 350
-    :cond_f
-    if-eqz v2, :cond_4c
+    :cond_0
+    if-eqz v2, :cond_2
 
     .line 352
     invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->getIMSI()Ljava/lang/String;
@@ -601,7 +601,7 @@
 
     .line 354
     .local v0, country:Ljava/lang/String;
-    if-eqz v1, :cond_26
+    if-eqz v1, :cond_1
 
     .line 355
     const/4 v3, 0x0
@@ -621,7 +621,7 @@
     move-result-object v0
 
     .line 358
-    :cond_26
+    :cond_1
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -660,22 +660,22 @@
     .line 363
     .end local v0           #country:Ljava/lang/String;
     .end local v1           #imsi:Ljava/lang/String;
-    :goto_4b
+    :goto_0
     return-void
 
     .line 361
-    :cond_4c
+    :cond_2
     const-string v3, "No suitable CSIM selected locale"
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->log(Ljava/lang/String;)V
 
-    goto :goto_4b
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected fetchSimRecords()V
-    .registers 8
+    .locals 7
 
     .prologue
     const/4 v6, 0x1
@@ -971,7 +971,7 @@
 .end method
 
 .method public getCsimSpnDisplayCondition()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 421
@@ -981,7 +981,7 @@
 .end method
 
 .method public getIsimRecords()Lcom/android/internal/telephony/ims/IsimRecords;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 426
@@ -991,7 +991,7 @@
 .end method
 
 .method public getMdn()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 401
@@ -1001,7 +1001,7 @@
 .end method
 
 .method public getMin()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 405
@@ -1011,7 +1011,7 @@
 .end method
 
 .method public getNid()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 413
@@ -1021,7 +1021,7 @@
 .end method
 
 .method public getPrlVersion()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 417
@@ -1031,7 +1031,7 @@
 .end method
 
 .method public getSid()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 409
@@ -1041,7 +1041,7 @@
 .end method
 
 .method public isProvisioned()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v0, 0x1
@@ -1055,26 +1055,26 @@
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_1
 
     .line 449
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return v0
 
     .line 441
-    :cond_c
+    :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/IccRecords;->mParentCard:Lcom/android/internal/telephony/IccCard;
 
-    if-nez v2, :cond_12
+    if-nez v2, :cond_2
 
     move v0, v1
 
     .line 442
-    goto :goto_b
+    goto :goto_0
 
     .line 445
-    :cond_12
+    :cond_2
     iget-object v2, p0, Lcom/android/internal/telephony/IccRecords;->mParentCard:Lcom/android/internal/telephony/IccCard;
 
     sget-object v3, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_CSIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -1083,25 +1083,25 @@
 
     move-result v2
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mMdn:Ljava/lang/String;
 
-    if-eqz v2, :cond_24
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->mMin:Ljava/lang/String;
 
-    if-nez v2, :cond_b
+    if-nez v2, :cond_0
 
-    :cond_24
+    :cond_3
     move v0, v1
 
     .line 447
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method protected log(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "s"
 
     .prologue
@@ -1133,7 +1133,7 @@
 .end method
 
 .method protected loge(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "s"
 
     .prologue
@@ -1165,7 +1165,7 @@
 .end method
 
 .method protected onAllRecordsLoaded()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 262
@@ -1179,7 +1179,7 @@
 .end method
 
 .method protected onRecordLoaded()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 250
@@ -1192,27 +1192,27 @@
     .line 252
     iget v0, p0, Lcom/android/internal/telephony/IccRecords;->recordsToLoad:I
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_1
 
     iget-boolean v0, p0, Lcom/android/internal/telephony/IccRecords;->recordsRequested:Z
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_13
+    if-ne v0, v1, :cond_1
 
     .line 253
     invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CdmaLteUiccRecords;->onAllRecordsLoaded()V
 
     .line 258
-    :cond_12
-    :goto_12
+    :cond_0
+    :goto_0
     return-void
 
     .line 254
-    :cond_13
+    :cond_1
     iget v0, p0, Lcom/android/internal/telephony/IccRecords;->recordsToLoad:I
 
-    if-gez v0, :cond_12
+    if-gez v0, :cond_0
 
     .line 255
     const-string v0, "GSM"
@@ -1226,5 +1226,5 @@
 
     iput v0, p0, Lcom/android/internal/telephony/IccRecords;->recordsToLoad:I
 
-    goto :goto_12
+    goto :goto_0
 .end method

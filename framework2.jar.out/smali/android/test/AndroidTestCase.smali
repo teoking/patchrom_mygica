@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 30
@@ -23,7 +23,7 @@
 
 # virtual methods
 .method public assertActivityRequiresPermission(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 8
+    .locals 4
     .parameter "packageName"
     .parameter "className"
     .parameter "permission"
@@ -44,7 +44,7 @@
     invoke-virtual {v1, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 96
-    :try_start_d
+    :try_start_0
     invoke-virtual {p0}, Landroid/test/AndroidTestCase;->getContext()Landroid/content/Context;
 
     move-result-object v2
@@ -71,15 +71,15 @@
     move-result-object v2
 
     invoke-static {v2}, Landroid/test/AndroidTestCase;->fail(Ljava/lang/String;)V
-    :try_end_2a
-    .catch Ljava/lang/SecurityException; {:try_start_d .. :try_end_2a} :catch_2b
+    :try_end_0
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 103
-    :goto_2a
+    :goto_0
     return-void
 
     .line 98
-    :catch_2b
+    :catch_0
     move-exception v0
 
     .line 99
@@ -127,11 +127,11 @@
 
     invoke-static {v2, v3}, Landroid/test/AndroidTestCase;->assertTrue(Ljava/lang/String;Z)V
 
-    goto :goto_2a
+    goto :goto_0
 .end method
 
 .method public assertReadingContentUriRequiresPermission(Landroid/net/Uri;Ljava/lang/String;)V
-    .registers 10
+    .locals 7
     .parameter "uri"
     .parameter "permission"
 
@@ -178,15 +178,15 @@
     move-result-object v0
 
     invoke-static {v0}, Landroid/test/AndroidTestCase;->fail(Ljava/lang/String;)V
-    :try_end_26
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_26} :catch_27
+    :try_end_0
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 122
-    :goto_26
+    :goto_0
     return-void
 
     .line 117
-    :catch_27
+    :catch_0
     move-exception v6
 
     .line 118
@@ -234,11 +234,11 @@
 
     invoke-static {v0, v1}, Landroid/test/AndroidTestCase;->assertTrue(Ljava/lang/String;Z)V
 
-    goto :goto_26
+    goto :goto_0
 .end method
 
 .method public assertWritingContentUriRequiresPermission(Landroid/net/Uri;Ljava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "uri"
     .parameter "permission"
 
@@ -279,15 +279,15 @@
     move-result-object v1
 
     invoke-static {v1}, Landroid/test/AndroidTestCase;->fail(Ljava/lang/String;)V
-    :try_end_26
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_26} :catch_27
+    :try_end_0
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 141
-    :goto_26
+    :goto_0
     return-void
 
     .line 136
-    :catch_27
+    :catch_0
     move-exception v0
 
     .line 137
@@ -335,11 +335,11 @@
 
     invoke-static {v1, v2}, Landroid/test/AndroidTestCase;->assertTrue(Ljava/lang/String;Z)V
 
-    goto :goto_26
+    goto :goto_0
 .end method
 
 .method public getContext()Landroid/content/Context;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 55
@@ -349,7 +349,7 @@
 .end method
 
 .method public getTestContext()Landroid/content/Context;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 74
@@ -359,7 +359,7 @@
 .end method
 
 .method protected scrubClass(Ljava/lang/Class;)V
-    .registers 11
+    .locals 9
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -397,8 +397,8 @@
     const/4 v5, 0x0
 
     .local v5, i$:I
-    :goto_b
-    if-ge v5, v6, :cond_44
+    :goto_0
+    if-ge v5, v6, :cond_1
 
     aget-object v2, v0, v5
 
@@ -414,7 +414,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_38
+    if-eqz v7, :cond_0
 
     invoke-virtual {v2}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
@@ -424,28 +424,28 @@
 
     move-result v7
 
-    if-nez v7, :cond_38
+    if-nez v7, :cond_0
 
     .line 160
     const/4 v7, 0x1
 
-    :try_start_24
+    :try_start_0
     invoke-virtual {v2, v7}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
     .line 161
     const/4 v7, 0x0
 
     invoke-virtual {v2, p0, v7}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_2b
-    .catch Ljava/lang/Exception; {:try_start_24 .. :try_end_2b} :catch_3b
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 166
-    :goto_2b
+    :goto_1
     invoke-virtual {v2, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v7
 
-    if-eqz v7, :cond_38
+    if-eqz v7, :cond_0
 
     .line 167
     const-string v7, "TestCase"
@@ -455,13 +455,13 @@
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 156
-    :cond_38
+    :cond_0
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 162
-    :catch_3b
+    :catch_0
     move-exception v1
 
     .line 163
@@ -472,18 +472,18 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2b
+    goto :goto_1
 
     .line 171
     .end local v1           #e:Ljava/lang/Exception;
     .end local v2           #field:Ljava/lang/reflect/Field;
     .end local v3           #fieldClass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :cond_44
+    :cond_1
     return-void
 .end method
 
 .method public setContext(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -495,7 +495,7 @@
 .end method
 
 .method public setTestContext(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -507,7 +507,7 @@
 .end method
 
 .method protected setUp()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -523,7 +523,7 @@
 .end method
 
 .method protected tearDown()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -539,7 +539,7 @@
 .end method
 
 .method public testAndroidTestCaseSetupProperly()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 46

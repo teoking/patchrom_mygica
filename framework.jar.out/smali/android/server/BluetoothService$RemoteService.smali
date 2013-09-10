@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/os/ParcelUuid;)V
-    .registers 3
+    .locals 0
     .parameter "address"
     .parameter "uuid"
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
     .parameter "o"
 
     .prologue
@@ -52,7 +52,7 @@
     .line 189
     instance-of v2, p1, Landroid/server/BluetoothService$RemoteService;
 
-    if-eqz v2, :cond_1d
+    if-eqz v2, :cond_0
 
     move-object v0, p1
 
@@ -69,7 +69,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1d
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Landroid/server/BluetoothService$RemoteService;->uuid:Landroid/os/ParcelUuid;
 
@@ -79,18 +79,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1d
+    if-eqz v2, :cond_0
 
     const/4 v1, 0x1
 
     .line 193
     .end local v0           #service:Landroid/server/BluetoothService$RemoteService;
-    :cond_1d
+    :cond_0
     return v1
 .end method
 
 .method public hashCode()I
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v2, 0x0
@@ -102,11 +102,11 @@
     .local v0, hash:I
     iget-object v1, p0, Landroid/server/BluetoothService$RemoteService;->address:Ljava/lang/String;
 
-    if-nez v1, :cond_12
+    if-nez v1, :cond_0
 
     move v1, v2
 
-    :goto_7
+    :goto_0
     add-int/lit8 v0, v1, 0x1f
 
     .line 200
@@ -114,31 +114,31 @@
 
     iget-object v3, p0, Landroid/server/BluetoothService$RemoteService;->uuid:Landroid/os/ParcelUuid;
 
-    if-nez v3, :cond_19
+    if-nez v3, :cond_1
 
-    :goto_f
+    :goto_1
     add-int v0, v1, v2
 
     .line 201
     return v0
 
     .line 199
-    :cond_12
+    :cond_0
     iget-object v1, p0, Landroid/server/BluetoothService$RemoteService;->address:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
 
     move-result v1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 200
-    :cond_19
+    :cond_1
     iget-object v2, p0, Landroid/server/BluetoothService$RemoteService;->uuid:Landroid/os/ParcelUuid;
 
     invoke-virtual {v2}, Landroid/os/ParcelUuid;->hashCode()I
 
     move-result v2
 
-    goto :goto_f
+    goto :goto_1
 .end method

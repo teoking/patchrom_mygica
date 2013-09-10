@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 41
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 32
@@ -64,7 +64,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/lang/Object;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 32
@@ -74,7 +74,7 @@
 .end method
 
 .method static synthetic access$100()Ljava/util/HashMap;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 32
@@ -86,7 +86,7 @@
 
 # virtual methods
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .registers 7
+    .locals 5
     .parameter "intent"
 
     .prologue
@@ -96,7 +96,7 @@
     monitor-enter v4
 
     .line 237
-    :try_start_3
+    :try_start_0
     new-instance v1, Landroid/content/Intent$FilterComparison;
 
     invoke-direct {v1, p1}, Landroid/content/Intent$FilterComparison;-><init>(Landroid/content/Intent;)V
@@ -117,7 +117,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_26
+    if-nez v3, :cond_0
 
     .line 241
     invoke-virtual {p0, p1}, Landroid/widget/RemoteViewsService;->onGetViewFactory(Landroid/content/Intent;)Landroid/widget/RemoteViewsService$RemoteViewsFactory;
@@ -136,7 +136,7 @@
     const/4 v2, 0x0
 
     .line 249
-    :goto_1f
+    :goto_0
     new-instance v3, Landroid/widget/RemoteViewsService$RemoteViewsFactoryAdapter;
 
     invoke-direct {v3, v0, v2}, Landroid/widget/RemoteViewsService$RemoteViewsFactoryAdapter;-><init>(Landroid/widget/RemoteViewsService$RemoteViewsFactory;Z)V
@@ -146,7 +146,7 @@
     return-object v3
 
     .line 246
-    :cond_26
+    :cond_0
     sget-object v3, Landroid/widget/RemoteViewsService;->sRemoteViewFactories:Ljava/util/HashMap;
 
     invoke-virtual {v3, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -160,18 +160,18 @@
     .restart local v0       #factory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
     const/4 v2, 0x1
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 250
     .end local v0           #factory:Landroid/widget/RemoteViewsService$RemoteViewsFactory;
     .end local v1           #fc:Landroid/content/Intent$FilterComparison;
     .end local v2           #isCreated:Z
-    :catchall_30
+    :catchall_0
     move-exception v3
 
     monitor-exit v4
-    :try_end_32
-    .catchall {:try_start_3 .. :try_end_32} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v3
 .end method

@@ -35,7 +35,7 @@
 
 # direct methods
 .method protected constructor <init>(IILjava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter "uniqueId"
     .parameter "type"
     .parameter "message"
@@ -63,18 +63,18 @@
     iput p2, p0, Landroid/drm/DrmEvent;->mType:I
 
     .line 87
-    if-eqz p3, :cond_16
+    if-eqz p3, :cond_0
 
     .line 88
     iput-object p3, p0, Landroid/drm/DrmEvent;->mMessage:Ljava/lang/String;
 
     .line 90
-    :cond_16
+    :cond_0
     return-void
 .end method
 
 .method protected constructor <init>(IILjava/lang/String;Ljava/util/HashMap;)V
-    .registers 6
+    .locals 1
     .parameter "uniqueId"
     .parameter "type"
     .parameter "message"
@@ -115,27 +115,27 @@
     iput p2, p0, Landroid/drm/DrmEvent;->mType:I
 
     .line 67
-    if-eqz p3, :cond_16
+    if-eqz p3, :cond_0
 
     .line 68
     iput-object p3, p0, Landroid/drm/DrmEvent;->mMessage:Ljava/lang/String;
 
     .line 71
-    :cond_16
-    if-eqz p4, :cond_1a
+    :cond_0
+    if-eqz p4, :cond_1
 
     .line 72
     iput-object p4, p0, Landroid/drm/DrmEvent;->mAttributes:Ljava/util/HashMap;
 
     .line 74
-    :cond_1a
+    :cond_1
     return-void
 .end method
 
 
 # virtual methods
 .method public getAttribute(Ljava/lang/String;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -150,7 +150,7 @@
 .end method
 
 .method public getMessage()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 116
@@ -160,7 +160,7 @@
 .end method
 
 .method public getType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 107
@@ -170,7 +170,7 @@
 .end method
 
 .method public getUniqueId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 98

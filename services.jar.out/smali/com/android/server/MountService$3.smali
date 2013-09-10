@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/MountService;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 8
+    .locals 7
 
     .prologue
     const/4 v5, 0x1
@@ -52,7 +52,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2d
+    if-eqz v2, :cond_1
 
     .line 872
     const-string v2, "MountService"
@@ -86,26 +86,28 @@
 
     const-string v4, "ums"
 
+    #calls: Lcom/android/server/MountService;->doShareUnshareVolume(Ljava/lang/String;Ljava/lang/String;Z)V
     invoke-static {v2, v3, v4, v5}, Lcom/android/server/MountService;->access$200(Lcom/android/server/MountService;Ljava/lang/String;Ljava/lang/String;Z)V
 
     .line 884
-    :cond_2c
-    :goto_2c
+    :cond_0
+    :goto_0
     return-void
 
     .line 877
-    :cond_2d
-    :try_start_2d
+    :cond_1
+    :try_start_0
     iget-object v2, p0, Lcom/android/server/MountService$3;->this$0:Lcom/android/server/MountService;
 
     iget-object v3, p0, Lcom/android/server/MountService$3;->val$path:Ljava/lang/String;
 
+    #calls: Lcom/android/server/MountService;->doMountVolume(Ljava/lang/String;)I
     invoke-static {v2, v3}, Lcom/android/server/MountService;->access$1100(Lcom/android/server/MountService;Ljava/lang/String;)I
 
     move-result v1
 
     .local v1, rc:I
-    if-eqz v1, :cond_2c
+    if-eqz v1, :cond_0
 
     .line 878
     const-string v2, "MountService"
@@ -129,14 +131,14 @@
     move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_4c
-    .catch Ljava/lang/Exception; {:try_start_2d .. :try_end_4c} :catch_4d
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_2c
+    goto :goto_0
 
     .line 880
     .end local v1           #rc:I
-    :catch_4d
+    :catch_0
     move-exception v0
 
     .line 881
@@ -147,5 +149,5 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_2c
+    goto :goto_0
 .end method

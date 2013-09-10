@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/multiwaveview/MultiWaveView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .registers 5
+    .locals 3
     .parameter "animator"
 
     .prologue
@@ -44,37 +44,43 @@
     .line 187
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/MultiWaveView$4;->this$0:Lcom/android/internal/widget/multiwaveview/MultiWaveView;
 
+    #getter for: Lcom/android/internal/widget/multiwaveview/MultiWaveView;->mNewTargetResources:I
     invoke-static {v0}, Lcom/android/internal/widget/multiwaveview/MultiWaveView;->access$600(Lcom/android/internal/widget/multiwaveview/MultiWaveView;)I
 
     move-result v0
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_0
 
     .line 188
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/MultiWaveView$4;->this$0:Lcom/android/internal/widget/multiwaveview/MultiWaveView;
 
     iget-object v1, p0, Lcom/android/internal/widget/multiwaveview/MultiWaveView$4;->this$0:Lcom/android/internal/widget/multiwaveview/MultiWaveView;
 
+    #getter for: Lcom/android/internal/widget/multiwaveview/MultiWaveView;->mNewTargetResources:I
     invoke-static {v1}, Lcom/android/internal/widget/multiwaveview/MultiWaveView;->access$600(Lcom/android/internal/widget/multiwaveview/MultiWaveView;)I
 
     move-result v1
 
+    #calls: Lcom/android/internal/widget/multiwaveview/MultiWaveView;->internalSetTargetResources(I)V
     invoke-static {v0, v1}, Lcom/android/internal/widget/multiwaveview/MultiWaveView;->access$700(Lcom/android/internal/widget/multiwaveview/MultiWaveView;I)V
 
     .line 189
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/MultiWaveView$4;->this$0:Lcom/android/internal/widget/multiwaveview/MultiWaveView;
 
+    #setter for: Lcom/android/internal/widget/multiwaveview/MultiWaveView;->mNewTargetResources:I
     invoke-static {v0, v2}, Lcom/android/internal/widget/multiwaveview/MultiWaveView;->access$602(Lcom/android/internal/widget/multiwaveview/MultiWaveView;I)I
 
     .line 190
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/MultiWaveView$4;->this$0:Lcom/android/internal/widget/multiwaveview/MultiWaveView;
 
+    #calls: Lcom/android/internal/widget/multiwaveview/MultiWaveView;->hideTargets(ZZ)V
     invoke-static {v0, v2, v2}, Lcom/android/internal/widget/multiwaveview/MultiWaveView;->access$800(Lcom/android/internal/widget/multiwaveview/MultiWaveView;ZZ)V
 
     .line 192
-    :cond_1e
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/MultiWaveView$4;->this$0:Lcom/android/internal/widget/multiwaveview/MultiWaveView;
 
+    #setter for: Lcom/android/internal/widget/multiwaveview/MultiWaveView;->mAnimatingTargets:Z
     invoke-static {v0, v2}, Lcom/android/internal/widget/multiwaveview/MultiWaveView;->access$902(Lcom/android/internal/widget/multiwaveview/MultiWaveView;Z)Z
 
     .line 193

@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(IILjava/nio/ByteBuffer;)V
-    .registers 4
+    .locals 0
     .parameter "width"
     .parameter "height"
     .parameter "data"
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public getData()Ljava/nio/ByteBuffer;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 139
@@ -59,7 +59,7 @@
 .end method
 
 .method public getHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 133
@@ -69,7 +69,7 @@
 .end method
 
 .method public getWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 127

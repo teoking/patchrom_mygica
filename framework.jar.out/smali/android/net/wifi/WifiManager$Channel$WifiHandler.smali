@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/wifi/WifiManager$Channel;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "looper"
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 7
+    .locals 5
     .parameter "message"
 
     .prologue
@@ -55,28 +55,30 @@
     .local v0, listener:Ljava/lang/Object;
     iget v2, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v2, :sswitch_data_70
+    sparse-switch v2, :sswitch_data_0
 
     .line 1287
     .end local v0           #listener:Ljava/lang/Object;
-    :cond_d
-    :goto_d
+    :cond_0
+    :goto_0
     return-void
 
     .line 1238
     .restart local v0       #listener:Ljava/lang/Object;
-    :sswitch_e
+    :sswitch_0
     iget-object v2, p0, Landroid/net/wifi/WifiManager$Channel$WifiHandler;->this$0:Landroid/net/wifi/WifiManager$Channel;
 
+    #getter for: Landroid/net/wifi/WifiManager$Channel;->mChannelListener:Landroid/net/wifi/WifiManager$ChannelListener;
     invoke-static {v2}, Landroid/net/wifi/WifiManager$Channel;->access$000(Landroid/net/wifi/WifiManager$Channel;)Landroid/net/wifi/WifiManager$ChannelListener;
 
     move-result-object v2
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_0
 
     .line 1239
     iget-object v2, p0, Landroid/net/wifi/WifiManager$Channel$WifiHandler;->this$0:Landroid/net/wifi/WifiManager$Channel;
 
+    #getter for: Landroid/net/wifi/WifiManager$Channel;->mChannelListener:Landroid/net/wifi/WifiManager$ChannelListener;
     invoke-static {v2}, Landroid/net/wifi/WifiManager$Channel;->access$000(Landroid/net/wifi/WifiManager$Channel;)Landroid/net/wifi/WifiManager$ChannelListener;
 
     move-result-object v2
@@ -88,13 +90,14 @@
 
     const/4 v3, 0x0
 
+    #setter for: Landroid/net/wifi/WifiManager$Channel;->mChannelListener:Landroid/net/wifi/WifiManager$ChannelListener;
     invoke-static {v2, v3}, Landroid/net/wifi/WifiManager$Channel;->access$002(Landroid/net/wifi/WifiManager$Channel;Landroid/net/wifi/WifiManager$ChannelListener;)Landroid/net/wifi/WifiManager$ChannelListener;
 
-    goto :goto_d
+    goto :goto_0
 
     .line 1249
-    :sswitch_26
-    if-eqz v0, :cond_d
+    :sswitch_1
+    if-eqz v0, :cond_0
 
     .line 1250
     check-cast v0, Landroid/net/wifi/WifiManager$ActionListener;
@@ -104,12 +107,12 @@
 
     invoke-interface {v0, v2}, Landroid/net/wifi/WifiManager$ActionListener;->onFailure(I)V
 
-    goto :goto_d
+    goto :goto_0
 
     .line 1259
     .restart local v0       #listener:Ljava/lang/Object;
-    :sswitch_30
-    if-eqz v0, :cond_d
+    :sswitch_2
+    if-eqz v0, :cond_0
 
     .line 1260
     check-cast v0, Landroid/net/wifi/WifiManager$ActionListener;
@@ -117,12 +120,12 @@
     .end local v0           #listener:Ljava/lang/Object;
     invoke-interface {v0}, Landroid/net/wifi/WifiManager$ActionListener;->onSuccess()V
 
-    goto :goto_d
+    goto :goto_0
 
     .line 1264
     .restart local v0       #listener:Ljava/lang/Object;
-    :sswitch_38
-    if-eqz v0, :cond_d
+    :sswitch_3
+    if-eqz v0, :cond_0
 
     .line 1265
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -142,6 +145,7 @@
     .line 1268
     iget-object v2, p0, Landroid/net/wifi/WifiManager$Channel$WifiHandler;->this$0:Landroid/net/wifi/WifiManager$Channel;
 
+    #getter for: Landroid/net/wifi/WifiManager$Channel;->mListenerMapLock:Ljava/lang/Object;
     invoke-static {v2}, Landroid/net/wifi/WifiManager$Channel;->access$100(Landroid/net/wifi/WifiManager$Channel;)Ljava/lang/Object;
 
     move-result-object v3
@@ -149,9 +153,10 @@
     monitor-enter v3
 
     .line 1269
-    :try_start_4d
+    :try_start_0
     iget-object v2, p0, Landroid/net/wifi/WifiManager$Channel$WifiHandler;->this$0:Landroid/net/wifi/WifiManager$Channel;
 
+    #getter for: Landroid/net/wifi/WifiManager$Channel;->mListenerMap:Landroid/util/SparseArray;
     invoke-static {v2}, Landroid/net/wifi/WifiManager$Channel;->access$200(Landroid/net/wifi/WifiManager$Channel;)Landroid/util/SparseArray;
 
     move-result-object v2
@@ -163,21 +168,21 @@
     .line 1270
     monitor-exit v3
 
-    goto :goto_d
+    goto :goto_0
 
-    :catchall_5a
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_5c
-    .catchall {:try_start_4d .. :try_end_5c} :catchall_5a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 
     .line 1274
     .end local v1           #result:Landroid/net/wifi/WpsResult;
-    :sswitch_5d
-    if-eqz v0, :cond_d
+    :sswitch_4
+    if-eqz v0, :cond_0
 
     .line 1275
     check-cast v0, Landroid/net/wifi/WifiManager$WpsListener;
@@ -185,12 +190,12 @@
     .end local v0           #listener:Ljava/lang/Object;
     invoke-interface {v0}, Landroid/net/wifi/WifiManager$WpsListener;->onCompletion()V
 
-    goto :goto_d
+    goto :goto_0
 
     .line 1279
     .restart local v0       #listener:Ljava/lang/Object;
-    :sswitch_65
-    if-eqz v0, :cond_d
+    :sswitch_5
+    if-eqz v0, :cond_0
 
     .line 1280
     check-cast v0, Landroid/net/wifi/WifiManager$WpsListener;
@@ -200,26 +205,26 @@
 
     invoke-interface {v0, v2}, Landroid/net/wifi/WifiManager$WpsListener;->onFailure(I)V
 
-    goto :goto_d
+    goto :goto_0
 
     .line 1236
     nop
 
-    :sswitch_data_70
+    :sswitch_data_0
     .sparse-switch
-        0x11004 -> :sswitch_e
-        0x25002 -> :sswitch_26
-        0x25003 -> :sswitch_30
-        0x25005 -> :sswitch_26
-        0x25006 -> :sswitch_30
-        0x25008 -> :sswitch_26
-        0x25009 -> :sswitch_30
-        0x2500b -> :sswitch_38
-        0x2500c -> :sswitch_65
-        0x2500d -> :sswitch_5d
-        0x2500f -> :sswitch_26
-        0x25010 -> :sswitch_30
-        0x25012 -> :sswitch_26
-        0x25013 -> :sswitch_30
+        0x11004 -> :sswitch_0
+        0x25002 -> :sswitch_1
+        0x25003 -> :sswitch_2
+        0x25005 -> :sswitch_1
+        0x25006 -> :sswitch_2
+        0x25008 -> :sswitch_1
+        0x25009 -> :sswitch_2
+        0x2500b -> :sswitch_3
+        0x2500c -> :sswitch_5
+        0x2500d -> :sswitch_4
+        0x2500f -> :sswitch_1
+        0x25010 -> :sswitch_2
+        0x25012 -> :sswitch_1
+        0x25013 -> :sswitch_2
     .end sparse-switch
 .end method

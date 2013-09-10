@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 44
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "color"
 
     .prologue
@@ -50,7 +50,7 @@
 .end method
 
 .method private constructor <init>(Landroid/graphics/drawable/ColorDrawable$ColorState;)V
-    .registers 3
+    .locals 1
     .parameter "state"
 
     .prologue
@@ -76,7 +76,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/graphics/drawable/ColorDrawable$ColorState;Landroid/graphics/drawable/ColorDrawable$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .registers 4
+    .locals 2
     .parameter "canvas"
 
     .prologue
@@ -101,7 +101,7 @@
 
     ushr-int/lit8 v0, v0, 0x18
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     .line 69
     iget-object v0, p0, Landroid/graphics/drawable/ColorDrawable;->mPaint:Landroid/graphics/Paint;
@@ -122,12 +122,12 @@
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->drawRect(Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
     .line 72
-    :cond_1a
+    :cond_0
     return-void
 .end method
 
 .method public getAlpha()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 102
@@ -141,7 +141,7 @@
 .end method
 
 .method public getChangingConfigurations()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 63
@@ -159,7 +159,7 @@
 .end method
 
 .method public getColor()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 80
@@ -171,7 +171,7 @@
 .end method
 
 .method public getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 155
@@ -190,7 +190,7 @@
 .end method
 
 .method public getOpacity()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 130
@@ -200,38 +200,38 @@
 
     ushr-int/lit8 v0, v0, 0x18
 
-    sparse-switch v0, :sswitch_data_10
+    sparse-switch v0, :sswitch_data_0
 
     .line 136
     const/4 v0, -0x3
 
-    :goto_a
+    :goto_0
     return v0
 
     .line 132
-    :sswitch_b
+    :sswitch_0
     const/4 v0, -0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 134
-    :sswitch_d
+    :sswitch_1
     const/4 v0, -0x2
 
-    goto :goto_a
+    goto :goto_0
 
     .line 130
     nop
 
-    :sswitch_data_10
+    :sswitch_data_0
     .sparse-switch
-        0x0 -> :sswitch_d
-        0xff -> :sswitch_b
+        0x0 -> :sswitch_1
+        0xff -> :sswitch_0
     .end sparse-switch
 .end method
 
 .method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)V
-    .registers 8
+    .locals 4
     .parameter "r"
     .parameter "parser"
     .parameter "attrs"
@@ -284,7 +284,7 @@
 .end method
 
 .method public setAlpha(I)V
-    .registers 8
+    .locals 6
     .parameter "alpha"
 
     .prologue
@@ -335,18 +335,18 @@
 
     iget v3, v3, Landroid/graphics/drawable/ColorDrawable$ColorState;->mUseColor:I
 
-    if-eq v1, v3, :cond_29
+    if-eq v1, v3, :cond_0
 
     .line 117
     invoke-virtual {p0}, Landroid/graphics/drawable/ColorDrawable;->invalidateSelf()V
 
     .line 119
-    :cond_29
+    :cond_0
     return-void
 .end method
 
 .method public setColor(I)V
-    .registers 4
+    .locals 2
     .parameter "color"
 
     .prologue
@@ -355,16 +355,16 @@
 
     iget v0, v0, Landroid/graphics/drawable/ColorDrawable$ColorState;->mBaseColor:I
 
-    if-ne v0, p1, :cond_c
+    if-ne v0, p1, :cond_0
 
     iget-object v0, p0, Landroid/graphics/drawable/ColorDrawable;->mState:Landroid/graphics/drawable/ColorDrawable$ColorState;
 
     iget v0, v0, Landroid/graphics/drawable/ColorDrawable$ColorState;->mUseColor:I
 
-    if-eq v0, p1, :cond_17
+    if-eq v0, p1, :cond_1
 
     .line 91
-    :cond_c
+    :cond_0
     invoke-virtual {p0}, Landroid/graphics/drawable/ColorDrawable;->invalidateSelf()V
 
     .line 92
@@ -377,12 +377,12 @@
     iput p1, v0, Landroid/graphics/drawable/ColorDrawable$ColorState;->mBaseColor:I
 
     .line 94
-    :cond_17
+    :cond_1
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
-    .registers 2
+    .locals 0
     .parameter "colorFilter"
 
     .prologue

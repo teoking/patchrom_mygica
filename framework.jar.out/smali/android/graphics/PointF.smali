@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 109
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 31
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(FF)V
-    .registers 3
+    .locals 0
     .parameter "x"
     .parameter "y"
 
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/Point;)V
-    .registers 3
+    .locals 1
     .parameter "p"
 
     .prologue
@@ -96,7 +96,7 @@
 .end method
 
 .method public static length(FF)F
-    .registers 4
+    .locals 2
     .parameter "x"
     .parameter "y"
 
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 95
@@ -128,7 +128,7 @@
 .end method
 
 .method public final equals(FF)Z
-    .registers 4
+    .locals 1
     .parameter "x"
     .parameter "y"
 
@@ -138,27 +138,27 @@
 
     cmpl-float v0, v0, p1
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     iget v0, p0, Landroid/graphics/PointF;->y:F
 
     cmpl-float v0, v0, p2
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public final length()F
-    .registers 3
+    .locals 2
 
     .prologue
     .line 80
@@ -174,7 +174,7 @@
 .end method
 
 .method public final negate()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60
@@ -196,7 +196,7 @@
 .end method
 
 .method public final offset(FF)V
-    .registers 4
+    .locals 1
     .parameter "dx"
     .parameter "dy"
 
@@ -220,7 +220,7 @@
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -243,7 +243,7 @@
 .end method
 
 .method public final set(FF)V
-    .registers 3
+    .locals 0
     .parameter "x"
     .parameter "y"
 
@@ -259,7 +259,7 @@
 .end method
 
 .method public final set(Landroid/graphics/PointF;)V
-    .registers 3
+    .locals 1
     .parameter "p"
 
     .prologue
@@ -278,7 +278,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 

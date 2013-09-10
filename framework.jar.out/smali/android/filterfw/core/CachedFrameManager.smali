@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -56,7 +56,7 @@
 .end method
 
 .method private dropOldestFrame()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 123
@@ -119,7 +119,7 @@
 .end method
 
 .method private findAvailableFrame(Landroid/filterfw/core/FrameFormat;IJ)Landroid/filterfw/core/Frame;
-    .registers 12
+    .locals 7
     .parameter "format"
     .parameter "bindingType"
     .parameter "bindingId"
@@ -131,7 +131,7 @@
     monitor-enter v4
 
     .line 133
-    :try_start_3
+    :try_start_0
     iget-object v3, p0, Landroid/filterfw/core/CachedFrameManager;->mAvailableFrames:Ljava/util/SortedMap;
 
     invoke-interface {v3}, Ljava/util/SortedMap;->entrySet()Ljava/util/Set;
@@ -143,12 +143,12 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :cond_d
+    :cond_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_56
+    if-eqz v3, :cond_2
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -174,16 +174,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_0
 
     .line 138
     invoke-virtual {v1}, Landroid/filterfw/core/Frame;->getBindingType()I
 
     move-result v3
 
-    if-ne p2, v3, :cond_d
+    if-ne p2, v3, :cond_0
 
-    if-eqz p2, :cond_39
+    if-eqz p2, :cond_1
 
     invoke-virtual {v1}, Landroid/filterfw/core/Frame;->getBindingId()J
 
@@ -191,10 +191,10 @@
 
     cmp-long v3, p3, v5
 
-    if-nez v3, :cond_d
+    if-nez v3, :cond_0
 
     .line 142
-    :cond_39
+    :cond_1
     invoke-super {p0, v1}, Landroid/filterfw/core/SimpleFrameManager;->retainFrame(Landroid/filterfw/core/Frame;)Landroid/filterfw/core/Frame;
 
     .line 143
@@ -229,32 +229,32 @@
     .line 152
     .end local v0           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Integer;Landroid/filterfw/core/Frame;>;"
     .end local v1           #frame:Landroid/filterfw/core/Frame;
-    :goto_55
+    :goto_0
     return-object v1
 
     .line 151
-    :cond_56
+    :cond_2
     monitor-exit v4
 
     .line 152
     const/4 v1, 0x0
 
-    goto :goto_55
+    goto :goto_0
 
     .line 151
     .end local v2           #i$:Ljava/util/Iterator;
-    :catchall_59
+    :catchall_0
     move-exception v3
 
     monitor-exit v4
-    :try_end_5b
-    .catchall {:try_start_3 .. :try_end_5b} :catchall_59
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v3
 .end method
 
 .method private storeFrame(Landroid/filterfw/core/Frame;)Z
-    .registers 7
+    .locals 5
     .parameter "frame"
 
     .prologue
@@ -264,7 +264,7 @@
     monitor-enter v3
 
     .line 101
-    :try_start_3
+    :try_start_0
     invoke-virtual {p1}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v2
@@ -277,7 +277,7 @@
     .local v0, frameSize:I
     iget v2, p0, Landroid/filterfw/core/CachedFrameManager;->mStorageCapacity:I
 
-    if-le v0, v2, :cond_12
+    if-le v0, v2, :cond_0
 
     .line 103
     const/4 v2, 0x0
@@ -285,21 +285,21 @@
     monitor-exit v3
 
     .line 118
-    :goto_11
+    :goto_0
     return v2
 
     .line 107
-    :cond_12
+    :cond_0
     iget v2, p0, Landroid/filterfw/core/CachedFrameManager;->mStorageSize:I
 
     add-int v1, v2, v0
 
     .line 108
     .local v1, newStorageSize:I
-    :goto_16
+    :goto_1
     iget v2, p0, Landroid/filterfw/core/CachedFrameManager;->mStorageCapacity:I
 
-    if-le v1, v2, :cond_22
+    if-le v1, v2, :cond_1
 
     .line 109
     invoke-direct {p0}, Landroid/filterfw/core/CachedFrameManager;->dropOldestFrame()V
@@ -309,10 +309,10 @@
 
     add-int v1, v2, v0
 
-    goto :goto_16
+    goto :goto_1
 
     .line 114
-    :cond_22
+    :cond_1
     invoke-virtual {p1}, Landroid/filterfw/core/Frame;->onFrameStore()V
 
     .line 115
@@ -341,17 +341,17 @@
 
     monitor-exit v3
 
-    goto :goto_11
+    goto :goto_0
 
     .line 119
     .end local v0           #frameSize:I
     .end local v1           #newStorageSize:I
-    :catchall_3b
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_3d
-    .catchall {:try_start_3 .. :try_end_3d} :catchall_3b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method
@@ -359,7 +359,7 @@
 
 # virtual methods
 .method public clearCache()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 87
@@ -374,12 +374,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_a
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -391,11 +391,11 @@
     .local v0, frame:Landroid/filterfw/core/Frame;
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->releaseNativeAllocation()V
 
-    goto :goto_a
+    goto :goto_0
 
     .line 90
     .end local v0           #frame:Landroid/filterfw/core/Frame;
-    :cond_1a
+    :cond_0
     iget-object v2, p0, Landroid/filterfw/core/CachedFrameManager;->mAvailableFrames:Ljava/util/SortedMap;
 
     invoke-interface {v2}, Ljava/util/SortedMap;->clear()V
@@ -405,7 +405,7 @@
 .end method
 
 .method public newBoundFrame(Landroid/filterfw/core/FrameFormat;IJ)Landroid/filterfw/core/Frame;
-    .registers 8
+    .locals 3
     .parameter "format"
     .parameter "bindingType"
     .parameter "bindingId"
@@ -418,7 +418,7 @@
 
     .line 56
     .local v0, result:Landroid/filterfw/core/Frame;
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     .line 57
     invoke-super {p0, p1, p2, p3, p4}, Landroid/filterfw/core/SimpleFrameManager;->newBoundFrame(Landroid/filterfw/core/FrameFormat;IJ)Landroid/filterfw/core/Frame;
@@ -426,7 +426,7 @@
     move-result-object v0
 
     .line 59
-    :cond_a
+    :cond_0
     const-wide/16 v1, -0x2
 
     invoke-virtual {v0, v1, v2}, Landroid/filterfw/core/Frame;->setTimestamp(J)V
@@ -436,7 +436,7 @@
 .end method
 
 .method public newFrame(Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/Frame;
-    .registers 6
+    .locals 4
     .parameter "format"
 
     .prologue
@@ -451,7 +451,7 @@
 
     .line 46
     .local v0, result:Landroid/filterfw/core/Frame;
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 47
     invoke-super {p0, p1}, Landroid/filterfw/core/SimpleFrameManager;->newFrame(Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/Frame;
@@ -459,7 +459,7 @@
     move-result-object v0
 
     .line 49
-    :cond_d
+    :cond_0
     const-wide/16 v1, -0x2
 
     invoke-virtual {v0, v1, v2}, Landroid/filterfw/core/Frame;->setTimestamp(J)V
@@ -469,7 +469,7 @@
 .end method
 
 .method public releaseFrame(Landroid/filterfw/core/Frame;)Landroid/filterfw/core/Frame;
-    .registers 5
+    .locals 3
     .parameter "frame"
 
     .prologue
@@ -478,7 +478,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_27
+    if-eqz v1, :cond_3
 
     .line 71
     invoke-virtual {p1}, Landroid/filterfw/core/Frame;->decRefCount()I
@@ -487,40 +487,40 @@
 
     .line 72
     .local v0, refCount:I
-    if-nez v0, :cond_1d
+    if-nez v0, :cond_2
 
     invoke-virtual {p1}, Landroid/filterfw/core/Frame;->hasNativeAllocation()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_2
 
     .line 73
     invoke-direct {p0, p1}, Landroid/filterfw/core/CachedFrameManager;->storeFrame(Landroid/filterfw/core/Frame;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1b
+    if-nez v1, :cond_0
 
     .line 74
     invoke-virtual {p1}, Landroid/filterfw/core/Frame;->releaseNativeAllocation()V
 
     .line 76
-    :cond_1b
+    :cond_0
     const/4 p1, 0x0
 
     .line 83
     .end local v0           #refCount:I
     .end local p1
-    :cond_1c
-    :goto_1c
+    :cond_1
+    :goto_0
     return-object p1
 
     .line 77
     .restart local v0       #refCount:I
     .restart local p1
-    :cond_1d
-    if-gez v0, :cond_1c
+    :cond_2
+    if-gez v0, :cond_1
 
     .line 78
     new-instance v1, Ljava/lang/RuntimeException;
@@ -533,14 +533,14 @@
 
     .line 81
     .end local v0           #refCount:I
-    :cond_27
+    :cond_3
     invoke-super {p0, p1}, Landroid/filterfw/core/SimpleFrameManager;->releaseFrame(Landroid/filterfw/core/Frame;)Landroid/filterfw/core/Frame;
 
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 .method public retainFrame(Landroid/filterfw/core/Frame;)Landroid/filterfw/core/Frame;
-    .registers 3
+    .locals 1
     .parameter "frame"
 
     .prologue
@@ -553,7 +553,7 @@
 .end method
 
 .method public tearDown()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 95

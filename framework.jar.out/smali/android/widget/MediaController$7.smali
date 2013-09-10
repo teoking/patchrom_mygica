@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/MediaController;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,13 +38,14 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 5
+    .locals 3
     .parameter "v"
 
     .prologue
     .line 622
     iget-object v1, p0, Landroid/widget/MediaController$7;->this$0:Landroid/widget/MediaController;
 
+    #getter for: Landroid/widget/MediaController;->mPlayer:Landroid/widget/MediaController$MediaPlayerControl;
     invoke-static {v1}, Landroid/widget/MediaController;->access$700(Landroid/widget/MediaController;)Landroid/widget/MediaController$MediaPlayerControl;
 
     move-result-object v1
@@ -60,6 +61,7 @@
     .line 624
     iget-object v1, p0, Landroid/widget/MediaController$7;->this$0:Landroid/widget/MediaController;
 
+    #getter for: Landroid/widget/MediaController;->mPlayer:Landroid/widget/MediaController$MediaPlayerControl;
     invoke-static {v1}, Landroid/widget/MediaController;->access$700(Landroid/widget/MediaController;)Landroid/widget/MediaController$MediaPlayerControl;
 
     move-result-object v1
@@ -69,6 +71,7 @@
     .line 625
     iget-object v1, p0, Landroid/widget/MediaController$7;->this$0:Landroid/widget/MediaController;
 
+    #calls: Landroid/widget/MediaController;->setProgress()I
     invoke-static {v1}, Landroid/widget/MediaController;->access$500(Landroid/widget/MediaController;)I
 
     .line 627

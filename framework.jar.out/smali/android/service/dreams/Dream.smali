@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 40
@@ -61,7 +61,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/service/dreams/Dream;)Landroid/view/Window;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public addContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 4
+    .locals 1
     .parameter "view"
     .parameter "params"
 
@@ -91,7 +91,7 @@
 .end method
 
 .method final attach(Landroid/os/IBinder;)V
-    .registers 9
+    .locals 7
     .parameter "windowToken"
 
     .prologue
@@ -267,14 +267,14 @@
 .end method
 
 .method public dispatchGenericMotionEvent(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
     .line 104
     iget-boolean v0, p0, Landroid/service/dreams/Dream;->mInteractive:Z
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     .line 105
     invoke-virtual {p0}, Landroid/service/dreams/Dream;->finish()V
@@ -283,28 +283,28 @@
     const/4 v0, 0x1
 
     .line 108
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     iget-object v0, p0, Landroid/service/dreams/Dream;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v0, p1}, Landroid/view/Window;->superDispatchGenericMotionEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
     .line 68
     iget-boolean v0, p0, Landroid/service/dreams/Dream;->mInteractive:Z
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     .line 69
     invoke-virtual {p0}, Landroid/service/dreams/Dream;->finish()V
@@ -313,28 +313,28 @@
     const/4 v0, 0x1
 
     .line 72
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     iget-object v0, p0, Landroid/service/dreams/Dream;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v0, p1}, Landroid/view/Window;->superDispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result v0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public dispatchKeyShortcutEvent(Landroid/view/KeyEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
     .line 77
     iget-boolean v0, p0, Landroid/service/dreams/Dream;->mInteractive:Z
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     .line 78
     invoke-virtual {p0}, Landroid/service/dreams/Dream;->finish()V
@@ -343,21 +343,21 @@
     const/4 v0, 0x1
 
     .line 81
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     iget-object v0, p0, Landroid/service/dreams/Dream;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v0, p1}, Landroid/view/Window;->superDispatchKeyShortcutEvent(Landroid/view/KeyEvent;)Z
 
     move-result v0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -368,14 +368,14 @@
 .end method
 
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
     .line 86
     iget-boolean v0, p0, Landroid/service/dreams/Dream;->mInteractive:Z
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     .line 87
     invoke-virtual {p0}, Landroid/service/dreams/Dream;->finish()V
@@ -384,28 +384,28 @@
     const/4 v0, 0x1
 
     .line 90
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     iget-object v0, p0, Landroid/service/dreams/Dream;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v0, p1}, Landroid/view/Window;->superDispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public dispatchTrackballEvent(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
     .line 95
     iget-boolean v0, p0, Landroid/service/dreams/Dream;->mInteractive:Z
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_0
 
     .line 96
     invoke-virtual {p0}, Landroid/service/dreams/Dream;->finish()V
@@ -414,21 +414,21 @@
     const/4 v0, 0x1
 
     .line 99
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     iget-object v0, p0, Landroid/service/dreams/Dream;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v0, p1}, Landroid/view/Window;->superDispatchTrackballEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public findViewById(I)Landroid/view/View;
-    .registers 3
+    .locals 1
     .parameter "id"
 
     .prologue
@@ -445,21 +445,21 @@
 .end method
 
 .method public finish()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 365
     iget-boolean v0, p0, Landroid/service/dreams/Dream;->mFinished:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
     .line 373
-    :goto_4
+    :goto_0
     return-void
 
     .line 367
-    :cond_5
-    :try_start_5
+    :cond_0
+    :try_start_0
     iget-object v0, p0, Landroid/service/dreams/Dream;->mSandman:Landroid/service/dreams/IDreamManager;
 
     invoke-interface {v0}, Landroid/service/dreams/IDreamManager;->awaken()V
@@ -471,20 +471,20 @@
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/service/dreams/Dream;->mFinished:Z
-    :try_end_10
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_10} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_4
+    goto :goto_0
 
     .line 370
-    :catch_11
+    :catch_0
     move-exception v0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public getWindow()Landroid/view/Window;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 197
@@ -494,7 +494,7 @@
 .end method
 
 .method public getWindowManager()Landroid/view/WindowManager;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 193
@@ -504,7 +504,7 @@
 .end method
 
 .method public isInteractive()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 289
@@ -514,7 +514,7 @@
 .end method
 
 .method protected lightsOut()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 295
@@ -526,7 +526,7 @@
 
     .line 296
     .local v0, v:Landroid/view/View;
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 297
     const/4 v1, 0x1
@@ -534,12 +534,12 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setSystemUiVisibility(I)V
 
     .line 299
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public onActionModeFinished(Landroid/view/ActionMode;)V
-    .registers 2
+    .locals 0
     .parameter "mode"
 
     .prologue
@@ -548,7 +548,7 @@
 .end method
 
 .method public onActionModeStarted(Landroid/view/ActionMode;)V
-    .registers 2
+    .locals 0
     .parameter "mode"
 
     .prologue
@@ -557,7 +557,7 @@
 .end method
 
 .method public onAttachedToWindow()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 158
@@ -575,7 +575,7 @@
 .end method
 
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .registers 3
+    .locals 1
     .parameter "intent"
 
     .prologue
@@ -588,7 +588,7 @@
 .end method
 
 .method public onContentChanged()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 149
@@ -596,7 +596,7 @@
 .end method
 
 .method public onCreate()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 207
@@ -651,7 +651,7 @@
 .end method
 
 .method public onCreatePanelMenu(ILandroid/view/Menu;)Z
-    .registers 4
+    .locals 1
     .parameter "featureId"
     .parameter "menu"
 
@@ -663,7 +663,7 @@
 .end method
 
 .method public onCreatePanelView(I)Landroid/view/View;
-    .registers 3
+    .locals 1
     .parameter "featureId"
 
     .prologue
@@ -674,7 +674,7 @@
 .end method
 
 .method public onDestroy()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 316
@@ -696,7 +696,7 @@
 .end method
 
 .method public onDetachedFromWindow()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 167
@@ -704,7 +704,7 @@
 .end method
 
 .method public onMenuItemSelected(ILandroid/view/MenuItem;)Z
-    .registers 4
+    .locals 1
     .parameter "featureId"
     .parameter "item"
 
@@ -716,7 +716,7 @@
 .end method
 
 .method public onMenuOpened(ILandroid/view/Menu;)Z
-    .registers 4
+    .locals 1
     .parameter "featureId"
     .parameter "menu"
 
@@ -728,7 +728,7 @@
 .end method
 
 .method public onPanelClosed(ILandroid/view/Menu;)V
-    .registers 3
+    .locals 0
     .parameter "featureId"
     .parameter "menu"
 
@@ -738,7 +738,7 @@
 .end method
 
 .method public onPreparePanel(ILandroid/view/View;Landroid/view/Menu;)Z
-    .registers 5
+    .locals 1
     .parameter "featureId"
     .parameter "view"
     .parameter "menu"
@@ -751,7 +751,7 @@
 .end method
 
 .method public onSearchRequested()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 175
@@ -761,7 +761,7 @@
 .end method
 
 .method public onStartCommand(Landroid/content/Intent;II)I
-    .registers 5
+    .locals 1
     .parameter "intent"
     .parameter "flags"
     .parameter "startId"
@@ -776,7 +776,7 @@
 .end method
 
 .method public onWindowAttributesChanged(Landroid/view/WindowManager$LayoutParams;)V
-    .registers 2
+    .locals 0
     .parameter "attrs"
 
     .prologue
@@ -785,7 +785,7 @@
 .end method
 
 .method public onWindowFocusChanged(Z)V
-    .registers 2
+    .locals 0
     .parameter "hasFocus"
 
     .prologue
@@ -794,7 +794,7 @@
 .end method
 
 .method public onWindowStartingActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
-    .registers 3
+    .locals 1
     .parameter "callback"
 
     .prologue
@@ -805,7 +805,7 @@
 .end method
 
 .method public setContentView(I)V
-    .registers 3
+    .locals 1
     .parameter "layoutResID"
 
     .prologue
@@ -821,7 +821,7 @@
 .end method
 
 .method public setContentView(Landroid/view/View;)V
-    .registers 3
+    .locals 1
     .parameter "view"
 
     .prologue
@@ -837,7 +837,7 @@
 .end method
 
 .method public setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 4
+    .locals 1
     .parameter "view"
     .parameter "params"
 
@@ -854,7 +854,7 @@
 .end method
 
 .method public setInteractive(Z)V
-    .registers 2
+    .locals 0
     .parameter "mInteractive"
 
     .prologue

@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 12
+    .locals 10
     .parameter "context"
 
     .prologue
@@ -58,7 +58,7 @@
 
     .line 69
     .local v1, byteBuffer:Ljava/nio/ByteBuffer;
-    :try_start_2
+    :try_start_0
     new-instance v2, Ljava/io/ByteArrayOutputStream;
 
     invoke-direct {v2}, Ljava/io/ByteArrayOutputStream;-><init>()V
@@ -71,7 +71,7 @@
 
     .line 72
     .local v0, buffer:[B
-    :goto_b
+    :goto_0
     iget-object v7, p0, Landroid/filterpacks/base/InputStreamSource;->mInputStream:Ljava/io/InputStream;
 
     invoke-virtual {v7, v0}, Ljava/io/InputStream;->read([B)I
@@ -79,7 +79,7 @@
     move-result v3
 
     .local v3, bytesRead:I
-    if-lez v3, :cond_19
+    if-lez v3, :cond_0
 
     .line 73
     const/4 v7, 0x0
@@ -89,17 +89,17 @@
     .line 74
     add-int/2addr v5, v3
 
-    goto :goto_b
+    goto :goto_0
 
     .line 76
-    :cond_19
+    :cond_0
     invoke-virtual {v2}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v7
 
     invoke-static {v7}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
-    :try_end_20
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_20} :catch_41
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
@@ -144,7 +144,7 @@
     .end local v2           #byteStream:Ljava/io/ByteArrayOutputStream;
     .end local v3           #bytesRead:I
     .end local v6           #output:Landroid/filterfw/core/Frame;
-    :catch_41
+    :catch_0
     move-exception v4
 
     .line 78
@@ -185,7 +185,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 55
@@ -199,7 +199,7 @@
     .local v0, target:I
     iget-object v1, p0, Landroid/filterpacks/base/InputStreamSource;->mOutputFormat:Landroid/filterfw/core/MutableFrameFormat;
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_0
 
     .line 57
     invoke-static {v0}, Landroid/filterfw/format/PrimitiveFormat;->createByteFormat(I)Landroid/filterfw/core/MutableFrameFormat;
@@ -209,7 +209,7 @@
     iput-object v1, p0, Landroid/filterpacks/base/InputStreamSource;->mOutputFormat:Landroid/filterfw/core/MutableFrameFormat;
 
     .line 59
-    :cond_10
+    :cond_0
     const-string v1, "data"
 
     iget-object v2, p0, Landroid/filterpacks/base/InputStreamSource;->mOutputFormat:Landroid/filterfw/core/MutableFrameFormat;

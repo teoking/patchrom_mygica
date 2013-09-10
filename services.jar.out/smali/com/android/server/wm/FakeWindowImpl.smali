@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/wm/WindowManagerService;Landroid/os/Looper;Landroid/view/InputEventReceiver$Factory;Ljava/lang/String;IIZZZ)V
-    .registers 14
+    .locals 4
     .parameter "service"
     .parameter "looper"
     .parameter "inputEventReceiverFactory"
@@ -230,7 +230,7 @@
 .end method
 
 .method private getLayerLw(I)I
-    .registers 3
+    .locals 1
     .parameter "windowType"
 
     .prologue
@@ -253,7 +253,7 @@
 
 # virtual methods
 .method public dismiss()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 95
@@ -264,14 +264,14 @@
     monitor-enter v1
 
     .line 96
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/wm/FakeWindowImpl;->mService:Lcom/android/server/wm/WindowManagerService;
 
     invoke-virtual {v0, p0}, Lcom/android/server/wm/WindowManagerService;->removeFakeWindowLocked(Landroid/view/WindowManagerPolicy$FakeWindow;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_25
+    if-eqz v0, :cond_0
 
     .line 97
     iget-object v0, p0, Lcom/android/server/wm/FakeWindowImpl;->mInputEventReceiver:Landroid/view/InputEventReceiver;
@@ -298,25 +298,25 @@
     invoke-virtual {v0}, Landroid/view/InputChannel;->dispose()V
 
     .line 102
-    :cond_25
+    :cond_0
     monitor-exit v1
 
     .line 103
     return-void
 
     .line 102
-    :catchall_27
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_29
-    .catchall {:try_start_5 .. :try_end_29} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method layout(II)V
-    .registers 5
+    .locals 2
     .parameter "dw"
     .parameter "dh"
 
@@ -326,7 +326,7 @@
     .line 82
     iget-boolean v0, p0, Lcom/android/server/wm/FakeWindowImpl;->mTouchFullscreen:Z
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_0
 
     .line 83
     iget-object v0, p0, Lcom/android/server/wm/FakeWindowImpl;->mWindowHandle:Lcom/android/server/input/InputWindowHandle;
@@ -336,7 +336,7 @@
     invoke-virtual {v0, v1, v1, p1, p2}, Landroid/graphics/Region;->set(IIII)Z
 
     .line 87
-    :goto_c
+    :goto_0
     iget-object v0, p0, Lcom/android/server/wm/FakeWindowImpl;->mWindowHandle:Lcom/android/server/input/InputWindowHandle;
 
     iput v1, v0, Lcom/android/server/input/InputWindowHandle;->frameLeft:I
@@ -360,12 +360,12 @@
     return-void
 
     .line 85
-    :cond_1d
+    :cond_0
     iget-object v0, p0, Lcom/android/server/wm/FakeWindowImpl;->mWindowHandle:Lcom/android/server/input/InputWindowHandle;
 
     iget-object v0, v0, Lcom/android/server/input/InputWindowHandle;->touchableRegion:Landroid/graphics/Region;
 
     invoke-virtual {v0}, Landroid/graphics/Region;->setEmpty()V
 
-    goto :goto_c
+    goto :goto_0
 .end method

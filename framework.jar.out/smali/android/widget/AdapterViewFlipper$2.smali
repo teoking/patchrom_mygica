@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/AdapterViewFlipper;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
@@ -44,16 +44,17 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_12
+    if-ne v0, v1, :cond_0
 
     .line 269
     iget-object v0, p0, Landroid/widget/AdapterViewFlipper$2;->this$0:Landroid/widget/AdapterViewFlipper;
 
+    #getter for: Landroid/widget/AdapterViewFlipper;->mRunning:Z
     invoke-static {v0}, Landroid/widget/AdapterViewFlipper;->access$300(Landroid/widget/AdapterViewFlipper;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 270
     iget-object v0, p0, Landroid/widget/AdapterViewFlipper$2;->this$0:Landroid/widget/AdapterViewFlipper;
@@ -61,6 +62,6 @@
     invoke-virtual {v0}, Landroid/widget/AdapterViewFlipper;->showNext()V
 
     .line 273
-    :cond_12
+    :cond_0
     return-void
 .end method

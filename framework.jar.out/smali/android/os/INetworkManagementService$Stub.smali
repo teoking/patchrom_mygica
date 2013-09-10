@@ -139,7 +139,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 17
@@ -155,22 +155,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/os/INetworkManagementService;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 26
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 27
     const/4 v0, 0x0
 
     .line 33
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 29
-    :cond_4
+    :cond_0
     const-string v1, "android.os.INetworkManagementService"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -179,31 +179,31 @@
 
     .line 30
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/os/INetworkManagementService;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 31
     check-cast v0, Landroid/os/INetworkManagementService;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 33
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/os/INetworkManagementService$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/os/INetworkManagementService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 37
@@ -211,7 +211,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 16
+    .locals 11
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -224,18 +224,18 @@
 
     .prologue
     .line 41
-    sparse-switch p1, :sswitch_data_516
+    sparse-switch p1, :sswitch_data_0
 
     .line 651
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0
 
-    :goto_7
+    :goto_0
     return v0
 
     .line 45
-    :sswitch_8
+    :sswitch_0
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
@@ -243,10 +243,10 @@
     .line 46
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 50
-    :sswitch_f
+    :sswitch_1
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -270,11 +270,11 @@
     .line 55
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 59
     .end local v1           #_arg0:Landroid/net/INetworkManagementEventObserver;
-    :sswitch_24
+    :sswitch_2
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -298,11 +298,11 @@
     .line 64
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 68
     .end local v1           #_arg0:Landroid/net/INetworkManagementEventObserver;
-    :sswitch_39
+    :sswitch_3
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -322,11 +322,11 @@
     .line 72
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 76
     .end local v10           #_result:[Ljava/lang/String;
-    :sswitch_4a
+    :sswitch_4
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -347,7 +347,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 81
-    if-eqz v10, :cond_66
+    if-eqz v10, :cond_0
 
     .line 82
     const/4 v0, 0x1
@@ -360,23 +360,23 @@
     invoke-virtual {v10, p3, v0}, Landroid/net/InterfaceConfiguration;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 88
-    :goto_64
+    :goto_1
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 86
-    :cond_66
+    :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_64
+    goto :goto_1
 
     .line 92
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v10           #_result:Landroid/net/InterfaceConfiguration;
-    :sswitch_6b
+    :sswitch_5
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -392,7 +392,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8b
+    if-eqz v0, :cond_1
 
     .line 97
     sget-object v0, Landroid/net/InterfaceConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -405,7 +405,7 @@
 
     .line 102
     .local v2, _arg1:Landroid/net/InterfaceConfiguration;
-    :goto_82
+    :goto_2
     invoke-virtual {p0, v1, v2}, Landroid/os/INetworkManagementService$Stub;->setInterfaceConfig(Ljava/lang/String;Landroid/net/InterfaceConfiguration;)V
 
     .line 103
@@ -414,20 +414,20 @@
     .line 104
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 100
     .end local v2           #_arg1:Landroid/net/InterfaceConfiguration;
-    :cond_8b
+    :cond_1
     const/4 v2, 0x0
 
     .restart local v2       #_arg1:Landroid/net/InterfaceConfiguration;
-    goto :goto_82
+    goto :goto_2
 
     .line 108
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Landroid/net/InterfaceConfiguration;
-    :sswitch_8d
+    :sswitch_6
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -447,11 +447,11 @@
     .line 113
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 117
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_9f
+    :sswitch_7
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -471,11 +471,11 @@
     .line 122
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 126
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_b1
+    :sswitch_8
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -495,11 +495,11 @@
     .line 131
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 135
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_c3
+    :sswitch_9
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -515,13 +515,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_dc
+    if-eqz v0, :cond_2
 
     const/4 v2, 0x1
 
     .line 140
     .local v2, _arg1:Z
-    :goto_d3
+    :goto_3
     invoke-virtual {p0, v1, v2}, Landroid/os/INetworkManagementService$Stub;->setInterfaceIpv6PrivacyExtensions(Ljava/lang/String;Z)V
 
     .line 141
@@ -530,18 +530,18 @@
     .line 142
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 139
     .end local v2           #_arg1:Z
-    :cond_dc
+    :cond_2
     const/4 v2, 0x0
 
-    goto :goto_d3
+    goto :goto_3
 
     .line 146
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_de
+    :sswitch_a
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -561,11 +561,11 @@
     .line 151
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 155
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_f0
+    :sswitch_b
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -585,11 +585,11 @@
     .line 160
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 164
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_102
+    :sswitch_c
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -617,12 +617,12 @@
     .line 170
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 174
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v10           #_result:[Landroid/net/RouteInfo;
-    :sswitch_119
+    :sswitch_d
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -638,7 +638,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_139
+    if-eqz v0, :cond_3
 
     .line 179
     sget-object v0, Landroid/net/RouteInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -651,7 +651,7 @@
 
     .line 184
     .local v2, _arg1:Landroid/net/RouteInfo;
-    :goto_130
+    :goto_4
     invoke-virtual {p0, v1, v2}, Landroid/os/INetworkManagementService$Stub;->addRoute(Ljava/lang/String;Landroid/net/RouteInfo;)V
 
     .line 185
@@ -660,20 +660,20 @@
     .line 186
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 182
     .end local v2           #_arg1:Landroid/net/RouteInfo;
-    :cond_139
+    :cond_3
     const/4 v2, 0x0
 
     .restart local v2       #_arg1:Landroid/net/RouteInfo;
-    goto :goto_130
+    goto :goto_4
 
     .line 190
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Landroid/net/RouteInfo;
-    :sswitch_13b
+    :sswitch_e
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -689,7 +689,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_15b
+    if-eqz v0, :cond_4
 
     .line 195
     sget-object v0, Landroid/net/RouteInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -702,7 +702,7 @@
 
     .line 200
     .restart local v2       #_arg1:Landroid/net/RouteInfo;
-    :goto_152
+    :goto_5
     invoke-virtual {p0, v1, v2}, Landroid/os/INetworkManagementService$Stub;->removeRoute(Ljava/lang/String;Landroid/net/RouteInfo;)V
 
     .line 201
@@ -711,20 +711,20 @@
     .line 202
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 198
     .end local v2           #_arg1:Landroid/net/RouteInfo;
-    :cond_15b
+    :cond_4
     const/4 v2, 0x0
 
     .restart local v2       #_arg1:Landroid/net/RouteInfo;
-    goto :goto_152
+    goto :goto_5
 
     .line 206
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Landroid/net/RouteInfo;
-    :sswitch_15d
+    :sswitch_f
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -740,7 +740,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_17d
+    if-eqz v0, :cond_5
 
     .line 211
     sget-object v0, Landroid/net/RouteInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -753,7 +753,7 @@
 
     .line 216
     .restart local v2       #_arg1:Landroid/net/RouteInfo;
-    :goto_174
+    :goto_6
     invoke-virtual {p0, v1, v2}, Landroid/os/INetworkManagementService$Stub;->addSecondaryRoute(Ljava/lang/String;Landroid/net/RouteInfo;)V
 
     .line 217
@@ -762,20 +762,20 @@
     .line 218
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 214
     .end local v2           #_arg1:Landroid/net/RouteInfo;
-    :cond_17d
+    :cond_5
     const/4 v2, 0x0
 
     .restart local v2       #_arg1:Landroid/net/RouteInfo;
-    goto :goto_174
+    goto :goto_6
 
     .line 222
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Landroid/net/RouteInfo;
-    :sswitch_17f
+    :sswitch_10
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -791,7 +791,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_19f
+    if-eqz v0, :cond_6
 
     .line 227
     sget-object v0, Landroid/net/RouteInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -804,7 +804,7 @@
 
     .line 232
     .restart local v2       #_arg1:Landroid/net/RouteInfo;
-    :goto_196
+    :goto_7
     invoke-virtual {p0, v1, v2}, Landroid/os/INetworkManagementService$Stub;->removeSecondaryRoute(Ljava/lang/String;Landroid/net/RouteInfo;)V
 
     .line 233
@@ -813,20 +813,20 @@
     .line 234
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 230
     .end local v2           #_arg1:Landroid/net/RouteInfo;
-    :cond_19f
+    :cond_6
     const/4 v2, 0x0
 
     .restart local v2       #_arg1:Landroid/net/RouteInfo;
-    goto :goto_196
+    goto :goto_7
 
     .line 238
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Landroid/net/RouteInfo;
-    :sswitch_1a1
+    :sswitch_11
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -840,10 +840,10 @@
     .line 241
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 245
-    :sswitch_1af
+    :sswitch_12
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -858,27 +858,27 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 248
-    if-eqz v10, :cond_1c4
+    if-eqz v10, :cond_7
 
     const/4 v0, 0x1
 
-    :goto_1be
+    :goto_8
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 249
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 248
-    :cond_1c4
+    :cond_7
     const/4 v0, 0x0
 
-    goto :goto_1be
+    goto :goto_8
 
     .line 253
     .end local v10           #_result:Z
-    :sswitch_1c6
+    :sswitch_13
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -888,13 +888,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1db
+    if-eqz v0, :cond_8
 
     const/4 v1, 0x1
 
     .line 256
     .local v1, _arg0:Z
-    :goto_1d2
+    :goto_9
     invoke-virtual {p0, v1}, Landroid/os/INetworkManagementService$Stub;->setIpForwardingEnabled(Z)V
 
     .line 257
@@ -903,17 +903,17 @@
     .line 258
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 255
     .end local v1           #_arg0:Z
-    :cond_1db
+    :cond_8
     const/4 v1, 0x0
 
-    goto :goto_1d2
+    goto :goto_9
 
     .line 262
-    :sswitch_1dd
+    :sswitch_14
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -933,11 +933,11 @@
     .line 267
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 271
     .end local v1           #_arg0:[Ljava/lang/String;
-    :sswitch_1ef
+    :sswitch_15
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -951,10 +951,10 @@
     .line 274
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 278
-    :sswitch_1fd
+    :sswitch_16
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -969,27 +969,27 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 281
-    if-eqz v10, :cond_212
+    if-eqz v10, :cond_9
 
     const/4 v0, 0x1
 
-    :goto_20c
+    :goto_a
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 282
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 281
-    :cond_212
+    :cond_9
     const/4 v0, 0x0
 
-    goto :goto_20c
+    goto :goto_a
 
     .line 286
     .end local v10           #_result:Z
-    :sswitch_214
+    :sswitch_17
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1009,11 +1009,11 @@
     .line 291
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 295
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_226
+    :sswitch_18
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1033,11 +1033,11 @@
     .line 300
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 304
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_238
+    :sswitch_19
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1057,11 +1057,11 @@
     .line 308
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 312
     .end local v10           #_result:[Ljava/lang/String;
-    :sswitch_24a
+    :sswitch_1a
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1081,11 +1081,11 @@
     .line 317
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 321
     .end local v1           #_arg0:[Ljava/lang/String;
-    :sswitch_25c
+    :sswitch_1b
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1105,11 +1105,11 @@
     .line 325
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 329
     .end local v10           #_result:[Ljava/lang/String;
-    :sswitch_26e
+    :sswitch_1c
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1135,12 +1135,12 @@
     .line 336
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 340
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Ljava/lang/String;
-    :sswitch_284
+    :sswitch_1d
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1166,12 +1166,12 @@
     .line 347
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 351
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Ljava/lang/String;
-    :sswitch_29a
+    :sswitch_1e
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1191,11 +1191,11 @@
     .line 355
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 359
     .end local v10           #_result:[Ljava/lang/String;
-    :sswitch_2ac
+    :sswitch_1f
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1241,7 +1241,7 @@
     .line 372
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 376
     .end local v1           #_arg0:Ljava/lang/String;
@@ -1249,7 +1249,7 @@
     .end local v3           #_arg2:Ljava/lang/String;
     .end local v4           #_arg3:Ljava/lang/String;
     .end local v5           #_arg4:Ljava/lang/String;
-    :sswitch_2cf
+    :sswitch_20
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1269,11 +1269,11 @@
     .line 381
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 385
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_2e1
+    :sswitch_21
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1299,12 +1299,12 @@
     .line 392
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 396
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Ljava/lang/String;
-    :sswitch_2f7
+    :sswitch_22
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1314,7 +1314,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_31b
+    if-eqz v0, :cond_a
 
     .line 399
     sget-object v0, Landroid/net/wifi/WifiConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1327,7 +1327,7 @@
 
     .line 405
     .local v1, _arg0:Landroid/net/wifi/WifiConfiguration;
-    :goto_30a
+    :goto_b
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -1348,21 +1348,21 @@
     .line 410
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 402
     .end local v1           #_arg0:Landroid/net/wifi/WifiConfiguration;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:Ljava/lang/String;
-    :cond_31b
+    :cond_a
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/net/wifi/WifiConfiguration;
-    goto :goto_30a
+    goto :goto_b
 
     .line 414
     .end local v1           #_arg0:Landroid/net/wifi/WifiConfiguration;
-    :sswitch_31d
+    :sswitch_23
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1382,11 +1382,11 @@
     .line 419
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 423
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_32f
+    :sswitch_24
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1396,7 +1396,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_353
+    if-eqz v0, :cond_b
 
     .line 426
     sget-object v0, Landroid/net/wifi/WifiConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1409,7 +1409,7 @@
 
     .line 432
     .local v1, _arg0:Landroid/net/wifi/WifiConfiguration;
-    :goto_342
+    :goto_c
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -1430,21 +1430,21 @@
     .line 437
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 429
     .end local v1           #_arg0:Landroid/net/wifi/WifiConfiguration;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:Ljava/lang/String;
-    :cond_353
+    :cond_b
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/net/wifi/WifiConfiguration;
-    goto :goto_342
+    goto :goto_c
 
     .line 441
     .end local v1           #_arg0:Landroid/net/wifi/WifiConfiguration;
-    :sswitch_355
+    :sswitch_25
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1459,7 +1459,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 444
-    if-eqz v10, :cond_36e
+    if-eqz v10, :cond_c
 
     .line 445
     const/4 v0, 0x1
@@ -1472,22 +1472,22 @@
     invoke-virtual {v10, p3, v0}, Landroid/net/NetworkStats;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 451
-    :goto_36b
+    :goto_d
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 449
-    :cond_36e
+    :cond_c
     const/4 v0, 0x0
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_36b
+    goto :goto_d
 
     .line 455
     .end local v10           #_result:Landroid/net/NetworkStats;
-    :sswitch_373
+    :sswitch_26
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1502,7 +1502,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 458
-    if-eqz v10, :cond_38c
+    if-eqz v10, :cond_d
 
     .line 459
     const/4 v0, 0x1
@@ -1515,22 +1515,22 @@
     invoke-virtual {v10, p3, v0}, Landroid/net/NetworkStats;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 465
-    :goto_389
+    :goto_e
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 463
-    :cond_38c
+    :cond_d
     const/4 v0, 0x0
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_389
+    goto :goto_e
 
     .line 469
     .end local v10           #_result:Landroid/net/NetworkStats;
-    :sswitch_391
+    :sswitch_27
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1545,7 +1545,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 472
-    if-eqz v10, :cond_3aa
+    if-eqz v10, :cond_e
 
     .line 473
     const/4 v0, 0x1
@@ -1558,22 +1558,22 @@
     invoke-virtual {v10, p3, v0}, Landroid/net/NetworkStats;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 479
-    :goto_3a7
+    :goto_f
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 477
-    :cond_3aa
+    :cond_e
     const/4 v0, 0x0
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_3a7
+    goto :goto_f
 
     .line 483
     .end local v10           #_result:Landroid/net/NetworkStats;
-    :sswitch_3af
+    :sswitch_28
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1594,7 +1594,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 488
-    if-eqz v10, :cond_3cc
+    if-eqz v10, :cond_f
 
     .line 489
     const/4 v0, 0x1
@@ -1607,23 +1607,23 @@
     invoke-virtual {v10, p3, v0}, Landroid/net/NetworkStats;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 495
-    :goto_3c9
+    :goto_10
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 493
-    :cond_3cc
+    :cond_f
     const/4 v0, 0x0
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_3c9
+    goto :goto_10
 
     .line 499
     .end local v1           #_arg0:I
     .end local v10           #_result:Landroid/net/NetworkStats;
-    :sswitch_3d1
+    :sswitch_29
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1644,7 +1644,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 504
-    if-eqz v10, :cond_3ee
+    if-eqz v10, :cond_10
 
     .line 505
     const/4 v0, 0x1
@@ -1657,23 +1657,23 @@
     invoke-virtual {v10, p3, v0}, Landroid/net/NetworkStats;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 511
-    :goto_3eb
+    :goto_11
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 509
-    :cond_3ee
+    :cond_10
     const/4 v0, 0x0
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_3eb
+    goto :goto_11
 
     .line 515
     .end local v1           #_arg0:[Ljava/lang/String;
     .end local v10           #_result:Landroid/net/NetworkStats;
-    :sswitch_3f3
+    :sswitch_2a
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1699,12 +1699,12 @@
     .line 522
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 526
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v8           #_arg1:J
-    :sswitch_409
+    :sswitch_2b
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1724,11 +1724,11 @@
     .line 531
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 535
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_41b
+    :sswitch_2c
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1754,12 +1754,12 @@
     .line 542
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 546
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v8           #_arg1:J
-    :sswitch_431
+    :sswitch_2d
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1779,11 +1779,11 @@
     .line 551
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 555
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_443
+    :sswitch_2e
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1803,11 +1803,11 @@
     .line 560
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 564
     .end local v6           #_arg0:J
-    :sswitch_455
+    :sswitch_2f
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1823,13 +1823,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_46e
+    if-eqz v0, :cond_11
 
     const/4 v2, 0x1
 
     .line 569
     .local v2, _arg1:Z
-    :goto_465
+    :goto_12
     invoke-virtual {p0, v1, v2}, Landroid/os/INetworkManagementService$Stub;->setUidNetworkRules(IZ)V
 
     .line 570
@@ -1838,18 +1838,18 @@
     .line 571
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 568
     .end local v2           #_arg1:Z
-    :cond_46e
+    :cond_11
     const/4 v2, 0x0
 
-    goto :goto_465
+    goto :goto_12
 
     .line 575
     .end local v1           #_arg0:I
-    :sswitch_470
+    :sswitch_30
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1864,27 +1864,27 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 578
-    if-eqz v10, :cond_485
+    if-eqz v10, :cond_12
 
     const/4 v0, 0x1
 
-    :goto_47f
+    :goto_13
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 579
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 578
-    :cond_485
+    :cond_12
     const/4 v0, 0x0
 
-    goto :goto_47f
+    goto :goto_13
 
     .line 583
     .end local v10           #_result:Z
-    :sswitch_487
+    :sswitch_31
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1916,13 +1916,13 @@
     .line 592
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 596
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:I
     .end local v3           #_arg2:I
-    :sswitch_4a1
+    :sswitch_32
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1948,12 +1948,12 @@
     .line 602
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 606
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v10           #_result:I
-    :sswitch_4b7
+    :sswitch_33
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1979,12 +1979,12 @@
     .line 612
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 616
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v10           #_result:I
-    :sswitch_4cd
+    :sswitch_34
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -2004,11 +2004,11 @@
     .line 621
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 625
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_4df
+    :sswitch_35
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -2034,12 +2034,12 @@
     .line 632
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 636
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:[Ljava/lang/String;
-    :sswitch_4f5
+    :sswitch_36
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -2053,10 +2053,10 @@
     .line 639
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 643
-    :sswitch_503
+    :sswitch_37
     const-string v0, "android.os.INetworkManagementService"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -2076,68 +2076,68 @@
     .line 648
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 41
     nop
 
-    :sswitch_data_516
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_f
-        0x2 -> :sswitch_24
-        0x3 -> :sswitch_39
-        0x4 -> :sswitch_4a
-        0x5 -> :sswitch_6b
-        0x6 -> :sswitch_8d
-        0x7 -> :sswitch_9f
-        0x8 -> :sswitch_b1
-        0x9 -> :sswitch_c3
-        0xa -> :sswitch_de
-        0xb -> :sswitch_f0
-        0xc -> :sswitch_102
-        0xd -> :sswitch_119
-        0xe -> :sswitch_13b
-        0xf -> :sswitch_15d
-        0x10 -> :sswitch_17f
-        0x11 -> :sswitch_1a1
-        0x12 -> :sswitch_1af
-        0x13 -> :sswitch_1c6
-        0x14 -> :sswitch_1dd
-        0x15 -> :sswitch_1ef
-        0x16 -> :sswitch_1fd
-        0x17 -> :sswitch_214
-        0x18 -> :sswitch_226
-        0x19 -> :sswitch_238
-        0x1a -> :sswitch_24a
-        0x1b -> :sswitch_25c
-        0x1c -> :sswitch_26e
-        0x1d -> :sswitch_284
-        0x1e -> :sswitch_29a
-        0x1f -> :sswitch_2ac
-        0x20 -> :sswitch_2cf
-        0x21 -> :sswitch_2e1
-        0x22 -> :sswitch_2f7
-        0x23 -> :sswitch_31d
-        0x24 -> :sswitch_32f
-        0x25 -> :sswitch_355
-        0x26 -> :sswitch_373
-        0x27 -> :sswitch_391
-        0x28 -> :sswitch_3af
-        0x29 -> :sswitch_3d1
-        0x2a -> :sswitch_3f3
-        0x2b -> :sswitch_409
-        0x2c -> :sswitch_41b
-        0x2d -> :sswitch_431
-        0x2e -> :sswitch_443
-        0x2f -> :sswitch_455
-        0x30 -> :sswitch_470
-        0x31 -> :sswitch_487
-        0x32 -> :sswitch_4a1
-        0x33 -> :sswitch_4b7
-        0x34 -> :sswitch_4cd
-        0x35 -> :sswitch_4df
-        0x36 -> :sswitch_4f5
-        0x37 -> :sswitch_503
-        0x5f4e5446 -> :sswitch_8
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
+        0x8 -> :sswitch_8
+        0x9 -> :sswitch_9
+        0xa -> :sswitch_a
+        0xb -> :sswitch_b
+        0xc -> :sswitch_c
+        0xd -> :sswitch_d
+        0xe -> :sswitch_e
+        0xf -> :sswitch_f
+        0x10 -> :sswitch_10
+        0x11 -> :sswitch_11
+        0x12 -> :sswitch_12
+        0x13 -> :sswitch_13
+        0x14 -> :sswitch_14
+        0x15 -> :sswitch_15
+        0x16 -> :sswitch_16
+        0x17 -> :sswitch_17
+        0x18 -> :sswitch_18
+        0x19 -> :sswitch_19
+        0x1a -> :sswitch_1a
+        0x1b -> :sswitch_1b
+        0x1c -> :sswitch_1c
+        0x1d -> :sswitch_1d
+        0x1e -> :sswitch_1e
+        0x1f -> :sswitch_1f
+        0x20 -> :sswitch_20
+        0x21 -> :sswitch_21
+        0x22 -> :sswitch_22
+        0x23 -> :sswitch_23
+        0x24 -> :sswitch_24
+        0x25 -> :sswitch_25
+        0x26 -> :sswitch_26
+        0x27 -> :sswitch_27
+        0x28 -> :sswitch_28
+        0x29 -> :sswitch_29
+        0x2a -> :sswitch_2a
+        0x2b -> :sswitch_2b
+        0x2c -> :sswitch_2c
+        0x2d -> :sswitch_2d
+        0x2e -> :sswitch_2e
+        0x2f -> :sswitch_2f
+        0x30 -> :sswitch_30
+        0x31 -> :sswitch_31
+        0x32 -> :sswitch_32
+        0x33 -> :sswitch_33
+        0x34 -> :sswitch_34
+        0x35 -> :sswitch_35
+        0x36 -> :sswitch_36
+        0x37 -> :sswitch_37
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

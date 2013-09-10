@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/media/effect/EffectContext;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "name"
 
@@ -20,7 +20,7 @@
 
 # virtual methods
 .method public apply(IIII)V
-    .registers 7
+    .locals 2
     .parameter "inputTexId"
     .parameter "width"
     .parameter "height"
@@ -59,7 +59,7 @@
 .end method
 
 .method public release()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 56
@@ -67,7 +67,7 @@
 .end method
 
 .method public setParameter(Ljava/lang/String;Ljava/lang/Object;)V
-    .registers 6
+    .locals 3
     .parameter "parameterKey"
     .parameter "value"
 

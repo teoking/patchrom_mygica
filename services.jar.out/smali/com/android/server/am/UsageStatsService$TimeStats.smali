@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 129
@@ -40,7 +40,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .registers 6
+    .locals 4
     .parameter "in"
 
     .prologue
@@ -69,8 +69,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_12
-    if-ge v0, v3, :cond_1d
+    :goto_0
+    if-ge v0, v3, :cond_0
 
     .line 151
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -82,17 +82,17 @@
     .line 150
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_12
+    goto :goto_0
 
     .line 153
-    :cond_1d
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method add(I)V
-    .registers 7
+    .locals 5
     .parameter "val"
 
     .prologue
@@ -108,13 +108,13 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v4, :cond_19
+    :goto_0
+    if-ge v1, v4, :cond_1
 
     .line 139
     aget v2, v0, v1
 
-    if-ge p1, v2, :cond_16
+    if-ge p1, v2, :cond_0
 
     .line 140
     iget-object v2, p0, Lcom/android/server/am/UsageStatsService$TimeStats;->times:[I
@@ -126,17 +126,17 @@
     aput v3, v2, v1
 
     .line 145
-    :goto_15
+    :goto_1
     return-void
 
     .line 138
-    :cond_16
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 144
-    :cond_19
+    :cond_1
     iget-object v2, p0, Lcom/android/server/am/UsageStatsService$TimeStats;->times:[I
 
     aget v3, v2, v4
@@ -145,11 +145,11 @@
 
     aput v3, v2, v4
 
-    goto :goto_15
+    goto :goto_1
 .end method
 
 .method incCount()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 133
@@ -164,7 +164,7 @@
 .end method
 
 .method writeToParcel(Landroid/os/Parcel;)V
-    .registers 5
+    .locals 3
     .parameter "out"
 
     .prologue
@@ -181,10 +181,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_8
+    :goto_0
     const/16 v2, 0xa
 
-    if-ge v0, v2, :cond_14
+    if-ge v0, v2, :cond_0
 
     .line 159
     aget v2, v1, v0
@@ -194,9 +194,9 @@
     .line 158
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 161
-    :cond_14
+    :cond_0
     return-void
 .end method

@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 183
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Intent;Ljava/lang/String;II)V
-    .registers 6
+    .locals 1
     .parameter "origIntent"
     .parameter "sourcePackage"
     .parameter "labelRes"
@@ -71,7 +71,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/CharSequence;I)V
-    .registers 6
+    .locals 1
     .parameter "origIntent"
     .parameter "sourcePackage"
     .parameter "nonLocalizedLabel"
@@ -100,7 +100,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .registers 2
+    .locals 0
     .parameter "in"
 
     .prologue
@@ -115,7 +115,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;II)V
-    .registers 5
+    .locals 1
     .parameter "sourcePackage"
     .parameter "labelRes"
     .parameter "icon"
@@ -143,7 +143,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/CharSequence;I)V
-    .registers 5
+    .locals 1
     .parameter "sourcePackage"
     .parameter "nonLocalizedLabel"
     .parameter "icon"
@@ -173,7 +173,7 @@
 
 # virtual methods
 .method public getIconResource()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 126
@@ -183,7 +183,7 @@
 .end method
 
 .method public getLabelResource()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 112
@@ -193,7 +193,7 @@
 .end method
 
 .method public getNonLocalizedLabel()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 119
@@ -203,7 +203,7 @@
 .end method
 
 .method public getSourcePackage()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 105
@@ -213,7 +213,7 @@
 .end method
 
 .method public loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
-    .registers 6
+    .locals 4
     .parameter "pm"
 
     .prologue
@@ -222,11 +222,11 @@
     .line 153
     iget v2, p0, Landroid/content/pm/LabeledIntent;->mIcon:I
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Landroid/content/pm/LabeledIntent;->mSourcePackage:Ljava/lang/String;
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_0
 
     .line 154
     iget-object v2, p0, Landroid/content/pm/LabeledIntent;->mSourcePackage:Ljava/lang/String;
@@ -239,21 +239,21 @@
 
     .line 155
     .local v0, icon:Landroid/graphics/drawable/Drawable;
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 159
     .end local v0           #icon:Landroid/graphics/drawable/Drawable;
-    :goto_13
+    :goto_0
     return-object v0
 
-    :cond_14
+    :cond_0
     move-object v0, v1
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
-    .registers 6
+    .locals 4
     .parameter "pm"
 
     .prologue
@@ -262,25 +262,25 @@
     .line 135
     iget-object v2, p0, Landroid/content/pm/LabeledIntent;->mNonLocalizedLabel:Ljava/lang/CharSequence;
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_1
 
     .line 136
     iget-object v0, p0, Landroid/content/pm/LabeledIntent;->mNonLocalizedLabel:Ljava/lang/CharSequence;
 
     .line 144
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 138
-    :cond_8
+    :cond_1
     iget v2, p0, Landroid/content/pm/LabeledIntent;->mLabelRes:I
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Landroid/content/pm/LabeledIntent;->mSourcePackage:Ljava/lang/String;
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_2
 
     .line 139
     iget-object v2, p0, Landroid/content/pm/LabeledIntent;->mSourcePackage:Ljava/lang/String;
@@ -293,18 +293,18 @@
 
     .line 140
     .local v0, label:Ljava/lang/CharSequence;
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .end local v0           #label:Ljava/lang/CharSequence;
-    :cond_1a
+    :cond_2
     move-object v0, v1
 
     .line 144
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -348,7 +348,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "parcelableFlags"
 

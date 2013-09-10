@@ -27,7 +27,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/media/AudioService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/media/AudioService;Landroid/media/AudioService$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public onLoadComplete(Landroid/media/SoundPool;II)V
-    .registers 6
+    .locals 2
     .parameter "soundPool"
     .parameter "sampleId"
     .parameter "status"
@@ -63,6 +63,7 @@
     .line 1627
     iget-object v0, p0, Landroid/media/AudioService$SoundPoolCallback;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mSoundEffectsLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/media/AudioService;->access$1500(Landroid/media/AudioService;)Ljava/lang/Object;
 
     move-result-object v1
@@ -70,21 +71,22 @@
     monitor-enter v1
 
     .line 1628
-    if-eqz p3, :cond_b
+    if-eqz p3, :cond_0
 
     .line 1629
-    :try_start_9
+    :try_start_0
     iput p3, p0, Landroid/media/AudioService$SoundPoolCallback;->mStatus:I
 
     .line 1631
-    :cond_b
+    :cond_0
     iget v0, p0, Landroid/media/AudioService$SoundPoolCallback;->mLastSample:I
 
-    if-ne p2, v0, :cond_18
+    if-ne p2, v0, :cond_1
 
     .line 1632
     iget-object v0, p0, Landroid/media/AudioService$SoundPoolCallback;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mSoundEffectsLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/media/AudioService;->access$1500(Landroid/media/AudioService;)Ljava/lang/Object;
 
     move-result-object v0
@@ -92,25 +94,25 @@
     invoke-virtual {v0}, Ljava/lang/Object;->notify()V
 
     .line 1634
-    :cond_18
+    :cond_1
     monitor-exit v1
 
     .line 1635
     return-void
 
     .line 1634
-    :catchall_1a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1c
-    .catchall {:try_start_9 .. :try_end_1c} :catchall_1a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setLastSample(I)V
-    .registers 2
+    .locals 0
     .parameter "sample"
 
     .prologue
@@ -122,7 +124,7 @@
 .end method
 
 .method public status()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1619

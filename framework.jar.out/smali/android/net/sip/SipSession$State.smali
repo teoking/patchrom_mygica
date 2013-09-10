@@ -42,7 +42,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 102
@@ -53,91 +53,91 @@
 .end method
 
 .method public static toString(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "state"
 
     .prologue
     .line 76
-    packed-switch p0, :pswitch_data_24
+    packed-switch p0, :pswitch_data_0
 
     .line 98
     const-string v0, "NOT_DEFINED"
 
-    :goto_5
+    :goto_0
     return-object v0
 
     .line 78
-    :pswitch_6
+    :pswitch_0
     const-string v0, "READY_TO_CALL"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 80
-    :pswitch_9
+    :pswitch_1
     const-string v0, "REGISTERING"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 82
-    :pswitch_c
+    :pswitch_2
     const-string v0, "DEREGISTERING"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 84
-    :pswitch_f
+    :pswitch_3
     const-string v0, "INCOMING_CALL"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 86
-    :pswitch_12
+    :pswitch_4
     const-string v0, "INCOMING_CALL_ANSWERING"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 88
-    :pswitch_15
+    :pswitch_5
     const-string v0, "OUTGOING_CALL"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 90
-    :pswitch_18
+    :pswitch_6
     const-string v0, "OUTGOING_CALL_RING_BACK"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 92
-    :pswitch_1b
+    :pswitch_7
     const-string v0, "OUTGOING_CALL_CANCELING"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 94
-    :pswitch_1e
+    :pswitch_8
     const-string v0, "IN_CALL"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 96
-    :pswitch_21
+    :pswitch_9
     const-string v0, "PINGING"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 76
-    :pswitch_data_24
+    :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
         :pswitch_6
+        :pswitch_7
+        :pswitch_8
         :pswitch_9
-        :pswitch_c
-        :pswitch_f
-        :pswitch_12
-        :pswitch_15
-        :pswitch_18
-        :pswitch_1b
-        :pswitch_1e
-        :pswitch_21
     .end packed-switch
 .end method

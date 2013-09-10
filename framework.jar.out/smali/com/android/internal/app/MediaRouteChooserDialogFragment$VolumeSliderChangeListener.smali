@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onProgressChanged(Landroid/widget/SeekBar;IZ)V
-    .registers 5
+    .locals 1
     .parameter "seekBar"
     .parameter "progress"
     .parameter "fromUser"
@@ -54,7 +54,7 @@
 .end method
 
 .method public onStartTrackingTouch(Landroid/widget/SeekBar;)V
-    .registers 4
+    .locals 2
     .parameter "seekBar"
 
     .prologue
@@ -63,6 +63,7 @@
 
     const/4 v1, 0x1
 
+    #setter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mIgnoreCallbackVolumeChanges:Z
     invoke-static {v0, v1}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$802(Lcom/android/internal/app/MediaRouteChooserDialogFragment;Z)Z
 
     .line 675
@@ -70,7 +71,7 @@
 .end method
 
 .method public onStopTrackingTouch(Landroid/widget/SeekBar;)V
-    .registers 4
+    .locals 2
     .parameter "seekBar"
 
     .prologue
@@ -79,6 +80,7 @@
 
     const/4 v1, 0x0
 
+    #setter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mIgnoreCallbackVolumeChanges:Z
     invoke-static {v0, v1}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$802(Lcom/android/internal/app/MediaRouteChooserDialogFragment;Z)Z
 
     .line 680

@@ -17,7 +17,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 23
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method get(Ljava/lang/String;Ljava/lang/String;)Landroid/sax/Element;
-    .registers 9
+    .locals 6
     .parameter "uri"
     .parameter "localName"
 
@@ -69,17 +69,17 @@
 
     .line 70
     .local v0, current:Landroid/sax/Children$Child;
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 82
-    :goto_15
+    :goto_0
     return-object v3
 
     .line 74
-    :cond_16
+    :cond_0
     iget v4, v0, Landroid/sax/Children$Child;->hash:I
 
-    if-ne v4, v1, :cond_2c
+    if-ne v4, v1, :cond_1
 
     iget-object v4, v0, Landroid/sax/Element;->uri:Ljava/lang/String;
 
@@ -87,7 +87,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_2c
+    if-nez v4, :cond_1
 
     iget-object v4, v0, Landroid/sax/Element;->localName:Ljava/lang/String;
 
@@ -95,25 +95,25 @@
 
     move-result v4
 
-    if-nez v4, :cond_2c
+    if-nez v4, :cond_1
 
     move-object v3, v0
 
     .line 77
-    goto :goto_15
+    goto :goto_0
 
     .line 79
-    :cond_2c
+    :cond_1
     iget-object v0, v0, Landroid/sax/Children$Child;->next:Landroid/sax/Children$Child;
 
     .line 80
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method getOrCreate(Landroid/sax/Element;Ljava/lang/String;Ljava/lang/String;)Landroid/sax/Element;
-    .registers 13
+    .locals 9
     .parameter "parent"
     .parameter "uri"
     .parameter "localName"
@@ -144,7 +144,7 @@
 
     .line 35
     .local v0, current:Landroid/sax/Children$Child;
-    if-nez v0, :cond_26
+    if-nez v0, :cond_0
 
     .line 37
     new-instance v0, Landroid/sax/Children$Child;
@@ -173,16 +173,16 @@
     .line 58
     .end local v0           #current:Landroid/sax/Children$Child;
     .local v6, current:Ljava/lang/Object;
-    :goto_25
+    :goto_0
     return-object v6
 
     .line 44
     .end local v6           #current:Ljava/lang/Object;
     .restart local v0       #current:Landroid/sax/Children$Child;
-    :cond_26
+    :cond_0
     iget v1, v0, Landroid/sax/Children$Child;->hash:I
 
-    if-ne v1, v5, :cond_3c
+    if-ne v1, v5, :cond_1
 
     iget-object v1, v0, Landroid/sax/Element;->uri:Ljava/lang/String;
 
@@ -190,7 +190,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3c
+    if-nez v1, :cond_1
 
     iget-object v1, v0, Landroid/sax/Element;->localName:Ljava/lang/String;
 
@@ -198,17 +198,17 @@
 
     move-result v1
 
-    if-nez v1, :cond_3c
+    if-nez v1, :cond_1
 
     move-object v6, v0
 
     .line 48
     .restart local v6       #current:Ljava/lang/Object;
-    goto :goto_25
+    goto :goto_0
 
     .line 51
     .end local v6           #current:Ljava/lang/Object;
-    :cond_3c
+    :cond_1
     move-object v8, v0
 
     .line 52
@@ -216,7 +216,7 @@
     iget-object v0, v0, Landroid/sax/Children$Child;->next:Landroid/sax/Children$Child;
 
     .line 53
-    if-nez v0, :cond_26
+    if-nez v0, :cond_0
 
     .line 56
     new-instance v0, Landroid/sax/Children$Child;
@@ -242,5 +242,5 @@
 
     .line 58
     .restart local v6       #current:Ljava/lang/Object;
-    goto :goto_25
+    goto :goto_0
 .end method

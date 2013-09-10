@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/am/BroadcastQueue;Lcom/android/server/am/ProcessRecord;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "app"
     .parameter "annotation"
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x0

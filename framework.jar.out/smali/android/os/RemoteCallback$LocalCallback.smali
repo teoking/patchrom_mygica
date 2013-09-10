@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/RemoteCallback;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public sendResult(Landroid/os/Bundle;)V
-    .registers 5
+    .locals 3
     .parameter "bundle"
 
     .prologue

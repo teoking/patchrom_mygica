@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 88
@@ -60,7 +60,7 @@
 .end method
 
 .method public requestScanFile(Ljava/lang/String;Ljava/lang/String;Landroid/media/IMediaScannerListener;)V
-    .registers 9
+    .locals 5
     .parameter "path"
     .parameter "mimeType"
     .parameter "listener"
@@ -84,7 +84,7 @@
 
     .line 103
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.media.IMediaScannerService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -96,13 +96,13 @@
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 106
-    if-eqz p3, :cond_2d
+    if-eqz p3, :cond_0
 
     invoke-interface {p3}, Landroid/media/IMediaScannerListener;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_19
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 107
@@ -116,8 +116,8 @@
 
     .line 108
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_26
-    .catchall {:try_start_8 .. :try_end_26} :catchall_2f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 111
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -129,13 +129,13 @@
     return-void
 
     .line 106
-    :cond_2d
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 111
-    :catchall_2f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -148,7 +148,7 @@
 .end method
 
 .method public scanFile(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "path"
     .parameter "mimeType"
     .annotation system Ldalvik/annotation/Throws;
@@ -171,7 +171,7 @@
 
     .line 127
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.media.IMediaScannerService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -193,8 +193,8 @@
 
     .line 131
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 134
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -206,7 +206,7 @@
     return-void
 
     .line 134
-    :catchall_24
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

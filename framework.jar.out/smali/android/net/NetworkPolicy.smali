@@ -65,7 +65,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 183
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/NetworkTemplate;ILjava/lang/String;JJJJZZ)V
-    .registers 15
+    .locals 1
     .parameter "template"
     .parameter "cycleDay"
     .parameter "cycleTimezone"
@@ -142,7 +142,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/NetworkTemplate;ILjava/lang/String;JJZ)V
-    .registers 23
+    .locals 14
     .parameter "template"
     .parameter "cycleDay"
     .parameter "cycleTimezone"
@@ -181,7 +181,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 7
+    .locals 5
     .parameter "in"
 
     .prologue
@@ -250,11 +250,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_44
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_39
+    :goto_0
     iput-boolean v0, p0, Landroid/net/NetworkPolicy;->metered:Z
 
     .line 80
@@ -262,31 +262,31 @@
 
     move-result v0
 
-    if-eqz v0, :cond_46
+    if-eqz v0, :cond_1
 
-    :goto_41
+    :goto_1
     iput-boolean v1, p0, Landroid/net/NetworkPolicy;->inferred:Z
 
     .line 81
     return-void
 
-    :cond_44
+    :cond_0
     move v0, v2
 
     .line 79
-    goto :goto_39
+    goto :goto_0
 
-    :cond_46
+    :cond_1
     move v1, v2
 
     .line 80
-    goto :goto_41
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public clearSnooze()V
-    .registers 3
+    .locals 2
 
     .prologue
     const-wide/16 v0, -0x1
@@ -302,36 +302,36 @@
 .end method
 
 .method public compareTo(Landroid/net/NetworkPolicy;)I
-    .registers 6
+    .locals 4
     .parameter "another"
 
     .prologue
     const-wide/16 v2, -0x1
 
     .line 136
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_0
 
     iget-wide v0, p1, Landroid/net/NetworkPolicy;->limitBytes:J
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_1
 
     .line 138
-    :cond_a
+    :cond_0
     const/4 v0, -0x1
 
     .line 144
-    :goto_b
+    :goto_0
     return v0
 
     .line 140
-    :cond_c
+    :cond_1
     iget-wide v0, p0, Landroid/net/NetworkPolicy;->limitBytes:J
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_2
 
     iget-wide v0, p1, Landroid/net/NetworkPolicy;->limitBytes:J
 
@@ -339,23 +339,23 @@
 
     cmp-long v0, v0, v2
 
-    if-gez v0, :cond_1c
+    if-gez v0, :cond_3
 
     .line 142
-    :cond_1a
+    :cond_2
     const/4 v0, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 144
-    :cond_1c
+    :cond_3
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -371,7 +371,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 98
@@ -381,7 +381,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 8
+    .locals 6
     .parameter "obj"
 
     .prologue
@@ -390,7 +390,7 @@
     .line 155
     instance-of v2, p1, Landroid/net/NetworkPolicy;
 
-    if-eqz v2, :cond_4f
+    if-eqz v2, :cond_0
 
     move-object v0, p1
 
@@ -403,7 +403,7 @@
 
     iget v3, v0, Landroid/net/NetworkPolicy;->cycleDay:I
 
-    if-ne v2, v3, :cond_4f
+    if-ne v2, v3, :cond_0
 
     iget-wide v2, p0, Landroid/net/NetworkPolicy;->warningBytes:J
 
@@ -411,7 +411,7 @@
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_4f
+    if-nez v2, :cond_0
 
     iget-wide v2, p0, Landroid/net/NetworkPolicy;->limitBytes:J
 
@@ -419,7 +419,7 @@
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_4f
+    if-nez v2, :cond_0
 
     iget-wide v2, p0, Landroid/net/NetworkPolicy;->lastWarningSnooze:J
 
@@ -427,7 +427,7 @@
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_4f
+    if-nez v2, :cond_0
 
     iget-wide v2, p0, Landroid/net/NetworkPolicy;->lastLimitSnooze:J
 
@@ -435,19 +435,19 @@
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_4f
+    if-nez v2, :cond_0
 
     iget-boolean v2, p0, Landroid/net/NetworkPolicy;->metered:Z
 
     iget-boolean v3, v0, Landroid/net/NetworkPolicy;->metered:Z
 
-    if-ne v2, v3, :cond_4f
+    if-ne v2, v3, :cond_0
 
     iget-boolean v2, p0, Landroid/net/NetworkPolicy;->inferred:Z
 
     iget-boolean v3, v0, Landroid/net/NetworkPolicy;->inferred:Z
 
-    if-ne v2, v3, :cond_4f
+    if-ne v2, v3, :cond_0
 
     iget-object v2, p0, Landroid/net/NetworkPolicy;->cycleTimezone:Ljava/lang/String;
 
@@ -457,7 +457,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4f
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
 
@@ -467,18 +467,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4f
+    if-eqz v2, :cond_0
 
     const/4 v1, 0x1
 
     .line 165
     .end local v0           #other:Landroid/net/NetworkPolicy;
-    :cond_4f
+    :cond_0
     return v1
 .end method
 
 .method public hasCycle()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 131
@@ -486,21 +486,21 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_7
+    if-eq v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 5
+    .locals 4
 
     .prologue
     .line 149
@@ -598,7 +598,7 @@
 .end method
 
 .method public isOverLimit(J)Z
-    .registers 7
+    .locals 4
     .parameter "totalBytes"
 
     .prologue
@@ -614,27 +614,27 @@
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     iget-wide v0, p0, Landroid/net/NetworkPolicy;->limitBytes:J
 
     cmp-long v0, p1, v0
 
-    if-ltz v0, :cond_13
+    if-ltz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_12
+    :goto_0
     return v0
 
-    :cond_13
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public isOverWarning(J)Z
-    .registers 7
+    .locals 4
     .parameter "totalBytes"
 
     .prologue
@@ -645,27 +645,27 @@
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     iget-wide v0, p0, Landroid/net/NetworkPolicy;->warningBytes:J
 
     cmp-long v0, p1, v0
 
-    if-ltz v0, :cond_10
+    if-ltz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 170
@@ -790,7 +790,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 8
+    .locals 5
     .parameter "dest"
     .parameter "flags"
 
@@ -837,33 +837,33 @@
     .line 92
     iget-boolean v0, p0, Landroid/net/NetworkPolicy;->metered:Z
 
-    if-eqz v0, :cond_35
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_2a
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 93
     iget-boolean v0, p0, Landroid/net/NetworkPolicy;->inferred:Z
 
-    if-eqz v0, :cond_37
+    if-eqz v0, :cond_1
 
-    :goto_31
+    :goto_1
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 94
     return-void
 
-    :cond_35
+    :cond_0
     move v0, v2
 
     .line 92
-    goto :goto_2a
+    goto :goto_0
 
-    :cond_37
+    :cond_1
     move v1, v2
 
     .line 93
-    goto :goto_31
+    goto :goto_1
 .end method

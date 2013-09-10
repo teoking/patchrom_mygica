@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 107
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>(III)V
-    .registers 6
+    .locals 2
     .parameter "maxStreams"
     .parameter "streamType"
     .parameter "srcQuality"
@@ -62,7 +62,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 141
     new-instance v0, Ljava/lang/RuntimeException;
@@ -74,7 +74,7 @@
     throw v0
 
     .line 143
-    :cond_16
+    :cond_0
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
@@ -92,7 +92,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/media/SoundPool;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -103,7 +103,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/media/SoundPool;)Landroid/media/SoundPool$OnLoadCompleteListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -117,7 +117,7 @@
 .end method
 
 .method private static postEventFromNative(Ljava/lang/Object;IIILjava/lang/Object;)V
-    .registers 8
+    .locals 3
     .parameter "weakRef"
     .parameter "msg"
     .parameter "arg1"
@@ -137,18 +137,18 @@
 
     .line 465
     .local v1, soundPool:Landroid/media/SoundPool;
-    if-nez v1, :cond_b
+    if-nez v1, :cond_1
 
     .line 472
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return-void
 
     .line 468
-    :cond_b
+    :cond_1
     iget-object v2, v1, Landroid/media/SoundPool;->mEventHandler:Landroid/media/SoundPool$EventHandler;
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_0
 
     .line 469
     iget-object v2, v1, Landroid/media/SoundPool;->mEventHandler:Landroid/media/SoundPool$EventHandler;
@@ -163,7 +163,7 @@
 
     invoke-virtual {v2, v0}, Landroid/media/SoundPool$EventHandler;->sendMessage(Landroid/os/Message;)Z
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 
@@ -175,7 +175,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 485
@@ -185,7 +185,7 @@
 .end method
 
 .method public load(Landroid/content/Context;II)I
-    .registers 13
+    .locals 9
     .parameter "context"
     .parameter "resId"
     .parameter "priority"
@@ -206,7 +206,7 @@
 
     .line 193
     .local v8, id:I
-    if-eqz v7, :cond_20
+    if-eqz v7, :cond_0
 
     .line 194
     invoke-virtual {v7}, Landroid/content/res/AssetFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
@@ -230,31 +230,31 @@
     move-result v8
 
     .line 196
-    :try_start_1d
+    :try_start_0
     invoke-virtual {v7}, Landroid/content/res/AssetFileDescriptor;->close()V
-    :try_end_20
-    .catch Ljava/io/IOException; {:try_start_1d .. :try_end_20} :catch_21
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 201
-    :cond_20
-    :goto_20
+    :cond_0
+    :goto_0
     return v8
 
     .line 197
-    :catch_21
+    :catch_0
     move-exception v0
 
-    goto :goto_20
+    goto :goto_0
 .end method
 
 .method public load(Landroid/content/res/AssetFileDescriptor;I)I
-    .registers 10
+    .locals 7
     .parameter "afd"
     .parameter "priority"
 
     .prologue
     .line 213
-    if-eqz p1, :cond_24
+    if-eqz p1, :cond_1
 
     .line 214
     invoke-virtual {p1}, Landroid/content/res/AssetFileDescriptor;->getLength()J
@@ -267,7 +267,7 @@
 
     cmp-long v0, v4, v0
 
-    if-gez v0, :cond_15
+    if-gez v0, :cond_0
 
     .line 216
     new-instance v0, Landroid/util/AndroidRuntimeException;
@@ -279,7 +279,7 @@
     throw v0
 
     .line 218
-    :cond_15
+    :cond_0
     invoke-virtual {p1}, Landroid/content/res/AssetFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
     move-result-object v1
@@ -298,17 +298,17 @@
 
     .line 220
     .end local v4           #len:J
-    :goto_23
+    :goto_0
     return v0
 
-    :cond_24
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_23
+    goto :goto_0
 .end method
 
 .method public load(Ljava/io/FileDescriptor;JJI)I
-    .registers 8
+    .locals 1
     .parameter "fd"
     .parameter "offset"
     .parameter "length"
@@ -324,7 +324,7 @@
 .end method
 
 .method public load(Ljava/lang/String;I)I
-    .registers 14
+    .locals 11
     .parameter "path"
     .parameter "priority"
 
@@ -336,7 +336,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_1
 
     .line 158
     invoke-direct {p0, p1, p2}, Landroid/media/SoundPool;->_load(Ljava/lang/String;I)I
@@ -344,17 +344,17 @@
     move-result v10
 
     .line 172
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     return v10
 
     .line 161
-    :cond_d
+    :cond_1
     const/4 v10, 0x0
 
     .line 163
     .local v10, id:I
-    :try_start_e
+    :try_start_0
     new-instance v8, Ljava/io/File;
 
     invoke-direct {v8, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
@@ -369,7 +369,7 @@
 
     .line 165
     .local v9, fd:Landroid/os/ParcelFileDescriptor;
-    if-eqz v9, :cond_c
+    if-eqz v9, :cond_0
 
     .line 166
     invoke-virtual {v9}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
@@ -392,15 +392,15 @@
 
     .line 167
     invoke-virtual {v9}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_2e
-    .catch Ljava/io/IOException; {:try_start_e .. :try_end_2e} :catch_2f
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_c
+    goto :goto_0
 
     .line 169
     .end local v8           #f:Ljava/io/File;
     .end local v9           #fd:Landroid/os/ParcelFileDescriptor;
-    :catch_2f
+    :catch_0
     move-exception v7
 
     .line 170
@@ -427,7 +427,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public final native pause(I)V
@@ -446,7 +446,7 @@
 .end method
 
 .method public setOnLoadCompleteListener(Landroid/media/SoundPool$OnLoadCompleteListener;)V
-    .registers 5
+    .locals 3
     .parameter "listener"
 
     .prologue
@@ -456,16 +456,16 @@
     monitor-enter v2
 
     .line 417
-    if-eqz p1, :cond_2b
+    if-eqz p1, :cond_2
 
     .line 420
-    :try_start_5
+    :try_start_0
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
     move-result-object v0
 
     .local v0, looper:Landroid/os/Looper;
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 421
     new-instance v1, Landroid/media/SoundPool$EventHandler;
@@ -476,7 +476,7 @@
 
     .line 430
     .end local v0           #looper:Landroid/os/Looper;
-    :goto_12
+    :goto_0
     iput-object p1, p0, Landroid/media/SoundPool;->mOnLoadCompleteListener:Landroid/media/SoundPool$OnLoadCompleteListener;
 
     .line 431
@@ -487,12 +487,12 @@
 
     .line 422
     .restart local v0       #looper:Landroid/os/Looper;
-    :cond_16
+    :cond_0
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v0
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_1
 
     .line 423
     new-instance v1, Landroid/media/SoundPool$EventHandler;
@@ -501,39 +501,39 @@
 
     iput-object v1, p0, Landroid/media/SoundPool;->mEventHandler:Landroid/media/SoundPool$EventHandler;
 
-    goto :goto_12
+    goto :goto_0
 
     .line 431
     .end local v0           #looper:Landroid/os/Looper;
-    :catchall_24
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_26
-    .catchall {:try_start_5 .. :try_end_26} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 
     .line 425
     .restart local v0       #looper:Landroid/os/Looper;
-    :cond_27
+    :cond_1
     const/4 v1, 0x0
 
-    :try_start_28
+    :try_start_1
     iput-object v1, p0, Landroid/media/SoundPool;->mEventHandler:Landroid/media/SoundPool$EventHandler;
 
-    goto :goto_12
+    goto :goto_0
 
     .line 428
     .end local v0           #looper:Landroid/os/Looper;
-    :cond_2b
+    :cond_2
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/media/SoundPool;->mEventHandler:Landroid/media/SoundPool$EventHandler;
-    :try_end_2e
-    .catchall {:try_start_28 .. :try_end_2e} :catchall_24
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public final native setPriority(II)V

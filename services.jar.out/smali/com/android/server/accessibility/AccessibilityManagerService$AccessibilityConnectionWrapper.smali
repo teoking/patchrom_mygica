@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/accessibility/AccessibilityManagerService;ILandroid/view/accessibility/IAccessibilityInteractionConnection;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "windowId"
     .parameter "connection"
@@ -49,7 +49,7 @@
 .end method
 
 .method static synthetic access$3400(Lcom/android/server/accessibility/AccessibilityManagerService$AccessibilityConnectionWrapper;)Landroid/view/accessibility/IAccessibilityInteractionConnection;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1051
@@ -76,11 +76,12 @@
     monitor-enter v1
 
     .line 1053
-    :try_start_8
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$AccessibilityConnectionWrapper;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     iget v2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$AccessibilityConnectionWrapper;->mWindowId:I
 
+    #calls: Lcom/android/server/accessibility/AccessibilityManagerService;->removeAccessibilityInteractionConnectionLocked(I)V
     invoke-static {v0, v2}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$1700(Lcom/android/server/accessibility/AccessibilityManagerService;I)V
 
     .line 1054
@@ -90,18 +91,18 @@
     return-void
 
     .line 1054
-    :catchall_11
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_13
-    .catchall {:try_start_8 .. :try_end_13} :catchall_11
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public linkToDeath()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -125,7 +126,7 @@
 .end method
 
 .method public unlinkToDeath()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1046

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 130
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/LinkAddress;
-    .registers 6
+    .locals 4
     .parameter "in"
 
     .prologue
@@ -60,10 +60,10 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_15
+    if-ne v2, v3, :cond_0
 
     .line 136
-    :try_start_9
+    :try_start_0
     invoke-virtual {p1}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v2
@@ -74,14 +74,14 @@
 
     .line 137
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-    :try_end_14
-    .catch Ljava/net/UnknownHostException; {:try_start_9 .. :try_end_14} :catch_1b
+    :try_end_0
+    .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 140
-    :cond_15
-    :goto_15
+    :cond_0
+    :goto_0
     new-instance v2, Landroid/net/LinkAddress;
 
     invoke-direct {v2, v0, v1}, Landroid/net/LinkAddress;-><init>(Ljava/net/InetAddress;I)V
@@ -89,14 +89,14 @@
     return-object v2
 
     .line 138
-    :catch_1b
+    :catch_0
     move-exception v2
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -109,7 +109,7 @@
 .end method
 
 .method public newArray(I)[Landroid/net/LinkAddress;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -120,7 +120,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

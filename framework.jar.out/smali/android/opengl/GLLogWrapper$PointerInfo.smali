@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/opengl/GLLogWrapper;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>(Landroid/opengl/GLLogWrapper;IIILjava/nio/Buffer;)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter "size"
     .parameter "type"
@@ -76,52 +76,53 @@
 
 # virtual methods
 .method public bindByteBuffer()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 3937
     iget-object v0, p0, Landroid/opengl/GLLogWrapper$PointerInfo;->mPointer:Ljava/nio/Buffer;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_5
+    :goto_0
     iput-object v0, p0, Landroid/opengl/GLLogWrapper$PointerInfo;->mTempByteBuffer:Ljava/nio/ByteBuffer;
 
     .line 3938
     return-void
 
     .line 3937
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/opengl/GLLogWrapper$PointerInfo;->this$0:Landroid/opengl/GLLogWrapper;
 
     const/4 v1, -0x1
 
     iget-object v2, p0, Landroid/opengl/GLLogWrapper$PointerInfo;->mPointer:Ljava/nio/Buffer;
 
+    #calls: Landroid/opengl/GLLogWrapper;->toByteBuffer(ILjava/nio/Buffer;)Ljava/nio/ByteBuffer;
     invoke-static {v0, v1, v2}, Landroid/opengl/GLLogWrapper;->access$000(Landroid/opengl/GLLogWrapper;ILjava/nio/Buffer;)Ljava/nio/ByteBuffer;
 
     move-result-object v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public getStride()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3933
     iget v0, p0, Landroid/opengl/GLLogWrapper$PointerInfo;->mStride:I
 
-    if-lez v0, :cond_7
+    if-lez v0, :cond_0
 
     iget v0, p0, Landroid/opengl/GLLogWrapper$PointerInfo;->mStride:I
 
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     iget v0, p0, Landroid/opengl/GLLogWrapper$PointerInfo;->mType:I
 
     invoke-virtual {p0, v0}, Landroid/opengl/GLLogWrapper$PointerInfo;->sizeof(I)I
@@ -132,11 +133,11 @@
 
     mul-int/2addr v0, v1
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public sizeof(I)I
-    .registers 4
+    .locals 2
     .parameter "type"
 
     .prologue
@@ -145,48 +146,48 @@
     const/4 v0, 0x1
 
     .line 3916
-    sparse-switch p1, :sswitch_data_e
+    sparse-switch p1, :sswitch_data_0
 
     .line 3928
     const/4 v0, 0x0
 
-    :goto_6
-    :sswitch_6
+    :goto_0
+    :sswitch_0
     return v0
 
     .line 3922
-    :sswitch_7
+    :sswitch_1
     const/4 v0, 0x2
 
-    goto :goto_6
+    goto :goto_0
 
-    :sswitch_9
+    :sswitch_2
     move v0, v1
 
     .line 3924
-    goto :goto_6
+    goto :goto_0
 
-    :sswitch_b
+    :sswitch_3
     move v0, v1
 
     .line 3926
-    goto :goto_6
+    goto :goto_0
 
     .line 3916
     nop
 
-    :sswitch_data_e
+    :sswitch_data_0
     .sparse-switch
-        0x1400 -> :sswitch_6
-        0x1401 -> :sswitch_6
-        0x1402 -> :sswitch_7
-        0x1406 -> :sswitch_b
-        0x140c -> :sswitch_9
+        0x1400 -> :sswitch_0
+        0x1401 -> :sswitch_0
+        0x1402 -> :sswitch_1
+        0x1406 -> :sswitch_3
+        0x140c -> :sswitch_2
     .end sparse-switch
 .end method
 
 .method public unbindByteBuffer()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 3941

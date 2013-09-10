@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/inputmethod/InputConnection;Z)V
-    .registers 3
+    .locals 0
     .parameter "target"
     .parameter "mutable"
 
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public beginBatchEdit()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 106
@@ -49,7 +49,7 @@
 .end method
 
 .method public clearMetaKeyStates(I)Z
-    .registers 3
+    .locals 1
     .parameter "states"
 
     .prologue
@@ -64,7 +64,7 @@
 .end method
 
 .method public commitCompletion(Landroid/view/inputmethod/CompletionInfo;)Z
-    .registers 3
+    .locals 1
     .parameter "text"
 
     .prologue
@@ -79,7 +79,7 @@
 .end method
 
 .method public commitCorrection(Landroid/view/inputmethod/CorrectionInfo;)Z
-    .registers 3
+    .locals 1
     .parameter "correctionInfo"
 
     .prologue
@@ -94,7 +94,7 @@
 .end method
 
 .method public commitText(Ljava/lang/CharSequence;I)Z
-    .registers 4
+    .locals 1
     .parameter "text"
     .parameter "newCursorPosition"
 
@@ -110,7 +110,7 @@
 .end method
 
 .method public deleteSurroundingText(II)Z
-    .registers 4
+    .locals 1
     .parameter "beforeLength"
     .parameter "afterLength"
 
@@ -126,7 +126,7 @@
 .end method
 
 .method public endBatchEdit()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 110
@@ -140,7 +140,7 @@
 .end method
 
 .method public finishComposingText()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 78
@@ -154,7 +154,7 @@
 .end method
 
 .method public getCursorCapsMode(I)I
-    .registers 3
+    .locals 1
     .parameter "reqModes"
 
     .prologue
@@ -169,7 +169,7 @@
 .end method
 
 .method public getExtractedText(Landroid/view/inputmethod/ExtractedTextRequest;I)Landroid/view/inputmethod/ExtractedText;
-    .registers 4
+    .locals 1
     .parameter "request"
     .parameter "flags"
 
@@ -185,7 +185,7 @@
 .end method
 
 .method public getSelectedText(I)Ljava/lang/CharSequence;
-    .registers 3
+    .locals 1
     .parameter "flags"
 
     .prologue
@@ -200,7 +200,7 @@
 .end method
 
 .method public getTextAfterCursor(II)Ljava/lang/CharSequence;
-    .registers 4
+    .locals 1
     .parameter "n"
     .parameter "flags"
 
@@ -216,7 +216,7 @@
 .end method
 
 .method public getTextBeforeCursor(II)Ljava/lang/CharSequence;
-    .registers 4
+    .locals 1
     .parameter "n"
     .parameter "flags"
 
@@ -232,7 +232,7 @@
 .end method
 
 .method public performContextMenuAction(I)Z
-    .registers 3
+    .locals 1
     .parameter "id"
 
     .prologue
@@ -247,7 +247,7 @@
 .end method
 
 .method public performEditorAction(I)Z
-    .registers 3
+    .locals 1
     .parameter "editorAction"
 
     .prologue
@@ -262,7 +262,7 @@
 .end method
 
 .method public performPrivateCommand(Ljava/lang/String;Landroid/os/Bundle;)Z
-    .registers 4
+    .locals 1
     .parameter "action"
     .parameter "data"
 
@@ -278,7 +278,7 @@
 .end method
 
 .method public reportFullscreenMode(Z)Z
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
@@ -293,7 +293,7 @@
 .end method
 
 .method public sendKeyEvent(Landroid/view/KeyEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -308,7 +308,7 @@
 .end method
 
 .method public setComposingRegion(II)Z
-    .registers 4
+    .locals 1
     .parameter "start"
     .parameter "end"
 
@@ -324,7 +324,7 @@
 .end method
 
 .method public setComposingText(Ljava/lang/CharSequence;I)Z
-    .registers 4
+    .locals 1
     .parameter "text"
     .parameter "newCursorPosition"
 
@@ -340,7 +340,7 @@
 .end method
 
 .method public setSelection(II)Z
-    .registers 4
+    .locals 1
     .parameter "start"
     .parameter "end"
 
@@ -356,18 +356,18 @@
 .end method
 
 .method public setTarget(Landroid/view/inputmethod/InputConnection;)V
-    .registers 4
+    .locals 2
     .parameter "target"
 
     .prologue
     .line 39
     iget-object v0, p0, Landroid/view/inputmethod/InputConnectionWrapper;->mTarget:Landroid/view/inputmethod/InputConnection;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     iget-boolean v0, p0, Landroid/view/inputmethod/InputConnectionWrapper;->mMutable:Z
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 40
     new-instance v0, Ljava/lang/SecurityException;
@@ -379,7 +379,7 @@
     throw v0
 
     .line 42
-    :cond_11
+    :cond_0
     iput-object p1, p0, Landroid/view/inputmethod/InputConnectionWrapper;->mTarget:Landroid/view/inputmethod/InputConnection;
 
     .line 43

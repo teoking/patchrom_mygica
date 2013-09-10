@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 81
@@ -37,23 +37,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     sput-boolean v0, Landroid/webkit/DeviceMotionService$1;->$assertionsDisabled:Z
 
     return-void
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method constructor <init>(Landroid/webkit/DeviceMotionService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v1, 0x0
@@ -76,7 +76,7 @@
     .line 84
     sget-boolean v0, Landroid/webkit/DeviceMotionService$1;->$assertionsDisabled:Z
 
-    if-nez v0, :cond_1b
+    if-nez v0, :cond_0
 
     const-string v0, "WebViewCoreThread"
 
@@ -92,7 +92,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1b
+    if-nez v0, :cond_0
 
     new-instance v0, Ljava/lang/AssertionError;
 
@@ -101,18 +101,20 @@
     throw v0
 
     .line 85
-    :cond_1b
+    :cond_0
     iget-object v0, p0, Landroid/webkit/DeviceMotionService$1;->this$0:Landroid/webkit/DeviceMotionService;
 
+    #getter for: Landroid/webkit/DeviceMotionService;->mIsRunning:Z
     invoke-static {v0}, Landroid/webkit/DeviceMotionService;->access$000(Landroid/webkit/DeviceMotionService;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_30
+    if-eqz v0, :cond_1
 
     .line 87
     iget-object v0, p0, Landroid/webkit/DeviceMotionService$1;->this$0:Landroid/webkit/DeviceMotionService;
 
+    #getter for: Landroid/webkit/DeviceMotionService;->mManager:Landroid/webkit/DeviceMotionAndOrientationManager;
     invoke-static {v0}, Landroid/webkit/DeviceMotionService;->access$100(Landroid/webkit/DeviceMotionService;)Landroid/webkit/DeviceMotionAndOrientationManager;
 
     move-result-object v0
@@ -126,6 +128,6 @@
     invoke-virtual/range {v0 .. v5}, Landroid/webkit/DeviceMotionAndOrientationManager;->onMotionChange(Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;D)V
 
     .line 89
-    :cond_30
+    :cond_1
     return-void
 .end method

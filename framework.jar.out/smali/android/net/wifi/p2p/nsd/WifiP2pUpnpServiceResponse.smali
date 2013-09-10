@@ -20,7 +20,7 @@
 
 # direct methods
 .method protected constructor <init>(IILandroid/net/wifi/p2p/WifiP2pDevice;[B)V
-    .registers 11
+    .locals 6
     .parameter "status"
     .parameter "transId"
     .parameter "dev"
@@ -47,7 +47,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_0
 
     .line 85
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -59,12 +59,12 @@
     throw v0
 
     .line 87
-    :cond_17
+    :cond_0
     return-void
 .end method
 
 .method static newInstance(IILandroid/net/wifi/p2p/WifiP2pDevice;[B)Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceResponse;
-    .registers 7
+    .locals 3
     .parameter "status"
     .parameter "transId"
     .parameter "device"
@@ -74,7 +74,7 @@
     const/4 v2, 0x0
 
     .line 148
-    if-eqz p0, :cond_9
+    if-eqz p0, :cond_0
 
     .line 149
     new-instance v1, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceResponse;
@@ -82,22 +82,22 @@
     invoke-direct {v1, p0, p1, p2, v2}, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceResponse;-><init>(IILandroid/net/wifi/p2p/WifiP2pDevice;[B)V
 
     .line 157
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 153
-    :cond_9
-    :try_start_9
+    :cond_0
+    :try_start_0
     new-instance v1, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceResponse;
 
     invoke-direct {v1, p0, p1, p2, p3}, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceResponse;-><init>(IILandroid/net/wifi/p2p/WifiP2pDevice;[B)V
-    :try_end_e
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_9 .. :try_end_e} :catch_f
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_8
+    goto :goto_0
 
     .line 154
-    :catch_f
+    :catch_0
     move-exception v0
 
     .line 155
@@ -107,11 +107,11 @@
     move-object v1, v2
 
     .line 157
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method private parse()Z
-    .registers 10
+    .locals 9
 
     .prologue
     const/4 v6, 0x0
@@ -121,28 +121,28 @@
     .line 101
     iget-object v7, p0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;->mData:[B
 
-    if-nez v7, :cond_7
+    if-nez v7, :cond_1
 
     .line 116
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return v5
 
     .line 106
-    :cond_7
+    :cond_1
     iget-object v7, p0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;->mData:[B
 
     array-length v7, v7
 
-    if-ge v7, v5, :cond_e
+    if-ge v7, v5, :cond_2
 
     move v5, v6
 
     .line 107
-    goto :goto_6
+    goto :goto_0
 
     .line 110
-    :cond_e
+    :cond_2
     iget-object v7, p0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;->mData:[B
 
     aget-byte v6, v7, v6
@@ -188,8 +188,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_32
-    if-ge v1, v2, :cond_6
+    :goto_1
+    if-ge v1, v2, :cond_0
 
     aget-object v3, v0, v1
 
@@ -202,13 +202,13 @@
     .line 113
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_32
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public getUniqueServiceNames()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -227,7 +227,7 @@
 .end method
 
 .method public getVersion()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 51
@@ -237,7 +237,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 9
+    .locals 8
 
     .prologue
     .line 121
@@ -323,7 +323,7 @@
     .line 126
     iget-object v3, p0, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceResponse;->mUniqueServiceNames:Ljava/util/List;
 
-    if-eqz v3, :cond_6e
+    if-eqz v3, :cond_0
 
     .line 127
     iget-object v3, p0, Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceResponse;->mUniqueServiceNames:Ljava/util/List;
@@ -333,12 +333,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_58
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_6e
+    if-eqz v3, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -356,12 +356,12 @@
 
     invoke-virtual {v3, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    goto :goto_58
+    goto :goto_0
 
     .line 131
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #name:Ljava/lang/String;
-    :cond_6e
+    :cond_0
     invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v3

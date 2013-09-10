@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/NetInitiatedActivity;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,53 +35,56 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
     .line 69
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_20
+    packed-switch v0, :pswitch_data_0
 
     .line 79
-    :goto_5
+    :goto_0
     return-void
 
     .line 71
-    :pswitch_6
+    :pswitch_0
     iget-object v0, p0, Lcom/android/internal/app/NetInitiatedActivity$2;->this$0:Lcom/android/internal/app/NetInitiatedActivity;
 
+    #getter for: Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
     invoke-static {v0}, Lcom/android/internal/app/NetInitiatedActivity;->access$100(Lcom/android/internal/app/NetInitiatedActivity;)I
 
     move-result v0
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_1a
+    if-eq v0, v1, :cond_0
 
     .line 72
     iget-object v0, p0, Lcom/android/internal/app/NetInitiatedActivity$2;->this$0:Lcom/android/internal/app/NetInitiatedActivity;
 
     iget-object v1, p0, Lcom/android/internal/app/NetInitiatedActivity$2;->this$0:Lcom/android/internal/app/NetInitiatedActivity;
 
+    #getter for: Lcom/android/internal/app/NetInitiatedActivity;->default_response:I
     invoke-static {v1}, Lcom/android/internal/app/NetInitiatedActivity;->access$200(Lcom/android/internal/app/NetInitiatedActivity;)I
 
     move-result v1
 
+    #calls: Lcom/android/internal/app/NetInitiatedActivity;->sendUserResponse(I)V
     invoke-static {v0, v1}, Lcom/android/internal/app/NetInitiatedActivity;->access$300(Lcom/android/internal/app/NetInitiatedActivity;I)V
 
     .line 74
-    :cond_1a
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/app/NetInitiatedActivity$2;->this$0:Lcom/android/internal/app/NetInitiatedActivity;
 
     invoke-virtual {v0}, Lcom/android/internal/app/NetInitiatedActivity;->finish()V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 69
-    :pswitch_data_20
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_6
+        :pswitch_0
     .end packed-switch
 .end method

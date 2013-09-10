@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V
-    .registers 6
+    .locals 2
     .parameter "property"
     .parameter "value"
     .parameter "requestedType"

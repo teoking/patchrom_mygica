@@ -115,7 +115,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 243
@@ -131,7 +131,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 4
+    .locals 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -208,7 +208,7 @@
 .end method
 
 .method private constructor <init>(Landroid/content/Context;)V
-    .registers 15
+    .locals 13
     .parameter "context"
 
     .prologue
@@ -252,7 +252,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_a9
+    if-eqz v10, :cond_1
 
     .line 285
     const/high16 v10, 0x3fc0
@@ -261,7 +261,7 @@
 
     .line 290
     .local v6, sizeAndDensity:F
-    :goto_22
+    :goto_0
     mul-float v10, v6, v11
 
     add-float/2addr v10, v12
@@ -384,7 +384,7 @@
     .line 305
     iget-boolean v10, p0, Landroid/view/ViewConfiguration;->sHasPermanentMenuKeySet:Z
 
-    if-nez v10, :cond_8c
+    if-nez v10, :cond_0
 
     .line 306
     invoke-static {}, Landroid/view/Display;->getWindowManager()Landroid/view/IWindowManager;
@@ -393,33 +393,33 @@
 
     .line 308
     .local v7, wm:Landroid/view/IWindowManager;
-    :try_start_7b
+    :try_start_0
     invoke-interface {v7}, Landroid/view/IWindowManager;->hasSystemNavBar()Z
 
     move-result v10
 
-    if-nez v10, :cond_ac
+    if-nez v10, :cond_2
 
     invoke-interface {v7}, Landroid/view/IWindowManager;->hasNavigationBar()Z
 
     move-result v10
 
-    if-nez v10, :cond_ac
+    if-nez v10, :cond_2
 
-    :goto_87
+    :goto_1
     iput-boolean v8, p0, Landroid/view/ViewConfiguration;->sHasPermanentMenuKey:Z
 
     .line 309
     const/4 v8, 0x1
 
     iput-boolean v8, p0, Landroid/view/ViewConfiguration;->sHasPermanentMenuKeySet:Z
-    :try_end_8c
-    .catch Landroid/os/RemoteException; {:try_start_7b .. :try_end_8c} :catch_ae
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 315
     .end local v7           #wm:Landroid/view/IWindowManager;
-    :cond_8c
-    :goto_8c
+    :cond_0
+    :goto_2
     const v8, 0x111000c
 
     invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getBoolean(I)Z
@@ -455,33 +455,33 @@
     .line 287
     .end local v2           #display:Landroid/view/Display;
     .end local v6           #sizeAndDensity:F
-    :cond_a9
+    :cond_1
     move v6, v1
 
     .restart local v6       #sizeAndDensity:F
-    goto/16 :goto_22
+    goto/16 :goto_0
 
     .restart local v2       #display:Landroid/view/Display;
     .restart local v7       #wm:Landroid/view/IWindowManager;
-    :cond_ac
+    :cond_2
     move v8, v9
 
     .line 308
-    goto :goto_87
+    goto :goto_1
 
     .line 310
-    :catch_ae
+    :catch_0
     move-exception v3
 
     .line 311
     .local v3, ex:Landroid/os/RemoteException;
     iput-boolean v9, p0, Landroid/view/ViewConfiguration;->sHasPermanentMenuKey:Z
 
-    goto :goto_8c
+    goto :goto_2
 .end method
 
 .method public static get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
-    .registers 6
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -516,7 +516,7 @@
 
     .line 336
     .local v0, configuration:Landroid/view/ViewConfiguration;
-    if-nez v0, :cond_22
+    if-nez v0, :cond_0
 
     .line 337
     new-instance v0, Landroid/view/ViewConfiguration;
@@ -531,12 +531,12 @@
     invoke-virtual {v3, v1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 341
-    :cond_22
+    :cond_0
     return-object v0
 .end method
 
 .method public static getDoubleTapSlop()I
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -548,7 +548,7 @@
 .end method
 
 .method public static getDoubleTapTimeout()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 449
@@ -558,7 +558,7 @@
 .end method
 
 .method public static getEdgeSlop()I
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -570,7 +570,7 @@
 .end method
 
 .method public static getFadingEdgeLength()I
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -582,7 +582,7 @@
 .end method
 
 .method public static getGlobalActionKeyTimeout()J
-    .registers 2
+    .locals 2
 
     .prologue
     .line 669
@@ -592,7 +592,7 @@
 .end method
 
 .method public static getHoverTapSlop()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 469
@@ -602,7 +602,7 @@
 .end method
 
 .method public static getHoverTapTimeout()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 459
@@ -612,7 +612,7 @@
 .end method
 
 .method public static getJumpTapTimeout()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 440
@@ -622,7 +622,7 @@
 .end method
 
 .method public static getKeyRepeatDelay()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 422
@@ -632,7 +632,7 @@
 .end method
 
 .method public static getKeyRepeatTimeout()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 415
@@ -644,7 +644,7 @@
 .end method
 
 .method public static getLongPressTimeout()I
-    .registers 2
+    .locals 2
 
     .prologue
     .line 407
@@ -660,7 +660,7 @@
 .end method
 
 .method public static getMaximumDrawingCacheSize()I
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -672,7 +672,7 @@
 .end method
 
 .method public static getMaximumFlingVelocity()I
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -684,7 +684,7 @@
 .end method
 
 .method public static getMinimumFlingVelocity()I
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -696,7 +696,7 @@
 .end method
 
 .method public static getPressedStateDuration()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 399
@@ -706,7 +706,7 @@
 .end method
 
 .method public static getScrollBarFadeDuration()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 367
@@ -716,7 +716,7 @@
 .end method
 
 .method public static getScrollBarSize()I
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -728,7 +728,7 @@
 .end method
 
 .method public static getScrollDefaultDelay()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 374
@@ -738,7 +738,7 @@
 .end method
 
 .method public static getScrollFriction()F
-    .registers 1
+    .locals 1
 
     .prologue
     .line 679
@@ -748,7 +748,7 @@
 .end method
 
 .method public static getSendRecurringAccessibilityEventsInterval()J
-    .registers 2
+    .locals 2
 
     .prologue
     .line 555
@@ -758,7 +758,7 @@
 .end method
 
 .method public static getTapTimeout()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 431
@@ -768,7 +768,7 @@
 .end method
 
 .method public static getTouchSlop()I
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -780,7 +780,7 @@
 .end method
 
 .method public static getWindowTouchSlop()I
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -792,7 +792,7 @@
 .end method
 
 .method public static getZoomControlsTimeout()J
-    .registers 2
+    .locals 2
 
     .prologue
     .line 658
@@ -804,7 +804,7 @@
 
 # virtual methods
 .method public getScaledDoubleTapSlop()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 542
@@ -814,7 +814,7 @@
 .end method
 
 .method public getScaledDoubleTapTouchSlop()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 514
@@ -824,7 +824,7 @@
 .end method
 
 .method public getScaledEdgeSlop()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 488
@@ -834,7 +834,7 @@
 .end method
 
 .method public getScaledFadingEdgeLength()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 391
@@ -844,7 +844,7 @@
 .end method
 
 .method public getScaledMaximumDrawingCacheSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 631
@@ -854,7 +854,7 @@
 .end method
 
 .method public getScaledMaximumFlingVelocity()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 609
@@ -864,7 +864,7 @@
 .end method
 
 .method public getScaledMinimumFlingVelocity()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 592
@@ -874,7 +874,7 @@
 .end method
 
 .method public getScaledOverflingDistance()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 647
@@ -884,7 +884,7 @@
 .end method
 
 .method public getScaledOverscrollDistance()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 639
@@ -894,7 +894,7 @@
 .end method
 
 .method public getScaledPagingTouchSlop()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 522
@@ -904,7 +904,7 @@
 .end method
 
 .method public getScaledScrollBarSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 360
@@ -914,7 +914,7 @@
 .end method
 
 .method public getScaledTouchSlop()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 505
@@ -924,7 +924,7 @@
 .end method
 
 .method public getScaledWindowTouchSlop()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 575
@@ -934,7 +934,7 @@
 .end method
 
 .method public hasPermanentMenuKey()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 695
@@ -944,7 +944,7 @@
 .end method
 
 .method public isFadingMarqueeEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 703

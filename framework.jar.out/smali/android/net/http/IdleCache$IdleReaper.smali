@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/net/http/IdleCache;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/net/http/IdleCache;Landroid/net/http/IdleCache$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 147
@@ -70,79 +70,82 @@
     monitor-enter v2
 
     .line 153
-    :goto_e
+    :goto_0
     const/4 v1, 0x5
 
-    if-ge v0, v1, :cond_2d
+    if-ge v0, v1, :cond_1
 
     .line 155
-    :try_start_11
+    :try_start_0
     iget-object v1, p0, Landroid/net/http/IdleCache$IdleReaper;->this$0:Landroid/net/http/IdleCache;
 
     const-wide/16 v3, 0x7d0
 
     invoke-virtual {v1, v3, v4}, Ljava/lang/Object;->wait(J)V
-    :try_end_18
-    .catchall {:try_start_11 .. :try_end_18} :catchall_2a
-    .catch Ljava/lang/InterruptedException; {:try_start_11 .. :try_end_18} :catch_35
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 158
-    :goto_18
-    :try_start_18
+    :goto_1
+    :try_start_1
     iget-object v1, p0, Landroid/net/http/IdleCache$IdleReaper;->this$0:Landroid/net/http/IdleCache;
 
+    #getter for: Landroid/net/http/IdleCache;->mCount:I
     invoke-static {v1}, Landroid/net/http/IdleCache;->access$100(Landroid/net/http/IdleCache;)I
 
     move-result v1
 
-    if-nez v1, :cond_23
+    if-nez v1, :cond_0
 
     .line 159
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 161
-    :cond_23
+    :cond_0
     const/4 v0, 0x0
 
     .line 162
     iget-object v1, p0, Landroid/net/http/IdleCache$IdleReaper;->this$0:Landroid/net/http/IdleCache;
 
+    #calls: Landroid/net/http/IdleCache;->clearIdle()V
     invoke-static {v1}, Landroid/net/http/IdleCache;->access$200(Landroid/net/http/IdleCache;)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 166
-    :catchall_2a
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_2c
-    .catchall {:try_start_18 .. :try_end_2c} :catchall_2a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 
     .line 165
-    :cond_2d
-    :try_start_2d
+    :cond_1
+    :try_start_2
     iget-object v1, p0, Landroid/net/http/IdleCache$IdleReaper;->this$0:Landroid/net/http/IdleCache;
 
     const/4 v3, 0x0
 
+    #setter for: Landroid/net/http/IdleCache;->mThread:Landroid/net/http/IdleCache$IdleReaper;
     invoke-static {v1, v3}, Landroid/net/http/IdleCache;->access$302(Landroid/net/http/IdleCache;Landroid/net/http/IdleCache$IdleReaper;)Landroid/net/http/IdleCache$IdleReaper;
 
     .line 166
     monitor-exit v2
-    :try_end_34
-    .catchall {:try_start_2d .. :try_end_34} :catchall_2a
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 173
     return-void
 
     .line 156
-    :catch_35
+    :catch_0
     move-exception v1
 
-    goto :goto_18
+    goto :goto_1
 .end method

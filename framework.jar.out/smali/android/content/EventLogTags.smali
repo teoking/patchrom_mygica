@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 11
@@ -23,7 +23,7 @@
 .end method
 
 .method public static writeBinderSample(Ljava/lang/String;IILjava/lang/String;I)V
-    .registers 9
+    .locals 4
     .parameter "descriptor"
     .parameter "methodNum"
     .parameter "time"
@@ -77,7 +77,7 @@
 .end method
 
 .method public static writeContentQuerySample(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;I)V
-    .registers 11
+    .locals 4
     .parameter "uri"
     .parameter "projection"
     .parameter "selection"
@@ -137,7 +137,7 @@
 .end method
 
 .method public static writeContentUpdateSample(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;I)V
-    .registers 10
+    .locals 4
     .parameter "uri"
     .parameter "operation"
     .parameter "selection"

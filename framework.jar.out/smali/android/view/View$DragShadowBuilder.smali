@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 15813
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/View;)V
-    .registers 3
+    .locals 1
     .parameter "view"
 
     .prologue
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public final getView()Landroid/view/View;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 15829
@@ -86,7 +86,7 @@
 .end method
 
 .method public onDrawShadow(Landroid/graphics/Canvas;)V
-    .registers 5
+    .locals 3
     .parameter "canvas"
 
     .prologue
@@ -101,28 +101,28 @@
 
     .line 15871
     .local v0, view:Landroid/view/View;
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 15872
     invoke-virtual {v0, p1}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
 
     .line 15876
-    :goto_d
+    :goto_0
     return-void
 
     .line 15874
-    :cond_e
+    :cond_0
     const-string v1, "View"
 
     const-string v2, "Asked to draw drag shadow but no view"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public onProvideShadowMetrics(Landroid/graphics/Point;Landroid/graphics/Point;)V
-    .registers 6
+    .locals 3
     .parameter "shadowSize"
     .parameter "shadowTouchPoint"
 
@@ -138,7 +138,7 @@
 
     .line 15854
     .local v0, view:Landroid/view/View;
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_0
 
     .line 15855
     invoke-virtual {v0}, Landroid/view/View;->getWidth()I
@@ -163,16 +163,16 @@
     invoke-virtual {p2, v1, v2}, Landroid/graphics/Point;->set(II)V
 
     .line 15860
-    :goto_20
+    :goto_0
     return-void
 
     .line 15858
-    :cond_21
+    :cond_0
     const-string v1, "View"
 
     const-string v2, "Asked for drag thumb metrics but no view"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_20
+    goto :goto_0
 .end method

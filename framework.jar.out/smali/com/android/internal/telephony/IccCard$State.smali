@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 8
+    .locals 8
 
     .prologue
     const/4 v7, 0x4
@@ -185,7 +185,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -202,7 +202,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/internal/telephony/IccCard$State;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -219,7 +219,7 @@
 .end method
 
 .method public static values()[Lcom/android/internal/telephony/IccCard$State;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 135
@@ -237,63 +237,63 @@
 
 # virtual methods
 .method public iccCardExist()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 150
     sget-object v0, Lcom/android/internal/telephony/IccCard$State;->PIN_REQUIRED:Lcom/android/internal/telephony/IccCard$State;
 
-    if-eq p0, v0, :cond_14
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/IccCard$State;->PUK_REQUIRED:Lcom/android/internal/telephony/IccCard$State;
 
-    if-eq p0, v0, :cond_14
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/IccCard$State;->NETWORK_LOCKED:Lcom/android/internal/telephony/IccCard$State;
 
-    if-eq p0, v0, :cond_14
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/IccCard$State;->READY:Lcom/android/internal/telephony/IccCard$State;
 
-    if-eq p0, v0, :cond_14
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/IccCard$State;->PERM_DISABLED:Lcom/android/internal/telephony/IccCard$State;
 
-    if-ne p0, v0, :cond_16
+    if-ne p0, v0, :cond_1
 
-    :cond_14
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_15
+    :goto_0
     return v0
 
-    :cond_16
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public isPinLocked()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 146
     sget-object v0, Lcom/android/internal/telephony/IccCard$State;->PIN_REQUIRED:Lcom/android/internal/telephony/IccCard$State;
 
-    if-eq p0, v0, :cond_8
+    if-eq p0, v0, :cond_0
 
     sget-object v0, Lcom/android/internal/telephony/IccCard$State;->PUK_REQUIRED:Lcom/android/internal/telephony/IccCard$State;
 
-    if-ne p0, v0, :cond_a
+    if-ne p0, v0, :cond_1
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method

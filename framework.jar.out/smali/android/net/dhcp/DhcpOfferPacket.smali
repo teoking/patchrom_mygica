@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(IZLjava/net/InetAddress;Ljava/net/InetAddress;[B)V
-    .registers 14
+    .locals 8
     .parameter "transId"
     .parameter "broadcast"
     .parameter "serverAddress"
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public buildPacket(ISS)Ljava/nio/ByteBuffer;
-    .registers 13
+    .locals 9
     .parameter "encap"
     .parameter "destUdp"
     .parameter "srcUdp"
@@ -63,22 +63,22 @@
     .local v6, result:Ljava/nio/ByteBuffer;
     iget-boolean v0, p0, Landroid/net/dhcp/DhcpPacket;->mBroadcast:Z
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     sget-object v2, Ljava/net/Inet4Address;->ALL:Ljava/net/InetAddress;
 
     .line 64
     .local v2, destIp:Ljava/net/InetAddress;
-    :goto_c
+    :goto_0
     iget-boolean v0, p0, Landroid/net/dhcp/DhcpPacket;->mBroadcast:Z
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_1
 
     sget-object v3, Ljava/net/Inet4Address;->ANY:Ljava/net/InetAddress;
 
     .line 66
     .local v3, srcIp:Ljava/net/InetAddress;
-    :goto_12
+    :goto_1
     const/4 v7, 0x2
 
     iget-boolean v8, p0, Landroid/net/dhcp/DhcpPacket;->mBroadcast:Z
@@ -102,21 +102,21 @@
     .line 63
     .end local v2           #destIp:Ljava/net/InetAddress;
     .end local v3           #srcIp:Ljava/net/InetAddress;
-    :cond_20
+    :cond_0
     iget-object v2, p0, Landroid/net/dhcp/DhcpPacket;->mYourIp:Ljava/net/InetAddress;
 
-    goto :goto_c
+    goto :goto_0
 
     .line 64
     .restart local v2       #destIp:Ljava/net/InetAddress;
-    :cond_23
+    :cond_1
     iget-object v3, p0, Landroid/net/dhcp/DhcpOfferPacket;->mSrcIp:Ljava/net/InetAddress;
 
-    goto :goto_12
+    goto :goto_1
 .end method
 
 .method public doNextOp(Landroid/net/dhcp/DhcpStateMachine;)V
-    .registers 8
+    .locals 6
     .parameter "machine"
 
     .prologue
@@ -140,7 +140,7 @@
 .end method
 
 .method finishPacket(Ljava/nio/ByteBuffer;)V
-    .registers 4
+    .locals 2
     .parameter "buffer"
 
     .prologue
@@ -168,7 +168,7 @@
     .line 81
     iget-object v0, p0, Landroid/net/dhcp/DhcpPacket;->mLeaseTime:Ljava/lang/Integer;
 
-    if-eqz v0, :cond_29
+    if-eqz v0, :cond_0
 
     .line 82
     const/16 v0, 0x3a
@@ -188,7 +188,7 @@
     invoke-virtual {p0, p1, v0, v1}, Landroid/net/dhcp/DhcpOfferPacket;->addTlv(Ljava/nio/ByteBuffer;BLjava/lang/Integer;)V
 
     .line 86
-    :cond_29
+    :cond_0
     const/4 v0, 0x1
 
     iget-object v1, p0, Landroid/net/dhcp/DhcpPacket;->mSubnetMask:Ljava/net/InetAddress;
@@ -231,7 +231,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 7
+    .locals 6
 
     .prologue
     .line 44
@@ -247,7 +247,7 @@
     .local v1, dnsServers:Ljava/lang/String;
     iget-object v4, p0, Landroid/net/dhcp/DhcpPacket;->mDnsServers:Ljava/util/List;
 
-    if-eqz v4, :cond_34
+    if-eqz v4, :cond_0
 
     .line 48
     iget-object v4, p0, Landroid/net/dhcp/DhcpPacket;->mDnsServers:Ljava/util/List;
@@ -257,12 +257,12 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :goto_10
+    :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_34
+    if-eqz v4, :cond_0
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -294,12 +294,12 @@
 
     move-result-object v1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 53
     .end local v0           #dnsServer:Ljava/net/InetAddress;
     .end local v2           #i$:Ljava/util/Iterator;
-    :cond_34
+    :cond_0
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V

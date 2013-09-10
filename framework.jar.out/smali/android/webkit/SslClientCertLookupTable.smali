@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 41
@@ -77,7 +77,7 @@
 .end method
 
 .method public static declared-synchronized getInstance()Landroid/webkit/SslClientCertLookupTable;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 35
@@ -85,10 +85,10 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/webkit/SslClientCertLookupTable;->sTable:Landroid/webkit/SslClientCertLookupTable;
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 36
     new-instance v0, Landroid/webkit/SslClientCertLookupTable;
@@ -98,17 +98,17 @@
     sput-object v0, Landroid/webkit/SslClientCertLookupTable;->sTable:Landroid/webkit/SslClientCertLookupTable;
 
     .line 38
-    :cond_e
+    :cond_0
     sget-object v0, Landroid/webkit/SslClientCertLookupTable;->sTable:Landroid/webkit/SslClientCertLookupTable;
-    :try_end_10
-    .catchall {:try_start_3 .. :try_end_10} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
     return-object v0
 
     .line 35
-    :catchall_12
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public Allow(Ljava/lang/String;Ljava/security/PrivateKey;[[B)V
-    .registers 5
+    .locals 1
     .parameter "host_and_port"
     .parameter "privateKey"
     .parameter "chain"
@@ -145,7 +145,7 @@
 .end method
 
 .method public CertificateChain(Ljava/lang/String;)[[B
-    .registers 3
+    .locals 1
     .parameter "host_and_port"
 
     .prologue
@@ -162,7 +162,7 @@
 .end method
 
 .method public Deny(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "host_and_port"
 
     .prologue
@@ -186,7 +186,7 @@
 .end method
 
 .method public IsAllowed(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "host_and_port"
 
     .prologue
@@ -201,7 +201,7 @@
 .end method
 
 .method public IsDenied(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "host_and_port"
 
     .prologue
@@ -216,7 +216,7 @@
 .end method
 
 .method public PrivateKey(Ljava/lang/String;)Ljava/security/PrivateKey;
-    .registers 3
+    .locals 1
     .parameter "host_and_port"
 
     .prologue

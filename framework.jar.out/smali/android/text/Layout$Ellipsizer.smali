@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;)V
-    .registers 2
+    .locals 0
     .parameter "s"
 
     .prologue
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public charAt(I)C
-    .registers 6
+    .locals 4
     .parameter "off"
 
     .prologue
@@ -78,7 +78,7 @@
 .end method
 
 .method public getChars(II[CI)V
-    .registers 14
+    .locals 9
     .parameter "start"
     .parameter "end"
     .parameter "dest"
@@ -110,8 +110,8 @@
     move v3, v7
 
     .local v3, i:I
-    :goto_12
-    if-gt v3, v8, :cond_22
+    :goto_0
+    if-gt v3, v8, :cond_0
 
     .line 1794
     iget-object v0, p0, Landroid/text/Layout$Ellipsizer;->mLayout:Landroid/text/Layout;
@@ -126,20 +126,21 @@
 
     move v5, p4
 
+    #calls: Landroid/text/Layout;->ellipsize(III[CILandroid/text/TextUtils$TruncateAt;)V
     invoke-static/range {v0 .. v6}, Landroid/text/Layout;->access$000(Landroid/text/Layout;III[CILandroid/text/TextUtils$TruncateAt;)V
 
     .line 1793
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_12
+    goto :goto_0
 
     .line 1796
-    :cond_22
+    :cond_0
     return-void
 .end method
 
 .method public length()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1799
@@ -153,7 +154,7 @@
 .end method
 
 .method public subSequence(II)Ljava/lang/CharSequence;
-    .registers 5
+    .locals 2
     .parameter "start"
     .parameter "end"
 
@@ -178,7 +179,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0

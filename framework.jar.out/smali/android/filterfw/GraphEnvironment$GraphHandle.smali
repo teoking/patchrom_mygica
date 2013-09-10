@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterfw/GraphEnvironment;Landroid/filterfw/core/FilterGraph;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "graph"
 
@@ -46,14 +46,14 @@
 
 # virtual methods
 .method public getAsyncRunner(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/AsyncRunner;
-    .registers 4
+    .locals 2
     .parameter "environment"
 
     .prologue
     .line 68
     iget-object v0, p0, Landroid/filterfw/GraphEnvironment$GraphHandle;->mAsyncRunner:Landroid/filterfw/core/AsyncRunner;
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 69
     new-instance v0, Landroid/filterfw/core/AsyncRunner;
@@ -72,14 +72,14 @@
     invoke-virtual {v0, v1}, Landroid/filterfw/core/AsyncRunner;->setGraph(Landroid/filterfw/core/FilterGraph;)V
 
     .line 72
-    :cond_14
+    :cond_0
     iget-object v0, p0, Landroid/filterfw/GraphEnvironment$GraphHandle;->mAsyncRunner:Landroid/filterfw/core/AsyncRunner;
 
     return-object v0
 .end method
 
 .method public getGraph()Landroid/filterfw/core/FilterGraph;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 64
@@ -89,14 +89,14 @@
 .end method
 
 .method public getSyncRunner(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/GraphRunner;
-    .registers 5
+    .locals 3
     .parameter "environment"
 
     .prologue
     .line 76
     iget-object v0, p0, Landroid/filterfw/GraphEnvironment$GraphHandle;->mSyncRunner:Landroid/filterfw/core/SyncRunner;
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 77
     new-instance v0, Landroid/filterfw/core/SyncRunner;
@@ -110,7 +110,7 @@
     iput-object v0, p0, Landroid/filterfw/GraphEnvironment$GraphHandle;->mSyncRunner:Landroid/filterfw/core/SyncRunner;
 
     .line 79
-    :cond_f
+    :cond_0
     iget-object v0, p0, Landroid/filterfw/GraphEnvironment$GraphHandle;->mSyncRunner:Landroid/filterfw/core/SyncRunner;
 
     return-object v0

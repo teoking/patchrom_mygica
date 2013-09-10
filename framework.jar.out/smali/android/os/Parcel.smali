@@ -115,7 +115,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     const/4 v1, 0x6
@@ -148,7 +148,7 @@
 .end method
 
 .method private constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "nativePtr"
 
     .prologue
@@ -174,18 +174,18 @@
 .end method
 
 .method private destroy()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2204
     iget v0, p0, Landroid/os/Parcel;->mNativePtr:I
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_1
 
     .line 2205
     iget-boolean v0, p0, Landroid/os/Parcel;->mOwnsNativeParcelObject:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 2206
     iget v0, p0, Landroid/os/Parcel;->mNativePtr:I
@@ -193,13 +193,13 @@
     invoke-static {v0}, Landroid/os/Parcel;->nativeDestroy(I)V
 
     .line 2208
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/os/Parcel;->mNativePtr:I
 
     .line 2210
-    :cond_10
+    :cond_1
     return-void
 .end method
 
@@ -212,13 +212,13 @@
 .end method
 
 .method private freeBuffer()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2198
     iget-boolean v0, p0, Landroid/os/Parcel;->mOwnsNativeParcelObject:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 2199
     iget v0, p0, Landroid/os/Parcel;->mNativePtr:I
@@ -226,17 +226,17 @@
     invoke-static {v0}, Landroid/os/Parcel;->nativeFreeBuffer(I)V
 
     .line 2201
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method private init(I)V
-    .registers 3
+    .locals 1
     .parameter "nativePtr"
 
     .prologue
     .line 2188
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_0
 
     .line 2189
     iput p1, p0, Landroid/os/Parcel;->mNativePtr:I
@@ -247,11 +247,11 @@
     iput-boolean v0, p0, Landroid/os/Parcel;->mOwnsNativeParcelObject:Z
 
     .line 2195
-    :goto_7
+    :goto_0
     return-void
 
     .line 2192
-    :cond_8
+    :cond_0
     invoke-static {}, Landroid/os/Parcel;->nativeCreate()I
 
     move-result v0
@@ -263,7 +263,7 @@
 
     iput-boolean v0, p0, Landroid/os/Parcel;->mOwnsNativeParcelObject:Z
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method private static native nativeAppendFrom(IIII)V
@@ -369,7 +369,7 @@
 .end method
 
 .method public static obtain()Landroid/os/Parcel;
-    .registers 4
+    .locals 4
 
     .prologue
     .line 288
@@ -383,18 +383,18 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_4
+    :goto_0
     const/4 v3, 0x6
 
-    if-ge v0, v3, :cond_13
+    if-ge v0, v3, :cond_1
 
     .line 292
-    :try_start_7
+    :try_start_0
     aget-object v1, v2, v0
 
     .line 293
     .local v1, p:Landroid/os/Parcel;
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_0
 
     .line 294
     const/4 v3, 0x0
@@ -406,22 +406,22 @@
 
     .line 302
     .end local v1           #p:Landroid/os/Parcel;
-    :goto_f
+    :goto_1
     return-object v1
 
     .line 291
     .restart local v1       #p:Landroid/os/Parcel;
-    :cond_10
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 301
     .end local v1           #p:Landroid/os/Parcel;
-    :cond_13
+    :cond_1
     monitor-exit v2
-    :try_end_14
-    .catchall {:try_start_7 .. :try_end_14} :catchall_1b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 302
     new-instance v1, Landroid/os/Parcel;
@@ -430,22 +430,22 @@
 
     invoke-direct {v1, v3}, Landroid/os/Parcel;-><init>(I)V
 
-    goto :goto_f
+    goto :goto_1
 
     .line 301
-    :catchall_1b
+    :catchall_0
     move-exception v3
 
-    :try_start_1c
+    :try_start_1
     monitor-exit v2
-    :try_end_1d
-    .catchall {:try_start_1c .. :try_end_1d} :catchall_1b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v3
 .end method
 
 .method protected static final obtain(I)Landroid/os/Parcel;
-    .registers 5
+    .locals 4
     .parameter "obj"
 
     .prologue
@@ -460,18 +460,18 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_4
+    :goto_0
     const/4 v3, 0x6
 
-    if-ge v0, v3, :cond_16
+    if-ge v0, v3, :cond_1
 
     .line 2165
-    :try_start_7
+    :try_start_0
     aget-object v1, v2, v0
 
     .line 2166
     .local v1, p:Landroid/os/Parcel;
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 2167
     const/4 v3, 0x0
@@ -486,38 +486,38 @@
 
     .line 2176
     .end local v1           #p:Landroid/os/Parcel;
-    :goto_12
+    :goto_1
     return-object v1
 
     .line 2164
     .restart local v1       #p:Landroid/os/Parcel;
-    :cond_13
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 2175
     .end local v1           #p:Landroid/os/Parcel;
-    :cond_16
+    :cond_1
     monitor-exit v2
-    :try_end_17
-    .catchall {:try_start_7 .. :try_end_17} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 2176
     new-instance v1, Landroid/os/Parcel;
 
     invoke-direct {v1, p0}, Landroid/os/Parcel;-><init>(I)V
 
-    goto :goto_12
+    goto :goto_1
 
     .line 2175
-    :catchall_1d
+    :catchall_0
     move-exception v3
 
-    :try_start_1e
+    :try_start_1
     monitor-exit v2
-    :try_end_1f
-    .catchall {:try_start_1e .. :try_end_1f} :catchall_1d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v3
 .end method
@@ -531,7 +531,7 @@
 .end method
 
 .method private readArrayInternal([Ljava/lang/Object;ILjava/lang/ClassLoader;)V
-    .registers 6
+    .locals 2
     .parameter "outVal"
     .parameter "N"
     .parameter "loader"
@@ -541,8 +541,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
-    if-ge v0, p2, :cond_c
+    :goto_0
+    if-ge v0, p2, :cond_0
 
     .line 2245
     invoke-virtual {p0, p3}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
@@ -556,16 +556,16 @@
     .line 2244
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 2249
     .end local v1           #value:Ljava/lang/Object;
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method private readListInternal(Ljava/util/List;ILjava/lang/ClassLoader;)V
-    .registers 5
+    .locals 1
     .parameter "outVal"
     .parameter "N"
     .parameter "loader"
@@ -573,7 +573,7 @@
     .prologue
     .line 2234
     :goto_0
-    if-lez p2, :cond_c
+    if-lez p2, :cond_0
 
     .line 2235
     invoke-virtual {p0, p3}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
@@ -592,12 +592,12 @@
 
     .line 2240
     .end local v0           #value:Ljava/lang/Object;
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method private readSparseArrayInternal(Landroid/util/SparseArray;ILjava/lang/ClassLoader;)V
-    .registers 6
+    .locals 2
     .parameter "outVal"
     .parameter "N"
     .parameter "loader"
@@ -605,7 +605,7 @@
     .prologue
     .line 2253
     :goto_0
-    if-lez p2, :cond_10
+    if-lez p2, :cond_0
 
     .line 2254
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
@@ -631,12 +631,12 @@
     .line 2260
     .end local v0           #key:I
     .end local v1           #value:Ljava/lang/Object;
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method private readSparseBooleanArrayInternal(Landroid/util/SparseBooleanArray;I)V
-    .registers 7
+    .locals 4
     .parameter "outVal"
     .parameter "N"
 
@@ -644,8 +644,8 @@
     const/4 v2, 0x1
 
     .line 2264
-    :goto_1
-    if-lez p2, :cond_16
+    :goto_0
+    if-lez p2, :cond_1
 
     .line 2265
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
@@ -658,38 +658,38 @@
 
     move-result v3
 
-    if-ne v3, v2, :cond_14
+    if-ne v3, v2, :cond_0
 
     move v1, v2
 
     .line 2268
     .local v1, value:Z
-    :goto_e
+    :goto_1
     invoke-virtual {p1, v0, v1}, Landroid/util/SparseBooleanArray;->append(IZ)V
 
     .line 2269
     add-int/lit8 p2, p2, -0x1
 
     .line 2270
-    goto :goto_1
+    goto :goto_0
 
     .line 2266
     .end local v1           #value:Z
-    :cond_14
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_e
+    goto :goto_1
 
     .line 2271
     .end local v0           #key:I
-    :cond_16
+    :cond_1
     return-void
 .end method
 
 
 # virtual methods
 .method public final appendFrom(Landroid/os/Parcel;II)V
-    .registers 6
+    .locals 2
     .parameter "parcel"
     .parameter "offset"
     .parameter "length"
@@ -707,7 +707,7 @@
 .end method
 
 .method public final createBinderArray()[Landroid/os/IBinder;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 968
@@ -717,7 +717,7 @@
 
     .line 969
     .local v0, N:I
-    if-ltz v0, :cond_14
+    if-ltz v0, :cond_0
 
     .line 970
     new-array v2, v0, [Landroid/os/IBinder;
@@ -727,8 +727,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_9
-    if-ge v1, v0, :cond_15
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 972
     invoke-virtual {p0}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
@@ -740,20 +740,20 @@
     .line 971
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 976
     .end local v1           #i:I
     .end local v2           #val:[Landroid/os/IBinder;
-    :cond_14
+    :cond_0
     const/4 v2, 0x0
 
-    :cond_15
+    :cond_1
     return-object v2
 .end method
 
 .method public final createBinderArrayList()Ljava/util/ArrayList;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -772,25 +772,25 @@
 
     .line 1808
     .local v0, N:I
-    if-gez v0, :cond_8
+    if-gez v0, :cond_1
 
     .line 1809
     const/4 v1, 0x0
 
     .line 1816
-    :cond_7
+    :cond_0
     return-object v1
 
     .line 1811
-    :cond_8
+    :cond_1
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 1812
     .local v1, l:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/os/IBinder;>;"
-    :goto_d
-    if-lez v0, :cond_7
+    :goto_0
+    if-lez v0, :cond_0
 
     .line 1813
     invoke-virtual {p0}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
@@ -802,11 +802,11 @@
     .line 1814
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public final createBooleanArray()[Z
-    .registers 5
+    .locals 4
 
     .prologue
     .line 695
@@ -816,7 +816,7 @@
 
     .line 699
     .local v0, N:I
-    if-ltz v0, :cond_21
+    if-ltz v0, :cond_1
 
     invoke-virtual {p0}, Landroid/os/Parcel;->dataAvail()I
 
@@ -824,7 +824,7 @@
 
     shr-int/lit8 v3, v3, 0x2
 
-    if-gt v0, v3, :cond_21
+    if-gt v0, v3, :cond_1
 
     .line 700
     new-array v2, v0, [Z
@@ -834,44 +834,44 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_11
-    if-ge v1, v0, :cond_22
+    :goto_0
+    if-ge v1, v0, :cond_2
 
     .line 702
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    if-eqz v3, :cond_1f
+    if-eqz v3, :cond_0
 
     const/4 v3, 0x1
 
-    :goto_1a
+    :goto_1
     aput-boolean v3, v2, v1
 
     .line 701
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_11
+    goto :goto_0
 
     .line 702
-    :cond_1f
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_1a
+    goto :goto_1
 
     .line 706
     .end local v1           #i:I
     .end local v2           #val:[Z
-    :cond_21
+    :cond_1
     const/4 v2, 0x0
 
-    :cond_22
+    :cond_2
     return-object v2
 .end method
 
 .method public final createByteArray()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1584
@@ -885,7 +885,7 @@
 .end method
 
 .method public final createCharArray()[C
-    .registers 5
+    .locals 4
 
     .prologue
     .line 734
@@ -895,7 +895,7 @@
 
     .line 735
     .local v0, N:I
-    if-ltz v0, :cond_1d
+    if-ltz v0, :cond_0
 
     invoke-virtual {p0}, Landroid/os/Parcel;->dataAvail()I
 
@@ -903,7 +903,7 @@
 
     shr-int/lit8 v3, v3, 0x2
 
-    if-gt v0, v3, :cond_1d
+    if-gt v0, v3, :cond_0
 
     .line 736
     new-array v2, v0, [C
@@ -913,8 +913,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_11
-    if-ge v1, v0, :cond_1e
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 738
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
@@ -928,20 +928,20 @@
     .line 737
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_11
+    goto :goto_0
 
     .line 742
     .end local v1           #i:I
     .end local v2           #val:[C
-    :cond_1d
+    :cond_0
     const/4 v2, 0x0
 
-    :cond_1e
+    :cond_1
     return-object v2
 .end method
 
 .method public final createDoubleArray()[D
-    .registers 6
+    .locals 5
 
     .prologue
     .line 880
@@ -951,7 +951,7 @@
 
     .line 882
     .local v0, N:I
-    if-ltz v0, :cond_1c
+    if-ltz v0, :cond_0
 
     invoke-virtual {p0}, Landroid/os/Parcel;->dataAvail()I
 
@@ -959,7 +959,7 @@
 
     shr-int/lit8 v3, v3, 0x3
 
-    if-gt v0, v3, :cond_1c
+    if-gt v0, v3, :cond_0
 
     .line 883
     new-array v2, v0, [D
@@ -969,8 +969,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_11
-    if-ge v1, v0, :cond_1d
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 885
     invoke-virtual {p0}, Landroid/os/Parcel;->readDouble()D
@@ -982,20 +982,20 @@
     .line 884
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_11
+    goto :goto_0
 
     .line 889
     .end local v1           #i:I
     .end local v2           #val:[D
-    :cond_1c
+    :cond_0
     const/4 v2, 0x0
 
-    :cond_1d
+    :cond_1
     return-object v2
 .end method
 
 .method public final createFloatArray()[F
-    .registers 5
+    .locals 4
 
     .prologue
     .line 843
@@ -1005,7 +1005,7 @@
 
     .line 845
     .local v0, N:I
-    if-ltz v0, :cond_1c
+    if-ltz v0, :cond_0
 
     invoke-virtual {p0}, Landroid/os/Parcel;->dataAvail()I
 
@@ -1013,7 +1013,7 @@
 
     shr-int/lit8 v3, v3, 0x2
 
-    if-gt v0, v3, :cond_1c
+    if-gt v0, v3, :cond_0
 
     .line 846
     new-array v2, v0, [F
@@ -1023,8 +1023,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_11
-    if-ge v1, v0, :cond_1d
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 848
     invoke-virtual {p0}, Landroid/os/Parcel;->readFloat()F
@@ -1036,20 +1036,20 @@
     .line 847
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_11
+    goto :goto_0
 
     .line 852
     .end local v1           #i:I
     .end local v2           #val:[F
-    :cond_1c
+    :cond_0
     const/4 v2, 0x0
 
-    :cond_1d
+    :cond_1
     return-object v2
 .end method
 
 .method public final createIntArray()[I
-    .registers 5
+    .locals 4
 
     .prologue
     .line 770
@@ -1059,7 +1059,7 @@
 
     .line 771
     .local v0, N:I
-    if-ltz v0, :cond_1c
+    if-ltz v0, :cond_0
 
     invoke-virtual {p0}, Landroid/os/Parcel;->dataAvail()I
 
@@ -1067,7 +1067,7 @@
 
     shr-int/lit8 v3, v3, 0x2
 
-    if-gt v0, v3, :cond_1c
+    if-gt v0, v3, :cond_0
 
     .line 772
     new-array v2, v0, [I
@@ -1077,8 +1077,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_11
-    if-ge v1, v0, :cond_1d
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 774
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
@@ -1090,20 +1090,20 @@
     .line 773
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_11
+    goto :goto_0
 
     .line 778
     .end local v1           #i:I
     .end local v2           #val:[I
-    :cond_1c
+    :cond_0
     const/4 v2, 0x0
 
-    :cond_1d
+    :cond_1
     return-object v2
 .end method
 
 .method public final createLongArray()[J
-    .registers 6
+    .locals 5
 
     .prologue
     .line 806
@@ -1113,7 +1113,7 @@
 
     .line 808
     .local v0, N:I
-    if-ltz v0, :cond_1c
+    if-ltz v0, :cond_0
 
     invoke-virtual {p0}, Landroid/os/Parcel;->dataAvail()I
 
@@ -1121,7 +1121,7 @@
 
     shr-int/lit8 v3, v3, 0x3
 
-    if-gt v0, v3, :cond_1c
+    if-gt v0, v3, :cond_0
 
     .line 809
     new-array v2, v0, [J
@@ -1131,8 +1131,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_11
-    if-ge v1, v0, :cond_1d
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 811
     invoke-virtual {p0}, Landroid/os/Parcel;->readLong()J
@@ -1144,20 +1144,20 @@
     .line 810
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_11
+    goto :goto_0
 
     .line 815
     .end local v1           #i:I
     .end local v2           #val:[J
-    :cond_1c
+    :cond_0
     const/4 v2, 0x0
 
-    :cond_1d
+    :cond_1
     return-object v2
 .end method
 
 .method public final createStringArray()[Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 917
@@ -1167,7 +1167,7 @@
 
     .line 918
     .local v0, N:I
-    if-ltz v0, :cond_14
+    if-ltz v0, :cond_0
 
     .line 919
     new-array v2, v0, [Ljava/lang/String;
@@ -1177,8 +1177,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_9
-    if-ge v1, v0, :cond_15
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 921
     invoke-virtual {p0}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -1190,20 +1190,20 @@
     .line 920
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 925
     .end local v1           #i:I
     .end local v2           #val:[Ljava/lang/String;
-    :cond_14
+    :cond_0
     const/4 v2, 0x0
 
-    :cond_15
+    :cond_1
     return-object v2
 .end method
 
 .method public final createStringArrayList()Ljava/util/ArrayList;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1222,25 +1222,25 @@
 
     .line 1784
     .local v0, N:I
-    if-gez v0, :cond_8
+    if-gez v0, :cond_1
 
     .line 1785
     const/4 v1, 0x0
 
     .line 1792
-    :cond_7
+    :cond_0
     return-object v1
 
     .line 1787
-    :cond_8
+    :cond_1
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 1788
     .local v1, l:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    :goto_d
-    if-lez v0, :cond_7
+    :goto_0
+    if-lez v0, :cond_0
 
     .line 1789
     invoke-virtual {p0}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -1252,11 +1252,11 @@
     .line 1790
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public final createTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
-    .registers 6
+    .locals 4
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1277,17 +1277,17 @@
 
     .line 1881
     .local v0, N:I
-    if-gez v0, :cond_8
+    if-gez v0, :cond_1
 
     .line 1882
     const/4 v2, 0x0
 
     .line 1890
-    :cond_7
+    :cond_0
     return-object v2
 
     .line 1884
-    :cond_8
+    :cond_1
     invoke-interface {p1, v0}, Landroid/os/Parcelable$Creator;->newArray(I)[Ljava/lang/Object;
 
     move-result-object v2
@@ -1297,15 +1297,15 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_d
-    if-ge v1, v0, :cond_7
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 1886
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    if-eqz v3, :cond_1b
+    if-eqz v3, :cond_2
 
     .line 1887
     invoke-interface {p1, p0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -1315,14 +1315,14 @@
     aput-object v3, v2, v1
 
     .line 1885
-    :cond_1b
+    :cond_2
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public final createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
-    .registers 6
+    .locals 4
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1347,31 +1347,31 @@
 
     .line 1721
     .local v0, N:I
-    if-gez v0, :cond_9
+    if-gez v0, :cond_1
 
     move-object v1, v2
 
     .line 1733
-    :cond_8
+    :cond_0
     return-object v1
 
     .line 1724
-    :cond_9
+    :cond_1
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 1725
     .local v1, l:Ljava/util/ArrayList;,"Ljava/util/ArrayList<TT;>;"
-    :goto_e
-    if-lez v0, :cond_8
+    :goto_0
+    if-lez v0, :cond_0
 
     .line 1726
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_2
 
     .line 1727
     invoke-interface {p1, p0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -1381,20 +1381,20 @@
     invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 1731
-    :goto_1d
+    :goto_1
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 1729
-    :cond_20
+    :cond_2
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1d
+    goto :goto_1
 .end method
 
 .method public final dataAvail()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 343
@@ -1408,7 +1408,7 @@
 .end method
 
 .method public final dataCapacity()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 361
@@ -1422,7 +1422,7 @@
 .end method
 
 .method public final dataPosition()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 351
@@ -1436,7 +1436,7 @@
 .end method
 
 .method public final dataSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 335
@@ -1450,7 +1450,7 @@
 .end method
 
 .method public final enforceInterface(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "interfaceName"
 
     .prologue
@@ -1464,7 +1464,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -1480,7 +1480,7 @@
 .end method
 
 .method public final hasFileDescriptors()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 435
@@ -1494,7 +1494,7 @@
 .end method
 
 .method public final marshall()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 417
@@ -1508,7 +1508,7 @@
 .end method
 
 .method public final pushAllowFds(Z)Z
-    .registers 3
+    .locals 1
     .parameter "allowFds"
 
     .prologue
@@ -1523,7 +1523,7 @@
 .end method
 
 .method public final readArray(Ljava/lang/ClassLoader;)[Ljava/lang/Object;
-    .registers 4
+    .locals 2
     .parameter "loader"
 
     .prologue
@@ -1534,28 +1534,28 @@
 
     .line 1667
     .local v0, N:I
-    if-gez v0, :cond_8
+    if-gez v0, :cond_0
 
     .line 1668
     const/4 v1, 0x0
 
     .line 1672
-    :goto_7
+    :goto_0
     return-object v1
 
     .line 1670
-    :cond_8
+    :cond_0
     new-array v1, v0, [Ljava/lang/Object;
 
     .line 1671
     .local v1, l:[Ljava/lang/Object;
     invoke-direct {p0, v1, v0, p1}, Landroid/os/Parcel;->readArrayInternal([Ljava/lang/Object;ILjava/lang/ClassLoader;)V
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public final readArrayList(Ljava/lang/ClassLoader;)Ljava/util/ArrayList;
-    .registers 4
+    .locals 2
     .parameter "loader"
 
     .prologue
@@ -1566,17 +1566,17 @@
 
     .line 1651
     .local v0, N:I
-    if-gez v0, :cond_8
+    if-gez v0, :cond_0
 
     .line 1652
     const/4 v1, 0x0
 
     .line 1656
-    :goto_7
+    :goto_0
     return-object v1
 
     .line 1654
-    :cond_8
+    :cond_0
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
@@ -1585,11 +1585,11 @@
     .local v1, l:Ljava/util/ArrayList;
     invoke-direct {p0, v1, v0, p1}, Landroid/os/Parcel;->readListInternal(Ljava/util/List;ILjava/lang/ClassLoader;)V
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public final readBinderArray([Landroid/os/IBinder;)V
-    .registers 6
+    .locals 4
     .parameter "val"
 
     .prologue
@@ -1602,14 +1602,14 @@
     .local v0, N:I
     array-length v2, p1
 
-    if-ne v0, v2, :cond_13
+    if-ne v0, v2, :cond_0
 
     .line 983
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_8
-    if-ge v1, v0, :cond_1b
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 984
     invoke-virtual {p0}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
@@ -1621,11 +1621,11 @@
     .line 983
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 987
     .end local v1           #i:I
-    :cond_13
+    :cond_0
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "bad array lengths"
@@ -1636,12 +1636,12 @@
 
     .line 989
     .restart local v1       #i:I
-    :cond_1b
+    :cond_1
     return-void
 .end method
 
 .method public final readBinderList(Ljava/util/List;)V
-    .registers 6
+    .locals 4
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1672,10 +1672,10 @@
 
     .line 1856
     .local v2, i:I
-    :goto_9
-    if-ge v2, v0, :cond_17
+    :goto_0
+    if-ge v2, v0, :cond_0
 
-    if-ge v2, v1, :cond_17
+    if-ge v2, v1, :cond_0
 
     .line 1857
     invoke-virtual {p0}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
@@ -1687,12 +1687,12 @@
     .line 1856
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 1859
-    :cond_17
-    :goto_17
-    if-ge v2, v1, :cond_23
+    :cond_0
+    :goto_1
+    if-ge v2, v1, :cond_1
 
     .line 1860
     invoke-virtual {p0}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
@@ -1704,12 +1704,12 @@
     .line 1859
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_17
+    goto :goto_1
 
     .line 1862
-    :cond_23
-    :goto_23
-    if-ge v2, v0, :cond_2b
+    :cond_1
+    :goto_2
+    if-ge v2, v0, :cond_2
 
     .line 1863
     invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
@@ -1717,15 +1717,15 @@
     .line 1862
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_23
+    goto :goto_2
 
     .line 1865
-    :cond_2b
+    :cond_2
     return-void
 .end method
 
 .method public final readBooleanArray([Z)V
-    .registers 6
+    .locals 4
     .parameter "val"
 
     .prologue
@@ -1738,41 +1738,41 @@
     .local v0, N:I
     array-length v2, p1
 
-    if-ne v0, v2, :cond_18
+    if-ne v0, v2, :cond_1
 
     .line 713
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_8
-    if-ge v1, v0, :cond_20
+    :goto_0
+    if-ge v1, v0, :cond_2
 
     .line 714
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_11
+    :goto_1
     aput-boolean v2, p1, v1
 
     .line 713
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 714
-    :cond_16
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_11
+    goto :goto_1
 
     .line 717
     .end local v1           #i:I
-    :cond_18
+    :cond_1
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "bad array lengths"
@@ -1783,12 +1783,12 @@
 
     .line 719
     .restart local v1       #i:I
-    :cond_20
+    :cond_2
     return-void
 .end method
 
 .method public final readBundle()Landroid/os/Bundle;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1558
@@ -1802,7 +1802,7 @@
 .end method
 
 .method public final readBundle(Ljava/lang/ClassLoader;)Landroid/os/Bundle;
-    .registers 4
+    .locals 2
     .parameter "loader"
 
     .prologue
@@ -1813,34 +1813,34 @@
 
     .line 1569
     .local v1, length:I
-    if-gez v1, :cond_8
+    if-gez v1, :cond_1
 
     .line 1570
     const/4 v0, 0x0
 
     .line 1577
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 1573
-    :cond_8
+    :cond_1
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0, p0, v1}, Landroid/os/Bundle;-><init>(Landroid/os/Parcel;I)V
 
     .line 1574
     .local v0, bundle:Landroid/os/Bundle;
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_0
 
     .line 1575
     invoke-virtual {v0, p1}, Landroid/os/Bundle;->setClassLoader(Ljava/lang/ClassLoader;)V
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public final readByte()B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1511
@@ -1856,7 +1856,7 @@
 .end method
 
 .method public final readByteArray([B)V
-    .registers 6
+    .locals 4
     .parameter "val"
 
     .prologue
@@ -1873,7 +1873,7 @@
 
     array-length v2, p1
 
-    if-ne v1, v2, :cond_e
+    if-ne v1, v2, :cond_0
 
     .line 1595
     array-length v1, v0
@@ -1884,7 +1884,7 @@
     return-void
 
     .line 1597
-    :cond_e
+    :cond_0
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "bad array lengths"
@@ -1895,7 +1895,7 @@
 .end method
 
 .method public final readCharArray([C)V
-    .registers 6
+    .locals 4
     .parameter "val"
 
     .prologue
@@ -1908,14 +1908,14 @@
     .local v0, N:I
     array-length v2, p1
 
-    if-ne v0, v2, :cond_14
+    if-ne v0, v2, :cond_0
 
     .line 749
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_8
-    if-ge v1, v0, :cond_1c
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 750
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
@@ -1929,11 +1929,11 @@
     .line 749
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 753
     .end local v1           #i:I
-    :cond_14
+    :cond_0
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "bad array lengths"
@@ -1944,12 +1944,12 @@
 
     .line 755
     .restart local v1       #i:I
-    :cond_1c
+    :cond_1
     return-void
 .end method
 
 .method public final readCharSequence()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1481
@@ -1965,7 +1965,7 @@
 .end method
 
 .method public final readCharSequenceArray()[Ljava/lang/CharSequence;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 1627
@@ -1979,7 +1979,7 @@
 
     .line 1630
     .local v2, length:I
-    if-ltz v2, :cond_15
+    if-ltz v2, :cond_0
 
     .line 1632
     new-array v0, v2, [Ljava/lang/CharSequence;
@@ -1988,8 +1988,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_a
-    if-ge v1, v2, :cond_15
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     .line 1636
     invoke-virtual {p0}, Landroid/os/Parcel;->readCharSequence()Ljava/lang/CharSequence;
@@ -2001,16 +2001,16 @@
     .line 1634
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 1640
     .end local v1           #i:I
-    :cond_15
+    :cond_0
     return-object v0
 .end method
 
 .method public final readDouble()D
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1466
@@ -2024,7 +2024,7 @@
 .end method
 
 .method public final readDoubleArray([D)V
-    .registers 6
+    .locals 4
     .parameter "val"
 
     .prologue
@@ -2037,14 +2037,14 @@
     .local v0, N:I
     array-length v2, p1
 
-    if-ne v0, v2, :cond_13
+    if-ne v0, v2, :cond_0
 
     .line 896
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_8
-    if-ge v1, v0, :cond_1b
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 897
     invoke-virtual {p0}, Landroid/os/Parcel;->readDouble()D
@@ -2056,11 +2056,11 @@
     .line 896
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 900
     .end local v1           #i:I
-    :cond_13
+    :cond_0
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "bad array lengths"
@@ -2071,12 +2071,12 @@
 
     .line 902
     .restart local v1       #i:I
-    :cond_1b
+    :cond_1
     return-void
 .end method
 
 .method public final readException()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1376
@@ -2086,7 +2086,7 @@
 
     .line 1377
     .local v0, code:I
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 1378
     invoke-virtual {p0}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -2099,18 +2099,18 @@
 
     .line 1381
     .end local v1           #msg:Ljava/lang/String;
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method public final readException(ILjava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "code"
     .parameter "msg"
 
     .prologue
     .line 1423
-    packed-switch p1, :pswitch_data_44
+    packed-switch p1, :pswitch_data_0
 
     .line 1435
     new-instance v0, Ljava/lang/RuntimeException;
@@ -2148,7 +2148,7 @@
     throw v0
 
     .line 1425
-    :pswitch_26
+    :pswitch_0
     new-instance v0, Ljava/lang/SecurityException;
 
     invoke-direct {v0, p2}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
@@ -2156,7 +2156,7 @@
     throw v0
 
     .line 1427
-    :pswitch_2c
+    :pswitch_1
     new-instance v0, Landroid/os/BadParcelableException;
 
     invoke-direct {v0, p2}, Landroid/os/BadParcelableException;-><init>(Ljava/lang/String;)V
@@ -2164,7 +2164,7 @@
     throw v0
 
     .line 1429
-    :pswitch_32
+    :pswitch_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -2172,7 +2172,7 @@
     throw v0
 
     .line 1431
-    :pswitch_38
+    :pswitch_3
     new-instance v0, Ljava/lang/NullPointerException;
 
     invoke-direct {v0, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
@@ -2180,7 +2180,7 @@
     throw v0
 
     .line 1433
-    :pswitch_3e
+    :pswitch_4
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
@@ -2188,18 +2188,18 @@
     throw v0
 
     .line 1423
-    :pswitch_data_44
+    :pswitch_data_0
     .packed-switch -0x5
-        :pswitch_3e
-        :pswitch_38
-        :pswitch_32
-        :pswitch_2c
-        :pswitch_26
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public final readExceptionCode()I
-    .registers 5
+    .locals 4
 
     .prologue
     .line 1397
@@ -2211,7 +2211,7 @@
     .local v0, code:I
     const/16 v2, -0x80
 
-    if-ne v0, v2, :cond_16
+    if-ne v0, v2, :cond_0
 
     .line 1399
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
@@ -2220,7 +2220,7 @@
 
     .line 1400
     .local v1, headerSize:I
-    if-nez v1, :cond_17
+    if-nez v1, :cond_1
 
     .line 1401
     const-string v2, "Parcel"
@@ -2230,26 +2230,26 @@
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1411
-    :goto_15
+    :goto_0
     const/4 v0, 0x0
 
     .line 1413
     .end local v0           #code:I
     .end local v1           #headerSize:I
-    :cond_16
+    :cond_0
     return v0
 
     .line 1407
     .restart local v0       #code:I
     .restart local v1       #headerSize:I
-    :cond_17
+    :cond_1
     invoke-static {p0}, Landroid/os/StrictMode;->readAndHandleBinderCallViolations(Landroid/os/Parcel;)V
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public final readFileDescriptor()Landroid/os/ParcelFileDescriptor;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1495
@@ -2261,23 +2261,23 @@
 
     .line 1496
     .local v0, fd:Ljava/io/FileDescriptor;
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     new-instance v1, Landroid/os/ParcelFileDescriptor;
 
     invoke-direct {v1, v0}, Landroid/os/ParcelFileDescriptor;-><init>(Ljava/io/FileDescriptor;)V
 
-    :goto_d
+    :goto_0
     return-object v1
 
-    :cond_e
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public final readFloat()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1458
@@ -2291,7 +2291,7 @@
 .end method
 
 .method public final readFloatArray([F)V
-    .registers 6
+    .locals 4
     .parameter "val"
 
     .prologue
@@ -2304,14 +2304,14 @@
     .local v0, N:I
     array-length v2, p1
 
-    if-ne v0, v2, :cond_13
+    if-ne v0, v2, :cond_0
 
     .line 859
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_8
-    if-ge v1, v0, :cond_1b
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 860
     invoke-virtual {p0}, Landroid/os/Parcel;->readFloat()F
@@ -2323,11 +2323,11 @@
     .line 859
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 863
     .end local v1           #i:I
-    :cond_13
+    :cond_0
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "bad array lengths"
@@ -2338,12 +2338,12 @@
 
     .line 865
     .restart local v1       #i:I
-    :cond_1b
+    :cond_1
     return-void
 .end method
 
 .method public final readHashMap(Ljava/lang/ClassLoader;)Ljava/util/HashMap;
-    .registers 4
+    .locals 2
     .parameter "loader"
 
     .prologue
@@ -2354,17 +2354,17 @@
 
     .line 1544
     .local v0, N:I
-    if-gez v0, :cond_8
+    if-gez v0, :cond_0
 
     .line 1545
     const/4 v1, 0x0
 
     .line 1549
-    :goto_7
+    :goto_0
     return-object v1
 
     .line 1547
-    :cond_8
+    :cond_0
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1, v0}, Ljava/util/HashMap;-><init>(I)V
@@ -2373,11 +2373,11 @@
     .local v1, m:Ljava/util/HashMap;
     invoke-virtual {p0, v1, v0, p1}, Landroid/os/Parcel;->readMapInternal(Ljava/util/Map;ILjava/lang/ClassLoader;)V
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public final readInt()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1443
@@ -2391,7 +2391,7 @@
 .end method
 
 .method public final readIntArray([I)V
-    .registers 6
+    .locals 4
     .parameter "val"
 
     .prologue
@@ -2404,14 +2404,14 @@
     .local v0, N:I
     array-length v2, p1
 
-    if-ne v0, v2, :cond_13
+    if-ne v0, v2, :cond_0
 
     .line 785
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_8
-    if-ge v1, v0, :cond_1b
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 786
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
@@ -2423,11 +2423,11 @@
     .line 785
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 789
     .end local v1           #i:I
-    :cond_13
+    :cond_0
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "bad array lengths"
@@ -2438,12 +2438,12 @@
 
     .line 791
     .restart local v1       #i:I
-    :cond_1b
+    :cond_1
     return-void
 .end method
 
 .method public final readList(Ljava/util/List;Ljava/lang/ClassLoader;)V
-    .registers 4
+    .locals 1
     .parameter "outVal"
     .parameter "loader"
 
@@ -2462,7 +2462,7 @@
 .end method
 
 .method public final readLong()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1450
@@ -2476,7 +2476,7 @@
 .end method
 
 .method public final readLongArray([J)V
-    .registers 6
+    .locals 4
     .parameter "val"
 
     .prologue
@@ -2489,14 +2489,14 @@
     .local v0, N:I
     array-length v2, p1
 
-    if-ne v0, v2, :cond_13
+    if-ne v0, v2, :cond_0
 
     .line 822
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_8
-    if-ge v1, v0, :cond_1b
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 823
     invoke-virtual {p0}, Landroid/os/Parcel;->readLong()J
@@ -2508,11 +2508,11 @@
     .line 822
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 826
     .end local v1           #i:I
-    :cond_13
+    :cond_0
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "bad array lengths"
@@ -2523,12 +2523,12 @@
 
     .line 828
     .restart local v1       #i:I
-    :cond_1b
+    :cond_1
     return-void
 .end method
 
 .method public final readMap(Ljava/util/Map;Ljava/lang/ClassLoader;)V
-    .registers 4
+    .locals 1
     .parameter "outVal"
     .parameter "loader"
 
@@ -2547,7 +2547,7 @@
 .end method
 
 .method readMapInternal(Ljava/util/Map;ILjava/lang/ClassLoader;)V
-    .registers 6
+    .locals 2
     .parameter "outVal"
     .parameter "N"
     .parameter "loader"
@@ -2555,7 +2555,7 @@
     .prologue
     .line 2224
     :goto_0
-    if-lez p2, :cond_10
+    if-lez p2, :cond_0
 
     .line 2225
     invoke-virtual {p0, p3}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
@@ -2581,12 +2581,12 @@
     .line 2230
     .end local v0           #key:Ljava/lang/Object;
     .end local v1           #value:Ljava/lang/Object;
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method public final readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
-    .registers 12
+    .locals 10
     .parameter "loader"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2608,20 +2608,20 @@
 
     .line 2050
     .local v5, name:Ljava/lang/String;
-    if-nez v5, :cond_8
+    if-nez v5, :cond_0
 
     .line 2103
-    :goto_7
+    :goto_0
     return-object v6
 
     .line 2054
-    :cond_8
+    :cond_0
     sget-object v7, Landroid/os/Parcel;->mCreators:Ljava/util/HashMap;
 
     monitor-enter v7
 
     .line 2055
-    :try_start_b
+    :try_start_0
     sget-object v6, Landroid/os/Parcel;->mCreators:Ljava/util/HashMap;
 
     invoke-virtual {v6, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -2632,7 +2632,7 @@
 
     .line 2056
     .local v4, map:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Landroid/os/Parcelable$Creator;>;"
-    if-nez v4, :cond_1f
+    if-nez v4, :cond_1
 
     .line 2057
     new-instance v4, Ljava/util/HashMap;
@@ -2647,30 +2647,30 @@
     invoke-virtual {v6, p1, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 2060
-    :cond_1f
+    :cond_1
     invoke-virtual {v4, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/os/Parcelable$Creator;
-    :try_end_25
-    .catchall {:try_start_b .. :try_end_25} :catchall_55
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 2061
     .local v1, creator:Landroid/os/Parcelable$Creator;,"Landroid/os/Parcelable$Creator<TT;>;"
-    if-nez v1, :cond_10d
+    if-nez v1, :cond_4
 
     .line 2063
-    if-nez p1, :cond_58
+    if-nez p1, :cond_2
 
-    :try_start_29
+    :try_start_1
     invoke-static {v5}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
 
     .line 2065
     .local v0, c:Ljava/lang/Class;
-    :goto_2d
+    :goto_1
     const-string v6, "CREATOR"
 
     invoke-virtual {v0, v6}, Ljava/lang/Class;->getField(Ljava/lang/String;)Ljava/lang/reflect/Field;
@@ -2687,19 +2687,19 @@
 
     .end local v1           #creator:Landroid/os/Parcelable$Creator;,"Landroid/os/Parcelable$Creator<TT;>;"
     check-cast v1, Landroid/os/Parcelable$Creator;
-    :try_end_3a
-    .catchall {:try_start_29 .. :try_end_3a} :catchall_55
-    .catch Ljava/lang/IllegalAccessException; {:try_start_29 .. :try_end_3a} :catch_5e
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_29 .. :try_end_3a} :catch_9a
-    .catch Ljava/lang/ClassCastException; {:try_start_29 .. :try_end_3a} :catch_d6
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_29 .. :try_end_3a} :catch_f0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/ClassCastException; {:try_start_1 .. :try_end_1} :catch_2
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_1 .. :try_end_1} :catch_3
 
     .line 2090
     .restart local v1       #creator:Landroid/os/Parcelable$Creator;,"Landroid/os/Parcelable$Creator<TT;>;"
-    if-nez v1, :cond_10a
+    if-nez v1, :cond_3
 
     .line 2091
-    :try_start_3c
+    :try_start_2
     new-instance v6, Landroid/os/BadParcelableException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -2729,42 +2729,42 @@
     .end local v1           #creator:Landroid/os/Parcelable$Creator;,"Landroid/os/Parcelable$Creator<TT;>;"
     .end local v3           #f:Ljava/lang/reflect/Field;
     .end local v4           #map:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Landroid/os/Parcelable$Creator;>;"
-    :catchall_55
+    :catchall_0
     move-exception v6
 
     monitor-exit v7
-    :try_end_57
-    .catchall {:try_start_3c .. :try_end_57} :catchall_55
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v6
 
     .line 2063
     .restart local v1       #creator:Landroid/os/Parcelable$Creator;,"Landroid/os/Parcelable$Creator<TT;>;"
     .restart local v4       #map:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Landroid/os/Parcelable$Creator;>;"
-    :cond_58
+    :cond_2
     const/4 v6, 0x1
 
-    :try_start_59
+    :try_start_3
     invoke-static {v5, v6, p1}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
-    :try_end_5c
-    .catchall {:try_start_59 .. :try_end_5c} :catchall_55
-    .catch Ljava/lang/IllegalAccessException; {:try_start_59 .. :try_end_5c} :catch_5e
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_59 .. :try_end_5c} :catch_9a
-    .catch Ljava/lang/ClassCastException; {:try_start_59 .. :try_end_5c} :catch_d6
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_59 .. :try_end_5c} :catch_f0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_3 .. :try_end_3} :catch_0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_3 .. :try_end_3} :catch_1
+    .catch Ljava/lang/ClassCastException; {:try_start_3 .. :try_end_3} :catch_2
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_3 .. :try_end_3} :catch_3
 
     move-result-object v0
 
-    goto :goto_2d
+    goto :goto_1
 
     .line 2068
     .end local v1           #creator:Landroid/os/Parcelable$Creator;,"Landroid/os/Parcelable$Creator<TT;>;"
-    :catch_5e
+    :catch_0
     move-exception v2
 
     .line 2069
     .local v2, e:Ljava/lang/IllegalAccessException;
-    :try_start_5f
+    :try_start_4
     const-string v6, "Parcel"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -2824,7 +2824,7 @@
 
     .line 2074
     .end local v2           #e:Ljava/lang/IllegalAccessException;
-    :catch_9a
+    :catch_1
     move-exception v2
 
     .line 2075
@@ -2888,7 +2888,7 @@
 
     .line 2080
     .end local v2           #e:Ljava/lang/ClassNotFoundException;
-    :catch_d6
+    :catch_2
     move-exception v2
 
     .line 2081
@@ -2919,7 +2919,7 @@
 
     .line 2085
     .end local v2           #e:Ljava/lang/ClassCastException;
-    :catch_f0
+    :catch_3
     move-exception v2
 
     .line 2086
@@ -2953,21 +2953,21 @@
     .restart local v0       #c:Ljava/lang/Class;
     .restart local v1       #creator:Landroid/os/Parcelable$Creator;,"Landroid/os/Parcelable$Creator<TT;>;"
     .restart local v3       #f:Ljava/lang/reflect/Field;
-    :cond_10a
+    :cond_3
     invoke-virtual {v4, v5, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 2098
     .end local v0           #c:Ljava/lang/Class;
     .end local v3           #f:Ljava/lang/reflect/Field;
-    :cond_10d
+    :cond_4
     monitor-exit v7
-    :try_end_10e
-    .catchall {:try_start_5f .. :try_end_10e} :catchall_55
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     .line 2100
     instance-of v6, v1, Landroid/os/Parcelable$ClassLoaderCreator;
 
-    if-eqz v6, :cond_11c
+    if-eqz v6, :cond_5
 
     .line 2101
     check-cast v1, Landroid/os/Parcelable$ClassLoaderCreator;
@@ -2979,22 +2979,22 @@
 
     check-cast v6, Landroid/os/Parcelable;
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 2103
     .restart local v1       #creator:Landroid/os/Parcelable$Creator;,"Landroid/os/Parcelable$Creator<TT;>;"
-    :cond_11c
+    :cond_5
     invoke-interface {v1, p0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v6
 
     check-cast v6, Landroid/os/Parcelable;
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 .end method
 
 .method public final readParcelableArray(Ljava/lang/ClassLoader;)[Landroid/os/Parcelable;
-    .registers 6
+    .locals 4
     .parameter "loader"
 
     .prologue
@@ -3005,17 +3005,17 @@
 
     .line 2114
     .local v0, N:I
-    if-gez v0, :cond_8
+    if-gez v0, :cond_1
 
     .line 2115
     const/4 v2, 0x0
 
     .line 2121
-    :cond_7
+    :cond_0
     return-object v2
 
     .line 2117
-    :cond_8
+    :cond_1
     new-array v2, v0, [Landroid/os/Parcelable;
 
     .line 2118
@@ -3023,8 +3023,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_b
-    if-ge v1, v0, :cond_7
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 2119
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
@@ -3036,11 +3036,11 @@
     .line 2118
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public final readSerializable()Ljava/io/Serializable;
-    .registers 10
+    .locals 9
 
     .prologue
     .line 2130
@@ -3050,17 +3050,17 @@
 
     .line 2131
     .local v3, name:Ljava/lang/String;
-    if-nez v3, :cond_8
+    if-nez v3, :cond_0
 
     .line 2135
     const/4 v6, 0x0
 
     .line 2142
-    :goto_7
+    :goto_0
     return-object v6
 
     .line 2138
-    :cond_8
+    :cond_0
     invoke-virtual {p0}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v5
@@ -3073,7 +3073,7 @@
 
     .line 2141
     .local v0, bais:Ljava/io/ByteArrayInputStream;
-    :try_start_11
+    :try_start_0
     new-instance v4, Ljava/io/ObjectInputStream;
 
     invoke-direct {v4, v0}, Ljava/io/ObjectInputStream;-><init>(Ljava/io/InputStream;)V
@@ -3085,15 +3085,15 @@
     move-result-object v6
 
     check-cast v6, Ljava/io/Serializable;
-    :try_end_1c
-    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_1c} :catch_1d
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_11 .. :try_end_1c} :catch_3d
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 2143
     .end local v4           #ois:Ljava/io/ObjectInputStream;
-    :catch_1d
+    :catch_0
     move-exception v2
 
     .line 2144
@@ -3130,7 +3130,7 @@
 
     .line 2147
     .end local v2           #ioe:Ljava/io/IOException;
-    :catch_3d
+    :catch_1
     move-exception v1
 
     .line 2148
@@ -3167,7 +3167,7 @@
 .end method
 
 .method public final readSparseArray(Ljava/lang/ClassLoader;)Landroid/util/SparseArray;
-    .registers 4
+    .locals 2
     .parameter "loader"
 
     .prologue
@@ -3178,17 +3178,17 @@
 
     .line 1683
     .local v0, N:I
-    if-gez v0, :cond_8
+    if-gez v0, :cond_0
 
     .line 1684
     const/4 v1, 0x0
 
     .line 1688
-    :goto_7
+    :goto_0
     return-object v1
 
     .line 1686
-    :cond_8
+    :cond_0
     new-instance v1, Landroid/util/SparseArray;
 
     invoke-direct {v1, v0}, Landroid/util/SparseArray;-><init>(I)V
@@ -3197,11 +3197,11 @@
     .local v1, sa:Landroid/util/SparseArray;
     invoke-direct {p0, v1, v0, p1}, Landroid/os/Parcel;->readSparseArrayInternal(Landroid/util/SparseArray;ILjava/lang/ClassLoader;)V
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public final readSparseBooleanArray()Landroid/util/SparseBooleanArray;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1697
@@ -3211,17 +3211,17 @@
 
     .line 1698
     .local v0, N:I
-    if-gez v0, :cond_8
+    if-gez v0, :cond_0
 
     .line 1699
     const/4 v1, 0x0
 
     .line 1703
-    :goto_7
+    :goto_0
     return-object v1
 
     .line 1701
-    :cond_8
+    :cond_0
     new-instance v1, Landroid/util/SparseBooleanArray;
 
     invoke-direct {v1, v0}, Landroid/util/SparseBooleanArray;-><init>(I)V
@@ -3230,11 +3230,11 @@
     .local v1, sa:Landroid/util/SparseBooleanArray;
     invoke-direct {p0, v1, v0}, Landroid/os/Parcel;->readSparseBooleanArrayInternal(Landroid/util/SparseBooleanArray;I)V
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public final readString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1473
@@ -3248,7 +3248,7 @@
 .end method
 
 .method public final readStringArray([Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "val"
 
     .prologue
@@ -3261,14 +3261,14 @@
     .local v0, N:I
     array-length v2, p1
 
-    if-ne v0, v2, :cond_13
+    if-ne v0, v2, :cond_0
 
     .line 932
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_8
-    if-ge v1, v0, :cond_1b
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 933
     invoke-virtual {p0}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -3280,11 +3280,11 @@
     .line 932
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 936
     .end local v1           #i:I
-    :cond_13
+    :cond_0
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "bad array lengths"
@@ -3295,12 +3295,12 @@
 
     .line 938
     .restart local v1       #i:I
-    :cond_1b
+    :cond_1
     return-void
 .end method
 
 .method public final readStringArray()[Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 1606
@@ -3314,7 +3314,7 @@
 
     .line 1609
     .local v2, length:I
-    if-ltz v2, :cond_15
+    if-ltz v2, :cond_0
 
     .line 1611
     new-array v0, v2, [Ljava/lang/String;
@@ -3323,8 +3323,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_a
-    if-ge v1, v2, :cond_15
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     .line 1615
     invoke-virtual {p0}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -3336,16 +3336,16 @@
     .line 1613
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 1619
     .end local v1           #i:I
-    :cond_15
+    :cond_0
     return-object v0
 .end method
 
 .method public final readStringList(Ljava/util/List;)V
-    .registers 6
+    .locals 4
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3376,10 +3376,10 @@
 
     .line 1832
     .local v2, i:I
-    :goto_9
-    if-ge v2, v0, :cond_17
+    :goto_0
+    if-ge v2, v0, :cond_0
 
-    if-ge v2, v1, :cond_17
+    if-ge v2, v1, :cond_0
 
     .line 1833
     invoke-virtual {p0}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -3391,12 +3391,12 @@
     .line 1832
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 1835
-    :cond_17
-    :goto_17
-    if-ge v2, v1, :cond_23
+    :cond_0
+    :goto_1
+    if-ge v2, v1, :cond_1
 
     .line 1836
     invoke-virtual {p0}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -3408,12 +3408,12 @@
     .line 1835
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_17
+    goto :goto_1
 
     .line 1838
-    :cond_23
-    :goto_23
-    if-ge v2, v0, :cond_2b
+    :cond_1
+    :goto_2
+    if-ge v2, v0, :cond_2
 
     .line 1839
     invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
@@ -3421,15 +3421,15 @@
     .line 1838
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_23
+    goto :goto_2
 
     .line 1841
-    :cond_2b
+    :cond_2
     return-void
 .end method
 
 .method public final readStrongBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1488
@@ -3443,7 +3443,7 @@
 .end method
 
 .method public final readTypedArray([Ljava/lang/Object;Landroid/os/Parcelable$Creator;)V
-    .registers 7
+    .locals 4
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -3468,21 +3468,21 @@
     .local v0, N:I
     array-length v2, p1
 
-    if-ne v0, v2, :cond_1d
+    if-ne v0, v2, :cond_1
 
     .line 1896
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_8
-    if-ge v1, v0, :cond_25
+    :goto_0
+    if-ge v1, v0, :cond_2
 
     .line 1897
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
-    if-eqz v2, :cond_19
+    if-eqz v2, :cond_0
 
     .line 1898
     invoke-interface {p2, p0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -3492,22 +3492,22 @@
     aput-object v2, p1, v1
 
     .line 1896
-    :goto_16
+    :goto_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1900
-    :cond_19
+    :cond_0
     const/4 v2, 0x0
 
     aput-object v2, p1, v1
 
-    goto :goto_16
+    goto :goto_1
 
     .line 1904
     .end local v1           #i:I
-    :cond_1d
+    :cond_1
     new-instance v2, Ljava/lang/RuntimeException;
 
     const-string v3, "bad array lengths"
@@ -3518,12 +3518,12 @@
 
     .line 1906
     .restart local v1       #i:I
-    :cond_25
+    :cond_2
     return-void
 .end method
 
 .method public final readTypedArray(Landroid/os/Parcelable$Creator;)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3549,7 +3549,7 @@
 .end method
 
 .method public final readTypedList(Ljava/util/List;Landroid/os/Parcelable$Creator;)V
-    .registers 8
+    .locals 5
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -3586,17 +3586,17 @@
 
     .line 1752
     .local v2, i:I
-    :goto_a
-    if-ge v2, v0, :cond_22
+    :goto_0
+    if-ge v2, v0, :cond_1
 
-    if-ge v2, v1, :cond_22
+    if-ge v2, v1, :cond_1
 
     .line 1753
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    if-eqz v3, :cond_1e
+    if-eqz v3, :cond_0
 
     .line 1754
     invoke-interface {p2, p0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -3606,28 +3606,28 @@
     invoke-interface {p1, v2, v3}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     .line 1752
-    :goto_1b
+    :goto_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 1756
-    :cond_1e
+    :cond_0
     invoke-interface {p1, v2, v4}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1b
+    goto :goto_1
 
     .line 1759
-    :cond_22
-    :goto_22
-    if-ge v2, v1, :cond_38
+    :cond_1
+    :goto_2
+    if-ge v2, v1, :cond_3
 
     .line 1760
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    if-eqz v3, :cond_34
+    if-eqz v3, :cond_2
 
     .line 1761
     invoke-interface {p2, p0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -3637,21 +3637,21 @@
     invoke-interface {p1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1759
-    :goto_31
+    :goto_3
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_22
+    goto :goto_2
 
     .line 1763
-    :cond_34
+    :cond_2
     invoke-interface {p1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_31
+    goto :goto_3
 
     .line 1766
-    :cond_38
-    :goto_38
-    if-ge v2, v0, :cond_40
+    :cond_3
+    :goto_4
+    if-ge v2, v0, :cond_4
 
     .line 1767
     invoke-interface {p1, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
@@ -3659,15 +3659,15 @@
     .line 1766
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_38
+    goto :goto_4
 
     .line 1769
-    :cond_40
+    :cond_4
     return-void
 .end method
 
 .method public final readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
-    .registers 7
+    .locals 5
     .parameter "loader"
 
     .prologue
@@ -3680,7 +3680,7 @@
 
     .line 1951
     .local v1, type:I
-    packed-switch v1, :pswitch_data_e2
+    packed-switch v1, :pswitch_data_0
 
     .line 2031
     invoke-virtual {p0}, Landroid/os/Parcel;->dataPosition()I
@@ -3737,23 +3737,23 @@
 
     .line 1953
     .end local v0           #off:I
-    :pswitch_3b
+    :pswitch_0
     const/4 v2, 0x0
 
     .line 2028
-    :goto_3c
+    :goto_0
     return-object v2
 
     .line 1956
-    :pswitch_3d
+    :pswitch_1
     invoke-virtual {p0}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 1959
-    :pswitch_42
+    :pswitch_2
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -3762,26 +3762,26 @@
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 1962
-    :pswitch_4b
+    :pswitch_3
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readHashMap(Ljava/lang/ClassLoader;)Ljava/util/HashMap;
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 1965
-    :pswitch_50
+    :pswitch_4
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 1968
-    :pswitch_55
+    :pswitch_5
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -3792,10 +3792,10 @@
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 1971
-    :pswitch_5f
+    :pswitch_6
     invoke-virtual {p0}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v2
@@ -3804,10 +3804,10 @@
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 1974
-    :pswitch_68
+    :pswitch_7
     invoke-virtual {p0}, Landroid/os/Parcel;->readFloat()F
 
     move-result v2
@@ -3816,10 +3816,10 @@
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 1977
-    :pswitch_71
+    :pswitch_8
     invoke-virtual {p0}, Landroid/os/Parcel;->readDouble()D
 
     move-result-wide v2
@@ -3828,110 +3828,110 @@
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 1980
-    :pswitch_7a
+    :pswitch_9
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
-    if-ne v3, v2, :cond_85
+    if-ne v3, v2, :cond_0
 
-    :goto_80
+    :goto_1
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
-    :cond_85
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_80
+    goto :goto_1
 
     .line 1983
-    :pswitch_87
+    :pswitch_a
     invoke-virtual {p0}, Landroid/os/Parcel;->readCharSequence()Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 1986
-    :pswitch_8c
+    :pswitch_b
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readArrayList(Ljava/lang/ClassLoader;)Ljava/util/ArrayList;
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 1989
-    :pswitch_91
+    :pswitch_c
     invoke-virtual {p0}, Landroid/os/Parcel;->createBooleanArray()[Z
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 1992
-    :pswitch_96
+    :pswitch_d
     invoke-virtual {p0}, Landroid/os/Parcel;->createByteArray()[B
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 1995
-    :pswitch_9b
+    :pswitch_e
     invoke-virtual {p0}, Landroid/os/Parcel;->readStringArray()[Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 1998
-    :pswitch_a0
+    :pswitch_f
     invoke-virtual {p0}, Landroid/os/Parcel;->readCharSequenceArray()[Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 2001
-    :pswitch_a5
+    :pswitch_10
     invoke-virtual {p0}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 2004
-    :pswitch_aa
+    :pswitch_11
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readArray(Ljava/lang/ClassLoader;)[Ljava/lang/Object;
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 2007
-    :pswitch_af
+    :pswitch_12
     invoke-virtual {p0}, Landroid/os/Parcel;->createIntArray()[I
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 2010
-    :pswitch_b4
+    :pswitch_13
     invoke-virtual {p0}, Landroid/os/Parcel;->createLongArray()[J
 
     move-result-object v2
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 2013
-    :pswitch_b9
+    :pswitch_14
     invoke-virtual {p0}, Landroid/os/Parcel;->readByte()B
 
     move-result v2
@@ -3940,84 +3940,84 @@
 
     move-result-object v2
 
-    goto/16 :goto_3c
+    goto/16 :goto_0
 
     .line 2016
-    :pswitch_c3
+    :pswitch_15
     invoke-virtual {p0}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
 
     move-result-object v2
 
-    goto/16 :goto_3c
+    goto/16 :goto_0
 
     .line 2019
-    :pswitch_c9
+    :pswitch_16
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readParcelableArray(Ljava/lang/ClassLoader;)[Landroid/os/Parcelable;
 
     move-result-object v2
 
-    goto/16 :goto_3c
+    goto/16 :goto_0
 
     .line 2022
-    :pswitch_cf
+    :pswitch_17
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readSparseArray(Ljava/lang/ClassLoader;)Landroid/util/SparseArray;
 
     move-result-object v2
 
-    goto/16 :goto_3c
+    goto/16 :goto_0
 
     .line 2025
-    :pswitch_d5
+    :pswitch_18
     invoke-virtual {p0}, Landroid/os/Parcel;->readSparseBooleanArray()Landroid/util/SparseBooleanArray;
 
     move-result-object v2
 
-    goto/16 :goto_3c
+    goto/16 :goto_0
 
     .line 2028
-    :pswitch_db
+    :pswitch_19
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readBundle(Ljava/lang/ClassLoader;)Landroid/os/Bundle;
 
     move-result-object v2
 
-    goto/16 :goto_3c
+    goto/16 :goto_0
 
     .line 1951
     nop
 
-    :pswitch_data_e2
+    :pswitch_data_0
     .packed-switch -0x1
-        :pswitch_3b
-        :pswitch_3d
-        :pswitch_42
-        :pswitch_4b
-        :pswitch_db
-        :pswitch_50
-        :pswitch_55
-        :pswitch_5f
-        :pswitch_68
-        :pswitch_71
-        :pswitch_7a
-        :pswitch_87
-        :pswitch_8c
-        :pswitch_cf
-        :pswitch_96
-        :pswitch_9b
-        :pswitch_a5
-        :pswitch_c9
-        :pswitch_aa
-        :pswitch_af
-        :pswitch_b4
-        :pswitch_b9
-        :pswitch_c3
-        :pswitch_d5
-        :pswitch_91
-        :pswitch_a0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_19
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
+        :pswitch_a
+        :pswitch_b
+        :pswitch_17
+        :pswitch_d
+        :pswitch_e
+        :pswitch_10
+        :pswitch_16
+        :pswitch_11
+        :pswitch_12
+        :pswitch_13
+        :pswitch_14
+        :pswitch_15
+        :pswitch_18
+        :pswitch_c
+        :pswitch_f
     .end packed-switch
 .end method
 
 .method public final recycle()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 311
@@ -4026,47 +4026,47 @@
     .line 314
     iget-boolean v2, p0, Landroid/os/Parcel;->mOwnsNativeParcelObject:Z
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_0
 
     .line 315
     sget-object v1, Landroid/os/Parcel;->sOwnedPool:[Landroid/os/Parcel;
 
     .line 321
     .local v1, pool:[Landroid/os/Parcel;
-    :goto_9
+    :goto_0
     monitor-enter v1
 
     .line 322
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_b
+    :goto_1
     const/4 v2, 0x6
 
-    if-ge v0, v2, :cond_1f
+    if-ge v0, v2, :cond_2
 
     .line 323
-    :try_start_e
+    :try_start_0
     aget-object v2, v1, v0
 
-    if-nez v2, :cond_1c
+    if-nez v2, :cond_1
 
     .line 324
     aput-object p0, v1, v0
 
     .line 325
     monitor-exit v1
-    :try_end_15
-    .catchall {:try_start_e .. :try_end_15} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 329
-    :goto_15
+    :goto_2
     return-void
 
     .line 317
     .end local v0           #i:I
     .end local v1           #pool:[Landroid/os/Parcel;
-    :cond_16
+    :cond_0
     const/4 v2, 0x0
 
     iput v2, p0, Landroid/os/Parcel;->mNativePtr:I
@@ -4075,34 +4075,34 @@
     sget-object v1, Landroid/os/Parcel;->sHolderPool:[Landroid/os/Parcel;
 
     .restart local v1       #pool:[Landroid/os/Parcel;
-    goto :goto_9
+    goto :goto_0
 
     .line 322
     .restart local v0       #i:I
-    :cond_1c
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_b
+    goto :goto_1
 
     .line 328
-    :cond_1f
-    :try_start_1f
+    :cond_2
+    :try_start_1
     monitor-exit v1
 
-    goto :goto_15
+    goto :goto_2
 
-    :catchall_21
+    :catchall_0
     move-exception v2
 
     monitor-exit v1
-    :try_end_23
-    .catchall {:try_start_1f .. :try_end_23} :catchall_21
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v2
 .end method
 
 .method public final restoreAllowFds(Z)V
-    .registers 3
+    .locals 1
     .parameter "lastValue"
 
     .prologue
@@ -4116,7 +4116,7 @@
 .end method
 
 .method public final setDataCapacity(I)V
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -4130,7 +4130,7 @@
 .end method
 
 .method public final setDataPosition(I)V
-    .registers 3
+    .locals 1
     .parameter "pos"
 
     .prologue
@@ -4144,7 +4144,7 @@
 .end method
 
 .method public final setDataSize(I)V
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -4158,7 +4158,7 @@
 .end method
 
 .method public final unmarshall([BII)V
-    .registers 5
+    .locals 1
     .parameter "data"
     .parameter "offest"
     .parameter "length"
@@ -4174,12 +4174,12 @@
 .end method
 
 .method public final writeArray([Ljava/lang/Object;)V
-    .registers 5
+    .locals 3
     .parameter "val"
 
     .prologue
     .line 633
-    if-nez p1, :cond_7
+    if-nez p1, :cond_1
 
     .line 634
     const/4 v2, -0x1
@@ -4187,11 +4187,11 @@
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 644
-    :cond_6
+    :cond_0
     return-void
 
     .line 637
-    :cond_7
+    :cond_1
     array-length v0, p1
 
     .line 638
@@ -4203,8 +4203,8 @@
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 640
-    :goto_c
-    if-ge v1, v0, :cond_6
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 641
     aget-object v2, p1, v1
@@ -4214,16 +4214,16 @@
     .line 642
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public final writeBinderArray([Landroid/os/IBinder;)V
-    .registers 5
+    .locals 3
     .parameter "val"
 
     .prologue
     .line 941
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 942
     array-length v0, p1
@@ -4236,8 +4236,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_15
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 945
     aget-object v2, p1, v1
@@ -4247,23 +4247,23 @@
     .line 944
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 948
     .end local v0           #N:I
     .end local v1           #i:I
-    :cond_11
+    :cond_0
     const/4 v2, -0x1
 
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 950
-    :cond_15
+    :cond_1
     return-void
 .end method
 
 .method public final writeBinderList(Ljava/util/List;)V
-    .registers 5
+    .locals 3
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -4278,7 +4278,7 @@
     .prologue
     .line 1062
     .local p1, val:Ljava/util/List;,"Ljava/util/List<Landroid/os/IBinder;>;"
-    if-nez p1, :cond_7
+    if-nez p1, :cond_1
 
     .line 1063
     const/4 v2, -0x1
@@ -4286,11 +4286,11 @@
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1073
-    :cond_6
+    :cond_0
     return-void
 
     .line 1066
-    :cond_7
+    :cond_1
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
@@ -4304,8 +4304,8 @@
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1069
-    :goto_f
-    if-ge v1, v0, :cond_6
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 1070
     invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -4319,16 +4319,16 @@
     .line 1071
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public final writeBooleanArray([Z)V
-    .registers 5
+    .locals 3
     .parameter "val"
 
     .prologue
     .line 683
-    if-eqz p1, :cond_16
+    if-eqz p1, :cond_1
 
     .line 684
     array-length v0, p1
@@ -4341,50 +4341,50 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_1a
+    :goto_0
+    if-ge v1, v0, :cond_2
 
     .line 687
     aget-boolean v2, p1, v1
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_e
+    :goto_1
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 686
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 687
-    :cond_14
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_e
+    goto :goto_1
 
     .line 690
     .end local v0           #N:I
     .end local v1           #i:I
-    :cond_16
+    :cond_1
     const/4 v2, -0x1
 
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 692
-    :cond_1a
+    :cond_2
     return-void
 .end method
 
 .method public final writeBundle(Landroid/os/Bundle;)V
-    .registers 3
+    .locals 1
     .parameter "val"
 
     .prologue
     .line 600
-    if-nez p1, :cond_7
+    if-nez p1, :cond_0
 
     .line 601
     const/4 v0, -0x1
@@ -4392,20 +4392,20 @@
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 606
-    :goto_6
+    :goto_0
     return-void
 
     .line 605
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p1, p0, v0}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public final writeByte(B)V
-    .registers 2
+    .locals 0
     .parameter "val"
 
     .prologue
@@ -4417,39 +4417,39 @@
 .end method
 
 .method public final writeByteArray([B)V
-    .registers 4
+    .locals 2
     .parameter "b"
 
     .prologue
     const/4 v1, 0x0
 
     .line 457
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_0
 
     array-length v0, p1
 
-    :goto_4
+    :goto_0
     invoke-virtual {p0, p1, v1, v0}, Landroid/os/Parcel;->writeByteArray([BII)V
 
     .line 458
     return-void
 
-    :cond_8
+    :cond_0
     move v0, v1
 
     .line 457
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public final writeByteArray([BII)V
-    .registers 5
+    .locals 1
     .parameter "b"
     .parameter "offset"
     .parameter "len"
 
     .prologue
     .line 468
-    if-nez p1, :cond_7
+    if-nez p1, :cond_0
 
     .line 469
     const/4 v0, -0x1
@@ -4457,11 +4457,11 @@
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 474
-    :goto_6
+    :goto_0
     return-void
 
     .line 472
-    :cond_7
+    :cond_0
     array-length v0, p1
 
     invoke-static {v0, p2, p3}, Ljava/util/Arrays;->checkOffsetAndCount(III)V
@@ -4471,16 +4471,16 @@
 
     invoke-static {v0, p1, p2, p3}, Landroid/os/Parcel;->nativeWriteByteArray(I[BII)V
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public final writeCharArray([C)V
-    .registers 5
+    .locals 3
     .parameter "val"
 
     .prologue
     .line 722
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 723
     array-length v0, p1
@@ -4493,8 +4493,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_15
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 726
     aget-char v2, p1, v1
@@ -4504,23 +4504,23 @@
     .line 725
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 729
     .end local v0           #N:I
     .end local v1           #i:I
-    :cond_11
+    :cond_0
     const/4 v2, -0x1
 
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 731
-    :cond_15
+    :cond_1
     return-void
 .end method
 
 .method public final writeCharSequence(Ljava/lang/CharSequence;)V
-    .registers 3
+    .locals 1
     .parameter "val"
 
     .prologue
@@ -4534,12 +4534,12 @@
 .end method
 
 .method public final writeCharSequenceArray([Ljava/lang/CharSequence;)V
-    .registers 5
+    .locals 3
     .parameter "val"
 
     .prologue
     .line 956
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 957
     array-length v0, p1
@@ -4552,8 +4552,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_15
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 960
     aget-object v2, p1, v1
@@ -4563,23 +4563,23 @@
     .line 959
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 963
     .end local v0           #N:I
     .end local v1           #i:I
-    :cond_11
+    :cond_0
     const/4 v2, -0x1
 
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 965
-    :cond_15
+    :cond_1
     return-void
 .end method
 
 .method public final writeDouble(D)V
-    .registers 4
+    .locals 1
     .parameter "val"
 
     .prologue
@@ -4593,12 +4593,12 @@
 .end method
 
 .method public final writeDoubleArray([D)V
-    .registers 6
+    .locals 4
     .parameter "val"
 
     .prologue
     .line 868
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 869
     array-length v0, p1
@@ -4611,8 +4611,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_15
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 872
     aget-wide v2, p1, v1
@@ -4622,23 +4622,23 @@
     .line 871
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 875
     .end local v0           #N:I
     .end local v1           #i:I
-    :cond_11
+    :cond_0
     const/4 v2, -0x1
 
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 877
-    :cond_15
+    :cond_1
     return-void
 .end method
 
 .method public final writeException(Ljava/lang/Exception;)V
-    .registers 4
+    .locals 2
     .parameter "e"
 
     .prologue
@@ -4649,26 +4649,26 @@
     .local v0, code:I
     instance-of v1, p1, Ljava/lang/SecurityException;
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_1
 
     .line 1310
     const/4 v0, -0x1
 
     .line 1320
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1321
     invoke-static {}, Landroid/os/StrictMode;->clearGatheredViolations()V
 
     .line 1322
-    if-nez v0, :cond_33
+    if-nez v0, :cond_6
 
     .line 1323
     instance-of v1, p1, Ljava/lang/RuntimeException;
 
-    if-eqz v1, :cond_2d
+    if-eqz v1, :cond_5
 
     .line 1324
     check-cast p1, Ljava/lang/RuntimeException;
@@ -4678,51 +4678,51 @@
 
     .line 1311
     .restart local p1
-    :cond_15
+    :cond_1
     instance-of v1, p1, Landroid/os/BadParcelableException;
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_2
 
     .line 1312
     const/4 v0, -0x2
 
-    goto :goto_6
+    goto :goto_0
 
     .line 1313
-    :cond_1b
+    :cond_2
     instance-of v1, p1, Ljava/lang/IllegalArgumentException;
 
-    if-eqz v1, :cond_21
+    if-eqz v1, :cond_3
 
     .line 1314
     const/4 v0, -0x3
 
-    goto :goto_6
+    goto :goto_0
 
     .line 1315
-    :cond_21
+    :cond_3
     instance-of v1, p1, Ljava/lang/NullPointerException;
 
-    if-eqz v1, :cond_27
+    if-eqz v1, :cond_4
 
     .line 1316
     const/4 v0, -0x4
 
-    goto :goto_6
+    goto :goto_0
 
     .line 1317
-    :cond_27
+    :cond_4
     instance-of v1, p1, Ljava/lang/IllegalStateException;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_0
 
     .line 1318
     const/4 v0, -0x5
 
-    goto :goto_6
+    goto :goto_0
 
     .line 1326
-    :cond_2d
+    :cond_5
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -4730,7 +4730,7 @@
     throw v1
 
     .line 1328
-    :cond_33
+    :cond_6
     invoke-virtual {p1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v1
@@ -4742,7 +4742,7 @@
 .end method
 
 .method public final writeFileDescriptor(Ljava/io/FileDescriptor;)V
-    .registers 3
+    .locals 1
     .parameter "val"
 
     .prologue
@@ -4756,7 +4756,7 @@
 .end method
 
 .method public final writeFloat(F)V
-    .registers 3
+    .locals 1
     .parameter "val"
 
     .prologue
@@ -4770,12 +4770,12 @@
 .end method
 
 .method public final writeFloatArray([F)V
-    .registers 5
+    .locals 3
     .parameter "val"
 
     .prologue
     .line 831
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 832
     array-length v0, p1
@@ -4788,8 +4788,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_15
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 835
     aget v2, p1, v1
@@ -4799,23 +4799,23 @@
     .line 834
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 838
     .end local v0           #N:I
     .end local v1           #i:I
-    :cond_11
+    :cond_0
     const/4 v2, -0x1
 
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 840
-    :cond_15
+    :cond_1
     return-void
 .end method
 
 .method public final writeInt(I)V
-    .registers 3
+    .locals 1
     .parameter "val"
 
     .prologue
@@ -4829,12 +4829,12 @@
 .end method
 
 .method public final writeIntArray([I)V
-    .registers 5
+    .locals 3
     .parameter "val"
 
     .prologue
     .line 758
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 759
     array-length v0, p1
@@ -4847,8 +4847,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_15
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 762
     aget v2, p1, v1
@@ -4858,23 +4858,23 @@
     .line 761
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 765
     .end local v0           #N:I
     .end local v1           #i:I
-    :cond_11
+    :cond_0
     const/4 v2, -0x1
 
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 767
-    :cond_15
+    :cond_1
     return-void
 .end method
 
 .method public final writeInterfaceToken(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "interfaceName"
 
     .prologue
@@ -4888,12 +4888,12 @@
 .end method
 
 .method public final writeList(Ljava/util/List;)V
-    .registers 5
+    .locals 3
     .parameter "val"
 
     .prologue
     .line 614
-    if-nez p1, :cond_7
+    if-nez p1, :cond_1
 
     .line 615
     const/4 v2, -0x1
@@ -4901,11 +4901,11 @@
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 625
-    :cond_6
+    :cond_0
     return-void
 
     .line 618
-    :cond_7
+    :cond_1
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
@@ -4919,8 +4919,8 @@
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 621
-    :goto_f
-    if-ge v1, v0, :cond_6
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 622
     invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -4932,11 +4932,11 @@
     .line 623
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public final writeLong(J)V
-    .registers 4
+    .locals 1
     .parameter "val"
 
     .prologue
@@ -4950,12 +4950,12 @@
 .end method
 
 .method public final writeLongArray([J)V
-    .registers 6
+    .locals 4
     .parameter "val"
 
     .prologue
     .line 794
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 795
     array-length v0, p1
@@ -4968,8 +4968,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_15
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 798
     aget-wide v2, p1, v1
@@ -4979,23 +4979,23 @@
     .line 797
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 801
     .end local v0           #N:I
     .end local v1           #i:I
-    :cond_11
+    :cond_0
     const/4 v2, -0x1
 
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 803
-    :cond_15
+    :cond_1
     return-void
 .end method
 
 .method public final writeMap(Ljava/util/Map;)V
-    .registers 2
+    .locals 0
     .parameter "val"
 
     .prologue
@@ -5007,7 +5007,7 @@
 .end method
 
 .method writeMapInternal(Ljava/util/Map;)V
-    .registers 6
+    .locals 4
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -5023,7 +5023,7 @@
     .prologue
     .line 583
     .local p1, val:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;"
-    if-nez p1, :cond_7
+    if-nez p1, :cond_1
 
     .line 584
     const/4 v3, -0x1
@@ -5031,11 +5031,11 @@
     invoke-virtual {p0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 593
-    :cond_6
+    :cond_0
     return-void
 
     .line 587
-    :cond_7
+    :cond_1
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v1
@@ -5054,12 +5054,12 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :goto_16
+    :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_0
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -5082,11 +5082,11 @@
 
     invoke-virtual {p0, v3}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method public final writeNoException()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x0
@@ -5096,7 +5096,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_26
+    if-eqz v2, :cond_0
 
     .line 1353
     const/16 v2, -0x80
@@ -5135,24 +5135,24 @@
     .line 1364
     .end local v0           #payloadPosition:I
     .end local v1           #sizePosition:I
-    :goto_25
+    :goto_0
     return-void
 
     .line 1362
-    :cond_26
+    :cond_0
     invoke-virtual {p0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_25
+    goto :goto_0
 .end method
 
 .method public final writeParcelable(Landroid/os/Parcelable;I)V
-    .registers 5
+    .locals 2
     .parameter "p"
     .parameter "parcelableFlags"
 
     .prologue
     .line 1248
-    if-nez p1, :cond_7
+    if-nez p1, :cond_0
 
     .line 1249
     const/4 v1, 0x0
@@ -5160,11 +5160,11 @@
     invoke-virtual {p0, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 1255
-    :goto_6
+    :goto_0
     return-void
 
     .line 1252
-    :cond_7
+    :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -5180,11 +5180,11 @@
     .line 1254
     invoke-interface {p1, p0, p2}, Landroid/os/Parcelable;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public final writeParcelableArray([Landroid/os/Parcelable;I)V
-    .registers 6
+    .locals 3
     .parameter
     .parameter "parcelableFlags"
     .annotation system Ldalvik/annotation/Signature;
@@ -5198,7 +5198,7 @@
     .prologue
     .line 1932
     .local p1, value:[Landroid/os/Parcelable;,"[TT;"
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 1933
     array-length v0, p1
@@ -5211,8 +5211,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_15
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 1936
     aget-object v2, p1, v1
@@ -5222,28 +5222,28 @@
     .line 1935
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 1939
     .end local v0           #N:I
     .end local v1           #i:I
-    :cond_11
+    :cond_0
     const/4 v2, -0x1
 
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1941
-    :cond_15
+    :cond_1
     return-void
 .end method
 
 .method public final writeSerializable(Ljava/io/Serializable;)V
-    .registers 9
+    .locals 7
     .parameter "s"
 
     .prologue
     .line 1264
-    if-nez p1, :cond_7
+    if-nez p1, :cond_0
 
     .line 1265
     const/4 v4, 0x0
@@ -5251,11 +5251,11 @@
     invoke-virtual {p0, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 1283
-    :goto_6
+    :goto_0
     return-void
 
     .line 1268
-    :cond_7
+    :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v4
@@ -5275,7 +5275,7 @@
 
     .line 1273
     .local v0, baos:Ljava/io/ByteArrayOutputStream;
-    :try_start_17
+    :try_start_0
     new-instance v3, Ljava/io/ObjectOutputStream;
 
     invoke-direct {v3, v0}, Ljava/io/ObjectOutputStream;-><init>(Ljava/io/OutputStream;)V
@@ -5293,14 +5293,14 @@
     move-result-object v4
 
     invoke-virtual {p0, v4}, Landroid/os/Parcel;->writeByteArray([B)V
-    :try_end_29
-    .catch Ljava/io/IOException; {:try_start_17 .. :try_end_29} :catch_2a
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 1278
     .end local v3           #oos:Ljava/io/ObjectOutputStream;
-    :catch_2a
+    :catch_0
     move-exception v1
 
     .line 1279
@@ -5337,7 +5337,7 @@
 .end method
 
 .method public final writeSparseArray(Landroid/util/SparseArray;)V
-    .registers 5
+    .locals 3
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -5352,7 +5352,7 @@
     .prologue
     .line 653
     .local p1, val:Landroid/util/SparseArray;,"Landroid/util/SparseArray<Ljava/lang/Object;>;"
-    if-nez p1, :cond_7
+    if-nez p1, :cond_1
 
     .line 654
     const/4 v2, -0x1
@@ -5360,11 +5360,11 @@
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 665
-    :cond_6
+    :cond_0
     return-void
 
     .line 657
-    :cond_7
+    :cond_1
     invoke-virtual {p1}, Landroid/util/SparseArray;->size()I
 
     move-result v0
@@ -5378,8 +5378,8 @@
 
     .line 660
     .local v1, i:I
-    :goto_f
-    if-ge v1, v0, :cond_6
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 661
     invoke-virtual {p1, v1}, Landroid/util/SparseArray;->keyAt(I)I
@@ -5398,16 +5398,16 @@
     .line 663
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public final writeSparseBooleanArray(Landroid/util/SparseBooleanArray;)V
-    .registers 5
+    .locals 3
     .parameter "val"
 
     .prologue
     .line 668
-    if-nez p1, :cond_7
+    if-nez p1, :cond_1
 
     .line 669
     const/4 v2, -0x1
@@ -5415,11 +5415,11 @@
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 680
-    :cond_6
+    :cond_0
     return-void
 
     .line 672
-    :cond_7
+    :cond_1
     invoke-virtual {p1}, Landroid/util/SparseBooleanArray;->size()I
 
     move-result v0
@@ -5433,8 +5433,8 @@
 
     .line 675
     .local v1, i:I
-    :goto_f
-    if-ge v1, v0, :cond_6
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 676
     invoke-virtual {p1, v1}, Landroid/util/SparseBooleanArray;->keyAt(I)I
@@ -5448,11 +5448,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_26
+    if-eqz v2, :cond_2
 
     const/4 v2, 0x1
 
-    :goto_1f
+    :goto_1
     int-to-byte v2, v2
 
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeByte(B)V
@@ -5460,17 +5460,17 @@
     .line 678
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 677
-    :cond_26
+    :cond_2
     const/4 v2, 0x0
 
-    goto :goto_1f
+    goto :goto_1
 .end method
 
 .method public final writeString(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "val"
 
     .prologue
@@ -5484,12 +5484,12 @@
 .end method
 
 .method public final writeStringArray([Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "val"
 
     .prologue
     .line 905
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 906
     array-length v0, p1
@@ -5502,8 +5502,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_15
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 909
     aget-object v2, p1, v1
@@ -5513,23 +5513,23 @@
     .line 908
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 912
     .end local v0           #N:I
     .end local v1           #i:I
-    :cond_11
+    :cond_0
     const/4 v2, -0x1
 
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 914
-    :cond_15
+    :cond_1
     return-void
 .end method
 
 .method public final writeStringList(Ljava/util/List;)V
-    .registers 5
+    .locals 3
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -5544,7 +5544,7 @@
     .prologue
     .line 1037
     .local p1, val:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
-    if-nez p1, :cond_7
+    if-nez p1, :cond_1
 
     .line 1038
     const/4 v2, -0x1
@@ -5552,11 +5552,11 @@
     invoke-virtual {p0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1048
-    :cond_6
+    :cond_0
     return-void
 
     .line 1041
-    :cond_7
+    :cond_1
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
@@ -5570,8 +5570,8 @@
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1044
-    :goto_f
-    if-ge v1, v0, :cond_6
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 1045
     invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -5585,11 +5585,11 @@
     .line 1046
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public final writeStrongBinder(Landroid/os/IBinder;)V
-    .registers 3
+    .locals 1
     .parameter "val"
 
     .prologue
@@ -5603,32 +5603,32 @@
 .end method
 
 .method public final writeStrongInterface(Landroid/os/IInterface;)V
-    .registers 3
+    .locals 1
     .parameter "val"
 
     .prologue
     .line 538
-    if-nez p1, :cond_7
+    if-nez p1, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_3
+    :goto_0
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 539
     return-void
 
     .line 538
-    :cond_7
+    :cond_0
     invoke-interface {p1}, Landroid/os/IInterface;->asBinder()Landroid/os/IBinder;
 
     move-result-object v0
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public final writeTypedArray([Landroid/os/Parcelable;I)V
-    .registers 7
+    .locals 4
     .parameter
     .parameter "parcelableFlags"
     .annotation system Ldalvik/annotation/Signature;
@@ -5642,7 +5642,7 @@
     .prologue
     .line 1095
     .local p1, val:[Landroid/os/Parcelable;,"[TT;"
-    if-eqz p1, :cond_1c
+    if-eqz p1, :cond_1
 
     .line 1096
     array-length v0, p1
@@ -5655,15 +5655,15 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v0, :cond_20
+    :goto_0
+    if-ge v1, v0, :cond_2
 
     .line 1099
     aget-object v2, p1, v1
 
     .line 1100
     .local v2, item:Landroid/os/Parcelable;,"TT;"
-    if-eqz v2, :cond_17
+    if-eqz v2, :cond_0
 
     .line 1101
     const/4 v3, 0x1
@@ -5674,35 +5674,35 @@
     invoke-interface {v2, p0, p2}, Landroid/os/Parcelable;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1098
-    :goto_14
+    :goto_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 1104
-    :cond_17
+    :cond_0
     const/4 v3, 0x0
 
     invoke-virtual {p0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_14
+    goto :goto_1
 
     .line 1108
     .end local v0           #N:I
     .end local v1           #i:I
     .end local v2           #item:Landroid/os/Parcelable;,"TT;"
-    :cond_1c
+    :cond_1
     const/4 v3, -0x1
 
     invoke-virtual {p0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1110
-    :cond_20
+    :cond_2
     return-void
 .end method
 
 .method public final writeTypedList(Ljava/util/List;)V
-    .registers 7
+    .locals 5
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -5719,7 +5719,7 @@
     const/4 v4, 0x0
 
     .line 1006
-    if-nez p1, :cond_8
+    if-nez p1, :cond_1
 
     .line 1007
     const/4 v3, -0x1
@@ -5727,11 +5727,11 @@
     invoke-virtual {p0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1023
-    :cond_7
+    :cond_0
     return-void
 
     .line 1010
-    :cond_8
+    :cond_1
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
@@ -5745,8 +5745,8 @@
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1013
-    :goto_10
-    if-ge v1, v0, :cond_7
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 1014
     invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -5757,7 +5757,7 @@
 
     .line 1015
     .local v2, item:Landroid/os/Parcelable;,"TT;"
-    if-eqz v2, :cond_24
+    if-eqz v2, :cond_2
 
     .line 1016
     const/4 v3, 0x1
@@ -5768,21 +5768,21 @@
     invoke-interface {v2, p0, v4}, Landroid/os/Parcelable;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1021
-    :goto_21
+    :goto_1
     add-int/lit8 v1, v1, 0x1
 
     .line 1022
-    goto :goto_10
+    goto :goto_0
 
     .line 1019
-    :cond_24
+    :cond_2
     invoke-virtual {p0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_21
+    goto :goto_1
 .end method
 
 .method public final writeValue(Ljava/lang/Object;)V
-    .registers 5
+    .locals 3
     .parameter "v"
 
     .prologue
@@ -5791,7 +5791,7 @@
     const/4 v1, 0x0
 
     .line 1156
-    if-nez p1, :cond_9
+    if-nez p1, :cond_0
 
     .line 1157
     const/4 v0, -0x1
@@ -5800,15 +5800,15 @@
 
     .line 1237
     .end local p1
-    :goto_8
+    :goto_0
     return-void
 
     .line 1158
     .restart local p1
-    :cond_9
+    :cond_0
     instance-of v2, p1, Ljava/lang/String;
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_1
 
     .line 1159
     invoke-virtual {p0, v1}, Landroid/os/Parcel;->writeInt(I)V
@@ -5819,14 +5819,14 @@
     .end local p1
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1161
     .restart local p1
-    :cond_16
+    :cond_1
     instance-of v2, p1, Ljava/lang/Integer;
 
-    if-eqz v2, :cond_27
+    if-eqz v2, :cond_2
 
     .line 1162
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeInt(I)V
@@ -5841,14 +5841,14 @@
 
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1164
     .restart local p1
-    :cond_27
+    :cond_2
     instance-of v2, p1, Ljava/util/Map;
 
-    if-eqz v2, :cond_35
+    if-eqz v2, :cond_3
 
     .line 1165
     const/4 v0, 0x2
@@ -5861,14 +5861,14 @@
     .end local p1
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->writeMap(Ljava/util/Map;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1167
     .restart local p1
-    :cond_35
+    :cond_3
     instance-of v2, p1, Landroid/os/Bundle;
 
-    if-eqz v2, :cond_43
+    if-eqz v2, :cond_4
 
     .line 1169
     const/4 v0, 0x3
@@ -5881,14 +5881,14 @@
     .end local p1
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1171
     .restart local p1
-    :cond_43
+    :cond_4
     instance-of v2, p1, Landroid/os/Parcelable;
 
-    if-eqz v2, :cond_51
+    if-eqz v2, :cond_5
 
     .line 1172
     const/4 v0, 0x4
@@ -5901,14 +5901,14 @@
     .end local p1
     invoke-virtual {p0, p1, v1}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1174
     .restart local p1
-    :cond_51
+    :cond_5
     instance-of v2, p1, Ljava/lang/Short;
 
-    if-eqz v2, :cond_63
+    if-eqz v2, :cond_6
 
     .line 1175
     const/4 v0, 0x5
@@ -5925,14 +5925,14 @@
 
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1177
     .restart local p1
-    :cond_63
+    :cond_6
     instance-of v2, p1, Ljava/lang/Long;
 
-    if-eqz v2, :cond_75
+    if-eqz v2, :cond_7
 
     .line 1178
     const/4 v0, 0x6
@@ -5949,14 +5949,14 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1180
     .restart local p1
-    :cond_75
+    :cond_7
     instance-of v2, p1, Ljava/lang/Float;
 
-    if-eqz v2, :cond_87
+    if-eqz v2, :cond_8
 
     .line 1181
     const/4 v0, 0x7
@@ -5973,14 +5973,14 @@
 
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeFloat(F)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1183
     .restart local p1
-    :cond_87
+    :cond_8
     instance-of v2, p1, Ljava/lang/Double;
 
-    if-eqz v2, :cond_9b
+    if-eqz v2, :cond_9
 
     .line 1184
     const/16 v0, 0x8
@@ -5997,14 +5997,14 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/os/Parcel;->writeDouble(D)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1186
     .restart local p1
-    :cond_9b
+    :cond_9
     instance-of v2, p1, Ljava/lang/Boolean;
 
-    if-eqz v2, :cond_b3
+    if-eqz v2, :cond_b
 
     .line 1187
     const/16 v2, 0x9
@@ -6019,24 +6019,24 @@
 
     move-result v2
 
-    if-eqz v2, :cond_b1
+    if-eqz v2, :cond_a
 
-    :goto_ac
+    :goto_1
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
-    :cond_b1
+    :cond_a
     move v0, v1
 
-    goto :goto_ac
+    goto :goto_1
 
     .line 1189
     .restart local p1
-    :cond_b3
+    :cond_b
     instance-of v0, p1, Ljava/lang/CharSequence;
 
-    if-eqz v0, :cond_c3
+    if-eqz v0, :cond_c
 
     .line 1191
     const/16 v0, 0xa
@@ -6049,14 +6049,14 @@
     .end local p1
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->writeCharSequence(Ljava/lang/CharSequence;)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1193
     .restart local p1
-    :cond_c3
+    :cond_c
     instance-of v0, p1, Ljava/util/List;
 
-    if-eqz v0, :cond_d3
+    if-eqz v0, :cond_d
 
     .line 1194
     const/16 v0, 0xb
@@ -6069,14 +6069,14 @@
     .end local p1
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->writeList(Ljava/util/List;)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1196
     .restart local p1
-    :cond_d3
+    :cond_d
     instance-of v0, p1, Landroid/util/SparseArray;
 
-    if-eqz v0, :cond_e3
+    if-eqz v0, :cond_e
 
     .line 1197
     const/16 v0, 0xc
@@ -6089,14 +6089,14 @@
     .end local p1
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->writeSparseArray(Landroid/util/SparseArray;)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1199
     .restart local p1
-    :cond_e3
+    :cond_e
     instance-of v0, p1, [Z
 
-    if-eqz v0, :cond_f5
+    if-eqz v0, :cond_f
 
     .line 1200
     const/16 v0, 0x17
@@ -6111,14 +6111,14 @@
 
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->writeBooleanArray([Z)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1202
     .restart local p1
-    :cond_f5
+    :cond_f
     instance-of v0, p1, [B
 
-    if-eqz v0, :cond_107
+    if-eqz v0, :cond_10
 
     .line 1203
     const/16 v0, 0xd
@@ -6133,14 +6133,14 @@
 
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->writeByteArray([B)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1205
     .restart local p1
-    :cond_107
+    :cond_10
     instance-of v0, p1, [Ljava/lang/String;
 
-    if-eqz v0, :cond_119
+    if-eqz v0, :cond_11
 
     .line 1206
     const/16 v0, 0xe
@@ -6155,14 +6155,14 @@
 
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1208
     .restart local p1
-    :cond_119
+    :cond_11
     instance-of v0, p1, [Ljava/lang/CharSequence;
 
-    if-eqz v0, :cond_12b
+    if-eqz v0, :cond_12
 
     .line 1210
     const/16 v0, 0x18
@@ -6177,14 +6177,14 @@
 
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->writeCharSequenceArray([Ljava/lang/CharSequence;)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1212
     .restart local p1
-    :cond_12b
+    :cond_12
     instance-of v0, p1, Landroid/os/IBinder;
 
-    if-eqz v0, :cond_13b
+    if-eqz v0, :cond_13
 
     .line 1213
     const/16 v0, 0xf
@@ -6197,14 +6197,14 @@
     .end local p1
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1215
     .restart local p1
-    :cond_13b
+    :cond_13
     instance-of v0, p1, [Landroid/os/Parcelable;
 
-    if-eqz v0, :cond_14d
+    if-eqz v0, :cond_14
 
     .line 1216
     const/16 v0, 0x10
@@ -6219,14 +6219,14 @@
 
     invoke-virtual {p0, p1, v1}, Landroid/os/Parcel;->writeParcelableArray([Landroid/os/Parcelable;I)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1218
     .restart local p1
-    :cond_14d
+    :cond_14
     instance-of v0, p1, [Ljava/lang/Object;
 
-    if-eqz v0, :cond_15f
+    if-eqz v0, :cond_15
 
     .line 1219
     const/16 v0, 0x11
@@ -6241,14 +6241,14 @@
 
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->writeArray([Ljava/lang/Object;)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1221
     .restart local p1
-    :cond_15f
+    :cond_15
     instance-of v0, p1, [I
 
-    if-eqz v0, :cond_171
+    if-eqz v0, :cond_16
 
     .line 1222
     const/16 v0, 0x12
@@ -6263,14 +6263,14 @@
 
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1224
     .restart local p1
-    :cond_171
+    :cond_16
     instance-of v0, p1, [J
 
-    if-eqz v0, :cond_183
+    if-eqz v0, :cond_17
 
     .line 1225
     const/16 v0, 0x13
@@ -6285,14 +6285,14 @@
 
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->writeLongArray([J)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1227
     .restart local p1
-    :cond_183
+    :cond_17
     instance-of v0, p1, Ljava/lang/Byte;
 
-    if-eqz v0, :cond_197
+    if-eqz v0, :cond_18
 
     .line 1228
     const/16 v0, 0x14
@@ -6309,14 +6309,14 @@
 
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1230
     .restart local p1
-    :cond_197
+    :cond_18
     instance-of v0, p1, Ljava/io/Serializable;
 
-    if-eqz v0, :cond_1a7
+    if-eqz v0, :cond_19
 
     .line 1232
     const/16 v0, 0x15
@@ -6329,11 +6329,11 @@
     .end local p1
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->writeSerializable(Ljava/io/Serializable;)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1235
     .restart local p1
-    :cond_1a7
+    :cond_19
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;

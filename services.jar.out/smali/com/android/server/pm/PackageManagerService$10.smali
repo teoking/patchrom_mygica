@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;ZZ)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 8840
@@ -60,6 +60,7 @@
 
     const/4 v3, 0x1
 
+    #calls: Lcom/android/server/pm/PackageManagerService;->updateExternalMediaStatusInner(ZZZ)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->access$3800(Lcom/android/server/pm/PackageManagerService;ZZZ)V
 
     .line 8841

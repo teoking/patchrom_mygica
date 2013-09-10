@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/input/InputManagerService;ILandroid/os/IBinder;I)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter "deviceId"
     .parameter "token"
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1572

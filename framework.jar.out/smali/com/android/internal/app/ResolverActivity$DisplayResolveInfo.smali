@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/ResolverActivity;Landroid/content/pm/ResolveInfo;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/content/Intent;)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter "pri"
     .parameter "pLabel"

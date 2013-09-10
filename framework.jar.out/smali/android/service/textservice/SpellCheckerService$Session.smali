@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 99
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public getBundle()Landroid/os/Bundle;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 232
@@ -48,7 +48,7 @@
 .end method
 
 .method public getLocale()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 225
@@ -62,7 +62,7 @@
 .end method
 
 .method public onCancel()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 211
@@ -70,7 +70,7 @@
 .end method
 
 .method public onClose()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 219
@@ -81,41 +81,41 @@
 .end method
 
 .method public onGetSentenceSuggestionsMultiple([Landroid/view/textservice/TextInfo;I)[Landroid/view/textservice/SentenceSuggestionsInfo;
-    .registers 14
+    .locals 11
     .parameter "textInfos"
     .parameter "suggestionsLimit"
 
     .prologue
     .line 166
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_0
 
     array-length v9, p1
 
-    if-nez v9, :cond_8
+    if-nez v9, :cond_2
 
     .line 167
-    :cond_5
+    :cond_0
     sget-object v6, Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;->EMPTY_SENTENCE_SUGGESTIONS_INFOS:[Landroid/view/textservice/SentenceSuggestionsInfo;
 
     .line 202
-    :cond_7
-    :goto_7
+    :cond_1
+    :goto_0
     return-object v6
 
     .line 173
-    :cond_8
+    :cond_2
     iget-object v9, p0, Landroid/service/textservice/SpellCheckerService$Session;->mSentenceLevelAdapter:Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;
 
-    if-nez v9, :cond_28
+    if-nez v9, :cond_4
 
     .line 174
     monitor-enter p0
 
     .line 175
-    :try_start_d
+    :try_start_0
     iget-object v9, p0, Landroid/service/textservice/SpellCheckerService$Session;->mSentenceLevelAdapter:Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;
 
-    if-nez v9, :cond_27
+    if-nez v9, :cond_3
 
     .line 176
     invoke-virtual {p0}, Landroid/service/textservice/SpellCheckerService$Session;->getLocale()Ljava/lang/String;
@@ -128,7 +128,7 @@
 
     move-result v9
 
-    if-nez v9, :cond_27
+    if-nez v9, :cond_3
 
     .line 178
     new-instance v9, Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;
@@ -143,35 +143,35 @@
 
     .line 181
     .end local v4           #localeStr:Ljava/lang/String;
-    :cond_27
+    :cond_3
     monitor-exit p0
-    :try_end_28
-    .catchall {:try_start_d .. :try_end_28} :catchall_2f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 183
-    :cond_28
+    :cond_4
     iget-object v9, p0, Landroid/service/textservice/SpellCheckerService$Session;->mSentenceLevelAdapter:Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;
 
-    if-nez v9, :cond_32
+    if-nez v9, :cond_5
 
     .line 184
     sget-object v6, Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;->EMPTY_SENTENCE_SUGGESTIONS_INFOS:[Landroid/view/textservice/SentenceSuggestionsInfo;
 
-    goto :goto_7
+    goto :goto_0
 
     .line 181
-    :catchall_2f
+    :catchall_0
     move-exception v9
 
-    :try_start_30
+    :try_start_1
     monitor-exit p0
-    :try_end_31
-    .catchall {:try_start_30 .. :try_end_31} :catchall_2f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v9
 
     .line 186
-    :cond_32
+    :cond_5
     array-length v1, p1
 
     .line 187
@@ -183,14 +183,15 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_36
-    if-ge v0, v1, :cond_7
+    :goto_1
+    if-ge v0, v1, :cond_1
 
     .line 189
     iget-object v9, p0, Landroid/service/textservice/SpellCheckerService$Session;->mSentenceLevelAdapter:Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;
 
     aget-object v10, p1, v0
 
+    #calls: Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;->getSplitWords(Landroid/view/textservice/TextInfo;)Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceTextInfoParams;
     invoke-static {v9, v10}, Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;->access$000(Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter;Landroid/view/textservice/TextInfo;)Landroid/service/textservice/SpellCheckerService$SentenceLevelAdapter$SentenceTextInfoParams;
 
     move-result-object v8
@@ -214,8 +215,8 @@
     const/4 v3, 0x0
 
     .local v3, j:I
-    :goto_49
-    if-ge v3, v2, :cond_58
+    :goto_2
+    if-ge v3, v2, :cond_6
 
     .line 196
     invoke-virtual {v5, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -231,10 +232,10 @@
     .line 195
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_49
+    goto :goto_2
 
     .line 198
-    :cond_58
+    :cond_6
     const/4 v9, 0x1
 
     invoke-virtual {p0, v7, p2, v9}, Landroid/service/textservice/SpellCheckerService$Session;->onGetSuggestionsMultiple([Landroid/view/textservice/TextInfo;IZ)[Landroid/view/textservice/SuggestionsInfo;
@@ -250,14 +251,14 @@
     .line 188
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_36
+    goto :goto_1
 .end method
 
 .method public abstract onGetSuggestions(Landroid/view/textservice/TextInfo;I)Landroid/view/textservice/SuggestionsInfo;
 .end method
 
 .method public onGetSuggestionsMultiple([Landroid/view/textservice/TextInfo;IZ)[Landroid/view/textservice/SuggestionsInfo;
-    .registers 10
+    .locals 6
     .parameter "textInfos"
     .parameter "suggestionsLimit"
     .parameter "sequentialWords"
@@ -275,8 +276,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_4
-    if-ge v0, v1, :cond_22
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 143
     aget-object v3, p1, v0
@@ -307,15 +308,15 @@
     .line 142
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 147
-    :cond_22
+    :cond_0
     return-object v2
 .end method
 
 .method public final setInternalISpellCheckerSession(Landroid/service/textservice/SpellCheckerService$InternalISpellCheckerSession;)V
-    .registers 2
+    .locals 0
     .parameter "session"
 
     .prologue

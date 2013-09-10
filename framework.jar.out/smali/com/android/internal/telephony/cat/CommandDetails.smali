@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 63
@@ -45,7 +45,7 @@
 .end method
 
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 40
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public compareTo(Lcom/android/internal/telephony/cat/CommandDetails;)Z
-    .registers 4
+    .locals 2
     .parameter "other"
 
     .prologue
@@ -105,39 +105,39 @@
 
     iget-boolean v1, p1, Lcom/android/internal/telephony/cat/CommandDetails;->compRequired:Z
 
-    if-ne v0, v1, :cond_1a
+    if-ne v0, v1, :cond_0
 
     iget v0, p0, Lcom/android/internal/telephony/cat/CommandDetails;->commandNumber:I
 
     iget v1, p1, Lcom/android/internal/telephony/cat/CommandDetails;->commandNumber:I
 
-    if-ne v0, v1, :cond_1a
+    if-ne v0, v1, :cond_0
 
     iget v0, p0, Lcom/android/internal/telephony/cat/CommandDetails;->commandQualifier:I
 
     iget v1, p1, Lcom/android/internal/telephony/cat/CommandDetails;->commandQualifier:I
 
-    if-ne v0, v1, :cond_1a
+    if-ne v0, v1, :cond_0
 
     iget v0, p0, Lcom/android/internal/telephony/cat/CommandDetails;->typeOfCommand:I
 
     iget v1, p1, Lcom/android/internal/telephony/cat/CommandDetails;->typeOfCommand:I
 
-    if-ne v0, v1, :cond_1a
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_19
+    :goto_0
     return v0
 
-    :cond_1a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 75
@@ -147,7 +147,7 @@
 .end method
 
 .method public getTag()Lcom/android/internal/telephony/cat/ComprehensionTlvTag;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 37
@@ -157,7 +157,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 80
@@ -221,7 +221,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

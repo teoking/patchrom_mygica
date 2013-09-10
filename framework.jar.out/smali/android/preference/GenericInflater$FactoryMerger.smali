@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/preference/GenericInflater$Factory;Landroid/preference/GenericInflater$Factory;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public onCreateItem(Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Ljava/lang/Object;
-    .registers 6
+    .locals 2
     .parameter "name"
     .parameter "context"
     .parameter "attrs"
@@ -108,20 +108,20 @@
 
     .line 94
     .local v0, v:Ljava/lang/Object;,"TT;"
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 95
     .end local v0           #v:Ljava/lang/Object;,"TT;"
-    :goto_8
+    :goto_0
     return-object v0
 
     .restart local v0       #v:Ljava/lang/Object;,"TT;"
-    :cond_9
+    :cond_0
     iget-object v1, p0, Landroid/preference/GenericInflater$FactoryMerger;->mF2:Landroid/preference/GenericInflater$Factory;
 
     invoke-interface {v1, p1, p2, p3}, Landroid/preference/GenericInflater$Factory;->onCreateItem(Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Ljava/lang/Object;
 
     move-result-object v0
 
-    goto :goto_8
+    goto :goto_0
 .end method

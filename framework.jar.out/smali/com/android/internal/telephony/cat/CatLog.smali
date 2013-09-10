@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 21
@@ -19,7 +19,7 @@
 .end method
 
 .method public static d(Ljava/lang/Object;Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "caller"
     .parameter "msg"
 
@@ -78,7 +78,7 @@
 .end method
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "caller"
     .parameter "msg"
 

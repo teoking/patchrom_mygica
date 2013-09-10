@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -59,7 +59,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 11
+    .locals 8
     .parameter "context"
     .parameter "attrs"
 
@@ -96,13 +96,13 @@
 
     .line 85
     .local v2, value:I
-    if-eq v2, v5, :cond_1b
+    if-eq v2, v5, :cond_0
 
     .line 86
     iput v2, p0, Landroid/widget/RadioGroup;->mCheckedId:I
 
     .line 89
-    :cond_1b
+    :cond_0
     invoke-virtual {v0, v6, v7}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v1
@@ -122,7 +122,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/widget/RadioGroup;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -133,7 +133,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/widget/RadioGroup;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -145,7 +145,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/widget/RadioGroup;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -156,7 +156,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/widget/RadioGroup;IZ)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -169,7 +169,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/widget/RadioGroup;I)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -181,7 +181,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/widget/RadioGroup;)Landroid/widget/CompoundButton$OnCheckedChangeListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -192,7 +192,7 @@
 .end method
 
 .method private init()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -221,7 +221,7 @@
 .end method
 
 .method private setCheckedId(I)V
-    .registers 4
+    .locals 2
     .parameter "id"
 
     .prologue
@@ -231,7 +231,7 @@
     .line 173
     iget-object v0, p0, Landroid/widget/RadioGroup;->mOnCheckedChangeListener:Landroid/widget/RadioGroup$OnCheckedChangeListener;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 174
     iget-object v0, p0, Landroid/widget/RadioGroup;->mOnCheckedChangeListener:Landroid/widget/RadioGroup$OnCheckedChangeListener;
@@ -241,12 +241,12 @@
     invoke-interface {v0, p0, v1}, Landroid/widget/RadioGroup$OnCheckedChangeListener;->onCheckedChanged(Landroid/widget/RadioGroup;I)V
 
     .line 176
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method private setCheckedStateForView(IZ)V
-    .registers 5
+    .locals 2
     .parameter "viewId"
     .parameter "checked"
 
@@ -258,11 +258,11 @@
 
     .line 180
     .local v0, checkedView:Landroid/view/View;
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     instance-of v1, v0, Landroid/widget/RadioButton;
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_0
 
     .line 181
     check-cast v0, Landroid/widget/RadioButton;
@@ -271,14 +271,14 @@
     invoke-virtual {v0, p2}, Landroid/widget/RadioButton;->setChecked(Z)V
 
     .line 183
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
-    .registers 8
+    .locals 4
     .parameter "child"
     .parameter "index"
     .parameter "params"
@@ -289,7 +289,7 @@
     .line 129
     instance-of v1, p1, Landroid/widget/RadioButton;
 
-    if-eqz v1, :cond_24
+    if-eqz v1, :cond_1
 
     move-object v0, p1
 
@@ -302,7 +302,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_24
+    if-eqz v1, :cond_1
 
     .line 132
     const/4 v1, 0x1
@@ -314,7 +314,7 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_1b
+    if-eq v1, v2, :cond_0
 
     .line 134
     iget v1, p0, Landroid/widget/RadioGroup;->mCheckedId:I
@@ -322,7 +322,7 @@
     invoke-direct {p0, v1, v3}, Landroid/widget/RadioGroup;->setCheckedStateForView(IZ)V
 
     .line 136
-    :cond_1b
+    :cond_0
     iput-boolean v3, p0, Landroid/widget/RadioGroup;->mProtectFromCheckedChange:Z
 
     .line 137
@@ -334,7 +334,7 @@
 
     .line 141
     .end local v0           #button:Landroid/widget/RadioButton;
-    :cond_24
+    :cond_1
     invoke-super {p0, p1, p2, p3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
     .line 142
@@ -342,28 +342,28 @@
 .end method
 
 .method public check(I)V
-    .registers 5
+    .locals 3
     .parameter "id"
 
     .prologue
     const/4 v2, -0x1
 
     .line 156
-    if-eq p1, v2, :cond_8
+    if-eq p1, v2, :cond_0
 
     iget v0, p0, Landroid/widget/RadioGroup;->mCheckedId:I
 
-    if-ne p1, v0, :cond_8
+    if-ne p1, v0, :cond_0
 
     .line 169
-    :goto_7
+    :goto_0
     return-void
 
     .line 160
-    :cond_8
+    :cond_0
     iget v0, p0, Landroid/widget/RadioGroup;->mCheckedId:I
 
-    if-eq v0, v2, :cond_12
+    if-eq v0, v2, :cond_1
 
     .line 161
     iget v0, p0, Landroid/widget/RadioGroup;->mCheckedId:I
@@ -373,8 +373,8 @@
     invoke-direct {p0, v0, v1}, Landroid/widget/RadioGroup;->setCheckedStateForView(IZ)V
 
     .line 164
-    :cond_12
-    if-eq p1, v2, :cond_18
+    :cond_1
+    if-eq p1, v2, :cond_2
 
     .line 165
     const/4 v0, 0x1
@@ -382,14 +382,14 @@
     invoke-direct {p0, p1, v0}, Landroid/widget/RadioGroup;->setCheckedStateForView(IZ)V
 
     .line 168
-    :cond_18
+    :cond_2
     invoke-direct {p0, p1}, Landroid/widget/RadioGroup;->setCheckedId(I)V
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method protected checkLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Z
-    .registers 3
+    .locals 1
     .parameter "p"
 
     .prologue
@@ -400,7 +400,7 @@
 .end method
 
 .method public clearCheck()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 209
@@ -413,7 +413,7 @@
 .end method
 
 .method protected bridge synthetic generateDefaultLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 54
@@ -425,7 +425,7 @@
 .end method
 
 .method protected generateDefaultLayoutParams()Landroid/widget/LinearLayout$LayoutParams;
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, -0x2
@@ -439,7 +439,7 @@
 .end method
 
 .method public bridge synthetic generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -452,7 +452,7 @@
 .end method
 
 .method public bridge synthetic generateLayoutParams(Landroid/util/AttributeSet;)Landroid/widget/LinearLayout$LayoutParams;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -465,7 +465,7 @@
 .end method
 
 .method public generateLayoutParams(Landroid/util/AttributeSet;)Landroid/widget/RadioGroup$LayoutParams;
-    .registers 4
+    .locals 2
     .parameter "attrs"
 
     .prologue
@@ -482,7 +482,7 @@
 .end method
 
 .method public getCheckedRadioButtonId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 197
@@ -492,7 +492,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x1
@@ -505,7 +505,7 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_18
+    if-eq v0, v1, :cond_0
 
     .line 120
     iput-boolean v2, p0, Landroid/widget/RadioGroup;->mProtectFromCheckedChange:Z
@@ -526,12 +526,12 @@
     invoke-direct {p0, v0}, Landroid/widget/RadioGroup;->setCheckedId(I)V
 
     .line 125
-    :cond_18
+    :cond_0
     return-void
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -552,7 +552,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .registers 3
+    .locals 1
     .parameter "info"
 
     .prologue
@@ -573,7 +573,7 @@
 .end method
 
 .method public setOnCheckedChangeListener(Landroid/widget/RadioGroup$OnCheckedChangeListener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue
@@ -585,13 +585,14 @@
 .end method
 
 .method public setOnHierarchyChangeListener(Landroid/view/ViewGroup$OnHierarchyChangeListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
     .line 108
     iget-object v0, p0, Landroid/widget/RadioGroup;->mPassThroughListener:Landroid/widget/RadioGroup$PassThroughHierarchyChangeListener;
 
+    #setter for: Landroid/widget/RadioGroup$PassThroughHierarchyChangeListener;->mOnHierarchyChangeListener:Landroid/view/ViewGroup$OnHierarchyChangeListener;
     invoke-static {v0, p1}, Landroid/widget/RadioGroup$PassThroughHierarchyChangeListener;->access$202(Landroid/widget/RadioGroup$PassThroughHierarchyChangeListener;Landroid/view/ViewGroup$OnHierarchyChangeListener;)Landroid/view/ViewGroup$OnHierarchyChangeListener;
 
     .line 109

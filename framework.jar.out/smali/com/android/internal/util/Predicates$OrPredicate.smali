@@ -43,7 +43,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Iterable;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -69,7 +69,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/Iterable;Lcom/android/internal/util/Predicates$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public apply(Ljava/lang/Object;)Z
-    .registers 5
+    .locals 3
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -103,12 +103,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :cond_6
+    :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_1
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -122,18 +122,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_0
 
     .line 107
     const/4 v2, 0x1
 
     .line 110
     .end local v1           #predicate:Lcom/android/internal/util/Predicate;,"Lcom/android/internal/util/Predicate<-TT;>;"
-    :goto_19
+    :goto_0
     return v2
 
-    :cond_1a
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_19
+    goto :goto_0
 .end method

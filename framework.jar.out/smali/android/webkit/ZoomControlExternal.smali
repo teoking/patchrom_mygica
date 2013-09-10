@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 31
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Landroid/webkit/WebViewClassic;)V
-    .registers 3
+    .locals 1
     .parameter "webView"
 
     .prologue
@@ -69,7 +69,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/webkit/ZoomControlExternal;)Landroid/webkit/ZoomControlExternal$ExtendedZoomControls;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -80,7 +80,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/webkit/ZoomControlExternal;)Ljava/lang/Runnable;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -91,7 +91,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/webkit/ZoomControlExternal;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -102,7 +102,7 @@
 .end method
 
 .method static synthetic access$300()J
-    .registers 2
+    .locals 2
 
     .prologue
     .line 28
@@ -112,7 +112,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/webkit/ZoomControlExternal;)Landroid/webkit/WebViewClassic;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -123,7 +123,7 @@
 .end method
 
 .method private createZoomControls()Landroid/webkit/ZoomControlExternal$ExtendedZoomControls;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 96
@@ -159,13 +159,13 @@
 
 # virtual methods
 .method public getControls()Landroid/webkit/ZoomControlExternal$ExtendedZoomControls;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 68
     iget-object v0, p0, Landroid/webkit/ZoomControlExternal;->mZoomControls:Landroid/webkit/ZoomControlExternal$ExtendedZoomControls;
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_0
 
     .line 69
     invoke-direct {p0}, Landroid/webkit/ZoomControlExternal;->createZoomControls()Landroid/webkit/ZoomControlExternal$ExtendedZoomControls;
@@ -189,20 +189,20 @@
     iput-object v0, p0, Landroid/webkit/ZoomControlExternal;->mZoomControlRunnable:Ljava/lang/Runnable;
 
     .line 92
-    :cond_17
+    :cond_0
     iget-object v0, p0, Landroid/webkit/ZoomControlExternal;->mZoomControls:Landroid/webkit/ZoomControlExternal$ExtendedZoomControls;
 
     return-object v0
 .end method
 
 .method public hide()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 53
     iget-object v0, p0, Landroid/webkit/ZoomControlExternal;->mZoomControlRunnable:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 54
     iget-object v0, p0, Landroid/webkit/ZoomControlExternal;->mPrivateHandler:Landroid/os/Handler;
@@ -212,10 +212,10 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     .line 56
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/webkit/ZoomControlExternal;->mZoomControls:Landroid/webkit/ZoomControlExternal$ExtendedZoomControls;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_1
 
     .line 57
     iget-object v0, p0, Landroid/webkit/ZoomControlExternal;->mZoomControls:Landroid/webkit/ZoomControlExternal$ExtendedZoomControls;
@@ -223,18 +223,18 @@
     invoke-virtual {v0}, Landroid/webkit/ZoomControlExternal$ExtendedZoomControls;->hide()V
 
     .line 59
-    :cond_14
+    :cond_1
     return-void
 .end method
 
 .method public isVisible()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 62
     iget-object v0, p0, Landroid/webkit/ZoomControlExternal;->mZoomControls:Landroid/webkit/ZoomControlExternal$ExtendedZoomControls;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/webkit/ZoomControlExternal;->mZoomControls:Landroid/webkit/ZoomControlExternal$ExtendedZoomControls;
 
@@ -242,27 +242,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public show()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 45
     iget-object v0, p0, Landroid/webkit/ZoomControlExternal;->mZoomControlRunnable:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 46
     iget-object v0, p0, Landroid/webkit/ZoomControlExternal;->mPrivateHandler:Landroid/os/Handler;
@@ -272,7 +272,7 @@
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     .line 48
-    :cond_b
+    :cond_0
     invoke-virtual {p0}, Landroid/webkit/ZoomControlExternal;->getControls()Landroid/webkit/ZoomControlExternal$ExtendedZoomControls;
 
     move-result-object v0
@@ -295,7 +295,7 @@
 .end method
 
 .method public update()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 65

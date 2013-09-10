@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1147
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1118
@@ -75,7 +75,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 2
+    .locals 0
     .parameter "source"
 
     .prologue
@@ -90,7 +90,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/app/ActivityManager$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -104,7 +104,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1122
@@ -114,7 +114,7 @@
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "source"
 
     .prologue
@@ -144,11 +144,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_34
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_19
+    :goto_0
     iput-boolean v0, p0, Landroid/app/ActivityManager$MemoryInfo;->lowMemory:Z
 
     .line 1141
@@ -183,14 +183,14 @@
     return-void
 
     .line 1140
-    :cond_34
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 
@@ -213,11 +213,11 @@
     .line 1129
     iget-boolean v0, p0, Landroid/app/ActivityManager$MemoryInfo;->lowMemory:Z
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_14
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1130
@@ -244,8 +244,8 @@
     return-void
 
     .line 1129
-    :cond_2c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_14
+    goto :goto_0
 .end method

@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 70
@@ -77,7 +77,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/service/wallpaper/WallpaperService;)Landroid/os/Looper;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -88,7 +88,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/service/wallpaper/WallpaperService;)Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 7
+    .locals 3
     .parameter "fd"
     .parameter "out"
     .parameter "args"
@@ -122,14 +122,14 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_e
+    :goto_0
     iget-object v2, p0, Landroid/service/wallpaper/WallpaperService;->mActiveEngines:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_33
+    if-ge v1, v2, :cond_0
 
     .line 1138
     iget-object v2, p0, Landroid/service/wallpaper/WallpaperService;->mActiveEngines:Ljava/util/ArrayList;
@@ -160,16 +160,16 @@
     .line 1137
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 1142
     .end local v0           #engine:Landroid/service/wallpaper/WallpaperService$Engine;
-    :cond_33
+    :cond_0
     return-void
 .end method
 
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .registers 3
+    .locals 1
     .parameter "intent"
 
     .prologue
@@ -182,7 +182,7 @@
 .end method
 
 .method public onCreate()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1092
@@ -196,7 +196,7 @@
 .end method
 
 .method public onDestroy()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1097
@@ -206,14 +206,14 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_4
+    :goto_0
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService;->mActiveEngines:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1a
+    if-ge v0, v1, :cond_0
 
     .line 1099
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService;->mActiveEngines:Ljava/util/ArrayList;
@@ -229,10 +229,10 @@
     .line 1098
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 1101
-    :cond_1a
+    :cond_0
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService;->mActiveEngines:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
@@ -242,7 +242,7 @@
 .end method
 
 .method public setCallbackLooper(Landroid/os/Looper;)V
-    .registers 2
+    .locals 0
     .parameter "looper"
 
     .prologue

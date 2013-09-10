@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/AuthenticatorDescription;Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
-    .registers 4
+    .locals 0
     .parameter "desc"
     .parameter "name"
     .parameter "drawable"

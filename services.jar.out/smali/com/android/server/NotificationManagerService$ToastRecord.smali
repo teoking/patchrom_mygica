@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/String;Landroid/app/ITransientNotification;I)V
-    .registers 5
+    .locals 0
     .parameter "pid"
     .parameter "pkg"
     .parameter "callback"
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "pw"
     .parameter "prefix"
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public final toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 391
@@ -154,7 +154,7 @@
 .end method
 
 .method update(I)V
-    .registers 2
+    .locals 0
     .parameter "duration"
 
     .prologue

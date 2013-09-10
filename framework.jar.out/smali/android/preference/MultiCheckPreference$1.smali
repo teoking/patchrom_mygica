@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/preference/MultiCheckPreference;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;IZ)V
-    .registers 5
+    .locals 1
     .parameter "dialog"
     .parameter "which"
     .parameter "isChecked"
@@ -47,6 +47,7 @@
     .line 245
     iget-object v0, p0, Landroid/preference/MultiCheckPreference$1;->this$0:Landroid/preference/MultiCheckPreference;
 
+    #getter for: Landroid/preference/MultiCheckPreference;->mSetValues:[Z
     invoke-static {v0}, Landroid/preference/MultiCheckPreference;->access$000(Landroid/preference/MultiCheckPreference;)[Z
 
     move-result-object v0

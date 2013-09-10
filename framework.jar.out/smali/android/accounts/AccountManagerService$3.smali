@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManagerService;Landroid/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;ZZLjava/lang/String;Ljava/lang/String;)V
-    .registers 9
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter "x1"
@@ -50,12 +50,12 @@
 
 # virtual methods
 .method public onResult(Landroid/os/Bundle;)V
-    .registers 5
+    .locals 3
     .parameter "result"
 
     .prologue
     .line 1019
-    if-eqz p1, :cond_16
+    if-eqz p1, :cond_0
 
     .line 1020
     const-string v2, "authTokenLabelKey"
@@ -82,18 +82,18 @@
     .line 1028
     .end local v0           #bundle:Landroid/os/Bundle;
     .end local v1           #label:Ljava/lang/String;
-    :goto_15
+    :goto_0
     return-void
 
     .line 1026
-    :cond_16
+    :cond_0
     invoke-super {p0, p1}, Landroid/accounts/AccountManagerService$Session;->onResult(Landroid/os/Bundle;)V
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public run()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -113,7 +113,7 @@
 .end method
 
 .method protected toDebugString(J)Ljava/lang/String;
-    .registers 5
+    .locals 2
     .parameter "now"
 
     .prologue

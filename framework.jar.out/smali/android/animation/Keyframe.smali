@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 36
@@ -49,7 +49,7 @@
 .end method
 
 .method public static ofFloat(F)Landroid/animation/Keyframe;
-    .registers 2
+    .locals 1
     .parameter "fraction"
 
     .prologue
@@ -62,7 +62,7 @@
 .end method
 
 .method public static ofFloat(FF)Landroid/animation/Keyframe;
-    .registers 3
+    .locals 1
     .parameter "fraction"
     .parameter "value"
 
@@ -76,7 +76,7 @@
 .end method
 
 .method public static ofInt(F)Landroid/animation/Keyframe;
-    .registers 2
+    .locals 1
     .parameter "fraction"
 
     .prologue
@@ -89,7 +89,7 @@
 .end method
 
 .method public static ofInt(FI)Landroid/animation/Keyframe;
-    .registers 3
+    .locals 1
     .parameter "fraction"
     .parameter "value"
 
@@ -103,7 +103,7 @@
 .end method
 
 .method public static ofObject(F)Landroid/animation/Keyframe;
-    .registers 3
+    .locals 2
     .parameter "fraction"
 
     .prologue
@@ -118,7 +118,7 @@
 .end method
 
 .method public static ofObject(FLjava/lang/Object;)Landroid/animation/Keyframe;
-    .registers 3
+    .locals 1
     .parameter "fraction"
     .parameter "value"
 
@@ -137,7 +137,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -154,7 +154,7 @@
 .end method
 
 .method public getFraction()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 189
@@ -164,7 +164,7 @@
 .end method
 
 .method public getInterpolator()Landroid/animation/TimeInterpolator;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 209
@@ -174,7 +174,7 @@
 .end method
 
 .method public getType()Ljava/lang/Class;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 230
@@ -187,7 +187,7 @@
 .end method
 
 .method public hasValue()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 165
@@ -197,7 +197,7 @@
 .end method
 
 .method public setFraction(F)V
-    .registers 2
+    .locals 0
     .parameter "fraction"
 
     .prologue
@@ -209,7 +209,7 @@
 .end method
 
 .method public setInterpolator(Landroid/animation/TimeInterpolator;)V
-    .registers 2
+    .locals 0
     .parameter "interpolator"
 
     .prologue

@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -60,18 +60,18 @@
 .end method
 
 .method private checkOutputDimensions(II)V
-    .registers 6
+    .locals 3
     .parameter "outputWidth"
     .parameter "outputHeight"
 
     .prologue
     .line 78
-    if-lez p1, :cond_4
+    if-lez p1, :cond_0
 
-    if-gtz p2, :cond_27
+    if-gtz p2, :cond_1
 
     .line 79
-    :cond_4
+    :cond_0
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -107,12 +107,12 @@
     throw v0
 
     .line 82
-    :cond_27
+    :cond_1
     return-void
 .end method
 
 .method private convertInputFormat(Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 8
+    .locals 6
     .parameter "inputFormat"
 
     .prologue
@@ -141,28 +141,28 @@
     .local v0, h:I
     iget v5, p0, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->mOWidth:I
 
-    if-nez v5, :cond_12
+    if-nez v5, :cond_0
 
     .line 90
     move v2, v3
 
     .line 92
-    :cond_12
+    :cond_0
     iget v5, p0, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->mOHeight:I
 
-    if-nez v5, :cond_17
+    if-nez v5, :cond_1
 
     .line 93
     move v1, v0
 
     .line 95
-    :cond_17
+    :cond_1
     iget-boolean v5, p0, Landroid/filterpacks/imageproc/ToPackedGrayFilter;->mKeepAspectRatio:Z
 
-    if-eqz v5, :cond_25
+    if-eqz v5, :cond_2
 
     .line 98
-    if-le v3, v0, :cond_31
+    if-le v3, v0, :cond_3
 
     .line 99
     invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
@@ -175,16 +175,16 @@
     div-int v1, v5, v3
 
     .line 106
-    :cond_25
-    :goto_25
-    if-lez v2, :cond_3a
+    :cond_2
+    :goto_0
+    if-lez v2, :cond_4
 
-    if-ge v2, v4, :cond_3a
+    if-ge v2, v4, :cond_4
 
     move v2, v4
 
     .line 107
-    :goto_2a
+    :goto_1
     const/4 v4, 0x1
 
     const/4 v5, 0x2
@@ -196,7 +196,7 @@
     return-object v4
 
     .line 102
-    :cond_31
+    :cond_3
     invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
 
     move-result v1
@@ -206,21 +206,21 @@
 
     div-int v2, v5, v0
 
-    goto :goto_25
+    goto :goto_0
 
     .line 106
-    :cond_3a
+    :cond_4
     div-int/lit8 v4, v2, 0x4
 
     mul-int/lit8 v2, v4, 0x4
 
-    goto :goto_2a
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 4
+    .locals 1
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -234,7 +234,7 @@
 .end method
 
 .method public prepare(Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -252,7 +252,7 @@
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 14
+    .locals 12
     .parameter "context"
 
     .prologue
@@ -363,7 +363,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x3

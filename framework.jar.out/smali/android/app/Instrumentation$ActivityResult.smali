@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(ILandroid/content/Intent;)V
-    .registers 3
+    .locals 0
     .parameter "resultCode"
     .parameter "resultData"
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public getResultCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1341
@@ -53,7 +53,7 @@
 .end method
 
 .method public getResultData()Landroid/content/Intent;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1348

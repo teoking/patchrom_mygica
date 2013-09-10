@@ -21,7 +21,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILandroid/content/res/CompatibilityInfo;Ljava/lang/CharSequence;III)V
-    .registers 8
+    .locals 0
     .parameter "_pkg"
     .parameter "_theme"
     .parameter "_compatInfo"

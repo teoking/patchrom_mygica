@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/SurfaceTexture;Z)V
-    .registers 5
+    .locals 2
     .parameter "surface"
     .parameter "isOpaque"
 
@@ -34,7 +34,7 @@
 .end method
 
 .method constructor <init>(Z)V
-    .registers 5
+    .locals 3
     .parameter "isOpaque"
 
     .prologue
@@ -57,7 +57,7 @@
     .line 37
     iget v1, p0, Landroid/view/GLES20Layer;->mLayer:I
 
-    if-eqz v1, :cond_1f
+    if-eqz v1, :cond_0
 
     .line 38
     const/4 v1, 0x0
@@ -76,22 +76,22 @@
     iput-object v1, p0, Landroid/view/GLES20Layer;->mFinalizer:Landroid/view/GLES20Layer$Finalizer;
 
     .line 43
-    :goto_1e
+    :goto_0
     return-void
 
     .line 41
-    :cond_1f
+    :cond_0
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/view/GLES20Layer;->mFinalizer:Landroid/view/GLES20Layer$Finalizer;
 
-    goto :goto_1e
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method end(Landroid/graphics/Canvas;)V
-    .registers 2
+    .locals 0
     .parameter "currentCanvas"
 
     .prologue
@@ -100,7 +100,7 @@
 .end method
 
 .method getCanvas()Landroid/view/HardwareCanvas;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 62
@@ -110,13 +110,13 @@
 .end method
 
 .method getSurfaceTexture()Landroid/graphics/SurfaceTexture;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 75
     iget-object v0, p0, Landroid/view/GLES20TextureLayer;->mSurface:Landroid/graphics/SurfaceTexture;
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 76
     new-instance v0, Landroid/graphics/SurfaceTexture;
@@ -130,38 +130,38 @@
     iput-object v0, p0, Landroid/view/GLES20TextureLayer;->mSurface:Landroid/graphics/SurfaceTexture;
 
     .line 78
-    :cond_e
+    :cond_0
     iget-object v0, p0, Landroid/view/GLES20TextureLayer;->mSurface:Landroid/graphics/SurfaceTexture;
 
     return-object v0
 .end method
 
 .method isValid()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 53
     iget v0, p0, Landroid/view/GLES20Layer;->mLayer:I
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     iget v0, p0, Landroid/view/GLES20TextureLayer;->mTexture:I
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method redraw(Landroid/view/DisplayList;Landroid/graphics/Rect;)V
-    .registers 3
+    .locals 0
     .parameter "displayList"
     .parameter "dirtyRect"
 
@@ -171,7 +171,7 @@
 .end method
 
 .method resize(II)V
-    .registers 3
+    .locals 0
     .parameter "width"
     .parameter "height"
 
@@ -181,14 +181,14 @@
 .end method
 
 .method setSurfaceTexture(Landroid/graphics/SurfaceTexture;)V
-    .registers 4
+    .locals 2
     .parameter "surfaceTexture"
 
     .prologue
     .line 82
     iget-object v0, p0, Landroid/view/GLES20TextureLayer;->mSurface:Landroid/graphics/SurfaceTexture;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 83
     iget-object v0, p0, Landroid/view/GLES20TextureLayer;->mSurface:Landroid/graphics/SurfaceTexture;
@@ -196,7 +196,7 @@
     invoke-virtual {v0}, Landroid/graphics/SurfaceTexture;->release()V
 
     .line 85
-    :cond_9
+    :cond_0
     iput-object p1, p0, Landroid/view/GLES20TextureLayer;->mSurface:Landroid/graphics/SurfaceTexture;
 
     .line 86
@@ -211,7 +211,7 @@
 .end method
 
 .method setTransform(Landroid/graphics/Matrix;)V
-    .registers 4
+    .locals 2
     .parameter "matrix"
 
     .prologue
@@ -227,7 +227,7 @@
 .end method
 
 .method start(Landroid/graphics/Canvas;)Landroid/view/HardwareCanvas;
-    .registers 3
+    .locals 1
     .parameter "currentCanvas"
 
     .prologue
@@ -238,7 +238,7 @@
 .end method
 
 .method update(IIZ)V
-    .registers 6
+    .locals 2
     .parameter "width"
     .parameter "height"
     .parameter "isOpaque"

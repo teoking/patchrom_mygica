@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 101
@@ -52,7 +52,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 107
@@ -63,7 +63,7 @@
 .end method
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 4
+    .locals 2
     .parameter "tag"
     .parameter "msg"
 
@@ -81,7 +81,7 @@
 .end method
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    .registers 7
+    .locals 4
     .parameter "tag"
     .parameter "msg"
     .parameter "tr"
@@ -126,7 +126,7 @@
 .end method
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 4
+    .locals 2
     .parameter "tag"
     .parameter "msg"
 
@@ -144,7 +144,7 @@
 .end method
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    .registers 7
+    .locals 4
     .parameter "tag"
     .parameter "msg"
     .parameter "tr"
@@ -189,49 +189,49 @@
 .end method
 
 .method public static getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
-    .registers 5
+    .locals 4
     .parameter "tr"
 
     .prologue
     .line 303
-    if-nez p0, :cond_5
+    if-nez p0, :cond_0
 
     .line 304
     const-string v3, ""
 
     .line 320
-    :goto_4
+    :goto_0
     return-object v3
 
     .line 309
-    :cond_5
+    :cond_0
     move-object v2, p0
 
     .line 310
     .local v2, t:Ljava/lang/Throwable;
-    :goto_6
-    if-eqz v2, :cond_14
+    :goto_1
+    if-eqz v2, :cond_2
 
     .line 311
     instance-of v3, v2, Ljava/net/UnknownHostException;
 
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_1
 
     .line 312
     const-string v3, ""
 
-    goto :goto_4
+    goto :goto_0
 
     .line 314
-    :cond_f
+    :cond_1
     invoke-virtual {v2}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
 
     move-result-object v2
 
-    goto :goto_6
+    goto :goto_1
 
     .line 317
-    :cond_14
+    :cond_2
     new-instance v1, Ljava/io/StringWriter;
 
     invoke-direct {v1}, Ljava/io/StringWriter;-><init>()V
@@ -251,11 +251,11 @@
 
     move-result-object v3
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 4
+    .locals 2
     .parameter "tag"
     .parameter "msg"
 
@@ -273,7 +273,7 @@
 .end method
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    .registers 7
+    .locals 4
     .parameter "tag"
     .parameter "msg"
     .parameter "tr"
@@ -321,7 +321,7 @@
 .end method
 
 .method public static println(ILjava/lang/String;Ljava/lang/String;)I
-    .registers 4
+    .locals 1
     .parameter "priority"
     .parameter "tag"
     .parameter "msg"
@@ -341,12 +341,12 @@
 .end method
 
 .method public static setWtfHandler(Landroid/util/Log$TerribleFailureHandler;)Landroid/util/Log$TerribleFailureHandler;
-    .registers 4
+    .locals 3
     .parameter "handler"
 
     .prologue
     .line 290
-    if-nez p0, :cond_a
+    if-nez p0, :cond_0
 
     .line 291
     new-instance v1, Ljava/lang/NullPointerException;
@@ -358,7 +358,7 @@
     throw v1
 
     .line 293
-    :cond_a
+    :cond_0
     sget-object v0, Landroid/util/Log;->sWtfHandler:Landroid/util/Log$TerribleFailureHandler;
 
     .line 294
@@ -370,7 +370,7 @@
 .end method
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 4
+    .locals 2
     .parameter "tag"
     .parameter "msg"
 
@@ -388,7 +388,7 @@
 .end method
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    .registers 7
+    .locals 4
     .parameter "tag"
     .parameter "msg"
     .parameter "tr"
@@ -433,7 +433,7 @@
 .end method
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 4
+    .locals 2
     .parameter "tag"
     .parameter "msg"
 
@@ -451,7 +451,7 @@
 .end method
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    .registers 7
+    .locals 4
     .parameter "tag"
     .parameter "msg"
     .parameter "tr"
@@ -496,7 +496,7 @@
 .end method
 
 .method public static w(Ljava/lang/String;Ljava/lang/Throwable;)I
-    .registers 5
+    .locals 3
     .parameter "tag"
     .parameter "tr"
 
@@ -518,7 +518,7 @@
 .end method
 
 .method public static wtf(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 3
+    .locals 1
     .parameter "tag"
     .parameter "msg"
 
@@ -534,7 +534,7 @@
 .end method
 
 .method public static wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    .registers 9
+    .locals 6
     .parameter "tag"
     .parameter "msg"
     .parameter "tr"
@@ -592,7 +592,7 @@
 .end method
 
 .method public static wtf(Ljava/lang/String;Ljava/lang/Throwable;)I
-    .registers 3
+    .locals 1
     .parameter "tag"
     .parameter "tr"
 

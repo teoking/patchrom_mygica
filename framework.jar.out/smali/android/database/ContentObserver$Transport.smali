@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/database/ContentObserver;)V
-    .registers 2
+    .locals 0
     .parameter "contentObserver"
 
     .prologue
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
-    .registers 4
+    .locals 1
     .parameter "selfChange"
     .parameter "uri"
 
@@ -47,18 +47,18 @@
 
     .line 194
     .local v0, contentObserver:Landroid/database/ContentObserver;
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 195
     invoke-virtual {v0, p1, p2}, Landroid/database/ContentObserver;->dispatchChange(ZLandroid/net/Uri;)V
 
     .line 197
-    :cond_7
+    :cond_0
     return-void
 .end method
 
 .method public releaseContentObserver()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 200

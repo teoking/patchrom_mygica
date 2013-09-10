@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/accounts/Account;I)V
-    .registers 3
+    .locals 0
     .parameter "account"
     .parameter "userId"
 
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "o"
 
     .prologue
@@ -41,24 +41,24 @@
     const/4 v2, 0x0
 
     .line 34
-    if-ne p0, p1, :cond_5
+    if-ne p0, p1, :cond_1
 
     .line 37
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 35
-    :cond_5
+    :cond_1
     instance-of v3, p1, Landroid/accounts/AccountAndUser;
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_2
 
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_b
+    :cond_2
     move-object v0, p1
 
     .line 36
@@ -74,22 +74,22 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1e
+    if-eqz v3, :cond_3
 
     iget v3, p0, Landroid/accounts/AccountAndUser;->userId:I
 
     iget v4, v0, Landroid/accounts/AccountAndUser;->userId:I
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_0
 
-    :cond_1e
+    :cond_3
     move v1, v2
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 43
@@ -107,7 +107,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 47

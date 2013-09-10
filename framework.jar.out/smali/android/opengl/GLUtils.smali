@@ -5,7 +5,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 37
@@ -16,7 +16,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 40
@@ -27,7 +27,7 @@
 .end method
 
 .method public static enableTracing()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 277
@@ -38,12 +38,12 @@
 .end method
 
 .method public static getEGLErrorString(I)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "error"
 
     .prologue
     .line 236
-    packed-switch p0, :pswitch_data_48
+    packed-switch p0, :pswitch_data_0
 
     .line 268
     new-instance v0, Ljava/lang/StringBuilder;
@@ -68,127 +68,127 @@
 
     move-result-object v0
 
-    :goto_1a
+    :goto_0
     return-object v0
 
     .line 238
-    :pswitch_1b
+    :pswitch_0
     const-string v0, "EGL_SUCCESS"
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 240
-    :pswitch_1e
+    :pswitch_1
     const-string v0, "EGL_NOT_INITIALIZED"
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 242
-    :pswitch_21
+    :pswitch_2
     const-string v0, "EGL_BAD_ACCESS"
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 244
-    :pswitch_24
+    :pswitch_3
     const-string v0, "EGL_BAD_ALLOC"
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 246
-    :pswitch_27
+    :pswitch_4
     const-string v0, "EGL_BAD_ATTRIBUTE"
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 248
-    :pswitch_2a
+    :pswitch_5
     const-string v0, "EGL_BAD_CONFIG"
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 250
-    :pswitch_2d
+    :pswitch_6
     const-string v0, "EGL_BAD_CONTEXT"
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 252
-    :pswitch_30
+    :pswitch_7
     const-string v0, "EGL_BAD_CURRENT_SURFACE"
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 254
-    :pswitch_33
+    :pswitch_8
     const-string v0, "EGL_BAD_DISPLAY"
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 256
-    :pswitch_36
+    :pswitch_9
     const-string v0, "EGL_BAD_MATCH"
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 258
-    :pswitch_39
+    :pswitch_a
     const-string v0, "EGL_BAD_NATIVE_PIXMAP"
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 260
-    :pswitch_3c
+    :pswitch_b
     const-string v0, "EGL_BAD_NATIVE_WINDOW"
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 262
-    :pswitch_3f
+    :pswitch_c
     const-string v0, "EGL_BAD_PARAMETER"
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 264
-    :pswitch_42
+    :pswitch_d
     const-string v0, "EGL_BAD_SURFACE"
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 266
-    :pswitch_45
+    :pswitch_e
     const-string v0, "EGL_CONTEXT_LOST"
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 236
-    :pswitch_data_48
+    :pswitch_data_0
     .packed-switch 0x3000
-        :pswitch_1b
-        :pswitch_1e
-        :pswitch_21
-        :pswitch_24
-        :pswitch_27
-        :pswitch_2a
-        :pswitch_2d
-        :pswitch_30
-        :pswitch_33
-        :pswitch_36
-        :pswitch_39
-        :pswitch_3c
-        :pswitch_3f
-        :pswitch_42
-        :pswitch_45
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
+        :pswitch_a
+        :pswitch_b
+        :pswitch_c
+        :pswitch_d
+        :pswitch_e
     .end packed-switch
 .end method
 
 .method public static getInternalFormat(Landroid/graphics/Bitmap;)I
-    .registers 4
+    .locals 3
     .parameter "bitmap"
 
     .prologue
     .line 49
-    if-nez p0, :cond_a
+    if-nez p0, :cond_0
 
     .line 50
     new-instance v1, Ljava/lang/NullPointerException;
@@ -200,12 +200,12 @@
     throw v1
 
     .line 52
-    :cond_a
+    :cond_0
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->isRecycled()Z
 
     move-result v1
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_1
 
     .line 53
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -217,14 +217,14 @@
     throw v1
 
     .line 55
-    :cond_18
+    :cond_1
     invoke-static {p0}, Landroid/opengl/GLUtils;->native_getInternalFormat(Landroid/graphics/Bitmap;)I
 
     move-result v0
 
     .line 56
     .local v0, result:I
-    if-gez v0, :cond_26
+    if-gez v0, :cond_2
 
     .line 57
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -236,17 +236,17 @@
     throw v1
 
     .line 59
-    :cond_26
+    :cond_2
     return v0
 .end method
 
 .method public static getType(Landroid/graphics/Bitmap;)I
-    .registers 4
+    .locals 3
     .parameter "bitmap"
 
     .prologue
     .line 71
-    if-nez p0, :cond_a
+    if-nez p0, :cond_0
 
     .line 72
     new-instance v1, Ljava/lang/NullPointerException;
@@ -258,12 +258,12 @@
     throw v1
 
     .line 74
-    :cond_a
+    :cond_0
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->isRecycled()Z
 
     move-result v1
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_1
 
     .line 75
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -275,14 +275,14 @@
     throw v1
 
     .line 77
-    :cond_18
+    :cond_1
     invoke-static {p0}, Landroid/opengl/GLUtils;->native_getType(Landroid/graphics/Bitmap;)I
 
     move-result v0
 
     .line 78
     .local v0, result:I
-    if-gez v0, :cond_26
+    if-gez v0, :cond_2
 
     .line 79
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -294,7 +294,7 @@
     throw v1
 
     .line 81
-    :cond_26
+    :cond_2
     return v0
 .end method
 
@@ -317,7 +317,7 @@
 .end method
 
 .method public static texImage2D(IIILandroid/graphics/Bitmap;I)V
-    .registers 11
+    .locals 6
     .parameter "target"
     .parameter "level"
     .parameter "internalformat"
@@ -326,7 +326,7 @@
 
     .prologue
     .line 108
-    if-nez p3, :cond_b
+    if-nez p3, :cond_0
 
     .line 109
     new-instance v0, Ljava/lang/NullPointerException;
@@ -338,12 +338,12 @@
     throw v0
 
     .line 111
-    :cond_b
+    :cond_0
     invoke-virtual {p3}, Landroid/graphics/Bitmap;->isRecycled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_1
 
     .line 112
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -355,7 +355,7 @@
     throw v0
 
     .line 114
-    :cond_19
+    :cond_1
     const/4 v4, -0x1
 
     move v0, p0
@@ -372,7 +372,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2d
+    if-eqz v0, :cond_2
 
     .line 115
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -384,12 +384,12 @@
     throw v0
 
     .line 117
-    :cond_2d
+    :cond_2
     return-void
 .end method
 
 .method public static texImage2D(IIILandroid/graphics/Bitmap;II)V
-    .registers 8
+    .locals 2
     .parameter "target"
     .parameter "level"
     .parameter "internalformat"
@@ -399,7 +399,7 @@
 
     .prologue
     .line 134
-    if-nez p3, :cond_b
+    if-nez p3, :cond_0
 
     .line 135
     new-instance v0, Ljava/lang/NullPointerException;
@@ -411,12 +411,12 @@
     throw v0
 
     .line 137
-    :cond_b
+    :cond_0
     invoke-virtual {p3}, Landroid/graphics/Bitmap;->isRecycled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_1
 
     .line 138
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -428,12 +428,12 @@
     throw v0
 
     .line 140
-    :cond_19
+    :cond_1
     invoke-static/range {p0 .. p5}, Landroid/opengl/GLUtils;->native_texImage2D(IIILandroid/graphics/Bitmap;II)I
 
     move-result v0
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_2
 
     .line 141
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -445,12 +445,12 @@
     throw v0
 
     .line 143
-    :cond_27
+    :cond_2
     return-void
 .end method
 
 .method public static texImage2D(IILandroid/graphics/Bitmap;I)V
-    .registers 10
+    .locals 6
     .parameter "target"
     .parameter "level"
     .parameter "bitmap"
@@ -460,7 +460,7 @@
     const/4 v2, -0x1
 
     .line 156
-    if-nez p2, :cond_c
+    if-nez p2, :cond_0
 
     .line 157
     new-instance v0, Ljava/lang/NullPointerException;
@@ -472,12 +472,12 @@
     throw v0
 
     .line 159
-    :cond_c
+    :cond_0
     invoke-virtual {p2}, Landroid/graphics/Bitmap;->isRecycled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_1
 
     .line 160
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -488,7 +488,7 @@
 
     throw v0
 
-    :cond_1a
+    :cond_1
     move v0, p0
 
     move v1, p1
@@ -504,7 +504,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2d
+    if-eqz v0, :cond_2
 
     .line 163
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -516,12 +516,12 @@
     throw v0
 
     .line 165
-    :cond_2d
+    :cond_2
     return-void
 .end method
 
 .method public static texSubImage2D(IIIILandroid/graphics/Bitmap;)V
-    .registers 12
+    .locals 7
     .parameter "target"
     .parameter "level"
     .parameter "xoffset"
@@ -530,7 +530,7 @@
 
     .prologue
     .line 191
-    if-nez p4, :cond_b
+    if-nez p4, :cond_0
 
     .line 192
     new-instance v0, Ljava/lang/NullPointerException;
@@ -542,12 +542,12 @@
     throw v0
 
     .line 194
-    :cond_b
+    :cond_0
     invoke-virtual {p4}, Landroid/graphics/Bitmap;->isRecycled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_1
 
     .line 195
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -559,7 +559,7 @@
     throw v0
 
     .line 197
-    :cond_19
+    :cond_1
     invoke-static {p4}, Landroid/opengl/GLUtils;->getType(Landroid/graphics/Bitmap;)I
 
     move-result v6
@@ -582,7 +582,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_31
+    if-eqz v0, :cond_2
 
     .line 199
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -594,12 +594,12 @@
     throw v0
 
     .line 201
-    :cond_31
+    :cond_2
     return-void
 .end method
 
 .method public static texSubImage2D(IIIILandroid/graphics/Bitmap;II)V
-    .registers 9
+    .locals 2
     .parameter "target"
     .parameter "level"
     .parameter "xoffset"
@@ -610,7 +610,7 @@
 
     .prologue
     .line 216
-    if-nez p4, :cond_b
+    if-nez p4, :cond_0
 
     .line 217
     new-instance v0, Ljava/lang/NullPointerException;
@@ -622,12 +622,12 @@
     throw v0
 
     .line 219
-    :cond_b
+    :cond_0
     invoke-virtual {p4}, Landroid/graphics/Bitmap;->isRecycled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_1
 
     .line 220
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -639,12 +639,12 @@
     throw v0
 
     .line 222
-    :cond_19
+    :cond_1
     invoke-static/range {p0 .. p6}, Landroid/opengl/GLUtils;->native_texSubImage2D(IIIILandroid/graphics/Bitmap;II)I
 
     move-result v0
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_2
 
     .line 223
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -656,6 +656,6 @@
     throw v0
 
     .line 225
-    :cond_27
+    :cond_2
     return-void
 .end method

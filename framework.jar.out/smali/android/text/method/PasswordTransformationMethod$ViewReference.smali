@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;)V
-    .registers 2
+    .locals 0
     .parameter "v"
 
     .prologue

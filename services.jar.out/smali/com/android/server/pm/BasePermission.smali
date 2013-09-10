@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;I)V
-    .registers 5
+    .locals 1
     .parameter "_name"
     .parameter "_sourcePackage"
     .parameter "_type"
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 56

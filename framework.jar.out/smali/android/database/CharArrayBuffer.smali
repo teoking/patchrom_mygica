@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>([C)V
-    .registers 2
+    .locals 0
     .parameter "buf"
 
     .prologue

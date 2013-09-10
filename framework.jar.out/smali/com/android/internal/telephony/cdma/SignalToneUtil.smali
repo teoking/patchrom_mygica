@@ -105,7 +105,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 8
+    .locals 8
 
     .prologue
     const/4 v7, 0x3
@@ -1051,7 +1051,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 292
@@ -1062,7 +1062,7 @@
 .end method
 
 .method public static getAudioToneFromSignalInfo(III)I
-    .registers 6
+    .locals 3
     .parameter "signalType"
     .parameter "alertPitch"
     .parameter "signal"
@@ -1083,25 +1083,25 @@
 
     .line 103
     .local v0, result:Ljava/lang/Integer;
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 104
     const/4 v1, -0x1
 
     .line 106
-    :goto_f
+    :goto_0
     return v1
 
-    :cond_10
+    :cond_0
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method private static signalParamHash(III)Ljava/lang/Integer;
-    .registers 6
+    .locals 3
     .parameter "signalType"
     .parameter "alertPitch"
     .parameter "signal"
@@ -1110,20 +1110,20 @@
     const/16 v0, 0x100
 
     .line 85
-    if-ltz p0, :cond_e
+    if-ltz p0, :cond_0
 
-    if-gt p0, v0, :cond_e
+    if-gt p0, v0, :cond_0
 
-    if-gt p1, v0, :cond_e
+    if-gt p1, v0, :cond_0
 
-    if-ltz p1, :cond_e
+    if-ltz p1, :cond_0
 
-    if-gt p2, v0, :cond_e
+    if-gt p2, v0, :cond_0
 
-    if-gez p2, :cond_15
+    if-gez p2, :cond_1
 
     .line 87
-    :cond_e
+    :cond_0
     new-instance v0, Ljava/lang/Integer;
 
     const/4 v1, -0x1
@@ -1131,20 +1131,20 @@
     invoke-direct {v0, v1}, Ljava/lang/Integer;-><init>(I)V
 
     .line 98
-    :goto_14
+    :goto_0
     return-object v0
 
     .line 95
-    :cond_15
+    :cond_1
     const/4 v0, 0x2
 
-    if-eq p0, v0, :cond_19
+    if-eq p0, v0, :cond_2
 
     .line 96
     const/4 p1, 0x0
 
     .line 98
-    :cond_19
+    :cond_2
     new-instance v0, Ljava/lang/Integer;
 
     mul-int/lit16 v1, p0, 0x100
@@ -1159,5 +1159,5 @@
 
     invoke-direct {v0, v1}, Ljava/lang/Integer;-><init>(I)V
 
-    goto :goto_14
+    goto :goto_0
 .end method

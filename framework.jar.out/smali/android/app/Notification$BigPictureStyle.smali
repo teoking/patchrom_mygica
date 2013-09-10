@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1714
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(Landroid/app/Notification$Builder;)V
-    .registers 3
+    .locals 1
     .parameter "builder"
 
     .prologue
@@ -60,7 +60,7 @@
 .end method
 
 .method private makeBigContentView()Landroid/widget/RemoteViews;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1756
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public bigLargeIcon(Landroid/graphics/Bitmap;)Landroid/app/Notification$BigPictureStyle;
-    .registers 3
+    .locals 1
     .parameter "b"
 
     .prologue
@@ -102,7 +102,7 @@
 .end method
 
 .method public bigPicture(Landroid/graphics/Bitmap;)Landroid/app/Notification$BigPictureStyle;
-    .registers 2
+    .locals 0
     .parameter "b"
 
     .prologue
@@ -114,7 +114,7 @@
 .end method
 
 .method public build()Landroid/app/Notification;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1765
@@ -123,6 +123,7 @@
     .line 1766
     iget-object v1, p0, Landroid/app/Notification$Style;->mBuilder:Landroid/app/Notification$Builder;
 
+    #calls: Landroid/app/Notification$Builder;->buildUnstyled()Landroid/app/Notification;
     invoke-static {v1}, Landroid/app/Notification$Builder;->access$500(Landroid/app/Notification$Builder;)Landroid/app/Notification;
 
     move-result-object v0
@@ -131,17 +132,18 @@
     .local v0, wip:Landroid/app/Notification;
     iget-boolean v1, p0, Landroid/app/Notification$BigPictureStyle;->mBigLargeIconSet:Z
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_0
 
     .line 1768
     iget-object v1, p0, Landroid/app/Notification$Style;->mBuilder:Landroid/app/Notification$Builder;
 
     iget-object v2, p0, Landroid/app/Notification$BigPictureStyle;->mBigLargeIcon:Landroid/graphics/Bitmap;
 
+    #setter for: Landroid/app/Notification$Builder;->mLargeIcon:Landroid/graphics/Bitmap;
     invoke-static {v1, v2}, Landroid/app/Notification$Builder;->access$602(Landroid/app/Notification$Builder;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
     .line 1770
-    :cond_14
+    :cond_0
     invoke-direct {p0}, Landroid/app/Notification$BigPictureStyle;->makeBigContentView()Landroid/widget/RemoteViews;
 
     move-result-object v1
@@ -153,7 +155,7 @@
 .end method
 
 .method public setBigContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$BigPictureStyle;
-    .registers 2
+    .locals 0
     .parameter "title"
 
     .prologue
@@ -165,7 +167,7 @@
 .end method
 
 .method public setSummaryText(Ljava/lang/CharSequence;)Landroid/app/Notification$BigPictureStyle;
-    .registers 2
+    .locals 0
     .parameter "cs"
 
     .prologue

@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 54
@@ -63,7 +63,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -92,7 +92,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 10
+    .locals 6
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyleAttr"
@@ -178,7 +178,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/app/MediaRouteButton;Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Lcom/android/internal/app/MediaRouteChooserDialogFragment;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -190,7 +190,7 @@
 .end method
 
 .method private getActivity()Landroid/app/Activity;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 346
@@ -200,14 +200,14 @@
 
     .line 347
     .local v0, context:Landroid/content/Context;
-    :goto_4
+    :goto_0
     instance-of v1, v0, Landroid/content/ContextWrapper;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     instance-of v1, v0, Landroid/app/Activity;
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_0
 
     .line 348
     check-cast v0, Landroid/content/ContextWrapper;
@@ -218,13 +218,13 @@
     move-result-object v0
 
     .restart local v0       #context:Landroid/content/Context;
-    goto :goto_4
+    goto :goto_0
 
     .line 350
-    :cond_13
+    :cond_0
     instance-of v1, v0, Landroid/app/Activity;
 
-    if-nez v1, :cond_1f
+    if-nez v1, :cond_1
 
     .line 351
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -236,7 +236,7 @@
     throw v1
 
     .line 354
-    :cond_1f
+    :cond_1
     check-cast v0, Landroid/app/Activity;
 
     .end local v0           #context:Landroid/content/Context;
@@ -244,7 +244,7 @@
 .end method
 
 .method private setRemoteIndicatorDrawable(Landroid/graphics/drawable/Drawable;)V
-    .registers 5
+    .locals 3
     .parameter "d"
 
     .prologue
@@ -253,7 +253,7 @@
     .line 90
     iget-object v0, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 91
     iget-object v0, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
@@ -268,11 +268,11 @@
     invoke-virtual {p0, v0}, Landroid/app/MediaRouteButton;->unscheduleDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 94
-    :cond_10
+    :cond_0
     iput-object p1, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
     .line 95
-    if-eqz p1, :cond_28
+    if-eqz p1, :cond_1
 
     .line 96
     invoke-virtual {p1, p0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
@@ -289,29 +289,29 @@
 
     move-result v0
 
-    if-nez v0, :cond_2c
+    if-nez v0, :cond_2
 
     const/4 v0, 0x1
 
-    :goto_25
+    :goto_0
     invoke-virtual {p1, v0, v1}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
 
     .line 101
-    :cond_28
+    :cond_1
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->refreshDrawableState()V
 
     .line 102
     return-void
 
-    :cond_2c
+    :cond_2
     move v0, v1
 
     .line 98
-    goto :goto_25
+    goto :goto_0
 .end method
 
 .method private updateRouteInfo()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 151
@@ -327,7 +327,7 @@
 
 # virtual methods
 .method protected drawableStateChanged()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 199
@@ -336,7 +336,7 @@
     .line 201
     iget-object v1, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_0
 
     .line 202
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->getDrawableState()[I
@@ -354,12 +354,12 @@
 
     .line 206
     .end local v0           #myDrawableState:[I
-    :cond_13
+    :cond_0
     return-void
 .end method
 
 .method public getRouteTypes()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 156
@@ -369,7 +369,7 @@
 .end method
 
 .method public jumpDrawablesToCurrentState()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 215
@@ -378,19 +378,19 @@
     .line 216
     iget-object v0, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->jumpToCurrentState()V
 
     .line 217
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public onAttachedToWindow()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 229
@@ -404,7 +404,7 @@
     .line 231
     iget v0, p0, Landroid/app/MediaRouteButton;->mRouteTypes:I
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 232
     iget-object v0, p0, Landroid/app/MediaRouteButton;->mRouter:Landroid/media/MediaRouter;
@@ -419,12 +419,12 @@
     invoke-direct {p0}, Landroid/app/MediaRouteButton;->updateRouteInfo()V
 
     .line 235
-    :cond_16
+    :cond_0
     return-void
 .end method
 
 .method protected onCreateDrawableState(I)[I
-    .registers 4
+    .locals 2
     .parameter "extraSpace"
 
     .prologue
@@ -439,7 +439,7 @@
     .local v0, drawableState:[I
     iget-boolean v1, p0, Landroid/app/MediaRouteButton;->mRemoteActive:Z
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_0
 
     .line 192
     sget-object v1, Landroid/app/MediaRouteButton;->ACTIVATED_STATE_SET:[I
@@ -447,18 +447,18 @@
     invoke-static {v0, v1}, Landroid/app/MediaRouteButton;->mergeDrawableStates([I[I)[I
 
     .line 194
-    :cond_f
+    :cond_0
     return-object v0
 .end method
 
 .method public onDetachedFromWindow()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 239
     iget v0, p0, Landroid/app/MediaRouteButton;->mRouteTypes:I
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 240
     iget-object v0, p0, Landroid/app/MediaRouteButton;->mRouter:Landroid/media/MediaRouter;
@@ -468,7 +468,7 @@
     invoke-virtual {v0, v1}, Landroid/media/MediaRouter;->removeCallback(Landroid/media/MediaRouter$Callback;)V
 
     .line 242
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/app/MediaRouteButton;->mAttachedToWindow:Z
@@ -481,7 +481,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .registers 13
+    .locals 11
     .parameter "canvas"
 
     .prologue
@@ -491,14 +491,14 @@
     .line 293
     iget-object v8, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
-    if-nez v8, :cond_8
+    if-nez v8, :cond_0
 
     .line 307
-    :goto_7
+    :goto_0
     return-void
 
     .line 295
-    :cond_8
+    :cond_0
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->getPaddingLeft()I
 
     move-result v5
@@ -584,11 +584,11 @@
 
     invoke-virtual {v8, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method protected onMeasure(II)V
-    .registers 14
+    .locals 11
     .parameter "widthMeasureSpec"
     .parameter "heightMeasureSpec"
 
@@ -624,7 +624,7 @@
 
     iget-object v8, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v8, :cond_51
+    if-eqz v8, :cond_1
 
     iget-object v8, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
@@ -632,7 +632,7 @@
 
     move-result v8
 
-    :goto_1d
+    :goto_0
     invoke-static {v10, v8}, Ljava/lang/Math;->max(II)I
 
     move-result v4
@@ -643,7 +643,7 @@
 
     iget-object v10, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v10, :cond_2d
+    if-eqz v10, :cond_0
 
     iget-object v9, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
@@ -651,14 +651,14 @@
 
     move-result v9
 
-    :cond_2d
+    :cond_0
     invoke-static {v8, v9}, Ljava/lang/Math;->max(II)I
 
     move-result v3
 
     .line 259
     .local v3, minHeight:I
-    sparse-switch v6, :sswitch_data_76
+    sparse-switch v6, :sswitch_data_0
 
     .line 268
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->getPaddingLeft()I
@@ -675,8 +675,8 @@
 
     .line 273
     .local v5, width:I
-    :goto_3f
-    sparse-switch v1, :sswitch_data_80
+    :goto_1
+    sparse-switch v1, :sswitch_data_1
 
     .line 282
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->getPaddingTop()I
@@ -693,7 +693,7 @@
 
     .line 286
     .local v0, height:I
-    :goto_4d
+    :goto_2
     invoke-virtual {p0, v5, v0}, Landroid/app/MediaRouteButton;->setMeasuredDimension(II)V
 
     .line 287
@@ -703,25 +703,25 @@
     .end local v3           #minHeight:I
     .end local v4           #minWidth:I
     .end local v5           #width:I
-    :cond_51
+    :cond_1
     move v8, v9
 
     .line 253
-    goto :goto_1d
+    goto :goto_0
 
     .line 261
     .restart local v3       #minHeight:I
     .restart local v4       #minWidth:I
-    :sswitch_53
+    :sswitch_0
     move v5, v7
 
     .line 262
     .restart local v5       #width:I
-    goto :goto_3f
+    goto :goto_1
 
     .line 264
     .end local v5           #width:I
-    :sswitch_55
+    :sswitch_1
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->getPaddingLeft()I
 
     move-result v8
@@ -740,19 +740,19 @@
 
     .line 265
     .restart local v5       #width:I
-    goto :goto_3f
+    goto :goto_1
 
     .line 275
-    :sswitch_64
+    :sswitch_2
     move v0, v2
 
     .line 276
     .restart local v0       #height:I
-    goto :goto_4d
+    goto :goto_2
 
     .line 278
     .end local v0           #height:I
-    :sswitch_66
+    :sswitch_3
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->getPaddingTop()I
 
     move-result v8
@@ -771,27 +771,27 @@
 
     .line 279
     .restart local v0       #height:I
-    goto :goto_4d
+    goto :goto_2
 
     .line 259
     nop
 
-    :sswitch_data_76
+    :sswitch_data_0
     .sparse-switch
-        -0x80000000 -> :sswitch_55
-        0x40000000 -> :sswitch_53
+        -0x80000000 -> :sswitch_1
+        0x40000000 -> :sswitch_0
     .end sparse-switch
 
     .line 273
-    :sswitch_data_80
+    :sswitch_data_1
     .sparse-switch
-        -0x80000000 -> :sswitch_66
-        0x40000000 -> :sswitch_64
+        -0x80000000 -> :sswitch_3
+        0x40000000 -> :sswitch_2
     .end sparse-switch
 .end method
 
 .method public performClick()Z
-    .registers 8
+    .locals 7
 
     .prologue
     .line 107
@@ -801,7 +801,7 @@
 
     .line 108
     .local v1, handled:Z
-    if-nez v1, :cond_a
+    if-nez v1, :cond_0
 
     .line 109
     const/4 v4, 0x0
@@ -809,15 +809,15 @@
     invoke-virtual {p0, v4}, Landroid/app/MediaRouteButton;->playSoundEffect(I)V
 
     .line 112
-    :cond_a
+    :cond_0
     iget-boolean v4, p0, Landroid/app/MediaRouteButton;->mToggleMode:Z
 
-    if-eqz v4, :cond_4a
+    if-eqz v4, :cond_4
 
     .line 113
     iget-boolean v4, p0, Landroid/app/MediaRouteButton;->mRemoteActive:Z
 
-    if-eqz v4, :cond_20
+    if-eqz v4, :cond_2
 
     .line 114
     iget-object v4, p0, Landroid/app/MediaRouteButton;->mRouter:Landroid/media/MediaRouter;
@@ -833,12 +833,12 @@
     invoke-virtual {v4, v5, v6}, Landroid/media/MediaRouter;->selectRouteInt(ILandroid/media/MediaRouter$RouteInfo;)V
 
     .line 129
-    :cond_1f
-    :goto_1f
+    :cond_1
+    :goto_0
     return v1
 
     .line 116
-    :cond_20
+    :cond_2
     iget-object v4, p0, Landroid/app/MediaRouteButton;->mRouter:Landroid/media/MediaRouter;
 
     invoke-virtual {v4}, Landroid/media/MediaRouter;->getRouteCount()I
@@ -850,8 +850,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_27
-    if-ge v2, v0, :cond_1f
+    :goto_1
+    if-ge v2, v0, :cond_1
 
     .line 118
     iget-object v4, p0, Landroid/app/MediaRouteButton;->mRouter:Landroid/media/MediaRouter;
@@ -870,7 +870,7 @@
 
     and-int/2addr v4, v5
 
-    if-eqz v4, :cond_47
+    if-eqz v4, :cond_3
 
     iget-object v4, p0, Landroid/app/MediaRouteButton;->mRouter:Landroid/media/MediaRouter;
 
@@ -878,7 +878,7 @@
 
     move-result-object v4
 
-    if-eq v3, v4, :cond_47
+    if-eq v3, v4, :cond_3
 
     .line 121
     iget-object v4, p0, Landroid/app/MediaRouteButton;->mRouter:Landroid/media/MediaRouter;
@@ -888,23 +888,23 @@
     invoke-virtual {v4, v5, v3}, Landroid/media/MediaRouter;->selectRouteInt(ILandroid/media/MediaRouter$RouteInfo;)V
 
     .line 117
-    :cond_47
+    :cond_3
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_27
+    goto :goto_1
 
     .line 126
     .end local v0           #N:I
     .end local v2           #i:I
     .end local v3           #route:Landroid/media/MediaRouter$RouteInfo;
-    :cond_4a
+    :cond_4
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->showDialog()V
 
-    goto :goto_1f
+    goto :goto_0
 .end method
 
 .method public setExtendedSettingsClickListener(Landroid/view/View$OnClickListener;)V
-    .registers 3
+    .locals 1
     .parameter "listener"
 
     .prologue
@@ -914,7 +914,7 @@
     .line 311
     iget-object v0, p0, Landroid/app/MediaRouteButton;->mDialogFragment:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 312
     iget-object v0, p0, Landroid/app/MediaRouteButton;->mDialogFragment:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
@@ -922,34 +922,34 @@
     invoke-virtual {v0, p1}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->setExtendedSettingsClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 314
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method public setRouteTypes(I)V
-    .registers 4
+    .locals 2
     .parameter "types"
 
     .prologue
     .line 133
     iget v0, p0, Landroid/app/MediaRouteButton;->mRouteTypes:I
 
-    if-ne p1, v0, :cond_5
+    if-ne p1, v0, :cond_1
 
     .line 148
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-void
 
     .line 138
-    :cond_5
+    :cond_1
     iget-boolean v0, p0, Landroid/app/MediaRouteButton;->mAttachedToWindow:Z
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_2
 
     iget v0, p0, Landroid/app/MediaRouteButton;->mRouteTypes:I
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_2
 
     .line 139
     iget-object v0, p0, Landroid/app/MediaRouteButton;->mRouter:Landroid/media/MediaRouter;
@@ -959,13 +959,13 @@
     invoke-virtual {v0, v1}, Landroid/media/MediaRouter;->removeCallback(Landroid/media/MediaRouter$Callback;)V
 
     .line 142
-    :cond_14
+    :cond_2
     iput p1, p0, Landroid/app/MediaRouteButton;->mRouteTypes:I
 
     .line 144
     iget-boolean v0, p0, Landroid/app/MediaRouteButton;->mAttachedToWindow:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_0
 
     .line 145
     invoke-direct {p0}, Landroid/app/MediaRouteButton;->updateRouteInfo()V
@@ -977,11 +977,11 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/media/MediaRouter;->addCallback(ILandroid/media/MediaRouter$Callback;)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public setVisibility(I)V
-    .registers 5
+    .locals 3
     .parameter "visibility"
 
     .prologue
@@ -993,7 +993,7 @@
     .line 222
     iget-object v0, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 223
     iget-object v2, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
@@ -1002,26 +1002,26 @@
 
     move-result v0
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_1
 
     const/4 v0, 0x1
 
-    :goto_11
+    :goto_0
     invoke-virtual {v2, v0, v1}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
 
     .line 225
-    :cond_14
+    :cond_0
     return-void
 
-    :cond_15
+    :cond_1
     move v0, v1
 
     .line 223
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public showDialog()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 321
@@ -1037,7 +1037,7 @@
     .local v0, fm:Landroid/app/FragmentManager;
     iget-object v1, p0, Landroid/app/MediaRouteButton;->mDialogFragment:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
-    if-nez v1, :cond_16
+    if-nez v1, :cond_0
 
     .line 324
     const-string v1, "android:MediaRouteChooserDialogFragment"
@@ -1051,10 +1051,10 @@
     iput-object v1, p0, Landroid/app/MediaRouteButton;->mDialogFragment:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
     .line 327
-    :cond_16
+    :cond_0
     iget-object v1, p0, Landroid/app/MediaRouteButton;->mDialogFragment:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_1
 
     .line 328
     const-string v1, "MediaRouteButton"
@@ -1064,11 +1064,11 @@
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 342
-    :goto_22
+    :goto_0
     return-void
 
     .line 332
-    :cond_23
+    :cond_1
     new-instance v1, Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
     invoke-direct {v1}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;-><init>()V
@@ -1105,11 +1105,11 @@
 
     invoke-virtual {v1, v0, v2}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
 
-    goto :goto_22
+    goto :goto_0
 .end method
 
 .method updateRemoteIndicator()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 160
@@ -1127,16 +1127,16 @@
 
     move-result-object v2
 
-    if-eq v1, v2, :cond_1b
+    if-eq v1, v2, :cond_1
 
     const/4 v0, 0x1
 
     .line 162
     .local v0, isRemote:Z
-    :goto_11
+    :goto_0
     iget-boolean v1, p0, Landroid/app/MediaRouteButton;->mRemoteActive:Z
 
-    if-eq v1, v0, :cond_1a
+    if-eq v1, v0, :cond_0
 
     .line 163
     iput-boolean v0, p0, Landroid/app/MediaRouteButton;->mRemoteActive:Z
@@ -1145,19 +1145,19 @@
     invoke-virtual {p0}, Landroid/app/MediaRouteButton;->refreshDrawableState()V
 
     .line 166
-    :cond_1a
+    :cond_0
     return-void
 
     .line 160
     .end local v0           #isRemote:Z
-    :cond_1b
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method updateRouteCount()V
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v5, 0x1
@@ -1180,8 +1180,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_a
-    if-ge v2, v0, :cond_2c
+    :goto_0
+    if-ge v2, v0, :cond_2
 
     .line 172
     iget-object v4, p0, Landroid/app/MediaRouteButton;->mRouter:Landroid/media/MediaRouter;
@@ -1200,12 +1200,12 @@
 
     and-int/2addr v4, v7
 
-    if-eqz v4, :cond_26
+    if-eqz v4, :cond_0
 
     .line 174
     instance-of v4, v3, Landroid/media/MediaRouter$RouteGroup;
 
-    if-eqz v4, :cond_29
+    if-eqz v4, :cond_1
 
     .line 175
     check-cast v3, Landroid/media/MediaRouter$RouteGroup;
@@ -1218,61 +1218,61 @@
     add-int/2addr v1, v4
 
     .line 171
-    :cond_26
-    :goto_26
+    :cond_0
+    :goto_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 177
     .restart local v3       #route:Landroid/media/MediaRouter$RouteInfo;
-    :cond_29
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_26
+    goto :goto_1
 
     .line 182
     .end local v3           #route:Landroid/media/MediaRouter$RouteInfo;
-    :cond_2c
-    if-eqz v1, :cond_3e
+    :cond_2
+    if-eqz v1, :cond_3
 
     move v4, v5
 
-    :goto_2f
+    :goto_2
     invoke-virtual {p0, v4}, Landroid/app/MediaRouteButton;->setEnabled(Z)V
 
     .line 185
     const/4 v4, 0x2
 
-    if-ne v1, v4, :cond_40
+    if-ne v1, v4, :cond_4
 
     iget v4, p0, Landroid/app/MediaRouteButton;->mRouteTypes:I
 
     and-int/lit8 v4, v4, 0x1
 
-    if-eqz v4, :cond_40
+    if-eqz v4, :cond_4
 
-    :goto_3b
+    :goto_3
     iput-boolean v5, p0, Landroid/app/MediaRouteButton;->mToggleMode:Z
 
     .line 186
     return-void
 
-    :cond_3e
+    :cond_3
     move v4, v6
 
     .line 182
-    goto :goto_2f
+    goto :goto_2
 
-    :cond_40
+    :cond_4
     move v5, v6
 
     .line 185
-    goto :goto_3b
+    goto :goto_3
 .end method
 
 .method protected verifyDrawable(Landroid/graphics/drawable/Drawable;)Z
-    .registers 3
+    .locals 1
     .parameter "who"
 
     .prologue
@@ -1281,20 +1281,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/app/MediaRouteButton;->mRemoteIndicator:Landroid/graphics/drawable/Drawable;
 
-    if-ne p1, v0, :cond_c
+    if-ne p1, v0, :cond_1
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method

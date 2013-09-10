@@ -15,7 +15,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/BrowserFrame;ILjava/lang/String;Landroid/webkit/SslClientCertLookupTable;)V
-    .registers 5
+    .locals 0
     .parameter "browserFrame"
     .parameter "handle"
     .parameter "host_and_port"
@@ -42,7 +42,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/webkit/ClientCertRequestHandler;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -53,7 +53,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/webkit/ClientCertRequestHandler;)Landroid/webkit/BrowserFrame;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -64,7 +64,7 @@
 .end method
 
 .method private setSslClientCertFromCtx(I[[B)V
-    .registers 4
+    .locals 1
     .parameter "ctx"
     .parameter "chainBytes"
 
@@ -81,7 +81,7 @@
 .end method
 
 .method private setSslClientCertFromPKCS8([B[[B)V
-    .registers 4
+    .locals 1
     .parameter "key"
     .parameter "chainBytes"
 
@@ -100,7 +100,7 @@
 
 # virtual methods
 .method public cancel()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 115
@@ -122,7 +122,7 @@
 .end method
 
 .method public ignore()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 104
@@ -137,7 +137,7 @@
 .end method
 
 .method public proceed(Ljava/security/PrivateKey;[Ljava/security/cert/X509Certificate;)V
-    .registers 7
+    .locals 4
     .parameter "privateKey"
     .parameter "chain"
 
@@ -159,7 +159,7 @@
     .line 59
     instance-of v2, p1, Lorg/apache/harmony/xnet/provider/jsse/OpenSSLRSAPrivateKey;
 
-    if-eqz v2, :cond_19
+    if-eqz v2, :cond_0
 
     .line 60
     check-cast p1, Lorg/apache/harmony/xnet/provider/jsse/OpenSSLRSAPrivateKey;
@@ -173,16 +173,16 @@
 
     .line 76
     .end local v0           #chainBytes:[[B
-    :goto_18
+    :goto_0
     return-void
 
     .line 62
     .restart local v0       #chainBytes:[[B
     .restart local p1
-    :cond_19
+    :cond_0
     instance-of v2, p1, Lorg/apache/harmony/xnet/provider/jsse/OpenSSLDSAPrivateKey;
 
-    if-eqz v2, :cond_31
+    if-eqz v2, :cond_1
 
     .line 63
     check-cast p1, Lorg/apache/harmony/xnet/provider/jsse/OpenSSLDSAPrivateKey;
@@ -193,14 +193,14 @@
     move-result v2
 
     invoke-direct {p0, v2, v0}, Landroid/webkit/ClientCertRequestHandler;->setSslClientCertFromCtx(I[[B)V
-    :try_end_26
-    .catch Ljava/security/cert/CertificateEncodingException; {:try_start_0 .. :try_end_26} :catch_27
+    :try_end_0
+    .catch Ljava/security/cert/CertificateEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_18
+    goto :goto_0
 
     .line 68
     .end local v0           #chainBytes:[[B
-    :catch_27
+    :catch_0
     move-exception v1
 
     .line 69
@@ -211,21 +211,21 @@
 
     invoke-virtual {p0, v2}, Landroid/webkit/ClientCertRequestHandler;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_18
+    goto :goto_0
 
     .line 66
     .end local v1           #e:Ljava/security/cert/CertificateEncodingException;
     .restart local v0       #chainBytes:[[B
     .restart local p1
-    :cond_31
-    :try_start_31
+    :cond_1
+    :try_start_1
     invoke-interface {p1}, Ljava/security/PrivateKey;->getEncoded()[B
 
     move-result-object v2
 
     invoke-direct {p0, v2, v0}, Landroid/webkit/ClientCertRequestHandler;->setSslClientCertFromPKCS8([B[[B)V
-    :try_end_38
-    .catch Ljava/security/cert/CertificateEncodingException; {:try_start_31 .. :try_end_38} :catch_27
+    :try_end_1
+    .catch Ljava/security/cert/CertificateEncodingException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_18
+    goto :goto_0
 .end method

@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/database/Cursor;Ljava/lang/String;ZLandroid/os/Handler;)V
-    .registers 7
+    .locals 2
     .parameter "cursor"
     .parameter "columnNameOfKey"
     .parameter "keepUpdated"
@@ -87,18 +87,18 @@
     invoke-virtual {p0, p3}, Landroid/content/ContentQueryMap;->setKeepUpdated(Z)V
 
     .line 73
-    if-nez p3, :cond_29
+    if-nez p3, :cond_0
 
     .line 74
     invoke-direct {p0, p1}, Landroid/content/ContentQueryMap;->readCursorIntoCache(Landroid/database/Cursor;)V
 
     .line 76
-    :cond_29
+    :cond_0
     return-void
 .end method
 
 .method static synthetic access$002(Landroid/content/ContentQueryMap;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -110,17 +110,17 @@
 .end method
 
 .method private declared-synchronized readCursorIntoCache(Landroid/database/Cursor;)V
-    .registers 7
+    .locals 5
     .parameter "cursor"
 
     .prologue
     .line 150
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v3, p0, Landroid/content/ContentQueryMap;->mValues:Ljava/util/Map;
 
-    if-eqz v3, :cond_35
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Landroid/content/ContentQueryMap;->mValues:Ljava/util/Map;
 
@@ -130,7 +130,7 @@
 
     .line 151
     .local v0, capacity:I
-    :goto_b
+    :goto_0
     new-instance v3, Ljava/util/HashMap;
 
     invoke-direct {v3, v0}, Ljava/util/HashMap;-><init>(I)V
@@ -138,12 +138,12 @@
     iput-object v3, p0, Landroid/content/ContentQueryMap;->mValues:Ljava/util/Map;
 
     .line 152
-    :goto_12
+    :goto_1
     invoke-interface {p1}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_46
+    if-eqz v3, :cond_3
 
     .line 153
     new-instance v2, Landroid/content/ContentValues;
@@ -155,17 +155,17 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_1e
+    :goto_2
     iget-object v3, p0, Landroid/content/ContentQueryMap;->mColumnNames:[Ljava/lang/String;
 
     array-length v3, v3
 
-    if-ge v1, v3, :cond_37
+    if-ge v1, v3, :cond_2
 
     .line 155
     iget v3, p0, Landroid/content/ContentQueryMap;->mKeyColumn:I
 
-    if-eq v1, v3, :cond_32
+    if-eq v1, v3, :cond_0
 
     .line 156
     iget-object v3, p0, Landroid/content/ContentQueryMap;->mColumnNames:[Ljava/lang/String;
@@ -179,25 +179,25 @@
     invoke-virtual {v2, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 154
-    :cond_32
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1e
+    goto :goto_2
 
     .line 150
     .end local v0           #capacity:I
     .end local v1           #i:I
     .end local v2           #values:Landroid/content/ContentValues;
-    :cond_35
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 
     .line 159
     .restart local v0       #capacity:I
     .restart local v1       #i:I
     .restart local v2       #values:Landroid/content/ContentValues;
-    :cond_37
+    :cond_2
     iget-object v3, p0, Landroid/content/ContentQueryMap;->mValues:Ljava/util/Map;
 
     iget v4, p0, Landroid/content/ContentQueryMap;->mKeyColumn:I
@@ -207,16 +207,16 @@
     move-result-object v4
 
     invoke-interface {v3, v4, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_42
-    .catchall {:try_start_1 .. :try_end_42} :catchall_43
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_12
+    goto :goto_1
 
     .line 150
     .end local v0           #capacity:I
     .end local v1           #i:I
     .end local v2           #values:Landroid/content/ContentValues;
-    :catchall_43
+    :catchall_0
     move-exception v3
 
     monitor-exit p0
@@ -225,7 +225,7 @@
 
     .line 161
     .restart local v0       #capacity:I
-    :cond_46
+    :cond_3
     monitor-exit p0
 
     return-void
@@ -234,16 +234,16 @@
 
 # virtual methods
 .method public declared-synchronized close()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 169
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/content/ContentQueryMap;->mContentObserver:Landroid/database/ContentObserver;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 170
     iget-object v0, p0, Landroid/content/ContentQueryMap;->mCursor:Landroid/database/Cursor;
@@ -258,7 +258,7 @@
     iput-object v0, p0, Landroid/content/ContentQueryMap;->mContentObserver:Landroid/database/ContentObserver;
 
     .line 173
-    :cond_f
+    :cond_0
     iget-object v0, p0, Landroid/content/ContentQueryMap;->mCursor:Landroid/database/Cursor;
 
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
@@ -267,8 +267,8 @@
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/content/ContentQueryMap;->mCursor:Landroid/database/Cursor;
-    :try_end_17
-    .catchall {:try_start_1 .. :try_end_17} :catchall_19
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 175
     monitor-exit p0
@@ -276,7 +276,7 @@
     return-void
 
     .line 169
-    :catchall_19
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -285,7 +285,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -296,12 +296,12 @@
     .line 179
     iget-object v0, p0, Landroid/content/ContentQueryMap;->mCursor:Landroid/database/Cursor;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Landroid/content/ContentQueryMap;->close()V
 
     .line 180
-    :cond_7
+    :cond_0
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
     .line 181
@@ -309,7 +309,7 @@
 .end method
 
 .method public declared-synchronized getRows()Ljava/util/Map;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -325,25 +325,25 @@
     .line 164
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/content/ContentQueryMap;->mDirty:Z
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Landroid/content/ContentQueryMap;->requery()V
 
     .line 165
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/content/ContentQueryMap;->mValues:Ljava/util/Map;
-    :try_end_a
-    .catchall {:try_start_1 .. :try_end_a} :catchall_c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
     .line 164
-    :catchall_c
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -352,22 +352,22 @@
 .end method
 
 .method public declared-synchronized getValues(Ljava/lang/String;)Landroid/content/ContentValues;
-    .registers 3
+    .locals 1
     .parameter "rowName"
 
     .prologue
     .line 125
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/content/ContentQueryMap;->mDirty:Z
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Landroid/content/ContentQueryMap;->requery()V
 
     .line 126
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/content/ContentQueryMap;->mValues:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -375,15 +375,15 @@
     move-result-object v0
 
     check-cast v0, Landroid/content/ContentValues;
-    :try_end_10
-    .catchall {:try_start_1 .. :try_end_10} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
     .line 125
-    :catchall_12
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -392,7 +392,7 @@
 .end method
 
 .method public requery()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 131
@@ -400,15 +400,15 @@
 
     .line 132
     .local v0, cursor:Landroid/database/Cursor;
-    if-nez v0, :cond_5
+    if-nez v0, :cond_1
 
     .line 146
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-void
 
     .line 138
-    :cond_5
+    :cond_1
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Landroid/content/ContentQueryMap;->mDirty:Z
@@ -418,7 +418,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_0
 
     .line 143
     invoke-direct {p0, v0}, Landroid/content/ContentQueryMap;->readCursorIntoCache(Landroid/database/Cursor;)V
@@ -429,31 +429,31 @@
     .line 145
     invoke-virtual {p0}, Landroid/content/ContentQueryMap;->notifyObservers()V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public setKeepUpdated(Z)V
-    .registers 4
+    .locals 2
     .parameter "keepUpdated"
 
     .prologue
     .line 87
     iget-boolean v0, p0, Landroid/content/ContentQueryMap;->mKeepUpdated:Z
 
-    if-ne p1, v0, :cond_5
+    if-ne p1, v0, :cond_0
 
     .line 117
-    :goto_4
+    :goto_0
     return-void
 
     .line 88
-    :cond_5
+    :cond_0
     iput-boolean p1, p0, Landroid/content/ContentQueryMap;->mKeepUpdated:Z
 
     .line 90
     iget-boolean v0, p0, Landroid/content/ContentQueryMap;->mKeepUpdated:Z
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_1
 
     .line 91
     iget-object v0, p0, Landroid/content/ContentQueryMap;->mCursor:Landroid/database/Cursor;
@@ -467,13 +467,13 @@
 
     iput-object v0, p0, Landroid/content/ContentQueryMap;->mContentObserver:Landroid/database/ContentObserver;
 
-    goto :goto_4
+    goto :goto_0
 
     .line 94
-    :cond_16
+    :cond_1
     iget-object v0, p0, Landroid/content/ContentQueryMap;->mHandlerForUpdateNotifications:Landroid/os/Handler;
 
-    if-nez v0, :cond_21
+    if-nez v0, :cond_2
 
     .line 95
     new-instance v0, Landroid/os/Handler;
@@ -483,10 +483,10 @@
     iput-object v0, p0, Landroid/content/ContentQueryMap;->mHandlerForUpdateNotifications:Landroid/os/Handler;
 
     .line 97
-    :cond_21
+    :cond_2
     iget-object v0, p0, Landroid/content/ContentQueryMap;->mContentObserver:Landroid/database/ContentObserver;
 
-    if-nez v0, :cond_2e
+    if-nez v0, :cond_3
 
     .line 98
     new-instance v0, Landroid/content/ContentQueryMap$1;
@@ -498,7 +498,7 @@
     iput-object v0, p0, Landroid/content/ContentQueryMap;->mContentObserver:Landroid/database/ContentObserver;
 
     .line 112
-    :cond_2e
+    :cond_3
     iget-object v0, p0, Landroid/content/ContentQueryMap;->mCursor:Landroid/database/Cursor;
 
     iget-object v1, p0, Landroid/content/ContentQueryMap;->mContentObserver:Landroid/database/ContentObserver;
@@ -510,5 +510,5 @@
 
     iput-boolean v0, p0, Landroid/content/ContentQueryMap;->mDirty:Z
 
-    goto :goto_4
+    goto :goto_0
 .end method

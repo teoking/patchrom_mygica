@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "profile"
 
@@ -143,7 +143,7 @@
 .end method
 
 .method static synthetic access$1000(Landroid/bluetooth/BluetoothProfileState;Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -155,7 +155,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/bluetooth/BluetoothProfileState;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -166,7 +166,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/bluetooth/BluetoothProfileState;)Landroid/bluetooth/BluetoothDevice;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -177,7 +177,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/bluetooth/BluetoothProfileState;Landroid/bluetooth/BluetoothDevice;)Landroid/bluetooth/BluetoothDevice;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -189,7 +189,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/bluetooth/BluetoothProfileState;Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -201,7 +201,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/bluetooth/BluetoothProfileState;)Landroid/bluetooth/BluetoothProfileState$PendingCommandState;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -212,7 +212,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/bluetooth/BluetoothProfileState;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -224,7 +224,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/bluetooth/BluetoothProfileState;)Landroid/os/Message;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -237,7 +237,7 @@
 .end method
 
 .method static synthetic access$800(Landroid/bluetooth/BluetoothProfileState;)Landroid/bluetooth/BluetoothProfileState$StableState;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -248,7 +248,7 @@
 .end method
 
 .method static synthetic access$900(Landroid/bluetooth/BluetoothProfileState;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -260,7 +260,7 @@
 .end method
 
 .method private log(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "message"
 
     .prologue

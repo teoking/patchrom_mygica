@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/HTML5Audio$IsPrivateBrowsingEnabledGetter;Landroid/webkit/HTML5Audio;Landroid/webkit/WebViewClassic;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 101
@@ -57,7 +57,7 @@
     monitor-enter v1
 
     .line 102
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/webkit/HTML5Audio$IsPrivateBrowsingEnabledGetter$1;->this$1:Landroid/webkit/HTML5Audio$IsPrivateBrowsingEnabledGetter;
 
     iget-object v2, p0, Landroid/webkit/HTML5Audio$IsPrivateBrowsingEnabledGetter$1;->val$webView:Landroid/webkit/WebViewClassic;
@@ -66,6 +66,7 @@
 
     move-result v2
 
+    #setter for: Landroid/webkit/HTML5Audio$IsPrivateBrowsingEnabledGetter;->mIsPrivateBrowsingEnabled:Z
     invoke-static {v0, v2}, Landroid/webkit/HTML5Audio$IsPrivateBrowsingEnabledGetter;->access$002(Landroid/webkit/HTML5Audio$IsPrivateBrowsingEnabledGetter;Z)Z
 
     .line 103
@@ -73,6 +74,7 @@
 
     const/4 v2, 0x1
 
+    #setter for: Landroid/webkit/HTML5Audio$IsPrivateBrowsingEnabledGetter;->mIsReady:Z
     invoke-static {v0, v2}, Landroid/webkit/HTML5Audio$IsPrivateBrowsingEnabledGetter;->access$102(Landroid/webkit/HTML5Audio$IsPrivateBrowsingEnabledGetter;Z)Z
 
     .line 104
@@ -87,12 +89,12 @@
     return-void
 
     .line 105
-    :catchall_1b
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1d
-    .catchall {:try_start_3 .. :try_end_1d} :catchall_1b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

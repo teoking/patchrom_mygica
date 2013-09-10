@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/widget/multiwaveview/PointCloud;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -49,7 +49,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/widget/multiwaveview/PointCloud$GlowManager;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -60,7 +60,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/internal/widget/multiwaveview/PointCloud$GlowManager;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -71,7 +71,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/internal/widget/multiwaveview/PointCloud$GlowManager;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -82,7 +82,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/internal/widget/multiwaveview/PointCloud$GlowManager;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -95,7 +95,7 @@
 
 # virtual methods
 .method public getAlpha()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 94
@@ -105,7 +105,7 @@
 .end method
 
 .method public getRadius()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 102
@@ -115,7 +115,7 @@
 .end method
 
 .method public getX()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 78
@@ -125,7 +125,7 @@
 .end method
 
 .method public getY()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 86
@@ -135,7 +135,7 @@
 .end method
 
 .method public setAlpha(F)V
-    .registers 2
+    .locals 0
     .parameter "a"
 
     .prologue
@@ -147,7 +147,7 @@
 .end method
 
 .method public setRadius(F)V
-    .registers 2
+    .locals 0
     .parameter "r"
 
     .prologue
@@ -159,7 +159,7 @@
 .end method
 
 .method public setX(F)V
-    .registers 2
+    .locals 0
     .parameter "x1"
 
     .prologue
@@ -171,7 +171,7 @@
 .end method
 
 .method public setY(F)V
-    .registers 2
+    .locals 0
     .parameter "y1"
 
     .prologue

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 27
@@ -15,7 +15,7 @@
 .end method
 
 .method private static bytesPerSampleForClass(Ljava/lang/Class;I)I
-    .registers 6
+    .locals 4
     .parameter "clazz"
     .parameter "target"
 
@@ -23,7 +23,7 @@
     .line 59
     const/4 v1, 0x2
 
-    if-ne p1, v1, :cond_5b
+    if-ne p1, v1, :cond_1
 
     .line 60
     const-class v1, Landroid/filterfw/core/NativeBuffer;
@@ -32,7 +32,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2a
+    if-nez v1, :cond_0
 
     .line 61
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -66,8 +66,8 @@
     throw v1
 
     .line 65
-    :cond_2a
-    :try_start_2a
+    :cond_0
+    :try_start_0
     invoke-virtual {p0}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
     move-result-object v1
@@ -75,17 +75,17 @@
     check-cast v1, Landroid/filterfw/core/NativeBuffer;
 
     invoke-virtual {v1}, Landroid/filterfw/core/NativeBuffer;->getElementSize()I
-    :try_end_33
-    .catch Ljava/lang/Exception; {:try_start_2a .. :try_end_33} :catch_35
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 72
-    :goto_34
+    :goto_0
     return v1
 
     .line 66
-    :catch_35
+    :catch_0
     move-exception v0
 
     .line 67
@@ -128,14 +128,14 @@
 
     .line 72
     .end local v0           #e:Ljava/lang/Exception;
-    :cond_5b
+    :cond_1
     const/4 v1, 0x1
 
-    goto :goto_34
+    goto :goto_0
 .end method
 
 .method public static fromClass(Ljava/lang/Class;I)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 3
+    .locals 1
     .parameter "clazz"
     .parameter "target"
 
@@ -151,7 +151,7 @@
 .end method
 
 .method public static fromClass(Ljava/lang/Class;II)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 5
+    .locals 2
     .parameter "clazz"
     .parameter "count"
     .parameter "target"
@@ -173,13 +173,13 @@
     invoke-virtual {v0, v1}, Landroid/filterfw/core/MutableFrameFormat;->setObjectClass(Ljava/lang/Class;)V
 
     .line 33
-    if-eqz p1, :cond_13
+    if-eqz p1, :cond_0
 
     .line 34
     invoke-virtual {v0, p1}, Landroid/filterfw/core/MutableFrameFormat;->setDimensions(I)V
 
     .line 36
-    :cond_13
+    :cond_0
     invoke-static {p0, p2}, Landroid/filterfw/format/ObjectFormat;->bytesPerSampleForClass(Ljava/lang/Class;I)I
 
     move-result v1
@@ -191,13 +191,13 @@
 .end method
 
 .method public static fromObject(Ljava/lang/Object;I)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 4
+    .locals 2
     .parameter "object"
     .parameter "target"
 
     .prologue
     .line 45
-    if-nez p0, :cond_a
+    if-nez p0, :cond_0
 
     new-instance v0, Landroid/filterfw/core/MutableFrameFormat;
 
@@ -205,10 +205,10 @@
 
     invoke-direct {v0, v1, p1}, Landroid/filterfw/core/MutableFrameFormat;-><init>(II)V
 
-    :goto_9
+    :goto_0
     return-object v0
 
-    :cond_a
+    :cond_0
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -219,18 +219,18 @@
 
     move-result-object v0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static fromObject(Ljava/lang/Object;II)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 5
+    .locals 2
     .parameter "object"
     .parameter "count"
     .parameter "target"
 
     .prologue
     .line 51
-    if-nez p0, :cond_a
+    if-nez p0, :cond_0
 
     new-instance v0, Landroid/filterfw/core/MutableFrameFormat;
 
@@ -238,10 +238,10 @@
 
     invoke-direct {v0, v1, p2}, Landroid/filterfw/core/MutableFrameFormat;-><init>(II)V
 
-    :goto_9
+    :goto_0
     return-object v0
 
-    :cond_a
+    :cond_0
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -250,11 +250,11 @@
 
     move-result-object v0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method private static getBoxedClass(Ljava/lang/Class;)Ljava/lang/Class;
-    .registers 4
+    .locals 3
     .parameter "type"
 
     .prologue
@@ -263,102 +263,102 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 80
     sget-object v0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_d
+    if-ne p0, v0, :cond_1
 
     .line 81
     const-class p0, Ljava/lang/Boolean;
 
     .line 102
     .end local p0
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     return-object p0
 
     .line 82
     .restart local p0
-    :cond_d
+    :cond_1
     sget-object v0, Ljava/lang/Byte;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_14
+    if-ne p0, v0, :cond_2
 
     .line 83
     const-class p0, Ljava/lang/Byte;
 
-    goto :goto_c
+    goto :goto_0
 
     .line 84
-    :cond_14
+    :cond_2
     sget-object v0, Ljava/lang/Character;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_1b
+    if-ne p0, v0, :cond_3
 
     .line 85
     const-class p0, Ljava/lang/Character;
 
-    goto :goto_c
+    goto :goto_0
 
     .line 86
-    :cond_1b
+    :cond_3
     sget-object v0, Ljava/lang/Short;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_22
+    if-ne p0, v0, :cond_4
 
     .line 87
     const-class p0, Ljava/lang/Short;
 
-    goto :goto_c
+    goto :goto_0
 
     .line 88
-    :cond_22
+    :cond_4
     sget-object v0, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_29
+    if-ne p0, v0, :cond_5
 
     .line 89
     const-class p0, Ljava/lang/Integer;
 
-    goto :goto_c
+    goto :goto_0
 
     .line 90
-    :cond_29
+    :cond_5
     sget-object v0, Ljava/lang/Long;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_30
+    if-ne p0, v0, :cond_6
 
     .line 91
     const-class p0, Ljava/lang/Long;
 
-    goto :goto_c
+    goto :goto_0
 
     .line 92
-    :cond_30
+    :cond_6
     sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_37
+    if-ne p0, v0, :cond_7
 
     .line 93
     const-class p0, Ljava/lang/Float;
 
-    goto :goto_c
+    goto :goto_0
 
     .line 94
-    :cond_37
+    :cond_7
     sget-object v0, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
-    if-ne p0, v0, :cond_3e
+    if-ne p0, v0, :cond_8
 
     .line 95
     const-class p0, Ljava/lang/Double;
 
-    goto :goto_c
+    goto :goto_0
 
     .line 97
-    :cond_3e
+    :cond_8
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;

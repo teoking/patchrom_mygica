@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/RemoteCallbackList;Landroid/os/IInterface;Ljava/lang/Object;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter "cookie"
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 66
@@ -78,7 +78,7 @@
     monitor-enter v1
 
     .line 67
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Landroid/os/RemoteCallbackList$Callback;->this$0:Landroid/os/RemoteCallbackList;
 
     iget-object v0, v0, Landroid/os/RemoteCallbackList;->mCallbacks:Ljava/util/HashMap;
@@ -93,8 +93,8 @@
 
     .line 68
     monitor-exit v1
-    :try_end_13
-    .catchall {:try_start_5 .. :try_end_13} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 69
     iget-object v0, p0, Landroid/os/RemoteCallbackList$Callback;->this$0:Landroid/os/RemoteCallbackList;
@@ -109,13 +109,13 @@
     return-void
 
     .line 68
-    :catchall_1d
+    :catchall_0
     move-exception v0
 
-    :try_start_1e
+    :try_start_1
     monitor-exit v1
-    :try_end_1f
-    .catchall {:try_start_1e .. :try_end_1f} :catchall_1d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method

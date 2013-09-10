@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 459
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 10
+    .locals 8
     .parameter "settings"
 
     .prologue
@@ -83,7 +83,7 @@
 
     const/4 v6, 0x5
 
-    if-ge v5, v6, :cond_34
+    if-ge v5, v6, :cond_0
 
     .line 471
     new-instance v5, Ljava/lang/IllegalArgumentException;
@@ -111,7 +111,7 @@
     throw v5
 
     .line 473
-    :cond_34
+    :cond_0
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v1
@@ -124,7 +124,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_59
+    if-nez v5, :cond_1
 
     .line 475
     new-instance v5, Ljava/lang/IllegalArgumentException;
@@ -152,8 +152,8 @@
     throw v5
 
     .line 479
-    :cond_59
-    :try_start_59
+    :cond_1
+    :try_start_0
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v1
@@ -165,7 +165,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_98
+    if-nez v5, :cond_2
 
     .line 481
     new-instance v5, Ljava/lang/IllegalArgumentException;
@@ -191,11 +191,11 @@
     invoke-direct {v5, v6}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v5
-    :try_end_7e
-    .catch Ljava/lang/NumberFormatException; {:try_start_59 .. :try_end_7e} :catch_7e
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 500
-    :catch_7e
+    :catch_0
     move-exception v2
 
     .line 501
@@ -226,8 +226,8 @@
 
     .line 483
     .end local v2           #nfe:Ljava/lang/NumberFormatException;
-    :cond_98
-    :try_start_98
+    :cond_2
+    :try_start_1
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v5
@@ -250,7 +250,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_c7
+    if-nez v5, :cond_3
 
     .line 486
     new-instance v5, Ljava/lang/IllegalArgumentException;
@@ -278,7 +278,7 @@
     throw v5
 
     .line 488
-    :cond_c7
+    :cond_3
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v5
@@ -298,7 +298,7 @@
 
     mul-int/lit8 v6, v6, 0x2
 
-    if-eq v5, v6, :cond_f4
+    if-eq v5, v6, :cond_4
 
     .line 490
     new-instance v5, Ljava/lang/IllegalArgumentException;
@@ -326,7 +326,7 @@
     throw v5
 
     .line 492
-    :cond_f4
+    :cond_4
     iget-short v5, p0, Landroid/media/audiofx/Equalizer$Settings;->numBands:S
 
     new-array v5, v5, [S
@@ -337,10 +337,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_fb
+    :goto_0
     iget-short v5, p0, Landroid/media/audiofx/Equalizer$Settings;->numBands:S
 
-    if-ge v0, v5, :cond_14c
+    if-ge v0, v5, :cond_6
 
     .line 494
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
@@ -378,7 +378,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_13d
+    if-nez v5, :cond_5
 
     .line 496
     new-instance v5, Ljava/lang/IllegalArgumentException;
@@ -406,7 +406,7 @@
     throw v5
 
     .line 498
-    :cond_13d
+    :cond_5
     iget-object v5, p0, Landroid/media/audiofx/Equalizer$Settings;->bandLevels:[S
 
     invoke-virtual {v3}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
@@ -418,23 +418,23 @@
     move-result v6
 
     aput-short v6, v5, v0
-    :try_end_149
-    .catch Ljava/lang/NumberFormatException; {:try_start_98 .. :try_end_149} :catch_7e
+    :try_end_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 493
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_fb
+    goto :goto_0
 
     .line 503
-    :cond_14c
+    :cond_6
     return-void
 .end method
 
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 508
@@ -487,10 +487,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_2f
+    :goto_0
     iget-short v2, p0, Landroid/media/audiofx/Equalizer$Settings;->numBands:S
 
-    if-ge v0, v2, :cond_61
+    if-ge v0, v2, :cond_0
 
     .line 514
     new-instance v2, Ljava/lang/StringBuilder;
@@ -538,9 +538,9 @@
     .line 513
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2f
+    goto :goto_0
 
     .line 516
-    :cond_61
+    :cond_0
     return-object v1
 .end method

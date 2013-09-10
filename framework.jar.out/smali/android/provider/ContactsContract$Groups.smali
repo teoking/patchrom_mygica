@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 7110
@@ -66,7 +66,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 7104
@@ -77,7 +77,7 @@
 .end method
 
 .method public static newEntityIterator(Landroid/database/Cursor;)Landroid/content/EntityIterator;
-    .registers 2
+    .locals 1
     .parameter "cursor"
 
     .prologue

@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/input/InputManagerService;ILandroid/hardware/input/IInputDevicesChangedListener;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "pid"
     .parameter "listener"
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1540
@@ -59,6 +59,7 @@
 
     iget v1, p0, Lcom/android/server/input/InputManagerService$InputDevicesChangedListenerRecord;->mPid:I
 
+    #calls: Lcom/android/server/input/InputManagerService;->onInputDevicesChangedListenerDied(I)V
     invoke-static {v0, v1}, Lcom/android/server/input/InputManagerService;->access$900(Lcom/android/server/input/InputManagerService;I)V
 
     .line 1541
@@ -66,7 +67,7 @@
 .end method
 
 .method public notifyInputDevicesChanged([I)V
-    .registers 6
+    .locals 4
     .parameter "info"
 
     .prologue
@@ -75,15 +76,15 @@
     iget-object v1, p0, Lcom/android/server/input/InputManagerService$InputDevicesChangedListenerRecord;->mListener:Landroid/hardware/input/IInputDevicesChangedListener;
 
     invoke-interface {v1, p1}, Landroid/hardware/input/IInputDevicesChangedListener;->onInputDevicesChanged([I)V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1551
-    :goto_5
+    :goto_0
     return-void
 
     .line 1546
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 1547
@@ -121,5 +122,5 @@
     .line 1549
     invoke-virtual {p0}, Lcom/android/server/input/InputManagerService$InputDevicesChangedListenerRecord;->binderDied()V
 
-    goto :goto_5
+    goto :goto_0
 .end method

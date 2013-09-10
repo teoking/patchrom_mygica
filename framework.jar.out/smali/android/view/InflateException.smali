@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 25
@@ -16,7 +16,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "detailMessage"
 
     .prologue
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .registers 3
+    .locals 0
     .parameter "detailMessage"
     .parameter "throwable"
 
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Throwable;)V
-    .registers 2
+    .locals 0
     .parameter "throwable"
 
     .prologue

@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/text/style/MetricAffectingSpan;)V
-    .registers 2
+    .locals 0
     .parameter "cs"
 
     .prologue
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public bridge synthetic getUnderlying()Landroid/text/style/CharacterStyle;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 50
@@ -49,7 +49,7 @@
 .end method
 
 .method public getUnderlying()Landroid/text/style/MetricAffectingSpan;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 82
@@ -63,7 +63,7 @@
 .end method
 
 .method public updateDrawState(Landroid/text/TextPaint;)V
-    .registers 3
+    .locals 1
     .parameter "tp"
 
     .prologue
@@ -77,7 +77,7 @@
 .end method
 
 .method public updateMeasureState(Landroid/text/TextPaint;)V
-    .registers 3
+    .locals 1
     .parameter "tp"
 
     .prologue

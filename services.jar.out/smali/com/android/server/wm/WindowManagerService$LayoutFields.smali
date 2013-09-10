@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
-    .registers 5
+    .locals 3
     .parameter
 
     .prologue
@@ -108,7 +108,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/android/server/wm/WindowManagerService$LayoutFields;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -119,7 +119,7 @@
 .end method
 
 .method static synthetic access$1002(Lcom/android/server/wm/WindowManagerService$LayoutFields;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -131,7 +131,7 @@
 .end method
 
 .method static synthetic access$1200(Lcom/android/server/wm/WindowManagerService$LayoutFields;)Lcom/android/server/wm/Session;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -142,7 +142,7 @@
 .end method
 
 .method static synthetic access$1202(Lcom/android/server/wm/WindowManagerService$LayoutFields;Lcom/android/server/wm/Session;)Lcom/android/server/wm/Session;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -154,7 +154,7 @@
 .end method
 
 .method static synthetic access$1300(Lcom/android/server/wm/WindowManagerService$LayoutFields;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -165,7 +165,7 @@
 .end method
 
 .method static synthetic access$1302(Lcom/android/server/wm/WindowManagerService$LayoutFields;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -177,7 +177,7 @@
 .end method
 
 .method static synthetic access$1400(Lcom/android/server/wm/WindowManagerService$LayoutFields;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -188,7 +188,7 @@
 .end method
 
 .method static synthetic access$1402(Lcom/android/server/wm/WindowManagerService$LayoutFields;F)F
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -200,7 +200,7 @@
 .end method
 
 .method static synthetic access$1500(Lcom/android/server/wm/WindowManagerService$LayoutFields;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -211,7 +211,7 @@
 .end method
 
 .method static synthetic access$1502(Lcom/android/server/wm/WindowManagerService$LayoutFields;F)F
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -223,7 +223,7 @@
 .end method
 
 .method static synthetic access$1600(Lcom/android/server/wm/WindowManagerService$LayoutFields;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -234,7 +234,7 @@
 .end method
 
 .method static synthetic access$1602(Lcom/android/server/wm/WindowManagerService$LayoutFields;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

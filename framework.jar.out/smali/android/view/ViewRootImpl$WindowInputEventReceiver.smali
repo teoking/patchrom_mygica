@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/ViewRootImpl;Landroid/view/InputChannel;Landroid/os/Looper;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "inputChannel"
     .parameter "looper"
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public dispose()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 4236
@@ -55,7 +55,7 @@
 .end method
 
 .method public onBatchedInputEventPending()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 4231
@@ -68,7 +68,7 @@
 .end method
 
 .method public onInputEvent(Landroid/view/InputEvent;)V
-    .registers 5
+    .locals 3
     .parameter "event"
 
     .prologue

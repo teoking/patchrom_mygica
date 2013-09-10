@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 93
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -98,7 +98,7 @@
 .end method
 
 .method public getConnectMode()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -108,7 +108,7 @@
 .end method
 
 .method public getDnsAddr()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 64
@@ -118,7 +118,7 @@
 .end method
 
 .method public getIfName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 33
@@ -128,7 +128,7 @@
 .end method
 
 .method public getIpAddress()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 41
@@ -138,7 +138,7 @@
 .end method
 
 .method public getNetMask()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 48
@@ -148,7 +148,7 @@
 .end method
 
 .method public getRouteAddr()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 56
@@ -158,7 +158,7 @@
 .end method
 
 .method public setConnectMode(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "mode"
 
     .prologue
@@ -169,7 +169,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     const-string/jumbo v0, "manual"
 
@@ -177,27 +177,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_1
 
     .line 69
-    :cond_11
+    :cond_0
     iput-object p1, p0, Landroid/net/ethernet/EthernetDevInfo;->mode:Ljava/lang/String;
 
     .line 70
     const/4 v0, 0x1
 
     .line 72
-    :goto_14
+    :goto_0
     return v0
 
-    :cond_15
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public setDnsAddr(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "dns"
 
     .prologue
@@ -209,7 +209,7 @@
 .end method
 
 .method public setIfName(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "ifname"
 
     .prologue
@@ -221,7 +221,7 @@
 .end method
 
 .method public setIpAddress(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "ip"
 
     .prologue
@@ -233,7 +233,7 @@
 .end method
 
 .method public setNetMask(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "ip"
 
     .prologue
@@ -245,7 +245,7 @@
 .end method
 
 .method public setRouteAddr(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "route"
 
     .prologue
@@ -257,7 +257,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

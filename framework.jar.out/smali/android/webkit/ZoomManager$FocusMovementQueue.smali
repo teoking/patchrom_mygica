@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/ZoomManager;)V
-    .registers 4
+    .locals 2
     .parameter
 
     .prologue
@@ -66,7 +66,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/webkit/ZoomManager$FocusMovementQueue;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -77,7 +77,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/webkit/ZoomManager$FocusMovementQueue;F)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -89,7 +89,7 @@
 .end method
 
 .method static synthetic access$800(Landroid/webkit/ZoomManager$FocusMovementQueue;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -102,7 +102,7 @@
 .end method
 
 .method private add(F)V
-    .registers 5
+    .locals 3
     .parameter "focusDelta"
 
     .prologue
@@ -118,7 +118,7 @@
 
     const/4 v1, 0x5
 
-    if-ge v0, v1, :cond_1f
+    if-ge v0, v1, :cond_0
 
     .line 801
     iget v0, p0, Landroid/webkit/ZoomManager$FocusMovementQueue;->mSize:I
@@ -128,7 +128,7 @@
     iput v0, p0, Landroid/webkit/ZoomManager$FocusMovementQueue;->mSize:I
 
     .line 805
-    :goto_10
+    :goto_0
     iget-object v0, p0, Landroid/webkit/ZoomManager$FocusMovementQueue;->mQueue:[F
 
     iget v1, p0, Landroid/webkit/ZoomManager$FocusMovementQueue;->mIndex:I
@@ -148,7 +148,7 @@
     return-void
 
     .line 803
-    :cond_1f
+    :cond_0
     iget v0, p0, Landroid/webkit/ZoomManager$FocusMovementQueue;->mSum:F
 
     iget-object v1, p0, Landroid/webkit/ZoomManager$FocusMovementQueue;->mQueue:[F
@@ -161,11 +161,11 @@
 
     iput v0, p0, Landroid/webkit/ZoomManager$FocusMovementQueue;->mSum:F
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method private clear()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v1, 0x0
@@ -185,10 +185,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_9
+    :goto_0
     const/4 v1, 0x5
 
-    if-ge v0, v1, :cond_13
+    if-ge v0, v1, :cond_0
 
     .line 794
     iget-object v1, p0, Landroid/webkit/ZoomManager$FocusMovementQueue;->mQueue:[F
@@ -198,15 +198,15 @@
     .line 793
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 796
-    :cond_13
+    :cond_0
     return-void
 .end method
 
 .method private getSum()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 810

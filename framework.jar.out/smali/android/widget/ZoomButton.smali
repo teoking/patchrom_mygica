@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 6
+    .locals 2
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -83,7 +83,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/widget/ZoomButton;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -94,7 +94,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/widget/ZoomButton;)J
-    .registers 3
+    .locals 2
     .parameter "x0"
 
     .prologue
@@ -105,7 +105,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/widget/ZoomButton;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method public dispatchUnhandledMove(Landroid/view/View;I)Z
-    .registers 4
+    .locals 1
     .parameter "focused"
     .parameter "direction"
 
@@ -135,7 +135,7 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -156,7 +156,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .registers 3
+    .locals 1
     .parameter "info"
 
     .prologue
@@ -177,7 +177,7 @@
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 1
     .parameter "keyCode"
     .parameter "event"
 
@@ -196,7 +196,7 @@
 .end method
 
 .method public onLongClick(Landroid/view/View;)Z
-    .registers 5
+    .locals 3
     .parameter "v"
 
     .prologue
@@ -217,7 +217,7 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .registers 4
+    .locals 2
     .parameter "event"
 
     .prologue
@@ -228,7 +228,7 @@
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_e
+    if-eq v0, v1, :cond_0
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -236,16 +236,16 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_11
+    if-ne v0, v1, :cond_1
 
     .line 62
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/widget/ZoomButton;->mIsInLongpress:Z
 
     .line 64
-    :cond_11
+    :cond_1
     invoke-super {p0, p1}, Landroid/widget/ImageButton;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
@@ -254,12 +254,12 @@
 .end method
 
 .method public setEnabled(Z)V
-    .registers 3
+    .locals 1
     .parameter "enabled"
 
     .prologue
     .line 85
-    if-nez p1, :cond_6
+    if-nez p1, :cond_0
 
     .line 91
     const/4 v0, 0x0
@@ -267,7 +267,7 @@
     invoke-virtual {p0, v0}, Landroid/widget/ZoomButton;->setPressed(Z)V
 
     .line 93
-    :cond_6
+    :cond_0
     invoke-super {p0, p1}, Landroid/widget/ImageButton;->setEnabled(Z)V
 
     .line 94
@@ -275,7 +275,7 @@
 .end method
 
 .method public setZoomSpeed(J)V
-    .registers 3
+    .locals 0
     .parameter "speed"
 
     .prologue

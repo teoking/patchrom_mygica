@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/widget/DigitalClock;)V
-    .registers 3
+    .locals 1
     .parameter "clock"
 
     .prologue
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .registers 4
+    .locals 2
     .parameter "selfChange"
 
     .prologue
@@ -78,21 +78,22 @@
 
     .line 144
     .local v0, digitalClock:Lcom/android/internal/widget/DigitalClock;
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 145
+    #calls: Lcom/android/internal/widget/DigitalClock;->setDateFormat()V
     invoke-static {v0}, Lcom/android/internal/widget/DigitalClock;->access$200(Lcom/android/internal/widget/DigitalClock;)V
 
     .line 146
     invoke-virtual {v0}, Lcom/android/internal/widget/DigitalClock;->updateTime()V
 
     .line 154
-    :goto_10
+    :goto_0
     return-void
 
     .line 149
-    :cond_11
-    :try_start_11
+    :cond_0
+    :try_start_0
     iget-object v1, p0, Lcom/android/internal/widget/DigitalClock$FormatChangeObserver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -100,14 +101,14 @@
     move-result-object v1
 
     invoke-virtual {v1, p0}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
-    :try_end_1a
-    .catch Ljava/lang/RuntimeException; {:try_start_11 .. :try_end_1a} :catch_1b
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_10
+    goto :goto_0
 
     .line 150
-    :catch_1b
+    :catch_0
     move-exception v1
 
-    goto :goto_10
+    goto :goto_0
 .end method

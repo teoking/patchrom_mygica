@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;Landroid/renderscript/Path$Primitive;Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;F)V
-    .registers 7
+    .locals 0
     .parameter "id"
     .parameter "rs"
     .parameter "p"
@@ -54,7 +54,7 @@
 .end method
 
 .method public static createDynamicPath(Landroid/renderscript/RenderScript;Landroid/renderscript/Path$Primitive;FLandroid/renderscript/Allocation;)Landroid/renderscript/Path;
-    .registers 5
+    .locals 1
     .parameter "rs"
     .parameter "p"
     .parameter "quality"
@@ -68,7 +68,7 @@
 .end method
 
 .method public static createDynamicPath(Landroid/renderscript/RenderScript;Landroid/renderscript/Path$Primitive;FLandroid/renderscript/Allocation;Landroid/renderscript/Allocation;)Landroid/renderscript/Path;
-    .registers 6
+    .locals 1
     .parameter "rs"
     .parameter "p"
     .parameter "quality"
@@ -83,7 +83,7 @@
 .end method
 
 .method public static createStaticPath(Landroid/renderscript/RenderScript;Landroid/renderscript/Path$Primitive;FLandroid/renderscript/Allocation;)Landroid/renderscript/Path;
-    .registers 11
+    .locals 7
     .parameter "rs"
     .parameter "p"
     .parameter "quality"
@@ -133,7 +133,7 @@
 .end method
 
 .method public static createStaticPath(Landroid/renderscript/RenderScript;Landroid/renderscript/Path$Primitive;FLandroid/renderscript/Allocation;Landroid/renderscript/Allocation;)Landroid/renderscript/Path;
-    .registers 6
+    .locals 1
     .parameter "rs"
     .parameter "p"
     .parameter "quality"
@@ -150,7 +150,7 @@
 
 # virtual methods
 .method public getLoopAllocation()Landroid/renderscript/Allocation;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 57
@@ -160,7 +160,7 @@
 .end method
 
 .method public getPrimitive()Landroid/renderscript/Path$Primitive;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 61
@@ -170,7 +170,7 @@
 .end method
 
 .method public getVertexAllocation()Landroid/renderscript/Allocation;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 53
@@ -180,7 +180,7 @@
 .end method
 
 .method updateFromNative()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 66

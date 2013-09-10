@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/AdapterViewAnimator;Landroid/view/View;IIJ)V
-    .registers 7
+    .locals 0
     .parameter
     .parameter "view"
     .parameter "relativeIndex"

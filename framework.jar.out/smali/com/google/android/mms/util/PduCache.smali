@@ -106,7 +106,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 9
+    .locals 9
 
     .prologue
     const/4 v8, 0x6
@@ -316,7 +316,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 78
@@ -348,7 +348,7 @@
 .end method
 
 .method public static final declared-synchronized getInstance()Lcom/google/android/mms/util/PduCache;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 85
@@ -356,10 +356,10 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     sget-object v0, Lcom/google/android/mms/util/PduCache;->sInstance:Lcom/google/android/mms/util/PduCache;
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 89
     new-instance v0, Lcom/google/android/mms/util/PduCache;
@@ -369,17 +369,17 @@
     sput-object v0, Lcom/google/android/mms/util/PduCache;->sInstance:Lcom/google/android/mms/util/PduCache;
 
     .line 91
-    :cond_e
+    :cond_0
     sget-object v0, Lcom/google/android/mms/util/PduCache;->sInstance:Lcom/google/android/mms/util/PduCache;
-    :try_end_10
-    .catchall {:try_start_3 .. :try_end_10} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
     return-object v0
 
     .line 85
-    :catchall_12
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -388,7 +388,7 @@
 .end method
 
 .method private normalizeKey(Landroid/net/Uri;)Landroid/net/Uri;
-    .registers 6
+    .locals 4
     .parameter "uri"
 
     .prologue
@@ -405,28 +405,28 @@
 
     .line 191
     .local v2, normalizedKey:Landroid/net/Uri;
-    packed-switch v0, :pswitch_data_1a
+    packed-switch v0, :pswitch_data_0
 
     .line 203
-    :pswitch_a
+    :pswitch_0
     const/4 v3, 0x0
 
     .line 209
-    :goto_b
+    :goto_0
     return-object v3
 
     .line 193
-    :pswitch_c
+    :pswitch_1
     move-object v2, p1
 
-    :goto_d
+    :goto_1
     move-object v3, v2
 
     .line 209
-    goto :goto_b
+    goto :goto_0
 
     .line 199
-    :pswitch_f
+    :pswitch_2
     invoke-virtual {p1}, Landroid/net/Uri;->getLastPathSegment()Ljava/lang/String;
 
     move-result-object v1
@@ -440,30 +440,30 @@
     move-result-object v2
 
     .line 201
-    goto :goto_d
+    goto :goto_1
 
     .line 191
-    :pswitch_data_1a
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_c
-        :pswitch_a
-        :pswitch_f
-        :pswitch_a
-        :pswitch_f
-        :pswitch_a
-        :pswitch_f
-        :pswitch_a
-        :pswitch_f
+        :pswitch_1
+        :pswitch_0
+        :pswitch_2
+        :pswitch_0
+        :pswitch_2
+        :pswitch_0
+        :pswitch_2
+        :pswitch_0
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method private purgeByMessageBox(Ljava/lang/Integer;)V
-    .registers 7
+    .locals 5
     .parameter "msgBoxId"
 
     .prologue
     .line 217
-    if-eqz p1, :cond_2d
+    if-eqz p1, :cond_1
 
     .line 218
     iget-object v4, p0, Lcom/google/android/mms/util/PduCache;->mMessageBoxes:Ljava/util/HashMap;
@@ -476,7 +476,7 @@
 
     .line 219
     .local v3, msgBox:Ljava/util/HashSet;,"Ljava/util/HashSet<Landroid/net/Uri;>;"
-    if-eqz v3, :cond_2d
+    if-eqz v3, :cond_1
 
     .line 220
     invoke-virtual {v3}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
@@ -484,13 +484,13 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2d
+    if-eqz v4, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -513,24 +513,24 @@
 
     .line 223
     .local v0, entry:Lcom/google/android/mms/util/PduCacheEntry;
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 224
     invoke-direct {p0, v2, v0}, Lcom/google/android/mms/util/PduCache;->removeFromThreads(Landroid/net/Uri;Lcom/google/android/mms/util/PduCacheEntry;)V
 
-    goto :goto_10
+    goto :goto_0
 
     .line 229
     .end local v0           #entry:Lcom/google/android/mms/util/PduCacheEntry;
     .end local v1           #i$:Ljava/util/Iterator;
     .end local v2           #key:Landroid/net/Uri;
     .end local v3           #msgBox:Ljava/util/HashSet;,"Ljava/util/HashSet<Landroid/net/Uri;>;"
-    :cond_2d
+    :cond_1
     return-void
 .end method
 
 .method private purgeByThreadId(J)V
-    .registers 9
+    .locals 6
     .parameter "threadId"
 
     .prologue
@@ -549,7 +549,7 @@
 
     .line 244
     .local v3, thread:Ljava/util/HashSet;,"Ljava/util/HashSet<Landroid/net/Uri;>;"
-    if-eqz v3, :cond_2f
+    if-eqz v3, :cond_1
 
     .line 245
     invoke-virtual {v3}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
@@ -557,13 +557,13 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :cond_12
-    :goto_12
+    :cond_0
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2f
+    if-eqz v4, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -586,23 +586,23 @@
 
     .line 248
     .local v0, entry:Lcom/google/android/mms/util/PduCacheEntry;
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 249
     invoke-direct {p0, v2, v0}, Lcom/google/android/mms/util/PduCache;->removeFromMessageBoxes(Landroid/net/Uri;Lcom/google/android/mms/util/PduCacheEntry;)V
 
-    goto :goto_12
+    goto :goto_0
 
     .line 253
     .end local v0           #entry:Lcom/google/android/mms/util/PduCacheEntry;
     .end local v1           #i$:Ljava/util/Iterator;
     .end local v2           #key:Landroid/net/Uri;
-    :cond_2f
+    :cond_1
     return-void
 .end method
 
 .method private purgeSingleEntry(Landroid/net/Uri;)Lcom/google/android/mms/util/PduCacheEntry;
-    .registers 4
+    .locals 2
     .parameter "key"
 
     .prologue
@@ -620,7 +620,7 @@
 
     .line 166
     .local v0, entry:Lcom/google/android/mms/util/PduCacheEntry;
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 167
     invoke-direct {p0, p1, v0}, Lcom/google/android/mms/util/PduCache;->removeFromThreads(Landroid/net/Uri;Lcom/google/android/mms/util/PduCacheEntry;)V
@@ -630,18 +630,18 @@
 
     .line 171
     .end local v0           #entry:Lcom/google/android/mms/util/PduCacheEntry;
-    :goto_13
+    :goto_0
     return-object v0
 
     .restart local v0       #entry:Lcom/google/android/mms/util/PduCacheEntry;
-    :cond_14
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method private removeFromMessageBoxes(Landroid/net/Uri;Lcom/google/android/mms/util/PduCacheEntry;)V
-    .registers 7
+    .locals 4
     .parameter "key"
     .parameter "entry"
 
@@ -667,18 +667,18 @@
 
     .line 257
     .local v0, msgBox:Ljava/util/HashSet;,"Ljava/util/HashSet<Landroid/net/Uri;>;"
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 258
     invoke-virtual {v0, p1}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
 
     .line 260
-    :cond_16
+    :cond_0
     return-void
 .end method
 
 .method private removeFromThreads(Landroid/net/Uri;Lcom/google/android/mms/util/PduCacheEntry;)V
-    .registers 7
+    .locals 4
     .parameter "key"
     .parameter "entry"
 
@@ -702,32 +702,32 @@
 
     .line 233
     .local v0, thread:Ljava/util/HashSet;,"Ljava/util/HashSet<Landroid/net/Uri;>;"
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 234
     invoke-virtual {v0, p1}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
 
     .line 236
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public declared-synchronized isUpdating(Landroid/net/Uri;)Z
-    .registers 3
+    .locals 1
     .parameter "uri"
 
     .prologue
     .line 129
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Lcom/google/android/mms/util/PduCache;->mUpdating:Ljava/util/HashSet;
 
     invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
-    :try_end_6
-    .catchall {:try_start_1 .. :try_end_6} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
@@ -735,7 +735,7 @@
 
     return v0
 
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -744,7 +744,7 @@
 .end method
 
 .method public declared-synchronized purge(Landroid/net/Uri;)Lcom/google/android/mms/util/PduCacheEntry;
-    .registers 8
+    .locals 6
     .parameter "uri"
 
     .prologue
@@ -753,38 +753,38 @@
     .line 134
     monitor-enter p0
 
-    :try_start_2
+    :try_start_0
     sget-object v2, Lcom/google/android/mms/util/PduCache;->URI_MATCHER:Landroid/content/UriMatcher;
 
     invoke-virtual {v2, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
-    :try_end_7
-    .catchall {:try_start_2 .. :try_end_7} :catchall_41
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
     .line 135
     .local v0, match:I
-    packed-switch v0, :pswitch_data_44
+    packed-switch v0, :pswitch_data_0
 
     move-object v2, v3
 
     .line 159
-    :goto_c
+    :goto_0
     monitor-exit p0
 
     return-object v2
 
     .line 137
-    :pswitch_e
-    :try_start_e
+    :pswitch_0
+    :try_start_1
     invoke-direct {p0, p1}, Lcom/google/android/mms/util/PduCache;->purgeSingleEntry(Landroid/net/Uri;)Lcom/google/android/mms/util/PduCacheEntry;
 
     move-result-object v2
 
-    goto :goto_c
+    goto :goto_0
 
     .line 142
-    :pswitch_13
+    :pswitch_1
     invoke-virtual {p1}, Landroid/net/Uri;->getLastPathSegment()Ljava/lang/String;
 
     move-result-object v1
@@ -801,20 +801,20 @@
 
     move-result-object v2
 
-    goto :goto_c
+    goto :goto_0
 
     .line 147
     .end local v1           #msgId:Ljava/lang/String;
-    :pswitch_22
+    :pswitch_2
     invoke-virtual {p0}, Lcom/google/android/mms/util/PduCache;->purgeAll()V
 
     move-object v2, v3
 
     .line 148
-    goto :goto_c
+    goto :goto_0
 
     .line 153
-    :pswitch_27
+    :pswitch_3
     sget-object v2, Lcom/google/android/mms/util/PduCache;->MATCH_TO_MSGBOX_ID_MAP:Ljava/util/HashMap;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -832,26 +832,26 @@
     move-object v2, v3
 
     .line 154
-    goto :goto_c
+    goto :goto_0
 
     .line 156
-    :pswitch_38
+    :pswitch_4
     invoke-static {p1}, Landroid/content/ContentUris;->parseId(Landroid/net/Uri;)J
 
     move-result-wide v4
 
     invoke-direct {p0, v4, v5}, Lcom/google/android/mms/util/PduCache;->purgeByThreadId(J)V
-    :try_end_3f
-    .catchall {:try_start_e .. :try_end_3f} :catchall_41
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-object v2, v3
 
     .line 157
-    goto :goto_c
+    goto :goto_0
 
     .line 134
     .end local v0           #match:I
-    :catchall_41
+    :catchall_0
     move-exception v2
 
     monitor-exit p0
@@ -859,25 +859,25 @@
     throw v2
 
     .line 135
-    :pswitch_data_44
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_22
-        :pswitch_e
-        :pswitch_27
-        :pswitch_13
-        :pswitch_27
-        :pswitch_13
-        :pswitch_27
-        :pswitch_13
-        :pswitch_27
-        :pswitch_13
-        :pswitch_22
-        :pswitch_38
+        :pswitch_2
+        :pswitch_0
+        :pswitch_3
+        :pswitch_1
+        :pswitch_3
+        :pswitch_1
+        :pswitch_3
+        :pswitch_1
+        :pswitch_3
+        :pswitch_1
+        :pswitch_2
+        :pswitch_4
     .end packed-switch
 .end method
 
 .method public bridge synthetic purge(Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -893,13 +893,13 @@
 .end method
 
 .method public declared-synchronized purgeAll()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 176
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-super {p0}, Lcom/google/android/mms/util/AbstractCache;->purgeAll()V
 
     .line 178
@@ -916,8 +916,8 @@
     iget-object v0, p0, Lcom/google/android/mms/util/PduCache;->mUpdating:Ljava/util/HashSet;
 
     invoke-virtual {v0}, Ljava/util/HashSet;->clear()V
-    :try_end_13
-    .catchall {:try_start_1 .. :try_end_13} :catchall_15
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 181
     monitor-exit p0
@@ -925,7 +925,7 @@
     return-void
 
     .line 176
-    :catchall_15
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -934,7 +934,7 @@
 .end method
 
 .method public declared-synchronized put(Landroid/net/Uri;Lcom/google/android/mms/util/PduCacheEntry;)Z
-    .registers 12
+    .locals 9
     .parameter "uri"
     .parameter "entry"
 
@@ -942,7 +942,7 @@
     .line 96
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-virtual {p2}, Lcom/google/android/mms/util/PduCacheEntry;->getMessageBox()I
 
     move-result v2
@@ -963,7 +963,7 @@
 
     .line 98
     .local v1, msgBox:Ljava/util/HashSet;,"Ljava/util/HashSet<Landroid/net/Uri;>;"
-    if-nez v1, :cond_21
+    if-nez v1, :cond_0
 
     .line 99
     new-instance v1, Ljava/util/HashSet;
@@ -982,7 +982,7 @@
     invoke-virtual {v7, v8, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 103
-    :cond_21
+    :cond_0
     invoke-virtual {p2}, Lcom/google/android/mms/util/PduCacheEntry;->getThreadId()J
 
     move-result-wide v5
@@ -1003,7 +1003,7 @@
 
     .line 105
     .local v4, thread:Ljava/util/HashSet;,"Ljava/util/HashSet<Landroid/net/Uri;>;"
-    if-nez v4, :cond_41
+    if-nez v4, :cond_1
 
     .line 106
     new-instance v4, Ljava/util/HashSet;
@@ -1022,7 +1022,7 @@
     invoke-virtual {v7, v8, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 110
-    :cond_41
+    :cond_1
     invoke-direct {p0, p1}, Lcom/google/android/mms/util/PduCache;->normalizeKey(Landroid/net/Uri;)Landroid/net/Uri;
 
     move-result-object v0
@@ -1035,7 +1035,7 @@
 
     .line 112
     .local v3, result:Z
-    if-eqz v3, :cond_51
+    if-eqz v3, :cond_2
 
     .line 113
     invoke-virtual {v1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
@@ -1044,12 +1044,12 @@
     invoke-virtual {v4, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     .line 116
-    :cond_51
+    :cond_2
     const/4 v7, 0x0
 
     invoke-virtual {p0, p1, v7}, Lcom/google/android/mms/util/PduCache;->setUpdating(Landroid/net/Uri;Z)V
-    :try_end_55
-    .catchall {:try_start_1 .. :try_end_55} :catchall_57
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 117
     monitor-exit p0
@@ -1063,7 +1063,7 @@
     .end local v3           #result:Z
     .end local v4           #thread:Ljava/util/HashSet;,"Ljava/util/HashSet<Landroid/net/Uri;>;"
     .end local v5           #threadId:J
-    :catchall_57
+    :catchall_0
     move-exception v7
 
     monitor-exit p0
@@ -1072,7 +1072,7 @@
 .end method
 
 .method public bridge synthetic put(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -1092,7 +1092,7 @@
 .end method
 
 .method public declared-synchronized setUpdating(Landroid/net/Uri;Z)V
-    .registers 4
+    .locals 1
     .parameter "uri"
     .parameter "updating"
 
@@ -1100,35 +1100,35 @@
     .line 121
     monitor-enter p0
 
-    if-eqz p2, :cond_a
+    if-eqz p2, :cond_0
 
     .line 122
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Lcom/google/android/mms/util/PduCache;->mUpdating:Ljava/util/HashSet;
 
     invoke-virtual {v0, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-    :try_end_8
-    .catchall {:try_start_3 .. :try_end_8} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 126
-    :goto_8
+    :goto_0
     monitor-exit p0
 
     return-void
 
     .line 124
-    :cond_a
-    :try_start_a
+    :cond_0
+    :try_start_1
     iget-object v0, p0, Lcom/google/android/mms/util/PduCache;->mUpdating:Ljava/util/HashSet;
 
     invoke-virtual {v0, p1}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
-    :try_end_f
-    .catchall {:try_start_a .. :try_end_f} :catchall_10
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_8
+    goto :goto_0
 
     .line 121
-    :catchall_10
+    :catchall_0
     move-exception v0
 
     monitor-exit p0

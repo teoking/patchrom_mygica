@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 41
@@ -45,7 +45,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 70
@@ -55,7 +55,7 @@
 .end method
 
 .method public static componentNameToUri(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
-    .registers 4
+    .locals 2
     .parameter "packageName"
     .parameter "className"
 
@@ -89,7 +89,7 @@
 .end method
 
 .method public static search(Landroid/content/ContentResolver;Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 8
+    .locals 6
     .parameter "resolver"
     .parameter "query"
 
@@ -135,22 +135,22 @@
 .end method
 
 .method public static uriToComponentName(Landroid/net/Uri;)Landroid/content/ComponentName;
-    .registers 7
+    .locals 6
     .parameter "appUri"
 
     .prologue
     const/4 v3, 0x0
 
     .line 91
-    if-nez p0, :cond_4
+    if-nez p0, :cond_1
 
     .line 99
-    :cond_3
-    :goto_3
+    :cond_0
+    :goto_0
     return-object v3
 
     .line 92
-    :cond_4
+    :cond_1
     const-string v4, "content"
 
     invoke-virtual {p0}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
@@ -161,7 +161,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_0
 
     .line 93
     const-string v4, "applications"
@@ -174,7 +174,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_0
 
     .line 94
     invoke-virtual {p0}, Landroid/net/Uri;->getPathSegments()Ljava/util/List;
@@ -189,7 +189,7 @@
 
     const/4 v5, 0x3
 
-    if-ne v4, v5, :cond_3
+    if-ne v4, v5, :cond_0
 
     .line 96
     const-string v4, "applications"
@@ -204,7 +204,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_0
 
     .line 97
     const/4 v3, 0x1
@@ -231,5 +231,5 @@
 
     invoke-direct {v3, v1, v0}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method

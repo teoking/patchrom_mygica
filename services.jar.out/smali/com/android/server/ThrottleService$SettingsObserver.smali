@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/Handler;I)V
-    .registers 3
+    .locals 0
     .parameter "handler"
     .parameter "msg"
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .registers 4
+    .locals 2
     .parameter "selfChange"
 
     .prologue
@@ -63,7 +63,7 @@
 .end method
 
 .method register(Landroid/content/Context;)V
-    .registers 5
+    .locals 3
     .parameter "context"
 
     .prologue
@@ -143,7 +143,7 @@
 .end method
 
 .method unregister(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/util/AsyncChannel;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 5
+    .locals 2
     .parameter "className"
     .parameter "service"
 
@@ -51,6 +51,7 @@
 
     invoke-direct {v1, p2}, Landroid/os/Messenger;-><init>(Landroid/os/IBinder;)V
 
+    #setter for: Lcom/android/internal/util/AsyncChannel;->mDstMessenger:Landroid/os/Messenger;
     invoke-static {v0, v1}, Lcom/android/internal/util/AsyncChannel;->access$502(Lcom/android/internal/util/AsyncChannel;Landroid/os/Messenger;)Landroid/os/Messenger;
 
     .line 853
@@ -58,6 +59,7 @@
 
     const/4 v1, 0x0
 
+    #calls: Lcom/android/internal/util/AsyncChannel;->replyHalfConnected(I)V
     invoke-static {v0, v1}, Lcom/android/internal/util/AsyncChannel;->access$000(Lcom/android/internal/util/AsyncChannel;I)V
 
     .line 854
@@ -65,7 +67,7 @@
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .registers 4
+    .locals 2
     .parameter "className"
 
     .prologue
@@ -74,6 +76,7 @@
 
     const/4 v1, 0x0
 
+    #calls: Lcom/android/internal/util/AsyncChannel;->replyDisconnected(I)V
     invoke-static {v0, v1}, Lcom/android/internal/util/AsyncChannel;->access$600(Lcom/android/internal/util/AsyncChannel;I)V
 
     .line 859

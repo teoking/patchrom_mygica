@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(IIII)V
-    .registers 5
+    .locals 0
     .parameter "width"
     .parameter "height"
     .parameter "x"
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 6
+    .locals 3
     .parameter "c"
     .parameter "attrs"
 
@@ -85,7 +85,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 2
+    .locals 0
     .parameter "source"
 
     .prologue
@@ -99,7 +99,7 @@
 
 # virtual methods
 .method public debug(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "output"
 
     .prologue

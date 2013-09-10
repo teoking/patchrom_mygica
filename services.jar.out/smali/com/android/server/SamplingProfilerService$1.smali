@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/SamplingProfilerService;Ljava/lang/String;ILandroid/os/DropBoxManager;)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter "x1"
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public onEvent(ILjava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "event"
     .parameter "path"
 
@@ -58,6 +58,7 @@
 
     iget-object v2, p0, Lcom/android/server/SamplingProfilerService$1;->val$dropbox:Landroid/os/DropBoxManager;
 
+    #calls: Lcom/android/server/SamplingProfilerService;->handleSnapshotFile(Ljava/io/File;Landroid/os/DropBoxManager;)V
     invoke-static {v0, v1, v2}, Lcom/android/server/SamplingProfilerService;->access$000(Lcom/android/server/SamplingProfilerService;Ljava/io/File;Landroid/os/DropBoxManager;)V
 
     .line 72

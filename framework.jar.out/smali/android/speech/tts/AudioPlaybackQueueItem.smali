@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;Ljava/lang/Object;Landroid/content/Context;Landroid/net/Uri;I)V
-    .registers 7
+    .locals 1
     .parameter "dispatcher"
     .parameter "callerIdentity"
     .parameter "context"
@@ -65,7 +65,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/speech/tts/AudioPlaybackQueueItem;)Landroid/os/ConditionVariable;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -76,7 +76,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/speech/tts/AudioPlaybackQueueItem;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -88,7 +88,7 @@
 .end method
 
 .method private finish()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 94
@@ -96,11 +96,11 @@
     iget-object v0, p0, Landroid/speech/tts/AudioPlaybackQueueItem;->mPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->stop()V
-    :try_end_5
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_5} :catch_b
+    :try_end_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 98
-    :goto_5
+    :goto_0
     iget-object v0, p0, Landroid/speech/tts/AudioPlaybackQueueItem;->mPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->release()V
@@ -109,16 +109,16 @@
     return-void
 
     .line 95
-    :catch_b
+    :catch_0
     move-exception v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 51
@@ -144,18 +144,18 @@
     .line 55
     iget-object v2, p0, Landroid/speech/tts/AudioPlaybackQueueItem;->mPlayer:Landroid/media/MediaPlayer;
 
-    if-nez v2, :cond_19
+    if-nez v2, :cond_0
 
     .line 56
     invoke-interface {v0}, Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;->dispatchOnError()V
 
     .line 90
-    :goto_18
+    :goto_0
     return-void
 
     .line 61
-    :cond_19
-    :try_start_19
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Landroid/speech/tts/AudioPlaybackQueueItem;->mPlayer:Landroid/media/MediaPlayer;
 
     new-instance v3, Landroid/speech/tts/AudioPlaybackQueueItem$1;
@@ -192,22 +192,22 @@
 
     .line 79
     invoke-direct {p0}, Landroid/speech/tts/AudioPlaybackQueueItem;->finish()V
-    :try_end_41
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_19 .. :try_end_41} :catch_49
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 85
-    :goto_41
+    :goto_1
     iget-boolean v2, p0, Landroid/speech/tts/AudioPlaybackQueueItem;->mFinished:Z
 
-    if-eqz v2, :cond_57
+    if-eqz v2, :cond_1
 
     .line 86
     invoke-interface {v0}, Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;->dispatchOnDone()V
 
-    goto :goto_18
+    goto :goto_0
 
     .line 80
-    :catch_49
+    :catch_0
     move-exception v1
 
     .line 81
@@ -223,18 +223,18 @@
 
     invoke-virtual {v2}, Landroid/os/ConditionVariable;->open()V
 
-    goto :goto_41
+    goto :goto_1
 
     .line 88
     .end local v1           #ex:Ljava/lang/IllegalArgumentException;
-    :cond_57
+    :cond_1
     invoke-interface {v0}, Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;->dispatchOnError()V
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method stop(Z)V
-    .registers 3
+    .locals 1
     .parameter "isError"
 
     .prologue

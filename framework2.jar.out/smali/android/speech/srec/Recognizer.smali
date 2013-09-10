@@ -59,7 +59,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 107
@@ -76,7 +76,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "configFile"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -299,7 +299,7 @@
 .end method
 
 .method static synthetic access$000(Ljava/lang/String;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -312,7 +312,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/speech/srec/Recognizer;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -323,7 +323,7 @@
 .end method
 
 .method static synthetic access$1000(I)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -334,7 +334,7 @@
 .end method
 
 .method static synthetic access$200(II)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -346,7 +346,7 @@
 .end method
 
 .method static synthetic access$300(I)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -357,7 +357,7 @@
 .end method
 
 .method static synthetic access$400(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
-    .registers 6
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -373,7 +373,7 @@
 .end method
 
 .method static synthetic access$500(I)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -384,7 +384,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/speech/srec/Recognizer;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -395,7 +395,7 @@
 .end method
 
 .method static synthetic access$700(II)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -407,7 +407,7 @@
 .end method
 
 .method static synthetic access$802(Landroid/speech/srec/Recognizer;Landroid/speech/srec/Recognizer$Grammar;)Landroid/speech/srec/Recognizer$Grammar;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -419,7 +419,7 @@
 .end method
 
 .method static synthetic access$900(ILjava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -431,12 +431,12 @@
 .end method
 
 .method public static eventToString(I)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "event"
 
     .prologue
     .line 572
-    packed-switch p0, :pswitch_data_3e
+    packed-switch p0, :pswitch_data_0
 
     .line 600
     new-instance v0, Ljava/lang/StringBuilder;
@@ -457,118 +457,118 @@
 
     move-result-object v0
 
-    :goto_16
+    :goto_0
     return-object v0
 
     .line 574
-    :pswitch_17
+    :pswitch_0
     const-string v0, "EVENT_INVALID"
 
-    goto :goto_16
+    goto :goto_0
 
     .line 576
-    :pswitch_1a
+    :pswitch_1
     const-string v0, "EVENT_NO_MATCH"
 
-    goto :goto_16
+    goto :goto_0
 
     .line 578
-    :pswitch_1d
+    :pswitch_2
     const-string v0, "EVENT_INCOMPLETE"
 
-    goto :goto_16
+    goto :goto_0
 
     .line 580
-    :pswitch_20
+    :pswitch_3
     const-string v0, "EVENT_STARTED"
 
-    goto :goto_16
+    goto :goto_0
 
     .line 582
-    :pswitch_23
+    :pswitch_4
     const-string v0, "EVENT_STOPPED"
 
-    goto :goto_16
+    goto :goto_0
 
     .line 584
-    :pswitch_26
+    :pswitch_5
     const-string v0, "EVENT_START_OF_VOICING"
 
-    goto :goto_16
+    goto :goto_0
 
     .line 586
-    :pswitch_29
+    :pswitch_6
     const-string v0, "EVENT_END_OF_VOICING"
 
-    goto :goto_16
+    goto :goto_0
 
     .line 588
-    :pswitch_2c
+    :pswitch_7
     const-string v0, "EVENT_SPOKE_TOO_SOON"
 
-    goto :goto_16
+    goto :goto_0
 
     .line 590
-    :pswitch_2f
+    :pswitch_8
     const-string v0, "EVENT_RECOGNITION_RESULT"
 
-    goto :goto_16
+    goto :goto_0
 
     .line 592
-    :pswitch_32
+    :pswitch_9
     const-string v0, "EVENT_START_OF_UTTERANCE_TIMEOUT"
 
-    goto :goto_16
+    goto :goto_0
 
     .line 594
-    :pswitch_35
+    :pswitch_a
     const-string v0, "EVENT_RECOGNITION_TIMEOUT"
 
-    goto :goto_16
+    goto :goto_0
 
     .line 596
-    :pswitch_38
+    :pswitch_b
     const-string v0, "EVENT_NEED_MORE_AUDIO"
 
-    goto :goto_16
+    goto :goto_0
 
     .line 598
-    :pswitch_3b
+    :pswitch_c
     const-string v0, "EVENT_MAX_SPEECH"
 
-    goto :goto_16
+    goto :goto_0
 
     .line 572
-    :pswitch_data_3e
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_17
-        :pswitch_1a
-        :pswitch_1d
-        :pswitch_20
-        :pswitch_23
-        :pswitch_26
-        :pswitch_29
-        :pswitch_2c
-        :pswitch_2f
-        :pswitch_32
-        :pswitch_35
-        :pswitch_38
-        :pswitch_3b
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
+        :pswitch_a
+        :pswitch_b
+        :pswitch_c
     .end packed-switch
 .end method
 
 .method public static getConfigDir(Ljava/util/Locale;)Ljava/lang/String;
-    .registers 6
+    .locals 5
     .parameter "locale"
 
     .prologue
     .line 146
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     sget-object p0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
     .line 147
-    :cond_4
+    :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -613,24 +613,24 @@
 
     move-result v1
 
-    if-eqz v1, :cond_33
+    if-eqz v1, :cond_1
 
     .line 150
     .end local v0           #dir:Ljava/lang/String;
-    :goto_32
+    :goto_0
     return-object v0
 
     .restart local v0       #dir:Ljava/lang/String;
-    :cond_33
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_32
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public advance()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 284
@@ -644,61 +644,61 @@
 .end method
 
 .method public destroy()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
 
     .line 404
-    :try_start_1
+    :try_start_0
     iget v0, p0, Landroid/speech/srec/Recognizer;->mVocabulary:I
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     iget v0, p0, Landroid/speech/srec/Recognizer;->mVocabulary:I
 
     invoke-static {v0}, Landroid/speech/srec/Recognizer;->SR_VocabularyDestroy(I)V
-    :try_end_a
-    .catchall {:try_start_1 .. :try_end_a} :catchall_62
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_7
 
     .line 406
-    :cond_a
+    :cond_0
     iput v2, p0, Landroid/speech/srec/Recognizer;->mVocabulary:I
 
     .line 408
-    :try_start_c
+    :try_start_1
     iget v0, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_1
 
     iget v0, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     invoke-static {v0}, Landroid/speech/srec/Recognizer;->SR_RecognizerUnsetup(I)V
-    :try_end_15
-    .catchall {:try_start_c .. :try_end_15} :catchall_3b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_3
 
     .line 411
-    :cond_15
-    :try_start_15
+    :cond_1
+    :try_start_2
     iget v0, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_2
 
     iget v0, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     invoke-static {v0}, Landroid/speech/srec/Recognizer;->SR_RecognizerDestroy(I)V
-    :try_end_1e
-    .catchall {:try_start_15 .. :try_end_1e} :catchall_2c
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 413
-    :cond_1e
+    :cond_2
     iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     .line 415
-    :try_start_20
+    :try_start_3
     invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
-    :try_end_23
-    .catchall {:try_start_20 .. :try_end_23} :catchall_27
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 417
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
@@ -707,7 +707,7 @@
     return-void
 
     .line 417
-    :catchall_27
+    :catchall_0
     move-exception v0
 
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
@@ -715,23 +715,23 @@
     throw v0
 
     .line 413
-    :catchall_2c
+    :catchall_1
     move-exception v0
 
     iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     .line 415
-    :try_start_2f
+    :try_start_4
     invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
-    :try_end_32
-    .catchall {:try_start_2f .. :try_end_32} :catchall_36
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
     .line 417
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
 
     throw v0
 
-    :catchall_36
+    :catchall_2
     move-exception v0
 
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
@@ -739,37 +739,37 @@
     throw v0
 
     .line 410
-    :catchall_3b
+    :catchall_3
     move-exception v0
 
     .line 411
-    :try_start_3c
+    :try_start_5
     iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
-    if-eqz v1, :cond_45
+    if-eqz v1, :cond_3
 
     iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     invoke-static {v1}, Landroid/speech/srec/Recognizer;->SR_RecognizerDestroy(I)V
-    :try_end_45
-    .catchall {:try_start_3c .. :try_end_45} :catchall_53
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_5
 
     .line 413
-    :cond_45
+    :cond_3
     iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     .line 415
-    :try_start_47
+    :try_start_6
     invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
-    :try_end_4a
-    .catchall {:try_start_47 .. :try_end_4a} :catchall_4e
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_4
 
     .line 417
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
 
     throw v0
 
-    :catchall_4e
+    :catchall_4
     move-exception v0
 
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
@@ -777,23 +777,23 @@
     throw v0
 
     .line 413
-    :catchall_53
+    :catchall_5
     move-exception v0
 
     iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     .line 415
-    :try_start_56
+    :try_start_7
     invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
-    :try_end_59
-    .catchall {:try_start_56 .. :try_end_59} :catchall_5d
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_6
 
     .line 417
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
 
     throw v0
 
-    :catchall_5d
+    :catchall_6
     move-exception v0
 
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
@@ -801,52 +801,52 @@
     throw v0
 
     .line 406
-    :catchall_62
+    :catchall_7
     move-exception v0
 
     iput v2, p0, Landroid/speech/srec/Recognizer;->mVocabulary:I
 
     .line 408
-    :try_start_65
+    :try_start_8
     iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
-    if-eqz v1, :cond_6e
+    if-eqz v1, :cond_4
 
     iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     invoke-static {v1}, Landroid/speech/srec/Recognizer;->SR_RecognizerUnsetup(I)V
-    :try_end_6e
-    .catchall {:try_start_65 .. :try_end_6e} :catchall_94
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_b
 
     .line 411
-    :cond_6e
-    :try_start_6e
+    :cond_4
+    :try_start_9
     iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
-    if-eqz v1, :cond_77
+    if-eqz v1, :cond_5
 
     iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     invoke-static {v1}, Landroid/speech/srec/Recognizer;->SR_RecognizerDestroy(I)V
-    :try_end_77
-    .catchall {:try_start_6e .. :try_end_77} :catchall_85
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_9
 
     .line 413
-    :cond_77
+    :cond_5
     iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     .line 415
-    :try_start_79
+    :try_start_a
     invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
-    :try_end_7c
-    .catchall {:try_start_79 .. :try_end_7c} :catchall_80
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_8
 
     .line 417
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
 
     throw v0
 
-    :catchall_80
+    :catchall_8
     move-exception v0
 
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
@@ -854,23 +854,23 @@
     throw v0
 
     .line 413
-    :catchall_85
+    :catchall_9
     move-exception v0
 
     iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     .line 415
-    :try_start_88
+    :try_start_b
     invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
-    :try_end_8b
-    .catchall {:try_start_88 .. :try_end_8b} :catchall_8f
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_a
 
     .line 417
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
 
     throw v0
 
-    :catchall_8f
+    :catchall_a
     move-exception v0
 
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
@@ -878,37 +878,37 @@
     throw v0
 
     .line 410
-    :catchall_94
+    :catchall_b
     move-exception v0
 
     .line 411
-    :try_start_95
+    :try_start_c
     iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
-    if-eqz v1, :cond_9e
+    if-eqz v1, :cond_6
 
     iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     invoke-static {v1}, Landroid/speech/srec/Recognizer;->SR_RecognizerDestroy(I)V
-    :try_end_9e
-    .catchall {:try_start_95 .. :try_end_9e} :catchall_ac
+    :try_end_c
+    .catchall {:try_start_c .. :try_end_c} :catchall_d
 
     .line 413
-    :cond_9e
+    :cond_6
     iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     .line 415
-    :try_start_a0
+    :try_start_d
     invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
-    :try_end_a3
-    .catchall {:try_start_a0 .. :try_end_a3} :catchall_a7
+    :try_end_d
+    .catchall {:try_start_d .. :try_end_d} :catchall_c
 
     .line 417
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
 
     throw v0
 
-    :catchall_a7
+    :catchall_c
     move-exception v0
 
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
@@ -916,23 +916,23 @@
     throw v0
 
     .line 413
-    :catchall_ac
+    :catchall_d
     move-exception v0
 
     iput v2, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     .line 415
-    :try_start_af
+    :try_start_e
     invoke-static {}, Landroid/speech/srec/Recognizer;->SR_SessionDestroy()V
-    :try_end_b2
-    .catchall {:try_start_af .. :try_end_b2} :catchall_b6
+    :try_end_e
+    .catchall {:try_start_e .. :try_end_e} :catchall_e
 
     .line 417
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
 
     throw v0
 
-    :catchall_b6
+    :catchall_e
     move-exception v0
 
     invoke-static {}, Landroid/speech/srec/Recognizer;->PMemShutdown()V
@@ -941,7 +941,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -952,14 +952,14 @@
     .line 428
     iget v0, p0, Landroid/speech/srec/Recognizer;->mVocabulary:I
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     iget v0, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     .line 429
-    :cond_8
+    :cond_0
     invoke-virtual {p0}, Landroid/speech/srec/Recognizer;->destroy()V
 
     .line 430
@@ -972,12 +972,12 @@
     throw v0
 
     .line 432
-    :cond_13
+    :cond_1
     return-void
 .end method
 
 .method public getAcousticState()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 396
@@ -991,7 +991,7 @@
 .end method
 
 .method public getResult(ILjava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 1
     .parameter "index"
     .parameter "key"
 
@@ -1007,7 +1007,7 @@
 .end method
 
 .method public getResultCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 330
@@ -1021,7 +1021,7 @@
 .end method
 
 .method public getResultKeys(I)[Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -1036,7 +1036,7 @@
 .end method
 
 .method public putAudio([BIIZ)I
-    .registers 6
+    .locals 1
     .parameter "buf"
     .parameter "offset"
     .parameter "length"
@@ -1054,7 +1054,7 @@
 .end method
 
 .method public putAudio(Ljava/io/InputStream;)V
-    .registers 7
+    .locals 5
     .parameter "audio"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1068,7 +1068,7 @@
     .line 306
     iget-object v1, p0, Landroid/speech/srec/Recognizer;->mPutAudioBuffer:[B
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_0
 
     const/16 v1, 0x200
 
@@ -1077,7 +1077,7 @@
     iput-object v1, p0, Landroid/speech/srec/Recognizer;->mPutAudioBuffer:[B
 
     .line 308
-    :cond_b
+    :cond_0
     iget-object v1, p0, Landroid/speech/srec/Recognizer;->mPutAudioBuffer:[B
 
     invoke-virtual {p1, v1}, Ljava/io/InputStream;->read([B)I
@@ -1088,7 +1088,7 @@
     .local v0, nbytes:I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_1d
+    if-ne v0, v1, :cond_2
 
     .line 311
     iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
@@ -1100,11 +1100,11 @@
     invoke-static {v1, v2, v4, v4, v3}, Landroid/speech/srec/Recognizer;->SR_RecognizerPutAudio(I[BIIZ)I
 
     .line 317
-    :cond_1c
+    :cond_1
     return-void
 
     .line 314
-    :cond_1d
+    :cond_2
     iget v1, p0, Landroid/speech/srec/Recognizer;->mRecognizer:I
 
     iget-object v2, p0, Landroid/speech/srec/Recognizer;->mPutAudioBuffer:[B
@@ -1113,7 +1113,7 @@
 
     move-result v1
 
-    if-eq v0, v1, :cond_1c
+    if-eq v0, v1, :cond_1
 
     .line 315
     new-instance v1, Ljava/io/IOException;
@@ -1142,7 +1142,7 @@
 .end method
 
 .method public resetAcousticState()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 376
@@ -1155,7 +1155,7 @@
 .end method
 
 .method public setAcousticState(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "state"
 
     .prologue
@@ -1169,7 +1169,7 @@
 .end method
 
 .method public start()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 260
@@ -1177,6 +1177,7 @@
 
     iget-object v1, p0, Landroid/speech/srec/Recognizer;->mActiveGrammar:Landroid/speech/srec/Recognizer$Grammar;
 
+    #getter for: Landroid/speech/srec/Recognizer$Grammar;->mGrammar:I
     invoke-static {v1}, Landroid/speech/srec/Recognizer$Grammar;->access$1100(Landroid/speech/srec/Recognizer$Grammar;)I
 
     move-result v1
@@ -1197,7 +1198,7 @@
 .end method
 
 .method public stop()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 366
@@ -1210,6 +1211,7 @@
 
     iget-object v1, p0, Landroid/speech/srec/Recognizer;->mActiveGrammar:Landroid/speech/srec/Recognizer$Grammar;
 
+    #getter for: Landroid/speech/srec/Recognizer$Grammar;->mGrammar:I
     invoke-static {v1}, Landroid/speech/srec/Recognizer$Grammar;->access$1100(Landroid/speech/srec/Recognizer$Grammar;)I
 
     move-result v1

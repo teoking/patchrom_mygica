@@ -91,7 +91,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 18
@@ -107,22 +107,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/view/IInputMethodManager;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 27
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 28
     const/4 v0, 0x0
 
     .line 34
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 30
-    :cond_4
+    :cond_0
     const-string v1, "com.android.internal.view.IInputMethodManager"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -131,31 +131,31 @@
 
     .line 31
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/view/IInputMethodManager;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 32
     check-cast v0, Lcom/android/internal/view/IInputMethodManager;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 34
-    :cond_13
+    :cond_1
     new-instance v0, Lcom/android/internal/view/IInputMethodManager$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/view/IInputMethodManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 38
@@ -163,7 +163,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 16
+    .locals 11
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -176,18 +176,18 @@
 
     .prologue
     .line 42
-    sparse-switch p1, :sswitch_data_3de
+    sparse-switch p1, :sswitch_data_0
 
     .line 463
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0
 
-    :goto_7
+    :goto_0
     return v0
 
     .line 46
-    :sswitch_8
+    :sswitch_0
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
@@ -195,10 +195,10 @@
     .line 47
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 51
-    :sswitch_f
+    :sswitch_1
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -218,11 +218,11 @@
     .line 55
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 59
     .end local v9           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodInfo;>;"
-    :sswitch_20
+    :sswitch_2
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -242,11 +242,11 @@
     .line 63
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 67
     .end local v9           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodInfo;>;"
-    :sswitch_31
+    :sswitch_3
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -256,7 +256,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_57
+    if-eqz v0, :cond_0
 
     .line 70
     sget-object v0, Landroid/view/inputmethod/InputMethodInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -269,18 +269,18 @@
 
     .line 76
     .local v1, _arg0:Landroid/view/inputmethod/InputMethodInfo;
-    :goto_44
+    :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_59
+    if-eqz v0, :cond_1
 
     const/4 v2, 0x1
 
     .line 77
     .local v2, _arg1:Z
-    :goto_4b
+    :goto_2
     invoke-virtual {p0, v1, v2}, Lcom/android/internal/view/IInputMethodManager$Stub;->getEnabledInputMethodSubtypeList(Landroid/view/inputmethod/InputMethodInfo;Z)Ljava/util/List;
 
     move-result-object v10
@@ -295,27 +295,27 @@
     .line 80
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 73
     .end local v1           #_arg0:Landroid/view/inputmethod/InputMethodInfo;
     .end local v2           #_arg1:Z
     .end local v10           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
-    :cond_57
+    :cond_0
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/view/inputmethod/InputMethodInfo;
-    goto :goto_44
+    goto :goto_1
 
     .line 76
-    :cond_59
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_4b
+    goto :goto_2
 
     .line 84
     .end local v1           #_arg0:Landroid/view/inputmethod/InputMethodInfo;
-    :sswitch_5b
+    :sswitch_4
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -330,7 +330,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 87
-    if-eqz v8, :cond_73
+    if-eqz v8, :cond_2
 
     .line 88
     const/4 v0, 0x1
@@ -343,22 +343,22 @@
     invoke-virtual {v8, p3, v0}, Landroid/view/inputmethod/InputMethodSubtype;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 94
-    :goto_71
+    :goto_3
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 92
-    :cond_73
+    :cond_2
     const/4 v0, 0x0
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_71
+    goto :goto_3
 
     .line 98
     .end local v8           #_result:Landroid/view/inputmethod/InputMethodSubtype;
-    :sswitch_78
+    :sswitch_5
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -378,11 +378,11 @@
     .line 102
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 106
     .end local v8           #_result:Ljava/util/List;
-    :sswitch_8a
+    :sswitch_6
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -428,14 +428,14 @@
     .line 117
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 121
     .end local v1           #_arg0:Lcom/android/internal/view/IInputMethodClient;
     .end local v2           #_arg1:Lcom/android/internal/view/IInputContext;
     .end local v3           #_arg2:I
     .end local v4           #_arg3:I
-    :sswitch_b0
+    :sswitch_7
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -459,11 +459,11 @@
     .line 126
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 130
     .end local v1           #_arg0:Lcom/android/internal/view/IInputMethodClient;
-    :sswitch_c6
+    :sswitch_8
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -493,7 +493,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_101
+    if-eqz v0, :cond_3
 
     .line 137
     sget-object v0, Landroid/view/inputmethod/EditorInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -506,7 +506,7 @@
 
     .line 143
     .local v3, _arg2:Landroid/view/inputmethod/EditorInfo;
-    :goto_e9
+    :goto_4
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
@@ -522,7 +522,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 146
-    if-eqz v8, :cond_103
+    if-eqz v8, :cond_4
 
     .line 147
     const/4 v0, 0x1
@@ -535,30 +535,30 @@
     invoke-virtual {v8, p3, v0}, Lcom/android/internal/view/InputBindResult;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 153
-    :goto_fe
+    :goto_5
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 140
     .end local v3           #_arg2:Landroid/view/inputmethod/EditorInfo;
     .end local v4           #_arg3:I
     .end local v8           #_result:Lcom/android/internal/view/InputBindResult;
-    :cond_101
+    :cond_3
     const/4 v3, 0x0
 
     .restart local v3       #_arg2:Landroid/view/inputmethod/EditorInfo;
-    goto :goto_e9
+    goto :goto_4
 
     .line 151
     .restart local v4       #_arg3:I
     .restart local v8       #_result:Lcom/android/internal/view/InputBindResult;
-    :cond_103
+    :cond_4
     const/4 v0, 0x0
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_fe
+    goto :goto_5
 
     .line 157
     .end local v1           #_arg0:Lcom/android/internal/view/IInputMethodClient;
@@ -566,7 +566,7 @@
     .end local v3           #_arg2:Landroid/view/inputmethod/EditorInfo;
     .end local v4           #_arg3:I
     .end local v8           #_result:Lcom/android/internal/view/InputBindResult;
-    :sswitch_108
+    :sswitch_9
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -590,11 +590,11 @@
     .line 162
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 166
     .end local v1           #_arg0:Lcom/android/internal/view/IInputMethodClient;
-    :sswitch_11e
+    :sswitch_a
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -620,7 +620,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_14d
+    if-eqz v0, :cond_5
 
     .line 173
     sget-object v0, Landroid/os/ResultReceiver;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -633,7 +633,7 @@
 
     .line 178
     .local v3, _arg2:Landroid/os/ResultReceiver;
-    :goto_13d
+    :goto_6
     invoke-virtual {p0, v1, v2, v3}, Lcom/android/internal/view/IInputMethodManager$Stub;->showSoftInput(Lcom/android/internal/view/IInputMethodClient;ILandroid/os/ResultReceiver;)Z
 
     move-result v8
@@ -643,40 +643,40 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 180
-    if-eqz v8, :cond_14f
+    if-eqz v8, :cond_6
 
     const/4 v0, 0x1
 
-    :goto_147
+    :goto_7
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 181
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 176
     .end local v3           #_arg2:Landroid/os/ResultReceiver;
     .end local v8           #_result:Z
-    :cond_14d
+    :cond_5
     const/4 v3, 0x0
 
     .restart local v3       #_arg2:Landroid/os/ResultReceiver;
-    goto :goto_13d
+    goto :goto_6
 
     .line 180
     .restart local v8       #_result:Z
-    :cond_14f
+    :cond_6
     const/4 v0, 0x0
 
-    goto :goto_147
+    goto :goto_7
 
     .line 185
     .end local v1           #_arg0:Lcom/android/internal/view/IInputMethodClient;
     .end local v2           #_arg1:I
     .end local v3           #_arg2:Landroid/os/ResultReceiver;
     .end local v8           #_result:Z
-    :sswitch_151
+    :sswitch_b
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -702,7 +702,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_180
+    if-eqz v0, :cond_7
 
     .line 192
     sget-object v0, Landroid/os/ResultReceiver;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -715,7 +715,7 @@
 
     .line 197
     .restart local v3       #_arg2:Landroid/os/ResultReceiver;
-    :goto_170
+    :goto_8
     invoke-virtual {p0, v1, v2, v3}, Lcom/android/internal/view/IInputMethodManager$Stub;->hideSoftInput(Lcom/android/internal/view/IInputMethodClient;ILandroid/os/ResultReceiver;)Z
 
     move-result v8
@@ -725,40 +725,40 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 199
-    if-eqz v8, :cond_182
+    if-eqz v8, :cond_8
 
     const/4 v0, 0x1
 
-    :goto_17a
+    :goto_9
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 200
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 195
     .end local v3           #_arg2:Landroid/os/ResultReceiver;
     .end local v8           #_result:Z
-    :cond_180
+    :cond_7
     const/4 v3, 0x0
 
     .restart local v3       #_arg2:Landroid/os/ResultReceiver;
-    goto :goto_170
+    goto :goto_8
 
     .line 199
     .restart local v8       #_result:Z
-    :cond_182
+    :cond_8
     const/4 v0, 0x0
 
-    goto :goto_17a
+    goto :goto_9
 
     .line 204
     .end local v1           #_arg0:Lcom/android/internal/view/IInputMethodClient;
     .end local v2           #_arg1:I
     .end local v3           #_arg2:Landroid/os/ResultReceiver;
     .end local v8           #_result:Z
-    :sswitch_184
+    :sswitch_c
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -802,7 +802,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1cc
+    if-eqz v0, :cond_9
 
     .line 217
     sget-object v0, Landroid/view/inputmethod/EditorInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -815,7 +815,7 @@
 
     .line 223
     .local v6, _arg5:Landroid/view/inputmethod/EditorInfo;
-    :goto_1af
+    :goto_a
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v0
@@ -837,7 +837,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 226
-    if-eqz v8, :cond_1ce
+    if-eqz v8, :cond_a
 
     .line 227
     const/4 v0, 0x1
@@ -850,30 +850,30 @@
     invoke-virtual {v8, p3, v0}, Lcom/android/internal/view/InputBindResult;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 233
-    :goto_1c9
+    :goto_b
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 220
     .end local v6           #_arg5:Landroid/view/inputmethod/EditorInfo;
     .end local v7           #_arg6:Lcom/android/internal/view/IInputContext;
     .end local v8           #_result:Lcom/android/internal/view/InputBindResult;
-    :cond_1cc
+    :cond_9
     const/4 v6, 0x0
 
     .restart local v6       #_arg5:Landroid/view/inputmethod/EditorInfo;
-    goto :goto_1af
+    goto :goto_a
 
     .line 231
     .restart local v7       #_arg6:Lcom/android/internal/view/IInputContext;
     .restart local v8       #_result:Lcom/android/internal/view/InputBindResult;
-    :cond_1ce
+    :cond_a
     const/4 v0, 0x0
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1c9
+    goto :goto_b
 
     .line 237
     .end local v1           #_arg0:Lcom/android/internal/view/IInputMethodClient;
@@ -884,7 +884,7 @@
     .end local v6           #_arg5:Landroid/view/inputmethod/EditorInfo;
     .end local v7           #_arg6:Lcom/android/internal/view/IInputContext;
     .end local v8           #_result:Lcom/android/internal/view/InputBindResult;
-    :sswitch_1d3
+    :sswitch_d
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -908,11 +908,11 @@
     .line 242
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 246
     .end local v1           #_arg0:Lcom/android/internal/view/IInputMethodClient;
-    :sswitch_1e9
+    :sswitch_e
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -942,12 +942,12 @@
     .line 253
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 257
     .end local v1           #_arg0:Lcom/android/internal/view/IInputMethodClient;
     .end local v2           #_arg1:Ljava/lang/String;
-    :sswitch_203
+    :sswitch_f
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -973,12 +973,12 @@
     .line 264
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 268
     .end local v1           #_arg0:Landroid/os/IBinder;
     .end local v2           #_arg1:Ljava/lang/String;
-    :sswitch_219
+    :sswitch_10
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1000,7 +1000,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_23d
+    if-eqz v0, :cond_b
 
     .line 275
     sget-object v0, Landroid/view/inputmethod/InputMethodSubtype;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1013,7 +1013,7 @@
 
     .line 280
     .local v3, _arg2:Landroid/view/inputmethod/InputMethodSubtype;
-    :goto_234
+    :goto_c
     invoke-virtual {p0, v1, v2, v3}, Lcom/android/internal/view/IInputMethodManager$Stub;->setInputMethodAndSubtype(Landroid/os/IBinder;Ljava/lang/String;Landroid/view/inputmethod/InputMethodSubtype;)V
 
     .line 281
@@ -1022,21 +1022,21 @@
     .line 282
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 278
     .end local v3           #_arg2:Landroid/view/inputmethod/InputMethodSubtype;
-    :cond_23d
+    :cond_b
     const/4 v3, 0x0
 
     .restart local v3       #_arg2:Landroid/view/inputmethod/InputMethodSubtype;
-    goto :goto_234
+    goto :goto_c
 
     .line 286
     .end local v1           #_arg0:Landroid/os/IBinder;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:Landroid/view/inputmethod/InputMethodSubtype;
-    :sswitch_23f
+    :sswitch_11
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1062,12 +1062,12 @@
     .line 293
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 297
     .end local v1           #_arg0:Landroid/os/IBinder;
     .end local v2           #_arg1:I
-    :sswitch_255
+    :sswitch_12
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1093,12 +1093,12 @@
     .line 304
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 308
     .end local v1           #_arg0:Landroid/os/IBinder;
     .end local v2           #_arg1:I
-    :sswitch_26b
+    :sswitch_13
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1130,13 +1130,13 @@
     .line 317
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 321
     .end local v1           #_arg0:Landroid/os/IBinder;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:I
-    :sswitch_285
+    :sswitch_14
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1168,13 +1168,13 @@
     .line 330
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 334
     .end local v1           #_arg0:Landroid/os/IBinder;
     .end local v2           #_arg1:I
     .end local v3           #_arg2:I
-    :sswitch_29f
+    :sswitch_15
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1198,11 +1198,11 @@
     .line 339
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 343
     .end local v1           #_arg0:[Landroid/text/style/SuggestionSpan;
-    :sswitch_2b5
+    :sswitch_16
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1212,7 +1212,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2e0
+    if-eqz v0, :cond_c
 
     .line 346
     sget-object v0, Landroid/text/style/SuggestionSpan;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1225,7 +1225,7 @@
 
     .line 352
     .local v1, _arg0:Landroid/text/style/SuggestionSpan;
-    :goto_2c8
+    :goto_d
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -1247,44 +1247,44 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 357
-    if-eqz v8, :cond_2e2
+    if-eqz v8, :cond_d
 
     const/4 v0, 0x1
 
-    :goto_2da
+    :goto_e
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 358
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 349
     .end local v1           #_arg0:Landroid/text/style/SuggestionSpan;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:I
     .end local v8           #_result:Z
-    :cond_2e0
+    :cond_c
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/text/style/SuggestionSpan;
-    goto :goto_2c8
+    goto :goto_d
 
     .line 357
     .restart local v2       #_arg1:Ljava/lang/String;
     .restart local v3       #_arg2:I
     .restart local v8       #_result:Z
-    :cond_2e2
+    :cond_d
     const/4 v0, 0x0
 
-    goto :goto_2da
+    goto :goto_e
 
     .line 362
     .end local v1           #_arg0:Landroid/text/style/SuggestionSpan;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:I
     .end local v8           #_result:Z
-    :sswitch_2e4
+    :sswitch_17
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1299,7 +1299,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 365
-    if-eqz v8, :cond_2fd
+    if-eqz v8, :cond_e
 
     .line 366
     const/4 v0, 0x1
@@ -1312,22 +1312,22 @@
     invoke-virtual {v8, p3, v0}, Landroid/view/inputmethod/InputMethodSubtype;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 372
-    :goto_2fa
+    :goto_f
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 370
-    :cond_2fd
+    :cond_e
     const/4 v0, 0x0
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_2fa
+    goto :goto_f
 
     .line 376
     .end local v8           #_result:Landroid/view/inputmethod/InputMethodSubtype;
-    :sswitch_302
+    :sswitch_18
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1337,7 +1337,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_325
+    if-eqz v0, :cond_f
 
     .line 379
     sget-object v0, Landroid/view/inputmethod/InputMethodSubtype;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1350,7 +1350,7 @@
 
     .line 384
     .local v1, _arg0:Landroid/view/inputmethod/InputMethodSubtype;
-    :goto_315
+    :goto_10
     invoke-virtual {p0, v1}, Lcom/android/internal/view/IInputMethodManager$Stub;->setCurrentInputMethodSubtype(Landroid/view/inputmethod/InputMethodSubtype;)Z
 
     move-result v8
@@ -1360,38 +1360,38 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 386
-    if-eqz v8, :cond_327
+    if-eqz v8, :cond_10
 
     const/4 v0, 0x1
 
-    :goto_31f
+    :goto_11
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 387
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 382
     .end local v1           #_arg0:Landroid/view/inputmethod/InputMethodSubtype;
     .end local v8           #_result:Z
-    :cond_325
+    :cond_f
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/view/inputmethod/InputMethodSubtype;
-    goto :goto_315
+    goto :goto_10
 
     .line 386
     .restart local v8       #_result:Z
-    :cond_327
+    :cond_10
     const/4 v0, 0x0
 
-    goto :goto_31f
+    goto :goto_11
 
     .line 391
     .end local v1           #_arg0:Landroid/view/inputmethod/InputMethodSubtype;
     .end local v8           #_result:Z
-    :sswitch_329
+    :sswitch_19
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1412,28 +1412,28 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 396
-    if-eqz v8, :cond_342
+    if-eqz v8, :cond_11
 
     const/4 v0, 0x1
 
-    :goto_33c
+    :goto_12
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 397
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 396
-    :cond_342
+    :cond_11
     const/4 v0, 0x0
 
-    goto :goto_33c
+    goto :goto_12
 
     .line 401
     .end local v1           #_arg0:Landroid/os/IBinder;
     .end local v8           #_result:Z
-    :sswitch_344
+    :sswitch_1a
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1449,13 +1449,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_364
+    if-eqz v0, :cond_12
 
     const/4 v2, 0x1
 
     .line 406
     .local v2, _arg1:Z
-    :goto_354
+    :goto_13
     invoke-virtual {p0, v1, v2}, Lcom/android/internal/view/IInputMethodManager$Stub;->switchToNextInputMethod(Landroid/os/IBinder;Z)Z
 
     move-result v8
@@ -1465,39 +1465,39 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 408
-    if-eqz v8, :cond_366
+    if-eqz v8, :cond_13
 
     const/4 v0, 0x1
 
-    :goto_35e
+    :goto_14
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 409
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 405
     .end local v2           #_arg1:Z
     .end local v8           #_result:Z
-    :cond_364
+    :cond_12
     const/4 v2, 0x0
 
-    goto :goto_354
+    goto :goto_13
 
     .line 408
     .restart local v2       #_arg1:Z
     .restart local v8       #_result:Z
-    :cond_366
+    :cond_13
     const/4 v0, 0x0
 
-    goto :goto_35e
+    goto :goto_14
 
     .line 413
     .end local v1           #_arg0:Landroid/os/IBinder;
     .end local v2           #_arg1:Z
     .end local v8           #_result:Z
-    :sswitch_368
+    :sswitch_1b
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1513,13 +1513,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_388
+    if-eqz v0, :cond_14
 
     const/4 v2, 0x1
 
     .line 418
     .restart local v2       #_arg1:Z
-    :goto_378
+    :goto_15
     invoke-virtual {p0, v1, v2}, Lcom/android/internal/view/IInputMethodManager$Stub;->setInputMethodEnabled(Ljava/lang/String;Z)Z
 
     move-result v8
@@ -1529,39 +1529,39 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 420
-    if-eqz v8, :cond_38a
+    if-eqz v8, :cond_15
 
     const/4 v0, 0x1
 
-    :goto_382
+    :goto_16
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 421
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 417
     .end local v2           #_arg1:Z
     .end local v8           #_result:Z
-    :cond_388
+    :cond_14
     const/4 v2, 0x0
 
-    goto :goto_378
+    goto :goto_15
 
     .line 420
     .restart local v2       #_arg1:Z
     .restart local v8       #_result:Z
-    :cond_38a
+    :cond_15
     const/4 v0, 0x0
 
-    goto :goto_382
+    goto :goto_16
 
     .line 425
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Z
     .end local v8           #_result:Z
-    :sswitch_38c
+    :sswitch_1c
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1588,12 +1588,12 @@
     .line 431
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 435
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:[Landroid/view/inputmethod/InputMethodSubtype;
-    :sswitch_3a3
+    :sswitch_1d
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1613,11 +1613,11 @@
     .line 440
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 444
     .end local v1           #_arg0:Ljava/lang/String;
-    :sswitch_3b5
+    :sswitch_1e
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1643,12 +1643,12 @@
     .line 451
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 455
     .end local v1           #_arg0:I
     .end local v2           #_arg1:I
-    :sswitch_3cb
+    :sswitch_1f
     const-string v0, "com.android.internal.view.IInputMethodManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1668,44 +1668,44 @@
     .line 460
     const/4 v0, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 42
     nop
 
-    :sswitch_data_3de
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_f
-        0x2 -> :sswitch_20
-        0x3 -> :sswitch_31
-        0x4 -> :sswitch_5b
-        0x5 -> :sswitch_78
-        0x6 -> :sswitch_8a
-        0x7 -> :sswitch_b0
-        0x8 -> :sswitch_c6
-        0x9 -> :sswitch_108
-        0xa -> :sswitch_11e
-        0xb -> :sswitch_151
-        0xc -> :sswitch_184
-        0xd -> :sswitch_1d3
-        0xe -> :sswitch_1e9
-        0xf -> :sswitch_203
-        0x10 -> :sswitch_219
-        0x11 -> :sswitch_23f
-        0x12 -> :sswitch_255
-        0x13 -> :sswitch_26b
-        0x14 -> :sswitch_285
-        0x15 -> :sswitch_29f
-        0x16 -> :sswitch_2b5
-        0x17 -> :sswitch_2e4
-        0x18 -> :sswitch_302
-        0x19 -> :sswitch_329
-        0x1a -> :sswitch_344
-        0x1b -> :sswitch_368
-        0x1c -> :sswitch_38c
-        0x1d -> :sswitch_3a3
-        0x1e -> :sswitch_3b5
-        0x1f -> :sswitch_3cb
-        0x5f4e5446 -> :sswitch_8
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
+        0x8 -> :sswitch_8
+        0x9 -> :sswitch_9
+        0xa -> :sswitch_a
+        0xb -> :sswitch_b
+        0xc -> :sswitch_c
+        0xd -> :sswitch_d
+        0xe -> :sswitch_e
+        0xf -> :sswitch_f
+        0x10 -> :sswitch_10
+        0x11 -> :sswitch_11
+        0x12 -> :sswitch_12
+        0x13 -> :sswitch_13
+        0x14 -> :sswitch_14
+        0x15 -> :sswitch_15
+        0x16 -> :sswitch_16
+        0x17 -> :sswitch_17
+        0x18 -> :sswitch_18
+        0x19 -> :sswitch_19
+        0x1a -> :sswitch_1a
+        0x1b -> :sswitch_1b
+        0x1c -> :sswitch_1c
+        0x1d -> :sswitch_1d
+        0x1e -> :sswitch_1e
+        0x1f -> :sswitch_1f
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

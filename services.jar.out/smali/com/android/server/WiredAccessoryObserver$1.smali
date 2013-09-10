@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/WiredAccessoryObserver;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "msg"
 
     .prologue
@@ -50,11 +50,13 @@
 
     check-cast v0, Ljava/lang/String;
 
+    #calls: Lcom/android/server/WiredAccessoryObserver;->setDevicesState(IILjava/lang/String;)V
     invoke-static {v1, v2, v3, v0}, Lcom/android/server/WiredAccessoryObserver;->access$300(Lcom/android/server/WiredAccessoryObserver;IILjava/lang/String;)V
 
     .line 315
     iget-object v0, p0, Lcom/android/server/WiredAccessoryObserver$1;->this$0:Lcom/android/server/WiredAccessoryObserver;
 
+    #getter for: Lcom/android/server/WiredAccessoryObserver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
     invoke-static {v0}, Lcom/android/server/WiredAccessoryObserver;->access$400(Lcom/android/server/WiredAccessoryObserver;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v0

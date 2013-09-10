@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "error"
 
     .prologue
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "error"
     .parameter "string"
 
@@ -44,7 +44,7 @@
 .end method
 
 .method private static getErrorString(I)Ljava/lang/String;
-    .registers 4
+    .locals 3
     .parameter "error"
 
     .prologue
@@ -55,7 +55,7 @@
 
     .line 37
     .local v0, errorString:Ljava/lang/String;
-    if-nez v0, :cond_1d
+    if-nez v0, :cond_0
 
     .line 38
     new-instance v1, Ljava/lang/StringBuilder;
@@ -81,14 +81,14 @@
     move-result-object v0
 
     .line 40
-    :cond_1d
+    :cond_0
     return-object v0
 .end method
 
 
 # virtual methods
 .method getError()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 44

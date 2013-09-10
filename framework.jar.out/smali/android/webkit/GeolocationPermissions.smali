@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 138
@@ -23,7 +23,7 @@
 .end method
 
 .method public static getInstance()Landroid/webkit/GeolocationPermissions;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 69
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public allow(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "origin"
 
     .prologue
@@ -50,7 +50,7 @@
 .end method
 
 .method public clear(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "origin"
 
     .prologue
@@ -59,7 +59,7 @@
 .end method
 
 .method public clearAll()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 128
@@ -67,7 +67,7 @@
 .end method
 
 .method public getAllowed(Ljava/lang/String;Landroid/webkit/ValueCallback;)V
-    .registers 3
+    .locals 0
     .parameter "origin"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -88,7 +88,7 @@
 .end method
 
 .method public getOrigins(Landroid/webkit/ValueCallback;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {

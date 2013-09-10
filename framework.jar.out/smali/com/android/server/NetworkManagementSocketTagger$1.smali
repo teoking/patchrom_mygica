@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 42
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected initialValue()Lcom/android/server/NetworkManagementSocketTagger$SocketTags;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 45
@@ -49,7 +49,7 @@
 .end method
 
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 42

@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 957
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 6
+    .locals 1
     .parameter "user"
     .parameter "album"
     .parameter "photo"
@@ -70,7 +70,7 @@
 .end method
 
 .method public static getAlbumURL(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "user"
     .parameter "album"
 
@@ -108,7 +108,7 @@
 .end method
 
 .method public static getPhotoURL(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 5
+    .locals 2
     .parameter "user"
     .parameter "album"
     .parameter "photo"
@@ -157,7 +157,7 @@
 .end method
 
 .method public static getRssUrl(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "user"
 
     .prologue
@@ -190,7 +190,7 @@
 .end method
 
 .method public static matchURL(Ljava/lang/String;Ljava/lang/String;)Lcom/google/android/util/AbstractMessageParser$Photo;
-    .registers 7
+    .locals 5
     .parameter "url"
     .parameter "text"
 
@@ -208,7 +208,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_21
+    if-eqz v1, :cond_0
 
     .line 982
     new-instance v1, Lcom/google/android/util/AbstractMessageParser$Photo;
@@ -234,19 +234,19 @@
     invoke-direct {v1, v2, v3, v4, p1}, Lcom/google/android/util/AbstractMessageParser$Photo;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 984
-    :goto_20
+    :goto_0
     return-object v1
 
-    :cond_21
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_20
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getAlbum()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 972
@@ -256,7 +256,7 @@
 .end method
 
 .method public getInfo()Ljava/util/List;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -305,7 +305,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_38
+    if-eqz v1, :cond_0
 
     .line 993
     invoke-virtual {p0}, Lcom/google/android/util/AbstractMessageParser$Photo;->getUser()Ljava/lang/String;
@@ -327,22 +327,22 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 997
-    :goto_37
+    :goto_0
     return-object v0
 
     .line 995
-    :cond_38
+    :cond_0
     const/4 v1, 0x0
 
     check-cast v1, Ljava/lang/String;
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_37
+    goto :goto_0
 .end method
 
 .method public getPhoto()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 973
@@ -352,7 +352,7 @@
 .end method
 
 .method public getUser()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 971
@@ -362,7 +362,7 @@
 .end method
 
 .method public isHtml()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 975
@@ -372,7 +372,7 @@
 .end method
 
 .method public isMedia()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 976

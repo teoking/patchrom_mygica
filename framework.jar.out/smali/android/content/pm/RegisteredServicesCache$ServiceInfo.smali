@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Landroid/content/ComponentName;I)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "componentName"
     .parameter "uid"
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 194

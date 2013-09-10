@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1502
@@ -43,7 +43,7 @@
 .end method
 
 .method public static final getContentUri(Ljava/lang/String;J)Landroid/net/Uri;
-    .registers 5
+    .locals 2
     .parameter "volumeName"
     .parameter "playlistId"
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public static final moveItem(Landroid/content/ContentResolver;JII)Z
-    .registers 11
+    .locals 6
     .parameter "res"
     .parameter "playlistId"
     .parameter "from"
@@ -152,15 +152,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_38
+    if-eqz v2, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_37
+    :goto_0
     return v2
 
-    :cond_38
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_37
+    goto :goto_0
 .end method

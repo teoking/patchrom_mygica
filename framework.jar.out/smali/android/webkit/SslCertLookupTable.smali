@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 43
@@ -31,13 +31,13 @@
 .end method
 
 .method public static getInstance()Landroid/webkit/SslCertLookupTable;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 37
     sget-object v0, Landroid/webkit/SslCertLookupTable;->sTable:Landroid/webkit/SslCertLookupTable;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 38
     new-instance v0, Landroid/webkit/SslCertLookupTable;
@@ -47,7 +47,7 @@
     sput-object v0, Landroid/webkit/SslCertLookupTable;->sTable:Landroid/webkit/SslCertLookupTable;
 
     .line 40
-    :cond_b
+    :cond_0
     sget-object v0, Landroid/webkit/SslCertLookupTable;->sTable:Landroid/webkit/SslCertLookupTable;
 
     return-object v0
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public clear()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 70
@@ -69,14 +69,14 @@
 .end method
 
 .method public isAllowed(Landroid/net/http/SslError;)Z
-    .registers 7
+    .locals 5
     .parameter "sslError"
 
     .prologue
     const/4 v2, 0x0
 
     .line 62
-    :try_start_1
+    :try_start_0
     new-instance v3, Ljava/net/URL;
 
     invoke-virtual {p1}, Landroid/net/http/SslError;->getUrl()Ljava/lang/String;
@@ -86,8 +86,8 @@
     invoke-direct {v3, v4}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v3}, Ljava/net/URL;->getHost()Ljava/lang/String;
-    :try_end_d
-    .catch Ljava/net/MalformedURLException; {:try_start_1 .. :try_end_d} :catch_24
+    :try_end_0
+    .catch Ljava/net/MalformedURLException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
@@ -99,7 +99,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_23
+    if-eqz v3, :cond_0
 
     invoke-virtual {p1}, Landroid/net/http/SslError;->getPrimaryError()I
 
@@ -111,26 +111,26 @@
 
     move-result v4
 
-    if-gt v3, v4, :cond_23
+    if-gt v3, v4, :cond_0
 
     const/4 v2, 0x1
 
     .end local v1           #host:Ljava/lang/String;
-    :cond_23
-    :goto_23
+    :cond_0
+    :goto_0
     return v2
 
     .line 63
-    :catch_24
+    :catch_0
     move-exception v0
 
     .line 64
     .local v0, e:Ljava/net/MalformedURLException;
-    goto :goto_23
+    goto :goto_0
 .end method
 
 .method public setIsAllowed(Landroid/net/http/SslError;)V
-    .registers 6
+    .locals 4
     .parameter "sslError"
 
     .prologue
@@ -145,8 +145,8 @@
     invoke-direct {v2, v3}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v2}, Ljava/net/URL;->getHost()Ljava/lang/String;
-    :try_end_c
-    .catch Ljava/net/MalformedURLException; {:try_start_0 .. :try_end_c} :catch_17
+    :try_end_0
+    .catch Ljava/net/MalformedURLException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
@@ -162,14 +162,14 @@
 
     .line 55
     .end local v1           #host:Ljava/lang/String;
-    :goto_16
+    :goto_0
     return-void
 
     .line 51
-    :catch_17
+    :catch_0
     move-exception v0
 
     .line 52
     .local v0, e:Ljava/net/MalformedURLException;
-    goto :goto_16
+    goto :goto_0
 .end method

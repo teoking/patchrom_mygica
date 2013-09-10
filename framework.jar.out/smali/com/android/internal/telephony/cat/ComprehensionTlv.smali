@@ -21,7 +21,7 @@
 
 # direct methods
 .method protected constructor <init>(IZI[BI)V
-    .registers 6
+    .locals 0
     .parameter "tag"
     .parameter "cr"
     .parameter "length"
@@ -52,7 +52,7 @@
 .end method
 
 .method public static decode([BI)Lcom/android/internal/telephony/cat/ComprehensionTlv;
-    .registers 14
+    .locals 12
     .parameter "data"
     .parameter "startIndex"
     .annotation system Ldalvik/annotation/Throws;
@@ -81,16 +81,16 @@
 
     .end local v5           #curIndex:I
     .local v6, curIndex:I
-    :try_start_8
+    :try_start_0
     aget-byte v4, p0, v5
-    :try_end_a
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_8 .. :try_end_a} :catch_cc
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     and-int/lit16 v9, v4, 0xff
 
     .line 124
     .local v9, temp:I
-    sparse-switch v9, :sswitch_data_1f2
+    sparse-switch v9, :sswitch_data_0
 
     .line 144
     move v1, v9
@@ -99,53 +99,53 @@
     .local v1, tag:I
     and-int/lit16 v4, v1, 0x80
 
-    if-eqz v4, :cond_81
+    if-eqz v4, :cond_2
 
     .line 146
     .local v2, cr:Z
-    :goto_14
+    :goto_0
     and-int/lit16 v1, v1, -0x81
 
     .line 152
-    :goto_16
+    :goto_1
     add-int/lit8 v5, v6, 0x1
 
     .end local v6           #curIndex:I
     .restart local v5       #curIndex:I
-    :try_start_18
+    :try_start_1
     aget-byte v0, p0, v6
 
     and-int/lit16 v9, v0, 0xff
 
     .line 153
-    if-ge v9, v11, :cond_83
+    if-ge v9, v11, :cond_3
 
     .line 154
     move v3, v9
 
     .line 195
     .local v3, length:I
-    :cond_1f
-    :goto_1f
+    :cond_0
+    :goto_2
     new-instance v0, Lcom/android/internal/telephony/cat/ComprehensionTlv;
 
     move-object v4, p0
 
     invoke-direct/range {v0 .. v5}, Lcom/android/internal/telephony/cat/ComprehensionTlv;-><init>(IZI[BI)V
-    :try_end_25
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_18 .. :try_end_25} :catch_153
+    :try_end_1
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_1
 
     .end local v1           #tag:I
     .end local v2           #cr:Z
     .end local v3           #length:I
-    :goto_25
+    :goto_3
     return-object v0
 
     .line 128
     .end local v5           #curIndex:I
     .restart local v6       #curIndex:I
-    :sswitch_26
-    :try_start_26
+    :sswitch_0
+    :try_start_2
     const-string v0, "CAT     "
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -209,12 +209,12 @@
 
     .end local v6           #curIndex:I
     .restart local v5       #curIndex:I
-    goto :goto_25
+    goto :goto_3
 
     .line 136
     .end local v5           #curIndex:I
     .restart local v6       #curIndex:I
-    :sswitch_63
+    :sswitch_1
     aget-byte v4, p0, v6
 
     and-int/lit16 v4, v4, 0xff
@@ -235,11 +235,11 @@
 
     and-int/2addr v4, v1
 
-    if-eqz v4, :cond_7f
+    if-eqz v4, :cond_1
 
     .line 139
     .restart local v2       #cr:Z
-    :goto_77
+    :goto_4
     const v0, -0x8001
 
     and-int/2addr v1, v0
@@ -254,29 +254,29 @@
     .line 141
     .end local v5           #curIndex:I
     .restart local v6       #curIndex:I
-    goto :goto_16
+    goto :goto_1
 
     .end local v2           #cr:Z
-    :cond_7f
+    :cond_1
     move v2, v0
 
     .line 138
-    goto :goto_77
+    goto :goto_4
 
-    :cond_81
+    :cond_2
     move v2, v0
 
     .line 145
-    goto :goto_14
+    goto :goto_0
 
     .line 155
     .end local v6           #curIndex:I
     .restart local v2       #cr:Z
     .restart local v5       #curIndex:I
-    :cond_83
+    :cond_3
     const/16 v0, 0x81
 
-    if-ne v9, v0, :cond_fd
+    if-ne v9, v0, :cond_4
 
     .line 156
     add-int/lit8 v6, v5, 0x1
@@ -289,7 +289,7 @@
 
     .line 157
     .restart local v3       #length:I
-    if-ge v3, v11, :cond_1ee
+    if-ge v3, v11, :cond_7
 
     .line 158
     new-instance v0, Lcom/android/internal/telephony/cat/ResultException;
@@ -351,15 +351,15 @@
     invoke-direct {v0, v4, v10}, Lcom/android/internal/telephony/cat/ResultException;-><init>(Lcom/android/internal/telephony/cat/ResultCode;Ljava/lang/String;)V
 
     throw v0
-    :try_end_cc
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_26 .. :try_end_cc} :catch_cc
+    :try_end_2
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 197
     .end local v1           #tag:I
     .end local v2           #cr:Z
     .end local v3           #length:I
     .end local v9           #temp:I
-    :catch_cc
+    :catch_0
     move-exception v7
 
     move v5, v6
@@ -368,7 +368,7 @@
     .end local v6           #curIndex:I
     .restart local v5       #curIndex:I
     .local v7, e:Ljava/lang/IndexOutOfBoundsException;
-    :goto_ce
+    :goto_5
     new-instance v0, Lcom/android/internal/telephony/cat/ResultException;
 
     sget-object v4, Lcom/android/internal/telephony/cat/ResultCode;->CMD_DATA_NOT_UNDERSTOOD:Lcom/android/internal/telephony/cat/ResultCode;
@@ -420,13 +420,13 @@
     .restart local v1       #tag:I
     .restart local v2       #cr:Z
     .restart local v9       #temp:I
-    :cond_fd
+    :cond_4
     const/16 v0, 0x82
 
-    if-ne v9, v0, :cond_156
+    if-ne v9, v0, :cond_5
 
     .line 165
-    :try_start_101
+    :try_start_3
     aget-byte v0, p0, v5
 
     and-int/lit16 v0, v0, 0xff
@@ -448,7 +448,7 @@
     .line 168
     const/16 v0, 0x100
 
-    if-ge v3, v0, :cond_1f
+    if-ge v3, v0, :cond_0
 
     .line 169
     new-instance v0, Lcom/android/internal/telephony/cat/ResultException;
@@ -513,16 +513,16 @@
 
     .line 197
     .end local v3           #length:I
-    :catch_153
+    :catch_1
     move-exception v7
 
-    goto/16 :goto_ce
+    goto/16 :goto_5
 
     .line 175
-    :cond_156
+    :cond_5
     const/16 v0, 0x83
 
-    if-ne v9, v0, :cond_1b5
+    if-ne v9, v0, :cond_6
 
     .line 176
     aget-byte v0, p0, v5
@@ -556,7 +556,7 @@
     .line 180
     const/high16 v0, 0x1
 
-    if-ge v3, v0, :cond_1f
+    if-ge v3, v0, :cond_0
 
     .line 181
     new-instance v0, Lcom/android/internal/telephony/cat/ResultException;
@@ -621,7 +621,7 @@
 
     .line 188
     .end local v3           #length:I
-    :cond_1b5
+    :cond_6
     new-instance v0, Lcom/android/internal/telephony/cat/ResultException;
 
     sget-object v4, Lcom/android/internal/telephony/cat/ResultCode;->CMD_DATA_NOT_UNDERSTOOD:Lcom/android/internal/telephony/cat/ResultCode;
@@ -677,33 +677,33 @@
     invoke-direct {v0, v4, v10}, Lcom/android/internal/telephony/cat/ResultException;-><init>(Lcom/android/internal/telephony/cat/ResultCode;Ljava/lang/String;)V
 
     throw v0
-    :try_end_1ee
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_101 .. :try_end_1ee} :catch_153
+    :try_end_3
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_3 .. :try_end_3} :catch_1
 
     .end local v5           #curIndex:I
     .restart local v3       #length:I
     .restart local v6       #curIndex:I
-    :cond_1ee
+    :cond_7
     move v5, v6
 
     .end local v6           #curIndex:I
     .restart local v5       #curIndex:I
-    goto/16 :goto_1f
+    goto/16 :goto_2
 
     .line 124
     nop
 
-    :sswitch_data_1f2
+    :sswitch_data_0
     .sparse-switch
-        0x0 -> :sswitch_26
-        0x7f -> :sswitch_63
-        0x80 -> :sswitch_26
-        0xff -> :sswitch_26
+        0x0 -> :sswitch_0
+        0x7f -> :sswitch_1
+        0x80 -> :sswitch_0
+        0xff -> :sswitch_0
     .end sparse-switch
 .end method
 
 .method public static decodeMany([BI)Ljava/util/List;
-    .registers 7
+    .locals 5
     .parameter "data"
     .parameter "startIndex"
     .annotation system Ldalvik/annotation/Signature;
@@ -734,8 +734,8 @@
 
     .line 92
     .local v1, endIndex:I
-    :goto_6
-    if-ge p1, v1, :cond_1f
+    :goto_0
+    if-ge p1, v1, :cond_1
 
     .line 93
     invoke-static {p0, p1}, Lcom/android/internal/telephony/cat/ComprehensionTlv;->decode([BI)Lcom/android/internal/telephony/cat/ComprehensionTlv;
@@ -744,7 +744,7 @@
 
     .line 94
     .local v0, ctlv:Lcom/android/internal/telephony/cat/ComprehensionTlv;
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
     .line 95
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -756,10 +756,10 @@
 
     add-int p1, v3, v4
 
-    goto :goto_6
+    goto :goto_0
 
     .line 98
-    :cond_18
+    :cond_0
     const-string v3, "ComprehensionTlv"
 
     const-string v4, "decodeMany: ctlv is null, stop decoding"
@@ -768,14 +768,14 @@
 
     .line 103
     .end local v0           #ctlv:Lcom/android/internal/telephony/cat/ComprehensionTlv;
-    :cond_1f
+    :cond_1
     return-object v2
 .end method
 
 
 # virtual methods
 .method public getLength()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 69
@@ -785,7 +785,7 @@
 .end method
 
 .method public getRawValue()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 77
@@ -795,7 +795,7 @@
 .end method
 
 .method public getTag()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 61
@@ -805,7 +805,7 @@
 .end method
 
 .method public getValueIndex()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 73
@@ -815,7 +815,7 @@
 .end method
 
 .method public isComprehensionRequired()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 65

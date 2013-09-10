@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(ILandroid/renderscript/RenderScript;)V
-    .registers 3
+    .locals 0
     .parameter "id"
     .parameter "rs"
 
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method calcElementCount()V
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v7, 0x1
@@ -83,34 +83,34 @@
 
     move-result v6
 
-    if-eqz v6, :cond_19
+    if-eqz v6, :cond_0
 
     .line 143
     const/4 v1, 0x6
 
     .line 145
-    :cond_19
-    if-nez v3, :cond_1c
+    :cond_0
+    if-nez v3, :cond_1
 
     .line 146
     const/4 v3, 0x1
 
     .line 148
-    :cond_1c
-    if-nez v4, :cond_1f
+    :cond_1
+    if-nez v4, :cond_2
 
     .line 149
     const/4 v4, 0x1
 
     .line 151
-    :cond_1f
-    if-nez v5, :cond_22
+    :cond_2
+    if-nez v5, :cond_3
 
     .line 152
     const/4 v5, 0x1
 
     .line 155
-    :cond_22
+    :cond_3
     mul-int v6, v3, v4
 
     mul-int/2addr v6, v5
@@ -119,38 +119,38 @@
 
     .line 157
     .local v0, count:I
-    :goto_27
-    if-eqz v2, :cond_41
+    :goto_0
+    if-eqz v2, :cond_8
 
-    if-gt v3, v7, :cond_2f
+    if-gt v3, v7, :cond_4
 
-    if-gt v4, v7, :cond_2f
+    if-gt v4, v7, :cond_4
 
-    if-le v5, v7, :cond_41
+    if-le v5, v7, :cond_8
 
     .line 158
-    :cond_2f
-    if-le v3, v7, :cond_33
+    :cond_4
+    if-le v3, v7, :cond_5
 
     .line 159
     shr-int/lit8 v3, v3, 0x1
 
     .line 161
-    :cond_33
-    if-le v4, v7, :cond_37
+    :cond_5
+    if-le v4, v7, :cond_6
 
     .line 162
     shr-int/lit8 v4, v4, 0x1
 
     .line 164
-    :cond_37
-    if-le v5, v7, :cond_3b
+    :cond_6
+    if-le v5, v7, :cond_7
 
     .line 165
     shr-int/lit8 v5, v5, 0x1
 
     .line 168
-    :cond_3b
+    :cond_7
     mul-int v6, v3, v4
 
     mul-int/2addr v6, v5
@@ -159,10 +159,10 @@
 
     add-int/2addr v0, v6
 
-    goto :goto_27
+    goto :goto_0
 
     .line 170
-    :cond_41
+    :cond_8
     iput v0, p0, Landroid/renderscript/Type;->mElementCount:I
 
     .line 171
@@ -170,7 +170,7 @@
 .end method
 
 .method public getCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 133
@@ -180,7 +180,7 @@
 .end method
 
 .method public getElement()Landroid/renderscript/Element;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 79
@@ -190,7 +190,7 @@
 .end method
 
 .method public getX()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 88
@@ -200,7 +200,7 @@
 .end method
 
 .method public getY()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 97
@@ -210,7 +210,7 @@
 .end method
 
 .method public getZ()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 106
@@ -220,7 +220,7 @@
 .end method
 
 .method public hasFaces()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 124
@@ -230,7 +230,7 @@
 .end method
 
 .method public hasMipmaps()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 115
@@ -240,7 +240,7 @@
 .end method
 
 .method updateFromNative()V
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v4, 0x0
@@ -286,11 +286,11 @@
 
     aget v2, v0, v2
 
-    if-ne v2, v3, :cond_43
+    if-ne v2, v3, :cond_1
 
     move v2, v3
 
-    :goto_23
+    :goto_0
     iput-boolean v2, p0, Landroid/renderscript/Type;->mDimMipmaps:Z
 
     .line 189
@@ -298,9 +298,9 @@
 
     aget v2, v0, v2
 
-    if-ne v2, v3, :cond_45
+    if-ne v2, v3, :cond_2
 
-    :goto_2a
+    :goto_1
     iput-boolean v3, p0, Landroid/renderscript/Type;->mDimFaces:Z
 
     .line 191
@@ -310,7 +310,7 @@
 
     .line 192
     .local v1, elementID:I
-    if-eqz v1, :cond_3f
+    if-eqz v1, :cond_0
 
     .line 193
     new-instance v2, Landroid/renderscript/Element;
@@ -327,22 +327,22 @@
     invoke-virtual {v2}, Landroid/renderscript/Element;->updateFromNative()V
 
     .line 196
-    :cond_3f
+    :cond_0
     invoke-virtual {p0}, Landroid/renderscript/Type;->calcElementCount()V
 
     .line 197
     return-void
 
     .end local v1           #elementID:I
-    :cond_43
+    :cond_1
     move v2, v4
 
     .line 188
-    goto :goto_23
+    goto :goto_0
 
-    :cond_45
+    :cond_2
     move v3, v4
 
     .line 189
-    goto :goto_2a
+    goto :goto_1
 .end method

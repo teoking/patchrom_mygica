@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -17,7 +17,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "attrs"
 
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 4
+    .locals 0
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method protected onMeasure(II)V
-    .registers 14
+    .locals 11
     .parameter "widthMeasureSpec"
     .parameter "heightMeasureSpec"
 
@@ -63,7 +63,7 @@
 
     .line 50
     .local v2, layout:Landroid/text/Layout;
-    if-eqz v2, :cond_3e
+    if-eqz v2, :cond_1
 
     .line 51
     invoke-virtual {v2}, Landroid/text/Layout;->getLineCount()I
@@ -72,7 +72,7 @@
 
     .line 52
     .local v3, lineCount:I
-    if-lez v3, :cond_3e
+    if-lez v3, :cond_1
 
     .line 53
     add-int/lit8 v5, v3, -0x1
@@ -83,7 +83,7 @@
 
     .line 54
     .local v1, ellipsisCount:I
-    if-lez v1, :cond_3e
+    if-lez v1, :cond_1
 
     .line 55
     invoke-virtual {p0, v10}, Lcom/android/internal/widget/DialogTitle;->setSingleLine(Z)V
@@ -116,7 +116,7 @@
 
     .line 63
     .local v4, textSize:I
-    if-eqz v4, :cond_38
+    if-eqz v4, :cond_0
 
     .line 65
     int-to-float v5, v4
@@ -124,7 +124,7 @@
     invoke-virtual {p0, v10, v5}, Lcom/android/internal/widget/DialogTitle;->setTextSize(IF)V
 
     .line 67
-    :cond_38
+    :cond_0
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 69
@@ -135,6 +135,6 @@
     .end local v1           #ellipsisCount:I
     .end local v3           #lineCount:I
     .end local v4           #textSize:I
-    :cond_3e
+    :cond_1
     return-void
 .end method

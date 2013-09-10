@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 72
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(JJJ)V
-    .registers 7
+    .locals 0
     .parameter "estimatedBytes"
     .parameter "softLimitBytes"
     .parameter "hardLimitBytes"
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 62
@@ -113,7 +113,7 @@
 .end method
 
 .method public getEstimatedBytes()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 49
@@ -123,7 +123,7 @@
 .end method
 
 .method public getHardLimitBytes()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 57
@@ -133,7 +133,7 @@
 .end method
 
 .method public getSoftLimitBytes()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 53
@@ -143,7 +143,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "out"
     .parameter "flags"
 

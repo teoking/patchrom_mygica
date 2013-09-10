@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 913
@@ -34,7 +34,7 @@
 .end method
 
 .method public static final init2()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 973
@@ -63,7 +63,7 @@
 .end method
 
 .method public static main([Ljava/lang/String;)V
-    .registers 7
+    .locals 6
     .parameter "args"
 
     .prologue
@@ -78,7 +78,7 @@
 
     cmp-long v0, v0, v4
 
-    if-gez v0, :cond_18
+    if-gez v0, :cond_0
 
     .line 941
     const-string v0, "SystemServer"
@@ -91,12 +91,12 @@
     invoke-static {v4, v5}, Landroid/os/SystemClock;->setCurrentTimeMillis(J)Z
 
     .line 945
-    :cond_18
+    :cond_0
     invoke-static {}, Lcom/android/internal/os/SamplingProfilerIntegration;->isEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_1
 
     .line 946
     invoke-static {}, Lcom/android/internal/os/SamplingProfilerIntegration;->start()V
@@ -120,7 +120,7 @@
     invoke-virtual/range {v0 .. v5}, Ljava/util/Timer;->schedule(Ljava/util/TimerTask;JJ)V
 
     .line 957
-    :cond_33
+    :cond_1
     invoke-static {}, Ldalvik/system/VMRuntime;->getRuntime()Ldalvik/system/VMRuntime;
 
     move-result-object v0
@@ -150,7 +150,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_57
+    if-eqz v0, :cond_2
 
     .line 967
     const-string v0, "optimization"
@@ -158,7 +158,7 @@
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
     .line 969
-    :cond_57
+    :cond_2
     invoke-static {p0}, Lcom/android/server/SystemServer;->init1([Ljava/lang/String;)V
 
     .line 970

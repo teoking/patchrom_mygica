@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/String;)V
-    .registers 8
+    .locals 4
     .parameter "infoType"
     .parameter "path"
     .parameter "mimeType"
@@ -48,22 +48,22 @@
     iput-object p3, p0, Landroid/drm/DrmInfo;->mMimeType:Ljava/lang/String;
 
     .line 72
-    :try_start_e
+    :try_start_0
     invoke-static {p2}, Landroid/drm/DrmUtils;->readBytes(Ljava/lang/String;)[B
 
     move-result-object v2
 
     iput-object v2, p0, Landroid/drm/DrmInfo;->mData:[B
-    :try_end_14
-    .catch Ljava/io/IOException; {:try_start_e .. :try_end_14} :catch_56
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 79
-    :goto_14
+    :goto_0
     invoke-virtual {p0}, Landroid/drm/DrmInfo;->isValid()Z
 
     move-result v2
 
-    if-nez v2, :cond_5b
+    if-nez v2, :cond_0
 
     .line 80
     new-instance v2, Ljava/lang/StringBuilder;
@@ -128,7 +128,7 @@
 
     .line 73
     .end local v1           #msg:Ljava/lang/String;
-    :catch_56
+    :catch_0
     move-exception v0
 
     .line 77
@@ -137,16 +137,16 @@
 
     iput-object v2, p0, Landroid/drm/DrmInfo;->mData:[B
 
-    goto :goto_14
+    goto :goto_0
 
     .line 86
     .end local v0           #e:Ljava/io/IOException;
-    :cond_5b
+    :cond_0
     return-void
 .end method
 
 .method public constructor <init>(I[BLjava/lang/String;)V
-    .registers 7
+    .locals 3
     .parameter "infoType"
     .parameter "data"
     .parameter "mimeType"
@@ -176,7 +176,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_50
+    if-nez v1, :cond_0
 
     .line 53
     new-instance v1, Ljava/lang/StringBuilder;
@@ -239,14 +239,14 @@
 
     .line 59
     .end local v0           #msg:Ljava/lang/String;
-    :cond_50
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public get(Ljava/lang/String;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -261,7 +261,7 @@
 .end method
 
 .method public getData()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 137
@@ -271,7 +271,7 @@
 .end method
 
 .method public getInfoType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 155
@@ -281,7 +281,7 @@
 .end method
 
 .method public getMimeType()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 146
@@ -291,13 +291,13 @@
 .end method
 
 .method isValid()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 166
     iget-object v0, p0, Landroid/drm/DrmInfo;->mMimeType:Ljava/lang/String;
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/drm/DrmInfo;->mMimeType:Ljava/lang/String;
 
@@ -307,17 +307,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_21
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/drm/DrmInfo;->mData:[B
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/drm/DrmInfo;->mData:[B
 
     array-length v0, v0
 
-    if-lez v0, :cond_21
+    if-lez v0, :cond_0
 
     iget v0, p0, Landroid/drm/DrmInfo;->mInfoType:I
 
@@ -325,21 +325,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_20
+    :goto_0
     return v0
 
-    :cond_21
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_20
+    goto :goto_0
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -366,7 +366,7 @@
 .end method
 
 .method public keyIterator()Ljava/util/Iterator;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -393,7 +393,7 @@
 .end method
 
 .method public put(Ljava/lang/String;Ljava/lang/Object;)V
-    .registers 4
+    .locals 1
     .parameter "key"
     .parameter "value"
 

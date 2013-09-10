@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;I)V
-    .registers 4
+    .locals 1
     .parameter "rs"
     .parameter "usage"
 
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public addIndexSetType(Landroid/renderscript/Element;ILandroid/renderscript/Mesh$Primitive;)Landroid/renderscript/Mesh$Builder;
-    .registers 6
+    .locals 2
     .parameter "e"
     .parameter "size"
     .parameter "p"
@@ -110,7 +110,7 @@
 .end method
 
 .method public addIndexSetType(Landroid/renderscript/Mesh$Primitive;)Landroid/renderscript/Mesh$Builder;
-    .registers 4
+    .locals 2
     .parameter "p"
 
     .prologue
@@ -146,7 +146,7 @@
 .end method
 
 .method public addIndexSetType(Landroid/renderscript/Type;Landroid/renderscript/Mesh$Primitive;)Landroid/renderscript/Mesh$Builder;
-    .registers 5
+    .locals 2
     .parameter "t"
     .parameter "p"
 
@@ -183,7 +183,7 @@
 .end method
 
 .method public addVertexType(Landroid/renderscript/Element;I)Landroid/renderscript/Mesh$Builder;
-    .registers 6
+    .locals 3
     .parameter "e"
     .parameter "size"
     .annotation system Ldalvik/annotation/Throws;
@@ -200,7 +200,7 @@
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_f
+    if-lt v0, v1, :cond_0
 
     .line 271
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -212,7 +212,7 @@
     throw v0
 
     .line 274
-    :cond_f
+    :cond_0
     iget-object v0, p0, Landroid/renderscript/Mesh$Builder;->mVertexTypes:[Landroid/renderscript/Mesh$Builder$Entry;
 
     iget v1, p0, Landroid/renderscript/Mesh$Builder;->mVertexTypeCount:I
@@ -264,7 +264,7 @@
 .end method
 
 .method public addVertexType(Landroid/renderscript/Type;)Landroid/renderscript/Mesh$Builder;
-    .registers 5
+    .locals 3
     .parameter "t"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -280,7 +280,7 @@
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_f
+    if-lt v0, v1, :cond_0
 
     .line 250
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -292,7 +292,7 @@
     throw v0
 
     .line 253
-    :cond_f
+    :cond_0
     iget-object v0, p0, Landroid/renderscript/Mesh$Builder;->mVertexTypes:[Landroid/renderscript/Mesh$Builder$Entry;
 
     iget v1, p0, Landroid/renderscript/Mesh$Builder;->mVertexTypeCount:I
@@ -335,7 +335,7 @@
 .end method
 
 .method public create()Landroid/renderscript/Mesh;
-    .registers 18
+    .locals 17
 
     .prologue
     .line 351
@@ -413,12 +413,12 @@
     const/4 v3, 0x0
 
     .local v3, ct:I
-    :goto_3c
+    :goto_0
     move-object/from16 v0, p0
 
     iget v13, v0, Landroid/renderscript/Mesh$Builder;->mVertexTypeCount:I
 
-    if-ge v3, v13, :cond_81
+    if-ge v3, v13, :cond_2
 
     .line 361
     const/4 v1, 0x0
@@ -435,7 +435,7 @@
     .local v4, entry:Landroid/renderscript/Mesh$Builder$Entry;
     iget-object v13, v4, Landroid/renderscript/Mesh$Builder$Entry;->t:Landroid/renderscript/Type;
 
-    if-eqz v13, :cond_6a
+    if-eqz v13, :cond_1
 
     .line 364
     move-object/from16 v0, p0
@@ -453,8 +453,8 @@
     move-result-object v1
 
     .line 368
-    :cond_5b
-    :goto_5b
+    :cond_0
+    :goto_1
     aput-object v1, v11, v3
 
     .line 369
@@ -471,13 +471,13 @@
     .line 360
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_3c
+    goto :goto_0
 
     .line 365
-    :cond_6a
+    :cond_1
     iget-object v13, v4, Landroid/renderscript/Mesh$Builder$Entry;->e:Landroid/renderscript/Element;
 
-    if-eqz v13, :cond_5b
+    if-eqz v13, :cond_0
 
     .line 366
     move-object/from16 v0, p0
@@ -498,15 +498,15 @@
 
     move-result-object v1
 
-    goto :goto_5b
+    goto :goto_1
 
     .line 372
     .end local v1           #alloc:Landroid/renderscript/Allocation;
     .end local v4           #entry:Landroid/renderscript/Mesh$Builder$Entry;
-    :cond_81
+    :cond_2
     const/4 v3, 0x0
 
-    :goto_82
+    :goto_2
     move-object/from16 v0, p0
 
     iget-object v13, v0, Landroid/renderscript/Mesh$Builder;->mIndexTypes:Ljava/util/Vector;
@@ -515,7 +515,7 @@
 
     move-result v13
 
-    if-ge v3, v13, :cond_dd
+    if-ge v3, v13, :cond_6
 
     .line 373
     const/4 v1, 0x0
@@ -536,7 +536,7 @@
     .restart local v4       #entry:Landroid/renderscript/Mesh$Builder$Entry;
     iget-object v13, v4, Landroid/renderscript/Mesh$Builder$Entry;->t:Landroid/renderscript/Type;
 
-    if-eqz v13, :cond_bd
+    if-eqz v13, :cond_4
 
     .line 376
     move-object/from16 v0, p0
@@ -554,15 +554,15 @@
     move-result-object v1
 
     .line 380
-    :cond_a9
-    :goto_a9
-    if-nez v1, :cond_d4
+    :cond_3
+    :goto_3
+    if-nez v1, :cond_5
 
     const/4 v2, 0x0
 
     .line 381
     .local v2, allocID:I
-    :goto_ac
+    :goto_4
     aput-object v1, v7, v3
 
     .line 382
@@ -583,14 +583,14 @@
     .line 372
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_82
+    goto :goto_2
 
     .line 377
     .end local v2           #allocID:I
-    :cond_bd
+    :cond_4
     iget-object v13, v4, Landroid/renderscript/Mesh$Builder$Entry;->e:Landroid/renderscript/Element;
 
-    if-eqz v13, :cond_a9
+    if-eqz v13, :cond_3
 
     .line 378
     move-object/from16 v0, p0
@@ -611,10 +611,10 @@
 
     move-result-object v1
 
-    goto :goto_a9
+    goto :goto_3
 
     .line 380
-    :cond_d4
+    :cond_5
     move-object/from16 v0, p0
 
     iget-object v13, v0, Landroid/renderscript/Mesh$Builder;->mRS:Landroid/renderscript/RenderScript;
@@ -623,12 +623,12 @@
 
     move-result v2
 
-    goto :goto_ac
+    goto :goto_4
 
     .line 388
     .end local v1           #alloc:Landroid/renderscript/Allocation;
     .end local v4           #entry:Landroid/renderscript/Mesh$Builder$Entry;
-    :cond_dd
+    :cond_6
     move-object/from16 v0, p0
 
     iget-object v13, v0, Landroid/renderscript/Mesh$Builder;->mRS:Landroid/renderscript/RenderScript;
@@ -662,7 +662,7 @@
 .end method
 
 .method public getCurrentIndexSetIndex()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 237
@@ -678,7 +678,7 @@
 .end method
 
 .method public getCurrentVertexTypeIndex()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 228
@@ -690,7 +690,7 @@
 .end method
 
 .method newType(Landroid/renderscript/Element;I)Landroid/renderscript/Type;
-    .registers 5
+    .locals 2
     .parameter "e"
     .parameter "size"
 

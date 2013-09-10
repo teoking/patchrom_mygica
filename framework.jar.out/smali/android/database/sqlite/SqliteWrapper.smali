@@ -11,7 +11,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 38
@@ -22,7 +22,7 @@
 .end method
 
 .method public static checkSQLiteException(Landroid/content/Context;Landroid/database/sqlite/SQLiteException;)V
-    .registers 4
+    .locals 2
     .parameter "context"
     .parameter "e"
 
@@ -32,7 +32,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 49
     const v0, 0x1040123
@@ -49,12 +49,12 @@
     return-void
 
     .line 52
-    :cond_12
+    :cond_0
     throw p1
 .end method
 
 .method public static delete(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
-    .registers 8
+    .locals 3
     .parameter "context"
     .parameter "resolver"
     .parameter "uri"
@@ -65,17 +65,17 @@
     .line 90
     :try_start_0
     invoke-virtual {p1, p2, p3, p4}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
-    :try_end_3
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_3} :catch_5
+    :try_end_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 94
-    :goto_4
+    :goto_0
     return v1
 
     .line 91
-    :catch_5
+    :catch_0
     move-exception v0
 
     .line 92
@@ -92,11 +92,11 @@
     .line 94
     const/4 v1, -0x1
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static insert(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
-    .registers 7
+    .locals 3
     .parameter "context"
     .parameter "resolver"
     .parameter "uri"
@@ -106,17 +106,17 @@
     .line 101
     :try_start_0
     invoke-virtual {p1, p2, p3}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
-    :try_end_3
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_3} :catch_5
+    :try_end_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 105
-    :goto_4
+    :goto_0
     return-object v1
 
     .line 102
-    :catch_5
+    :catch_0
     move-exception v0
 
     .line 103
@@ -133,11 +133,11 @@
     .line 105
     const/4 v1, 0x0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method private static isLowMemory(Landroid/database/sqlite/SQLiteException;)Z
-    .registers 3
+    .locals 2
     .parameter "e"
 
     .prologue
@@ -156,7 +156,7 @@
 .end method
 
 .method public static query(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 10
+    .locals 3
     .parameter "context"
     .parameter "resolver"
     .parameter "uri"
@@ -169,17 +169,17 @@
     .line 59
     :try_start_0
     invoke-virtual/range {p1 .. p6}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-    :try_end_3
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_3} :catch_5
+    :try_end_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 63
-    :goto_4
+    :goto_0
     return-object v1
 
     .line 60
-    :catch_5
+    :catch_0
     move-exception v0
 
     .line 61
@@ -196,11 +196,11 @@
     .line 63
     const/4 v1, 0x0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static requery(Landroid/content/Context;Landroid/database/Cursor;)Z
-    .registers 5
+    .locals 3
     .parameter "context"
     .parameter "cursor"
 
@@ -208,17 +208,17 @@
     .line 69
     :try_start_0
     invoke-interface {p1}, Landroid/database/Cursor;->requery()Z
-    :try_end_3
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_3} :catch_5
+    :try_end_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 73
-    :goto_4
+    :goto_0
     return v1
 
     .line 70
-    :catch_5
+    :catch_0
     move-exception v0
 
     .line 71
@@ -235,11 +235,11 @@
     .line 73
     const/4 v1, 0x0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static update(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
-    .registers 9
+    .locals 3
     .parameter "context"
     .parameter "resolver"
     .parameter "uri"
@@ -251,17 +251,17 @@
     .line 79
     :try_start_0
     invoke-virtual {p1, p2, p3, p4, p5}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
-    :try_end_3
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_3} :catch_5
+    :try_end_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 83
-    :goto_4
+    :goto_0
     return v1
 
     .line 80
-    :catch_5
+    :catch_0
     move-exception v0
 
     .line 81
@@ -278,5 +278,5 @@
     .line 83
     const/4 v1, -0x1
 
-    goto :goto_4
+    goto :goto_0
 .end method

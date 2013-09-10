@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;ZLandroid/webkit/ValueCallback;)V
-    .registers 4
+    .locals 0
     .parameter "basename"
     .parameter "autoname"
     .parameter

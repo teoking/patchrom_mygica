@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/WebSettingsClassic$EventHandler;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "msg"
 
     .prologue
@@ -44,14 +44,14 @@
     .line 202
     iget v1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v1, :pswitch_data_5c
+    packed-switch v1, :pswitch_data_0
 
     .line 227
-    :goto_6
+    :goto_0
     return-void
 
     .line 204
-    :pswitch_7
+    :pswitch_0
     iget-object v1, p0, Landroid/webkit/WebSettingsClassic$EventHandler$1;->this$1:Landroid/webkit/WebSettingsClassic$EventHandler;
 
     iget-object v2, v1, Landroid/webkit/WebSettingsClassic$EventHandler;->this$0:Landroid/webkit/WebSettingsClassic;
@@ -59,18 +59,19 @@
     monitor-enter v2
 
     .line 205
-    :try_start_c
+    :try_start_0
     iget-object v1, p0, Landroid/webkit/WebSettingsClassic$EventHandler$1;->this$1:Landroid/webkit/WebSettingsClassic$EventHandler;
 
     iget-object v1, v1, Landroid/webkit/WebSettingsClassic$EventHandler;->this$0:Landroid/webkit/WebSettingsClassic;
 
+    #getter for: Landroid/webkit/WebSettingsClassic;->mBrowserFrame:Landroid/webkit/BrowserFrame;
     invoke-static {v1}, Landroid/webkit/WebSettingsClassic;->access$000(Landroid/webkit/WebSettingsClassic;)Landroid/webkit/BrowserFrame;
 
     move-result-object v1
 
     iget v1, v1, Landroid/webkit/BrowserFrame;->mNativeFrame:I
 
-    if-eqz v1, :cond_29
+    if-eqz v1, :cond_0
 
     .line 206
     iget-object v1, p0, Landroid/webkit/WebSettingsClassic$EventHandler$1;->this$1:Landroid/webkit/WebSettingsClassic$EventHandler;
@@ -81,52 +82,57 @@
 
     iget-object v3, v3, Landroid/webkit/WebSettingsClassic$EventHandler;->this$0:Landroid/webkit/WebSettingsClassic;
 
+    #getter for: Landroid/webkit/WebSettingsClassic;->mBrowserFrame:Landroid/webkit/BrowserFrame;
     invoke-static {v3}, Landroid/webkit/WebSettingsClassic;->access$000(Landroid/webkit/WebSettingsClassic;)Landroid/webkit/BrowserFrame;
 
     move-result-object v3
 
     iget v3, v3, Landroid/webkit/BrowserFrame;->mNativeFrame:I
 
+    #calls: Landroid/webkit/WebSettingsClassic;->nativeSync(I)V
     invoke-static {v1, v3}, Landroid/webkit/WebSettingsClassic;->access$100(Landroid/webkit/WebSettingsClassic;I)V
 
     .line 208
-    :cond_29
+    :cond_0
     iget-object v1, p0, Landroid/webkit/WebSettingsClassic$EventHandler$1;->this$1:Landroid/webkit/WebSettingsClassic$EventHandler;
 
     iget-object v1, v1, Landroid/webkit/WebSettingsClassic$EventHandler;->this$0:Landroid/webkit/WebSettingsClassic;
 
     const/4 v3, 0x0
 
+    #setter for: Landroid/webkit/WebSettingsClassic;->mSyncPending:Z
     invoke-static {v1, v3}, Landroid/webkit/WebSettingsClassic;->access$202(Landroid/webkit/WebSettingsClassic;Z)Z
 
     .line 209
     monitor-exit v2
 
-    goto :goto_6
+    goto :goto_0
 
-    :catchall_33
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_35
-    .catchall {:try_start_c .. :try_end_35} :catchall_33
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 
     .line 213
-    :pswitch_36
+    :pswitch_1
     iget-object v1, p0, Landroid/webkit/WebSettingsClassic$EventHandler$1;->this$1:Landroid/webkit/WebSettingsClassic$EventHandler;
 
+    #calls: Landroid/webkit/WebSettingsClassic$EventHandler;->setRenderPriority()V
     invoke-static {v1}, Landroid/webkit/WebSettingsClassic$EventHandler;->access$300(Landroid/webkit/WebSettingsClassic$EventHandler;)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 218
-    :pswitch_3c
+    :pswitch_2
     iget-object v1, p0, Landroid/webkit/WebSettingsClassic$EventHandler$1;->this$1:Landroid/webkit/WebSettingsClassic$EventHandler;
 
     iget-object v1, v1, Landroid/webkit/WebSettingsClassic$EventHandler;->this$0:Landroid/webkit/WebSettingsClassic;
 
+    #getter for: Landroid/webkit/WebSettingsClassic;->mContext:Landroid/content/Context;
     invoke-static {v1}, Landroid/webkit/WebSettingsClassic;->access$400(Landroid/webkit/WebSettingsClassic;)Landroid/content/Context;
 
     move-result-object v1
@@ -154,15 +160,15 @@
     .line 223
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    goto :goto_6
+    goto :goto_0
 
     .line 202
     nop
 
-    :pswitch_data_5c
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_7
-        :pswitch_36
-        :pswitch_3c
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

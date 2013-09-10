@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -19,13 +19,13 @@
 .end method
 
 .method public static getInstance()Landroid/webkit/MockGeolocation;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 50
     sget-object v0, Landroid/webkit/MockGeolocation;->sMockGeolocation:Landroid/webkit/MockGeolocation;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 51
     new-instance v0, Landroid/webkit/MockGeolocation;
@@ -35,7 +35,7 @@
     sput-object v0, Landroid/webkit/MockGeolocation;->sMockGeolocation:Landroid/webkit/MockGeolocation;
 
     .line 53
-    :cond_b
+    :cond_0
     sget-object v0, Landroid/webkit/MockGeolocation;->sMockGeolocation:Landroid/webkit/MockGeolocation;
 
     return-object v0
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public setError(ILjava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "code"
     .parameter "message"
 
@@ -63,7 +63,7 @@
 .end method
 
 .method public setPosition(DDD)V
-    .registers 7
+    .locals 0
     .parameter "latitude"
     .parameter "longitude"
     .parameter "accuracy"

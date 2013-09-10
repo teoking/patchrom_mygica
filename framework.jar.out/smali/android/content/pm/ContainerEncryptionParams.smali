@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 365
@@ -65,7 +65,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 8
+    .locals 6
     .parameter "source"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -159,7 +159,7 @@
     iput-wide v3, p0, Landroid/content/pm/ContainerEncryptionParams;->mDataEnd:J
 
     .line 342
-    packed-switch v0, :pswitch_data_96
+    packed-switch v0, :pswitch_data_0
 
     .line 347
     new-instance v3, Ljava/security/InvalidAlgorithmParameterException;
@@ -187,7 +187,7 @@
     throw v3
 
     .line 344
-    :pswitch_62
+    :pswitch_0
     new-instance v3, Ljavax/crypto/spec/IvParameterSpec;
 
     invoke-direct {v3, v1}, Ljavax/crypto/spec/IvParameterSpec;-><init>([B)V
@@ -195,7 +195,7 @@
     iput-object v3, p0, Landroid/content/pm/ContainerEncryptionParams;->mEncryptionSpec:Ljavax/crypto/spec/IvParameterSpec;
 
     .line 351
-    packed-switch v2, :pswitch_data_9c
+    packed-switch v2, :pswitch_data_1
 
     .line 356
     new-instance v3, Ljava/security/InvalidAlgorithmParameterException;
@@ -223,7 +223,7 @@
     throw v3
 
     .line 353
-    :pswitch_85
+    :pswitch_1
     const/4 v3, 0x0
 
     iput-object v3, p0, Landroid/content/pm/ContainerEncryptionParams;->mMacSpec:Ljava/security/spec/AlgorithmParameterSpec;
@@ -231,7 +231,7 @@
     .line 360
     iget-object v3, p0, Landroid/content/pm/ContainerEncryptionParams;->mEncryptionKey:Ljavax/crypto/SecretKey;
 
-    if-nez v3, :cond_94
+    if-nez v3, :cond_0
 
     .line 361
     new-instance v3, Ljava/lang/NullPointerException;
@@ -243,26 +243,26 @@
     throw v3
 
     .line 363
-    :cond_94
+    :cond_0
     return-void
 
     .line 342
     nop
 
-    :pswitch_data_96
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_62
+        :pswitch_0
     .end packed-switch
 
     .line 351
-    :pswitch_data_9c
+    :pswitch_data_1
     .packed-switch 0x1
-        :pswitch_85
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/ContainerEncryptionParams$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .annotation system Ldalvik/annotation/Throws;
@@ -279,7 +279,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;Ljavax/crypto/SecretKey;)V
-    .registers 18
+    .locals 14
     .parameter "encryptionAlgorithm"
     .parameter "encryptionSpec"
     .parameter "encryptionKey"
@@ -320,7 +320,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;Ljavax/crypto/SecretKey;Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;Ljavax/crypto/SecretKey;[BJJJ)V
-    .registers 16
+    .locals 2
     .parameter "encryptionAlgorithm"
     .parameter "encryptionSpec"
     .parameter "encryptionKey"
@@ -346,7 +346,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 117
     new-instance v0, Ljava/lang/NullPointerException;
@@ -358,8 +358,8 @@
     throw v0
 
     .line 118
-    :cond_11
-    if-nez p2, :cond_1b
+    :cond_0
+    if-nez p2, :cond_1
 
     .line 119
     new-instance v0, Ljava/lang/NullPointerException;
@@ -371,8 +371,8 @@
     throw v0
 
     .line 120
-    :cond_1b
-    if-nez p3, :cond_25
+    :cond_1
+    if-nez p3, :cond_2
 
     .line 121
     new-instance v0, Ljava/lang/NullPointerException;
@@ -384,15 +384,15 @@
     throw v0
 
     .line 124
-    :cond_25
+    :cond_2
     invoke-static {p4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-nez v0, :cond_36
+    if-nez v0, :cond_3
 
     .line 125
-    if-nez p6, :cond_36
+    if-nez p6, :cond_3
 
     .line 126
     new-instance v0, Ljava/lang/NullPointerException;
@@ -404,10 +404,10 @@
     throw v0
 
     .line 130
-    :cond_36
+    :cond_3
     instance-of v0, p2, Ljavax/crypto/spec/IvParameterSpec;
 
-    if-nez v0, :cond_42
+    if-nez v0, :cond_4
 
     .line 131
     new-instance v0, Ljava/security/InvalidAlgorithmParameterException;
@@ -419,7 +419,7 @@
     throw v0
 
     .line 135
-    :cond_42
+    :cond_4
     iput-object p1, p0, Landroid/content/pm/ContainerEncryptionParams;->mEncryptionAlgorithm:Ljava/lang/String;
 
     .line 136
@@ -457,7 +457,7 @@
 .end method
 
 .method private static final isSecretKeyEqual(Ljavax/crypto/SecretKey;Ljavax/crypto/SecretKey;)Z
-    .registers 7
+    .locals 5
     .parameter "key1"
     .parameter "key2"
 
@@ -477,18 +477,18 @@
 
     .line 237
     .local v1, otherKeyFormat:Ljava/lang/String;
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_3
 
     .line 238
-    if-eq v0, v1, :cond_e
+    if-eq v0, v1, :cond_1
 
     .line 255
-    :cond_d
-    :goto_d
+    :cond_0
+    :goto_0
     return v2
 
     .line 242
-    :cond_e
+    :cond_1
     invoke-interface {p0}, Ljavax/crypto/SecretKey;->getEncoded()[B
 
     move-result-object v3
@@ -497,16 +497,16 @@
 
     move-result-object v4
 
-    if-ne v3, v4, :cond_d
+    if-ne v3, v4, :cond_0
 
     .line 255
-    :cond_18
+    :cond_2
     const/4 v2, 0x1
 
-    goto :goto_d
+    goto :goto_0
 
     .line 246
-    :cond_1a
+    :cond_3
     invoke-interface {p1}, Ljavax/crypto/SecretKey;->getFormat()Ljava/lang/String;
 
     move-result-object v3
@@ -515,7 +515,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_0
 
     .line 250
     invoke-interface {p0}, Ljavax/crypto/SecretKey;->getEncoded()[B
@@ -530,15 +530,15 @@
 
     move-result v3
 
-    if-nez v3, :cond_18
+    if-nez v3, :cond_2
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 191
@@ -548,7 +548,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 9
+    .locals 7
     .parameter "o"
 
     .prologue
@@ -557,25 +557,25 @@
     const/4 v2, 0x0
 
     .line 196
-    if-ne p0, p1, :cond_5
+    if-ne p0, p1, :cond_1
 
     .line 230
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 200
-    :cond_5
+    :cond_1
     instance-of v3, p1, Landroid/content/pm/ContainerEncryptionParams;
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_2
 
     move v1, v2
 
     .line 201
-    goto :goto_4
+    goto :goto_0
 
-    :cond_b
+    :cond_2
     move-object v0, p1
 
     .line 204
@@ -589,7 +589,7 @@
 
     cmp-long v3, v3, v5
 
-    if-nez v3, :cond_26
+    if-nez v3, :cond_3
 
     iget-wide v3, p0, Landroid/content/pm/ContainerEncryptionParams;->mEncryptedDataStart:J
 
@@ -597,7 +597,7 @@
 
     cmp-long v3, v3, v5
 
-    if-nez v3, :cond_26
+    if-nez v3, :cond_3
 
     iget-wide v3, p0, Landroid/content/pm/ContainerEncryptionParams;->mDataEnd:J
 
@@ -605,16 +605,16 @@
 
     cmp-long v3, v3, v5
 
-    if-eqz v3, :cond_28
+    if-eqz v3, :cond_4
 
-    :cond_26
+    :cond_3
     move v1, v2
 
     .line 210
-    goto :goto_4
+    goto :goto_0
 
     .line 214
-    :cond_28
+    :cond_4
     iget-object v3, p0, Landroid/content/pm/ContainerEncryptionParams;->mEncryptionAlgorithm:Ljava/lang/String;
 
     iget-object v4, v0, Landroid/content/pm/ContainerEncryptionParams;->mEncryptionAlgorithm:Ljava/lang/String;
@@ -623,7 +623,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3c
+    if-eqz v3, :cond_5
 
     iget-object v3, p0, Landroid/content/pm/ContainerEncryptionParams;->mMacAlgorithm:Ljava/lang/String;
 
@@ -633,16 +633,16 @@
 
     move-result v3
 
-    if-nez v3, :cond_3e
+    if-nez v3, :cond_6
 
-    :cond_3c
+    :cond_5
     move v1, v2
 
     .line 216
-    goto :goto_4
+    goto :goto_0
 
     .line 220
-    :cond_3e
+    :cond_6
     iget-object v3, p0, Landroid/content/pm/ContainerEncryptionParams;->mEncryptionKey:Ljavax/crypto/SecretKey;
 
     iget-object v4, v0, Landroid/content/pm/ContainerEncryptionParams;->mEncryptionKey:Ljavax/crypto/SecretKey;
@@ -651,7 +651,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_52
+    if-eqz v3, :cond_7
 
     iget-object v3, p0, Landroid/content/pm/ContainerEncryptionParams;->mMacKey:Ljavax/crypto/SecretKey;
 
@@ -661,16 +661,16 @@
 
     move-result v3
 
-    if-nez v3, :cond_54
+    if-nez v3, :cond_8
 
-    :cond_52
+    :cond_7
     move v1, v2
 
     .line 222
-    goto :goto_4
+    goto :goto_0
 
     .line 225
-    :cond_54
+    :cond_8
     iget-object v3, p0, Landroid/content/pm/ContainerEncryptionParams;->mEncryptionSpec:Ljavax/crypto/spec/IvParameterSpec;
 
     invoke-virtual {v3}, Ljavax/crypto/spec/IvParameterSpec;->getIV()[B
@@ -687,7 +687,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_76
+    if-eqz v3, :cond_9
 
     iget-object v3, p0, Landroid/content/pm/ContainerEncryptionParams;->mMacTag:[B
 
@@ -697,23 +697,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_76
+    if-eqz v3, :cond_9
 
     iget-object v3, p0, Landroid/content/pm/ContainerEncryptionParams;->mMacSpec:Ljava/security/spec/AlgorithmParameterSpec;
 
     iget-object v4, v0, Landroid/content/pm/ContainerEncryptionParams;->mMacSpec:Ljava/security/spec/AlgorithmParameterSpec;
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_0
 
-    :cond_76
+    :cond_9
     move v1, v2
 
     .line 227
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public getAuthenticatedDataStart()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 178
@@ -723,7 +723,7 @@
 .end method
 
 .method public getDataEnd()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 186
@@ -733,7 +733,7 @@
 .end method
 
 .method public getEncryptedDataStart()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 182
@@ -743,7 +743,7 @@
 .end method
 
 .method public getEncryptionAlgorithm()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 150
@@ -753,7 +753,7 @@
 .end method
 
 .method public getEncryptionKey()Ljavax/crypto/SecretKey;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 158
@@ -763,7 +763,7 @@
 .end method
 
 .method public getEncryptionSpec()Ljava/security/spec/AlgorithmParameterSpec;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 154
@@ -773,7 +773,7 @@
 .end method
 
 .method public getMacAlgorithm()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 162
@@ -783,7 +783,7 @@
 .end method
 
 .method public getMacKey()Ljavax/crypto/SecretKey;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 170
@@ -793,7 +793,7 @@
 .end method
 
 .method public getMacSpec()Ljava/security/spec/AlgorithmParameterSpec;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 166
@@ -803,7 +803,7 @@
 .end method
 
 .method public getMacTag()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 174
@@ -813,7 +813,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 8
+    .locals 7
 
     .prologue
     .line 260
@@ -934,7 +934,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 277
@@ -1075,7 +1075,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 

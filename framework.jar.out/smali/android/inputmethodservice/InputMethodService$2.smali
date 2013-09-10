@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/inputmethodservice/InputMethodService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 6
+    .locals 4
     .parameter "v"
 
     .prologue
@@ -59,14 +59,14 @@
 
     .line 348
     .local v1, ic:Landroid/view/inputmethod/InputConnection;
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_0
 
     .line 349
     iget v2, v0, Landroid/view/inputmethod/EditorInfo;->actionId:I
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_1
 
     .line 350
     iget v2, v0, Landroid/view/inputmethod/EditorInfo;->actionId:I
@@ -74,19 +74,19 @@
     invoke-interface {v1, v2}, Landroid/view/inputmethod/InputConnection;->performEditorAction(I)Z
 
     .line 356
-    :cond_19
-    :goto_19
+    :cond_0
+    :goto_0
     return-void
 
     .line 351
-    :cond_1a
+    :cond_1
     iget v2, v0, Landroid/view/inputmethod/EditorInfo;->imeOptions:I
 
     and-int/lit16 v2, v2, 0xff
 
     const/4 v3, 0x1
 
-    if-eq v2, v3, :cond_19
+    if-eq v2, v3, :cond_0
 
     .line 353
     iget v2, v0, Landroid/view/inputmethod/EditorInfo;->imeOptions:I
@@ -95,5 +95,5 @@
 
     invoke-interface {v1, v2}, Landroid/view/inputmethod/InputConnection;->performEditorAction(I)Z
 
-    goto :goto_19
+    goto :goto_0
 .end method

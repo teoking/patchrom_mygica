@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/pppoe/PppoeMonitor;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -39,17 +39,18 @@
 
 # virtual methods
 .method handleEvent(Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
     .parameter "ifname"
     .parameter "event"
 
     .prologue
     .line 109
-    packed-switch p2, :pswitch_data_32
+    packed-switch p2, :pswitch_data_0
 
     .line 120
     iget-object v0, p0, Landroid/net/pppoe/PppoeMonitor$MonitorThread;->this$0:Landroid/net/pppoe/PppoeMonitor;
 
+    #getter for: Landroid/net/pppoe/PppoeMonitor;->mTracker:Landroid/net/pppoe/PppoeStateTracker;
     invoke-static {v0}, Landroid/net/pppoe/PppoeMonitor;->access$000(Landroid/net/pppoe/PppoeMonitor;)Landroid/net/pppoe/PppoeStateTracker;
 
     move-result-object v0
@@ -59,13 +60,14 @@
     invoke-virtual {v0, p1, v1}, Landroid/net/pppoe/PppoeStateTracker;->notifyStateChange(Ljava/lang/String;Landroid/net/NetworkInfo$DetailedState;)V
 
     .line 122
-    :goto_e
+    :goto_0
     return-void
 
     .line 111
-    :pswitch_f
+    :pswitch_0
     iget-object v0, p0, Landroid/net/pppoe/PppoeMonitor$MonitorThread;->this$0:Landroid/net/pppoe/PppoeMonitor;
 
+    #getter for: Landroid/net/pppoe/PppoeMonitor;->mTracker:Landroid/net/pppoe/PppoeStateTracker;
     invoke-static {v0}, Landroid/net/pppoe/PppoeMonitor;->access$000(Landroid/net/pppoe/PppoeMonitor;)Landroid/net/pppoe/PppoeStateTracker;
 
     move-result-object v0
@@ -74,12 +76,13 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/net/pppoe/PppoeStateTracker;->notifyStateChange(Ljava/lang/String;Landroid/net/NetworkInfo$DetailedState;)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 114
-    :pswitch_1b
+    :pswitch_1
     iget-object v0, p0, Landroid/net/pppoe/PppoeMonitor$MonitorThread;->this$0:Landroid/net/pppoe/PppoeMonitor;
 
+    #getter for: Landroid/net/pppoe/PppoeMonitor;->mTracker:Landroid/net/pppoe/PppoeStateTracker;
     invoke-static {v0}, Landroid/net/pppoe/PppoeMonitor;->access$000(Landroid/net/pppoe/PppoeMonitor;)Landroid/net/pppoe/PppoeStateTracker;
 
     move-result-object v0
@@ -88,33 +91,34 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/net/pppoe/PppoeStateTracker;->notifyStateChange(Ljava/lang/String;Landroid/net/NetworkInfo$DetailedState;)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 117
-    :pswitch_27
+    :pswitch_2
     iget-object v0, p0, Landroid/net/pppoe/PppoeMonitor$MonitorThread;->this$0:Landroid/net/pppoe/PppoeMonitor;
 
+    #getter for: Landroid/net/pppoe/PppoeMonitor;->mTracker:Landroid/net/pppoe/PppoeStateTracker;
     invoke-static {v0}, Landroid/net/pppoe/PppoeMonitor;->access$000(Landroid/net/pppoe/PppoeMonitor;)Landroid/net/pppoe/PppoeStateTracker;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/net/pppoe/PppoeStateTracker;->notifyPppConnected(Ljava/lang/String;)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 109
     nop
 
-    :pswitch_data_32
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_1b
-        :pswitch_f
-        :pswitch_27
+        :pswitch_1
+        :pswitch_0
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public run()V
-    .registers 12
+    .locals 11
 
     .prologue
     .line 53
@@ -149,19 +153,19 @@
 
     move-result v8
 
-    if-eqz v8, :cond_27
+    if-eqz v8, :cond_1
 
     .line 60
-    :try_start_19
+    :try_start_0
     invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_1c
-    .catch Ljava/lang/NumberFormatException; {:try_start_19 .. :try_end_1c} :catch_af
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v6
 
     .line 66
-    :goto_1d
-    if-nez v6, :cond_30
+    :goto_1
+    if-nez v6, :cond_2
 
     .line 67
     const-string v8, "PppoeMonitor"
@@ -173,17 +177,17 @@
     goto :goto_0
 
     .line 63
-    :cond_27
+    :cond_1
     const-string v8, "PppoeMonitor"
 
     const-string/jumbo v9, "net.pppoe.running not FOUND"
 
     invoke-static {v8, v9}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1d
+    goto :goto_1
 
     .line 71
-    :cond_30
+    :cond_2
     if-eqz v2, :cond_0
 
     .line 74
@@ -231,7 +235,7 @@
 
     .line 83
     .local v4, i:I
-    :goto_55
+    :goto_2
     if-eqz v5, :cond_0
 
     add-int/lit8 v8, v5, -0x1
@@ -294,7 +298,7 @@
     .local v0, cmd:I
     const/16 v8, 0x11
 
-    if-ne v0, v8, :cond_99
+    if-ne v0, v8, :cond_4
 
     .line 88
     const/4 v1, 0x2
@@ -305,18 +309,18 @@
     invoke-virtual {p0, v8, v1}, Landroid/net/pppoe/PppoeMonitor$MonitorThread;->handleEvent(Ljava/lang/String;I)V
 
     .line 98
-    :cond_96
-    :goto_96
+    :cond_3
+    :goto_3
     add-int/lit8 v4, v4, 0x2
 
     .line 99
-    goto :goto_55
+    goto :goto_2
 
     .line 91
-    :cond_99
+    :cond_4
     const/16 v8, 0x14
 
-    if-ne v0, v8, :cond_a4
+    if-ne v0, v8, :cond_5
 
     .line 92
     const/4 v1, 0x1
@@ -326,13 +330,13 @@
 
     invoke-virtual {p0, v8, v1}, Landroid/net/pppoe/PppoeMonitor$MonitorThread;->handleEvent(Ljava/lang/String;I)V
 
-    goto :goto_96
+    goto :goto_3
 
     .line 94
-    :cond_a4
+    :cond_5
     const/16 v8, 0x10
 
-    if-ne v0, v8, :cond_96
+    if-ne v0, v8, :cond_3
 
     .line 95
     const/4 v1, 0x3
@@ -342,7 +346,7 @@
 
     invoke-virtual {p0, v8, v1}, Landroid/net/pppoe/PppoeMonitor$MonitorThread;->handleEvent(Ljava/lang/String;I)V
 
-    goto :goto_96
+    goto :goto_3
 
     .line 61
     .end local v0           #cmd:I
@@ -350,8 +354,8 @@
     .end local v3           #events:[Ljava/lang/String;
     .end local v4           #i:I
     .end local v5           #index:I
-    :catch_af
+    :catch_0
     move-exception v8
 
-    goto/16 :goto_1d
+    goto/16 :goto_1
 .end method

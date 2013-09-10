@@ -49,7 +49,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
-    .registers 8
+    .locals 5
     .parameter "context"
     .parameter "handler"
 
@@ -151,7 +151,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/net/wifi/p2p/WifiP2pNotifier;)Ljava/io/File;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -162,7 +162,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/net/wifi/p2p/WifiP2pNotifier;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -173,7 +173,7 @@
 .end method
 
 .method static synthetic access$1000(Landroid/net/wifi/p2p/WifiP2pNotifier;)Landroid/net/wifi/p2p/WifiP2pManager;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -184,7 +184,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/net/wifi/p2p/WifiP2pNotifier;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -196,7 +196,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/net/wifi/p2p/WifiP2pNotifier;Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -208,7 +208,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/net/wifi/p2p/WifiP2pNotifier;)Landroid/net/NetworkInfo;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -219,7 +219,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/net/wifi/p2p/WifiP2pNotifier;Landroid/net/NetworkInfo;)Landroid/net/NetworkInfo;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -231,7 +231,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/net/wifi/p2p/WifiP2pNotifier;)Landroid/net/wifi/p2p/WifiP2pInfo;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -242,7 +242,7 @@
 .end method
 
 .method static synthetic access$502(Landroid/net/wifi/p2p/WifiP2pNotifier;Landroid/net/wifi/p2p/WifiP2pInfo;)Landroid/net/wifi/p2p/WifiP2pInfo;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -254,7 +254,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/net/wifi/p2p/WifiP2pNotifier;)Landroid/net/wifi/p2p/WifiP2pManager$Channel;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -265,7 +265,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/net/wifi/p2p/WifiP2pGroup;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -278,7 +278,7 @@
 .end method
 
 .method static synthetic access$800(Landroid/net/wifi/p2p/WifiP2pNotifier;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -289,7 +289,7 @@
 .end method
 
 .method static synthetic access$802(Landroid/net/wifi/p2p/WifiP2pNotifier;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -301,7 +301,7 @@
 .end method
 
 .method static synthetic access$900(Landroid/net/wifi/p2p/WifiP2pNotifier;Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -314,7 +314,7 @@
 .end method
 
 .method private connectToRtspServer(Ljava/lang/String;I)V
-    .registers 6
+    .locals 3
     .parameter "ip"
     .parameter "wfdPort"
 
@@ -339,12 +339,12 @@
 .end method
 
 .method private static describeWifiP2pGroup(Landroid/net/wifi/p2p/WifiP2pGroup;)Ljava/lang/String;
-    .registers 4
+    .locals 3
     .parameter "group"
 
     .prologue
     .line 98
-    if-eqz p0, :cond_f
+    if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Landroid/net/wifi/p2p/WifiP2pGroup;->toString()Ljava/lang/String;
 
@@ -358,17 +358,17 @@
 
     move-result-object v0
 
-    :goto_e
+    :goto_0
     return-object v0
 
-    :cond_f
+    :cond_0
     const-string/jumbo v0, "null"
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method private parseDnsmasqAddr(Ljava/lang/String;)V
-    .registers 9
+    .locals 7
     .parameter "fileName"
 
     .prologue
@@ -395,7 +395,7 @@
 
     .line 125
     .local v2, ip:Ljava/lang/String;
-    :try_start_10
+    :try_start_0
     new-instance v5, Ljava/io/BufferedReader;
 
     new-instance v6, Ljava/io/FileReader;
@@ -403,14 +403,14 @@
     invoke-direct {v6, v1}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
 
     invoke-direct {v5, v6}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
-    :try_end_1a
-    .catchall {:try_start_10 .. :try_end_1a} :catchall_4c
-    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_1a} :catch_3d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 126
     .end local v4           #reader:Ljava/io/BufferedReader;
     .local v5, reader:Ljava/io/BufferedReader;
-    :try_start_1a
+    :try_start_1
     invoke-virtual {v5}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v3
@@ -422,39 +422,39 @@
 
     .line 128
     invoke-virtual {v5}, Ljava/io/BufferedReader;->close()V
-    :try_end_25
-    .catchall {:try_start_1a .. :try_end_25} :catchall_5d
-    .catch Ljava/io/IOException; {:try_start_1a .. :try_end_25} :catch_60
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
 
     .line 132
-    if-eqz v5, :cond_2a
+    if-eqz v5, :cond_0
 
     .line 134
-    :try_start_27
+    :try_start_2
     invoke-virtual {v5}, Ljava/io/BufferedReader;->close()V
-    :try_end_2a
-    .catch Ljava/io/IOException; {:try_start_27 .. :try_end_2a} :catch_58
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
 
-    :cond_2a
-    :goto_2a
+    :cond_0
+    :goto_0
     move-object v4, v5
 
     .line 140
     .end local v5           #reader:Ljava/io/BufferedReader;
     .restart local v4       #reader:Ljava/io/BufferedReader;
-    :cond_2b
-    :goto_2b
+    :cond_1
+    :goto_1
     invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
 
     move-result v6
 
-    if-nez v6, :cond_3c
+    if-nez v6, :cond_2
 
     invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
 
     move-result v6
 
-    if-nez v6, :cond_3c
+    if-nez v6, :cond_2
 
     .line 141
     iget v6, p0, Landroid/net/wifi/p2p/WifiP2pNotifier;->mWfdPort:I
@@ -462,109 +462,109 @@
     invoke-direct {p0, v2, v6}, Landroid/net/wifi/p2p/WifiP2pNotifier;->connectToRtspServer(Ljava/lang/String;I)V
 
     .line 143
-    :cond_3c
+    :cond_2
     return-void
 
     .line 129
-    :catch_3d
+    :catch_0
     move-exception v0
 
     .line 130
     .local v0, e:Ljava/io/IOException;
-    :goto_3e
-    :try_start_3e
+    :goto_2
+    :try_start_3
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
-    :try_end_41
-    .catchall {:try_start_3e .. :try_end_41} :catchall_4c
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 132
-    if-eqz v4, :cond_2b
+    if-eqz v4, :cond_1
 
     .line 134
-    :try_start_43
+    :try_start_4
     invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V
-    :try_end_46
-    .catch Ljava/io/IOException; {:try_start_43 .. :try_end_46} :catch_47
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_1
 
-    goto :goto_2b
+    goto :goto_1
 
     .line 135
-    :catch_47
+    :catch_1
     move-exception v0
 
     .line 136
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_2b
+    goto :goto_1
 
     .line 132
     .end local v0           #e:Ljava/io/IOException;
-    :catchall_4c
+    :catchall_0
     move-exception v6
 
-    :goto_4d
-    if-eqz v4, :cond_52
+    :goto_3
+    if-eqz v4, :cond_3
 
     .line 134
-    :try_start_4f
+    :try_start_5
     invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V
-    :try_end_52
-    .catch Ljava/io/IOException; {:try_start_4f .. :try_end_52} :catch_53
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
 
     .line 132
-    :cond_52
-    :goto_52
+    :cond_3
+    :goto_4
     throw v6
 
     .line 135
-    :catch_53
+    :catch_2
     move-exception v0
 
     .line 136
     .restart local v0       #e:Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_52
+    goto :goto_4
 
     .line 135
     .end local v0           #e:Ljava/io/IOException;
     .end local v4           #reader:Ljava/io/BufferedReader;
     .restart local v5       #reader:Ljava/io/BufferedReader;
-    :catch_58
+    :catch_3
     move-exception v0
 
     .line 136
     .restart local v0       #e:Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_2a
+    goto :goto_0
 
     .line 132
     .end local v0           #e:Ljava/io/IOException;
-    :catchall_5d
+    :catchall_1
     move-exception v6
 
     move-object v4, v5
 
     .end local v5           #reader:Ljava/io/BufferedReader;
     .restart local v4       #reader:Ljava/io/BufferedReader;
-    goto :goto_4d
+    goto :goto_3
 
     .line 129
     .end local v4           #reader:Ljava/io/BufferedReader;
     .restart local v5       #reader:Ljava/io/BufferedReader;
-    :catch_60
+    :catch_4
     move-exception v0
 
     move-object v4, v5
 
     .end local v5           #reader:Ljava/io/BufferedReader;
     .restart local v4       #reader:Ljava/io/BufferedReader;
-    goto :goto_3e
+    goto :goto_2
 .end method
 
 .method private sendDnsmasqBroadcast(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 8
+    .locals 4
     .parameter "mac"
     .parameter "ip"
     .parameter "port"

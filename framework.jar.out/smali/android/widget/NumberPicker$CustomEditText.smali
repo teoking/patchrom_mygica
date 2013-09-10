@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "attrs"
 
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public onEditorAction(I)V
-    .registers 3
+    .locals 1
     .parameter "actionCode"
 
     .prologue
@@ -41,12 +41,12 @@
     .line 2068
     const/4 v0, 0x6
 
-    if-ne p1, v0, :cond_9
+    if-ne p1, v0, :cond_0
 
     .line 2069
     invoke-virtual {p0}, Landroid/widget/NumberPicker$CustomEditText;->clearFocus()V
 
     .line 2071
-    :cond_9
+    :cond_0
     return-void
 .end method

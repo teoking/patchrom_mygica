@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 322
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -104,7 +104,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Throwable;)V
-    .registers 8
+    .locals 6
     .parameter "tr"
 
     .prologue
@@ -145,13 +145,13 @@
 
     .line 336
     .local v1, rootTr:Ljava/lang/Throwable;
-    :cond_1e
-    :goto_1e
+    :cond_0
+    :goto_0
     invoke-virtual {p1}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
 
     move-result-object v4
 
-    if-eqz v4, :cond_45
+    if-eqz v4, :cond_2
 
     .line 337
     invoke-virtual {p1}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
@@ -163,7 +163,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_36
+    if-eqz v4, :cond_1
 
     invoke-virtual {p1}, Ljava/lang/Throwable;->getStackTrace()[Ljava/lang/StackTraceElement;
 
@@ -171,35 +171,35 @@
 
     array-length v4, v4
 
-    if-lez v4, :cond_36
+    if-lez v4, :cond_1
 
     .line 339
     move-object v1, p1
 
     .line 341
-    :cond_36
+    :cond_1
     invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v0
 
     .line 342
     .local v0, msg:Ljava/lang/String;
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v4
 
-    if-lez v4, :cond_1e
+    if-lez v4, :cond_0
 
     .line 343
     iput-object v0, p0, Landroid/app/ApplicationErrorReport$CrashInfo;->exceptionMessage:Ljava/lang/String;
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 347
     .end local v0           #msg:Ljava/lang/String;
-    :cond_45
+    :cond_2
     invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v4
@@ -217,7 +217,7 @@
 
     array-length v4, v4
 
-    if-lez v4, :cond_75
+    if-lez v4, :cond_3
 
     .line 349
     invoke-virtual {v1}, Ljava/lang/Throwable;->getStackTrace()[Ljava/lang/StackTraceElement;
@@ -257,11 +257,11 @@
 
     .line 360
     .end local v3           #trace:Ljava/lang/StackTraceElement;
-    :goto_74
+    :goto_1
     return-void
 
     .line 355
-    :cond_75
+    :cond_3
     const-string/jumbo v4, "unknown"
 
     iput-object v4, p0, Landroid/app/ApplicationErrorReport$CrashInfo;->throwFileName:Ljava/lang/String;
@@ -279,13 +279,13 @@
     .line 358
     iput v5, p0, Landroid/app/ApplicationErrorReport$CrashInfo;->throwLineNumber:I
 
-    goto :goto_74
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "pw"
     .parameter "prefix"
 
@@ -484,7 +484,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

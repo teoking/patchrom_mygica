@@ -62,7 +62,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 496
@@ -76,7 +76,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 392
@@ -92,7 +92,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -114,7 +114,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 447
@@ -124,14 +124,14 @@
 .end method
 
 .method public getBreadCrumbShortTitle(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
-    .registers 3
+    .locals 1
     .parameter "res"
 
     .prologue
     .line 439
     iget v0, p0, Landroid/preference/PreferenceActivity$Header;->breadCrumbShortTitleRes:I
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 440
     iget v0, p0, Landroid/preference/PreferenceActivity$Header;->breadCrumbShortTitleRes:I
@@ -141,24 +141,24 @@
     move-result-object v0
 
     .line 442
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/preference/PreferenceActivity$Header;->breadCrumbShortTitle:Ljava/lang/CharSequence;
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getBreadCrumbTitle(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
-    .registers 3
+    .locals 1
     .parameter "res"
 
     .prologue
     .line 426
     iget v0, p0, Landroid/preference/PreferenceActivity$Header;->breadCrumbTitleRes:I
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 427
     iget v0, p0, Landroid/preference/PreferenceActivity$Header;->breadCrumbTitleRes:I
@@ -168,24 +168,24 @@
     move-result-object v0
 
     .line 429
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/preference/PreferenceActivity$Header;->breadCrumbTitle:Ljava/lang/CharSequence;
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getSummary(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
-    .registers 3
+    .locals 1
     .parameter "res"
 
     .prologue
     .line 414
     iget v0, p0, Landroid/preference/PreferenceActivity$Header;->summaryRes:I
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 415
     iget v0, p0, Landroid/preference/PreferenceActivity$Header;->summaryRes:I
@@ -195,24 +195,24 @@
     move-result-object v0
 
     .line 417
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/preference/PreferenceActivity$Header;->summary:Ljava/lang/CharSequence;
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getTitle(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
-    .registers 3
+    .locals 1
     .parameter "res"
 
     .prologue
     .line 402
     iget v0, p0, Landroid/preference/PreferenceActivity$Header;->titleRes:I
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 403
     iget v0, p0, Landroid/preference/PreferenceActivity$Header;->titleRes:I
@@ -222,17 +222,17 @@
     move-result-object v0
 
     .line 405
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/preference/PreferenceActivity$Header;->title:Ljava/lang/CharSequence;
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -341,7 +341,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_68
+    if-eqz v0, :cond_0
 
     .line 487
     sget-object v0, Landroid/content/Intent;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -355,7 +355,7 @@
     iput-object v0, p0, Landroid/preference/PreferenceActivity$Header;->intent:Landroid/content/Intent;
 
     .line 489
-    :cond_68
+    :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
     move-result-object v0
@@ -367,7 +367,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 
@@ -435,7 +435,7 @@
     .line 464
     iget-object v0, p0, Landroid/preference/PreferenceActivity$Header;->intent:Landroid/content/Intent;
 
-    if-eqz v0, :cond_4f
+    if-eqz v0, :cond_0
 
     .line 465
     const/4 v0, 0x1
@@ -448,7 +448,7 @@
     invoke-virtual {v0, p1, p2}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 470
-    :goto_49
+    :goto_0
     iget-object v0, p0, Landroid/preference/PreferenceActivity$Header;->extras:Landroid/os/Bundle;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
@@ -457,10 +457,10 @@
     return-void
 
     .line 468
-    :cond_4f
+    :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_49
+    goto :goto_0
 .end method

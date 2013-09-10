@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 38
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public requestPriority(III)I
-    .registers 9
+    .locals 5
     .parameter "pid"
     .parameter "tid"
     .parameter "prio"
@@ -43,62 +43,62 @@
 
     const/16 v3, 0x3f5
 
-    if-ne v2, v3, :cond_15
+    if-ne v2, v3, :cond_0
 
-    if-lt p3, v4, :cond_15
+    if-lt p3, v4, :cond_0
 
     const/4 v2, 0x2
 
-    if-gt p3, v2, :cond_15
+    if-gt p3, v2, :cond_0
 
     invoke-static {p2}, Landroid/os/Process;->getThreadGroupLeader(I)I
 
     move-result v2
 
-    if-eq v2, p1, :cond_16
+    if-eq v2, p1, :cond_1
 
     .line 62
-    :cond_15
-    :goto_15
+    :cond_0
+    :goto_0
     return v1
 
     .line 55
-    :cond_16
-    :try_start_16
+    :cond_1
+    :try_start_0
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v2
 
-    if-ne v2, p1, :cond_26
+    if-ne v2, p1, :cond_2
 
     const/4 v2, 0x4
 
-    :goto_1d
+    :goto_1
     invoke-static {p2, v2}, Landroid/os/Process;->setThreadGroup(II)V
 
     .line 58
     const/4 v2, 0x1
 
     invoke-static {p2, v2, p3}, Landroid/os/Process;->setThreadScheduler(III)V
-    :try_end_24
-    .catch Ljava/lang/RuntimeException; {:try_start_16 .. :try_end_24} :catch_28
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 62
     const/4 v1, 0x0
 
-    goto :goto_15
+    goto :goto_0
 
     .line 55
-    :cond_26
+    :cond_2
     const/4 v2, 0x3
 
-    goto :goto_1d
+    goto :goto_1
 
     .line 59
-    :catch_28
+    :catch_0
     move-exception v0
 
     .line 60
     .local v0, e:Ljava/lang/RuntimeException;
-    goto :goto_15
+    goto :goto_0
 .end method

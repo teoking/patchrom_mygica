@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 223
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 137
@@ -88,7 +88,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -110,7 +110,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/os/Debug$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -122,94 +122,94 @@
 .end method
 
 .method public static getOtherLabel(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "which"
 
     .prologue
     .line 179
-    packed-switch p0, :pswitch_data_22
+    packed-switch p0, :pswitch_data_0
 
     .line 189
     const-string v0, "????"
 
-    :goto_5
+    :goto_0
     return-object v0
 
     .line 180
-    :pswitch_6
+    :pswitch_0
     const-string v0, "Cursor"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 181
-    :pswitch_9
+    :pswitch_1
     const-string v0, "Ashmem"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 182
-    :pswitch_c
+    :pswitch_2
     const-string v0, "Other dev"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 183
-    :pswitch_f
+    :pswitch_3
     const-string v0, ".so mmap"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 184
-    :pswitch_12
+    :pswitch_4
     const-string v0, ".jar mmap"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 185
-    :pswitch_15
+    :pswitch_5
     const-string v0, ".apk mmap"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 186
-    :pswitch_18
+    :pswitch_6
     const-string v0, ".ttf mmap"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 187
-    :pswitch_1b
+    :pswitch_7
     const-string v0, ".dex mmap"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 188
-    :pswitch_1e
+    :pswitch_8
     const-string v0, "Other mmap"
 
-    goto :goto_5
+    goto :goto_0
 
     .line 179
     nop
 
-    :pswitch_data_22
+    :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
         :pswitch_6
-        :pswitch_9
-        :pswitch_c
-        :pswitch_f
-        :pswitch_12
-        :pswitch_15
-        :pswitch_18
-        :pswitch_1b
-        :pswitch_1e
+        :pswitch_7
+        :pswitch_8
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 194
@@ -219,7 +219,7 @@
 .end method
 
 .method public getOtherPrivateDirty(I)I
-    .registers 4
+    .locals 2
     .parameter "which"
 
     .prologue
@@ -236,7 +236,7 @@
 .end method
 
 .method public getOtherPss(I)I
-    .registers 4
+    .locals 2
     .parameter "which"
 
     .prologue
@@ -251,7 +251,7 @@
 .end method
 
 .method public getOtherSharedDirty(I)I
-    .registers 4
+    .locals 2
     .parameter "which"
 
     .prologue
@@ -268,7 +268,7 @@
 .end method
 
 .method public getTotalPrivateDirty()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 151
@@ -286,7 +286,7 @@
 .end method
 
 .method public getTotalPss()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 144
@@ -304,7 +304,7 @@
 .end method
 
 .method public getTotalSharedDirty()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 158
@@ -322,7 +322,7 @@
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -401,7 +401,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

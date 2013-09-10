@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 2653
@@ -32,7 +32,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/ListView$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public getAmountToScroll()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2670
@@ -55,7 +55,7 @@
 .end method
 
 .method public getSelectedPosition()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2666
@@ -65,7 +65,7 @@
 .end method
 
 .method populate(II)V
-    .registers 3
+    .locals 0
     .parameter "selectedPosition"
     .parameter "amountToScroll"
 

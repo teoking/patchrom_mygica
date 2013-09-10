@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 187
@@ -54,7 +54,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -73,7 +73,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/Signature$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -85,7 +85,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 14
+    .locals 12
     .parameter "text"
 
     .prologue
@@ -105,7 +105,7 @@
     .local v0, N:I
     rem-int/lit8 v9, v0, 0x2
 
-    if-eqz v9, :cond_2c
+    if-eqz v9, :cond_0
 
     .line 72
     new-instance v9, Ljava/lang/IllegalArgumentException;
@@ -139,7 +139,7 @@
     throw v9
 
     .line 75
-    :cond_2c
+    :cond_0
     div-int/lit8 v9, v0, 0x2
 
     new-array v6, v9, [B
@@ -161,8 +161,8 @@
 
     .end local v7           #sigIndex:I
     .local v8, sigIndex:I
-    :goto_34
-    if-ge v3, v0, :cond_50
+    :goto_0
+    if-ge v3, v0, :cond_1
 
     .line 79
     add-int/lit8 v2, v3, 0x1
@@ -206,12 +206,12 @@
     .line 82
     .end local v7           #sigIndex:I
     .restart local v8       #sigIndex:I
-    goto :goto_34
+    goto :goto_0
 
     .line 84
     .end local v1           #hi:I
     .end local v5           #lo:I
-    :cond_50
+    :cond_1
     iput-object v6, p0, Landroid/content/pm/Signature;->mSignature:[B
 
     .line 85
@@ -219,7 +219,7 @@
 .end method
 
 .method public constructor <init>([B)V
-    .registers 3
+    .locals 1
     .parameter "signature"
 
     .prologue
@@ -240,62 +240,62 @@
 .end method
 
 .method private static final parseHexDigit(I)I
-    .registers 4
+    .locals 3
     .parameter "nibble"
 
     .prologue
     .line 48
     const/16 v0, 0x30
 
-    if-gt v0, p0, :cond_b
+    if-gt v0, p0, :cond_0
 
     const/16 v0, 0x39
 
-    if-gt p0, v0, :cond_b
+    if-gt p0, v0, :cond_0
 
     .line 49
     add-int/lit8 v0, p0, -0x30
 
     .line 53
-    :goto_a
+    :goto_0
     return v0
 
     .line 50
-    :cond_b
+    :cond_0
     const/16 v0, 0x61
 
-    if-gt v0, p0, :cond_18
+    if-gt v0, p0, :cond_1
 
     const/16 v0, 0x66
 
-    if-gt p0, v0, :cond_18
+    if-gt p0, v0, :cond_1
 
     .line 51
     add-int/lit8 v0, p0, -0x61
 
     add-int/lit8 v0, v0, 0xa
 
-    goto :goto_a
+    goto :goto_0
 
     .line 52
-    :cond_18
+    :cond_1
     const/16 v0, 0x41
 
-    if-gt v0, p0, :cond_25
+    if-gt v0, p0, :cond_2
 
     const/16 v0, 0x46
 
-    if-gt p0, v0, :cond_25
+    if-gt p0, v0, :cond_2
 
     .line 53
     add-int/lit8 v0, p0, -0x41
 
     add-int/lit8 v0, v0, 0xa
 
-    goto :goto_a
+    goto :goto_0
 
     .line 55
-    :cond_25
+    :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -330,7 +330,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 180
@@ -340,17 +340,17 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "obj"
 
     .prologue
     const/4 v2, 0x0
 
     .line 160
-    if-eqz p1, :cond_14
+    if-eqz p1, :cond_1
 
     .line 161
-    :try_start_3
+    :try_start_0
     move-object v0, p1
 
     check-cast v0, Landroid/content/pm/Signature;
@@ -359,38 +359,38 @@
 
     .line 162
     .local v1, other:Landroid/content/pm/Signature;
-    if-eq p0, v1, :cond_13
+    if-eq p0, v1, :cond_0
 
     iget-object v3, p0, Landroid/content/pm/Signature;->mSignature:[B
 
     iget-object v4, v1, Landroid/content/pm/Signature;->mSignature:[B
 
     invoke-static {v3, v4}, Ljava/util/Arrays;->equals([B[B)Z
-    :try_end_10
-    .catch Ljava/lang/ClassCastException; {:try_start_3 .. :try_end_10} :catch_15
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v3
 
-    if-eqz v3, :cond_14
+    if-eqz v3, :cond_1
 
-    :cond_13
+    :cond_0
     const/4 v2, 0x1
 
     .line 166
     .end local v1           #other:Landroid/content/pm/Signature;
-    :cond_14
-    :goto_14
+    :cond_1
+    :goto_0
     return v2
 
     .line 164
-    :catch_15
+    :catch_0
     move-exception v3
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public getPublicKey()Ljava/security/PublicKey;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/cert/CertificateException;
@@ -429,23 +429,23 @@
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 171
     iget-boolean v0, p0, Landroid/content/pm/Signature;->mHaveHashCode:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 172
     iget v0, p0, Landroid/content/pm/Signature;->mHashCode:I
 
     .line 176
-    :goto_6
+    :goto_0
     return v0
 
     .line 174
-    :cond_7
+    :cond_0
     iget-object v0, p0, Landroid/content/pm/Signature;->mSignature:[B
 
     invoke-static {v0}, Ljava/util/Arrays;->hashCode([B)I
@@ -462,11 +462,11 @@
     .line 176
     iget v0, p0, Landroid/content/pm/Signature;->mHashCode:I
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public toByteArray()[B
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x0
@@ -493,7 +493,7 @@
 .end method
 
 .method public toChars()[C
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -507,7 +507,7 @@
 .end method
 
 .method public toChars([C[I)[C
-    .registers 13
+    .locals 10
     .parameter "existingArray"
     .parameter "outLen"
 
@@ -527,23 +527,23 @@
 
     .line 108
     .local v1, N2:I
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_0
 
     array-length v7, p1
 
-    if-le v1, v7, :cond_34
+    if-le v1, v7, :cond_1
 
-    :cond_c
+    :cond_0
     new-array v5, v1, [C
 
     .line 110
     .local v5, text:[C
-    :goto_e
+    :goto_0
     const/4 v3, 0x0
 
     .local v3, j:I
-    :goto_f
-    if-ge v3, v0, :cond_3c
+    :goto_1
+    if-ge v3, v0, :cond_4
 
     .line 111
     aget-byte v6, v4, v3
@@ -558,13 +558,13 @@
     .local v2, d:I
     mul-int/lit8 v8, v3, 0x2
 
-    if-lt v2, v9, :cond_36
+    if-lt v2, v9, :cond_2
 
     add-int/lit8 v7, v2, 0x61
 
     add-int/lit8 v7, v7, -0xa
 
-    :goto_1f
+    :goto_2
     int-to-char v7, v7
 
     aput-char v7, v5, v8
@@ -577,13 +577,13 @@
 
     add-int/lit8 v8, v7, 0x1
 
-    if-lt v2, v9, :cond_39
+    if-lt v2, v9, :cond_3
 
     add-int/lit8 v7, v2, 0x61
 
     add-int/lit8 v7, v7, -0xa
 
-    :goto_2e
+    :goto_3
     int-to-char v7, v7
 
     aput-char v7, v5, v8
@@ -591,76 +591,76 @@
     .line 110
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_f
+    goto :goto_1
 
     .end local v2           #d:I
     .end local v3           #j:I
     .end local v5           #text:[C
     .end local v6           #v:B
-    :cond_34
+    :cond_1
     move-object v5, p1
 
     .line 108
-    goto :goto_e
+    goto :goto_0
 
     .line 113
     .restart local v2       #d:I
     .restart local v3       #j:I
     .restart local v5       #text:[C
     .restart local v6       #v:B
-    :cond_36
+    :cond_2
     add-int/lit8 v7, v2, 0x30
 
-    goto :goto_1f
+    goto :goto_2
 
     .line 115
-    :cond_39
+    :cond_3
     add-int/lit8 v7, v2, 0x30
 
-    goto :goto_2e
+    goto :goto_3
 
     .line 117
     .end local v2           #d:I
     .end local v6           #v:B
-    :cond_3c
-    if-eqz p2, :cond_41
+    :cond_4
+    if-eqz p2, :cond_5
 
     const/4 v7, 0x0
 
     aput v0, p2, v7
 
     .line 118
-    :cond_41
+    :cond_5
     return-object v5
 .end method
 
 .method public toCharsString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 125
     iget-object v2, p0, Landroid/content/pm/Signature;->mStringRef:Ljava/lang/ref/SoftReference;
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_0
 
     const/4 v0, 0x0
 
     .line 126
     .local v0, str:Ljava/lang/String;
-    :goto_5
-    if-eqz v0, :cond_13
+    :goto_0
+    if-eqz v0, :cond_1
 
     move-object v1, v0
 
     .line 131
     .end local v0           #str:Ljava/lang/String;
     .local v1, str:Ljava/lang/Object;
-    :goto_8
+    :goto_1
     return-object v1
 
     .line 125
     .end local v1           #str:Ljava/lang/Object;
-    :cond_9
+    :cond_0
     iget-object v2, p0, Landroid/content/pm/Signature;->mStringRef:Ljava/lang/ref/SoftReference;
 
     invoke-virtual {v2}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
@@ -671,11 +671,11 @@
 
     move-object v0, v2
 
-    goto :goto_5
+    goto :goto_0
 
     .line 129
     .restart local v0       #str:Ljava/lang/String;
-    :cond_13
+    :cond_1
     new-instance v0, Ljava/lang/String;
 
     .end local v0           #str:Ljava/lang/String;
@@ -697,11 +697,11 @@
 
     .line 131
     .restart local v1       #str:Ljava/lang/Object;
-    goto :goto_8
+    goto :goto_1
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "parcelableFlags"
 

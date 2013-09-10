@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountAndUser;)V
-    .registers 3
+    .locals 1
     .parameter "accountAndUser"
 
     .prologue

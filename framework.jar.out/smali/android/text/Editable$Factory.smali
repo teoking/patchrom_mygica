@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 124
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 123
@@ -44,7 +44,7 @@
 .end method
 
 .method public static getInstance()Landroid/text/Editable$Factory;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 130
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public newEditable(Ljava/lang/CharSequence;)Landroid/text/Editable;
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue

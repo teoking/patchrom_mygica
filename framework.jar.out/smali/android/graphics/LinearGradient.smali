@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(FFFFIILandroid/graphics/Shader$TileMode;)V
-    .registers 18
+    .locals 10
     .parameter "x0"
     .parameter "y0"
     .parameter "x1"
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>(FFFF[I[FLandroid/graphics/Shader$TileMode;)V
-    .registers 18
+    .locals 10
     .parameter "x0"
     .parameter "y0"
     .parameter "x1"
@@ -93,7 +93,7 @@
 
     const/4 v2, 0x2
 
-    if-ge v1, v2, :cond_10
+    if-ge v1, v2, :cond_0
 
     .line 34
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -105,8 +105,8 @@
     throw v1
 
     .line 36
-    :cond_10
-    if-eqz p6, :cond_20
+    :cond_0
+    if-eqz p6, :cond_1
 
     array-length v1, p5
 
@@ -114,7 +114,7 @@
 
     array-length v2, v0
 
-    if-eq v1, v2, :cond_20
+    if-eq v1, v2, :cond_1
 
     .line 37
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -126,7 +126,7 @@
     throw v1
 
     .line 39
-    :cond_20
+    :cond_1
     move-object/from16 v0, p7
 
     iget v8, v0, Landroid/graphics/Shader$TileMode;->nativeInt:I

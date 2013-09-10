@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>([FFFF)V
-    .registers 7
+    .locals 2
     .parameter "direction"
     .parameter "ambient"
     .parameter "specular"
@@ -20,7 +20,7 @@
 
     const/4 v1, 0x3
 
-    if-ge v0, v1, :cond_d
+    if-ge v0, v1, :cond_0
 
     .line 31
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
@@ -30,7 +30,7 @@
     throw v0
 
     .line 33
-    :cond_d
+    :cond_0
     invoke-static {p1, p2, p3, p4}, Landroid/graphics/EmbossMaskFilter;->nativeConstructor([FFFF)I
 
     move-result v0

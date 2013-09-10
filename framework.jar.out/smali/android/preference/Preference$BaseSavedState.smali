@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1795
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 2
+    .locals 0
     .parameter "source"
 
     .prologue
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcelable;)V
-    .registers 2
+    .locals 0
     .parameter "superState"
 
     .prologue

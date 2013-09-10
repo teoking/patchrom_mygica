@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
-    .registers 3
+    .locals 1
     .parameter "rs"
 
     .prologue
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public create()Landroid/renderscript/Sampler;
-    .registers 10
+    .locals 9
 
     .prologue
     .line 285
@@ -160,7 +160,7 @@
 .end method
 
 .method public setAnisotropy(F)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
@@ -169,7 +169,7 @@
 
     cmpl-float v0, p1, v0
 
-    if-ltz v0, :cond_8
+    if-ltz v0, :cond_0
 
     .line 278
     iput p1, p0, Landroid/renderscript/Sampler$Builder;->mAniso:F
@@ -178,7 +178,7 @@
     return-void
 
     .line 280
-    :cond_8
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid value"
@@ -189,28 +189,28 @@
 .end method
 
 .method public setMagnification(Landroid/renderscript/Sampler$Value;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
     .line 253
     sget-object v0, Landroid/renderscript/Sampler$Value;->NEAREST:Landroid/renderscript/Sampler$Value;
 
-    if-eq p1, v0, :cond_8
+    if-eq p1, v0, :cond_0
 
     sget-object v0, Landroid/renderscript/Sampler$Value;->LINEAR:Landroid/renderscript/Sampler$Value;
 
-    if-ne p1, v0, :cond_b
+    if-ne p1, v0, :cond_1
 
     .line 254
-    :cond_8
+    :cond_0
     iput-object p1, p0, Landroid/renderscript/Sampler$Builder;->mMag:Landroid/renderscript/Sampler$Value;
 
     .line 258
     return-void
 
     .line 256
-    :cond_b
+    :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid value"
@@ -221,36 +221,36 @@
 .end method
 
 .method public setMinification(Landroid/renderscript/Sampler$Value;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
     .line 242
     sget-object v0, Landroid/renderscript/Sampler$Value;->NEAREST:Landroid/renderscript/Sampler$Value;
 
-    if-eq p1, v0, :cond_10
+    if-eq p1, v0, :cond_0
 
     sget-object v0, Landroid/renderscript/Sampler$Value;->LINEAR:Landroid/renderscript/Sampler$Value;
 
-    if-eq p1, v0, :cond_10
+    if-eq p1, v0, :cond_0
 
     sget-object v0, Landroid/renderscript/Sampler$Value;->LINEAR_MIP_LINEAR:Landroid/renderscript/Sampler$Value;
 
-    if-eq p1, v0, :cond_10
+    if-eq p1, v0, :cond_0
 
     sget-object v0, Landroid/renderscript/Sampler$Value;->LINEAR_MIP_NEAREST:Landroid/renderscript/Sampler$Value;
 
-    if-ne p1, v0, :cond_13
+    if-ne p1, v0, :cond_1
 
     .line 246
-    :cond_10
+    :cond_0
     iput-object p1, p0, Landroid/renderscript/Sampler$Builder;->mMin:Landroid/renderscript/Sampler$Value;
 
     .line 250
     return-void
 
     .line 248
-    :cond_13
+    :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid value"
@@ -261,28 +261,28 @@
 .end method
 
 .method public setWrapS(Landroid/renderscript/Sampler$Value;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
     .line 261
     sget-object v0, Landroid/renderscript/Sampler$Value;->WRAP:Landroid/renderscript/Sampler$Value;
 
-    if-eq p1, v0, :cond_8
+    if-eq p1, v0, :cond_0
 
     sget-object v0, Landroid/renderscript/Sampler$Value;->CLAMP:Landroid/renderscript/Sampler$Value;
 
-    if-ne p1, v0, :cond_b
+    if-ne p1, v0, :cond_1
 
     .line 262
-    :cond_8
+    :cond_0
     iput-object p1, p0, Landroid/renderscript/Sampler$Builder;->mWrapS:Landroid/renderscript/Sampler$Value;
 
     .line 266
     return-void
 
     .line 264
-    :cond_b
+    :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid value"
@@ -293,28 +293,28 @@
 .end method
 
 .method public setWrapT(Landroid/renderscript/Sampler$Value;)V
-    .registers 4
+    .locals 2
     .parameter "v"
 
     .prologue
     .line 269
     sget-object v0, Landroid/renderscript/Sampler$Value;->WRAP:Landroid/renderscript/Sampler$Value;
 
-    if-eq p1, v0, :cond_8
+    if-eq p1, v0, :cond_0
 
     sget-object v0, Landroid/renderscript/Sampler$Value;->CLAMP:Landroid/renderscript/Sampler$Value;
 
-    if-ne p1, v0, :cond_b
+    if-ne p1, v0, :cond_1
 
     .line 270
-    :cond_8
+    :cond_0
     iput-object p1, p0, Landroid/renderscript/Sampler$Builder;->mWrapT:Landroid/renderscript/Sampler$Value;
 
     .line 274
     return-void
 
     .line 272
-    :cond_b
+    :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Invalid value"

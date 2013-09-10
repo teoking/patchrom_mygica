@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/accessibility/AccessibilityManagerService$Service;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "x0"
 
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "message"
 
     .prologue
@@ -45,7 +45,7 @@
 
     .line 1185
     .local v2, type:I
-    packed-switch v2, :pswitch_data_14
+    packed-switch v2, :pswitch_data_0
 
     .line 1191
     move v0, v2
@@ -54,28 +54,30 @@
     .local v0, eventType:I
     iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$1;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
 
+    #calls: Lcom/android/server/accessibility/AccessibilityManagerService$Service;->notifyAccessibilityEventInternal(I)V
     invoke-static {v3, v0}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->access$2400(Lcom/android/server/accessibility/AccessibilityManagerService$Service;I)V
 
     .line 1195
     .end local v0           #eventType:I
-    :goto_b
+    :goto_0
     return-void
 
     .line 1187
-    :pswitch_c
+    :pswitch_0
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     .line 1188
     .local v1, gestureId:I
     iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service$1;->this$1:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
 
+    #calls: Lcom/android/server/accessibility/AccessibilityManagerService$Service;->notifyGestureInternal(I)V
     invoke-static {v3, v1}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->access$2300(Lcom/android/server/accessibility/AccessibilityManagerService$Service;I)V
 
-    goto :goto_b
+    goto :goto_0
 
     .line 1185
-    :pswitch_data_14
+    :pswitch_data_0
     .packed-switch -0x80000000
-        :pswitch_c
+        :pswitch_0
     .end packed-switch
 .end method

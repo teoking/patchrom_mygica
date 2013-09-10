@@ -25,7 +25,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/RadioGroup;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/RadioGroup;Landroid/widget/RadioGroup$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,7 +50,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/widget/RadioGroup$PassThroughHierarchyChangeListener;Landroid/view/ViewGroup$OnHierarchyChangeListener;)Landroid/view/ViewGroup$OnHierarchyChangeListener;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public onChildViewAdded(Landroid/view/View;Landroid/view/View;)V
-    .registers 6
+    .locals 3
     .parameter "parent"
     .parameter "child"
 
@@ -72,11 +72,11 @@
     .line 375
     iget-object v1, p0, Landroid/widget/RadioGroup$PassThroughHierarchyChangeListener;->this$0:Landroid/widget/RadioGroup;
 
-    if-ne p1, v1, :cond_22
+    if-ne p1, v1, :cond_1
 
     instance-of v1, p2, Landroid/widget/RadioButton;
 
-    if-eqz v1, :cond_22
+    if-eqz v1, :cond_1
 
     .line 376
     invoke-virtual {p2}, Landroid/view/View;->getId()I
@@ -87,7 +87,7 @@
     .local v0, id:I
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_16
+    if-ne v0, v1, :cond_0
 
     .line 379
     invoke-virtual {p2}, Ljava/lang/Object;->hashCode()I
@@ -97,7 +97,7 @@
     .line 380
     invoke-virtual {p2, v0}, Landroid/view/View;->setId(I)V
 
-    :cond_16
+    :cond_0
     move-object v1, p2
 
     .line 382
@@ -105,6 +105,7 @@
 
     iget-object v2, p0, Landroid/widget/RadioGroup$PassThroughHierarchyChangeListener;->this$0:Landroid/widget/RadioGroup;
 
+    #getter for: Landroid/widget/RadioGroup;->mChildOnCheckedChangeListener:Landroid/widget/CompoundButton$OnCheckedChangeListener;
     invoke-static {v2}, Landroid/widget/RadioGroup;->access$700(Landroid/widget/RadioGroup;)Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
     move-result-object v2
@@ -113,10 +114,10 @@
 
     .line 386
     .end local v0           #id:I
-    :cond_22
+    :cond_1
     iget-object v1, p0, Landroid/widget/RadioGroup$PassThroughHierarchyChangeListener;->mOnHierarchyChangeListener:Landroid/view/ViewGroup$OnHierarchyChangeListener;
 
-    if-eqz v1, :cond_2b
+    if-eqz v1, :cond_2
 
     .line 387
     iget-object v1, p0, Landroid/widget/RadioGroup$PassThroughHierarchyChangeListener;->mOnHierarchyChangeListener:Landroid/view/ViewGroup$OnHierarchyChangeListener;
@@ -124,12 +125,12 @@
     invoke-interface {v1, p1, p2}, Landroid/view/ViewGroup$OnHierarchyChangeListener;->onChildViewAdded(Landroid/view/View;Landroid/view/View;)V
 
     .line 389
-    :cond_2b
+    :cond_2
     return-void
 .end method
 
 .method public onChildViewRemoved(Landroid/view/View;Landroid/view/View;)V
-    .registers 5
+    .locals 2
     .parameter "parent"
     .parameter "child"
 
@@ -137,11 +138,11 @@
     .line 395
     iget-object v0, p0, Landroid/widget/RadioGroup$PassThroughHierarchyChangeListener;->this$0:Landroid/widget/RadioGroup;
 
-    if-ne p1, v0, :cond_f
+    if-ne p1, v0, :cond_0
 
     instance-of v0, p2, Landroid/widget/RadioButton;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     move-object v0, p2
 
@@ -153,10 +154,10 @@
     invoke-virtual {v0, v1}, Landroid/widget/RadioButton;->setOnCheckedChangeWidgetListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 399
-    :cond_f
+    :cond_0
     iget-object v0, p0, Landroid/widget/RadioGroup$PassThroughHierarchyChangeListener;->mOnHierarchyChangeListener:Landroid/view/ViewGroup$OnHierarchyChangeListener;
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_1
 
     .line 400
     iget-object v0, p0, Landroid/widget/RadioGroup$PassThroughHierarchyChangeListener;->mOnHierarchyChangeListener:Landroid/view/ViewGroup$OnHierarchyChangeListener;
@@ -164,6 +165,6 @@
     invoke-interface {v0, p1, p2}, Landroid/view/ViewGroup$OnHierarchyChangeListener;->onChildViewRemoved(Landroid/view/View;Landroid/view/View;)V
 
     .line 402
-    :cond_18
+    :cond_1
     return-void
 .end method

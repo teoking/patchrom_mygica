@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 81
@@ -95,7 +95,7 @@
 .end method
 
 .method protected constructor <init>(IILandroid/net/wifi/p2p/WifiP2pDevice;[B)V
-    .registers 11
+    .locals 6
     .parameter "status"
     .parameter "tranId"
     .parameter "dev"
@@ -129,7 +129,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1e
+    if-nez v0, :cond_0
 
     .line 157
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -141,12 +141,12 @@
     throw v0
 
     .line 159
-    :cond_1e
+    :cond_0
     return-void
 .end method
 
 .method static newInstance(IILandroid/net/wifi/p2p/WifiP2pDevice;[B)Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;
-    .registers 7
+    .locals 3
     .parameter "status"
     .parameter "transId"
     .parameter "dev"
@@ -156,7 +156,7 @@
     const/4 v2, 0x0
 
     .line 297
-    if-eqz p0, :cond_9
+    if-eqz p0, :cond_0
 
     .line 298
     new-instance v1, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;
@@ -164,22 +164,22 @@
     invoke-direct {v1, p0, p1, p2, v2}, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;-><init>(IILandroid/net/wifi/p2p/WifiP2pDevice;[B)V
 
     .line 307
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 302
-    :cond_9
-    :try_start_9
+    :cond_0
+    :try_start_0
     new-instance v1, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;
 
     invoke-direct {v1, p0, p1, p2, p3}, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;-><init>(IILandroid/net/wifi/p2p/WifiP2pDevice;[B)V
-    :try_end_e
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_9 .. :try_end_e} :catch_f
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_8
+    goto :goto_0
 
     .line 304
-    :catch_f
+    :catch_0
     move-exception v0
 
     .line 305
@@ -189,11 +189,11 @@
     move-object v1, v2
 
     .line 307
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method private parse()Z
-    .registers 8
+    .locals 7
 
     .prologue
     const/4 v3, 0x1
@@ -203,14 +203,14 @@
     .line 176
     iget-object v5, p0, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;->mData:[B
 
-    if-nez v5, :cond_7
+    if-nez v5, :cond_0
 
     .line 213
-    :goto_6
+    :goto_0
     return v3
 
     .line 181
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/io/DataInputStream;
 
     new-instance v5, Ljava/io/ByteArrayInputStream;
@@ -232,16 +232,16 @@
     .line 184
     iget-object v5, p0, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->mDnsQueryName:Ljava/lang/String;
 
-    if-nez v5, :cond_1f
+    if-nez v5, :cond_1
 
     move v3, v4
 
     .line 185
-    goto :goto_6
+    goto :goto_0
 
     .line 189
-    :cond_1f
-    :try_start_1f
+    :cond_1
+    :try_start_0
     invoke-virtual {v0}, Ljava/io/DataInputStream;->readUnsignedShort()I
 
     move-result v5
@@ -254,15 +254,15 @@
     move-result v5
 
     iput v5, p0, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->mVersion:I
-    :try_end_2b
-    .catch Ljava/io/IOException; {:try_start_1f .. :try_end_2b} :catch_39
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 196
     iget v5, p0, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->mDnsType:I
 
     const/16 v6, 0xc
 
-    if-ne v5, v6, :cond_61
+    if-ne v5, v6, :cond_4
 
     .line 197
     invoke-direct {p0, v0}, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->readDnsName(Ljava/io/DataInputStream;)Ljava/lang/String;
@@ -271,16 +271,16 @@
 
     .line 198
     .local v2, rData:Ljava/lang/String;
-    if-nez v2, :cond_3f
+    if-nez v2, :cond_2
 
     move v3, v4
 
     .line 199
-    goto :goto_6
+    goto :goto_0
 
     .line 191
     .end local v2           #rData:Ljava/lang/String;
-    :catch_39
+    :catch_0
     move-exception v1
 
     .line 192
@@ -290,12 +290,12 @@
     move v3, v4
 
     .line 193
-    goto :goto_6
+    goto :goto_0
 
     .line 201
     .end local v1           #e:Ljava/io/IOException;
     .restart local v2       #rData:Ljava/lang/String;
-    :cond_3f
+    :cond_2
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v5
@@ -306,15 +306,15 @@
 
     move-result v6
 
-    if-gt v5, v6, :cond_4d
+    if-gt v5, v6, :cond_3
 
     move v3, v4
 
     .line 202
-    goto :goto_6
+    goto :goto_0
 
     .line 205
-    :cond_4d
+    :cond_3
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v5
@@ -335,33 +335,33 @@
 
     iput-object v4, p0, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->mInstanceName:Ljava/lang/String;
 
-    goto :goto_6
+    goto :goto_0
 
     .line 207
     .end local v2           #rData:Ljava/lang/String;
-    :cond_61
+    :cond_4
     iget v3, p0, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->mDnsType:I
 
     const/16 v5, 0x10
 
-    if-ne v3, v5, :cond_6c
+    if-ne v3, v5, :cond_5
 
     .line 208
     invoke-direct {p0, v0}, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->readTxtData(Ljava/io/DataInputStream;)Z
 
     move-result v3
 
-    goto :goto_6
+    goto :goto_0
 
-    :cond_6c
+    :cond_5
     move v3, v4
 
     .line 210
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method private readDnsName(Ljava/io/DataInputStream;)Ljava/lang/String;
-    .registers 11
+    .locals 9
     .parameter "dis"
 
     .prologue
@@ -384,7 +384,7 @@
     .local v5, vmpack:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/Integer;Ljava/lang/String;>;"
     iget-object v7, p0, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->mDnsQueryName:Ljava/lang/String;
 
-    if-eqz v7, :cond_1c
+    if-eqz v7, :cond_0
 
     .line 228
     const/16 v7, 0x27
@@ -398,16 +398,16 @@
     invoke-virtual {v5, v7, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 232
-    :cond_1c
-    :goto_1c
-    :try_start_1c
+    :cond_0
+    :goto_0
+    :try_start_0
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readUnsignedByte()I
 
     move-result v2
 
     .line 233
     .local v2, i:I
-    if-nez v2, :cond_27
+    if-nez v2, :cond_2
 
     .line 234
     invoke-virtual {v4}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
@@ -416,16 +416,16 @@
 
     .line 254
     .end local v2           #i:I
-    :cond_26
-    :goto_26
+    :cond_1
+    :goto_1
     return-object v6
 
     .line 235
     .restart local v2       #i:I
-    :cond_27
+    :cond_2
     const/16 v7, 0xc0
 
-    if-ne v2, v7, :cond_43
+    if-ne v2, v7, :cond_3
 
     .line 237
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readUnsignedByte()I
@@ -444,7 +444,7 @@
 
     .line 238
     .local v3, ref:Ljava/lang/String;
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_1
 
     .line 242
     invoke-virtual {v4, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -454,11 +454,11 @@
 
     move-result-object v6
 
-    goto :goto_26
+    goto :goto_1
 
     .line 245
     .end local v3           #ref:Ljava/lang/String;
-    :cond_43
+    :cond_3
     new-array v0, v2, [B
 
     .line 246
@@ -476,26 +476,26 @@
     const-string v7, "."
 
     invoke-virtual {v4, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-    :try_end_55
-    .catch Ljava/io/IOException; {:try_start_1c .. :try_end_55} :catch_56
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1c
+    goto :goto_0
 
     .line 251
     .end local v0           #data:[B
     .end local v2           #i:I
-    :catch_56
+    :catch_0
     move-exception v1
 
     .line 252
     .local v1, e:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_26
+    goto :goto_1
 .end method
 
 .method private readTxtData(Ljava/io/DataInputStream;)Z
-    .registers 11
+    .locals 9
     .parameter "dis"
 
     .prologue
@@ -504,13 +504,13 @@
     const/4 v4, 0x0
 
     .line 265
-    :goto_2
-    :try_start_2
+    :goto_0
+    :try_start_0
     invoke-virtual {p1}, Ljava/io/DataInputStream;->available()I
 
     move-result v6
 
-    if-lez v6, :cond_e
+    if-lez v6, :cond_0
 
     .line 266
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readUnsignedByte()I
@@ -519,20 +519,20 @@
 
     .line 267
     .local v3, len:I
-    if-nez v3, :cond_10
+    if-nez v3, :cond_2
 
     .end local v3           #len:I
-    :cond_e
+    :cond_0
     move v4, v5
 
     .line 282
-    :cond_f
-    :goto_f
+    :cond_1
+    :goto_1
     return v4
 
     .line 270
     .restart local v3       #len:I
-    :cond_10
+    :cond_2
     new-array v0, v3, [B
 
     .line 271
@@ -556,7 +556,7 @@
 
     const/4 v7, 0x2
 
-    if-ne v6, v7, :cond_f
+    if-ne v6, v7, :cond_1
 
     .line 276
     iget-object v6, p0, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->mTxtRecord:Ljava/util/HashMap;
@@ -570,29 +570,29 @@
     aget-object v8, v2, v8
 
     invoke-virtual {v6, v7, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_2f
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2f} :catch_30
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_2
+    goto :goto_0
 
     .line 279
     .end local v0           #data:[B
     .end local v2           #keyVal:[Ljava/lang/String;
     .end local v3           #len:I
-    :catch_30
+    :catch_0
     move-exception v1
 
     .line 280
     .local v1, e:Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_f
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public getDnsQueryName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 92
@@ -602,7 +602,7 @@
 .end method
 
 .method public getDnsType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 100
@@ -612,7 +612,7 @@
 .end method
 
 .method public getInstanceName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 116
@@ -622,7 +622,7 @@
 .end method
 
 .method public getTxtRecord()Ljava/util/Map;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -642,7 +642,7 @@
 .end method
 
 .method public getVersion()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 108
@@ -652,7 +652,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 9
+    .locals 8
 
     .prologue
     .line 129
@@ -763,12 +763,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_68
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_90
+    if-eqz v3, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -804,14 +804,14 @@
 
     invoke-virtual {v4, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    goto :goto_68
+    goto :goto_0
 
     .line 139
     .end local v1           #key:Ljava/lang/String;
-    :cond_90
+    :cond_0
     iget-object v3, p0, Landroid/net/wifi/p2p/nsd/WifiP2pDnsSdServiceResponse;->mInstanceName:Ljava/lang/String;
 
-    if-eqz v3, :cond_9f
+    if-eqz v3, :cond_1
 
     .line 140
     const-string v3, " InsName:"
@@ -825,7 +825,7 @@
     invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 142
-    :cond_9f
+    :cond_1
     invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v3

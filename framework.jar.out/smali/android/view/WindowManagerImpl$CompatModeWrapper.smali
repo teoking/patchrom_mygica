@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/WindowManager;Landroid/view/CompatibilityInfoHolder;)V
-    .registers 4
+    .locals 1
     .parameter "wm"
     .parameter "ci"
 
@@ -38,18 +38,18 @@
     .line 129
     instance-of v0, p1, Landroid/view/WindowManagerImpl$CompatModeWrapper;
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     check-cast p1, Landroid/view/WindowManagerImpl$CompatModeWrapper;
 
     .end local p1
     iget-object p1, p1, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mWindowManager:Landroid/view/WindowManagerImpl;
 
-    :goto_b
+    :goto_0
     iput-object p1, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mWindowManager:Landroid/view/WindowManagerImpl;
 
     .line 136
-    if-nez p2, :cond_1d
+    if-nez p2, :cond_1
 
     .line 137
     iget-object v0, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mWindowManager:Landroid/view/WindowManagerImpl;
@@ -61,7 +61,7 @@
     iput-object v0, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mDefaultDisplay:Landroid/view/Display;
 
     .line 144
-    :goto_17
+    :goto_1
     iput-object p2, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mCompatibilityInfo:Landroid/view/CompatibilityInfoHolder;
 
     .line 145
@@ -69,14 +69,14 @@
 
     .line 129
     .restart local p1
-    :cond_1a
+    :cond_0
     check-cast p1, Landroid/view/WindowManagerImpl;
 
-    goto :goto_b
+    goto :goto_0
 
     .line 140
     .end local p1
-    :cond_1d
+    :cond_1
     iget-object v0, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mWindowManager:Landroid/view/WindowManagerImpl;
 
     invoke-virtual {v0}, Landroid/view/WindowManagerImpl;->getDefaultDisplay()Landroid/view/Display;
@@ -93,13 +93,13 @@
 
     iput-object v0, p0, Landroid/view/WindowManagerImpl$CompatModeWrapper;->mDefaultDisplay:Landroid/view/Display;
 
-    goto :goto_17
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 5
+    .locals 2
     .parameter "view"
     .parameter "params"
 
@@ -116,7 +116,7 @@
 .end method
 
 .method public getDefaultDisplay()Landroid/view/Display;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 165
@@ -126,7 +126,7 @@
 .end method
 
 .method public isHardwareAccelerated()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 175
@@ -140,7 +140,7 @@
 .end method
 
 .method public removeView(Landroid/view/View;)V
-    .registers 3
+    .locals 1
     .parameter "view"
 
     .prologue
@@ -154,7 +154,7 @@
 .end method
 
 .method public removeViewImmediate(Landroid/view/View;)V
-    .registers 3
+    .locals 1
     .parameter "view"
 
     .prologue
@@ -168,7 +168,7 @@
 .end method
 
 .method public updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-    .registers 4
+    .locals 1
     .parameter "view"
     .parameter "params"
 

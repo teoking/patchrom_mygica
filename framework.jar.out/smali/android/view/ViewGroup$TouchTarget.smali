@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 5779
@@ -50,7 +50,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 5794
@@ -61,7 +61,7 @@
 .end method
 
 .method public static obtain(Landroid/view/View;I)Landroid/view/ViewGroup$TouchTarget;
-    .registers 5
+    .locals 3
     .parameter "child"
     .parameter "pointerIdBits"
 
@@ -72,10 +72,10 @@
     monitor-enter v2
 
     .line 5800
-    :try_start_3
+    :try_start_0
     sget-object v1, Landroid/view/ViewGroup$TouchTarget;->sRecycleBin:Landroid/view/ViewGroup$TouchTarget;
 
-    if-nez v1, :cond_12
+    if-nez v1, :cond_0
 
     .line 5801
     new-instance v0, Landroid/view/ViewGroup$TouchTarget;
@@ -84,10 +84,10 @@
 
     .line 5808
     .local v0, target:Landroid/view/ViewGroup$TouchTarget;
-    :goto_c
+    :goto_0
     monitor-exit v2
-    :try_end_d
-    .catchall {:try_start_3 .. :try_end_d} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 5809
     iput-object p0, v0, Landroid/view/ViewGroup$TouchTarget;->child:Landroid/view/View;
@@ -100,8 +100,8 @@
 
     .line 5803
     .end local v0           #target:Landroid/view/ViewGroup$TouchTarget;
-    :cond_12
-    :try_start_12
+    :cond_0
+    :try_start_1
     sget-object v0, Landroid/view/ViewGroup$TouchTarget;->sRecycleBin:Landroid/view/ViewGroup$TouchTarget;
 
     .line 5804
@@ -122,16 +122,16 @@
 
     iput-object v1, v0, Landroid/view/ViewGroup$TouchTarget;->next:Landroid/view/ViewGroup$TouchTarget;
 
-    goto :goto_c
+    goto :goto_0
 
     .line 5808
     .end local v0           #target:Landroid/view/ViewGroup$TouchTarget;
-    :catchall_22
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_24
-    .catchall {:try_start_12 .. :try_end_24} :catchall_22
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
@@ -139,7 +139,7 @@
 
 # virtual methods
 .method public recycle()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 5815
@@ -148,12 +148,12 @@
     monitor-enter v1
 
     .line 5816
-    :try_start_3
+    :try_start_0
     sget v0, Landroid/view/ViewGroup$TouchTarget;->sRecycledCount:I
 
     const/16 v2, 0x20
 
-    if-ge v0, v2, :cond_1a
+    if-ge v0, v2, :cond_0
 
     .line 5817
     sget-object v0, Landroid/view/ViewGroup$TouchTarget;->sRecycleBin:Landroid/view/ViewGroup$TouchTarget;
@@ -171,7 +171,7 @@
     sput v0, Landroid/view/ViewGroup$TouchTarget;->sRecycledCount:I
 
     .line 5823
-    :goto_15
+    :goto_0
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/view/ViewGroup$TouchTarget;->child:Landroid/view/View;
@@ -183,20 +183,20 @@
     return-void
 
     .line 5821
-    :cond_1a
+    :cond_0
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/view/ViewGroup$TouchTarget;->next:Landroid/view/ViewGroup$TouchTarget;
 
-    goto :goto_15
+    goto :goto_0
 
     .line 5824
-    :catchall_1e
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_20
-    .catchall {:try_start_3 .. :try_end_20} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

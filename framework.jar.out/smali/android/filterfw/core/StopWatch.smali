@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "name"
 
     .prologue
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public start()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 44
@@ -71,7 +71,7 @@
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 45
     new-instance v0, Ljava/lang/RuntimeException;
@@ -83,7 +83,7 @@
     throw v0
 
     .line 48
-    :cond_10
+    :cond_0
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
@@ -95,7 +95,7 @@
 .end method
 
 .method public stop()V
-    .registers 10
+    .locals 9
 
     .prologue
     const-wide/16 v6, -0x1
@@ -107,7 +107,7 @@
 
     cmp-long v2, v2, v6
 
-    if-nez v2, :cond_11
+    if-nez v2, :cond_0
 
     .line 53
     new-instance v2, Ljava/lang/RuntimeException;
@@ -119,7 +119,7 @@
     throw v2
 
     .line 56
-    :cond_11
+    :cond_0
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
@@ -153,7 +153,7 @@
 
     rem-int/2addr v2, v3
 
-    if-nez v2, :cond_70
+    if-nez v2, :cond_1
 
     .line 61
     iget-object v2, p0, Landroid/filterfw/core/StopWatch;->TAG:Ljava/lang/String;
@@ -229,6 +229,6 @@
     iput v8, p0, Landroid/filterfw/core/StopWatch;->mNumCalls:I
 
     .line 66
-    :cond_70
+    :cond_1
     return-void
 .end method

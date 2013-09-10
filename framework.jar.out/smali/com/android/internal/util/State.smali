@@ -8,7 +8,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 31
@@ -21,7 +21,7 @@
 
 # virtual methods
 .method public enter()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 39
@@ -29,7 +29,7 @@
 .end method
 
 .method public exit()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 46
@@ -37,7 +37,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 70
@@ -69,7 +69,7 @@
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
-    .registers 3
+    .locals 1
     .parameter "msg"
 
     .prologue

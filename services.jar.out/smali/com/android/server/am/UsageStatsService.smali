@@ -101,7 +101,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 89
@@ -109,13 +109,13 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_a
+    fill-array-data v0, :array_0
 
     sput-object v0, Lcom/android/server/am/UsageStatsService;->LAUNCH_TIME_BINS:[I
 
     return-void
 
-    :array_a
+    :array_0
     .array-data 0x4
         0xfat 0x0t 0x0t 0x0t
         0xf4t 0x1t 0x0t 0x0t
@@ -130,7 +130,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/String;)V
-    .registers 10
+    .locals 8
     .parameter "dir"
 
     .prologue
@@ -232,7 +232,7 @@
 
     .line 257
     .local v0, fList:[Ljava/lang/String;
-    if-eqz v0, :cond_a7
+    if-eqz v0, :cond_1
 
     .line 258
     new-instance v4, Ljava/lang/StringBuilder;
@@ -265,9 +265,9 @@
 
     .line 260
     .local v1, i:I
-    :cond_76
-    :goto_76
-    if-lez v1, :cond_a7
+    :cond_0
+    :goto_0
+    if-lez v1, :cond_1
 
     .line 261
     add-int/lit8 v1, v1, -0x1
@@ -279,7 +279,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_76
+    if-eqz v4, :cond_0
 
     .line 263
     const-string v4, "UsageStats"
@@ -315,12 +315,12 @@
 
     invoke-virtual {v4}, Ljava/io/File;->delete()Z
 
-    goto :goto_76
+    goto :goto_0
 
     .line 270
     .end local v1           #i:I
     .end local v3           #prefix:Ljava/lang/String;
-    :cond_a7
+    :cond_1
     const-string v4, "usage-"
 
     invoke-direct {p0, v4}, Lcom/android/server/am/UsageStatsService;->getCurrentDateStr(Ljava/lang/String;)Ljava/lang/String;
@@ -388,7 +388,7 @@
 .end method
 
 .method static synthetic access$000()[I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 69
@@ -398,7 +398,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/server/am/UsageStatsService;ZZ)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -411,7 +411,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/server/am/UsageStatsService;)Ljava/util/concurrent/atomic/AtomicBoolean;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -422,7 +422,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/server/am/UsageStatsService;)Ljava/util/Map;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -433,7 +433,7 @@
 .end method
 
 .method private checkFileLimitFLOCK()V
-    .registers 9
+    .locals 8
 
     .prologue
     .line 443
@@ -443,14 +443,14 @@
 
     .line 444
     .local v2, fileList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    if-nez v2, :cond_7
+    if-nez v2, :cond_1
 
     .line 462
-    :cond_6
+    :cond_0
     return-void
 
     .line 448
-    :cond_7
+    :cond_1
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v0
@@ -459,7 +459,7 @@
     .local v0, count:I
     const/4 v5, 0x5
 
-    if-le v0, v5, :cond_6
+    if-le v0, v5, :cond_0
 
     .line 453
     invoke-static {v2}, Ljava/util/Collections;->sort(Ljava/util/List;)V
@@ -471,8 +471,8 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_14
-    if-ge v4, v0, :cond_6
+    :goto_0
+    if-ge v4, v0, :cond_0
 
     .line 457
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -519,11 +519,11 @@
     .line 456
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method private collectDumpInfoFLOCK(Ljava/io/PrintWriter;ZZLjava/util/HashSet;)V
-    .registers 16
+    .locals 11
     .parameter "pw"
     .parameter "isCompactOutput"
     .parameter "deleteAfterPrint"
@@ -549,15 +549,15 @@
 
     .line 857
     .local v9, fileList:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
-    if-nez v9, :cond_7
+    if-nez v9, :cond_1
 
     .line 884
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return-void
 
     .line 860
-    :cond_7
+    :cond_1
     invoke-static {v9}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
     .line 861
@@ -566,13 +566,13 @@
     move-result-object v10
 
     .local v10, i$:Ljava/util/Iterator;
-    :cond_e
-    :goto_e
+    :cond_2
+    :goto_1
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -582,7 +582,7 @@
 
     .line 862
     .local v8, file:Ljava/lang/String;
-    if-eqz p3, :cond_24
+    if-eqz p3, :cond_3
 
     iget-object v0, p0, Lcom/android/server/am/UsageStatsService;->mFileLeaf:Ljava/lang/String;
 
@@ -590,10 +590,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_2
 
     .line 867
-    :cond_24
+    :cond_3
     new-instance v6, Ljava/io/File;
 
     iget-object v0, p0, Lcom/android/server/am/UsageStatsService;->mDir:Ljava/io/File;
@@ -614,7 +614,7 @@
 
     .line 870
     .local v3, dateStr:Ljava/lang/String;
-    :try_start_35
+    :try_start_0
     invoke-direct {p0, v6}, Lcom/android/server/am/UsageStatsService;->getParcelForFile(Ljava/io/File;)Landroid/os/Parcel;
 
     move-result-object v1
@@ -632,19 +632,19 @@
     invoke-direct/range {v0 .. v5}, Lcom/android/server/am/UsageStatsService;->collectDumpInfoFromParcelFLOCK(Landroid/os/Parcel;Ljava/io/PrintWriter;Ljava/lang/String;ZLjava/util/HashSet;)V
 
     .line 873
-    if-eqz p3, :cond_e
+    if-eqz p3, :cond_2
 
     .line 875
     invoke-virtual {v6}, Ljava/io/File;->delete()Z
-    :try_end_45
-    .catch Ljava/io/FileNotFoundException; {:try_start_35 .. :try_end_45} :catch_46
-    .catch Ljava/io/IOException; {:try_start_35 .. :try_end_45} :catch_6a
+    :try_end_0
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
-    goto :goto_e
+    goto :goto_1
 
     .line 877
     .end local v1           #in:Landroid/os/Parcel;
-    :catch_46
+    :catch_0
     move-exception v7
 
     .line 878
@@ -681,11 +681,11 @@
 
     invoke-static {v0, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_6
+    goto :goto_0
 
     .line 880
     .end local v7           #e:Ljava/io/FileNotFoundException;
-    :catch_6a
+    :catch_1
     move-exception v7
 
     .line 881
@@ -722,11 +722,11 @@
 
     invoke-static {v0, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_e
+    goto :goto_1
 .end method
 
 .method private collectDumpInfoFromParcelFLOCK(Landroid/os/Parcel;Ljava/io/PrintWriter;Ljava/lang/String;ZLjava/util/HashSet;)V
-    .registers 21
+    .locals 15
     .parameter "in"
     .parameter "pw"
     .parameter "date"
@@ -757,7 +757,7 @@
 
     .line 889
     .local v10, sb:Ljava/lang/StringBuilder;
-    if-eqz p4, :cond_33
+    if-eqz p4, :cond_1
 
     .line 890
     const-string v13, "D:"
@@ -775,7 +775,7 @@
     invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 897
-    :goto_17
+    :goto_0
     move-object/from16 v0, p3
 
     invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -789,7 +789,7 @@
     .local v12, vers:I
     const/16 v13, 0x3ef
 
-    if-eq v12, v13, :cond_39
+    if-eq v12, v13, :cond_2
 
     .line 901
     const-string v13, " (old data version)"
@@ -806,21 +806,21 @@
     invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 995
-    :cond_32
+    :cond_0
     return-void
 
     .line 894
     .end local v12           #vers:I
-    :cond_33
+    :cond_1
     const-string v13, "Date: "
 
     invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_17
+    goto :goto_0
 
     .line 906
     .restart local v12       #vers:I
-    :cond_39
+    :cond_2
     invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v13
@@ -836,8 +836,8 @@
 
     .line 909
     .local v1, N:I
-    :goto_46
-    if-lez v1, :cond_32
+    :goto_1
+    if-lez v1, :cond_0
 
     .line 910
     add-int/lit8 v1, v1, -0x1
@@ -849,7 +849,7 @@
 
     .line 912
     .local v8, pkgName:Ljava/lang/String;
-    if-eqz v8, :cond_32
+    if-eqz v8, :cond_0
 
     .line 915
     const/4 v13, 0x0
@@ -865,7 +865,7 @@
 
     .line 917
     .local v9, pus:Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;
-    if-eqz p5, :cond_6f
+    if-eqz p5, :cond_4
 
     move-object/from16 v0, p5
 
@@ -873,10 +873,10 @@
 
     move-result v13
 
-    if-nez v13, :cond_6f
+    if-nez v13, :cond_4
 
     .line 993
-    :cond_65
+    :cond_3
     invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v13
@@ -885,11 +885,11 @@
 
     invoke-virtual {v0, v13}, Ljava/io/PrintWriter;->write(Ljava/lang/String;)V
 
-    goto :goto_46
+    goto :goto_1
 
     .line 920
-    :cond_6f
-    if-eqz p4, :cond_103
+    :cond_4
+    if-eqz p4, :cond_7
 
     .line 921
     const-string v13, "P:"
@@ -933,7 +933,7 @@
 
     .line 929
     .local v2, NC:I
-    if-lez v2, :cond_65
+    if-lez v2, :cond_3
 
     .line 930
     iget-object v13, v9, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->mLaunchTimes:Ljava/util/HashMap;
@@ -947,12 +947,12 @@
     move-result-object v6
 
     .local v6, i$:Ljava/util/Iterator;
-    :goto_a4
+    :goto_2
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v13
 
-    if-eqz v13, :cond_65
+    if-eqz v13, :cond_3
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -979,7 +979,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_f9
+    if-eqz v13, :cond_5
 
     .line 934
     const/16 v13, 0x2a
@@ -1002,7 +1002,7 @@
     invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 940
-    :goto_d5
+    :goto_3
     invoke-interface {v4}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v11
@@ -1024,10 +1024,10 @@
     const/4 v5, 0x0
 
     .local v5, i:I
-    :goto_e6
+    :goto_4
     const/16 v13, 0xa
 
-    if-ge v5, v13, :cond_fd
+    if-ge v5, v13, :cond_6
 
     .line 944
     const-string v13, ","
@@ -1044,25 +1044,25 @@
     .line 943
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_e6
+    goto :goto_4
 
     .line 938
     .end local v5           #i:I
     .end local v11           #times:Lcom/android/server/am/UsageStatsService$TimeStats;
-    :cond_f9
+    :cond_5
     invoke-virtual {v10, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_d5
+    goto :goto_3
 
     .line 947
     .restart local v5       #i:I
     .restart local v11       #times:Lcom/android/server/am/UsageStatsService$TimeStats;
-    :cond_fd
+    :cond_6
     const/16 v13, 0xa
 
     invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_a4
+    goto :goto_2
 
     .line 952
     .end local v2           #NC:I
@@ -1071,7 +1071,7 @@
     .end local v5           #i:I
     .end local v6           #i$:Ljava/util/Iterator;
     .end local v11           #times:Lcom/android/server/am/UsageStatsService$TimeStats;
-    :cond_103
+    :cond_7
     const-string v13, "  "
 
     invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1118,7 +1118,7 @@
 
     .line 961
     .restart local v2       #NC:I
-    if-lez v2, :cond_65
+    if-lez v2, :cond_3
 
     .line 962
     iget-object v13, v9, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->mLaunchTimes:Ljava/util/HashMap;
@@ -1132,12 +1132,12 @@
     move-result-object v6
 
     .restart local v6       #i$:Ljava/util/Iterator;
-    :goto_13b
+    :goto_5
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v13
 
-    if-eqz v13, :cond_65
+    if-eqz v13, :cond_3
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1191,17 +1191,17 @@
     const/4 v5, 0x0
 
     .restart local v5       #i:I
-    :goto_16c
+    :goto_6
     const/16 v13, 0x9
 
-    if-ge v5, v13, :cond_19d
+    if-ge v5, v13, :cond_9
 
     .line 971
     iget-object v13, v11, Lcom/android/server/am/UsageStatsService$TimeStats;->times:[I
 
     aget v13, v13, v5
 
-    if-eqz v13, :cond_196
+    if-eqz v13, :cond_8
 
     .line 972
     const-string v13, ", "
@@ -1236,7 +1236,7 @@
     invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 979
-    :cond_196
+    :cond_8
     sget-object v13, Lcom/android/server/am/UsageStatsService;->LAUNCH_TIME_BINS:[I
 
     aget v7, v13, v5
@@ -1244,17 +1244,17 @@
     .line 970
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_16c
+    goto :goto_6
 
     .line 981
-    :cond_19d
+    :cond_9
     iget-object v13, v11, Lcom/android/server/am/UsageStatsService$TimeStats;->times:[I
 
     const/16 v14, 0x9
 
     aget v13, v13, v14
 
-    if-eqz v13, :cond_1c0
+    if-eqz v13, :cond_a
 
     .line 982
     const-string v13, ", "
@@ -1284,16 +1284,16 @@
     invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 988
-    :cond_1c0
+    :cond_a
     const/16 v13, 0xa
 
     invoke-virtual {v10, v13}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_13b
+    goto/16 :goto_5
 .end method
 
 .method private filterHistoryStats()V
-    .registers 8
+    .locals 7
 
     .prologue
     .line 593
@@ -1302,7 +1302,7 @@
     monitor-enter v4
 
     .line 596
-    :try_start_3
+    :try_start_0
     new-instance v2, Ljava/util/HashMap;
 
     iget-object v3, p0, Lcom/android/server/am/UsageStatsService;->mLastResumeTimes:Ljava/util/Map;
@@ -1333,13 +1333,13 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :cond_1e
-    :goto_1e
+    :cond_0
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_43
+    if-eqz v3, :cond_1
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1355,7 +1355,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1e
+    if-eqz v3, :cond_0
 
     .line 601
     iget-object v3, p0, Lcom/android/server/am/UsageStatsService;->mLastResumeTimes:Ljava/util/Map;
@@ -1370,35 +1370,35 @@
 
     invoke-interface {v3, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 604
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #info:Landroid/content/pm/PackageInfo;
     .end local v2           #tmpLastResumeTimes:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;>;"
-    :catchall_40
+    :catchall_0
     move-exception v3
 
     monitor-exit v4
-    :try_end_42
-    .catchall {:try_start_3 .. :try_end_42} :catchall_40
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v3
 
     .restart local v0       #i$:Ljava/util/Iterator;
     .restart local v2       #tmpLastResumeTimes:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;>;"
-    :cond_43
-    :try_start_43
+    :cond_1
+    :try_start_1
     monitor-exit v4
-    :try_end_44
-    .catchall {:try_start_43 .. :try_end_44} :catchall_40
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 605
     return-void
 .end method
 
 .method private getCurrentDateStr(Ljava/lang/String;)Ljava/lang/String;
-    .registers 10
+    .locals 8
     .parameter "prefix"
 
     .prologue
@@ -1416,7 +1416,7 @@
     monitor-enter v4
 
     .line 286
-    :try_start_a
+    :try_start_0
     iget-object v3, p0, Lcom/android/server/am/UsageStatsService;->mCal:Ljava/util/Calendar;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -1426,13 +1426,13 @@
     invoke-virtual {v3, v5, v6}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
     .line 287
-    if-eqz p1, :cond_18
+    if-eqz p1, :cond_0
 
     .line 288
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 290
-    :cond_18
+    :cond_0
     iget-object v3, p0, Lcom/android/server/am/UsageStatsService;->mCal:Ljava/util/Calendar;
 
     const/4 v5, 0x1
@@ -1458,7 +1458,7 @@
 
     .line 292
     .local v1, mm:I
-    if-ge v1, v7, :cond_34
+    if-ge v1, v7, :cond_1
 
     .line 293
     const-string v3, "0"
@@ -1466,7 +1466,7 @@
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 295
-    :cond_34
+    :cond_1
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 296
@@ -1480,7 +1480,7 @@
 
     .line 297
     .local v0, dd:I
-    if-ge v0, v7, :cond_45
+    if-ge v0, v7, :cond_2
 
     .line 298
     const-string v3, "0"
@@ -1488,13 +1488,13 @@
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 300
-    :cond_45
+    :cond_2
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 301
     monitor-exit v4
-    :try_end_49
-    .catchall {:try_start_a .. :try_end_49} :catchall_4e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 302
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -1506,19 +1506,19 @@
     .line 301
     .end local v0           #dd:I
     .end local v1           #mm:I
-    :catchall_4e
+    :catchall_0
     move-exception v3
 
-    :try_start_4f
+    :try_start_1
     monitor-exit v4
-    :try_end_50
-    .catchall {:try_start_4f .. :try_end_50} :catchall_4e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v3
 .end method
 
 .method private getParcelForFile(Ljava/io/File;)Landroid/os/Parcel;
-    .registers 7
+    .locals 5
     .parameter "file"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1563,25 +1563,25 @@
 .end method
 
 .method public static getService()Lcom/android/internal/app/IUsageStats;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 672
     sget-object v1, Lcom/android/server/am/UsageStatsService;->sService:Lcom/android/internal/app/IUsageStats;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_0
 
     .line 673
     sget-object v1, Lcom/android/server/am/UsageStatsService;->sService:Lcom/android/internal/app/IUsageStats;
 
     .line 677
     .local v0, b:Landroid/os/IBinder;
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 675
     .end local v0           #b:Landroid/os/IBinder;
-    :cond_7
+    :cond_0
     const-string v1, "usagestats"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -1599,11 +1599,11 @@
     .line 677
     sget-object v1, Lcom/android/server/am/UsageStatsService;->sService:Lcom/android/internal/app/IUsageStats;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method private getUsageStatsFileListFLOCK()Ljava/util/ArrayList;
-    .registers 9
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1624,17 +1624,17 @@
 
     .line 424
     .local v1, fList:[Ljava/lang/String;
-    if-nez v1, :cond_a
+    if-nez v1, :cond_1
 
     .line 425
     const/4 v3, 0x0
 
     .line 438
-    :cond_9
+    :cond_0
     return-object v3
 
     .line 427
-    :cond_a
+    :cond_1
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
@@ -1650,8 +1650,8 @@
     const/4 v4, 0x0
 
     .local v4, i$:I
-    :goto_12
-    if-ge v4, v5, :cond_9
+    :goto_0
+    if-ge v4, v5, :cond_0
 
     aget-object v2, v0, v4
 
@@ -1663,23 +1663,23 @@
 
     move-result v6
 
-    if-nez v6, :cond_21
+    if-nez v6, :cond_2
 
     .line 428
-    :goto_1e
+    :goto_1
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_12
+    goto :goto_0
 
     .line 432
-    :cond_21
+    :cond_2
     const-string v6, ".bak"
 
     invoke-virtual {v2, v6}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_34
+    if-eqz v6, :cond_3
 
     .line 433
     new-instance v6, Ljava/io/File;
@@ -1690,17 +1690,17 @@
 
     invoke-virtual {v6}, Ljava/io/File;->delete()Z
 
-    goto :goto_1e
+    goto :goto_1
 
     .line 436
-    :cond_34
+    :cond_3
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1e
+    goto :goto_1
 .end method
 
 .method static readFully(Ljava/io/FileInputStream;)[B
-    .registers 8
+    .locals 7
     .parameter "stream"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1726,8 +1726,8 @@
 
     .line 840
     .local v2, data:[B
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     array-length v5, v2
 
     sub-int/2addr v5, v4
@@ -1738,13 +1738,13 @@
 
     .line 841
     .local v0, amt:I
-    if-gtz v0, :cond_11
+    if-gtz v0, :cond_1
 
     .line 842
     return-object v2
 
     .line 844
-    :cond_11
+    :cond_1
     add-int/2addr v4, v0
 
     .line 845
@@ -1757,7 +1757,7 @@
 
     sub-int/2addr v5, v4
 
-    if-le v1, v5, :cond_8
+    if-le v1, v5, :cond_0
 
     .line 847
     add-int v5, v4, v1
@@ -1771,11 +1771,11 @@
     .line 849
     move-object v2, v3
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method private readHistoryStatsFLOCK(Lcom/android/internal/os/AtomicFile;)V
-    .registers 17
+    .locals 15
     .parameter "file"
 
     .prologue
@@ -1784,7 +1784,7 @@
 
     .line 365
     .local v4, fis:Ljava/io/FileInputStream;
-    :try_start_1
+    :try_start_0
     iget-object v12, p0, Lcom/android/server/am/UsageStatsService;->mHistoryFile:Lcom/android/internal/os/AtomicFile;
 
     invoke-virtual {v12}, Lcom/android/internal/os/AtomicFile;->openRead()Ljava/io/FileInputStream;
@@ -1809,20 +1809,20 @@
 
     .line 369
     .local v3, eventType:I
-    :goto_13
+    :goto_0
     const/4 v12, 0x2
 
-    if-eq v3, v12, :cond_1b
+    if-eq v3, v12, :cond_0
 
     .line 370
     invoke-interface {v9}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v3
 
-    goto :goto_13
+    goto :goto_0
 
     .line 372
-    :cond_1b
+    :cond_0
     invoke-interface {v9}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v11
@@ -1835,14 +1835,14 @@
 
     move-result v12
 
-    if-eqz v12, :cond_4c
+    if-eqz v12, :cond_3
 
     .line 374
     const/4 v10, 0x0
 
     .line 376
     .local v10, pkg:Ljava/lang/String;
-    :cond_28
+    :cond_1
     invoke-interface {v9}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v3
@@ -1850,7 +1850,7 @@
     .line 377
     const/4 v12, 0x2
 
-    if-ne v3, v12, :cond_9a
+    if-ne v3, v12, :cond_7
 
     .line 378
     invoke-interface {v9}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
@@ -1870,11 +1870,11 @@
 
     move-result v12
 
-    if-eqz v12, :cond_52
+    if-eqz v12, :cond_5
 
     const/4 v12, 0x2
 
-    if-ne v1, v12, :cond_52
+    if-ne v1, v12, :cond_5
 
     .line 381
     const/4 v12, 0x0
@@ -1882,38 +1882,38 @@
     const-string v13, "name"
 
     invoke-interface {v9, v12, v13}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    :try_end_48
-    .catchall {:try_start_1 .. :try_end_48} :catchall_ef
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_48} :catch_ab
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_48} :catch_cc
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_3
 
     move-result-object v10
 
     .line 405
     .end local v1           #depth:I
-    :cond_49
-    :goto_49
+    :cond_2
+    :goto_1
     const/4 v12, 0x1
 
-    if-ne v3, v12, :cond_28
+    if-ne v3, v12, :cond_1
 
     .line 412
     .end local v10           #pkg:Ljava/lang/String;
-    :cond_4c
-    if-eqz v4, :cond_51
+    :cond_3
+    if-eqz v4, :cond_4
 
     .line 414
-    :try_start_4e
+    :try_start_1
     invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
-    :try_end_51
-    .catch Ljava/io/IOException; {:try_start_4e .. :try_end_51} :catch_f6
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_5
 
     .line 419
     .end local v3           #eventType:I
     .end local v9           #parser:Lorg/xmlpull/v1/XmlPullParser;
     .end local v11           #tagName:Ljava/lang/String;
-    :cond_51
-    :goto_51
+    :cond_4
+    :goto_2
     return-void
 
     .line 382
@@ -1922,21 +1922,21 @@
     .restart local v9       #parser:Lorg/xmlpull/v1/XmlPullParser;
     .restart local v10       #pkg:Ljava/lang/String;
     .restart local v11       #tagName:Ljava/lang/String;
-    :cond_52
-    :try_start_52
+    :cond_5
+    :try_start_2
     const-string v12, "comp"
 
     invoke-virtual {v12, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v12
 
-    if-eqz v12, :cond_49
+    if-eqz v12, :cond_2
 
     const/4 v12, 0x3
 
-    if-ne v1, v12, :cond_49
+    if-ne v1, v12, :cond_2
 
-    if-eqz v10, :cond_49
+    if-eqz v10, :cond_2
 
     .line 383
     const/4 v12, 0x0
@@ -1954,21 +1954,21 @@
     const-string v13, "lrt"
 
     invoke-interface {v9, v12, v13}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    :try_end_6c
-    .catchall {:try_start_52 .. :try_end_6c} :catchall_ef
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_52 .. :try_end_6c} :catch_ab
-    .catch Ljava/io/IOException; {:try_start_52 .. :try_end_6c} :catch_cc
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
 
     move-result-object v7
 
     .line 385
     .local v7, lastResumeTimeStr:Ljava/lang/String;
-    if-eqz v0, :cond_49
+    if-eqz v0, :cond_2
 
-    if-eqz v7, :cond_49
+    if-eqz v7, :cond_2
 
     .line 387
-    :try_start_71
+    :try_start_3
     invoke-static {v7}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v5
@@ -1978,14 +1978,14 @@
     iget-object v13, p0, Lcom/android/server/am/UsageStatsService;->mStatsLock:Ljava/lang/Object;
 
     monitor-enter v13
-    :try_end_78
-    .catchall {:try_start_71 .. :try_end_78} :catchall_ef
-    .catch Ljava/lang/NumberFormatException; {:try_start_71 .. :try_end_78} :catch_98
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_71 .. :try_end_78} :catch_ab
-    .catch Ljava/io/IOException; {:try_start_71 .. :try_end_78} :catch_cc
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_3 .. :try_end_3} :catch_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_3 .. :try_end_3} :catch_1
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
 
     .line 389
-    :try_start_78
+    :try_start_4
     iget-object v12, p0, Lcom/android/server/am/UsageStatsService;->mLastResumeTimes:Ljava/util/Map;
 
     invoke-interface {v12, v10}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1996,7 +1996,7 @@
 
     .line 390
     .local v8, lrt:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;"
-    if-nez v8, :cond_8c
+    if-nez v8, :cond_6
 
     .line 391
     new-instance v8, Ljava/util/HashMap;
@@ -2011,7 +2011,7 @@
     invoke-interface {v12, v10, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 394
-    :cond_8c
+    :cond_6
     invoke-static {v5, v6}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v12
@@ -2021,42 +2021,42 @@
     .line 395
     monitor-exit v13
 
-    goto :goto_49
+    goto :goto_1
 
     .end local v8           #lrt:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;"
-    :catchall_95
+    :catchall_0
     move-exception v12
 
     monitor-exit v13
-    :try_end_97
-    .catchall {:try_start_78 .. :try_end_97} :catchall_95
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    :try_start_97
+    :try_start_5
     throw v12
-    :try_end_98
-    .catchall {:try_start_97 .. :try_end_98} :catchall_ef
-    .catch Ljava/lang/NumberFormatException; {:try_start_97 .. :try_end_98} :catch_98
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_97 .. :try_end_98} :catch_ab
-    .catch Ljava/io/IOException; {:try_start_97 .. :try_end_98} :catch_cc
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_5 .. :try_end_5} :catch_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_5 .. :try_end_5} :catch_1
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
 
     .line 396
     .end local v5           #lastResumeTime:J
-    :catch_98
+    :catch_0
     move-exception v12
 
-    goto :goto_49
+    goto :goto_1
 
     .line 400
     .end local v0           #comp:Ljava/lang/String;
     .end local v1           #depth:I
     .end local v7           #lastResumeTimeStr:Ljava/lang/String;
-    :cond_9a
+    :cond_7
     const/4 v12, 0x3
 
-    if-ne v3, v12, :cond_49
+    if-ne v3, v12, :cond_2
 
     .line 401
-    :try_start_9d
+    :try_start_6
     const-string v12, "pkg"
 
     invoke-interface {v9}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
@@ -2064,31 +2064,31 @@
     move-result-object v13
 
     invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    :try_end_a6
-    .catchall {:try_start_9d .. :try_end_a6} :catchall_ef
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_9d .. :try_end_a6} :catch_ab
-    .catch Ljava/io/IOException; {:try_start_9d .. :try_end_a6} :catch_cc
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_6 .. :try_end_6} :catch_1
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
 
     move-result v12
 
-    if-eqz v12, :cond_49
+    if-eqz v12, :cond_2
 
     .line 402
     const/4 v10, 0x0
 
-    goto :goto_49
+    goto :goto_1
 
     .line 407
     .end local v3           #eventType:I
     .end local v9           #parser:Lorg/xmlpull/v1/XmlPullParser;
     .end local v10           #pkg:Ljava/lang/String;
     .end local v11           #tagName:Ljava/lang/String;
-    :catch_ab
+    :catch_1
     move-exception v2
 
     .line 408
     .local v2, e:Lorg/xmlpull/v1/XmlPullParserException;
-    :try_start_ac
+    :try_start_7
     const-string v12, "UsageStats"
 
     new-instance v13, Ljava/lang/StringBuilder;
@@ -2110,34 +2110,34 @@
     move-result-object v13
 
     invoke-static {v12, v13}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_c4
-    .catchall {:try_start_ac .. :try_end_c4} :catchall_ef
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
     .line 412
-    if-eqz v4, :cond_51
+    if-eqz v4, :cond_4
 
     .line 414
-    :try_start_c6
+    :try_start_8
     invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
-    :try_end_c9
-    .catch Ljava/io/IOException; {:try_start_c6 .. :try_end_c9} :catch_ca
+    :try_end_8
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_2
 
-    goto :goto_51
+    goto :goto_2
 
     .line 415
-    :catch_ca
+    :catch_2
     move-exception v12
 
-    goto :goto_51
+    goto :goto_2
 
     .line 409
     .end local v2           #e:Lorg/xmlpull/v1/XmlPullParserException;
-    :catch_cc
+    :catch_3
     move-exception v2
 
     .line 410
     .local v2, e:Ljava/io/IOException;
-    :try_start_cd
+    :try_start_9
     const-string v12, "UsageStats"
 
     new-instance v13, Ljava/lang/StringBuilder;
@@ -2159,64 +2159,64 @@
     move-result-object v13
 
     invoke-static {v12, v13}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_e5
-    .catchall {:try_start_cd .. :try_end_e5} :catchall_ef
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
     .line 412
-    if-eqz v4, :cond_51
+    if-eqz v4, :cond_4
 
     .line 414
-    :try_start_e7
+    :try_start_a
     invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
-    :try_end_ea
-    .catch Ljava/io/IOException; {:try_start_e7 .. :try_end_ea} :catch_ec
+    :try_end_a
+    .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_4
 
-    goto/16 :goto_51
+    goto/16 :goto_2
 
     .line 415
-    :catch_ec
+    :catch_4
     move-exception v12
 
-    goto/16 :goto_51
+    goto/16 :goto_2
 
     .line 412
     .end local v2           #e:Ljava/io/IOException;
-    :catchall_ef
+    :catchall_1
     move-exception v12
 
-    if-eqz v4, :cond_f5
+    if-eqz v4, :cond_8
 
     .line 414
-    :try_start_f2
+    :try_start_b
     invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
-    :try_end_f5
-    .catch Ljava/io/IOException; {:try_start_f2 .. :try_end_f5} :catch_f9
+    :try_end_b
+    .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_6
 
     .line 416
-    :cond_f5
-    :goto_f5
+    :cond_8
+    :goto_3
     throw v12
 
     .line 415
     .restart local v3       #eventType:I
     .restart local v9       #parser:Lorg/xmlpull/v1/XmlPullParser;
     .restart local v11       #tagName:Ljava/lang/String;
-    :catch_f6
+    :catch_5
     move-exception v12
 
-    goto/16 :goto_51
+    goto/16 :goto_2
 
     .end local v3           #eventType:I
     .end local v9           #parser:Lorg/xmlpull/v1/XmlPullParser;
     .end local v11           #tagName:Ljava/lang/String;
-    :catch_f9
+    :catch_6
     move-exception v13
 
-    goto :goto_f5
+    goto :goto_3
 .end method
 
 .method private readHistoryStatsFromFile()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 355
@@ -2225,7 +2225,7 @@
     monitor-enter v1
 
     .line 356
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/UsageStatsService;->mHistoryFile:Lcom/android/internal/os/AtomicFile;
 
     invoke-virtual {v0}, Lcom/android/internal/os/AtomicFile;->getBaseFile()Ljava/io/File;
@@ -2236,7 +2236,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 357
     iget-object v0, p0, Lcom/android/server/am/UsageStatsService;->mHistoryFile:Lcom/android/internal/os/AtomicFile;
@@ -2244,25 +2244,25 @@
     invoke-direct {p0, v0}, Lcom/android/server/am/UsageStatsService;->readHistoryStatsFLOCK(Lcom/android/internal/os/AtomicFile;)V
 
     .line 359
-    :cond_14
+    :cond_0
     monitor-exit v1
 
     .line 360
     return-void
 
     .line 359
-    :catchall_16
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_18
-    .catchall {:try_start_3 .. :try_end_18} :catchall_16
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method private readStatsFLOCK(Ljava/io/File;)V
-    .registers 9
+    .locals 7
     .parameter "file"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2286,7 +2286,7 @@
     .local v4, vers:I
     const/16 v5, 0x3ef
 
-    if-eq v4, v5, :cond_14
+    if-eq v4, v5, :cond_1
 
     .line 336
     const-string v5, "UsageStats"
@@ -2296,19 +2296,19 @@
     invoke-static {v5, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 352
-    :cond_13
+    :cond_0
     return-void
 
     .line 339
-    :cond_14
+    :cond_1
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     .line 340
     .local v0, N:I
-    :goto_18
-    if-lez v0, :cond_13
+    :goto_0
+    if-lez v0, :cond_0
 
     .line 341
     add-int/lit8 v0, v0, -0x1
@@ -2320,7 +2320,7 @@
 
     .line 343
     .local v2, pkgName:Ljava/lang/String;
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_0
 
     .line 347
     new-instance v3, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;
@@ -2334,7 +2334,7 @@
     monitor-enter v6
 
     .line 349
-    :try_start_2a
+    :try_start_0
     iget-object v5, p0, Lcom/android/server/am/UsageStatsService;->mStats:Ljava/util/Map;
 
     invoke-interface {v5, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -2342,20 +2342,20 @@
     .line 350
     monitor-exit v6
 
-    goto :goto_18
+    goto :goto_0
 
-    :catchall_31
+    :catchall_0
     move-exception v5
 
     monitor-exit v6
-    :try_end_33
-    .catchall {:try_start_2a .. :try_end_33} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v5
 .end method
 
 .method private readStatsFromFile()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 316
@@ -2368,49 +2368,49 @@
     monitor-enter v3
 
     .line 319
-    :try_start_5
+    :try_start_0
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v2
 
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_0
 
     .line 320
     invoke-direct {p0, v1}, Lcom/android/server/am/UsageStatsService;->readStatsFLOCK(Ljava/io/File;)V
-    :try_end_e
-    .catchall {:try_start_5 .. :try_end_e} :catchall_3b
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_e} :catch_17
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 329
-    :goto_e
-    :try_start_e
+    :goto_0
+    :try_start_1
     monitor-exit v3
-    :try_end_f
-    .catchall {:try_start_e .. :try_end_f} :catchall_3b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 330
     return-void
 
     .line 323
-    :cond_10
-    :try_start_10
+    :cond_0
+    :try_start_2
     invoke-direct {p0}, Lcom/android/server/am/UsageStatsService;->checkFileLimitFLOCK()V
 
     .line 324
     invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
-    :try_end_16
-    .catchall {:try_start_10 .. :try_end_16} :catchall_3b
-    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_16} :catch_17
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto :goto_e
+    goto :goto_0
 
     .line 326
-    :catch_17
+    :catch_0
     move-exception v0
 
     .line 327
     .local v0, e:Ljava/io/IOException;
-    :try_start_18
+    :try_start_3
     const-string v2, "UsageStats"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -2443,28 +2443,28 @@
 
     invoke-static {v2, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_e
+    goto :goto_0
 
     .line 329
     .end local v0           #e:Ljava/io/IOException;
-    :catchall_3b
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_3d
-    .catchall {:try_start_18 .. :try_end_3d} :catchall_3b
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v2
 .end method
 
 .method private static scanArgs([Ljava/lang/String;Ljava/lang/String;)Z
-    .registers 7
+    .locals 5
     .parameter "args"
     .parameter "value"
 
     .prologue
     .line 1004
-    if-eqz p0, :cond_14
+    if-eqz p0, :cond_1
 
     .line 1005
     move-object v1, p0
@@ -2476,8 +2476,8 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_5
-    if-ge v2, v3, :cond_14
+    :goto_0
+    if-ge v2, v3, :cond_1
 
     aget-object v0, v1, v2
 
@@ -2487,7 +2487,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_11
+    if-eqz v4, :cond_0
 
     .line 1007
     const/4 v4, 0x1
@@ -2497,7 +2497,7 @@
     .end local v1           #arr$:[Ljava/lang/String;
     .end local v2           #i$:I
     .end local v3           #len$:I
-    :goto_10
+    :goto_1
     return v4
 
     .line 1005
@@ -2505,24 +2505,24 @@
     .restart local v1       #arr$:[Ljava/lang/String;
     .restart local v2       #i$:I
     .restart local v3       #len$:I
-    :cond_11
+    :cond_0
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 1011
     .end local v0           #arg:Ljava/lang/String;
     .end local v1           #arr$:[Ljava/lang/String;
     .end local v2           #i$:I
     .end local v3           #len$:I
-    :cond_14
+    :cond_1
     const/4 v4, 0x0
 
-    goto :goto_10
+    goto :goto_1
 .end method
 
 .method private static scanArgsData([Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 6
+    .locals 4
     .parameter "args"
     .parameter "value"
 
@@ -2530,7 +2530,7 @@
     const/4 v2, 0x0
 
     .line 1021
-    if-eqz p0, :cond_15
+    if-eqz p0, :cond_0
 
     .line 1022
     array-length v0, p0
@@ -2540,8 +2540,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_5
-    if-ge v1, v0, :cond_15
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 1024
     aget-object v3, p0, v1
@@ -2550,33 +2550,33 @@
 
     move-result v3
 
-    if-eqz v3, :cond_16
+    if-eqz v3, :cond_1
 
     .line 1025
     add-int/lit8 v1, v1, 0x1
 
     .line 1026
-    if-ge v1, v0, :cond_15
+    if-ge v1, v0, :cond_0
 
     aget-object v2, p0, v1
 
     .line 1030
     .end local v0           #N:I
     .end local v1           #i:I
-    :cond_15
+    :cond_0
     return-object v2
 
     .line 1023
     .restart local v0       #N:I
     .restart local v1       #i:I
-    :cond_16
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method private writeHistoryStatsFLOCK(Lcom/android/internal/os/AtomicFile;)V
-    .registers 13
+    .locals 11
     .parameter "historyFile"
 
     .prologue
@@ -2585,7 +2585,7 @@
 
     .line 610
     .local v2, fos:Ljava/io/FileOutputStream;
-    :try_start_1
+    :try_start_0
     invoke-virtual {p1}, Lcom/android/internal/os/AtomicFile;->startWrite()Ljava/io/FileOutputStream;
 
     move-result-object v2
@@ -2630,11 +2630,11 @@
     iget-object v8, p0, Lcom/android/server/am/UsageStatsService;->mStatsLock:Ljava/lang/Object;
 
     monitor-enter v8
-    :try_end_27
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_27} :catch_95
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 617
-    :try_start_27
+    :try_start_1
     iget-object v7, p0, Lcom/android/server/am/UsageStatsService;->mLastResumeTimes:Ljava/util/Map;
 
     invoke-interface {v7}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -2645,12 +2645,12 @@
 
     move-result-object v3
 
-    :goto_31
+    :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_bc
+    if-eqz v7, :cond_2
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2695,12 +2695,12 @@
     move-result-object v4
 
     .local v4, i$:Ljava/util/Iterator;
-    :goto_5d
+    :goto_1
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_b4
+    if-eqz v7, :cond_1
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2753,27 +2753,27 @@
 
     invoke-interface {v5, v7, v9}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    goto :goto_5d
+    goto :goto_1
 
     .line 628
     .end local v0           #compEntry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Long;>;"
     .end local v4           #i$:Ljava/util/Iterator;
     .end local v6           #pkgEntry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;>;"
-    :catchall_92
+    :catchall_0
     move-exception v7
 
     monitor-exit v8
-    :try_end_94
-    .catchall {:try_start_27 .. :try_end_94} :catchall_92
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    :try_start_94
+    :try_start_2
     throw v7
-    :try_end_95
-    .catch Ljava/io/IOException; {:try_start_94 .. :try_end_95} :catch_95
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 633
     .end local v5           #out:Lorg/xmlpull/v1/XmlSerializer;
-    :catch_95
+    :catch_0
     move-exception v1
 
     .line 634
@@ -2801,43 +2801,43 @@
     invoke-static {v7, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 635
-    if-eqz v2, :cond_b3
+    if-eqz v2, :cond_0
 
     .line 636
     invoke-virtual {p1, v2}, Lcom/android/internal/os/AtomicFile;->failWrite(Ljava/io/FileOutputStream;)V
 
     .line 639
     .end local v1           #e:Ljava/io/IOException;
-    :cond_b3
-    :goto_b3
+    :cond_0
+    :goto_2
     return-void
 
     .line 626
     .restart local v4       #i$:Ljava/util/Iterator;
     .restart local v5       #out:Lorg/xmlpull/v1/XmlSerializer;
     .restart local v6       #pkgEntry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;>;"
-    :cond_b4
+    :cond_1
     const/4 v7, 0x0
 
-    :try_start_b5
+    :try_start_3
     const-string v9, "pkg"
 
     invoke-interface {v5, v7, v9}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    goto/16 :goto_31
+    goto/16 :goto_0
 
     .line 628
     .end local v4           #i$:Ljava/util/Iterator;
     .end local v6           #pkgEntry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;>;"
-    :cond_bc
+    :cond_2
     monitor-exit v8
-    :try_end_bd
-    .catchall {:try_start_b5 .. :try_end_bd} :catchall_92
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 629
     const/4 v7, 0x0
 
-    :try_start_be
+    :try_start_4
     const-string v8, "usage-history"
 
     invoke-interface {v5, v7, v8}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
@@ -2847,14 +2847,14 @@
 
     .line 632
     invoke-virtual {p1, v2}, Lcom/android/internal/os/AtomicFile;->finishWrite(Ljava/io/FileOutputStream;)V
-    :try_end_c9
-    .catch Ljava/io/IOException; {:try_start_be .. :try_end_c9} :catch_95
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
 
-    goto :goto_b3
+    goto :goto_2
 .end method
 
 .method private writeStatsFLOCK(Ljava/io/File;)V
-    .registers 5
+    .locals 3
     .parameter "file"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2870,7 +2870,7 @@
 
     .line 567
     .local v1, stream:Ljava/io/FileOutputStream;
-    :try_start_5
+    :try_start_0
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
@@ -2891,8 +2891,8 @@
 
     .line 571
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->flush()V
-    :try_end_19
-    .catchall {:try_start_5 .. :try_end_19} :catchall_20
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 573
     invoke-static {v1}, Landroid/os/FileUtils;->sync(Ljava/io/FileOutputStream;)Z
@@ -2905,7 +2905,7 @@
 
     .line 573
     .end local v0           #out:Landroid/os/Parcel;
-    :catchall_20
+    :catchall_0
     move-exception v2
 
     invoke-static {v1}, Landroid/os/FileUtils;->sync(Ljava/io/FileOutputStream;)Z
@@ -2917,7 +2917,7 @@
 .end method
 
 .method private writeStatsToFile(ZZ)V
-    .registers 15
+    .locals 12
     .parameter "force"
     .parameter "forceWriteHistoryStats"
 
@@ -2932,7 +2932,7 @@
     monitor-enter v8
 
     .line 479
-    :try_start_5
+    :try_start_0
     iget-object v9, p0, Lcom/android/server/am/UsageStatsService;->mCal:Ljava/util/Calendar;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -2953,8 +2953,8 @@
     .line 481
     .local v1, curDay:I
     monitor-exit v8
-    :try_end_16
-    .catchall {:try_start_5 .. :try_end_16} :catchall_37
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 482
     iget-object v8, p0, Lcom/android/server/am/UsageStatsService;->mLastWriteDay:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -2963,23 +2963,23 @@
 
     move-result v8
 
-    if-eq v1, v8, :cond_3a
+    if-eq v1, v8, :cond_1
 
     move v4, v6
 
     .line 487
     .local v4, dayChanged:Z
-    :goto_1f
+    :goto_0
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
 
     .line 491
     .local v2, currElapsedTime:J
-    if-nez p1, :cond_4f
+    if-nez p1, :cond_3
 
     .line 492
-    if-nez v4, :cond_3c
+    if-nez v4, :cond_2
 
     iget-object v8, p0, Lcom/android/server/am/UsageStatsService;->mLastWriteElapsedTime:Ljava/util/concurrent/atomic/AtomicLong;
 
@@ -2993,45 +2993,45 @@
 
     cmp-long v8, v8, v10
 
-    if-gez v8, :cond_3c
+    if-gez v8, :cond_2
 
     .line 562
-    :cond_36
-    :goto_36
+    :cond_0
+    :goto_1
     return-void
 
     .line 481
     .end local v1           #curDay:I
     .end local v2           #currElapsedTime:J
     .end local v4           #dayChanged:Z
-    :catchall_37
+    :catchall_0
     move-exception v6
 
-    :try_start_38
+    :try_start_1
     monitor-exit v8
-    :try_end_39
-    .catchall {:try_start_38 .. :try_end_39} :catchall_37
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v6
 
     .restart local v1       #curDay:I
-    :cond_3a
+    :cond_1
     move v4, v7
 
     .line 482
-    goto :goto_1f
+    goto :goto_0
 
     .line 497
     .restart local v2       #currElapsedTime:J
     .restart local v4       #dayChanged:Z
-    :cond_3c
+    :cond_2
     iget-object v8, p0, Lcom/android/server/am/UsageStatsService;->mUnforcedDiskWriteRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-virtual {v8, v7, v6}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
 
     move-result v6
 
-    if-eqz v6, :cond_36
+    if-eqz v6, :cond_0
 
     .line 498
     new-instance v6, Lcom/android/server/am/UsageStatsService$1;
@@ -3042,16 +3042,16 @@
 
     invoke-virtual {v6}, Lcom/android/server/am/UsageStatsService$1;->start()V
 
-    goto :goto_36
+    goto :goto_1
 
     .line 513
-    :cond_4f
+    :cond_3
     iget-object v7, p0, Lcom/android/server/am/UsageStatsService;->mFileLock:Ljava/lang/Object;
 
     monitor-enter v7
 
     .line 515
-    :try_start_52
+    :try_start_2
     const-string v6, "usage-"
 
     invoke-direct {p0, v6}, Lcom/android/server/am/UsageStatsService;->getCurrentDateStr(Ljava/lang/String;)Ljava/lang/String;
@@ -3067,7 +3067,7 @@
     .local v0, backupFile:Ljava/io/File;
     iget-object v6, p0, Lcom/android/server/am/UsageStatsService;->mFile:Ljava/io/File;
 
-    if-eqz v6, :cond_a4
+    if-eqz v6, :cond_5
 
     iget-object v6, p0, Lcom/android/server/am/UsageStatsService;->mFile:Ljava/io/File;
 
@@ -3075,7 +3075,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_a4
+    if-eqz v6, :cond_5
 
     .line 519
     new-instance v0, Ljava/io/File;
@@ -3113,7 +3113,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_9f
+    if-nez v6, :cond_4
 
     .line 521
     iget-object v6, p0, Lcom/android/server/am/UsageStatsService;->mFile:Ljava/io/File;
@@ -3122,7 +3122,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_a4
+    if-nez v6, :cond_5
 
     .line 522
     const-string v6, "UsageStats"
@@ -3134,32 +3134,32 @@
     .line 523
     monitor-exit v7
 
-    goto :goto_36
+    goto :goto_1
 
     .line 560
     .end local v0           #backupFile:Ljava/io/File;
-    :catchall_9c
+    :catchall_1
     move-exception v6
 
     monitor-exit v7
-    :try_end_9e
-    .catchall {:try_start_52 .. :try_end_9e} :catchall_9c
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     throw v6
 
     .line 526
     .restart local v0       #backupFile:Ljava/io/File;
-    :cond_9f
-    :try_start_9f
+    :cond_4
+    :try_start_3
     iget-object v6, p0, Lcom/android/server/am/UsageStatsService;->mFile:Ljava/io/File;
 
     invoke-virtual {v6}, Ljava/io/File;->delete()Z
-    :try_end_a4
-    .catchall {:try_start_9f .. :try_end_a4} :catchall_9c
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     .line 532
-    :cond_a4
-    :try_start_a4
+    :cond_5
+    :try_start_4
     iget-object v6, p0, Lcom/android/server/am/UsageStatsService;->mFile:Ljava/io/File;
 
     invoke-direct {p0, v6}, Lcom/android/server/am/UsageStatsService;->writeStatsFLOCK(Ljava/io/File;)V
@@ -3170,7 +3170,7 @@
     invoke-virtual {v6, v2, v3}, Ljava/util/concurrent/atomic/AtomicLong;->set(J)V
 
     .line 534
-    if-eqz v4, :cond_cc
+    if-eqz v4, :cond_6
 
     .line 535
     iget-object v6, p0, Lcom/android/server/am/UsageStatsService;->mLastWriteDay:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -3181,23 +3181,23 @@
     iget-object v8, p0, Lcom/android/server/am/UsageStatsService;->mStats:Ljava/util/Map;
 
     monitor-enter v8
-    :try_end_b8
-    .catchall {:try_start_a4 .. :try_end_b8} :catchall_9c
-    .catch Ljava/io/IOException; {:try_start_a4 .. :try_end_b8} :catch_e0
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
 
     .line 538
-    :try_start_b8
+    :try_start_5
     iget-object v6, p0, Lcom/android/server/am/UsageStatsService;->mStats:Ljava/util/Map;
 
     invoke-interface {v6}, Ljava/util/Map;->clear()V
 
     .line 539
     monitor-exit v8
-    :try_end_be
-    .catchall {:try_start_b8 .. :try_end_be} :catchall_dd
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
     .line 540
-    :try_start_be
+    :try_start_6
     new-instance v6, Ljava/io/File;
 
     iget-object v8, p0, Lcom/android/server/am/UsageStatsService;->mDir:Ljava/io/File;
@@ -3212,59 +3212,59 @@
     invoke-direct {p0}, Lcom/android/server/am/UsageStatsService;->checkFileLimitFLOCK()V
 
     .line 544
-    :cond_cc
-    if-nez v4, :cond_d0
+    :cond_6
+    if-nez v4, :cond_7
 
-    if-eqz p2, :cond_d5
+    if-eqz p2, :cond_8
 
     .line 546
-    :cond_d0
+    :cond_7
     iget-object v6, p0, Lcom/android/server/am/UsageStatsService;->mHistoryFile:Lcom/android/internal/os/AtomicFile;
 
     invoke-direct {p0, v6}, Lcom/android/server/am/UsageStatsService;->writeHistoryStatsFLOCK(Lcom/android/internal/os/AtomicFile;)V
 
     .line 550
-    :cond_d5
-    if-eqz v0, :cond_da
+    :cond_8
+    if-eqz v0, :cond_9
 
     .line 551
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
-    :try_end_da
-    .catchall {:try_start_be .. :try_end_da} :catchall_9c
-    .catch Ljava/io/IOException; {:try_start_be .. :try_end_da} :catch_e0
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_0
 
     .line 560
-    :cond_da
-    :goto_da
-    :try_start_da
+    :cond_9
+    :goto_2
+    :try_start_7
     monitor-exit v7
-    :try_end_db
-    .catchall {:try_start_da .. :try_end_db} :catchall_9c
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
-    goto/16 :goto_36
+    goto/16 :goto_1
 
     .line 539
-    :catchall_dd
+    :catchall_2
     move-exception v6
 
-    :try_start_de
+    :try_start_8
     monitor-exit v8
-    :try_end_df
-    .catchall {:try_start_de .. :try_end_df} :catchall_dd
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_2
 
-    :try_start_df
+    :try_start_9
     throw v6
-    :try_end_e0
-    .catchall {:try_start_df .. :try_end_e0} :catchall_9c
-    .catch Ljava/io/IOException; {:try_start_df .. :try_end_e0} :catch_e0
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_1
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_0
 
     .line 553
-    :catch_e0
+    :catch_0
     move-exception v5
 
     .line 554
     .local v5, e:Ljava/io/IOException;
-    :try_start_e1
+    :try_start_a
     const-string v6, "UsageStats"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -3290,7 +3290,7 @@
     invoke-static {v6, v8}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 555
-    if-eqz v0, :cond_da
+    if-eqz v0, :cond_9
 
     .line 556
     iget-object v6, p0, Lcom/android/server/am/UsageStatsService;->mFile:Ljava/io/File;
@@ -3301,14 +3301,14 @@
     iget-object v6, p0, Lcom/android/server/am/UsageStatsService;->mFile:Ljava/io/File;
 
     invoke-virtual {v0, v6}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
-    :try_end_107
-    .catchall {:try_start_e1 .. :try_end_107} :catchall_9c
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_1
 
-    goto :goto_da
+    goto :goto_2
 .end method
 
 .method private writeStatsToParcelFLOCK(Landroid/os/Parcel;)V
-    .registers 8
+    .locals 6
     .parameter "out"
 
     .prologue
@@ -3320,7 +3320,7 @@
     .line 580
     const/16 v4, 0x3ef
 
-    :try_start_5
+    :try_start_0
     invoke-virtual {p1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 581
@@ -3344,12 +3344,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_19
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_37
+    if-eqz v4, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3374,29 +3374,29 @@
     .line 586
     invoke-virtual {v3, p1}, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->writeToParcel(Landroid/os/Parcel;)V
 
-    goto :goto_19
+    goto :goto_0
 
     .line 588
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #key:Ljava/lang/String;
     .end local v2           #keys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
     .end local v3           #pus:Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;
-    :catchall_34
+    :catchall_0
     move-exception v4
 
     monitor-exit v5
-    :try_end_36
-    .catchall {:try_start_5 .. :try_end_36} :catchall_34
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v4
 
     .restart local v0       #i$:Ljava/util/Iterator;
     .restart local v2       #keys:Ljava/util/Set;,"Ljava/util/Set<Ljava/lang/String;>;"
-    :cond_37
-    :try_start_37
+    :cond_0
+    :try_start_1
     monitor-exit v5
-    :try_end_38
-    .catchall {:try_start_37 .. :try_end_38} :catchall_34
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 589
     return-void
@@ -3405,7 +3405,7 @@
 
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 16
+    .locals 12
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -3420,7 +3420,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_3f
+    if-eqz v10, :cond_0
 
     .line 1040
     new-instance v10, Ljava/lang/StringBuilder;
@@ -3474,11 +3474,11 @@
     invoke-virtual {p2, v10}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 1080
-    :goto_3e
+    :goto_0
     return-void
 
     .line 1046
-    :cond_3f
+    :cond_0
     const-string v10, "--checkin"
 
     invoke-static {p3, v10}, Lcom/android/server/am/UsageStatsService;->scanArgs([Ljava/lang/String;Ljava/lang/String;)Z
@@ -3487,7 +3487,7 @@
 
     .line 1047
     .local v3, isCheckinRequest:Z
-    if-nez v3, :cond_4f
+    if-nez v3, :cond_1
 
     const-string v10, "-c"
 
@@ -3495,15 +3495,15 @@
 
     move-result v10
 
-    if-eqz v10, :cond_8d
+    if-eqz v10, :cond_5
 
-    :cond_4f
+    :cond_1
     const/4 v4, 0x1
 
     .line 1048
     .local v4, isCompactOutput:Z
-    :goto_50
-    if-nez v3, :cond_5a
+    :goto_1
+    if-nez v3, :cond_2
 
     const-string v10, "-d"
 
@@ -3511,14 +3511,14 @@
 
     move-result v10
 
-    if-eqz v10, :cond_8f
+    if-eqz v10, :cond_6
 
-    :cond_5a
+    :cond_2
     const/4 v1, 0x1
 
     .line 1049
     .local v1, deleteAfterPrint:Z
-    :goto_5b
+    :goto_2
     const-string v10, "--packages"
 
     invoke-static {p3, v10}, Lcom/android/server/am/UsageStatsService;->scanArgsData([Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -3527,7 +3527,7 @@
 
     .line 1054
     .local v9, rawPackages:Ljava/lang/String;
-    if-nez v1, :cond_68
+    if-nez v1, :cond_3
 
     .line 1055
     const/4 v10, 0x1
@@ -3537,12 +3537,12 @@
     invoke-direct {p0, v10, v11}, Lcom/android/server/am/UsageStatsService;->writeStatsToFile(ZZ)V
 
     .line 1058
-    :cond_68
+    :cond_3
     const/4 v8, 0x0
 
     .line 1059
     .local v8, packages:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
-    if-eqz v9, :cond_91
+    if-eqz v9, :cond_7
 
     .line 1060
     const-string v10, "*"
@@ -3551,7 +3551,7 @@
 
     move-result v10
 
-    if-nez v10, :cond_9b
+    if-nez v10, :cond_8
 
     .line 1062
     const-string v10, ","
@@ -3571,14 +3571,14 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_7c
-    if-ge v2, v5, :cond_9b
+    :goto_3
+    if-ge v2, v5, :cond_8
 
     aget-object v6, v0, v2
 
     .line 1064
     .local v6, n:Ljava/lang/String;
-    if-nez v8, :cond_87
+    if-nez v8, :cond_4
 
     .line 1065
     new-instance v8, Ljava/util/HashSet;
@@ -3588,13 +3588,13 @@
 
     .line 1067
     .restart local v8       #packages:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
-    :cond_87
+    :cond_4
     invoke-virtual {v8, v6}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     .line 1063
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_7c
+    goto :goto_3
 
     .line 1047
     .end local v0           #arr$:[Ljava/lang/String;
@@ -3606,24 +3606,24 @@
     .end local v7           #names:[Ljava/lang/String;
     .end local v8           #packages:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
     .end local v9           #rawPackages:Ljava/lang/String;
-    :cond_8d
+    :cond_5
     const/4 v4, 0x0
 
-    goto :goto_50
+    goto :goto_1
 
     .line 1048
     .restart local v4       #isCompactOutput:Z
-    :cond_8f
+    :cond_6
     const/4 v1, 0x0
 
-    goto :goto_5b
+    goto :goto_2
 
     .line 1070
     .restart local v1       #deleteAfterPrint:Z
     .restart local v8       #packages:Ljava/util/HashSet;,"Ljava/util/HashSet<Ljava/lang/String;>;"
     .restart local v9       #rawPackages:Ljava/lang/String;
-    :cond_91
-    if-eqz v3, :cond_9b
+    :cond_7
+    if-eqz v3, :cond_8
 
     .line 1073
     const-string v10, "UsageStats"
@@ -3632,35 +3632,35 @@
 
     invoke-static {v10, v11}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_3e
+    goto :goto_0
 
     .line 1077
-    :cond_9b
+    :cond_8
     iget-object v11, p0, Lcom/android/server/am/UsageStatsService;->mFileLock:Ljava/lang/Object;
 
     monitor-enter v11
 
     .line 1078
-    :try_start_9e
+    :try_start_0
     invoke-direct {p0, p2, v4, v1, v8}, Lcom/android/server/am/UsageStatsService;->collectDumpInfoFLOCK(Ljava/io/PrintWriter;ZZLjava/util/HashSet;)V
 
     .line 1079
     monitor-exit v11
 
-    goto :goto_3e
+    goto :goto_0
 
-    :catchall_a3
+    :catchall_0
     move-exception v10
 
     monitor-exit v11
-    :try_end_a5
-    .catchall {:try_start_9e .. :try_end_a5} :catchall_a3
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v10
 .end method
 
 .method public enforceCallingPermission()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 781
@@ -3672,14 +3672,14 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_b
+    if-ne v0, v1, :cond_0
 
     .line 786
-    :goto_a
+    :goto_0
     return-void
 
     .line 784
-    :cond_b
+    :cond_0
     iget-object v0, p0, Lcom/android/server/am/UsageStatsService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.UPDATE_DEVICE_STATS"
@@ -3696,11 +3696,11 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/content/Context;->enforcePermission(Ljava/lang/String;IILjava/lang/String;)V
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getAllPkgUsageStats()[Lcom/android/internal/os/PkgUsageStats;
-    .registers 14
+    .locals 13
 
     .prologue
     const/4 v10, 0x0
@@ -3718,7 +3718,7 @@
     monitor-enter v12
 
     .line 812
-    :try_start_b
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/UsageStatsService;->mLastResumeTimes:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->size()I
@@ -3727,17 +3727,17 @@
 
     .line 813
     .local v11, size:I
-    if-gtz v11, :cond_15
+    if-gtz v11, :cond_0
 
     .line 814
     monitor-exit v12
 
     .line 831
-    :goto_14
+    :goto_0
     return-object v10
 
     .line 816
-    :cond_15
+    :cond_0
     new-array v10, v11, [Lcom/android/internal/os/PkgUsageStats;
 
     .line 817
@@ -3757,12 +3757,12 @@
     move-result-object v8
 
     .local v8, i$:Ljava/util/Iterator;
-    :goto_22
+    :goto_1
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_55
+    if-eqz v0, :cond_2
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3798,7 +3798,7 @@
 
     .line 824
     .local v9, pus:Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;
-    if-eqz v9, :cond_45
+    if-eqz v9, :cond_1
 
     .line 825
     iget-wide v3, v9, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->mUsageTime:J
@@ -3807,7 +3807,7 @@
     iget v2, v9, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->mLaunchCount:I
 
     .line 828
-    :cond_45
+    :cond_1
     new-instance v0, Lcom/android/internal/os/PkgUsageStats;
 
     invoke-interface {v6}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -3824,7 +3824,7 @@
     add-int/lit8 v7, v7, 0x1
 
     .line 830
-    goto :goto_22
+    goto :goto_1
 
     .line 831
     .end local v1           #pkg:Ljava/lang/String;
@@ -3832,28 +3832,28 @@
     .end local v3           #usageTime:J
     .end local v6           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;>;"
     .end local v9           #pus:Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;
-    :cond_55
+    :cond_2
     monitor-exit v12
 
-    goto :goto_14
+    goto :goto_0
 
     .line 832
     .end local v7           #i:I
     .end local v8           #i$:Ljava/util/Iterator;
     .end local v10           #retArr:[Lcom/android/internal/os/PkgUsageStats;
     .end local v11           #size:I
-    :catchall_57
+    :catchall_0
     move-exception v0
 
     monitor-exit v12
-    :try_end_59
-    .catchall {:try_start_b .. :try_end_59} :catchall_57
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public getPkgUsageStats(Landroid/content/ComponentName;)Lcom/android/internal/os/PkgUsageStats;
-    .registers 11
+    .locals 9
     .parameter "componentName"
 
     .prologue
@@ -3867,30 +3867,30 @@
     invoke-virtual {v7, v8, v0}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 792
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
 
     .local v1, pkgName:Ljava/lang/String;
-    if-nez v1, :cond_11
+    if-nez v1, :cond_1
 
     .line 804
     .end local v1           #pkgName:Ljava/lang/String;
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 796
     .restart local v1       #pkgName:Ljava/lang/String;
-    :cond_11
+    :cond_1
     iget-object v7, p0, Lcom/android/server/am/UsageStatsService;->mStatsLock:Ljava/lang/Object;
 
     monitor-enter v7
 
     .line 797
-    :try_start_14
+    :try_start_0
     iget-object v8, p0, Lcom/android/server/am/UsageStatsService;->mStats:Ljava/util/Map;
 
     invoke-interface {v8, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -3911,74 +3911,74 @@
 
     .line 799
     .local v5, lastResumeTimes:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;"
-    if-nez v6, :cond_2d
+    if-nez v6, :cond_2
 
-    if-nez v5, :cond_2d
+    if-nez v5, :cond_2
 
     .line 800
     monitor-exit v7
 
-    goto :goto_10
+    goto :goto_0
 
     .line 805
     .end local v5           #lastResumeTimes:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;"
     .end local v6           #pus:Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;
-    :catchall_2a
+    :catchall_0
     move-exception v0
 
     monitor-exit v7
-    :try_end_2c
-    .catchall {:try_start_14 .. :try_end_2c} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 802
     .restart local v5       #lastResumeTimes:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;"
     .restart local v6       #pus:Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;
-    :cond_2d
-    if-eqz v6, :cond_3c
+    :cond_2
+    if-eqz v6, :cond_3
 
-    :try_start_2f
+    :try_start_1
     iget v2, v6, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->mLaunchCount:I
 
     .line 803
     .local v2, launchCount:I
-    :goto_31
-    if-eqz v6, :cond_3e
+    :goto_1
+    if-eqz v6, :cond_4
 
     iget-wide v3, v6, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->mUsageTime:J
 
     .line 804
     .local v3, usageTime:J
-    :goto_35
+    :goto_2
     new-instance v0, Lcom/android/internal/os/PkgUsageStats;
 
     invoke-direct/range {v0 .. v5}, Lcom/android/internal/os/PkgUsageStats;-><init>(Ljava/lang/String;IJLjava/util/Map;)V
 
     monitor-exit v7
-    :try_end_3b
-    .catchall {:try_start_2f .. :try_end_3b} :catchall_2a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_10
+    goto :goto_0
 
     .line 802
     .end local v2           #launchCount:I
     .end local v3           #usageTime:J
-    :cond_3c
+    :cond_3
     const/4 v2, 0x0
 
-    goto :goto_31
+    goto :goto_1
 
     .line 803
     .restart local v2       #launchCount:I
-    :cond_3e
+    :cond_4
     const-wide/16 v3, 0x0
 
-    goto :goto_35
+    goto :goto_2
 .end method
 
 .method public monitorPackages()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 651
@@ -4007,7 +4007,7 @@
 .end method
 
 .method public noteLaunchTime(Landroid/content/ComponentName;I)V
-    .registers 7
+    .locals 4
     .parameter "componentName"
     .parameter "millis"
 
@@ -4018,24 +4018,24 @@
     invoke-virtual {p0}, Lcom/android/server/am/UsageStatsService;->enforceCallingPermission()V
 
     .line 764
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
 
     .local v0, pkgName:Ljava/lang/String;
-    if-nez v0, :cond_d
+    if-nez v0, :cond_1
 
     .line 778
     .end local v0           #pkgName:Ljava/lang/String;
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     return-void
 
     .line 770
     .restart local v0       #pkgName:Ljava/lang/String;
-    :cond_d
+    :cond_1
     invoke-direct {p0, v2, v2}, Lcom/android/server/am/UsageStatsService;->writeStatsToFile(ZZ)V
 
     .line 772
@@ -4044,7 +4044,7 @@
     monitor-enter v3
 
     .line 773
-    :try_start_13
+    :try_start_0
     iget-object v2, p0, Lcom/android/server/am/UsageStatsService;->mStats:Ljava/util/Map;
 
     invoke-interface {v2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -4055,7 +4055,7 @@
 
     .line 774
     .local v1, pus:Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;
-    if-eqz v1, :cond_24
+    if-eqz v1, :cond_2
 
     .line 775
     invoke-virtual {p1}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
@@ -4065,24 +4065,24 @@
     invoke-virtual {v1, v2, p2}, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->addLaunchTime(Ljava/lang/String;I)V
 
     .line 777
-    :cond_24
+    :cond_2
     monitor-exit v3
 
-    goto :goto_c
+    goto :goto_0
 
     .end local v1           #pus:Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;
-    :catchall_26
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_28
-    .catchall {:try_start_13 .. :try_end_28} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method
 
 .method public notePauseComponent(Landroid/content/ComponentName;)V
-    .registers 8
+    .locals 6
     .parameter "componentName"
 
     .prologue
@@ -4097,54 +4097,54 @@
     monitor-enter v3
 
     .line 735
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_0
 
-    :try_start_9
+    :try_start_0
     invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
 
     .local v0, pkgName:Ljava/lang/String;
-    if-nez v0, :cond_11
+    if-nez v0, :cond_1
 
     .line 737
     .end local v0           #pkgName:Ljava/lang/String;
-    :cond_f
+    :cond_0
     monitor-exit v3
 
     .line 759
-    :goto_10
+    :goto_0
     return-void
 
     .line 739
     .restart local v0       #pkgName:Ljava/lang/String;
-    :cond_11
+    :cond_1
     iget-boolean v2, p0, Lcom/android/server/am/UsageStatsService;->mIsResumed:Z
 
-    if-nez v2, :cond_1a
+    if-nez v2, :cond_2
 
     .line 742
     monitor-exit v3
 
-    goto :goto_10
+    goto :goto_0
 
     .line 755
     .end local v0           #pkgName:Ljava/lang/String;
-    :catchall_17
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_19
-    .catchall {:try_start_9 .. :try_end_19} :catchall_17
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 
     .line 744
     .restart local v0       #pkgName:Ljava/lang/String;
-    :cond_1a
+    :cond_2
     const/4 v2, 0x0
 
-    :try_start_1b
+    :try_start_1
     iput-boolean v2, p0, Lcom/android/server/am/UsageStatsService;->mIsResumed:Z
 
     .line 748
@@ -4158,7 +4158,7 @@
 
     .line 749
     .local v1, pus:Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;
-    if-nez v1, :cond_41
+    if-nez v1, :cond_3
 
     .line 751
     const-string v2, "UsageStats"
@@ -4186,25 +4186,25 @@
     .line 752
     monitor-exit v3
 
-    goto :goto_10
+    goto :goto_0
 
     .line 754
-    :cond_41
+    :cond_3
     invoke-virtual {v1}, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->updatePause()V
 
     .line 755
     monitor-exit v3
-    :try_end_45
-    .catchall {:try_start_1b .. :try_end_45} :catchall_17
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 758
     invoke-direct {p0, v4, v4}, Lcom/android/server/am/UsageStatsService;->writeStatsToFile(ZZ)V
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public noteResumeComponent(Landroid/content/ComponentName;)V
-    .registers 12
+    .locals 10
     .parameter "componentName"
 
     .prologue
@@ -4221,28 +4221,28 @@
     monitor-enter v7
 
     .line 684
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
-    :try_start_a
+    :try_start_0
     invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
 
     .local v1, pkgName:Ljava/lang/String;
-    if-nez v1, :cond_12
+    if-nez v1, :cond_1
 
     .line 686
     .end local v1           #pkgName:Ljava/lang/String;
-    :cond_10
+    :cond_0
     monitor-exit v7
 
     .line 728
-    :goto_11
+    :goto_0
     return-void
 
     .line 689
     .restart local v1       #pkgName:Ljava/lang/String;
-    :cond_12
+    :cond_1
     iget-object v8, p0, Lcom/android/server/am/UsageStatsService;->mLastResumedPkg:Ljava/lang/String;
 
     invoke-virtual {v1, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -4253,12 +4253,12 @@
     .local v4, samePackage:Z
     iget-boolean v8, p0, Lcom/android/server/am/UsageStatsService;->mIsResumed:Z
 
-    if-eqz v8, :cond_2f
+    if-eqz v8, :cond_2
 
     .line 691
     iget-object v8, p0, Lcom/android/server/am/UsageStatsService;->mLastResumedPkg:Ljava/lang/String;
 
-    if-eqz v8, :cond_2f
+    if-eqz v8, :cond_2
 
     .line 696
     iget-object v8, p0, Lcom/android/server/am/UsageStatsService;->mStats:Ljava/util/Map;
@@ -4273,15 +4273,15 @@
 
     .line 697
     .local v2, pus:Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_2
 
     .line 698
     invoke-virtual {v2}, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->updatePause()V
 
     .line 703
     .end local v2           #pus:Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;
-    :cond_2f
-    if-eqz v4, :cond_91
+    :cond_2
+    if-eqz v4, :cond_6
 
     invoke-virtual {p1}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
 
@@ -4293,13 +4293,13 @@
 
     move-result v8
 
-    if-eqz v8, :cond_91
+    if-eqz v8, :cond_6
 
     move v3, v5
 
     .line 706
     .local v3, sameComp:Z
-    :goto_3e
+    :goto_1
     const/4 v8, 0x1
 
     iput-boolean v8, p0, Lcom/android/server/am/UsageStatsService;->mIsResumed:Z
@@ -4325,7 +4325,7 @@
 
     .line 712
     .restart local v2       #pus:Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;
-    if-nez v2, :cond_5d
+    if-nez v2, :cond_3
 
     .line 713
     new-instance v2, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;
@@ -4340,16 +4340,16 @@
     invoke-interface {v8, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 716
-    :cond_5d
+    :cond_3
     iget-object v8, p0, Lcom/android/server/am/UsageStatsService;->mLastResumedComp:Ljava/lang/String;
 
-    if-nez v4, :cond_93
+    if-nez v4, :cond_7
 
-    :goto_61
+    :goto_2
     invoke-virtual {v2, v8, v5}, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->updateResume(Ljava/lang/String;Z)V
 
     .line 717
-    if-nez v3, :cond_6b
+    if-nez v3, :cond_4
 
     .line 718
     iget-object v5, p0, Lcom/android/server/am/UsageStatsService;->mLastResumedComp:Ljava/lang/String;
@@ -4357,7 +4357,7 @@
     invoke-virtual {v2, v5}, Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;->addLaunchCount(Ljava/lang/String;)V
 
     .line 721
-    :cond_6b
+    :cond_4
     iget-object v5, p0, Lcom/android/server/am/UsageStatsService;->mLastResumeTimes:Ljava/util/Map;
 
     invoke-interface {v5, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -4368,7 +4368,7 @@
 
     .line 722
     .local v0, componentResumeTimes:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;"
-    if-nez v0, :cond_7f
+    if-nez v0, :cond_5
 
     .line 723
     new-instance v0, Ljava/util/HashMap;
@@ -4383,7 +4383,7 @@
     invoke-interface {v5, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 726
-    :cond_7f
+    :cond_5
     iget-object v5, p0, Lcom/android/server/am/UsageStatsService;->mLastResumedComp:Ljava/lang/String;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -4399,41 +4399,41 @@
     .line 727
     monitor-exit v7
 
-    goto :goto_11
+    goto :goto_0
 
     .end local v0           #componentResumeTimes:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;"
     .end local v1           #pkgName:Ljava/lang/String;
     .end local v2           #pus:Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;
     .end local v3           #sameComp:Z
     .end local v4           #samePackage:Z
-    :catchall_8e
+    :catchall_0
     move-exception v5
 
     monitor-exit v7
-    :try_end_90
-    .catchall {:try_start_a .. :try_end_90} :catchall_8e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v5
 
     .restart local v1       #pkgName:Ljava/lang/String;
     .restart local v4       #samePackage:Z
-    :cond_91
+    :cond_6
     move v3, v6
 
     .line 703
-    goto :goto_3e
+    goto :goto_1
 
     .restart local v2       #pus:Lcom/android/server/am/UsageStatsService$PkgUsageStatsExtended;
     .restart local v3       #sameComp:Z
-    :cond_93
+    :cond_7
     move v5, v6
 
     .line 716
-    goto :goto_61
+    goto :goto_2
 .end method
 
 .method public publish(Landroid/content/Context;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -4454,7 +4454,7 @@
 .end method
 
 .method public shutdown()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x1
@@ -4462,7 +4462,7 @@
     .line 664
     iget-object v0, p0, Lcom/android/server/am/UsageStatsService;->mPackageMonitor:Lcom/android/internal/content/PackageMonitor;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 665
     iget-object v0, p0, Lcom/android/server/am/UsageStatsService;->mPackageMonitor:Lcom/android/internal/content/PackageMonitor;
@@ -4470,7 +4470,7 @@
     invoke-virtual {v0}, Lcom/android/internal/content/PackageMonitor;->unregister()V
 
     .line 667
-    :cond_a
+    :cond_0
     const-string v0, "UsageStats"
 
     const-string v1, "Writing usage stats before shutdown..."

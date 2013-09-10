@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1791
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected create()Landroid/view/IWindowManager;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1793
@@ -55,7 +55,7 @@
 .end method
 
 .method protected bridge synthetic create()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1791

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 283
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/gesture/Gesture;
-    .registers 9
+    .locals 7
     .parameter "in"
 
     .prologue
@@ -70,11 +70,11 @@
 
     .line 292
     .local v4, inStream:Ljava/io/DataInputStream;
-    :try_start_13
+    :try_start_0
     invoke-static {v4}, Landroid/gesture/Gesture;->deserialize(Ljava/io/DataInputStream;)Landroid/gesture/Gesture;
-    :try_end_16
-    .catchall {:try_start_13 .. :try_end_16} :catchall_2c
-    .catch Ljava/io/IOException; {:try_start_13 .. :try_end_16} :catch_20
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
@@ -82,38 +82,39 @@
     invoke-static {v4}, Landroid/gesture/GestureUtils;->closeStream(Ljava/io/Closeable;)V
 
     .line 299
-    :goto_1a
-    if-eqz v1, :cond_1f
+    :goto_0
+    if-eqz v1, :cond_0
 
     .line 300
+    #setter for: Landroid/gesture/Gesture;->mGestureID:J
     invoke-static {v1, v2, v3}, Landroid/gesture/Gesture;->access$002(Landroid/gesture/Gesture;J)J
 
     .line 303
-    :cond_1f
+    :cond_0
     return-object v1
 
     .line 293
-    :catch_20
+    :catch_0
     move-exception v0
 
     .line 294
     .local v0, e:Ljava/io/IOException;
-    :try_start_21
+    :try_start_1
     const-string v5, "Gestures"
 
     const-string v6, "Error reading Gesture from parcel:"
 
     invoke-static {v5, v6, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_28
-    .catchall {:try_start_21 .. :try_end_28} :catchall_2c
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 296
     invoke-static {v4}, Landroid/gesture/GestureUtils;->closeStream(Ljava/io/Closeable;)V
 
-    goto :goto_1a
+    goto :goto_0
 
     .end local v0           #e:Ljava/io/IOException;
-    :catchall_2c
+    :catchall_0
     move-exception v5
 
     invoke-static {v4}, Landroid/gesture/GestureUtils;->closeStream(Ljava/io/Closeable;)V
@@ -122,7 +123,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -135,7 +136,7 @@
 .end method
 
 .method public newArray(I)[Landroid/gesture/Gesture;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -146,7 +147,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

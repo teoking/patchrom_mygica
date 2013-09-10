@@ -70,7 +70,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -87,7 +87,7 @@
 .end method
 
 .method private constructor <init>(Lcom/android/internal/telephony/SmsMessageBase;)V
-    .registers 2
+    .locals 0
     .parameter "smb"
 
     .prologue
@@ -102,7 +102,7 @@
 .end method
 
 .method public static calculateLength(Ljava/lang/CharSequence;Z)[I
-    .registers 6
+    .locals 4
     .parameter "messageBody"
     .parameter "use7bitOnly"
     .annotation runtime Ljava/lang/Deprecated;
@@ -154,7 +154,7 @@
 .end method
 
 .method public static calculateLength(Ljava/lang/String;Z)[I
-    .registers 3
+    .locals 1
     .parameter "messageBody"
     .parameter "use7bitOnly"
     .annotation runtime Ljava/lang/Deprecated;
@@ -170,7 +170,7 @@
 .end method
 
 .method public static createFromPdu([B)Landroid/telephony/gsm/SmsMessage;
-    .registers 4
+    .locals 3
     .parameter "pdu"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -189,7 +189,7 @@
     .local v0, activePhone:I
     const/4 v2, 0x2
 
-    if-ne v2, v0, :cond_15
+    if-ne v2, v0, :cond_0
 
     .line 160
     invoke-static {p0}, Lcom/android/internal/telephony/cdma/SmsMessage;->createFromPdu([B)Lcom/android/internal/telephony/cdma/SmsMessage;
@@ -198,7 +198,7 @@
 
     .line 165
     .local v1, wrappedMessage:Lcom/android/internal/telephony/SmsMessageBase;
-    :goto_f
+    :goto_0
     new-instance v2, Landroid/telephony/gsm/SmsMessage;
 
     invoke-direct {v2, v1}, Landroid/telephony/gsm/SmsMessage;-><init>(Lcom/android/internal/telephony/SmsMessageBase;)V
@@ -207,17 +207,17 @@
 
     .line 162
     .end local v1           #wrappedMessage:Lcom/android/internal/telephony/SmsMessageBase;
-    :cond_15
+    :cond_0
     invoke-static {p0}, Lcom/android/internal/telephony/gsm/SmsMessage;->createFromPdu([B)Lcom/android/internal/telephony/gsm/SmsMessage;
 
     move-result-object v1
 
     .restart local v1       #wrappedMessage:Lcom/android/internal/telephony/SmsMessageBase;
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method private static final getSmsFacility()Lcom/android/internal/telephony/SmsMessageBase;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 621
@@ -233,7 +233,7 @@
     .local v0, activePhone:I
     const/4 v1, 0x2
 
-    if-ne v1, v0, :cond_11
+    if-ne v1, v0, :cond_0
 
     .line 623
     new-instance v1, Lcom/android/internal/telephony/cdma/SmsMessage;
@@ -241,19 +241,19 @@
     invoke-direct {v1}, Lcom/android/internal/telephony/cdma/SmsMessage;-><init>()V
 
     .line 625
-    :goto_10
+    :goto_0
     return-object v1
 
-    :cond_11
+    :cond_0
     new-instance v1, Lcom/android/internal/telephony/gsm/SmsMessage;
 
     invoke-direct {v1}, Lcom/android/internal/telephony/gsm/SmsMessage;-><init>()V
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public static getSubmitPdu(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Landroid/telephony/gsm/SmsMessage$SubmitPdu;
-    .registers 7
+    .locals 3
     .parameter "scAddress"
     .parameter "destinationAddress"
     .parameter "message"
@@ -275,7 +275,7 @@
     .local v0, activePhone:I
     const/4 v2, 0x2
 
-    if-ne v2, v0, :cond_16
+    if-ne v2, v0, :cond_0
 
     .line 279
     const/4 v2, 0x0
@@ -286,7 +286,7 @@
 
     .line 286
     .local v1, spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
-    :goto_10
+    :goto_0
     new-instance v2, Landroid/telephony/gsm/SmsMessage$SubmitPdu;
 
     invoke-direct {v2, v1}, Landroid/telephony/gsm/SmsMessage$SubmitPdu;-><init>(Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;)V
@@ -295,17 +295,17 @@
 
     .line 282
     .end local v1           #spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
-    :cond_16
+    :cond_0
     invoke-static {p0, p1, p2, p3}, Lcom/android/internal/telephony/gsm/SmsMessage;->getSubmitPdu(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lcom/android/internal/telephony/gsm/SmsMessage$SubmitPdu;
 
     move-result-object v1
 
     .restart local v1       #spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public static getSubmitPdu(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z[B)Landroid/telephony/gsm/SmsMessage$SubmitPdu;
-    .registers 8
+    .locals 3
     .parameter "scAddress"
     .parameter "destinationAddress"
     .parameter "message"
@@ -328,7 +328,7 @@
     .local v0, activePhone:I
     const/4 v2, 0x2
 
-    if-ne v2, v0, :cond_19
+    if-ne v2, v0, :cond_0
 
     .line 252
     invoke-static {p4}, Lcom/android/internal/telephony/SmsHeader;->fromByteArray([B)Lcom/android/internal/telephony/SmsHeader;
@@ -341,7 +341,7 @@
 
     .line 260
     .local v1, spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
-    :goto_13
+    :goto_0
     new-instance v2, Landroid/telephony/gsm/SmsMessage$SubmitPdu;
 
     invoke-direct {v2, v1}, Landroid/telephony/gsm/SmsMessage$SubmitPdu;-><init>(Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;)V
@@ -350,17 +350,17 @@
 
     .line 256
     .end local v1           #spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
-    :cond_19
+    :cond_0
     invoke-static {p0, p1, p2, p3, p4}, Lcom/android/internal/telephony/gsm/SmsMessage;->getSubmitPdu(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z[B)Lcom/android/internal/telephony/gsm/SmsMessage$SubmitPdu;
 
     move-result-object v1
 
     .restart local v1       #spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public static getSubmitPdu(Ljava/lang/String;Ljava/lang/String;S[BZ)Landroid/telephony/gsm/SmsMessage$SubmitPdu;
-    .registers 8
+    .locals 3
     .parameter "scAddress"
     .parameter "destinationAddress"
     .parameter "destinationPort"
@@ -383,7 +383,7 @@
     .local v0, activePhone:I
     const/4 v2, 0x2
 
-    if-ne v2, v0, :cond_15
+    if-ne v2, v0, :cond_0
 
     .line 310
     invoke-static {p0, p1, p2, p3, p4}, Lcom/android/internal/telephony/cdma/SmsMessage;->getSubmitPdu(Ljava/lang/String;Ljava/lang/String;I[BZ)Lcom/android/internal/telephony/cdma/SmsMessage$SubmitPdu;
@@ -392,7 +392,7 @@
 
     .line 317
     .local v1, spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
-    :goto_f
+    :goto_0
     new-instance v2, Landroid/telephony/gsm/SmsMessage$SubmitPdu;
 
     invoke-direct {v2, v1}, Landroid/telephony/gsm/SmsMessage$SubmitPdu;-><init>(Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;)V
@@ -401,17 +401,17 @@
 
     .line 313
     .end local v1           #spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
-    :cond_15
+    :cond_0
     invoke-static {p0, p1, p2, p3, p4}, Lcom/android/internal/telephony/gsm/SmsMessage;->getSubmitPdu(Ljava/lang/String;Ljava/lang/String;I[BZ)Lcom/android/internal/telephony/gsm/SmsMessage$SubmitPdu;
 
     move-result-object v1
 
     .restart local v1       #spb:Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public static getTPLayerLengthForPDU(Ljava/lang/String;)I
-    .registers 3
+    .locals 2
     .parameter "pdu"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -430,7 +430,7 @@
     .local v0, activePhone:I
     const/4 v1, 0x2
 
-    if-ne v1, v0, :cond_10
+    if-ne v1, v0, :cond_0
 
     .line 178
     invoke-static {p0}, Lcom/android/internal/telephony/cdma/SmsMessage;->getTPLayerLengthForPDU(Ljava/lang/String;)I
@@ -438,21 +438,21 @@
     move-result v1
 
     .line 180
-    :goto_f
+    :goto_0
     return v1
 
-    :cond_10
+    :cond_0
     invoke-static {p0}, Lcom/android/internal/telephony/gsm/SmsMessage;->getTPLayerLengthForPDU(Ljava/lang/String;)I
 
     move-result v1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getDisplayMessageBody()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -468,7 +468,7 @@
 .end method
 
 .method public getDisplayOriginatingAddress()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -484,7 +484,7 @@
 .end method
 
 .method public getEmailBody()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -500,7 +500,7 @@
 .end method
 
 .method public getEmailFrom()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -516,7 +516,7 @@
 .end method
 
 .method public getIndexOnIcc()I
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -532,7 +532,7 @@
 .end method
 
 .method public getIndexOnSim()I
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -548,7 +548,7 @@
 .end method
 
 .method public getMessageBody()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -564,7 +564,7 @@
 .end method
 
 .method public getMessageClass()Landroid/telephony/gsm/SmsMessage$MessageClass;
-    .registers 3
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -592,7 +592,7 @@
 .end method
 
 .method public getOriginatingAddress()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -608,7 +608,7 @@
 .end method
 
 .method public getPdu()[B
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -624,7 +624,7 @@
 .end method
 
 .method public getProtocolIdentifier()I
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -640,7 +640,7 @@
 .end method
 
 .method public getPseudoSubject()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -656,7 +656,7 @@
 .end method
 
 .method public getServiceCenterAddress()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -672,7 +672,7 @@
 .end method
 
 .method public getStatus()I
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -688,7 +688,7 @@
 .end method
 
 .method public getStatusOnIcc()I
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -704,7 +704,7 @@
 .end method
 
 .method public getStatusOnSim()I
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -720,7 +720,7 @@
 .end method
 
 .method public getTimestampMillis()J
-    .registers 3
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -736,7 +736,7 @@
 .end method
 
 .method public getUserData()[B
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -752,7 +752,7 @@
 .end method
 
 .method public isCphsMwiMessage()Z
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -768,7 +768,7 @@
 .end method
 
 .method public isEmail()Z
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -784,7 +784,7 @@
 .end method
 
 .method public isMWIClearMessage()Z
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -800,7 +800,7 @@
 .end method
 
 .method public isMWISetMessage()Z
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -816,7 +816,7 @@
 .end method
 
 .method public isMwiDontStore()Z
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -832,7 +832,7 @@
 .end method
 
 .method public isReplace()Z
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -848,7 +848,7 @@
 .end method
 
 .method public isReplyPathPresent()Z
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -864,7 +864,7 @@
 .end method
 
 .method public isStatusReportMessage()Z
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/server/search/SearchManagerService;Landroid/content/ContentResolver;)V
-    .registers 6
+    .locals 3
     .parameter
     .parameter "resolver"
 
@@ -58,13 +58,14 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .registers 4
+    .locals 2
     .parameter "selfChange"
 
     .prologue
     .line 135
     iget-object v1, p0, Landroid/server/search/SearchManagerService$GlobalSearchProviderObserver;->this$0:Landroid/server/search/SearchManagerService;
 
+    #calls: Landroid/server/search/SearchManagerService;->getSearchables()Landroid/server/search/Searchables;
     invoke-static {v1}, Landroid/server/search/SearchManagerService;->access$200(Landroid/server/search/SearchManagerService;)Landroid/server/search/Searchables;
 
     move-result-object v1
@@ -87,6 +88,7 @@
     .line 138
     iget-object v1, p0, Landroid/server/search/SearchManagerService$GlobalSearchProviderObserver;->this$0:Landroid/server/search/SearchManagerService;
 
+    #getter for: Landroid/server/search/SearchManagerService;->mContext:Landroid/content/Context;
     invoke-static {v1}, Landroid/server/search/SearchManagerService;->access$100(Landroid/server/search/SearchManagerService;)Landroid/content/Context;
 
     move-result-object v1

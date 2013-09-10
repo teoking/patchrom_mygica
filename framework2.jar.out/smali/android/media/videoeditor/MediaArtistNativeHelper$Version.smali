@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/media/videoeditor/MediaArtistNativeHelper;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public getVersion()Landroid/media/videoeditor/MediaArtistNativeHelper$Version;
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0

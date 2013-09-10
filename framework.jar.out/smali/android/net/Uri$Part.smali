@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 1990
@@ -53,7 +53,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "encoded"
     .parameter "decoded"
 
@@ -66,7 +66,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri$1;)V
-    .registers 4
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -79,67 +79,67 @@
 .end method
 
 .method static from(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Part;
-    .registers 3
+    .locals 1
     .parameter "encoded"
     .parameter "decoded"
 
     .prologue
     .line 2059
-    if-nez p0, :cond_5
+    if-nez p0, :cond_0
 
     .line 2060
     sget-object v0, Landroid/net/Uri$Part;->NULL:Landroid/net/Uri$Part;
 
     .line 2073
-    :goto_4
+    :goto_0
     return-object v0
 
     .line 2062
-    :cond_5
+    :cond_0
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_1
 
     .line 2063
     sget-object v0, Landroid/net/Uri$Part;->EMPTY:Landroid/net/Uri$Part;
 
-    goto :goto_4
+    goto :goto_0
 
     .line 2066
-    :cond_e
-    if-nez p1, :cond_13
+    :cond_1
+    if-nez p1, :cond_2
 
     .line 2067
     sget-object v0, Landroid/net/Uri$Part;->NULL:Landroid/net/Uri$Part;
 
-    goto :goto_4
+    goto :goto_0
 
     .line 2069
-    :cond_13
+    :cond_2
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_3
 
     .line 2070
     sget-object v0, Landroid/net/Uri$Part;->EMPTY:Landroid/net/Uri$Part;
 
-    goto :goto_4
+    goto :goto_0
 
     .line 2073
-    :cond_1c
+    :cond_3
     new-instance v0, Landroid/net/Uri$Part;
 
     invoke-direct {v0, p0, p1}, Landroid/net/Uri$Part;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method static fromDecoded(Ljava/lang/String;)Landroid/net/Uri$Part;
-    .registers 2
+    .locals 1
     .parameter "decoded"
 
     .prologue
@@ -156,7 +156,7 @@
 .end method
 
 .method static fromEncoded(Ljava/lang/String;)Landroid/net/Uri$Part;
-    .registers 2
+    .locals 1
     .parameter "encoded"
 
     .prologue
@@ -173,22 +173,22 @@
 .end method
 
 .method static nonNull(Landroid/net/Uri$Part;)Landroid/net/Uri$Part;
-    .registers 1
+    .locals 0
     .parameter "part"
 
     .prologue
     .line 2028
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     sget-object p0, Landroid/net/Uri$Part;->NULL:Landroid/net/Uri$Part;
 
     .end local p0
-    :cond_4
+    :cond_0
     return-object p0
 .end method
 
 .method static readFrom(Landroid/os/Parcel;)Landroid/net/Uri$Part;
-    .registers 5
+    .locals 4
     .parameter "parcel"
 
     .prologue
@@ -199,7 +199,7 @@
 
     .line 2011
     .local v0, representation:I
-    packed-switch v0, :pswitch_data_40
+    packed-switch v0, :pswitch_data_0
 
     .line 2019
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -227,7 +227,7 @@
     throw v1
 
     .line 2013
-    :pswitch_20
+    :pswitch_0
     invoke-virtual {p0}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -241,11 +241,11 @@
     move-result-object v1
 
     .line 2017
-    :goto_2c
+    :goto_0
     return-object v1
 
     .line 2015
-    :pswitch_2d
+    :pswitch_1
     invoke-virtual {p0}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -254,10 +254,10 @@
 
     move-result-object v1
 
-    goto :goto_2c
+    goto :goto_0
 
     .line 2017
-    :pswitch_36
+    :pswitch_2
     invoke-virtual {p0}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
@@ -266,23 +266,23 @@
 
     move-result-object v1
 
-    goto :goto_2c
+    goto :goto_0
 
     .line 2011
     nop
 
-    :pswitch_data_40
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_20
-        :pswitch_2d
-        :pswitch_36
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method getEncoded()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 2005
@@ -292,30 +292,30 @@
 
     move-result-object v2
 
-    if-eq v1, v2, :cond_e
+    if-eq v1, v2, :cond_0
 
     const/4 v0, 0x1
 
     .line 2006
     .local v0, hasEncoded:Z
-    :goto_9
-    if-eqz v0, :cond_10
+    :goto_0
+    if-eqz v0, :cond_1
 
     iget-object v1, p0, Landroid/net/Uri$Part;->encoded:Ljava/lang/String;
 
-    :goto_d
+    :goto_1
     return-object v1
 
     .line 2005
     .end local v0           #hasEncoded:Z
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 
     .line 2006
     .restart local v0       #hasEncoded:Z
-    :cond_10
+    :cond_1
     iget-object v1, p0, Landroid/net/Uri$Part;->decoded:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
@@ -324,11 +324,11 @@
 
     iput-object v1, p0, Landroid/net/Uri$Part;->encoded:Ljava/lang/String;
 
-    goto :goto_d
+    goto :goto_1
 .end method
 
 .method isEmpty()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2000

@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 33
@@ -21,7 +21,7 @@
 .end method
 
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 31
@@ -31,13 +31,13 @@
 .end method
 
 .method public static get()Landroid/filterfw/core/StopWatchMap;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 36
     sget-object v0, Landroid/filterfw/core/GLFrameTimer;->mTimer:Landroid/filterfw/core/StopWatchMap;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 37
     new-instance v0, Landroid/filterfw/core/StopWatchMap;
@@ -47,7 +47,7 @@
     sput-object v0, Landroid/filterfw/core/GLFrameTimer;->mTimer:Landroid/filterfw/core/StopWatchMap;
 
     .line 39
-    :cond_b
+    :cond_0
     sget-object v0, Landroid/filterfw/core/GLFrameTimer;->mTimer:Landroid/filterfw/core/StopWatchMap;
 
     return-object v0

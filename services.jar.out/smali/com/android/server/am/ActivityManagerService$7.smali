@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "intent"
 
@@ -43,6 +43,7 @@
     .line 4314
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$7;->this$0:Lcom/android/server/am/ActivityManagerService;
 
+    #calls: Lcom/android/server/am/ActivityManagerService;->onUserRemoved(Landroid/content/Intent;)V
     invoke-static {v0, p2}, Lcom/android/server/am/ActivityManagerService;->access$700(Lcom/android/server/am/ActivityManagerService;Landroid/content/Intent;)V
 
     .line 4315

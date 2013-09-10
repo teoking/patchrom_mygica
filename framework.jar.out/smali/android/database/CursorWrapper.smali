@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/database/Cursor;)V
-    .registers 2
+    .locals 0
     .parameter "cursor"
 
     .prologue
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public close()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 49
@@ -42,7 +42,7 @@
 .end method
 
 .method public copyStringToBuffer(ILandroid/database/CharArrayBuffer;)V
-    .registers 4
+    .locals 1
     .parameter "columnIndex"
     .parameter "buffer"
 
@@ -57,7 +57,7 @@
 .end method
 
 .method public deactivate()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 61
@@ -70,7 +70,7 @@
 .end method
 
 .method public getBlob(I)[B
-    .registers 3
+    .locals 1
     .parameter "columnIndex"
 
     .prologue
@@ -85,7 +85,7 @@
 .end method
 
 .method public getColumnCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 69
@@ -99,7 +99,7 @@
 .end method
 
 .method public getColumnIndex(Ljava/lang/String;)I
-    .registers 3
+    .locals 1
     .parameter "columnName"
 
     .prologue
@@ -114,7 +114,7 @@
 .end method
 
 .method public getColumnIndexOrThrow(Ljava/lang/String;)I
-    .registers 3
+    .locals 1
     .parameter "columnName"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -134,7 +134,7 @@
 .end method
 
 .method public getColumnName(I)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "columnIndex"
 
     .prologue
@@ -149,7 +149,7 @@
 .end method
 
 .method public getColumnNames()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 86
@@ -163,7 +163,7 @@
 .end method
 
 .method public getCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 57
@@ -177,7 +177,7 @@
 .end method
 
 .method public getDouble(I)D
-    .registers 4
+    .locals 2
     .parameter "columnIndex"
 
     .prologue
@@ -192,7 +192,7 @@
 .end method
 
 .method public getExtras()Landroid/os/Bundle;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 94
@@ -206,7 +206,7 @@
 .end method
 
 .method public getFloat(I)F
-    .registers 3
+    .locals 1
     .parameter "columnIndex"
 
     .prologue
@@ -221,7 +221,7 @@
 .end method
 
 .method public getInt(I)I
-    .registers 3
+    .locals 1
     .parameter "columnIndex"
 
     .prologue
@@ -236,7 +236,7 @@
 .end method
 
 .method public getLong(I)J
-    .registers 4
+    .locals 2
     .parameter "columnIndex"
 
     .prologue
@@ -251,7 +251,7 @@
 .end method
 
 .method public getPosition()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 170
@@ -265,7 +265,7 @@
 .end method
 
 .method public getShort(I)S
-    .registers 3
+    .locals 1
     .parameter "columnIndex"
 
     .prologue
@@ -280,7 +280,7 @@
 .end method
 
 .method public getString(I)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "columnIndex"
 
     .prologue
@@ -295,7 +295,7 @@
 .end method
 
 .method public getType(I)I
-    .registers 3
+    .locals 1
     .parameter "columnIndex"
 
     .prologue
@@ -310,7 +310,7 @@
 .end method
 
 .method public getWantsAllOnMoveCalls()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 126
@@ -324,7 +324,7 @@
 .end method
 
 .method public getWrappedCursor()Landroid/database/Cursor;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 45
@@ -334,7 +334,7 @@
 .end method
 
 .method public isAfterLast()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 130
@@ -348,7 +348,7 @@
 .end method
 
 .method public isBeforeFirst()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 134
@@ -362,7 +362,7 @@
 .end method
 
 .method public isClosed()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 53
@@ -376,7 +376,7 @@
 .end method
 
 .method public isFirst()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 138
@@ -390,7 +390,7 @@
 .end method
 
 .method public isLast()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 142
@@ -404,7 +404,7 @@
 .end method
 
 .method public isNull(I)Z
-    .registers 3
+    .locals 1
     .parameter "columnIndex"
 
     .prologue
@@ -419,7 +419,7 @@
 .end method
 
 .method public move(I)Z
-    .registers 3
+    .locals 1
     .parameter "offset"
 
     .prologue
@@ -434,7 +434,7 @@
 .end method
 
 .method public moveToFirst()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 65
@@ -448,7 +448,7 @@
 .end method
 
 .method public moveToLast()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 154
@@ -462,7 +462,7 @@
 .end method
 
 .method public moveToNext()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 166
@@ -476,7 +476,7 @@
 .end method
 
 .method public moveToPosition(I)Z
-    .registers 3
+    .locals 1
     .parameter "position"
 
     .prologue
@@ -491,7 +491,7 @@
 .end method
 
 .method public moveToPrevious()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 174
@@ -505,7 +505,7 @@
 .end method
 
 .method public registerContentObserver(Landroid/database/ContentObserver;)V
-    .registers 3
+    .locals 1
     .parameter "observer"
 
     .prologue
@@ -519,7 +519,7 @@
 .end method
 
 .method public registerDataSetObserver(Landroid/database/DataSetObserver;)V
-    .registers 3
+    .locals 1
     .parameter "observer"
 
     .prologue
@@ -533,7 +533,7 @@
 .end method
 
 .method public requery()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 186
@@ -547,7 +547,7 @@
 .end method
 
 .method public respond(Landroid/os/Bundle;)Landroid/os/Bundle;
-    .registers 3
+    .locals 1
     .parameter "extras"
 
     .prologue
@@ -562,7 +562,7 @@
 .end method
 
 .method public setNotificationUri(Landroid/content/ContentResolver;Landroid/net/Uri;)V
-    .registers 4
+    .locals 1
     .parameter "cr"
     .parameter "uri"
 
@@ -577,7 +577,7 @@
 .end method
 
 .method public unregisterContentObserver(Landroid/database/ContentObserver;)V
-    .registers 3
+    .locals 1
     .parameter "observer"
 
     .prologue
@@ -591,7 +591,7 @@
 .end method
 
 .method public unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
-    .registers 3
+    .locals 1
     .parameter "observer"
 
     .prologue

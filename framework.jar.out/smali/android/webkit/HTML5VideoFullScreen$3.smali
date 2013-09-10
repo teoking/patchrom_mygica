@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/HTML5VideoFullScreen;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onCustomViewHidden()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -57,6 +57,7 @@
 
     iget-object v1, p0, Landroid/webkit/HTML5VideoFullScreen$3;->this$0:Landroid/webkit/HTML5VideoFullScreen;
 
+    #calls: Landroid/webkit/HTML5VideoFullScreen;->getSurfaceView()Landroid/view/SurfaceView;
     invoke-static {v1}, Landroid/webkit/HTML5VideoFullScreen;->access$700(Landroid/webkit/HTML5VideoFullScreen;)Landroid/view/SurfaceView;
 
     move-result-object v1
@@ -68,7 +69,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_29
+    if-eqz v0, :cond_0
 
     .line 249
     invoke-static {}, Landroid/webkit/HTML5VideoFullScreen;->access$800()Landroid/widget/FrameLayout;
@@ -85,7 +86,7 @@
     invoke-static {v2}, Landroid/webkit/HTML5VideoFullScreen;->access$902(Landroid/view/View;)Landroid/view/View;
 
     .line 252
-    :cond_29
+    :cond_0
     invoke-static {v2}, Landroid/webkit/HTML5VideoFullScreen;->access$802(Landroid/widget/FrameLayout;)Landroid/widget/FrameLayout;
 
     .line 254
@@ -111,6 +112,7 @@
     .line 259
     iget-object v0, p0, Landroid/webkit/HTML5VideoFullScreen$3;->this$0:Landroid/webkit/HTML5VideoFullScreen;
 
+    #setter for: Landroid/webkit/HTML5VideoFullScreen;->mMediaController:Landroid/widget/MediaController;
     invoke-static {v0, v2}, Landroid/webkit/HTML5VideoFullScreen;->access$202(Landroid/webkit/HTML5VideoFullScreen;Landroid/widget/MediaController;)Landroid/widget/MediaController;
 
     .line 260

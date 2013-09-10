@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/ConnectivityService;ILjava/lang/String;Landroid/os/IBinder;)V
-    .registers 8
+    .locals 3
     .parameter
     .parameter "type"
     .parameter "feature"
@@ -79,34 +79,34 @@
     iput-wide v1, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mCreateTime:J
 
     .line 978
-    :try_start_1d
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mBinder:Landroid/os/IBinder;
 
     const/4 v2, 0x0
 
     invoke-interface {v1, p0, v2}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
-    :try_end_23
-    .catch Landroid/os/RemoteException; {:try_start_1d .. :try_end_23} :catch_24
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 982
-    :goto_23
+    :goto_0
     return-void
 
     .line 979
-    :catch_24
+    :catch_0
     move-exception v0
 
     .line 980
     .local v0, e:Landroid/os/RemoteException;
     invoke-virtual {p0}, Lcom/android/server/ConnectivityService$FeatureUser;->binderDied()V
 
-    goto :goto_23
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public binderDied()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 989
@@ -180,6 +180,7 @@
 
     move-result-object v1
 
+    #calls: Lcom/android/server/ConnectivityService;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/server/ConnectivityService;->access$100(Lcom/android/server/ConnectivityService;Ljava/lang/String;)V
 
     .line 992
@@ -187,6 +188,7 @@
 
     const/4 v1, 0x0
 
+    #calls: Lcom/android/server/ConnectivityService;->stopUsingNetworkFeature(Lcom/android/server/ConnectivityService$FeatureUser;Z)I
     invoke-static {v0, p0, v1}, Lcom/android/server/ConnectivityService;->access$200(Lcom/android/server/ConnectivityService;Lcom/android/server/ConnectivityService$FeatureUser;Z)I
 
     .line 993
@@ -194,7 +196,7 @@
 .end method
 
 .method public expire()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1001
@@ -202,6 +204,7 @@
 
     const/4 v1, 0x0
 
+    #calls: Lcom/android/server/ConnectivityService;->stopUsingNetworkFeature(Lcom/android/server/ConnectivityService$FeatureUser;Z)I
     invoke-static {v0, p0, v1}, Lcom/android/server/ConnectivityService;->access$200(Lcom/android/server/ConnectivityService;Lcom/android/server/ConnectivityService$FeatureUser;Z)I
 
     .line 1002
@@ -209,7 +212,7 @@
 .end method
 
 .method public isSameUser(IIILjava/lang/String;)Z
-    .registers 6
+    .locals 1
     .parameter "pid"
     .parameter "uid"
     .parameter "networkType"
@@ -219,15 +222,15 @@
     .line 1011
     iget v0, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mPid:I
 
-    if-ne v0, p1, :cond_16
+    if-ne v0, p1, :cond_0
 
     iget v0, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mUid:I
 
-    if-ne v0, p2, :cond_16
+    if-ne v0, p2, :cond_0
 
     iget v0, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mNetworkType:I
 
-    if-ne v0, p3, :cond_16
+    if-ne v0, p3, :cond_0
 
     iget-object v0, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mFeature:Ljava/lang/String;
 
@@ -235,36 +238,36 @@
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 1013
     const/4 v0, 0x1
 
     .line 1015
-    :goto_15
+    :goto_0
     return v0
 
-    :cond_16
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public isSameUser(Lcom/android/server/ConnectivityService$FeatureUser;)Z
-    .registers 6
+    .locals 4
     .parameter "u"
 
     .prologue
     .line 1005
-    if-nez p1, :cond_4
+    if-nez p1, :cond_0
 
     const/4 v0, 0x0
 
     .line 1007
-    :goto_3
+    :goto_0
     return v0
 
-    :cond_4
+    :cond_0
     iget v0, p1, Lcom/android/server/ConnectivityService$FeatureUser;->mPid:I
 
     iget v1, p1, Lcom/android/server/ConnectivityService$FeatureUser;->mUid:I
@@ -277,11 +280,11 @@
 
     move-result v0
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 1019
@@ -369,7 +372,7 @@
 .end method
 
 .method unlinkDeathRecipient()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 985

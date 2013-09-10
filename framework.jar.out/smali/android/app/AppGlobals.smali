@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 25
@@ -15,7 +15,7 @@
 .end method
 
 .method public static getInitialApplication()Landroid/app/Application;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 31
@@ -27,7 +27,7 @@
 .end method
 
 .method public static getInitialPackage()Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 39
@@ -39,7 +39,7 @@
 .end method
 
 .method public static getIntCoreSetting(Ljava/lang/String;I)I
-    .registers 3
+    .locals 1
     .parameter "key"
     .parameter "defaultValue"
 
@@ -51,7 +51,7 @@
 
     .line 59
     .local v0, currentActivityThread:Landroid/app/ActivityThread;
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 60
     invoke-virtual {v0, p0, p1}, Landroid/app/ActivityThread;->getIntCoreSetting(Ljava/lang/String;I)I
@@ -60,12 +60,12 @@
 
     .line 62
     .end local p1
-    :cond_a
+    :cond_0
     return p1
 .end method
 
 .method public static getPackageManager()Landroid/content/pm/IPackageManager;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 47

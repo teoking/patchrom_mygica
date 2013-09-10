@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/FileDescriptor;)V
-    .registers 4
+    .locals 2
     .parameter "fd"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method public accept()Landroid/net/LocalSocket;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -137,7 +137,7 @@
 .end method
 
 .method public close()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -155,7 +155,7 @@
 .end method
 
 .method public getFileDescriptor()Ljava/io/FileDescriptor;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 105
@@ -169,7 +169,7 @@
 .end method
 
 .method public getLocalSocketAddress()Landroid/net/LocalSocketAddress;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 80

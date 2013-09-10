@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;D)V
-    .registers 4
+    .locals 0
     .parameter "label"
     .parameter "predictionScore"
 
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 31

@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 750
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 720
@@ -62,7 +62,7 @@
 .end method
 
 .method public static fromContext(Landroid/content/Context;I)Landroid/content/Intent$ShortcutIconResource;
-    .registers 4
+    .locals 2
     .parameter "context"
     .parameter "resourceId"
 
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 769
@@ -108,7 +108,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 779
@@ -118,7 +118,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

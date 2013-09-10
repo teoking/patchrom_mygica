@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/preference/PreferenceFragment;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .registers 7
+    .locals 3
     .parameter "v"
     .parameter "keyCode"
     .parameter "event"
@@ -47,6 +47,7 @@
     .line 368
     iget-object v2, p0, Landroid/preference/PreferenceFragment$3;->this$0:Landroid/preference/PreferenceFragment;
 
+    #getter for: Landroid/preference/PreferenceFragment;->mList:Landroid/widget/ListView;
     invoke-static {v2}, Landroid/preference/PreferenceFragment;->access$100(Landroid/preference/PreferenceFragment;)Landroid/widget/ListView;
 
     move-result-object v2
@@ -59,11 +60,12 @@
     .local v0, selectedItem:Ljava/lang/Object;
     instance-of v2, v0, Landroid/preference/Preference;
 
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_0
 
     .line 370
     iget-object v2, p0, Landroid/preference/PreferenceFragment$3;->this$0:Landroid/preference/PreferenceFragment;
 
+    #getter for: Landroid/preference/PreferenceFragment;->mList:Landroid/widget/ListView;
     invoke-static {v2}, Landroid/preference/PreferenceFragment;->access$100(Landroid/preference/PreferenceFragment;)Landroid/widget/ListView;
 
     move-result-object v2
@@ -83,12 +85,12 @@
 
     .line 374
     .end local v1           #selectedView:Landroid/view/View;
-    :goto_1e
+    :goto_0
     return v2
 
     .restart local v0       #selectedItem:Ljava/lang/Object;
-    :cond_1f
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_1e
+    goto :goto_0
 .end method

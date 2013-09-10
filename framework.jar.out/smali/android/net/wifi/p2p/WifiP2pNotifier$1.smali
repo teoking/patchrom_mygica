@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/wifi/p2p/WifiP2pNotifier;Ljava/lang/String;I)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter "x1"
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onEvent(ILjava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "event"
     .parameter "path"
 
@@ -47,6 +47,7 @@
 
     iget-object v2, p0, Landroid/net/wifi/p2p/WifiP2pNotifier$1;->this$0:Landroid/net/wifi/p2p/WifiP2pNotifier;
 
+    #getter for: Landroid/net/wifi/p2p/WifiP2pNotifier;->mFolder:Ljava/io/File;
     invoke-static {v2}, Landroid/net/wifi/p2p/WifiP2pNotifier;->access$000(Landroid/net/wifi/p2p/WifiP2pNotifier;)Ljava/io/File;
 
     move-result-object v2
@@ -96,13 +97,14 @@
     .line 84
     iget-object v2, p0, Landroid/net/wifi/p2p/WifiP2pNotifier$1;->this$0:Landroid/net/wifi/p2p/WifiP2pNotifier;
 
+    #getter for: Landroid/net/wifi/p2p/WifiP2pNotifier;->mAutoStartWfd:Z
     invoke-static {v2}, Landroid/net/wifi/p2p/WifiP2pNotifier;->access$100(Landroid/net/wifi/p2p/WifiP2pNotifier;)Z
 
     move-result v2
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_4c
+    if-ne v2, v3, :cond_0
 
     new-instance v2, Ljava/lang/String;
 
@@ -114,14 +116,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4c
+    if-eqz v2, :cond_0
 
     .line 85
     iget-object v2, p0, Landroid/net/wifi/p2p/WifiP2pNotifier$1;->this$0:Landroid/net/wifi/p2p/WifiP2pNotifier;
 
+    #calls: Landroid/net/wifi/p2p/WifiP2pNotifier;->parseDnsmasqAddr(Ljava/lang/String;)V
     invoke-static {v2, v0}, Landroid/net/wifi/p2p/WifiP2pNotifier;->access$200(Landroid/net/wifi/p2p/WifiP2pNotifier;Ljava/lang/String;)V
 
     .line 87
-    :cond_4c
+    :cond_0
     return-void
 .end method

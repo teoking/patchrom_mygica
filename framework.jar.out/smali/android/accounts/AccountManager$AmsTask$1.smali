@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public call()Landroid/os/Bundle;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -67,7 +67,7 @@
 .end method
 
 .method public bridge synthetic call()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;

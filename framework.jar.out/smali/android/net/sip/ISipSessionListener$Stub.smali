@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 18
@@ -71,22 +71,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/net/sip/ISipSessionListener;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 27
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 28
     const/4 v0, 0x0
 
     .line 34
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 30
-    :cond_4
+    :cond_0
     const-string v1, "android.net.sip.ISipSessionListener"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -95,31 +95,31 @@
 
     .line 31
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/net/sip/ISipSessionListener;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 32
     check-cast v0, Landroid/net/sip/ISipSessionListener;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 34
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/net/sip/ISipSessionListener$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/net/sip/ISipSessionListener$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 38
@@ -127,7 +127,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 10
+    .locals 5
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -142,26 +142,26 @@
     const/4 v3, 0x1
 
     .line 42
-    sparse-switch p1, :sswitch_data_154
+    sparse-switch p1, :sswitch_data_0
 
     .line 194
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v3
 
-    :goto_8
+    :goto_0
     return v3
 
     .line 46
-    :sswitch_9
+    :sswitch_0
     const-string v4, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 51
-    :sswitch_f
+    :sswitch_1
     const-string v4, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -182,11 +182,11 @@
     .line 55
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 60
     .end local v0           #_arg0:Landroid/net/sip/ISipSession;
-    :sswitch_23
+    :sswitch_2
     const-string v4, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -206,7 +206,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_49
+    if-eqz v4, :cond_0
 
     .line 65
     sget-object v4, Landroid/net/sip/SipProfile;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -219,7 +219,7 @@
 
     .line 71
     .local v1, _arg1:Landroid/net/sip/SipProfile;
-    :goto_3e
+    :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -231,21 +231,21 @@
     .line 73
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 68
     .end local v1           #_arg1:Landroid/net/sip/SipProfile;
     .end local v2           #_arg2:Ljava/lang/String;
-    :cond_49
+    :cond_0
     const/4 v1, 0x0
 
     .restart local v1       #_arg1:Landroid/net/sip/SipProfile;
-    goto :goto_3e
+    goto :goto_1
 
     .line 78
     .end local v0           #_arg0:Landroid/net/sip/ISipSession;
     .end local v1           #_arg1:Landroid/net/sip/SipProfile;
-    :sswitch_4b
+    :sswitch_3
     const-string v4, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -266,11 +266,11 @@
     .line 82
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 87
     .end local v0           #_arg0:Landroid/net/sip/ISipSession;
-    :sswitch_5f
+    :sswitch_4
     const-string v4, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -297,12 +297,12 @@
     .line 93
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 98
     .end local v0           #_arg0:Landroid/net/sip/ISipSession;
     .end local v1           #_arg1:Ljava/lang/String;
-    :sswitch_77
+    :sswitch_5
     const-string v4, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -323,11 +323,11 @@
     .line 102
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 107
     .end local v0           #_arg0:Landroid/net/sip/ISipSession;
-    :sswitch_8c
+    :sswitch_6
     const-string v4, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -348,11 +348,11 @@
     .line 111
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 116
     .end local v0           #_arg0:Landroid/net/sip/ISipSession;
-    :sswitch_a1
+    :sswitch_7
     const-string v4, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -379,12 +379,12 @@
     .line 122
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 127
     .end local v0           #_arg0:Landroid/net/sip/ISipSession;
     .end local v1           #_arg1:Ljava/lang/String;
-    :sswitch_ba
+    :sswitch_8
     const-string v4, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -417,13 +417,13 @@
     .line 135
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 140
     .end local v0           #_arg0:Landroid/net/sip/ISipSession;
     .end local v1           #_arg1:I
     .end local v2           #_arg2:Ljava/lang/String;
-    :sswitch_d7
+    :sswitch_9
     const-string v4, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -456,13 +456,13 @@
     .line 148
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 153
     .end local v0           #_arg0:Landroid/net/sip/ISipSession;
     .end local v1           #_arg1:I
     .end local v2           #_arg2:Ljava/lang/String;
-    :sswitch_f4
+    :sswitch_a
     const-string v4, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -483,11 +483,11 @@
     .line 157
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 162
     .end local v0           #_arg0:Landroid/net/sip/ISipSession;
-    :sswitch_109
+    :sswitch_b
     const-string v4, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -514,12 +514,12 @@
     .line 168
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 173
     .end local v0           #_arg0:Landroid/net/sip/ISipSession;
     .end local v1           #_arg1:I
-    :sswitch_122
+    :sswitch_c
     const-string v4, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -552,13 +552,13 @@
     .line 181
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 186
     .end local v0           #_arg0:Landroid/net/sip/ISipSession;
     .end local v1           #_arg1:I
     .end local v2           #_arg2:Ljava/lang/String;
-    :sswitch_13f
+    :sswitch_d
     const-string v4, "android.net.sip.ISipSessionListener"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -579,24 +579,24 @@
     .line 190
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 42
-    :sswitch_data_154
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_f
-        0x2 -> :sswitch_23
-        0x3 -> :sswitch_4b
-        0x4 -> :sswitch_5f
-        0x5 -> :sswitch_77
-        0x6 -> :sswitch_8c
-        0x7 -> :sswitch_a1
-        0x8 -> :sswitch_ba
-        0x9 -> :sswitch_d7
-        0xa -> :sswitch_f4
-        0xb -> :sswitch_109
-        0xc -> :sswitch_122
-        0xd -> :sswitch_13f
-        0x5f4e5446 -> :sswitch_9
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
+        0x8 -> :sswitch_8
+        0x9 -> :sswitch_9
+        0xa -> :sswitch_a
+        0xb -> :sswitch_b
+        0xc -> :sswitch_c
+        0xd -> :sswitch_d
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

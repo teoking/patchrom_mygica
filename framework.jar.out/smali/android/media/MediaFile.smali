@@ -205,7 +205,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 9
+    .locals 9
 
     .prologue
     const/16 v8, 0x2c
@@ -316,7 +316,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_72
+    if-eqz v0, :cond_0
 
     .line 189
     const-string v0, "WMA"
@@ -330,7 +330,7 @@
     invoke-static {v0, v1, v2, v3}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
     .line 191
-    :cond_72
+    :cond_0
     const-string v0, "OGG"
 
     const-string v1, "audio/ogg"
@@ -566,7 +566,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_18a
+    if-eqz v0, :cond_1
 
     .line 223
     const-string v0, "WMV"
@@ -589,7 +589,7 @@
     invoke-static {v0, v1, v2}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
     .line 227
-    :cond_18a
+    :cond_1
     const-string v0, "JPG"
 
     const/16 v1, 0x1f
@@ -935,7 +935,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 37
@@ -946,7 +946,7 @@
 .end method
 
 .method static addFileType(Ljava/lang/String;ILjava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "extension"
     .parameter "fileType"
     .parameter "mimeType"
@@ -975,7 +975,7 @@
 .end method
 
 .method static addFileType(Ljava/lang/String;ILjava/lang/String;I)V
-    .registers 6
+    .locals 2
     .parameter "extension"
     .parameter "fileType"
     .parameter "mimeType"
@@ -1017,7 +1017,7 @@
 .end method
 
 .method public static getFileTitle(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 3
     .parameter "path"
 
     .prologue
@@ -1030,7 +1030,7 @@
 
     .line 313
     .local v1, lastSlash:I
-    if-ltz v1, :cond_14
+    if-ltz v1, :cond_0
 
     .line 314
     add-int/lit8 v1, v1, 0x1
@@ -1040,7 +1040,7 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_14
+    if-ge v1, v2, :cond_0
 
     .line 316
     invoke-virtual {p0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -1048,7 +1048,7 @@
     move-result-object p0
 
     .line 320
-    :cond_14
+    :cond_0
     const/16 v2, 0x2e
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->lastIndexOf(I)I
@@ -1057,7 +1057,7 @@
 
     .line 321
     .local v0, lastDot:I
-    if-lez v0, :cond_21
+    if-lez v0, :cond_1
 
     .line 322
     const/4 v2, 0x0
@@ -1067,12 +1067,12 @@
     move-result-object p0
 
     .line 324
-    :cond_21
+    :cond_1
     return-object p0
 .end method
 
 .method public static getFileType(Ljava/lang/String;)Landroid/media/MediaFile$MediaFileType;
-    .registers 4
+    .locals 3
     .parameter "path"
 
     .prologue
@@ -1085,16 +1085,16 @@
 
     .line 298
     .local v0, lastDot:I
-    if-gez v0, :cond_a
+    if-gez v0, :cond_0
 
     .line 299
     const/4 v1, 0x0
 
     .line 300
-    :goto_9
+    :goto_0
     return-object v1
 
-    :cond_a
+    :cond_0
     sget-object v1, Landroid/media/MediaFile;->sFileTypeMap:Ljava/util/HashMap;
 
     add-int/lit8 v2, v0, 0x1
@@ -1113,11 +1113,11 @@
 
     check-cast v1, Landroid/media/MediaFile$MediaFileType;
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static getFileTypeForMimeType(Ljava/lang/String;)I
-    .registers 3
+    .locals 2
     .parameter "mimeType"
 
     .prologue
@@ -1132,29 +1132,29 @@
 
     .line 329
     .local v0, value:Ljava/lang/Integer;
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     const/4 v1, 0x0
 
-    :goto_b
+    :goto_0
     return v1
 
-    :cond_c
+    :cond_0
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public static getFormatCode(Ljava/lang/String;Ljava/lang/String;)I
-    .registers 6
+    .locals 4
     .parameter "fileName"
     .parameter "mimeType"
 
     .prologue
     .line 338
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 339
     sget-object v3, Landroid/media/MediaFile;->sMimeTypeToFormatMap:Ljava/util/HashMap;
@@ -1167,7 +1167,7 @@
 
     .line 340
     .local v2, value:Ljava/lang/Integer;
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_0
 
     .line 341
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
@@ -1176,11 +1176,11 @@
 
     .line 352
     .end local v2           #value:Ljava/lang/Integer;
-    :goto_10
+    :goto_0
     return v3
 
     .line 344
-    :cond_11
+    :cond_0
     const/16 v3, 0x2e
 
     invoke-virtual {p0, v3}, Ljava/lang/String;->lastIndexOf(I)I
@@ -1189,7 +1189,7 @@
 
     .line 345
     .local v1, lastDot:I
-    if-lez v1, :cond_2e
+    if-lez v1, :cond_1
 
     .line 346
     add-int/lit8 v3, v1, 0x1
@@ -1210,26 +1210,26 @@
 
     .line 348
     .restart local v2       #value:Ljava/lang/Integer;
-    if-eqz v2, :cond_2e
+    if-eqz v2, :cond_1
 
     .line 349
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
     move-result v3
 
-    goto :goto_10
+    goto :goto_0
 
     .line 352
     .end local v0           #extension:Ljava/lang/String;
     .end local v2           #value:Ljava/lang/Integer;
-    :cond_2e
+    :cond_1
     const/16 v3, 0x3000
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public static getMimeTypeForFile(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "path"
 
     .prologue
@@ -1240,21 +1240,21 @@
 
     .line 334
     .local v0, mediaFileType:Landroid/media/MediaFile$MediaFileType;
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v1, 0x0
 
-    :goto_7
+    :goto_0
     return-object v1
 
-    :cond_8
+    :cond_0
     iget-object v1, v0, Landroid/media/MediaFile$MediaFileType;->mimeType:Ljava/lang/String;
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public static getMimeTypeForFormatCode(I)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "formatCode"
 
     .prologue
@@ -1275,7 +1275,7 @@
 .end method
 
 .method public static isAudioFileType(I)Z
-    .registers 3
+    .locals 2
     .parameter "fileType"
 
     .prologue
@@ -1284,77 +1284,77 @@
     const/4 v0, 0x1
 
     .line 268
-    if-lt p0, v0, :cond_7
+    if-lt p0, v0, :cond_0
 
-    if-le p0, v1, :cond_d
+    if-le p0, v1, :cond_1
 
-    :cond_7
-    if-lt p0, v1, :cond_e
+    :cond_0
+    if-lt p0, v1, :cond_2
 
     const/16 v1, 0xe
 
-    if-gt p0, v1, :cond_e
+    if-gt p0, v1, :cond_2
 
-    :cond_d
-    :goto_d
+    :cond_1
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_2
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public static isDrmFileType(I)Z
-    .registers 2
+    .locals 1
     .parameter "fileType"
 
     .prologue
     const/16 v0, 0x33
 
     .line 292
-    if-lt p0, v0, :cond_8
+    if-lt p0, v0, :cond_0
 
-    if-gt p0, v0, :cond_8
+    if-gt p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public static isImageFileType(I)Z
-    .registers 2
+    .locals 1
     .parameter "fileType"
 
     .prologue
     .line 282
     const/16 v0, 0x1f
 
-    if-lt p0, v0, :cond_a
+    if-lt p0, v0, :cond_0
 
     const/16 v0, 0x24
 
-    if-gt p0, v0, :cond_a
+    if-gt p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static isMimeTypeMedia(Ljava/lang/String;)Z
-    .registers 3
+    .locals 2
     .parameter "mimeType"
 
     .prologue
@@ -1369,100 +1369,100 @@
 
     move-result v1
 
-    if-nez v1, :cond_1c
+    if-nez v1, :cond_0
 
     invoke-static {v0}, Landroid/media/MediaFile;->isVideoFileType(I)Z
 
     move-result v1
 
-    if-nez v1, :cond_1c
+    if-nez v1, :cond_0
 
     invoke-static {v0}, Landroid/media/MediaFile;->isImageFileType(I)Z
 
     move-result v1
 
-    if-nez v1, :cond_1c
+    if-nez v1, :cond_0
 
     invoke-static {v0}, Landroid/media/MediaFile;->isPlayListFileType(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_1
 
-    :cond_1c
+    :cond_0
     const/4 v1, 0x1
 
-    :goto_1d
+    :goto_0
     return v1
 
-    :cond_1e
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method public static isPlayListFileType(I)Z
-    .registers 2
+    .locals 1
     .parameter "fileType"
 
     .prologue
     .line 287
     const/16 v0, 0x29
 
-    if-lt p0, v0, :cond_a
+    if-lt p0, v0, :cond_0
 
     const/16 v0, 0x2c
 
-    if-gt p0, v0, :cond_a
+    if-gt p0, v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static isVideoFileType(I)Z
-    .registers 2
+    .locals 1
     .parameter "fileType"
 
     .prologue
     .line 275
     const/16 v0, 0x15
 
-    if-lt p0, v0, :cond_8
+    if-lt p0, v0, :cond_0
 
     const/16 v0, 0x1e
 
-    if-le p0, v0, :cond_10
+    if-le p0, v0, :cond_1
 
-    :cond_8
+    :cond_0
     const/16 v0, 0xc8
 
-    if-lt p0, v0, :cond_12
+    if-lt p0, v0, :cond_2
 
     const/16 v0, 0xce
 
-    if-gt p0, v0, :cond_12
+    if-gt p0, v0, :cond_2
 
-    :cond_10
+    :cond_1
     const/4 v0, 0x1
 
-    :goto_11
+    :goto_0
     return v0
 
-    :cond_12
+    :cond_2
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method private static isWMAEnabled()Z
-    .registers 5
+    .locals 5
 
     .prologue
     .line 158
@@ -1481,8 +1481,8 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_9
-    if-ge v3, v0, :cond_1a
+    :goto_0
+    if-ge v3, v0, :cond_1
 
     .line 161
     invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1495,33 +1495,33 @@
     .local v1, decoder:Landroid/media/DecoderCapabilities$AudioDecoder;
     sget-object v4, Landroid/media/DecoderCapabilities$AudioDecoder;->AUDIO_DECODER_WMA:Landroid/media/DecoderCapabilities$AudioDecoder;
 
-    if-ne v1, v4, :cond_17
+    if-ne v1, v4, :cond_0
 
     .line 163
     const/4 v4, 0x1
 
     .line 166
     .end local v1           #decoder:Landroid/media/DecoderCapabilities$AudioDecoder;
-    :goto_16
+    :goto_1
     return v4
 
     .line 160
     .restart local v1       #decoder:Landroid/media/DecoderCapabilities$AudioDecoder;
-    :cond_17
+    :cond_0
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 166
     .end local v1           #decoder:Landroid/media/DecoderCapabilities$AudioDecoder;
-    :cond_1a
+    :cond_1
     const/4 v4, 0x0
 
-    goto :goto_16
+    goto :goto_1
 .end method
 
 .method private static isWMVEnabled()Z
-    .registers 5
+    .locals 5
 
     .prologue
     .line 170
@@ -1540,8 +1540,8 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_9
-    if-ge v3, v0, :cond_1a
+    :goto_0
+    if-ge v3, v0, :cond_1
 
     .line 173
     invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1554,27 +1554,27 @@
     .local v1, decoder:Landroid/media/DecoderCapabilities$VideoDecoder;
     sget-object v4, Landroid/media/DecoderCapabilities$VideoDecoder;->VIDEO_DECODER_WMV:Landroid/media/DecoderCapabilities$VideoDecoder;
 
-    if-ne v1, v4, :cond_17
+    if-ne v1, v4, :cond_0
 
     .line 175
     const/4 v4, 0x1
 
     .line 178
     .end local v1           #decoder:Landroid/media/DecoderCapabilities$VideoDecoder;
-    :goto_16
+    :goto_1
     return v4
 
     .line 172
     .restart local v1       #decoder:Landroid/media/DecoderCapabilities$VideoDecoder;
-    :cond_17
+    :cond_0
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 178
     .end local v1           #decoder:Landroid/media/DecoderCapabilities$VideoDecoder;
-    :cond_1a
+    :cond_1
     const/4 v4, 0x0
 
-    goto :goto_16
+    goto :goto_1
 .end method

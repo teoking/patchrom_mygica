@@ -96,7 +96,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 58
@@ -113,7 +113,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "handler"
 
@@ -132,7 +132,7 @@
 .end method
 
 .method public static checkComponentPermission(Ljava/lang/String;IIZ)I
-    .registers 9
+    .locals 5
     .parameter "permission"
     .parameter "uid"
     .parameter "owningUid"
@@ -144,45 +144,45 @@
     const/4 v1, -0x1
 
     .line 1813
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_0
 
     const/16 v3, 0x3e8
 
-    if-ne p1, v3, :cond_a
+    if-ne p1, v3, :cond_2
 
-    :cond_8
+    :cond_0
     move v1, v2
 
     .line 1840
-    :cond_9
-    :goto_9
+    :cond_1
+    :goto_0
     return v1
 
     .line 1817
-    :cond_a
+    :cond_2
     invoke-static {p1}, Landroid/os/UserId;->isIsolated(I)Z
 
     move-result v3
 
-    if-nez v3, :cond_9
+    if-nez v3, :cond_1
 
     .line 1822
-    if-ltz p2, :cond_1a
+    if-ltz p2, :cond_3
 
     invoke-static {p1, p2}, Landroid/os/UserId;->isSameApp(II)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1a
+    if-eqz v3, :cond_3
 
     move v1, v2
 
     .line 1823
-    goto :goto_9
+    goto :goto_0
 
     .line 1826
-    :cond_1a
-    if-nez p3, :cond_35
+    :cond_3
+    if-nez p3, :cond_4
 
     .line 1827
     sget-object v2, Landroid/app/ActivityManager;->TAG:Ljava/lang/String;
@@ -207,34 +207,34 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_9
+    goto :goto_0
 
     .line 1830
-    :cond_35
-    if-nez p0, :cond_39
+    :cond_4
+    if-nez p0, :cond_5
 
     move v1, v2
 
     .line 1831
-    goto :goto_9
+    goto :goto_0
 
     .line 1834
-    :cond_39
-    :try_start_39
+    :cond_5
+    :try_start_0
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v2
 
     invoke-interface {v2, p0, p1}, Landroid/content/pm/IPackageManager;->checkUidPermission(Ljava/lang/String;I)I
-    :try_end_40
-    .catch Landroid/os/RemoteException; {:try_start_39 .. :try_end_40} :catch_42
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 1836
-    :catch_42
+    :catch_0
     move-exception v0
 
     .line 1838
@@ -245,11 +245,11 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static getMyMemoryState(Landroid/app/ActivityManager$RunningAppProcessInfo;)V
-    .registers 2
+    .locals 1
     .parameter "outState"
 
     .prologue
@@ -260,22 +260,22 @@
     move-result-object v0
 
     invoke-interface {v0, p0}, Landroid/app/IActivityManager;->getMyMemoryState(Landroid/app/ActivityManager$RunningAppProcessInfo;)V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1597
-    :goto_7
+    :goto_0
     return-void
 
     .line 1595
-    :catch_8
+    :catch_0
     move-exception v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public static isHighEndGfx(Landroid/view/Display;)Z
-    .registers 9
+    .locals 8
     .parameter "display"
 
     .prologue
@@ -299,15 +299,15 @@
 
     cmp-long v4, v4, v6
 
-    if-ltz v4, :cond_15
+    if-ltz v4, :cond_1
 
     .line 385
-    :cond_14
-    :goto_14
+    :cond_0
+    :goto_0
     return v3
 
     .line 377
-    :cond_15
+    :cond_1
     new-instance v0, Landroid/graphics/Point;
 
     invoke-direct {v0}, Landroid/graphics/Point;-><init>()V
@@ -327,16 +327,16 @@
     .local v1, pixels:I
     const v4, 0x96000
 
-    if-ge v1, v4, :cond_14
+    if-ge v1, v4, :cond_0
 
     .line 385
     const/4 v3, 0x0
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public static isLargeRAM()Z
-    .registers 5
+    .locals 5
 
     .prologue
     .line 396
@@ -357,23 +357,23 @@
 
     cmp-long v1, v1, v3
 
-    if-ltz v1, :cond_15
+    if-ltz v1, :cond_0
 
     .line 401
     const/4 v1, 0x1
 
     .line 403
-    :goto_14
+    :goto_0
     return v1
 
-    :cond_15
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public static isRunningInTestHarness()Z
-    .registers 2
+    .locals 2
 
     .prologue
     .line 1776
@@ -389,7 +389,7 @@
 .end method
 
 .method public static isUserAMonkey()Z
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1766
@@ -399,27 +399,27 @@
     move-result-object v0
 
     invoke-interface {v0}, Landroid/app/IActivityManager;->isUserAMonkey()Z
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v0
 
     .line 1769
-    :goto_8
+    :goto_0
     return v0
 
     .line 1767
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 1769
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public static staticGetLargeMemoryClass()I
-    .registers 3
+    .locals 3
 
     .prologue
     .line 359
@@ -453,7 +453,7 @@
 .end method
 
 .method public static staticGetMemoryClass()I
-    .registers 3
+    .locals 3
 
     .prologue
     .line 331
@@ -467,7 +467,7 @@
 
     .line 332
     .local v0, vmHeapSize:Ljava/lang/String;
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_0
 
     const-string v1, ""
 
@@ -475,7 +475,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_22
+    if-nez v1, :cond_0
 
     .line 333
     const/4 v1, 0x0
@@ -495,21 +495,21 @@
     move-result v1
 
     .line 335
-    :goto_21
+    :goto_0
     return v1
 
-    :cond_22
+    :cond_0
     invoke-static {}, Landroid/app/ActivityManager;->staticGetLargeMemoryClass()I
 
     move-result v1
 
-    goto :goto_21
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public clearApplicationUserData(Ljava/lang/String;Landroid/content/pm/IPackageDataObserver;)Z
-    .registers 6
+    .locals 3
     .parameter "packageName"
     .parameter "observer"
 
@@ -525,28 +525,28 @@
     move-result v2
 
     invoke-interface {v1, p1, p2, v2}, Landroid/app/IActivityManager;->clearApplicationUserData(Ljava/lang/String;Landroid/content/pm/IPackageDataObserver;I)Z
-    :try_end_b
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_b} :catch_d
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 1187
-    :goto_c
+    :goto_0
     return v1
 
     .line 1186
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 1187
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public forceStopPackage(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "packageName"
 
     .prologue
@@ -557,22 +557,22 @@
     move-result-object v0
 
     invoke-interface {v0, p1}, Landroid/app/IActivityManager;->forceStopPackage(Ljava/lang/String;)V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1673
-    :goto_7
+    :goto_0
     return-void
 
     .line 1671
-    :catch_8
+    :catch_0
     move-exception v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getAllPackageLaunchCounts()Ljava/util/Map;
-    .registers 11
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -599,7 +599,7 @@
 
     .line 1788
     .local v7, usageStatsService:Lcom/android/internal/app/IUsageStats;
-    if-nez v7, :cond_13
+    if-nez v7, :cond_1
 
     .line 1789
     new-instance v4, Ljava/util/HashMap;
@@ -608,34 +608,34 @@
 
     .line 1805
     .end local v7           #usageStatsService:Lcom/android/internal/app/IUsageStats;
-    :cond_12
-    :goto_12
+    :cond_0
+    :goto_0
     return-object v4
 
     .line 1792
     .restart local v7       #usageStatsService:Lcom/android/internal/app/IUsageStats;
-    :cond_13
+    :cond_1
     invoke-interface {v7}, Lcom/android/internal/app/IUsageStats;->getAllPkgUsageStats()[Lcom/android/internal/os/PkgUsageStats;
 
     move-result-object v0
 
     .line 1793
     .local v0, allPkgUsageStats:[Lcom/android/internal/os/PkgUsageStats;
-    if-nez v0, :cond_2d
+    if-nez v0, :cond_2
 
     .line 1794
     new-instance v4, Ljava/util/HashMap;
 
     invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
-    :try_end_1e
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_1e} :catch_1f
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_12
+    goto :goto_0
 
     .line 1803
     .end local v0           #allPkgUsageStats:[Lcom/android/internal/os/PkgUsageStats;
     .end local v7           #usageStatsService:Lcom/android/internal/app/IUsageStats;
-    :catch_1f
+    :catch_0
     move-exception v2
 
     .line 1804
@@ -651,14 +651,14 @@
 
     invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
 
-    goto :goto_12
+    goto :goto_0
 
     .line 1797
     .end local v2           #e:Landroid/os/RemoteException;
     .restart local v0       #allPkgUsageStats:[Lcom/android/internal/os/PkgUsageStats;
     .restart local v7       #usageStatsService:Lcom/android/internal/app/IUsageStats;
-    :cond_2d
-    :try_start_2d
+    :cond_2
+    :try_start_1
     new-instance v4, Ljava/util/HashMap;
 
     invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
@@ -674,8 +674,8 @@
     const/4 v3, 0x0
 
     .local v3, i$:I
-    :goto_35
-    if-ge v3, v5, :cond_12
+    :goto_1
+    if-ge v3, v5, :cond_0
 
     aget-object v6, v1, v3
 
@@ -690,17 +690,17 @@
     move-result-object v9
 
     invoke-interface {v4, v8, v9}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_44
-    .catch Landroid/os/RemoteException; {:try_start_2d .. :try_end_44} :catch_1f
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 1798
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_35
+    goto :goto_1
 .end method
 
 .method public getAllPackageUsageStats()[Lcom/android/internal/os/PkgUsageStats;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 1850
@@ -717,22 +717,22 @@
 
     .line 1852
     .local v1, usageStatsService:Lcom/android/internal/app/IUsageStats;
-    if-eqz v1, :cond_1a
+    if-eqz v1, :cond_0
 
     .line 1853
     invoke-interface {v1}, Lcom/android/internal/app/IUsageStats;->getAllPkgUsageStats()[Lcom/android/internal/os/PkgUsageStats;
-    :try_end_10
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_10} :catch_12
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v2
 
     .line 1858
     .end local v1           #usageStatsService:Lcom/android/internal/app/IUsageStats;
-    :goto_11
+    :goto_0
     return-object v2
 
     .line 1855
-    :catch_12
+    :catch_0
     move-exception v0
 
     .line 1856
@@ -745,16 +745,16 @@
 
     .line 1858
     .end local v0           #e:Landroid/os/RemoteException;
-    :cond_1a
+    :cond_0
     const/4 v2, 0x0
 
     new-array v2, v2, [Lcom/android/internal/os/PkgUsageStats;
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public getDeviceConfigurationInfo()Landroid/content/pm/ConfigurationInfo;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1680
@@ -764,27 +764,27 @@
     move-result-object v0
 
     invoke-interface {v0}, Landroid/app/IActivityManager;->getDeviceConfigurationInfo()Landroid/content/pm/ConfigurationInfo;
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
     .line 1683
-    :goto_8
+    :goto_0
     return-object v0
 
     .line 1681
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 1683
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getFrontActivityScreenCompatMode()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 261
@@ -794,28 +794,28 @@
     move-result-object v1
 
     invoke-interface {v1}, Landroid/app/IActivityManager;->getFrontActivityScreenCompatMode()I
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 264
-    :goto_8
+    :goto_0
     return v1
 
     .line 262
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 264
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getLargeMemoryClass()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 352
@@ -827,7 +827,7 @@
 .end method
 
 .method public getLauncherLargeIconDensity()I
-    .registers 6
+    .locals 5
 
     .prologue
     const/16 v3, 0x140
@@ -859,17 +859,17 @@
     .local v2, sw:I
     const/16 v4, 0x258
 
-    if-ge v2, v4, :cond_19
+    if-ge v2, v4, :cond_0
 
     .line 1718
     .end local v0           #density:I
-    :goto_18
+    :goto_0
     return v0
 
     .line 1702
     .restart local v0       #density:I
-    :cond_19
-    sparse-switch v0, :sswitch_data_36
+    :cond_0
+    sparse-switch v0, :sswitch_data_0
 
     .line 1718
     int-to-float v3, v0
@@ -884,60 +884,60 @@
 
     float-to-int v0, v3
 
-    goto :goto_18
+    goto :goto_0
 
     .line 1704
-    :sswitch_25
+    :sswitch_0
     const/16 v0, 0xa0
 
-    goto :goto_18
+    goto :goto_0
 
     .line 1706
-    :sswitch_28
+    :sswitch_1
     const/16 v0, 0xf0
 
-    goto :goto_18
+    goto :goto_0
 
-    :sswitch_2b
+    :sswitch_2
     move v0, v3
 
     .line 1708
-    goto :goto_18
+    goto :goto_0
 
-    :sswitch_2d
+    :sswitch_3
     move v0, v3
 
     .line 1710
-    goto :goto_18
+    goto :goto_0
 
     .line 1712
-    :sswitch_2f
+    :sswitch_4
     const/16 v0, 0x1e0
 
-    goto :goto_18
+    goto :goto_0
 
     .line 1714
-    :sswitch_32
+    :sswitch_5
     const/16 v0, 0x280
 
-    goto :goto_18
+    goto :goto_0
 
     .line 1702
     nop
 
-    :sswitch_data_36
+    :sswitch_data_0
     .sparse-switch
-        0x78 -> :sswitch_25
-        0xa0 -> :sswitch_28
-        0xd5 -> :sswitch_2b
-        0xf0 -> :sswitch_2d
-        0x140 -> :sswitch_2f
-        0x1e0 -> :sswitch_32
+        0x78 -> :sswitch_0
+        0xa0 -> :sswitch_1
+        0xd5 -> :sswitch_2
+        0xf0 -> :sswitch_3
+        0x140 -> :sswitch_4
+        0x1e0 -> :sswitch_5
     .end sparse-switch
 .end method
 
 .method public getLauncherLargeIconSize()I
-    .registers 7
+    .locals 6
 
     .prologue
     .line 1729
@@ -967,16 +967,16 @@
     .local v3, sw:I
     const/16 v4, 0x258
 
-    if-ge v3, v4, :cond_17
+    if-ge v3, v4, :cond_0
 
     .line 1756
     .end local v2           #size:I
-    :goto_16
+    :goto_0
     return v2
 
     .line 1738
     .restart local v2       #size:I
-    :cond_17
+    :cond_0
     invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
     move-result-object v4
@@ -985,7 +985,7 @@
 
     .line 1740
     .local v0, density:I
-    sparse-switch v0, :sswitch_data_4a
+    sparse-switch v0, :sswitch_data_0
 
     .line 1756
     int-to-float v4, v2
@@ -1000,74 +1000,74 @@
 
     float-to-int v2, v4
 
-    goto :goto_16
+    goto :goto_0
 
     .line 1742
-    :sswitch_29
+    :sswitch_0
     mul-int/lit16 v4, v2, 0xa0
 
     div-int/lit8 v2, v4, 0x78
 
-    goto :goto_16
+    goto :goto_0
 
     .line 1744
-    :sswitch_2e
+    :sswitch_1
     mul-int/lit16 v4, v2, 0xf0
 
     div-int/lit16 v2, v4, 0xa0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 1746
-    :sswitch_33
+    :sswitch_2
     mul-int/lit16 v4, v2, 0x140
 
     div-int/lit16 v2, v4, 0xf0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 1748
-    :sswitch_38
+    :sswitch_3
     mul-int/lit16 v4, v2, 0x140
 
     div-int/lit16 v2, v4, 0xf0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 1750
-    :sswitch_3d
+    :sswitch_4
     mul-int/lit16 v4, v2, 0x1e0
 
     div-int/lit16 v2, v4, 0x140
 
-    goto :goto_16
+    goto :goto_0
 
     .line 1752
-    :sswitch_42
+    :sswitch_5
     mul-int/lit16 v4, v2, 0x140
 
     mul-int/lit8 v4, v4, 0x2
 
     div-int/lit16 v2, v4, 0x1e0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 1740
     nop
 
-    :sswitch_data_4a
+    :sswitch_data_0
     .sparse-switch
-        0x78 -> :sswitch_29
-        0xa0 -> :sswitch_2e
-        0xd5 -> :sswitch_33
-        0xf0 -> :sswitch_38
-        0x140 -> :sswitch_3d
-        0x1e0 -> :sswitch_42
+        0x78 -> :sswitch_0
+        0xa0 -> :sswitch_1
+        0xd5 -> :sswitch_2
+        0xf0 -> :sswitch_3
+        0x140 -> :sswitch_4
+        0x1e0 -> :sswitch_5
     .end sparse-switch
 .end method
 
 .method public getMemoryClass()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 324
@@ -1079,7 +1079,7 @@
 .end method
 
 .method public getMemoryInfo(Landroid/app/ActivityManager$MemoryInfo;)V
-    .registers 3
+    .locals 1
     .parameter "outInfo"
 
     .prologue
@@ -1090,22 +1090,22 @@
     move-result-object v0
 
     invoke-interface {v0, p1}, Landroid/app/IActivityManager;->getMemoryInfo(Landroid/app/ActivityManager$MemoryInfo;)V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1177
-    :goto_7
+    :goto_0
     return-void
 
     .line 1175
-    :catch_8
+    :catch_0
     move-exception v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getPackageAskScreenCompat(Ljava/lang/String;)Z
-    .registers 4
+    .locals 2
     .parameter "packageName"
 
     .prologue
@@ -1116,28 +1116,28 @@
     move-result-object v1
 
     invoke-interface {v1, p1}, Landroid/app/IActivityManager;->getPackageAskScreenCompat(Ljava/lang/String;)Z
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 302
-    :goto_8
+    :goto_0
     return v1
 
     .line 300
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 302
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getPackageScreenCompatMode(Ljava/lang/String;)I
-    .registers 4
+    .locals 2
     .parameter "packageName"
 
     .prologue
@@ -1148,28 +1148,28 @@
     move-result-object v1
 
     invoke-interface {v1, p1}, Landroid/app/IActivityManager;->getPackageScreenCompatMode(Ljava/lang/String;)I
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 283
-    :goto_8
+    :goto_0
     return v1
 
     .line 281
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 283
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getProcessMemoryInfo([I)[Landroid/os/Debug$MemoryInfo;
-    .registers 4
+    .locals 2
     .parameter "pids"
 
     .prologue
@@ -1180,28 +1180,28 @@
     move-result-object v1
 
     invoke-interface {v1, p1}, Landroid/app/IActivityManager;->getProcessMemoryInfo([I)[Landroid/os/Debug$MemoryInfo;
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 1614
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 1613
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 1614
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getProcessesInErrorState()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1220,28 +1220,28 @@
     move-result-object v1
 
     invoke-interface {v1}, Landroid/app/IActivityManager;->getProcessesInErrorState()Ljava/util/List;
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 1305
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 1304
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 1305
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getRecentTasks(II)Ljava/util/List;
-    .registers 5
+    .locals 2
     .parameter "maxNum"
     .parameter "flags"
     .annotation system Ldalvik/annotation/Signature;
@@ -1268,28 +1268,28 @@
     move-result-object v1
 
     invoke-interface {v1, p1, p2}, Landroid/app/IActivityManager;->getRecentTasks(II)Ljava/util/List;
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 535
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 533
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 535
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getRunningAppProcesses()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1308,28 +1308,28 @@
     move-result-object v1
 
     invoke-interface {v1}, Landroid/app/IActivityManager;->getRunningAppProcesses()Ljava/util/List;
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 1577
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 1576
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 1577
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getRunningExternalApplications()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1348,28 +1348,28 @@
     move-result-object v1
 
     invoke-interface {v1}, Landroid/app/IActivityManager;->getRunningExternalApplications()Ljava/util/List;
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 1559
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 1558
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 1559
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getRunningServiceControlPanel(Landroid/content/ComponentName;)Landroid/app/PendingIntent;
-    .registers 4
+    .locals 2
     .parameter "service"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1385,28 +1385,28 @@
     move-result-object v1
 
     invoke-interface {v1, p1}, Landroid/app/IActivityManager;->getRunningServiceControlPanel(Landroid/content/ComponentName;)Landroid/app/PendingIntent;
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 1072
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 1070
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 1072
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getRunningServices(I)Ljava/util/List;
-    .registers 5
+    .locals 3
     .parameter "maxNum"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1434,28 +1434,28 @@
     const/4 v2, 0x0
 
     invoke-interface {v1, p1, v2}, Landroid/app/IActivityManager;->getServices(II)Ljava/util/List;
-    :try_end_8
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_8} :catch_a
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 1056
-    :goto_9
+    :goto_0
     return-object v1
 
     .line 1054
-    :catch_a
+    :catch_0
     move-exception v0
 
     .line 1056
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public getRunningTasks(I)Ljava/util/List;
-    .registers 4
+    .locals 2
     .parameter "maxNum"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1487,7 +1487,7 @@
 .end method
 
 .method public getRunningTasks(IILandroid/app/IThumbnailReceiver;)Ljava/util/List;
-    .registers 6
+    .locals 2
     .parameter "maxNum"
     .parameter "flags"
     .parameter "receiver"
@@ -1517,28 +1517,28 @@
     move-result-object v1
 
     invoke-interface {v1, p1, p2, p3}, Landroid/app/IActivityManager;->getTasks(IILandroid/app/IThumbnailReceiver;)Ljava/util/List;
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 670
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 668
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 670
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getTaskThumbnails(I)Landroid/app/ActivityManager$TaskThumbnails;
-    .registers 4
+    .locals 2
     .parameter "id"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1554,28 +1554,28 @@
     move-result-object v1
 
     invoke-interface {v1, p1}, Landroid/app/IActivityManager;->getTaskThumbnails(I)Landroid/app/ActivityManager$TaskThumbnails;
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 820
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 818
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 820
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public killBackgroundProcesses(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "packageName"
 
     .prologue
@@ -1586,22 +1586,22 @@
     move-result-object v0
 
     invoke-interface {v0, p1}, Landroid/app/IActivityManager;->killBackgroundProcesses(Ljava/lang/String;)V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1648
-    :goto_7
+    :goto_0
     return-void
 
     .line 1646
-    :catch_8
+    :catch_0
     move-exception v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public moveTaskToFront(II)V
-    .registers 4
+    .locals 1
     .parameter "taskId"
     .parameter "flags"
 
@@ -1616,7 +1616,7 @@
 .end method
 
 .method public moveTaskToFront(IILandroid/os/Bundle;)V
-    .registers 5
+    .locals 1
     .parameter "taskId"
     .parameter "flags"
     .parameter "options"
@@ -1629,22 +1629,22 @@
     move-result-object v0
 
     invoke-interface {v0, p1, p2, p3}, Landroid/app/IActivityManager;->moveTaskToFront(IILandroid/os/Bundle;)V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 871
-    :goto_7
+    :goto_0
     return-void
 
     .line 868
-    :catch_8
+    :catch_0
     move-exception v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public removeSubTask(II)Z
-    .registers 5
+    .locals 2
     .parameter "taskId"
     .parameter "subTaskIndex"
     .annotation system Ldalvik/annotation/Throws;
@@ -1661,28 +1661,28 @@
     move-result-object v1
 
     invoke-interface {v1, p1, p2}, Landroid/app/IActivityManager;->removeSubTask(II)Z
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 724
-    :goto_8
+    :goto_0
     return v1
 
     .line 722
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 724
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public removeTask(II)Z
-    .registers 5
+    .locals 2
     .parameter "taskId"
     .parameter "flags"
     .annotation system Ldalvik/annotation/Throws;
@@ -1699,28 +1699,28 @@
     move-result-object v1
 
     invoke-interface {v1, p1, p2}, Landroid/app/IActivityManager;->removeTask(II)Z
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 751
-    :goto_8
+    :goto_0
     return v1
 
     .line 749
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 751
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public restartPackage(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "packageName"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -1734,7 +1734,7 @@
 .end method
 
 .method public setFrontActivityScreenCompatMode(I)V
-    .registers 3
+    .locals 1
     .parameter "mode"
 
     .prologue
@@ -1745,22 +1745,22 @@
     move-result-object v0
 
     invoke-interface {v0, p1}, Landroid/app/IActivityManager;->setFrontActivityScreenCompatMode(I)V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 275
-    :goto_7
+    :goto_0
     return-void
 
     .line 272
-    :catch_8
+    :catch_0
     move-exception v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setPackageAskScreenCompat(Ljava/lang/String;Z)V
-    .registers 4
+    .locals 1
     .parameter "packageName"
     .parameter "ask"
 
@@ -1772,22 +1772,22 @@
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Landroid/app/IActivityManager;->setPackageAskScreenCompat(Ljava/lang/String;Z)V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 313
-    :goto_7
+    :goto_0
     return-void
 
     .line 310
-    :catch_8
+    :catch_0
     move-exception v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setPackageScreenCompatMode(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
     .parameter "packageName"
     .parameter "mode"
 
@@ -1799,22 +1799,22 @@
     move-result-object v0
 
     invoke-interface {v0, p1, p2}, Landroid/app/IActivityManager;->setPackageScreenCompatMode(Ljava/lang/String;I)V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 294
-    :goto_7
+    :goto_0
     return-void
 
     .line 291
-    :catch_8
+    :catch_0
     move-exception v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public switchUser(I)Z
-    .registers 4
+    .locals 2
     .parameter "userid"
 
     .prologue
@@ -1825,22 +1825,22 @@
     move-result-object v1
 
     invoke-interface {v1, p1}, Landroid/app/IActivityManager;->switchUser(I)Z
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 1869
-    :goto_8
+    :goto_0
     return v1
 
     .line 1868
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 1869
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method

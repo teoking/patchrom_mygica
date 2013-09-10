@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1760
@@ -37,7 +37,7 @@
 .end method
 
 .method private flushBuilder()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1783
@@ -47,7 +47,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_1f
+    if-lez v0, :cond_0
 
     .line 1784
     const-string v0, "GLSurfaceView"
@@ -74,14 +74,14 @@
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
 
     .line 1787
-    :cond_1f
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public close()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1763
@@ -92,7 +92,7 @@
 .end method
 
 .method public flush()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1767
@@ -103,7 +103,7 @@
 .end method
 
 .method public write([CII)V
-    .registers 7
+    .locals 3
     .parameter "buf"
     .parameter "offset"
     .parameter "count"
@@ -113,8 +113,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_1
-    if-ge v1, p3, :cond_17
+    :goto_0
+    if-ge v1, p3, :cond_1
 
     .line 1772
     add-int v2, p2, v1
@@ -125,27 +125,27 @@
     .local v0, c:C
     const/16 v2, 0xa
 
-    if-ne v0, v2, :cond_11
+    if-ne v0, v2, :cond_0
 
     .line 1774
     invoke-direct {p0}, Landroid/opengl/GLSurfaceView$LogWriter;->flushBuilder()V
 
     .line 1771
-    :goto_e
+    :goto_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 1777
-    :cond_11
+    :cond_0
     iget-object v2, p0, Landroid/opengl/GLSurfaceView$LogWriter;->mBuilder:Ljava/lang/StringBuilder;
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_e
+    goto :goto_1
 
     .line 1780
     .end local v0           #c:C
-    :cond_17
+    :cond_1
     return-void
 .end method

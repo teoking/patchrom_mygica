@@ -34,7 +34,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1161
@@ -44,7 +44,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/webkit/WebViewInputDispatcher$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue

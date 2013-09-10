@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/text/TextDirectionHeuristics$TextDirectionAlgorithm;)V
-    .registers 2
+    .locals 0
     .parameter "algorithm"
 
     .prologue
@@ -38,7 +38,7 @@
 .end method
 
 .method private doCheck([CII)Z
-    .registers 6
+    .locals 2
     .parameter "chars"
     .parameter "start"
     .parameter "count"
@@ -59,33 +59,33 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_1a
+    packed-switch v0, :pswitch_data_0
 
     .line 107
     invoke-virtual {p0}, Landroid/text/TextDirectionHeuristics$TextDirectionHeuristicImpl;->defaultIsRtl()Z
 
     move-result v0
 
-    :goto_15
+    :goto_0
     return v0
 
     .line 103
-    :pswitch_16
+    :pswitch_0
     const/4 v0, 0x1
 
-    goto :goto_15
+    goto :goto_0
 
     .line 105
-    :pswitch_18
+    :pswitch_1
     const/4 v0, 0x0
 
-    goto :goto_15
+    goto :goto_0
 
     .line 101
-    :pswitch_data_1a
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_16
-        :pswitch_18
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
@@ -95,27 +95,27 @@
 .end method
 
 .method public isRtl([CII)Z
-    .registers 5
+    .locals 1
     .parameter "chars"
     .parameter "start"
     .parameter "count"
 
     .prologue
     .line 91
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_0
 
-    if-ltz p2, :cond_a
+    if-ltz p2, :cond_0
 
-    if-ltz p3, :cond_a
+    if-ltz p3, :cond_0
 
     array-length v0, p1
 
     sub-int/2addr v0, p3
 
-    if-ge v0, p2, :cond_10
+    if-ge v0, p2, :cond_1
 
     .line 92
-    :cond_a
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -123,10 +123,10 @@
     throw v0
 
     .line 94
-    :cond_10
+    :cond_1
     iget-object v0, p0, Landroid/text/TextDirectionHeuristics$TextDirectionHeuristicImpl;->mAlgorithm:Landroid/text/TextDirectionHeuristics$TextDirectionAlgorithm;
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_2
 
     .line 95
     invoke-virtual {p0}, Landroid/text/TextDirectionHeuristics$TextDirectionHeuristicImpl;->defaultIsRtl()Z
@@ -134,13 +134,13 @@
     move-result v0
 
     .line 97
-    :goto_18
+    :goto_0
     return v0
 
-    :cond_19
+    :cond_2
     invoke-direct {p0, p1, p2, p3}, Landroid/text/TextDirectionHeuristics$TextDirectionHeuristicImpl;->doCheck([CII)Z
 
     move-result v0
 
-    goto :goto_18
+    goto :goto_0
 .end method

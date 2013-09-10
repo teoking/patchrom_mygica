@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/SMSDispatcher;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
@@ -51,14 +51,14 @@
     .local v0, rc:I
     const/4 v2, -0x1
 
-    if-eq v0, v2, :cond_a
+    if-eq v0, v2, :cond_0
 
-    if-ne v0, v1, :cond_11
+    if-ne v0, v1, :cond_1
 
     .line 1152
     .local v1, success:Z
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/telephony/SMSDispatcher$1;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
     const/4 v3, 0x0
@@ -70,8 +70,8 @@
 
     .line 1147
     .end local v1           #success:Z
-    :cond_11
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method

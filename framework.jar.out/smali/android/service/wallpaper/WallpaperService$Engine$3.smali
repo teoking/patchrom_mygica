@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/service/wallpaper/WallpaperService$Engine;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public dispatchAppVisibility(Z)V
-    .registers 6
+    .locals 4
     .parameter "visible"
 
     .prologue
@@ -46,7 +46,7 @@
 
     iget-boolean v1, v1, Landroid/service/wallpaper/WallpaperService$IWallpaperEngineWrapper;->mIsPreview:Z
 
-    if-nez v1, :cond_1c
+    if-nez v1, :cond_0
 
     .line 268
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService$Engine$3;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
@@ -55,11 +55,11 @@
 
     const/16 v3, 0x271a
 
-    if-eqz p1, :cond_1d
+    if-eqz p1, :cond_1
 
     const/4 v1, 0x1
 
-    :goto_11
+    :goto_0
     invoke-virtual {v2, v3, v1}, Lcom/android/internal/os/HandlerCaller;->obtainMessageI(II)Landroid/os/Message;
 
     move-result-object v0
@@ -74,18 +74,18 @@
 
     .line 272
     .end local v0           #msg:Landroid/os/Message;
-    :cond_1c
+    :cond_0
     return-void
 
     .line 268
-    :cond_1d
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public dispatchWallpaperCommand(Ljava/lang/String;IIILandroid/os/Bundle;Z)V
-    .registers 12
+    .locals 5
     .parameter "action"
     .parameter "x"
     .parameter "y"
@@ -102,7 +102,7 @@
     monitor-enter v3
 
     .line 298
-    :try_start_5
+    :try_start_0
     new-instance v0, Landroid/service/wallpaper/WallpaperService$WallpaperCommand;
 
     invoke-direct {v0}, Landroid/service/wallpaper/WallpaperService$WallpaperCommand;-><init>()V
@@ -157,18 +157,18 @@
     .line 308
     .end local v0           #cmd:Landroid/service/wallpaper/WallpaperService$WallpaperCommand;
     .end local v1           #msg:Landroid/os/Message;
-    :catchall_2b
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_2d
-    .catchall {:try_start_5 .. :try_end_2d} :catchall_2b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method
 
 .method public dispatchWallpaperOffsets(FFFFZ)V
-    .registers 10
+    .locals 4
     .parameter "x"
     .parameter "y"
     .parameter "xStep"
@@ -184,7 +184,7 @@
     monitor-enter v2
 
     .line 279
-    :try_start_5
+    :try_start_0
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService$Engine$3;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
 
     iput p1, v1, Landroid/service/wallpaper/WallpaperService$Engine;->mPendingXOffset:F
@@ -205,7 +205,7 @@
     iput p4, v1, Landroid/service/wallpaper/WallpaperService$Engine;->mPendingYOffsetStep:F
 
     .line 283
-    if-eqz p5, :cond_1c
+    if-eqz p5, :cond_0
 
     .line 284
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService$Engine$3;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
@@ -215,12 +215,12 @@
     iput-boolean v3, v1, Landroid/service/wallpaper/WallpaperService$Engine;->mPendingSync:Z
 
     .line 286
-    :cond_1c
+    :cond_0
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService$Engine$3;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
 
     iget-boolean v1, v1, Landroid/service/wallpaper/WallpaperService$Engine;->mOffsetMessageEnqueued:Z
 
-    if-nez v1, :cond_38
+    if-nez v1, :cond_1
 
     .line 287
     iget-object v1, p0, Landroid/service/wallpaper/WallpaperService$Engine$3;->this$1:Landroid/service/wallpaper/WallpaperService$Engine;
@@ -250,25 +250,25 @@
 
     .line 291
     .end local v0           #msg:Landroid/os/Message;
-    :cond_38
+    :cond_1
     monitor-exit v2
 
     .line 292
     return-void
 
     .line 291
-    :catchall_3a
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_3c
-    .catchall {:try_start_5 .. :try_end_3c} :catchall_3a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public resized(IILandroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/content/res/Configuration;)V
-    .registers 11
+    .locals 4
     .parameter "w"
     .parameter "h"
     .parameter "contentInsets"
@@ -284,11 +284,11 @@
 
     const/16 v3, 0x272e
 
-    if-eqz p5, :cond_15
+    if-eqz p5, :cond_0
 
     const/4 v1, 0x1
 
-    :goto_9
+    :goto_0
     invoke-virtual {v2, v3, v1}, Lcom/android/internal/os/HandlerCaller;->obtainMessageI(II)Landroid/os/Message;
 
     move-result-object v0
@@ -306,8 +306,8 @@
 
     .line 258
     .end local v0           #msg:Landroid/os/Message;
-    :cond_15
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method

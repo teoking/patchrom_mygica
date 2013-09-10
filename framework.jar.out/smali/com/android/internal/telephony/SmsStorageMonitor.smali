@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/PhoneBase;)V
-    .registers 6
+    .locals 4
     .parameter "phone"
 
     .prologue
@@ -107,7 +107,7 @@
 .end method
 
 .method private createWakelock()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x1
@@ -143,7 +143,7 @@
 .end method
 
 .method private handleIccFull()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 140
@@ -175,7 +175,7 @@
 
 # virtual methods
 .method public dispose()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 88
@@ -200,28 +200,28 @@
 .end method
 
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "msg"
 
     .prologue
     .line 101
     iget v1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v1, :pswitch_data_60
+    packed-switch v1, :pswitch_data_0
 
     .line 126
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return-void
 
     .line 103
-    :pswitch_6
+    :pswitch_0
     invoke-direct {p0}, Lcom/android/internal/telephony/SmsStorageMonitor;->handleIccFull()V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 107
-    :pswitch_a
+    :pswitch_1
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
@@ -230,7 +230,7 @@
     .local v0, ar:Landroid/os/AsyncResult;
     iget-object v1, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    if-eqz v1, :cond_30
+    if-eqz v1, :cond_1
 
     .line 109
     const/4 v1, 0x1
@@ -262,22 +262,22 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5
+    goto :goto_0
 
     .line 113
-    :cond_30
+    :cond_1
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/internal/telephony/SmsStorageMonitor;->mReportMemoryStatusPending:Z
 
-    goto :goto_5
+    goto :goto_0
 
     .line 118
     .end local v0           #ar:Landroid/os/AsyncResult;
-    :pswitch_34
+    :pswitch_2
     iget-boolean v1, p0, Lcom/android/internal/telephony/SmsStorageMonitor;->mReportMemoryStatusPending:Z
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_0
 
     .line 119
     const-string v1, "SmsStorageMonitor"
@@ -317,21 +317,21 @@
 
     invoke-interface {v1, v2, v3}, Lcom/android/internal/telephony/CommandsInterface;->reportSmsMemoryStatus(ZLandroid/os/Message;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 101
     nop
 
-    :pswitch_data_60
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_a
-        :pswitch_34
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public isStorageAvailable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 147

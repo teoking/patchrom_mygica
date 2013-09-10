@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/CalendarView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,21 +35,23 @@
 
 # virtual methods
 .method public onChanged()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 1011
     iget-object v1, p0, Landroid/widget/CalendarView$1;->this$0:Landroid/widget/CalendarView;
 
+    #getter for: Landroid/widget/CalendarView;->mOnDateChangeListener:Landroid/widget/CalendarView$OnDateChangeListener;
     invoke-static {v1}, Landroid/widget/CalendarView;->access$600(Landroid/widget/CalendarView;)Landroid/widget/CalendarView$OnDateChangeListener;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2c
+    if-eqz v1, :cond_0
 
     .line 1012
     iget-object v1, p0, Landroid/widget/CalendarView$1;->this$0:Landroid/widget/CalendarView;
 
+    #getter for: Landroid/widget/CalendarView;->mAdapter:Landroid/widget/CalendarView$WeeksAdapter;
     invoke-static {v1}, Landroid/widget/CalendarView;->access$700(Landroid/widget/CalendarView;)Landroid/widget/CalendarView$WeeksAdapter;
 
     move-result-object v1
@@ -62,6 +64,7 @@
     .local v0, selectedDay:Ljava/util/Calendar;
     iget-object v1, p0, Landroid/widget/CalendarView$1;->this$0:Landroid/widget/CalendarView;
 
+    #getter for: Landroid/widget/CalendarView;->mOnDateChangeListener:Landroid/widget/CalendarView$OnDateChangeListener;
     invoke-static {v1}, Landroid/widget/CalendarView;->access$600(Landroid/widget/CalendarView;)Landroid/widget/CalendarView$OnDateChangeListener;
 
     move-result-object v1
@@ -90,6 +93,6 @@
 
     .line 1018
     .end local v0           #selectedDay:Ljava/util/Calendar;
-    :cond_2c
+    :cond_0
     return-void
 .end method

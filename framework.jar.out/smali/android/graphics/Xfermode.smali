@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 31
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -37,8 +37,8 @@
     iget v0, p0, Landroid/graphics/Xfermode;->native_instance:I
 
     invoke-static {v0}, Landroid/graphics/Xfermode;->finalizer(I)V
-    :try_end_5
-    .catchall {:try_start_0 .. :try_end_5} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 37
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -47,7 +47,7 @@
     return-void
 
     .line 37
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V

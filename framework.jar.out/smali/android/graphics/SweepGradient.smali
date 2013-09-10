@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(FFII)V
-    .registers 6
+    .locals 1
     .parameter "cx"
     .parameter "cy"
     .parameter "color0"
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>(FF[I[F)V
-    .registers 7
+    .locals 2
     .parameter "cx"
     .parameter "cy"
     .parameter "colors"
@@ -51,7 +51,7 @@
 
     const/4 v1, 0x2
 
-    if-ge v0, v1, :cond_10
+    if-ge v0, v1, :cond_0
 
     .line 38
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -63,14 +63,14 @@
     throw v0
 
     .line 40
-    :cond_10
-    if-eqz p4, :cond_1e
+    :cond_0
+    if-eqz p4, :cond_1
 
     array-length v0, p3
 
     array-length v1, p4
 
-    if-eq v0, v1, :cond_1e
+    if-eq v0, v1, :cond_1
 
     .line 41
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -82,7 +82,7 @@
     throw v0
 
     .line 44
-    :cond_1e
+    :cond_1
     invoke-static {p1, p2, p3, p4}, Landroid/graphics/SweepGradient;->nativeCreate1(FF[I[F)I
 
     move-result v0

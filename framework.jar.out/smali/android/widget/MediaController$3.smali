@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/MediaController;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,32 +35,33 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
     .line 381
     iget v1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v1, :pswitch_data_3c
+    packed-switch v1, :pswitch_data_0
 
     .line 393
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return-void
 
     .line 383
-    :pswitch_6
+    :pswitch_0
     iget-object v1, p0, Landroid/widget/MediaController$3;->this$0:Landroid/widget/MediaController;
 
     invoke-virtual {v1}, Landroid/widget/MediaController;->hide()V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 386
-    :pswitch_c
+    :pswitch_1
     iget-object v1, p0, Landroid/widget/MediaController$3;->this$0:Landroid/widget/MediaController;
 
+    #calls: Landroid/widget/MediaController;->setProgress()I
     invoke-static {v1}, Landroid/widget/MediaController;->access$500(Landroid/widget/MediaController;)I
 
     move-result v0
@@ -69,22 +70,25 @@
     .local v0, pos:I
     iget-object v1, p0, Landroid/widget/MediaController$3;->this$0:Landroid/widget/MediaController;
 
+    #getter for: Landroid/widget/MediaController;->mDragging:Z
     invoke-static {v1}, Landroid/widget/MediaController;->access$600(Landroid/widget/MediaController;)Z
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_0
 
     iget-object v1, p0, Landroid/widget/MediaController$3;->this$0:Landroid/widget/MediaController;
 
+    #getter for: Landroid/widget/MediaController;->mShowing:Z
     invoke-static {v1}, Landroid/widget/MediaController;->access$100(Landroid/widget/MediaController;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/widget/MediaController$3;->this$0:Landroid/widget/MediaController;
 
+    #getter for: Landroid/widget/MediaController;->mPlayer:Landroid/widget/MediaController$MediaPlayerControl;
     invoke-static {v1}, Landroid/widget/MediaController;->access$700(Landroid/widget/MediaController;)Landroid/widget/MediaController$MediaPlayerControl;
 
     move-result-object v1
@@ -93,7 +97,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_0
 
     .line 388
     const/4 v1, 0x2
@@ -111,12 +115,12 @@
 
     invoke-virtual {p0, p1, v1, v2}, Landroid/widget/MediaController$3;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    goto :goto_5
+    goto :goto_0
 
     .line 381
-    :pswitch_data_3c
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_c
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

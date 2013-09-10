@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .registers 9
+    .locals 7
     .parameter "code"
 
     .prologue
@@ -67,8 +67,8 @@
     const/4 v2, 0x0
 
     .local v2, tableOffset:I
-    :goto_1a
-    if-gt v0, v1, :cond_2e
+    :goto_0
+    if-gt v0, v1, :cond_1
 
     .line 1015
     invoke-static {}, Lcom/android/internal/telephony/GsmAlphabet;->access$100()[I
@@ -77,30 +77,30 @@
 
     aget v3, v3, v2
 
-    if-ne v3, v0, :cond_29
+    if-ne v3, v0, :cond_0
 
     .line 1016
     add-int/lit8 v2, v2, 0x1
 
     .line 1014
-    :goto_26
+    :goto_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 1018
-    :cond_29
+    :cond_0
     iget-object v3, p0, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
 
     aput v4, v3, v0
 
-    goto :goto_26
+    goto :goto_1
 
     .line 1024
-    :cond_2e
-    if-ne p1, v5, :cond_37
+    :cond_1
+    if-ne p1, v5, :cond_3
 
-    if-lt v1, v5, :cond_37
+    if-lt v1, v5, :cond_3
 
     .line 1025
     iget-object v3, p0, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
@@ -108,22 +108,22 @@
     aput v4, v3, v5
 
     .line 1029
-    :cond_36
-    :goto_36
+    :cond_2
+    :goto_2
     return-void
 
     .line 1026
-    :cond_37
+    :cond_3
     const/4 v3, 0x3
 
-    if-ne p1, v3, :cond_36
+    if-ne p1, v3, :cond_2
 
-    if-lt v1, v6, :cond_36
+    if-lt v1, v6, :cond_2
 
     .line 1027
     iget-object v3, p0, Lcom/android/internal/telephony/GsmAlphabet$LanguagePairCount;->septetCounts:[I
 
     aput v4, v3, v6
 
-    goto :goto_36
+    goto :goto_2
 .end method

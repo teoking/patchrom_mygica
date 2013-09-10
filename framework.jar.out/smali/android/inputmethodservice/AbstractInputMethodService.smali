@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 44
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "fd"
     .parameter "fout"
     .parameter "args"
@@ -54,7 +54,7 @@
 .end method
 
 .method public getKeyDispatcherState()Landroid/view/KeyEvent$DispatcherState;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 161
@@ -64,14 +64,14 @@
 .end method
 
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .registers 4
+    .locals 2
     .parameter "intent"
 
     .prologue
     .line 186
     iget-object v0, p0, Landroid/inputmethodservice/AbstractInputMethodService;->mInputMethod:Landroid/view/inputmethod/InputMethod;
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     .line 187
     invoke-virtual {p0}, Landroid/inputmethodservice/AbstractInputMethodService;->onCreateInputMethodInterface()Landroid/inputmethodservice/AbstractInputMethodService$AbstractInputMethodImpl;
@@ -81,7 +81,7 @@
     iput-object v0, p0, Landroid/inputmethodservice/AbstractInputMethodService;->mInputMethod:Landroid/view/inputmethod/InputMethod;
 
     .line 189
-    :cond_a
+    :cond_0
     new-instance v0, Landroid/inputmethodservice/IInputMethodWrapper;
 
     iget-object v1, p0, Landroid/inputmethodservice/AbstractInputMethodService;->mInputMethod:Landroid/view/inputmethod/InputMethod;
@@ -98,7 +98,7 @@
 .end method
 
 .method public onTrackballEvent(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue

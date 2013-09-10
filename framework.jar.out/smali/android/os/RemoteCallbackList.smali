@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 49
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public beginBroadcast()I
-    .registers 10
+    .locals 9
 
     .prologue
     .line 227
@@ -83,10 +83,10 @@
     monitor-enter v7
 
     .line 228
-    :try_start_3
+    :try_start_0
     iget v6, p0, Landroid/os/RemoteCallbackList;->mBroadcastCount:I
 
-    if-lez v6, :cond_12
+    if-lez v6, :cond_0
 
     .line 229
     new-instance v6, Ljava/lang/IllegalStateException;
@@ -98,18 +98,18 @@
     throw v6
 
     .line 246
-    :catchall_f
+    :catchall_0
     move-exception v6
 
     monitor-exit v7
-    :try_end_11
-    .catchall {:try_start_3 .. :try_end_11} :catchall_f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v6
 
     .line 233
-    :cond_12
-    :try_start_12
+    :cond_0
+    :try_start_1
     iget-object v6, p0, Landroid/os/RemoteCallbackList;->mCallbacks:Ljava/util/HashMap;
 
     invoke-virtual {v6}, Ljava/util/HashMap;->size()I
@@ -120,7 +120,7 @@
 
     .line 234
     .local v0, N:I
-    if-gtz v0, :cond_1f
+    if-gtz v0, :cond_1
 
     .line 235
     const/4 v4, 0x0
@@ -128,29 +128,29 @@
     monitor-exit v7
 
     .line 245
-    :goto_1e
+    :goto_0
     return v4
 
     .line 237
-    :cond_1f
+    :cond_1
     iget-object v1, p0, Landroid/os/RemoteCallbackList;->mActiveBroadcast:[Ljava/lang/Object;
 
     .line 238
     .local v1, active:[Ljava/lang/Object;
-    if-eqz v1, :cond_26
+    if-eqz v1, :cond_2
 
     array-length v6, v1
 
-    if-ge v6, v0, :cond_2a
+    if-ge v6, v0, :cond_3
 
     .line 239
-    :cond_26
+    :cond_2
     new-array v1, v0, [Ljava/lang/Object;
 
     iput-object v1, p0, Landroid/os/RemoteCallbackList;->mActiveBroadcast:[Ljava/lang/Object;
 
     .line 241
-    :cond_2a
+    :cond_3
     const/4 v3, 0x0
 
     .line 242
@@ -170,12 +170,12 @@
 
     .end local v3           #i:I
     .local v4, i:I
-    :goto_36
+    :goto_1
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_48
+    if-eqz v6, :cond_4
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -195,27 +195,27 @@
 
     .end local v3           #i:I
     .restart local v4       #i:I
-    goto :goto_36
+    goto :goto_1
 
     .line 245
     .end local v2           #cb:Landroid/os/RemoteCallbackList$Callback;,"Landroid/os/RemoteCallbackList<TE;>.Callback;"
-    :cond_48
+    :cond_4
     monitor-exit v7
-    :try_end_49
-    .catchall {:try_start_12 .. :try_end_49} :catchall_f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1e
+    goto :goto_0
 .end method
 
 .method public finishBroadcast()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 292
     .local p0, this:Landroid/os/RemoteCallbackList;,"Landroid/os/RemoteCallbackList<TE;>;"
     iget v3, p0, Landroid/os/RemoteCallbackList;->mBroadcastCount:I
 
-    if-gez v3, :cond_c
+    if-gez v3, :cond_0
 
     .line 293
     new-instance v3, Ljava/lang/IllegalStateException;
@@ -227,12 +227,12 @@
     throw v3
 
     .line 297
-    :cond_c
+    :cond_0
     iget-object v1, p0, Landroid/os/RemoteCallbackList;->mActiveBroadcast:[Ljava/lang/Object;
 
     .line 298
     .local v1, active:[Ljava/lang/Object;
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_1
 
     .line 299
     iget v0, p0, Landroid/os/RemoteCallbackList;->mBroadcastCount:I
@@ -242,8 +242,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_13
-    if-ge v2, v0, :cond_1b
+    :goto_0
+    if-ge v2, v0, :cond_1
 
     .line 301
     const/4 v3, 0x0
@@ -253,12 +253,12 @@
     .line 300
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_13
+    goto :goto_0
 
     .line 305
     .end local v0           #N:I
     .end local v2           #i:I
-    :cond_1b
+    :cond_1
     const/4 v3, -0x1
 
     iput v3, p0, Landroid/os/RemoteCallbackList;->mBroadcastCount:I
@@ -268,7 +268,7 @@
 .end method
 
 .method public getBroadcastCookie(I)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -286,7 +286,7 @@
 .end method
 
 .method public getBroadcastItem(I)Landroid/os/IInterface;
-    .registers 3
+    .locals 1
     .parameter "index"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -309,7 +309,7 @@
 .end method
 
 .method public kill()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 161
@@ -319,7 +319,7 @@
     monitor-enter v3
 
     .line 162
-    :try_start_3
+    :try_start_0
     iget-object v2, p0, Landroid/os/RemoteCallbackList;->mCallbacks:Ljava/util/HashMap;
 
     invoke-virtual {v2}, Ljava/util/HashMap;->values()Ljava/util/Collection;
@@ -331,12 +331,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_d
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_27
+    if-eqz v2, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -356,24 +356,24 @@
 
     invoke-interface {v2, v0, v4}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    goto :goto_d
+    goto :goto_0
 
     .line 167
     .end local v0           #cb:Landroid/os/RemoteCallbackList$Callback;,"Landroid/os/RemoteCallbackList<TE;>.Callback;"
     .end local v1           #i$:Ljava/util/Iterator;
-    :catchall_24
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_26
-    .catchall {:try_start_3 .. :try_end_26} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 
     .line 165
     .restart local v1       #i$:Ljava/util/Iterator;
-    :cond_27
-    :try_start_27
+    :cond_0
+    :try_start_1
     iget-object v2, p0, Landroid/os/RemoteCallbackList;->mCallbacks:Ljava/util/HashMap;
 
     invoke-virtual {v2}, Ljava/util/HashMap;->clear()V
@@ -385,15 +385,15 @@
 
     .line 167
     monitor-exit v3
-    :try_end_30
-    .catchall {:try_start_27 .. :try_end_30} :catchall_24
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 168
     return-void
 .end method
 
 .method public onCallbackDied(Landroid/os/IInterface;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -409,7 +409,7 @@
 .end method
 
 .method public onCallbackDied(Landroid/os/IInterface;Ljava/lang/Object;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "cookie"
     .annotation system Ldalvik/annotation/Signature;
@@ -431,7 +431,7 @@
 .end method
 
 .method public register(Landroid/os/IInterface;)Z
-    .registers 3
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -453,7 +453,7 @@
 .end method
 
 .method public register(Landroid/os/IInterface;Ljava/lang/Object;)Z
-    .registers 9
+    .locals 6
     .parameter
     .parameter "cookie"
     .annotation system Ldalvik/annotation/Signature;
@@ -475,29 +475,29 @@
     monitor-enter v4
 
     .line 109
-    :try_start_4
+    :try_start_0
     iget-boolean v5, p0, Landroid/os/RemoteCallbackList;->mKilled:Z
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_0
 
     .line 110
     monitor-exit v4
 
     .line 119
-    :goto_9
+    :goto_0
     return v3
 
     .line 112
-    :cond_a
+    :cond_0
     invoke-interface {p1}, Landroid/os/IInterface;->asBinder()Landroid/os/IBinder;
-    :try_end_d
-    .catchall {:try_start_4 .. :try_end_d} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
     .line 114
     .local v0, binder:Landroid/os/IBinder;
-    :try_start_e
+    :try_start_1
     new-instance v1, Landroid/os/RemoteCallbackList$Callback;
 
     invoke-direct {v1, p0, p1, p2}, Landroid/os/RemoteCallbackList$Callback;-><init>(Landroid/os/RemoteCallbackList;Landroid/os/IInterface;Ljava/lang/Object;)V
@@ -512,47 +512,47 @@
     iget-object v5, p0, Landroid/os/RemoteCallbackList;->mCallbacks:Ljava/util/HashMap;
 
     invoke-virtual {v5, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1c
-    .catchall {:try_start_e .. :try_end_1c} :catchall_1f
-    .catch Landroid/os/RemoteException; {:try_start_e .. :try_end_1c} :catch_22
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 117
     const/4 v3, 0x1
 
-    :try_start_1d
+    :try_start_2
     monitor-exit v4
 
-    goto :goto_9
+    goto :goto_0
 
     .line 121
     .end local v0           #binder:Landroid/os/IBinder;
     .end local v1           #cb:Landroid/os/RemoteCallbackList$Callback;,"Landroid/os/RemoteCallbackList<TE;>.Callback;"
-    :catchall_1f
+    :catchall_0
     move-exception v3
 
     monitor-exit v4
-    :try_end_21
-    .catchall {:try_start_1d .. :try_end_21} :catchall_1f
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v3
 
     .line 118
     .restart local v0       #binder:Landroid/os/IBinder;
-    :catch_22
+    :catch_0
     move-exception v2
 
     .line 119
     .local v2, e:Landroid/os/RemoteException;
-    :try_start_23
+    :try_start_3
     monitor-exit v4
-    :try_end_24
-    .catchall {:try_start_23 .. :try_end_24} :catchall_1f
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public unregister(Landroid/os/IInterface;)Z
-    .registers 7
+    .locals 5
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -571,7 +571,7 @@
     monitor-enter v2
 
     .line 143
-    :try_start_4
+    :try_start_0
     iget-object v3, p0, Landroid/os/RemoteCallbackList;->mCallbacks:Ljava/util/HashMap;
 
     invoke-interface {p1}, Landroid/os/IInterface;->asBinder()Landroid/os/IBinder;
@@ -586,7 +586,7 @@
 
     .line 144
     .local v0, cb:Landroid/os/RemoteCallbackList$Callback;,"Landroid/os/RemoteCallbackList<TE;>.Callback;"
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_0
 
     .line 145
     iget-object v1, v0, Landroid/os/RemoteCallbackList$Callback;->mCallback:Landroid/os/IInterface;
@@ -605,22 +605,22 @@
     monitor-exit v2
 
     .line 148
-    :goto_1e
+    :goto_0
     return v1
 
-    :cond_1f
+    :cond_0
     monitor-exit v2
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 149
     .end local v0           #cb:Landroid/os/RemoteCallbackList$Callback;,"Landroid/os/RemoteCallbackList<TE;>.Callback;"
-    :catchall_21
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_23
-    .catchall {:try_start_4 .. :try_end_23} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method

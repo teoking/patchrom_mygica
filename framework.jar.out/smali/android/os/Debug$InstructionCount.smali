@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1005
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1010
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public collect()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1036
@@ -69,28 +69,28 @@
     iget-object v1, p0, Landroid/os/Debug$InstructionCount;->mCounts:[I
 
     invoke-static {v1}, Ldalvik/system/VMDebug;->getInstructionCount([I)V
-    :try_end_8
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_8} :catch_a
+    :try_end_0
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1041
     const/4 v1, 0x1
 
-    :goto_9
+    :goto_0
     return v1
 
     .line 1038
-    :catch_a
+    :catch_0
     move-exception v0
 
     .line 1039
     .local v0, uoe:Ljava/lang/UnsupportedOperationException;
     const/4 v1, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public globalMethodInvocations()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1063
@@ -101,17 +101,17 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_2
+    :goto_0
     sget v2, Landroid/os/Debug$InstructionCount;->NUM_INSTR:I
 
-    if-ge v1, v2, :cond_14
+    if-ge v1, v2, :cond_1
 
     .line 1066
     invoke-static {v1}, Ldalvik/bytecode/OpcodeInfo;->isInvoke(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_0
 
     .line 1067
     iget-object v2, p0, Landroid/os/Debug$InstructionCount;->mCounts:[I
@@ -121,18 +121,18 @@
     add-int/2addr v0, v2
 
     .line 1065
-    :cond_11
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 1071
-    :cond_14
+    :cond_1
     return v0
 .end method
 
 .method public globalTotal()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1049
@@ -143,10 +143,10 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_2
+    :goto_0
     sget v2, Landroid/os/Debug$InstructionCount;->NUM_INSTR:I
 
-    if-ge v1, v2, :cond_e
+    if-ge v1, v2, :cond_0
 
     .line 1052
     iget-object v2, p0, Landroid/os/Debug$InstructionCount;->mCounts:[I
@@ -158,15 +158,15 @@
     .line 1051
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 1055
-    :cond_e
+    :cond_0
     return v0
 .end method
 
 .method public resetAndStart()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1022
@@ -175,22 +175,22 @@
 
     .line 1023
     invoke-static {}, Ldalvik/system/VMDebug;->resetInstructionCount()V
-    :try_end_6
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_6} :catch_8
+    :try_end_0
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1027
     const/4 v1, 0x1
 
-    :goto_7
+    :goto_0
     return v1
 
     .line 1024
-    :catch_8
+    :catch_0
     move-exception v0
 
     .line 1025
     .local v0, uoe:Ljava/lang/UnsupportedOperationException;
     const/4 v1, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method

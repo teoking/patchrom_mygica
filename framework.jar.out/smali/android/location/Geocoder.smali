@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/util/Locale;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "locale"
 
@@ -40,7 +40,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 80
-    if-nez p2, :cond_d
+    if-nez p2, :cond_0
 
     .line 81
     new-instance v1, Ljava/lang/NullPointerException;
@@ -52,7 +52,7 @@
     throw v1
 
     .line 83
-    :cond_d
+    :cond_0
     new-instance v1, Landroid/location/GeocoderParams;
 
     invoke-direct {v1, p1, p2}, Landroid/location/GeocoderParams;-><init>(Landroid/content/Context;Ljava/util/Locale;)V
@@ -79,7 +79,7 @@
 .end method
 
 .method public static isPresent()Z
-    .registers 5
+    .locals 5
 
     .prologue
     .line 60
@@ -97,19 +97,19 @@
 
     .line 63
     .local v2, lm:Landroid/location/ILocationManager;
-    :try_start_a
+    :try_start_0
     invoke-interface {v2}, Landroid/location/ILocationManager;->geocoderIsPresent()Z
-    :try_end_d
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_d} :catch_f
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v3
 
     .line 66
-    :goto_e
+    :goto_0
     return v3
 
     .line 64
-    :catch_f
+    :catch_0
     move-exception v1
 
     .line 65
@@ -123,13 +123,13 @@
     .line 66
     const/4 v3, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getFromLocation(DDI)Ljava/util/List;
-    .registers 16
+    .locals 10
     .parameter "latitude"
     .parameter "longitude"
     .parameter "maxResults"
@@ -155,16 +155,16 @@
 
     cmpg-double v0, p1, v0
 
-    if-ltz v0, :cond_12
+    if-ltz v0, :cond_0
 
     const-wide v0, 0x4056800000000000L
 
     cmpl-double v0, p1, v0
 
-    if-lez v0, :cond_2b
+    if-lez v0, :cond_1
 
     .line 126
-    :cond_12
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -190,21 +190,21 @@
     throw v0
 
     .line 128
-    :cond_2b
+    :cond_1
     const-wide v0, -0x3f99800000000000L
 
     cmpg-double v0, p3, v0
 
-    if-ltz v0, :cond_3d
+    if-ltz v0, :cond_2
 
     const-wide v0, 0x4066800000000000L
 
     cmpl-double v0, p3, v0
 
-    if-lez v0, :cond_56
+    if-lez v0, :cond_3
 
     .line 129
-    :cond_3d
+    :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -230,8 +230,8 @@
     throw v0
 
     .line 132
-    :cond_56
-    :try_start_56
+    :cond_3
+    :try_start_0
     new-instance v7, Ljava/util/ArrayList;
 
     invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
@@ -254,7 +254,7 @@
 
     .line 135
     .local v9, ex:Ljava/lang/String;
-    if-eqz v9, :cond_77
+    if-eqz v9, :cond_4
 
     .line 136
     new-instance v0, Ljava/io/IOException;
@@ -262,13 +262,13 @@
     invoke-direct {v0, v9}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_6e
-    .catch Landroid/os/RemoteException; {:try_start_56 .. :try_end_6e} :catch_6e
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 140
     .end local v7           #results:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
     .end local v9           #ex:Ljava/lang/String;
-    :catch_6e
+    :catch_0
     move-exception v8
 
     .line 141
@@ -283,12 +283,12 @@
     const/4 v7, 0x0
 
     .end local v8           #e:Landroid/os/RemoteException;
-    :cond_77
+    :cond_4
     return-object v7
 .end method
 
 .method public getFromLocationName(Ljava/lang/String;I)Ljava/util/List;
-    .registers 18
+    .locals 15
     .parameter "locationName"
     .parameter "maxResults"
     .annotation system Ldalvik/annotation/Signature;
@@ -311,7 +311,7 @@
 
     .prologue
     .line 170
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 171
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -323,8 +323,8 @@
     throw v0
 
     .line 174
-    :cond_a
-    :try_start_a
+    :cond_0
+    :try_start_0
     new-instance v12, Ljava/util/ArrayList;
 
     invoke-direct {v12}, Ljava/util/ArrayList;-><init>()V
@@ -353,7 +353,7 @@
 
     .line 177
     .local v14, ex:Ljava/lang/String;
-    if-eqz v14, :cond_34
+    if-eqz v14, :cond_1
 
     .line 178
     new-instance v0, Ljava/io/IOException;
@@ -361,13 +361,13 @@
     invoke-direct {v0, v14}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_2b
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_2b} :catch_2b
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 182
     .end local v12           #results:Ljava/util/List;,"Ljava/util/List<Landroid/location/Address;>;"
     .end local v14           #ex:Ljava/lang/String;
-    :catch_2b
+    :catch_0
     move-exception v13
 
     .line 183
@@ -382,12 +382,12 @@
     const/4 v12, 0x0
 
     .end local v13           #e:Landroid/os/RemoteException;
-    :cond_34
+    :cond_1
     return-object v12
 .end method
 
 .method public getFromLocationName(Ljava/lang/String;IDDDD)Ljava/util/List;
-    .registers 28
+    .locals 17
     .parameter "locationName"
     .parameter "maxResults"
     .parameter "lowerLeftLatitude"
@@ -414,7 +414,7 @@
 
     .prologue
     .line 226
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 227
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -426,21 +426,21 @@
     throw v2
 
     .line 229
-    :cond_a
+    :cond_0
     const-wide v2, -0x3fa9800000000000L
 
     cmpg-double v2, p3, v2
 
-    if-ltz v2, :cond_1c
+    if-ltz v2, :cond_1
 
     const-wide v2, 0x4056800000000000L
 
     cmpl-double v2, p3, v2
 
-    if-lez v2, :cond_37
+    if-lez v2, :cond_2
 
     .line 230
-    :cond_1c
+    :cond_1
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -468,21 +468,21 @@
     throw v2
 
     .line 233
-    :cond_37
+    :cond_2
     const-wide v2, -0x3f99800000000000L
 
     cmpg-double v2, p5, v2
 
-    if-ltz v2, :cond_49
+    if-ltz v2, :cond_3
 
     const-wide v2, 0x4066800000000000L
 
     cmpl-double v2, p5, v2
 
-    if-lez v2, :cond_64
+    if-lez v2, :cond_4
 
     .line 234
-    :cond_49
+    :cond_3
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -510,21 +510,21 @@
     throw v2
 
     .line 237
-    :cond_64
+    :cond_4
     const-wide v2, -0x3fa9800000000000L
 
     cmpg-double v2, p7, v2
 
-    if-ltz v2, :cond_76
+    if-ltz v2, :cond_5
 
     const-wide v2, 0x4056800000000000L
 
     cmpl-double v2, p7, v2
 
-    if-lez v2, :cond_92
+    if-lez v2, :cond_6
 
     .line 238
-    :cond_76
+    :cond_5
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -552,21 +552,21 @@
     throw v2
 
     .line 241
-    :cond_92
+    :cond_6
     const-wide v2, -0x3f99800000000000L
 
     cmpg-double v2, p9, v2
 
-    if-ltz v2, :cond_a4
+    if-ltz v2, :cond_7
 
     const-wide v2, 0x4066800000000000L
 
     cmpl-double v2, p9, v2
 
-    if-lez v2, :cond_c0
+    if-lez v2, :cond_8
 
     .line 242
-    :cond_a4
+    :cond_7
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -594,8 +594,8 @@
     throw v2
 
     .line 246
-    :cond_c0
-    :try_start_c0
+    :cond_8
+    :try_start_0
     new-instance v14, Ljava/util/ArrayList;
 
     invoke-direct {v14}, Ljava/util/ArrayList;-><init>()V
@@ -628,7 +628,7 @@
 
     .line 250
     .local v16, ex:Ljava/lang/String;
-    if-eqz v16, :cond_f0
+    if-eqz v16, :cond_9
 
     .line 251
     new-instance v2, Ljava/io/IOException;
@@ -638,13 +638,13 @@
     invoke-direct {v2, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v2
-    :try_end_e7
-    .catch Landroid/os/RemoteException; {:try_start_c0 .. :try_end_e7} :catch_e7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 255
     .end local v14           #result:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/location/Address;>;"
     .end local v16           #ex:Ljava/lang/String;
-    :catch_e7
+    :catch_0
     move-exception v15
 
     .line 256
@@ -659,6 +659,6 @@
     const/4 v14, 0x0
 
     .end local v15           #e:Landroid/os/RemoteException;
-    :cond_f0
+    :cond_9
     return-object v14
 .end method

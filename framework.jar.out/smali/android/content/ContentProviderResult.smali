@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 67
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "count"
 
     .prologue
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Landroid/net/Uri;)V
-    .registers 4
+    .locals 2
     .parameter "uri"
 
     .prologue
@@ -73,7 +73,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 32
-    if-nez p1, :cond_e
+    if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -84,7 +84,7 @@
     throw v0
 
     .line 33
-    :cond_e
+    :cond_0
     iput-object p1, p0, Landroid/content/ContentProviderResult;->uri:Landroid/net/Uri;
 
     .line 34
@@ -97,7 +97,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 5
+    .locals 3
     .parameter "source"
 
     .prologue
@@ -115,7 +115,7 @@
     .local v0, type:I
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_18
+    if-ne v0, v1, :cond_0
 
     .line 45
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -132,11 +132,11 @@
     iput-object v2, p0, Landroid/content/ContentProviderResult;->uri:Landroid/net/Uri;
 
     .line 51
-    :goto_17
+    :goto_0
     return-void
 
     .line 48
-    :cond_18
+    :cond_0
     iput-object v2, p0, Landroid/content/ContentProviderResult;->count:Ljava/lang/Integer;
 
     .line 49
@@ -150,13 +150,13 @@
 
     iput-object v1, p0, Landroid/content/ContentProviderResult;->uri:Landroid/net/Uri;
 
-    goto :goto_17
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 64
@@ -166,13 +166,13 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 79
     iget-object v0, p0, Landroid/content/ContentProviderResult;->uri:Landroid/net/Uri;
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_0
 
     .line 80
     new-instance v0, Ljava/lang/StringBuilder;
@@ -206,10 +206,10 @@
     move-result-object v0
 
     .line 82
-    :goto_23
+    :goto_0
     return-object v0
 
-    :cond_24
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -236,11 +236,11 @@
 
     move-result-object v0
 
-    goto :goto_23
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 
@@ -248,7 +248,7 @@
     .line 54
     iget-object v0, p0, Landroid/content/ContentProviderResult;->uri:Landroid/net/Uri;
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 55
     const/4 v0, 0x1
@@ -265,11 +265,11 @@
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 61
-    :goto_11
+    :goto_0
     return-void
 
     .line 58
-    :cond_12
+    :cond_0
     const/4 v0, 0x2
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
@@ -281,5 +281,5 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_11
+    goto :goto_0
 .end method

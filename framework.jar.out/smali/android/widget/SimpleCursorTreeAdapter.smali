@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/database/Cursor;II[Ljava/lang/String;[III[Ljava/lang/String;[I)V
-    .registers 20
+    .locals 9
     .parameter "context"
     .parameter "cursor"
     .parameter "collapsedGroupLayout"
@@ -71,7 +71,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/database/Cursor;II[Ljava/lang/String;[II[Ljava/lang/String;[I)V
-    .registers 16
+    .locals 6
     .parameter "context"
     .parameter "cursor"
     .parameter "collapsedGroupLayout"
@@ -106,7 +106,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/database/Cursor;I[Ljava/lang/String;[II[Ljava/lang/String;[I)V
-    .registers 9
+    .locals 0
     .parameter "context"
     .parameter "cursor"
     .parameter "groupLayout"
@@ -128,7 +128,7 @@
 .end method
 
 .method private bindView(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;[I[I)V
-    .registers 13
+    .locals 7
     .parameter "view"
     .parameter "context"
     .parameter "cursor"
@@ -144,10 +144,10 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_3
+    :goto_0
     array-length v5, p5
 
-    if-ge v2, v5, :cond_41
+    if-ge v2, v5, :cond_5
 
     .line 216
     aget v5, p5, v2
@@ -158,14 +158,14 @@
 
     .line 217
     .local v4, v:Landroid/view/View;
-    if-eqz v4, :cond_2c
+    if-eqz v4, :cond_2
 
     .line 218
     const/4 v1, 0x0
 
     .line 219
     .local v1, bound:Z
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 220
     aget v5, p4, v2
@@ -175,8 +175,8 @@
     move-result v1
 
     .line 223
-    :cond_17
-    if-nez v1, :cond_2c
+    :cond_0
+    if-nez v1, :cond_2
 
     .line 224
     aget v5, p4, v2
@@ -187,16 +187,16 @@
 
     .line 225
     .local v3, text:Ljava/lang/String;
-    if-nez v3, :cond_23
+    if-nez v3, :cond_1
 
     .line 226
     const-string v3, ""
 
     .line 228
-    :cond_23
+    :cond_1
     instance-of v5, v4, Landroid/widget/TextView;
 
-    if-eqz v5, :cond_2f
+    if-eqz v5, :cond_3
 
     .line 229
     check-cast v4, Landroid/widget/TextView;
@@ -207,20 +207,20 @@
     .line 215
     .end local v1           #bound:Z
     .end local v3           #text:Ljava/lang/String;
-    :cond_2c
-    :goto_2c
+    :cond_2
+    :goto_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 230
     .restart local v1       #bound:Z
     .restart local v3       #text:Ljava/lang/String;
     .restart local v4       #v:Landroid/view/View;
-    :cond_2f
+    :cond_3
     instance-of v5, v4, Landroid/widget/ImageView;
 
-    if-eqz v5, :cond_39
+    if-eqz v5, :cond_4
 
     .line 231
     check-cast v4, Landroid/widget/ImageView;
@@ -228,11 +228,11 @@
     .end local v4           #v:Landroid/view/View;
     invoke-virtual {p0, v4, v3}, Landroid/widget/SimpleCursorTreeAdapter;->setViewImage(Landroid/widget/ImageView;Ljava/lang/String;)V
 
-    goto :goto_2c
+    goto :goto_1
 
     .line 233
     .restart local v4       #v:Landroid/view/View;
-    :cond_39
+    :cond_4
     new-instance v5, Ljava/lang/IllegalStateException;
 
     const-string v6, "SimpleCursorTreeAdapter can bind values only to TextView and ImageView!"
@@ -245,12 +245,12 @@
     .end local v1           #bound:Z
     .end local v3           #text:Ljava/lang/String;
     .end local v4           #v:Landroid/view/View;
-    :cond_41
+    :cond_5
     return-void
 .end method
 
 .method private init([Ljava/lang/String;[I[Ljava/lang/String;[I)V
-    .registers 5
+    .locals 0
     .parameter "groupFromNames"
     .parameter "groupTo"
     .parameter "childFromNames"
@@ -274,7 +274,7 @@
 .end method
 
 .method private initFromColumns(Landroid/database/Cursor;[Ljava/lang/String;[I)V
-    .registers 6
+    .locals 2
     .parameter "cursor"
     .parameter "fromColumnNames"
     .parameter "fromColumns"
@@ -286,8 +286,8 @@
     add-int/lit8 v0, v1, -0x1
 
     .local v0, i:I
-    :goto_3
-    if-ltz v0, :cond_10
+    :goto_0
+    if-ltz v0, :cond_0
 
     .line 243
     aget-object v1, p2, v0
@@ -301,17 +301,17 @@
     .line 242
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 245
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method protected bindChildView(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;Z)V
-    .registers 11
+    .locals 6
     .parameter "view"
     .parameter "context"
     .parameter "cursor"
@@ -321,7 +321,7 @@
     .line 249
     iget-object v0, p0, Landroid/widget/SimpleCursorTreeAdapter;->mChildFrom:[I
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 250
     iget-object v0, p0, Landroid/widget/SimpleCursorTreeAdapter;->mChildFromNames:[Ljava/lang/String;
@@ -340,7 +340,7 @@
     invoke-direct {p0, p3, v0, v1}, Landroid/widget/SimpleCursorTreeAdapter;->initFromColumns(Landroid/database/Cursor;[Ljava/lang/String;[I)V
 
     .line 254
-    :cond_12
+    :cond_0
     iget-object v4, p0, Landroid/widget/SimpleCursorTreeAdapter;->mChildFrom:[I
 
     iget-object v5, p0, Landroid/widget/SimpleCursorTreeAdapter;->mChildTo:[I
@@ -360,7 +360,7 @@
 .end method
 
 .method protected bindGroupView(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;Z)V
-    .registers 11
+    .locals 6
     .parameter "view"
     .parameter "context"
     .parameter "cursor"
@@ -370,7 +370,7 @@
     .line 259
     iget-object v0, p0, Landroid/widget/SimpleCursorTreeAdapter;->mGroupFrom:[I
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 260
     iget-object v0, p0, Landroid/widget/SimpleCursorTreeAdapter;->mGroupFromNames:[Ljava/lang/String;
@@ -389,7 +389,7 @@
     invoke-direct {p0, p3, v0, v1}, Landroid/widget/SimpleCursorTreeAdapter;->initFromColumns(Landroid/database/Cursor;[Ljava/lang/String;[I)V
 
     .line 264
-    :cond_12
+    :cond_0
     iget-object v4, p0, Landroid/widget/SimpleCursorTreeAdapter;->mGroupFrom:[I
 
     iget-object v5, p0, Landroid/widget/SimpleCursorTreeAdapter;->mGroupTo:[I
@@ -409,7 +409,7 @@
 .end method
 
 .method public getViewBinder()Landroid/widget/SimpleCursorTreeAdapter$ViewBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 197
@@ -419,7 +419,7 @@
 .end method
 
 .method public setViewBinder(Landroid/widget/SimpleCursorTreeAdapter$ViewBinder;)V
-    .registers 2
+    .locals 0
     .parameter "viewBinder"
 
     .prologue
@@ -431,7 +431,7 @@
 .end method
 
 .method protected setViewImage(Landroid/widget/ImageView;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "v"
     .parameter "value"
 
@@ -443,15 +443,15 @@
     move-result v1
 
     invoke-virtual {p1, v1}, Landroid/widget/ImageView;->setImageResource(I)V
-    :try_end_7
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_7} :catch_8
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 281
-    :goto_7
+    :goto_0
     return-void
 
     .line 278
-    :catch_8
+    :catch_0
     move-exception v0
 
     .line 279
@@ -462,11 +462,11 @@
 
     invoke-virtual {p1, v1}, Landroid/widget/ImageView;->setImageURI(Landroid/net/Uri;)V
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setViewText(Landroid/widget/TextView;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "v"
     .parameter "text"
 

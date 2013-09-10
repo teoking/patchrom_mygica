@@ -27,7 +27,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/content/Context;Landroid/content/ServiceConnection;Landroid/security/IKeyChainService;)V
-    .registers 4
+    .locals 0
     .parameter "context"
     .parameter "serviceConnection"
     .parameter "service"
@@ -50,7 +50,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/content/Context;Landroid/content/ServiceConnection;Landroid/security/IKeyChainService;Landroid/security/KeyChain$1;)V
-    .registers 5
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public close()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 398
@@ -81,7 +81,7 @@
 .end method
 
 .method public getService()Landroid/security/IKeyChainService;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 401

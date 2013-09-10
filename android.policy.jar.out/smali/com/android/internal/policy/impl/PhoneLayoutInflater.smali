@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 27
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -47,7 +47,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/view/LayoutInflater;Landroid/content/Context;)V
-    .registers 3
+    .locals 0
     .parameter "original"
     .parameter "newContext"
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public cloneInContext(Landroid/content/Context;)Landroid/view/LayoutInflater;
-    .registers 3
+    .locals 1
     .parameter "newContext"
 
     .prologue
@@ -75,7 +75,7 @@
 .end method
 
 .method protected onCreateView(Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/view/View;
-    .registers 9
+    .locals 6
     .parameter "name"
     .parameter "attrs"
     .annotation system Ldalvik/annotation/Throws;
@@ -95,47 +95,47 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_4
-    if-ge v1, v2, :cond_13
+    :goto_0
+    if-ge v1, v2, :cond_1
 
     aget-object v3, v0, v1
 
     .line 56
     .local v3, prefix:Ljava/lang/String;
-    :try_start_8
+    :try_start_0
     invoke-virtual {p0, p1, v3, p2}, Lcom/android/internal/policy/impl/PhoneLayoutInflater;->createView(Ljava/lang/String;Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/view/View;
-    :try_end_b
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_8 .. :try_end_b} :catch_f
+    :try_end_0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v4
 
     .line 57
     .local v4, view:Landroid/view/View;
-    if-eqz v4, :cond_10
+    if-eqz v4, :cond_0
 
     .line 66
     .end local v3           #prefix:Ljava/lang/String;
     .end local v4           #view:Landroid/view/View;
-    :goto_e
+    :goto_1
     return-object v4
 
     .line 60
     .restart local v3       #prefix:Ljava/lang/String;
-    :catch_f
+    :catch_0
     move-exception v5
 
     .line 54
-    :cond_10
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 66
     .end local v3           #prefix:Ljava/lang/String;
-    :cond_13
+    :cond_1
     invoke-super {p0, p1, p2}, Landroid/view/LayoutInflater;->onCreateView(Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/view/View;
 
     move-result-object v4
 
-    goto :goto_e
+    goto :goto_1
 .end method

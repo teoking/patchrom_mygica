@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager$16;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public sendResult(Landroid/os/Bundle;)V
-    .registers 5
+    .locals 3
     .parameter "data"
 
     .prologue
@@ -63,7 +63,7 @@
     monitor-enter v1
 
     .line 4258
-    :try_start_15
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$16$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$16;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager$16;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -79,12 +79,12 @@
     return-void
 
     .line 4259
-    :catchall_1e
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_20
-    .catchall {:try_start_15 .. :try_end_20} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

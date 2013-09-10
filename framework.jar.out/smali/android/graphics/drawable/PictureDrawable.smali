@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/Picture;)V
-    .registers 2
+    .locals 0
     .parameter "picture"
 
     .prologue
@@ -26,14 +26,14 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .registers 5
+    .locals 3
     .parameter "canvas"
 
     .prologue
     .line 68
     iget-object v1, p0, Landroid/graphics/drawable/PictureDrawable;->mPicture:Landroid/graphics/Picture;
 
-    if-eqz v1, :cond_1f
+    if-eqz v1, :cond_0
 
     .line 69
     invoke-virtual {p0}, Landroid/graphics/drawable/PictureDrawable;->getBounds()Landroid/graphics/Rect;
@@ -68,18 +68,18 @@
 
     .line 76
     .end local v0           #bounds:Landroid/graphics/Rect;
-    :cond_1f
+    :cond_0
     return-void
 .end method
 
 .method public getIntrinsicHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 85
     iget-object v0, p0, Landroid/graphics/drawable/PictureDrawable;->mPicture:Landroid/graphics/Picture;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/graphics/drawable/PictureDrawable;->mPicture:Landroid/graphics/Picture;
 
@@ -87,23 +87,23 @@
 
     move-result v0
 
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, -0x1
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getIntrinsicWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 80
     iget-object v0, p0, Landroid/graphics/drawable/PictureDrawable;->mPicture:Landroid/graphics/Picture;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/graphics/drawable/PictureDrawable;->mPicture:Landroid/graphics/Picture;
 
@@ -111,17 +111,17 @@
 
     move-result v0
 
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, -0x1
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getOpacity()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 91
@@ -131,7 +131,7 @@
 .end method
 
 .method public getPicture()Landroid/graphics/Picture;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 54
@@ -141,7 +141,7 @@
 .end method
 
 .method public setAlpha(I)V
-    .registers 2
+    .locals 0
     .parameter "alpha"
 
     .prologue
@@ -150,7 +150,7 @@
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
-    .registers 2
+    .locals 0
     .parameter "colorFilter"
 
     .prologue
@@ -159,7 +159,7 @@
 .end method
 
 .method public setDither(Z)V
-    .registers 2
+    .locals 0
     .parameter "dither"
 
     .prologue
@@ -168,7 +168,7 @@
 .end method
 
 .method public setFilterBitmap(Z)V
-    .registers 2
+    .locals 0
     .parameter "filter"
 
     .prologue
@@ -177,7 +177,7 @@
 .end method
 
 .method public setPicture(Landroid/graphics/Picture;)V
-    .registers 2
+    .locals 0
     .parameter "picture"
 
     .prologue

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 3702
@@ -49,12 +49,12 @@
     monitor-enter v1
 
     .line 3703
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$12;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotConnection:Landroid/content/ServiceConnection;
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_0
 
     .line 3704
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$12;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -75,19 +75,19 @@
     iput-object v2, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotConnection:Landroid/content/ServiceConnection;
 
     .line 3707
-    :cond_1b
+    :cond_0
     monitor-exit v1
 
     .line 3708
     return-void
 
     .line 3707
-    :catchall_1d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1f
-    .catchall {:try_start_5 .. :try_end_1f} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>([Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "args"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -42,7 +42,7 @@
 .end method
 
 .method private parseArgs([Ljava/lang/String;)V
-    .registers 8
+    .locals 6
     .parameter "args"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -56,10 +56,10 @@
 
     .line 390
     .local v1, curArg:I
-    :goto_1
+    :goto_0
     array-length v3, p1
 
-    if-ge v1, v3, :cond_10
+    if-ge v1, v3, :cond_0
 
     .line 391
     aget-object v0, p1, v1
@@ -72,17 +72,17 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1b
+    if-eqz v3, :cond_1
 
     .line 394
     add-int/lit8 v1, v1, 0x1
 
     .line 401
     .end local v0           #arg:Ljava/lang/String;
-    :cond_10
+    :cond_0
     array-length v3, p1
 
-    if-ne v1, v3, :cond_26
+    if-ne v1, v3, :cond_2
 
     .line 402
     new-instance v3, Ljava/lang/IllegalArgumentException;
@@ -95,23 +95,23 @@
 
     .line 396
     .restart local v0       #arg:Ljava/lang/String;
-    :cond_1b
+    :cond_1
     const-string v3, "--"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_0
 
     .line 390
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 405
     .end local v0           #arg:Ljava/lang/String;
-    :cond_26
+    :cond_2
     add-int/lit8 v2, v1, 0x1
 
     .end local v1           #curArg:I

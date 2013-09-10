@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;[C[C)V
-    .registers 4
+    .locals 0
     .parameter "source"
     .parameter "original"
     .parameter "replacement"
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public charAt(I)C
-    .registers 6
+    .locals 4
     .parameter "i"
 
     .prologue
@@ -75,15 +75,15 @@
     const/4 v1, 0x0
 
     .local v1, j:I
-    :goto_a
-    if-ge v1, v2, :cond_19
+    :goto_0
+    if-ge v1, v2, :cond_1
 
     .line 128
     iget-object v3, p0, Landroid/text/method/ReplacementTransformationMethod$ReplacementCharSequence;->mOriginal:[C
 
     aget-char v3, v3, v1
 
-    if-ne v0, v3, :cond_16
+    if-ne v0, v3, :cond_0
 
     .line 129
     iget-object v3, p0, Landroid/text/method/ReplacementTransformationMethod$ReplacementCharSequence;->mReplacement:[C
@@ -91,18 +91,18 @@
     aget-char v0, v3, v1
 
     .line 127
-    :cond_16
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 133
-    :cond_19
+    :cond_1
     return v0
 .end method
 
 .method public getChars(II[CI)V
-    .registers 11
+    .locals 6
     .parameter "start"
     .parameter "end"
     .parameter "dest"
@@ -130,8 +130,8 @@
     move v1, p4
 
     .local v1, i:I
-    :goto_d
-    if-ge v1, v4, :cond_26
+    :goto_0
+    if-ge v1, v4, :cond_2
 
     .line 156
     aget-char v0, p3, v1
@@ -141,15 +141,15 @@
     const/4 v2, 0x0
 
     .local v2, j:I
-    :goto_12
-    if-ge v2, v3, :cond_23
+    :goto_1
+    if-ge v2, v3, :cond_1
 
     .line 159
     iget-object v5, p0, Landroid/text/method/ReplacementTransformationMethod$ReplacementCharSequence;->mOriginal:[C
 
     aget-char v5, v5, v2
 
-    if-ne v0, v5, :cond_20
+    if-ne v0, v5, :cond_0
 
     .line 160
     iget-object v5, p0, Landroid/text/method/ReplacementTransformationMethod$ReplacementCharSequence;->mReplacement:[C
@@ -159,26 +159,26 @@
     aput-char v5, p3, v1
 
     .line 158
-    :cond_20
+    :cond_0
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_12
+    goto :goto_1
 
     .line 155
-    :cond_23
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_d
+    goto :goto_0
 
     .line 164
     .end local v0           #c:C
     .end local v2           #j:I
-    :cond_26
+    :cond_2
     return-void
 .end method
 
 .method public length()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 120
@@ -192,7 +192,7 @@
 .end method
 
 .method public subSequence(II)Ljava/lang/CharSequence;
-    .registers 5
+    .locals 2
     .parameter "start"
     .parameter "end"
 
@@ -217,7 +217,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0

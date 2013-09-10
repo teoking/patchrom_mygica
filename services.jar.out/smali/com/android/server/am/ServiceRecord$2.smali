@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ServiceRecord;Ljava/lang/String;I)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 393
@@ -58,28 +58,28 @@
 
     .line 394
     .local v1, inm:Landroid/app/INotificationManager;
-    if-nez v1, :cond_7
+    if-nez v1, :cond_0
 
     .line 404
-    :goto_6
+    :goto_0
     return-void
 
     .line 398
-    :cond_7
-    :try_start_7
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Lcom/android/server/am/ServiceRecord$2;->val$localPackageName:Ljava/lang/String;
 
     iget v3, p0, Lcom/android/server/am/ServiceRecord$2;->val$localForegroundId:I
 
     invoke-interface {v1, v2, v3}, Landroid/app/INotificationManager;->cancelNotification(Ljava/lang/String;I)V
-    :try_end_e
-    .catch Ljava/lang/RuntimeException; {:try_start_7 .. :try_end_e} :catch_f
-    .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_e} :catch_18
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 399
-    :catch_f
+    :catch_0
     move-exception v0
 
     .line 400
@@ -90,12 +90,12 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_6
+    goto :goto_0
 
     .line 402
     .end local v0           #e:Ljava/lang/RuntimeException;
-    :catch_18
+    :catch_1
     move-exception v2
 
-    goto :goto_6
+    goto :goto_0
 .end method

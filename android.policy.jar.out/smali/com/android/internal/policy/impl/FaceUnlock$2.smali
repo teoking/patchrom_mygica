@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/FaceUnlock;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,12 +35,13 @@
 
 # virtual methods
 .method public cancel()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 520
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock$2;->this$0:Lcom/android/internal/policy/impl/FaceUnlock;
 
+    #getter for: Lcom/android/internal/policy/impl/FaceUnlock;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/internal/policy/impl/FaceUnlock;->access$100(Lcom/android/internal/policy/impl/FaceUnlock;)Landroid/os/Handler;
 
     move-result-object v0
@@ -54,12 +55,13 @@
 .end method
 
 .method public exposeFallback()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 540
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock$2;->this$0:Lcom/android/internal/policy/impl/FaceUnlock;
 
+    #getter for: Lcom/android/internal/policy/impl/FaceUnlock;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/internal/policy/impl/FaceUnlock;->access$100(Lcom/android/internal/policy/impl/FaceUnlock;)Landroid/os/Handler;
 
     move-result-object v0
@@ -73,13 +75,14 @@
 .end method
 
 .method public pokeWakelock(I)V
-    .registers 6
+    .locals 4
     .parameter "millis"
 
     .prologue
     .line 549
     iget-object v1, p0, Lcom/android/internal/policy/impl/FaceUnlock$2;->this$0:Lcom/android/internal/policy/impl/FaceUnlock;
 
+    #getter for: Lcom/android/internal/policy/impl/FaceUnlock;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/internal/policy/impl/FaceUnlock;->access$100(Lcom/android/internal/policy/impl/FaceUnlock;)Landroid/os/Handler;
 
     move-result-object v1
@@ -96,6 +99,7 @@
     .local v0, message:Landroid/os/Message;
     iget-object v1, p0, Lcom/android/internal/policy/impl/FaceUnlock$2;->this$0:Lcom/android/internal/policy/impl/FaceUnlock;
 
+    #getter for: Lcom/android/internal/policy/impl/FaceUnlock;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/internal/policy/impl/FaceUnlock;->access$100(Lcom/android/internal/policy/impl/FaceUnlock;)Landroid/os/Handler;
 
     move-result-object v1
@@ -107,12 +111,13 @@
 .end method
 
 .method public reportFailedAttempt()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 529
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock$2;->this$0:Lcom/android/internal/policy/impl/FaceUnlock;
 
+    #getter for: Lcom/android/internal/policy/impl/FaceUnlock;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/internal/policy/impl/FaceUnlock;->access$100(Lcom/android/internal/policy/impl/FaceUnlock;)Landroid/os/Handler;
 
     move-result-object v0
@@ -126,12 +131,13 @@
 .end method
 
 .method public unlock()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 511
     iget-object v0, p0, Lcom/android/internal/policy/impl/FaceUnlock$2;->this$0:Lcom/android/internal/policy/impl/FaceUnlock;
 
+    #getter for: Lcom/android/internal/policy/impl/FaceUnlock;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/internal/policy/impl/FaceUnlock;->access$100(Lcom/android/internal/policy/impl/FaceUnlock;)Landroid/os/Handler;
 
     move-result-object v0

@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
-    .registers 3
+    .locals 1
     .parameter "rs"
 
     .prologue
@@ -69,7 +69,7 @@
 .end method
 
 .method private buildShaderString()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 164
@@ -149,7 +149,7 @@
     .line 169
     iget-boolean v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mVaryingColorEnable:Z
 
-    if-eqz v1, :cond_9f
+    if-eqz v1, :cond_1
 
     .line 170
     new-instance v1, Ljava/lang/StringBuilder;
@@ -175,15 +175,15 @@
     iput-object v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mShader:Ljava/lang/String;
 
     .line 175
-    :goto_67
+    :goto_0
     iget v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mNumTextures:I
 
-    if-eqz v1, :cond_86
+    if-eqz v1, :cond_0
 
     .line 176
     iget-boolean v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mPointSpriteEnable:Z
 
-    if-eqz v1, :cond_b7
+    if-eqz v1, :cond_2
 
     .line 177
     new-instance v1, Ljava/lang/StringBuilder;
@@ -209,15 +209,15 @@
     iput-object v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mShader:Ljava/lang/String;
 
     .line 183
-    :cond_86
-    :goto_86
+    :cond_0
+    :goto_1
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_87
+    :goto_2
     iget v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mNumTextures:I
 
-    if-ge v0, v1, :cond_1d3
+    if-ge v0, v1, :cond_3
 
     .line 184
     sget-object v1, Landroid/renderscript/ProgramFragmentFixedFunction$1;->$SwitchMap$android$renderscript$ProgramFragmentFixedFunction$Builder$EnvMode:[I
@@ -234,17 +234,17 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_204
+    packed-switch v1, :pswitch_data_0
 
     .line 183
-    :goto_9c
+    :goto_3
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_87
+    goto :goto_2
 
     .line 172
     .end local v0           #i:I
-    :cond_9f
+    :cond_1
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -267,10 +267,10 @@
 
     iput-object v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mShader:Ljava/lang/String;
 
-    goto :goto_67
+    goto :goto_0
 
     .line 179
-    :cond_b7
+    :cond_2
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -293,11 +293,11 @@
 
     iput-object v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mShader:Ljava/lang/String;
 
-    goto :goto_86
+    goto :goto_1
 
     .line 186
     .restart local v0       #i:I
-    :pswitch_cf
+    :pswitch_0
     sget-object v1, Landroid/renderscript/ProgramFragmentFixedFunction$1;->$SwitchMap$android$renderscript$ProgramFragmentFixedFunction$Builder$Format:[I
 
     iget-object v2, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mSlots:[Landroid/renderscript/ProgramFragmentFixedFunction$Builder$Slot;
@@ -312,12 +312,12 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_20e
+    packed-switch v1, :pswitch_data_1
 
-    goto :goto_9c
+    goto :goto_3
 
     .line 188
-    :pswitch_e1
+    :pswitch_1
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -340,10 +340,10 @@
 
     iput-object v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mShader:Ljava/lang/String;
 
-    goto :goto_9c
+    goto :goto_3
 
     .line 191
-    :pswitch_f9
+    :pswitch_2
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -366,10 +366,10 @@
 
     iput-object v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mShader:Ljava/lang/String;
 
-    goto :goto_9c
+    goto :goto_3
 
     .line 194
-    :pswitch_111
+    :pswitch_3
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -392,10 +392,10 @@
 
     iput-object v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mShader:Ljava/lang/String;
 
-    goto/16 :goto_9c
+    goto/16 :goto_3
 
     .line 197
-    :pswitch_12a
+    :pswitch_4
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -418,10 +418,10 @@
 
     iput-object v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mShader:Ljava/lang/String;
 
-    goto/16 :goto_9c
+    goto/16 :goto_3
 
     .line 202
-    :pswitch_143
+    :pswitch_5
     sget-object v1, Landroid/renderscript/ProgramFragmentFixedFunction$1;->$SwitchMap$android$renderscript$ProgramFragmentFixedFunction$Builder$Format:[I
 
     iget-object v2, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mSlots:[Landroid/renderscript/ProgramFragmentFixedFunction$Builder$Slot;
@@ -436,12 +436,12 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_21a
+    packed-switch v1, :pswitch_data_2
 
-    goto/16 :goto_9c
+    goto/16 :goto_3
 
     .line 204
-    :pswitch_156
+    :pswitch_6
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -464,10 +464,10 @@
 
     iput-object v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mShader:Ljava/lang/String;
 
-    goto/16 :goto_9c
+    goto/16 :goto_3
 
     .line 207
-    :pswitch_16f
+    :pswitch_7
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -490,10 +490,10 @@
 
     iput-object v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mShader:Ljava/lang/String;
 
-    goto/16 :goto_9c
+    goto/16 :goto_3
 
     .line 210
-    :pswitch_188
+    :pswitch_8
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -516,10 +516,10 @@
 
     iput-object v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mShader:Ljava/lang/String;
 
-    goto/16 :goto_9c
+    goto/16 :goto_3
 
     .line 213
-    :pswitch_1a1
+    :pswitch_9
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -542,10 +542,10 @@
 
     iput-object v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mShader:Ljava/lang/String;
 
-    goto/16 :goto_9c
+    goto/16 :goto_3
 
     .line 218
-    :pswitch_1ba
+    :pswitch_a
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -568,10 +568,10 @@
 
     iput-object v1, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mShader:Ljava/lang/String;
 
-    goto/16 :goto_9c
+    goto/16 :goto_3
 
     .line 223
-    :cond_1d3
+    :cond_3
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -623,36 +623,36 @@
     .line 184
     nop
 
-    :pswitch_data_204
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_cf
-        :pswitch_143
-        :pswitch_1ba
+        :pswitch_0
+        :pswitch_5
+        :pswitch_a
     .end packed-switch
 
     .line 186
-    :pswitch_data_20e
+    :pswitch_data_1
     .packed-switch 0x1
-        :pswitch_e1
-        :pswitch_f9
-        :pswitch_111
-        :pswitch_12a
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
     .end packed-switch
 
     .line 202
-    :pswitch_data_21a
+    :pswitch_data_2
     .packed-switch 0x1
-        :pswitch_156
-        :pswitch_16f
-        :pswitch_188
-        :pswitch_1a1
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public create()Landroid/renderscript/ProgramFragmentFixedFunction;
-    .registers 15
+    .locals 14
 
     .prologue
     const/4 v13, 0x2
@@ -676,15 +676,15 @@
     const/4 v5, 0x0
 
     .local v5, i:I
-    :goto_e
-    if-ge v5, v13, :cond_1f
+    :goto_0
+    if-ge v5, v13, :cond_1
 
     .line 297
     iget-object v9, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mSlots:[Landroid/renderscript/ProgramFragmentFixedFunction$Builder$Slot;
 
     aget-object v9, v9, v5
 
-    if-eqz v9, :cond_1c
+    if-eqz v9, :cond_0
 
     .line 298
     iget v9, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mNumTextures:I
@@ -694,13 +694,13 @@
     iput v9, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mNumTextures:I
 
     .line 296
-    :cond_1c
+    :cond_0
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 301
-    :cond_1f
+    :cond_1
     invoke-direct {p0}, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->buildShaderString()V
 
     .line 302
@@ -715,7 +715,7 @@
     .local v1, constType:Landroid/renderscript/Type;
     iget-boolean v9, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mVaryingColorEnable:Z
 
-    if-nez v9, :cond_54
+    if-nez v9, :cond_2
 
     .line 306
     new-instance v0, Landroid/renderscript/Element$Builder;
@@ -764,13 +764,13 @@
     .line 313
     .end local v0           #b:Landroid/renderscript/Element$Builder;
     .end local v8           #typeBuilder:Landroid/renderscript/Type$Builder;
-    :cond_54
+    :cond_2
     const/4 v5, 0x0
 
-    :goto_55
+    :goto_1
     iget v9, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mNumTextures:I
 
-    if-ge v5, v9, :cond_61
+    if-ge v5, v9, :cond_3
 
     .line 314
     sget-object v9, Landroid/renderscript/Program$TextureType;->TEXTURE_2D:Landroid/renderscript/Program$TextureType;
@@ -780,10 +780,10 @@
     .line 313
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_55
+    goto :goto_1
 
     .line 317
-    :cond_61
+    :cond_3
     invoke-virtual {v7}, Landroid/renderscript/ProgramFragmentFixedFunction$InternalBuilder;->create()Landroid/renderscript/ProgramFragmentFixedFunction;
 
     move-result-object v6
@@ -795,7 +795,7 @@
     .line 319
     iget-boolean v9, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mVaryingColorEnable:Z
 
-    if-nez v9, :cond_86
+    if-nez v9, :cond_4
 
     .line 320
     iget-object v9, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mRS:Landroid/renderscript/RenderScript;
@@ -832,12 +832,12 @@
     .end local v2           #constantData:Landroid/renderscript/Allocation;
     .end local v3           #f4:Landroid/renderscript/Float4;
     .end local v4           #fp:Landroid/renderscript/FieldPacker;
-    :cond_86
+    :cond_4
     return-object v6
 .end method
 
 .method public setPointSpriteTexCoordinateReplacement(Z)Landroid/renderscript/ProgramFragmentFixedFunction$Builder;
-    .registers 2
+    .locals 0
     .parameter "enable"
 
     .prologue
@@ -849,7 +849,7 @@
 .end method
 
 .method public setTexture(Landroid/renderscript/ProgramFragmentFixedFunction$Builder$EnvMode;Landroid/renderscript/ProgramFragmentFixedFunction$Builder$Format;I)Landroid/renderscript/ProgramFragmentFixedFunction$Builder;
-    .registers 6
+    .locals 2
     .parameter "env"
     .parameter "fmt"
     .parameter "slot"
@@ -861,14 +861,14 @@
 
     .prologue
     .line 255
-    if-ltz p3, :cond_5
+    if-ltz p3, :cond_0
 
     const/4 v0, 0x2
 
-    if-lt p3, v0, :cond_d
+    if-lt p3, v0, :cond_1
 
     .line 256
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "MAX_TEXTURE exceeded."
@@ -878,7 +878,7 @@
     throw v0
 
     .line 258
-    :cond_d
+    :cond_1
     iget-object v0, p0, Landroid/renderscript/ProgramFragmentFixedFunction$Builder;->mSlots:[Landroid/renderscript/ProgramFragmentFixedFunction$Builder$Slot;
 
     new-instance v1, Landroid/renderscript/ProgramFragmentFixedFunction$Builder$Slot;
@@ -892,7 +892,7 @@
 .end method
 
 .method public setVaryingColor(Z)Landroid/renderscript/ProgramFragmentFixedFunction$Builder;
-    .registers 2
+    .locals 0
     .parameter "enable"
 
     .prologue

@@ -68,7 +68,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 209
@@ -79,7 +79,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/accessibilityservice/AccessibilityService;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -91,7 +91,7 @@
 .end method
 
 .method private sendServiceInfo()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 486
@@ -109,12 +109,12 @@
     .local v0, connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
     iget-object v2, p0, Landroid/accessibilityservice/AccessibilityService;->mInfo:Landroid/accessibilityservice/AccessibilityServiceInfo;
 
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_0
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_0
 
     .line 490
-    :try_start_10
+    :try_start_0
     iget-object v2, p0, Landroid/accessibilityservice/AccessibilityService;->mInfo:Landroid/accessibilityservice/AccessibilityServiceInfo;
 
     invoke-interface {v0, v2}, Landroid/accessibilityservice/IAccessibilityServiceConnection;->setServiceInfo(Landroid/accessibilityservice/AccessibilityServiceInfo;)V
@@ -130,16 +130,16 @@
     move-result-object v2
 
     invoke-virtual {v2}, Landroid/view/accessibility/AccessibilityInteractionClient;->clearCache()V
-    :try_end_1f
-    .catch Landroid/os/RemoteException; {:try_start_10 .. :try_end_1f} :catch_20
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 497
-    :cond_1f
-    :goto_1f
+    :cond_0
+    :goto_0
     return-void
 
     .line 493
-    :catch_20
+    :catch_0
     move-exception v1
 
     .line 494
@@ -150,13 +150,13 @@
 
     invoke-static {v2, v3, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1f
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getRootInActiveWindow()Landroid/view/accessibility/AccessibilityNodeInfo;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 414
@@ -174,7 +174,7 @@
 .end method
 
 .method public final getServiceInfo()Landroid/accessibilityservice/AccessibilityServiceInfo;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 455
@@ -190,22 +190,22 @@
 
     .line 457
     .local v0, connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     .line 459
-    :try_start_c
+    :try_start_0
     invoke-interface {v0}, Landroid/accessibilityservice/IAccessibilityServiceConnection;->getServiceInfo()Landroid/accessibilityservice/AccessibilityServiceInfo;
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_c .. :try_end_f} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v2
 
     .line 464
-    :goto_10
+    :goto_0
     return-object v2
 
     .line 460
-    :catch_11
+    :catch_0
     move-exception v1
 
     .line 461
@@ -218,17 +218,17 @@
 
     .line 464
     .end local v1           #re:Landroid/os/RemoteException;
-    :cond_19
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public abstract onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 .end method
 
 .method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .registers 5
+    .locals 3
     .parameter "intent"
 
     .prologue
@@ -249,7 +249,7 @@
 .end method
 
 .method protected onGesture(I)Z
-    .registers 3
+    .locals 1
     .parameter "gestureId"
 
     .prologue
@@ -263,7 +263,7 @@
 .end method
 
 .method protected onServiceConnected()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 371
@@ -271,7 +271,7 @@
 .end method
 
 .method public final performGlobalAction(I)Z
-    .registers 6
+    .locals 4
     .parameter "action"
 
     .prologue
@@ -288,22 +288,22 @@
 
     .line 434
     .local v0, connection:Landroid/accessibilityservice/IAccessibilityServiceConnection;
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     .line 436
-    :try_start_c
+    :try_start_0
     invoke-interface {v0, p1}, Landroid/accessibilityservice/IAccessibilityServiceConnection;->performGlobalAction(I)Z
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_c .. :try_end_f} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v2
 
     .line 441
-    :goto_10
+    :goto_0
     return v2
 
     .line 437
-    :catch_11
+    :catch_0
     move-exception v1
 
     .line 438
@@ -316,14 +316,14 @@
 
     .line 441
     .end local v1           #re:Landroid/os/RemoteException;
-    :cond_19
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public final setServiceInfo(Landroid/accessibilityservice/AccessibilityServiceInfo;)V
-    .registers 2
+    .locals 0
     .parameter "info"
 
     .prologue

@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/PhoneBase;Landroid/content/Context;I)V
-    .registers 5
+    .locals 1
     .parameter "phone"
     .parameter "context"
     .parameter "eriFileSource"
@@ -75,7 +75,7 @@
 .end method
 
 .method private getEriDisplayInformation(II)Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    .registers 14
+    .locals 11
     .parameter "roamInd"
     .parameter "defRoamInd"
 
@@ -93,7 +93,7 @@
     .line 290
     iget-boolean v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->isEriFileLoaded:Z
 
-    if-eqz v4, :cond_20
+    if-eqz v4, :cond_0
 
     .line 291
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cdma/EriManager;->getEriInfo(I)Lcom/android/internal/telephony/cdma/EriInfo;
@@ -102,7 +102,7 @@
 
     .line 292
     .local v1, eriInfo:Lcom/android/internal/telephony/cdma/EriInfo;
-    if-eqz v1, :cond_20
+    if-eqz v1, :cond_0
 
     .line 294
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
@@ -122,18 +122,18 @@
     .end local v1           #eriInfo:Lcom/android/internal/telephony/cdma/EriInfo;
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
     .local v3, ret:Ljava/lang/Object;
-    :goto_1f
+    :goto_0
     return-object v3
 
     .line 302
     .end local v3           #ret:Ljava/lang/Object;
-    :cond_20
-    packed-switch p1, :pswitch_data_1d2
+    :cond_0
+    packed-switch p1, :pswitch_data_0
 
     .line 399
     iget-boolean v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->isEriFileLoaded:Z
 
-    if-nez v4, :cond_17c
+    if-nez v4, :cond_2
 
     .line 401
     const-string v4, "CDMA"
@@ -143,7 +143,7 @@
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 402
-    if-le p2, v8, :cond_138
+    if-le p2, v8, :cond_1
 
     .line 404
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
@@ -161,17 +161,17 @@
     invoke-direct {v2, p0, v8, v6, v4}, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;-><init>(Lcom/android/internal/telephony/cdma/EriManager;IILjava/lang/String;)V
 
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :goto_3f
+    :goto_1
     move-object v3, v2
 
     .line 478
     .restart local v3       #ret:Ljava/lang/Object;
-    goto :goto_1f
+    goto :goto_0
 
     .line 305
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
     .end local v3           #ret:Ljava/lang/Object;
-    :pswitch_41
+    :pswitch_0
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->mContext:Landroid/content/Context;
@@ -188,11 +188,11 @@
 
     .line 309
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto :goto_3f
+    goto :goto_1
 
     .line 312
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :pswitch_51
+    :pswitch_1
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->mContext:Landroid/content/Context;
@@ -211,11 +211,11 @@
 
     .line 316
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto :goto_3f
+    goto :goto_1
 
     .line 319
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :pswitch_64
+    :pswitch_2
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->mContext:Landroid/content/Context;
@@ -232,11 +232,11 @@
 
     .line 323
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto :goto_3f
+    goto :goto_1
 
     .line 328
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :pswitch_74
+    :pswitch_3
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->mContext:Landroid/content/Context;
@@ -255,11 +255,11 @@
 
     .line 332
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto :goto_3f
+    goto :goto_1
 
     .line 335
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :pswitch_87
+    :pswitch_4
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->mContext:Landroid/content/Context;
@@ -278,11 +278,11 @@
 
     .line 339
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto :goto_3f
+    goto :goto_1
 
     .line 342
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :pswitch_9a
+    :pswitch_5
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->mContext:Landroid/content/Context;
@@ -301,11 +301,11 @@
 
     .line 346
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto :goto_3f
+    goto :goto_1
 
     .line 349
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :pswitch_ad
+    :pswitch_6
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->mContext:Landroid/content/Context;
@@ -324,11 +324,11 @@
 
     .line 353
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto :goto_3f
+    goto :goto_1
 
     .line 356
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :pswitch_c0
+    :pswitch_7
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->mContext:Landroid/content/Context;
@@ -347,11 +347,11 @@
 
     .line 360
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto/16 :goto_3f
+    goto/16 :goto_1
 
     .line 363
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :pswitch_d4
+    :pswitch_8
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->mContext:Landroid/content/Context;
@@ -370,11 +370,11 @@
 
     .line 367
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto/16 :goto_3f
+    goto/16 :goto_1
 
     .line 370
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :pswitch_e8
+    :pswitch_9
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->mContext:Landroid/content/Context;
@@ -393,11 +393,11 @@
 
     .line 374
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto/16 :goto_3f
+    goto/16 :goto_1
 
     .line 377
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :pswitch_fc
+    :pswitch_a
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->mContext:Landroid/content/Context;
@@ -416,11 +416,11 @@
 
     .line 381
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto/16 :goto_3f
+    goto/16 :goto_1
 
     .line 384
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :pswitch_110
+    :pswitch_b
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->mContext:Landroid/content/Context;
@@ -439,11 +439,11 @@
 
     .line 388
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto/16 :goto_3f
+    goto/16 :goto_1
 
     .line 391
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :pswitch_124
+    :pswitch_c
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->mContext:Landroid/content/Context;
@@ -462,12 +462,12 @@
 
     .line 395
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto/16 :goto_3f
+    goto/16 :goto_1
 
     .line 411
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :cond_138
-    packed-switch p2, :pswitch_data_1f0
+    :cond_1
+    packed-switch p2, :pswitch_data_1
 
     .line 437
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
@@ -481,11 +481,11 @@
     invoke-direct {v2, p0, v4, v5, v6}, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;-><init>(Lcom/android/internal/telephony/cdma/EriManager;IILjava/lang/String;)V
 
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto/16 :goto_3f
+    goto/16 :goto_1
 
     .line 413
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :pswitch_146
+    :pswitch_d
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->mContext:Landroid/content/Context;
@@ -502,11 +502,11 @@
 
     .line 418
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto/16 :goto_3f
+    goto/16 :goto_1
 
     .line 421
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :pswitch_157
+    :pswitch_e
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->mContext:Landroid/content/Context;
@@ -525,11 +525,11 @@
 
     .line 426
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto/16 :goto_3f
+    goto/16 :goto_1
 
     .line 429
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :pswitch_16b
+    :pswitch_f
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/EriManager;->mContext:Landroid/content/Context;
@@ -546,11 +546,11 @@
 
     .line 434
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto/16 :goto_3f
+    goto/16 :goto_1
 
     .line 442
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :cond_17c
+    :cond_2
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cdma/EriManager;->getEriInfo(I)Lcom/android/internal/telephony/cdma/EriInfo;
 
     move-result-object v1
@@ -563,10 +563,10 @@
 
     .line 444
     .local v0, defEriInfo:Lcom/android/internal/telephony/cdma/EriInfo;
-    if-nez v1, :cond_1c4
+    if-nez v1, :cond_4
 
     .line 449
-    if-nez v0, :cond_1b7
+    if-nez v0, :cond_3
 
     .line 450
     const-string v4, "CDMA"
@@ -613,11 +613,11 @@
     invoke-direct {v2, p0, v7, v7, v4}, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;-><init>(Lcom/android/internal/telephony/cdma/EriManager;IILjava/lang/String;)V
 
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto/16 :goto_3f
+    goto/16 :goto_1
 
     .line 462
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :cond_1b7
+    :cond_3
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget v4, v0, Lcom/android/internal/telephony/cdma/EriInfo;->mIconIndex:I
@@ -629,11 +629,11 @@
     invoke-direct {v2, p0, v4, v5, v6}, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;-><init>(Lcom/android/internal/telephony/cdma/EriManager;IILjava/lang/String;)V
 
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto/16 :goto_3f
+    goto/16 :goto_1
 
     .line 469
     .end local v2           #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    :cond_1c4
+    :cond_4
     new-instance v2, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
 
     iget v4, v1, Lcom/android/internal/telephony/cdma/EriInfo;->mIconIndex:I
@@ -645,39 +645,39 @@
     invoke-direct {v2, p0, v4, v5, v6}, Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;-><init>(Lcom/android/internal/telephony/cdma/EriManager;IILjava/lang/String;)V
 
     .restart local v2       #ret:Lcom/android/internal/telephony/cdma/EriManager$EriDisplayInformation;
-    goto/16 :goto_3f
+    goto/16 :goto_1
 
     .line 302
     nop
 
-    :pswitch_data_1d2
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_41
-        :pswitch_51
-        :pswitch_64
-        :pswitch_74
-        :pswitch_87
-        :pswitch_9a
-        :pswitch_ad
-        :pswitch_c0
-        :pswitch_d4
-        :pswitch_e8
-        :pswitch_fc
-        :pswitch_110
-        :pswitch_124
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
+        :pswitch_a
+        :pswitch_b
+        :pswitch_c
     .end packed-switch
 
     .line 411
-    :pswitch_data_1f0
+    :pswitch_data_1
     .packed-switch 0x0
-        :pswitch_146
-        :pswitch_157
-        :pswitch_16b
+        :pswitch_d
+        :pswitch_e
+        :pswitch_f
     .end packed-switch
 .end method
 
 .method private getEriInfo(I)Lcom/android/internal/telephony/cdma/EriInfo;
-    .registers 4
+    .locals 2
     .parameter "roamingIndicator"
 
     .prologue
@@ -694,7 +694,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_0
 
     .line 280
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/EriManager;->mEriFile:Lcom/android/internal/telephony/cdma/EriManager$EriFile;
@@ -712,17 +712,17 @@
     check-cast v0, Lcom/android/internal/telephony/cdma/EriInfo;
 
     .line 282
-    :goto_1c
+    :goto_0
     return-object v0
 
-    :cond_1d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 .method private loadEriFileFromFileSystem()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 150
@@ -730,7 +730,7 @@
 .end method
 
 .method private loadEriFileFromModem()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 140
@@ -738,7 +738,7 @@
 .end method
 
 .method private loadEriFileFromXml()V
-    .registers 21
+    .locals 20
 
     .prologue
     .line 157
@@ -760,7 +760,7 @@
 
     .line 162
     .local v14, r:Landroid/content/res/Resources;
-    :try_start_a
+    :try_start_0
     const-string v2, "CDMA"
 
     const-string v18, "loadEriFileFromXml: check for alternate file"
@@ -781,14 +781,14 @@
     move-object/from16 v0, v16
 
     invoke-direct {v0, v2}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
-    :try_end_21
-    .catch Ljava/io/FileNotFoundException; {:try_start_a .. :try_end_21} :catch_fc
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_a .. :try_end_21} :catch_109
+    :try_end_0
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 165
     .end local v15           #stream:Ljava/io/FileInputStream;
     .local v16, stream:Ljava/io/FileInputStream;
-    :try_start_21
+    :try_start_1
     invoke-static {}, Landroid/util/Xml;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
 
     move-result-object v13
@@ -808,17 +808,17 @@
     move-object/from16 v0, v18
 
     invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_34
-    .catch Ljava/io/FileNotFoundException; {:try_start_21 .. :try_end_34} :catch_209
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_21 .. :try_end_34} :catch_204
+    :try_end_1
+    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_6
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_5
 
     move-object/from16 v15, v16
 
     .line 176
     .end local v16           #stream:Ljava/io/FileInputStream;
     .restart local v15       #stream:Ljava/io/FileInputStream;
-    :goto_36
-    if-nez v13, :cond_48
+    :goto_0
+    if-nez v13, :cond_0
 
     .line 177
     const-string v2, "CDMA"
@@ -837,8 +837,8 @@
     move-result-object v13
 
     .line 182
-    :cond_48
-    :try_start_48
+    :cond_0
+    :try_start_2
     const-string v2, "EriFile"
 
     invoke-static {v13, v2}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
@@ -923,8 +923,8 @@
 
     .line 192
     .local v12, parsedEriEntries:I
-    :cond_96
-    :goto_96
+    :cond_1
+    :goto_1
     invoke-static {v13}, Lcom/android/internal/util/XmlUtils;->nextElement(Lorg/xmlpull/v1/XmlPullParser;)V
 
     .line 193
@@ -934,7 +934,7 @@
 
     .line 194
     .local v11, name:Ljava/lang/String;
-    if-nez v11, :cond_116
+    if-nez v11, :cond_5
 
     .line 195
     move-object/from16 v0, p0
@@ -943,7 +943,7 @@
 
     iget v2, v2, Lcom/android/internal/telephony/cdma/EriManager$EriFile;->mNumberOfEriEntries:I
 
-    if-eq v12, v2, :cond_df
+    if-eq v12, v2, :cond_2
 
     .line 196
     const-string v2, "CDMA"
@@ -1001,7 +1001,7 @@
     invoke-static {v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 223
-    :cond_df
+    :cond_2
     const-string v2, "CDMA"
 
     const-string v18, "loadEriFileFromXml: eri parsing successful, file loaded"
@@ -1016,14 +1016,14 @@
     move-object/from16 v0, p0
 
     iput-boolean v2, v0, Lcom/android/internal/telephony/cdma/EriManager;->isEriFileLoaded:Z
-    :try_end_ed
-    .catchall {:try_start_48 .. :try_end_ed} :catchall_182
-    .catch Ljava/lang/Exception; {:try_start_48 .. :try_end_ed} :catch_143
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
 
     .line 229
     instance-of v2, v13, Landroid/content/res/XmlResourceParser;
 
-    if-eqz v2, :cond_f6
+    if-eqz v2, :cond_3
 
     .line 230
     check-cast v13, Landroid/content/res/XmlResourceParser;
@@ -1032,30 +1032,30 @@
     invoke-interface {v13}, Landroid/content/res/XmlResourceParser;->close()V
 
     .line 233
-    :cond_f6
-    if-eqz v15, :cond_fb
+    :cond_3
+    if-eqz v15, :cond_4
 
     .line 234
-    :try_start_f8
+    :try_start_3
     invoke-virtual {v15}, Ljava/io/FileInputStream;->close()V
-    :try_end_fb
-    .catch Ljava/io/IOException; {:try_start_f8 .. :try_end_fb} :catch_15c
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
 
     .line 240
     .end local v11           #name:Ljava/lang/String;
     .end local v12           #parsedEriEntries:I
-    :cond_fb
-    :goto_fb
+    :cond_4
+    :goto_2
     return-void
 
     .line 168
     .restart local v13       #parser:Lorg/xmlpull/v1/XmlPullParser;
-    :catch_fc
+    :catch_0
     move-exception v9
 
     .line 169
     .local v9, e:Ljava/io/FileNotFoundException;
-    :goto_fd
+    :goto_3
     const-string v2, "CDMA"
 
     const-string v18, "loadEriFileFromXml: no alternate file"
@@ -1068,16 +1068,16 @@
     const/4 v13, 0x0
 
     .line 174
-    goto/16 :goto_36
+    goto/16 :goto_0
 
     .line 171
     .end local v9           #e:Ljava/io/FileNotFoundException;
-    :catch_109
+    :catch_1
     move-exception v9
 
     .line 172
     .local v9, e:Lorg/xmlpull/v1/XmlPullParserException;
-    :goto_10a
+    :goto_4
     const-string v2, "CDMA"
 
     const-string v18, "loadEriFileFromXml: no parser for alternate file"
@@ -1089,21 +1089,21 @@
     .line 173
     const/4 v13, 0x0
 
-    goto/16 :goto_36
+    goto/16 :goto_0
 
     .line 199
     .end local v9           #e:Lorg/xmlpull/v1/XmlPullParserException;
     .restart local v11       #name:Ljava/lang/String;
     .restart local v12       #parsedEriEntries:I
-    :cond_116
-    :try_start_116
+    :cond_5
+    :try_start_4
     const-string v2, "CallPromptId"
 
     invoke-virtual {v11, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_194
+    if-eqz v2, :cond_a
 
     .line 200
     const/4 v2, 0x0
@@ -1134,11 +1134,11 @@
 
     .line 202
     .local v17, text:Ljava/lang/String;
-    if-ltz v10, :cond_15e
+    if-ltz v10, :cond_7
 
     const/4 v2, 0x2
 
-    if-gt v10, v2, :cond_15e
+    if-gt v10, v2, :cond_7
 
     .line 203
     move-object/from16 v0, p0
@@ -1148,23 +1148,23 @@
     iget-object v2, v2, Lcom/android/internal/telephony/cdma/EriManager$EriFile;->mCallPromptId:[Ljava/lang/String;
 
     aput-object v17, v2, v10
-    :try_end_141
-    .catchall {:try_start_116 .. :try_end_141} :catchall_182
-    .catch Ljava/lang/Exception; {:try_start_116 .. :try_end_141} :catch_143
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
 
-    goto/16 :goto_96
+    goto/16 :goto_1
 
     .line 226
     .end local v10           #id:I
     .end local v11           #name:Ljava/lang/String;
     .end local v12           #parsedEriEntries:I
     .end local v17           #text:Ljava/lang/String;
-    :catch_143
+    :catch_2
     move-exception v9
 
     .line 227
     .local v9, e:Ljava/lang/Exception;
-    :try_start_144
+    :try_start_5
     const-string v2, "CDMA"
 
     const-string v18, "Got exception while loading ERI file."
@@ -1172,13 +1172,13 @@
     move-object/from16 v0, v18
 
     invoke-static {v2, v0, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_14d
-    .catchall {:try_start_144 .. :try_end_14d} :catchall_182
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     .line 229
     instance-of v2, v13, Landroid/content/res/XmlResourceParser;
 
-    if-eqz v2, :cond_156
+    if-eqz v2, :cond_6
 
     .line 230
     check-cast v13, Landroid/content/res/XmlResourceParser;
@@ -1187,23 +1187,23 @@
     invoke-interface {v13}, Landroid/content/res/XmlResourceParser;->close()V
 
     .line 233
-    :cond_156
-    if-eqz v15, :cond_fb
+    :cond_6
+    if-eqz v15, :cond_4
 
     .line 234
-    :try_start_158
+    :try_start_6
     invoke-virtual {v15}, Ljava/io/FileInputStream;->close()V
-    :try_end_15b
-    .catch Ljava/io/IOException; {:try_start_158 .. :try_end_15b} :catch_15c
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
 
-    goto :goto_fb
+    goto :goto_2
 
     .line 236
     .end local v9           #e:Ljava/lang/Exception;
-    :catch_15c
+    :catch_3
     move-exception v2
 
-    goto :goto_fb
+    goto :goto_2
 
     .line 205
     .restart local v10       #id:I
@@ -1211,8 +1211,8 @@
     .restart local v12       #parsedEriEntries:I
     .restart local v13       #parser:Lorg/xmlpull/v1/XmlPullParser;
     .restart local v17       #text:Ljava/lang/String;
-    :cond_15e
-    :try_start_15e
+    :cond_7
+    :try_start_7
     const-string v2, "CDMA"
 
     new-instance v18, Ljava/lang/StringBuilder;
@@ -1244,25 +1244,25 @@
     move-object/from16 v0, v18
 
     invoke-static {v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_180
-    .catchall {:try_start_15e .. :try_end_180} :catchall_182
-    .catch Ljava/lang/Exception; {:try_start_15e .. :try_end_180} :catch_143
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_2
 
-    goto/16 :goto_96
+    goto/16 :goto_1
 
     .line 229
     .end local v10           #id:I
     .end local v11           #name:Ljava/lang/String;
     .end local v12           #parsedEriEntries:I
     .end local v17           #text:Ljava/lang/String;
-    :catchall_182
+    :catchall_0
     move-exception v2
 
     instance-of v0, v13, Landroid/content/res/XmlResourceParser;
 
     move/from16 v18, v0
 
-    if-eqz v18, :cond_18e
+    if-eqz v18, :cond_8
 
     .line 230
     check-cast v13, Landroid/content/res/XmlResourceParser;
@@ -1271,33 +1271,33 @@
     invoke-interface {v13}, Landroid/content/res/XmlResourceParser;->close()V
 
     .line 233
-    :cond_18e
-    if-eqz v15, :cond_193
+    :cond_8
+    if-eqz v15, :cond_9
 
     .line 234
-    :try_start_190
+    :try_start_8
     invoke-virtual {v15}, Ljava/io/FileInputStream;->close()V
-    :try_end_193
-    .catch Ljava/io/IOException; {:try_start_190 .. :try_end_193} :catch_202
+    :try_end_8
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_4
 
     .line 229
-    :cond_193
-    :goto_193
+    :cond_9
+    :goto_5
     throw v2
 
     .line 208
     .restart local v11       #name:Ljava/lang/String;
     .restart local v12       #parsedEriEntries:I
     .restart local v13       #parser:Lorg/xmlpull/v1/XmlPullParser;
-    :cond_194
-    :try_start_194
+    :cond_a
+    :try_start_9
     const-string v2, "EriInfo"
 
     invoke-virtual {v11, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_96
+    if-eqz v2, :cond_1
 
     .line 209
     const/4 v2, 0x0
@@ -1416,11 +1416,11 @@
     move-object/from16 v1, v19
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_200
-    .catchall {:try_start_194 .. :try_end_200} :catchall_182
-    .catch Ljava/lang/Exception; {:try_start_194 .. :try_end_200} :catch_143
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_2
 
-    goto/16 :goto_96
+    goto/16 :goto_1
 
     .line 236
     .end local v3           #roamingIndicator:I
@@ -1432,41 +1432,41 @@
     .end local v11           #name:Ljava/lang/String;
     .end local v12           #parsedEriEntries:I
     .end local v13           #parser:Lorg/xmlpull/v1/XmlPullParser;
-    :catch_202
+    :catch_4
     move-exception v18
 
-    goto :goto_193
+    goto :goto_5
 
     .line 171
     .end local v15           #stream:Ljava/io/FileInputStream;
     .restart local v13       #parser:Lorg/xmlpull/v1/XmlPullParser;
     .restart local v16       #stream:Ljava/io/FileInputStream;
-    :catch_204
+    :catch_5
     move-exception v9
 
     move-object/from16 v15, v16
 
     .end local v16           #stream:Ljava/io/FileInputStream;
     .restart local v15       #stream:Ljava/io/FileInputStream;
-    goto/16 :goto_10a
+    goto/16 :goto_4
 
     .line 168
     .end local v15           #stream:Ljava/io/FileInputStream;
     .restart local v16       #stream:Ljava/io/FileInputStream;
-    :catch_209
+    :catch_6
     move-exception v9
 
     move-object/from16 v15, v16
 
     .end local v16           #stream:Ljava/io/FileInputStream;
     .restart local v15       #stream:Ljava/io/FileInputStream;
-    goto/16 :goto_fd
+    goto/16 :goto_3
 .end method
 
 
 # virtual methods
 .method public dispose()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 110
@@ -1486,7 +1486,7 @@
 .end method
 
 .method public getCdmaEriIconIndex(II)I
-    .registers 4
+    .locals 1
     .parameter "roamInd"
     .parameter "defRoamInd"
 
@@ -1502,7 +1502,7 @@
 .end method
 
 .method public getCdmaEriIconMode(II)I
-    .registers 4
+    .locals 1
     .parameter "roamInd"
     .parameter "defRoamInd"
 
@@ -1518,7 +1518,7 @@
 .end method
 
 .method public getCdmaEriText(II)Ljava/lang/String;
-    .registers 4
+    .locals 1
     .parameter "roamInd"
     .parameter "defRoamInd"
 
@@ -1534,7 +1534,7 @@
 .end method
 
 .method public getEriFileType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 263
@@ -1546,7 +1546,7 @@
 .end method
 
 .method public getEriFileVersion()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 247
@@ -1558,7 +1558,7 @@
 .end method
 
 .method public getEriNumberOfEntries()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 255
@@ -1570,7 +1570,7 @@
 .end method
 
 .method public isEriFileLoaded()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 271
@@ -1580,39 +1580,39 @@
 .end method
 
 .method public loadEriFile()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 116
     iget v0, p0, Lcom/android/internal/telephony/cdma/EriManager;->mEriFileSource:I
 
-    packed-switch v0, :pswitch_data_12
+    packed-switch v0, :pswitch_data_0
 
     .line 127
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/EriManager;->loadEriFileFromXml()V
 
     .line 130
-    :goto_8
+    :goto_0
     return-void
 
     .line 118
-    :pswitch_9
+    :pswitch_0
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/EriManager;->loadEriFileFromModem()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 122
-    :pswitch_d
+    :pswitch_1
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/EriManager;->loadEriFileFromFileSystem()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 116
     nop
 
-    :pswitch_data_12
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_d
-        :pswitch_9
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method

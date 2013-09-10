@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/SpellChecker;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,12 +38,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 437
     iget-object v3, p0, Landroid/widget/SpellChecker$1;->this$0:Landroid/widget/SpellChecker;
 
+    #getter for: Landroid/widget/SpellChecker;->mSpellParsers:[Landroid/widget/SpellChecker$SpellParser;
     invoke-static {v3}, Landroid/widget/SpellChecker;->access$100(Landroid/widget/SpellChecker;)[Landroid/widget/SpellChecker$SpellParser;
 
     move-result-object v3
@@ -55,12 +56,13 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_8
-    if-ge v0, v1, :cond_1b
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 439
     iget-object v3, p0, Landroid/widget/SpellChecker$1;->this$0:Landroid/widget/SpellChecker;
 
+    #getter for: Landroid/widget/SpellChecker;->mSpellParsers:[Landroid/widget/SpellChecker$SpellParser;
     invoke-static {v3}, Landroid/widget/SpellChecker;->access$100(Landroid/widget/SpellChecker;)[Landroid/widget/SpellChecker$SpellParser;
 
     move-result-object v3
@@ -73,20 +75,20 @@
 
     move-result v3
 
-    if-nez v3, :cond_1c
+    if-nez v3, :cond_1
 
     .line 441
     invoke-virtual {v2}, Landroid/widget/SpellChecker$SpellParser;->parse()V
 
     .line 445
     .end local v2           #spellParser:Landroid/widget/SpellChecker$SpellParser;
-    :cond_1b
+    :cond_0
     return-void
 
     .line 438
     .restart local v2       #spellParser:Landroid/widget/SpellChecker$SpellParser;
-    :cond_1c
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_8
+    goto :goto_0
 .end method

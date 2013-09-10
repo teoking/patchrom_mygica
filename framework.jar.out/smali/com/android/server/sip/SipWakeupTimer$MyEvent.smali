@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/lang/Runnable;J)V
-    .registers 5
+    .locals 0
     .parameter "period"
     .parameter "callback"
     .parameter "now"
@@ -53,7 +53,7 @@
 .end method
 
 .method private toString(Ljava/lang/Object;)Ljava/lang/String;
-    .registers 5
+    .locals 3
     .parameter "o"
 
     .prologue
@@ -72,7 +72,7 @@
 
     .line 322
     .local v0, index:I
-    if-lez v0, :cond_12
+    if-lez v0, :cond_0
 
     add-int/lit8 v2, v0, 0x1
 
@@ -81,14 +81,14 @@
     move-result-object v1
 
     .line 323
-    :cond_12
+    :cond_0
     return-object v1
 .end method
 
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 313

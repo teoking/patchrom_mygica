@@ -66,7 +66,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/gsm/GSMPhone;Lcom/android/internal/telephony/SMSDispatcher;)V
-    .registers 4
+    .locals 1
     .parameter "phone"
     .parameter "dispatcher"
 
@@ -110,7 +110,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -121,7 +121,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -133,7 +133,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;)Ljava/util/List;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -144,7 +144,7 @@
 .end method
 
 .method static synthetic access$202(Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;Ljava/util/List;)Ljava/util/List;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -156,7 +156,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;Ljava/util/ArrayList;)Ljava/util/ArrayList;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -170,7 +170,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;[Lcom/android/internal/telephony/gsm/SmsBroadcastConfigInfo;)Z
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -184,7 +184,7 @@
 .end method
 
 .method private setCellBroadcastActivation(Z)Z
-    .registers 7
+    .locals 5
     .parameter "activate"
 
     .prologue
@@ -221,7 +221,7 @@
     monitor-enter v3
 
     .line 346
-    :try_start_1f
+    :try_start_0
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->mHandler:Landroid/os/Handler;
 
     const/4 v4, 0x3
@@ -242,24 +242,24 @@
     iget-object v2, v2, Lcom/android/internal/telephony/PhoneBase;->mCM:Lcom/android/internal/telephony/CommandsInterface;
 
     invoke-interface {v2, p1, v1}, Lcom/android/internal/telephony/CommandsInterface;->setGsmBroadcastActivation(ZLandroid/os/Message;)V
-    :try_end_30
-    .catchall {:try_start_1f .. :try_end_30} :catchall_40
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 352
-    :try_start_30
+    :try_start_1
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->mLock:Ljava/lang/Object;
 
     invoke-virtual {v2}, Ljava/lang/Object;->wait()V
-    :try_end_35
-    .catchall {:try_start_30 .. :try_end_35} :catchall_40
-    .catch Ljava/lang/InterruptedException; {:try_start_30 .. :try_end_35} :catch_39
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 356
-    :goto_35
-    :try_start_35
+    :goto_0
+    :try_start_2
     monitor-exit v3
-    :try_end_36
-    .catchall {:try_start_35 .. :try_end_36} :catchall_40
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 358
     iget-boolean v2, p0, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->mSuccess:Z
@@ -267,33 +267,33 @@
     return v2
 
     .line 353
-    :catch_39
+    :catch_0
     move-exception v0
 
     .line 354
     .local v0, e:Ljava/lang/InterruptedException;
-    :try_start_3a
+    :try_start_3
     const-string v2, "interrupted while trying to set cell broadcast activation"
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->log(Ljava/lang/String;)V
 
-    goto :goto_35
+    goto :goto_0
 
     .line 356
     .end local v0           #e:Ljava/lang/InterruptedException;
     .end local v1           #response:Landroid/os/Message;
-    :catchall_40
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_42
-    .catchall {:try_start_3a .. :try_end_42} :catchall_40
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v2
 .end method
 
 .method private setCellBroadcastConfig([Lcom/android/internal/telephony/gsm/SmsBroadcastConfigInfo;)Z
-    .registers 7
+    .locals 5
     .parameter "configs"
 
     .prologue
@@ -332,7 +332,7 @@
     monitor-enter v3
 
     .line 326
-    :try_start_20
+    :try_start_0
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->mHandler:Landroid/os/Handler;
 
     const/4 v4, 0x4
@@ -353,24 +353,24 @@
     iget-object v2, v2, Lcom/android/internal/telephony/PhoneBase;->mCM:Lcom/android/internal/telephony/CommandsInterface;
 
     invoke-interface {v2, p1, v1}, Lcom/android/internal/telephony/CommandsInterface;->setGsmBroadcastConfig([Lcom/android/internal/telephony/gsm/SmsBroadcastConfigInfo;Landroid/os/Message;)V
-    :try_end_31
-    .catchall {:try_start_20 .. :try_end_31} :catchall_41
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 332
-    :try_start_31
+    :try_start_1
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->mLock:Ljava/lang/Object;
 
     invoke-virtual {v2}, Ljava/lang/Object;->wait()V
-    :try_end_36
-    .catchall {:try_start_31 .. :try_end_36} :catchall_41
-    .catch Ljava/lang/InterruptedException; {:try_start_31 .. :try_end_36} :catch_3a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 336
-    :goto_36
-    :try_start_36
+    :goto_0
+    :try_start_2
     monitor-exit v3
-    :try_end_37
-    .catchall {:try_start_36 .. :try_end_37} :catchall_41
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 338
     iget-boolean v2, p0, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->mSuccess:Z
@@ -378,27 +378,27 @@
     return v2
 
     .line 333
-    :catch_3a
+    :catch_0
     move-exception v0
 
     .line 334
     .local v0, e:Ljava/lang/InterruptedException;
-    :try_start_3b
+    :try_start_3
     const-string v2, "interrupted while trying to set cell broadcast config"
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->log(Ljava/lang/String;)V
 
-    goto :goto_36
+    goto :goto_0
 
     .line 336
     .end local v0           #e:Ljava/lang/InterruptedException;
     .end local v1           #response:Landroid/os/Message;
-    :catchall_41
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_43
-    .catchall {:try_start_3b .. :try_end_43} :catchall_41
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v2
 .end method
@@ -406,7 +406,7 @@
 
 # virtual methods
 .method public copyMessageToIccEf(I[B[B)Z
-    .registers 10
+    .locals 6
     .parameter "status"
     .parameter "pdu"
     .parameter "smsc"
@@ -486,7 +486,7 @@
     .line 178
     const/4 v2, 0x0
 
-    :try_start_48
+    :try_start_0
     iput-boolean v2, p0, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->mSuccess:Z
 
     .line 179
@@ -513,24 +513,24 @@
     move-result-object v5
 
     invoke-interface {v2, p1, v4, v5, v1}, Lcom/android/internal/telephony/CommandsInterface;->writeSmsToSim(ILjava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-    :try_end_60
-    .catchall {:try_start_48 .. :try_end_60} :catchall_70
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 185
-    :try_start_60
+    :try_start_1
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->mLock:Ljava/lang/Object;
 
     invoke-virtual {v2}, Ljava/lang/Object;->wait()V
-    :try_end_65
-    .catchall {:try_start_60 .. :try_end_65} :catchall_70
-    .catch Ljava/lang/InterruptedException; {:try_start_60 .. :try_end_65} :catch_69
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 189
-    :goto_65
-    :try_start_65
+    :goto_0
+    :try_start_2
     monitor-exit v3
-    :try_end_66
-    .catchall {:try_start_65 .. :try_end_66} :catchall_70
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 190
     iget-boolean v2, p0, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->mSuccess:Z
@@ -538,33 +538,33 @@
     return v2
 
     .line 186
-    :catch_69
+    :catch_0
     move-exception v0
 
     .line 187
     .local v0, e:Ljava/lang/InterruptedException;
-    :try_start_6a
+    :try_start_3
     const-string v2, "interrupted while trying to update by index"
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->log(Ljava/lang/String;)V
 
-    goto :goto_65
+    goto :goto_0
 
     .line 189
     .end local v0           #e:Ljava/lang/InterruptedException;
     .end local v1           #response:Landroid/os/Message;
-    :catchall_70
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_72
-    .catchall {:try_start_6a .. :try_end_72} :catchall_70
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v2
 .end method
 
 .method public disableCellBroadcast(I)Z
-    .registers 3
+    .locals 1
     .parameter "messageIdentifier"
 
     .prologue
@@ -577,7 +577,7 @@
 .end method
 
 .method public disableCellBroadcastRange(II)Z
-    .registers 9
+    .locals 6
     .parameter "startMessageId"
     .parameter "endMessageId"
 
@@ -627,7 +627,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_53
+    if-nez v4, :cond_0
 
     .line 267
     new-instance v3, Ljava/lang/StringBuilder;
@@ -671,11 +671,11 @@
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->log(Ljava/lang/String;)V
 
     .line 278
-    :goto_52
+    :goto_0
     return v2
 
     .line 273
-    :cond_53
+    :cond_0
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -723,21 +723,21 @@
 
     move-result v4
 
-    if-nez v4, :cond_86
+    if-nez v4, :cond_1
 
     move v2, v3
 
-    :cond_86
+    :cond_1
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->setCellBroadcastActivation(Z)Z
 
     move v2, v3
 
     .line 278
-    goto :goto_52
+    goto :goto_0
 .end method
 
 .method public dispose()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 111
@@ -745,7 +745,7 @@
 .end method
 
 .method public enableCellBroadcast(I)Z
-    .registers 3
+    .locals 1
     .parameter "messageIdentifier"
 
     .prologue
@@ -758,7 +758,7 @@
 .end method
 
 .method public enableCellBroadcastRange(II)Z
-    .registers 9
+    .locals 6
     .parameter "startMessageId"
     .parameter "endMessageId"
 
@@ -808,7 +808,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_53
+    if-nez v4, :cond_0
 
     .line 240
     new-instance v3, Ljava/lang/StringBuilder;
@@ -852,11 +852,11 @@
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->log(Ljava/lang/String;)V
 
     .line 251
-    :goto_52
+    :goto_0
     return v2
 
     .line 246
-    :cond_53
+    :cond_0
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -904,31 +904,31 @@
 
     move-result v4
 
-    if-nez v4, :cond_86
+    if-nez v4, :cond_1
 
     move v2, v3
 
-    :cond_86
+    :cond_1
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->setCellBroadcastActivation(Z)Z
 
     move v2, v3
 
     .line 251
-    goto :goto_52
+    goto :goto_0
 .end method
 
 .method protected finalize()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 116
     :try_start_0
     invoke-super {p0}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->finalize()V
-    :try_end_3
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_3} :catch_b
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 120
-    :goto_3
+    :goto_0
     const-string v1, "GSM"
 
     const-string v2, "SimSmsInterfaceManager finalized"
@@ -939,7 +939,7 @@
     return-void
 
     .line 117
-    :catch_b
+    :catch_0
     move-exception v0
 
     .line 118
@@ -950,11 +950,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public getAllMessagesFromIccEf()Ljava/util/List;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -992,7 +992,7 @@
     monitor-enter v4
 
     .line 207
-    :try_start_15
+    :try_start_0
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->mHandler:Landroid/os/Handler;
 
     const/4 v5, 0x1
@@ -1012,24 +1012,24 @@
     const/16 v5, 0x6f3c
 
     invoke-virtual {v3, v5, v2}, Lcom/android/internal/telephony/IccFileHandler;->loadEFLinearFixedAll(ILandroid/os/Message;)V
-    :try_end_27
-    .catchall {:try_start_15 .. :try_end_27} :catchall_37
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 211
-    :try_start_27
+    :try_start_1
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->mLock:Ljava/lang/Object;
 
     invoke-virtual {v3}, Ljava/lang/Object;->wait()V
-    :try_end_2c
-    .catchall {:try_start_27 .. :try_end_2c} :catchall_37
-    .catch Ljava/lang/InterruptedException; {:try_start_27 .. :try_end_2c} :catch_30
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 215
-    :goto_2c
-    :try_start_2c
+    :goto_0
+    :try_start_2
     monitor-exit v4
-    :try_end_2d
-    .catchall {:try_start_2c .. :try_end_2d} :catchall_37
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 216
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->mSms:Ljava/util/List;
@@ -1037,33 +1037,33 @@
     return-object v3
 
     .line 212
-    :catch_30
+    :catch_0
     move-exception v1
 
     .line 213
     .local v1, e:Ljava/lang/InterruptedException;
-    :try_start_31
+    :try_start_3
     const-string v3, "interrupted while trying to load from the SIM"
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->log(Ljava/lang/String;)V
 
-    goto :goto_2c
+    goto :goto_0
 
     .line 215
     .end local v1           #e:Ljava/lang/InterruptedException;
     .end local v2           #response:Landroid/os/Message;
-    :catchall_37
+    :catchall_0
     move-exception v3
 
     monitor-exit v4
-    :try_end_39
-    .catchall {:try_start_31 .. :try_end_39} :catchall_37
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v3
 .end method
 
 .method protected log(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
@@ -1095,7 +1095,7 @@
 .end method
 
 .method public updateMessageOnIccEf(II[B)Z
-    .registers 12
+    .locals 8
     .parameter "index"
     .parameter "status"
     .parameter "pdu"
@@ -1171,7 +1171,7 @@
     .line 141
     const/4 v0, 0x0
 
-    :try_start_44
+    :try_start_0
     iput-boolean v0, p0, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->mSuccess:Z
 
     .line 142
@@ -1185,7 +1185,7 @@
 
     .line 144
     .local v5, response:Landroid/os/Message;
-    if-nez p2, :cond_5f
+    if-nez p2, :cond_0
 
     .line 147
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
@@ -1193,25 +1193,25 @@
     iget-object v0, v0, Lcom/android/internal/telephony/PhoneBase;->mCM:Lcom/android/internal/telephony/CommandsInterface;
 
     invoke-interface {v0, p1, v5}, Lcom/android/internal/telephony/CommandsInterface;->deleteSmsOnSim(ILandroid/os/Message;)V
-    :try_end_56
-    .catchall {:try_start_44 .. :try_end_56} :catchall_71
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 155
-    :goto_56
-    :try_start_56
+    :goto_0
+    :try_start_1
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->mLock:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->wait()V
-    :try_end_5b
-    .catchall {:try_start_56 .. :try_end_5b} :catchall_71
-    .catch Ljava/lang/InterruptedException; {:try_start_56 .. :try_end_5b} :catch_74
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 159
-    :goto_5b
-    :try_start_5b
+    :goto_1
+    :try_start_2
     monitor-exit v7
-    :try_end_5c
-    .catchall {:try_start_5b .. :try_end_5c} :catchall_71
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 160
     iget-boolean v0, p0, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->mSuccess:Z
@@ -1219,8 +1219,8 @@
     return v0
 
     .line 149
-    :cond_5f
-    :try_start_5f
+    :cond_0
+    :try_start_3
     invoke-virtual {p0, p2, p3}, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->makeSmsRecordData(I[B)[B
 
     move-result-object v3
@@ -1241,33 +1241,33 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/internal/telephony/IccFileHandler;->updateEFLinearFixed(II[BLjava/lang/String;Landroid/os/Message;)V
 
-    goto :goto_56
+    goto :goto_0
 
     .line 159
     .end local v3           #record:[B
     .end local v5           #response:Landroid/os/Message;
-    :catchall_71
+    :catchall_0
     move-exception v0
 
     monitor-exit v7
-    :try_end_73
-    .catchall {:try_start_5f .. :try_end_73} :catchall_71
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v0
 
     .line 156
     .restart local v5       #response:Landroid/os/Message;
-    :catch_74
+    :catch_0
     move-exception v6
 
     .line 157
     .local v6, e:Ljava/lang/InterruptedException;
-    :try_start_75
+    :try_start_4
     const-string v0, "interrupted while trying to update by index"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/gsm/SimSmsInterfaceManager;->log(Ljava/lang/String;)V
-    :try_end_7a
-    .catchall {:try_start_75 .. :try_end_7a} :catchall_71
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    goto :goto_5b
+    goto :goto_1
 .end method

@@ -60,7 +60,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1728
@@ -74,7 +74,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 9
+    .locals 7
     .parameter "in"
 
     .prologue
@@ -128,11 +128,11 @@
 
     move-result v5
 
-    if-eqz v5, :cond_60
+    if-eqz v5, :cond_0
 
     const/4 v5, 0x1
 
-    :goto_2e
+    :goto_0
     iput-boolean v5, p0, Landroid/widget/AbsListView$SavedState;->inActionMode:Z
 
     .line 1682
@@ -156,7 +156,7 @@
 
     .line 1685
     .local v0, N:I
-    if-lez v0, :cond_62
+    if-lez v0, :cond_1
 
     .line 1686
     new-instance v5, Landroid/util/LongSparseArray;
@@ -169,8 +169,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_4a
-    if-ge v1, v0, :cond_62
+    :goto_1
+    if-ge v1, v0, :cond_1
 
     .line 1688
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
@@ -196,26 +196,26 @@
     .line 1687
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_4a
+    goto :goto_1
 
     .line 1681
     .end local v0           #N:I
     .end local v1           #i:I
     .end local v2           #key:J
     .end local v4           #value:I
-    :cond_60
+    :cond_0
     const/4 v5, 0x0
 
-    goto :goto_2e
+    goto :goto_0
 
     .line 1693
     .restart local v0       #N:I
-    :cond_62
+    :cond_1
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/widget/AbsListView$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -227,7 +227,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcelable;)V
-    .registers 2
+    .locals 0
     .parameter "superState"
 
     .prologue
@@ -241,7 +241,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1717
@@ -365,7 +365,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 9
+    .locals 6
     .parameter "out"
     .parameter "flags"
 
@@ -408,11 +408,11 @@
     .line 1704
     iget-boolean v2, p0, Landroid/widget/AbsListView$SavedState;->inActionMode:Z
 
-    if-eqz v2, :cond_60
+    if-eqz v2, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_27
+    :goto_0
     int-to-byte v2, v2
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeByte(B)V
@@ -430,7 +430,7 @@
     .line 1707
     iget-object v2, p0, Landroid/widget/AbsListView$SavedState;->checkIdState:Landroid/util/LongSparseArray;
 
-    if-eqz v2, :cond_62
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Landroid/widget/AbsListView$SavedState;->checkIdState:Landroid/util/LongSparseArray;
 
@@ -440,15 +440,15 @@
 
     .line 1708
     .local v0, N:I
-    :goto_3f
+    :goto_1
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1709
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_43
-    if-ge v1, v0, :cond_64
+    :goto_2
+    if-ge v1, v0, :cond_2
 
     .line 1710
     iget-object v2, p0, Landroid/widget/AbsListView$SavedState;->checkIdState:Landroid/util/LongSparseArray;
@@ -477,25 +477,25 @@
     .line 1709
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_43
+    goto :goto_2
 
     .end local v0           #N:I
     .end local v1           #i:I
-    :cond_60
+    :cond_0
     move v2, v3
 
     .line 1704
-    goto :goto_27
+    goto :goto_0
 
-    :cond_62
+    :cond_1
     move v0, v3
 
     .line 1707
-    goto :goto_3f
+    goto :goto_1
 
     .line 1713
     .restart local v0       #N:I
     .restart local v1       #i:I
-    :cond_64
+    :cond_2
     return-void
 .end method

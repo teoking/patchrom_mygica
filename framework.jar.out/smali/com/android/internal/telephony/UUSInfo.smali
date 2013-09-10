@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 65
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(II[B)V
-    .registers 4
+    .locals 0
     .parameter "uusType"
     .parameter "uusDcs"
     .parameter "uusData"
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public getDcs()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 78
@@ -100,7 +100,7 @@
 .end method
 
 .method public getType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 86
@@ -110,7 +110,7 @@
 .end method
 
 .method public getUserData()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 94
@@ -120,7 +120,7 @@
 .end method
 
 .method public setDcs(I)V
-    .registers 2
+    .locals 0
     .parameter "uusDcs"
 
     .prologue
@@ -132,7 +132,7 @@
 .end method
 
 .method public setType(I)V
-    .registers 2
+    .locals 0
     .parameter "uusType"
 
     .prologue
@@ -144,7 +144,7 @@
 .end method
 
 .method public setUserData([B)V
-    .registers 2
+    .locals 0
     .parameter "uusData"
 
     .prologue

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/WebViewClassic;II)V
-    .registers 5
+    .locals 1
     .parameter "webView"
     .parameter "orientation"
     .parameter "npp"
@@ -59,7 +59,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/webkit/PluginFullScreenHolder;)Landroid/webkit/WebViewClassic;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -70,7 +70,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/webkit/PluginFullScreenHolder;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/webkit/PluginFullScreenHolder;)Landroid/view/View;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -92,7 +92,7 @@
 .end method
 
 .method static synthetic access$300()Landroid/webkit/PluginFullScreenHolder$CustomFrameLayout;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 36
@@ -102,7 +102,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/webkit/PluginFullScreenHolder$CustomFrameLayout;)Landroid/webkit/PluginFullScreenHolder$CustomFrameLayout;
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method public hide()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 89
@@ -134,7 +134,7 @@
 .end method
 
 .method public setContentView(Landroid/view/View;)V
-    .registers 7
+    .locals 5
     .parameter "contentView"
 
     .prologue
@@ -176,7 +176,7 @@
     .line 69
     instance-of v2, p1, Landroid/view/SurfaceView;
 
-    if-eqz v2, :cond_34
+    if-eqz v2, :cond_0
 
     move-object v1, p1
 
@@ -189,7 +189,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_34
+    if-eqz v2, :cond_0
 
     .line 72
     invoke-virtual {v1}, Landroid/view/SurfaceView;->getHolder()Landroid/view/SurfaceHolder;
@@ -200,7 +200,7 @@
 
     .line 76
     .end local v1           #sView:Landroid/view/SurfaceView;
-    :cond_34
+    :cond_0
     iput-object p1, p0, Landroid/webkit/PluginFullScreenHolder;->mContentView:Landroid/view/View;
 
     .line 77
@@ -208,7 +208,7 @@
 .end method
 
 .method public show()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 81
@@ -218,7 +218,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_0
 
     .line 82
     iget-object v1, p0, Landroid/webkit/PluginFullScreenHolder;->mWebView:Landroid/webkit/WebViewClassic;
@@ -230,7 +230,7 @@
     invoke-virtual {v1}, Landroid/webkit/ViewManager;->hideAll()V
 
     .line 84
-    :cond_11
+    :cond_0
     iget-object v1, p0, Landroid/webkit/PluginFullScreenHolder;->mWebView:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v1}, Landroid/webkit/WebViewClassic;->getWebChromeClient()Landroid/webkit/WebChromeClient;

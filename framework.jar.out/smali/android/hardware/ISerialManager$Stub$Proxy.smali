@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 82
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 86
@@ -60,7 +60,7 @@
 .end method
 
 .method public getSerialPorts()[Ljava/lang/String;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -81,7 +81,7 @@
 
     .line 95
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.hardware.ISerialManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -100,8 +100,8 @@
 
     .line 98
     invoke-virtual {v1}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -117,7 +117,7 @@
 
     .line 101
     .end local v2           #_result:[Ljava/lang/String;
-    :catchall_22
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -129,7 +129,7 @@
 .end method
 
 .method public openSerialPort(Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
-    .registers 8
+    .locals 6
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -151,7 +151,7 @@
 
     .line 113
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.hardware.ISerialManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -176,7 +176,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2f
+    if-eqz v3, :cond_0
 
     .line 118
     sget-object v3, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -186,12 +186,12 @@
     move-result-object v2
 
     check-cast v2, Landroid/os/ParcelFileDescriptor;
-    :try_end_28
-    .catchall {:try_start_8 .. :try_end_28} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 125
     .local v2, _result:Landroid/os/ParcelFileDescriptor;
-    :goto_28
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 126
@@ -202,15 +202,15 @@
 
     .line 121
     .end local v2           #_result:Landroid/os/ParcelFileDescriptor;
-    :cond_2f
+    :cond_0
     const/4 v2, 0x0
 
     .restart local v2       #_result:Landroid/os/ParcelFileDescriptor;
-    goto :goto_28
+    goto :goto_0
 
     .line 125
     .end local v2           #_result:Landroid/os/ParcelFileDescriptor;
-    :catchall_31
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

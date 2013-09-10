@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1757
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/Uri;
-    .registers 6
+    .locals 4
     .parameter "in"
 
     .prologue
@@ -52,7 +52,7 @@
 
     .line 1760
     .local v0, type:I
-    packed-switch v0, :pswitch_data_32
+    packed-switch v0, :pswitch_data_0
 
     .line 1768
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -80,51 +80,51 @@
     throw v1
 
     .line 1761
-    :pswitch_20
+    :pswitch_0
     const/4 v1, 0x0
 
     .line 1765
-    :goto_21
+    :goto_0
     return-object v1
 
     .line 1762
-    :pswitch_22
+    :pswitch_1
     invoke-static {p1}, Landroid/net/Uri$StringUri;->readFrom(Landroid/os/Parcel;)Landroid/net/Uri;
 
     move-result-object v1
 
-    goto :goto_21
+    goto :goto_0
 
     .line 1763
-    :pswitch_27
+    :pswitch_2
     invoke-static {p1}, Landroid/net/Uri$OpaqueUri;->readFrom(Landroid/os/Parcel;)Landroid/net/Uri;
 
     move-result-object v1
 
-    goto :goto_21
+    goto :goto_0
 
     .line 1765
-    :pswitch_2c
+    :pswitch_3
     invoke-static {p1}, Landroid/net/Uri$HierarchicalUri;->readFrom(Landroid/os/Parcel;)Landroid/net/Uri;
 
     move-result-object v1
 
-    goto :goto_21
+    goto :goto_0
 
     .line 1760
     nop
 
-    :pswitch_data_32
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_20
-        :pswitch_22
-        :pswitch_27
-        :pswitch_2c
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -137,7 +137,7 @@
 .end method
 
 .method public newArray(I)[Landroid/net/Uri;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -148,7 +148,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

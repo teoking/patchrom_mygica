@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 32
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>([F)V
-    .registers 5
+    .locals 3
     .parameter "dataArray"
 
     .prologue
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public get(II)F
-    .registers 5
+    .locals 2
     .parameter "i"
     .parameter "j"
 
@@ -80,7 +80,7 @@
 .end method
 
 .method public getArray()[F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 56
@@ -90,7 +90,7 @@
 .end method
 
 .method public load(Landroid/renderscript/Matrix2f;)V
-    .registers 6
+    .locals 4
     .parameter "src"
 
     .prologue
@@ -114,7 +114,7 @@
 .end method
 
 .method public loadIdentity()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/high16 v3, 0x3f80
@@ -154,7 +154,7 @@
 .end method
 
 .method public loadMultiply(Landroid/renderscript/Matrix2f;Landroid/renderscript/Matrix2f;)V
-    .registers 12
+    .locals 9
     .parameter "lhs"
     .parameter "rhs"
 
@@ -169,8 +169,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_4
-    if-ge v0, v8, :cond_27
+    :goto_0
+    if-ge v0, v8, :cond_1
 
     .line 138
     const/4 v3, 0x0
@@ -184,8 +184,8 @@
     const/4 v1, 0x0
 
     .local v1, j:I
-    :goto_9
-    if-ge v1, v8, :cond_1e
+    :goto_1
+    if-ge v1, v8, :cond_0
 
     .line 141
     invoke-virtual {p2, v0, v1}, Landroid/renderscript/Matrix2f;->get(II)F
@@ -214,11 +214,11 @@
     .line 140
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_9
+    goto :goto_1
 
     .line 145
     .end local v2           #rhs_ij:F
-    :cond_1e
+    :cond_0
     invoke-virtual {p0, v0, v6, v3}, Landroid/renderscript/Matrix2f;->set(IIF)V
 
     .line 146
@@ -227,18 +227,18 @@
     .line 137
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 148
     .end local v1           #j:I
     .end local v3           #ri0:F
     .end local v4           #ri1:F
-    :cond_27
+    :cond_1
     return-void
 .end method
 
 .method public loadRotate(F)V
-    .registers 7
+    .locals 5
     .parameter "rot"
 
     .prologue
@@ -302,7 +302,7 @@
 .end method
 
 .method public loadScale(FF)V
-    .registers 5
+    .locals 2
     .parameter "x"
     .parameter "y"
 
@@ -329,7 +329,7 @@
 .end method
 
 .method public multiply(Landroid/renderscript/Matrix2f;)V
-    .registers 3
+    .locals 1
     .parameter "rhs"
 
     .prologue
@@ -350,7 +350,7 @@
 .end method
 
 .method public rotate(F)V
-    .registers 3
+    .locals 1
     .parameter "rot"
 
     .prologue
@@ -371,7 +371,7 @@
 .end method
 
 .method public scale(FF)V
-    .registers 4
+    .locals 1
     .parameter "x"
     .parameter "y"
 
@@ -393,7 +393,7 @@
 .end method
 
 .method public set(IIF)V
-    .registers 6
+    .locals 2
     .parameter "i"
     .parameter "j"
     .parameter "v"
@@ -413,7 +413,7 @@
 .end method
 
 .method public transpose()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v4, 0x2

@@ -86,7 +86,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 371
@@ -100,7 +100,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -142,7 +142,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 397
@@ -152,7 +152,7 @@
 .end method
 
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "pw"
     .parameter "prefix"
 
@@ -432,7 +432,7 @@
 .end method
 
 .method public final makeCompatible(I)V
-    .registers 4
+    .locals 2
     .parameter "targetSdkVersion"
 
     .prologue
@@ -441,22 +441,22 @@
     .line 305
     const/16 v0, 0xb
 
-    if-ge p1, v0, :cond_e
+    if-ge p1, v0, :cond_0
 
     .line 306
     iget v0, p0, Landroid/view/inputmethod/EditorInfo;->inputType:I
 
     and-int/lit16 v0, v0, 0xfff
 
-    sparse-switch v0, :sswitch_data_28
+    sparse-switch v0, :sswitch_data_0
 
     .line 322
-    :cond_e
-    :goto_e
+    :cond_0
+    :goto_0
     return-void
 
     .line 308
-    :sswitch_f
+    :sswitch_0
     iget v0, p0, Landroid/view/inputmethod/EditorInfo;->inputType:I
 
     and-int/2addr v0, v1
@@ -465,10 +465,10 @@
 
     iput v0, p0, Landroid/view/inputmethod/EditorInfo;->inputType:I
 
-    goto :goto_e
+    goto :goto_0
 
     .line 312
-    :sswitch_17
+    :sswitch_1
     iget v0, p0, Landroid/view/inputmethod/EditorInfo;->inputType:I
 
     and-int/2addr v0, v1
@@ -477,10 +477,10 @@
 
     iput v0, p0, Landroid/view/inputmethod/EditorInfo;->inputType:I
 
-    goto :goto_e
+    goto :goto_0
 
     .line 317
-    :sswitch_1f
+    :sswitch_2
     iget v0, p0, Landroid/view/inputmethod/EditorInfo;->inputType:I
 
     and-int/2addr v0, v1
@@ -489,22 +489,22 @@
 
     iput v0, p0, Landroid/view/inputmethod/EditorInfo;->inputType:I
 
-    goto :goto_e
+    goto :goto_0
 
     .line 306
     nop
 
-    :sswitch_data_28
+    :sswitch_data_0
     .sparse-switch
-        0x2 -> :sswitch_1f
-        0x12 -> :sswitch_1f
-        0xd1 -> :sswitch_f
-        0xe1 -> :sswitch_17
+        0x2 -> :sswitch_2
+        0x12 -> :sswitch_2
+        0xd1 -> :sswitch_0
+        0xe1 -> :sswitch_1
     .end sparse-switch
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

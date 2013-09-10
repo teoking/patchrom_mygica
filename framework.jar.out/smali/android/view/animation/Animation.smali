@@ -104,7 +104,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 93
@@ -122,7 +122,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x1
@@ -224,7 +224,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 9
+    .locals 6
     .parameter "context"
     .parameter "attrs"
 
@@ -438,13 +438,13 @@
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 254
-    if-lez v1, :cond_b7
+    if-lez v1, :cond_0
 
     .line 255
     invoke-virtual {p0, p1, v1}, Landroid/view/animation/Animation;->setInterpolator(Landroid/content/Context;I)V
 
     .line 258
-    :cond_b7
+    :cond_0
     invoke-virtual {p0}, Landroid/view/animation/Animation;->ensureInterpolator()V
 
     .line 259
@@ -452,111 +452,111 @@
 .end method
 
 .method private fireAnimationEnd()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 919
     iget-object v0, p0, Landroid/view/animation/Animation;->mListener:Landroid/view/animation/Animation$AnimationListener;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 920
     iget-object v0, p0, Landroid/view/animation/Animation;->mListenerHandler:Landroid/os/Handler;
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Landroid/view/animation/Animation;->mListener:Landroid/view/animation/Animation$AnimationListener;
 
     invoke-interface {v0, p0}, Landroid/view/animation/Animation$AnimationListener;->onAnimationEnd(Landroid/view/animation/Animation;)V
 
     .line 923
-    :cond_d
-    :goto_d
+    :cond_0
+    :goto_0
     return-void
 
     .line 921
-    :cond_e
+    :cond_1
     iget-object v0, p0, Landroid/view/animation/Animation;->mListenerHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Landroid/view/animation/Animation;->mOnEnd:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->postAtFrontOfQueue(Ljava/lang/Runnable;)Z
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method private fireAnimationRepeat()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 912
     iget-object v0, p0, Landroid/view/animation/Animation;->mListener:Landroid/view/animation/Animation$AnimationListener;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 913
     iget-object v0, p0, Landroid/view/animation/Animation;->mListenerHandler:Landroid/os/Handler;
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Landroid/view/animation/Animation;->mListener:Landroid/view/animation/Animation$AnimationListener;
 
     invoke-interface {v0, p0}, Landroid/view/animation/Animation$AnimationListener;->onAnimationRepeat(Landroid/view/animation/Animation;)V
 
     .line 916
-    :cond_d
-    :goto_d
+    :cond_0
+    :goto_0
     return-void
 
     .line 914
-    :cond_e
+    :cond_1
     iget-object v0, p0, Landroid/view/animation/Animation;->mListenerHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Landroid/view/animation/Animation;->mOnRepeat:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->postAtFrontOfQueue(Ljava/lang/Runnable;)Z
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method private fireAnimationStart()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 905
     iget-object v0, p0, Landroid/view/animation/Animation;->mListener:Landroid/view/animation/Animation$AnimationListener;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 906
     iget-object v0, p0, Landroid/view/animation/Animation;->mListenerHandler:Landroid/os/Handler;
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Landroid/view/animation/Animation;->mListener:Landroid/view/animation/Animation$AnimationListener;
 
     invoke-interface {v0, p0}, Landroid/view/animation/Animation$AnimationListener;->onAnimationStart(Landroid/view/animation/Animation;)V
 
     .line 909
-    :cond_d
-    :goto_d
+    :cond_0
+    :goto_0
     return-void
 
     .line 907
-    :cond_e
+    :cond_1
     iget-object v0, p0, Landroid/view/animation/Animation;->mListenerHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Landroid/view/animation/Animation;->mOnStart:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->postAtFrontOfQueue(Ljava/lang/Runnable;)Z
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected applyTransformation(FLandroid/view/animation/Transformation;)V
-    .registers 3
+    .locals 0
     .parameter "interpolatedTime"
     .parameter "t"
 
@@ -566,17 +566,17 @@
 .end method
 
 .method public cancel()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 299
     iget-boolean v0, p0, Landroid/view/animation/Animation;->mStarted:Z
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     iget-boolean v0, p0, Landroid/view/animation/Animation;->mEnded:Z
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     .line 300
     invoke-direct {p0}, Landroid/view/animation/Animation;->fireAnimationEnd()V
@@ -592,7 +592,7 @@
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->close()V
 
     .line 305
-    :cond_13
+    :cond_0
     const-wide/high16 v0, -0x8000
 
     iput-wide v0, p0, Landroid/view/animation/Animation;->mStartTime:J
@@ -609,7 +609,7 @@
 .end method
 
 .method protected clone()Landroid/view/animation/Animation;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -658,7 +658,7 @@
 .end method
 
 .method protected bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -675,7 +675,7 @@
 .end method
 
 .method public computeDurationHint()J
-    .registers 5
+    .locals 4
 
     .prologue
     .line 820
@@ -703,17 +703,17 @@
 .end method
 
 .method public detach()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 313
     iget-boolean v0, p0, Landroid/view/animation/Animation;->mStarted:Z
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     iget-boolean v0, p0, Landroid/view/animation/Animation;->mEnded:Z
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     .line 314
     const/4 v0, 0x1
@@ -729,18 +729,18 @@
     invoke-direct {p0}, Landroid/view/animation/Animation;->fireAnimationEnd()V
 
     .line 318
-    :cond_13
+    :cond_0
     return-void
 .end method
 
 .method protected ensureInterpolator()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 808
     iget-object v0, p0, Landroid/view/animation/Animation;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 809
     new-instance v0, Landroid/view/animation/AccelerateDecelerateInterpolator;
@@ -750,12 +750,12 @@
     iput-object v0, p0, Landroid/view/animation/Animation;->mInterpolator:Landroid/view/animation/Interpolator;
 
     .line 811
-    :cond_b
+    :cond_0
     return-void
 .end method
 
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -767,24 +767,24 @@
     :try_start_0
     iget-object v0, p0, Landroid/view/animation/Animation;->guard:Ldalvik/system/CloseGuard;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 1054
     iget-object v0, p0, Landroid/view/animation/Animation;->guard:Ldalvik/system/CloseGuard;
 
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->warnIfOpen()V
-    :try_end_9
-    .catchall {:try_start_0 .. :try_end_9} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1057
-    :cond_9
+    :cond_0
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
     .line 1059
     return-void
 
     .line 1057
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -793,7 +793,7 @@
 .end method
 
 .method public getBackgroundColor()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 757
@@ -803,7 +803,7 @@
 .end method
 
 .method public getDetachWallpaper()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 765
@@ -813,7 +813,7 @@
 .end method
 
 .method public getDuration()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 683
@@ -823,7 +823,7 @@
 .end method
 
 .method public getFillAfter()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 738
@@ -833,7 +833,7 @@
 .end method
 
 .method public getFillBefore()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 727
@@ -843,7 +843,7 @@
 .end method
 
 .method public getInterpolator()Landroid/view/animation/Interpolator;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 662
@@ -853,7 +853,7 @@
 .end method
 
 .method public getInvalidateRegion(IIIILandroid/graphics/RectF;Landroid/view/animation/Transformation;)V
-    .registers 16
+    .locals 9
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -924,7 +924,7 @@
 .end method
 
 .method public getRepeatCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 714
@@ -934,7 +934,7 @@
 .end method
 
 .method public getRepeatMode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 703
@@ -944,7 +944,7 @@
 .end method
 
 .method protected getScaleFactor()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 639
@@ -954,7 +954,7 @@
 .end method
 
 .method public getStartOffset()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 693
@@ -964,7 +964,7 @@
 .end method
 
 .method public getStartTime()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 673
@@ -974,7 +974,7 @@
 .end method
 
 .method public getTransformation(JLandroid/view/animation/Transformation;)Z
-    .registers 15
+    .locals 11
     .parameter "currentTime"
     .parameter "outTransformation"
 
@@ -986,13 +986,13 @@
 
     cmp-long v7, v7, v9
 
-    if-nez v7, :cond_a
+    if-nez v7, :cond_0
 
     .line 835
     iput-wide p1, p0, Landroid/view/animation/Animation;->mStartTime:J
 
     .line 838
-    :cond_a
+    :cond_0
     invoke-virtual {p0}, Landroid/view/animation/Animation;->getStartOffset()J
 
     move-result-wide v5
@@ -1007,7 +1007,7 @@
 
     cmp-long v7, v0, v7
 
-    if-eqz v7, :cond_a6
+    if-eqz v7, :cond_9
 
     .line 842
     iget-wide v7, p0, Landroid/view/animation/Animation;->mStartTime:J
@@ -1024,29 +1024,29 @@
 
     .line 849
     .local v4, normalizedTime:F
-    :goto_1f
+    :goto_0
     const/high16 v7, 0x3f80
 
     cmpl-float v7, v4, v7
 
-    if-ltz v7, :cond_b2
+    if-ltz v7, :cond_b
 
     const/4 v2, 0x1
 
     .line 850
     .local v2, expired:Z
-    :goto_26
-    if-nez v2, :cond_b5
+    :goto_1
+    if-nez v2, :cond_c
 
     const/4 v7, 0x1
 
-    :goto_29
+    :goto_2
     iput-boolean v7, p0, Landroid/view/animation/Animation;->mMore:Z
 
     .line 852
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mFillEnabled:Z
 
-    if-nez v7, :cond_3a
+    if-nez v7, :cond_1
 
     const/high16 v7, 0x3f80
 
@@ -1061,33 +1061,33 @@
     move-result v4
 
     .line 854
-    :cond_3a
+    :cond_1
     const/4 v7, 0x0
 
     cmpl-float v7, v4, v7
 
-    if-gez v7, :cond_43
+    if-gez v7, :cond_2
 
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mFillBefore:Z
 
-    if-eqz v7, :cond_82
+    if-eqz v7, :cond_7
 
-    :cond_43
+    :cond_2
     const/high16 v7, 0x3f80
 
     cmpg-float v7, v4, v7
 
-    if-lez v7, :cond_4d
+    if-lez v7, :cond_3
 
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mFillAfter:Z
 
-    if-eqz v7, :cond_82
+    if-eqz v7, :cond_7
 
     .line 855
-    :cond_4d
+    :cond_3
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mStarted:Z
 
-    if-nez v7, :cond_62
+    if-nez v7, :cond_4
 
     .line 856
     invoke-direct {p0}, Landroid/view/animation/Animation;->fireAnimationStart()V
@@ -1100,7 +1100,7 @@
     .line 858
     sget-boolean v7, Landroid/view/animation/Animation;->USE_CLOSEGUARD:Z
 
-    if-eqz v7, :cond_62
+    if-eqz v7, :cond_4
 
     .line 859
     iget-object v7, p0, Landroid/view/animation/Animation;->guard:Ldalvik/system/CloseGuard;
@@ -1110,10 +1110,10 @@
     invoke-virtual {v7, v8}, Ldalvik/system/CloseGuard;->open(Ljava/lang/String;)V
 
     .line 863
-    :cond_62
+    :cond_4
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mFillEnabled:Z
 
-    if-eqz v7, :cond_71
+    if-eqz v7, :cond_5
 
     const/high16 v7, 0x3f80
 
@@ -1128,10 +1128,10 @@
     move-result v4
 
     .line 865
-    :cond_71
+    :cond_5
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mCycleFlip:Z
 
-    if-eqz v7, :cond_79
+    if-eqz v7, :cond_6
 
     .line 866
     const/high16 v7, 0x3f80
@@ -1139,7 +1139,7 @@
     sub-float v4, v7, v4
 
     .line 869
-    :cond_79
+    :cond_6
     iget-object v7, p0, Landroid/view/animation/Animation;->mInterpolator:Landroid/view/animation/Interpolator;
 
     invoke-interface {v7, v4}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
@@ -1152,20 +1152,20 @@
 
     .line 873
     .end local v3           #interpolatedTime:F
-    :cond_82
-    if-eqz v2, :cond_99
+    :cond_7
+    if-eqz v2, :cond_8
 
     .line 874
     iget v7, p0, Landroid/view/animation/Animation;->mRepeatCount:I
 
     iget v8, p0, Landroid/view/animation/Animation;->mRepeated:I
 
-    if-ne v7, v8, :cond_b8
+    if-ne v7, v8, :cond_d
 
     .line 875
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mEnded:Z
 
-    if-nez v7, :cond_99
+    if-nez v7, :cond_8
 
     .line 876
     const/4 v7, 0x1
@@ -1181,15 +1181,15 @@
     invoke-direct {p0}, Landroid/view/animation/Animation;->fireAnimationEnd()V
 
     .line 896
-    :cond_99
-    :goto_99
+    :cond_8
+    :goto_3
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mMore:Z
 
-    if-nez v7, :cond_db
+    if-nez v7, :cond_11
 
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mOneMoreTime:Z
 
-    if-eqz v7, :cond_db
+    if-eqz v7, :cond_11
 
     .line 897
     const/4 v7, 0x0
@@ -1200,50 +1200,50 @@
     const/4 v7, 0x1
 
     .line 901
-    :goto_a5
+    :goto_4
     return v7
 
     .line 846
     .end local v2           #expired:Z
     .end local v4           #normalizedTime:F
-    :cond_a6
+    :cond_9
     iget-wide v7, p0, Landroid/view/animation/Animation;->mStartTime:J
 
     cmp-long v7, p1, v7
 
-    if-gez v7, :cond_af
+    if-gez v7, :cond_a
 
     const/4 v4, 0x0
 
     .restart local v4       #normalizedTime:F
-    :goto_ad
-    goto/16 :goto_1f
+    :goto_5
+    goto/16 :goto_0
 
     .end local v4           #normalizedTime:F
-    :cond_af
+    :cond_a
     const/high16 v4, 0x3f80
 
-    goto :goto_ad
+    goto :goto_5
 
     .line 849
     .restart local v4       #normalizedTime:F
-    :cond_b2
+    :cond_b
     const/4 v2, 0x0
 
-    goto/16 :goto_26
+    goto/16 :goto_1
 
     .line 850
     .restart local v2       #expired:Z
-    :cond_b5
+    :cond_c
     const/4 v7, 0x0
 
-    goto/16 :goto_29
+    goto/16 :goto_2
 
     .line 881
-    :cond_b8
+    :cond_d
     iget v7, p0, Landroid/view/animation/Animation;->mRepeatCount:I
 
-    if-lez v7, :cond_c2
+    if-lez v7, :cond_e
 
     .line 882
     iget v7, p0, Landroid/view/animation/Animation;->mRepeated:I
@@ -1253,25 +1253,25 @@
     iput v7, p0, Landroid/view/animation/Animation;->mRepeated:I
 
     .line 885
-    :cond_c2
+    :cond_e
     iget v7, p0, Landroid/view/animation/Animation;->mRepeatMode:I
 
     const/4 v8, 0x2
 
-    if-ne v7, v8, :cond_ce
+    if-ne v7, v8, :cond_f
 
     .line 886
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mCycleFlip:Z
 
-    if-nez v7, :cond_d9
+    if-nez v7, :cond_10
 
     const/4 v7, 0x1
 
-    :goto_cc
+    :goto_6
     iput-boolean v7, p0, Landroid/view/animation/Animation;->mCycleFlip:Z
 
     .line 889
-    :cond_ce
+    :cond_f
     const-wide/16 v7, -0x1
 
     iput-wide v7, p0, Landroid/view/animation/Animation;->mStartTime:J
@@ -1284,23 +1284,23 @@
     .line 892
     invoke-direct {p0}, Landroid/view/animation/Animation;->fireAnimationRepeat()V
 
-    goto :goto_99
+    goto :goto_3
 
     .line 886
-    :cond_d9
+    :cond_10
     const/4 v7, 0x0
 
-    goto :goto_cc
+    goto :goto_6
 
     .line 901
-    :cond_db
+    :cond_11
     iget-boolean v7, p0, Landroid/view/animation/Animation;->mMore:Z
 
-    goto :goto_a5
+    goto :goto_4
 .end method
 
 .method public getTransformation(JLandroid/view/animation/Transformation;F)Z
-    .registers 6
+    .locals 1
     .parameter "currentTime"
     .parameter "outTransformation"
     .parameter "scale"
@@ -1318,7 +1318,7 @@
 .end method
 
 .method public getZAdjustment()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 750
@@ -1328,7 +1328,7 @@
 .end method
 
 .method public hasAlpha()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1067
@@ -1338,7 +1338,7 @@
 .end method
 
 .method public hasEnded()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 958
@@ -1348,7 +1348,7 @@
 .end method
 
 .method public hasStarted()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 949
@@ -1358,7 +1358,7 @@
 .end method
 
 .method public initialize(IIII)V
-    .registers 6
+    .locals 1
     .parameter "width"
     .parameter "height"
     .parameter "parentWidth"
@@ -1378,7 +1378,7 @@
 .end method
 
 .method public initializeInvalidateRegion(IIII)V
-    .registers 12
+    .locals 7
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -1408,7 +1408,7 @@
     .line 1045
     iget-boolean v2, p0, Landroid/view/animation/Animation;->mFillBefore:Z
 
-    if-eqz v2, :cond_1e
+    if-eqz v2, :cond_0
 
     .line 1046
     iget-object v0, p0, Landroid/view/animation/Animation;->mPreviousTransformation:Landroid/view/animation/Transformation;
@@ -1427,12 +1427,12 @@
 
     .line 1049
     .end local v0           #previousTransformation:Landroid/view/animation/Transformation;
-    :cond_1e
+    :cond_0
     return-void
 .end method
 
 .method public isFillEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 556
@@ -1442,7 +1442,7 @@
 .end method
 
 .method public isInitialized()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 327
@@ -1452,7 +1452,7 @@
 .end method
 
 .method public reset()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x1
@@ -1494,7 +1494,7 @@
 .end method
 
 .method protected resolveSize(IFII)F
-    .registers 6
+    .locals 1
     .parameter "type"
     .parameter "value"
     .parameter "size"
@@ -1502,42 +1502,42 @@
 
     .prologue
     .line 987
-    packed-switch p1, :pswitch_data_a
+    packed-switch p1, :pswitch_data_0
 
     .line 995
     .end local p2
-    :goto_3
-    :pswitch_3
+    :goto_0
+    :pswitch_0
     return p2
 
     .line 991
     .restart local p2
-    :pswitch_4
+    :pswitch_1
     int-to-float v0, p3
 
     mul-float/2addr p2, v0
 
-    goto :goto_3
+    goto :goto_0
 
     .line 993
-    :pswitch_7
+    :pswitch_2
     int-to-float v0, p4
 
     mul-float/2addr p2, v0
 
-    goto :goto_3
+    goto :goto_0
 
     .line 987
-    :pswitch_data_a
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_4
-        :pswitch_7
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public restrictDuration(J)V
-    .registers 12
+    .locals 9
     .parameter "durationMillis"
 
     .prologue
@@ -1550,7 +1550,7 @@
 
     cmp-long v2, v2, p1
 
-    if-lez v2, :cond_10
+    if-lez v2, :cond_1
 
     .line 446
     iput-wide p1, p0, Landroid/view/animation/Animation;->mStartOffset:J
@@ -1562,12 +1562,12 @@
     iput v6, p0, Landroid/view/animation/Animation;->mRepeatCount:I
 
     .line 475
-    :cond_f
-    :goto_f
+    :cond_0
+    :goto_0
     return-void
 
     .line 452
-    :cond_10
+    :cond_1
     iget-wide v2, p0, Landroid/view/animation/Animation;->mDuration:J
 
     iget-wide v4, p0, Landroid/view/animation/Animation;->mStartOffset:J
@@ -1578,7 +1578,7 @@
     .local v0, dur:J
     cmp-long v2, v0, p1
 
-    if-lez v2, :cond_21
+    if-lez v2, :cond_2
 
     .line 454
     iget-wide v2, p0, Landroid/view/animation/Animation;->mStartOffset:J
@@ -1591,12 +1591,12 @@
     move-wide v0, p1
 
     .line 458
-    :cond_21
+    :cond_2
     iget-wide v2, p0, Landroid/view/animation/Animation;->mDuration:J
 
     cmp-long v2, v2, v7
 
-    if-gtz v2, :cond_2c
+    if-gtz v2, :cond_3
 
     .line 459
     iput-wide v7, p0, Landroid/view/animation/Animation;->mDuration:J
@@ -1604,13 +1604,13 @@
     .line 460
     iput v6, p0, Landroid/view/animation/Animation;->mRepeatCount:I
 
-    goto :goto_f
+    goto :goto_0
 
     .line 466
-    :cond_2c
+    :cond_3
     iget v2, p0, Landroid/view/animation/Animation;->mRepeatCount:I
 
-    if-ltz v2, :cond_3f
+    if-ltz v2, :cond_4
 
     iget v2, p0, Landroid/view/animation/Animation;->mRepeatCount:I
 
@@ -1618,7 +1618,7 @@
 
     cmp-long v2, v2, p1
 
-    if-gtz v2, :cond_3f
+    if-gtz v2, :cond_4
 
     iget v2, p0, Landroid/view/animation/Animation;->mRepeatCount:I
 
@@ -1628,10 +1628,10 @@
 
     cmp-long v2, v2, p1
 
-    if-lez v2, :cond_f
+    if-lez v2, :cond_0
 
     .line 470
-    :cond_3f
+    :cond_4
     div-long v2, p1, v0
 
     long-to-int v2, v2
@@ -1643,16 +1643,16 @@
     .line 471
     iget v2, p0, Landroid/view/animation/Animation;->mRepeatCount:I
 
-    if-gez v2, :cond_f
+    if-gez v2, :cond_0
 
     .line 472
     iput v6, p0, Landroid/view/animation/Animation;->mRepeatCount:I
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public scaleCurrentDuration(F)V
-    .registers 4
+    .locals 2
     .parameter "scale"
 
     .prologue
@@ -1683,7 +1683,7 @@
 .end method
 
 .method public setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue
@@ -1695,7 +1695,7 @@
 .end method
 
 .method public setBackgroundColor(I)V
-    .registers 2
+    .locals 0
     .parameter "bg"
 
     .prologue
@@ -1707,7 +1707,7 @@
 .end method
 
 .method public setDetachWallpaper(Z)V
-    .registers 2
+    .locals 0
     .parameter "detachWallpaper"
 
     .prologue
@@ -1719,7 +1719,7 @@
 .end method
 
 .method public setDuration(J)V
-    .registers 5
+    .locals 2
     .parameter "durationMillis"
 
     .prologue
@@ -1728,7 +1728,7 @@
 
     cmp-long v0, p1, v0
 
-    if-gez v0, :cond_e
+    if-gez v0, :cond_0
 
     .line 429
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1740,7 +1740,7 @@
     throw v0
 
     .line 431
-    :cond_e
+    :cond_0
     iput-wide p1, p0, Landroid/view/animation/Animation;->mDuration:J
 
     .line 432
@@ -1748,7 +1748,7 @@
 .end method
 
 .method public setFillAfter(Z)V
-    .registers 2
+    .locals 0
     .parameter "fillAfter"
 
     .prologue
@@ -1760,7 +1760,7 @@
 .end method
 
 .method public setFillBefore(Z)V
-    .registers 2
+    .locals 0
     .parameter "fillBefore"
 
     .prologue
@@ -1772,7 +1772,7 @@
 .end method
 
 .method public setFillEnabled(Z)V
-    .registers 2
+    .locals 0
     .parameter "fillEnabled"
 
     .prologue
@@ -1784,7 +1784,7 @@
 .end method
 
 .method public setInterpolator(Landroid/content/Context;I)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "resID"
 
@@ -1801,7 +1801,7 @@
 .end method
 
 .method public setInterpolator(Landroid/view/animation/Interpolator;)V
-    .registers 2
+    .locals 0
     .parameter "i"
 
     .prologue
@@ -1813,14 +1813,14 @@
 .end method
 
 .method public setListenerHandler(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "handler"
 
     .prologue
     .line 356
     iget-object v0, p0, Landroid/view/animation/Animation;->mListenerHandler:Landroid/os/Handler;
 
-    if-nez v0, :cond_19
+    if-nez v0, :cond_0
 
     .line 357
     new-instance v0, Landroid/view/animation/Animation$1;
@@ -1844,7 +1844,7 @@
     iput-object v0, p0, Landroid/view/animation/Animation;->mOnEnd:Ljava/lang/Runnable;
 
     .line 379
-    :cond_19
+    :cond_0
     iput-object p1, p0, Landroid/view/animation/Animation;->mListenerHandler:Landroid/os/Handler;
 
     .line 380
@@ -1852,18 +1852,18 @@
 .end method
 
 .method public setRepeatCount(I)V
-    .registers 2
+    .locals 0
     .parameter "repeatCount"
 
     .prologue
     .line 543
-    if-gez p1, :cond_3
+    if-gez p1, :cond_0
 
     .line 544
     const/4 p1, -0x1
 
     .line 546
-    :cond_3
+    :cond_0
     iput p1, p0, Landroid/view/animation/Animation;->mRepeatCount:I
 
     .line 547
@@ -1871,7 +1871,7 @@
 .end method
 
 .method public setRepeatMode(I)V
-    .registers 2
+    .locals 0
     .parameter "repeatMode"
 
     .prologue
@@ -1883,7 +1883,7 @@
 .end method
 
 .method public setStartOffset(J)V
-    .registers 3
+    .locals 0
     .parameter "startOffset"
 
     .prologue
@@ -1895,7 +1895,7 @@
 .end method
 
 .method public setStartTime(J)V
-    .registers 4
+    .locals 1
     .parameter "startTimeMillis"
 
     .prologue
@@ -1925,7 +1925,7 @@
 .end method
 
 .method public setZAdjustment(I)V
-    .registers 2
+    .locals 0
     .parameter "zAdjustment"
 
     .prologue
@@ -1937,7 +1937,7 @@
 .end method
 
 .method public start()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 510
@@ -1950,7 +1950,7 @@
 .end method
 
 .method public startNow()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 518
@@ -1965,7 +1965,7 @@
 .end method
 
 .method public willChangeBounds()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 789
@@ -1975,7 +1975,7 @@
 .end method
 
 .method public willChangeTransformationMatrix()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 777

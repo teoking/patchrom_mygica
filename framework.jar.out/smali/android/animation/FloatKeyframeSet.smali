@@ -15,7 +15,7 @@
 
 # direct methods
 .method public varargs constructor <init>([Landroid/animation/Keyframe$FloatKeyframe;)V
-    .registers 3
+    .locals 1
     .parameter "keyframes"
 
     .prologue
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public clone()Landroid/animation/FloatKeyframeSet;
-    .registers 7
+    .locals 6
 
     .prologue
     .line 50
@@ -57,8 +57,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_b
-    if-ge v0, v4, :cond_1e
+    :goto_0
+    if-ge v0, v4, :cond_0
 
     .line 54
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -78,10 +78,10 @@
     .line 53
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 56
-    :cond_1e
+    :cond_0
     new-instance v3, Landroid/animation/FloatKeyframeSet;
 
     invoke-direct {v3, v2}, Landroid/animation/FloatKeyframeSet;-><init>([Landroid/animation/Keyframe$FloatKeyframe;)V
@@ -92,7 +92,7 @@
 .end method
 
 .method public bridge synthetic clone()Landroid/animation/KeyframeSet;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 33
@@ -104,7 +104,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -121,7 +121,7 @@
 .end method
 
 .method public getFloatValue(F)F
-    .registers 15
+    .locals 13
     .parameter "fraction"
 
     .prologue
@@ -134,12 +134,12 @@
 
     const/4 v10, 0x2
 
-    if-ne v9, v10, :cond_5e
+    if-ne v9, v10, :cond_3
 
     .line 62
     iget-boolean v9, p0, Landroid/animation/FloatKeyframeSet;->firstTime:Z
 
-    if-eqz v9, :cond_30
+    if-eqz v9, :cond_0
 
     .line 63
     iput-boolean v11, p0, Landroid/animation/FloatKeyframeSet;->firstTime:Z
@@ -184,10 +184,10 @@
     iput v9, p0, Landroid/animation/FloatKeyframeSet;->deltaValue:F
 
     .line 68
-    :cond_30
+    :cond_0
     iget-object v9, p0, Landroid/animation/KeyframeSet;->mInterpolator:Landroid/animation/TimeInterpolator;
 
-    if-eqz v9, :cond_3a
+    if-eqz v9, :cond_1
 
     .line 69
     iget-object v9, p0, Landroid/animation/KeyframeSet;->mInterpolator:Landroid/animation/TimeInterpolator;
@@ -197,10 +197,10 @@
     move-result p1
 
     .line 71
-    :cond_3a
+    :cond_1
     iget-object v9, p0, Landroid/animation/KeyframeSet;->mEvaluator:Landroid/animation/TypeEvaluator;
 
-    if-nez v9, :cond_45
+    if-nez v9, :cond_2
 
     .line 72
     iget v9, p0, Landroid/animation/FloatKeyframeSet;->firstValue:F
@@ -212,11 +212,11 @@
     add-float/2addr v9, v10
 
     .line 130
-    :goto_44
+    :goto_0
     return v9
 
     .line 74
-    :cond_45
+    :cond_2
     iget-object v9, p0, Landroid/animation/KeyframeSet;->mEvaluator:Landroid/animation/TypeEvaluator;
 
     iget v10, p0, Landroid/animation/FloatKeyframeSet;->firstValue:F
@@ -241,15 +241,15 @@
 
     move-result v9
 
-    goto :goto_44
+    goto :goto_0
 
     .line 77
-    :cond_5e
+    :cond_3
     const/4 v9, 0x0
 
     cmpg-float v9, p1, v9
 
-    if-gtz v9, :cond_b1
+    if-gtz v9, :cond_6
 
     .line 78
     iget-object v9, p0, Landroid/animation/KeyframeSet;->mKeyframes:Ljava/util/ArrayList;
@@ -302,7 +302,7 @@
 
     .line 85
     .local v1, interpolator:Landroid/animation/TimeInterpolator;
-    if-eqz v1, :cond_8d
+    if-eqz v1, :cond_4
 
     .line 86
     invoke-interface {v1, p1}, Landroid/animation/TimeInterpolator;->getInterpolation(F)F
@@ -310,7 +310,7 @@
     move-result p1
 
     .line 88
-    :cond_8d
+    :cond_4
     sub-float v9, p1, v6
 
     sub-float v10, v3, v6
@@ -321,7 +321,7 @@
     .local v2, intervalFraction:F
     iget-object v9, p0, Landroid/animation/KeyframeSet;->mEvaluator:Landroid/animation/TypeEvaluator;
 
-    if-nez v9, :cond_9c
+    if-nez v9, :cond_5
 
     sub-float v9, v5, v8
 
@@ -329,9 +329,9 @@
 
     add-float/2addr v9, v8
 
-    goto :goto_44
+    goto :goto_0
 
-    :cond_9c
+    :cond_5
     iget-object v9, p0, Landroid/animation/KeyframeSet;->mEvaluator:Landroid/animation/TypeEvaluator;
 
     invoke-static {v8}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -352,7 +352,7 @@
 
     move-result v9
 
-    goto :goto_44
+    goto :goto_0
 
     .line 93
     .end local v1           #interpolator:Landroid/animation/TimeInterpolator;
@@ -363,12 +363,12 @@
     .end local v6           #prevFraction:F
     .end local v7           #prevKeyframe:Landroid/animation/Keyframe$FloatKeyframe;
     .end local v8           #prevValue:F
-    :cond_b1
+    :cond_6
     const/high16 v9, 0x3f80
 
     cmpl-float v9, p1, v9
 
-    if-ltz v9, :cond_10f
+    if-ltz v9, :cond_9
 
     .line 94
     iget-object v9, p0, Landroid/animation/KeyframeSet;->mKeyframes:Ljava/util/ArrayList;
@@ -429,7 +429,7 @@
 
     .line 101
     .restart local v1       #interpolator:Landroid/animation/TimeInterpolator;
-    if-eqz v1, :cond_e9
+    if-eqz v1, :cond_7
 
     .line 102
     invoke-interface {v1, p1}, Landroid/animation/TimeInterpolator;->getInterpolation(F)F
@@ -437,7 +437,7 @@
     move-result p1
 
     .line 104
-    :cond_e9
+    :cond_7
     sub-float v9, p1, v6
 
     sub-float v10, v3, v6
@@ -448,7 +448,7 @@
     .restart local v2       #intervalFraction:F
     iget-object v9, p0, Landroid/animation/KeyframeSet;->mEvaluator:Landroid/animation/TypeEvaluator;
 
-    if-nez v9, :cond_f9
+    if-nez v9, :cond_8
 
     sub-float v9, v5, v8
 
@@ -456,9 +456,9 @@
 
     add-float/2addr v9, v8
 
-    goto/16 :goto_44
+    goto/16 :goto_0
 
-    :cond_f9
+    :cond_8
     iget-object v9, p0, Landroid/animation/KeyframeSet;->mEvaluator:Landroid/animation/TypeEvaluator;
 
     invoke-static {v8}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -479,7 +479,7 @@
 
     move-result v9
 
-    goto/16 :goto_44
+    goto/16 :goto_0
 
     .line 110
     .end local v1           #interpolator:Landroid/animation/TimeInterpolator;
@@ -490,7 +490,7 @@
     .end local v6           #prevFraction:F
     .end local v7           #prevKeyframe:Landroid/animation/Keyframe$FloatKeyframe;
     .end local v8           #prevValue:F
-    :cond_10f
+    :cond_9
     iget-object v9, p0, Landroid/animation/KeyframeSet;->mKeyframes:Ljava/util/ArrayList;
 
     invoke-virtual {v9, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -504,10 +504,10 @@
     const/4 v0, 0x1
 
     .local v0, i:I
-    :goto_118
+    :goto_1
     iget v9, p0, Landroid/animation/KeyframeSet;->mNumKeyframes:I
 
-    if-ge v0, v9, :cond_173
+    if-ge v0, v9, :cond_d
 
     .line 112
     iget-object v9, p0, Landroid/animation/KeyframeSet;->mKeyframes:Ljava/util/ArrayList;
@@ -526,7 +526,7 @@
 
     cmpg-float v9, p1, v9
 
-    if-gez v9, :cond_16f
+    if-gez v9, :cond_c
 
     .line 114
     invoke-virtual {v4}, Landroid/animation/Keyframe$FloatKeyframe;->getInterpolator()Landroid/animation/TimeInterpolator;
@@ -535,7 +535,7 @@
 
     .line 115
     .restart local v1       #interpolator:Landroid/animation/TimeInterpolator;
-    if-eqz v1, :cond_136
+    if-eqz v1, :cond_a
 
     .line 116
     invoke-interface {v1, p1}, Landroid/animation/TimeInterpolator;->getInterpolation(F)F
@@ -543,7 +543,7 @@
     move-result p1
 
     .line 118
-    :cond_136
+    :cond_a
     invoke-virtual {v7}, Landroid/animation/Keyframe$FloatKeyframe;->getFraction()F
 
     move-result v9
@@ -578,7 +578,7 @@
     .restart local v5       #nextValue:F
     iget-object v9, p0, Landroid/animation/KeyframeSet;->mEvaluator:Landroid/animation/TypeEvaluator;
 
-    if-nez v9, :cond_159
+    if-nez v9, :cond_b
 
     sub-float v9, v5, v8
 
@@ -586,9 +586,9 @@
 
     add-float/2addr v9, v8
 
-    goto/16 :goto_44
+    goto/16 :goto_0
 
-    :cond_159
+    :cond_b
     iget-object v9, p0, Landroid/animation/KeyframeSet;->mEvaluator:Landroid/animation/TypeEvaluator;
 
     invoke-static {v8}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -609,24 +609,24 @@
 
     move-result v9
 
-    goto/16 :goto_44
+    goto/16 :goto_0
 
     .line 127
     .end local v1           #interpolator:Landroid/animation/TimeInterpolator;
     .end local v2           #intervalFraction:F
     .end local v5           #nextValue:F
     .end local v8           #prevValue:F
-    :cond_16f
+    :cond_c
     move-object v7, v4
 
     .line 111
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_118
+    goto :goto_1
 
     .line 130
     .end local v4           #nextKeyframe:Landroid/animation/Keyframe$FloatKeyframe;
-    :cond_173
+    :cond_d
     iget-object v9, p0, Landroid/animation/KeyframeSet;->mKeyframes:Ljava/util/ArrayList;
 
     iget v10, p0, Landroid/animation/KeyframeSet;->mNumKeyframes:I
@@ -649,11 +649,11 @@
 
     move-result v9
 
-    goto/16 :goto_44
+    goto/16 :goto_0
 .end method
 
 .method public getValue(F)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "fraction"
 
     .prologue

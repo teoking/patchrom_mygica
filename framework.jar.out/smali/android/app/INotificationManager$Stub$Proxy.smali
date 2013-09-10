@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public areNotificationsEnabledForPackage(Ljava/lang/String;)Z
-    .registers 8
+    .locals 6
     .parameter "pkg"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -64,7 +64,7 @@
 
     .line 342
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.app.INotificationManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -86,18 +86,18 @@
 
     .line 346
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1f
-    .catchall {:try_start_9 .. :try_end_1f} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_23
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 349
     .local v2, _result:Z
-    :cond_23
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 350
@@ -108,7 +108,7 @@
 
     .line 349
     .end local v2           #_result:Z
-    :catchall_2a
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -120,7 +120,7 @@
 .end method
 
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 180
@@ -130,7 +130,7 @@
 .end method
 
 .method public cancelAllNotifications(Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "pkg"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -152,7 +152,7 @@
 
     .line 234
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.INotificationManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -171,8 +171,8 @@
 
     .line 237
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 240
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -184,7 +184,7 @@
     return-void
 
     .line 240
-    :catchall_21
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -196,7 +196,7 @@
 .end method
 
 .method public cancelNotification(Ljava/lang/String;I)V
-    .registers 8
+    .locals 5
     .parameter "pkg"
     .parameter "id"
     .annotation system Ldalvik/annotation/Throws;
@@ -219,7 +219,7 @@
 
     .line 218
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.INotificationManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -241,8 +241,8 @@
 
     .line 222
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 225
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -254,7 +254,7 @@
     return-void
 
     .line 225
-    :catchall_24
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -266,7 +266,7 @@
 .end method
 
 .method public cancelNotificationWithTag(Ljava/lang/String;Ljava/lang/String;I)V
-    .registers 9
+    .locals 5
     .parameter "pkg"
     .parameter "tag"
     .parameter "id"
@@ -290,7 +290,7 @@
 
     .line 308
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.INotificationManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -315,8 +315,8 @@
 
     .line 313
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 316
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -328,7 +328,7 @@
     return-void
 
     .line 316
-    :catchall_27
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -340,7 +340,7 @@
 .end method
 
 .method public cancelToast(Ljava/lang/String;Landroid/app/ITransientNotification;)V
-    .registers 8
+    .locals 5
     .parameter "pkg"
     .parameter "callback"
     .annotation system Ldalvik/annotation/Throws;
@@ -363,7 +363,7 @@
 
     .line 266
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.INotificationManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -372,13 +372,13 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 268
-    if-eqz p2, :cond_2a
+    if-eqz p2, :cond_0
 
     invoke-interface {p2}, Landroid/app/ITransientNotification;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_16
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 269
@@ -392,8 +392,8 @@
 
     .line 270
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_23
-    .catchall {:try_start_8 .. :try_end_23} :catchall_2c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 273
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -405,13 +405,13 @@
     return-void
 
     .line 268
-    :cond_2a
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 273
-    :catchall_2c
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -423,7 +423,7 @@
 .end method
 
 .method public enqueueNotification(Ljava/lang/String;ILandroid/app/Notification;[I)V
-    .registers 10
+    .locals 5
     .parameter "pkg"
     .parameter "id"
     .parameter "notification"
@@ -448,7 +448,7 @@
 
     .line 192
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.INotificationManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -460,7 +460,7 @@
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 195
-    if-eqz p3, :cond_34
+    if-eqz p3, :cond_0
 
     .line 196
     const/4 v2, 0x1
@@ -473,7 +473,7 @@
     invoke-virtual {p3, v0, v2}, Landroid/app/Notification;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 202
-    :goto_1d
+    :goto_0
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeIntArray([I)V
 
     .line 203
@@ -490,8 +490,8 @@
 
     .line 205
     invoke-virtual {v1, p4}, Landroid/os/Parcel;->readIntArray([I)V
-    :try_end_2d
-    .catchall {:try_start_8 .. :try_end_2d} :catchall_39
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 208
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -503,18 +503,18 @@
     return-void
 
     .line 200
-    :cond_34
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_35
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_38
-    .catchall {:try_start_35 .. :try_end_38} :catchall_39
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 208
-    :catchall_39
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -526,7 +526,7 @@
 .end method
 
 .method public enqueueNotificationWithTag(Ljava/lang/String;Ljava/lang/String;ILandroid/app/Notification;[I)V
-    .registers 11
+    .locals 5
     .parameter "pkg"
     .parameter "tag"
     .parameter "id"
@@ -552,7 +552,7 @@
 
     .line 282
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.INotificationManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -567,7 +567,7 @@
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 286
-    if-eqz p4, :cond_37
+    if-eqz p4, :cond_0
 
     .line 287
     const/4 v2, 0x1
@@ -580,7 +580,7 @@
     invoke-virtual {p4, v0, v2}, Landroid/app/Notification;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 293
-    :goto_20
+    :goto_0
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeIntArray([I)V
 
     .line 294
@@ -597,8 +597,8 @@
 
     .line 296
     invoke-virtual {v1, p5}, Landroid/os/Parcel;->readIntArray([I)V
-    :try_end_30
-    .catchall {:try_start_8 .. :try_end_30} :catchall_3c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 299
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -610,18 +610,18 @@
     return-void
 
     .line 291
-    :cond_37
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_38
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_3b
-    .catchall {:try_start_38 .. :try_end_3b} :catchall_3c
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_20
+    goto :goto_0
 
     .line 299
-    :catchall_3c
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -633,7 +633,7 @@
 .end method
 
 .method public enqueueToast(Ljava/lang/String;Landroid/app/ITransientNotification;I)V
-    .registers 9
+    .locals 5
     .parameter "pkg"
     .parameter "callback"
     .parameter "duration"
@@ -657,7 +657,7 @@
 
     .line 249
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.INotificationManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -666,13 +666,13 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 251
-    if-eqz p2, :cond_2d
+    if-eqz p2, :cond_0
 
     invoke-interface {p2}, Landroid/app/ITransientNotification;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_16
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 252
@@ -689,8 +689,8 @@
 
     .line 254
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_26
-    .catchall {:try_start_8 .. :try_end_26} :catchall_2f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 257
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -702,13 +702,13 @@
     return-void
 
     .line 251
-    :cond_2d
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 257
-    :catchall_2f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -720,7 +720,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 184
@@ -730,7 +730,7 @@
 .end method
 
 .method public setNotificationsEnabledForPackage(Ljava/lang/String;Z)V
-    .registers 8
+    .locals 5
     .parameter "pkg"
     .parameter "enabled"
     .annotation system Ldalvik/annotation/Throws;
@@ -755,7 +755,7 @@
 
     .line 325
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.app.INotificationManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -764,11 +764,11 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 327
-    if-eqz p2, :cond_14
+    if-eqz p2, :cond_0
 
     const/4 v2, 0x1
 
-    :cond_14
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 328
@@ -782,8 +782,8 @@
 
     .line 329
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_22
-    .catchall {:try_start_9 .. :try_end_22} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 332
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -795,7 +795,7 @@
     return-void
 
     .line 332
-    :catchall_29
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

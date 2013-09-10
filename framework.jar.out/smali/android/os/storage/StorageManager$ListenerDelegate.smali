@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/storage/StorageManager;Landroid/os/storage/StorageEventListener;)V
-    .registers 5
+    .locals 2
     .parameter
     .parameter "listener"
 
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method getListener()Landroid/os/storage/StorageEventListener;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 274
@@ -63,7 +63,7 @@
 .end method
 
 .method sendShareAvailabilityChanged(Z)V
-    .registers 5
+    .locals 3
     .parameter "available"
 
     .prologue
@@ -89,7 +89,7 @@
 .end method
 
 .method sendStorageStateChanged(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 7
+    .locals 3
     .parameter "path"
     .parameter "oldState"
     .parameter "newState"

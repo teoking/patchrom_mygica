@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1496
@@ -26,7 +26,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/webkit/WebViewClassic$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "intent"
 
@@ -55,12 +55,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 1500
+    #calls: Landroid/webkit/WebViewClassic;->handleProxyBroadcast(Landroid/content/Intent;)V
     invoke-static {p2}, Landroid/webkit/WebViewClassic;->access$1200(Landroid/content/Intent;)V
 
     .line 1502
-    :cond_f
+    :cond_0
     return-void
 .end method

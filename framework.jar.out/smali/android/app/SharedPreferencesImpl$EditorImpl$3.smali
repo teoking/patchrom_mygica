@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/SharedPreferencesImpl$EditorImpl;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 463
@@ -51,6 +51,7 @@
 
     iget-object v1, p0, Landroid/app/SharedPreferencesImpl$EditorImpl$3;->val$mcr:Landroid/app/SharedPreferencesImpl$MemoryCommitResult;
 
+    #calls: Landroid/app/SharedPreferencesImpl$EditorImpl;->notifyListeners(Landroid/app/SharedPreferencesImpl$MemoryCommitResult;)V
     invoke-static {v0, v1}, Landroid/app/SharedPreferencesImpl$EditorImpl;->access$600(Landroid/app/SharedPreferencesImpl$EditorImpl;Landroid/app/SharedPreferencesImpl$MemoryCommitResult;)V
 
     .line 464

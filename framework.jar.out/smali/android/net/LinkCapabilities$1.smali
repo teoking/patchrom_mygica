@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 339
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/LinkCapabilities;
-    .registers 9
+    .locals 7
     .parameter "in"
 
     .prologue
@@ -62,12 +62,12 @@
     .line 343
     .end local v2           #size:I
     .local v3, size:I
-    :goto_a
+    :goto_0
     add-int/lit8 v2, v3, -0x1
 
     .end local v3           #size:I
     .restart local v2       #size:I
-    if-eqz v3, :cond_23
+    if-eqz v3, :cond_0
 
     .line 344
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
@@ -82,6 +82,7 @@
 
     .line 346
     .local v4, value:Ljava/lang/String;
+    #getter for: Landroid/net/LinkCapabilities;->mCapabilities:Ljava/util/HashMap;
     invoke-static {v0}, Landroid/net/LinkCapabilities;->access$000(Landroid/net/LinkCapabilities;)Ljava/util/HashMap;
 
     move-result-object v5
@@ -97,19 +98,19 @@
     .line 347
     .end local v2           #size:I
     .restart local v3       #size:I
-    goto :goto_a
+    goto :goto_0
 
     .line 348
     .end local v1           #key:I
     .end local v3           #size:I
     .end local v4           #value:Ljava/lang/String;
     .restart local v2       #size:I
-    :cond_23
+    :cond_0
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -122,7 +123,7 @@
 .end method
 
 .method public newArray(I)[Landroid/net/LinkCapabilities;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -133,7 +134,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

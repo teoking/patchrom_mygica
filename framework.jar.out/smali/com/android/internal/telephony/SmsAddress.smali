@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 19
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public couldBeEmailGateway()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 62
@@ -53,21 +53,21 @@
 
     const/4 v1, 0x4
 
-    if-gt v0, v1, :cond_b
+    if-gt v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getAddressString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 38
@@ -77,7 +77,7 @@
 .end method
 
 .method public isAlphanumeric()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 45
@@ -85,21 +85,21 @@
 
     const/4 v1, 0x5
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public isNetworkSpecific()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 52
@@ -107,15 +107,15 @@
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method

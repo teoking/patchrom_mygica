@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -63,7 +63,7 @@
 .end method
 
 .method public static create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
-    .registers 3
+    .locals 1
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 9
+    .locals 7
     .parameter "o"
 
     .prologue
@@ -102,33 +102,33 @@
     const/4 v4, 0x0
 
     .line 45
-    if-ne p1, p0, :cond_5
+    if-ne p1, p0, :cond_1
 
     .line 53
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v3
 
     .line 46
-    :cond_5
+    :cond_1
     instance-of v5, p1, Landroid/util/Pair;
 
-    if-nez v5, :cond_b
+    if-nez v5, :cond_2
 
     move v3, v4
 
-    goto :goto_4
+    goto :goto_0
 
     .line 49
-    :cond_b
-    :try_start_b
+    :cond_2
+    :try_start_0
     move-object v0, p1
 
     check-cast v0, Landroid/util/Pair;
 
     move-object v2, v0
-    :try_end_f
-    .catch Ljava/lang/ClassCastException; {:try_start_b .. :try_end_f} :catch_25
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 53
     .local v2, other:Landroid/util/Pair;,"Landroid/util/Pair<TF;TS;>;"
@@ -140,7 +140,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_23
+    if-eqz v5, :cond_3
 
     iget-object v5, p0, Landroid/util/Pair;->second:Ljava/lang/Object;
 
@@ -150,27 +150,27 @@
 
     move-result v5
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_0
 
-    :cond_23
+    :cond_3
     move v3, v4
 
-    goto :goto_4
+    goto :goto_0
 
     .line 50
     .end local v2           #other:Landroid/util/Pair;,"Landroid/util/Pair<TF;TS;>;"
-    :catch_25
+    :catch_0
     move-exception v1
 
     .local v1, e:Ljava/lang/ClassCastException;
     move v3, v4
 
     .line 51
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 61

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/EthernetDataTracker;)V
-    .registers 2
+    .locals 0
     .parameter "tracker"
 
     .prologue
@@ -37,13 +37,14 @@
 
 # virtual methods
 .method public interfaceAdded(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "iface"
 
     .prologue
     .line 92
     iget-object v0, p0, Landroid/net/EthernetDataTracker$InterfaceObserver;->mTracker:Landroid/net/EthernetDataTracker;
 
+    #calls: Landroid/net/EthernetDataTracker;->interfaceAdded(Ljava/lang/String;)V
     invoke-static {v0, p1}, Landroid/net/EthernetDataTracker;->access$300(Landroid/net/EthernetDataTracker;Ljava/lang/String;)V
 
     .line 93
@@ -51,7 +52,7 @@
 .end method
 
 .method public interfaceLinkStateChanged(Ljava/lang/String;Z)V
-    .registers 6
+    .locals 3
     .parameter "iface"
     .parameter "up"
 
@@ -65,13 +66,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4a
+    if-eqz v0, :cond_0
 
     invoke-static {}, Landroid/net/EthernetDataTracker;->access$100()Z
 
     move-result v0
 
-    if-eq v0, p2, :cond_4a
+    if-eq v0, p2, :cond_0
 
     .line 78
     const-string v1, "Ethernet"
@@ -96,11 +97,11 @@
 
     move-result-object v2
 
-    if-eqz p2, :cond_4b
+    if-eqz p2, :cond_1
 
     const-string/jumbo v0, "up"
 
-    :goto_2c
+    :goto_0
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -117,6 +118,7 @@
     .line 80
     iget-object v0, p0, Landroid/net/EthernetDataTracker$InterfaceObserver;->mTracker:Landroid/net/EthernetDataTracker;
 
+    #getter for: Landroid/net/EthernetDataTracker;->mNetworkInfo:Landroid/net/NetworkInfo;
     invoke-static {v0}, Landroid/net/EthernetDataTracker;->access$200(Landroid/net/EthernetDataTracker;)Landroid/net/NetworkInfo;
 
     move-result-object v0
@@ -124,7 +126,7 @@
     invoke-virtual {v0, p2}, Landroid/net/NetworkInfo;->setIsAvailable(Z)V
 
     .line 83
-    if-eqz p2, :cond_4e
+    if-eqz p2, :cond_2
 
     .line 84
     iget-object v0, p0, Landroid/net/EthernetDataTracker$InterfaceObserver;->mTracker:Landroid/net/EthernetDataTracker;
@@ -132,33 +134,34 @@
     invoke-virtual {v0}, Landroid/net/EthernetDataTracker;->reconnect()Z
 
     .line 89
-    :cond_4a
-    :goto_4a
+    :cond_0
+    :goto_1
     return-void
 
     .line 78
-    :cond_4b
+    :cond_1
     const-string v0, "down"
 
-    goto :goto_2c
+    goto :goto_0
 
     .line 86
-    :cond_4e
+    :cond_2
     iget-object v0, p0, Landroid/net/EthernetDataTracker$InterfaceObserver;->mTracker:Landroid/net/EthernetDataTracker;
 
     invoke-virtual {v0}, Landroid/net/EthernetDataTracker;->disconnect()V
 
-    goto :goto_4a
+    goto :goto_1
 .end method
 
 .method public interfaceRemoved(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "iface"
 
     .prologue
     .line 96
     iget-object v0, p0, Landroid/net/EthernetDataTracker$InterfaceObserver;->mTracker:Landroid/net/EthernetDataTracker;
 
+    #calls: Landroid/net/EthernetDataTracker;->interfaceRemoved(Ljava/lang/String;)V
     invoke-static {v0, p1}, Landroid/net/EthernetDataTracker;->access$400(Landroid/net/EthernetDataTracker;Ljava/lang/String;)V
 
     .line 97
@@ -166,7 +169,7 @@
 .end method
 
 .method public interfaceStatusChanged(Ljava/lang/String;Z)V
-    .registers 6
+    .locals 3
     .parameter "iface"
     .parameter "up"
 
@@ -188,11 +191,11 @@
 
     move-result-object v2
 
-    if-eqz p2, :cond_22
+    if-eqz p2, :cond_0
 
     const-string/jumbo v0, "up"
 
-    :goto_16
+    :goto_0
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -207,14 +210,14 @@
     return-void
 
     .line 73
-    :cond_22
+    :cond_0
     const-string v0, "down"
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method public limitReached(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "limitName"
     .parameter "iface"
 

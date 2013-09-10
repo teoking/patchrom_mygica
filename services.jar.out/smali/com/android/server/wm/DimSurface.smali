@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/SurfaceSession;)V
-    .registers 12
+    .locals 10
     .parameter "session"
 
     .prologue
@@ -42,10 +42,10 @@
     .line 34
     iget-object v0, p0, Lcom/android/server/wm/DimSurface;->mDimSurface:Landroid/view/Surface;
 
-    if-nez v0, :cond_28
+    if-nez v0, :cond_0
 
     .line 42
-    :try_start_f
+    :try_start_0
     new-instance v0, Landroid/view/Surface;
 
     const/4 v2, 0x0
@@ -74,16 +74,16 @@
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/Surface;->setAlpha(F)V
-    :try_end_28
-    .catch Ljava/lang/Exception; {:try_start_f .. :try_end_28} :catch_29
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 55
-    :cond_28
-    :goto_28
+    :cond_0
+    :goto_0
     return-void
 
     .line 51
-    :catch_29
+    :catch_0
     move-exception v9
 
     .line 52
@@ -94,19 +94,19 @@
 
     invoke-static {v0, v1, v9}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_28
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method hide()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 90
     iget-boolean v1, p0, Lcom/android/server/wm/DimSurface;->mDimShown:Z
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_0
 
     .line 91
     const/4 v1, 0x0
@@ -114,20 +114,20 @@
     iput-boolean v1, p0, Lcom/android/server/wm/DimSurface;->mDimShown:Z
 
     .line 94
-    :try_start_7
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/wm/DimSurface;->mDimSurface:Landroid/view/Surface;
 
     invoke-virtual {v1}, Landroid/view/Surface;->hide()V
-    :try_end_c
-    .catch Ljava/lang/RuntimeException; {:try_start_7 .. :try_end_c} :catch_d
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 99
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     return-void
 
     .line 95
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 96
@@ -138,11 +138,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public printTo(Ljava/lang/String;Ljava/io/PrintWriter;)V
-    .registers 4
+    .locals 1
     .parameter "prefix"
     .parameter "pw"
 
@@ -216,7 +216,7 @@
 .end method
 
 .method show(IIII)V
-    .registers 9
+    .locals 4
     .parameter "dw"
     .parameter "dh"
     .parameter "layer"
@@ -226,7 +226,7 @@
     .line 61
     iget-boolean v1, p0, Lcom/android/server/wm/DimSurface;->mDimShown:Z
 
-    if-nez v1, :cond_2b
+    if-nez v1, :cond_1
 
     .line 64
     const/4 v1, 0x1
@@ -234,7 +234,7 @@
     iput-boolean v1, p0, Lcom/android/server/wm/DimSurface;->mDimShown:Z
 
     .line 66
-    :try_start_7
+    :try_start_0
     iput p1, p0, Lcom/android/server/wm/DimSurface;->mLastDimWidth:I
 
     .line 67
@@ -263,16 +263,16 @@
     iget-object v1, p0, Lcom/android/server/wm/DimSurface;->mDimSurface:Landroid/view/Surface;
 
     invoke-virtual {v1}, Landroid/view/Surface;->show()V
-    :try_end_21
-    .catch Ljava/lang/RuntimeException; {:try_start_7 .. :try_end_21} :catch_22
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 87
-    :cond_21
-    :goto_21
+    :cond_0
+    :goto_0
     return-void
 
     .line 72
-    :catch_22
+    :catch_0
     move-exception v0
 
     .line 73
@@ -283,29 +283,29 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_21
+    goto :goto_0
 
     .line 75
     .end local v0           #e:Ljava/lang/RuntimeException;
-    :cond_2b
+    :cond_1
     iget v1, p0, Lcom/android/server/wm/DimSurface;->mLastDimWidth:I
 
-    if-ne v1, p1, :cond_3b
+    if-ne v1, p1, :cond_2
 
     iget v1, p0, Lcom/android/server/wm/DimSurface;->mLastDimHeight:I
 
-    if-ne v1, p2, :cond_3b
+    if-ne v1, p2, :cond_2
 
     iget v1, p0, Lcom/android/server/wm/DimSurface;->mDimColor:I
 
-    if-ne v1, p4, :cond_3b
+    if-ne v1, p4, :cond_2
 
     iget v1, p0, Lcom/android/server/wm/DimSurface;->mLayer:I
 
-    if-eq v1, p3, :cond_21
+    if-eq v1, p3, :cond_0
 
     .line 79
-    :cond_3b
+    :cond_2
     iput p1, p0, Lcom/android/server/wm/DimSurface;->mLastDimWidth:I
 
     .line 80
@@ -342,5 +342,5 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Surface;->setAlpha(F)V
 
-    goto :goto_21
+    goto :goto_0
 .end method

@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 40
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Landroid/database/sqlite/SQLiteDatabaseConfiguration;)V
-    .registers 4
+    .locals 2
     .parameter "other"
 
     .prologue
@@ -67,7 +67,7 @@
     iput-object v0, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->customFunctions:Ljava/util/ArrayList;
 
     .line 119
-    if-nez p1, :cond_15
+    if-nez p1, :cond_0
 
     .line 120
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -79,7 +79,7 @@
     throw v0
 
     .line 123
-    :cond_15
+    :cond_0
     iget-object v0, p1, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->path:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->path:Ljava/lang/String;
@@ -97,7 +97,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
     .parameter "path"
     .parameter "openFlags"
 
@@ -113,7 +113,7 @@
     iput-object v0, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->customFunctions:Ljava/util/ArrayList;
 
     .line 100
-    if-nez p1, :cond_15
+    if-nez p1, :cond_0
 
     .line 101
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -125,7 +125,7 @@
     throw v0
 
     .line 104
-    :cond_15
+    :cond_0
     iput-object p1, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->path:Ljava/lang/String;
 
     .line 105
@@ -155,7 +155,7 @@
 .end method
 
 .method private static stripPathForLogs(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "path"
 
     .prologue
@@ -168,15 +168,15 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_a
+    if-ne v0, v1, :cond_0
 
     .line 163
     .end local p0
-    :goto_9
+    :goto_0
     return-object p0
 
     .restart local p0
-    :cond_a
+    :cond_0
     sget-object v0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->EMAIL_IN_DB_PATTERN:Ljava/util/regex/Pattern;
 
     invoke-virtual {v0, p0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -189,13 +189,13 @@
 
     move-result-object p0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public isInMemoryDb()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 156
@@ -211,12 +211,12 @@
 .end method
 
 .method public updateParametersFrom(Landroid/database/sqlite/SQLiteDatabaseConfiguration;)V
-    .registers 4
+    .locals 2
     .parameter "other"
 
     .prologue
     .line 135
-    if-nez p1, :cond_b
+    if-nez p1, :cond_0
 
     .line 136
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -228,7 +228,7 @@
     throw v0
 
     .line 138
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->path:Ljava/lang/String;
 
     iget-object v1, p1, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->path:Ljava/lang/String;
@@ -237,7 +237,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1e
+    if-nez v0, :cond_1
 
     .line 139
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -249,7 +249,7 @@
     throw v0
 
     .line 143
-    :cond_1e
+    :cond_1
     iget v0, p1, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->openFlags:I
 
     iput v0, p0, Landroid/database/sqlite/SQLiteDatabaseConfiguration;->openFlags:I

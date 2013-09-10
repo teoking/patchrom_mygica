@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 16848
@@ -38,7 +38,7 @@
 .end method
 
 .method public static getMode(I)I
-    .registers 2
+    .locals 1
     .parameter "measureSpec"
 
     .prologue
@@ -51,7 +51,7 @@
 .end method
 
 .method public static getSize(I)I
-    .registers 2
+    .locals 1
     .parameter "measureSpec"
 
     .prologue
@@ -64,7 +64,7 @@
 .end method
 
 .method public static makeMeasureSpec(II)I
-    .registers 3
+    .locals 1
     .parameter "size"
     .parameter "mode"
 
@@ -76,7 +76,7 @@
 .end method
 
 .method public static toString(I)Ljava/lang/String;
-    .registers 6
+    .locals 5
     .parameter "measureSpec"
 
     .prologue
@@ -101,7 +101,7 @@
 
     .line 16924
     .local v1, sb:Ljava/lang/StringBuilder;
-    if-nez v0, :cond_1e
+    if-nez v0, :cond_0
 
     .line 16925
     const-string v3, "UNSPECIFIED "
@@ -109,7 +109,7 @@
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 16933
-    :goto_16
+    :goto_0
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 16934
@@ -120,33 +120,33 @@
     return-object v3
 
     .line 16926
-    :cond_1e
+    :cond_0
     const/high16 v3, 0x4000
 
-    if-ne v0, v3, :cond_28
+    if-ne v0, v3, :cond_1
 
     .line 16927
     const-string v3, "EXACTLY "
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_16
+    goto :goto_0
 
     .line 16928
-    :cond_28
+    :cond_1
     const/high16 v3, -0x8000
 
-    if-ne v0, v3, :cond_32
+    if-ne v0, v3, :cond_2
 
     .line 16929
     const-string v3, "AT_MOST "
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_16
+    goto :goto_0
 
     .line 16931
-    :cond_32
+    :cond_2
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -155,5 +155,5 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_16
+    goto :goto_0
 .end method

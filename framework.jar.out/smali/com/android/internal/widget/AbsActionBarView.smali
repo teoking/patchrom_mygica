@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 45
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -90,7 +90,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 5
+    .locals 1
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -113,7 +113,7 @@
 
 # virtual methods
 .method public animateToVisibility(I)V
-    .registers 13
+    .locals 11
     .parameter "visibility"
 
     .prologue
@@ -130,7 +130,7 @@
     .line 120
     iget-object v3, p0, Lcom/android/internal/widget/AbsActionBarView;->mVisibilityAnim:Landroid/animation/Animator;
 
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_0
 
     .line 121
     iget-object v3, p0, Lcom/android/internal/widget/AbsActionBarView;->mVisibilityAnim:Landroid/animation/Animator;
@@ -138,15 +138,15 @@
     invoke-virtual {v3}, Landroid/animation/Animator;->cancel()V
 
     .line 123
-    :cond_10
-    if-nez p1, :cond_77
+    :cond_0
+    if-nez p1, :cond_3
 
     .line 124
     invoke-virtual {p0}, Lcom/android/internal/widget/AbsActionBarView;->getVisibility()I
 
     move-result v3
 
-    if-eqz v3, :cond_28
+    if-eqz v3, :cond_1
 
     .line 125
     invoke-virtual {p0, v6}, Lcom/android/internal/widget/AbsActionBarView;->setAlpha(F)V
@@ -154,11 +154,11 @@
     .line 126
     iget-object v3, p0, Lcom/android/internal/widget/AbsActionBarView;->mSplitView:Lcom/android/internal/widget/ActionBarContainer;
 
-    if-eqz v3, :cond_28
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
-    if-eqz v3, :cond_28
+    if-eqz v3, :cond_1
 
     .line 127
     iget-object v3, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
@@ -166,7 +166,7 @@
     invoke-virtual {v3, v6}, Lcom/android/internal/view/menu/ActionMenuView;->setAlpha(F)V
 
     .line 130
-    :cond_28
+    :cond_1
     const-string v3, "alpha"
 
     new-array v4, v5, [F
@@ -189,11 +189,11 @@
     .line 133
     iget-object v3, p0, Lcom/android/internal/widget/AbsActionBarView;->mSplitView:Lcom/android/internal/widget/ActionBarContainer;
 
-    if-eqz v3, :cond_6a
+    if-eqz v3, :cond_2
 
     iget-object v3, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
-    if-eqz v3, :cond_6a
+    if-eqz v3, :cond_2
 
     .line 134
     new-instance v1, Landroid/animation/AnimatorSet;
@@ -240,11 +240,11 @@
     .line 160
     .end local v1           #set:Landroid/animation/AnimatorSet;
     .end local v2           #splitAnim:Landroid/animation/ObjectAnimator;
-    :goto_69
+    :goto_0
     return-void
 
     .line 141
-    :cond_6a
+    :cond_2
     iget-object v3, p0, Lcom/android/internal/widget/AbsActionBarView;->mVisAnimListener:Lcom/android/internal/widget/AbsActionBarView$VisibilityAnimListener;
 
     invoke-virtual {v3, p1}, Lcom/android/internal/widget/AbsActionBarView$VisibilityAnimListener;->withFinalVisibility(I)Lcom/android/internal/widget/AbsActionBarView$VisibilityAnimListener;
@@ -256,11 +256,11 @@
     .line 142
     invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->start()V
 
-    goto :goto_69
+    goto :goto_0
 
     .line 145
     .end local v0           #anim:Landroid/animation/ObjectAnimator;
-    :cond_77
+    :cond_3
     const-string v3, "alpha"
 
     new-array v4, v5, [F
@@ -283,11 +283,11 @@
     .line 148
     iget-object v3, p0, Lcom/android/internal/widget/AbsActionBarView;->mSplitView:Lcom/android/internal/widget/ActionBarContainer;
 
-    if-eqz v3, :cond_b9
+    if-eqz v3, :cond_4
 
     iget-object v3, p0, Lcom/android/internal/widget/AbsActionBarView;->mMenuView:Lcom/android/internal/view/menu/ActionMenuView;
 
-    if-eqz v3, :cond_b9
+    if-eqz v3, :cond_4
 
     .line 149
     new-instance v1, Landroid/animation/AnimatorSet;
@@ -331,12 +331,12 @@
     .line 154
     invoke-virtual {v1}, Landroid/animation/AnimatorSet;->start()V
 
-    goto :goto_69
+    goto :goto_0
 
     .line 156
     .end local v1           #set:Landroid/animation/AnimatorSet;
     .end local v2           #splitAnim:Landroid/animation/ObjectAnimator;
-    :cond_b9
+    :cond_4
     iget-object v3, p0, Lcom/android/internal/widget/AbsActionBarView;->mVisAnimListener:Lcom/android/internal/widget/AbsActionBarView$VisibilityAnimListener;
 
     invoke-virtual {v3, p1}, Lcom/android/internal/widget/AbsActionBarView$VisibilityAnimListener;->withFinalVisibility(I)Lcom/android/internal/widget/AbsActionBarView$VisibilityAnimListener;
@@ -348,17 +348,17 @@
     .line 157
     invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->start()V
 
-    goto :goto_69
+    goto :goto_0
 .end method
 
 .method public dismissPopupMenus()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 206
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 207
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
@@ -366,18 +366,18 @@
     invoke-virtual {v0}, Lcom/android/internal/view/menu/ActionMenuPresenter;->dismissPopupMenus()Z
 
     .line 209
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public getAnimatedVisibility()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 113
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mVisibilityAnim:Landroid/animation/Animator;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 114
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mVisAnimListener:Lcom/android/internal/widget/AbsActionBarView$VisibilityAnimListener;
@@ -385,19 +385,19 @@
     iget v0, v0, Lcom/android/internal/widget/AbsActionBarView$VisibilityAnimListener;->mFinalVisibility:I
 
     .line 116
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     invoke-virtual {p0}, Lcom/android/internal/widget/AbsActionBarView;->getVisibility()I
 
     move-result v0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getContentHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 102
@@ -407,13 +407,13 @@
 .end method
 
 .method public hideOverflowMenu()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 188
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 189
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
@@ -423,23 +423,23 @@
     move-result v0
 
     .line 191
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public isOverflowMenuShowing()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 195
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 196
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
@@ -449,23 +449,23 @@
     move-result v0
 
     .line 198
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public isOverflowReserved()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 202
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
@@ -473,21 +473,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method protected measureChildView(Landroid/view/View;III)I
-    .registers 6
+    .locals 1
     .parameter "child"
     .parameter "availableWidth"
     .parameter "childSpecHeight"
@@ -524,7 +524,7 @@
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .registers 8
+    .locals 6
     .parameter "newConfig"
 
     .prologue
@@ -564,7 +564,7 @@
     .line 71
     iget-boolean v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mSplitWhenNarrow:Z
 
-    if-eqz v1, :cond_33
+    if-eqz v1, :cond_0
 
     .line 72
     invoke-virtual {p0}, Lcom/android/internal/widget/AbsActionBarView;->getContext()Landroid/content/Context;
@@ -584,10 +584,10 @@
     invoke-virtual {p0, v1}, Lcom/android/internal/widget/AbsActionBarView;->setSplitActionBar(Z)V
 
     .line 75
-    :cond_33
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
-    if-eqz v1, :cond_3c
+    if-eqz v1, :cond_1
 
     .line 76
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
@@ -595,12 +595,12 @@
     invoke-virtual {v1, p1}, Lcom/android/internal/view/menu/ActionMenuPresenter;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
     .line 78
-    :cond_3c
+    :cond_1
     return-void
 .end method
 
 .method protected positionChild(Landroid/view/View;III)I
-    .registers 10
+    .locals 5
     .parameter "child"
     .parameter "x"
     .parameter "y"
@@ -639,7 +639,7 @@
 .end method
 
 .method protected positionChildInverse(Landroid/view/View;III)I
-    .registers 10
+    .locals 5
     .parameter "child"
     .parameter "x"
     .parameter "y"
@@ -678,7 +678,7 @@
 .end method
 
 .method public postShowOverflowMenu()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 180
@@ -693,7 +693,7 @@
 .end method
 
 .method public setContentHeight(I)V
-    .registers 2
+    .locals 0
     .parameter "height"
 
     .prologue
@@ -708,7 +708,7 @@
 .end method
 
 .method public setSplitActionBar(Z)V
-    .registers 2
+    .locals 0
     .parameter "split"
 
     .prologue
@@ -720,7 +720,7 @@
 .end method
 
 .method public setSplitView(Lcom/android/internal/widget/ActionBarContainer;)V
-    .registers 2
+    .locals 0
     .parameter "splitView"
 
     .prologue
@@ -732,7 +732,7 @@
 .end method
 
 .method public setSplitWhenNarrow(Z)V
-    .registers 2
+    .locals 0
     .parameter "splitWhenNarrow"
 
     .prologue
@@ -744,7 +744,7 @@
 .end method
 
 .method public setVisibility(I)V
-    .registers 3
+    .locals 1
     .parameter "visibility"
 
     .prologue
@@ -753,12 +753,12 @@
 
     move-result v0
 
-    if-eq p1, v0, :cond_12
+    if-eq p1, v0, :cond_1
 
     .line 165
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mVisibilityAnim:Landroid/animation/Animator;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 166
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mVisibilityAnim:Landroid/animation/Animator;
@@ -766,22 +766,22 @@
     invoke-virtual {v0}, Landroid/animation/Animator;->end()V
 
     .line 168
-    :cond_f
+    :cond_0
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
     .line 170
-    :cond_12
+    :cond_1
     return-void
 .end method
 
 .method public showOverflowMenu()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 173
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 174
     iget-object v0, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Lcom/android/internal/view/menu/ActionMenuPresenter;
@@ -791,11 +791,11 @@
     move-result v0
 
     .line 176
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method

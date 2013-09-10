@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public acquireWakeLock(ILandroid/os/IBinder;Ljava/lang/String;Landroid/os/WorkSource;)V
-    .registers 10
+    .locals 5
     .parameter "flags"
     .parameter "lock"
     .parameter "tag"
@@ -65,7 +65,7 @@
 
     .line 276
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.os.IPowerManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -80,7 +80,7 @@
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 280
-    if-eqz p4, :cond_31
+    if-eqz p4, :cond_0
 
     .line 281
     const/4 v2, 0x1
@@ -93,7 +93,7 @@
     invoke-virtual {p4, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 287
-    :goto_20
+    :goto_0
     iget-object v2, p0, Landroid/os/IPowerManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x1
@@ -104,8 +104,8 @@
 
     .line 288
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_2a
-    .catchall {:try_start_8 .. :try_end_2a} :catchall_36
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 291
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -117,18 +117,18 @@
     return-void
 
     .line 285
-    :cond_31
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_32
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_35
-    .catchall {:try_start_32 .. :try_end_35} :catchall_36
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_20
+    goto :goto_0
 
     .line 291
-    :catchall_36
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -140,7 +140,7 @@
 .end method
 
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 263
@@ -150,7 +150,7 @@
 .end method
 
 .method public clearUserActivityTimeout(JJ)V
-    .registers 10
+    .locals 5
     .parameter "now"
     .parameter "timeout"
     .annotation system Ldalvik/annotation/Throws;
@@ -173,7 +173,7 @@
 
     .line 404
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.os.IPowerManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -195,8 +195,8 @@
 
     .line 408
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 411
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -208,7 +208,7 @@
     return-void
 
     .line 411
-    :catchall_25
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -220,7 +220,7 @@
 .end method
 
 .method public crash(Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "message"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -242,7 +242,7 @@
 
     .line 531
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.os.IPowerManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -261,8 +261,8 @@
 
     .line 534
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 537
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -274,7 +274,7 @@
     return-void
 
     .line 537
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -286,7 +286,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 267
@@ -296,7 +296,7 @@
 .end method
 
 .method public getSupportedWakeLockFlags()I
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -317,7 +317,7 @@
 
     .line 438
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.os.IPowerManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -336,8 +336,8 @@
 
     .line 441
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -353,7 +353,7 @@
 
     .line 444
     .end local v2           #_result:I
-    :catchall_23
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -365,7 +365,7 @@
 .end method
 
 .method public goToSleep(J)V
-    .registers 8
+    .locals 5
     .parameter "time"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -387,7 +387,7 @@
 
     .line 322
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.os.IPowerManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -406,8 +406,8 @@
 
     .line 325
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 328
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -419,7 +419,7 @@
     return-void
 
     .line 328
-    :catchall_21
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -431,7 +431,7 @@
 .end method
 
 .method public goToSleepWithReason(JI)V
-    .registers 9
+    .locals 5
     .parameter "time"
     .parameter "reason"
     .annotation system Ldalvik/annotation/Throws;
@@ -454,7 +454,7 @@
 
     .line 337
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.os.IPowerManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -476,8 +476,8 @@
 
     .line 341
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 344
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -489,7 +489,7 @@
     return-void
 
     .line 344
-    :catchall_24
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -501,7 +501,7 @@
 .end method
 
 .method public isScreenOn()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -524,7 +524,7 @@
 
     .line 500
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.os.IPowerManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -543,18 +543,18 @@
 
     .line 503
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1c
-    .catchall {:try_start_9 .. :try_end_1c} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 506
     .local v2, _result:Z
-    :cond_20
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 507
@@ -565,7 +565,7 @@
 
     .line 506
     .end local v2           #_result:Z
-    :catchall_27
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -577,7 +577,7 @@
 .end method
 
 .method public preventScreenOn(Z)V
-    .registers 7
+    .locals 5
     .parameter "prevent"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -601,17 +601,17 @@
 
     .line 484
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.os.IPowerManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 485
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     const/4 v2, 0x1
 
-    :cond_11
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 486
@@ -625,8 +625,8 @@
 
     .line 487
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1f
-    .catchall {:try_start_9 .. :try_end_1f} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 490
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -638,7 +638,7 @@
     return-void
 
     .line 490
-    :catchall_26
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -650,7 +650,7 @@
 .end method
 
 .method public reboot(Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "reason"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -672,7 +672,7 @@
 
     .line 516
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.os.IPowerManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -691,8 +691,8 @@
 
     .line 519
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 522
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -704,7 +704,7 @@
     return-void
 
     .line 522
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -716,7 +716,7 @@
 .end method
 
 .method public releaseWakeLock(Landroid/os/IBinder;I)V
-    .registers 8
+    .locals 5
     .parameter "lock"
     .parameter "flags"
     .annotation system Ldalvik/annotation/Throws;
@@ -739,7 +739,7 @@
 
     .line 355
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.os.IPowerManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -761,8 +761,8 @@
 
     .line 359
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 362
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -774,7 +774,7 @@
     return-void
 
     .line 362
-    :catchall_24
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -786,7 +786,7 @@
 .end method
 
 .method public setAttentionLight(ZI)V
-    .registers 8
+    .locals 5
     .parameter "on"
     .parameter "color"
     .annotation system Ldalvik/annotation/Throws;
@@ -811,17 +811,17 @@
 
     .line 563
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.os.IPowerManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 564
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     const/4 v2, 0x1
 
-    :cond_11
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 565
@@ -838,8 +838,8 @@
 
     .line 567
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_22
-    .catchall {:try_start_9 .. :try_end_22} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 570
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -851,7 +851,7 @@
     return-void
 
     .line 570
-    :catchall_29
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -863,7 +863,7 @@
 .end method
 
 .method public setAutoBrightnessAdjustment(F)V
-    .registers 7
+    .locals 5
     .parameter "adj"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -885,7 +885,7 @@
 
     .line 579
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.os.IPowerManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -904,8 +904,8 @@
 
     .line 582
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 585
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -917,7 +917,7 @@
     return-void
 
     .line 585
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -929,7 +929,7 @@
 .end method
 
 .method public setBacklightBrightness(I)V
-    .registers 7
+    .locals 5
     .parameter "brightness"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -951,7 +951,7 @@
 
     .line 548
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.os.IPowerManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -970,8 +970,8 @@
 
     .line 551
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 554
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -983,7 +983,7 @@
     return-void
 
     .line 554
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -995,7 +995,7 @@
 .end method
 
 .method public setMaximumScreenOffTimeount(I)V
-    .registers 7
+    .locals 5
     .parameter "timeMs"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1017,7 +1017,7 @@
 
     .line 469
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.os.IPowerManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1036,8 +1036,8 @@
 
     .line 472
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 475
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1049,7 +1049,7 @@
     return-void
 
     .line 475
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1061,7 +1061,7 @@
 .end method
 
 .method public setPokeLock(ILandroid/os/IBinder;Ljava/lang/String;)V
-    .registers 9
+    .locals 5
     .parameter "pokey"
     .parameter "lock"
     .parameter "tag"
@@ -1085,7 +1085,7 @@
 
     .line 420
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.os.IPowerManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1110,8 +1110,8 @@
 
     .line 425
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_8 .. :try_end_21} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 428
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1123,7 +1123,7 @@
     return-void
 
     .line 428
-    :catchall_28
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1135,7 +1135,7 @@
 .end method
 
 .method public setStayOnSetting(I)V
-    .registers 7
+    .locals 5
     .parameter "val"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1157,7 +1157,7 @@
 
     .line 454
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.os.IPowerManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1176,8 +1176,8 @@
 
     .line 457
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 460
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1189,7 +1189,7 @@
     return-void
 
     .line 460
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1201,7 +1201,7 @@
 .end method
 
 .method public updateWakeLockWorkSource(Landroid/os/IBinder;Landroid/os/WorkSource;)V
-    .registers 8
+    .locals 5
     .parameter "lock"
     .parameter "ws"
     .annotation system Ldalvik/annotation/Throws;
@@ -1224,7 +1224,7 @@
 
     .line 300
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.os.IPowerManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1233,7 +1233,7 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 302
-    if-eqz p2, :cond_2b
+    if-eqz p2, :cond_0
 
     .line 303
     const/4 v2, 0x1
@@ -1246,7 +1246,7 @@
     invoke-virtual {p2, v0, v2}, Landroid/os/WorkSource;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 309
-    :goto_1a
+    :goto_0
     iget-object v2, p0, Landroid/os/IPowerManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x2
@@ -1257,8 +1257,8 @@
 
     .line 310
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 313
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1270,18 +1270,18 @@
     return-void
 
     .line 307
-    :cond_2b
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2c
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2f
-    .catchall {:try_start_2c .. :try_end_2f} :catchall_30
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 313
-    :catchall_30
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1293,7 +1293,7 @@
 .end method
 
 .method public userActivity(JZ)V
-    .registers 9
+    .locals 5
     .parameter "when"
     .parameter "noChangeLights"
     .annotation system Ldalvik/annotation/Throws;
@@ -1318,7 +1318,7 @@
 
     .line 371
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.os.IPowerManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1327,11 +1327,11 @@
     invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 373
-    if-eqz p3, :cond_14
+    if-eqz p3, :cond_0
 
     const/4 v2, 0x1
 
-    :cond_14
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 374
@@ -1345,8 +1345,8 @@
 
     .line 375
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_21
-    .catchall {:try_start_9 .. :try_end_21} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 378
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1358,7 +1358,7 @@
     return-void
 
     .line 378
-    :catchall_28
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1370,7 +1370,7 @@
 .end method
 
 .method public userActivityWithForce(JZZ)V
-    .registers 10
+    .locals 5
     .parameter "when"
     .parameter "noChangeLights"
     .parameter "force"
@@ -1398,7 +1398,7 @@
 
     .line 387
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.os.IPowerManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1407,17 +1407,17 @@
     invoke-virtual {v0, p1, p2}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 389
-    if-eqz p3, :cond_2e
+    if-eqz p3, :cond_0
 
     move v4, v2
 
-    :goto_15
+    :goto_0
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 390
-    if-eqz p4, :cond_30
+    if-eqz p4, :cond_1
 
-    :goto_1a
+    :goto_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 391
@@ -1431,8 +1431,8 @@
 
     .line 392
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_27
-    .catchall {:try_start_a .. :try_end_27} :catchall_32
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 395
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1443,20 +1443,20 @@
     .line 398
     return-void
 
-    :cond_2e
+    :cond_0
     move v4, v3
 
     .line 389
-    goto :goto_15
+    goto :goto_0
 
-    :cond_30
+    :cond_1
     move v2, v3
 
     .line 390
-    goto :goto_1a
+    goto :goto_1
 
     .line 395
-    :catchall_32
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

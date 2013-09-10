@@ -74,7 +74,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/drawable/GradientDrawable$GradientState;)V
-    .registers 5
+    .locals 3
     .parameter "state"
 
     .prologue
@@ -134,7 +134,7 @@
     .line 1093
     iget-object v0, p1, Landroid/graphics/drawable/GradientDrawable$GradientState;->mColors:[I
 
-    if-eqz v0, :cond_35
+    if-eqz v0, :cond_0
 
     .line 1094
     iget-object v0, p1, Landroid/graphics/drawable/GradientDrawable$GradientState;->mColors:[I
@@ -148,10 +148,10 @@
     iput-object v0, p0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mColors:[I
 
     .line 1096
-    :cond_35
+    :cond_0
     iget-object v0, p1, Landroid/graphics/drawable/GradientDrawable$GradientState;->mPositions:[F
 
-    if-eqz v0, :cond_43
+    if-eqz v0, :cond_1
 
     .line 1097
     iget-object v0, p1, Landroid/graphics/drawable/GradientDrawable$GradientState;->mPositions:[F
@@ -165,7 +165,7 @@
     iput-object v0, p0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mPositions:[F
 
     .line 1099
-    :cond_43
+    :cond_1
     iget-boolean v0, p1, Landroid/graphics/drawable/GradientDrawable$GradientState;->mHasSolidColor:Z
 
     iput-boolean v0, p0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mHasSolidColor:Z
@@ -203,7 +203,7 @@
     .line 1106
     iget-object v0, p1, Landroid/graphics/drawable/GradientDrawable$GradientState;->mRadiusArray:[F
 
-    if-eqz v0, :cond_6d
+    if-eqz v0, :cond_2
 
     .line 1107
     iget-object v0, p1, Landroid/graphics/drawable/GradientDrawable$GradientState;->mRadiusArray:[F
@@ -217,10 +217,10 @@
     iput-object v0, p0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mRadiusArray:[F
 
     .line 1109
-    :cond_6d
+    :cond_2
     iget-object v0, p1, Landroid/graphics/drawable/GradientDrawable$GradientState;->mPadding:Landroid/graphics/Rect;
 
-    if-eqz v0, :cond_7a
+    if-eqz v0, :cond_3
 
     .line 1110
     new-instance v0, Landroid/graphics/Rect;
@@ -232,7 +232,7 @@
     iput-object v0, p0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mPadding:Landroid/graphics/Rect;
 
     .line 1112
-    :cond_7a
+    :cond_3
     iget v0, p1, Landroid/graphics/drawable/GradientDrawable$GradientState;->mWidth:I
 
     iput v0, p0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mWidth:I
@@ -292,7 +292,7 @@
 .end method
 
 .method constructor <init>(Landroid/graphics/drawable/GradientDrawable$Orientation;[I)V
-    .registers 6
+    .locals 3
     .parameter "orientation"
     .parameter "colors"
 
@@ -341,7 +341,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/graphics/drawable/GradientDrawable$GradientState;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -352,7 +352,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/graphics/drawable/GradientDrawable$GradientState;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -364,7 +364,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/graphics/drawable/GradientDrawable$GradientState;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -375,7 +375,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/graphics/drawable/GradientDrawable$GradientState;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -387,7 +387,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/graphics/drawable/GradientDrawable$GradientState;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -398,7 +398,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/graphics/drawable/GradientDrawable$GradientState;F)F
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -410,7 +410,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/graphics/drawable/GradientDrawable$GradientState;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -421,7 +421,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/graphics/drawable/GradientDrawable$GradientState;F)F
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -433,7 +433,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/graphics/drawable/GradientDrawable$GradientState;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -444,7 +444,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/graphics/drawable/GradientDrawable$GradientState;F)F
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -458,7 +458,7 @@
 
 # virtual methods
 .method public getChangingConfigurations()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1137
@@ -468,7 +468,7 @@
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1127
@@ -482,7 +482,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .registers 4
+    .locals 2
     .parameter "res"
 
     .prologue
@@ -497,7 +497,7 @@
 .end method
 
 .method public setColors([I)V
-    .registers 3
+    .locals 1
     .parameter "colors"
 
     .prologue
@@ -514,7 +514,7 @@
 .end method
 
 .method public setCornerRadii([F)V
-    .registers 3
+    .locals 1
     .parameter "radii"
 
     .prologue
@@ -522,7 +522,7 @@
     iput-object p1, p0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mRadiusArray:[F
 
     .line 1186
-    if-nez p1, :cond_7
+    if-nez p1, :cond_0
 
     .line 1187
     const/4 v0, 0x0
@@ -530,12 +530,12 @@
     iput v0, p0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mRadius:F
 
     .line 1189
-    :cond_7
+    :cond_0
     return-void
 .end method
 
 .method public setCornerRadius(F)V
-    .registers 3
+    .locals 1
     .parameter "radius"
 
     .prologue
@@ -544,13 +544,13 @@
 
     cmpg-float v0, p1, v0
 
-    if-gez v0, :cond_6
+    if-gez v0, :cond_0
 
     .line 1178
     const/4 p1, 0x0
 
     .line 1180
-    :cond_6
+    :cond_0
     iput p1, p0, Landroid/graphics/drawable/GradientDrawable$GradientState;->mRadius:F
 
     .line 1181
@@ -563,7 +563,7 @@
 .end method
 
 .method public setGradientCenter(FF)V
-    .registers 3
+    .locals 0
     .parameter "x"
     .parameter "y"
 
@@ -579,7 +579,7 @@
 .end method
 
 .method public setGradientRadius(F)V
-    .registers 2
+    .locals 0
     .parameter "gradientRadius"
 
     .prologue
@@ -591,7 +591,7 @@
 .end method
 
 .method public setGradientType(I)V
-    .registers 2
+    .locals 0
     .parameter "gradient"
 
     .prologue
@@ -603,7 +603,7 @@
 .end method
 
 .method public setShape(I)V
-    .registers 2
+    .locals 0
     .parameter "shape"
 
     .prologue
@@ -615,7 +615,7 @@
 .end method
 
 .method public setSize(II)V
-    .registers 3
+    .locals 0
     .parameter "width"
     .parameter "height"
 
@@ -631,7 +631,7 @@
 .end method
 
 .method public setSolidColor(I)V
-    .registers 3
+    .locals 1
     .parameter "argb"
 
     .prologue
@@ -653,7 +653,7 @@
 .end method
 
 .method public setStroke(II)V
-    .registers 3
+    .locals 0
     .parameter "width"
     .parameter "color"
 
@@ -669,7 +669,7 @@
 .end method
 
 .method public setStroke(IIFF)V
-    .registers 5
+    .locals 0
     .parameter "width"
     .parameter "color"
     .parameter "dashWidth"

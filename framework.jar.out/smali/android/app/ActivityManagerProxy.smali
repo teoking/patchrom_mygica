@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public activityDestroyed(Landroid/os/IBinder;)V
-    .registers 7
+    .locals 5
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -81,7 +81,7 @@
 .end method
 
 .method public activityIdle(Landroid/os/IBinder;Landroid/content/res/Configuration;Z)V
-    .registers 9
+    .locals 5
     .parameter "token"
     .parameter "config"
     .parameter "stopProfiling"
@@ -117,7 +117,7 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 2048
-    if-eqz p2, :cond_31
+    if-eqz p2, :cond_1
 
     .line 2049
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -126,12 +126,12 @@
     invoke-virtual {p2, v0, v2}, Landroid/content/res/Configuration;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 2054
-    :goto_1a
-    if-eqz p3, :cond_1d
+    :goto_0
+    if-eqz p3, :cond_0
 
     move v2, v3
 
-    :cond_1d
+    :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2055
@@ -154,14 +154,14 @@
     return-void
 
     .line 2052
-    :cond_31
+    :cond_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 .method public activityPaused(Landroid/os/IBinder;)V
-    .registers 7
+    .locals 5
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -213,7 +213,7 @@
 .end method
 
 .method public activitySlept(Landroid/os/IBinder;)V
-    .registers 7
+    .locals 5
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -265,7 +265,7 @@
 .end method
 
 .method public activityStopped(Landroid/os/IBinder;Landroid/os/Bundle;Landroid/graphics/Bitmap;Ljava/lang/CharSequence;)V
-    .registers 10
+    .locals 5
     .parameter "token"
     .parameter "state"
     .parameter "thumbnail"
@@ -305,7 +305,7 @@
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
     .line 2079
-    if-eqz p3, :cond_31
+    if-eqz p3, :cond_0
 
     .line 2080
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
@@ -314,7 +314,7 @@
     invoke-virtual {p3, v0, v3}, Landroid/graphics/Bitmap;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 2085
-    :goto_1d
+    :goto_0
     invoke-static {p4, v0, v3}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
 
     .line 2086
@@ -337,14 +337,14 @@
     return-void
 
     .line 2083
-    :cond_31
+    :cond_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1730
@@ -354,7 +354,7 @@
 .end method
 
 .method public attachApplication(Landroid/app/IApplicationThread;)V
-    .registers 7
+    .locals 5
     .parameter "app"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -410,7 +410,7 @@
 .end method
 
 .method public backupAgentCreated(Ljava/lang/String;Landroid/os/IBinder;)V
-    .registers 8
+    .locals 5
     .parameter "packageName"
     .parameter "agent"
     .annotation system Ldalvik/annotation/Throws;
@@ -463,7 +463,7 @@
 .end method
 
 .method public bindBackupAgent(Landroid/content/pm/ApplicationInfo;I)Z
-    .registers 8
+    .locals 5
     .parameter "app"
     .parameter "backupRestoreMode"
     .annotation system Ldalvik/annotation/Throws;
@@ -513,13 +513,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_25
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 2629
     .local v2, success:Z
-    :cond_25
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 2630
@@ -530,7 +530,7 @@
 .end method
 
 .method public bindService(Landroid/app/IApplicationThread;Landroid/os/IBinder;Landroid/content/Intent;Ljava/lang/String;Landroid/app/IServiceConnection;II)I
-    .registers 14
+    .locals 6
     .parameter "caller"
     .parameter "token"
     .parameter "service"
@@ -565,13 +565,13 @@
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 2534
-    if-eqz p1, :cond_42
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
-    :goto_14
+    :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 2535
@@ -623,14 +623,14 @@
 
     .line 2534
     .end local v2           #res:I
-    :cond_42
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public broadcastIntent(Landroid/app/IApplicationThread;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;Ljava/lang/String;ZZI)I
-    .registers 19
+    .locals 7
     .parameter "caller"
     .parameter "intent"
     .parameter "resolvedType"
@@ -667,13 +667,13 @@
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1983
-    if-eqz p1, :cond_59
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v4
 
-    :goto_13
+    :goto_0
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 1984
@@ -685,13 +685,13 @@
     invoke-virtual {v1, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 1986
-    if-eqz p4, :cond_5b
+    if-eqz p4, :cond_1
 
     invoke-interface {p4}, Landroid/content/IIntentReceiver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v4
 
-    :goto_23
+    :goto_1
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 1987
@@ -707,19 +707,19 @@
     invoke-virtual {v1, p8}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 1991
-    if-eqz p9, :cond_5d
+    if-eqz p9, :cond_2
 
     const/4 v4, 0x1
 
-    :goto_35
+    :goto_2
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1992
-    if-eqz p10, :cond_5f
+    if-eqz p10, :cond_3
 
     const/4 v4, 0x1
 
-    :goto_3b
+    :goto_3
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1993
@@ -756,32 +756,32 @@
 
     .line 1983
     .end local v3           #res:I
-    :cond_59
+    :cond_0
     const/4 v4, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 1986
-    :cond_5b
+    :cond_1
     const/4 v4, 0x0
 
-    goto :goto_23
+    goto :goto_1
 
     .line 1991
-    :cond_5d
+    :cond_2
     const/4 v4, 0x0
 
-    goto :goto_35
+    goto :goto_2
 
     .line 1992
-    :cond_5f
+    :cond_3
     const/4 v4, 0x0
 
-    goto :goto_3b
+    goto :goto_3
 .end method
 
 .method public cancelIntentSender(Landroid/content/IIntentSender;)V
-    .registers 7
+    .locals 5
     .parameter "sender"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -837,7 +837,7 @@
 .end method
 
 .method public checkGrantUriPermission(ILjava/lang/String;Landroid/net/Uri;I)I
-    .registers 11
+    .locals 6
     .parameter "callingUid"
     .parameter "targetPkg"
     .parameter "uri"
@@ -907,7 +907,7 @@
 .end method
 
 .method public checkPermission(Ljava/lang/String;II)I
-    .registers 10
+    .locals 6
     .parameter "permission"
     .parameter "pid"
     .parameter "uid"
@@ -973,7 +973,7 @@
 .end method
 
 .method public checkUriPermission(Landroid/net/Uri;III)I
-    .registers 11
+    .locals 6
     .parameter "uri"
     .parameter "pid"
     .parameter "uid"
@@ -1043,7 +1043,7 @@
 .end method
 
 .method public clearApplicationUserData(Ljava/lang/String;Landroid/content/pm/IPackageDataObserver;I)Z
-    .registers 9
+    .locals 5
     .parameter "packageName"
     .parameter "observer"
     .parameter "userId"
@@ -1101,13 +1101,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2c
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 2891
     .local v2, res:Z
-    :cond_2c
+    :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 2892
@@ -1118,7 +1118,7 @@
 .end method
 
 .method public closeSystemDialogs(Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "reason"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1170,7 +1170,7 @@
 .end method
 
 .method public crashApplication(IILjava/lang/String;Ljava/lang/String;)V
-    .registers 10
+    .locals 5
     .parameter "uid"
     .parameter "initialPid"
     .parameter "packageName"
@@ -1234,7 +1234,7 @@
 .end method
 
 .method public dismissKeyguardOnNextActivity()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1282,7 +1282,7 @@
 .end method
 
 .method public dumpHeap(Ljava/lang/String;ZLjava/lang/String;Landroid/os/ParcelFileDescriptor;)Z
-    .registers 12
+    .locals 7
     .parameter "process"
     .parameter "managed"
     .parameter "path"
@@ -1319,18 +1319,18 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 3539
-    if-eqz p2, :cond_3b
+    if-eqz p2, :cond_0
 
     move v3, v4
 
-    :goto_15
+    :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3540
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 3541
-    if-eqz p4, :cond_3d
+    if-eqz p4, :cond_1
 
     .line 3542
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
@@ -1339,7 +1339,7 @@
     invoke-virtual {p4, v0, v4}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 3547
-    :goto_23
+    :goto_1
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v6, 0x78
@@ -1354,13 +1354,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_41
+    if-eqz v3, :cond_2
 
     move v2, v4
 
     .line 3550
     .local v2, res:Z
-    :goto_34
+    :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 3551
@@ -1370,27 +1370,27 @@
     return v2
 
     .end local v2           #res:Z
-    :cond_3b
+    :cond_0
     move v3, v5
 
     .line 3539
-    goto :goto_15
+    goto :goto_0
 
     .line 3545
-    :cond_3d
+    :cond_1
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_23
+    goto :goto_1
 
-    :cond_41
+    :cond_2
     move v2, v5
 
     .line 3549
-    goto :goto_34
+    goto :goto_2
 .end method
 
 .method public enterSafeMode()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1428,7 +1428,7 @@
 .end method
 
 .method public finishActivity(Landroid/os/IBinder;ILandroid/content/Intent;)Z
-    .registers 10
+    .locals 6
     .parameter "token"
     .parameter "resultCode"
     .parameter "resultData"
@@ -1467,7 +1467,7 @@
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1890
-    if-eqz p3, :cond_34
+    if-eqz p3, :cond_0
 
     .line 1891
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -1476,7 +1476,7 @@
     invoke-virtual {p3, v0, v3}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1896
-    :goto_1d
+    :goto_0
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0xb
@@ -1491,11 +1491,11 @@
 
     move-result v4
 
-    if-eqz v4, :cond_38
+    if-eqz v4, :cond_1
 
     .line 1899
     .local v2, res:Z
-    :goto_2d
+    :goto_1
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 1900
@@ -1506,20 +1506,20 @@
 
     .line 1894
     .end local v2           #res:Z
-    :cond_34
+    :cond_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1d
+    goto :goto_0
 
-    :cond_38
+    :cond_1
     move v2, v3
 
     .line 1898
-    goto :goto_2d
+    goto :goto_1
 .end method
 
 .method public finishActivityAffinity(Landroid/os/IBinder;)Z
-    .registers 7
+    .locals 5
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1565,13 +1565,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_22
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 1924
     .local v2, res:Z
-    :cond_22
+    :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 1925
@@ -1582,7 +1582,7 @@
 .end method
 
 .method public finishHeavyWeightApp()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1630,7 +1630,7 @@
 .end method
 
 .method public finishInstrumentation(Landroid/app/IApplicationThread;ILandroid/os/Bundle;)V
-    .registers 9
+    .locals 5
     .parameter "target"
     .parameter "resultCode"
     .parameter "results"
@@ -1659,13 +1659,13 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 2680
-    if-eqz p1, :cond_2e
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 2681
@@ -1696,14 +1696,14 @@
     return-void
 
     .line 2680
-    :cond_2e
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public finishReceiver(Landroid/os/IBinder;ILjava/lang/String;Landroid/os/Bundle;Z)V
-    .registers 11
+    .locals 5
     .parameter "who"
     .parameter "resultCode"
     .parameter "resultData"
@@ -1748,11 +1748,11 @@
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
     .line 2024
-    if-eqz p5, :cond_31
+    if-eqz p5, :cond_0
 
     move v2, v3
 
-    :goto_1d
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2025
@@ -1775,14 +1775,14 @@
     return-void
 
     .line 2024
-    :cond_31
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method public finishSubActivity(Landroid/os/IBinder;Ljava/lang/String;I)V
-    .registers 9
+    .locals 5
     .parameter "token"
     .parameter "resultWho"
     .parameter "requestCode"
@@ -1842,7 +1842,7 @@
 .end method
 
 .method public forceStopPackage(Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "packageName"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1894,7 +1894,7 @@
 .end method
 
 .method public getActivityClassForToken(Landroid/os/IBinder;)Landroid/content/ComponentName;
-    .registers 8
+    .locals 6
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1952,7 +1952,7 @@
 .end method
 
 .method public getCallingActivity(Landroid/os/IBinder;)Landroid/content/ComponentName;
-    .registers 8
+    .locals 6
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2010,7 +2010,7 @@
 .end method
 
 .method public getCallingPackage(Landroid/os/IBinder;)Ljava/lang/String;
-    .registers 8
+    .locals 6
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2068,7 +2068,7 @@
 .end method
 
 .method public getConfiguration()Landroid/content/res/Configuration;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2126,7 +2126,7 @@
 .end method
 
 .method public getContentProvider(Landroid/app/IApplicationThread;Ljava/lang/String;Z)Landroid/app/IActivityManager$ContentProviderHolder;
-    .registers 11
+    .locals 7
     .parameter "caller"
     .parameter "name"
     .parameter "stable"
@@ -2157,24 +2157,24 @@
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 2350
-    if-eqz p1, :cond_40
+    if-eqz p1, :cond_1
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v4
 
-    :goto_14
+    :goto_0
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 2351
     invoke-virtual {v1, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 2352
-    if-eqz p3, :cond_42
+    if-eqz p3, :cond_2
 
     const/4 v4, 0x1
 
-    :goto_1d
+    :goto_1
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2353
@@ -2198,7 +2198,7 @@
 
     .line 2357
     .local v0, cph:Landroid/app/IActivityManager$ContentProviderHolder;
-    if-eqz v3, :cond_39
+    if-eqz v3, :cond_0
 
     .line 2358
     sget-object v4, Landroid/app/IActivityManager$ContentProviderHolder;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -2212,7 +2212,7 @@
 
     .line 2360
     .restart local v0       #cph:Landroid/app/IActivityManager$ContentProviderHolder;
-    :cond_39
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 2361
@@ -2224,20 +2224,20 @@
     .line 2350
     .end local v0           #cph:Landroid/app/IActivityManager$ContentProviderHolder;
     .end local v3           #res:I
-    :cond_40
+    :cond_1
     const/4 v4, 0x0
 
-    goto :goto_14
+    goto :goto_0
 
-    :cond_42
+    :cond_2
     move v4, v5
 
     .line 2352
-    goto :goto_1d
+    goto :goto_1
 .end method
 
 .method public getContentProviderExternal(Ljava/lang/String;Landroid/os/IBinder;)Landroid/app/IActivityManager$ContentProviderHolder;
-    .registers 10
+    .locals 7
     .parameter "name"
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
@@ -2293,7 +2293,7 @@
 
     .line 2376
     .local v0, cph:Landroid/app/IActivityManager$ContentProviderHolder;
-    if-eqz v3, :cond_2d
+    if-eqz v3, :cond_0
 
     .line 2377
     sget-object v4, Landroid/app/IActivityManager$ContentProviderHolder;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -2307,7 +2307,7 @@
 
     .line 2379
     .restart local v0       #cph:Landroid/app/IActivityManager$ContentProviderHolder;
-    :cond_2d
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 2380
@@ -2318,7 +2318,7 @@
 .end method
 
 .method public getCurrentUser()Landroid/content/pm/UserInfo;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2376,7 +2376,7 @@
 .end method
 
 .method public getDeviceConfigurationInfo()Landroid/content/pm/ConfigurationInfo;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2434,7 +2434,7 @@
 .end method
 
 .method public getFrontActivityScreenCompatMode()I
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2488,7 +2488,7 @@
 .end method
 
 .method public getIntentSender(ILjava/lang/String;Landroid/os/IBinder;Ljava/lang/String;I[Landroid/content/Intent;[Ljava/lang/String;ILandroid/os/Bundle;)Landroid/content/IIntentSender;
-    .registers 16
+    .locals 6
     .parameter "type"
     .parameter "packageName"
     .parameter "token"
@@ -2542,7 +2542,7 @@
     invoke-virtual {v0, p5}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2773
-    if-eqz p6, :cond_4d
+    if-eqz p6, :cond_0
 
     .line 2774
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
@@ -2554,11 +2554,11 @@
     invoke-virtual {v0, p7}, Landroid/os/Parcel;->writeStringArray([Ljava/lang/String;)V
 
     .line 2780
-    :goto_29
+    :goto_0
     invoke-virtual {v0, p8}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2781
-    if-eqz p9, :cond_51
+    if-eqz p9, :cond_1
 
     .line 2782
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
@@ -2567,7 +2567,7 @@
     invoke-virtual {p9, v0, v5}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 2787
-    :goto_34
+    :goto_1
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x3f
@@ -2598,20 +2598,20 @@
 
     .line 2778
     .end local v2           #res:Landroid/content/IIntentSender;
-    :cond_4d
+    :cond_0
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_29
+    goto :goto_0
 
     .line 2785
-    :cond_51
+    :cond_1
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_34
+    goto :goto_1
 .end method
 
 .method public getLaunchedFromUid(Landroid/os/IBinder;)I
-    .registers 8
+    .locals 6
     .parameter "activityToken"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2669,7 +2669,7 @@
 .end method
 
 .method public getMemoryInfo(Landroid/app/ActivityManager$MemoryInfo;)V
-    .registers 7
+    .locals 5
     .parameter "outInfo"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2721,7 +2721,7 @@
 .end method
 
 .method public getMyMemoryState(Landroid/app/ActivityManager$RunningAppProcessInfo;)V
-    .registers 7
+    .locals 5
     .parameter "outInfo"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2773,7 +2773,7 @@
 .end method
 
 .method public getPackageAskScreenCompat(Ljava/lang/String;)Z
-    .registers 7
+    .locals 5
     .parameter "packageName"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2819,13 +2819,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_22
+    if-eqz v3, :cond_0
 
     const/4 v0, 0x1
 
     .line 3660
     .local v0, ask:Z
-    :cond_22
+    :cond_0
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
     .line 3661
@@ -2836,7 +2836,7 @@
 .end method
 
 .method public getPackageForIntentSender(Landroid/content/IIntentSender;)Ljava/lang/String;
-    .registers 8
+    .locals 6
     .parameter "sender"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2898,7 +2898,7 @@
 .end method
 
 .method public getPackageForToken(Landroid/os/IBinder;)Ljava/lang/String;
-    .registers 8
+    .locals 6
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2956,7 +2956,7 @@
 .end method
 
 .method public getPackageScreenCompatMode(Ljava/lang/String;)I
-    .registers 8
+    .locals 6
     .parameter "packageName"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3014,7 +3014,7 @@
 .end method
 
 .method public getProcessLimit()I
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3068,7 +3068,7 @@
 .end method
 
 .method public getProcessMemoryInfo([I)[Landroid/os/Debug$MemoryInfo;
-    .registers 8
+    .locals 6
     .parameter "pids"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3130,7 +3130,7 @@
 .end method
 
 .method public getProcessPss([I)[J
-    .registers 8
+    .locals 6
     .parameter "pids"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3188,7 +3188,7 @@
 .end method
 
 .method public getProcessesInErrorState()Ljava/util/List;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -3254,7 +3254,7 @@
 .end method
 
 .method public getProviderMimeType(Landroid/net/Uri;)Ljava/lang/String;
-    .registers 8
+    .locals 6
     .parameter "uri"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3312,7 +3312,7 @@
 .end method
 
 .method public getRecentTasks(II)Ljava/util/List;
-    .registers 9
+    .locals 6
     .parameter "maxNum"
     .parameter "flags"
     .annotation system Ldalvik/annotation/Signature;
@@ -3386,7 +3386,7 @@
 .end method
 
 .method public getRequestedOrientation(Landroid/os/IBinder;)I
-    .registers 8
+    .locals 6
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3444,7 +3444,7 @@
 .end method
 
 .method public getRunningAppProcesses()Ljava/util/List;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -3510,7 +3510,7 @@
 .end method
 
 .method public getRunningExternalApplications()Ljava/util/List;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -3576,7 +3576,7 @@
 .end method
 
 .method public getRunningServiceControlPanel(Landroid/content/ComponentName;)Landroid/app/PendingIntent;
-    .registers 8
+    .locals 6
     .parameter "service"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3634,7 +3634,7 @@
 .end method
 
 .method public getServices(II)Ljava/util/List;
-    .registers 11
+    .locals 8
     .parameter "maxNum"
     .parameter "flags"
     .annotation system Ldalvik/annotation/Throws;
@@ -3690,7 +3690,7 @@
 
     .line 2205
     .local v0, N:I
-    if-ltz v0, :cond_3a
+    if-ltz v0, :cond_0
 
     .line 2206
     new-instance v3, Ljava/util/ArrayList;
@@ -3700,8 +3700,8 @@
 
     .line 2207
     .restart local v3       #list:Ljava/util/ArrayList;
-    :goto_2a
-    if-lez v0, :cond_3a
+    :goto_0
+    if-lez v0, :cond_0
 
     .line 2208
     sget-object v5, Landroid/app/ActivityManager$RunningServiceInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -3720,11 +3720,11 @@
     add-int/lit8 v0, v0, -0x1
 
     .line 2213
-    goto :goto_2a
+    goto :goto_0
 
     .line 2215
     .end local v2           #info:Landroid/app/ActivityManager$RunningServiceInfo;
-    :cond_3a
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 2216
@@ -3735,7 +3735,7 @@
 .end method
 
 .method public getTaskForActivity(Landroid/os/IBinder;Z)I
-    .registers 9
+    .locals 6
     .parameter "token"
     .parameter "onlyRoot"
     .annotation system Ldalvik/annotation/Throws;
@@ -3768,11 +3768,11 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 2318
-    if-eqz p2, :cond_2c
+    if-eqz p2, :cond_0
 
     const/4 v3, 0x1
 
-    :goto_14
+    :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2319
@@ -3801,15 +3801,15 @@
     return v2
 
     .end local v2           #res:I
-    :cond_2c
+    :cond_0
     move v3, v4
 
     .line 2318
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public getTaskThumbnails(I)Landroid/app/ActivityManager$TaskThumbnails;
-    .registers 8
+    .locals 6
     .parameter "id"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3859,7 +3859,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2a
+    if-eqz v3, :cond_0
 
     .line 2189
     sget-object v3, Landroid/app/ActivityManager$TaskThumbnails;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -3873,7 +3873,7 @@
 
     .line 2191
     .restart local v0       #bm:Landroid/app/ActivityManager$TaskThumbnails;
-    :cond_2a
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 2192
@@ -3884,7 +3884,7 @@
 .end method
 
 .method public getTasks(IILandroid/app/IThumbnailReceiver;)Ljava/util/List;
-    .registers 12
+    .locals 8
     .parameter "maxNum"
     .parameter "flags"
     .parameter "receiver"
@@ -3919,13 +3919,13 @@
     invoke-virtual {v1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2146
-    if-eqz p3, :cond_43
+    if-eqz p3, :cond_0
 
     invoke-interface {p3}, Landroid/app/IThumbnailReceiver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v5
 
-    :goto_19
+    :goto_0
     invoke-virtual {v1, v5}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 2147
@@ -3951,7 +3951,7 @@
 
     .line 2151
     .local v0, N:I
-    if-ltz v0, :cond_45
+    if-ltz v0, :cond_1
 
     .line 2152
     new-instance v3, Ljava/util/ArrayList;
@@ -3961,8 +3961,8 @@
 
     .line 2153
     .restart local v3       #list:Ljava/util/ArrayList;
-    :goto_33
-    if-lez v0, :cond_45
+    :goto_1
+    if-lez v0, :cond_1
 
     .line 2154
     sget-object v5, Landroid/app/ActivityManager$RunningTaskInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -3981,21 +3981,21 @@
     add-int/lit8 v0, v0, -0x1
 
     .line 2159
-    goto :goto_33
+    goto :goto_1
 
     .line 2146
     .end local v0           #N:I
     .end local v2           #info:Landroid/app/ActivityManager$RunningTaskInfo;
     .end local v3           #list:Ljava/util/ArrayList;
-    :cond_43
+    :cond_0
     const/4 v5, 0x0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 2161
     .restart local v0       #N:I
     .restart local v3       #list:Ljava/util/ArrayList;
-    :cond_45
+    :cond_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 2162
@@ -4006,7 +4006,7 @@
 .end method
 
 .method public getUidForIntentSender(Landroid/content/IIntentSender;)I
-    .registers 8
+    .locals 6
     .parameter "sender"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -4068,7 +4068,7 @@
 .end method
 
 .method public goingToSleep()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4116,7 +4116,7 @@
 .end method
 
 .method public grantUriPermission(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/net/Uri;I)V
-    .registers 10
+    .locals 5
     .parameter "caller"
     .parameter "targetPkg"
     .parameter "uri"
@@ -4184,7 +4184,7 @@
 .end method
 
 .method public grantUriPermissionFromOwner(Landroid/os/IBinder;ILjava/lang/String;Landroid/net/Uri;I)V
-    .registers 11
+    .locals 5
     .parameter "owner"
     .parameter "fromUid"
     .parameter "targetPkg"
@@ -4252,7 +4252,7 @@
 .end method
 
 .method public handleApplicationCrash(Landroid/os/IBinder;Landroid/app/ApplicationErrorReport$CrashInfo;)V
-    .registers 8
+    .locals 5
     .parameter "app"
     .parameter "crashInfo"
     .annotation system Ldalvik/annotation/Throws;
@@ -4308,7 +4308,7 @@
 .end method
 
 .method public handleApplicationStrictModeViolation(Landroid/os/IBinder;ILandroid/os/StrictMode$ViolationInfo;)V
-    .registers 9
+    .locals 5
     .parameter "app"
     .parameter "violationMask"
     .parameter "info"
@@ -4368,7 +4368,7 @@
 .end method
 
 .method public handleApplicationWtf(Landroid/os/IBinder;Ljava/lang/String;Landroid/app/ApplicationErrorReport$CrashInfo;)Z
-    .registers 9
+    .locals 5
     .parameter "app"
     .parameter "tag"
     .parameter "crashInfo"
@@ -4422,13 +4422,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_28
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 3136
     .local v2, res:Z
-    :cond_28
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 3137
@@ -4439,7 +4439,7 @@
 .end method
 
 .method public isImmersive(Landroid/os/IBinder;)Z
-    .registers 8
+    .locals 6
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -4487,11 +4487,11 @@
 
     move-result v4
 
-    if-ne v4, v2, :cond_29
+    if-ne v4, v2, :cond_0
 
     .line 3420
     .local v2, res:Z
-    :goto_22
+    :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 3421
@@ -4501,15 +4501,15 @@
     return v2
 
     .end local v2           #res:Z
-    :cond_29
+    :cond_0
     move v2, v3
 
     .line 3419
-    goto :goto_22
+    goto :goto_0
 .end method
 
 .method public isIntentSenderAnActivity(Landroid/content/IIntentSender;)Z
-    .registers 7
+    .locals 5
     .parameter "sender"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -4559,13 +4559,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 3774
     .local v2, res:Z
-    :cond_26
+    :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 3775
@@ -4576,7 +4576,7 @@
 .end method
 
 .method public isIntentSenderTargetedToPackage(Landroid/content/IIntentSender;)Z
-    .registers 7
+    .locals 5
     .parameter "sender"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -4626,13 +4626,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 3761
     .local v2, res:Z
-    :cond_26
+    :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 3762
@@ -4643,7 +4643,7 @@
 .end method
 
 .method public isTopActivityImmersive()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4687,11 +4687,11 @@
 
     move-result v4
 
-    if-ne v4, v2, :cond_26
+    if-ne v4, v2, :cond_0
 
     .line 3433
     .local v2, res:Z
-    :goto_1f
+    :goto_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 3434
@@ -4701,15 +4701,15 @@
     return v2
 
     .end local v2           #res:Z
-    :cond_26
+    :cond_0
     move v2, v3
 
     .line 3432
-    goto :goto_1f
+    goto :goto_0
 .end method
 
 .method public isUserAMonkey()Z
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4751,13 +4751,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1f
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 3383
     .local v2, res:Z
-    :cond_1f
+    :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 3384
@@ -4768,7 +4768,7 @@
 .end method
 
 .method public killAllBackgroundProcesses()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -4816,7 +4816,7 @@
 .end method
 
 .method public killApplicationProcess(Ljava/lang/String;I)V
-    .registers 8
+    .locals 5
     .parameter "processName"
     .parameter "uid"
     .annotation system Ldalvik/annotation/Throws;
@@ -4872,7 +4872,7 @@
 .end method
 
 .method public killApplicationWithUid(Ljava/lang/String;I)V
-    .registers 8
+    .locals 5
     .parameter "pkg"
     .parameter "uid"
     .annotation system Ldalvik/annotation/Throws;
@@ -4928,7 +4928,7 @@
 .end method
 
 .method public killBackgroundProcesses(Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "packageName"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -4980,7 +4980,7 @@
 .end method
 
 .method public killPids([ILjava/lang/String;Z)Z
-    .registers 11
+    .locals 7
     .parameter "pids"
     .parameter "reason"
     .parameter "secure"
@@ -5019,11 +5019,11 @@
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 3072
-    if-eqz p3, :cond_30
+    if-eqz p3, :cond_0
 
     move v3, v4
 
-    :goto_18
+    :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3073
@@ -5038,13 +5038,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_32
+    if-eqz v3, :cond_1
 
     move v2, v4
 
     .line 3075
     .local v2, res:Z
-    :goto_29
+    :goto_1
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 3076
@@ -5054,21 +5054,21 @@
     return v2
 
     .end local v2           #res:Z
-    :cond_30
+    :cond_0
     move v3, v5
 
     .line 3072
-    goto :goto_18
+    goto :goto_0
 
-    :cond_32
+    :cond_1
     move v2, v5
 
     .line 3074
-    goto :goto_29
+    goto :goto_1
 .end method
 
 .method public killProcessesBelowForeground(Ljava/lang/String;)Z
-    .registers 7
+    .locals 5
     .parameter "reason"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -5111,13 +5111,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1f
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 3087
     .local v2, res:Z
-    :cond_1f
+    :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 3088
@@ -5128,7 +5128,7 @@
 .end method
 
 .method public moveActivityTaskToBack(Landroid/os/IBinder;Z)Z
-    .registers 10
+    .locals 7
     .parameter "token"
     .parameter "nonRoot"
     .annotation system Ldalvik/annotation/Throws;
@@ -5163,11 +5163,11 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 2293
-    if-eqz p2, :cond_30
+    if-eqz p2, :cond_0
 
     move v3, v4
 
-    :goto_15
+    :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2294
@@ -5185,13 +5185,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_32
+    if-eqz v3, :cond_1
 
     move v2, v4
 
     .line 2297
     .local v2, res:Z
-    :goto_29
+    :goto_1
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 2298
@@ -5201,21 +5201,21 @@
     return v2
 
     .end local v2           #res:Z
-    :cond_30
+    :cond_0
     move v3, v5
 
     .line 2293
-    goto :goto_15
+    goto :goto_0
 
-    :cond_32
+    :cond_1
     move v2, v5
 
     .line 2296
-    goto :goto_29
+    goto :goto_1
 .end method
 
 .method public moveTaskBackwards(I)V
-    .registers 7
+    .locals 5
     .parameter "task"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -5267,7 +5267,7 @@
 .end method
 
 .method public moveTaskToBack(I)V
-    .registers 7
+    .locals 5
     .parameter "task"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -5319,7 +5319,7 @@
 .end method
 
 .method public moveTaskToFront(IILandroid/os/Bundle;)V
-    .registers 9
+    .locals 5
     .parameter "task"
     .parameter "flags"
     .parameter "options"
@@ -5356,7 +5356,7 @@
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2265
-    if-eqz p3, :cond_2e
+    if-eqz p3, :cond_0
 
     .line 2266
     const/4 v2, 0x1
@@ -5367,7 +5367,7 @@
     invoke-virtual {p3, v0, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 2271
-    :goto_1d
+    :goto_0
     iget-object v2, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x18
@@ -5387,14 +5387,14 @@
     return-void
 
     .line 2269
-    :cond_2e
+    :cond_0
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method public navigateUpTo(Landroid/os/IBinder;Landroid/content/Intent;ILandroid/content/Intent;)Z
-    .registers 11
+    .locals 6
     .parameter "token"
     .parameter "target"
     .parameter "resultCode"
@@ -5437,7 +5437,7 @@
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3849
-    if-eqz p4, :cond_37
+    if-eqz p4, :cond_0
 
     .line 3850
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -5446,7 +5446,7 @@
     invoke-virtual {p4, v0, v3}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 3855
-    :goto_20
+    :goto_0
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x93
@@ -5461,11 +5461,11 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3b
+    if-eqz v4, :cond_1
 
     .line 3858
     .local v2, result:Z
-    :goto_30
+    :goto_1
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 3859
@@ -5476,20 +5476,20 @@
 
     .line 3853
     .end local v2           #result:Z
-    :cond_37
+    :cond_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_20
+    goto :goto_0
 
-    :cond_3b
+    :cond_1
     move v2, v3
 
     .line 3857
-    goto :goto_30
+    goto :goto_1
 .end method
 
 .method public newUriPermissionOwner(Ljava/lang/String;)Landroid/os/IBinder;
-    .registers 8
+    .locals 6
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -5547,7 +5547,7 @@
 .end method
 
 .method public noteWakeupAlarm(Landroid/content/IIntentSender;)V
-    .registers 7
+    .locals 5
     .parameter "sender"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -5593,7 +5593,7 @@
 .end method
 
 .method public openContentUri(Landroid/net/Uri;)Landroid/os/ParcelFileDescriptor;
-    .registers 8
+    .locals 6
     .parameter "uri"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -5640,7 +5640,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_0
 
     .line 2979
     sget-object v3, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -5654,7 +5654,7 @@
 
     .line 2981
     .restart local v1       #pfd:Landroid/os/ParcelFileDescriptor;
-    :cond_26
+    :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 2982
@@ -5665,7 +5665,7 @@
 .end method
 
 .method public overridePendingTransition(Landroid/os/IBinder;Ljava/lang/String;II)V
-    .registers 10
+    .locals 5
     .parameter "token"
     .parameter "packageName"
     .parameter "enterAnim"
@@ -5729,7 +5729,7 @@
 .end method
 
 .method public peekService(Landroid/content/Intent;Ljava/lang/String;)Landroid/os/IBinder;
-    .registers 9
+    .locals 6
     .parameter "service"
     .parameter "resolvedType"
     .annotation system Ldalvik/annotation/Throws;
@@ -5791,7 +5791,7 @@
 .end method
 
 .method public profileControl(Ljava/lang/String;ZLjava/lang/String;Landroid/os/ParcelFileDescriptor;I)Z
-    .registers 13
+    .locals 7
     .parameter "process"
     .parameter "start"
     .parameter "path"
@@ -5829,11 +5829,11 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 3233
-    if-eqz p2, :cond_3e
+    if-eqz p2, :cond_0
 
     move v3, v4
 
-    :goto_15
+    :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3234
@@ -5843,7 +5843,7 @@
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 3236
-    if-eqz p4, :cond_40
+    if-eqz p4, :cond_1
 
     .line 3237
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
@@ -5852,7 +5852,7 @@
     invoke-virtual {p4, v0, v4}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 3242
-    :goto_26
+    :goto_1
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v6, 0x56
@@ -5867,13 +5867,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_44
+    if-eqz v3, :cond_2
 
     move v2, v4
 
     .line 3245
     .local v2, res:Z
-    :goto_37
+    :goto_2
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 3246
@@ -5883,27 +5883,27 @@
     return v2
 
     .end local v2           #res:Z
-    :cond_3e
+    :cond_0
     move v3, v5
 
     .line 3233
-    goto :goto_15
+    goto :goto_0
 
     .line 3240
-    :cond_40
+    :cond_1
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_26
+    goto :goto_1
 
-    :cond_44
+    :cond_2
     move v2, v5
 
     .line 3244
-    goto :goto_37
+    goto :goto_2
 .end method
 
 .method public publishContentProviders(Landroid/app/IApplicationThread;Ljava/util/List;)V
-    .registers 8
+    .locals 5
     .parameter "caller"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -5943,13 +5943,13 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 2389
-    if-eqz p1, :cond_2b
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 2390
@@ -5977,14 +5977,14 @@
     return-void
 
     .line 2389
-    :cond_2b
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public publishService(Landroid/os/IBinder;Landroid/content/Intent;Landroid/os/IBinder;)V
-    .registers 9
+    .locals 5
     .parameter "token"
     .parameter "intent"
     .parameter "service"
@@ -6044,7 +6044,7 @@
 .end method
 
 .method public refContentProvider(Landroid/os/IBinder;II)Z
-    .registers 9
+    .locals 5
     .parameter "connection"
     .parameter "stable"
     .parameter "unstable"
@@ -6098,13 +6098,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_28
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 2407
     .local v2, res:Z
-    :cond_28
+    :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 2408
@@ -6115,7 +6115,7 @@
 .end method
 
 .method public registerProcessObserver(Landroid/app/IProcessObserver;)V
-    .registers 7
+    .locals 5
     .parameter "observer"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -6142,13 +6142,13 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 3735
-    if-eqz p1, :cond_28
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IProcessObserver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 3736
@@ -6173,14 +6173,14 @@
     return-void
 
     .line 3735
-    :cond_28
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public registerReceiver(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/IIntentReceiver;Landroid/content/IntentFilter;Ljava/lang/String;)Landroid/content/Intent;
-    .registers 13
+    .locals 7
     .parameter "caller"
     .parameter "packageName"
     .parameter "receiver"
@@ -6215,26 +6215,26 @@
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1947
-    if-eqz p1, :cond_4a
+    if-eqz p1, :cond_2
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v4
 
-    :goto_15
+    :goto_0
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 1948
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 1949
-    if-eqz p3, :cond_21
+    if-eqz p3, :cond_0
 
     invoke-interface {p3}, Landroid/content/IIntentReceiver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v5
 
-    :cond_21
+    :cond_0
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 1950
@@ -6264,7 +6264,7 @@
 
     .line 1956
     .local v1, haveIntent:I
-    if-eqz v1, :cond_43
+    if-eqz v1, :cond_1
 
     .line 1957
     sget-object v4, Landroid/content/Intent;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -6278,7 +6278,7 @@
 
     .line 1959
     .restart local v2       #intent:Landroid/content/Intent;
-    :cond_43
+    :cond_1
     invoke-virtual {v3}, Landroid/os/Parcel;->recycle()V
 
     .line 1960
@@ -6289,15 +6289,15 @@
 
     .end local v1           #haveIntent:I
     .end local v2           #intent:Landroid/content/Intent;
-    :cond_4a
+    :cond_2
     move-object v4, v5
 
     .line 1947
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public removeContentProvider(Landroid/os/IBinder;Z)V
-    .registers 8
+    .locals 5
     .parameter "connection"
     .parameter "stable"
     .annotation system Ldalvik/annotation/Throws;
@@ -6330,11 +6330,11 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 2427
-    if-eqz p2, :cond_28
+    if-eqz p2, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_14
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2428
@@ -6356,15 +6356,15 @@
     .line 2432
     return-void
 
-    :cond_28
+    :cond_0
     move v2, v3
 
     .line 2427
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public removeContentProviderExternal(Ljava/lang/String;Landroid/os/IBinder;)V
-    .registers 8
+    .locals 5
     .parameter "name"
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
@@ -6420,7 +6420,7 @@
 .end method
 
 .method public removeSubTask(II)Z
-    .registers 8
+    .locals 5
     .parameter "taskId"
     .parameter "subTaskIndex"
     .annotation system Ldalvik/annotation/Throws;
@@ -6470,13 +6470,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_25
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 3712
     .local v2, result:Z
-    :cond_25
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 3713
@@ -6487,7 +6487,7 @@
 .end method
 
 .method public removeTask(II)Z
-    .registers 8
+    .locals 5
     .parameter "taskId"
     .parameter "flags"
     .annotation system Ldalvik/annotation/Throws;
@@ -6537,13 +6537,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_25
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 3726
     .local v2, result:Z
-    :cond_25
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 3727
@@ -6554,7 +6554,7 @@
 .end method
 
 .method public reportThumbnail(Landroid/os/IBinder;Landroid/graphics/Bitmap;Ljava/lang/CharSequence;)V
-    .registers 9
+    .locals 5
     .parameter "token"
     .parameter "thumbnail"
     .parameter "description"
@@ -6590,7 +6590,7 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 2333
-    if-eqz p2, :cond_2e
+    if-eqz p2, :cond_0
 
     .line 2334
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
@@ -6599,7 +6599,7 @@
     invoke-virtual {p2, v0, v3}, Landroid/graphics/Bitmap;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 2339
-    :goto_1a
+    :goto_0
     invoke-static {p3, v0, v3}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
 
     .line 2340
@@ -6622,14 +6622,14 @@
     return-void
 
     .line 2337
-    :cond_2e
+    :cond_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 .method public resumeAppSwitches()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -6677,7 +6677,7 @@
 .end method
 
 .method public revokeUriPermission(Landroid/app/IApplicationThread;Landroid/net/Uri;I)V
-    .registers 9
+    .locals 5
     .parameter "caller"
     .parameter "uri"
     .parameter "mode"
@@ -6741,7 +6741,7 @@
 .end method
 
 .method public revokeUriPermissionFromOwner(Landroid/os/IBinder;Landroid/net/Uri;I)V
-    .registers 9
+    .locals 5
     .parameter "owner"
     .parameter "uri"
     .parameter "mode"
@@ -6775,7 +6775,7 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 3503
-    if-eqz p2, :cond_2e
+    if-eqz p2, :cond_0
 
     .line 3504
     const/4 v2, 0x1
@@ -6786,7 +6786,7 @@
     invoke-virtual {p2, v0, v4}, Landroid/net/Uri;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 3509
-    :goto_1a
+    :goto_0
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3510
@@ -6809,14 +6809,14 @@
     return-void
 
     .line 3507
-    :cond_2e
+    :cond_0
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 .method public serviceDoneExecuting(Landroid/os/IBinder;III)V
-    .registers 10
+    .locals 5
     .parameter "token"
     .parameter "type"
     .parameter "startId"
@@ -6880,7 +6880,7 @@
 .end method
 
 .method public setActivityController(Landroid/app/IActivityController;)V
-    .registers 7
+    .locals 5
     .parameter "watcher"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -6907,13 +6907,13 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 3047
-    if-eqz p1, :cond_28
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IActivityController;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 3048
@@ -6938,14 +6938,14 @@
     return-void
 
     .line 3047
-    :cond_28
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public setAlwaysFinish(Z)V
-    .registers 7
+    .locals 5
     .parameter "enabled"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -6974,11 +6974,11 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 3036
-    if-eqz p1, :cond_25
+    if-eqz p1, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_11
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3037
@@ -7000,15 +7000,15 @@
     .line 3041
     return-void
 
-    :cond_25
+    :cond_0
     move v2, v3
 
     .line 3036
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public setDebugApp(Ljava/lang/String;ZZ)V
-    .registers 9
+    .locals 5
     .parameter "packageName"
     .parameter "waitForDebugger"
     .parameter "persistent"
@@ -7044,17 +7044,17 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 3024
-    if-eqz p2, :cond_2e
+    if-eqz p2, :cond_0
 
     move v2, v3
 
-    :goto_15
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3025
-    if-eqz p3, :cond_30
+    if-eqz p3, :cond_1
 
-    :goto_1a
+    :goto_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3026
@@ -7076,21 +7076,21 @@
     .line 3030
     return-void
 
-    :cond_2e
+    :cond_0
     move v2, v4
 
     .line 3024
-    goto :goto_15
+    goto :goto_0
 
-    :cond_30
+    :cond_1
     move v3, v4
 
     .line 3025
-    goto :goto_1a
+    goto :goto_1
 .end method
 
 .method public setFrontActivityScreenCompatMode(I)V
-    .registers 7
+    .locals 5
     .parameter "mode"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -7142,7 +7142,7 @@
 .end method
 
 .method public setImmersive(Landroid/os/IBinder;Z)V
-    .registers 8
+    .locals 5
     .parameter "token"
     .parameter "immersive"
     .annotation system Ldalvik/annotation/Throws;
@@ -7175,11 +7175,11 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 3404
-    if-eqz p2, :cond_28
+    if-eqz p2, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_14
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3405
@@ -7201,15 +7201,15 @@
     .line 3409
     return-void
 
-    :cond_28
+    :cond_0
     move v2, v3
 
     .line 3404
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public setLockScreenShown(Z)V
-    .registers 7
+    .locals 5
     .parameter "shown"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -7238,11 +7238,11 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 3010
-    if-eqz p1, :cond_25
+    if-eqz p1, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_11
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3011
@@ -7264,15 +7264,15 @@
     .line 3015
     return-void
 
-    :cond_25
+    :cond_0
     move v2, v3
 
     .line 3010
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public setPackageAskScreenCompat(Ljava/lang/String;Z)V
-    .registers 8
+    .locals 5
     .parameter "packageName"
     .parameter "ask"
     .annotation system Ldalvik/annotation/Throws;
@@ -7305,11 +7305,11 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 3671
-    if-eqz p2, :cond_28
+    if-eqz p2, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_14
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3672
@@ -7331,15 +7331,15 @@
     .line 3676
     return-void
 
-    :cond_28
+    :cond_0
     move v2, v3
 
     .line 3671
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public setPackageScreenCompatMode(Ljava/lang/String;I)V
-    .registers 8
+    .locals 5
     .parameter "packageName"
     .parameter "mode"
     .annotation system Ldalvik/annotation/Throws;
@@ -7395,7 +7395,7 @@
 .end method
 
 .method public setProcessForeground(Landroid/os/IBinder;IZ)V
-    .registers 9
+    .locals 5
     .parameter "token"
     .parameter "pid"
     .parameter "isForeground"
@@ -7432,11 +7432,11 @@
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2859
-    if-eqz p3, :cond_2b
+    if-eqz p3, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_17
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2860
@@ -7458,15 +7458,15 @@
     .line 2864
     return-void
 
-    :cond_2b
+    :cond_0
     move v2, v3
 
     .line 2859
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method public setProcessLimit(I)V
-    .registers 7
+    .locals 5
     .parameter "max"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -7518,7 +7518,7 @@
 .end method
 
 .method public setRequestedOrientation(Landroid/os/IBinder;I)V
-    .registers 8
+    .locals 5
     .parameter "token"
     .parameter "requestedOrientation"
     .annotation system Ldalvik/annotation/Throws;
@@ -7574,7 +7574,7 @@
 .end method
 
 .method public setServiceForeground(Landroid/content/ComponentName;Landroid/os/IBinder;ILandroid/app/Notification;Z)V
-    .registers 11
+    .locals 5
     .parameter "className"
     .parameter "token"
     .parameter "id"
@@ -7618,7 +7618,7 @@
     invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2516
-    if-eqz p4, :cond_36
+    if-eqz p4, :cond_0
 
     .line 2517
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -7627,10 +7627,10 @@
     invoke-virtual {p4, v0, v3}, Landroid/app/Notification;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 2522
-    :goto_20
-    if-eqz p5, :cond_3a
+    :goto_0
+    if-eqz p5, :cond_1
 
-    :goto_22
+    :goto_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2523
@@ -7653,20 +7653,20 @@
     return-void
 
     .line 2520
-    :cond_36
+    :cond_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_20
+    goto :goto_0
 
-    :cond_3a
+    :cond_1
     move v2, v3
 
     .line 2522
-    goto :goto_22
+    goto :goto_1
 .end method
 
 .method public showBootMessage(Ljava/lang/CharSequence;Z)V
-    .registers 8
+    .locals 5
     .parameter "msg"
     .parameter "always"
     .annotation system Ldalvik/annotation/Throws;
@@ -7699,11 +7699,11 @@
     invoke-static {p1, v0, v3}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
 
     .line 3809
-    if-eqz p2, :cond_28
+    if-eqz p2, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_14
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3810
@@ -7725,15 +7725,15 @@
     .line 3814
     return-void
 
-    :cond_28
+    :cond_0
     move v2, v3
 
     .line 3809
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public showWaitingForDebugger(Landroid/app/IApplicationThread;Z)V
-    .registers 8
+    .locals 5
     .parameter "who"
     .parameter "waiting"
     .annotation system Ldalvik/annotation/Throws;
@@ -7770,11 +7770,11 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 2944
-    if-eqz p2, :cond_2c
+    if-eqz p2, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_18
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2945
@@ -7796,15 +7796,15 @@
     .line 2949
     return-void
 
-    :cond_2c
+    :cond_0
     move v2, v3
 
     .line 2944
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method public shutdown(I)Z
-    .registers 7
+    .locals 5
     .parameter "timeout"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -7850,13 +7850,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_22
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 3259
     .local v2, res:Z
-    :cond_22
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 3260
@@ -7867,7 +7867,7 @@
 .end method
 
 .method public signalPersistentProcesses(I)V
-    .registers 7
+    .locals 5
     .parameter "sig"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -7919,7 +7919,7 @@
 .end method
 
 .method public startActivities(Landroid/app/IApplicationThread;[Landroid/content/Intent;[Ljava/lang/String;Landroid/os/IBinder;Landroid/os/Bundle;)I
-    .registers 12
+    .locals 6
     .parameter "caller"
     .parameter "intents"
     .parameter "resolvedTypes"
@@ -7952,13 +7952,13 @@
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 3561
-    if-eqz p1, :cond_3e
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
-    :goto_14
+    :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 3562
@@ -7971,7 +7971,7 @@
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 3565
-    if-eqz p5, :cond_40
+    if-eqz p5, :cond_1
 
     .line 3566
     const/4 v3, 0x1
@@ -7982,7 +7982,7 @@
     invoke-virtual {p5, v0, v5}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 3571
-    :goto_29
+    :goto_1
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x79
@@ -8009,20 +8009,20 @@
 
     .line 3561
     .end local v2           #result:I
-    :cond_3e
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_14
+    goto :goto_0
 
     .line 3569
-    :cond_40
+    :cond_1
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_29
+    goto :goto_1
 .end method
 
 .method public startActivitiesInPackage(I[Landroid/content/Intent;[Ljava/lang/String;Landroid/os/IBinder;Landroid/os/Bundle;)I
-    .registers 12
+    .locals 6
     .parameter "uid"
     .parameter "intents"
     .parameter "resolvedTypes"
@@ -8067,7 +8067,7 @@
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 3589
-    if-eqz p5, :cond_38
+    if-eqz p5, :cond_0
 
     .line 3590
     const/4 v3, 0x1
@@ -8078,7 +8078,7 @@
     invoke-virtual {p5, v0, v5}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 3595
-    :goto_23
+    :goto_0
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x7a
@@ -8105,14 +8105,14 @@
 
     .line 3593
     .end local v2           #result:I
-    :cond_38
+    :cond_0
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_23
+    goto :goto_0
 .end method
 
 .method public startActivity(Landroid/app/IApplicationThread;Landroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IILjava/lang/String;Landroid/os/ParcelFileDescriptor;Landroid/os/Bundle;)I
-    .registers 18
+    .locals 7
     .parameter "caller"
     .parameter "intent"
     .parameter "resolvedType"
@@ -8148,13 +8148,13 @@
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1740
-    if-eqz p1, :cond_59
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v4
 
-    :goto_13
+    :goto_0
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 1741
@@ -8181,7 +8181,7 @@
     invoke-virtual {v1, p8}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 1748
-    if-eqz p9, :cond_5b
+    if-eqz p9, :cond_1
 
     .line 1749
     const/4 v4, 0x1
@@ -8196,8 +8196,8 @@
     invoke-virtual {v0, v1, v4}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1754
-    :goto_38
-    if-eqz p10, :cond_60
+    :goto_1
+    if-eqz p10, :cond_2
 
     .line 1755
     const/4 v4, 0x1
@@ -8212,7 +8212,7 @@
     invoke-virtual {v0, v1, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1760
-    :goto_44
+    :goto_2
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v5, 0x3
@@ -8241,30 +8241,30 @@
 
     .line 1740
     .end local v3           #result:I
-    :cond_59
+    :cond_0
     const/4 v4, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 1752
-    :cond_5b
+    :cond_1
     const/4 v4, 0x0
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_38
+    goto :goto_1
 
     .line 1758
-    :cond_60
+    :cond_2
     const/4 v4, 0x0
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_44
+    goto :goto_2
 .end method
 
 .method public startActivityAndWait(Landroid/app/IApplicationThread;Landroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IILjava/lang/String;Landroid/os/ParcelFileDescriptor;Landroid/os/Bundle;)Landroid/app/IActivityManager$WaitResult;
-    .registers 18
+    .locals 7
     .parameter "caller"
     .parameter "intent"
     .parameter "resolvedType"
@@ -8300,13 +8300,13 @@
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1774
-    if-eqz p1, :cond_5e
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v4
 
-    :goto_13
+    :goto_0
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 1775
@@ -8333,7 +8333,7 @@
     invoke-virtual {v1, p8}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 1782
-    if-eqz p9, :cond_60
+    if-eqz p9, :cond_1
 
     .line 1783
     const/4 v4, 0x1
@@ -8348,8 +8348,8 @@
     invoke-virtual {v0, v1, v4}, Landroid/os/ParcelFileDescriptor;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1788
-    :goto_38
-    if-eqz p10, :cond_65
+    :goto_1
+    if-eqz p10, :cond_2
 
     .line 1789
     const/4 v4, 0x1
@@ -8364,7 +8364,7 @@
     invoke-virtual {v0, v1, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1794
-    :goto_44
+    :goto_2
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x69
@@ -8397,30 +8397,30 @@
 
     .line 1774
     .end local v3           #result:Landroid/app/IActivityManager$WaitResult;
-    :cond_5e
+    :cond_0
     const/4 v4, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 1786
-    :cond_60
+    :cond_1
     const/4 v4, 0x0
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_38
+    goto :goto_1
 
     .line 1792
-    :cond_65
+    :cond_2
     const/4 v4, 0x0
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_44
+    goto :goto_2
 .end method
 
 .method public startActivityInPackage(ILandroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IILandroid/os/Bundle;)I
-    .registers 15
+    .locals 6
     .parameter "uid"
     .parameter "intent"
     .parameter "resolvedType"
@@ -8477,7 +8477,7 @@
     invoke-virtual {v0, p7}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3298
-    if-eqz p8, :cond_41
+    if-eqz p8, :cond_0
 
     .line 3299
     const/4 v3, 0x1
@@ -8488,7 +8488,7 @@
     invoke-virtual {p8, v0, v5}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 3304
-    :goto_2c
+    :goto_0
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x5f
@@ -8515,14 +8515,14 @@
 
     .line 3302
     .end local v2           #result:I
-    :cond_41
+    :cond_0
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_2c
+    goto :goto_0
 .end method
 
 .method public startActivityIntentSender(Landroid/app/IApplicationThread;Landroid/content/IntentSender;Landroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IIILandroid/os/Bundle;)I
-    .registers 18
+    .locals 7
     .parameter "caller"
     .parameter "intent"
     .parameter "fillInIntent"
@@ -8558,13 +8558,13 @@
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1836
-    if-eqz p1, :cond_5a
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v4
 
-    :goto_13
+    :goto_0
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 1837
@@ -8573,7 +8573,7 @@
     invoke-virtual {p2, v1, v4}, Landroid/content/IntentSender;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1838
-    if-eqz p3, :cond_5c
+    if-eqz p3, :cond_1
 
     .line 1839
     const/4 v4, 0x1
@@ -8586,7 +8586,7 @@
     invoke-virtual {p3, v1, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1844
-    :goto_24
+    :goto_1
     invoke-virtual {v1, p4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 1845
@@ -8607,7 +8607,7 @@
     invoke-virtual {v1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1850
-    if-eqz p10, :cond_61
+    if-eqz p10, :cond_2
 
     .line 1851
     const/4 v4, 0x1
@@ -8622,7 +8622,7 @@
     invoke-virtual {v0, v1, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1856
-    :goto_44
+    :goto_2
     iget-object v4, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x64
@@ -8651,30 +8651,30 @@
 
     .line 1836
     .end local v3           #result:I
-    :cond_5a
+    :cond_0
     const/4 v4, 0x0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 1842
-    :cond_5c
+    :cond_1
     const/4 v4, 0x0
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_24
+    goto :goto_1
 
     .line 1854
-    :cond_61
+    :cond_2
     const/4 v4, 0x0
 
     invoke-virtual {v1, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_44
+    goto :goto_2
 .end method
 
 .method public startActivityWithConfig(Landroid/app/IApplicationThread;Landroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IILandroid/content/res/Configuration;Landroid/os/Bundle;)I
-    .registers 16
+    .locals 6
     .parameter "caller"
     .parameter "intent"
     .parameter "resolvedType"
@@ -8711,13 +8711,13 @@
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1808
-    if-eqz p1, :cond_49
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
-    :goto_14
+    :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 1809
@@ -8742,7 +8742,7 @@
     invoke-virtual {p8, v0, v5}, Landroid/content/res/Configuration;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1816
-    if-eqz p9, :cond_4b
+    if-eqz p9, :cond_1
 
     .line 1817
     const/4 v3, 0x1
@@ -8753,7 +8753,7 @@
     invoke-virtual {p9, v0, v5}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1822
-    :goto_35
+    :goto_1
     iget-object v3, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x3
@@ -8780,20 +8780,20 @@
 
     .line 1808
     .end local v2           #result:I
-    :cond_49
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_14
+    goto :goto_0
 
     .line 1820
-    :cond_4b
+    :cond_1
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_35
+    goto :goto_1
 .end method
 
 .method public startInstrumentation(Landroid/content/ComponentName;Ljava/lang/String;ILandroid/os/Bundle;Landroid/app/IInstrumentationWatcher;)Z
-    .registers 11
+    .locals 5
     .parameter "className"
     .parameter "profileFile"
     .parameter "flags"
@@ -8838,13 +8838,13 @@
     invoke-virtual {v0, p4}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
     .line 2666
-    if-eqz p5, :cond_3b
+    if-eqz p5, :cond_1
 
     invoke-interface {p5}, Landroid/app/IInstrumentationWatcher;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
-    :goto_20
+    :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 2667
@@ -8862,13 +8862,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_34
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 2670
     .local v2, res:Z
-    :cond_34
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 2671
@@ -8879,14 +8879,14 @@
 
     .line 2666
     .end local v2           #res:Z
-    :cond_3b
+    :cond_1
     const/4 v3, 0x0
 
-    goto :goto_20
+    goto :goto_0
 .end method
 
 .method public startNextMatchingActivity(Landroid/os/IBinder;Landroid/content/Intent;Landroid/os/Bundle;)Z
-    .registers 11
+    .locals 7
     .parameter "callingActivity"
     .parameter "intent"
     .parameter "options"
@@ -8925,7 +8925,7 @@
     invoke-virtual {p2, v0, v4}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1870
-    if-eqz p3, :cond_34
+    if-eqz p3, :cond_0
 
     .line 1871
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -8934,7 +8934,7 @@
     invoke-virtual {p3, v0, v4}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1876
-    :goto_1d
+    :goto_0
     iget-object v5, p0, Landroid/app/ActivityManagerProxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v6, 0x43
@@ -8957,28 +8957,28 @@
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 1881
-    if-eqz v2, :cond_38
+    if-eqz v2, :cond_1
 
-    :goto_33
+    :goto_1
     return v3
 
     .line 1874
     .end local v2           #result:I
-    :cond_34
+    :cond_0
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1d
+    goto :goto_0
 
     .restart local v2       #result:I
-    :cond_38
+    :cond_1
     move v3, v4
 
     .line 1881
-    goto :goto_33
+    goto :goto_1
 .end method
 
 .method public startRunning(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 10
+    .locals 5
     .parameter "pkg"
     .parameter "cls"
     .parameter "action"
@@ -9042,7 +9042,7 @@
 .end method
 
 .method public startService(Landroid/app/IApplicationThread;Landroid/content/Intent;Ljava/lang/String;)Landroid/content/ComponentName;
-    .registers 10
+    .locals 6
     .parameter "caller"
     .parameter "service"
     .parameter "resolvedType"
@@ -9073,13 +9073,13 @@
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 2467
-    if-eqz p1, :cond_32
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
-    :goto_14
+    :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 2468
@@ -9115,14 +9115,14 @@
 
     .line 2467
     .end local v2           #res:Landroid/content/ComponentName;
-    :cond_32
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public stopAppSwitches()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -9170,7 +9170,7 @@
 .end method
 
 .method public stopService(Landroid/app/IApplicationThread;Landroid/content/Intent;Ljava/lang/String;)I
-    .registers 10
+    .locals 6
     .parameter "caller"
     .parameter "service"
     .parameter "resolvedType"
@@ -9201,13 +9201,13 @@
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 2483
-    if-eqz p1, :cond_32
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
-    :goto_14
+    :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 2484
@@ -9243,14 +9243,14 @@
 
     .line 2483
     .end local v2           #res:I
-    :cond_32
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public stopServiceToken(Landroid/content/ComponentName;Landroid/os/IBinder;I)Z
-    .registers 9
+    .locals 5
     .parameter "className"
     .parameter "token"
     .parameter "startId"
@@ -9304,13 +9304,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_28
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 2504
     .local v2, res:Z
-    :cond_28
+    :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 2505
@@ -9321,7 +9321,7 @@
 .end method
 
 .method public switchUser(I)Z
-    .registers 7
+    .locals 5
     .parameter "userid"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -9367,13 +9367,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_22
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 3686
     .local v2, result:Z
-    :cond_22
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 3687
@@ -9384,7 +9384,7 @@
 .end method
 
 .method public targetTaskAffinityMatchesActivity(Landroid/os/IBinder;Ljava/lang/String;)Z
-    .registers 8
+    .locals 5
     .parameter "token"
     .parameter "destAffinity"
     .annotation system Ldalvik/annotation/Throws;
@@ -9434,13 +9434,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_25
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 3836
     .local v2, result:Z
-    :cond_25
+    :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 3837
@@ -9451,7 +9451,7 @@
 .end method
 
 .method public testIsSystemReady()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 3108
@@ -9461,7 +9461,7 @@
 .end method
 
 .method public unbindBackupAgent(Landroid/content/pm/ApplicationInfo;)V
-    .registers 7
+    .locals 5
     .parameter "app"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -9513,7 +9513,7 @@
 .end method
 
 .method public unbindFinished(Landroid/os/IBinder;Landroid/content/Intent;Z)V
-    .registers 9
+    .locals 5
     .parameter "token"
     .parameter "intent"
     .parameter "doRebind"
@@ -9550,11 +9550,11 @@
     invoke-virtual {p2, v0, v3}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 2583
-    if-eqz p3, :cond_2b
+    if-eqz p3, :cond_0
 
     const/4 v2, 0x1
 
-    :goto_17
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2584
@@ -9576,15 +9576,15 @@
     .line 2588
     return-void
 
-    :cond_2b
+    :cond_0
     move v2, v3
 
     .line 2583
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method public unbindService(Landroid/app/IServiceConnection;)Z
-    .registers 7
+    .locals 5
     .parameter "connection"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -9634,13 +9634,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 2557
     .local v2, res:Z
-    :cond_26
+    :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 2558
@@ -9651,7 +9651,7 @@
 .end method
 
 .method public unbroadcastIntent(Landroid/app/IApplicationThread;Landroid/content/Intent;I)V
-    .registers 9
+    .locals 5
     .parameter "caller"
     .parameter "intent"
     .parameter "userId"
@@ -9682,13 +9682,13 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 2007
-    if-eqz p1, :cond_2e
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IApplicationThread;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_14
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 2008
@@ -9717,14 +9717,14 @@
     return-void
 
     .line 2007
-    :cond_2e
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public unhandledBack()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -9772,7 +9772,7 @@
 .end method
 
 .method public unregisterProcessObserver(Landroid/app/IProcessObserver;)V
-    .registers 7
+    .locals 5
     .parameter "observer"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -9799,13 +9799,13 @@
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 3746
-    if-eqz p1, :cond_28
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/app/IProcessObserver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v2
 
-    :goto_13
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 3747
@@ -9830,14 +9830,14 @@
     return-void
 
     .line 3746
-    :cond_28
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public unregisterReceiver(Landroid/content/IIntentReceiver;)V
-    .registers 7
+    .locals 5
     .parameter "receiver"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -9893,7 +9893,7 @@
 .end method
 
 .method public unstableProviderDied(Landroid/os/IBinder;)V
-    .registers 7
+    .locals 5
     .parameter "connection"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -9945,7 +9945,7 @@
 .end method
 
 .method public updateConfiguration(Landroid/content/res/Configuration;)V
-    .registers 7
+    .locals 5
     .parameter "values"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -9997,7 +9997,7 @@
 .end method
 
 .method public updatePersistentConfiguration(Landroid/content/res/Configuration;)V
-    .registers 7
+    .locals 5
     .parameter "values"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -10049,7 +10049,7 @@
 .end method
 
 .method public wakingUp()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -10097,7 +10097,7 @@
 .end method
 
 .method public willActivityBeVisible(Landroid/os/IBinder;)Z
-    .registers 7
+    .locals 5
     .parameter "token"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -10143,13 +10143,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_22
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 1936
     .local v2, res:Z
-    :cond_22
+    :cond_0
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 1937

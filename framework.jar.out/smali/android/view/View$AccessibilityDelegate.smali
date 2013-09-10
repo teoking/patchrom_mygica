@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 17767
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-    .registers 4
+    .locals 1
     .parameter "host"
     .parameter "event"
 
@@ -42,7 +42,7 @@
 .end method
 
 .method public getAccessibilityNodeProvider(Landroid/view/View;)Landroid/view/accessibility/AccessibilityNodeProvider;
-    .registers 3
+    .locals 1
     .parameter "host"
 
     .prologue
@@ -53,7 +53,7 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 0
     .parameter "host"
     .parameter "event"
 
@@ -66,7 +66,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .registers 3
+    .locals 0
     .parameter "host"
     .parameter "info"
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public onPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 0
     .parameter "host"
     .parameter "event"
 
@@ -92,7 +92,7 @@
 .end method
 
 .method public onRequestSendAccessibilityEvent(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-    .registers 5
+    .locals 1
     .parameter "host"
     .parameter "child"
     .parameter "event"
@@ -107,7 +107,7 @@
 .end method
 
 .method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
-    .registers 5
+    .locals 1
     .parameter "host"
     .parameter "action"
     .parameter "args"
@@ -122,7 +122,7 @@
 .end method
 
 .method public sendAccessibilityEvent(Landroid/view/View;I)V
-    .registers 3
+    .locals 0
     .parameter "host"
     .parameter "eventType"
 
@@ -135,7 +135,7 @@
 .end method
 
 .method public sendAccessibilityEventUnchecked(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 0
     .parameter "host"
     .parameter "event"
 

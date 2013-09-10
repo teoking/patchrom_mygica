@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public compare(Landroid/media/MediaRouter$RouteInfo;Landroid/media/MediaRouter$RouteInfo;)I
-    .registers 5
+    .locals 2
     .parameter "lhs"
     .parameter "rhs"
 
@@ -90,7 +90,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 

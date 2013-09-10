@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 5
+    .locals 3
     .parameter "context"
 
     .prologue
@@ -96,7 +96,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 8
+    .locals 5
     .parameter "context"
     .parameter "attrs"
 
@@ -181,7 +181,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/widget/AdapterViewFlipper;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -193,7 +193,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/widget/AdapterViewFlipper;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -204,7 +204,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/widget/AdapterViewFlipper;Z)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -216,7 +216,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/widget/AdapterViewFlipper;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -227,7 +227,7 @@
 .end method
 
 .method private updateRunning()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 210
@@ -240,7 +240,7 @@
 .end method
 
 .method private updateRunning(Z)V
-    .registers 7
+    .locals 5
     .parameter "flipNow"
 
     .prologue
@@ -249,35 +249,35 @@
     .line 222
     iget-boolean v3, p0, Landroid/widget/AdapterViewFlipper;->mAdvancedByHost:Z
 
-    if-nez v3, :cond_32
+    if-nez v3, :cond_1
 
     iget-boolean v3, p0, Landroid/widget/AdapterViewFlipper;->mVisible:Z
 
-    if-eqz v3, :cond_32
+    if-eqz v3, :cond_1
 
     iget-boolean v3, p0, Landroid/widget/AdapterViewFlipper;->mStarted:Z
 
-    if-eqz v3, :cond_32
+    if-eqz v3, :cond_1
 
     iget-boolean v3, p0, Landroid/widget/AdapterViewFlipper;->mUserPresent:Z
 
-    if-eqz v3, :cond_32
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Landroid/widget/AdapterViewAnimator;->mAdapter:Landroid/widget/Adapter;
 
-    if-eqz v3, :cond_32
+    if-eqz v3, :cond_1
 
     move v1, v2
 
     .line 224
     .local v1, running:Z
-    :goto_16
+    :goto_0
     iget-boolean v3, p0, Landroid/widget/AdapterViewFlipper;->mRunning:Z
 
-    if-eq v1, v3, :cond_31
+    if-eq v1, v3, :cond_0
 
     .line 225
-    if-eqz v1, :cond_34
+    if-eqz v1, :cond_2
 
     .line 226
     iget v3, p0, Landroid/widget/AdapterViewAnimator;->mWhichChild:I
@@ -303,34 +303,34 @@
 
     .line 232
     .end local v0           #msg:Landroid/os/Message;
-    :goto_2f
+    :goto_1
     iput-boolean v1, p0, Landroid/widget/AdapterViewFlipper;->mRunning:Z
 
     .line 238
-    :cond_31
+    :cond_0
     return-void
 
     .line 222
     .end local v1           #running:Z
-    :cond_32
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 230
     .restart local v1       #running:Z
-    :cond_34
+    :cond_2
     iget-object v3, p0, Landroid/widget/AdapterViewFlipper;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v3, v2}, Landroid/os/Handler;->removeMessages(I)V
 
-    goto :goto_2f
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public fyiWillBeAdvancedByHostKThx()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 284
@@ -348,7 +348,7 @@
 .end method
 
 .method public getFlipInterval()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 139
@@ -358,7 +358,7 @@
 .end method
 
 .method public isAutoStart()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 260
@@ -368,7 +368,7 @@
 .end method
 
 .method public isFlipping()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 244
@@ -378,7 +378,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 93
@@ -412,18 +412,18 @@
     .line 101
     iget-boolean v1, p0, Landroid/widget/AdapterViewFlipper;->mAutoStart:Z
 
-    if-eqz v1, :cond_22
+    if-eqz v1, :cond_0
 
     .line 103
     invoke-virtual {p0}, Landroid/widget/AdapterViewFlipper;->startFlipping()V
 
     .line 105
-    :cond_22
+    :cond_0
     return-void
 .end method
 
 .method protected onDetachedFromWindow()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 109
@@ -451,7 +451,7 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue
@@ -472,7 +472,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .registers 3
+    .locals 1
     .parameter "info"
 
     .prologue
@@ -493,7 +493,7 @@
 .end method
 
 .method protected onWindowVisibilityChanged(I)V
-    .registers 4
+    .locals 2
     .parameter "visibility"
 
     .prologue
@@ -503,11 +503,11 @@
     invoke-super {p0, p1}, Landroid/widget/AdapterViewAnimator;->onWindowVisibilityChanged(I)V
 
     .line 119
-    if-nez p1, :cond_d
+    if-nez p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     iput-boolean v0, p0, Landroid/widget/AdapterViewFlipper;->mVisible:Z
 
     .line 120
@@ -516,15 +516,15 @@
     .line 121
     return-void
 
-    :cond_d
+    :cond_0
     move v0, v1
 
     .line 119
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setAdapter(Landroid/widget/Adapter;)V
-    .registers 2
+    .locals 0
     .parameter "adapter"
 
     .prologue
@@ -539,7 +539,7 @@
 .end method
 
 .method public setAutoStart(Z)V
-    .registers 2
+    .locals 0
     .parameter "autoStart"
 
     .prologue
@@ -551,7 +551,7 @@
 .end method
 
 .method public setFlipInterval(I)V
-    .registers 2
+    .locals 0
     .parameter "flipInterval"
 
     .prologue
@@ -563,7 +563,7 @@
 .end method
 
 .method public showNext()V
-    .registers 5
+    .locals 4
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
 
@@ -573,7 +573,7 @@
     .line 179
     iget-boolean v1, p0, Landroid/widget/AdapterViewFlipper;->mRunning:Z
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_0
 
     .line 180
     iget-object v1, p0, Landroid/widget/AdapterViewFlipper;->mHandler:Landroid/os/Handler;
@@ -599,7 +599,7 @@
 
     .line 184
     .end local v0           #msg:Landroid/os/Message;
-    :cond_18
+    :cond_0
     invoke-super {p0}, Landroid/widget/AdapterViewAnimator;->showNext()V
 
     .line 185
@@ -607,7 +607,7 @@
 .end method
 
 .method public showPrevious()V
-    .registers 5
+    .locals 4
     .annotation runtime Landroid/view/RemotableViewMethod;
     .end annotation
 
@@ -617,7 +617,7 @@
     .line 195
     iget-boolean v1, p0, Landroid/widget/AdapterViewFlipper;->mRunning:Z
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_0
 
     .line 196
     iget-object v1, p0, Landroid/widget/AdapterViewFlipper;->mHandler:Landroid/os/Handler;
@@ -643,7 +643,7 @@
 
     .line 200
     .end local v0           #msg:Landroid/os/Message;
-    :cond_18
+    :cond_0
     invoke-super {p0}, Landroid/widget/AdapterViewAnimator;->showPrevious()V
 
     .line 201
@@ -651,7 +651,7 @@
 .end method
 
 .method public startFlipping()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 159
@@ -667,7 +667,7 @@
 .end method
 
 .method public stopFlipping()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 167

@@ -59,7 +59,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 327
@@ -73,7 +73,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -113,7 +113,7 @@
 .end method
 
 .method public constructor <init>(Landroid/location/Criteria;)V
-    .registers 3
+    .locals 1
     .parameter "criteria"
 
     .prologue
@@ -199,7 +199,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/location/Criteria;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -211,7 +211,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/location/Criteria;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -223,7 +223,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/location/Criteria;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -235,7 +235,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/location/Criteria;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -247,7 +247,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/location/Criteria;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -259,7 +259,7 @@
 .end method
 
 .method static synthetic access$502(Landroid/location/Criteria;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -271,7 +271,7 @@
 .end method
 
 .method static synthetic access$602(Landroid/location/Criteria;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -283,7 +283,7 @@
 .end method
 
 .method static synthetic access$702(Landroid/location/Criteria;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -295,7 +295,7 @@
 .end method
 
 .method static synthetic access$802(Landroid/location/Criteria;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -309,7 +309,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 349
@@ -319,7 +319,7 @@
 .end method
 
 .method public getAccuracy()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 238
@@ -327,23 +327,23 @@
 
     const/4 v1, 0x3
 
-    if-lt v0, v1, :cond_7
+    if-lt v0, v1, :cond_0
 
     .line 239
     const/4 v0, 0x1
 
     .line 241
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     const/4 v0, 0x2
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getBearingAccuracy()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 210
@@ -353,7 +353,7 @@
 .end method
 
 .method public getHorizontalAccuracy()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 138
@@ -363,7 +363,7 @@
 .end method
 
 .method public getPowerRequirement()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 262
@@ -373,7 +373,7 @@
 .end method
 
 .method public getSpeedAccuracy()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 186
@@ -383,7 +383,7 @@
 .end method
 
 .method public getVerticalAccuracy()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 162
@@ -393,7 +393,7 @@
 .end method
 
 .method public isAltitudeRequired()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 292
@@ -403,7 +403,7 @@
 .end method
 
 .method public isBearingRequired()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 324
@@ -413,7 +413,7 @@
 .end method
 
 .method public isCostAllowed()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 276
@@ -423,7 +423,7 @@
 .end method
 
 .method public isSpeedRequired()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 308
@@ -433,21 +433,21 @@
 .end method
 
 .method public setAccuracy(I)V
-    .registers 5
+    .locals 3
     .parameter "accuracy"
 
     .prologue
     const/4 v1, 0x1
 
     .line 222
-    if-ltz p1, :cond_6
+    if-ltz p1, :cond_0
 
     const/4 v0, 0x2
 
-    if-le p1, v0, :cond_1f
+    if-le p1, v0, :cond_1
 
     .line 223
-    :cond_6
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -473,8 +473,8 @@
     throw v0
 
     .line 225
-    :cond_1f
-    if-ne p1, v1, :cond_25
+    :cond_1
+    if-ne p1, v1, :cond_2
 
     .line 226
     const/4 v0, 0x3
@@ -482,18 +482,18 @@
     iput v0, p0, Landroid/location/Criteria;->mHorizontalAccuracy:I
 
     .line 230
-    :goto_24
+    :goto_0
     return-void
 
     .line 228
-    :cond_25
+    :cond_2
     iput v1, p0, Landroid/location/Criteria;->mHorizontalAccuracy:I
 
-    goto :goto_24
+    goto :goto_0
 .end method
 
 .method public setAltitudeRequired(Z)V
-    .registers 2
+    .locals 0
     .parameter "altitudeRequired"
 
     .prologue
@@ -505,19 +505,19 @@
 .end method
 
 .method public setBearingAccuracy(I)V
-    .registers 5
+    .locals 3
     .parameter "accuracy"
 
     .prologue
     .line 198
-    if-ltz p1, :cond_5
+    if-ltz p1, :cond_0
 
     const/4 v0, 0x3
 
-    if-le p1, v0, :cond_1e
+    if-le p1, v0, :cond_1
 
     .line 199
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -543,7 +543,7 @@
     throw v0
 
     .line 201
-    :cond_1e
+    :cond_1
     iput p1, p0, Landroid/location/Criteria;->mBearingAccuracy:I
 
     .line 202
@@ -551,7 +551,7 @@
 .end method
 
 .method public setBearingRequired(Z)V
-    .registers 2
+    .locals 0
     .parameter "bearingRequired"
 
     .prologue
@@ -563,7 +563,7 @@
 .end method
 
 .method public setCostAllowed(Z)V
-    .registers 2
+    .locals 0
     .parameter "costAllowed"
 
     .prologue
@@ -575,19 +575,19 @@
 .end method
 
 .method public setHorizontalAccuracy(I)V
-    .registers 5
+    .locals 3
     .parameter "accuracy"
 
     .prologue
     .line 126
-    if-ltz p1, :cond_5
+    if-ltz p1, :cond_0
 
     const/4 v0, 0x3
 
-    if-le p1, v0, :cond_1e
+    if-le p1, v0, :cond_1
 
     .line 127
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -613,7 +613,7 @@
     throw v0
 
     .line 129
-    :cond_1e
+    :cond_1
     iput p1, p0, Landroid/location/Criteria;->mHorizontalAccuracy:I
 
     .line 130
@@ -621,19 +621,19 @@
 .end method
 
 .method public setPowerRequirement(I)V
-    .registers 5
+    .locals 3
     .parameter "level"
 
     .prologue
     .line 251
-    if-ltz p1, :cond_5
+    if-ltz p1, :cond_0
 
     const/4 v0, 0x3
 
-    if-le p1, v0, :cond_1e
+    if-le p1, v0, :cond_1
 
     .line 252
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -659,7 +659,7 @@
     throw v0
 
     .line 254
-    :cond_1e
+    :cond_1
     iput p1, p0, Landroid/location/Criteria;->mPowerRequirement:I
 
     .line 255
@@ -667,19 +667,19 @@
 .end method
 
 .method public setSpeedAccuracy(I)V
-    .registers 5
+    .locals 3
     .parameter "accuracy"
 
     .prologue
     .line 174
-    if-ltz p1, :cond_5
+    if-ltz p1, :cond_0
 
     const/4 v0, 0x3
 
-    if-le p1, v0, :cond_1e
+    if-le p1, v0, :cond_1
 
     .line 175
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -705,7 +705,7 @@
     throw v0
 
     .line 177
-    :cond_1e
+    :cond_1
     iput p1, p0, Landroid/location/Criteria;->mSpeedAccuracy:I
 
     .line 178
@@ -713,7 +713,7 @@
 .end method
 
 .method public setSpeedRequired(Z)V
-    .registers 2
+    .locals 0
     .parameter "speedRequired"
 
     .prologue
@@ -725,19 +725,19 @@
 .end method
 
 .method public setVerticalAccuracy(I)V
-    .registers 5
+    .locals 3
     .parameter "accuracy"
 
     .prologue
     .line 150
-    if-ltz p1, :cond_5
+    if-ltz p1, :cond_0
 
     const/4 v0, 0x3
 
-    if-le p1, v0, :cond_1e
+    if-le p1, v0, :cond_1
 
     .line 151
-    :cond_5
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -763,7 +763,7 @@
     throw v0
 
     .line 153
-    :cond_1e
+    :cond_1
     iput p1, p0, Landroid/location/Criteria;->mVerticalAccuracy:I
 
     .line 154
@@ -771,7 +771,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "parcel"
     .parameter "flags"
 
@@ -808,65 +808,65 @@
     .line 358
     iget-boolean v0, p0, Landroid/location/Criteria;->mAltitudeRequired:Z
 
-    if-eqz v0, :cond_3b
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_20
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 359
     iget-boolean v0, p0, Landroid/location/Criteria;->mBearingRequired:Z
 
-    if-eqz v0, :cond_3d
+    if-eqz v0, :cond_1
 
     move v0, v1
 
-    :goto_28
+    :goto_1
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 360
     iget-boolean v0, p0, Landroid/location/Criteria;->mSpeedRequired:Z
 
-    if-eqz v0, :cond_3f
+    if-eqz v0, :cond_2
 
     move v0, v1
 
-    :goto_30
+    :goto_2
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 361
     iget-boolean v0, p0, Landroid/location/Criteria;->mCostAllowed:Z
 
-    if-eqz v0, :cond_41
+    if-eqz v0, :cond_3
 
-    :goto_37
+    :goto_3
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 362
     return-void
 
-    :cond_3b
+    :cond_0
     move v0, v2
 
     .line 358
-    goto :goto_20
+    goto :goto_0
 
-    :cond_3d
+    :cond_1
     move v0, v2
 
     .line 359
-    goto :goto_28
+    goto :goto_1
 
-    :cond_3f
+    :cond_2
     move v0, v2
 
     .line 360
-    goto :goto_30
+    goto :goto_2
 
-    :cond_41
+    :cond_3
     move v1, v2
 
     .line 361
-    goto :goto_37
+    goto :goto_3
 .end method

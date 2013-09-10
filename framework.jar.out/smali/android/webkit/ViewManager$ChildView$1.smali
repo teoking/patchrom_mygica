@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/ViewManager$ChildView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 68
@@ -48,6 +48,7 @@
 
     iget-object v1, p0, Landroid/webkit/ViewManager$ChildView$1;->this$1:Landroid/webkit/ViewManager$ChildView;
 
+    #calls: Landroid/webkit/ViewManager;->requestLayout(Landroid/webkit/ViewManager$ChildView;)V
     invoke-static {v0, v1}, Landroid/webkit/ViewManager;->access$000(Landroid/webkit/ViewManager;Landroid/webkit/ViewManager$ChildView;)V
 
     .line 70
@@ -59,14 +60,15 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_0
 
     .line 71
     iget-object v0, p0, Landroid/webkit/ViewManager$ChildView$1;->this$1:Landroid/webkit/ViewManager$ChildView;
 
+    #calls: Landroid/webkit/ViewManager$ChildView;->attachViewOnUIThread()V
     invoke-static {v0}, Landroid/webkit/ViewManager$ChildView;->access$100(Landroid/webkit/ViewManager$ChildView;)V
 
     .line 73
-    :cond_18
+    :cond_0
     return-void
 .end method

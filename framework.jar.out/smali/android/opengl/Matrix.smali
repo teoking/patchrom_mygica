@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 44
@@ -23,7 +23,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 41
@@ -33,7 +33,7 @@
 .end method
 
 .method public static frustumM([FIFFFFFF)V
-    .registers 19
+    .locals 11
     .parameter "m"
     .parameter "offset"
     .parameter "left"
@@ -47,7 +47,7 @@
     .line 319
     cmpl-float v9, p2, p3
 
-    if-nez v9, :cond_c
+    if-nez v9, :cond_0
 
     .line 320
     new-instance v9, Ljava/lang/IllegalArgumentException;
@@ -59,10 +59,10 @@
     throw v9
 
     .line 322
-    :cond_c
+    :cond_0
     cmpl-float v9, p5, p4
 
-    if-nez v9, :cond_19
+    if-nez v9, :cond_1
 
     .line 323
     new-instance v9, Ljava/lang/IllegalArgumentException;
@@ -74,10 +74,10 @@
     throw v9
 
     .line 325
-    :cond_19
+    :cond_1
     cmpl-float v9, p6, p7
 
-    if-nez v9, :cond_26
+    if-nez v9, :cond_2
 
     .line 326
     new-instance v9, Ljava/lang/IllegalArgumentException;
@@ -89,12 +89,12 @@
     throw v9
 
     .line 328
-    :cond_26
+    :cond_2
     const/4 v9, 0x0
 
     cmpg-float v9, p6, v9
 
-    if-gtz v9, :cond_34
+    if-gtz v9, :cond_3
 
     .line 329
     new-instance v9, Ljava/lang/IllegalArgumentException;
@@ -106,12 +106,12 @@
     throw v9
 
     .line 331
-    :cond_34
+    :cond_3
     const/4 v9, 0x0
 
     cmpg-float v9, p7, v9
 
-    if-gtz v9, :cond_41
+    if-gtz v9, :cond_4
 
     .line 332
     new-instance v9, Ljava/lang/IllegalArgumentException;
@@ -123,7 +123,7 @@
     throw v9
 
     .line 334
-    :cond_41
+    :cond_4
     const/high16 v9, 0x3f80
 
     sub-float v10, p3, p2
@@ -300,7 +300,7 @@
 .end method
 
 .method public static invertM([FI[FI)Z
-    .registers 65
+    .locals 61
     .parameter "mInv"
     .parameter "mInvOffset"
     .parameter "m"
@@ -904,17 +904,17 @@
 
     cmpl-float v58, v24, v58
 
-    if-nez v58, :cond_1e7
+    if-nez v58, :cond_0
 
     .line 222
     const/16 v58, 0x0
 
     .line 247
-    :goto_1e6
+    :goto_0
     return v58
 
     .line 226
-    :cond_1e7
+    :cond_0
     const/high16 v58, 0x3f80
 
     div-float v41, v58, v24
@@ -1033,11 +1033,11 @@
     .line 247
     const/16 v58, 0x1
 
-    goto :goto_1e6
+    goto :goto_0
 .end method
 
 .method public static length(FFF)F
-    .registers 5
+    .locals 2
     .parameter "x"
     .parameter "y"
     .parameter "z"
@@ -1072,7 +1072,7 @@
 .end method
 
 .method public static orthoM([FIFFFFFF)V
-    .registers 19
+    .locals 11
     .parameter "m"
     .parameter "mOffset"
     .parameter "left"
@@ -1086,7 +1086,7 @@
     .line 265
     cmpl-float v9, p2, p3
 
-    if-nez v9, :cond_c
+    if-nez v9, :cond_0
 
     .line 266
     new-instance v9, Ljava/lang/IllegalArgumentException;
@@ -1098,10 +1098,10 @@
     throw v9
 
     .line 268
-    :cond_c
+    :cond_0
     cmpl-float v9, p4, p5
 
-    if-nez v9, :cond_18
+    if-nez v9, :cond_1
 
     .line 269
     new-instance v9, Ljava/lang/IllegalArgumentException;
@@ -1113,10 +1113,10 @@
     throw v9
 
     .line 271
-    :cond_18
+    :cond_1
     cmpl-float v9, p6, p7
 
-    if-nez v9, :cond_25
+    if-nez v9, :cond_2
 
     .line 272
     new-instance v9, Ljava/lang/IllegalArgumentException;
@@ -1128,7 +1128,7 @@
     throw v9
 
     .line 275
-    :cond_25
+    :cond_2
     const/high16 v9, 0x3f80
 
     sub-float v10, p3, p2
@@ -1299,7 +1299,7 @@
 .end method
 
 .method public static perspectiveM([FIFFFF)V
-    .registers 14
+    .locals 8
     .parameter "m"
     .parameter "offset"
     .parameter "fovy"
@@ -1435,7 +1435,7 @@
 .end method
 
 .method public static rotateM([FIFFFF)V
-    .registers 13
+    .locals 7
     .parameter "m"
     .parameter "mOffset"
     .parameter "a"
@@ -1450,7 +1450,7 @@
     monitor-enter v6
 
     .line 539
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/opengl/Matrix;->sTemp:[F
 
     const/4 v1, 0x0
@@ -1496,18 +1496,18 @@
     return-void
 
     .line 542
-    :catchall_24
+    :catchall_0
     move-exception v0
 
     monitor-exit v6
-    :try_end_26
-    .catchall {:try_start_3 .. :try_end_26} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public static rotateM([FI[FIFFFF)V
-    .registers 15
+    .locals 7
     .parameter "rm"
     .parameter "rmOffset"
     .parameter "m"
@@ -1524,7 +1524,7 @@
     monitor-enter v6
 
     .line 521
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/opengl/Matrix;->sTemp:[F
 
     const/4 v1, 0x0
@@ -1561,18 +1561,18 @@
     return-void
 
     .line 523
-    :catchall_19
+    :catchall_0
     move-exception v0
 
     monitor-exit v6
-    :try_end_1b
-    .catchall {:try_start_3 .. :try_end_1b} :catchall_19
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public static scaleM([FIFFF)V
-    .registers 9
+    .locals 4
     .parameter "m"
     .parameter "mOffset"
     .parameter "x"
@@ -1584,10 +1584,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     const/4 v2, 0x4
 
-    if-ge v0, v2, :cond_1c
+    if-ge v0, v2, :cond_0
 
     .line 458
     add-int v1, p1, v0
@@ -1621,16 +1621,16 @@
     .line 457
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 463
     .end local v1           #mi:I
-    :cond_1c
+    :cond_0
     return-void
 .end method
 
 .method public static scaleM([FI[FIFFF)V
-    .registers 12
+    .locals 5
     .parameter "sm"
     .parameter "smOffset"
     .parameter "m"
@@ -1644,10 +1644,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     const/4 v3, 0x4
 
-    if-ge v0, v3, :cond_2a
+    if-ge v0, v3, :cond_0
 
     .line 438
     add-int v2, p1, v0
@@ -1698,17 +1698,17 @@
     .line 437
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 445
     .end local v1           #mi:I
     .end local v2           #smi:I
-    :cond_2a
+    :cond_0
     return-void
 .end method
 
 .method public static setIdentityM([FI)V
-    .registers 6
+    .locals 4
     .parameter "sm"
     .parameter "smOffset"
 
@@ -1719,8 +1719,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_3
-    if-ge v0, v3, :cond_d
+    :goto_0
+    if-ge v0, v3, :cond_0
 
     .line 417
     add-int v1, p1, v0
@@ -1732,14 +1732,14 @@
     .line 416
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 419
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_e
-    if-ge v0, v3, :cond_19
+    :goto_1
+    if-ge v0, v3, :cond_1
 
     .line 420
     add-int v1, p1, v0
@@ -1751,15 +1751,15 @@
     .line 419
     add-int/lit8 v0, v0, 0x5
 
-    goto :goto_e
+    goto :goto_1
 
     .line 422
-    :cond_19
+    :cond_1
     return-void
 .end method
 
 .method public static setLookAtM([FIFFFFFFFFF)V
-    .registers 26
+    .locals 15
     .parameter "rm"
     .parameter "rmOffset"
     .parameter "eyeX"
@@ -1993,7 +1993,7 @@
 .end method
 
 .method public static setRotateEulerM([FIFFF)V
-    .registers 16
+    .locals 11
     .parameter "rm"
     .parameter "rmOffset"
     .parameter "x"
@@ -2223,7 +2223,7 @@
 .end method
 
 .method public static setRotateM([FIFFFF)V
-    .registers 19
+    .locals 13
     .parameter "rm"
     .parameter "rmOffset"
     .parameter "a"
@@ -2311,19 +2311,19 @@
 
     cmpl-float v11, v11, p3
 
-    if-nez v11, :cond_70
+    if-nez v11, :cond_0
 
     const/4 v11, 0x0
 
     cmpl-float v11, v11, p4
 
-    if-nez v11, :cond_70
+    if-nez v11, :cond_0
 
     const/4 v11, 0x0
 
     cmpl-float v11, v11, p5
 
-    if-nez v11, :cond_70
+    if-nez v11, :cond_0
 
     .line 567
     add-int/lit8 v11, p1, 0x5
@@ -2379,28 +2379,28 @@
     aput v12, p0, v11
 
     .line 609
-    :goto_6f
+    :goto_0
     return-void
 
     .line 572
-    :cond_70
+    :cond_0
     const/4 v11, 0x0
 
     cmpl-float v11, v11, p3
 
-    if-nez v11, :cond_ac
+    if-nez v11, :cond_1
 
     const/high16 v11, 0x3f80
 
     cmpl-float v11, v11, p4
 
-    if-nez v11, :cond_ac
+    if-nez v11, :cond_1
 
     const/4 v11, 0x0
 
     cmpl-float v11, v11, p5
 
-    if-nez v11, :cond_ac
+    if-nez v11, :cond_1
 
     .line 573
     add-int/lit8 v11, p1, 0x0
@@ -2455,27 +2455,27 @@
 
     aput v12, p0, v11
 
-    goto :goto_6f
+    goto :goto_0
 
     .line 578
-    :cond_ac
+    :cond_1
     const/4 v11, 0x0
 
     cmpl-float v11, v11, p3
 
-    if-nez v11, :cond_e8
+    if-nez v11, :cond_2
 
     const/4 v11, 0x0
 
     cmpl-float v11, v11, p4
 
-    if-nez v11, :cond_e8
+    if-nez v11, :cond_2
 
     const/high16 v11, 0x3f80
 
     cmpl-float v11, v11, p5
 
-    if-nez v11, :cond_e8
+    if-nez v11, :cond_2
 
     .line 579
     add-int/lit8 v11, p1, 0x0
@@ -2530,10 +2530,10 @@
 
     aput v12, p0, v11
 
-    goto :goto_6f
+    goto :goto_0
 
     .line 585
-    :cond_e8
+    :cond_2
     invoke-static/range {p3 .. p5}, Landroid/opengl/Matrix;->length(FFF)F
 
     move-result v1
@@ -2544,7 +2544,7 @@
 
     cmpl-float v11, v11, v1
 
-    if-eqz v11, :cond_fc
+    if-eqz v11, :cond_3
 
     .line 587
     const/high16 v11, 0x3f80
@@ -2563,7 +2563,7 @@
 
     .line 592
     .end local v3           #recipLen:F
-    :cond_fc
+    :cond_3
     const/high16 v11, 0x3f80
 
     sub-float v2, v11, v0
@@ -2680,11 +2680,11 @@
 
     aput v12, p0, v11
 
-    goto/16 :goto_6f
+    goto/16 :goto_0
 .end method
 
 .method public static translateM([FIFFF)V
-    .registers 11
+    .locals 6
     .parameter "m"
     .parameter "mOffset"
     .parameter "x"
@@ -2696,10 +2696,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     const/4 v2, 0x4
 
-    if-ge v0, v2, :cond_1f
+    if-ge v0, v2, :cond_0
 
     .line 501
     add-int v1, p1, v0
@@ -2737,16 +2737,16 @@
     .line 500
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 504
     .end local v1           #mi:I
-    :cond_1f
+    :cond_0
     return-void
 .end method
 
 .method public static translateM([FI[FIFFF)V
-    .registers 13
+    .locals 6
     .parameter "tm"
     .parameter "tmOffset"
     .parameter "m"
@@ -2760,10 +2760,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     const/16 v3, 0xc
 
-    if-ge v0, v3, :cond_10
+    if-ge v0, v3, :cond_0
 
     .line 479
     add-int v3, p1, v0
@@ -2777,16 +2777,16 @@
     .line 478
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 481
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_11
+    :goto_1
     const/4 v3, 0x4
 
-    if-ge v0, v3, :cond_33
+    if-ge v0, v3, :cond_1
 
     .line 482
     add-int v2, p1, v0
@@ -2830,17 +2830,17 @@
     .line 481
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_11
+    goto :goto_1
 
     .line 487
     .end local v1           #mi:I
     .end local v2           #tmi:I
-    :cond_33
+    :cond_1
     return-void
 .end method
 
 .method public static transposeM([FI[FI)V
-    .registers 8
+    .locals 4
     .parameter "mTrans"
     .parameter "mTransOffset"
     .parameter "m"
@@ -2851,10 +2851,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     const/4 v2, 0x4
 
-    if-ge v0, v2, :cond_2c
+    if-ge v0, v2, :cond_0
 
     .line 110
     mul-int/lit8 v2, v0, 0x4
@@ -2905,10 +2905,10 @@
     .line 109
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 116
     .end local v1           #mBase:I
-    :cond_2c
+    :cond_0
     return-void
 .end method

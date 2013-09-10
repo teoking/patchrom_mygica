@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;B)V
-    .registers 3
+    .locals 0
     .parameter "prefix"
     .parameter "score"
 

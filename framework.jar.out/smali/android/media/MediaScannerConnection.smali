@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "client"
 
@@ -60,7 +60,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/media/MediaScannerConnection;)Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -71,7 +71,7 @@
 .end method
 
 .method public static scanFile(Landroid/content/Context;[Ljava/lang/String;[Ljava/lang/String;Landroid/media/MediaScannerConnection$OnScanCompletedListener;)V
-    .registers 6
+    .locals 2
     .parameter "context"
     .parameter "paths"
     .parameter "mimeTypes"
@@ -103,17 +103,17 @@
 
 # virtual methods
 .method public connect()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 113
     monitor-enter p0
 
     .line 114
-    :try_start_1
+    :try_start_0
     iget-boolean v1, p0, Landroid/media/MediaScannerConnection;->mConnected:Z
 
-    if-nez v1, :cond_19
+    if-nez v1, :cond_0
 
     .line 115
     new-instance v0, Landroid/content/Intent;
@@ -141,109 +141,109 @@
 
     .line 119
     .end local v0           #intent:Landroid/content/Intent;
-    :cond_19
+    :cond_0
     monitor-exit p0
 
     .line 120
     return-void
 
     .line 119
-    :catchall_1b
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
-    :try_end_1d
-    .catchall {:try_start_1 .. :try_end_1d} :catchall_1b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public disconnect()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 126
     monitor-enter p0
 
     .line 127
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/media/MediaScannerConnection;->mConnected:Z
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 132
-    :try_start_5
+    :try_start_1
     iget-object v0, p0, Landroid/media/MediaScannerConnection;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
-    :try_end_a
-    .catchall {:try_start_5 .. :try_end_a} :catchall_f
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_5 .. :try_end_a} :catch_12
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 138
-    :goto_a
+    :goto_0
     const/4 v0, 0x0
 
-    :try_start_b
+    :try_start_2
     iput-boolean v0, p0, Landroid/media/MediaScannerConnection;->mConnected:Z
 
     .line 140
-    :cond_d
+    :cond_0
     monitor-exit p0
 
     .line 141
     return-void
 
     .line 140
-    :catchall_f
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_11
-    .catchall {:try_start_b .. :try_end_11} :catchall_f
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v0
 
     .line 133
-    :catch_12
+    :catch_0
     move-exception v0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public declared-synchronized isConnected()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 148
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/media/MediaScannerConnection;->mService:Landroid/media/IMediaScannerService;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     iget-boolean v0, p0, Landroid/media/MediaScannerConnection;->mConnected:Z
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_a
+    :goto_0
     monitor-exit p0
 
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 
-    :catchall_e
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -252,7 +252,7 @@
 .end method
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .registers 4
+    .locals 1
     .parameter "className"
     .parameter "service"
 
@@ -261,7 +261,7 @@
     monitor-enter p0
 
     .line 246
-    :try_start_1
+    :try_start_0
     invoke-static {p2}, Landroid/media/IMediaScannerService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IMediaScannerService;
 
     move-result-object v0
@@ -271,11 +271,11 @@
     .line 247
     iget-object v0, p0, Landroid/media/MediaScannerConnection;->mService:Landroid/media/IMediaScannerService;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/media/MediaScannerConnection;->mClient:Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 248
     iget-object v0, p0, Landroid/media/MediaScannerConnection;->mClient:Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;
@@ -283,25 +283,25 @@
     invoke-interface {v0}, Landroid/media/MediaScannerConnection$MediaScannerConnectionClient;->onMediaScannerConnected()V
 
     .line 250
-    :cond_14
+    :cond_0
     monitor-exit p0
 
     .line 251
     return-void
 
     .line 250
-    :catchall_16
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_18
-    .catchall {:try_start_1 .. :try_end_18} :catchall_16
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .registers 3
+    .locals 1
     .parameter "className"
 
     .prologue
@@ -311,7 +311,7 @@
     .line 261
     const/4 v0, 0x0
 
-    :try_start_2
+    :try_start_0
     iput-object v0, p0, Landroid/media/MediaScannerConnection;->mService:Landroid/media/IMediaScannerService;
 
     .line 262
@@ -321,18 +321,18 @@
     return-void
 
     .line 262
-    :catchall_6
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_8
-    .catchall {:try_start_2 .. :try_end_8} :catchall_6
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public scanFile(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "path"
     .parameter "mimeType"
 
@@ -341,17 +341,17 @@
     monitor-enter p0
 
     .line 162
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/media/MediaScannerConnection;->mService:Landroid/media/IMediaScannerService;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     iget-boolean v0, p0, Landroid/media/MediaScannerConnection;->mConnected:Z
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_1
 
     .line 163
-    :cond_9
+    :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "not connected to MediaScannerService"
@@ -361,40 +361,40 @@
     throw v0
 
     .line 175
-    :catchall_12
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_14
-    .catchall {:try_start_1 .. :try_end_14} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 169
-    :cond_15
-    :try_start_15
+    :cond_1
+    :try_start_1
     iget-object v0, p0, Landroid/media/MediaScannerConnection;->mService:Landroid/media/IMediaScannerService;
 
     iget-object v1, p0, Landroid/media/MediaScannerConnection;->mListener:Landroid/media/IMediaScannerListener$Stub;
 
     invoke-interface {v0, p1, p2, v1}, Landroid/media/IMediaScannerService;->requestScanFile(Ljava/lang/String;Ljava/lang/String;Landroid/media/IMediaScannerListener;)V
-    :try_end_1c
-    .catchall {:try_start_15 .. :try_end_1c} :catchall_12
-    .catch Landroid/os/RemoteException; {:try_start_15 .. :try_end_1c} :catch_1e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 175
-    :goto_1c
-    :try_start_1c
+    :goto_0
+    :try_start_2
     monitor-exit p0
-    :try_end_1d
-    .catchall {:try_start_1c .. :try_end_1d} :catchall_12
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 176
     return-void
 
     .line 170
-    :catch_1e
+    :catch_0
     move-exception v0
 
-    goto :goto_1c
+    goto :goto_0
 .end method

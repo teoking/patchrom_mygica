@@ -54,7 +54,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 5969
@@ -64,7 +64,7 @@
 .end method
 
 .method public static final getProtocolLabel(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .registers 5
+    .locals 2
     .parameter "res"
     .parameter "type"
     .parameter "label"
@@ -73,22 +73,22 @@
     .line 6056
     const/4 v1, -0x1
 
-    if-ne p1, v1, :cond_a
+    if-ne p1, v1, :cond_0
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_0
 
     .line 6060
     .end local p2
-    :goto_9
+    :goto_0
     return-object p2
 
     .line 6059
     .restart local p2
-    :cond_a
+    :cond_0
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$Im;->getProtocolLabelResource(I)I
 
     move-result v0
@@ -99,118 +99,118 @@
 
     move-result-object p2
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static final getProtocolLabelResource(I)I
-    .registers 2
+    .locals 1
     .parameter "type"
 
     .prologue
     .line 6035
-    packed-switch p0, :pswitch_data_2c
+    packed-switch p0, :pswitch_data_0
 
     .line 6045
     const v0, 0x10402cc
 
-    :goto_6
+    :goto_0
     return v0
 
     .line 6036
-    :pswitch_7
+    :pswitch_0
     const v0, 0x10402cd
 
-    goto :goto_6
+    goto :goto_0
 
     .line 6037
-    :pswitch_b
+    :pswitch_1
     const v0, 0x10402ce
 
-    goto :goto_6
+    goto :goto_0
 
     .line 6038
-    :pswitch_f
+    :pswitch_2
     const v0, 0x10402cf
 
-    goto :goto_6
+    goto :goto_0
 
     .line 6039
-    :pswitch_13
+    :pswitch_3
     const v0, 0x10402d0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 6040
-    :pswitch_17
+    :pswitch_4
     const v0, 0x10402d1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 6041
-    :pswitch_1b
+    :pswitch_5
     const v0, 0x10402d2
 
-    goto :goto_6
+    goto :goto_0
 
     .line 6042
-    :pswitch_1f
+    :pswitch_6
     const v0, 0x10402d3
 
-    goto :goto_6
+    goto :goto_0
 
     .line 6043
-    :pswitch_23
+    :pswitch_7
     const v0, 0x10402d4
 
-    goto :goto_6
+    goto :goto_0
 
     .line 6044
-    :pswitch_27
+    :pswitch_8
     const v0, 0x10402d5
 
-    goto :goto_6
+    goto :goto_0
 
     .line 6035
     nop
 
-    :pswitch_data_2c
+    :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
         :pswitch_7
-        :pswitch_b
-        :pswitch_f
-        :pswitch_13
-        :pswitch_17
-        :pswitch_1b
-        :pswitch_1f
-        :pswitch_23
-        :pswitch_27
+        :pswitch_8
     .end packed-switch
 .end method
 
 .method public static final getTypeLabel(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .registers 5
+    .locals 2
     .parameter "res"
     .parameter "type"
     .parameter "label"
 
     .prologue
     .line 6022
-    if-nez p1, :cond_9
+    if-nez p1, :cond_0
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_0
 
     .line 6026
     .end local p2
-    :goto_8
+    :goto_0
     return-object p2
 
     .line 6025
     .restart local p2
-    :cond_9
+    :cond_0
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$Im;->getTypeLabelResource(I)I
 
     move-result v0
@@ -221,48 +221,48 @@
 
     move-result-object p2
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public static final getTypeLabelResource(I)I
-    .registers 2
+    .locals 1
     .parameter "type"
 
     .prologue
     .line 6007
-    packed-switch p0, :pswitch_data_14
+    packed-switch p0, :pswitch_data_0
 
     .line 6011
     const v0, 0x10402c8
 
-    :goto_6
+    :goto_0
     return v0
 
     .line 6008
-    :pswitch_7
+    :pswitch_0
     const v0, 0x10402c9
 
-    goto :goto_6
+    goto :goto_0
 
     .line 6009
-    :pswitch_b
+    :pswitch_1
     const v0, 0x10402ca
 
-    goto :goto_6
+    goto :goto_0
 
     .line 6010
-    :pswitch_f
+    :pswitch_2
     const v0, 0x10402cb
 
-    goto :goto_6
+    goto :goto_0
 
     .line 6007
     nop
 
-    :pswitch_data_14
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_7
-        :pswitch_b
-        :pswitch_f
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

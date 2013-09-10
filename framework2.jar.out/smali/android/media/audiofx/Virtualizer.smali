@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 9
+    .locals 6
     .parameter "priority"
     .parameter "audioSession"
     .annotation system Ldalvik/annotation/Throws;
@@ -77,7 +77,7 @@
     iput-object v3, p0, Landroid/media/audiofx/Virtualizer;->mParamListenerLock:Ljava/lang/Object;
 
     .line 105
-    if-nez p2, :cond_20
+    if-nez p2, :cond_0
 
     .line 106
     const-string v3, "Virtualizer"
@@ -87,7 +87,7 @@
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 109
-    :cond_20
+    :cond_0
     new-array v0, v1, [I
 
     .line 110
@@ -101,23 +101,23 @@
     .line 111
     aget v3, v0, v2
 
-    if-eqz v3, :cond_30
+    if-eqz v3, :cond_1
 
-    :goto_2d
+    :goto_0
     iput-boolean v1, p0, Landroid/media/audiofx/Virtualizer;->mStrengthSupported:Z
 
     .line 112
     return-void
 
-    :cond_30
+    :cond_1
     move v1, v2
 
     .line 111
-    goto :goto_2d
+    goto :goto_0
 .end method
 
 .method static synthetic access$000(Landroid/media/audiofx/Virtualizer;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -128,7 +128,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/media/audiofx/Virtualizer;)Landroid/media/audiofx/Virtualizer$OnParameterChangeListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -141,7 +141,7 @@
 
 # virtual methods
 .method public getProperties()Landroid/media/audiofx/Virtualizer$Settings;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -182,7 +182,7 @@
 .end method
 
 .method public getRoundedStrength()S
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -214,7 +214,7 @@
 .end method
 
 .method public getStrengthSupported()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 120
@@ -224,7 +224,7 @@
 .end method
 
 .method public setParameterListener(Landroid/media/audiofx/Virtualizer$OnParameterChangeListener;)V
-    .registers 5
+    .locals 3
     .parameter "listener"
 
     .prologue
@@ -234,10 +234,10 @@
     monitor-enter v1
 
     .line 210
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/media/audiofx/Virtualizer;->mParamListener:Landroid/media/audiofx/Virtualizer$OnParameterChangeListener;
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 211
     iput-object p1, p0, Landroid/media/audiofx/Virtualizer;->mParamListener:Landroid/media/audiofx/Virtualizer$OnParameterChangeListener;
@@ -257,25 +257,25 @@
     invoke-super {p0, v0}, Landroid/media/audiofx/AudioEffect;->setParameterListener(Landroid/media/audiofx/AudioEffect$OnParameterChangeListener;)V
 
     .line 215
-    :cond_16
+    :cond_0
     monitor-exit v1
 
     .line 216
     return-void
 
     .line 215
-    :catchall_18
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1a
-    .catchall {:try_start_3 .. :try_end_1a} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setProperties(Landroid/media/audiofx/Virtualizer$Settings;)V
-    .registers 4
+    .locals 2
     .parameter "settings"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -302,7 +302,7 @@
 .end method
 
 .method public setStrength(S)V
-    .registers 3
+    .locals 1
     .parameter "strength"
     .annotation system Ldalvik/annotation/Throws;
         value = {

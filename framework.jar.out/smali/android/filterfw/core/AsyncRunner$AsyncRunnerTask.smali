@@ -35,7 +35,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/filterfw/core/AsyncRunner;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -48,7 +48,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/filterfw/core/AsyncRunner;Landroid/filterfw/core/AsyncRunner$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method protected varargs doInBackground([Landroid/filterfw/core/SyncRunner;)Landroid/filterfw/core/AsyncRunner$RunnerResult;
-    .registers 8
+    .locals 6
     .parameter "runner"
 
     .prologue
@@ -81,10 +81,10 @@
 
     .line 59
     .local v1, result:Landroid/filterfw/core/AsyncRunner$RunnerResult;
-    :try_start_a
+    :try_start_0
     array-length v2, p1
 
-    if-le v2, v4, :cond_2f
+    if-le v2, v4, :cond_2
 
     .line 60
     new-instance v2, Ljava/lang/RuntimeException;
@@ -94,11 +94,11 @@
     invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v2
-    :try_end_15
-    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_15} :catch_15
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 90
-    :catch_15
+    :catch_0
     move-exception v0
 
     .line 91
@@ -110,24 +110,25 @@
 
     .line 97
     .end local v0           #exception:Ljava/lang/Exception;
-    :cond_1a
-    :goto_1a
-    :try_start_1a
+    :cond_0
+    :goto_0
+    :try_start_1
     iget-object v2, p0, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->this$0:Landroid/filterfw/core/AsyncRunner;
 
     invoke-virtual {v2}, Landroid/filterfw/core/AsyncRunner;->deactivateGlContext()V
-    :try_end_1f
-    .catch Ljava/lang/Exception; {:try_start_1a .. :try_end_1f} :catch_a6
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 103
-    :goto_1f
+    :goto_1
     iget-object v2, p0, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->this$0:Landroid/filterfw/core/AsyncRunner;
 
+    #getter for: Landroid/filterfw/core/AsyncRunner;->mLogVerbose:Z
     invoke-static {v2}, Landroid/filterfw/core/AsyncRunner;->access$100(Landroid/filterfw/core/AsyncRunner;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2e
+    if-eqz v2, :cond_1
 
     const-string v2, "AsyncRunnerTask"
 
@@ -136,14 +137,14 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 104
-    :cond_2e
+    :cond_1
     return-object v1
 
     .line 63
-    :cond_2f
+    :cond_2
     const/4 v2, 0x0
 
-    :try_start_30
+    :try_start_2
     aget-object v2, p1, v2
 
     invoke-virtual {v2}, Landroid/filterfw/core/SyncRunner;->assertReadyToStep()V
@@ -151,11 +152,12 @@
     .line 66
     iget-object v2, p0, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->this$0:Landroid/filterfw/core/AsyncRunner;
 
+    #getter for: Landroid/filterfw/core/AsyncRunner;->mLogVerbose:Z
     invoke-static {v2}, Landroid/filterfw/core/AsyncRunner;->access$100(Landroid/filterfw/core/AsyncRunner;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_44
+    if-eqz v2, :cond_3
 
     const-string v2, "AsyncRunnerTask"
 
@@ -164,7 +166,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 67
-    :cond_44
+    :cond_3
     iget-object v2, p0, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->this$0:Landroid/filterfw/core/AsyncRunner;
 
     invoke-virtual {v2}, Landroid/filterfw/core/AsyncRunner;->activateGlContext()Z
@@ -172,11 +174,12 @@
     .line 69
     iget-object v2, p0, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->this$0:Landroid/filterfw/core/AsyncRunner;
 
+    #getter for: Landroid/filterfw/core/AsyncRunner;->mLogVerbose:Z
     invoke-static {v2}, Landroid/filterfw/core/AsyncRunner;->access$100(Landroid/filterfw/core/AsyncRunner;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_58
+    if-eqz v2, :cond_4
 
     const-string v2, "AsyncRunnerTask"
 
@@ -185,7 +188,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 70
-    :cond_58
+    :cond_4
     const/4 v2, 0x0
 
     aget-object v2, p1, v2
@@ -195,11 +198,12 @@
     .line 72
     iget-object v2, p0, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->this$0:Landroid/filterfw/core/AsyncRunner;
 
+    #getter for: Landroid/filterfw/core/AsyncRunner;->mLogVerbose:Z
     invoke-static {v2}, Landroid/filterfw/core/AsyncRunner;->access$100(Landroid/filterfw/core/AsyncRunner;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_6d
+    if-eqz v2, :cond_5
 
     const-string v2, "AsyncRunnerTask"
 
@@ -208,23 +212,23 @@
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 75
-    :cond_6d
+    :cond_5
     const/4 v2, 0x1
 
     iput v2, v1, Landroid/filterfw/core/AsyncRunner$RunnerResult;->status:I
 
     .line 76
-    :cond_70
-    :goto_70
+    :cond_6
+    :goto_2
     invoke-virtual {p0}, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->isCancelled()Z
 
     move-result v2
 
-    if-nez v2, :cond_9b
+    if-nez v2, :cond_7
 
     iget v2, v1, Landroid/filterfw/core/AsyncRunner$RunnerResult;->status:I
 
-    if-ne v2, v4, :cond_9b
+    if-ne v2, v4, :cond_7
 
     .line 77
     const/4 v2, 0x0
@@ -235,7 +239,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_70
+    if-nez v2, :cond_6
 
     .line 78
     const/4 v2, 0x0
@@ -253,7 +257,7 @@
 
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_70
+    if-ne v2, v3, :cond_6
 
     .line 80
     const/4 v2, 0x0
@@ -267,27 +271,27 @@
 
     iput v2, v1, Landroid/filterfw/core/AsyncRunner$RunnerResult;->status:I
 
-    goto :goto_70
+    goto :goto_2
 
     .line 87
-    :cond_9b
+    :cond_7
     invoke-virtual {p0}, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->isCancelled()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_0
 
     .line 88
     const/4 v2, 0x5
 
     iput v2, v1, Landroid/filterfw/core/AsyncRunner$RunnerResult;->status:I
-    :try_end_a4
-    .catch Ljava/lang/Exception; {:try_start_30 .. :try_end_a4} :catch_15
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto/16 :goto_1a
+    goto/16 :goto_0
 
     .line 98
-    :catch_a6
+    :catch_1
     move-exception v0
 
     .line 99
@@ -297,11 +301,11 @@
     .line 100
     iput v5, v1, Landroid/filterfw/core/AsyncRunner$RunnerResult;->status:I
 
-    goto/16 :goto_1f
+    goto/16 :goto_1
 .end method
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -317,7 +321,7 @@
 .end method
 
 .method protected onCancelled(Landroid/filterfw/core/AsyncRunner$RunnerResult;)V
-    .registers 2
+    .locals 0
     .parameter "result"
 
     .prologue
@@ -329,7 +333,7 @@
 .end method
 
 .method protected bridge synthetic onCancelled(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -343,7 +347,7 @@
 .end method
 
 .method protected onPostExecute(Landroid/filterfw/core/AsyncRunner$RunnerResult;)V
-    .registers 7
+    .locals 5
     .parameter "result"
 
     .prologue
@@ -354,11 +358,12 @@
     .line 114
     iget-object v1, p0, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->this$0:Landroid/filterfw/core/AsyncRunner;
 
+    #getter for: Landroid/filterfw/core/AsyncRunner;->mLogVerbose:Z
     invoke-static {v1}, Landroid/filterfw/core/AsyncRunner;->access$100(Landroid/filterfw/core/AsyncRunner;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_0
 
     const-string v1, "AsyncRunnerTask"
 
@@ -367,15 +372,16 @@
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 115
-    :cond_11
+    :cond_0
     iget-object v1, p0, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->this$0:Landroid/filterfw/core/AsyncRunner;
 
     const/4 v2, 0x0
 
+    #calls: Landroid/filterfw/core/AsyncRunner;->setRunning(Z)V
     invoke-static {v1, v2}, Landroid/filterfw/core/AsyncRunner;->access$200(Landroid/filterfw/core/AsyncRunner;Z)V
 
     .line 116
-    if-nez p1, :cond_23
+    if-nez p1, :cond_1
 
     .line 118
     new-instance p1, Landroid/filterfw/core/AsyncRunner$RunnerResult;
@@ -392,31 +398,33 @@
     iput v3, p1, Landroid/filterfw/core/AsyncRunner$RunnerResult;->status:I
 
     .line 121
-    :cond_23
+    :cond_1
     iget-object v1, p0, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->this$0:Landroid/filterfw/core/AsyncRunner;
 
     iget-object v2, p1, Landroid/filterfw/core/AsyncRunner$RunnerResult;->exception:Ljava/lang/Exception;
 
+    #calls: Landroid/filterfw/core/AsyncRunner;->setException(Ljava/lang/Exception;)V
     invoke-static {v1, v2}, Landroid/filterfw/core/AsyncRunner;->access$300(Landroid/filterfw/core/AsyncRunner;Ljava/lang/Exception;)V
 
     .line 122
     iget v1, p1, Landroid/filterfw/core/AsyncRunner$RunnerResult;->status:I
 
-    if-eq v1, v3, :cond_32
+    if-eq v1, v3, :cond_2
 
     iget v1, p1, Landroid/filterfw/core/AsyncRunner$RunnerResult;->status:I
 
-    if-ne v1, v4, :cond_4a
+    if-ne v1, v4, :cond_4
 
     .line 123
-    :cond_32
+    :cond_2
     iget-object v1, p0, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->this$0:Landroid/filterfw/core/AsyncRunner;
 
+    #getter for: Landroid/filterfw/core/AsyncRunner;->mLogVerbose:Z
     invoke-static {v1}, Landroid/filterfw/core/AsyncRunner;->access$100(Landroid/filterfw/core/AsyncRunner;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_41
+    if-eqz v1, :cond_3
 
     const-string v1, "AsyncRunnerTask"
 
@@ -425,37 +433,40 @@
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 125
-    :cond_41
-    :try_start_41
+    :cond_3
+    :try_start_0
     iget-object v1, p0, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->this$0:Landroid/filterfw/core/AsyncRunner;
 
+    #getter for: Landroid/filterfw/core/AsyncRunner;->mRunner:Landroid/filterfw/core/SyncRunner;
     invoke-static {v1}, Landroid/filterfw/core/AsyncRunner;->access$400(Landroid/filterfw/core/AsyncRunner;)Landroid/filterfw/core/SyncRunner;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/filterfw/core/SyncRunner;->close()V
-    :try_end_4a
-    .catch Ljava/lang/Exception; {:try_start_41 .. :try_end_4a} :catch_7c
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 131
-    :cond_4a
-    :goto_4a
+    :cond_4
+    :goto_0
     iget-object v1, p0, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->this$0:Landroid/filterfw/core/AsyncRunner;
 
+    #getter for: Landroid/filterfw/core/AsyncRunner;->mDoneListener:Landroid/filterfw/core/GraphRunner$OnRunnerDoneListener;
     invoke-static {v1}, Landroid/filterfw/core/AsyncRunner;->access$500(Landroid/filterfw/core/AsyncRunner;)Landroid/filterfw/core/GraphRunner$OnRunnerDoneListener;
 
     move-result-object v1
 
-    if-eqz v1, :cond_6c
+    if-eqz v1, :cond_6
 
     .line 132
     iget-object v1, p0, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->this$0:Landroid/filterfw/core/AsyncRunner;
 
+    #getter for: Landroid/filterfw/core/AsyncRunner;->mLogVerbose:Z
     invoke-static {v1}, Landroid/filterfw/core/AsyncRunner;->access$100(Landroid/filterfw/core/AsyncRunner;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_61
+    if-eqz v1, :cond_5
 
     const-string v1, "AsyncRunnerTask"
 
@@ -464,9 +475,10 @@
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 133
-    :cond_61
+    :cond_5
     iget-object v1, p0, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->this$0:Landroid/filterfw/core/AsyncRunner;
 
+    #getter for: Landroid/filterfw/core/AsyncRunner;->mDoneListener:Landroid/filterfw/core/GraphRunner$OnRunnerDoneListener;
     invoke-static {v1}, Landroid/filterfw/core/AsyncRunner;->access$500(Landroid/filterfw/core/AsyncRunner;)Landroid/filterfw/core/GraphRunner$OnRunnerDoneListener;
 
     move-result-object v1
@@ -476,14 +488,15 @@
     invoke-interface {v1, v2}, Landroid/filterfw/core/GraphRunner$OnRunnerDoneListener;->onRunnerDone(I)V
 
     .line 135
-    :cond_6c
+    :cond_6
     iget-object v1, p0, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->this$0:Landroid/filterfw/core/AsyncRunner;
 
+    #getter for: Landroid/filterfw/core/AsyncRunner;->mLogVerbose:Z
     invoke-static {v1}, Landroid/filterfw/core/AsyncRunner;->access$100(Landroid/filterfw/core/AsyncRunner;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_7b
+    if-eqz v1, :cond_7
 
     const-string v1, "AsyncRunnerTask"
 
@@ -492,11 +505,11 @@
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 136
-    :cond_7b
+    :cond_7
     return-void
 
     .line 126
-    :catch_7c
+    :catch_0
     move-exception v0
 
     .line 127
@@ -506,13 +519,14 @@
     .line 128
     iget-object v1, p0, Landroid/filterfw/core/AsyncRunner$AsyncRunnerTask;->this$0:Landroid/filterfw/core/AsyncRunner;
 
+    #calls: Landroid/filterfw/core/AsyncRunner;->setException(Ljava/lang/Exception;)V
     invoke-static {v1, v0}, Landroid/filterfw/core/AsyncRunner;->access$300(Landroid/filterfw/core/AsyncRunner;Ljava/lang/Exception;)V
 
-    goto :goto_4a
+    goto :goto_0
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue

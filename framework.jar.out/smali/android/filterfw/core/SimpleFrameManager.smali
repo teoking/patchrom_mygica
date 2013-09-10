@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 33
@@ -16,7 +16,7 @@
 .end method
 
 .method private createNewFrame(Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/Frame;
-    .registers 7
+    .locals 5
     .parameter "format"
 
     .prologue
@@ -29,7 +29,7 @@
 
     move-result v2
 
-    packed-switch v2, :pswitch_data_50
+    packed-switch v2, :pswitch_data_0
 
     .line 83
     new-instance v2, Ljava/lang/RuntimeException;
@@ -71,7 +71,7 @@
     throw v2
 
     .line 63
-    :pswitch_2f
+    :pswitch_0
     new-instance v1, Landroid/filterfw/core/SimpleFrame;
 
     .end local v1           #result:Landroid/filterfw/core/Frame;
@@ -79,11 +79,11 @@
 
     .line 86
     .restart local v1       #result:Landroid/filterfw/core/Frame;
-    :goto_34
+    :goto_0
     return-object v1
 
     .line 67
-    :pswitch_35
+    :pswitch_1
     new-instance v1, Landroid/filterfw/core/NativeFrame;
 
     .end local v1           #result:Landroid/filterfw/core/Frame;
@@ -91,10 +91,10 @@
 
     .line 68
     .restart local v1       #result:Landroid/filterfw/core/Frame;
-    goto :goto_34
+    goto :goto_0
 
     .line 71
-    :pswitch_3b
+    :pswitch_2
     new-instance v0, Landroid/filterfw/core/GLFrame;
 
     invoke-direct {v0, p1, p0}, Landroid/filterfw/core/GLFrame;-><init>(Landroid/filterfw/core/FrameFormat;Landroid/filterfw/core/FrameManager;)V
@@ -111,11 +111,11 @@
     move-object v1, v0
 
     .line 74
-    goto :goto_34
+    goto :goto_0
 
     .line 78
     .end local v0           #glFrame:Landroid/filterfw/core/GLFrame;
-    :pswitch_49
+    :pswitch_3
     new-instance v1, Landroid/filterfw/core/VertexFrame;
 
     .end local v1           #result:Landroid/filterfw/core/Frame;
@@ -123,24 +123,24 @@
 
     .line 79
     .restart local v1       #result:Landroid/filterfw/core/Frame;
-    goto :goto_34
+    goto :goto_0
 
     .line 61
     nop
 
-    :pswitch_data_50
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_2f
-        :pswitch_35
-        :pswitch_3b
-        :pswitch_49
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public newBoundFrame(Landroid/filterfw/core/FrameFormat;IJ)Landroid/filterfw/core/Frame;
-    .registers 12
+    .locals 7
     .parameter "format"
     .parameter "bindingType"
     .parameter "bindingId"
@@ -155,7 +155,7 @@
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_42
+    packed-switch v1, :pswitch_data_0
 
     .line 53
     new-instance v1, Ljava/lang/RuntimeException;
@@ -197,7 +197,7 @@
     throw v1
 
     .line 46
-    :pswitch_2f
+    :pswitch_0
     new-instance v0, Landroid/filterfw/core/GLFrame;
 
     move-object v1, p1
@@ -227,14 +227,14 @@
     .line 44
     nop
 
-    :pswitch_data_42
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_2f
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public newFrame(Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/Frame;
-    .registers 3
+    .locals 1
     .parameter "format"
 
     .prologue
@@ -247,7 +247,7 @@
 .end method
 
 .method public releaseFrame(Landroid/filterfw/core/Frame;)Landroid/filterfw/core/Frame;
-    .registers 5
+    .locals 3
     .parameter "frame"
 
     .prologue
@@ -258,13 +258,13 @@
 
     .line 98
     .local v0, refCount:I
-    if-nez v0, :cond_11
+    if-nez v0, :cond_1
 
     invoke-virtual {p1}, Landroid/filterfw/core/Frame;->hasNativeAllocation()Z
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_1
 
     .line 99
     invoke-virtual {p1}, Landroid/filterfw/core/Frame;->releaseNativeAllocation()V
@@ -274,13 +274,13 @@
 
     .line 104
     .end local p1
-    :cond_10
+    :cond_0
     return-object p1
 
     .line 101
     .restart local p1
-    :cond_11
-    if-gez v0, :cond_10
+    :cond_1
+    if-gez v0, :cond_0
 
     .line 102
     new-instance v1, Ljava/lang/RuntimeException;
@@ -293,7 +293,7 @@
 .end method
 
 .method public retainFrame(Landroid/filterfw/core/Frame;)Landroid/filterfw/core/Frame;
-    .registers 2
+    .locals 0
     .parameter "frame"
 
     .prologue

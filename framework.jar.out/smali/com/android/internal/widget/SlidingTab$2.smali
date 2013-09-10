@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/SlidingTab;ZII)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -53,14 +53,14 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .registers 7
+    .locals 5
     .parameter "animation"
 
     .prologue
     .line 671
     iget-boolean v1, p0, Lcom/android/internal/widget/SlidingTab$2;->val$holdAfter:Z
 
-    if-eqz v1, :cond_3c
+    if-eqz v1, :cond_0
 
     .line 672
     new-instance v0, Landroid/view/animation/TranslateAnimation;
@@ -94,12 +94,14 @@
 
     const/4 v2, 0x0
 
+    #setter for: Lcom/android/internal/widget/SlidingTab;->mAnimating:Z
     invoke-static {v1, v2}, Lcom/android/internal/widget/SlidingTab;->access$202(Lcom/android/internal/widget/SlidingTab;Z)Z
 
     .line 680
-    :goto_20
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/widget/SlidingTab$2;->this$0:Lcom/android/internal/widget/SlidingTab;
 
+    #getter for: Lcom/android/internal/widget/SlidingTab;->mAnimationDoneListener:Landroid/view/animation/Animation$AnimationListener;
     invoke-static {v1}, Lcom/android/internal/widget/SlidingTab;->access$400(Lcom/android/internal/widget/SlidingTab;)Landroid/view/animation/Animation$AnimationListener;
 
     move-result-object v1
@@ -109,6 +111,7 @@
     .line 683
     iget-object v1, p0, Lcom/android/internal/widget/SlidingTab$2;->this$0:Lcom/android/internal/widget/SlidingTab;
 
+    #getter for: Lcom/android/internal/widget/SlidingTab;->mLeftSlider:Lcom/android/internal/widget/SlidingTab$Slider;
     invoke-static {v1}, Lcom/android/internal/widget/SlidingTab;->access$500(Lcom/android/internal/widget/SlidingTab;)Lcom/android/internal/widget/SlidingTab$Slider;
 
     move-result-object v1
@@ -118,6 +121,7 @@
     .line 684
     iget-object v1, p0, Lcom/android/internal/widget/SlidingTab$2;->this$0:Lcom/android/internal/widget/SlidingTab;
 
+    #getter for: Lcom/android/internal/widget/SlidingTab;->mRightSlider:Lcom/android/internal/widget/SlidingTab$Slider;
     invoke-static {v1}, Lcom/android/internal/widget/SlidingTab;->access$600(Lcom/android/internal/widget/SlidingTab;)Lcom/android/internal/widget/SlidingTab$Slider;
 
     move-result-object v1
@@ -129,7 +133,7 @@
 
     .line 676
     .end local v0           #anim:Landroid/view/animation/Animation;
-    :cond_3c
+    :cond_0
     new-instance v0, Landroid/view/animation/AlphaAnimation;
 
     const/high16 v1, 0x3f00
@@ -147,13 +151,14 @@
     .line 678
     iget-object v1, p0, Lcom/android/internal/widget/SlidingTab$2;->this$0:Lcom/android/internal/widget/SlidingTab;
 
+    #calls: Lcom/android/internal/widget/SlidingTab;->resetView()V
     invoke-static {v1}, Lcom/android/internal/widget/SlidingTab;->access$300(Lcom/android/internal/widget/SlidingTab;)V
 
-    goto :goto_20
+    goto :goto_0
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
-    .registers 2
+    .locals 0
     .parameter "animation"
 
     .prologue
@@ -162,7 +167,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
-    .registers 2
+    .locals 0
     .parameter "animation"
 
     .prologue

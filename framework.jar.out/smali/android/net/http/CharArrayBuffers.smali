@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 27
@@ -19,7 +19,7 @@
 .end method
 
 .method static containsIgnoreCaseTrimmed(Lorg/apache/http/util/CharArrayBuffer;ILjava/lang/String;)Z
-    .registers 13
+    .locals 10
     .parameter "buffer"
     .parameter "beginIndex"
     .parameter "str"
@@ -42,8 +42,8 @@
 
     .line 43
     .local v2, chars:[C
-    :goto_a
-    if-ge p1, v4, :cond_17
+    :goto_0
+    if-ge p1, v4, :cond_0
 
     aget-char v9, v2, p1
 
@@ -51,15 +51,15 @@
 
     move-result v9
 
-    if-eqz v9, :cond_17
+    if-eqz v9, :cond_0
 
     .line 44
     add-int/lit8 p1, p1, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 46
-    :cond_17
+    :cond_0
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v6
@@ -68,20 +68,20 @@
     .local v6, size:I
     add-int v9, p1, v6
 
-    if-lt v4, v9, :cond_3d
+    if-lt v4, v9, :cond_2
 
     move v5, v7
 
     .line 48
     .local v5, ok:Z
-    :goto_20
+    :goto_1
     const/4 v3, 0x0
 
     .local v3, j:I
-    :goto_21
-    if-eqz v5, :cond_41
+    :goto_2
+    if-eqz v5, :cond_4
 
-    if-ge v3, v6, :cond_41
+    if-ge v3, v6, :cond_4
 
     .line 49
     add-int v9, p1, v3
@@ -96,7 +96,7 @@
 
     .line 51
     .local v1, b:C
-    if-eq v0, v1, :cond_3a
+    if-eq v0, v1, :cond_1
 
     .line 52
     invoke-static {v0}, Landroid/net/http/CharArrayBuffers;->toLower(C)C
@@ -109,46 +109,46 @@
     move-result v1
 
     .line 54
-    if-ne v0, v1, :cond_3f
+    if-ne v0, v1, :cond_3
 
     move v5, v7
 
     .line 48
-    :cond_3a
-    :goto_3a
+    :cond_1
+    :goto_3
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_21
+    goto :goto_2
 
     .end local v0           #a:C
     .end local v1           #b:C
     .end local v3           #j:I
     .end local v5           #ok:Z
-    :cond_3d
+    :cond_2
     move v5, v8
 
     .line 47
-    goto :goto_20
+    goto :goto_1
 
     .restart local v0       #a:C
     .restart local v1       #b:C
     .restart local v3       #j:I
     .restart local v5       #ok:Z
-    :cond_3f
+    :cond_3
     move v5, v8
 
     .line 54
-    goto :goto_3a
+    goto :goto_3
 
     .line 57
     .end local v0           #a:C
     .end local v1           #b:C
-    :cond_41
+    :cond_4
     return v5
 .end method
 
 .method static setLowercaseIndexOf(Lorg/apache/http/util/CharArrayBuffer;I)I
-    .registers 8
+    .locals 6
     .parameter "buffer"
     .parameter "ch"
 
@@ -173,33 +173,33 @@
     move v4, v0
 
     .local v4, i:I
-    :goto_a
-    if-ge v4, v3, :cond_21
+    :goto_0
+    if-ge v4, v3, :cond_2
 
     .line 71
     aget-char v2, v1, v4
 
     .line 72
     .local v2, current:C
-    if-ne v2, p1, :cond_11
+    if-ne v2, p1, :cond_0
 
     .line 80
     .end local v2           #current:C
     .end local v4           #i:I
-    :goto_10
+    :goto_1
     return v4
 
     .line 74
     .restart local v2       #current:C
     .restart local v4       #i:I
-    :cond_11
+    :cond_0
     const/16 v5, 0x41
 
-    if-lt v2, v5, :cond_1e
+    if-lt v2, v5, :cond_1
 
     const/16 v5, 0x5a
 
-    if-gt v2, v5, :cond_1e
+    if-gt v2, v5, :cond_1
 
     .line 76
     add-int/lit8 v5, v2, 0x20
@@ -210,32 +210,32 @@
     aput-char v2, v1, v4
 
     .line 70
-    :cond_1e
+    :cond_1
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 80
     .end local v2           #current:C
-    :cond_21
+    :cond_2
     const/4 v4, -0x1
 
-    goto :goto_10
+    goto :goto_1
 .end method
 
 .method private static toLower(C)C
-    .registers 2
+    .locals 1
     .parameter "c"
 
     .prologue
     .line 84
     const/16 v0, 0x41
 
-    if-lt p0, v0, :cond_b
+    if-lt p0, v0, :cond_0
 
     const/16 v0, 0x5a
 
-    if-gt p0, v0, :cond_b
+    if-gt p0, v0, :cond_0
 
     .line 85
     add-int/lit8 v0, p0, 0x20
@@ -243,6 +243,6 @@
     int-to-char p0, v0
 
     .line 87
-    :cond_b
+    :cond_0
     return p0
 .end method

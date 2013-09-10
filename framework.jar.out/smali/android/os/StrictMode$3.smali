@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1040
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected initialValue()Landroid/os/Handler;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1042
@@ -49,7 +49,7 @@
 .end method
 
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1040

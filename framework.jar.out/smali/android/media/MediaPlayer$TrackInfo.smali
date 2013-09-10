@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1660
@@ -60,7 +60,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1645
@@ -98,7 +98,7 @@
 .end method
 
 .method public getLanguage()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1624
@@ -108,7 +108,7 @@
 .end method
 
 .method public getTrackType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1614
@@ -118,7 +118,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

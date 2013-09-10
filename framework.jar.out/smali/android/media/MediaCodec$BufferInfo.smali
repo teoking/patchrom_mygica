@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 124
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public set(IIJI)V
-    .registers 6
+    .locals 0
     .parameter "newOffset"
     .parameter "newSize"
     .parameter "newTimeUs"

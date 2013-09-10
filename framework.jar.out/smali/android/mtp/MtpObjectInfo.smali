@@ -47,7 +47,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 47
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public final getAssociationDesc()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 203
@@ -70,7 +70,7 @@
 .end method
 
 .method public final getAssociationType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 192
@@ -80,7 +80,7 @@
 .end method
 
 .method public final getCompressedSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 99
@@ -90,7 +90,7 @@
 .end method
 
 .method public final getDateCreated()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 234
@@ -100,7 +100,7 @@
 .end method
 
 .method public final getDateModified()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 244
@@ -110,7 +110,7 @@
 .end method
 
 .method public final getFormat()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 74
@@ -120,7 +120,7 @@
 .end method
 
 .method public final getImagePixDepth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 169
@@ -130,7 +130,7 @@
 .end method
 
 .method public final getImagePixHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 159
@@ -140,7 +140,7 @@
 .end method
 
 .method public final getImagePixWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 149
@@ -150,7 +150,7 @@
 .end method
 
 .method public final getKeywords()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 253
@@ -160,7 +160,7 @@
 .end method
 
 .method public final getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 224
@@ -170,7 +170,7 @@
 .end method
 
 .method public final getObjectHandle()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 56
@@ -180,7 +180,7 @@
 .end method
 
 .method public final getParent()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 179
@@ -190,7 +190,7 @@
 .end method
 
 .method public final getProtectionStatus()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 90
@@ -200,7 +200,7 @@
 .end method
 
 .method public final getSequenceNumber()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 215
@@ -210,7 +210,7 @@
 .end method
 
 .method public final getStorageId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 65
@@ -220,7 +220,7 @@
 .end method
 
 .method public final getThumbCompressedSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 119
@@ -230,7 +230,7 @@
 .end method
 
 .method public final getThumbFormat()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 109
@@ -240,7 +240,7 @@
 .end method
 
 .method public final getThumbPixHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 139
@@ -250,7 +250,7 @@
 .end method
 
 .method public final getThumbPixWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 129

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/SearchDialog;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onSuggestionClick(I)Z
-    .registers 3
+    .locals 1
     .parameter "position"
 
     .prologue
@@ -54,7 +54,7 @@
 .end method
 
 .method public onSuggestionSelect(I)Z
-    .registers 3
+    .locals 1
     .parameter "position"
 
     .prologue

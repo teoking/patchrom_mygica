@@ -47,7 +47,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/view/AccessibilityInteractionController;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -60,7 +60,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/view/AccessibilityInteractionController;Landroid/view/AccessibilityInteractionController$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -72,7 +72,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/view/AccessibilityInteractionController$SomeArgs;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -83,7 +83,7 @@
 .end method
 
 .method private clear()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -112,7 +112,7 @@
 
 # virtual methods
 .method public getNextPoolable()Landroid/view/AccessibilityInteractionController$SomeArgs;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 106
@@ -122,7 +122,7 @@
 .end method
 
 .method public bridge synthetic getNextPoolable()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 95
@@ -134,7 +134,7 @@
 .end method
 
 .method public isPooled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 110
@@ -144,7 +144,7 @@
 .end method
 
 .method public setNextPoolable(Landroid/view/AccessibilityInteractionController$SomeArgs;)V
-    .registers 2
+    .locals 0
     .parameter "args"
 
     .prologue
@@ -156,7 +156,7 @@
 .end method
 
 .method public bridge synthetic setNextPoolable(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -170,7 +170,7 @@
 .end method
 
 .method public setPooled(Z)V
-    .registers 2
+    .locals 0
     .parameter "isPooled"
 
     .prologue

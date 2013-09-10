@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/SurfaceView;)V
-    .registers 3
+    .locals 1
     .parameter "surfaceView"
 
     .prologue
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public dispatchAppVisibility(Z)V
-    .registers 2
+    .locals 0
     .parameter "visible"
 
     .prologue
@@ -71,7 +71,7 @@
 .end method
 
 .method public dispatchGetNewSurface()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 668
@@ -85,7 +85,7 @@
 
     .line 669
     .local v1, surfaceView:Landroid/view/SurfaceView;
-    if-eqz v1, :cond_16
+    if-eqz v1, :cond_0
 
     .line 670
     iget-object v2, v1, Landroid/view/SurfaceView;->mHandler:Landroid/os/Handler;
@@ -104,12 +104,12 @@
 
     .line 673
     .end local v0           #msg:Landroid/os/Message;
-    :cond_16
+    :cond_0
     return-void
 .end method
 
 .method public executeCommand(Ljava/lang/String;Ljava/lang/String;Landroid/os/ParcelFileDescriptor;)V
-    .registers 4
+    .locals 0
     .parameter "command"
     .parameter "parameters"
     .parameter "out"
@@ -120,7 +120,7 @@
 .end method
 
 .method public resized(IILandroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/content/res/Configuration;)V
-    .registers 10
+    .locals 3
     .parameter "w"
     .parameter "h"
     .parameter "contentInsets"
@@ -140,7 +140,7 @@
 
     .line 642
     .local v0, surfaceView:Landroid/view/SurfaceView;
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_1
 
     .line 646
     iget-object v1, v0, Landroid/view/SurfaceView;->mSurfaceLock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -148,12 +148,12 @@
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
     .line 648
-    if-eqz p5, :cond_23
+    if-eqz p5, :cond_2
 
     .line 649
     const/4 v1, 0x1
 
-    :try_start_12
+    :try_start_0
     iput-boolean v1, v0, Landroid/view/SurfaceView;->mUpdateWindowNeeded:Z
 
     .line 650
@@ -167,30 +167,30 @@
     const/4 v2, 0x3
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-    :try_end_1d
-    .catchall {:try_start_12 .. :try_end_1d} :catchall_3d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 658
-    :cond_1d
-    :goto_1d
+    :cond_0
+    :goto_0
     iget-object v1, v0, Landroid/view/SurfaceView;->mSurfaceLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v1}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
     .line 661
-    :cond_22
+    :cond_1
     return-void
 
     .line 652
-    :cond_23
-    :try_start_23
+    :cond_2
+    :try_start_1
     iget-object v1, v0, Landroid/view/SurfaceView;->mWinFrame:Landroid/graphics/Rect;
 
     invoke-virtual {v1}, Landroid/graphics/Rect;->width()I
 
     move-result v1
 
-    if-ne v1, p1, :cond_33
+    if-ne v1, p1, :cond_3
 
     iget-object v1, v0, Landroid/view/SurfaceView;->mWinFrame:Landroid/graphics/Rect;
 
@@ -198,10 +198,10 @@
 
     move-result v1
 
-    if-eq v1, p2, :cond_1d
+    if-eq v1, p2, :cond_0
 
     .line 654
-    :cond_33
+    :cond_3
     const/4 v1, 0x1
 
     iput-boolean v1, v0, Landroid/view/SurfaceView;->mUpdateWindowNeeded:Z
@@ -212,13 +212,13 @@
     const/4 v2, 0x3
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-    :try_end_3c
-    .catchall {:try_start_23 .. :try_end_3c} :catchall_3d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 658
-    :catchall_3d
+    :catchall_0
     move-exception v1
 
     iget-object v2, v0, Landroid/view/SurfaceView;->mSurfaceLock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -229,7 +229,7 @@
 .end method
 
 .method public windowFocusChanged(ZZ)V
-    .registers 6
+    .locals 3
     .parameter "hasFocus"
     .parameter "touchEnabled"
 

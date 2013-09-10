@@ -76,7 +76,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "featureId"
 
     .prologue
@@ -98,17 +98,17 @@
 
 # virtual methods
 .method applyFrozenState()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3456
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->menu:Lcom/android/internal/view/menu/MenuBuilder;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->frozenMenuState:Landroid/os/Bundle;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 3457
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->menu:Lcom/android/internal/view/menu/MenuBuilder;
@@ -123,12 +123,12 @@
     iput-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->frozenMenuState:Landroid/os/Bundle;
 
     .line 3460
-    :cond_12
+    :cond_0
     return-void
 .end method
 
 .method public clearMenuPresenters()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -136,7 +136,7 @@
     .line 3345
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->menu:Lcom/android/internal/view/menu/MenuBuilder;
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 3346
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->menu:Lcom/android/internal/view/menu/MenuBuilder;
@@ -153,7 +153,7 @@
     invoke-virtual {v0, v1}, Lcom/android/internal/view/menu/MenuBuilder;->removeMenuPresenter(Lcom/android/internal/view/menu/MenuPresenter;)V
 
     .line 3349
-    :cond_13
+    :cond_0
     iput-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->iconMenuPresenter:Lcom/android/internal/view/menu/IconMenuPresenter;
 
     .line 3350
@@ -164,7 +164,7 @@
 .end method
 
 .method getIconMenuView(Landroid/content/Context;Lcom/android/internal/view/menu/MenuPresenter$Callback;)Lcom/android/internal/view/menu/MenuView;
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "cb"
 
@@ -172,19 +172,19 @@
     .line 3408
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->menu:Lcom/android/internal/view/menu/MenuBuilder;
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_0
 
     const/4 v0, 0x0
 
     .line 3419
-    :goto_5
+    :goto_0
     return-object v0
 
     .line 3410
-    :cond_6
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->iconMenuPresenter:Lcom/android/internal/view/menu/IconMenuPresenter;
 
-    if-nez v1, :cond_25
+    if-nez v1, :cond_1
 
     .line 3411
     new-instance v1, Lcom/android/internal/view/menu/IconMenuPresenter;
@@ -213,7 +213,7 @@
     invoke-virtual {v1, v2}, Lcom/android/internal/view/menu/MenuBuilder;->addMenuPresenter(Lcom/android/internal/view/menu/MenuPresenter;)V
 
     .line 3417
-    :cond_25
+    :cond_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->iconMenuPresenter:Lcom/android/internal/view/menu/IconMenuPresenter;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->decorView:Lcom/android/internal/policy/impl/PhoneWindow$DecorView;
@@ -224,11 +224,11 @@
 
     .line 3419
     .local v0, result:Lcom/android/internal/view/menu/MenuView;
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method getListMenuView(Landroid/content/Context;Lcom/android/internal/view/menu/MenuPresenter$Callback;)Lcom/android/internal/view/menu/MenuView;
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "cb"
 
@@ -236,28 +236,28 @@
     .line 3384
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->menu:Lcom/android/internal/view/menu/MenuBuilder;
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_0
 
     const/4 v0, 0x0
 
     .line 3404
-    :goto_5
+    :goto_0
     return-object v0
 
     .line 3386
-    :cond_6
+    :cond_0
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->isCompact:Z
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_1
 
     .line 3387
     invoke-virtual {p0, p1, p2}, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->getIconMenuView(Landroid/content/Context;Lcom/android/internal/view/menu/MenuPresenter$Callback;)Lcom/android/internal/view/menu/MenuView;
 
     .line 3390
-    :cond_d
+    :cond_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->listMenuPresenter:Lcom/android/internal/view/menu/ListMenuPresenter;
 
-    if-nez v1, :cond_31
+    if-nez v1, :cond_2
 
     .line 3391
     new-instance v1, Lcom/android/internal/view/menu/ListMenuPresenter;
@@ -290,10 +290,10 @@
     invoke-virtual {v1, v2}, Lcom/android/internal/view/menu/MenuBuilder;->addMenuPresenter(Lcom/android/internal/view/menu/MenuPresenter;)V
 
     .line 3398
-    :cond_31
+    :cond_2
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->iconMenuPresenter:Lcom/android/internal/view/menu/IconMenuPresenter;
 
-    if-eqz v1, :cond_40
+    if-eqz v1, :cond_3
 
     .line 3399
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->listMenuPresenter:Lcom/android/internal/view/menu/ListMenuPresenter;
@@ -307,7 +307,7 @@
     invoke-virtual {v1, v2}, Lcom/android/internal/view/menu/ListMenuPresenter;->setItemIndexOffset(I)V
 
     .line 3402
-    :cond_40
+    :cond_3
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->listMenuPresenter:Lcom/android/internal/view/menu/ListMenuPresenter;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->decorView:Lcom/android/internal/policy/impl/PhoneWindow$DecorView;
@@ -318,11 +318,11 @@
 
     .line 3404
     .local v0, result:Lcom/android/internal/view/menu/MenuView;
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public hasPanelItems()Z
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v1, 0x1
@@ -332,32 +332,32 @@
     .line 3331
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->shownPanelView:Landroid/view/View;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_1
 
     move v1, v2
 
     .line 3337
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     return v1
 
     .line 3332
-    :cond_8
+    :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->createdPanelView:Landroid/view/View;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 3334
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->isCompact:Z
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_2
 
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->isInExpandedMode:Z
 
-    if-eqz v0, :cond_25
+    if-eqz v0, :cond_4
 
     .line 3335
-    :cond_14
+    :cond_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->listMenuPresenter:Lcom/android/internal/view/menu/ListMenuPresenter;
 
     invoke-virtual {v0}, Lcom/android/internal/view/menu/ListMenuPresenter;->getAdapter()Landroid/widget/ListAdapter;
@@ -368,22 +368,22 @@
 
     move-result v0
 
-    if-lez v0, :cond_23
+    if-lez v0, :cond_3
 
     move v0, v1
 
-    :goto_21
+    :goto_1
     move v1, v0
 
-    goto :goto_7
+    goto :goto_0
 
-    :cond_23
+    :cond_3
     move v0, v2
 
-    goto :goto_21
+    goto :goto_1
 
     .line 3337
-    :cond_25
+    :cond_4
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->shownPanelView:Landroid/view/View;
 
     check-cast v0, Landroid/view/ViewGroup;
@@ -392,40 +392,40 @@
 
     move-result v0
 
-    if-gtz v0, :cond_7
+    if-gtz v0, :cond_0
 
     move v1, v2
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public isInListMode()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 3327
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->isInExpandedMode:Z
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->isCompact:Z
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_1
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .registers 5
+    .locals 3
     .parameter "state"
 
     .prologue
@@ -471,7 +471,7 @@
 .end method
 
 .method onSaveInstanceState()Landroid/os/Parcelable;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 3423
@@ -500,7 +500,7 @@
     .line 3428
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->menu:Lcom/android/internal/view/menu/MenuBuilder;
 
-    if-eqz v1, :cond_24
+    if-eqz v1, :cond_0
 
     .line 3429
     new-instance v1, Landroid/os/Bundle;
@@ -517,30 +517,30 @@
     invoke-virtual {v1, v2}, Lcom/android/internal/view/menu/MenuBuilder;->savePresenterStates(Landroid/os/Bundle;)V
 
     .line 3433
-    :cond_24
+    :cond_0
     return-object v0
 .end method
 
 .method setMenu(Lcom/android/internal/view/menu/MenuBuilder;)V
-    .registers 4
+    .locals 2
     .parameter "menu"
 
     .prologue
     .line 3370
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->menu:Lcom/android/internal/view/menu/MenuBuilder;
 
-    if-ne p1, v0, :cond_5
+    if-ne p1, v0, :cond_1
 
     .line 3381
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-void
 
     .line 3372
-    :cond_5
+    :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->menu:Lcom/android/internal/view/menu/MenuBuilder;
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_2
 
     .line 3373
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->menu:Lcom/android/internal/view/menu/MenuBuilder;
@@ -557,36 +557,36 @@
     invoke-virtual {v0, v1}, Lcom/android/internal/view/menu/MenuBuilder;->removeMenuPresenter(Lcom/android/internal/view/menu/MenuPresenter;)V
 
     .line 3376
-    :cond_17
+    :cond_2
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->menu:Lcom/android/internal/view/menu/MenuBuilder;
 
     .line 3377
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_0
 
     .line 3378
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->iconMenuPresenter:Lcom/android/internal/view/menu/IconMenuPresenter;
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->iconMenuPresenter:Lcom/android/internal/view/menu/IconMenuPresenter;
 
     invoke-virtual {p1, v0}, Lcom/android/internal/view/menu/MenuBuilder;->addMenuPresenter(Lcom/android/internal/view/menu/MenuPresenter;)V
 
     .line 3379
-    :cond_24
+    :cond_3
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->listMenuPresenter:Lcom/android/internal/view/menu/ListMenuPresenter;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->listMenuPresenter:Lcom/android/internal/view/menu/ListMenuPresenter;
 
     invoke-virtual {p1, v0}, Lcom/android/internal/view/menu/MenuBuilder;->addMenuPresenter(Lcom/android/internal/view/menu/MenuPresenter;)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method setStyle(Landroid/content/Context;)V
-    .registers 5
+    .locals 3
     .parameter "context"
 
     .prologue

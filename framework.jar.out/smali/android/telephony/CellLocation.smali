@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 34
@@ -15,7 +15,7 @@
 .end method
 
 .method public static getEmpty()Landroid/telephony/CellLocation;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 94
@@ -27,42 +27,42 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_1a
+    packed-switch v0, :pswitch_data_0
 
     .line 100
     const/4 v0, 0x0
 
-    :goto_c
+    :goto_0
     return-object v0
 
     .line 96
-    :pswitch_d
+    :pswitch_0
     new-instance v0, Landroid/telephony/cdma/CdmaCellLocation;
 
     invoke-direct {v0}, Landroid/telephony/cdma/CdmaCellLocation;-><init>()V
 
-    goto :goto_c
+    goto :goto_0
 
     .line 98
-    :pswitch_13
+    :pswitch_1
     new-instance v0, Landroid/telephony/gsm/GsmCellLocation;
 
     invoke-direct {v0}, Landroid/telephony/gsm/GsmCellLocation;-><init>()V
 
-    goto :goto_c
+    goto :goto_0
 
     .line 94
     nop
 
-    :pswitch_data_1a
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_13
-        :pswitch_d
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static newFromBundle(Landroid/os/Bundle;)Landroid/telephony/CellLocation;
-    .registers 2
+    .locals 1
     .parameter "bundle"
 
     .prologue
@@ -75,42 +75,42 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_1a
+    packed-switch v0, :pswitch_data_0
 
     .line 72
     const/4 v0, 0x0
 
-    :goto_c
+    :goto_0
     return-object v0
 
     .line 68
-    :pswitch_d
+    :pswitch_0
     new-instance v0, Landroid/telephony/cdma/CdmaCellLocation;
 
     invoke-direct {v0, p0}, Landroid/telephony/cdma/CdmaCellLocation;-><init>(Landroid/os/Bundle;)V
 
-    goto :goto_c
+    goto :goto_0
 
     .line 70
-    :pswitch_13
+    :pswitch_1
     new-instance v0, Landroid/telephony/gsm/GsmCellLocation;
 
     invoke-direct {v0, p0}, Landroid/telephony/gsm/GsmCellLocation;-><init>(Landroid/os/Bundle;)V
 
-    goto :goto_c
+    goto :goto_0
 
     .line 66
     nop
 
-    :pswitch_data_1a
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_13
-        :pswitch_d
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static requestLocationUpdate()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 43
@@ -127,23 +127,23 @@
 
     .line 44
     .local v0, phone:Lcom/android/internal/telephony/ITelephony;
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 45
     invoke-interface {v0}, Lcom/android/internal/telephony/ITelephony;->updateServiceLocation()V
-    :try_end_10
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_10} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 50
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     return-void
 
     .line 47
-    :catch_11
+    :catch_0
     move-exception v1
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 

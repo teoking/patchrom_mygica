@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/server/BluetoothService;II)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "pid"
     .parameter "type"
@@ -51,7 +51,7 @@
 .end method
 
 .method constructor <init>(Landroid/server/BluetoothService;III)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter "handle"
     .parameter "pid"
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 1642
@@ -88,7 +88,7 @@
     monitor-enter v1
 
     .line 1643
-    :try_start_3
+    :try_start_0
     const-string v0, "BluetoothService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -136,7 +136,7 @@
 
     const/16 v2, 0xa
 
-    if-ne v0, v2, :cond_40
+    if-ne v0, v2, :cond_1
 
     .line 1645
     iget-object v0, p0, Landroid/server/BluetoothService$Reaper;->this$0:Landroid/server/BluetoothService;
@@ -145,27 +145,29 @@
 
     iget v3, p0, Landroid/server/BluetoothService$Reaper;->mPid:I
 
+    #calls: Landroid/server/BluetoothService;->checkAndRemoveRecord(II)V
     invoke-static {v0, v2, v3}, Landroid/server/BluetoothService;->access$100(Landroid/server/BluetoothService;II)V
 
     .line 1649
-    :cond_3e
-    :goto_3e
+    :cond_0
+    :goto_0
     monitor-exit v1
 
     .line 1650
     return-void
 
     .line 1646
-    :cond_40
+    :cond_1
     iget v0, p0, Landroid/server/BluetoothService$Reaper;->mType:I
 
     const/16 v2, 0xb
 
-    if-ne v0, v2, :cond_3e
+    if-ne v0, v2, :cond_0
 
     .line 1647
     iget-object v0, p0, Landroid/server/BluetoothService$Reaper;->this$0:Landroid/server/BluetoothService;
 
+    #getter for: Landroid/server/BluetoothService;->mStateChangeTracker:Ljava/util/Map;
     invoke-static {v0}, Landroid/server/BluetoothService;->access$300(Landroid/server/BluetoothService;)Ljava/util/Map;
 
     move-result-object v0
@@ -178,15 +180,15 @@
 
     invoke-interface {v0, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_3e
+    goto :goto_0
 
     .line 1649
-    :catchall_56
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_58
-    .catchall {:try_start_3 .. :try_end_58} :catchall_56
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

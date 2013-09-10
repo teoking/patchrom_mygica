@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public rememberWindowAttachCount()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 16952
@@ -55,7 +55,7 @@
 .end method
 
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 16943
@@ -65,13 +65,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/view/View$CheckForLongPress;->this$0:Landroid/view/View;
 
     iget-object v0, v0, Landroid/view/View;->mParent:Landroid/view/ViewParent;
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_0
 
     iget v0, p0, Landroid/view/View$CheckForLongPress;->mOriginalWindowAttachCount:I
 
@@ -79,7 +79,7 @@
 
     iget v1, v1, Landroid/view/View;->mWindowAttachCount:I
 
-    if-ne v0, v1, :cond_24
+    if-ne v0, v1, :cond_0
 
     .line 16945
     iget-object v0, p0, Landroid/view/View$CheckForLongPress;->this$0:Landroid/view/View;
@@ -88,16 +88,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_0
 
     .line 16946
     iget-object v0, p0, Landroid/view/View$CheckForLongPress;->this$0:Landroid/view/View;
 
     const/4 v1, 0x1
 
+    #setter for: Landroid/view/View;->mHasPerformedLongPress:Z
     invoke-static {v0, v1}, Landroid/view/View;->access$2002(Landroid/view/View;Z)Z
 
     .line 16949
-    :cond_24
+    :cond_0
     return-void
 .end method

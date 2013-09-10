@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "id"
 
     .prologue
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public format(Ljava/io/ByteArrayOutputStream;)V
-    .registers 4
+    .locals 2
     .parameter "buf"
 
     .prologue

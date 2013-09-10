@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/KeyguardStatusViewManager;Landroid/widget/TextView;)V
-    .registers 5
+    .locals 2
     .parameter
     .parameter "textView"
 
@@ -66,7 +66,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager;)Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -77,7 +77,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager;)Landroid/widget/TextView;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method post(Ljava/lang/CharSequence;IJ)V
-    .registers 8
+    .locals 3
     .parameter "message"
     .parameter "icon"
     .parameter "duration"
@@ -101,14 +101,14 @@
     .line 133
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager;->mTextView:Landroid/widget/TextView;
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_0
 
     .line 158
-    :goto_5
+    :goto_0
     return-void
 
     .line 136
-    :cond_6
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
@@ -127,6 +127,7 @@
     .local v0, data:Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager$Data;
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager;->this$0:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
+    #getter for: Lcom/android/internal/policy/impl/KeyguardStatusViewManager;->mContainer:Landroid/view/View;
     invoke-static {v1}, Lcom/android/internal/policy/impl/KeyguardStatusViewManager;->access$300(Lcom/android/internal/policy/impl/KeyguardStatusViewManager;)Landroid/view/View;
 
     move-result-object v1
@@ -137,5 +138,5 @@
 
     invoke-virtual {v1, v2, p3, p4}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto :goto_5
+    goto :goto_0
 .end method

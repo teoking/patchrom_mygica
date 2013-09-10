@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/textservice/TextInfo;Ljava/util/ArrayList;)V
-    .registers 4
+    .locals 1
     .parameter "ti"
     .parameter
     .annotation system Ldalvik/annotation/Signature;

@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/util/List;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .registers 11
+    .locals 7
     .parameter "position"
     .parameter "convertView"
     .parameter "parent"
@@ -83,7 +83,7 @@
     const/4 v6, 0x0
 
     .line 267
-    if-nez p2, :cond_71
+    if-nez p2, :cond_0
 
     .line 268
     iget-object v4, p0, Landroid/preference/PreferenceActivity$HeaderAdapter;->mInflater:Landroid/view/LayoutInflater;
@@ -140,7 +140,7 @@
     invoke-virtual {v3, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
     .line 281
-    :goto_36
+    :goto_0
     invoke-virtual {p0, p1}, Landroid/preference/PreferenceActivity$HeaderAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
@@ -191,7 +191,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_79
+    if-nez v4, :cond_1
 
     .line 286
     iget-object v4, v1, Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
@@ -204,7 +204,7 @@
     invoke-virtual {v4, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 292
-    :goto_70
+    :goto_1
     return-object v3
 
     .line 276
@@ -212,7 +212,7 @@
     .end local v1           #holder:Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;
     .end local v2           #summary:Ljava/lang/CharSequence;
     .end local v3           #view:Landroid/view/View;
-    :cond_71
+    :cond_0
     move-object v3, p2
 
     .line 277
@@ -224,17 +224,17 @@
     check-cast v1, Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;
 
     .restart local v1       #holder:Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;
-    goto :goto_36
+    goto :goto_0
 
     .line 289
     .restart local v0       #header:Landroid/preference/PreferenceActivity$Header;
     .restart local v2       #summary:Ljava/lang/CharSequence;
-    :cond_79
+    :cond_1
     iget-object v4, v1, Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;->summary:Landroid/widget/TextView;
 
     const/16 v5, 0x8
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_70
+    goto :goto_1
 .end method

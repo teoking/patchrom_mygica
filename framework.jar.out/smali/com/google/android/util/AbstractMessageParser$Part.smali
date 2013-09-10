@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1433
@@ -49,7 +49,7 @@
 .end method
 
 .method private getPartType()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1442
@@ -57,37 +57,37 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 1443
     const-string v0, "d"
 
     .line 1447
-    :goto_8
+    :goto_0
     return-object v0
 
     .line 1444
-    :cond_9
+    :cond_0
     iget-object v0, p0, Lcom/google/android/util/AbstractMessageParser$Part;->meText:Ljava/lang/String;
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_1
 
     .line 1445
     const-string v0, "m"
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1447
-    :cond_10
+    :cond_1
     const-string v0, ""
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public add(Lcom/google/android/util/AbstractMessageParser$Token;)V
-    .registers 4
+    .locals 2
     .parameter "token"
 
     .prologue
@@ -96,7 +96,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 1472
     new-instance v0, Ljava/lang/AssertionError;
@@ -108,7 +108,7 @@
     throw v0
 
     .line 1474
-    :cond_f
+    :cond_0
     iget-object v0, p0, Lcom/google/android/util/AbstractMessageParser$Part;->tokens:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -118,7 +118,7 @@
 .end method
 
 .method public getMediaToken()Lcom/google/android/util/AbstractMessageParser$Token;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1463
@@ -126,7 +126,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 1464
     iget-object v0, p0, Lcom/google/android/util/AbstractMessageParser$Part;->tokens:Ljava/util/ArrayList;
@@ -140,17 +140,17 @@
     check-cast v0, Lcom/google/android/util/AbstractMessageParser$Token;
 
     .line 1466
-    :goto_f
+    :goto_0
     return-object v0
 
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public getRawText()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1483
@@ -162,7 +162,7 @@
     .local v0, buf:Ljava/lang/StringBuilder;
     iget-object v2, p0, Lcom/google/android/util/AbstractMessageParser$Part;->meText:Ljava/lang/String;
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_0
 
     .line 1485
     iget-object v2, p0, Lcom/google/android/util/AbstractMessageParser$Part;->meText:Ljava/lang/String;
@@ -170,18 +170,18 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1487
-    :cond_e
+    :cond_0
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_f
+    :goto_0
     iget-object v2, p0, Lcom/google/android/util/AbstractMessageParser$Part;->tokens:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_29
+    if-ge v1, v2, :cond_1
 
     .line 1488
     iget-object v2, p0, Lcom/google/android/util/AbstractMessageParser$Part;->tokens:Ljava/util/ArrayList;
@@ -201,10 +201,10 @@
     .line 1487
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 1490
-    :cond_29
+    :cond_1
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -213,7 +213,7 @@
 .end method
 
 .method public getTokens()Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -232,7 +232,7 @@
 .end method
 
 .method public getType(Z)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "isSend"
 
     .prologue
@@ -241,11 +241,11 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-eqz p1, :cond_1b
+    if-eqz p1, :cond_0
 
     const-string/jumbo v0, "s"
 
-    :goto_a
+    :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -264,14 +264,14 @@
 
     return-object v0
 
-    :cond_1b
+    :cond_0
     const-string/jumbo v0, "r"
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public isMedia()Z
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v1, 0x1
@@ -285,7 +285,7 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_1a
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/google/android/util/AbstractMessageParser$Part;->tokens:Ljava/util/ArrayList;
 
@@ -299,21 +299,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_19
+    :goto_0
     return v0
 
-    :cond_1a
+    :cond_0
     move v0, v2
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public setMeText(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "meText"
 
     .prologue

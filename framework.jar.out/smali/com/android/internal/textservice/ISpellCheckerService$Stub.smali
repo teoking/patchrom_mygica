@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 18
@@ -47,22 +47,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/android/internal/textservice/ISpellCheckerService;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 27
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 28
     const/4 v0, 0x0
 
     .line 34
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 30
-    :cond_4
+    :cond_0
     const-string v1, "com.android.internal.textservice.ISpellCheckerService"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -71,31 +71,31 @@
 
     .line 31
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/android/internal/textservice/ISpellCheckerService;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 32
     check-cast v0, Lcom/android/internal/textservice/ISpellCheckerService;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 34
-    :cond_13
+    :cond_1
     new-instance v0, Lcom/android/internal/textservice/ISpellCheckerService$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/android/internal/textservice/ISpellCheckerService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 38
@@ -103,7 +103,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 11
+    .locals 6
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -118,18 +118,18 @@
     const/4 v5, 0x1
 
     .line 42
-    sparse-switch p1, :sswitch_data_46
+    sparse-switch p1, :sswitch_data_0
 
     .line 69
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v4
 
-    :goto_8
+    :goto_0
     return v4
 
     .line 46
-    :sswitch_9
+    :sswitch_0
     const-string v4, "com.android.internal.textservice.ISpellCheckerService"
 
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
@@ -137,10 +137,10 @@
     move v4, v5
 
     .line 47
-    goto :goto_8
+    goto :goto_0
 
     .line 51
-    :sswitch_10
+    :sswitch_1
     const-string v4, "com.android.internal.textservice.ISpellCheckerService"
 
     invoke-virtual {p2, v4}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -166,7 +166,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_41
+    if-eqz v4, :cond_0
 
     .line 58
     sget-object v4, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -179,7 +179,7 @@
 
     .line 63
     .local v2, _arg2:Landroid/os/Bundle;
-    :goto_2f
+    :goto_1
     invoke-virtual {p0, v0, v1, v2}, Lcom/android/internal/textservice/ISpellCheckerService$Stub;->getISpellCheckerSession(Ljava/lang/String;Lcom/android/internal/textservice/ISpellCheckerSessionListener;Landroid/os/Bundle;)Lcom/android/internal/textservice/ISpellCheckerSession;
 
     move-result-object v3
@@ -189,42 +189,42 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 65
-    if-eqz v3, :cond_43
+    if-eqz v3, :cond_1
 
     invoke-interface {v3}, Lcom/android/internal/textservice/ISpellCheckerSession;->asBinder()Landroid/os/IBinder;
 
     move-result-object v4
 
-    :goto_3c
+    :goto_2
     invoke-virtual {p3, v4}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     move v4, v5
 
     .line 66
-    goto :goto_8
+    goto :goto_0
 
     .line 61
     .end local v2           #_arg2:Landroid/os/Bundle;
     .end local v3           #_result:Lcom/android/internal/textservice/ISpellCheckerSession;
-    :cond_41
+    :cond_0
     const/4 v2, 0x0
 
     .restart local v2       #_arg2:Landroid/os/Bundle;
-    goto :goto_2f
+    goto :goto_1
 
     .line 65
     .restart local v3       #_result:Lcom/android/internal/textservice/ISpellCheckerSession;
-    :cond_43
+    :cond_1
     const/4 v4, 0x0
 
-    goto :goto_3c
+    goto :goto_2
 
     .line 42
     nop
 
-    :sswitch_data_46
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_10
-        0x5f4e5446 -> :sswitch_9
+        0x1 -> :sswitch_1
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 6
+    .locals 3
     .parameter "priority"
     .parameter "audioSession"
     .annotation system Ldalvik/annotation/Throws;
@@ -81,7 +81,7 @@
     iput-object v0, p0, Landroid/media/audiofx/Srs;->mParamListenerLock:Ljava/lang/Object;
 
     .line 135
-    if-nez p2, :cond_1c
+    if-nez p2, :cond_0
 
     .line 136
     const-string v0, "SRS-JAVA"
@@ -91,12 +91,12 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 138
-    :cond_1c
+    :cond_0
     return-void
 .end method
 
 .method static synthetic access$000(Landroid/media/audiofx/Srs;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -107,7 +107,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/media/audiofx/Srs;)Landroid/media/audiofx/Srs$OnParameterChangeListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -120,7 +120,7 @@
 
 # virtual methods
 .method public getGain(I)F
-    .registers 5
+    .locals 3
     .parameter "param"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -168,7 +168,7 @@
 .end method
 
 .method public getSpeakerLfResponse()I
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;,
@@ -202,7 +202,7 @@
 
     aget v2, v1, v2
 
-    sparse-switch v2, :sswitch_data_2c
+    sparse-switch v2, :sswitch_data_0
 
     .line 202
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -214,73 +214,73 @@
     throw v2
 
     .line 193
-    :sswitch_1a
+    :sswitch_0
     const/4 v0, 0x0
 
     .line 205
-    :goto_1b
+    :goto_0
     return v0
 
     .line 194
-    :sswitch_1c
+    :sswitch_1
     const/4 v0, 0x1
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 195
-    :sswitch_1e
+    :sswitch_2
     const/4 v0, 0x2
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 196
-    :sswitch_20
+    :sswitch_3
     const/4 v0, 0x4
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 197
-    :sswitch_22
+    :sswitch_4
     const/4 v0, 0x5
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 198
-    :sswitch_24
+    :sswitch_5
     const/4 v0, 0x6
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 199
-    :sswitch_26
+    :sswitch_6
     const/4 v0, 0x7
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 200
-    :sswitch_28
+    :sswitch_7
     const/16 v0, 0x8
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 192
     nop
 
-    :sswitch_data_2c
+    :sswitch_data_0
     .sparse-switch
-        0x28 -> :sswitch_1a
-        0x3c -> :sswitch_1c
-        0x64 -> :sswitch_1e
-        0x96 -> :sswitch_20
-        0xc8 -> :sswitch_22
-        0xfa -> :sswitch_24
-        0x12c -> :sswitch_26
-        0x190 -> :sswitch_28
+        0x28 -> :sswitch_0
+        0x3c -> :sswitch_1
+        0x64 -> :sswitch_2
+        0x96 -> :sswitch_3
+        0xc8 -> :sswitch_4
+        0xfa -> :sswitch_5
+        0x12c -> :sswitch_6
+        0x190 -> :sswitch_7
     .end sparse-switch
 .end method
 
 .method public getSrsItemEnabled(I)Z
-    .registers 8
+    .locals 6
     .parameter "param"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -344,20 +344,20 @@
     .line 152
     aget v3, v0, v1
 
-    if-nez v3, :cond_34
+    if-nez v3, :cond_0
 
     .line 155
-    :goto_33
+    :goto_0
     return v1
 
-    :cond_34
+    :cond_0
     move v1, v2
 
-    goto :goto_33
+    goto :goto_0
 .end method
 
 .method public setGain(IF)V
-    .registers 7
+    .locals 4
     .parameter "param"
     .parameter "gain"
     .annotation system Ldalvik/annotation/Throws;
@@ -426,7 +426,7 @@
 .end method
 
 .method public setParameterListener(Landroid/media/audiofx/Srs$OnParameterChangeListener;)V
-    .registers 5
+    .locals 3
     .parameter "listener"
 
     .prologue
@@ -436,10 +436,10 @@
     monitor-enter v1
 
     .line 334
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/media/audiofx/Srs;->mParamListener:Landroid/media/audiofx/Srs$OnParameterChangeListener;
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_0
 
     .line 335
     iput-object p1, p0, Landroid/media/audiofx/Srs;->mParamListener:Landroid/media/audiofx/Srs$OnParameterChangeListener;
@@ -459,25 +459,25 @@
     invoke-super {p0, v0}, Landroid/media/audiofx/AudioEffect;->setParameterListener(Landroid/media/audiofx/AudioEffect$OnParameterChangeListener;)V
 
     .line 339
-    :cond_16
+    :cond_0
     monitor-exit v1
 
     .line 340
     return-void
 
     .line 339
-    :catchall_18
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1a
-    .catchall {:try_start_3 .. :try_end_1a} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setSpeakerLfResponse(I)V
-    .registers 6
+    .locals 4
     .parameter "index"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -512,7 +512,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 219
-    packed-switch p1, :pswitch_data_44
+    packed-switch p1, :pswitch_data_0
 
     .line 229
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -524,12 +524,12 @@
     throw v1
 
     .line 220
-    :pswitch_23
+    :pswitch_0
     const/16 v0, 0x28
 
     .line 232
     .local v0, value:I
-    :goto_25
+    :goto_0
     const/4 v1, 0x3
 
     invoke-virtual {p0, v1, v0}, Landroid/media/audiofx/Srs;->setParameter(II)I
@@ -543,78 +543,78 @@
 
     .line 221
     .end local v0           #value:I
-    :pswitch_2e
+    :pswitch_1
     const/16 v0, 0x3c
 
     .restart local v0       #value:I
-    goto :goto_25
+    goto :goto_0
 
     .line 222
     .end local v0           #value:I
-    :pswitch_31
+    :pswitch_2
     const/16 v0, 0x64
 
     .restart local v0       #value:I
-    goto :goto_25
+    goto :goto_0
 
     .line 223
     .end local v0           #value:I
-    :pswitch_34
+    :pswitch_3
     const/16 v0, 0x96
 
     .restart local v0       #value:I
-    goto :goto_25
+    goto :goto_0
 
     .line 224
     .end local v0           #value:I
-    :pswitch_37
+    :pswitch_4
     const/16 v0, 0xc8
 
     .restart local v0       #value:I
-    goto :goto_25
+    goto :goto_0
 
     .line 225
     .end local v0           #value:I
-    :pswitch_3a
+    :pswitch_5
     const/16 v0, 0xfa
 
     .restart local v0       #value:I
-    goto :goto_25
+    goto :goto_0
 
     .line 226
     .end local v0           #value:I
-    :pswitch_3d
+    :pswitch_6
     const/16 v0, 0x12c
 
     .restart local v0       #value:I
-    goto :goto_25
+    goto :goto_0
 
     .line 227
     .end local v0           #value:I
-    :pswitch_40
+    :pswitch_7
     const/16 v0, 0x190
 
     .restart local v0       #value:I
-    goto :goto_25
+    goto :goto_0
 
     .line 219
     nop
 
-    :pswitch_data_44
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_23
-        :pswitch_2e
-        :pswitch_31
-        :pswitch_34
-        :pswitch_37
-        :pswitch_3a
-        :pswitch_3d
-        :pswitch_40
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
     .end packed-switch
 .end method
 
 .method public setSrsItemEnabled(IZ)V
-    .registers 7
+    .locals 4
     .parameter "param"
     .parameter "enable"
     .annotation system Ldalvik/annotation/Throws;
@@ -627,14 +627,14 @@
 
     .prologue
     .line 170
-    if-eqz p2, :cond_2d
+    if-eqz p2, :cond_0
 
     .line 171
     const/4 v0, 0x1
 
     .line 176
     .local v0, value:I
-    :goto_3
+    :goto_0
     const-string v1, "SRS-JAVA"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -679,9 +679,9 @@
 
     .line 173
     .end local v0           #value:I
-    :cond_2d
+    :cond_0
     const/4 v0, 0x0
 
     .restart local v0       #value:I
-    goto :goto_3
+    goto :goto_0
 .end method

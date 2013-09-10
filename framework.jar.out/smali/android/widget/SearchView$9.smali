@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/SearchView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 9
+    .locals 3
     .parameter
     .parameter "view"
     .parameter "position"
@@ -62,6 +62,7 @@
 
     const/4 v2, 0x0
 
+    #calls: Landroid/widget/SearchView;->onItemClicked(IILjava/lang/String;)Z
     invoke-static {v0, p3, v1, v2}, Landroid/widget/SearchView;->access$1800(Landroid/widget/SearchView;IILjava/lang/String;)Z
 
     .line 1328

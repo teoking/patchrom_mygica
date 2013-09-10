@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 30
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public areAllItemsEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 63
@@ -42,7 +42,7 @@
 .end method
 
 .method public getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .registers 5
+    .locals 1
     .parameter "position"
     .parameter "convertView"
     .parameter "parent"
@@ -57,7 +57,7 @@
 .end method
 
 .method public getItemViewType(I)I
-    .registers 3
+    .locals 1
     .parameter "position"
 
     .prologue
@@ -68,7 +68,7 @@
 .end method
 
 .method public getViewTypeCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 79
@@ -78,7 +78,7 @@
 .end method
 
 .method public hasStableIds()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 34
@@ -88,7 +88,7 @@
 .end method
 
 .method public isEmpty()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 83
@@ -96,21 +96,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public isEnabled(I)Z
-    .registers 3
+    .locals 1
     .parameter "position"
 
     .prologue
@@ -121,7 +121,7 @@
 .end method
 
 .method public notifyDataSetChanged()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 50
@@ -134,7 +134,7 @@
 .end method
 
 .method public notifyDataSetInvalidated()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 59
@@ -147,7 +147,7 @@
 .end method
 
 .method public registerDataSetObserver(Landroid/database/DataSetObserver;)V
-    .registers 3
+    .locals 1
     .parameter "observer"
 
     .prologue
@@ -161,7 +161,7 @@
 .end method
 
 .method public unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
-    .registers 3
+    .locals 1
     .parameter "observer"
 
     .prologue

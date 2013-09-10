@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 65
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -78,7 +78,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_26
+    if-eqz v0, :cond_0
 
     .line 81
     sget-object v0, Landroid/content/Intent;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -92,20 +92,20 @@
     iput-object v0, p0, Landroid/app/ResultInfo;->mData:Landroid/content/Intent;
 
     .line 85
-    :goto_25
+    :goto_0
     return-void
 
     .line 83
-    :cond_26
+    :cond_0
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/app/ResultInfo;->mData:Landroid/content/Intent;
 
-    goto :goto_25
+    goto :goto_0
 .end method
 
 .method public constructor <init>(Ljava/lang/String;IILandroid/content/Intent;)V
-    .registers 5
+    .locals 0
     .parameter "resultWho"
     .parameter "requestCode"
     .parameter "resultCode"
@@ -134,7 +134,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 50
@@ -144,7 +144,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 45
@@ -214,7 +214,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "out"
     .parameter "flags"
 
@@ -239,7 +239,7 @@
     .line 57
     iget-object v0, p0, Landroid/app/ResultInfo;->mData:Landroid/content/Intent;
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_0
 
     .line 58
     const/4 v0, 0x1
@@ -252,12 +252,12 @@
     invoke-virtual {v0, p1, v1}, Landroid/content/Intent;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 63
-    :goto_1d
+    :goto_0
     return-void
 
     .line 61
-    :cond_1e
+    :cond_0
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1d
+    goto :goto_0
 .end method

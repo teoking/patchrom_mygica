@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/location/GpsStatus;[Landroid/location/GpsSatellite;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "satellites"
 
@@ -62,19 +62,19 @@
 
 # virtual methods
 .method public hasNext()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 44
     iget v0, p0, Landroid/location/GpsStatus$SatelliteIterator;->mIndex:I
 
     .local v0, i:I
-    :goto_2
+    :goto_0
     iget-object v1, p0, Landroid/location/GpsStatus$SatelliteIterator;->mSatellites:[Landroid/location/GpsSatellite;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_14
+    if-ge v0, v1, :cond_1
 
     .line 45
     iget-object v1, p0, Landroid/location/GpsStatus$SatelliteIterator;->mSatellites:[Landroid/location/GpsSatellite;
@@ -83,30 +83,30 @@
 
     iget-boolean v1, v1, Landroid/location/GpsSatellite;->mValid:Z
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_0
 
     .line 46
     const/4 v1, 0x1
 
     .line 49
-    :goto_10
+    :goto_1
     return v1
 
     .line 44
-    :cond_11
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 49
-    :cond_14
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_10
+    goto :goto_1
 .end method
 
 .method public next()Landroid/location/GpsSatellite;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 53
@@ -117,7 +117,7 @@
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_16
+    if-ge v1, v2, :cond_1
 
     .line 54
     iget-object v1, p0, Landroid/location/GpsStatus$SatelliteIterator;->mSatellites:[Landroid/location/GpsSatellite;
@@ -141,7 +141,7 @@
 
     .line 59
     .end local v0           #satellite:Landroid/location/GpsSatellite;
-    :cond_16
+    :cond_1
     new-instance v1, Ljava/util/NoSuchElementException;
 
     invoke-direct {v1}, Ljava/util/NoSuchElementException;-><init>()V
@@ -150,7 +150,7 @@
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 34
@@ -162,7 +162,7 @@
 .end method
 
 .method public remove()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 63

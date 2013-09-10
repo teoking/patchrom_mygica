@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 148
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 36
@@ -43,7 +43,7 @@
 .end method
 
 .method private constructor <init>(Landroid/filterfw/core/NativeAllocatorTag;)V
-    .registers 3
+    .locals 1
     .parameter "tag"
 
     .prologue
@@ -60,7 +60,7 @@
 .end method
 
 .method public static isAnyContextActive()Z
-    .registers 1
+    .locals 1
 
     .prologue
     .line 78
@@ -125,7 +125,7 @@
 
 # virtual methods
 .method public activate()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 82
@@ -133,7 +133,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_0
 
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
@@ -147,7 +147,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_0
 
     .line 83
     const-string v0, "FilterFramework"
@@ -157,16 +157,16 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 85
-    :cond_1b
+    :cond_0
     iget-boolean v0, p0, Landroid/filterfw/core/GLEnvironment;->mManageContext:Z
 
-    if-eqz v0, :cond_2d
+    if-eqz v0, :cond_1
 
     invoke-direct {p0}, Landroid/filterfw/core/GLEnvironment;->nativeActivate()Z
 
     move-result v0
 
-    if-nez v0, :cond_2d
+    if-nez v0, :cond_1
 
     .line 86
     new-instance v0, Ljava/lang/RuntimeException;
@@ -178,12 +178,12 @@
     throw v0
 
     .line 88
-    :cond_2d
+    :cond_1
     return-void
 .end method
 
 .method public activateSurfaceWithId(I)V
-    .registers 5
+    .locals 3
     .parameter "surfaceId"
 
     .prologue
@@ -192,7 +192,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 131
     new-instance v0, Ljava/lang/RuntimeException;
@@ -226,24 +226,24 @@
     throw v0
 
     .line 133
-    :cond_25
+    :cond_0
     return-void
 .end method
 
 .method public deactivate()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 91
     iget-boolean v0, p0, Landroid/filterfw/core/GLEnvironment;->mManageContext:Z
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     invoke-direct {p0}, Landroid/filterfw/core/GLEnvironment;->nativeDeactivate()Z
 
     move-result v0
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 92
     new-instance v0, Ljava/lang/RuntimeException;
@@ -255,12 +255,12 @@
     throw v0
 
     .line 94
-    :cond_12
+    :cond_0
     return-void
 .end method
 
 .method protected finalize()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -276,7 +276,7 @@
 .end method
 
 .method public initWithCurrentContext()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 63
@@ -289,7 +289,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 65
     new-instance v0, Ljava/lang/RuntimeException;
@@ -301,12 +301,12 @@
     throw v0
 
     .line 67
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 .method public initWithNewContext()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 56
@@ -319,7 +319,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 58
     new-instance v0, Ljava/lang/RuntimeException;
@@ -331,12 +331,12 @@
     throw v0
 
     .line 60
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 .method public isActive()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 70
@@ -348,7 +348,7 @@
 .end method
 
 .method public isContextActive()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 74
@@ -360,7 +360,7 @@
 .end method
 
 .method public registerSurface(Landroid/view/Surface;)I
-    .registers 6
+    .locals 4
     .parameter "surface"
 
     .prologue
@@ -371,7 +371,7 @@
 
     .line 104
     .local v0, result:I
-    if-gez v0, :cond_25
+    if-gez v0, :cond_0
 
     .line 105
     new-instance v1, Ljava/lang/RuntimeException;
@@ -405,12 +405,12 @@
     throw v1
 
     .line 107
-    :cond_25
+    :cond_0
     return v0
 .end method
 
 .method public registerSurfaceFromMediaRecorder(Landroid/media/MediaRecorder;)I
-    .registers 6
+    .locals 4
     .parameter "mediaRecorder"
 
     .prologue
@@ -421,7 +421,7 @@
 
     .line 122
     .local v0, result:I
-    if-gez v0, :cond_25
+    if-gez v0, :cond_0
 
     .line 123
     new-instance v1, Ljava/lang/RuntimeException;
@@ -455,12 +455,12 @@
     throw v1
 
     .line 126
-    :cond_25
+    :cond_0
     return v0
 .end method
 
 .method public registerSurfaceTexture(Landroid/graphics/SurfaceTexture;II)I
-    .registers 9
+    .locals 5
     .parameter "surfaceTexture"
     .parameter "width"
     .parameter "height"
@@ -482,7 +482,7 @@
     invoke-virtual {v1}, Landroid/view/Surface;->release()V
 
     .line 114
-    if-gez v0, :cond_2d
+    if-gez v0, :cond_0
 
     .line 115
     new-instance v2, Ljava/lang/RuntimeException;
@@ -516,12 +516,12 @@
     throw v2
 
     .line 117
-    :cond_2d
+    :cond_0
     return v0
 .end method
 
 .method public setSurfaceTimestamp(J)V
-    .registers 5
+    .locals 2
     .parameter "timestamp"
 
     .prologue
@@ -530,7 +530,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 143
     new-instance v0, Ljava/lang/RuntimeException;
@@ -542,12 +542,12 @@
     throw v0
 
     .line 145
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public swapBuffers()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 97
@@ -555,7 +555,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 98
     new-instance v0, Ljava/lang/RuntimeException;
@@ -567,12 +567,12 @@
     throw v0
 
     .line 100
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public declared-synchronized tearDown()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, -0x1
@@ -580,10 +580,10 @@
     .line 44
     monitor-enter p0
 
-    :try_start_2
+    :try_start_0
     iget v0, p0, Landroid/filterfw/core/GLEnvironment;->glEnvId:I
 
-    if-eq v0, v1, :cond_c
+    if-eq v0, v1, :cond_0
 
     .line 45
     invoke-direct {p0}, Landroid/filterfw/core/GLEnvironment;->nativeDeallocate()Z
@@ -592,17 +592,17 @@
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/filterfw/core/GLEnvironment;->glEnvId:I
-    :try_end_c
-    .catchall {:try_start_2 .. :try_end_c} :catchall_e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 48
-    :cond_c
+    :cond_0
     monitor-exit p0
 
     return-void
 
     .line 44
-    :catchall_e
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -611,7 +611,7 @@
 .end method
 
 .method public unregisterSurfaceId(I)V
-    .registers 5
+    .locals 3
     .parameter "surfaceId"
 
     .prologue
@@ -620,7 +620,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 137
     new-instance v0, Ljava/lang/RuntimeException;
@@ -654,6 +654,6 @@
     throw v0
 
     .line 139
-    :cond_25
+    :cond_0
     return-void
 .end method

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 27
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>(JJJ)V
-    .registers 7
+    .locals 0
     .parameter "initX"
     .parameter "initY"
     .parameter "initZ"

@@ -41,7 +41,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/NsdService;Lcom/android/internal/util/AsyncChannel;Landroid/os/Messenger;)V
-    .registers 7
+    .locals 3
     .parameter
     .parameter "c"
     .parameter "m"
@@ -103,7 +103,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/NsdService;Lcom/android/internal/util/AsyncChannel;Landroid/os/Messenger;Lcom/android/server/NsdService$1;)V
-    .registers 5
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -117,7 +117,7 @@
 .end method
 
 .method static synthetic access$1200(Lcom/android/server/NsdService$ClientInfo;)Landroid/util/SparseArray;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -128,7 +128,7 @@
 .end method
 
 .method static synthetic access$2300(Lcom/android/server/NsdService$ClientInfo;)Landroid/net/nsd/NsdServiceInfo;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -139,7 +139,7 @@
 .end method
 
 .method static synthetic access$2302(Lcom/android/server/NsdService$ClientInfo;Landroid/net/nsd/NsdServiceInfo;)Landroid/net/nsd/NsdServiceInfo;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -151,7 +151,7 @@
 .end method
 
 .method static synthetic access$2700(Lcom/android/server/NsdService$ClientInfo;)Lcom/android/internal/util/AsyncChannel;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -164,7 +164,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 819
@@ -228,14 +228,14 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_39
+    :goto_0
     iget-object v2, p0, Lcom/android/server/NsdService$ClientInfo;->mClientIds:Landroid/util/SparseArray;
 
     invoke-virtual {v2}, Landroid/util/SparseArray;->size()I
 
     move-result v2
 
-    if-ge v0, v2, :cond_68
+    if-ge v0, v2, :cond_0
 
     .line 824
     const-string v2, "clientId "
@@ -276,10 +276,10 @@
     .line 823
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_39
+    goto :goto_0
 
     .line 827
-    :cond_68
+    :cond_0
     invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v2

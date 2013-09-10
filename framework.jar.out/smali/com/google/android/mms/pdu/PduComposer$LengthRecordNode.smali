@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -47,7 +47,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/google/android/mms/pdu/PduComposer$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue

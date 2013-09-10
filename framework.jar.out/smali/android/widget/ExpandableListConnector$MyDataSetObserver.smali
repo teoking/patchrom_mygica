@@ -20,7 +20,7 @@
 
 # direct methods
 .method protected constructor <init>(Landroid/widget/ExpandableListConnector;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x1
@@ -43,6 +43,7 @@
     .line 857
     iget-object v0, p0, Landroid/widget/ExpandableListConnector$MyDataSetObserver;->this$0:Landroid/widget/ExpandableListConnector;
 
+    #calls: Landroid/widget/ExpandableListConnector;->refreshExpGroupMetadataList(ZZ)V
     invoke-static {v0, v1, v1}, Landroid/widget/ExpandableListConnector;->access$000(Landroid/widget/ExpandableListConnector;ZZ)V
 
     .line 859
@@ -55,7 +56,7 @@
 .end method
 
 .method public onInvalidated()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x1
@@ -63,6 +64,7 @@
     .line 864
     iget-object v0, p0, Landroid/widget/ExpandableListConnector$MyDataSetObserver;->this$0:Landroid/widget/ExpandableListConnector;
 
+    #calls: Landroid/widget/ExpandableListConnector;->refreshExpGroupMetadataList(ZZ)V
     invoke-static {v0, v1, v1}, Landroid/widget/ExpandableListConnector;->access$000(Landroid/widget/ExpandableListConnector;ZZ)V
 
     .line 866

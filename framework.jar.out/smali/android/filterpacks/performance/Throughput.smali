@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(IIII)V
-    .registers 5
+    .locals 0
     .parameter "totalFrames"
     .parameter "periodFrames"
     .parameter "periodTime"
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getFramesPerSecond()F
-    .registers 3
+    .locals 2
 
     .prologue
     .line 50
@@ -62,7 +62,7 @@
 .end method
 
 .method public getNanosPerPixel()F
-    .registers 7
+    .locals 6
 
     .prologue
     .line 54
@@ -94,7 +94,7 @@
 .end method
 
 .method public getPeriodFrameCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 42
@@ -104,7 +104,7 @@
 .end method
 
 .method public getPeriodTime()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 46
@@ -114,7 +114,7 @@
 .end method
 
 .method public getTotalFrameCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 38
@@ -124,7 +124,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 59

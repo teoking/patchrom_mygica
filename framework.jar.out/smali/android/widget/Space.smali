@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -19,7 +19,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 5
+    .locals 1
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -48,7 +48,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 36
     const/4 v0, 0x4
@@ -56,12 +56,12 @@
     invoke-virtual {p0, v0}, Landroid/widget/Space;->setVisibility(I)V
 
     .line 38
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method private static getDefaultSize2(II)I
-    .registers 5
+    .locals 3
     .parameter "size"
     .parameter "measureSpec"
 
@@ -83,47 +83,47 @@
 
     .line 74
     .local v2, specSize:I
-    sparse-switch v1, :sswitch_data_16
+    sparse-switch v1, :sswitch_data_0
 
     .line 85
-    :goto_c
+    :goto_0
     return v0
 
     .line 76
-    :sswitch_d
+    :sswitch_0
     move v0, p0
 
     .line 77
-    goto :goto_c
+    goto :goto_0
 
     .line 79
-    :sswitch_f
+    :sswitch_1
     invoke-static {p0, v2}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
     .line 80
-    goto :goto_c
+    goto :goto_0
 
     .line 82
-    :sswitch_14
+    :sswitch_2
     move v0, v2
 
-    goto :goto_c
+    goto :goto_0
 
     .line 74
-    :sswitch_data_16
+    :sswitch_data_0
     .sparse-switch
-        -0x80000000 -> :sswitch_f
-        0x0 -> :sswitch_d
-        0x40000000 -> :sswitch_14
+        -0x80000000 -> :sswitch_1
+        0x0 -> :sswitch_0
+        0x40000000 -> :sswitch_2
     .end sparse-switch
 .end method
 
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .registers 2
+    .locals 0
     .parameter "canvas"
 
     .prologue
@@ -132,7 +132,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .registers 5
+    .locals 2
     .parameter "widthMeasureSpec"
     .parameter "heightMeasureSpec"
 

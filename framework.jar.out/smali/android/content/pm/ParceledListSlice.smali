@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 142
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 44
@@ -76,7 +76,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;IZ)V
-    .registers 4
+    .locals 0
     .parameter "p"
     .parameter "numItems"
     .parameter "lastSlice"
@@ -100,7 +100,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;IZLandroid/content/pm/ParceledListSlice$1;)V
-    .registers 5
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -117,7 +117,7 @@
 
 # virtual methods
 .method public append(Landroid/os/Parcelable;)Z
-    .registers 5
+    .locals 3
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -133,7 +133,7 @@
     .line 88
     iget-object v1, p0, Landroid/content/pm/ParceledListSlice;->mParcel:Landroid/os/Parcel;
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_0
 
     .line 89
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -145,7 +145,7 @@
     throw v0
 
     .line 92
-    :cond_d
+    :cond_0
     iget-object v1, p0, Landroid/content/pm/ParceledListSlice;->mParcel:Landroid/os/Parcel;
 
     invoke-interface {p1, v1, v0}, Landroid/os/Parcelable;->writeToParcel(Landroid/os/Parcel;I)V
@@ -166,19 +166,19 @@
 
     const/high16 v2, 0x4
 
-    if-le v1, v2, :cond_23
+    if-le v1, v2, :cond_1
 
-    :goto_22
+    :goto_0
     return v0
 
-    :cond_23
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_22
+    goto :goto_0
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 56
@@ -189,7 +189,7 @@
 .end method
 
 .method public isLastSlice()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 138
@@ -200,7 +200,7 @@
 .end method
 
 .method public populateList(Ljava/util/List;Landroid/os/Parcelable$Creator;)Landroid/os/Parcelable;
-    .registers 7
+    .locals 4
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -232,10 +232,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_8
+    :goto_0
     iget v2, p0, Landroid/content/pm/ParceledListSlice;->mNumItems:I
 
-    if-ge v0, v2, :cond_1a
+    if-ge v0, v2, :cond_0
 
     .line 113
     iget-object v2, p0, Landroid/content/pm/ParceledListSlice;->mParcel:Landroid/os/Parcel;
@@ -254,10 +254,10 @@
     .line 112
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 117
-    :cond_1a
+    :cond_0
     iget-object v2, p0, Landroid/content/pm/ParceledListSlice;->mParcel:Landroid/os/Parcel;
 
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
@@ -272,7 +272,7 @@
 .end method
 
 .method public setLastSlice(Z)V
-    .registers 2
+    .locals 0
     .parameter "lastSlice"
 
     .prologue
@@ -285,7 +285,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "dest"
     .parameter "flags"
 
@@ -301,17 +301,17 @@
     .line 67
     iget-boolean v1, p0, Landroid/content/pm/ParceledListSlice;->mIsLastSlice:Z
 
-    if-eqz v1, :cond_2b
+    if-eqz v1, :cond_1
 
     const/4 v1, 0x1
 
-    :goto_b
+    :goto_0
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 69
     iget v1, p0, Landroid/content/pm/ParceledListSlice;->mNumItems:I
 
-    if-lez v1, :cond_20
+    if-lez v1, :cond_0
 
     .line 70
     iget-object v1, p0, Landroid/content/pm/ParceledListSlice;->mParcel:Landroid/os/Parcel;
@@ -331,7 +331,7 @@
 
     .line 75
     .end local v0           #parcelSize:I
-    :cond_20
+    :cond_0
     iput v2, p0, Landroid/content/pm/ParceledListSlice;->mNumItems:I
 
     .line 76
@@ -347,9 +347,9 @@
     .line 78
     return-void
 
-    :cond_2b
+    :cond_1
     move v1, v2
 
     .line 67
-    goto :goto_b
+    goto :goto_0
 .end method

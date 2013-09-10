@@ -126,7 +126,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 7
+    .locals 7
 
     .prologue
     const/16 v6, 0x302
@@ -480,7 +480,7 @@
 .end method
 
 .method private constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "ptr"
 
     .prologue
@@ -495,7 +495,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -503,7 +503,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 299
-    if-nez p1, :cond_e
+    if-nez p1, :cond_0
 
     .line 300
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -515,7 +515,7 @@
     throw v0
 
     .line 302
-    :cond_e
+    :cond_0
     invoke-static {p1}, Landroid/view/KeyCharacterMap;->nativeReadFromParcel(Landroid/os/Parcel;)I
 
     move-result v0
@@ -525,7 +525,7 @@
     .line 303
     iget v0, p0, Landroid/view/KeyCharacterMap;->mPtr:I
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_1
 
     .line 304
     new-instance v0, Ljava/lang/RuntimeException;
@@ -537,12 +537,12 @@
     throw v0
 
     .line 306
-    :cond_20
+    :cond_1
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/view/KeyCharacterMap$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -554,7 +554,7 @@
 .end method
 
 .method private static addCombining(II)V
-    .registers 3
+    .locals 1
     .parameter "combining"
     .parameter "accent"
 
@@ -574,7 +574,7 @@
 .end method
 
 .method private static addDeadKey(III)V
-    .registers 7
+    .locals 4
     .parameter "accent"
     .parameter "c"
     .parameter "result"
@@ -589,7 +589,7 @@
 
     .line 266
     .local v1, combining:I
-    if-nez v1, :cond_10
+    if-nez v1, :cond_0
 
     .line 267
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -601,7 +601,7 @@
     throw v2
 
     .line 269
-    :cond_10
+    :cond_0
     shl-int/lit8 v2, v1, 0x10
 
     or-int v0, v2, p1
@@ -617,7 +617,7 @@
 .end method
 
 .method public static deviceHasKey(I)Z
-    .registers 4
+    .locals 3
     .parameter "keyCode"
 
     .prologue
@@ -644,7 +644,7 @@
 .end method
 
 .method public static deviceHasKeys([I)[Z
-    .registers 2
+    .locals 1
     .parameter "keyCodes"
 
     .prologue
@@ -661,7 +661,7 @@
 .end method
 
 .method public static getDeadChar(II)I
-    .registers 11
+    .locals 9
     .parameter "accent"
     .parameter "c"
 
@@ -679,16 +679,16 @@
 
     .line 485
     .local v2, combining:I
-    if-nez v2, :cond_c
+    if-nez v2, :cond_0
 
     move v1, v4
 
     .line 502
-    :goto_b
+    :goto_0
     return v1
 
     .line 489
-    :cond_c
+    :cond_0
     shl-int/lit8 v5, v2, 0x10
 
     or-int v0, v5, p1
@@ -700,7 +700,7 @@
     monitor-enter v5
 
     .line 492
-    :try_start_13
+    :try_start_0
     sget-object v6, Landroid/view/KeyCharacterMap;->sDeadKeyCache:Landroid/util/SparseIntArray;
 
     const/4 v7, -0x1
@@ -711,7 +711,7 @@
 
     .line 493
     .local v1, combined:I
-    if-ne v1, v8, :cond_47
+    if-ne v1, v8, :cond_1
 
     .line 494
     sget-object v6, Landroid/view/KeyCharacterMap;->sDeadKeyBuilder:Ljava/lang/StringBuilder;
@@ -751,7 +751,7 @@
 
     const/4 v7, 0x1
 
-    if-ne v6, v7, :cond_4c
+    if-ne v6, v7, :cond_2
 
     const/4 v4, 0x0
 
@@ -760,39 +760,39 @@
     move-result v1
 
     .line 499
-    :goto_42
+    :goto_1
     sget-object v4, Landroid/view/KeyCharacterMap;->sDeadKeyCache:Landroid/util/SparseIntArray;
 
     invoke-virtual {v4, v0, v1}, Landroid/util/SparseIntArray;->put(II)V
 
     .line 501
     .end local v3           #result:Ljava/lang/String;
-    :cond_47
+    :cond_1
     monitor-exit v5
 
-    goto :goto_b
+    goto :goto_0
 
     .end local v1           #combined:I
-    :catchall_49
+    :catchall_0
     move-exception v4
 
     monitor-exit v5
-    :try_end_4b
-    .catchall {:try_start_13 .. :try_end_4b} :catchall_49
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v4
 
     .restart local v1       #combined:I
     .restart local v3       #result:Ljava/lang/String;
-    :cond_4c
+    :cond_2
     move v1, v4
 
     .line 498
-    goto :goto_42
+    goto :goto_1
 .end method
 
 .method public static load(I)Landroid/view/KeyCharacterMap;
-    .registers 6
+    .locals 5
     .parameter "deviceId"
 
     .prologue
@@ -809,7 +809,7 @@
 
     .line 333
     .local v1, inputDevice:Landroid/view/InputDevice;
-    if-nez v1, :cond_2a
+    if-nez v1, :cond_0
 
     .line 334
     const/4 v2, -0x1
@@ -819,7 +819,7 @@
     move-result-object v1
 
     .line 335
-    if-nez v1, :cond_2a
+    if-nez v1, :cond_0
 
     .line 336
     new-instance v2, Landroid/view/KeyCharacterMap$UnavailableException;
@@ -847,7 +847,7 @@
     throw v2
 
     .line 340
-    :cond_2a
+    :cond_0
     invoke-virtual {v1}, Landroid/view/InputDevice;->getKeyCharacterMap()Landroid/view/KeyCharacterMap;
 
     move-result-object v2
@@ -888,7 +888,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 712
@@ -898,7 +898,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -909,7 +909,7 @@
     .line 315
     iget v0, p0, Landroid/view/KeyCharacterMap;->mPtr:I
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 316
     iget v0, p0, Landroid/view/KeyCharacterMap;->mPtr:I
@@ -922,12 +922,12 @@
     iput v0, p0, Landroid/view/KeyCharacterMap;->mPtr:I
 
     .line 319
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public get(II)I
-    .registers 6
+    .locals 3
     .parameter "keyCode"
     .parameter "metaState"
 
@@ -954,7 +954,7 @@
 
     .line 369
     .local v1, map:I
-    if-eqz v1, :cond_16
+    if-eqz v1, :cond_0
 
     .line 370
     const/high16 v2, -0x8000
@@ -963,12 +963,12 @@
 
     .line 372
     .end local v0           #ch:C
-    :cond_16
+    :cond_0
     return v0
 .end method
 
 .method public getDisplayLabel(I)C
-    .registers 3
+    .locals 1
     .parameter "keyCode"
 
     .prologue
@@ -983,12 +983,12 @@
 .end method
 
 .method public getEvents([C)[Landroid/view/KeyEvent;
-    .registers 4
+    .locals 2
     .parameter "chars"
 
     .prologue
     .line 592
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 593
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1000,7 +1000,7 @@
     throw v0
 
     .line 595
-    :cond_a
+    :cond_0
     iget v0, p0, Landroid/view/KeyCharacterMap;->mPtr:I
 
     invoke-static {v0, p1}, Landroid/view/KeyCharacterMap;->nativeGetEvents(I[C)[Landroid/view/KeyEvent;
@@ -1011,7 +1011,7 @@
 .end method
 
 .method public getFallbackAction(II)Landroid/view/KeyCharacterMap$FallbackAction;
-    .registers 5
+    .locals 2
     .parameter "keyCode"
     .parameter "metaState"
 
@@ -1034,7 +1034,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_0
 
     .line 397
     iget v1, v0, Landroid/view/KeyCharacterMap$FallbackAction;->metaState:I
@@ -1047,22 +1047,22 @@
 
     .line 401
     .end local v0           #action:Landroid/view/KeyCharacterMap$FallbackAction;
-    :goto_18
+    :goto_0
     return-object v0
 
     .line 400
     .restart local v0       #action:Landroid/view/KeyCharacterMap$FallbackAction;
-    :cond_19
+    :cond_0
     invoke-virtual {v0}, Landroid/view/KeyCharacterMap$FallbackAction;->recycle()V
 
     .line 401
     const/4 v0, 0x0
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method public getKeyData(ILandroid/view/KeyCharacterMap$KeyData;)Z
-    .registers 10
+    .locals 7
     .parameter "keyCode"
     .parameter "results"
     .annotation runtime Ljava/lang/Deprecated;
@@ -1084,7 +1084,7 @@
 
     const/4 v4, 0x4
 
-    if-ge v3, v4, :cond_13
+    if-ge v3, v4, :cond_0
 
     .line 551
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
@@ -1096,7 +1096,7 @@
     throw v1
 
     .line 555
-    :cond_13
+    :cond_0
     iget v3, p0, Landroid/view/KeyCharacterMap;->mPtr:I
 
     invoke-static {v3, p1}, Landroid/view/KeyCharacterMap;->nativeGetDisplayLabel(II)C
@@ -1105,14 +1105,14 @@
 
     .line 556
     .local v0, displayLabel:C
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_1
 
     .line 567
-    :goto_1b
+    :goto_0
     return v1
 
     .line 560
-    :cond_1c
+    :cond_1
     iput-char v0, p2, Landroid/view/KeyCharacterMap$KeyData;->displayLabel:C
 
     .line 561
@@ -1171,11 +1171,11 @@
     move v1, v2
 
     .line 567
-    goto :goto_1b
+    goto :goto_0
 .end method
 
 .method public getKeyboardType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 632
@@ -1189,7 +1189,7 @@
 .end method
 
 .method public getMatch(I[C)C
-    .registers 4
+    .locals 1
     .parameter "keyCode"
     .parameter "chars"
 
@@ -1205,14 +1205,14 @@
 .end method
 
 .method public getMatch(I[CI)C
-    .registers 6
+    .locals 2
     .parameter "keyCode"
     .parameter "chars"
     .parameter "metaState"
 
     .prologue
     .line 456
-    if-nez p2, :cond_a
+    if-nez p2, :cond_0
 
     .line 457
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1224,7 +1224,7 @@
     throw v0
 
     .line 460
-    :cond_a
+    :cond_0
     invoke-static {p3}, Landroid/view/KeyEvent;->normalizeMetaState(I)I
 
     move-result p3
@@ -1240,7 +1240,7 @@
 .end method
 
 .method public getModifierBehavior()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 668
@@ -1248,32 +1248,32 @@
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_c
+    packed-switch v0, :pswitch_data_0
 
     .line 673
     const/4 v0, 0x1
 
-    :goto_8
+    :goto_0
     return v0
 
     .line 671
-    :pswitch_9
+    :pswitch_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 
     .line 668
     nop
 
-    :pswitch_data_c
+    :pswitch_data_0
     .packed-switch 0x4
-        :pswitch_9
-        :pswitch_9
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public getNumber(I)C
-    .registers 3
+    .locals 1
     .parameter "keyCode"
 
     .prologue
@@ -1288,7 +1288,7 @@
 .end method
 
 .method public isPrintingKey(I)Z
-    .registers 4
+    .locals 2
     .parameter "keyCode"
 
     .prologue
@@ -1305,41 +1305,41 @@
 
     .line 607
     .local v0, type:I
-    packed-switch v0, :pswitch_data_12
+    packed-switch v0, :pswitch_data_0
 
     .line 616
     const/4 v1, 0x1
 
-    :goto_e
+    :goto_0
     return v1
 
     .line 614
-    :pswitch_f
+    :pswitch_0
     const/4 v1, 0x0
 
-    goto :goto_e
+    goto :goto_0
 
     .line 607
     nop
 
-    :pswitch_data_12
+    :pswitch_data_0
     .packed-switch 0xc
-        :pswitch_f
-        :pswitch_f
-        :pswitch_f
-        :pswitch_f
-        :pswitch_f
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "out"
     .parameter "flags"
 
     .prologue
     .line 704
-    if-nez p1, :cond_b
+    if-nez p1, :cond_0
 
     .line 705
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1351,7 +1351,7 @@
     throw v0
 
     .line 707
-    :cond_b
+    :cond_0
     iget v0, p0, Landroid/view/KeyCharacterMap;->mPtr:I
 
     invoke-static {v0, p1}, Landroid/view/KeyCharacterMap;->nativeWriteToParcel(ILandroid/os/Parcel;)V

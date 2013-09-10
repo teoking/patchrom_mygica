@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 15
@@ -55,22 +55,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/service/dreams/IDreamManager;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 24
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 25
     const/4 v0, 0x0
 
     .line 31
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 27
-    :cond_4
+    :cond_0
     const-string v1, "android.service.dreams.IDreamManager"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -79,31 +79,31 @@
 
     .line 28
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/service/dreams/IDreamManager;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 29
     check-cast v0, Landroid/service/dreams/IDreamManager;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 31
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/service/dreams/IDreamManager$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/service/dreams/IDreamManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 35
@@ -111,7 +111,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 9
+    .locals 4
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -126,26 +126,26 @@
     const/4 v2, 0x1
 
     .line 39
-    sparse-switch p1, :sswitch_data_7a
+    sparse-switch p1, :sswitch_data_0
 
     .line 103
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
 
-    :goto_8
+    :goto_0
     return v2
 
     .line 43
-    :sswitch_9
+    :sswitch_0
     const-string v3, "android.service.dreams.IDreamManager"
 
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 48
-    :sswitch_f
+    :sswitch_1
     const-string v3, "android.service.dreams.IDreamManager"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -156,10 +156,10 @@
     .line 50
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 55
-    :sswitch_1b
+    :sswitch_2
     const-string v3, "android.service.dreams.IDreamManager"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -170,10 +170,10 @@
     .line 57
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 62
-    :sswitch_27
+    :sswitch_3
     const-string v3, "android.service.dreams.IDreamManager"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -183,7 +183,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_41
+    if-eqz v3, :cond_0
 
     .line 65
     sget-object v3, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -196,25 +196,25 @@
 
     .line 70
     .local v0, _arg0:Landroid/content/ComponentName;
-    :goto_3a
+    :goto_1
     invoke-virtual {p0, v0}, Landroid/service/dreams/IDreamManager$Stub;->setDreamComponent(Landroid/content/ComponentName;)V
 
     .line 71
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 68
     .end local v0           #_arg0:Landroid/content/ComponentName;
-    :cond_41
+    :cond_0
     const/4 v0, 0x0
 
     .restart local v0       #_arg0:Landroid/content/ComponentName;
-    goto :goto_3a
+    goto :goto_1
 
     .line 76
     .end local v0           #_arg0:Landroid/content/ComponentName;
-    :sswitch_43
+    :sswitch_4
     const-string v3, "android.service.dreams.IDreamManager"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -229,7 +229,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 79
-    if-eqz v1, :cond_58
+    if-eqz v1, :cond_1
 
     .line 80
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -237,19 +237,19 @@
     .line 81
     invoke-virtual {v1, p3, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 84
-    :cond_58
+    :cond_1
     const/4 v3, 0x0
 
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 90
     .end local v1           #_result:Landroid/content/ComponentName;
-    :sswitch_5d
+    :sswitch_5
     const-string v3, "android.service.dreams.IDreamManager"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -259,7 +259,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_77
+    if-eqz v3, :cond_2
 
     .line 93
     sget-object v3, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -272,32 +272,32 @@
 
     .line 98
     .restart local v0       #_arg0:Landroid/content/ComponentName;
-    :goto_70
+    :goto_2
     invoke-virtual {p0, v0}, Landroid/service/dreams/IDreamManager$Stub;->testDream(Landroid/content/ComponentName;)V
 
     .line 99
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 96
     .end local v0           #_arg0:Landroid/content/ComponentName;
-    :cond_77
+    :cond_2
     const/4 v0, 0x0
 
     .restart local v0       #_arg0:Landroid/content/ComponentName;
-    goto :goto_70
+    goto :goto_2
 
     .line 39
     nop
 
-    :sswitch_data_7a
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_f
-        0x2 -> :sswitch_1b
-        0x3 -> :sswitch_27
-        0x4 -> :sswitch_43
-        0x5 -> :sswitch_5d
-        0x5f4e5446 -> :sswitch_9
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

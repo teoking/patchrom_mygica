@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Exception;)V
-    .registers 2
+    .locals 0
     .parameter "cause"
 
     .prologue
@@ -17,7 +17,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "msg"
 
     .prologue

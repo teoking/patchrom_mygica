@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 97
@@ -23,7 +23,7 @@
 
 # virtual methods
 .method getTag()Lcom/android/internal/telephony/cat/ComprehensionTlvTag;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 102

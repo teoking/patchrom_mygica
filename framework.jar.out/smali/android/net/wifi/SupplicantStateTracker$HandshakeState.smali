@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/wifi/SupplicantStateTracker;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public enter()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -59,7 +59,7 @@
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
-    .registers 7
+    .locals 5
     .parameter "message"
 
     .prologue
@@ -68,15 +68,15 @@
     .line 255
     iget v3, p1, Landroid/os/Message;->what:I
 
-    packed-switch v3, :pswitch_data_5a
+    packed-switch v3, :pswitch_data_0
 
     .line 279
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return v2
 
     .line 257
-    :pswitch_7
+    :pswitch_0
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/net/wifi/StateChangeResult;
@@ -91,7 +91,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_0
 
     .line 260
     iget v2, p0, Landroid/net/wifi/SupplicantStateTracker$HandshakeState;->mLoopDetectIndex:I
@@ -100,7 +100,7 @@
 
     move-result v3
 
-    if-le v2, v3, :cond_21
+    if-le v2, v3, :cond_1
 
     .line 261
     iget v2, p0, Landroid/net/wifi/SupplicantStateTracker$HandshakeState;->mLoopDetectCount:I
@@ -110,12 +110,12 @@
     iput v2, p0, Landroid/net/wifi/SupplicantStateTracker$HandshakeState;->mLoopDetectCount:I
 
     .line 263
-    :cond_21
+    :cond_1
     iget v2, p0, Landroid/net/wifi/SupplicantStateTracker$HandshakeState;->mLoopDetectCount:I
 
     const/4 v3, 0x4
 
-    if-le v2, v3, :cond_47
+    if-le v2, v3, :cond_2
 
     .line 264
     const-string v2, "SupplicantStateTracker"
@@ -147,10 +147,11 @@
 
     iget v3, v1, Landroid/net/wifi/StateChangeResult;->networkId:I
 
+    #calls: Landroid/net/wifi/SupplicantStateTracker;->handleNetworkConnectionFailure(I)V
     invoke-static {v2, v3}, Landroid/net/wifi/SupplicantStateTracker;->access$800(Landroid/net/wifi/SupplicantStateTracker;I)V
 
     .line 268
-    :cond_47
+    :cond_2
     invoke-virtual {v0}, Landroid/net/wifi/SupplicantState;->ordinal()I
 
     move-result v2
@@ -162,20 +163,22 @@
 
     iget-object v3, p0, Landroid/net/wifi/SupplicantStateTracker$HandshakeState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
+    #getter for: Landroid/net/wifi/SupplicantStateTracker;->mAuthFailureInSupplicantBroadcast:Z
     invoke-static {v3}, Landroid/net/wifi/SupplicantStateTracker;->access$100(Landroid/net/wifi/SupplicantStateTracker;)Z
 
     move-result v3
 
+    #calls: Landroid/net/wifi/SupplicantStateTracker;->sendSupplicantStateChangedBroadcast(Landroid/net/wifi/SupplicantState;Z)V
     invoke-static {v2, v0, v3}, Landroid/net/wifi/SupplicantStateTracker;->access$200(Landroid/net/wifi/SupplicantStateTracker;Landroid/net/wifi/SupplicantState;Z)V
 
     .line 279
     const/4 v2, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 255
-    :pswitch_data_5a
+    :pswitch_data_0
     .packed-switch 0x24006
-        :pswitch_7
+        :pswitch_0
     .end packed-switch
 .end method

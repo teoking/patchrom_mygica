@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/MipmapDrawable$MipmapContainerState;Landroid/graphics/drawable/MipmapDrawable;Landroid/content/res/Resources;)V
-    .registers 5
+    .locals 1
     .parameter "orig"
     .parameter "owner"
     .parameter "res"
@@ -30,7 +30,7 @@
     invoke-direct {p0, p1, p2, p3}, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;-><init>(Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;Landroid/graphics/drawable/DrawableContainer;Landroid/content/res/Resources;)V
 
     .line 195
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_0
 
     .line 196
     iget-object v0, p1, Landroid/graphics/drawable/MipmapDrawable$MipmapContainerState;->mMipmapHeights:[I
@@ -38,7 +38,7 @@
     iput-object v0, p0, Landroid/graphics/drawable/MipmapDrawable$MipmapContainerState;->mMipmapHeights:[I
 
     .line 202
-    :goto_9
+    :goto_0
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Landroid/graphics/drawable/MipmapDrawable$MipmapContainerState;->setConstantSize(Z)V
@@ -47,7 +47,7 @@
     return-void
 
     .line 198
-    :cond_e
+    :cond_0
     invoke-virtual {p0}, Landroid/graphics/drawable/MipmapDrawable$MipmapContainerState;->getChildren()[Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -58,11 +58,11 @@
 
     iput-object v0, p0, Landroid/graphics/drawable/MipmapDrawable$MipmapContainerState;->mMipmapHeights:[I
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method static synthetic access$000(Landroid/graphics/drawable/MipmapDrawable$MipmapContainerState;)[I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -73,7 +73,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/graphics/drawable/MipmapDrawable$MipmapContainerState;[I)[I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public addDrawable(Landroid/graphics/drawable/Drawable;)V
-    .registers 8
+    .locals 6
     .parameter "drawable"
 
     .prologue
@@ -104,8 +104,8 @@
 
     .line 248
     .local v0, drawableHeight:I
-    :goto_8
-    if-lez v1, :cond_2d
+    :goto_0
+    if-lez v1, :cond_0
 
     .line 249
     iget-object v4, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mDrawables:[Landroid/graphics/drawable/Drawable;
@@ -122,7 +122,7 @@
 
     .line 252
     .local v3, previousIntrinsicHeight:I
-    if-ge v0, v3, :cond_2d
+    if-ge v0, v3, :cond_0
 
     .line 253
     iget-object v4, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mDrawables:[Landroid/graphics/drawable/Drawable;
@@ -152,17 +152,17 @@
     add-int/lit8 v1, v1, -0x1
 
     .line 262
-    goto :goto_8
+    goto :goto_0
 
     .line 263
     .end local v2           #previousDrawable:Landroid/graphics/drawable/Drawable;
     .end local v3           #previousIntrinsicHeight:I
-    :cond_2d
+    :cond_0
     return-void
 .end method
 
 .method protected computeConstantSize()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v4, 0x0
@@ -174,7 +174,7 @@
 
     .line 272
     .local v0, N:I
-    if-lez v0, :cond_2d
+    if-lez v0, :cond_0
 
     .line 273
     iget-object v3, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mDrawables:[Landroid/graphics/drawable/Drawable;
@@ -221,7 +221,7 @@
     .line 284
     .end local v1           #largestDrawable:Landroid/graphics/drawable/Drawable;
     .end local v2           #smallestDrawable:Landroid/graphics/drawable/Drawable;
-    :goto_29
+    :goto_0
     const/4 v3, 0x1
 
     iput-boolean v3, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mComputedConstantSize:Z
@@ -230,7 +230,7 @@
     return-void
 
     .line 281
-    :cond_2d
+    :cond_0
     const/4 v3, -0x1
 
     iput v3, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mConstantHeight:I
@@ -242,11 +242,11 @@
 
     iput v4, p0, Landroid/graphics/drawable/DrawableContainer$DrawableContainerState;->mConstantMinimumWidth:I
 
-    goto :goto_29
+    goto :goto_0
 .end method
 
 .method public growArray(II)V
-    .registers 6
+    .locals 3
     .parameter "oldSize"
     .parameter "newSize"
 
@@ -273,7 +273,7 @@
 .end method
 
 .method public indexForBounds(Landroid/graphics/Rect;)I
-    .registers 6
+    .locals 4
     .parameter "bounds"
 
     .prologue
@@ -293,46 +293,46 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_9
-    if-ge v2, v0, :cond_15
+    :goto_0
+    if-ge v2, v0, :cond_1
 
     .line 220
     iget-object v3, p0, Landroid/graphics/drawable/MipmapDrawable$MipmapContainerState;->mMipmapHeights:[I
 
     aget v3, v3, v2
 
-    if-gt v1, v3, :cond_12
+    if-gt v1, v3, :cond_0
 
     .line 230
     .end local v2           #i:I
-    :goto_11
+    :goto_1
     return v2
 
     .line 219
     .restart local v2       #i:I
-    :cond_12
+    :cond_0
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 226
-    :cond_15
-    if-lez v0, :cond_1a
+    :cond_1
+    if-lez v0, :cond_2
 
     .line 227
     add-int/lit8 v2, v0, -0x1
 
-    goto :goto_11
+    goto :goto_1
 
     .line 230
-    :cond_1a
+    :cond_2
     const/4 v2, -0x1
 
-    goto :goto_11
+    goto :goto_1
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -346,7 +346,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .registers 4
+    .locals 2
     .parameter "res"
 
     .prologue

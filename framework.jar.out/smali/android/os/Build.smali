@@ -65,7 +65,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 6
+    .locals 6
 
     .prologue
     const/4 v0, 0x1
@@ -263,21 +263,21 @@
 
     move-result v2
 
-    if-ne v2, v0, :cond_c4
+    if-ne v2, v0, :cond_0
 
-    :goto_c1
+    :goto_0
     sput-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
     return-void
 
-    :cond_c4
+    :cond_0
     move v0, v1
 
-    goto :goto_c1
+    goto :goto_0
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -288,7 +288,7 @@
 .end method
 
 .method static synthetic access$000(Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -301,7 +301,7 @@
 .end method
 
 .method private static getLong(Ljava/lang/String;)J
-    .registers 4
+    .locals 3
     .parameter "property"
 
     .prologue
@@ -312,28 +312,28 @@
     move-result-object v1
 
     invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
-    :try_end_7
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-wide v1
 
     .line 453
-    :goto_8
+    :goto_0
     return-wide v1
 
     .line 452
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 453
     .local v0, e:Ljava/lang/NumberFormatException;
     const-wide/16 v1, -0x1
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public static getRadioVersion()Ljava/lang/String;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 442
@@ -349,7 +349,7 @@
 .end method
 
 .method private static getString(Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "property"
 
     .prologue

@@ -15,7 +15,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/ContentResolver;Landroid/content/IContentProvider;Z)V
-    .registers 4
+    .locals 0
     .parameter "contentResolver"
     .parameter "contentProvider"
     .parameter "stable"
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public applyBatch(Ljava/util/ArrayList;)[Landroid/content/ContentProviderResult;
-    .registers 5
+    .locals 3
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -67,22 +67,22 @@
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
 
     invoke-interface {v1, p1}, Landroid/content/IContentProvider;->applyBatch(Ljava/util/ArrayList;)[Landroid/content/ContentProviderResult;
-    :try_end_5
-    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     return-object v1
 
     .line 226
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 227
     .local v0, e:Landroid/os/DeadObjectException;
     iget-boolean v1, p0, Landroid/content/ContentProviderClient;->mStable:Z
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_0
 
     .line 228
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentResolver:Landroid/content/ContentResolver;
@@ -92,12 +92,12 @@
     invoke-virtual {v1, v2}, Landroid/content/ContentResolver;->unstableProviderDied(Landroid/content/IContentProvider;)V
 
     .line 230
-    :cond_13
+    :cond_0
     throw v0
 .end method
 
 .method public bulkInsert(Landroid/net/Uri;[Landroid/content/ContentValues;)I
-    .registers 6
+    .locals 3
     .parameter "url"
     .parameter "initialValues"
     .annotation system Ldalvik/annotation/Throws;
@@ -112,22 +112,22 @@
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
 
     invoke-interface {v1, p1, p2}, Landroid/content/IContentProvider;->bulkInsert(Landroid/net/Uri;[Landroid/content/ContentValues;)I
-    :try_end_5
-    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     return v1
 
     .line 135
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 136
     .local v0, e:Landroid/os/DeadObjectException;
     iget-boolean v1, p0, Landroid/content/ContentProviderClient;->mStable:Z
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_0
 
     .line 137
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentResolver:Landroid/content/ContentResolver;
@@ -137,12 +137,12 @@
     invoke-virtual {v1, v2}, Landroid/content/ContentResolver;->unstableProviderDied(Landroid/content/IContentProvider;)V
 
     .line 139
-    :cond_13
+    :cond_0
     throw v0
 .end method
 
 .method public delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
-    .registers 7
+    .locals 3
     .parameter "url"
     .parameter "selection"
     .parameter "selectionArgs"
@@ -158,22 +158,22 @@
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
 
     invoke-interface {v1, p1, p2, p3}, Landroid/content/IContentProvider;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
-    :try_end_5
-    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     return v1
 
     .line 148
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 149
     .local v0, e:Landroid/os/DeadObjectException;
     iget-boolean v1, p0, Landroid/content/ContentProviderClient;->mStable:Z
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_0
 
     .line 150
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentResolver:Landroid/content/ContentResolver;
@@ -183,12 +183,12 @@
     invoke-virtual {v1, v2}, Landroid/content/ContentResolver;->unstableProviderDied(Landroid/content/IContentProvider;)V
 
     .line 152
-    :cond_13
+    :cond_0
     throw v0
 .end method
 
 .method public getLocalContentProvider()Landroid/content/ContentProvider;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 263
@@ -202,7 +202,7 @@
 .end method
 
 .method public getStreamTypes(Landroid/net/Uri;Ljava/lang/String;)[Ljava/lang/String;
-    .registers 6
+    .locals 3
     .parameter "url"
     .parameter "mimeTypeFilter"
     .annotation system Ldalvik/annotation/Throws;
@@ -217,22 +217,22 @@
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
 
     invoke-interface {v1, p1, p2}, Landroid/content/IContentProvider;->getStreamTypes(Landroid/net/Uri;Ljava/lang/String;)[Ljava/lang/String;
-    :try_end_5
-    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     return-object v1
 
     .line 110
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 111
     .local v0, e:Landroid/os/DeadObjectException;
     iget-boolean v1, p0, Landroid/content/ContentProviderClient;->mStable:Z
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_0
 
     .line 112
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentResolver:Landroid/content/ContentResolver;
@@ -242,12 +242,12 @@
     invoke-virtual {v1, v2}, Landroid/content/ContentResolver;->unstableProviderDied(Landroid/content/IContentProvider;)V
 
     .line 114
-    :cond_13
+    :cond_0
     throw v0
 .end method
 
 .method public getType(Landroid/net/Uri;)Ljava/lang/String;
-    .registers 5
+    .locals 3
     .parameter "url"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -261,22 +261,22 @@
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
 
     invoke-interface {v1, p1}, Landroid/content/IContentProvider;->getType(Landroid/net/Uri;)Ljava/lang/String;
-    :try_end_5
-    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     return-object v1
 
     .line 98
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 99
     .local v0, e:Landroid/os/DeadObjectException;
     iget-boolean v1, p0, Landroid/content/ContentProviderClient;->mStable:Z
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_0
 
     .line 100
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentResolver:Landroid/content/ContentResolver;
@@ -286,12 +286,12 @@
     invoke-virtual {v1, v2}, Landroid/content/ContentResolver;->unstableProviderDied(Landroid/content/IContentProvider;)V
 
     .line 102
-    :cond_13
+    :cond_0
     throw v0
 .end method
 
 .method public insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
-    .registers 6
+    .locals 3
     .parameter "url"
     .parameter "initialValues"
     .annotation system Ldalvik/annotation/Throws;
@@ -306,22 +306,22 @@
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
 
     invoke-interface {v1, p1, p2}, Landroid/content/IContentProvider;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
-    :try_end_5
-    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     return-object v1
 
     .line 123
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 124
     .local v0, e:Landroid/os/DeadObjectException;
     iget-boolean v1, p0, Landroid/content/ContentProviderClient;->mStable:Z
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_0
 
     .line 125
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentResolver:Landroid/content/ContentResolver;
@@ -331,12 +331,12 @@
     invoke-virtual {v1, v2}, Landroid/content/ContentResolver;->unstableProviderDied(Landroid/content/IContentProvider;)V
 
     .line 127
-    :cond_13
+    :cond_0
     throw v0
 .end method
 
 .method public openAssetFile(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/res/AssetFileDescriptor;
-    .registers 6
+    .locals 3
     .parameter "url"
     .parameter "mode"
     .annotation system Ldalvik/annotation/Throws;
@@ -352,22 +352,22 @@
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
 
     invoke-interface {v1, p1, p2}, Landroid/content/IContentProvider;->openAssetFile(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/res/AssetFileDescriptor;
-    :try_end_5
-    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     return-object v1
 
     .line 199
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 200
     .local v0, e:Landroid/os/DeadObjectException;
     iget-boolean v1, p0, Landroid/content/ContentProviderClient;->mStable:Z
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_0
 
     .line 201
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentResolver:Landroid/content/ContentResolver;
@@ -377,12 +377,12 @@
     invoke-virtual {v1, v2}, Landroid/content/ContentResolver;->unstableProviderDied(Landroid/content/IContentProvider;)V
 
     .line 203
-    :cond_13
+    :cond_0
     throw v0
 .end method
 
 .method public openFile(Landroid/net/Uri;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
-    .registers 6
+    .locals 3
     .parameter "url"
     .parameter "mode"
     .annotation system Ldalvik/annotation/Throws;
@@ -398,22 +398,22 @@
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
 
     invoke-interface {v1, p1, p2}, Landroid/content/IContentProvider;->openFile(Landroid/net/Uri;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
-    :try_end_5
-    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     return-object v1
 
     .line 180
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 181
     .local v0, e:Landroid/os/DeadObjectException;
     iget-boolean v1, p0, Landroid/content/ContentProviderClient;->mStable:Z
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_0
 
     .line 182
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentResolver:Landroid/content/ContentResolver;
@@ -423,12 +423,12 @@
     invoke-virtual {v1, v2}, Landroid/content/ContentResolver;->unstableProviderDied(Landroid/content/IContentProvider;)V
 
     .line 184
-    :cond_13
+    :cond_0
     throw v0
 .end method
 
 .method public final openTypedAssetFileDescriptor(Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/res/AssetFileDescriptor;
-    .registers 7
+    .locals 3
     .parameter "uri"
     .parameter "mimeType"
     .parameter "opts"
@@ -445,22 +445,22 @@
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
 
     invoke-interface {v1, p1, p2, p3}, Landroid/content/IContentProvider;->openTypedAssetFile(Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/res/AssetFileDescriptor;
-    :try_end_5
-    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     return-object v1
 
     .line 213
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 214
     .local v0, e:Landroid/os/DeadObjectException;
     iget-boolean v1, p0, Landroid/content/ContentProviderClient;->mStable:Z
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_0
 
     .line 215
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentResolver:Landroid/content/ContentResolver;
@@ -470,12 +470,12 @@
     invoke-virtual {v1, v2}, Landroid/content/ContentResolver;->unstableProviderDied(Landroid/content/IContentProvider;)V
 
     .line 217
-    :cond_13
+    :cond_0
     throw v0
 .end method
 
 .method public query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 14
+    .locals 8
     .parameter "url"
     .parameter "projection"
     .parameter "selection"
@@ -503,24 +503,24 @@
 
     move-object v5, p5
 
-    :try_start_7
+    :try_start_0
     invoke-virtual/range {v0 .. v6}, Landroid/content/ContentProviderClient;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
-    :try_end_a
-    .catch Landroid/os/DeadObjectException; {:try_start_7 .. :try_end_a} :catch_c
+    :try_end_0
+    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
     return-object v0
 
     .line 66
-    :catch_c
+    :catch_0
     move-exception v7
 
     .line 67
     .local v7, e:Landroid/os/DeadObjectException;
     iget-boolean v0, p0, Landroid/content/ContentProviderClient;->mStable:Z
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_0
 
     .line 68
     iget-object v0, p0, Landroid/content/ContentProviderClient;->mContentResolver:Landroid/content/ContentResolver;
@@ -530,12 +530,12 @@
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unstableProviderDied(Landroid/content/IContentProvider;)V
 
     .line 70
-    :cond_18
+    :cond_0
     throw v7
 .end method
 
 .method public query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
-    .registers 15
+    .locals 8
     .parameter "url"
     .parameter "projection"
     .parameter "selection"
@@ -554,7 +554,7 @@
 
     .line 79
     .local v6, remoteCancellationSignal:Landroid/os/ICancellationSignal;
-    if-eqz p6, :cond_c
+    if-eqz p6, :cond_0
 
     .line 80
     iget-object v0, p0, Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
@@ -567,8 +567,8 @@
     invoke-virtual {p6, v6}, Landroid/os/CancellationSignal;->setRemote(Landroid/os/ICancellationSignal;)V
 
     .line 84
-    :cond_c
-    :try_start_c
+    :cond_0
+    :try_start_0
     iget-object v0, p0, Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
 
     move-object v1, p1
@@ -582,22 +582,22 @@
     move-object v5, p5
 
     invoke-interface/range {v0 .. v6}, Landroid/content/IContentProvider;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
-    :try_end_16
-    .catch Landroid/os/DeadObjectException; {:try_start_c .. :try_end_16} :catch_18
+    :try_end_0
+    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
     return-object v0
 
     .line 86
-    :catch_18
+    :catch_0
     move-exception v7
 
     .line 87
     .local v7, e:Landroid/os/DeadObjectException;
     iget-boolean v0, p0, Landroid/content/ContentProviderClient;->mStable:Z
 
-    if-nez v0, :cond_24
+    if-nez v0, :cond_1
 
     .line 88
     iget-object v0, p0, Landroid/content/ContentProviderClient;->mContentResolver:Landroid/content/ContentResolver;
@@ -607,22 +607,22 @@
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unstableProviderDied(Landroid/content/IContentProvider;)V
 
     .line 90
-    :cond_24
+    :cond_1
     throw v7
 .end method
 
 .method public release()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 240
     monitor-enter p0
 
     .line 241
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/content/ContentProviderClient;->mReleased:Z
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 242
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -634,26 +634,26 @@
     throw v0
 
     .line 250
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_f
-    .catchall {:try_start_1 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 244
-    :cond_10
+    :cond_0
     const/4 v0, 0x1
 
-    :try_start_11
+    :try_start_1
     iput-boolean v0, p0, Landroid/content/ContentProviderClient;->mReleased:Z
 
     .line 245
     iget-boolean v0, p0, Landroid/content/ContentProviderClient;->mStable:Z
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_1
 
     .line 246
     iget-object v0, p0, Landroid/content/ContentProviderClient;->mContentResolver:Landroid/content/ContentResolver;
@@ -667,10 +667,10 @@
     monitor-exit p0
 
     .line 248
-    :goto_20
+    :goto_0
     return v0
 
-    :cond_21
+    :cond_1
     iget-object v0, p0, Landroid/content/ContentProviderClient;->mContentResolver:Landroid/content/ContentResolver;
 
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
@@ -680,14 +680,14 @@
     move-result v0
 
     monitor-exit p0
-    :try_end_2a
-    .catchall {:try_start_11 .. :try_end_2a} :catchall_d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_20
+    goto :goto_0
 .end method
 
 .method public update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
-    .registers 8
+    .locals 3
     .parameter "url"
     .parameter "values"
     .parameter "selection"
@@ -704,22 +704,22 @@
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentProvider:Landroid/content/IContentProvider;
 
     invoke-interface {v1, p1, p2, p3, p4}, Landroid/content/IContentProvider;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
-    :try_end_5
-    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/DeadObjectException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     return v1
 
     .line 161
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 162
     .local v0, e:Landroid/os/DeadObjectException;
     iget-boolean v1, p0, Landroid/content/ContentProviderClient;->mStable:Z
 
-    if-nez v1, :cond_13
+    if-nez v1, :cond_0
 
     .line 163
     iget-object v1, p0, Landroid/content/ContentProviderClient;->mContentResolver:Landroid/content/ContentResolver;
@@ -729,6 +729,6 @@
     invoke-virtual {v1, v2}, Landroid/content/ContentResolver;->unstableProviderDied(Landroid/content/IContentProvider;)V
 
     .line 165
-    :cond_13
+    :cond_0
     throw v0
 .end method

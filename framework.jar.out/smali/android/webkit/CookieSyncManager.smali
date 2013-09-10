@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -23,13 +23,13 @@
 .end method
 
 .method private static checkInstanceIsCreated()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 116
     sget-object v0, Landroid/webkit/CookieSyncManager;->sRef:Landroid/webkit/CookieSyncManager;
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 117
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -41,12 +41,12 @@
     throw v0
 
     .line 121
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public static declared-synchronized createInstance(Landroid/content/Context;)Landroid/webkit/CookieSyncManager;
-    .registers 5
+    .locals 4
     .parameter "context"
 
     .prologue
@@ -55,10 +55,10 @@
 
     monitor-enter v2
 
-    if-nez p0, :cond_10
+    if-nez p0, :cond_0
 
     .line 86
-    :try_start_5
+    :try_start_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Invalid context argument"
@@ -66,11 +66,11 @@
     invoke-direct {v1, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v1
-    :try_end_d
-    .catchall {:try_start_5 .. :try_end_d} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 85
-    :catchall_d
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
@@ -78,8 +78,8 @@
     throw v1
 
     .line 89
-    :cond_10
-    :try_start_10
+    :cond_0
+    :try_start_1
     invoke-static {p0}, Landroid/webkit/JniUtil;->setContext(Landroid/content/Context;)V
 
     .line 90
@@ -91,7 +91,7 @@
     .local v0, appContext:Landroid/content/Context;
     sget-object v1, Landroid/webkit/CookieSyncManager;->sRef:Landroid/webkit/CookieSyncManager;
 
-    if-nez v1, :cond_22
+    if-nez v1, :cond_1
 
     .line 92
     new-instance v1, Landroid/webkit/CookieSyncManager;
@@ -101,10 +101,10 @@
     sput-object v1, Landroid/webkit/CookieSyncManager;->sRef:Landroid/webkit/CookieSyncManager;
 
     .line 94
-    :cond_22
+    :cond_1
     sget-object v1, Landroid/webkit/CookieSyncManager;->sRef:Landroid/webkit/CookieSyncManager;
-    :try_end_24
-    .catchall {:try_start_10 .. :try_end_24} :catchall_d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit v2
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public static declared-synchronized getInstance()Landroid/webkit/CookieSyncManager;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 74
@@ -120,20 +120,20 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     invoke-static {}, Landroid/webkit/CookieSyncManager;->checkInstanceIsCreated()V
 
     .line 75
     sget-object v0, Landroid/webkit/CookieSyncManager;->sRef:Landroid/webkit/CookieSyncManager;
-    :try_end_8
-    .catchall {:try_start_3 .. :try_end_8} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
     return-object v0
 
     .line 74
-    :catchall_a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -144,7 +144,7 @@
 
 # virtual methods
 .method public bridge synthetic resetSync()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 58
@@ -154,7 +154,7 @@
 .end method
 
 .method public bridge synthetic run()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 58
@@ -164,7 +164,7 @@
 .end method
 
 .method public bridge synthetic startSync()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 58
@@ -174,7 +174,7 @@
 .end method
 
 .method public bridge synthetic stopSync()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 58
@@ -184,7 +184,7 @@
 .end method
 
 .method public bridge synthetic sync()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 58
@@ -194,7 +194,7 @@
 .end method
 
 .method protected syncFromRamToFlash()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 102
@@ -208,15 +208,15 @@
 
     move-result v1
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_0
 
     .line 113
-    :goto_a
+    :goto_0
     return-void
 
     .line 108
-    :cond_b
+    :cond_0
     invoke-virtual {v0}, Landroid/webkit/CookieManager;->flushCookieStore()V
 
-    goto :goto_a
+    goto :goto_0
 .end method

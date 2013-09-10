@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "resultCode"
 
     .prologue
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "response"
 
     .prologue
@@ -62,7 +62,7 @@
 .end method
 
 .method public static appendWithCrlf(Ljava/lang/StringBuilder;Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "str1"
     .parameter "str2"
 
@@ -72,13 +72,13 @@
 
     move-result v0
 
-    if-lez v0, :cond_11
+    if-lez v0, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-lez v0, :cond_11
+    if-lez v0, :cond_0
 
     .line 111
     const-string v0, "\r\n\r\n"
@@ -86,7 +86,7 @@
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 113
-    :cond_11
+    :cond_0
     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 114
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public addResponse(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "response"
 
     .prologue
@@ -110,12 +110,12 @@
 .end method
 
 .method public addResult(Landroid/bluetooth/AtCommandResult;)V
-    .registers 4
+    .locals 2
     .parameter "result"
 
     .prologue
     .line 84
-    if-eqz p1, :cond_11
+    if-eqz p1, :cond_0
 
     .line 85
     iget-object v0, p0, Landroid/bluetooth/AtCommandResult;->mResponse:Ljava/lang/StringBuilder;
@@ -134,12 +134,12 @@
     iput v0, p0, Landroid/bluetooth/AtCommandResult;->mResultCode:I
 
     .line 88
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 .method public getResultCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 67
@@ -149,7 +149,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 94
@@ -167,10 +167,10 @@
     .local v0, result:Ljava/lang/StringBuilder;
     iget v1, p0, Landroid/bluetooth/AtCommandResult;->mResultCode:I
 
-    packed-switch v1, :pswitch_data_22
+    packed-switch v1, :pswitch_data_0
 
     .line 103
-    :goto_10
+    :goto_0
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -178,27 +178,27 @@
     return-object v1
 
     .line 97
-    :pswitch_15
+    :pswitch_0
     const-string v1, "OK"
 
     invoke-static {v0, v1}, Landroid/bluetooth/AtCommandResult;->appendWithCrlf(Ljava/lang/StringBuilder;Ljava/lang/String;)V
 
-    goto :goto_10
+    goto :goto_0
 
     .line 100
-    :pswitch_1b
+    :pswitch_1
     const-string v1, "ERROR"
 
     invoke-static {v0, v1}, Landroid/bluetooth/AtCommandResult;->appendWithCrlf(Ljava/lang/StringBuilder;Ljava/lang/String;)V
 
-    goto :goto_10
+    goto :goto_0
 
     .line 95
     nop
 
-    :pswitch_data_22
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_15
-        :pswitch_1b
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

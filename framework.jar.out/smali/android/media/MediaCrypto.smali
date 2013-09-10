@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 87
@@ -25,7 +25,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/UUID;[B)V
-    .registers 4
+    .locals 1
     .parameter "uuid"
     .parameter "initData"
     .annotation system Ldalvik/annotation/Throws;
@@ -50,7 +50,7 @@
 .end method
 
 .method private static final getByteArrayFromUUID(Ljava/util/UUID;)[B
-    .registers 10
+    .locals 9
     .parameter "uuid"
 
     .prologue
@@ -76,10 +76,10 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_d
+    :goto_0
     const/16 v6, 0x8
 
-    if-ge v0, v6, :cond_2a
+    if-ge v0, v6, :cond_0
 
     .line 47
     rsub-int/lit8 v6, v0, 0x7
@@ -112,15 +112,15 @@
     .line 46
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_d
+    goto :goto_0
 
     .line 51
-    :cond_2a
+    :cond_0
     return-object v5
 .end method
 
 .method public static final isCryptoSchemeSupported(Ljava/util/UUID;)Z
-    .registers 2
+    .locals 1
     .parameter "uuid"
 
     .prologue
@@ -156,7 +156,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 75

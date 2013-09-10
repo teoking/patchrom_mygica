@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 37
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/DataInputStream;)V
-    .registers 12
+    .locals 10
     .parameter "in"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -63,19 +63,19 @@
     const/4 v6, 0x0
 
     .local v6, i:I
-    :goto_c
-    if-ge v6, v8, :cond_3e
+    :goto_0
+    if-ge v6, v8, :cond_3
 
     .line 44
     const/4 v0, 0x1
 
-    if-gt v9, v0, :cond_14
+    if-gt v9, v0, :cond_0
 
     .line 45
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
 
     .line 47
-    :cond_14
+    :cond_0
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v1
@@ -96,7 +96,7 @@
     .local v3, subscriberId:Ljava/lang/String;
     const/4 v0, 0x3
 
-    if-lt v9, v0, :cond_3a
+    if-lt v9, v0, :cond_1
 
     .line 52
     invoke-static {p1}, Lcom/android/server/net/NetworkIdentitySet;->readOptionalString(Ljava/io/DataInputStream;)Ljava/lang/String;
@@ -105,10 +105,10 @@
 
     .line 57
     .local v4, networkId:Ljava/lang/String;
-    :goto_27
+    :goto_1
     const/4 v0, 0x2
 
-    if-lt v9, v0, :cond_3c
+    if-lt v9, v0, :cond_2
 
     .line 58
     invoke-virtual {p1}, Ljava/io/DataInputStream;->readBoolean()Z
@@ -117,7 +117,7 @@
 
     .line 63
     .local v7, roaming:Z
-    :goto_2e
+    :goto_2
     new-instance v0, Landroid/net/NetworkIdentity;
 
     const/4 v5, 0x0
@@ -129,23 +129,23 @@
     .line 43
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_c
+    goto :goto_0
 
     .line 54
     .end local v4           #networkId:Ljava/lang/String;
     .end local v7           #roaming:Z
-    :cond_3a
+    :cond_1
     const/4 v4, 0x0
 
     .restart local v4       #networkId:Ljava/lang/String;
-    goto :goto_27
+    goto :goto_1
 
     .line 60
-    :cond_3c
+    :cond_2
     const/4 v7, 0x0
 
     .restart local v7       #roaming:Z
-    goto :goto_2e
+    goto :goto_2
 
     .line 65
     .end local v1           #type:I
@@ -153,12 +153,12 @@
     .end local v3           #subscriberId:Ljava/lang/String;
     .end local v4           #networkId:Ljava/lang/String;
     .end local v7           #roaming:Z
-    :cond_3e
+    :cond_3
     return-void
 .end method
 
 .method private static readOptionalString(Ljava/io/DataInputStream;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "in"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -172,7 +172,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 90
     invoke-virtual {p0}, Ljava/io/DataInputStream;->readUTF()Ljava/lang/String;
@@ -180,17 +180,17 @@
     move-result-object v0
 
     .line 92
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method private static writeOptionalString(Ljava/io/DataOutputStream;Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "out"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -201,7 +201,7 @@
 
     .prologue
     .line 80
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_0
 
     .line 81
     const/4 v0, 0x1
@@ -212,22 +212,22 @@
     invoke-virtual {p0, p1}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
     .line 86
-    :goto_9
+    :goto_0
     return-void
 
     .line 84
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Ljava/io/DataOutputStream;->writeByte(I)V
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public writeToStream(Ljava/io/DataOutputStream;)V
-    .registers 5
+    .locals 3
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -254,12 +254,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_f
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3f
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -303,10 +303,10 @@
 
     invoke-virtual {p1, v2}, Ljava/io/DataOutputStream;->writeBoolean(Z)V
 
-    goto :goto_f
+    goto :goto_0
 
     .line 77
     .end local v1           #ident:Landroid/net/NetworkIdentity;
-    :cond_3f
+    :cond_0
     return-void
 .end method

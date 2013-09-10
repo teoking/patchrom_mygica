@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1472
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public bridge synthetic newInstance()Landroid/util/Poolable;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1472
@@ -53,7 +53,7 @@
 .end method
 
 .method public newInstance()Landroid/widget/RelativeLayout$DependencyGraph$Node;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1474
@@ -65,7 +65,7 @@
 .end method
 
 .method public bridge synthetic onAcquired(Landroid/util/Poolable;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -79,7 +79,7 @@
 .end method
 
 .method public onAcquired(Landroid/widget/RelativeLayout$DependencyGraph$Node;)V
-    .registers 2
+    .locals 0
     .parameter "element"
 
     .prologue
@@ -88,7 +88,7 @@
 .end method
 
 .method public bridge synthetic onReleased(Landroid/util/Poolable;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -102,7 +102,7 @@
 .end method
 
 .method public onReleased(Landroid/widget/RelativeLayout$DependencyGraph$Node;)V
-    .registers 2
+    .locals 0
     .parameter "element"
 
     .prologue

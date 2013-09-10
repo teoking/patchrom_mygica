@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/speech/RecognitionService;Landroid/content/Intent;Landroid/speech/IRecognitionListener;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "intent"
     .parameter "listener"

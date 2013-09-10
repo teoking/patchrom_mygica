@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/AudioService;)V
-    .registers 5
+    .locals 3
     .parameter
 
     .prologue
@@ -35,6 +35,7 @@
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     .line 3135
+    #getter for: Landroid/media/AudioService;->mContentResolver:Landroid/content/ContentResolver;
     invoke-static {p1}, Landroid/media/AudioService;->access$3300(Landroid/media/AudioService;)Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -56,7 +57,7 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .registers 7
+    .locals 5
     .parameter "selfChange"
 
     .prologue
@@ -66,6 +67,7 @@
     .line 3146
     iget-object v1, p0, Landroid/media/AudioService$SettingsObserver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mSettingsLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/media/AudioService;->access$6600(Landroid/media/AudioService;)Ljava/lang/Object;
 
     move-result-object v2
@@ -73,9 +75,10 @@
     monitor-enter v2
 
     .line 3147
-    :try_start_a
+    :try_start_0
     iget-object v1, p0, Landroid/media/AudioService$SettingsObserver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mContentResolver:Landroid/content/ContentResolver;
     invoke-static {v1}, Landroid/media/AudioService;->access$3300(Landroid/media/AudioService;)Landroid/content/ContentResolver;
 
     move-result-object v1
@@ -92,28 +95,31 @@
     .local v0, ringerModeAffectedStreams:I
     iget-object v1, p0, Landroid/media/AudioService$SettingsObserver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mVoiceCapable:Z
     invoke-static {v1}, Landroid/media/AudioService;->access$3400(Landroid/media/AudioService;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3e
+    if-eqz v1, :cond_1
 
     .line 3152
     and-int/lit8 v0, v0, -0x9
 
     .line 3156
-    :goto_23
+    :goto_0
     iget-object v1, p0, Landroid/media/AudioService$SettingsObserver;->this$0:Landroid/media/AudioService;
 
+    #getter for: Landroid/media/AudioService;->mRingerModeAffectedStreams:I
     invoke-static {v1}, Landroid/media/AudioService;->access$6700(Landroid/media/AudioService;)I
 
     move-result v1
 
-    if-eq v0, v1, :cond_3c
+    if-eq v0, v1, :cond_0
 
     .line 3161
     iget-object v1, p0, Landroid/media/AudioService$SettingsObserver;->this$0:Landroid/media/AudioService;
 
+    #setter for: Landroid/media/AudioService;->mRingerModeAffectedStreams:I
     invoke-static {v1, v0}, Landroid/media/AudioService;->access$6702(Landroid/media/AudioService;I)I
 
     .line 3162
@@ -127,29 +133,30 @@
 
     const/4 v4, 0x0
 
+    #calls: Landroid/media/AudioService;->setRingerModeInt(IZ)V
     invoke-static {v1, v3, v4}, Landroid/media/AudioService;->access$5200(Landroid/media/AudioService;IZ)V
 
     .line 3164
-    :cond_3c
+    :cond_0
     monitor-exit v2
 
     .line 3165
     return-void
 
     .line 3154
-    :cond_3e
+    :cond_1
     or-int/lit8 v0, v0, 0x8
 
-    goto :goto_23
+    goto :goto_0
 
     .line 3164
     .end local v0           #ringerModeAffectedStreams:I
-    :catchall_41
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_43
-    .catchall {:try_start_a .. :try_end_43} :catchall_41
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method

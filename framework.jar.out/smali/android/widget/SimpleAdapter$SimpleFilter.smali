@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/SimpleAdapter;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/SimpleAdapter;Landroid/widget/SimpleAdapter$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method protected performFiltering(Ljava/lang/CharSequence;)Landroid/widget/Filter$FilterResults;
-    .registers 21
+    .locals 19
     .parameter "prefix"
 
     .prologue
@@ -64,11 +64,12 @@
 
     move-object/from16 v16, v0
 
+    #getter for: Landroid/widget/SimpleAdapter;->mUnfilteredData:Ljava/util/ArrayList;
     invoke-static/range {v16 .. v16}, Landroid/widget/SimpleAdapter;->access$100(Landroid/widget/SimpleAdapter;)Ljava/util/ArrayList;
 
     move-result-object v16
 
-    if-nez v16, :cond_29
+    if-nez v16, :cond_0
 
     .line 330
     move-object/from16 v0, p0
@@ -85,32 +86,35 @@
 
     move-object/from16 v18, v0
 
+    #getter for: Landroid/widget/SimpleAdapter;->mData:Ljava/util/List;
     invoke-static/range {v18 .. v18}, Landroid/widget/SimpleAdapter;->access$200(Landroid/widget/SimpleAdapter;)Ljava/util/List;
 
     move-result-object v18
 
     invoke-direct/range {v17 .. v18}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
+    #setter for: Landroid/widget/SimpleAdapter;->mUnfilteredData:Ljava/util/ArrayList;
     invoke-static/range {v16 .. v17}, Landroid/widget/SimpleAdapter;->access$102(Landroid/widget/SimpleAdapter;Ljava/util/ArrayList;)Ljava/util/ArrayList;
 
     .line 333
-    :cond_29
-    if-eqz p1, :cond_31
+    :cond_0
+    if-eqz p1, :cond_1
 
     invoke-interface/range {p1 .. p1}, Ljava/lang/CharSequence;->length()I
 
     move-result v16
 
-    if-nez v16, :cond_46
+    if-nez v16, :cond_2
 
     .line 334
-    :cond_31
+    :cond_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Landroid/widget/SimpleAdapter$SimpleFilter;->this$0:Landroid/widget/SimpleAdapter;
 
     move-object/from16 v16, v0
 
+    #getter for: Landroid/widget/SimpleAdapter;->mUnfilteredData:Ljava/util/ArrayList;
     invoke-static/range {v16 .. v16}, Landroid/widget/SimpleAdapter;->access$100(Landroid/widget/SimpleAdapter;)Ljava/util/ArrayList;
 
     move-result-object v7
@@ -130,11 +134,11 @@
 
     .line 373
     .end local v7           #list:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/Map<Ljava/lang/String;*>;>;"
-    :goto_45
+    :goto_0
     return-object v10
 
     .line 338
-    :cond_46
+    :cond_2
     invoke-virtual/range {p1 .. p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v16
@@ -151,6 +155,7 @@
 
     move-object/from16 v16, v0
 
+    #getter for: Landroid/widget/SimpleAdapter;->mUnfilteredData:Ljava/util/ArrayList;
     invoke-static/range {v16 .. v16}, Landroid/widget/SimpleAdapter;->access$100(Landroid/widget/SimpleAdapter;)Ljava/util/ArrayList;
 
     move-result-object v12
@@ -172,8 +177,8 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_62
-    if-ge v3, v1, :cond_b6
+    :goto_1
+    if-ge v3, v1, :cond_6
 
     .line 346
     invoke-virtual {v12, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -184,7 +189,7 @@
 
     .line 347
     .local v2, h:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;*>;"
-    if-eqz v2, :cond_b3
+    if-eqz v2, :cond_5
 
     .line 349
     move-object/from16 v0, p0
@@ -193,6 +198,7 @@
 
     move-object/from16 v16, v0
 
+    #getter for: Landroid/widget/SimpleAdapter;->mTo:[I
     invoke-static/range {v16 .. v16}, Landroid/widget/SimpleAdapter;->access$300(Landroid/widget/SimpleAdapter;)[I
 
     move-result-object v16
@@ -206,8 +212,8 @@
     const/4 v4, 0x0
 
     .local v4, j:I
-    :goto_7a
-    if-ge v4, v6, :cond_b3
+    :goto_2
+    if-ge v4, v6, :cond_5
 
     .line 352
     move-object/from16 v0, p0
@@ -216,6 +222,7 @@
 
     move-object/from16 v16, v0
 
+    #getter for: Landroid/widget/SimpleAdapter;->mFrom:[Ljava/lang/String;
     invoke-static/range {v16 .. v16}, Landroid/widget/SimpleAdapter;->access$400(Landroid/widget/SimpleAdapter;)[Ljava/lang/String;
 
     move-result-object v16
@@ -249,8 +256,8 @@
     const/4 v5, 0x0
 
     .local v5, k:I
-    :goto_9a
-    if-ge v5, v14, :cond_ad
+    :goto_3
+    if-ge v5, v14, :cond_3
 
     .line 358
     aget-object v13, v15, v5
@@ -267,24 +274,24 @@
 
     move-result v16
 
-    if-eqz v16, :cond_b0
+    if-eqz v16, :cond_4
 
     .line 361
     invoke-virtual {v8, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 351
     .end local v13           #word:Ljava/lang/String;
-    :cond_ad
+    :cond_3
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_7a
+    goto :goto_2
 
     .line 357
     .restart local v13       #word:Ljava/lang/String;
-    :cond_b0
+    :cond_4
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_9a
+    goto :goto_3
 
     .line 345
     .end local v4           #j:I
@@ -294,14 +301,14 @@
     .end local v13           #word:Ljava/lang/String;
     .end local v14           #wordCount:I
     .end local v15           #words:[Ljava/lang/String;
-    :cond_b3
+    :cond_5
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_62
+    goto :goto_1
 
     .line 369
     .end local v2           #h:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;*>;"
-    :cond_b6
+    :cond_6
     iput-object v8, v10, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
 
     .line 370
@@ -313,11 +320,11 @@
 
     iput v0, v10, Landroid/widget/Filter$FilterResults;->count:I
 
-    goto :goto_45
+    goto :goto_0
 .end method
 
 .method protected publishResults(Ljava/lang/CharSequence;Landroid/widget/Filter$FilterResults;)V
-    .registers 5
+    .locals 2
     .parameter "constraint"
     .parameter "results"
 
@@ -329,12 +336,13 @@
 
     check-cast v0, Ljava/util/List;
 
+    #setter for: Landroid/widget/SimpleAdapter;->mData:Ljava/util/List;
     invoke-static {v1, v0}, Landroid/widget/SimpleAdapter;->access$202(Landroid/widget/SimpleAdapter;Ljava/util/List;)Ljava/util/List;
 
     .line 380
     iget v0, p2, Landroid/widget/Filter$FilterResults;->count:I
 
-    if-lez v0, :cond_13
+    if-lez v0, :cond_0
 
     .line 381
     iget-object v0, p0, Landroid/widget/SimpleAdapter$SimpleFilter;->this$0:Landroid/widget/SimpleAdapter;
@@ -342,14 +350,14 @@
     invoke-virtual {v0}, Landroid/widget/SimpleAdapter;->notifyDataSetChanged()V
 
     .line 385
-    :goto_12
+    :goto_0
     return-void
 
     .line 383
-    :cond_13
+    :cond_0
     iget-object v0, p0, Landroid/widget/SimpleAdapter$SimpleFilter;->this$0:Landroid/widget/SimpleAdapter;
 
     invoke-virtual {v0}, Landroid/widget/SimpleAdapter;->notifyDataSetInvalidated()V
 
-    goto :goto_12
+    goto :goto_0
 .end method

@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method protected createProgram(Landroid/filterfw/core/FilterContext;Landroid/filterfw/core/FrameFormat;)V
-    .registers 6
+    .locals 3
     .parameter "context"
     .parameter "format"
 
@@ -76,7 +76,7 @@
     .line 72
     iget-object v1, p0, Landroid/filterpacks/imageproc/ResizeFilter;->mLastFormat:Landroid/filterfw/core/FrameFormat;
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/filterpacks/imageproc/ResizeFilter;->mLastFormat:Landroid/filterfw/core/FrameFormat;
 
@@ -88,14 +88,14 @@
 
     move-result v2
 
-    if-ne v1, v2, :cond_11
+    if-ne v1, v2, :cond_0
 
     .line 87
-    :goto_10
+    :goto_0
     return-void
 
     .line 73
-    :cond_11
+    :cond_0
     iput-object p2, p0, Landroid/filterpacks/imageproc/ResizeFilter;->mLastFormat:Landroid/filterfw/core/FrameFormat;
 
     .line 74
@@ -103,7 +103,7 @@
 
     move-result v1
 
-    packed-switch v1, :pswitch_data_32
+    packed-switch v1, :pswitch_data_0
 
     .line 85
     new-instance v1, Ljava/lang/RuntimeException;
@@ -115,7 +115,7 @@
     throw v1
 
     .line 76
-    :pswitch_22
+    :pswitch_0
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Native ResizeFilter not implemented yet!"
@@ -125,7 +125,7 @@
     throw v1
 
     .line 80
-    :pswitch_2a
+    :pswitch_1
     invoke-static {p1}, Landroid/filterfw/core/ShaderProgram;->createIdentity(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/ShaderProgram;
 
     move-result-object v0
@@ -134,20 +134,20 @@
     .local v0, prog:Landroid/filterfw/core/ShaderProgram;
     iput-object v0, p0, Landroid/filterpacks/imageproc/ResizeFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    goto :goto_10
+    goto :goto_0
 
     .line 74
     nop
 
-    :pswitch_data_32
+    :pswitch_data_0
     .packed-switch 0x2
-        :pswitch_22
-        :pswitch_2a
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -157,7 +157,7 @@
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 9
+    .locals 7
     .parameter "env"
 
     .prologue
@@ -189,7 +189,7 @@
     .local v4, outputFormat:Landroid/filterfw/core/MutableFrameFormat;
     iget-boolean v5, p0, Landroid/filterpacks/imageproc/ResizeFilter;->mKeepAspectRatio:Z
 
-    if-eqz v5, :cond_2b
+    if-eqz v5, :cond_0
 
     .line 97
     invoke-virtual {v0}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
@@ -216,7 +216,7 @@
 
     .line 100
     .end local v1           #inputFormat:Landroid/filterfw/core/FrameFormat;
-    :cond_2b
+    :cond_0
     iget v5, p0, Landroid/filterpacks/imageproc/ResizeFilter;->mOWidth:I
 
     iget v6, p0, Landroid/filterpacks/imageproc/ResizeFilter;->mOHeight:I
@@ -236,7 +236,7 @@
     .local v3, output:Landroid/filterfw/core/Frame;
     iget-boolean v5, p0, Landroid/filterpacks/imageproc/ResizeFilter;->mGenerateMipMap:Z
 
-    if-eqz v5, :cond_6a
+    if-eqz v5, :cond_1
 
     .line 105
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
@@ -277,7 +277,7 @@
 
     .line 117
     .end local v2           #mipmapped:Landroid/filterfw/core/GLFrame;
-    :goto_61
+    :goto_0
     const-string v5, "image"
 
     invoke-virtual {p0, v5, v3}, Landroid/filterpacks/imageproc/ResizeFilter;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
@@ -289,16 +289,16 @@
     return-void
 
     .line 113
-    :cond_6a
+    :cond_1
     iget-object v5, p0, Landroid/filterpacks/imageproc/ResizeFilter;->mProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v5, v0, v3}, Landroid/filterfw/core/Program;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
 
-    goto :goto_61
+    goto :goto_0
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 62

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 2491
@@ -32,7 +32,7 @@
 .end method
 
 .method getBounds()Landroid/widget/GridLayout$Bounds;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2526
@@ -49,7 +49,7 @@
 .end method
 
 .method getSizeInCell(Landroid/view/View;II)I
-    .registers 4
+    .locals 0
     .parameter "view"
     .parameter "viewSize"
     .parameter "cellSize"

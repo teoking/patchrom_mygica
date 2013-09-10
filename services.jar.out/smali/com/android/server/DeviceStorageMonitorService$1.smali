@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/DeviceStorageMonitorService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
@@ -44,7 +44,7 @@
     .line 114
     iget v1, p1, Landroid/os/Message;->what:I
 
-    if-eq v1, v0, :cond_d
+    if-eq v1, v0, :cond_0
 
     .line 115
     const-string v0, "DeviceStorageMonitorService"
@@ -54,24 +54,25 @@
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 119
-    :goto_c
+    :goto_0
     return-void
 
     .line 118
-    :cond_d
+    :cond_0
     iget-object v1, p0, Lcom/android/server/DeviceStorageMonitorService$1;->this$0:Lcom/android/server/DeviceStorageMonitorService;
 
     iget v2, p1, Landroid/os/Message;->arg1:I
 
-    if-ne v2, v0, :cond_17
+    if-ne v2, v0, :cond_1
 
-    :goto_13
+    :goto_1
+    #calls: Lcom/android/server/DeviceStorageMonitorService;->checkMemory(Z)V
     invoke-static {v1, v0}, Lcom/android/server/DeviceStorageMonitorService;->access$000(Lcom/android/server/DeviceStorageMonitorService;Z)V
 
-    goto :goto_c
+    goto :goto_0
 
-    :cond_17
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_13
+    goto :goto_1
 .end method

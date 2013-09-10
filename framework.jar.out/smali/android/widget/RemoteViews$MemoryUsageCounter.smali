@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/RemoteViews;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public addBitmapMemory(Landroid/graphics/Bitmap;)V
-    .registers 6
+    .locals 4
     .parameter "b"
 
     .prologue
@@ -64,7 +64,7 @@
 
     .line 1294
     .local v0, bpp:I
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_0
 
     .line 1295
     sget-object v2, Landroid/widget/RemoteViews$2;->$SwitchMap$android$graphics$Bitmap$Config:[I
@@ -75,11 +75,11 @@
 
     aget v2, v2, v3
 
-    packed-switch v2, :pswitch_data_26
+    packed-switch v2, :pswitch_data_0
 
     .line 1308
-    :cond_12
-    :goto_12
+    :cond_0
+    :goto_0
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v2
@@ -98,37 +98,37 @@
     return-void
 
     .line 1297
-    :pswitch_20
+    :pswitch_0
     const/4 v0, 0x1
 
     .line 1298
-    goto :goto_12
+    goto :goto_0
 
     .line 1301
-    :pswitch_22
+    :pswitch_1
     const/4 v0, 0x2
 
     .line 1302
-    goto :goto_12
+    goto :goto_0
 
     .line 1304
-    :pswitch_24
+    :pswitch_2
     const/4 v0, 0x4
 
-    goto :goto_12
+    goto :goto_0
 
     .line 1295
-    :pswitch_data_26
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_20
-        :pswitch_22
-        :pswitch_22
-        :pswitch_24
+        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public clear()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1279
@@ -141,7 +141,7 @@
 .end method
 
 .method public getMemoryUsage()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1287
@@ -151,7 +151,7 @@
 .end method
 
 .method public increment(I)V
-    .registers 3
+    .locals 1
     .parameter "numBytes"
 
     .prologue

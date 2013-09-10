@@ -177,7 +177,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ActivityStack;Lcom/android/server/am/ProcessRecord;ILandroid/content/Intent;Ljava/lang/String;Landroid/content/pm/ActivityInfo;Landroid/content/res/Configuration;Lcom/android/server/am/ActivityRecord;Ljava/lang/String;IZ)V
-    .registers 20
+    .locals 7
     .parameter "_service"
     .parameter "_stack"
     .parameter "_caller"
@@ -346,25 +346,25 @@
     iput-boolean v3, p0, Lcom/android/server/am/ActivityRecord;->hasBeenLaunched:Z
 
     .line 350
-    if-eqz p7, :cond_1e2
+    if-eqz p7, :cond_10
 
     .line 351
     iget-object v3, p7, Landroid/content/pm/ActivityInfo;->targetActivity:Ljava/lang/String;
 
-    if-eqz v3, :cond_7c
+    if-eqz v3, :cond_0
 
     iget v3, p7, Landroid/content/pm/ActivityInfo;->launchMode:I
 
-    if-eqz v3, :cond_7c
+    if-eqz v3, :cond_0
 
     iget v3, p7, Landroid/content/pm/ActivityInfo;->launchMode:I
 
     const/4 v4, 0x1
 
-    if-ne v3, v4, :cond_1b8
+    if-ne v3, v4, :cond_7
 
     .line 354
-    :cond_7c
+    :cond_0
     invoke-virtual {p5}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object v3
@@ -372,7 +372,7 @@
     iput-object v3, p0, Lcom/android/server/am/ActivityRecord;->realActivity:Landroid/content/ComponentName;
 
     .line 359
-    :goto_82
+    :goto_0
     iget-object v3, p7, Landroid/content/pm/ActivityInfo;->taskAffinity:Ljava/lang/String;
 
     iput-object v3, p0, Lcom/android/server/am/ActivityRecord;->taskAffinity:Ljava/lang/String;
@@ -382,11 +382,11 @@
 
     and-int/lit8 v3, v3, 0x10
 
-    if-eqz v3, :cond_1c5
+    if-eqz v3, :cond_8
 
     const/4 v3, 0x1
 
-    :goto_8d
+    :goto_1
     iput-boolean v3, p0, Lcom/android/server/am/ActivityRecord;->stateNotNeeded:Z
 
     .line 362
@@ -423,11 +423,11 @@
     .line 367
     iget-object v3, p0, Lcom/android/server/am/ActivityRecord;->nonLocalizedLabel:Ljava/lang/CharSequence;
 
-    if-nez v3, :cond_bb
+    if-nez v3, :cond_1
 
     iget v3, p0, Lcom/android/server/am/ActivityRecord;->labelRes:I
 
-    if-nez v3, :cond_bb
+    if-nez v3, :cond_1
 
     .line 368
     iget-object v1, p7, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
@@ -445,7 +445,7 @@
 
     .line 372
     .end local v1           #app:Landroid/content/pm/ApplicationInfo;
-    :cond_bb
+    :cond_1
     invoke-virtual {p7}, Landroid/content/pm/ActivityInfo;->getIconResource()I
 
     move-result v3
@@ -467,7 +467,7 @@
     .line 375
     iget v3, p0, Lcom/android/server/am/ActivityRecord;->realTheme:I
 
-    if-nez v3, :cond_dc
+    if-nez v3, :cond_2
 
     .line 376
     iget-object v3, p7, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
@@ -476,20 +476,20 @@
 
     const/16 v4, 0xb
 
-    if-ge v3, v4, :cond_1c8
+    if-ge v3, v4, :cond_9
 
     const v3, 0x1030005
 
-    :goto_da
+    :goto_2
     iput v3, p0, Lcom/android/server/am/ActivityRecord;->realTheme:I
 
     .line 381
-    :cond_dc
+    :cond_2
     iget v3, p7, Landroid/content/pm/ActivityInfo;->flags:I
 
     and-int/lit16 v3, v3, 0x200
 
-    if-eqz v3, :cond_e9
+    if-eqz v3, :cond_3
 
     .line 382
     iget v3, p0, Lcom/android/server/am/ActivityRecord;->windowFlags:I
@@ -501,14 +501,14 @@
     iput v3, p0, Lcom/android/server/am/ActivityRecord;->windowFlags:I
 
     .line 384
-    :cond_e9
+    :cond_3
     iget v3, p7, Landroid/content/pm/ActivityInfo;->flags:I
 
     and-int/lit8 v3, v3, 0x1
 
-    if-eqz v3, :cond_1cd
+    if-eqz v3, :cond_a
 
-    if-eqz p3, :cond_1cd
+    if-eqz p3, :cond_a
 
     iget-object v3, p7, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
@@ -516,7 +516,7 @@
 
     const/16 v4, 0x3e8
 
-    if-eq v3, v4, :cond_103
+    if-eq v3, v4, :cond_4
 
     iget-object v3, p7, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
@@ -526,25 +526,25 @@
 
     iget v4, v4, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    if-ne v3, v4, :cond_1cd
+    if-ne v3, v4, :cond_a
 
     .line 388
-    :cond_103
+    :cond_4
     iget-object v3, p3, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
     iput-object v3, p0, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
 
     .line 393
-    :goto_107
+    :goto_3
     iget-object v3, p0, Lcom/android/server/am/ActivityRecord;->intent:Landroid/content/Intent;
 
-    if-eqz v3, :cond_118
+    if-eqz v3, :cond_5
 
     iget v3, p7, Landroid/content/pm/ActivityInfo;->flags:I
 
     and-int/lit8 v3, v3, 0x20
 
-    if-eqz v3, :cond_118
+    if-eqz v3, :cond_5
 
     .line 394
     iget-object v3, p0, Lcom/android/server/am/ActivityRecord;->intent:Landroid/content/Intent;
@@ -554,7 +554,7 @@
     invoke-virtual {v3, v4}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     .line 397
-    :cond_118
+    :cond_5
     iget-object v3, p7, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget-object v3, v3, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
@@ -583,7 +583,7 @@
 
     .line 402
     .local v2, ent:Lcom/android/server/AttributeCache$Entry;
-    if-eqz v2, :cond_1d3
+    if-eqz v2, :cond_b
 
     iget-object v3, v2, Lcom/android/server/AttributeCache$Entry;->array:Landroid/content/res/TypedArray;
 
@@ -595,7 +595,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1d3
+    if-nez v3, :cond_b
 
     iget-object v3, v2, Lcom/android/server/AttributeCache$Entry;->array:Landroid/content/res/TypedArray;
 
@@ -607,15 +607,15 @@
 
     move-result v3
 
-    if-nez v3, :cond_1d3
+    if-nez v3, :cond_b
 
     const/4 v3, 0x1
 
-    :goto_147
+    :goto_4
     iput-boolean v3, p0, Lcom/android/server/am/ActivityRecord;->fullscreen:Z
 
     .line 406
-    if-eqz v2, :cond_1d6
+    if-eqz v2, :cond_c
 
     iget-object v3, v2, Lcom/android/server/AttributeCache$Entry;->array:Landroid/content/res/TypedArray;
 
@@ -627,26 +627,26 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1d6
+    if-eqz v3, :cond_c
 
     const/4 v3, 0x1
 
-    :goto_157
+    :goto_5
     iput-boolean v3, p0, Lcom/android/server/am/ActivityRecord;->noDisplay:Z
 
     .line 409
-    if-eqz p12, :cond_163
+    if-eqz p12, :cond_6
 
     invoke-static {}, Landroid/os/Process;->myUid()I
 
     move-result v3
 
-    if-eq p4, v3, :cond_163
+    if-eq p4, v3, :cond_6
 
-    if-nez p4, :cond_1dc
+    if-nez p4, :cond_e
 
     .line 413
-    :cond_163
+    :cond_6
     const-string v3, "android.intent.action.MAIN"
 
     invoke-virtual {p5}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -657,7 +657,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1d8
+    if-eqz v3, :cond_d
 
     const-string v3, "android.intent.category.HOME"
 
@@ -665,7 +665,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1d8
+    if-eqz v3, :cond_d
 
     invoke-virtual {p5}, Landroid/content/Intent;->getCategories()Ljava/util/Set;
 
@@ -677,19 +677,19 @@
 
     const/4 v4, 0x1
 
-    if-ne v3, v4, :cond_1d8
+    if-ne v3, v4, :cond_d
 
     invoke-virtual {p5}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v3
 
-    if-nez v3, :cond_1d8
+    if-nez v3, :cond_d
 
     invoke-virtual {p5}, Landroid/content/Intent;->getType()Ljava/lang/String;
 
     move-result-object v3
 
-    if-nez v3, :cond_1d8
+    if-nez v3, :cond_d
 
     iget-object v3, p0, Lcom/android/server/am/ActivityRecord;->intent:Landroid/content/Intent;
 
@@ -701,7 +701,7 @@
 
     and-int/2addr v3, v4
 
-    if-eqz v3, :cond_1d8
+    if-eqz v3, :cond_d
 
     const-class v3, Lcom/android/internal/app/ResolverActivity;
 
@@ -719,7 +719,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_1d8
+    if-nez v3, :cond_d
 
     .line 425
     const/4 v3, 0x1
@@ -727,25 +727,25 @@
     iput-boolean v3, p0, Lcom/android/server/am/ActivityRecord;->isHomeActivity:Z
 
     .line 433
-    :goto_1ae
+    :goto_6
     iget v3, p7, Landroid/content/pm/ActivityInfo;->flags:I
 
     and-int/lit16 v3, v3, 0x400
 
-    if-eqz v3, :cond_1e0
+    if-eqz v3, :cond_f
 
     const/4 v3, 0x1
 
-    :goto_1b5
+    :goto_7
     iput-boolean v3, p0, Lcom/android/server/am/ActivityRecord;->immersive:Z
 
     .line 448
     .end local v2           #ent:Lcom/android/server/AttributeCache$Entry;
-    :goto_1b7
+    :goto_8
     return-void
 
     .line 356
-    :cond_1b8
+    :cond_7
     new-instance v3, Landroid/content/ComponentName;
 
     iget-object v4, p7, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
@@ -756,66 +756,66 @@
 
     iput-object v3, p0, Lcom/android/server/am/ActivityRecord;->realActivity:Landroid/content/ComponentName;
 
-    goto/16 :goto_82
+    goto/16 :goto_0
 
     .line 360
-    :cond_1c5
+    :cond_8
     const/4 v3, 0x0
 
-    goto/16 :goto_8d
+    goto/16 :goto_1
 
     .line 376
-    :cond_1c8
+    :cond_9
     const v3, 0x103006b
 
-    goto/16 :goto_da
+    goto/16 :goto_2
 
     .line 390
-    :cond_1cd
+    :cond_a
     iget-object v3, p7, Landroid/content/pm/ActivityInfo;->processName:Ljava/lang/String;
 
     iput-object v3, p0, Lcom/android/server/am/ActivityRecord;->processName:Ljava/lang/String;
 
-    goto/16 :goto_107
+    goto/16 :goto_3
 
     .line 402
     .restart local v2       #ent:Lcom/android/server/AttributeCache$Entry;
-    :cond_1d3
+    :cond_b
     const/4 v3, 0x0
 
-    goto/16 :goto_147
+    goto/16 :goto_4
 
     .line 406
-    :cond_1d6
+    :cond_c
     const/4 v3, 0x0
 
-    goto :goto_157
+    goto :goto_5
 
     .line 427
-    :cond_1d8
+    :cond_d
     const/4 v3, 0x0
 
     iput-boolean v3, p0, Lcom/android/server/am/ActivityRecord;->isHomeActivity:Z
 
-    goto :goto_1ae
+    goto :goto_6
 
     .line 430
-    :cond_1dc
+    :cond_e
     const/4 v3, 0x0
 
     iput-boolean v3, p0, Lcom/android/server/am/ActivityRecord;->isHomeActivity:Z
 
-    goto :goto_1ae
+    goto :goto_6
 
     .line 433
-    :cond_1e0
+    :cond_f
     const/4 v3, 0x0
 
-    goto :goto_1b5
+    goto :goto_7
 
     .line 435
     .end local v2           #ent:Lcom/android/server/AttributeCache$Entry;
-    :cond_1e2
+    :cond_10
     const/4 v3, 0x0
 
     iput-object v3, p0, Lcom/android/server/am/ActivityRecord;->realActivity:Landroid/content/ComponentName;
@@ -875,20 +875,20 @@
 
     iput-boolean v3, p0, Lcom/android/server/am/ActivityRecord;->immersive:Z
 
-    goto :goto_1b7
+    goto :goto_8
 .end method
 
 .method static forToken(Landroid/os/IBinder;)Lcom/android/server/am/ActivityRecord;
-    .registers 7
+    .locals 6
     .parameter "token"
 
     .prologue
     const/4 v3, 0x0
 
     .line 307
-    if-eqz p0, :cond_11
+    if-eqz p0, :cond_0
 
-    :try_start_3
+    :try_start_0
     move-object v0, p0
 
     check-cast v0, Lcom/android/server/am/ActivityRecord$Token;
@@ -902,24 +902,24 @@
     move-result-object v2
 
     check-cast v2, Lcom/android/server/am/ActivityRecord;
-    :try_end_f
-    .catch Ljava/lang/ClassCastException; {:try_start_3 .. :try_end_f} :catch_13
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_f
+    :goto_0
     move-object v3, v2
 
     .line 310
-    :goto_10
+    :goto_1
     return-object v3
 
-    :cond_11
+    :cond_0
     move-object v2, v3
 
     .line 307
-    goto :goto_f
+    goto :goto_0
 
     .line 308
-    :catch_13
+    :catch_0
     move-exception v1
 
     .line 309
@@ -946,11 +946,11 @@
 
     invoke-static {v2, v4, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_10
+    goto :goto_1
 .end method
 
 .method private getWaitingHistoryRecordLocked()Lcom/android/server/am/ActivityRecord;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 821
@@ -960,7 +960,7 @@
     .local v0, r:Lcom/android/server/am/ActivityRecord;
     iget-boolean v1, v0, Lcom/android/server/am/ActivityRecord;->waitingVisible:Z
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_1
 
     .line 824
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->stack:Lcom/android/server/am/ActivityStack;
@@ -968,7 +968,7 @@
     iget-object v0, v1, Lcom/android/server/am/ActivityStack;->mResumedActivity:Lcom/android/server/am/ActivityRecord;
 
     .line 825
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 826
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->stack:Lcom/android/server/am/ActivityStack;
@@ -976,28 +976,28 @@
     iget-object v0, v1, Lcom/android/server/am/ActivityStack;->mPausingActivity:Lcom/android/server/am/ActivityRecord;
 
     .line 829
-    :cond_f
-    if-nez v0, :cond_12
+    :cond_0
+    if-nez v0, :cond_1
 
     .line 830
     move-object v0, p0
 
     .line 834
-    :cond_12
+    :cond_1
     return-object v0
 .end method
 
 
 # virtual methods
 .method addNewIntentLocked(Landroid/content/Intent;)V
-    .registers 3
+    .locals 1
     .parameter "intent"
 
     .prologue
     .line 545
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->newIntents:Ljava/util/ArrayList;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 546
     new-instance v0, Ljava/util/ArrayList;
@@ -1007,7 +1007,7 @@
     iput-object v0, p0, Lcom/android/server/am/ActivityRecord;->newIntents:Ljava/util/ArrayList;
 
     .line 548
-    :cond_b
+    :cond_0
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->newIntents:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -1017,7 +1017,7 @@
 .end method
 
 .method addResultLocked(Lcom/android/server/am/ActivityRecord;Ljava/lang/String;IILandroid/content/Intent;)V
-    .registers 12
+    .locals 6
     .parameter "from"
     .parameter "resultWho"
     .parameter "requestCode"
@@ -1044,7 +1044,7 @@
     .local v0, r:Lcom/android/server/am/ActivityResult;
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->results:Ljava/util/ArrayList;
 
-    if-nez v1, :cond_15
+    if-nez v1, :cond_0
 
     .line 521
     new-instance v1, Ljava/util/ArrayList;
@@ -1054,7 +1054,7 @@
     iput-object v1, p0, Lcom/android/server/am/ActivityRecord;->results:Ljava/util/ArrayList;
 
     .line 523
-    :cond_15
+    :cond_0
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->results:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -1064,13 +1064,13 @@
 .end method
 
 .method applyOptionsLocked()V
-    .registers 10
+    .locals 9
 
     .prologue
     .line 596
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->pendingOptions:Landroid/app/ActivityOptions;
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_1
 
     .line 597
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->pendingOptions:Landroid/app/ActivityOptions;
@@ -1081,23 +1081,23 @@
 
     .line 598
     .local v6, animationType:I
-    packed-switch v6, :pswitch_data_f0
+    packed-switch v6, :pswitch_data_0
 
     .line 635
-    :cond_d
-    :goto_d
+    :cond_0
+    :goto_0
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/am/ActivityRecord;->pendingOptions:Landroid/app/ActivityOptions;
 
     .line 637
     .end local v6           #animationType:I
-    :cond_10
+    :cond_1
     return-void
 
     .line 600
     .restart local v6       #animationType:I
-    :pswitch_11
+    :pswitch_0
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->service:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
@@ -1128,10 +1128,10 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/wm/WindowManagerService;->overridePendingAppTransition(Ljava/lang/String;IILandroid/os/IRemoteCallback;)V
 
-    goto :goto_d
+    goto :goto_0
 
     .line 607
-    :pswitch_31
+    :pswitch_1
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->service:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
@@ -1169,7 +1169,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 611
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->intent:Landroid/content/Intent;
@@ -1220,19 +1220,19 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setSourceBounds(Landroid/graphics/Rect;)V
 
-    goto :goto_d
+    goto :goto_0
 
     .line 619
-    :pswitch_89
+    :pswitch_2
     const/4 v0, 0x4
 
-    if-ne v6, v0, :cond_ee
+    if-ne v6, v0, :cond_2
 
     const/4 v5, 0x1
 
     .line 620
     .local v5, delayed:Z
-    :goto_8d
+    :goto_1
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->service:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
@@ -1270,7 +1270,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 626
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->intent:Landroid/content/Intent;
@@ -1329,33 +1329,33 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setSourceBounds(Landroid/graphics/Rect;)V
 
-    goto/16 :goto_d
+    goto/16 :goto_0
 
     .line 619
     .end local v5           #delayed:Z
-    :cond_ee
+    :cond_2
     const/4 v5, 0x0
 
-    goto :goto_8d
+    goto :goto_1
 
     .line 598
-    :pswitch_data_f0
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_11
-        :pswitch_31
-        :pswitch_89
-        :pswitch_89
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method clearOptionsLocked()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 640
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->pendingOptions:Landroid/app/ActivityOptions;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 641
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->pendingOptions:Landroid/app/ActivityOptions;
@@ -1368,12 +1368,12 @@
     iput-object v0, p0, Lcom/android/server/am/ActivityRecord;->pendingOptions:Landroid/app/ActivityOptions;
 
     .line 644
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method clearThumbnail()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -1381,7 +1381,7 @@
     .line 680
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->thumbHolder:Lcom/android/server/am/ThumbnailHolder;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 681
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->thumbHolder:Lcom/android/server/am/ThumbnailHolder;
@@ -1394,12 +1394,12 @@
     iput-object v1, v0, Lcom/android/server/am/ThumbnailHolder;->lastDescription:Ljava/lang/CharSequence;
 
     .line 684
-    :cond_d
+    :cond_0
     return-void
 .end method
 
 .method continueLaunchTickingLocked()Z
-    .registers 7
+    .locals 6
 
     .prologue
     const/16 v5, 0x6b
@@ -1411,7 +1411,7 @@
 
     cmp-long v1, v1, v3
 
-    if-eqz v1, :cond_26
+    if-eqz v1, :cond_0
 
     .line 698
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->stack:Lcom/android/server/am/ActivityStack;
@@ -1447,17 +1447,17 @@
 
     .line 704
     .end local v0           #msg:Landroid/os/Message;
-    :goto_25
+    :goto_0
     return v1
 
-    :cond_26
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_25
+    goto :goto_0
 .end method
 
 .method final deliverNewIntentLocked(ILandroid/content/Intent;)V
-    .registers 10
+    .locals 7
     .parameter "callingUid"
     .parameter "intent"
 
@@ -1471,13 +1471,13 @@
 
     sget-object v5, Lcom/android/server/am/ActivityStack$ActivityState;->RESUMED:Lcom/android/server/am/ActivityStack$ActivityState;
 
-    if-eq v4, v5, :cond_16
+    if-eq v4, v5, :cond_0
 
     iget-object v4, p0, Lcom/android/server/am/ActivityRecord;->service:Lcom/android/server/am/ActivityManagerService;
 
     iget-boolean v4, v4, Lcom/android/server/am/ActivityManagerService;->mSleeping:Z
 
-    if-eqz v4, :cond_43
+    if-eqz v4, :cond_1
 
     iget-object v4, p0, Lcom/android/server/am/ActivityRecord;->stack:Lcom/android/server/am/ActivityStack;
 
@@ -1487,21 +1487,21 @@
 
     move-result-object v4
 
-    if-ne v4, p0, :cond_43
+    if-ne v4, p0, :cond_1
 
-    :cond_16
+    :cond_0
     iget-object v4, p0, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
-    if-eqz v4, :cond_43
+    if-eqz v4, :cond_1
 
     iget-object v4, p0, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
     iget-object v4, v4, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
 
-    if-eqz v4, :cond_43
+    if-eqz v4, :cond_1
 
     .line 566
-    :try_start_20
+    :try_start_0
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -1511,14 +1511,14 @@
     new-instance v2, Landroid/content/Intent;
 
     invoke-direct {v2, p2}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
-    :try_end_2a
-    .catch Landroid/os/RemoteException; {:try_start_20 .. :try_end_2a} :catch_4e
-    .catch Ljava/lang/NullPointerException; {:try_start_20 .. :try_end_2a} :catch_68
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 568
     .end local p2
     .local v2, intent:Landroid/content/Intent;
-    :try_start_2a
+    :try_start_1
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 569
@@ -1540,9 +1540,9 @@
     iget-object v5, p0, Lcom/android/server/am/ActivityRecord;->appToken:Landroid/view/IApplicationToken$Stub;
 
     invoke-interface {v4, v0, v5}, Landroid/app/IApplicationThread;->scheduleNewIntent(Ljava/util/List;Landroid/os/IBinder;)V
-    :try_end_41
-    .catch Landroid/os/RemoteException; {:try_start_2a .. :try_end_41} :catch_85
-    .catch Ljava/lang/NullPointerException; {:try_start_2a .. :try_end_41} :catch_82
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_3
+    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_2
 
     .line 572
     const/4 v3, 0x1
@@ -1553,9 +1553,9 @@
     .end local v0           #ar:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/Intent;>;"
     .end local v2           #intent:Landroid/content/Intent;
     .restart local p2
-    :cond_43
-    :goto_43
-    if-nez v3, :cond_4d
+    :cond_1
+    :goto_0
+    if-nez v3, :cond_2
 
     .line 582
     new-instance v4, Landroid/content/Intent;
@@ -1565,16 +1565,16 @@
     invoke-virtual {p0, v4}, Lcom/android/server/am/ActivityRecord;->addNewIntentLocked(Landroid/content/Intent;)V
 
     .line 584
-    :cond_4d
+    :cond_2
     return-void
 
     .line 573
-    :catch_4e
+    :catch_0
     move-exception v1
 
     .line 574
     .local v1, e:Landroid/os/RemoteException;
-    :goto_4f
+    :goto_1
     const-string v4, "ActivityManager"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1597,16 +1597,16 @@
 
     invoke-static {v4, v5, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_43
+    goto :goto_0
 
     .line 576
     .end local v1           #e:Landroid/os/RemoteException;
-    :catch_68
+    :catch_1
     move-exception v1
 
     .line 577
     .local v1, e:Ljava/lang/NullPointerException;
-    :goto_69
+    :goto_2
     const-string v4, "ActivityManager"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1629,37 +1629,37 @@
 
     invoke-static {v4, v5, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_43
+    goto :goto_0
 
     .line 576
     .end local v1           #e:Ljava/lang/NullPointerException;
     .end local p2
     .restart local v0       #ar:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/Intent;>;"
     .restart local v2       #intent:Landroid/content/Intent;
-    :catch_82
+    :catch_2
     move-exception v1
 
     move-object p2, v2
 
     .end local v2           #intent:Landroid/content/Intent;
     .restart local p2
-    goto :goto_69
+    goto :goto_2
 
     .line 573
     .end local p2
     .restart local v2       #intent:Landroid/content/Intent;
-    :catch_85
+    :catch_3
     move-exception v1
 
     move-object p2, v2
 
     .end local v2           #intent:Landroid/content/Intent;
     .restart local p2
-    goto :goto_4f
+    goto :goto_1
 .end method
 
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .registers 16
+    .locals 13
     .parameter "pw"
     .parameter "prefix"
 
@@ -1805,7 +1805,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_a8
+    if-nez v7, :cond_0
 
     .line 146
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -1819,7 +1819,7 @@
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 148
-    :cond_a8
+    :cond_0
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v7, "dataDir="
@@ -1923,14 +1923,14 @@
     .line 157
     iget-object v7, p0, Lcom/android/server/am/ActivityRecord;->resultTo:Lcom/android/server/am/ActivityRecord;
 
-    if-nez v7, :cond_122
+    if-nez v7, :cond_1
 
     iget-object v7, p0, Lcom/android/server/am/ActivityRecord;->resultWho:Ljava/lang/String;
 
-    if-eqz v7, :cond_143
+    if-eqz v7, :cond_2
 
     .line 158
-    :cond_122
+    :cond_1
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v7, "resultTo="
@@ -1960,10 +1960,10 @@
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->println(I)V
 
     .line 162
-    :cond_143
+    :cond_2
     iget-object v7, p0, Lcom/android/server/am/ActivityRecord;->results:Ljava/util/ArrayList;
 
-    if-eqz v7, :cond_154
+    if-eqz v7, :cond_3
 
     .line 163
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -1977,10 +1977,10 @@
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     .line 165
-    :cond_154
+    :cond_3
     iget-object v7, p0, Lcom/android/server/am/ActivityRecord;->pendingResults:Ljava/util/HashSet;
 
-    if-eqz v7, :cond_1af
+    if-eqz v7, :cond_6
 
     iget-object v7, p0, Lcom/android/server/am/ActivityRecord;->pendingResults:Ljava/util/HashSet;
 
@@ -1988,7 +1988,7 @@
 
     move-result v7
 
-    if-lez v7, :cond_1af
+    if-lez v7, :cond_6
 
     .line 166
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2005,12 +2005,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_16e
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_1af
+    if-eqz v7, :cond_6
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2020,7 +2020,7 @@
 
     .line 168
     .local v6, wpir:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Lcom/android/server/am/PendingIntentRecord;>;"
-    if-eqz v6, :cond_193
+    if-eqz v6, :cond_4
 
     invoke-virtual {v6}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
@@ -2032,7 +2032,7 @@
 
     .line 169
     .local v5, pir:Lcom/android/server/am/PendingIntentRecord;
-    :goto_183
+    :goto_1
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v7, "  - "
@@ -2040,25 +2040,25 @@
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 170
-    if-nez v5, :cond_195
+    if-nez v5, :cond_5
 
     .line 171
     const-string v7, "null"
 
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    goto :goto_16e
+    goto :goto_0
 
     .line 168
     .end local v5           #pir:Lcom/android/server/am/PendingIntentRecord;
-    :cond_193
+    :cond_4
     const/4 v5, 0x0
 
-    goto :goto_183
+    goto :goto_1
 
     .line 173
     .restart local v5       #pir:Lcom/android/server/am/PendingIntentRecord;
-    :cond_195
+    :cond_5
     invoke-virtual {p1, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     .line 174
@@ -2082,16 +2082,16 @@
 
     invoke-virtual {v5, p1, v7}, Lcom/android/server/am/PendingIntentRecord;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
 
-    goto :goto_16e
+    goto :goto_0
 
     .line 178
     .end local v1           #i$:Ljava/util/Iterator;
     .end local v5           #pir:Lcom/android/server/am/PendingIntentRecord;
     .end local v6           #wpir:Ljava/lang/ref/WeakReference;,"Ljava/lang/ref/WeakReference<Lcom/android/server/am/PendingIntentRecord;>;"
-    :cond_1af
+    :cond_6
     iget-object v7, p0, Lcom/android/server/am/ActivityRecord;->newIntents:Ljava/util/ArrayList;
 
-    if-eqz v7, :cond_1ee
+    if-eqz v7, :cond_8
 
     iget-object v7, p0, Lcom/android/server/am/ActivityRecord;->newIntents:Ljava/util/ArrayList;
 
@@ -2099,7 +2099,7 @@
 
     move-result v7
 
-    if-lez v7, :cond_1ee
+    if-lez v7, :cond_8
 
     .line 179
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2112,14 +2112,14 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1c4
+    :goto_2
     iget-object v7, p0, Lcom/android/server/am/ActivityRecord;->newIntents:Ljava/util/ArrayList;
 
     invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
 
     move-result v7
 
-    if-ge v0, v7, :cond_1ee
+    if-ge v0, v7, :cond_8
 
     .line 181
     iget-object v7, p0, Lcom/android/server/am/ActivityRecord;->newIntents:Ljava/util/ArrayList;
@@ -2139,7 +2139,7 @@
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 183
-    if-nez v2, :cond_1e6
+    if-nez v2, :cond_7
 
     .line 184
     const-string v7, "null"
@@ -2147,28 +2147,28 @@
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 180
-    :goto_1e3
+    :goto_3
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1c4
+    goto :goto_2
 
     .line 186
-    :cond_1e6
+    :cond_7
     invoke-virtual {v2, v11, v12, v11, v12}, Landroid/content/Intent;->toShortString(ZZZZ)Ljava/lang/String;
 
     move-result-object v7
 
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    goto :goto_1e3
+    goto :goto_3
 
     .line 190
     .end local v0           #i:I
     .end local v2           #intent:Landroid/content/Intent;
-    :cond_1ee
+    :cond_8
     iget-object v7, p0, Lcom/android/server/am/ActivityRecord;->pendingOptions:Landroid/app/ActivityOptions;
 
-    if-eqz v7, :cond_1ff
+    if-eqz v7, :cond_9
 
     .line 191
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2182,17 +2182,17 @@
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     .line 193
-    :cond_1ff
+    :cond_9
     iget-object v7, p0, Lcom/android/server/am/ActivityRecord;->uriPermissions:Lcom/android/server/am/UriPermissionOwner;
 
-    if-eqz v7, :cond_22d
+    if-eqz v7, :cond_b
 
     .line 194
     iget-object v7, p0, Lcom/android/server/am/ActivityRecord;->uriPermissions:Lcom/android/server/am/UriPermissionOwner;
 
     iget-object v7, v7, Lcom/android/server/am/UriPermissionOwner;->readUriPermissions:Ljava/util/HashSet;
 
-    if-eqz v7, :cond_218
+    if-eqz v7, :cond_a
 
     .line 195
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2209,12 +2209,12 @@
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     .line 198
-    :cond_218
+    :cond_a
     iget-object v7, p0, Lcom/android/server/am/ActivityRecord;->uriPermissions:Lcom/android/server/am/UriPermissionOwner;
 
     iget-object v7, v7, Lcom/android/server/am/UriPermissionOwner;->writeUriPermissions:Ljava/util/HashSet;
 
-    if-eqz v7, :cond_22d
+    if-eqz v7, :cond_b
 
     .line 199
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2231,7 +2231,7 @@
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     .line 203
-    :cond_22d
+    :cond_b
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v7, "launchFailed="
@@ -2428,16 +2428,16 @@
 
     cmp-long v7, v7, v9
 
-    if-nez v7, :cond_313
+    if-nez v7, :cond_c
 
     iget-wide v7, p0, Lcom/android/server/am/ActivityRecord;->startTime:J
 
     cmp-long v7, v7, v9
 
-    if-eqz v7, :cond_339
+    if-eqz v7, :cond_d
 
     .line 224
-    :cond_313
+    :cond_c
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v7, "launchTime="
@@ -2449,14 +2449,14 @@
 
     cmp-long v7, v7, v9
 
-    if-nez v7, :cond_3a6
+    if-nez v7, :cond_13
 
     const-string v7, "0"
 
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 227
-    :goto_326
+    :goto_4
     const-string v7, " startTime="
 
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2466,34 +2466,34 @@
 
     cmp-long v7, v7, v9
 
-    if-nez v7, :cond_3ad
+    if-nez v7, :cond_14
 
     const-string v7, "0"
 
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 230
-    :goto_336
+    :goto_5
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
     .line 232
-    :cond_339
+    :cond_d
     iget-wide v7, p0, Lcom/android/server/am/ActivityRecord;->lastVisibleTime:J
 
     cmp-long v7, v7, v9
 
-    if-nez v7, :cond_347
+    if-nez v7, :cond_e
 
     iget-boolean v7, p0, Lcom/android/server/am/ActivityRecord;->waitingVisible:Z
 
-    if-nez v7, :cond_347
+    if-nez v7, :cond_e
 
     iget-boolean v7, p0, Lcom/android/server/am/ActivityRecord;->nowVisible:Z
 
-    if-eqz v7, :cond_371
+    if-eqz v7, :cond_f
 
     .line 233
-    :cond_347
+    :cond_e
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v7, "waitingVisible="
@@ -2523,28 +2523,28 @@
 
     cmp-long v7, v7, v9
 
-    if-nez v7, :cond_3b3
+    if-nez v7, :cond_15
 
     const-string v7, "0"
 
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 238
-    :goto_36e
+    :goto_6
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
     .line 240
-    :cond_371
+    :cond_f
     iget-boolean v7, p0, Lcom/android/server/am/ActivityRecord;->configDestroy:Z
 
-    if-nez v7, :cond_379
+    if-nez v7, :cond_10
 
     iget v7, p0, Lcom/android/server/am/ActivityRecord;->configChangeFlags:I
 
-    if-eqz v7, :cond_394
+    if-eqz v7, :cond_11
 
     .line 241
-    :cond_379
+    :cond_10
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v7, "configDestroy="
@@ -2570,10 +2570,10 @@
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 245
-    :cond_394
+    :cond_11
     iget-object v7, p0, Lcom/android/server/am/ActivityRecord;->connections:Ljava/util/HashSet;
 
-    if-eqz v7, :cond_3a5
+    if-eqz v7, :cond_12
 
     .line 246
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2587,36 +2587,36 @@
     invoke-virtual {p1, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     .line 248
-    :cond_3a5
+    :cond_12
     return-void
 
     .line 226
-    :cond_3a6
+    :cond_13
     iget-wide v7, p0, Lcom/android/server/am/ActivityRecord;->launchTime:J
 
     invoke-static {v7, v8, v3, v4, p1}, Landroid/util/TimeUtils;->formatDuration(JJLjava/io/PrintWriter;)V
 
-    goto/16 :goto_326
+    goto/16 :goto_4
 
     .line 229
-    :cond_3ad
+    :cond_14
     iget-wide v7, p0, Lcom/android/server/am/ActivityRecord;->startTime:J
 
     invoke-static {v7, v8, v3, v4, p1}, Landroid/util/TimeUtils;->formatDuration(JJLjava/io/PrintWriter;)V
 
-    goto :goto_336
+    goto :goto_5
 
     .line 237
-    :cond_3b3
+    :cond_15
     iget-wide v7, p0, Lcom/android/server/am/ActivityRecord;->lastVisibleTime:J
 
     invoke-static {v7, v8, v3, v4, p1}, Landroid/util/TimeUtils;->formatDuration(JJLjava/io/PrintWriter;)V
 
-    goto :goto_36e
+    goto :goto_6
 .end method
 
 .method finishLaunchTickingLocked()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 708
@@ -2638,7 +2638,7 @@
 .end method
 
 .method public getKeyDispatchingTimeout()J
-    .registers 5
+    .locals 4
 
     .prologue
     .line 875
@@ -2647,68 +2647,68 @@
     monitor-enter v3
 
     .line 876
-    :try_start_3
+    :try_start_0
     invoke-direct {p0}, Lcom/android/server/am/ActivityRecord;->getWaitingHistoryRecordLocked()Lcom/android/server/am/ActivityRecord;
 
     move-result-object v0
 
     .line 877
     .local v0, r:Lcom/android/server/am/ActivityRecord;
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_1
 
     iget-object v1, v0, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_1
 
     iget-object v1, v0, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
     iget-object v1, v1, Lcom/android/server/am/ProcessRecord;->instrumentationClass:Landroid/content/ComponentName;
 
-    if-nez v1, :cond_19
+    if-nez v1, :cond_0
 
     iget-object v1, v0, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
     iget-boolean v1, v1, Lcom/android/server/am/ProcessRecord;->usingWrapper:Z
 
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_1
 
     .line 879
-    :cond_19
+    :cond_0
     const-wide/32 v1, 0xea60
 
     monitor-exit v3
 
     .line 882
-    :goto_1d
+    :goto_0
     return-wide v1
 
-    :cond_1e
+    :cond_1
     const-wide/16 v1, 0x1388
 
     monitor-exit v3
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 883
     .end local v0           #r:Lcom/android/server/am/ActivityRecord;
-    :catchall_22
+    :catchall_0
     move-exception v1
 
     monitor-exit v3
-    :try_end_24
-    .catchall {:try_start_3 .. :try_end_24} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method getUriPermissionsLocked()Lcom/android/server/am/UriPermissionOwner;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 509
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->uriPermissions:Lcom/android/server/am/UriPermissionOwner;
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 510
     new-instance v0, Lcom/android/server/am/UriPermissionOwner;
@@ -2720,14 +2720,14 @@
     iput-object v0, p0, Lcom/android/server/am/ActivityRecord;->uriPermissions:Lcom/android/server/am/UriPermissionOwner;
 
     .line 512
-    :cond_d
+    :cond_0
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->uriPermissions:Lcom/android/server/am/UriPermissionOwner;
 
     return-object v0
 .end method
 
 .method isInHistory()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 493
@@ -2737,44 +2737,44 @@
 .end method
 
 .method public isInterestingToUserLocked()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 891
     iget-boolean v0, p0, Lcom/android/server/am/ActivityRecord;->visible:Z
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     iget-boolean v0, p0, Lcom/android/server/am/ActivityRecord;->nowVisible:Z
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->state:Lcom/android/server/am/ActivityStack$ActivityState;
 
     sget-object v1, Lcom/android/server/am/ActivityStack$ActivityState;->PAUSING:Lcom/android/server/am/ActivityStack$ActivityState;
 
-    if-eq v0, v1, :cond_14
+    if-eq v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->state:Lcom/android/server/am/ActivityStack$ActivityState;
 
     sget-object v1, Lcom/android/server/am/ActivityStack$ActivityState;->RESUMED:Lcom/android/server/am/ActivityStack$ActivityState;
 
-    if-ne v0, v1, :cond_16
+    if-ne v0, v1, :cond_1
 
-    :cond_14
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_15
+    :goto_0
     return v0
 
-    :cond_16
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public keyDispatchingTimedOut()Z
-    .registers 8
+    .locals 7
 
     .prologue
     const/4 v3, 0x0
@@ -2789,40 +2789,40 @@
     monitor-enter v4
 
     .line 841
-    :try_start_5
+    :try_start_0
     invoke-direct {p0}, Lcom/android/server/am/ActivityRecord;->getWaitingHistoryRecordLocked()Lcom/android/server/am/ActivityRecord;
 
     move-result-object v2
 
     .line 842
     .local v2, r:Lcom/android/server/am/ActivityRecord;
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_2
 
     iget-object v5, v2, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
-    if-eqz v5, :cond_2f
+    if-eqz v5, :cond_2
 
     .line 843
     iget-object v5, v2, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
     iget-boolean v5, v5, Lcom/android/server/am/ProcessRecord;->debugging:Z
 
-    if-eqz v5, :cond_17
+    if-eqz v5, :cond_0
 
     .line 844
     monitor-exit v4
 
     .line 870
-    :goto_16
+    :goto_0
     return v3
 
     .line 847
-    :cond_17
+    :cond_0
     iget-object v5, p0, Lcom/android/server/am/ActivityRecord;->service:Lcom/android/server/am/ActivityManagerService;
 
     iget-boolean v5, v5, Lcom/android/server/am/ActivityManagerService;->mDidDexOpt:Z
 
-    if-eqz v5, :cond_27
+    if-eqz v5, :cond_1
 
     .line 849
     iget-object v5, p0, Lcom/android/server/am/ActivityRecord;->service:Lcom/android/server/am/ActivityManagerService;
@@ -2834,41 +2834,41 @@
     .line 850
     monitor-exit v4
 
-    goto :goto_16
+    goto :goto_0
 
     .line 863
     .end local v2           #r:Lcom/android/server/am/ActivityRecord;
-    :catchall_24
+    :catchall_0
     move-exception v3
 
     monitor-exit v4
-    :try_end_26
-    .catchall {:try_start_5 .. :try_end_26} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v3
 
     .line 853
     .restart local v2       #r:Lcom/android/server/am/ActivityRecord;
-    :cond_27
-    :try_start_27
+    :cond_1
+    :try_start_1
     iget-object v3, v2, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
     iget-object v3, v3, Lcom/android/server/am/ProcessRecord;->instrumentationClass:Landroid/content/ComponentName;
 
-    if-nez v3, :cond_3b
+    if-nez v3, :cond_4
 
     .line 854
     iget-object v0, v2, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
     .line 863
-    :cond_2f
-    :goto_2f
+    :cond_2
+    :goto_1
     monitor-exit v4
-    :try_end_30
-    .catchall {:try_start_27 .. :try_end_30} :catchall_24
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 865
-    if-eqz v0, :cond_39
+    if-eqz v0, :cond_3
 
     .line 866
     iget-object v3, p0, Lcom/android/server/am/ActivityRecord;->service:Lcom/android/server/am/ActivityManagerService;
@@ -2878,14 +2878,14 @@
     invoke-virtual {v3, v0, v2, p0, v4}, Lcom/android/server/am/ActivityManagerService;->appNotResponding(Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;Ljava/lang/String;)V
 
     .line 870
-    :cond_39
+    :cond_3
     const/4 v3, 0x1
 
-    goto :goto_16
+    goto :goto_0
 
     .line 856
-    :cond_3b
-    :try_start_3b
+    :cond_4
+    :try_start_2
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
@@ -2913,20 +2913,20 @@
     const/4 v6, 0x0
 
     invoke-virtual {v3, v5, v6, v1}, Lcom/android/server/am/ActivityManagerService;->finishInstrumentationLocked(Lcom/android/server/am/ProcessRecord;ILandroid/os/Bundle;)V
-    :try_end_56
-    .catchall {:try_start_3b .. :try_end_56} :catchall_24
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_2f
+    goto :goto_1
 .end method
 
 .method makeFinishing()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 497
     iget-boolean v0, p0, Lcom/android/server/am/ActivityRecord;->finishing:Z
 
-    if-nez v0, :cond_1e
+    if-nez v0, :cond_1
 
     .line 498
     const/4 v0, 0x1
@@ -2936,11 +2936,11 @@
     .line 499
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     iget-boolean v0, p0, Lcom/android/server/am/ActivityRecord;->inHistory:Z
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 500
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
@@ -2952,54 +2952,54 @@
     iput v1, v0, Lcom/android/server/am/TaskRecord;->numActivities:I
 
     .line 502
-    :cond_17
+    :cond_0
     iget-boolean v0, p0, Lcom/android/server/am/ActivityRecord;->stopped:Z
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_1
 
     .line 503
     invoke-virtual {p0}, Lcom/android/server/am/ActivityRecord;->clearOptionsLocked()V
 
     .line 506
-    :cond_1e
+    :cond_1
     return-void
 .end method
 
 .method public mayFreezeScreenLocked(Lcom/android/server/am/ProcessRecord;)Z
-    .registers 3
+    .locals 1
     .parameter "app"
 
     .prologue
     .line 719
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_0
 
     iget-boolean v0, p1, Lcom/android/server/am/ProcessRecord;->crashing:Z
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     iget-boolean v0, p1, Lcom/android/server/am/ProcessRecord;->notResponding:Z
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method pauseKeyDispatchingLocked()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 654
     iget-boolean v0, p0, Lcom/android/server/am/ActivityRecord;->keysPaused:Z
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 655
     const/4 v0, 0x1
@@ -3016,18 +3016,18 @@
     invoke-virtual {v0, v1}, Lcom/android/server/wm/WindowManagerService;->pauseKeyDispatching(Landroid/os/IBinder;)V
 
     .line 658
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method putInHistory()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 474
     iget-boolean v0, p0, Lcom/android/server/am/ActivityRecord;->inHistory:Z
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_0
 
     .line 475
     const/4 v0, 0x1
@@ -3037,11 +3037,11 @@
     .line 476
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     iget-boolean v0, p0, Lcom/android/server/am/ActivityRecord;->finishing:Z
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_0
 
     .line 477
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
@@ -3053,12 +3053,12 @@
     iput v1, v0, Lcom/android/server/am/TaskRecord;->numActivities:I
 
     .line 480
-    :cond_17
+    :cond_0
     return-void
 .end method
 
 .method removeResultsLocked(Lcom/android/server/am/ActivityRecord;Ljava/lang/String;I)V
-    .registers 7
+    .locals 3
     .parameter "from"
     .parameter "resultWho"
     .parameter "requestCode"
@@ -3067,7 +3067,7 @@
     .line 528
     iget-object v2, p0, Lcom/android/server/am/ActivityRecord;->results:Ljava/util/ArrayList;
 
-    if-eqz v2, :cond_36
+    if-eqz v2, :cond_4
 
     .line 529
     iget-object v2, p0, Lcom/android/server/am/ActivityRecord;->results:Ljava/util/ArrayList;
@@ -3079,8 +3079,8 @@
     add-int/lit8 v0, v2, -0x1
 
     .local v0, i:I
-    :goto_c
-    if-ltz v0, :cond_36
+    :goto_0
+    if-ltz v0, :cond_4
 
     .line 530
     iget-object v2, p0, Lcom/android/server/am/ActivityRecord;->results:Ljava/util/ArrayList;
@@ -3095,64 +3095,64 @@
     .local v1, r:Lcom/android/server/am/ActivityResult;
     iget-object v2, v1, Lcom/android/server/am/ActivityResult;->mFrom:Lcom/android/server/am/ActivityRecord;
 
-    if-eq v2, p1, :cond_1d
+    if-eq v2, p1, :cond_1
 
     .line 529
-    :cond_1a
-    :goto_1a
+    :cond_0
+    :goto_1
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_c
+    goto :goto_0
 
     .line 532
-    :cond_1d
+    :cond_1
     iget-object v2, v1, Lcom/android/server/am/ActivityResult;->mResultWho:Ljava/lang/String;
 
-    if-nez v2, :cond_2d
+    if-nez v2, :cond_3
 
     .line 533
-    if-nez p2, :cond_1a
+    if-nez p2, :cond_0
 
     .line 537
-    :cond_23
+    :cond_2
     iget v2, v1, Lcom/android/server/am/ActivityResult;->mRequestCode:I
 
-    if-ne v2, p3, :cond_1a
+    if-ne v2, p3, :cond_0
 
     .line 539
     iget-object v2, p0, Lcom/android/server/am/ActivityRecord;->results:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    goto :goto_1a
+    goto :goto_1
 
     .line 535
-    :cond_2d
+    :cond_3
     iget-object v2, v1, Lcom/android/server/am/ActivityResult;->mResultWho:Ljava/lang/String;
 
     invoke-virtual {v2, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_23
+    if-nez v2, :cond_2
 
-    goto :goto_1a
+    goto :goto_1
 
     .line 542
     .end local v0           #i:I
     .end local v1           #r:Lcom/android/server/am/ActivityResult;
-    :cond_36
+    :cond_4
     return-void
 .end method
 
 .method removeUriPermissionsLocked()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 647
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->uriPermissions:Lcom/android/server/am/UriPermissionOwner;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 648
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->uriPermissions:Lcom/android/server/am/UriPermissionOwner;
@@ -3165,18 +3165,18 @@
     iput-object v0, p0, Lcom/android/server/am/ActivityRecord;->uriPermissions:Lcom/android/server/am/UriPermissionOwner;
 
     .line 651
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method resumeKeyDispatchingLocked()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 661
     iget-boolean v0, p0, Lcom/android/server/am/ActivityRecord;->keysPaused:Z
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 662
     const/4 v0, 0x0
@@ -3193,39 +3193,39 @@
     invoke-virtual {v0, v1}, Lcom/android/server/wm/WindowManagerService;->resumeKeyDispatching(Landroid/os/IBinder;)V
 
     .line 665
-    :cond_10
+    :cond_0
     return-void
 .end method
 
 .method public setSleeping(Z)V
-    .registers 6
+    .locals 4
     .parameter "_sleeping"
 
     .prologue
     .line 896
     iget-boolean v1, p0, Lcom/android/server/am/ActivityRecord;->sleeping:Z
 
-    if-ne v1, p1, :cond_5
+    if-ne v1, p1, :cond_1
 
     .line 911
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-void
 
     .line 899
-    :cond_5
+    :cond_1
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
     iget-object v1, v1, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_0
 
     .line 901
-    :try_start_f
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
     iget-object v1, v1, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
@@ -3237,7 +3237,7 @@
     .line 902
     iget-boolean v1, p0, Lcom/android/server/am/ActivityRecord;->sleeping:Z
 
-    if-eqz v1, :cond_2d
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->stack:Lcom/android/server/am/ActivityStack;
 
@@ -3247,7 +3247,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2d
+    if-nez v1, :cond_2
 
     .line 903
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->stack:Lcom/android/server/am/ActivityStack;
@@ -3257,15 +3257,15 @@
     invoke-virtual {v1, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 905
-    :cond_2d
+    :cond_2
     iput-boolean p1, p0, Lcom/android/server/am/ActivityRecord;->sleeping:Z
-    :try_end_2f
-    .catch Landroid/os/RemoteException; {:try_start_f .. :try_end_2f} :catch_30
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_4
+    goto :goto_0
 
     .line 906
-    :catch_30
+    :catch_0
     move-exception v0
 
     .line 907
@@ -3298,11 +3298,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method setTask(Lcom/android/server/am/TaskRecord;Lcom/android/server/am/ThumbnailHolder;Z)V
-    .registers 6
+    .locals 2
     .parameter "newTask"
     .parameter "newThumbHolder"
     .parameter "isRoot"
@@ -3311,16 +3311,16 @@
     .line 451
     iget-boolean v0, p0, Lcom/android/server/am/ActivityRecord;->inHistory:Z
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_1
 
     iget-boolean v0, p0, Lcom/android/server/am/ActivityRecord;->finishing:Z
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_1
 
     .line 452
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 453
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
@@ -3332,8 +3332,8 @@
     iput v1, v0, Lcom/android/server/am/TaskRecord;->numActivities:I
 
     .line 455
-    :cond_14
-    if-eqz p1, :cond_1c
+    :cond_0
+    if-eqz p1, :cond_1
 
     .line 456
     iget v0, p1, Lcom/android/server/am/TaskRecord;->numActivities:I
@@ -3343,18 +3343,18 @@
     iput v0, p1, Lcom/android/server/am/TaskRecord;->numActivities:I
 
     .line 459
-    :cond_1c
-    if-nez p2, :cond_1f
+    :cond_1
+    if-nez p2, :cond_2
 
     .line 460
     move-object p2, p1
 
     .line 462
-    :cond_1f
+    :cond_2
     iput-object p1, p0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
     .line 463
-    if-nez p3, :cond_3a
+    if-nez p3, :cond_4
 
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->intent:Landroid/content/Intent;
 
@@ -3366,12 +3366,12 @@
 
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_3a
+    if-eqz v0, :cond_4
 
     .line 465
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->thumbHolder:Lcom/android/server/am/ThumbnailHolder;
 
-    if-nez v0, :cond_39
+    if-nez v0, :cond_3
 
     .line 466
     new-instance v0, Lcom/android/server/am/ThumbnailHolder;
@@ -3381,19 +3381,19 @@
     iput-object v0, p0, Lcom/android/server/am/ActivityRecord;->thumbHolder:Lcom/android/server/am/ThumbnailHolder;
 
     .line 471
-    :cond_39
-    :goto_39
+    :cond_3
+    :goto_0
     return-void
 
     .line 469
-    :cond_3a
+    :cond_4
     iput-object p2, p0, Lcom/android/server/am/ActivityRecord;->thumbHolder:Lcom/android/server/am/ThumbnailHolder;
 
-    goto :goto_39
+    goto :goto_0
 .end method
 
 .method public startFreezingScreenLocked(Lcom/android/server/am/ProcessRecord;I)V
-    .registers 5
+    .locals 2
     .parameter "app"
     .parameter "configChanges"
 
@@ -3403,7 +3403,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 724
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->service:Lcom/android/server/am/ActivityManagerService;
@@ -3415,33 +3415,33 @@
     invoke-virtual {v0, v1, p2}, Lcom/android/server/wm/WindowManagerService;->startAppFreezingScreen(Landroid/os/IBinder;I)V
 
     .line 726
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method startLaunchTickingLocked()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 687
     sget-boolean v0, Lcom/android/server/am/ActivityManagerService;->IS_USER_BUILD:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_1
 
     .line 694
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-void
 
     .line 690
-    :cond_5
+    :cond_1
     iget-wide v0, p0, Lcom/android/server/am/ActivityRecord;->launchTickTime:J
 
     const-wide/16 v2, 0x0
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_0
 
     .line 691
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -3453,23 +3453,23 @@
     .line 692
     invoke-virtual {p0}, Lcom/android/server/am/ActivityRecord;->continueLaunchTickingLocked()Z
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public stopFreezingScreenLocked(Z)V
-    .registers 4
+    .locals 2
     .parameter "force"
 
     .prologue
     .line 729
-    if-nez p1, :cond_6
+    if-nez p1, :cond_0
 
     iget-boolean v0, p0, Lcom/android/server/am/ActivityRecord;->frozenBeforeDestroy:Z
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_1
 
     .line 730
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/am/ActivityRecord;->frozenBeforeDestroy:Z
@@ -3484,18 +3484,18 @@
     invoke-virtual {v0, v1, p1}, Lcom/android/server/wm/WindowManagerService;->stopAppFreezingScreen(Landroid/os/IBinder;Z)V
 
     .line 733
-    :cond_12
+    :cond_1
     return-void
 .end method
 
 .method takeFromHistory()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 483
     iget-boolean v0, p0, Lcom/android/server/am/ActivityRecord;->inHistory:Z
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_1
 
     .line 484
     const/4 v0, 0x0
@@ -3505,11 +3505,11 @@
     .line 485
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     iget-boolean v0, p0, Lcom/android/server/am/ActivityRecord;->finishing:Z
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_0
 
     .line 486
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
@@ -3521,32 +3521,32 @@
     iput v1, v0, Lcom/android/server/am/TaskRecord;->numActivities:I
 
     .line 488
-    :cond_17
+    :cond_0
     invoke-virtual {p0}, Lcom/android/server/am/ActivityRecord;->clearOptionsLocked()V
 
     .line 490
-    :cond_1a
+    :cond_1
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 914
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->stringName:Ljava/lang/String;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_0
 
     .line 915
     iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->stringName:Ljava/lang/String;
 
     .line 923
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 917
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x80
@@ -3600,21 +3600,21 @@
 
     iput-object v1, p0, Lcom/android/server/am/ActivityRecord;->stringName:Ljava/lang/String;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method updateOptionsLocked(Landroid/os/Bundle;)V
-    .registers 3
+    .locals 1
     .parameter "options"
 
     .prologue
     .line 587
-    if-eqz p1, :cond_12
+    if-eqz p1, :cond_1
 
     .line 588
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->pendingOptions:Landroid/app/ActivityOptions;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 589
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->pendingOptions:Landroid/app/ActivityOptions;
@@ -3622,7 +3622,7 @@
     invoke-virtual {v0}, Landroid/app/ActivityOptions;->abort()V
 
     .line 591
-    :cond_b
+    :cond_0
     new-instance v0, Landroid/app/ActivityOptions;
 
     invoke-direct {v0, p1}, Landroid/app/ActivityOptions;-><init>(Landroid/os/Bundle;)V
@@ -3630,12 +3630,12 @@
     iput-object v0, p0, Lcom/android/server/am/ActivityRecord;->pendingOptions:Landroid/app/ActivityOptions;
 
     .line 593
-    :cond_12
+    :cond_1
     return-void
 .end method
 
 .method updateThumbnail(Landroid/graphics/Bitmap;Ljava/lang/CharSequence;)V
-    .registers 5
+    .locals 2
     .parameter "newThumbnail"
     .parameter "description"
 
@@ -3651,16 +3651,16 @@
 
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 671
-    :cond_b
+    :cond_0
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->thumbHolder:Lcom/android/server/am/ThumbnailHolder;
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_2
 
     .line 672
-    if-eqz p1, :cond_15
+    if-eqz p1, :cond_1
 
     .line 673
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->thumbHolder:Lcom/android/server/am/ThumbnailHolder;
@@ -3668,18 +3668,18 @@
     iput-object p1, v0, Lcom/android/server/am/ThumbnailHolder;->lastThumbnail:Landroid/graphics/Bitmap;
 
     .line 675
-    :cond_15
+    :cond_1
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->thumbHolder:Lcom/android/server/am/ThumbnailHolder;
 
     iput-object p2, v0, Lcom/android/server/am/ThumbnailHolder;->lastDescription:Ljava/lang/CharSequence;
 
     .line 677
-    :cond_19
+    :cond_2
     return-void
 .end method
 
 .method public windowsDrawn()V
-    .registers 15
+    .locals 14
 
     .prologue
     const-wide/16 v12, 0x0
@@ -3690,12 +3690,12 @@
     monitor-enter v10
 
     .line 737
-    :try_start_5
+    :try_start_0
     iget-wide v0, p0, Lcom/android/server/am/ActivityRecord;->launchTime:J
 
     cmp-long v0, v0, v12
 
-    if-eqz v0, :cond_9a
+    if-eqz v0, :cond_2
 
     .line 738
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -3716,7 +3716,7 @@
 
     cmp-long v0, v0, v12
 
-    if-eqz v0, :cond_a3
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->stack:Lcom/android/server/am/ActivityStack;
 
@@ -3726,7 +3726,7 @@
 
     .line 743
     .local v5, totalTime:J
-    :goto_21
+    :goto_0
     const/16 v0, 0x7539
 
     const/4 v1, 0x4
@@ -3801,7 +3801,7 @@
     .line 752
     cmp-long v0, v3, v5
 
-    if-eqz v0, :cond_72
+    if-eqz v0, :cond_0
 
     .line 753
     const-string v0, " (total "
@@ -3817,7 +3817,7 @@
     invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 757
-    :cond_72
+    :cond_0
     const-string v0, "ActivityManager"
 
     invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -3838,7 +3838,7 @@
     .line 760
     cmp-long v0, v5, v12
 
-    if-lez v0, :cond_90
+    if-lez v0, :cond_1
 
     .line 761
     iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->service:Lcom/android/server/am/ActivityManagerService;
@@ -3852,7 +3852,7 @@
     invoke-virtual {v0, v1, v2}, Lcom/android/server/am/UsageStatsService;->noteLaunchTime(Landroid/content/ComponentName;I)V
 
     .line 763
-    :cond_90
+    :cond_1
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/android/server/am/ActivityRecord;->launchTime:J
@@ -3869,7 +3869,7 @@
     .end local v5           #totalTime:J
     .end local v7           #curTime:J
     .end local v9           #sb:Ljava/lang/StringBuilder;
-    :cond_9a
+    :cond_2
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/android/server/am/ActivityRecord;->startTime:J
@@ -3885,27 +3885,27 @@
 
     .restart local v3       #thisTime:J
     .restart local v7       #curTime:J
-    :cond_a3
+    :cond_3
     move-wide v5, v3
 
     .line 740
-    goto/16 :goto_21
+    goto/16 :goto_0
 
     .line 768
     .end local v3           #thisTime:J
     .end local v7           #curTime:J
-    :catchall_a6
+    :catchall_0
     move-exception v0
 
     monitor-exit v10
-    :try_end_a8
-    .catchall {:try_start_5 .. :try_end_a8} :catchall_a6
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public windowsGone()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 814
@@ -3918,7 +3918,7 @@
 .end method
 
 .method public windowsVisible()V
-    .registers 9
+    .locals 8
 
     .prologue
     .line 772
@@ -3927,7 +3927,7 @@
     monitor-enter v5
 
     .line 773
-    :try_start_3
+    :try_start_0
     iget-object v4, p0, Lcom/android/server/am/ActivityRecord;->stack:Lcom/android/server/am/ActivityStack;
 
     invoke-virtual {v4, p0}, Lcom/android/server/am/ActivityStack;->reportActivityVisibleLocked(Lcom/android/server/am/ActivityRecord;)V
@@ -3935,7 +3935,7 @@
     .line 776
     iget-boolean v4, p0, Lcom/android/server/am/ActivityRecord;->nowVisible:Z
 
-    if-nez v4, :cond_24
+    if-nez v4, :cond_1
 
     .line 777
     const/4 v4, 0x1
@@ -3952,7 +3952,7 @@
     .line 779
     iget-boolean v4, p0, Lcom/android/server/am/ActivityRecord;->idle:Z
 
-    if-nez v4, :cond_26
+    if-nez v4, :cond_2
 
     .line 783
     iget-object v4, p0, Lcom/android/server/am/ActivityRecord;->stack:Lcom/android/server/am/ActivityStack;
@@ -3962,21 +3962,21 @@
     invoke-virtual {v4, v6}, Lcom/android/server/am/ActivityStack;->processStoppingActivitiesLocked(Z)Ljava/util/ArrayList;
 
     .line 806
-    :cond_1f
-    :goto_1f
+    :cond_0
+    :goto_0
     iget-object v4, p0, Lcom/android/server/am/ActivityRecord;->service:Lcom/android/server/am/ActivityManagerService;
 
     invoke-virtual {v4}, Lcom/android/server/am/ActivityManagerService;->scheduleAppGcsLocked()V
 
     .line 808
-    :cond_24
+    :cond_1
     monitor-exit v5
 
     .line 809
     return-void
 
     .line 790
-    :cond_26
+    :cond_2
     iget-object v4, p0, Lcom/android/server/am/ActivityRecord;->stack:Lcom/android/server/am/ActivityStack;
 
     iget-object v4, v4, Lcom/android/server/am/ActivityStack;->mWaitingVisibleActivities:Ljava/util/ArrayList;
@@ -3987,14 +3987,14 @@
 
     .line 791
     .local v0, N:I
-    if-lez v0, :cond_1f
+    if-lez v0, :cond_0
 
     .line 792
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_31
-    if-ge v1, v0, :cond_43
+    :goto_1
+    if-ge v1, v0, :cond_3
 
     .line 793
     iget-object v4, p0, Lcom/android/server/am/ActivityRecord;->stack:Lcom/android/server/am/ActivityStack;
@@ -4016,11 +4016,11 @@
     .line 792
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_31
+    goto :goto_1
 
     .line 800
     .end local v3           #r:Lcom/android/server/am/ActivityRecord;
-    :cond_43
+    :cond_3
     iget-object v4, p0, Lcom/android/server/am/ActivityRecord;->stack:Lcom/android/server/am/ActivityStack;
 
     iget-object v4, v4, Lcom/android/server/am/ActivityStack;->mWaitingVisibleActivities:Ljava/util/ArrayList;
@@ -4045,18 +4045,18 @@
 
     invoke-virtual {v4, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 808
     .end local v0           #N:I
     .end local v1           #i:I
     .end local v2           #msg:Landroid/os/Message;
-    :catchall_5a
+    :catchall_0
     move-exception v4
 
     monitor-exit v5
-    :try_end_5c
-    .catchall {:try_start_3 .. :try_end_5c} :catchall_5a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v4
 .end method

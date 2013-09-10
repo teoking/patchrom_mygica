@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>([FLandroid/graphics/RectF;[F)V
-    .registers 6
+    .locals 2
     .parameter "outerRadii"
     .parameter "inset"
     .parameter "innerRadii"
@@ -29,11 +29,11 @@
     invoke-direct {p0}, Landroid/graphics/drawable/shapes/RectShape;-><init>()V
 
     .line 60
-    if-eqz p1, :cond_13
+    if-eqz p1, :cond_0
 
     array-length v0, p1
 
-    if-ge v0, v1, :cond_13
+    if-ge v0, v1, :cond_0
 
     .line 61
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
@@ -45,12 +45,12 @@
     throw v0
 
     .line 63
-    :cond_13
-    if-eqz p3, :cond_20
+    :cond_0
+    if-eqz p3, :cond_1
 
     array-length v0, p3
 
-    if-ge v0, v1, :cond_20
+    if-ge v0, v1, :cond_1
 
     .line 64
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
@@ -62,7 +62,7 @@
     throw v0
 
     .line 66
-    :cond_20
+    :cond_1
     iput-object p1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mOuterRadii:[F
 
     .line 67
@@ -72,7 +72,7 @@
     iput-object p3, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mInnerRadii:[F
 
     .line 70
-    if-eqz p2, :cond_2f
+    if-eqz p2, :cond_2
 
     .line 71
     new-instance v0, Landroid/graphics/RectF;
@@ -82,7 +82,7 @@
     iput-object v0, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mInnerRect:Landroid/graphics/RectF;
 
     .line 73
-    :cond_2f
+    :cond_2
     new-instance v0, Landroid/graphics/Path;
 
     invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public bridge synthetic clone()Landroid/graphics/drawable/shapes/RectShape;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -113,7 +113,7 @@
 .end method
 
 .method public clone()Landroid/graphics/drawable/shapes/RoundRectShape;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -134,7 +134,7 @@
     .local v0, shape:Landroid/graphics/drawable/shapes/RoundRectShape;
     iget-object v1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mOuterRadii:[F
 
-    if-eqz v1, :cond_3f
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mOuterRadii:[F
 
@@ -144,13 +144,13 @@
 
     check-cast v1, [F
 
-    :goto_13
+    :goto_0
     iput-object v1, v0, Landroid/graphics/drawable/shapes/RoundRectShape;->mOuterRadii:[F
 
     .line 110
     iget-object v1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mInnerRadii:[F
 
-    if-eqz v1, :cond_41
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mInnerRadii:[F
 
@@ -160,7 +160,7 @@
 
     check-cast v1, [F
 
-    :goto_21
+    :goto_1
     iput-object v1, v0, Landroid/graphics/drawable/shapes/RoundRectShape;->mInnerRadii:[F
 
     .line 111
@@ -193,21 +193,21 @@
     .line 114
     return-object v0
 
-    :cond_3f
+    :cond_0
     move-object v1, v2
 
     .line 109
-    goto :goto_13
+    goto :goto_0
 
-    :cond_41
+    :cond_1
     move-object v1, v2
 
     .line 110
-    goto :goto_21
+    goto :goto_1
 .end method
 
 .method public bridge synthetic clone()Landroid/graphics/drawable/shapes/Shape;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -224,7 +224,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -241,7 +241,7 @@
 .end method
 
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
-    .registers 4
+    .locals 1
     .parameter "canvas"
     .parameter "paint"
 
@@ -256,7 +256,7 @@
 .end method
 
 .method protected onResize(FF)V
-    .registers 10
+    .locals 7
     .parameter "w"
     .parameter "h"
 
@@ -278,7 +278,7 @@
     .line 88
     iget-object v1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mOuterRadii:[F
 
-    if-eqz v1, :cond_62
+    if-eqz v1, :cond_1
 
     .line 89
     iget-object v1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mPath:Landroid/graphics/Path;
@@ -290,10 +290,10 @@
     invoke-virtual {v1, v0, v2, v3}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;[FLandroid/graphics/Path$Direction;)V
 
     .line 93
-    :goto_19
+    :goto_0
     iget-object v1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mInnerRect:Landroid/graphics/RectF;
 
-    if-eqz v1, :cond_61
+    if-eqz v1, :cond_0
 
     .line 94
     iget-object v1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mInnerRect:Landroid/graphics/RectF;
@@ -341,7 +341,7 @@
 
     cmpg-float v1, v1, p1
 
-    if-gez v1, :cond_61
+    if-gez v1, :cond_0
 
     iget-object v1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mInnerRect:Landroid/graphics/RectF;
 
@@ -351,12 +351,12 @@
 
     cmpg-float v1, v1, p2
 
-    if-gez v1, :cond_61
+    if-gez v1, :cond_0
 
     .line 97
     iget-object v1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mInnerRadii:[F
 
-    if-eqz v1, :cond_6a
+    if-eqz v1, :cond_2
 
     .line 98
     iget-object v1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mPath:Landroid/graphics/Path;
@@ -370,22 +370,22 @@
     invoke-virtual {v1, v2, v3, v4}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;[FLandroid/graphics/Path$Direction;)V
 
     .line 104
-    :cond_61
-    :goto_61
+    :cond_0
+    :goto_1
     return-void
 
     .line 91
-    :cond_62
+    :cond_1
     iget-object v1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mPath:Landroid/graphics/Path;
 
     sget-object v2, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
 
     invoke-virtual {v1, v0, v2}, Landroid/graphics/Path;->addRect(Landroid/graphics/RectF;Landroid/graphics/Path$Direction;)V
 
-    goto :goto_19
+    goto :goto_0
 
     .line 100
-    :cond_6a
+    :cond_2
     iget-object v1, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mPath:Landroid/graphics/Path;
 
     iget-object v2, p0, Landroid/graphics/drawable/shapes/RoundRectShape;->mInnerRect:Landroid/graphics/RectF;
@@ -394,5 +394,5 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/graphics/Path;->addRect(Landroid/graphics/RectF;Landroid/graphics/Path$Direction;)V
 
-    goto :goto_61
+    goto :goto_1
 .end method

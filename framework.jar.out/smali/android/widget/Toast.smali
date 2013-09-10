@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 5
+    .locals 3
     .parameter "context"
 
     .prologue
@@ -72,23 +72,23 @@
 .end method
 
 .method private static getService()Landroid/app/INotificationManager;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 299
     sget-object v0, Landroid/widget/Toast;->sService:Landroid/app/INotificationManager;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 300
     sget-object v0, Landroid/widget/Toast;->sService:Landroid/app/INotificationManager;
 
     .line 303
-    :goto_6
+    :goto_0
     return-object v0
 
     .line 302
-    :cond_7
+    :cond_0
     const-string/jumbo v0, "notification"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -104,11 +104,11 @@
     .line 303
     sget-object v0, Landroid/widget/Toast;->sService:Landroid/app/INotificationManager;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public static makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "resId"
     .parameter "duration"
@@ -136,7 +136,7 @@
 .end method
 
 .method public static makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-    .registers 9
+    .locals 6
     .parameter "context"
     .parameter "text"
     .parameter "duration"
@@ -194,7 +194,7 @@
 
 # virtual methods
 .method public cancel()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 122
@@ -203,7 +203,7 @@
     invoke-virtual {v0}, Landroid/widget/Toast$TN;->hide()V
 
     .line 125
-    :try_start_5
+    :try_start_0
     invoke-static {}, Landroid/widget/Toast;->getService()Landroid/app/INotificationManager;
 
     move-result-object v0
@@ -217,22 +217,22 @@
     iget-object v2, p0, Landroid/widget/Toast;->mTN:Landroid/widget/Toast$TN;
 
     invoke-interface {v0, v1, v2}, Landroid/app/INotificationManager;->cancelToast(Ljava/lang/String;Landroid/app/ITransientNotification;)V
-    :try_end_14
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_14} :catch_15
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 129
-    :goto_14
+    :goto_0
     return-void
 
     .line 126
-    :catch_15
+    :catch_0
     move-exception v0
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public getDuration()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 161
@@ -242,7 +242,7 @@
 .end method
 
 .method public getGravity()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 210
@@ -254,7 +254,7 @@
 .end method
 
 .method public getHorizontalMargin()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 183
@@ -266,7 +266,7 @@
 .end method
 
 .method public getVerticalMargin()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 190
@@ -278,7 +278,7 @@
 .end method
 
 .method public getView()Landroid/view/View;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 144
@@ -288,7 +288,7 @@
 .end method
 
 .method public getXOffset()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 217
@@ -300,7 +300,7 @@
 .end method
 
 .method public getYOffset()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 224
@@ -312,7 +312,7 @@
 .end method
 
 .method public setDuration(I)V
-    .registers 2
+    .locals 0
     .parameter "duration"
 
     .prologue
@@ -324,7 +324,7 @@
 .end method
 
 .method public setGravity(III)V
-    .registers 5
+    .locals 1
     .parameter "gravity"
     .parameter "xOffset"
     .parameter "yOffset"
@@ -350,7 +350,7 @@
 .end method
 
 .method public setMargin(FF)V
-    .registers 4
+    .locals 1
     .parameter "horizontalMargin"
     .parameter "verticalMargin"
 
@@ -370,7 +370,7 @@
 .end method
 
 .method public setText(I)V
-    .registers 3
+    .locals 1
     .parameter "resId"
 
     .prologue
@@ -388,14 +388,14 @@
 .end method
 
 .method public setText(Ljava/lang/CharSequence;)V
-    .registers 5
+    .locals 3
     .parameter "s"
 
     .prologue
     .line 281
     iget-object v1, p0, Landroid/widget/Toast;->mNextView:Landroid/view/View;
 
-    if-nez v1, :cond_c
+    if-nez v1, :cond_0
 
     .line 282
     new-instance v1, Ljava/lang/RuntimeException;
@@ -407,7 +407,7 @@
     throw v1
 
     .line 284
-    :cond_c
+    :cond_0
     iget-object v1, p0, Landroid/widget/Toast;->mNextView:Landroid/view/View;
 
     const v2, 0x102000b
@@ -420,7 +420,7 @@
 
     .line 285
     .local v0, tv:Landroid/widget/TextView;
-    if-nez v0, :cond_21
+    if-nez v0, :cond_1
 
     .line 286
     new-instance v1, Ljava/lang/RuntimeException;
@@ -432,7 +432,7 @@
     throw v1
 
     .line 288
-    :cond_21
+    :cond_1
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 289
@@ -440,7 +440,7 @@
 .end method
 
 .method public setView(Landroid/view/View;)V
-    .registers 2
+    .locals 0
     .parameter "view"
 
     .prologue
@@ -452,13 +452,13 @@
 .end method
 
 .method public show()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 100
     iget-object v3, p0, Landroid/widget/Toast;->mNextView:Landroid/view/View;
 
-    if-nez v3, :cond_d
+    if-nez v3, :cond_0
 
     .line 101
     new-instance v3, Ljava/lang/RuntimeException;
@@ -470,7 +470,7 @@
     throw v3
 
     .line 104
-    :cond_d
+    :cond_0
     invoke-static {}, Landroid/widget/Toast;->getService()Landroid/app/INotificationManager;
 
     move-result-object v1
@@ -494,20 +494,20 @@
     iput-object v3, v2, Landroid/widget/Toast$TN;->mNextView:Landroid/view/View;
 
     .line 110
-    :try_start_1d
+    :try_start_0
     iget v3, p0, Landroid/widget/Toast;->mDuration:I
 
     invoke-interface {v1, v0, v2, v3}, Landroid/app/INotificationManager;->enqueueToast(Ljava/lang/String;Landroid/app/ITransientNotification;I)V
-    :try_end_22
-    .catch Landroid/os/RemoteException; {:try_start_1d .. :try_end_22} :catch_23
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 114
-    :goto_22
+    :goto_0
     return-void
 
     .line 111
-    :catch_23
+    :catch_0
     move-exception v3
 
-    goto :goto_22
+    goto :goto_0
 .end method

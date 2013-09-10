@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViewsAdapter;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,12 +38,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 863
     iget-object v2, p0, Landroid/widget/RemoteViewsAdapter$2;->this$0:Landroid/widget/RemoteViewsAdapter;
 
+    #getter for: Landroid/widget/RemoteViewsAdapter;->mServiceConnection:Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;
     invoke-static {v2}, Landroid/widget/RemoteViewsAdapter;->access$200(Landroid/widget/RemoteViewsAdapter;)Landroid/widget/RemoteViewsAdapter$RemoteViewsAdapterServiceConnection;
 
     move-result-object v2
@@ -52,7 +53,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_30
+    if-eqz v2, :cond_0
 
     .line 865
     const/4 v0, -0x1
@@ -61,6 +62,7 @@
     .local v0, position:I
     iget-object v2, p0, Landroid/widget/RemoteViewsAdapter$2;->this$0:Landroid/widget/RemoteViewsAdapter;
 
+    #getter for: Landroid/widget/RemoteViewsAdapter;->mCache:Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;
     invoke-static {v2}, Landroid/widget/RemoteViewsAdapter;->access$400(Landroid/widget/RemoteViewsAdapter;)Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;
 
     move-result-object v3
@@ -68,9 +70,10 @@
     monitor-enter v3
 
     .line 867
-    :try_start_14
+    :try_start_0
     iget-object v2, p0, Landroid/widget/RemoteViewsAdapter$2;->this$0:Landroid/widget/RemoteViewsAdapter;
 
+    #getter for: Landroid/widget/RemoteViewsAdapter;->mCache:Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;
     invoke-static {v2}, Landroid/widget/RemoteViewsAdapter;->access$400(Landroid/widget/RemoteViewsAdapter;)Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;
 
     move-result-object v2
@@ -87,51 +90,54 @@
 
     .line 869
     monitor-exit v3
-    :try_end_22
-    .catchall {:try_start_14 .. :try_end_22} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 870
     const/4 v2, -0x1
 
-    if-le v0, v2, :cond_34
+    if-le v0, v2, :cond_1
 
     .line 872
     iget-object v2, p0, Landroid/widget/RemoteViewsAdapter$2;->this$0:Landroid/widget/RemoteViewsAdapter;
 
     const/4 v3, 0x1
 
+    #calls: Landroid/widget/RemoteViewsAdapter;->updateRemoteViews(IZ)V
     invoke-static {v2, v0, v3}, Landroid/widget/RemoteViewsAdapter;->access$1500(Landroid/widget/RemoteViewsAdapter;IZ)V
 
     .line 875
     iget-object v2, p0, Landroid/widget/RemoteViewsAdapter$2;->this$0:Landroid/widget/RemoteViewsAdapter;
 
+    #calls: Landroid/widget/RemoteViewsAdapter;->loadNextIndexInBackground()V
     invoke-static {v2}, Landroid/widget/RemoteViewsAdapter;->access$1600(Landroid/widget/RemoteViewsAdapter;)V
 
     .line 881
     .end local v0           #position:I
     .end local v1           #res:[I
-    :cond_30
-    :goto_30
+    :cond_0
+    :goto_0
     return-void
 
     .line 869
     .restart local v0       #position:I
-    :catchall_31
+    :catchall_0
     move-exception v2
 
-    :try_start_32
+    :try_start_1
     monitor-exit v3
-    :try_end_33
-    .catchall {:try_start_32 .. :try_end_33} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v2
 
     .line 878
     .restart local v1       #res:[I
-    :cond_34
+    :cond_1
     iget-object v2, p0, Landroid/widget/RemoteViewsAdapter$2;->this$0:Landroid/widget/RemoteViewsAdapter;
 
+    #calls: Landroid/widget/RemoteViewsAdapter;->enqueueDeferredUnbindServiceMessage()V
     invoke-static {v2}, Landroid/widget/RemoteViewsAdapter;->access$700(Landroid/widget/RemoteViewsAdapter;)V
 
-    goto :goto_30
+    goto :goto_0
 .end method

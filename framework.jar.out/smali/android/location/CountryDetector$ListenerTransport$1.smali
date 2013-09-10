@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/location/CountryDetector$ListenerTransport;Landroid/location/Country;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,12 +43,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 77
     iget-object v0, p0, Landroid/location/CountryDetector$ListenerTransport$1;->this$0:Landroid/location/CountryDetector$ListenerTransport;
 
+    #getter for: Landroid/location/CountryDetector$ListenerTransport;->mListener:Landroid/location/CountryListener;
     invoke-static {v0}, Landroid/location/CountryDetector$ListenerTransport;->access$000(Landroid/location/CountryDetector$ListenerTransport;)Landroid/location/CountryListener;
 
     move-result-object v0

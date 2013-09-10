@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/net/wifi/WifiStateMachine;Landroid/net/wifi/WifiConfigStore;Landroid/os/Handler;)V
-    .registers 8
+    .locals 3
     .parameter "c"
     .parameter "wsm"
     .parameter "wcs"
@@ -218,7 +218,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/net/wifi/SupplicantStateTracker;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -229,7 +229,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/net/wifi/SupplicantStateTracker;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -241,7 +241,7 @@
 .end method
 
 .method static synthetic access$008(Landroid/net/wifi/SupplicantStateTracker;)I
-    .registers 3
+    .locals 2
     .parameter "x0"
 
     .prologue
@@ -256,7 +256,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/net/wifi/SupplicantStateTracker;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -267,7 +267,7 @@
 .end method
 
 .method static synthetic access$1000(Landroid/net/wifi/SupplicantStateTracker;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -279,7 +279,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/net/wifi/SupplicantStateTracker;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -291,7 +291,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/net/wifi/SupplicantStateTracker;Landroid/net/wifi/SupplicantState;Z)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -304,7 +304,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/net/wifi/SupplicantStateTracker;Landroid/net/wifi/StateChangeResult;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -316,7 +316,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/net/wifi/SupplicantStateTracker;)Lcom/android/internal/util/State;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -327,7 +327,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/net/wifi/SupplicantStateTracker;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -339,7 +339,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/net/wifi/SupplicantStateTracker;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -350,7 +350,7 @@
 .end method
 
 .method static synthetic access$602(Landroid/net/wifi/SupplicantStateTracker;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -362,7 +362,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/net/wifi/SupplicantStateTracker;)Landroid/os/Message;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -375,7 +375,7 @@
 .end method
 
 .method static synthetic access$800(Landroid/net/wifi/SupplicantStateTracker;I)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -387,7 +387,7 @@
 .end method
 
 .method static synthetic access$900(Landroid/net/wifi/SupplicantStateTracker;)Landroid/net/wifi/WifiConfigStore;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -398,14 +398,14 @@
 .end method
 
 .method private handleNetworkConnectionFailure(I)V
-    .registers 4
+    .locals 2
     .parameter "netId"
 
     .prologue
     .line 89
     iget-boolean v0, p0, Landroid/net/wifi/SupplicantStateTracker;->mNetworksDisabledDuringConnect:Z
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 90
     iget-object v0, p0, Landroid/net/wifi/SupplicantStateTracker;->mWifiConfigStore:Landroid/net/wifi/WifiConfigStore;
@@ -418,7 +418,7 @@
     iput-boolean v0, p0, Landroid/net/wifi/SupplicantStateTracker;->mNetworksDisabledDuringConnect:Z
 
     .line 94
-    :cond_c
+    :cond_0
     iget-object v0, p0, Landroid/net/wifi/SupplicantStateTracker;->mWifiConfigStore:Landroid/net/wifi/WifiConfigStore;
 
     const/4 v1, 0x3
@@ -430,7 +430,7 @@
 .end method
 
 .method private sendSupplicantStateChangedBroadcast(Landroid/net/wifi/SupplicantState;Z)V
-    .registers 6
+    .locals 3
     .parameter "state"
     .parameter "failedAuth"
 
@@ -454,7 +454,7 @@
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
     .line 143
-    if-eqz p2, :cond_1b
+    if-eqz p2, :cond_0
 
     .line 144
     const-string/jumbo v1, "supplicantError"
@@ -464,7 +464,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     .line 148
-    :cond_1b
+    :cond_0
     iget-object v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendStickyBroadcast(Landroid/content/Intent;)V
@@ -474,7 +474,7 @@
 .end method
 
 .method private transitionOnSupplicantStateChange(Landroid/net/wifi/StateChangeResult;)V
-    .registers 6
+    .locals 4
     .parameter "stateChangeResult"
 
     .prologue
@@ -491,7 +491,7 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_50
+    packed-switch v1, :pswitch_data_0
 
     .line 133
     const-string v1, "SupplicantStateTracker"
@@ -517,81 +517,81 @@
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 136
-    :goto_25
-    :pswitch_25
+    :goto_0
+    :pswitch_0
     return-void
 
     .line 104
-    :pswitch_26
+    :pswitch_1
     iget-object v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mDisconnectState:Lcom/android/internal/util/State;
 
     invoke-virtual {p0, v1}, Landroid/net/wifi/SupplicantStateTracker;->transitionTo(Lcom/android/internal/util/IState;)V
 
-    goto :goto_25
+    goto :goto_0
 
     .line 110
-    :pswitch_2c
+    :pswitch_2
     iget-object v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mScanState:Lcom/android/internal/util/State;
 
     invoke-virtual {p0, v1}, Landroid/net/wifi/SupplicantStateTracker;->transitionTo(Lcom/android/internal/util/IState;)V
 
-    goto :goto_25
+    goto :goto_0
 
     .line 117
-    :pswitch_32
+    :pswitch_3
     iget-object v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mHandshakeState:Lcom/android/internal/util/State;
 
     invoke-virtual {p0, v1}, Landroid/net/wifi/SupplicantStateTracker;->transitionTo(Lcom/android/internal/util/IState;)V
 
-    goto :goto_25
+    goto :goto_0
 
     .line 120
-    :pswitch_38
+    :pswitch_4
     iget-object v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mCompletedState:Lcom/android/internal/util/State;
 
     invoke-virtual {p0, v1}, Landroid/net/wifi/SupplicantStateTracker;->transitionTo(Lcom/android/internal/util/IState;)V
 
-    goto :goto_25
+    goto :goto_0
 
     .line 123
-    :pswitch_3e
+    :pswitch_5
     iget-object v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mDormantState:Lcom/android/internal/util/State;
 
     invoke-virtual {p0, v1}, Landroid/net/wifi/SupplicantStateTracker;->transitionTo(Lcom/android/internal/util/IState;)V
 
-    goto :goto_25
+    goto :goto_0
 
     .line 126
-    :pswitch_44
+    :pswitch_6
     iget-object v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mInactiveState:Lcom/android/internal/util/State;
 
     invoke-virtual {p0, v1}, Landroid/net/wifi/SupplicantStateTracker;->transitionTo(Lcom/android/internal/util/IState;)V
 
-    goto :goto_25
+    goto :goto_0
 
     .line 130
-    :pswitch_4a
+    :pswitch_7
     iget-object v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mUninitializedState:Lcom/android/internal/util/State;
 
     invoke-virtual {p0, v1}, Landroid/net/wifi/SupplicantStateTracker;->transitionTo(Lcom/android/internal/util/IState;)V
 
-    goto :goto_25
+    goto :goto_0
 
     .line 102
-    :pswitch_data_50
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_26
-        :pswitch_25
-        :pswitch_2c
-        :pswitch_32
-        :pswitch_32
-        :pswitch_32
-        :pswitch_32
-        :pswitch_32
-        :pswitch_38
-        :pswitch_3e
-        :pswitch_44
-        :pswitch_4a
-        :pswitch_4a
+        :pswitch_1
+        :pswitch_0
+        :pswitch_2
+        :pswitch_3
+        :pswitch_3
+        :pswitch_3
+        :pswitch_3
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_7
     .end packed-switch
 .end method

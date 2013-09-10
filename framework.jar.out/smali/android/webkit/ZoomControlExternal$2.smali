@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/ZoomControlExternal;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,19 +38,21 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 6
+    .locals 4
     .parameter "v"
 
     .prologue
     .line 100
     iget-object v0, p0, Landroid/webkit/ZoomControlExternal$2;->this$0:Landroid/webkit/ZoomControlExternal;
 
+    #getter for: Landroid/webkit/ZoomControlExternal;->mPrivateHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/webkit/ZoomControlExternal;->access$200(Landroid/webkit/ZoomControlExternal;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/webkit/ZoomControlExternal$2;->this$0:Landroid/webkit/ZoomControlExternal;
 
+    #getter for: Landroid/webkit/ZoomControlExternal;->mZoomControlRunnable:Ljava/lang/Runnable;
     invoke-static {v1}, Landroid/webkit/ZoomControlExternal;->access$100(Landroid/webkit/ZoomControlExternal;)Ljava/lang/Runnable;
 
     move-result-object v1
@@ -60,12 +62,14 @@
     .line 101
     iget-object v0, p0, Landroid/webkit/ZoomControlExternal$2;->this$0:Landroid/webkit/ZoomControlExternal;
 
+    #getter for: Landroid/webkit/ZoomControlExternal;->mPrivateHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/webkit/ZoomControlExternal;->access$200(Landroid/webkit/ZoomControlExternal;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/webkit/ZoomControlExternal$2;->this$0:Landroid/webkit/ZoomControlExternal;
 
+    #getter for: Landroid/webkit/ZoomControlExternal;->mZoomControlRunnable:Ljava/lang/Runnable;
     invoke-static {v1}, Landroid/webkit/ZoomControlExternal;->access$100(Landroid/webkit/ZoomControlExternal;)Ljava/lang/Runnable;
 
     move-result-object v1
@@ -79,6 +83,7 @@
     .line 102
     iget-object v0, p0, Landroid/webkit/ZoomControlExternal$2;->this$0:Landroid/webkit/ZoomControlExternal;
 
+    #getter for: Landroid/webkit/ZoomControlExternal;->mWebView:Landroid/webkit/WebViewClassic;
     invoke-static {v0}, Landroid/webkit/ZoomControlExternal;->access$400(Landroid/webkit/ZoomControlExternal;)Landroid/webkit/WebViewClassic;
 
     move-result-object v0

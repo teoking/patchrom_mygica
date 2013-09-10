@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/WindowManagerImpl;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,22 +38,23 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 247
     monitor-enter p0
 
     .line 248
-    :try_start_1
+    :try_start_0
     monitor-enter p0
-    :try_end_2
-    .catchall {:try_start_1 .. :try_end_2} :catchall_1a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 249
-    :try_start_2
+    :try_start_1
     iget-object v4, p0, Landroid/view/WindowManagerImpl$1;->this$0:Landroid/view/WindowManagerImpl;
 
+    #getter for: Landroid/view/WindowManagerImpl;->mRoots:[Landroid/view/ViewRootImpl;
     invoke-static {v4}, Landroid/view/WindowManagerImpl;->access$000(Landroid/view/WindowManagerImpl;)[Landroid/view/ViewRootImpl;
 
     move-result-object v0
@@ -65,8 +66,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_a
-    if-ge v1, v2, :cond_14
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     aget-object v3, v0, v1
 
@@ -77,20 +78,20 @@
     .line 249
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 252
     .end local v3           #root:Landroid/view/ViewRootImpl;
-    :cond_14
+    :cond_0
     monitor-exit p0
-    :try_end_15
-    .catchall {:try_start_2 .. :try_end_15} :catchall_17
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 253
-    :try_start_15
+    :try_start_2
     monitor-exit p0
-    :try_end_16
-    .catchall {:try_start_15 .. :try_end_16} :catchall_1a
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 254
     return-void
@@ -99,24 +100,24 @@
     .end local v0           #arr$:[Landroid/view/ViewRootImpl;
     .end local v1           #i$:I
     .end local v2           #len$:I
-    :catchall_17
+    :catchall_0
     move-exception v4
 
-    :try_start_18
+    :try_start_3
     monitor-exit p0
-    :try_end_19
-    .catchall {:try_start_18 .. :try_end_19} :catchall_17
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    :try_start_19
+    :try_start_4
     throw v4
 
     .line 253
-    :catchall_1a
+    :catchall_1
     move-exception v4
 
     monitor-exit p0
-    :try_end_1c
-    .catchall {:try_start_19 .. :try_end_1c} :catchall_1a
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     throw v4
 .end method

@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/cat/CatCmdMessage;)V
-    .registers 5
+    .locals 3
     .parameter "cmdMsg"
 
     .prologue
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method getCmdDetails()Lcom/android/internal/telephony/cat/CommandDetails;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 52
@@ -72,7 +72,7 @@
 .end method
 
 .method public setConfirmation(Z)V
-    .registers 2
+    .locals 0
     .parameter "confirm"
 
     .prologue
@@ -84,7 +84,7 @@
 .end method
 
 .method public setInput(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "input"
 
     .prologue
@@ -96,7 +96,7 @@
 .end method
 
 .method public setMenuSelection(I)V
-    .registers 2
+    .locals 0
     .parameter "selection"
 
     .prologue
@@ -108,7 +108,7 @@
 .end method
 
 .method public setResultCode(Lcom/android/internal/telephony/cat/ResultCode;)V
-    .registers 2
+    .locals 0
     .parameter "resCode"
 
     .prologue
@@ -120,7 +120,7 @@
 .end method
 
 .method public setYesNo(Z)V
-    .registers 2
+    .locals 0
     .parameter "yesNo"
 
     .prologue

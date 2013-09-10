@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 91
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Handler;)V
-    .registers 3
+    .locals 1
     .parameter "target"
 
     .prologue
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/IBinder;)V
-    .registers 3
+    .locals 1
     .parameter "target"
 
     .prologue
@@ -77,7 +77,7 @@
 .end method
 
 .method public static readMessengerOrNullFromParcel(Landroid/os/Parcel;)Landroid/os/Messenger;
-    .registers 3
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -88,29 +88,29 @@
 
     .line 129
     .local v0, b:Landroid/os/IBinder;
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     new-instance v1, Landroid/os/Messenger;
 
     invoke-direct {v1, v0}, Landroid/os/Messenger;-><init>(Landroid/os/IBinder;)V
 
-    :goto_b
+    :goto_0
     return-object v1
 
-    :cond_c
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public static writeMessengerOrNullToParcel(Landroid/os/Messenger;Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "messenger"
     .parameter "out"
 
     .prologue
     .line 113
-    if-eqz p0, :cond_c
+    if-eqz p0, :cond_0
 
     iget-object v0, p0, Landroid/os/Messenger;->mTarget:Landroid/os/IMessenger;
 
@@ -118,23 +118,23 @@
 
     move-result-object v0
 
-    :goto_8
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 115
     return-void
 
     .line 113
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84
@@ -144,24 +144,24 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 5
+    .locals 3
     .parameter "otherObj"
 
     .prologue
     const/4 v0, 0x0
 
     .line 68
-    if-nez p1, :cond_4
+    if-nez p1, :cond_0
 
     .line 76
     .end local p1
-    :goto_3
+    :goto_0
     return v0
 
     .line 72
     .restart local p1
-    :cond_4
-    :try_start_4
+    :cond_0
+    :try_start_0
     iget-object v1, p0, Landroid/os/Messenger;->mTarget:Landroid/os/IMessenger;
 
     invoke-interface {v1}, Landroid/os/IMessenger;->asBinder()Landroid/os/IBinder;
@@ -178,22 +178,22 @@
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-    :try_end_15
-    .catch Ljava/lang/ClassCastException; {:try_start_4 .. :try_end_15} :catch_17
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v0
 
-    goto :goto_3
+    goto :goto_0
 
     .line 74
-    :catch_17
+    :catch_0
     move-exception v1
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public getBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60
@@ -207,7 +207,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 80
@@ -225,7 +225,7 @@
 .end method
 
 .method public send(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "message"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -244,7 +244,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 

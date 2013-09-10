@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/net/NetworkStatsService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public limitReached(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "limitName"
     .parameter "iface"
 
@@ -45,6 +45,7 @@
     .line 770
     iget-object v1, p0, Lcom/android/server/net/NetworkStatsService$7;->this$0:Lcom/android/server/net/NetworkStatsService;
 
+    #getter for: Lcom/android/server/net/NetworkStatsService;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/server/net/NetworkStatsService;->access$1200(Lcom/android/server/net/NetworkStatsService;)Landroid/content/Context;
 
     move-result-object v1
@@ -62,7 +63,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_33
+    if-eqz v1, :cond_0
 
     .line 775
     const/4 v0, 0x1
@@ -71,6 +72,7 @@
     .local v0, flags:I
     iget-object v1, p0, Lcom/android/server/net/NetworkStatsService$7;->this$0:Lcom/android/server/net/NetworkStatsService;
 
+    #getter for: Lcom/android/server/net/NetworkStatsService;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/server/net/NetworkStatsService;->access$1300(Lcom/android/server/net/NetworkStatsService;)Landroid/os/Handler;
 
     move-result-object v1
@@ -86,6 +88,7 @@
     .line 779
     iget-object v1, p0, Lcom/android/server/net/NetworkStatsService$7;->this$0:Lcom/android/server/net/NetworkStatsService;
 
+    #getter for: Lcom/android/server/net/NetworkStatsService;->mHandler:Landroid/os/Handler;
     invoke-static {v1}, Lcom/android/server/net/NetworkStatsService;->access$1300(Lcom/android/server/net/NetworkStatsService;)Landroid/os/Handler;
 
     move-result-object v1
@@ -100,6 +103,6 @@
 
     .line 781
     .end local v0           #flags:I
-    :cond_33
+    :cond_0
     return-void
 .end method

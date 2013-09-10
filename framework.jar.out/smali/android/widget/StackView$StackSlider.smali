@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/StackView;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(Landroid/widget/StackView;Landroid/widget/StackView$StackSlider;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "copy"
 
@@ -95,7 +95,7 @@
 .end method
 
 .method private cubic(F)F
-    .registers 7
+    .locals 5
     .parameter "r"
 
     .prologue
@@ -128,7 +128,7 @@
 .end method
 
 .method private getDuration(ZF)F
-    .registers 15
+    .locals 12
     .parameter "invert"
     .parameter "velocity"
 
@@ -142,7 +142,7 @@
     .line 1043
     iget-object v5, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
 
-    if-eqz v5, :cond_77
+    if-eqz v5, :cond_5
 
     .line 1044
     iget-object v5, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
@@ -183,6 +183,7 @@
     .local v0, d:F
     iget-object v5, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mSlideAmount:I
     invoke-static {v5}, Landroid/widget/StackView;->access$200(Landroid/widget/StackView;)I
 
     move-result v5
@@ -197,6 +198,7 @@
 
     iget-object v8, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mSlideAmount:I
     invoke-static {v8}, Landroid/widget/StackView;->access$200(Landroid/widget/StackView;)I
 
     move-result v8
@@ -223,10 +225,10 @@
     .local v2, maxd:F
     cmpl-float v5, p2, v4
 
-    if-nez v5, :cond_57
+    if-nez v5, :cond_2
 
     .line 1052
-    if-eqz p1, :cond_54
+    if-eqz p1, :cond_1
 
     const/high16 v4, 0x3f80
 
@@ -234,29 +236,29 @@
 
     sub-float/2addr v4, v5
 
-    :goto_51
+    :goto_0
     mul-float v1, v4, v11
 
     .line 1064
     .end local v0           #d:F
     .end local v2           #maxd:F
     .end local v3           #viewLp:Landroid/widget/StackView$LayoutParams;
-    :cond_53
-    :goto_53
+    :cond_0
+    :goto_1
     return v1
 
     .line 1052
     .restart local v0       #d:F
     .restart local v2       #maxd:F
     .restart local v3       #viewLp:Landroid/widget/StackView$LayoutParams;
-    :cond_54
+    :cond_1
     div-float v4, v0, v2
 
-    goto :goto_51
+    goto :goto_0
 
     .line 1054
-    :cond_57
-    if-eqz p1, :cond_6e
+    :cond_2
+    if-eqz p1, :cond_4
 
     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
 
@@ -266,28 +268,28 @@
 
     .line 1056
     .local v1, duration:F
-    :goto_5f
+    :goto_2
     const/high16 v5, 0x4248
 
     cmpg-float v5, v1, v5
 
-    if-ltz v5, :cond_69
+    if-ltz v5, :cond_3
 
     cmpl-float v5, v1, v11
 
-    if-lez v5, :cond_53
+    if-lez v5, :cond_0
 
     .line 1058
-    :cond_69
+    :cond_3
     invoke-direct {p0, p1, v4}, Landroid/widget/StackView$StackSlider;->getDuration(ZF)F
 
     move-result v1
 
-    goto :goto_53
+    goto :goto_1
 
     .line 1054
     .end local v1           #duration:F
-    :cond_6e
+    :cond_4
     sub-float v5, v2, v0
 
     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
@@ -296,20 +298,20 @@
 
     div-float v1, v5, v6
 
-    goto :goto_5f
+    goto :goto_2
 
     .end local v0           #d:F
     .end local v2           #maxd:F
     .end local v3           #viewLp:Landroid/widget/StackView$LayoutParams;
-    :cond_77
+    :cond_5
     move v1, v4
 
     .line 1064
-    goto :goto_53
+    goto :goto_1
 .end method
 
 .method private highlightAlphaInterpolator(F)F
-    .registers 7
+    .locals 5
     .parameter "r"
 
     .prologue
@@ -324,7 +326,7 @@
     .local v0, pivot:F
     cmpg-float v1, p1, v0
 
-    if-gez v1, :cond_14
+    if-gez v1, :cond_0
 
     .line 917
     div-float v1, p1, v0
@@ -336,10 +338,10 @@
     mul-float/2addr v1, v3
 
     .line 919
-    :goto_13
+    :goto_0
     return v1
 
-    :cond_14
+    :cond_0
     sub-float v1, p1, v0
 
     sub-float v2, v4, v0
@@ -354,11 +356,11 @@
 
     mul-float/2addr v1, v3
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method private rotationInterpolator(F)F
-    .registers 5
+    .locals 3
     .parameter "r"
 
     .prologue
@@ -369,16 +371,16 @@
     .local v0, pivot:F
     cmpg-float v1, p1, v0
 
-    if-gez v1, :cond_9
+    if-gez v1, :cond_0
 
     .line 935
     const/4 v1, 0x0
 
     .line 937
-    :goto_8
+    :goto_0
     return v1
 
-    :cond_9
+    :cond_0
     sub-float v1, p1, v0
 
     const/high16 v2, 0x3f80
@@ -387,11 +389,11 @@
 
     div-float/2addr v1, v2
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method private viewAlphaInterpolator(F)F
-    .registers 5
+    .locals 3
     .parameter "r"
 
     .prologue
@@ -402,7 +404,7 @@
     .local v0, pivot:F
     cmpl-float v1, p1, v0
 
-    if-lez v1, :cond_e
+    if-lez v1, :cond_0
 
     .line 926
     sub-float v1, p1, v0
@@ -414,19 +416,19 @@
     div-float/2addr v1, v2
 
     .line 928
-    :goto_d
+    :goto_0
     return v1
 
-    :cond_e
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method getDurationForNeutralPosition()F
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1027
@@ -442,7 +444,7 @@
 .end method
 
 .method getDurationForNeutralPosition(F)F
-    .registers 3
+    .locals 1
     .parameter "velocity"
 
     .prologue
@@ -457,7 +459,7 @@
 .end method
 
 .method getDurationForOffscreenPosition()F
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1031
@@ -473,7 +475,7 @@
 .end method
 
 .method getDurationForOffscreenPosition(F)F
-    .registers 3
+    .locals 1
     .parameter "velocity"
 
     .prologue
@@ -488,7 +490,7 @@
 .end method
 
 .method public getXProgress()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1076
@@ -498,7 +500,7 @@
 .end method
 
 .method public getYProgress()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1070
@@ -508,7 +510,7 @@
 .end method
 
 .method setMode(I)V
-    .registers 2
+    .locals 0
     .parameter "mode"
 
     .prologue
@@ -520,7 +522,7 @@
 .end method
 
 .method setView(Landroid/view/View;)V
-    .registers 2
+    .locals 0
     .parameter "v"
 
     .prologue
@@ -532,7 +534,7 @@
 .end method
 
 .method public setXProgress(F)V
-    .registers 5
+    .locals 3
     .parameter "r"
 
     .prologue
@@ -556,14 +558,14 @@
     .line 1013
     iget-object v2, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
 
-    if-nez v2, :cond_13
+    if-nez v2, :cond_0
 
     .line 1020
-    :goto_12
+    :goto_0
     return-void
 
     .line 1014
-    :cond_13
+    :cond_0
     iget-object v2, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -576,6 +578,7 @@
     .local v1, viewLp:Landroid/widget/StackView$LayoutParams;
     iget-object v2, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mHighlight:Landroid/widget/ImageView;
     invoke-static {v2}, Landroid/widget/StackView;->access$000(Landroid/widget/StackView;)Landroid/widget/ImageView;
 
     move-result-object v2
@@ -595,6 +598,7 @@
     .line 1018
     iget-object v2, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mSlideAmount:I
     invoke-static {v2}, Landroid/widget/StackView;->access$200(Landroid/widget/StackView;)I
 
     move-result v2
@@ -612,6 +616,7 @@
     .line 1019
     iget-object v2, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mSlideAmount:I
     invoke-static {v2}, Landroid/widget/StackView;->access$200(Landroid/widget/StackView;)I
 
     move-result v2
@@ -626,11 +631,11 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/StackView$LayoutParams;->setHorizontalOffset(I)V
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public setYProgress(F)V
-    .registers 14
+    .locals 12
     .parameter "r"
 
     .prologue
@@ -660,14 +665,14 @@
     .line 951
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
 
-    if-nez v4, :cond_18
+    if-nez v4, :cond_0
 
     .line 1004
-    :goto_17
+    :goto_0
     return-void
 
     .line 953
-    :cond_18
+    :cond_0
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
 
     invoke-virtual {v4}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -680,6 +685,7 @@
     .local v3, viewLp:Landroid/widget/StackView$LayoutParams;
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mHighlight:Landroid/widget/ImageView;
     invoke-static {v4}, Landroid/widget/StackView;->access$000(Landroid/widget/StackView;)Landroid/widget/ImageView;
 
     move-result-object v4
@@ -694,24 +700,25 @@
     .local v1, highlightLp:Landroid/widget/StackView$LayoutParams;
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mStackMode:I
     invoke-static {v4}, Landroid/widget/StackView;->access$100(Landroid/widget/StackView;)I
 
     move-result v4
 
-    if-nez v4, :cond_cf
+    if-nez v4, :cond_3
 
     const/4 v2, 0x1
 
     .line 960
     .local v2, stackDirection:I
-    :goto_35
+    :goto_1
     iget v4, p0, Landroid/widget/StackView$StackSlider;->mYProgress:F
 
     invoke-static {v7, v4}, Ljava/lang/Float;->compare(FF)I
 
     move-result v4
 
-    if-eqz v4, :cond_d2
+    if-eqz v4, :cond_4
 
     iget v4, p0, Landroid/widget/StackView$StackSlider;->mYProgress:F
 
@@ -719,7 +726,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_d2
+    if-eqz v4, :cond_4
 
     .line 961
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
@@ -728,7 +735,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_54
+    if-nez v4, :cond_1
 
     .line 962
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
@@ -740,16 +747,16 @@
     invoke-virtual {v4, v5, v6}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
 
     .line 970
-    :cond_54
-    :goto_54
+    :cond_1
+    :goto_2
     iget v4, p0, Landroid/widget/StackView$StackSlider;->mMode:I
 
-    packed-switch v4, :pswitch_data_168
+    packed-switch v4, :pswitch_data_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 972
-    :pswitch_5a
+    :pswitch_0
     neg-float v4, p1
 
     int-to-float v5, v2
@@ -758,6 +765,7 @@
 
     iget-object v5, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mSlideAmount:I
     invoke-static {v5}, Landroid/widget/StackView;->access$200(Landroid/widget/StackView;)I
 
     move-result v5
@@ -781,6 +789,7 @@
 
     iget-object v5, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mSlideAmount:I
     invoke-static {v5}, Landroid/widget/StackView;->access$200(Landroid/widget/StackView;)I
 
     move-result v5
@@ -798,6 +807,7 @@
     .line 974
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mHighlight:Landroid/widget/ImageView;
     invoke-static {v4}, Landroid/widget/StackView;->access$000(Landroid/widget/StackView;)Landroid/widget/ImageView;
 
     move-result-object v4
@@ -825,11 +835,11 @@
 
     cmpl-float v4, v4, v7
 
-    if-nez v4, :cond_e2
+    if-nez v4, :cond_5
 
     cmpl-float v4, v0, v7
 
-    if-eqz v4, :cond_e2
+    if-eqz v4, :cond_5
 
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
 
@@ -837,7 +847,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_e2
+    if-eqz v4, :cond_5
 
     .line 981
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
@@ -845,8 +855,8 @@
     invoke-virtual {v4, v11}, Landroid/view/View;->setVisibility(I)V
 
     .line 987
-    :cond_ac
-    :goto_ac
+    :cond_2
+    :goto_3
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
 
     invoke-virtual {v4, v0}, Landroid/view/View;->setAlpha(F)V
@@ -869,6 +879,7 @@
     .line 989
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mHighlight:Landroid/widget/ImageView;
     invoke-static {v4}, Landroid/widget/StackView;->access$000(Landroid/widget/StackView;)Landroid/widget/ImageView;
 
     move-result-object v4
@@ -885,26 +896,26 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setRotationX(F)V
 
-    goto/16 :goto_17
+    goto/16 :goto_0
 
     .line 956
     .end local v0           #alpha:F
     .end local v2           #stackDirection:I
-    :cond_cf
+    :cond_3
     const/4 v2, -0x1
 
-    goto/16 :goto_35
+    goto/16 :goto_1
 
     .line 965
     .restart local v2       #stackDirection:I
-    :cond_d2
+    :cond_4
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
 
     invoke-virtual {v4}, Landroid/view/View;->getLayerType()I
 
     move-result v4
 
-    if-eqz v4, :cond_54
+    if-eqz v4, :cond_1
 
     .line 966
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
@@ -913,14 +924,14 @@
 
     invoke-virtual {v4, v11, v5}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
 
-    goto/16 :goto_54
+    goto/16 :goto_2
 
     .line 982
     .restart local v0       #alpha:F
-    :cond_e2
+    :cond_5
     cmpl-float v4, v0, v7
 
-    if-nez v4, :cond_ac
+    if-nez v4, :cond_2
 
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
 
@@ -930,7 +941,7 @@
 
     cmpl-float v4, v4, v7
 
-    if-eqz v4, :cond_ac
+    if-eqz v4, :cond_2
 
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
 
@@ -938,7 +949,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_ac
+    if-nez v4, :cond_2
 
     .line 984
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->mView:Landroid/view/View;
@@ -947,11 +958,11 @@
 
     invoke-virtual {v4, v5}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_ac
+    goto :goto_3
 
     .line 992
     .end local v0           #alpha:F
-    :pswitch_ff
+    :pswitch_1
     mul-float/2addr p1, v9
 
     .line 993
@@ -963,6 +974,7 @@
 
     iget-object v5, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mSlideAmount:I
     invoke-static {v5}, Landroid/widget/StackView;->access$200(Landroid/widget/StackView;)I
 
     move-result v5
@@ -986,6 +998,7 @@
 
     iget-object v5, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mSlideAmount:I
     invoke-static {v5}, Landroid/widget/StackView;->access$200(Landroid/widget/StackView;)I
 
     move-result v5
@@ -1003,6 +1016,7 @@
     .line 995
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mHighlight:Landroid/widget/ImageView;
     invoke-static {v4}, Landroid/widget/StackView;->access$000(Landroid/widget/StackView;)Landroid/widget/ImageView;
 
     move-result-object v4
@@ -1013,10 +1027,10 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setAlpha(F)V
 
-    goto/16 :goto_17
+    goto/16 :goto_0
 
     .line 998
-    :pswitch_133
+    :pswitch_2
     sub-float v4, v8, p1
 
     mul-float p1, v4, v9
@@ -1028,6 +1042,7 @@
 
     iget-object v5, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mSlideAmount:I
     invoke-static {v5}, Landroid/widget/StackView;->access$200(Landroid/widget/StackView;)I
 
     move-result v5
@@ -1049,6 +1064,7 @@
 
     iget-object v5, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mSlideAmount:I
     invoke-static {v5}, Landroid/widget/StackView;->access$200(Landroid/widget/StackView;)I
 
     move-result v5
@@ -1066,6 +1082,7 @@
     .line 1001
     iget-object v4, p0, Landroid/widget/StackView$StackSlider;->this$0:Landroid/widget/StackView;
 
+    #getter for: Landroid/widget/StackView;->mHighlight:Landroid/widget/ImageView;
     invoke-static {v4}, Landroid/widget/StackView;->access$000(Landroid/widget/StackView;)Landroid/widget/ImageView;
 
     move-result-object v4
@@ -1076,13 +1093,13 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setAlpha(F)V
 
-    goto/16 :goto_17
+    goto/16 :goto_0
 
     .line 970
-    :pswitch_data_168
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_5a
-        :pswitch_133
-        :pswitch_ff
+        :pswitch_0
+        :pswitch_2
+        :pswitch_1
     .end packed-switch
 .end method

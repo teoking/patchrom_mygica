@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/StatusBarManagerService;Landroid/os/IBinder;II)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 284
@@ -61,10 +61,10 @@
 
     iget-object v0, v0, Lcom/android/server/StatusBarManagerService;->mBar:Lcom/android/internal/statusbar/IStatusBar;
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 286
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/StatusBarManagerService$3;->this$0:Lcom/android/server/StatusBarManagerService;
 
     iget-object v0, v0, Lcom/android/server/StatusBarManagerService;->mBar:Lcom/android/internal/statusbar/IStatusBar;
@@ -76,17 +76,17 @@
     iget v3, p0, Lcom/android/server/StatusBarManagerService$3;->val$backDisposition:I
 
     invoke-interface {v0, v1, v2, v3}, Lcom/android/internal/statusbar/IStatusBar;->setImeWindowStatus(Landroid/os/IBinder;II)V
-    :try_end_13
-    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_13} :catch_14
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 290
-    :cond_13
-    :goto_13
+    :cond_0
+    :goto_0
     return-void
 
     .line 287
-    :catch_14
+    :catch_0
     move-exception v0
 
-    goto :goto_13
+    goto :goto_0
 .end method

@@ -22,7 +22,7 @@
 
 # direct methods
 .method protected constructor <init>(ILjava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "type"
     .parameter "attr"
 
@@ -45,7 +45,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -75,7 +75,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/telephony/CellIdentity;)V
-    .registers 4
+    .locals 2
     .parameter "cid"
 
     .prologue
@@ -103,7 +103,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 80
@@ -113,7 +113,7 @@
 .end method
 
 .method public getCellIdAttributes()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 73
@@ -123,7 +123,7 @@
 .end method
 
 .method public getCellIdType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 59
@@ -133,7 +133,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

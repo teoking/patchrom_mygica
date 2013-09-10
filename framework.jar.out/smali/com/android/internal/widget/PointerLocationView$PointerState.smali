@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/16 v1, 0x20
@@ -85,7 +85,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/widget/PointerLocationView$PointerState;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -96,7 +96,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/internal/widget/PointerLocationView$PointerState;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -107,7 +107,7 @@
 .end method
 
 .method static synthetic access$1000(Lcom/android/internal/widget/PointerLocationView$PointerState;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -118,7 +118,7 @@
 .end method
 
 .method static synthetic access$1002(Lcom/android/internal/widget/PointerLocationView$PointerState;F)F
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -130,7 +130,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/android/internal/widget/PointerLocationView$PointerState;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -142,7 +142,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/android/internal/widget/PointerLocationView$PointerState;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -153,7 +153,7 @@
 .end method
 
 .method static synthetic access$1102(Lcom/android/internal/widget/PointerLocationView$PointerState;I)I
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -165,7 +165,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/internal/widget/PointerLocationView$PointerState;)Landroid/view/MotionEvent$PointerCoords;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -176,7 +176,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/internal/widget/PointerLocationView$PointerState;)[F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -187,7 +187,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/android/internal/widget/PointerLocationView$PointerState;)[F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -198,7 +198,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/android/internal/widget/PointerLocationView$PointerState;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -209,7 +209,7 @@
 .end method
 
 .method static synthetic access$502(Lcom/android/internal/widget/PointerLocationView$PointerState;F)F
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -221,7 +221,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/android/internal/widget/PointerLocationView$PointerState;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -232,7 +232,7 @@
 .end method
 
 .method static synthetic access$602(Lcom/android/internal/widget/PointerLocationView$PointerState;F)F
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -244,7 +244,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/android/internal/widget/PointerLocationView$PointerState;)Landroid/view/VelocityTracker$Estimator;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -255,7 +255,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/android/internal/widget/PointerLocationView$PointerState;)Landroid/view/VelocityTracker$Estimator;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -266,7 +266,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/android/internal/widget/PointerLocationView$PointerState;)F
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -277,7 +277,7 @@
 .end method
 
 .method static synthetic access$902(Lcom/android/internal/widget/PointerLocationView$PointerState;F)F
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -291,7 +291,7 @@
 
 # virtual methods
 .method public addTrace(FF)V
-    .registers 9
+    .locals 6
     .parameter "x"
     .parameter "y"
 
@@ -307,7 +307,7 @@
     .local v2, traceCapacity:I
     iget v3, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCount:I
 
-    if-ne v3, v2, :cond_20
+    if-ne v3, v2, :cond_0
 
     .line 75
     mul-int/lit8 v2, v2, 0x2
@@ -343,7 +343,7 @@
     .line 85
     .end local v0           #newTraceX:[F
     .end local v1           #newTraceY:[F
-    :cond_20
+    :cond_0
     iget-object v3, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceX:[F
 
     iget v4, p0, Lcom/android/internal/widget/PointerLocationView$PointerState;->mTraceCount:I
@@ -369,7 +369,7 @@
 .end method
 
 .method public clearTrace()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 69

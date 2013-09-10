@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 1689
@@ -107,7 +107,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1696
@@ -117,7 +117,7 @@
 .end method
 
 .method public static final query(Landroid/content/ContentResolver;[Ljava/lang/String;JJ)Landroid/database/Cursor;
-    .registers 13
+    .locals 7
     .parameter "cr"
     .parameter "projection"
     .parameter "begin"
@@ -161,7 +161,7 @@
 .end method
 
 .method public static final query(Landroid/content/ContentResolver;[Ljava/lang/String;JJLjava/lang/String;)Landroid/database/Cursor;
-    .registers 14
+    .locals 7
     .parameter "cr"
     .parameter "projection"
     .parameter "begin"

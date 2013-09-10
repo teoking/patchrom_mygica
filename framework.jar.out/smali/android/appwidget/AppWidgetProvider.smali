@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 46
@@ -18,7 +18,7 @@
 
 # virtual methods
 .method public onAppWidgetOptionsChanged(Landroid/content/Context;Landroid/appwidget/AppWidgetManager;ILandroid/os/Bundle;)V
-    .registers 5
+    .locals 0
     .parameter "context"
     .parameter "appWidgetManager"
     .parameter "appWidgetId"
@@ -30,7 +30,7 @@
 .end method
 
 .method public onDeleted(Landroid/content/Context;[I)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "appWidgetIds"
 
@@ -40,7 +40,7 @@
 .end method
 
 .method public onDisabled(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -49,7 +49,7 @@
 .end method
 
 .method public onEnabled(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -58,7 +58,7 @@
 .end method
 
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 10
+    .locals 7
     .parameter "context"
     .parameter "intent"
 
@@ -76,7 +76,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_25
+    if-eqz v5, :cond_1
 
     .line 62
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
@@ -85,7 +85,7 @@
 
     .line 63
     .local v3, extras:Landroid/os/Bundle;
-    if-eqz v3, :cond_24
+    if-eqz v3, :cond_0
 
     .line 64
     const-string v5, "appWidgetIds"
@@ -96,11 +96,11 @@
 
     .line 65
     .local v2, appWidgetIds:[I
-    if-eqz v2, :cond_24
+    if-eqz v2, :cond_0
 
     array-length v5, v2
 
-    if-lez v5, :cond_24
+    if-lez v5, :cond_0
 
     .line 66
     invoke-static {p1}, Landroid/appwidget/AppWidgetManager;->getInstance(Landroid/content/Context;)Landroid/appwidget/AppWidgetManager;
@@ -112,19 +112,19 @@
     .line 93
     .end local v2           #appWidgetIds:[I
     .end local v3           #extras:Landroid/os/Bundle;
-    :cond_24
-    :goto_24
+    :cond_0
+    :goto_0
     return-void
 
     .line 70
-    :cond_25
+    :cond_1
     const-string v5, "android.appwidget.action.APPWIDGET_DELETED"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_4b
+    if-eqz v5, :cond_2
 
     .line 71
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
@@ -133,7 +133,7 @@
 
     .line 72
     .restart local v3       #extras:Landroid/os/Bundle;
-    if-eqz v3, :cond_24
+    if-eqz v3, :cond_0
 
     const-string v5, "appWidgetId"
 
@@ -141,7 +141,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_24
+    if-eqz v5, :cond_0
 
     .line 73
     const-string v5, "appWidgetId"
@@ -162,19 +162,19 @@
 
     invoke-virtual {p0, p1, v5}, Landroid/appwidget/AppWidgetProvider;->onDeleted(Landroid/content/Context;[I)V
 
-    goto :goto_24
+    goto :goto_0
 
     .line 77
     .end local v1           #appWidgetId:I
     .end local v3           #extras:Landroid/os/Bundle;
-    :cond_4b
+    :cond_2
     const-string v5, "android.appwidget.action.APPWIDGET_UPDATE_OPTIONS"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_7d
+    if-eqz v5, :cond_3
 
     .line 78
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
@@ -183,7 +183,7 @@
 
     .line 79
     .restart local v3       #extras:Landroid/os/Bundle;
-    if-eqz v3, :cond_24
+    if-eqz v3, :cond_0
 
     const-string v5, "appWidgetId"
 
@@ -191,7 +191,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_24
+    if-eqz v5, :cond_0
 
     const-string v5, "appWidgetOptions"
 
@@ -199,7 +199,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_24
+    if-eqz v5, :cond_0
 
     .line 81
     const-string v5, "appWidgetId"
@@ -224,44 +224,44 @@
 
     invoke-virtual {p0, p1, v5, v1, v4}, Landroid/appwidget/AppWidgetProvider;->onAppWidgetOptionsChanged(Landroid/content/Context;Landroid/appwidget/AppWidgetManager;ILandroid/os/Bundle;)V
 
-    goto :goto_24
+    goto :goto_0
 
     .line 87
     .end local v1           #appWidgetId:I
     .end local v3           #extras:Landroid/os/Bundle;
     .end local v4           #widgetExtras:Landroid/os/Bundle;
-    :cond_7d
+    :cond_3
     const-string v5, "android.appwidget.action.APPWIDGET_ENABLED"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_89
+    if-eqz v5, :cond_4
 
     .line 88
     invoke-virtual {p0, p1}, Landroid/appwidget/AppWidgetProvider;->onEnabled(Landroid/content/Context;)V
 
-    goto :goto_24
+    goto :goto_0
 
     .line 90
-    :cond_89
+    :cond_4
     const-string v5, "android.appwidget.action.APPWIDGET_DISABLED"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_24
+    if-eqz v5, :cond_0
 
     .line 91
     invoke-virtual {p0, p1}, Landroid/appwidget/AppWidgetProvider;->onDisabled(Landroid/content/Context;)V
 
-    goto :goto_24
+    goto :goto_0
 .end method
 
 .method public onUpdate(Landroid/content/Context;Landroid/appwidget/AppWidgetManager;[I)V
-    .registers 4
+    .locals 0
     .parameter "context"
     .parameter "appWidgetManager"
     .parameter "appWidgetIds"

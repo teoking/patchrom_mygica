@@ -77,7 +77,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 52
@@ -123,7 +123,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 48
@@ -133,7 +133,7 @@
 .end method
 
 .method public static addCall(Lcom/android/internal/telephony/CallerInfo;Landroid/content/Context;Ljava/lang/String;IIJI)Landroid/net/Uri;
-    .registers 23
+    .locals 15
     .parameter "ci"
     .parameter "context"
     .parameter "number"
@@ -154,21 +154,21 @@
 
     move/from16 v0, p3
 
-    if-ne v0, v2, :cond_e8
+    if-ne v0, v2, :cond_5
 
     .line 271
     const-string p2, "-2"
 
     .line 272
-    if-eqz p0, :cond_12
+    if-eqz p0, :cond_0
 
     const-string v2, ""
 
     iput-object v2, p0, Lcom/android/internal/telephony/CallerInfo;->name:Ljava/lang/String;
 
     .line 282
-    :cond_12
-    :goto_12
+    :cond_0
+    :goto_0
     new-instance v12, Landroid/content/ContentValues;
 
     const/4 v2, 0x5
@@ -230,7 +230,7 @@
 
     move/from16 v0, p4
 
-    if-ne v0, v2, :cond_59
+    if-ne v0, v2, :cond_1
 
     .line 290
     const-string v2, "is_read"
@@ -244,8 +244,8 @@
     invoke-virtual {v12, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 292
-    :cond_59
-    if-eqz p0, :cond_77
+    :cond_1
+    if-eqz p0, :cond_2
 
     .line 293
     const-string/jumbo v2, "name"
@@ -273,8 +273,8 @@
     invoke-virtual {v12, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 298
-    :cond_77
-    if-eqz p0, :cond_de
+    :cond_2
+    if-eqz p0, :cond_4
 
     iget-wide v2, p0, Lcom/android/internal/telephony/CallerInfo;->person_id:J
 
@@ -282,12 +282,12 @@
 
     cmp-long v2, v2, v4
 
-    if-lez v2, :cond_de
+    if-lez v2, :cond_4
 
     .line 307
     iget-object v2, p0, Lcom/android/internal/telephony/CallerInfo;->normalizedNumber:Ljava/lang/String;
 
-    if-eqz v2, :cond_10e
+    if-eqz v2, :cond_8
 
     .line 308
     iget-object v9, p0, Lcom/android/internal/telephony/CallerInfo;->normalizedNumber:Ljava/lang/String;
@@ -335,22 +335,22 @@
     .line 325
     .end local v9           #normalizedPhoneNumber:Ljava/lang/String;
     .local v7, cursor:Landroid/database/Cursor;
-    :goto_a7
-    if-eqz v7, :cond_de
+    :goto_1
+    if-eqz v7, :cond_4
 
     .line 327
-    :try_start_a9
+    :try_start_0
     invoke-interface {v7}, Landroid/database/Cursor;->getCount()I
 
     move-result v2
 
-    if-lez v2, :cond_db
+    if-lez v2, :cond_3
 
     invoke-interface {v7}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v2
 
-    if-eqz v2, :cond_db
+    if-eqz v2, :cond_3
 
     .line 328
     sget-object v2, Landroid/provider/ContactsContract$DataUsageFeedback;->FEEDBACK_URI:Landroid/net/Uri;
@@ -392,17 +392,17 @@
     const/4 v4, 0x0
 
     invoke-virtual {v1, v8, v2, v3, v4}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
-    :try_end_db
-    .catchall {:try_start_a9 .. :try_end_db} :catchall_13e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 336
     .end local v8           #feedbackUri:Landroid/net/Uri;
-    :cond_db
+    :cond_3
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     .line 341
     .end local v7           #cursor:Landroid/database/Cursor;
-    :cond_de
+    :cond_4
     sget-object v2, Landroid/provider/CallLog$Calls;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {v1, v2, v12}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
@@ -419,64 +419,64 @@
     .line 273
     .end local v11           #result:Landroid/net/Uri;
     .end local v12           #values:Landroid/content/ContentValues;
-    :cond_e8
+    :cond_5
     sget v2, Lcom/android/internal/telephony/Connection;->PRESENTATION_PAYPHONE:I
 
     move/from16 v0, p3
 
-    if-ne v0, v2, :cond_f8
+    if-ne v0, v2, :cond_6
 
     .line 274
     const-string p2, "-3"
 
     .line 275
-    if-eqz p0, :cond_12
+    if-eqz p0, :cond_0
 
     const-string v2, ""
 
     iput-object v2, p0, Lcom/android/internal/telephony/CallerInfo;->name:Ljava/lang/String;
 
-    goto/16 :goto_12
+    goto/16 :goto_0
 
     .line 276
-    :cond_f8
+    :cond_6
     invoke-static/range {p2 .. p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-nez v2, :cond_104
+    if-nez v2, :cond_7
 
     sget v2, Lcom/android/internal/telephony/Connection;->PRESENTATION_UNKNOWN:I
 
     move/from16 v0, p3
 
-    if-ne v0, v2, :cond_12
+    if-ne v0, v2, :cond_0
 
     .line 278
-    :cond_104
+    :cond_7
     const-string p2, "-1"
 
     .line 279
-    if-eqz p0, :cond_12
+    if-eqz p0, :cond_0
 
     const-string v2, ""
 
     iput-object v2, p0, Lcom/android/internal/telephony/CallerInfo;->name:Ljava/lang/String;
 
-    goto/16 :goto_12
+    goto/16 :goto_0
 
     .line 315
     .restart local v12       #values:Landroid/content/ContentValues;
-    :cond_10e
+    :cond_8
     iget-object v2, p0, Lcom/android/internal/telephony/CallerInfo;->phoneNumber:Ljava/lang/String;
 
-    if-eqz v2, :cond_13b
+    if-eqz v2, :cond_9
 
     iget-object v10, p0, Lcom/android/internal/telephony/CallerInfo;->phoneNumber:Ljava/lang/String;
 
     .line 316
     .local v10, phoneNumber:Ljava/lang/String;
-    :goto_114
+    :goto_2
     sget-object v2, Landroid/provider/ContactsContract$CommonDataKinds$Callable;->CONTENT_FILTER_URI:Landroid/net/Uri;
 
     invoke-static {v10}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
@@ -520,19 +520,19 @@
     move-result-object v7
 
     .restart local v7       #cursor:Landroid/database/Cursor;
-    goto/16 :goto_a7
+    goto/16 :goto_1
 
     .end local v7           #cursor:Landroid/database/Cursor;
     .end local v10           #phoneNumber:Ljava/lang/String;
-    :cond_13b
+    :cond_9
     move-object/from16 v10, p2
 
     .line 315
-    goto :goto_114
+    goto :goto_2
 
     .line 336
     .restart local v7       #cursor:Landroid/database/Cursor;
-    :catchall_13e
+    :catchall_0
     move-exception v2
 
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
@@ -541,7 +541,7 @@
 .end method
 
 .method public static getLastOutgoingCall(Landroid/content/Context;)Ljava/lang/String;
-    .registers 8
+    .locals 7
     .parameter "context"
 
     .prologue
@@ -556,7 +556,7 @@
 
     .line 358
     .local v6, c:Landroid/database/Cursor;
-    :try_start_5
+    :try_start_0
     sget-object v1, Landroid/provider/CallLog$Calls;->CONTENT_URI:Landroid/net/Uri;
 
     const/4 v2, 0x1
@@ -580,60 +580,60 @@
     move-result-object v6
 
     .line 364
-    if-eqz v6, :cond_22
+    if-eqz v6, :cond_0
 
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v1
 
-    if-nez v1, :cond_2a
+    if-nez v1, :cond_2
 
     .line 365
-    :cond_22
+    :cond_0
     const-string v1, ""
-    :try_end_24
-    .catchall {:try_start_5 .. :try_end_24} :catchall_35
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 369
-    if-eqz v6, :cond_29
+    if-eqz v6, :cond_1
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_29
-    :goto_29
+    :cond_1
+    :goto_0
     return-object v1
 
     .line 367
-    :cond_2a
+    :cond_2
     const/4 v1, 0x0
 
-    :try_start_2b
+    :try_start_1
     invoke-interface {v6, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-    :try_end_2e
-    .catchall {:try_start_2b .. :try_end_2e} :catchall_35
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v1
 
     .line 369
-    if-eqz v6, :cond_29
+    if-eqz v6, :cond_1
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    goto :goto_29
+    goto :goto_0
 
-    :catchall_35
+    :catchall_0
     move-exception v1
 
-    if-eqz v6, :cond_3b
+    if-eqz v6, :cond_3
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_3b
+    :cond_3
     throw v1
 .end method
 
 .method private static removeExpiredEntries(Landroid/content/Context;)V
-    .registers 5
+    .locals 4
     .parameter "context"
 
     .prologue

@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(ILjava/util/ArrayList;)V
-    .registers 3
+    .locals 0
     .parameter "propertyMask"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method cancel(I)Z
-    .registers 7
+    .locals 5
     .parameter "propertyConstant"
 
     .prologue
@@ -71,11 +71,11 @@
 
     and-int/2addr v3, p1
 
-    if-eqz v3, :cond_2f
+    if-eqz v3, :cond_1
 
     iget-object v3, p0, Landroid/view/ViewPropertyAnimator$PropertyBundle;->mNameValuesHolder:Ljava/util/ArrayList;
 
-    if-eqz v3, :cond_2f
+    if-eqz v3, :cond_1
 
     .line 181
     iget-object v3, p0, Landroid/view/ViewPropertyAnimator$PropertyBundle;->mNameValuesHolder:Ljava/util/ArrayList;
@@ -89,8 +89,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_10
-    if-ge v1, v0, :cond_2f
+    :goto_0
+    if-ge v1, v0, :cond_1
 
     .line 183
     iget-object v3, p0, Landroid/view/ViewPropertyAnimator$PropertyBundle;->mNameValuesHolder:Ljava/util/ArrayList;
@@ -105,7 +105,7 @@
     .local v2, nameValuesHolder:Landroid/view/ViewPropertyAnimator$NameValuesHolder;
     iget v3, v2, Landroid/view/ViewPropertyAnimator$NameValuesHolder;->mNameConstant:I
 
-    if-ne v3, p1, :cond_2c
+    if-ne v3, p1, :cond_0
 
     .line 185
     iget-object v3, p0, Landroid/view/ViewPropertyAnimator$PropertyBundle;->mNameValuesHolder:Ljava/util/ArrayList;
@@ -128,24 +128,24 @@
     .end local v0           #count:I
     .end local v1           #i:I
     .end local v2           #nameValuesHolder:Landroid/view/ViewPropertyAnimator$NameValuesHolder;
-    :goto_2b
+    :goto_1
     return v3
 
     .line 182
     .restart local v0       #count:I
     .restart local v1       #i:I
     .restart local v2       #nameValuesHolder:Landroid/view/ViewPropertyAnimator$NameValuesHolder;
-    :cond_2c
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 191
     .end local v0           #count:I
     .end local v1           #i:I
     .end local v2           #nameValuesHolder:Landroid/view/ViewPropertyAnimator$NameValuesHolder;
-    :cond_2f
+    :cond_1
     const/4 v3, 0x0
 
-    goto :goto_2b
+    goto :goto_1
 .end method

@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "encoded"
     .parameter "decoded"
 
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method final getDecoded()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1956
@@ -59,30 +59,30 @@
 
     move-result-object v2
 
-    if-eq v1, v2, :cond_e
+    if-eq v1, v2, :cond_0
 
     const/4 v0, 0x1
 
     .line 1957
     .local v0, hasDecoded:Z
-    :goto_9
-    if-eqz v0, :cond_10
+    :goto_0
+    if-eqz v0, :cond_1
 
     iget-object v1, p0, Landroid/net/Uri$AbstractPart;->decoded:Ljava/lang/String;
 
-    :goto_d
+    :goto_1
     return-object v1
 
     .line 1956
     .end local v0           #hasDecoded:Z
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 
     .line 1957
     .restart local v0       #hasDecoded:Z
-    :cond_10
+    :cond_1
     iget-object v1, p0, Landroid/net/Uri$AbstractPart;->encoded:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/net/Uri;->decode(Ljava/lang/String;)Ljava/lang/String;
@@ -91,14 +91,14 @@
 
     iput-object v1, p0, Landroid/net/Uri$AbstractPart;->decoded:Ljava/lang/String;
 
-    goto :goto_d
+    goto :goto_1
 .end method
 
 .method abstract getEncoded()Ljava/lang/String;
 .end method
 
 .method final writeTo(Landroid/os/Parcel;)V
-    .registers 8
+    .locals 6
     .parameter "parcel"
 
     .prologue
@@ -113,29 +113,29 @@
 
     move-result-object v5
 
-    if-eq v4, v5, :cond_26
+    if-eq v4, v5, :cond_0
 
     move v1, v2
 
     .line 1965
     .local v1, hasEncoded:Z
-    :goto_b
+    :goto_0
     iget-object v4, p0, Landroid/net/Uri$AbstractPart;->decoded:Ljava/lang/String;
 
     invoke-static {}, Landroid/net/Uri;->access$300()Ljava/lang/String;
 
     move-result-object v5
 
-    if-eq v4, v5, :cond_28
+    if-eq v4, v5, :cond_1
 
     move v0, v2
 
     .line 1967
     .local v0, hasDecoded:Z
-    :goto_14
-    if-eqz v1, :cond_2a
+    :goto_1
+    if-eqz v1, :cond_2
 
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_2
 
     .line 1968
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
@@ -151,28 +151,28 @@
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 1980
-    :goto_25
+    :goto_2
     return-void
 
     .end local v0           #hasDecoded:Z
     .end local v1           #hasEncoded:Z
-    :cond_26
+    :cond_0
     move v1, v3
 
     .line 1962
-    goto :goto_b
+    goto :goto_0
 
     .restart local v1       #hasEncoded:Z
-    :cond_28
+    :cond_1
     move v0, v3
 
     .line 1965
-    goto :goto_14
+    goto :goto_1
 
     .line 1971
     .restart local v0       #hasDecoded:Z
-    :cond_2a
-    if-eqz v1, :cond_35
+    :cond_2
+    if-eqz v1, :cond_3
 
     .line 1972
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -182,11 +182,11 @@
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_25
+    goto :goto_2
 
     .line 1974
-    :cond_35
-    if-eqz v0, :cond_41
+    :cond_3
+    if-eqz v0, :cond_4
 
     .line 1975
     const/4 v2, 0x2
@@ -198,10 +198,10 @@
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_25
+    goto :goto_2
 
     .line 1978
-    :cond_41
+    :cond_4
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Neither encoded nor decoded"

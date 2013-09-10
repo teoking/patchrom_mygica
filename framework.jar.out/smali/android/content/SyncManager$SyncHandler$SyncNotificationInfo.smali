@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/SyncManager$SyncHandler;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1639
@@ -70,7 +70,7 @@
 .end method
 
 .method public toString(Ljava/lang/StringBuilder;)V
-    .registers 4
+    .locals 2
     .parameter "sb"
 
     .prologue

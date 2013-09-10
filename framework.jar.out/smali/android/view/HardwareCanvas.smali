@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 29
@@ -20,7 +20,7 @@
 .end method
 
 .method public callDrawGLFunction(I)I
-    .registers 3
+    .locals 1
     .parameter "drawGLFunction"
 
     .prologue
@@ -40,7 +40,7 @@
 .end method
 
 .method public invokeFunctors(Landroid/graphics/Rect;)I
-    .registers 3
+    .locals 1
     .parameter "dirty"
 
     .prologue
@@ -51,7 +51,7 @@
 .end method
 
 .method public isHardwareAccelerated()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 32
@@ -70,7 +70,7 @@
 .end method
 
 .method public setBitmap(Landroid/graphics/Bitmap;)V
-    .registers 3
+    .locals 1
     .parameter "bitmap"
 
     .prologue

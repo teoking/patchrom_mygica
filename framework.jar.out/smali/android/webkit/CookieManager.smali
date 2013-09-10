@@ -5,7 +5,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 29
@@ -16,7 +16,7 @@
 .end method
 
 .method public static allowFileSchemeCookies()Z
-    .registers 1
+    .locals 1
 
     .prologue
     .line 180
@@ -32,7 +32,7 @@
 .end method
 
 .method public static declared-synchronized getInstance()Landroid/webkit/CookieManager;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 46
@@ -40,14 +40,14 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     invoke-static {}, Landroid/webkit/WebViewFactory;->getProvider()Landroid/webkit/WebViewFactoryProvider;
 
     move-result-object v0
 
     invoke-interface {v0}, Landroid/webkit/WebViewFactoryProvider;->getCookieManager()Landroid/webkit/CookieManager;
-    :try_end_a
-    .catchall {:try_start_3 .. :try_end_a} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
@@ -55,7 +55,7 @@
 
     return-object v0
 
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -64,7 +64,7 @@
 .end method
 
 .method public static setAcceptFileSchemeCookies(Z)V
-    .registers 2
+    .locals 1
     .parameter "accept"
 
     .prologue
@@ -82,22 +82,22 @@
 
 # virtual methods
 .method public declared-synchronized acceptCookie()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 67
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -106,7 +106,7 @@
 .end method
 
 .method protected allowFileSchemeCookiesImpl()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 189
@@ -118,7 +118,7 @@
 .end method
 
 .method protected clone()Ljava/lang/Object;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -137,7 +137,7 @@
 .end method
 
 .method protected flushCookieStore()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 168
@@ -149,23 +149,23 @@
 .end method
 
 .method public declared-synchronized getCookie(Landroid/net/WebAddress;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "uri"
 
     .prologue
     .line 118
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -174,7 +174,7 @@
 .end method
 
 .method public getCookie(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "url"
 
     .prologue
@@ -187,7 +187,7 @@
 .end method
 
 .method public getCookie(Ljava/lang/String;Z)Ljava/lang/String;
-    .registers 4
+    .locals 1
     .parameter "url"
     .parameter "privateBrowsing"
 
@@ -201,22 +201,22 @@
 .end method
 
 .method public declared-synchronized hasCookies()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 142
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -225,23 +225,23 @@
 .end method
 
 .method public declared-synchronized hasCookies(Z)Z
-    .registers 3
+    .locals 1
     .parameter "privateBrowsing"
 
     .prologue
     .line 152
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -250,7 +250,7 @@
 .end method
 
 .method public removeAllCookie()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 133
@@ -262,7 +262,7 @@
 .end method
 
 .method public removeExpiredCookie()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 159
@@ -274,7 +274,7 @@
 .end method
 
 .method public removeSessionCookie()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 126
@@ -286,23 +286,23 @@
 .end method
 
 .method public declared-synchronized setAcceptCookie(Z)V
-    .registers 3
+    .locals 1
     .parameter "accept"
 
     .prologue
     .line 57
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Landroid/webkit/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -311,7 +311,7 @@
 .end method
 
 .method protected setAcceptFileSchemeCookiesImpl(Z)V
-    .registers 3
+    .locals 1
     .parameter "accept"
 
     .prologue
@@ -324,7 +324,7 @@
 .end method
 
 .method public setCookie(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "url"
     .parameter "value"
 

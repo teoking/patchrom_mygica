@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/widget/LockSettingsService;Landroid/content/Context;)V
-    .registers 6
+    .locals 3
     .parameter
     .parameter "context"
 
@@ -53,7 +53,7 @@
 .end method
 
 .method private createTable(Landroid/database/sqlite/SQLiteDatabase;)V
-    .registers 3
+    .locals 1
     .parameter "db"
 
     .prologue
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public onCreate(Landroid/database/sqlite/SQLiteDatabase;)V
-    .registers 2
+    .locals 0
     .parameter "db"
 
     .prologue
@@ -81,7 +81,7 @@
 .end method
 
 .method public onUpgrade(Landroid/database/sqlite/SQLiteDatabase;II)V
-    .registers 4
+    .locals 0
     .parameter "db"
     .parameter "oldVersion"
     .parameter "currentVersion"

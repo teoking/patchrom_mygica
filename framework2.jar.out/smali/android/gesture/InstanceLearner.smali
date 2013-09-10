@@ -18,7 +18,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 29
@@ -32,7 +32,7 @@
 .end method
 
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 28
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method classify(II[F)Ljava/util/ArrayList;
-    .registers 23
+    .locals 19
     .parameter "sequenceType"
     .parameter "orientationType"
     .parameter "vector"
@@ -87,8 +87,8 @@
     const/4 v6, 0x0
 
     .local v6, i:I
-    :goto_13
-    if-ge v6, v3, :cond_91
+    :goto_0
+    if-ge v6, v3, :cond_5
 
     .line 50
     invoke-virtual {v8, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -119,24 +119,24 @@
 
     move/from16 v1, v18
 
-    if-eq v0, v1, :cond_32
+    if-eq v0, v1, :cond_1
 
     .line 49
-    :cond_2f
-    :goto_2f
+    :cond_0
+    :goto_1
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_13
+    goto :goto_0
 
     .line 55
-    :cond_32
+    :cond_1
     const/16 v17, 0x2
 
     move/from16 v0, p1
 
     move/from16 v1, v17
 
-    if-ne v0, v1, :cond_7c
+    if-ne v0, v1, :cond_3
 
     .line 56
     iget-object v0, v12, Landroid/gesture/Instance;->vector:[F
@@ -159,19 +159,19 @@
 
     .line 61
     .local v4, distance:D
-    :goto_4b
+    :goto_2
     const-wide/16 v17, 0x0
 
     cmpl-double v17, v4, v17
 
-    if-nez v17, :cond_8c
+    if-nez v17, :cond_4
 
     .line 62
     const-wide v15, 0x7fefffffffffffffL
 
     .line 66
     .local v15, weight:D
-    :goto_56
+    :goto_3
     iget-object v0, v12, Landroid/gesture/Instance;->label:Ljava/lang/String;
 
     move-object/from16 v17, v0
@@ -186,7 +186,7 @@
 
     .line 67
     .local v13, score:Ljava/lang/Double;
-    if-eqz v13, :cond_6c
+    if-eqz v13, :cond_2
 
     invoke-virtual {v13}, Ljava/lang/Double;->doubleValue()D
 
@@ -194,10 +194,10 @@
 
     cmpl-double v17, v15, v17
 
-    if-lez v17, :cond_2f
+    if-lez v17, :cond_0
 
     .line 68
-    :cond_6c
+    :cond_2
     iget-object v0, v12, Landroid/gesture/Instance;->label:Ljava/lang/String;
 
     move-object/from16 v17, v0
@@ -212,13 +212,13 @@
 
     invoke-virtual {v9, v0, v1}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_2f
+    goto :goto_1
 
     .line 58
     .end local v4           #distance:D
     .end local v13           #score:Ljava/lang/Double;
     .end local v15           #weight:D
-    :cond_7c
+    :cond_3
     iget-object v0, v12, Landroid/gesture/Instance;->vector:[F
 
     move-object/from16 v17, v0
@@ -236,22 +236,22 @@
     float-to-double v4, v0
 
     .restart local v4       #distance:D
-    goto :goto_4b
+    goto :goto_2
 
     .line 64
-    :cond_8c
+    :cond_4
     const-wide/high16 v17, 0x3ff0
 
     div-double v15, v17, v4
 
     .restart local v15       #weight:D
-    goto :goto_56
+    goto :goto_3
 
     .line 73
     .end local v4           #distance:D
     .end local v12           #sample:Landroid/gesture/Instance;
     .end local v15           #weight:D
-    :cond_91
+    :cond_5
     invoke-virtual {v9}, Ljava/util/TreeMap;->keySet()Ljava/util/Set;
 
     move-result-object v17
@@ -261,12 +261,12 @@
     move-result-object v7
 
     .local v7, i$:Ljava/util/Iterator;
-    :goto_99
+    :goto_4
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v17
 
-    if-eqz v17, :cond_bc
+    if-eqz v17, :cond_6
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -298,12 +298,12 @@
 
     invoke-virtual {v11, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_99
+    goto :goto_4
 
     .line 84
     .end local v10           #name:Ljava/lang/String;
     .end local v13           #score:D
-    :cond_bc
+    :cond_6
     sget-object v17, Landroid/gesture/InstanceLearner;->sComparator:Ljava/util/Comparator;
 
     move-object/from16 v0, v17

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/server/BluetoothService;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "service"
 
@@ -55,18 +55,18 @@
 
 # virtual methods
 .method declared-synchronized clear()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 51
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/server/BluetoothAdapterProperties;->mPropertiesMap:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
-    :try_end_6
-    .catchall {:try_start_1 .. :try_end_6} :catchall_8
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 52
     monitor-exit p0
@@ -74,7 +74,7 @@
     return-void
 
     .line 51
-    :catchall_8
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -83,13 +83,13 @@
 .end method
 
 .method declared-synchronized getAllProperties()V
-    .registers 14
+    .locals 13
 
     .prologue
     .line 63
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v9, p0, Landroid/server/BluetoothAdapterProperties;->mContext:Landroid/content/Context;
 
     const-string v10, "android.permission.BLUETOOTH"
@@ -120,7 +120,7 @@
 
     .line 71
     .local v7, properties:[Ljava/lang/String;
-    if-nez v7, :cond_26
+    if-nez v7, :cond_1
 
     .line 72
     const-string v9, "BluetoothAdapterProperties"
@@ -128,26 +128,26 @@
     const-string v10, "*Error*: GetAdapterProperties returned NULL"
 
     invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_24
-    .catchall {:try_start_1 .. :try_end_24} :catchall_8f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 104
-    :cond_24
-    :goto_24
+    :cond_0
+    :goto_0
     monitor-exit p0
 
     return-void
 
     .line 76
-    :cond_26
+    :cond_1
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_27
-    :try_start_27
+    :goto_1
+    :try_start_1
     array-length v9, v7
 
-    if-ge v2, v9, :cond_97
+    if-ge v2, v9, :cond_7
 
     .line 77
     aget-object v5, v7, v2
@@ -158,7 +158,7 @@
 
     .line 79
     .local v6, newValue:Ljava/lang/String;
-    if-nez v5, :cond_50
+    if-nez v5, :cond_2
 
     .line 80
     const-string v9, "BluetoothAdapterProperties"
@@ -190,20 +190,20 @@
     invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 76
-    :goto_4d
+    :goto_2
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_27
+    goto :goto_1
 
     .line 83
-    :cond_50
+    :cond_2
     const-string v9, "Devices"
 
     invoke-virtual {v5, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
-    if-nez v9, :cond_60
+    if-nez v9, :cond_3
 
     const-string v9, "UUIDs"
 
@@ -211,10 +211,10 @@
 
     move-result v9
 
-    if-eqz v9, :cond_92
+    if-eqz v9, :cond_6
 
     .line 84
-    :cond_60
+    :cond_3
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -238,8 +238,8 @@
     const/4 v3, 0x0
 
     .local v3, j:I
-    :goto_72
-    if-ge v3, v4, :cond_83
+    :goto_3
+    if-ge v3, v4, :cond_4
 
     .line 87
     add-int/lit8 v2, v2, 0x1
@@ -256,11 +256,11 @@
     .line 86
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_72
+    goto :goto_3
 
     .line 90
-    :cond_83
-    if-lez v4, :cond_89
+    :cond_4
+    if-lez v4, :cond_5
 
     .line 91
     invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -271,22 +271,22 @@
     .end local v3           #j:I
     .end local v4           #len:I
     .end local v8           #str:Ljava/lang/StringBuilder;
-    :cond_89
-    :goto_89
+    :cond_5
+    :goto_4
     iget-object v9, p0, Landroid/server/BluetoothAdapterProperties;->mPropertiesMap:Ljava/util/Map;
 
     invoke-interface {v9, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_8e
-    .catchall {:try_start_27 .. :try_end_8e} :catchall_8f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_4d
+    goto :goto_2
 
     .line 63
     .end local v2           #i:I
     .end local v5           #name:Ljava/lang/String;
     .end local v6           #newValue:Ljava/lang/String;
     .end local v7           #properties:[Ljava/lang/String;
-    :catchall_8f
+    :catchall_0
     move-exception v9
 
     monitor-exit p0
@@ -298,18 +298,18 @@
     .restart local v5       #name:Ljava/lang/String;
     .restart local v6       #newValue:Ljava/lang/String;
     .restart local v7       #properties:[Ljava/lang/String;
-    :cond_92
+    :cond_6
     add-int/lit8 v2, v2, 0x1
 
-    :try_start_94
+    :try_start_2
     aget-object v6, v7, v2
 
-    goto :goto_89
+    goto :goto_4
 
     .line 100
     .end local v5           #name:Ljava/lang/String;
     .end local v6           #newValue:Ljava/lang/String;
-    :cond_97
+    :cond_7
     iget-object v9, p0, Landroid/server/BluetoothAdapterProperties;->mService:Landroid/server/BluetoothService;
 
     invoke-virtual {v9}, Landroid/server/BluetoothService;->getAdapterPathNative()Ljava/lang/String;
@@ -318,7 +318,7 @@
 
     .line 101
     .local v1, adapterPath:Ljava/lang/String;
-    if-eqz v1, :cond_24
+    if-eqz v1, :cond_0
 
     .line 102
     iget-object v9, p0, Landroid/server/BluetoothAdapterProperties;->mPropertiesMap:Ljava/util/Map;
@@ -344,14 +344,14 @@
     move-result-object v11
 
     invoke-interface {v9, v10, v11}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_b9
-    .catchall {:try_start_94 .. :try_end_b9} :catchall_8f
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto/16 :goto_24
+    goto/16 :goto_0
 .end method
 
 .method getObjectPath()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 47
@@ -365,27 +365,27 @@
 .end method
 
 .method declared-synchronized getProperty(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
     .line 40
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/server/BluetoothAdapterProperties;->mPropertiesMap:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 41
     invoke-virtual {p0}, Landroid/server/BluetoothAdapterProperties;->getAllProperties()V
 
     .line 43
-    :cond_c
+    :cond_0
     iget-object v0, p0, Landroid/server/BluetoothAdapterProperties;->mPropertiesMap:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -393,15 +393,15 @@
     move-result-object v0
 
     check-cast v0, Ljava/lang/String;
-    :try_end_14
-    .catchall {:try_start_1 .. :try_end_14} :catchall_16
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
     .line 40
-    :catchall_16
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -410,18 +410,18 @@
 .end method
 
 .method declared-synchronized isEmpty()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 55
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/server/BluetoothAdapterProperties;->mPropertiesMap:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z
-    :try_end_6
-    .catchall {:try_start_1 .. :try_end_6} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
@@ -429,7 +429,7 @@
 
     return v0
 
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -438,7 +438,7 @@
 .end method
 
 .method declared-synchronized setProperty(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "value"
 
@@ -446,12 +446,12 @@
     .line 59
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/server/BluetoothAdapterProperties;->mPropertiesMap:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_6
-    .catchall {:try_start_1 .. :try_end_6} :catchall_8
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 60
     monitor-exit p0
@@ -459,7 +459,7 @@
     return-void
 
     .line 59
-    :catchall_8
+    :catchall_0
     move-exception v0
 
     monitor-exit p0

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;ILandroid/content/pm/IPackageDataObserver;)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 8
+    .locals 7
 
     .prologue
     .line 7818
@@ -71,13 +71,14 @@
     monitor-enter v4
 
     .line 7821
-    :try_start_c
+    :try_start_0
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$8;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v5, p0, Lcom/android/server/pm/PackageManagerService$8;->val$packageName:Ljava/lang/String;
 
     iget v6, p0, Lcom/android/server/pm/PackageManagerService$8;->val$userId:I
 
+    #calls: Lcom/android/server/pm/PackageManagerService;->clearApplicationUserDataLI(Ljava/lang/String;I)Z
     invoke-static {v3, v5, v6}, Lcom/android/server/pm/PackageManagerService;->access$3500(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;I)Z
 
     move-result v2
@@ -85,8 +86,8 @@
     .line 7822
     .local v2, succeeded:Z
     monitor-exit v4
-    :try_end_17
-    .catchall {:try_start_c .. :try_end_17} :catchall_3a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 7823
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$8;->this$0:Lcom/android/server/pm/PackageManagerService;
@@ -95,10 +96,11 @@
 
     const/4 v5, 0x1
 
+    #calls: Lcom/android/server/pm/PackageManagerService;->clearExternalStorageDataSync(Ljava/lang/String;Z)V
     invoke-static {v3, v4, v5}, Lcom/android/server/pm/PackageManagerService;->access$3600(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Z)V
 
     .line 7824
-    if-eqz v2, :cond_2e
+    if-eqz v2, :cond_0
 
     .line 7826
     const-string v3, "devicestoragemonitor"
@@ -111,48 +113,48 @@
 
     .line 7828
     .local v0, dsm:Lcom/android/server/DeviceStorageMonitorService;
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_0
 
     .line 7829
     invoke-virtual {v0}, Lcom/android/server/DeviceStorageMonitorService;->updateMemory()V
 
     .line 7832
     .end local v0           #dsm:Lcom/android/server/DeviceStorageMonitorService;
-    :cond_2e
+    :cond_0
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$8;->val$observer:Landroid/content/pm/IPackageDataObserver;
 
-    if-eqz v3, :cond_39
+    if-eqz v3, :cond_1
 
     .line 7834
-    :try_start_32
+    :try_start_1
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$8;->val$observer:Landroid/content/pm/IPackageDataObserver;
 
     iget-object v4, p0, Lcom/android/server/pm/PackageManagerService$8;->val$packageName:Ljava/lang/String;
 
     invoke-interface {v3, v4, v2}, Landroid/content/pm/IPackageDataObserver;->onRemoveCompleted(Ljava/lang/String;Z)V
-    :try_end_39
-    .catch Landroid/os/RemoteException; {:try_start_32 .. :try_end_39} :catch_3d
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 7839
-    :cond_39
-    :goto_39
+    :cond_1
+    :goto_0
     return-void
 
     .line 7822
     .end local v2           #succeeded:Z
-    :catchall_3a
+    :catchall_0
     move-exception v3
 
-    :try_start_3b
+    :try_start_2
     monitor-exit v4
-    :try_end_3c
-    .catchall {:try_start_3b .. :try_end_3c} :catchall_3a
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v3
 
     .line 7835
     .restart local v2       #succeeded:Z
-    :catch_3d
+    :catch_0
     move-exception v1
 
     .line 7836
@@ -163,5 +165,5 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_39
+    goto :goto_0
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/ViewRootImpl;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public isCreating()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 4653
@@ -47,7 +47,7 @@
 .end method
 
 .method public onAllowLockCanvas()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 4630
@@ -59,7 +59,7 @@
 .end method
 
 .method public onRelayoutContainer()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 4636
@@ -67,7 +67,7 @@
 .end method
 
 .method public onUpdateSurface()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 4649
@@ -81,7 +81,7 @@
 .end method
 
 .method public setFixedSize(II)V
-    .registers 5
+    .locals 2
     .parameter "width"
     .parameter "height"
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public setFormat(I)V
-    .registers 3
+    .locals 1
     .parameter "format"
 
     .prologue
@@ -115,7 +115,7 @@
 .end method
 
 .method public setKeepScreenOn(Z)V
-    .registers 3
+    .locals 1
     .parameter "screenOn"
 
     .prologue
@@ -133,7 +133,7 @@
 .end method
 
 .method public setType(I)V
-    .registers 3
+    .locals 1
     .parameter "type"
 
     .prologue

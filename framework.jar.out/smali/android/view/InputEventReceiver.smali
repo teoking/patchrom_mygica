@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/InputChannel;Landroid/os/Looper;)V
-    .registers 5
+    .locals 2
     .parameter "inputChannel"
     .parameter "looper"
 
@@ -52,7 +52,7 @@
     iput-object v0, p0, Landroid/view/InputEventReceiver;->mSeqMap:Landroid/util/SparseIntArray;
 
     .line 59
-    if-nez p1, :cond_1a
+    if-nez p1, :cond_0
 
     .line 60
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -64,8 +64,8 @@
     throw v0
 
     .line 62
-    :cond_1a
-    if-nez p2, :cond_24
+    :cond_0
+    if-nez p2, :cond_1
 
     .line 63
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -77,7 +77,7 @@
     throw v0
 
     .line 66
-    :cond_24
+    :cond_1
     iput-object p1, p0, Landroid/view/InputEventReceiver;->mInputChannel:Landroid/view/InputChannel;
 
     .line 67
@@ -108,7 +108,7 @@
 .end method
 
 .method private dispatchBatchedInputEventPending()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 177
@@ -119,7 +119,7 @@
 .end method
 
 .method private dispatchInputEvent(ILandroid/view/InputEvent;)V
-    .registers 5
+    .locals 2
     .parameter "seq"
     .parameter "event"
 
@@ -155,14 +155,14 @@
 
 # virtual methods
 .method public final consumeBatchedInputEvents(J)V
-    .registers 5
+    .locals 2
     .parameter "frameTimeNanos"
 
     .prologue
     .line 159
     iget v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 160
     const-string v0, "InputEventReceiver"
@@ -172,20 +172,20 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 165
-    :goto_b
+    :goto_0
     return-void
 
     .line 163
-    :cond_c
+    :cond_0
     iget v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
     invoke-static {v0, p1, p2}, Landroid/view/InputEventReceiver;->nativeConsumeBatchedInputEvents(IJ)V
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public dispose()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -193,7 +193,7 @@
     .line 86
     iget-object v0, p0, Landroid/view/InputEventReceiver;->mCloseGuard:Ldalvik/system/CloseGuard;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 87
     iget-object v0, p0, Landroid/view/InputEventReceiver;->mCloseGuard:Ldalvik/system/CloseGuard;
@@ -201,10 +201,10 @@
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->close()V
 
     .line 89
-    :cond_a
+    :cond_0
     iget v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_1
 
     .line 90
     iget v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
@@ -217,7 +217,7 @@
     iput v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
     .line 93
-    :cond_16
+    :cond_1
     iput-object v1, p0, Landroid/view/InputEventReceiver;->mInputChannel:Landroid/view/InputChannel;
 
     .line 94
@@ -228,7 +228,7 @@
 .end method
 
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -239,8 +239,8 @@
     .line 76
     :try_start_0
     invoke-virtual {p0}, Landroid/view/InputEventReceiver;->dispose()V
-    :try_end_3
-    .catchall {:try_start_0 .. :try_end_3} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 78
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -249,7 +249,7 @@
     return-void
 
     .line 78
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -258,13 +258,13 @@
 .end method
 
 .method public final finishInputEvent(Landroid/view/InputEvent;Z)V
-    .registers 7
+    .locals 4
     .parameter "event"
     .parameter "handled"
 
     .prologue
     .line 129
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 130
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -276,10 +276,10 @@
     throw v2
 
     .line 132
-    :cond_a
+    :cond_0
     iget v2, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
-    if-nez v2, :cond_19
+    if-nez v2, :cond_1
 
     .line 133
     const-string v2, "InputEventReceiver"
@@ -289,14 +289,14 @@
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 145
-    :goto_15
+    :goto_0
     invoke-virtual {p1}, Landroid/view/InputEvent;->recycleIfNeededAfterDispatch()V
 
     .line 146
     return-void
 
     .line 136
-    :cond_19
+    :cond_1
     iget-object v2, p0, Landroid/view/InputEventReceiver;->mSeqMap:Landroid/util/SparseIntArray;
 
     invoke-virtual {p1}, Landroid/view/InputEvent;->getSequenceNumber()I
@@ -309,7 +309,7 @@
 
     .line 137
     .local v0, index:I
-    if-gez v0, :cond_2d
+    if-gez v0, :cond_2
 
     .line 138
     const-string v2, "InputEventReceiver"
@@ -318,10 +318,10 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_15
+    goto :goto_0
 
     .line 140
-    :cond_2d
+    :cond_2
     iget-object v2, p0, Landroid/view/InputEventReceiver;->mSeqMap:Landroid/util/SparseIntArray;
 
     invoke-virtual {v2, v0}, Landroid/util/SparseIntArray;->valueAt(I)I
@@ -339,11 +339,11 @@
 
     invoke-static {v2, v1, p2}, Landroid/view/InputEventReceiver;->nativeFinishInputEvent(IIZ)V
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public onBatchedInputEventPending()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 118
@@ -356,7 +356,7 @@
 .end method
 
 .method public onInputEvent(Landroid/view/InputEvent;)V
-    .registers 3
+    .locals 1
     .parameter "event"
 
     .prologue

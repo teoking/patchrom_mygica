@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/SearchView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 7
+    .locals 1
     .parameter
     .parameter "view"
     .parameter "position"
@@ -58,6 +58,7 @@
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Landroid/widget/SearchView$10;->this$0:Landroid/widget/SearchView;
 
+    #calls: Landroid/widget/SearchView;->onItemSelected(I)Z
     invoke-static {v0, p3}, Landroid/widget/SearchView;->access$1900(Landroid/widget/SearchView;I)Z
 
     .line 1339
@@ -65,7 +66,7 @@
 .end method
 
 .method public onNothingSelected(Landroid/widget/AdapterView;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {

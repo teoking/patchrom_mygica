@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/server/BluetoothPanProfileHandler;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 5
+    .locals 2
     .parameter "context"
     .parameter "intent"
 
@@ -51,24 +51,27 @@
 
     const/16 v1, 0xc
 
-    if-ne v0, v1, :cond_21
+    if-ne v0, v1, :cond_0
 
     .line 111
     iget-object v0, p0, Landroid/server/BluetoothPanProfileHandler$1;->this$0:Landroid/server/BluetoothPanProfileHandler;
 
     const/4 v1, 0x1
 
+    #setter for: Landroid/server/BluetoothPanProfileHandler;->mTetheringOn:Z
     invoke-static {v0, v1}, Landroid/server/BluetoothPanProfileHandler;->access$002(Landroid/server/BluetoothPanProfileHandler;Z)Z
 
     .line 112
     iget-object v0, p0, Landroid/server/BluetoothPanProfileHandler$1;->this$0:Landroid/server/BluetoothPanProfileHandler;
 
+    #getter for: Landroid/server/BluetoothPanProfileHandler;->mContext:Landroid/content/Context;
     invoke-static {v0}, Landroid/server/BluetoothPanProfileHandler;->access$200(Landroid/server/BluetoothPanProfileHandler;)Landroid/content/Context;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/server/BluetoothPanProfileHandler$1;->this$0:Landroid/server/BluetoothPanProfileHandler;
 
+    #getter for: Landroid/server/BluetoothPanProfileHandler;->mTetheringReceiver:Landroid/content/BroadcastReceiver;
     invoke-static {v1}, Landroid/server/BluetoothPanProfileHandler;->access$100(Landroid/server/BluetoothPanProfileHandler;)Landroid/content/BroadcastReceiver;
 
     move-result-object v1
@@ -76,6 +79,6 @@
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     .line 114
-    :cond_21
+    :cond_0
     return-void
 .end method

@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl$Uid;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -79,7 +79,7 @@
 
 # virtual methods
 .method detach()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 3528
@@ -96,7 +96,7 @@
 .end method
 
 .method public getBatteryStats()Lcom/android/internal/os/BatteryStatsImpl;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 3840
@@ -108,7 +108,7 @@
 .end method
 
 .method public getServiceStats()Ljava/util/Map;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -129,58 +129,58 @@
 .end method
 
 .method public getWakeups(I)I
-    .registers 4
+    .locals 2
     .parameter "which"
 
     .prologue
     .line 3570
     const/4 v1, 0x1
 
-    if-ne p1, v1, :cond_6
+    if-ne p1, v1, :cond_1
 
     .line 3571
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg;->mLastWakeups:I
 
     .line 3581
     .local v0, val:I
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return v0
 
     .line 3573
     .end local v0           #val:I
-    :cond_6
+    :cond_1
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg;->mWakeups:I
 
     .line 3574
     .restart local v0       #val:I
     const/4 v1, 0x2
 
-    if-ne p1, v1, :cond_f
+    if-ne p1, v1, :cond_2
 
     .line 3575
     iget v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg;->mLoadedWakeups:I
 
     sub-int/2addr v0, v1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 3576
-    :cond_f
+    :cond_2
     const/4 v1, 0x3
 
-    if-ne p1, v1, :cond_5
+    if-ne p1, v1, :cond_0
 
     .line 3577
     iget v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg;->mUnpluggedWakeups:I
 
     sub-int/2addr v0, v1
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public incWakeupsLocked()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 3844
@@ -195,7 +195,7 @@
 .end method
 
 .method final newServiceStatsLocked()Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 3848
@@ -207,7 +207,7 @@
 .end method
 
 .method public plug(JJ)V
-    .registers 5
+    .locals 0
     .parameter "batteryUptime"
     .parameter "batteryRealtime"
 
@@ -217,7 +217,7 @@
 .end method
 
 .method readFromParcelLocked(Landroid/os/Parcel;)V
-    .registers 7
+    .locals 5
     .parameter "in"
 
     .prologue
@@ -262,8 +262,8 @@
     const/4 v0, 0x0
 
     .local v0, m:I
-    :goto_1f
-    if-ge v0, v1, :cond_35
+    :goto_0
+    if-ge v0, v1, :cond_0
 
     .line 3540
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -288,17 +288,17 @@
     .line 3539
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 3546
     .end local v2           #serv:Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;
     .end local v3           #serviceName:Ljava/lang/String;
-    :cond_35
+    :cond_0
     return-void
 .end method
 
 .method public unplug(JJ)V
-    .registers 6
+    .locals 1
     .parameter "batteryUptime"
     .parameter "batteryRealtime"
 
@@ -313,7 +313,7 @@
 .end method
 
 .method writeToParcelLocked(Landroid/os/Parcel;)V
-    .registers 6
+    .locals 4
     .parameter "out"
 
     .prologue
@@ -353,12 +353,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_22
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_41
+    if-eqz v3, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -387,11 +387,11 @@
     .local v1, serv:Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;
     invoke-virtual {v1, p1}, Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;->writeToParcelLocked(Landroid/os/Parcel;)V
 
-    goto :goto_22
+    goto :goto_0
 
     .line 3560
     .end local v1           #serv:Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;
     .end local v2           #servEntry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Lcom/android/internal/os/BatteryStatsImpl$Uid$Pkg$Serv;>;"
-    :cond_41
+    :cond_0
     return-void
 .end method

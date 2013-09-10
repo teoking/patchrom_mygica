@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 40
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -83,7 +83,7 @@
 .end method
 
 .method private static appendClause(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "s"
     .parameter "name"
     .parameter "clause"
@@ -94,7 +94,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 236
     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -103,12 +103,12 @@
     invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 239
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method public static appendColumns(Ljava/lang/StringBuilder;[Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "s"
     .parameter "columns"
 
@@ -121,18 +121,18 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_2
-    if-ge v1, v2, :cond_15
+    :goto_0
+    if-ge v1, v2, :cond_2
 
     .line 249
     aget-object v0, p1, v1
 
     .line 251
     .local v0, column:Ljava/lang/String;
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_1
 
     .line 252
-    if-lez v1, :cond_f
+    if-lez v1, :cond_0
 
     .line 253
     const-string v3, ", "
@@ -140,18 +140,18 @@
     invoke-virtual {p0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 255
-    :cond_f
+    :cond_0
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 248
-    :cond_12
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 258
     .end local v0           #column:Ljava/lang/String;
-    :cond_15
+    :cond_2
     const/16 v3, 0x20
 
     invoke-virtual {p0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -161,7 +161,7 @@
 .end method
 
 .method public static buildQueryString(ZLjava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 12
+    .locals 4
     .parameter "distinct"
     .parameter "tables"
     .parameter "columns"
@@ -177,13 +177,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_0
 
     invoke-static {p5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_14
+    if-nez v1, :cond_0
 
     .line 205
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -195,12 +195,12 @@
     throw v1
 
     .line 208
-    :cond_14
+    :cond_0
     invoke-static {p7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_3f
+    if-nez v1, :cond_1
 
     sget-object v1, Landroid/database/sqlite/SQLiteQueryBuilder;->sLimitPattern:Ljava/util/regex/Pattern;
 
@@ -212,7 +212,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3f
+    if-nez v1, :cond_1
 
     .line 209
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -240,7 +240,7 @@
     throw v1
 
     .line 212
-    :cond_3f
+    :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x78
@@ -254,7 +254,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 215
-    if-eqz p0, :cond_52
+    if-eqz p0, :cond_2
 
     .line 216
     const-string v1, "DISTINCT "
@@ -262,18 +262,18 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 218
-    :cond_52
-    if-eqz p2, :cond_80
+    :cond_2
+    if-eqz p2, :cond_3
 
     array-length v1, p2
 
-    if-eqz v1, :cond_80
+    if-eqz v1, :cond_3
 
     .line 219
     invoke-static {v0, p2}, Landroid/database/sqlite/SQLiteQueryBuilder;->appendColumns(Ljava/lang/StringBuilder;[Ljava/lang/String;)V
 
     .line 223
-    :goto_5a
+    :goto_0
     const-string v1, "FROM "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -314,30 +314,30 @@
     return-object v1
 
     .line 221
-    :cond_80
+    :cond_3
     const-string v1, "* "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_5a
+    goto :goto_0
 .end method
 
 .method private computeProjection([Ljava/lang/String;)[Ljava/lang/String;
-    .registers 14
+    .locals 12
     .parameter "projectionIn"
 
     .prologue
     .line 611
-    if-eqz p1, :cond_55
+    if-eqz p1, :cond_5
 
     array-length v9, p1
 
-    if-lez v9, :cond_55
+    if-lez v9, :cond_5
 
     .line 612
     iget-object v9, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mProjectionMap:Ljava/util/Map;
 
-    if-eqz v9, :cond_53
+    if-eqz v9, :cond_3
 
     .line 613
     array-length v9, p1
@@ -353,8 +353,8 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_e
-    if-ge v4, v6, :cond_54
+    :goto_0
+    if-ge v4, v6, :cond_4
 
     .line 617
     aget-object v8, p1, v4
@@ -371,22 +371,22 @@
 
     .line 620
     .local v0, column:Ljava/lang/String;
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_0
 
     .line 621
     aput-object v0, v7, v4
 
     .line 616
-    :goto_1e
+    :goto_1
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 625
-    :cond_21
+    :cond_0
     iget-boolean v9, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mStrict:Z
 
-    if-nez v9, :cond_38
+    if-nez v9, :cond_2
 
     const-string v9, " AS "
 
@@ -394,7 +394,7 @@
 
     move-result v9
 
-    if-nez v9, :cond_35
+    if-nez v9, :cond_1
 
     const-string v9, " as "
 
@@ -402,16 +402,16 @@
 
     move-result v9
 
-    if-eqz v9, :cond_38
+    if-eqz v9, :cond_2
 
     .line 628
-    :cond_35
+    :cond_1
     aput-object v8, v7, v4
 
-    goto :goto_1e
+    goto :goto_1
 
     .line 632
-    :cond_38
+    :cond_2
     new-instance v9, Ljava/lang/IllegalArgumentException;
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -443,19 +443,19 @@
     .end local v6           #length:I
     .end local v7           #projection:[Ljava/lang/String;
     .end local v8           #userColumn:Ljava/lang/String;
-    :cond_53
+    :cond_3
     move-object v7, p1
 
     .line 657
-    :cond_54
-    :goto_54
+    :cond_4
+    :goto_2
     return-object v7
 
     .line 639
-    :cond_55
+    :cond_5
     iget-object v9, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mProjectionMap:Ljava/util/Map;
 
-    if-eqz v9, :cond_90
+    if-eqz v9, :cond_7
 
     .line 641
     iget-object v9, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mProjectionMap:Ljava/util/Map;
@@ -484,13 +484,13 @@
 
     .line 646
     .restart local v4       #i:I
-    :cond_6a
-    :goto_6a
+    :cond_6
+    :goto_3
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v9
 
-    if-eqz v9, :cond_54
+    if-eqz v9, :cond_4
 
     .line 647
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -513,7 +513,7 @@
 
     move-result v9
 
-    if-nez v9, :cond_6a
+    if-nez v9, :cond_6
 
     .line 653
     add-int/lit8 v5, v4, 0x1
@@ -533,7 +533,7 @@
     .line 654
     .end local v5           #i:I
     .restart local v4       #i:I
-    goto :goto_6a
+    goto :goto_3
 
     .line 657
     .end local v1           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
@@ -541,14 +541,14 @@
     .end local v3           #entrySet:Ljava/util/Set;,"Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;"
     .end local v4           #i:I
     .end local v7           #projection:[Ljava/lang/String;
-    :cond_90
+    :cond_7
     const/4 v7, 0x0
 
-    goto :goto_54
+    goto :goto_2
 .end method
 
 .method private validateQuerySql(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Landroid/os/CancellationSignal;)V
-    .registers 7
+    .locals 3
     .parameter "db"
     .parameter "sql"
     .parameter "cancellationSignal"
@@ -576,14 +576,14 @@
 
 # virtual methods
 .method public appendWhere(Ljava/lang/CharSequence;)V
-    .registers 4
+    .locals 2
     .parameter "inWhere"
 
     .prologue
     .line 95
     iget-object v0, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mWhereClause:Ljava/lang/StringBuilder;
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 96
     new-instance v0, Ljava/lang/StringBuilder;
@@ -599,14 +599,14 @@
     iput-object v0, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mWhereClause:Ljava/lang/StringBuilder;
 
     .line 98
-    :cond_11
+    :cond_0
     iget-object v0, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mWhereClause:Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_1
 
     .line 99
     iget-object v0, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mWhereClause:Ljava/lang/StringBuilder;
@@ -616,7 +616,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 101
-    :cond_20
+    :cond_1
     iget-object v0, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mWhereClause:Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
@@ -626,14 +626,14 @@
 .end method
 
 .method public appendWhereEscapeString(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "inWhere"
 
     .prologue
     .line 115
     iget-object v0, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mWhereClause:Ljava/lang/StringBuilder;
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 116
     new-instance v0, Ljava/lang/StringBuilder;
@@ -649,14 +649,14 @@
     iput-object v0, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mWhereClause:Ljava/lang/StringBuilder;
 
     .line 118
-    :cond_11
+    :cond_0
     iget-object v0, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mWhereClause:Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_1
 
     .line 119
     iget-object v0, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mWhereClause:Ljava/lang/StringBuilder;
@@ -666,7 +666,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 121
-    :cond_20
+    :cond_1
     iget-object v0, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mWhereClause:Ljava/lang/StringBuilder;
 
     invoke-static {v0, p1}, Landroid/database/DatabaseUtils;->appendEscapedSQLString(Ljava/lang/StringBuilder;Ljava/lang/String;)V
@@ -676,7 +676,7 @@
 .end method
 
 .method public buildQuery([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 17
+    .locals 10
     .parameter "projectionIn"
     .parameter "selection"
     .parameter "groupBy"
@@ -700,7 +700,7 @@
     .local v9, where:Ljava/lang/StringBuilder;
     iget-object v0, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mWhereClause:Ljava/lang/StringBuilder;
 
-    if-eqz v0, :cond_54
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mWhereClause:Ljava/lang/StringBuilder;
 
@@ -708,14 +708,14 @@
 
     move-result v0
 
-    if-lez v0, :cond_54
+    if-lez v0, :cond_3
 
     const/4 v8, 0x1
 
     .line 452
     .local v8, hasBaseWhereClause:Z
-    :goto_16
-    if-eqz v8, :cond_26
+    :goto_0
+    if-eqz v8, :cond_0
 
     .line 453
     iget-object v0, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mWhereClause:Ljava/lang/StringBuilder;
@@ -732,17 +732,17 @@
     invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 458
-    :cond_26
-    if-eqz p2, :cond_42
+    :cond_0
+    if-eqz p2, :cond_2
 
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-lez v0, :cond_42
+    if-lez v0, :cond_2
 
     .line 459
-    if-eqz v8, :cond_35
+    if-eqz v8, :cond_1
 
     .line 460
     const-string v0, " AND "
@@ -750,7 +750,7 @@
     invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 463
-    :cond_35
+    :cond_1
     const/16 v0, 0x28
 
     invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -764,7 +764,7 @@
     invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 468
-    :cond_42
+    :cond_2
     iget-boolean v0, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mDistinct:Z
 
     iget-object v1, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mTables:Ljava/lang/String;
@@ -789,14 +789,14 @@
 
     .line 450
     .end local v8           #hasBaseWhereClause:Z
-    :cond_54
+    :cond_3
     const/4 v8, 0x0
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method public buildQuery([Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 15
+    .locals 7
     .parameter "projectionIn"
     .parameter "selection"
     .parameter "selectionArgs"
@@ -831,7 +831,7 @@
 .end method
 
 .method public buildUnionQuery([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 9
+    .locals 5
     .parameter "subQueries"
     .parameter "sortOrder"
     .parameter "limit"
@@ -852,27 +852,27 @@
     .local v2, subQueryCount:I
     iget-boolean v4, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mDistinct:Z
 
-    if-eqz v4, :cond_1e
+    if-eqz v4, :cond_1
 
     const-string v3, " UNION "
 
     .line 599
     .local v3, unionOperator:Ljava/lang/String;
-    :goto_e
+    :goto_0
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_f
-    if-ge v0, v2, :cond_21
+    :goto_1
+    if-ge v0, v2, :cond_2
 
     .line 600
-    if-lez v0, :cond_16
+    if-lez v0, :cond_0
 
     .line 601
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 603
-    :cond_16
+    :cond_0
     aget-object v4, p1, v0
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -880,20 +880,20 @@
     .line 599
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_f
+    goto :goto_1
 
     .line 597
     .end local v0           #i:I
     .end local v3           #unionOperator:Ljava/lang/String;
-    :cond_1e
+    :cond_1
     const-string v3, " UNION ALL "
 
-    goto :goto_e
+    goto :goto_0
 
     .line 605
     .restart local v0       #i:I
     .restart local v3       #unionOperator:Ljava/lang/String;
-    :cond_21
+    :cond_2
     const-string v4, " ORDER BY "
 
     invoke-static {v1, v4, p2}, Landroid/database/sqlite/SQLiteQueryBuilder;->appendClause(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/String;)V
@@ -912,7 +912,7 @@
 .end method
 
 .method public buildUnionSubQuery(Ljava/lang/String;[Ljava/lang/String;Ljava/util/Set;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 19
+    .locals 10
     .parameter "typeDiscriminatorColumn"
     .parameter "unionColumns"
     .parameter
@@ -954,8 +954,8 @@
     const/4 v7, 0x0
 
     .local v7, i:I
-    :goto_4
-    if-ge v7, v9, :cond_51
+    :goto_0
+    if-ge v7, v9, :cond_3
 
     .line 538
     aget-object v8, p2, v7
@@ -966,7 +966,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_30
+    if-eqz v0, :cond_0
 
     .line 541
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1000,29 +1000,29 @@
     aput-object v0, v1, v7
 
     .line 537
-    :goto_2d
+    :goto_1
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 543
-    :cond_30
-    if-le v7, p4, :cond_38
+    :cond_0
+    if-le v7, p4, :cond_1
 
     invoke-interface {p3, v8}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3b
+    if-eqz v0, :cond_2
 
     .line 545
-    :cond_38
+    :cond_1
     aput-object v8, v1, v7
 
-    goto :goto_2d
+    goto :goto_1
 
     .line 547
-    :cond_3b
+    :cond_2
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1043,11 +1043,11 @@
 
     aput-object v0, v1, v7
 
-    goto :goto_2d
+    goto :goto_1
 
     .line 550
     .end local v8           #unionColumn:Ljava/lang/String;
-    :cond_51
+    :cond_3
     const/4 v5, 0x0
 
     const/4 v6, 0x0
@@ -1068,7 +1068,7 @@
 .end method
 
 .method public buildUnionSubQuery(Ljava/lang/String;[Ljava/lang/String;Ljava/util/Set;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 19
+    .locals 9
     .parameter "typeDiscriminatorColumn"
     .parameter "unionColumns"
     .parameter
@@ -1131,7 +1131,7 @@
 .end method
 
 .method public getTables()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 70
@@ -1141,7 +1141,7 @@
 .end method
 
 .method public query(Landroid/database/sqlite/SQLiteDatabase;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 18
+    .locals 10
     .parameter "db"
     .parameter "projectionIn"
     .parameter "selection"
@@ -1180,7 +1180,7 @@
 .end method
 
 .method public query(Landroid/database/sqlite/SQLiteDatabase;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 19
+    .locals 10
     .parameter "db"
     .parameter "projectionIn"
     .parameter "selection"
@@ -1220,7 +1220,7 @@
 .end method
 
 .method public query(Landroid/database/sqlite/SQLiteDatabase;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
-    .registers 19
+    .locals 9
     .parameter "db"
     .parameter "projectionIn"
     .parameter "selection"
@@ -1235,28 +1235,28 @@
     .line 375
     iget-object v1, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mTables:Ljava/lang/String;
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_0
 
     .line 376
     const/4 v1, 0x0
 
     .line 400
-    :goto_5
+    :goto_0
     return-object v1
 
     .line 379
-    :cond_6
+    :cond_0
     iget-boolean v1, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mStrict:Z
 
-    if-eqz v1, :cond_3c
+    if-eqz v1, :cond_1
 
-    if-eqz p3, :cond_3c
+    if-eqz p3, :cond_1
 
     invoke-virtual {p3}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-lez v1, :cond_3c
+    if-lez v1, :cond_1
 
     .line 387
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1306,7 +1306,7 @@
     invoke-direct {p0, p1, v8, v0}, Landroid/database/sqlite/SQLiteQueryBuilder;->validateQuerySql(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Landroid/os/CancellationSignal;)V
 
     .end local v8           #sqlForValidation:Ljava/lang/String;
-    :cond_3c
+    :cond_1
     move-object v1, p0
 
     move-object v2, p2
@@ -1336,7 +1336,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6a
+    if-eqz v1, :cond_2
 
     .line 398
     const-string v1, "SQLiteQueryBuilder"
@@ -1362,7 +1362,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 400
-    :cond_6a
+    :cond_2
     iget-object v2, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mFactory:Landroid/database/sqlite/SQLiteDatabase$CursorFactory;
 
     iget-object v1, p0, Landroid/database/sqlite/SQLiteQueryBuilder;->mTables:Ljava/lang/String;
@@ -1381,11 +1381,11 @@
 
     move-result-object v1
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public setCursorFactory(Landroid/database/sqlite/SQLiteDatabase$CursorFactory;)V
-    .registers 2
+    .locals 0
     .parameter "factory"
 
     .prologue
@@ -1397,7 +1397,7 @@
 .end method
 
 .method public setDistinct(Z)V
-    .registers 2
+    .locals 0
     .parameter "distinct"
 
     .prologue
@@ -1409,7 +1409,7 @@
 .end method
 
 .method public setProjectionMap(Ljava/util/Map;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1432,7 +1432,7 @@
 .end method
 
 .method public setStrict(Z)V
-    .registers 2
+    .locals 0
     .parameter "flag"
 
     .prologue
@@ -1444,7 +1444,7 @@
 .end method
 
 .method public setTables(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "inTables"
 
     .prologue

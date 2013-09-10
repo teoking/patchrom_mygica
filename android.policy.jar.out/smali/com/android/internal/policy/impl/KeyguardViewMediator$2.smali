@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/KeyguardViewMediator;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
@@ -55,7 +55,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_19
+    if-eqz v1, :cond_1
 
     .line 810
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$2;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
@@ -66,22 +66,23 @@
 
     move-result v2
 
+    #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->onUserSwitched(I)V
     invoke-static {v1, v2}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$300(Lcom/android/internal/policy/impl/KeyguardViewMediator;I)V
 
     .line 814
-    :cond_18
-    :goto_18
+    :cond_0
+    :goto_0
     return-void
 
     .line 811
-    :cond_19
+    :cond_1
     const-string v1, "android.intent.action.USER_REMOVED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_18
+    if-eqz v1, :cond_0
 
     .line 812
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$2;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
@@ -92,7 +93,8 @@
 
     move-result v2
 
+    #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->onUserRemoved(I)V
     invoke-static {v1, v2}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$400(Lcom/android/internal/policy/impl/KeyguardViewMediator;I)V
 
-    goto :goto_18
+    goto :goto_0
 .end method

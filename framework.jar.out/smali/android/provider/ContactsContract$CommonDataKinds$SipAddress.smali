@@ -32,7 +32,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 6726
@@ -42,29 +42,29 @@
 .end method
 
 .method public static final getTypeLabel(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .registers 5
+    .locals 2
     .parameter "res"
     .parameter "type"
     .parameter "label"
 
     .prologue
     .line 6762
-    if-nez p1, :cond_9
+    if-nez p1, :cond_0
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_0
 
     .line 6766
     .end local p2
-    :goto_8
+    :goto_0
     return-object p2
 
     .line 6765
     .restart local p2
-    :cond_9
+    :cond_0
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$SipAddress;->getTypeLabelResource(I)I
 
     move-result v0
@@ -75,48 +75,48 @@
 
     move-result-object p2
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public static final getTypeLabelResource(I)I
-    .registers 2
+    .locals 1
     .parameter "type"
 
     .prologue
     .line 6747
-    packed-switch p0, :pswitch_data_14
+    packed-switch p0, :pswitch_data_0
 
     .line 6751
     const v0, 0x10402e8
 
-    :goto_6
+    :goto_0
     return v0
 
     .line 6748
-    :pswitch_7
+    :pswitch_0
     const v0, 0x10402e9
 
-    goto :goto_6
+    goto :goto_0
 
     .line 6749
-    :pswitch_b
+    :pswitch_1
     const v0, 0x10402ea
 
-    goto :goto_6
+    goto :goto_0
 
     .line 6750
-    :pswitch_f
+    :pswitch_2
     const v0, 0x10402eb
 
-    goto :goto_6
+    goto :goto_0
 
     .line 6747
     nop
 
-    :pswitch_data_14
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_7
-        :pswitch_b
-        :pswitch_f
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

@@ -69,7 +69,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 33
@@ -95,7 +95,7 @@
 .end method
 
 .method constructor <init>(Landroid/media/effect/EffectContext;)V
-    .registers 2
+    .locals 0
     .parameter "effectContext"
 
     .prologue
@@ -110,7 +110,7 @@
 .end method
 
 .method private static getEffectClassByName(Ljava/lang/String;)Ljava/lang/Class;
-    .registers 9
+    .locals 8
     .parameter "className"
 
     .prologue
@@ -138,14 +138,14 @@
     const/4 v4, 0x0
 
     .local v4, i$:I
-    :goto_d
-    if-ge v4, v5, :cond_28
+    :goto_0
+    if-ge v4, v5, :cond_0
 
     aget-object v6, v0, v4
 
     .line 476
     .local v6, packageName:Ljava/lang/String;
-    :try_start_11
+    :try_start_0
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -163,33 +163,33 @@
     move-result-object v7
 
     invoke-virtual {v1, v7}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
-    :try_end_25
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_11 .. :try_end_25} :catch_29
+    :try_end_0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v3
 
     .line 481
-    if-eqz v3, :cond_2a
+    if-eqz v3, :cond_1
 
     .line 485
     .end local v6           #packageName:Ljava/lang/String;
-    :cond_28
+    :cond_0
     return-object v3
 
     .line 477
     .restart local v6       #packageName:Ljava/lang/String;
-    :catch_29
+    :catch_0
     move-exception v2
 
     .line 474
-    :cond_2a
+    :cond_1
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method private instantiateEffect(Ljava/lang/Class;Ljava/lang/String;)Landroid/media/effect/Effect;
-    .registers 10
+    .locals 7
     .parameter "effectClass"
     .parameter "name"
 
@@ -199,8 +199,8 @@
     const-class v4, Landroid/media/effect/Effect;
 
     invoke-virtual {p1, v4}, Ljava/lang/Class;->asSubclass(Ljava/lang/Class;)Ljava/lang/Class;
-    :try_end_5
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_5} :catch_2a
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 498
     const/4 v2, 0x0
@@ -209,7 +209,7 @@
     .local v2, effectConstructor:Ljava/lang/reflect/Constructor;
     const/4 v4, 0x2
 
-    :try_start_7
+    :try_start_1
     new-array v4, v4, [Ljava/lang/Class;
 
     const/4 v5, 0x0
@@ -225,8 +225,8 @@
     aput-object v6, v4, v5
 
     invoke-virtual {p1, v4}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
-    :try_end_16
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_7 .. :try_end_16} :catch_4a
+    :try_end_1
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v2
 
@@ -237,7 +237,7 @@
     .local v1, effect:Landroid/media/effect/Effect;
     const/4 v4, 0x2
 
-    :try_start_19
+    :try_start_2
     new-array v4, v4, [Ljava/lang/Object;
 
     const/4 v5, 0x0
@@ -256,8 +256,8 @@
 
     .end local v1           #effect:Landroid/media/effect/Effect;
     check-cast v1, Landroid/media/effect/Effect;
-    :try_end_29
-    .catch Ljava/lang/Throwable; {:try_start_19 .. :try_end_29} :catch_70
+    :try_end_2
+    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_2
 
     .line 515
     .restart local v1       #effect:Landroid/media/effect/Effect;
@@ -266,7 +266,7 @@
     .line 492
     .end local v1           #effect:Landroid/media/effect/Effect;
     .end local v2           #effectConstructor:Ljava/lang/reflect/Constructor;
-    :catch_2a
+    :catch_0
     move-exception v0
 
     .line 493
@@ -304,7 +304,7 @@
     .line 501
     .end local v0           #e:Ljava/lang/ClassCastException;
     .restart local v2       #effectConstructor:Ljava/lang/reflect/Constructor;
-    :catch_4a
+    :catch_1
     move-exception v0
 
     .line 502
@@ -347,7 +347,7 @@
 
     .line 510
     .end local v0           #e:Ljava/lang/NoSuchMethodException;
-    :catch_70
+    :catch_2
     move-exception v3
 
     .line 511
@@ -384,7 +384,7 @@
 .end method
 
 .method public static isEffectSupported(Ljava/lang/String;)Z
-    .registers 2
+    .locals 1
     .parameter "effectName"
 
     .prologue
@@ -393,23 +393,23 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public createEffect(Ljava/lang/String;)Landroid/media/effect/Effect;
-    .registers 6
+    .locals 4
     .parameter "effectName"
 
     .prologue
@@ -420,7 +420,7 @@
 
     .line 446
     .local v0, effectClass:Ljava/lang/Class;
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 447
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -454,7 +454,7 @@
     throw v1
 
     .line 450
-    :cond_25
+    :cond_0
     invoke-direct {p0, v0, p1}, Landroid/media/effect/EffectFactory;->instantiateEffect(Ljava/lang/Class;Ljava/lang/String;)Landroid/media/effect/Effect;
 
     move-result-object v1

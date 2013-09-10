@@ -80,7 +80,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/content/Context;Lcom/android/internal/util/StateMachine;Ljava/lang/String;)V
-    .registers 10
+    .locals 6
     .parameter "context"
     .parameter "controller"
     .parameter "intf"
@@ -263,7 +263,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/net/DhcpStateMachine;)Landroid/os/PowerManager$WakeLock;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -274,7 +274,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/net/DhcpStateMachine;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -285,7 +285,7 @@
 .end method
 
 .method static synthetic access$1000(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -297,7 +297,7 @@
 .end method
 
 .method static synthetic access$1100(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -309,7 +309,7 @@
 .end method
 
 .method static synthetic access$1200(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/State;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -320,7 +320,7 @@
 .end method
 
 .method static synthetic access$1300(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -332,7 +332,7 @@
 .end method
 
 .method static synthetic access$1400(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -344,7 +344,7 @@
 .end method
 
 .method static synthetic access$1500(Landroid/net/DhcpStateMachine;)Landroid/app/PendingIntent;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -355,7 +355,7 @@
 .end method
 
 .method static synthetic access$1600(Landroid/net/DhcpStateMachine;)Landroid/app/AlarmManager;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -366,7 +366,7 @@
 .end method
 
 .method static synthetic access$1700(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -378,7 +378,7 @@
 .end method
 
 .method static synthetic access$1800(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/State;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -389,7 +389,7 @@
 .end method
 
 .method static synthetic access$1900(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -401,7 +401,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/net/DhcpStateMachine;)Landroid/content/BroadcastReceiver;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -412,7 +412,7 @@
 .end method
 
 .method static synthetic access$2000(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -424,7 +424,7 @@
 .end method
 
 .method static synthetic access$2100(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -436,7 +436,7 @@
 .end method
 
 .method static synthetic access$2200(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -448,7 +448,7 @@
 .end method
 
 .method static synthetic access$2300(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -460,7 +460,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/net/DhcpStateMachine;)Landroid/content/Context;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -471,7 +471,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/net/DhcpStateMachine;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -482,7 +482,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/StateMachine;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -493,7 +493,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/State;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -504,7 +504,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/net/DhcpStateMachine;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -516,7 +516,7 @@
 .end method
 
 .method static synthetic access$800(Landroid/net/DhcpStateMachine;Landroid/net/DhcpStateMachine$DhcpAction;)Z
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -530,7 +530,7 @@
 .end method
 
 .method static synthetic access$900(Landroid/net/DhcpStateMachine;)Lcom/android/internal/util/State;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -541,7 +541,7 @@
 .end method
 
 .method public static makeDhcpStateMachine(Landroid/content/Context;Lcom/android/internal/util/StateMachine;Ljava/lang/String;)Landroid/net/DhcpStateMachine;
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "controller"
     .parameter "intf"
@@ -561,7 +561,7 @@
 .end method
 
 .method private runDhcp(Landroid/net/DhcpStateMachine$DhcpAction;)Z
-    .registers 14
+    .locals 12
     .parameter "dhcpAction"
 
     .prologue
@@ -584,7 +584,7 @@
     .local v0, dhcpInfoInternal:Landroid/net/DhcpInfoInternal;
     sget-object v4, Landroid/net/DhcpStateMachine$DhcpAction;->START:Landroid/net/DhcpStateMachine$DhcpAction;
 
-    if-ne p1, v4, :cond_44
+    if-ne p1, v4, :cond_3
 
     .line 340
     iget-object v4, p0, Landroid/net/DhcpStateMachine;->mInterfaceName:Ljava/lang/String;
@@ -597,9 +597,9 @@
     iput-object v0, p0, Landroid/net/DhcpStateMachine;->mDhcpInfo:Landroid/net/DhcpInfoInternal;
 
     .line 348
-    :cond_17
-    :goto_17
-    if-eqz v3, :cond_54
+    :cond_0
+    :goto_0
+    if-eqz v3, :cond_4
 
     .line 350
     iget v4, v0, Landroid/net/DhcpInfoInternal;->leaseDuration:I
@@ -612,20 +612,20 @@
 
     cmp-long v4, v1, v4
 
-    if-ltz v4, :cond_39
+    if-ltz v4, :cond_2
 
     .line 356
     const-wide/16 v4, 0x12c
 
     cmp-long v4, v1, v4
 
-    if-gez v4, :cond_2a
+    if-gez v4, :cond_1
 
     .line 357
     const-wide/16 v1, 0x12c
 
     .line 362
-    :cond_2a
+    :cond_1
     iget-object v4, p0, Landroid/net/DhcpStateMachine;->mAlarmManager:Landroid/app/AlarmManager;
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -643,7 +643,7 @@
     invoke-virtual {v4, v10, v5, v6, v7}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
 
     .line 370
-    :cond_39
+    :cond_2
     iget-object v4, p0, Landroid/net/DhcpStateMachine;->mController:Lcom/android/internal/util/StateMachine;
 
     const/4 v5, 0x1
@@ -656,14 +656,14 @@
 
     .line 379
     .end local v1           #leaseDuration:J
-    :goto_43
+    :goto_1
     return v3
 
     .line 342
-    :cond_44
+    :cond_3
     sget-object v4, Landroid/net/DhcpStateMachine$DhcpAction;->RENEW:Landroid/net/DhcpStateMachine$DhcpAction;
 
-    if-ne p1, v4, :cond_17
+    if-ne p1, v4, :cond_0
 
     .line 344
     iget-object v4, p0, Landroid/net/DhcpStateMachine;->mInterfaceName:Ljava/lang/String;
@@ -677,10 +677,10 @@
 
     invoke-virtual {v0, v4}, Landroid/net/DhcpInfoInternal;->updateFromDhcpRequest(Landroid/net/DhcpInfoInternal;)V
 
-    goto :goto_17
+    goto :goto_0
 
     .line 373
-    :cond_54
+    :cond_4
     const-string v4, "DhcpStateMachine"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -733,13 +733,13 @@
 
     invoke-virtual {v4}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_43
+    goto :goto_1
 .end method
 
 
 # virtual methods
 .method public registerForPreDhcpNotification()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 163

@@ -94,7 +94,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -129,7 +129,7 @@
 
 # virtual methods
 .method public isPreHoneycomb()Z
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v0, 0x0
@@ -137,7 +137,7 @@
     .line 273
     iget-object v1, p0, Landroid/app/ActivityThread$ActivityClientRecord;->activity:Landroid/app/Activity;
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_0
 
     .line 274
     iget-object v1, p0, Landroid/app/ActivityThread$ActivityClientRecord;->activity:Landroid/app/Activity;
@@ -150,23 +150,23 @@
 
     const/16 v2, 0xb
 
-    if-ge v1, v2, :cond_12
+    if-ge v1, v2, :cond_0
 
     const/4 v0, 0x1
 
     .line 277
-    :cond_12
+    :cond_0
     return v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 281
     iget-object v1, p0, Landroid/app/ActivityThread$ActivityClientRecord;->intent:Landroid/content/Intent;
 
-    if-eqz v1, :cond_48
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Landroid/app/ActivityThread$ActivityClientRecord;->intent:Landroid/content/Intent;
 
@@ -176,7 +176,7 @@
 
     .line 282
     .local v0, componentName:Landroid/content/ComponentName;
-    :goto_a
+    :goto_0
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -217,11 +217,11 @@
 
     move-result-object v2
 
-    if-nez v0, :cond_4a
+    if-nez v0, :cond_1
 
     const-string/jumbo v1, "no component name"
 
-    :goto_38
+    :goto_1
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -240,17 +240,17 @@
 
     .line 281
     .end local v0           #componentName:Landroid/content/ComponentName;
-    :cond_48
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 
     .line 282
     .restart local v0       #componentName:Landroid/content/ComponentName;
-    :cond_4a
+    :cond_1
     invoke-virtual {v0}, Landroid/content/ComponentName;->toShortString()Ljava/lang/String;
 
     move-result-object v1
 
-    goto :goto_38
+    goto :goto_1
 .end method

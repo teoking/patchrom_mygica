@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Ljava/lang/String;Landroid/os/DropBoxManager;Ljava/lang/String;)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter
@@ -46,21 +46,22 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 8123
     const-wide/16 v1, 0x1388
 
-    :try_start_2
+    :try_start_0
     invoke-static {v1, v2}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_5
-    .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_5} :catch_47
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 8127
-    :goto_5
+    :goto_0
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$11;->this$0:Lcom/android/server/am/ActivityManagerService;
 
+    #getter for: Lcom/android/server/am/ActivityManagerService;->mStrictModeBuffer:Ljava/lang/StringBuilder;
     invoke-static {v1}, Lcom/android/server/am/ActivityManagerService;->access$900(Lcom/android/server/am/ActivityManagerService;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -68,9 +69,10 @@
     monitor-enter v2
 
     .line 8128
-    :try_start_c
+    :try_start_1
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$11;->this$0:Lcom/android/server/am/ActivityManagerService;
 
+    #getter for: Lcom/android/server/am/ActivityManagerService;->mStrictModeBuffer:Ljava/lang/StringBuilder;
     invoke-static {v1}, Lcom/android/server/am/ActivityManagerService;->access$900(Lcom/android/server/am/ActivityManagerService;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -85,19 +87,20 @@
 
     move-result v1
 
-    if-nez v1, :cond_1e
+    if-nez v1, :cond_0
 
     .line 8130
     monitor-exit v2
 
     .line 8136
-    :goto_1d
+    :goto_1
     return-void
 
     .line 8132
-    :cond_1e
+    :cond_0
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$11;->this$0:Lcom/android/server/am/ActivityManagerService;
 
+    #getter for: Lcom/android/server/am/ActivityManagerService;->mStrictModeBuffer:Ljava/lang/StringBuilder;
     invoke-static {v1}, Lcom/android/server/am/ActivityManagerService;->access$900(Lcom/android/server/am/ActivityManagerService;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -106,6 +109,7 @@
 
     iget-object v4, p0, Lcom/android/server/am/ActivityManagerService$11;->this$0:Lcom/android/server/am/ActivityManagerService;
 
+    #getter for: Lcom/android/server/am/ActivityManagerService;->mStrictModeBuffer:Ljava/lang/StringBuilder;
     invoke-static {v4}, Lcom/android/server/am/ActivityManagerService;->access$900(Lcom/android/server/am/ActivityManagerService;)Ljava/lang/StringBuilder;
 
     move-result-object v4
@@ -119,6 +123,7 @@
     .line 8133
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$11;->this$0:Lcom/android/server/am/ActivityManagerService;
 
+    #getter for: Lcom/android/server/am/ActivityManagerService;->mStrictModeBuffer:Ljava/lang/StringBuilder;
     invoke-static {v1}, Lcom/android/server/am/ActivityManagerService;->access$900(Lcom/android/server/am/ActivityManagerService;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -127,8 +132,8 @@
 
     .line 8134
     monitor-exit v2
-    :try_end_3c
-    .catchall {:try_start_c .. :try_end_3c} :catchall_44
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 8135
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$11;->val$dbox:Landroid/os/DropBoxManager;
@@ -137,23 +142,23 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/os/DropBoxManager;->addText(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1d
+    goto :goto_1
 
     .line 8134
     .end local v0           #errorReport:Ljava/lang/String;
-    :catchall_44
+    :catchall_0
     move-exception v1
 
-    :try_start_45
+    :try_start_2
     monitor-exit v2
-    :try_end_46
-    .catchall {:try_start_45 .. :try_end_46} :catchall_44
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v1
 
     .line 8124
-    :catch_47
+    :catch_0
     move-exception v1
 
-    goto :goto_5
+    goto :goto_0
 .end method

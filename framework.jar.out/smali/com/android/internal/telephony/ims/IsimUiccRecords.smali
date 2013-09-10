@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 37
@@ -48,7 +48,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/android/internal/telephony/ims/IsimUiccRecords;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -60,7 +60,7 @@
 .end method
 
 .method static synthetic access$100([B)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -73,7 +73,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/internal/telephony/ims/IsimUiccRecords;)[Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -84,7 +84,7 @@
 .end method
 
 .method static synthetic access$202(Lcom/android/internal/telephony/ims/IsimUiccRecords;[Ljava/lang/String;)[Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -96,7 +96,7 @@
 .end method
 
 .method static synthetic access$302(Lcom/android/internal/telephony/ims/IsimUiccRecords;Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -108,7 +108,7 @@
 .end method
 
 .method private static isimTlvToString([B)Ljava/lang/String;
-    .registers 5
+    .locals 4
     .parameter "record"
 
     .prologue
@@ -123,14 +123,14 @@
 
     .line 114
     .local v0, tlv:Lcom/android/internal/telephony/gsm/SimTlv;
-    :cond_7
+    :cond_0
     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/SimTlv;->getTag()I
 
     move-result v1
 
     const/16 v2, 0x80
 
-    if-ne v1, v2, :cond_1f
+    if-ne v1, v2, :cond_1
 
     .line 115
     new-instance v1, Ljava/lang/String;
@@ -148,16 +148,16 @@
     invoke-direct {v1, v2, v3}, Ljava/lang/String;-><init>([BLjava/nio/charset/Charset;)V
 
     .line 120
-    :goto_1e
+    :goto_0
     return-object v1
 
     .line 117
-    :cond_1f
+    :cond_1
     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/SimTlv;->nextObject()Z
 
     move-result v1
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_0
 
     .line 119
     const-string v1, "GSM"
@@ -169,13 +169,13 @@
     .line 120
     const/4 v1, 0x0
 
-    goto :goto_1e
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public fetchIsimRecords(Lcom/android/internal/telephony/IccFileHandler;Landroid/os/Handler;)I
-    .registers 7
+    .locals 4
     .parameter "iccFh"
     .parameter "h"
 
@@ -230,7 +230,7 @@
 .end method
 
 .method public getIsimDomain()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 146
@@ -240,7 +240,7 @@
 .end method
 
 .method public getIsimImpi()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 137
@@ -250,13 +250,13 @@
 .end method
 
 .method public getIsimImpu()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 155
     iget-object v0, p0, Lcom/android/internal/telephony/ims/IsimUiccRecords;->mIsimImpu:[Ljava/lang/String;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/telephony/ims/IsimUiccRecords;->mIsimImpu:[Ljava/lang/String;
 
@@ -266,17 +266,17 @@
 
     check-cast v0, [Ljava/lang/String;
 
-    :goto_c
+    :goto_0
     return-object v0
 
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method log(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "s"
 
     .prologue
@@ -308,7 +308,7 @@
 .end method
 
 .method loge(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "s"
 
     .prologue

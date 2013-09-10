@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/NetworkTimeUpdateService;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "l"
 
@@ -38,34 +38,35 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
     .line 289
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_e
+    packed-switch v0, :pswitch_data_0
 
     .line 296
-    :goto_5
+    :goto_0
     return-void
 
     .line 293
-    :pswitch_6
+    :pswitch_0
     iget-object v0, p0, Lcom/android/server/NetworkTimeUpdateService$MyHandler;->this$0:Lcom/android/server/NetworkTimeUpdateService;
 
     iget v1, p1, Landroid/os/Message;->what:I
 
+    #calls: Lcom/android/server/NetworkTimeUpdateService;->onPollNetworkTime(I)V
     invoke-static {v0, v1}, Lcom/android/server/NetworkTimeUpdateService;->access$400(Lcom/android/server/NetworkTimeUpdateService;I)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 289
-    :pswitch_data_e
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_6
-        :pswitch_6
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method

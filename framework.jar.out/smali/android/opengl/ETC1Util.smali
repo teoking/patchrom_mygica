@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 30
@@ -24,7 +24,7 @@
 .end method
 
 .method public static compressTexture(Ljava/nio/Buffer;IIII)Landroid/opengl/ETC1Util$ETC1Texture;
-    .registers 12
+    .locals 7
     .parameter "input"
     .parameter "width"
     .parameter "height"
@@ -74,7 +74,7 @@
 .end method
 
 .method public static createTexture(Ljava/io/InputStream;)Landroid/opengl/ETC1Util$ETC1Texture;
-    .registers 13
+    .locals 12
     .parameter "input"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -106,7 +106,7 @@
 
     move-result v8
 
-    if-eq v8, v11, :cond_17
+    if-eq v8, v11, :cond_0
 
     .line 158
     new-instance v8, Ljava/io/IOException;
@@ -118,7 +118,7 @@
     throw v8
 
     .line 160
-    :cond_17
+    :cond_0
     invoke-static {v11}, Ljava/nio/ByteBuffer;->allocateDirect(I)Ljava/nio/ByteBuffer;
 
     move-result-object v8
@@ -144,7 +144,7 @@
 
     move-result v8
 
-    if-nez v8, :cond_38
+    if-nez v8, :cond_1
 
     .line 164
     new-instance v8, Ljava/io/IOException;
@@ -156,7 +156,7 @@
     throw v8
 
     .line 166
-    :cond_38
+    :cond_1
     invoke-static {v3}, Landroid/opengl/ETC1;->getWidth(Ljava/nio/Buffer;)I
 
     move-result v7
@@ -190,8 +190,8 @@
     const/4 v5, 0x0
 
     .local v5, i:I
-    :goto_51
-    if-ge v5, v2, :cond_6d
+    :goto_0
+    if-ge v5, v2, :cond_3
 
     .line 172
     array-length v8, v6
@@ -208,7 +208,7 @@
 
     move-result v8
 
-    if-eq v8, v0, :cond_68
+    if-eq v8, v0, :cond_2
 
     .line 174
     new-instance v8, Ljava/io/IOException;
@@ -220,18 +220,18 @@
     throw v8
 
     .line 176
-    :cond_68
+    :cond_2
     invoke-virtual {v1, v6, v10, v0}, Ljava/nio/ByteBuffer;->put([BII)Ljava/nio/ByteBuffer;
 
     .line 177
     add-int/2addr v5, v0
 
     .line 178
-    goto :goto_51
+    goto :goto_0
 
     .line 179
     .end local v0           #chunkSize:I
-    :cond_6d
+    :cond_3
     invoke-virtual {v1, v10}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 180
@@ -243,7 +243,7 @@
 .end method
 
 .method public static isETC1Supported()Z
-    .registers 6
+    .locals 6
 
     .prologue
     const/4 v3, 0x0
@@ -266,13 +266,13 @@
     .local v1, numFormats:I
     array-length v4, v2
 
-    if-le v1, v4, :cond_12
+    if-le v1, v4, :cond_0
 
     .line 102
     new-array v2, v1, [I
 
     .line 104
-    :cond_12
+    :cond_0
     const v4, 0x86a3
 
     invoke-static {v4, v2, v3}, Landroid/opengl/GLES10;->glGetIntegerv(I[II)V
@@ -281,32 +281,32 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_19
-    if-ge v0, v1, :cond_23
+    :goto_0
+    if-ge v0, v1, :cond_1
 
     .line 106
     aget v4, v2, v0
 
     const v5, 0x8d64
 
-    if-ne v4, v5, :cond_24
+    if-ne v4, v5, :cond_2
 
     .line 107
     const/4 v3, 0x1
 
     .line 110
-    :cond_23
+    :cond_1
     return v3
 
     .line 105
-    :cond_24
+    :cond_2
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public static loadTexture(IIIIILandroid/opengl/ETC1Util$ETC1Texture;)V
-    .registers 30
+    .locals 24
     .parameter "target"
     .parameter "level"
     .parameter "border"
@@ -320,7 +320,7 @@
 
     move/from16 v0, p3
 
-    if-eq v0, v1, :cond_e
+    if-eq v0, v1, :cond_0
 
     .line 67
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -332,18 +332,18 @@
     throw v1
 
     .line 69
-    :cond_e
+    :cond_0
     const v1, 0x8363
 
     move/from16 v0, p4
 
-    if-eq v0, v1, :cond_23
+    if-eq v0, v1, :cond_1
 
     const/16 v1, 0x1401
 
     move/from16 v0, p4
 
-    if-eq v0, v1, :cond_23
+    if-eq v0, v1, :cond_1
 
     .line 71
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -355,7 +355,7 @@
     throw v1
 
     .line 74
-    :cond_23
+    :cond_1
     invoke-virtual/range {p5 .. p5}, Landroid/opengl/ETC1Util$ETC1Texture;->getWidth()I
 
     move-result v4
@@ -378,7 +378,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_46
+    if-eqz v1, :cond_2
 
     .line 78
     invoke-virtual {v8}, Ljava/nio/ByteBuffer;->remaining()I
@@ -399,29 +399,29 @@
 
     .line 91
     .end local v7           #imageSize:I
-    :goto_45
+    :goto_0
     return-void
 
     .line 82
-    :cond_46
+    :cond_2
     const/16 v1, 0x1401
 
     move/from16 v0, p4
 
-    if-eq v0, v1, :cond_7c
+    if-eq v0, v1, :cond_3
 
     const/16 v23, 0x1
 
     .line 83
     .local v23, useShorts:Z
-    :goto_4e
-    if-eqz v23, :cond_7f
+    :goto_1
+    if-eqz v23, :cond_4
 
     const/4 v12, 0x2
 
     .line 84
     .local v12, pixelSize:I
-    :goto_51
+    :goto_2
     mul-int v13, v12, v4
 
     .line 85
@@ -469,28 +469,28 @@
     .line 88
     invoke-static/range {v14 .. v22}, Landroid/opengl/GLES10;->glTexImage2D(IIIIIIIILjava/nio/Buffer;)V
 
-    goto :goto_45
+    goto :goto_0
 
     .line 82
     .end local v9           #decodedData:Ljava/nio/ByteBuffer;
     .end local v12           #pixelSize:I
     .end local v13           #stride:I
     .end local v23           #useShorts:Z
-    :cond_7c
+    :cond_3
     const/16 v23, 0x0
 
-    goto :goto_4e
+    goto :goto_1
 
     .line 83
     .restart local v23       #useShorts:Z
-    :cond_7f
+    :cond_4
     const/4 v12, 0x3
 
-    goto :goto_51
+    goto :goto_2
 .end method
 
 .method public static loadTexture(IIIIILjava/io/InputStream;)V
-    .registers 12
+    .locals 6
     .parameter "target"
     .parameter "level"
     .parameter "border"
@@ -526,7 +526,7 @@
 .end method
 
 .method public static writeTexture(Landroid/opengl/ETC1Util$ETC1Texture;Ljava/io/OutputStream;)V
-    .registers 13
+    .locals 11
     .parameter "texture"
     .parameter "output"
     .annotation system Ldalvik/annotation/Throws;
@@ -549,7 +549,7 @@
 
     .line 210
     .local v7, originalPosition:I
-    :try_start_8
+    :try_start_0
     invoke-virtual {p0}, Landroid/opengl/ETC1Util$ETC1Texture;->getWidth()I
 
     move-result v8
@@ -610,8 +610,8 @@
     const/4 v5, 0x0
 
     .local v5, i:I
-    :goto_36
-    if-ge v5, v2, :cond_4e
+    :goto_0
+    if-ge v5, v2, :cond_0
 
     .line 219
     array-length v9, v6
@@ -632,14 +632,14 @@
     const/4 v9, 0x0
 
     invoke-virtual {p1, v6, v9, v0}, Ljava/io/OutputStream;->write([BII)V
-    :try_end_47
-    .catchall {:try_start_8 .. :try_end_47} :catchall_49
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 222
     add-int/2addr v5, v0
 
     .line 223
-    goto :goto_36
+    goto :goto_0
 
     .line 225
     .end local v0           #chunkSize:I
@@ -649,7 +649,7 @@
     .end local v5           #i:I
     .end local v6           #ioBuffer:[B
     .end local v8           #width:I
-    :catchall_49
+    :catchall_0
     move-exception v9
 
     invoke-virtual {v1, v7}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
@@ -662,7 +662,7 @@
     .restart local v5       #i:I
     .restart local v6       #ioBuffer:[B
     .restart local v8       #width:I
-    :cond_4e
+    :cond_0
     invoke-virtual {v1, v7}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 227

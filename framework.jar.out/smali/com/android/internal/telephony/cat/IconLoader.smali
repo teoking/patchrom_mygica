@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 52
@@ -69,7 +69,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Looper;Lcom/android/internal/telephony/IccFileHandler;)V
-    .registers 5
+    .locals 2
     .parameter "looper"
     .parameter "fh"
 
@@ -130,30 +130,30 @@
 .end method
 
 .method private static bitToBnW(I)I
-    .registers 2
+    .locals 1
     .parameter "bit"
 
     .prologue
     .line 270
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_5
+    if-ne p0, v0, :cond_0
 
     .line 271
     const/4 v0, -0x1
 
     .line 273
-    :goto_4
+    :goto_0
     return v0
 
-    :cond_5
+    :cond_0
     const/high16 v0, -0x100
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method static getInstance(Landroid/os/Handler;Lcom/android/internal/telephony/IccFileHandler;)Lcom/android/internal/telephony/cat/IconLoader;
-    .registers 5
+    .locals 3
     .parameter "caller"
     .parameter "fh"
 
@@ -161,18 +161,18 @@
     .line 79
     sget-object v1, Lcom/android/internal/telephony/cat/IconLoader;->sLoader:Lcom/android/internal/telephony/cat/IconLoader;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_0
 
     .line 80
     sget-object v1, Lcom/android/internal/telephony/cat/IconLoader;->sLoader:Lcom/android/internal/telephony/cat/IconLoader;
 
     .line 87
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 82
-    :cond_7
-    if-eqz p1, :cond_1d
+    :cond_0
+    if-eqz p1, :cond_1
 
     .line 83
     new-instance v0, Landroid/os/HandlerThread;
@@ -194,18 +194,18 @@
 
     invoke-direct {v1, v2, p1}, Lcom/android/internal/telephony/cat/IconLoader;-><init>(Landroid/os/Looper;Lcom/android/internal/telephony/IccFileHandler;)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 87
     .end local v0           #thread:Landroid/os/HandlerThread;
-    :cond_1d
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method private static getMask(I)I
-    .registers 2
+    .locals 1
     .parameter "numOfBits"
 
     .prologue
@@ -214,83 +214,83 @@
 
     .line 334
     .local v0, mask:I
-    packed-switch p0, :pswitch_data_1a
+    packed-switch p0, :pswitch_data_0
 
     .line 360
-    :goto_4
+    :goto_0
     return v0
 
     .line 336
-    :pswitch_5
+    :pswitch_0
     const/4 v0, 0x1
 
     .line 337
-    goto :goto_4
+    goto :goto_0
 
     .line 339
-    :pswitch_7
+    :pswitch_1
     const/4 v0, 0x3
 
     .line 340
-    goto :goto_4
+    goto :goto_0
 
     .line 342
-    :pswitch_9
+    :pswitch_2
     const/4 v0, 0x7
 
     .line 343
-    goto :goto_4
+    goto :goto_0
 
     .line 345
-    :pswitch_b
+    :pswitch_3
     const/16 v0, 0xf
 
     .line 346
-    goto :goto_4
+    goto :goto_0
 
     .line 348
-    :pswitch_e
+    :pswitch_4
     const/16 v0, 0x1f
 
     .line 349
-    goto :goto_4
+    goto :goto_0
 
     .line 351
-    :pswitch_11
+    :pswitch_5
     const/16 v0, 0x3f
 
     .line 352
-    goto :goto_4
+    goto :goto_0
 
     .line 354
-    :pswitch_14
+    :pswitch_6
     const/16 v0, 0x7f
 
     .line 355
-    goto :goto_4
+    goto :goto_0
 
     .line 357
-    :pswitch_17
+    :pswitch_7
     const/16 v0, 0xff
 
-    goto :goto_4
+    goto :goto_0
 
     .line 334
-    :pswitch_data_1a
+    :pswitch_data_0
     .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
         :pswitch_5
+        :pswitch_6
         :pswitch_7
-        :pswitch_9
-        :pswitch_b
-        :pswitch_e
-        :pswitch_11
-        :pswitch_14
-        :pswitch_17
     .end packed-switch
 .end method
 
 .method private handleImageDescriptor([B)Z
-    .registers 4
+    .locals 2
     .parameter "rawData"
 
     .prologue
@@ -306,18 +306,18 @@
     .line 181
     iget-object v1, p0, Lcom/android/internal/telephony/cat/IconLoader;->mId:Lcom/android/internal/telephony/cat/ImageDescriptor;
 
-    if-nez v1, :cond_c
+    if-nez v1, :cond_0
 
     .line 182
     const/4 v0, 0x0
 
     .line 184
-    :cond_c
+    :cond_0
     return v0
 .end method
 
 .method public static parseToBnW([BI)Landroid/graphics/Bitmap;
-    .registers 15
+    .locals 13
     .parameter "data"
     .parameter "length"
 
@@ -375,13 +375,13 @@
     .line 247
     .end local v8           #valueIndex:I
     .restart local v9       #valueIndex:I
-    :goto_16
-    if-ge v6, v4, :cond_33
+    :goto_0
+    if-ge v6, v4, :cond_0
 
     .line 249
     rem-int/lit8 v11, v6, 0x8
 
-    if-nez v11, :cond_44
+    if-nez v11, :cond_2
 
     .line 250
     add-int/lit8 v8, v9, 0x1
@@ -394,7 +394,7 @@
     const/4 v0, 0x7
 
     .line 253
-    :goto_21
+    :goto_1
     add-int/lit8 v5, v6, 0x1
 
     .end local v6           #pixelIndex:I
@@ -425,11 +425,11 @@
 
     .end local v8           #valueIndex:I
     .restart local v9       #valueIndex:I
-    goto :goto_16
+    goto :goto_0
 
     .line 256
-    :cond_33
-    if-eq v6, v4, :cond_3d
+    :cond_0
+    if-eq v6, v4, :cond_1
 
     .line 257
     const-string v11, "IconLoader"
@@ -439,7 +439,7 @@
     invoke-static {v11, v12}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 259
-    :cond_3d
+    :cond_1
     sget-object v11, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     invoke-static {v7, v10, v3, v11}, Landroid/graphics/Bitmap;->createBitmap([IIILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
@@ -448,16 +448,16 @@
 
     return-object v11
 
-    :cond_44
+    :cond_2
     move v8, v9
 
     .end local v9           #valueIndex:I
     .restart local v8       #valueIndex:I
-    goto :goto_21
+    goto :goto_1
 .end method
 
 .method public static parseToRGB([BIZ[B)Landroid/graphics/Bitmap;
-    .registers 26
+    .locals 22
     .parameter "data"
     .parameter "length"
     .parameter "transparency"
@@ -525,7 +525,7 @@
 
     move/from16 v1, p2
 
-    if-ne v0, v1, :cond_32
+    if-ne v0, v1, :cond_0
 
     .line 295
     add-int/lit8 v19, v11, -0x1
@@ -535,7 +535,7 @@
     aput-byte v20, p3, v19
 
     .line 298
-    :cond_32
+    :cond_0
     mul-int v12, v18, v9
 
     .line 299
@@ -577,22 +577,22 @@
 
     rem-int v19, v19, v4
 
-    if-nez v19, :cond_74
+    if-nez v19, :cond_1
 
     const/4 v3, 0x1
 
     .local v3, bitsOverlaps:Z
-    :goto_4b
+    :goto_0
     move v14, v13
 
     .line 308
     .end local v13           #pixelIndex:I
     .local v14, pixelIndex:I
-    :goto_4c
-    if-ge v14, v12, :cond_79
+    :goto_1
+    if-ge v14, v12, :cond_3
 
     .line 310
-    if-gez v2, :cond_84
+    if-gez v2, :cond_4
 
     .line 311
     add-int/lit8 v16, v17, 0x1
@@ -602,12 +602,12 @@
     aget-byte v8, p0, v17
 
     .line 312
-    if-eqz v3, :cond_76
+    if-eqz v3, :cond_2
 
     move v2, v5
 
     .line 314
-    :goto_57
+    :goto_2
     shr-int v19, v8, v2
 
     and-int v6, v19, v10
@@ -650,7 +650,7 @@
     .line 319
     .end local v16           #valueIndex:I
     .restart local v17       #valueIndex:I
-    goto :goto_4c
+    goto :goto_1
 
     .line 307
     .end local v3           #bitsOverlaps:Z
@@ -658,10 +658,10 @@
     .end local v7           #clutIndex:I
     .end local v14           #pixelIndex:I
     .restart local v13       #pixelIndex:I
-    :cond_74
+    :cond_1
     const/4 v3, 0x0
 
-    goto :goto_4b
+    goto :goto_0
 
     .line 312
     .end local v13           #pixelIndex:I
@@ -669,15 +669,15 @@
     .restart local v3       #bitsOverlaps:Z
     .restart local v14       #pixelIndex:I
     .restart local v16       #valueIndex:I
-    :cond_76
+    :cond_2
     mul-int/lit8 v2, v2, -0x1
 
-    goto :goto_57
+    goto :goto_2
 
     .line 321
     .end local v16           #valueIndex:I
     .restart local v17       #valueIndex:I
-    :cond_79
+    :cond_3
     sget-object v19, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     move/from16 v0, v18
@@ -690,16 +690,16 @@
 
     return-object v19
 
-    :cond_84
+    :cond_4
     move/from16 v16, v17
 
     .end local v17           #valueIndex:I
     .restart local v16       #valueIndex:I
-    goto :goto_57
+    goto :goto_2
 .end method
 
 .method private postIcon()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 215
@@ -707,7 +707,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_11
+    if-ne v0, v1, :cond_1
 
     .line 216
     iget-object v0, p0, Lcom/android/internal/telephony/cat/IconLoader;->mEndMsg:Landroid/os/Message;
@@ -722,17 +722,17 @@
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     .line 228
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     return-void
 
     .line 218
-    :cond_11
+    :cond_1
     iget v0, p0, Lcom/android/internal/telephony/cat/IconLoader;->mState:I
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_10
+    if-ne v0, v1, :cond_0
 
     .line 219
     iget-object v0, p0, Lcom/android/internal/telephony/cat/IconLoader;->mIcons:[Landroid/graphics/Bitmap;
@@ -754,7 +754,7 @@
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_33
+    if-ge v0, v1, :cond_2
 
     .line 222
     iget-object v0, p0, Lcom/android/internal/telephony/cat/IconLoader;->mRecordNumbers:[I
@@ -765,10 +765,10 @@
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/cat/IconLoader;->startLoadingIcon(I)V
 
-    goto :goto_10
+    goto :goto_0
 
     .line 224
-    :cond_33
+    :cond_2
     iget-object v0, p0, Lcom/android/internal/telephony/cat/IconLoader;->mEndMsg:Landroid/os/Message;
 
     iget-object v1, p0, Lcom/android/internal/telephony/cat/IconLoader;->mIcons:[Landroid/graphics/Bitmap;
@@ -780,11 +780,11 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method private readClut()V
-    .registers 8
+    .locals 7
 
     .prologue
     const/4 v1, 0x3
@@ -829,7 +829,7 @@
 .end method
 
 .method private readIconData()V
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v2, 0x0
@@ -862,13 +862,13 @@
 .end method
 
 .method private readId()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 198
     iget v1, p0, Lcom/android/internal/telephony/cat/IconLoader;->mRecordNumber:I
 
-    if-gez v1, :cond_b
+    if-gez v1, :cond_0
 
     .line 199
     const/4 v1, 0x0
@@ -879,11 +879,11 @@
     invoke-direct {p0}, Lcom/android/internal/telephony/cat/IconLoader;->postIcon()V
 
     .line 205
-    :goto_a
+    :goto_0
     return-void
 
     .line 203
-    :cond_b
+    :cond_0
     const/4 v1, 0x1
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/cat/IconLoader;->obtainMessage(I)Landroid/os/Message;
@@ -898,11 +898,11 @@
 
     invoke-virtual {v1, v2, v0}, Lcom/android/internal/telephony/IccFileHandler;->loadEFImgLinearFixed(ILandroid/os/Message;)V
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method private startLoadingIcon(I)V
-    .registers 4
+    .locals 2
     .parameter "recordNumber"
 
     .prologue
@@ -931,7 +931,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_0
 
     .line 121
     iget-object v0, p0, Lcom/android/internal/telephony/cat/IconLoader;->mIconsCache:Ljava/util/HashMap;
@@ -952,20 +952,20 @@
     invoke-direct {p0}, Lcom/android/internal/telephony/cat/IconLoader;->postIcon()V
 
     .line 128
-    :goto_26
+    :goto_0
     return-void
 
     .line 127
-    :cond_27
+    :cond_0
     invoke-direct {p0}, Lcom/android/internal/telephony/cat/IconLoader;->readId()V
 
-    goto :goto_26
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 10
+    .locals 8
     .parameter "msg"
 
     .prologue
@@ -973,15 +973,15 @@
     :try_start_0
     iget v5, p1, Landroid/os/Message;->what:I
 
-    packed-switch v5, :pswitch_data_90
+    packed-switch v5, :pswitch_data_0
 
     .line 170
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return-void
 
     .line 137
-    :pswitch_6
+    :pswitch_0
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/AsyncResult;
@@ -998,18 +998,18 @@
 
     move-result v5
 
-    if-eqz v5, :cond_24
+    if-eqz v5, :cond_1
 
     .line 139
     invoke-direct {p0}, Lcom/android/internal/telephony/cat/IconLoader;->readIconData()V
-    :try_end_19
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_19} :catch_1a
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_5
+    goto :goto_0
 
     .line 165
     .end local v1           #ar:Landroid/os/AsyncResult;
-    :catch_1a
+    :catch_0
     move-exception v3
 
     .line 166
@@ -1021,13 +1021,13 @@
     .line 168
     invoke-direct {p0}, Lcom/android/internal/telephony/cat/IconLoader;->postIcon()V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 141
     .end local v3           #e:Ljava/lang/Exception;
     .restart local v1       #ar:Landroid/os/AsyncResult;
-    :cond_24
-    :try_start_24
+    :cond_1
+    :try_start_1
     new-instance v5, Ljava/lang/Exception;
 
     const-string v6, "Unable to parse image descriptor"
@@ -1038,7 +1038,7 @@
 
     .line 145
     .end local v1           #ar:Landroid/os/AsyncResult;
-    :pswitch_2c
+    :pswitch_1
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/AsyncResult;
@@ -1063,7 +1063,7 @@
 
     const/16 v6, 0x11
 
-    if-ne v5, v6, :cond_58
+    if-ne v5, v6, :cond_2
 
     .line 148
     array-length v5, v4
@@ -1090,17 +1090,17 @@
     .line 150
     invoke-direct {p0}, Lcom/android/internal/telephony/cat/IconLoader;->postIcon()V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 151
-    :cond_58
+    :cond_2
     iget-object v5, p0, Lcom/android/internal/telephony/cat/IconLoader;->mId:Lcom/android/internal/telephony/cat/ImageDescriptor;
 
     iget v5, v5, Lcom/android/internal/telephony/cat/ImageDescriptor;->codingScheme:I
 
     const/16 v6, 0x21
 
-    if-ne v5, v6, :cond_5
+    if-ne v5, v6, :cond_0
 
     .line 152
     iput-object v4, p0, Lcom/android/internal/telephony/cat/IconLoader;->mIconData:[B
@@ -1108,12 +1108,12 @@
     .line 153
     invoke-direct {p0}, Lcom/android/internal/telephony/cat/IconLoader;->readClut()V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 157
     .end local v1           #ar:Landroid/os/AsyncResult;
     .end local v4           #rawData:[B
-    :pswitch_66
+    :pswitch_2
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/AsyncResult;
@@ -1161,35 +1161,35 @@
 
     .line 162
     invoke-direct {p0}, Lcom/android/internal/telephony/cat/IconLoader;->postIcon()V
-    :try_end_8e
-    .catch Ljava/lang/Exception; {:try_start_24 .. :try_end_8e} :catch_1a
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto/16 :goto_5
+    goto/16 :goto_0
 
     .line 135
-    :pswitch_data_90
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_2c
-        :pswitch_66
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method loadIcon(ILandroid/os/Message;)V
-    .registers 4
+    .locals 1
     .parameter "recordNumber"
     .parameter "msg"
 
     .prologue
     .line 104
-    if-nez p2, :cond_3
+    if-nez p2, :cond_0
 
     .line 110
-    :goto_2
+    :goto_0
     return-void
 
     .line 107
-    :cond_3
+    :cond_0
     iput-object p2, p0, Lcom/android/internal/telephony/cat/IconLoader;->mEndMsg:Landroid/os/Message;
 
     .line 108
@@ -1200,11 +1200,11 @@
     .line 109
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cat/IconLoader;->startLoadingIcon(I)V
 
-    goto :goto_2
+    goto :goto_0
 .end method
 
 .method loadIcons([ILandroid/os/Message;)V
-    .registers 5
+    .locals 2
     .parameter "recordNumbers"
     .parameter "msg"
 
@@ -1212,21 +1212,21 @@
     const/4 v1, 0x0
 
     .line 91
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_0
 
     array-length v0, p1
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
-    if-nez p2, :cond_9
+    if-nez p2, :cond_1
 
     .line 101
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     return-void
 
     .line 94
-    :cond_9
+    :cond_1
     iput-object p2, p0, Lcom/android/internal/telephony/cat/IconLoader;->mEndMsg:Landroid/os/Message;
 
     .line 96
@@ -1252,5 +1252,5 @@
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/cat/IconLoader;->startLoadingIcon(I)V
 
-    goto :goto_8
+    goto :goto_0
 .end method

@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 30
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public mark(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "message"
 
     .prologue

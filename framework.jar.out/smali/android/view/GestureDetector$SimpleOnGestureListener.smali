@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 158
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public onDoubleTap(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "e"
 
     .prologue
@@ -43,7 +43,7 @@
 .end method
 
 .method public onDoubleTapEvent(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "e"
 
     .prologue
@@ -54,7 +54,7 @@
 .end method
 
 .method public onDown(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "e"
 
     .prologue
@@ -65,7 +65,7 @@
 .end method
 
 .method public onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
-    .registers 6
+    .locals 1
     .parameter "e1"
     .parameter "e2"
     .parameter "velocityX"
@@ -79,7 +79,7 @@
 .end method
 
 .method public onLongPress(Landroid/view/MotionEvent;)V
-    .registers 2
+    .locals 0
     .parameter "e"
 
     .prologue
@@ -88,7 +88,7 @@
 .end method
 
 .method public onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
-    .registers 6
+    .locals 1
     .parameter "e1"
     .parameter "e2"
     .parameter "distanceX"
@@ -102,7 +102,7 @@
 .end method
 
 .method public onShowPress(Landroid/view/MotionEvent;)V
-    .registers 2
+    .locals 0
     .parameter "e"
 
     .prologue
@@ -111,7 +111,7 @@
 .end method
 
 .method public onSingleTapConfirmed(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "e"
 
     .prologue
@@ -122,7 +122,7 @@
 .end method
 
 .method public onSingleTapUp(Landroid/view/MotionEvent;)Z
-    .registers 3
+    .locals 1
     .parameter "e"
 
     .prologue

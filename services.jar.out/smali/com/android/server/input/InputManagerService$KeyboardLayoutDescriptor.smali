@@ -24,7 +24,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1493
@@ -34,7 +34,7 @@
 .end method
 
 .method public static format(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 5
+    .locals 2
     .parameter "packageName"
     .parameter "receiverName"
     .parameter "keyboardName"
@@ -77,7 +77,7 @@
 .end method
 
 .method public static parse(Ljava/lang/String;)Lcom/android/server/input/InputManagerService$KeyboardLayoutDescriptor;
-    .registers 7
+    .locals 6
     .parameter "descriptor"
 
     .prologue
@@ -92,7 +92,7 @@
 
     .line 1505
     .local v0, pos:I
-    if-ltz v0, :cond_11
+    if-ltz v0, :cond_0
 
     add-int/lit8 v3, v0, 0x1
 
@@ -100,15 +100,15 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_12
+    if-ne v3, v4, :cond_1
 
     .line 1517
-    :cond_11
-    :goto_11
+    :cond_0
+    :goto_0
     return-object v2
 
     .line 1508
-    :cond_12
+    :cond_1
     add-int/lit8 v3, v0, 0x1
 
     invoke-virtual {p0, v5, v3}, Ljava/lang/String;->indexOf(II)I
@@ -119,7 +119,7 @@
     .local v1, pos2:I
     add-int/lit8 v3, v0, 0x2
 
-    if-lt v1, v3, :cond_11
+    if-lt v1, v3, :cond_0
 
     add-int/lit8 v3, v1, 0x1
 
@@ -127,7 +127,7 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_11
+    if-eq v3, v4, :cond_0
 
     .line 1513
     new-instance v2, Lcom/android/server/input/InputManagerService$KeyboardLayoutDescriptor;
@@ -162,5 +162,5 @@
 
     iput-object v3, v2, Lcom/android/server/input/InputManagerService$KeyboardLayoutDescriptor;->keyboardLayoutName:Ljava/lang/String;
 
-    goto :goto_11
+    goto :goto_0
 .end method

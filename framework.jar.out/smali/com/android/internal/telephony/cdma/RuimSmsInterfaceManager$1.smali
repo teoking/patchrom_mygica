@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,21 +35,21 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 7
+    .locals 5
     .parameter "msg"
 
     .prologue
     .line 59
     iget v1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v1, :pswitch_data_70
+    packed-switch v1, :pswitch_data_0
 
     .line 81
-    :goto_5
+    :goto_0
     return-void
 
     .line 61
-    :pswitch_6
+    :pswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
@@ -58,6 +58,7 @@
     .local v0, ar:Landroid/os/AsyncResult;
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;
 
+    #getter for: Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->access$000(Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;)Ljava/lang/Object;
 
     move-result-object v2
@@ -65,21 +66,23 @@
     monitor-enter v2
 
     .line 63
-    :try_start_11
+    :try_start_0
     iget-object v3, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;
 
     iget-object v1, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    if-nez v1, :cond_29
+    if-nez v1, :cond_0
 
     const/4 v1, 0x1
 
-    :goto_18
+    :goto_1
+    #setter for: Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mSuccess:Z
     invoke-static {v3, v1}, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->access$102(Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;Z)Z
 
     .line 64
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;
 
+    #getter for: Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->access$000(Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;)Ljava/lang/Object;
 
     move-result-object v1
@@ -89,26 +92,26 @@
     .line 65
     monitor-exit v2
 
-    goto :goto_5
+    goto :goto_0
 
-    :catchall_26
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_28
-    .catchall {:try_start_11 .. :try_end_28} :catchall_26
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 
     .line 63
-    :cond_29
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_18
+    goto :goto_1
 
     .line 68
     .end local v0           #ar:Landroid/os/AsyncResult;
-    :pswitch_2b
+    :pswitch_1
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
@@ -117,6 +120,7 @@
     .restart local v0       #ar:Landroid/os/AsyncResult;
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;
 
+    #getter for: Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->access$000(Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;)Ljava/lang/Object;
 
     move-result-object v2
@@ -124,10 +128,10 @@
     monitor-enter v2
 
     .line 70
-    :try_start_36
+    :try_start_1
     iget-object v1, v0, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
-    if-nez v1, :cond_57
+    if-nez v1, :cond_2
 
     .line 71
     iget-object v3, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;
@@ -138,17 +142,20 @@
 
     check-cast v1, Ljava/util/ArrayList;
 
+    #calls: Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->buildValidRawData(Ljava/util/ArrayList;)Ljava/util/ArrayList;
     invoke-static {v4, v1}, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->access$300(Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;Ljava/util/ArrayList;)Ljava/util/ArrayList;
 
     move-result-object v1
 
+    #setter for: Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mSms:Ljava/util/List;
     invoke-static {v3, v1}, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->access$202(Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;Ljava/util/List;)Ljava/util/List;
 
     .line 77
-    :cond_49
-    :goto_49
+    :cond_1
+    :goto_2
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;
 
+    #getter for: Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mLock:Ljava/lang/Object;
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->access$000(Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;)Ljava/lang/Object;
 
     move-result-object v1
@@ -158,20 +165,20 @@
     .line 78
     monitor-exit v2
 
-    goto :goto_5
+    goto :goto_0
 
-    :catchall_54
+    :catchall_1
     move-exception v1
 
     monitor-exit v2
-    :try_end_56
-    .catchall {:try_start_36 .. :try_end_56} :catchall_54
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     throw v1
 
     .line 73
-    :cond_57
-    :try_start_57
+    :cond_2
+    :try_start_2
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;
 
     const-string v3, "Cannot load Sms records"
@@ -181,29 +188,31 @@
     .line 74
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;
 
+    #getter for: Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mSms:Ljava/util/List;
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->access$200(Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;)Ljava/util/List;
 
     move-result-object v1
 
-    if-eqz v1, :cond_49
+    if-eqz v1, :cond_1
 
     .line 75
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager$1;->this$0:Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;
 
+    #getter for: Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mSms:Ljava/util/List;
     invoke-static {v1}, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->access$200(Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;)Ljava/util/List;
 
     move-result-object v1
 
     invoke-interface {v1}, Ljava/util/List;->clear()V
-    :try_end_6f
-    .catchall {:try_start_57 .. :try_end_6f} :catchall_54
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    goto :goto_49
+    goto :goto_2
 
     .line 59
-    :pswitch_data_70
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_2b
-        :pswitch_6
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method

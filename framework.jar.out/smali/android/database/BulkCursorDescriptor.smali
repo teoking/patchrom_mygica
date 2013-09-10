@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 29
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 28
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 52
@@ -69,7 +69,7 @@
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -96,11 +96,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_30
+    if-eqz v0, :cond_1
 
     const/4 v0, 0x1
 
-    :goto_17
+    :goto_0
     iput-boolean v0, p0, Landroid/database/BulkCursorDescriptor;->wantsAllOnMoveCalls:Z
 
     .line 73
@@ -115,7 +115,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2f
+    if-eqz v0, :cond_0
 
     .line 75
     sget-object v0, Landroid/database/CursorWindow;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -129,18 +129,18 @@
     iput-object v0, p0, Landroid/database/BulkCursorDescriptor;->window:Landroid/database/CursorWindow;
 
     .line 77
-    :cond_2f
+    :cond_0
     return-void
 
     .line 72
-    :cond_30
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "out"
     .parameter "flags"
 
@@ -166,11 +166,11 @@
     .line 59
     iget-boolean v0, p0, Landroid/database/BulkCursorDescriptor;->wantsAllOnMoveCalls:Z
 
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_15
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 60
@@ -181,7 +181,7 @@
     .line 61
     iget-object v0, p0, Landroid/database/BulkCursorDescriptor;->window:Landroid/database/CursorWindow;
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_1
 
     .line 62
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
@@ -192,18 +192,18 @@
     invoke-virtual {v0, p1, p2}, Landroid/database/CursorWindow;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 67
-    :goto_29
+    :goto_1
     return-void
 
-    :cond_2a
+    :cond_0
     move v0, v2
 
     .line 59
-    goto :goto_15
+    goto :goto_0
 
     .line 65
-    :cond_2c
+    :cond_1
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_29
+    goto :goto_1
 .end method

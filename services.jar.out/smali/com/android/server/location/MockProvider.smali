@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Landroid/location/ILocationManager;ZZZZZZZII)V
-    .registers 13
+    .locals 1
     .parameter "name"
     .parameter "locationManager"
     .parameter "requiresNetwork"
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method public addListener(I)V
-    .registers 2
+    .locals 0
     .parameter "uid"
 
     .prologue
@@ -130,7 +130,7 @@
 .end method
 
 .method public clearLocation()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 176
@@ -143,7 +143,7 @@
 .end method
 
 .method public clearStatus()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 190
@@ -161,7 +161,7 @@
 .end method
 
 .method public disable()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 82
@@ -174,7 +174,7 @@
 .end method
 
 .method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .registers 7
+    .locals 4
     .parameter "pw"
     .parameter "prefix"
 
@@ -388,7 +388,7 @@
 .end method
 
 .method public enable()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 86
@@ -401,7 +401,7 @@
 .end method
 
 .method public enableLocationTracking(Z)V
-    .registers 2
+    .locals 0
     .parameter "enable"
 
     .prologue
@@ -410,7 +410,7 @@
 .end method
 
 .method public getAccuracy()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 108
@@ -420,7 +420,7 @@
 .end method
 
 .method public getInternalState()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 195
@@ -430,7 +430,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 78
@@ -440,7 +440,7 @@
 .end method
 
 .method public getPowerRequirement()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 112
@@ -450,14 +450,14 @@
 .end method
 
 .method public getStatus(Landroid/os/Bundle;)I
-    .registers 3
+    .locals 1
     .parameter "extras"
 
     .prologue
     .line 94
     iget-boolean v0, p0, Lcom/android/server/location/MockProvider;->mHasStatus:Z
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 95
     invoke-virtual {p1}, Landroid/os/Bundle;->clear()V
@@ -471,17 +471,17 @@
     iget v0, p0, Lcom/android/server/location/MockProvider;->mStatus:I
 
     .line 99
-    :goto_e
+    :goto_0
     return v0
 
-    :cond_f
+    :cond_0
     const/4 v0, 0x2
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public getStatusUpdateTime()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 104
@@ -491,7 +491,7 @@
 .end method
 
 .method public hasMonetaryCost()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 116
@@ -501,7 +501,7 @@
 .end method
 
 .method public isEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 90
@@ -511,7 +511,7 @@
 .end method
 
 .method public meetsCriteria(Landroid/location/Criteria;)Z
-    .registers 6
+    .locals 4
     .parameter "criteria"
 
     .prologue
@@ -522,7 +522,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_1
 
     invoke-virtual {p1}, Landroid/location/Criteria;->getAccuracy()I
 
@@ -530,72 +530,72 @@
 
     iget v3, p0, Lcom/android/server/location/MockProvider;->mAccuracy:I
 
-    if-ge v2, v3, :cond_10
+    if-ge v2, v3, :cond_1
 
     .line 162
-    :cond_f
-    :goto_f
+    :cond_0
+    :goto_0
     return v1
 
     .line 148
-    :cond_10
+    :cond_1
     invoke-virtual {p1}, Landroid/location/Criteria;->getPowerRequirement()I
 
     move-result v0
 
     .line 149
     .local v0, criteriaPower:I
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_2
 
     iget v2, p0, Lcom/android/server/location/MockProvider;->mPowerRequirement:I
 
-    if-lt v0, v2, :cond_f
+    if-lt v0, v2, :cond_0
 
     .line 153
-    :cond_1a
+    :cond_2
     invoke-virtual {p1}, Landroid/location/Criteria;->isAltitudeRequired()Z
 
     move-result v2
 
-    if-eqz v2, :cond_24
+    if-eqz v2, :cond_3
 
     iget-boolean v2, p0, Lcom/android/server/location/MockProvider;->mSupportsAltitude:Z
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_0
 
     .line 156
-    :cond_24
+    :cond_3
     invoke-virtual {p1}, Landroid/location/Criteria;->isSpeedRequired()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2e
+    if-eqz v2, :cond_4
 
     iget-boolean v2, p0, Lcom/android/server/location/MockProvider;->mSupportsSpeed:Z
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_0
 
     .line 159
-    :cond_2e
+    :cond_4
     invoke-virtual {p1}, Landroid/location/Criteria;->isBearingRequired()Z
 
     move-result v2
 
-    if-eqz v2, :cond_38
+    if-eqz v2, :cond_5
 
     iget-boolean v2, p0, Lcom/android/server/location/MockProvider;->mSupportsBearing:Z
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_0
 
     .line 162
-    :cond_38
+    :cond_5
     const/4 v1, 0x1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public removeListener(I)V
-    .registers 2
+    .locals 0
     .parameter "uid"
 
     .prologue
@@ -604,7 +604,7 @@
 .end method
 
 .method public requestSingleShotFix()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 202
@@ -614,7 +614,7 @@
 .end method
 
 .method public requiresCell()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 120
@@ -624,7 +624,7 @@
 .end method
 
 .method public requiresNetwork()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 124
@@ -634,7 +634,7 @@
 .end method
 
 .method public requiresSatellite()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 128
@@ -644,7 +644,7 @@
 .end method
 
 .method public sendExtraCommand(Ljava/lang/String;Landroid/os/Bundle;)Z
-    .registers 4
+    .locals 1
     .parameter "command"
     .parameter "extras"
 
@@ -656,7 +656,7 @@
 .end method
 
 .method public setLocation(Landroid/location/Location;)V
-    .registers 6
+    .locals 4
     .parameter "l"
 
     .prologue
@@ -671,7 +671,7 @@
     iput-boolean v1, p0, Lcom/android/server/location/MockProvider;->mHasLocation:Z
 
     .line 169
-    :try_start_8
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/location/MockProvider;->mLocationManager:Landroid/location/ILocationManager;
 
     iget-object v2, p0, Lcom/android/server/location/MockProvider;->mLocation:Landroid/location/Location;
@@ -679,15 +679,15 @@
     const/4 v3, 0x0
 
     invoke-interface {v1, v2, v3}, Landroid/location/ILocationManager;->reportLocation(Landroid/location/Location;Z)V
-    :try_end_10
-    .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_10} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 173
-    :goto_10
+    :goto_0
     return-void
 
     .line 170
-    :catch_11
+    :catch_0
     move-exception v0
 
     .line 171
@@ -698,11 +698,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public setMinTime(JLandroid/os/WorkSource;)V
-    .registers 4
+    .locals 0
     .parameter "minTime"
     .parameter "ws"
 
@@ -712,7 +712,7 @@
 .end method
 
 .method public setStatus(ILandroid/os/Bundle;J)V
-    .registers 6
+    .locals 1
     .parameter "status"
     .parameter "extras"
     .parameter "updateTime"
@@ -730,7 +730,7 @@
     invoke-virtual {v0}, Landroid/os/Bundle;->clear()V
 
     .line 183
-    if-eqz p2, :cond_10
+    if-eqz p2, :cond_0
 
     .line 184
     iget-object v0, p0, Lcom/android/server/location/MockProvider;->mExtras:Landroid/os/Bundle;
@@ -738,7 +738,7 @@
     invoke-virtual {v0, p2}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
     .line 186
-    :cond_10
+    :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/location/MockProvider;->mHasStatus:Z
@@ -748,7 +748,7 @@
 .end method
 
 .method public supportsAltitude()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 132
@@ -758,7 +758,7 @@
 .end method
 
 .method public supportsBearing()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 136
@@ -768,7 +768,7 @@
 .end method
 
 .method public supportsSpeed()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 140
@@ -778,7 +778,7 @@
 .end method
 
 .method public updateLocation(Landroid/location/Location;)V
-    .registers 2
+    .locals 0
     .parameter "location"
 
     .prologue
@@ -787,7 +787,7 @@
 .end method
 
 .method public updateNetworkState(ILandroid/net/NetworkInfo;)V
-    .registers 3
+    .locals 0
     .parameter "state"
     .parameter "info"
 

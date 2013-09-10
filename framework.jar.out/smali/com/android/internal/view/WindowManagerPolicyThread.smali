@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 25
@@ -21,7 +21,7 @@
 .end method
 
 .method public static getLooper()Landroid/os/Looper;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 39
@@ -31,7 +31,7 @@
 .end method
 
 .method public static getThread()Ljava/lang/Thread;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 35
@@ -41,7 +41,7 @@
 .end method
 
 .method public static set(Ljava/lang/Thread;Landroid/os/Looper;)V
-    .registers 2
+    .locals 0
     .parameter "thread"
     .parameter "looper"
 

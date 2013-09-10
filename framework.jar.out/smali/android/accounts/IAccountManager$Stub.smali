@@ -71,7 +71,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 18
@@ -87,22 +87,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/accounts/IAccountManager;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 27
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 28
     const/4 v0, 0x0
 
     .line 34
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 30
-    :cond_4
+    :cond_0
     const-string v1, "android.accounts.IAccountManager"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -111,31 +111,31 @@
 
     .line 31
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/accounts/IAccountManager;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 32
     check-cast v0, Landroid/accounts/IAccountManager;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 34
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/accounts/IAccountManager$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/accounts/IAccountManager$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 38
@@ -143,7 +143,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 15
+    .locals 10
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -160,26 +160,26 @@
     const/4 v8, 0x1
 
     .line 42
-    sparse-switch p1, :sswitch_data_352
+    sparse-switch p1, :sswitch_data_0
 
     .line 416
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v8
 
-    :goto_9
+    :goto_0
     return v8
 
     .line 46
-    :sswitch_a
+    :sswitch_0
     const-string v0, "android.accounts.IAccountManager"
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 51
-    :sswitch_10
+    :sswitch_1
     const-string v0, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -189,7 +189,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2e
+    if-eqz v0, :cond_0
 
     .line 54
     sget-object v0, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -202,7 +202,7 @@
 
     .line 59
     .local v1, _arg0:Landroid/accounts/Account;
-    :goto_23
+    :goto_1
     invoke-virtual {p0, v1}, Landroid/accounts/IAccountManager$Stub;->getPassword(Landroid/accounts/Account;)Ljava/lang/String;
 
     move-result-object v7
@@ -214,20 +214,20 @@
     .line 61
     invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 57
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v7           #_result:Ljava/lang/String;
-    :cond_2e
+    :cond_0
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_23
+    goto :goto_1
 
     .line 66
     .end local v1           #_arg0:Landroid/accounts/Account;
-    :sswitch_30
+    :sswitch_2
     const-string v0, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -237,7 +237,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_52
+    if-eqz v0, :cond_1
 
     .line 69
     sget-object v0, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -250,7 +250,7 @@
 
     .line 75
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    :goto_43
+    :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -268,21 +268,21 @@
     .line 78
     invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 72
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v7           #_result:Ljava/lang/String;
-    :cond_52
+    :cond_1
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_43
+    goto :goto_2
 
     .line 83
     .end local v1           #_arg0:Landroid/accounts/Account;
-    :sswitch_54
+    :sswitch_3
     const-string v0, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -299,11 +299,11 @@
     .line 86
     invoke-virtual {p3, v7, v8}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 91
     .end local v7           #_result:[Landroid/accounts/AuthenticatorDescription;
-    :sswitch_64
+    :sswitch_4
     const-string v0, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -326,12 +326,12 @@
     .line 96
     invoke-virtual {p3, v7, v8}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 101
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v7           #_result:[Landroid/accounts/Account;
-    :sswitch_78
+    :sswitch_5
     const-string v0, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -351,7 +351,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9f
+    if-eqz v0, :cond_2
 
     .line 106
     sget-object v0, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -364,7 +364,7 @@
 
     .line 112
     .local v2, _arg1:Landroid/accounts/Account;
-    :goto_93
+    :goto_3
     invoke-virtual {p2}, Landroid/os/Parcel;->createStringArray()[Ljava/lang/String;
 
     move-result-object v3
@@ -376,21 +376,21 @@
     .line 114
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 109
     .end local v2           #_arg1:Landroid/accounts/Account;
     .end local v3           #_arg2:[Ljava/lang/String;
-    :cond_9f
+    :cond_2
     const/4 v2, 0x0
 
     .restart local v2       #_arg1:Landroid/accounts/Account;
-    goto :goto_93
+    goto :goto_3
 
     .line 119
     .end local v1           #_arg0:Landroid/accounts/IAccountManagerResponse;
     .end local v2           #_arg1:Landroid/accounts/Account;
-    :sswitch_a1
+    :sswitch_6
     const-string v0, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -423,13 +423,13 @@
     .line 127
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 132
     .end local v1           #_arg0:Landroid/accounts/IAccountManagerResponse;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:[Ljava/lang/String;
-    :sswitch_be
+    :sswitch_7
     const-string v9, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -439,7 +439,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_f2
+    if-eqz v9, :cond_4
 
     .line 135
     sget-object v9, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -452,7 +452,7 @@
 
     .line 141
     .local v1, _arg0:Landroid/accounts/Account;
-    :goto_d1
+    :goto_4
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -463,7 +463,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_f4
+    if-eqz v9, :cond_5
 
     .line 144
     sget-object v9, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -476,7 +476,7 @@
 
     .line 149
     .local v3, _arg2:Landroid/os/Bundle;
-    :goto_e3
+    :goto_5
     invoke-virtual {p0, v1, v2, v3}, Landroid/accounts/IAccountManager$Stub;->addAccount(Landroid/accounts/Account;Ljava/lang/String;Landroid/os/Bundle;)Z
 
     move-result v7
@@ -486,39 +486,39 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 151
-    if-eqz v7, :cond_ed
+    if-eqz v7, :cond_3
 
     move v0, v8
 
-    :cond_ed
+    :cond_3
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 138
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:Landroid/os/Bundle;
     .end local v7           #_result:Z
-    :cond_f2
+    :cond_4
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_d1
+    goto :goto_4
 
     .line 147
     .restart local v2       #_arg1:Ljava/lang/String;
-    :cond_f4
+    :cond_5
     const/4 v3, 0x0
 
     .restart local v3       #_arg2:Landroid/os/Bundle;
-    goto :goto_e3
+    goto :goto_5
 
     .line 156
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:Landroid/os/Bundle;
-    :sswitch_f6
+    :sswitch_8
     const-string v0, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -538,7 +538,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_119
+    if-eqz v0, :cond_6
 
     .line 161
     sget-object v0, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -551,26 +551,26 @@
 
     .line 166
     .local v2, _arg1:Landroid/accounts/Account;
-    :goto_111
+    :goto_6
     invoke-virtual {p0, v1, v2}, Landroid/accounts/IAccountManager$Stub;->removeAccount(Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;)V
 
     .line 167
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 164
     .end local v2           #_arg1:Landroid/accounts/Account;
-    :cond_119
+    :cond_6
     const/4 v2, 0x0
 
     .restart local v2       #_arg1:Landroid/accounts/Account;
-    goto :goto_111
+    goto :goto_6
 
     .line 172
     .end local v1           #_arg0:Landroid/accounts/IAccountManagerResponse;
     .end local v2           #_arg1:Landroid/accounts/Account;
-    :sswitch_11b
+    :sswitch_9
     const-string v0, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -593,12 +593,12 @@
     .line 178
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 183
     .end local v1           #_arg0:Ljava/lang/String;
     .end local v2           #_arg1:Ljava/lang/String;
-    :sswitch_130
+    :sswitch_a
     const-string v0, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -608,7 +608,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_153
+    if-eqz v0, :cond_7
 
     .line 186
     sget-object v0, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -621,7 +621,7 @@
 
     .line 192
     .local v1, _arg0:Landroid/accounts/Account;
-    :goto_143
+    :goto_7
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -639,21 +639,21 @@
     .line 195
     invoke-virtual {p3, v7}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 189
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v7           #_result:Ljava/lang/String;
-    :cond_153
+    :cond_7
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_143
+    goto :goto_7
 
     .line 200
     .end local v1           #_arg0:Landroid/accounts/Account;
-    :sswitch_155
+    :sswitch_b
     const-string v0, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -663,7 +663,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_178
+    if-eqz v0, :cond_8
 
     .line 203
     sget-object v0, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -676,7 +676,7 @@
 
     .line 209
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    :goto_168
+    :goto_8
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -694,21 +694,21 @@
     .line 213
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 206
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:Ljava/lang/String;
-    :cond_178
+    :cond_8
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_168
+    goto :goto_8
 
     .line 218
     .end local v1           #_arg0:Landroid/accounts/Account;
-    :sswitch_17a
+    :sswitch_c
     const-string v0, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -718,7 +718,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_199
+    if-eqz v0, :cond_9
 
     .line 221
     sget-object v0, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -731,7 +731,7 @@
 
     .line 227
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    :goto_18d
+    :goto_9
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -743,20 +743,20 @@
     .line 229
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 224
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
-    :cond_199
+    :cond_9
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_18d
+    goto :goto_9
 
     .line 234
     .end local v1           #_arg0:Landroid/accounts/Account;
-    :sswitch_19b
+    :sswitch_d
     const-string v0, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -766,7 +766,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1b6
+    if-eqz v0, :cond_a
 
     .line 237
     sget-object v0, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -779,25 +779,25 @@
 
     .line 242
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    :goto_1ae
+    :goto_a
     invoke-virtual {p0, v1}, Landroid/accounts/IAccountManager$Stub;->clearPassword(Landroid/accounts/Account;)V
 
     .line 243
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 240
     .end local v1           #_arg0:Landroid/accounts/Account;
-    :cond_1b6
+    :cond_a
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_1ae
+    goto :goto_a
 
     .line 248
     .end local v1           #_arg0:Landroid/accounts/Account;
-    :sswitch_1b8
+    :sswitch_e
     const-string v0, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -807,7 +807,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1db
+    if-eqz v0, :cond_b
 
     .line 251
     sget-object v0, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -820,7 +820,7 @@
 
     .line 257
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    :goto_1cb
+    :goto_b
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -838,21 +838,21 @@
     .line 261
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 254
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:Ljava/lang/String;
-    :cond_1db
+    :cond_b
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_1cb
+    goto :goto_b
 
     .line 266
     .end local v1           #_arg0:Landroid/accounts/Account;
-    :sswitch_1dd
+    :sswitch_f
     const-string v9, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -862,7 +862,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_207
+    if-eqz v9, :cond_c
 
     .line 269
     sget-object v9, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -875,7 +875,7 @@
 
     .line 275
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    :goto_1f0
+    :goto_c
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -892,44 +892,44 @@
 
     move-result v9
 
-    if-eqz v9, :cond_209
+    if-eqz v9, :cond_d
 
     move v4, v8
 
     .line 280
     .local v4, _arg3:Z
-    :goto_1ff
+    :goto_d
     invoke-virtual {p0, v1, v2, v3, v4}, Landroid/accounts/IAccountManager$Stub;->updateAppPermission(Landroid/accounts/Account;Ljava/lang/String;IZ)V
 
     .line 281
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 272
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:I
     .end local v4           #_arg3:Z
-    :cond_207
+    :cond_c
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/accounts/Account;
-    goto :goto_1f0
+    goto :goto_c
 
     .restart local v2       #_arg1:Ljava/lang/String;
     .restart local v3       #_arg2:I
-    :cond_209
+    :cond_d
     move v4, v0
 
     .line 279
-    goto :goto_1ff
+    goto :goto_d
 
     .line 286
     .end local v1           #_arg0:Landroid/accounts/Account;
     .end local v2           #_arg1:Ljava/lang/String;
     .end local v3           #_arg2:I
-    :sswitch_20b
+    :sswitch_10
     const-string v9, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -949,7 +949,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_24f
+    if-eqz v9, :cond_e
 
     .line 291
     sget-object v9, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -962,7 +962,7 @@
 
     .line 297
     .local v2, _arg1:Landroid/accounts/Account;
-    :goto_226
+    :goto_e
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
@@ -973,29 +973,29 @@
 
     move-result v9
 
-    if-eqz v9, :cond_251
+    if-eqz v9, :cond_f
 
     move v4, v8
 
     .line 301
     .restart local v4       #_arg3:Z
-    :goto_231
+    :goto_f
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v9
 
-    if-eqz v9, :cond_253
+    if-eqz v9, :cond_10
 
     move v5, v8
 
     .line 303
     .local v5, _arg4:Z
-    :goto_238
+    :goto_10
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_255
+    if-eqz v0, :cond_11
 
     .line 304
     sget-object v0, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1007,7 +1007,7 @@
     check-cast v6, Landroid/os/Bundle;
 
     .local v6, _arg5:Landroid/os/Bundle;
-    :goto_246
+    :goto_11
     move-object v0, p0
 
     .line 309
@@ -1016,7 +1016,7 @@
     .line 310
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 294
     .end local v2           #_arg1:Landroid/accounts/Account;
@@ -1024,33 +1024,33 @@
     .end local v4           #_arg3:Z
     .end local v5           #_arg4:Z
     .end local v6           #_arg5:Landroid/os/Bundle;
-    :cond_24f
+    :cond_e
     const/4 v2, 0x0
 
     .restart local v2       #_arg1:Landroid/accounts/Account;
-    goto :goto_226
+    goto :goto_e
 
     .restart local v3       #_arg2:Ljava/lang/String;
-    :cond_251
+    :cond_f
     move v4, v0
 
     .line 299
-    goto :goto_231
+    goto :goto_f
 
     .restart local v4       #_arg3:Z
-    :cond_253
+    :cond_10
     move v5, v0
 
     .line 301
-    goto :goto_238
+    goto :goto_10
 
     .line 307
     .restart local v5       #_arg4:Z
-    :cond_255
+    :cond_11
     const/4 v6, 0x0
 
     .restart local v6       #_arg5:Landroid/os/Bundle;
-    goto :goto_246
+    goto :goto_11
 
     .line 315
     .end local v1           #_arg0:Landroid/accounts/IAccountManagerResponse;
@@ -1059,7 +1059,7 @@
     .end local v4           #_arg3:Z
     .end local v5           #_arg4:Z
     .end local v6           #_arg5:Landroid/os/Bundle;
-    :sswitch_257
+    :sswitch_11
     const-string v9, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1097,18 +1097,18 @@
 
     move-result v9
 
-    if-eqz v9, :cond_28e
+    if-eqz v9, :cond_12
 
     move v5, v8
 
     .line 327
     .restart local v5       #_arg4:Z
-    :goto_277
+    :goto_12
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_290
+    if-eqz v0, :cond_13
 
     .line 328
     sget-object v0, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1120,7 +1120,7 @@
     check-cast v6, Landroid/os/Bundle;
 
     .restart local v6       #_arg5:Landroid/os/Bundle;
-    :goto_285
+    :goto_13
     move-object v0, p0
 
     .line 333
@@ -1129,23 +1129,23 @@
     .line 334
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .end local v5           #_arg4:Z
     .end local v6           #_arg5:Landroid/os/Bundle;
-    :cond_28e
+    :cond_12
     move v5, v0
 
     .line 325
-    goto :goto_277
+    goto :goto_12
 
     .line 331
     .restart local v5       #_arg4:Z
-    :cond_290
+    :cond_13
     const/4 v6, 0x0
 
     .restart local v6       #_arg5:Landroid/os/Bundle;
-    goto :goto_285
+    goto :goto_13
 
     .line 339
     .end local v1           #_arg0:Landroid/accounts/IAccountManagerResponse;
@@ -1154,7 +1154,7 @@
     .end local v4           #_arg3:[Ljava/lang/String;
     .end local v5           #_arg4:Z
     .end local v6           #_arg5:Landroid/os/Bundle;
-    :sswitch_292
+    :sswitch_12
     const-string v9, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1174,7 +1174,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_2cf
+    if-eqz v9, :cond_14
 
     .line 344
     sget-object v9, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1187,7 +1187,7 @@
 
     .line 350
     .local v2, _arg1:Landroid/accounts/Account;
-    :goto_2ad
+    :goto_14
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
@@ -1198,18 +1198,18 @@
 
     move-result v9
 
-    if-eqz v9, :cond_2d1
+    if-eqz v9, :cond_15
 
     move v4, v8
 
     .line 354
     .local v4, _arg3:Z
-    :goto_2b8
+    :goto_15
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_2d3
+    if-eqz v0, :cond_16
 
     .line 355
     sget-object v0, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1221,7 +1221,7 @@
     check-cast v5, Landroid/os/Bundle;
 
     .local v5, _arg4:Landroid/os/Bundle;
-    :goto_2c6
+    :goto_16
     move-object v0, p0
 
     .line 360
@@ -1230,33 +1230,33 @@
     .line 361
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 347
     .end local v2           #_arg1:Landroid/accounts/Account;
     .end local v3           #_arg2:Ljava/lang/String;
     .end local v4           #_arg3:Z
     .end local v5           #_arg4:Landroid/os/Bundle;
-    :cond_2cf
+    :cond_14
     const/4 v2, 0x0
 
     .restart local v2       #_arg1:Landroid/accounts/Account;
-    goto :goto_2ad
+    goto :goto_14
 
     .restart local v3       #_arg2:Ljava/lang/String;
-    :cond_2d1
+    :cond_15
     move v4, v0
 
     .line 352
-    goto :goto_2b8
+    goto :goto_15
 
     .line 358
     .restart local v4       #_arg3:Z
-    :cond_2d3
+    :cond_16
     const/4 v5, 0x0
 
     .restart local v5       #_arg4:Landroid/os/Bundle;
-    goto :goto_2c6
+    goto :goto_16
 
     .line 366
     .end local v1           #_arg0:Landroid/accounts/IAccountManagerResponse;
@@ -1264,7 +1264,7 @@
     .end local v3           #_arg2:Ljava/lang/String;
     .end local v4           #_arg3:Z
     .end local v5           #_arg4:Landroid/os/Bundle;
-    :sswitch_2d5
+    :sswitch_13
     const-string v9, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1290,31 +1290,31 @@
 
     move-result v9
 
-    if-eqz v9, :cond_2f5
+    if-eqz v9, :cond_17
 
     move v3, v8
 
     .line 373
     .local v3, _arg2:Z
-    :goto_2ed
+    :goto_17
     invoke-virtual {p0, v1, v2, v3}, Landroid/accounts/IAccountManager$Stub;->editProperties(Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;Z)V
 
     .line 374
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .end local v3           #_arg2:Z
-    :cond_2f5
+    :cond_17
     move v3, v0
 
     .line 372
-    goto :goto_2ed
+    goto :goto_17
 
     .line 379
     .end local v1           #_arg0:Landroid/accounts/IAccountManagerResponse;
     .end local v2           #_arg1:Ljava/lang/String;
-    :sswitch_2f7
+    :sswitch_14
     const-string v9, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1334,7 +1334,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_32f
+    if-eqz v9, :cond_18
 
     .line 384
     sget-object v9, Landroid/accounts/Account;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1347,12 +1347,12 @@
 
     .line 390
     .local v2, _arg1:Landroid/accounts/Account;
-    :goto_312
+    :goto_18
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v9
 
-    if-eqz v9, :cond_331
+    if-eqz v9, :cond_19
 
     .line 391
     sget-object v9, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -1365,53 +1365,53 @@
 
     .line 397
     .local v3, _arg2:Landroid/os/Bundle;
-    :goto_320
+    :goto_19
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v9
 
-    if-eqz v9, :cond_333
+    if-eqz v9, :cond_1a
 
     move v4, v8
 
     .line 398
     .restart local v4       #_arg3:Z
-    :goto_327
+    :goto_1a
     invoke-virtual {p0, v1, v2, v3, v4}, Landroid/accounts/IAccountManager$Stub;->confirmCredentials(Landroid/accounts/IAccountManagerResponse;Landroid/accounts/Account;Landroid/os/Bundle;Z)V
 
     .line 399
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 387
     .end local v2           #_arg1:Landroid/accounts/Account;
     .end local v3           #_arg2:Landroid/os/Bundle;
     .end local v4           #_arg3:Z
-    :cond_32f
+    :cond_18
     const/4 v2, 0x0
 
     .restart local v2       #_arg1:Landroid/accounts/Account;
-    goto :goto_312
+    goto :goto_18
 
     .line 394
-    :cond_331
+    :cond_19
     const/4 v3, 0x0
 
     .restart local v3       #_arg2:Landroid/os/Bundle;
-    goto :goto_320
+    goto :goto_19
 
-    :cond_333
+    :cond_1a
     move v4, v0
 
     .line 397
-    goto :goto_327
+    goto :goto_1a
 
     .line 404
     .end local v1           #_arg0:Landroid/accounts/IAccountManagerResponse;
     .end local v2           #_arg1:Landroid/accounts/Account;
     .end local v3           #_arg2:Landroid/os/Bundle;
-    :sswitch_335
+    :sswitch_15
     const-string v0, "android.accounts.IAccountManager"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1444,32 +1444,32 @@
     .line 412
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 42
-    :sswitch_data_352
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_10
-        0x2 -> :sswitch_30
-        0x3 -> :sswitch_54
-        0x4 -> :sswitch_64
-        0x5 -> :sswitch_78
-        0x6 -> :sswitch_a1
-        0x7 -> :sswitch_be
-        0x8 -> :sswitch_f6
-        0x9 -> :sswitch_11b
-        0xa -> :sswitch_130
-        0xb -> :sswitch_155
-        0xc -> :sswitch_17a
-        0xd -> :sswitch_19b
-        0xe -> :sswitch_1b8
-        0xf -> :sswitch_1dd
-        0x10 -> :sswitch_20b
-        0x11 -> :sswitch_257
-        0x12 -> :sswitch_292
-        0x13 -> :sswitch_2d5
-        0x14 -> :sswitch_2f7
-        0x15 -> :sswitch_335
-        0x5f4e5446 -> :sswitch_a
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x6 -> :sswitch_6
+        0x7 -> :sswitch_7
+        0x8 -> :sswitch_8
+        0x9 -> :sswitch_9
+        0xa -> :sswitch_a
+        0xb -> :sswitch_b
+        0xc -> :sswitch_c
+        0xd -> :sswitch_d
+        0xe -> :sswitch_e
+        0xf -> :sswitch_f
+        0x10 -> :sswitch_10
+        0x11 -> :sswitch_11
+        0x12 -> :sswitch_12
+        0x13 -> :sswitch_13
+        0x14 -> :sswitch_14
+        0x15 -> :sswitch_15
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

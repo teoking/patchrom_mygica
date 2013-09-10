@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -55,7 +55,7 @@
 .end method
 
 .method private createBitmapFrame(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/Frame;
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -111,7 +111,7 @@
 
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -121,13 +121,13 @@
 .end method
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "target"
 
     .prologue
     .line 78
-    packed-switch p2, :pswitch_data_34
+    packed-switch p2, :pswitch_data_0
 
     .line 86
     new-instance v1, Ljava/lang/RuntimeException;
@@ -161,7 +161,7 @@
     throw v1
 
     .line 80
-    :pswitch_22
+    :pswitch_0
     new-instance v0, Landroid/filterfw/core/ShaderProgram;
 
     const-string/jumbo v1, "precision mediump float;\nuniform sampler2D tex_sampler_0;\nuniform sampler2D tex_sampler_1;\nvarying vec2 v_texcoord;\nvoid main() {\n  vec4 original = texture2D(tex_sampler_0, v_texcoord);\n  vec4 mask = texture2D(tex_sampler_1, v_texcoord);\n  gl_FragColor = vec4(original.rgb * (1.0 - mask.a) + mask.rgb, 1.0);\n}\n"
@@ -184,14 +184,14 @@
     return-void
 
     .line 78
-    :pswitch_data_34
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_22
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 9
+    .locals 7
     .parameter "context"
 
     .prologue
@@ -222,7 +222,7 @@
     .local v4, output:Landroid/filterfw/core/Frame;
     iget-object v5, p0, Landroid/filterpacks/imageproc/BitmapOverlayFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v5, :cond_1e
+    if-eqz v5, :cond_0
 
     invoke-virtual {v2}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
@@ -230,10 +230,10 @@
 
     iget v6, p0, Landroid/filterpacks/imageproc/BitmapOverlayFilter;->mTarget:I
 
-    if-eq v5, v6, :cond_25
+    if-eq v5, v6, :cond_1
 
     .line 111
-    :cond_1e
+    :cond_0
     invoke-virtual {v2}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
     move-result v5
@@ -241,10 +241,10 @@
     invoke-virtual {p0, p1, v5}, Landroid/filterpacks/imageproc/BitmapOverlayFilter;->initProgram(Landroid/filterfw/core/FilterContext;I)V
 
     .line 114
-    :cond_25
+    :cond_1
     iget-object v5, p0, Landroid/filterpacks/imageproc/BitmapOverlayFilter;->mBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v5, :cond_47
+    if-eqz v5, :cond_2
 
     .line 115
     invoke-direct {p0, p1}, Landroid/filterpacks/imageproc/BitmapOverlayFilter;->createBitmapFrame(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/Frame;
@@ -277,7 +277,7 @@
     .line 126
     .end local v0           #frame:Landroid/filterfw/core/Frame;
     .end local v3           #inputs:[Landroid/filterfw/core/Frame;
-    :goto_3e
+    :goto_0
     const-string v5, "image"
 
     invoke-virtual {p0, v5, v4}, Landroid/filterpacks/imageproc/BitmapOverlayFilter;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
@@ -289,14 +289,14 @@
     return-void
 
     .line 122
-    :cond_47
+    :cond_2
     invoke-virtual {v4, v1}, Landroid/filterfw/core/Frame;->setDataFromFrame(Landroid/filterfw/core/Frame;)V
 
-    goto :goto_3e
+    goto :goto_0
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 68
@@ -322,14 +322,14 @@
 .end method
 
 .method public tearDown(Landroid/filterfw/core/FilterContext;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
     .line 94
     iget-object v0, p0, Landroid/filterpacks/imageproc/BitmapOverlayFilter;->mFrame:Landroid/filterfw/core/Frame;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 95
     iget-object v0, p0, Landroid/filterpacks/imageproc/BitmapOverlayFilter;->mFrame:Landroid/filterfw/core/Frame;
@@ -342,6 +342,6 @@
     iput-object v0, p0, Landroid/filterpacks/imageproc/BitmapOverlayFilter;->mFrame:Landroid/filterfw/core/Frame;
 
     .line 98
-    :cond_c
+    :cond_0
     return-void
 .end method

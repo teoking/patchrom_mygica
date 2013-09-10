@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 27
@@ -27,14 +27,14 @@
 .end method
 
 .method public static bytesPerSampleForColorspace(I)I
-    .registers 4
+    .locals 3
     .parameter "colorspace"
 
     .prologue
     const/4 v0, 0x3
 
     .line 79
-    packed-switch p0, :pswitch_data_28
+    packed-switch p0, :pswitch_data_0
 
     .line 89
     new-instance v0, Ljava/lang/RuntimeException;
@@ -68,34 +68,34 @@
     throw v0
 
     .line 81
-    :pswitch_23
+    :pswitch_0
     const/4 v0, 0x1
 
     .line 87
-    :goto_24
-    :pswitch_24
+    :goto_0
+    :pswitch_1
     return v0
 
     .line 85
-    :pswitch_25
+    :pswitch_2
     const/4 v0, 0x4
 
-    goto :goto_24
+    goto :goto_0
 
     .line 79
     nop
 
-    :pswitch_data_28
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_23
-        :pswitch_24
-        :pswitch_25
-        :pswitch_24
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public static create(I)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 3
+    .locals 2
     .parameter "colorspace"
 
     .prologue
@@ -114,7 +114,7 @@
 .end method
 
 .method public static create(II)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 4
+    .locals 2
     .parameter "colorspace"
     .parameter "target"
 
@@ -134,7 +134,7 @@
 .end method
 
 .method public static create(IIII)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 5
+    .locals 1
     .parameter "width"
     .parameter "height"
     .parameter "colorspace"
@@ -154,7 +154,7 @@
 .end method
 
 .method public static create(IIIII)Landroid/filterfw/core/MutableFrameFormat;
-    .registers 8
+    .locals 3
     .parameter "width"
     .parameter "height"
     .parameter "colorspace"
@@ -188,7 +188,7 @@
     .line 45
     const/4 v1, 0x1
 
-    if-ne p4, v1, :cond_1d
+    if-ne p4, v1, :cond_0
 
     .line 46
     const-class v1, Landroid/graphics/Bitmap;
@@ -196,6 +196,6 @@
     invoke-virtual {v0, v1}, Landroid/filterfw/core/MutableFrameFormat;->setObjectClass(Ljava/lang/Class;)V
 
     .line 48
-    :cond_1d
+    :cond_0
     return-object v0
 .end method

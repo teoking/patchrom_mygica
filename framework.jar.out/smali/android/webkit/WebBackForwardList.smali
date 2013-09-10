@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/CallbackProxy;)V
-    .registers 3
+    .locals 1
     .parameter "proxy"
 
     .prologue
@@ -58,14 +58,14 @@
 .end method
 
 .method private declared-synchronized removeHistoryItem(I)V
-    .registers 4
+    .locals 2
     .parameter "index"
 
     .prologue
     .line 149
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v1, p0, Landroid/webkit/WebBackForwardList;->mArray:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
@@ -81,8 +81,8 @@
     add-int/lit8 v1, v1, -0x1
 
     iput v1, p0, Landroid/webkit/WebBackForwardList;->mCurrentIndex:I
-    :try_end_f
-    .catchall {:try_start_1 .. :try_end_f} :catchall_11
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 153
     monitor-exit p0
@@ -91,7 +91,7 @@
 
     .line 149
     .end local v0           #h:Landroid/webkit/WebHistoryItem;
-    :catchall_11
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
@@ -105,14 +105,14 @@
 
 # virtual methods
 .method declared-synchronized addHistoryItem(Landroid/webkit/WebHistoryItem;)V
-    .registers 6
+    .locals 4
     .parameter "item"
 
     .prologue
     .line 110
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget v3, p0, Landroid/webkit/WebBackForwardList;->mCurrentIndex:I
 
     add-int/lit8 v3, v3, 0x1
@@ -132,14 +132,14 @@
 
     .line 115
     .local v1, newPos:I
-    if-eq v1, v2, :cond_20
+    if-eq v1, v2, :cond_0
 
     .line 116
     add-int/lit8 v0, v2, -0x1
 
     .local v0, i:I
-    :goto_13
-    if-lt v0, v1, :cond_20
+    :goto_0
+    if-lt v0, v1, :cond_0
 
     .line 117
     iget-object v3, p0, Landroid/webkit/WebBackForwardList;->mArray:Ljava/util/ArrayList;
@@ -153,11 +153,11 @@
     .line 116
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_13
+    goto :goto_0
 
     .line 121
     .end local v0           #i:I
-    :cond_20
+    :cond_0
     iget-object v3, p0, Landroid/webkit/WebBackForwardList;->mArray:Ljava/util/ArrayList;
 
     invoke-virtual {v3, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -165,17 +165,17 @@
     .line 122
     iget-object v3, p0, Landroid/webkit/WebBackForwardList;->mCallbackProxy:Landroid/webkit/CallbackProxy;
 
-    if-eqz v3, :cond_2e
+    if-eqz v3, :cond_1
 
     .line 123
     iget-object v3, p0, Landroid/webkit/WebBackForwardList;->mCallbackProxy:Landroid/webkit/CallbackProxy;
 
     invoke-virtual {v3, p1}, Landroid/webkit/CallbackProxy;->onNewHistoryItem(Landroid/webkit/WebHistoryItem;)V
-    :try_end_2e
-    .catchall {:try_start_1 .. :try_end_2e} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 125
-    :cond_2e
+    :cond_1
     monitor-exit p0
 
     return-void
@@ -183,7 +183,7 @@
     .line 110
     .end local v1           #newPos:I
     .end local v2           #size:I
-    :catchall_30
+    :catchall_0
     move-exception v3
 
     monitor-exit p0
@@ -192,13 +192,13 @@
 .end method
 
 .method protected declared-synchronized clone()Landroid/webkit/WebBackForwardList;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 161
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v1, Landroid/webkit/WebBackForwardList;
 
     const/4 v3, 0x0
@@ -209,7 +209,7 @@
     .local v1, l:Landroid/webkit/WebBackForwardList;
     iget-boolean v3, p0, Landroid/webkit/WebBackForwardList;->mClearPending:Z
 
-    if-eqz v3, :cond_14
+    if-eqz v3, :cond_1
 
     .line 164
     invoke-virtual {p0}, Landroid/webkit/WebBackForwardList;->getCurrentItem()Landroid/webkit/WebHistoryItem;
@@ -217,18 +217,18 @@
     move-result-object v3
 
     invoke-virtual {v1, v3}, Landroid/webkit/WebBackForwardList;->addHistoryItem(Landroid/webkit/WebHistoryItem;)V
-    :try_end_12
-    .catchall {:try_start_1 .. :try_end_12} :catchall_3a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 174
-    :cond_12
+    :cond_0
     monitor-exit p0
 
     return-object v1
 
     .line 167
-    :cond_14
-    :try_start_14
+    :cond_1
+    :try_start_1
     iget v3, p0, Landroid/webkit/WebBackForwardList;->mCurrentIndex:I
 
     iput v3, v1, Landroid/webkit/WebBackForwardList;->mCurrentIndex:I
@@ -250,8 +250,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_24
-    if-ge v0, v2, :cond_12
+    :goto_0
+    if-ge v0, v2, :cond_0
 
     .line 172
     iget-object v4, v1, Landroid/webkit/WebBackForwardList;->mArray:Ljava/util/ArrayList;
@@ -269,19 +269,19 @@
     move-result-object v3
 
     invoke-virtual {v4, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_37
-    .catchall {:try_start_14 .. :try_end_37} :catchall_3a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 170
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_24
+    goto :goto_0
 
     .line 161
     .end local v0           #i:I
     .end local v1           #l:Landroid/webkit/WebBackForwardList;
     .end local v2           #size:I
-    :catchall_3a
+    :catchall_0
     move-exception v3
 
     monitor-exit p0
@@ -290,7 +290,7 @@
 .end method
 
 .method protected bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -307,14 +307,14 @@
 .end method
 
 .method declared-synchronized close(I)V
-    .registers 3
+    .locals 1
     .parameter "nativeFrame"
 
     .prologue
     .line 133
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/webkit/WebBackForwardList;->mArray:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
@@ -331,8 +331,8 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/webkit/WebBackForwardList;->mClearPending:Z
-    :try_end_f
-    .catchall {:try_start_1 .. :try_end_f} :catchall_11
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 138
     monitor-exit p0
@@ -340,7 +340,7 @@
     return-void
 
     .line 133
-    :catchall_11
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -349,22 +349,22 @@
 .end method
 
 .method declared-synchronized getClearPending()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 97
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/webkit/WebBackForwardList;->mClearPending:Z
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -373,22 +373,22 @@
 .end method
 
 .method public declared-synchronized getCurrentIndex()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 61
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget v0, p0, Landroid/webkit/WebBackForwardList;->mCurrentIndex:I
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -397,18 +397,18 @@
 .end method
 
 .method public declared-synchronized getCurrentItem()Landroid/webkit/WebHistoryItem;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 52
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget v0, p0, Landroid/webkit/WebBackForwardList;->mCurrentIndex:I
 
     invoke-virtual {p0, v0}, Landroid/webkit/WebBackForwardList;->getItemAtIndex(I)Landroid/webkit/WebHistoryItem;
-    :try_end_6
-    .catchall {:try_start_1 .. :try_end_6} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
@@ -416,7 +416,7 @@
 
     return-object v0
 
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -425,36 +425,36 @@
 .end method
 
 .method public declared-synchronized getItemAtIndex(I)Landroid/webkit/WebHistoryItem;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
     .line 70
     monitor-enter p0
 
-    if-ltz p1, :cond_9
+    if-ltz p1, :cond_0
 
-    :try_start_3
+    :try_start_0
     invoke-virtual {p0}, Landroid/webkit/WebBackForwardList;->getSize()I
-    :try_end_6
-    .catchall {:try_start_3 .. :try_end_6} :catchall_15
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
-    if-lt p1, v0, :cond_c
+    if-lt p1, v0, :cond_1
 
     .line 71
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
     .line 73
-    :goto_a
+    :goto_0
     monitor-exit p0
 
     return-object v0
 
-    :cond_c
-    :try_start_c
+    :cond_1
+    :try_start_1
     iget-object v0, p0, Landroid/webkit/WebBackForwardList;->mArray:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -462,13 +462,13 @@
     move-result-object v0
 
     check-cast v0, Landroid/webkit/WebHistoryItem;
-    :try_end_14
-    .catchall {:try_start_c .. :try_end_14} :catchall_15
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_a
+    goto :goto_0
 
     .line 70
-    :catchall_15
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -477,18 +477,18 @@
 .end method
 
 .method public declared-synchronized getSize()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/webkit/WebBackForwardList;->mArray:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-    :try_end_6
-    .catchall {:try_start_1 .. :try_end_6} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
@@ -496,7 +496,7 @@
 
     return v0
 
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -505,7 +505,7 @@
 .end method
 
 .method declared-synchronized setClearPending()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 89
@@ -513,10 +513,10 @@
 
     const/4 v0, 0x1
 
-    :try_start_2
+    :try_start_0
     iput-boolean v0, p0, Landroid/webkit/WebBackForwardList;->mClearPending:Z
-    :try_end_4
-    .catchall {:try_start_2 .. :try_end_4} :catchall_6
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 90
     monitor-exit p0
@@ -524,7 +524,7 @@
     return-void
 
     .line 89
-    :catchall_6
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -533,20 +533,20 @@
 .end method
 
 .method declared-synchronized setCurrentIndex(I)V
-    .registers 4
+    .locals 2
     .parameter "newIndex"
 
     .prologue
     .line 182
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iput p1, p0, Landroid/webkit/WebBackForwardList;->mCurrentIndex:I
 
     .line 183
     iget-object v0, p0, Landroid/webkit/WebBackForwardList;->mCallbackProxy:Landroid/webkit/CallbackProxy;
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 184
     iget-object v0, p0, Landroid/webkit/WebBackForwardList;->mCallbackProxy:Landroid/webkit/CallbackProxy;
@@ -556,17 +556,17 @@
     move-result-object v1
 
     invoke-virtual {v0, v1, p1}, Landroid/webkit/CallbackProxy;->onIndexChanged(Landroid/webkit/WebHistoryItem;I)V
-    :try_end_10
-    .catchall {:try_start_1 .. :try_end_10} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 186
-    :cond_10
+    :cond_0
     monitor-exit p0
 
     return-void
 
     .line 182
-    :catchall_12
+    :catchall_0
     move-exception v0
 
     monitor-exit p0

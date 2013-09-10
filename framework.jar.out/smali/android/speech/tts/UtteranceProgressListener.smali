@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 13
@@ -15,7 +15,7 @@
 .end method
 
 .method static from(Landroid/speech/tts/TextToSpeech$OnUtteranceCompletedListener;)Landroid/speech/tts/UtteranceProgressListener;
-    .registers 2
+    .locals 1
     .parameter "listener"
 
     .prologue

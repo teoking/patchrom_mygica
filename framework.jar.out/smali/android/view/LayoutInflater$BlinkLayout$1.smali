@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/LayoutInflater$BlinkLayout;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
-    .registers 6
+    .locals 4
     .parameter "msg"
 
     .prologue
@@ -51,50 +51,54 @@
 
     const/16 v3, 0x42
 
-    if-ne v2, v3, :cond_29
+    if-ne v2, v3, :cond_2
 
     .line 888
     iget-object v2, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$0:Landroid/view/LayoutInflater$BlinkLayout;
 
+    #getter for: Landroid/view/LayoutInflater$BlinkLayout;->mBlink:Z
     invoke-static {v2}, Landroid/view/LayoutInflater$BlinkLayout;->access$000(Landroid/view/LayoutInflater$BlinkLayout;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_23
+    if-eqz v2, :cond_1
 
     .line 889
     iget-object v2, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$0:Landroid/view/LayoutInflater$BlinkLayout;
 
     iget-object v3, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$0:Landroid/view/LayoutInflater$BlinkLayout;
 
+    #getter for: Landroid/view/LayoutInflater$BlinkLayout;->mBlinkState:Z
     invoke-static {v3}, Landroid/view/LayoutInflater$BlinkLayout;->access$100(Landroid/view/LayoutInflater$BlinkLayout;)Z
 
     move-result v3
 
-    if-nez v3, :cond_1b
+    if-nez v3, :cond_0
 
     move v0, v1
 
-    :cond_1b
+    :cond_0
+    #setter for: Landroid/view/LayoutInflater$BlinkLayout;->mBlinkState:Z
     invoke-static {v2, v0}, Landroid/view/LayoutInflater$BlinkLayout;->access$102(Landroid/view/LayoutInflater$BlinkLayout;Z)Z
 
     .line 890
     iget-object v0, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$0:Landroid/view/LayoutInflater$BlinkLayout;
 
+    #calls: Landroid/view/LayoutInflater$BlinkLayout;->makeBlink()V
     invoke-static {v0}, Landroid/view/LayoutInflater$BlinkLayout;->access$200(Landroid/view/LayoutInflater$BlinkLayout;)V
 
     .line 892
-    :cond_23
+    :cond_1
     iget-object v0, p0, Landroid/view/LayoutInflater$BlinkLayout$1;->this$0:Landroid/view/LayoutInflater$BlinkLayout;
 
     invoke-virtual {v0}, Landroid/view/LayoutInflater$BlinkLayout;->invalidate()V
 
     .line 895
-    :goto_28
+    :goto_0
     return v1
 
-    :cond_29
+    :cond_2
     move v1, v0
 
-    goto :goto_28
+    goto :goto_0
 .end method

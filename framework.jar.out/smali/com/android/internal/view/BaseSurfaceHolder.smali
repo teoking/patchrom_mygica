@@ -51,7 +51,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, -0x1
@@ -111,7 +111,7 @@
 .end method
 
 .method private final internalLockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
-    .registers 12
+    .locals 10
     .parameter "dirty"
 
     .prologue
@@ -120,7 +120,7 @@
 
     const/4 v7, 0x3
 
-    if-ne v6, v7, :cond_d
+    if-ne v6, v7, :cond_0
 
     .line 166
     new-instance v6, Landroid/view/SurfaceHolder$BadSurfaceTypeException;
@@ -132,7 +132,7 @@
     throw v6
 
     .line 169
-    :cond_d
+    :cond_0
     iget-object v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurfaceLock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v6}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
@@ -146,15 +146,15 @@
 
     move-result v6
 
-    if-eqz v6, :cond_35
+    if-eqz v6, :cond_3
 
     .line 175
-    if-nez p1, :cond_2f
+    if-nez p1, :cond_2
 
     .line 176
     iget-object v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mTmpDirty:Landroid/graphics/Rect;
 
-    if-nez v6, :cond_26
+    if-nez v6, :cond_1
 
     .line 177
     new-instance v6, Landroid/graphics/Rect;
@@ -164,7 +164,7 @@
     iput-object v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mTmpDirty:Landroid/graphics/Rect;
 
     .line 179
-    :cond_26
+    :cond_1
     iget-object v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mTmpDirty:Landroid/graphics/Rect;
 
     iget-object v7, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurfaceFrame:Landroid/graphics/Rect;
@@ -175,20 +175,20 @@
     iget-object p1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mTmpDirty:Landroid/graphics/Rect;
 
     .line 184
-    :cond_2f
-    :try_start_2f
+    :cond_2
+    :try_start_0
     iget-object v6, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mSurface:Landroid/view/Surface;
 
     invoke-virtual {v6, p1}, Landroid/view/Surface;->lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
-    :try_end_34
-    .catch Ljava/lang/Exception; {:try_start_2f .. :try_end_34} :catch_3e
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
     .line 191
-    :cond_35
-    :goto_35
-    if-eqz v0, :cond_47
+    :cond_3
+    :goto_0
+    if-eqz v0, :cond_4
 
     .line 192
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -199,12 +199,12 @@
 
     .line 211
     .end local v0           #c:Landroid/graphics/Canvas;
-    :goto_3d
+    :goto_1
     return-object v0
 
     .line 185
     .restart local v0       #c:Landroid/graphics/Canvas;
-    :catch_3e
+    :catch_0
     move-exception v1
 
     .line 186
@@ -215,11 +215,11 @@
 
     invoke-static {v6, v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_35
+    goto :goto_0
 
     .line 199
     .end local v1           #e:Ljava/lang/Exception;
-    :cond_47
+    :cond_4
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
@@ -236,24 +236,24 @@
     .local v2, nextTime:J
     cmp-long v6, v2, v4
 
-    if-lez v6, :cond_5e
+    if-lez v6, :cond_5
 
     .line 203
     sub-long v6, v2, v4
 
-    :try_start_57
+    :try_start_1
     invoke-static {v6, v7}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_5a
-    .catch Ljava/lang/InterruptedException; {:try_start_57 .. :try_end_5a} :catch_67
+    :try_end_1
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 206
-    :goto_5a
+    :goto_2
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
     .line 208
-    :cond_5e
+    :cond_5
     iput-wide v4, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mLastLockTime:J
 
     .line 209
@@ -264,19 +264,19 @@
     .line 211
     const/4 v0, 0x0
 
-    goto :goto_3d
+    goto :goto_1
 
     .line 204
-    :catch_67
+    :catch_1
     move-exception v6
 
-    goto :goto_5a
+    goto :goto_2
 .end method
 
 
 # virtual methods
 .method public addCallback(Landroid/view/SurfaceHolder$Callback;)V
-    .registers 4
+    .locals 2
     .parameter "callback"
 
     .prologue
@@ -286,14 +286,14 @@
     monitor-enter v1
 
     .line 78
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     .line 79
     iget-object v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mCallbacks:Ljava/util/ArrayList;
@@ -301,47 +301,47 @@
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 81
-    :cond_10
+    :cond_0
     monitor-exit v1
 
     .line 82
     return-void
 
     .line 81
-    :catchall_12
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_14
-    .catchall {:try_start_3 .. :try_end_14} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public getCallbacks()[Landroid/view/SurfaceHolder$Callback;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 91
     iget-boolean v1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mHaveGottenCallbacks:Z
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_0
 
     .line 92
     iget-object v1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mGottenCallbacks:[Landroid/view/SurfaceHolder$Callback;
 
     .line 108
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 95
-    :cond_7
+    :cond_0
     iget-object v2, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mCallbacks:Ljava/util/ArrayList;
 
     monitor-enter v2
 
     .line 96
-    :try_start_a
+    :try_start_0
     iget-object v1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -350,27 +350,27 @@
 
     .line 97
     .local v0, N:I
-    if-lez v0, :cond_2d
+    if-lez v0, :cond_3
 
     .line 98
     iget-object v1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mGottenCallbacks:[Landroid/view/SurfaceHolder$Callback;
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mGottenCallbacks:[Landroid/view/SurfaceHolder$Callback;
 
     array-length v1, v1
 
-    if-eq v1, v0, :cond_1f
+    if-eq v1, v0, :cond_2
 
     .line 99
-    :cond_1b
+    :cond_1
     new-array v1, v0, [Landroid/view/SurfaceHolder$Callback;
 
     iput-object v1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mGottenCallbacks:[Landroid/view/SurfaceHolder$Callback;
 
     .line 101
-    :cond_1f
+    :cond_2
     iget-object v1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mCallbacks:Ljava/util/ArrayList;
 
     iget-object v3, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mGottenCallbacks:[Landroid/view/SurfaceHolder$Callback;
@@ -378,44 +378,44 @@
     invoke-virtual {v1, v3}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     .line 105
-    :goto_26
+    :goto_1
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mHaveGottenCallbacks:Z
 
     .line 106
     monitor-exit v2
-    :try_end_2a
-    .catchall {:try_start_a .. :try_end_2a} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 108
     iget-object v1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mGottenCallbacks:[Landroid/view/SurfaceHolder$Callback;
 
-    goto :goto_6
+    goto :goto_0
 
     .line 103
-    :cond_2d
+    :cond_3
     const/4 v1, 0x0
 
-    :try_start_2e
+    :try_start_1
     iput-object v1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mGottenCallbacks:[Landroid/view/SurfaceHolder$Callback;
 
-    goto :goto_26
+    goto :goto_1
 
     .line 106
     .end local v0           #N:I
-    :catchall_31
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_33
-    .catchall {:try_start_2e .. :try_end_33} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
 
 .method public getRequestedFormat()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 67
@@ -425,7 +425,7 @@
 .end method
 
 .method public getRequestedHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 63
@@ -435,7 +435,7 @@
 .end method
 
 .method public getRequestedType()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 71
@@ -445,7 +445,7 @@
 .end method
 
 .method public getRequestedWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 59
@@ -455,7 +455,7 @@
 .end method
 
 .method public getSurface()Landroid/view/Surface;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 220
@@ -465,7 +465,7 @@
 .end method
 
 .method public getSurfaceFrame()Landroid/graphics/Rect;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 224
@@ -475,7 +475,7 @@
 .end method
 
 .method public lockCanvas()Landroid/graphics/Canvas;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 157
@@ -489,7 +489,7 @@
 .end method
 
 .method public lockCanvas(Landroid/graphics/Rect;)Landroid/graphics/Canvas;
-    .registers 3
+    .locals 1
     .parameter "dirty"
 
     .prologue
@@ -511,7 +511,7 @@
 .end method
 
 .method public removeCallback(Landroid/view/SurfaceHolder$Callback;)V
-    .registers 4
+    .locals 2
     .parameter "callback"
 
     .prologue
@@ -521,7 +521,7 @@
     monitor-enter v1
 
     .line 86
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
@@ -533,18 +533,18 @@
     return-void
 
     .line 87
-    :catchall_a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_c
-    .catchall {:try_start_3 .. :try_end_c} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setFixedSize(II)V
-    .registers 4
+    .locals 1
     .parameter "width"
     .parameter "height"
 
@@ -552,14 +552,14 @@
     .line 116
     iget v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mRequestedWidth:I
 
-    if-ne v0, p1, :cond_8
+    if-ne v0, p1, :cond_0
 
     iget v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mRequestedHeight:I
 
-    if-eq v0, p2, :cond_f
+    if-eq v0, p2, :cond_1
 
     .line 117
-    :cond_8
+    :cond_0
     iput p1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mRequestedWidth:I
 
     .line 118
@@ -569,19 +569,19 @@
     invoke-virtual {p0}, Lcom/android/internal/view/BaseSurfaceHolder;->onRelayoutContainer()V
 
     .line 121
-    :cond_f
+    :cond_1
     return-void
 .end method
 
 .method public setFormat(I)V
-    .registers 3
+    .locals 1
     .parameter "format"
 
     .prologue
     .line 131
     iget v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mRequestedFormat:I
 
-    if-eq v0, p1, :cond_9
+    if-eq v0, p1, :cond_0
 
     .line 132
     iput p1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mRequestedFormat:I
@@ -590,12 +590,12 @@
     invoke-virtual {p0}, Lcom/android/internal/view/BaseSurfaceHolder;->onUpdateSurface()V
 
     .line 135
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public setSizeFromLayout()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, -0x1
@@ -603,14 +603,14 @@
     .line 124
     iget v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mRequestedWidth:I
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_0
 
     iget v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mRequestedHeight:I
 
-    if-eq v0, v1, :cond_10
+    if-eq v0, v1, :cond_1
 
     .line 125
-    :cond_9
+    :cond_0
     iput v1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mRequestedHeight:I
 
     iput v1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mRequestedWidth:I
@@ -619,12 +619,12 @@
     invoke-virtual {p0}, Lcom/android/internal/view/BaseSurfaceHolder;->onRelayoutContainer()V
 
     .line 128
-    :cond_10
+    :cond_1
     return-void
 .end method
 
 .method public setSurfaceFrameSize(II)V
-    .registers 5
+    .locals 2
     .parameter "width"
     .parameter "height"
 
@@ -656,34 +656,34 @@
 .end method
 
 .method public setType(I)V
-    .registers 3
+    .locals 1
     .parameter "type"
 
     .prologue
     .line 138
-    packed-switch p1, :pswitch_data_14
+    packed-switch p1, :pswitch_data_0
 
     .line 145
-    :goto_3
-    packed-switch p1, :pswitch_data_1c
+    :goto_0
+    packed-switch p1, :pswitch_data_1
 
     .line 154
-    :cond_6
-    :goto_6
-    :pswitch_6
+    :cond_0
+    :goto_1
+    :pswitch_0
     return-void
 
     .line 142
-    :pswitch_7
+    :pswitch_1
     const/4 p1, 0x0
 
-    goto :goto_3
+    goto :goto_0
 
     .line 148
-    :pswitch_9
+    :pswitch_2
     iget v0, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mRequestedType:I
 
-    if-eq v0, p1, :cond_6
+    if-eq v0, p1, :cond_0
 
     .line 149
     iput p1, p0, Lcom/android/internal/view/BaseSurfaceHolder;->mRequestedType:I
@@ -691,29 +691,29 @@
     .line 150
     invoke-virtual {p0}, Lcom/android/internal/view/BaseSurfaceHolder;->onUpdateSurface()V
 
-    goto :goto_6
+    goto :goto_1
 
     .line 138
     nop
 
-    :pswitch_data_14
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_7
-        :pswitch_7
+        :pswitch_1
+        :pswitch_1
     .end packed-switch
 
     .line 145
-    :pswitch_data_1c
+    :pswitch_data_1
     .packed-switch 0x0
-        :pswitch_9
-        :pswitch_6
-        :pswitch_6
-        :pswitch_9
+        :pswitch_2
+        :pswitch_0
+        :pswitch_0
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public ungetCallbacks()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 112
@@ -726,7 +726,7 @@
 .end method
 
 .method public unlockCanvasAndPost(Landroid/graphics/Canvas;)V
-    .registers 3
+    .locals 1
     .parameter "canvas"
 
     .prologue

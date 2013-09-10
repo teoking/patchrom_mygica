@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/LinkProperties;)V
-    .registers 3
+    .locals 1
     .parameter "curLp"
 
     .prologue

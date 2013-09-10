@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Landroid/content/Intent;)V
-    .registers 4
+    .locals 1
     .parameter "_id"
     .parameter "_intent"
 

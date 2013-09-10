@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/cdma/CDMAPhone;Lcom/android/internal/telephony/SMSDispatcher;)V
-    .registers 4
+    .locals 1
     .parameter "phone"
     .parameter "dispatcher"
 
@@ -64,7 +64,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -75,7 +75,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -87,7 +87,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;)Ljava/util/List;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -98,7 +98,7 @@
 .end method
 
 .method static synthetic access$202(Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;Ljava/util/List;)Ljava/util/List;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -110,7 +110,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;Ljava/util/ArrayList;)Ljava/util/ArrayList;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -126,7 +126,7 @@
 
 # virtual methods
 .method public copyMessageToIccEf(I[B[B)Z
-    .registers 9
+    .locals 5
     .parameter "status"
     .parameter "pdu"
     .parameter "smsc"
@@ -192,7 +192,7 @@
     .line 155
     const/4 v2, 0x0
 
-    :try_start_3a
+    :try_start_0
     iput-boolean v2, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mSuccess:Z
 
     .line 156
@@ -215,24 +215,24 @@
     move-result-object v4
 
     invoke-interface {v2, p1, v4, v1}, Lcom/android/internal/telephony/CommandsInterface;->writeSmsToRuim(ILjava/lang/String;Landroid/os/Message;)V
-    :try_end_4e
-    .catchall {:try_start_3a .. :try_end_4e} :catchall_5e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 162
-    :try_start_4e
+    :try_start_1
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mLock:Ljava/lang/Object;
 
     invoke-virtual {v2}, Ljava/lang/Object;->wait()V
-    :try_end_53
-    .catchall {:try_start_4e .. :try_end_53} :catchall_5e
-    .catch Ljava/lang/InterruptedException; {:try_start_4e .. :try_end_53} :catch_57
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 166
-    :goto_53
-    :try_start_53
+    :goto_0
+    :try_start_2
     monitor-exit v3
-    :try_end_54
-    .catchall {:try_start_53 .. :try_end_54} :catchall_5e
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 167
     iget-boolean v2, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mSuccess:Z
@@ -240,33 +240,33 @@
     return v2
 
     .line 163
-    :catch_57
+    :catch_0
     move-exception v0
 
     .line 164
     .local v0, e:Ljava/lang/InterruptedException;
-    :try_start_58
+    :try_start_3
     const-string v2, "interrupted while trying to update by index"
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->log(Ljava/lang/String;)V
 
-    goto :goto_53
+    goto :goto_0
 
     .line 166
     .end local v0           #e:Ljava/lang/InterruptedException;
     .end local v1           #response:Landroid/os/Message;
-    :catchall_5e
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_60
-    .catchall {:try_start_58 .. :try_end_60} :catchall_5e
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v2
 .end method
 
 .method public disableCellBroadcast(I)Z
-    .registers 4
+    .locals 2
     .parameter "messageIdentifier"
 
     .prologue
@@ -284,7 +284,7 @@
 .end method
 
 .method public disableCellBroadcastRange(II)Z
-    .registers 5
+    .locals 2
     .parameter "startMessageId"
     .parameter "endMessageId"
 
@@ -303,7 +303,7 @@
 .end method
 
 .method public dispose()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 90
@@ -311,7 +311,7 @@
 .end method
 
 .method public enableCellBroadcast(I)Z
-    .registers 4
+    .locals 2
     .parameter "messageIdentifier"
 
     .prologue
@@ -329,7 +329,7 @@
 .end method
 
 .method public enableCellBroadcastRange(II)Z
-    .registers 5
+    .locals 2
     .parameter "startMessageId"
     .parameter "endMessageId"
 
@@ -348,17 +348,17 @@
 .end method
 
 .method protected finalize()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 94
     :try_start_0
     invoke-super {p0}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->finalize()V
-    :try_end_3
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_3} :catch_b
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 98
-    :goto_3
+    :goto_0
     const-string v1, "CDMA"
 
     const-string v2, "RuimSmsInterfaceManager finalized"
@@ -369,7 +369,7 @@
     return-void
 
     .line 95
-    :catch_b
+    :catch_0
     move-exception v0
 
     .line 96
@@ -380,11 +380,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public getAllMessagesFromIccEf()Ljava/util/List;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -422,7 +422,7 @@
     monitor-enter v4
 
     .line 182
-    :try_start_15
+    :try_start_0
     iget-object v3, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mHandler:Landroid/os/Handler;
 
     const/4 v5, 0x1
@@ -442,24 +442,24 @@
     const/16 v5, 0x6f3c
 
     invoke-virtual {v3, v5, v2}, Lcom/android/internal/telephony/IccFileHandler;->loadEFLinearFixedAll(ILandroid/os/Message;)V
-    :try_end_27
-    .catchall {:try_start_15 .. :try_end_27} :catchall_37
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 186
-    :try_start_27
+    :try_start_1
     iget-object v3, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mLock:Ljava/lang/Object;
 
     invoke-virtual {v3}, Ljava/lang/Object;->wait()V
-    :try_end_2c
-    .catchall {:try_start_27 .. :try_end_2c} :catchall_37
-    .catch Ljava/lang/InterruptedException; {:try_start_27 .. :try_end_2c} :catch_30
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 190
-    :goto_2c
-    :try_start_2c
+    :goto_0
+    :try_start_2
     monitor-exit v4
-    :try_end_2d
-    .catchall {:try_start_2c .. :try_end_2d} :catchall_37
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 191
     iget-object v3, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mSms:Ljava/util/List;
@@ -467,33 +467,33 @@
     return-object v3
 
     .line 187
-    :catch_30
+    :catch_0
     move-exception v1
 
     .line 188
     .local v1, e:Ljava/lang/InterruptedException;
-    :try_start_31
+    :try_start_3
     const-string v3, "interrupted while trying to load from the RUIM"
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->log(Ljava/lang/String;)V
 
-    goto :goto_2c
+    goto :goto_0
 
     .line 190
     .end local v1           #e:Ljava/lang/InterruptedException;
     .end local v2           #response:Landroid/os/Message;
-    :catchall_37
+    :catchall_0
     move-exception v3
 
     monitor-exit v4
-    :try_end_39
-    .catchall {:try_start_31 .. :try_end_39} :catchall_37
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v3
 .end method
 
 .method protected log(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "msg"
 
     .prologue
@@ -525,7 +525,7 @@
 .end method
 
 .method public updateMessageOnIccEf(II[B)Z
-    .registers 12
+    .locals 8
     .parameter "index"
     .parameter "status"
     .parameter "pdu"
@@ -597,7 +597,7 @@
     .line 119
     const/4 v0, 0x0
 
-    :try_start_40
+    :try_start_0
     iput-boolean v0, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mSuccess:Z
 
     .line 120
@@ -611,7 +611,7 @@
 
     .line 122
     .local v5, response:Landroid/os/Message;
-    if-nez p2, :cond_5b
+    if-nez p2, :cond_0
 
     .line 125
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
@@ -619,25 +619,25 @@
     iget-object v0, v0, Lcom/android/internal/telephony/PhoneBase;->mCM:Lcom/android/internal/telephony/CommandsInterface;
 
     invoke-interface {v0, p1, v5}, Lcom/android/internal/telephony/CommandsInterface;->deleteSmsOnRuim(ILandroid/os/Message;)V
-    :try_end_52
-    .catchall {:try_start_40 .. :try_end_52} :catchall_6d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 132
-    :goto_52
-    :try_start_52
+    :goto_0
+    :try_start_1
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mLock:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->wait()V
-    :try_end_57
-    .catchall {:try_start_52 .. :try_end_57} :catchall_6d
-    .catch Ljava/lang/InterruptedException; {:try_start_52 .. :try_end_57} :catch_70
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 136
-    :goto_57
-    :try_start_57
+    :goto_1
+    :try_start_2
     monitor-exit v7
-    :try_end_58
-    .catchall {:try_start_57 .. :try_end_58} :catchall_6d
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 137
     iget-boolean v0, p0, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->mSuccess:Z
@@ -645,8 +645,8 @@
     return v0
 
     .line 127
-    :cond_5b
-    :try_start_5b
+    :cond_0
+    :try_start_3
     invoke-virtual {p0, p2, p3}, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->makeSmsRecordData(I[B)[B
 
     move-result-object v3
@@ -667,33 +667,33 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/internal/telephony/IccFileHandler;->updateEFLinearFixed(II[BLjava/lang/String;Landroid/os/Message;)V
 
-    goto :goto_52
+    goto :goto_0
 
     .line 136
     .end local v3           #record:[B
     .end local v5           #response:Landroid/os/Message;
-    :catchall_6d
+    :catchall_0
     move-exception v0
 
     monitor-exit v7
-    :try_end_6f
-    .catchall {:try_start_5b .. :try_end_6f} :catchall_6d
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v0
 
     .line 133
     .restart local v5       #response:Landroid/os/Message;
-    :catch_70
+    :catch_0
     move-exception v6
 
     .line 134
     .local v6, e:Ljava/lang/InterruptedException;
-    :try_start_71
+    :try_start_4
     const-string v0, "interrupted while trying to update by index"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/cdma/RuimSmsInterfaceManager;->log(Ljava/lang/String;)V
-    :try_end_76
-    .catchall {:try_start_71 .. :try_end_76} :catchall_6d
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    goto :goto_57
+    goto :goto_1
 .end method

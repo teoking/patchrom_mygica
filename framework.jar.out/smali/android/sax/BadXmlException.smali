@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lorg/xml/sax/Locator;)V
-    .registers 3
+    .locals 0
     .parameter "message"
     .parameter "locator"
 
@@ -20,7 +20,7 @@
 
 # virtual methods
 .method public getMessage()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 32

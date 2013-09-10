@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/Handler;ILjava/lang/Object;)V
-    .registers 5
+    .locals 1
     .parameter "h"
     .parameter "what"
     .parameter "obj"
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public clear()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -58,22 +58,22 @@
 .end method
 
 .method public getHandler()Landroid/os/Handler;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 114
     iget-object v0, p0, Landroid/os/Registrant;->refH:Ljava/lang/ref/WeakReference;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     .line 115
     const/4 v0, 0x0
 
     .line 117
-    :goto_5
+    :goto_0
     return-object v0
 
-    :cond_6
+    :cond_0
     iget-object v0, p0, Landroid/os/Registrant;->refH:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -82,11 +82,11 @@
 
     check-cast v0, Landroid/os/Handler;
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method internalNotifyRegistrant(Ljava/lang/Object;Ljava/lang/Throwable;)V
-    .registers 7
+    .locals 4
     .parameter "result"
     .parameter "exception"
 
@@ -98,17 +98,17 @@
 
     .line 75
     .local v0, h:Landroid/os/Handler;
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     .line 76
     invoke-virtual {p0}, Landroid/os/Registrant;->clear()V
 
     .line 86
-    :goto_9
+    :goto_0
     return-void
 
     .line 78
-    :cond_a
+    :cond_0
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v1
@@ -131,11 +131,11 @@
     .line 84
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public messageForRegistrant()Landroid/os/Message;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 95
@@ -145,7 +145,7 @@
 
     .line 97
     .local v0, h:Landroid/os/Handler;
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 98
     invoke-virtual {p0}, Landroid/os/Registrant;->clear()V
@@ -154,11 +154,11 @@
     const/4 v1, 0x0
 
     .line 107
-    :goto_a
+    :goto_0
     return-object v1
 
     .line 102
-    :cond_b
+    :cond_0
     invoke-virtual {v0}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
 
     move-result-object v1
@@ -174,11 +174,11 @@
 
     iput-object v2, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public notifyException(Ljava/lang/Throwable;)V
-    .registers 3
+    .locals 1
     .parameter "exception"
 
     .prologue
@@ -192,7 +192,7 @@
 .end method
 
 .method public notifyRegistrant()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -205,7 +205,7 @@
 .end method
 
 .method public notifyRegistrant(Landroid/os/AsyncResult;)V
-    .registers 4
+    .locals 2
     .parameter "ar"
 
     .prologue
@@ -221,7 +221,7 @@
 .end method
 
 .method public notifyResult(Ljava/lang/Object;)V
-    .registers 3
+    .locals 1
     .parameter "result"
 
     .prologue

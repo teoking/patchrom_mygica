@@ -11,7 +11,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 35
@@ -22,7 +22,7 @@
 .end method
 
 .method public static checkSQLiteException(Landroid/content/Context;Landroid/database/sqlite/SQLiteException;)V
-    .registers 4
+    .locals 2
     .parameter "context"
     .parameter "e"
 
@@ -32,7 +32,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 61
     const v0, 0x1040123
@@ -49,12 +49,12 @@
     return-void
 
     .line 64
-    :cond_12
+    :cond_0
     throw p1
 .end method
 
 .method public static delete(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
-    .registers 8
+    .locals 3
     .parameter "context"
     .parameter "resolver"
     .parameter "uri"
@@ -65,17 +65,17 @@
     .line 102
     :try_start_0
     invoke-virtual {p1, p2, p3, p4}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
-    :try_end_3
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_3} :catch_5
+    :try_end_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 106
-    :goto_4
+    :goto_0
     return v1
 
     .line 103
-    :catch_5
+    :catch_0
     move-exception v0
 
     .line 104
@@ -92,11 +92,11 @@
     .line 106
     const/4 v1, -0x1
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static insert(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
-    .registers 7
+    .locals 3
     .parameter "context"
     .parameter "resolver"
     .parameter "uri"
@@ -106,17 +106,17 @@
     .line 113
     :try_start_0
     invoke-virtual {p1, p2, p3}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
-    :try_end_3
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_3} :catch_5
+    :try_end_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 117
-    :goto_4
+    :goto_0
     return-object v1
 
     .line 114
-    :catch_5
+    :catch_0
     move-exception v0
 
     .line 115
@@ -133,26 +133,26 @@
     .line 117
     const/4 v1, 0x0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method private static isLowMemory(Landroid/content/Context;)Z
-    .registers 4
+    .locals 3
     .parameter "context"
 
     .prologue
     .line 42
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 43
     const/4 v2, 0x0
 
     .line 51
-    :goto_3
+    :goto_0
     return v2
 
     .line 46
-    :cond_4
+    :cond_0
     const-string v2, "activity"
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -174,11 +174,11 @@
     .line 51
     iget-boolean v2, v1, Landroid/app/ActivityManager$MemoryInfo;->lowMemory:Z
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method private static isLowMemory(Landroid/database/sqlite/SQLiteException;)Z
-    .registers 3
+    .locals 2
     .parameter "e"
 
     .prologue
@@ -197,7 +197,7 @@
 .end method
 
 .method public static query(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 10
+    .locals 3
     .parameter "context"
     .parameter "resolver"
     .parameter "uri"
@@ -210,17 +210,17 @@
     .line 71
     :try_start_0
     invoke-virtual/range {p1 .. p6}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-    :try_end_3
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_3} :catch_5
+    :try_end_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 75
-    :goto_4
+    :goto_0
     return-object v1
 
     .line 72
-    :catch_5
+    :catch_0
     move-exception v0
 
     .line 73
@@ -237,11 +237,11 @@
     .line 75
     const/4 v1, 0x0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static requery(Landroid/content/Context;Landroid/database/Cursor;)Z
-    .registers 5
+    .locals 3
     .parameter "context"
     .parameter "cursor"
 
@@ -249,17 +249,17 @@
     .line 81
     :try_start_0
     invoke-interface {p1}, Landroid/database/Cursor;->requery()Z
-    :try_end_3
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_3} :catch_5
+    :try_end_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 85
-    :goto_4
+    :goto_0
     return v1
 
     .line 82
-    :catch_5
+    :catch_0
     move-exception v0
 
     .line 83
@@ -276,11 +276,11 @@
     .line 85
     const/4 v1, 0x0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static update(Landroid/content/Context;Landroid/content/ContentResolver;Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
-    .registers 9
+    .locals 3
     .parameter "context"
     .parameter "resolver"
     .parameter "uri"
@@ -292,17 +292,17 @@
     .line 91
     :try_start_0
     invoke-virtual {p1, p2, p3, p4, p5}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
-    :try_end_3
-    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_3} :catch_5
+    :try_end_0
+    .catch Landroid/database/sqlite/SQLiteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 95
-    :goto_4
+    :goto_0
     return v1
 
     .line 92
-    :catch_5
+    :catch_0
     move-exception v0
 
     .line 93
@@ -319,5 +319,5 @@
     .line 95
     const/4 v1, -0x1
 
-    goto :goto_4
+    goto :goto_0
 .end method

@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(ILandroid/net/Uri;)V
-    .registers 4
+    .locals 1
     .parameter "_uid"
     .parameter "_uri"
 
@@ -82,14 +82,14 @@
 
 # virtual methods
 .method clearModes(I)V
-    .registers 5
+    .locals 3
     .parameter "modeFlagsToClear"
 
     .prologue
     .line 49
     and-int/lit8 v2, p1, 0x1
 
-    if-eqz v2, :cond_33
+    if-eqz v2, :cond_1
 
     .line 50
     iget v2, p0, Lcom/android/server/am/UriPermission;->globalModeFlags:I
@@ -112,7 +112,7 @@
 
     move-result v2
 
-    if-lez v2, :cond_33
+    if-lez v2, :cond_1
 
     .line 53
     iget-object v2, p0, Lcom/android/server/am/UriPermission;->readOwners:Ljava/util/HashSet;
@@ -122,12 +122,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_1e
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2e
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -139,21 +139,21 @@
     .local v1, r:Lcom/android/server/am/UriPermissionOwner;
     invoke-virtual {v1, p0}, Lcom/android/server/am/UriPermissionOwner;->removeReadPermission(Lcom/android/server/am/UriPermission;)V
 
-    goto :goto_1e
+    goto :goto_0
 
     .line 56
     .end local v1           #r:Lcom/android/server/am/UriPermissionOwner;
-    :cond_2e
+    :cond_0
     iget-object v2, p0, Lcom/android/server/am/UriPermission;->readOwners:Ljava/util/HashSet;
 
     invoke-virtual {v2}, Ljava/util/HashSet;->clear()V
 
     .line 59
     .end local v0           #i$:Ljava/util/Iterator;
-    :cond_33
+    :cond_1
     and-int/lit8 v2, p1, 0x2
 
-    if-eqz v2, :cond_66
+    if-eqz v2, :cond_3
 
     .line 60
     iget v2, p0, Lcom/android/server/am/UriPermission;->globalModeFlags:I
@@ -176,7 +176,7 @@
 
     move-result v2
 
-    if-lez v2, :cond_66
+    if-lez v2, :cond_3
 
     .line 63
     iget-object v2, p0, Lcom/android/server/am/UriPermission;->writeOwners:Ljava/util/HashSet;
@@ -186,12 +186,12 @@
     move-result-object v0
 
     .restart local v0       #i$:Ljava/util/Iterator;
-    :goto_51
+    :goto_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_61
+    if-eqz v2, :cond_2
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -203,23 +203,23 @@
     .restart local v1       #r:Lcom/android/server/am/UriPermissionOwner;
     invoke-virtual {v1, p0}, Lcom/android/server/am/UriPermissionOwner;->removeWritePermission(Lcom/android/server/am/UriPermission;)V
 
-    goto :goto_51
+    goto :goto_1
 
     .line 66
     .end local v1           #r:Lcom/android/server/am/UriPermissionOwner;
-    :cond_61
+    :cond_2
     iget-object v2, p0, Lcom/android/server/am/UriPermission;->writeOwners:Ljava/util/HashSet;
 
     invoke-virtual {v2}, Ljava/util/HashSet;->clear()V
 
     .line 69
     .end local v0           #i$:Ljava/util/Iterator;
-    :cond_66
+    :cond_3
     return-void
 .end method
 
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "pw"
     .parameter "prefix"
 
@@ -270,7 +270,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_57
+    if-eqz v2, :cond_0
 
     .line 91
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -287,12 +287,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_3f
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_57
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -310,19 +310,19 @@
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    goto :goto_3f
+    goto :goto_0
 
     .line 96
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #owner:Lcom/android/server/am/UriPermissionOwner;
-    :cond_57
+    :cond_0
     iget-object v2, p0, Lcom/android/server/am/UriPermission;->writeOwners:Ljava/util/HashSet;
 
     invoke-virtual {v2}, Ljava/util/HashSet;->size()I
 
     move-result v2
 
-    if-eqz v2, :cond_85
+    if-eqz v2, :cond_1
 
     .line 97
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -339,12 +339,12 @@
     move-result-object v0
 
     .restart local v0       #i$:Ljava/util/Iterator;
-    :goto_6d
+    :goto_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_85
+    if-eqz v2, :cond_1
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -362,33 +362,33 @@
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    goto :goto_6d
+    goto :goto_1
 
     .line 102
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #owner:Lcom/android/server/am/UriPermissionOwner;
-    :cond_85
+    :cond_1
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 72
     iget-object v1, p0, Lcom/android/server/am/UriPermission;->stringName:Ljava/lang/String;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_0
 
     .line 73
     iget-object v1, p0, Lcom/android/server/am/UriPermission;->stringName:Ljava/lang/String;
 
     .line 81
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 75
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x80
@@ -434,5 +434,5 @@
 
     iput-object v1, p0, Lcom/android/server/am/UriPermission;->stringName:Ljava/lang/String;
 
-    goto :goto_6
+    goto :goto_0
 .end method

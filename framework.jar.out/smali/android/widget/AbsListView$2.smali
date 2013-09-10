@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/AbsListView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -48,7 +48,7 @@
 
     iget-boolean v0, v0, Landroid/widget/AbsListView;->mCachingStarted:Z
 
-    if-eqz v0, :cond_30
+    if-eqz v0, :cond_1
 
     .line 4881
     iget-object v0, p0, Landroid/widget/AbsListView$2;->this$0:Landroid/widget/AbsListView;
@@ -62,33 +62,36 @@
     .line 4882
     iget-object v0, p0, Landroid/widget/AbsListView$2;->this$0:Landroid/widget/AbsListView;
 
+    #calls: Landroid/widget/AbsListView;->setChildrenDrawnWithCacheEnabled(Z)V
     invoke-static {v0, v2}, Landroid/widget/AbsListView;->access$3000(Landroid/widget/AbsListView;Z)V
 
     .line 4883
     iget-object v0, p0, Landroid/widget/AbsListView$2;->this$0:Landroid/widget/AbsListView;
 
+    #getter for: Landroid/view/ViewGroup;->mPersistentDrawingCache:I
     invoke-static {v0}, Landroid/widget/AbsListView;->access$3100(Landroid/widget/AbsListView;)I
 
     move-result v0
 
     and-int/lit8 v0, v0, 0x2
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_0
 
     .line 4884
     iget-object v0, p0, Landroid/widget/AbsListView$2;->this$0:Landroid/widget/AbsListView;
 
+    #calls: Landroid/widget/AbsListView;->setChildrenDrawingCacheEnabled(Z)V
     invoke-static {v0, v2}, Landroid/widget/AbsListView;->access$3200(Landroid/widget/AbsListView;Z)V
 
     .line 4886
-    :cond_23
+    :cond_0
     iget-object v0, p0, Landroid/widget/AbsListView$2;->this$0:Landroid/widget/AbsListView;
 
     invoke-virtual {v0}, Landroid/widget/AbsListView;->isAlwaysDrawnWithCacheEnabled()Z
 
     move-result v0
 
-    if-nez v0, :cond_30
+    if-nez v0, :cond_1
 
     .line 4887
     iget-object v0, p0, Landroid/widget/AbsListView$2;->this$0:Landroid/widget/AbsListView;
@@ -96,6 +99,6 @@
     invoke-virtual {v0}, Landroid/widget/AbsListView;->invalidate()V
 
     .line 4890
-    :cond_30
+    :cond_1
     return-void
 .end method

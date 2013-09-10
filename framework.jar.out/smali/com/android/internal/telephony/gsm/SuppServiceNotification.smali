@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 26
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 62
@@ -95,11 +95,11 @@
 
     iget v0, p0, Lcom/android/internal/telephony/gsm/SuppServiceNotification;->notificationType:I
 
-    if-nez v0, :cond_52
+    if-nez v0, :cond_0
 
     const-string v0, " originated "
 
-    :goto_19
+    :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -158,8 +158,8 @@
 
     return-object v0
 
-    :cond_52
+    :cond_0
     const-string v0, " terminated "
 
-    goto :goto_19
+    goto :goto_0
 .end method

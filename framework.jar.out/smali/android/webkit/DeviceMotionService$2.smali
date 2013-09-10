@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 99
@@ -37,23 +37,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     sput-boolean v0, Landroid/webkit/DeviceMotionService$2;->$assertionsDisabled:Z
 
     return-void
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method constructor <init>(Landroid/webkit/DeviceMotionService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 8
+    .locals 7
 
     .prologue
     const/4 v6, 0x0
@@ -76,15 +76,16 @@
     .line 102
     sget-boolean v0, Landroid/webkit/DeviceMotionService$2;->$assertionsDisabled:Z
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/webkit/DeviceMotionService$2;->this$0:Landroid/webkit/DeviceMotionService;
 
+    #getter for: Landroid/webkit/DeviceMotionService;->mIsRunning:Z
     invoke-static {v0}, Landroid/webkit/DeviceMotionService;->access$000(Landroid/webkit/DeviceMotionService;)Z
 
     move-result v0
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     new-instance v0, Ljava/lang/AssertionError;
 
@@ -93,9 +94,10 @@
     throw v0
 
     .line 103
-    :cond_13
+    :cond_0
     iget-object v0, p0, Landroid/webkit/DeviceMotionService$2;->this$0:Landroid/webkit/DeviceMotionService;
 
+    #getter for: Landroid/webkit/DeviceMotionService;->mManager:Landroid/webkit/DeviceMotionAndOrientationManager;
     invoke-static {v0}, Landroid/webkit/DeviceMotionService;->access$100(Landroid/webkit/DeviceMotionService;)Landroid/webkit/DeviceMotionAndOrientationManager;
 
     move-result-object v0
@@ -104,6 +106,7 @@
 
     iget-object v2, p0, Landroid/webkit/DeviceMotionService$2;->this$0:Landroid/webkit/DeviceMotionService;
 
+    #getter for: Landroid/webkit/DeviceMotionService;->mLastAcceleration:[F
     invoke-static {v2}, Landroid/webkit/DeviceMotionService;->access$200(Landroid/webkit/DeviceMotionService;)[F
 
     move-result-object v2
@@ -118,6 +121,7 @@
 
     iget-object v3, p0, Landroid/webkit/DeviceMotionService$2;->this$0:Landroid/webkit/DeviceMotionService;
 
+    #getter for: Landroid/webkit/DeviceMotionService;->mLastAcceleration:[F
     invoke-static {v3}, Landroid/webkit/DeviceMotionService;->access$200(Landroid/webkit/DeviceMotionService;)[F
 
     move-result-object v3
@@ -134,6 +138,7 @@
 
     iget-object v4, p0, Landroid/webkit/DeviceMotionService$2;->this$0:Landroid/webkit/DeviceMotionService;
 
+    #getter for: Landroid/webkit/DeviceMotionService;->mLastAcceleration:[F
     invoke-static {v4}, Landroid/webkit/DeviceMotionService;->access$200(Landroid/webkit/DeviceMotionService;)[F
 
     move-result-object v4
@@ -153,12 +158,14 @@
     .line 106
     iget-object v0, p0, Landroid/webkit/DeviceMotionService$2;->this$0:Landroid/webkit/DeviceMotionService;
 
+    #getter for: Landroid/webkit/DeviceMotionService;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/webkit/DeviceMotionService;->access$400(Landroid/webkit/DeviceMotionService;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/webkit/DeviceMotionService$2;->this$0:Landroid/webkit/DeviceMotionService;
 
+    #getter for: Landroid/webkit/DeviceMotionService;->mUpdateRunnable:Ljava/lang/Runnable;
     invoke-static {v1}, Landroid/webkit/DeviceMotionService;->access$300(Landroid/webkit/DeviceMotionService;)Ljava/lang/Runnable;
 
     move-result-object v1
@@ -170,6 +177,7 @@
     .line 108
     iget-object v0, p0, Landroid/webkit/DeviceMotionService$2;->this$0:Landroid/webkit/DeviceMotionService;
 
+    #setter for: Landroid/webkit/DeviceMotionService;->mHaveSentErrorEvent:Z
     invoke-static {v0, v6}, Landroid/webkit/DeviceMotionService;->access$502(Landroid/webkit/DeviceMotionService;Z)Z
 
     .line 109

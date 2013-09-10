@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "detailMessage"
 
     .prologue
@@ -23,7 +23,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Lcom/android/server/NativeDaemonEvent;)V
-    .registers 5
+    .locals 2
     .parameter "cmd"
     .parameter "event"
 
@@ -76,7 +76,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .registers 3
+    .locals 0
     .parameter "detailMessage"
     .parameter "throwable"
 
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public getCmd()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 48
@@ -101,7 +101,7 @@
 .end method
 
 .method public getCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 44
@@ -115,7 +115,7 @@
 .end method
 
 .method public rethrowAsParcelableException()Ljava/lang/IllegalArgumentException;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 56

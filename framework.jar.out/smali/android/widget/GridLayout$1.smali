@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 2530
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public getAlignmentValue(Landroid/view/View;II)I
-    .registers 5
+    .locals 1
     .parameter "view"
     .parameter "viewSize"
     .parameter "mode"
@@ -41,7 +41,7 @@
 .end method
 
 .method getGravityOffset(Landroid/view/View;I)I
-    .registers 4
+    .locals 1
     .parameter "view"
     .parameter "cellDelta"
 

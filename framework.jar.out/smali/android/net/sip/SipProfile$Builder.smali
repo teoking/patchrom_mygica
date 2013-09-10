@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/sip/SipProfile;)V
-    .registers 5
+    .locals 3
     .parameter "profile"
 
     .prologue
@@ -45,7 +45,7 @@
     iput-object v1, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
 
     .line 88
-    :try_start_b
+    :try_start_0
     invoke-static {}, Ljavax/sip/SipFactory;->getInstance()Ljavax/sip/SipFactory;
 
     move-result-object v1
@@ -55,11 +55,11 @@
     move-result-object v1
 
     iput-object v1, p0, Landroid/net/sip/SipProfile$Builder;->mAddressFactory:Ljavax/sip/address/AddressFactory;
-    :try_end_15
-    .catch Ljavax/sip/PeerUnavailableException; {:try_start_b .. :try_end_15} :catch_1d
+    :try_end_0
+    .catch Ljavax/sip/PeerUnavailableException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 99
-    if-nez p1, :cond_24
+    if-nez p1, :cond_0
 
     new-instance v1, Ljava/lang/NullPointerException;
 
@@ -68,7 +68,7 @@
     throw v1
 
     .line 90
-    :catch_1d
+    :catch_0
     move-exception v0
 
     .line 91
@@ -81,8 +81,9 @@
 
     .line 101
     .end local v0           #e:Ljavax/sip/PeerUnavailableException;
-    :cond_24
-    :try_start_24
+    :cond_0
+    :try_start_1
+    #calls: Ljava/lang/Object;->clone()Ljava/lang/Object;
     invoke-static {p1}, Landroid/net/sip/SipProfile;->access$200(Landroid/net/sip/SipProfile;)Ljava/lang/Object;
 
     move-result-object v1
@@ -90,12 +91,13 @@
     check-cast v1, Landroid/net/sip/SipProfile;
 
     iput-object v1, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
-    :try_end_2c
-    .catch Ljava/lang/CloneNotSupportedException; {:try_start_24 .. :try_end_2c} :catch_56
+    :try_end_1
+    .catch Ljava/lang/CloneNotSupportedException; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 105
     iget-object v1, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
 
+    #setter for: Landroid/net/sip/SipProfile;->mAddress:Ljavax/sip/address/Address;
     invoke-static {v1, v2}, Landroid/net/sip/SipProfile;->access$302(Landroid/net/sip/SipProfile;Ljavax/sip/address/Address;)Ljavax/sip/address/Address;
 
     .line 106
@@ -135,13 +137,14 @@
 
     move-result v2
 
+    #setter for: Landroid/net/sip/SipProfile;->mPort:I
     invoke-static {v1, v2}, Landroid/net/sip/SipProfile;->access$402(Landroid/net/sip/SipProfile;I)I
 
     .line 111
     return-void
 
     .line 102
-    :catch_56
+    :catch_1
     move-exception v0
 
     .line 103
@@ -156,7 +159,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "uriString"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -178,7 +181,7 @@
     iput-object v2, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
 
     .line 88
-    :try_start_b
+    :try_start_0
     invoke-static {}, Ljavax/sip/SipFactory;->getInstance()Ljavax/sip/SipFactory;
 
     move-result-object v2
@@ -188,11 +191,11 @@
     move-result-object v2
 
     iput-object v2, p0, Landroid/net/sip/SipProfile$Builder;->mAddressFactory:Ljavax/sip/address/AddressFactory;
-    :try_end_15
-    .catch Ljavax/sip/PeerUnavailableException; {:try_start_b .. :try_end_15} :catch_20
+    :try_end_0
+    .catch Ljavax/sip/PeerUnavailableException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 120
-    if-nez p1, :cond_27
+    if-nez p1, :cond_0
 
     .line 121
     new-instance v2, Ljava/lang/NullPointerException;
@@ -204,7 +207,7 @@
     throw v2
 
     .line 90
-    :catch_20
+    :catch_0
     move-exception v0
 
     .line 91
@@ -217,7 +220,7 @@
 
     .line 123
     .end local v0           #e:Ljavax/sip/PeerUnavailableException;
-    :cond_27
+    :cond_0
     iget-object v2, p0, Landroid/net/sip/SipProfile$Builder;->mAddressFactory:Ljavax/sip/address/AddressFactory;
 
     invoke-direct {p0, p1}, Landroid/net/sip/SipProfile$Builder;->fix(Ljava/lang/String;)Ljava/lang/String;
@@ -232,7 +235,7 @@
     .local v1, uri:Ljavax/sip/address/URI;
     instance-of v2, v1, Ljavax/sip/address/SipURI;
 
-    if-eqz v2, :cond_45
+    if-eqz v2, :cond_1
 
     .line 125
     check-cast v1, Ljavax/sip/address/SipURI;
@@ -249,6 +252,7 @@
 
     move-result-object v3
 
+    #setter for: Landroid/net/sip/SipProfile;->mDomain:Ljava/lang/String;
     invoke-static {v2, v3}, Landroid/net/sip/SipProfile;->access$502(Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljava/lang/String;
 
     .line 130
@@ -256,7 +260,7 @@
 
     .line 127
     .restart local v1       #uri:Ljavax/sip/address/URI;
-    :cond_45
+    :cond_1
     new-instance v2, Ljava/text/ParseException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -285,7 +289,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "username"
     .parameter "serverDomain"
     .annotation system Ldalvik/annotation/Throws;
@@ -308,7 +312,7 @@
     iput-object v1, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
 
     .line 88
-    :try_start_b
+    :try_start_0
     invoke-static {}, Ljavax/sip/SipFactory;->getInstance()Ljavax/sip/SipFactory;
 
     move-result-object v1
@@ -318,16 +322,16 @@
     move-result-object v1
 
     iput-object v1, p0, Landroid/net/sip/SipProfile$Builder;->mAddressFactory:Ljavax/sip/address/AddressFactory;
-    :try_end_15
-    .catch Ljavax/sip/PeerUnavailableException; {:try_start_b .. :try_end_15} :catch_22
+    :try_end_0
+    .catch Ljavax/sip/PeerUnavailableException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 143
-    if-eqz p1, :cond_19
+    if-eqz p1, :cond_0
 
-    if-nez p2, :cond_29
+    if-nez p2, :cond_1
 
     .line 144
-    :cond_19
+    :cond_0
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string/jumbo v2, "username and serverDomain cannot be null"
@@ -337,7 +341,7 @@
     throw v1
 
     .line 90
-    :catch_22
+    :catch_0
     move-exception v0
 
     .line 91
@@ -350,7 +354,7 @@
 
     .line 147
     .end local v0           #e:Ljavax/sip/PeerUnavailableException;
-    :cond_29
+    :cond_1
     iget-object v1, p0, Landroid/net/sip/SipProfile$Builder;->mAddressFactory:Ljavax/sip/address/AddressFactory;
 
     invoke-interface {v1, p1, p2}, Ljavax/sip/address/AddressFactory;->createSipURI(Ljava/lang/String;Ljava/lang/String;)Ljavax/sip/address/SipURI;
@@ -362,6 +366,7 @@
     .line 148
     iget-object v1, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
 
+    #setter for: Landroid/net/sip/SipProfile;->mDomain:Ljava/lang/String;
     invoke-static {v1, p2}, Landroid/net/sip/SipProfile;->access$502(Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljava/lang/String;
 
     .line 149
@@ -369,7 +374,7 @@
 .end method
 
 .method private fix(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "uriString"
 
     .prologue
@@ -388,14 +393,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .end local p1
-    :goto_11
+    :goto_0
     return-object p1
 
     .restart local p1
-    :cond_12
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -414,13 +419,13 @@
 
     move-result-object p1
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public build()Landroid/net/sip/SipProfile;
-    .registers 7
+    .locals 6
 
     .prologue
     .line 281
@@ -432,6 +437,7 @@
 
     move-result-object v3
 
+    #setter for: Landroid/net/sip/SipProfile;->mPassword:Ljava/lang/String;
     invoke-static {v2, v3}, Landroid/net/sip/SipProfile;->access$1102(Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljava/lang/String;
 
     .line 282
@@ -442,14 +448,14 @@
     invoke-interface {v2, v3}, Ljavax/sip/address/SipURI;->setUserPassword(Ljava/lang/String;)V
 
     .line 284
-    :try_start_11
+    :try_start_0
     iget-object v2, p0, Landroid/net/sip/SipProfile$Builder;->mProxyAddress:Ljava/lang/String;
 
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-nez v2, :cond_42
+    if-nez v2, :cond_1
 
     .line 285
     iget-object v2, p0, Landroid/net/sip/SipProfile$Builder;->mAddressFactory:Ljavax/sip/address/AddressFactory;
@@ -474,12 +480,13 @@
 
     move-result-object v3
 
+    #setter for: Landroid/net/sip/SipProfile;->mProxyAddress:Ljava/lang/String;
     invoke-static {v2, v3}, Landroid/net/sip/SipProfile;->access$1202(Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljava/lang/String;
 
     .line 296
     .end local v1           #uri:Ljavax/sip/address/SipURI;
-    :cond_30
-    :goto_30
+    :cond_0
+    :goto_0
     iget-object v2, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
 
     iget-object v3, p0, Landroid/net/sip/SipProfile$Builder;->mAddressFactory:Ljavax/sip/address/AddressFactory;
@@ -492,10 +499,11 @@
 
     move-result-object v3
 
+    #setter for: Landroid/net/sip/SipProfile;->mAddress:Ljavax/sip/address/Address;
     invoke-static {v2, v3}, Landroid/net/sip/SipProfile;->access$302(Landroid/net/sip/SipProfile;Ljavax/sip/address/Address;)Ljavax/sip/address/Address;
-    :try_end_3f
-    .catch Ljavax/sip/InvalidArgumentException; {:try_start_11 .. :try_end_3f} :catch_71
-    .catch Ljava/text/ParseException; {:try_start_11 .. :try_end_3f} :catch_78
+    :try_end_0
+    .catch Ljavax/sip/InvalidArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 304
     iget-object v2, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
@@ -503,10 +511,11 @@
     return-object v2
 
     .line 289
-    :cond_42
-    :try_start_42
+    :cond_1
+    :try_start_1
     iget-object v2, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
 
+    #getter for: Landroid/net/sip/SipProfile;->mProtocol:Ljava/lang/String;
     invoke-static {v2}, Landroid/net/sip/SipProfile;->access$800(Landroid/net/sip/SipProfile;)Ljava/lang/String;
 
     move-result-object v2
@@ -517,13 +526,14 @@
 
     move-result v2
 
-    if-nez v2, :cond_5b
+    if-nez v2, :cond_2
 
     .line 290
     iget-object v2, p0, Landroid/net/sip/SipProfile$Builder;->mUri:Ljavax/sip/address/SipURI;
 
     iget-object v3, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
 
+    #getter for: Landroid/net/sip/SipProfile;->mProtocol:Ljava/lang/String;
     invoke-static {v3}, Landroid/net/sip/SipProfile;->access$800(Landroid/net/sip/SipProfile;)Ljava/lang/String;
 
     move-result-object v3
@@ -531,35 +541,37 @@
     invoke-interface {v2, v3}, Ljavax/sip/address/SipURI;->setTransportParam(Ljava/lang/String;)V
 
     .line 292
-    :cond_5b
+    :cond_2
     iget-object v2, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
 
+    #getter for: Landroid/net/sip/SipProfile;->mPort:I
     invoke-static {v2}, Landroid/net/sip/SipProfile;->access$400(Landroid/net/sip/SipProfile;)I
 
     move-result v2
 
     const/16 v3, 0x13c4
 
-    if-eq v2, v3, :cond_30
+    if-eq v2, v3, :cond_0
 
     .line 293
     iget-object v2, p0, Landroid/net/sip/SipProfile$Builder;->mUri:Ljavax/sip/address/SipURI;
 
     iget-object v3, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
 
+    #getter for: Landroid/net/sip/SipProfile;->mPort:I
     invoke-static {v3}, Landroid/net/sip/SipProfile;->access$400(Landroid/net/sip/SipProfile;)I
 
     move-result v3
 
     invoke-interface {v2, v3}, Ljavax/sip/address/SipURI;->setPort(I)V
-    :try_end_70
-    .catch Ljavax/sip/InvalidArgumentException; {:try_start_42 .. :try_end_70} :catch_71
-    .catch Ljava/text/ParseException; {:try_start_42 .. :try_end_70} :catch_78
+    :try_end_1
+    .catch Ljavax/sip/InvalidArgumentException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/text/ParseException; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto :goto_30
+    goto :goto_0
 
     .line 298
-    :catch_71
+    :catch_0
     move-exception v0
 
     .line 299
@@ -572,7 +584,7 @@
 
     .line 300
     .end local v0           #e:Ljavax/sip/InvalidArgumentException;
-    :catch_78
+    :catch_1
     move-exception v0
 
     .line 302
@@ -585,13 +597,14 @@
 .end method
 
 .method public setAuthUserName(Ljava/lang/String;)Landroid/net/sip/SipProfile$Builder;
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
     .line 164
     iget-object v0, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
 
+    #setter for: Landroid/net/sip/SipProfile;->mAuthUserName:Ljava/lang/String;
     invoke-static {v0, p1}, Landroid/net/sip/SipProfile;->access$602(Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljava/lang/String;
 
     .line 165
@@ -599,13 +612,14 @@
 .end method
 
 .method public setAutoRegistration(Z)Landroid/net/sip/SipProfile$Builder;
-    .registers 3
+    .locals 1
     .parameter "flag"
 
     .prologue
     .line 270
     iget-object v0, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
 
+    #setter for: Landroid/net/sip/SipProfile;->mAutoRegistration:Z
     invoke-static {v0, p1}, Landroid/net/sip/SipProfile;->access$1002(Landroid/net/sip/SipProfile;Z)Z
 
     .line 271
@@ -613,7 +627,7 @@
 .end method
 
 .method public setDisplayName(Ljava/lang/String;)Landroid/net/sip/SipProfile$Builder;
-    .registers 2
+    .locals 0
     .parameter "displayName"
 
     .prologue
@@ -625,7 +639,7 @@
 .end method
 
 .method public setOutboundProxy(Ljava/lang/String;)Landroid/net/sip/SipProfile$Builder;
-    .registers 2
+    .locals 0
     .parameter "outboundProxy"
 
     .prologue
@@ -637,7 +651,7 @@
 .end method
 
 .method public setPassword(Ljava/lang/String;)Landroid/net/sip/SipProfile$Builder;
-    .registers 3
+    .locals 1
     .parameter "password"
 
     .prologue
@@ -651,7 +665,7 @@
 .end method
 
 .method public setPort(I)Landroid/net/sip/SipProfile$Builder;
-    .registers 5
+    .locals 3
     .parameter "port"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -663,14 +677,14 @@
     .line 198
     const v0, 0xffff
 
-    if-gt p1, v0, :cond_9
+    if-gt p1, v0, :cond_0
 
     const/16 v0, 0x3e8
 
-    if-ge p1, v0, :cond_22
+    if-ge p1, v0, :cond_1
 
     .line 199
-    :cond_9
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -696,9 +710,10 @@
     throw v0
 
     .line 201
-    :cond_22
+    :cond_1
     iget-object v0, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
 
+    #setter for: Landroid/net/sip/SipProfile;->mPort:I
     invoke-static {v0, p1}, Landroid/net/sip/SipProfile;->access$402(Landroid/net/sip/SipProfile;I)I
 
     .line 202
@@ -706,13 +721,14 @@
 .end method
 
 .method public setProfileName(Ljava/lang/String;)Landroid/net/sip/SipProfile$Builder;
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
     .line 175
     iget-object v0, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
 
+    #setter for: Landroid/net/sip/SipProfile;->mProfileName:Ljava/lang/String;
     invoke-static {v0, p1}, Landroid/net/sip/SipProfile;->access$702(Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljava/lang/String;
 
     .line 176
@@ -720,7 +736,7 @@
 .end method
 
 .method public setProtocol(Ljava/lang/String;)Landroid/net/sip/SipProfile$Builder;
-    .registers 5
+    .locals 3
     .parameter "protocol"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -730,7 +746,7 @@
 
     .prologue
     .line 215
-    if-nez p1, :cond_b
+    if-nez p1, :cond_0
 
     .line 216
     new-instance v0, Ljava/lang/NullPointerException;
@@ -742,7 +758,7 @@
     throw v0
 
     .line 218
-    :cond_b
+    :cond_0
     invoke-virtual {p1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
     move-result-object p1
@@ -754,7 +770,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_39
+    if-nez v0, :cond_1
 
     const-string v0, "TCP"
 
@@ -762,7 +778,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_39
+    if-nez v0, :cond_1
 
     .line 220
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -790,9 +806,10 @@
     throw v0
 
     .line 223
-    :cond_39
+    :cond_1
     iget-object v0, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
 
+    #setter for: Landroid/net/sip/SipProfile;->mProtocol:Ljava/lang/String;
     invoke-static {v0, p1}, Landroid/net/sip/SipProfile;->access$802(Landroid/net/sip/SipProfile;Ljava/lang/String;)Ljava/lang/String;
 
     .line 224
@@ -800,13 +817,14 @@
 .end method
 
 .method public setSendKeepAlive(Z)Landroid/net/sip/SipProfile$Builder;
-    .registers 3
+    .locals 1
     .parameter "flag"
 
     .prologue
     .line 257
     iget-object v0, p0, Landroid/net/sip/SipProfile$Builder;->mProfile:Landroid/net/sip/SipProfile;
 
+    #setter for: Landroid/net/sip/SipProfile;->mSendKeepAlive:Z
     invoke-static {v0, p1}, Landroid/net/sip/SipProfile;->access$902(Landroid/net/sip/SipProfile;Z)Z
 
     .line 258

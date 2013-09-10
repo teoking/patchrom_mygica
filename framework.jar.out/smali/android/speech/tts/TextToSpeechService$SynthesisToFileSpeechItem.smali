@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/speech/tts/TextToSpeechService;Ljava/lang/Object;IILandroid/os/Bundle;Ljava/lang/String;Ljava/io/File;)V
-    .registers 8
+    .locals 0
     .parameter
     .parameter "callerIdentity"
     .parameter "callerUid"
@@ -46,19 +46,19 @@
 .end method
 
 .method private checkFile(Ljava/io/File;)Z
-    .registers 7
+    .locals 5
     .parameter "file"
 
     .prologue
     const/4 v1, 0x0
 
     .line 673
-    :try_start_1
+    :try_start_0
     invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
     move-result v2
 
-    if-eqz v2, :cond_44
+    if-eqz v2, :cond_0
 
     .line 674
     const-string v2, "TextToSpeechService"
@@ -94,7 +94,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_44
+    if-nez v2, :cond_0
 
     .line 676
     const-string v2, "TextToSpeechService"
@@ -120,16 +120,16 @@
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 691
-    :goto_43
+    :goto_0
     return v1
 
     .line 680
-    :cond_44
+    :cond_0
     invoke-virtual {p1}, Ljava/io/File;->createNewFile()Z
 
     move-result v2
 
-    if-nez v2, :cond_87
+    if-nez v2, :cond_1
 
     .line 681
     const-string v2, "TextToSpeechService"
@@ -153,13 +153,13 @@
     move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_62
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_62} :catch_63
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_43
+    goto :goto_0
 
     .line 689
-    :catch_63
+    :catch_0
     move-exception v0
 
     .line 690
@@ -196,17 +196,17 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_43
+    goto :goto_0
 
     .line 684
     .end local v0           #e:Ljava/io/IOException;
-    :cond_87
-    :try_start_87
+    :cond_1
+    :try_start_1
     invoke-virtual {p1}, Ljava/io/File;->delete()Z
 
     move-result v2
 
-    if-nez v2, :cond_a6
+    if-nez v2, :cond_2
 
     .line 685
     const-string v2, "TextToSpeechService"
@@ -230,22 +230,22 @@
     move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_a5
-    .catch Ljava/io/IOException; {:try_start_87 .. :try_end_a5} :catch_63
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_43
+    goto :goto_0
 
     .line 688
-    :cond_a6
+    :cond_2
     const/4 v1, 0x1
 
-    goto :goto_43
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected createSynthesisCallback()Landroid/speech/tts/AbstractSynthesisCallback;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 653
@@ -259,7 +259,7 @@
 .end method
 
 .method public isValid()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 645
@@ -267,27 +267,27 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     .line 646
     const/4 v0, 0x0
 
     .line 648
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/speech/tts/TextToSpeechService$SynthesisToFileSpeechItem;->mFile:Ljava/io/File;
 
     invoke-direct {p0, v0}, Landroid/speech/tts/TextToSpeechService$SynthesisToFileSpeechItem;->checkFile(Ljava/io/File;)Z
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method protected playImpl()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 658
@@ -300,18 +300,18 @@
 
     .line 660
     .local v0, status:I
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 661
     invoke-virtual {p0}, Landroid/speech/tts/TextToSpeechService$SynthesisToFileSpeechItem;->dispatchOnDone()V
 
     .line 665
-    :goto_c
+    :goto_0
     return v0
 
     .line 663
-    :cond_d
+    :cond_0
     invoke-virtual {p0}, Landroid/speech/tts/TextToSpeechService$SynthesisToFileSpeechItem;->dispatchOnError()V
 
-    goto :goto_c
+    goto :goto_0
 .end method

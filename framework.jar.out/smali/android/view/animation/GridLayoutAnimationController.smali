@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "attrs"
 
@@ -118,7 +118,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/animation/Animation;)V
-    .registers 3
+    .locals 1
     .parameter "animation"
 
     .prologue
@@ -132,7 +132,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/animation/Animation;FF)V
-    .registers 4
+    .locals 0
     .parameter "animation"
     .parameter "columnDelay"
     .parameter "rowDelay"
@@ -152,7 +152,7 @@
 .end method
 
 .method private getTransformedColumnIndex(Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;)I
-    .registers 6
+    .locals 4
     .parameter "params"
 
     .prologue
@@ -161,14 +161,14 @@
 
     move-result v2
 
-    packed-switch v2, :pswitch_data_38
+    packed-switch v2, :pswitch_data_0
 
     .line 358
     iget v1, p1, Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;->column:I
 
     .line 362
     .local v1, index:I
-    :goto_9
+    :goto_0
     iget v2, p0, Landroid/view/animation/GridLayoutAnimationController;->mDirection:I
 
     and-int/lit8 v0, v2, 0x1
@@ -177,7 +177,7 @@
     .local v0, direction:I
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_16
+    if-ne v0, v2, :cond_0
 
     .line 364
     iget v2, p1, Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;->columnsCount:I
@@ -187,13 +187,13 @@
     sub-int v1, v2, v1
 
     .line 367
-    :cond_16
+    :cond_0
     return v1
 
     .line 348
     .end local v0           #direction:I
     .end local v1           #index:I
-    :pswitch_17
+    :pswitch_0
     iget v2, p1, Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;->columnsCount:I
 
     add-int/lit8 v2, v2, -0x1
@@ -204,14 +204,14 @@
 
     .line 349
     .restart local v1       #index:I
-    goto :goto_9
+    goto :goto_0
 
     .line 351
     .end local v1           #index:I
-    :pswitch_20
+    :pswitch_1
     iget-object v2, p0, Landroid/view/animation/LayoutAnimationController;->mRandomizer:Ljava/util/Random;
 
-    if-nez v2, :cond_2b
+    if-nez v2, :cond_1
 
     .line 352
     new-instance v2, Ljava/util/Random;
@@ -221,7 +221,7 @@
     iput-object v2, p0, Landroid/view/animation/LayoutAnimationController;->mRandomizer:Ljava/util/Random;
 
     .line 354
-    :cond_2b
+    :cond_1
     iget v2, p1, Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;->columnsCount:I
 
     int-to-float v2, v2
@@ -238,20 +238,20 @@
 
     .line 355
     .restart local v1       #index:I
-    goto :goto_9
+    goto :goto_0
 
     .line 346
     nop
 
-    :pswitch_data_38
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_17
-        :pswitch_20
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method private getTransformedRowIndex(Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;)I
-    .registers 6
+    .locals 4
     .parameter "params"
 
     .prologue
@@ -260,14 +260,14 @@
 
     move-result v2
 
-    packed-switch v2, :pswitch_data_38
+    packed-switch v2, :pswitch_data_0
 
     .line 384
     iget v1, p1, Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;->row:I
 
     .line 388
     .local v1, index:I
-    :goto_9
+    :goto_0
     iget v2, p0, Landroid/view/animation/GridLayoutAnimationController;->mDirection:I
 
     and-int/lit8 v0, v2, 0x2
@@ -276,7 +276,7 @@
     .local v0, direction:I
     const/4 v2, 0x2
 
-    if-ne v0, v2, :cond_16
+    if-ne v0, v2, :cond_0
 
     .line 390
     iget v2, p1, Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;->rowsCount:I
@@ -286,13 +286,13 @@
     sub-int v1, v2, v1
 
     .line 393
-    :cond_16
+    :cond_0
     return v1
 
     .line 374
     .end local v0           #direction:I
     .end local v1           #index:I
-    :pswitch_17
+    :pswitch_0
     iget v2, p1, Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;->rowsCount:I
 
     add-int/lit8 v2, v2, -0x1
@@ -303,14 +303,14 @@
 
     .line 375
     .restart local v1       #index:I
-    goto :goto_9
+    goto :goto_0
 
     .line 377
     .end local v1           #index:I
-    :pswitch_20
+    :pswitch_1
     iget-object v2, p0, Landroid/view/animation/LayoutAnimationController;->mRandomizer:Ljava/util/Random;
 
-    if-nez v2, :cond_2b
+    if-nez v2, :cond_1
 
     .line 378
     new-instance v2, Ljava/util/Random;
@@ -320,7 +320,7 @@
     iput-object v2, p0, Landroid/view/animation/LayoutAnimationController;->mRandomizer:Ljava/util/Random;
 
     .line 380
-    :cond_2b
+    :cond_1
     iget v2, p1, Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;->rowsCount:I
 
     int-to-float v2, v2
@@ -337,22 +337,22 @@
 
     .line 381
     .restart local v1       #index:I
-    goto :goto_9
+    goto :goto_0
 
     .line 372
     nop
 
-    :pswitch_data_38
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_17
-        :pswitch_20
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public getColumnDelay()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 169
@@ -362,7 +362,7 @@
 .end method
 
 .method protected getDelayForView(Landroid/view/View;)J
-    .registers 19
+    .locals 17
     .parameter "view"
 
     .prologue
@@ -379,17 +379,17 @@
 
     .line 301
     .local v8, params:Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;
-    if-nez v8, :cond_d
+    if-nez v8, :cond_0
 
     .line 302
     const-wide/16 v15, 0x0
 
     .line 341
-    :goto_c
+    :goto_0
     return-wide v15
 
     .line 305
-    :cond_d
+    :cond_0
     move-object/from16 v0, p0
 
     invoke-direct {v0, v8}, Landroid/view/animation/GridLayoutAnimationController;->getTransformedColumnIndex(Landroid/view/animation/GridLayoutAnimationController$AnimationParameters;)I
@@ -452,7 +452,7 @@
 
     iget-object v15, v0, Landroid/view/animation/LayoutAnimationController;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    if-nez v15, :cond_46
+    if-nez v15, :cond_1
 
     .line 319
     new-instance v15, Landroid/view/animation/LinearInterpolator;
@@ -464,12 +464,12 @@
     iput-object v15, v0, Landroid/view/animation/LayoutAnimationController;->mInterpolator:Landroid/view/animation/Interpolator;
 
     .line 322
-    :cond_46
+    :cond_1
     move-object/from16 v0, p0
 
     iget v15, v0, Landroid/view/animation/GridLayoutAnimationController;->mDirectionPriority:I
 
-    packed-switch v15, :pswitch_data_a8
+    packed-switch v15, :pswitch_data_0
 
     .line 333
     int-to-float v15, v1
@@ -502,7 +502,7 @@
 
     .line 338
     .local v12, totalDelay:F
-    :goto_60
+    :goto_1
     long-to-float v15, v13
 
     div-float v7, v15, v12
@@ -522,13 +522,13 @@
 
     float-to-long v15, v15
 
-    goto :goto_c
+    goto :goto_0
 
     .line 324
     .end local v7           #normalizedDelay:F
     .end local v12           #totalDelay:F
     .end local v13           #viewDelay:J
-    :pswitch_6f
+    :pswitch_0
     int-to-float v15, v9
 
     mul-float/2addr v15, v10
@@ -567,12 +567,12 @@
 
     .line 326
     .restart local v12       #totalDelay:F
-    goto :goto_60
+    goto :goto_1
 
     .line 328
     .end local v12           #totalDelay:F
     .end local v13           #viewDelay:J
-    :pswitch_8b
+    :pswitch_1
     int-to-float v15, v1
 
     mul-float/2addr v15, v2
@@ -611,20 +611,20 @@
 
     .line 330
     .restart local v12       #totalDelay:F
-    goto :goto_60
+    goto :goto_1
 
     .line 322
     nop
 
-    :pswitch_data_a8
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_6f
-        :pswitch_8b
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method public getDirection()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 231
@@ -634,7 +634,7 @@
 .end method
 
 .method public getDirectionPriority()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 266
@@ -644,7 +644,7 @@
 .end method
 
 .method public getRowDelay()F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 198
@@ -654,7 +654,7 @@
 .end method
 
 .method public setColumnDelay(F)V
-    .registers 2
+    .locals 0
     .parameter "columnDelay"
 
     .prologue
@@ -666,7 +666,7 @@
 .end method
 
 .method public setDirection(I)V
-    .registers 2
+    .locals 0
     .parameter "direction"
 
     .prologue
@@ -678,7 +678,7 @@
 .end method
 
 .method public setDirectionPriority(I)V
-    .registers 2
+    .locals 0
     .parameter "directionPriority"
 
     .prologue
@@ -690,7 +690,7 @@
 .end method
 
 .method public setRowDelay(F)V
-    .registers 2
+    .locals 0
     .parameter "rowDelay"
 
     .prologue
@@ -702,7 +702,7 @@
 .end method
 
 .method public willOverlap()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/high16 v1, 0x3f80
@@ -712,22 +712,22 @@
 
     cmpg-float v0, v0, v1
 
-    if-ltz v0, :cond_e
+    if-ltz v0, :cond_0
 
     iget v0, p0, Landroid/view/animation/GridLayoutAnimationController;->mRowDelay:F
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_10
+    if-gez v0, :cond_1
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method

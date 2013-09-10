@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 7
+    .locals 2
     .parameter "name"
     .parameter "path"
     .parameter "fileName"
@@ -68,7 +68,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/webkit/Plugin;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -79,7 +79,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/webkit/Plugin;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public dispatchClickEvent(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -101,7 +101,7 @@
     .line 182
     iget-object v0, p0, Landroid/webkit/Plugin;->mHandler:Landroid/webkit/Plugin$PreferencesClickHandler;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 183
     iget-object v0, p0, Landroid/webkit/Plugin;->mHandler:Landroid/webkit/Plugin$PreferencesClickHandler;
@@ -109,12 +109,12 @@
     invoke-interface {v0, p1}, Landroid/webkit/Plugin$PreferencesClickHandler;->handleClickEvent(Landroid/content/Context;)V
 
     .line 185
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public getDescription()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -126,7 +126,7 @@
 .end method
 
 .method public getFileName()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -138,7 +138,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -150,7 +150,7 @@
 .end method
 
 .method public getPath()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -162,7 +162,7 @@
 .end method
 
 .method public setClickHandler(Landroid/webkit/Plugin$PreferencesClickHandler;)V
-    .registers 2
+    .locals 0
     .parameter "handler"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -176,7 +176,7 @@
 .end method
 
 .method public setDescription(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "description"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -190,7 +190,7 @@
 .end method
 
 .method public setFileName(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "fileName"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -204,7 +204,7 @@
 .end method
 
 .method public setName(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "name"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -218,7 +218,7 @@
 .end method
 
 .method public setPath(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "path"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -232,7 +232,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

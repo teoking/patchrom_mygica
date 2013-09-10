@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 6
+    .locals 6
 
     .prologue
     const/4 v5, 0x0
@@ -64,7 +64,7 @@
     .line 58
     sget v1, Lcom/android/internal/os/SamplingProfilerIntegration;->samplingProfilerMilliseconds:I
 
-    if-lez v1, :cond_6b
+    if-lez v1, :cond_1
 
     .line 59
     new-instance v0, Ljava/io/File;
@@ -88,7 +88,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5f
+    if-eqz v1, :cond_0
 
     .line 66
     new-instance v1, Lcom/android/internal/os/SamplingProfilerIntegration$1;
@@ -131,12 +131,12 @@
 
     .line 84
     .end local v0           #dir:Ljava/io/File;
-    :goto_5e
+    :goto_0
     return-void
 
     .line 75
     .restart local v0       #dir:Ljava/io/File;
-    :cond_5f
+    :cond_0
     sput-object v5, Lcom/android/internal/os/SamplingProfilerIntegration;->snapshotWriter:Ljava/util/concurrent/Executor;
 
     .line 76
@@ -149,11 +149,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5e
+    goto :goto_0
 
     .line 80
     .end local v0           #dir:Ljava/io/File;
-    :cond_6b
+    :cond_1
     sput-object v5, Lcom/android/internal/os/SamplingProfilerIntegration;->snapshotWriter:Ljava/util/concurrent/Executor;
 
     .line 81
@@ -166,11 +166,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5e
+    goto :goto_0
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 41
@@ -180,7 +180,7 @@
 .end method
 
 .method static synthetic access$000(Ljava/lang/String;Landroid/content/pm/PackageInfo;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -192,7 +192,7 @@
 .end method
 
 .method static synthetic access$100()Ljava/util/concurrent/atomic/AtomicBoolean;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 41
@@ -202,7 +202,7 @@
 .end method
 
 .method private static generateSnapshotHeader(Ljava/lang/String;Landroid/content/pm/PackageInfo;Ljava/io/PrintStream;)V
-    .registers 5
+    .locals 2
     .parameter "processName"
     .parameter "packageInfo"
     .parameter "out"
@@ -235,7 +235,7 @@
     invoke-virtual {p2, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 218
-    if-eqz p1, :cond_4d
+    if-eqz p1, :cond_0
 
     .line 219
     new-instance v0, Ljava/lang/StringBuilder;
@@ -284,7 +284,7 @@
     invoke-virtual {p2, v0}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 222
-    :cond_4d
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -315,7 +315,7 @@
 .end method
 
 .method public static isEnabled()Z
-    .registers 1
+    .locals 1
 
     .prologue
     .line 93
@@ -325,27 +325,27 @@
 .end method
 
 .method public static start()V
-    .registers 7
+    .locals 7
 
     .prologue
     .line 100
     sget-boolean v2, Lcom/android/internal/os/SamplingProfilerIntegration;->enabled:Z
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_0
 
     .line 113
     .local v0, group:Ljava/lang/ThreadGroup;
     .local v1, threadSet:Ldalvik/system/profiler/SamplingProfiler$ThreadSet;
-    :goto_4
+    :goto_0
     return-void
 
     .line 103
     .end local v0           #group:Ljava/lang/ThreadGroup;
     .end local v1           #threadSet:Ldalvik/system/profiler/SamplingProfiler$ThreadSet;
-    :cond_5
+    :cond_0
     sget-object v2, Lcom/android/internal/os/SamplingProfilerIntegration;->samplingProfiler:Ldalvik/system/profiler/SamplingProfiler;
 
-    if-eqz v2, :cond_29
+    if-eqz v2, :cond_1
 
     .line 104
     const-string v2, "SamplingProfilerIntegration"
@@ -376,10 +376,10 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_4
+    goto :goto_0
 
     .line 108
-    :cond_29
+    :cond_1
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v2
@@ -418,11 +418,11 @@
 
     sput-wide v2, Lcom/android/internal/os/SamplingProfilerIntegration;->startMillis:J
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static writeSnapshot(Ljava/lang/String;Landroid/content/pm/PackageInfo;)V
-    .registers 5
+    .locals 3
     .parameter "processName"
     .parameter "packageInfo"
 
@@ -430,18 +430,18 @@
     .line 119
     sget-boolean v0, Lcom/android/internal/os/SamplingProfilerIntegration;->enabled:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_1
 
     .line 144
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-void
 
     .line 122
-    :cond_5
+    :cond_1
     sget-object v0, Lcom/android/internal/os/SamplingProfilerIntegration;->samplingProfiler:Ldalvik/system/profiler/SamplingProfiler;
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_2
 
     .line 123
     const-string v0, "SamplingProfilerIntegration"
@@ -450,10 +450,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_4
+    goto :goto_0
 
     .line 133
-    :cond_11
+    :cond_2
     sget-object v0, Lcom/android/internal/os/SamplingProfilerIntegration;->pending:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v1, 0x0
@@ -464,7 +464,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_0
 
     .line 134
     sget-object v0, Lcom/android/internal/os/SamplingProfilerIntegration;->snapshotWriter:Ljava/util/concurrent/Executor;
@@ -475,11 +475,11 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method private static writeSnapshotFile(Ljava/lang/String;Landroid/content/pm/PackageInfo;)V
-    .registers 15
+    .locals 13
     .parameter "processName"
     .parameter "packageInfo"
 
@@ -487,14 +487,14 @@
     .line 163
     sget-boolean v10, Lcom/android/internal/os/SamplingProfilerIntegration;->enabled:Z
 
-    if-nez v10, :cond_5
+    if-nez v10, :cond_0
 
     .line 199
-    :goto_4
+    :goto_0
     return-void
 
     .line 166
-    :cond_5
+    :cond_0
     sget-object v10, Lcom/android/internal/os/SamplingProfilerIntegration;->samplingProfiler:Ldalvik/system/profiler/SamplingProfiler;
 
     invoke-virtual {v10}, Ldalvik/system/profiler/SamplingProfiler;->stop()V
@@ -558,7 +558,7 @@
 
     .line 179
     .local v5, outputStream:Ljava/io/OutputStream;
-    :try_start_3c
+    :try_start_0
     new-instance v6, Ljava/io/BufferedOutputStream;
 
     new-instance v10, Ljava/io/FileOutputStream;
@@ -566,14 +566,14 @@
     invoke-direct {v10, v7}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
 
     invoke-direct {v6, v10}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;)V
-    :try_end_46
-    .catchall {:try_start_3c .. :try_end_46} :catchall_c6
-    .catch Ljava/io/IOException; {:try_start_3c .. :try_end_46} :catch_ce
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 180
     .end local v5           #outputStream:Ljava/io/OutputStream;
     .local v6, outputStream:Ljava/io/OutputStream;
-    :try_start_46
+    :try_start_1
     new-instance v4, Ljava/io/PrintStream;
 
     invoke-direct {v4, v6}, Ljava/io/PrintStream;-><init>(Ljava/io/OutputStream;)V
@@ -587,7 +587,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_78
+    if-eqz v10, :cond_1
 
     .line 183
     new-instance v10, Ljava/io/IOException;
@@ -595,13 +595,13 @@
     invoke-direct {v10}, Ljava/io/IOException;-><init>()V
 
     throw v10
-    :try_end_5a
-    .catchall {:try_start_46 .. :try_end_5a} :catchall_cb
-    .catch Ljava/io/IOException; {:try_start_46 .. :try_end_5a} :catch_5a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 186
     .end local v4           #out:Ljava/io/PrintStream;
-    :catch_5a
+    :catch_0
     move-exception v0
 
     move-object v5, v6
@@ -610,8 +610,8 @@
     .end local v6           #outputStream:Ljava/io/OutputStream;
     .local v0, e:Ljava/io/IOException;
     .restart local v5       #outputStream:Ljava/io/OutputStream;
-    :goto_5c
-    :try_start_5c
+    :goto_1
+    :try_start_2
     const-string v10, "SamplingProfilerIntegration"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -633,21 +633,21 @@
     move-result-object v11
 
     invoke-static {v10, v11, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_74
-    .catchall {:try_start_5c .. :try_end_74} :catchall_c6
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 190
     invoke-static {v5}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
-    goto :goto_4
+    goto :goto_0
 
     .line 185
     .end local v0           #e:Ljava/io/IOException;
     .end local v5           #outputStream:Ljava/io/OutputStream;
     .restart local v4       #out:Ljava/io/PrintStream;
     .restart local v6       #outputStream:Ljava/io/OutputStream;
-    :cond_78
-    :try_start_78
+    :cond_1
+    :try_start_3
     sget-object v10, Lcom/android/internal/os/SamplingProfilerIntegration;->samplingProfiler:Ldalvik/system/profiler/SamplingProfiler;
 
     invoke-virtual {v10}, Ldalvik/system/profiler/SamplingProfiler;->getHprofData()Ldalvik/system/profiler/HprofData;
@@ -655,9 +655,9 @@
     move-result-object v10
 
     invoke-static {v10, v6}, Ldalvik/system/profiler/BinaryHprofWriter;->write(Ldalvik/system/profiler/HprofData;Ljava/io/OutputStream;)V
-    :try_end_81
-    .catchall {:try_start_78 .. :try_end_81} :catchall_cb
-    .catch Ljava/io/IOException; {:try_start_78 .. :try_end_81} :catch_5a
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
     .line 190
     invoke-static {v6}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
@@ -727,41 +727,41 @@
 
     invoke-virtual {v10, v11}, Ldalvik/system/profiler/SamplingProfiler;->start(I)V
 
-    goto/16 :goto_4
+    goto/16 :goto_0
 
     .line 190
     .end local v1           #elapsed:J
     .end local v4           #out:Ljava/io/PrintStream;
     .end local v6           #outputStream:Ljava/io/OutputStream;
     .restart local v5       #outputStream:Ljava/io/OutputStream;
-    :catchall_c6
+    :catchall_0
     move-exception v10
 
-    :goto_c7
+    :goto_2
     invoke-static {v5}, Llibcore/io/IoUtils;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
     throw v10
 
     .end local v5           #outputStream:Ljava/io/OutputStream;
     .restart local v6       #outputStream:Ljava/io/OutputStream;
-    :catchall_cb
+    :catchall_1
     move-exception v10
 
     move-object v5, v6
 
     .end local v6           #outputStream:Ljava/io/OutputStream;
     .restart local v5       #outputStream:Ljava/io/OutputStream;
-    goto :goto_c7
+    goto :goto_2
 
     .line 186
-    :catch_ce
+    :catch_1
     move-exception v0
 
-    goto :goto_5c
+    goto :goto_1
 .end method
 
 .method public static writeZygoteSnapshot()V
-    .registers 2
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -769,14 +769,14 @@
     .line 150
     sget-boolean v0, Lcom/android/internal/os/SamplingProfilerIntegration;->enabled:Z
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     .line 157
-    :goto_5
+    :goto_0
     return-void
 
     .line 153
-    :cond_6
+    :cond_0
     const-string/jumbo v0, "zygote"
 
     invoke-static {v0, v1}, Lcom/android/internal/os/SamplingProfilerIntegration;->writeSnapshotFile(Ljava/lang/String;Landroid/content/pm/PackageInfo;)V
@@ -794,5 +794,5 @@
 
     sput-wide v0, Lcom/android/internal/os/SamplingProfilerIntegration;->startMillis:J
 
-    goto :goto_5
+    goto :goto_0
 .end method

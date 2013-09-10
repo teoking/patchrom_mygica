@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 4
+    .locals 1
     .parameter "clearBits"
     .parameter "setBits"
 

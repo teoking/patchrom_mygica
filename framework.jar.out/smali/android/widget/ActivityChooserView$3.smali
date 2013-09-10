@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/ActivityChooserView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 240
@@ -44,6 +44,7 @@
     .line 241
     iget-object v0, p0, Landroid/widget/ActivityChooserView$3;->this$0:Landroid/widget/ActivityChooserView;
 
+    #calls: Landroid/widget/ActivityChooserView;->updateAppearance()V
     invoke-static {v0}, Landroid/widget/ActivityChooserView;->access$400(Landroid/widget/ActivityChooserView;)V
 
     .line 242

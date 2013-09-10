@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,13 +35,14 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
     .line 125
     iget-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$MyHandler;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
+    #getter for: Lcom/android/internal/os/BatteryStatsImpl;->mCallback:Lcom/android/internal/os/BatteryStatsImpl$BatteryCallback;
     invoke-static {v1}, Lcom/android/internal/os/BatteryStatsImpl;->access$000(Lcom/android/internal/os/BatteryStatsImpl;)Lcom/android/internal/os/BatteryStatsImpl$BatteryCallback;
 
     move-result-object v0
@@ -50,49 +51,49 @@
     .local v0, cb:Lcom/android/internal/os/BatteryStatsImpl$BatteryCallback;
     iget v1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v1, :pswitch_data_20
+    packed-switch v1, :pswitch_data_0
 
     .line 138
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return-void
 
     .line 128
-    :pswitch_c
-    if-eqz v0, :cond_b
+    :pswitch_0
+    if-eqz v0, :cond_0
 
     .line 129
     invoke-interface {v0}, Lcom/android/internal/os/BatteryStatsImpl$BatteryCallback;->batteryNeedsCpuUpdate()V
 
-    goto :goto_b
+    goto :goto_0
 
     .line 133
-    :pswitch_12
-    if-eqz v0, :cond_b
+    :pswitch_1
+    if-eqz v0, :cond_0
 
     .line 134
     iget v1, p1, Landroid/os/Message;->arg1:I
 
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_1
 
     const/4 v1, 0x1
 
-    :goto_19
+    :goto_1
     invoke-interface {v0, v1}, Lcom/android/internal/os/BatteryStatsImpl$BatteryCallback;->batteryPowerChanged(Z)V
 
-    goto :goto_b
+    goto :goto_0
 
-    :cond_1d
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_19
+    goto :goto_1
 
     .line 126
     nop
 
-    :pswitch_data_20
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_c
-        :pswitch_12
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

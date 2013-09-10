@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "columns"
 
     .prologue
@@ -59,7 +59,7 @@
 .end method
 
 .method private final growBuffer()V
-    .registers 12
+    .locals 11
 
     .prologue
     const/4 v9, 0x0
@@ -112,7 +112,7 @@
     .local v0, after:I
     iget-object v7, p0, Landroid/text/PackedIntVector;->mValues:[I
 
-    if-eqz v7, :cond_39
+    if-eqz v7, :cond_0
 
     .line 265
     iget-object v7, p0, Landroid/text/PackedIntVector;->mValues:[I
@@ -139,17 +139,17 @@
     invoke-static {v7, v8, v4, v9, v10}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 271
-    :cond_39
+    :cond_0
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_3a
-    if-ge v2, v1, :cond_52
+    :goto_0
+    if-ge v2, v1, :cond_2
 
     .line 272
     aget v7, v6, v2
 
-    if-lt v7, v5, :cond_4f
+    if-lt v7, v5, :cond_1
 
     .line 273
     aget v7, v6, v2
@@ -165,19 +165,19 @@
     .line 275
     aget v7, v6, v2
 
-    if-ge v7, v5, :cond_4f
+    if-ge v7, v5, :cond_1
 
     .line 276
     aput v5, v6, v2
 
     .line 271
-    :cond_4f
+    :cond_1
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3a
+    goto :goto_0
 
     .line 281
-    :cond_52
+    :cond_2
     iget v7, p0, Landroid/text/PackedIntVector;->mRowGapLength:I
 
     iget v8, p0, Landroid/text/PackedIntVector;->mRows:I
@@ -199,24 +199,24 @@
 .end method
 
 .method private final moveRowGapTo(I)V
-    .registers 14
+    .locals 12
     .parameter "where"
 
     .prologue
     .line 314
     iget v9, p0, Landroid/text/PackedIntVector;->mRowGapStart:I
 
-    if-ne p1, v9, :cond_5
+    if-ne p1, v9, :cond_0
 
     .line 367
-    :goto_4
+    :goto_0
     return-void
 
     .line 316
-    :cond_5
+    :cond_0
     iget v9, p0, Landroid/text/PackedIntVector;->mRowGapStart:I
 
-    if-le p1, v9, :cond_4f
+    if-le p1, v9, :cond_4
 
     .line 317
     iget v9, p0, Landroid/text/PackedIntVector;->mRowGapLength:I
@@ -256,10 +256,10 @@
     move v3, v2
 
     .local v3, i:I
-    :goto_20
+    :goto_1
     add-int v9, v2, v5
 
-    if-ge v3, v9, :cond_8f
+    if-ge v3, v9, :cond_8
 
     .line 324
     sub-int v9, v3, v2
@@ -273,8 +273,8 @@
     const/4 v4, 0x0
 
     .local v4, j:I
-    :goto_2b
-    if-ge v4, v0, :cond_4c
+    :goto_2
+    if-ge v4, v0, :cond_3
 
     .line 327
     mul-int v9, v3, v0
@@ -287,7 +287,7 @@
     .local v6, val:I
     aget v9, v7, v4
 
-    if-lt v3, v9, :cond_3b
+    if-lt v3, v9, :cond_1
 
     .line 330
     add-int v9, v4, v0
@@ -297,10 +297,10 @@
     add-int/2addr v6, v9
 
     .line 333
-    :cond_3b
+    :cond_1
     aget v9, v7, v4
 
-    if-lt v1, v9, :cond_44
+    if-lt v1, v9, :cond_2
 
     .line 334
     add-int v9, v4, v0
@@ -310,7 +310,7 @@
     sub-int/2addr v6, v9
 
     .line 337
-    :cond_44
+    :cond_2
     mul-int v9, v1, v0
 
     add-int/2addr v9, v4
@@ -320,14 +320,14 @@
     .line 326
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_2b
+    goto :goto_2
 
     .line 323
     .end local v6           #val:I
-    :cond_4c
+    :cond_3
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_20
+    goto :goto_1
 
     .line 341
     .end local v0           #columns:I
@@ -338,7 +338,7 @@
     .end local v5           #moving:I
     .end local v7           #valuegap:[I
     .end local v8           #values:[I
-    :cond_4f
+    :cond_4
     iget v9, p0, Landroid/text/PackedIntVector;->mRowGapStart:I
 
     sub-int v5, v9, p1
@@ -370,8 +370,8 @@
     add-int/lit8 v3, v9, -0x1
 
     .restart local v3       #i:I
-    :goto_63
-    if-lt v3, p1, :cond_8f
+    :goto_3
+    if-lt v3, p1, :cond_8
 
     .line 348
     sub-int v9, v3, p1
@@ -385,8 +385,8 @@
     const/4 v4, 0x0
 
     .restart local v4       #j:I
-    :goto_6b
-    if-ge v4, v0, :cond_8c
+    :goto_4
+    if-ge v4, v0, :cond_7
 
     .line 351
     mul-int v9, v3, v0
@@ -399,7 +399,7 @@
     .restart local v6       #val:I
     aget v9, v7, v4
 
-    if-lt v3, v9, :cond_7b
+    if-lt v3, v9, :cond_5
 
     .line 354
     add-int v9, v4, v0
@@ -409,10 +409,10 @@
     add-int/2addr v6, v9
 
     .line 357
-    :cond_7b
+    :cond_5
     aget v9, v7, v4
 
-    if-lt v1, v9, :cond_84
+    if-lt v1, v9, :cond_6
 
     .line 358
     add-int v9, v4, v0
@@ -422,7 +422,7 @@
     sub-int/2addr v6, v9
 
     .line 361
-    :cond_84
+    :cond_6
     mul-int v9, v1, v0
 
     add-int/2addr v9, v4
@@ -432,26 +432,26 @@
     .line 350
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_6b
+    goto :goto_4
 
     .line 347
     .end local v6           #val:I
-    :cond_8c
+    :cond_7
     add-int/lit8 v3, v3, -0x1
 
-    goto :goto_63
+    goto :goto_3
 
     .line 366
     .end local v1           #destrow:I
     .end local v4           #j:I
-    :cond_8f
+    :cond_8
     iput p1, p0, Landroid/text/PackedIntVector;->mRowGapStart:I
 
-    goto/16 :goto_4
+    goto/16 :goto_0
 .end method
 
 .method private final moveValueGapTo(II)V
-    .registers 10
+    .locals 7
     .parameter "column"
     .parameter "where"
 
@@ -471,24 +471,24 @@
     .local v0, columns:I
     aget v4, v2, p1
 
-    if-ne p2, v4, :cond_b
+    if-ne p2, v4, :cond_0
 
     .line 308
-    :goto_a
+    :goto_0
     return-void
 
     .line 297
-    :cond_b
+    :cond_0
     aget v4, v2, p1
 
-    if-le p2, v4, :cond_22
+    if-le p2, v4, :cond_1
 
     .line 298
     aget v1, v2, p1
 
     .local v1, i:I
-    :goto_11
-    if-ge v1, p2, :cond_36
+    :goto_1
+    if-ge v1, p2, :cond_2
 
     .line 299
     mul-int v4, v1, v0
@@ -508,18 +508,18 @@
     .line 298
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_11
+    goto :goto_1
 
     .line 302
     .end local v1           #i:I
-    :cond_22
+    :cond_1
     move v1, p2
 
     .restart local v1       #i:I
-    :goto_23
+    :goto_2
     aget v4, v2, p1
 
-    if-ge v1, v4, :cond_36
+    if-ge v1, v4, :cond_2
 
     .line 303
     mul-int v4, v1, v0
@@ -539,17 +539,17 @@
     .line 302
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_23
+    goto :goto_2
 
     .line 307
-    :cond_36
+    :cond_2
     aput p2, v2, p1
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method private setValueInternal(III)V
-    .registers 7
+    .locals 3
     .parameter "row"
     .parameter "column"
     .parameter "value"
@@ -558,7 +558,7 @@
     .line 123
     iget v1, p0, Landroid/text/PackedIntVector;->mRowGapStart:I
 
-    if-lt p1, v1, :cond_7
+    if-lt p1, v1, :cond_0
 
     .line 124
     iget v1, p0, Landroid/text/PackedIntVector;->mRowGapLength:I
@@ -566,14 +566,14 @@
     add-int/2addr p1, v1
 
     .line 127
-    :cond_7
+    :cond_0
     iget-object v0, p0, Landroid/text/PackedIntVector;->mValueGap:[I
 
     .line 128
     .local v0, valuegap:[I
     aget v1, v0, p2
 
-    if-lt p1, v1, :cond_13
+    if-lt p1, v1, :cond_1
 
     .line 129
     iget v1, p0, Landroid/text/PackedIntVector;->mColumns:I
@@ -585,7 +585,7 @@
     sub-int/2addr p3, v1
 
     .line 132
-    :cond_13
+    :cond_1
     iget-object v1, p0, Landroid/text/PackedIntVector;->mValues:[I
 
     iget v2, p0, Landroid/text/PackedIntVector;->mColumns:I
@@ -603,7 +603,7 @@
 
 # virtual methods
 .method public adjustValuesBelow(III)V
-    .registers 7
+    .locals 3
     .parameter "startRow"
     .parameter "column"
     .parameter "delta"
@@ -612,22 +612,22 @@
     .line 149
     or-int v0, p1, p2
 
-    if-ltz v0, :cond_10
+    if-ltz v0, :cond_0
 
     invoke-virtual {p0}, Landroid/text/PackedIntVector;->size()I
 
     move-result v0
 
-    if-gt p1, v0, :cond_10
+    if-gt p1, v0, :cond_0
 
     invoke-virtual {p0}, Landroid/text/PackedIntVector;->width()I
 
     move-result v0
 
-    if-lt p2, v0, :cond_2d
+    if-lt p2, v0, :cond_1
 
     .line 151
-    :cond_10
+    :cond_0
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -657,10 +657,10 @@
     throw v0
 
     .line 154
-    :cond_2d
+    :cond_1
     iget v0, p0, Landroid/text/PackedIntVector;->mRowGapStart:I
 
-    if-lt p1, v0, :cond_34
+    if-lt p1, v0, :cond_2
 
     .line 155
     iget v0, p0, Landroid/text/PackedIntVector;->mRowGapLength:I
@@ -668,7 +668,7 @@
     add-int/2addr p1, v0
 
     .line 158
-    :cond_34
+    :cond_2
     invoke-direct {p0, p2, p1}, Landroid/text/PackedIntVector;->moveValueGapTo(II)V
 
     .line 159
@@ -689,7 +689,7 @@
 .end method
 
 .method public deleteAt(II)V
-    .registers 6
+    .locals 3
     .parameter "row"
     .parameter "count"
 
@@ -697,7 +697,7 @@
     .line 216
     or-int v0, p1, p2
 
-    if-ltz v0, :cond_c
+    if-ltz v0, :cond_0
 
     add-int v0, p1, p2
 
@@ -705,10 +705,10 @@
 
     move-result v1
 
-    if-le v0, v1, :cond_29
+    if-le v0, v1, :cond_1
 
     .line 217
-    :cond_c
+    :cond_0
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -738,7 +738,7 @@
     throw v0
 
     .line 220
-    :cond_29
+    :cond_1
     add-int v0, p1, p2
 
     invoke-direct {p0, v0}, Landroid/text/PackedIntVector;->moveRowGapTo(I)V
@@ -762,7 +762,7 @@
 .end method
 
 .method public getValue(II)I
-    .registers 9
+    .locals 6
     .parameter "row"
     .parameter "column"
 
@@ -774,18 +774,18 @@
     .local v0, columns:I
     or-int v3, p1, p2
 
-    if-ltz v3, :cond_e
+    if-ltz v3, :cond_0
 
     invoke-virtual {p0}, Landroid/text/PackedIntVector;->size()I
 
     move-result v3
 
-    if-ge p1, v3, :cond_e
+    if-ge p1, v3, :cond_0
 
-    if-lt p2, v0, :cond_2b
+    if-lt p2, v0, :cond_1
 
     .line 70
-    :cond_e
+    :cond_0
     new-instance v3, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -815,10 +815,10 @@
     throw v3
 
     .line 73
-    :cond_2b
+    :cond_1
     iget v3, p0, Landroid/text/PackedIntVector;->mRowGapStart:I
 
-    if-lt p1, v3, :cond_32
+    if-lt p1, v3, :cond_2
 
     .line 74
     iget v3, p0, Landroid/text/PackedIntVector;->mRowGapLength:I
@@ -826,7 +826,7 @@
     add-int/2addr p1, v3
 
     .line 77
-    :cond_32
+    :cond_2
     iget-object v3, p0, Landroid/text/PackedIntVector;->mValues:[I
 
     mul-int v4, p1, v0
@@ -843,7 +843,7 @@
     .local v2, valuegap:[I
     aget v3, v2, p2
 
-    if-lt p1, v3, :cond_44
+    if-lt p1, v3, :cond_3
 
     .line 81
     add-int v3, p2, v0
@@ -853,27 +853,27 @@
     add-int/2addr v1, v3
 
     .line 84
-    :cond_44
+    :cond_3
     return v1
 .end method
 
 .method public insertAt(I[I)V
-    .registers 7
+    .locals 4
     .parameter "row"
     .parameter "values"
 
     .prologue
     .line 176
-    if-ltz p1, :cond_8
+    if-ltz p1, :cond_0
 
     invoke-virtual {p0}, Landroid/text/PackedIntVector;->size()I
 
     move-result v1
 
-    if-le p1, v1, :cond_22
+    if-le p1, v1, :cond_1
 
     .line 177
-    :cond_8
+    :cond_0
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -899,8 +899,8 @@
     throw v1
 
     .line 180
-    :cond_22
-    if-eqz p2, :cond_46
+    :cond_1
+    if-eqz p2, :cond_2
 
     array-length v1, p2
 
@@ -908,7 +908,7 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_46
+    if-ge v1, v2, :cond_2
 
     .line 181
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
@@ -938,19 +938,19 @@
     throw v1
 
     .line 184
-    :cond_46
+    :cond_2
     invoke-direct {p0, p1}, Landroid/text/PackedIntVector;->moveRowGapTo(I)V
 
     .line 186
     iget v1, p0, Landroid/text/PackedIntVector;->mRowGapLength:I
 
-    if-nez v1, :cond_50
+    if-nez v1, :cond_3
 
     .line 187
     invoke-direct {p0}, Landroid/text/PackedIntVector;->growBuffer()V
 
     .line 190
-    :cond_50
+    :cond_3
     iget v1, p0, Landroid/text/PackedIntVector;->mRowGapStart:I
 
     add-int/lit8 v1, v1, 0x1
@@ -965,7 +965,7 @@
     iput v1, p0, Landroid/text/PackedIntVector;->mRowGapLength:I
 
     .line 193
-    if-nez p2, :cond_6b
+    if-nez p2, :cond_4
 
     .line 194
     iget v1, p0, Landroid/text/PackedIntVector;->mColumns:I
@@ -973,8 +973,8 @@
     add-int/lit8 v0, v1, -0x1
 
     .local v0, i:I
-    :goto_62
-    if-ltz v0, :cond_79
+    :goto_0
+    if-ltz v0, :cond_5
 
     .line 195
     const/4 v1, 0x0
@@ -984,18 +984,18 @@
     .line 194
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_62
+    goto :goto_0
 
     .line 198
     .end local v0           #i:I
-    :cond_6b
+    :cond_4
     iget v1, p0, Landroid/text/PackedIntVector;->mColumns:I
 
     add-int/lit8 v0, v1, -0x1
 
     .restart local v0       #i:I
-    :goto_6f
-    if-ltz v0, :cond_79
+    :goto_1
+    if-ltz v0, :cond_5
 
     .line 199
     aget v1, p2, v0
@@ -1005,15 +1005,15 @@
     .line 198
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_6f
+    goto :goto_1
 
     .line 202
-    :cond_79
+    :cond_5
     return-void
 .end method
 
 .method public setValue(III)V
-    .registers 8
+    .locals 4
     .parameter "row"
     .parameter "column"
     .parameter "value"
@@ -1022,20 +1022,20 @@
     .line 98
     or-int v1, p1, p2
 
-    if-ltz v1, :cond_e
+    if-ltz v1, :cond_0
 
     invoke-virtual {p0}, Landroid/text/PackedIntVector;->size()I
 
     move-result v1
 
-    if-ge p1, v1, :cond_e
+    if-ge p1, v1, :cond_0
 
     iget v1, p0, Landroid/text/PackedIntVector;->mColumns:I
 
-    if-lt p2, v1, :cond_2b
+    if-lt p2, v1, :cond_1
 
     .line 99
-    :cond_e
+    :cond_0
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1065,10 +1065,10 @@
     throw v1
 
     .line 102
-    :cond_2b
+    :cond_1
     iget v1, p0, Landroid/text/PackedIntVector;->mRowGapStart:I
 
-    if-lt p1, v1, :cond_32
+    if-lt p1, v1, :cond_2
 
     .line 103
     iget v1, p0, Landroid/text/PackedIntVector;->mRowGapLength:I
@@ -1076,14 +1076,14 @@
     add-int/2addr p1, v1
 
     .line 106
-    :cond_32
+    :cond_2
     iget-object v0, p0, Landroid/text/PackedIntVector;->mValueGap:[I
 
     .line 107
     .local v0, valuegap:[I
     aget v1, v0, p2
 
-    if-lt p1, v1, :cond_3e
+    if-lt p1, v1, :cond_3
 
     .line 108
     iget v1, p0, Landroid/text/PackedIntVector;->mColumns:I
@@ -1095,7 +1095,7 @@
     sub-int/2addr p3, v1
 
     .line 111
-    :cond_3e
+    :cond_3
     iget-object v1, p0, Landroid/text/PackedIntVector;->mValues:[I
 
     iget v2, p0, Landroid/text/PackedIntVector;->mColumns:I
@@ -1111,7 +1111,7 @@
 .end method
 
 .method public size()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 236
@@ -1125,7 +1125,7 @@
 .end method
 
 .method public width()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 246

@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/WebViewClassic;)V
-    .registers 8
+    .locals 6
     .parameter "w"
 
     .prologue
@@ -100,7 +100,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/webkit/ViewManager;Landroid/webkit/ViewManager$ChildView;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -112,7 +112,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/webkit/ViewManager;)Landroid/webkit/WebViewClassic;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -123,7 +123,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/webkit/ViewManager;)Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -134,7 +134,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/webkit/ViewManager;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -145,7 +145,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/webkit/ViewManager;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -157,7 +157,7 @@
 .end method
 
 .method private requestLayout(Landroid/webkit/ViewManager$ChildView;)V
-    .registers 15
+    .locals 13
     .parameter "v"
 
     .prologue
@@ -214,7 +214,7 @@
     .local v4, layoutParams:Landroid/view/ViewGroup$LayoutParams;
     instance-of v10, v4, Landroid/widget/AbsoluteLayout$LayoutParams;
 
-    if-eqz v10, :cond_51
+    if-eqz v10, :cond_1
 
     move-object v5, v4
 
@@ -235,7 +235,7 @@
     iput v9, v5, Landroid/widget/AbsoluteLayout$LayoutParams;->y:I
 
     .line 141
-    :goto_37
+    :goto_0
     iget-object v10, p1, Landroid/webkit/ViewManager$ChildView;->mView:Landroid/view/View;
 
     invoke-virtual {v10, v5}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
@@ -245,7 +245,7 @@
 
     instance-of v10, v10, Landroid/view/SurfaceView;
 
-    if-eqz v10, :cond_50
+    if-eqz v10, :cond_0
 
     .line 145
     iget-object v6, p1, Landroid/webkit/ViewManager$ChildView;->mView:Landroid/view/View;
@@ -258,31 +258,31 @@
 
     move-result v10
 
-    if-eqz v10, :cond_57
+    if-eqz v10, :cond_2
 
     iget-boolean v10, p0, Landroid/webkit/ViewManager;->mZoomInProgress:Z
 
-    if-eqz v10, :cond_57
+    if-eqz v10, :cond_2
 
     .line 221
     .end local v6           #sView:Landroid/view/SurfaceView;
-    :cond_50
-    :goto_50
+    :cond_0
+    :goto_1
     return-void
 
     .line 137
     .end local v5           #lp:Landroid/widget/AbsoluteLayout$LayoutParams;
-    :cond_51
+    :cond_1
     new-instance v5, Landroid/widget/AbsoluteLayout$LayoutParams;
 
     invoke-direct {v5, v7, v3, v8, v9}, Landroid/widget/AbsoluteLayout$LayoutParams;-><init>(IIII)V
 
     .restart local v5       #lp:Landroid/widget/AbsoluteLayout$LayoutParams;
-    goto :goto_37
+    goto :goto_0
 
     .line 162
     .restart local v6       #sView:Landroid/view/SurfaceView;
-    :cond_57
+    :cond_2
     move v2, v7
 
     .line 163
@@ -291,17 +291,17 @@
 
     .line 164
     .local v1, fixedH:I
-    if-gt v2, v12, :cond_5d
+    if-gt v2, v12, :cond_3
 
-    if-le v1, v12, :cond_6d
+    if-le v1, v12, :cond_4
 
     .line 165
-    :cond_5d
+    :cond_3
     iget v10, p1, Landroid/webkit/ViewManager$ChildView;->width:I
 
     iget v11, p1, Landroid/webkit/ViewManager$ChildView;->height:I
 
-    if-le v10, v11, :cond_9d
+    if-le v10, v11, :cond_7
 
     .line 166
     const/16 v2, 0x800
@@ -316,13 +316,13 @@
     div-int v1, v10, v11
 
     .line 173
-    :cond_6d
-    :goto_6d
+    :cond_4
+    :goto_2
     mul-int v10, v2, v1
 
     iget v11, p0, Landroid/webkit/ViewManager;->MAX_SURFACE_AREA:I
 
-    if-le v10, v11, :cond_91
+    if-le v10, v11, :cond_5
 
     .line 174
     iget v10, p0, Landroid/webkit/ViewManager;->MAX_SURFACE_AREA:I
@@ -335,7 +335,7 @@
 
     iget v11, p1, Landroid/webkit/ViewManager$ChildView;->height:I
 
-    if-le v10, v11, :cond_a8
+    if-le v10, v11, :cond_8
 
     .line 176
     iget v10, p1, Landroid/webkit/ViewManager$ChildView;->width:I
@@ -369,24 +369,24 @@
 
     .line 184
     .end local v0           #area:F
-    :cond_91
-    :goto_91
-    if-ne v2, v7, :cond_95
+    :cond_5
+    :goto_3
+    if-ne v2, v7, :cond_6
 
-    if-eq v1, v3, :cond_be
+    if-eq v1, v3, :cond_9
 
     .line 187
-    :cond_95
+    :cond_6
     invoke-virtual {v6}, Landroid/view/SurfaceView;->getHolder()Landroid/view/SurfaceHolder;
 
     move-result-object v10
 
     invoke-interface {v10, v2, v1}, Landroid/view/SurfaceHolder;->setFixedSize(II)V
 
-    goto :goto_50
+    goto :goto_1
 
     .line 169
-    :cond_9d
+    :cond_7
     const/16 v1, 0x800
 
     .line 170
@@ -398,11 +398,11 @@
 
     div-int v2, v10, v11
 
-    goto :goto_6d
+    goto :goto_2
 
     .line 179
     .restart local v0       #area:F
-    :cond_a8
+    :cond_8
     iget v10, p1, Landroid/webkit/ViewManager$ChildView;->height:I
 
     int-to-float v10, v10
@@ -432,20 +432,20 @@
 
     div-int v2, v10, v11
 
-    goto :goto_91
+    goto :goto_3
 
     .line 188
     .end local v0           #area:F
-    :cond_be
+    :cond_9
     invoke-virtual {v6}, Landroid/view/SurfaceView;->isFixedSize()Z
 
     move-result v10
 
-    if-nez v10, :cond_d9
+    if-nez v10, :cond_a
 
     iget-boolean v10, p0, Landroid/webkit/ViewManager;->mZoomInProgress:Z
 
-    if-eqz v10, :cond_d9
+    if-eqz v10, :cond_a
 
     .line 191
     invoke-virtual {v6}, Landroid/view/SurfaceView;->getHolder()Landroid/view/SurfaceHolder;
@@ -462,26 +462,26 @@
 
     invoke-interface {v10, v11, v12}, Landroid/view/SurfaceHolder;->setFixedSize(II)V
 
-    goto/16 :goto_50
+    goto/16 :goto_1
 
     .line 193
-    :cond_d9
+    :cond_a
     invoke-virtual {v6}, Landroid/view/SurfaceView;->isFixedSize()Z
 
     move-result v10
 
-    if-eqz v10, :cond_50
+    if-eqz v10, :cond_0
 
     iget-boolean v10, p0, Landroid/webkit/ViewManager;->mZoomInProgress:Z
 
-    if-nez v10, :cond_50
+    if-nez v10, :cond_0
 
     .line 205
     invoke-virtual {v6}, Landroid/view/SurfaceView;->getVisibility()I
 
     move-result v10
 
-    if-nez v10, :cond_102
+    if-nez v10, :cond_b
 
     .line 206
     const/4 v10, 0x4
@@ -506,23 +506,23 @@
 
     invoke-virtual {v10, v11}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    goto/16 :goto_50
+    goto/16 :goto_1
 
     .line 217
-    :cond_102
+    :cond_b
     invoke-virtual {v6}, Landroid/view/SurfaceView;->getHolder()Landroid/view/SurfaceHolder;
 
     move-result-object v10
 
     invoke-interface {v10}, Landroid/view/SurfaceHolder;->setSizeFromLayout()V
 
-    goto/16 :goto_50
+    goto/16 :goto_1
 .end method
 
 
 # virtual methods
 .method createView()Landroid/webkit/ViewManager$ChildView;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 114
@@ -534,7 +534,7 @@
 .end method
 
 .method endZoom()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 231
@@ -550,12 +550,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_9
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_19
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -567,29 +567,29 @@
     .local v1, v:Landroid/webkit/ViewManager$ChildView;
     invoke-direct {p0, v1}, Landroid/webkit/ViewManager;->requestLayout(Landroid/webkit/ViewManager$ChildView;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 235
     .end local v1           #v:Landroid/webkit/ViewManager$ChildView;
-    :cond_19
+    :cond_0
     return-void
 .end method
 
 .method hideAll()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 244
     iget-boolean v2, p0, Landroid/webkit/ViewManager;->mHidden:Z
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_0
 
     .line 251
-    :goto_4
+    :goto_0
     return-void
 
     .line 247
-    :cond_5
+    :cond_0
     iget-object v2, p0, Landroid/webkit/ViewManager;->mChildren:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -597,12 +597,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_b
+    :goto_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_1
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -618,20 +618,20 @@
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_b
+    goto :goto_1
 
     .line 250
     .end local v1           #v:Landroid/webkit/ViewManager$ChildView;
-    :cond_1f
+    :cond_1
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Landroid/webkit/ViewManager;->mHidden:Z
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method hitTest(II)Landroid/webkit/ViewManager$ChildView;
-    .registers 8
+    .locals 5
     .parameter "contentX"
     .parameter "contentY"
 
@@ -641,16 +641,16 @@
     .line 283
     iget-boolean v3, p0, Landroid/webkit/ViewManager;->mHidden:Z
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_0
 
     move-object v1, v2
 
     .line 294
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 286
-    :cond_7
+    :cond_0
     iget-object v3, p0, Landroid/webkit/ViewManager;->mChildren:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -658,12 +658,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :cond_d
+    :cond_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_38
+    if-eqz v3, :cond_2
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -679,12 +679,12 @@
 
     move-result v3
 
-    if-nez v3, :cond_d
+    if-nez v3, :cond_1
 
     .line 288
     iget v3, v1, Landroid/webkit/ViewManager$ChildView;->x:I
 
-    if-lt p1, v3, :cond_d
+    if-lt p1, v3, :cond_1
 
     iget v3, v1, Landroid/webkit/ViewManager$ChildView;->x:I
 
@@ -692,11 +692,11 @@
 
     add-int/2addr v3, v4
 
-    if-ge p1, v3, :cond_d
+    if-ge p1, v3, :cond_1
 
     iget v3, v1, Landroid/webkit/ViewManager$ChildView;->y:I
 
-    if-lt p2, v3, :cond_d
+    if-lt p2, v3, :cond_1
 
     iget v3, v1, Landroid/webkit/ViewManager$ChildView;->y:I
 
@@ -704,20 +704,20 @@
 
     add-int/2addr v3, v4
 
-    if-ge p2, v3, :cond_d
+    if-ge p2, v3, :cond_1
 
-    goto :goto_6
+    goto :goto_0
 
     .end local v1           #v:Landroid/webkit/ViewManager$ChildView;
-    :cond_38
+    :cond_2
     move-object v1, v2
 
     .line 294
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method postReadyToDrawAll()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 272
@@ -736,7 +736,7 @@
 .end method
 
 .method postResetStateAll()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 264
@@ -755,7 +755,7 @@
 .end method
 
 .method scaleAll()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 238
@@ -766,12 +766,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_6
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -783,16 +783,16 @@
     .local v1, v:Landroid/webkit/ViewManager$ChildView;
     invoke-direct {p0, v1}, Landroid/webkit/ViewManager;->requestLayout(Landroid/webkit/ViewManager$ChildView;)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 241
     .end local v1           #v:Landroid/webkit/ViewManager$ChildView;
-    :cond_16
+    :cond_0
     return-void
 .end method
 
 .method showAll()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x0
@@ -800,14 +800,14 @@
     .line 254
     iget-boolean v2, p0, Landroid/webkit/ViewManager;->mHidden:Z
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_0
 
     .line 261
-    :goto_5
+    :goto_0
     return-void
 
     .line 257
-    :cond_6
+    :cond_0
     iget-object v2, p0, Landroid/webkit/ViewManager;->mChildren:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -815,12 +815,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_c
+    :goto_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1e
+    if-eqz v2, :cond_1
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -834,18 +834,18 @@
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_c
+    goto :goto_1
 
     .line 260
     .end local v1           #v:Landroid/webkit/ViewManager$ChildView;
-    :cond_1e
+    :cond_1
     iput-boolean v3, p0, Landroid/webkit/ViewManager;->mHidden:Z
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method startZoom()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 224
@@ -861,12 +861,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_9
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_19
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -878,10 +878,10 @@
     .local v1, v:Landroid/webkit/ViewManager$ChildView;
     invoke-direct {p0, v1}, Landroid/webkit/ViewManager;->requestLayout(Landroid/webkit/ViewManager$ChildView;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 228
     .end local v1           #v:Landroid/webkit/ViewManager$ChildView;
-    :cond_19
+    :cond_0
     return-void
 .end method

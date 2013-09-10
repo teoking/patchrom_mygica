@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 58
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "src"
 
     .prologue
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 0
     .parameter "pattern"
     .parameter "type"
     .parameter "readPermission"
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method public getReadPermission()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 39
@@ -97,7 +97,7 @@
 .end method
 
 .method public getWritePermission()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 43
@@ -107,7 +107,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/ActivityChooserView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onGlobalLayout()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 133
@@ -48,7 +48,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     .line 134
     iget-object v0, p0, Landroid/widget/ActivityChooserView$2;->this$0:Landroid/widget/ActivityChooserView;
@@ -57,11 +57,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_1a
+    if-nez v0, :cond_1
 
     .line 135
     iget-object v0, p0, Landroid/widget/ActivityChooserView$2;->this$0:Landroid/widget/ActivityChooserView;
 
+    #calls: Landroid/widget/ActivityChooserView;->getListPopupWindow()Landroid/widget/ListPopupWindow;
     invoke-static {v0}, Landroid/widget/ActivityChooserView;->access$100(Landroid/widget/ActivityChooserView;)Landroid/widget/ListPopupWindow;
 
     move-result-object v0
@@ -69,14 +70,15 @@
     invoke-virtual {v0}, Landroid/widget/ListPopupWindow;->dismiss()V
 
     .line 143
-    :cond_19
-    :goto_19
+    :cond_0
+    :goto_0
     return-void
 
     .line 137
-    :cond_1a
+    :cond_1
     iget-object v0, p0, Landroid/widget/ActivityChooserView$2;->this$0:Landroid/widget/ActivityChooserView;
 
+    #calls: Landroid/widget/ActivityChooserView;->getListPopupWindow()Landroid/widget/ListPopupWindow;
     invoke-static {v0}, Landroid/widget/ActivityChooserView;->access$100(Landroid/widget/ActivityChooserView;)Landroid/widget/ListPopupWindow;
 
     move-result-object v0
@@ -88,7 +90,7 @@
 
     iget-object v0, v0, Landroid/widget/ActivityChooserView;->mProvider:Landroid/view/ActionProvider;
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     .line 139
     iget-object v0, p0, Landroid/widget/ActivityChooserView$2;->this$0:Landroid/widget/ActivityChooserView;
@@ -99,5 +101,5 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ActionProvider;->subUiVisibilityChanged(Z)V
 
-    goto :goto_19
+    goto :goto_0
 .end method

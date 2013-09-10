@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 187
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
-    .registers 4
+    .locals 2
     .parameter "ctx"
 
     .prologue
@@ -52,7 +52,7 @@
 .end method
 
 .method public getService(Landroid/app/ContextImpl;)Ljava/lang/Object;
-    .registers 7
+    .locals 5
     .parameter "ctx"
 
     .prologue
@@ -64,23 +64,23 @@
     monitor-enter v0
 
     .line 197
-    :try_start_3
+    :try_start_0
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v4
 
-    if-nez v4, :cond_17
+    if-nez v4, :cond_0
 
     .line 202
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_a
+    :goto_0
     invoke-static {}, Landroid/app/ContextImpl;->access$000()I
 
     move-result v4
 
-    if-ge v1, v4, :cond_22
+    if-ge v1, v4, :cond_1
 
     .line 203
     const/4 v4, 0x0
@@ -90,11 +90,11 @@
     .line 202
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 206
     .end local v1           #i:I
-    :cond_17
+    :cond_0
     iget v4, p0, Landroid/app/ContextImpl$ServiceFetcher;->mContextCacheIndex:I
 
     invoke-virtual {v0, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -103,7 +103,7 @@
 
     .line 207
     .local v2, service:Ljava/lang/Object;
-    if-eqz v2, :cond_22
+    if-eqz v2, :cond_1
 
     .line 208
     monitor-exit v0
@@ -113,12 +113,12 @@
     .line 213
     .end local v2           #service:Ljava/lang/Object;
     .local v3, service:Ljava/lang/Object;
-    :goto_21
+    :goto_1
     return-object v3
 
     .line 211
     .end local v3           #service:Ljava/lang/Object;
-    :cond_22
+    :cond_1
     invoke-virtual {p0, p1}, Landroid/app/ContextImpl$ServiceFetcher;->createService(Landroid/app/ContextImpl;)Ljava/lang/Object;
 
     move-result-object v2
@@ -136,16 +136,16 @@
 
     .end local v2           #service:Ljava/lang/Object;
     .restart local v3       #service:Ljava/lang/Object;
-    goto :goto_21
+    goto :goto_1
 
     .line 214
     .end local v3           #service:Ljava/lang/Object;
-    :catchall_2e
+    :catchall_0
     move-exception v4
 
     monitor-exit v0
-    :try_end_30
-    .catchall {:try_start_3 .. :try_end_30} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v4
 .end method

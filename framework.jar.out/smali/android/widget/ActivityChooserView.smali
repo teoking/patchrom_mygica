@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -69,7 +69,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 14
+    .locals 10
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -302,7 +302,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/widget/ActivityChooserView;)Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -313,7 +313,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/widget/ActivityChooserView;)Landroid/widget/ListPopupWindow;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -326,7 +326,7 @@
 .end method
 
 .method static synthetic access$1000(Landroid/widget/ActivityChooserView;)Landroid/widget/FrameLayout;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -337,7 +337,7 @@
 .end method
 
 .method static synthetic access$1100(Landroid/widget/ActivityChooserView;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -348,7 +348,7 @@
 .end method
 
 .method static synthetic access$1200(Landroid/widget/ActivityChooserView;)Landroid/widget/PopupWindow$OnDismissListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -359,7 +359,7 @@
 .end method
 
 .method static synthetic access$1300(Landroid/widget/ActivityChooserView;)Landroid/database/DataSetObserver;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -370,7 +370,7 @@
 .end method
 
 .method static synthetic access$1400(Landroid/widget/ActivityChooserView;)Landroid/content/Context;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -381,7 +381,7 @@
 .end method
 
 .method static synthetic access$1500(Landroid/widget/ActivityChooserView;)Landroid/content/Context;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -392,7 +392,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/widget/ActivityChooserView;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -403,7 +403,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/widget/ActivityChooserView;I)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -415,7 +415,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/widget/ActivityChooserView;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -426,7 +426,7 @@
 .end method
 
 .method static synthetic access$602(Landroid/widget/ActivityChooserView;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -438,7 +438,7 @@
 .end method
 
 .method static synthetic access$700(Landroid/widget/ActivityChooserView;)Landroid/content/Context;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -449,7 +449,7 @@
 .end method
 
 .method static synthetic access$800(Landroid/widget/ActivityChooserView;)Landroid/widget/FrameLayout;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -460,7 +460,7 @@
 .end method
 
 .method static synthetic access$900(Landroid/widget/ActivityChooserView;)Landroid/content/Context;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -471,13 +471,13 @@
 .end method
 
 .method private getListPopupWindow()Landroid/widget/ListPopupWindow;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 476
     iget-object v0, p0, Landroid/widget/ActivityChooserView;->mListPopupWindow:Landroid/widget/ListPopupWindow;
 
-    if-nez v0, :cond_2f
+    if-nez v0, :cond_0
 
     .line 477
     new-instance v0, Landroid/widget/ListPopupWindow;
@@ -524,14 +524,14 @@
     invoke-virtual {v0, v1}, Landroid/widget/ListPopupWindow;->setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
 
     .line 484
-    :cond_2f
+    :cond_0
     iget-object v0, p0, Landroid/widget/ActivityChooserView;->mListPopupWindow:Landroid/widget/ListPopupWindow;
 
     return-object v0
 .end method
 
 .method private showPopupUnchecked(I)V
-    .registers 11
+    .locals 9
     .parameter "maxActivityCount"
 
     .prologue
@@ -546,7 +546,7 @@
 
     move-result-object v7
 
-    if-nez v7, :cond_12
+    if-nez v7, :cond_0
 
     .line 320
     new-instance v5, Ljava/lang/IllegalStateException;
@@ -558,7 +558,7 @@
     throw v5
 
     .line 323
-    :cond_12
+    :cond_0
     invoke-virtual {p0}, Landroid/widget/ActivityChooserView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v7
@@ -574,13 +574,13 @@
 
     move-result v7
 
-    if-nez v7, :cond_83
+    if-nez v7, :cond_4
 
     move v2, v5
 
     .line 328
     .local v2, defaultActivityButtonShown:Z
-    :goto_24
+    :goto_0
     iget-object v7, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
     invoke-virtual {v7}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->getActivityCount()I
@@ -589,20 +589,20 @@
 
     .line 329
     .local v0, activityCount:I
-    if-eqz v2, :cond_85
+    if-eqz v2, :cond_5
 
     move v3, v5
 
     .line 330
     .local v3, maxActivityCountOffset:I
-    :goto_2d
+    :goto_1
     const v7, 0x7fffffff
 
-    if-eq p1, v7, :cond_87
+    if-eq p1, v7, :cond_6
 
     add-int v7, p1, v3
 
-    if-le v0, v7, :cond_87
+    if-le v0, v7, :cond_6
 
     .line 332
     iget-object v7, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
@@ -617,7 +617,7 @@
     invoke-virtual {v7, v8}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->setMaxActivityCount(I)V
 
     .line 339
-    :goto_42
+    :goto_2
     invoke-direct {p0}, Landroid/widget/ActivityChooserView;->getListPopupWindow()Landroid/widget/ListPopupWindow;
 
     move-result-object v4
@@ -628,23 +628,23 @@
 
     move-result v7
 
-    if-nez v7, :cond_82
+    if-nez v7, :cond_3
 
     .line 341
     iget-boolean v7, p0, Landroid/widget/ActivityChooserView;->mIsSelectingDefaultActivity:Z
 
-    if-nez v7, :cond_52
+    if-nez v7, :cond_1
 
-    if-nez v2, :cond_92
+    if-nez v2, :cond_7
 
     .line 342
-    :cond_52
+    :cond_1
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
     invoke-virtual {v6, v5, v2}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->setShowDefaultActivity(ZZ)V
 
     .line 346
-    :goto_57
+    :goto_3
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
     invoke-virtual {v6}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->measureContentWidth()I
@@ -667,7 +667,7 @@
     .line 349
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mProvider:Landroid/view/ActionProvider;
 
-    if-eqz v6, :cond_72
+    if-eqz v6, :cond_2
 
     .line 350
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mProvider:Landroid/view/ActionProvider;
@@ -675,7 +675,7 @@
     invoke-virtual {v6, v5}, Landroid/view/ActionProvider;->subUiVisibilityChanged(Z)V
 
     .line 352
-    :cond_72
+    :cond_2
     invoke-virtual {v4}, Landroid/widget/ListPopupWindow;->getListView()Landroid/widget/ListView;
 
     move-result-object v5
@@ -692,30 +692,30 @@
 
     .line 355
     .end local v1           #contentWidth:I
-    :cond_82
+    :cond_3
     return-void
 
     .end local v0           #activityCount:I
     .end local v2           #defaultActivityButtonShown:Z
     .end local v3           #maxActivityCountOffset:I
     .end local v4           #popupWindow:Landroid/widget/ListPopupWindow;
-    :cond_83
+    :cond_4
     move v2, v6
 
     .line 325
-    goto :goto_24
+    goto :goto_0
 
     .restart local v0       #activityCount:I
     .restart local v2       #defaultActivityButtonShown:Z
-    :cond_85
+    :cond_5
     move v3, v6
 
     .line 329
-    goto :goto_2d
+    goto :goto_1
 
     .line 335
     .restart local v3       #maxActivityCountOffset:I
-    :cond_87
+    :cond_6
     iget-object v7, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
     invoke-virtual {v7, v6}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->setShowFooterView(Z)V
@@ -725,20 +725,20 @@
 
     invoke-virtual {v7, p1}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->setMaxActivityCount(I)V
 
-    goto :goto_42
+    goto :goto_2
 
     .line 344
     .restart local v4       #popupWindow:Landroid/widget/ListPopupWindow;
-    :cond_92
+    :cond_7
     iget-object v7, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
     invoke-virtual {v7, v6, v6}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->setShowDefaultActivity(ZZ)V
 
-    goto :goto_57
+    goto :goto_3
 .end method
 
 .method private updateAppearance()V
-    .registers 11
+    .locals 10
 
     .prologue
     const/4 v8, 0x1
@@ -752,7 +752,7 @@
 
     move-result v6
 
-    if-lez v6, :cond_62
+    if-lez v6, :cond_1
 
     .line 493
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mExpandActivityOverflowButton:Landroid/widget/FrameLayout;
@@ -760,7 +760,7 @@
     invoke-virtual {v6, v8}, Landroid/widget/FrameLayout;->setEnabled(Z)V
 
     .line 498
-    :goto_f
+    :goto_0
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
     invoke-virtual {v6}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->getActivityCount()I
@@ -777,9 +777,9 @@
 
     .line 500
     .local v3, historySize:I
-    if-lez v1, :cond_68
+    if-lez v1, :cond_2
 
-    if-lez v3, :cond_68
+    if-lez v3, :cond_2
 
     .line 501
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mDefaultActivityButton:Landroid/widget/FrameLayout;
@@ -814,7 +814,7 @@
     .line 505
     iget v6, p0, Landroid/widget/ActivityChooserView;->mDefaultActionButtonContentDescription:I
 
-    if-eqz v6, :cond_52
+    if-eqz v6, :cond_0
 
     .line 506
     invoke-virtual {v0, v5}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
@@ -846,15 +846,15 @@
     .end local v2           #contentDescription:Ljava/lang/String;
     .end local v4           #label:Ljava/lang/CharSequence;
     .end local v5           #packageManager:Landroid/content/pm/PackageManager;
-    :cond_52
-    :goto_52
+    :cond_0
+    :goto_1
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mDefaultActivityButton:Landroid/widget/FrameLayout;
 
     invoke-virtual {v6}, Landroid/widget/FrameLayout;->getVisibility()I
 
     move-result v6
 
-    if-nez v6, :cond_70
+    if-nez v6, :cond_3
 
     .line 516
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mActivityChooserContent:Landroid/widget/LinearLayout;
@@ -864,46 +864,46 @@
     invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 520
-    :goto_61
+    :goto_2
     return-void
 
     .line 495
     .end local v1           #activityCount:I
     .end local v3           #historySize:I
-    :cond_62
+    :cond_1
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mExpandActivityOverflowButton:Landroid/widget/FrameLayout;
 
     invoke-virtual {v6, v9}, Landroid/widget/FrameLayout;->setEnabled(Z)V
 
-    goto :goto_f
+    goto :goto_0
 
     .line 512
     .restart local v1       #activityCount:I
     .restart local v3       #historySize:I
-    :cond_68
+    :cond_2
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mDefaultActivityButton:Landroid/widget/FrameLayout;
 
     const/16 v7, 0x8
 
     invoke-virtual {v6, v7}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    goto :goto_52
+    goto :goto_1
 
     .line 518
-    :cond_70
+    :cond_3
     iget-object v6, p0, Landroid/widget/ActivityChooserView;->mActivityChooserContent:Landroid/widget/LinearLayout;
 
     const/4 v7, 0x0
 
     invoke-virtual {v6, v7}, Landroid/widget/LinearLayout;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_61
+    goto :goto_2
 .end method
 
 
 # virtual methods
 .method public dismissPopup()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 363
@@ -911,7 +911,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1c
+    if-eqz v1, :cond_0
 
     .line 364
     invoke-direct {p0}, Landroid/widget/ActivityChooserView;->getListPopupWindow()Landroid/widget/ListPopupWindow;
@@ -931,7 +931,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1c
+    if-eqz v1, :cond_0
 
     .line 367
     iget-object v1, p0, Landroid/widget/ActivityChooserView;->mOnGlobalLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
@@ -940,14 +940,14 @@
 
     .line 370
     .end local v0           #viewTreeObserver:Landroid/view/ViewTreeObserver;
-    :cond_1c
+    :cond_0
     const/4 v1, 0x1
 
     return v1
 .end method
 
 .method public getDataModel()Landroid/widget/ActivityChooserModel;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 432
@@ -961,7 +961,7 @@
 .end method
 
 .method public isShowingPopup()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 379
@@ -977,7 +977,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 384
@@ -992,7 +992,7 @@
 
     .line 386
     .local v0, dataModel:Landroid/widget/ActivityChooserModel;
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 387
     iget-object v1, p0, Landroid/widget/ActivityChooserView;->mModelDataSetOberver:Landroid/database/DataSetObserver;
@@ -1000,7 +1000,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/ActivityChooserModel;->registerObserver(Ljava/lang/Object;)V
 
     .line 389
-    :cond_10
+    :cond_0
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/widget/ActivityChooserView;->mIsAttachedToWindow:Z
@@ -1010,7 +1010,7 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 394
@@ -1025,7 +1025,7 @@
 
     .line 396
     .local v0, dataModel:Landroid/widget/ActivityChooserModel;
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 397
     iget-object v2, p0, Landroid/widget/ActivityChooserView;->mModelDataSetOberver:Landroid/database/DataSetObserver;
@@ -1033,7 +1033,7 @@
     invoke-virtual {v0, v2}, Landroid/widget/ActivityChooserModel;->unregisterObserver(Ljava/lang/Object;)V
 
     .line 399
-    :cond_10
+    :cond_0
     invoke-virtual {p0}, Landroid/widget/ActivityChooserView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v1
@@ -1044,7 +1044,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_1
 
     .line 401
     iget-object v2, p0, Landroid/widget/ActivityChooserView;->mOnGlobalLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
@@ -1052,18 +1052,18 @@
     invoke-virtual {v1, v2}, Landroid/view/ViewTreeObserver;->removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
     .line 403
-    :cond_1f
+    :cond_1
     invoke-virtual {p0}, Landroid/widget/ActivityChooserView;->isShowingPopup()Z
 
     move-result v2
 
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_2
 
     .line 404
     invoke-virtual {p0}, Landroid/widget/ActivityChooserView;->dismissPopup()Z
 
     .line 406
-    :cond_28
+    :cond_2
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Landroid/widget/ActivityChooserView;->mIsAttachedToWindow:Z
@@ -1073,7 +1073,7 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .registers 10
+    .locals 4
     .parameter "changed"
     .parameter "left"
     .parameter "top"
@@ -1097,18 +1097,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_0
 
     .line 427
     invoke-virtual {p0}, Landroid/widget/ActivityChooserView;->dismissPopup()Z
 
     .line 429
-    :cond_13
+    :cond_0
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .registers 6
+    .locals 3
     .parameter "widthMeasureSpec"
     .parameter "heightMeasureSpec"
 
@@ -1124,7 +1124,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_0
 
     .line 416
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
@@ -1138,7 +1138,7 @@
     move-result p2
 
     .line 419
-    :cond_14
+    :cond_0
     invoke-virtual {p0, v0, p1, p2}, Landroid/widget/ActivityChooserView;->measureChild(Landroid/view/View;II)V
 
     .line 420
@@ -1157,7 +1157,7 @@
 .end method
 
 .method public setActivityChooserModel(Landroid/widget/ActivityChooserModel;)V
-    .registers 3
+    .locals 1
     .parameter "dataModel"
 
     .prologue
@@ -1171,7 +1171,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 256
     invoke-virtual {p0}, Landroid/widget/ActivityChooserView;->dismissPopup()Z
@@ -1180,12 +1180,12 @@
     invoke-virtual {p0}, Landroid/widget/ActivityChooserView;->showPopup()Z
 
     .line 259
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 .method public setDefaultActionButtonContentDescription(I)V
-    .registers 2
+    .locals 0
     .parameter "resourceId"
 
     .prologue
@@ -1197,7 +1197,7 @@
 .end method
 
 .method public setExpandActivityOverflowButtonContentDescription(I)V
-    .registers 4
+    .locals 2
     .parameter "resourceId"
 
     .prologue
@@ -1219,7 +1219,7 @@
 .end method
 
 .method public setExpandActivityOverflowButtonDrawable(Landroid/graphics/drawable/Drawable;)V
-    .registers 3
+    .locals 1
     .parameter "drawable"
 
     .prologue
@@ -1233,7 +1233,7 @@
 .end method
 
 .method public setInitialActivityCount(I)V
-    .registers 2
+    .locals 0
     .parameter "itemCount"
 
     .prologue
@@ -1245,7 +1245,7 @@
 .end method
 
 .method public setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue
@@ -1257,7 +1257,7 @@
 .end method
 
 .method public setProvider(Landroid/view/ActionProvider;)V
-    .registers 2
+    .locals 0
     .parameter "provider"
 
     .prologue
@@ -1269,7 +1269,7 @@
 .end method
 
 .method public showPopup()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x0
@@ -1279,19 +1279,19 @@
 
     move-result v1
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_0
 
     iget-boolean v1, p0, Landroid/widget/ActivityChooserView;->mIsAttachedToWindow:Z
 
-    if-nez v1, :cond_c
+    if-nez v1, :cond_1
 
     .line 310
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return v0
 
     .line 308
-    :cond_c
+    :cond_1
     iput-boolean v0, p0, Landroid/widget/ActivityChooserView;->mIsSelectingDefaultActivity:Z
 
     .line 309
@@ -1302,5 +1302,5 @@
     .line 310
     const/4 v0, 0x1
 
-    goto :goto_b
+    goto :goto_0
 .end method

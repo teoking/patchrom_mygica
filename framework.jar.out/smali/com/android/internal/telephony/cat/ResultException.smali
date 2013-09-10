@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/internal/telephony/cat/ResultCode;)V
-    .registers 5
+    .locals 3
     .parameter "result"
 
     .prologue
@@ -37,7 +37,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_38
+    packed-switch v0, :pswitch_data_0
 
     .line 50
     iput-object p1, p0, Lcom/android/internal/telephony/cat/ResultException;->mResult:Lcom/android/internal/telephony/cat/ResultCode;
@@ -56,7 +56,7 @@
     return-void
 
     .line 45
-    :pswitch_18
+    :pswitch_0
     new-instance v0, Ljava/lang/AssertionError;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -90,21 +90,21 @@
     .line 36
     nop
 
-    :pswitch_data_38
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_18
-        :pswitch_18
-        :pswitch_18
-        :pswitch_18
-        :pswitch_18
-        :pswitch_18
-        :pswitch_18
-        :pswitch_18
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public constructor <init>(Lcom/android/internal/telephony/cat/ResultCode;I)V
-    .registers 5
+    .locals 2
     .parameter "result"
     .parameter "additionalInfo"
 
@@ -113,7 +113,7 @@
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cat/ResultException;-><init>(Lcom/android/internal/telephony/cat/ResultCode;)V
 
     .line 63
-    if-gez p2, :cond_d
+    if-gez p2, :cond_0
 
     .line 64
     new-instance v0, Ljava/lang/AssertionError;
@@ -125,7 +125,7 @@
     throw v0
 
     .line 68
-    :cond_d
+    :cond_0
     iput p2, p0, Lcom/android/internal/telephony/cat/ResultException;->mAdditionalInfo:I
 
     .line 69
@@ -133,7 +133,7 @@
 .end method
 
 .method public constructor <init>(Lcom/android/internal/telephony/cat/ResultCode;ILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "result"
     .parameter "additionalInfo"
     .parameter "explanation"
@@ -150,7 +150,7 @@
 .end method
 
 .method public constructor <init>(Lcom/android/internal/telephony/cat/ResultCode;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "result"
     .parameter "explanation"
 
@@ -168,7 +168,7 @@
 
 # virtual methods
 .method public additionalInfo()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 85
@@ -178,7 +178,7 @@
 .end method
 
 .method public explanation()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 89
@@ -188,27 +188,27 @@
 .end method
 
 .method public hasAdditionalInfo()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
     iget v0, p0, Lcom/android/internal/telephony/cat/ResultException;->mAdditionalInfo:I
 
-    if-ltz v0, :cond_6
+    if-ltz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public result()Lcom/android/internal/telephony/cat/ResultCode;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 77
@@ -218,7 +218,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 94

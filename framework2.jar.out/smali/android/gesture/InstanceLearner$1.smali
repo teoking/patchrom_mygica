@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 29
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public compare(Landroid/gesture/Prediction;Landroid/gesture/Prediction;)I
-    .registers 8
+    .locals 5
     .parameter "object1"
     .parameter "object2"
 
@@ -57,35 +57,35 @@
     .local v2, score2:D
     cmpl-double v4, v0, v2
 
-    if-lez v4, :cond_a
+    if-lez v4, :cond_0
 
     .line 34
     const/4 v4, -0x1
 
     .line 38
-    :goto_9
+    :goto_0
     return v4
 
     .line 35
-    :cond_a
+    :cond_0
     cmpg-double v4, v0, v2
 
-    if-gez v4, :cond_10
+    if-gez v4, :cond_1
 
     .line 36
     const/4 v4, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 38
-    :cond_10
+    :cond_1
     const/4 v4, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 

@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 101
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public onTerribleFailure(Ljava/lang/String;Landroid/util/Log$TerribleFailure;)V
-    .registers 3
+    .locals 0
     .parameter "tag"
     .parameter "what"
 

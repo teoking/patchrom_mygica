@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 86
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -69,7 +69,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;IIILjava/lang/CharSequence;)V
-    .registers 7
+    .locals 1
     .parameter "iconPackage"
     .parameter "iconId"
     .parameter "iconLevel"
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public clone()Lcom/android/internal/statusbar/StatusBarIcon;
-    .registers 7
+    .locals 6
 
     .prologue
     .line 48
@@ -136,7 +136,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -153,7 +153,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 80
@@ -163,7 +163,7 @@
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -193,11 +193,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_19
+    :goto_0
     iput-boolean v0, p0, Lcom/android/internal/statusbar/StatusBarIcon;->visible:Z
 
     .line 66
@@ -218,14 +218,14 @@
     return-void
 
     .line 65
-    :cond_28
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 41
@@ -311,7 +311,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "out"
     .parameter "flags"
 
@@ -334,11 +334,11 @@
     .line 74
     iget-boolean v0, p0, Lcom/android/internal/statusbar/StatusBarIcon;->visible:Z
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_14
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 75
@@ -355,8 +355,8 @@
     return-void
 
     .line 74
-    :cond_22
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_14
+    goto :goto_0
 .end method

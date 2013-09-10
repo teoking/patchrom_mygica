@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/RemoteViews$SetOnClickFillInIntent;Landroid/widget/RemoteViews$OnClickHandler;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 11
+    .locals 9
     .parameter "v"
 
     .prologue
@@ -62,14 +62,14 @@
 
     .line 279
     .local v1, parent:Landroid/view/View;
-    :goto_a
+    :goto_0
     instance-of v5, v1, Landroid/widget/AdapterView;
 
-    if-nez v5, :cond_19
+    if-nez v5, :cond_0
 
     instance-of v5, v1, Landroid/appwidget/AppWidgetHostView;
 
-    if-nez v5, :cond_19
+    if-nez v5, :cond_0
 
     .line 280
     invoke-virtual {v1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -80,13 +80,13 @@
     check-cast v1, Landroid/view/View;
 
     .restart local v1       #parent:Landroid/view/View;
-    goto :goto_a
+    goto :goto_0
 
     .line 283
-    :cond_19
+    :cond_0
     instance-of v5, v1, Landroid/appwidget/AppWidgetHostView;
 
-    if-eqz v5, :cond_25
+    if-eqz v5, :cond_1
 
     .line 286
     const-string v5, "RemoteViews"
@@ -96,18 +96,18 @@
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 312
-    :goto_24
+    :goto_1
     return-void
 
     .line 291
-    :cond_25
+    :cond_1
     invoke-virtual {v1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v5
 
     instance-of v5, v5, Landroid/app/PendingIntent;
 
-    if-nez v5, :cond_35
+    if-nez v5, :cond_2
 
     .line 292
     const-string v5, "RemoteViews"
@@ -116,10 +116,10 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_24
+    goto :goto_1
 
     .line 297
-    :cond_35
+    :cond_2
     invoke-virtual {v1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v2
@@ -238,5 +238,5 @@
 
     invoke-virtual {v5, p1, v2, v6}, Landroid/widget/RemoteViews$OnClickHandler;->onClickHandler(Landroid/view/View;Landroid/app/PendingIntent;Landroid/content/Intent;)Z
 
-    goto :goto_24
+    goto :goto_1
 .end method

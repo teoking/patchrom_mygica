@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 6
 
     .prologue
     .line 3434
@@ -57,7 +57,7 @@
     monitor-enter v2
 
     .line 3435
-    :try_start_3
+    :try_start_0
     new-instance v0, Lcom/android/server/am/LaunchWarningWindow;
 
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$5;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -95,12 +95,12 @@
 
     .line 3446
     .end local v0           #d:Landroid/app/Dialog;
-    :catchall_23
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_25
-    .catchall {:try_start_3 .. :try_end_25} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/animation/Animation;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 359
@@ -46,7 +46,7 @@
 
     iget-object v0, v0, Landroid/view/animation/Animation;->mListener:Landroid/view/animation/Animation$AnimationListener;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 360
     iget-object v0, p0, Landroid/view/animation/Animation$1;->this$0:Landroid/view/animation/Animation;
@@ -58,6 +58,6 @@
     invoke-interface {v0, v1}, Landroid/view/animation/Animation$AnimationListener;->onAnimationStart(Landroid/view/animation/Animation;)V
 
     .line 362
-    :cond_f
+    :cond_0
     return-void
 .end method

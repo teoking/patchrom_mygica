@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -24,7 +24,7 @@
 .end method
 
 .method public static get(Landroid/content/Context;)Lcom/android/internal/view/ActionBarPolicy;
-    .registers 2
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public enableHomeButtonByDefault()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 82
@@ -53,21 +53,21 @@
 
     const/16 v1, 0xe
 
-    if-ge v0, v1, :cond_e
+    if-ge v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public getEmbeddedMenuWidthLimit()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 51
@@ -89,7 +89,7 @@
 .end method
 
 .method public getMaxActionButtons()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 43
@@ -109,7 +109,7 @@
 .end method
 
 .method public getStackedTabMaxWidth()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 87
@@ -129,7 +129,7 @@
 .end method
 
 .method public getTabContainerHeight()I
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v7, 0x0
@@ -169,7 +169,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_29
+    if-nez v3, :cond_0
 
     .line 72
     const v3, 0x1050050
@@ -183,7 +183,7 @@
     move-result v1
 
     .line 75
-    :cond_29
+    :cond_0
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 76
@@ -191,7 +191,7 @@
 .end method
 
 .method public hasEmbeddedTabs()Z
-    .registers 4
+    .locals 3
 
     .prologue
     .line 55
@@ -207,7 +207,7 @@
     .local v0, targetSdk:I
     const/16 v1, 0x10
 
-    if-lt v0, v1, :cond_19
+    if-lt v0, v1, :cond_0
 
     .line 57
     iget-object v1, p0, Lcom/android/internal/view/ActionBarPolicy;->mContext:Landroid/content/Context;
@@ -223,10 +223,10 @@
     move-result v1
 
     .line 62
-    :goto_18
+    :goto_0
     return v1
 
-    :cond_19
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/view/ActionBarPolicy;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -239,11 +239,11 @@
 
     move-result v1
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method public showsOverflowMenuButton()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 47
@@ -257,15 +257,15 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_d
+    :goto_0
     return v0
 
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_d
+    goto :goto_0
 .end method

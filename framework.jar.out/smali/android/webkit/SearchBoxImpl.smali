@@ -69,7 +69,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/WebViewCore;Landroid/webkit/CallbackProxy;)V
-    .registers 4
+    .locals 1
     .parameter "webViewCore"
     .parameter "callbackProxy"
 
@@ -107,19 +107,19 @@
 .end method
 
 .method private dispatchEvent(Ljava/lang/String;Landroid/webkit/SearchBox$SearchBoxListener;)V
-    .registers 9
+    .locals 6
     .parameter "eventName"
     .parameter "callback"
 
     .prologue
     .line 178
-    if-eqz p2, :cond_2d
+    if-eqz p2, :cond_0
 
     .line 179
     monitor-enter p0
 
     .line 180
-    :try_start_3
+    :try_start_0
     iget v0, p0, Landroid/webkit/SearchBoxImpl;->mNextEventId:I
 
     add-int/lit8 v2, v0, 0x1
@@ -138,11 +138,11 @@
 
     .line 182
     monitor-exit p0
-    :try_end_13
-    .catchall {:try_start_3 .. :try_end_13} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 186
-    :goto_13
+    :goto_0
     const-string v2, "if (window.chrome && window.chrome.searchBox && window.chrome.searchBox.on%1$s) {  window.chrome.searchBox.on%1$s();  window.searchBoxJavaBridge_.dispatchCompleteCallback(\'%1$s\', %2$d, true);} else {  window.searchBoxJavaBridge_.dispatchCompleteCallback(\'%1$s\', %2$d, false);}"
 
     const/4 v3, 0x2
@@ -175,26 +175,26 @@
     .line 182
     .end local v0           #eventId:I
     .end local v1           #js:Ljava/lang/String;
-    :catchall_2a
+    :catchall_0
     move-exception v2
 
-    :try_start_2b
+    :try_start_1
     monitor-exit p0
-    :try_end_2c
-    .catchall {:try_start_2b .. :try_end_2c} :catchall_2a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v2
 
     .line 184
-    :cond_2d
+    :cond_0
     const/4 v0, 0x0
 
     .restart local v0       #eventId:I
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method private dispatchJs(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "js"
 
     .prologue
@@ -210,7 +210,7 @@
 .end method
 
 .method private static jsonSerialize(Ljava/lang/String;)Ljava/lang/String;
-    .registers 6
+    .locals 5
     .parameter "query"
 
     .prologue
@@ -221,7 +221,7 @@
 
     .line 258
     .local v1, stringer:Lorg/json/JSONStringer;
-    :try_start_5
+    :try_start_0
     invoke-virtual {v1}, Lorg/json/JSONStringer;->array()Lorg/json/JSONStringer;
 
     move-result-object v2
@@ -231,19 +231,19 @@
     move-result-object v2
 
     invoke-virtual {v2}, Lorg/json/JSONStringer;->endArray()Lorg/json/JSONStringer;
-    :try_end_10
-    .catch Lorg/json/JSONException; {:try_start_5 .. :try_end_10} :catch_15
+    :try_end_0
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 263
     invoke-virtual {v1}, Lorg/json/JSONStringer;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    :goto_14
+    :goto_0
     return-object v2
 
     .line 259
-    :catch_15
+    :catch_0
     move-exception v0
 
     .line 260
@@ -273,13 +273,13 @@
     .line 261
     const/4 v2, 0x0
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public addSearchBoxListener(Landroid/webkit/SearchBox$SearchBoxListener;)V
-    .registers 4
+    .locals 2
     .parameter "l"
 
     .prologue
@@ -289,7 +289,7 @@
     monitor-enter v1
 
     .line 197
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/webkit/SearchBoxImpl;->mListeners:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -301,18 +301,18 @@
     return-void
 
     .line 198
-    :catchall_a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_c
-    .catchall {:try_start_3 .. :try_end_c} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public dispatchCompleteCallback(Ljava/lang/String;IZ)V
-    .registers 5
+    .locals 1
     .parameter "function"
     .parameter "id"
     .parameter "successful"
@@ -328,20 +328,20 @@
 .end method
 
 .method public handleDispatchCompleteCallback(Ljava/lang/String;IZ)V
-    .registers 7
+    .locals 3
     .parameter "function"
     .parameter "id"
     .parameter "successful"
 
     .prologue
     .line 233
-    if-eqz p2, :cond_26
+    if-eqz p2, :cond_0
 
     .line 235
     monitor-enter p0
 
     .line 236
-    :try_start_3
+    :try_start_0
     iget-object v1, p0, Landroid/webkit/SearchBoxImpl;->mEventCallbacks:Ljava/util/HashMap;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -366,11 +366,11 @@
 
     .line 238
     monitor-exit p0
-    :try_end_19
-    .catchall {:try_start_3 .. :try_end_19} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 239
-    if-eqz v0, :cond_26
+    if-eqz v0, :cond_0
 
     .line 240
     const-string v1, "change"
@@ -379,77 +379,77 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2a
+    if-eqz v1, :cond_1
 
     .line 241
     invoke-virtual {v0, p3}, Landroid/webkit/SearchBox$SearchBoxListener;->onChangeComplete(Z)V
 
     .line 251
     .end local v0           #listener:Landroid/webkit/SearchBox$SearchBoxListener;
-    :cond_26
-    :goto_26
+    :cond_0
+    :goto_0
     return-void
 
     .line 238
-    :catchall_27
+    :catchall_0
     move-exception v1
 
-    :try_start_28
+    :try_start_1
     monitor-exit p0
-    :try_end_29
-    .catchall {:try_start_28 .. :try_end_29} :catchall_27
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 
     .line 242
     .restart local v0       #listener:Landroid/webkit/SearchBox$SearchBoxListener;
-    :cond_2a
+    :cond_1
     const-string/jumbo v1, "submit"
 
     invoke-static {v1, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_37
+    if-eqz v1, :cond_2
 
     .line 243
     invoke-virtual {v0, p3}, Landroid/webkit/SearchBox$SearchBoxListener;->onSubmitComplete(Z)V
 
-    goto :goto_26
+    goto :goto_0
 
     .line 244
-    :cond_37
+    :cond_2
     const-string/jumbo v1, "resize"
 
     invoke-static {v1, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_44
+    if-eqz v1, :cond_3
 
     .line 245
     invoke-virtual {v0, p3}, Landroid/webkit/SearchBox$SearchBoxListener;->onResizeComplete(Z)V
 
-    goto :goto_26
+    goto :goto_0
 
     .line 246
-    :cond_44
+    :cond_3
     const-string v1, "cancel"
 
     invoke-static {v1, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_26
+    if-eqz v1, :cond_0
 
     .line 247
     invoke-virtual {v0, p3}, Landroid/webkit/SearchBox$SearchBoxListener;->onCancelComplete(Z)V
 
-    goto :goto_26
+    goto :goto_0
 .end method
 
 .method public handleIsSupportedCallback(Z)V
-    .registers 4
+    .locals 2
     .parameter "isSupported"
 
     .prologue
@@ -463,18 +463,18 @@
     iput-object v1, p0, Landroid/webkit/SearchBoxImpl;->mSupportedCallback:Landroid/webkit/SearchBox$IsSupportedCallback;
 
     .line 222
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 223
     invoke-interface {v0, p1}, Landroid/webkit/SearchBox$IsSupportedCallback;->searchBoxIsSupported(Z)V
 
     .line 225
-    :cond_a
+    :cond_0
     return-void
 .end method
 
 .method handleSuggestions(Ljava/lang/String;Ljava/util/List;)V
-    .registers 6
+    .locals 3
     .parameter "query"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -496,7 +496,7 @@
     monitor-enter v2
 
     .line 299
-    :try_start_3
+    :try_start_0
     iget-object v1, p0, Landroid/webkit/SearchBoxImpl;->mListeners:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
@@ -506,8 +506,8 @@
     add-int/lit8 v0, v1, -0x1
 
     .local v0, i:I
-    :goto_b
-    if-ltz v0, :cond_1b
+    :goto_0
+    if-ltz v0, :cond_0
 
     .line 300
     iget-object v1, p0, Landroid/webkit/SearchBoxImpl;->mListeners:Ljava/util/List;
@@ -523,10 +523,10 @@
     .line 299
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 302
-    :cond_1b
+    :cond_0
     monitor-exit v2
 
     .line 303
@@ -534,18 +534,18 @@
 
     .line 302
     .end local v0           #i:I
-    :catchall_1d
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_1f
-    .catchall {:try_start_3 .. :try_end_1f} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public isSupported(Landroid/webkit/SearchBox$IsSupportedCallback;)V
-    .registers 3
+    .locals 1
     .parameter "callback"
 
     .prologue
@@ -562,7 +562,7 @@
 .end method
 
 .method public isSupportedCallback(Z)V
-    .registers 3
+    .locals 1
     .parameter "isSupported"
 
     .prologue
@@ -576,7 +576,7 @@
 .end method
 
 .method public oncancel(Landroid/webkit/SearchBox$SearchBoxListener;)V
-    .registers 3
+    .locals 1
     .parameter "callback"
 
     .prologue
@@ -590,7 +590,7 @@
 .end method
 
 .method public onchange(Landroid/webkit/SearchBox$SearchBoxListener;)V
-    .registers 3
+    .locals 1
     .parameter "callback"
 
     .prologue
@@ -604,7 +604,7 @@
 .end method
 
 .method public onresize(Landroid/webkit/SearchBox$SearchBoxListener;)V
-    .registers 3
+    .locals 1
     .parameter "callback"
 
     .prologue
@@ -618,7 +618,7 @@
 .end method
 
 .method public onsubmit(Landroid/webkit/SearchBox$SearchBoxListener;)V
-    .registers 3
+    .locals 1
     .parameter "callback"
 
     .prologue
@@ -632,7 +632,7 @@
 .end method
 
 .method public removeSearchBoxListener(Landroid/webkit/SearchBox$SearchBoxListener;)V
-    .registers 4
+    .locals 2
     .parameter "l"
 
     .prologue
@@ -642,7 +642,7 @@
     monitor-enter v1
 
     .line 204
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/webkit/SearchBoxImpl;->mListeners:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
@@ -654,18 +654,18 @@
     return-void
 
     .line 205
-    :catchall_a
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_c
-    .catchall {:try_start_3 .. :try_end_c} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setDimensions(IIII)V
-    .registers 10
+    .locals 5
     .parameter "x"
     .parameter "y"
     .parameter "width"
@@ -724,7 +724,7 @@
 .end method
 
 .method public setQuery(Ljava/lang/String;)V
-    .registers 7
+    .locals 5
     .parameter "query"
 
     .prologue
@@ -735,7 +735,7 @@
 
     .line 131
     .local v0, formattedQuery:Ljava/lang/String;
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 132
     const-string v2, "if (window.chrome && window.chrome.searchBox) {  window.chrome.searchBox.setValue(%s);}"
@@ -758,12 +758,12 @@
 
     .line 135
     .end local v1           #js:Ljava/lang/String;
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method public setSelection(II)V
-    .registers 8
+    .locals 5
     .parameter "selectionStart"
     .parameter "selectionEnd"
 
@@ -804,19 +804,19 @@
 .end method
 
 .method public setSuggestions(Ljava/lang/String;)V
-    .registers 13
+    .locals 11
     .parameter "jsonArguments"
 
     .prologue
     .line 268
-    if-nez p1, :cond_3
+    if-nez p1, :cond_0
 
     .line 295
-    :goto_2
+    :goto_0
     return-void
 
     .line 272
-    :cond_3
+    :cond_0
     const/4 v2, 0x0
 
     .line 273
@@ -827,7 +827,7 @@
 
     .line 275
     .local v4, suggestions:Ljava/util/List;,"Ljava/util/List<Ljava/lang/String;>;"
-    :try_start_9
+    :try_start_0
     new-instance v6, Lorg/json/JSONObject;
 
     invoke-direct {v6, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
@@ -852,12 +852,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1d
+    :goto_1
     invoke-virtual {v5}, Lorg/json/JSONArray;->length()I
 
     move-result v8
 
-    if-ge v0, v8, :cond_5a
+    if-ge v0, v8, :cond_2
 
     .line 280
     invoke-virtual {v5, v0}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
@@ -874,18 +874,18 @@
 
     .line 282
     .local v7, value:Ljava/lang/String;
-    if-eqz v7, :cond_33
+    if-eqz v7, :cond_1
 
     .line 283
     invoke-interface {v4, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_33
-    .catch Lorg/json/JSONException; {:try_start_9 .. :try_end_33} :catch_36
+    :try_end_0
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 279
-    :cond_33
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1d
+    goto :goto_1
 
     .line 289
     .end local v0           #i:I
@@ -893,7 +893,7 @@
     .end local v5           #suggestionsArray:Lorg/json/JSONArray;
     .end local v6           #suggestionsJson:Lorg/json/JSONObject;
     .end local v7           #value:Ljava/lang/String;
-    :catch_36
+    :catch_0
     move-exception v1
 
     .line 290
@@ -930,23 +930,23 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2
+    goto :goto_0
 
     .line 294
     .end local v1           #je:Lorg/json/JSONException;
     .restart local v0       #i:I
     .restart local v5       #suggestionsArray:Lorg/json/JSONArray;
     .restart local v6       #suggestionsJson:Lorg/json/JSONObject;
-    :cond_5a
+    :cond_2
     iget-object v8, p0, Landroid/webkit/SearchBoxImpl;->mCallbackProxy:Landroid/webkit/CallbackProxy;
 
     invoke-virtual {v8, v2, v4}, Landroid/webkit/CallbackProxy;->onSearchboxSuggestionsReceived(Ljava/lang/String;Ljava/util/List;)V
 
-    goto :goto_2
+    goto :goto_0
 .end method
 
 .method public setVerbatim(Z)V
-    .registers 7
+    .locals 5
     .parameter "verbatim"
 
     .prologue

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/appwidget/AppWidgetHost;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public providerChanged(ILandroid/appwidget/AppWidgetProviderInfo;)V
-    .registers 6
+    .locals 3
     .parameter "appWidgetId"
     .parameter "info"
 
@@ -66,7 +66,7 @@
 .end method
 
 .method public updateAppWidget(ILandroid/widget/RemoteViews;)V
-    .registers 6
+    .locals 3
     .parameter "appWidgetId"
     .parameter "views"
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public viewDataChanged(II)V
-    .registers 6
+    .locals 3
     .parameter "appWidgetId"
     .parameter "viewId"
 

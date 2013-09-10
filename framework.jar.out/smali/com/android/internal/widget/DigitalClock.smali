@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 66
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -91,7 +91,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -116,7 +116,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/android/internal/widget/DigitalClock;Ljava/util/Calendar;)Ljava/util/Calendar;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -128,7 +128,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/internal/widget/DigitalClock;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -139,7 +139,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/internal/widget/DigitalClock;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -150,7 +150,7 @@
 .end method
 
 .method private setDateFormat()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 241
@@ -162,11 +162,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_0
 
     const-string v0, "kk:mm"
 
-    :goto_c
+    :goto_0
     iput-object v0, p0, Lcom/android/internal/widget/DigitalClock;->mFormat:Ljava/lang/String;
 
     .line 243
@@ -186,16 +186,16 @@
     return-void
 
     .line 241
-    :cond_1c
+    :cond_0
     const-string v0, "h:mm"
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected onAttachedToWindow()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 184
@@ -211,7 +211,7 @@
     .line 189
     iget-object v1, p0, Lcom/android/internal/widget/DigitalClock;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    if-nez v1, :cond_2f
+    if-nez v1, :cond_0
 
     .line 190
     new-instance v1, Lcom/android/internal/widget/DigitalClock$TimeChangedReceiver;
@@ -250,10 +250,10 @@
 
     .line 199
     .end local v0           #filter:Landroid/content/IntentFilter;
-    :cond_2f
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/widget/DigitalClock;->mFormatChangeObserver:Landroid/database/ContentObserver;
 
-    if-nez v1, :cond_48
+    if-nez v1, :cond_1
 
     .line 200
     new-instance v1, Lcom/android/internal/widget/DigitalClock$FormatChangeObserver;
@@ -278,7 +278,7 @@
     invoke-virtual {v1, v2, v3, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
     .line 205
-    :cond_48
+    :cond_1
     invoke-virtual {p0}, Lcom/android/internal/widget/DigitalClock;->updateTime()V
 
     .line 206
@@ -286,7 +286,7 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -304,7 +304,7 @@
     .line 214
     iget-object v0, p0, Lcom/android/internal/widget/DigitalClock;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 215
     iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
@@ -314,10 +314,10 @@
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     .line 217
-    :cond_15
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/widget/DigitalClock;->mFormatChangeObserver:Landroid/database/ContentObserver;
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_1
 
     .line 218
     iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
@@ -331,7 +331,7 @@
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
     .line 222
-    :cond_24
+    :cond_1
     iput-object v2, p0, Lcom/android/internal/widget/DigitalClock;->mFormatChangeObserver:Landroid/database/ContentObserver;
 
     .line 223
@@ -342,7 +342,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 167
@@ -415,7 +415,7 @@
 .end method
 
 .method public updateTime()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 232
@@ -458,25 +458,25 @@
 
     move-result v1
 
-    if-nez v1, :cond_2c
+    if-nez v1, :cond_0
 
     const/4 v1, 0x1
 
-    :goto_28
+    :goto_0
     invoke-virtual {v2, v1}, Lcom/android/internal/widget/DigitalClock$AmPm;->setIsMorning(Z)V
 
     .line 238
     return-void
 
     .line 237
-    :cond_2c
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_28
+    goto :goto_0
 .end method
 
 .method updateTime(Ljava/util/Calendar;)V
-    .registers 2
+    .locals 0
     .parameter "c"
 
     .prologue

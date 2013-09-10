@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .registers 4
+    .locals 1
     .parameter "width"
     .parameter "height"
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>(IIZ)V
-    .registers 4
+    .locals 0
     .parameter "width"
     .parameter "height"
     .parameter "isOverflowButton"
@@ -85,7 +85,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 3
+    .locals 0
     .parameter "c"
     .parameter "attrs"
 
@@ -98,7 +98,7 @@
 .end method
 
 .method public constructor <init>(Lcom/android/internal/view/menu/ActionMenuView$LayoutParams;)V
-    .registers 3
+    .locals 1
     .parameter "other"
 
     .prologue

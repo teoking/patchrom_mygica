@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/AudioTrack$NativeEventHandlerDelegate;Landroid/os/Looper;Landroid/media/AudioTrack;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter
@@ -41,26 +41,27 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "msg"
 
     .prologue
     .line 1145
     iget-object v1, p0, Landroid/media/AudioTrack$NativeEventHandlerDelegate$1;->this$1:Landroid/media/AudioTrack$NativeEventHandlerDelegate;
 
+    #getter for: Landroid/media/AudioTrack$NativeEventHandlerDelegate;->mAudioTrack:Landroid/media/AudioTrack;
     invoke-static {v1}, Landroid/media/AudioTrack$NativeEventHandlerDelegate;->access$100(Landroid/media/AudioTrack$NativeEventHandlerDelegate;)Landroid/media/AudioTrack;
 
     move-result-object v1
 
-    if-nez v1, :cond_9
+    if-nez v1, :cond_1
 
     .line 1168
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     return-void
 
     .line 1148
-    :cond_9
+    :cond_1
     const/4 v0, 0x0
 
     .line 1149
@@ -69,6 +70,7 @@
 
     iget-object v1, v1, Landroid/media/AudioTrack$NativeEventHandlerDelegate;->this$0:Landroid/media/AudioTrack;
 
+    #getter for: Landroid/media/AudioTrack;->mPositionListenerLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/media/AudioTrack;->access$200(Landroid/media/AudioTrack;)Ljava/lang/Object;
 
     move-result-object v2
@@ -76,26 +78,28 @@
     monitor-enter v2
 
     .line 1150
-    :try_start_13
+    :try_start_0
     iget-object v1, p0, Landroid/media/AudioTrack$NativeEventHandlerDelegate$1;->this$1:Landroid/media/AudioTrack$NativeEventHandlerDelegate;
 
+    #getter for: Landroid/media/AudioTrack$NativeEventHandlerDelegate;->mAudioTrack:Landroid/media/AudioTrack;
     invoke-static {v1}, Landroid/media/AudioTrack$NativeEventHandlerDelegate;->access$100(Landroid/media/AudioTrack$NativeEventHandlerDelegate;)Landroid/media/AudioTrack;
 
     move-result-object v1
 
+    #getter for: Landroid/media/AudioTrack;->mPositionListener:Landroid/media/AudioTrack$OnPlaybackPositionUpdateListener;
     invoke-static {v1}, Landroid/media/AudioTrack;->access$300(Landroid/media/AudioTrack;)Landroid/media/AudioTrack$OnPlaybackPositionUpdateListener;
 
     move-result-object v0
 
     .line 1151
     monitor-exit v2
-    :try_end_1e
-    .catchall {:try_start_13 .. :try_end_1e} :catchall_3e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1152
     iget v1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v1, :pswitch_data_5a
+    packed-switch v1, :pswitch_data_0
 
     .line 1164
     const-string v1, "AudioTrack-Java"
@@ -122,55 +126,57 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1151
-    :catchall_3e
+    :catchall_0
     move-exception v1
 
-    :try_start_3f
+    :try_start_1
     monitor-exit v2
-    :try_end_40
-    .catchall {:try_start_3f .. :try_end_40} :catchall_3e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 
     .line 1154
-    :pswitch_41
-    if-eqz v0, :cond_8
+    :pswitch_0
+    if-eqz v0, :cond_0
 
     .line 1155
     iget-object v1, p0, Landroid/media/AudioTrack$NativeEventHandlerDelegate$1;->this$1:Landroid/media/AudioTrack$NativeEventHandlerDelegate;
 
+    #getter for: Landroid/media/AudioTrack$NativeEventHandlerDelegate;->mAudioTrack:Landroid/media/AudioTrack;
     invoke-static {v1}, Landroid/media/AudioTrack$NativeEventHandlerDelegate;->access$100(Landroid/media/AudioTrack$NativeEventHandlerDelegate;)Landroid/media/AudioTrack;
 
     move-result-object v1
 
     invoke-interface {v0, v1}, Landroid/media/AudioTrack$OnPlaybackPositionUpdateListener;->onMarkerReached(Landroid/media/AudioTrack;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1159
-    :pswitch_4d
-    if-eqz v0, :cond_8
+    :pswitch_1
+    if-eqz v0, :cond_0
 
     .line 1160
     iget-object v1, p0, Landroid/media/AudioTrack$NativeEventHandlerDelegate$1;->this$1:Landroid/media/AudioTrack$NativeEventHandlerDelegate;
 
+    #getter for: Landroid/media/AudioTrack$NativeEventHandlerDelegate;->mAudioTrack:Landroid/media/AudioTrack;
     invoke-static {v1}, Landroid/media/AudioTrack$NativeEventHandlerDelegate;->access$100(Landroid/media/AudioTrack$NativeEventHandlerDelegate;)Landroid/media/AudioTrack;
 
     move-result-object v1
 
     invoke-interface {v0, v1}, Landroid/media/AudioTrack$OnPlaybackPositionUpdateListener;->onPeriodicNotification(Landroid/media/AudioTrack;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1152
     nop
 
-    :pswitch_data_5a
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_41
-        :pswitch_4d
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

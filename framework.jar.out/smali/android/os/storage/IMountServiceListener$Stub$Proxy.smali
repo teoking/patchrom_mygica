@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 100
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 104
@@ -60,7 +60,7 @@
 .end method
 
 .method public onStorageStateChanged(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 9
+    .locals 5
     .parameter "path"
     .parameter "oldState"
     .parameter "newState"
@@ -84,7 +84,7 @@
 
     .line 141
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "IMountServiceListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -109,8 +109,8 @@
 
     .line 146
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 148
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -122,7 +122,7 @@
     return-void
 
     .line 148
-    :catchall_27
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -134,7 +134,7 @@
 .end method
 
 .method public onUsbMassStorageConnectionChanged(Z)V
-    .registers 7
+    .locals 5
     .parameter "connected"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -160,15 +160,15 @@
 
     .line 116
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "IMountServiceListener"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 117
-    if-eqz p1, :cond_25
+    if-eqz p1, :cond_0
 
-    :goto_11
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 118
@@ -182,8 +182,8 @@
 
     .line 120
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1e
-    .catchall {:try_start_a .. :try_end_1e} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 122
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -194,14 +194,14 @@
     .line 125
     return-void
 
-    :cond_25
+    :cond_0
     move v2, v3
 
     .line 117
-    goto :goto_11
+    goto :goto_0
 
     .line 122
-    :catchall_27
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

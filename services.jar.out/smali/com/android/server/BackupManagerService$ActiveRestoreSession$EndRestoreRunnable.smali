@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService$ActiveRestoreSession;Lcom/android/server/BackupManagerService;Lcom/android/server/BackupManagerService$ActiveRestoreSession;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "manager"
     .parameter "session"
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 5729
@@ -60,34 +60,37 @@
     monitor-enter v2
 
     .line 5731
-    :try_start_3
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/BackupManagerService$ActiveRestoreSession$EndRestoreRunnable;->mSession:Lcom/android/server/BackupManagerService$ActiveRestoreSession;
 
+    #getter for: Lcom/android/server/BackupManagerService$ActiveRestoreSession;->mRestoreTransport:Lcom/android/internal/backup/IBackupTransport;
     invoke-static {v1}, Lcom/android/server/BackupManagerService$ActiveRestoreSession;->access$2000(Lcom/android/server/BackupManagerService$ActiveRestoreSession;)Lcom/android/internal/backup/IBackupTransport;
 
     move-result-object v1
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_0
 
     .line 5732
     iget-object v1, p0, Lcom/android/server/BackupManagerService$ActiveRestoreSession$EndRestoreRunnable;->mSession:Lcom/android/server/BackupManagerService$ActiveRestoreSession;
 
+    #getter for: Lcom/android/server/BackupManagerService$ActiveRestoreSession;->mRestoreTransport:Lcom/android/internal/backup/IBackupTransport;
     invoke-static {v1}, Lcom/android/server/BackupManagerService$ActiveRestoreSession;->access$2000(Lcom/android/server/BackupManagerService$ActiveRestoreSession;)Lcom/android/internal/backup/IBackupTransport;
 
     move-result-object v1
 
     invoke-interface {v1}, Lcom/android/internal/backup/IBackupTransport;->finishRestore()V
-    :try_end_14
-    .catchall {:try_start_3 .. :try_end_14} :catchall_3f
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_14} :catch_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 5737
-    :cond_14
-    :try_start_14
+    :cond_0
+    :try_start_1
     iget-object v1, p0, Lcom/android/server/BackupManagerService$ActiveRestoreSession$EndRestoreRunnable;->mSession:Lcom/android/server/BackupManagerService$ActiveRestoreSession;
 
     const/4 v3, 0x0
 
+    #setter for: Lcom/android/server/BackupManagerService$ActiveRestoreSession;->mRestoreTransport:Lcom/android/internal/backup/IBackupTransport;
     invoke-static {v1, v3}, Lcom/android/server/BackupManagerService$ActiveRestoreSession;->access$2002(Lcom/android/server/BackupManagerService$ActiveRestoreSession;Lcom/android/internal/backup/IBackupTransport;)Lcom/android/internal/backup/IBackupTransport;
 
     .line 5738
@@ -98,10 +101,10 @@
     iput-boolean v3, v1, Lcom/android/server/BackupManagerService$ActiveRestoreSession;->mEnded:Z
 
     .line 5740
-    :goto_1f
+    :goto_0
     monitor-exit v2
-    :try_end_20
-    .catchall {:try_start_14 .. :try_end_20} :catchall_3c
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 5744
     iget-object v1, p0, Lcom/android/server/BackupManagerService$ActiveRestoreSession$EndRestoreRunnable;->mBackupManager:Lcom/android/server/BackupManagerService;
@@ -114,26 +117,27 @@
     return-void
 
     .line 5734
-    :catch_28
+    :catch_0
     move-exception v0
 
     .line 5735
     .local v0, e:Ljava/lang/Exception;
-    :try_start_29
+    :try_start_2
     const-string v1, "RestoreSession"
 
     const-string v3, "Error in finishRestore"
 
     invoke-static {v1, v3, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_30
-    .catchall {:try_start_29 .. :try_end_30} :catchall_3f
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 5737
-    :try_start_30
+    :try_start_3
     iget-object v1, p0, Lcom/android/server/BackupManagerService$ActiveRestoreSession$EndRestoreRunnable;->mSession:Lcom/android/server/BackupManagerService$ActiveRestoreSession;
 
     const/4 v3, 0x0
 
+    #setter for: Lcom/android/server/BackupManagerService$ActiveRestoreSession;->mRestoreTransport:Lcom/android/internal/backup/IBackupTransport;
     invoke-static {v1, v3}, Lcom/android/server/BackupManagerService$ActiveRestoreSession;->access$2002(Lcom/android/server/BackupManagerService$ActiveRestoreSession;Lcom/android/internal/backup/IBackupTransport;)Lcom/android/internal/backup/IBackupTransport;
 
     .line 5738
@@ -143,28 +147,29 @@
 
     iput-boolean v3, v1, Lcom/android/server/BackupManagerService$ActiveRestoreSession;->mEnded:Z
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 5740
     .end local v0           #e:Ljava/lang/Exception;
-    :catchall_3c
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_3e
-    .catchall {:try_start_30 .. :try_end_3e} :catchall_3c
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v1
 
     .line 5737
-    :catchall_3f
+    :catchall_1
     move-exception v1
 
-    :try_start_40
+    :try_start_4
     iget-object v3, p0, Lcom/android/server/BackupManagerService$ActiveRestoreSession$EndRestoreRunnable;->mSession:Lcom/android/server/BackupManagerService$ActiveRestoreSession;
 
     const/4 v4, 0x0
 
+    #setter for: Lcom/android/server/BackupManagerService$ActiveRestoreSession;->mRestoreTransport:Lcom/android/internal/backup/IBackupTransport;
     invoke-static {v3, v4}, Lcom/android/server/BackupManagerService$ActiveRestoreSession;->access$2002(Lcom/android/server/BackupManagerService$ActiveRestoreSession;Lcom/android/internal/backup/IBackupTransport;)Lcom/android/internal/backup/IBackupTransport;
 
     .line 5738
@@ -176,6 +181,6 @@
 
     .line 5737
     throw v1
-    :try_end_4c
-    .catchall {:try_start_40 .. :try_end_4c} :catchall_3c
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 .end method

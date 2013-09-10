@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/hardware/ISerialManager;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "service"
 
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public getSerialPorts()[Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 55
@@ -44,17 +44,17 @@
     iget-object v1, p0, Landroid/hardware/SerialManager;->mService:Landroid/hardware/ISerialManager;
 
     invoke-interface {v1}, Landroid/hardware/ISerialManager;->getSerialPorts()[Ljava/lang/String;
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 58
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 56
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 57
@@ -68,11 +68,11 @@
     .line 58
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public openSerialPort(Ljava/lang/String;I)Landroid/hardware/SerialPort;
-    .registers 9
+    .locals 6
     .parameter "name"
     .parameter "speed"
     .annotation system Ldalvik/annotation/Throws;
@@ -92,7 +92,7 @@
 
     .line 76
     .local v1, pfd:Landroid/os/ParcelFileDescriptor;
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_0
 
     .line 77
     new-instance v2, Landroid/hardware/SerialPort;
@@ -106,12 +106,12 @@
     .line 86
     .end local v1           #pfd:Landroid/os/ParcelFileDescriptor;
     .end local v2           #port:Landroid/hardware/SerialPort;
-    :goto_10
+    :goto_0
     return-object v2
 
     .line 81
     .restart local v1       #pfd:Landroid/os/ParcelFileDescriptor;
-    :cond_11
+    :cond_0
     new-instance v3, Ljava/io/IOException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -135,12 +135,12 @@
     invoke-direct {v3, v4}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v3
-    :try_end_2a
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_2a} :catch_2a
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 83
     .end local v1           #pfd:Landroid/os/ParcelFileDescriptor;
-    :catch_2a
+    :catch_0
     move-exception v0
 
     .line 84
@@ -154,5 +154,5 @@
     .line 86
     const/4 v2, 0x0
 
-    goto :goto_10
+    goto :goto_0
 .end method

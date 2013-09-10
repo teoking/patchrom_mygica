@@ -113,7 +113,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -128,7 +128,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 52
@@ -139,7 +139,7 @@
 .end method
 
 .method private static capture(Landroid/view/View;Ljava/io/OutputStream;Ljava/lang/String;)V
-    .registers 10
+    .locals 7
     .parameter "root"
     .parameter "clientStream"
     .parameter "parameter"
@@ -167,7 +167,7 @@
 
     .line 676
     .local v0, b:Landroid/graphics/Bitmap;
-    if-nez v0, :cond_19
+    if-nez v0, :cond_0
 
     .line 677
     const-string v4, "View"
@@ -184,24 +184,24 @@
     move-result-object v0
 
     .line 683
-    :cond_19
+    :cond_0
     const/4 v2, 0x0
 
     .line 685
     .local v2, out:Ljava/io/BufferedOutputStream;
-    :try_start_1a
+    :try_start_0
     new-instance v3, Ljava/io/BufferedOutputStream;
 
     const v4, 0x8000
 
     invoke-direct {v3, p1, v4}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;I)V
-    :try_end_22
-    .catchall {:try_start_1a .. :try_end_22} :catchall_35
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 686
     .end local v2           #out:Ljava/io/BufferedOutputStream;
     .local v3, out:Ljava/io/BufferedOutputStream;
-    :try_start_22
+    :try_start_1
     sget-object v4, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
 
     const/16 v5, 0x64
@@ -210,17 +210,17 @@
 
     .line 687
     invoke-virtual {v3}, Ljava/io/BufferedOutputStream;->flush()V
-    :try_end_2c
-    .catchall {:try_start_22 .. :try_end_2c} :catchall_3f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 689
-    if-eqz v3, :cond_31
+    if-eqz v3, :cond_1
 
     .line 690
     invoke-virtual {v3}, Ljava/io/BufferedOutputStream;->close()V
 
     .line 692
-    :cond_31
+    :cond_1
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
     .line 694
@@ -229,17 +229,17 @@
     .line 689
     .end local v3           #out:Ljava/io/BufferedOutputStream;
     .restart local v2       #out:Ljava/io/BufferedOutputStream;
-    :catchall_35
+    :catchall_0
     move-exception v4
 
-    :goto_36
-    if-eqz v2, :cond_3b
+    :goto_0
+    if-eqz v2, :cond_2
 
     .line 690
     invoke-virtual {v2}, Ljava/io/BufferedOutputStream;->close()V
 
     .line 692
-    :cond_3b
+    :cond_2
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
     throw v4
@@ -247,18 +247,18 @@
     .line 689
     .end local v2           #out:Ljava/io/BufferedOutputStream;
     .restart local v3       #out:Ljava/io/BufferedOutputStream;
-    :catchall_3f
+    :catchall_1
     move-exception v4
 
     move-object v2, v3
 
     .end local v3           #out:Ljava/io/BufferedOutputStream;
     .restart local v2       #out:Ljava/io/BufferedOutputStream;
-    goto :goto_36
+    goto :goto_0
 .end method
 
 .method private static captureLayers(Landroid/view/View;Ljava/io/DataOutputStream;)V
-    .registers 5
+    .locals 3
     .parameter "root"
     .parameter "clientStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -273,12 +273,12 @@
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
-    :try_end_5
-    .catchall {:try_start_0 .. :try_end_5} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 604
     .local v0, outRect:Landroid/graphics/Rect;
-    :try_start_5
+    :try_start_1
     iget-object v1, p0, Landroid/view/View;->mAttachInfo:Landroid/view/View$AttachInfo;
 
     iget-object v1, v1, Landroid/view/View$AttachInfo;->mSession:Landroid/view/IWindowSession;
@@ -288,13 +288,13 @@
     iget-object v2, v2, Landroid/view/View$AttachInfo;->mWindow:Landroid/view/IWindow;
 
     invoke-interface {v1, v2, v0}, Landroid/view/IWindowSession;->getDisplayFrame(Landroid/view/IWindow;Landroid/graphics/Rect;)V
-    :try_end_10
-    .catchall {:try_start_5 .. :try_end_10} :catchall_2a
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_10} :catch_2f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 609
-    :goto_10
-    :try_start_10
+    :goto_0
+    :try_start_2
     invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
 
     move-result v1
@@ -317,8 +317,8 @@
     const/4 v1, 0x2
 
     invoke-virtual {p1, v1}, Ljava/io/DataOutputStream;->write(I)V
-    :try_end_26
-    .catchall {:try_start_10 .. :try_end_26} :catchall_2a
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 616
     invoke-virtual {p1}, Ljava/io/DataOutputStream;->close()V
@@ -328,7 +328,7 @@
 
     .line 616
     .end local v0           #outRect:Landroid/graphics/Rect;
-    :catchall_2a
+    :catchall_0
     move-exception v1
 
     invoke-virtual {p1}, Ljava/io/DataOutputStream;->close()V
@@ -337,14 +337,14 @@
 
     .line 605
     .restart local v0       #outRect:Landroid/graphics/Rect;
-    :catch_2f
+    :catch_0
     move-exception v1
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method private static captureViewLayer(Landroid/view/View;Ljava/io/DataOutputStream;Z)V
-    .registers 16
+    .locals 13
     .parameter "view"
     .parameter "clientStream"
     .parameter "visible"
@@ -364,22 +364,22 @@
 
     move-result v11
 
-    if-nez v11, :cond_8f
+    if-nez v11, :cond_3
 
-    if-eqz p2, :cond_8f
+    if-eqz p2, :cond_3
 
     move v6, v9
 
     .line 625
     .local v6, localVisible:Z
-    :goto_b
+    :goto_0
     iget v11, p0, Landroid/view/View;->mPrivateFlags:I
 
     and-int/lit16 v11, v11, 0x80
 
     const/16 v12, 0x80
 
-    if-eq v11, v12, :cond_77
+    if-eq v11, v12, :cond_2
 
     .line 626
     invoke-virtual {p0}, Landroid/view/View;->getId()I
@@ -400,7 +400,7 @@
     .local v7, name:Ljava/lang/String;
     const/4 v11, -0x1
 
-    if-eq v5, v11, :cond_2e
+    if-eq v5, v11, :cond_0
 
     .line 629
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -416,18 +416,18 @@
     move-result-object v7
 
     .line 632
-    :cond_2e
+    :cond_0
     invoke-virtual {p1, v9}, Ljava/io/DataOutputStream;->write(I)V
 
     .line 633
     invoke-virtual {p1, v7}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
     .line 634
-    if-eqz v6, :cond_92
+    if-eqz v6, :cond_4
 
     move v11, v9
 
-    :goto_37
+    :goto_1
     invoke-virtual {p1, v11}, Ljava/io/DataOutputStream;->writeByte(I)V
 
     .line 636
@@ -459,7 +459,7 @@
 
     .line 645
     .local v1, b:Landroid/graphics/Bitmap;
-    if-eqz v1, :cond_74
+    if-eqz v1, :cond_1
 
     .line 646
     new-instance v0, Ljava/io/ByteArrayOutputStream;
@@ -498,7 +498,7 @@
 
     .line 652
     .end local v0           #arrayOut:Ljava/io/ByteArrayOutputStream;
-    :cond_74
+    :cond_1
     invoke-virtual {p1}, Ljava/io/DataOutputStream;->flush()V
 
     .line 655
@@ -506,10 +506,10 @@
     .end local v5           #id:I
     .end local v7           #name:Ljava/lang/String;
     .end local v8           #position:[I
-    :cond_77
+    :cond_2
     instance-of v9, p0, Landroid/view/ViewGroup;
 
-    if-eqz v9, :cond_94
+    if-eqz v9, :cond_5
 
     move-object v3, p0
 
@@ -527,8 +527,8 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_83
-    if-ge v4, v2, :cond_94
+    :goto_2
+    if-ge v4, v2, :cond_5
 
     .line 660
     invoke-virtual {v3, v4}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -540,36 +540,36 @@
     .line 659
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_83
+    goto :goto_2
 
     .end local v2           #count:I
     .end local v3           #group:Landroid/view/ViewGroup;
     .end local v4           #i:I
     .end local v6           #localVisible:Z
-    :cond_8f
+    :cond_3
     move v6, v10
 
     .line 623
-    goto/16 :goto_b
+    goto/16 :goto_0
 
     .restart local v5       #id:I
     .restart local v6       #localVisible:Z
     .restart local v7       #name:Ljava/lang/String;
-    :cond_92
+    :cond_4
     move v11, v10
 
     .line 634
-    goto :goto_37
+    goto :goto_1
 
     .line 663
     .end local v5           #id:I
     .end local v7           #name:Ljava/lang/String;
-    :cond_94
+    :cond_5
     return-void
 .end method
 
 .method private static capturedViewExportFields(Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
-    .registers 13
+    .locals 10
     .parameter "obj"
     .parameter
     .parameter "prefix"
@@ -588,17 +588,17 @@
     .prologue
     .line 1257
     .local p1, klass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    if-nez p0, :cond_6
+    if-nez p0, :cond_0
 
     .line 1258
     const-string/jumbo v7, "null"
 
     .line 1286
-    :goto_5
+    :goto_0
     return-object v7
 
     .line 1261
-    :cond_6
+    :cond_0
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -618,15 +618,15 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_11
-    if-ge v4, v0, :cond_4a
+    :goto_1
+    if-ge v4, v0, :cond_2
 
     .line 1266
     aget-object v1, v3, v4
 
     .line 1268
     .local v1, field:Ljava/lang/reflect/Field;
-    :try_start_15
+    :try_start_0
     invoke-virtual {v1, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
@@ -648,7 +648,7 @@
     invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1274
-    if-eqz v2, :cond_41
+    if-eqz v2, :cond_1
 
     .line 1275
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -669,48 +669,48 @@
 
     .line 1280
     .end local v6           #value:Ljava/lang/String;
-    :goto_39
+    :goto_2
     const/16 v7, 0x20
 
     invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 1265
     .end local v2           #fieldValue:Ljava/lang/Object;
-    :goto_3e
+    :goto_3
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_11
+    goto :goto_1
 
     .line 1278
     .restart local v2       #fieldValue:Ljava/lang/Object;
-    :cond_41
+    :cond_1
     const-string/jumbo v7, "null"
 
     invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_47
-    .catch Ljava/lang/IllegalAccessException; {:try_start_15 .. :try_end_47} :catch_48
+    :try_end_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_39
+    goto :goto_2
 
     .line 1281
     .end local v2           #fieldValue:Ljava/lang/Object;
-    :catch_48
+    :catch_0
     move-exception v7
 
-    goto :goto_3e
+    goto :goto_3
 
     .line 1286
     .end local v1           #field:Ljava/lang/reflect/Field;
-    :cond_4a
+    :cond_2
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v7
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method private static capturedViewExportMethods(Ljava/lang/Object;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
-    .registers 15
+    .locals 12
     .parameter "obj"
     .parameter
     .parameter "prefix"
@@ -729,17 +729,17 @@
     .prologue
     .line 1214
     .local p1, klass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    if-nez p0, :cond_6
+    if-nez p0, :cond_0
 
     .line 1215
     const-string/jumbo v9, "null"
 
     .line 1253
-    :goto_5
+    :goto_0
     return-object v9
 
     .line 1218
-    :cond_6
+    :cond_0
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -759,8 +759,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_11
-    if-ge v1, v0, :cond_80
+    :goto_1
+    if-ge v1, v0, :cond_3
 
     .line 1223
     aget-object v2, v4, v1
@@ -769,7 +769,7 @@
     .local v2, method:Ljava/lang/reflect/Method;
     const/4 v9, 0x0
 
-    :try_start_16
+    :try_start_0
     check-cast v9, [Ljava/lang/Object;
 
     invoke-virtual {v2, p0, v9}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
@@ -798,7 +798,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_4f
+    if-eqz v9, :cond_1
 
     .line 1231
     new-instance v9, Ljava/lang/StringBuilder;
@@ -833,16 +833,16 @@
     .end local v3           #methodValue:Ljava/lang/Object;
     .end local v5           #property:Landroid/view/ViewDebug$CapturedViewProperty;
     .end local v6           #returnType:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :goto_4c
+    :goto_2
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_11
+    goto :goto_1
 
     .line 1233
     .restart local v3       #methodValue:Ljava/lang/Object;
     .restart local v5       #property:Landroid/view/ViewDebug$CapturedViewProperty;
     .restart local v6       #returnType:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :cond_4f
+    :cond_1
     invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1234
@@ -858,7 +858,7 @@
     invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 1237
-    if-eqz v3, :cond_77
+    if-eqz v3, :cond_2
 
     .line 1238
     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -879,57 +879,57 @@
 
     .line 1243
     .end local v8           #value:Ljava/lang/String;
-    :goto_6f
+    :goto_3
     const-string v9, "; "
 
     invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_4c
+    goto :goto_2
 
     .line 1245
     .end local v3           #methodValue:Ljava/lang/Object;
     .end local v5           #property:Landroid/view/ViewDebug$CapturedViewProperty;
     .end local v6           #returnType:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :catch_75
+    :catch_0
     move-exception v9
 
-    goto :goto_4c
+    goto :goto_2
 
     .line 1241
     .restart local v3       #methodValue:Ljava/lang/Object;
     .restart local v5       #property:Landroid/view/ViewDebug$CapturedViewProperty;
     .restart local v6       #returnType:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :cond_77
+    :cond_2
     const-string/jumbo v9, "null"
 
     invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_7d
-    .catch Ljava/lang/IllegalAccessException; {:try_start_16 .. :try_end_7d} :catch_75
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_16 .. :try_end_7d} :catch_7e
+    :try_end_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
 
-    goto :goto_6f
+    goto :goto_3
 
     .line 1248
     .end local v3           #methodValue:Ljava/lang/Object;
     .end local v5           #property:Landroid/view/ViewDebug$CapturedViewProperty;
     .end local v6           #returnType:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :catch_7e
+    :catch_1
     move-exception v9
 
-    goto :goto_4c
+    goto :goto_2
 
     .line 1253
     .end local v2           #method:Ljava/lang/reflect/Method;
-    :cond_80
+    :cond_3
     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v9
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method private static capturedViewGetPropertyFields(Ljava/lang/Class;)[Ljava/lang/reflect/Field;
-    .registers 9
+    .locals 8
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -945,7 +945,7 @@
     .local p0, klass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     sget-object v7, Landroid/view/ViewDebug;->mCapturedViewFieldsForClasses:Ljava/util/HashMap;
 
-    if-nez v7, :cond_b
+    if-nez v7, :cond_0
 
     .line 1153
     new-instance v7, Ljava/util/HashMap;
@@ -955,7 +955,7 @@
     sput-object v7, Landroid/view/ViewDebug;->mCapturedViewFieldsForClasses:Ljava/util/HashMap;
 
     .line 1155
-    :cond_b
+    :cond_0
     sget-object v6, Landroid/view/ViewDebug;->mCapturedViewFieldsForClasses:Ljava/util/HashMap;
 
     .line 1157
@@ -968,20 +968,20 @@
 
     .line 1158
     .local v2, fields:[Ljava/lang/reflect/Field;
-    if-eqz v2, :cond_17
+    if-eqz v2, :cond_1
 
     move-object v3, v2
 
     .line 1177
     .end local v2           #fields:[Ljava/lang/reflect/Field;
     .local v3, fields:[Ljava/lang/reflect/Field;
-    :goto_16
+    :goto_0
     return-object v3
 
     .line 1162
     .end local v3           #fields:[Ljava/lang/reflect/Field;
     .restart local v2       #fields:[Ljava/lang/reflect/Field;
-    :cond_17
+    :cond_1
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
@@ -1000,8 +1000,8 @@
     const/4 v5, 0x0
 
     .local v5, i:I
-    :goto_22
-    if-ge v5, v0, :cond_38
+    :goto_1
+    if-ge v5, v0, :cond_3
 
     .line 1167
     aget-object v1, v2, v5
@@ -1014,7 +1014,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_35
+    if-eqz v7, :cond_2
 
     .line 1169
     const/4 v7, 0x1
@@ -1025,14 +1025,14 @@
     invoke-virtual {v4, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 1166
-    :cond_35
+    :cond_2
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_22
+    goto :goto_1
 
     .line 1174
     .end local v1           #field:Ljava/lang/reflect/Field;
-    :cond_38
+    :cond_3
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
     move-result v7
@@ -1055,11 +1055,11 @@
     .line 1177
     .end local v2           #fields:[Ljava/lang/reflect/Field;
     .restart local v3       #fields:[Ljava/lang/reflect/Field;
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method private static capturedViewGetPropertyMethods(Ljava/lang/Class;)[Ljava/lang/reflect/Method;
-    .registers 10
+    .locals 9
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1075,7 +1075,7 @@
     .local p0, klass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     sget-object v7, Landroid/view/ViewDebug;->mCapturedViewMethodsForClasses:Ljava/util/HashMap;
 
-    if-nez v7, :cond_b
+    if-nez v7, :cond_0
 
     .line 1182
     new-instance v7, Ljava/util/HashMap;
@@ -1085,7 +1085,7 @@
     sput-object v7, Landroid/view/ViewDebug;->mCapturedViewMethodsForClasses:Ljava/util/HashMap;
 
     .line 1184
-    :cond_b
+    :cond_0
     sget-object v3, Landroid/view/ViewDebug;->mCapturedViewMethodsForClasses:Ljava/util/HashMap;
 
     .line 1186
@@ -1098,20 +1098,20 @@
 
     .line 1187
     .local v5, methods:[Ljava/lang/reflect/Method;
-    if-eqz v5, :cond_17
+    if-eqz v5, :cond_1
 
     move-object v6, v5
 
     .line 1208
     .end local v5           #methods:[Ljava/lang/reflect/Method;
     .local v6, methods:[Ljava/lang/reflect/Method;
-    :goto_16
+    :goto_0
     return-object v6
 
     .line 1191
     .end local v6           #methods:[Ljava/lang/reflect/Method;
     .restart local v5       #methods:[Ljava/lang/reflect/Method;
-    :cond_17
+    :cond_1
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
@@ -1130,8 +1130,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_22
-    if-ge v2, v0, :cond_47
+    :goto_1
+    if-ge v2, v0, :cond_3
 
     .line 1196
     aget-object v4, v5, v2
@@ -1144,7 +1144,7 @@
 
     array-length v7, v7
 
-    if-nez v7, :cond_44
+    if-nez v7, :cond_2
 
     const-class v7, Landroid/view/ViewDebug$CapturedViewProperty;
 
@@ -1152,7 +1152,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_44
+    if-eqz v7, :cond_2
 
     invoke-virtual {v4}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
 
@@ -1160,7 +1160,7 @@
 
     const-class v8, Ljava/lang/Void;
 
-    if-eq v7, v8, :cond_44
+    if-eq v7, v8, :cond_2
 
     .line 1200
     const/4 v7, 0x1
@@ -1171,14 +1171,14 @@
     invoke-virtual {v1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 1195
-    :cond_44
+    :cond_2
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_22
+    goto :goto_1
 
     .line 1205
     .end local v4           #method:Ljava/lang/reflect/Method;
-    :cond_47
+    :cond_3
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v7
@@ -1201,11 +1201,11 @@
     .line 1208
     .end local v5           #methods:[Ljava/lang/reflect/Method;
     .restart local v6       #methods:[Ljava/lang/reflect/Method;
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method static dispatchCommand(Landroid/view/View;Ljava/lang/String;Ljava/lang/String;Ljava/io/OutputStream;)V
-    .registers 7
+    .locals 3
     .parameter "view"
     .parameter "command"
     .parameter "parameters"
@@ -1231,25 +1231,25 @@
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_1
 
     .line 380
     invoke-static {p0, p3}, Landroid/view/ViewDebug;->dump(Landroid/view/View;Ljava/io/OutputStream;)V
 
     .line 397
-    :cond_10
-    :goto_10
+    :cond_0
+    :goto_0
     return-void
 
     .line 381
-    :cond_11
+    :cond_1
     const-string v1, "CAPTURE_LAYERS"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_22
+    if-eqz v1, :cond_2
 
     .line 382
     new-instance v1, Ljava/io/DataOutputStream;
@@ -1258,10 +1258,10 @@
 
     invoke-static {p0, v1}, Landroid/view/ViewDebug;->captureLayers(Landroid/view/View;Ljava/io/DataOutputStream;)V
 
-    goto :goto_10
+    goto :goto_0
 
     .line 384
-    :cond_22
+    :cond_2
     const-string v1, " "
 
     invoke-virtual {p2, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
@@ -1276,86 +1276,86 @@
 
     move-result v1
 
-    if-eqz v1, :cond_36
+    if-eqz v1, :cond_3
 
     .line 386
     aget-object v1, v0, v2
 
     invoke-static {p0, p3, v1}, Landroid/view/ViewDebug;->capture(Landroid/view/View;Ljava/io/OutputStream;Ljava/lang/String;)V
 
-    goto :goto_10
+    goto :goto_0
 
     .line 387
-    :cond_36
+    :cond_3
     const-string v1, "OUTPUT_DISPLAYLIST"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_44
+    if-eqz v1, :cond_4
 
     .line 388
     aget-object v1, v0, v2
 
     invoke-static {p0, v1}, Landroid/view/ViewDebug;->outputDisplayList(Landroid/view/View;Ljava/lang/String;)V
 
-    goto :goto_10
+    goto :goto_0
 
     .line 389
-    :cond_44
+    :cond_4
     const-string v1, "INVALIDATE"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_52
+    if-eqz v1, :cond_5
 
     .line 390
     aget-object v1, v0, v2
 
     invoke-static {p0, v1}, Landroid/view/ViewDebug;->invalidate(Landroid/view/View;Ljava/lang/String;)V
 
-    goto :goto_10
+    goto :goto_0
 
     .line 391
-    :cond_52
+    :cond_5
     const-string v1, "REQUEST_LAYOUT"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_60
+    if-eqz v1, :cond_6
 
     .line 392
     aget-object v1, v0, v2
 
     invoke-static {p0, v1}, Landroid/view/ViewDebug;->requestLayout(Landroid/view/View;Ljava/lang/String;)V
 
-    goto :goto_10
+    goto :goto_0
 
     .line 393
-    :cond_60
+    :cond_6
     const-string v1, "PROFILE"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_0
 
     .line 394
     aget-object v1, v0, v2
 
     invoke-static {p0, p3, v1}, Landroid/view/ViewDebug;->profile(Landroid/view/View;Ljava/io/OutputStream;Ljava/lang/String;)V
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method private static dump(Landroid/view/View;Ljava/io/OutputStream;)V
-    .registers 10
+    .locals 8
     .parameter "root"
     .parameter "clientStream"
     .annotation system Ldalvik/annotation/Throws;
@@ -1370,7 +1370,7 @@
 
     .line 729
     .local v3, out:Ljava/io/BufferedWriter;
-    :try_start_1
+    :try_start_0
     new-instance v4, Ljava/io/BufferedWriter;
 
     new-instance v6, Ljava/io/OutputStreamWriter;
@@ -1382,14 +1382,14 @@
     const v7, 0x8000
 
     invoke-direct {v4, v6, v7}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;I)V
-    :try_end_11
-    .catchall {:try_start_1 .. :try_end_11} :catchall_42
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_11} :catch_34
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 730
     .end local v3           #out:Ljava/io/BufferedWriter;
     .local v4, out:Ljava/io/BufferedWriter;
-    :try_start_11
+    :try_start_1
     invoke-virtual {p0}, Landroid/view/View;->getRootView()Landroid/view/View;
 
     move-result-object v5
@@ -1398,7 +1398,7 @@
     .local v5, view:Landroid/view/View;
     instance-of v6, v5, Landroid/view/ViewGroup;
 
-    if-eqz v6, :cond_25
+    if-eqz v6, :cond_0
 
     .line 732
     move-object v0, v5
@@ -1419,19 +1419,19 @@
 
     .line 735
     .end local v2           #group:Landroid/view/ViewGroup;
-    :cond_25
+    :cond_0
     const-string v6, "DONE."
 
     invoke-virtual {v4, v6}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
 
     .line 736
     invoke-virtual {v4}, Ljava/io/BufferedWriter;->newLine()V
-    :try_end_2d
-    .catchall {:try_start_11 .. :try_end_2d} :catchall_49
-    .catch Ljava/lang/Exception; {:try_start_11 .. :try_end_2d} :catch_4c
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
     .line 740
-    if-eqz v4, :cond_4f
+    if-eqz v4, :cond_3
 
     .line 741
     invoke-virtual {v4}, Ljava/io/BufferedWriter;->close()V
@@ -1442,85 +1442,85 @@
     .end local v4           #out:Ljava/io/BufferedWriter;
     .end local v5           #view:Landroid/view/View;
     .restart local v3       #out:Ljava/io/BufferedWriter;
-    :cond_33
-    :goto_33
+    :cond_1
+    :goto_0
     return-void
 
     .line 737
-    :catch_34
+    :catch_0
     move-exception v1
 
     .line 738
     .local v1, e:Ljava/lang/Exception;
-    :goto_35
-    :try_start_35
+    :goto_1
+    :try_start_2
     const-string v6, "View"
 
     const-string v7, "Problem dumping the view:"
 
     invoke-static {v6, v7, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_3c
-    .catchall {:try_start_35 .. :try_end_3c} :catchall_42
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 740
-    if-eqz v3, :cond_33
+    if-eqz v3, :cond_1
 
     .line 741
     invoke-virtual {v3}, Ljava/io/BufferedWriter;->close()V
 
-    goto :goto_33
+    goto :goto_0
 
     .line 740
     .end local v1           #e:Ljava/lang/Exception;
-    :catchall_42
+    :catchall_0
     move-exception v6
 
-    :goto_43
-    if-eqz v3, :cond_48
+    :goto_2
+    if-eqz v3, :cond_2
 
     .line 741
     invoke-virtual {v3}, Ljava/io/BufferedWriter;->close()V
 
-    :cond_48
+    :cond_2
     throw v6
 
     .line 740
     .end local v3           #out:Ljava/io/BufferedWriter;
     .restart local v4       #out:Ljava/io/BufferedWriter;
-    :catchall_49
+    :catchall_1
     move-exception v6
 
     move-object v3, v4
 
     .end local v4           #out:Ljava/io/BufferedWriter;
     .restart local v3       #out:Ljava/io/BufferedWriter;
-    goto :goto_43
+    goto :goto_2
 
     .line 737
     .end local v3           #out:Ljava/io/BufferedWriter;
     .restart local v4       #out:Ljava/io/BufferedWriter;
-    :catch_4c
+    :catch_1
     move-exception v1
 
     move-object v3, v4
 
     .end local v4           #out:Ljava/io/BufferedWriter;
     .restart local v3       #out:Ljava/io/BufferedWriter;
-    goto :goto_35
+    goto :goto_1
 
     .end local v3           #out:Ljava/io/BufferedWriter;
     .restart local v4       #out:Ljava/io/BufferedWriter;
     .restart local v5       #view:Landroid/view/View;
-    :cond_4f
+    :cond_3
     move-object v3, v4
 
     .end local v4           #out:Ljava/io/BufferedWriter;
     .restart local v3       #out:Ljava/io/BufferedWriter;
-    goto :goto_33
+    goto :goto_0
 .end method
 
 .method public static dumpCapturedView(Ljava/lang/String;Ljava/lang/Object;)V
-    .registers 6
+    .locals 4
     .parameter "tag"
     .parameter "view"
 
@@ -1589,7 +1589,7 @@
 .end method
 
 .method private static dumpViewHierarchyWithProperties(Landroid/content/Context;Landroid/view/ViewGroup;Ljava/io/BufferedWriter;I)V
-    .registers 8
+    .locals 4
     .parameter "context"
     .parameter "group"
     .parameter "out"
@@ -1601,14 +1601,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_1
 
     .line 786
-    :cond_6
+    :cond_0
     return-void
 
     .line 777
-    :cond_7
+    :cond_1
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v0
@@ -1618,8 +1618,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_c
-    if-ge v1, v0, :cond_6
+    :goto_0
+    if-ge v1, v0, :cond_0
 
     .line 779
     invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -1630,7 +1630,7 @@
     .local v2, view:Landroid/view/View;
     instance-of v3, v2, Landroid/view/ViewGroup;
 
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_2
 
     .line 781
     check-cast v2, Landroid/view/ViewGroup;
@@ -1641,23 +1641,23 @@
     invoke-static {p0, v2, p2, v3}, Landroid/view/ViewDebug;->dumpViewHierarchyWithProperties(Landroid/content/Context;Landroid/view/ViewGroup;Ljava/io/BufferedWriter;I)V
 
     .line 778
-    :goto_1d
+    :goto_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_c
+    goto :goto_0
 
     .line 783
     .restart local v2       #view:Landroid/view/View;
-    :cond_20
+    :cond_2
     add-int/lit8 v3, p3, 0x1
 
     invoke-static {p0, v2, p2, v3}, Landroid/view/ViewDebug;->dumpViewWithProperties(Landroid/content/Context;Landroid/view/View;Ljava/io/BufferedWriter;I)Z
 
-    goto :goto_1d
+    goto :goto_1
 .end method
 
 .method private static dumpViewProperties(Landroid/content/Context;Ljava/lang/Object;Ljava/io/BufferedWriter;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "view"
     .parameter "out"
@@ -1678,7 +1678,7 @@
 .end method
 
 .method private static dumpViewProperties(Landroid/content/Context;Ljava/lang/Object;Ljava/io/BufferedWriter;Ljava/lang/String;)V
-    .registers 6
+    .locals 2
     .parameter "context"
     .parameter "view"
     .parameter "out"
@@ -1697,7 +1697,7 @@
 
     .line 890
     .local v0, klass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :cond_4
+    :cond_0
     invoke-static {p0, p1, p2, v0, p3}, Landroid/view/ViewDebug;->exportFields(Landroid/content/Context;Ljava/lang/Object;Ljava/io/BufferedWriter;Ljava/lang/Class;Ljava/lang/String;)V
 
     .line 891
@@ -1711,14 +1711,14 @@
     .line 893
     const-class v1, Ljava/lang/Object;
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_0
 
     .line 894
     return-void
 .end method
 
 .method private static dumpViewWithProperties(Landroid/content/Context;Landroid/view/View;Ljava/io/BufferedWriter;I)Z
-    .registers 8
+    .locals 4
     .parameter "context"
     .parameter "view"
     .parameter "out"
@@ -1729,22 +1729,22 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_1
-    if-ge v1, p3, :cond_b
+    :goto_0
+    if-ge v1, p3, :cond_0
 
     .line 793
     const/16 v2, 0x20
 
-    :try_start_5
+    :try_start_0
     invoke-virtual {p2, v2}, Ljava/io/BufferedWriter;->write(I)V
 
     .line 792
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 795
-    :cond_b
+    :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -1781,17 +1781,17 @@
 
     .line 800
     invoke-virtual {p2}, Ljava/io/BufferedWriter;->newLine()V
-    :try_end_31
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_31} :catch_33
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 805
     const/4 v2, 0x1
 
-    :goto_32
+    :goto_1
     return v2
 
     .line 801
-    :catch_33
+    :catch_0
     move-exception v0
 
     .line 802
@@ -1805,11 +1805,11 @@
     .line 803
     const/4 v2, 0x0
 
-    goto :goto_32
+    goto :goto_1
 .end method
 
 .method private static exportFields(Landroid/content/Context;Ljava/lang/Object;Ljava/io/BufferedWriter;Ljava/lang/Class;Ljava/lang/String;)V
-    .registers 28
+    .locals 23
     .parameter "context"
     .parameter "view"
     .parameter "out"
@@ -1850,8 +1850,8 @@
     const/4 v14, 0x0
 
     .local v14, i:I
-    :goto_6
-    if-ge v14, v9, :cond_126
+    :goto_0
+    if-ge v14, v9, :cond_8
 
     .line 976
     aget-object v10, v12, v14
@@ -1862,7 +1862,7 @@
 
     .line 981
     .local v11, fieldValue:Ljava/lang/Object;
-    :try_start_b
+    :try_start_0
     invoke-virtual {v10}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
 
     move-result-object v22
@@ -1887,7 +1887,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_7b
+    if-eqz v2, :cond_2
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1913,21 +1913,21 @@
 
     .line 986
     .local v8, categoryPrefix:Ljava/lang/String;
-    :goto_38
+    :goto_1
     sget-object v2, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
     move-object/from16 v0, v22
 
-    if-ne v0, v2, :cond_e8
+    if-ne v0, v2, :cond_7
 
     .line 988
     invoke-interface {v4}, Landroid/view/ViewDebug$ExportedProperty;->resolveId()Z
 
     move-result v2
 
-    if-eqz v2, :cond_7e
+    if-eqz v2, :cond_3
 
-    if-eqz p0, :cond_7e
+    if-eqz p0, :cond_3
 
     .line 989
     move-object/from16 v0, p1
@@ -1947,9 +1947,9 @@
     .line 1034
     .end local v11           #fieldValue:Ljava/lang/Object;
     .end local v15           #id:I
-    :cond_52
-    :goto_52
-    if-nez v11, :cond_5a
+    :cond_0
+    :goto_2
+    if-nez v11, :cond_1
 
     .line 1035
     move-object/from16 v0, p1
@@ -1959,7 +1959,7 @@
     move-result-object v11
 
     .line 1038
-    :cond_5a
+    :cond_1
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1992,23 +1992,23 @@
     .end local v4           #property:Landroid/view/ViewDebug$ExportedProperty;
     .end local v8           #categoryPrefix:Ljava/lang/String;
     .end local v22           #type:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :goto_78
+    :goto_3
     add-int/lit8 v14, v14, 0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 983
     .restart local v4       #property:Landroid/view/ViewDebug$ExportedProperty;
     .restart local v11       #fieldValue:Ljava/lang/Object;
     .restart local v22       #type:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :cond_7b
+    :cond_2
     const-string v8, ""
 
-    goto :goto_38
+    goto :goto_1
 
     .line 992
     .restart local v8       #categoryPrefix:Ljava/lang/String;
-    :cond_7e
+    :cond_3
     invoke-interface {v4}, Landroid/view/ViewDebug$ExportedProperty;->flagMapping()[Landroid/view/ViewDebug$FlagToString;
 
     move-result-object v13
@@ -2017,7 +2017,7 @@
     .local v13, flagsMapping:[Landroid/view/ViewDebug$FlagToString;
     array-length v2, v13
 
-    if-lez v2, :cond_b3
+    if-lez v2, :cond_4
 
     .line 994
     move-object/from16 v0, p1
@@ -2071,7 +2071,7 @@
     .line 1000
     .end local v6           #valuePrefix:Ljava/lang/String;
     .end local v16           #intValue:I
-    :cond_b3
+    :cond_4
     invoke-interface {v4}, Landroid/view/ViewDebug$ExportedProperty;->mapping()[Landroid/view/ViewDebug$IntToString;
 
     move-result-object v19
@@ -2082,7 +2082,7 @@
 
     array-length v2, v0
 
-    if-lez v2, :cond_52
+    if-lez v2, :cond_0
 
     .line 1002
     move-object/from16 v0, p1
@@ -2104,12 +2104,12 @@
     const/16 v17, 0x0
 
     .local v17, j:I
-    :goto_c9
+    :goto_4
     move/from16 v0, v17
 
     move/from16 v1, v20
 
-    if-ge v0, v1, :cond_dd
+    if-ge v0, v1, :cond_5
 
     .line 1005
     aget-object v18, v19, v17
@@ -2122,7 +2122,7 @@
 
     move/from16 v0, v16
 
-    if-ne v2, v0, :cond_e5
+    if-ne v2, v0, :cond_6
 
     .line 1007
     invoke-interface/range {v18 .. v18}, Landroid/view/ViewDebug$IntToString;->to()Ljava/lang/String;
@@ -2132,8 +2132,8 @@
     .line 1012
     .end local v11           #fieldValue:Ljava/lang/Object;
     .end local v18           #mapped:Landroid/view/ViewDebug$IntToString;
-    :cond_dd
-    if-nez v11, :cond_52
+    :cond_5
+    if-nez v11, :cond_0
 
     .line 1013
     invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2141,15 +2141,15 @@
     move-result-object v11
 
     .local v11, fieldValue:Ljava/lang/Integer;
-    goto/16 :goto_52
+    goto/16 :goto_2
 
     .line 1004
     .local v11, fieldValue:Ljava/lang/Object;
     .restart local v18       #mapped:Landroid/view/ViewDebug$IntToString;
-    :cond_e5
+    :cond_6
     add-int/lit8 v17, v17, 0x1
 
-    goto :goto_c9
+    goto :goto_4
 
     .line 1017
     .end local v13           #flagsMapping:[Landroid/view/ViewDebug$FlagToString;
@@ -2158,12 +2158,12 @@
     .end local v18           #mapped:Landroid/view/ViewDebug$IntToString;
     .end local v19           #mapping:[Landroid/view/ViewDebug$IntToString;
     .end local v20           #mappingCount:I
-    :cond_e8
+    :cond_7
     const-class v2, [I
 
     move-object/from16 v0, v22
 
-    if-ne v0, v2, :cond_127
+    if-ne v0, v2, :cond_9
 
     .line 1018
     move-object/from16 v0, p1
@@ -2237,7 +2237,7 @@
     .end local v11           #fieldValue:Ljava/lang/Object;
     .end local v21           #suffix:Ljava/lang/String;
     .end local v22           #type:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :cond_126
+    :cond_8
     return-void
 
     .line 1026
@@ -2246,19 +2246,19 @@
     .restart local v10       #field:Ljava/lang/reflect/Field;
     .restart local v11       #fieldValue:Ljava/lang/Object;
     .restart local v22       #type:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :cond_127
+    :cond_9
     invoke-virtual/range {v22 .. v22}, Ljava/lang/Class;->isPrimitive()Z
 
     move-result v2
 
-    if-nez v2, :cond_52
+    if-nez v2, :cond_0
 
     .line 1027
     invoke-interface {v4}, Landroid/view/ViewDebug$ExportedProperty;->deepExport()Z
 
     move-result v2
 
-    if-eqz v2, :cond_52
+    if-eqz v2, :cond_0
 
     .line 1028
     move-object/from16 v0, p1
@@ -2294,24 +2294,24 @@
     move-object/from16 v1, p2
 
     invoke-static {v0, v2, v1, v3}, Landroid/view/ViewDebug;->dumpViewProperties(Landroid/content/Context;Ljava/lang/Object;Ljava/io/BufferedWriter;Ljava/lang/String;)V
-    :try_end_157
-    .catch Ljava/lang/IllegalAccessException; {:try_start_b .. :try_end_157} :catch_159
+    :try_end_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto/16 :goto_78
+    goto/16 :goto_3
 
     .line 1039
     .end local v4           #property:Landroid/view/ViewDebug$ExportedProperty;
     .end local v8           #categoryPrefix:Ljava/lang/String;
     .end local v11           #fieldValue:Ljava/lang/Object;
     .end local v22           #type:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :catch_159
+    :catch_0
     move-exception v2
 
-    goto/16 :goto_78
+    goto/16 :goto_3
 .end method
 
 .method private static exportMethods(Landroid/content/Context;Ljava/lang/Object;Ljava/io/BufferedWriter;Ljava/lang/Class;Ljava/lang/String;)V
-    .registers 30
+    .locals 25
     .parameter "context"
     .parameter "view"
     .parameter "out"
@@ -2354,8 +2354,8 @@
     const/4 v12, 0x0
 
     .local v12, i:I
-    :goto_8
-    if-ge v12, v10, :cond_12c
+    :goto_0
+    if-ge v12, v10, :cond_7
 
     .line 903
     aget-object v20, v22, v12
@@ -2364,7 +2364,7 @@
     .local v20, method:Ljava/lang/reflect/Method;
     const/4 v3, 0x0
 
-    :try_start_d
+    :try_start_0
     check-cast v3, [Ljava/lang/Object;
 
     move-object/from16 v0, v20
@@ -2403,7 +2403,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_83
+    if-eqz v3, :cond_1
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -2429,21 +2429,21 @@
 
     .line 913
     .local v9, categoryPrefix:Ljava/lang/String;
-    :goto_46
+    :goto_1
     sget-object v3, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
     move-object/from16 v0, v23
 
-    if-ne v0, v3, :cond_f3
+    if-ne v0, v3, :cond_6
 
     .line 915
     invoke-interface {v5}, Landroid/view/ViewDebug$ExportedProperty;->resolveId()Z
 
     move-result v3
 
-    if-eqz v3, :cond_86
+    if-eqz v3, :cond_2
 
-    if-eqz p0, :cond_86
+    if-eqz p0, :cond_2
 
     .line 916
     check-cast v21, Ljava/lang/Integer;
@@ -2463,8 +2463,8 @@
 
     .line 962
     .end local v13           #id:I
-    :cond_60
-    :goto_60
+    :cond_0
+    :goto_2
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2499,23 +2499,23 @@
     .end local v5           #property:Landroid/view/ViewDebug$ExportedProperty;
     .end local v9           #categoryPrefix:Ljava/lang/String;
     .end local v23           #returnType:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :goto_80
+    :goto_3
     add-int/lit8 v12, v12, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 910
     .restart local v5       #property:Landroid/view/ViewDebug$ExportedProperty;
     .restart local v21       #methodValue:Ljava/lang/Object;
     .restart local v23       #returnType:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :cond_83
+    :cond_1
     const-string v9, ""
 
-    goto :goto_46
+    goto :goto_1
 
     .line 919
     .restart local v9       #categoryPrefix:Ljava/lang/String;
-    :cond_86
+    :cond_2
     invoke-interface {v5}, Landroid/view/ViewDebug$ExportedProperty;->flagMapping()[Landroid/view/ViewDebug$FlagToString;
 
     move-result-object v11
@@ -2524,7 +2524,7 @@
     .local v11, flagsMapping:[Landroid/view/ViewDebug$FlagToString;
     array-length v3, v11
 
-    if-lez v3, :cond_bc
+    if-lez v3, :cond_3
 
     .line 921
     move-object/from16 v0, v21
@@ -2580,7 +2580,7 @@
     .line 927
     .end local v7           #valuePrefix:Ljava/lang/String;
     .end local v14           #intValue:I
-    :cond_bc
+    :cond_3
     invoke-interface {v5}, Landroid/view/ViewDebug$ExportedProperty;->mapping()[Landroid/view/ViewDebug$IntToString;
 
     move-result-object v18
@@ -2591,7 +2591,7 @@
 
     array-length v3, v0
 
-    if-lez v3, :cond_60
+    if-lez v3, :cond_0
 
     .line 929
     move-object/from16 v0, v21
@@ -2621,10 +2621,10 @@
     const/4 v15, 0x0
 
     .local v15, j:I
-    :goto_d6
+    :goto_4
     move/from16 v0, v19
 
-    if-ge v15, v0, :cond_e8
+    if-ge v15, v0, :cond_4
 
     .line 933
     aget-object v17, v18, v15
@@ -2635,7 +2635,7 @@
 
     move-result v3
 
-    if-ne v3, v14, :cond_f0
+    if-ne v3, v14, :cond_5
 
     .line 935
     invoke-interface/range {v17 .. v17}, Landroid/view/ViewDebug$IntToString;->to()Ljava/lang/String;
@@ -2649,8 +2649,8 @@
     .line 941
     .end local v17           #mapper:Landroid/view/ViewDebug$IntToString;
     .end local v21           #methodValue:Ljava/lang/String;
-    :cond_e8
-    if-nez v16, :cond_60
+    :cond_4
+    if-nez v16, :cond_0
 
     .line 942
     invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2658,15 +2658,15 @@
     move-result-object v21
 
     .local v21, methodValue:Ljava/lang/Integer;
-    goto/16 :goto_60
+    goto/16 :goto_2
 
     .line 932
     .restart local v17       #mapper:Landroid/view/ViewDebug$IntToString;
     .local v21, methodValue:Ljava/lang/Object;
-    :cond_f0
+    :cond_5
     add-int/lit8 v15, v15, 0x1
 
-    goto :goto_d6
+    goto :goto_4
 
     .line 946
     .end local v11           #flagsMapping:[Landroid/view/ViewDebug$FlagToString;
@@ -2676,12 +2676,12 @@
     .end local v17           #mapper:Landroid/view/ViewDebug$IntToString;
     .end local v18           #mapping:[Landroid/view/ViewDebug$IntToString;
     .end local v19           #mappingCount:I
-    :cond_f3
+    :cond_6
     const-class v3, [I
 
     move-object/from16 v0, v23
 
-    if-ne v0, v3, :cond_12d
+    if-ne v0, v3, :cond_8
 
     .line 947
     check-cast v21, [I
@@ -2749,7 +2749,7 @@
     .end local v20           #method:Ljava/lang/reflect/Method;
     .end local v23           #returnType:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     .end local v24           #suffix:Ljava/lang/String;
-    :cond_12c
+    :cond_7
     return-void
 
     .line 955
@@ -2758,19 +2758,19 @@
     .restart local v20       #method:Ljava/lang/reflect/Method;
     .restart local v21       #methodValue:Ljava/lang/Object;
     .restart local v23       #returnType:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :cond_12d
+    :cond_8
     invoke-virtual/range {v23 .. v23}, Ljava/lang/Class;->isPrimitive()Z
 
     move-result v3
 
-    if-nez v3, :cond_60
+    if-nez v3, :cond_0
 
     .line 956
     invoke-interface {v5}, Landroid/view/ViewDebug$ExportedProperty;->deepExport()Z
 
     move-result v3
 
-    if-eqz v3, :cond_60
+    if-eqz v3, :cond_0
 
     .line 957
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2802,31 +2802,31 @@
     move-object/from16 v2, p2
 
     invoke-static {v0, v1, v2, v3}, Landroid/view/ViewDebug;->dumpViewProperties(Landroid/content/Context;Ljava/lang/Object;Ljava/io/BufferedWriter;Ljava/lang/String;)V
-    :try_end_159
-    .catch Ljava/lang/IllegalAccessException; {:try_start_d .. :try_end_159} :catch_15b
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_d .. :try_end_159} :catch_15e
+    :try_end_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_1
 
-    goto/16 :goto_80
+    goto/16 :goto_3
 
     .line 963
     .end local v5           #property:Landroid/view/ViewDebug$ExportedProperty;
     .end local v9           #categoryPrefix:Ljava/lang/String;
     .end local v21           #methodValue:Ljava/lang/Object;
     .end local v23           #returnType:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
-    :catch_15b
+    :catch_0
     move-exception v3
 
-    goto/16 :goto_80
+    goto/16 :goto_3
 
     .line 964
-    :catch_15e
+    :catch_1
     move-exception v3
 
-    goto/16 :goto_80
+    goto/16 :goto_3
 .end method
 
 .method private static exportUnrolledArray(Landroid/content/Context;Ljava/io/BufferedWriter;Landroid/view/ViewDebug$ExportedProperty;[ILjava/lang/String;Ljava/lang/String;)V
-    .registers 23
+    .locals 17
     .parameter "context"
     .parameter "out"
     .parameter "property"
@@ -2851,13 +2851,13 @@
 
     move/from16 v16, v0
 
-    if-lez v16, :cond_6a
+    if-lez v16, :cond_3
 
     const/4 v3, 0x1
 
     .line 1079
     .local v3, hasIndexMapping:Z
-    :goto_a
+    :goto_0
     invoke-interface/range {p2 .. p2}, Landroid/view/ViewDebug$ExportedProperty;->mapping()[Landroid/view/ViewDebug$IntToString;
 
     move-result-object v10
@@ -2868,26 +2868,26 @@
 
     move/from16 v16, v0
 
-    if-lez v16, :cond_6c
+    if-lez v16, :cond_4
 
     const/4 v4, 0x1
 
     .line 1082
     .local v4, hasMapping:Z
-    :goto_14
+    :goto_1
     invoke-interface/range {p2 .. p2}, Landroid/view/ViewDebug$ExportedProperty;->resolveId()Z
 
     move-result v16
 
-    if-eqz v16, :cond_6e
+    if-eqz v16, :cond_5
 
-    if-eqz p0, :cond_6e
+    if-eqz p0, :cond_5
 
     const/4 v13, 0x1
 
     .line 1083
     .local v13, resolveId:Z
-    :goto_1d
+    :goto_2
     move-object/from16 v0, p3
 
     array-length v15, v0
@@ -2897,8 +2897,8 @@
     const/4 v7, 0x0
 
     .local v7, j:I
-    :goto_21
-    if-ge v7, v15, :cond_7b
+    :goto_3
+    if-ge v7, v15, :cond_9
 
     .line 1087
     const/4 v14, 0x0
@@ -2915,7 +2915,7 @@
 
     .line 1092
     .local v12, name:Ljava/lang/String;
-    if-eqz v3, :cond_3e
+    if-eqz v3, :cond_0
 
     .line 1093
     array-length v11, v5
@@ -2925,8 +2925,8 @@
     const/4 v8, 0x0
 
     .local v8, k:I
-    :goto_2e
-    if-ge v8, v11, :cond_3e
+    :goto_4
+    if-ge v8, v11, :cond_0
 
     .line 1095
     aget-object v9, v5, v8
@@ -2939,7 +2939,7 @@
 
     move/from16 v0, v16
 
-    if-ne v0, v7, :cond_70
+    if-ne v0, v7, :cond_6
 
     .line 1097
     invoke-interface {v9}, Landroid/view/ViewDebug$IntToString;->to()Ljava/lang/String;
@@ -2950,8 +2950,8 @@
     .end local v8           #k:I
     .end local v9           #mapped:Landroid/view/ViewDebug$IntToString;
     .end local v11           #mappingCount:I
-    :cond_3e
-    if-eqz v4, :cond_52
+    :cond_0
+    if-eqz v4, :cond_1
 
     .line 1104
     array-length v11, v10
@@ -2961,8 +2961,8 @@
     const/4 v8, 0x0
 
     .restart local v8       #k:I
-    :goto_42
-    if-ge v8, v11, :cond_52
+    :goto_5
+    if-ge v8, v11, :cond_1
 
     .line 1106
     aget-object v9, v10, v8
@@ -2975,7 +2975,7 @@
 
     move/from16 v0, v16
 
-    if-ne v0, v6, :cond_73
+    if-ne v0, v6, :cond_7
 
     .line 1108
     invoke-interface {v9}, Landroid/view/ViewDebug$IntToString;->to()Ljava/lang/String;
@@ -2986,11 +2986,11 @@
     .end local v8           #k:I
     .end local v9           #mapped:Landroid/view/ViewDebug$IntToString;
     .end local v11           #mappingCount:I
-    :cond_52
-    if-eqz v13, :cond_76
+    :cond_1
+    if-eqz v13, :cond_8
 
     .line 1115
-    if-nez v14, :cond_5e
+    if-nez v14, :cond_2
 
     move-object/from16 v0, p0
 
@@ -3003,8 +3003,8 @@
 
     .line 1120
     .restart local v14       #value:Ljava/lang/String;
-    :cond_5e
-    :goto_5e
+    :cond_2
+    :goto_6
     move-object/from16 v0, p1
 
     move-object/from16 v1, p4
@@ -3016,7 +3016,7 @@
     .line 1085
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_21
+    goto :goto_3
 
     .line 1077
     .end local v3           #hasIndexMapping:Z
@@ -3028,25 +3028,25 @@
     .end local v13           #resolveId:Z
     .end local v14           #value:Ljava/lang/String;
     .end local v15           #valuesCount:I
-    :cond_6a
+    :cond_3
     const/4 v3, 0x0
 
-    goto :goto_a
+    goto :goto_0
 
     .line 1080
     .restart local v3       #hasIndexMapping:Z
     .restart local v10       #mapping:[Landroid/view/ViewDebug$IntToString;
-    :cond_6c
+    :cond_4
     const/4 v4, 0x0
 
-    goto :goto_14
+    goto :goto_1
 
     .line 1082
     .restart local v4       #hasMapping:Z
-    :cond_6e
+    :cond_5
     const/4 v13, 0x0
 
-    goto :goto_1d
+    goto :goto_2
 
     .line 1094
     .restart local v6       #intValue:I
@@ -3058,38 +3058,38 @@
     .restart local v13       #resolveId:Z
     .restart local v14       #value:Ljava/lang/String;
     .restart local v15       #valuesCount:I
-    :cond_70
+    :cond_6
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_2e
+    goto :goto_4
 
     .line 1105
-    :cond_73
+    :cond_7
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_42
+    goto :goto_5
 
     .line 1117
     .end local v8           #k:I
     .end local v9           #mapped:Landroid/view/ViewDebug$IntToString;
     .end local v11           #mappingCount:I
-    :cond_76
+    :cond_8
     invoke-static {v6}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v14
 
-    goto :goto_5e
+    goto :goto_6
 
     .line 1122
     .end local v6           #intValue:I
     .end local v12           #name:Ljava/lang/String;
     .end local v14           #value:Ljava/lang/String;
-    :cond_7b
+    :cond_9
     return-void
 .end method
 
 .method private static exportUnrolledFlags(Ljava/io/BufferedWriter;[Landroid/view/ViewDebug$FlagToString;ILjava/lang/String;)V
-    .registers 14
+    .locals 10
     .parameter "out"
     .parameter "mapping"
     .parameter "intValue"
@@ -3109,8 +3109,8 @@
     const/4 v3, 0x0
 
     .local v3, j:I
-    :goto_2
-    if-ge v3, v0, :cond_44
+    :goto_0
+    if-ge v3, v0, :cond_4
 
     .line 1060
     aget-object v1, p1, v3
@@ -3135,24 +3135,24 @@
 
     move-result v8
 
-    if-ne v4, v8, :cond_42
+    if-ne v4, v8, :cond_3
 
     const/4 v6, 0x1
 
     .line 1064
     .local v6, test:Z
-    :goto_17
-    if-eqz v6, :cond_1b
+    :goto_1
+    if-eqz v6, :cond_0
 
-    if-nez v2, :cond_1f
+    if-nez v2, :cond_1
 
-    :cond_1b
-    if-nez v6, :cond_3f
+    :cond_0
+    if-nez v6, :cond_2
 
-    if-nez v2, :cond_3f
+    if-nez v2, :cond_2
 
     .line 1065
-    :cond_1f
+    :cond_1
     invoke-interface {v1}, Landroid/view/ViewDebug$FlagToString;->name()Ljava/lang/String;
 
     move-result-object v5
@@ -3190,28 +3190,28 @@
     .line 1059
     .end local v5           #name:Ljava/lang/String;
     .end local v7           #value:Ljava/lang/String;
-    :cond_3f
+    :cond_2
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 1063
     .end local v6           #test:Z
-    :cond_42
+    :cond_3
     const/4 v6, 0x0
 
-    goto :goto_17
+    goto :goto_1
 
     .line 1070
     .end local v1           #flagMapping:Landroid/view/ViewDebug$FlagToString;
     .end local v2           #ifTrue:Z
     .end local v4           #maskResult:I
-    :cond_44
+    :cond_4
     return-void
 .end method
 
 .method private static findView(Landroid/view/View;Ljava/lang/String;)Landroid/view/View;
-    .registers 10
+    .locals 8
     .parameter "root"
     .parameter "parameter"
 
@@ -3227,7 +3227,7 @@
 
     const/4 v7, -0x1
 
-    if-eq v6, v7, :cond_2c
+    if-eq v6, v7, :cond_1
 
     .line 402
     const-string v6, "@"
@@ -3266,7 +3266,7 @@
     .local v4, view:Landroid/view/View;
     instance-of v6, v4, Landroid/view/ViewGroup;
 
-    if-eqz v6, :cond_2b
+    if-eqz v6, :cond_0
 
     .line 408
     check-cast v4, Landroid/view/ViewGroup;
@@ -3280,12 +3280,12 @@
     .end local v0           #className:Ljava/lang/String;
     .end local v1           #hashCode:I
     .end local v3           #ids:[Ljava/lang/String;
-    :cond_2b
-    :goto_2b
+    :cond_0
+    :goto_0
     return-object v5
 
     .line 412
-    :cond_2c
+    :cond_1
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
@@ -3304,11 +3304,11 @@
 
     move-result-object v5
 
-    goto :goto_2b
+    goto :goto_0
 .end method
 
 .method private static findView(Landroid/view/ViewGroup;Ljava/lang/String;I)Landroid/view/View;
-    .registers 8
+    .locals 5
     .parameter "group"
     .parameter "className"
     .parameter "hashCode"
@@ -3319,16 +3319,16 @@
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_0
 
     .line 764
     .end local p0
-    :goto_6
+    :goto_0
     return-object p0
 
     .line 751
     .restart local p0
-    :cond_7
+    :cond_0
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v0
@@ -3338,8 +3338,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_c
-    if-ge v2, v0, :cond_2b
+    :goto_1
+    if-ge v2, v0, :cond_3
 
     .line 753
     invoke-virtual {p0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -3350,7 +3350,7 @@
     .local v3, view:Landroid/view/View;
     instance-of v4, v3, Landroid/view/ViewGroup;
 
-    if-eqz v4, :cond_20
+    if-eqz v4, :cond_1
 
     .line 755
     check-cast v3, Landroid/view/ViewGroup;
@@ -3362,44 +3362,44 @@
 
     .line 756
     .local v1, found:Landroid/view/View;
-    if-eqz v1, :cond_28
+    if-eqz v1, :cond_2
 
     move-object p0, v1
 
     .line 757
-    goto :goto_6
+    goto :goto_0
 
     .line 759
     .end local v1           #found:Landroid/view/View;
     .restart local v3       #view:Landroid/view/View;
-    :cond_20
+    :cond_1
     invoke-static {v3, p1, p2}, Landroid/view/ViewDebug;->isRequestedView(Landroid/view/View;Ljava/lang/String;I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_28
+    if-eqz v4, :cond_2
 
     move-object p0, v3
 
     .line 760
-    goto :goto_6
+    goto :goto_0
 
     .line 752
     .end local v3           #view:Landroid/view/View;
-    :cond_28
+    :cond_2
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_c
+    goto :goto_1
 
     .line 764
-    :cond_2b
+    :cond_3
     const/4 p0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method private static getExportedPropertyFields(Ljava/lang/Class;)[Ljava/lang/reflect/Field;
-    .registers 10
+    .locals 9
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3415,7 +3415,7 @@
     .local p0, klass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     sget-object v7, Landroid/view/ViewDebug;->sFieldsForClasses:Ljava/util/HashMap;
 
-    if-nez v7, :cond_b
+    if-nez v7, :cond_0
 
     .line 810
     new-instance v7, Ljava/util/HashMap;
@@ -3425,10 +3425,10 @@
     sput-object v7, Landroid/view/ViewDebug;->sFieldsForClasses:Ljava/util/HashMap;
 
     .line 812
-    :cond_b
+    :cond_0
     sget-object v7, Landroid/view/ViewDebug;->sAnnotations:Ljava/util/HashMap;
 
-    if-nez v7, :cond_18
+    if-nez v7, :cond_1
 
     .line 813
     new-instance v7, Ljava/util/HashMap;
@@ -3440,7 +3440,7 @@
     sput-object v7, Landroid/view/ViewDebug;->sAnnotations:Ljava/util/HashMap;
 
     .line 816
-    :cond_18
+    :cond_1
     sget-object v6, Landroid/view/ViewDebug;->sFieldsForClasses:Ljava/util/HashMap;
 
     .line 818
@@ -3453,20 +3453,20 @@
 
     .line 819
     .local v2, fields:[Ljava/lang/reflect/Field;
-    if-eqz v2, :cond_24
+    if-eqz v2, :cond_2
 
     move-object v3, v2
 
     .line 839
     .end local v2           #fields:[Ljava/lang/reflect/Field;
     .local v3, fields:[Ljava/lang/reflect/Field;
-    :goto_23
+    :goto_0
     return-object v3
 
     .line 823
     .end local v3           #fields:[Ljava/lang/reflect/Field;
     .restart local v2       #fields:[Ljava/lang/reflect/Field;
-    :cond_24
+    :cond_2
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
@@ -3485,8 +3485,8 @@
     const/4 v5, 0x0
 
     .local v5, i:I
-    :goto_2f
-    if-ge v5, v0, :cond_50
+    :goto_1
+    if-ge v5, v0, :cond_4
 
     .line 828
     aget-object v1, v2, v5
@@ -3499,7 +3499,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_4d
+    if-eqz v7, :cond_3
 
     .line 830
     const/4 v7, 0x1
@@ -3521,14 +3521,14 @@
     invoke-virtual {v7, v1, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 827
-    :cond_4d
+    :cond_3
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_2f
+    goto :goto_1
 
     .line 836
     .end local v1           #field:Ljava/lang/reflect/Field;
-    :cond_50
+    :cond_4
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
     move-result v7
@@ -3551,11 +3551,11 @@
     .line 839
     .end local v2           #fields:[Ljava/lang/reflect/Field;
     .restart local v3       #fields:[Ljava/lang/reflect/Field;
-    goto :goto_23
+    goto :goto_0
 .end method
 
 .method private static getExportedPropertyMethods(Ljava/lang/Class;)[Ljava/lang/reflect/Method;
-    .registers 10
+    .locals 9
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3571,7 +3571,7 @@
     .local p0, klass:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     sget-object v7, Landroid/view/ViewDebug;->sMethodsForClasses:Ljava/util/HashMap;
 
-    if-nez v7, :cond_d
+    if-nez v7, :cond_0
 
     .line 844
     new-instance v7, Ljava/util/HashMap;
@@ -3583,10 +3583,10 @@
     sput-object v7, Landroid/view/ViewDebug;->sMethodsForClasses:Ljava/util/HashMap;
 
     .line 846
-    :cond_d
+    :cond_0
     sget-object v7, Landroid/view/ViewDebug;->sAnnotations:Ljava/util/HashMap;
 
-    if-nez v7, :cond_1a
+    if-nez v7, :cond_1
 
     .line 847
     new-instance v7, Ljava/util/HashMap;
@@ -3598,7 +3598,7 @@
     sput-object v7, Landroid/view/ViewDebug;->sAnnotations:Ljava/util/HashMap;
 
     .line 850
-    :cond_1a
+    :cond_1
     sget-object v3, Landroid/view/ViewDebug;->sMethodsForClasses:Ljava/util/HashMap;
 
     .line 852
@@ -3611,20 +3611,20 @@
 
     .line 853
     .local v5, methods:[Ljava/lang/reflect/Method;
-    if-eqz v5, :cond_26
+    if-eqz v5, :cond_2
 
     move-object v6, v5
 
     .line 875
     .end local v5           #methods:[Ljava/lang/reflect/Method;
     .local v6, methods:[Ljava/lang/reflect/Method;
-    :goto_25
+    :goto_0
     return-object v6
 
     .line 857
     .end local v6           #methods:[Ljava/lang/reflect/Method;
     .restart local v5       #methods:[Ljava/lang/reflect/Method;
-    :cond_26
+    :cond_2
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
@@ -3643,8 +3643,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_31
-    if-ge v2, v0, :cond_61
+    :goto_1
+    if-ge v2, v0, :cond_4
 
     .line 862
     aget-object v4, v5, v2
@@ -3657,7 +3657,7 @@
 
     array-length v7, v7
 
-    if-nez v7, :cond_5e
+    if-nez v7, :cond_3
 
     const-class v7, Landroid/view/ViewDebug$ExportedProperty;
 
@@ -3665,7 +3665,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5e
+    if-eqz v7, :cond_3
 
     invoke-virtual {v4}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
 
@@ -3673,7 +3673,7 @@
 
     const-class v8, Ljava/lang/Void;
 
-    if-eq v7, v8, :cond_5e
+    if-eq v7, v8, :cond_3
 
     .line 866
     const/4 v7, 0x1
@@ -3695,14 +3695,14 @@
     invoke-virtual {v7, v4, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 861
-    :cond_5e
+    :cond_3
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_31
+    goto :goto_1
 
     .line 872
     .end local v4           #method:Ljava/lang/reflect/Method;
-    :cond_61
+    :cond_4
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v7
@@ -3725,11 +3725,11 @@
     .line 875
     .end local v5           #methods:[Ljava/lang/reflect/Method;
     .restart local v6       #methods:[Ljava/lang/reflect/Method;
-    goto :goto_25
+    goto :goto_0
 .end method
 
 .method public static getViewInstanceCount()J
-    .registers 2
+    .locals 2
 
     .prologue
     .line 312
@@ -3743,7 +3743,7 @@
 .end method
 
 .method public static getViewRootImplCount()J
-    .registers 2
+    .locals 2
 
     .prologue
     .line 323
@@ -3757,7 +3757,7 @@
 .end method
 
 .method private static invalidate(Landroid/view/View;Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "root"
     .parameter "parameter"
 
@@ -3769,18 +3769,18 @@
 
     .line 421
     .local v0, view:Landroid/view/View;
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 422
     invoke-virtual {v0}, Landroid/view/View;->postInvalidate()V
 
     .line 424
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method private static isRequestedView(Landroid/view/View;Ljava/lang/String;I)Z
-    .registers 4
+    .locals 1
     .parameter "view"
     .parameter "className"
     .parameter "hashCode"
@@ -3799,27 +3799,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
 
-    if-ne v0, p2, :cond_16
+    if-ne v0, p2, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_15
+    :goto_0
     return v0
 
-    :cond_16
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method private static outputDisplayList(Landroid/view/View;Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "root"
     .parameter "parameter"
     .annotation system Ldalvik/annotation/Throws;
@@ -3847,7 +3847,7 @@
 .end method
 
 .method private static performViewCapture(Landroid/view/View;Z)Landroid/graphics/Bitmap;
-    .registers 8
+    .locals 6
     .parameter "captureView"
     .parameter "skpiChildren"
 
@@ -3855,7 +3855,7 @@
     const/4 v3, 0x1
 
     .line 697
-    if-eqz p0, :cond_3d
+    if-eqz p0, :cond_0
 
     .line 698
     new-instance v2, Ljava/util/concurrent/CountDownLatch;
@@ -3877,7 +3877,7 @@
     .line 715
     const-wide/16 v3, 0xfa0
 
-    :try_start_14
+    :try_start_0
     sget-object v5, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     invoke-virtual {v2, v3, v4, v5}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
@@ -3886,19 +3886,19 @@
     const/4 v3, 0x0
 
     aget-object v3, v0, v3
-    :try_end_1c
-    .catch Ljava/lang/InterruptedException; {:try_start_14 .. :try_end_1c} :catch_1d
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 723
     .end local v0           #cache:[Landroid/graphics/Bitmap;
     .end local v2           #latch:Ljava/util/concurrent/CountDownLatch;
-    :goto_1c
+    :goto_0
     return-object v3
 
     .line 717
     .restart local v0       #cache:[Landroid/graphics/Bitmap;
     .restart local v2       #latch:Ljava/util/concurrent/CountDownLatch;
-    :catch_1d
+    :catch_0
     move-exception v1
 
     .line 718
@@ -3936,14 +3936,14 @@
     .end local v0           #cache:[Landroid/graphics/Bitmap;
     .end local v1           #e:Ljava/lang/InterruptedException;
     .end local v2           #latch:Ljava/util/concurrent/CountDownLatch;
-    :cond_3d
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 .method private static profile(Landroid/view/View;Ljava/io/OutputStream;Ljava/lang/String;)V
-    .registers 9
+    .locals 6
     .parameter "root"
     .parameter "clientStream"
     .parameter "parameter"
@@ -3965,7 +3965,7 @@
 
     .line 443
     .local v1, out:Ljava/io/BufferedWriter;
-    :try_start_5
+    :try_start_0
     new-instance v2, Ljava/io/BufferedWriter;
 
     new-instance v4, Ljava/io/OutputStreamWriter;
@@ -3975,33 +3975,33 @@
     const v5, 0x8000
 
     invoke-direct {v2, v4, v5}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;I)V
-    :try_end_12
-    .catchall {:try_start_5 .. :try_end_12} :catchall_3e
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_12} :catch_48
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 445
     .end local v1           #out:Ljava/io/BufferedWriter;
     .local v2, out:Ljava/io/BufferedWriter;
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_1
 
     .line 446
-    :try_start_14
+    :try_start_1
     invoke-static {v3, v2}, Landroid/view/ViewDebug;->profileViewAndChildren(Landroid/view/View;Ljava/io/BufferedWriter;)V
 
     .line 451
-    :goto_17
+    :goto_0
     const-string v4, "DONE."
 
     invoke-virtual {v2, v4}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
 
     .line 452
     invoke-virtual {v2}, Ljava/io/BufferedWriter;->newLine()V
-    :try_end_1f
-    .catchall {:try_start_14 .. :try_end_1f} :catchall_45
-    .catch Ljava/lang/Exception; {:try_start_14 .. :try_end_1f} :catch_2f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 456
-    if-eqz v2, :cond_4a
+    if-eqz v2, :cond_3
 
     .line 457
     invoke-virtual {v2}, Ljava/io/BufferedWriter;->close()V
@@ -4011,29 +4011,29 @@
     .line 460
     .end local v2           #out:Ljava/io/BufferedWriter;
     .restart local v1       #out:Ljava/io/BufferedWriter;
-    :cond_25
-    :goto_25
+    :cond_0
+    :goto_1
     return-void
 
     .line 448
     .end local v1           #out:Ljava/io/BufferedWriter;
     .restart local v2       #out:Ljava/io/BufferedWriter;
-    :cond_26
-    :try_start_26
+    :cond_1
+    :try_start_2
     const-string v4, "-1 -1 -1"
 
     invoke-virtual {v2, v4}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
 
     .line 449
     invoke-virtual {v2}, Ljava/io/BufferedWriter;->newLine()V
-    :try_end_2e
-    .catchall {:try_start_26 .. :try_end_2e} :catchall_45
-    .catch Ljava/lang/Exception; {:try_start_26 .. :try_end_2e} :catch_2f
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 453
-    :catch_2f
+    :catch_0
     move-exception v0
 
     move-object v1, v2
@@ -4042,68 +4042,68 @@
     .end local v2           #out:Ljava/io/BufferedWriter;
     .local v0, e:Ljava/lang/Exception;
     .restart local v1       #out:Ljava/io/BufferedWriter;
-    :goto_31
-    :try_start_31
+    :goto_2
+    :try_start_3
     const-string v4, "View"
 
     const-string v5, "Problem profiling the view:"
 
     invoke-static {v4, v5, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_38
-    .catchall {:try_start_31 .. :try_end_38} :catchall_3e
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 456
-    if-eqz v1, :cond_25
+    if-eqz v1, :cond_0
 
     .line 457
     invoke-virtual {v1}, Ljava/io/BufferedWriter;->close()V
 
-    goto :goto_25
+    goto :goto_1
 
     .line 456
     .end local v0           #e:Ljava/lang/Exception;
-    :catchall_3e
+    :catchall_0
     move-exception v4
 
-    :goto_3f
-    if-eqz v1, :cond_44
+    :goto_3
+    if-eqz v1, :cond_2
 
     .line 457
     invoke-virtual {v1}, Ljava/io/BufferedWriter;->close()V
 
-    :cond_44
+    :cond_2
     throw v4
 
     .line 456
     .end local v1           #out:Ljava/io/BufferedWriter;
     .restart local v2       #out:Ljava/io/BufferedWriter;
-    :catchall_45
+    :catchall_1
     move-exception v4
 
     move-object v1, v2
 
     .end local v2           #out:Ljava/io/BufferedWriter;
     .restart local v1       #out:Ljava/io/BufferedWriter;
-    goto :goto_3f
+    goto :goto_3
 
     .line 453
-    :catch_48
+    :catch_1
     move-exception v0
 
-    goto :goto_31
+    goto :goto_2
 
     .end local v1           #out:Ljava/io/BufferedWriter;
     .restart local v2       #out:Ljava/io/BufferedWriter;
-    :cond_4a
+    :cond_3
     move-object v1, v2
 
     .end local v2           #out:Ljava/io/BufferedWriter;
     .restart local v1       #out:Ljava/io/BufferedWriter;
-    goto :goto_25
+    goto :goto_1
 .end method
 
 .method private static profileViewAndChildren(Landroid/view/View;Ljava/io/BufferedWriter;)V
-    .registers 3
+    .locals 1
     .parameter "view"
     .parameter "out"
     .annotation system Ldalvik/annotation/Throws;
@@ -4123,7 +4123,7 @@
 .end method
 
 .method private static profileViewAndChildren(Landroid/view/View;Ljava/io/BufferedWriter;Z)V
-    .registers 14
+    .locals 11
     .parameter "view"
     .parameter "out"
     .parameter "root"
@@ -4139,15 +4139,15 @@
     const-wide/16 v1, 0x0
 
     .line 470
-    if-nez p2, :cond_c
+    if-nez p2, :cond_0
 
     iget v9, p0, Landroid/view/View;->mPrivateFlags:I
 
     and-int/lit16 v9, v9, 0x800
 
-    if-eqz v9, :cond_74
+    if-eqz v9, :cond_4
 
-    :cond_c
+    :cond_0
     new-instance v9, Landroid/view/ViewDebug$2;
 
     invoke-direct {v9, p0}, Landroid/view/ViewDebug$2;-><init>(Landroid/view/View;)V
@@ -4158,16 +4158,16 @@
 
     .line 497
     .local v5, durationMeasure:J
-    :goto_15
-    if-nez p2, :cond_1d
+    :goto_0
+    if-nez p2, :cond_1
 
     iget v9, p0, Landroid/view/View;->mPrivateFlags:I
 
     and-int/lit16 v9, v9, 0x2000
 
-    if-eqz v9, :cond_76
+    if-eqz v9, :cond_5
 
-    :cond_1d
+    :cond_1
     new-instance v9, Landroid/view/ViewDebug$3;
 
     invoke-direct {v9, p0}, Landroid/view/ViewDebug$3;-><init>(Landroid/view/View;)V
@@ -4178,22 +4178,22 @@
 
     .line 511
     .local v3, durationLayout:J
-    :goto_26
-    if-nez p2, :cond_34
+    :goto_1
+    if-nez p2, :cond_2
 
     invoke-virtual {p0}, Landroid/view/View;->willNotDraw()Z
 
     move-result v9
 
-    if-eqz v9, :cond_34
+    if-eqz v9, :cond_2
 
     iget v9, p0, Landroid/view/View;->mPrivateFlags:I
 
     and-int/lit8 v9, v9, 0x20
 
-    if-eqz v9, :cond_3d
+    if-eqz v9, :cond_3
 
-    :cond_34
+    :cond_2
     new-instance v9, Landroid/view/ViewDebug$4;
 
     invoke-direct {v9, p0}, Landroid/view/ViewDebug$4;-><init>(Landroid/view/View;)V
@@ -4204,7 +4204,7 @@
 
     .line 543
     .local v1, durationDraw:J
-    :cond_3d
+    :cond_3
     invoke-static {v5, v6}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v9
@@ -4237,7 +4237,7 @@
     .line 549
     instance-of v9, p0, Landroid/view/ViewGroup;
 
-    if-eqz v9, :cond_78
+    if-eqz v9, :cond_6
 
     move-object v7, p0
 
@@ -4255,8 +4255,8 @@
     const/4 v8, 0x0
 
     .local v8, i:I
-    :goto_67
-    if-ge v8, v0, :cond_78
+    :goto_2
+    if-ge v8, v0, :cond_6
 
     .line 553
     invoke-virtual {v7, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -4270,7 +4270,7 @@
     .line 552
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_67
+    goto :goto_2
 
     .end local v0           #count:I
     .end local v1           #durationDraw:J
@@ -4278,28 +4278,28 @@
     .end local v5           #durationMeasure:J
     .end local v7           #group:Landroid/view/ViewGroup;
     .end local v8           #i:I
-    :cond_74
+    :cond_4
     move-wide v5, v1
 
     .line 470
-    goto :goto_15
+    goto :goto_0
 
     .restart local v5       #durationMeasure:J
-    :cond_76
+    :cond_5
     move-wide v3, v1
 
     .line 497
-    goto :goto_26
+    goto :goto_1
 
     .line 556
     .restart local v1       #durationDraw:J
     .restart local v3       #durationLayout:J
-    :cond_78
+    :cond_6
     return-void
 .end method
 
 .method private static profileViewOperation(Landroid/view/View;Landroid/view/ViewDebug$ViewOperation;)J
-    .registers 10
+    .locals 8
     .parameter "view"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -4339,14 +4339,14 @@
     .line 585
     const-wide/16 v5, 0xfa0
 
-    :try_start_14
+    :try_start_0
     sget-object v7, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     invoke-virtual {v2, v5, v6, v7}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
 
     move-result v5
 
-    if-nez v5, :cond_56
+    if-nez v5, :cond_0
 
     .line 586
     const-string v5, "View"
@@ -4370,15 +4370,15 @@
     move-result-object v6
 
     invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_34
-    .catch Ljava/lang/InterruptedException; {:try_start_14 .. :try_end_34} :catch_35
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 595
-    :goto_34
+    :goto_0
     return-wide v3
 
     .line 589
-    :catch_35
+    :catch_0
     move-exception v1
 
     .line 590
@@ -4412,20 +4412,20 @@
 
     invoke-virtual {v5}, Ljava/lang/Thread;->interrupt()V
 
-    goto :goto_34
+    goto :goto_0
 
     .line 595
     .end local v1           #e:Ljava/lang/InterruptedException;
-    :cond_56
+    :cond_0
     const/4 v3, 0x0
 
     aget-wide v3, v0, v3
 
-    goto :goto_34
+    goto :goto_0
 .end method
 
 .method private static requestLayout(Landroid/view/View;Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "root"
     .parameter "parameter"
 
@@ -4437,7 +4437,7 @@
 
     .line 428
     .local v0, view:Landroid/view/View;
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 429
     new-instance v1, Landroid/view/ViewDebug$1;
@@ -4447,12 +4447,12 @@
     invoke-virtual {p0, v1}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
     .line 435
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method static resolveId(Landroid/content/Context;I)Ljava/lang/Object;
-    .registers 7
+    .locals 5
     .parameter "context"
     .parameter "id"
 
@@ -4464,10 +4464,10 @@
 
     .line 1127
     .local v2, resources:Landroid/content/res/Resources;
-    if-ltz p1, :cond_3f
+    if-ltz p1, :cond_0
 
     .line 1129
-    :try_start_6
+    :try_start_0
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -4495,19 +4495,19 @@
     move-result-object v3
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    :try_end_24
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_6 .. :try_end_24} :catch_26
+    :try_end_0
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 1137
     .local v1, fieldValue:Ljava/lang/String;
-    :goto_25
+    :goto_0
     return-object v1
 
     .line 1131
     .end local v1           #fieldValue:Ljava/lang/String;
-    :catch_26
+    :catch_0
     move-exception v0
 
     .line 1132
@@ -4536,20 +4536,20 @@
 
     .line 1133
     .restart local v1       #fieldValue:Ljava/lang/String;
-    goto :goto_25
+    goto :goto_0
 
     .line 1135
     .end local v0           #e:Landroid/content/res/Resources$NotFoundException;
     .end local v1           #fieldValue:Ljava/lang/String;
-    :cond_3f
+    :cond_0
     const-string v1, "NO_ID"
 
     .restart local v1       #fieldValue:Ljava/lang/String;
-    goto :goto_25
+    goto :goto_0
 .end method
 
 .method public static startHierarchyTracing(Ljava/lang/String;Landroid/view/View;)V
-    .registers 2
+    .locals 0
     .parameter "prefix"
     .parameter "view"
     .annotation runtime Ljava/lang/Deprecated;
@@ -4561,7 +4561,7 @@
 .end method
 
 .method public static startRecyclerTracing(Ljava/lang/String;Landroid/view/View;)V
-    .registers 2
+    .locals 0
     .parameter "prefix"
     .parameter "view"
     .annotation runtime Ljava/lang/Deprecated;
@@ -4573,7 +4573,7 @@
 .end method
 
 .method public static stopHierarchyTracing()V
-    .registers 0
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -4583,7 +4583,7 @@
 .end method
 
 .method public static stopRecyclerTracing()V
-    .registers 0
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -4593,7 +4593,7 @@
 .end method
 
 .method public static trace(Landroid/view/View;Landroid/view/ViewDebug$HierarchyTraceType;)V
-    .registers 2
+    .locals 0
     .parameter "view"
     .parameter "type"
     .annotation runtime Ljava/lang/Deprecated;
@@ -4605,7 +4605,7 @@
 .end method
 
 .method public static varargs trace(Landroid/view/View;Landroid/view/ViewDebug$RecyclerTraceType;[I)V
-    .registers 3
+    .locals 0
     .parameter "view"
     .parameter "type"
     .parameter "parameters"
@@ -4618,7 +4618,7 @@
 .end method
 
 .method private static writeEntry(Ljava/io/BufferedWriter;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V
-    .registers 6
+    .locals 1
     .parameter "out"
     .parameter "prefix"
     .parameter "name"
@@ -4658,7 +4658,7 @@
 .end method
 
 .method private static writeValue(Ljava/io/BufferedWriter;Ljava/lang/Object;)V
-    .registers 6
+    .locals 4
     .parameter "out"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -4669,7 +4669,7 @@
 
     .prologue
     .line 1141
-    if-eqz p1, :cond_22
+    if-eqz p1, :cond_0
 
     .line 1142
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -4706,14 +4706,14 @@
 
     .line 1149
     .end local v0           #output:Ljava/lang/String;
-    :goto_21
+    :goto_0
     return-void
 
     .line 1147
-    :cond_22
+    :cond_0
     const-string v1, "4,null"
 
     invoke-virtual {p0, v1}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
 
-    goto :goto_21
+    goto :goto_0
 .end method

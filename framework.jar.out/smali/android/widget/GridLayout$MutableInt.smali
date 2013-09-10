@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 2059
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "value"
 
     .prologue
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public reset()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2068
@@ -64,7 +64,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2073

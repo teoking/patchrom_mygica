@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 30
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -113,7 +113,7 @@
 .end method
 
 .method private registerSurface()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 145
@@ -136,7 +136,7 @@
     .line 146
     iget v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mSurfaceId:I
 
-    if-gez v0, :cond_3b
+    if-gez v0, :cond_0
 
     .line 147
     new-instance v0, Ljava/lang/RuntimeException;
@@ -178,22 +178,22 @@
     throw v0
 
     .line 150
-    :cond_3b
+    :cond_0
     return-void
 .end method
 
 .method private unregisterSurface()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 152
     iget-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mGLEnv:Landroid/filterfw/core/GLEnvironment;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     iget v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mSurfaceId:I
 
-    if-lez v0, :cond_f
+    if-lez v0, :cond_0
 
     .line 153
     iget-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mGLEnv:Landroid/filterfw/core/GLEnvironment;
@@ -203,14 +203,14 @@
     invoke-virtual {v0, v1}, Landroid/filterfw/core/GLEnvironment;->unregisterSurfaceId(I)V
 
     .line 155
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public declared-synchronized bindToListener(Landroid/view/SurfaceHolder$Callback;Landroid/filterfw/core/GLEnvironment;)V
-    .registers 8
+    .locals 5
     .parameter "listener"
     .parameter "glEnv"
 
@@ -218,10 +218,10 @@
     .line 54
     monitor-enter p0
 
-    if-nez p1, :cond_e
+    if-nez p1, :cond_0
 
     .line 55
-    :try_start_3
+    :try_start_0
     new-instance v0, Ljava/lang/NullPointerException;
 
     const-string v1, "Attempting to bind null filter to SurfaceView!"
@@ -229,11 +229,11 @@
     invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_b
-    .catchall {:try_start_3 .. :try_end_b} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 54
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -241,15 +241,15 @@
     throw v0
 
     .line 56
-    :cond_e
-    :try_start_e
+    :cond_0
+    :try_start_1
     iget-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mListener:Landroid/view/SurfaceHolder$Callback;
 
-    if-eqz v0, :cond_47
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mListener:Landroid/view/SurfaceHolder$Callback;
 
-    if-eq v0, p1, :cond_47
+    if-eq v0, p1, :cond_1
 
     .line 57
     new-instance v0, Ljava/lang/RuntimeException;
@@ -301,17 +301,17 @@
     throw v0
 
     .line 63
-    :cond_47
+    :cond_1
     iput-object p1, p0, Landroid/filterfw/core/FilterSurfaceView;->mListener:Landroid/view/SurfaceHolder$Callback;
 
     .line 66
     iget-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mGLEnv:Landroid/filterfw/core/GLEnvironment;
 
-    if-eqz v0, :cond_58
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mGLEnv:Landroid/filterfw/core/GLEnvironment;
 
-    if-eq v0, p2, :cond_58
+    if-eq v0, p2, :cond_2
 
     .line 67
     iget-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mGLEnv:Landroid/filterfw/core/GLEnvironment;
@@ -321,7 +321,7 @@
     invoke-virtual {v0, v1}, Landroid/filterfw/core/GLEnvironment;->unregisterSurfaceId(I)V
 
     .line 69
-    :cond_58
+    :cond_2
     iput-object p2, p0, Landroid/filterfw/core/FilterSurfaceView;->mGLEnv:Landroid/filterfw/core/GLEnvironment;
 
     .line 72
@@ -329,7 +329,7 @@
 
     sget v1, Landroid/filterfw/core/FilterSurfaceView;->STATE_CREATED:I
 
-    if-lt v0, v1, :cond_81
+    if-lt v0, v1, :cond_3
 
     .line 75
     invoke-direct {p0}, Landroid/filterfw/core/FilterSurfaceView;->registerSurface()V
@@ -348,7 +348,7 @@
 
     sget v1, Landroid/filterfw/core/FilterSurfaceView;->STATE_INITIALIZED:I
 
-    if-ne v0, v1, :cond_81
+    if-ne v0, v1, :cond_3
 
     .line 82
     iget-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mListener:Landroid/view/SurfaceHolder$Callback;
@@ -364,33 +364,33 @@
     iget v4, p0, Landroid/filterfw/core/FilterSurfaceView;->mHeight:I
 
     invoke-interface {v0, v1, v2, v3, v4}, Landroid/view/SurfaceHolder$Callback;->surfaceChanged(Landroid/view/SurfaceHolder;III)V
-    :try_end_81
-    .catchall {:try_start_e .. :try_end_81} :catchall_b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 85
-    :cond_81
+    :cond_3
     monitor-exit p0
 
     return-void
 .end method
 
 .method public declared-synchronized getGLEnv()Landroid/filterfw/core/GLEnvironment;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 96
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mGLEnv:Landroid/filterfw/core/GLEnvironment;
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return-object v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -399,22 +399,22 @@
 .end method
 
 .method public declared-synchronized getSurfaceId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 92
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mSurfaceId:I
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -423,7 +423,7 @@
 .end method
 
 .method public declared-synchronized surfaceChanged(Landroid/view/SurfaceHolder;III)V
-    .registers 6
+    .locals 1
     .parameter "holder"
     .parameter "format"
     .parameter "width"
@@ -433,7 +433,7 @@
     .line 120
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iput p2, p0, Landroid/filterfw/core/FilterSurfaceView;->mFormat:I
 
     .line 121
@@ -450,23 +450,23 @@
     .line 126
     iget-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mListener:Landroid/view/SurfaceHolder$Callback;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 127
     iget-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mListener:Landroid/view/SurfaceHolder$Callback;
 
     invoke-interface {v0, p1, p2, p3, p4}, Landroid/view/SurfaceHolder$Callback;->surfaceChanged(Landroid/view/SurfaceHolder;III)V
-    :try_end_14
-    .catchall {:try_start_1 .. :try_end_14} :catchall_16
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 129
-    :cond_14
+    :cond_0
     monitor-exit p0
 
     return-void
 
     .line 120
-    :catchall_16
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -475,14 +475,14 @@
 .end method
 
 .method public declared-synchronized surfaceCreated(Landroid/view/SurfaceHolder;)V
-    .registers 3
+    .locals 1
     .parameter "holder"
 
     .prologue
     .line 101
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     sget v0, Landroid/filterfw/core/FilterSurfaceView;->STATE_CREATED:I
 
     iput v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mState:I
@@ -490,32 +490,32 @@
     .line 104
     iget-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mGLEnv:Landroid/filterfw/core/GLEnvironment;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 105
     invoke-direct {p0}, Landroid/filterfw/core/FilterSurfaceView;->registerSurface()V
 
     .line 109
-    :cond_c
+    :cond_0
     iget-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mListener:Landroid/view/SurfaceHolder$Callback;
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_1
 
     .line 110
     iget-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mListener:Landroid/view/SurfaceHolder$Callback;
 
     invoke-interface {v0, p1}, Landroid/view/SurfaceHolder$Callback;->surfaceCreated(Landroid/view/SurfaceHolder;)V
-    :try_end_15
-    .catchall {:try_start_1 .. :try_end_15} :catchall_17
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 112
-    :cond_15
+    :cond_1
     monitor-exit p0
 
     return-void
 
     .line 101
-    :catchall_17
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -524,14 +524,14 @@
 .end method
 
 .method public declared-synchronized surfaceDestroyed(Landroid/view/SurfaceHolder;)V
-    .registers 3
+    .locals 1
     .parameter "holder"
 
     .prologue
     .line 133
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     sget v0, Landroid/filterfw/core/FilterSurfaceView;->STATE_ALLOCATED:I
 
     iput v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mState:I
@@ -539,7 +539,7 @@
     .line 136
     iget-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mListener:Landroid/view/SurfaceHolder$Callback;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 137
     iget-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mListener:Landroid/view/SurfaceHolder$Callback;
@@ -547,10 +547,10 @@
     invoke-interface {v0, p1}, Landroid/view/SurfaceHolder$Callback;->surfaceDestroyed(Landroid/view/SurfaceHolder;)V
 
     .line 141
-    :cond_e
+    :cond_0
     invoke-direct {p0}, Landroid/filterfw/core/FilterSurfaceView;->unregisterSurface()V
-    :try_end_11
-    .catchall {:try_start_1 .. :try_end_11} :catchall_13
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 142
     monitor-exit p0
@@ -558,7 +558,7 @@
     return-void
 
     .line 133
-    :catchall_13
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -567,7 +567,7 @@
 .end method
 
 .method public declared-synchronized unbind()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 88
@@ -575,10 +575,10 @@
 
     const/4 v0, 0x0
 
-    :try_start_2
+    :try_start_0
     iput-object v0, p0, Landroid/filterfw/core/FilterSurfaceView;->mListener:Landroid/view/SurfaceHolder$Callback;
-    :try_end_4
-    .catchall {:try_start_2 .. :try_end_4} :catchall_6
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 89
     monitor-exit p0
@@ -586,7 +586,7 @@
     return-void
 
     .line 88
-    :catchall_6
+    :catchall_0
     move-exception v0
 
     monitor-exit p0

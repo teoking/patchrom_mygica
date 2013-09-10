@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/EntropyMixer;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
@@ -44,7 +44,7 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_d
+    if-eq v0, v1, :cond_0
 
     .line 67
     const-string v0, "EntropyMixer"
@@ -54,19 +54,21 @@
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 72
-    :goto_c
+    :goto_0
     return-void
 
     .line 70
-    :cond_d
+    :cond_0
     iget-object v0, p0, Lcom/android/server/EntropyMixer$1;->this$0:Lcom/android/server/EntropyMixer;
 
+    #calls: Lcom/android/server/EntropyMixer;->writeEntropy()V
     invoke-static {v0}, Lcom/android/server/EntropyMixer;->access$000(Lcom/android/server/EntropyMixer;)V
 
     .line 71
     iget-object v0, p0, Lcom/android/server/EntropyMixer$1;->this$0:Lcom/android/server/EntropyMixer;
 
+    #calls: Lcom/android/server/EntropyMixer;->scheduleEntropyWriter()V
     invoke-static {v0}, Lcom/android/server/EntropyMixer;->access$100(Lcom/android/server/EntropyMixer;)V
 
-    goto :goto_c
+    goto :goto_0
 .end method

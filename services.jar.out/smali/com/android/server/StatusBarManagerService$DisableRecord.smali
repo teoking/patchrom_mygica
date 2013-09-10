@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/StatusBarManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -42,7 +42,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/StatusBarManagerService;Lcom/android/server/StatusBarManagerService$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public binderDied()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x0

@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/ActivityThread;[Ljava/lang/String;Landroid/content/IContentProvider;Landroid/content/ContentProvider;Landroid/app/IActivityManager$ContentProviderHolder;)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter "names"
     .parameter "provider"

@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 27
@@ -22,13 +22,13 @@
 .end method
 
 .method public static getInstance()Landroid/text/method/MovementMethod;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 113
     sget-object v0, Landroid/text/method/ScrollingMovementMethod;->sInstance:Landroid/text/method/ScrollingMovementMethod;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 114
     new-instance v0, Landroid/text/method/ScrollingMovementMethod;
@@ -38,7 +38,7 @@
     sput-object v0, Landroid/text/method/ScrollingMovementMethod;->sInstance:Landroid/text/method/ScrollingMovementMethod;
 
     .line 116
-    :cond_b
+    :cond_0
     sget-object v0, Landroid/text/method/ScrollingMovementMethod;->sInstance:Landroid/text/method/ScrollingMovementMethod;
 
     return-object v0
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method protected bottom(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -61,7 +61,7 @@
 .end method
 
 .method protected down(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -77,7 +77,7 @@
 .end method
 
 .method protected end(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -91,7 +91,7 @@
 .end method
 
 .method protected home(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -105,7 +105,7 @@
 .end method
 
 .method protected left(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -121,7 +121,7 @@
 .end method
 
 .method protected lineEnd(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -135,7 +135,7 @@
 .end method
 
 .method protected lineStart(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -149,7 +149,7 @@
 .end method
 
 .method public onTakeFocus(Landroid/widget/TextView;Landroid/text/Spannable;I)V
-    .registers 10
+    .locals 6
     .parameter "widget"
     .parameter "text"
     .parameter "dir"
@@ -162,11 +162,11 @@
 
     .line 97
     .local v0, layout:Landroid/text/Layout;
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     and-int/lit8 v3, p3, 0x2
 
-    if-eqz v3, :cond_16
+    if-eqz v3, :cond_0
 
     .line 98
     invoke-virtual {p1}, Landroid/widget/TextView;->getScrollX()I
@@ -182,12 +182,12 @@
     invoke-virtual {p1, v3, v4}, Landroid/widget/TextView;->scrollTo(II)V
 
     .line 101
-    :cond_16
-    if-eqz v0, :cond_3f
+    :cond_0
+    if-eqz v0, :cond_1
 
     and-int/lit8 v3, p3, 0x1
 
-    if-eqz v3, :cond_3f
+    if-eqz v3, :cond_1
 
     .line 102
     invoke-virtual {p1}, Landroid/widget/TextView;->getTotalPaddingTop()I
@@ -233,12 +233,12 @@
     .line 110
     .end local v1           #line:I
     .end local v2           #padding:I
-    :cond_3f
+    :cond_1
     return-void
 .end method
 
 .method public onTouchEvent(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z
-    .registers 5
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
     .parameter "event"
@@ -253,7 +253,7 @@
 .end method
 
 .method protected pageDown(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -267,7 +267,7 @@
 .end method
 
 .method protected pageUp(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -281,7 +281,7 @@
 .end method
 
 .method protected right(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -297,7 +297,7 @@
 .end method
 
 .method protected top(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -311,7 +311,7 @@
 .end method
 
 .method protected up(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 

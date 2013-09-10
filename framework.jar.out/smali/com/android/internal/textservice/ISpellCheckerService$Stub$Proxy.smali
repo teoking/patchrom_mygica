@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 80
@@ -50,7 +50,7 @@
 .end method
 
 .method public getISpellCheckerSession(Ljava/lang/String;Lcom/android/internal/textservice/ISpellCheckerSessionListener;Landroid/os/Bundle;)Lcom/android/internal/textservice/ISpellCheckerSession;
-    .registers 10
+    .locals 6
     .parameter "locale"
     .parameter "listener"
     .parameter "bundle"
@@ -74,7 +74,7 @@
 
     .line 92
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.textservice.ISpellCheckerService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -83,17 +83,17 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 94
-    if-eqz p2, :cond_3c
+    if-eqz p2, :cond_0
 
     invoke-interface {p2}, Lcom/android/internal/textservice/ISpellCheckerSessionListener;->asBinder()Landroid/os/IBinder;
 
     move-result-object v3
 
-    :goto_16
+    :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 95
-    if-eqz p3, :cond_3e
+    if-eqz p3, :cond_1
 
     .line 96
     const/4 v3, 0x1
@@ -106,7 +106,7 @@
     invoke-virtual {p3, v0, v3}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 102
-    :goto_23
+    :goto_1
     iget-object v3, p0, Lcom/android/internal/textservice/ISpellCheckerService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x1
@@ -124,8 +124,8 @@
     move-result-object v3
 
     invoke-static {v3}, Lcom/android/internal/textservice/ISpellCheckerSession$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/textservice/ISpellCheckerSession;
-    :try_end_34
-    .catchall {:try_start_8 .. :try_end_34} :catchall_43
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -141,24 +141,24 @@
 
     .line 94
     .end local v2           #_result:Lcom/android/internal/textservice/ISpellCheckerSession;
-    :cond_3c
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_16
+    goto :goto_0
 
     .line 100
-    :cond_3e
+    :cond_1
     const/4 v3, 0x0
 
-    :try_start_3f
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_42
-    .catchall {:try_start_3f .. :try_end_42} :catchall_43
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_23
+    goto :goto_1
 
     .line 107
-    :catchall_43
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -170,7 +170,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84

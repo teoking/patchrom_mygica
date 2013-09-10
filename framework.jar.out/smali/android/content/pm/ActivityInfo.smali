@@ -129,7 +129,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 373
@@ -137,7 +137,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_12
+    fill-array-data v0, :array_0
 
     sput-object v0, Landroid/content/pm/ActivityInfo;->CONFIG_NATIVE_BITS:[I
 
@@ -153,7 +153,7 @@
     .line 373
     nop
 
-    :array_12
+    :array_0
     .array-data 0x4
         0x1t 0x0t 0x0t 0x0t
         0x2t 0x0t 0x0t 0x0t
@@ -171,7 +171,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 458
@@ -192,7 +192,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/pm/ActivityInfo;)V
-    .registers 3
+    .locals 1
     .parameter "orig"
 
     .prologue
@@ -269,7 +269,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -368,7 +368,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/ActivityInfo$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -380,7 +380,7 @@
 .end method
 
 .method public static activityInfoConfigToNative(I)I
-    .registers 4
+    .locals 3
     .parameter "input"
 
     .prologue
@@ -392,12 +392,12 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_2
+    :goto_0
     sget-object v2, Landroid/content/pm/ActivityInfo;->CONFIG_NATIVE_BITS:[I
 
     array-length v2, v2
 
-    if-ge v0, v2, :cond_14
+    if-ge v0, v2, :cond_1
 
     .line 393
     const/4 v2, 0x1
@@ -406,7 +406,7 @@
 
     and-int/2addr v2, p0
 
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_0
 
     .line 394
     sget-object v2, Landroid/content/pm/ActivityInfo;->CONFIG_NATIVE_BITS:[I
@@ -416,20 +416,20 @@
     or-int/2addr v1, v2
 
     .line 392
-    :cond_11
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_2
+    goto :goto_0
 
     .line 397
-    :cond_14
+    :cond_1
     return v1
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 518
@@ -439,7 +439,7 @@
 .end method
 
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "pw"
     .parameter "prefix"
 
@@ -450,7 +450,7 @@
     .line 489
     iget-object v0, p0, Landroid/content/pm/ActivityInfo;->permission:Ljava/lang/String;
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_0
 
     .line 490
     new-instance v0, Ljava/lang/StringBuilder;
@@ -480,7 +480,7 @@
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 492
-    :cond_24
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -522,18 +522,18 @@
     .line 494
     iget v0, p0, Landroid/content/pm/ActivityInfo;->launchMode:I
 
-    if-nez v0, :cond_59
+    if-nez v0, :cond_1
 
     iget v0, p0, Landroid/content/pm/ActivityInfo;->flags:I
 
-    if-nez v0, :cond_59
+    if-nez v0, :cond_1
 
     iget v0, p0, Landroid/content/pm/ActivityInfo;->theme:I
 
-    if-eqz v0, :cond_95
+    if-eqz v0, :cond_2
 
     .line 495
-    :cond_59
+    :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -593,23 +593,23 @@
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 499
-    :cond_95
+    :cond_2
     iget v0, p0, Landroid/content/pm/ActivityInfo;->screenOrientation:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_a2
+    if-ne v0, v1, :cond_3
 
     iget v0, p0, Landroid/content/pm/ActivityInfo;->configChanges:I
 
-    if-nez v0, :cond_a2
+    if-nez v0, :cond_3
 
     iget v0, p0, Landroid/content/pm/ActivityInfo;->softInputMode:I
 
-    if-eqz v0, :cond_df
+    if-eqz v0, :cond_4
 
     .line 501
-    :cond_a2
+    :cond_3
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -669,10 +669,10 @@
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 505
-    :cond_df
+    :cond_4
     iget v0, p0, Landroid/content/pm/ActivityInfo;->uiOptions:I
 
-    if-eqz v0, :cond_103
+    if-eqz v0, :cond_5
 
     .line 506
     new-instance v0, Ljava/lang/StringBuilder;
@@ -706,7 +706,7 @@
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 508
-    :cond_103
+    :cond_5
     invoke-super {p0, p1, p2}, Landroid/content/pm/ComponentInfo;->dumpBack(Landroid/util/Printer;Ljava/lang/String;)V
 
     .line 509
@@ -714,7 +714,7 @@
 .end method
 
 .method public getRealConfigChanged()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 409
@@ -724,7 +724,7 @@
 
     const/16 v1, 0xd
 
-    if-ge v0, v1, :cond_f
+    if-ge v0, v1, :cond_0
 
     iget v0, p0, Landroid/content/pm/ActivityInfo;->configChanges:I
 
@@ -732,39 +732,39 @@
 
     or-int/lit16 v0, v0, 0x800
 
-    :goto_e
+    :goto_0
     return v0
 
-    :cond_f
+    :cond_0
     iget v0, p0, Landroid/content/pm/ActivityInfo;->configChanges:I
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public final getThemeResource()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 484
     iget v0, p0, Landroid/content/pm/ActivityInfo;->theme:I
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     iget v0, p0, Landroid/content/pm/ActivityInfo;->theme:I
 
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     iget-object v0, p0, Landroid/content/pm/ComponentInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget v0, v0, Landroid/content/pm/ApplicationInfo;->theme:I
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 512
@@ -816,7 +816,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "parcelableFlags"
 

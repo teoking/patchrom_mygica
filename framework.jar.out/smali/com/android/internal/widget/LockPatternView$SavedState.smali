@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1172
@@ -55,7 +55,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "in"
 
     .prologue
@@ -122,7 +122,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Lcom/android/internal/widget/LockPatternView$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -134,7 +134,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcelable;Ljava/lang/String;IZZZ)V
-    .registers 7
+    .locals 0
     .parameter "superState"
     .parameter "serializedPattern"
     .parameter "displayMode"
@@ -166,7 +166,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcelable;Ljava/lang/String;IZZZLcom/android/internal/widget/LockPatternView$1;)V
-    .registers 8
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -185,7 +185,7 @@
 
 # virtual methods
 .method public getDisplayMode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1147
@@ -195,7 +195,7 @@
 .end method
 
 .method public getSerializedPattern()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1143
@@ -205,7 +205,7 @@
 .end method
 
 .method public isInStealthMode()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1155
@@ -215,7 +215,7 @@
 .end method
 
 .method public isInputEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1151
@@ -225,7 +225,7 @@
 .end method
 
 .method public isTactileFeedbackEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1159
@@ -235,7 +235,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

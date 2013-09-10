@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 130
@@ -31,17 +31,17 @@
     const-string v1, "drm1_jni"
 
     invoke-static {v1}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
-    :try_end_5
-    .catch Ljava/lang/UnsatisfiedLinkError; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Ljava/lang/UnsatisfiedLinkError; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 135
     .local v0, ule:Ljava/lang/UnsatisfiedLinkError;
-    :goto_5
+    :goto_0
     return-void
 
     .line 132
     .end local v0           #ule:Ljava/lang/UnsatisfiedLinkError;
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 133
@@ -52,11 +52,11 @@
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 62
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public consumeRights(I)Z
-    .registers 4
+    .locals 2
     .parameter "permission"
 
     .prologue
@@ -93,23 +93,23 @@
     .local v0, res:I
     const/4 v1, -0x1
 
-    if-ne v1, v0, :cond_9
+    if-ne v1, v0, :cond_0
 
     .line 97
     const/4 v1, 0x0
 
     .line 99
-    :goto_8
+    :goto_0
     return v1
 
-    :cond_9
+    :cond_0
     const/4 v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getConstraint(I)Landroid/drm/mobile1/DrmConstraintInfo;
-    .registers 5
+    .locals 3
     .parameter "permission"
 
     .prologue
@@ -128,13 +128,13 @@
     .local v1, res:I
     const/4 v2, -0x1
 
-    if-ne v2, v1, :cond_d
+    if-ne v2, v1, :cond_0
 
     .line 79
     const/4 v0, 0x0
 
     .line 81
     .end local v0           #c:Landroid/drm/mobile1/DrmConstraintInfo;
-    :cond_d
+    :cond_0
     return-object v0
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/VideoView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onError(Landroid/media/MediaPlayer;II)Z
-    .registers 11
+    .locals 7
     .parameter "mp"
     .parameter "framework_err"
     .parameter "impl_err"
@@ -51,6 +51,7 @@
     .line 372
     iget-object v2, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
+    #getter for: Landroid/widget/VideoView;->TAG:Ljava/lang/String;
     invoke-static {v2}, Landroid/widget/VideoView;->access$1400(Landroid/widget/VideoView;)Ljava/lang/String;
 
     move-result-object v2
@@ -88,25 +89,29 @@
     .line 373
     iget-object v2, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
+    #setter for: Landroid/widget/VideoView;->mCurrentState:I
     invoke-static {v2, v5}, Landroid/widget/VideoView;->access$202(Landroid/widget/VideoView;I)I
 
     .line 374
     iget-object v2, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
+    #setter for: Landroid/widget/VideoView;->mTargetState:I
     invoke-static {v2, v5}, Landroid/widget/VideoView;->access$1202(Landroid/widget/VideoView;I)I
 
     .line 375
     iget-object v2, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
+    #getter for: Landroid/widget/VideoView;->mMediaController:Landroid/widget/MediaController;
     invoke-static {v2}, Landroid/widget/VideoView;->access$800(Landroid/widget/VideoView;)Landroid/widget/MediaController;
 
     move-result-object v2
 
-    if-eqz v2, :cond_43
+    if-eqz v2, :cond_0
 
     .line 376
     iget-object v2, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
+    #getter for: Landroid/widget/VideoView;->mMediaController:Landroid/widget/MediaController;
     invoke-static {v2}, Landroid/widget/VideoView;->access$800(Landroid/widget/VideoView;)Landroid/widget/MediaController;
 
     move-result-object v2
@@ -114,24 +119,27 @@
     invoke-virtual {v2}, Landroid/widget/MediaController;->hide()V
 
     .line 380
-    :cond_43
+    :cond_0
     iget-object v2, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
+    #getter for: Landroid/widget/VideoView;->mOnErrorListener:Landroid/media/MediaPlayer$OnErrorListener;
     invoke-static {v2}, Landroid/widget/VideoView;->access$1500(Landroid/widget/VideoView;)Landroid/media/MediaPlayer$OnErrorListener;
 
     move-result-object v2
 
-    if-eqz v2, :cond_5e
+    if-eqz v2, :cond_2
 
     .line 381
     iget-object v2, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
+    #getter for: Landroid/widget/VideoView;->mOnErrorListener:Landroid/media/MediaPlayer$OnErrorListener;
     invoke-static {v2}, Landroid/widget/VideoView;->access$1500(Landroid/widget/VideoView;)Landroid/media/MediaPlayer$OnErrorListener;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
+    #getter for: Landroid/widget/VideoView;->mMediaPlayer:Landroid/media/MediaPlayer;
     invoke-static {v3}, Landroid/widget/VideoView;->access$700(Landroid/widget/VideoView;)Landroid/media/MediaPlayer;
 
     move-result-object v3
@@ -140,26 +148,27 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5e
+    if-eqz v2, :cond_2
 
     .line 417
-    :cond_5d
-    :goto_5d
+    :cond_1
+    :goto_0
     return v6
 
     .line 391
-    :cond_5e
+    :cond_2
     iget-object v2, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
     invoke-virtual {v2}, Landroid/widget/VideoView;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v2
 
-    if-eqz v2, :cond_5d
+    if-eqz v2, :cond_1
 
     .line 392
     iget-object v2, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
+    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
     invoke-static {v2}, Landroid/widget/VideoView;->access$1600(Landroid/widget/VideoView;)Landroid/content/Context;
 
     move-result-object v2
@@ -172,18 +181,19 @@
     .local v1, r:Landroid/content/res/Resources;
     const/16 v2, 0xc8
 
-    if-ne p2, v2, :cond_9b
+    if-ne p2, v2, :cond_3
 
     .line 396
     const v0, 0x1040015
 
     .line 401
     .local v0, messageId:I
-    :goto_77
+    :goto_1
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
     iget-object v3, p0, Landroid/widget/VideoView$4;->this$0:Landroid/widget/VideoView;
 
+    #getter for: Landroid/view/View;->mContext:Landroid/content/Context;
     invoke-static {v3}, Landroid/widget/VideoView;->access$1700(Landroid/widget/VideoView;)Landroid/content/Context;
 
     move-result-object v3
@@ -212,13 +222,13 @@
 
     invoke-virtual {v2}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    goto :goto_5d
+    goto :goto_0
 
     .line 398
     .end local v0           #messageId:I
-    :cond_9b
+    :cond_3
     const v0, 0x1040011
 
     .restart local v0       #messageId:I
-    goto :goto_77
+    goto :goto_1
 .end method

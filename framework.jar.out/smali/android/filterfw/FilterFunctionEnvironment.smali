@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 43
@@ -18,7 +18,7 @@
 .end method
 
 .method public constructor <init>(Landroid/filterfw/core/FrameManager;)V
-    .registers 2
+    .locals 0
     .parameter "frameManager"
 
     .prologue
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public varargs createFunction(Ljava/lang/Class;[Ljava/lang/Object;)Landroid/filterfw/core/FilterFunction;
-    .registers 7
+    .locals 4
     .parameter "filterClass"
     .parameter "parameters"
 

@@ -37,7 +37,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 641
@@ -61,7 +61,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/view/FocusFinder$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -72,7 +72,7 @@
 .end method
 
 .method private getRect(Landroid/view/View;Landroid/graphics/Rect;)V
-    .registers 4
+    .locals 1
     .parameter "view"
     .parameter "rect"
 
@@ -92,7 +92,7 @@
 
 # virtual methods
 .method public compare(Landroid/view/View;Landroid/view/View;)I
-    .registers 8
+    .locals 5
     .parameter "first"
     .parameter "second"
 
@@ -104,15 +104,15 @@
     const/4 v1, -0x1
 
     .line 655
-    if-ne p1, p2, :cond_6
+    if-ne p1, p2, :cond_1
 
     .line 682
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return v0
 
     .line 659
-    :cond_6
+    :cond_1
     iget-object v3, p0, Landroid/view/FocusFinder$SequentialFocusComparator;->mFirstRect:Landroid/graphics/Rect;
 
     invoke-direct {p0, p1, v3}, Landroid/view/FocusFinder$SequentialFocusComparator;->getRect(Landroid/view/View;Landroid/graphics/Rect;)V
@@ -131,15 +131,15 @@
 
     iget v4, v4, Landroid/graphics/Rect;->top:I
 
-    if-ge v3, v4, :cond_1c
+    if-ge v3, v4, :cond_2
 
     move v0, v1
 
     .line 663
-    goto :goto_5
+    goto :goto_0
 
     .line 664
-    :cond_1c
+    :cond_2
     iget-object v3, p0, Landroid/view/FocusFinder$SequentialFocusComparator;->mFirstRect:Landroid/graphics/Rect;
 
     iget v3, v3, Landroid/graphics/Rect;->top:I
@@ -148,15 +148,15 @@
 
     iget v4, v4, Landroid/graphics/Rect;->top:I
 
-    if-le v3, v4, :cond_28
+    if-le v3, v4, :cond_3
 
     move v0, v2
 
     .line 665
-    goto :goto_5
+    goto :goto_0
 
     .line 666
-    :cond_28
+    :cond_3
     iget-object v3, p0, Landroid/view/FocusFinder$SequentialFocusComparator;->mFirstRect:Landroid/graphics/Rect;
 
     iget v3, v3, Landroid/graphics/Rect;->left:I
@@ -165,15 +165,15 @@
 
     iget v4, v4, Landroid/graphics/Rect;->left:I
 
-    if-ge v3, v4, :cond_34
+    if-ge v3, v4, :cond_4
 
     move v0, v1
 
     .line 667
-    goto :goto_5
+    goto :goto_0
 
     .line 668
-    :cond_34
+    :cond_4
     iget-object v3, p0, Landroid/view/FocusFinder$SequentialFocusComparator;->mFirstRect:Landroid/graphics/Rect;
 
     iget v3, v3, Landroid/graphics/Rect;->left:I
@@ -182,15 +182,15 @@
 
     iget v4, v4, Landroid/graphics/Rect;->left:I
 
-    if-le v3, v4, :cond_40
+    if-le v3, v4, :cond_5
 
     move v0, v2
 
     .line 669
-    goto :goto_5
+    goto :goto_0
 
     .line 670
-    :cond_40
+    :cond_5
     iget-object v3, p0, Landroid/view/FocusFinder$SequentialFocusComparator;->mFirstRect:Landroid/graphics/Rect;
 
     iget v3, v3, Landroid/graphics/Rect;->bottom:I
@@ -199,15 +199,15 @@
 
     iget v4, v4, Landroid/graphics/Rect;->bottom:I
 
-    if-ge v3, v4, :cond_4c
+    if-ge v3, v4, :cond_6
 
     move v0, v1
 
     .line 671
-    goto :goto_5
+    goto :goto_0
 
     .line 672
-    :cond_4c
+    :cond_6
     iget-object v3, p0, Landroid/view/FocusFinder$SequentialFocusComparator;->mFirstRect:Landroid/graphics/Rect;
 
     iget v3, v3, Landroid/graphics/Rect;->bottom:I
@@ -216,15 +216,15 @@
 
     iget v4, v4, Landroid/graphics/Rect;->bottom:I
 
-    if-le v3, v4, :cond_58
+    if-le v3, v4, :cond_7
 
     move v0, v2
 
     .line 673
-    goto :goto_5
+    goto :goto_0
 
     .line 674
-    :cond_58
+    :cond_7
     iget-object v3, p0, Landroid/view/FocusFinder$SequentialFocusComparator;->mFirstRect:Landroid/graphics/Rect;
 
     iget v3, v3, Landroid/graphics/Rect;->right:I
@@ -233,15 +233,15 @@
 
     iget v4, v4, Landroid/graphics/Rect;->right:I
 
-    if-ge v3, v4, :cond_64
+    if-ge v3, v4, :cond_8
 
     move v0, v1
 
     .line 675
-    goto :goto_5
+    goto :goto_0
 
     .line 676
-    :cond_64
+    :cond_8
     iget-object v1, p0, Landroid/view/FocusFinder$SequentialFocusComparator;->mFirstRect:Landroid/graphics/Rect;
 
     iget v1, v1, Landroid/graphics/Rect;->right:I
@@ -250,16 +250,16 @@
 
     iget v3, v3, Landroid/graphics/Rect;->right:I
 
-    if-le v1, v3, :cond_5
+    if-le v1, v3, :cond_0
 
     move v0, v2
 
     .line 677
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -279,7 +279,7 @@
 .end method
 
 .method public recycle()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 647
@@ -292,7 +292,7 @@
 .end method
 
 .method public setRoot(Landroid/view/ViewGroup;)V
-    .registers 2
+    .locals 0
     .parameter "root"
 
     .prologue

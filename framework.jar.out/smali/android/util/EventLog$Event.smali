@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>([B)V
-    .registers 4
+    .locals 2
     .parameter "data"
 
     .prologue
@@ -74,7 +74,7 @@
 .end method
 
 .method private decodeObject()Ljava/lang/Object;
-    .registers 10
+    .locals 9
 
     .prologue
     .line 120
@@ -86,7 +86,7 @@
 
     .line 121
     .local v5, type:B
-    packed-switch v5, :pswitch_data_7c
+    packed-switch v5, :pswitch_data_0
 
     .line 147
     new-instance v6, Ljava/lang/IllegalArgumentException;
@@ -114,7 +114,7 @@
     throw v6
 
     .line 123
-    :pswitch_22
+    :pswitch_0
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v6}, Ljava/nio/ByteBuffer;->getInt()I
@@ -126,12 +126,12 @@
     move-result-object v0
 
     .line 144
-    :cond_2c
-    :goto_2c
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 126
-    :pswitch_2d
+    :pswitch_1
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v6}, Ljava/nio/ByteBuffer;->getLong()J
@@ -142,11 +142,11 @@
 
     move-result-object v0
 
-    goto :goto_2c
+    goto :goto_0
 
     .line 130
-    :pswitch_38
-    :try_start_38
+    :pswitch_2
+    :try_start_0
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v6}, Ljava/nio/ByteBuffer;->getInt()I
@@ -181,15 +181,15 @@
     const-string v7, "UTF-8"
 
     invoke-direct {v0, v6, v4, v3, v7}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
-    :try_end_58
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_38 .. :try_end_58} :catch_59
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_2c
+    goto :goto_0
 
     .line 134
     .end local v3           #length:I
     .end local v4           #start:I
-    :catch_59
+    :catch_0
     move-exception v1
 
     .line 135
@@ -203,11 +203,11 @@
     .line 136
     const/4 v0, 0x0
 
-    goto :goto_2c
+    goto :goto_0
 
     .line 140
     .end local v1           #e:Ljava/io/UnsupportedEncodingException;
-    :pswitch_63
+    :pswitch_3
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v6}, Ljava/nio/ByteBuffer;->get()B
@@ -216,12 +216,12 @@
 
     .line 141
     .restart local v3       #length:I
-    if-gez v3, :cond_6d
+    if-gez v3, :cond_1
 
     add-int/lit16 v3, v3, 0x100
 
     .line 142
-    :cond_6d
+    :cond_1
     new-array v0, v3, [Ljava/lang/Object;
 
     .line 143
@@ -229,8 +229,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_70
-    if-ge v2, v3, :cond_2c
+    :goto_1
+    if-ge v2, v3, :cond_0
 
     invoke-direct {p0}, Landroid/util/EventLog$Event;->decodeObject()Ljava/lang/Object;
 
@@ -240,24 +240,24 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_70
+    goto :goto_1
 
     .line 121
     nop
 
-    :pswitch_data_7c
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_22
-        :pswitch_2d
-        :pswitch_38
-        :pswitch_63
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public declared-synchronized getData()Ljava/lang/Object;
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v1, 0x0
@@ -265,7 +265,7 @@
     .line 106
     monitor-enter p0
 
-    :try_start_2
+    :try_start_0
     iget-object v2, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     iget-object v3, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
@@ -289,26 +289,26 @@
 
     .line 108
     invoke-direct {p0}, Landroid/util/EventLog$Event;->decodeObject()Ljava/lang/Object;
-    :try_end_1a
-    .catchall {:try_start_2 .. :try_end_1a} :catchall_3b
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_2 .. :try_end_1a} :catch_1d
-    .catch Ljava/nio/BufferUnderflowException; {:try_start_2 .. :try_end_1a} :catch_3e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/nio/BufferUnderflowException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v1
 
     .line 114
-    :goto_1b
+    :goto_0
     monitor-exit p0
 
     return-object v1
 
     .line 109
-    :catch_1d
+    :catch_0
     move-exception v0
 
     .line 110
     .local v0, e:Ljava/lang/IllegalArgumentException;
-    :try_start_1e
+    :try_start_1
     const-string v2, "EventLog"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -334,14 +334,14 @@
     move-result-object v3
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_3a
-    .catchall {:try_start_1e .. :try_end_3a} :catchall_3b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1b
+    goto :goto_0
 
     .line 106
     .end local v0           #e:Ljava/lang/IllegalArgumentException;
-    :catchall_3b
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
@@ -349,12 +349,12 @@
     throw v1
 
     .line 112
-    :catch_3e
+    :catch_1
     move-exception v0
 
     .line 113
     .local v0, e:Ljava/nio/BufferUnderflowException;
-    :try_start_3f
+    :try_start_2
     const-string v2, "EventLog"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -380,14 +380,14 @@
     move-result-object v3
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_5b
-    .catchall {:try_start_3f .. :try_end_5b} :catchall_3b
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_1b
+    goto :goto_0
 .end method
 
 .method public getProcessId()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 84
@@ -403,7 +403,7 @@
 .end method
 
 .method public getTag()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 100
@@ -419,7 +419,7 @@
 .end method
 
 .method public getThreadId()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 89
@@ -435,7 +435,7 @@
 .end method
 
 .method public getTimeNanos()J
-    .registers 5
+    .locals 4
 
     .prologue
     .line 94

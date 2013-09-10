@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/FastScroller;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method getAlpha()I
-    .registers 10
+    .locals 9
 
     .prologue
     const-wide/16 v7, 0xd0
@@ -62,17 +62,17 @@
 
     const/4 v4, 0x4
 
-    if-eq v3, v4, :cond_e
+    if-eq v3, v4, :cond_0
 
     .line 851
     const/16 v0, 0xd0
 
     .line 860
-    :goto_d
+    :goto_0
     return v0
 
     .line 854
-    :cond_e
+    :cond_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v1
@@ -87,17 +87,17 @@
 
     cmp-long v3, v1, v3
 
-    if-lez v3, :cond_1d
+    if-lez v3, :cond_1
 
     .line 856
     const/4 v0, 0x0
 
     .local v0, alpha:I
-    goto :goto_d
+    goto :goto_0
 
     .line 858
     .end local v0           #alpha:I
-    :cond_1d
+    :cond_1
     iget-wide v3, p0, Landroid/widget/FastScroller$ScrollFade;->mStartTime:J
 
     sub-long v3, v1, v3
@@ -113,11 +113,11 @@
     long-to-int v0, v3
 
     .restart local v0       #alpha:I
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 864
@@ -129,22 +129,22 @@
 
     const/4 v1, 0x4
 
-    if-eq v0, v1, :cond_d
+    if-eq v0, v1, :cond_0
 
     .line 865
     invoke-virtual {p0}, Landroid/widget/FastScroller$ScrollFade;->startFade()V
 
     .line 874
-    :goto_c
+    :goto_0
     return-void
 
     .line 869
-    :cond_d
+    :cond_0
     invoke-virtual {p0}, Landroid/widget/FastScroller$ScrollFade;->getAlpha()I
 
     move-result v0
 
-    if-lez v0, :cond_1b
+    if-lez v0, :cond_1
 
     .line 870
     iget-object v0, p0, Landroid/widget/FastScroller$ScrollFade;->this$0:Landroid/widget/FastScroller;
@@ -153,21 +153,21 @@
 
     invoke-virtual {v0}, Landroid/widget/AbsListView;->invalidate()V
 
-    goto :goto_c
+    goto :goto_0
 
     .line 872
-    :cond_1b
+    :cond_1
     iget-object v0, p0, Landroid/widget/FastScroller$ScrollFade;->this$0:Landroid/widget/FastScroller;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/FastScroller;->setState(I)V
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method startFade()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 844

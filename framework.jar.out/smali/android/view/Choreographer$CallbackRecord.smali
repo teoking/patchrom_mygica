@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 726
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/view/Choreographer$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public run(J)V
-    .registers 5
+    .locals 2
     .parameter "frameTimeNanos"
 
     .prologue
@@ -60,7 +60,7 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_10
+    if-ne v0, v1, :cond_0
 
     .line 734
     iget-object v0, p0, Landroid/view/Choreographer$CallbackRecord;->action:Ljava/lang/Object;
@@ -70,16 +70,16 @@
     invoke-interface {v0, p1, p2}, Landroid/view/Choreographer$FrameCallback;->doFrame(J)V
 
     .line 738
-    :goto_f
+    :goto_0
     return-void
 
     .line 736
-    :cond_10
+    :cond_0
     iget-object v0, p0, Landroid/view/Choreographer$CallbackRecord;->action:Ljava/lang/Object;
 
     check-cast v0, Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    goto :goto_f
+    goto :goto_0
 .end method

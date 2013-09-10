@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 692
@@ -38,7 +38,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 687
@@ -48,7 +48,7 @@
 .end method
 
 .method static synthetic access$000(Ljava/util/List;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -59,7 +59,7 @@
 .end method
 
 .method private static loge(Ljava/lang/String;)V
-    .registers 2
+    .locals 1
     .parameter "s"
 
     .prologue
@@ -73,7 +73,7 @@
 .end method
 
 .method private static onWriteCalled(Ljava/util/List;)V
-    .registers 18
+    .locals 17
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -92,7 +92,7 @@
 
     .line 718
     .local v9, out:Ljava/io/DataOutputStream;
-    :try_start_1
+    :try_start_0
     new-instance v10, Ljava/io/DataOutputStream;
 
     new-instance v14, Ljava/io/BufferedOutputStream;
@@ -108,16 +108,16 @@
     invoke-direct {v14, v15}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;)V
 
     invoke-direct {v10, v14}, Ljava/io/DataOutputStream;-><init>(Ljava/io/OutputStream;)V
-    :try_end_14
-    .catchall {:try_start_1 .. :try_end_14} :catchall_215
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_14} :catch_218
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_4
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_5
 
     .line 721
     .end local v9           #out:Ljava/io/DataOutputStream;
     .local v10, out:Ljava/io/DataOutputStream;
     const/4 v14, 0x2
 
-    :try_start_15
+    :try_start_1
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 723
@@ -125,21 +125,21 @@
 
     move-result-object v4
 
-    :goto_1c
+    :goto_0
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v14
 
-    if-eqz v14, :cond_1e1
+    if-eqz v14, :cond_a
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/net/wifi/WifiConfiguration;
-    :try_end_28
-    .catchall {:try_start_15 .. :try_end_28} :catchall_e4
-    .catch Ljava/io/IOException; {:try_start_15 .. :try_end_28} :catch_63
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 724
     .local v0, config:Landroid/net/wifi/WifiConfiguration;
@@ -147,7 +147,7 @@
 
     .line 727
     .local v13, writeToFile:Z
-    :try_start_29
+    :try_start_2
     iget-object v8, v0, Landroid/net/wifi/WifiConfiguration;->linkProperties:Landroid/net/LinkProperties;
 
     .line 728
@@ -162,7 +162,7 @@
 
     aget v14, v14, v15
 
-    packed-switch v14, :pswitch_data_21c
+    packed-switch v14, :pswitch_data_0
 
     .line 769
     const-string v14, "Ignore invalid ip assignment while writing"
@@ -170,8 +170,8 @@
     invoke-static {v14}, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->loge(Ljava/lang/String;)V
 
     .line 773
-    :goto_3d
-    :pswitch_3d
+    :goto_1
+    :pswitch_0
     sget-object v14, Landroid/net/wifi/WifiConfigStore$1;->$SwitchMap$android$net$wifi$WifiConfiguration$ProxySettings:[I
 
     iget-object v15, v0, Landroid/net/wifi/WifiConfiguration;->proxySettings:Landroid/net/wifi/WifiConfiguration$ProxySettings;
@@ -182,7 +182,7 @@
 
     aget v14, v14, v15
 
-    packed-switch v14, :pswitch_data_226
+    packed-switch v14, :pswitch_data_1
 
     .line 796
     const-string v14, "Ignthisore invalid proxy settings while writing"
@@ -190,9 +190,9 @@
     invoke-static {v14}, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->loge(Ljava/lang/String;)V
 
     .line 799
-    :goto_4f
-    :pswitch_4f
-    if-eqz v13, :cond_5d
+    :goto_2
+    :pswitch_1
+    if-eqz v13, :cond_0
 
     .line 800
     const-string v14, "id"
@@ -200,34 +200,35 @@
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
     .line 801
+    #calls: Landroid/net/wifi/WifiConfigStore;->configKey(Landroid/net/wifi/WifiConfiguration;)I
     invoke-static {v0}, Landroid/net/wifi/WifiConfigStore;->access$200(Landroid/net/wifi/WifiConfiguration;)I
 
     move-result v14
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeInt(I)V
-    :try_end_5d
-    .catchall {:try_start_29 .. :try_end_5d} :catchall_e4
-    .catch Ljava/lang/NullPointerException; {:try_start_29 .. :try_end_5d} :catch_c5
-    .catch Ljava/io/IOException; {:try_start_29 .. :try_end_5d} :catch_63
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catch Ljava/lang/NullPointerException; {:try_start_2 .. :try_end_2} :catch_1
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 806
     .end local v8           #linkProperties:Landroid/net/LinkProperties;
-    :cond_5d
-    :goto_5d
-    :try_start_5d
+    :cond_0
+    :goto_3
+    :try_start_3
     const-string v14, "eos"
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
-    :try_end_62
-    .catchall {:try_start_5d .. :try_end_62} :catchall_e4
-    .catch Ljava/io/IOException; {:try_start_5d .. :try_end_62} :catch_63
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
 
-    goto :goto_1c
+    goto :goto_0
 
     .line 809
     .end local v0           #config:Landroid/net/wifi/WifiConfiguration;
     .end local v13           #writeToFile:Z
-    :catch_63
+    :catch_0
     move-exception v2
 
     move-object v9, v10
@@ -236,39 +237,39 @@
     .end local v10           #out:Ljava/io/DataOutputStream;
     .local v2, e:Ljava/io/IOException;
     .restart local v9       #out:Ljava/io/DataOutputStream;
-    :goto_65
-    :try_start_65
+    :goto_4
+    :try_start_4
     const-string v14, "Error writing data file"
 
     invoke-static {v14}, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->loge(Ljava/lang/String;)V
-    :try_end_6a
-    .catchall {:try_start_65 .. :try_end_6a} :catchall_215
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_4
 
     .line 812
-    if-eqz v9, :cond_6f
+    if-eqz v9, :cond_1
 
     .line 814
-    :try_start_6c
+    :try_start_5
     invoke-virtual {v9}, Ljava/io/DataOutputStream;->close()V
-    :try_end_6f
-    .catch Ljava/lang/Exception; {:try_start_6c .. :try_end_6f} :catch_20a
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_3
 
     .line 819
-    :cond_6f
-    :goto_6f
+    :cond_1
+    :goto_5
     const-class v15, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;
 
     monitor-enter v15
 
     .line 820
-    :try_start_72
+    :try_start_6
     sget v14, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sWriteSequence:I
 
     add-int/lit8 v14, v14, -0x1
 
     sput v14, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sWriteSequence:I
 
-    if-nez v14, :cond_89
+    if-nez v14, :cond_2
 
     .line 821
     sget-object v14, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandler:Landroid/os/Handler;
@@ -290,14 +291,14 @@
     sput-object v14, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandlerThread:Landroid/os/HandlerThread;
 
     .line 825
-    :cond_89
+    :cond_2
     monitor-exit v15
-    :try_end_8a
-    .catchall {:try_start_72 .. :try_end_8a} :catchall_20d
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
     .line 827
     .end local v2           #e:Ljava/io/IOException;
-    :goto_8a
+    :goto_6
     return-void
 
     .line 730
@@ -306,8 +307,8 @@
     .restart local v8       #linkProperties:Landroid/net/LinkProperties;
     .restart local v10       #out:Ljava/io/DataOutputStream;
     .restart local v13       #writeToFile:Z
-    :pswitch_8b
-    :try_start_8b
+    :pswitch_2
+    :try_start_7
     const-string v14, "ipAssignment"
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
@@ -331,12 +332,12 @@
     move-result-object v5
 
     .local v5, i$:Ljava/util/Iterator;
-    :goto_a1
+    :goto_7
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v14
 
-    if-eqz v14, :cond_109
+    if-eqz v14, :cond_5
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -367,23 +368,23 @@
     move-result v14
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeInt(I)V
-    :try_end_c4
-    .catchall {:try_start_8b .. :try_end_c4} :catchall_e4
-    .catch Ljava/lang/NullPointerException; {:try_start_8b .. :try_end_c4} :catch_c5
-    .catch Ljava/io/IOException; {:try_start_8b .. :try_end_c4} :catch_63
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+    .catch Ljava/lang/NullPointerException; {:try_start_7 .. :try_end_7} :catch_1
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_0
 
-    goto :goto_a1
+    goto :goto_7
 
     .line 803
     .end local v5           #i$:Ljava/util/Iterator;
     .end local v7           #linkAddr:Landroid/net/LinkAddress;
     .end local v8           #linkProperties:Landroid/net/LinkProperties;
-    :catch_c5
+    :catch_1
     move-exception v2
 
     .line 804
     .local v2, e:Ljava/lang/NullPointerException;
-    :try_start_c6
+    :try_start_8
     new-instance v14, Ljava/lang/StringBuilder;
 
     invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
@@ -409,48 +410,48 @@
     move-result-object v14
 
     invoke-static {v14}, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->loge(Ljava/lang/String;)V
-    :try_end_e2
-    .catchall {:try_start_c6 .. :try_end_e2} :catchall_e4
-    .catch Ljava/io/IOException; {:try_start_c6 .. :try_end_e2} :catch_63
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_0
 
-    goto/16 :goto_5d
+    goto/16 :goto_3
 
     .line 812
     .end local v0           #config:Landroid/net/wifi/WifiConfiguration;
     .end local v2           #e:Ljava/lang/NullPointerException;
     .end local v13           #writeToFile:Z
-    :catchall_e4
+    :catchall_0
     move-exception v14
 
     move-object v9, v10
 
     .end local v10           #out:Ljava/io/DataOutputStream;
     .restart local v9       #out:Ljava/io/DataOutputStream;
-    :goto_e6
-    if-eqz v9, :cond_eb
+    :goto_8
+    if-eqz v9, :cond_3
 
     .line 814
-    :try_start_e8
+    :try_start_9
     invoke-virtual {v9}, Ljava/io/DataOutputStream;->close()V
-    :try_end_eb
-    .catch Ljava/lang/Exception; {:try_start_e8 .. :try_end_eb} :catch_204
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_2
 
     .line 819
-    :cond_eb
-    :goto_eb
+    :cond_3
+    :goto_9
     const-class v15, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;
 
     monitor-enter v15
 
     .line 820
-    :try_start_ee
+    :try_start_a
     sget v16, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sWriteSequence:I
 
     add-int/lit8 v16, v16, -0x1
 
     sput v16, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sWriteSequence:I
 
-    if-nez v16, :cond_107
+    if-nez v16, :cond_4
 
     .line 821
     sget-object v16, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandler:Landroid/os/Handler;
@@ -472,10 +473,10 @@
     sput-object v16, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandlerThread:Landroid/os/HandlerThread;
 
     .line 825
-    :cond_107
+    :cond_4
     monitor-exit v15
-    :try_end_108
-    .catchall {:try_start_ee .. :try_end_108} :catchall_207
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_1
 
     .line 812
     throw v14
@@ -487,8 +488,8 @@
     .restart local v8       #linkProperties:Landroid/net/LinkProperties;
     .restart local v10       #out:Ljava/io/DataOutputStream;
     .restart local v13       #writeToFile:Z
-    :cond_109
-    :try_start_109
+    :cond_5
+    :try_start_b
     invoke-virtual {v8}, Landroid/net/LinkProperties;->getRoutes()Ljava/util/Collection;
 
     move-result-object v14
@@ -497,12 +498,12 @@
 
     move-result-object v5
 
-    :goto_111
+    :goto_a
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v14
 
-    if-eqz v14, :cond_15e
+    if-eqz v14, :cond_8
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -523,7 +524,7 @@
 
     .line 740
     .local v1, dest:Landroid/net/LinkAddress;
-    if-eqz v1, :cond_154
+    if-eqz v1, :cond_6
 
     .line 741
     const/4 v14, 0x1
@@ -549,12 +550,12 @@
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     .line 747
-    :goto_13e
+    :goto_b
     invoke-virtual {v12}, Landroid/net/RouteInfo;->getGateway()Ljava/net/InetAddress;
 
     move-result-object v14
 
-    if-eqz v14, :cond_159
+    if-eqz v14, :cond_7
 
     .line 748
     const/4 v14, 0x1
@@ -572,28 +573,28 @@
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    goto :goto_111
+    goto :goto_a
 
     .line 745
-    :cond_154
+    :cond_6
     const/4 v14, 0x0
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    goto :goto_13e
+    goto :goto_b
 
     .line 751
-    :cond_159
+    :cond_7
     const/4 v14, 0x0
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    goto :goto_111
+    goto :goto_a
 
     .line 754
     .end local v1           #dest:Landroid/net/LinkAddress;
     .end local v12           #route:Landroid/net/RouteInfo;
-    :cond_15e
+    :cond_8
     invoke-virtual {v8}, Landroid/net/LinkProperties;->getDnses()Ljava/util/Collection;
 
     move-result-object v14
@@ -602,12 +603,12 @@
 
     move-result-object v5
 
-    :goto_166
+    :goto_c
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v14
 
-    if-eqz v14, :cond_17f
+    if-eqz v14, :cond_9
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -628,19 +629,19 @@
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
 
-    goto :goto_166
+    goto :goto_c
 
     .line 758
     .end local v6           #inetAddr:Ljava/net/InetAddress;
-    :cond_17f
+    :cond_9
     const/4 v13, 0x1
 
     .line 759
-    goto/16 :goto_3d
+    goto/16 :goto_1
 
     .line 761
     .end local v5           #i$:Ljava/util/Iterator;
-    :pswitch_182
+    :pswitch_3
     const-string v14, "ipAssignment"
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
@@ -658,10 +659,10 @@
     const/4 v13, 0x1
 
     .line 764
-    goto/16 :goto_3d
+    goto/16 :goto_1
 
     .line 775
-    :pswitch_193
+    :pswitch_4
     invoke-virtual {v8}, Landroid/net/LinkProperties;->getHttpProxy()Landroid/net/ProxyProperties;
 
     move-result-object v11
@@ -723,12 +724,12 @@
     const/4 v13, 0x1
 
     .line 786
-    goto/16 :goto_4f
+    goto/16 :goto_2
 
     .line 788
     .end local v3           #exclusionList:Ljava/lang/String;
     .end local v11           #proxyProperties:Landroid/net/ProxyProperties;
-    :pswitch_1cf
+    :pswitch_5
     const-string/jumbo v14, "proxySettings"
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
@@ -741,46 +742,46 @@
     move-result-object v14
 
     invoke-virtual {v10, v14}, Ljava/io/DataOutputStream;->writeUTF(Ljava/lang/String;)V
-    :try_end_1de
-    .catchall {:try_start_109 .. :try_end_1de} :catchall_e4
-    .catch Ljava/lang/NullPointerException; {:try_start_109 .. :try_end_1de} :catch_c5
-    .catch Ljava/io/IOException; {:try_start_109 .. :try_end_1de} :catch_63
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_0
+    .catch Ljava/lang/NullPointerException; {:try_start_b .. :try_end_b} :catch_1
+    .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_0
 
     .line 790
     const/4 v13, 0x1
 
     .line 791
-    goto/16 :goto_4f
+    goto/16 :goto_2
 
     .line 812
     .end local v0           #config:Landroid/net/wifi/WifiConfiguration;
     .end local v8           #linkProperties:Landroid/net/LinkProperties;
     .end local v13           #writeToFile:Z
-    :cond_1e1
-    if-eqz v10, :cond_1e6
+    :cond_a
+    if-eqz v10, :cond_b
 
     .line 814
-    :try_start_1e3
+    :try_start_c
     invoke-virtual {v10}, Ljava/io/DataOutputStream;->close()V
-    :try_end_1e6
-    .catch Ljava/lang/Exception; {:try_start_1e3 .. :try_end_1e6} :catch_210
+    :try_end_c
+    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_4
 
     .line 819
-    :cond_1e6
-    :goto_1e6
+    :cond_b
+    :goto_d
     const-class v15, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;
 
     monitor-enter v15
 
     .line 820
-    :try_start_1e9
+    :try_start_d
     sget v14, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sWriteSequence:I
 
     add-int/lit8 v14, v14, -0x1
 
     sput v14, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sWriteSequence:I
 
-    if-nez v14, :cond_200
+    if-nez v14, :cond_c
 
     .line 821
     sget-object v14, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandler:Landroid/os/Handler;
@@ -802,50 +803,50 @@
     sput-object v14, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandlerThread:Landroid/os/HandlerThread;
 
     .line 825
-    :cond_200
+    :cond_c
     monitor-exit v15
-    :try_end_201
-    .catchall {:try_start_1e9 .. :try_end_201} :catchall_212
+    :try_end_d
+    .catchall {:try_start_d .. :try_end_d} :catchall_3
 
     move-object v9, v10
 
     .line 826
     .end local v10           #out:Ljava/io/DataOutputStream;
     .restart local v9       #out:Ljava/io/DataOutputStream;
-    goto/16 :goto_8a
+    goto/16 :goto_6
 
     .line 815
-    :catch_204
+    :catch_2
     move-exception v15
 
-    goto/16 :goto_eb
+    goto/16 :goto_9
 
     .line 825
-    :catchall_207
+    :catchall_1
     move-exception v14
 
-    :try_start_208
+    :try_start_e
     monitor-exit v15
-    :try_end_209
-    .catchall {:try_start_208 .. :try_end_209} :catchall_207
+    :try_end_e
+    .catchall {:try_start_e .. :try_end_e} :catchall_1
 
     throw v14
 
     .line 815
     .local v2, e:Ljava/io/IOException;
-    :catch_20a
+    :catch_3
     move-exception v14
 
-    goto/16 :goto_6f
+    goto/16 :goto_5
 
     .line 825
-    :catchall_20d
+    :catchall_2
     move-exception v14
 
-    :try_start_20e
+    :try_start_f
     monitor-exit v15
-    :try_end_20f
-    .catchall {:try_start_20e .. :try_end_20f} :catchall_20d
+    :try_end_f
+    .catchall {:try_start_f .. :try_end_f} :catchall_2
 
     throw v14
 
@@ -853,57 +854,57 @@
     .end local v2           #e:Ljava/io/IOException;
     .end local v9           #out:Ljava/io/DataOutputStream;
     .restart local v10       #out:Ljava/io/DataOutputStream;
-    :catch_210
+    :catch_4
     move-exception v14
 
-    goto :goto_1e6
+    goto :goto_d
 
     .line 825
-    :catchall_212
+    :catchall_3
     move-exception v14
 
-    :try_start_213
+    :try_start_10
     monitor-exit v15
-    :try_end_214
-    .catchall {:try_start_213 .. :try_end_214} :catchall_212
+    :try_end_10
+    .catchall {:try_start_10 .. :try_end_10} :catchall_3
 
     throw v14
 
     .line 812
     .end local v10           #out:Ljava/io/DataOutputStream;
     .restart local v9       #out:Ljava/io/DataOutputStream;
-    :catchall_215
+    :catchall_4
     move-exception v14
 
-    goto/16 :goto_e6
+    goto/16 :goto_8
 
     .line 809
-    :catch_218
+    :catch_5
     move-exception v2
 
-    goto/16 :goto_65
+    goto/16 :goto_4
 
     .line 728
     nop
 
-    :pswitch_data_21c
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_8b
-        :pswitch_182
-        :pswitch_3d
+        :pswitch_2
+        :pswitch_3
+        :pswitch_0
     .end packed-switch
 
     .line 773
-    :pswitch_data_226
+    :pswitch_data_1
     .packed-switch 0x1
-        :pswitch_193
-        :pswitch_1cf
-        :pswitch_4f
+        :pswitch_4
+        :pswitch_5
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method static write(Ljava/util/List;)V
-    .registers 4
+    .locals 3
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -923,7 +924,7 @@
     monitor-enter v1
 
     .line 699
-    :try_start_3
+    :try_start_0
     sget v0, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sWriteSequence:I
 
     add-int/lit8 v0, v0, 0x1
@@ -932,7 +933,7 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_27
+    if-ne v0, v2, :cond_0
 
     .line 700
     new-instance v0, Landroid/os/HandlerThread;
@@ -962,10 +963,10 @@
     sput-object v0, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandler:Landroid/os/Handler;
 
     .line 704
-    :cond_27
+    :cond_0
     monitor-exit v1
-    :try_end_28
-    .catchall {:try_start_3 .. :try_end_28} :catchall_33
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 706
     sget-object v0, Landroid/net/wifi/WifiConfigStore$DelayedDiskWrite;->sDiskWriteHandler:Landroid/os/Handler;
@@ -980,13 +981,13 @@
     return-void
 
     .line 704
-    :catchall_33
+    :catchall_0
     move-exception v0
 
-    :try_start_34
+    :try_start_1
     monitor-exit v1
-    :try_end_35
-    .catchall {:try_start_34 .. :try_end_35} :catchall_33
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method

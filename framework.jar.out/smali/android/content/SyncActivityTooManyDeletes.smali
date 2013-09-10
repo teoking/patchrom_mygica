@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 38
@@ -28,7 +28,7 @@
 .end method
 
 .method private startSyncReallyDelete()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x1
@@ -71,7 +71,7 @@
 .end method
 
 .method private startSyncUndoDeletes()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x1
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 15
+    .locals 13
     .parameter "savedInstanceState"
 
     .prologue
@@ -134,17 +134,17 @@
 
     .line 51
     .local v1, extras:Landroid/os/Bundle;
-    if-nez v1, :cond_11
+    if-nez v1, :cond_0
 
     .line 52
     invoke-virtual {p0}, Landroid/content/SyncActivityTooManyDeletes;->finish()V
 
     .line 107
-    :goto_10
+    :goto_0
     return-void
 
     .line 56
-    :cond_11
+    :cond_0
     const-string/jumbo v8, "numDeletes"
 
     invoke-virtual {v1, v8}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
@@ -346,11 +346,11 @@
     .line 106
     invoke-virtual {p0, v3}, Landroid/content/SyncActivityTooManyDeletes;->setContentView(Landroid/view/View;)V
 
-    goto/16 :goto_10
+    goto/16 :goto_0
 .end method
 
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .registers 7
+    .locals 1
     .parameter
     .parameter "view"
     .parameter "position"
@@ -368,25 +368,25 @@
     .prologue
     .line 111
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
-    if-nez p3, :cond_9
+    if-nez p3, :cond_1
 
     invoke-direct {p0}, Landroid/content/SyncActivityTooManyDeletes;->startSyncReallyDelete()V
 
     .line 113
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     invoke-virtual {p0}, Landroid/content/SyncActivityTooManyDeletes;->finish()V
 
     .line 114
     return-void
 
     .line 112
-    :cond_9
+    :cond_1
     const/4 v0, 0x1
 
-    if-ne p3, v0, :cond_5
+    if-ne p3, v0, :cond_0
 
     invoke-direct {p0}, Landroid/content/SyncActivityTooManyDeletes;->startSyncUndoDeletes()V
 
-    goto :goto_5
+    goto :goto_0
 .end method

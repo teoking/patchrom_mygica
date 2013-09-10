@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/SurfaceSession;)V
-    .registers 12
+    .locals 10
     .parameter "session"
 
     .prologue
@@ -46,10 +46,10 @@
     .line 43
     iget-object v0, p0, Lcom/android/server/wm/DimAnimator;->mDimSurface:Landroid/view/Surface;
 
-    if-nez v0, :cond_23
+    if-nez v0, :cond_0
 
     .line 51
-    :try_start_a
+    :try_start_0
     new-instance v0, Landroid/view/Surface;
 
     const/4 v2, 0x0
@@ -78,16 +78,16 @@
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/Surface;->setAlpha(F)V
-    :try_end_23
-    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_23} :catch_24
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 64
-    :cond_23
-    :goto_23
+    :cond_0
+    :goto_0
     return-void
 
     .line 60
-    :catch_24
+    :catch_0
     move-exception v9
 
     .line 61
@@ -98,13 +98,13 @@
 
     invoke-static {v0, v1, v9}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_23
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public printTo(Ljava/lang/String;Ljava/io/PrintWriter;)V
-    .registers 5
+    .locals 2
     .parameter "prefix"
     .parameter "pw"
 
@@ -192,7 +192,7 @@
 .end method
 
 .method updateParameters(Landroid/content/res/Resources;Lcom/android/server/wm/DimAnimator$Parameters;J)V
-    .registers 17
+    .locals 12
     .parameter "res"
     .parameter "params"
     .parameter "currentTime"
@@ -233,7 +233,7 @@
     .local v5, target:F
     iget-boolean v8, p0, Lcom/android/server/wm/DimAnimator;->mDimShown:Z
 
-    if-nez v8, :cond_8d
+    if-nez v8, :cond_4
 
     .line 80
     const/4 v8, 0x1
@@ -241,7 +241,7 @@
     iput-boolean v8, p0, Lcom/android/server/wm/DimAnimator;->mDimShown:Z
 
     .line 82
-    :try_start_19
+    :try_start_0
     iput v3, p0, Lcom/android/server/wm/DimAnimator;->mLastDimWidth:I
 
     .line 83
@@ -269,12 +269,12 @@
     iget-object v8, p0, Lcom/android/server/wm/DimAnimator;->mDimSurface:Landroid/view/Surface;
 
     invoke-virtual {v8}, Landroid/view/Surface;->show()V
-    :try_end_34
-    .catch Ljava/lang/RuntimeException; {:try_start_19 .. :try_end_34} :catch_84
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 99
-    :cond_34
-    :goto_34
+    :cond_0
+    :goto_0
     iget-object v8, p0, Lcom/android/server/wm/DimAnimator;->mDimSurface:Landroid/view/Surface;
 
     iget v9, v7, Lcom/android/server/wm/WindowStateAnimator;->mAnimLayer:I
@@ -288,7 +288,7 @@
 
     cmpl-float v8, v8, v5
 
-    if-eqz v8, :cond_83
+    if-eqz v8, :cond_3
 
     .line 106
     iput-wide p3, p0, Lcom/android/server/wm/DimAnimator;->mLastDimAnimTime:J
@@ -296,11 +296,11 @@
     .line 107
     iget-boolean v8, v7, Lcom/android/server/wm/WindowStateAnimator;->mAnimating:Z
 
-    if-eqz v8, :cond_ac
+    if-eqz v8, :cond_6
 
     iget-object v8, v7, Lcom/android/server/wm/WindowStateAnimator;->mAnimation:Landroid/view/animation/Animation;
 
-    if-eqz v8, :cond_ac
+    if-eqz v8, :cond_6
 
     iget-object v8, v7, Lcom/android/server/wm/WindowStateAnimator;->mAnimation:Landroid/view/animation/Animation;
 
@@ -310,12 +310,12 @@
 
     .line 110
     .local v1, duration:J
-    :goto_53
+    :goto_1
     iget v8, p0, Lcom/android/server/wm/DimAnimator;->mDimTargetAlpha:F
 
     cmpl-float v8, v5, v8
 
-    if-lez v8, :cond_70
+    if-lez v8, :cond_1
 
     .line 111
     new-instance v6, Landroid/util/TypedValue;
@@ -335,7 +335,7 @@
 
     const/4 v9, 0x6
 
-    if-ne v8, v9, :cond_af
+    if-ne v8, v9, :cond_7
 
     .line 115
     long-to-float v8, v1
@@ -350,19 +350,19 @@
 
     .line 121
     .end local v6           #tv:Landroid/util/TypedValue;
-    :cond_70
-    :goto_70
+    :cond_1
+    :goto_2
     const-wide/16 v8, 0x1
 
     cmp-long v8, v1, v8
 
-    if-gez v8, :cond_78
+    if-gez v8, :cond_2
 
     .line 123
     const-wide/16 v1, 0x1
 
     .line 125
-    :cond_78
+    :cond_2
     iput v5, p0, Lcom/android/server/wm/DimAnimator;->mDimTargetAlpha:F
 
     .line 126
@@ -380,11 +380,11 @@
 
     .line 128
     .end local v1           #duration:J
-    :cond_83
+    :cond_3
     return-void
 
     .line 88
-    :catch_84
+    :catch_0
     move-exception v4
 
     .line 89
@@ -395,21 +395,21 @@
 
     invoke-static {v8, v9, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_34
+    goto :goto_0
 
     .line 91
     .end local v4           #e:Ljava/lang/RuntimeException;
-    :cond_8d
+    :cond_4
     iget v8, p0, Lcom/android/server/wm/DimAnimator;->mLastDimWidth:I
 
-    if-ne v8, v3, :cond_95
+    if-ne v8, v3, :cond_5
 
     iget v8, p0, Lcom/android/server/wm/DimAnimator;->mLastDimHeight:I
 
-    if-eq v8, v0, :cond_34
+    if-eq v8, v0, :cond_0
 
     .line 92
-    :cond_95
+    :cond_5
     iput v3, p0, Lcom/android/server/wm/DimAnimator;->mLastDimWidth:I
 
     .line 93
@@ -433,40 +433,40 @@
 
     invoke-virtual {v8, v9, v10}, Landroid/view/Surface;->setPosition(II)V
 
-    goto :goto_34
+    goto :goto_0
 
     .line 107
-    :cond_ac
+    :cond_6
     const-wide/16 v1, 0xc8
 
-    goto :goto_53
+    goto :goto_1
 
     .line 116
     .restart local v1       #duration:J
     .restart local v6       #tv:Landroid/util/TypedValue;
-    :cond_af
+    :cond_7
     iget v8, v6, Landroid/util/TypedValue;->type:I
 
     const/16 v9, 0x10
 
-    if-lt v8, v9, :cond_70
+    if-lt v8, v9, :cond_1
 
     iget v8, v6, Landroid/util/TypedValue;->type:I
 
     const/16 v9, 0x1f
 
-    if-gt v8, v9, :cond_70
+    if-gt v8, v9, :cond_1
 
     .line 118
     iget v8, v6, Landroid/util/TypedValue;->data:I
 
     int-to-long v1, v8
 
-    goto :goto_70
+    goto :goto_2
 .end method
 
 .method updateSurface(ZJZ)Z
-    .registers 15
+    .locals 10
     .parameter "dimming"
     .parameter "currentTime"
     .parameter "displayFrozen"
@@ -479,14 +479,14 @@
     const/4 v7, 0x0
 
     .line 135
-    if-nez p1, :cond_18
+    if-nez p1, :cond_0
 
     .line 136
     iget v3, p0, Lcom/android/server/wm/DimAnimator;->mDimTargetAlpha:F
 
     cmpl-float v3, v3, v7
 
-    if-eqz v3, :cond_18
+    if-eqz v3, :cond_0
 
     .line 137
     iput-wide p2, p0, Lcom/android/server/wm/DimAnimator;->mLastDimAnimTime:J
@@ -506,19 +506,19 @@
     iput v3, p0, Lcom/android/server/wm/DimAnimator;->mDimDeltaPerMs:F
 
     .line 143
-    :cond_18
+    :cond_0
     iget-wide v3, p0, Lcom/android/server/wm/DimAnimator;->mLastDimAnimTime:J
 
     cmp-long v3, v3, v8
 
-    if-eqz v3, :cond_3d
+    if-eqz v3, :cond_3
 
     const/4 v0, 0x1
 
     .line 144
     .local v0, animating:Z
-    :goto_1f
-    if-eqz v0, :cond_3c
+    :goto_0
+    if-eqz v0, :cond_2
 
     .line 145
     iget v3, p0, Lcom/android/server/wm/DimAnimator;->mDimCurrentAlpha:F
@@ -538,15 +538,15 @@
     iput v3, p0, Lcom/android/server/wm/DimAnimator;->mDimCurrentAlpha:F
 
     .line 147
-    if-eqz p4, :cond_3f
+    if-eqz p4, :cond_4
 
     .line 149
     const/4 v0, 0x0
 
     .line 163
-    :cond_31
-    :goto_31
-    if-eqz v0, :cond_61
+    :cond_1
+    :goto_1
+    if-eqz v0, :cond_7
 
     .line 166
     iput-wide p2, p0, Lcom/android/server/wm/DimAnimator;->mLastDimAnimTime:J
@@ -559,25 +559,25 @@
     invoke-virtual {v2, v3}, Landroid/view/Surface;->setAlpha(F)V
 
     .line 186
-    :cond_3c
-    :goto_3c
+    :cond_2
+    :goto_2
     return v0
 
     .end local v0           #animating:Z
-    :cond_3d
+    :cond_3
     move v0, v2
 
     .line 143
-    goto :goto_1f
+    goto :goto_0
 
     .line 150
     .restart local v0       #animating:Z
-    :cond_3f
+    :cond_4
     iget v3, p0, Lcom/android/server/wm/DimAnimator;->mDimDeltaPerMs:F
 
     cmpl-float v3, v3, v7
 
-    if-lez v3, :cond_4f
+    if-lez v3, :cond_5
 
     .line 151
     iget v3, p0, Lcom/android/server/wm/DimAnimator;->mDimCurrentAlpha:F
@@ -586,20 +586,20 @@
 
     cmpl-float v3, v3, v4
 
-    if-lez v3, :cond_31
+    if-lez v3, :cond_1
 
     .line 152
     const/4 v0, 0x0
 
-    goto :goto_31
+    goto :goto_1
 
     .line 154
-    :cond_4f
+    :cond_5
     iget v3, p0, Lcom/android/server/wm/DimAnimator;->mDimDeltaPerMs:F
 
     cmpg-float v3, v3, v7
 
-    if-gez v3, :cond_5f
+    if-gez v3, :cond_6
 
     .line 155
     iget v3, p0, Lcom/android/server/wm/DimAnimator;->mDimCurrentAlpha:F
@@ -608,21 +608,21 @@
 
     cmpg-float v3, v3, v4
 
-    if-gez v3, :cond_31
+    if-gez v3, :cond_1
 
     .line 156
     const/4 v0, 0x0
 
-    goto :goto_31
+    goto :goto_1
 
     .line 159
-    :cond_5f
+    :cond_6
     const/4 v0, 0x0
 
-    goto :goto_31
+    goto :goto_1
 
     .line 169
-    :cond_61
+    :cond_7
     iget v3, p0, Lcom/android/server/wm/DimAnimator;->mDimTargetAlpha:F
 
     iput v3, p0, Lcom/android/server/wm/DimAnimator;->mDimCurrentAlpha:F
@@ -638,24 +638,24 @@
     invoke-virtual {v3, v4}, Landroid/view/Surface;->setAlpha(F)V
 
     .line 174
-    if-nez p1, :cond_3c
+    if-nez p1, :cond_2
 
     .line 178
-    :try_start_70
+    :try_start_0
     iget-object v3, p0, Lcom/android/server/wm/DimAnimator;->mDimSurface:Landroid/view/Surface;
 
     invoke-virtual {v3}, Landroid/view/Surface;->hide()V
-    :try_end_75
-    .catch Ljava/lang/RuntimeException; {:try_start_70 .. :try_end_75} :catch_78
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 182
-    :goto_75
+    :goto_3
     iput-boolean v2, p0, Lcom/android/server/wm/DimAnimator;->mDimShown:Z
 
-    goto :goto_3c
+    goto :goto_2
 
     .line 179
-    :catch_78
+    :catch_0
     move-exception v1
 
     .line 180
@@ -666,5 +666,5 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_75
+    goto :goto_3
 .end method

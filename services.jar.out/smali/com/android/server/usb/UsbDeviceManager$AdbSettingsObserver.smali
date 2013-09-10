@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/usb/UsbDeviceManager;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .registers 6
+    .locals 4
     .parameter "selfChange"
 
     .prologue
@@ -50,6 +50,7 @@
     .line 126
     iget-object v2, p0, Lcom/android/server/usb/UsbDeviceManager$AdbSettingsObserver;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
+    #getter for: Lcom/android/server/usb/UsbDeviceManager;->mContentResolver:Landroid/content/ContentResolver;
     invoke-static {v2}, Lcom/android/server/usb/UsbDeviceManager;->access$000(Lcom/android/server/usb/UsbDeviceManager;)Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -60,15 +61,16 @@
 
     move-result v2
 
-    if-lez v2, :cond_11
+    if-lez v2, :cond_0
 
     move v0, v1
 
     .line 128
     .local v0, enable:Z
-    :cond_11
+    :cond_0
     iget-object v2, p0, Lcom/android/server/usb/UsbDeviceManager$AdbSettingsObserver;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
+    #getter for: Lcom/android/server/usb/UsbDeviceManager;->mHandler:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
     invoke-static {v2}, Lcom/android/server/usb/UsbDeviceManager;->access$100(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
     move-result-object v2

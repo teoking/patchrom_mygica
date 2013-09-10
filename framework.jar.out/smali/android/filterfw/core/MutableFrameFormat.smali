@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 31
@@ -16,7 +16,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .registers 3
+    .locals 0
     .parameter "baseType"
     .parameter "target"
 
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public setBaseType(I)V
-    .registers 3
+    .locals 1
     .parameter "baseType"
 
     .prologue
@@ -50,7 +50,7 @@
 .end method
 
 .method public setBytesPerSample(I)V
-    .registers 3
+    .locals 1
     .parameter "bytesPerSample"
 
     .prologue
@@ -67,7 +67,7 @@
 .end method
 
 .method public setDimensionCount(I)V
-    .registers 3
+    .locals 1
     .parameter "count"
 
     .prologue
@@ -81,7 +81,7 @@
 .end method
 
 .method public setDimensions(I)V
-    .registers 4
+    .locals 2
     .parameter "size"
 
     .prologue
@@ -109,7 +109,7 @@
 .end method
 
 .method public setDimensions(II)V
-    .registers 5
+    .locals 2
     .parameter "width"
     .parameter "height"
 
@@ -143,7 +143,7 @@
 .end method
 
 .method public setDimensions(III)V
-    .registers 6
+    .locals 2
     .parameter "width"
     .parameter "height"
     .parameter "depth"
@@ -183,16 +183,16 @@
 .end method
 
 .method public setDimensions([I)V
-    .registers 3
+    .locals 1
     .parameter "dimensions"
 
     .prologue
     .line 53
-    if-nez p1, :cond_9
+    if-nez p1, :cond_0
 
     const/4 v0, 0x0
 
-    :goto_3
+    :goto_0
     iput-object v0, p0, Landroid/filterfw/core/FrameFormat;->mDimensions:[I
 
     .line 54
@@ -204,18 +204,18 @@
     return-void
 
     .line 53
-    :cond_9
+    :cond_0
     array-length v0, p1
 
     invoke-static {p1, v0}, Ljava/util/Arrays;->copyOf([II)[I
 
     move-result-object v0
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public setMetaValue(Ljava/lang/String;Ljava/lang/Object;)V
-    .registers 4
+    .locals 1
     .parameter "key"
     .parameter "value"
 
@@ -223,7 +223,7 @@
     .line 90
     iget-object v0, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 91
     new-instance v0, Landroid/filterfw/core/KeyValueMap;
@@ -233,7 +233,7 @@
     iput-object v0, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
     .line 93
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/filterfw/core/FrameFormat;->mMetaData:Landroid/filterfw/core/KeyValueMap;
 
     invoke-virtual {v0, p1, p2}, Landroid/filterfw/core/KeyValueMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -243,7 +243,7 @@
 .end method
 
 .method public setObjectClass(Ljava/lang/Class;)V
-    .registers 2
+    .locals 0
     .parameter "objectClass"
 
     .prologue
@@ -255,7 +255,7 @@
 .end method
 
 .method public setTarget(I)V
-    .registers 2
+    .locals 0
     .parameter "target"
 
     .prologue

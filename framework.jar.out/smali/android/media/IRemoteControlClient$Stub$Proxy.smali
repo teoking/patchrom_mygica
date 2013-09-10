@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 102
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 106
@@ -60,7 +60,7 @@
 .end method
 
 .method public onInformationRequested(IIII)V
-    .registers 10
+    .locals 5
     .parameter "generationId"
     .parameter "infoFlags"
     .parameter "artWidth"
@@ -79,7 +79,7 @@
 
     .line 124
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.media.IRemoteControlClient"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -106,8 +106,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1d
-    .catchall {:try_start_4 .. :try_end_1d} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 132
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -116,7 +116,7 @@
     return-void
 
     .line 132
-    :catchall_21
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -125,7 +125,7 @@
 .end method
 
 .method public plugRemoteControlDisplay(Landroid/media/IRemoteControlDisplay;)V
-    .registers 7
+    .locals 5
     .parameter "rcd"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -143,19 +143,19 @@
 
     .line 154
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "android.media.IRemoteControlClient"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 155
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/media/IRemoteControlDisplay;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    :cond_10
+    :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 156
@@ -168,8 +168,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1b
-    .catchall {:try_start_5 .. :try_end_1b} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 159
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -178,7 +178,7 @@
     return-void
 
     .line 159
-    :catchall_1f
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -187,7 +187,7 @@
 .end method
 
 .method public setCurrentClientGenerationId(I)V
-    .registers 7
+    .locals 5
     .parameter "clientGeneration"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -203,7 +203,7 @@
 
     .line 142
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "android.media.IRemoteControlClient"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -221,8 +221,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_14
-    .catchall {:try_start_4 .. :try_end_14} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 147
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -231,7 +231,7 @@
     return-void
 
     .line 147
-    :catchall_18
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -240,7 +240,7 @@
 .end method
 
 .method public unplugRemoteControlDisplay(Landroid/media/IRemoteControlDisplay;)V
-    .registers 7
+    .locals 5
     .parameter "rcd"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -258,19 +258,19 @@
 
     .line 166
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "android.media.IRemoteControlClient"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 167
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Landroid/media/IRemoteControlDisplay;->asBinder()Landroid/os/IBinder;
 
     move-result-object v1
 
-    :cond_10
+    :cond_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
 
     .line 168
@@ -283,8 +283,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1b
-    .catchall {:try_start_5 .. :try_end_1b} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 171
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -293,7 +293,7 @@
     return-void
 
     .line 171
-    :catchall_1f
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V

@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManager;Landroid/os/Handler;Landroid/accounts/AccountManagerCallback;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public bridge synthetic bundleToResult(Landroid/os/Bundle;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -75,7 +75,7 @@
 .end method
 
 .method public bundleToResult(Landroid/os/Bundle;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "bundle"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -91,7 +91,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 449
     new-instance v0, Landroid/accounts/AuthenticatorException;
@@ -103,7 +103,7 @@
     throw v0
 
     .line 451
-    :cond_11
+    :cond_0
     const-string v0, "authTokenLabelKey"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -114,7 +114,7 @@
 .end method
 
 .method public doWork()V
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -125,6 +125,7 @@
     .line 443
     iget-object v0, p0, Landroid/accounts/AccountManager$1;->this$0:Landroid/accounts/AccountManager;
 
+    #getter for: Landroid/accounts/AccountManager;->mService:Landroid/accounts/IAccountManager;
     invoke-static {v0}, Landroid/accounts/AccountManager;->access$000(Landroid/accounts/AccountManager;)Landroid/accounts/IAccountManager;
 
     move-result-object v0

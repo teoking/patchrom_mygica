@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/WifiService;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "looper"
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 10
+    .locals 8
     .parameter "msg"
 
     .prologue
@@ -53,7 +53,7 @@
     .line 239
     iget v3, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v3, :sswitch_data_144
+    sparse-switch v3, :sswitch_data_0
 
     .line 306
     const-string v1, "WifiService"
@@ -79,15 +79,15 @@
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 310
-    :cond_24
-    :goto_24
+    :cond_0
+    :goto_0
     return-void
 
     .line 241
-    :sswitch_25
+    :sswitch_0
     iget v1, p1, Landroid/os/Message;->arg1:I
 
-    if-nez v1, :cond_3e
+    if-nez v1, :cond_1
 
     .line 242
     const-string v1, "WifiService"
@@ -99,6 +99,7 @@
     .line 243
     iget-object v1, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
+    #getter for: Lcom/android/server/WifiService;->mClients:Ljava/util/List;
     invoke-static {v1}, Lcom/android/server/WifiService;->access$100(Lcom/android/server/WifiService;)Ljava/util/List;
 
     move-result-object v2
@@ -109,10 +110,10 @@
 
     invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_24
+    goto :goto_0
 
     .line 245
-    :cond_3e
+    :cond_1
     const-string v1, "WifiService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -137,15 +138,15 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_24
+    goto :goto_0
 
     .line 250
-    :sswitch_59
+    :sswitch_1
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_73
+    if-ne v1, v2, :cond_2
 
     .line 251
     const-string v1, "WifiService"
@@ -155,9 +156,10 @@
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 255
-    :goto_65
+    :goto_1
     iget-object v1, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
+    #getter for: Lcom/android/server/WifiService;->mClients:Ljava/util/List;
     invoke-static {v1}, Lcom/android/server/WifiService;->access$100(Lcom/android/server/WifiService;)Ljava/util/List;
 
     move-result-object v2
@@ -168,10 +170,10 @@
 
     invoke-interface {v2, v1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    goto :goto_24
+    goto :goto_0
 
     .line 253
-    :cond_73
+    :cond_2
     const-string v1, "WifiService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -196,10 +198,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_65
+    goto :goto_1
 
     .line 259
-    :sswitch_8e
+    :sswitch_2
     new-instance v0, Lcom/android/internal/util/AsyncChannel;
 
     invoke-direct {v0}, Lcom/android/internal/util/AsyncChannel;-><init>()V
@@ -208,6 +210,7 @@
     .local v0, ac:Lcom/android/internal/util/AsyncChannel;
     iget-object v1, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
+    #getter for: Lcom/android/server/WifiService;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/server/WifiService;->access$200(Lcom/android/server/WifiService;)Landroid/content/Context;
 
     move-result-object v1
@@ -216,18 +219,19 @@
 
     invoke-virtual {v0, v1, p0, v2}, Lcom/android/internal/util/AsyncChannel;->connect(Landroid/content/Context;Landroid/os/Handler;Landroid/os/Messenger;)V
 
-    goto :goto_24
+    goto :goto_0
 
     .line 264
     .end local v0           #ac:Lcom/android/internal/util/AsyncChannel;
-    :sswitch_9f
+    :sswitch_3
     iget-object v3, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     iget v4, p1, Landroid/os/Message;->arg1:I
 
-    if-ne v4, v1, :cond_c9
+    if-ne v4, v1, :cond_3
 
-    :goto_a5
+    :goto_2
+    #setter for: Lcom/android/server/WifiService;->mEnableTrafficStatsPoll:Z
     invoke-static {v3, v1}, Lcom/android/server/WifiService;->access$302(Lcom/android/server/WifiService;Z)Z
 
     .line 265
@@ -238,20 +242,23 @@
     .line 266
     iget-object v1, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
+    #getter for: Lcom/android/server/WifiService;->mEnableTrafficStatsPoll:Z
     invoke-static {v1}, Lcom/android/server/WifiService;->access$300(Lcom/android/server/WifiService;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_24
+    if-eqz v1, :cond_0
 
     .line 267
     iget-object v1, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
+    #calls: Lcom/android/server/WifiService;->notifyOnDataActivity()V
     invoke-static {v1}, Lcom/android/server/WifiService;->access$500(Lcom/android/server/WifiService;)V
 
     .line 268
     iget-object v1, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
+    #getter for: Lcom/android/server/WifiService;->mTrafficStatsPollToken:I
     invoke-static {v1}, Lcom/android/server/WifiService;->access$400(Lcom/android/server/WifiService;)I
 
     move-result v1
@@ -262,34 +269,37 @@
 
     invoke-virtual {p0, v1, v6, v7}, Lcom/android/server/WifiService$AsyncServiceHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    goto/16 :goto_24
+    goto/16 :goto_0
 
-    :cond_c9
+    :cond_3
     move v1, v2
 
     .line 264
-    goto :goto_a5
+    goto :goto_2
 
     .line 274
-    :sswitch_cb
+    :sswitch_4
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     iget-object v3, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
+    #getter for: Lcom/android/server/WifiService;->mTrafficStatsPollToken:I
     invoke-static {v3}, Lcom/android/server/WifiService;->access$400(Lcom/android/server/WifiService;)I
 
     move-result v3
 
-    if-ne v1, v3, :cond_24
+    if-ne v1, v3, :cond_0
 
     .line 275
     iget-object v1, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
+    #calls: Lcom/android/server/WifiService;->notifyOnDataActivity()V
     invoke-static {v1}, Lcom/android/server/WifiService;->access$500(Lcom/android/server/WifiService;)V
 
     .line 276
     iget-object v1, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
+    #getter for: Lcom/android/server/WifiService;->mTrafficStatsPollToken:I
     invoke-static {v1}, Lcom/android/server/WifiService;->access$400(Lcom/android/server/WifiService;)I
 
     move-result v1
@@ -300,12 +310,13 @@
 
     invoke-virtual {p0, v1, v6, v7}, Lcom/android/server/WifiService$AsyncServiceHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    goto/16 :goto_24
+    goto/16 :goto_0
 
     .line 282
-    :sswitch_e9
+    :sswitch_5
     iget-object v1, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
+    #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
     invoke-static {v1}, Lcom/android/server/WifiService;->access$600(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
 
     move-result-object v1
@@ -316,12 +327,13 @@
 
     invoke-virtual {v1, v2}, Landroid/net/wifi/WifiStateMachine;->sendMessage(Landroid/os/Message;)V
 
-    goto/16 :goto_24
+    goto/16 :goto_0
 
     .line 286
-    :sswitch_f8
+    :sswitch_6
     iget-object v1, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
+    #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
     invoke-static {v1}, Lcom/android/server/WifiService;->access$600(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
 
     move-result-object v1
@@ -332,12 +344,13 @@
 
     invoke-virtual {v1, v2}, Landroid/net/wifi/WifiStateMachine;->sendMessage(Landroid/os/Message;)V
 
-    goto/16 :goto_24
+    goto/16 :goto_0
 
     .line 290
-    :sswitch_107
+    :sswitch_7
     iget-object v1, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
+    #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
     invoke-static {v1}, Lcom/android/server/WifiService;->access$600(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
 
     move-result-object v1
@@ -348,12 +361,13 @@
 
     invoke-virtual {v1, v2}, Landroid/net/wifi/WifiStateMachine;->sendMessage(Landroid/os/Message;)V
 
-    goto/16 :goto_24
+    goto/16 :goto_0
 
     .line 294
-    :sswitch_116
+    :sswitch_8
     iget-object v1, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
+    #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
     invoke-static {v1}, Lcom/android/server/WifiService;->access$600(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
 
     move-result-object v1
@@ -364,12 +378,13 @@
 
     invoke-virtual {v1, v2}, Landroid/net/wifi/WifiStateMachine;->sendMessage(Landroid/os/Message;)V
 
-    goto/16 :goto_24
+    goto/16 :goto_0
 
     .line 298
-    :sswitch_125
+    :sswitch_9
     iget-object v1, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
+    #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
     invoke-static {v1}, Lcom/android/server/WifiService;->access$600(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
 
     move-result-object v1
@@ -380,12 +395,13 @@
 
     invoke-virtual {v1, v2}, Landroid/net/wifi/WifiStateMachine;->sendMessage(Landroid/os/Message;)V
 
-    goto/16 :goto_24
+    goto/16 :goto_0
 
     .line 302
-    :sswitch_134
+    :sswitch_a
     iget-object v1, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
+    #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
     invoke-static {v1}, Lcom/android/server/WifiService;->access$600(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
 
     move-result-object v1
@@ -396,23 +412,23 @@
 
     invoke-virtual {v1, v2}, Landroid/net/wifi/WifiStateMachine;->sendMessage(Landroid/os/Message;)V
 
-    goto/16 :goto_24
+    goto/16 :goto_0
 
     .line 239
     nop
 
-    :sswitch_data_144
+    :sswitch_data_0
     .sparse-switch
-        0x11000 -> :sswitch_25
-        0x11001 -> :sswitch_8e
-        0x11004 -> :sswitch_59
-        0x25001 -> :sswitch_e9
-        0x25004 -> :sswitch_107
-        0x25007 -> :sswitch_f8
-        0x2500a -> :sswitch_116
-        0x2500e -> :sswitch_125
-        0x25011 -> :sswitch_134
-        0x25015 -> :sswitch_9f
-        0x25016 -> :sswitch_cb
+        0x11000 -> :sswitch_0
+        0x11001 -> :sswitch_2
+        0x11004 -> :sswitch_1
+        0x25001 -> :sswitch_5
+        0x25004 -> :sswitch_7
+        0x25007 -> :sswitch_6
+        0x2500a -> :sswitch_8
+        0x2500e -> :sswitch_9
+        0x25011 -> :sswitch_a
+        0x25015 -> :sswitch_3
+        0x25016 -> :sswitch_4
     .end sparse-switch
 .end method

@@ -80,7 +80,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
@@ -150,7 +150,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/server/AppWidgetService;)Lcom/android/server/AppWidgetServiceImpl;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -163,7 +163,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/server/AppWidgetService;)Landroid/util/SparseArray;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -174,7 +174,7 @@
 .end method
 
 .method static getAppWidgetIds(Lcom/android/server/AppWidgetService$Provider;)[I
-    .registers 5
+    .locals 4
     .parameter "p"
 
     .prologue
@@ -194,8 +194,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_9
-    if-ge v1, v2, :cond_1a
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     .line 295
     iget-object v3, p0, Lcom/android/server/AppWidgetService$Provider;->instances:Ljava/util/ArrayList;
@@ -213,15 +213,15 @@
     .line 294
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 297
-    :cond_1a
+    :cond_0
     return-object v0
 .end method
 
 .method private getImplForUser()Lcom/android/server/AppWidgetServiceImpl;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 251
@@ -241,7 +241,7 @@
 
     .line 253
     .local v0, service:Lcom/android/server/AppWidgetServiceImpl;
-    if-nez v0, :cond_29
+    if-nez v0, :cond_0
 
     .line 254
     const-string v2, "AppWidgetService"
@@ -273,14 +273,14 @@
     invoke-virtual {v2, v1, v0}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
 
     .line 263
-    :cond_29
+    :cond_0
     return-object v0
 .end method
 
 
 # virtual methods
 .method public allocateAppWidgetId(Ljava/lang/String;I)I
-    .registers 4
+    .locals 1
     .parameter "packageName"
     .parameter "hostId"
     .annotation system Ldalvik/annotation/Throws;
@@ -303,7 +303,7 @@
 .end method
 
 .method public bindAppWidgetId(ILandroid/content/ComponentName;)V
-    .registers 4
+    .locals 1
     .parameter "appWidgetId"
     .parameter "provider"
     .annotation system Ldalvik/annotation/Throws;
@@ -325,7 +325,7 @@
 .end method
 
 .method public bindAppWidgetIdIfAllowed(Ljava/lang/String;ILandroid/content/ComponentName;)Z
-    .registers 5
+    .locals 1
     .parameter "packageName"
     .parameter "appWidgetId"
     .parameter "provider"
@@ -349,7 +349,7 @@
 .end method
 
 .method public bindRemoteViewsService(ILandroid/content/Intent;Landroid/os/IBinder;)V
-    .registers 5
+    .locals 1
     .parameter "appWidgetId"
     .parameter "intent"
     .parameter "connection"
@@ -372,7 +372,7 @@
 .end method
 
 .method public deleteAllHosts()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -392,7 +392,7 @@
 .end method
 
 .method public deleteAppWidgetId(I)V
-    .registers 3
+    .locals 1
     .parameter "appWidgetId"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -413,7 +413,7 @@
 .end method
 
 .method public deleteHost(I)V
-    .registers 3
+    .locals 1
     .parameter "hostId"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -434,7 +434,7 @@
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 7
+    .locals 3
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -444,14 +444,14 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v2, p0, Lcom/android/server/AppWidgetService;->mAppWidgetServices:Landroid/util/SparseArray;
 
     invoke-virtual {v2}, Landroid/util/SparseArray;->size()I
 
     move-result v2
 
-    if-ge v0, v2, :cond_17
+    if-ge v0, v2, :cond_0
 
     .line 342
     iget-object v2, p0, Lcom/android/server/AppWidgetService;->mAppWidgetServices:Landroid/util/SparseArray;
@@ -469,16 +469,16 @@
     .line 341
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 345
     .end local v1           #service:Lcom/android/server/AppWidgetServiceImpl;
-    :cond_17
+    :cond_0
     return-void
 .end method
 
 .method public getAppWidgetIds(Landroid/content/ComponentName;)[I
-    .registers 3
+    .locals 1
     .parameter "provider"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -500,7 +500,7 @@
 .end method
 
 .method public getAppWidgetInfo(I)Landroid/appwidget/AppWidgetProviderInfo;
-    .registers 3
+    .locals 1
     .parameter "appWidgetId"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -522,7 +522,7 @@
 .end method
 
 .method public getAppWidgetOptions(I)Landroid/os/Bundle;
-    .registers 3
+    .locals 1
     .parameter "appWidgetId"
 
     .prologue
@@ -539,7 +539,7 @@
 .end method
 
 .method public getAppWidgetViews(I)Landroid/widget/RemoteViews;
-    .registers 3
+    .locals 1
     .parameter "appWidgetId"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -561,7 +561,7 @@
 .end method
 
 .method public getInstalledProviders()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -592,7 +592,7 @@
 .end method
 
 .method public hasBindAppWidgetPermission(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "packageName"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -614,7 +614,7 @@
 .end method
 
 .method public notifyAppWidgetViewDataChanged([II)V
-    .registers 4
+    .locals 1
     .parameter "appWidgetIds"
     .parameter "viewId"
     .annotation system Ldalvik/annotation/Throws;
@@ -636,7 +636,7 @@
 .end method
 
 .method public onUserRemoved(I)V
-    .registers 4
+    .locals 2
     .parameter "userId"
 
     .prologue
@@ -653,15 +653,15 @@
     .local v0, impl:Lcom/android/server/AppWidgetServiceImpl;
     const/4 v1, 0x1
 
-    if-ge p1, v1, :cond_c
+    if-ge p1, v1, :cond_0
 
     .line 248
-    :goto_b
+    :goto_0
     return-void
 
     .line 243
-    :cond_c
-    if-nez v0, :cond_16
+    :cond_0
+    if-nez v0, :cond_1
 
     .line 244
     invoke-static {p1}, Lcom/android/server/AppWidgetServiceImpl;->getSettingsFile(I)Ljava/io/File;
@@ -670,17 +670,17 @@
 
     invoke-virtual {v1}, Ljava/io/File;->delete()Z
 
-    goto :goto_b
+    goto :goto_0
 
     .line 246
-    :cond_16
+    :cond_1
     invoke-virtual {v0}, Lcom/android/server/AppWidgetServiceImpl;->onUserRemoved()V
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public partiallyUpdateAppWidgetIds([ILandroid/widget/RemoteViews;)V
-    .registers 4
+    .locals 1
     .parameter "appWidgetIds"
     .parameter "views"
     .annotation system Ldalvik/annotation/Throws;
@@ -702,7 +702,7 @@
 .end method
 
 .method public setBindAppWidgetPermission(Ljava/lang/String;Z)V
-    .registers 4
+    .locals 1
     .parameter "packageName"
     .parameter "permission"
     .annotation system Ldalvik/annotation/Throws;
@@ -724,7 +724,7 @@
 .end method
 
 .method public startListening(Lcom/android/internal/appwidget/IAppWidgetHost;Ljava/lang/String;ILjava/util/List;)[I
-    .registers 6
+    .locals 1
     .parameter "host"
     .parameter "packageName"
     .parameter "hostId"
@@ -763,7 +763,7 @@
 .end method
 
 .method public stopListening(I)V
-    .registers 3
+    .locals 1
     .parameter "hostId"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -784,7 +784,7 @@
 .end method
 
 .method public systemReady(Z)V
-    .registers 10
+    .locals 8
     .parameter "safeMode"
 
     .prologue
@@ -913,7 +913,7 @@
 .end method
 
 .method public unbindRemoteViewsService(ILandroid/content/Intent;)V
-    .registers 4
+    .locals 1
     .parameter "appWidgetId"
     .parameter "intent"
     .annotation system Ldalvik/annotation/Throws;
@@ -935,7 +935,7 @@
 .end method
 
 .method public updateAppWidgetIds([ILandroid/widget/RemoteViews;)V
-    .registers 4
+    .locals 1
     .parameter "appWidgetIds"
     .parameter "views"
     .annotation system Ldalvik/annotation/Throws;
@@ -957,7 +957,7 @@
 .end method
 
 .method public updateAppWidgetOptions(ILandroid/os/Bundle;)V
-    .registers 4
+    .locals 1
     .parameter "appWidgetId"
     .parameter "options"
 
@@ -974,7 +974,7 @@
 .end method
 
 .method public updateAppWidgetProvider(Landroid/content/ComponentName;Landroid/widget/RemoteViews;)V
-    .registers 4
+    .locals 1
     .parameter "provider"
     .parameter "views"
     .annotation system Ldalvik/annotation/Throws;

@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/ethernet/EthernetStateTracker;)V
-    .registers 2
+    .locals 0
     .parameter "tracker"
 
     .prologue
@@ -56,7 +56,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/net/ethernet/EthernetMonitor;)Landroid/net/ethernet/EthernetStateTracker;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public startMonitoring()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 36

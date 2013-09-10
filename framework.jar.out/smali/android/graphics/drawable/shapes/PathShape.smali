@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/Path;FF)V
-    .registers 4
+    .locals 0
     .parameter "path"
     .parameter "stdWidth"
     .parameter "stdHeight"
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public clone()Landroid/graphics/drawable/shapes/PathShape;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -72,7 +72,7 @@
 .end method
 
 .method public bridge synthetic clone()Landroid/graphics/drawable/shapes/Shape;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -89,7 +89,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -106,7 +106,7 @@
 .end method
 
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
-    .registers 5
+    .locals 2
     .parameter "canvas"
     .parameter "paint"
 
@@ -134,7 +134,7 @@
 .end method
 
 .method protected onResize(FF)V
-    .registers 4
+    .locals 1
     .parameter "width"
     .parameter "height"
 

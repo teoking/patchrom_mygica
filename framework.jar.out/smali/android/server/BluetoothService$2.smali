@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/server/BluetoothService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 13
+    .locals 10
     .parameter "context"
     .parameter "intent"
 
@@ -49,15 +49,15 @@
     const/4 v7, 0x0
 
     .line 1714
-    if-nez p2, :cond_9
+    if-nez p2, :cond_1
 
     .line 1761
-    :cond_8
-    :goto_8
+    :cond_0
+    :goto_0
     return-void
 
     .line 1716
-    :cond_9
+    :cond_1
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -76,7 +76,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_39
+    if-eqz v4, :cond_3
 
     .line 1722
     iget-object v4, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
@@ -85,11 +85,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2d
+    if-eqz v4, :cond_2
 
     .line 1723
     iget-object v4, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
+    #getter for: Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
     invoke-static {v4}, Landroid/server/BluetoothService;->access$400(Landroid/server/BluetoothService;)Landroid/server/BluetoothAdapterStateMachine;
 
     move-result-object v4
@@ -98,12 +99,13 @@
 
     invoke-virtual {v4, v5}, Landroid/server/BluetoothAdapterStateMachine;->sendMessage(I)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1725
-    :cond_2d
+    :cond_2
     iget-object v4, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
+    #getter for: Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
     invoke-static {v4}, Landroid/server/BluetoothService;->access$400(Landroid/server/BluetoothService;)Landroid/server/BluetoothAdapterStateMachine;
 
     move-result-object v4
@@ -112,17 +114,17 @@
 
     invoke-virtual {v4, v5}, Landroid/server/BluetoothAdapterStateMachine;->sendMessage(I)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1727
-    :cond_39
+    :cond_3
     const-string v4, "android.intent.action.SCREEN_ON"
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_7e
+    if-eqz v4, :cond_5
 
     .line 1728
     const-string v4, "BluetoothService"
@@ -134,6 +136,7 @@
     .line 1729
     iget-object v4, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
+    #setter for: Landroid/server/BluetoothService;->mScreenOff:Z
     invoke-static {v4, v7}, Landroid/server/BluetoothService;->access$502(Landroid/server/BluetoothService;Z)Z
 
     .line 1730
@@ -143,19 +146,20 @@
 
     move-result v4
 
-    if-lez v4, :cond_5b
+    if-lez v4, :cond_4
 
     .line 1731
     iget-object v4, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     invoke-virtual {v4, v7, v8}, Landroid/server/BluetoothService;->enable(ZZ)Z
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1732
-    :cond_5b
+    :cond_4
     iget-object v4, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
+    #getter for: Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
     invoke-static {v4}, Landroid/server/BluetoothService;->access$600(Landroid/server/BluetoothService;)Landroid/content/Context;
 
     move-result-object v4
@@ -168,7 +172,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_0
 
     .line 1734
     const-string v4, "BluetoothService"
@@ -180,6 +184,7 @@
     .line 1735
     iget-object v4, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
+    #getter for: Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
     invoke-static {v4}, Landroid/server/BluetoothService;->access$400(Landroid/server/BluetoothService;)Landroid/server/BluetoothAdapterStateMachine;
 
     move-result-object v4
@@ -188,17 +193,17 @@
 
     invoke-virtual {v4, v5}, Landroid/server/BluetoothAdapterStateMachine;->sendMessage(I)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 1737
-    :cond_7e
+    :cond_5
     const-string v4, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_bf
+    if-eqz v4, :cond_6
 
     .line 1738
     const-string v4, "BluetoothService"
@@ -210,6 +215,7 @@
     .line 1739
     iget-object v4, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
+    #setter for: Landroid/server/BluetoothService;->mScreenOff:Z
     invoke-static {v4, v8}, Landroid/server/BluetoothService;->access$502(Landroid/server/BluetoothService;Z)Z
 
     .line 1740
@@ -219,10 +225,11 @@
 
     move-result v4
 
-    if-gtz v4, :cond_8
+    if-gtz v4, :cond_0
 
     iget-object v4, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
+    #getter for: Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
     invoke-static {v4}, Landroid/server/BluetoothService;->access$600(Landroid/server/BluetoothService;)Landroid/content/Context;
 
     move-result-object v4
@@ -235,7 +242,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_0
 
     .line 1743
     const-string v4, "BluetoothService"
@@ -247,6 +254,7 @@
     .line 1744
     iget-object v4, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
+    #getter for: Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
     invoke-static {v4}, Landroid/server/BluetoothService;->access$400(Landroid/server/BluetoothService;)Landroid/server/BluetoothAdapterStateMachine;
 
     move-result-object v4
@@ -255,17 +263,17 @@
 
     invoke-virtual {v4, v5}, Landroid/server/BluetoothAdapterStateMachine;->sendMessage(I)V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1746
-    :cond_bf
+    :cond_6
     const-string v4, "android.intent.action.DOCK_EVENT"
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_0
 
     .line 1747
     const-string v4, "android.intent.extra.DOCK_STATE"
@@ -299,7 +307,7 @@
     invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1750
-    if-nez v3, :cond_f1
+    if-nez v3, :cond_7
 
     .line 1751
     invoke-static {v9}, Landroid/server/BluetoothService;->access$702(Ljava/lang/String;)Ljava/lang/String;
@@ -307,14 +315,16 @@
     .line 1752
     iget-object v4, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
+    #setter for: Landroid/server/BluetoothService;->mDockPin:Ljava/lang/String;
     invoke-static {v4, v9}, Landroid/server/BluetoothService;->access$802(Landroid/server/BluetoothService;Ljava/lang/String;)Ljava/lang/String;
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 
     .line 1754
-    :cond_f1
+    :cond_7
     iget-object v4, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
+    #getter for: Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
     invoke-static {v4}, Landroid/server/BluetoothService;->access$600(Landroid/server/BluetoothService;)Landroid/content/Context;
 
     move-result-object v4
@@ -323,6 +333,7 @@
 
     iget-object v6, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
+    #getter for: Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
     invoke-static {v6}, Landroid/server/BluetoothService;->access$600(Landroid/server/BluetoothService;)Landroid/content/Context;
 
     invoke-virtual {v4, v5, v7}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
@@ -362,5 +373,5 @@
     .line 1758
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    goto/16 :goto_8
+    goto/16 :goto_0
 .end method

@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 94
@@ -43,7 +43,7 @@
 
     new-array v0, v0, [C
 
-    fill-array-data v0, :array_12
+    fill-array-data v0, :array_0
 
     sput-object v0, Landroid/content/pm/VerifierDeviceIdentity;->ENCODE:[C
 
@@ -59,7 +59,7 @@
     .line 94
     nop
 
-    :array_12
+    :array_0
     .array-data 0x2
         0x41t 0x0t
         0x42t 0x0t
@@ -97,7 +97,7 @@
 .end method
 
 .method public constructor <init>(J)V
-    .registers 4
+    .locals 1
     .parameter "identity"
 
     .prologue
@@ -119,7 +119,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 5
+    .locals 3
     .parameter "source"
 
     .prologue
@@ -147,7 +147,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/VerifierDeviceIdentity$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -159,7 +159,7 @@
 .end method
 
 .method private static final decodeBase32([B)J
-    .registers 13
+    .locals 12
     .parameter "input"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -186,8 +186,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_7
-    if-ge v2, v0, :cond_7b
+    :goto_0
+    if-ge v2, v0, :cond_8
 
     .line 143
     aget-byte v1, p0, v2
@@ -196,18 +196,18 @@
     .local v1, group:I
     const/16 v7, 0x41
 
-    if-gt v7, v1, :cond_2c
+    if-gt v7, v1, :cond_0
 
     const/16 v7, 0x5a
 
-    if-gt v1, v7, :cond_2c
+    if-gt v1, v7, :cond_0
 
     .line 151
     add-int/lit8 v6, v1, -0x41
 
     .line 169
     .local v6, value:I
-    :goto_15
+    :goto_1
     const/4 v7, 0x5
 
     shl-long v7, v4, v7
@@ -222,12 +222,12 @@
     .line 172
     const/4 v7, 0x1
 
-    if-ne v3, v7, :cond_70
+    if-ne v3, v7, :cond_7
 
     .line 173
     and-int/lit8 v7, v6, 0xf
 
-    if-eq v7, v6, :cond_3b
+    if-eq v7, v6, :cond_2
 
     .line 174
     new-instance v7, Ljava/lang/IllegalArgumentException;
@@ -240,79 +240,79 @@
 
     .line 152
     .end local v6           #value:I
-    :cond_2c
+    :cond_0
     const/16 v7, 0x32
 
-    if-gt v7, v1, :cond_37
+    if-gt v7, v1, :cond_1
 
     const/16 v7, 0x37
 
-    if-gt v1, v7, :cond_37
+    if-gt v1, v7, :cond_1
 
     .line 153
     add-int/lit8 v6, v1, -0x18
 
     .restart local v6       #value:I
-    goto :goto_15
+    goto :goto_1
 
     .line 154
     .end local v6           #value:I
-    :cond_37
+    :cond_1
     const/16 v7, 0x2d
 
-    if-ne v1, v7, :cond_3e
+    if-ne v1, v7, :cond_3
 
     .line 142
-    :cond_3b
+    :cond_2
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 156
-    :cond_3e
+    :cond_3
     const/16 v7, 0x61
 
-    if-gt v7, v1, :cond_49
+    if-gt v7, v1, :cond_4
 
     const/16 v7, 0x7a
 
-    if-gt v1, v7, :cond_49
+    if-gt v1, v7, :cond_4
 
     .line 158
     add-int/lit8 v6, v1, -0x61
 
     .restart local v6       #value:I
-    goto :goto_15
+    goto :goto_1
 
     .line 159
     .end local v6           #value:I
-    :cond_49
+    :cond_4
     const/16 v7, 0x30
 
-    if-ne v1, v7, :cond_50
+    if-ne v1, v7, :cond_5
 
     .line 161
     const/16 v6, 0xe
 
     .restart local v6       #value:I
-    goto :goto_15
+    goto :goto_1
 
     .line 162
     .end local v6           #value:I
-    :cond_50
+    :cond_5
     const/16 v7, 0x31
 
-    if-ne v1, v7, :cond_57
+    if-ne v1, v7, :cond_6
 
     .line 164
     const/16 v6, 0x8
 
     .restart local v6       #value:I
-    goto :goto_15
+    goto :goto_1
 
     .line 166
     .end local v6           #value:I
-    :cond_57
+    :cond_6
     new-instance v7, Ljava/lang/IllegalArgumentException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -339,8 +339,8 @@
 
     .line 176
     .restart local v6       #value:I
-    :cond_70
-    if-le v3, v11, :cond_3b
+    :cond_7
+    if-le v3, v11, :cond_2
 
     .line 177
     new-instance v7, Ljava/lang/IllegalArgumentException;
@@ -354,8 +354,8 @@
     .line 181
     .end local v1           #group:I
     .end local v6           #value:I
-    :cond_7b
-    if-eq v3, v11, :cond_86
+    :cond_8
+    if-eq v3, v11, :cond_9
 
     .line 182
     new-instance v7, Ljava/lang/IllegalArgumentException;
@@ -367,12 +367,12 @@
     throw v7
 
     .line 185
-    :cond_86
+    :cond_9
     return-wide v4
 .end method
 
 .method private static final encodeBase32(J)Ljava/lang/String;
-    .registers 9
+    .locals 7
     .parameter "input"
 
     .prologue
@@ -394,19 +394,19 @@
     const/4 v3, 0x0
 
     .local v3, i:I
-    :goto_8
+    :goto_0
     const/16 v5, 0xd
 
-    if-ge v3, v5, :cond_28
+    if-ge v3, v5, :cond_1
 
     .line 120
-    if-lez v3, :cond_19
+    if-lez v3, :cond_0
 
     rem-int/lit8 v5, v3, 0x4
 
     const/4 v6, 0x1
 
-    if-ne v5, v6, :cond_19
+    if-ne v5, v6, :cond_0
 
     .line 121
     add-int/lit8 v4, v4, -0x1
@@ -416,7 +416,7 @@
     aput-char v5, v1, v4
 
     .line 127
-    :cond_19
+    :cond_0
     const-wide/16 v5, 0x1f
 
     and-long/2addr v5, p0
@@ -439,11 +439,11 @@
     .line 113
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 133
     .end local v2           #group:I
-    :cond_28
+    :cond_1
     invoke-static {v1}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
 
     move-result-object v5
@@ -452,7 +452,7 @@
 .end method
 
 .method public static generate()Landroid/content/pm/VerifierDeviceIdentity;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 77
@@ -470,7 +470,7 @@
 .end method
 
 .method static generate(Ljava/util/Random;)Landroid/content/pm/VerifierDeviceIdentity;
-    .registers 4
+    .locals 3
     .parameter "rng"
 
     .prologue
@@ -489,7 +489,7 @@
 .end method
 
 .method public static parse(Ljava/lang/String;)Landroid/content/pm/VerifierDeviceIdentity;
-    .registers 6
+    .locals 5
     .parameter "deviceIdentity"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -503,8 +503,8 @@
     const-string v2, "US-ASCII"
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
-    :try_end_5
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_5} :catch_10
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
@@ -522,7 +522,7 @@
 
     .line 213
     .end local v1           #input:[B
-    :catch_10
+    :catch_0
     move-exception v0
 
     .line 214
@@ -539,7 +539,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 222
@@ -549,7 +549,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 8
+    .locals 6
     .parameter "other"
 
     .prologue
@@ -558,14 +558,14 @@
     .line 195
     instance-of v2, p1, Landroid/content/pm/VerifierDeviceIdentity;
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_1
 
     .line 200
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return v1
 
-    :cond_6
+    :cond_1
     move-object v0, p1
 
     .line 199
@@ -579,15 +579,15 @@
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_0
 
     const/4 v1, 0x1
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 190
@@ -599,7 +599,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 205
@@ -609,7 +609,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 

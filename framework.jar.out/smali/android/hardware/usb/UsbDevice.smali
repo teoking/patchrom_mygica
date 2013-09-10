@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 182
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;IIIII[Landroid/os/Parcelable;)V
-    .registers 8
+    .locals 0
     .parameter "name"
     .parameter "vendorId"
     .parameter "productId"
@@ -92,7 +92,7 @@
 .end method
 
 .method public static getDeviceId(Ljava/lang/String;)I
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -105,7 +105,7 @@
 .end method
 
 .method public static getDeviceName(I)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "id"
 
     .prologue
@@ -126,7 +126,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 201
@@ -136,14 +136,14 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 4
+    .locals 2
     .parameter "o"
 
     .prologue
     .line 160
     instance-of v0, p1, Landroid/hardware/usb/UsbDevice;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 161
     check-cast p1, Landroid/hardware/usb/UsbDevice;
@@ -158,15 +158,15 @@
     move-result v0
 
     .line 165
-    :goto_e
+    :goto_0
     return v0
 
     .line 162
     .restart local p1
-    :cond_f
+    :cond_0
     instance-of v0, p1, Ljava/lang/String;
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_1
 
     .line 163
     check-cast p1, Ljava/lang/String;
@@ -178,18 +178,18 @@
 
     move-result v0
 
-    goto :goto_e
+    goto :goto_0
 
     .line 165
     .restart local p1
-    :cond_1c
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public getDeviceClass()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 119
@@ -199,7 +199,7 @@
 .end method
 
 .method public getDeviceId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 91
@@ -213,7 +213,7 @@
 .end method
 
 .method public getDeviceName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 79
@@ -223,7 +223,7 @@
 .end method
 
 .method public getDeviceProtocol()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 137
@@ -233,7 +233,7 @@
 .end method
 
 .method public getDeviceSubclass()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 128
@@ -243,7 +243,7 @@
 .end method
 
 .method public getInterface(I)Landroid/hardware/usb/UsbInterface;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -258,7 +258,7 @@
 .end method
 
 .method public getInterfaceCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 146
@@ -270,7 +270,7 @@
 .end method
 
 .method public getProductId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 109
@@ -280,7 +280,7 @@
 .end method
 
 .method public getVendorId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 100
@@ -290,7 +290,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 171
@@ -304,7 +304,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 176
@@ -410,7 +410,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "parcel"
     .parameter "flags"
 

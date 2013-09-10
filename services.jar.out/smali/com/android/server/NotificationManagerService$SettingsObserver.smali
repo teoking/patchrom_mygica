@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/NotificationManagerService;Landroid/os/Handler;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "handler"
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method observe()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 557
@@ -70,7 +70,7 @@
 .end method
 
 .method public onChange(Z)V
-    .registers 2
+    .locals 0
     .parameter "selfChange"
 
     .prologue
@@ -82,7 +82,7 @@
 .end method
 
 .method public update()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v0, 0x0
@@ -104,32 +104,35 @@
 
     move-result v2
 
-    if-eqz v2, :cond_12
+    if-eqz v2, :cond_0
 
     const/4 v0, 0x1
 
     .line 571
     .local v0, pulseEnabled:Z
-    :cond_12
+    :cond_0
     iget-object v2, p0, Lcom/android/server/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
 
+    #getter for: Lcom/android/server/NotificationManagerService;->mNotificationPulseEnabled:Z
     invoke-static {v2}, Lcom/android/server/NotificationManagerService;->access$1500(Lcom/android/server/NotificationManagerService;)Z
 
     move-result v2
 
-    if-eq v2, v0, :cond_24
+    if-eq v2, v0, :cond_1
 
     .line 572
     iget-object v2, p0, Lcom/android/server/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
 
+    #setter for: Lcom/android/server/NotificationManagerService;->mNotificationPulseEnabled:Z
     invoke-static {v2, v0}, Lcom/android/server/NotificationManagerService;->access$1502(Lcom/android/server/NotificationManagerService;Z)Z
 
     .line 573
     iget-object v2, p0, Lcom/android/server/NotificationManagerService$SettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
 
+    #calls: Lcom/android/server/NotificationManagerService;->updateNotificationPulse()V
     invoke-static {v2}, Lcom/android/server/NotificationManagerService;->access$1300(Lcom/android/server/NotificationManagerService;)V
 
     .line 575
-    :cond_24
+    :cond_1
     return-void
 .end method

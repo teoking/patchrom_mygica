@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(IIZ)V
-    .registers 4
+    .locals 0
     .parameter "nameResId"
     .parameter "types"
     .parameter "groupable"
@@ -49,7 +49,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/CharSequence;IZ)V
-    .registers 4
+    .locals 0
     .parameter "name"
     .parameter "types"
     .parameter "groupable"
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public getName()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1420
@@ -90,7 +90,7 @@
 .end method
 
 .method public getName(Landroid/content/Context;)Ljava/lang/CharSequence;
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -107,14 +107,14 @@
 .end method
 
 .method getName(Landroid/content/res/Resources;)Ljava/lang/CharSequence;
-    .registers 3
+    .locals 1
     .parameter "res"
 
     .prologue
     .line 1434
     iget v0, p0, Landroid/media/MediaRouter$RouteCategory;->mNameResId:I
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 1435
     iget v0, p0, Landroid/media/MediaRouter$RouteCategory;->mNameResId:I
@@ -124,17 +124,17 @@
     move-result-object v0
 
     .line 1437
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/media/MediaRouter$RouteCategory;->mName:Ljava/lang/CharSequence;
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getRoutes(Ljava/util/List;)Ljava/util/List;
-    .registers 6
+    .locals 4
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -153,7 +153,7 @@
     .prologue
     .line 1454
     .local p1, out:Ljava/util/List;,"Ljava/util/List<Landroid/media/MediaRouter$RouteInfo;>;"
-    if-nez p1, :cond_1c
+    if-nez p1, :cond_1
 
     .line 1455
     new-instance p1, Ljava/util/ArrayList;
@@ -163,7 +163,7 @@
 
     .line 1460
     .restart local p1       #out:Ljava/util/List;,"Ljava/util/List<Landroid/media/MediaRouter$RouteInfo;>;"
-    :goto_7
+    :goto_0
     invoke-static {}, Landroid/media/MediaRouter;->getRouteCountStatic()I
 
     move-result v0
@@ -173,8 +173,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_c
-    if-ge v1, v0, :cond_20
+    :goto_1
+    if-ge v1, v0, :cond_2
 
     .line 1462
     invoke-static {v1}, Landroid/media/MediaRouter;->getRouteAtStatic(I)Landroid/media/MediaRouter$RouteInfo;
@@ -185,35 +185,35 @@
     .local v2, route:Landroid/media/MediaRouter$RouteInfo;
     iget-object v3, v2, Landroid/media/MediaRouter$RouteInfo;->mCategory:Landroid/media/MediaRouter$RouteCategory;
 
-    if-ne v3, p0, :cond_19
+    if-ne v3, p0, :cond_0
 
     .line 1464
     invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1461
-    :cond_19
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_c
+    goto :goto_1
 
     .line 1457
     .end local v0           #count:I
     .end local v1           #i:I
     .end local v2           #route:Landroid/media/MediaRouter$RouteInfo;
-    :cond_1c
+    :cond_1
     invoke-interface {p1}, Ljava/util/List;->clear()V
 
-    goto :goto_7
+    goto :goto_0
 
     .line 1467
     .restart local v0       #count:I
     .restart local v1       #i:I
-    :cond_20
+    :cond_2
     return-object p1
 .end method
 
 .method public getSupportedTypes()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1474
@@ -223,7 +223,7 @@
 .end method
 
 .method public isGroupable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1486
@@ -233,7 +233,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1490

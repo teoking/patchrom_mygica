@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 140
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/InterfaceConfiguration;
-    .registers 7
+    .locals 5
     .parameter "in"
 
     .prologue
@@ -56,6 +56,7 @@
 
     move-result-object v3
 
+    #setter for: Landroid/net/InterfaceConfiguration;->mHwAddr:Ljava/lang/String;
     invoke-static {v1, v3}, Landroid/net/InterfaceConfiguration;->access$002(Landroid/net/InterfaceConfiguration;Ljava/lang/String;)Ljava/lang/String;
 
     .line 144
@@ -65,7 +66,7 @@
 
     const/4 v4, 0x1
 
-    if-ne v3, v4, :cond_1d
+    if-ne v3, v4, :cond_0
 
     .line 145
     const/4 v3, 0x0
@@ -76,10 +77,11 @@
 
     check-cast v3, Landroid/net/LinkAddress;
 
+    #setter for: Landroid/net/InterfaceConfiguration;->mAddr:Landroid/net/LinkAddress;
     invoke-static {v1, v3}, Landroid/net/InterfaceConfiguration;->access$102(Landroid/net/InterfaceConfiguration;Landroid/net/LinkAddress;)Landroid/net/LinkAddress;
 
     .line 147
-    :cond_1d
+    :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -89,10 +91,11 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_22
-    if-ge v0, v2, :cond_32
+    :goto_0
+    if-ge v0, v2, :cond_1
 
     .line 149
+    #getter for: Landroid/net/InterfaceConfiguration;->mFlags:Ljava/util/HashSet;
     invoke-static {v1}, Landroid/net/InterfaceConfiguration;->access$200(Landroid/net/InterfaceConfiguration;)Ljava/util/HashSet;
 
     move-result-object v3
@@ -106,15 +109,15 @@
     .line 148
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_22
+    goto :goto_0
 
     .line 151
-    :cond_32
+    :cond_1
     return-object v1
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -127,7 +130,7 @@
 .end method
 
 .method public newArray(I)[Landroid/net/InterfaceConfiguration;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -138,7 +141,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 117
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 64
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/pm/PermissionGroupInfo;)V
-    .registers 3
+    .locals 1
     .parameter "orig"
 
     .prologue
@@ -90,7 +90,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -134,7 +134,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/PermissionGroupInfo$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -148,7 +148,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 106
@@ -158,7 +158,7 @@
 .end method
 
 .method public loadDescription(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
-    .registers 6
+    .locals 4
     .parameter "pm"
 
     .prologue
@@ -167,21 +167,21 @@
     .line 87
     iget-object v2, p0, Landroid/content/pm/PermissionGroupInfo;->nonLocalizedDescription:Ljava/lang/CharSequence;
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_1
 
     .line 88
     iget-object v0, p0, Landroid/content/pm/PermissionGroupInfo;->nonLocalizedDescription:Ljava/lang/CharSequence;
 
     .line 96
-    :cond_7
-    :goto_7
+    :cond_0
+    :goto_0
     return-object v0
 
     .line 90
-    :cond_8
+    :cond_1
     iget v2, p0, Landroid/content/pm/PermissionGroupInfo;->descriptionRes:I
 
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_2
 
     .line 91
     iget-object v2, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
@@ -194,18 +194,18 @@
 
     .line 92
     .local v0, label:Ljava/lang/CharSequence;
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .end local v0           #label:Ljava/lang/CharSequence;
-    :cond_16
+    :cond_2
     move-object v0, v1
 
     .line 96
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 100
@@ -273,7 +273,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "parcelableFlags"
 

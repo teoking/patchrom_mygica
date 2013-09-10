@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1399
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1403
@@ -70,7 +70,7 @@
     monitor-enter p0
 
     .line 1412
-    :try_start_12
+    :try_start_0
     iput-object v0, p0, Lcom/android/server/am/ActivityManagerService$AThread;->mService:Lcom/android/server/am/ActivityManagerService;
 
     .line 1413
@@ -78,60 +78,60 @@
 
     .line 1414
     monitor-exit p0
-    :try_end_18
-    .catchall {:try_start_12 .. :try_end_18} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1416
     monitor-enter p0
 
     .line 1417
-    :goto_19
-    :try_start_19
+    :goto_0
+    :try_start_1
     iget-boolean v1, p0, Lcom/android/server/am/ActivityManagerService$AThread;->mReady:Z
-    :try_end_1b
-    .catchall {:try_start_19 .. :try_end_1b} :catchall_38
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    if-nez v1, :cond_26
+    if-nez v1, :cond_0
 
     .line 1419
-    :try_start_1d
+    :try_start_2
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
-    :try_end_20
-    .catchall {:try_start_1d .. :try_end_20} :catchall_38
-    .catch Ljava/lang/InterruptedException; {:try_start_1d .. :try_end_20} :catch_21
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 1420
-    :catch_21
+    :catch_0
     move-exception v1
 
-    goto :goto_19
+    goto :goto_0
 
     .line 1414
-    :catchall_23
+    :catchall_0
     move-exception v1
 
-    :try_start_24
+    :try_start_3
     monitor-exit p0
-    :try_end_25
-    .catchall {:try_start_24 .. :try_end_25} :catchall_23
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     throw v1
 
     .line 1423
-    :cond_26
-    :try_start_26
+    :cond_0
+    :try_start_4
     monitor-exit p0
-    :try_end_27
-    .catchall {:try_start_26 .. :try_end_27} :catchall_38
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     .line 1426
     invoke-static {}, Landroid/os/StrictMode;->conditionallyEnableDebugLogging()Z
 
     move-result v1
 
-    if-eqz v1, :cond_34
+    if-eqz v1, :cond_1
 
     .line 1427
     const-string v1, "ActivityManager"
@@ -141,20 +141,20 @@
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1430
-    :cond_34
+    :cond_1
     invoke-static {}, Landroid/os/Looper;->loop()V
 
     .line 1431
     return-void
 
     .line 1423
-    :catchall_38
+    :catchall_1
     move-exception v1
 
-    :try_start_39
+    :try_start_5
     monitor-exit p0
-    :try_end_3a
-    .catchall {:try_start_39 .. :try_end_3a} :catchall_38
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     throw v1
 .end method

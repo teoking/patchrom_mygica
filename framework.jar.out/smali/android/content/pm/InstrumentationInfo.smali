@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 104
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 69
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/pm/InstrumentationInfo;)V
-    .registers 3
+    .locals 1
     .parameter "orig"
 
     .prologue
@@ -109,7 +109,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 5
+    .locals 3
     .parameter "source"
 
     .prologue
@@ -160,11 +160,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_35
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_2a
+    :goto_0
     iput-boolean v0, p0, Landroid/content/pm/InstrumentationInfo;->handleProfiling:Z
 
     .line 122
@@ -172,29 +172,29 @@
 
     move-result v0
 
-    if-eqz v0, :cond_37
+    if-eqz v0, :cond_1
 
-    :goto_32
+    :goto_1
     iput-boolean v1, p0, Landroid/content/pm/InstrumentationInfo;->functionalTest:Z
 
     .line 123
     return-void
 
-    :cond_35
+    :cond_0
     move v0, v2
 
     .line 121
-    goto :goto_2a
+    goto :goto_0
 
-    :cond_37
+    :cond_1
     move v1, v2
 
     .line 122
-    goto :goto_32
+    goto :goto_1
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/content/pm/InstrumentationInfo$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -208,7 +208,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 90
@@ -218,7 +218,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 84
@@ -270,7 +270,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 6
+    .locals 3
     .parameter "dest"
     .parameter "parcelableFlags"
 
@@ -310,33 +310,33 @@
     .line 100
     iget-boolean v0, p0, Landroid/content/pm/InstrumentationInfo;->handleProfiling:Z
 
-    if-nez v0, :cond_2e
+    if-nez v0, :cond_0
 
     move v0, v1
 
-    :goto_23
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 101
     iget-boolean v0, p0, Landroid/content/pm/InstrumentationInfo;->functionalTest:Z
 
-    if-nez v0, :cond_30
+    if-nez v0, :cond_1
 
-    :goto_2a
+    :goto_1
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 102
     return-void
 
-    :cond_2e
+    :cond_0
     move v0, v2
 
     .line 100
-    goto :goto_23
+    goto :goto_0
 
-    :cond_30
+    :cond_1
     move v1, v2
 
     .line 101
-    goto :goto_2a
+    goto :goto_1
 .end method

@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 296
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 50
@@ -62,7 +62,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "ni"
 
     .prologue
@@ -70,7 +70,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 348
-    if-nez p1, :cond_b
+    if-nez p1, :cond_0
 
     .line 349
     new-instance v0, Ljava/lang/RuntimeException;
@@ -80,7 +80,7 @@
     throw v0
 
     .line 351
-    :cond_b
+    :cond_0
     iput p1, p0, Landroid/graphics/Region;->mNativeRegion:I
 
     .line 352
@@ -88,7 +88,7 @@
 .end method
 
 .method private constructor <init>(II)V
-    .registers 3
+    .locals 0
     .parameter "ni"
     .parameter "dummy"
 
@@ -101,7 +101,7 @@
 .end method
 
 .method public constructor <init>(IIII)V
-    .registers 6
+    .locals 1
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -128,7 +128,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/Rect;)V
-    .registers 7
+    .locals 5
     .parameter "r"
 
     .prologue
@@ -160,7 +160,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/Region;)V
-    .registers 4
+    .locals 2
     .parameter "region"
 
     .prologue
@@ -183,7 +183,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/os/Parcel;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -243,7 +243,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 316
@@ -253,26 +253,26 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 5
+    .locals 3
     .parameter "obj"
 
     .prologue
     .line 332
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_0
 
     instance-of v1, p1, Landroid/graphics/Region;
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_1
 
     .line 333
-    :cond_6
+    :cond_0
     const/4 v1, 0x0
 
     .line 336
-    :goto_7
+    :goto_0
     return v1
 
-    :cond_8
+    :cond_1
     move-object v0, p1
 
     .line 335
@@ -288,11 +288,11 @@
 
     move-result v1
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -305,8 +305,8 @@
     iget v0, p0, Landroid/graphics/Region;->mNativeRegion:I
 
     invoke-static {v0}, Landroid/graphics/Region;->nativeDestructor(I)V
-    :try_end_5
-    .catchall {:try_start_0 .. :try_end_5} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 343
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -315,7 +315,7 @@
     return-void
 
     .line 343
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
@@ -324,7 +324,7 @@
 .end method
 
 .method public getBoundaryPath()Landroid/graphics/Path;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 149
@@ -347,7 +347,7 @@
 .end method
 
 .method public getBoundaryPath(Landroid/graphics/Path;)Z
-    .registers 4
+    .locals 2
     .parameter "path"
 
     .prologue
@@ -366,7 +366,7 @@
 .end method
 
 .method public getBounds()Landroid/graphics/Rect;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 128
@@ -385,12 +385,12 @@
 .end method
 
 .method public getBounds(Landroid/graphics/Rect;)Z
-    .registers 3
+    .locals 1
     .parameter "r"
 
     .prologue
     .line 138
-    if-nez p1, :cond_8
+    if-nez p1, :cond_0
 
     .line 139
     new-instance v0, Ljava/lang/NullPointerException;
@@ -400,7 +400,7 @@
     throw v0
 
     .line 141
-    :cond_8
+    :cond_0
     iget v0, p0, Landroid/graphics/Region;->mNativeRegion:I
 
     invoke-static {v0, p1}, Landroid/graphics/Region;->nativeGetBounds(ILandroid/graphics/Rect;)Z
@@ -420,7 +420,7 @@
 .end method
 
 .method final ni()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 361
@@ -430,7 +430,7 @@
 .end method
 
 .method public op(IIIILandroid/graphics/Region$Op;)Z
-    .registers 12
+    .locals 6
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -459,7 +459,7 @@
 .end method
 
 .method public op(Landroid/graphics/Rect;Landroid/graphics/Region$Op;)Z
-    .registers 9
+    .locals 6
     .parameter "r"
     .parameter "op"
 
@@ -485,7 +485,7 @@
 .end method
 
 .method public op(Landroid/graphics/Rect;Landroid/graphics/Region;Landroid/graphics/Region$Op;)Z
-    .registers 7
+    .locals 3
     .parameter "rect"
     .parameter "region"
     .parameter "op"
@@ -506,7 +506,7 @@
 .end method
 
 .method public op(Landroid/graphics/Region;Landroid/graphics/Region$Op;)Z
-    .registers 4
+    .locals 1
     .parameter "region"
     .parameter "op"
 
@@ -520,7 +520,7 @@
 .end method
 
 .method public op(Landroid/graphics/Region;Landroid/graphics/Region;Landroid/graphics/Region$Op;)Z
-    .registers 8
+    .locals 4
     .parameter "region1"
     .parameter "region2"
     .parameter "op"
@@ -546,7 +546,7 @@
 .end method
 
 .method public quickContains(Landroid/graphics/Rect;)Z
-    .registers 6
+    .locals 4
     .parameter "r"
 
     .prologue
@@ -570,7 +570,7 @@
 .end method
 
 .method public quickReject(Landroid/graphics/Rect;)Z
-    .registers 6
+    .locals 4
     .parameter "r"
 
     .prologue
@@ -594,7 +594,7 @@
 .end method
 
 .method public scale(F)V
-    .registers 3
+    .locals 1
     .parameter "scale"
 
     .prologue
@@ -611,7 +611,7 @@
 .end method
 
 .method public set(IIII)Z
-    .registers 6
+    .locals 1
     .parameter "left"
     .parameter "top"
     .parameter "right"
@@ -629,7 +629,7 @@
 .end method
 
 .method public set(Landroid/graphics/Rect;)Z
-    .registers 7
+    .locals 5
     .parameter "r"
 
     .prologue
@@ -652,7 +652,7 @@
 .end method
 
 .method public set(Landroid/graphics/Region;)Z
-    .registers 4
+    .locals 2
     .parameter "region"
 
     .prologue
@@ -669,7 +669,7 @@
 .end method
 
 .method public setEmpty()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -684,7 +684,7 @@
 .end method
 
 .method public setPath(Landroid/graphics/Path;Landroid/graphics/Region;)Z
-    .registers 6
+    .locals 3
     .parameter "path"
     .parameter "clip"
 
@@ -706,7 +706,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 291
@@ -720,7 +720,7 @@
 .end method
 
 .method public translate(II)V
-    .registers 4
+    .locals 1
     .parameter "dx"
     .parameter "dy"
 
@@ -738,7 +738,7 @@
 .end method
 
 .method public final union(Landroid/graphics/Rect;)Z
-    .registers 3
+    .locals 1
     .parameter "r"
 
     .prologue
@@ -753,7 +753,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "p"
     .parameter "flags"
 
@@ -765,7 +765,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 326
     new-instance v0, Ljava/lang/RuntimeException;
@@ -775,6 +775,6 @@
     throw v0
 
     .line 328
-    :cond_e
+    :cond_0
     return-void
 .end method

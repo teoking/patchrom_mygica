@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/Filter;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter "filter"
     .parameter "name"
 
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method protected assertPortIsOpen()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 113
@@ -78,7 +78,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_0
 
     .line 114
     new-instance v0, Ljava/lang/RuntimeException;
@@ -112,12 +112,12 @@
     throw v0
 
     .line 116
-    :cond_25
+    :cond_0
     return-void
 .end method
 
 .method protected checkFrameManager(Landroid/filterfw/core/Frame;Landroid/filterfw/core/FilterContext;)V
-    .registers 6
+    .locals 3
     .parameter "frame"
     .parameter "context"
 
@@ -127,7 +127,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2f
+    if-eqz v0, :cond_0
 
     invoke-virtual {p1}, Landroid/filterfw/core/Frame;->getFrameManager()Landroid/filterfw/core/FrameManager;
 
@@ -137,7 +137,7 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_2f
+    if-eq v0, v1, :cond_0
 
     .line 130
     new-instance v0, Ljava/lang/RuntimeException;
@@ -171,12 +171,12 @@
     throw v0
 
     .line 132
-    :cond_2f
+    :cond_0
     return-void
 .end method
 
 .method protected checkFrameType(Landroid/filterfw/core/Frame;Z)V
-    .registers 6
+    .locals 3
     .parameter "frame"
     .parameter "forceCheck"
 
@@ -184,14 +184,14 @@
     .line 119
     iget-boolean v0, p0, Landroid/filterfw/core/FilterPort;->mChecksType:Z
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
-    if-eqz p2, :cond_4f
+    if-eqz p2, :cond_1
 
-    :cond_6
+    :cond_0
     iget-object v0, p0, Landroid/filterfw/core/FilterPort;->mPortFormat:Landroid/filterfw/core/FrameFormat;
 
-    if-eqz v0, :cond_4f
+    if-eqz v0, :cond_1
 
     invoke-virtual {p1}, Landroid/filterfw/core/Frame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
@@ -203,7 +203,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4f
+    if-nez v0, :cond_1
 
     .line 122
     new-instance v0, Ljava/lang/RuntimeException;
@@ -263,7 +263,7 @@
     throw v0
 
     .line 125
-    :cond_4f
+    :cond_1
     return-void
 .end method
 
@@ -271,18 +271,18 @@
 .end method
 
 .method public close()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 80
     iget-boolean v0, p0, Landroid/filterfw/core/FilterPort;->mIsOpen:Z
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     .line 81
     iget-boolean v0, p0, Landroid/filterfw/core/FilterPort;->mLogVerbose:Z
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     const-string v0, "FilterPort"
 
@@ -307,7 +307,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 83
-    :cond_20
+    :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/filterfw/core/FilterPort;->mIsOpen:Z
@@ -320,7 +320,7 @@
 .end method
 
 .method public getFilter()Landroid/filterfw/core/Filter;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 57
@@ -330,7 +330,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 61
@@ -340,7 +340,7 @@
 .end method
 
 .method public getPortFormat()Landroid/filterfw/core/FrameFormat;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 49
@@ -353,27 +353,27 @@
 .end method
 
 .method public isAttached()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 45
     iget-object v0, p0, Landroid/filterfw/core/FilterPort;->mFilter:Landroid/filterfw/core/Filter;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public isBlocking()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 91
@@ -383,7 +383,7 @@
 .end method
 
 .method public isOpen()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 87
@@ -396,18 +396,18 @@
 .end method
 
 .method public open()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 73
     iget-boolean v0, p0, Landroid/filterfw/core/FilterPort;->mIsOpen:Z
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_0
 
     .line 74
     iget-boolean v0, p0, Landroid/filterfw/core/FilterPort;->mLogVerbose:Z
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_0
 
     const-string v0, "FilterPort"
 
@@ -432,7 +432,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 76
-    :cond_20
+    :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/filterfw/core/FilterPort;->mIsOpen:Z
@@ -448,7 +448,7 @@
 .end method
 
 .method public setBlocking(Z)V
-    .registers 2
+    .locals 0
     .parameter "blocking"
 
     .prologue
@@ -460,7 +460,7 @@
 .end method
 
 .method public setChecksType(Z)V
-    .registers 2
+    .locals 0
     .parameter "checksType"
 
     .prologue
@@ -475,7 +475,7 @@
 .end method
 
 .method public setPortFormat(Landroid/filterfw/core/FrameFormat;)V
-    .registers 2
+    .locals 0
     .parameter "format"
 
     .prologue
@@ -487,7 +487,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 109

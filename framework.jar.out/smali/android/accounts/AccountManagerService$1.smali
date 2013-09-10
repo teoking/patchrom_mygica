@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManagerService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 4
+    .locals 1
     .parameter "context1"
     .parameter "intent"
 
@@ -43,6 +43,7 @@
     .line 229
     iget-object v0, p0, Landroid/accounts/AccountManagerService$1;->this$0:Landroid/accounts/AccountManagerService;
 
+    #calls: Landroid/accounts/AccountManagerService;->purgeOldGrantsAll()V
     invoke-static {v0}, Landroid/accounts/AccountManagerService;->access$000(Landroid/accounts/AccountManagerService;)V
 
     .line 230

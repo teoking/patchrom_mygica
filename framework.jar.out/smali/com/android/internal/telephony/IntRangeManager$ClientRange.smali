@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/IntRangeManager;IILjava/lang/String;)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter "startId"
     .parameter "endId"
@@ -54,18 +54,18 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
     .parameter "o"
 
     .prologue
     const/4 v1, 0x0
 
     .line 144
-    if-eqz p1, :cond_21
+    if-eqz p1, :cond_0
 
     instance-of v2, p1, Lcom/android/internal/telephony/IntRangeManager$ClientRange;
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_0
 
     move-object v0, p1
 
@@ -78,13 +78,13 @@
 
     iget v3, v0, Lcom/android/internal/telephony/IntRangeManager$ClientRange;->startId:I
 
-    if-ne v2, v3, :cond_21
+    if-ne v2, v3, :cond_0
 
     iget v2, p0, Lcom/android/internal/telephony/IntRangeManager$ClientRange;->endId:I
 
     iget v3, v0, Lcom/android/internal/telephony/IntRangeManager$ClientRange;->endId:I
 
-    if-ne v2, v3, :cond_21
+    if-ne v2, v3, :cond_0
 
     iget-object v2, p0, Lcom/android/internal/telephony/IntRangeManager$ClientRange;->client:Ljava/lang/String;
 
@@ -94,18 +94,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_0
 
     const/4 v1, 0x1
 
     .line 150
     .end local v0           #other:Lcom/android/internal/telephony/IntRangeManager$ClientRange;
-    :cond_21
+    :cond_0
     return v1
 .end method
 
 .method public hashCode()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 156

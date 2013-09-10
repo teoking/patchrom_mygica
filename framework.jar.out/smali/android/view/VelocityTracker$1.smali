@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 36
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public bridge synthetic newInstance()Landroid/util/Poolable;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 36
@@ -53,7 +53,7 @@
 .end method
 
 .method public newInstance()Landroid/view/VelocityTracker;
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -67,7 +67,7 @@
 .end method
 
 .method public bridge synthetic onAcquired(Landroid/util/Poolable;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -81,7 +81,7 @@
 .end method
 
 .method public onAcquired(Landroid/view/VelocityTracker;)V
-    .registers 2
+    .locals 0
     .parameter "element"
 
     .prologue
@@ -90,7 +90,7 @@
 .end method
 
 .method public bridge synthetic onReleased(Landroid/util/Poolable;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -104,7 +104,7 @@
 .end method
 
 .method public onReleased(Landroid/view/VelocityTracker;)V
-    .registers 2
+    .locals 0
     .parameter "element"
 
     .prologue

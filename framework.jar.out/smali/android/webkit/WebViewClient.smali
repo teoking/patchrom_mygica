@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 25
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public doUpdateVisitedHistory(Landroid/webkit/WebView;Ljava/lang/String;Z)V
-    .registers 4
+    .locals 0
     .parameter "view"
     .parameter "url"
     .parameter "isReload"
@@ -60,7 +60,7 @@
 .end method
 
 .method public onFormResubmission(Landroid/webkit/WebView;Landroid/os/Message;Landroid/os/Message;)V
-    .registers 4
+    .locals 0
     .parameter "view"
     .parameter "dontResend"
     .parameter "resend"
@@ -74,7 +74,7 @@
 .end method
 
 .method public onLoadResource(Landroid/webkit/WebView;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "view"
     .parameter "url"
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public onPageFinished(Landroid/webkit/WebView;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "view"
     .parameter "url"
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public onPageStarted(Landroid/webkit/WebView;Ljava/lang/String;Landroid/graphics/Bitmap;)V
-    .registers 4
+    .locals 0
     .parameter "view"
     .parameter "url"
     .parameter "favicon"
@@ -105,7 +105,7 @@
 .end method
 
 .method public onProceededAfterSslError(Landroid/webkit/WebView;Landroid/net/http/SslError;)V
-    .registers 3
+    .locals 0
     .parameter "view"
     .parameter "error"
 
@@ -115,7 +115,7 @@
 .end method
 
 .method public onReceivedClientCertRequest(Landroid/webkit/WebView;Landroid/webkit/ClientCertRequestHandler;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "view"
     .parameter "handler"
     .parameter "host_and_port"
@@ -129,7 +129,7 @@
 .end method
 
 .method public onReceivedError(Landroid/webkit/WebView;ILjava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 0
     .parameter "view"
     .parameter "errorCode"
     .parameter "description"
@@ -141,7 +141,7 @@
 .end method
 
 .method public onReceivedHttpAuthRequest(Landroid/webkit/WebView;Landroid/webkit/HttpAuthHandler;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 0
     .parameter "view"
     .parameter "handler"
     .parameter "host"
@@ -156,7 +156,7 @@
 .end method
 
 .method public onReceivedLoginRequest(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 0
     .parameter "view"
     .parameter "realm"
     .parameter "account"
@@ -168,7 +168,7 @@
 .end method
 
 .method public onReceivedSslError(Landroid/webkit/WebView;Landroid/webkit/SslErrorHandler;Landroid/net/http/SslError;)V
-    .registers 4
+    .locals 0
     .parameter "view"
     .parameter "handler"
     .parameter "error"
@@ -182,7 +182,7 @@
 .end method
 
 .method public onScaleChanged(Landroid/webkit/WebView;FF)V
-    .registers 4
+    .locals 0
     .parameter "view"
     .parameter "oldScale"
     .parameter "newScale"
@@ -193,7 +193,7 @@
 .end method
 
 .method public onTooManyRedirects(Landroid/webkit/WebView;Landroid/os/Message;Landroid/os/Message;)V
-    .registers 4
+    .locals 0
     .parameter "view"
     .parameter "cancelMsg"
     .parameter "continueMsg"
@@ -209,7 +209,7 @@
 .end method
 
 .method public onUnhandledKeyEvent(Landroid/webkit/WebView;Landroid/view/KeyEvent;)V
-    .registers 4
+    .locals 1
     .parameter "view"
     .parameter "event"
 
@@ -221,18 +221,18 @@
 
     .line 278
     .local v0, root:Landroid/view/ViewRootImpl;
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_0
 
     .line 279
     invoke-virtual {v0, p2}, Landroid/view/ViewRootImpl;->dispatchUnhandledKey(Landroid/view/KeyEvent;)V
 
     .line 281
-    :cond_9
+    :cond_0
     return-void
 .end method
 
 .method public shouldInterceptRequest(Landroid/webkit/WebView;Ljava/lang/String;)Landroid/webkit/WebResourceResponse;
-    .registers 4
+    .locals 1
     .parameter "view"
     .parameter "url"
 
@@ -244,7 +244,7 @@
 .end method
 
 .method public shouldOverrideKeyEvent(Landroid/webkit/WebView;Landroid/view/KeyEvent;)Z
-    .registers 4
+    .locals 1
     .parameter "view"
     .parameter "event"
 
@@ -256,7 +256,7 @@
 .end method
 
 .method public shouldOverrideUrlLoading(Landroid/webkit/WebView;Ljava/lang/String;)Z
-    .registers 4
+    .locals 1
     .parameter "view"
     .parameter "url"
 

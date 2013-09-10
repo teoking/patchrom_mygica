@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 153
@@ -61,7 +61,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 146
@@ -71,7 +71,7 @@
 .end method
 
 .method public static getSetting(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 11
+    .locals 8
     .parameter "cr"
     .parameter "account"
     .parameter "key"
@@ -112,38 +112,38 @@
 
     .line 209
     .local v6, cursor:Landroid/database/Cursor;
-    :try_start_17
+    :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
-    :try_end_1a
-    .catchall {:try_start_17 .. :try_end_1a} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
-    if-nez v0, :cond_21
+    if-nez v0, :cond_0
 
     .line 212
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :goto_20
+    :goto_0
     return-object v5
 
     .line 210
-    :cond_21
+    :cond_0
     const/4 v0, 0x0
 
-    :try_start_22
+    :try_start_1
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-    :try_end_25
-    .catchall {:try_start_22 .. :try_end_25} :catchall_2a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v5
 
     .line 212
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    goto :goto_20
+    goto :goto_0
 
-    :catchall_2a
+    :catchall_0
     move-exception v0
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
@@ -152,7 +152,7 @@
 .end method
 
 .method public static setSetting(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 7
+    .locals 3
     .parameter "cr"
     .parameter "account"
     .parameter "key"

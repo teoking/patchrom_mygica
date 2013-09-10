@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 141
@@ -73,7 +73,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "path"
 
     .prologue
@@ -87,7 +87,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
-    .registers 4
+    .locals 1
     .parameter "path"
     .parameter "mask"
 
@@ -117,7 +117,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 172
@@ -131,7 +131,7 @@
 .end method
 
 .method public startWatching()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 181
@@ -141,7 +141,7 @@
 
     move-result v0
 
-    if-gez v0, :cond_18
+    if-gez v0, :cond_0
 
     .line 182
     sget-object v0, Landroid/os/FileObserver;->s_observerThread:Landroid/os/FileObserver$ObserverThread;
@@ -161,12 +161,12 @@
     iput-object v0, p0, Landroid/os/FileObserver;->m_descriptor:Ljava/lang/Integer;
 
     .line 184
-    :cond_18
+    :cond_0
     return-void
 .end method
 
 .method public stopWatching()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 192
@@ -176,7 +176,7 @@
 
     move-result v0
 
-    if-ltz v0, :cond_1a
+    if-ltz v0, :cond_0
 
     .line 193
     sget-object v0, Landroid/os/FileObserver;->s_observerThread:Landroid/os/FileObserver$ObserverThread;
@@ -199,6 +199,6 @@
     iput-object v0, p0, Landroid/os/FileObserver;->m_descriptor:Ljava/lang/Integer;
 
     .line 196
-    :cond_1a
+    :cond_0
     return-void
 .end method

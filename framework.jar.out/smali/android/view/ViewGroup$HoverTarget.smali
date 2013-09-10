@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 5831
@@ -46,7 +46,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 5841
@@ -57,7 +57,7 @@
 .end method
 
 .method public static obtain(Landroid/view/View;)Landroid/view/ViewGroup$HoverTarget;
-    .registers 4
+    .locals 3
     .parameter "child"
 
     .prologue
@@ -67,10 +67,10 @@
     monitor-enter v2
 
     .line 5847
-    :try_start_3
+    :try_start_0
     sget-object v1, Landroid/view/ViewGroup$HoverTarget;->sRecycleBin:Landroid/view/ViewGroup$HoverTarget;
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_0
 
     .line 5848
     new-instance v0, Landroid/view/ViewGroup$HoverTarget;
@@ -79,10 +79,10 @@
 
     .line 5855
     .local v0, target:Landroid/view/ViewGroup$HoverTarget;
-    :goto_c
+    :goto_0
     monitor-exit v2
-    :try_end_d
-    .catchall {:try_start_3 .. :try_end_d} :catchall_20
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 5856
     iput-object p0, v0, Landroid/view/ViewGroup$HoverTarget;->child:Landroid/view/View;
@@ -92,8 +92,8 @@
 
     .line 5850
     .end local v0           #target:Landroid/view/ViewGroup$HoverTarget;
-    :cond_10
-    :try_start_10
+    :cond_0
+    :try_start_1
     sget-object v0, Landroid/view/ViewGroup$HoverTarget;->sRecycleBin:Landroid/view/ViewGroup$HoverTarget;
 
     .line 5851
@@ -114,16 +114,16 @@
 
     iput-object v1, v0, Landroid/view/ViewGroup$HoverTarget;->next:Landroid/view/ViewGroup$HoverTarget;
 
-    goto :goto_c
+    goto :goto_0
 
     .line 5855
     .end local v0           #target:Landroid/view/ViewGroup$HoverTarget;
-    :catchall_20
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_22
-    .catchall {:try_start_10 .. :try_end_22} :catchall_20
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
@@ -131,7 +131,7 @@
 
 # virtual methods
 .method public recycle()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 5861
@@ -140,12 +140,12 @@
     monitor-enter v1
 
     .line 5862
-    :try_start_3
+    :try_start_0
     sget v0, Landroid/view/ViewGroup$HoverTarget;->sRecycledCount:I
 
     const/16 v2, 0x20
 
-    if-ge v0, v2, :cond_1a
+    if-ge v0, v2, :cond_0
 
     .line 5863
     sget-object v0, Landroid/view/ViewGroup$HoverTarget;->sRecycleBin:Landroid/view/ViewGroup$HoverTarget;
@@ -163,7 +163,7 @@
     sput v0, Landroid/view/ViewGroup$HoverTarget;->sRecycledCount:I
 
     .line 5869
-    :goto_15
+    :goto_0
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/view/ViewGroup$HoverTarget;->child:Landroid/view/View;
@@ -175,20 +175,20 @@
     return-void
 
     .line 5867
-    :cond_1a
+    :cond_0
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/view/ViewGroup$HoverTarget;->next:Landroid/view/ViewGroup$HoverTarget;
 
-    goto :goto_15
+    goto :goto_0
 
     .line 5870
-    :catchall_1e
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_20
-    .catchall {:try_start_3 .. :try_end_20} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

@@ -36,7 +36,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -58,7 +58,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;Landroid/content/SyncManager$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/widget/multiwaveview/MultiWaveView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .registers 6
+    .locals 4
     .parameter "animator"
 
     .prologue
@@ -46,21 +46,25 @@
 
     iget-object v2, p0, Lcom/android/internal/widget/multiwaveview/MultiWaveView$1;->this$0:Lcom/android/internal/widget/multiwaveview/MultiWaveView;
 
+    #getter for: Lcom/android/internal/widget/multiwaveview/MultiWaveView;->mWaveCenterX:F
     invoke-static {v2}, Lcom/android/internal/widget/multiwaveview/MultiWaveView;->access$100(Lcom/android/internal/widget/multiwaveview/MultiWaveView;)F
 
     move-result v2
 
     iget-object v3, p0, Lcom/android/internal/widget/multiwaveview/MultiWaveView$1;->this$0:Lcom/android/internal/widget/multiwaveview/MultiWaveView;
 
+    #getter for: Lcom/android/internal/widget/multiwaveview/MultiWaveView;->mWaveCenterY:F
     invoke-static {v3}, Lcom/android/internal/widget/multiwaveview/MultiWaveView;->access$200(Lcom/android/internal/widget/multiwaveview/MultiWaveView;)F
 
     move-result v3
 
+    #calls: Lcom/android/internal/widget/multiwaveview/MultiWaveView;->switchToState(IFF)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/internal/widget/multiwaveview/MultiWaveView;->access$300(Lcom/android/internal/widget/multiwaveview/MultiWaveView;IFF)V
 
     .line 165
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/MultiWaveView$1;->this$0:Lcom/android/internal/widget/multiwaveview/MultiWaveView;
 
+    #calls: Lcom/android/internal/widget/multiwaveview/MultiWaveView;->dispatchOnFinishFinalAnimation()V
     invoke-static {v0}, Lcom/android/internal/widget/multiwaveview/MultiWaveView;->access$400(Lcom/android/internal/widget/multiwaveview/MultiWaveView;)V
 
     .line 166

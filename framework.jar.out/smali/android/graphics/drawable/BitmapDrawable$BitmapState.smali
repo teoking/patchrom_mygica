@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/Bitmap;)V
-    .registers 5
+    .locals 3
     .parameter "bitmap"
 
     .prologue
@@ -76,7 +76,7 @@
 .end method
 
 .method constructor <init>(Landroid/graphics/drawable/BitmapDrawable$BitmapState;)V
-    .registers 4
+    .locals 2
     .parameter "bitmapState"
 
     .prologue
@@ -131,7 +131,7 @@
 
 # virtual methods
 .method public getChangingConfigurations()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 544
@@ -141,7 +141,7 @@
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -155,7 +155,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .registers 4
+    .locals 2
     .parameter "res"
 
     .prologue

@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(IILjava/lang/String;[Ljava/lang/String;)V
-    .registers 5
+    .locals 0
     .parameter "mask"
     .parameter "shift"
     .parameter "name"
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "mask"
     .parameter "name"
 

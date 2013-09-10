@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 110
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 41
@@ -63,7 +63,7 @@
 .end method
 
 .method public static clearThreadStatsTag()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 137
@@ -76,7 +76,7 @@
 .end method
 
 .method public static clearThreadStatsUid()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 159
@@ -89,27 +89,27 @@
 .end method
 
 .method public static closeQuietly(Landroid/net/INetworkStatsSession;)V
-    .registers 3
+    .locals 2
     .parameter "session"
 
     .prologue
     .line 252
-    if-eqz p0, :cond_5
+    if-eqz p0, :cond_0
 
     .line 254
-    :try_start_2
+    :try_start_0
     invoke-interface {p0}, Landroid/net/INetworkStatsSession;->close()V
-    :try_end_5
-    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_5} :catch_6
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_5} :catch_8
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 260
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return-void
 
     .line 255
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 256
@@ -118,14 +118,14 @@
 
     .line 257
     .end local v0           #rethrown:Ljava/lang/RuntimeException;
-    :catch_8
+    :catch_1
     move-exception v1
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method private static getDataLayerSnapshotForUid(Landroid/content/Context;)Landroid/net/NetworkStats;
-    .registers 4
+    .locals 3
     .parameter "context"
 
     .prologue
@@ -136,21 +136,21 @@
 
     .line 566
     .local v1, uid:I
-    :try_start_4
+    :try_start_0
     invoke-static {}, Landroid/net/TrafficStats;->getStatsService()Landroid/net/INetworkStatsService;
 
     move-result-object v2
 
     invoke-interface {v2, v1}, Landroid/net/INetworkStatsService;->getDataLayerSnapshotForUid(I)Landroid/net/NetworkStats;
-    :try_end_b
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_b} :catch_d
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v2
 
     return-object v2
 
     .line 567
-    :catch_d
+    :catch_0
     move-exception v0
 
     .line 568
@@ -163,7 +163,7 @@
 .end method
 
 .method private static getMobileIfaces()[Ljava/lang/String;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 579
@@ -173,15 +173,15 @@
     move-result-object v1
 
     invoke-interface {v1}, Landroid/net/INetworkStatsService;->getMobileIfaces()[Ljava/lang/String;
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     return-object v1
 
     .line 580
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 581
@@ -194,7 +194,7 @@
 .end method
 
 .method public static getMobileRxBytes()J
-    .registers 8
+    .locals 8
 
     .prologue
     .line 311
@@ -213,8 +213,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_8
-    if-ge v1, v3, :cond_14
+    :goto_0
+    if-ge v1, v3, :cond_0
 
     aget-object v2, v0, v1
 
@@ -229,16 +229,16 @@
     .line 312
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 315
     .end local v2           #iface:Ljava/lang/String;
-    :cond_14
+    :cond_0
     return-wide v4
 .end method
 
 .method public static getMobileRxPackets()J
-    .registers 8
+    .locals 8
 
     .prologue
     .line 283
@@ -257,8 +257,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_8
-    if-ge v1, v3, :cond_14
+    :goto_0
+    if-ge v1, v3, :cond_0
 
     aget-object v2, v0, v1
 
@@ -273,16 +273,16 @@
     .line 284
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 287
     .end local v2           #iface:Ljava/lang/String;
-    :cond_14
+    :cond_0
     return-wide v4
 .end method
 
 .method public static getMobileTxBytes()J
-    .registers 8
+    .locals 8
 
     .prologue
     .line 297
@@ -301,8 +301,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_8
-    if-ge v1, v3, :cond_14
+    :goto_0
+    if-ge v1, v3, :cond_0
 
     aget-object v2, v0, v1
 
@@ -317,16 +317,16 @@
     .line 298
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 301
     .end local v2           #iface:Ljava/lang/String;
-    :cond_14
+    :cond_0
     return-wide v4
 .end method
 
 .method public static getMobileTxPackets()J
-    .registers 8
+    .locals 8
 
     .prologue
     .line 269
@@ -345,8 +345,8 @@
     const/4 v1, 0x0
 
     .local v1, i$:I
-    :goto_8
-    if-ge v1, v3, :cond_14
+    :goto_0
+    if-ge v1, v3, :cond_0
 
     aget-object v2, v0, v1
 
@@ -361,16 +361,16 @@
     .line 270
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 273
     .end local v2           #iface:Ljava/lang/String;
-    :cond_14
+    :cond_0
     return-wide v4
 .end method
 
 .method public static getRxBytes(Ljava/lang/String;)J
-    .registers 3
+    .locals 2
     .parameter "iface"
 
     .prologue
@@ -385,7 +385,7 @@
 .end method
 
 .method public static getRxPackets(Ljava/lang/String;)J
-    .registers 3
+    .locals 2
     .parameter "iface"
 
     .prologue
@@ -400,7 +400,7 @@
 .end method
 
 .method private static declared-synchronized getStatsService()Landroid/net/INetworkStatsService;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 94
@@ -408,10 +408,10 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/net/TrafficStats;->sStatsService:Landroid/net/INetworkStatsService;
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 95
     const-string/jumbo v0, "netstats"
@@ -427,17 +427,17 @@
     sput-object v0, Landroid/net/TrafficStats;->sStatsService:Landroid/net/INetworkStatsService;
 
     .line 98
-    :cond_14
+    :cond_0
     sget-object v0, Landroid/net/TrafficStats;->sStatsService:Landroid/net/INetworkStatsService;
-    :try_end_16
-    .catchall {:try_start_3 .. :try_end_16} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
     return-object v0
 
     .line 94
-    :catchall_18
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -446,7 +446,7 @@
 .end method
 
 .method public static getThreadStatsTag()I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 133
@@ -458,7 +458,7 @@
 .end method
 
 .method public static getTotalRxBytes()J
-    .registers 2
+    .locals 2
 
     .prologue
     .line 399
@@ -472,7 +472,7 @@
 .end method
 
 .method public static getTotalRxPackets()J
-    .registers 2
+    .locals 2
 
     .prologue
     .line 379
@@ -486,7 +486,7 @@
 .end method
 
 .method public static getTotalTxBytes()J
-    .registers 2
+    .locals 2
 
     .prologue
     .line 389
@@ -500,7 +500,7 @@
 .end method
 
 .method public static getTotalTxPackets()J
-    .registers 2
+    .locals 2
 
     .prologue
     .line 369
@@ -514,7 +514,7 @@
 .end method
 
 .method public static getTxBytes(Ljava/lang/String;)J
-    .registers 3
+    .locals 2
     .parameter "iface"
 
     .prologue
@@ -529,7 +529,7 @@
 .end method
 
 .method public static getTxPackets(Ljava/lang/String;)J
-    .registers 3
+    .locals 2
     .parameter "iface"
 
     .prologue
@@ -580,7 +580,7 @@
 .end method
 
 .method public static incrementOperationCount(I)V
-    .registers 2
+    .locals 1
     .parameter "operationCount"
 
     .prologue
@@ -598,7 +598,7 @@
 .end method
 
 .method public static incrementOperationCount(II)V
-    .registers 5
+    .locals 3
     .parameter "tag"
     .parameter "operationCount"
 
@@ -610,20 +610,20 @@
 
     .line 243
     .local v1, uid:I
-    :try_start_4
+    :try_start_0
     invoke-static {}, Landroid/net/TrafficStats;->getStatsService()Landroid/net/INetworkStatsService;
 
     move-result-object v2
 
     invoke-interface {v2, v1, p0, p1}, Landroid/net/INetworkStatsService;->incrementOperationCount(III)V
-    :try_end_b
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_b} :catch_c
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 247
     return-void
 
     .line 244
-    :catch_c
+    :catch_0
     move-exception v0
 
     .line 245
@@ -642,7 +642,7 @@
 .end method
 
 .method public static setThreadStatsTag(I)V
-    .registers 1
+    .locals 0
     .parameter "tag"
 
     .prologue
@@ -654,7 +654,7 @@
 .end method
 
 .method public static setThreadStatsUid(I)V
-    .registers 1
+    .locals 0
     .parameter "uid"
 
     .prologue
@@ -666,7 +666,7 @@
 .end method
 
 .method public static startDataProfiling(Landroid/content/Context;)V
-    .registers 4
+    .locals 3
     .parameter "context"
 
     .prologue
@@ -676,10 +676,10 @@
     monitor-enter v1
 
     .line 190
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/net/TrafficStats;->sActiveProfilingStart:Landroid/net/NetworkStats;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 191
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -691,18 +691,18 @@
     throw v0
 
     .line 196
-    :catchall_f
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_11
-    .catchall {:try_start_3 .. :try_end_11} :catchall_f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 195
-    :cond_12
-    :try_start_12
+    :cond_0
+    :try_start_1
     invoke-static {p0}, Landroid/net/TrafficStats;->getDataLayerSnapshotForUid(Landroid/content/Context;)Landroid/net/NetworkStats;
 
     move-result-object v0
@@ -711,15 +711,15 @@
 
     .line 196
     monitor-exit v1
-    :try_end_19
-    .catchall {:try_start_12 .. :try_end_19} :catchall_f
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 197
     return-void
 .end method
 
 .method public static stopDataProfiling(Landroid/content/Context;)Landroid/net/NetworkStats;
-    .registers 7
+    .locals 6
     .parameter "context"
 
     .prologue
@@ -729,10 +729,10 @@
     monitor-enter v3
 
     .line 208
-    :try_start_3
+    :try_start_0
     sget-object v2, Landroid/net/TrafficStats;->sActiveProfilingStart:Landroid/net/NetworkStats;
 
-    if-nez v2, :cond_13
+    if-nez v2, :cond_0
 
     .line 209
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -744,18 +744,18 @@
     throw v2
 
     .line 218
-    :catchall_10
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_12
-    .catchall {:try_start_3 .. :try_end_12} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 
     .line 213
-    :cond_13
-    :try_start_13
+    :cond_0
+    :try_start_1
     invoke-static {p0}, Landroid/net/TrafficStats;->getDataLayerSnapshotForUid(Landroid/content/Context;)Landroid/net/NetworkStats;
 
     move-result-object v1
@@ -780,14 +780,14 @@
 
     .line 217
     monitor-exit v3
-    :try_end_23
-    .catchall {:try_start_13 .. :try_end_23} :catchall_10
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     return-object v0
 .end method
 
 .method public static tagSocket(Ljava/net/Socket;)V
-    .registers 2
+    .locals 1
     .parameter "socket"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -808,7 +808,7 @@
 .end method
 
 .method public static untagSocket(Ljava/net/Socket;)V
-    .registers 2
+    .locals 1
     .parameter "socket"
     .annotation system Ldalvik/annotation/Throws;
         value = {

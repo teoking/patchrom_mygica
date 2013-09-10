@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 110
@@ -34,7 +34,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 109
@@ -44,7 +44,7 @@
 .end method
 
 .method static synthetic access$000()Lorg/ccil/cowan/tagsoup/HTMLSchema;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 109

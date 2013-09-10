@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 26
@@ -15,7 +15,7 @@
 .end method
 
 .method public static newArrayList()Ljava/util/ArrayList;
-    .registers 1
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -36,7 +36,7 @@
 .end method
 
 .method public static varargs newArrayList([Ljava/lang/Object;)Ljava/util/ArrayList;
-    .registers 4
+    .locals 3
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {

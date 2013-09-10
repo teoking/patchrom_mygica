@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 96
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public process(Lorg/apache/http/HttpRequest;Lorg/apache/http/protocol/HttpContext;)V
-    .registers 5
+    .locals 2
     .parameter "request"
     .parameter "context"
 
@@ -41,7 +41,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
@@ -51,7 +51,7 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_18
+    if-ne v0, v1, :cond_0
 
     .line 100
     new-instance v0, Ljava/lang/RuntimeException;
@@ -63,6 +63,6 @@
     throw v0
 
     .line 102
-    :cond_18
+    :cond_0
     return-void
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 2827
@@ -148,7 +148,7 @@
 .end method
 
 .method public constructor <init>(Landroid/database/Cursor;)V
-    .registers 2
+    .locals 0
     .parameter "cursor"
 
     .prologue
@@ -162,7 +162,7 @@
 
 # virtual methods
 .method public getEntityAndIncrementCursor(Landroid/database/Cursor;)Landroid/content/Entity;
-    .registers 15
+    .locals 13
     .parameter "cursor"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -273,21 +273,21 @@
 
     .line 2879
     .local v3, contact:Landroid/content/Entity;
-    :cond_67
+    :cond_0
     invoke-interface {p1, v2}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v10
 
     cmp-long v10, v8, v10
 
-    if-eqz v10, :cond_70
+    if-eqz v10, :cond_1
 
     .line 2917
-    :goto_6f
+    :goto_0
     return-object v3
 
     .line 2883
-    :cond_70
+    :cond_1
     new-instance v4, Landroid/content/ContentValues;
 
     .end local v4           #cv:Landroid/content/ContentValues;
@@ -358,8 +358,8 @@
     const/4 v5, 0x0
 
     .local v5, i$:I
-    :goto_b1
-    if-ge v5, v7, :cond_da
+    :goto_1
+    if-ge v5, v7, :cond_2
 
     aget-object v6, v0, v5
 
@@ -375,7 +375,7 @@
 
     move-result v10
 
-    packed-switch v10, :pswitch_data_e6
+    packed-switch v10, :pswitch_data_0
 
     .line 2911
     new-instance v10, Ljava/lang/IllegalStateException;
@@ -387,7 +387,7 @@
     throw v10
 
     .line 2905
-    :pswitch_c8
+    :pswitch_0
     invoke-interface {p1, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v10
@@ -395,26 +395,26 @@
     invoke-virtual {v4, v6, v10}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 2896
-    :goto_cf
-    :pswitch_cf
+    :goto_2
+    :pswitch_1
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_b1
+    goto :goto_1
 
     .line 2908
-    :pswitch_d2
+    :pswitch_2
     invoke-interface {p1, v1}, Landroid/database/Cursor;->getBlob(I)[B
 
     move-result-object v10
 
     invoke-virtual {v4, v6, v10}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
 
-    goto :goto_cf
+    goto :goto_2
 
     .line 2914
     .end local v1           #columnIndex:I
     .end local v6           #key:Ljava/lang/String;
-    :cond_da
+    :cond_2
     sget-object v10, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {v3, v10, v4}, Landroid/content/Entity;->addSubValue(Landroid/net/Uri;Landroid/content/ContentValues;)V
@@ -424,17 +424,17 @@
 
     move-result v10
 
-    if-nez v10, :cond_67
+    if-nez v10, :cond_0
 
-    goto :goto_6f
+    goto :goto_0
 
     .line 2898
-    :pswitch_data_e6
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_cf
-        :pswitch_c8
-        :pswitch_c8
-        :pswitch_c8
-        :pswitch_d2
+        :pswitch_1
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_2
     .end packed-switch
 .end method

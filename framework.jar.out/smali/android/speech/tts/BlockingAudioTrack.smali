@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(IIIIFF)V
-    .registers 10
+    .locals 3
     .parameter "streamType"
     .parameter "sampleRate"
     .parameter "audioFormat"
@@ -124,7 +124,7 @@
 .end method
 
 .method private blockUntilCompletion(Landroid/media/AudioTrack;)V
-    .registers 16
+    .locals 14
     .parameter "audioTrack"
 
     .prologue
@@ -151,12 +151,12 @@
 
     .line 268
     .local v6, blockedTimeMs:J
-    :goto_c
+    :goto_0
     invoke-virtual {p1}, Landroid/media/AudioTrack;->getPlaybackHeadPosition()I
 
     move-result v8
 
-    if-ge v8, v10, :cond_3b
+    if-ge v8, v10, :cond_0
 
     invoke-virtual {p1}, Landroid/media/AudioTrack;->getPlayState()I
 
@@ -164,11 +164,11 @@
 
     const/4 v3, 0x3
 
-    if-ne v2, v3, :cond_3b
+    if-ne v2, v3, :cond_0
 
     iget-boolean v2, p0, Landroid/speech/tts/BlockingAudioTrack;->mStopped:Z
 
-    if-nez v2, :cond_3b
+    if-nez v2, :cond_0
 
     .line 270
     sub-int v2, v10, v8
@@ -193,7 +193,7 @@
 
     .line 277
     .local v12, sleepTimeMs:J
-    if-ne v8, v11, :cond_3c
+    if-ne v8, v11, :cond_1
 
     .line 280
     add-long/2addr v6, v12
@@ -201,7 +201,7 @@
     .line 282
     cmp-long v2, v6, v4
 
-    if-lez v2, :cond_3e
+    if-lez v2, :cond_2
 
     .line 283
     const-string v2, "TTS.BlockingAudioTrack"
@@ -213,71 +213,71 @@
     .line 303
     .end local v0           #estimatedTimeMs:J
     .end local v12           #sleepTimeMs:J
-    :cond_3b
-    :goto_3b
+    :cond_0
+    :goto_1
     return-void
 
     .line 288
     .restart local v0       #estimatedTimeMs:J
     .restart local v12       #sleepTimeMs:J
-    :cond_3c
+    :cond_1
     const-wide/16 v6, 0x0
 
     .line 290
-    :cond_3e
+    :cond_2
     move v11, v8
 
     .line 298
-    :try_start_3f
+    :try_start_0
     invoke-static {v12, v13}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_42
-    .catch Ljava/lang/InterruptedException; {:try_start_3f .. :try_end_42} :catch_43
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_c
+    goto :goto_0
 
     .line 299
-    :catch_43
+    :catch_0
     move-exception v9
 
     .line 300
     .local v9, ie:Ljava/lang/InterruptedException;
-    goto :goto_3b
+    goto :goto_1
 .end method
 
 .method private blockUntilDone(Landroid/media/AudioTrack;)V
-    .registers 3
+    .locals 1
     .parameter "audioTrack"
 
     .prologue
     .line 225
     iget v0, p0, Landroid/speech/tts/BlockingAudioTrack;->mBytesWritten:I
 
-    if-gtz v0, :cond_5
+    if-gtz v0, :cond_0
 
     .line 245
-    :goto_4
+    :goto_0
     return-void
 
     .line 229
-    :cond_5
+    :cond_0
     iget-boolean v0, p0, Landroid/speech/tts/BlockingAudioTrack;->mIsShortUtterance:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_1
 
     .line 241
     invoke-direct {p0}, Landroid/speech/tts/BlockingAudioTrack;->blockUntilEstimatedCompletion()V
 
-    goto :goto_4
+    goto :goto_0
 
     .line 243
-    :cond_d
+    :cond_1
     invoke-direct {p0, p1}, Landroid/speech/tts/BlockingAudioTrack;->blockUntilCompletion(Landroid/media/AudioTrack;)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method private blockUntilEstimatedCompletion()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 248
@@ -299,24 +299,24 @@
 
     .line 254
     .local v0, estimatedTimeMs:J
-    :try_start_c
+    :try_start_0
     invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_f
-    .catch Ljava/lang/InterruptedException; {:try_start_c .. :try_end_f} :catch_10
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 258
-    :goto_f
+    :goto_0
     return-void
 
     .line 255
-    :catch_10
+    :catch_0
     move-exception v3
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method private static clip(FFF)F
-    .registers 4
+    .locals 1
     .parameter "value"
     .parameter "min"
     .parameter "max"
@@ -325,30 +325,30 @@
     .line 335
     cmpl-float v0, p0, p2
 
-    if-lez v0, :cond_5
+    if-lez v0, :cond_0
 
     .end local p2
-    :goto_4
+    :goto_0
     return p2
 
     .restart local p2
-    :cond_5
+    :cond_0
     cmpg-float v0, p0, p1
 
-    if-gez v0, :cond_b
+    if-gez v0, :cond_1
 
     move p2, p1
 
-    goto :goto_4
+    goto :goto_0
 
-    :cond_b
+    :cond_1
     move p2, p0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method private static final clip(JJJ)J
-    .registers 7
+    .locals 1
     .parameter "value"
     .parameter "min"
     .parameter "max"
@@ -357,34 +357,34 @@
     .line 323
     cmp-long v0, p0, p2
 
-    if-gez v0, :cond_5
+    if-gez v0, :cond_0
 
     .line 331
     .end local p2
-    :goto_4
+    :goto_0
     return-wide p2
 
     .line 327
     .restart local p2
-    :cond_5
+    :cond_0
     cmp-long v0, p0, p4
 
-    if-lez v0, :cond_b
+    if-lez v0, :cond_1
 
     move-wide p2, p4
 
     .line 328
-    goto :goto_4
+    goto :goto_0
 
-    :cond_b
+    :cond_1
     move-wide p2, p0
 
     .line 331
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method private createStreamingAudioTrack()Landroid/media/AudioTrack;
-    .registers 9
+    .locals 8
 
     .prologue
     const/4 v6, 0x1
@@ -432,7 +432,7 @@
 
     move-result v1
 
-    if-eq v1, v6, :cond_32
+    if-eq v1, v6, :cond_0
 
     .line 202
     const-string v1, "TTS.BlockingAudioTrack"
@@ -449,12 +449,12 @@
 
     .line 210
     .end local v0           #audioTrack:Landroid/media/AudioTrack;
-    :goto_31
+    :goto_0
     return-object v0
 
     .line 207
     .restart local v0       #audioTrack:Landroid/media/AudioTrack;
-    :cond_32
+    :cond_0
     iput v5, p0, Landroid/speech/tts/BlockingAudioTrack;->mAudioBufferSize:I
 
     .line 209
@@ -464,11 +464,11 @@
 
     invoke-static {v0, v1, v2}, Landroid/speech/tts/BlockingAudioTrack;->setupVolume(Landroid/media/AudioTrack;FF)V
 
-    goto :goto_31
+    goto :goto_0
 .end method
 
 .method private static getBytesPerFrame(I)I
-    .registers 3
+    .locals 2
     .parameter "audioFormat"
 
     .prologue
@@ -477,63 +477,63 @@
     .line 214
     const/4 v1, 0x3
 
-    if-ne p0, v1, :cond_6
+    if-ne p0, v1, :cond_1
 
     .line 215
     const/4 v0, 0x1
 
     .line 220
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return v0
 
     .line 216
-    :cond_6
-    if-eq p0, v0, :cond_5
+    :cond_1
+    if-eq p0, v0, :cond_0
 
     .line 220
     const/4 v0, -0x1
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method static getChannelConfig(I)I
-    .registers 2
+    .locals 1
     .parameter "channelCount"
 
     .prologue
     .line 157
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_5
+    if-ne p0, v0, :cond_0
 
     .line 158
     const/4 v0, 0x4
 
     .line 163
-    :goto_4
+    :goto_0
     return v0
 
     .line 159
-    :cond_5
+    :cond_0
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_b
+    if-ne p0, v0, :cond_1
 
     .line 160
     const/16 v0, 0xc
 
-    goto :goto_4
+    goto :goto_0
 
     .line 163
-    :cond_b
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method private static setupVolume(Landroid/media/AudioTrack;FF)V
-    .registers 10
+    .locals 7
     .parameter "audioTrack"
     .parameter "volume"
     .parameter "pan"
@@ -568,7 +568,7 @@
     .local v3, volRight:F
     cmpl-float v4, v0, v6
 
-    if-lez v4, :cond_24
+    if-lez v4, :cond_2
 
     .line 312
     sub-float v4, v5, v0
@@ -576,13 +576,13 @@
     mul-float/2addr v2, v4
 
     .line 317
-    :cond_16
-    :goto_16
+    :cond_0
+    :goto_0
     invoke-virtual {p0, v2, v3}, Landroid/media/AudioTrack;->setStereoVolume(FF)I
 
     move-result v4
 
-    if-eqz v4, :cond_23
+    if-eqz v4, :cond_1
 
     .line 318
     const-string v4, "TTS.BlockingAudioTrack"
@@ -592,25 +592,25 @@
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 320
-    :cond_23
+    :cond_1
     return-void
 
     .line 313
-    :cond_24
+    :cond_2
     cmpg-float v4, v0, v6
 
-    if-gez v4, :cond_16
+    if-gez v4, :cond_0
 
     .line 314
     add-float v4, v5, v0
 
     mul-float/2addr v3, v4
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method private static writeToAudioTrack(Landroid/media/AudioTrack;[B)I
-    .registers 6
+    .locals 4
     .parameter "audioTrack"
     .parameter "bytes"
 
@@ -622,21 +622,21 @@
 
     const/4 v3, 0x3
 
-    if-eq v2, v3, :cond_a
+    if-eq v2, v3, :cond_0
 
     .line 176
     invoke-virtual {p0}, Landroid/media/AudioTrack;->play()V
 
     .line 179
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
     .line 180
     .local v0, count:I
-    :goto_b
+    :goto_0
     array-length v2, p1
 
-    if-ge v0, v2, :cond_15
+    if-ge v0, v2, :cond_1
 
     .line 183
     array-length v2, p1
@@ -647,26 +647,26 @@
 
     .line 184
     .local v1, written:I
-    if-gtz v1, :cond_16
+    if-gtz v1, :cond_2
 
     .line 189
     .end local v1           #written:I
-    :cond_15
+    :cond_1
     return v0
 
     .line 187
     .restart local v1       #written:I
-    :cond_16
+    :cond_2
     add-int/2addr v0, v1
 
     .line 188
-    goto :goto_b
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method getAudioLengthMs(I)J
-    .registers 7
+    .locals 5
     .parameter "numBytes"
 
     .prologue
@@ -691,7 +691,7 @@
 .end method
 
 .method public init()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 97
@@ -706,7 +706,7 @@
     monitor-enter v2
 
     .line 100
-    :try_start_7
+    :try_start_0
     iput-object v0, p0, Landroid/speech/tts/BlockingAudioTrack;->mAudioTrack:Landroid/media/AudioTrack;
 
     .line 101
@@ -716,18 +716,18 @@
     return-void
 
     .line 101
-    :catchall_b
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_d
-    .catchall {:try_start_7 .. :try_end_d} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public stop()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 105
@@ -736,10 +736,10 @@
     monitor-enter v1
 
     .line 106
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/speech/tts/BlockingAudioTrack;->mAudioTrack:Landroid/media/AudioTrack;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 107
     iget-object v0, p0, Landroid/speech/tts/BlockingAudioTrack;->mAudioTrack:Landroid/media/AudioTrack;
@@ -747,10 +747,10 @@
     invoke-virtual {v0}, Landroid/media/AudioTrack;->stop()V
 
     .line 109
-    :cond_c
+    :cond_0
     monitor-exit v1
-    :try_end_d
-    .catchall {:try_start_3 .. :try_end_d} :catchall_11
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 110
     const/4 v0, 0x1
@@ -761,19 +761,19 @@
     return-void
 
     .line 109
-    :catchall_11
+    :catchall_0
     move-exception v0
 
-    :try_start_12
+    :try_start_1
     monitor-exit v1
-    :try_end_13
-    .catchall {:try_start_12 .. :try_end_13} :catchall_11
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method
 
 .method public waitAndRelease()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 129
@@ -781,11 +781,11 @@
 
     iget v1, p0, Landroid/speech/tts/BlockingAudioTrack;->mAudioBufferSize:I
 
-    if-ge v0, v1, :cond_12
+    if-ge v0, v1, :cond_0
 
     iget-boolean v0, p0, Landroid/speech/tts/BlockingAudioTrack;->mStopped:Z
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 135
     const/4 v0, 0x1
@@ -798,10 +798,10 @@
     invoke-virtual {v0}, Landroid/media/AudioTrack;->stop()V
 
     .line 140
-    :cond_12
+    :cond_0
     iget-boolean v0, p0, Landroid/speech/tts/BlockingAudioTrack;->mStopped:Z
 
-    if-nez v0, :cond_1b
+    if-nez v0, :cond_1
 
     .line 142
     iget-object v0, p0, Landroid/speech/tts/BlockingAudioTrack;->mAudioTrack:Landroid/media/AudioTrack;
@@ -809,13 +809,13 @@
     invoke-direct {p0, v0}, Landroid/speech/tts/BlockingAudioTrack;->blockUntilDone(Landroid/media/AudioTrack;)V
 
     .line 149
-    :cond_1b
+    :cond_1
     iget-object v1, p0, Landroid/speech/tts/BlockingAudioTrack;->mAudioTrackLock:Ljava/lang/Object;
 
     monitor-enter v1
 
     .line 150
-    :try_start_1e
+    :try_start_0
     iget-object v0, p0, Landroid/speech/tts/BlockingAudioTrack;->mAudioTrack:Landroid/media/AudioTrack;
 
     invoke-virtual {v0}, Landroid/media/AudioTrack;->release()V
@@ -832,40 +832,40 @@
     return-void
 
     .line 152
-    :catchall_28
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_2a
-    .catchall {:try_start_1e .. :try_end_2a} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public write([B)I
-    .registers 4
+    .locals 2
     .parameter "data"
 
     .prologue
     .line 114
     iget-object v1, p0, Landroid/speech/tts/BlockingAudioTrack;->mAudioTrack:Landroid/media/AudioTrack;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_0
 
     iget-boolean v1, p0, Landroid/speech/tts/BlockingAudioTrack;->mStopped:Z
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_1
 
     .line 115
-    :cond_8
+    :cond_0
     const/4 v0, -0x1
 
     .line 119
-    :goto_9
+    :goto_0
     return v0
 
     .line 117
-    :cond_a
+    :cond_1
     iget-object v1, p0, Landroid/speech/tts/BlockingAudioTrack;->mAudioTrack:Landroid/media/AudioTrack;
 
     invoke-static {v1, p1}, Landroid/speech/tts/BlockingAudioTrack;->writeToAudioTrack(Landroid/media/AudioTrack;[B)I
@@ -880,5 +880,5 @@
 
     iput v1, p0, Landroid/speech/tts/BlockingAudioTrack;->mBytesWritten:I
 
-    goto :goto_9
+    goto :goto_0
 .end method

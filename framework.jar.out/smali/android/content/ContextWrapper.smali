@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "base"
 
     .prologue
@@ -26,14 +26,14 @@
 
 # virtual methods
 .method protected attachBaseContext(Landroid/content/Context;)V
-    .registers 4
+    .locals 2
     .parameter "base"
 
     .prologue
     .line 60
     iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 61
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -45,7 +45,7 @@
     throw v0
 
     .line 63
-    :cond_c
+    :cond_0
     iput-object p1, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
 
     .line 64
@@ -53,7 +53,7 @@
 .end method
 
 .method public bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
-    .registers 5
+    .locals 1
     .parameter "service"
     .parameter "conn"
     .parameter "flags"
@@ -70,7 +70,7 @@
 .end method
 
 .method public bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;II)Z
-    .registers 6
+    .locals 1
     .parameter "service"
     .parameter "conn"
     .parameter "flags"
@@ -88,7 +88,7 @@
 .end method
 
 .method public checkCallingOrSelfPermission(Ljava/lang/String;)I
-    .registers 3
+    .locals 1
     .parameter "permission"
 
     .prologue
@@ -103,7 +103,7 @@
 .end method
 
 .method public checkCallingOrSelfUriPermission(Landroid/net/Uri;I)I
-    .registers 4
+    .locals 1
     .parameter "uri"
     .parameter "modeFlags"
 
@@ -119,7 +119,7 @@
 .end method
 
 .method public checkCallingPermission(Ljava/lang/String;)I
-    .registers 3
+    .locals 1
     .parameter "permission"
 
     .prologue
@@ -134,7 +134,7 @@
 .end method
 
 .method public checkCallingUriPermission(Landroid/net/Uri;I)I
-    .registers 4
+    .locals 1
     .parameter "uri"
     .parameter "modeFlags"
 
@@ -150,7 +150,7 @@
 .end method
 
 .method public checkPermission(Ljava/lang/String;II)I
-    .registers 5
+    .locals 1
     .parameter "permission"
     .parameter "pid"
     .parameter "uid"
@@ -167,7 +167,7 @@
 .end method
 
 .method public checkUriPermission(Landroid/net/Uri;III)I
-    .registers 6
+    .locals 1
     .parameter "uri"
     .parameter "pid"
     .parameter "uid"
@@ -185,7 +185,7 @@
 .end method
 
 .method public checkUriPermission(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;III)I
-    .registers 14
+    .locals 7
     .parameter "uri"
     .parameter "readPermission"
     .parameter "writePermission"
@@ -217,7 +217,7 @@
 .end method
 
 .method public clearWallpaper()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -235,7 +235,7 @@
 .end method
 
 .method public createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
-    .registers 4
+    .locals 1
     .parameter "packageName"
     .parameter "flags"
     .annotation system Ldalvik/annotation/Throws;
@@ -256,7 +256,7 @@
 .end method
 
 .method public databaseList()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 236
@@ -270,7 +270,7 @@
 .end method
 
 .method public deleteDatabase(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -285,7 +285,7 @@
 .end method
 
 .method public deleteFile(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -300,7 +300,7 @@
 .end method
 
 .method public enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "permission"
     .parameter "message"
 
@@ -315,7 +315,7 @@
 .end method
 
 .method public enforceCallingOrSelfUriPermission(Landroid/net/Uri;ILjava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter "uri"
     .parameter "modeFlags"
     .parameter "message"
@@ -331,7 +331,7 @@
 .end method
 
 .method public enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "permission"
     .parameter "message"
 
@@ -346,7 +346,7 @@
 .end method
 
 .method public enforceCallingUriPermission(Landroid/net/Uri;ILjava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter "uri"
     .parameter "modeFlags"
     .parameter "message"
@@ -362,7 +362,7 @@
 .end method
 
 .method public enforcePermission(Ljava/lang/String;IILjava/lang/String;)V
-    .registers 6
+    .locals 1
     .parameter "permission"
     .parameter "pid"
     .parameter "uid"
@@ -379,7 +379,7 @@
 .end method
 
 .method public enforceUriPermission(Landroid/net/Uri;IIILjava/lang/String;)V
-    .registers 12
+    .locals 6
     .parameter "uri"
     .parameter "pid"
     .parameter "uid"
@@ -407,7 +407,7 @@
 .end method
 
 .method public enforceUriPermission(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;IIILjava/lang/String;)V
-    .registers 16
+    .locals 8
     .parameter "uri"
     .parameter "readPermission"
     .parameter "writePermission"
@@ -441,7 +441,7 @@
 .end method
 
 .method public fileList()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 180
@@ -455,7 +455,7 @@
 .end method
 
 .method public getApplicationContext()Landroid/content/Context;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 101
@@ -469,7 +469,7 @@
 .end method
 
 .method public getApplicationInfo()Landroid/content/pm/ApplicationInfo;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 132
@@ -483,7 +483,7 @@
 .end method
 
 .method public getAssets()Landroid/content/res/AssetManager;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 75
@@ -497,7 +497,7 @@
 .end method
 
 .method public getBaseContext()Landroid/content/Context;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 70
@@ -507,7 +507,7 @@
 .end method
 
 .method public getCacheDir()Ljava/io/File;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 200
@@ -521,7 +521,7 @@
 .end method
 
 .method public getClassLoader()Ljava/lang/ClassLoader;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 122
@@ -535,7 +535,7 @@
 .end method
 
 .method public getContentResolver()Landroid/content/ContentResolver;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 91
@@ -549,7 +549,7 @@
 .end method
 
 .method public getDatabasePath(Ljava/lang/String;)Ljava/io/File;
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -564,7 +564,7 @@
 .end method
 
 .method public getDir(Ljava/lang/String;I)Ljava/io/File;
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "mode"
 
@@ -580,7 +580,7 @@
 .end method
 
 .method public getExternalCacheDir()Ljava/io/File;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 205
@@ -594,7 +594,7 @@
 .end method
 
 .method public getExternalFilesDir(Ljava/lang/String;)Ljava/io/File;
-    .registers 3
+    .locals 1
     .parameter "type"
 
     .prologue
@@ -609,7 +609,7 @@
 .end method
 
 .method public getFileStreamPath(Ljava/lang/String;)Ljava/io/File;
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -624,7 +624,7 @@
 .end method
 
 .method public getFilesDir()Ljava/io/File;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 185
@@ -638,7 +638,7 @@
 .end method
 
 .method public getMainLooper()Landroid/os/Looper;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 96
@@ -652,7 +652,7 @@
 .end method
 
 .method public getObbDir()Ljava/io/File;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 195
@@ -666,7 +666,7 @@
 .end method
 
 .method public getPackageCodePath()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 142
@@ -680,7 +680,7 @@
 .end method
 
 .method public getPackageManager()Landroid/content/pm/PackageManager;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 86
@@ -694,7 +694,7 @@
 .end method
 
 .method public getPackageName()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 127
@@ -708,7 +708,7 @@
 .end method
 
 .method public getPackageResourcePath()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 137
@@ -722,7 +722,7 @@
 .end method
 
 .method public getResources()Landroid/content/res/Resources;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -736,7 +736,7 @@
 .end method
 
 .method public getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "mode"
 
@@ -752,7 +752,7 @@
 .end method
 
 .method public getSharedPrefsFile(Ljava/lang/String;)Ljava/io/File;
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -767,7 +767,7 @@
 .end method
 
 .method public getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -782,7 +782,7 @@
 .end method
 
 .method public getTheme()Landroid/content/res/Resources$Theme;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 117
@@ -796,7 +796,7 @@
 .end method
 
 .method public getThemeResId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 112
@@ -810,7 +810,7 @@
 .end method
 
 .method public getWallpaper()Landroid/graphics/drawable/Drawable;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 241
@@ -824,7 +824,7 @@
 .end method
 
 .method public getWallpaperDesiredMinimumHeight()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 256
@@ -838,7 +838,7 @@
 .end method
 
 .method public getWallpaperDesiredMinimumWidth()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 251
@@ -852,7 +852,7 @@
 .end method
 
 .method public grantUriPermission(Ljava/lang/String;Landroid/net/Uri;I)V
-    .registers 5
+    .locals 1
     .parameter "toPackage"
     .parameter "uri"
     .parameter "modeFlags"
@@ -868,7 +868,7 @@
 .end method
 
 .method public isRestricted()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 518
@@ -882,7 +882,7 @@
 .end method
 
 .method public openFileInput(Ljava/lang/String;)Ljava/io/FileInputStream;
-    .registers 3
+    .locals 1
     .parameter "name"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -902,7 +902,7 @@
 .end method
 
 .method public openFileOutput(Ljava/lang/String;I)Ljava/io/FileOutputStream;
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "mode"
     .annotation system Ldalvik/annotation/Throws;
@@ -923,7 +923,7 @@
 .end method
 
 .method public openOrCreateDatabase(Ljava/lang/String;ILandroid/database/sqlite/SQLiteDatabase$CursorFactory;)Landroid/database/sqlite/SQLiteDatabase;
-    .registers 5
+    .locals 1
     .parameter "name"
     .parameter "mode"
     .parameter "factory"
@@ -940,7 +940,7 @@
 .end method
 
 .method public openOrCreateDatabase(Ljava/lang/String;ILandroid/database/sqlite/SQLiteDatabase$CursorFactory;Landroid/database/DatabaseErrorHandler;)Landroid/database/sqlite/SQLiteDatabase;
-    .registers 6
+    .locals 1
     .parameter "name"
     .parameter "mode"
     .parameter "factory"
@@ -958,7 +958,7 @@
 .end method
 
 .method public peekWallpaper()Landroid/graphics/drawable/Drawable;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 246
@@ -972,7 +972,7 @@
 .end method
 
 .method public registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-    .registers 4
+    .locals 1
     .parameter "receiver"
     .parameter "filter"
 
@@ -988,7 +988,7 @@
 .end method
 
 .method public registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
-    .registers 6
+    .locals 1
     .parameter "receiver"
     .parameter "filter"
     .parameter "broadcastPermission"
@@ -1006,7 +1006,7 @@
 .end method
 
 .method public removeStickyBroadcast(Landroid/content/Intent;)V
-    .registers 3
+    .locals 1
     .parameter "intent"
 
     .prologue
@@ -1020,7 +1020,7 @@
 .end method
 
 .method public revokeUriPermission(Landroid/net/Uri;I)V
-    .registers 4
+    .locals 1
     .parameter "uri"
     .parameter "modeFlags"
 
@@ -1035,7 +1035,7 @@
 .end method
 
 .method public sendBroadcast(Landroid/content/Intent;)V
-    .registers 3
+    .locals 1
     .parameter "intent"
 
     .prologue
@@ -1049,7 +1049,7 @@
 .end method
 
 .method public sendBroadcast(Landroid/content/Intent;I)V
-    .registers 4
+    .locals 1
     .parameter "intent"
     .parameter "userId"
 
@@ -1064,7 +1064,7 @@
 .end method
 
 .method public sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "intent"
     .parameter "receiverPermission"
 
@@ -1079,7 +1079,7 @@
 .end method
 
 .method public sendOrderedBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "intent"
     .parameter "receiverPermission"
 
@@ -1094,7 +1094,7 @@
 .end method
 
 .method public sendOrderedBroadcast(Landroid/content/Intent;Ljava/lang/String;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
-    .registers 16
+    .locals 8
     .parameter "intent"
     .parameter "receiverPermission"
     .parameter "resultReceiver"
@@ -1128,7 +1128,7 @@
 .end method
 
 .method public sendStickyBroadcast(Landroid/content/Intent;)V
-    .registers 3
+    .locals 1
     .parameter "intent"
 
     .prologue
@@ -1142,7 +1142,7 @@
 .end method
 
 .method public sendStickyOrderedBroadcast(Landroid/content/Intent;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
-    .registers 14
+    .locals 7
     .parameter "intent"
     .parameter "resultReceiver"
     .parameter "scheduler"
@@ -1173,7 +1173,7 @@
 .end method
 
 .method public setTheme(I)V
-    .registers 3
+    .locals 1
     .parameter "resid"
 
     .prologue
@@ -1187,7 +1187,7 @@
 .end method
 
 .method public setWallpaper(Landroid/graphics/Bitmap;)V
-    .registers 3
+    .locals 1
     .parameter "bitmap"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1206,7 +1206,7 @@
 .end method
 
 .method public setWallpaper(Ljava/io/InputStream;)V
-    .registers 3
+    .locals 1
     .parameter "data"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1225,7 +1225,7 @@
 .end method
 
 .method public startActivities([Landroid/content/Intent;)V
-    .registers 3
+    .locals 1
     .parameter "intents"
 
     .prologue
@@ -1239,7 +1239,7 @@
 .end method
 
 .method public startActivities([Landroid/content/Intent;Landroid/os/Bundle;)V
-    .registers 4
+    .locals 1
     .parameter "intents"
     .parameter "options"
 
@@ -1254,7 +1254,7 @@
 .end method
 
 .method public startActivity(Landroid/content/Intent;)V
-    .registers 3
+    .locals 1
     .parameter "intent"
 
     .prologue
@@ -1268,7 +1268,7 @@
 .end method
 
 .method public startActivity(Landroid/content/Intent;Landroid/os/Bundle;)V
-    .registers 4
+    .locals 1
     .parameter "intent"
     .parameter "options"
 
@@ -1283,7 +1283,7 @@
 .end method
 
 .method public startInstrumentation(Landroid/content/ComponentName;Ljava/lang/String;Landroid/os/Bundle;)Z
-    .registers 5
+    .locals 1
     .parameter "className"
     .parameter "profileFile"
     .parameter "arguments"
@@ -1300,7 +1300,7 @@
 .end method
 
 .method public startIntentSender(Landroid/content/IntentSender;Landroid/content/Intent;III)V
-    .registers 12
+    .locals 6
     .parameter "intent"
     .parameter "fillInIntent"
     .parameter "flagsMask"
@@ -1333,7 +1333,7 @@
 .end method
 
 .method public startIntentSender(Landroid/content/IntentSender;Landroid/content/Intent;IIILandroid/os/Bundle;)V
-    .registers 14
+    .locals 7
     .parameter "intent"
     .parameter "fillInIntent"
     .parameter "flagsMask"
@@ -1369,7 +1369,7 @@
 .end method
 
 .method public startService(Landroid/content/Intent;)Landroid/content/ComponentName;
-    .registers 3
+    .locals 1
     .parameter "service"
 
     .prologue
@@ -1384,7 +1384,7 @@
 .end method
 
 .method public stopService(Landroid/content/Intent;)Z
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -1399,7 +1399,7 @@
 .end method
 
 .method public unbindService(Landroid/content/ServiceConnection;)V
-    .registers 3
+    .locals 1
     .parameter "conn"
 
     .prologue
@@ -1413,7 +1413,7 @@
 .end method
 
 .method public unregisterReceiver(Landroid/content/BroadcastReceiver;)V
-    .registers 3
+    .locals 1
     .parameter "receiver"
 
     .prologue

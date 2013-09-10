@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 231
@@ -22,7 +22,7 @@
 .end method
 
 .method constructor <init>(Landroid/filterfw/core/FrameFormat;Landroid/filterfw/core/FrameManager;)V
-    .registers 5
+    .locals 2
     .parameter "format"
     .parameter "frameManager"
 
@@ -45,21 +45,21 @@
     invoke-direct {p0, v0}, Landroid/filterfw/core/NativeFrame;->nativeAllocate(I)Z
 
     .line 42
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     const/4 v1, 0x1
 
-    :goto_10
+    :goto_0
     invoke-virtual {p0, v1}, Landroid/filterfw/core/NativeFrame;->setReusable(Z)V
 
     .line 43
     return-void
 
     .line 42
-    :cond_14
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method private native getNativeBitmap(Landroid/graphics/Bitmap;II)Z
@@ -113,7 +113,7 @@
 
 # virtual methods
 .method public getBitmap()Landroid/graphics/Bitmap;
-    .registers 7
+    .locals 6
 
     .prologue
     .line 189
@@ -127,7 +127,7 @@
 
     const/4 v4, 0x2
 
-    if-eq v3, v4, :cond_13
+    if-eq v3, v4, :cond_0
 
     .line 190
     new-instance v3, Ljava/lang/RuntimeException;
@@ -139,7 +139,7 @@
     throw v3
 
     .line 192
-    :cond_13
+    :cond_0
     invoke-virtual {p0}, Landroid/filterfw/core/NativeFrame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v3
@@ -184,7 +184,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_43
+    if-nez v3, :cond_1
 
     .line 198
     new-instance v3, Ljava/lang/RuntimeException;
@@ -196,12 +196,12 @@
     throw v3
 
     .line 200
-    :cond_43
+    :cond_1
     return-object v2
 .end method
 
 .method public getCapacity()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 58
@@ -213,7 +213,7 @@
 .end method
 
 .method public getData()Ljava/nio/ByteBuffer;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 165
@@ -231,23 +231,23 @@
 
     .line 166
     .local v0, data:[B
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     const/4 v1, 0x0
 
-    :goto_f
+    :goto_0
     return-object v1
 
-    :cond_10
+    :cond_0
     invoke-static {v0}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v1
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public getFloats()[F
-    .registers 2
+    .locals 1
 
     .prologue
     .line 141
@@ -267,7 +267,7 @@
 .end method
 
 .method public getInts()[I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 124
@@ -287,7 +287,7 @@
 .end method
 
 .method public getObjectValue()Ljava/lang/Object;
-    .registers 7
+    .locals 6
 
     .prologue
     .line 73
@@ -301,7 +301,7 @@
 
     const/16 v4, 0x8
 
-    if-eq v3, v4, :cond_11
+    if-eq v3, v4, :cond_0
 
     .line 74
     invoke-virtual {p0}, Landroid/filterfw/core/NativeFrame;->getData()Ljava/nio/ByteBuffer;
@@ -309,11 +309,11 @@
     move-result-object v2
 
     .line 107
-    :goto_10
+    :goto_0
     return-object v2
 
     .line 78
-    :cond_11
+    :cond_0
     invoke-virtual {p0}, Landroid/filterfw/core/NativeFrame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v3
@@ -324,7 +324,7 @@
 
     .line 79
     .local v1, structClass:Ljava/lang/Class;
-    if-nez v1, :cond_23
+    if-nez v1, :cond_1
 
     .line 80
     new-instance v3, Ljava/lang/RuntimeException;
@@ -336,14 +336,14 @@
     throw v3
 
     .line 85
-    :cond_23
+    :cond_1
     const-class v3, Landroid/filterfw/core/NativeBuffer;
 
     invoke-virtual {v3, v1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v3
 
-    if-nez v3, :cond_33
+    if-nez v3, :cond_2
 
     .line 86
     new-instance v3, Ljava/lang/RuntimeException;
@@ -355,20 +355,20 @@
     throw v3
 
     .line 91
-    :cond_33
+    :cond_2
     const/4 v2, 0x0
 
     .line 93
     .local v2, structData:Landroid/filterfw/core/NativeBuffer;
-    :try_start_34
+    :try_start_0
     invoke-virtual {v1}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
     move-result-object v2
 
     .end local v2           #structData:Landroid/filterfw/core/NativeBuffer;
     check-cast v2, Landroid/filterfw/core/NativeBuffer;
-    :try_end_3a
-    .catch Ljava/lang/Exception; {:try_start_34 .. :try_end_3a} :catch_48
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 100
     .restart local v2       #structData:Landroid/filterfw/core/NativeBuffer;
@@ -376,7 +376,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_68
+    if-nez v3, :cond_3
 
     .line 101
     new-instance v3, Ljava/lang/RuntimeException;
@@ -389,7 +389,7 @@
 
     .line 94
     .end local v2           #structData:Landroid/filterfw/core/NativeBuffer;
-    :catch_48
+    :catch_0
     move-exception v0
 
     .line 95
@@ -427,41 +427,41 @@
     .line 105
     .end local v0           #e:Ljava/lang/Exception;
     .restart local v2       #structData:Landroid/filterfw/core/NativeBuffer;
-    :cond_68
+    :cond_3
     invoke-virtual {v2, p0}, Landroid/filterfw/core/NativeBuffer;->attachToFrame(Landroid/filterfw/core/Frame;)V
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method protected declared-synchronized hasNativeAllocation()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 53
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget v0, p0, Landroid/filterfw/core/NativeFrame;->nativeFrameId:I
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_9
+    if-eq v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     monitor-exit p0
 
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -470,21 +470,21 @@
 .end method
 
 .method protected declared-synchronized releaseNativeAllocation()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 47
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-direct {p0}, Landroid/filterfw/core/NativeFrame;->nativeDeallocate()Z
 
     .line 48
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/filterfw/core/NativeFrame;->nativeFrameId:I
-    :try_end_7
-    .catchall {:try_start_1 .. :try_end_7} :catchall_9
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 49
     monitor-exit p0
@@ -492,7 +492,7 @@
     return-void
 
     .line 47
-    :catchall_9
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -501,7 +501,7 @@
 .end method
 
 .method public setBitmap(Landroid/graphics/Bitmap;)V
-    .registers 7
+    .locals 5
     .parameter "bitmap"
 
     .prologue
@@ -519,7 +519,7 @@
 
     const/4 v4, 0x2
 
-    if-eq v3, v4, :cond_16
+    if-eq v3, v4, :cond_0
 
     .line 173
     new-instance v3, Ljava/lang/RuntimeException;
@@ -531,7 +531,7 @@
     throw v3
 
     .line 174
-    :cond_16
+    :cond_0
     invoke-virtual {p0}, Landroid/filterfw/core/NativeFrame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v3
@@ -544,7 +544,7 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_32
+    if-ne v3, v4, :cond_1
 
     invoke-virtual {p0}, Landroid/filterfw/core/NativeFrame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
@@ -558,10 +558,10 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_3a
+    if-eq v3, v4, :cond_2
 
     .line 176
-    :cond_32
+    :cond_1
     new-instance v3, Ljava/lang/RuntimeException;
 
     const-string v4, "Bitmap dimensions do not match native frame dimensions!"
@@ -571,7 +571,7 @@
     throw v3
 
     .line 178
-    :cond_3a
+    :cond_2
     invoke-static {p1}, Landroid/filterfw/core/NativeFrame;->convertBitmapToRGBA(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
     move-result-object v2
@@ -598,7 +598,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_58
+    if-nez v3, :cond_3
 
     .line 182
     new-instance v3, Ljava/lang/RuntimeException;
@@ -610,12 +610,12 @@
     throw v3
 
     .line 185
-    :cond_58
+    :cond_3
     return-void
 .end method
 
 .method public setData(Ljava/nio/ByteBuffer;II)V
-    .registers 8
+    .locals 4
     .parameter "buffer"
     .parameter "offset"
     .parameter "length"
@@ -637,7 +637,7 @@
 
     move-result v2
 
-    if-le v1, v2, :cond_3e
+    if-le v1, v2, :cond_0
 
     .line 151
     new-instance v1, Ljava/lang/RuntimeException;
@@ -687,7 +687,7 @@
     throw v1
 
     .line 154
-    :cond_3e
+    :cond_0
     invoke-virtual {p0}, Landroid/filterfw/core/NativeFrame;->getFormat()Landroid/filterfw/core/FrameFormat;
 
     move-result-object v1
@@ -696,7 +696,7 @@
 
     move-result v1
 
-    if-eq v1, p3, :cond_79
+    if-eq v1, p3, :cond_1
 
     .line 155
     new-instance v1, Ljava/lang/RuntimeException;
@@ -748,12 +748,12 @@
     throw v1
 
     .line 158
-    :cond_79
+    :cond_1
     invoke-direct {p0, v0, p2, p3}, Landroid/filterfw/core/NativeFrame;->setNativeData([BII)Z
 
     move-result v1
 
-    if-nez v1, :cond_87
+    if-nez v1, :cond_2
 
     .line 159
     new-instance v1, Ljava/lang/RuntimeException;
@@ -765,12 +765,12 @@
     throw v1
 
     .line 161
-    :cond_87
+    :cond_2
     return-void
 .end method
 
 .method public setDataFromFrame(Landroid/filterfw/core/Frame;)V
-    .registers 5
+    .locals 3
     .parameter "frame"
 
     .prologue
@@ -791,7 +791,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_52
+    if-ge v0, v1, :cond_0
 
     .line 207
     new-instance v0, Ljava/lang/RuntimeException;
@@ -857,10 +857,10 @@
     throw v0
 
     .line 213
-    :cond_52
+    :cond_0
     instance-of v0, p1, Landroid/filterfw/core/NativeFrame;
 
-    if-eqz v0, :cond_5c
+    if-eqz v0, :cond_1
 
     .line 214
     check-cast p1, Landroid/filterfw/core/NativeFrame;
@@ -869,15 +869,15 @@
     invoke-direct {p0, p1}, Landroid/filterfw/core/NativeFrame;->nativeCopyFromNative(Landroid/filterfw/core/NativeFrame;)Z
 
     .line 222
-    :goto_5b
+    :goto_0
     return-void
 
     .line 215
     .restart local p1
-    :cond_5c
+    :cond_1
     instance-of v0, p1, Landroid/filterfw/core/GLFrame;
 
-    if-eqz v0, :cond_66
+    if-eqz v0, :cond_2
 
     .line 216
     check-cast p1, Landroid/filterfw/core/GLFrame;
@@ -885,14 +885,14 @@
     .end local p1
     invoke-direct {p0, p1}, Landroid/filterfw/core/NativeFrame;->nativeCopyFromGL(Landroid/filterfw/core/GLFrame;)Z
 
-    goto :goto_5b
+    goto :goto_0
 
     .line 217
     .restart local p1
-    :cond_66
+    :cond_2
     instance-of v0, p1, Landroid/filterfw/core/SimpleFrame;
 
-    if-eqz v0, :cond_72
+    if-eqz v0, :cond_3
 
     .line 218
     invoke-virtual {p1}, Landroid/filterfw/core/Frame;->getObjectValue()Ljava/lang/Object;
@@ -901,17 +901,17 @@
 
     invoke-virtual {p0, v0}, Landroid/filterfw/core/NativeFrame;->setObjectValue(Ljava/lang/Object;)V
 
-    goto :goto_5b
+    goto :goto_0
 
     .line 220
-    :cond_72
+    :cond_3
     invoke-super {p0, p1}, Landroid/filterfw/core/Frame;->setDataFromFrame(Landroid/filterfw/core/Frame;)V
 
-    goto :goto_5b
+    goto :goto_0
 .end method
 
 .method public setFloats([F)V
-    .registers 6
+    .locals 4
     .parameter "floats"
 
     .prologue
@@ -935,7 +935,7 @@
 
     move-result v1
 
-    if-le v0, v1, :cond_4a
+    if-le v0, v1, :cond_0
 
     .line 131
     new-instance v0, Ljava/lang/RuntimeException;
@@ -995,12 +995,12 @@
     throw v0
 
     .line 134
-    :cond_4a
+    :cond_0
     invoke-direct {p0, p1}, Landroid/filterfw/core/NativeFrame;->setNativeFloats([F)Z
 
     move-result v0
 
-    if-nez v0, :cond_58
+    if-nez v0, :cond_1
 
     .line 135
     new-instance v0, Ljava/lang/RuntimeException;
@@ -1012,12 +1012,12 @@
     throw v0
 
     .line 137
-    :cond_58
+    :cond_1
     return-void
 .end method
 
 .method public setInts([I)V
-    .registers 6
+    .locals 4
     .parameter "ints"
 
     .prologue
@@ -1041,7 +1041,7 @@
 
     move-result v1
 
-    if-le v0, v1, :cond_4a
+    if-le v0, v1, :cond_0
 
     .line 114
     new-instance v0, Ljava/lang/RuntimeException;
@@ -1101,12 +1101,12 @@
     throw v0
 
     .line 117
-    :cond_4a
+    :cond_0
     invoke-direct {p0, p1}, Landroid/filterfw/core/NativeFrame;->setNativeInts([I)Z
 
     move-result v0
 
-    if-nez v0, :cond_58
+    if-nez v0, :cond_1
 
     .line 118
     new-instance v0, Ljava/lang/RuntimeException;
@@ -1118,12 +1118,12 @@
     throw v0
 
     .line 120
-    :cond_58
+    :cond_1
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 226

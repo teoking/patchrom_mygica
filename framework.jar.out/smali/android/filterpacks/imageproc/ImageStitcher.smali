@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -60,7 +60,7 @@
 .end method
 
 .method private calcOutputFormatForInput(Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 5
+    .locals 3
     .parameter "format"
 
     .prologue
@@ -138,7 +138,7 @@
 
 # virtual methods
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -148,7 +148,7 @@
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 15
+    .locals 13
     .parameter "context"
 
     .prologue
@@ -169,7 +169,7 @@
     .local v0, format:Landroid/filterfw/core/FrameFormat;
     iget v8, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mSliceIndex:I
 
-    if-nez v8, :cond_ae
+    if-nez v8, :cond_3
 
     .line 99
     invoke-virtual {p1}, Landroid/filterfw/core/FilterContext;->getFrameManager()Landroid/filterfw/core/FrameManager;
@@ -187,10 +187,10 @@
     iput-object v8, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mOutputFrame:Landroid/filterfw/core/Frame;
 
     .line 109
-    :cond_1c
+    :cond_0
     iget-object v8, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mProgram:Landroid/filterfw/core/Program;
 
-    if-nez v8, :cond_26
+    if-nez v8, :cond_1
 
     .line 110
     invoke-static {p1}, Landroid/filterfw/core/ShaderProgram;->createIdentity(Landroid/filterfw/core/FilterContext;)Landroid/filterfw/core/ShaderProgram;
@@ -200,7 +200,7 @@
     iput-object v8, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mProgram:Landroid/filterfw/core/Program;
 
     .line 114
-    :cond_26
+    :cond_1
     iget v8, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mPadSize:I
 
     int-to-float v8, v8
@@ -353,7 +353,7 @@
 
     mul-int/2addr v9, v10
 
-    if-ne v8, v9, :cond_ad
+    if-ne v8, v9, :cond_2
 
     .line 139
     const-string v8, "image"
@@ -373,7 +373,7 @@
     iput v8, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mSliceIndex:I
 
     .line 143
-    :cond_ad
+    :cond_2
     return-void
 
     .line 101
@@ -383,14 +383,14 @@
     .end local v5           #outputWidth:F
     .end local v6           #x0:F
     .end local v7           #y0:F
-    :cond_ae
+    :cond_3
     invoke-virtual {v0}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v8
 
     iget v9, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mInputWidth:I
 
-    if-ne v8, v9, :cond_be
+    if-ne v8, v9, :cond_4
 
     invoke-virtual {v0}, Landroid/filterfw/core/FrameFormat;->getHeight()I
 
@@ -398,10 +398,10 @@
 
     iget v9, p0, Landroid/filterpacks/imageproc/ImageStitcher;->mInputHeight:I
 
-    if-eq v8, v9, :cond_1c
+    if-eq v8, v9, :cond_0
 
     .line 104
-    :cond_be
+    :cond_4
     new-instance v8, Ljava/lang/RuntimeException;
 
     const-string v9, "Image size should not change."
@@ -412,7 +412,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x3

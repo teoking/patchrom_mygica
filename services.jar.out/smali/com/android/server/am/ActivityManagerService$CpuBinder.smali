@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
-    .registers 2
+    .locals 0
     .parameter "activityManagerService"
 
     .prologue
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 8
+    .locals 4
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -52,7 +52,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3f
+    if-eqz v0, :cond_0
 
     .line 1505
     new-instance v0, Ljava/lang/StringBuilder;
@@ -106,11 +106,11 @@
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 1516
-    :goto_3e
+    :goto_0
     return-void
 
     .line 1511
-    :cond_3f
+    :cond_0
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$CpuBinder;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v1, v0, Lcom/android/server/am/ActivityManagerService;->mProcessStatsThread:Ljava/lang/Thread;
@@ -118,7 +118,7 @@
     monitor-enter v1
 
     .line 1512
-    :try_start_44
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$CpuBinder;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mProcessStats:Lcom/android/internal/os/ProcessStats;
@@ -147,14 +147,14 @@
     .line 1515
     monitor-exit v1
 
-    goto :goto_3e
+    goto :goto_0
 
-    :catchall_60
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_62
-    .catchall {:try_start_44 .. :try_end_62} :catchall_60
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

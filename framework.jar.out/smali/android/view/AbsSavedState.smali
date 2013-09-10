@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 27
@@ -48,7 +48,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 34
@@ -64,7 +64,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "source"
 
     .prologue
@@ -80,10 +80,10 @@
 
     .line 59
     .local v0, superState:Landroid/os/Parcelable;
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .end local v0           #superState:Landroid/os/Parcelable;
-    :goto_a
+    :goto_0
     iput-object v0, p0, Landroid/view/AbsSavedState;->mSuperState:Landroid/os/Parcelable;
 
     .line 60
@@ -91,14 +91,14 @@
 
     .line 59
     .restart local v0       #superState:Landroid/os/Parcelable;
-    :cond_d
+    :cond_0
     sget-object v0, Landroid/view/AbsSavedState;->EMPTY_STATE:Landroid/view/AbsSavedState;
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcelable;)V
-    .registers 4
+    .locals 2
     .parameter "superState"
 
     .prologue
@@ -106,7 +106,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 44
-    if-nez p1, :cond_e
+    if-nez p1, :cond_0
 
     .line 45
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -118,13 +118,13 @@
     throw v0
 
     .line 47
-    :cond_e
+    :cond_0
     sget-object v0, Landroid/view/AbsSavedState;->EMPTY_STATE:Landroid/view/AbsSavedState;
 
-    if-eq p1, v0, :cond_15
+    if-eq p1, v0, :cond_1
 
     .end local p1
-    :goto_12
+    :goto_0
     iput-object p1, p0, Landroid/view/AbsSavedState;->mSuperState:Landroid/os/Parcelable;
 
     .line 48
@@ -132,14 +132,14 @@
 
     .line 47
     .restart local p1
-    :cond_15
+    :cond_1
     const/4 p1, 0x0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method synthetic constructor <init>(Landroid/view/AbsSavedState$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -152,7 +152,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 67
@@ -162,7 +162,7 @@
 .end method
 
 .method public final getSuperState()Landroid/os/Parcelable;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 63
@@ -172,7 +172,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

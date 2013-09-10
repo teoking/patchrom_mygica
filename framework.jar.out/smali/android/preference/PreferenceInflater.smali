@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/preference/PreferenceManager;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "preferenceManager"
 
@@ -45,7 +45,7 @@
 .end method
 
 .method constructor <init>(Landroid/preference/GenericInflater;Landroid/preference/PreferenceManager;Landroid/content/Context;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "preferenceManager"
     .parameter "newContext"
@@ -76,7 +76,7 @@
 .end method
 
 .method private init(Landroid/preference/PreferenceManager;)V
-    .registers 3
+    .locals 1
     .parameter "preferenceManager"
 
     .prologue
@@ -95,7 +95,7 @@
 
 # virtual methods
 .method public cloneInContext(Landroid/content/Context;)Landroid/preference/GenericInflater;
-    .registers 4
+    .locals 2
     .parameter "newContext"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -122,7 +122,7 @@
 .end method
 
 .method protected onCreateCustomFromTag(Lorg/xmlpull/v1/XmlPullParser;Landroid/preference/Preference;Landroid/util/AttributeSet;)Z
-    .registers 12
+    .locals 8
     .parameter "parser"
     .parameter "parentPreference"
     .parameter "attrs"
@@ -148,14 +148,14 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2c
+    if-eqz v5, :cond_1
 
     .line 74
     const/4 v2, 0x0
 
     .line 77
     .local v2, intent:Landroid/content/Intent;
-    :try_start_e
+    :try_start_0
     invoke-virtual {p0}, Landroid/preference/PreferenceInflater;->getContext()Landroid/content/Context;
 
     move-result-object v5
@@ -165,26 +165,26 @@
     move-result-object v5
 
     invoke-static {v5, p1, p3}, Landroid/content/Intent;->parseIntent(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)Landroid/content/Intent;
-    :try_end_19
-    .catch Ljava/io/IOException; {:try_start_e .. :try_end_19} :catch_20
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v2
 
     .line 85
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_0
 
     .line 86
     invoke-virtual {p2, v2}, Landroid/preference/Preference;->setIntent(Landroid/content/Intent;)V
 
     .line 104
     .end local v2           #intent:Landroid/content/Intent;
-    :cond_1f
-    :goto_1f
+    :cond_0
+    :goto_0
     return v4
 
     .line 78
     .restart local v2       #intent:Landroid/content/Intent;
-    :catch_20
+    :catch_0
     move-exception v0
 
     .line 79
@@ -206,14 +206,14 @@
     .end local v0           #e:Ljava/io/IOException;
     .end local v1           #ex:Lorg/xmlpull/v1/XmlPullParserException;
     .end local v2           #intent:Landroid/content/Intent;
-    :cond_2c
+    :cond_1
     const-string v5, "extra"
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_55
+    if-eqz v5, :cond_2
 
     .line 91
     invoke-virtual {p0}, Landroid/preference/PreferenceInflater;->getContext()Landroid/content/Context;
@@ -233,15 +233,15 @@
     invoke-virtual {v5, v6, p3, v7}, Landroid/content/res/Resources;->parseBundleExtra(Ljava/lang/String;Landroid/util/AttributeSet;Landroid/os/Bundle;)V
 
     .line 94
-    :try_start_45
+    :try_start_1
     invoke-static {p1}, Lcom/android/internal/util/XmlUtils;->skipCurrentTag(Lorg/xmlpull/v1/XmlPullParser;)V
-    :try_end_48
-    .catch Ljava/io/IOException; {:try_start_45 .. :try_end_48} :catch_49
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto :goto_1f
+    goto :goto_0
 
     .line 95
-    :catch_49
+    :catch_1
     move-exception v0
 
     .line 96
@@ -262,14 +262,14 @@
     .line 104
     .end local v0           #e:Ljava/io/IOException;
     .end local v1           #ex:Lorg/xmlpull/v1/XmlPullParserException;
-    :cond_55
+    :cond_2
     const/4 v4, 0x0
 
-    goto :goto_1f
+    goto :goto_0
 .end method
 
 .method protected bridge synthetic onCreateCustomFromTag(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/Object;Landroid/util/AttributeSet;)Z
-    .registers 5
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -292,7 +292,7 @@
 .end method
 
 .method protected bridge synthetic onMergeRoots(Landroid/preference/GenericInflater$Parent;ZLandroid/preference/GenericInflater$Parent;)Landroid/preference/GenericInflater$Parent;
-    .registers 5
+    .locals 1
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -313,14 +313,14 @@
 .end method
 
 .method protected onMergeRoots(Landroid/preference/PreferenceGroup;ZLandroid/preference/PreferenceGroup;)Landroid/preference/PreferenceGroup;
-    .registers 5
+    .locals 1
     .parameter "givenRoot"
     .parameter "attachToGivenRoot"
     .parameter "xmlRoot"
 
     .prologue
     .line 112
-    if-nez p1, :cond_8
+    if-nez p1, :cond_0
 
     .line 113
     iget-object v0, p0, Landroid/preference/PreferenceInflater;->mPreferenceManager:Landroid/preference/PreferenceManager;
@@ -329,12 +329,12 @@
 
     .line 116
     .end local p3
-    :goto_7
+    :goto_0
     return-object p3
 
     .restart local p3
-    :cond_8
+    :cond_0
     move-object p3, p1
 
-    goto :goto_7
+    goto :goto_0
 .end method

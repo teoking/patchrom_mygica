@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 740
@@ -50,7 +50,7 @@
 .end method
 
 .method public getActiveAdmins()Ljava/util/List;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -81,7 +81,7 @@
 
     .line 1621
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -102,8 +102,8 @@
     sget-object v3, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {v1, v3}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -119,7 +119,7 @@
 
     .line 1627
     .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Landroid/content/ComponentName;>;"
-    :catchall_25
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -131,7 +131,7 @@
 .end method
 
 .method public getCameraDisabled(Landroid/content/ComponentName;)Z
-    .registers 9
+    .locals 7
     .parameter "who"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -157,13 +157,13 @@
 
     .line 1551
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1552
-    if-eqz p1, :cond_31
+    if-eqz p1, :cond_0
 
     .line 1553
     const/4 v4, 0x1
@@ -176,7 +176,7 @@
     invoke-virtual {p1, v0, v4}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1559
-    :goto_19
+    :goto_0
     iget-object v4, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x25
@@ -190,16 +190,16 @@
 
     .line 1561
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_27
-    .catchall {:try_start_a .. :try_end_27} :catchall_36
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_3e
+    if-eqz v4, :cond_1
 
     .line 1564
     .local v2, _result:Z
-    :goto_2a
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1565
@@ -210,18 +210,18 @@
 
     .line 1557
     .end local v2           #_result:Z
-    :cond_31
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_32
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_35
-    .catchall {:try_start_32 .. :try_end_35} :catchall_36
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 1564
-    :catchall_36
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -231,15 +231,15 @@
 
     throw v3
 
-    :cond_3e
+    :cond_1
     move v2, v3
 
     .line 1561
-    goto :goto_2a
+    goto :goto_1
 .end method
 
 .method public getCurrentFailedPasswordAttempts()I
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -260,7 +260,7 @@
 
     .line 1253
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -279,8 +279,8 @@
 
     .line 1256
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -296,7 +296,7 @@
 
     .line 1259
     .end local v2           #_result:I
-    :catchall_23
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -308,7 +308,7 @@
 .end method
 
 .method public getGlobalProxyAdmin()Landroid/content/ComponentName;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -329,7 +329,7 @@
 
     .line 1441
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -351,7 +351,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2d
+    if-eqz v3, :cond_0
 
     .line 1445
     sget-object v3, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -361,12 +361,12 @@
     move-result-object v2
 
     check-cast v2, Landroid/content/ComponentName;
-    :try_end_26
-    .catchall {:try_start_8 .. :try_end_26} :catchall_2f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1452
     .local v2, _result:Landroid/content/ComponentName;
-    :goto_26
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1453
@@ -377,15 +377,15 @@
 
     .line 1448
     .end local v2           #_result:Landroid/content/ComponentName;
-    :cond_2d
+    :cond_0
     const/4 v2, 0x0
 
     .restart local v2       #_result:Landroid/content/ComponentName;
-    goto :goto_26
+    goto :goto_0
 
     .line 1452
     .end local v2           #_result:Landroid/content/ComponentName;
-    :catchall_2f
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -397,7 +397,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 744
@@ -407,7 +407,7 @@
 .end method
 
 .method public getMaximumFailedPasswordsForWipe(Landroid/content/ComponentName;)I
-    .registers 8
+    .locals 6
     .parameter "admin"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -429,13 +429,13 @@
 
     .line 1292
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1293
-    if-eqz p1, :cond_2d
+    if-eqz p1, :cond_0
 
     .line 1294
     const/4 v3, 0x1
@@ -448,7 +448,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1300
-    :goto_17
+    :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x19
@@ -462,8 +462,8 @@
 
     .line 1302
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_32
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -479,18 +479,18 @@
 
     .line 1298
     .end local v2           #_result:I
-    :cond_2d
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_2e
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_31
-    .catchall {:try_start_2e .. :try_end_31} :catchall_32
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1305
-    :catchall_32
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -502,7 +502,7 @@
 .end method
 
 .method public getMaximumTimeToLock(Landroid/content/ComponentName;)J
-    .registers 9
+    .locals 7
     .parameter "who"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -524,13 +524,13 @@
 
     .line 1357
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v4, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1358
-    if-eqz p1, :cond_2d
+    if-eqz p1, :cond_0
 
     .line 1359
     const/4 v4, 0x1
@@ -543,7 +543,7 @@
     invoke-virtual {p1, v0, v4}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1365
-    :goto_17
+    :goto_0
     iget-object v4, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x1c
@@ -557,8 +557,8 @@
 
     .line 1367
     invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_32
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v2
 
@@ -574,18 +574,18 @@
 
     .line 1363
     .end local v2           #_result:J
-    :cond_2d
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_2e
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_31
-    .catchall {:try_start_2e .. :try_end_31} :catchall_32
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1370
-    :catchall_32
+    :catchall_0
     move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -597,7 +597,7 @@
 .end method
 
 .method public getPasswordExpiration(Landroid/content/ComponentName;)J
-    .registers 9
+    .locals 7
     .parameter "who"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -619,13 +619,13 @@
 
     .line 1212
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v4, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1213
-    if-eqz p1, :cond_2d
+    if-eqz p1, :cond_0
 
     .line 1214
     const/4 v4, 0x1
@@ -638,7 +638,7 @@
     invoke-virtual {p1, v0, v4}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1220
-    :goto_17
+    :goto_0
     iget-object v4, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x15
@@ -652,8 +652,8 @@
 
     .line 1222
     invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_32
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v2
 
@@ -669,18 +669,18 @@
 
     .line 1218
     .end local v2           #_result:J
-    :cond_2d
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_2e
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_31
-    .catchall {:try_start_2e .. :try_end_31} :catchall_32
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1225
-    :catchall_32
+    :catchall_0
     move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -692,7 +692,7 @@
 .end method
 
 .method public getPasswordExpirationTimeout(Landroid/content/ComponentName;)J
-    .registers 9
+    .locals 7
     .parameter "who"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -714,13 +714,13 @@
 
     .line 1188
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v4, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1189
-    if-eqz p1, :cond_2d
+    if-eqz p1, :cond_0
 
     .line 1190
     const/4 v4, 0x1
@@ -733,7 +733,7 @@
     invoke-virtual {p1, v0, v4}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1196
-    :goto_17
+    :goto_0
     iget-object v4, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x14
@@ -747,8 +747,8 @@
 
     .line 1198
     invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_32
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v2
 
@@ -764,18 +764,18 @@
 
     .line 1194
     .end local v2           #_result:J
-    :cond_2d
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_2e
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_31
-    .catchall {:try_start_2e .. :try_end_31} :catchall_32
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1201
-    :catchall_32
+    :catchall_0
     move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -787,7 +787,7 @@
 .end method
 
 .method public getPasswordHistoryLength(Landroid/content/ComponentName;)I
-    .registers 8
+    .locals 6
     .parameter "who"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -809,13 +809,13 @@
 
     .line 1142
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1143
-    if-eqz p1, :cond_2d
+    if-eqz p1, :cond_0
 
     .line 1144
     const/4 v3, 0x1
@@ -828,7 +828,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1150
-    :goto_17
+    :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x12
@@ -842,8 +842,8 @@
 
     .line 1152
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_32
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -859,18 +859,18 @@
 
     .line 1148
     .end local v2           #_result:I
-    :cond_2d
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_2e
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_31
-    .catchall {:try_start_2e .. :try_end_31} :catchall_32
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1155
-    :catchall_32
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -882,7 +882,7 @@
 .end method
 
 .method public getPasswordMinimumLength(Landroid/content/ComponentName;)I
-    .registers 8
+    .locals 6
     .parameter "who"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -904,13 +904,13 @@
 
     .line 820
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 821
-    if-eqz p1, :cond_2c
+    if-eqz p1, :cond_0
 
     .line 822
     const/4 v3, 0x1
@@ -923,7 +923,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 828
-    :goto_17
+    :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x4
@@ -937,8 +937,8 @@
 
     .line 830
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -954,18 +954,18 @@
 
     .line 826
     .end local v2           #_result:I
-    :cond_2c
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 833
-    :catchall_31
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -977,7 +977,7 @@
 .end method
 
 .method public getPasswordMinimumLetters(Landroid/content/ComponentName;)I
-    .registers 8
+    .locals 6
     .parameter "who"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -999,13 +999,13 @@
 
     .line 958
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 959
-    if-eqz p1, :cond_2d
+    if-eqz p1, :cond_0
 
     .line 960
     const/4 v3, 0x1
@@ -1018,7 +1018,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 966
-    :goto_17
+    :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xa
@@ -1032,8 +1032,8 @@
 
     .line 968
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_32
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -1049,18 +1049,18 @@
 
     .line 964
     .end local v2           #_result:I
-    :cond_2d
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_2e
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_31
-    .catchall {:try_start_2e .. :try_end_31} :catchall_32
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 971
-    :catchall_32
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1072,7 +1072,7 @@
 .end method
 
 .method public getPasswordMinimumLowerCase(Landroid/content/ComponentName;)I
-    .registers 8
+    .locals 6
     .parameter "who"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1094,13 +1094,13 @@
 
     .line 912
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 913
-    if-eqz p1, :cond_2d
+    if-eqz p1, :cond_0
 
     .line 914
     const/4 v3, 0x1
@@ -1113,7 +1113,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 920
-    :goto_17
+    :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x8
@@ -1127,8 +1127,8 @@
 
     .line 922
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_32
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -1144,18 +1144,18 @@
 
     .line 918
     .end local v2           #_result:I
-    :cond_2d
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_2e
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_31
-    .catchall {:try_start_2e .. :try_end_31} :catchall_32
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 925
-    :catchall_32
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1167,7 +1167,7 @@
 .end method
 
 .method public getPasswordMinimumNonLetter(Landroid/content/ComponentName;)I
-    .registers 8
+    .locals 6
     .parameter "who"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1189,13 +1189,13 @@
 
     .line 1096
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1097
-    if-eqz p1, :cond_2d
+    if-eqz p1, :cond_0
 
     .line 1098
     const/4 v3, 0x1
@@ -1208,7 +1208,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1104
-    :goto_17
+    :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x10
@@ -1222,8 +1222,8 @@
 
     .line 1106
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_32
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -1239,18 +1239,18 @@
 
     .line 1102
     .end local v2           #_result:I
-    :cond_2d
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_2e
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_31
-    .catchall {:try_start_2e .. :try_end_31} :catchall_32
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1109
-    :catchall_32
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1262,7 +1262,7 @@
 .end method
 
 .method public getPasswordMinimumNumeric(Landroid/content/ComponentName;)I
-    .registers 8
+    .locals 6
     .parameter "who"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1284,13 +1284,13 @@
 
     .line 1004
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1005
-    if-eqz p1, :cond_2d
+    if-eqz p1, :cond_0
 
     .line 1006
     const/4 v3, 0x1
@@ -1303,7 +1303,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1012
-    :goto_17
+    :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xc
@@ -1317,8 +1317,8 @@
 
     .line 1014
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_32
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -1334,18 +1334,18 @@
 
     .line 1010
     .end local v2           #_result:I
-    :cond_2d
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_2e
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_31
-    .catchall {:try_start_2e .. :try_end_31} :catchall_32
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1017
-    :catchall_32
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1357,7 +1357,7 @@
 .end method
 
 .method public getPasswordMinimumSymbols(Landroid/content/ComponentName;)I
-    .registers 8
+    .locals 6
     .parameter "who"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1379,13 +1379,13 @@
 
     .line 1050
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1051
-    if-eqz p1, :cond_2d
+    if-eqz p1, :cond_0
 
     .line 1052
     const/4 v3, 0x1
@@ -1398,7 +1398,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1058
-    :goto_17
+    :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xe
@@ -1412,8 +1412,8 @@
 
     .line 1060
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_32
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -1429,18 +1429,18 @@
 
     .line 1056
     .end local v2           #_result:I
-    :cond_2d
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_2e
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_31
-    .catchall {:try_start_2e .. :try_end_31} :catchall_32
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1063
-    :catchall_32
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1452,7 +1452,7 @@
 .end method
 
 .method public getPasswordMinimumUpperCase(Landroid/content/ComponentName;)I
-    .registers 8
+    .locals 6
     .parameter "who"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1474,13 +1474,13 @@
 
     .line 866
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 867
-    if-eqz p1, :cond_2c
+    if-eqz p1, :cond_0
 
     .line 868
     const/4 v3, 0x1
@@ -1493,7 +1493,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 874
-    :goto_17
+    :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x6
@@ -1507,8 +1507,8 @@
 
     .line 876
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -1524,18 +1524,18 @@
 
     .line 872
     .end local v2           #_result:I
-    :cond_2c
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 879
-    :catchall_31
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1547,7 +1547,7 @@
 .end method
 
 .method public getPasswordQuality(Landroid/content/ComponentName;)I
-    .registers 8
+    .locals 6
     .parameter "who"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1569,13 +1569,13 @@
 
     .line 774
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 775
-    if-eqz p1, :cond_2c
+    if-eqz p1, :cond_0
 
     .line 776
     const/4 v3, 0x1
@@ -1588,7 +1588,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 782
-    :goto_17
+    :goto_0
     iget-object v3, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x2
@@ -1602,8 +1602,8 @@
 
     .line 784
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -1619,18 +1619,18 @@
 
     .line 780
     .end local v2           #_result:I
-    :cond_2c
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 787
-    :catchall_31
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1642,7 +1642,7 @@
 .end method
 
 .method public getRemoveWarning(Landroid/content/ComponentName;Landroid/os/RemoteCallback;)V
-    .registers 8
+    .locals 5
     .parameter "policyReceiver"
     .parameter "result"
     .annotation system Ldalvik/annotation/Throws;
@@ -1665,13 +1665,13 @@
 
     .line 1655
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1656
-    if-eqz p1, :cond_33
+    if-eqz p1, :cond_0
 
     .line 1657
     const/4 v2, 0x1
@@ -1684,8 +1684,8 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1663
-    :goto_17
-    if-eqz p2, :cond_40
+    :goto_0
+    if-eqz p2, :cond_1
 
     .line 1664
     const/4 v2, 0x1
@@ -1698,7 +1698,7 @@
     invoke-virtual {p2, v0, v2}, Landroid/os/RemoteCallback;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1670
-    :goto_21
+    :goto_1
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x2a
@@ -1709,8 +1709,8 @@
 
     .line 1671
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_2c
-    .catchall {:try_start_8 .. :try_end_2c} :catchall_38
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1674
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1722,18 +1722,18 @@
     return-void
 
     .line 1661
-    :cond_33
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_34
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_37
-    .catchall {:try_start_34 .. :try_end_37} :catchall_38
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1674
-    :catchall_38
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1744,19 +1744,19 @@
     throw v2
 
     .line 1668
-    :cond_40
+    :cond_1
     const/4 v2, 0x0
 
-    :try_start_41
+    :try_start_2
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_44
-    .catchall {:try_start_41 .. :try_end_44} :catchall_38
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_21
+    goto :goto_1
 .end method
 
 .method public getStorageEncryption(Landroid/content/ComponentName;)Z
-    .registers 9
+    .locals 7
     .parameter "who"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1782,13 +1782,13 @@
 
     .line 1488
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1489
-    if-eqz p1, :cond_31
+    if-eqz p1, :cond_0
 
     .line 1490
     const/4 v4, 0x1
@@ -1801,7 +1801,7 @@
     invoke-virtual {p1, v0, v4}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1496
-    :goto_19
+    :goto_0
     iget-object v4, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x22
@@ -1815,16 +1815,16 @@
 
     .line 1498
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_27
-    .catchall {:try_start_a .. :try_end_27} :catchall_36
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_3e
+    if-eqz v4, :cond_1
 
     .line 1501
     .local v2, _result:Z
-    :goto_2a
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1502
@@ -1835,18 +1835,18 @@
 
     .line 1494
     .end local v2           #_result:Z
-    :cond_31
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_32
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_35
-    .catchall {:try_start_32 .. :try_end_35} :catchall_36
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 1501
-    :catchall_36
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1856,15 +1856,15 @@
 
     throw v3
 
-    :cond_3e
+    :cond_1
     move v2, v3
 
     .line 1498
-    goto :goto_2a
+    goto :goto_1
 .end method
 
 .method public getStorageEncryptionStatus()I
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1885,7 +1885,7 @@
 
     .line 1512
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1904,8 +1904,8 @@
 
     .line 1515
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -1921,7 +1921,7 @@
 
     .line 1518
     .end local v2           #_result:I
-    :catchall_23
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1933,7 +1933,7 @@
 .end method
 
 .method public hasGrantedPolicy(Landroid/content/ComponentName;I)Z
-    .registers 10
+    .locals 7
     .parameter "policyReceiver"
     .parameter "usesPolicy"
     .annotation system Ldalvik/annotation/Throws;
@@ -1960,13 +1960,13 @@
 
     .line 1705
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1706
-    if-eqz p1, :cond_34
+    if-eqz p1, :cond_0
 
     .line 1707
     const/4 v4, 0x1
@@ -1979,7 +1979,7 @@
     invoke-virtual {p1, v0, v4}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1713
-    :goto_19
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1714
@@ -1996,16 +1996,16 @@
 
     .line 1716
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_2a
-    .catchall {:try_start_a .. :try_end_2a} :catchall_39
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_41
+    if-eqz v4, :cond_1
 
     .line 1719
     .local v2, _result:Z
-    :goto_2d
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1720
@@ -2016,18 +2016,18 @@
 
     .line 1711
     .end local v2           #_result:Z
-    :cond_34
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_35
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_38
-    .catchall {:try_start_35 .. :try_end_38} :catchall_39
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 1719
-    :catchall_39
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2037,15 +2037,15 @@
 
     throw v3
 
-    :cond_41
+    :cond_1
     move v2, v3
 
     .line 1716
-    goto :goto_2d
+    goto :goto_1
 .end method
 
 .method public isActivePasswordSufficient()Z
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2068,7 +2068,7 @@
 
     .line 1236
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2087,18 +2087,18 @@
 
     .line 1239
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1c
-    .catchall {:try_start_9 .. :try_end_1c} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_20
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 1242
     .local v2, _result:Z
-    :cond_20
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1243
@@ -2109,7 +2109,7 @@
 
     .line 1242
     .end local v2           #_result:Z
-    :catchall_27
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2121,7 +2121,7 @@
 .end method
 
 .method public isAdminActive(Landroid/content/ComponentName;)Z
-    .registers 9
+    .locals 7
     .parameter "policyReceiver"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2147,13 +2147,13 @@
 
     .line 1597
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1598
-    if-eqz p1, :cond_31
+    if-eqz p1, :cond_0
 
     .line 1599
     const/4 v4, 0x1
@@ -2166,7 +2166,7 @@
     invoke-virtual {p1, v0, v4}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1605
-    :goto_19
+    :goto_0
     iget-object v4, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0x27
@@ -2180,16 +2180,16 @@
 
     .line 1607
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_27
-    .catchall {:try_start_a .. :try_end_27} :catchall_36
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_3e
+    if-eqz v4, :cond_1
 
     .line 1610
     .local v2, _result:Z
-    :goto_2a
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1611
@@ -2200,18 +2200,18 @@
 
     .line 1603
     .end local v2           #_result:Z
-    :cond_31
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_32
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_35
-    .catchall {:try_start_32 .. :try_end_35} :catchall_36
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 1610
-    :catchall_36
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2221,15 +2221,15 @@
 
     throw v3
 
-    :cond_3e
+    :cond_1
     move v2, v3
 
     .line 1607
-    goto :goto_2a
+    goto :goto_1
 .end method
 
 .method public lockNow()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2250,7 +2250,7 @@
 
     .line 1380
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2266,8 +2266,8 @@
 
     .line 1382
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1385
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2279,7 +2279,7 @@
     return-void
 
     .line 1385
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2291,7 +2291,7 @@
 .end method
 
 .method public packageHasActiveAdmins(Ljava/lang/String;)Z
-    .registers 8
+    .locals 6
     .parameter "packageName"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2315,7 +2315,7 @@
 
     .line 1638
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2337,18 +2337,18 @@
 
     .line 1642
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1f
-    .catchall {:try_start_9 .. :try_end_1f} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_23
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 1645
     .local v2, _result:Z
-    :cond_23
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1646
@@ -2359,7 +2359,7 @@
 
     .line 1645
     .end local v2           #_result:Z
-    :catchall_2a
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2371,7 +2371,7 @@
 .end method
 
 .method public removeActiveAdmin(Landroid/content/ComponentName;)V
-    .registers 7
+    .locals 5
     .parameter "policyReceiver"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -2393,13 +2393,13 @@
 
     .line 1683
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1684
-    if-eqz p1, :cond_29
+    if-eqz p1, :cond_0
 
     .line 1685
     const/4 v2, 0x1
@@ -2412,7 +2412,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1691
-    :goto_17
+    :goto_0
     iget-object v2, p0, Landroid/app/admin/IDevicePolicyManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x2b
@@ -2423,8 +2423,8 @@
 
     .line 1692
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_22
-    .catchall {:try_start_8 .. :try_end_22} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1695
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2436,18 +2436,18 @@
     return-void
 
     .line 1689
-    :cond_29
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2a
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2d
-    .catchall {:try_start_2a .. :try_end_2d} :catchall_2e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1695
-    :catchall_2e
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2459,7 +2459,7 @@
 .end method
 
 .method public reportFailedPasswordAttempt()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2480,7 +2480,7 @@
 
     .line 1751
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2496,8 +2496,8 @@
 
     .line 1753
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1756
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2509,7 +2509,7 @@
     return-void
 
     .line 1756
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2521,7 +2521,7 @@
 .end method
 
 .method public reportSuccessfulPasswordAttempt()V
-    .registers 6
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2542,7 +2542,7 @@
 
     .line 1765
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2558,8 +2558,8 @@
 
     .line 1767
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_18
-    .catchall {:try_start_8 .. :try_end_18} :catchall_1f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1770
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2571,7 +2571,7 @@
     return-void
 
     .line 1770
-    :catchall_1f
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2583,7 +2583,7 @@
 .end method
 
 .method public resetPassword(Ljava/lang/String;I)Z
-    .registers 9
+    .locals 6
     .parameter "password"
     .parameter "flags"
     .annotation system Ldalvik/annotation/Throws;
@@ -2608,7 +2608,7 @@
 
     .line 1316
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2633,18 +2633,18 @@
 
     .line 1321
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_22
-    .catchall {:try_start_9 .. :try_end_22} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 1324
     .local v2, _result:Z
-    :cond_26
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1325
@@ -2655,7 +2655,7 @@
 
     .line 1324
     .end local v2           #_result:Z
-    :catchall_2d
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2667,7 +2667,7 @@
 .end method
 
 .method public setActiveAdmin(Landroid/content/ComponentName;Z)V
-    .registers 8
+    .locals 5
     .parameter "policyReceiver"
     .parameter "refreshing"
     .annotation system Ldalvik/annotation/Throws;
@@ -2694,13 +2694,13 @@
 
     .line 1574
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1575
-    if-eqz p1, :cond_30
+    if-eqz p1, :cond_0
 
     .line 1576
     const/4 v4, 0x1
@@ -2713,10 +2713,10 @@
     invoke-virtual {p1, v0, v4}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1582
-    :goto_19
-    if-eqz p2, :cond_3d
+    :goto_0
+    if-eqz p2, :cond_1
 
-    :goto_1b
+    :goto_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1583
@@ -2730,8 +2730,8 @@
 
     .line 1584
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_29
-    .catchall {:try_start_a .. :try_end_29} :catchall_35
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1587
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2743,18 +2743,18 @@
     return-void
 
     .line 1580
-    :cond_30
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_31
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_34
-    .catchall {:try_start_31 .. :try_end_34} :catchall_35
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 1587
-    :catchall_35
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2764,15 +2764,15 @@
 
     throw v2
 
-    :cond_3d
+    :cond_1
     move v2, v3
 
     .line 1582
-    goto :goto_1b
+    goto :goto_1
 .end method
 
 .method public setActivePasswordState(IIIIIIII)V
-    .registers 14
+    .locals 5
     .parameter "quality"
     .parameter "length"
     .parameter "letters"
@@ -2801,7 +2801,7 @@
 
     .line 1729
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -2841,8 +2841,8 @@
 
     .line 1739
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_30
-    .catchall {:try_start_8 .. :try_end_30} :catchall_37
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1742
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2854,7 +2854,7 @@
     return-void
 
     .line 1742
-    :catchall_37
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2866,7 +2866,7 @@
 .end method
 
 .method public setCameraDisabled(Landroid/content/ComponentName;Z)V
-    .registers 8
+    .locals 5
     .parameter "who"
     .parameter "disabled"
     .annotation system Ldalvik/annotation/Throws;
@@ -2893,13 +2893,13 @@
 
     .line 1528
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1529
-    if-eqz p1, :cond_30
+    if-eqz p1, :cond_0
 
     .line 1530
     const/4 v4, 0x1
@@ -2912,10 +2912,10 @@
     invoke-virtual {p1, v0, v4}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1536
-    :goto_19
-    if-eqz p2, :cond_3d
+    :goto_0
+    if-eqz p2, :cond_1
 
-    :goto_1b
+    :goto_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1537
@@ -2929,8 +2929,8 @@
 
     .line 1538
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_29
-    .catchall {:try_start_a .. :try_end_29} :catchall_35
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1541
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2942,18 +2942,18 @@
     return-void
 
     .line 1534
-    :cond_30
+    :cond_0
     const/4 v4, 0x0
 
-    :try_start_31
+    :try_start_1
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_34
-    .catchall {:try_start_31 .. :try_end_34} :catchall_35
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 1541
-    :catchall_35
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -2963,15 +2963,15 @@
 
     throw v2
 
-    :cond_3d
+    :cond_1
     move v2, v3
 
     .line 1536
-    goto :goto_1b
+    goto :goto_1
 .end method
 
 .method public setGlobalProxy(Landroid/content/ComponentName;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
-    .registers 10
+    .locals 6
     .parameter "admin"
     .parameter "proxySpec"
     .parameter "exclusionList"
@@ -2995,13 +2995,13 @@
 
     .line 1410
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1411
-    if-eqz p1, :cond_3d
+    if-eqz p1, :cond_0
 
     .line 1412
     const/4 v3, 0x1
@@ -3014,7 +3014,7 @@
     invoke-virtual {p1, v0, v3}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1418
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 1419
@@ -3037,7 +3037,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4a
+    if-eqz v3, :cond_1
 
     .line 1423
     sget-object v3, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -3047,12 +3047,12 @@
     move-result-object v2
 
     check-cast v2, Landroid/content/ComponentName;
-    :try_end_36
-    .catchall {:try_start_8 .. :try_end_36} :catchall_42
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1430
     .local v2, _result:Landroid/content/ComponentName;
-    :goto_36
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 1431
@@ -3063,18 +3063,18 @@
 
     .line 1416
     .end local v2           #_result:Landroid/content/ComponentName;
-    :cond_3d
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_3e
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_41
-    .catchall {:try_start_3e .. :try_end_41} :catchall_42
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1430
-    :catchall_42
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3085,15 +3085,15 @@
     throw v3
 
     .line 1426
-    :cond_4a
+    :cond_1
     const/4 v2, 0x0
 
     .restart local v2       #_result:Landroid/content/ComponentName;
-    goto :goto_36
+    goto :goto_1
 .end method
 
 .method public setMaximumFailedPasswordsForWipe(Landroid/content/ComponentName;I)V
-    .registers 8
+    .locals 5
     .parameter "admin"
     .parameter "num"
     .annotation system Ldalvik/annotation/Throws;
@@ -3116,13 +3116,13 @@
 
     .line 1269
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1270
-    if-eqz p1, :cond_2c
+    if-eqz p1, :cond_0
 
     .line 1271
     const/4 v2, 0x1
@@ -3135,7 +3135,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1277
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1278
@@ -3149,8 +3149,8 @@
 
     .line 1279
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1282
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3162,18 +3162,18 @@
     return-void
 
     .line 1275
-    :cond_2c
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1282
-    :catchall_31
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3185,7 +3185,7 @@
 .end method
 
 .method public setMaximumTimeToLock(Landroid/content/ComponentName;J)V
-    .registers 9
+    .locals 5
     .parameter "who"
     .parameter "timeMs"
     .annotation system Ldalvik/annotation/Throws;
@@ -3208,13 +3208,13 @@
 
     .line 1334
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1335
-    if-eqz p1, :cond_2c
+    if-eqz p1, :cond_0
 
     .line 1336
     const/4 v2, 0x1
@@ -3227,7 +3227,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1342
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2, p3}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 1343
@@ -3241,8 +3241,8 @@
 
     .line 1344
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1347
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3254,18 +3254,18 @@
     return-void
 
     .line 1340
-    :cond_2c
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1347
-    :catchall_31
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3277,7 +3277,7 @@
 .end method
 
 .method public setPasswordExpirationTimeout(Landroid/content/ComponentName;J)V
-    .registers 9
+    .locals 5
     .parameter "who"
     .parameter "expiration"
     .annotation system Ldalvik/annotation/Throws;
@@ -3300,13 +3300,13 @@
 
     .line 1165
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1166
-    if-eqz p1, :cond_2c
+    if-eqz p1, :cond_0
 
     .line 1167
     const/4 v2, 0x1
@@ -3319,7 +3319,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1173
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2, p3}, Landroid/os/Parcel;->writeLong(J)V
 
     .line 1174
@@ -3333,8 +3333,8 @@
 
     .line 1175
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1178
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3346,18 +3346,18 @@
     return-void
 
     .line 1171
-    :cond_2c
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1178
-    :catchall_31
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3369,7 +3369,7 @@
 .end method
 
 .method public setPasswordHistoryLength(Landroid/content/ComponentName;I)V
-    .registers 8
+    .locals 5
     .parameter "who"
     .parameter "length"
     .annotation system Ldalvik/annotation/Throws;
@@ -3392,13 +3392,13 @@
 
     .line 1119
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1120
-    if-eqz p1, :cond_2c
+    if-eqz p1, :cond_0
 
     .line 1121
     const/4 v2, 0x1
@@ -3411,7 +3411,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1127
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1128
@@ -3425,8 +3425,8 @@
 
     .line 1129
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1132
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3438,18 +3438,18 @@
     return-void
 
     .line 1125
-    :cond_2c
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1132
-    :catchall_31
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3461,7 +3461,7 @@
 .end method
 
 .method public setPasswordMinimumLength(Landroid/content/ComponentName;I)V
-    .registers 8
+    .locals 5
     .parameter "who"
     .parameter "length"
     .annotation system Ldalvik/annotation/Throws;
@@ -3484,13 +3484,13 @@
 
     .line 797
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 798
-    if-eqz p1, :cond_2b
+    if-eqz p1, :cond_0
 
     .line 799
     const/4 v2, 0x1
@@ -3503,7 +3503,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 805
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 806
@@ -3517,8 +3517,8 @@
 
     .line 807
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 810
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3530,18 +3530,18 @@
     return-void
 
     .line 803
-    :cond_2b
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2c
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2f
-    .catchall {:try_start_2c .. :try_end_2f} :catchall_30
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 810
-    :catchall_30
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3553,7 +3553,7 @@
 .end method
 
 .method public setPasswordMinimumLetters(Landroid/content/ComponentName;I)V
-    .registers 8
+    .locals 5
     .parameter "who"
     .parameter "length"
     .annotation system Ldalvik/annotation/Throws;
@@ -3576,13 +3576,13 @@
 
     .line 935
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 936
-    if-eqz p1, :cond_2c
+    if-eqz p1, :cond_0
 
     .line 937
     const/4 v2, 0x1
@@ -3595,7 +3595,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 943
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 944
@@ -3609,8 +3609,8 @@
 
     .line 945
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 948
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3622,18 +3622,18 @@
     return-void
 
     .line 941
-    :cond_2c
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 948
-    :catchall_31
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3645,7 +3645,7 @@
 .end method
 
 .method public setPasswordMinimumLowerCase(Landroid/content/ComponentName;I)V
-    .registers 8
+    .locals 5
     .parameter "who"
     .parameter "length"
     .annotation system Ldalvik/annotation/Throws;
@@ -3668,13 +3668,13 @@
 
     .line 889
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 890
-    if-eqz p1, :cond_2b
+    if-eqz p1, :cond_0
 
     .line 891
     const/4 v2, 0x1
@@ -3687,7 +3687,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 897
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 898
@@ -3701,8 +3701,8 @@
 
     .line 899
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 902
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3714,18 +3714,18 @@
     return-void
 
     .line 895
-    :cond_2b
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2c
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2f
-    .catchall {:try_start_2c .. :try_end_2f} :catchall_30
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 902
-    :catchall_30
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3737,7 +3737,7 @@
 .end method
 
 .method public setPasswordMinimumNonLetter(Landroid/content/ComponentName;I)V
-    .registers 8
+    .locals 5
     .parameter "who"
     .parameter "length"
     .annotation system Ldalvik/annotation/Throws;
@@ -3760,13 +3760,13 @@
 
     .line 1073
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1074
-    if-eqz p1, :cond_2c
+    if-eqz p1, :cond_0
 
     .line 1075
     const/4 v2, 0x1
@@ -3779,7 +3779,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1081
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1082
@@ -3793,8 +3793,8 @@
 
     .line 1083
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1086
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3806,18 +3806,18 @@
     return-void
 
     .line 1079
-    :cond_2c
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1086
-    :catchall_31
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3829,7 +3829,7 @@
 .end method
 
 .method public setPasswordMinimumNumeric(Landroid/content/ComponentName;I)V
-    .registers 8
+    .locals 5
     .parameter "who"
     .parameter "length"
     .annotation system Ldalvik/annotation/Throws;
@@ -3852,13 +3852,13 @@
 
     .line 981
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 982
-    if-eqz p1, :cond_2c
+    if-eqz p1, :cond_0
 
     .line 983
     const/4 v2, 0x1
@@ -3871,7 +3871,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 989
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 990
@@ -3885,8 +3885,8 @@
 
     .line 991
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 994
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3898,18 +3898,18 @@
     return-void
 
     .line 987
-    :cond_2c
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 994
-    :catchall_31
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3921,7 +3921,7 @@
 .end method
 
 .method public setPasswordMinimumSymbols(Landroid/content/ComponentName;I)V
-    .registers 8
+    .locals 5
     .parameter "who"
     .parameter "length"
     .annotation system Ldalvik/annotation/Throws;
@@ -3944,13 +3944,13 @@
 
     .line 1027
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1028
-    if-eqz p1, :cond_2c
+    if-eqz p1, :cond_0
 
     .line 1029
     const/4 v2, 0x1
@@ -3963,7 +3963,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1035
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1036
@@ -3977,8 +3977,8 @@
 
     .line 1037
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_25
-    .catchall {:try_start_8 .. :try_end_25} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1040
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -3990,18 +3990,18 @@
     return-void
 
     .line 1033
-    :cond_2c
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_31
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 1040
-    :catchall_31
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -4013,7 +4013,7 @@
 .end method
 
 .method public setPasswordMinimumUpperCase(Landroid/content/ComponentName;I)V
-    .registers 8
+    .locals 5
     .parameter "who"
     .parameter "length"
     .annotation system Ldalvik/annotation/Throws;
@@ -4036,13 +4036,13 @@
 
     .line 843
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 844
-    if-eqz p1, :cond_2b
+    if-eqz p1, :cond_0
 
     .line 845
     const/4 v2, 0x1
@@ -4055,7 +4055,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 851
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 852
@@ -4069,8 +4069,8 @@
 
     .line 853
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 856
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -4082,18 +4082,18 @@
     return-void
 
     .line 849
-    :cond_2b
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2c
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2f
-    .catchall {:try_start_2c .. :try_end_2f} :catchall_30
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 856
-    :catchall_30
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -4105,7 +4105,7 @@
 .end method
 
 .method public setPasswordQuality(Landroid/content/ComponentName;I)V
-    .registers 8
+    .locals 5
     .parameter "who"
     .parameter "quality"
     .annotation system Ldalvik/annotation/Throws;
@@ -4128,13 +4128,13 @@
 
     .line 751
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 752
-    if-eqz p1, :cond_2b
+    if-eqz p1, :cond_0
 
     .line 753
     const/4 v2, 0x1
@@ -4147,7 +4147,7 @@
     invoke-virtual {p1, v0, v2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 759
-    :goto_17
+    :goto_0
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 760
@@ -4161,8 +4161,8 @@
 
     .line 761
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_24
-    .catchall {:try_start_8 .. :try_end_24} :catchall_30
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 764
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -4174,18 +4174,18 @@
     return-void
 
     .line 757
-    :cond_2b
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_2c
+    :try_start_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2f
-    .catchall {:try_start_2c .. :try_end_2f} :catchall_30
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 764
-    :catchall_30
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -4197,7 +4197,7 @@
 .end method
 
 .method public setStorageEncryption(Landroid/content/ComponentName;Z)I
-    .registers 9
+    .locals 6
     .parameter "who"
     .parameter "encrypt"
     .annotation system Ldalvik/annotation/Throws;
@@ -4224,13 +4224,13 @@
 
     .line 1463
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v5, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 1464
-    if-eqz p1, :cond_34
+    if-eqz p1, :cond_0
 
     .line 1465
     const/4 v5, 0x1
@@ -4243,10 +4243,10 @@
     invoke-virtual {p1, v0, v5}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1471
-    :goto_19
-    if-eqz p2, :cond_41
+    :goto_0
+    if-eqz p2, :cond_1
 
-    :goto_1b
+    :goto_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 1472
@@ -4263,8 +4263,8 @@
 
     .line 1474
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_2c
-    .catchall {:try_start_a .. :try_end_2c} :catchall_39
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -4280,18 +4280,18 @@
 
     .line 1469
     .end local v2           #_result:I
-    :cond_34
+    :cond_0
     const/4 v5, 0x0
 
-    :try_start_35
+    :try_start_1
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_38
-    .catchall {:try_start_35 .. :try_end_38} :catchall_39
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_19
+    goto :goto_0
 
     .line 1477
-    :catchall_39
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -4301,15 +4301,15 @@
 
     throw v3
 
-    :cond_41
+    :cond_1
     move v3, v4
 
     .line 1471
-    goto :goto_1b
+    goto :goto_1
 .end method
 
 .method public wipeData(I)V
-    .registers 7
+    .locals 5
     .parameter "flags"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -4331,7 +4331,7 @@
 
     .line 1394
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "android.app.admin.IDevicePolicyManager"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -4350,8 +4350,8 @@
 
     .line 1397
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 1400
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -4363,7 +4363,7 @@
     return-void
 
     .line 1400
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

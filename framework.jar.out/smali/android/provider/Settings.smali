@@ -110,7 +110,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 60
@@ -121,7 +121,7 @@
 .end method
 
 .method public static getGTalkDeviceId(J)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "androidId"
 
     .prologue

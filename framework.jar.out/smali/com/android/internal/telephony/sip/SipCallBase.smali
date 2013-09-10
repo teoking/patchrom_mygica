@@ -18,7 +18,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 29
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method clearDisconnected()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 48
@@ -48,13 +48,13 @@
     move-result-object v1
 
     .local v1, it:Ljava/util/Iterator;,"Ljava/util/Iterator<Lcom/android/internal/telephony/Connection;>;"
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1e
+    if-eqz v2, :cond_1
 
     .line 49
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -71,34 +71,34 @@
 
     sget-object v3, Lcom/android/internal/telephony/Call$State;->DISCONNECTED:Lcom/android/internal/telephony/Call$State;
 
-    if-ne v2, v3, :cond_6
+    if-ne v2, v3, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 53
     .end local v0           #c:Lcom/android/internal/telephony/Connection;
-    :cond_1e
+    :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/sip/SipCallBase;->connections:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2b
+    if-eqz v2, :cond_2
 
     sget-object v2, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/sip/SipCallBase;->setState(Lcom/android/internal/telephony/Call$State;)V
 
     .line 54
-    :cond_2b
+    :cond_2
     return-void
 .end method
 
 .method public getConnections()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -117,7 +117,7 @@
 .end method
 
 .method public isMultiparty()Z
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x1
@@ -129,22 +129,22 @@
 
     move-result v1
 
-    if-le v1, v0, :cond_a
+    if-le v1, v0, :cond_0
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method protected abstract setState(Lcom/android/internal/telephony/Call$State;)V
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 44

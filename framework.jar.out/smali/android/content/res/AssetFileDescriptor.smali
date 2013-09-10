@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 327
@@ -54,7 +54,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "src"
 
     .prologue
@@ -91,7 +91,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/ParcelFileDescriptor;JJ)V
-    .registers 9
+    .locals 3
     .parameter "fd"
     .parameter "startOffset"
     .parameter "length"
@@ -103,7 +103,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 55
-    if-nez p1, :cond_f
+    if-nez p1, :cond_0
 
     .line 56
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -115,14 +115,14 @@
     throw v0
 
     .line 58
-    :cond_f
+    :cond_0
     cmp-long v0, p4, v1
 
-    if-gez v0, :cond_20
+    if-gez v0, :cond_1
 
     cmp-long v0, p2, v1
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_1
 
     .line 59
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -134,7 +134,7 @@
     throw v0
 
     .line 62
-    :cond_20
+    :cond_1
     iput-object p1, p0, Landroid/content/res/AssetFileDescriptor;->mFd:Landroid/os/ParcelFileDescriptor;
 
     .line 63
@@ -150,7 +150,7 @@
 
 # virtual methods
 .method public close()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -168,7 +168,7 @@
 .end method
 
 .method public createInputStream()Ljava/io/FileInputStream;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -183,7 +183,7 @@
 
     cmp-long v0, v0, v2
 
-    if-gez v0, :cond_10
+    if-gez v0, :cond_0
 
     .line 139
     new-instance v0, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;
@@ -193,19 +193,19 @@
     invoke-direct {v0, v1}, Landroid/os/ParcelFileDescriptor$AutoCloseInputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
 
     .line 141
-    :goto_f
+    :goto_0
     return-object v0
 
-    :cond_10
+    :cond_0
     new-instance v0, Landroid/content/res/AssetFileDescriptor$AutoCloseInputStream;
 
     invoke-direct {v0, p0}, Landroid/content/res/AssetFileDescriptor$AutoCloseInputStream;-><init>(Landroid/content/res/AssetFileDescriptor;)V
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public createOutputStream()Ljava/io/FileOutputStream;
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -220,7 +220,7 @@
 
     cmp-long v0, v0, v2
 
-    if-gez v0, :cond_10
+    if-gez v0, :cond_0
 
     .line 154
     new-instance v0, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
@@ -230,19 +230,19 @@
     invoke-direct {v0, v1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
 
     .line 156
-    :goto_f
+    :goto_0
     return-object v0
 
-    :cond_10
+    :cond_0
     new-instance v0, Landroid/content/res/AssetFileDescriptor$AutoCloseOutputStream;
 
     invoke-direct {v0, p0}, Landroid/content/res/AssetFileDescriptor$AutoCloseOutputStream;-><init>(Landroid/content/res/AssetFileDescriptor;)V
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 312
@@ -256,7 +256,7 @@
 .end method
 
 .method public getDeclaredLength()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 119
@@ -266,7 +266,7 @@
 .end method
 
 .method public getFileDescriptor()Ljava/io/FileDescriptor;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 81
@@ -280,7 +280,7 @@
 .end method
 
 .method public getLength()J
-    .registers 7
+    .locals 6
 
     .prologue
     const-wide/16 v4, 0x0
@@ -290,18 +290,18 @@
 
     cmp-long v2, v2, v4
 
-    if-ltz v2, :cond_b
+    if-ltz v2, :cond_1
 
     .line 104
     iget-wide v0, p0, Landroid/content/res/AssetFileDescriptor;->mLength:J
 
     .line 107
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return-wide v0
 
     .line 106
-    :cond_b
+    :cond_1
     iget-object v2, p0, Landroid/content/res/AssetFileDescriptor;->mFd:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v2}, Landroid/os/ParcelFileDescriptor;->getStatSize()J
@@ -312,15 +312,15 @@
     .local v0, len:J
     cmp-long v2, v0, v4
 
-    if-gez v2, :cond_a
+    if-gez v2, :cond_0
 
     const-wide/16 v0, -0x1
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getParcelFileDescriptor()Landroid/os/ParcelFileDescriptor;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 73
@@ -330,7 +330,7 @@
 .end method
 
 .method public getStartOffset()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 88
@@ -340,7 +340,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 161
@@ -398,7 +398,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "out"
     .parameter "flags"
 

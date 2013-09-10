@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterpacks/base/CallbackFilter;Landroid/filterfw/core/FilterContext$OnFrameReceivedListener;Landroid/filterfw/core/Filter;Landroid/filterfw/core/Frame;Ljava/lang/Object;)V
-    .registers 6
+    .locals 0
     .parameter
     .parameter "listener"
     .parameter "filter"
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 65

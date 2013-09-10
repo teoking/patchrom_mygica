@@ -52,7 +52,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 86
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 171
@@ -77,7 +77,7 @@
 .end method
 
 .method private static getDeviceDensity()I
-    .registers 3
+    .locals 3
 
     .prologue
     .line 214
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method public setTo(Landroid/util/DisplayMetrics;)V
-    .registers 3
+    .locals 1
     .parameter "o"
 
     .prologue
@@ -175,7 +175,7 @@
 .end method
 
 .method public setToDefaults()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -232,7 +232,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 204

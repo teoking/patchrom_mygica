@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/AutoCompletePopup;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,40 +35,42 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 4
+    .locals 2
     .parameter "msg"
 
     .prologue
     .line 61
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_16
+    packed-switch v0, :pswitch_data_0
 
     .line 66
-    :goto_5
+    :goto_0
     return-void
 
     .line 63
-    :pswitch_6
+    :pswitch_0
     iget-object v0, p0, Landroid/webkit/AutoCompletePopup$1;->this$0:Landroid/webkit/AutoCompletePopup;
 
+    #getter for: Landroid/webkit/AutoCompletePopup;->mWebView:Landroid/webkit/WebViewClassic;
     invoke-static {v0}, Landroid/webkit/AutoCompletePopup;->access$100(Landroid/webkit/AutoCompletePopup;)Landroid/webkit/WebViewClassic;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/webkit/AutoCompletePopup$1;->this$0:Landroid/webkit/AutoCompletePopup;
 
+    #getter for: Landroid/webkit/AutoCompletePopup;->mQueryId:I
     invoke-static {v1}, Landroid/webkit/AutoCompletePopup;->access$000(Landroid/webkit/AutoCompletePopup;)I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Landroid/webkit/WebViewClassic;->autoFillForm(I)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 61
-    :pswitch_data_16
+    :pswitch_data_0
     .packed-switch 0x64
-        :pswitch_6
+        :pswitch_0
     .end packed-switch
 .end method

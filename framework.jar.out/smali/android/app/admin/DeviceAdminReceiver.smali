@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 61
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 60
@@ -64,24 +64,24 @@
 
 # virtual methods
 .method public getManager(Landroid/content/Context;)Landroid/app/admin/DevicePolicyManager;
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
     .line 182
     iget-object v0, p0, Landroid/app/admin/DeviceAdminReceiver;->mManager:Landroid/app/admin/DevicePolicyManager;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 183
     iget-object v0, p0, Landroid/app/admin/DeviceAdminReceiver;->mManager:Landroid/app/admin/DevicePolicyManager;
 
     .line 187
-    :goto_6
+    :goto_0
     return-object v0
 
     .line 185
-    :cond_7
+    :cond_0
     const-string v0, "device_policy"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -95,28 +95,28 @@
     .line 187
     iget-object v0, p0, Landroid/app/admin/DeviceAdminReceiver;->mManager:Landroid/app/admin/DevicePolicyManager;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getWho(Landroid/content/Context;)Landroid/content/ComponentName;
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
     .line 196
     iget-object v0, p0, Landroid/app/admin/DeviceAdminReceiver;->mWho:Landroid/content/ComponentName;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 197
     iget-object v0, p0, Landroid/app/admin/DeviceAdminReceiver;->mWho:Landroid/content/ComponentName;
 
     .line 200
-    :goto_6
+    :goto_0
     return-object v0
 
     .line 199
-    :cond_7
+    :cond_0
     new-instance v0, Landroid/content/ComponentName;
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -130,11 +130,11 @@
     .line 200
     iget-object v0, p0, Landroid/app/admin/DeviceAdminReceiver;->mWho:Landroid/content/ComponentName;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public onDisableRequested(Landroid/content/Context;Landroid/content/Intent;)Ljava/lang/CharSequence;
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "intent"
 
@@ -146,7 +146,7 @@
 .end method
 
 .method public onDisabled(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "intent"
 
@@ -156,7 +156,7 @@
 .end method
 
 .method public onEnabled(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "intent"
 
@@ -166,7 +166,7 @@
 .end method
 
 .method public onPasswordChanged(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "intent"
 
@@ -176,7 +176,7 @@
 .end method
 
 .method public onPasswordExpiring(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "intent"
 
@@ -186,7 +186,7 @@
 .end method
 
 .method public onPasswordFailed(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "intent"
 
@@ -196,7 +196,7 @@
 .end method
 
 .method public onPasswordSucceeded(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 3
+    .locals 0
     .parameter "context"
     .parameter "intent"
 
@@ -206,7 +206,7 @@
 .end method
 
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
@@ -224,70 +224,70 @@
 
     move-result v3
 
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_1
 
     .line 303
     invoke-virtual {p0, p1, p2}, Landroid/app/admin/DeviceAdminReceiver;->onPasswordChanged(Landroid/content/Context;Landroid/content/Intent;)V
 
     .line 321
-    :cond_f
-    :goto_f
+    :cond_0
+    :goto_0
     return-void
 
     .line 304
-    :cond_10
+    :cond_1
     const-string v3, "android.app.action.ACTION_PASSWORD_FAILED"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1c
+    if-eqz v3, :cond_2
 
     .line 305
     invoke-virtual {p0, p1, p2}, Landroid/app/admin/DeviceAdminReceiver;->onPasswordFailed(Landroid/content/Context;Landroid/content/Intent;)V
 
-    goto :goto_f
+    goto :goto_0
 
     .line 306
-    :cond_1c
+    :cond_2
     const-string v3, "android.app.action.ACTION_PASSWORD_SUCCEEDED"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_28
+    if-eqz v3, :cond_3
 
     .line 307
     invoke-virtual {p0, p1, p2}, Landroid/app/admin/DeviceAdminReceiver;->onPasswordSucceeded(Landroid/content/Context;Landroid/content/Intent;)V
 
-    goto :goto_f
+    goto :goto_0
 
     .line 308
-    :cond_28
+    :cond_3
     const-string v3, "android.app.action.DEVICE_ADMIN_ENABLED"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_34
+    if-eqz v3, :cond_4
 
     .line 309
     invoke-virtual {p0, p1, p2}, Landroid/app/admin/DeviceAdminReceiver;->onEnabled(Landroid/content/Context;Landroid/content/Intent;)V
 
-    goto :goto_f
+    goto :goto_0
 
     .line 310
-    :cond_34
+    :cond_4
     const-string v3, "android.app.action.DEVICE_ADMIN_DISABLE_REQUESTED"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_4d
+    if-eqz v3, :cond_5
 
     .line 311
     invoke-virtual {p0, p1, p2}, Landroid/app/admin/DeviceAdminReceiver;->onDisableRequested(Landroid/content/Context;Landroid/content/Intent;)Ljava/lang/CharSequence;
@@ -296,7 +296,7 @@
 
     .line 312
     .local v2, res:Ljava/lang/CharSequence;
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_0
 
     .line 313
     const/4 v3, 0x1
@@ -311,37 +311,37 @@
 
     invoke-virtual {v1, v3, v2}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
-    goto :goto_f
+    goto :goto_0
 
     .line 316
     .end local v1           #extras:Landroid/os/Bundle;
     .end local v2           #res:Ljava/lang/CharSequence;
-    :cond_4d
+    :cond_5
     const-string v3, "android.app.action.DEVICE_ADMIN_DISABLED"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_59
+    if-eqz v3, :cond_6
 
     .line 317
     invoke-virtual {p0, p1, p2}, Landroid/app/admin/DeviceAdminReceiver;->onDisabled(Landroid/content/Context;Landroid/content/Intent;)V
 
-    goto :goto_f
+    goto :goto_0
 
     .line 318
-    :cond_59
+    :cond_6
     const-string v3, "android.app.action.ACTION_PASSWORD_EXPIRING"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_0
 
     .line 319
     invoke-virtual {p0, p1, p2}, Landroid/app/admin/DeviceAdminReceiver;->onPasswordExpiring(Landroid/content/Context;Landroid/content/Intent;)V
 
-    goto :goto_f
+    goto :goto_0
 .end method

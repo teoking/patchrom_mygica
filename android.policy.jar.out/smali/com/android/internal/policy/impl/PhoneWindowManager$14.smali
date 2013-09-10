@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
@@ -51,7 +51,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_23
+    if-eqz v1, :cond_0
 
     .line 4194
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$14;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -67,7 +67,7 @@
     iput v2, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mDockMode:I
 
     .line 4204
-    :goto_17
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$14;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     const/4 v2, 0x1
@@ -83,8 +83,8 @@
     return-void
 
     .line 4198
-    :cond_23
-    :try_start_23
+    :cond_0
+    :try_start_0
     const-string v1, "uimode"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -104,15 +104,15 @@
     move-result v2
 
     iput v2, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mUiMode:I
-    :try_end_35
-    .catch Landroid/os/RemoteException; {:try_start_23 .. :try_end_35} :catch_36
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_17
+    goto :goto_0
 
     .line 4201
     .end local v0           #uiModeService:Landroid/app/IUiModeManager;
-    :catch_36
+    :catch_0
     move-exception v1
 
-    goto :goto_17
+    goto :goto_0
 .end method

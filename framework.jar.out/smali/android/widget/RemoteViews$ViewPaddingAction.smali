@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/RemoteViews;IIIII)V
-    .registers 8
+    .locals 1
     .parameter
     .parameter "viewId"
     .parameter "left"
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/widget/RemoteViews;Landroid/os/Parcel;)V
-    .registers 4
+    .locals 1
     .parameter
     .parameter "parcel"
 
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public apply(Landroid/view/View;Landroid/view/ViewGroup;Landroid/widget/RemoteViews$OnClickHandler;)V
-    .registers 10
+    .locals 6
     .parameter "root"
     .parameter "rootParent"
     .parameter "handler"
@@ -145,14 +145,14 @@
 
     .line 1263
     .local v1, target:Landroid/view/View;
-    if-nez v1, :cond_d
+    if-nez v1, :cond_0
 
     .line 1265
-    :goto_c
+    :goto_0
     return-void
 
     .line 1264
-    :cond_d
+    :cond_0
     iget v2, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->left:I
 
     iget v3, p0, Landroid/widget/RemoteViews$ViewPaddingAction;->top:I
@@ -163,11 +163,11 @@
 
     invoke-virtual {v1, v2, v3, v4, v5}, Landroid/view/View;->setPadding(IIII)V
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

@@ -59,7 +59,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -108,8 +108,8 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_27
-    if-ge v0, v4, :cond_36
+    :goto_0
+    if-ge v0, v4, :cond_0
 
     .line 226
     iget-object v1, p0, Lcom/android/server/LightsService;->mLights:[Lcom/android/server/LightsService$Light;
@@ -125,15 +125,15 @@
     .line 225
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_27
+    goto :goto_0
 
     .line 228
-    :cond_36
+    :cond_0
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/server/LightsService;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -144,7 +144,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/server/LightsService;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -155,7 +155,7 @@
 .end method
 
 .method static synthetic access$200(IIIIIII)V
-    .registers 7
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -172,7 +172,7 @@
 .end method
 
 .method static synthetic access$300(II)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -186,7 +186,7 @@
 .end method
 
 .method static synthetic access$400(II)I
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -200,7 +200,7 @@
 .end method
 
 .method static synthetic access$500(ILjava/lang/String;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -214,7 +214,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/android/server/LightsService;)Landroid/content/Context;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -251,7 +251,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -272,7 +272,7 @@
 .end method
 
 .method public getLight(I)Lcom/android/server/LightsService$Light;
-    .registers 3
+    .locals 1
     .parameter "id"
 
     .prologue

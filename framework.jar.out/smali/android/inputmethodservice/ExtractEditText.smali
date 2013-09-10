@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -25,7 +25,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 4
+    .locals 0
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method protected deleteText_internal(II)V
-    .registers 4
+    .locals 1
     .parameter "start"
     .parameter "end"
 
@@ -71,7 +71,7 @@
 .end method
 
 .method public finishInternalChanges()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 64
@@ -86,7 +86,7 @@
 .end method
 
 .method public hasFocus()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 147
@@ -98,7 +98,7 @@
 .end method
 
 .method public hasVerticalScrollBar()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 123
@@ -110,21 +110,21 @@
 
     move-result v1
 
-    if-le v0, v1, :cond_c
+    if-le v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public hasWindowFocus()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 131
@@ -136,7 +136,7 @@
 .end method
 
 .method public isFocused()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 139
@@ -148,7 +148,7 @@
 .end method
 
 .method public isInputMethodTarget()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 116
@@ -158,7 +158,7 @@
 .end method
 
 .method protected onSelectionChanged(II)V
-    .registers 4
+    .locals 1
     .parameter "selStart"
     .parameter "selEnd"
 
@@ -166,15 +166,15 @@
     .line 84
     iget v0, p0, Landroid/inputmethodservice/ExtractEditText;->mSettingExtractedText:I
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditText;->mIME:Landroid/inputmethodservice/InputMethodService;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
-    if-ltz p1, :cond_11
+    if-ltz p1, :cond_0
 
-    if-ltz p2, :cond_11
+    if-ltz p2, :cond_0
 
     .line 85
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditText;->mIME:Landroid/inputmethodservice/InputMethodService;
@@ -182,19 +182,19 @@
     invoke-virtual {v0, p1, p2}, Landroid/inputmethodservice/InputMethodService;->onExtractedSelectionChanged(II)V
 
     .line 87
-    :cond_11
+    :cond_0
     return-void
 .end method
 
 .method public onTextContextMenuItem(I)Z
-    .registers 3
+    .locals 1
     .parameter "id"
 
     .prologue
     .line 102
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditText;->mIME:Landroid/inputmethodservice/InputMethodService;
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditText;->mIME:Landroid/inputmethodservice/InputMethodService;
 
@@ -202,33 +202,33 @@
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_1
 
     .line 105
     const v0, 0x1020021
 
-    if-ne p1, v0, :cond_14
+    if-ne p1, v0, :cond_0
 
     invoke-virtual {p0}, Landroid/inputmethodservice/ExtractEditText;->stopSelectionActionMode()V
 
     .line 106
-    :cond_14
+    :cond_0
     const/4 v0, 0x1
 
     .line 108
-    :goto_15
+    :goto_0
     return v0
 
-    :cond_16
+    :cond_1
     invoke-super {p0, p1}, Landroid/widget/EditText;->onTextContextMenuItem(I)Z
 
     move-result v0
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public performClick()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 94
@@ -236,11 +236,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditText;->mIME:Landroid/inputmethodservice/InputMethodService;
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 95
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditText;->mIME:Landroid/inputmethodservice/InputMethodService;
@@ -251,17 +251,17 @@
     const/4 v0, 0x1
 
     .line 98
-    :goto_10
+    :goto_0
     return v0
 
-    :cond_11
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method protected replaceText_internal(IILjava/lang/CharSequence;)V
-    .registers 5
+    .locals 1
     .parameter "start"
     .parameter "end"
     .parameter "text"
@@ -277,7 +277,7 @@
 .end method
 
 .method protected setCursorPosition_internal(II)V
-    .registers 4
+    .locals 1
     .parameter "start"
     .parameter "end"
 
@@ -292,7 +292,7 @@
 .end method
 
 .method public setExtractedText(Landroid/view/inputmethod/ExtractedText;)V
-    .registers 4
+    .locals 2
     .parameter "text"
 
     .prologue
@@ -306,8 +306,8 @@
 
     .line 74
     invoke-super {p0, p1}, Landroid/widget/EditText;->setExtractedText(Landroid/view/inputmethod/ExtractedText;)V
-    :try_end_9
-    .catchall {:try_start_0 .. :try_end_9} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 76
     iget v0, p0, Landroid/inputmethodservice/ExtractEditText;->mSettingExtractedText:I
@@ -320,7 +320,7 @@
     return-void
 
     .line 76
-    :catchall_10
+    :catchall_0
     move-exception v0
 
     iget v1, p0, Landroid/inputmethodservice/ExtractEditText;->mSettingExtractedText:I
@@ -333,7 +333,7 @@
 .end method
 
 .method setIME(Landroid/inputmethodservice/InputMethodService;)V
-    .registers 2
+    .locals 0
     .parameter "ime"
 
     .prologue
@@ -345,7 +345,7 @@
 .end method
 
 .method protected setSpan_internal(Ljava/lang/Object;III)V
-    .registers 6
+    .locals 1
     .parameter "span"
     .parameter "start"
     .parameter "end"
@@ -362,7 +362,7 @@
 .end method
 
 .method public startInternalChanges()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 55
@@ -377,14 +377,14 @@
 .end method
 
 .method protected viewClicked(Landroid/view/inputmethod/InputMethodManager;)V
-    .registers 4
+    .locals 2
     .parameter "imm"
 
     .prologue
     .line 158
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditText;->mIME:Landroid/inputmethodservice/InputMethodService;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 159
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditText;->mIME:Landroid/inputmethodservice/InputMethodService;
@@ -394,6 +394,6 @@
     invoke-virtual {v0, v1}, Landroid/inputmethodservice/InputMethodService;->onViewClicked(Z)V
 
     .line 161
-    :cond_a
+    :cond_0
     return-void
 .end method

@@ -18,7 +18,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 47
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 39
@@ -40,34 +40,34 @@
 .end method
 
 .method public static asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
-    .registers 2
+    .locals 1
     .parameter "parser"
 
     .prologue
     .line 176
     instance-of v0, p0, Landroid/util/AttributeSet;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     check-cast p0, Landroid/util/AttributeSet;
 
     .end local p0
-    :goto_6
+    :goto_0
     return-object p0
 
     .restart local p0
-    :cond_7
+    :cond_0
     new-instance v0, Landroid/util/XmlPullAttributes;
 
     invoke-direct {v0, p0}, Landroid/util/XmlPullAttributes;-><init>(Lorg/xmlpull/v1/XmlPullParser;)V
 
     move-object p0, v0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public static findEncodingByName(Ljava/lang/String;)Landroid/util/Xml$Encoding;
-    .registers 6
+    .locals 5
     .parameter "encodingName"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -77,17 +77,17 @@
 
     .prologue
     .line 148
-    if-nez p0, :cond_5
+    if-nez p0, :cond_1
 
     .line 149
     sget-object v1, Landroid/util/Xml$Encoding;->UTF_8:Landroid/util/Xml$Encoding;
 
     .line 154
-    :cond_4
+    :cond_0
     return-object v1
 
     .line 152
-    :cond_5
+    :cond_1
     invoke-static {}, Landroid/util/Xml$Encoding;->values()[Landroid/util/Xml$Encoding;
 
     move-result-object v0
@@ -99,8 +99,8 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_b
-    if-ge v2, v3, :cond_1a
+    :goto_0
+    if-ge v2, v3, :cond_2
 
     aget-object v1, v0, v2
 
@@ -112,16 +112,16 @@
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_0
 
     .line 152
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 156
     .end local v1           #encoding:Landroid/util/Xml$Encoding;
-    :cond_1a
+    :cond_2
     new-instance v4, Ljava/io/UnsupportedEncodingException;
 
     invoke-direct {v4, p0}, Ljava/io/UnsupportedEncodingException;-><init>(Ljava/lang/String;)V
@@ -130,7 +130,7 @@
 .end method
 
 .method public static newPullParser()Lorg/xmlpull/v1/XmlPullParser;
-    .registers 4
+    .locals 4
 
     .prologue
     .line 92
@@ -153,14 +153,14 @@
     const/4 v3, 0x1
 
     invoke-virtual {v1, v2, v3}, Lorg/kxml2/io/KXmlParser;->setFeature(Ljava/lang/String;Z)V
-    :try_end_11
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_11} :catch_12
+    :try_end_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 95
     return-object v1
 
     .line 96
-    :catch_12
+    :catch_0
     move-exception v0
 
     .line 97
@@ -173,7 +173,7 @@
 .end method
 
 .method public static newSerializer()Lorg/xmlpull/v1/XmlSerializer;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 106
@@ -181,15 +181,15 @@
     sget-object v1, Landroid/util/Xml$XmlSerializerFactory;->instance:Lorg/xmlpull/v1/XmlPullParserFactory;
 
     invoke-virtual {v1}, Lorg/xmlpull/v1/XmlPullParserFactory;->newSerializer()Lorg/xmlpull/v1/XmlSerializer;
-    :try_end_5
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     return-object v1
 
     .line 107
-    :catch_7
+    :catch_0
     move-exception v0
 
     .line 108
@@ -202,7 +202,7 @@
 .end method
 
 .method public static parse(Ljava/io/InputStream;Landroid/util/Xml$Encoding;Lorg/xml/sax/ContentHandler;)V
-    .registers 6
+    .locals 3
     .parameter "in"
     .parameter "encoding"
     .parameter "contentHandler"
@@ -242,7 +242,7 @@
 .end method
 
 .method public static parse(Ljava/io/Reader;Lorg/xml/sax/ContentHandler;)V
-    .registers 4
+    .locals 2
     .parameter "in"
     .parameter "contentHandler"
     .annotation system Ldalvik/annotation/Throws;
@@ -274,7 +274,7 @@
 .end method
 
 .method public static parse(Ljava/lang/String;Lorg/xml/sax/ContentHandler;)V
-    .registers 6
+    .locals 4
     .parameter "xml"
     .parameter "contentHandler"
     .annotation system Ldalvik/annotation/Throws;
@@ -304,15 +304,15 @@
     invoke-direct {v2, v3}, Lorg/xml/sax/InputSource;-><init>(Ljava/io/Reader;)V
 
     invoke-interface {v1, v2}, Lorg/xml/sax/XMLReader;->parse(Lorg/xml/sax/InputSource;)V
-    :try_end_15
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_15} :catch_16
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 61
     return-void
 
     .line 58
     .end local v1           #reader:Lorg/xml/sax/XMLReader;
-    :catch_16
+    :catch_0
     move-exception v0
 
     .line 59

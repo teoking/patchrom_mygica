@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/ListView;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue

@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILandroid/view/KeyEvent$DispatcherState;)V
-    .registers 5
+    .locals 1
     .parameter "context"
     .parameter "theme"
     .parameter "dispatcherState"
@@ -38,7 +38,7 @@
 .end method
 
 .method private initDockWindow()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 152
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
-    .registers 8
+    .locals 6
     .parameter "ev"
 
     .prologue
@@ -146,7 +146,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_30
+    if-eqz v2, :cond_0
 
     .line 75
     invoke-super {p0, p1}, Landroid/app/Dialog;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
@@ -154,11 +154,11 @@
     move-result v0
 
     .line 81
-    :goto_2f
+    :goto_0
     return v0
 
     .line 77
-    :cond_30
+    :cond_0
     iget-object v2, p0, Landroid/inputmethodservice/SoftInputWindow;->mBounds:Landroid/graphics/Rect;
 
     iget v2, v2, Landroid/graphics/Rect;->left:I
@@ -201,11 +201,11 @@
     .local v0, handled:Z
     invoke-virtual {v1}, Landroid/view/MotionEvent;->recycle()V
 
-    goto :goto_2f
+    goto :goto_0
 .end method
 
 .method public getSize()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 95
@@ -223,30 +223,30 @@
 
     const/16 v2, 0x30
 
-    if-eq v1, v2, :cond_14
+    if-eq v1, v2, :cond_0
 
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
     const/16 v2, 0x50
 
-    if-ne v1, v2, :cond_17
+    if-ne v1, v2, :cond_1
 
     .line 98
-    :cond_14
+    :cond_0
     iget v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     .line 100
-    :goto_16
+    :goto_0
     return v1
 
-    :cond_17
+    :cond_1
     iget v1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 .method public onWindowFocusChanged(Z)V
-    .registers 3
+    .locals 1
     .parameter "hasFocus"
 
     .prologue
@@ -263,7 +263,7 @@
 .end method
 
 .method public setGravity(I)V
-    .registers 11
+    .locals 9
     .parameter "gravity"
 
     .prologue
@@ -288,36 +288,36 @@
     .local v0, lp:Landroid/view/WindowManager$LayoutParams;
     iget v6, v0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    if-eq v6, v7, :cond_16
+    if-eq v6, v7, :cond_0
 
     iget v6, v0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    if-ne v6, v8, :cond_34
+    if-ne v6, v8, :cond_3
 
-    :cond_16
+    :cond_0
     move v2, v5
 
     .line 139
     .local v2, oldIsVertical:Z
-    :goto_17
+    :goto_0
     iput p1, v0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
     .line 141
     iget v6, v0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    if-eq v6, v7, :cond_21
+    if-eq v6, v7, :cond_1
 
     iget v6, v0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    if-ne v6, v8, :cond_36
+    if-ne v6, v8, :cond_4
 
-    :cond_21
+    :cond_1
     move v1, v5
 
     .line 143
     .local v1, newIsVertical:Z
-    :goto_22
-    if-eq v2, v1, :cond_33
+    :goto_1
+    if-eq v2, v1, :cond_2
 
     .line 144
     iget v3, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
@@ -340,27 +340,27 @@
 
     .line 149
     .end local v3           #tmp:I
-    :cond_33
+    :cond_2
     return-void
 
     .end local v1           #newIsVertical:Z
     .end local v2           #oldIsVertical:Z
-    :cond_34
+    :cond_3
     move v2, v4
 
     .line 137
-    goto :goto_17
+    goto :goto_0
 
     .restart local v2       #oldIsVertical:Z
-    :cond_36
+    :cond_4
     move v1, v4
 
     .line 141
-    goto :goto_22
+    goto :goto_1
 .end method
 
 .method public setSize(I)V
-    .registers 6
+    .locals 4
     .parameter "size"
 
     .prologue
@@ -381,23 +381,23 @@
 
     const/16 v2, 0x30
 
-    if-eq v1, v2, :cond_15
+    if-eq v1, v2, :cond_0
 
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
     const/16 v2, 0x50
 
-    if-ne v1, v2, :cond_21
+    if-ne v1, v2, :cond_1
 
     .line 117
-    :cond_15
+    :cond_0
     iput v3, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     .line 118
     iput p1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     .line 123
-    :goto_19
+    :goto_0
     invoke-virtual {p0}, Landroid/inputmethodservice/SoftInputWindow;->getWindow()Landroid/view/Window;
 
     move-result-object v1
@@ -408,17 +408,17 @@
     return-void
 
     .line 120
-    :cond_21
+    :cond_1
     iput p1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     .line 121
     iput v3, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public setToken(Landroid/os/IBinder;)V
-    .registers 4
+    .locals 2
     .parameter "token"
 
     .prologue

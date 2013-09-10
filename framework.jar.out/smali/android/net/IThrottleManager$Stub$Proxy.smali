@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 138
@@ -50,7 +50,7 @@
 .end method
 
 .method public getByteCount(Ljava/lang/String;III)J
-    .registers 12
+    .locals 7
     .parameter "iface"
     .parameter "dir"
     .parameter "period"
@@ -75,7 +75,7 @@
 
     .line 150
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v4, "android.net.IThrottleManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -106,8 +106,8 @@
 
     .line 157
     invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_26
-    .catchall {:try_start_8 .. :try_end_26} :catchall_2e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v2
 
@@ -123,7 +123,7 @@
 
     .line 160
     .end local v2           #_result:J
-    :catchall_2e
+    :catchall_0
     move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -135,7 +135,7 @@
 .end method
 
 .method public getCliffLevel(Ljava/lang/String;I)I
-    .registers 9
+    .locals 6
     .parameter "iface"
     .parameter "cliff"
     .annotation system Ldalvik/annotation/Throws;
@@ -158,7 +158,7 @@
 
     .line 244
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.net.IThrottleManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -183,8 +183,8 @@
 
     .line 249
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -200,7 +200,7 @@
 
     .line 252
     .end local v2           #_result:I
-    :catchall_28
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -212,7 +212,7 @@
 .end method
 
 .method public getCliffThreshold(Ljava/lang/String;I)J
-    .registers 10
+    .locals 7
     .parameter "iface"
     .parameter "cliff"
     .annotation system Ldalvik/annotation/Throws;
@@ -235,7 +235,7 @@
 
     .line 225
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v4, "android.net.IThrottleManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -260,8 +260,8 @@
 
     .line 230
     invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_28
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v2
 
@@ -277,7 +277,7 @@
 
     .line 233
     .end local v2           #_result:J
-    :catchall_28
+    :catchall_0
     move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -289,7 +289,7 @@
 .end method
 
 .method public getHelpUri()Ljava/lang/String;
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -310,7 +310,7 @@
 
     .line 263
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.net.IThrottleManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -329,8 +329,8 @@
 
     .line 266
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_1a
-    .catchall {:try_start_8 .. :try_end_1a} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -346,7 +346,7 @@
 
     .line 269
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_22
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -358,7 +358,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 142
@@ -368,7 +368,7 @@
 .end method
 
 .method public getPeriodStartTime(Ljava/lang/String;)J
-    .registers 9
+    .locals 7
     .parameter "iface"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -390,7 +390,7 @@
 
     .line 207
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v4, "android.net.IThrottleManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -412,8 +412,8 @@
 
     .line 211
     invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v2
 
@@ -429,7 +429,7 @@
 
     .line 214
     .end local v2           #_result:J
-    :catchall_25
+    :catchall_0
     move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -441,7 +441,7 @@
 .end method
 
 .method public getResetTime(Ljava/lang/String;)J
-    .registers 9
+    .locals 7
     .parameter "iface"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -463,7 +463,7 @@
 
     .line 189
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v4, "android.net.IThrottleManager"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -485,8 +485,8 @@
 
     .line 193
     invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v2
 
@@ -502,7 +502,7 @@
 
     .line 196
     .end local v2           #_result:J
-    :catchall_25
+    :catchall_0
     move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -514,7 +514,7 @@
 .end method
 
 .method public getThrottle(Ljava/lang/String;)I
-    .registers 8
+    .locals 6
     .parameter "iface"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -536,7 +536,7 @@
 
     .line 171
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "android.net.IThrottleManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -558,8 +558,8 @@
 
     .line 175
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -575,7 +575,7 @@
 
     .line 178
     .end local v2           #_result:I
-    :catchall_25
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

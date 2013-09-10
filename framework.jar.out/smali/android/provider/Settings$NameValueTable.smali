@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 654
@@ -35,7 +35,7 @@
 .end method
 
 .method public static getUriFor(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
-    .registers 3
+    .locals 1
     .parameter "uri"
     .parameter "name"
 
@@ -49,7 +49,7 @@
 .end method
 
 .method protected static putString(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Z
-    .registers 9
+    .locals 5
     .parameter "resolver"
     .parameter "uri"
     .parameter "name"
@@ -75,19 +75,19 @@
 
     .line 665
     invoke-virtual {p0, p1, v1}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
-    :try_end_14
-    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_14} :catch_16
+    :try_end_0
+    .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 666
     const/4 v2, 0x1
 
     .line 669
     .end local v1           #values:Landroid/content/ContentValues;
-    :goto_15
+    :goto_0
     return v2
 
     .line 667
-    :catch_16
+    :catch_0
     move-exception v0
 
     .line 668
@@ -127,5 +127,5 @@
     .line 669
     const/4 v2, 0x0
 
-    goto :goto_15
+    goto :goto_0
 .end method

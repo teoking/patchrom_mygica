@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 1239
@@ -86,7 +86,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1252
@@ -97,7 +97,7 @@
 .end method
 
 .method public static getOrCreateThreadId(Landroid/content/Context;Ljava/lang/String;)J
-    .registers 5
+    .locals 3
     .parameter "context"
     .parameter "recipient"
 
@@ -120,7 +120,7 @@
 .end method
 
 .method public static getOrCreateThreadId(Landroid/content/Context;Ljava/util/Set;)J
-    .registers 13
+    .locals 11
     .parameter "context"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -152,12 +152,12 @@
     move-result-object v8
 
     .local v8, i$:Ljava/util/Iterator;
-    :goto_b
+    :goto_0
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_1
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -171,7 +171,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_0
 
     .line 1283
     invoke-static {v9}, Landroid/provider/Telephony$Mms;->extractAddrSpec(Ljava/lang/String;)Ljava/lang/String;
@@ -179,16 +179,16 @@
     move-result-object v9
 
     .line 1286
-    :cond_21
+    :cond_0
     const-string/jumbo v0, "recipient"
 
     invoke-virtual {v10, v0, v9}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
 
-    goto :goto_b
+    goto :goto_0
 
     .line 1289
     .end local v9           #recipient:Ljava/lang/String;
-    :cond_28
+    :cond_1
     invoke-virtual {v10}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
 
     move-result-object v2
@@ -213,22 +213,22 @@
 
     .line 1294
     .local v7, cursor:Landroid/database/Cursor;
-    if-eqz v7, :cond_54
+    if-eqz v7, :cond_3
 
     .line 1296
-    :try_start_3b
+    :try_start_0
     invoke-interface {v7}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4a
+    if-eqz v0, :cond_2
 
     .line 1297
     const/4 v0, 0x0
 
     invoke-interface {v7, v0}, Landroid/database/Cursor;->getLong(I)J
-    :try_end_45
-    .catchall {:try_start_3b .. :try_end_45} :catchall_78
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v0
 
@@ -238,21 +238,21 @@
     return-wide v0
 
     .line 1299
-    :cond_4a
-    :try_start_4a
+    :cond_2
+    :try_start_1
     const-string v0, "Telephony"
 
     const-string v1, "getOrCreateThreadId returned no rows!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_51
-    .catchall {:try_start_4a .. :try_end_51} :catchall_78
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 1302
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
     .line 1306
-    :cond_54
+    :cond_3
     const-string v0, "Telephony"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -289,7 +289,7 @@
     throw v0
 
     .line 1302
-    :catchall_78
+    :catchall_0
     move-exception v0
 
     invoke-interface {v7}, Landroid/database/Cursor;->close()V

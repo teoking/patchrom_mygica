@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/Filter;Ljava/lang/String;Ljava/lang/reflect/Field;Z)V
-    .registers 6
+    .locals 1
     .parameter "filter"
     .parameter "name"
     .parameter "field"
@@ -43,32 +43,32 @@
 
 # virtual methods
 .method public declared-synchronized acceptsFrame()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 89
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/filterfw/core/FieldPort;->mValueWaiting:Z
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     monitor-exit p0
 
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 
-    :catchall_a
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -77,7 +77,7 @@
 .end method
 
 .method public clear()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 40
@@ -85,7 +85,7 @@
 .end method
 
 .method public getTarget()Ljava/lang/Object;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 55
@@ -95,43 +95,43 @@
     iget-object v2, p0, Landroid/filterfw/core/FilterPort;->mFilter:Landroid/filterfw/core/Filter;
 
     invoke-virtual {v1, v2}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_7
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_7} :catch_9
+    :try_end_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 57
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 56
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 57
     .local v0, e:Ljava/lang/IllegalAccessException;
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public declared-synchronized hasFrame()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 84
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/filterfw/core/FieldPort;->mHasFrame:Z
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -140,13 +140,13 @@
 .end method
 
 .method public declared-synchronized pullFrame()Landroid/filterfw/core/Frame;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 79
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -176,10 +176,10 @@
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_20
-    .catchall {:try_start_1 .. :try_end_20} :catchall_20
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catchall_20
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -188,7 +188,7 @@
 .end method
 
 .method public pushFrame(Landroid/filterfw/core/Frame;)V
-    .registers 3
+    .locals 1
     .parameter "frame"
 
     .prologue
@@ -202,7 +202,7 @@
 .end method
 
 .method protected declared-synchronized setFieldFrame(Landroid/filterfw/core/Frame;Z)V
-    .registers 5
+    .locals 2
     .parameter "frame"
     .parameter "isAssignment"
 
@@ -210,7 +210,7 @@
     .line 98
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     invoke-virtual {p0}, Landroid/filterfw/core/FieldPort;->assertPortIsOpen()V
 
     .line 99
@@ -223,23 +223,23 @@
 
     .line 103
     .local v0, value:Ljava/lang/Object;
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     iget-object v1, p0, Landroid/filterfw/core/FieldPort;->mValue:Ljava/lang/Object;
 
-    if-nez v1, :cond_19
+    if-nez v1, :cond_1
 
-    :cond_11
+    :cond_0
     iget-object v1, p0, Landroid/filterfw/core/FieldPort;->mValue:Ljava/lang/Object;
 
     invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1e
+    if-nez v1, :cond_2
 
     .line 104
-    :cond_19
+    :cond_1
     iput-object v0, p0, Landroid/filterfw/core/FieldPort;->mValue:Ljava/lang/Object;
 
     .line 105
@@ -248,12 +248,12 @@
     iput-boolean v1, p0, Landroid/filterfw/core/FieldPort;->mValueWaiting:Z
 
     .line 109
-    :cond_1e
+    :cond_2
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/filterfw/core/FieldPort;->mHasFrame:Z
-    :try_end_21
-    .catchall {:try_start_1 .. :try_end_21} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 110
     monitor-exit p0
@@ -262,7 +262,7 @@
 
     .line 98
     .end local v0           #value:Ljava/lang/Object;
-    :catchall_23
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
@@ -271,7 +271,7 @@
 .end method
 
 .method public setFrame(Landroid/filterfw/core/Frame;)V
-    .registers 3
+    .locals 1
     .parameter "frame"
 
     .prologue
@@ -285,7 +285,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 94
@@ -315,22 +315,22 @@
 .end method
 
 .method public declared-synchronized transfer(Landroid/filterfw/core/FilterContext;)V
-    .registers 6
+    .locals 4
     .parameter "context"
 
     .prologue
     .line 63
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-boolean v1, p0, Landroid/filterfw/core/FieldPort;->mValueWaiting:Z
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_42
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v1, :cond_1a
+    if-eqz v1, :cond_0
 
     .line 65
-    :try_start_5
+    :try_start_1
     iget-object v1, p0, Landroid/filterfw/core/FieldPort;->mField:Ljava/lang/reflect/Field;
 
     iget-object v2, p0, Landroid/filterfw/core/FilterPort;->mFilter:Landroid/filterfw/core/Filter;
@@ -338,18 +338,18 @@
     iget-object v3, p0, Landroid/filterfw/core/FieldPort;->mValue:Ljava/lang/Object;
 
     invoke-virtual {v1, v2, v3}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_e
-    .catchall {:try_start_5 .. :try_end_e} :catchall_42
-    .catch Ljava/lang/IllegalAccessException; {:try_start_5 .. :try_end_e} :catch_1c
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 70
     const/4 v1, 0x0
 
-    :try_start_f
+    :try_start_2
     iput-boolean v1, p0, Landroid/filterfw/core/FieldPort;->mValueWaiting:Z
 
     .line 71
-    if-eqz p1, :cond_1a
+    if-eqz p1, :cond_0
 
     .line 72
     iget-object v1, p0, Landroid/filterfw/core/FilterPort;->mFilter:Landroid/filterfw/core/Filter;
@@ -357,22 +357,22 @@
     iget-object v2, p0, Landroid/filterfw/core/FilterPort;->mName:Ljava/lang/String;
 
     invoke-virtual {v1, v2, p1}, Landroid/filterfw/core/Filter;->notifyFieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
-    :try_end_1a
-    .catchall {:try_start_f .. :try_end_1a} :catchall_42
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 75
-    :cond_1a
+    :cond_0
     monitor-exit p0
 
     return-void
 
     .line 66
-    :catch_1c
+    :catch_0
     move-exception v0
 
     .line 67
     .local v0, e:Ljava/lang/IllegalAccessException;
-    :try_start_1d
+    :try_start_3
     new-instance v1, Ljava/lang/RuntimeException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -408,12 +408,12 @@
     invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v1
-    :try_end_42
-    .catchall {:try_start_1d .. :try_end_42} :catchall_42
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     .line 63
     .end local v0           #e:Ljava/lang/IllegalAccessException;
-    :catchall_42
+    :catchall_0
     move-exception v1
 
     monitor-exit p0

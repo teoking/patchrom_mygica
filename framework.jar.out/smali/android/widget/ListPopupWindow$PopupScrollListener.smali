@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/ListPopupWindow;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/ListPopupWindow;Landroid/widget/ListPopupWindow$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public onScroll(Landroid/widget/AbsListView;III)V
-    .registers 5
+    .locals 0
     .parameter "view"
     .parameter "firstVisibleItem"
     .parameter "visibleItemCount"
@@ -62,7 +62,7 @@
 .end method
 
 .method public onScrollStateChanged(Landroid/widget/AbsListView;I)V
-    .registers 5
+    .locals 2
     .parameter "view"
     .parameter "scrollState"
 
@@ -70,7 +70,7 @@
     .line 1289
     const/4 v0, 0x1
 
-    if-ne p2, v0, :cond_2f
+    if-ne p2, v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroid/widget/ListPopupWindow;
 
@@ -78,10 +78,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_2f
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroid/widget/ListPopupWindow;
 
+    #getter for: Landroid/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
     invoke-static {v0}, Landroid/widget/ListPopupWindow;->access$700(Landroid/widget/ListPopupWindow;)Landroid/widget/PopupWindow;
 
     move-result-object v0
@@ -90,17 +91,19 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2f
+    if-eqz v0, :cond_0
 
     .line 1291
     iget-object v0, p0, Landroid/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroid/widget/ListPopupWindow;
 
+    #getter for: Landroid/widget/ListPopupWindow;->mHandler:Landroid/os/Handler;
     invoke-static {v0}, Landroid/widget/ListPopupWindow;->access$900(Landroid/widget/ListPopupWindow;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Landroid/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroid/widget/ListPopupWindow;
 
+    #getter for: Landroid/widget/ListPopupWindow;->mResizePopupRunnable:Landroid/widget/ListPopupWindow$ResizePopupRunnable;
     invoke-static {v1}, Landroid/widget/ListPopupWindow;->access$800(Landroid/widget/ListPopupWindow;)Landroid/widget/ListPopupWindow$ResizePopupRunnable;
 
     move-result-object v1
@@ -110,6 +113,7 @@
     .line 1292
     iget-object v0, p0, Landroid/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroid/widget/ListPopupWindow;
 
+    #getter for: Landroid/widget/ListPopupWindow;->mResizePopupRunnable:Landroid/widget/ListPopupWindow$ResizePopupRunnable;
     invoke-static {v0}, Landroid/widget/ListPopupWindow;->access$800(Landroid/widget/ListPopupWindow;)Landroid/widget/ListPopupWindow$ResizePopupRunnable;
 
     move-result-object v0
@@ -117,6 +121,6 @@
     invoke-virtual {v0}, Landroid/widget/ListPopupWindow$ResizePopupRunnable;->run()V
 
     .line 1294
-    :cond_2f
+    :cond_0
     return-void
 .end method

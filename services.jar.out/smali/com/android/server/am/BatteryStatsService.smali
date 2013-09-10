@@ -21,7 +21,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "filename"
 
     .prologue
@@ -47,7 +47,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/server/am/BatteryStatsService;)Landroid/bluetooth/BluetoothHeadset;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -58,7 +58,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/android/server/am/BatteryStatsService;Landroid/bluetooth/BluetoothHeadset;)Landroid/bluetooth/BluetoothHeadset;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -70,7 +70,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/server/am/BatteryStatsService;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/android/server/am/BatteryStatsService;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -93,7 +93,7 @@
 .end method
 
 .method private dumpHelp(Ljava/io/PrintWriter;)V
-    .registers 3
+    .locals 1
     .parameter "pw"
 
     .prologue
@@ -132,25 +132,25 @@
 .end method
 
 .method public static getService()Lcom/android/internal/app/IBatteryStats;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 76
     sget-object v1, Lcom/android/server/am/BatteryStatsService;->sService:Lcom/android/internal/app/IBatteryStats;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_0
 
     .line 77
     sget-object v1, Lcom/android/server/am/BatteryStatsService;->sService:Lcom/android/internal/app/IBatteryStats;
 
     .line 81
     .local v0, b:Landroid/os/IBinder;
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 79
     .end local v0           #b:Landroid/os/IBinder;
-    :cond_7
+    :cond_0
     const-string v1, "batteryinfo"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -168,13 +168,13 @@
     .line 81
     sget-object v1, Lcom/android/server/am/BatteryStatsService;->sService:Lcom/android/internal/app/IBatteryStats;
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 13
+    .locals 9
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -189,7 +189,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_3f
+    if-eqz v7, :cond_1
 
     .line 470
     new-instance v7, Ljava/lang/StringBuilder;
@@ -243,12 +243,12 @@
     invoke-virtual {p2, v7}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 518
-    :cond_3e
-    :goto_3e
+    :cond_0
+    :goto_0
     return-void
 
     .line 476
-    :cond_3f
+    :cond_1
     const/4 v4, 0x0
 
     .line 477
@@ -257,7 +257,7 @@
 
     .line 478
     .local v6, noOutput:Z
-    if-eqz p3, :cond_ba
+    if-eqz p3, :cond_7
 
     .line 479
     move-object v2, p3
@@ -269,8 +269,8 @@
     const/4 v3, 0x0
 
     .local v3, i$:I
-    :goto_46
-    if-ge v3, v5, :cond_ba
+    :goto_1
+    if-ge v3, v5, :cond_7
 
     aget-object v1, v2, v3
 
@@ -282,27 +282,27 @@
 
     move-result v7
 
-    if-eqz v7, :cond_56
+    if-eqz v7, :cond_3
 
     .line 481
     const/4 v4, 0x1
 
     .line 479
-    :cond_53
-    :goto_53
+    :cond_2
+    :goto_2
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_46
+    goto :goto_1
 
     .line 482
-    :cond_56
+    :cond_3
     const-string v7, "--reset"
 
     invoke-virtual {v7, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_71
+    if-eqz v7, :cond_4
 
     .line 483
     iget-object v8, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
@@ -310,7 +310,7 @@
     monitor-enter v8
 
     .line 484
-    :try_start_61
+    :try_start_0
     iget-object v7, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v7}, Lcom/android/internal/os/BatteryStatsImpl;->resetAllStatsLocked()V
@@ -326,26 +326,26 @@
     .line 487
     monitor-exit v8
 
-    goto :goto_53
+    goto :goto_2
 
-    :catchall_6e
+    :catchall_0
     move-exception v7
 
     monitor-exit v8
-    :try_end_70
-    .catchall {:try_start_61 .. :try_end_70} :catchall_6e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v7
 
     .line 488
-    :cond_71
+    :cond_4
     const-string v7, "--write"
 
     invoke-virtual {v7, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_8c
+    if-eqz v7, :cond_5
 
     .line 489
     iget-object v8, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
@@ -353,7 +353,7 @@
     monitor-enter v8
 
     .line 490
-    :try_start_7c
+    :try_start_1
     iget-object v7, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v7}, Lcom/android/internal/os/BatteryStatsImpl;->writeSyncLocked()V
@@ -369,41 +369,41 @@
     .line 493
     monitor-exit v8
 
-    goto :goto_53
+    goto :goto_2
 
-    :catchall_89
+    :catchall_1
     move-exception v7
 
     monitor-exit v8
-    :try_end_8b
-    .catchall {:try_start_7c .. :try_end_8b} :catchall_89
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     throw v7
 
     .line 494
-    :cond_8c
+    :cond_5
     const-string v7, "-h"
 
     invoke-virtual {v7, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-eqz v7, :cond_98
+    if-eqz v7, :cond_6
 
     .line 495
     invoke-direct {p0, p2}, Lcom/android/server/am/BatteryStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
 
-    goto :goto_3e
+    goto :goto_0
 
     .line 497
-    :cond_98
+    :cond_6
     const-string v7, "-a"
 
     invoke-virtual {v7, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
-    if-nez v7, :cond_53
+    if-nez v7, :cond_2
 
     .line 500
     new-instance v7, Ljava/lang/StringBuilder;
@@ -429,18 +429,18 @@
     .line 501
     invoke-direct {p0, p2}, Lcom/android/server/am/BatteryStatsService;->dumpHelp(Ljava/io/PrintWriter;)V
 
-    goto :goto_53
+    goto :goto_2
 
     .line 505
     .end local v1           #arg:Ljava/lang/String;
     .end local v2           #arr$:[Ljava/lang/String;
     .end local v3           #i$:I
     .end local v5           #len$:I
-    :cond_ba
-    if-nez v6, :cond_3e
+    :cond_7
+    if-nez v6, :cond_0
 
     .line 508
-    if-eqz v4, :cond_d7
+    if-eqz v4, :cond_8
 
     .line 509
     iget-object v7, p0, Lcom/android/server/am/BatteryStatsService;->mContext:Landroid/content/Context;
@@ -462,7 +462,7 @@
     monitor-enter v8
 
     .line 511
-    :try_start_cc
+    :try_start_2
     iget-object v7, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v7, p2, p3, v0}, Lcom/android/internal/os/BatteryStatsImpl;->dumpCheckinLocked(Ljava/io/PrintWriter;[Ljava/lang/String;Ljava/util/List;)V
@@ -470,26 +470,26 @@
     .line 512
     monitor-exit v8
 
-    goto/16 :goto_3e
+    goto/16 :goto_0
 
-    :catchall_d4
+    :catchall_2
     move-exception v7
 
     monitor-exit v8
-    :try_end_d6
-    .catchall {:try_start_cc .. :try_end_d6} :catchall_d4
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
     throw v7
 
     .line 514
     .end local v0           #apps:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ApplicationInfo;>;"
-    :cond_d7
+    :cond_8
     iget-object v8, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     monitor-enter v8
 
     .line 515
-    :try_start_da
+    :try_start_3
     iget-object v7, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v7, p2}, Lcom/android/internal/os/BatteryStatsImpl;->dumpLocked(Ljava/io/PrintWriter;)V
@@ -497,20 +497,20 @@
     .line 516
     monitor-exit v8
 
-    goto/16 :goto_3e
+    goto/16 :goto_0
 
-    :catchall_e2
+    :catchall_3
     move-exception v7
 
     monitor-exit v8
-    :try_end_e4
-    .catchall {:try_start_da .. :try_end_e4} :catchall_e2
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_3
 
     throw v7
 .end method
 
 .method public enforceCallingPermission()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 450
@@ -522,14 +522,14 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_b
+    if-ne v0, v1, :cond_0
 
     .line 455
-    :goto_a
+    :goto_0
     return-void
 
     .line 453
-    :cond_b
+    :cond_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.UPDATE_DEVICE_STATS"
@@ -546,11 +546,11 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/content/Context;->enforcePermission(Ljava/lang/String;IILjava/lang/String;)V
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getActiveStatistics()Lcom/android/internal/os/BatteryStatsImpl;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 90
@@ -560,7 +560,7 @@
 .end method
 
 .method public getAwakeTimeBattery()J
-    .registers 4
+    .locals 3
 
     .prologue
     .line 438
@@ -583,7 +583,7 @@
 .end method
 
 .method public getAwakeTimePlugged()J
-    .registers 4
+    .locals 3
 
     .prologue
     .line 444
@@ -606,7 +606,7 @@
 .end method
 
 .method public getStatistics()[B
-    .registers 6
+    .locals 5
 
     .prologue
     .line 94
@@ -645,7 +645,7 @@
 .end method
 
 .method public isOnBattery()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 428
@@ -659,7 +659,7 @@
 .end method
 
 .method public noteBluetoothOff()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 329
@@ -673,7 +673,7 @@
     .line 331
     const/4 v0, 0x0
 
-    :try_start_7
+    :try_start_0
     iput-boolean v0, p0, Lcom/android/server/am/BatteryStatsService;->mBluetoothPendingStats:Z
 
     .line 332
@@ -688,18 +688,18 @@
     return-void
 
     .line 333
-    :catchall_10
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_12
-    .catchall {:try_start_7 .. :try_end_12} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteBluetoothOn()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x1
@@ -714,7 +714,7 @@
 
     .line 296
     .local v0, adapter:Landroid/bluetooth/BluetoothAdapter;
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_0
 
     .line 297
     iget-object v1, p0, Lcom/android/server/am/BatteryStatsService;->mContext:Landroid/content/Context;
@@ -724,16 +724,16 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/bluetooth/BluetoothAdapter;->getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)Z
 
     .line 300
-    :cond_11
+    :cond_0
     iget-object v2, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     monitor-enter v2
 
     .line 301
-    :try_start_14
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/am/BatteryStatsService;->mBluetoothHeadset:Landroid/bluetooth/BluetoothHeadset;
 
-    if-eqz v1, :cond_26
+    if-eqz v1, :cond_1
 
     .line 302
     iget-object v1, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
@@ -748,33 +748,33 @@
     invoke-virtual {v1, v3}, Lcom/android/internal/os/BatteryStatsImpl;->setBtHeadset(Landroid/bluetooth/BluetoothHeadset;)V
 
     .line 307
-    :goto_24
+    :goto_0
     monitor-exit v2
 
     .line 308
     return-void
 
     .line 305
-    :cond_26
+    :cond_1
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/server/am/BatteryStatsService;->mBluetoothPendingStats:Z
 
-    goto :goto_24
+    goto :goto_0
 
     .line 307
-    :catchall_2a
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_2c
-    .catchall {:try_start_14 .. :try_end_2c} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public noteFullWifiLockAcquired(I)V
-    .registers 4
+    .locals 2
     .parameter "uid"
 
     .prologue
@@ -787,7 +787,7 @@
     monitor-enter v1
 
     .line 339
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteFullWifiLockAcquiredLocked(I)V
@@ -799,18 +799,18 @@
     return-void
 
     .line 340
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteFullWifiLockAcquiredFromSource(Landroid/os/WorkSource;)V
-    .registers 4
+    .locals 2
     .parameter "ws"
 
     .prologue
@@ -823,7 +823,7 @@
     monitor-enter v1
 
     .line 381
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteFullWifiLockAcquiredFromSourceLocked(Landroid/os/WorkSource;)V
@@ -835,18 +835,18 @@
     return-void
 
     .line 382
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteFullWifiLockReleased(I)V
-    .registers 4
+    .locals 2
     .parameter "uid"
 
     .prologue
@@ -859,7 +859,7 @@
     monitor-enter v1
 
     .line 346
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteFullWifiLockReleasedLocked(I)V
@@ -871,18 +871,18 @@
     return-void
 
     .line 347
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteFullWifiLockReleasedFromSource(Landroid/os/WorkSource;)V
-    .registers 4
+    .locals 2
     .parameter "ws"
 
     .prologue
@@ -895,7 +895,7 @@
     monitor-enter v1
 
     .line 388
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteFullWifiLockReleasedFromSourceLocked(Landroid/os/WorkSource;)V
@@ -907,18 +907,18 @@
     return-void
 
     .line 389
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteInputEvent()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 183
@@ -934,7 +934,7 @@
 .end method
 
 .method public noteNetworkInterfaceType(Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
     .parameter "iface"
     .parameter "type"
 
@@ -948,7 +948,7 @@
     monitor-enter v1
 
     .line 423
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/internal/os/BatteryStatsImpl;->noteNetworkInterfaceTypeLocked(Ljava/lang/String;I)V
@@ -960,18 +960,18 @@
     return-void
 
     .line 424
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public notePhoneDataConnectionState(IZ)V
-    .registers 5
+    .locals 2
     .parameter "dataType"
     .parameter "hasData"
 
@@ -985,7 +985,7 @@
     monitor-enter v1
 
     .line 218
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/internal/os/BatteryStatsImpl;->notePhoneDataConnectionStateLocked(IZ)V
@@ -997,18 +997,18 @@
     return-void
 
     .line 219
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public notePhoneOff()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 202
@@ -1020,7 +1020,7 @@
     monitor-enter v1
 
     .line 204
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0}, Lcom/android/internal/os/BatteryStatsImpl;->notePhoneOffLocked()V
@@ -1032,18 +1032,18 @@
     return-void
 
     .line 205
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public notePhoneOn()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 195
@@ -1055,7 +1055,7 @@
     monitor-enter v1
 
     .line 197
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0}, Lcom/android/internal/os/BatteryStatsImpl;->notePhoneOnLocked()V
@@ -1067,18 +1067,18 @@
     return-void
 
     .line 198
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public notePhoneSignalStrength(Landroid/telephony/SignalStrength;)V
-    .registers 4
+    .locals 2
     .parameter "signalStrength"
 
     .prologue
@@ -1091,7 +1091,7 @@
     monitor-enter v1
 
     .line 211
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->notePhoneSignalStrengthLocked(Landroid/telephony/SignalStrength;)V
@@ -1103,18 +1103,18 @@
     return-void
 
     .line 212
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public notePhoneState(I)V
-    .registers 5
+    .locals 3
     .parameter "state"
 
     .prologue
@@ -1137,7 +1137,7 @@
     monitor-enter v2
 
     .line 226
-    :try_start_e
+    :try_start_0
     iget-object v1, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v1, p1, v0}, Lcom/android/internal/os/BatteryStatsImpl;->notePhoneStateLocked(II)V
@@ -1149,18 +1149,18 @@
     return-void
 
     .line 227
-    :catchall_15
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_17
-    .catchall {:try_start_e .. :try_end_17} :catchall_15
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public noteScanWifiLockAcquired(I)V
-    .registers 4
+    .locals 2
     .parameter "uid"
 
     .prologue
@@ -1173,7 +1173,7 @@
     monitor-enter v1
 
     .line 353
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteScanWifiLockAcquiredLocked(I)V
@@ -1185,18 +1185,18 @@
     return-void
 
     .line 354
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteScanWifiLockAcquiredFromSource(Landroid/os/WorkSource;)V
-    .registers 4
+    .locals 2
     .parameter "ws"
 
     .prologue
@@ -1209,7 +1209,7 @@
     monitor-enter v1
 
     .line 395
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteScanWifiLockAcquiredFromSourceLocked(Landroid/os/WorkSource;)V
@@ -1221,18 +1221,18 @@
     return-void
 
     .line 396
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteScanWifiLockReleased(I)V
-    .registers 4
+    .locals 2
     .parameter "uid"
 
     .prologue
@@ -1245,7 +1245,7 @@
     monitor-enter v1
 
     .line 360
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteScanWifiLockReleasedLocked(I)V
@@ -1257,18 +1257,18 @@
     return-void
 
     .line 361
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteScanWifiLockReleasedFromSource(Landroid/os/WorkSource;)V
-    .registers 4
+    .locals 2
     .parameter "ws"
 
     .prologue
@@ -1281,7 +1281,7 @@
     monitor-enter v1
 
     .line 402
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteScanWifiLockReleasedFromSourceLocked(Landroid/os/WorkSource;)V
@@ -1293,18 +1293,18 @@
     return-void
 
     .line 403
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteScreenBrightness(I)V
-    .registers 4
+    .locals 2
     .parameter "brightness"
 
     .prologue
@@ -1317,7 +1317,7 @@
     monitor-enter v1
 
     .line 171
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteScreenBrightnessLocked(I)V
@@ -1329,18 +1329,18 @@
     return-void
 
     .line 172
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteScreenOff()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 176
@@ -1352,7 +1352,7 @@
     monitor-enter v1
 
     .line 178
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0}, Lcom/android/internal/os/BatteryStatsImpl;->noteScreenOffLocked()V
@@ -1364,18 +1364,18 @@
     return-void
 
     .line 179
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteScreenOn()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 162
@@ -1387,7 +1387,7 @@
     monitor-enter v1
 
     .line 164
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0}, Lcom/android/internal/os/BatteryStatsImpl;->noteScreenOnLocked()V
@@ -1399,18 +1399,18 @@
     return-void
 
     .line 165
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteStartAudio(I)V
-    .registers 4
+    .locals 2
     .parameter "uid"
 
     .prologue
@@ -1423,7 +1423,7 @@
     monitor-enter v1
 
     .line 247
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteAudioOnLocked(I)V
@@ -1435,18 +1435,18 @@
     return-void
 
     .line 248
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteStartGps(I)V
-    .registers 4
+    .locals 2
     .parameter "uid"
 
     .prologue
@@ -1459,7 +1459,7 @@
     monitor-enter v1
 
     .line 150
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteStartGpsLocked(I)V
@@ -1471,18 +1471,18 @@
     return-void
 
     .line 151
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteStartSensor(II)V
-    .registers 5
+    .locals 2
     .parameter "uid"
     .parameter "sensor"
 
@@ -1496,7 +1496,7 @@
     monitor-enter v1
 
     .line 136
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/internal/os/BatteryStatsImpl;->noteStartSensorLocked(II)V
@@ -1508,18 +1508,18 @@
     return-void
 
     .line 137
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteStartVideo(I)V
-    .registers 4
+    .locals 2
     .parameter "uid"
 
     .prologue
@@ -1532,7 +1532,7 @@
     monitor-enter v1
 
     .line 261
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteVideoOnLocked(I)V
@@ -1544,18 +1544,18 @@
     return-void
 
     .line 262
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteStartWakelock(IILjava/lang/String;I)V
-    .registers 7
+    .locals 2
     .parameter "uid"
     .parameter "pid"
     .parameter "name"
@@ -1571,7 +1571,7 @@
     monitor-enter v1
 
     .line 108
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/android/internal/os/BatteryStatsImpl;->noteStartWakeLocked(IILjava/lang/String;I)V
@@ -1583,18 +1583,18 @@
     return-void
 
     .line 109
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteStartWakelockFromSource(Landroid/os/WorkSource;ILjava/lang/String;I)V
-    .registers 7
+    .locals 2
     .parameter "ws"
     .parameter "pid"
     .parameter "name"
@@ -1610,7 +1610,7 @@
     monitor-enter v1
 
     .line 122
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/android/internal/os/BatteryStatsImpl;->noteStartWakeFromSourceLocked(Landroid/os/WorkSource;ILjava/lang/String;I)V
@@ -1622,18 +1622,18 @@
     return-void
 
     .line 123
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteStopAudio(I)V
-    .registers 4
+    .locals 2
     .parameter "uid"
 
     .prologue
@@ -1646,7 +1646,7 @@
     monitor-enter v1
 
     .line 254
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteAudioOffLocked(I)V
@@ -1658,18 +1658,18 @@
     return-void
 
     .line 255
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteStopGps(I)V
-    .registers 4
+    .locals 2
     .parameter "uid"
 
     .prologue
@@ -1682,7 +1682,7 @@
     monitor-enter v1
 
     .line 157
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteStopGpsLocked(I)V
@@ -1694,18 +1694,18 @@
     return-void
 
     .line 158
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteStopSensor(II)V
-    .registers 5
+    .locals 2
     .parameter "uid"
     .parameter "sensor"
 
@@ -1719,7 +1719,7 @@
     monitor-enter v1
 
     .line 143
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/internal/os/BatteryStatsImpl;->noteStopSensorLocked(II)V
@@ -1731,18 +1731,18 @@
     return-void
 
     .line 144
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteStopVideo(I)V
-    .registers 4
+    .locals 2
     .parameter "uid"
 
     .prologue
@@ -1755,7 +1755,7 @@
     monitor-enter v1
 
     .line 268
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteVideoOffLocked(I)V
@@ -1767,18 +1767,18 @@
     return-void
 
     .line 269
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteStopWakelock(IILjava/lang/String;I)V
-    .registers 7
+    .locals 2
     .parameter "uid"
     .parameter "pid"
     .parameter "name"
@@ -1794,7 +1794,7 @@
     monitor-enter v1
 
     .line 115
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/android/internal/os/BatteryStatsImpl;->noteStopWakeLocked(IILjava/lang/String;I)V
@@ -1806,18 +1806,18 @@
     return-void
 
     .line 116
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteStopWakelockFromSource(Landroid/os/WorkSource;ILjava/lang/String;I)V
-    .registers 7
+    .locals 2
     .parameter "ws"
     .parameter "pid"
     .parameter "name"
@@ -1833,7 +1833,7 @@
     monitor-enter v1
 
     .line 129
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/android/internal/os/BatteryStatsImpl;->noteStopWakeFromSourceLocked(Landroid/os/WorkSource;ILjava/lang/String;I)V
@@ -1845,18 +1845,18 @@
     return-void
 
     .line 130
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteUserActivity(II)V
-    .registers 5
+    .locals 2
     .parameter "uid"
     .parameter "event"
 
@@ -1870,7 +1870,7 @@
     monitor-enter v1
 
     .line 190
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/internal/os/BatteryStatsImpl;->noteUserActivityLocked(II)V
@@ -1882,18 +1882,18 @@
     return-void
 
     .line 191
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteWifiMulticastDisabled(I)V
-    .registers 4
+    .locals 2
     .parameter "uid"
 
     .prologue
@@ -1906,7 +1906,7 @@
     monitor-enter v1
 
     .line 374
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteWifiMulticastDisabledLocked(I)V
@@ -1918,18 +1918,18 @@
     return-void
 
     .line 375
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteWifiMulticastDisabledFromSource(Landroid/os/WorkSource;)V
-    .registers 4
+    .locals 2
     .parameter "ws"
 
     .prologue
@@ -1942,7 +1942,7 @@
     monitor-enter v1
 
     .line 416
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteWifiMulticastDisabledFromSourceLocked(Landroid/os/WorkSource;)V
@@ -1954,18 +1954,18 @@
     return-void
 
     .line 417
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteWifiMulticastEnabled(I)V
-    .registers 4
+    .locals 2
     .parameter "uid"
 
     .prologue
@@ -1978,7 +1978,7 @@
     monitor-enter v1
 
     .line 367
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteWifiMulticastEnabledLocked(I)V
@@ -1990,18 +1990,18 @@
     return-void
 
     .line 368
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteWifiMulticastEnabledFromSource(Landroid/os/WorkSource;)V
-    .registers 4
+    .locals 2
     .parameter "ws"
 
     .prologue
@@ -2014,7 +2014,7 @@
     monitor-enter v1
 
     .line 409
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteWifiMulticastEnabledFromSourceLocked(Landroid/os/WorkSource;)V
@@ -2026,18 +2026,18 @@
     return-void
 
     .line 410
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteWifiOff()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 238
@@ -2049,7 +2049,7 @@
     monitor-enter v1
 
     .line 240
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0}, Lcom/android/internal/os/BatteryStatsImpl;->noteWifiOffLocked()V
@@ -2061,18 +2061,18 @@
     return-void
 
     .line 241
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteWifiOn()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 231
@@ -2084,7 +2084,7 @@
     monitor-enter v1
 
     .line 233
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0}, Lcom/android/internal/os/BatteryStatsImpl;->noteWifiOnLocked()V
@@ -2096,18 +2096,18 @@
     return-void
 
     .line 234
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteWifiRunning(Landroid/os/WorkSource;)V
-    .registers 4
+    .locals 2
     .parameter "ws"
 
     .prologue
@@ -2120,7 +2120,7 @@
     monitor-enter v1
 
     .line 275
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteWifiRunningLocked(Landroid/os/WorkSource;)V
@@ -2132,18 +2132,18 @@
     return-void
 
     .line 276
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteWifiRunningChanged(Landroid/os/WorkSource;Landroid/os/WorkSource;)V
-    .registers 5
+    .locals 2
     .parameter "oldWs"
     .parameter "newWs"
 
@@ -2157,7 +2157,7 @@
     monitor-enter v1
 
     .line 282
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/internal/os/BatteryStatsImpl;->noteWifiRunningChangedLocked(Landroid/os/WorkSource;Landroid/os/WorkSource;)V
@@ -2169,18 +2169,18 @@
     return-void
 
     .line 283
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public noteWifiStopped(Landroid/os/WorkSource;)V
-    .registers 4
+    .locals 2
     .parameter "ws"
 
     .prologue
@@ -2193,7 +2193,7 @@
     monitor-enter v1
 
     .line 289
-    :try_start_6
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl;->noteWifiStoppedLocked(Landroid/os/WorkSource;)V
@@ -2205,18 +2205,18 @@
     return-void
 
     .line 290
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_6 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public publish(Landroid/content/Context;)V
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -2275,7 +2275,7 @@
 .end method
 
 .method public setBatteryState(IIIIII)V
-    .registers 14
+    .locals 7
     .parameter "status"
     .parameter "health"
     .parameter "plugType"
@@ -2309,7 +2309,7 @@
 .end method
 
 .method public shutdown()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 69
@@ -2325,7 +2325,7 @@
     monitor-enter v1
 
     .line 71
-    :try_start_a
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0}, Lcom/android/internal/os/BatteryStatsImpl;->shutdownLocked()V
@@ -2337,12 +2337,12 @@
     return-void
 
     .line 72
-    :catchall_11
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_13
-    .catchall {:try_start_a .. :try_end_13} :catchall_11
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

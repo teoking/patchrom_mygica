@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/webkit/Plugin;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -42,7 +42,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/webkit/Plugin;Landroid/webkit/Plugin$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public handleClickEvent(Landroid/content/Context;)V
-    .registers 4
+    .locals 2
     .parameter "context"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -65,7 +65,7 @@
     .line 202
     iget-object v0, p0, Landroid/webkit/Plugin$DefaultClickHandler;->mDialog:Landroid/app/AlertDialog;
 
-    if-nez v0, :cond_2f
+    if-nez v0, :cond_0
 
     .line 203
     new-instance v0, Landroid/app/AlertDialog$Builder;
@@ -74,6 +74,7 @@
 
     iget-object v1, p0, Landroid/webkit/Plugin$DefaultClickHandler;->this$0:Landroid/webkit/Plugin;
 
+    #getter for: Landroid/webkit/Plugin;->mName:Ljava/lang/String;
     invoke-static {v1}, Landroid/webkit/Plugin;->access$200(Landroid/webkit/Plugin;)Ljava/lang/String;
 
     move-result-object v1
@@ -84,6 +85,7 @@
 
     iget-object v1, p0, Landroid/webkit/Plugin$DefaultClickHandler;->this$0:Landroid/webkit/Plugin;
 
+    #getter for: Landroid/webkit/Plugin;->mDescription:Ljava/lang/String;
     invoke-static {v1}, Landroid/webkit/Plugin;->access$100(Landroid/webkit/Plugin;)Ljava/lang/String;
 
     move-result-object v1
@@ -111,12 +113,12 @@
     iput-object v0, p0, Landroid/webkit/Plugin$DefaultClickHandler;->mDialog:Landroid/app/AlertDialog;
 
     .line 210
-    :cond_2f
+    :cond_0
     return-void
 .end method
 
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .registers 4
+    .locals 1
     .parameter "dialog"
     .parameter "which"
     .annotation runtime Ljava/lang/Deprecated;

@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 63
@@ -67,7 +67,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 75
@@ -78,7 +78,7 @@
 .end method
 
 .method public static charsetForVendor(Ljava/lang/String;)Ljava/nio/charset/Charset;
-    .registers 2
+    .locals 1
     .parameter "charsetName"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -101,7 +101,7 @@
 .end method
 
 .method public static charsetForVendor(Ljava/lang/String;Ljava/lang/String;)Ljava/nio/charset/Charset;
-    .registers 3
+    .locals 1
     .parameter "charsetName"
     .parameter "vendor"
     .annotation system Ldalvik/annotation/Throws;
@@ -126,7 +126,7 @@
 .end method
 
 .method private static getDefaultVendor()Ljava/lang/String;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 196
@@ -136,22 +136,22 @@
 .end method
 
 .method private static isShiftJis(Ljava/lang/String;)Z
-    .registers 4
+    .locals 3
     .parameter "charsetName"
 
     .prologue
     const/4 v1, 0x0
 
     .line 177
-    if-nez p0, :cond_4
+    if-nez p0, :cond_1
 
     .line 185
-    :cond_3
-    :goto_3
+    :cond_0
+    :goto_0
     return v1
 
     .line 180
-    :cond_4
+    :cond_1
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
@@ -160,21 +160,21 @@
     .local v0, length:I
     const/4 v2, 0x4
 
-    if-eq v0, v2, :cond_f
+    if-eq v0, v2, :cond_2
 
     const/16 v2, 0x9
 
-    if-ne v0, v2, :cond_3
+    if-ne v0, v2, :cond_0
 
     .line 185
-    :cond_f
+    :cond_2
     const-string/jumbo v2, "shift_jis"
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-nez v2, :cond_2a
+    if-nez v2, :cond_3
 
     const-string/jumbo v2, "shift-jis"
 
@@ -182,7 +182,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2a
+    if-nez v2, :cond_3
 
     const-string/jumbo v2, "sjis"
 
@@ -190,16 +190,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_0
 
-    :cond_2a
+    :cond_3
     const/4 v1, 0x1
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public static nameForDefaultVendor(Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "charsetName"
 
     .prologue
@@ -216,7 +216,7 @@
 .end method
 
 .method public static nameForVendor(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "charsetName"
     .parameter "vendor"
 
@@ -226,20 +226,20 @@
 
     move-result v1
 
-    if-nez v1, :cond_1d
+    if-nez v1, :cond_0
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1d
+    if-nez v1, :cond_0
 
     .line 93
     invoke-static {p0}, Landroid/util/CharsetUtils;->isShiftJis(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_0
 
     .line 94
     sget-object v1, Landroid/util/CharsetUtils;->sVendorShiftJisMap:Ljava/util/Map;
@@ -252,15 +252,15 @@
 
     .line 95
     .local v0, vendorShiftJis:Ljava/lang/String;
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_0
 
     .line 101
     .end local v0           #vendorShiftJis:Ljava/lang/String;
-    :goto_1c
+    :goto_0
     return-object v0
 
-    :cond_1d
+    :cond_0
     move-object v0, p0
 
-    goto :goto_1c
+    goto :goto_0
 .end method

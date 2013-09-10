@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 29
@@ -18,7 +18,7 @@
 .end method
 
 .method private getBottomLine(Landroid/widget/TextView;)I
-    .registers 5
+    .locals 3
     .parameter "widget"
 
     .prologue
@@ -45,7 +45,7 @@
 .end method
 
 .method private getCharacterWidth(Landroid/widget/TextView;)I
-    .registers 4
+    .locals 2
     .parameter "widget"
 
     .prologue
@@ -70,7 +70,7 @@
 .end method
 
 .method private getInnerHeight(Landroid/widget/TextView;)I
-    .registers 4
+    .locals 2
     .parameter "widget"
 
     .prologue
@@ -95,7 +95,7 @@
 .end method
 
 .method private getInnerWidth(Landroid/widget/TextView;)I
-    .registers 4
+    .locals 2
     .parameter "widget"
 
     .prologue
@@ -120,7 +120,7 @@
 .end method
 
 .method private getScrollBoundsLeft(Landroid/widget/TextView;)I
-    .registers 10
+    .locals 8
     .parameter "widget"
 
     .prologue
@@ -143,17 +143,17 @@
 
     .line 426
     .local v0, bottomLine:I
-    if-le v5, v0, :cond_10
+    if-le v5, v0, :cond_1
 
     .line 427
     const/4 v2, 0x0
 
     .line 436
-    :cond_f
+    :cond_0
     return v2
 
     .line 429
-    :cond_10
+    :cond_1
     const v2, 0x7fffffff
 
     .line 430
@@ -161,8 +161,8 @@
     move v3, v5
 
     .local v3, line:I
-    :goto_14
-    if-gt v3, v0, :cond_f
+    :goto_0
+    if-gt v3, v0, :cond_0
 
     .line 431
     invoke-virtual {v1, v3}, Landroid/text/Layout;->getLineLeft(I)F
@@ -179,20 +179,20 @@
 
     .line 432
     .local v4, lineLeft:I
-    if-ge v4, v2, :cond_23
+    if-ge v4, v2, :cond_2
 
     .line 433
     move v2, v4
 
     .line 430
-    :cond_23
+    :cond_2
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method private getScrollBoundsRight(Landroid/widget/TextView;)I
-    .registers 10
+    .locals 8
     .parameter "widget"
 
     .prologue
@@ -215,17 +215,17 @@
 
     .line 443
     .local v0, bottomLine:I
-    if-le v5, v0, :cond_10
+    if-le v5, v0, :cond_1
 
     .line 444
     const/4 v4, 0x0
 
     .line 453
-    :cond_f
+    :cond_0
     return v4
 
     .line 446
-    :cond_10
+    :cond_1
     const/high16 v4, -0x8000
 
     .line 447
@@ -233,8 +233,8 @@
     move v2, v5
 
     .local v2, line:I
-    :goto_13
-    if-gt v2, v0, :cond_f
+    :goto_0
+    if-gt v2, v0, :cond_0
 
     .line 448
     invoke-virtual {v1, v2}, Landroid/text/Layout;->getLineRight(I)F
@@ -251,20 +251,20 @@
 
     .line 449
     .local v3, lineRight:I
-    if-le v3, v4, :cond_22
+    if-le v3, v4, :cond_2
 
     .line 450
     move v4, v3
 
     .line 447
-    :cond_22
+    :cond_2
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method private getTopLine(Landroid/widget/TextView;)I
-    .registers 4
+    .locals 2
     .parameter "widget"
 
     .prologue
@@ -287,7 +287,7 @@
 
 # virtual methods
 .method protected bottom(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -299,7 +299,7 @@
 .end method
 
 .method public canSelectArbitrarily()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 32
@@ -309,7 +309,7 @@
 .end method
 
 .method protected down(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -321,7 +321,7 @@
 .end method
 
 .method protected end(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -333,7 +333,7 @@
 .end method
 
 .method protected getMovementMetaState(Landroid/text/Spannable;Landroid/view/KeyEvent;)I
-    .registers 6
+    .locals 3
     .parameter "buffer"
     .parameter "event"
 
@@ -363,7 +363,7 @@
 .end method
 
 .method protected handleMovementKey(Landroid/widget/TextView;Landroid/text/Spannable;IILandroid/view/KeyEvent;)Z
-    .registers 9
+    .locals 3
     .parameter "widget"
     .parameter "buffer"
     .parameter "keyCode"
@@ -376,303 +376,303 @@
     const/4 v1, 0x2
 
     .line 162
-    sparse-switch p3, :sswitch_data_d6
+    sparse-switch p3, :sswitch_data_0
 
     .line 241
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    :goto_7
+    :goto_0
     return v0
 
     .line 164
-    :sswitch_8
+    :sswitch_0
     invoke-static {p4}, Landroid/view/KeyEvent;->metaStateHasNoModifiers(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     .line 165
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->left(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 166
-    :cond_13
+    :cond_1
     invoke-static {p4, v2}, Landroid/view/KeyEvent;->metaStateHasModifiers(II)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_2
 
     .line 168
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->leftWord(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 169
-    :cond_1e
+    :cond_2
     invoke-static {p4, v1}, Landroid/view/KeyEvent;->metaStateHasModifiers(II)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     .line 171
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->lineStart(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 176
-    :sswitch_29
+    :sswitch_1
     invoke-static {p4}, Landroid/view/KeyEvent;->metaStateHasNoModifiers(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_34
+    if-eqz v0, :cond_3
 
     .line 177
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->right(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 178
-    :cond_34
+    :cond_3
     invoke-static {p4, v2}, Landroid/view/KeyEvent;->metaStateHasModifiers(II)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3f
+    if-eqz v0, :cond_4
 
     .line 180
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->rightWord(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 181
-    :cond_3f
+    :cond_4
     invoke-static {p4, v1}, Landroid/view/KeyEvent;->metaStateHasModifiers(II)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     .line 183
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->lineEnd(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 188
-    :sswitch_4a
+    :sswitch_2
     invoke-static {p4}, Landroid/view/KeyEvent;->metaStateHasNoModifiers(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_55
+    if-eqz v0, :cond_5
 
     .line 189
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->up(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 190
-    :cond_55
+    :cond_5
     invoke-static {p4, v1}, Landroid/view/KeyEvent;->metaStateHasModifiers(II)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     .line 192
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->top(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 197
-    :sswitch_60
+    :sswitch_3
     invoke-static {p4}, Landroid/view/KeyEvent;->metaStateHasNoModifiers(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6b
+    if-eqz v0, :cond_6
 
     .line 198
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->down(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 199
-    :cond_6b
+    :cond_6
     invoke-static {p4, v1}, Landroid/view/KeyEvent;->metaStateHasModifiers(II)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     .line 201
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->bottom(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 206
-    :sswitch_76
+    :sswitch_4
     invoke-static {p4}, Landroid/view/KeyEvent;->metaStateHasNoModifiers(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_81
+    if-eqz v0, :cond_7
 
     .line 207
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->pageUp(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto :goto_7
+    goto :goto_0
 
     .line 208
-    :cond_81
+    :cond_7
     invoke-static {p4, v1}, Landroid/view/KeyEvent;->metaStateHasModifiers(II)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     .line 210
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->top(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 215
-    :sswitch_8d
+    :sswitch_5
     invoke-static {p4}, Landroid/view/KeyEvent;->metaStateHasNoModifiers(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_99
+    if-eqz v0, :cond_8
 
     .line 216
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->pageDown(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 217
-    :cond_99
+    :cond_8
     invoke-static {p4, v1}, Landroid/view/KeyEvent;->metaStateHasModifiers(II)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     .line 219
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->bottom(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 224
-    :sswitch_a5
+    :sswitch_6
     invoke-static {p4}, Landroid/view/KeyEvent;->metaStateHasNoModifiers(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_b1
+    if-eqz v0, :cond_9
 
     .line 225
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->home(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 226
-    :cond_b1
+    :cond_9
     invoke-static {p4, v2}, Landroid/view/KeyEvent;->metaStateHasModifiers(II)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     .line 228
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->top(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 233
-    :sswitch_bd
+    :sswitch_7
     invoke-static {p4}, Landroid/view/KeyEvent;->metaStateHasNoModifiers(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_c9
+    if-eqz v0, :cond_a
 
     .line 234
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->end(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 235
-    :cond_c9
+    :cond_a
     invoke-static {p4, v2}, Landroid/view/KeyEvent;->metaStateHasModifiers(II)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     .line 237
     invoke-virtual {p0, p1, p2}, Landroid/text/method/BaseMovementMethod;->bottom(Landroid/widget/TextView;Landroid/text/Spannable;)Z
 
     move-result v0
 
-    goto/16 :goto_7
+    goto/16 :goto_0
 
     .line 162
     nop
 
-    :sswitch_data_d6
+    :sswitch_data_0
     .sparse-switch
-        0x13 -> :sswitch_4a
-        0x14 -> :sswitch_60
-        0x15 -> :sswitch_8
-        0x16 -> :sswitch_29
-        0x5c -> :sswitch_76
-        0x5d -> :sswitch_8d
-        0x7a -> :sswitch_a5
-        0x7b -> :sswitch_bd
+        0x13 -> :sswitch_2
+        0x14 -> :sswitch_3
+        0x15 -> :sswitch_0
+        0x16 -> :sswitch_1
+        0x5c -> :sswitch_4
+        0x5d -> :sswitch_5
+        0x7a -> :sswitch_6
+        0x7b -> :sswitch_7
     .end sparse-switch
 .end method
 
 .method protected home(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -684,7 +684,7 @@
 .end method
 
 .method public initialize(Landroid/widget/TextView;Landroid/text/Spannable;)V
-    .registers 3
+    .locals 0
     .parameter "widget"
     .parameter "text"
 
@@ -694,7 +694,7 @@
 .end method
 
 .method protected left(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -706,7 +706,7 @@
 .end method
 
 .method protected leftWord(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -718,7 +718,7 @@
 .end method
 
 .method protected lineEnd(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -730,7 +730,7 @@
 .end method
 
 .method protected lineStart(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -742,7 +742,7 @@
 .end method
 
 .method public onGenericMotionEvent(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z
-    .registers 10
+    .locals 6
     .parameter "widget"
     .parameter "text"
     .parameter "event"
@@ -759,32 +759,32 @@
 
     and-int/lit8 v3, v3, 0x2
 
-    if-eqz v3, :cond_12
+    if-eqz v3, :cond_0
 
     .line 95
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v3
 
-    packed-switch v3, :pswitch_data_70
+    packed-switch v3, :pswitch_data_0
 
     .line 122
-    :cond_12
+    :cond_0
     const/4 v0, 0x0
 
-    :cond_13
-    :goto_13
+    :cond_1
+    :goto_0
     return v0
 
     .line 99
-    :pswitch_14
+    :pswitch_0
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getMetaState()I
 
     move-result v3
 
     and-int/lit8 v3, v3, 0x1
 
-    if-eqz v3, :cond_43
+    if-eqz v3, :cond_3
 
     .line 100
     const/4 v2, 0x0
@@ -797,14 +797,14 @@
 
     .line 107
     .local v1, hscroll:F
-    :goto_21
+    :goto_1
     const/4 v0, 0x0
 
     .line 108
     .local v0, handled:Z
     cmpg-float v3, v1, v5
 
-    if-gez v3, :cond_4f
+    if-gez v3, :cond_4
 
     .line 109
     neg-float v3, v1
@@ -824,11 +824,11 @@
     or-int/2addr v0, v3
 
     .line 113
-    :cond_32
-    :goto_32
+    :cond_2
+    :goto_2
     cmpg-float v3, v2, v5
 
-    if-gez v3, :cond_5f
+    if-gez v3, :cond_5
 
     .line 114
     neg-float v3, v2
@@ -847,13 +847,13 @@
 
     or-int/2addr v0, v3
 
-    goto :goto_13
+    goto :goto_0
 
     .line 103
     .end local v0           #handled:Z
     .end local v1           #hscroll:F
     .end local v2           #vscroll:F
-    :cond_43
+    :cond_3
     invoke-virtual {p3, v4}, Landroid/view/MotionEvent;->getAxisValue(I)F
 
     move-result v3
@@ -869,14 +869,14 @@
     move-result v1
 
     .restart local v1       #hscroll:F
-    goto :goto_21
+    goto :goto_1
 
     .line 110
     .restart local v0       #handled:Z
-    :cond_4f
+    :cond_4
     cmpl-float v3, v1, v5
 
-    if-lez v3, :cond_32
+    if-lez v3, :cond_2
 
     .line 111
     float-to-double v3, v1
@@ -893,13 +893,13 @@
 
     or-int/2addr v0, v3
 
-    goto :goto_32
+    goto :goto_2
 
     .line 115
-    :cond_5f
+    :cond_5
     cmpl-float v3, v2, v5
 
-    if-lez v3, :cond_13
+    if-lez v3, :cond_1
 
     .line 116
     float-to-double v3, v2
@@ -916,19 +916,19 @@
 
     or-int/2addr v0, v3
 
-    goto :goto_13
+    goto :goto_0
 
     .line 95
     nop
 
-    :pswitch_data_70
+    :pswitch_data_0
     .packed-switch 0x8
-        :pswitch_14
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public onKeyDown(Landroid/widget/TextView;Landroid/text/Spannable;ILandroid/view/KeyEvent;)Z
-    .registers 12
+    .locals 7
     .parameter "widget"
     .parameter "text"
     .parameter "keyCode"
@@ -958,7 +958,7 @@
 
     .line 43
     .local v6, handled:Z
-    if-eqz v6, :cond_15
+    if-eqz v6, :cond_0
 
     .line 44
     invoke-static {p2}, Landroid/text/method/MetaKeyKeyListener;->adjustMetaAfterKeypress(Landroid/text/Spannable;)V
@@ -967,12 +967,12 @@
     invoke-static {p2}, Landroid/text/method/MetaKeyKeyListener;->resetLockedMeta(Landroid/text/Spannable;)V
 
     .line 47
-    :cond_15
+    :cond_0
     return v6
 .end method
 
 .method public onKeyOther(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/KeyEvent;)Z
-    .registers 13
+    .locals 9
     .parameter "widget"
     .parameter "text"
     .parameter "event"
@@ -991,7 +991,7 @@
 
     .line 54
     .local v3, keyCode:I
-    if-eqz v3, :cond_30
+    if-eqz v3, :cond_3
 
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
@@ -999,7 +999,7 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_30
+    if-ne v0, v1, :cond_3
 
     .line 56
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getRepeatCount()I
@@ -1015,8 +1015,8 @@
     const/4 v7, 0x0
 
     .local v7, i:I
-    :goto_17
-    if-ge v7, v8, :cond_23
+    :goto_0
+    if-ge v7, v8, :cond_0
 
     move-object v0, p0
 
@@ -1031,11 +1031,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_2c
+    if-nez v0, :cond_2
 
     .line 64
-    :cond_23
-    if-eqz v6, :cond_2b
+    :cond_0
+    if-eqz v6, :cond_1
 
     .line 65
     invoke-static {p2}, Landroid/text/method/MetaKeyKeyListener;->adjustMetaAfterKeypress(Landroid/text/Spannable;)V
@@ -1047,34 +1047,34 @@
     .end local v6           #handled:Z
     .end local v7           #i:I
     .end local v8           #repeat:I
-    :cond_2b
-    :goto_2b
+    :cond_1
+    :goto_1
     return v6
 
     .line 62
     .restart local v6       #handled:Z
     .restart local v7       #i:I
     .restart local v8       #repeat:I
-    :cond_2c
+    :cond_2
     const/4 v6, 0x1
 
     .line 58
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_17
+    goto :goto_0
 
     .line 70
     .end local v6           #handled:Z
     .end local v7           #i:I
     .end local v8           #repeat:I
-    :cond_30
+    :cond_3
     const/4 v6, 0x0
 
-    goto :goto_2b
+    goto :goto_1
 .end method
 
 .method public onKeyUp(Landroid/widget/TextView;Landroid/text/Spannable;ILandroid/view/KeyEvent;)Z
-    .registers 6
+    .locals 1
     .parameter "widget"
     .parameter "text"
     .parameter "keyCode"
@@ -1088,7 +1088,7 @@
 .end method
 
 .method public onTakeFocus(Landroid/widget/TextView;Landroid/text/Spannable;I)V
-    .registers 4
+    .locals 0
     .parameter "widget"
     .parameter "text"
     .parameter "direction"
@@ -1099,7 +1099,7 @@
 .end method
 
 .method public onTouchEvent(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z
-    .registers 5
+    .locals 1
     .parameter "widget"
     .parameter "text"
     .parameter "event"
@@ -1112,7 +1112,7 @@
 .end method
 
 .method public onTrackballEvent(Landroid/widget/TextView;Landroid/text/Spannable;Landroid/view/MotionEvent;)Z
-    .registers 5
+    .locals 1
     .parameter "widget"
     .parameter "text"
     .parameter "event"
@@ -1125,7 +1125,7 @@
 .end method
 
 .method protected pageDown(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -1137,7 +1137,7 @@
 .end method
 
 .method protected pageUp(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -1149,7 +1149,7 @@
 .end method
 
 .method protected right(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -1161,7 +1161,7 @@
 .end method
 
 .method protected rightWord(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -1173,7 +1173,7 @@
 .end method
 
 .method protected scrollBottom(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 8
+    .locals 5
     .parameter "widget"
     .parameter "buffer"
 
@@ -1197,7 +1197,7 @@
 
     add-int/lit8 v3, v1, -0x1
 
-    if-gt v2, v3, :cond_22
+    if-gt v2, v3, :cond_0
 
     .line 629
     invoke-virtual {p1}, Landroid/widget/TextView;->getScrollX()I
@@ -1220,17 +1220,17 @@
     const/4 v2, 0x1
 
     .line 633
-    :goto_21
+    :goto_0
     return v2
 
-    :cond_22
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_21
+    goto :goto_0
 .end method
 
 .method protected scrollDown(Landroid/widget/TextView;Landroid/text/Spannable;I)Z
-    .registers 11
+    .locals 7
     .parameter "widget"
     .parameter "buffer"
     .parameter "amount"
@@ -1271,13 +1271,13 @@
 
     add-int/lit8 v6, v0, 0x1
 
-    if-ge v5, v6, :cond_1e
+    if-ge v5, v6, :cond_0
 
     .line 544
     add-int/lit8 v1, v1, 0x1
 
     .line 546
-    :cond_1e
+    :cond_0
     invoke-virtual {v3}, Landroid/text/Layout;->getLineCount()I
 
     move-result v5
@@ -1286,7 +1286,7 @@
 
     .line 547
     .local v4, limit:I
-    if-gt v1, v4, :cond_3e
+    if-gt v1, v4, :cond_1
 
     .line 548
     add-int v5, v1, p3
@@ -1316,17 +1316,17 @@
     const/4 v5, 0x1
 
     .line 553
-    :goto_3d
+    :goto_0
     return v5
 
-    :cond_3e
+    :cond_1
     const/4 v5, 0x0
 
-    goto :goto_3d
+    goto :goto_0
 .end method
 
 .method protected scrollLeft(Landroid/widget/TextView;Landroid/text/Spannable;I)Z
-    .registers 7
+    .locals 3
     .parameter "widget"
     .parameter "buffer"
     .parameter "amount"
@@ -1345,7 +1345,7 @@
 
     .line 469
     .local v1, scrollX:I
-    if-le v1, v0, :cond_1e
+    if-le v1, v0, :cond_0
 
     .line 470
     invoke-direct {p0, p1}, Landroid/text/method/BaseMovementMethod;->getCharacterWidth(Landroid/widget/TextView;)I
@@ -1371,17 +1371,17 @@
     const/4 v2, 0x1
 
     .line 474
-    :goto_1d
+    :goto_0
     return v2
 
-    :cond_1e
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method protected scrollLineEnd(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 7
+    .locals 4
     .parameter "widget"
     .parameter "buffer"
 
@@ -1405,7 +1405,7 @@
 
     .line 667
     .local v1, scrollX:I
-    if-ge v1, v0, :cond_19
+    if-ge v1, v0, :cond_0
 
     .line 668
     invoke-virtual {p1}, Landroid/widget/TextView;->getScrollY()I
@@ -1418,17 +1418,17 @@
     const/4 v2, 0x1
 
     .line 671
-    :goto_18
+    :goto_0
     return v2
 
-    :cond_19
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method protected scrollLineStart(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 6
+    .locals 3
     .parameter "widget"
     .parameter "buffer"
 
@@ -1446,7 +1446,7 @@
 
     .line 648
     .local v1, scrollX:I
-    if-le v1, v0, :cond_13
+    if-le v1, v0, :cond_0
 
     .line 649
     invoke-virtual {p1}, Landroid/widget/TextView;->getScrollY()I
@@ -1459,17 +1459,17 @@
     const/4 v2, 0x1
 
     .line 652
-    :goto_12
+    :goto_0
     return v2
 
-    :cond_13
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method protected scrollPageDown(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 9
+    .locals 6
     .parameter "widget"
     .parameter "buffer"
 
@@ -1509,7 +1509,7 @@
 
     add-int/lit8 v4, v4, -0x1
 
-    if-gt v1, v4, :cond_2b
+    if-gt v1, v4, :cond_0
 
     .line 591
     invoke-virtual {p1}, Landroid/widget/TextView;->getScrollX()I
@@ -1530,17 +1530,17 @@
     const/4 v4, 0x1
 
     .line 595
-    :goto_2a
+    :goto_0
     return v4
 
-    :cond_2b
+    :cond_0
     const/4 v4, 0x0
 
-    goto :goto_2a
+    goto :goto_0
 .end method
 
 .method protected scrollPageUp(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 8
+    .locals 5
     .parameter "widget"
     .parameter "buffer"
 
@@ -1570,7 +1570,7 @@
 
     .line 569
     .local v2, topLine:I
-    if-ltz v2, :cond_21
+    if-ltz v2, :cond_0
 
     .line 570
     invoke-virtual {p1}, Landroid/widget/TextView;->getScrollX()I
@@ -1587,17 +1587,17 @@
     const/4 v3, 0x1
 
     .line 573
-    :goto_20
+    :goto_0
     return v3
 
-    :cond_21
+    :cond_0
     const/4 v3, 0x0
 
-    goto :goto_20
+    goto :goto_0
 .end method
 
 .method protected scrollRight(Landroid/widget/TextView;Landroid/text/Spannable;I)Z
-    .registers 8
+    .locals 4
     .parameter "widget"
     .parameter "buffer"
     .parameter "amount"
@@ -1622,7 +1622,7 @@
 
     .line 490
     .local v1, scrollX:I
-    if-ge v1, v0, :cond_23
+    if-ge v1, v0, :cond_0
 
     .line 491
     invoke-direct {p0, p1}, Landroid/text/method/BaseMovementMethod;->getCharacterWidth(Landroid/widget/TextView;)I
@@ -1648,17 +1648,17 @@
     const/4 v2, 0x1
 
     .line 495
-    :goto_22
+    :goto_0
     return v2
 
-    :cond_23
+    :cond_0
     const/4 v2, 0x0
 
-    goto :goto_22
+    goto :goto_0
 .end method
 
 .method protected scrollTop(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 6
+    .locals 3
     .parameter "widget"
     .parameter "buffer"
 
@@ -1676,7 +1676,7 @@
 
     move-result v2
 
-    if-ltz v2, :cond_17
+    if-ltz v2, :cond_0
 
     .line 610
     invoke-virtual {p1}, Landroid/widget/TextView;->getScrollX()I
@@ -1693,12 +1693,12 @@
     const/4 v1, 0x1
 
     .line 613
-    :cond_17
+    :cond_0
     return v1
 .end method
 
 .method protected scrollUp(Landroid/widget/TextView;Landroid/text/Spannable;I)Z
-    .registers 9
+    .locals 5
     .parameter "widget"
     .parameter "buffer"
     .parameter "amount"
@@ -1729,14 +1729,14 @@
 
     move-result v4
 
-    if-ne v4, v1, :cond_15
+    if-ne v4, v1, :cond_0
 
     .line 515
     add-int/lit8 v2, v2, -0x1
 
     .line 517
-    :cond_15
-    if-ltz v2, :cond_2b
+    :cond_0
+    if-ltz v2, :cond_1
 
     .line 518
     sub-int v4, v2, p3
@@ -1762,12 +1762,12 @@
     const/4 v3, 0x1
 
     .line 522
-    :cond_2b
+    :cond_1
     return v3
 .end method
 
 .method protected top(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 
@@ -1779,7 +1779,7 @@
 .end method
 
 .method protected up(Landroid/widget/TextView;Landroid/text/Spannable;)Z
-    .registers 4
+    .locals 1
     .parameter "widget"
     .parameter "buffer"
 

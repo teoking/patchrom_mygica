@@ -99,7 +99,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 9
+    .locals 7
     .parameter "context"
 
     .prologue
@@ -158,17 +158,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_cf
+    if-eqz v2, :cond_1
 
     move v2, v3
 
-    :goto_31
+    :goto_0
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mDeviceProvisioned:Z
 
     .line 225
     iget-boolean v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mDeviceProvisioned:Z
 
-    if-nez v2, :cond_77
+    if-nez v2, :cond_0
 
     .line 226
     new-instance v2, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$2;
@@ -209,16 +209,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_d2
+    if-eqz v2, :cond_2
 
     move v1, v3
 
     .line 247
     .local v1, provisioned:Z
-    :goto_60
+    :goto_1
     iget-boolean v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mDeviceProvisioned:Z
 
-    if-eq v1, v2, :cond_77
+    if-eq v1, v2, :cond_0
 
     .line 248
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mDeviceProvisioned:Z
@@ -226,7 +226,7 @@
     .line 249
     iget-boolean v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mDeviceProvisioned:Z
 
-    if-eqz v2, :cond_77
+    if-eqz v2, :cond_0
 
     .line 250
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
@@ -243,7 +243,7 @@
 
     .line 256
     .end local v1           #provisioned:Z
-    :cond_77
+    :cond_0
     sget-object v2, Lcom/android/internal/telephony/IccCard$State;->READY:Lcom/android/internal/telephony/IccCard$State;
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimState:Lcom/android/internal/telephony/IccCard$State;
@@ -336,21 +336,21 @@
     return-void
 
     .end local v0           #filter:Landroid/content/IntentFilter;
-    :cond_cf
+    :cond_1
     move v2, v4
 
     .line 220
-    goto/16 :goto_31
+    goto/16 :goto_0
 
-    :cond_d2
+    :cond_2
     move v1, v4
 
     .line 245
-    goto :goto_60
+    goto :goto_1
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -361,7 +361,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -373,7 +373,7 @@
 .end method
 
 .method static synthetic access$1002(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -385,7 +385,7 @@
 .end method
 
 .method static synthetic access$1100(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Landroid/content/Intent;)Ljava/lang/CharSequence;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -399,7 +399,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -410,7 +410,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -422,7 +422,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -433,7 +433,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -444,7 +444,7 @@
 .end method
 
 .method static synthetic access$502(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -456,7 +456,7 @@
 .end method
 
 .method static synthetic access$600(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)Landroid/content/Context;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -467,7 +467,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -478,7 +478,7 @@
 .end method
 
 .method static synthetic access$802(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -490,7 +490,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Landroid/content/Intent;)Ljava/lang/CharSequence;
-    .registers 3
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -504,7 +504,7 @@
 .end method
 
 .method private getDefaultPlmn()Ljava/lang/CharSequence;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 488
@@ -524,7 +524,7 @@
 .end method
 
 .method private getTelephonyPlmnFrom(Landroid/content/Intent;)Ljava/lang/CharSequence;
-    .registers 5
+    .locals 3
     .parameter "intent"
 
     .prologue
@@ -537,7 +537,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_1
 
     .line 474
     const-string v1, "plmn"
@@ -548,32 +548,32 @@
 
     .line 475
     .local v0, plmn:Ljava/lang/String;
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 481
     .end local v0           #plmn:Ljava/lang/String;
-    :goto_11
+    :goto_0
     return-object v0
 
     .line 478
     .restart local v0       #plmn:Ljava/lang/String;
-    :cond_12
+    :cond_0
     invoke-direct {p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->getDefaultPlmn()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    goto :goto_11
+    goto :goto_0
 
     .line 481
     .end local v0           #plmn:Ljava/lang/String;
-    :cond_17
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method private getTelephonySpnFrom(Landroid/content/Intent;)Ljava/lang/CharSequence;
-    .registers 5
+    .locals 3
     .parameter "intent"
 
     .prologue
@@ -586,7 +586,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_0
 
     .line 498
     const-string v1, "spn"
@@ -597,21 +597,21 @@
 
     .line 499
     .local v0, spn:Ljava/lang/String;
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 503
     .end local v0           #spn:Ljava/lang/String;
-    :goto_11
+    :goto_0
     return-object v0
 
-    :cond_12
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method private handleBatteryUpdate(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;)V
-    .registers 8
+    .locals 6
     .parameter "batteryStatus"
 
     .prologue
@@ -627,20 +627,20 @@
     iput-object p1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mBatteryStatus:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;
 
     .line 383
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_0
 
     .line 384
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_b
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_2b
+    if-ge v1, v2, :cond_0
 
     .line 386
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
@@ -666,30 +666,30 @@
     .line 384
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 390
     .end local v1           #i:I
-    :cond_2b
+    :cond_0
     return-void
 .end method
 
 .method private handleCarrierInfoUpdate()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 399
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1b
+    if-ge v0, v1, :cond_0
 
     .line 400
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
@@ -709,29 +709,29 @@
     .line 399
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 402
-    :cond_1b
+    :cond_0
     return-void
 .end method
 
 .method private handleClockVisibilityChanged()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 426
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_17
+    if-ge v0, v1, :cond_0
 
     .line 427
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
@@ -747,15 +747,15 @@
     .line 426
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 429
-    :cond_17
+    :cond_0
     return-void
 .end method
 
 .method private handleSimStateChange(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;)V
-    .registers 5
+    .locals 3
     .parameter "simArgs"
 
     .prologue
@@ -766,11 +766,11 @@
     .local v1, state:Lcom/android/internal/telephony/IccCard$State;
     sget-object v2, Lcom/android/internal/telephony/IccCard$State;->UNKNOWN:Lcom/android/internal/telephony/IccCard$State;
 
-    if-eq v1, v2, :cond_23
+    if-eq v1, v2, :cond_0
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimState:Lcom/android/internal/telephony/IccCard$State;
 
-    if-eq v1, v2, :cond_23
+    if-eq v1, v2, :cond_0
 
     .line 417
     iput-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimState:Lcom/android/internal/telephony/IccCard$State;
@@ -779,14 +779,14 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_d
+    :goto_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimStateCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ge v0, v2, :cond_23
+    if-ge v0, v2, :cond_0
 
     .line 419
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimStateCallbacks:Ljava/util/ArrayList;
@@ -802,30 +802,30 @@
     .line 418
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_d
+    goto :goto_0
 
     .line 422
     .end local v0           #i:I
-    :cond_23
+    :cond_0
     return-void
 .end method
 
 .method private handleTimeUpdate()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 370
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_17
+    if-ge v0, v1, :cond_0
 
     .line 371
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
@@ -841,15 +841,15 @@
     .line 370
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 373
-    :cond_17
+    :cond_0
     return-void
 .end method
 
 .method private static isBatteryLow(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;)Z
-    .registers 3
+    .locals 2
     .parameter "status"
 
     .prologue
@@ -858,21 +858,21 @@
 
     const/16 v1, 0x14
 
-    if-ge v0, v1, :cond_8
+    if-ge v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_7
+    :goto_0
     return v0
 
-    :cond_8
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method private static isBatteryUpdateInteresting(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;)Z
-    .registers 9
+    .locals 7
     .parameter "old"
     .parameter "current"
 
@@ -894,73 +894,73 @@
 
     .line 443
     .local v2, wasPluggedIn:Z
-    if-ne v2, v3, :cond_1a
+    if-ne v2, v3, :cond_1
 
-    if-ne v0, v3, :cond_1a
+    if-ne v0, v3, :cond_1
 
     iget v5, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;->status:I
 
     iget v6, p1, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;->status:I
 
-    if-eq v5, v6, :cond_1a
+    if-eq v5, v6, :cond_1
 
     move v1, v3
 
     .line 448
     .local v1, stateChangedWhilePluggedIn:Z
-    :goto_15
-    if-ne v2, v0, :cond_19
+    :goto_0
+    if-ne v2, v0, :cond_0
 
-    if-eqz v1, :cond_1c
+    if-eqz v1, :cond_2
 
     .line 461
-    :cond_19
-    :goto_19
+    :cond_0
+    :goto_1
     return v3
 
     .end local v1           #stateChangedWhilePluggedIn:Z
-    :cond_1a
+    :cond_1
     move v1, v4
 
     .line 443
-    goto :goto_15
+    goto :goto_0
 
     .line 453
     .restart local v1       #stateChangedWhilePluggedIn:Z
-    :cond_1c
-    if-eqz v0, :cond_24
+    :cond_2
+    if-eqz v0, :cond_3
 
     iget v5, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;->level:I
 
     iget v6, p1, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;->level:I
 
-    if-ne v5, v6, :cond_19
+    if-ne v5, v6, :cond_0
 
     .line 458
-    :cond_24
-    if-nez v0, :cond_32
+    :cond_3
+    if-nez v0, :cond_4
 
     invoke-static {p1}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->isBatteryLow(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_32
+    if-eqz v5, :cond_4
 
     iget v5, p1, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;->level:I
 
     iget v6, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;->level:I
 
-    if-ne v5, v6, :cond_19
+    if-ne v5, v6, :cond_0
 
-    :cond_32
+    :cond_4
     move v3, v4
 
     .line 461
-    goto :goto_19
+    goto :goto_1
 .end method
 
 .method private static isPluggedIn(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;)Z
-    .registers 4
+    .locals 3
     .parameter "status"
 
     .prologue
@@ -969,28 +969,28 @@
     .line 436
     iget v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;->plugged:I
 
-    if-eq v1, v0, :cond_a
+    if-eq v1, v0, :cond_0
 
     iget v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;->plugged:I
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_b
+    if-ne v1, v2, :cond_1
 
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public clearFailedAttempts()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -1006,7 +1006,7 @@
 .end method
 
 .method public getBatteryLevel()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 675
@@ -1018,7 +1018,7 @@
 .end method
 
 .method public getFailedAttempts()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 699
@@ -1028,7 +1028,7 @@
 .end method
 
 .method public getMaxBiometricUnlockAttemptsReached()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 724
@@ -1036,21 +1036,21 @@
 
     const/4 v1, 0x3
 
-    if-lt v0, v1, :cond_7
+    if-lt v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getPhoneState()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 716
@@ -1060,7 +1060,7 @@
 .end method
 
 .method public getSimState()Lcom/android/internal/telephony/IccCard$State;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 650
@@ -1070,7 +1070,7 @@
 .end method
 
 .method public getTelephonyPlmn()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 683
@@ -1080,7 +1080,7 @@
 .end method
 
 .method public getTelephonySpn()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 687
@@ -1090,21 +1090,21 @@
 .end method
 
 .method protected handleDevicePolicyManagerStateChanged()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 321
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_17
+    if-ge v0, v1, :cond_0
 
     .line 322
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
@@ -1120,29 +1120,29 @@
     .line 321
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 324
-    :cond_17
+    :cond_0
     return-void
 .end method
 
 .method protected handleDeviceProvisioned()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 333
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_17
+    if-ge v0, v1, :cond_0
 
     .line 334
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
@@ -1158,13 +1158,13 @@
     .line 333
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 336
-    :cond_17
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mContentObserver:Landroid/database/ContentObserver;
 
-    if-eqz v1, :cond_29
+    if-eqz v1, :cond_1
 
     .line 338
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mContext:Landroid/content/Context;
@@ -1183,12 +1183,12 @@
     iput-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mContentObserver:Landroid/database/ContentObserver;
 
     .line 341
-    :cond_29
+    :cond_1
     return-void
 .end method
 
 .method protected handlePhoneStateChanged(Ljava/lang/String;)V
-    .registers 5
+    .locals 3
     .parameter "newState"
 
     .prologue
@@ -1199,7 +1199,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_24
+    if-eqz v1, :cond_1
 
     .line 346
     const/4 v1, 0x0
@@ -1207,19 +1207,19 @@
     iput v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mPhoneState:I
 
     .line 352
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_c
+    :goto_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_3c
+    if-ge v0, v1, :cond_3
 
     .line 353
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
@@ -1237,51 +1237,51 @@
     .line 352
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_c
+    goto :goto_1
 
     .line 347
     .end local v0           #i:I
-    :cond_24
+    :cond_1
     sget-object v1, Landroid/telephony/TelephonyManager;->EXTRA_STATE_OFFHOOK:Ljava/lang/String;
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_30
+    if-eqz v1, :cond_2
 
     .line 348
     const/4 v1, 0x2
 
     iput v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mPhoneState:I
 
-    goto :goto_b
+    goto :goto_0
 
     .line 349
-    :cond_30
+    :cond_2
     sget-object v1, Landroid/telephony/TelephonyManager;->EXTRA_STATE_RINGING:Ljava/lang/String;
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
     .line 350
     const/4 v1, 0x1
 
     iput v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mPhoneState:I
 
-    goto :goto_b
+    goto :goto_0
 
     .line 355
     .restart local v0       #i:I
-    :cond_3c
+    :cond_3
     return-void
 .end method
 
 .method protected handleRingerModeChange(I)V
-    .registers 4
+    .locals 2
     .parameter "mode"
 
     .prologue
@@ -1292,14 +1292,14 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_3
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_19
+    if-ge v0, v1, :cond_0
 
     .line 361
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
@@ -1315,15 +1315,15 @@
     .line 360
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 363
-    :cond_19
+    :cond_0
     return-void
 .end method
 
 .method protected handleUserChanged(I)V
-    .registers 4
+    .locals 2
     .parameter "userId"
 
     .prologue
@@ -1331,14 +1331,14 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_1
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_17
+    if-ge v0, v1, :cond_0
 
     .line 328
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
@@ -1354,15 +1354,15 @@
     .line 327
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     .line 330
-    :cond_17
+    :cond_0
     return-void
 .end method
 
 .method public isClockVisible()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 712
@@ -1372,7 +1372,7 @@
 .end method
 
 .method public isDeviceCharged()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 670
@@ -1382,7 +1382,7 @@
 
     const/4 v1, 0x5
 
-    if-eq v0, v1, :cond_f
+    if-eq v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mBatteryStatus:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;
 
@@ -1390,22 +1390,22 @@
 
     const/16 v1, 0x64
 
-    if-lt v0, v1, :cond_11
+    if-lt v0, v1, :cond_1
 
-    :cond_f
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_10
+    :goto_0
     return v0
 
-    :cond_11
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public isDevicePluggedIn()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 666
@@ -1419,7 +1419,7 @@
 .end method
 
 .method public isDeviceProvisioned()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 695
@@ -1429,7 +1429,7 @@
 .end method
 
 .method public isSimLocked()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 728
@@ -1437,34 +1437,34 @@
 
     sget-object v1, Lcom/android/internal/telephony/IccCard$State;->PIN_REQUIRED:Lcom/android/internal/telephony/IccCard$State;
 
-    if-eq v0, v1, :cond_12
+    if-eq v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimState:Lcom/android/internal/telephony/IccCard$State;
 
     sget-object v1, Lcom/android/internal/telephony/IccCard$State;->PUK_REQUIRED:Lcom/android/internal/telephony/IccCard$State;
 
-    if-eq v0, v1, :cond_12
+    if-eq v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimState:Lcom/android/internal/telephony/IccCard$State;
 
     sget-object v1, Lcom/android/internal/telephony/IccCard$State;->PERM_DISABLED:Lcom/android/internal/telephony/IccCard$State;
 
-    if-ne v0, v1, :cond_14
+    if-ne v0, v1, :cond_1
 
-    :cond_12
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_13
+    :goto_0
     return v0
 
-    :cond_14
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public registerInfoCallback(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$InfoCallback;)V
-    .registers 5
+    .locals 3
     .parameter "callback"
 
     .prologue
@@ -1475,7 +1475,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_35
+    if-nez v0, :cond_0
 
     .line 614
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mInfoCallbacks:Ljava/util/ArrayList;
@@ -1523,12 +1523,12 @@
     invoke-interface {p1}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$InfoCallback;->onClockVisibilityChanged()V
 
     .line 627
-    :cond_35
+    :cond_0
     return-void
 .end method
 
 .method public registerSimStateCallback(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimStateCallback;)V
-    .registers 3
+    .locals 1
     .parameter "callback"
 
     .prologue
@@ -1539,7 +1539,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 635
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimStateCallbacks:Ljava/util/ArrayList;
@@ -1552,12 +1552,12 @@
     invoke-interface {p1, v0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimStateCallback;->onSimStateChanged(Lcom/android/internal/telephony/IccCard$State;)V
 
     .line 642
-    :cond_12
+    :cond_0
     return-void
 .end method
 
 .method public removeCallback(Ljava/lang/Object;)V
-    .registers 3
+    .locals 1
     .parameter "observer"
 
     .prologue
@@ -1576,7 +1576,7 @@
 .end method
 
 .method public reportClockVisible(Z)V
-    .registers 4
+    .locals 2
     .parameter "visible"
 
     .prologue
@@ -1599,7 +1599,7 @@
 .end method
 
 .method public reportFailedAttempt()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 708
@@ -1614,7 +1614,7 @@
 .end method
 
 .method public reportFailedBiometricUnlockAttempt()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 720
@@ -1629,7 +1629,7 @@
 .end method
 
 .method public reportSimUnlocked()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 662
@@ -1646,7 +1646,7 @@
 .end method
 
 .method public shouldShowBatteryInfo()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 679
@@ -1656,7 +1656,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mBatteryStatus:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;
 
@@ -1664,16 +1664,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_1
 
-    :cond_10
+    :cond_0
     const/4 v0, 0x1
 
-    :goto_11
+    :goto_0
     return v0
 
-    :cond_12
+    :cond_1
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method

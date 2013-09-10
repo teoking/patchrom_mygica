@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 283
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 4
+    .locals 2
     .parameter "source"
 
     .prologue
@@ -61,23 +61,23 @@
 
     move-result v1
 
-    if-ne v1, v0, :cond_d
+    if-ne v1, v0, :cond_0
 
-    :goto_a
+    :goto_0
     iput-boolean v0, p0, Landroid/preference/TwoStatePreference$SavedState;->checked:Z
 
     .line 271
     return-void
 
     .line 270
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public constructor <init>(Landroid/os/Parcelable;)V
-    .registers 2
+    .locals 0
     .parameter "superState"
 
     .prologue
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 
@@ -102,19 +102,19 @@
     .line 276
     iget-boolean v0, p0, Landroid/preference/TwoStatePreference$SavedState;->checked:Z
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_8
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 277
     return-void
 
     .line 276
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method

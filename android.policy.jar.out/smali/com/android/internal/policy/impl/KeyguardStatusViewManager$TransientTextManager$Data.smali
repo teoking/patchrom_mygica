@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager;Ljava/lang/CharSequence;I)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "t"
     .parameter "i"

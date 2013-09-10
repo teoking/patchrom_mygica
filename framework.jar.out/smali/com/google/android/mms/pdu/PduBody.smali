@@ -66,7 +66,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -129,7 +129,7 @@
 .end method
 
 .method private putPartToMaps(Lcom/google/android/mms/pdu/PduPart;)V
-    .registers 9
+    .locals 7
     .parameter "part"
 
     .prologue
@@ -140,7 +140,7 @@
 
     .line 47
     .local v1, contentId:[B
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_0
 
     .line 48
     iget-object v5, p0, Lcom/google/android/mms/pdu/PduBody;->mPartMapByContentId:Ljava/util/Map;
@@ -152,14 +152,14 @@
     invoke-interface {v5, v6, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 52
-    :cond_10
+    :cond_0
     invoke-virtual {p1}, Lcom/google/android/mms/pdu/PduPart;->getContentLocation()[B
 
     move-result-object v2
 
     .line 53
     .local v2, contentLocation:[B
-    if-eqz v2, :cond_20
+    if-eqz v2, :cond_1
 
     .line 54
     new-instance v0, Ljava/lang/String;
@@ -174,14 +174,14 @@
 
     .line 59
     .end local v0           #clc:Ljava/lang/String;
-    :cond_20
+    :cond_1
     invoke-virtual {p1}, Lcom/google/android/mms/pdu/PduPart;->getName()[B
 
     move-result-object v4
 
     .line 60
     .local v4, name:[B
-    if-eqz v4, :cond_30
+    if-eqz v4, :cond_2
 
     .line 61
     new-instance v0, Ljava/lang/String;
@@ -196,14 +196,14 @@
 
     .line 66
     .end local v0           #clc:Ljava/lang/String;
-    :cond_30
+    :cond_2
     invoke-virtual {p1}, Lcom/google/android/mms/pdu/PduPart;->getFilename()[B
 
     move-result-object v3
 
     .line 67
     .local v3, fileName:[B
-    if-eqz v3, :cond_40
+    if-eqz v3, :cond_3
 
     .line 68
     new-instance v0, Ljava/lang/String;
@@ -218,20 +218,20 @@
 
     .line 71
     .end local v0           #clc:Ljava/lang/String;
-    :cond_40
+    :cond_3
     return-void
 .end method
 
 
 # virtual methods
 .method public addPart(ILcom/google/android/mms/pdu/PduPart;)V
-    .registers 4
+    .locals 1
     .parameter "index"
     .parameter "part"
 
     .prologue
     .line 97
-    if-nez p2, :cond_8
+    if-nez p2, :cond_0
 
     .line 98
     new-instance v0, Ljava/lang/NullPointerException;
@@ -241,7 +241,7 @@
     throw v0
 
     .line 101
-    :cond_8
+    :cond_0
     invoke-direct {p0, p2}, Lcom/google/android/mms/pdu/PduBody;->putPartToMaps(Lcom/google/android/mms/pdu/PduPart;)V
 
     .line 102
@@ -254,12 +254,12 @@
 .end method
 
 .method public addPart(Lcom/google/android/mms/pdu/PduPart;)Z
-    .registers 3
+    .locals 1
     .parameter "part"
 
     .prologue
     .line 81
-    if-nez p1, :cond_8
+    if-nez p1, :cond_0
 
     .line 82
     new-instance v0, Ljava/lang/NullPointerException;
@@ -269,7 +269,7 @@
     throw v0
 
     .line 85
-    :cond_8
+    :cond_0
     invoke-direct {p0, p1}, Lcom/google/android/mms/pdu/PduBody;->putPartToMaps(Lcom/google/android/mms/pdu/PduPart;)V
 
     .line 86
@@ -283,7 +283,7 @@
 .end method
 
 .method public getPart(I)Lcom/google/android/mms/pdu/PduPart;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue
@@ -300,7 +300,7 @@
 .end method
 
 .method public getPartByContentId(Ljava/lang/String;)Lcom/google/android/mms/pdu/PduPart;
-    .registers 3
+    .locals 1
     .parameter "cid"
 
     .prologue
@@ -317,7 +317,7 @@
 .end method
 
 .method public getPartByContentLocation(Ljava/lang/String;)Lcom/google/android/mms/pdu/PduPart;
-    .registers 3
+    .locals 1
     .parameter "contentLocation"
 
     .prologue
@@ -334,7 +334,7 @@
 .end method
 
 .method public getPartByFileName(Ljava/lang/String;)Lcom/google/android/mms/pdu/PduPart;
-    .registers 3
+    .locals 1
     .parameter "filename"
 
     .prologue
@@ -351,7 +351,7 @@
 .end method
 
 .method public getPartByName(Ljava/lang/String;)Lcom/google/android/mms/pdu/PduPart;
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -368,7 +368,7 @@
 .end method
 
 .method public getPartIndex(Lcom/google/android/mms/pdu/PduPart;)I
-    .registers 3
+    .locals 1
     .parameter "part"
 
     .prologue
@@ -383,7 +383,7 @@
 .end method
 
 .method public getPartsNum()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 148
@@ -397,7 +397,7 @@
 .end method
 
 .method public removeAll()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 119
@@ -410,7 +410,7 @@
 .end method
 
 .method public removePart(I)Lcom/google/android/mms/pdu/PduPart;
-    .registers 3
+    .locals 1
     .parameter "index"
 
     .prologue

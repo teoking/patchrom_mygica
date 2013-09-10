@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "context"
 
     .prologue
@@ -28,7 +28,7 @@
 .end method
 
 .method private reportFreeSpace(Ljava/io/File;Ljava/lang/String;Ljava/io/PrintWriter;)V
-    .registers 16
+    .locals 12
     .parameter "path"
     .parameter "name"
     .parameter "pw"
@@ -37,7 +37,7 @@
     const-wide/16 v9, 0x0
 
     .line 89
-    :try_start_2
+    :try_start_0
     new-instance v5, Landroid/os/StatFs;
 
     invoke-virtual {p1}, Ljava/io/File;->getPath()Ljava/lang/String;
@@ -74,14 +74,14 @@
     .local v6, total:J
     cmp-long v8, v2, v9
 
-    if-lez v8, :cond_22
+    if-lez v8, :cond_0
 
     cmp-long v8, v6, v9
 
-    if-gtz v8, :cond_60
+    if-gtz v8, :cond_1
 
     .line 94
-    :cond_22
+    :cond_0
     new-instance v8, Ljava/lang/IllegalArgumentException;
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -125,15 +125,15 @@
     invoke-direct {v8, v9}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v8
-    :try_end_4f
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_2 .. :try_end_4f} :catch_4f
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 106
     .end local v0           #avail:J
     .end local v2           #bsize:J
     .end local v5           #statfs:Landroid/os/StatFs;
     .end local v6           #total:J
-    :catch_4f
+    :catch_0
     move-exception v4
 
     .line 107
@@ -154,7 +154,7 @@
 
     .line 112
     .end local v4           #e:Ljava/lang/IllegalArgumentException;
-    :goto_5f
+    :goto_0
     return-void
 
     .line 98
@@ -162,8 +162,8 @@
     .restart local v2       #bsize:J
     .restart local v5       #statfs:Landroid/os/StatFs;
     .restart local v6       #total:J
-    :cond_60
-    :try_start_60
+    :cond_1
+    :try_start_1
     invoke-virtual {p3, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     .line 99
@@ -212,16 +212,16 @@
     const-string v8, "% free"
 
     invoke-virtual {p3, v8}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-    :try_end_8e
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_60 .. :try_end_8e} :catch_4f
+    :try_end_1
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_5f
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 19
+    .locals 15
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -246,10 +246,10 @@
     const/4 v9, 0x0
 
     .local v9, i:I
-    :goto_e
+    :goto_0
     array-length v12, v10
 
-    if-ge v9, v12, :cond_17
+    if-ge v9, v12, :cond_0
 
     int-to-byte v12, v9
 
@@ -257,10 +257,10 @@
 
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 53
-    :cond_17
+    :cond_0
     new-instance v11, Ljava/io/File;
 
     invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
@@ -287,40 +287,40 @@
 
     .line 59
     .local v3, before:J
-    :try_start_28
+    :try_start_0
     new-instance v8, Ljava/io/FileOutputStream;
 
     invoke-direct {v8, v11}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
-    :try_end_2d
-    .catchall {:try_start_28 .. :try_end_2d} :catchall_84
-    .catch Ljava/io/IOException; {:try_start_28 .. :try_end_2d} :catch_7a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 60
     .end local v7           #fos:Ljava/io/FileOutputStream;
     .local v8, fos:Ljava/io/FileOutputStream;
-    :try_start_2d
+    :try_start_1
     invoke-virtual {v8, v10}, Ljava/io/FileOutputStream;->write([B)V
-    :try_end_30
-    .catchall {:try_start_2d .. :try_end_30} :catchall_a5
-    .catch Ljava/io/IOException; {:try_start_2d .. :try_end_30} :catch_a8
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
 
     .line 64
-    if-eqz v8, :cond_35
+    if-eqz v8, :cond_1
 
-    :try_start_32
+    :try_start_2
     invoke-virtual {v8}, Ljava/io/FileOutputStream;->close()V
-    :try_end_35
-    .catch Ljava/io/IOException; {:try_start_32 .. :try_end_35} :catch_a3
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
 
-    :cond_35
-    :goto_35
+    :cond_1
+    :goto_1
     move-object v7, v8
 
     .line 67
     .end local v8           #fos:Ljava/io/FileOutputStream;
     .restart local v7       #fos:Ljava/io/FileOutputStream;
-    :cond_36
-    :goto_36
+    :cond_2
+    :goto_2
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v1
@@ -331,13 +331,13 @@
 
     move-result v12
 
-    if-eqz v12, :cond_43
+    if-eqz v12, :cond_3
 
     invoke-virtual {v11}, Ljava/io/File;->delete()Z
 
     .line 70
-    :cond_43
-    if-eqz v6, :cond_8b
+    :cond_3
+    if-eqz v6, :cond_5
 
     .line 71
     const-string v12, "Test-Error: "
@@ -356,7 +356,7 @@
     invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 79
-    :goto_55
+    :goto_3
     invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
 
     move-result-object v12
@@ -396,48 +396,48 @@
 
     .line 61
     .end local v1           #after:J
-    :catch_7a
+    :catch_0
     move-exception v5
 
     .line 62
     .local v5, e:Ljava/io/IOException;
-    :goto_7b
+    :goto_4
     move-object v6, v5
 
     .line 64
-    if-eqz v7, :cond_36
+    if-eqz v7, :cond_2
 
-    :try_start_7e
+    :try_start_3
     invoke-virtual {v7}, Ljava/io/FileOutputStream;->close()V
-    :try_end_81
-    .catch Ljava/io/IOException; {:try_start_7e .. :try_end_81} :catch_82
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
 
-    goto :goto_36
+    goto :goto_2
 
-    :catch_82
+    :catch_1
     move-exception v12
 
-    goto :goto_36
+    goto :goto_2
 
     .end local v5           #e:Ljava/io/IOException;
-    :catchall_84
+    :catchall_0
     move-exception v12
 
-    :goto_85
-    if-eqz v7, :cond_8a
+    :goto_5
+    if-eqz v7, :cond_4
 
-    :try_start_87
+    :try_start_4
     invoke-virtual {v7}, Ljava/io/FileOutputStream;->close()V
-    :try_end_8a
-    .catch Ljava/io/IOException; {:try_start_87 .. :try_end_8a} :catch_a1
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
 
-    :cond_8a
-    :goto_8a
+    :cond_4
+    :goto_6
     throw v12
 
     .line 74
     .restart local v1       #after:J
-    :cond_8b
+    :cond_5
     const-string v12, "Latency: "
 
     move-object/from16 v0, p2
@@ -458,40 +458,40 @@
 
     invoke-virtual {v0, v12}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    goto :goto_55
+    goto :goto_3
 
     .line 64
     .end local v1           #after:J
-    :catch_a1
+    :catch_2
     move-exception v13
 
-    goto :goto_8a
+    goto :goto_6
 
     .end local v7           #fos:Ljava/io/FileOutputStream;
     .restart local v8       #fos:Ljava/io/FileOutputStream;
-    :catch_a3
+    :catch_3
     move-exception v12
 
-    goto :goto_35
+    goto :goto_1
 
-    :catchall_a5
+    :catchall_1
     move-exception v12
 
     move-object v7, v8
 
     .end local v8           #fos:Ljava/io/FileOutputStream;
     .restart local v7       #fos:Ljava/io/FileOutputStream;
-    goto :goto_85
+    goto :goto_5
 
     .line 61
     .end local v7           #fos:Ljava/io/FileOutputStream;
     .restart local v8       #fos:Ljava/io/FileOutputStream;
-    :catch_a8
+    :catch_4
     move-exception v5
 
     move-object v7, v8
 
     .end local v8           #fos:Ljava/io/FileOutputStream;
     .restart local v7       #fos:Ljava/io/FileOutputStream;
-    goto :goto_7b
+    goto :goto_4
 .end method

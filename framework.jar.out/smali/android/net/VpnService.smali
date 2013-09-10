@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 105
@@ -30,7 +30,7 @@
 .end method
 
 .method static synthetic access$100()Landroid/net/IConnectivityManager;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 105
@@ -42,7 +42,7 @@
 .end method
 
 .method private static getService()Landroid/net/IConnectivityManager;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 119
@@ -60,14 +60,14 @@
 .end method
 
 .method public static prepare(Landroid/content/Context;)Landroid/content/Intent;
-    .registers 5
+    .locals 4
     .parameter "context"
 
     .prologue
     const/4 v0, 0x0
 
     .line 143
-    :try_start_1
+    :try_start_0
     invoke-static {}, Landroid/net/VpnService;->getService()Landroid/net/IConnectivityManager;
 
     move-result-object v1
@@ -79,41 +79,41 @@
     const/4 v3, 0x0
 
     invoke-interface {v1, v2, v3}, Landroid/net/IConnectivityManager;->prepareVpn(Ljava/lang/String;Ljava/lang/String;)Z
-    :try_end_d
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_d} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_0
 
     .line 149
-    :goto_10
+    :goto_0
     return-object v0
 
     .line 146
-    :catch_11
+    :catch_0
     move-exception v0
 
     .line 149
-    :cond_12
+    :cond_0
     invoke-static {}, Lcom/android/internal/net/VpnConfig;->getIntentForConfirmation()Landroid/content/Intent;
 
     move-result-object v0
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .registers 5
+    .locals 3
     .parameter "intent"
 
     .prologue
     const/4 v1, 0x0
 
     .line 212
-    if-eqz p1, :cond_15
+    if-eqz p1, :cond_0
 
     const-string v0, "android.net.VpnService"
 
@@ -125,7 +125,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 213
     new-instance v0, Landroid/net/VpnService$Callback;
@@ -133,17 +133,17 @@
     invoke-direct {v0, p0, v1}, Landroid/net/VpnService$Callback;-><init>(Landroid/net/VpnService;Landroid/net/VpnService$1;)V
 
     .line 215
-    :goto_14
+    :goto_0
     return-object v0
 
-    :cond_15
+    :cond_0
     move-object v0, v1
 
-    goto :goto_14
+    goto :goto_0
 .end method
 
 .method public onRevoke()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 230
@@ -154,7 +154,7 @@
 .end method
 
 .method public protect(I)Z
-    .registers 6
+    .locals 4
     .parameter "socket"
 
     .prologue
@@ -163,7 +163,7 @@
 
     .line 168
     .local v0, dup:Landroid/os/ParcelFileDescriptor;
-    :try_start_1
+    :try_start_0
     invoke-static {p1}, Landroid/os/ParcelFileDescriptor;->fromFd(I)Landroid/os/ParcelFileDescriptor;
 
     move-result-object v0
@@ -174,22 +174,22 @@
     move-result-object v2
 
     invoke-interface {v2, v0}, Landroid/net/IConnectivityManager;->protectVpn(Landroid/os/ParcelFileDescriptor;)Z
-    :try_end_c
-    .catchall {:try_start_1 .. :try_end_c} :catchall_19
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_c} :catch_11
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v2
 
     .line 174
-    :try_start_d
+    :try_start_1
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
 
     .line 171
-    :goto_10
+    :goto_0
     return v2
 
     .line 170
-    :catch_11
+    :catch_0
     move-exception v1
 
     .line 171
@@ -198,41 +198,41 @@
 
     .line 174
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_16
-    .catch Ljava/lang/Exception; {:try_start_d .. :try_end_16} :catch_17
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    goto :goto_10
+    goto :goto_0
 
     .line 175
     .end local v1           #e:Ljava/lang/Exception;
-    :catch_17
+    :catch_1
     move-exception v3
 
-    goto :goto_10
+    goto :goto_0
 
     .line 173
-    :catchall_19
+    :catchall_0
     move-exception v2
 
     .line 174
-    :try_start_1a
+    :try_start_2
     invoke-virtual {v0}, Landroid/os/ParcelFileDescriptor;->close()V
-    :try_end_1d
-    .catch Ljava/lang/Exception; {:try_start_1a .. :try_end_1d} :catch_1e
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
 
     .line 173
-    :goto_1d
+    :goto_1
     throw v2
 
     .line 175
-    :catch_1e
+    :catch_2
     move-exception v3
 
-    goto :goto_1d
+    goto :goto_1
 .end method
 
 .method public protect(Ljava/net/DatagramSocket;)Z
-    .registers 3
+    .locals 1
     .parameter "socket"
 
     .prologue
@@ -253,7 +253,7 @@
 .end method
 
 .method public protect(Ljava/net/Socket;)Z
-    .registers 3
+    .locals 1
     .parameter "socket"
 
     .prologue

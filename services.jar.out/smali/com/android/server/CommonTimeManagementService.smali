@@ -71,7 +71,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 7
+    .locals 7
 
     .prologue
     const/16 v5, 0x1e
@@ -98,11 +98,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_53
+    if-eqz v1, :cond_0
 
     move v1, v2
 
-    :goto_16
+    :goto_0
     sput-boolean v1, Lcom/android/server/CommonTimeManagementService;->AUTO_DISABLE:Z
 
     .line 67
@@ -112,11 +112,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_55
+    if-eqz v1, :cond_1
 
     move v1, v2
 
-    :goto_21
+    :goto_1
     sput-boolean v1, Lcom/android/server/CommonTimeManagementService;->ALLOW_WIFI:Z
 
     .line 68
@@ -139,16 +139,16 @@
     sput v1, Lcom/android/server/CommonTimeManagementService;->NO_INTERFACE_TIMEOUT:I
 
     .line 71
-    if-ge v0, v2, :cond_57
+    if-ge v0, v2, :cond_2
 
     .line 72
     sput-byte v2, Lcom/android/server/CommonTimeManagementService;->BASE_SERVER_PRIO:B
 
     .line 79
-    :goto_38
+    :goto_2
     sget-boolean v1, Lcom/android/server/CommonTimeManagementService;->ALLOW_WIFI:Z
 
-    if-eqz v1, :cond_60
+    if-eqz v1, :cond_4
 
     .line 80
     new-array v1, v6, [Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
@@ -172,42 +172,42 @@
     sput-object v1, Lcom/android/server/CommonTimeManagementService;->IFACE_SCORE_RULES:[Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
 
     .line 89
-    :goto_52
+    :goto_3
     return-void
 
     .end local v0           #tmp:I
-    :cond_53
+    :cond_0
     move v1, v3
 
     .line 66
-    goto :goto_16
+    goto :goto_0
 
-    :cond_55
+    :cond_1
     move v1, v3
 
     .line 67
-    goto :goto_21
+    goto :goto_1
 
     .line 74
     .restart local v0       #tmp:I
-    :cond_57
-    if-le v0, v5, :cond_5c
+    :cond_2
+    if-le v0, v5, :cond_3
 
     .line 75
     sput-byte v5, Lcom/android/server/CommonTimeManagementService;->BASE_SERVER_PRIO:B
 
-    goto :goto_38
+    goto :goto_2
 
     .line 77
-    :cond_5c
+    :cond_3
     int-to-byte v1, v0
 
     sput-byte v1, Lcom/android/server/CommonTimeManagementService;->BASE_SERVER_PRIO:B
 
-    goto :goto_38
+    goto :goto_2
 
     .line 85
-    :cond_60
+    :cond_4
     new-array v1, v2, [Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
 
     new-instance v2, Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
@@ -220,11 +220,11 @@
 
     sput-object v1, Lcom/android/server/CommonTimeManagementService;->IFACE_SCORE_RULES:[Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
 
-    goto :goto_52
+    goto :goto_3
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -305,7 +305,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/server/CommonTimeManagementService;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -316,7 +316,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/server/CommonTimeManagementService;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -327,7 +327,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/android/server/CommonTimeManagementService;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -338,7 +338,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/server/CommonTimeManagementService;)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -349,7 +349,7 @@
 .end method
 
 .method private cleanupTimeConfig()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 228
@@ -369,7 +369,7 @@
     .line 230
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService;->mCTConfig:Landroid/os/CommonTimeConfig;
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     .line 231
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService;->mCTConfig:Landroid/os/CommonTimeConfig;
@@ -382,27 +382,27 @@
     iput-object v0, p0, Lcom/android/server/CommonTimeManagementService;->mCTConfig:Landroid/os/CommonTimeConfig;
 
     .line 234
-    :cond_1a
+    :cond_0
     return-void
 .end method
 
 .method private connectToTimeConfig()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 240
     invoke-direct {p0}, Lcom/android/server/CommonTimeManagementService;->cleanupTimeConfig()V
 
     .line 242
-    :try_start_3
+    :try_start_0
     iget-object v2, p0, Lcom/android/server/CommonTimeManagementService;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
-    :try_end_6
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_6} :catch_40
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 243
-    :try_start_6
+    :try_start_1
     new-instance v1, Landroid/os/CommonTimeConfig;
 
     invoke-direct {v1}, Landroid/os/CommonTimeConfig;-><init>()V
@@ -441,14 +441,14 @@
 
     .line 248
     monitor-exit v2
-    :try_end_2b
-    .catchall {:try_start_6 .. :try_end_2b} :catchall_3d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 250
-    :try_start_2b
+    :try_start_2
     sget v1, Lcom/android/server/CommonTimeManagementService;->NO_INTERFACE_TIMEOUT:I
 
-    if-ltz v1, :cond_39
+    if-ltz v1, :cond_0
 
     .line 251
     iget-object v1, p0, Lcom/android/server/CommonTimeManagementService;->mNoInterfaceHandler:Landroid/os/Handler;
@@ -462,48 +462,48 @@
     invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 253
-    :cond_39
+    :cond_0
     invoke-direct {p0}, Lcom/android/server/CommonTimeManagementService;->reevaluateServiceState()V
-    :try_end_3c
-    .catch Landroid/os/RemoteException; {:try_start_2b .. :try_end_3c} :catch_40
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
     .line 258
-    :goto_3c
+    :goto_0
     return-void
 
     .line 248
-    :catchall_3d
+    :catchall_0
     move-exception v1
 
-    :try_start_3e
+    :try_start_3
     monitor-exit v2
-    :try_end_3f
-    .catchall {:try_start_3e .. :try_end_3f} :catchall_3d
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    :try_start_3f
+    :try_start_4
     throw v1
-    :try_end_40
-    .catch Landroid/os/RemoteException; {:try_start_3f .. :try_end_40} :catch_40
+    :try_end_4
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_0
 
     .line 255
-    :catch_40
+    :catch_0
     move-exception v0
 
     .line 256
     .local v0, e:Landroid/os/RemoteException;
     invoke-direct {p0}, Lcom/android/server/CommonTimeManagementService;->scheduleTimeConfigReconnect()V
 
-    goto :goto_3c
+    goto :goto_0
 .end method
 
 .method private handleNoInterfaceTimeout()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 269
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService;->mCTConfig:Landroid/os/CommonTimeConfig;
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 270
     sget-object v0, Lcom/android/server/CommonTimeManagementService;->TAG:Ljava/lang/String;
@@ -521,18 +521,18 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_17
+    if-ne v0, v1, :cond_0
 
     .line 273
     invoke-direct {p0}, Lcom/android/server/CommonTimeManagementService;->scheduleTimeConfigReconnect()V
 
     .line 275
-    :cond_17
+    :cond_0
     return-void
 .end method
 
 .method private reevaluateServiceState()V
-    .registers 26
+    .locals 25
 
     .prologue
     .line 278
@@ -544,7 +544,7 @@
 
     .line 304
     .local v4, bestScore:B
-    :try_start_2
+    :try_start_0
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/CommonTimeManagementService;->mNetMgr:Landroid/os/INetworkManagementService;
@@ -557,7 +557,7 @@
 
     .line 305
     .local v12, ifaceList:[Ljava/lang/String;
-    if-eqz v12, :cond_59
+    if-eqz v12, :cond_4
 
     .line 306
     move-object v2, v12
@@ -575,8 +575,8 @@
     .end local v9           #i$:I
     .end local v13           #len$:I
     .local v10, i$:I
-    :goto_12
-    if-ge v10, v13, :cond_59
+    :goto_0
+    if-ge v10, v13, :cond_4
 
     aget-object v11, v2, v10
 
@@ -596,8 +596,8 @@
 
     .end local v10           #i$:I
     .restart local v9       #i$:I
-    :goto_1c
-    if-ge v9, v14, :cond_34
+    :goto_1
+    if-ge v9, v14, :cond_0
 
     aget-object v16, v3, v9
 
@@ -615,7 +615,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_3c
+    if-eqz v19, :cond_2
 
     .line 311
     move-object/from16 v0, v16
@@ -626,34 +626,34 @@
 
     .line 316
     .end local v16           #r:Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
-    :cond_34
+    :cond_0
     move/from16 v0, v18
 
-    if-gt v0, v4, :cond_3f
+    if-gt v0, v4, :cond_3
 
     .line 306
-    :cond_38
-    :goto_38
+    :cond_1
+    :goto_2
     add-int/lit8 v9, v10, 0x1
 
     move v10, v9
 
     .end local v9           #i$:I
     .restart local v10       #i$:I
-    goto :goto_12
+    goto :goto_0
 
     .line 309
     .end local v10           #i$:I
     .restart local v9       #i$:I
     .restart local v16       #r:Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
-    :cond_3c
+    :cond_2
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_1c
+    goto :goto_1
 
     .line 319
     .end local v16           #r:Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
-    :cond_3f
+    :cond_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/CommonTimeManagementService;->mNetMgr:Landroid/os/INetworkManagementService;
@@ -668,16 +668,16 @@
 
     .line 320
     .local v6, config:Landroid/net/InterfaceConfiguration;
-    if-eqz v6, :cond_38
+    if-eqz v6, :cond_1
 
     .line 323
     invoke-virtual {v6}, Landroid/net/InterfaceConfiguration;->isActive()Z
-    :try_end_50
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_50} :catch_57
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v19
 
-    if-eqz v19, :cond_38
+    if-eqz v19, :cond_1
 
     .line 324
     move-object v5, v11
@@ -685,7 +685,7 @@
     .line 325
     move/from16 v4, v18
 
-    goto :goto_38
+    goto :goto_2
 
     .line 330
     .end local v3           #arr$:[Lcom/android/server/CommonTimeManagementService$InterfaceScoreRule;
@@ -695,7 +695,7 @@
     .end local v12           #ifaceList:[Ljava/lang/String;
     .end local v14           #len$:I
     .end local v18           #thisScore:B
-    :catch_57
+    :catch_0
     move-exception v8
 
     .line 335
@@ -704,7 +704,7 @@
 
     .line 338
     .end local v8           #e:Landroid/os/RemoteException;
-    :cond_59
+    :cond_4
     const/4 v7, 0x1
 
     .line 339
@@ -718,16 +718,16 @@
     monitor-enter v20
 
     .line 340
-    if-eqz v5, :cond_d1
+    if-eqz v5, :cond_7
 
-    :try_start_63
+    :try_start_1
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/CommonTimeManagementService;->mCurIface:Ljava/lang/String;
 
     move-object/from16 v19, v0
 
-    if-nez v19, :cond_d1
+    if-nez v19, :cond_7
 
     .line 341
     sget-object v19, Lcom/android/server/CommonTimeManagementService;->TAG:Ljava/lang/String;
@@ -762,13 +762,13 @@
     iput-object v5, v0, Lcom/android/server/CommonTimeManagementService;->mCurIface:Ljava/lang/String;
 
     .line 355
-    :goto_8a
+    :goto_3
     monitor-exit v20
-    :try_end_8b
-    .catchall {:try_start_63 .. :try_end_8b} :catchall_ef
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 357
-    if-eqz v7, :cond_d0
+    if-eqz v7, :cond_6
 
     move-object/from16 v0, p0
 
@@ -776,10 +776,10 @@
 
     move-object/from16 v19, v0
 
-    if-eqz v19, :cond_d0
+    if-eqz v19, :cond_6
 
     .line 358
-    if-lez v4, :cond_138
+    if-lez v4, :cond_a
 
     sget-byte v19, Lcom/android/server/CommonTimeManagementService;->BASE_SERVER_PRIO:B
 
@@ -791,7 +791,7 @@
 
     .line 361
     .local v15, newPrio:B
-    :goto_9e
+    :goto_4
     move-object/from16 v0, p0
 
     iget-byte v0, v0, Lcom/android/server/CommonTimeManagementService;->mEffectivePrio:B
@@ -800,7 +800,7 @@
 
     move/from16 v0, v19
 
-    if-eq v15, v0, :cond_bb
+    if-eq v15, v0, :cond_5
 
     .line 362
     move-object/from16 v0, p0
@@ -823,7 +823,7 @@
     invoke-virtual/range {v19 .. v20}, Landroid/os/CommonTimeConfig;->setMasterElectionPriority(B)I
 
     .line 366
-    :cond_bb
+    :cond_5
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/CommonTimeManagementService;->mCTConfig:Landroid/os/CommonTimeConfig;
@@ -842,7 +842,7 @@
 
     .line 367
     .local v17, res:I
-    if-eqz v17, :cond_13c
+    if-eqz v17, :cond_b
 
     .line 368
     invoke-direct/range {p0 .. p0}, Lcom/android/server/CommonTimeManagementService;->scheduleTimeConfigReconnect()V
@@ -850,22 +850,22 @@
     .line 376
     .end local v15           #newPrio:B
     .end local v17           #res:I
-    :cond_d0
-    :goto_d0
+    :cond_6
+    :goto_5
     return-void
 
     .line 344
-    :cond_d1
-    if-nez v5, :cond_f2
+    :cond_7
+    if-nez v5, :cond_8
 
-    :try_start_d3
+    :try_start_2
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/CommonTimeManagementService;->mCurIface:Ljava/lang/String;
 
     move-object/from16 v19, v0
 
-    if-eqz v19, :cond_f2
+    if-eqz v19, :cond_8
 
     .line 345
     sget-object v19, Lcom/android/server/CommonTimeManagementService;->TAG:Ljava/lang/String;
@@ -887,30 +887,30 @@
 
     iput-object v0, v1, Lcom/android/server/CommonTimeManagementService;->mCurIface:Ljava/lang/String;
 
-    goto :goto_8a
+    goto :goto_3
 
     .line 355
-    :catchall_ef
+    :catchall_0
     move-exception v19
 
     monitor-exit v20
-    :try_end_f1
-    .catchall {:try_start_d3 .. :try_end_f1} :catchall_ef
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v19
 
     .line 348
-    :cond_f2
-    if-eqz v5, :cond_135
+    :cond_8
+    if-eqz v5, :cond_9
 
-    :try_start_f4
+    :try_start_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/CommonTimeManagementService;->mCurIface:Ljava/lang/String;
 
     move-object/from16 v19, v0
 
-    if-eqz v19, :cond_135
+    if-eqz v19, :cond_9
 
     move-object/from16 v0, p0
 
@@ -924,7 +924,7 @@
 
     move-result v19
 
-    if-nez v19, :cond_135
+    if-nez v19, :cond_9
 
     .line 349
     sget-object v19, Lcom/android/server/CommonTimeManagementService;->TAG:Ljava/lang/String;
@@ -967,30 +967,30 @@
     move-object/from16 v0, p0
 
     iput-object v5, v0, Lcom/android/server/CommonTimeManagementService;->mCurIface:Ljava/lang/String;
-    :try_end_133
-    .catchall {:try_start_f4 .. :try_end_133} :catchall_ef
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto/16 :goto_8a
+    goto/16 :goto_3
 
     .line 353
-    :cond_135
+    :cond_9
     const/4 v7, 0x0
 
-    goto/16 :goto_8a
+    goto/16 :goto_3
 
     .line 358
-    :cond_138
+    :cond_a
     sget-byte v15, Lcom/android/server/CommonTimeManagementService;->BASE_SERVER_PRIO:B
 
-    goto/16 :goto_9e
+    goto/16 :goto_4
 
     .line 370
     .restart local v15       #newPrio:B
     .restart local v17       #res:I
-    :cond_13c
+    :cond_b
     sget v19, Lcom/android/server/CommonTimeManagementService;->NO_INTERFACE_TIMEOUT:I
 
-    if-ltz v19, :cond_d0
+    if-ltz v19, :cond_6
 
     .line 371
     move-object/from16 v0, p0
@@ -1014,7 +1014,7 @@
 
     move-object/from16 v19, v0
 
-    if-nez v19, :cond_d0
+    if-nez v19, :cond_6
 
     .line 373
     move-object/from16 v0, p0
@@ -1039,11 +1039,11 @@
 
     invoke-virtual/range {v19 .. v22}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto/16 :goto_d0
+    goto/16 :goto_5
 .end method
 
 .method private scheduleTimeConfigReconnect()V
-    .registers 6
+    .locals 5
 
     .prologue
     .line 261
@@ -1090,7 +1090,7 @@
 
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 9
+    .locals 5
     .parameter "fd"
     .parameter "pw"
     .parameter "args"
@@ -1109,7 +1109,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2d
+    if-eqz v0, :cond_0
 
     .line 186
     const-string v0, "Permission Denial: can\'t dump CommonTimeManagement service from from pid=%d, uid=%d"
@@ -1145,30 +1145,30 @@
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     .line 210
-    :goto_2c
+    :goto_0
     return-void
 
     .line 192
-    :cond_2d
+    :cond_0
     iget-boolean v0, p0, Lcom/android/server/CommonTimeManagementService;->mDetectedAtStartup:Z
 
-    if-nez v0, :cond_37
+    if-nez v0, :cond_1
 
     .line 193
     const-string v0, "Native Common Time service was not detected at startup.  Service is unavailable"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    goto :goto_2c
+    goto :goto_0
 
     .line 198
-    :cond_37
+    :cond_1
     iget-object v1, p0, Lcom/android/server/CommonTimeManagementService;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
     .line 199
-    :try_start_3a
+    :try_start_0
     const-string v0, "Current Common Time Management Service Config:"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
@@ -1184,11 +1184,11 @@
 
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService;->mCTConfig:Landroid/os/CommonTimeConfig;
 
-    if-nez v0, :cond_c3
+    if-nez v0, :cond_2
 
     const-string v0, "reconnecting"
 
-    :goto_4b
+    :goto_1
     aput-object v0, v3, v4
 
     invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
@@ -1208,11 +1208,11 @@
 
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService;->mCurIface:Ljava/lang/String;
 
-    if-nez v0, :cond_c6
+    if-nez v0, :cond_3
 
     const-string v0, "unbound"
 
-    :goto_60
+    :goto_2
     aput-object v0, v3, v4
 
     invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
@@ -1232,11 +1232,11 @@
 
     sget-boolean v0, Lcom/android/server/CommonTimeManagementService;->ALLOW_WIFI:Z
 
-    if-eqz v0, :cond_c9
+    if-eqz v0, :cond_4
 
     const-string v0, "yes"
 
-    :goto_75
+    :goto_3
     aput-object v0, v3, v4
 
     invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
@@ -1256,11 +1256,11 @@
 
     sget-boolean v0, Lcom/android/server/CommonTimeManagementService;->AUTO_DISABLE:Z
 
-    if-eqz v0, :cond_cc
+    if-eqz v0, :cond_5
 
     const-string v0, "yes"
 
-    :goto_8a
+    :goto_4
     aput-object v0, v3, v4
 
     invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
@@ -1318,47 +1318,47 @@
     .line 209
     monitor-exit v1
 
-    goto/16 :goto_2c
+    goto/16 :goto_0
 
-    :catchall_c0
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_c2
-    .catchall {:try_start_3a .. :try_end_c2} :catchall_c0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 200
-    :cond_c3
-    :try_start_c3
+    :cond_2
+    :try_start_1
     const-string v0, "alive"
 
-    goto :goto_4b
+    goto :goto_1
 
     .line 203
-    :cond_c6
+    :cond_3
     iget-object v0, p0, Lcom/android/server/CommonTimeManagementService;->mCurIface:Ljava/lang/String;
 
-    goto :goto_60
+    goto :goto_2
 
     .line 205
-    :cond_c9
+    :cond_4
     const-string v0, "no"
 
-    goto :goto_75
+    goto :goto_3
 
     .line 206
-    :cond_cc
+    :cond_5
     const-string v0, "no"
-    :try_end_ce
-    .catchall {:try_start_c3 .. :try_end_ce} :catchall_c0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_8a
+    goto :goto_4
 .end method
 
 .method systemReady()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 155
@@ -1368,7 +1368,7 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_10
+    if-nez v2, :cond_0
 
     .line 156
     sget-object v2, Lcom/android/server/CommonTimeManagementService;->TAG:Ljava/lang/String;
@@ -1378,11 +1378,11 @@
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 180
-    :goto_f
+    :goto_0
     return-void
 
     .line 161
-    :cond_10
+    :cond_0
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/server/CommonTimeManagementService;->mDetectedAtStartup:Z
@@ -1403,17 +1403,17 @@
     iput-object v2, p0, Lcom/android/server/CommonTimeManagementService;->mNetMgr:Landroid/os/INetworkManagementService;
 
     .line 169
-    :try_start_1f
+    :try_start_0
     iget-object v2, p0, Lcom/android/server/CommonTimeManagementService;->mNetMgr:Landroid/os/INetworkManagementService;
 
     iget-object v3, p0, Lcom/android/server/CommonTimeManagementService;->mIfaceObserver:Landroid/net/INetworkManagementEventObserver;
 
     invoke-interface {v2, v3}, Landroid/os/INetworkManagementService;->registerObserver(Landroid/net/INetworkManagementEventObserver;)V
-    :try_end_26
-    .catch Landroid/os/RemoteException; {:try_start_1f .. :try_end_26} :catch_3b
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 174
-    :goto_26
+    :goto_1
     new-instance v1, Landroid/content/IntentFilter;
 
     invoke-direct {v1}, Landroid/content/IntentFilter;-><init>()V
@@ -1434,12 +1434,12 @@
     .line 179
     invoke-direct {p0}, Lcom/android/server/CommonTimeManagementService;->connectToTimeConfig()V
 
-    goto :goto_f
+    goto :goto_0
 
     .line 171
     .end local v1           #filter:Landroid/content/IntentFilter;
-    :catch_3b
+    :catch_0
     move-exception v2
 
-    goto :goto_26
+    goto :goto_1
 .end method

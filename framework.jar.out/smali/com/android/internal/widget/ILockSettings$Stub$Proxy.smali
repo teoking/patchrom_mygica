@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 214
@@ -50,7 +50,7 @@
 .end method
 
 .method public checkPassword([BI)Z
-    .registers 9
+    .locals 6
     .parameter "hash"
     .parameter "userId"
     .annotation system Ldalvik/annotation/Throws;
@@ -75,7 +75,7 @@
 
     .line 388
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -100,18 +100,18 @@
 
     .line 393
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_22
-    .catchall {:try_start_9 .. :try_end_22} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 396
     .local v2, _result:Z
-    :cond_26
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 397
@@ -122,7 +122,7 @@
 
     .line 396
     .end local v2           #_result:Z
-    :catchall_2d
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -134,7 +134,7 @@
 .end method
 
 .method public checkPattern([BI)Z
-    .registers 9
+    .locals 6
     .parameter "hash"
     .parameter "userId"
     .annotation system Ldalvik/annotation/Throws;
@@ -159,7 +159,7 @@
 
     .line 353
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -184,18 +184,18 @@
 
     .line 358
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_22
-    .catchall {:try_start_9 .. :try_end_22} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_26
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 361
     .local v2, _result:Z
-    :cond_26
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 362
@@ -206,7 +206,7 @@
 
     .line 361
     .end local v2           #_result:Z
-    :catchall_2d
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -218,7 +218,7 @@
 .end method
 
 .method public getBoolean(Ljava/lang/String;ZI)Z
-    .registers 11
+    .locals 7
     .parameter "key"
     .parameter "defaultValue"
     .parameter "userId"
@@ -246,7 +246,7 @@
 
     .line 277
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -255,11 +255,11 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 279
-    if-eqz p2, :cond_32
+    if-eqz p2, :cond_0
 
     move v4, v2
 
-    :goto_15
+    :goto_0
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 280
@@ -279,16 +279,16 @@
 
     .line 283
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_28
-    .catchall {:try_start_a .. :try_end_28} :catchall_36
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v4
 
-    if-eqz v4, :cond_34
+    if-eqz v4, :cond_1
 
     .line 286
     .local v2, _result:Z
-    :goto_2b
+    :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 287
@@ -298,20 +298,20 @@
     return v2
 
     .end local v2           #_result:Z
-    :cond_32
+    :cond_0
     move v4, v3
 
     .line 279
-    goto :goto_15
+    goto :goto_0
 
-    :cond_34
+    :cond_1
     move v2, v3
 
     .line 283
-    goto :goto_2b
+    goto :goto_1
 
     .line 286
-    :catchall_36
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -323,7 +323,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 218
@@ -333,7 +333,7 @@
 .end method
 
 .method public getLong(Ljava/lang/String;JI)J
-    .registers 12
+    .locals 7
     .parameter "key"
     .parameter "defaultValue"
     .parameter "userId"
@@ -357,7 +357,7 @@
 
     .line 297
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v4, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -385,8 +385,8 @@
 
     .line 303
     invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
-    :try_end_23
-    .catchall {:try_start_8 .. :try_end_23} :catchall_2b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v2
 
@@ -402,7 +402,7 @@
 
     .line 306
     .end local v2           #_result:J
-    :catchall_2b
+    :catchall_0
     move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -414,7 +414,7 @@
 .end method
 
 .method public getString(Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
-    .registers 10
+    .locals 6
     .parameter "key"
     .parameter "defaultValue"
     .parameter "userId"
@@ -438,7 +438,7 @@
 
     .line 317
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v3, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -466,8 +466,8 @@
 
     .line 323
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-    :try_end_23
-    .catchall {:try_start_8 .. :try_end_23} :catchall_2b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -483,7 +483,7 @@
 
     .line 326
     .end local v2           #_result:Ljava/lang/String;
-    :catchall_2b
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -495,7 +495,7 @@
 .end method
 
 .method public havePassword(I)Z
-    .registers 8
+    .locals 6
     .parameter "userId"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -519,7 +519,7 @@
 
     .line 425
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -541,18 +541,18 @@
 
     .line 429
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1f
-    .catchall {:try_start_9 .. :try_end_1f} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_23
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 432
     .local v2, _result:Z
-    :cond_23
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 433
@@ -563,7 +563,7 @@
 
     .line 432
     .end local v2           #_result:Z
-    :catchall_2a
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -575,7 +575,7 @@
 .end method
 
 .method public havePattern(I)Z
-    .registers 8
+    .locals 6
     .parameter "userId"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -599,7 +599,7 @@
 
     .line 407
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_9
+    :try_start_0
     const-string v3, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -621,18 +621,18 @@
 
     .line 411
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_1f
-    .catchall {:try_start_9 .. :try_end_1f} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
-    if-eqz v3, :cond_23
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
     .line 414
     .local v2, _result:Z
-    :cond_23
+    :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
     .line 415
@@ -643,7 +643,7 @@
 
     .line 414
     .end local v2           #_result:Z
-    :catchall_2a
+    :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -655,7 +655,7 @@
 .end method
 
 .method public removeUser(I)V
-    .registers 7
+    .locals 5
     .parameter "userId"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -677,7 +677,7 @@
 
     .line 442
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -696,8 +696,8 @@
 
     .line 445
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1b
-    .catchall {:try_start_8 .. :try_end_1b} :catchall_22
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 448
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -709,7 +709,7 @@
     return-void
 
     .line 448
-    :catchall_22
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -721,7 +721,7 @@
 .end method
 
 .method public setBoolean(Ljava/lang/String;ZI)V
-    .registers 9
+    .locals 5
     .parameter "key"
     .parameter "value"
     .parameter "userId"
@@ -749,7 +749,7 @@
 
     .line 225
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_a
+    :try_start_0
     const-string v4, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -758,9 +758,9 @@
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 227
-    if-eqz p2, :cond_2b
+    if-eqz p2, :cond_0
 
-    :goto_14
+    :goto_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 228
@@ -777,8 +777,8 @@
 
     .line 230
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_24
-    .catchall {:try_start_a .. :try_end_24} :catchall_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 233
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -789,14 +789,14 @@
     .line 236
     return-void
 
-    :cond_2b
+    :cond_0
     move v2, v3
 
     .line 227
-    goto :goto_14
+    goto :goto_0
 
     .line 233
-    :catchall_2d
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -808,7 +808,7 @@
 .end method
 
 .method public setLockPassword([BI)V
-    .registers 8
+    .locals 5
     .parameter "hash"
     .parameter "userId"
     .annotation system Ldalvik/annotation/Throws;
@@ -831,7 +831,7 @@
 
     .line 371
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -853,8 +853,8 @@
 
     .line 375
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1e
-    .catchall {:try_start_8 .. :try_end_1e} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 378
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -866,7 +866,7 @@
     return-void
 
     .line 378
-    :catchall_25
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -878,7 +878,7 @@
 .end method
 
 .method public setLockPattern([BI)V
-    .registers 8
+    .locals 5
     .parameter "hash"
     .parameter "userId"
     .annotation system Ldalvik/annotation/Throws;
@@ -901,7 +901,7 @@
 
     .line 336
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -923,8 +923,8 @@
 
     .line 340
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_1d
-    .catchall {:try_start_8 .. :try_end_1d} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 343
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -936,7 +936,7 @@
     return-void
 
     .line 343
-    :catchall_24
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -948,7 +948,7 @@
 .end method
 
 .method public setLong(Ljava/lang/String;JI)V
-    .registers 10
+    .locals 5
     .parameter "key"
     .parameter "value"
     .parameter "userId"
@@ -972,7 +972,7 @@
 
     .line 242
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -997,8 +997,8 @@
 
     .line 247
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 250
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1010,7 +1010,7 @@
     return-void
 
     .line 250
-    :catchall_27
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1022,7 +1022,7 @@
 .end method
 
 .method public setString(Ljava/lang/String;Ljava/lang/String;I)V
-    .registers 9
+    .locals 5
     .parameter "key"
     .parameter "value"
     .parameter "userId"
@@ -1046,7 +1046,7 @@
 
     .line 259
     .local v1, _reply:Landroid/os/Parcel;
-    :try_start_8
+    :try_start_0
     const-string v2, "com.android.internal.widget.ILockSettings"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -1071,8 +1071,8 @@
 
     .line 264
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_20
-    .catchall {:try_start_8 .. :try_end_20} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 267
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -1084,7 +1084,7 @@
     return-void
 
     .line 267
-    :catchall_27
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V

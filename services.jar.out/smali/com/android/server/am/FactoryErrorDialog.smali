@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/CharSequence;)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "msg"
 
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public onStop()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 37

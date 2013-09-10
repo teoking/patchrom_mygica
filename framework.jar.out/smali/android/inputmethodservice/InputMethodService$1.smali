@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/inputmethodservice/InputMethodService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onComputeInternalInsets(Landroid/view/ViewTreeObserver$InternalInsetsInfo;)V
-    .registers 6
+    .locals 4
     .parameter "info"
 
     .prologue
@@ -49,7 +49,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2c
+    if-eqz v1, :cond_0
 
     .line 329
     iget-object v1, p0, Landroid/inputmethodservice/InputMethodService$1;->this$0:Landroid/inputmethodservice/InputMethodService;
@@ -92,11 +92,11 @@
 
     .line 341
     .end local v0           #decor:Landroid/view/View;
-    :goto_2b
+    :goto_0
     return-void
 
     .line 335
-    :cond_2c
+    :cond_0
     iget-object v1, p0, Landroid/inputmethodservice/InputMethodService$1;->this$0:Landroid/inputmethodservice/InputMethodService;
 
     iget-object v2, p0, Landroid/inputmethodservice/InputMethodService$1;->this$0:Landroid/inputmethodservice/InputMethodService;
@@ -147,5 +147,5 @@
 
     invoke-virtual {p1, v1}, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->setTouchableInsets(I)V
 
-    goto :goto_2b
+    goto :goto_0
 .end method

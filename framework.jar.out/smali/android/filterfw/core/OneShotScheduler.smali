@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/filterfw/core/FilterGraph;)V
-    .registers 4
+    .locals 2
     .parameter "graph"
 
     .prologue
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public reset()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 48
@@ -73,7 +73,7 @@
 .end method
 
 .method public scheduleNextNode()Landroid/filterfw/core/Filter;
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v2, 0x0
@@ -83,20 +83,20 @@
 
     .line 57
     .local v1, first:Landroid/filterfw/core/Filter;
-    :cond_2
-    :goto_2
+    :cond_0
+    :goto_0
     invoke-super {p0}, Landroid/filterfw/core/RoundRobinScheduler;->scheduleNextNode()Landroid/filterfw/core/Filter;
 
     move-result-object v0
 
     .line 58
     .local v0, filter:Landroid/filterfw/core/Filter;
-    if-nez v0, :cond_15
+    if-nez v0, :cond_3
 
     .line 59
     iget-boolean v3, p0, Landroid/filterfw/core/OneShotScheduler;->mLogVerbose:Z
 
-    if-eqz v3, :cond_13
+    if-eqz v3, :cond_1
 
     const-string v3, "OneShotScheduler"
 
@@ -104,18 +104,18 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_13
+    :cond_1
     move-object v0, v2
 
     .line 76
     .end local v0           #filter:Landroid/filterfw/core/Filter;
-    :cond_14
-    :goto_14
+    :cond_2
+    :goto_1
     return-object v0
 
     .line 62
     .restart local v0       #filter:Landroid/filterfw/core/Filter;
-    :cond_15
+    :cond_3
     iget-object v3, p0, Landroid/filterfw/core/OneShotScheduler;->scheduled:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Landroid/filterfw/core/Filter;->getName()Ljava/lang/String;
@@ -126,14 +126,14 @@
 
     move-result v3
 
-    if-nez v3, :cond_64
+    if-nez v3, :cond_5
 
     .line 63
     invoke-virtual {v0}, Landroid/filterfw/core/Filter;->getNumberOfConnectedInputs()I
 
     move-result v2
 
-    if-nez v2, :cond_35
+    if-nez v2, :cond_4
 
     .line 64
     iget-object v2, p0, Landroid/filterfw/core/OneShotScheduler;->scheduled:Ljava/util/HashMap;
@@ -151,10 +151,10 @@
     invoke-virtual {v2, v3, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 65
-    :cond_35
+    :cond_4
     iget-boolean v2, p0, Landroid/filterfw/core/OneShotScheduler;->mLogVerbose:Z
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_2
 
     const-string v2, "OneShotScheduler"
 
@@ -196,16 +196,16 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_14
+    goto :goto_1
 
     .line 69
-    :cond_64
-    if-ne v1, v0, :cond_73
+    :cond_5
+    if-ne v1, v0, :cond_7
 
     .line 75
     iget-boolean v3, p0, Landroid/filterfw/core/OneShotScheduler;->mLogVerbose:Z
 
-    if-eqz v3, :cond_71
+    if-eqz v3, :cond_6
 
     const-string v3, "OneShotScheduler"
 
@@ -213,17 +213,17 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_71
+    :cond_6
     move-object v0, v2
 
     .line 76
-    goto :goto_14
+    goto :goto_1
 
     .line 73
-    :cond_73
-    if-nez v1, :cond_2
+    :cond_7
+    if-nez v1, :cond_0
 
     move-object v1, v0
 
-    goto :goto_2
+    goto :goto_0
 .end method

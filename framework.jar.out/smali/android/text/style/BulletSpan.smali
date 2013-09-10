@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 35
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 3
+    .locals 1
     .parameter "gapWidth"
 
     .prologue
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .registers 4
+    .locals 1
     .parameter "gapWidth"
     .parameter "color"
 
@@ -108,7 +108,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "src"
 
     .prologue
@@ -127,11 +127,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_10
+    :goto_0
     iput-boolean v0, p0, Landroid/text/style/BulletSpan;->mWantColor:Z
 
     .line 59
@@ -145,16 +145,16 @@
     return-void
 
     .line 58
-    :cond_19
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 67
@@ -164,7 +164,7 @@
 .end method
 
 .method public drawLeadingMargin(Landroid/graphics/Canvas;Landroid/graphics/Paint;IIIIILjava/lang/CharSequence;IIZLandroid/text/Layout;)V
-    .registers 21
+    .locals 8
     .parameter "c"
     .parameter "p"
     .parameter "x"
@@ -191,7 +191,7 @@
 
     move/from16 v0, p9
 
-    if-ne v3, v0, :cond_62
+    if-ne v3, v0, :cond_3
 
     .line 85
     invoke-virtual {p2}, Landroid/graphics/Paint;->getStyle()Landroid/graphics/Paint$Style;
@@ -206,7 +206,7 @@
     .local v1, oldcolor:I
     iget-boolean v3, p0, Landroid/text/style/BulletSpan;->mWantColor:Z
 
-    if-eqz v3, :cond_1e
+    if-eqz v3, :cond_0
 
     .line 89
     invoke-virtual {p2}, Landroid/graphics/Paint;->getColor()I
@@ -219,7 +219,7 @@
     invoke-virtual {p2, v3}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 93
-    :cond_1e
+    :cond_0
     sget-object v3, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
     invoke-virtual {p2, v3}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
@@ -229,12 +229,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_63
+    if-eqz v3, :cond_4
 
     .line 96
     sget-object v3, Landroid/text/style/BulletSpan;->sBulletPath:Landroid/graphics/Path;
 
-    if-nez v3, :cond_40
+    if-nez v3, :cond_1
 
     .line 97
     new-instance v3, Landroid/graphics/Path;
@@ -257,7 +257,7 @@
     invoke-virtual {v3, v4, v5, v6, v7}, Landroid/graphics/Path;->addCircle(FFFLandroid/graphics/Path$Direction;)V
 
     .line 102
-    :cond_40
+    :cond_1
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 103
@@ -286,28 +286,28 @@
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 110
-    :goto_58
+    :goto_0
     iget-boolean v3, p0, Landroid/text/style/BulletSpan;->mWantColor:Z
 
-    if-eqz v3, :cond_5f
+    if-eqz v3, :cond_2
 
     .line 111
     invoke-virtual {p2, v1}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 114
-    :cond_5f
+    :cond_2
     invoke-virtual {p2, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     .line 116
     .end local v1           #oldcolor:I
     .end local v2           #style:Landroid/graphics/Paint$Style;
-    :cond_62
+    :cond_3
     return-void
 
     .line 107
     .restart local v1       #oldcolor:I
     .restart local v2       #style:Landroid/graphics/Paint$Style;
-    :cond_63
+    :cond_4
     mul-int/lit8 v3, p4, 0x3
 
     add-int/2addr v3, p3
@@ -326,11 +326,11 @@
 
     invoke-virtual {p1, v3, v4, v5, p2}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
-    goto :goto_58
+    goto :goto_0
 .end method
 
 .method public getLeadingMargin(Z)I
-    .registers 3
+    .locals 1
     .parameter "first"
 
     .prologue
@@ -343,7 +343,7 @@
 .end method
 
 .method public getSpanTypeId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 63
@@ -353,7 +353,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 
@@ -366,11 +366,11 @@
     .line 72
     iget-boolean v0, p0, Landroid/text/style/BulletSpan;->mWantColor:Z
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_a
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 73
@@ -382,8 +382,8 @@
     return-void
 
     .line 72
-    :cond_13
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method

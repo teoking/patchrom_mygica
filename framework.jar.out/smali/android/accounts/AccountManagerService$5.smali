@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManagerService;Landroid/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;ZZLjava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;)V
-    .registers 11
+    .locals 0
     .parameter
     .parameter "x0"
     .parameter "x1"
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 7
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -88,7 +88,7 @@
 .end method
 
 .method protected toDebugString(J)Ljava/lang/String;
-    .registers 6
+    .locals 3
     .parameter "now"
 
     .prologue
@@ -131,7 +131,7 @@
 
     iget-object v0, p0, Landroid/accounts/AccountManagerService$5;->val$requiredFeatures:[Ljava/lang/String;
 
-    if-eqz v0, :cond_3a
+    if-eqz v0, :cond_0
 
     const-string v0, ","
 
@@ -141,7 +141,7 @@
 
     move-result-object v0
 
-    :goto_31
+    :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
@@ -152,8 +152,8 @@
 
     return-object v0
 
-    :cond_3a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_31
+    goto :goto_0
 .end method

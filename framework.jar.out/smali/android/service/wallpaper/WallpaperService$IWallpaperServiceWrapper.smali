@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/service/wallpaper/WallpaperService;Landroid/service/wallpaper/WallpaperService;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "context"
 
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public attach(Landroid/service/wallpaper/IWallpaperConnection;Landroid/os/IBinder;IZII)V
-    .registers 16
+    .locals 9
     .parameter "conn"
     .parameter "windowToken"
     .parameter "windowType"

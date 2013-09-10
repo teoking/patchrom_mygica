@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/app/MediaRouteButton;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/app/MediaRouteButton;Landroid/app/MediaRouteButton$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public onRouteAdded(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
-    .registers 4
+    .locals 1
     .parameter "router"
     .parameter "info"
 
@@ -62,7 +62,7 @@
 .end method
 
 .method public onRouteGrouped(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;Landroid/media/MediaRouter$RouteGroup;I)V
-    .registers 6
+    .locals 1
     .parameter "router"
     .parameter "info"
     .parameter "group"
@@ -79,7 +79,7 @@
 .end method
 
 .method public onRouteRemoved(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
-    .registers 4
+    .locals 1
     .parameter "router"
     .parameter "info"
 
@@ -94,7 +94,7 @@
 .end method
 
 .method public onRouteSelected(Landroid/media/MediaRouter;ILandroid/media/MediaRouter$RouteInfo;)V
-    .registers 5
+    .locals 1
     .parameter "router"
     .parameter "type"
     .parameter "info"
@@ -110,7 +110,7 @@
 .end method
 
 .method public onRouteUngrouped(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;Landroid/media/MediaRouter$RouteGroup;)V
-    .registers 5
+    .locals 1
     .parameter "router"
     .parameter "info"
     .parameter "group"
@@ -126,7 +126,7 @@
 .end method
 
 .method public onRouteUnselected(Landroid/media/MediaRouter;ILandroid/media/MediaRouter$RouteInfo;)V
-    .registers 5
+    .locals 1
     .parameter "router"
     .parameter "type"
     .parameter "info"

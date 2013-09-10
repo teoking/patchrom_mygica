@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/am/ActivityRecord;Ljava/lang/String;IILandroid/content/Intent;)V
-    .registers 6
+    .locals 0
     .parameter "from"
     .parameter "resultWho"
     .parameter "requestCode"

@@ -79,7 +79,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 48
@@ -90,7 +90,7 @@
 .end method
 
 .method public static getMediaScannerUri()Landroid/net/Uri;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 2058
@@ -104,7 +104,7 @@
 .end method
 
 .method public static getVersion(Landroid/content/Context;)Ljava/lang/String;
-    .registers 8
+    .locals 7
     .parameter "context"
 
     .prologue
@@ -133,22 +133,22 @@
 
     .line 2086
     .local v6, c:Landroid/database/Cursor;
-    if-eqz v6, :cond_22
+    if-eqz v6, :cond_0
 
     .line 2088
-    :try_start_14
+    :try_start_0
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
-    if-eqz v0, :cond_23
+    if-eqz v0, :cond_1
 
     .line 2089
     const/4 v0, 0x0
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-    :try_end_1e
-    .catchall {:try_start_14 .. :try_end_1e} :catchall_27
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
@@ -156,17 +156,17 @@
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     .line 2095
-    :cond_22
-    :goto_22
+    :cond_0
+    :goto_0
     return-object v2
 
     .line 2092
-    :cond_23
+    :cond_1
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    goto :goto_22
+    goto :goto_0
 
-    :catchall_27
+    :catchall_0
     move-exception v0
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/hardware/SensorListener;)V
-    .registers 3
+    .locals 1
     .parameter "target"
 
     .prologue
@@ -63,82 +63,82 @@
 .end method
 
 .method private static getLegacySensorType(I)I
-    .registers 2
+    .locals 1
     .parameter "type"
 
     .prologue
     .line 354
-    packed-switch p0, :pswitch_data_10
+    packed-switch p0, :pswitch_data_0
 
     .line 364
-    :pswitch_3
+    :pswitch_0
     const/4 v0, 0x0
 
-    :goto_4
+    :goto_0
     return v0
 
     .line 356
-    :pswitch_5
+    :pswitch_1
     const/4 v0, 0x2
 
-    goto :goto_4
+    goto :goto_0
 
     .line 358
-    :pswitch_7
+    :pswitch_2
     const/16 v0, 0x8
 
-    goto :goto_4
+    goto :goto_0
 
     .line 360
-    :pswitch_a
+    :pswitch_3
     const/16 v0, 0x80
 
-    goto :goto_4
+    goto :goto_0
 
     .line 362
-    :pswitch_d
+    :pswitch_4
     const/4 v0, 0x4
 
-    goto :goto_4
+    goto :goto_0
 
     .line 354
     nop
 
-    :pswitch_data_10
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_5
-        :pswitch_7
-        :pswitch_a
+        :pswitch_1
+        :pswitch_2
         :pswitch_3
-        :pswitch_3
-        :pswitch_3
-        :pswitch_d
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_4
     .end packed-switch
 .end method
 
 .method private static hasOrientationSensor(I)Z
-    .registers 2
+    .locals 1
     .parameter "sensors"
 
     .prologue
     .line 244
     and-int/lit16 v0, p0, 0x81
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method private mapSensorDataToWindow(I[FI)V
-    .registers 12
+    .locals 8
     .parameter "sensor"
     .parameter "values"
     .parameter "orientation"
@@ -165,10 +165,10 @@
 
     .line 292
     .local v2, z:F
-    sparse-switch p1, :sswitch_data_72
+    sparse-switch p1, :sswitch_data_0
 
     .line 307
-    :goto_e
+    :goto_0
     aput v0, p2, v4
 
     .line 308
@@ -195,17 +195,17 @@
     .line 314
     and-int/lit8 v3, p3, 0x1
 
-    if-eqz v3, :cond_24
+    if-eqz v3, :cond_0
 
     .line 316
-    sparse-switch p1, :sswitch_data_84
+    sparse-switch p1, :sswitch_data_1
 
     .line 331
-    :cond_24
-    :goto_24
+    :cond_0
+    :goto_1
     and-int/lit8 v3, p3, 0x2
 
-    if-eqz v3, :cond_31
+    if-eqz v3, :cond_1
 
     .line 332
     aget v0, p2, v4
@@ -217,22 +217,22 @@
     aget v2, p2, v6
 
     .line 336
-    sparse-switch p1, :sswitch_data_96
+    sparse-switch p1, :sswitch_data_2
 
     .line 351
-    :cond_31
-    :goto_31
+    :cond_1
+    :goto_2
     return-void
 
     .line 295
-    :sswitch_32
+    :sswitch_0
     neg-float v2, v2
 
     .line 296
-    goto :goto_e
+    goto :goto_0
 
     .line 298
-    :sswitch_34
+    :sswitch_1
     neg-float v0, v0
 
     .line 299
@@ -242,19 +242,19 @@
     neg-float v2, v2
 
     .line 301
-    goto :goto_e
+    goto :goto_0
 
     .line 303
-    :sswitch_38
+    :sswitch_2
     neg-float v0, v0
 
     .line 304
     neg-float v1, v1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 319
-    :sswitch_3b
+    :sswitch_3
     neg-float v3, v1
 
     aput v3, p2, v4
@@ -265,19 +265,19 @@
     .line 321
     aput v2, p2, v6
 
-    goto :goto_24
+    goto :goto_1
 
     .line 325
-    :sswitch_43
+    :sswitch_4
     const/high16 v3, 0x4387
 
     cmpg-float v3, v0, v3
 
-    if-gez v3, :cond_54
+    if-gez v3, :cond_2
 
     const/16 v3, 0x5a
 
-    :goto_4b
+    :goto_3
     int-to-float v3, v3
 
     add-float/2addr v3, v0
@@ -290,16 +290,16 @@
     .line 327
     aput v1, p2, v6
 
-    goto :goto_24
+    goto :goto_1
 
     .line 325
-    :cond_54
+    :cond_2
     const/16 v3, -0x10e
 
-    goto :goto_4b
+    goto :goto_3
 
     .line 339
-    :sswitch_57
+    :sswitch_5
     neg-float v3, v0
 
     aput v3, p2, v4
@@ -312,17 +312,17 @@
     .line 341
     aput v2, p2, v6
 
-    goto :goto_31
+    goto :goto_2
 
     .line 345
-    :sswitch_60
+    :sswitch_6
     cmpl-float v3, v0, v7
 
-    if-ltz v3, :cond_6f
+    if-ltz v3, :cond_3
 
     sub-float v3, v0, v7
 
-    :goto_66
+    :goto_4
     aput v3, p2, v4
 
     .line 346
@@ -335,66 +335,66 @@
 
     aput v3, p2, v6
 
-    goto :goto_31
+    goto :goto_2
 
     .line 345
-    :cond_6f
+    :cond_3
     add-float v3, v0, v7
 
-    goto :goto_66
+    goto :goto_4
 
     .line 292
-    :sswitch_data_72
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_32
-        0x2 -> :sswitch_34
-        0x8 -> :sswitch_38
-        0x80 -> :sswitch_32
+        0x1 -> :sswitch_0
+        0x2 -> :sswitch_1
+        0x8 -> :sswitch_2
+        0x80 -> :sswitch_0
     .end sparse-switch
 
     .line 316
-    :sswitch_data_84
+    :sswitch_data_1
     .sparse-switch
-        0x1 -> :sswitch_43
-        0x2 -> :sswitch_3b
-        0x8 -> :sswitch_3b
-        0x80 -> :sswitch_43
+        0x1 -> :sswitch_4
+        0x2 -> :sswitch_3
+        0x8 -> :sswitch_3
+        0x80 -> :sswitch_4
     .end sparse-switch
 
     .line 336
-    :sswitch_data_96
+    :sswitch_data_2
     .sparse-switch
-        0x1 -> :sswitch_60
-        0x2 -> :sswitch_57
-        0x8 -> :sswitch_57
-        0x80 -> :sswitch_60
+        0x1 -> :sswitch_6
+        0x2 -> :sswitch_5
+        0x8 -> :sswitch_5
+        0x80 -> :sswitch_6
     .end sparse-switch
 .end method
 
 
 # virtual methods
 .method hasSensors()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 240
     iget v0, p0, Landroid/hardware/LegacySensorManager$LegacyListener;->mSensors:I
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public onAccuracyChanged(Landroid/hardware/Sensor;I)V
-    .registers 5
+    .locals 2
     .parameter "sensor"
     .parameter "accuracy"
 
@@ -412,22 +412,22 @@
     move-result v1
 
     invoke-interface {v0, v1, p2}, Landroid/hardware/SensorListener;->onAccuracyChanged(II)V
-    :try_end_d
-    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_d} :catch_e
+    :try_end_0
+    .catch Ljava/lang/AbstractMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 255
-    :goto_d
+    :goto_0
     return-void
 
     .line 251
-    :catch_e
+    :catch_0
     move-exception v0
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public onSensorChanged(Landroid/hardware/SensorEvent;)V
-    .registers 11
+    .locals 9
     .parameter "event"
 
     .prologue
@@ -486,14 +486,14 @@
     .line 265
     const/4 v3, 0x3
 
-    if-ne v1, v3, :cond_50
+    if-ne v1, v3, :cond_2
 
     .line 266
     iget v3, p0, Landroid/hardware/LegacySensorManager$LegacyListener;->mSensors:I
 
     and-int/lit16 v3, v3, 0x80
 
-    if-eqz v3, :cond_38
+    if-eqz v3, :cond_0
 
     .line 267
     iget-object v3, p0, Landroid/hardware/LegacySensorManager$LegacyListener;->mTarget:Landroid/hardware/SensorListener;
@@ -503,12 +503,12 @@
     invoke-interface {v3, v4, v2}, Landroid/hardware/SensorListener;->onSensorChanged(I[F)V
 
     .line 269
-    :cond_38
+    :cond_0
     iget v3, p0, Landroid/hardware/LegacySensorManager$LegacyListener;->mSensors:I
 
     and-int/lit8 v3, v3, 0x1
 
-    if-eqz v3, :cond_4f
+    if-eqz v3, :cond_1
 
     .line 270
     iget-object v3, p0, Landroid/hardware/LegacySensorManager$LegacyListener;->mYawfilter:Landroid/hardware/LegacySensorManager$LmsFilter;
@@ -529,21 +529,21 @@
     invoke-interface {v3, v8, v2}, Landroid/hardware/SensorListener;->onSensorChanged(I[F)V
 
     .line 276
-    :cond_4f
-    :goto_4f
+    :cond_1
+    :goto_0
     return-void
 
     .line 274
-    :cond_50
+    :cond_2
     iget-object v3, p0, Landroid/hardware/LegacySensorManager$LegacyListener;->mTarget:Landroid/hardware/SensorListener;
 
     invoke-interface {v3, v0, v2}, Landroid/hardware/SensorListener;->onSensorChanged(I[F)V
 
-    goto :goto_4f
+    goto :goto_0
 .end method
 
 .method registerSensor(I)Z
-    .registers 5
+    .locals 3
     .parameter "legacyType"
 
     .prologue
@@ -554,15 +554,15 @@
 
     and-int/2addr v2, p1
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_1
 
     .line 225
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return v1
 
     .line 220
-    :cond_7
+    :cond_1
     iget v2, p0, Landroid/hardware/LegacySensorManager$LegacyListener;->mSensors:I
 
     invoke-static {v2}, Landroid/hardware/LegacySensorManager$LegacyListener;->hasOrientationSensor(I)Z
@@ -578,23 +578,23 @@
     iput v2, p0, Landroid/hardware/LegacySensorManager$LegacyListener;->mSensors:I
 
     .line 222
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_2
 
     invoke-static {p1}, Landroid/hardware/LegacySensorManager$LegacyListener;->hasOrientationSensor(I)Z
 
     move-result v2
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_0
 
     .line 225
-    :cond_1a
+    :cond_2
     const/4 v1, 0x1
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method unregisterSensor(I)Z
-    .registers 5
+    .locals 3
     .parameter "legacyType"
 
     .prologue
@@ -605,15 +605,15 @@
 
     and-int/2addr v1, p1
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_1
 
     .line 236
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return v0
 
     .line 232
-    :cond_7
+    :cond_1
     iget v1, p0, Landroid/hardware/LegacySensorManager$LegacyListener;->mSensors:I
 
     xor-int/lit8 v2, p1, -0x1
@@ -627,7 +627,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1c
+    if-eqz v1, :cond_2
 
     iget v1, p0, Landroid/hardware/LegacySensorManager$LegacyListener;->mSensors:I
 
@@ -635,11 +635,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_0
 
     .line 236
-    :cond_1c
+    :cond_2
     const/4 v0, 0x1
 
-    goto :goto_6
+    goto :goto_0
 .end method

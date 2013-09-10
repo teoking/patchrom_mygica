@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(JJJ)V
-    .registers 7
+    .locals 0
     .parameter "bucketDuration"
     .parameter "rotateAgeMillis"
     .parameter "deleteAgeMillis"

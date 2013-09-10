@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 29
@@ -17,7 +17,7 @@
 
 # virtual methods
 .method public onBackup(Landroid/os/ParcelFileDescriptor;Landroid/app/backup/BackupDataOutput;Landroid/os/ParcelFileDescriptor;)V
-    .registers 4
+    .locals 0
     .parameter "oldState"
     .parameter "data"
     .parameter "newState"
@@ -33,7 +33,7 @@
 .end method
 
 .method public onRestore(Landroid/app/backup/BackupDataInput;ILandroid/os/ParcelFileDescriptor;)V
-    .registers 4
+    .locals 0
     .parameter "data"
     .parameter "appVersionCode"
     .parameter "newState"

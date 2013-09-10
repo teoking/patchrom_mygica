@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/view/menu/MenuItemImpl;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,13 +38,14 @@
 
 # virtual methods
 .method public onActionProviderVisibilityChanged(Z)V
-    .registers 4
+    .locals 2
     .parameter "isVisible"
 
     .prologue
     .line 600
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuItemImpl$1;->this$0:Lcom/android/internal/view/menu/MenuItemImpl;
 
+    #getter for: Lcom/android/internal/view/menu/MenuItemImpl;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
     invoke-static {v0}, Lcom/android/internal/view/menu/MenuItemImpl;->access$000(Lcom/android/internal/view/menu/MenuItemImpl;)Lcom/android/internal/view/menu/MenuBuilder;
 
     move-result-object v0

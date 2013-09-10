@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILandroid/database/Cursor;)V
-    .registers 5
+    .locals 1
     .parameter "context"
     .parameter "layout"
     .parameter "c"
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILandroid/database/Cursor;I)V
-    .registers 6
+    .locals 1
     .parameter "context"
     .parameter "layout"
     .parameter "c"
@@ -76,7 +76,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILandroid/database/Cursor;Z)V
-    .registers 6
+    .locals 1
     .parameter "context"
     .parameter "layout"
     .parameter "c"
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method public newDropDownView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
-    .registers 7
+    .locals 3
     .parameter "context"
     .parameter "cursor"
     .parameter "parent"
@@ -130,7 +130,7 @@
 .end method
 
 .method public newView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
-    .registers 7
+    .locals 3
     .parameter "context"
     .parameter "cursor"
     .parameter "parent"
@@ -151,7 +151,7 @@
 .end method
 
 .method public setDropDownViewResource(I)V
-    .registers 2
+    .locals 0
     .parameter "dropDownLayout"
 
     .prologue
@@ -163,7 +163,7 @@
 .end method
 
 .method public setViewResource(I)V
-    .registers 2
+    .locals 0
     .parameter "layout"
 
     .prologue

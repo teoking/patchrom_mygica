@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 460
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 41
@@ -71,7 +71,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .registers 4
+    .locals 2
     .parameter "size"
 
     .prologue
@@ -92,7 +92,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/ContentValues;)V
-    .registers 4
+    .locals 2
     .parameter "from"
 
     .prologue
@@ -113,7 +113,7 @@
 .end method
 
 .method private constructor <init>(Ljava/util/HashMap;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -139,7 +139,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/util/HashMap;Landroid/content/ContentValues$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -153,7 +153,7 @@
 
 # virtual methods
 .method public clear()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 219
@@ -166,7 +166,7 @@
 .end method
 
 .method public containsKey(Ljava/lang/String;)Z
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -181,7 +181,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 475
@@ -191,25 +191,25 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 4
+    .locals 2
     .parameter "object"
 
     .prologue
     .line 78
     instance-of v0, p1, Landroid/content/ContentValues;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     .line 79
     const/4 v0, 0x0
 
     .line 81
     .end local p1
-    :goto_5
+    :goto_0
     return v0
 
     .restart local p1
-    :cond_6
+    :cond_0
     iget-object v0, p0, Landroid/content/ContentValues;->mValues:Ljava/util/HashMap;
 
     check-cast p1, Landroid/content/ContentValues;
@@ -221,11 +221,11 @@
 
     move-result v0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public get(Ljava/lang/String;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -240,7 +240,7 @@
 .end method
 
 .method public getAsBoolean(Ljava/lang/String;)Ljava/lang/Boolean;
-    .registers 7
+    .locals 5
     .parameter "key"
 
     .prologue
@@ -253,26 +253,26 @@
 
     .line 413
     .local v1, value:Ljava/lang/Object;
-    :try_start_6
+    :try_start_0
     check-cast v1, Ljava/lang/Boolean;
-    :try_end_8
-    .catch Ljava/lang/ClassCastException; {:try_start_6 .. :try_end_8} :catch_9
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 421
     .end local v1           #value:Ljava/lang/Object;
-    :goto_8
+    :goto_0
     return-object v1
 
     .line 414
     .restart local v1       #value:Ljava/lang/Object;
-    :catch_9
+    :catch_0
     move-exception v0
 
     .line 415
     .local v0, e:Ljava/lang/ClassCastException;
     instance-of v2, v1, Ljava/lang/CharSequence;
 
-    if-eqz v2, :cond_17
+    if-eqz v2, :cond_0
 
     .line 416
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -283,13 +283,13 @@
 
     move-result-object v1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 417
-    :cond_17
+    :cond_0
     instance-of v2, v1, Ljava/lang/Number;
 
-    if-eqz v2, :cond_2b
+    if-eqz v2, :cond_2
 
     .line 418
     check-cast v1, Ljava/lang/Number;
@@ -299,25 +299,25 @@
 
     move-result v2
 
-    if-eqz v2, :cond_29
+    if-eqz v2, :cond_1
 
     const/4 v2, 0x1
 
-    :goto_24
+    :goto_1
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
 
-    goto :goto_8
+    goto :goto_0
 
-    :cond_29
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_24
+    goto :goto_1
 
     .line 420
     .restart local v1       #value:Ljava/lang/Object;
-    :cond_2b
+    :cond_2
     const-string v2, "ContentValues"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -353,11 +353,11 @@
     .line 421
     const/4 v1, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getAsByte(Ljava/lang/String;)Ljava/lang/Byte;
-    .registers 10
+    .locals 8
     .parameter "key"
 
     .prologue
@@ -372,9 +372,9 @@
 
     .line 338
     .local v3, value:Ljava/lang/Object;
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_0
 
-    :try_start_9
+    :try_start_0
     move-object v0, v3
 
     check-cast v0, Ljava/lang/Number;
@@ -386,50 +386,50 @@
     move-result v4
 
     invoke-static {v4}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
-    :try_end_14
-    .catch Ljava/lang/ClassCastException; {:try_start_9 .. :try_end_14} :catch_19
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v4
 
-    :goto_15
+    :goto_0
     move-object v5, v4
 
     .line 349
-    :goto_16
+    :goto_1
     return-object v5
 
-    :cond_17
+    :cond_0
     move-object v4, v5
 
     .line 338
-    goto :goto_15
+    goto :goto_0
 
     .line 339
-    :catch_19
+    :catch_0
     move-exception v1
 
     .line 340
     .local v1, e:Ljava/lang/ClassCastException;
     instance-of v4, v3, Ljava/lang/CharSequence;
 
-    if-eqz v4, :cond_4b
+    if-eqz v4, :cond_1
 
     .line 342
-    :try_start_1e
+    :try_start_1
     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
     invoke-static {v4}, Ljava/lang/Byte;->valueOf(Ljava/lang/String;)Ljava/lang/Byte;
-    :try_end_25
-    .catch Ljava/lang/NumberFormatException; {:try_start_1e .. :try_end_25} :catch_27
+    :try_end_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v5
 
-    goto :goto_16
+    goto :goto_1
 
     .line 343
-    :catch_27
+    :catch_1
     move-exception v2
 
     .line 344
@@ -466,11 +466,11 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_16
+    goto :goto_1
 
     .line 348
     .end local v2           #e2:Ljava/lang/NumberFormatException;
-    :cond_4b
+    :cond_1
     const-string v4, "ContentValues"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -503,11 +503,11 @@
 
     invoke-static {v4, v6, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_16
+    goto :goto_1
 .end method
 
 .method public getAsByteArray(Ljava/lang/String;)[B
-    .registers 4
+    .locals 2
     .parameter "key"
 
     .prologue
@@ -522,7 +522,7 @@
     .local v0, value:Ljava/lang/Object;
     instance-of v1, v0, [B
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_0
 
     .line 436
     check-cast v0, [B
@@ -531,18 +531,18 @@
     check-cast v0, [B
 
     .line 438
-    :goto_e
+    :goto_0
     return-object v0
 
     .restart local v0       #value:Ljava/lang/Object;
-    :cond_f
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public getAsDouble(Ljava/lang/String;)Ljava/lang/Double;
-    .registers 10
+    .locals 8
     .parameter "key"
 
     .prologue
@@ -557,9 +557,9 @@
 
     .line 363
     .local v3, value:Ljava/lang/Object;
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_0
 
-    :try_start_9
+    :try_start_0
     move-object v0, v3
 
     check-cast v0, Ljava/lang/Number;
@@ -571,50 +571,50 @@
     move-result-wide v6
 
     invoke-static {v6, v7}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
-    :try_end_14
-    .catch Ljava/lang/ClassCastException; {:try_start_9 .. :try_end_14} :catch_19
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v4
 
-    :goto_15
+    :goto_0
     move-object v5, v4
 
     .line 374
-    :goto_16
+    :goto_1
     return-object v5
 
-    :cond_17
+    :cond_0
     move-object v4, v5
 
     .line 363
-    goto :goto_15
+    goto :goto_0
 
     .line 364
-    :catch_19
+    :catch_0
     move-exception v1
 
     .line 365
     .local v1, e:Ljava/lang/ClassCastException;
     instance-of v4, v3, Ljava/lang/CharSequence;
 
-    if-eqz v4, :cond_4b
+    if-eqz v4, :cond_1
 
     .line 367
-    :try_start_1e
+    :try_start_1
     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
     invoke-static {v4}, Ljava/lang/Double;->valueOf(Ljava/lang/String;)Ljava/lang/Double;
-    :try_end_25
-    .catch Ljava/lang/NumberFormatException; {:try_start_1e .. :try_end_25} :catch_27
+    :try_end_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v5
 
-    goto :goto_16
+    goto :goto_1
 
     .line 368
-    :catch_27
+    :catch_1
     move-exception v2
 
     .line 369
@@ -651,11 +651,11 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_16
+    goto :goto_1
 
     .line 373
     .end local v2           #e2:Ljava/lang/NumberFormatException;
-    :cond_4b
+    :cond_1
     const-string v4, "ContentValues"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -688,11 +688,11 @@
 
     invoke-static {v4, v6, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_16
+    goto :goto_1
 .end method
 
 .method public getAsFloat(Ljava/lang/String;)Ljava/lang/Float;
-    .registers 10
+    .locals 8
     .parameter "key"
 
     .prologue
@@ -707,9 +707,9 @@
 
     .line 388
     .local v3, value:Ljava/lang/Object;
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_0
 
-    :try_start_9
+    :try_start_0
     move-object v0, v3
 
     check-cast v0, Ljava/lang/Number;
@@ -721,50 +721,50 @@
     move-result v4
 
     invoke-static {v4}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-    :try_end_14
-    .catch Ljava/lang/ClassCastException; {:try_start_9 .. :try_end_14} :catch_19
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v4
 
-    :goto_15
+    :goto_0
     move-object v5, v4
 
     .line 399
-    :goto_16
+    :goto_1
     return-object v5
 
-    :cond_17
+    :cond_0
     move-object v4, v5
 
     .line 388
-    goto :goto_15
+    goto :goto_0
 
     .line 389
-    :catch_19
+    :catch_0
     move-exception v1
 
     .line 390
     .local v1, e:Ljava/lang/ClassCastException;
     instance-of v4, v3, Ljava/lang/CharSequence;
 
-    if-eqz v4, :cond_4b
+    if-eqz v4, :cond_1
 
     .line 392
-    :try_start_1e
+    :try_start_1
     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
     invoke-static {v4}, Ljava/lang/Float;->valueOf(Ljava/lang/String;)Ljava/lang/Float;
-    :try_end_25
-    .catch Ljava/lang/NumberFormatException; {:try_start_1e .. :try_end_25} :catch_27
+    :try_end_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v5
 
-    goto :goto_16
+    goto :goto_1
 
     .line 393
-    :catch_27
+    :catch_1
     move-exception v2
 
     .line 394
@@ -801,11 +801,11 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_16
+    goto :goto_1
 
     .line 398
     .end local v2           #e2:Ljava/lang/NumberFormatException;
-    :cond_4b
+    :cond_1
     const-string v4, "ContentValues"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -838,11 +838,11 @@
 
     invoke-static {v4, v6, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_16
+    goto :goto_1
 .end method
 
 .method public getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
-    .registers 10
+    .locals 8
     .parameter "key"
 
     .prologue
@@ -857,9 +857,9 @@
 
     .line 288
     .local v3, value:Ljava/lang/Object;
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_0
 
-    :try_start_9
+    :try_start_0
     move-object v0, v3
 
     check-cast v0, Ljava/lang/Number;
@@ -871,50 +871,50 @@
     move-result v4
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-    :try_end_14
-    .catch Ljava/lang/ClassCastException; {:try_start_9 .. :try_end_14} :catch_19
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v4
 
-    :goto_15
+    :goto_0
     move-object v5, v4
 
     .line 299
-    :goto_16
+    :goto_1
     return-object v5
 
-    :cond_17
+    :cond_0
     move-object v4, v5
 
     .line 288
-    goto :goto_15
+    goto :goto_0
 
     .line 289
-    :catch_19
+    :catch_0
     move-exception v1
 
     .line 290
     .local v1, e:Ljava/lang/ClassCastException;
     instance-of v4, v3, Ljava/lang/CharSequence;
 
-    if-eqz v4, :cond_4b
+    if-eqz v4, :cond_1
 
     .line 292
-    :try_start_1e
+    :try_start_1
     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
-    :try_end_25
-    .catch Ljava/lang/NumberFormatException; {:try_start_1e .. :try_end_25} :catch_27
+    :try_end_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v5
 
-    goto :goto_16
+    goto :goto_1
 
     .line 293
-    :catch_27
+    :catch_1
     move-exception v2
 
     .line 294
@@ -951,11 +951,11 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_16
+    goto :goto_1
 
     .line 298
     .end local v2           #e2:Ljava/lang/NumberFormatException;
-    :cond_4b
+    :cond_1
     const-string v4, "ContentValues"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -988,11 +988,11 @@
 
     invoke-static {v4, v6, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_16
+    goto :goto_1
 .end method
 
 .method public getAsLong(Ljava/lang/String;)Ljava/lang/Long;
-    .registers 10
+    .locals 8
     .parameter "key"
 
     .prologue
@@ -1007,9 +1007,9 @@
 
     .line 263
     .local v3, value:Ljava/lang/Object;
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_0
 
-    :try_start_9
+    :try_start_0
     move-object v0, v3
 
     check-cast v0, Ljava/lang/Number;
@@ -1021,50 +1021,50 @@
     move-result-wide v6
 
     invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-    :try_end_14
-    .catch Ljava/lang/ClassCastException; {:try_start_9 .. :try_end_14} :catch_19
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v4
 
-    :goto_15
+    :goto_0
     move-object v5, v4
 
     .line 274
-    :goto_16
+    :goto_1
     return-object v5
 
-    :cond_17
+    :cond_0
     move-object v4, v5
 
     .line 263
-    goto :goto_15
+    goto :goto_0
 
     .line 264
-    :catch_19
+    :catch_0
     move-exception v1
 
     .line 265
     .local v1, e:Ljava/lang/ClassCastException;
     instance-of v4, v3, Ljava/lang/CharSequence;
 
-    if-eqz v4, :cond_4b
+    if-eqz v4, :cond_1
 
     .line 267
-    :try_start_1e
+    :try_start_1
     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
     invoke-static {v4}, Ljava/lang/Long;->valueOf(Ljava/lang/String;)Ljava/lang/Long;
-    :try_end_25
-    .catch Ljava/lang/NumberFormatException; {:try_start_1e .. :try_end_25} :catch_27
+    :try_end_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v5
 
-    goto :goto_16
+    goto :goto_1
 
     .line 268
-    :catch_27
+    :catch_1
     move-exception v2
 
     .line 269
@@ -1101,11 +1101,11 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_16
+    goto :goto_1
 
     .line 273
     .end local v2           #e2:Ljava/lang/NumberFormatException;
-    :cond_4b
+    :cond_1
     const-string v4, "ContentValues"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1138,11 +1138,11 @@
 
     invoke-static {v4, v6, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_16
+    goto :goto_1
 .end method
 
 .method public getAsShort(Ljava/lang/String;)Ljava/lang/Short;
-    .registers 10
+    .locals 8
     .parameter "key"
 
     .prologue
@@ -1157,9 +1157,9 @@
 
     .line 313
     .local v3, value:Ljava/lang/Object;
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_0
 
-    :try_start_9
+    :try_start_0
     move-object v0, v3
 
     check-cast v0, Ljava/lang/Number;
@@ -1171,50 +1171,50 @@
     move-result v4
 
     invoke-static {v4}, Ljava/lang/Short;->valueOf(S)Ljava/lang/Short;
-    :try_end_14
-    .catch Ljava/lang/ClassCastException; {:try_start_9 .. :try_end_14} :catch_19
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v4
 
-    :goto_15
+    :goto_0
     move-object v5, v4
 
     .line 324
-    :goto_16
+    :goto_1
     return-object v5
 
-    :cond_17
+    :cond_0
     move-object v4, v5
 
     .line 313
-    goto :goto_15
+    goto :goto_0
 
     .line 314
-    :catch_19
+    :catch_0
     move-exception v1
 
     .line 315
     .local v1, e:Ljava/lang/ClassCastException;
     instance-of v4, v3, Ljava/lang/CharSequence;
 
-    if-eqz v4, :cond_4b
+    if-eqz v4, :cond_1
 
     .line 317
-    :try_start_1e
+    :try_start_1
     invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
     invoke-static {v4}, Ljava/lang/Short;->valueOf(Ljava/lang/String;)Ljava/lang/Short;
-    :try_end_25
-    .catch Ljava/lang/NumberFormatException; {:try_start_1e .. :try_end_25} :catch_27
+    :try_end_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v5
 
-    goto :goto_16
+    goto :goto_1
 
     .line 318
-    :catch_27
+    :catch_1
     move-exception v2
 
     .line 319
@@ -1251,11 +1251,11 @@
 
     invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_16
+    goto :goto_1
 
     .line 323
     .end local v2           #e2:Ljava/lang/NumberFormatException;
-    :cond_4b
+    :cond_1
     const-string v4, "ContentValues"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1288,11 +1288,11 @@
 
     invoke-static {v4, v6, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_16
+    goto :goto_1
 .end method
 
 .method public getAsString(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "key"
 
     .prologue
@@ -1305,23 +1305,23 @@
 
     .line 251
     .local v0, value:Ljava/lang/Object;
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_c
+    :goto_0
     return-object v1
 
-    :cond_d
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
-    .registers 3
+    .locals 1
     .parameter "key"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1352,7 +1352,7 @@
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 86
@@ -1366,7 +1366,7 @@
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1389,7 +1389,7 @@
 .end method
 
 .method public put(Ljava/lang/String;Ljava/lang/Boolean;)V
-    .registers 4
+    .locals 1
     .parameter "key"
     .parameter "value"
 
@@ -1404,7 +1404,7 @@
 .end method
 
 .method public put(Ljava/lang/String;Ljava/lang/Byte;)V
-    .registers 4
+    .locals 1
     .parameter "key"
     .parameter "value"
 
@@ -1419,7 +1419,7 @@
 .end method
 
 .method public put(Ljava/lang/String;Ljava/lang/Double;)V
-    .registers 4
+    .locals 1
     .parameter "key"
     .parameter "value"
 
@@ -1434,7 +1434,7 @@
 .end method
 
 .method public put(Ljava/lang/String;Ljava/lang/Float;)V
-    .registers 4
+    .locals 1
     .parameter "key"
     .parameter "value"
 
@@ -1449,7 +1449,7 @@
 .end method
 
 .method public put(Ljava/lang/String;Ljava/lang/Integer;)V
-    .registers 4
+    .locals 1
     .parameter "key"
     .parameter "value"
 
@@ -1464,7 +1464,7 @@
 .end method
 
 .method public put(Ljava/lang/String;Ljava/lang/Long;)V
-    .registers 4
+    .locals 1
     .parameter "key"
     .parameter "value"
 
@@ -1479,7 +1479,7 @@
 .end method
 
 .method public put(Ljava/lang/String;Ljava/lang/Short;)V
-    .registers 4
+    .locals 1
     .parameter "key"
     .parameter "value"
 
@@ -1494,7 +1494,7 @@
 .end method
 
 .method public put(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "key"
     .parameter "value"
 
@@ -1509,7 +1509,7 @@
 .end method
 
 .method public put(Ljava/lang/String;[B)V
-    .registers 4
+    .locals 1
     .parameter "key"
     .parameter "value"
 
@@ -1524,7 +1524,7 @@
 .end method
 
 .method public putAll(Landroid/content/ContentValues;)V
-    .registers 4
+    .locals 2
     .parameter "other"
 
     .prologue
@@ -1540,7 +1540,7 @@
 .end method
 
 .method public putNull(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "key"
 
     .prologue
@@ -1556,7 +1556,7 @@
 .end method
 
 .method public putStringArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
-    .registers 4
+    .locals 1
     .parameter "key"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -1585,7 +1585,7 @@
 .end method
 
 .method public remove(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -1599,7 +1599,7 @@
 .end method
 
 .method public size()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 203
@@ -1613,7 +1613,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 7
+    .locals 6
 
     .prologue
     .line 508
@@ -1634,12 +1634,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_f
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_45
+    if-eqz v4, :cond_1
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1659,14 +1659,14 @@
 
     move-result v4
 
-    if-lez v4, :cond_2a
+    if-lez v4, :cond_0
 
     const-string v4, " "
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 512
-    :cond_2a
+    :cond_0
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -1691,12 +1691,12 @@
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_f
+    goto :goto_0
 
     .line 514
     .end local v1           #name:Ljava/lang/String;
     .end local v3           #value:Ljava/lang/String;
-    :cond_45
+    :cond_1
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
@@ -1705,7 +1705,7 @@
 .end method
 
 .method public valueSet()Ljava/util/Set;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1731,7 +1731,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "parcel"
     .parameter "flags"
 

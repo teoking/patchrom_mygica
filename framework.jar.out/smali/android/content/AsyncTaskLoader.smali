@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 4
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public cancelLoadInBackground()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 316
@@ -86,7 +86,7 @@
 .end method
 
 .method dispatchOnCancelled(Landroid/content/AsyncTaskLoader$LoadTask;Ljava/lang/Object;)V
-    .registers 5
+    .locals 2
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -109,7 +109,7 @@
     .line 232
     iget-object v0, p0, Landroid/content/AsyncTaskLoader;->mCancellingTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
-    if-ne v0, p1, :cond_16
+    if-ne v0, p1, :cond_0
 
     .line 234
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -130,12 +130,12 @@
     invoke-virtual {p0}, Landroid/content/AsyncTaskLoader;->executePendingTask()V
 
     .line 240
-    :cond_16
+    :cond_0
     return-void
 .end method
 
 .method dispatchOnLoadComplete(Landroid/content/AsyncTaskLoader$LoadTask;Ljava/lang/Object;)V
-    .registers 5
+    .locals 2
     .parameter
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -155,30 +155,30 @@
     .local p2, data:Ljava/lang/Object;,"TD;"
     iget-object v0, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
-    if-eq v0, p1, :cond_8
+    if-eq v0, p1, :cond_0
 
     .line 245
     invoke-virtual {p0, p1, p2}, Landroid/content/AsyncTaskLoader;->dispatchOnCancelled(Landroid/content/AsyncTaskLoader$LoadTask;Ljava/lang/Object;)V
 
     .line 257
-    :goto_7
+    :goto_0
     return-void
 
     .line 247
-    :cond_8
+    :cond_0
     invoke-virtual {p0}, Landroid/content/AsyncTaskLoader;->isAbandoned()Z
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_1
 
     .line 249
     invoke-virtual {p0, p2}, Landroid/content/AsyncTaskLoader;->onCanceled(Ljava/lang/Object;)V
 
-    goto :goto_7
+    goto :goto_0
 
     .line 251
-    :cond_12
+    :cond_1
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
@@ -193,11 +193,11 @@
     .line 254
     invoke-virtual {p0, p2}, Landroid/content/AsyncTaskLoader;->deliverResult(Ljava/lang/Object;)V
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .registers 9
+    .locals 4
     .parameter "prefix"
     .parameter "fd"
     .parameter "writer"
@@ -211,7 +211,7 @@
     .line 349
     iget-object v0, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_0
 
     .line 350
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -236,10 +236,10 @@
     invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->println(Z)V
 
     .line 353
-    :cond_21
+    :cond_0
     iget-object v0, p0, Landroid/content/AsyncTaskLoader;->mCancellingTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
-    if-eqz v0, :cond_3e
+    if-eqz v0, :cond_1
 
     .line 354
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -264,14 +264,14 @@
     invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->println(Z)V
 
     .line 357
-    :cond_3e
+    :cond_1
     iget-wide v0, p0, Landroid/content/AsyncTaskLoader;->mUpdateThrottle:J
 
     const-wide/16 v2, 0x0
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_65
+    if-eqz v0, :cond_2
 
     .line 358
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -303,30 +303,30 @@
     invoke-virtual {p3}, Ljava/io/PrintWriter;->println()V
 
     .line 365
-    :cond_65
+    :cond_2
     return-void
 .end method
 
 .method executePendingTask()V
-    .registers 9
+    .locals 8
 
     .prologue
     .line 208
     .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
     iget-object v2, p0, Landroid/content/AsyncTaskLoader;->mCancellingTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
-    if-nez v2, :cond_40
+    if-nez v2, :cond_1
 
     iget-object v2, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
-    if-eqz v2, :cond_40
+    if-eqz v2, :cond_1
 
     .line 209
     iget-object v2, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
     iget-boolean v2, v2, Landroid/content/AsyncTaskLoader$LoadTask;->waiting:Z
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_0
 
     .line 210
     iget-object v2, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
@@ -343,14 +343,14 @@
     invoke-virtual {v2, v3}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     .line 213
-    :cond_1a
+    :cond_0
     iget-wide v2, p0, Landroid/content/AsyncTaskLoader;->mUpdateThrottle:J
 
     const-wide/16 v4, 0x0
 
     cmp-long v2, v2, v4
 
-    if-lez v2, :cond_41
+    if-lez v2, :cond_2
 
     .line 214
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -367,7 +367,7 @@
 
     cmp-long v2, v0, v2
 
-    if-gez v2, :cond_41
+    if-gez v2, :cond_2
 
     .line 220
     iget-object v2, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
@@ -391,12 +391,12 @@
 
     .line 228
     .end local v0           #now:J
-    :cond_40
-    :goto_40
+    :cond_1
+    :goto_0
     return-void
 
     .line 226
-    :cond_41
+    :cond_2
     iget-object v3, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
     sget-object v4, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
@@ -407,28 +407,28 @@
 
     invoke-virtual {v3, v4, v2}, Landroid/content/AsyncTaskLoader$LoadTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    goto :goto_40
+    goto :goto_0
 .end method
 
 .method public isLoadInBackgroundCanceled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 326
     .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
     iget-object v0, p0, Landroid/content/AsyncTaskLoader;->mCancellingTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public abstract loadInBackground()Ljava/lang/Object;
@@ -440,7 +440,7 @@
 .end method
 
 .method protected onCancelLoad()Z
-    .registers 5
+    .locals 4
 
     .prologue
     .local p0, this:Landroid/content/AsyncTaskLoader;,"Landroid/content/AsyncTaskLoader<TD;>;"
@@ -451,19 +451,19 @@
     .line 163
     iget-object v1, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_1
 
     .line 164
     iget-object v1, p0, Landroid/content/AsyncTaskLoader;->mCancellingTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
-    if-eqz v1, :cond_1e
+    if-eqz v1, :cond_2
 
     .line 169
     iget-object v1, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
     iget-boolean v1, v1, Landroid/content/AsyncTaskLoader$LoadTask;->waiting:Z
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_0
 
     .line 170
     iget-object v1, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
@@ -478,21 +478,21 @@
     invoke-virtual {v1, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     .line 173
-    :cond_1b
+    :cond_0
     iput-object v3, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
     .line 194
-    :cond_1d
-    :goto_1d
+    :cond_1
+    :goto_0
     return v0
 
     .line 175
-    :cond_1e
+    :cond_2
     iget-object v1, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
     iget-boolean v1, v1, Landroid/content/AsyncTaskLoader$LoadTask;->waiting:Z
 
-    if-eqz v1, :cond_32
+    if-eqz v1, :cond_3
 
     .line 179
     iget-object v1, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
@@ -509,10 +509,10 @@
     .line 181
     iput-object v3, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
-    goto :goto_1d
+    goto :goto_0
 
     .line 184
-    :cond_32
+    :cond_3
     iget-object v1, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
     invoke-virtual {v1, v0}, Landroid/content/AsyncTaskLoader$LoadTask;->cancel(Z)Z
@@ -521,7 +521,7 @@
 
     .line 186
     .local v0, cancelled:Z
-    if-eqz v0, :cond_41
+    if-eqz v0, :cond_4
 
     .line 187
     iget-object v1, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
@@ -532,14 +532,14 @@
     invoke-virtual {p0}, Landroid/content/AsyncTaskLoader;->cancelLoadInBackground()V
 
     .line 190
-    :cond_41
+    :cond_4
     iput-object v3, p0, Landroid/content/AsyncTaskLoader;->mTask:Landroid/content/AsyncTaskLoader$LoadTask;
 
-    goto :goto_1d
+    goto :goto_0
 .end method
 
 .method public onCanceled(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -555,7 +555,7 @@
 .end method
 
 .method protected onForceLoad()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 153
@@ -580,7 +580,7 @@
 .end method
 
 .method protected onLoadInBackground()Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TD;"
@@ -598,7 +598,7 @@
 .end method
 
 .method public setUpdateThrottle(J)V
-    .registers 5
+    .locals 2
     .parameter "delayMS"
 
     .prologue
@@ -611,7 +611,7 @@
 
     cmp-long v0, p1, v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_0
 
     .line 147
     new-instance v0, Landroid/os/Handler;
@@ -621,12 +621,12 @@
     iput-object v0, p0, Landroid/content/AsyncTaskLoader;->mHandler:Landroid/os/Handler;
 
     .line 149
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 .method public waitForLoader()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 340
@@ -635,12 +635,12 @@
 
     .line 341
     .local v0, task:Landroid/content/AsyncTaskLoader$LoadTask;,"Landroid/content/AsyncTaskLoader<TD;>.LoadTask;"
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 342
     invoke-virtual {v0}, Landroid/content/AsyncTaskLoader$LoadTask;->waitForLoader()V
 
     .line 344
-    :cond_7
+    :cond_0
     return-void
 .end method

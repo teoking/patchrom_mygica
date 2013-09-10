@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/ActivityChooserModel;Landroid/content/pm/ResolveInfo;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "resolveInfo"
 
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public compareTo(Landroid/widget/ActivityChooserModel$ActivityResolveInfo;)I
-    .registers 4
+    .locals 2
     .parameter "another"
 
     .prologue
@@ -80,7 +80,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -96,7 +96,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .registers 7
+    .locals 5
     .parameter "obj"
 
     .prologue
@@ -105,24 +105,24 @@
     const/4 v2, 0x0
 
     .line 892
-    if-ne p0, p1, :cond_5
+    if-ne p0, p1, :cond_1
 
     .line 905
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v1
 
     .line 895
-    :cond_5
-    if-nez p1, :cond_9
+    :cond_1
+    if-nez p1, :cond_2
 
     move v1, v2
 
     .line 896
-    goto :goto_4
+    goto :goto_0
 
     .line 898
-    :cond_9
+    :cond_2
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v3
@@ -131,14 +131,14 @@
 
     move-result-object v4
 
-    if-eq v3, v4, :cond_15
+    if-eq v3, v4, :cond_3
 
     move v1, v2
 
     .line 899
-    goto :goto_4
+    goto :goto_0
 
-    :cond_15
+    :cond_3
     move-object v0, p1
 
     .line 901
@@ -158,16 +158,16 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_4
+    if-eq v3, v4, :cond_0
 
     move v1, v2
 
     .line 903
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 887
@@ -183,7 +183,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 914

@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>([B)V
-    .registers 3
+    .locals 1
     .parameter "pdu"
 
     .prologue
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method constructUserData(ZZ)I
-    .registers 16
+    .locals 13
     .parameter "hasUserDataHeader"
     .parameter "dataInSeptets"
 
@@ -87,7 +87,7 @@
 
     .line 622
     .local v7, userDataHeaderLength:I
-    if-eqz p1, :cond_68
+    if-eqz p1, :cond_6
 
     .line 623
     iget-object v9, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->pdu:[B
@@ -131,11 +131,11 @@
     .line 632
     rem-int/lit8 v9, v2, 0x7
 
-    if-lez v9, :cond_54
+    if-lez v9, :cond_1
 
     const/4 v9, 0x1
 
-    :goto_30
+    :goto_0
     add-int/2addr v3, v9
 
     .line 633
@@ -148,8 +148,8 @@
     .line 637
     .end local v2           #headerBits:I
     .end local v6           #udh:[B
-    :goto_36
-    if-eqz p2, :cond_56
+    :goto_1
+    if-eqz p2, :cond_2
 
     .line 643
     iget-object v9, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->pdu:[B
@@ -160,8 +160,8 @@
 
     .line 655
     .local v0, bufferLen:I
-    :cond_3d
-    :goto_3d
+    :cond_0
+    :goto_2
     new-array v9, v0, [B
 
     iput-object v9, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->userData:[B
@@ -181,86 +181,86 @@
     iput v4, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->cur:I
 
     .line 659
-    if-eqz p2, :cond_64
+    if-eqz p2, :cond_5
 
     .line 661
     sub-int v1, v8, v3
 
     .line 663
     .local v1, count:I
-    if-gez v1, :cond_62
+    if-gez v1, :cond_4
 
     .line 666
     .end local v1           #count:I
-    :goto_53
+    :goto_3
     return v10
 
     .end local v0           #bufferLen:I
     .restart local v2       #headerBits:I
     .restart local v6       #udh:[B
-    :cond_54
+    :cond_1
     move v9, v10
 
     .line 632
-    goto :goto_30
+    goto :goto_0
 
     .line 649
     .end local v2           #headerBits:I
     .end local v6           #udh:[B
-    :cond_56
-    if-eqz p1, :cond_60
+    :cond_2
+    if-eqz p1, :cond_3
 
     add-int/lit8 v9, v7, 0x1
 
-    :goto_5a
+    :goto_4
     sub-int v0, v8, v9
 
     .line 650
     .restart local v0       #bufferLen:I
-    if-gez v0, :cond_3d
+    if-gez v0, :cond_0
 
     .line 651
     const/4 v0, 0x0
 
-    goto :goto_3d
+    goto :goto_2
 
     .end local v0           #bufferLen:I
-    :cond_60
+    :cond_3
     move v9, v10
 
     .line 649
-    goto :goto_5a
+    goto :goto_4
 
     .restart local v0       #bufferLen:I
     .restart local v1       #count:I
-    :cond_62
+    :cond_4
     move v10, v1
 
     .line 663
-    goto :goto_53
+    goto :goto_3
 
     .line 666
     .end local v1           #count:I
-    :cond_64
+    :cond_5
     iget-object v9, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->userData:[B
 
     array-length v10, v9
 
-    goto :goto_53
+    goto :goto_3
 
     .end local v0           #bufferLen:I
     .end local v4           #offset:I
     .restart local v5       #offset:I
-    :cond_68
+    :cond_6
     move v4, v5
 
     .end local v5           #offset:I
     .restart local v4       #offset:I
-    goto :goto_36
+    goto :goto_1
 .end method
 
 .method getAddress()Lcom/android/internal/telephony/gsm/GsmSmsAddress;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 557
@@ -303,7 +303,7 @@
 .end method
 
 .method getByte()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 543
@@ -323,7 +323,7 @@
 .end method
 
 .method getSCAddress()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 518
@@ -333,14 +333,14 @@
 
     .line 520
     .local v0, len:I
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 522
     const/4 v1, 0x0
 
     .line 534
     .local v1, ret:Ljava/lang/String;
-    :goto_7
+    :goto_0
     iget v3, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->cur:I
 
     add-int/2addr v3, v0
@@ -352,24 +352,24 @@
 
     .line 526
     .end local v1           #ret:Ljava/lang/String;
-    :cond_d
-    :try_start_d
+    :cond_0
+    :try_start_0
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->pdu:[B
 
     iget v4, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->cur:I
 
     invoke-static {v3, v4, v0}, Landroid/telephony/PhoneNumberUtils;->calledPartyBCDToString([BII)Ljava/lang/String;
-    :try_end_14
-    .catch Ljava/lang/RuntimeException; {:try_start_d .. :try_end_14} :catch_16
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .restart local v1       #ret:Ljava/lang/String;
-    goto :goto_7
+    goto :goto_0
 
     .line 528
     .end local v1           #ret:Ljava/lang/String;
-    :catch_16
+    :catch_0
     move-exception v2
 
     .line 529
@@ -384,11 +384,11 @@
     const/4 v1, 0x0
 
     .restart local v1       #ret:Ljava/lang/String;
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method getSCTimestampMillis()J
-    .registers 14
+    .locals 13
 
     .prologue
     .line 574
@@ -512,10 +512,10 @@
     .local v6, timezoneOffset:I
     and-int/lit8 v9, v7, 0x8
 
-    if-nez v9, :cond_92
+    if-nez v9, :cond_0
 
     .line 593
-    :goto_69
+    :goto_0
     new-instance v5, Landroid/text/format/Time;
 
     const-string v9, "UTC"
@@ -526,11 +526,11 @@
     .local v5, time:Landroid/text/format/Time;
     const/16 v9, 0x5a
 
-    if-lt v8, v9, :cond_94
+    if-lt v8, v9, :cond_1
 
     add-int/lit16 v9, v8, 0x76c
 
-    :goto_76
+    :goto_1
     iput v9, v5, Landroid/text/format/Time;->year:I
 
     .line 597
@@ -571,21 +571,21 @@
 
     .line 591
     .end local v5           #time:Landroid/text/format/Time;
-    :cond_92
+    :cond_0
     neg-int v6, v6
 
-    goto :goto_69
+    goto :goto_0
 
     .line 596
     .restart local v5       #time:Landroid/text/format/Time;
-    :cond_94
+    :cond_1
     add-int/lit16 v9, v8, 0x7d0
 
-    goto :goto_76
+    goto :goto_1
 .end method
 
 .method getUserData()[B
-    .registers 2
+    .locals 1
 
     .prologue
     .line 676
@@ -595,7 +595,7 @@
 .end method
 
 .method getUserDataGSM7Bit(III)Ljava/lang/String;
-    .registers 11
+    .locals 7
     .parameter "septetCount"
     .parameter "languageTable"
     .parameter "languageShiftTable"
@@ -635,7 +635,7 @@
 .end method
 
 .method getUserDataHeader()Lcom/android/internal/telephony/SmsHeader;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 696
@@ -645,7 +645,7 @@
 .end method
 
 .method getUserDataKSC5601(I)Ljava/lang/String;
-    .registers 7
+    .locals 5
     .parameter "byteCount"
 
     .prologue
@@ -660,12 +660,12 @@
     const-string v4, "KSC5601"
 
     invoke-direct {v1, v2, v3, p1, v4}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
-    :try_end_b
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_b} :catch_11
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 756
     .local v1, ret:Ljava/lang/String;
-    :goto_b
+    :goto_0
     iget v2, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->cur:I
 
     add-int/2addr v2, p1
@@ -677,7 +677,7 @@
 
     .line 751
     .end local v1           #ret:Ljava/lang/String;
-    :catch_11
+    :catch_0
     move-exception v0
 
     .line 752
@@ -692,11 +692,11 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method getUserDataSeptetPadding()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 687
@@ -706,7 +706,7 @@
 .end method
 
 .method getUserDataUCS2(I)Ljava/lang/String;
-    .registers 7
+    .locals 5
     .parameter "byteCount"
 
     .prologue
@@ -721,12 +721,12 @@
     const-string/jumbo v4, "utf-16"
 
     invoke-direct {v1, v2, v3, p1, v4}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
-    :try_end_c
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_c} :catch_12
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 735
     .local v1, ret:Ljava/lang/String;
-    :goto_c
+    :goto_0
     iget v2, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->cur:I
 
     add-int/2addr v2, p1
@@ -738,7 +738,7 @@
 
     .line 730
     .end local v1           #ret:Ljava/lang/String;
-    :catch_12
+    :catch_0
     move-exception v0
 
     .line 731
@@ -753,11 +753,11 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method moreDataPresent()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 761
@@ -767,15 +767,15 @@
 
     iget v1, p0, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->cur:I
 
-    if-le v0, v1, :cond_9
+    if-le v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_8
+    :goto_0
     return v0
 
-    :cond_9
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_8
+    goto :goto_0
 .end method

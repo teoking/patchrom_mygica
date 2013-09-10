@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "max"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public filter(Ljava/lang/CharSequence;IILandroid/text/Spanned;II)Ljava/lang/CharSequence;
-    .registers 11
+    .locals 4
     .parameter "source"
     .parameter "start"
     .parameter "end"
@@ -64,28 +64,28 @@
 
     .line 86
     .local v0, keep:I
-    if-gtz v0, :cond_10
+    if-gtz v0, :cond_0
 
     .line 87
     const-string v1, ""
 
     .line 98
-    :goto_f
+    :goto_0
     return-object v1
 
     .line 88
-    :cond_10
+    :cond_0
     sub-int v1, p3, p2
 
-    if-lt v0, v1, :cond_16
+    if-lt v0, v1, :cond_1
 
     .line 89
     const/4 v1, 0x0
 
-    goto :goto_f
+    goto :goto_0
 
     .line 91
-    :cond_16
+    :cond_1
     add-int/2addr v0, p2
 
     .line 92
@@ -99,24 +99,24 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2a
+    if-eqz v1, :cond_2
 
     .line 93
     add-int/lit8 v0, v0, -0x1
 
     .line 94
-    if-ne v0, p2, :cond_2a
+    if-ne v0, p2, :cond_2
 
     .line 95
     const-string v1, ""
 
-    goto :goto_f
+    goto :goto_0
 
     .line 98
-    :cond_2a
+    :cond_2
     invoke-interface {p1, p2, v0}, Ljava/lang/CharSequence;->subSequence(II)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    goto :goto_f
+    goto :goto_0
 .end method

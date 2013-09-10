@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 64
@@ -64,7 +64,7 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_a
+    fill-array-data v0, :array_0
 
     sput-object v0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->ITEM_LAYOUTS:[I
 
@@ -72,7 +72,7 @@
 
     nop
 
-    :array_a
+    :array_0
     .array-data 0x4
         0x6bt 0x0t 0x9t 0x1t
         0x6at 0x0t 0x9t 0x1t
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 88
@@ -115,7 +115,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)I
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -126,7 +126,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Landroid/widget/ListView;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -137,7 +137,7 @@
 .end method
 
 .method static synthetic access$200()[I
-    .registers 1
+    .locals 1
 
     .prologue
     .line 60
@@ -147,7 +147,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Landroid/view/LayoutInflater;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -158,7 +158,7 @@
 .end method
 
 .method static synthetic access$700(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -169,7 +169,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -180,7 +180,7 @@
 .end method
 
 .method static synthetic access$802(Lcom/android/internal/app/MediaRouteChooserDialogFragment;Z)Z
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -192,7 +192,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Landroid/widget/SeekBar;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -205,22 +205,22 @@
 
 # virtual methods
 .method changeVolume(I)V
-    .registers 6
+    .locals 4
     .parameter "newValue"
 
     .prologue
     .line 149
     iget-boolean v2, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mIgnoreSliderVolumeChanges:Z
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_1
 
     .line 157
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return-void
 
     .line 151
-    :cond_5
+    :cond_1
     iget-object v2, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mRouter:Landroid/media/MediaRouter;
 
     iget v3, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mRouteTypes:I
@@ -237,7 +237,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_0
 
     .line 153
     invoke-virtual {v1}, Landroid/media/MediaRouter$RouteInfo;->getVolumeMax()I
@@ -259,11 +259,11 @@
     .line 155
     invoke-virtual {v1, p1}, Landroid/media/MediaRouter$RouteInfo;->requestSetVolume(I)V
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public onAttach(Landroid/app/Activity;)V
-    .registers 3
+    .locals 1
     .parameter "activity"
 
     .prologue
@@ -286,7 +286,7 @@
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .registers 5
+    .locals 3
     .parameter "savedInstanceState"
 
     .prologue
@@ -307,7 +307,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .registers 10
+    .locals 6
     .parameter "inflater"
     .parameter "container"
     .parameter "savedInstanceState"
@@ -363,7 +363,7 @@
     .line 170
     iget-object v3, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mExtendedSettingsListener:Landroid/view/View$OnClickListener;
 
-    if-eqz v3, :cond_40
+    if-eqz v3, :cond_0
 
     .line 171
     const v3, 0x102030a
@@ -383,7 +383,7 @@
 
     .line 176
     .end local v0           #extendedSettingsButton:Landroid/view/View;
-    :cond_40
+    :cond_0
     const v3, 0x102000a
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -434,7 +434,7 @@
 .end method
 
 .method public onDetach()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -445,7 +445,7 @@
     .line 105
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mLauncherListener:Lcom/android/internal/app/MediaRouteChooserDialogFragment$LauncherListener;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_0
 
     .line 106
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mLauncherListener:Lcom/android/internal/app/MediaRouteChooserDialogFragment$LauncherListener;
@@ -453,16 +453,16 @@
     invoke-interface {v0, p0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment$LauncherListener;->onDetached(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)V
 
     .line 108
-    :cond_d
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mAdapter:Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     .line 109
     iput-object v2, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mAdapter:Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
 
     .line 111
-    :cond_13
+    :cond_1
     iput-object v2, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mInflater:Landroid/view/LayoutInflater;
 
     .line 112
@@ -480,7 +480,7 @@
 .end method
 
 .method public onResume()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 196
@@ -491,7 +491,7 @@
 .end method
 
 .method public setExtendedSettingsClickListener(Landroid/view/View$OnClickListener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue
@@ -503,7 +503,7 @@
 .end method
 
 .method public setLauncherListener(Lcom/android/internal/app/MediaRouteChooserDialogFragment$LauncherListener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue
@@ -515,7 +515,7 @@
 .end method
 
 .method public setRouteTypes(I)V
-    .registers 2
+    .locals 0
     .parameter "types"
 
     .prologue
@@ -527,7 +527,7 @@
 .end method
 
 .method updateVolume()V
-    .registers 6
+    .locals 5
 
     .prologue
     const/4 v4, 0x0
@@ -537,14 +537,14 @@
     .line 125
     iget-object v1, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mRouter:Landroid/media/MediaRouter;
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_0
 
     .line 146
-    :goto_6
+    :goto_0
     return-void
 
     .line 127
-    :cond_7
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mRouter:Landroid/media/MediaRouter;
 
     iget v2, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mRouteTypes:I
@@ -561,11 +561,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_37
+    if-nez v1, :cond_1
 
     const v1, 0x10802a2
 
-    :goto_1a
+    :goto_1
     invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
     .line 132
@@ -576,7 +576,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3b
+    if-nez v1, :cond_2
 
     .line 136
     iget-object v1, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mVolumeSlider:Landroid/widget/SeekBar;
@@ -594,19 +594,19 @@
     invoke-virtual {v1, v4}, Landroid/widget/SeekBar;->setEnabled(Z)V
 
     .line 145
-    :goto_34
+    :goto_2
     iput-boolean v4, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mIgnoreSliderVolumeChanges:Z
 
-    goto :goto_6
+    goto :goto_0
 
     .line 128
-    :cond_37
+    :cond_1
     const v1, 0x1080311
 
-    goto :goto_1a
+    goto :goto_1
 
     .line 140
-    :cond_3b
+    :cond_2
     iget-object v1, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mVolumeSlider:Landroid/widget/SeekBar;
 
     invoke-virtual {v1, v3}, Landroid/widget/SeekBar;->setEnabled(Z)V
@@ -629,5 +629,5 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setProgress(I)V
 
-    goto :goto_34
+    goto :goto_2
 .end method

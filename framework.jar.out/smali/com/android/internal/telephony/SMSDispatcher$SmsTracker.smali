@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/HashMap;Landroid/app/PendingIntent;Landroid/app/PendingIntent;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 7
+    .locals 1
     .parameter
     .parameter "sentIntent"
     .parameter "deliveryIntent"
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method protected isMultipart()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 1106

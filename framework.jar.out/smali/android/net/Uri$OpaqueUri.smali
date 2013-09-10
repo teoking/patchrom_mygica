@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;Landroid/net/Uri$Part;Landroid/net/Uri$Part;)V
-    .registers 5
+    .locals 1
     .parameter "scheme"
     .parameter "ssp"
     .parameter "fragment"
@@ -55,12 +55,12 @@
     iput-object p2, p0, Landroid/net/Uri$OpaqueUri;->ssp:Landroid/net/Uri$Part;
 
     .line 833
-    if-nez p3, :cond_12
+    if-nez p3, :cond_0
 
     sget-object p3, Landroid/net/Uri$Part;->NULL:Landroid/net/Uri$Part;
 
     .end local p3
-    :cond_12
+    :cond_0
     iput-object p3, p0, Landroid/net/Uri$OpaqueUri;->fragment:Landroid/net/Uri$Part;
 
     .line 834
@@ -68,7 +68,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;Landroid/net/Uri$Part;Landroid/net/Uri$Part;Landroid/net/Uri$1;)V
-    .registers 5
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -82,7 +82,7 @@
 .end method
 
 .method static readFrom(Landroid/os/Parcel;)Landroid/net/Uri;
-    .registers 5
+    .locals 4
     .parameter "parcel"
 
     .prologue
@@ -109,7 +109,7 @@
 
 # virtual methods
 .method public buildUpon()Landroid/net/Uri$Builder;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 953
@@ -139,7 +139,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -155,7 +155,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 845
@@ -165,7 +165,7 @@
 .end method
 
 .method public getAuthority()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 876
@@ -175,7 +175,7 @@
 .end method
 
 .method public getEncodedAuthority()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 880
@@ -185,7 +185,7 @@
 .end method
 
 .method public getEncodedFragment()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 904
@@ -199,7 +199,7 @@
 .end method
 
 .method public getEncodedPath()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 888
@@ -209,7 +209,7 @@
 .end method
 
 .method public getEncodedQuery()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 896
@@ -219,7 +219,7 @@
 .end method
 
 .method public getEncodedSchemeSpecificPart()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 868
@@ -233,7 +233,7 @@
 .end method
 
 .method public getEncodedUserInfo()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 920
@@ -243,7 +243,7 @@
 .end method
 
 .method public getFragment()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 900
@@ -257,7 +257,7 @@
 .end method
 
 .method public getHost()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 924
@@ -267,7 +267,7 @@
 .end method
 
 .method public getLastPathSegment()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 912
@@ -277,7 +277,7 @@
 .end method
 
 .method public getPath()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 884
@@ -287,7 +287,7 @@
 .end method
 
 .method public getPathSegments()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -308,7 +308,7 @@
 .end method
 
 .method public getPort()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 928
@@ -318,7 +318,7 @@
 .end method
 
 .method public getQuery()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 892
@@ -328,7 +328,7 @@
 .end method
 
 .method public getScheme()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 864
@@ -338,7 +338,7 @@
 .end method
 
 .method public getSchemeSpecificPart()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 872
@@ -352,7 +352,7 @@
 .end method
 
 .method public getUserInfo()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 916
@@ -362,7 +362,7 @@
 .end method
 
 .method public isHierarchical()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 856
@@ -372,27 +372,27 @@
 .end method
 
 .method public isRelative()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 860
     iget-object v0, p0, Landroid/net/Uri$OpaqueUri;->scheme:Ljava/lang/String;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_5
+    :goto_0
     return v0
 
-    :cond_6
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 5
+    .locals 4
 
     .prologue
     .line 935
@@ -402,32 +402,32 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_e
+    if-eq v2, v3, :cond_0
 
     const/4 v0, 0x1
 
     .line 936
     .local v0, cached:Z
-    :goto_9
-    if-eqz v0, :cond_10
+    :goto_0
+    if-eqz v0, :cond_1
 
     .line 937
     iget-object v2, p0, Landroid/net/Uri$OpaqueUri;->cachedString:Ljava/lang/String;
 
     .line 949
-    :goto_d
+    :goto_1
     return-object v2
 
     .line 935
     .end local v0           #cached:Z
-    :cond_e
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 
     .line 940
     .restart local v0       #cached:Z
-    :cond_10
+    :cond_1
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -458,7 +458,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_3e
+    if-nez v2, :cond_2
 
     .line 946
     const/16 v2, 0x23
@@ -476,18 +476,18 @@
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 949
-    :cond_3e
+    :cond_2
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, p0, Landroid/net/Uri$OpaqueUri;->cachedString:Ljava/lang/String;
 
-    goto :goto_d
+    goto :goto_1
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "parcel"
     .parameter "flags"
 

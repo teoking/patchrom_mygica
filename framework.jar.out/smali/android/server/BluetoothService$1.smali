@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/server/BluetoothService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,29 +35,29 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 8
+    .locals 6
     .parameter "msg"
 
     .prologue
     .line 546
     iget v3, p1, Landroid/os/Message;->what:I
 
-    packed-switch v3, :pswitch_data_62
+    packed-switch v3, :pswitch_data_0
 
     .line 575
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return-void
 
     .line 548
-    :pswitch_6
+    :pswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Ljava/lang/String;
 
     .line 549
     .local v0, address:Ljava/lang/String;
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
     .line 550
     iget-object v3, p0, Landroid/server/BluetoothService$1;->this$0:Landroid/server/BluetoothService;
@@ -69,22 +69,23 @@
 
     invoke-virtual {v3, v0}, Landroid/server/BluetoothService;->makeServiceChannelCallbacks(Ljava/lang/String;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 555
     .end local v0           #address:Ljava/lang/String;
-    :pswitch_17
+    :pswitch_1
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Ljava/lang/String;
 
     .line 556
     .restart local v0       #address:Ljava/lang/String;
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_0
 
     .line 557
     iget-object v3, p0, Landroid/server/BluetoothService$1;->this$0:Landroid/server/BluetoothService;
 
+    #getter for: Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
     invoke-static {v3}, Landroid/server/BluetoothService;->access$000(Landroid/server/BluetoothService;)Landroid/server/BluetoothBondState;
 
     move-result-object v3
@@ -95,15 +96,16 @@
 
     .line 563
     .local v1, attempt:I
-    if-lez v1, :cond_3b
+    if-lez v1, :cond_1
 
     const/4 v3, 0x2
 
-    if-gt v1, v3, :cond_3b
+    if-gt v1, v3, :cond_1
 
     .line 564
     iget-object v3, p0, Landroid/server/BluetoothService$1;->this$0:Landroid/server/BluetoothService;
 
+    #getter for: Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
     invoke-static {v3}, Landroid/server/BluetoothService;->access$000(Landroid/server/BluetoothService;)Landroid/server/BluetoothBondState;
 
     move-result-object v3
@@ -115,26 +117,27 @@
 
     invoke-virtual {v3, v0}, Landroid/server/BluetoothService;->createBond(Ljava/lang/String;)Z
 
-    goto :goto_5
+    goto :goto_0
 
     .line 568
-    :cond_3b
-    if-lez v1, :cond_5
+    :cond_1
+    if-lez v1, :cond_0
 
     iget-object v3, p0, Landroid/server/BluetoothService$1;->this$0:Landroid/server/BluetoothService;
 
+    #getter for: Landroid/server/BluetoothService;->mBondState:Landroid/server/BluetoothBondState;
     invoke-static {v3}, Landroid/server/BluetoothService;->access$000(Landroid/server/BluetoothService;)Landroid/server/BluetoothBondState;
 
     move-result-object v3
 
     invoke-virtual {v3, v0}, Landroid/server/BluetoothBondState;->clearPinAttempts(Ljava/lang/String;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 571
     .end local v0           #address:Ljava/lang/String;
     .end local v1           #attempt:I
-    :pswitch_47
+    :pswitch_2
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Landroid/util/Pair;
@@ -159,17 +162,18 @@
 
     move-result v3
 
+    #calls: Landroid/server/BluetoothService;->checkAndRemoveRecord(II)V
     invoke-static {v4, v5, v3}, Landroid/server/BluetoothService;->access$100(Landroid/server/BluetoothService;II)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 546
     nop
 
-    :pswitch_data_62
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_17
-        :pswitch_47
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

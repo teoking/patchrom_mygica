@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/NumberPicker;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,12 +38,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 2081
     iget-object v0, p0, Landroid/widget/NumberPicker$BeginSoftInputOnLongPressCommand;->this$0:Landroid/widget/NumberPicker;
 
+    #calls: Landroid/widget/NumberPicker;->showSoftInput()V
     invoke-static {v0}, Landroid/widget/NumberPicker;->access$2700(Landroid/widget/NumberPicker;)V
 
     .line 2082
@@ -51,6 +52,7 @@
 
     const/4 v1, 0x1
 
+    #setter for: Landroid/widget/NumberPicker;->mIngonreMoveEvents:Z
     invoke-static {v0, v1}, Landroid/widget/NumberPicker;->access$2802(Landroid/widget/NumberPicker;Z)Z
 
     .line 2083

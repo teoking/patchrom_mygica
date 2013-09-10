@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 3137
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/view/MotionEvent;
-    .registers 3
+    .locals 1
     .parameter "in"
 
     .prologue
@@ -57,7 +57,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -70,7 +70,7 @@
 .end method
 
 .method public newArray(I)[Landroid/view/MotionEvent;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -81,7 +81,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 37
@@ -28,7 +28,7 @@
 .end method
 
 .method public static isRotationLockToggleSupported(Landroid/content/Context;)Z
-    .registers 3
+    .locals 2
     .parameter "context"
 
     .prologue
@@ -45,21 +45,21 @@
 
     const/16 v1, 0x1e0
 
-    if-lt v0, v1, :cond_10
+    if-lt v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_f
+    :goto_0
     return v0
 
-    :cond_10
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public static isRotationLockToggleVisible(Landroid/content/Context;)Z
-    .registers 4
+    .locals 3
     .parameter "context"
 
     .prologue
@@ -70,7 +70,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_0
 
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -82,16 +82,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_14
+    if-nez v1, :cond_0
 
     const/4 v0, 0x1
 
-    :cond_14
+    :cond_0
     return v0
 .end method
 
 .method public static isRotationLocked(Landroid/content/Context;)Z
-    .registers 4
+    .locals 3
     .parameter "context"
 
     .prologue
@@ -108,16 +108,16 @@
 
     move-result v1
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_0
 
     const/4 v0, 0x1
 
-    :cond_e
+    :cond_0
     return v0
 .end method
 
 .method public static registerRotationPolicyListener(Landroid/content/Context;Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;)V
-    .registers 6
+    .locals 4
     .parameter "context"
     .parameter "listener"
 
@@ -159,7 +159,7 @@
 .end method
 
 .method public static setRotationLock(Landroid/content/Context;Z)V
-    .registers 5
+    .locals 3
     .parameter "context"
     .parameter "enabled"
 
@@ -187,7 +187,7 @@
 .end method
 
 .method public static setRotationLockForAccessibility(Landroid/content/Context;Z)V
-    .registers 5
+    .locals 3
     .parameter "context"
     .parameter "enabled"
 
@@ -199,11 +199,11 @@
 
     const-string v2, "hide_rotation_lock_toggle_for_accessibility"
 
-    if-eqz p1, :cond_15
+    if-eqz p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     .line 106
@@ -217,14 +217,14 @@
     return-void
 
     .line 103
-    :cond_15
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static unregisterRotationPolicyListener(Landroid/content/Context;Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;)V
-    .registers 4
+    .locals 2
     .parameter "context"
     .parameter "listener"
 

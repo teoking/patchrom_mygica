@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 229
@@ -35,7 +35,7 @@
 .end method
 
 .method public final getService(Landroid/app/ContextImpl;)Ljava/lang/Object;
-    .registers 4
+    .locals 2
     .parameter "unused"
 
     .prologue
@@ -43,23 +43,23 @@
     monitor-enter p0
 
     .line 235
-    :try_start_1
+    :try_start_0
     iget-object v0, p0, Landroid/app/ContextImpl$StaticServiceFetcher;->mCachedInstance:Ljava/lang/Object;
 
     .line 236
     .local v0, service:Ljava/lang/Object;
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 237
     monitor-exit p0
 
     .line 239
     .end local v0           #service:Ljava/lang/Object;
-    :goto_6
+    :goto_0
     return-object v0
 
     .restart local v0       #service:Ljava/lang/Object;
-    :cond_7
+    :cond_0
     invoke-virtual {p0}, Landroid/app/ContextImpl$StaticServiceFetcher;->createStaticService()Ljava/lang/Object;
 
     move-result-object v0
@@ -69,15 +69,15 @@
 
     monitor-exit p0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 240
-    :catchall_f
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
-    :try_end_11
-    .catchall {:try_start_1 .. :try_end_11} :catchall_f
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method

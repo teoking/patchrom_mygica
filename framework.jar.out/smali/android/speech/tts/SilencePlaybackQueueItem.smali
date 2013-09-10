@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;Ljava/lang/Object;J)V
-    .registers 6
+    .locals 1
     .parameter "dispatcher"
     .parameter "callerIdentity"
     .parameter "silenceDurationMs"
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 34
@@ -54,7 +54,7 @@
 
     cmp-long v0, v0, v2
 
-    if-lez v0, :cond_16
+    if-lez v0, :cond_0
 
     .line 36
     iget-object v0, p0, Landroid/speech/tts/SilencePlaybackQueueItem;->mCondVar:Landroid/os/ConditionVariable;
@@ -64,7 +64,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/os/ConditionVariable;->block(J)Z
 
     .line 38
-    :cond_16
+    :cond_0
     invoke-virtual {p0}, Landroid/speech/tts/SilencePlaybackQueueItem;->getDispatcher()Landroid/speech/tts/TextToSpeechService$UtteranceProgressDispatcher;
 
     move-result-object v0
@@ -76,7 +76,7 @@
 .end method
 
 .method stop(Z)V
-    .registers 3
+    .locals 1
     .parameter "isError"
 
     .prologue

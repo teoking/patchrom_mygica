@@ -49,7 +49,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
@@ -64,7 +64,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 53
@@ -80,7 +80,7 @@
 .end method
 
 .method static synthetic access$200([I)V
-    .registers 1
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -91,7 +91,7 @@
 .end method
 
 .method private static beginFrame([I)V
-    .registers 1
+    .locals 0
     .parameter "size"
 
     .prologue
@@ -103,13 +103,13 @@
 .end method
 
 .method static createGlRenderer(IZ)Landroid/view/HardwareRenderer;
-    .registers 5
+    .locals 3
     .parameter "glVersion"
     .parameter "translucent"
 
     .prologue
     .line 500
-    packed-switch p0, :pswitch_data_22
+    packed-switch p0, :pswitch_data_0
 
     .line 504
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -137,7 +137,7 @@
     throw v0
 
     .line 502
-    :pswitch_1c
+    :pswitch_0
     invoke-static {p1}, Landroid/view/HardwareRenderer$Gl20Renderer;->create(Z)Landroid/view/HardwareRenderer;
 
     move-result-object v0
@@ -147,14 +147,14 @@
     .line 500
     nop
 
-    :pswitch_data_22
+    :pswitch_data_0
     .packed-switch 0x2
-        :pswitch_1c
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static disable(Z)V
-    .registers 2
+    .locals 1
     .parameter "system"
 
     .prologue
@@ -164,18 +164,18 @@
     sput-boolean v0, Landroid/view/HardwareRenderer;->sRendererDisabled:Z
 
     .line 174
-    if-eqz p0, :cond_7
+    if-eqz p0, :cond_0
 
     .line 175
     sput-boolean v0, Landroid/view/HardwareRenderer;->sSystemRendererDisabled:Z
 
     .line 177
-    :cond_7
+    :cond_0
     return-void
 .end method
 
 .method static disableVsync()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 355
@@ -186,7 +186,7 @@
 .end method
 
 .method static endTrimMemory()V
-    .registers 0
+    .locals 0
 
     .prologue
     .line 537
@@ -197,7 +197,7 @@
 .end method
 
 .method public static isAvailable()Z
-    .registers 1
+    .locals 1
 
     .prologue
     .line 187
@@ -209,7 +209,7 @@
 .end method
 
 .method static isBackBufferPreserved()Z
-    .registers 1
+    .locals 1
 
     .prologue
     .line 346
@@ -236,7 +236,7 @@
 .end method
 
 .method static preserveBackBuffer()Z
-    .registers 1
+    .locals 1
 
     .prologue
     .line 333
@@ -248,7 +248,7 @@
 .end method
 
 .method public static setupDiskCache(Ljava/io/File;)V
-    .registers 3
+    .locals 2
     .parameter "cacheDir"
 
     .prologue
@@ -270,7 +270,7 @@
 .end method
 
 .method static startTrimMemory(I)V
-    .registers 1
+    .locals 0
     .parameter "level"
 
     .prologue
@@ -282,7 +282,7 @@
 .end method
 
 .method static trimMemory(I)V
-    .registers 1
+    .locals 0
     .parameter "level"
 
     .prologue
@@ -352,7 +352,7 @@
 .end method
 
 .method initializeIfNeeded(IILandroid/view/SurfaceHolder;)V
-    .registers 5
+    .locals 1
     .parameter "width"
     .parameter "height"
     .parameter "holder"
@@ -368,27 +368,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 483
     invoke-virtual {p0}, Landroid/view/HardwareRenderer;->isEnabled()Z
 
     move-result v0
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_0
 
     .line 484
     invoke-virtual {p0, p3}, Landroid/view/HardwareRenderer;->initialize(Landroid/view/SurfaceHolder;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_0
 
     .line 485
     invoke-virtual {p0, p1, p2}, Landroid/view/HardwareRenderer;->setup(II)V
 
     .line 489
-    :cond_15
+    :cond_0
     return-void
 .end method
 
@@ -396,7 +396,7 @@
 .end method
 
 .method isEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 546
@@ -406,7 +406,7 @@
 .end method
 
 .method isRequested()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 565
@@ -419,7 +419,7 @@
 .end method
 
 .method setEnabled(Z)V
-    .registers 2
+    .locals 0
     .parameter "enabled"
 
     .prologue
@@ -431,7 +431,7 @@
 .end method
 
 .method setRequested(Z)V
-    .registers 2
+    .locals 0
     .parameter "requested"
 
     .prologue

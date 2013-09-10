@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/ethernet/EthernetMonitor;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -39,17 +39,18 @@
 
 # virtual methods
 .method handleEvent(Ljava/lang/String;I)V
-    .registers 5
+    .locals 2
     .parameter "ifname"
     .parameter "event"
 
     .prologue
     .line 93
-    packed-switch p2, :pswitch_data_32
+    packed-switch p2, :pswitch_data_0
 
     .line 104
     iget-object v0, p0, Landroid/net/ethernet/EthernetMonitor$MonitorThread;->this$0:Landroid/net/ethernet/EthernetMonitor;
 
+    #getter for: Landroid/net/ethernet/EthernetMonitor;->mTracker:Landroid/net/ethernet/EthernetStateTracker;
     invoke-static {v0}, Landroid/net/ethernet/EthernetMonitor;->access$000(Landroid/net/ethernet/EthernetMonitor;)Landroid/net/ethernet/EthernetStateTracker;
 
     move-result-object v0
@@ -59,13 +60,14 @@
     invoke-virtual {v0, p1, v1}, Landroid/net/ethernet/EthernetStateTracker;->notifyStateChange(Ljava/lang/String;Landroid/net/NetworkInfo$DetailedState;)V
 
     .line 106
-    :goto_e
+    :goto_0
     return-void
 
     .line 95
-    :pswitch_f
+    :pswitch_0
     iget-object v0, p0, Landroid/net/ethernet/EthernetMonitor$MonitorThread;->this$0:Landroid/net/ethernet/EthernetMonitor;
 
+    #getter for: Landroid/net/ethernet/EthernetMonitor;->mTracker:Landroid/net/ethernet/EthernetStateTracker;
     invoke-static {v0}, Landroid/net/ethernet/EthernetMonitor;->access$000(Landroid/net/ethernet/EthernetMonitor;)Landroid/net/ethernet/EthernetStateTracker;
 
     move-result-object v0
@@ -74,12 +76,13 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/net/ethernet/EthernetStateTracker;->notifyStateChange(Ljava/lang/String;Landroid/net/NetworkInfo$DetailedState;)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 98
-    :pswitch_1b
+    :pswitch_1
     iget-object v0, p0, Landroid/net/ethernet/EthernetMonitor$MonitorThread;->this$0:Landroid/net/ethernet/EthernetMonitor;
 
+    #getter for: Landroid/net/ethernet/EthernetMonitor;->mTracker:Landroid/net/ethernet/EthernetStateTracker;
     invoke-static {v0}, Landroid/net/ethernet/EthernetMonitor;->access$000(Landroid/net/ethernet/EthernetMonitor;)Landroid/net/ethernet/EthernetStateTracker;
 
     move-result-object v0
@@ -88,33 +91,34 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/net/ethernet/EthernetStateTracker;->notifyStateChange(Ljava/lang/String;Landroid/net/NetworkInfo$DetailedState;)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 101
-    :pswitch_27
+    :pswitch_2
     iget-object v0, p0, Landroid/net/ethernet/EthernetMonitor$MonitorThread;->this$0:Landroid/net/ethernet/EthernetMonitor;
 
+    #getter for: Landroid/net/ethernet/EthernetMonitor;->mTracker:Landroid/net/ethernet/EthernetStateTracker;
     invoke-static {v0}, Landroid/net/ethernet/EthernetMonitor;->access$000(Landroid/net/ethernet/EthernetMonitor;)Landroid/net/ethernet/EthernetStateTracker;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/net/ethernet/EthernetStateTracker;->notifyPhyConnected(Ljava/lang/String;)V
 
-    goto :goto_e
+    goto :goto_0
 
     .line 93
     nop
 
-    :pswitch_data_32
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_1b
-        :pswitch_f
-        :pswitch_27
+        :pswitch_1
+        :pswitch_0
+        :pswitch_2
     .end packed-switch
 .end method
 
 .method public run()V
-    .registers 8
+    .locals 7
 
     .prologue
     .line 52
@@ -149,7 +153,7 @@
 
     .line 66
     .local v4, i:I
-    :goto_11
+    :goto_0
     if-eqz v5, :cond_0
 
     add-int/lit8 v6, v5, -0x1
@@ -173,7 +177,7 @@
     .local v0, cmd:I
     const/16 v6, 0x11
 
-    if-ne v0, v6, :cond_2d
+    if-ne v0, v6, :cond_2
 
     .line 72
     const/4 v1, 0x2
@@ -184,18 +188,18 @@
     invoke-virtual {p0, v6, v1}, Landroid/net/ethernet/EthernetMonitor$MonitorThread;->handleEvent(Ljava/lang/String;I)V
 
     .line 82
-    :cond_2a
-    :goto_2a
+    :cond_1
+    :goto_1
     add-int/lit8 v4, v4, 0x2
 
     .line 83
-    goto :goto_11
+    goto :goto_0
 
     .line 75
-    :cond_2d
+    :cond_2
     const/16 v6, 0x14
 
-    if-ne v0, v6, :cond_38
+    if-ne v0, v6, :cond_3
 
     .line 76
     const/4 v1, 0x1
@@ -205,13 +209,13 @@
 
     invoke-virtual {p0, v6, v1}, Landroid/net/ethernet/EthernetMonitor$MonitorThread;->handleEvent(Ljava/lang/String;I)V
 
-    goto :goto_2a
+    goto :goto_1
 
     .line 78
-    :cond_38
+    :cond_3
     const/16 v6, 0x10
 
-    if-ne v0, v6, :cond_2a
+    if-ne v0, v6, :cond_1
 
     .line 79
     const/4 v1, 0x3
@@ -221,5 +225,5 @@
 
     invoke-virtual {p0, v6, v1}, Landroid/net/ethernet/EthernetMonitor$MonitorThread;->handleEvent(Ljava/lang/String;I)V
 
-    goto :goto_2a
+    goto :goto_1
 .end method

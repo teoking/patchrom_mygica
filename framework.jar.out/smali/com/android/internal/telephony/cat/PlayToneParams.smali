@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/TextMessage;Lcom/android/internal/telephony/cat/Tone;Lcom/android/internal/telephony/cat/Duration;Z)V
-    .registers 7
+    .locals 1
     .parameter "cmdDet"
     .parameter "textMsg"
     .parameter "tone"
@@ -39,16 +39,16 @@
 
 # virtual methods
 .method setIcon(Landroid/graphics/Bitmap;)Z
-    .registers 3
+    .locals 1
     .parameter "icon"
 
     .prologue
     .line 95
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/telephony/cat/PlayToneParams;->textMsg:Lcom/android/internal/telephony/cat/TextMessage;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 96
     iget-object v0, p0, Lcom/android/internal/telephony/cat/PlayToneParams;->textMsg:Lcom/android/internal/telephony/cat/TextMessage;
@@ -59,11 +59,11 @@
     const/4 v0, 0x1
 
     .line 99
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_b
+    goto :goto_0
 .end method

@@ -138,7 +138,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 4
+    .locals 4
 
     .prologue
     const/16 v3, 0x10
@@ -157,56 +157,56 @@
     .line 39
     new-array v0, v1, [I
 
-    fill-array-data v0, :array_5c
+    fill-array-data v0, :array_0
 
     sput-object v0, Landroid/text/format/DateUtils;->sDaysLong:[I
 
     .line 48
     new-array v0, v1, [I
 
-    fill-array-data v0, :array_6e
+    fill-array-data v0, :array_1
 
     sput-object v0, Landroid/text/format/DateUtils;->sDaysMedium:[I
 
     .line 57
     new-array v0, v1, [I
 
-    fill-array-data v0, :array_80
+    fill-array-data v0, :array_2
 
     sput-object v0, Landroid/text/format/DateUtils;->sDaysShort:[I
 
     .line 66
     new-array v0, v1, [I
 
-    fill-array-data v0, :array_92
+    fill-array-data v0, :array_3
 
     sput-object v0, Landroid/text/format/DateUtils;->sDaysShortest:[I
 
     .line 75
     new-array v0, v2, [I
 
-    fill-array-data v0, :array_a4
+    fill-array-data v0, :array_4
 
     sput-object v0, Landroid/text/format/DateUtils;->sMonthsStandaloneLong:[I
 
     .line 89
     new-array v0, v2, [I
 
-    fill-array-data v0, :array_c0
+    fill-array-data v0, :array_5
 
     sput-object v0, Landroid/text/format/DateUtils;->sMonthsLong:[I
 
     .line 103
     new-array v0, v2, [I
 
-    fill-array-data v0, :array_dc
+    fill-array-data v0, :array_6
 
     sput-object v0, Landroid/text/format/DateUtils;->sMonthsMedium:[I
 
     .line 117
     new-array v0, v2, [I
 
-    fill-array-data v0, :array_f8
+    fill-array-data v0, :array_7
 
     sput-object v0, Landroid/text/format/DateUtils;->sMonthsShortest:[I
 
@@ -215,21 +215,21 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_114
+    fill-array-data v0, :array_8
 
     sput-object v0, Landroid/text/format/DateUtils;->sAmPm:[I
 
     .line 210
     new-array v0, v3, [I
 
-    fill-array-data v0, :array_11c
+    fill-array-data v0, :array_9
 
     sput-object v0, Landroid/text/format/DateUtils;->sameYearTable:[I
 
     .line 236
     new-array v0, v3, [I
 
-    fill-array-data v0, :array_140
+    fill-array-data v0, :array_a
 
     sput-object v0, Landroid/text/format/DateUtils;->sameMonthTable:[I
 
@@ -238,7 +238,7 @@
     .line 39
     nop
 
-    :array_5c
+    :array_0
     .array-data 0x4
         0x5dt 0x0t 0x4t 0x1t
         0x5et 0x0t 0x4t 0x1t
@@ -250,7 +250,7 @@
     .end array-data
 
     .line 48
-    :array_6e
+    :array_1
     .array-data 0x4
         0x64t 0x0t 0x4t 0x1t
         0x65t 0x0t 0x4t 0x1t
@@ -262,7 +262,7 @@
     .end array-data
 
     .line 57
-    :array_80
+    :array_2
     .array-data 0x4
         0x6bt 0x0t 0x4t 0x1t
         0x6ct 0x0t 0x4t 0x1t
@@ -274,7 +274,7 @@
     .end array-data
 
     .line 66
-    :array_92
+    :array_3
     .array-data 0x4
         0x72t 0x0t 0x4t 0x1t
         0x73t 0x0t 0x4t 0x1t
@@ -286,7 +286,7 @@
     .end array-data
 
     .line 75
-    :array_a4
+    :array_4
     .array-data 0x4
         0x2dt 0x0t 0x4t 0x1t
         0x2et 0x0t 0x4t 0x1t
@@ -303,7 +303,7 @@
     .end array-data
 
     .line 89
-    :array_c0
+    :array_5
     .array-data 0x4
         0x39t 0x0t 0x4t 0x1t
         0x3at 0x0t 0x4t 0x1t
@@ -320,7 +320,7 @@
     .end array-data
 
     .line 103
-    :array_dc
+    :array_6
     .array-data 0x4
         0x45t 0x0t 0x4t 0x1t
         0x46t 0x0t 0x4t 0x1t
@@ -337,7 +337,7 @@
     .end array-data
 
     .line 117
-    :array_f8
+    :array_7
     .array-data 0x4
         0x51t 0x0t 0x4t 0x1t
         0x52t 0x0t 0x4t 0x1t
@@ -354,14 +354,14 @@
     .end array-data
 
     .line 131
-    :array_114
+    :array_8
     .array-data 0x4
         0x79t 0x0t 0x4t 0x1t
         0x7at 0x0t 0x4t 0x1t
     .end array-data
 
     .line 210
-    :array_11c
+    :array_9
     .array-data 0x4
         0xa2t 0x0t 0x4t 0x1t
         0xa3t 0x0t 0x4t 0x1t
@@ -382,7 +382,7 @@
     .end array-data
 
     .line 236
-    :array_140
+    :array_a
     .array-data 0x4
         0xadt 0x0t 0x4t 0x1t
         0xaet 0x0t 0x4t 0x1t
@@ -404,7 +404,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 36
@@ -414,7 +414,7 @@
 .end method
 
 .method public static assign(Ljava/util/Calendar;Ljava/util/Calendar;)V
-    .registers 4
+    .locals 2
     .parameter "lval"
     .parameter "rval"
 
@@ -434,7 +434,7 @@
 .end method
 
 .method public static formatDateRange(Landroid/content/Context;JJI)Ljava/lang/String;
-    .registers 13
+    .locals 7
     .parameter "context"
     .parameter "startMillis"
     .parameter "endMillis"
@@ -478,7 +478,7 @@
 .end method
 
 .method public static formatDateRange(Landroid/content/Context;Ljava/util/Formatter;JJI)Ljava/util/Formatter;
-    .registers 15
+    .locals 8
     .parameter "context"
     .parameter "formatter"
     .parameter "startMillis"
@@ -507,7 +507,7 @@
 .end method
 
 .method public static formatDateRange(Landroid/content/Context;Ljava/util/Formatter;JJILjava/lang/String;)Ljava/util/Formatter;
-    .registers 74
+    .locals 66
     .parameter "context"
     .parameter "formatter"
     .parameter "startMillis"
@@ -525,105 +525,105 @@
     .local v38, res:Landroid/content/res/Resources;
     and-int/lit8 v62, p6, 0x1
 
-    if-eqz v62, :cond_147
+    if-eqz v62, :cond_5
 
     const/16 v41, 0x1
 
     .line 1186
     .local v41, showTime:Z
-    :goto_a
+    :goto_0
     and-int/lit8 v62, p6, 0x2
 
-    if-eqz v62, :cond_14b
+    if-eqz v62, :cond_6
 
     const/16 v42, 0x1
 
     .line 1187
     .local v42, showWeekDay:Z
-    :goto_10
+    :goto_1
     and-int/lit8 v62, p6, 0x4
 
-    if-eqz v62, :cond_14f
+    if-eqz v62, :cond_7
 
     const/16 v43, 0x1
 
     .line 1188
     .local v43, showYear:Z
-    :goto_16
+    :goto_2
     and-int/lit8 v62, p6, 0x8
 
-    if-eqz v62, :cond_153
+    if-eqz v62, :cond_8
 
     const/16 v36, 0x1
 
     .line 1189
     .local v36, noYear:Z
-    :goto_1c
+    :goto_3
     move/from16 v0, p6
 
     and-int/lit16 v0, v0, 0x2000
 
     move/from16 v62, v0
 
-    if-eqz v62, :cond_157
+    if-eqz v62, :cond_9
 
     const/16 v60, 0x1
 
     .line 1190
     .local v60, useUTC:Z
-    :goto_26
+    :goto_4
     const v62, 0x88000
 
     and-int v62, v62, p6
 
-    if-eqz v62, :cond_15b
+    if-eqz v62, :cond_a
 
     const/4 v6, 0x1
 
     .line 1191
     .local v6, abbrevWeekDay:Z
-    :goto_2e
+    :goto_5
     const/high16 v62, 0x9
 
     and-int v62, v62, p6
 
-    if-eqz v62, :cond_15e
+    if-eqz v62, :cond_b
 
     const/4 v4, 0x1
 
     .line 1192
     .local v4, abbrevMonth:Z
-    :goto_35
+    :goto_6
     and-int/lit8 v62, p6, 0x20
 
-    if-eqz v62, :cond_161
+    if-eqz v62, :cond_c
 
     const/16 v34, 0x1
 
     .line 1193
     .local v34, noMonthDay:Z
-    :goto_3b
+    :goto_7
     const/high16 v62, 0x2
 
     and-int v62, v62, p6
 
-    if-eqz v62, :cond_165
+    if-eqz v62, :cond_d
 
     const/16 v37, 0x1
 
     .line 1198
     .local v37, numericDate:Z
-    :goto_43
+    :goto_8
     cmp-long v62, p2, p4
 
-    if-nez v62, :cond_169
+    if-nez v62, :cond_e
 
     const/16 v31, 0x1
 
     .line 1201
     .local v31, isInstant:Z
-    :goto_49
-    if-eqz p7, :cond_16d
+    :goto_9
+    if-eqz p7, :cond_f
 
     .line 1202
     new-instance v44, Landroid/text/format/Time;
@@ -636,7 +636,7 @@
 
     .line 1208
     .local v44, startDate:Landroid/text/format/Time;
-    :goto_54
+    :goto_a
     move-object/from16 v0, v44
 
     move-wide/from16 v1, p2
@@ -644,7 +644,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/text/format/Time;->set(J)V
 
     .line 1212
-    if-eqz v31, :cond_183
+    if-eqz v31, :cond_11
 
     .line 1213
     move-object/from16 v14, v44
@@ -655,8 +655,8 @@
 
     .line 1229
     .local v12, dayDistance:I
-    :goto_60
-    if-nez v31, :cond_8d
+    :goto_b
+    if-nez v31, :cond_1
 
     iget v0, v14, Landroid/text/format/Time;->hour:I
 
@@ -674,18 +674,18 @@
 
     or-int v62, v62, v63
 
-    if-nez v62, :cond_8d
+    if-nez v62, :cond_1
 
-    if-eqz v41, :cond_7c
+    if-eqz v41, :cond_0
 
     const/16 v62, 0x1
 
     move/from16 v0, v62
 
-    if-gt v12, v0, :cond_8d
+    if-gt v12, v0, :cond_1
 
     .line 1232
-    :cond_7c
+    :cond_0
     iget v0, v14, Landroid/text/format/Time;->monthDay:I
 
     move/from16 v62, v0
@@ -704,7 +704,7 @@
     invoke-virtual {v14, v0}, Landroid/text/format/Time;->normalize(Z)J
 
     .line 1236
-    :cond_8d
+    :cond_1
     move-object/from16 v0, v44
 
     iget v0, v0, Landroid/text/format/Time;->monthDay:I
@@ -755,20 +755,20 @@
 
     .line 1246
     .local v24, endWeekDayString:Ljava/lang/String;
-    if-eqz v42, :cond_c3
+    if-eqz v42, :cond_2
 
     .line 1247
     const-string v61, ""
 
     .line 1248
     .local v61, weekDayFormat:Ljava/lang/String;
-    if-eqz v6, :cond_1c1
+    if-eqz v6, :cond_14
 
     .line 1249
     const-string v61, "%a"
 
     .line 1253
-    :goto_b7
+    :goto_c
     move-object/from16 v0, v44
 
     move-object/from16 v1, v61
@@ -778,14 +778,14 @@
     move-result-object v54
 
     .line 1254
-    if-eqz v31, :cond_1c5
+    if-eqz v31, :cond_15
 
     move-object/from16 v24, v54
 
     .line 1257
     .end local v61           #weekDayFormat:Ljava/lang/String;
-    :cond_c3
-    :goto_c3
+    :cond_2
+    :goto_d
     const-string v53, ""
 
     .line 1258
@@ -794,7 +794,7 @@
 
     .line 1259
     .local v23, endTimeString:Ljava/lang/String;
-    if-eqz v41, :cond_fc
+    if-eqz v41, :cond_4
 
     .line 1260
     const-string v52, ""
@@ -811,31 +811,31 @@
 
     move/from16 v62, v0
 
-    if-eqz v62, :cond_1cd
+    if-eqz v62, :cond_16
 
     const/16 v28, 0x1
 
     .line 1263
     .local v28, force24Hour:Z
-    :goto_d7
+    :goto_e
     and-int/lit8 v62, p6, 0x40
 
-    if-eqz v62, :cond_1d1
+    if-eqz v62, :cond_17
 
     const/16 v27, 0x1
 
     .line 1265
     .local v27, force12Hour:Z
-    :goto_dd
-    if-eqz v28, :cond_1d5
+    :goto_f
+    if-eqz v28, :cond_18
 
     .line 1266
     const/16 v59, 0x1
 
     .line 1272
     .local v59, use24Hour:Z
-    :goto_e1
-    if-eqz v59, :cond_1e1
+    :goto_10
+    if-eqz v59, :cond_1a
 
     .line 1273
     const v62, 0x104007e
@@ -851,8 +851,8 @@
     move-object/from16 v52, v22
 
     .line 1344
-    :cond_f0
-    :goto_f0
+    :cond_3
+    :goto_11
     move-object/from16 v0, v44
 
     move-object/from16 v1, v52
@@ -862,7 +862,7 @@
     move-result-object v53
 
     .line 1345
-    if-eqz v31, :cond_346
+    if-eqz v31, :cond_2e
 
     move-object/from16 v23, v53
 
@@ -872,13 +872,13 @@
     .end local v28           #force24Hour:Z
     .end local v52           #startTimeFormat:Ljava/lang/String;
     .end local v59           #use24Hour:Z
-    :cond_fc
-    :goto_fc
-    if-eqz v43, :cond_34e
+    :cond_4
+    :goto_12
+    if-eqz v43, :cond_2f
 
     .line 1369
-    :goto_fe
-    if-eqz v37, :cond_377
+    :goto_13
+    if-eqz v37, :cond_33
 
     .line 1370
     const v62, 0x1040083
@@ -893,11 +893,11 @@
 
     .line 1401
     .local v13, defaultDateFormat:Ljava/lang/String;
-    :goto_10b
-    if-eqz v42, :cond_3fa
+    :goto_14
+    if-eqz v42, :cond_3c
 
     .line 1402
-    if-eqz v41, :cond_3ed
+    if-eqz v41, :cond_3b
 
     .line 1403
     const v62, 0x104009c
@@ -912,20 +912,20 @@
 
     .line 1415
     .local v29, fullFormat:Ljava/lang/String;
-    :goto_11a
-    if-eqz v34, :cond_416
+    :goto_15
+    if-eqz v34, :cond_3e
 
     move/from16 v0, v49
 
     move/from16 v1, v19
 
-    if-ne v0, v1, :cond_416
+    if-ne v0, v1, :cond_3e
 
     move/from16 v0, v55
 
     move/from16 v1, v25
 
-    if-ne v0, v1, :cond_416
+    if-ne v0, v1, :cond_3e
 
     .line 1417
     const-string v62, "%s"
@@ -959,7 +959,7 @@
     move-result-object v62
 
     .line 1553
-    :goto_146
+    :goto_16
     return-object v62
 
     .line 1185
@@ -988,78 +988,78 @@
     .end local v54           #startWeekDayString:Ljava/lang/String;
     .end local v55           #startYear:I
     .end local v60           #useUTC:Z
-    :cond_147
+    :cond_5
     const/16 v41, 0x0
 
-    goto/16 :goto_a
+    goto/16 :goto_0
 
     .line 1186
     .restart local v41       #showTime:Z
-    :cond_14b
+    :cond_6
     const/16 v42, 0x0
 
-    goto/16 :goto_10
+    goto/16 :goto_1
 
     .line 1187
     .restart local v42       #showWeekDay:Z
-    :cond_14f
+    :cond_7
     const/16 v43, 0x0
 
-    goto/16 :goto_16
+    goto/16 :goto_2
 
     .line 1188
     .restart local v43       #showYear:Z
-    :cond_153
+    :cond_8
     const/16 v36, 0x0
 
-    goto/16 :goto_1c
+    goto/16 :goto_3
 
     .line 1189
     .restart local v36       #noYear:Z
-    :cond_157
+    :cond_9
     const/16 v60, 0x0
 
-    goto/16 :goto_26
+    goto/16 :goto_4
 
     .line 1190
     .restart local v60       #useUTC:Z
-    :cond_15b
+    :cond_a
     const/4 v6, 0x0
 
-    goto/16 :goto_2e
+    goto/16 :goto_5
 
     .line 1191
     .restart local v6       #abbrevWeekDay:Z
-    :cond_15e
+    :cond_b
     const/4 v4, 0x0
 
-    goto/16 :goto_35
+    goto/16 :goto_6
 
     .line 1192
     .restart local v4       #abbrevMonth:Z
-    :cond_161
+    :cond_c
     const/16 v34, 0x0
 
-    goto/16 :goto_3b
+    goto/16 :goto_7
 
     .line 1193
     .restart local v34       #noMonthDay:Z
-    :cond_165
+    :cond_d
     const/16 v37, 0x0
 
-    goto/16 :goto_43
+    goto/16 :goto_8
 
     .line 1198
     .restart local v37       #numericDate:Z
-    :cond_169
+    :cond_e
     const/16 v31, 0x0
 
-    goto/16 :goto_49
+    goto/16 :goto_9
 
     .line 1203
     .restart local v31       #isInstant:Z
-    :cond_16d
-    if-eqz v60, :cond_17c
+    :cond_f
+    if-eqz v60, :cond_10
 
     .line 1204
     new-instance v44, Landroid/text/format/Time;
@@ -1073,21 +1073,21 @@
     invoke-direct {v0, v1}, Landroid/text/format/Time;-><init>(Ljava/lang/String;)V
 
     .restart local v44       #startDate:Landroid/text/format/Time;
-    goto/16 :goto_54
+    goto/16 :goto_a
 
     .line 1206
     .end local v44           #startDate:Landroid/text/format/Time;
-    :cond_17c
+    :cond_10
     new-instance v44, Landroid/text/format/Time;
 
     invoke-direct/range {v44 .. v44}, Landroid/text/format/Time;-><init>()V
 
     .restart local v44       #startDate:Landroid/text/format/Time;
-    goto/16 :goto_54
+    goto/16 :goto_a
 
     .line 1216
-    :cond_183
-    if-eqz p7, :cond_1af
+    :cond_11
+    if-eqz p7, :cond_12
 
     .line 1217
     new-instance v14, Landroid/text/format/Time;
@@ -1098,7 +1098,7 @@
 
     .line 1223
     .restart local v14       #endDate:Landroid/text/format/Time;
-    :goto_18c
+    :goto_17
     move-wide/from16 v0, p4
 
     invoke-virtual {v14, v0, v1}, Landroid/text/format/Time;->set(J)V
@@ -1137,15 +1137,15 @@
     sub-int v12, v17, v47
 
     .restart local v12       #dayDistance:I
-    goto/16 :goto_60
+    goto/16 :goto_b
 
     .line 1218
     .end local v12           #dayDistance:I
     .end local v14           #endDate:Landroid/text/format/Time;
     .end local v17           #endJulianDay:I
     .end local v47           #startJulianDay:I
-    :cond_1af
-    if-eqz v60, :cond_1bb
+    :cond_12
+    if-eqz v60, :cond_13
 
     .line 1219
     new-instance v14, Landroid/text/format/Time;
@@ -1157,17 +1157,17 @@
     invoke-direct {v14, v0}, Landroid/text/format/Time;-><init>(Ljava/lang/String;)V
 
     .restart local v14       #endDate:Landroid/text/format/Time;
-    goto :goto_18c
+    goto :goto_17
 
     .line 1221
     .end local v14           #endDate:Landroid/text/format/Time;
-    :cond_1bb
+    :cond_13
     new-instance v14, Landroid/text/format/Time;
 
     invoke-direct {v14}, Landroid/text/format/Time;-><init>()V
 
     .restart local v14       #endDate:Landroid/text/format/Time;
-    goto :goto_18c
+    goto :goto_17
 
     .line 1251
     .restart local v12       #dayDistance:I
@@ -1180,20 +1180,20 @@
     .restart local v54       #startWeekDayString:Ljava/lang/String;
     .restart local v55       #startYear:I
     .restart local v61       #weekDayFormat:Ljava/lang/String;
-    :cond_1c1
+    :cond_14
     const-string v61, "%A"
 
-    goto/16 :goto_b7
+    goto/16 :goto_c
 
     .line 1254
-    :cond_1c5
+    :cond_15
     move-object/from16 v0, v61
 
     invoke-virtual {v14, v0}, Landroid/text/format/Time;->format(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v24
 
-    goto/16 :goto_c3
+    goto/16 :goto_d
 
     .line 1262
     .end local v61           #weekDayFormat:Ljava/lang/String;
@@ -1201,124 +1201,124 @@
     .restart local v23       #endTimeString:Ljava/lang/String;
     .restart local v52       #startTimeFormat:Ljava/lang/String;
     .restart local v53       #startTimeString:Ljava/lang/String;
-    :cond_1cd
+    :cond_16
     const/16 v28, 0x0
 
-    goto/16 :goto_d7
+    goto/16 :goto_e
 
     .line 1263
     .restart local v28       #force24Hour:Z
-    :cond_1d1
+    :cond_17
     const/16 v27, 0x0
 
-    goto/16 :goto_dd
+    goto/16 :goto_f
 
     .line 1267
     .restart local v27       #force12Hour:Z
-    :cond_1d5
-    if-eqz v27, :cond_1db
+    :cond_18
+    if-eqz v27, :cond_19
 
     .line 1268
     const/16 v59, 0x0
 
     .restart local v59       #use24Hour:Z
-    goto/16 :goto_e1
+    goto/16 :goto_10
 
     .line 1270
     .end local v59           #use24Hour:Z
-    :cond_1db
+    :cond_19
     invoke-static/range {p0 .. p0}, Landroid/text/format/DateFormat;->is24HourFormat(Landroid/content/Context;)Z
 
     move-result v59
 
     .restart local v59       #use24Hour:Z
-    goto/16 :goto_e1
+    goto/16 :goto_10
 
     .line 1276
-    :cond_1e1
+    :cond_1a
     const v62, 0x84000
 
     and-int v62, v62, p6
 
-    if-eqz v62, :cond_29a
+    if-eqz v62, :cond_1c
 
     const/4 v5, 0x1
 
     .line 1277
     .local v5, abbrevTime:Z
-    :goto_1e9
+    :goto_18
     move/from16 v0, p6
 
     and-int/lit16 v0, v0, 0x100
 
     move/from16 v62, v0
 
-    if-eqz v62, :cond_29d
+    if-eqz v62, :cond_1d
 
     const/4 v7, 0x1
 
     .line 1278
     .local v7, capAMPM:Z
-    :goto_1f2
+    :goto_19
     move/from16 v0, p6
 
     and-int/lit16 v0, v0, 0x200
 
     move/from16 v62, v0
 
-    if-eqz v62, :cond_2a0
+    if-eqz v62, :cond_1e
 
     const/16 v35, 0x1
 
     .line 1279
     .local v35, noNoon:Z
-    :goto_1fc
+    :goto_1a
     move/from16 v0, p6
 
     and-int/lit16 v0, v0, 0x400
 
     move/from16 v62, v0
 
-    if-eqz v62, :cond_2a4
+    if-eqz v62, :cond_1f
 
     const/4 v9, 0x1
 
     .line 1280
     .local v9, capNoon:Z
-    :goto_205
+    :goto_1b
     move/from16 v0, p6
 
     and-int/lit16 v0, v0, 0x800
 
     move/from16 v62, v0
 
-    if-eqz v62, :cond_2a7
+    if-eqz v62, :cond_20
 
     const/16 v33, 0x1
 
     .line 1281
     .local v33, noMidnight:Z
-    :goto_20f
+    :goto_1c
     move/from16 v0, p6
 
     and-int/lit16 v0, v0, 0x1000
 
     move/from16 v62, v0
 
-    if-eqz v62, :cond_2ab
+    if-eqz v62, :cond_21
 
     const/4 v8, 0x1
 
     .line 1283
     .local v8, capMidnight:Z
-    :goto_218
+    :goto_1d
     move-object/from16 v0, v44
 
     iget v0, v0, Landroid/text/format/Time;->minute:I
 
     move/from16 v62, v0
 
-    if-nez v62, :cond_2ae
+    if-nez v62, :cond_22
 
     move-object/from16 v0, v44
 
@@ -1326,36 +1326,36 @@
 
     move/from16 v62, v0
 
-    if-nez v62, :cond_2ae
+    if-nez v62, :cond_22
 
     const/16 v51, 0x1
 
     .line 1284
     .local v51, startOnTheHour:Z
-    :goto_22a
+    :goto_1e
     iget v0, v14, Landroid/text/format/Time;->minute:I
 
     move/from16 v62, v0
 
-    if-nez v62, :cond_2b2
+    if-nez v62, :cond_23
 
     iget v0, v14, Landroid/text/format/Time;->second:I
 
     move/from16 v62, v0
 
-    if-nez v62, :cond_2b2
+    if-nez v62, :cond_23
 
     const/16 v21, 0x1
 
     .line 1285
     .local v21, endOnTheHour:Z
-    :goto_238
-    if-eqz v5, :cond_2c1
+    :goto_1f
+    if-eqz v5, :cond_25
 
-    if-eqz v51, :cond_2c1
+    if-eqz v51, :cond_25
 
     .line 1286
-    if-eqz v7, :cond_2b5
+    if-eqz v7, :cond_24
 
     .line 1287
     const v62, 0x1040336
@@ -1369,16 +1369,16 @@
     move-result-object v52
 
     .line 1303
-    :goto_249
-    if-nez v31, :cond_279
+    :goto_20
+    if-nez v31, :cond_1b
 
     .line 1304
-    if-eqz v5, :cond_2ea
+    if-eqz v5, :cond_28
 
-    if-eqz v21, :cond_2ea
+    if-eqz v21, :cond_28
 
     .line 1305
-    if-eqz v7, :cond_2dd
+    if-eqz v7, :cond_27
 
     .line 1306
     const v62, 0x1040336
@@ -1392,7 +1392,7 @@
     move-result-object v22
 
     .line 1318
-    :goto_25c
+    :goto_21
     iget v0, v14, Landroid/text/format/Time;->hour:I
 
     move/from16 v62, v0
@@ -1403,14 +1403,14 @@
 
     move/from16 v1, v63
 
-    if-ne v0, v1, :cond_313
+    if-ne v0, v1, :cond_2b
 
-    if-eqz v21, :cond_313
+    if-eqz v21, :cond_2b
 
-    if-nez v35, :cond_313
+    if-nez v35, :cond_2b
 
     .line 1319
-    if-eqz v9, :cond_306
+    if-eqz v9, :cond_2a
 
     .line 1320
     const v62, 0x10403b8
@@ -1424,8 +1424,8 @@
     move-result-object v22
 
     .line 1333
-    :cond_279
-    :goto_279
+    :cond_1b
+    :goto_22
     move-object/from16 v0, v44
 
     iget v0, v0, Landroid/text/format/Time;->hour:I
@@ -1438,14 +1438,14 @@
 
     move/from16 v1, v63
 
-    if-ne v0, v1, :cond_f0
+    if-ne v0, v1, :cond_3
 
-    if-eqz v51, :cond_f0
+    if-eqz v51, :cond_3
 
-    if-nez v35, :cond_f0
+    if-nez v35, :cond_3
 
     .line 1334
-    if-eqz v9, :cond_339
+    if-eqz v9, :cond_2d
 
     .line 1335
     const v62, 0x10403b8
@@ -1458,7 +1458,7 @@
 
     move-result-object v52
 
-    goto/16 :goto_f0
+    goto/16 :goto_11
 
     .line 1276
     .end local v5           #abbrevTime:Z
@@ -1469,63 +1469,63 @@
     .end local v33           #noMidnight:Z
     .end local v35           #noNoon:Z
     .end local v51           #startOnTheHour:Z
-    :cond_29a
+    :cond_1c
     const/4 v5, 0x0
 
-    goto/16 :goto_1e9
+    goto/16 :goto_18
 
     .line 1277
     .restart local v5       #abbrevTime:Z
-    :cond_29d
+    :cond_1d
     const/4 v7, 0x0
 
-    goto/16 :goto_1f2
+    goto/16 :goto_19
 
     .line 1278
     .restart local v7       #capAMPM:Z
-    :cond_2a0
+    :cond_1e
     const/16 v35, 0x0
 
-    goto/16 :goto_1fc
+    goto/16 :goto_1a
 
     .line 1279
     .restart local v35       #noNoon:Z
-    :cond_2a4
+    :cond_1f
     const/4 v9, 0x0
 
-    goto/16 :goto_205
+    goto/16 :goto_1b
 
     .line 1280
     .restart local v9       #capNoon:Z
-    :cond_2a7
+    :cond_20
     const/16 v33, 0x0
 
-    goto/16 :goto_20f
+    goto/16 :goto_1c
 
     .line 1281
     .restart local v33       #noMidnight:Z
-    :cond_2ab
+    :cond_21
     const/4 v8, 0x0
 
-    goto/16 :goto_218
+    goto/16 :goto_1d
 
     .line 1283
     .restart local v8       #capMidnight:Z
-    :cond_2ae
+    :cond_22
     const/16 v51, 0x0
 
-    goto/16 :goto_22a
+    goto/16 :goto_1e
 
     .line 1284
     .restart local v51       #startOnTheHour:Z
-    :cond_2b2
+    :cond_23
     const/16 v21, 0x0
 
-    goto :goto_238
+    goto :goto_1f
 
     .line 1289
     .restart local v21       #endOnTheHour:Z
-    :cond_2b5
+    :cond_24
     const v62, 0x1040335
 
     move-object/from16 v0, v38
@@ -1536,11 +1536,11 @@
 
     move-result-object v52
 
-    goto :goto_249
+    goto :goto_20
 
     .line 1292
-    :cond_2c1
-    if-eqz v7, :cond_2d0
+    :cond_25
+    if-eqz v7, :cond_26
 
     .line 1293
     const v62, 0x1040080
@@ -1553,10 +1553,10 @@
 
     move-result-object v52
 
-    goto/16 :goto_249
+    goto/16 :goto_20
 
     .line 1295
-    :cond_2d0
+    :cond_26
     const v62, 0x104007f
 
     move-object/from16 v0, v38
@@ -1567,10 +1567,10 @@
 
     move-result-object v52
 
-    goto/16 :goto_249
+    goto/16 :goto_20
 
     .line 1308
-    :cond_2dd
+    :cond_27
     const v62, 0x1040335
 
     move-object/from16 v0, v38
@@ -1581,11 +1581,11 @@
 
     move-result-object v22
 
-    goto/16 :goto_25c
+    goto/16 :goto_21
 
     .line 1311
-    :cond_2ea
-    if-eqz v7, :cond_2f9
+    :cond_28
+    if-eqz v7, :cond_29
 
     .line 1312
     const v62, 0x1040080
@@ -1598,10 +1598,10 @@
 
     move-result-object v22
 
-    goto/16 :goto_25c
+    goto/16 :goto_21
 
     .line 1314
-    :cond_2f9
+    :cond_29
     const v62, 0x104007f
 
     move-object/from16 v0, v38
@@ -1612,10 +1612,10 @@
 
     move-result-object v22
 
-    goto/16 :goto_25c
+    goto/16 :goto_21
 
     .line 1322
-    :cond_306
+    :cond_2a
     const v62, 0x10403b7
 
     move-object/from16 v0, v38
@@ -1626,22 +1626,22 @@
 
     move-result-object v22
 
-    goto/16 :goto_279
+    goto/16 :goto_22
 
     .line 1324
-    :cond_313
+    :cond_2b
     iget v0, v14, Landroid/text/format/Time;->hour:I
 
     move/from16 v62, v0
 
-    if-nez v62, :cond_279
+    if-nez v62, :cond_1b
 
-    if-eqz v21, :cond_279
+    if-eqz v21, :cond_1b
 
-    if-nez v33, :cond_279
+    if-nez v33, :cond_1b
 
     .line 1325
-    if-eqz v8, :cond_32c
+    if-eqz v8, :cond_2c
 
     .line 1326
     const v62, 0x10403ba
@@ -1654,10 +1654,10 @@
 
     move-result-object v22
 
-    goto/16 :goto_279
+    goto/16 :goto_22
 
     .line 1328
-    :cond_32c
+    :cond_2c
     const v62, 0x10403b9
 
     move-object/from16 v0, v38
@@ -1668,10 +1668,10 @@
 
     move-result-object v22
 
-    goto/16 :goto_279
+    goto/16 :goto_22
 
     .line 1337
-    :cond_339
+    :cond_2d
     const v62, 0x10403b7
 
     move-object/from16 v0, v38
@@ -1682,7 +1682,7 @@
 
     move-result-object v52
 
-    goto/16 :goto_f0
+    goto/16 :goto_11
 
     .line 1345
     .end local v5           #abbrevTime:Z
@@ -1693,14 +1693,14 @@
     .end local v33           #noMidnight:Z
     .end local v35           #noNoon:Z
     .end local v51           #startOnTheHour:Z
-    :cond_346
+    :cond_2e
     move-object/from16 v0, v22
 
     invoke-virtual {v14, v0}, Landroid/text/format/Time;->format(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v23
 
-    goto/16 :goto_fc
+    goto/16 :goto_12
 
     .line 1356
     .end local v22           #endTimeFormat:Ljava/lang/String;
@@ -1708,29 +1708,29 @@
     .end local v28           #force24Hour:Z
     .end local v52           #startTimeFormat:Ljava/lang/String;
     .end local v59           #use24Hour:Z
-    :cond_34e
-    if-eqz v36, :cond_354
+    :cond_2f
+    if-eqz v36, :cond_30
 
     .line 1358
     const/16 v43, 0x0
 
-    goto/16 :goto_fe
+    goto/16 :goto_13
 
     .line 1359
-    :cond_354
+    :cond_30
     move/from16 v0, v55
 
     move/from16 v1, v25
 
-    if-eq v0, v1, :cond_35e
+    if-eq v0, v1, :cond_31
 
     .line 1360
     const/16 v43, 0x1
 
-    goto/16 :goto_fe
+    goto/16 :goto_13
 
     .line 1363
-    :cond_35e
+    :cond_31
     new-instance v10, Landroid/text/format/Time;
 
     invoke-direct {v10}, Landroid/text/format/Time;-><init>()V
@@ -1748,28 +1748,28 @@
 
     move/from16 v1, v62
 
-    if-eq v0, v1, :cond_374
+    if-eq v0, v1, :cond_32
 
     const/16 v43, 0x1
 
-    :goto_372
-    goto/16 :goto_fe
+    :goto_23
+    goto/16 :goto_13
 
-    :cond_374
+    :cond_32
     const/16 v43, 0x0
 
-    goto :goto_372
+    goto :goto_23
 
     .line 1371
     .end local v10           #currentTime:Landroid/text/format/Time;
-    :cond_377
-    if-eqz v43, :cond_3b3
+    :cond_33
+    if-eqz v43, :cond_37
 
     .line 1372
-    if-eqz v4, :cond_397
+    if-eqz v4, :cond_35
 
     .line 1373
-    if-eqz v34, :cond_38a
+    if-eqz v34, :cond_34
 
     .line 1374
     const v62, 0x1040091
@@ -1783,11 +1783,11 @@
     move-result-object v13
 
     .restart local v13       #defaultDateFormat:Ljava/lang/String;
-    goto/16 :goto_10b
+    goto/16 :goto_14
 
     .line 1376
     .end local v13           #defaultDateFormat:Ljava/lang/String;
-    :cond_38a
+    :cond_34
     const v62, 0x104008b
 
     move-object/from16 v0, v38
@@ -1799,12 +1799,12 @@
     move-result-object v13
 
     .restart local v13       #defaultDateFormat:Ljava/lang/String;
-    goto/16 :goto_10b
+    goto/16 :goto_14
 
     .line 1379
     .end local v13           #defaultDateFormat:Ljava/lang/String;
-    :cond_397
-    if-eqz v34, :cond_3a6
+    :cond_35
+    if-eqz v34, :cond_36
 
     .line 1380
     const v62, 0x104008e
@@ -1818,11 +1818,11 @@
     move-result-object v13
 
     .restart local v13       #defaultDateFormat:Ljava/lang/String;
-    goto/16 :goto_10b
+    goto/16 :goto_14
 
     .line 1382
     .end local v13           #defaultDateFormat:Ljava/lang/String;
-    :cond_3a6
+    :cond_36
     const v62, 0x1040086
 
     move-object/from16 v0, v38
@@ -1834,15 +1834,15 @@
     move-result-object v13
 
     .restart local v13       #defaultDateFormat:Ljava/lang/String;
-    goto/16 :goto_10b
+    goto/16 :goto_14
 
     .line 1386
     .end local v13           #defaultDateFormat:Ljava/lang/String;
-    :cond_3b3
-    if-eqz v4, :cond_3d1
+    :cond_37
+    if-eqz v4, :cond_39
 
     .line 1387
-    if-eqz v34, :cond_3c4
+    if-eqz v34, :cond_38
 
     .line 1388
     const v62, 0x1040090
@@ -1856,11 +1856,11 @@
     move-result-object v13
 
     .restart local v13       #defaultDateFormat:Ljava/lang/String;
-    goto/16 :goto_10b
+    goto/16 :goto_14
 
     .line 1390
     .end local v13           #defaultDateFormat:Ljava/lang/String;
-    :cond_3c4
+    :cond_38
     const v62, 0x104008f
 
     move-object/from16 v0, v38
@@ -1872,12 +1872,12 @@
     move-result-object v13
 
     .restart local v13       #defaultDateFormat:Ljava/lang/String;
-    goto/16 :goto_10b
+    goto/16 :goto_14
 
     .line 1393
     .end local v13           #defaultDateFormat:Ljava/lang/String;
-    :cond_3d1
-    if-eqz v34, :cond_3e0
+    :cond_39
+    if-eqz v34, :cond_3a
 
     .line 1394
     const v62, 0x104008d
@@ -1891,11 +1891,11 @@
     move-result-object v13
 
     .restart local v13       #defaultDateFormat:Ljava/lang/String;
-    goto/16 :goto_10b
+    goto/16 :goto_14
 
     .line 1396
     .end local v13           #defaultDateFormat:Ljava/lang/String;
-    :cond_3e0
+    :cond_3a
     const v62, 0x104008c
 
     move-object/from16 v0, v38
@@ -1907,10 +1907,10 @@
     move-result-object v13
 
     .restart local v13       #defaultDateFormat:Ljava/lang/String;
-    goto/16 :goto_10b
+    goto/16 :goto_14
 
     .line 1405
-    :cond_3ed
+    :cond_3b
     const v62, 0x104009d
 
     move-object/from16 v0, v38
@@ -1922,12 +1922,12 @@
     move-result-object v29
 
     .restart local v29       #fullFormat:Ljava/lang/String;
-    goto/16 :goto_11a
+    goto/16 :goto_15
 
     .line 1408
     .end local v29           #fullFormat:Ljava/lang/String;
-    :cond_3fa
-    if-eqz v41, :cond_409
+    :cond_3c
+    if-eqz v41, :cond_3d
 
     .line 1409
     const v62, 0x104009e
@@ -1941,11 +1941,11 @@
     move-result-object v29
 
     .restart local v29       #fullFormat:Ljava/lang/String;
-    goto/16 :goto_11a
+    goto/16 :goto_15
 
     .line 1411
     .end local v29           #fullFormat:Ljava/lang/String;
-    :cond_409
+    :cond_3d
     const v62, 0x1040093
 
     move-object/from16 v0, v38
@@ -1957,20 +1957,20 @@
     move-result-object v29
 
     .restart local v29       #fullFormat:Ljava/lang/String;
-    goto/16 :goto_11a
+    goto/16 :goto_15
 
     .line 1420
-    :cond_416
+    :cond_3e
     move/from16 v0, v55
 
     move/from16 v1, v25
 
-    if-ne v0, v1, :cond_41e
+    if-ne v0, v1, :cond_3f
 
-    if-eqz v34, :cond_454
+    if-eqz v34, :cond_40
 
     .line 1424
-    :cond_41e
+    :cond_3f
     move-object/from16 v0, v44
 
     invoke-virtual {v0, v13}, Landroid/text/format/Time;->format(Ljava/lang/String;)Ljava/lang/String;
@@ -2027,20 +2027,20 @@
 
     move-result-object v62
 
-    goto/16 :goto_146
+    goto/16 :goto_16
 
     .line 1436
     .end local v15           #endDateString:Ljava/lang/String;
     .end local v45           #startDateString:Ljava/lang/String;
-    :cond_454
-    if-eqz v37, :cond_4dc
+    :cond_40
+    if-eqz v37, :cond_45
 
     .line 1437
     const-string v32, "%m"
 
     .line 1444
     .local v32, monthFormat:Ljava/lang/String;
-    :goto_458
+    :goto_24
     move-object/from16 v0, v44
 
     move-object/from16 v1, v32
@@ -2075,62 +2075,62 @@
 
     .line 1448
     .local v56, startYearString:Ljava/lang/String;
-    if-eqz v31, :cond_4ef
+    if-eqz v31, :cond_47
 
     const/16 v20, 0x0
 
     .line 1449
     .local v20, endMonthString:Ljava/lang/String;
-    :goto_478
-    if-eqz v31, :cond_4f6
+    :goto_25
+    if-eqz v31, :cond_48
 
     const/16 v18, 0x0
 
     .line 1450
     .local v18, endMonthDayString:Ljava/lang/String;
-    :goto_47c
-    if-eqz v31, :cond_500
+    :goto_26
+    if-eqz v31, :cond_49
 
     const/16 v26, 0x0
 
     .line 1452
     .local v26, endYearString:Ljava/lang/String;
-    :goto_480
+    :goto_27
     move/from16 v0, v49
 
     move/from16 v1, v19
 
-    if-eq v0, v1, :cond_50a
+    if-eq v0, v1, :cond_4a
 
     .line 1458
     const/16 v30, 0x0
 
     .line 1459
     .local v30, index:I
-    if-eqz v42, :cond_48c
+    if-eqz v42, :cond_41
 
     const/16 v30, 0x1
 
     .line 1460
-    :cond_48c
-    if-eqz v43, :cond_490
+    :cond_41
+    if-eqz v43, :cond_42
 
     add-int/lit8 v30, v30, 0x2
 
     .line 1461
-    :cond_490
-    if-eqz v41, :cond_494
+    :cond_42
+    if-eqz v41, :cond_43
 
     add-int/lit8 v30, v30, 0x4
 
     .line 1462
-    :cond_494
-    if-eqz v37, :cond_498
+    :cond_43
+    if-eqz v37, :cond_44
 
     add-int/lit8 v30, v30, 0x8
 
     .line 1463
-    :cond_498
+    :cond_44
     sget-object v62, Landroid/text/format/DateUtils;->sameYearTable:[I
 
     aget v39, v62, v30
@@ -2200,7 +2200,7 @@
 
     move-result-object v62
 
-    goto/16 :goto_146
+    goto/16 :goto_16
 
     .line 1438
     .end local v18           #endMonthDayString:Ljava/lang/String;
@@ -2212,8 +2212,8 @@
     .end local v48           #startMonthDayString:Ljava/lang/String;
     .end local v50           #startMonthString:Ljava/lang/String;
     .end local v56           #startYearString:Ljava/lang/String;
-    :cond_4dc
-    if-eqz v4, :cond_4eb
+    :cond_45
+    if-eqz v4, :cond_46
 
     .line 1439
     const v62, 0x10400b2
@@ -2227,32 +2227,32 @@
     move-result-object v32
 
     .restart local v32       #monthFormat:Ljava/lang/String;
-    goto/16 :goto_458
+    goto/16 :goto_24
 
     .line 1442
     .end local v32           #monthFormat:Ljava/lang/String;
-    :cond_4eb
+    :cond_46
     const-string v32, "%B"
 
     .restart local v32       #monthFormat:Ljava/lang/String;
-    goto/16 :goto_458
+    goto/16 :goto_24
 
     .line 1448
     .restart local v48       #startMonthDayString:Ljava/lang/String;
     .restart local v50       #startMonthString:Ljava/lang/String;
     .restart local v56       #startYearString:Ljava/lang/String;
-    :cond_4ef
+    :cond_47
     move-object/from16 v0, v32
 
     invoke-virtual {v14, v0}, Landroid/text/format/Time;->format(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v20
 
-    goto :goto_478
+    goto :goto_25
 
     .line 1449
     .restart local v20       #endMonthString:Ljava/lang/String;
-    :cond_4f6
+    :cond_48
     const-string v62, "%-d"
 
     move-object/from16 v0, v62
@@ -2261,11 +2261,11 @@
 
     move-result-object v18
 
-    goto/16 :goto_47c
+    goto/16 :goto_26
 
     .line 1450
     .restart local v18       #endMonthDayString:Ljava/lang/String;
-    :cond_500
+    :cond_49
     const-string v62, "%Y"
 
     move-object/from16 v0, v62
@@ -2274,46 +2274,46 @@
 
     move-result-object v26
 
-    goto/16 :goto_480
+    goto/16 :goto_27
 
     .line 1475
     .restart local v26       #endYearString:Ljava/lang/String;
-    :cond_50a
+    :cond_4a
     move/from16 v0, v46
 
     move/from16 v1, v16
 
-    if-eq v0, v1, :cond_566
+    if-eq v0, v1, :cond_4f
 
     .line 1477
     const/16 v30, 0x0
 
     .line 1478
     .restart local v30       #index:I
-    if-eqz v42, :cond_516
+    if-eqz v42, :cond_4b
 
     const/16 v30, 0x1
 
     .line 1479
-    :cond_516
-    if-eqz v43, :cond_51a
+    :cond_4b
+    if-eqz v43, :cond_4c
 
     add-int/lit8 v30, v30, 0x2
 
     .line 1480
-    :cond_51a
-    if-eqz v41, :cond_51e
+    :cond_4c
+    if-eqz v41, :cond_4d
 
     add-int/lit8 v30, v30, 0x4
 
     .line 1481
-    :cond_51e
-    if-eqz v37, :cond_522
+    :cond_4d
+    if-eqz v37, :cond_4e
 
     add-int/lit8 v30, v30, 0x8
 
     .line 1482
-    :cond_522
+    :cond_4e
     sget-object v62, Landroid/text/format/DateUtils;->sameMonthTable:[I
 
     aget v39, v62, v30
@@ -2383,46 +2383,46 @@
 
     move-result-object v62
 
-    goto/16 :goto_146
+    goto/16 :goto_16
 
     .line 1495
     .end local v30           #index:I
     .end local v39           #resId:I
-    :cond_566
+    :cond_4f
     and-int/lit8 v62, p6, 0x10
 
-    if-eqz v62, :cond_5b7
+    if-eqz v62, :cond_53
 
     const/16 v40, 0x1
 
     .line 1498
     .local v40, showDate:Z
-    :goto_56c
-    if-nez v41, :cond_574
+    :goto_28
+    if-nez v41, :cond_50
 
-    if-nez v40, :cond_574
+    if-nez v40, :cond_50
 
-    if-nez v42, :cond_574
+    if-nez v42, :cond_50
 
     const/16 v40, 0x1
 
     .line 1501
-    :cond_574
+    :cond_50
     const-string v58, ""
 
     .line 1502
     .local v58, timeString:Ljava/lang/String;
-    if-eqz v41, :cond_57c
+    if-eqz v41, :cond_51
 
     .line 1505
-    if-eqz v31, :cond_5ba
+    if-eqz v31, :cond_54
 
     .line 1508
     move-object/from16 v58, v53
 
     .line 1518
-    :cond_57c
-    :goto_57c
+    :cond_51
+    :goto_29
     const-string v29, ""
 
     .line 1519
@@ -2430,7 +2430,7 @@
 
     .line 1520
     .local v11, dateString:Ljava/lang/String;
-    if-eqz v40, :cond_612
+    if-eqz v40, :cond_58
 
     .line 1521
     move-object/from16 v0, v44
@@ -2440,10 +2440,10 @@
     move-result-object v11
 
     .line 1522
-    if-eqz v42, :cond_5ea
+    if-eqz v42, :cond_56
 
     .line 1523
-    if-eqz v41, :cond_5de
+    if-eqz v41, :cond_55
 
     .line 1525
     const v62, 0x104009f
@@ -2457,8 +2457,8 @@
     move-result-object v29
 
     .line 1553
-    :cond_597
-    :goto_597
+    :cond_52
+    :goto_2a
     const/16 v62, 0x3
 
     move/from16 v0, v62
@@ -2489,21 +2489,21 @@
 
     move-result-object v62
 
-    goto/16 :goto_146
+    goto/16 :goto_16
 
     .line 1495
     .end local v11           #dateString:Ljava/lang/String;
     .end local v40           #showDate:Z
     .end local v58           #timeString:Ljava/lang/String;
-    :cond_5b7
+    :cond_53
     const/16 v40, 0x0
 
-    goto :goto_56c
+    goto :goto_28
 
     .line 1511
     .restart local v40       #showDate:Z
     .restart local v58       #timeString:Ljava/lang/String;
-    :cond_5ba
+    :cond_54
     const v62, 0x1040092
 
     move-object/from16 v0, v38
@@ -2540,12 +2540,12 @@
 
     move-result-object v58
 
-    goto :goto_57c
+    goto :goto_29
 
     .line 1528
     .end local v57           #timeFormat:Ljava/lang/String;
     .restart local v11       #dateString:Ljava/lang/String;
-    :cond_5de
+    :cond_55
     const v62, 0x10400a0
 
     move-object/from16 v0, v38
@@ -2556,11 +2556,11 @@
 
     move-result-object v29
 
-    goto :goto_597
+    goto :goto_2a
 
     .line 1531
-    :cond_5ea
-    if-eqz v41, :cond_5f8
+    :cond_56
+    if-eqz v41, :cond_57
 
     .line 1533
     const v62, 0x104008a
@@ -2573,10 +2573,10 @@
 
     move-result-object v29
 
-    goto :goto_597
+    goto :goto_2a
 
     .line 1536
-    :cond_5f8
+    :cond_57
     const-string v62, "%s"
 
     const/16 v63, 0x1
@@ -2601,14 +2601,14 @@
 
     move-result-object v62
 
-    goto/16 :goto_146
+    goto/16 :goto_16
 
     .line 1539
-    :cond_612
-    if-eqz v42, :cond_63d
+    :cond_58
+    if-eqz v42, :cond_5a
 
     .line 1540
-    if-eqz v41, :cond_623
+    if-eqz v41, :cond_59
 
     .line 1542
     const v62, 0x10400a1
@@ -2621,10 +2621,10 @@
 
     move-result-object v29
 
-    goto/16 :goto_597
+    goto/16 :goto_2a
 
     .line 1545
-    :cond_623
+    :cond_59
     const-string v62, "%s"
 
     const/16 v63, 0x1
@@ -2649,11 +2649,11 @@
 
     move-result-object v62
 
-    goto/16 :goto_146
+    goto/16 :goto_16
 
     .line 1547
-    :cond_63d
-    if-eqz v41, :cond_597
+    :cond_5a
+    if-eqz v41, :cond_52
 
     .line 1548
     const-string v62, "%s"
@@ -2680,11 +2680,11 @@
 
     move-result-object v62
 
-    goto/16 :goto_146
+    goto/16 :goto_16
 .end method
 
 .method public static formatDateTime(Landroid/content/Context;JI)Ljava/lang/String;
-    .registers 10
+    .locals 6
     .parameter "context"
     .parameter "millis"
     .parameter "flags"
@@ -2707,7 +2707,7 @@
 .end method
 
 .method public static formatElapsedTime(J)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "elapsedSeconds"
 
     .prologue
@@ -2722,7 +2722,7 @@
 .end method
 
 .method public static formatElapsedTime(Ljava/lang/StringBuilder;J)Ljava/lang/String;
-    .registers 17
+    .locals 14
     .parameter "recycle"
     .parameter "elapsedSeconds"
 
@@ -2747,7 +2747,7 @@
 
     cmp-long v0, p1, v0
 
-    if-ltz v0, :cond_17
+    if-ltz v0, :cond_0
 
     .line 696
     const-wide/16 v0, 0xe10
@@ -2762,12 +2762,12 @@
     sub-long/2addr p1, v0
 
     .line 699
-    :cond_17
+    :cond_0
     const-wide/16 v0, 0x3c
 
     cmp-long v0, p1, v0
 
-    if-ltz v0, :cond_25
+    if-ltz v0, :cond_1
 
     .line 700
     const-wide/16 v0, 0x3c
@@ -2782,7 +2782,7 @@
     sub-long/2addr p1, v0
 
     .line 703
-    :cond_25
+    :cond_1
     move-wide v6, p1
 
     .line 706
@@ -2790,7 +2790,7 @@
 
     cmp-long v0, v2, v0
 
-    if-lez v0, :cond_34
+    if-lez v0, :cond_2
 
     .line 707
     sget-object v1, Landroid/text/format/DateUtils;->sElapsedFormatHMMSS:Ljava/lang/String;
@@ -2802,10 +2802,10 @@
     move-result-object v0
 
     .line 709
-    :goto_33
+    :goto_0
     return-object v0
 
-    :cond_34
+    :cond_2
     sget-object v9, Landroid/text/format/DateUtils;->sElapsedFormatMMSS:Ljava/lang/String;
 
     move-object v8, p0
@@ -2818,11 +2818,11 @@
 
     move-result-object v0
 
-    goto :goto_33
+    goto :goto_0
 .end method
 
 .method private static formatElapsedTime(Ljava/lang/StringBuilder;Ljava/lang/String;JJ)Ljava/lang/String;
-    .registers 13
+    .locals 7
     .parameter "recycle"
     .parameter "format"
     .parameter "minutes"
@@ -2842,14 +2842,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_59
+    if-eqz v1, :cond_3
 
     .line 752
     move-object v0, p0
 
     .line 753
     .local v0, sb:Ljava/lang/StringBuilder;
-    if-nez v0, :cond_41
+    if-nez v0, :cond_0
 
     .line 754
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2861,16 +2861,16 @@
 
     .line 758
     .restart local v0       #sb:Ljava/lang/StringBuilder;
-    :goto_17
+    :goto_0
     cmp-long v1, p2, v3
 
-    if-gez v1, :cond_45
+    if-gez v1, :cond_1
 
     .line 759
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 763
-    :goto_1e
+    :goto_1
     rem-long v1, p2, v3
 
     invoke-static {v1, v2}, Landroid/text/format/DateUtils;->toDigitChar(J)C
@@ -2887,13 +2887,13 @@
     .line 765
     cmp-long v1, p4, v3
 
-    if-gez v1, :cond_4f
+    if-gez v1, :cond_2
 
     .line 766
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 770
-    :goto_33
+    :goto_2
     rem-long v1, p4, v3
 
     invoke-static {v1, v2}, Landroid/text/format/DateUtils;->toDigitChar(J)C
@@ -2909,18 +2909,18 @@
 
     .line 773
     .end local v0           #sb:Ljava/lang/StringBuilder;
-    :goto_40
+    :goto_3
     return-object v1
 
     .line 756
     .restart local v0       #sb:Ljava/lang/StringBuilder;
-    :cond_41
+    :cond_0
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->setLength(I)V
 
-    goto :goto_17
+    goto :goto_0
 
     .line 761
-    :cond_45
+    :cond_1
     div-long v1, p2, v3
 
     invoke-static {v1, v2}, Landroid/text/format/DateUtils;->toDigitChar(J)C
@@ -2929,10 +2929,10 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1e
+    goto :goto_1
 
     .line 768
-    :cond_4f
+    :cond_2
     div-long v1, p4, v3
 
     invoke-static {v1, v2}, Landroid/text/format/DateUtils;->toDigitChar(J)C
@@ -2941,11 +2941,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_33
+    goto :goto_2
 
     .line 773
     .end local v0           #sb:Ljava/lang/StringBuilder;
-    :cond_59
+    :cond_3
     const/4 v1, 0x2
 
     new-array v1, v1, [Ljava/lang/Object;
@@ -2968,11 +2968,11 @@
 
     move-result-object v1
 
-    goto :goto_40
+    goto :goto_3
 .end method
 
 .method private static formatElapsedTime(Ljava/lang/StringBuilder;Ljava/lang/String;JJJ)Ljava/lang/String;
-    .registers 16
+    .locals 8
     .parameter "recycle"
     .parameter "format"
     .parameter "hours"
@@ -2995,14 +2995,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5f
+    if-eqz v1, :cond_3
 
     .line 719
     move-object v0, p0
 
     .line 720
     .local v0, sb:Ljava/lang/StringBuilder;
-    if-nez v0, :cond_47
+    if-nez v0, :cond_0
 
     .line 721
     new-instance v0, Ljava/lang/StringBuilder;
@@ -3014,7 +3014,7 @@
 
     .line 725
     .restart local v0       #sb:Ljava/lang/StringBuilder;
-    :goto_19
+    :goto_0
     invoke-virtual {v0, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     .line 726
@@ -3023,13 +3023,13 @@
     .line 727
     cmp-long v1, p4, v3
 
-    if-gez v1, :cond_4b
+    if-gez v1, :cond_1
 
     .line 728
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 732
-    :goto_26
+    :goto_1
     rem-long v1, p4, v3
 
     invoke-static {v1, v2}, Landroid/text/format/DateUtils;->toDigitChar(J)C
@@ -3044,13 +3044,13 @@
     .line 734
     cmp-long v1, p6, v3
 
-    if-gez v1, :cond_55
+    if-gez v1, :cond_2
 
     .line 735
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 739
-    :goto_39
+    :goto_2
     rem-long v1, p6, v3
 
     invoke-static {v1, v2}, Landroid/text/format/DateUtils;->toDigitChar(J)C
@@ -3066,18 +3066,18 @@
 
     .line 742
     .end local v0           #sb:Ljava/lang/StringBuilder;
-    :goto_46
+    :goto_3
     return-object v1
 
     .line 723
     .restart local v0       #sb:Ljava/lang/StringBuilder;
-    :cond_47
+    :cond_0
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->setLength(I)V
 
-    goto :goto_19
+    goto :goto_0
 
     .line 730
-    :cond_4b
+    :cond_1
     div-long v1, p4, v3
 
     invoke-static {v1, v2}, Landroid/text/format/DateUtils;->toDigitChar(J)C
@@ -3086,10 +3086,10 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_26
+    goto :goto_1
 
     .line 737
-    :cond_55
+    :cond_2
     div-long v1, p6, v3
 
     invoke-static {v1, v2}, Landroid/text/format/DateUtils;->toDigitChar(J)C
@@ -3098,11 +3098,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_39
+    goto :goto_2
 
     .line 742
     .end local v0           #sb:Ljava/lang/StringBuilder;
-    :cond_5f
+    :cond_3
     const/4 v1, 0x3
 
     new-array v1, v1, [Ljava/lang/Object;
@@ -3133,11 +3133,11 @@
 
     move-result-object v1
 
-    goto :goto_46
+    goto :goto_3
 .end method
 
 .method public static final formatSameDayTime(JJII)Ljava/lang/CharSequence;
-    .registers 14
+    .locals 8
     .parameter "then"
     .parameter "now"
     .parameter "dateStyle"
@@ -3183,7 +3183,7 @@
 
     move-result v5
 
-    if-ne v4, v5, :cond_3e
+    if-ne v4, v5, :cond_0
 
     invoke-virtual {v2, v6}, Ljava/util/Calendar;->get(I)I
 
@@ -3193,7 +3193,7 @@
 
     move-result v5
 
-    if-ne v4, v5, :cond_3e
+    if-ne v4, v5, :cond_0
 
     invoke-virtual {v2, v7}, Ljava/util/Calendar;->get(I)I
 
@@ -3203,7 +3203,7 @@
 
     move-result v5
 
-    if-ne v4, v5, :cond_3e
+    if-ne v4, v5, :cond_0
 
     .line 811
     invoke-static {p5}, Ljava/text/DateFormat;->getTimeInstance(I)Ljava/text/DateFormat;
@@ -3212,7 +3212,7 @@
 
     .line 815
     .local v0, f:Ljava/text/DateFormat;
-    :goto_39
+    :goto_0
     invoke-virtual {v0, v3}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
 
     move-result-object v4
@@ -3221,17 +3221,17 @@
 
     .line 813
     .end local v0           #f:Ljava/text/DateFormat;
-    :cond_3e
+    :cond_0
     invoke-static {p4}, Ljava/text/DateFormat;->getDateInstance(I)Ljava/text/DateFormat;
 
     move-result-object v0
 
     .restart local v0       #f:Ljava/text/DateFormat;
-    goto :goto_39
+    goto :goto_0
 .end method
 
 .method public static getAMPMString(I)Ljava/lang/String;
-    .registers 4
+    .locals 3
     .parameter "ampm"
 
     .prologue
@@ -3256,20 +3256,20 @@
 .end method
 
 .method public static getDayOfWeekString(II)Ljava/lang/String;
-    .registers 5
+    .locals 3
     .parameter "dayOfWeek"
     .parameter "abbrev"
 
     .prologue
     .line 315
-    sparse-switch p1, :sswitch_data_22
+    sparse-switch p1, :sswitch_data_0
 
     .line 321
     sget-object v0, Landroid/text/format/DateUtils;->sDaysMedium:[I
 
     .line 324
     .local v0, list:[I
-    :goto_5
+    :goto_0
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -3289,72 +3289,72 @@
     .line 316
     .end local v0           #list:[I
     .end local v1           #r:Landroid/content/res/Resources;
-    :sswitch_12
+    :sswitch_0
     sget-object v0, Landroid/text/format/DateUtils;->sDaysLong:[I
 
     .restart local v0       #list:[I
-    goto :goto_5
+    goto :goto_0
 
     .line 317
     .end local v0           #list:[I
-    :sswitch_15
+    :sswitch_1
     sget-object v0, Landroid/text/format/DateUtils;->sDaysMedium:[I
 
     .restart local v0       #list:[I
-    goto :goto_5
+    goto :goto_0
 
     .line 318
     .end local v0           #list:[I
-    :sswitch_18
+    :sswitch_2
     sget-object v0, Landroid/text/format/DateUtils;->sDaysShort:[I
 
     .restart local v0       #list:[I
-    goto :goto_5
+    goto :goto_0
 
     .line 319
     .end local v0           #list:[I
-    :sswitch_1b
+    :sswitch_3
     sget-object v0, Landroid/text/format/DateUtils;->sDaysShort:[I
 
     .restart local v0       #list:[I
-    goto :goto_5
+    goto :goto_0
 
     .line 320
     .end local v0           #list:[I
-    :sswitch_1e
+    :sswitch_4
     sget-object v0, Landroid/text/format/DateUtils;->sDaysShortest:[I
 
     .restart local v0       #list:[I
-    goto :goto_5
+    goto :goto_0
 
     .line 315
     nop
 
-    :sswitch_data_22
+    :sswitch_data_0
     .sparse-switch
-        0xa -> :sswitch_12
-        0x14 -> :sswitch_15
-        0x1e -> :sswitch_18
-        0x28 -> :sswitch_1b
-        0x32 -> :sswitch_1e
+        0xa -> :sswitch_0
+        0x14 -> :sswitch_1
+        0x1e -> :sswitch_2
+        0x28 -> :sswitch_3
+        0x32 -> :sswitch_4
     .end sparse-switch
 .end method
 
 .method public static getMonthString(II)Ljava/lang/String;
-    .registers 5
+    .locals 3
     .parameter "month"
     .parameter "abbrev"
 
     .prologue
     .line 355
-    sparse-switch p1, :sswitch_data_22
+    sparse-switch p1, :sswitch_data_0
 
     .line 361
     sget-object v0, Landroid/text/format/DateUtils;->sMonthsMedium:[I
 
     .line 364
     .local v0, list:[I
-    :goto_5
+    :goto_0
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -3374,59 +3374,59 @@
     .line 356
     .end local v0           #list:[I
     .end local v1           #r:Landroid/content/res/Resources;
-    :sswitch_12
+    :sswitch_0
     sget-object v0, Landroid/text/format/DateUtils;->sMonthsLong:[I
 
     .restart local v0       #list:[I
-    goto :goto_5
+    goto :goto_0
 
     .line 357
     .end local v0           #list:[I
-    :sswitch_15
+    :sswitch_1
     sget-object v0, Landroid/text/format/DateUtils;->sMonthsMedium:[I
 
     .restart local v0       #list:[I
-    goto :goto_5
+    goto :goto_0
 
     .line 358
     .end local v0           #list:[I
-    :sswitch_18
+    :sswitch_2
     sget-object v0, Landroid/text/format/DateUtils;->sMonthsMedium:[I
 
     .restart local v0       #list:[I
-    goto :goto_5
+    goto :goto_0
 
     .line 359
     .end local v0           #list:[I
-    :sswitch_1b
+    :sswitch_3
     sget-object v0, Landroid/text/format/DateUtils;->sMonthsMedium:[I
 
     .restart local v0       #list:[I
-    goto :goto_5
+    goto :goto_0
 
     .line 360
     .end local v0           #list:[I
-    :sswitch_1e
+    :sswitch_4
     sget-object v0, Landroid/text/format/DateUtils;->sMonthsShortest:[I
 
     .restart local v0       #list:[I
-    goto :goto_5
+    goto :goto_0
 
     .line 355
     nop
 
-    :sswitch_data_22
+    :sswitch_data_0
     .sparse-switch
-        0xa -> :sswitch_12
-        0x14 -> :sswitch_15
-        0x1e -> :sswitch_18
-        0x28 -> :sswitch_1b
-        0x32 -> :sswitch_1e
+        0xa -> :sswitch_0
+        0x14 -> :sswitch_1
+        0x1e -> :sswitch_2
+        0x28 -> :sswitch_3
+        0x32 -> :sswitch_4
     .end sparse-switch
 .end method
 
 .method private static declared-synchronized getNumberOfDaysPassed(JJ)J
-    .registers 10
+    .locals 6
     .parameter "date1"
     .parameter "date2"
 
@@ -3436,10 +3436,10 @@
 
     monitor-enter v3
 
-    :try_start_3
+    :try_start_0
     sget-object v2, Landroid/text/format/DateUtils;->sThenTime:Landroid/text/format/Time;
 
-    if-nez v2, :cond_e
+    if-nez v2, :cond_0
 
     .line 538
     new-instance v2, Landroid/text/format/Time;
@@ -3449,7 +3449,7 @@
     sput-object v2, Landroid/text/format/DateUtils;->sThenTime:Landroid/text/format/Time;
 
     .line 540
-    :cond_e
+    :cond_0
     sget-object v2, Landroid/text/format/DateUtils;->sThenTime:Landroid/text/format/Time;
 
     invoke-virtual {v2, p0, p1}, Landroid/text/format/Time;->set(J)V
@@ -3483,8 +3483,8 @@
     sub-int v2, v1, v0
 
     invoke-static {v2}, Ljava/lang/Math;->abs(I)I
-    :try_end_2d
-    .catchall {:try_start_3 .. :try_end_2d} :catchall_31
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
@@ -3497,7 +3497,7 @@
     .line 537
     .end local v0           #day1:I
     .end local v1           #day2:I
-    :catchall_31
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
@@ -3506,7 +3506,7 @@
 .end method
 
 .method public static getRelativeDateTimeString(Landroid/content/Context;JJJI)Ljava/lang/CharSequence;
-    .registers 27
+    .locals 19
     .parameter "c"
     .parameter "time"
     .parameter "minResolution"
@@ -3539,14 +3539,14 @@
 
     cmp-long v3, p5, v3
 
-    if-lez v3, :cond_43
+    if-lez v3, :cond_1
 
     .line 581
     const-wide/32 p5, 0x240c8400
 
     .line 586
-    :cond_18
-    :goto_18
+    :cond_0
+    :goto_0
     const/4 v8, 0x1
 
     move-object/from16 v3, p0
@@ -3563,7 +3563,7 @@
     .local v18, timeClause:Ljava/lang/CharSequence;
     cmp-long v3, v11, p5
 
-    if-gez v3, :cond_4e
+    if-gez v3, :cond_2
 
     move-wide/from16 v3, p1
 
@@ -3601,27 +3601,27 @@
     .line 597
     .end local v16           #relativeClause:Ljava/lang/CharSequence;
     .local v17, result:Ljava/lang/String;
-    :goto_42
+    :goto_1
     return-object v17
 
     .line 582
     .end local v17           #result:Ljava/lang/String;
     .end local v18           #timeClause:Ljava/lang/CharSequence;
-    :cond_43
+    :cond_1
     const-wide/32 v3, 0x5265c00
 
     cmp-long v3, p5, v3
 
-    if-gez v3, :cond_18
+    if-gez v3, :cond_0
 
     .line 583
     const-wide/32 p5, 0x5265c00
 
-    goto :goto_18
+    goto :goto_0
 
     .line 593
     .restart local v18       #timeClause:Ljava/lang/CharSequence;
-    :cond_4e
+    :cond_2
     const/4 v3, 0x0
 
     move-object/from16 v0, p0
@@ -3653,11 +3653,11 @@
     move-result-object v17
 
     .restart local v17       #result:Ljava/lang/String;
-    goto :goto_42
+    goto :goto_1
 .end method
 
 .method private static final getRelativeDayString(Landroid/content/res/Resources;JJ)Ljava/lang/String;
-    .registers 16
+    .locals 11
     .parameter "r"
     .parameter "day"
     .parameter "today"
@@ -3708,19 +3708,19 @@
     .local v2, days:I
     cmp-long v8, p3, p1
 
-    if-lez v8, :cond_34
+    if-lez v8, :cond_0
 
     const/4 v4, 0x1
 
     .line 622
     .local v4, past:Z
-    :goto_27
+    :goto_0
     const/4 v8, 0x1
 
-    if-ne v2, v8, :cond_3e
+    if-ne v2, v8, :cond_2
 
     .line 623
-    if-eqz v4, :cond_36
+    if-eqz v4, :cond_1
 
     .line 624
     const v8, 0x104007b
@@ -3730,30 +3730,30 @@
     move-result-object v8
 
     .line 640
-    :goto_33
+    :goto_1
     return-object v8
 
     .line 620
     .end local v4           #past:Z
-    :cond_34
+    :cond_0
     const/4 v4, 0x0
 
-    goto :goto_27
+    goto :goto_0
 
     .line 626
     .restart local v4       #past:Z
-    :cond_36
+    :cond_1
     const v8, 0x104007d
 
     invoke-virtual {p0, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v8
 
-    goto :goto_33
+    goto :goto_1
 
     .line 628
-    :cond_3e
-    if-nez v2, :cond_48
+    :cond_2
+    if-nez v2, :cond_3
 
     .line 629
     const v8, 0x104007c
@@ -3762,18 +3762,18 @@
 
     move-result-object v8
 
-    goto :goto_33
+    goto :goto_1
 
     .line 633
-    :cond_48
-    if-eqz v4, :cond_60
+    :cond_3
+    if-eqz v4, :cond_4
 
     .line 634
     const v5, 0x1130004
 
     .line 639
     .local v5, resId:I
-    :goto_4d
+    :goto_2
     invoke-virtual {p0, v5, v2}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
 
     move-result-object v3
@@ -3796,20 +3796,20 @@
 
     move-result-object v8
 
-    goto :goto_33
+    goto :goto_1
 
     .line 636
     .end local v3           #format:Ljava/lang/String;
     .end local v5           #resId:I
-    :cond_60
+    :cond_4
     const v5, 0x1130008
 
     .restart local v5       #resId:I
-    goto :goto_4d
+    goto :goto_2
 .end method
 
 .method public static getRelativeTimeSpanString(J)Ljava/lang/CharSequence;
-    .registers 8
+    .locals 6
     .parameter "startTime"
 
     .prologue
@@ -3830,7 +3830,7 @@
 .end method
 
 .method public static getRelativeTimeSpanString(JJJ)Ljava/lang/CharSequence;
-    .registers 13
+    .locals 7
     .parameter "time"
     .parameter "now"
     .parameter "minResolution"
@@ -3855,7 +3855,7 @@
 .end method
 
 .method public static getRelativeTimeSpanString(JJJI)Ljava/lang/CharSequence;
-    .registers 22
+    .locals 15
     .parameter "time"
     .parameter "now"
     .parameter "minResolution"
@@ -3873,22 +3873,22 @@
 
     and-int v0, v0, p6
 
-    if-eqz v0, :cond_43
+    if-eqz v0, :cond_0
 
     const/4 v6, 0x1
 
     .line 454
     .local v6, abbrevRelative:Z
-    :goto_b
+    :goto_0
     cmp-long v0, p2, p0
 
-    if-ltz v0, :cond_45
+    if-ltz v0, :cond_1
 
     const/4 v12, 0x1
 
     .line 455
     .local v12, past:Z
-    :goto_10
+    :goto_1
     sub-long v0, p2, p0
 
     invoke-static {v0, v1}, Ljava/lang/Math;->abs(J)J
@@ -3901,13 +3901,13 @@
 
     cmp-long v0, v9, v0
 
-    if-gez v0, :cond_54
+    if-gez v0, :cond_5
 
     const-wide/32 v0, 0xea60
 
     cmp-long v0, p4, v0
 
-    if-gez v0, :cond_54
+    if-gez v0, :cond_5
 
     .line 460
     const-wide/16 v0, 0x3e8
@@ -3916,17 +3916,17 @@
 
     .line 461
     .local v7, count:J
-    if-eqz v12, :cond_4a
+    if-eqz v12, :cond_3
 
     .line 462
-    if-eqz v6, :cond_47
+    if-eqz v6, :cond_2
 
     .line 463
     const v14, 0x1130009
 
     .line 525
     .local v14, resId:I
-    :goto_2f
+    :goto_2
     long-to-int v0, v7
 
     invoke-virtual {v13, v14, v0}, Landroid/content/res/Resources;->getQuantityString(II)Ljava/lang/String;
@@ -3954,69 +3954,69 @@
     .end local v7           #count:J
     .end local v11           #format:Ljava/lang/String;
     .end local v14           #resId:I
-    :goto_42
+    :goto_3
     return-object v0
 
     .line 452
     .end local v6           #abbrevRelative:Z
     .end local v9           #duration:J
     .end local v12           #past:Z
-    :cond_43
+    :cond_0
     const/4 v6, 0x0
 
-    goto :goto_b
+    goto :goto_0
 
     .line 454
     .restart local v6       #abbrevRelative:Z
-    :cond_45
+    :cond_1
     const/4 v12, 0x0
 
-    goto :goto_10
+    goto :goto_1
 
     .line 465
     .restart local v7       #count:J
     .restart local v9       #duration:J
     .restart local v12       #past:Z
-    :cond_47
+    :cond_2
     const/high16 v14, 0x113
 
     .restart local v14       #resId:I
-    goto :goto_2f
+    goto :goto_2
 
     .line 468
     .end local v14           #resId:I
-    :cond_4a
-    if-eqz v6, :cond_50
+    :cond_3
+    if-eqz v6, :cond_4
 
     .line 469
     const v14, 0x113000d
 
     .restart local v14       #resId:I
-    goto :goto_2f
+    goto :goto_2
 
     .line 471
     .end local v14           #resId:I
-    :cond_50
+    :cond_4
     const v14, 0x1130005
 
     .restart local v14       #resId:I
-    goto :goto_2f
+    goto :goto_2
 
     .line 474
     .end local v7           #count:J
     .end local v14           #resId:I
-    :cond_54
+    :cond_5
     const-wide/32 v0, 0x36ee80
 
     cmp-long v0, v9, v0
 
-    if-gez v0, :cond_7d
+    if-gez v0, :cond_9
 
     const-wide/32 v0, 0x36ee80
 
     cmp-long v0, p4, v0
 
-    if-gez v0, :cond_7d
+    if-gez v0, :cond_9
 
     .line 475
     const-wide/32 v0, 0xea60
@@ -4025,59 +4025,59 @@
 
     .line 476
     .restart local v7       #count:J
-    if-eqz v12, :cond_73
+    if-eqz v12, :cond_7
 
     .line 477
-    if-eqz v6, :cond_6f
+    if-eqz v6, :cond_6
 
     .line 478
     const v14, 0x113000a
 
     .restart local v14       #resId:I
-    goto :goto_2f
+    goto :goto_2
 
     .line 480
     .end local v14           #resId:I
-    :cond_6f
+    :cond_6
     const v14, 0x1130001
 
     .restart local v14       #resId:I
-    goto :goto_2f
+    goto :goto_2
 
     .line 483
     .end local v14           #resId:I
-    :cond_73
-    if-eqz v6, :cond_79
+    :cond_7
+    if-eqz v6, :cond_8
 
     .line 484
     const v14, 0x113000e
 
     .restart local v14       #resId:I
-    goto :goto_2f
+    goto :goto_2
 
     .line 486
     .end local v14           #resId:I
-    :cond_79
+    :cond_8
     const v14, 0x1130006
 
     .restart local v14       #resId:I
-    goto :goto_2f
+    goto :goto_2
 
     .line 489
     .end local v7           #count:J
     .end local v14           #resId:I
-    :cond_7d
+    :cond_9
     const-wide/32 v0, 0x5265c00
 
     cmp-long v0, v9, v0
 
-    if-gez v0, :cond_a6
+    if-gez v0, :cond_d
 
     const-wide/32 v0, 0x5265c00
 
     cmp-long v0, p4, v0
 
-    if-gez v0, :cond_a6
+    if-gez v0, :cond_d
 
     .line 490
     const-wide/32 v0, 0x36ee80
@@ -4086,59 +4086,59 @@
 
     .line 491
     .restart local v7       #count:J
-    if-eqz v12, :cond_9c
+    if-eqz v12, :cond_b
 
     .line 492
-    if-eqz v6, :cond_98
+    if-eqz v6, :cond_a
 
     .line 493
     const v14, 0x113000b
 
     .restart local v14       #resId:I
-    goto :goto_2f
+    goto :goto_2
 
     .line 495
     .end local v14           #resId:I
-    :cond_98
+    :cond_a
     const v14, 0x1130002
 
     .restart local v14       #resId:I
-    goto :goto_2f
+    goto :goto_2
 
     .line 498
     .end local v14           #resId:I
-    :cond_9c
-    if-eqz v6, :cond_a2
+    :cond_b
+    if-eqz v6, :cond_c
 
     .line 499
     const v14, 0x113000f
 
     .restart local v14       #resId:I
-    goto :goto_2f
+    goto :goto_2
 
     .line 501
     .end local v14           #resId:I
-    :cond_a2
+    :cond_c
     const v14, 0x1130007
 
     .restart local v14       #resId:I
-    goto :goto_2f
+    goto :goto_2
 
     .line 504
     .end local v7           #count:J
     .end local v14           #resId:I
-    :cond_a6
+    :cond_d
     const-wide/32 v0, 0x240c8400
 
     cmp-long v0, v9, v0
 
-    if-gez v0, :cond_d2
+    if-gez v0, :cond_11
 
     const-wide/32 v0, 0x240c8400
 
     cmp-long v0, p4, v0
 
-    if-gez v0, :cond_d2
+    if-gez v0, :cond_11
 
     .line 505
     invoke-static/range {p0 .. p3}, Landroid/text/format/DateUtils;->getNumberOfDaysPassed(JJ)J
@@ -4147,48 +4147,48 @@
 
     .line 506
     .restart local v7       #count:J
-    if-eqz v12, :cond_c6
+    if-eqz v12, :cond_f
 
     .line 507
-    if-eqz v6, :cond_c1
+    if-eqz v6, :cond_e
 
     .line 508
     const v14, 0x113000c
 
     .restart local v14       #resId:I
-    goto/16 :goto_2f
+    goto/16 :goto_2
 
     .line 510
     .end local v14           #resId:I
-    :cond_c1
+    :cond_e
     const v14, 0x1130004
 
     .restart local v14       #resId:I
-    goto/16 :goto_2f
+    goto/16 :goto_2
 
     .line 513
     .end local v14           #resId:I
-    :cond_c6
-    if-eqz v6, :cond_cd
+    :cond_f
+    if-eqz v6, :cond_10
 
     .line 514
     const v14, 0x1130010
 
     .restart local v14       #resId:I
-    goto/16 :goto_2f
+    goto/16 :goto_2
 
     .line 516
     .end local v14           #resId:I
-    :cond_cd
+    :cond_10
     const v14, 0x1130008
 
     .restart local v14       #resId:I
-    goto/16 :goto_2f
+    goto/16 :goto_2
 
     .line 522
     .end local v7           #count:J
     .end local v14           #resId:I
-    :cond_d2
+    :cond_11
     const/4 v0, 0x0
 
     move-wide v1, p0
@@ -4201,11 +4201,11 @@
 
     move-result-object v0
 
-    goto/16 :goto_42
+    goto/16 :goto_3
 .end method
 
 .method public static getRelativeTimeSpanString(Landroid/content/Context;J)Ljava/lang/CharSequence;
-    .registers 4
+    .locals 1
     .parameter "c"
     .parameter "millis"
 
@@ -4221,7 +4221,7 @@
 .end method
 
 .method public static getRelativeTimeSpanString(Landroid/content/Context;JZ)Ljava/lang/CharSequence;
-    .registers 20
+    .locals 16
     .parameter "c"
     .parameter "millis"
     .parameter "withPreposition"
@@ -4243,10 +4243,10 @@
     monitor-enter v15
 
     .line 1624
-    :try_start_9
+    :try_start_0
     sget-object v2, Landroid/text/format/DateUtils;->sNowTime:Landroid/text/format/Time;
 
-    if-nez v2, :cond_14
+    if-nez v2, :cond_0
 
     .line 1625
     new-instance v2, Landroid/text/format/Time;
@@ -4256,10 +4256,10 @@
     sput-object v2, Landroid/text/format/DateUtils;->sNowTime:Landroid/text/format/Time;
 
     .line 1628
-    :cond_14
+    :cond_0
     sget-object v2, Landroid/text/format/DateUtils;->sThenTime:Landroid/text/format/Time;
 
-    if-nez v2, :cond_1f
+    if-nez v2, :cond_1
 
     .line 1629
     new-instance v2, Landroid/text/format/Time;
@@ -4269,7 +4269,7 @@
     sput-object v2, Landroid/text/format/DateUtils;->sThenTime:Landroid/text/format/Time;
 
     .line 1632
-    :cond_1f
+    :cond_1
     sget-object v2, Landroid/text/format/DateUtils;->sNowTime:Landroid/text/format/Time;
 
     invoke-virtual {v2, v8, v9}, Landroid/text/format/Time;->set(J)V
@@ -4286,7 +4286,7 @@
 
     cmp-long v2, v13, v2
 
-    if-gez v2, :cond_5c
+    if-gez v2, :cond_3
 
     sget-object v2, Landroid/text/format/DateUtils;->sNowTime:Landroid/text/format/Time;
 
@@ -4296,7 +4296,7 @@
 
     iget v3, v3, Landroid/text/format/Time;->weekDay:I
 
-    if-ne v2, v3, :cond_5c
+    if-ne v2, v3, :cond_3
 
     .line 1638
     const/4 v7, 0x1
@@ -4319,8 +4319,8 @@
 
     .line 1654
     .local v10, prepositionId:I
-    :goto_4a
-    if-eqz p3, :cond_5a
+    :goto_0
+    if-eqz p3, :cond_2
 
     .line 1655
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -4343,7 +4343,7 @@
 
     .line 1658
     .end local v11           #res:Landroid/content/res/Resources;
-    :cond_5a
+    :cond_2
     monitor-exit v15
 
     .line 1659
@@ -4353,7 +4353,7 @@
     .end local v7           #flags:I
     .end local v10           #prepositionId:I
     .end local v12           #result:Ljava/lang/String;
-    :cond_5c
+    :cond_3
     sget-object v2, Landroid/text/format/DateUtils;->sNowTime:Landroid/text/format/Time;
 
     iget v2, v2, Landroid/text/format/Time;->year:I
@@ -4362,7 +4362,7 @@
 
     iget v3, v3, Landroid/text/format/Time;->year:I
 
-    if-eq v2, v3, :cond_77
+    if-eq v2, v3, :cond_4
 
     .line 1643
     const v7, 0x20014
@@ -4385,13 +4385,13 @@
 
     .line 1648
     .restart local v10       #prepositionId:I
-    goto :goto_4a
+    goto :goto_0
 
     .line 1650
     .end local v7           #flags:I
     .end local v10           #prepositionId:I
     .end local v12           #result:Ljava/lang/String;
-    :cond_77
+    :cond_4
     const v7, 0x10010
 
     .restart local v7       #flags:I
@@ -4411,37 +4411,37 @@
     const v10, 0x10403a7
 
     .restart local v10       #prepositionId:I
-    goto :goto_4a
+    goto :goto_0
 
     .line 1658
     .end local v7           #flags:I
     .end local v10           #prepositionId:I
     .end local v12           #result:Ljava/lang/String;
-    :catchall_88
+    :catchall_0
     move-exception v2
 
     monitor-exit v15
-    :try_end_8a
-    .catchall {:try_start_9 .. :try_end_8a} :catchall_88
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 .end method
 
 .method public static getStandaloneMonthString(II)Ljava/lang/String;
-    .registers 5
+    .locals 3
     .parameter "month"
     .parameter "abbrev"
 
     .prologue
     .line 388
-    sparse-switch p1, :sswitch_data_22
+    sparse-switch p1, :sswitch_data_0
 
     .line 395
     sget-object v0, Landroid/text/format/DateUtils;->sMonthsMedium:[I
 
     .line 398
     .local v0, list:[I
-    :goto_5
+    :goto_0
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -4461,60 +4461,60 @@
     .line 389
     .end local v0           #list:[I
     .end local v1           #r:Landroid/content/res/Resources;
-    :sswitch_12
+    :sswitch_0
     sget-object v0, Landroid/text/format/DateUtils;->sMonthsStandaloneLong:[I
 
     .line 390
     .restart local v0       #list:[I
-    goto :goto_5
+    goto :goto_0
 
     .line 391
     .end local v0           #list:[I
-    :sswitch_15
+    :sswitch_1
     sget-object v0, Landroid/text/format/DateUtils;->sMonthsMedium:[I
 
     .restart local v0       #list:[I
-    goto :goto_5
+    goto :goto_0
 
     .line 392
     .end local v0           #list:[I
-    :sswitch_18
+    :sswitch_2
     sget-object v0, Landroid/text/format/DateUtils;->sMonthsMedium:[I
 
     .restart local v0       #list:[I
-    goto :goto_5
+    goto :goto_0
 
     .line 393
     .end local v0           #list:[I
-    :sswitch_1b
+    :sswitch_3
     sget-object v0, Landroid/text/format/DateUtils;->sMonthsMedium:[I
 
     .restart local v0       #list:[I
-    goto :goto_5
+    goto :goto_0
 
     .line 394
     .end local v0           #list:[I
-    :sswitch_1e
+    :sswitch_4
     sget-object v0, Landroid/text/format/DateUtils;->sMonthsShortest:[I
 
     .restart local v0       #list:[I
-    goto :goto_5
+    goto :goto_0
 
     .line 388
     nop
 
-    :sswitch_data_22
+    :sswitch_data_0
     .sparse-switch
-        0xa -> :sswitch_12
-        0x14 -> :sswitch_15
-        0x1e -> :sswitch_18
-        0x28 -> :sswitch_1b
-        0x32 -> :sswitch_1e
+        0xa -> :sswitch_0
+        0x14 -> :sswitch_1
+        0x1e -> :sswitch_2
+        0x28 -> :sswitch_3
+        0x32 -> :sswitch_4
     .end sparse-switch
 .end method
 
 .method private static initFormatStrings()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 644
@@ -4523,7 +4523,7 @@
     monitor-enter v1
 
     .line 645
-    :try_start_3
+    :try_start_0
     invoke-static {}, Landroid/text/format/DateUtils;->initFormatStringsLocked()V
 
     .line 646
@@ -4533,18 +4533,18 @@
     return-void
 
     .line 646
-    :catchall_8
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_a
-    .catchall {:try_start_3 .. :try_end_a} :catchall_8
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method private static initFormatStringsLocked()V
-    .registers 3
+    .locals 3
 
     .prologue
     .line 650
@@ -4562,7 +4562,7 @@
     .local v0, cfg:Landroid/content/res/Configuration;
     sget-object v2, Landroid/text/format/DateUtils;->sLastConfig:Landroid/content/res/Configuration;
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_0
 
     sget-object v2, Landroid/text/format/DateUtils;->sLastConfig:Landroid/content/res/Configuration;
 
@@ -4570,10 +4570,10 @@
 
     move-result v2
 
-    if-nez v2, :cond_2f
+    if-nez v2, :cond_1
 
     .line 653
-    :cond_14
+    :cond_0
     sput-object v0, Landroid/text/format/DateUtils;->sLastConfig:Landroid/content/res/Configuration;
 
     .line 654
@@ -4604,12 +4604,12 @@
     sput-object v2, Landroid/text/format/DateUtils;->sElapsedFormatHMMSS:Ljava/lang/String;
 
     .line 658
-    :cond_2f
+    :cond_1
     return-void
 .end method
 
 .method public static isToday(J)Z
-    .registers 8
+    .locals 6
     .parameter "when"
 
     .prologue
@@ -4644,29 +4644,29 @@
     .line 842
     iget v4, v3, Landroid/text/format/Time;->year:I
 
-    if-ne v2, v4, :cond_23
+    if-ne v2, v4, :cond_0
 
     iget v4, v3, Landroid/text/format/Time;->month:I
 
-    if-ne v0, v4, :cond_23
+    if-ne v0, v4, :cond_0
 
     iget v4, v3, Landroid/text/format/Time;->monthDay:I
 
-    if-ne v1, v4, :cond_23
+    if-ne v1, v4, :cond_0
 
     const/4 v4, 0x1
 
-    :goto_22
+    :goto_0
     return v4
 
-    :cond_23
+    :cond_0
     const/4 v4, 0x0
 
-    goto :goto_22
+    goto :goto_0
 .end method
 
 .method public static isUTC(Ljava/lang/String;)Z
-    .registers 5
+    .locals 4
     .parameter "s"
 
     .prologue
@@ -4681,7 +4681,7 @@
 
     const/16 v2, 0x10
 
-    if-ne v1, v2, :cond_14
+    if-ne v1, v2, :cond_1
 
     const/16 v1, 0xf
 
@@ -4689,22 +4689,22 @@
 
     move-result v1
 
-    if-ne v1, v3, :cond_14
+    if-ne v1, v3, :cond_1
 
     .line 861
-    :cond_13
-    :goto_13
+    :cond_0
+    :goto_0
     return v0
 
     .line 857
-    :cond_14
+    :cond_1
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v1
 
     const/16 v2, 0x9
 
-    if-ne v1, v2, :cond_24
+    if-ne v1, v2, :cond_2
 
     const/16 v1, 0x8
 
@@ -4712,22 +4712,22 @@
 
     move-result v1
 
-    if-eq v1, v3, :cond_13
+    if-eq v1, v3, :cond_0
 
     .line 861
-    :cond_24
+    :cond_2
     const/4 v0, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public static newCalendar(Z)Ljava/util/Calendar;
-    .registers 2
+    .locals 1
     .parameter "zulu"
 
     .prologue
     .line 824
-    if-eqz p0, :cond_d
+    if-eqz p0, :cond_0
 
     .line 825
     const-string v0, "GMT"
@@ -4741,19 +4741,19 @@
     move-result-object v0
 
     .line 827
-    :goto_c
+    :goto_0
     return-object v0
 
-    :cond_d
+    :cond_0
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public static final timeString(J)Ljava/lang/CharSequence;
-    .registers 5
+    .locals 3
     .parameter "millis"
 
     .prologue
@@ -4763,7 +4763,7 @@
     monitor-enter v1
 
     .line 667
-    :try_start_3
+    :try_start_0
     invoke-static {}, Landroid/text/format/DateUtils;->initFormatStringsLocked()V
 
     .line 668
@@ -4782,18 +4782,18 @@
     return-object v0
 
     .line 669
-    :catchall_12
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_14
-    .catchall {:try_start_3 .. :try_end_14} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method private static toDigitChar(J)C
-    .registers 4
+    .locals 2
     .parameter "digit"
 
     .prologue
@@ -4810,7 +4810,7 @@
 .end method
 
 .method public static writeDateTime(Ljava/util/Calendar;)Ljava/lang/String;
-    .registers 5
+    .locals 4
     .parameter "cal"
 
     .prologue
@@ -4846,7 +4846,7 @@
 .end method
 
 .method public static writeDateTime(Ljava/util/Calendar;Ljava/lang/StringBuilder;)Ljava/lang/String;
-    .registers 10
+    .locals 8
     .parameter "cal"
     .parameter "sb"
 
@@ -5080,7 +5080,7 @@
 .end method
 
 .method public static writeDateTime(Ljava/util/Calendar;Z)Ljava/lang/String;
-    .registers 5
+    .locals 3
     .parameter "cal"
     .parameter "zulu"
 
@@ -5099,7 +5099,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->ensureCapacity(I)V
 
     .line 895
-    if-eqz p1, :cond_1b
+    if-eqz p1, :cond_0
 
     .line 896
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->setLength(I)V
@@ -5110,7 +5110,7 @@
     invoke-virtual {v0, v2, v1}, Ljava/lang/StringBuilder;->setCharAt(IC)V
 
     .line 901
-    :goto_16
+    :goto_0
     invoke-static {p0, v0}, Landroid/text/format/DateUtils;->writeDateTime(Ljava/util/Calendar;Ljava/lang/StringBuilder;)Ljava/lang/String;
 
     move-result-object v1
@@ -5118,8 +5118,8 @@
     return-object v1
 
     .line 899
-    :cond_1b
+    :cond_0
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->setLength(I)V
 
-    goto :goto_16
+    goto :goto_0
 .end method

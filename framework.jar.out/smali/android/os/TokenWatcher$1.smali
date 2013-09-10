@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/TokenWatcher;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,12 +38,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 151
     iget-object v1, p0, Landroid/os/TokenWatcher$1;->this$0:Landroid/os/TokenWatcher;
 
+    #getter for: Landroid/os/TokenWatcher;->mTokens:Ljava/util/WeakHashMap;
     invoke-static {v1}, Landroid/os/TokenWatcher;->access$000(Landroid/os/TokenWatcher;)Ljava/util/WeakHashMap;
 
     move-result-object v2
@@ -51,9 +52,10 @@
     monitor-enter v2
 
     .line 152
-    :try_start_7
+    :try_start_0
     iget-object v1, p0, Landroid/os/TokenWatcher$1;->this$0:Landroid/os/TokenWatcher;
 
+    #getter for: Landroid/os/TokenWatcher;->mNotificationQueue:I
     invoke-static {v1}, Landroid/os/TokenWatcher;->access$100(Landroid/os/TokenWatcher;)I
 
     move-result v0
@@ -64,17 +66,18 @@
 
     const/4 v3, -0x1
 
+    #setter for: Landroid/os/TokenWatcher;->mNotificationQueue:I
     invoke-static {v1, v3}, Landroid/os/TokenWatcher;->access$102(Landroid/os/TokenWatcher;I)I
 
     .line 154
     monitor-exit v2
-    :try_end_14
-    .catchall {:try_start_7 .. :try_end_14} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 155
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_20
+    if-ne v0, v1, :cond_1
 
     .line 156
     iget-object v1, p0, Landroid/os/TokenWatcher$1;->this$0:Landroid/os/TokenWatcher;
@@ -82,31 +85,31 @@
     invoke-virtual {v1}, Landroid/os/TokenWatcher;->acquired()V
 
     .line 161
-    :cond_1c
-    :goto_1c
+    :cond_0
+    :goto_0
     return-void
 
     .line 154
     .end local v0           #value:I
-    :catchall_1d
+    :catchall_0
     move-exception v1
 
-    :try_start_1e
+    :try_start_1
     monitor-exit v2
-    :try_end_1f
-    .catchall {:try_start_1e .. :try_end_1f} :catchall_1d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 
     .line 158
     .restart local v0       #value:I
-    :cond_20
-    if-nez v0, :cond_1c
+    :cond_1
+    if-nez v0, :cond_0
 
     .line 159
     iget-object v1, p0, Landroid/os/TokenWatcher$1;->this$0:Landroid/os/TokenWatcher;
 
     invoke-virtual {v1}, Landroid/os/TokenWatcher;->released()V
 
-    goto :goto_1c
+    goto :goto_0
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/content/AbstractThreadedSyncAdapter;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -33,7 +33,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/content/AbstractThreadedSyncAdapter;Landroid/content/AbstractThreadedSyncAdapter$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public cancelSync(Landroid/content/ISyncContext;)V
-    .registers 8
+    .locals 6
     .parameter "syncContext"
 
     .prologue
@@ -58,6 +58,7 @@
     .local v2, info:Landroid/content/AbstractThreadedSyncAdapter$SyncThread;
     iget-object v3, p0, Landroid/content/AbstractThreadedSyncAdapter$ISyncAdapterImpl;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
+    #getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreadLock:Ljava/lang/Object;
     invoke-static {v3}, Landroid/content/AbstractThreadedSyncAdapter;->access$200(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/lang/Object;
 
     move-result-object v4
@@ -65,9 +66,10 @@
     monitor-enter v4
 
     .line 192
-    :try_start_8
+    :try_start_0
     iget-object v3, p0, Landroid/content/AbstractThreadedSyncAdapter$ISyncAdapterImpl;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
+    #getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreads:Ljava/util/HashMap;
     invoke-static {v3}, Landroid/content/AbstractThreadedSyncAdapter;->access$300(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/util/HashMap;
 
     move-result-object v3
@@ -81,12 +83,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :cond_16
+    :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_31
+    if-eqz v3, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -96,6 +98,7 @@
 
     .line 193
     .local v0, current:Landroid/content/AbstractThreadedSyncAdapter$SyncThread;
+    #getter for: Landroid/content/AbstractThreadedSyncAdapter$SyncThread;->mSyncContext:Landroid/content/SyncContext;
     invoke-static {v0}, Landroid/content/AbstractThreadedSyncAdapter$SyncThread;->access$700(Landroid/content/AbstractThreadedSyncAdapter$SyncThread;)Landroid/content/SyncContext;
 
     move-result-object v3
@@ -108,29 +111,30 @@
 
     move-result-object v5
 
-    if-ne v3, v5, :cond_16
+    if-ne v3, v5, :cond_0
 
     .line 194
     move-object v2, v0
 
     .line 198
     .end local v0           #current:Landroid/content/AbstractThreadedSyncAdapter$SyncThread;
-    :cond_31
+    :cond_1
     monitor-exit v4
-    :try_end_32
-    .catchall {:try_start_8 .. :try_end_32} :catchall_42
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 199
-    if-eqz v2, :cond_41
+    if-eqz v2, :cond_2
 
     .line 200
     iget-object v3, p0, Landroid/content/AbstractThreadedSyncAdapter$ISyncAdapterImpl;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
+    #getter for: Landroid/content/AbstractThreadedSyncAdapter;->mAllowParallelSyncs:Z
     invoke-static {v3}, Landroid/content/AbstractThreadedSyncAdapter;->access$800(Landroid/content/AbstractThreadedSyncAdapter;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_45
+    if-eqz v3, :cond_3
 
     .line 201
     iget-object v3, p0, Landroid/content/AbstractThreadedSyncAdapter$ISyncAdapterImpl;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
@@ -138,34 +142,34 @@
     invoke-virtual {v3, v2}, Landroid/content/AbstractThreadedSyncAdapter;->onSyncCanceled(Ljava/lang/Thread;)V
 
     .line 206
-    :cond_41
-    :goto_41
+    :cond_2
+    :goto_0
     return-void
 
     .line 198
     .end local v1           #i$:Ljava/util/Iterator;
-    :catchall_42
+    :catchall_0
     move-exception v3
 
-    :try_start_43
+    :try_start_1
     monitor-exit v4
-    :try_end_44
-    .catchall {:try_start_43 .. :try_end_44} :catchall_42
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v3
 
     .line 203
     .restart local v1       #i$:Ljava/util/Iterator;
-    :cond_45
+    :cond_3
     iget-object v3, p0, Landroid/content/AbstractThreadedSyncAdapter$ISyncAdapterImpl;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
     invoke-virtual {v3}, Landroid/content/AbstractThreadedSyncAdapter;->onSyncCanceled()V
 
-    goto :goto_41
+    goto :goto_0
 .end method
 
 .method public initialize(Landroid/accounts/Account;Ljava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "account"
     .parameter "authority"
     .annotation system Ldalvik/annotation/Throws;
@@ -198,7 +202,7 @@
 .end method
 
 .method public startSync(Landroid/content/ISyncContext;Ljava/lang/String;Landroid/accounts/Account;Landroid/os/Bundle;)V
-    .registers 16
+    .locals 11
     .parameter "syncContext"
     .parameter "authority"
     .parameter "account"
@@ -214,6 +218,7 @@
     .local v3, syncContextClient:Landroid/content/SyncContext;
     iget-object v1, p0, Landroid/content/AbstractThreadedSyncAdapter$ISyncAdapterImpl;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
+    #calls: Landroid/content/AbstractThreadedSyncAdapter;->toSyncKey(Landroid/accounts/Account;)Landroid/accounts/Account;
     invoke-static {v1, p3}, Landroid/content/AbstractThreadedSyncAdapter;->access$100(Landroid/content/AbstractThreadedSyncAdapter;Landroid/accounts/Account;)Landroid/accounts/Account;
 
     move-result-object v9
@@ -222,6 +227,7 @@
     .local v9, threadsKey:Landroid/accounts/Account;
     iget-object v1, p0, Landroid/content/AbstractThreadedSyncAdapter$ISyncAdapterImpl;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
+    #getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreadLock:Ljava/lang/Object;
     invoke-static {v1}, Landroid/content/AbstractThreadedSyncAdapter;->access$200(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/lang/Object;
 
     move-result-object v10
@@ -229,9 +235,10 @@
     monitor-enter v10
 
     .line 159
-    :try_start_12
+    :try_start_0
     iget-object v1, p0, Landroid/content/AbstractThreadedSyncAdapter$ISyncAdapterImpl;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
+    #getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreads:Ljava/util/HashMap;
     invoke-static {v1}, Landroid/content/AbstractThreadedSyncAdapter;->access$300(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -240,18 +247,19 @@
 
     move-result v1
 
-    if-nez v1, :cond_83
+    if-nez v1, :cond_3
 
     .line 160
     iget-object v1, p0, Landroid/content/AbstractThreadedSyncAdapter$ISyncAdapterImpl;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
+    #getter for: Landroid/content/AbstractThreadedSyncAdapter;->mAutoInitialize:Z
     invoke-static {v1}, Landroid/content/AbstractThreadedSyncAdapter;->access$400(Landroid/content/AbstractThreadedSyncAdapter;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_45
+    if-eqz v1, :cond_2
 
-    if-eqz p4, :cond_45
+    if-eqz p4, :cond_2
 
     const-string v1, "initialize"
 
@@ -261,14 +269,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_45
+    if-eqz v1, :cond_2
 
     .line 163
     invoke-static {p3, p2}, Landroid/content/ContentResolver;->getIsSyncable(Landroid/accounts/Account;Ljava/lang/String;)I
 
     move-result v1
 
-    if-gez v1, :cond_3b
+    if-gez v1, :cond_0
 
     .line 164
     const/4 v1, 0x1
@@ -276,7 +284,7 @@
     invoke-static {p3, p2, v1}, Landroid/content/ContentResolver;->setIsSyncable(Landroid/accounts/Account;Ljava/lang/String;I)V
 
     .line 166
-    :cond_3b
+    :cond_0
     new-instance v1, Landroid/content/SyncResult;
 
     invoke-direct {v1}, Landroid/content/SyncResult;-><init>()V
@@ -287,12 +295,12 @@
     monitor-exit v10
 
     .line 185
-    :cond_44
-    :goto_44
+    :cond_1
+    :goto_0
     return-void
 
     .line 169
-    :cond_45
+    :cond_2
     new-instance v0, Landroid/content/AbstractThreadedSyncAdapter$SyncThread;
 
     iget-object v1, p0, Landroid/content/AbstractThreadedSyncAdapter$ISyncAdapterImpl;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
@@ -309,6 +317,7 @@
 
     iget-object v4, p0, Landroid/content/AbstractThreadedSyncAdapter$ISyncAdapterImpl;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
+    #getter for: Landroid/content/AbstractThreadedSyncAdapter;->mNumSyncStarts:Ljava/util/concurrent/atomic/AtomicInteger;
     invoke-static {v4}, Landroid/content/AbstractThreadedSyncAdapter;->access$500(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/util/concurrent/atomic/AtomicInteger;
 
     move-result-object v4
@@ -339,6 +348,7 @@
     .local v0, syncThread:Landroid/content/AbstractThreadedSyncAdapter$SyncThread;
     iget-object v1, p0, Landroid/content/AbstractThreadedSyncAdapter$ISyncAdapterImpl;->this$0:Landroid/content/AbstractThreadedSyncAdapter;
 
+    #getter for: Landroid/content/AbstractThreadedSyncAdapter;->mSyncThreads:Ljava/util/HashMap;
     invoke-static {v1}, Landroid/content/AbstractThreadedSyncAdapter;->access$300(Landroid/content/AbstractThreadedSyncAdapter;)Ljava/util/HashMap;
 
     move-result-object v1
@@ -354,38 +364,38 @@
     .line 178
     .end local v0           #syncThread:Landroid/content/AbstractThreadedSyncAdapter$SyncThread;
     .local v8, alreadyInProgress:Z
-    :goto_7a
+    :goto_1
     monitor-exit v10
-    :try_end_7b
-    .catchall {:try_start_12 .. :try_end_7b} :catchall_85
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 182
-    if-eqz v8, :cond_44
+    if-eqz v8, :cond_1
 
     .line 183
     sget-object v1, Landroid/content/SyncResult;->ALREADY_IN_PROGRESS:Landroid/content/SyncResult;
 
     invoke-virtual {v3, v1}, Landroid/content/SyncContext;->onFinished(Landroid/content/SyncResult;)V
 
-    goto :goto_44
+    goto :goto_0
 
     .line 176
     .end local v8           #alreadyInProgress:Z
-    :cond_83
+    :cond_3
     const/4 v8, 0x1
 
     .restart local v8       #alreadyInProgress:Z
-    goto :goto_7a
+    goto :goto_1
 
     .line 178
     .end local v8           #alreadyInProgress:Z
-    :catchall_85
+    :catchall_0
     move-exception v1
 
-    :try_start_86
+    :try_start_1
     monitor-exit v10
-    :try_end_87
-    .catchall {:try_start_86 .. :try_end_87} :catchall_85
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method

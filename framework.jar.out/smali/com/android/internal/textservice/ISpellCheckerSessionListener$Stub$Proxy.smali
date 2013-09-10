@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 76
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 80
@@ -60,7 +60,7 @@
 .end method
 
 .method public onGetSentenceSuggestions([Landroid/view/textservice/SentenceSuggestionsInfo;)V
-    .registers 7
+    .locals 5
     .parameter "result"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -76,7 +76,7 @@
 
     .line 98
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "com.android.internal.textservice.ISpellCheckerSessionListener"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -96,8 +96,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_15
-    .catchall {:try_start_4 .. :try_end_15} :catchall_19
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 103
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -106,7 +106,7 @@
     return-void
 
     .line 103
-    :catchall_19
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -115,7 +115,7 @@
 .end method
 
 .method public onGetSuggestions([Landroid/view/textservice/SuggestionsInfo;)V
-    .registers 7
+    .locals 5
     .parameter "results"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -131,7 +131,7 @@
 
     .line 86
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "com.android.internal.textservice.ISpellCheckerSessionListener"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -151,8 +151,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_15
-    .catchall {:try_start_4 .. :try_end_15} :catchall_19
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 91
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -161,7 +161,7 @@
     return-void
 
     .line 91
-    :catchall_19
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V

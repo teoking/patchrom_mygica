@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/InputChannel;Landroid/os/Looper;Lcom/android/internal/widget/PointerLocationView;)V
-    .registers 4
+    .locals 0
     .parameter "inputChannel"
     .parameter "looper"
     .parameter "view"
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onInputEvent(Landroid/view/InputEvent;)V
-    .registers 6
+    .locals 4
     .parameter "event"
 
     .prologue
@@ -48,10 +48,10 @@
 
     .line 439
     .local v1, handled:Z
-    :try_start_1
+    :try_start_0
     instance-of v3, p1, Landroid/view/MotionEvent;
 
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_0
 
     invoke-virtual {p1}, Landroid/view/InputEvent;->getSource()I
 
@@ -59,7 +59,7 @@
 
     and-int/lit8 v3, v3, 0x2
 
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_0
 
     .line 441
     move-object v0, p1
@@ -73,22 +73,22 @@
     iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$PointerLocationInputEventReceiver;->mView:Lcom/android/internal/widget/PointerLocationView;
 
     invoke-virtual {v3, v2}, Lcom/android/internal/widget/PointerLocationView;->addPointerEvent(Landroid/view/MotionEvent;)V
-    :try_end_16
-    .catchall {:try_start_1 .. :try_end_16} :catchall_1b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 443
     const/4 v1, 0x1
 
     .line 446
     .end local v2           #motionEvent:Landroid/view/MotionEvent;
-    :cond_17
+    :cond_0
     invoke-virtual {p0, p1, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager$PointerLocationInputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 
     .line 448
     return-void
 
     .line 446
-    :catchall_1b
+    :catchall_0
     move-exception v3
 
     invoke-virtual {p0, p1, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager$PointerLocationInputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V

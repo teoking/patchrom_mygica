@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Intent;)V
-    .registers 2
+    .locals 0
     .parameter "_intent"
 
     .prologue

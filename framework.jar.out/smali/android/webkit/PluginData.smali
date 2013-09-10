@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;JLjava/util/Map;I)V
-    .registers 6
+    .locals 0
     .parameter "stream"
     .parameter "length"
     .parameter
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public getContentLength()J
-    .registers 3
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -89,7 +89,7 @@
 .end method
 
 .method public getHeaders()Ljava/util/Map;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -113,7 +113,7 @@
 .end method
 
 .method public getInputStream()Ljava/io/InputStream;
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -125,7 +125,7 @@
 .end method
 
 .method public getStatusCode()I
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

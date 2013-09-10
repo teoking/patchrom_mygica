@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/android/server/NetworkManagementService;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/android/server/NetworkManagementService;Lcom/android/server/NetworkManagementService$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -50,21 +50,23 @@
 
 # virtual methods
 .method public onDaemonConnected()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 346
     iget-object v0, p0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
 
+    #getter for: Lcom/android/server/NetworkManagementService;->mConnectedSignal:Ljava/util/concurrent/CountDownLatch;
     invoke-static {v0}, Lcom/android/server/NetworkManagementService;->access$100(Lcom/android/server/NetworkManagementService;)Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v0
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
     .line 347
     iget-object v0, p0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
 
+    #getter for: Lcom/android/server/NetworkManagementService;->mConnectedSignal:Ljava/util/concurrent/CountDownLatch;
     invoke-static {v0}, Lcom/android/server/NetworkManagementService;->access$100(Lcom/android/server/NetworkManagementService;)Ljava/util/concurrent/CountDownLatch;
 
     move-result-object v0
@@ -76,16 +78,18 @@
 
     const/4 v1, 0x0
 
+    #setter for: Lcom/android/server/NetworkManagementService;->mConnectedSignal:Ljava/util/concurrent/CountDownLatch;
     invoke-static {v0, v1}, Lcom/android/server/NetworkManagementService;->access$102(Lcom/android/server/NetworkManagementService;Ljava/util/concurrent/CountDownLatch;)Ljava/util/concurrent/CountDownLatch;
 
     .line 357
-    :goto_17
+    :goto_0
     return-void
 
     .line 350
-    :cond_18
+    :cond_0
     iget-object v0, p0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
 
+    #getter for: Lcom/android/server/NetworkManagementService;->mMainHandler:Landroid/os/Handler;
     invoke-static {v0}, Lcom/android/server/NetworkManagementService;->access$300(Lcom/android/server/NetworkManagementService;)Landroid/os/Handler;
 
     move-result-object v0
@@ -96,11 +100,11 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_17
+    goto :goto_0
 .end method
 
 .method public onEvent(ILjava/lang/String;[Ljava/lang/String;)Z
-    .registers 11
+    .locals 7
     .parameter "code"
     .parameter "raw"
     .parameter "cooked"
@@ -117,19 +121,19 @@
     const/4 v0, 0x1
 
     .line 361
-    packed-switch p1, :pswitch_data_da
+    packed-switch p1, :pswitch_data_0
 
     move v0, v1
 
     .line 408
-    :goto_9
+    :goto_0
     return v0
 
     .line 370
-    :pswitch_a
+    :pswitch_0
     array-length v2, p3
 
-    if-lt v2, v6, :cond_17
+    if-lt v2, v6, :cond_0
 
     aget-object v2, p3, v0
 
@@ -139,10 +143,10 @@
 
     move-result v2
 
-    if-nez v2, :cond_27
+    if-nez v2, :cond_1
 
     .line 371
-    :cond_17
+    :cond_0
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "Invalid event from daemon (%s)"
@@ -160,7 +164,7 @@
     throw v2
 
     .line 374
-    :cond_27
+    :cond_1
     aget-object v2, p3, v4
 
     const-string v3, "added"
@@ -169,19 +173,20 @@
 
     move-result v2
 
-    if-eqz v2, :cond_39
+    if-eqz v2, :cond_2
 
     .line 375
     iget-object v1, p0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
 
     aget-object v2, p3, v5
 
+    #calls: Lcom/android/server/NetworkManagementService;->notifyInterfaceAdded(Ljava/lang/String;)V
     invoke-static {v1, v2}, Lcom/android/server/NetworkManagementService;->access$400(Lcom/android/server/NetworkManagementService;Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 377
-    :cond_39
+    :cond_2
     aget-object v2, p3, v4
 
     const-string v3, "removed"
@@ -190,19 +195,20 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4b
+    if-eqz v2, :cond_3
 
     .line 378
     iget-object v1, p0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
 
     aget-object v2, p3, v5
 
+    #calls: Lcom/android/server/NetworkManagementService;->notifyInterfaceRemoved(Ljava/lang/String;)V
     invoke-static {v1, v2}, Lcom/android/server/NetworkManagementService;->access$500(Lcom/android/server/NetworkManagementService;Ljava/lang/String;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 380
-    :cond_4b
+    :cond_3
     aget-object v2, p3, v4
 
     const-string v3, "changed"
@@ -211,13 +217,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_69
+    if-eqz v2, :cond_4
 
     array-length v2, p3
 
     const/4 v3, 0x5
 
-    if-ne v2, v3, :cond_69
+    if-ne v2, v3, :cond_4
 
     .line 381
     iget-object v1, p0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
@@ -232,12 +238,13 @@
 
     move-result v3
 
+    #calls: Lcom/android/server/NetworkManagementService;->notifyInterfaceStatusChanged(Ljava/lang/String;Z)V
     invoke-static {v1, v2, v3}, Lcom/android/server/NetworkManagementService;->access$600(Lcom/android/server/NetworkManagementService;Ljava/lang/String;Z)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 383
-    :cond_69
+    :cond_4
     aget-object v2, p3, v4
 
     const-string v3, "linkstate"
@@ -246,13 +253,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_87
+    if-eqz v2, :cond_5
 
     array-length v2, p3
 
     const/4 v3, 0x5
 
-    if-ne v2, v3, :cond_87
+    if-ne v2, v3, :cond_5
 
     .line 384
     iget-object v1, p0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
@@ -267,12 +274,13 @@
 
     move-result v3
 
+    #calls: Lcom/android/server/NetworkManagementService;->notifyInterfaceLinkStateChanged(Ljava/lang/String;Z)V
     invoke-static {v1, v2, v3}, Lcom/android/server/NetworkManagementService;->access$700(Lcom/android/server/NetworkManagementService;Ljava/lang/String;Z)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 387
-    :cond_87
+    :cond_5
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "Invalid event from daemon (%s)"
@@ -290,12 +298,12 @@
     throw v2
 
     .line 395
-    :pswitch_97
+    :pswitch_1
     array-length v2, p3
 
     const/4 v3, 0x5
 
-    if-lt v2, v3, :cond_a5
+    if-lt v2, v3, :cond_6
 
     aget-object v2, p3, v0
 
@@ -305,10 +313,10 @@
 
     move-result v2
 
-    if-nez v2, :cond_b5
+    if-nez v2, :cond_7
 
     .line 396
-    :cond_a5
+    :cond_6
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "Invalid event from daemon (%s)"
@@ -326,7 +334,7 @@
     throw v2
 
     .line 399
-    :cond_b5
+    :cond_7
     aget-object v2, p3, v4
 
     const-string v3, "alert"
@@ -335,7 +343,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_ca
+    if-eqz v2, :cond_8
 
     .line 400
     iget-object v1, p0, Lcom/android/server/NetworkManagementService$NetdCallbackReceiver;->this$0:Lcom/android/server/NetworkManagementService;
@@ -344,12 +352,13 @@
 
     aget-object v3, p3, v6
 
+    #calls: Lcom/android/server/NetworkManagementService;->notifyLimitReached(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v1, v2, v3}, Lcom/android/server/NetworkManagementService;->access$800(Lcom/android/server/NetworkManagementService;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_9
+    goto/16 :goto_0
 
     .line 403
-    :cond_ca
+    :cond_8
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "Invalid event from daemon (%s)"
@@ -367,9 +376,9 @@
     throw v2
 
     .line 361
-    :pswitch_data_da
+    :pswitch_data_0
     .packed-switch 0x258
-        :pswitch_a
-        :pswitch_97
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method

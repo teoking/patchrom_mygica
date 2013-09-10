@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 46
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 9
+    .locals 7
     .parameter "string"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -74,7 +74,7 @@
     .local v0, tokens:[Ljava/lang/String;
     array-length v1, v0
 
-    if-ge v1, v4, :cond_29
+    if-ge v1, v4, :cond_0
 
     .line 65
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -102,7 +102,7 @@
     throw v1
 
     .line 68
-    :cond_29
+    :cond_0
     aget-object v1, v0, v3
 
     const-string v2, "PBC-REQ"
@@ -111,12 +111,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4b
+    if-eqz v1, :cond_2
 
     iput v5, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->event:I
 
     .line 75
-    :goto_35
+    :goto_0
     new-instance v1, Landroid/net/wifi/p2p/WifiP2pDevice;
 
     invoke-direct {v1}, Landroid/net/wifi/p2p/WifiP2pDevice;-><init>()V
@@ -133,7 +133,7 @@
     .line 78
     iget v1, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->event:I
 
-    if-ne v1, v6, :cond_4a
+    if-ne v1, v6, :cond_1
 
     .line 79
     aget-object v1, v0, v4
@@ -141,11 +141,11 @@
     iput-object v1, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->pin:Ljava/lang/String;
 
     .line 81
-    :cond_4a
+    :cond_1
     return-void
 
     .line 69
-    :cond_4b
+    :cond_2
     aget-object v1, v0, v3
 
     const-string v2, "PBC-RESP"
@@ -154,14 +154,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_58
+    if-eqz v1, :cond_3
 
     iput v4, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->event:I
 
-    goto :goto_35
+    goto :goto_0
 
     .line 70
-    :cond_58
+    :cond_3
     aget-object v1, v0, v3
 
     const-string v2, "ENTER-PIN"
@@ -170,16 +170,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_66
+    if-eqz v1, :cond_4
 
     const/4 v1, 0x3
 
     iput v1, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->event:I
 
-    goto :goto_35
+    goto :goto_0
 
     .line 71
-    :cond_66
+    :cond_4
     aget-object v1, v0, v3
 
     const-string v2, "SHOW-PIN"
@@ -188,14 +188,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_73
+    if-eqz v1, :cond_5
 
     iput v6, p0, Landroid/net/wifi/p2p/WifiP2pProvDiscEvent;->event:I
 
-    goto :goto_35
+    goto :goto_0
 
     .line 72
-    :cond_73
+    :cond_5
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -224,7 +224,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 84

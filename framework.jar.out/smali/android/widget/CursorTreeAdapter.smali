@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/database/Cursor;Landroid/content/Context;)V
-    .registers 4
+    .locals 1
     .parameter "cursor"
     .parameter "context"
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>(Landroid/database/Cursor;Landroid/content/Context;Z)V
-    .registers 4
+    .locals 0
     .parameter "cursor"
     .parameter "context"
     .parameter "autoRequery"
@@ -78,7 +78,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/widget/CursorTreeAdapter;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -89,7 +89,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/widget/CursorTreeAdapter;)Z
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -100,7 +100,7 @@
 .end method
 
 .method private init(Landroid/database/Cursor;Landroid/content/Context;Z)V
-    .registers 5
+    .locals 1
     .parameter "cursor"
     .parameter "context"
     .parameter "autoRequery"
@@ -138,13 +138,13 @@
 .end method
 
 .method private declared-synchronized releaseCursorHelpers()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 289
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v1, p0, Landroid/widget/CursorTreeAdapter;->mChildrenCursorHelpers:Landroid/util/SparseArray;
 
     invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
@@ -154,8 +154,8 @@
     add-int/lit8 v0, v1, -0x1
 
     .local v0, pos:I
-    :goto_9
-    if-ltz v0, :cond_19
+    :goto_0
+    if-ltz v0, :cond_0
 
     .line 290
     iget-object v1, p0, Landroid/widget/CursorTreeAdapter;->mChildrenCursorHelpers:Landroid/util/SparseArray;
@@ -171,15 +171,15 @@
     .line 289
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 293
-    :cond_19
+    :cond_0
     iget-object v1, p0, Landroid/widget/CursorTreeAdapter;->mChildrenCursorHelpers:Landroid/util/SparseArray;
 
     invoke-virtual {v1}, Landroid/util/SparseArray;->clear()V
-    :try_end_1e
-    .catchall {:try_start_1 .. :try_end_1e} :catchall_20
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 294
     monitor-exit p0
@@ -188,7 +188,7 @@
 
     .line 289
     .end local v0           #pos:I
-    :catchall_20
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
@@ -205,7 +205,7 @@
 .end method
 
 .method public changeCursor(Landroid/database/Cursor;)V
-    .registers 4
+    .locals 2
     .parameter "cursor"
 
     .prologue
@@ -221,7 +221,7 @@
 .end method
 
 .method public bridge synthetic convertToString(Landroid/database/Cursor;)Ljava/lang/CharSequence;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -234,28 +234,28 @@
 .end method
 
 .method public convertToString(Landroid/database/Cursor;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "cursor"
 
     .prologue
     .line 344
-    if-nez p1, :cond_5
+    if-nez p1, :cond_0
 
     const-string v0, ""
 
-    :goto_4
+    :goto_0
     return-object v0
 
-    :cond_5
+    :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method declared-synchronized deactivateChildrenCursorHelper(I)V
-    .registers 4
+    .locals 2
     .parameter "groupPosition"
 
     .prologue
@@ -264,7 +264,7 @@
 
     const/4 v1, 0x1
 
-    :try_start_2
+    :try_start_0
     invoke-virtual {p0, p1, v1}, Landroid/widget/CursorTreeAdapter;->getChildrenCursorHelper(IZ)Landroid/widget/CursorTreeAdapter$MyCursorHelper;
 
     move-result-object v0
@@ -277,8 +277,8 @@
 
     .line 337
     invoke-virtual {v0}, Landroid/widget/CursorTreeAdapter$MyCursorHelper;->deactivate()V
-    :try_end_e
-    .catchall {:try_start_2 .. :try_end_e} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 338
     monitor-exit p0
@@ -287,7 +287,7 @@
 
     .line 335
     .end local v0           #cursorHelper:Landroid/widget/CursorTreeAdapter$MyCursorHelper;
-    :catchall_10
+    :catchall_0
     move-exception v1
 
     monitor-exit p0
@@ -296,7 +296,7 @@
 .end method
 
 .method public getChild(II)Landroid/database/Cursor;
-    .registers 4
+    .locals 1
     .parameter "groupPosition"
     .parameter "childPosition"
 
@@ -316,7 +316,7 @@
 .end method
 
 .method public bridge synthetic getChild(II)Ljava/lang/Object;
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 
@@ -330,7 +330,7 @@
 .end method
 
 .method public getChildId(II)J
-    .registers 5
+    .locals 2
     .parameter "groupPosition"
     .parameter "childPosition"
 
@@ -350,7 +350,7 @@
 .end method
 
 .method public getChildView(IIZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .registers 11
+    .locals 5
     .parameter "groupPosition"
     .parameter "childPosition"
     .parameter "isLastChild"
@@ -373,7 +373,7 @@
 
     .line 241
     .local v0, cursor:Landroid/database/Cursor;
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 242
     new-instance v3, Ljava/lang/IllegalStateException;
@@ -385,8 +385,8 @@
     throw v3
 
     .line 246
-    :cond_14
-    if-nez p4, :cond_22
+    :cond_0
+    if-nez p4, :cond_1
 
     .line 247
     iget-object v3, p0, Landroid/widget/CursorTreeAdapter;->mContext:Landroid/content/Context;
@@ -397,7 +397,7 @@
 
     .line 251
     .local v2, v:Landroid/view/View;
-    :goto_1c
+    :goto_0
     iget-object v3, p0, Landroid/widget/CursorTreeAdapter;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0, v2, v3, v0, p3}, Landroid/widget/CursorTreeAdapter;->bindChildView(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;Z)V
@@ -407,15 +407,15 @@
 
     .line 249
     .end local v2           #v:Landroid/view/View;
-    :cond_22
+    :cond_1
     move-object v2, p4
 
     .restart local v2       #v:Landroid/view/View;
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 .method public getChildrenCount(I)I
-    .registers 4
+    .locals 2
     .parameter "groupPosition"
 
     .prologue
@@ -434,28 +434,28 @@
 
     move-result v1
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/widget/CursorTreeAdapter$MyCursorHelper;->getCount()I
 
     move-result v1
 
-    :goto_13
+    :goto_0
     return v1
 
-    :cond_14
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method protected abstract getChildrenCursor(Landroid/database/Cursor;)Landroid/database/Cursor;
 .end method
 
 .method declared-synchronized getChildrenCursorHelper(IZ)Landroid/widget/CursorTreeAdapter$MyCursorHelper;
-    .registers 6
+    .locals 3
     .parameter "groupPosition"
     .parameter "requestCursor"
 
@@ -463,7 +463,7 @@
     .line 100
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-object v2, p0, Landroid/widget/CursorTreeAdapter;->mChildrenCursorHelpers:Landroid/util/SparseArray;
 
     invoke-virtual {v2, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -474,30 +474,30 @@
 
     .line 102
     .local v1, cursorHelper:Landroid/widget/CursorTreeAdapter$MyCursorHelper;
-    if-nez v1, :cond_2a
+    if-nez v1, :cond_1
 
     .line 103
     iget-object v2, p0, Landroid/widget/CursorTreeAdapter;->mGroupCursorHelper:Landroid/widget/CursorTreeAdapter$MyCursorHelper;
 
     invoke-virtual {v2, p1}, Landroid/widget/CursorTreeAdapter$MyCursorHelper;->moveTo(I)Landroid/database/Cursor;
-    :try_end_10
-    .catchall {:try_start_1 .. :try_end_10} :catchall_2c
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
-    if-nez v2, :cond_16
+    if-nez v2, :cond_0
 
     const/4 v2, 0x0
 
     .line 110
-    :goto_14
+    :goto_0
     monitor-exit p0
 
     return-object v2
 
     .line 105
-    :cond_16
-    :try_start_16
+    :cond_0
+    :try_start_1
     iget-object v2, p0, Landroid/widget/CursorTreeAdapter;->mGroupCursorHelper:Landroid/widget/CursorTreeAdapter$MyCursorHelper;
 
     invoke-virtual {v2}, Landroid/widget/CursorTreeAdapter$MyCursorHelper;->getCursor()Landroid/database/Cursor;
@@ -520,19 +520,19 @@
     iget-object v2, p0, Landroid/widget/CursorTreeAdapter;->mChildrenCursorHelpers:Landroid/util/SparseArray;
 
     invoke-virtual {v2, p1, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-    :try_end_2a
-    .catchall {:try_start_16 .. :try_end_2a} :catchall_2c
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .end local v0           #cursor:Landroid/database/Cursor;
-    :cond_2a
+    :cond_1
     move-object v2, v1
 
     .line 110
-    goto :goto_14
+    goto :goto_0
 
     .line 100
     .end local v1           #cursorHelper:Landroid/widget/CursorTreeAdapter$MyCursorHelper;
-    :catchall_2c
+    :catchall_0
     move-exception v2
 
     monitor-exit p0
@@ -541,7 +541,7 @@
 .end method
 
 .method public getCursor()Landroid/database/Cursor;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 390
@@ -555,13 +555,13 @@
 .end method
 
 .method public getFilter()Landroid/widget/Filter;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 359
     iget-object v0, p0, Landroid/widget/CursorTreeAdapter;->mCursorFilter:Landroid/widget/CursorFilter;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 360
     new-instance v0, Landroid/widget/CursorFilter;
@@ -571,14 +571,14 @@
     iput-object v0, p0, Landroid/widget/CursorTreeAdapter;->mCursorFilter:Landroid/widget/CursorFilter;
 
     .line 362
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/widget/CursorTreeAdapter;->mCursorFilter:Landroid/widget/CursorFilter;
 
     return-object v0
 .end method
 
 .method public getFilterQueryProvider()Landroid/widget/FilterQueryProvider;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 369
@@ -588,7 +588,7 @@
 .end method
 
 .method public getGroup(I)Landroid/database/Cursor;
-    .registers 3
+    .locals 1
     .parameter "groupPosition"
 
     .prologue
@@ -603,7 +603,7 @@
 .end method
 
 .method public bridge synthetic getGroup(I)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -616,7 +616,7 @@
 .end method
 
 .method public getGroupCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 187
@@ -630,7 +630,7 @@
 .end method
 
 .method public getGroupId(I)J
-    .registers 4
+    .locals 2
     .parameter "groupPosition"
 
     .prologue
@@ -645,7 +645,7 @@
 .end method
 
 .method public getGroupView(IZLandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .registers 9
+    .locals 4
     .parameter "groupPosition"
     .parameter "isExpanded"
     .parameter "convertView"
@@ -661,7 +661,7 @@
 
     .line 197
     .local v0, cursor:Landroid/database/Cursor;
-    if-nez v0, :cond_11
+    if-nez v0, :cond_0
 
     .line 198
     new-instance v2, Ljava/lang/IllegalStateException;
@@ -673,8 +673,8 @@
     throw v2
 
     .line 202
-    :cond_11
-    if-nez p3, :cond_1f
+    :cond_0
+    if-nez p3, :cond_1
 
     .line 203
     iget-object v2, p0, Landroid/widget/CursorTreeAdapter;->mContext:Landroid/content/Context;
@@ -685,7 +685,7 @@
 
     .line 207
     .local v1, v:Landroid/view/View;
-    :goto_19
+    :goto_0
     iget-object v2, p0, Landroid/widget/CursorTreeAdapter;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0, v1, v2, v0, p2}, Landroid/widget/CursorTreeAdapter;->bindGroupView(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;Z)V
@@ -695,15 +695,15 @@
 
     .line 205
     .end local v1           #v:Landroid/view/View;
-    :cond_1f
+    :cond_1
     move-object v1, p3
 
     .restart local v1       #v:Landroid/view/View;
-    goto :goto_19
+    goto :goto_0
 .end method
 
 .method public hasStableIds()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 285
@@ -713,7 +713,7 @@
 .end method
 
 .method public isChildSelectable(II)Z
-    .registers 4
+    .locals 1
     .parameter "groupPosition"
     .parameter "childPosition"
 
@@ -731,7 +731,7 @@
 .end method
 
 .method public notifyDataSetChanged()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 298
@@ -744,18 +744,18 @@
 .end method
 
 .method public notifyDataSetChanged(Z)V
-    .registers 2
+    .locals 0
     .parameter "releaseCursors"
 
     .prologue
     .line 310
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_0
 
     .line 311
     invoke-direct {p0}, Landroid/widget/CursorTreeAdapter;->releaseCursorHelpers()V
 
     .line 314
-    :cond_5
+    :cond_0
     invoke-super {p0}, Landroid/widget/BaseExpandableListAdapter;->notifyDataSetChanged()V
 
     .line 315
@@ -763,7 +763,7 @@
 .end method
 
 .method public notifyDataSetInvalidated()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 319
@@ -777,7 +777,7 @@
 .end method
 
 .method public onGroupCollapsed(I)V
-    .registers 2
+    .locals 0
     .parameter "groupPosition"
 
     .prologue
@@ -789,14 +789,14 @@
 .end method
 
 .method public runQueryOnBackgroundThread(Ljava/lang/CharSequence;)Landroid/database/Cursor;
-    .registers 3
+    .locals 1
     .parameter "constraint"
 
     .prologue
     .line 351
     iget-object v0, p0, Landroid/widget/CursorTreeAdapter;->mFilterQueryProvider:Landroid/widget/FilterQueryProvider;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 352
     iget-object v0, p0, Landroid/widget/CursorTreeAdapter;->mFilterQueryProvider:Landroid/widget/FilterQueryProvider;
@@ -806,21 +806,21 @@
     move-result-object v0
 
     .line 355
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     iget-object v0, p0, Landroid/widget/CursorTreeAdapter;->mGroupCursorHelper:Landroid/widget/CursorTreeAdapter$MyCursorHelper;
 
     invoke-virtual {v0}, Landroid/widget/CursorTreeAdapter$MyCursorHelper;->getCursor()Landroid/database/Cursor;
 
     move-result-object v0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public setChildrenCursor(ILandroid/database/Cursor;)V
-    .registers 5
+    .locals 2
     .parameter "groupPosition"
     .parameter "childrenCursor"
 
@@ -841,7 +841,7 @@
 .end method
 
 .method public setFilterQueryProvider(Landroid/widget/FilterQueryProvider;)V
-    .registers 2
+    .locals 0
     .parameter "filterQueryProvider"
 
     .prologue
@@ -853,7 +853,7 @@
 .end method
 
 .method public setGroupCursor(Landroid/database/Cursor;)V
-    .registers 4
+    .locals 2
     .parameter "cursor"
 
     .prologue

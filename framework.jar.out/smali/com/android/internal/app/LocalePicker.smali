@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 39
@@ -35,7 +35,7 @@
 .end method
 
 .method public static constructAdapter(Landroid/content/Context;)Landroid/widget/ArrayAdapter;
-    .registers 3
+    .locals 2
     .parameter "context"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -63,7 +63,7 @@
 .end method
 
 .method public static constructAdapter(Landroid/content/Context;II)Landroid/widget/ArrayAdapter;
-    .registers 25
+    .locals 22
     .parameter "context"
     .parameter "layoutId"
     .parameter "fieldId"
@@ -147,8 +147,8 @@
 
     .end local v6           #finalSize:I
     .local v7, finalSize:I
-    :goto_2f
-    if-ge v8, v14, :cond_ef
+    :goto_0
+    if-ge v8, v14, :cond_3
 
     .line 99
     aget-object v17, v13, v8
@@ -165,7 +165,7 @@
 
     move/from16 v0, v20
 
-    if-ne v11, v0, :cond_10c
+    if-ne v11, v0, :cond_5
 
     .line 102
     const/16 v20, 0x0
@@ -206,7 +206,7 @@
 
     .line 106
     .local v9, l:Ljava/util/Locale;
-    if-nez v7, :cond_79
+    if-nez v7, :cond_0
 
     .line 110
     add-int/lit8 v6, v7, 0x1
@@ -235,20 +235,20 @@
     .end local v4           #country:Ljava/lang/String;
     .end local v9           #l:Ljava/util/Locale;
     .end local v10           #language:Ljava/lang/String;
-    :goto_75
+    :goto_1
     add-int/lit8 v8, v8, 0x1
 
     move v7, v6
 
     .end local v6           #finalSize:I
     .restart local v7       #finalSize:I
-    goto :goto_2f
+    goto :goto_0
 
     .line 117
     .restart local v4       #country:Ljava/lang/String;
     .restart local v9       #l:Ljava/util/Locale;
     .restart local v10       #language:Ljava/lang/String;
-    :cond_79
+    :cond_0
     add-int/lit8 v20, v7, -0x1
 
     aget-object v20, v15, v20
@@ -269,7 +269,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_cb
+    if-eqz v20, :cond_1
 
     .line 125
     add-int/lit8 v20, v7, -0x1
@@ -333,12 +333,12 @@
 
     aput-object v20, v15, v7
 
-    goto :goto_75
+    goto :goto_1
 
     .line 138
     .end local v6           #finalSize:I
     .restart local v7       #finalSize:I
-    :cond_cb
+    :cond_1
     const-string/jumbo v20, "zz_ZZ"
 
     move-object/from16 v0, v17
@@ -349,14 +349,14 @@
 
     move-result v20
 
-    if-eqz v20, :cond_e6
+    if-eqz v20, :cond_2
 
     .line 139
     const-string v5, "Pseudo..."
 
     .line 146
     .local v5, displayName:Ljava/lang/String;
-    :goto_da
+    :goto_2
     add-int/lit8 v6, v7, 0x1
 
     .end local v7           #finalSize:I
@@ -369,13 +369,13 @@
 
     aput-object v20, v15, v7
 
-    goto :goto_75
+    goto :goto_1
 
     .line 141
     .end local v5           #displayName:Ljava/lang/String;
     .end local v6           #finalSize:I
     .restart local v7       #finalSize:I
-    :cond_e6
+    :cond_2
     invoke-virtual {v9, v9}, Ljava/util/Locale;->getDisplayLanguage(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object v20
@@ -385,7 +385,7 @@
     move-result-object v5
 
     .restart local v5       #displayName:Ljava/lang/String;
-    goto :goto_da
+    goto :goto_2
 
     .line 152
     .end local v4           #country:Ljava/lang/String;
@@ -394,15 +394,15 @@
     .end local v10           #language:Ljava/lang/String;
     .end local v11           #len:I
     .end local v17           #s:Ljava/lang/String;
-    :cond_ef
+    :cond_3
     new-array v12, v7, [Lcom/android/internal/app/LocalePicker$LocaleInfo;
 
     .line 153
     .local v12, localeInfos:[Lcom/android/internal/app/LocalePicker$LocaleInfo;
     const/4 v8, 0x0
 
-    :goto_f2
-    if-ge v8, v7, :cond_fb
+    :goto_3
+    if-ge v8, v7, :cond_4
 
     .line 154
     aget-object v20, v15, v8
@@ -412,10 +412,10 @@
     .line 153
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_f2
+    goto :goto_3
 
     .line 156
-    :cond_fb
+    :cond_4
     invoke-static {v12}, Ljava/util/Arrays;->sort([Ljava/lang/Object;)V
 
     .line 157
@@ -436,16 +436,16 @@
     .end local v12           #localeInfos:[Lcom/android/internal/app/LocalePicker$LocaleInfo;
     .restart local v11       #len:I
     .restart local v17       #s:Ljava/lang/String;
-    :cond_10c
+    :cond_5
     move v6, v7
 
     .end local v7           #finalSize:I
     .restart local v6       #finalSize:I
-    goto/16 :goto_75
+    goto/16 :goto_1
 .end method
 
 .method private static getDisplayName(Ljava/util/Locale;[Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;
-    .registers 6
+    .locals 3
     .parameter "l"
     .parameter "specialLocaleCodes"
     .parameter "specialLocaleNames"
@@ -461,10 +461,10 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_5
+    :goto_0
     array-length v2, p1
 
-    if-ge v1, v2, :cond_16
+    if-ge v1, v2, :cond_1
 
     .line 173
     aget-object v2, p1, v1
@@ -473,32 +473,32 @@
 
     move-result v2
 
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_0
 
     .line 174
     aget-object v2, p2, v1
 
     .line 178
-    :goto_12
+    :goto_1
     return-object v2
 
     .line 172
-    :cond_13
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 178
-    :cond_16
+    :cond_1
     invoke-virtual {p0, p0}, Ljava/util/Locale;->getDisplayName(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object v2
 
-    goto :goto_12
+    goto :goto_1
 .end method
 
 .method private static toTitleCase(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "s"
 
     .prologue
@@ -507,15 +507,15 @@
 
     move-result v0
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_0
 
     .line 165
     .end local p0
-    :goto_6
+    :goto_0
     return-object p0
 
     .restart local p0
-    :cond_7
+    :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -548,11 +548,11 @@
 
     move-result-object p0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public static updateLocale(Ljava/util/Locale;)V
-    .registers 4
+    .locals 3
     .parameter "locale"
 
     .prologue
@@ -584,26 +584,26 @@
     const-string v2, "com.android.providers.settings"
 
     invoke-static {v2}, Landroid/app/backup/BackupManager;->dataChanged(Ljava/lang/String;)V
-    :try_end_15
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_15} :catch_16
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 232
     .end local v0           #am:Landroid/app/IActivityManager;
     .end local v1           #config:Landroid/content/res/Configuration;
-    :goto_15
+    :goto_0
     return-void
 
     .line 229
-    :catch_16
+    :catch_0
     move-exception v2
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public onActivityCreated(Landroid/os/Bundle;)V
-    .registers 4
+    .locals 2
     .parameter "savedInstanceState"
 
     .prologue
@@ -628,7 +628,7 @@
 .end method
 
 .method public onListItemClick(Landroid/widget/ListView;Landroid/view/View;IJ)V
-    .registers 8
+    .locals 2
     .parameter "l"
     .parameter "v"
     .parameter "position"
@@ -638,7 +638,7 @@
     .line 206
     iget-object v1, p0, Lcom/android/internal/app/LocalePicker;->mListener:Lcom/android/internal/app/LocalePicker$LocaleSelectionListener;
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_0
 
     .line 207
     invoke-virtual {p0}, Lcom/android/internal/app/LocalePicker;->getListAdapter()Landroid/widget/ListAdapter;
@@ -661,12 +661,12 @@
 
     .line 210
     .end local v0           #locale:Ljava/util/Locale;
-    :cond_15
+    :cond_0
     return-void
 .end method
 
 .method public onResume()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 194
@@ -684,7 +684,7 @@
 .end method
 
 .method public setLocaleSelectionListener(Lcom/android/internal/app/LocalePicker$LocaleSelectionListener;)V
-    .registers 2
+    .locals 0
     .parameter "listener"
 
     .prologue

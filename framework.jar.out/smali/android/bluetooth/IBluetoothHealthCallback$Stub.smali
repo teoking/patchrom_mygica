@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 17
@@ -49,22 +49,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/bluetooth/IBluetoothHealthCallback;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 26
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 27
     const/4 v0, 0x0
 
     .line 33
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 29
-    :cond_4
+    :cond_0
     const-string v1, "android.bluetooth.IBluetoothHealthCallback"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -73,31 +73,31 @@
 
     .line 30
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/bluetooth/IBluetoothHealthCallback;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 31
     check-cast v0, Landroid/bluetooth/IBluetoothHealthCallback;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 33
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/bluetooth/IBluetoothHealthCallback$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/bluetooth/IBluetoothHealthCallback$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 37
@@ -105,7 +105,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 13
+    .locals 8
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -120,18 +120,18 @@
     const/4 v7, 0x1
 
     .line 41
-    sparse-switch p1, :sswitch_data_7c
+    sparse-switch p1, :sswitch_data_0
 
     .line 99
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0
 
-    :goto_8
+    :goto_0
     return v0
 
     .line 45
-    :sswitch_9
+    :sswitch_0
     const-string v0, "android.bluetooth.IBluetoothHealthCallback"
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
@@ -139,10 +139,10 @@
     move v0, v7
 
     .line 46
-    goto :goto_8
+    goto :goto_0
 
     .line 50
-    :sswitch_10
+    :sswitch_1
     const-string v0, "android.bluetooth.IBluetoothHealthCallback"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -152,7 +152,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2f
+    if-eqz v0, :cond_0
 
     .line 53
     sget-object v0, Landroid/bluetooth/BluetoothHealthAppConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -165,7 +165,7 @@
 
     .line 59
     .local v1, _arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    :goto_23
+    :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -180,20 +180,20 @@
     move v0, v7
 
     .line 62
-    goto :goto_8
+    goto :goto_0
 
     .line 56
     .end local v1           #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
     .end local v2           #_arg1:I
-    :cond_2f
+    :cond_0
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    goto :goto_23
+    goto :goto_1
 
     .line 66
     .end local v1           #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    :sswitch_31
+    :sswitch_2
     const-string v0, "android.bluetooth.IBluetoothHealthCallback"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -203,7 +203,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_75
+    if-eqz v0, :cond_1
 
     .line 69
     sget-object v0, Landroid/bluetooth/BluetoothHealthAppConfiguration;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -216,12 +216,12 @@
 
     .line 75
     .restart local v1       #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    :goto_44
+    :goto_2
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    if-eqz v0, :cond_77
+    if-eqz v0, :cond_2
 
     .line 76
     sget-object v0, Landroid/bluetooth/BluetoothDevice;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -234,7 +234,7 @@
 
     .line 82
     .local v2, _arg1:Landroid/bluetooth/BluetoothDevice;
-    :goto_52
+    :goto_3
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
@@ -251,7 +251,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_79
+    if-eqz v0, :cond_3
 
     .line 87
     sget-object v0, Landroid/os/ParcelFileDescriptor;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -264,7 +264,7 @@
 
     .line 93
     .local v5, _arg4:Landroid/os/ParcelFileDescriptor;
-    :goto_68
+    :goto_4
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
@@ -281,7 +281,7 @@
     move v0, v7
 
     .line 96
-    goto :goto_8
+    goto :goto_0
 
     .line 72
     .end local v1           #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
@@ -290,35 +290,35 @@
     .end local v4           #_arg3:I
     .end local v5           #_arg4:Landroid/os/ParcelFileDescriptor;
     .end local v6           #_arg5:I
-    :cond_75
+    :cond_1
     const/4 v1, 0x0
 
     .restart local v1       #_arg0:Landroid/bluetooth/BluetoothHealthAppConfiguration;
-    goto :goto_44
+    goto :goto_2
 
     .line 79
-    :cond_77
+    :cond_2
     const/4 v2, 0x0
 
     .restart local v2       #_arg1:Landroid/bluetooth/BluetoothDevice;
-    goto :goto_52
+    goto :goto_3
 
     .line 90
     .restart local v3       #_arg2:I
     .restart local v4       #_arg3:I
-    :cond_79
+    :cond_3
     const/4 v5, 0x0
 
     .restart local v5       #_arg4:Landroid/os/ParcelFileDescriptor;
-    goto :goto_68
+    goto :goto_4
 
     .line 41
     nop
 
-    :sswitch_data_7c
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_10
-        0x2 -> :sswitch_31
-        0x5f4e5446 -> :sswitch_9
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

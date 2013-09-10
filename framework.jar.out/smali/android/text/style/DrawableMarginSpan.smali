@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;)V
-    .registers 2
+    .locals 0
     .parameter "b"
 
     .prologue
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;I)V
-    .registers 3
+    .locals 0
     .parameter "b"
     .parameter "pad"
 
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public chooseHeight(Ljava/lang/CharSequence;IIIILandroid/graphics/Paint$FontMetricsInt;)V
-    .registers 11
+    .locals 4
     .parameter "text"
     .parameter "start"
     .parameter "end"
@@ -68,7 +68,7 @@
 
     move-result v2
 
-    if-ne p3, v2, :cond_2e
+    if-ne p3, v2, :cond_1
 
     .line 62
     iget-object v2, p0, Landroid/text/style/DrawableMarginSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -93,7 +93,7 @@
 
     .line 65
     .local v1, need:I
-    if-lez v1, :cond_1e
+    if-lez v1, :cond_0
 
     .line 66
     iget v2, p6, Landroid/graphics/Paint$FontMetricsInt;->descent:I
@@ -103,7 +103,7 @@
     iput v2, p6, Landroid/graphics/Paint$FontMetricsInt;->descent:I
 
     .line 68
-    :cond_1e
+    :cond_0
     iget v2, p6, Landroid/graphics/Paint$FontMetricsInt;->bottom:I
 
     add-int/2addr v2, p5
@@ -117,7 +117,7 @@
     sub-int v1, v0, v2
 
     .line 69
-    if-lez v1, :cond_2e
+    if-lez v1, :cond_1
 
     .line 70
     iget v2, p6, Landroid/graphics/Paint$FontMetricsInt;->bottom:I
@@ -129,12 +129,12 @@
     .line 72
     .end local v0           #ht:I
     .end local v1           #need:I
-    :cond_2e
+    :cond_1
     return-void
 .end method
 
 .method public drawLeadingMargin(Landroid/graphics/Canvas;Landroid/graphics/Paint;IIIIILjava/lang/CharSequence;IIZLandroid/text/Layout;)V
-    .registers 22
+    .locals 9
     .parameter "c"
     .parameter "p"
     .parameter "x"
@@ -213,7 +213,7 @@
 .end method
 
 .method public getLeadingMargin(Z)I
-    .registers 4
+    .locals 2
     .parameter "first"
 
     .prologue

@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 439
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/net/NetworkInfo;
-    .registers 10
+    .locals 8
     .parameter "in"
 
     .prologue
@@ -88,6 +88,7 @@
 
     move-result-object v5
 
+    #setter for: Landroid/net/NetworkInfo;->mState:Landroid/net/NetworkInfo$State;
     invoke-static {v0, v5}, Landroid/net/NetworkInfo;->access$002(Landroid/net/NetworkInfo;Landroid/net/NetworkInfo$State;)Landroid/net/NetworkInfo$State;
 
     .line 447
@@ -99,6 +100,7 @@
 
     move-result-object v5
 
+    #setter for: Landroid/net/NetworkInfo;->mDetailedState:Landroid/net/NetworkInfo$DetailedState;
     invoke-static {v0, v5}, Landroid/net/NetworkInfo;->access$102(Landroid/net/NetworkInfo;Landroid/net/NetworkInfo$DetailedState;)Landroid/net/NetworkInfo$DetailedState;
 
     .line 448
@@ -106,11 +108,12 @@
 
     move-result v5
 
-    if-eqz v5, :cond_59
+    if-eqz v5, :cond_0
 
     move v5, v6
 
-    :goto_34
+    :goto_0
+    #setter for: Landroid/net/NetworkInfo;->mIsFailover:Z
     invoke-static {v0, v5}, Landroid/net/NetworkInfo;->access$202(Landroid/net/NetworkInfo;Z)Z
 
     .line 449
@@ -118,11 +121,12 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5b
+    if-eqz v5, :cond_1
 
     move v5, v6
 
-    :goto_3e
+    :goto_1
+    #setter for: Landroid/net/NetworkInfo;->mIsAvailable:Z
     invoke-static {v0, v5}, Landroid/net/NetworkInfo;->access$302(Landroid/net/NetworkInfo;Z)Z
 
     .line 450
@@ -130,9 +134,10 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5d
+    if-eqz v5, :cond_2
 
-    :goto_47
+    :goto_2
+    #setter for: Landroid/net/NetworkInfo;->mIsRoaming:Z
     invoke-static {v0, v6}, Landroid/net/NetworkInfo;->access$402(Landroid/net/NetworkInfo;Z)Z
 
     .line 451
@@ -140,6 +145,7 @@
 
     move-result-object v5
 
+    #setter for: Landroid/net/NetworkInfo;->mReason:Ljava/lang/String;
     invoke-static {v0, v5}, Landroid/net/NetworkInfo;->access$502(Landroid/net/NetworkInfo;Ljava/lang/String;)Ljava/lang/String;
 
     .line 452
@@ -147,32 +153,33 @@
 
     move-result-object v5
 
+    #setter for: Landroid/net/NetworkInfo;->mExtraInfo:Ljava/lang/String;
     invoke-static {v0, v5}, Landroid/net/NetworkInfo;->access$602(Landroid/net/NetworkInfo;Ljava/lang/String;)Ljava/lang/String;
 
     .line 453
     return-object v0
 
-    :cond_59
+    :cond_0
     move v5, v7
 
     .line 448
-    goto :goto_34
+    goto :goto_0
 
-    :cond_5b
+    :cond_1
     move v5, v7
 
     .line 449
-    goto :goto_3e
+    goto :goto_1
 
-    :cond_5d
+    :cond_2
     move v6, v7
 
     .line 450
-    goto :goto_47
+    goto :goto_2
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -185,7 +192,7 @@
 .end method
 
 .method public newArray(I)[Landroid/net/NetworkInfo;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -196,7 +203,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

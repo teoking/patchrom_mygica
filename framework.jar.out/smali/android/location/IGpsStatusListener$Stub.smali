@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 17
@@ -55,22 +55,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/location/IGpsStatusListener;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 26
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 27
     const/4 v0, 0x0
 
     .line 33
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 29
-    :cond_4
+    :cond_0
     const-string v1, "android.location.IGpsStatusListener"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -79,31 +79,31 @@
 
     .line 30
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/location/IGpsStatusListener;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 31
     check-cast v0, Landroid/location/IGpsStatusListener;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 33
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/location/IGpsStatusListener$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/location/IGpsStatusListener$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 37
@@ -111,7 +111,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 16
+    .locals 11
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -124,18 +124,18 @@
 
     .prologue
     .line 41
-    sparse-switch p1, :sswitch_data_6e
+    sparse-switch p1, :sswitch_data_0
 
     .line 101
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0
 
-    :goto_7
+    :goto_0
     return v0
 
     .line 45
-    :sswitch_8
+    :sswitch_0
     const-string v0, "android.location.IGpsStatusListener"
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
@@ -143,10 +143,10 @@
     .line 46
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 50
-    :sswitch_f
+    :sswitch_1
     const-string v0, "android.location.IGpsStatusListener"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -157,10 +157,10 @@
     .line 52
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 56
-    :sswitch_19
+    :sswitch_2
     const-string v0, "android.location.IGpsStatusListener"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -171,10 +171,10 @@
     .line 58
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 62
-    :sswitch_23
+    :sswitch_3
     const-string v0, "android.location.IGpsStatusListener"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -191,11 +191,11 @@
     .line 66
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 70
     .end local v1           #_arg0:I
-    :sswitch_31
+    :sswitch_4
     const-string v0, "android.location.IGpsStatusListener"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -256,7 +256,7 @@
     .line 88
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 92
     .end local v1           #_arg0:I
@@ -267,7 +267,7 @@
     .end local v6           #_arg5:I
     .end local v7           #_arg6:I
     .end local v8           #_arg7:I
-    :sswitch_5c
+    :sswitch_5
     const-string v0, "android.location.IGpsStatusListener"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -290,16 +290,16 @@
     .line 98
     const/4 v0, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 41
-    :sswitch_data_6e
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_f
-        0x2 -> :sswitch_19
-        0x3 -> :sswitch_23
-        0x4 -> :sswitch_31
-        0x5 -> :sswitch_5c
-        0x5f4e5446 -> :sswitch_8
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x4 -> :sswitch_4
+        0x5 -> :sswitch_5
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

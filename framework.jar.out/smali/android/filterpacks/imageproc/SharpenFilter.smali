@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 4
+    .locals 2
     .parameter "name"
 
     .prologue
@@ -69,7 +69,7 @@
 .end method
 
 .method private updateFrameSize(II)V
-    .registers 7
+    .locals 4
     .parameter "width"
     .parameter "height"
 
@@ -85,7 +85,7 @@
     .line 136
     iget-object v0, p0, Landroid/filterpacks/imageproc/SharpenFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v0, :cond_2f
+    if-eqz v0, :cond_0
 
     .line 137
     iget-object v0, p0, Landroid/filterpacks/imageproc/SharpenFilter;->mProgram:Landroid/filterfw/core/Program;
@@ -125,12 +125,12 @@
     invoke-direct {p0}, Landroid/filterpacks/imageproc/SharpenFilter;->updateParameters()V
 
     .line 141
-    :cond_2f
+    :cond_0
     return-void
 .end method
 
 .method private updateParameters()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 144
@@ -153,7 +153,7 @@
 
 # virtual methods
 .method public fieldPortValueUpdated(Ljava/lang/String;Landroid/filterfw/core/FilterContext;)V
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "context"
 
@@ -161,18 +161,18 @@
     .line 149
     iget-object v0, p0, Landroid/filterpacks/imageproc/SharpenFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_0
 
     .line 150
     invoke-direct {p0}, Landroid/filterpacks/imageproc/SharpenFilter;->updateParameters()V
 
     .line 152
-    :cond_7
+    :cond_0
     return-void
 .end method
 
 .method public getOutputFormat(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)Landroid/filterfw/core/FrameFormat;
-    .registers 3
+    .locals 0
     .parameter "portName"
     .parameter "inputFormat"
 
@@ -182,13 +182,13 @@
 .end method
 
 .method public initProgram(Landroid/filterfw/core/FilterContext;I)V
-    .registers 7
+    .locals 4
     .parameter "context"
     .parameter "target"
 
     .prologue
     .line 89
-    packed-switch p2, :pswitch_data_34
+    packed-switch p2, :pswitch_data_0
 
     .line 97
     new-instance v1, Ljava/lang/RuntimeException;
@@ -222,7 +222,7 @@
     throw v1
 
     .line 91
-    :pswitch_22
+    :pswitch_0
     new-instance v0, Landroid/filterfw/core/ShaderProgram;
 
     const-string/jumbo v1, "precision mediump float;\nuniform sampler2D tex_sampler_0;\nuniform float scale;\nuniform float stepsizeX;\nuniform float stepsizeY;\nvarying vec2 v_texcoord;\nvoid main() {\n  vec3 nbr_color = vec3(0.0, 0.0, 0.0);\n  vec2 coord;\n  vec4 color = texture2D(tex_sampler_0, v_texcoord);\n  coord.x = v_texcoord.x - 0.5 * stepsizeX;\n  coord.y = v_texcoord.y - stepsizeY;\n  nbr_color += texture2D(tex_sampler_0, coord).rgb - color.rgb;\n  coord.x = v_texcoord.x - stepsizeX;\n  coord.y = v_texcoord.y + 0.5 * stepsizeY;\n  nbr_color += texture2D(tex_sampler_0, coord).rgb - color.rgb;\n  coord.x = v_texcoord.x + stepsizeX;\n  coord.y = v_texcoord.y - 0.5 * stepsizeY;\n  nbr_color += texture2D(tex_sampler_0, coord).rgb - color.rgb;\n  coord.x = v_texcoord.x + stepsizeX;\n  coord.y = v_texcoord.y + 0.5 * stepsizeY;\n  nbr_color += texture2D(tex_sampler_0, coord).rgb - color.rgb;\n  gl_FragColor = vec4(color.rgb - 2.0 * scale * nbr_color, color.a);\n}\n"
@@ -245,14 +245,14 @@
     return-void
 
     .line 89
-    :pswitch_data_34
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_22
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public process(Landroid/filterfw/core/FilterContext;)V
-    .registers 7
+    .locals 5
     .parameter "context"
 
     .prologue
@@ -283,7 +283,7 @@
     .local v2, output:Landroid/filterfw/core/Frame;
     iget-object v3, p0, Landroid/filterpacks/imageproc/SharpenFilter;->mProgram:Landroid/filterfw/core/Program;
 
-    if-eqz v3, :cond_1e
+    if-eqz v3, :cond_0
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
@@ -291,10 +291,10 @@
 
     iget v4, p0, Landroid/filterpacks/imageproc/SharpenFilter;->mTarget:I
 
-    if-eq v3, v4, :cond_25
+    if-eq v3, v4, :cond_1
 
     .line 114
-    :cond_1e
+    :cond_0
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getTarget()I
 
     move-result v3
@@ -302,14 +302,14 @@
     invoke-virtual {p0, p1, v3}, Landroid/filterpacks/imageproc/SharpenFilter;->initProgram(Landroid/filterfw/core/FilterContext;I)V
 
     .line 118
-    :cond_25
+    :cond_1
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v3
 
     iget v4, p0, Landroid/filterpacks/imageproc/SharpenFilter;->mWidth:I
 
-    if-ne v3, v4, :cond_35
+    if-ne v3, v4, :cond_2
 
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getHeight()I
 
@@ -317,10 +317,10 @@
 
     iget v4, p0, Landroid/filterpacks/imageproc/SharpenFilter;->mHeight:I
 
-    if-eq v3, v4, :cond_40
+    if-eq v3, v4, :cond_3
 
     .line 119
-    :cond_35
+    :cond_2
     invoke-virtual {v1}, Landroid/filterfw/core/FrameFormat;->getWidth()I
 
     move-result v3
@@ -332,7 +332,7 @@
     invoke-direct {p0, v3, v4}, Landroid/filterpacks/imageproc/SharpenFilter;->updateFrameSize(II)V
 
     .line 123
-    :cond_40
+    :cond_3
     iget-object v3, p0, Landroid/filterpacks/imageproc/SharpenFilter;->mProgram:Landroid/filterfw/core/Program;
 
     invoke-virtual {v3, v0, v2}, Landroid/filterfw/core/Program;->process(Landroid/filterfw/core/Frame;Landroid/filterfw/core/Frame;)V
@@ -350,7 +350,7 @@
 .end method
 
 .method public setupPorts()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 79

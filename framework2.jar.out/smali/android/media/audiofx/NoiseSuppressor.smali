@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>(I)V
-    .registers 5
+    .locals 3
     .parameter "audioSession"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -34,7 +34,7 @@
 .end method
 
 .method public static create(I)Landroid/media/audiofx/NoiseSuppressor;
-    .registers 7
+    .locals 6
     .parameter "audioSession"
 
     .prologue
@@ -43,15 +43,15 @@
 
     .line 66
     .local v1, ns:Landroid/media/audiofx/NoiseSuppressor;
-    :try_start_1
+    :try_start_0
     new-instance v2, Landroid/media/audiofx/NoiseSuppressor;
 
     invoke-direct {v2, p0}, Landroid/media/audiofx/NoiseSuppressor;-><init>(I)V
-    :try_end_6
-    .catchall {:try_start_1 .. :try_end_6} :catchall_37
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_6} :catch_8
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_1 .. :try_end_6} :catch_23
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_6} :catch_2d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_2
 
     .end local v1           #ns:Landroid/media/audiofx/NoiseSuppressor;
     .local v2, ns:Landroid/media/audiofx/NoiseSuppressor;
@@ -59,17 +59,17 @@
 
     .line 74
     .end local v2           #ns:Landroid/media/audiofx/NoiseSuppressor;
-    :goto_7
+    :goto_0
     return-object v2
 
     .line 67
     .restart local v1       #ns:Landroid/media/audiofx/NoiseSuppressor;
-    :catch_8
+    :catch_0
     move-exception v0
 
     .line 68
     .local v0, e:Ljava/lang/IllegalArgumentException;
-    :try_start_9
+    :try_start_1
     const-string v3, "NoiseSuppressor"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -97,13 +97,13 @@
     .line 74
     .end local v1           #ns:Landroid/media/audiofx/NoiseSuppressor;
     .restart local v2       #ns:Landroid/media/audiofx/NoiseSuppressor;
-    goto :goto_7
+    goto :goto_0
 
     .line 69
     .end local v0           #e:Ljava/lang/IllegalArgumentException;
     .end local v2           #ns:Landroid/media/audiofx/NoiseSuppressor;
     .restart local v1       #ns:Landroid/media/audiofx/NoiseSuppressor;
-    :catch_23
+    :catch_1
     move-exception v0
 
     .line 70
@@ -119,13 +119,13 @@
     .line 74
     .end local v1           #ns:Landroid/media/audiofx/NoiseSuppressor;
     .restart local v2       #ns:Landroid/media/audiofx/NoiseSuppressor;
-    goto :goto_7
+    goto :goto_0
 
     .line 71
     .end local v0           #e:Ljava/lang/UnsupportedOperationException;
     .end local v2           #ns:Landroid/media/audiofx/NoiseSuppressor;
     .restart local v1       #ns:Landroid/media/audiofx/NoiseSuppressor;
-    :catch_2d
+    :catch_2
     move-exception v0
 
     .line 72
@@ -135,31 +135,31 @@
     const-string v4, "not enough memory"
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_35
-    .catchall {:try_start_9 .. :try_end_35} :catchall_37
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-object v2, v1
 
     .line 74
     .end local v1           #ns:Landroid/media/audiofx/NoiseSuppressor;
     .restart local v2       #ns:Landroid/media/audiofx/NoiseSuppressor;
-    goto :goto_7
+    goto :goto_0
 
     .end local v0           #e:Ljava/lang/RuntimeException;
     .end local v2           #ns:Landroid/media/audiofx/NoiseSuppressor;
     .restart local v1       #ns:Landroid/media/audiofx/NoiseSuppressor;
-    :catchall_37
+    :catchall_0
     move-exception v3
 
     move-object v2, v1
 
     .end local v1           #ns:Landroid/media/audiofx/NoiseSuppressor;
     .restart local v2       #ns:Landroid/media/audiofx/NoiseSuppressor;
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public static isAvailable()Z
-    .registers 1
+    .locals 1
 
     .prologue
     .line 52

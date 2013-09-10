@@ -15,7 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 35
@@ -31,7 +31,7 @@
 .end method
 
 .method private constructor <init>(IIII)V
-    .registers 5
+    .locals 0
     .parameter "inputWidth"
     .parameter "inputHeight"
     .parameter "outputWidth"
@@ -58,7 +58,7 @@
 .end method
 
 .method public static get()Landroid/media/videoeditor/VideoEditorProfile;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 62
@@ -70,7 +70,7 @@
 .end method
 
 .method public static getExportLevel(I)I
-    .registers 5
+    .locals 4
     .parameter "vidCodec"
 
     .prologue
@@ -79,7 +79,7 @@
 
     .line 90
     .local v0, level:I
-    packed-switch p0, :pswitch_data_22
+    packed-switch p0, :pswitch_data_0
 
     .line 97
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -107,7 +107,7 @@
     throw v1
 
     .line 94
-    :pswitch_1d
+    :pswitch_0
     invoke-static {p0}, Landroid/media/videoeditor/VideoEditorProfile;->native_get_videoeditor_export_level(I)I
 
     move-result v0
@@ -116,16 +116,16 @@
     return v0
 
     .line 90
-    :pswitch_data_22
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_1d
-        :pswitch_1d
-        :pswitch_1d
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static getExportProfile(I)I
-    .registers 5
+    .locals 4
     .parameter "vidCodec"
 
     .prologue
@@ -134,7 +134,7 @@
 
     .line 71
     .local v0, profile:I
-    packed-switch p0, :pswitch_data_22
+    packed-switch p0, :pswitch_data_0
 
     .line 78
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -162,7 +162,7 @@
     throw v1
 
     .line 75
-    :pswitch_1d
+    :pswitch_0
     invoke-static {p0}, Landroid/media/videoeditor/VideoEditorProfile;->native_get_videoeditor_export_profile(I)I
 
     move-result v0
@@ -171,11 +171,11 @@
     return v0
 
     .line 71
-    :pswitch_data_22
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_1d
-        :pswitch_1d
-        :pswitch_1d
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
     .end packed-switch
 .end method
 

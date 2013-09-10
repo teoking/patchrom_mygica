@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/os/MemoryFile;)V
-    .registers 3
+    .locals 1
     .parameter
 
     .prologue
@@ -47,7 +47,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/MemoryFile;Landroid/os/MemoryFile$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public available()I
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -74,22 +74,24 @@
 
     iget-object v1, p0, Landroid/os/MemoryFile$MemoryInputStream;->this$0:Landroid/os/MemoryFile;
 
+    #getter for: Landroid/os/MemoryFile;->mLength:I
     invoke-static {v1}, Landroid/os/MemoryFile;->access$200(Landroid/os/MemoryFile;)I
 
     move-result v1
 
-    if-lt v0, v1, :cond_c
+    if-lt v0, v1, :cond_0
 
     .line 265
     const/4 v0, 0x0
 
     .line 267
-    :goto_b
+    :goto_0
     return v0
 
-    :cond_c
+    :cond_0
     iget-object v0, p0, Landroid/os/MemoryFile$MemoryInputStream;->this$0:Landroid/os/MemoryFile;
 
+    #getter for: Landroid/os/MemoryFile;->mLength:I
     invoke-static {v0}, Landroid/os/MemoryFile;->access$200(Landroid/os/MemoryFile;)I
 
     move-result v0
@@ -98,11 +100,11 @@
 
     sub-int/2addr v0, v1
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public mark(I)V
-    .registers 3
+    .locals 1
     .parameter "readlimit"
 
     .prologue
@@ -116,7 +118,7 @@
 .end method
 
 .method public markSupported()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 272
@@ -126,7 +128,7 @@
 .end method
 
 .method public read()I
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -141,7 +143,7 @@
     .line 287
     iget-object v1, p0, Landroid/os/MemoryFile$MemoryInputStream;->mSingleByte:[B
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_0
 
     .line 288
     new-array v1, v2, [B
@@ -149,7 +151,7 @@
     iput-object v1, p0, Landroid/os/MemoryFile$MemoryInputStream;->mSingleByte:[B
 
     .line 290
-    :cond_a
+    :cond_0
     iget-object v1, p0, Landroid/os/MemoryFile$MemoryInputStream;->mSingleByte:[B
 
     invoke-virtual {p0, v1, v3, v2}, Landroid/os/MemoryFile$MemoryInputStream;->read([BII)I
@@ -158,25 +160,25 @@
 
     .line 291
     .local v0, result:I
-    if-eq v0, v2, :cond_14
+    if-eq v0, v2, :cond_1
 
     .line 292
     const/4 v1, -0x1
 
     .line 294
-    :goto_13
+    :goto_0
     return v1
 
-    :cond_14
+    :cond_1
     iget-object v1, p0, Landroid/os/MemoryFile$MemoryInputStream;->mSingleByte:[B
 
     aget-byte v1, v1, v3
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public read([BII)I
-    .registers 7
+    .locals 3
     .parameter "buffer"
     .parameter "offset"
     .parameter "count"
@@ -188,18 +190,18 @@
 
     .prologue
     .line 299
-    if-ltz p2, :cond_9
+    if-ltz p2, :cond_0
 
-    if-ltz p3, :cond_9
+    if-ltz p3, :cond_0
 
     add-int v1, p2, p3
 
     array-length v2, p1
 
-    if-le v1, v2, :cond_f
+    if-le v1, v2, :cond_1
 
     .line 302
-    :cond_9
+    :cond_0
     new-instance v1, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {v1}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
@@ -207,7 +209,7 @@
     throw v1
 
     .line 304
-    :cond_f
+    :cond_1
     invoke-virtual {p0}, Landroid/os/MemoryFile$MemoryInputStream;->available()I
 
     move-result v1
@@ -219,18 +221,18 @@
     .line 305
     const/4 v1, 0x1
 
-    if-ge p3, v1, :cond_1c
+    if-ge p3, v1, :cond_3
 
     .line 306
     const/4 v0, -0x1
 
     .line 312
-    :cond_1b
-    :goto_1b
+    :cond_2
+    :goto_0
     return v0
 
     .line 308
-    :cond_1c
+    :cond_3
     iget-object v1, p0, Landroid/os/MemoryFile$MemoryInputStream;->this$0:Landroid/os/MemoryFile;
 
     iget v2, p0, Landroid/os/MemoryFile$MemoryInputStream;->mOffset:I
@@ -241,7 +243,7 @@
 
     .line 309
     .local v0, result:I
-    if-lez v0, :cond_1b
+    if-lez v0, :cond_2
 
     .line 310
     iget v1, p0, Landroid/os/MemoryFile$MemoryInputStream;->mOffset:I
@@ -250,11 +252,11 @@
 
     iput v1, p0, Landroid/os/MemoryFile$MemoryInputStream;->mOffset:I
 
-    goto :goto_1b
+    goto :goto_0
 .end method
 
 .method public reset()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -272,7 +274,7 @@
 .end method
 
 .method public skip(J)J
-    .registers 7
+    .locals 4
     .parameter "n"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -290,6 +292,7 @@
 
     iget-object v2, p0, Landroid/os/MemoryFile$MemoryInputStream;->this$0:Landroid/os/MemoryFile;
 
+    #getter for: Landroid/os/MemoryFile;->mLength:I
     invoke-static {v2}, Landroid/os/MemoryFile;->access$200(Landroid/os/MemoryFile;)I
 
     move-result v2
@@ -298,11 +301,12 @@
 
     cmp-long v0, v0, v2
 
-    if-lez v0, :cond_19
+    if-lez v0, :cond_0
 
     .line 318
     iget-object v0, p0, Landroid/os/MemoryFile$MemoryInputStream;->this$0:Landroid/os/MemoryFile;
 
+    #getter for: Landroid/os/MemoryFile;->mLength:I
     invoke-static {v0}, Landroid/os/MemoryFile;->access$200(Landroid/os/MemoryFile;)I
 
     move-result v0
@@ -314,7 +318,7 @@
     int-to-long p1, v0
 
     .line 320
-    :cond_19
+    :cond_0
     iget v0, p0, Landroid/os/MemoryFile$MemoryInputStream;->mOffset:I
 
     int-to-long v0, v0

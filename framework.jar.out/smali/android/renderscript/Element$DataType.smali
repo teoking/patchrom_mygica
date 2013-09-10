@@ -93,7 +93,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 10
+    .locals 10
 
     .prologue
     const/4 v9, 0x0
@@ -646,7 +646,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;III)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter
     .parameter "id"
@@ -672,7 +672,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/renderscript/Element$DataType;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -689,7 +689,7 @@
 .end method
 
 .method public static values()[Landroid/renderscript/Element$DataType;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 116

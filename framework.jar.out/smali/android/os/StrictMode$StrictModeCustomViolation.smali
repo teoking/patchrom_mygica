@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "policyMask"
     .parameter "name"
 

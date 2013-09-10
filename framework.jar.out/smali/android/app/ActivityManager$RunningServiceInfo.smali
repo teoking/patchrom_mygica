@@ -70,7 +70,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 1022
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 981
@@ -95,7 +95,7 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .registers 2
+    .locals 0
     .parameter "source"
 
     .prologue
@@ -110,7 +110,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/app/ActivityManager$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 985
@@ -134,7 +134,7 @@
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
-    .registers 7
+    .locals 5
     .parameter "source"
 
     .prologue
@@ -175,11 +175,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5c
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_21
+    :goto_0
     iput-boolean v0, p0, Landroid/app/ActivityManager$RunningServiceInfo;->foreground:Z
 
     .line 1011
@@ -194,9 +194,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5e
+    if-eqz v0, :cond_1
 
-    :goto_2f
+    :goto_1
     iput-boolean v1, p0, Landroid/app/ActivityManager$RunningServiceInfo;->started:Z
 
     .line 1013
@@ -251,21 +251,21 @@
     .line 1020
     return-void
 
-    :cond_5c
+    :cond_0
     move v0, v2
 
     .line 1010
-    goto :goto_21
+    goto :goto_0
 
-    :cond_5e
+    :cond_1
     move v1, v2
 
     .line 1012
-    goto :goto_2f
+    goto :goto_1
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 8
+    .locals 5
     .parameter "dest"
     .parameter "flags"
 
@@ -297,11 +297,11 @@
     .line 993
     iget-boolean v0, p0, Landroid/app/ActivityManager$RunningServiceInfo;->foreground:Z
 
-    if-eqz v0, :cond_4e
+    if-eqz v0, :cond_0
 
     move v0, v1
 
-    :goto_1b
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 994
@@ -312,9 +312,9 @@
     .line 995
     iget-boolean v0, p0, Landroid/app/ActivityManager$RunningServiceInfo;->started:Z
 
-    if-eqz v0, :cond_50
+    if-eqz v0, :cond_1
 
-    :goto_27
+    :goto_1
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 996
@@ -355,15 +355,15 @@
     .line 1003
     return-void
 
-    :cond_4e
+    :cond_0
     move v0, v2
 
     .line 993
-    goto :goto_1b
+    goto :goto_0
 
-    :cond_50
+    :cond_1
     move v1, v2
 
     .line 995
-    goto :goto_27
+    goto :goto_1
 .end method

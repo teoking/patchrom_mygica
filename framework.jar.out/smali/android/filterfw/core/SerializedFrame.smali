@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/filterfw/core/FrameFormat;Landroid/filterfw/core/FrameManager;)V
-    .registers 6
+    .locals 3
     .parameter "format"
     .parameter "frameManager"
 
@@ -38,7 +38,7 @@
     invoke-virtual {p0, v1}, Landroid/filterfw/core/SerializedFrame;->setReusable(Z)V
 
     .line 175
-    :try_start_7
+    :try_start_0
     new-instance v1, Landroid/filterfw/core/SerializedFrame$DirectByteOutputStream;
 
     const/16 v2, 0x40
@@ -60,14 +60,14 @@
     iget-object v1, p0, Landroid/filterfw/core/SerializedFrame;->mByteOutputStream:Landroid/filterfw/core/SerializedFrame$DirectByteOutputStream;
 
     invoke-virtual {v1}, Landroid/filterfw/core/SerializedFrame$DirectByteOutputStream;->markHeaderEnd()V
-    :try_end_1e
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_1e} :catch_1f
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 182
     return-void
 
     .line 178
-    :catch_1f
+    :catch_0
     move-exception v0
 
     .line 179
@@ -82,7 +82,7 @@
 .end method
 
 .method private final deserializeObjectValue()Ljava/lang/Object;
-    .registers 7
+    .locals 6
 
     .prologue
     .line 272
@@ -102,9 +102,9 @@
     .line 274
     .local v2, objectStream:Ljava/io/ObjectInputStream;
     invoke-virtual {v2}, Ljava/io/ObjectInputStream;->readObject()Ljava/lang/Object;
-    :try_end_e
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_e} :catch_10
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_e} :catch_30
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v3
 
@@ -113,7 +113,7 @@
     .line 275
     .end local v1           #inputStream:Ljava/io/InputStream;
     .end local v2           #objectStream:Ljava/io/ObjectInputStream;
-    :catch_10
+    :catch_0
     move-exception v0
 
     .line 276
@@ -150,7 +150,7 @@
 
     .line 277
     .end local v0           #e:Ljava/io/IOException;
-    :catch_30
+    :catch_1
     move-exception v0
 
     .line 278
@@ -187,7 +187,7 @@
 .end method
 
 .method private final serializeObjectValue(Ljava/lang/Object;)V
-    .registers 6
+    .locals 4
     .parameter "object"
 
     .prologue
@@ -211,14 +211,14 @@
     iget-object v1, p0, Landroid/filterfw/core/SerializedFrame;->mObjectOut:Ljava/io/ObjectOutputStream;
 
     invoke-virtual {v1}, Ljava/io/ObjectOutputStream;->close()V
-    :try_end_14
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_14} :catch_15
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 268
     return-void
 
     .line 264
-    :catch_15
+    :catch_0
     move-exception v0
 
     .line 265
@@ -265,7 +265,7 @@
 .end method
 
 .method static wrapObject(Ljava/lang/Object;Landroid/filterfw/core/FrameManager;)Landroid/filterfw/core/SerializedFrame;
-    .registers 5
+    .locals 3
     .parameter "object"
     .parameter "frameManager"
 
@@ -294,7 +294,7 @@
 
 # virtual methods
 .method public getBitmap()Landroid/graphics/Bitmap;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 249
@@ -306,23 +306,23 @@
     .local v0, result:Ljava/lang/Object;
     instance-of v1, v0, Landroid/graphics/Bitmap;
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
     check-cast v0, Landroid/graphics/Bitmap;
 
     .end local v0           #result:Ljava/lang/Object;
-    :goto_a
+    :goto_0
     return-object v0
 
     .restart local v0       #result:Ljava/lang/Object;
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getData()Ljava/nio/ByteBuffer;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 237
@@ -334,23 +334,23 @@
     .local v0, result:Ljava/lang/Object;
     instance-of v1, v0, Ljava/nio/ByteBuffer;
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_0
 
     check-cast v0, Ljava/nio/ByteBuffer;
 
     .end local v0           #result:Ljava/lang/Object;
-    :goto_a
+    :goto_0
     return-object v0
 
     .restart local v0       #result:Ljava/lang/Object;
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getFloats()[F
-    .registers 3
+    .locals 2
 
     .prologue
     .line 225
@@ -362,25 +362,25 @@
     .local v0, result:Ljava/lang/Object;
     instance-of v1, v0, [F
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_0
 
     check-cast v0, [F
 
     .end local v0           #result:Ljava/lang/Object;
     check-cast v0, [F
 
-    :goto_c
+    :goto_0
     return-object v0
 
     .restart local v0       #result:Ljava/lang/Object;
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public getInts()[I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 213
@@ -392,25 +392,25 @@
     .local v0, result:Ljava/lang/Object;
     instance-of v1, v0, [I
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_0
 
     check-cast v0, [I
 
     .end local v0           #result:Ljava/lang/Object;
     check-cast v0, [I
 
-    :goto_c
+    :goto_0
     return-object v0
 
     .restart local v0       #result:Ljava/lang/Object;
-    :cond_d
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public getObjectValue()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 202
@@ -422,7 +422,7 @@
 .end method
 
 .method protected hasNativeAllocation()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 193
@@ -432,7 +432,7 @@
 .end method
 
 .method protected releaseNativeAllocation()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 198
@@ -440,7 +440,7 @@
 .end method
 
 .method public setBitmap(Landroid/graphics/Bitmap;)V
-    .registers 2
+    .locals 0
     .parameter "bitmap"
 
     .prologue
@@ -455,7 +455,7 @@
 .end method
 
 .method public setData(Ljava/nio/ByteBuffer;II)V
-    .registers 5
+    .locals 1
     .parameter "buffer"
     .parameter "offset"
     .parameter "length"
@@ -480,7 +480,7 @@
 .end method
 
 .method public setFloats([F)V
-    .registers 2
+    .locals 0
     .parameter "floats"
 
     .prologue
@@ -495,7 +495,7 @@
 .end method
 
 .method protected setGenericObjectValue(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "object"
 
     .prologue
@@ -507,7 +507,7 @@
 .end method
 
 .method public setInts([I)V
-    .registers 2
+    .locals 0
     .parameter "ints"
 
     .prologue
@@ -522,7 +522,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 285

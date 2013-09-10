@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 26
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public dispatchChange(Z)V
-    .registers 3
+    .locals 1
     .parameter "selfChange"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -44,7 +44,7 @@
 .end method
 
 .method public dispatchChange(ZLandroid/net/Uri;)V
-    .registers 7
+    .locals 4
     .parameter "selfChange"
     .parameter "uri"
 
@@ -55,7 +55,7 @@
     monitor-enter v3
 
     .line 68
-    :try_start_3
+    :try_start_0
     iget-object v2, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -63,13 +63,13 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :cond_9
-    :goto_9
+    :cond_0
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_24
+    if-eqz v2, :cond_2
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -79,45 +79,45 @@
 
     .line 69
     .local v1, observer:Landroid/database/ContentObserver;
-    if-eqz p1, :cond_1d
+    if-eqz p1, :cond_1
 
     invoke-virtual {v1}, Landroid/database/ContentObserver;->deliverSelfNotifications()Z
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_0
 
     .line 70
-    :cond_1d
+    :cond_1
     invoke-virtual {v1, p1, p2}, Landroid/database/ContentObserver;->dispatchChange(ZLandroid/net/Uri;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 73
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #observer:Landroid/database/ContentObserver;
-    :catchall_21
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_23
-    .catchall {:try_start_3 .. :try_end_23} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 
     .restart local v0       #i$:Ljava/util/Iterator;
-    :cond_24
-    :try_start_24
+    :cond_2
+    :try_start_1
     monitor-exit v3
-    :try_end_25
-    .catchall {:try_start_24 .. :try_end_25} :catchall_21
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 74
     return-void
 .end method
 
 .method public notifyChange(Z)V
-    .registers 6
+    .locals 4
     .parameter "selfChange"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -129,7 +129,7 @@
     monitor-enter v3
 
     .line 86
-    :try_start_3
+    :try_start_0
     iget-object v2, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -137,12 +137,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_9
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1d
+    if-eqz v2, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -156,33 +156,33 @@
 
     invoke-virtual {v1, p1, v2}, Landroid/database/ContentObserver;->onChange(ZLandroid/net/Uri;)V
 
-    goto :goto_9
+    goto :goto_0
 
     .line 89
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #observer:Landroid/database/ContentObserver;
-    :catchall_1a
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
-    :try_end_1c
-    .catchall {:try_start_3 .. :try_end_1c} :catchall_1a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
 
     .restart local v0       #i$:Ljava/util/Iterator;
-    :cond_1d
-    :try_start_1d
+    :cond_0
+    :try_start_1
     monitor-exit v3
-    :try_end_1e
-    .catchall {:try_start_1d .. :try_end_1e} :catchall_1a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 90
     return-void
 .end method
 
 .method public registerObserver(Landroid/database/ContentObserver;)V
-    .registers 2
+    .locals 0
     .parameter "observer"
 
     .prologue
@@ -194,7 +194,7 @@
 .end method
 
 .method public bridge synthetic registerObserver(Ljava/lang/Object;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue

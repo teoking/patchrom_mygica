@@ -18,7 +18,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 37
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 33
@@ -40,7 +40,7 @@
 .end method
 
 .method private static declared-synchronized getHandlers()Ljava/util/LinkedList;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 42
@@ -48,10 +48,10 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/webkit/UrlInterceptRegistry;->mHandlerList:Ljava/util/LinkedList;
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 43
     new-instance v0, Ljava/util/LinkedList;
@@ -61,17 +61,17 @@
     sput-object v0, Landroid/webkit/UrlInterceptRegistry;->mHandlerList:Ljava/util/LinkedList;
 
     .line 44
-    :cond_e
+    :cond_0
     sget-object v0, Landroid/webkit/UrlInterceptRegistry;->mHandlerList:Ljava/util/LinkedList;
-    :try_end_10
-    .catchall {:try_start_3 .. :try_end_10} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
     return-object v0
 
     .line 42
-    :catchall_12
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -80,7 +80,7 @@
 .end method
 
 .method public static declared-synchronized getPluginData(Ljava/lang/String;Ljava/util/Map;)Landroid/webkit/PluginData;
-    .registers 8
+    .locals 6
     .parameter "url"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -108,26 +108,26 @@
 
     monitor-enter v4
 
-    :try_start_4
+    :try_start_0
     invoke-static {}, Landroid/webkit/UrlInterceptRegistry;->urlInterceptDisabled()Z
-    :try_end_7
-    .catchall {:try_start_4 .. :try_end_7} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v5
 
-    if-eqz v5, :cond_d
+    if-eqz v5, :cond_0
 
     move-object v0, v3
 
     .line 165
-    :goto_b
+    :goto_0
     monitor-exit v4
 
     return-object v0
 
     .line 157
-    :cond_d
-    :try_start_d
+    :cond_0
+    :try_start_1
     invoke-static {}, Landroid/webkit/UrlInterceptRegistry;->getHandlers()Ljava/util/LinkedList;
 
     move-result-object v5
@@ -138,12 +138,12 @@
 
     .line 158
     .local v2, iter:Ljava/util/Iterator;
-    :cond_15
+    :cond_1
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_28
+    if-eqz v5, :cond_2
 
     .line 159
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -155,28 +155,28 @@
     .line 160
     .local v1, handler:Landroid/webkit/UrlInterceptHandler;
     invoke-interface {v1, p0, p1}, Landroid/webkit/UrlInterceptHandler;->getPluginData(Ljava/lang/String;Ljava/util/Map;)Landroid/webkit/PluginData;
-    :try_end_24
-    .catchall {:try_start_d .. :try_end_24} :catchall_2a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v0
 
     .line 161
     .local v0, data:Landroid/webkit/PluginData;
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_1
 
-    goto :goto_b
+    goto :goto_0
 
     .end local v0           #data:Landroid/webkit/PluginData;
     .end local v1           #handler:Landroid/webkit/UrlInterceptHandler;
-    :cond_28
+    :cond_2
     move-object v0, v3
 
     .line 165
-    goto :goto_b
+    goto :goto_0
 
     .line 154
     .end local v2           #iter:Ljava/util/Iterator;
-    :catchall_2a
+    :catchall_0
     move-exception v3
 
     monitor-exit v4
@@ -185,7 +185,7 @@
 .end method
 
 .method public static declared-synchronized getSurrogate(Ljava/lang/String;Ljava/util/Map;)Landroid/webkit/CacheManager$CacheResult;
-    .registers 8
+    .locals 6
     .parameter "url"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -213,26 +213,26 @@
 
     monitor-enter v4
 
-    :try_start_4
+    :try_start_0
     invoke-static {}, Landroid/webkit/UrlInterceptRegistry;->urlInterceptDisabled()Z
-    :try_end_7
-    .catchall {:try_start_4 .. :try_end_7} :catchall_2a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v5
 
-    if-eqz v5, :cond_d
+    if-eqz v5, :cond_0
 
     move-object v2, v3
 
     .line 137
-    :goto_b
+    :goto_0
     monitor-exit v4
 
     return-object v2
 
     .line 129
-    :cond_d
-    :try_start_d
+    :cond_0
+    :try_start_1
     invoke-static {}, Landroid/webkit/UrlInterceptRegistry;->getHandlers()Ljava/util/LinkedList;
 
     move-result-object v5
@@ -243,12 +243,12 @@
 
     .line 130
     .local v1, iter:Ljava/util/Iterator;
-    :cond_15
+    :cond_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_28
+    if-eqz v5, :cond_2
 
     .line 131
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -260,28 +260,28 @@
     .line 132
     .local v0, handler:Landroid/webkit/UrlInterceptHandler;
     invoke-interface {v0, p0, p1}, Landroid/webkit/UrlInterceptHandler;->service(Ljava/lang/String;Ljava/util/Map;)Landroid/webkit/CacheManager$CacheResult;
-    :try_end_24
-    .catchall {:try_start_d .. :try_end_24} :catchall_2a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v2
 
     .line 133
     .local v2, result:Landroid/webkit/CacheManager$CacheResult;
-    if-eqz v2, :cond_15
+    if-eqz v2, :cond_1
 
-    goto :goto_b
+    goto :goto_0
 
     .end local v0           #handler:Landroid/webkit/UrlInterceptHandler;
     .end local v2           #result:Landroid/webkit/CacheManager$CacheResult;
-    :cond_28
+    :cond_2
     move-object v2, v3
 
     .line 137
-    goto :goto_b
+    goto :goto_0
 
     .line 126
     .end local v1           #iter:Ljava/util/Iterator;
-    :catchall_2a
+    :catchall_0
     move-exception v3
 
     monitor-exit v4
@@ -290,7 +290,7 @@
 .end method
 
 .method public static declared-synchronized registerHandler(Landroid/webkit/UrlInterceptHandler;)Z
-    .registers 3
+    .locals 2
     .parameter "handler"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -301,7 +301,7 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     invoke-static {}, Landroid/webkit/UrlInterceptRegistry;->getHandlers()Ljava/util/LinkedList;
 
     move-result-object v0
@@ -310,7 +310,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_0
 
     .line 90
     invoke-static {}, Landroid/webkit/UrlInterceptRegistry;->getHandlers()Ljava/util/LinkedList;
@@ -318,25 +318,25 @@
     move-result-object v0
 
     invoke-virtual {v0, p0}, Ljava/util/LinkedList;->addFirst(Ljava/lang/Object;)V
-    :try_end_14
-    .catchall {:try_start_3 .. :try_end_14} :catchall_19
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 91
     const/4 v0, 0x1
 
     .line 93
-    :goto_15
+    :goto_0
     monitor-exit v1
 
     return v0
 
-    :cond_17
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_15
+    goto :goto_0
 
     .line 89
-    :catchall_19
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -345,7 +345,7 @@
 .end method
 
 .method public static declared-synchronized setUrlInterceptDisabled(Z)V
-    .registers 3
+    .locals 2
     .parameter "disabled"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -356,10 +356,10 @@
 
     monitor-enter v0
 
-    :try_start_3
+    :try_start_0
     sput-boolean p0, Landroid/webkit/UrlInterceptRegistry;->mDisabled:Z
-    :try_end_5
-    .catchall {:try_start_3 .. :try_end_5} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 59
     monitor-exit v0
@@ -367,7 +367,7 @@
     return-void
 
     .line 58
-    :catchall_7
+    :catchall_0
     move-exception v1
 
     monitor-exit v0
@@ -376,7 +376,7 @@
 .end method
 
 .method public static declared-synchronized unregisterHandler(Landroid/webkit/UrlInterceptHandler;)Z
-    .registers 3
+    .locals 2
     .parameter "handler"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -387,14 +387,14 @@
 
     monitor-enter v1
 
-    :try_start_3
+    :try_start_0
     invoke-static {}, Landroid/webkit/UrlInterceptRegistry;->getHandlers()Ljava/util/LinkedList;
 
     move-result-object v0
 
     invoke-virtual {v0, p0}, Ljava/util/LinkedList;->remove(Ljava/lang/Object;)Z
-    :try_end_a
-    .catchall {:try_start_3 .. :try_end_a} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
@@ -402,7 +402,7 @@
 
     return v0
 
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
@@ -411,7 +411,7 @@
 .end method
 
 .method public static declared-synchronized urlInterceptDisabled()Z
-    .registers 2
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -421,16 +421,16 @@
 
     monitor-enter v0
 
-    :try_start_3
+    :try_start_0
     sget-boolean v1, Landroid/webkit/UrlInterceptRegistry;->mDisabled:Z
-    :try_end_5
-    .catchall {:try_start_3 .. :try_end_5} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v0
 
     return v1
 
-    :catchall_7
+    :catchall_0
     move-exception v1
 
     monitor-exit v0

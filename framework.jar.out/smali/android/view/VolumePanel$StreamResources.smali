@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 15
+    .locals 15
 
     .prologue
     const/4 v14, 0x4
@@ -285,7 +285,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IIIIIZ)V
-    .registers 8
+    .locals 0
     .parameter
     .parameter
     .parameter "streamType"
@@ -323,7 +323,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/view/VolumePanel$StreamResources;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -340,7 +340,7 @@
 .end method
 
 .method public static values()[Landroid/view/VolumePanel$StreamResources;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 126

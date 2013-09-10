@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 202
@@ -37,7 +37,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/os/CancellationSignal$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public cancel()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

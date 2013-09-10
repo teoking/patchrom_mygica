@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/pm/PackageParser$ParseComponentArgs;Landroid/content/pm/ServiceInfo;)V
-    .registers 5
+    .locals 2
     .parameter "args"
     .parameter "_info"
 
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public setPackageName(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "packageName"
 
     .prologue
@@ -73,7 +73,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 3558

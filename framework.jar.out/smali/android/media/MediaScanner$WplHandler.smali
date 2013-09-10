@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/media/MediaScanner;Ljava/lang/String;Landroid/net/Uri;Landroid/database/Cursor;)V
-    .registers 10
+    .locals 5
     .parameter
     .parameter "playListDirectory"
     .parameter "uri"
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public end()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 1717
@@ -99,7 +99,7 @@
 .end method
 
 .method getContentHandler()Lorg/xml/sax/ContentHandler;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1720
@@ -109,7 +109,7 @@
 .end method
 
 .method public start(Lorg/xml/sax/Attributes;)V
-    .registers 5
+    .locals 3
     .parameter "attributes"
 
     .prologue
@@ -124,16 +124,17 @@
 
     .line 1710
     .local v0, path:Ljava/lang/String;
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 1711
     iget-object v1, p0, Landroid/media/MediaScanner$WplHandler;->this$0:Landroid/media/MediaScanner;
 
     iget-object v2, p0, Landroid/media/MediaScanner$WplHandler;->playListDirectory:Ljava/lang/String;
 
+    #calls: Landroid/media/MediaScanner;->cachePlaylistEntry(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v1, v0, v2}, Landroid/media/MediaScanner;->access$2600(Landroid/media/MediaScanner;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1713
-    :cond_12
+    :cond_0
     return-void
 .end method

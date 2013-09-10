@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/am/CompatModeDialog;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .registers 7
+    .locals 4
     .parameter "buttonView"
     .parameter "isChecked"
 
@@ -51,7 +51,7 @@
     monitor-enter v1
 
     .line 69
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Lcom/android/server/am/CompatModeDialog$2;->this$0:Lcom/android/server/am/CompatModeDialog;
 
     iget-object v0, v0, Lcom/android/server/am/CompatModeDialog;->mService:Lcom/android/server/am/ActivityManagerService;
@@ -86,12 +86,12 @@
     return-void
 
     .line 72
-    :catchall_23
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_25
-    .catchall {:try_start_5 .. :try_end_25} :catchall_23
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

@@ -277,7 +277,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 43
@@ -288,7 +288,7 @@
 .end method
 
 .method public static getDataDirForUser(ILjava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "userId"
     .parameter "packageName"
 
@@ -530,7 +530,7 @@
 .end method
 
 .method public getPackageArchiveInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
-    .registers 16
+    .locals 13
     .parameter "archiveFilePath"
     .parameter "flags"
 
@@ -569,22 +569,22 @@
 
     .line 2163
     .local v0, pkg:Landroid/content/pm/PackageParser$Package;
-    if-nez v0, :cond_1d
+    if-nez v0, :cond_0
 
     .line 2169
-    :goto_1c
+    :goto_0
     return-object v1
 
     .line 2166
-    :cond_1d
+    :cond_0
     and-int/lit8 v2, p2, 0x40
 
-    if-eqz v2, :cond_24
+    if-eqz v2, :cond_1
 
     .line 2167
     invoke-virtual {v11, v0, v8}, Landroid/content/pm/PackageParser;->collectCertificates(Landroid/content/pm/PackageParser$Package;I)Z
 
-    :cond_24
+    :cond_1
     move v2, p2
 
     move-wide v5, v3
@@ -598,7 +598,7 @@
 
     move-result-object v1
 
-    goto :goto_1c
+    goto :goto_0
 .end method
 
 .method public abstract getPackageGids(Ljava/lang/String;)[I

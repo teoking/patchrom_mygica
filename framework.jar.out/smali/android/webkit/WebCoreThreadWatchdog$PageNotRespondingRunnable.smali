@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 227
@@ -41,23 +41,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     sput-boolean v0, Landroid/webkit/WebCoreThreadWatchdog$PageNotRespondingRunnable;->$assertionsDisabled:Z
 
     return-void
 
-    :cond_c
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public constructor <init>(Landroid/webkit/WebCoreThreadWatchdog;Landroid/content/Context;Landroid/os/Handler;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "context"
     .parameter "watchdogHandler"
@@ -79,7 +79,7 @@
 .end method
 
 .method static synthetic access$400(Landroid/webkit/WebCoreThreadWatchdog$PageNotRespondingRunnable;)Landroid/os/Handler;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -92,13 +92,13 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 239
     sget-boolean v0, Landroid/webkit/WebCoreThreadWatchdog$PageNotRespondingRunnable;->$assertionsDisabled:Z
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_0
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
@@ -112,7 +112,7 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_18
+    if-eq v0, v1, :cond_0
 
     new-instance v0, Ljava/lang/AssertionError;
 
@@ -121,7 +121,7 @@
     throw v0
 
     .line 240
-    :cond_18
+    :cond_0
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     iget-object v1, p0, Landroid/webkit/WebCoreThreadWatchdog$PageNotRespondingRunnable;->mContext:Landroid/content/Context;

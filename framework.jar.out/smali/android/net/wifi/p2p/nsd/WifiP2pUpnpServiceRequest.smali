@@ -5,7 +5,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 46
@@ -20,7 +20,7 @@
 .end method
 
 .method protected constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "query"
 
     .prologue
@@ -34,7 +34,7 @@
 .end method
 
 .method public static newInstance()Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceRequest;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 55
@@ -46,12 +46,12 @@
 .end method
 
 .method public static newInstance(Ljava/lang/String;)Landroid/net/wifi/p2p/nsd/WifiP2pUpnpServiceRequest;
-    .registers 6
+    .locals 5
     .parameter "st"
 
     .prologue
     .line 72
-    if-nez p0, :cond_b
+    if-nez p0, :cond_0
 
     .line 73
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -63,7 +63,7 @@
     throw v1
 
     .line 75
-    :cond_b
+    :cond_0
     new-instance v0, Ljava/lang/StringBuffer;
 
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V

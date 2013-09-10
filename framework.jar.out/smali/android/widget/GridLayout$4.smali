@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/GridLayout$Alignment;Landroid/widget/GridLayout$Alignment;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public getAlignmentValue(Landroid/view/View;II)I
-    .registers 5
+    .locals 1
     .parameter "view"
     .parameter "viewSize"
     .parameter "mode"
@@ -51,25 +51,25 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/GridLayout$4;->val$ltr:Landroid/widget/GridLayout$Alignment;
 
-    :goto_8
+    :goto_0
     invoke-virtual {v0, p1, p2, p3}, Landroid/widget/GridLayout$Alignment;->getAlignmentValue(Landroid/view/View;II)I
 
     move-result v0
 
     return v0
 
-    :cond_d
+    :cond_0
     iget-object v0, p0, Landroid/widget/GridLayout$4;->val$rtl:Landroid/widget/GridLayout$Alignment;
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method getGravityOffset(Landroid/view/View;I)I
-    .registers 4
+    .locals 1
     .parameter "view"
     .parameter "cellDelta"
 
@@ -79,19 +79,19 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Landroid/widget/GridLayout$4;->val$ltr:Landroid/widget/GridLayout$Alignment;
 
-    :goto_8
+    :goto_0
     invoke-virtual {v0, p1, p2}, Landroid/widget/GridLayout$Alignment;->getGravityOffset(Landroid/view/View;I)I
 
     move-result v0
 
     return v0
 
-    :cond_d
+    :cond_0
     iget-object v0, p0, Landroid/widget/GridLayout$4;->val$rtl:Landroid/widget/GridLayout$Alignment;
 
-    goto :goto_8
+    goto :goto_0
 .end method

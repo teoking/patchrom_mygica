@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/ViewRootImpl;)V
-    .registers 3
+    .locals 1
     .parameter "viewRootImpl"
 
     .prologue
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public findAccessibilityNodeInfoByAccessibilityId(JIIILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJ)V
-    .registers 25
+    .locals 14
     .parameter "accessibilityNodeId"
     .parameter "windowLeft"
     .parameter "windowTop"
@@ -72,11 +72,11 @@
 
     .line 5193
     .local v13, viewRootImpl:Landroid/view/ViewRootImpl;
-    if-eqz v13, :cond_25
+    if-eqz v13, :cond_0
 
     iget-object v2, v13, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
-    if-eqz v2, :cond_25
+    if-eqz v2, :cond_0
 
     .line 5194
     invoke-virtual {v13}, Landroid/view/ViewRootImpl;->getAccessibilityInteractionController()Landroid/view/AccessibilityInteractionController;
@@ -102,33 +102,33 @@
     invoke-virtual/range {v2 .. v12}, Landroid/view/AccessibilityInteractionController;->findAccessibilityNodeInfoByAccessibilityIdClientThread(JIIILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJ)V
 
     .line 5206
-    :goto_24
+    :goto_0
     return-void
 
     .line 5201
-    :cond_25
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_26
+    :try_start_0
     move-object/from16 v0, p6
 
     move/from16 v1, p5
 
     invoke-interface {v0, v2, v1}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfosResult(Ljava/util/List;I)V
-    :try_end_2d
-    .catch Landroid/os/RemoteException; {:try_start_26 .. :try_end_2d} :catch_2e
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_24
+    goto :goto_0
 
     .line 5202
-    :catch_2e
+    :catch_0
     move-exception v2
 
-    goto :goto_24
+    goto :goto_0
 .end method
 
 .method public findAccessibilityNodeInfoByViewId(JIIIILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJ)V
-    .registers 27
+    .locals 15
     .parameter "accessibilityNodeId"
     .parameter "viewId"
     .parameter "windowLeft"
@@ -151,11 +151,11 @@
 
     .line 5234
     .local v14, viewRootImpl:Landroid/view/ViewRootImpl;
-    if-eqz v14, :cond_28
+    if-eqz v14, :cond_0
 
     iget-object v2, v14, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_0
 
     .line 5235
     invoke-virtual {v14}, Landroid/view/ViewRootImpl;->getAccessibilityInteractionController()Landroid/view/AccessibilityInteractionController;
@@ -183,33 +183,33 @@
     invoke-virtual/range {v2 .. v13}, Landroid/view/AccessibilityInteractionController;->findAccessibilityNodeInfoByViewIdClientThread(JIIIILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJ)V
 
     .line 5247
-    :goto_27
+    :goto_0
     return-void
 
     .line 5242
-    :cond_28
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_29
+    :try_start_0
     move-object/from16 v0, p7
 
     move/from16 v1, p6
 
     invoke-interface {v0, v2, v1}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfoResult(Landroid/view/accessibility/AccessibilityNodeInfo;I)V
-    :try_end_30
-    .catch Landroid/os/RemoteException; {:try_start_29 .. :try_end_30} :catch_31
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_27
+    goto :goto_0
 
     .line 5243
-    :catch_31
+    :catch_0
     move-exception v2
 
-    goto :goto_27
+    goto :goto_0
 .end method
 
 .method public findAccessibilityNodeInfosByText(JLjava/lang/String;IIILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJ)V
-    .registers 27
+    .locals 15
     .parameter "accessibilityNodeId"
     .parameter "text"
     .parameter "windowLeft"
@@ -232,11 +232,11 @@
 
     .line 5255
     .local v14, viewRootImpl:Landroid/view/ViewRootImpl;
-    if-eqz v14, :cond_28
+    if-eqz v14, :cond_0
 
     iget-object v2, v14, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_0
 
     .line 5256
     invoke-virtual {v14}, Landroid/view/ViewRootImpl;->getAccessibilityInteractionController()Landroid/view/AccessibilityInteractionController;
@@ -264,33 +264,33 @@
     invoke-virtual/range {v2 .. v13}, Landroid/view/AccessibilityInteractionController;->findAccessibilityNodeInfosByTextClientThread(JLjava/lang/String;IIILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJ)V
 
     .line 5268
-    :goto_27
+    :goto_0
     return-void
 
     .line 5263
-    :cond_28
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_29
+    :try_start_0
     move-object/from16 v0, p7
 
     move/from16 v1, p6
 
     invoke-interface {v0, v2, v1}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfosResult(Ljava/util/List;I)V
-    :try_end_30
-    .catch Landroid/os/RemoteException; {:try_start_29 .. :try_end_30} :catch_31
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_27
+    goto :goto_0
 
     .line 5264
-    :catch_31
+    :catch_0
     move-exception v2
 
-    goto :goto_27
+    goto :goto_0
 .end method
 
 .method public findFocus(JIIIILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJ)V
-    .registers 27
+    .locals 15
     .parameter "accessibilityNodeId"
     .parameter "focusType"
     .parameter "windowLeft"
@@ -313,11 +313,11 @@
 
     .line 5276
     .local v14, viewRootImpl:Landroid/view/ViewRootImpl;
-    if-eqz v14, :cond_28
+    if-eqz v14, :cond_0
 
     iget-object v2, v14, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_0
 
     .line 5277
     invoke-virtual {v14}, Landroid/view/ViewRootImpl;->getAccessibilityInteractionController()Landroid/view/AccessibilityInteractionController;
@@ -345,33 +345,33 @@
     invoke-virtual/range {v2 .. v13}, Landroid/view/AccessibilityInteractionController;->findFocusClientThread(JIIIILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJ)V
 
     .line 5288
-    :goto_27
+    :goto_0
     return-void
 
     .line 5283
-    :cond_28
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_29
+    :try_start_0
     move-object/from16 v0, p7
 
     move/from16 v1, p6
 
     invoke-interface {v0, v2, v1}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfoResult(Landroid/view/accessibility/AccessibilityNodeInfo;I)V
-    :try_end_30
-    .catch Landroid/os/RemoteException; {:try_start_29 .. :try_end_30} :catch_31
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_27
+    goto :goto_0
 
     .line 5284
-    :catch_31
+    :catch_0
     move-exception v2
 
-    goto :goto_27
+    goto :goto_0
 .end method
 
 .method public focusSearch(JIIIILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJ)V
-    .registers 27
+    .locals 15
     .parameter "accessibilityNodeId"
     .parameter "direction"
     .parameter "windowLeft"
@@ -394,11 +394,11 @@
 
     .line 5296
     .local v14, viewRootImpl:Landroid/view/ViewRootImpl;
-    if-eqz v14, :cond_28
+    if-eqz v14, :cond_0
 
     iget-object v2, v14, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_0
 
     .line 5297
     invoke-virtual {v14}, Landroid/view/ViewRootImpl;->getAccessibilityInteractionController()Landroid/view/AccessibilityInteractionController;
@@ -426,33 +426,33 @@
     invoke-virtual/range {v2 .. v13}, Landroid/view/AccessibilityInteractionController;->focusSearchClientThread(JIIIILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJ)V
 
     .line 5308
-    :goto_27
+    :goto_0
     return-void
 
     .line 5303
-    :cond_28
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_29
+    :try_start_0
     move-object/from16 v0, p7
 
     move/from16 v1, p6
 
     invoke-interface {v0, v2, v1}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setFindAccessibilityNodeInfoResult(Landroid/view/accessibility/AccessibilityNodeInfo;I)V
-    :try_end_30
-    .catch Landroid/os/RemoteException; {:try_start_29 .. :try_end_30} :catch_31
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_27
+    goto :goto_0
 
     .line 5304
-    :catch_31
+    :catch_0
     move-exception v2
 
-    goto :goto_27
+    goto :goto_0
 .end method
 
 .method public performAccessibilityAction(JILandroid/os/Bundle;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJ)V
-    .registers 25
+    .locals 14
     .parameter "accessibilityNodeId"
     .parameter "action"
     .parameter "arguments"
@@ -474,11 +474,11 @@
 
     .line 5214
     .local v13, viewRootImpl:Landroid/view/ViewRootImpl;
-    if-eqz v13, :cond_25
+    if-eqz v13, :cond_0
 
     iget-object v2, v13, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
 
-    if-eqz v2, :cond_25
+    if-eqz v2, :cond_0
 
     .line 5215
     invoke-virtual {v13}, Landroid/view/ViewRootImpl;->getAccessibilityInteractionController()Landroid/view/AccessibilityInteractionController;
@@ -504,27 +504,27 @@
     invoke-virtual/range {v2 .. v12}, Landroid/view/AccessibilityInteractionController;->performAccessibilityActionClientThread(JILandroid/os/Bundle;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJ)V
 
     .line 5226
-    :goto_24
+    :goto_0
     return-void
 
     .line 5221
-    :cond_25
+    :cond_0
     const/4 v2, 0x0
 
-    :try_start_26
+    :try_start_0
     move-object/from16 v0, p6
 
     move/from16 v1, p5
 
     invoke-interface {v0, v2, v1}, Landroid/view/accessibility/IAccessibilityInteractionConnectionCallback;->setPerformAccessibilityActionResult(ZI)V
-    :try_end_2d
-    .catch Landroid/os/RemoteException; {:try_start_26 .. :try_end_2d} :catch_2e
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_24
+    goto :goto_0
 
     .line 5222
-    :catch_2e
+    :catch_0
     move-exception v2
 
-    goto :goto_24
+    goto :goto_0
 .end method

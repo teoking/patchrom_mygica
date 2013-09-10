@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/bluetooth/BluetoothHealthCallback;)V
-    .registers 2
+    .locals 0
     .parameter "callback"
 
     .prologue
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onHealthAppConfigurationStatusChange(Landroid/bluetooth/BluetoothHealthAppConfiguration;I)V
-    .registers 4
+    .locals 1
     .parameter "config"
     .parameter "status"
 
@@ -52,7 +52,7 @@
 .end method
 
 .method public onHealthChannelStateChange(Landroid/bluetooth/BluetoothHealthAppConfiguration;Landroid/bluetooth/BluetoothDevice;IILandroid/os/ParcelFileDescriptor;I)V
-    .registers 14
+    .locals 7
     .parameter "config"
     .parameter "device"
     .parameter "prevState"

@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 2
+    .locals 0
     .parameter "every"
 
     .prologue
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .registers 3
+    .locals 0
     .parameter "first"
     .parameter "rest"
 
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .registers 3
+    .locals 1
     .parameter "src"
 
     .prologue
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 125
@@ -95,7 +95,7 @@
 .end method
 
 .method public drawLeadingMargin(Landroid/graphics/Canvas;Landroid/graphics/Paint;IIIIILjava/lang/CharSequence;IIZLandroid/text/Layout;)V
-    .registers 13
+    .locals 0
     .parameter "c"
     .parameter "p"
     .parameter "x"
@@ -115,26 +115,26 @@
 .end method
 
 .method public getLeadingMargin(Z)I
-    .registers 3
+    .locals 1
     .parameter "first"
 
     .prologue
     .line 134
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_0
 
     iget v0, p0, Landroid/text/style/LeadingMarginSpan$Standard;->mFirst:I
 
-    :goto_4
+    :goto_0
     return v0
 
-    :cond_5
+    :cond_0
     iget v0, p0, Landroid/text/style/LeadingMarginSpan$Standard;->mRest:I
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public getSpanTypeId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 121
@@ -144,7 +144,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 4
+    .locals 1
     .parameter "dest"
     .parameter "flags"
 

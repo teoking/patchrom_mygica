@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/media/AudioService$AudioHandler;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,13 +38,14 @@
 
 # virtual methods
 .method public onCompletion(Landroid/media/MediaPlayer;)V
-    .registers 3
+    .locals 1
     .parameter "mp"
 
     .prologue
     .line 2908
     iget-object v0, p0, Landroid/media/AudioService$AudioHandler$1;->this$1:Landroid/media/AudioService$AudioHandler;
 
+    #calls: Landroid/media/AudioService$AudioHandler;->cleanupPlayer(Landroid/media/MediaPlayer;)V
     invoke-static {v0, p1}, Landroid/media/AudioService$AudioHandler;->access$4700(Landroid/media/AudioService$AudioHandler;Landroid/media/MediaPlayer;)V
 
     .line 2909

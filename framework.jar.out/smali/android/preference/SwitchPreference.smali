@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .registers 3
+    .locals 1
     .parameter "context"
 
     .prologue
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 4
+    .locals 1
     .parameter "context"
     .parameter "attrs"
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .registers 8
+    .locals 4
     .parameter "context"
     .parameter "attrs"
     .parameter "defStyle"
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method public getSwitchTextOff()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 174
@@ -142,7 +142,7 @@
 .end method
 
 .method public getSwitchTextOn()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 167
@@ -152,7 +152,7 @@
 .end method
 
 .method protected onBindView(Landroid/view/View;)V
-    .registers 6
+    .locals 4
     .parameter "view"
 
     .prologue
@@ -168,11 +168,11 @@
 
     .line 105
     .local v0, checkableView:Landroid/view/View;
-    if-eqz v0, :cond_31
+    if-eqz v0, :cond_0
 
     instance-of v2, v0, Landroid/widget/Checkable;
 
-    if-eqz v2, :cond_31
+    if-eqz v2, :cond_0
 
     move-object v2, v0
 
@@ -189,7 +189,7 @@
     .line 110
     instance-of v2, v0, Landroid/widget/Switch;
 
-    if-eqz v2, :cond_31
+    if-eqz v2, :cond_0
 
     move-object v1, v0
 
@@ -214,7 +214,7 @@
 
     .line 118
     .end local v1           #switchView:Landroid/widget/Switch;
-    :cond_31
+    :cond_0
     invoke-virtual {p0, p1}, Landroid/preference/SwitchPreference;->syncSummaryView(Landroid/view/View;)V
 
     .line 119
@@ -222,7 +222,7 @@
 .end method
 
 .method public setSwitchTextOff(I)V
-    .registers 3
+    .locals 1
     .parameter "resId"
 
     .prologue
@@ -242,7 +242,7 @@
 .end method
 
 .method public setSwitchTextOff(Ljava/lang/CharSequence;)V
-    .registers 2
+    .locals 0
     .parameter "offText"
 
     .prologue
@@ -257,7 +257,7 @@
 .end method
 
 .method public setSwitchTextOn(I)V
-    .registers 3
+    .locals 1
     .parameter "resId"
 
     .prologue
@@ -277,7 +277,7 @@
 .end method
 
 .method public setSwitchTextOn(Ljava/lang/CharSequence;)V
-    .registers 2
+    .locals 0
     .parameter "onText"
 
     .prologue

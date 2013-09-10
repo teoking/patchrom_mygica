@@ -93,7 +93,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 101
@@ -132,7 +132,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "filename"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -161,7 +161,7 @@
 .end method
 
 .method private static convertRationalLatLonToFloat(Ljava/lang/String;Ljava/lang/String;)F
-    .registers 18
+    .locals 16
     .parameter "rationalString"
     .parameter "ref"
 
@@ -318,35 +318,35 @@
 
     move-result v12
 
-    if-nez v12, :cond_8d
+    if-nez v12, :cond_0
 
     const-string v12, "W"
 
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    :try_end_8a
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_8a} :catch_92
-    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_8a} :catch_99
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result v12
 
-    if-eqz v12, :cond_90
+    if-eqz v12, :cond_1
 
     .line 393
-    :cond_8d
+    :cond_0
     neg-double v12, v8
 
     double-to-float v12, v12
 
     .line 395
-    :goto_8f
+    :goto_0
     return v12
 
-    :cond_90
+    :cond_1
     double-to-float v12, v8
 
-    goto :goto_8f
+    goto :goto_0
 
     .line 396
     .end local v1           #degrees:D
@@ -355,7 +355,7 @@
     .end local v7           #parts:[Ljava/lang/String;
     .end local v8           #result:D
     .end local v10           #seconds:D
-    :catch_92
+    :catch_0
     move-exception v3
 
     .line 398
@@ -368,7 +368,7 @@
 
     .line 399
     .end local v3           #e:Ljava/lang/NumberFormatException;
-    :catch_99
+    :catch_1
     move-exception v3
 
     .line 401
@@ -387,7 +387,7 @@
 .end method
 
 .method private loadAttributes()V
-    .registers 13
+    .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -410,7 +410,7 @@
     monitor-enter v10
 
     .line 204
-    :try_start_c
+    :try_start_0
     iget-object v9, p0, Landroid/media/ExifInterface;->mFilename:Ljava/lang/String;
 
     invoke-direct {p0, v9}, Landroid/media/ExifInterface;->getAttributesNative(Ljava/lang/String;)Ljava/lang/String;
@@ -420,8 +420,8 @@
     .line 205
     .local v2, attrStr:Ljava/lang/String;
     monitor-exit v10
-    :try_end_13
-    .catchall {:try_start_c .. :try_end_13} :catchall_5a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 208
     invoke-virtual {v2, v11}, Ljava/lang/String;->indexOf(I)I
@@ -448,8 +448,8 @@
     const/4 v6, 0x0
 
     .local v6, i:I
-    :goto_23
-    if-ge v6, v4, :cond_63
+    :goto_0
+    if-ge v6, v4, :cond_1
 
     .line 215
     const/16 v9, 0x3d
@@ -505,7 +505,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_5d
+    if-eqz v9, :cond_0
 
     .line 229
     const-string/jumbo v9, "true"
@@ -517,10 +517,10 @@
     iput-boolean v9, p0, Landroid/media/ExifInterface;->mHasThumbnail:Z
 
     .line 213
-    :goto_57
+    :goto_1
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_23
+    goto :goto_0
 
     .line 205
     .end local v0           #attrLen:I
@@ -532,13 +532,13 @@
     .end local v6           #i:I
     .end local v7           #lenPos:I
     .end local v8           #ptr:I
-    :catchall_5a
+    :catchall_0
     move-exception v9
 
-    :try_start_5b
+    :try_start_1
     monitor-exit v10
-    :try_end_5c
-    .catchall {:try_start_5b .. :try_end_5c} :catchall_5a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v9
 
@@ -552,12 +552,12 @@
     .restart local v6       #i:I
     .restart local v7       #lenPos:I
     .restart local v8       #ptr:I
-    :cond_5d
+    :cond_0
     iget-object v9, p0, Landroid/media/ExifInterface;->mAttributes:Ljava/util/HashMap;
 
     invoke-virtual {v9, v1, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_57
+    goto :goto_1
 
     .line 234
     .end local v0           #attrLen:I
@@ -565,7 +565,7 @@
     .end local v3           #attrValue:Ljava/lang/String;
     .end local v5           #equalPos:I
     .end local v7           #lenPos:I
-    :cond_63
+    :cond_1
     return-void
 .end method
 
@@ -575,7 +575,7 @@
 
 # virtual methods
 .method public getAltitude(D)D
-    .registers 11
+    .locals 8
     .parameter "defaultValue"
 
     .prologue
@@ -606,33 +606,33 @@
 
     cmpl-double v5, v0, v5
 
-    if-ltz v5, :cond_1d
+    if-ltz v5, :cond_0
 
-    if-ltz v2, :cond_1d
+    if-ltz v2, :cond_0
 
     .line 325
-    if-ne v2, v4, :cond_1e
+    if-ne v2, v4, :cond_1
 
-    :goto_1a
+    :goto_0
     int-to-double v3, v3
 
     mul-double p1, v0, v3
 
     .line 327
     .end local p1
-    :cond_1d
+    :cond_0
     return-wide p1
 
     .restart local p1
-    :cond_1e
+    :cond_1
     move v3, v4
 
     .line 325
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 .method public getAttribute(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "tag"
 
     .prologue
@@ -649,7 +649,7 @@
 .end method
 
 .method public getAttributeDouble(Ljava/lang/String;D)D
-    .registers 13
+    .locals 9
     .parameter "tag"
     .parameter "defaultValue"
 
@@ -665,18 +665,18 @@
 
     .line 162
     .local v6, value:Ljava/lang/String;
-    if-nez v6, :cond_b
+    if-nez v6, :cond_1
 
     .line 171
     .end local p2
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return-wide p2
 
     .line 164
     .restart local p2
-    :cond_b
-    :try_start_b
+    :cond_1
+    :try_start_0
     const-string v7, "/"
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
@@ -687,7 +687,7 @@
     .local v3, index:I
     const/4 v7, -0x1
 
-    if-eq v3, v7, :cond_a
+    if-eq v3, v7, :cond_0
 
     .line 166
     add-int/lit8 v7, v3, 0x1
@@ -706,7 +706,7 @@
 
     cmpl-double v7, v0, v7
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_0
 
     .line 168
     const/4 v7, 0x0
@@ -716,8 +716,8 @@
     move-result-object v7
 
     invoke-static {v7}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
-    :try_end_2c
-    .catch Ljava/lang/NumberFormatException; {:try_start_b .. :try_end_2c} :catch_30
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-wide v4
 
@@ -725,22 +725,22 @@
     .local v4, num:D
     div-double p2, v4, v0
 
-    goto :goto_a
+    goto :goto_0
 
     .line 170
     .end local v0           #denom:D
     .end local v3           #index:I
     .end local v4           #num:D
-    :catch_30
+    :catch_0
     move-exception v2
 
     .line 171
     .local v2, ex:Ljava/lang/NumberFormatException;
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getAttributeInt(Ljava/lang/String;I)I
-    .registers 6
+    .locals 3
     .parameter "tag"
     .parameter "defaultValue"
 
@@ -756,40 +756,40 @@
 
     .line 144
     .local v1, value:Ljava/lang/String;
-    if-nez v1, :cond_b
+    if-nez v1, :cond_0
 
     .line 148
     .end local p2
-    :goto_a
+    :goto_0
     return p2
 
     .line 146
     .restart local p2
-    :cond_b
-    :try_start_b
+    :cond_0
+    :try_start_0
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-    :try_end_12
-    .catch Ljava/lang/NumberFormatException; {:try_start_b .. :try_end_12} :catch_14
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result p2
 
-    goto :goto_a
+    goto :goto_0
 
     .line 147
-    :catch_14
+    :catch_0
     move-exception v0
 
     .line 148
     .local v0, ex:Ljava/lang/NumberFormatException;
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getDateTime()J
-    .registers 9
+    .locals 8
 
     .prologue
     const-wide/16 v4, -0x1
@@ -807,15 +807,15 @@
 
     .line 338
     .local v0, dateTimeString:Ljava/lang/String;
-    if-nez v0, :cond_f
+    if-nez v0, :cond_1
 
     .line 346
-    :cond_e
-    :goto_e
+    :cond_0
+    :goto_0
     return-wide v4
 
     .line 340
-    :cond_f
+    :cond_1
     new-instance v3, Ljava/text/ParsePosition;
 
     const/4 v6, 0x0
@@ -824,7 +824,7 @@
 
     .line 342
     .local v3, pos:Ljava/text/ParsePosition;
-    :try_start_15
+    :try_start_0
     sget-object v6, Landroid/media/ExifInterface;->sFormatter:Ljava/text/SimpleDateFormat;
 
     invoke-virtual {v6, v0, v3}, Ljava/text/SimpleDateFormat;->parse(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/util/Date;
@@ -833,29 +833,29 @@
 
     .line 343
     .local v1, datetime:Ljava/util/Date;
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_0
 
     .line 344
     invoke-virtual {v1}, Ljava/util/Date;->getTime()J
-    :try_end_20
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_15 .. :try_end_20} :catch_22
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-wide v4
 
-    goto :goto_e
+    goto :goto_0
 
     .line 345
     .end local v1           #datetime:Ljava/util/Date;
-    :catch_22
+    :catch_0
     move-exception v2
 
     .line 346
     .local v2, ex:Ljava/lang/IllegalArgumentException;
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public getGpsDateTime()J
-    .registers 11
+    .locals 10
 
     .prologue
     const-wide/16 v6, -0x1
@@ -885,17 +885,17 @@
 
     .line 358
     .local v5, time:Ljava/lang/String;
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
-    if-nez v5, :cond_1b
+    if-nez v5, :cond_1
 
     .line 369
-    :cond_1a
-    :goto_1a
+    :cond_0
+    :goto_0
     return-wide v6
 
     .line 360
-    :cond_1b
+    :cond_1
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -920,7 +920,7 @@
 
     .line 361
     .local v1, dateTimeString:Ljava/lang/String;
-    if-eqz v1, :cond_1a
+    if-eqz v1, :cond_0
 
     .line 363
     new-instance v4, Ljava/text/ParsePosition;
@@ -931,7 +931,7 @@
 
     .line 365
     .local v4, pos:Ljava/text/ParsePosition;
-    :try_start_3a
+    :try_start_0
     sget-object v8, Landroid/media/ExifInterface;->sFormatter:Ljava/text/SimpleDateFormat;
 
     invoke-virtual {v8, v1, v4}, Ljava/text/SimpleDateFormat;->parse(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/util/Date;
@@ -940,29 +940,29 @@
 
     .line 366
     .local v2, datetime:Ljava/util/Date;
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_0
 
     .line 367
     invoke-virtual {v2}, Ljava/util/Date;->getTime()J
-    :try_end_45
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_3a .. :try_end_45} :catch_47
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-wide v6
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 368
     .end local v2           #datetime:Ljava/util/Date;
-    :catch_47
+    :catch_0
     move-exception v3
 
     .line 369
     .local v3, ex:Ljava/lang/IllegalArgumentException;
-    goto :goto_1a
+    goto :goto_0
 .end method
 
 .method public getLatLong([F)Z
-    .registers 10
+    .locals 8
     .parameter "output"
 
     .prologue
@@ -1019,18 +1019,18 @@
 
     .line 301
     .local v2, lngRef:Ljava/lang/String;
-    if-eqz v1, :cond_42
+    if-eqz v1, :cond_0
 
-    if-eqz v0, :cond_42
+    if-eqz v0, :cond_0
 
-    if-eqz v3, :cond_42
+    if-eqz v3, :cond_0
 
-    if-eqz v2, :cond_42
+    if-eqz v2, :cond_0
 
     .line 303
     const/4 v6, 0x0
 
-    :try_start_33
+    :try_start_0
     invoke-static {v1, v0}, Landroid/media/ExifInterface;->convertRationalLatLonToFloat(Ljava/lang/String;Ljava/lang/String;)F
 
     move-result v7
@@ -1045,26 +1045,26 @@
     move-result v7
 
     aput v7, p1, v6
-    :try_end_40
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_33 .. :try_end_40} :catch_41
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 311
-    :goto_40
+    :goto_0
     return v4
 
     .line 306
-    :catch_41
+    :catch_0
     move-exception v4
 
-    :cond_42
+    :cond_0
     move v4, v5
 
     .line 311
-    goto :goto_40
+    goto :goto_0
 .end method
 
 .method public getThumbnail()[B
-    .registers 3
+    .locals 2
 
     .prologue
     .line 285
@@ -1073,7 +1073,7 @@
     monitor-enter v1
 
     .line 286
-    :try_start_3
+    :try_start_0
     iget-object v0, p0, Landroid/media/ExifInterface;->mFilename:Ljava/lang/String;
 
     invoke-direct {p0, v0}, Landroid/media/ExifInterface;->getThumbnailNative(Ljava/lang/String;)[B
@@ -1085,18 +1085,18 @@
     return-object v0
 
     .line 287
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_d
-    .catchall {:try_start_3 .. :try_end_d} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public hasThumbnail()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 276
@@ -1106,7 +1106,7 @@
 .end method
 
 .method public saveAttributes()V
-    .registers 10
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1137,13 +1137,13 @@
 
     move-result v7
 
-    if-eqz v7, :cond_17
+    if-eqz v7, :cond_0
 
     .line 251
     add-int/lit8 v5, v5, -0x1
 
     .line 253
-    :cond_17
+    :cond_0
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -1176,13 +1176,13 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :cond_37
-    :goto_37
+    :cond_1
+    :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_8b
+    if-eqz v7, :cond_2
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1206,7 +1206,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_37
+    if-nez v7, :cond_1
 
     .line 260
     invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -1265,13 +1265,13 @@
     .line 263
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_37
+    goto :goto_0
 
     .line 265
     .end local v1           #iter:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     .end local v2           #key:Ljava/lang/String;
     .end local v6           #val:Ljava/lang/String;
-    :cond_8b
+    :cond_2
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -1283,7 +1283,7 @@
     monitor-enter v8
 
     .line 267
-    :try_start_92
+    :try_start_0
     iget-object v7, p0, Landroid/media/ExifInterface;->mFilename:Ljava/lang/String;
 
     invoke-direct {p0, v7, v3}, Landroid/media/ExifInterface;->saveAttributesNative(Ljava/lang/String;Ljava/lang/String;)V
@@ -1300,18 +1300,18 @@
     return-void
 
     .line 269
-    :catchall_9e
+    :catchall_0
     move-exception v7
 
     monitor-exit v8
-    :try_end_a0
-    .catchall {:try_start_92 .. :try_end_a0} :catchall_9e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v7
 .end method
 
 .method public setAttribute(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "tag"
     .parameter "value"
 

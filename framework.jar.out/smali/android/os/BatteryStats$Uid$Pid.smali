@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/BatteryStats$Uid;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue

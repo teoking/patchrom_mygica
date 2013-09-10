@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/BroadcastReceiver$PendingResult;Landroid/app/IActivityManager;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 381

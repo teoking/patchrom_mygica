@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/inputmethodservice/ExtractEditLayout;Landroid/view/ActionMode$Callback;)V
-    .registers 5
+    .locals 2
     .parameter
     .parameter "cb"
 
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public dispatchOnCreate()Z
-    .registers 3
+    .locals 2
 
     .prologue
     .line 148
@@ -72,14 +72,14 @@
     invoke-virtual {v0}, Lcom/android/internal/view/menu/MenuBuilder;->stopDispatchingItemsChanged()V
 
     .line 150
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->mCallback:Landroid/view/ActionMode$Callback;
 
     iget-object v1, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     invoke-interface {v0, p0, v1}, Landroid/view/ActionMode$Callback;->onCreateActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
-    :try_end_c
-    .catchall {:try_start_5 .. :try_end_c} :catchall_13
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v0
 
@@ -92,7 +92,7 @@
     return v0
 
     .line 152
-    :catchall_13
+    :catchall_0
     move-exception v0
 
     iget-object v1, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
@@ -103,7 +103,7 @@
 .end method
 
 .method public finish()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -113,14 +113,14 @@
 
     iget-object v0, v0, Landroid/inputmethodservice/ExtractEditLayout;->mActionMode:Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;
 
-    if-eq v0, p0, :cond_8
+    if-eq v0, p0, :cond_0
 
     .line 172
-    :goto_7
+    :goto_0
     return-void
 
     .line 163
-    :cond_8
+    :cond_0
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->mCallback:Landroid/view/ActionMode$Callback;
 
     invoke-interface {v0, p0}, Landroid/view/ActionMode$Callback;->onDestroyActionMode(Landroid/view/ActionMode;)V
@@ -158,11 +158,11 @@
 
     iput-object v2, v0, Landroid/inputmethodservice/ExtractEditLayout;->mActionMode:Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getCustomView()Landroid/view/View;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 191
@@ -172,7 +172,7 @@
 .end method
 
 .method public getMenu()Landroid/view/Menu;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 176
@@ -182,7 +182,7 @@
 .end method
 
 .method public getMenuInflater()Landroid/view/MenuInflater;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 196
@@ -200,7 +200,7 @@
 .end method
 
 .method public getSubtitle()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 186
@@ -210,7 +210,7 @@
 .end method
 
 .method public getTitle()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 181
@@ -220,7 +220,7 @@
 .end method
 
 .method public invalidate()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 139
@@ -229,14 +229,14 @@
     invoke-virtual {v0}, Lcom/android/internal/view/menu/MenuBuilder;->stopDispatchingItemsChanged()V
 
     .line 141
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->mCallback:Landroid/view/ActionMode$Callback;
 
     iget-object v1, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     invoke-interface {v0, p0, v1}, Landroid/view/ActionMode$Callback;->onPrepareActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
-    :try_end_c
-    .catchall {:try_start_5 .. :try_end_c} :catchall_12
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 143
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
@@ -247,7 +247,7 @@
     return-void
 
     .line 143
-    :catchall_12
+    :catchall_0
     move-exception v0
 
     iget-object v1, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
@@ -258,7 +258,7 @@
 .end method
 
 .method public isTitleOptional()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 129
@@ -268,7 +268,7 @@
 .end method
 
 .method public onMenuItemSelected(Lcom/android/internal/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
-    .registers 4
+    .locals 1
     .parameter "menu"
     .parameter "item"
 
@@ -276,7 +276,7 @@
     .line 201
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->mCallback:Landroid/view/ActionMode$Callback;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 202
     iget-object v0, p0, Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;->mCallback:Landroid/view/ActionMode$Callback;
@@ -286,17 +286,17 @@
     move-result v0
 
     .line 204
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public onMenuModeChange(Lcom/android/internal/view/menu/MenuBuilder;)V
-    .registers 2
+    .locals 0
     .parameter "menu"
 
     .prologue
@@ -305,7 +305,7 @@
 .end method
 
 .method public setCustomView(Landroid/view/View;)V
-    .registers 2
+    .locals 0
     .parameter "view"
 
     .prologue
@@ -314,7 +314,7 @@
 .end method
 
 .method public setSubtitle(I)V
-    .registers 2
+    .locals 0
     .parameter "resId"
 
     .prologue
@@ -323,7 +323,7 @@
 .end method
 
 .method public setSubtitle(Ljava/lang/CharSequence;)V
-    .registers 2
+    .locals 0
     .parameter "subtitle"
 
     .prologue
@@ -332,7 +332,7 @@
 .end method
 
 .method public setTitle(I)V
-    .registers 2
+    .locals 0
     .parameter "resId"
 
     .prologue
@@ -341,7 +341,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
-    .registers 2
+    .locals 0
     .parameter "title"
 
     .prologue

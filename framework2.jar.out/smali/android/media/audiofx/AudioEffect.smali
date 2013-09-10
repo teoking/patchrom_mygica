@@ -119,7 +119,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 61
@@ -233,7 +233,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/UUID;Ljava/util/UUID;II)V
-    .registers 15
+    .locals 10
     .parameter "type"
     .parameter "uuid"
     .parameter "priority"
@@ -318,11 +318,11 @@
 
     .line 390
     .local v8, initResult:I
-    if-eqz v8, :cond_a6
+    if-eqz v8, :cond_0
 
     const/4 v0, -0x2
 
-    if-eq v8, v0, :cond_a6
+    if-eq v8, v0, :cond_0
 
     .line 391
     const-string v0, "AudioEffect-JAVA"
@@ -354,7 +354,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 393
-    packed-switch v8, :pswitch_data_ba
+    packed-switch v8, :pswitch_data_0
 
     .line 401
     new-instance v0, Ljava/lang/RuntimeException;
@@ -392,7 +392,7 @@
     throw v0
 
     .line 395
-    :pswitch_7f
+    :pswitch_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -424,7 +424,7 @@
     throw v0
 
     .line 398
-    :pswitch_9e
+    :pswitch_1
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Effect library not loaded"
@@ -434,7 +434,7 @@
     throw v0
 
     .line 406
-    :cond_a6
+    :cond_0
     aget v0, v6, v9
 
     iput v0, p0, Landroid/media/audiofx/AudioEffect;->mId:I
@@ -452,7 +452,7 @@
     .line 409
     const/4 v0, 0x1
 
-    :try_start_b2
+    :try_start_0
     iput v0, p0, Landroid/media/audiofx/AudioEffect;->mState:I
 
     .line 410
@@ -462,27 +462,27 @@
     return-void
 
     .line 410
-    :catchall_b6
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_b8
-    .catchall {:try_start_b2 .. :try_end_b8} :catchall_b6
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 393
     nop
 
-    :pswitch_data_ba
+    :pswitch_data_0
     .packed-switch -0x5
-        :pswitch_9e
-        :pswitch_7f
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method static synthetic access$000(Landroid/media/audiofx/AudioEffect;)Landroid/media/audiofx/AudioEffect$OnEnableStatusChangeListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -493,7 +493,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/media/audiofx/AudioEffect;)Landroid/media/audiofx/AudioEffect$OnControlStatusChangeListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -504,7 +504,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/media/audiofx/AudioEffect;)Landroid/media/audiofx/AudioEffect$OnParameterChangeListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -515,7 +515,7 @@
 .end method
 
 .method private createNativeEventHandler()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 932
@@ -524,7 +524,7 @@
     move-result-object v0
 
     .local v0, looper:Landroid/os/Looper;
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 933
     new-instance v1, Landroid/media/audiofx/AudioEffect$NativeEventHandler;
@@ -534,16 +534,16 @@
     iput-object v1, p0, Landroid/media/audiofx/AudioEffect;->mNativeEventHandler:Landroid/media/audiofx/AudioEffect$NativeEventHandler;
 
     .line 939
-    :goto_d
+    :goto_0
     return-void
 
     .line 934
-    :cond_e
+    :cond_0
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_1
 
     .line 935
     new-instance v1, Landroid/media/audiofx/AudioEffect$NativeEventHandler;
@@ -552,19 +552,19 @@
 
     iput-object v1, p0, Landroid/media/audiofx/AudioEffect;->mNativeEventHandler:Landroid/media/audiofx/AudioEffect$NativeEventHandler;
 
-    goto :goto_d
+    goto :goto_0
 
     .line 937
-    :cond_1c
+    :cond_1
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/media/audiofx/AudioEffect;->mNativeEventHandler:Landroid/media/audiofx/AudioEffect$NativeEventHandler;
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public static isEffectTypeAvailable(Ljava/util/UUID;)Z
-    .registers 4
+    .locals 3
     .parameter "type"
 
     .prologue
@@ -578,10 +578,10 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_5
+    :goto_0
     array-length v2, v0
 
-    if-ge v1, v2, :cond_17
+    if-ge v1, v2, :cond_1
 
     .line 478
     aget-object v2, v0, v1
@@ -592,45 +592,45 @@
 
     move-result v2
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_0
 
     .line 479
     const/4 v2, 0x1
 
     .line 482
-    :goto_13
+    :goto_1
     return v2
 
     .line 477
-    :cond_14
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_5
+    goto :goto_0
 
     .line 482
-    :cond_17
+    :cond_1
     const/4 v2, 0x0
 
-    goto :goto_13
+    goto :goto_1
 .end method
 
 .method public static isError(I)Z
-    .registers 2
+    .locals 1
     .parameter "status"
 
     .prologue
     .line 1270
-    if-gez p0, :cond_4
+    if-gez p0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_3
+    :goto_0
     return v0
 
-    :cond_4
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method private final native native_command(II[BI[B)I
@@ -670,7 +670,7 @@
 .end method
 
 .method private static postEventFromNative(Ljava/lang/Object;IIILjava/lang/Object;)V
-    .registers 8
+    .locals 3
     .parameter "effect_ref"
     .parameter "what"
     .parameter "arg1"
@@ -690,18 +690,18 @@
 
     .line 1189
     .local v0, effect:Landroid/media/audiofx/AudioEffect;
-    if-nez v0, :cond_b
+    if-nez v0, :cond_1
 
     .line 1198
-    :cond_a
-    :goto_a
+    :cond_0
+    :goto_0
     return-void
 
     .line 1192
-    :cond_b
+    :cond_1
     iget-object v2, v0, Landroid/media/audiofx/AudioEffect;->mNativeEventHandler:Landroid/media/audiofx/AudioEffect$NativeEventHandler;
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_0
 
     .line 1193
     iget-object v2, v0, Landroid/media/audiofx/AudioEffect;->mNativeEventHandler:Landroid/media/audiofx/AudioEffect$NativeEventHandler;
@@ -716,11 +716,11 @@
 
     invoke-virtual {v2, v1}, Landroid/media/audiofx/AudioEffect$NativeEventHandler;->sendMessage(Landroid/os/Message;)Z
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public static queryEffects()[Landroid/media/audiofx/AudioEffect$Descriptor;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 453
@@ -736,7 +736,7 @@
 .end method
 
 .method public static queryPreProcessings(I)[Landroid/media/audiofx/AudioEffect$Descriptor;
-    .registers 2
+    .locals 1
     .parameter "audioSession"
 
     .prologue
@@ -755,7 +755,7 @@
 
 # virtual methods
 .method public byteArrayToInt([B)I
-    .registers 3
+    .locals 1
     .parameter "valueBuf"
 
     .prologue
@@ -770,7 +770,7 @@
 .end method
 
 .method public byteArrayToInt([BI)I
-    .registers 5
+    .locals 2
     .parameter "valueBuf"
     .parameter "offset"
 
@@ -797,7 +797,7 @@
 .end method
 
 .method public byteArrayToShort([B)S
-    .registers 3
+    .locals 1
     .parameter "valueBuf"
 
     .prologue
@@ -812,7 +812,7 @@
 .end method
 
 .method public byteArrayToShort([BI)S
-    .registers 5
+    .locals 2
     .parameter "valueBuf"
     .parameter "offset"
 
@@ -839,7 +839,7 @@
 .end method
 
 .method public checkState(Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "methodName"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -854,12 +854,12 @@
     monitor-enter v1
 
     .line 1241
-    :try_start_3
+    :try_start_0
     iget v0, p0, Landroid/media/audiofx/AudioEffect;->mState:I
 
     const/4 v2, 0x1
 
-    if-eq v0, v2, :cond_24
+    if-eq v0, v2, :cond_0
 
     .line 1242
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -887,27 +887,27 @@
     throw v0
 
     .line 1245
-    :catchall_21
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_23
-    .catchall {:try_start_3 .. :try_end_23} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
-    :cond_24
-    :try_start_24
+    :cond_0
+    :try_start_1
     monitor-exit v1
-    :try_end_25
-    .catchall {:try_start_24 .. :try_end_25} :catchall_21
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 1246
     return-void
 .end method
 
 .method public checkStatus(I)V
-    .registers 4
+    .locals 2
     .parameter "status"
 
     .prologue
@@ -916,10 +916,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_0
 
     .line 1253
-    packed-switch p1, :pswitch_data_22
+    packed-switch p1, :pswitch_data_0
 
     .line 1261
     new-instance v0, Ljava/lang/RuntimeException;
@@ -931,7 +931,7 @@
     throw v0
 
     .line 1255
-    :pswitch_11
+    :pswitch_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "AudioEffect: bad parameter value"
@@ -941,7 +941,7 @@
     throw v0
 
     .line 1258
-    :pswitch_19
+    :pswitch_1
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "AudioEffect: invalid parameter operation"
@@ -951,19 +951,19 @@
     throw v0
 
     .line 1264
-    :cond_21
+    :cond_0
     return-void
 
     .line 1253
-    :pswitch_data_22
+    :pswitch_data_0
     .packed-switch -0x5
-        :pswitch_19
-        :pswitch_11
+        :pswitch_1
+        :pswitch_0
     .end packed-switch
 .end method
 
 .method public command(I[B[B)I
-    .registers 10
+    .locals 6
     .parameter "cmdCode"
     .parameter "command"
     .parameter "reply"
@@ -1000,7 +1000,7 @@
 .end method
 
 .method public varargs concatArrays([[B)[B
-    .registers 11
+    .locals 9
     .parameter "arrays"
 
     .prologue
@@ -1018,8 +1018,8 @@
     const/4 v3, 0x0
 
     .local v3, i$:I
-    :goto_4
-    if-ge v3, v5, :cond_d
+    :goto_0
+    if-ge v3, v5, :cond_0
 
     aget-object v0, v1, v3
 
@@ -1032,11 +1032,11 @@
     .line 1334
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_4
+    goto :goto_0
 
     .line 1337
     .end local v0           #a:[B
-    :cond_d
+    :cond_0
     new-array v2, v4, [B
 
     .line 1339
@@ -1051,8 +1051,8 @@
 
     const/4 v3, 0x0
 
-    :goto_13
-    if-ge v3, v5, :cond_21
+    :goto_1
+    if-ge v3, v5, :cond_1
 
     aget-object v0, v1, v3
 
@@ -1072,16 +1072,16 @@
     .line 1340
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_13
+    goto :goto_1
 
     .line 1344
     .end local v0           #a:[B
-    :cond_21
+    :cond_1
     return-object v2
 .end method
 
 .method protected finalize()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 427
@@ -1092,7 +1092,7 @@
 .end method
 
 .method public getDescriptor()Landroid/media/audiofx/AudioEffect$Descriptor;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -1112,7 +1112,7 @@
 .end method
 
 .method public getEnabled()Z
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -1134,7 +1134,7 @@
 .end method
 
 .method public getId()I
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -1154,7 +1154,7 @@
 .end method
 
 .method public getParameter(I[B)I
-    .registers 5
+    .locals 2
     .parameter "param"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -1179,7 +1179,7 @@
 .end method
 
 .method public getParameter(I[I)I
-    .registers 10
+    .locals 7
     .parameter "param"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -1198,17 +1198,17 @@
 
     const/4 v4, 0x2
 
-    if-le v3, v4, :cond_9
+    if-le v3, v4, :cond_0
 
     .line 685
     const/4 v1, -0x4
 
     .line 702
-    :goto_8
+    :goto_0
     return v1
 
     .line 687
-    :cond_9
+    :cond_0
     invoke-virtual {p0, p1}, Landroid/media/audiofx/AudioEffect;->intToByteArray(I)[B
 
     move-result-object v0
@@ -1229,12 +1229,12 @@
 
     .line 693
     .local v1, status:I
-    if-eq v1, v5, :cond_1a
+    if-eq v1, v5, :cond_1
 
-    if-ne v1, v6, :cond_2d
+    if-ne v1, v6, :cond_3
 
     .line 694
-    :cond_1a
+    :cond_1
     const/4 v3, 0x0
 
     invoke-virtual {p0, v2}, Landroid/media/audiofx/AudioEffect;->byteArrayToInt([B)I
@@ -1244,7 +1244,7 @@
     aput v4, p2, v3
 
     .line 695
-    if-ne v1, v6, :cond_2a
+    if-ne v1, v6, :cond_2
 
     .line 696
     const/4 v3, 0x1
@@ -1256,20 +1256,20 @@
     aput v4, p2, v3
 
     .line 698
-    :cond_2a
+    :cond_2
     div-int/lit8 v1, v1, 0x4
 
-    goto :goto_8
+    goto :goto_0
 
     .line 700
-    :cond_2d
+    :cond_3
     const/4 v1, -0x1
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public getParameter(I[S)I
-    .registers 10
+    .locals 7
     .parameter "param"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -1286,17 +1286,17 @@
     .line 715
     array-length v3, p2
 
-    if-le v3, v5, :cond_7
+    if-le v3, v5, :cond_0
 
     .line 716
     const/4 v1, -0x4
 
     .line 733
-    :goto_6
+    :goto_0
     return v1
 
     .line 718
-    :cond_7
+    :cond_0
     invoke-virtual {p0, p1}, Landroid/media/audiofx/AudioEffect;->intToByteArray(I)[B
 
     move-result-object v0
@@ -1317,12 +1317,12 @@
 
     .line 724
     .local v1, status:I
-    if-eq v1, v5, :cond_18
+    if-eq v1, v5, :cond_1
 
-    if-ne v1, v6, :cond_2b
+    if-ne v1, v6, :cond_3
 
     .line 725
-    :cond_18
+    :cond_1
     const/4 v3, 0x0
 
     invoke-virtual {p0, v2}, Landroid/media/audiofx/AudioEffect;->byteArrayToShort([B)S
@@ -1332,7 +1332,7 @@
     aput-short v4, p2, v3
 
     .line 726
-    if-ne v1, v6, :cond_28
+    if-ne v1, v6, :cond_2
 
     .line 727
     const/4 v3, 0x1
@@ -1344,20 +1344,20 @@
     aput-short v4, p2, v3
 
     .line 729
-    :cond_28
+    :cond_2
     div-int/lit8 v1, v1, 0x2
 
-    goto :goto_6
+    goto :goto_0
 
     .line 731
-    :cond_2b
+    :cond_3
     const/4 v1, -0x1
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getParameter([B[B)I
-    .registers 5
+    .locals 2
     .parameter "param"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -1385,7 +1385,7 @@
 .end method
 
 .method public getParameter([I[B)I
-    .registers 9
+    .locals 6
     .parameter "param"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -1404,17 +1404,17 @@
     .line 813
     array-length v2, p1
 
-    if-le v2, v5, :cond_8
+    if-le v2, v5, :cond_0
 
     .line 814
     const/4 v2, -0x4
 
     .line 822
-    :goto_7
+    :goto_0
     return v2
 
     .line 816
-    :cond_8
+    :cond_0
     aget v2, p1, v4
 
     invoke-virtual {p0, v2}, Landroid/media/audiofx/AudioEffect;->intToByteArray(I)[B
@@ -1425,7 +1425,7 @@
     .local v0, p:[B
     array-length v2, p1
 
-    if-le v2, v3, :cond_21
+    if-le v2, v3, :cond_1
 
     .line 818
     aget v2, p1, v3
@@ -1448,16 +1448,16 @@
 
     .line 822
     .end local v1           #p2:[B
-    :cond_21
+    :cond_1
     invoke-virtual {p0, v0, p2}, Landroid/media/audiofx/AudioEffect;->getParameter([B[B)I
 
     move-result v2
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getParameter([I[I)I
-    .registers 13
+    .locals 10
     .parameter "param"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -1480,22 +1480,22 @@
     .line 746
     array-length v4, p1
 
-    if-gt v4, v7, :cond_c
+    if-gt v4, v7, :cond_0
 
     array-length v4, p2
 
-    if-le v4, v7, :cond_e
+    if-le v4, v7, :cond_1
 
     .line 747
-    :cond_c
+    :cond_0
     const/4 v2, -0x4
 
     .line 767
-    :goto_d
+    :goto_0
     return v2
 
     .line 749
-    :cond_e
+    :cond_1
     aget v4, p1, v6
 
     invoke-virtual {p0, v4}, Landroid/media/audiofx/AudioEffect;->intToByteArray(I)[B
@@ -1506,7 +1506,7 @@
     .local v0, p:[B
     array-length v4, p1
 
-    if-le v4, v5, :cond_27
+    if-le v4, v5, :cond_2
 
     .line 751
     aget v4, p1, v5
@@ -1529,7 +1529,7 @@
 
     .line 754
     .end local v1           #p2:[B
-    :cond_27
+    :cond_2
     array-length v4, p2
 
     mul-int/lit8 v4, v4, 0x4
@@ -1544,12 +1544,12 @@
 
     .line 758
     .local v2, status:I
-    if-eq v2, v8, :cond_34
+    if-eq v2, v8, :cond_3
 
-    if-ne v2, v9, :cond_45
+    if-ne v2, v9, :cond_5
 
     .line 759
-    :cond_34
+    :cond_3
     invoke-virtual {p0, v3}, Landroid/media/audiofx/AudioEffect;->byteArrayToInt([B)I
 
     move-result v4
@@ -1557,7 +1557,7 @@
     aput v4, p2, v6
 
     .line 760
-    if-ne v2, v9, :cond_42
+    if-ne v2, v9, :cond_4
 
     .line 761
     invoke-virtual {p0, v3, v8}, Landroid/media/audiofx/AudioEffect;->byteArrayToInt([BI)I
@@ -1567,20 +1567,20 @@
     aput v4, p2, v5
 
     .line 763
-    :cond_42
+    :cond_4
     div-int/lit8 v2, v2, 0x4
 
-    goto :goto_d
+    goto :goto_0
 
     .line 765
-    :cond_45
+    :cond_5
     const/4 v2, -0x1
 
-    goto :goto_d
+    goto :goto_0
 .end method
 
 .method public getParameter([I[S)I
-    .registers 12
+    .locals 9
     .parameter "param"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -1601,22 +1601,22 @@
     .line 780
     array-length v4, p1
 
-    if-gt v4, v5, :cond_a
+    if-gt v4, v5, :cond_0
 
     array-length v4, p2
 
-    if-le v4, v5, :cond_c
+    if-le v4, v5, :cond_1
 
     .line 781
-    :cond_a
+    :cond_0
     const/4 v2, -0x4
 
     .line 801
-    :goto_b
+    :goto_0
     return v2
 
     .line 783
-    :cond_c
+    :cond_1
     aget v4, p1, v7
 
     invoke-virtual {p0, v4}, Landroid/media/audiofx/AudioEffect;->intToByteArray(I)[B
@@ -1627,7 +1627,7 @@
     .local v0, p:[B
     array-length v4, p1
 
-    if-le v4, v6, :cond_25
+    if-le v4, v6, :cond_2
 
     .line 785
     aget v4, p1, v6
@@ -1650,7 +1650,7 @@
 
     .line 788
     .end local v1           #p2:[B
-    :cond_25
+    :cond_2
     array-length v4, p2
 
     mul-int/lit8 v4, v4, 0x2
@@ -1665,12 +1665,12 @@
 
     .line 792
     .local v2, status:I
-    if-eq v2, v5, :cond_32
+    if-eq v2, v5, :cond_3
 
-    if-ne v2, v8, :cond_43
+    if-ne v2, v8, :cond_5
 
     .line 793
-    :cond_32
+    :cond_3
     invoke-virtual {p0, v3}, Landroid/media/audiofx/AudioEffect;->byteArrayToShort([B)S
 
     move-result v4
@@ -1678,7 +1678,7 @@
     aput-short v4, p2, v7
 
     .line 794
-    if-ne v2, v8, :cond_40
+    if-ne v2, v8, :cond_4
 
     .line 795
     invoke-virtual {p0, v3, v5}, Landroid/media/audiofx/AudioEffect;->byteArrayToShort([BI)S
@@ -1688,20 +1688,20 @@
     aput-short v4, p2, v6
 
     .line 797
-    :cond_40
+    :cond_4
     div-int/lit8 v2, v2, 0x2
 
-    goto :goto_b
+    goto :goto_0
 
     .line 799
-    :cond_43
+    :cond_5
     const/4 v2, -0x1
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public hasControl()Z
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -1723,7 +1723,7 @@
 .end method
 
 .method public intToByteArray(I)[B
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -1754,7 +1754,7 @@
 .end method
 
 .method public release()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 419
@@ -1763,7 +1763,7 @@
     monitor-enter v1
 
     .line 420
-    :try_start_3
+    :try_start_0
     invoke-direct {p0}, Landroid/media/audiofx/AudioEffect;->native_release()V
 
     .line 421
@@ -1778,18 +1778,18 @@
     return-void
 
     .line 422
-    :catchall_b
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_d
-    .catchall {:try_start_3 .. :try_end_d} :catchall_b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setControlStatusListener(Landroid/media/audiofx/AudioEffect$OnControlStatusChangeListener;)V
-    .registers 4
+    .locals 2
     .parameter "listener"
 
     .prologue
@@ -1799,42 +1799,42 @@
     monitor-enter v1
 
     .line 904
-    :try_start_3
+    :try_start_0
     iput-object p1, p0, Landroid/media/audiofx/AudioEffect;->mControlChangeStatusListener:Landroid/media/audiofx/AudioEffect$OnControlStatusChangeListener;
 
     .line 905
     monitor-exit v1
-    :try_end_6
-    .catchall {:try_start_3 .. :try_end_6} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 906
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Landroid/media/audiofx/AudioEffect;->mNativeEventHandler:Landroid/media/audiofx/AudioEffect$NativeEventHandler;
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 907
     invoke-direct {p0}, Landroid/media/audiofx/AudioEffect;->createNativeEventHandler()V
 
     .line 909
-    :cond_f
+    :cond_0
     return-void
 
     .line 905
-    :catchall_10
+    :catchall_0
     move-exception v0
 
-    :try_start_11
+    :try_start_1
     monitor-exit v1
-    :try_end_12
-    .catchall {:try_start_11 .. :try_end_12} :catchall_10
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method
 
 .method public setEnableStatusListener(Landroid/media/audiofx/AudioEffect$OnEnableStatusChangeListener;)V
-    .registers 4
+    .locals 2
     .parameter "listener"
 
     .prologue
@@ -1844,42 +1844,42 @@
     monitor-enter v1
 
     .line 889
-    :try_start_3
+    :try_start_0
     iput-object p1, p0, Landroid/media/audiofx/AudioEffect;->mEnableStatusChangeListener:Landroid/media/audiofx/AudioEffect$OnEnableStatusChangeListener;
 
     .line 890
     monitor-exit v1
-    :try_end_6
-    .catchall {:try_start_3 .. :try_end_6} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 891
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Landroid/media/audiofx/AudioEffect;->mNativeEventHandler:Landroid/media/audiofx/AudioEffect$NativeEventHandler;
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 892
     invoke-direct {p0}, Landroid/media/audiofx/AudioEffect;->createNativeEventHandler()V
 
     .line 894
-    :cond_f
+    :cond_0
     return-void
 
     .line 890
-    :catchall_10
+    :catchall_0
     move-exception v0
 
-    :try_start_11
+    :try_start_1
     monitor-exit v1
-    :try_end_12
-    .catchall {:try_start_11 .. :try_end_12} :catchall_10
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method
 
 .method public setEnabled(Z)I
-    .registers 3
+    .locals 1
     .parameter "enabled"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1902,7 +1902,7 @@
 .end method
 
 .method public setParameter(II)I
-    .registers 6
+    .locals 3
     .parameter "param"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -1933,7 +1933,7 @@
 .end method
 
 .method public setParameter(IS)I
-    .registers 6
+    .locals 3
     .parameter "param"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -1964,7 +1964,7 @@
 .end method
 
 .method public setParameter(I[B)I
-    .registers 5
+    .locals 2
     .parameter "param"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -1989,7 +1989,7 @@
 .end method
 
 .method public setParameter([B[B)I
-    .registers 5
+    .locals 2
     .parameter "param"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -2017,7 +2017,7 @@
 .end method
 
 .method public setParameter([I[B)I
-    .registers 9
+    .locals 6
     .parameter "param"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -2036,17 +2036,17 @@
     .line 628
     array-length v2, p1
 
-    if-le v2, v5, :cond_8
+    if-le v2, v5, :cond_0
 
     .line 629
     const/4 v2, -0x4
 
     .line 636
-    :goto_7
+    :goto_0
     return v2
 
     .line 631
-    :cond_8
+    :cond_0
     aget v2, p1, v4
 
     invoke-virtual {p0, v2}, Landroid/media/audiofx/AudioEffect;->intToByteArray(I)[B
@@ -2057,7 +2057,7 @@
     .local v0, p:[B
     array-length v2, p1
 
-    if-le v2, v3, :cond_21
+    if-le v2, v3, :cond_1
 
     .line 633
     aget v2, p1, v3
@@ -2080,16 +2080,16 @@
 
     .line 636
     .end local v1           #p2:[B
-    :cond_21
+    :cond_1
     invoke-virtual {p0, v0, p2}, Landroid/media/audiofx/AudioEffect;->setParameter([B[B)I
 
     move-result v2
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public setParameter([I[I)I
-    .registers 11
+    .locals 8
     .parameter "param"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -2108,22 +2108,22 @@
     .line 577
     array-length v4, p1
 
-    if-gt v4, v7, :cond_9
+    if-gt v4, v7, :cond_0
 
     array-length v4, p2
 
-    if-le v4, v7, :cond_b
+    if-le v4, v7, :cond_1
 
     .line 578
-    :cond_9
+    :cond_0
     const/4 v4, -0x4
 
     .line 590
-    :goto_a
+    :goto_0
     return v4
 
     .line 580
-    :cond_b
+    :cond_1
     aget v4, p1, v6
 
     invoke-virtual {p0, v4}, Landroid/media/audiofx/AudioEffect;->intToByteArray(I)[B
@@ -2134,7 +2134,7 @@
     .local v0, p:[B
     array-length v4, p1
 
-    if-le v4, v5, :cond_24
+    if-le v4, v5, :cond_2
 
     .line 582
     aget v4, p1, v5
@@ -2157,7 +2157,7 @@
 
     .line 585
     .end local v1           #p2:[B
-    :cond_24
+    :cond_2
     aget v4, p2, v6
 
     invoke-virtual {p0, v4}, Landroid/media/audiofx/AudioEffect;->intToByteArray(I)[B
@@ -2168,7 +2168,7 @@
     .local v2, v:[B
     array-length v4, p2
 
-    if-le v4, v5, :cond_3d
+    if-le v4, v5, :cond_3
 
     .line 587
     aget v4, p2, v5
@@ -2191,16 +2191,16 @@
 
     .line 590
     .end local v3           #v2:[B
-    :cond_3d
+    :cond_3
     invoke-virtual {p0, v0, v2}, Landroid/media/audiofx/AudioEffect;->setParameter([B[B)I
 
     move-result v4
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public setParameter([I[S)I
-    .registers 11
+    .locals 8
     .parameter "param"
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
@@ -2219,22 +2219,22 @@
     .line 602
     array-length v4, p1
 
-    if-gt v4, v7, :cond_9
+    if-gt v4, v7, :cond_0
 
     array-length v4, p2
 
-    if-le v4, v7, :cond_b
+    if-le v4, v7, :cond_1
 
     .line 603
-    :cond_9
+    :cond_0
     const/4 v4, -0x4
 
     .line 616
-    :goto_a
+    :goto_0
     return v4
 
     .line 605
-    :cond_b
+    :cond_1
     aget v4, p1, v6
 
     invoke-virtual {p0, v4}, Landroid/media/audiofx/AudioEffect;->intToByteArray(I)[B
@@ -2245,7 +2245,7 @@
     .local v0, p:[B
     array-length v4, p1
 
-    if-le v4, v5, :cond_24
+    if-le v4, v5, :cond_2
 
     .line 607
     aget v4, p1, v5
@@ -2268,7 +2268,7 @@
 
     .line 611
     .end local v1           #p2:[B
-    :cond_24
+    :cond_2
     aget-short v4, p2, v6
 
     invoke-virtual {p0, v4}, Landroid/media/audiofx/AudioEffect;->shortToByteArray(S)[B
@@ -2279,7 +2279,7 @@
     .local v2, v:[B
     array-length v4, p2
 
-    if-le v4, v5, :cond_3d
+    if-le v4, v5, :cond_3
 
     .line 613
     aget-short v4, p2, v5
@@ -2302,16 +2302,16 @@
 
     .line 616
     .end local v3           #v2:[B
-    :cond_3d
+    :cond_3
     invoke-virtual {p0, v0, v2}, Landroid/media/audiofx/AudioEffect;->setParameter([B[B)I
 
     move-result v4
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public setParameterListener(Landroid/media/audiofx/AudioEffect$OnParameterChangeListener;)V
-    .registers 4
+    .locals 2
     .parameter "listener"
 
     .prologue
@@ -2321,42 +2321,42 @@
     monitor-enter v1
 
     .line 919
-    :try_start_3
+    :try_start_0
     iput-object p1, p0, Landroid/media/audiofx/AudioEffect;->mParameterChangeListener:Landroid/media/audiofx/AudioEffect$OnParameterChangeListener;
 
     .line 920
     monitor-exit v1
-    :try_end_6
-    .catchall {:try_start_3 .. :try_end_6} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 921
-    if-eqz p1, :cond_f
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Landroid/media/audiofx/AudioEffect;->mNativeEventHandler:Landroid/media/audiofx/AudioEffect$NativeEventHandler;
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 922
     invoke-direct {p0}, Landroid/media/audiofx/AudioEffect;->createNativeEventHandler()V
 
     .line 924
-    :cond_f
+    :cond_0
     return-void
 
     .line 920
-    :catchall_10
+    :catchall_0
     move-exception v0
 
-    :try_start_11
+    :try_start_1
     monitor-exit v1
-    :try_end_12
-    .catchall {:try_start_11 .. :try_end_12} :catchall_10
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
 .end method
 
 .method public shortToByteArray(S)[B
-    .registers 5
+    .locals 3
     .parameter "value"
 
     .prologue

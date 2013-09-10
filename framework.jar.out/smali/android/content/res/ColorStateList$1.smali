@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 313
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/content/res/ColorStateList;
-    .registers 7
+    .locals 5
     .parameter "source"
 
     .prologue
@@ -59,8 +59,8 @@
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_7
-    if-ge v2, v0, :cond_12
+    :goto_0
+    if-ge v2, v0, :cond_0
 
     .line 322
     invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
@@ -72,10 +72,10 @@
     .line 321
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 324
-    :cond_12
+    :cond_0
     invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
 
     move-result-object v1
@@ -90,7 +90,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -103,7 +103,7 @@
 .end method
 
 .method public newArray(I)[Landroid/content/res/ColorStateList;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -114,7 +114,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

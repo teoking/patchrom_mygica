@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/FocusFinder;)V
-    .registers 2
+    .locals 0
     .parameter "focusFinder"
 
     .prologue
@@ -24,7 +24,7 @@
 .end method
 
 .method public static majorAxisDistance(ILandroid/graphics/Rect;Landroid/graphics/Rect;)I
-    .registers 4
+    .locals 1
     .parameter "direction"
     .parameter "source"
     .parameter "dest"
@@ -39,7 +39,7 @@
 .end method
 
 .method public static majorAxisDistanceToFarEdge(ILandroid/graphics/Rect;Landroid/graphics/Rect;)I
-    .registers 4
+    .locals 1
     .parameter "direction"
     .parameter "source"
     .parameter "dest"
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public beamBeats(ILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)Z
-    .registers 6
+    .locals 1
     .parameter "direction"
     .parameter "source"
     .parameter "rect1"
@@ -74,7 +74,7 @@
 .end method
 
 .method public beamsOverlap(ILandroid/graphics/Rect;Landroid/graphics/Rect;)Z
-    .registers 5
+    .locals 1
     .parameter "direction"
     .parameter "rect1"
     .parameter "rect2"
@@ -91,7 +91,7 @@
 .end method
 
 .method public isBetterCandidate(ILandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)Z
-    .registers 6
+    .locals 1
     .parameter "direction"
     .parameter "source"
     .parameter "rect1"
@@ -109,7 +109,7 @@
 .end method
 
 .method public isCandidate(Landroid/graphics/Rect;Landroid/graphics/Rect;I)Z
-    .registers 5
+    .locals 1
     .parameter "srcRect"
     .parameter "destRect"
     .parameter "direction"

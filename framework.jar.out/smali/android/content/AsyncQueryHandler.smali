@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 44
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/ContentResolver;)V
-    .registers 5
+    .locals 3
     .parameter "cr"
 
     .prologue
@@ -77,10 +77,10 @@
     monitor-enter v2
 
     .line 128
-    :try_start_d
+    :try_start_0
     sget-object v1, Landroid/content/AsyncQueryHandler;->sLooper:Landroid/os/Looper;
 
-    if-nez v1, :cond_21
+    if-nez v1, :cond_0
 
     .line 129
     new-instance v0, Landroid/os/HandlerThread;
@@ -102,10 +102,10 @@
 
     .line 134
     .end local v0           #thread:Landroid/os/HandlerThread;
-    :cond_21
+    :cond_0
     monitor-exit v2
-    :try_end_22
-    .catchall {:try_start_d .. :try_end_22} :catchall_2b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 135
     sget-object v1, Landroid/content/AsyncQueryHandler;->sLooper:Landroid/os/Looper;
@@ -120,13 +120,13 @@
     return-void
 
     .line 134
-    :catchall_2b
+    :catchall_0
     move-exception v1
 
-    :try_start_2c
+    :try_start_1
     monitor-exit v2
-    :try_end_2d
-    .catchall {:try_start_2c .. :try_end_2d} :catchall_2b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method
@@ -134,7 +134,7 @@
 
 # virtual methods
 .method public final cancelOperation(I)V
-    .registers 3
+    .locals 1
     .parameter "token"
 
     .prologue
@@ -148,7 +148,7 @@
 .end method
 
 .method protected createHandler(Landroid/os/Looper;)Landroid/os/Handler;
-    .registers 3
+    .locals 1
     .parameter "looper"
 
     .prologue
@@ -161,7 +161,7 @@
 .end method
 
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 7
+    .locals 5
     .parameter "msg"
 
     .prologue
@@ -180,14 +180,14 @@
 
     .line 342
     .local v1, event:I
-    packed-switch v1, :pswitch_data_3c
+    packed-switch v1, :pswitch_data_0
 
     .line 359
-    :goto_b
+    :goto_0
     return-void
 
     .line 344
-    :pswitch_c
+    :pswitch_0
     iget-object v4, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->cookie:Ljava/lang/Object;
 
     iget-object v3, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->result:Ljava/lang/Object;
@@ -196,10 +196,10 @@
 
     invoke-virtual {p0, v2, v4, v3}, Landroid/content/AsyncQueryHandler;->onQueryComplete(ILjava/lang/Object;Landroid/database/Cursor;)V
 
-    goto :goto_b
+    goto :goto_0
 
     .line 348
-    :pswitch_16
+    :pswitch_1
     iget-object v4, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->cookie:Ljava/lang/Object;
 
     iget-object v3, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->result:Ljava/lang/Object;
@@ -208,10 +208,10 @@
 
     invoke-virtual {p0, v2, v4, v3}, Landroid/content/AsyncQueryHandler;->onInsertComplete(ILjava/lang/Object;Landroid/net/Uri;)V
 
-    goto :goto_b
+    goto :goto_0
 
     .line 352
-    :pswitch_20
+    :pswitch_2
     iget-object v4, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->cookie:Ljava/lang/Object;
 
     iget-object v3, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->result:Ljava/lang/Object;
@@ -224,10 +224,10 @@
 
     invoke-virtual {p0, v2, v4, v3}, Landroid/content/AsyncQueryHandler;->onUpdateComplete(ILjava/lang/Object;I)V
 
-    goto :goto_b
+    goto :goto_0
 
     .line 356
-    :pswitch_2e
+    :pswitch_3
     iget-object v4, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->cookie:Ljava/lang/Object;
 
     iget-object v3, v0, Landroid/content/AsyncQueryHandler$WorkerArgs;->result:Ljava/lang/Object;
@@ -240,20 +240,20 @@
 
     invoke-virtual {p0, v2, v4, v3}, Landroid/content/AsyncQueryHandler;->onDeleteComplete(ILjava/lang/Object;I)V
 
-    goto :goto_b
+    goto :goto_0
 
     .line 342
-    :pswitch_data_3c
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_c
-        :pswitch_16
-        :pswitch_20
-        :pswitch_2e
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method protected onDeleteComplete(ILjava/lang/Object;I)V
-    .registers 4
+    .locals 0
     .parameter "token"
     .parameter "cookie"
     .parameter "result"
@@ -264,7 +264,7 @@
 .end method
 
 .method protected onInsertComplete(ILjava/lang/Object;Landroid/net/Uri;)V
-    .registers 4
+    .locals 0
     .parameter "token"
     .parameter "cookie"
     .parameter "uri"
@@ -275,7 +275,7 @@
 .end method
 
 .method protected onQueryComplete(ILjava/lang/Object;Landroid/database/Cursor;)V
-    .registers 4
+    .locals 0
     .parameter "token"
     .parameter "cookie"
     .parameter "cursor"
@@ -286,7 +286,7 @@
 .end method
 
 .method protected onUpdateComplete(ILjava/lang/Object;I)V
-    .registers 4
+    .locals 0
     .parameter "token"
     .parameter "cookie"
     .parameter "result"
@@ -297,7 +297,7 @@
 .end method
 
 .method public final startDelete(ILjava/lang/Object;Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)V
-    .registers 9
+    .locals 3
     .parameter "token"
     .parameter "cookie"
     .parameter "uri"
@@ -352,7 +352,7 @@
 .end method
 
 .method public final startInsert(ILjava/lang/Object;Landroid/net/Uri;Landroid/content/ContentValues;)V
-    .registers 8
+    .locals 3
     .parameter "token"
     .parameter "cookie"
     .parameter "uri"
@@ -403,7 +403,7 @@
 .end method
 
 .method public startQuery(ILjava/lang/Object;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)V
-    .registers 11
+    .locals 3
     .parameter "token"
     .parameter "cookie"
     .parameter "uri"
@@ -466,7 +466,7 @@
 .end method
 
 .method public final startUpdate(ILjava/lang/Object;Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)V
-    .registers 10
+    .locals 3
     .parameter "token"
     .parameter "cookie"
     .parameter "uri"

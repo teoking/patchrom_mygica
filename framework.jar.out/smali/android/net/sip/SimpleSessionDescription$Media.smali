@@ -37,7 +37,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;IILjava/lang/String;)V
-    .registers 6
+    .locals 1
     .parameter "type"
     .parameter "port"
     .parameter "portCount"
@@ -73,7 +73,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;IILjava/lang/String;Landroid/net/sip/SimpleSessionDescription$1;)V
-    .registers 6
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -88,7 +88,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/net/sip/SimpleSessionDescription$Media;Ljava/lang/StringBuilder;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -100,7 +100,7 @@
 .end method
 
 .method private write(Ljava/lang/StringBuilder;)V
-    .registers 7
+    .locals 5
     .parameter "buffer"
 
     .prologue
@@ -132,7 +132,7 @@
 
     const/4 v3, 0x1
 
-    if-eq v2, v3, :cond_27
+    if-eq v2, v3, :cond_0
 
     .line 370
     const/16 v2, 0x2f
@@ -146,7 +146,7 @@
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 372
-    :cond_27
+    :cond_0
     invoke-virtual {p1, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -163,12 +163,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_36
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4a
+    if-eqz v2, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -184,16 +184,17 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_36
+    goto :goto_0
 
     .line 376
     .end local v0           #format:Ljava/lang/String;
-    :cond_4a
+    :cond_1
     const-string v2, "\r\n"
 
     invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 377
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->write(Ljava/lang/StringBuilder;)V
     invoke-static {p0, p1}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$200(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/StringBuilder;)V
 
     .line 378
@@ -203,7 +204,7 @@
 
 # virtual methods
 .method public bridge synthetic getAddress()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 236
@@ -215,7 +216,7 @@
 .end method
 
 .method public bridge synthetic getAttribute(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -228,7 +229,7 @@
 .end method
 
 .method public bridge synthetic getAttributeNames()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 236
@@ -240,7 +241,7 @@
 .end method
 
 .method public bridge synthetic getBandwidth(Ljava/lang/String;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -253,7 +254,7 @@
 .end method
 
 .method public bridge synthetic getBandwidthTypes()[Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 236
@@ -265,7 +266,7 @@
 .end method
 
 .method public bridge synthetic getEncryptionKey()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 236
@@ -277,7 +278,7 @@
 .end method
 
 .method public bridge synthetic getEncryptionMethod()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 236
@@ -289,7 +290,7 @@
 .end method
 
 .method public getFmtp(I)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "type"
 
     .prologue
@@ -314,6 +315,7 @@
 
     const/16 v1, 0x20
 
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->get(Ljava/lang/String;C)Ljava/lang/String;
     invoke-static {p0, v0, v1}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$400(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;C)Ljava/lang/String;
 
     move-result-object v0
@@ -322,7 +324,7 @@
 .end method
 
 .method public getFmtp(Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "format"
 
     .prologue
@@ -347,6 +349,7 @@
 
     const/16 v1, 0x20
 
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->get(Ljava/lang/String;C)Ljava/lang/String;
     invoke-static {p0, v0, v1}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$400(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;C)Ljava/lang/String;
 
     move-result-object v0
@@ -355,7 +358,7 @@
 .end method
 
 .method public getFormats()[Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 283
@@ -379,7 +382,7 @@
 .end method
 
 .method public getPort()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 262
@@ -389,7 +392,7 @@
 .end method
 
 .method public getPortCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 269
@@ -399,7 +402,7 @@
 .end method
 
 .method public getProtocol()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 276
@@ -409,7 +412,7 @@
 .end method
 
 .method public getRtpPayloadTypes()[I
-    .registers 6
+    .locals 5
 
     .prologue
     .line 318
@@ -434,12 +437,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_f
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_24
+    if-eqz v4, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -449,23 +452,23 @@
 
     .line 322
     .local v0, format:Ljava/lang/String;
-    :try_start_1b
+    :try_start_0
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v4
 
     aput v4, v3, v2
-    :try_end_21
-    .catch Ljava/lang/NumberFormatException; {:try_start_1b .. :try_end_21} :catch_29
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 323
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 326
     .end local v0           #format:Ljava/lang/String;
-    :cond_24
+    :cond_0
     invoke-static {v3, v2}, Ljava/util/Arrays;->copyOf([II)[I
 
     move-result-object v4
@@ -474,14 +477,14 @@
 
     .line 324
     .restart local v0       #format:Ljava/lang/String;
-    :catch_29
+    :catch_0
     move-exception v4
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public getRtpmap(I)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "type"
 
     .prologue
@@ -506,6 +509,7 @@
 
     const/16 v1, 0x20
 
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->get(Ljava/lang/String;C)Ljava/lang/String;
     invoke-static {p0, v0, v1}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$400(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;C)Ljava/lang/String;
 
     move-result-object v0
@@ -514,7 +518,7 @@
 .end method
 
 .method public getType()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 255
@@ -524,7 +528,7 @@
 .end method
 
 .method public removeFormat(Ljava/lang/String;)V
-    .registers 6
+    .locals 4
     .parameter "format"
 
     .prologue
@@ -556,6 +560,7 @@
 
     move-result-object v0
 
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->set(Ljava/lang/String;CLjava/lang/String;)V
     invoke-static {p0, v0, v2, v3}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$500(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;CLjava/lang/String;)V
 
     .line 311
@@ -577,6 +582,7 @@
 
     move-result-object v0
 
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->set(Ljava/lang/String;CLjava/lang/String;)V
     invoke-static {p0, v0, v2, v3}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$500(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;CLjava/lang/String;)V
 
     .line 312
@@ -584,7 +590,7 @@
 .end method
 
 .method public removeRtpPayload(I)V
-    .registers 3
+    .locals 1
     .parameter "type"
 
     .prologue
@@ -600,7 +606,7 @@
 .end method
 
 .method public bridge synthetic setAddress(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -611,7 +617,7 @@
 .end method
 
 .method public bridge synthetic setAttribute(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -623,7 +629,7 @@
 .end method
 
 .method public bridge synthetic setBandwidth(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -635,7 +641,7 @@
 .end method
 
 .method public bridge synthetic setEncryption(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -647,7 +653,7 @@
 .end method
 
 .method public setFormat(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 6
+    .locals 3
     .parameter "format"
     .parameter "fmtp"
 
@@ -685,6 +691,7 @@
 
     const/4 v1, 0x0
 
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->set(Ljava/lang/String;CLjava/lang/String;)V
     invoke-static {p0, v0, v2, v1}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$500(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;CLjava/lang/String;)V
 
     .line 302
@@ -706,6 +713,7 @@
 
     move-result-object v0
 
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->set(Ljava/lang/String;CLjava/lang/String;)V
     invoke-static {p0, v0, v2, p2}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$500(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;CLjava/lang/String;)V
 
     .line 303
@@ -713,7 +721,7 @@
 .end method
 
 .method public setRtpPayload(ILjava/lang/String;Ljava/lang/String;)V
-    .registers 8
+    .locals 4
     .parameter "type"
     .parameter "rtpmap"
     .parameter "fmtp"
@@ -756,6 +764,7 @@
 
     move-result-object v1
 
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->set(Ljava/lang/String;CLjava/lang/String;)V
     invoke-static {p0, v1, v3, p2}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$500(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;CLjava/lang/String;)V
 
     .line 356
@@ -777,6 +786,7 @@
 
     move-result-object v1
 
+    #calls: Landroid/net/sip/SimpleSessionDescription$Fields;->set(Ljava/lang/String;CLjava/lang/String;)V
     invoke-static {p0, v1, v3, p3}, Landroid/net/sip/SimpleSessionDescription$Fields;->access$500(Landroid/net/sip/SimpleSessionDescription$Fields;Ljava/lang/String;CLjava/lang/String;)V
 
     .line 357

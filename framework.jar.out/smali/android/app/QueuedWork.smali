@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 38
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 34
@@ -49,7 +49,7 @@
 .end method
 
 .method public static add(Ljava/lang/Runnable;)V
-    .registers 2
+    .locals 1
     .parameter "finisher"
 
     .prologue
@@ -63,7 +63,7 @@
 .end method
 
 .method public static hasPendingWork()Z
-    .registers 1
+    .locals 1
 
     .prologue
     .line 98
@@ -73,21 +73,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public static remove(Ljava/lang/Runnable;)V
-    .registers 2
+    .locals 1
     .parameter "finisher"
 
     .prologue
@@ -101,7 +101,7 @@
 .end method
 
 .method public static singleThreadExecutor()Ljava/util/concurrent/ExecutorService;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 48
@@ -110,10 +110,10 @@
     monitor-enter v1
 
     .line 49
-    :try_start_3
+    :try_start_0
     sget-object v0, Landroid/app/QueuedWork;->sSingleThreadExecutor:Ljava/util/concurrent/ExecutorService;
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 51
     invoke-static {}, Ljava/util/concurrent/Executors;->newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;
@@ -123,7 +123,7 @@
     sput-object v0, Landroid/app/QueuedWork;->sSingleThreadExecutor:Ljava/util/concurrent/ExecutorService;
 
     .line 53
-    :cond_d
+    :cond_0
     sget-object v0, Landroid/app/QueuedWork;->sSingleThreadExecutor:Ljava/util/concurrent/ExecutorService;
 
     monitor-exit v1
@@ -131,18 +131,18 @@
     return-object v0
 
     .line 54
-    :catchall_11
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_13
-    .catchall {:try_start_3 .. :try_end_13} :catchall_11
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public static waitToFinish()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 87
@@ -158,7 +158,7 @@
     check-cast v0, Ljava/lang/Runnable;
 
     .restart local v0       #toFinish:Ljava/lang/Runnable;
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 88
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
@@ -166,6 +166,6 @@
     goto :goto_0
 
     .line 90
-    :cond_e
+    :cond_0
     return-void
 .end method

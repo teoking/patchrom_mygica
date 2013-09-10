@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;F)V
-    .registers 6
+    .locals 3
     .parameter "resDir"
     .parameter "scale"
 
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .registers 6
+    .locals 4
     .parameter "obj"
 
     .prologue
@@ -75,14 +75,14 @@
     .line 1486
     instance-of v2, p1, Landroid/app/ActivityThread$ResourcesKey;
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_1
 
     .line 1490
-    :cond_5
-    :goto_5
+    :cond_0
+    :goto_0
     return v1
 
-    :cond_6
+    :cond_1
     move-object v0, p1
 
     .line 1489
@@ -98,7 +98,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_0
 
     iget v2, p0, Landroid/app/ActivityThread$ResourcesKey;->mScale:F
 
@@ -106,15 +106,15 @@
 
     cmpl-float v2, v2, v3
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_0
 
     const/4 v1, 0x1
 
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method public hashCode()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 1481

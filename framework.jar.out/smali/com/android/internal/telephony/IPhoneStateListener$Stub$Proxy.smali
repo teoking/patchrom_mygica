@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 169
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 173
@@ -60,7 +60,7 @@
 .end method
 
 .method public onCallForwardingIndicatorChanged(Z)V
-    .registers 7
+    .locals 5
     .parameter "cfi"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -78,15 +78,15 @@
 
     .line 221
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "com.android.internal.telephony.IPhoneStateListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 222
-    if-eqz p1, :cond_1b
+    if-eqz p1, :cond_0
 
-    :goto_c
+    :goto_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 223
@@ -99,8 +99,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_17
-    .catchall {:try_start_5 .. :try_end_17} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 226
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -109,13 +109,13 @@
     return-void
 
     .line 222
-    :cond_1b
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_c
+    goto :goto_0
 
     .line 226
-    :catchall_1d
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -124,7 +124,7 @@
 .end method
 
 .method public onCallStateChanged(ILjava/lang/String;)V
-    .registers 8
+    .locals 5
     .parameter "state"
     .parameter "incomingNumber"
     .annotation system Ldalvik/annotation/Throws;
@@ -141,7 +141,7 @@
 
     .line 253
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -162,8 +162,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_17
-    .catchall {:try_start_4 .. :try_end_17} :catchall_1b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 259
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -172,7 +172,7 @@
     return-void
 
     .line 259
-    :catchall_1b
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -181,7 +181,7 @@
 .end method
 
 .method public onCellInfoChanged(Landroid/telephony/CellInfo;)V
-    .registers 7
+    .locals 5
     .parameter "cellInfo"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -197,13 +197,13 @@
 
     .line 321
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 322
-    if-eqz p1, :cond_20
+    if-eqz p1, :cond_0
 
     .line 323
     const/4 v1, 0x1
@@ -216,7 +216,7 @@
     invoke-virtual {p1, v0, v1}, Landroid/telephony/CellInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 329
-    :goto_13
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/telephony/IPhoneStateListener$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v2, 0xb
@@ -226,8 +226,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1c
-    .catchall {:try_start_4 .. :try_end_1c} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 332
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -236,18 +236,18 @@
     return-void
 
     .line 327
-    :cond_20
+    :cond_0
     const/4 v1, 0x0
 
-    :try_start_21
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_24
-    .catchall {:try_start_21 .. :try_end_24} :catchall_25
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 332
-    :catchall_25
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -256,7 +256,7 @@
 .end method
 
 .method public onCellLocationChanged(Landroid/os/Bundle;)V
-    .registers 7
+    .locals 5
     .parameter "location"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -272,13 +272,13 @@
 
     .line 235
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 236
-    if-eqz p1, :cond_1f
+    if-eqz p1, :cond_0
 
     .line 237
     const/4 v1, 0x1
@@ -291,7 +291,7 @@
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 243
-    :goto_13
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/telephony/IPhoneStateListener$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x5
@@ -301,8 +301,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1b
-    .catchall {:try_start_4 .. :try_end_1b} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 246
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -311,18 +311,18 @@
     return-void
 
     .line 241
-    :cond_1f
+    :cond_0
     const/4 v1, 0x0
 
-    :try_start_20
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_23
-    .catchall {:try_start_20 .. :try_end_23} :catchall_24
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 246
-    :catchall_24
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -331,7 +331,7 @@
 .end method
 
 .method public onDataActivity(I)V
-    .registers 7
+    .locals 5
     .parameter "direction"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -347,7 +347,7 @@
 
     .line 279
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -365,8 +365,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_15
-    .catchall {:try_start_4 .. :try_end_15} :catchall_19
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 284
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -375,7 +375,7 @@
     return-void
 
     .line 284
-    :catchall_19
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -384,7 +384,7 @@
 .end method
 
 .method public onDataConnectionStateChanged(II)V
-    .registers 8
+    .locals 5
     .parameter "state"
     .parameter "networkType"
     .annotation system Ldalvik/annotation/Throws;
@@ -401,7 +401,7 @@
 
     .line 266
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -422,8 +422,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_17
-    .catchall {:try_start_4 .. :try_end_17} :catchall_1b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 272
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -432,7 +432,7 @@
     return-void
 
     .line 272
-    :catchall_1b
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -441,7 +441,7 @@
 .end method
 
 .method public onMessageWaitingIndicatorChanged(Z)V
-    .registers 7
+    .locals 5
     .parameter "mwi"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -459,15 +459,15 @@
 
     .line 209
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_5
+    :try_start_0
     const-string v2, "com.android.internal.telephony.IPhoneStateListener"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 210
-    if-eqz p1, :cond_1b
+    if-eqz p1, :cond_0
 
-    :goto_c
+    :goto_0
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 211
@@ -480,8 +480,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_17
-    .catchall {:try_start_5 .. :try_end_17} :catchall_1d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 214
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -490,13 +490,13 @@
     return-void
 
     .line 210
-    :cond_1b
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_c
+    goto :goto_0
 
     .line 214
-    :catchall_1d
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -505,7 +505,7 @@
 .end method
 
 .method public onOtaspChanged(I)V
-    .registers 7
+    .locals 5
     .parameter "otaspMode"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -521,7 +521,7 @@
 
     .line 309
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -539,8 +539,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_15
-    .catchall {:try_start_4 .. :try_end_15} :catchall_19
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 314
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -549,7 +549,7 @@
     return-void
 
     .line 314
-    :catchall_19
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -558,7 +558,7 @@
 .end method
 
 .method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
-    .registers 7
+    .locals 5
     .parameter "serviceState"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -574,13 +574,13 @@
 
     .line 179
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 180
-    if-eqz p1, :cond_1f
+    if-eqz p1, :cond_0
 
     .line 181
     const/4 v1, 0x1
@@ -593,7 +593,7 @@
     invoke-virtual {p1, v0, v1}, Landroid/telephony/ServiceState;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 187
-    :goto_13
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/telephony/IPhoneStateListener$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v2, 0x1
@@ -603,8 +603,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1b
-    .catchall {:try_start_4 .. :try_end_1b} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 190
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -613,18 +613,18 @@
     return-void
 
     .line 185
-    :cond_1f
+    :cond_0
     const/4 v1, 0x0
 
-    :try_start_20
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_23
-    .catchall {:try_start_20 .. :try_end_23} :catchall_24
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 190
-    :catchall_24
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -633,7 +633,7 @@
 .end method
 
 .method public onSignalStrengthChanged(I)V
-    .registers 7
+    .locals 5
     .parameter "asu"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -649,7 +649,7 @@
 
     .line 197
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -667,8 +667,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_14
-    .catchall {:try_start_4 .. :try_end_14} :catchall_18
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 202
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -677,7 +677,7 @@
     return-void
 
     .line 202
-    :catchall_18
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -686,7 +686,7 @@
 .end method
 
 .method public onSignalStrengthsChanged(Landroid/telephony/SignalStrength;)V
-    .registers 7
+    .locals 5
     .parameter "signalStrength"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -702,13 +702,13 @@
 
     .line 291
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_4
+    :try_start_0
     const-string v1, "com.android.internal.telephony.IPhoneStateListener"
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 292
-    if-eqz p1, :cond_20
+    if-eqz p1, :cond_0
 
     .line 293
     const/4 v1, 0x1
@@ -721,7 +721,7 @@
     invoke-virtual {p1, v0, v1}, Landroid/telephony/SignalStrength;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 299
-    :goto_13
+    :goto_0
     iget-object v1, p0, Lcom/android/internal/telephony/IPhoneStateListener$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v2, 0x9
@@ -731,8 +731,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_1c
-    .catchall {:try_start_4 .. :try_end_1c} :catchall_25
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 302
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -741,18 +741,18 @@
     return-void
 
     .line 297
-    :cond_20
+    :cond_0
     const/4 v1, 0x0
 
-    :try_start_21
+    :try_start_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_24
-    .catchall {:try_start_21 .. :try_end_24} :catchall_25
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_13
+    goto :goto_0
 
     .line 302
-    :catchall_25
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V

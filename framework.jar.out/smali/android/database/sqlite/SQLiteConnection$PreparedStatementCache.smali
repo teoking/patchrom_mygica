@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/database/sqlite/SQLiteConnection;I)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "size"
 
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public dump(Landroid/util/Printer;)V
-    .registers 10
+    .locals 8
     .parameter "printer"
 
     .prologue
@@ -68,7 +68,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_95
+    if-nez v6, :cond_1
 
     .line 1264
     const/4 v2, 0x0
@@ -84,12 +84,12 @@
     move-result-object v3
 
     .local v3, i$:Ljava/util/Iterator;
-    :goto_18
+    :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_9a
+    if-eqz v6, :cond_2
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -109,7 +109,7 @@
     .local v5, statement:Landroid/database/sqlite/SQLiteConnection$PreparedStatement;
     iget-boolean v6, v5, Landroid/database/sqlite/SQLiteConnection$PreparedStatement;->mInCache:Z
 
-    if-eqz v6, :cond_92
+    if-eqz v6, :cond_0
 
     .line 1268
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -192,6 +192,7 @@
 
     move-result-object v6
 
+    #calls: Landroid/database/sqlite/SQLiteConnection;->trimSqlForDisplay(Ljava/lang/String;)Ljava/lang/String;
     invoke-static {v4}, Landroid/database/sqlite/SQLiteConnection;->access$300(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
@@ -214,29 +215,29 @@
 
     .line 1276
     .end local v4           #sql:Ljava/lang/String;
-    :cond_92
+    :cond_0
     add-int/lit8 v2, v2, 0x1
 
     .line 1277
-    goto :goto_18
+    goto :goto_0
 
     .line 1279
     .end local v1           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/String;Landroid/database/sqlite/SQLiteConnection$PreparedStatement;>;"
     .end local v2           #i:I
     .end local v3           #i$:Ljava/util/Iterator;
     .end local v5           #statement:Landroid/database/sqlite/SQLiteConnection$PreparedStatement;
-    :cond_95
+    :cond_1
     const-string v6, "    <none>"
 
     invoke-interface {p1, v6}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
     .line 1281
-    :cond_9a
+    :cond_2
     return-void
 .end method
 
 .method protected bridge synthetic entryRemoved(ZLjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-    .registers 5
+    .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
@@ -259,7 +260,7 @@
 .end method
 
 .method protected entryRemoved(ZLjava/lang/String;Landroid/database/sqlite/SQLiteConnection$PreparedStatement;Landroid/database/sqlite/SQLiteConnection$PreparedStatement;)V
-    .registers 6
+    .locals 1
     .parameter "evicted"
     .parameter "key"
     .parameter "oldValue"
@@ -274,14 +275,15 @@
     .line 1255
     iget-boolean v0, p3, Landroid/database/sqlite/SQLiteConnection$PreparedStatement;->mInUse:Z
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 1256
     iget-object v0, p0, Landroid/database/sqlite/SQLiteConnection$PreparedStatementCache;->this$0:Landroid/database/sqlite/SQLiteConnection;
 
+    #calls: Landroid/database/sqlite/SQLiteConnection;->finalizePreparedStatement(Landroid/database/sqlite/SQLiteConnection$PreparedStatement;)V
     invoke-static {v0, p3}, Landroid/database/sqlite/SQLiteConnection;->access$200(Landroid/database/sqlite/SQLiteConnection;Landroid/database/sqlite/SQLiteConnection$PreparedStatement;)V
 
     .line 1258
-    :cond_c
+    :cond_0
     return-void
 .end method

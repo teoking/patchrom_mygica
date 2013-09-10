@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 15353
@@ -70,7 +70,7 @@
 .end method
 
 .method private getServices(I)Ljava/util/HashMap;
-    .registers 4
+    .locals 2
     .parameter "callingUser"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -95,7 +95,7 @@
 
     .line 15417
     .local v0, map:Ljava/util/HashMap;
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 15418
     new-instance v0, Ljava/util/HashMap;
@@ -110,12 +110,12 @@
     invoke-virtual {v1, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 15421
-    :cond_14
+    :cond_0
     return-object v0
 .end method
 
 .method private getServicesByIntent(I)Ljava/util/HashMap;
-    .registers 4
+    .locals 2
     .parameter "callingUser"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -140,7 +140,7 @@
 
     .line 15427
     .local v0, map:Ljava/util/HashMap;
-    if-nez v0, :cond_14
+    if-nez v0, :cond_0
 
     .line 15428
     new-instance v0, Ljava/util/HashMap;
@@ -155,14 +155,14 @@
     invoke-virtual {v1, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 15431
-    :cond_14
+    :cond_0
     return-object v0
 .end method
 
 
 # virtual methods
 .method getAllServices(I)Ljava/util/Collection;
-    .registers 3
+    .locals 1
     .parameter "callingUser"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -188,7 +188,7 @@
 .end method
 
 .method getServiceByIntent(Landroid/content/Intent$FilterComparison;)Lcom/android/server/am/ServiceRecord;
-    .registers 3
+    .locals 1
     .parameter "filter"
 
     .prologue
@@ -203,7 +203,7 @@
 .end method
 
 .method getServiceByIntent(Landroid/content/Intent$FilterComparison;I)Lcom/android/server/am/ServiceRecord;
-    .registers 4
+    .locals 1
     .parameter "filter"
     .parameter "callingUser"
 
@@ -223,7 +223,7 @@
 .end method
 
 .method getServiceByName(Landroid/content/ComponentName;)Lcom/android/server/am/ServiceRecord;
-    .registers 3
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -238,7 +238,7 @@
 .end method
 
 .method getServiceByName(Landroid/content/ComponentName;I)Lcom/android/server/am/ServiceRecord;
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "callingUser"
 
@@ -258,7 +258,7 @@
 .end method
 
 .method putServiceByIntent(Landroid/content/Intent$FilterComparison;ILcom/android/server/am/ServiceRecord;)V
-    .registers 5
+    .locals 1
     .parameter "filter"
     .parameter "callingUser"
     .parameter "value"
@@ -276,7 +276,7 @@
 .end method
 
 .method putServiceByName(Landroid/content/ComponentName;ILcom/android/server/am/ServiceRecord;)V
-    .registers 5
+    .locals 1
     .parameter "name"
     .parameter "callingUser"
     .parameter "value"
@@ -294,7 +294,7 @@
 .end method
 
 .method removeServiceByIntent(Landroid/content/Intent$FilterComparison;I)V
-    .registers 5
+    .locals 2
     .parameter "filter"
     .parameter "callingUser"
 
@@ -316,7 +316,7 @@
 .end method
 
 .method removeServiceByName(Landroid/content/ComponentName;I)V
-    .registers 5
+    .locals 2
     .parameter "name"
     .parameter "callingUser"
 

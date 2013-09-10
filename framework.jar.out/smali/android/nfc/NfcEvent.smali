@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/nfc/NfcAdapter;)V
-    .registers 2
+    .locals 0
     .parameter "nfcAdapter"
 
     .prologue

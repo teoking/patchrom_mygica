@@ -9,7 +9,7 @@
 
 # direct methods
 .method protected constructor <init>([B)V
-    .registers 2
+    .locals 0
     .parameter "table"
 
     .prologue
@@ -32,7 +32,7 @@
 .end method
 
 .method protected isAvailable(I)Z
-    .registers 8
+    .locals 6
     .parameter "service"
 
     .prologue
@@ -49,7 +49,7 @@
 
     array-length v4, v4
 
-    if-lt v1, v4, :cond_35
+    if-lt v1, v4, :cond_0
 
     .line 46
     invoke-virtual {p0}, Lcom/android/internal/telephony/IccServiceTable;->getTag()Ljava/lang/String;
@@ -95,11 +95,11 @@
     invoke-static {v2, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 51
-    :goto_34
+    :goto_0
     return v3
 
     .line 50
-    :cond_35
+    :cond_0
     rem-int/lit8 v0, p1, 0x8
 
     .line 51
@@ -112,21 +112,21 @@
 
     and-int/2addr v4, v5
 
-    if-eqz v4, :cond_42
+    if-eqz v4, :cond_1
 
-    :goto_40
+    :goto_1
     move v3, v2
 
-    goto :goto_34
+    goto :goto_0
 
-    :cond_42
+    :cond_1
     move v2, v3
 
-    goto :goto_40
+    goto :goto_1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 11
+    .locals 10
 
     .prologue
     .line 55
@@ -177,8 +177,8 @@
     const/4 v4, 0x0
 
     .local v4, i:I
-    :goto_24
-    if-ge v4, v5, :cond_5b
+    :goto_0
+    if-ge v4, v5, :cond_4
 
     .line 62
     iget-object v8, p0, Lcom/android/internal/telephony/IccServiceTable;->mServiceTable:[B
@@ -190,10 +190,10 @@
     const/4 v1, 0x0
 
     .local v1, bit:I
-    :goto_2b
+    :goto_1
     const/16 v8, 0x8
 
-    if-ge v1, v8, :cond_58
+    if-ge v1, v8, :cond_3
 
     .line 64
     const/4 v8, 0x1
@@ -202,10 +202,10 @@
 
     and-int/2addr v8, v3
 
-    if-eqz v8, :cond_47
+    if-eqz v8, :cond_0
 
     .line 65
-    if-eqz v0, :cond_4a
+    if-eqz v0, :cond_1
 
     .line 66
     const-string v8, ", "
@@ -213,7 +213,7 @@
     invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 70
-    :goto_3b
+    :goto_2
     mul-int/lit8 v8, v4, 0x8
 
     add-int v6, v8, v1
@@ -222,7 +222,7 @@
     .local v6, ordinal:I
     array-length v8, v7
 
-    if-ge v6, v8, :cond_4c
+    if-ge v6, v8, :cond_2
 
     .line 72
     aget-object v8, v7, v6
@@ -231,21 +231,21 @@
 
     .line 63
     .end local v6           #ordinal:I
-    :cond_47
-    :goto_47
+    :cond_0
+    :goto_3
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2b
+    goto :goto_1
 
     .line 68
-    :cond_4a
+    :cond_1
     const/4 v0, 0x1
 
-    goto :goto_3b
+    goto :goto_2
 
     .line 74
     .restart local v6       #ordinal:I
-    :cond_4c
+    :cond_2
     const/16 v8, 0x23
 
     invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -256,19 +256,19 @@
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    goto :goto_47
+    goto :goto_3
 
     .line 61
     .end local v6           #ordinal:I
-    :cond_58
+    :cond_3
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_24
+    goto :goto_0
 
     .line 79
     .end local v1           #bit:I
     .end local v3           #currentByte:B
-    :cond_5b
+    :cond_4
     const-string v8, " }"
 
     invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

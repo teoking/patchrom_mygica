@@ -86,7 +86,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .registers 5
+    .locals 3
     .parameter "maxCacheSize"
 
     .prologue
@@ -173,7 +173,7 @@
 .end method
 
 .method static synthetic access$1100(Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;)Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -184,7 +184,7 @@
 .end method
 
 .method static synthetic access$1200(Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;)Ljava/util/HashMap;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -195,7 +195,7 @@
 .end method
 
 .method private getFarthestPositionFrom(ILjava/util/ArrayList;)I
-    .registers 11
+    .locals 8
     .parameter "pos"
     .parameter
     .annotation system Ldalvik/annotation/Signature;
@@ -238,13 +238,13 @@
     move-result-object v2
 
     .local v2, i$:Ljava/util/Iterator;
-    :cond_e
-    :goto_e
+    :cond_0
+    :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_37
+    if-eqz v7, :cond_2
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -266,7 +266,7 @@
 
     .line 642
     .local v0, dist:I
-    if-le v0, v6, :cond_32
+    if-le v0, v6, :cond_1
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -276,7 +276,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_32
+    if-nez v7, :cond_1
 
     .line 645
     move v5, v1
@@ -285,8 +285,8 @@
     move v6, v0
 
     .line 648
-    :cond_32
-    if-lt v0, v3, :cond_e
+    :cond_1
+    if-lt v0, v3, :cond_0
 
     .line 651
     move v4, v1
@@ -294,30 +294,30 @@
     .line 652
     move v3, v0
 
-    goto :goto_e
+    goto :goto_0
 
     .line 655
     .end local v0           #dist:I
     .end local v1           #i:I
-    :cond_37
+    :cond_2
     const/4 v7, -0x1
 
-    if-le v5, v7, :cond_3b
+    if-le v5, v7, :cond_3
 
     .line 658
     .end local v5           #maxDistIndexNotVisible:I
-    :goto_3a
+    :goto_1
     return v5
 
     .restart local v5       #maxDistIndexNotVisible:I
-    :cond_3b
+    :cond_3
     move v5, v4
 
-    goto :goto_3a
+    goto :goto_1
 .end method
 
 .method private getRemoteViewsBitmapMemoryUsage()I
-    .registers 6
+    .locals 5
 
     .prologue
     .line 624
@@ -336,13 +336,13 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_27
+    if-eqz v4, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -362,7 +362,7 @@
 
     .line 627
     .local v3, v:Landroid/widget/RemoteViews;
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_0
 
     .line 628
     invoke-virtual {v3}, Landroid/widget/RemoteViews;->estimateMemoryUsage()I
@@ -371,19 +371,19 @@
 
     add-int/2addr v2, v4
 
-    goto :goto_b
+    goto :goto_0
 
     .line 631
     .end local v0           #i:Ljava/lang/Integer;
     .end local v3           #v:Landroid/widget/RemoteViews;
-    :cond_27
+    :cond_1
     return v2
 .end method
 
 
 # virtual methods
 .method public commitTemporaryMetaData()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 615
@@ -392,15 +392,15 @@
     monitor-enter v1
 
     .line 616
-    :try_start_3
+    :try_start_0
     iget-object v2, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mMetaData:Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;
 
     monitor-enter v2
-    :try_end_6
-    .catchall {:try_start_3 .. :try_end_6} :catchall_13
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 617
-    :try_start_6
+    :try_start_1
     iget-object v0, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mMetaData:Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;
 
     iget-object v3, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mTemporaryMetaData:Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;
@@ -409,43 +409,43 @@
 
     .line 618
     monitor-exit v2
-    :try_end_e
-    .catchall {:try_start_6 .. :try_end_e} :catchall_10
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 619
-    :try_start_e
+    :try_start_2
     monitor-exit v1
-    :try_end_f
-    .catchall {:try_start_e .. :try_end_f} :catchall_13
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 620
     return-void
 
     .line 618
-    :catchall_10
+    :catchall_0
     move-exception v0
 
-    :try_start_11
+    :try_start_3
     monitor-exit v2
-    :try_end_12
-    .catchall {:try_start_11 .. :try_end_12} :catchall_10
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    :try_start_12
+    :try_start_4
     throw v0
 
     .line 619
-    :catchall_13
+    :catchall_1
     move-exception v0
 
     monitor-exit v1
-    :try_end_15
-    .catchall {:try_start_12 .. :try_end_15} :catchall_13
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     throw v0
 .end method
 
 .method public containsMetaDataAt(I)Z
-    .registers 4
+    .locals 2
     .parameter "position"
 
     .prologue
@@ -464,7 +464,7 @@
 .end method
 
 .method public containsRemoteViewAt(I)Z
-    .registers 4
+    .locals 2
     .parameter "position"
 
     .prologue
@@ -483,7 +483,7 @@
 .end method
 
 .method public getMetaData()Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 596
@@ -493,7 +493,7 @@
 .end method
 
 .method public getMetaDataAt(I)Landroid/widget/RemoteViewsAdapter$RemoteViewsIndexMetaData;
-    .registers 4
+    .locals 2
     .parameter "position"
 
     .prologue
@@ -508,7 +508,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     .line 609
     iget-object v0, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mIndexMetaData:Ljava/util/HashMap;
@@ -524,17 +524,17 @@
     check-cast v0, Landroid/widget/RemoteViewsAdapter$RemoteViewsIndexMetaData;
 
     .line 611
-    :goto_18
+    :goto_0
     return-object v0
 
-    :cond_19
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method public getNextIndexToLoad()[I
-    .registers 6
+    .locals 5
 
     .prologue
     .line 706
@@ -543,14 +543,14 @@
     monitor-enter v2
 
     .line 708
-    :try_start_3
+    :try_start_0
     iget-object v1, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mRequestedIndices:Ljava/util/HashSet;
 
     invoke-virtual {v1}, Ljava/util/HashSet;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_31
+    if-nez v1, :cond_0
 
     .line 709
     iget-object v1, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mRequestedIndices:Ljava/util/HashSet;
@@ -599,18 +599,18 @@
 
     .line 722
     .end local v0           #i:Ljava/lang/Integer;
-    :goto_30
+    :goto_0
     return-object v1
 
     .line 716
-    :cond_31
+    :cond_0
     iget-object v1, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mLoadIndices:Ljava/util/HashSet;
 
     invoke-virtual {v1}, Ljava/util/HashSet;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_5d
+    if-nez v1, :cond_1
 
     .line 717
     iget-object v1, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mLoadIndices:Ljava/util/HashSet;
@@ -652,37 +652,37 @@
 
     monitor-exit v2
 
-    goto :goto_30
+    goto :goto_0
 
     .line 723
     .end local v0           #i:Ljava/lang/Integer;
-    :catchall_5a
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_5c
-    .catchall {:try_start_3 .. :try_end_5c} :catchall_5a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 
     .line 722
-    :cond_5d
+    :cond_1
     const/4 v1, 0x2
 
-    :try_start_5e
+    :try_start_1
     new-array v1, v1, [I
 
-    fill-array-data v1, :array_66
+    fill-array-data v1, :array_0
 
     monitor-exit v2
-    :try_end_64
-    .catchall {:try_start_5e .. :try_end_64} :catchall_5a
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_30
+    goto :goto_0
 
     nop
 
-    :array_66
+    :array_0
     .array-data 0x4
         0xfft 0xfft 0xfft 0xfft
         0x0t 0x0t 0x0t 0x0t
@@ -690,7 +690,7 @@
 .end method
 
 .method public getRemoteViewsAt(I)Landroid/widget/RemoteViews;
-    .registers 4
+    .locals 2
     .parameter "position"
 
     .prologue
@@ -705,7 +705,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_0
 
     .line 603
     iget-object v0, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mIndexRemoteViews:Ljava/util/HashMap;
@@ -721,17 +721,17 @@
     check-cast v0, Landroid/widget/RemoteViews;
 
     .line 605
-    :goto_18
+    :goto_0
     return-object v0
 
-    :cond_19
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_18
+    goto :goto_0
 .end method
 
 .method public getTemporaryMetaData()Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 599
@@ -741,7 +741,7 @@
 .end method
 
 .method public insert(ILandroid/widget/RemoteViews;JLjava/util/ArrayList;)V
-    .registers 11
+    .locals 5
     .parameter "position"
     .parameter "v"
     .parameter "itemId"
@@ -769,7 +769,7 @@
 
     iget v3, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mMaxCount:I
 
-    if-lt v2, v3, :cond_17
+    if-lt v2, v3, :cond_0
 
     .line 571
     iget-object v2, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mIndexRemoteViews:Ljava/util/HashMap;
@@ -785,25 +785,25 @@
     invoke-virtual {v2, v3}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 575
-    :cond_17
+    :cond_0
     iget v2, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mLastRequestedIndex:I
 
     const/4 v3, -0x1
 
-    if-le v2, v3, :cond_34
+    if-le v2, v3, :cond_1
 
     iget v1, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mLastRequestedIndex:I
 
     .line 576
     .local v1, pruneFromPosition:I
-    :goto_1e
+    :goto_0
     invoke-direct {p0}, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->getRemoteViewsBitmapMemoryUsage()I
 
     move-result v2
 
     const/high16 v3, 0x20
 
-    if-lt v2, v3, :cond_36
+    if-lt v2, v3, :cond_2
 
     .line 582
     iget-object v2, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mIndexRemoteViews:Ljava/util/HashMap;
@@ -818,18 +818,18 @@
 
     invoke-virtual {v2, v3}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1e
+    goto :goto_0
 
     .end local v1           #pruneFromPosition:I
-    :cond_34
+    :cond_1
     move v1, p1
 
     .line 575
-    goto :goto_1e
+    goto :goto_0
 
     .line 586
     .restart local v1       #pruneFromPosition:I
-    :cond_36
+    :cond_2
     iget-object v2, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mIndexMetaData:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -840,7 +840,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5b
+    if-eqz v2, :cond_3
 
     .line 587
     iget-object v2, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mIndexMetaData:Ljava/util/HashMap;
@@ -861,7 +861,7 @@
 
     .line 592
     .end local v0           #metaData:Landroid/widget/RemoteViewsAdapter$RemoteViewsIndexMetaData;
-    :goto_51
+    :goto_1
     iget-object v2, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mIndexRemoteViews:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -874,7 +874,7 @@
     return-void
 
     .line 590
-    :cond_5b
+    :cond_3
     iget-object v2, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mIndexMetaData:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -887,11 +887,11 @@
 
     invoke-virtual {v2, v3, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_51
+    goto :goto_1
 .end method
 
 .method public queuePositionsToBePreloadedFromRequestedPosition(I)Z
-    .registers 11
+    .locals 9
     .parameter "position"
 
     .prologue
@@ -900,11 +900,11 @@
     .line 670
     iget v7, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mPreloadLowerBound:I
 
-    if-gt v7, p1, :cond_1b
+    if-gt v7, p1, :cond_0
 
     iget v7, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mPreloadUpperBound:I
 
-    if-gt p1, v7, :cond_1b
+    if-gt p1, v7, :cond_0
 
     .line 671
     iget v7, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mPreloadUpperBound:I
@@ -925,15 +925,15 @@
 
     iget v8, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mMaxCountSlack:I
 
-    if-ge v7, v8, :cond_1b
+    if-ge v7, v8, :cond_0
 
     .line 700
     .end local v0           #center:I
-    :goto_1a
+    :goto_0
     return v6
 
     .line 677
-    :cond_1b
+    :cond_0
     const/4 v1, 0x0
 
     .line 678
@@ -943,15 +943,15 @@
     monitor-enter v7
 
     .line 679
-    :try_start_1f
+    :try_start_0
     iget-object v6, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mMetaData:Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;
 
     iget v1, v6, Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;->count:I
 
     .line 680
     monitor-exit v7
-    :try_end_24
-    .catchall {:try_start_1f .. :try_end_24} :catchall_5d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 681
     iget-object v7, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mLoadIndices:Ljava/util/HashSet;
@@ -959,7 +959,7 @@
     monitor-enter v7
 
     .line 682
-    :try_start_27
+    :try_start_1
     iget-object v6, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mLoadIndices:Ljava/util/HashSet;
 
     invoke-virtual {v6}, Ljava/util/HashSet;->clear()V
@@ -1011,8 +1011,8 @@
     move v5, v2
 
     .local v5, i:I
-    :goto_4f
-    if-gt v5, v3, :cond_60
+    :goto_1
+    if-gt v5, v3, :cond_1
 
     .line 694
     iget-object v6, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mLoadIndices:Ljava/util/HashSet;
@@ -1022,26 +1022,26 @@
     move-result-object v8
 
     invoke-virtual {v6, v8}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-    :try_end_5a
-    .catchall {:try_start_27 .. :try_end_5a} :catchall_6e
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 693
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_4f
+    goto :goto_1
 
     .line 680
     .end local v2           #effectiveLowerBound:I
     .end local v3           #effectiveUpperBound:I
     .end local v4           #halfMaxCount:I
     .end local v5           #i:I
-    :catchall_5d
+    :catchall_0
     move-exception v6
 
-    :try_start_5e
+    :try_start_2
     monitor-exit v7
-    :try_end_5f
-    .catchall {:try_start_5e .. :try_end_5f} :catchall_5d
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v6
 
@@ -1050,8 +1050,8 @@
     .restart local v3       #effectiveUpperBound:I
     .restart local v4       #halfMaxCount:I
     .restart local v5       #i:I
-    :cond_60
-    :try_start_60
+    :cond_1
+    :try_start_3
     iget-object v6, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mLoadIndices:Ljava/util/HashSet;
 
     iget-object v8, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mIndexRemoteViews:Ljava/util/HashMap;
@@ -1068,25 +1068,25 @@
     .line 700
     const/4 v6, 0x1
 
-    goto :goto_1a
+    goto :goto_0
 
     .line 699
     .end local v2           #effectiveLowerBound:I
     .end local v3           #effectiveUpperBound:I
     .end local v4           #halfMaxCount:I
     .end local v5           #i:I
-    :catchall_6e
+    :catchall_1
     move-exception v6
 
     monitor-exit v7
-    :try_end_70
-    .catchall {:try_start_60 .. :try_end_70} :catchall_6e
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     throw v6
 .end method
 
 .method public queueRequestedPositionToLoad(I)V
-    .registers 5
+    .locals 3
     .parameter "position"
 
     .prologue
@@ -1099,7 +1099,7 @@
     monitor-enter v1
 
     .line 664
-    :try_start_5
+    :try_start_0
     iget-object v0, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mRequestedIndices:Ljava/util/HashSet;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1124,18 +1124,18 @@
     return-void
 
     .line 666
-    :catchall_19
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_1b
-    .catchall {:try_start_5 .. :try_end_1b} :catchall_19
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public reset()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, -0x1
@@ -1167,7 +1167,7 @@
     monitor-enter v1
 
     .line 744
-    :try_start_15
+    :try_start_0
     iget-object v0, p0, Landroid/widget/RemoteViewsAdapter$FixedSizeRemoteViewsCache;->mRequestedIndices:Ljava/util/HashSet;
 
     invoke-virtual {v0}, Ljava/util/HashSet;->clear()V
@@ -1184,12 +1184,12 @@
     return-void
 
     .line 746
-    :catchall_21
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_23
-    .catchall {:try_start_15 .. :try_end_23} :catchall_21
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

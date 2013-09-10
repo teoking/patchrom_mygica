@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/AbsListView;Landroid/view/View;Landroid/widget/AbsListView$PerformClick;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, 0x0
@@ -75,7 +75,7 @@
 
     iget-boolean v0, v0, Landroid/widget/AdapterView;->mDataChanged:Z
 
-    if-nez v0, :cond_1b
+    if-nez v0, :cond_0
 
     .line 3533
     iget-object v0, p0, Landroid/widget/AbsListView$1;->val$performClick:Landroid/widget/AbsListView$PerformClick;
@@ -83,6 +83,6 @@
     invoke-virtual {v0}, Landroid/widget/AbsListView$PerformClick;->run()V
 
     .line 3535
-    :cond_1b
+    :cond_0
     return-void
 .end method

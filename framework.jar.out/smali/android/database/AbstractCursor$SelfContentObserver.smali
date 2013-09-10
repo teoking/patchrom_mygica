@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/database/AbstractCursor;)V
-    .registers 3
+    .locals 1
     .parameter "cursor"
 
     .prologue
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public deliverSelfNotifications()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 442
@@ -62,7 +62,7 @@
 .end method
 
 .method public onChange(Z)V
-    .registers 4
+    .locals 2
     .parameter "selfChange"
 
     .prologue
@@ -77,7 +77,7 @@
 
     .line 448
     .local v0, cursor:Landroid/database/AbstractCursor;
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 449
     const/4 v1, 0x0
@@ -85,6 +85,6 @@
     invoke-virtual {v0, v1}, Landroid/database/AbstractCursor;->onChange(Z)V
 
     .line 451
-    :cond_e
+    :cond_0
     return-void
 .end method

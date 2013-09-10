@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 930
@@ -70,7 +70,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 899
@@ -81,7 +81,7 @@
 .end method
 
 .method static obtain(IIIJ)Landroid/widget/ExpandableListConnector$GroupMetadata;
-    .registers 6
+    .locals 1
     .parameter "flPos"
     .parameter "lastChildFlPos"
     .parameter "gPos"
@@ -113,12 +113,12 @@
 
 # virtual methods
 .method public compareTo(Landroid/widget/ExpandableListConnector$GroupMetadata;)I
-    .registers 4
+    .locals 2
     .parameter "another"
 
     .prologue
     .line 912
-    if-nez p1, :cond_8
+    if-nez p1, :cond_0
 
     .line 913
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -128,7 +128,7 @@
     throw v0
 
     .line 916
-    :cond_8
+    :cond_0
     iget v0, p0, Landroid/widget/ExpandableListConnector$GroupMetadata;->gPos:I
 
     iget v1, p1, Landroid/widget/ExpandableListConnector$GroupMetadata;->gPos:I
@@ -139,7 +139,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -155,7 +155,7 @@
 .end method
 
 .method public describeContents()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 920
@@ -165,7 +165,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .registers 5
+    .locals 2
     .parameter "dest"
     .parameter "flags"
 

@@ -63,7 +63,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 2
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public static final getDefault()Landroid/telephony/gsm/SmsManager;
-    .registers 1
+    .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -91,7 +91,7 @@
     .line 40
     sget-object v0, Landroid/telephony/gsm/SmsManager;->sInstance:Landroid/telephony/gsm/SmsManager;
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .line 41
     new-instance v0, Landroid/telephony/gsm/SmsManager;
@@ -101,7 +101,7 @@
     sput-object v0, Landroid/telephony/gsm/SmsManager;->sInstance:Landroid/telephony/gsm/SmsManager;
 
     .line 43
-    :cond_b
+    :cond_0
     sget-object v0, Landroid/telephony/gsm/SmsManager;->sInstance:Landroid/telephony/gsm/SmsManager;
 
     return-object v0
@@ -110,7 +110,7 @@
 
 # virtual methods
 .method public final copyMessageToSim([B[BI)Z
-    .registers 5
+    .locals 1
     .parameter "smsc"
     .parameter "pdu"
     .parameter "status"
@@ -129,7 +129,7 @@
 .end method
 
 .method public final deleteMessageFromSim(I)Z
-    .registers 3
+    .locals 1
     .parameter "messageIndex"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -146,7 +146,7 @@
 .end method
 
 .method public final divideMessage(Ljava/lang/String;)Ljava/util/ArrayList;
-    .registers 3
+    .locals 1
     .parameter "text"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -175,7 +175,7 @@
 .end method
 
 .method public final getAllMessagesFromSim()Ljava/util/ArrayList;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -201,7 +201,7 @@
 .end method
 
 .method public final sendDataMessage(Ljava/lang/String;Ljava/lang/String;S[BLandroid/app/PendingIntent;Landroid/app/PendingIntent;)V
-    .registers 14
+    .locals 7
     .parameter "destinationAddress"
     .parameter "scAddress"
     .parameter "destinationPort"
@@ -234,7 +234,7 @@
 .end method
 
 .method public final sendMultipartTextMessage(Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
-    .registers 12
+    .locals 6
     .parameter "destinationAddress"
     .parameter "scAddress"
     .parameter
@@ -287,7 +287,7 @@
 .end method
 
 .method public final sendTextMessage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V
-    .registers 12
+    .locals 6
     .parameter "destinationAddress"
     .parameter "scAddress"
     .parameter "text"
@@ -317,7 +317,7 @@
 .end method
 
 .method public final updateMessageOnSim(II[B)Z
-    .registers 5
+    .locals 1
     .parameter "messageIndex"
     .parameter "newStatus"
     .parameter "pdu"

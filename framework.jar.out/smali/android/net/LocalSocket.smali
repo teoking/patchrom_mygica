@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v1, 0x0
@@ -40,7 +40,7 @@
 .end method
 
 .method constructor <init>(Landroid/net/LocalSocketImpl;)V
-    .registers 3
+    .locals 1
     .parameter "impl"
 
     .prologue
@@ -63,7 +63,7 @@
 .end method
 
 .method private implCreateIfNeeded()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -74,45 +74,45 @@
     .line 70
     iget-boolean v0, p0, Landroid/net/LocalSocket;->implCreated:Z
 
-    if-nez v0, :cond_13
+    if-nez v0, :cond_1
 
     .line 71
     monitor-enter p0
 
     .line 72
-    :try_start_5
+    :try_start_0
     iget-boolean v0, p0, Landroid/net/LocalSocket;->implCreated:Z
-    :try_end_7
-    .catchall {:try_start_5 .. :try_end_7} :catchall_19
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_0
 
     .line 74
-    :try_start_9
+    :try_start_1
     iget-object v0, p0, Landroid/net/LocalSocket;->impl:Landroid/net/LocalSocketImpl;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/net/LocalSocketImpl;->create(Z)V
-    :try_end_f
-    .catchall {:try_start_9 .. :try_end_f} :catchall_14
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 76
     const/4 v0, 0x1
 
-    :try_start_10
+    :try_start_2
     iput-boolean v0, p0, Landroid/net/LocalSocket;->implCreated:Z
 
     .line 79
-    :cond_12
+    :cond_0
     monitor-exit p0
 
     .line 81
-    :cond_13
+    :cond_1
     return-void
 
     .line 76
-    :catchall_14
+    :catchall_0
     move-exception v0
 
     const/4 v1, 0x1
@@ -122,12 +122,12 @@
     throw v0
 
     .line 79
-    :catchall_19
+    :catchall_1
     move-exception v0
 
     monitor-exit p0
-    :try_end_1b
-    .catchall {:try_start_10 .. :try_end_1b} :catchall_19
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     throw v0
 .end method
@@ -135,7 +135,7 @@
 
 # virtual methods
 .method public bind(Landroid/net/LocalSocketAddress;)V
-    .registers 4
+    .locals 2
     .parameter "bindpoint"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -151,10 +151,10 @@
     monitor-enter p0
 
     .line 115
-    :try_start_4
+    :try_start_0
     iget-boolean v0, p0, Landroid/net/LocalSocket;->isBound:Z
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 116
     new-instance v0, Ljava/io/IOException;
@@ -166,18 +166,18 @@
     throw v0
 
     .line 122
-    :catchall_10
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_12
-    .catchall {:try_start_4 .. :try_end_12} :catchall_10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 119
-    :cond_13
-    :try_start_13
+    :cond_0
+    :try_start_1
     iput-object p1, p0, Landroid/net/LocalSocket;->localAddress:Landroid/net/LocalSocketAddress;
 
     .line 120
@@ -194,15 +194,15 @@
 
     .line 122
     monitor-exit p0
-    :try_end_20
-    .catchall {:try_start_13 .. :try_end_20} :catchall_10
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 123
     return-void
 .end method
 
 .method public close()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -223,7 +223,7 @@
 .end method
 
 .method public connect(Landroid/net/LocalSocketAddress;)V
-    .registers 4
+    .locals 2
     .parameter "endpoint"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -236,10 +236,10 @@
     monitor-enter p0
 
     .line 93
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/net/LocalSocket;->isConnected:Z
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     .line 94
     new-instance v0, Ljava/io/IOException;
@@ -251,18 +251,18 @@
     throw v0
 
     .line 101
-    :catchall_d
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
-    :try_end_f
-    .catchall {:try_start_1 .. :try_end_f} :catchall_d
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 97
-    :cond_10
-    :try_start_10
+    :cond_0
+    :try_start_1
     invoke-direct {p0}, Landroid/net/LocalSocket;->implCreateIfNeeded()V
 
     .line 98
@@ -284,15 +284,15 @@
 
     .line 101
     monitor-exit p0
-    :try_end_20
-    .catchall {:try_start_10 .. :try_end_20} :catchall_d
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 102
     return-void
 .end method
 
 .method public connect(Landroid/net/LocalSocketAddress;I)V
-    .registers 4
+    .locals 1
     .parameter "endpoint"
     .parameter "timeout"
     .annotation system Ldalvik/annotation/Throws;
@@ -311,7 +311,7 @@
 .end method
 
 .method public getAncillaryFileDescriptors()[Ljava/io/FileDescriptor;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -330,7 +330,7 @@
 .end method
 
 .method public getFileDescriptor()Ljava/io/FileDescriptor;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 289
@@ -344,7 +344,7 @@
 .end method
 
 .method public getInputStream()Ljava/io/InputStream;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -366,7 +366,7 @@
 .end method
 
 .method public getLocalSocketAddress()Landroid/net/LocalSocketAddress;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 131
@@ -376,7 +376,7 @@
 .end method
 
 .method public getOutputStream()Ljava/io/OutputStream;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -398,7 +398,7 @@
 .end method
 
 .method public getPeerCredentials()Landroid/net/Credentials;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -417,7 +417,7 @@
 .end method
 
 .method public getReceiveBufferSize()I
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -444,7 +444,7 @@
 .end method
 
 .method public getRemoteSocketAddress()Landroid/net/LocalSocketAddress;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 212
@@ -456,7 +456,7 @@
 .end method
 
 .method public getSendBufferSize()I
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -483,7 +483,7 @@
 .end method
 
 .method public getSoTimeout()I
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -510,22 +510,22 @@
 .end method
 
 .method public declared-synchronized isBound()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 227
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/net/LocalSocket;->isBound:Z
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -534,7 +534,7 @@
 .end method
 
 .method public isClosed()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 222
@@ -546,22 +546,22 @@
 .end method
 
 .method public declared-synchronized isConnected()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 217
     monitor-enter p0
 
-    :try_start_1
+    :try_start_0
     iget-boolean v0, p0, Landroid/net/LocalSocket;->isConnected:Z
-    :try_end_3
-    .catchall {:try_start_1 .. :try_end_3} :catchall_5
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
     return v0
 
-    :catchall_5
+    :catchall_0
     move-exception v0
 
     monitor-exit p0
@@ -570,7 +570,7 @@
 .end method
 
 .method public isInputShutdown()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 237
@@ -582,7 +582,7 @@
 .end method
 
 .method public isOutputShutdown()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 232
@@ -594,7 +594,7 @@
 .end method
 
 .method public setFileDescriptorsForSend([Ljava/io/FileDescriptor;)V
-    .registers 3
+    .locals 1
     .parameter "fds"
 
     .prologue
@@ -608,7 +608,7 @@
 .end method
 
 .method public setReceiveBufferSize(I)V
-    .registers 5
+    .locals 3
     .parameter "size"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -633,7 +633,7 @@
 .end method
 
 .method public setSendBufferSize(I)V
-    .registers 5
+    .locals 3
     .parameter "n"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -658,7 +658,7 @@
 .end method
 
 .method public setSoTimeout(I)V
-    .registers 5
+    .locals 3
     .parameter "n"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -683,7 +683,7 @@
 .end method
 
 .method public shutdownInput()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -704,7 +704,7 @@
 .end method
 
 .method public shutdownOutput()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -725,7 +725,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 59

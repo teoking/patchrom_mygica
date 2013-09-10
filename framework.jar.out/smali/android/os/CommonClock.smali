@@ -83,7 +83,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -139,7 +139,7 @@
     .line 123
     iget-object v0, p0, Landroid/os/CommonClock;->mRemote:Landroid/os/IBinder;
 
-    if-nez v0, :cond_30
+    if-nez v0, :cond_0
 
     .line 124
     new-instance v0, Landroid/os/RemoteException;
@@ -149,7 +149,7 @@
     throw v0
 
     .line 126
-    :cond_30
+    :cond_0
     iget-object v0, p0, Landroid/os/CommonClock;->mRemote:Landroid/os/IBinder;
 
     invoke-interface {v0}, Landroid/os/IBinder;->getInterfaceDescriptor()Ljava/lang/String;
@@ -186,7 +186,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/os/CommonClock;)Ljava/lang/Object;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -197,7 +197,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/os/CommonClock;)Landroid/os/CommonClock$OnServerDiedListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -208,7 +208,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/os/CommonClock;)Landroid/os/CommonClock$OnTimelineChangedListener;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -219,7 +219,7 @@
 .end method
 
 .method public static create()Landroid/os/CommonClock;
-    .registers 2
+    .locals 2
 
     .prologue
     .line 139
@@ -227,17 +227,17 @@
     new-instance v1, Landroid/os/CommonClock;
 
     invoke-direct {v1}, Landroid/os/CommonClock;-><init>()V
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_6
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 145
     .local v1, retVal:Landroid/os/CommonClock;
-    :goto_5
+    :goto_0
     return-object v1
 
     .line 141
     .end local v1           #retVal:Landroid/os/CommonClock;
-    :catch_6
+    :catch_0
     move-exception v0
 
     .line 142
@@ -245,11 +245,11 @@
     const/4 v1, 0x0
 
     .restart local v1       #retVal:Landroid/os/CommonClock;
-    goto :goto_5
+    goto :goto_0
 .end method
 
 .method private registerTimelineChangeListener()V
-    .registers 10
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -264,15 +264,15 @@
     .line 347
     iget-object v5, p0, Landroid/os/CommonClock;->mCallbackTgt:Landroid/os/CommonClock$TimelineChangedListener;
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_1
 
     .line 377
-    :cond_6
-    :goto_6
+    :cond_0
+    :goto_0
     return-void
 
     .line 350
-    :cond_7
+    :cond_1
     const/4 v3, 0x0
 
     .line 351
@@ -296,7 +296,7 @@
     iput-object v5, p0, Landroid/os/CommonClock;->mCallbackTgt:Landroid/os/CommonClock$TimelineChangedListener;
 
     .line 356
-    :try_start_17
+    :try_start_0
     iget-object v5, p0, Landroid/os/CommonClock;->mInterfaceDesc:Ljava/lang/String;
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -317,26 +317,26 @@
 
     .line 359
     invoke-virtual {v2}, Landroid/os/Parcel;->readInt()I
-    :try_end_2c
-    .catchall {:try_start_17 .. :try_end_2c} :catchall_4a
-    .catch Landroid/os/RemoteException; {:try_start_17 .. :try_end_2c} :catch_41
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v5
 
-    if-nez v5, :cond_3f
+    if-nez v5, :cond_2
 
     const/4 v3, 0x1
 
     .line 365
-    :goto_30
+    :goto_1
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
 
     .line 366
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     .line 372
-    :goto_36
-    if-nez v3, :cond_6
+    :goto_2
+    if-nez v3, :cond_0
 
     .line 373
     iput-object v8, p0, Landroid/os/CommonClock;->mCallbackTgt:Landroid/os/CommonClock$TimelineChangedListener;
@@ -347,16 +347,16 @@
     .line 375
     iput-object v8, p0, Landroid/os/CommonClock;->mUtils:Landroid/os/CommonTimeUtils;
 
-    goto :goto_6
+    goto :goto_0
 
-    :cond_3f
+    :cond_2
     move v3, v4
 
     .line 359
-    goto :goto_30
+    goto :goto_1
 
     .line 361
-    :catch_41
+    :catch_0
     move-exception v1
 
     .line 362
@@ -369,11 +369,11 @@
     .line 366
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    goto :goto_36
+    goto :goto_2
 
     .line 365
     .end local v1           #e:Landroid/os/RemoteException;
-    :catchall_4a
+    :catchall_0
     move-exception v4
 
     invoke-virtual {v2}, Landroid/os/Parcel;->recycle()V
@@ -385,7 +385,7 @@
 .end method
 
 .method private throwOnDeadServer()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -396,14 +396,14 @@
     .line 302
     iget-object v0, p0, Landroid/os/CommonClock;->mRemote:Landroid/os/IBinder;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/os/CommonClock;->mUtils:Landroid/os/CommonTimeUtils;
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_1
 
     .line 303
-    :cond_8
+    :cond_0
     new-instance v0, Landroid/os/RemoteException;
 
     invoke-direct {v0}, Landroid/os/RemoteException;-><init>()V
@@ -411,12 +411,12 @@
     throw v0
 
     .line 304
-    :cond_e
+    :cond_1
     return-void
 .end method
 
 .method private unregisterTimelineChangeListener()V
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v5, 0x0
@@ -424,14 +424,14 @@
     .line 380
     iget-object v2, p0, Landroid/os/CommonClock;->mCallbackTgt:Landroid/os/CommonClock$TimelineChangedListener;
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_0
 
     .line 397
-    :goto_5
+    :goto_0
     return-void
 
     .line 383
-    :cond_6
+    :cond_0
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
@@ -444,7 +444,7 @@
 
     .line 387
     .local v1, reply:Landroid/os/Parcel;
-    :try_start_e
+    :try_start_0
     iget-object v2, p0, Landroid/os/CommonClock;->mInterfaceDesc:Ljava/lang/String;
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
@@ -462,9 +462,9 @@
     const/4 v4, 0x0
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_20
-    .catchall {:try_start_e .. :try_end_20} :catchall_33
-    .catch Landroid/os/RemoteException; {:try_start_e .. :try_end_20} :catch_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 393
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -475,10 +475,10 @@
     .line 395
     iput-object v5, p0, Landroid/os/CommonClock;->mCallbackTgt:Landroid/os/CommonClock$TimelineChangedListener;
 
-    goto :goto_5
+    goto :goto_0
 
     .line 391
-    :catch_29
+    :catch_0
     move-exception v2
 
     .line 393
@@ -490,10 +490,10 @@
     .line 395
     iput-object v5, p0, Landroid/os/CommonClock;->mCallbackTgt:Landroid/os/CommonClock$TimelineChangedListener;
 
-    goto :goto_5
+    goto :goto_0
 
     .line 393
-    :catchall_33
+    :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -510,7 +510,7 @@
 
 # virtual methods
 .method protected finalize()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -525,7 +525,7 @@
 .end method
 
 .method public getEstimatedError()I
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -551,7 +551,7 @@
 .end method
 
 .method public getMasterAddr()Ljava/net/InetSocketAddress;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -575,7 +575,7 @@
 .end method
 
 .method public getState()I
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -601,7 +601,7 @@
 .end method
 
 .method public getTime()J
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -627,7 +627,7 @@
 .end method
 
 .method public getTimelineId()J
-    .registers 5
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -653,7 +653,7 @@
 .end method
 
 .method public release()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v3, 0x0
@@ -664,10 +664,10 @@
     .line 159
     iget-object v0, p0, Landroid/os/CommonClock;->mRemote:Landroid/os/IBinder;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     .line 161
-    :try_start_8
+    :try_start_0
     iget-object v0, p0, Landroid/os/CommonClock;->mRemote:Landroid/os/IBinder;
 
     iget-object v1, p0, Landroid/os/CommonClock;->mDeathHandler:Landroid/os/IBinder$DeathRecipient;
@@ -675,29 +675,29 @@
     const/4 v2, 0x0
 
     invoke-interface {v0, v1, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
-    :try_end_10
-    .catch Ljava/util/NoSuchElementException; {:try_start_8 .. :try_end_10} :catch_15
+    :try_end_0
+    .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 164
-    :goto_10
+    :goto_0
     iput-object v3, p0, Landroid/os/CommonClock;->mRemote:Landroid/os/IBinder;
 
     .line 166
-    :cond_12
+    :cond_0
     iput-object v3, p0, Landroid/os/CommonClock;->mUtils:Landroid/os/CommonTimeUtils;
 
     .line 167
     return-void
 
     .line 163
-    :catch_15
+    :catch_0
     move-exception v0
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 .method public setServerDiedListener(Landroid/os/CommonClock$OnServerDiedListener;)V
-    .registers 4
+    .locals 2
     .parameter "listener"
 
     .prologue
@@ -707,7 +707,7 @@
     monitor-enter v1
 
     .line 295
-    :try_start_3
+    :try_start_0
     iput-object p1, p0, Landroid/os/CommonClock;->mServerDiedListener:Landroid/os/CommonClock$OnServerDiedListener;
 
     .line 296
@@ -717,18 +717,18 @@
     return-void
 
     .line 296
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_9
-    .catchall {:try_start_3 .. :try_end_9} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setTimelineChangedListener(Landroid/os/CommonClock$OnTimelineChangedListener;)V
-    .registers 4
+    .locals 2
     .parameter "listener"
 
     .prologue
@@ -738,7 +738,7 @@
     monitor-enter v1
 
     .line 267
-    :try_start_3
+    :try_start_0
     iput-object p1, p0, Landroid/os/CommonClock;->mTimelineChangedListener:Landroid/os/CommonClock$OnTimelineChangedListener;
 
     .line 268
@@ -748,12 +748,12 @@
     return-void
 
     .line 268
-    :catchall_7
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_9
-    .catchall {:try_start_3 .. :try_end_9} :catchall_7
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method

@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, -0x2
@@ -123,7 +123,7 @@
 .end method
 
 .method private trySendAccessibilityEvent()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 397
@@ -143,14 +143,14 @@
 
     move-result v2
 
-    if-nez v2, :cond_11
+    if-nez v2, :cond_0
 
     .line 410
-    :goto_10
+    :goto_0
     return-void
 
     .line 404
-    :cond_11
+    :cond_0
     const/16 v2, 0x40
 
     invoke-static {v2}, Landroid/view/accessibility/AccessibilityEvent;->obtain(I)Landroid/view/accessibility/AccessibilityEvent;
@@ -190,19 +190,19 @@
     .line 409
     invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityManager;->sendAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
-    goto :goto_10
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public handleHide()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 414
     iget-object v0, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_1
 
     .line 418
     iget-object v0, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
@@ -211,7 +211,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_0
 
     .line 420
     iget-object v0, p0, Landroid/widget/Toast$TN;->mWM:Landroid/view/WindowManagerImpl;
@@ -221,18 +221,18 @@
     invoke-virtual {v0, v1}, Landroid/view/WindowManagerImpl;->removeView(Landroid/view/View;)V
 
     .line 423
-    :cond_13
+    :cond_0
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
     .line 425
-    :cond_16
+    :cond_1
     return-void
 .end method
 
 .method public handleShow()V
-    .registers 5
+    .locals 4
 
     .prologue
     const/high16 v3, 0x3f80
@@ -242,7 +242,7 @@
 
     iget-object v2, p0, Landroid/widget/Toast$TN;->mNextView:Landroid/view/View;
 
-    if-eq v1, v2, :cond_61
+    if-eq v1, v2, :cond_3
 
     .line 371
     invoke-virtual {p0}, Landroid/widget/Toast$TN;->handleHide()V
@@ -273,7 +273,7 @@
 
     const/4 v2, 0x7
 
-    if-ne v1, v2, :cond_24
+    if-ne v1, v2, :cond_0
 
     .line 377
     iget-object v1, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
@@ -281,12 +281,12 @@
     iput v3, v1, Landroid/view/WindowManager$LayoutParams;->horizontalWeight:F
 
     .line 379
-    :cond_24
+    :cond_0
     and-int/lit8 v1, v0, 0x70
 
     const/16 v2, 0x70
 
-    if-ne v1, v2, :cond_2e
+    if-ne v1, v2, :cond_1
 
     .line 380
     iget-object v1, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
@@ -294,7 +294,7 @@
     iput v3, v1, Landroid/view/WindowManager$LayoutParams;->verticalWeight:F
 
     .line 382
-    :cond_2e
+    :cond_1
     iget-object v1, p0, Landroid/widget/Toast$TN;->mParams:Landroid/view/WindowManager$LayoutParams;
 
     iget v2, p0, Landroid/widget/Toast$TN;->mX:I
@@ -329,7 +329,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_55
+    if-eqz v1, :cond_2
 
     .line 388
     iget-object v1, p0, Landroid/widget/Toast$TN;->mWM:Landroid/view/WindowManagerImpl;
@@ -339,7 +339,7 @@
     invoke-virtual {v1, v2}, Landroid/view/WindowManagerImpl;->removeView(Landroid/view/View;)V
 
     .line 391
-    :cond_55
+    :cond_2
     iget-object v1, p0, Landroid/widget/Toast$TN;->mWM:Landroid/view/WindowManagerImpl;
 
     iget-object v2, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
@@ -353,12 +353,12 @@
 
     .line 394
     .end local v0           #gravity:I
-    :cond_61
+    :cond_3
     return-void
 .end method
 
 .method public hide()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 363
@@ -373,7 +373,7 @@
 .end method
 
 .method public show()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 355

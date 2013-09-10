@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 3
+    .locals 1
     .parameter "value"
 
     .prologue
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method isEmpty()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 2083

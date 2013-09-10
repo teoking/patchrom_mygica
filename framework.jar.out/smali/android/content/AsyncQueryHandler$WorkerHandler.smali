@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/AsyncQueryHandler;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "looper"
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 14
+    .locals 12
     .parameter "msg"
 
     .prologue
@@ -55,14 +55,14 @@
 
     .line 68
     .local v0, resolver:Landroid/content/ContentResolver;
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 121
-    :goto_c
+    :goto_0
     return-void
 
     .line 70
-    :cond_d
+    :cond_0
     iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v6, Landroid/content/AsyncQueryHandler$WorkerArgs;
@@ -77,10 +77,10 @@
 
     .line 75
     .local v9, event:I
-    packed-switch v9, :pswitch_data_78
+    packed-switch v9, :pswitch_data_0
 
     .line 111
-    :goto_18
+    :goto_1
     iget-object v1, v6, Landroid/content/AsyncQueryHandler$WorkerArgs;->handler:Landroid/os/Handler;
 
     invoke-virtual {v1, v11}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
@@ -99,12 +99,12 @@
     .line 120
     invoke-virtual {v10}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_c
+    goto :goto_0
 
     .line 79
     .end local v10           #reply:Landroid/os/Message;
-    :pswitch_28
-    :try_start_28
+    :pswitch_0
+    :try_start_0
     iget-object v1, v6, Landroid/content/AsyncQueryHandler$WorkerArgs;->uri:Landroid/net/Uri;
 
     iget-object v2, v6, Landroid/content/AsyncQueryHandler$WorkerArgs;->projection:[Ljava/lang/String;
@@ -121,23 +121,23 @@
 
     .line 84
     .local v7, cursor:Landroid/database/Cursor;
-    if-eqz v7, :cond_3b
+    if-eqz v7, :cond_1
 
     .line 85
     invoke-interface {v7}, Landroid/database/Cursor;->getCount()I
-    :try_end_3b
-    .catch Ljava/lang/Exception; {:try_start_28 .. :try_end_3b} :catch_3e
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 92
-    :cond_3b
-    :goto_3b
+    :cond_1
+    :goto_2
     iput-object v7, v6, Landroid/content/AsyncQueryHandler$WorkerArgs;->result:Ljava/lang/Object;
 
-    goto :goto_18
+    goto :goto_1
 
     .line 87
     .end local v7           #cursor:Landroid/database/Cursor;
-    :catch_3e
+    :catch_0
     move-exception v8
 
     .line 88
@@ -152,12 +152,12 @@
     const/4 v7, 0x0
 
     .restart local v7       #cursor:Landroid/database/Cursor;
-    goto :goto_3b
+    goto :goto_2
 
     .line 96
     .end local v7           #cursor:Landroid/database/Cursor;
     .end local v8           #e:Ljava/lang/Exception;
-    :pswitch_48
+    :pswitch_1
     iget-object v1, v6, Landroid/content/AsyncQueryHandler$WorkerArgs;->uri:Landroid/net/Uri;
 
     iget-object v2, v6, Landroid/content/AsyncQueryHandler$WorkerArgs;->values:Landroid/content/ContentValues;
@@ -168,10 +168,10 @@
 
     iput-object v1, v6, Landroid/content/AsyncQueryHandler$WorkerArgs;->result:Ljava/lang/Object;
 
-    goto :goto_18
+    goto :goto_1
 
     .line 100
-    :pswitch_53
+    :pswitch_2
     iget-object v1, v6, Landroid/content/AsyncQueryHandler$WorkerArgs;->uri:Landroid/net/Uri;
 
     iget-object v2, v6, Landroid/content/AsyncQueryHandler$WorkerArgs;->values:Landroid/content/ContentValues;
@@ -190,10 +190,10 @@
 
     iput-object v1, v6, Landroid/content/AsyncQueryHandler$WorkerArgs;->result:Ljava/lang/Object;
 
-    goto :goto_18
+    goto :goto_1
 
     .line 105
-    :pswitch_66
+    :pswitch_3
     iget-object v1, v6, Landroid/content/AsyncQueryHandler$WorkerArgs;->uri:Landroid/net/Uri;
 
     iget-object v2, v6, Landroid/content/AsyncQueryHandler$WorkerArgs;->selection:Ljava/lang/String;
@@ -210,16 +210,16 @@
 
     iput-object v1, v6, Landroid/content/AsyncQueryHandler$WorkerArgs;->result:Ljava/lang/Object;
 
-    goto :goto_18
+    goto :goto_1
 
     .line 75
     nop
 
-    :pswitch_data_78
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_28
-        :pswitch_48
-        :pswitch_53
-        :pswitch_66
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method

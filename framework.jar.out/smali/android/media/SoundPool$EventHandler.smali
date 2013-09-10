@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/media/SoundPool;Landroid/media/SoundPool;Landroid/os/Looper;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "soundPool"
     .parameter "looper"
@@ -44,14 +44,14 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 7
+    .locals 5
     .parameter "msg"
 
     .prologue
     .line 445
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_44
+    packed-switch v0, :pswitch_data_0
 
     .line 455
     const-string v0, "SoundPool"
@@ -79,13 +79,14 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 458
-    :goto_1f
+    :goto_0
     return-void
 
     .line 448
-    :pswitch_20
+    :pswitch_0
     iget-object v0, p0, Landroid/media/SoundPool$EventHandler;->this$0:Landroid/media/SoundPool;
 
+    #getter for: Landroid/media/SoundPool;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/media/SoundPool;->access$000(Landroid/media/SoundPool;)Ljava/lang/Object;
 
     move-result-object v1
@@ -93,18 +94,20 @@
     monitor-enter v1
 
     .line 449
-    :try_start_27
+    :try_start_0
     iget-object v0, p0, Landroid/media/SoundPool$EventHandler;->this$0:Landroid/media/SoundPool;
 
+    #getter for: Landroid/media/SoundPool;->mOnLoadCompleteListener:Landroid/media/SoundPool$OnLoadCompleteListener;
     invoke-static {v0}, Landroid/media/SoundPool;->access$100(Landroid/media/SoundPool;)Landroid/media/SoundPool$OnLoadCompleteListener;
 
     move-result-object v0
 
-    if-eqz v0, :cond_3e
+    if-eqz v0, :cond_0
 
     .line 450
     iget-object v0, p0, Landroid/media/SoundPool$EventHandler;->this$0:Landroid/media/SoundPool;
 
+    #getter for: Landroid/media/SoundPool;->mOnLoadCompleteListener:Landroid/media/SoundPool$OnLoadCompleteListener;
     invoke-static {v0}, Landroid/media/SoundPool;->access$100(Landroid/media/SoundPool;)Landroid/media/SoundPool$OnLoadCompleteListener;
 
     move-result-object v0
@@ -118,25 +121,25 @@
     invoke-interface {v0, v2, v3, v4}, Landroid/media/SoundPool$OnLoadCompleteListener;->onLoadComplete(Landroid/media/SoundPool;II)V
 
     .line 452
-    :cond_3e
+    :cond_0
     monitor-exit v1
 
-    goto :goto_1f
+    goto :goto_0
 
-    :catchall_40
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_42
-    .catchall {:try_start_27 .. :try_end_42} :catchall_40
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     .line 445
     nop
 
-    :pswitch_data_44
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_20
+        :pswitch_0
     .end packed-switch
 .end method

@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/TextMessage;Lcom/android/internal/telephony/cat/TextMessage;)V
-    .registers 4
+    .locals 0
     .parameter "cmdDet"
     .parameter "confirmMsg"
     .parameter "callMsg"
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method setIcon(Landroid/graphics/Bitmap;)Z
-    .registers 5
+    .locals 3
     .parameter "icon"
 
     .prologue
@@ -42,24 +42,24 @@
     const/4 v0, 0x0
 
     .line 115
-    if-nez p1, :cond_5
+    if-nez p1, :cond_1
 
     .line 125
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     return v0
 
     .line 118
-    :cond_5
+    :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/cat/CallSetupParams;->confirmMsg:Lcom/android/internal/telephony/cat/TextMessage;
 
-    if-eqz v2, :cond_15
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Lcom/android/internal/telephony/cat/CallSetupParams;->confirmMsg:Lcom/android/internal/telephony/cat/TextMessage;
 
     iget-object v2, v2, Lcom/android/internal/telephony/cat/TextMessage;->icon:Landroid/graphics/Bitmap;
 
-    if-nez v2, :cond_15
+    if-nez v2, :cond_2
 
     .line 119
     iget-object v0, p0, Lcom/android/internal/telephony/cat/CallSetupParams;->confirmMsg:Lcom/android/internal/telephony/cat/TextMessage;
@@ -69,19 +69,19 @@
     move v0, v1
 
     .line 120
-    goto :goto_4
+    goto :goto_0
 
     .line 121
-    :cond_15
+    :cond_2
     iget-object v2, p0, Lcom/android/internal/telephony/cat/CallSetupParams;->callMsg:Lcom/android/internal/telephony/cat/TextMessage;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Lcom/android/internal/telephony/cat/CallSetupParams;->callMsg:Lcom/android/internal/telephony/cat/TextMessage;
 
     iget-object v2, v2, Lcom/android/internal/telephony/cat/TextMessage;->icon:Landroid/graphics/Bitmap;
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_0
 
     .line 122
     iget-object v0, p0, Lcom/android/internal/telephony/cat/CallSetupParams;->callMsg:Lcom/android/internal/telephony/cat/TextMessage;
@@ -91,5 +91,5 @@
     move v0, v1
 
     .line 123
-    goto :goto_4
+    goto :goto_0
 .end method

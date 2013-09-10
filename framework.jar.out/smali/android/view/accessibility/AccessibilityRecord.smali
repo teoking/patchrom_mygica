@@ -86,7 +86,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 74
@@ -100,7 +100,7 @@
 .end method
 
 .method constructor <init>()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v2, -0x1
@@ -168,7 +168,7 @@
 .end method
 
 .method private getBooleanProperty(I)Z
-    .registers 3
+    .locals 1
     .parameter "property"
 
     .prologue
@@ -177,21 +177,21 @@
 
     and-int/2addr v0, p1
 
-    if-ne v0, p1, :cond_7
+    if-ne v0, p1, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_6
+    :goto_0
     return v0
 
-    :cond_7
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public static obtain()Landroid/view/accessibility/AccessibilityRecord;
-    .registers 3
+    .locals 3
 
     .prologue
     .line 715
@@ -200,10 +200,10 @@
     monitor-enter v2
 
     .line 716
-    :try_start_3
+    :try_start_0
     sget-object v1, Landroid/view/accessibility/AccessibilityRecord;->sPool:Landroid/view/accessibility/AccessibilityRecord;
 
-    if-eqz v1, :cond_1d
+    if-eqz v1, :cond_0
 
     .line 717
     sget-object v0, Landroid/view/accessibility/AccessibilityRecord;->sPool:Landroid/view/accessibility/AccessibilityRecord;
@@ -238,31 +238,31 @@
 
     .line 724
     .end local v0           #record:Landroid/view/accessibility/AccessibilityRecord;
-    :goto_1c
+    :goto_0
     return-object v0
 
-    :cond_1d
+    :cond_0
     new-instance v0, Landroid/view/accessibility/AccessibilityRecord;
 
     invoke-direct {v0}, Landroid/view/accessibility/AccessibilityRecord;-><init>()V
 
     monitor-exit v2
 
-    goto :goto_1c
+    goto :goto_0
 
     .line 725
-    :catchall_24
+    :catchall_0
     move-exception v1
 
     monitor-exit v2
-    :try_end_26
-    .catchall {:try_start_3 .. :try_end_26} :catchall_24
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method public static obtain(Landroid/view/accessibility/AccessibilityRecord;)Landroid/view/accessibility/AccessibilityRecord;
-    .registers 2
+    .locals 1
     .parameter "record"
 
     .prologue
@@ -280,13 +280,13 @@
 .end method
 
 .method private setBooleanProperty(IZ)V
-    .registers 5
+    .locals 2
     .parameter "property"
     .parameter "value"
 
     .prologue
     .line 688
-    if-eqz p2, :cond_8
+    if-eqz p2, :cond_0
 
     .line 689
     iget v0, p0, Landroid/view/accessibility/AccessibilityRecord;->mBooleanProperties:I
@@ -296,11 +296,11 @@
     iput v0, p0, Landroid/view/accessibility/AccessibilityRecord;->mBooleanProperties:I
 
     .line 693
-    :goto_7
+    :goto_0
     return-void
 
     .line 691
-    :cond_8
+    :cond_0
     iget v0, p0, Landroid/view/accessibility/AccessibilityRecord;->mBooleanProperties:I
 
     xor-int/lit8 v1, p1, -0x1
@@ -309,13 +309,13 @@
 
     iput v0, p0, Landroid/view/accessibility/AccessibilityRecord;->mBooleanProperties:I
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method clear()V
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v1, 0x0
@@ -397,7 +397,7 @@
 .end method
 
 .method enforceNotSealed()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 665
@@ -405,7 +405,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_0
 
     .line 666
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -417,12 +417,12 @@
     throw v0
 
     .line 669
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method enforceSealed()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 653
@@ -430,7 +430,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 654
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -442,12 +442,12 @@
     throw v0
 
     .line 657
-    :cond_e
+    :cond_0
     return-void
 .end method
 
 .method public getAddedCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 473
@@ -457,7 +457,7 @@
 .end method
 
 .method public getBeforeText()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 546
@@ -467,7 +467,7 @@
 .end method
 
 .method public getClassName()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 515
@@ -477,7 +477,7 @@
 .end method
 
 .method public getContentDescription()Ljava/lang/CharSequence;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 567
@@ -487,7 +487,7 @@
 .end method
 
 .method public getCurrentItemIndex()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 328
@@ -497,7 +497,7 @@
 .end method
 
 .method public getFromIndex()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 352
@@ -507,7 +507,7 @@
 .end method
 
 .method public getItemCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 307
@@ -517,7 +517,7 @@
 .end method
 
 .method public getMaxScrollX()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 435
@@ -527,7 +527,7 @@
 .end method
 
 .method public getMaxScrollY()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 454
@@ -537,7 +537,7 @@
 .end method
 
 .method public getParcelableData()Landroid/os/Parcelable;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 588
@@ -547,7 +547,7 @@
 .end method
 
 .method public getRemovedCount()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 494
@@ -557,7 +557,7 @@
 .end method
 
 .method public getScrollX()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 397
@@ -567,7 +567,7 @@
 .end method
 
 .method public getScrollY()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 416
@@ -577,7 +577,7 @@
 .end method
 
 .method public getSource()Landroid/view/accessibility/AccessibilityNodeInfo;
-    .registers 7
+    .locals 6
 
     .prologue
     const/4 v3, -0x1
@@ -588,11 +588,11 @@
     .line 161
     iget v1, p0, Landroid/view/accessibility/AccessibilityRecord;->mConnectionId:I
 
-    if-eq v1, v3, :cond_14
+    if-eq v1, v3, :cond_0
 
     iget v1, p0, Landroid/view/accessibility/AccessibilityRecord;->mSourceWindowId:I
 
-    if-eq v1, v3, :cond_14
+    if-eq v1, v3, :cond_0
 
     iget-wide v1, p0, Landroid/view/accessibility/AccessibilityRecord;->mSourceNodeId:J
 
@@ -600,18 +600,18 @@
 
     move-result v1
 
-    if-ne v1, v3, :cond_16
+    if-ne v1, v3, :cond_1
 
     .line 163
-    :cond_14
+    :cond_0
     const/4 v1, 0x0
 
     .line 166
-    :goto_15
+    :goto_0
     return-object v1
 
     .line 165
-    :cond_16
+    :cond_1
     invoke-static {}, Landroid/view/accessibility/AccessibilityInteractionClient;->getInstance()Landroid/view/accessibility/AccessibilityInteractionClient;
 
     move-result-object v0
@@ -630,11 +630,11 @@
 
     move-result-object v1
 
-    goto :goto_15
+    goto :goto_0
 .end method
 
 .method public getSourceNodeId()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 611
@@ -644,7 +644,7 @@
 .end method
 
 .method public getText()Ljava/util/List;
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -663,7 +663,7 @@
 .end method
 
 .method public getToIndex()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 377
@@ -673,7 +673,7 @@
 .end method
 
 .method public getWindowId()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 176
@@ -683,7 +683,7 @@
 .end method
 
 .method init(Landroid/view/accessibility/AccessibilityRecord;)V
-    .registers 4
+    .locals 2
     .parameter "record"
 
     .prologue
@@ -794,7 +794,7 @@
 .end method
 
 .method public isChecked()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 185
@@ -808,7 +808,7 @@
 .end method
 
 .method public isEnabled()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 206
@@ -822,7 +822,7 @@
 .end method
 
 .method public isFullScreen()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 248
@@ -836,7 +836,7 @@
 .end method
 
 .method public isImportantForAccessibility()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 298
@@ -850,7 +850,7 @@
 .end method
 
 .method public isPassword()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 227
@@ -864,7 +864,7 @@
 .end method
 
 .method public isScrollable()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 269
@@ -878,7 +878,7 @@
 .end method
 
 .method isSealed()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 644
@@ -888,13 +888,13 @@
 .end method
 
 .method public recycle()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 736
     iget-boolean v0, p0, Landroid/view/accessibility/AccessibilityRecord;->mIsInPool:Z
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 737
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -906,7 +906,7 @@
     throw v0
 
     .line 739
-    :cond_c
+    :cond_0
     invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityRecord;->clear()V
 
     .line 740
@@ -915,12 +915,12 @@
     monitor-enter v1
 
     .line 741
-    :try_start_12
+    :try_start_0
     sget v0, Landroid/view/accessibility/AccessibilityRecord;->sPoolSize:I
 
     const/16 v2, 0xa
 
-    if-gt v0, v2, :cond_27
+    if-gt v0, v2, :cond_1
 
     .line 742
     sget-object v0, Landroid/view/accessibility/AccessibilityRecord;->sPool:Landroid/view/accessibility/AccessibilityRecord;
@@ -943,25 +943,25 @@
     sput v0, Landroid/view/accessibility/AccessibilityRecord;->sPoolSize:I
 
     .line 747
-    :cond_27
+    :cond_1
     monitor-exit v1
 
     .line 748
     return-void
 
     .line 747
-    :catchall_29
+    :catchall_0
     move-exception v0
 
     monitor-exit v1
-    :try_end_2b
-    .catchall {:try_start_12 .. :try_end_2b} :catchall_29
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
 
 .method public setAddedCount(I)V
-    .registers 2
+    .locals 0
     .parameter "addedCount"
 
     .prologue
@@ -976,7 +976,7 @@
 .end method
 
 .method public setBeforeText(Ljava/lang/CharSequence;)V
-    .registers 2
+    .locals 0
     .parameter "beforeText"
 
     .prologue
@@ -991,7 +991,7 @@
 .end method
 
 .method public setChecked(Z)V
-    .registers 3
+    .locals 1
     .parameter "isChecked"
 
     .prologue
@@ -1008,7 +1008,7 @@
 .end method
 
 .method public setClassName(Ljava/lang/CharSequence;)V
-    .registers 2
+    .locals 0
     .parameter "className"
 
     .prologue
@@ -1023,7 +1023,7 @@
 .end method
 
 .method public setConnectionId(I)V
-    .registers 2
+    .locals 0
     .parameter "connectionId"
 
     .prologue
@@ -1038,7 +1038,7 @@
 .end method
 
 .method public setContentDescription(Ljava/lang/CharSequence;)V
-    .registers 2
+    .locals 0
     .parameter "contentDescription"
 
     .prologue
@@ -1053,7 +1053,7 @@
 .end method
 
 .method public setCurrentItemIndex(I)V
-    .registers 2
+    .locals 0
     .parameter "currentItemIndex"
 
     .prologue
@@ -1068,7 +1068,7 @@
 .end method
 
 .method public setEnabled(Z)V
-    .registers 3
+    .locals 1
     .parameter "isEnabled"
 
     .prologue
@@ -1085,7 +1085,7 @@
 .end method
 
 .method public setFromIndex(I)V
-    .registers 2
+    .locals 0
     .parameter "fromIndex"
 
     .prologue
@@ -1100,7 +1100,7 @@
 .end method
 
 .method public setFullScreen(Z)V
-    .registers 3
+    .locals 1
     .parameter "isFullScreen"
 
     .prologue
@@ -1117,7 +1117,7 @@
 .end method
 
 .method public setItemCount(I)V
-    .registers 2
+    .locals 0
     .parameter "itemCount"
 
     .prologue
@@ -1132,7 +1132,7 @@
 .end method
 
 .method public setMaxScrollX(I)V
-    .registers 2
+    .locals 0
     .parameter "maxScrollX"
 
     .prologue
@@ -1147,7 +1147,7 @@
 .end method
 
 .method public setMaxScrollY(I)V
-    .registers 2
+    .locals 0
     .parameter "maxScrollY"
 
     .prologue
@@ -1162,7 +1162,7 @@
 .end method
 
 .method public setParcelableData(Landroid/os/Parcelable;)V
-    .registers 2
+    .locals 0
     .parameter "parcelableData"
 
     .prologue
@@ -1177,7 +1177,7 @@
 .end method
 
 .method public setPassword(Z)V
-    .registers 3
+    .locals 1
     .parameter "isPassword"
 
     .prologue
@@ -1194,7 +1194,7 @@
 .end method
 
 .method public setRemovedCount(I)V
-    .registers 2
+    .locals 0
     .parameter "removedCount"
 
     .prologue
@@ -1209,7 +1209,7 @@
 .end method
 
 .method public setScrollX(I)V
-    .registers 2
+    .locals 0
     .parameter "scrollX"
 
     .prologue
@@ -1224,7 +1224,7 @@
 .end method
 
 .method public setScrollY(I)V
-    .registers 2
+    .locals 0
     .parameter "scrollY"
 
     .prologue
@@ -1239,7 +1239,7 @@
 .end method
 
 .method public setScrollable(Z)V
-    .registers 3
+    .locals 1
     .parameter "scrollable"
 
     .prologue
@@ -1256,7 +1256,7 @@
 .end method
 
 .method public setSealed(Z)V
-    .registers 2
+    .locals 0
     .parameter "sealed"
 
     .prologue
@@ -1268,7 +1268,7 @@
 .end method
 
 .method public setSource(Landroid/view/View;)V
-    .registers 3
+    .locals 1
     .parameter "source"
 
     .prologue
@@ -1282,7 +1282,7 @@
 .end method
 
 .method public setSource(Landroid/view/View;I)V
-    .registers 7
+    .locals 4
     .parameter "root"
     .parameter "virtualDescendantId"
 
@@ -1293,10 +1293,10 @@
     invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityRecord;->enforceNotSealed()V
 
     .line 139
-    if-ne p2, v3, :cond_28
+    if-ne p2, v3, :cond_1
 
     .line 140
-    if-eqz p1, :cond_26
+    if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Landroid/view/View;->isImportantForAccessibility()Z
 
@@ -1304,23 +1304,23 @@
 
     .line 144
     .local v0, important:Z
-    :goto_c
+    :goto_0
     const/16 v2, 0x200
 
     invoke-direct {p0, v2, v0}, Landroid/view/accessibility/AccessibilityRecord;->setBooleanProperty(IZ)V
 
     .line 145
-    if-eqz p1, :cond_2a
+    if-eqz p1, :cond_2
 
     invoke-virtual {p1}, Landroid/view/View;->getAccessibilityWindowId()I
 
     move-result v2
 
-    :goto_17
+    :goto_1
     iput v2, p0, Landroid/view/accessibility/AccessibilityRecord;->mSourceWindowId:I
 
     .line 146
-    if-eqz p1, :cond_2c
+    if-eqz p1, :cond_3
 
     invoke-virtual {p1}, Landroid/view/View;->getAccessibilityViewId()I
 
@@ -1328,7 +1328,7 @@
 
     .line 147
     .local v1, rootViewId:I
-    :goto_1f
+    :goto_2
     invoke-static {v1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->makeNodeId(II)J
 
     move-result-wide v2
@@ -1341,33 +1341,33 @@
     .line 140
     .end local v0           #important:Z
     .end local v1           #rootViewId:I
-    :cond_26
+    :cond_0
     const/4 v0, 0x1
 
-    goto :goto_c
+    goto :goto_0
 
     .line 142
-    :cond_28
+    :cond_1
     const/4 v0, 0x1
 
     .restart local v0       #important:Z
-    goto :goto_c
+    goto :goto_0
 
-    :cond_2a
+    :cond_2
     move v2, v3
 
     .line 145
-    goto :goto_17
+    goto :goto_1
 
-    :cond_2c
+    :cond_3
     move v1, v3
 
     .line 146
-    goto :goto_1f
+    goto :goto_2
 .end method
 
 .method public setToIndex(I)V
-    .registers 2
+    .locals 0
     .parameter "toIndex"
 
     .prologue
@@ -1382,7 +1382,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 806

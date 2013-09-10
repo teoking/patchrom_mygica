@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 25
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public getDefaultVideoPoster()Landroid/graphics/Bitmap;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 340
@@ -35,7 +35,7 @@
 .end method
 
 .method public getVideoLoadingProgressView()Landroid/view/View;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 352
@@ -45,7 +45,7 @@
 .end method
 
 .method public getVisitedHistory(Landroid/webkit/ValueCallback;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -64,7 +64,7 @@
 .end method
 
 .method public onCloseWindow(Landroid/webkit/WebView;)V
-    .registers 2
+    .locals 0
     .parameter "window"
 
     .prologue
@@ -73,7 +73,7 @@
 .end method
 
 .method public onConsoleMessage(Ljava/lang/String;ILjava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter "message"
     .parameter "lineNumber"
     .parameter "sourceID"
@@ -86,7 +86,7 @@
 .end method
 
 .method public onConsoleMessage(Landroid/webkit/ConsoleMessage;)Z
-    .registers 5
+    .locals 3
     .parameter "consoleMessage"
 
     .prologue
@@ -112,7 +112,7 @@
 .end method
 
 .method public onCreateWindow(Landroid/webkit/WebView;ZZLandroid/os/Message;)Z
-    .registers 6
+    .locals 1
     .parameter "view"
     .parameter "isDialog"
     .parameter "isUserGesture"
@@ -126,7 +126,7 @@
 .end method
 
 .method public onExceededDatabaseQuota(Ljava/lang/String;Ljava/lang/String;JJJLandroid/webkit/WebStorage$QuotaUpdater;)V
-    .registers 10
+    .locals 0
     .parameter "url"
     .parameter "databaseIdentifier"
     .parameter "quota"
@@ -143,7 +143,7 @@
 .end method
 
 .method public onGeolocationPermissionsHidePrompt()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 289
@@ -151,7 +151,7 @@
 .end method
 
 .method public onGeolocationPermissionsShowPrompt(Ljava/lang/String;Landroid/webkit/GeolocationPermissions$Callback;)V
-    .registers 3
+    .locals 0
     .parameter "origin"
     .parameter "callback"
 
@@ -161,7 +161,7 @@
 .end method
 
 .method public onHideCustomView()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 95
@@ -169,7 +169,7 @@
 .end method
 
 .method public onJsAlert(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Landroid/webkit/JsResult;)Z
-    .registers 6
+    .locals 1
     .parameter "view"
     .parameter "url"
     .parameter "message"
@@ -183,7 +183,7 @@
 .end method
 
 .method public onJsBeforeUnload(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Landroid/webkit/JsResult;)Z
-    .registers 6
+    .locals 1
     .parameter "view"
     .parameter "url"
     .parameter "message"
@@ -197,7 +197,7 @@
 .end method
 
 .method public onJsConfirm(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Landroid/webkit/JsResult;)Z
-    .registers 6
+    .locals 1
     .parameter "view"
     .parameter "url"
     .parameter "message"
@@ -211,7 +211,7 @@
 .end method
 
 .method public onJsPrompt(Landroid/webkit/WebView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/webkit/JsPromptResult;)Z
-    .registers 7
+    .locals 1
     .parameter "view"
     .parameter "url"
     .parameter "message"
@@ -226,7 +226,7 @@
 .end method
 
 .method public onJsTimeout()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 302
@@ -236,7 +236,7 @@
 .end method
 
 .method public onProgressChanged(Landroid/webkit/WebView;I)V
-    .registers 3
+    .locals 0
     .parameter "view"
     .parameter "newProgress"
 
@@ -246,7 +246,7 @@
 .end method
 
 .method public onReachedMaxAppCacheSize(JJLandroid/webkit/WebStorage$QuotaUpdater;)V
-    .registers 6
+    .locals 0
     .parameter "requiredStorage"
     .parameter "quota"
     .parameter "quotaUpdater"
@@ -260,7 +260,7 @@
 .end method
 
 .method public onReceivedIcon(Landroid/webkit/WebView;Landroid/graphics/Bitmap;)V
-    .registers 3
+    .locals 0
     .parameter "view"
     .parameter "icon"
 
@@ -270,7 +270,7 @@
 .end method
 
 .method public onReceivedTitle(Landroid/webkit/WebView;Ljava/lang/String;)V
-    .registers 3
+    .locals 0
     .parameter "view"
     .parameter "title"
 
@@ -280,7 +280,7 @@
 .end method
 
 .method public onReceivedTouchIconUrl(Landroid/webkit/WebView;Ljava/lang/String;Z)V
-    .registers 4
+    .locals 0
     .parameter "view"
     .parameter "url"
     .parameter "precomposed"
@@ -291,7 +291,7 @@
 .end method
 
 .method public onRequestFocus(Landroid/webkit/WebView;)V
-    .registers 2
+    .locals 0
     .parameter "view"
 
     .prologue
@@ -300,7 +300,7 @@
 .end method
 
 .method public onShowCustomView(Landroid/view/View;ILandroid/webkit/WebChromeClient$CustomViewCallback;)V
-    .registers 4
+    .locals 0
     .parameter "view"
     .parameter "requestedOrientation"
     .parameter "callback"
@@ -311,7 +311,7 @@
 .end method
 
 .method public onShowCustomView(Landroid/view/View;Landroid/webkit/WebChromeClient$CustomViewCallback;)V
-    .registers 3
+    .locals 0
     .parameter "view"
     .parameter "callback"
 
@@ -321,7 +321,7 @@
 .end method
 
 .method public openFileChooser(Landroid/webkit/ValueCallback;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 5
+    .locals 1
     .parameter
     .parameter "acceptType"
     .parameter "capture"
@@ -350,7 +350,7 @@
 .end method
 
 .method public setInstallableWebApp()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 379
@@ -358,7 +358,7 @@
 .end method
 
 .method public setupAutoFill(Landroid/os/Message;)V
-    .registers 2
+    .locals 0
     .parameter "msg"
 
     .prologue

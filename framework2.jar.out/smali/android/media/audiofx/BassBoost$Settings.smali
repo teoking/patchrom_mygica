@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 224
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 9
+    .locals 7
     .parameter "settings"
 
     .prologue
@@ -59,7 +59,7 @@
 
     const/4 v5, 0x3
 
-    if-eq v4, v5, :cond_2e
+    if-eq v4, v5, :cond_0
 
     .line 236
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -87,7 +87,7 @@
     throw v4
 
     .line 238
-    :cond_2e
+    :cond_0
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v0
@@ -100,7 +100,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_53
+    if-nez v4, :cond_1
 
     .line 240
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -128,8 +128,8 @@
     throw v4
 
     .line 244
-    :cond_53
-    :try_start_53
+    :cond_1
+    :try_start_0
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v0
@@ -141,7 +141,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_92
+    if-nez v4, :cond_2
 
     .line 246
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -167,11 +167,11 @@
     invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v4
-    :try_end_78
-    .catch Ljava/lang/NumberFormatException; {:try_start_53 .. :try_end_78} :catch_78
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 249
-    :catch_78
+    :catch_0
     move-exception v1
 
     .line 250
@@ -202,8 +202,8 @@
 
     .line 248
     .end local v1           #nfe:Ljava/lang/NumberFormatException;
-    :cond_92
-    :try_start_92
+    :cond_2
+    :try_start_1
     invoke-virtual {v2}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v4
@@ -213,8 +213,8 @@
     move-result v4
 
     iput-short v4, p0, Landroid/media/audiofx/BassBoost$Settings;->strength:S
-    :try_end_9c
-    .catch Ljava/lang/NumberFormatException; {:try_start_92 .. :try_end_9c} :catch_78
+    :try_end_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 252
     return-void
@@ -223,7 +223,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 256

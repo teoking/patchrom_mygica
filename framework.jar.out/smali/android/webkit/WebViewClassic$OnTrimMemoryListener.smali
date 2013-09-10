@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 712
@@ -35,7 +35,7 @@
 .end method
 
 .method private constructor <init>(Landroid/content/Context;)V
-    .registers 2
+    .locals 0
     .parameter "c"
 
     .prologue
@@ -50,14 +50,14 @@
 .end method
 
 .method static init(Landroid/content/Context;)V
-    .registers 3
+    .locals 2
     .parameter "c"
 
     .prologue
     .line 715
     sget-object v0, Landroid/webkit/WebViewClassic$OnTrimMemoryListener;->sInstance:Landroid/webkit/WebViewClassic$OnTrimMemoryListener;
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_0
 
     .line 716
     new-instance v0, Landroid/webkit/WebViewClassic$OnTrimMemoryListener;
@@ -71,14 +71,14 @@
     sput-object v0, Landroid/webkit/WebViewClassic$OnTrimMemoryListener;->sInstance:Landroid/webkit/WebViewClassic$OnTrimMemoryListener;
 
     .line 718
-    :cond_f
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .registers 2
+    .locals 0
     .parameter "newConfig"
 
     .prologue
@@ -87,7 +87,7 @@
 .end method
 
 .method public onLowMemory()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 732
@@ -95,20 +95,21 @@
 .end method
 
 .method public onTrimMemory(I)V
-    .registers 3
+    .locals 1
     .parameter "level"
 
     .prologue
     .line 743
     const/16 v0, 0x14
 
-    if-lt p1, v0, :cond_7
+    if-lt p1, v0, :cond_0
 
     .line 744
     invoke-static {}, Landroid/webkit/HTML5VideoInline;->cleanupSurfaceTexture()V
 
     .line 746
-    :cond_7
+    :cond_0
+    #calls: Landroid/webkit/WebViewClassic;->nativeOnTrimMemory(I)V
     invoke-static {p1}, Landroid/webkit/WebViewClassic;->access$900(I)V
 
     .line 747

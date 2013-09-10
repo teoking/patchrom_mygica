@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/ArrayList;)V
-    .registers 2
+    .locals 0
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -38,7 +38,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/ArrayList;Landroid/os/Parcel;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "in"
     .annotation system Ldalvik/annotation/Signature;
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public addCountAtomic(J)V
-    .registers 5
+    .locals 2
     .parameter "count"
 
     .prologue

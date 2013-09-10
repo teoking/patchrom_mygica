@@ -83,7 +83,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .registers 11
+    .locals 8
     .parameter "context"
     .parameter "attrs"
 
@@ -213,7 +213,7 @@
     .line 149
     iget-object v1, p0, Lcom/android/internal/view/menu/IconMenuView;->mHorizontalDivider:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v1, :cond_77
+    if-eqz v1, :cond_0
 
     .line 150
     iget-object v1, p0, Lcom/android/internal/view/menu/IconMenuView;->mHorizontalDivider:Landroid/graphics/drawable/Drawable;
@@ -227,15 +227,15 @@
     .line 152
     iget v1, p0, Lcom/android/internal/view/menu/IconMenuView;->mHorizontalDividerHeight:I
 
-    if-ne v1, v7, :cond_77
+    if-ne v1, v7, :cond_0
 
     iput v4, p0, Lcom/android/internal/view/menu/IconMenuView;->mHorizontalDividerHeight:I
 
     .line 155
-    :cond_77
+    :cond_0
     iget-object v1, p0, Lcom/android/internal/view/menu/IconMenuView;->mVerticalDivider:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v1, :cond_89
+    if-eqz v1, :cond_1
 
     .line 156
     iget-object v1, p0, Lcom/android/internal/view/menu/IconMenuView;->mVerticalDivider:Landroid/graphics/drawable/Drawable;
@@ -249,12 +249,12 @@
     .line 158
     iget v1, p0, Lcom/android/internal/view/menu/IconMenuView;->mVerticalDividerWidth:I
 
-    if-ne v1, v7, :cond_89
+    if-ne v1, v7, :cond_1
 
     iput v4, p0, Lcom/android/internal/view/menu/IconMenuView;->mVerticalDividerWidth:I
 
     .line 161
-    :cond_89
+    :cond_1
     iget v1, p0, Lcom/android/internal/view/menu/IconMenuView;->mMaxRows:I
 
     new-array v1, v1, [I
@@ -277,7 +277,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/view/menu/IconMenuView;)Lcom/android/internal/view/menu/MenuBuilder;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -288,7 +288,7 @@
 .end method
 
 .method private calculateItemFittingMetadata(I)V
-    .registers 9
+    .locals 7
     .parameter "width"
 
     .prologue
@@ -306,8 +306,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
-    if-ge v1, v4, :cond_27
+    :goto_0
+    if-ge v1, v4, :cond_2
 
     .line 661
     invoke-virtual {p0, v1}, Lcom/android/internal/view/menu/IconMenuView;->getChildAt(I)Landroid/view/View;
@@ -330,40 +330,40 @@
     move v0, v3
 
     .local v0, curNumItemsPerRow:I
-    :goto_17
-    if-lez v0, :cond_21
+    :goto_1
+    if-lez v0, :cond_0
 
     .line 667
     iget v5, v2, Lcom/android/internal/view/menu/IconMenuView$LayoutParams;->desiredWidth:I
 
     div-int v6, p1, v0
 
-    if-ge v5, v6, :cond_24
+    if-ge v5, v6, :cond_1
 
     .line 669
     iput v0, v2, Lcom/android/internal/view/menu/IconMenuView$LayoutParams;->maxNumItemsOnRow:I
 
     .line 660
-    :cond_21
+    :cond_0
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 665
-    :cond_24
+    :cond_1
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_17
+    goto :goto_1
 
     .line 674
     .end local v0           #curNumItemsPerRow:I
     .end local v2           #lp:Lcom/android/internal/view/menu/IconMenuView$LayoutParams;
-    :cond_27
+    :cond_2
     return-void
 .end method
 
 .method private doItemsFit()Z
-    .registers 12
+    .locals 11
 
     .prologue
     const/4 v9, 0x1
@@ -384,27 +384,27 @@
     const/4 v8, 0x0
 
     .local v8, row:I
-    :goto_7
-    if-ge v8, v7, :cond_27
+    :goto_0
+    if-ge v8, v7, :cond_1
 
     .line 257
     aget v6, v4, v8
 
     .line 263
     .local v6, numItemsOnRow:I
-    if-ne v6, v9, :cond_12
+    if-ne v6, v9, :cond_0
 
     .line 264
     add-int/lit8 v1, v1, 0x1
 
     .line 256
-    :goto_f
+    :goto_1
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 268
-    :cond_12
+    :cond_0
     move v3, v6
 
     .local v3, itemsOnRowCounter:I
@@ -412,8 +412,8 @@
 
     .end local v1           #itemPos:I
     .local v2, itemPos:I
-    :goto_14
-    if-lez v3, :cond_2c
+    :goto_2
+    if-lez v3, :cond_3
 
     .line 270
     add-int/lit8 v1, v2, 0x1
@@ -436,7 +436,7 @@
     .local v5, lp:Lcom/android/internal/view/menu/IconMenuView$LayoutParams;
     iget v10, v5, Lcom/android/internal/view/menu/IconMenuView$LayoutParams;->maxNumItemsOnRow:I
 
-    if-ge v10, v6, :cond_28
+    if-ge v10, v6, :cond_2
 
     .line 273
     const/4 v9, 0x0
@@ -446,7 +446,7 @@
     .end local v3           #itemsOnRowCounter:I
     .end local v5           #lp:Lcom/android/internal/view/menu/IconMenuView$LayoutParams;
     .end local v6           #numItemsOnRow:I
-    :cond_27
+    :cond_1
     return v9
 
     .line 269
@@ -454,27 +454,27 @@
     .restart local v3       #itemsOnRowCounter:I
     .restart local v5       #lp:Lcom/android/internal/view/menu/IconMenuView$LayoutParams;
     .restart local v6       #numItemsOnRow:I
-    :cond_28
+    :cond_2
     add-int/lit8 v3, v3, -0x1
 
     move v2, v1
 
     .end local v1           #itemPos:I
     .restart local v2       #itemPos:I
-    goto :goto_14
+    goto :goto_2
 
     .end local v0           #child:Landroid/view/View;
     .end local v5           #lp:Lcom/android/internal/view/menu/IconMenuView$LayoutParams;
-    :cond_2c
+    :cond_3
     move v1, v2
 
     .end local v2           #itemPos:I
     .restart local v1       #itemPos:I
-    goto :goto_f
+    goto :goto_1
 .end method
 
 .method private layoutItems(I)V
-    .registers 6
+    .locals 4
     .parameter "width"
 
     .prologue
@@ -485,7 +485,7 @@
 
     .line 183
     .local v1, numItems:I
-    if-nez v1, :cond_a
+    if-nez v1, :cond_1
 
     .line 184
     const/4 v2, 0x0
@@ -493,11 +493,11 @@
     iput v2, p0, Lcom/android/internal/view/menu/IconMenuView;->mLayoutNumRows:I
 
     .line 209
-    :cond_9
+    :cond_0
     return-void
 
     .line 189
-    :cond_a
+    :cond_1
     int-to-float v2, v1
 
     iget v3, p0, Lcom/android/internal/view/menu/IconMenuView;->mMaxItemsPerRow:I
@@ -522,32 +522,32 @@
 
     .line 196
     .local v0, curNumRows:I
-    :goto_1b
+    :goto_0
     iget v2, p0, Lcom/android/internal/view/menu/IconMenuView;->mMaxRows:I
 
-    if-gt v0, v2, :cond_9
+    if-gt v0, v2, :cond_0
 
     .line 197
     invoke-direct {p0, v0, v1}, Lcom/android/internal/view/menu/IconMenuView;->layoutItemsUsingGravity(II)V
 
     .line 199
-    if-ge v0, v1, :cond_9
+    if-ge v0, v1, :cond_0
 
     .line 204
     invoke-direct {p0}, Lcom/android/internal/view/menu/IconMenuView;->doItemsFit()Z
 
     move-result v2
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_0
 
     .line 196
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1b
+    goto :goto_0
 .end method
 
 .method private layoutItemsUsingGravity(II)V
-    .registers 9
+    .locals 6
     .parameter "numRows"
     .parameter "numItems"
 
@@ -572,14 +572,14 @@
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_9
-    if-ge v0, p1, :cond_18
+    :goto_0
+    if-ge v0, p1, :cond_1
 
     .line 233
     aput v2, v1, v0
 
     .line 236
-    if-lt v0, v4, :cond_15
+    if-lt v0, v4, :cond_0
 
     .line 237
     aget v5, v1, v0
@@ -589,13 +589,13 @@
     aput v5, v1, v0
 
     .line 232
-    :cond_15
+    :cond_0
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 241
-    :cond_18
+    :cond_1
     iput p1, p0, Lcom/android/internal/view/menu/IconMenuView;->mLayoutNumRows:I
 
     .line 242
@@ -603,7 +603,7 @@
 .end method
 
 .method private positionChildren(II)V
-    .registers 26
+    .locals 23
     .parameter "menuWidth"
     .parameter "menuHeight"
 
@@ -615,7 +615,7 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_11
+    if-eqz v17, :cond_0
 
     move-object/from16 v0, p0
 
@@ -626,14 +626,14 @@
     invoke-virtual/range {v17 .. v17}, Ljava/util/ArrayList;->clear()V
 
     .line 328
-    :cond_11
+    :cond_0
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/view/menu/IconMenuView;->mVerticalDivider:Landroid/graphics/drawable/Drawable;
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_22
+    if-eqz v17, :cond_1
 
     move-object/from16 v0, p0
 
@@ -644,7 +644,7 @@
     invoke-virtual/range {v17 .. v17}, Ljava/util/ArrayList;->clear()V
 
     .line 331
-    :cond_22
+    :cond_1
     move-object/from16 v0, p0
 
     iget v14, v0, Lcom/android/internal/view/menu/IconMenuView;->mLayoutNumRows:I
@@ -702,10 +702,10 @@
     const/16 v16, 0x0
 
     .local v16, row:I
-    :goto_47
+    :goto_0
     move/from16 v0, v16
 
-    if-ge v0, v14, :cond_154
+    if-ge v0, v14, :cond_6
 
     .line 352
     const/4 v8, 0x0
@@ -747,12 +747,12 @@
     const/4 v10, 0x0
 
     .local v10, itemPosOnRow:I
-    :goto_69
+    :goto_1
     aget v17, v13, v16
 
     move/from16 v0, v17
 
-    if-ge v10, v0, :cond_101
+    if-ge v10, v0, :cond_3
 
     .line 360
     move-object/from16 v0, p0
@@ -855,7 +855,7 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_f0
+    if-eqz v17, :cond_2
 
     .line 377
     move-object/from16 v0, p0
@@ -907,7 +907,7 @@
     invoke-virtual/range {v17 .. v18}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 385
-    :cond_f0
+    :cond_2
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/view/menu/IconMenuView;->mVerticalDividerWidth:I
@@ -925,12 +925,12 @@
     .line 358
     add-int/lit8 v10, v10, 0x1
 
-    goto/16 :goto_69
+    goto/16 :goto_1
 
     .line 389
     .end local v5           #child:Landroid/view/View;
-    :cond_101
-    if-eqz v6, :cond_107
+    :cond_3
+    if-eqz v6, :cond_4
 
     .line 390
     move/from16 v0, p1
@@ -938,7 +938,7 @@
     iput v0, v6, Lcom/android/internal/view/menu/IconMenuView$LayoutParams;->right:I
 
     .line 393
-    :cond_107
+    :cond_4
     add-float/2addr v11, v7
 
     .line 396
@@ -948,11 +948,11 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_150
+    if-eqz v17, :cond_5
 
     move/from16 v0, v16
 
-    if-ge v0, v15, :cond_150
+    if-ge v0, v15, :cond_5
 
     .line 397
     move-object/from16 v0, p0
@@ -1019,21 +1019,21 @@
     add-float v11, v11, v17
 
     .line 350
-    :cond_150
+    :cond_5
     add-int/lit8 v16, v16, 0x1
 
-    goto/16 :goto_47
+    goto/16 :goto_0
 
     .line 403
     .end local v8           #itemLeft:F
     .end local v10           #itemPosOnRow:I
     .end local v12           #itemWidth:F
-    :cond_154
+    :cond_6
     return-void
 .end method
 
 .method private setChildrenCaptionMode(Z)V
-    .registers 4
+    .locals 2
     .parameter "shortcut"
 
     .prologue
@@ -1048,8 +1048,8 @@
     add-int/lit8 v0, v1, -0x1
 
     .local v0, i:I
-    :goto_8
-    if-ltz v0, :cond_16
+    :goto_0
+    if-ltz v0, :cond_0
 
     .line 647
     invoke-virtual {p0, v0}, Lcom/android/internal/view/menu/IconMenuView;->getChildAt(I)Landroid/view/View;
@@ -1063,22 +1063,22 @@
     .line 646
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_8
+    goto :goto_0
 
     .line 649
-    :cond_16
+    :cond_0
     return-void
 .end method
 
 .method private setCycleShortcutCaptionMode(Z)V
-    .registers 3
+    .locals 1
     .parameter "cycleShortcutAndNormal"
 
     .prologue
     const/4 v0, 0x0
 
     .line 593
-    if-nez p1, :cond_c
+    if-nez p1, :cond_0
 
     .line 598
     invoke-virtual {p0, p0}, Lcom/android/internal/view/menu/IconMenuView;->removeCallbacks(Ljava/lang/Runnable;)Z
@@ -1090,22 +1090,22 @@
     iput-boolean v0, p0, Lcom/android/internal/view/menu/IconMenuView;->mMenuBeingLongpressed:Z
 
     .line 608
-    :goto_b
+    :goto_0
     return-void
 
     .line 605
-    :cond_c
+    :cond_0
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/android/internal/view/menu/IconMenuView;->setChildrenCaptionMode(Z)V
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method protected checkLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Z
-    .registers 3
+    .locals 1
     .parameter "p"
 
     .prologue
@@ -1116,7 +1116,7 @@
 .end method
 
 .method createMoreItemView()Lcom/android/internal/view/menu/IconMenuItemView;
-    .registers 7
+    .locals 6
 
     .prologue
     .line 292
@@ -1172,7 +1172,7 @@
 .end method
 
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .registers 5
+    .locals 3
     .parameter "event"
 
     .prologue
@@ -1185,20 +1185,20 @@
 
     const/16 v2, 0x52
 
-    if-ne v1, v2, :cond_20
+    if-ne v1, v2, :cond_0
 
     .line 539
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v1
 
-    if-nez v1, :cond_25
+    if-nez v1, :cond_1
 
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getRepeatCount()I
 
     move-result v1
 
-    if-nez v1, :cond_25
+    if-nez v1, :cond_1
 
     .line 540
     invoke-virtual {p0, p0}, Lcom/android/internal/view/menu/IconMenuView;->removeCallbacks(Ljava/lang/Runnable;)Z
@@ -1213,44 +1213,44 @@
     invoke-virtual {p0, p0, v0, v1}, Lcom/android/internal/view/menu/IconMenuView;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 558
-    :cond_20
-    :goto_20
+    :cond_0
+    :goto_0
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result v0
 
-    :goto_24
+    :goto_1
     return v0
 
     .line 542
-    :cond_25
+    :cond_1
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v1
 
-    if-ne v1, v0, :cond_20
+    if-ne v1, v0, :cond_0
 
     .line 544
     iget-boolean v1, p0, Lcom/android/internal/view/menu/IconMenuView;->mMenuBeingLongpressed:Z
 
-    if-eqz v1, :cond_34
+    if-eqz v1, :cond_2
 
     .line 547
     const/4 v1, 0x0
 
     invoke-direct {p0, v1}, Lcom/android/internal/view/menu/IconMenuView;->setCycleShortcutCaptionMode(Z)V
 
-    goto :goto_24
+    goto :goto_1
 
     .line 552
-    :cond_34
+    :cond_2
     invoke-virtual {p0, p0}, Lcom/android/internal/view/menu/IconMenuView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    goto :goto_20
+    goto :goto_0
 .end method
 
 .method public bridge synthetic generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -1263,7 +1263,7 @@
 .end method
 
 .method public generateLayoutParams(Landroid/util/AttributeSet;)Lcom/android/internal/view/menu/IconMenuView$LayoutParams;
-    .registers 4
+    .locals 2
     .parameter "attrs"
 
     .prologue
@@ -1280,7 +1280,7 @@
 .end method
 
 .method getItemBackgroundDrawable()Landroid/graphics/drawable/Drawable;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 282
@@ -1306,7 +1306,7 @@
 .end method
 
 .method public getLayout()[I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 519
@@ -1316,7 +1316,7 @@
 .end method
 
 .method public getLayoutNumRows()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 532
@@ -1326,7 +1326,7 @@
 .end method
 
 .method getMaxItems()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 173
@@ -1336,7 +1336,7 @@
 .end method
 
 .method getNumActualItemsShown()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 498
@@ -1346,7 +1346,7 @@
 .end method
 
 .method public getWindowAnimations()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 506
@@ -1356,7 +1356,7 @@
 .end method
 
 .method public initialize(Lcom/android/internal/view/menu/MenuBuilder;)V
-    .registers 2
+    .locals 0
     .parameter "menu"
 
     .prologue
@@ -1368,7 +1368,7 @@
 .end method
 
 .method public invokeItem(Lcom/android/internal/view/menu/MenuItemImpl;)Z
-    .registers 4
+    .locals 2
     .parameter "item"
 
     .prologue
@@ -1385,13 +1385,13 @@
 .end method
 
 .method markStaleChildren()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 486
     iget-boolean v0, p0, Lcom/android/internal/view/menu/IconMenuView;->mHasStaleChildren:Z
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_0
 
     .line 487
     const/4 v0, 0x1
@@ -1402,12 +1402,12 @@
     invoke-virtual {p0}, Lcom/android/internal/view/menu/IconMenuView;->requestLayout()V
 
     .line 490
-    :cond_a
+    :cond_0
     return-void
 .end method
 
 .method protected onAttachedToWindow()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 563
@@ -1421,7 +1421,7 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 570
@@ -1437,7 +1437,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .registers 6
+    .locals 4
     .parameter "canvas"
 
     .prologue
@@ -1446,7 +1446,7 @@
 
     .line 447
     .local v0, drawable:Landroid/graphics/drawable/Drawable;
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_0
 
     .line 449
     iget-object v2, p0, Lcom/android/internal/view/menu/IconMenuView;->mHorizontalDividerRects:Ljava/util/ArrayList;
@@ -1460,8 +1460,8 @@
     add-int/lit8 v1, v3, -0x1
 
     .local v1, i:I
-    :goto_c
-    if-ltz v1, :cond_1d
+    :goto_0
+    if-ltz v1, :cond_0
 
     .line 451
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1478,16 +1478,16 @@
     .line 450
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_c
+    goto :goto_0
 
     .line 456
     .end local v1           #i:I
     .end local v2           #rects:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/graphics/Rect;>;"
-    :cond_1d
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/view/menu/IconMenuView;->mVerticalDivider:Landroid/graphics/drawable/Drawable;
 
     .line 457
-    if-eqz v0, :cond_3a
+    if-eqz v0, :cond_1
 
     .line 459
     iget-object v2, p0, Lcom/android/internal/view/menu/IconMenuView;->mVerticalDividerRects:Ljava/util/ArrayList;
@@ -1501,8 +1501,8 @@
     add-int/lit8 v1, v3, -0x1
 
     .restart local v1       #i:I
-    :goto_29
-    if-ltz v1, :cond_3a
+    :goto_1
+    if-ltz v1, :cond_1
 
     .line 461
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1519,17 +1519,17 @@
     .line 460
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_29
+    goto :goto_1
 
     .line 465
     .end local v1           #i:I
     .end local v2           #rects:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/graphics/Rect;>;"
-    :cond_3a
+    :cond_1
     return-void
 .end method
 
 .method protected onLayout(ZIIII)V
-    .registers 13
+    .locals 7
     .parameter "changed"
     .parameter "l"
     .parameter "t"
@@ -1545,8 +1545,8 @@
     add-int/lit8 v2, v3, -0x1
 
     .local v2, i:I
-    :goto_6
-    if-ltz v2, :cond_20
+    :goto_0
+    if-ltz v2, :cond_0
 
     .line 434
     invoke-virtual {p0, v2}, Lcom/android/internal/view/menu/IconMenuView;->getChildAt(I)Landroid/view/View;
@@ -1576,17 +1576,17 @@
     .line 433
     add-int/lit8 v2, v2, -0x1
 
-    goto :goto_6
+    goto :goto_0
 
     .line 442
     .end local v0           #child:Landroid/view/View;
     .end local v1           #childLayoutParams:Lcom/android/internal/view/menu/IconMenuView$LayoutParams;
-    :cond_20
+    :cond_0
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .registers 8
+    .locals 5
     .parameter "widthMeasureSpec"
     .parameter "heightMeasureSpec"
 
@@ -1631,7 +1631,7 @@
     invoke-virtual {p0, v2, v3}, Lcom/android/internal/view/menu/IconMenuView;->setMeasuredDimension(II)V
 
     .line 422
-    if-lez v1, :cond_2d
+    if-lez v1, :cond_0
 
     .line 423
     invoke-virtual {p0}, Lcom/android/internal/view/menu/IconMenuView;->getMeasuredWidth()I
@@ -1645,12 +1645,12 @@
     invoke-direct {p0, v3, v4}, Lcom/android/internal/view/menu/IconMenuView;->positionChildren(II)V
 
     .line 425
-    :cond_2d
+    :cond_0
     return-void
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .registers 6
+    .locals 4
     .parameter "state"
 
     .prologue
@@ -1674,15 +1674,15 @@
 
     move-result v3
 
-    if-lt v2, v3, :cond_13
+    if-lt v2, v3, :cond_1
 
     .line 704
-    :cond_12
-    :goto_12
+    :cond_0
+    :goto_0
     return-void
 
     .line 700
-    :cond_13
+    :cond_1
     iget v2, v0, Lcom/android/internal/view/menu/IconMenuView$SavedState;->focusedPosition:I
 
     invoke-virtual {p0, v2}, Lcom/android/internal/view/menu/IconMenuView;->getChildAt(I)Landroid/view/View;
@@ -1691,16 +1691,16 @@
 
     .line 701
     .local v1, v:Landroid/view/View;
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_0
 
     .line 702
     invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method protected onSaveInstanceState()Landroid/os/Parcelable;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 678
@@ -1723,15 +1723,15 @@
     add-int/lit8 v1, v3, -0x1
 
     .local v1, i:I
-    :goto_e
-    if-ltz v1, :cond_1f
+    :goto_0
+    if-ltz v1, :cond_1
 
     .line 683
     invoke-virtual {p0, v1}, Lcom/android/internal/view/menu/IconMenuView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v3
 
-    if-ne v3, v0, :cond_1c
+    if-ne v3, v0, :cond_0
 
     .line 684
     new-instance v3, Lcom/android/internal/view/menu/IconMenuView$SavedState;
@@ -1739,33 +1739,33 @@
     invoke-direct {v3, v2, v1}, Lcom/android/internal/view/menu/IconMenuView$SavedState;-><init>(Landroid/os/Parcelable;I)V
 
     .line 688
-    :goto_1b
+    :goto_1
     return-object v3
 
     .line 682
-    :cond_1c
+    :cond_0
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_e
+    goto :goto_0
 
     .line 688
-    :cond_1f
+    :cond_1
     new-instance v3, Lcom/android/internal/view/menu/IconMenuView$SavedState;
 
     const/4 v4, -0x1
 
     invoke-direct {v3, v2, v4}, Lcom/android/internal/view/menu/IconMenuView$SavedState;-><init>(Landroid/os/Parcelable;I)V
 
-    goto :goto_1b
+    goto :goto_1
 .end method
 
 .method public onWindowFocusChanged(Z)V
-    .registers 3
+    .locals 1
     .parameter "hasWindowFocus"
 
     .prologue
     .line 577
-    if-nez p1, :cond_6
+    if-nez p1, :cond_0
 
     .line 578
     const/4 v0, 0x0
@@ -1773,7 +1773,7 @@
     invoke-direct {p0, v0}, Lcom/android/internal/view/menu/IconMenuView;->setCycleShortcutCaptionMode(Z)V
 
     .line 581
-    :cond_6
+    :cond_0
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->onWindowFocusChanged(Z)V
 
     .line 582
@@ -1781,7 +1781,7 @@
 .end method
 
 .method public run()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x1
@@ -1789,18 +1789,18 @@
     .line 618
     iget-boolean v1, p0, Lcom/android/internal/view/menu/IconMenuView;->mMenuBeingLongpressed:Z
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_1
 
     .line 621
     iget-boolean v1, p0, Lcom/android/internal/view/menu/IconMenuView;->mLastChildrenCaptionMode:Z
 
-    if-nez v1, :cond_12
+    if-nez v1, :cond_0
 
-    :goto_9
+    :goto_0
     invoke-direct {p0, v0}, Lcom/android/internal/view/menu/IconMenuView;->setChildrenCaptionMode(Z)V
 
     .line 631
-    :goto_c
+    :goto_1
     const-wide/16 v0, 0x3e8
 
     invoke-virtual {p0, p0, v0, v1}, Lcom/android/internal/view/menu/IconMenuView;->postDelayed(Ljava/lang/Runnable;J)Z
@@ -1809,23 +1809,23 @@
     return-void
 
     .line 621
-    :cond_12
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_9
+    goto :goto_0
 
     .line 626
-    :cond_14
+    :cond_1
     iput-boolean v0, p0, Lcom/android/internal/view/menu/IconMenuView;->mMenuBeingLongpressed:Z
 
     .line 627
     invoke-direct {p0, v0}, Lcom/android/internal/view/menu/IconMenuView;->setCycleShortcutCaptionMode(Z)V
 
-    goto :goto_c
+    goto :goto_1
 .end method
 
 .method setNumActualItemsShown(I)V
-    .registers 2
+    .locals 0
     .parameter "count"
 
     .prologue

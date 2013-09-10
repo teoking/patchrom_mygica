@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/GrantCredentialsPermissionActivity;Landroid/widget/TextView;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter
 
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public run(Landroid/accounts/AccountManagerFuture;)V
-    .registers 5
+    .locals 3
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -81,7 +81,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_16
+    if-nez v1, :cond_0
 
     .line 99
     iget-object v1, p0, Landroid/accounts/GrantCredentialsPermissionActivity$1;->this$0:Landroid/accounts/GrantCredentialsPermissionActivity;
@@ -91,32 +91,32 @@
     invoke-direct {v2, p0, v0}, Landroid/accounts/GrantCredentialsPermissionActivity$1$1;-><init>(Landroid/accounts/GrantCredentialsPermissionActivity$1;Ljava/lang/String;)V
 
     invoke-virtual {v1, v2}, Landroid/accounts/GrantCredentialsPermissionActivity;->runOnUiThread(Ljava/lang/Runnable;)V
-    :try_end_16
-    .catch Landroid/accounts/OperationCanceledException; {:try_start_0 .. :try_end_16} :catch_1b
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_16} :catch_19
-    .catch Landroid/accounts/AuthenticatorException; {:try_start_0 .. :try_end_16} :catch_17
+    :try_end_0
+    .catch Landroid/accounts/OperationCanceledException; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Landroid/accounts/AuthenticatorException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 112
     .end local v0           #authTokenLabel:Ljava/lang/String;
-    :cond_16
-    :goto_16
+    :cond_0
+    :goto_0
     return-void
 
     .line 110
-    :catch_17
+    :catch_0
     move-exception v1
 
-    goto :goto_16
+    goto :goto_0
 
     .line 109
-    :catch_19
+    :catch_1
     move-exception v1
 
-    goto :goto_16
+    goto :goto_0
 
     .line 108
-    :catch_1b
+    :catch_2
     move-exception v1
 
-    goto :goto_16
+    goto :goto_0
 .end method

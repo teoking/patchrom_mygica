@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(III)V
-    .registers 4
+    .locals 0
     .parameter "pid"
     .parameter "uid"
     .parameter "gid"
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public getGid()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 46
@@ -48,7 +48,7 @@
 .end method
 
 .method public getPid()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 38
@@ -58,7 +58,7 @@
 .end method
 
 .method public getUid()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 42

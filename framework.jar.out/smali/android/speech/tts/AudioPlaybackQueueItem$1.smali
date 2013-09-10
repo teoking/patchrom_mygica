@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/speech/tts/AudioPlaybackQueueItem;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onError(Landroid/media/MediaPlayer;II)Z
-    .registers 7
+    .locals 3
     .parameter "mp"
     .parameter "what"
     .parameter "extra"
@@ -80,6 +80,7 @@
     .line 65
     iget-object v0, p0, Landroid/speech/tts/AudioPlaybackQueueItem$1;->this$0:Landroid/speech/tts/AudioPlaybackQueueItem;
 
+    #getter for: Landroid/speech/tts/AudioPlaybackQueueItem;->mDone:Landroid/os/ConditionVariable;
     invoke-static {v0}, Landroid/speech/tts/AudioPlaybackQueueItem;->access$000(Landroid/speech/tts/AudioPlaybackQueueItem;)Landroid/os/ConditionVariable;
 
     move-result-object v0

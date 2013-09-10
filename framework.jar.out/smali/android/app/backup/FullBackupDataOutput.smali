@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/ParcelFileDescriptor;)V
-    .registers 4
+    .locals 2
     .parameter "fd"
 
     .prologue
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public getData()Landroid/app/backup/BackupDataOutput;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 20

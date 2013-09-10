@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 60
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 6
+    .locals 5
 
     .prologue
     .line 66
@@ -88,12 +88,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_9
+    :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2f
+    if-eqz v3, :cond_0
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -126,11 +126,11 @@
 
     move-result-object v2
 
-    goto :goto_9
+    goto :goto_0
 
     .line 68
     .end local v0           #addr:Ljava/lang/Object;,"TT;"
-    :cond_2f
+    :cond_0
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -156,12 +156,12 @@
 
     move-result-object v1
 
-    :goto_48
+    :goto_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_6e
+    if-eqz v3, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -194,11 +194,11 @@
 
     move-result-object v2
 
-    goto :goto_48
+    goto :goto_1
 
     .line 70
     .end local v0           #addr:Ljava/lang/Object;,"TT;"
-    :cond_6e
+    :cond_1
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V

@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 35
@@ -32,7 +32,7 @@
 .end method
 
 .method private makeView()Landroid/view/View;
-    .registers 16
+    .locals 15
 
     .prologue
     const/high16 v14, 0x4080
@@ -144,12 +144,12 @@
 
     .line 66
     .local v6, tv:Landroid/widget/TextView;
-    if-eqz v0, :cond_5e
+    if-eqz v0, :cond_0
 
     invoke-virtual {v6, v0}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     .line 67
-    :cond_5e
+    :cond_0
     const/high16 v8, 0x3fa0
 
     mul-float/2addr v8, v5
@@ -208,12 +208,12 @@
 
     .line 74
     .restart local v6       #tv:Landroid/widget/TextView;
-    if-eqz v3, :cond_98
+    if-eqz v3, :cond_1
 
     invoke-virtual {v6, v3}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     .line 75
-    :cond_98
+    :cond_1
     invoke-virtual {v6, v5}, Landroid/widget/TextView;->setTextSize(F)V
 
     .line 76
@@ -249,7 +249,7 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .registers 6
+    .locals 4
     .parameter "savedInstanceState"
 
     .prologue

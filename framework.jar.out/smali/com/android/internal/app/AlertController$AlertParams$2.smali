@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/AlertController$AlertParams;Landroid/content/Context;Landroid/database/Cursor;ZLcom/android/internal/app/AlertController$RecycleListView;Lcom/android/internal/app/AlertController;)V
-    .registers 9
+    .locals 2
     .parameter
     .parameter "x0"
     .parameter "x1"
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public bindView(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V
-    .registers 9
+    .locals 5
     .parameter "view"
     .parameter "context"
     .parameter "cursor"
@@ -121,23 +121,23 @@
 
     move-result v4
 
-    if-ne v4, v1, :cond_25
+    if-ne v4, v1, :cond_0
 
-    :goto_21
+    :goto_0
     invoke-virtual {v2, v3, v1}, Lcom/android/internal/app/AlertController$RecycleListView;->setItemChecked(IZ)V
 
     .line 889
     return-void
 
     .line 887
-    :cond_25
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_21
+    goto :goto_0
 .end method
 
 .method public newView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
-    .registers 7
+    .locals 3
     .parameter "context"
     .parameter "cursor"
     .parameter "parent"
@@ -150,6 +150,7 @@
 
     iget-object v1, p0, Lcom/android/internal/app/AlertController$AlertParams$2;->val$dialog:Lcom/android/internal/app/AlertController;
 
+    #getter for: Lcom/android/internal/app/AlertController;->mMultiChoiceItemLayout:I
     invoke-static {v1}, Lcom/android/internal/app/AlertController;->access$900(Lcom/android/internal/app/AlertController;)I
 
     move-result v1

@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 276
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public onActionItemClicked(Landroid/view/ActionMode;Landroid/view/MenuItem;)Z
-    .registers 4
+    .locals 1
     .parameter "mode"
     .parameter "item"
 
@@ -43,7 +43,7 @@
 .end method
 
 .method public onCreateActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
-    .registers 4
+    .locals 1
     .parameter "mode"
     .parameter "menu"
 
@@ -55,7 +55,7 @@
 .end method
 
 .method public onDestroyActionMode(Landroid/view/ActionMode;)V
-    .registers 2
+    .locals 0
     .parameter "mode"
 
     .prologue
@@ -64,7 +64,7 @@
 .end method
 
 .method public onPrepareActionMode(Landroid/view/ActionMode;Landroid/view/Menu;)Z
-    .registers 4
+    .locals 1
     .parameter "mode"
     .parameter "menu"
 

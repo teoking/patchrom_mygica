@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 2
+    .locals 2
 
     .prologue
     .line 518
@@ -43,7 +43,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 510
@@ -53,7 +53,7 @@
 .end method
 
 .method public static get(Landroid/content/ContentProviderClient;Landroid/accounts/Account;)[B
-    .registers 3
+    .locals 1
     .parameter "provider"
     .parameter "account"
     .annotation system Ldalvik/annotation/Throws;
@@ -74,7 +74,7 @@
 .end method
 
 .method public static getWithUri(Landroid/content/ContentProviderClient;Landroid/accounts/Account;)Landroid/util/Pair;
-    .registers 3
+    .locals 1
     .parameter "provider"
     .parameter "account"
     .annotation system Ldalvik/annotation/Signature;
@@ -108,7 +108,7 @@
 .end method
 
 .method public static newSetOperation(Landroid/accounts/Account;[B)Landroid/content/ContentProviderOperation;
-    .registers 3
+    .locals 1
     .parameter "account"
     .parameter "data"
 
@@ -124,7 +124,7 @@
 .end method
 
 .method public static set(Landroid/content/ContentProviderClient;Landroid/accounts/Account;[B)V
-    .registers 4
+    .locals 1
     .parameter "provider"
     .parameter "account"
     .parameter "data"

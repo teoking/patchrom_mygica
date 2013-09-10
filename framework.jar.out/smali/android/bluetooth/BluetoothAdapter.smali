@@ -89,7 +89,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/bluetooth/IBluetooth;)V
-    .registers 4
+    .locals 2
     .parameter "service"
 
     .prologue
@@ -97,7 +97,7 @@
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 384
-    if-nez p1, :cond_e
+    if-nez p1, :cond_0
 
     .line 385
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -109,7 +109,7 @@
     throw v0
 
     .line 387
-    :cond_e
+    :cond_0
     iput-object p1, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     .line 388
@@ -122,7 +122,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/bluetooth/BluetoothAdapter;)Landroid/bluetooth/IBluetooth;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -133,7 +133,7 @@
 .end method
 
 .method public static checkBluetoothAddress(Ljava/lang/String;)Z
-    .registers 6
+    .locals 5
     .parameter "address"
 
     .prologue
@@ -142,26 +142,26 @@
     const/4 v2, 0x0
 
     .line 1328
-    if-eqz p0, :cond_b
+    if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v3
 
-    if-eq v3, v4, :cond_c
+    if-eq v3, v4, :cond_1
 
     .line 1348
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return v2
 
     .line 1331
-    :cond_c
+    :cond_1
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_d
-    if-ge v1, v4, :cond_31
+    :goto_1
+    if-ge v1, v4, :cond_4
 
     .line 1332
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -172,64 +172,64 @@
     .local v0, c:C
     rem-int/lit8 v3, v1, 0x3
 
-    packed-switch v3, :pswitch_data_34
+    packed-switch v3, :pswitch_data_0
 
     .line 1331
-    :cond_18
-    :goto_18
+    :cond_2
+    :goto_2
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_d
+    goto :goto_1
 
     .line 1336
-    :pswitch_1b
+    :pswitch_0
     const/16 v3, 0x30
 
-    if-lt v0, v3, :cond_23
+    if-lt v0, v3, :cond_3
 
     const/16 v3, 0x39
 
-    if-le v0, v3, :cond_18
+    if-le v0, v3, :cond_2
 
-    :cond_23
+    :cond_3
     const/16 v3, 0x41
 
-    if-lt v0, v3, :cond_b
+    if-lt v0, v3, :cond_0
 
     const/16 v3, 0x46
 
-    if-gt v0, v3, :cond_b
+    if-gt v0, v3, :cond_0
 
-    goto :goto_18
+    goto :goto_2
 
     .line 1342
-    :pswitch_2c
+    :pswitch_1
     const/16 v3, 0x3a
 
-    if-ne v0, v3, :cond_b
+    if-ne v0, v3, :cond_0
 
-    goto :goto_18
+    goto :goto_2
 
     .line 1348
     .end local v0           #c:C
-    :cond_31
+    :cond_4
     const/4 v2, 0x1
 
-    goto :goto_b
+    goto :goto_0
 
     .line 1333
     nop
 
-    :pswitch_data_34
+    :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_1b
-        :pswitch_1b
-        :pswitch_2c
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
 .method private createNewRfcommSocketAndRecord(Ljava/lang/String;Ljava/util/UUID;ZZ)Landroid/bluetooth/BluetoothServerSocket;
-    .registers 15
+    .locals 10
     .parameter "name"
     .parameter "uuid"
     .parameter "auth"
@@ -250,14 +250,14 @@
 
     .line 1007
     .local v4, picker:Landroid/bluetooth/BluetoothAdapter$RfcommChannelPicker;
-    :goto_6
+    :goto_0
     invoke-virtual {v4}, Landroid/bluetooth/BluetoothAdapter$RfcommChannelPicker;->nextChannel()I
 
     move-result v0
 
     .line 1009
     .local v0, channel:I
-    if-ne v0, v9, :cond_14
+    if-ne v0, v9, :cond_0
 
     .line 1010
     new-instance v6, Ljava/io/IOException;
@@ -269,7 +269,7 @@
     throw v6
 
     .line 1013
-    :cond_14
+    :cond_0
     new-instance v5, Landroid/bluetooth/BluetoothServerSocket;
 
     const/4 v6, 0x1
@@ -286,14 +286,14 @@
 
     .line 1016
     .local v2, errno:I
-    if-nez v2, :cond_51
+    if-nez v2, :cond_1
 
     .line 1033
     const/4 v3, -0x1
 
     .line 1035
     .local v3, handle:I
-    :try_start_23
+    :try_start_0
     iget-object v6, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     new-instance v7, Landroid/os/ParcelUuid;
@@ -305,23 +305,23 @@
     invoke-direct {v8}, Landroid/os/Binder;-><init>()V
 
     invoke-interface {v6, p1, v7, v0, v8}, Landroid/bluetooth/IBluetooth;->addRfcommServiceRecord(Ljava/lang/String;Landroid/os/ParcelUuid;ILandroid/os/IBinder;)I
-    :try_end_32
-    .catch Landroid/os/RemoteException; {:try_start_23 .. :try_end_32} :catch_64
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result v3
 
     .line 1038
-    :goto_33
-    if-ne v3, v9, :cond_6d
+    :goto_1
+    if-ne v3, v9, :cond_3
 
     .line 1040
-    :try_start_35
+    :try_start_1
     invoke-virtual {v5}, Landroid/bluetooth/BluetoothServerSocket;->close()V
-    :try_end_38
-    .catch Ljava/io/IOException; {:try_start_35 .. :try_end_38} :catch_84
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_3
 
     .line 1042
-    :goto_38
+    :goto_2
     new-instance v6, Ljava/io/IOException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -348,43 +348,43 @@
 
     .line 1019
     .end local v3           #handle:I
-    :cond_51
+    :cond_1
     const/16 v6, 0x62
 
-    if-ne v2, v6, :cond_5b
+    if-ne v2, v6, :cond_2
 
     .line 1022
-    :try_start_55
+    :try_start_2
     invoke-virtual {v5}, Landroid/bluetooth/BluetoothServerSocket;->close()V
-    :try_end_58
-    .catch Ljava/io/IOException; {:try_start_55 .. :try_end_58} :catch_59
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
-    goto :goto_6
+    goto :goto_0
 
     .line 1023
-    :catch_59
+    :catch_0
     move-exception v6
 
-    goto :goto_6
+    goto :goto_0
 
     .line 1027
-    :cond_5b
-    :try_start_5b
+    :cond_2
+    :try_start_3
     invoke-virtual {v5}, Landroid/bluetooth/BluetoothServerSocket;->close()V
-    :try_end_5e
-    .catch Ljava/io/IOException; {:try_start_5b .. :try_end_5e} :catch_82
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
 
     .line 1029
-    :goto_5e
+    :goto_3
     iget-object v6, v5, Landroid/bluetooth/BluetoothServerSocket;->mSocket:Landroid/bluetooth/BluetoothSocket;
 
     invoke-virtual {v6, v2}, Landroid/bluetooth/BluetoothSocket;->throwErrnoNative(I)V
 
-    goto :goto_6
+    goto :goto_0
 
     .line 1037
     .restart local v3       #handle:I
-    :catch_64
+    :catch_1
     move-exception v1
 
     .local v1, e:Landroid/os/RemoteException;
@@ -394,14 +394,14 @@
 
     invoke-static {v6, v7, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_33
+    goto :goto_1
 
     .line 1045
     .end local v1           #e:Landroid/os/RemoteException;
-    :cond_6d
+    :cond_3
     iget-object v6, p0, Landroid/bluetooth/BluetoothAdapter;->mServiceRecordHandler:Landroid/os/Handler;
 
-    if-nez v6, :cond_7c
+    if-nez v6, :cond_4
 
     .line 1046
     new-instance v6, Landroid/bluetooth/BluetoothAdapter$1;
@@ -415,7 +415,7 @@
     iput-object v6, p0, Landroid/bluetooth/BluetoothAdapter;->mServiceRecordHandler:Landroid/os/Handler;
 
     .line 1058
-    :cond_7c
+    :cond_4
     iget-object v6, p0, Landroid/bluetooth/BluetoothAdapter;->mServiceRecordHandler:Landroid/os/Handler;
 
     invoke-virtual {v5, v6, v3}, Landroid/bluetooth/BluetoothServerSocket;->setCloseHandler(Landroid/os/Handler;I)V
@@ -425,21 +425,21 @@
 
     .line 1028
     .end local v3           #handle:I
-    :catch_82
+    :catch_2
     move-exception v6
 
-    goto :goto_5e
+    goto :goto_3
 
     .line 1041
     .restart local v3       #handle:I
-    :catch_84
+    :catch_3
     move-exception v6
 
-    goto :goto_38
+    goto :goto_2
 .end method
 
 .method public static declared-synchronized getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
-    .registers 4
+    .locals 4
 
     .prologue
     .line 369
@@ -447,10 +447,10 @@
 
     monitor-enter v3
 
-    :try_start_3
+    :try_start_0
     sget-object v2, Landroid/bluetooth/BluetoothAdapter;->sAdapter:Landroid/bluetooth/BluetoothAdapter;
 
-    if-nez v2, :cond_1a
+    if-nez v2, :cond_0
 
     .line 370
     const-string v2, "bluetooth"
@@ -461,7 +461,7 @@
 
     .line 371
     .local v0, b:Landroid/os/IBinder;
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     .line 372
     invoke-static {v0}, Landroid/bluetooth/IBluetooth$Stub;->asInterface(Landroid/os/IBinder;)Landroid/bluetooth/IBluetooth;
@@ -478,17 +478,17 @@
 
     .line 376
     .end local v1           #service:Landroid/bluetooth/IBluetooth;
-    :cond_1a
+    :cond_0
     sget-object v2, Landroid/bluetooth/BluetoothAdapter;->sAdapter:Landroid/bluetooth/BluetoothAdapter;
-    :try_end_1c
-    .catchall {:try_start_3 .. :try_end_1c} :catchall_1e
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v3
 
     return-object v2
 
     .line 369
-    :catchall_1e
+    :catchall_0
     move-exception v2
 
     monitor-exit v3
@@ -497,7 +497,7 @@
 .end method
 
 .method public static listenUsingScoOn()Landroid/bluetooth/BluetoothServerSocket;
-    .registers 5
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -526,33 +526,33 @@
 
     .line 1118
     .local v0, errno:I
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_0
 
     .line 1120
-    :try_start_10
+    :try_start_0
     invoke-virtual {v1}, Landroid/bluetooth/BluetoothServerSocket;->close()V
-    :try_end_13
-    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_13} :catch_19
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1122
-    :goto_13
+    :goto_0
     iget-object v2, v1, Landroid/bluetooth/BluetoothServerSocket;->mSocket:Landroid/bluetooth/BluetoothSocket;
 
     invoke-virtual {v2, v0}, Landroid/bluetooth/BluetoothSocket;->throwErrnoNative(I)V
 
     .line 1124
-    :cond_18
+    :cond_0
     return-object v1
 
     .line 1121
-    :catch_19
+    :catch_0
     move-exception v2
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method private toDeviceSet([Ljava/lang/String;)Ljava/util/Set;
-    .registers 5
+    .locals 3
     .parameter "addresses"
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -579,10 +579,10 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_7
+    :goto_0
     array-length v2, p1
 
-    if-ge v1, v2, :cond_16
+    if-ge v1, v2, :cond_0
 
     .line 1315
     aget-object v2, p1, v1
@@ -596,10 +596,10 @@
     .line 1314
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_7
+    goto :goto_0
 
     .line 1317
-    :cond_16
+    :cond_0
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
 
     move-result-object v2
@@ -610,7 +610,7 @@
 
 # virtual methods
 .method public cancelDiscovery()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x0
@@ -622,27 +622,27 @@
 
     const/16 v3, 0xc
 
-    if-eq v2, v3, :cond_a
+    if-eq v2, v3, :cond_0
 
     .line 734
-    :goto_9
+    :goto_0
     return v1
 
     .line 732
-    :cond_a
-    :try_start_a
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v2}, Landroid/bluetooth/IBluetooth;->cancelDiscovery()Z
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_f} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 733
-    :catch_11
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -652,11 +652,11 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public changeApplicationBluetoothState(ZLandroid/bluetooth/BluetoothAdapter$BluetoothStateChangeCallback;)Z
-    .registers 8
+    .locals 5
     .parameter "on"
     .parameter "callback"
 
@@ -664,15 +664,15 @@
     const/4 v1, 0x0
 
     .line 1277
-    if-nez p2, :cond_4
+    if-nez p2, :cond_0
 
     .line 1285
-    :goto_3
+    :goto_0
     return v1
 
     .line 1280
-    :cond_4
-    :try_start_4
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     new-instance v3, Landroid/bluetooth/BluetoothAdapter$StateChangeCallbackWrapper;
@@ -684,15 +684,15 @@
     invoke-direct {v4}, Landroid/os/Binder;-><init>()V
 
     invoke-interface {v2, p1, v3, v4}, Landroid/bluetooth/IBluetooth;->changeApplicationBluetoothState(ZLandroid/bluetooth/IBluetoothStateChangeCallback;Landroid/os/IBinder;)Z
-    :try_end_13
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_13} :catch_15
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    goto :goto_3
+    goto :goto_0
 
     .line 1282
-    :catch_15
+    :catch_0
     move-exception v0
 
     .line 1283
@@ -703,29 +703,29 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public closeProfileProxy(ILandroid/bluetooth/BluetoothProfile;)V
-    .registers 8
+    .locals 5
     .parameter "profile"
     .parameter "proxy"
 
     .prologue
     .line 1208
-    if-nez p2, :cond_3
+    if-nez p2, :cond_0
 
     .line 1232
-    :goto_2
+    :goto_0
     return-void
 
     .line 1210
-    :cond_3
-    packed-switch p1, :pswitch_data_2a
+    :cond_0
+    packed-switch p1, :pswitch_data_0
 
-    goto :goto_2
+    goto :goto_0
 
-    :pswitch_7
+    :pswitch_0
     move-object v1, p2
 
     .line 1212
@@ -735,10 +735,10 @@
     .local v1, headset:Landroid/bluetooth/BluetoothHeadset;
     invoke-virtual {v1}, Landroid/bluetooth/BluetoothHeadset;->close()V
 
-    goto :goto_2
+    goto :goto_0
 
     .end local v1           #headset:Landroid/bluetooth/BluetoothHeadset;
-    :pswitch_e
+    :pswitch_1
     move-object v0, p2
 
     .line 1216
@@ -748,10 +748,10 @@
     .local v0, a2dp:Landroid/bluetooth/BluetoothA2dp;
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothA2dp;->close()V
 
-    goto :goto_2
+    goto :goto_0
 
     .end local v0           #a2dp:Landroid/bluetooth/BluetoothA2dp;
-    :pswitch_15
+    :pswitch_2
     move-object v3, p2
 
     .line 1220
@@ -761,10 +761,10 @@
     .local v3, iDev:Landroid/bluetooth/BluetoothInputDevice;
     invoke-virtual {v3}, Landroid/bluetooth/BluetoothInputDevice;->close()V
 
-    goto :goto_2
+    goto :goto_0
 
     .end local v3           #iDev:Landroid/bluetooth/BluetoothInputDevice;
-    :pswitch_1c
+    :pswitch_3
     move-object v4, p2
 
     .line 1224
@@ -774,10 +774,10 @@
     .local v4, pan:Landroid/bluetooth/BluetoothPan;
     invoke-virtual {v4}, Landroid/bluetooth/BluetoothPan;->close()V
 
-    goto :goto_2
+    goto :goto_0
 
     .end local v4           #pan:Landroid/bluetooth/BluetoothPan;
-    :pswitch_23
+    :pswitch_4
     move-object v2, p2
 
     .line 1228
@@ -787,21 +787,21 @@
     .local v2, health:Landroid/bluetooth/BluetoothHealth;
     invoke-virtual {v2}, Landroid/bluetooth/BluetoothHealth;->close()V
 
-    goto :goto_2
+    goto :goto_0
 
     .line 1210
-    :pswitch_data_2a
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_7
-        :pswitch_e
-        :pswitch_23
-        :pswitch_15
-        :pswitch_1c
+        :pswitch_0
+        :pswitch_1
+        :pswitch_4
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method public disable()Z
-    .registers 4
+    .locals 3
 
     .prologue
     .line 519
@@ -811,17 +811,17 @@
     const/4 v2, 0x1
 
     invoke-interface {v1, v2}, Landroid/bluetooth/IBluetooth;->disable(Z)Z
-    :try_end_6
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_6} :catch_8
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 521
-    :goto_7
+    :goto_0
     return v1
 
     .line 520
-    :catch_8
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -834,11 +834,11 @@
     .line 521
     const/4 v1, 0x0
 
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public enable()Z
-    .registers 4
+    .locals 3
 
     .prologue
     .line 488
@@ -846,17 +846,17 @@
     iget-object v1, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v1}, Landroid/bluetooth/IBluetooth;->enable()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 490
-    :goto_6
+    :goto_0
     return v1
 
     .line 489
-    :catch_7
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -869,11 +869,11 @@
     .line 490
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public enableNoAutoConnect()Z
-    .registers 4
+    .locals 3
 
     .prologue
     .line 1241
@@ -881,17 +881,17 @@
     iget-object v1, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v1}, Landroid/bluetooth/IBluetooth;->enableNoAutoConnect()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 1243
-    :goto_6
+    :goto_0
     return v1
 
     .line 1242
-    :catch_7
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -904,11 +904,11 @@
     .line 1243
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getAddress()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 533
@@ -916,17 +916,17 @@
     iget-object v1, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v1}, Landroid/bluetooth/IBluetooth;->getAddress()Ljava/lang/String;
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 535
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 534
-    :catch_7
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -939,11 +939,11 @@
     .line 535
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getBondedDevices()Ljava/util/Set;
-    .registers 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -962,7 +962,7 @@
 
     const/16 v2, 0xc
 
-    if-eq v1, v2, :cond_10
+    if-eq v1, v2, :cond_0
 
     .line 777
     const/4 v1, 0x0
@@ -974,12 +974,12 @@
     move-result-object v1
 
     .line 782
-    :goto_f
+    :goto_0
     return-object v1
 
     .line 780
-    :cond_10
-    :try_start_10
+    :cond_0
+    :try_start_0
     iget-object v1, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v1}, Landroid/bluetooth/IBluetooth;->listBonds()[Ljava/lang/String;
@@ -987,15 +987,15 @@
     move-result-object v1
 
     invoke-direct {p0, v1}, Landroid/bluetooth/BluetoothAdapter;->toDeviceSet([Ljava/lang/String;)Ljava/util/Set;
-    :try_end_19
-    .catch Landroid/os/RemoteException; {:try_start_10 .. :try_end_19} :catch_1b
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
-    goto :goto_f
+    goto :goto_0
 
     .line 781
-    :catch_1b
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -1008,11 +1008,11 @@
     .line 782
     const/4 v1, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public getConnectionState()I
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x0
@@ -1024,27 +1024,27 @@
 
     const/16 v3, 0xc
 
-    if-eq v2, v3, :cond_a
+    if-eq v2, v3, :cond_0
 
     .line 803
-    :goto_9
+    :goto_0
     return v1
 
     .line 801
-    :cond_a
-    :try_start_a
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v2}, Landroid/bluetooth/IBluetooth;->getAdapterConnectionState()I
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_f} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 802
-    :catch_11
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -1054,11 +1054,11 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public getDiscoverableTimeout()I
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, -0x1
@@ -1070,27 +1070,27 @@
 
     const/16 v3, 0xc
 
-    if-eq v2, v3, :cond_a
+    if-eq v2, v3, :cond_0
 
     .line 663
-    :goto_9
+    :goto_0
     return v1
 
     .line 661
-    :cond_a
-    :try_start_a
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v2}, Landroid/bluetooth/IBluetooth;->getDiscoverableTimeout()I
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_f} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 662
-    :catch_11
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -1100,11 +1100,11 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public getName()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 547
@@ -1112,17 +1112,17 @@
     iget-object v1, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v1}, Landroid/bluetooth/IBluetooth;->getName()Ljava/lang/String;
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
     .line 549
-    :goto_6
+    :goto_0
     return-object v1
 
     .line 548
-    :catch_7
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -1135,11 +1135,11 @@
     .line 549
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getProfileConnectionState(I)I
-    .registers 6
+    .locals 4
     .parameter "profile"
 
     .prologue
@@ -1152,27 +1152,27 @@
 
     const/16 v3, 0xc
 
-    if-eq v2, v3, :cond_a
+    if-eq v2, v3, :cond_0
 
     .line 828
-    :goto_9
+    :goto_0
     return v1
 
     .line 824
-    :cond_a
-    :try_start_a
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v2, p1}, Landroid/bluetooth/IBluetooth;->getProfileConnectionState(I)I
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_f} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 825
-    :catch_11
+    :catch_0
     move-exception v0
 
     .line 826
@@ -1183,11 +1183,11 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)Z
-    .registers 12
+    .locals 8
     .parameter "context"
     .parameter "listener"
     .parameter "profile"
@@ -1198,20 +1198,20 @@
     const/4 v5, 0x1
 
     .line 1174
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_0
 
-    if-nez p2, :cond_8
+    if-nez p2, :cond_1
 
-    :cond_6
+    :cond_0
     move v5, v6
 
     .line 1192
-    :goto_7
+    :goto_0
     return v5
 
     .line 1176
-    :cond_8
-    if-ne p3, v5, :cond_10
+    :cond_1
+    if-ne p3, v5, :cond_2
 
     .line 1177
     new-instance v1, Landroid/bluetooth/BluetoothHeadset;
@@ -1220,14 +1220,14 @@
 
     .line 1178
     .local v1, headset:Landroid/bluetooth/BluetoothHeadset;
-    goto :goto_7
+    goto :goto_0
 
     .line 1179
     .end local v1           #headset:Landroid/bluetooth/BluetoothHeadset;
-    :cond_10
+    :cond_2
     const/4 v7, 0x2
 
-    if-ne p3, v7, :cond_19
+    if-ne p3, v7, :cond_3
 
     .line 1180
     new-instance v0, Landroid/bluetooth/BluetoothA2dp;
@@ -1236,14 +1236,14 @@
 
     .line 1181
     .local v0, a2dp:Landroid/bluetooth/BluetoothA2dp;
-    goto :goto_7
+    goto :goto_0
 
     .line 1182
     .end local v0           #a2dp:Landroid/bluetooth/BluetoothA2dp;
-    :cond_19
+    :cond_3
     const/4 v7, 0x4
 
-    if-ne p3, v7, :cond_22
+    if-ne p3, v7, :cond_4
 
     .line 1183
     new-instance v3, Landroid/bluetooth/BluetoothInputDevice;
@@ -1252,14 +1252,14 @@
 
     .line 1184
     .local v3, iDev:Landroid/bluetooth/BluetoothInputDevice;
-    goto :goto_7
+    goto :goto_0
 
     .line 1185
     .end local v3           #iDev:Landroid/bluetooth/BluetoothInputDevice;
-    :cond_22
+    :cond_4
     const/4 v7, 0x5
 
-    if-ne p3, v7, :cond_2b
+    if-ne p3, v7, :cond_5
 
     .line 1186
     new-instance v4, Landroid/bluetooth/BluetoothPan;
@@ -1268,14 +1268,14 @@
 
     .line 1187
     .local v4, pan:Landroid/bluetooth/BluetoothPan;
-    goto :goto_7
+    goto :goto_0
 
     .line 1188
     .end local v4           #pan:Landroid/bluetooth/BluetoothPan;
-    :cond_2b
+    :cond_5
     const/4 v7, 0x3
 
-    if-ne p3, v7, :cond_34
+    if-ne p3, v7, :cond_6
 
     .line 1189
     new-instance v2, Landroid/bluetooth/BluetoothHealth;
@@ -1284,18 +1284,18 @@
 
     .line 1190
     .local v2, health:Landroid/bluetooth/BluetoothHealth;
-    goto :goto_7
+    goto :goto_0
 
     .end local v2           #health:Landroid/bluetooth/BluetoothHealth;
-    :cond_34
+    :cond_6
     move v5, v6
 
     .line 1192
-    goto :goto_7
+    goto :goto_0
 .end method
 
 .method public getRemoteDevice(Ljava/lang/String;)Landroid/bluetooth/BluetoothDevice;
-    .registers 3
+    .locals 1
     .parameter "address"
 
     .prologue
@@ -1308,7 +1308,7 @@
 .end method
 
 .method public getRemoteDevice([B)Landroid/bluetooth/BluetoothDevice;
-    .registers 11
+    .locals 9
     .parameter "address"
 
     .prologue
@@ -1323,16 +1323,16 @@
     const/4 v4, 0x0
 
     .line 419
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_0
 
     array-length v0, p1
 
     const/4 v1, 0x6
 
-    if-eq v0, v1, :cond_13
+    if-eq v0, v1, :cond_1
 
     .line 420
-    :cond_b
+    :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "Bluetooth address must have 6 bytes"
@@ -1342,7 +1342,7 @@
     throw v0
 
     .line 422
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/bluetooth/BluetoothDevice;
 
     const-string v1, "%02X:%02X:%02X:%02X:%02X:%02X"
@@ -1413,7 +1413,7 @@
 .end method
 
 .method public getScanMode()I
-    .registers 5
+    .locals 4
 
     .prologue
     const/16 v1, 0x14
@@ -1425,27 +1425,27 @@
 
     const/16 v3, 0xc
 
-    if-eq v2, v3, :cond_b
+    if-eq v2, v3, :cond_0
 
     .line 612
-    :goto_a
+    :goto_0
     return v1
 
     .line 610
-    :cond_b
-    :try_start_b
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v2}, Landroid/bluetooth/IBluetooth;->getScanMode()I
-    :try_end_10
-    .catch Landroid/os/RemoteException; {:try_start_b .. :try_end_10} :catch_12
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    goto :goto_a
+    goto :goto_0
 
     .line 611
-    :catch_12
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -1455,11 +1455,11 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getState()I
-    .registers 4
+    .locals 3
 
     .prologue
     .line 454
@@ -1467,17 +1467,17 @@
     iget-object v1, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v1}, Landroid/bluetooth/IBluetooth;->getBluetoothState()I
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 456
-    :goto_6
+    :goto_0
     return v1
 
     .line 455
-    :catch_7
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -1490,11 +1490,11 @@
     .line 456
     const/16 v1, 0xa
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public getUuids()[Landroid/os/ParcelUuid;
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x0
@@ -1506,27 +1506,27 @@
 
     const/16 v3, 0xc
 
-    if-eq v2, v3, :cond_a
+    if-eq v2, v3, :cond_0
 
     .line 565
-    :goto_9
+    :goto_0
     return-object v1
 
     .line 563
-    :cond_a
-    :try_start_a
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v2}, Landroid/bluetooth/IBluetooth;->getUuids()[Landroid/os/ParcelUuid;
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_f} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 564
-    :catch_11
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -1536,11 +1536,11 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public isDiscovering()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x0
@@ -1552,27 +1552,27 @@
 
     const/16 v3, 0xc
 
-    if-eq v2, v3, :cond_a
+    if-eq v2, v3, :cond_0
 
     .line 761
-    :goto_9
+    :goto_0
     return v1
 
     .line 759
-    :cond_a
-    :try_start_a
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v2}, Landroid/bluetooth/IBluetooth;->isDiscovering()Z
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_f} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 760
-    :catch_11
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -1582,11 +1582,11 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public isEnabled()Z
-    .registers 4
+    .locals 3
 
     .prologue
     .line 436
@@ -1594,17 +1594,17 @@
     iget-object v1, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v1}, Landroid/bluetooth/IBluetooth;->isEnabled()Z
-    :try_end_5
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_5} :catch_7
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 438
-    :goto_6
+    :goto_0
     return v1
 
     .line 437
-    :catch_7
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -1617,11 +1617,11 @@
     .line 438
     const/4 v1, 0x0
 
-    goto :goto_6
+    goto :goto_0
 .end method
 
 .method public listenUsingEncryptedRfcommOn(I)Landroid/bluetooth/BluetoothServerSocket;
-    .registers 6
+    .locals 4
     .parameter "port"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1649,33 +1649,33 @@
 
     .line 1097
     .local v0, errno:I
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 1099
-    :try_start_f
+    :try_start_0
     invoke-virtual {v1}, Landroid/bluetooth/BluetoothServerSocket;->close()V
-    :try_end_12
-    .catch Ljava/io/IOException; {:try_start_f .. :try_end_12} :catch_18
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1101
-    :goto_12
+    :goto_0
     iget-object v2, v1, Landroid/bluetooth/BluetoothServerSocket;->mSocket:Landroid/bluetooth/BluetoothSocket;
 
     invoke-virtual {v2, v0}, Landroid/bluetooth/BluetoothSocket;->throwErrnoNative(I)V
 
     .line 1103
-    :cond_17
+    :cond_0
     return-object v1
 
     .line 1100
-    :catch_18
+    :catch_0
     move-exception v2
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public listenUsingEncryptedRfcommWithServiceRecord(Ljava/lang/String;Ljava/util/UUID;)Landroid/bluetooth/BluetoothServerSocket;
-    .registers 5
+    .locals 2
     .parameter "name"
     .parameter "uuid"
     .annotation system Ldalvik/annotation/Throws;
@@ -1698,7 +1698,7 @@
 .end method
 
 .method public listenUsingInsecureRfcommOn(I)Landroid/bluetooth/BluetoothServerSocket;
-    .registers 6
+    .locals 4
     .parameter "port"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1726,33 +1726,33 @@
 
     .line 1075
     .local v0, errno:I
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_0
 
     .line 1077
-    :try_start_f
+    :try_start_0
     invoke-virtual {v1}, Landroid/bluetooth/BluetoothServerSocket;->close()V
-    :try_end_12
-    .catch Ljava/io/IOException; {:try_start_f .. :try_end_12} :catch_18
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1079
-    :goto_12
+    :goto_0
     iget-object v2, v1, Landroid/bluetooth/BluetoothServerSocket;->mSocket:Landroid/bluetooth/BluetoothSocket;
 
     invoke-virtual {v2, v0}, Landroid/bluetooth/BluetoothSocket;->throwErrnoNative(I)V
 
     .line 1081
-    :cond_17
+    :cond_0
     return-object v1
 
     .line 1078
-    :catch_18
+    :catch_0
     move-exception v2
 
-    goto :goto_12
+    goto :goto_0
 .end method
 
 .method public listenUsingInsecureRfcommWithServiceRecord(Ljava/lang/String;Ljava/util/UUID;)Landroid/bluetooth/BluetoothServerSocket;
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "uuid"
     .annotation system Ldalvik/annotation/Throws;
@@ -1773,7 +1773,7 @@
 .end method
 
 .method public listenUsingRfcommOn(I)Landroid/bluetooth/BluetoothServerSocket;
-    .registers 5
+    .locals 3
     .parameter "channel"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1799,33 +1799,33 @@
 
     .line 894
     .local v0, errno:I
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_0
 
     .line 896
-    :try_start_e
+    :try_start_0
     invoke-virtual {v1}, Landroid/bluetooth/BluetoothServerSocket;->close()V
-    :try_end_11
-    .catch Ljava/io/IOException; {:try_start_e .. :try_end_11} :catch_17
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 898
-    :goto_11
+    :goto_0
     iget-object v2, v1, Landroid/bluetooth/BluetoothServerSocket;->mSocket:Landroid/bluetooth/BluetoothSocket;
 
     invoke-virtual {v2, v0}, Landroid/bluetooth/BluetoothSocket;->throwErrnoNative(I)V
 
     .line 900
-    :cond_16
+    :cond_0
     return-object v1
 
     .line 897
-    :catch_17
+    :catch_0
     move-exception v2
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public listenUsingRfcommWithServiceRecord(Ljava/lang/String;Ljava/util/UUID;)Landroid/bluetooth/BluetoothServerSocket;
-    .registers 4
+    .locals 1
     .parameter "name"
     .parameter "uuid"
     .annotation system Ldalvik/annotation/Throws;
@@ -1846,7 +1846,7 @@
 .end method
 
 .method public readOutOfBandData()Landroid/util/Pair;
-    .registers 9
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1867,16 +1867,16 @@
 
     const/16 v6, 0xc
 
-    if-eq v5, v6, :cond_c
+    if-eq v5, v6, :cond_1
 
     .line 1155
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return-object v4
 
     .line 1141
-    :cond_c
-    :try_start_c
+    :cond_1
+    :try_start_0
     iget-object v5, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v5}, Landroid/bluetooth/IBluetooth;->readOutOfBandData()[B
@@ -1885,11 +1885,11 @@
 
     .line 1143
     .local v3, ret:[B
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_0
 
     array-length v5, v3
 
-    if-ne v5, v7, :cond_b
+    if-ne v5, v7, :cond_0
 
     .line 1145
     const/4 v5, 0x0
@@ -1915,18 +1915,18 @@
     new-instance v5, Landroid/util/Pair;
 
     invoke-direct {v5, v1, v2}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_2b
-    .catch Landroid/os/RemoteException; {:try_start_c .. :try_end_2b} :catch_2d
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-object v4, v5
 
-    goto :goto_b
+    goto :goto_0
 
     .line 1154
     .end local v1           #hash:[B
     .end local v2           #randomizer:[B
     .end local v3           #ret:[B
-    :catch_2d
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -1936,11 +1936,11 @@
 
     invoke-static {v5, v6, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public setDiscoverableTimeout(I)V
-    .registers 5
+    .locals 3
     .parameter "timeout"
 
     .prologue
@@ -1951,25 +1951,25 @@
 
     const/16 v2, 0xc
 
-    if-eq v1, v2, :cond_9
+    if-eq v1, v2, :cond_0
 
     .line 672
-    :goto_8
+    :goto_0
     return-void
 
     .line 670
-    :cond_9
-    :try_start_9
+    :cond_0
+    :try_start_0
     iget-object v1, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v1, p1}, Landroid/bluetooth/IBluetooth;->setDiscoverableTimeout(I)Z
-    :try_end_e
-    .catch Landroid/os/RemoteException; {:try_start_9 .. :try_end_e} :catch_f
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_8
+    goto :goto_0
 
     .line 671
-    :catch_f
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -1979,11 +1979,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_8
+    goto :goto_0
 .end method
 
 .method public setName(Ljava/lang/String;)Z
-    .registers 6
+    .locals 4
     .parameter "name"
 
     .prologue
@@ -1996,27 +1996,27 @@
 
     const/16 v3, 0xc
 
-    if-eq v2, v3, :cond_a
+    if-eq v2, v3, :cond_0
 
     .line 588
-    :goto_9
+    :goto_0
     return v1
 
     .line 586
-    :cond_a
-    :try_start_a
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v2, p1}, Landroid/bluetooth/IBluetooth;->setName(Ljava/lang/String;)Z
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_f} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 587
-    :catch_11
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -2026,11 +2026,11 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public setScanMode(I)Z
-    .registers 4
+    .locals 2
     .parameter "mode"
 
     .prologue
@@ -2041,26 +2041,26 @@
 
     const/16 v1, 0xc
 
-    if-eq v0, v1, :cond_a
+    if-eq v0, v1, :cond_0
 
     const/4 v0, 0x0
 
     .line 654
-    :goto_9
+    :goto_0
     return v0
 
-    :cond_a
+    :cond_0
     const/16 v0, 0x78
 
     invoke-virtual {p0, p1, v0}, Landroid/bluetooth/BluetoothAdapter;->setScanMode(II)Z
 
     move-result v0
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public setScanMode(II)Z
-    .registers 7
+    .locals 4
     .parameter "mode"
     .parameter "duration"
 
@@ -2074,27 +2074,27 @@
 
     const/16 v3, 0xc
 
-    if-eq v2, v3, :cond_a
+    if-eq v2, v3, :cond_0
 
     .line 648
-    :goto_9
+    :goto_0
     return v1
 
     .line 646
-    :cond_a
-    :try_start_a
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v2, p1, p2}, Landroid/bluetooth/IBluetooth;->setScanMode(II)Z
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_f} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 647
-    :catch_11
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -2104,11 +2104,11 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_0
 .end method
 
 .method public startDiscovery()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x0
@@ -2120,27 +2120,27 @@
 
     const/16 v3, 0xc
 
-    if-eq v2, v3, :cond_a
+    if-eq v2, v3, :cond_0
 
     .line 709
-    :goto_9
+    :goto_0
     return v1
 
     .line 707
-    :cond_a
-    :try_start_a
+    :cond_0
+    :try_start_0
     iget-object v2, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
 
     invoke-interface {v2}, Landroid/bluetooth/IBluetooth;->startDiscovery()Z
-    :try_end_f
-    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_f} :catch_11
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
-    goto :goto_9
+    goto :goto_0
 
     .line 708
-    :catch_11
+    :catch_0
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
@@ -2150,5 +2150,5 @@
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_9
+    goto :goto_0
 .end method

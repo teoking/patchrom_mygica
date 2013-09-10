@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 89
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected initialValue()Landroid/view/Choreographer;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 92
@@ -47,7 +47,7 @@
 
     .line 93
     .local v0, looper:Landroid/os/Looper;
-    if-nez v0, :cond_e
+    if-nez v0, :cond_0
 
     .line 94
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -59,7 +59,7 @@
     throw v1
 
     .line 96
-    :cond_e
+    :cond_0
     new-instance v1, Landroid/view/Choreographer;
 
     const/4 v2, 0x0
@@ -70,7 +70,7 @@
 .end method
 
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 89

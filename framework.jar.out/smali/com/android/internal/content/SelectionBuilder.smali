@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 33
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public varargs append(Ljava/lang/String;[Ljava/lang/Object;)Lcom/android/internal/content/SelectionBuilder;
-    .registers 9
+    .locals 6
     .parameter "selection"
     .parameter "selectionArgs"
 
@@ -56,14 +56,14 @@
 
     move-result v4
 
-    if-eqz v4, :cond_13
+    if-eqz v4, :cond_0
 
     .line 52
-    if-eqz p2, :cond_48
+    if-eqz p2, :cond_2
 
     array-length v4, p2
 
-    if-lez v4, :cond_48
+    if-lez v4, :cond_2
 
     .line 53
     new-instance v4, Ljava/lang/IllegalArgumentException;
@@ -75,14 +75,14 @@
     throw v4
 
     .line 61
-    :cond_13
+    :cond_0
     iget-object v4, p0, Lcom/android/internal/content/SelectionBuilder;->mSelection:Ljava/lang/StringBuilder;
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->length()I
 
     move-result v4
 
-    if-lez v4, :cond_22
+    if-lez v4, :cond_1
 
     .line 62
     iget-object v4, p0, Lcom/android/internal/content/SelectionBuilder;->mSelection:Ljava/lang/StringBuilder;
@@ -92,7 +92,7 @@
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 65
-    :cond_22
+    :cond_1
     iget-object v4, p0, Lcom/android/internal/content/SelectionBuilder;->mSelection:Ljava/lang/StringBuilder;
 
     const-string v5, "("
@@ -110,7 +110,7 @@
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 66
-    if-eqz p2, :cond_48
+    if-eqz p2, :cond_2
 
     .line 67
     move-object v1, p2
@@ -122,8 +122,8 @@
     const/4 v2, 0x0
 
     .local v2, i$:I
-    :goto_38
-    if-ge v2, v3, :cond_48
+    :goto_0
+    if-ge v2, v3, :cond_2
 
     aget-object v0, v1, v2
 
@@ -140,19 +140,19 @@
     .line 67
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_38
+    goto :goto_0
 
     .line 74
     .end local v0           #arg:Ljava/lang/Object;
     .end local v1           #arr$:[Ljava/lang/Object;
     .end local v2           #i$:I
     .end local v3           #len$:I
-    :cond_48
+    :cond_2
     return-object p0
 .end method
 
 .method public delete(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;)I
-    .registers 5
+    .locals 2
     .parameter "db"
     .parameter "table"
 
@@ -174,7 +174,7 @@
 .end method
 
 .method public getSelection()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 83
@@ -188,7 +188,7 @@
 .end method
 
 .method public getSelectionArgs()[Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 92
@@ -212,7 +212,7 @@
 .end method
 
 .method public query(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 13
+    .locals 8
     .parameter "db"
     .parameter "table"
     .parameter "columns"
@@ -244,7 +244,7 @@
 .end method
 
 .method public query(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-    .registers 17
+    .locals 9
     .parameter "db"
     .parameter "table"
     .parameter "columns"
@@ -285,7 +285,7 @@
 .end method
 
 .method public reset()Lcom/android/internal/content/SelectionBuilder;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 41
@@ -305,7 +305,7 @@
 .end method
 
 .method public update(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Landroid/content/ContentValues;)I
-    .registers 6
+    .locals 2
     .parameter "db"
     .parameter "table"
     .parameter "values"

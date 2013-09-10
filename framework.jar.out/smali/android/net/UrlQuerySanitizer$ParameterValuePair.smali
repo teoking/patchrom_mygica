@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/UrlQuerySanitizer;Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter "parameter"
     .parameter "value"

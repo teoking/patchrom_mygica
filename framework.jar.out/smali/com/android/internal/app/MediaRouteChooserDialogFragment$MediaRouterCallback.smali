@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onRouteAdded(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
-    .registers 4
+    .locals 1
     .parameter "router"
     .parameter "info"
 
@@ -43,6 +43,7 @@
     .line 578
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$MediaRouterCallback;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mAdapter:Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$700(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
 
     move-result-object v0
@@ -54,7 +55,7 @@
 .end method
 
 .method public onRouteChanged(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
-    .registers 4
+    .locals 1
     .parameter "router"
     .parameter "info"
 
@@ -62,6 +63,7 @@
     .line 591
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$MediaRouterCallback;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mAdapter:Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$700(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
 
     move-result-object v0
@@ -73,7 +75,7 @@
 .end method
 
 .method public onRouteGrouped(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;Landroid/media/MediaRouter$RouteGroup;I)V
-    .registers 6
+    .locals 1
     .parameter "router"
     .parameter "info"
     .parameter "group"
@@ -83,6 +85,7 @@
     .line 597
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$MediaRouterCallback;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mAdapter:Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$700(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
 
     move-result-object v0
@@ -94,7 +97,7 @@
 .end method
 
 .method public onRouteRemoved(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
-    .registers 4
+    .locals 1
     .parameter "router"
     .parameter "info"
 
@@ -102,19 +105,22 @@
     .line 583
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$MediaRouterCallback;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mAdapter:Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$700(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
 
     move-result-object v0
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;->mEditingGroup:Landroid/media/MediaRouter$RouteGroup;
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;->access$500(Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;)Landroid/media/MediaRouter$RouteGroup;
 
     move-result-object v0
 
-    if-ne p2, v0, :cond_15
+    if-ne p2, v0, :cond_0
 
     .line 584
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$MediaRouterCallback;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mAdapter:Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$700(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
 
     move-result-object v0
@@ -122,9 +128,10 @@
     invoke-virtual {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;->finishGrouping()V
 
     .line 586
-    :cond_15
+    :cond_0
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$MediaRouterCallback;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mAdapter:Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$700(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
 
     move-result-object v0
@@ -136,7 +143,7 @@
 .end method
 
 .method public onRouteSelected(Landroid/media/MediaRouter;ILandroid/media/MediaRouter$RouteInfo;)V
-    .registers 5
+    .locals 1
     .parameter "router"
     .parameter "type"
     .parameter "info"
@@ -145,6 +152,7 @@
     .line 567
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$MediaRouterCallback;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mAdapter:Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$700(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
 
     move-result-object v0
@@ -161,7 +169,7 @@
 .end method
 
 .method public onRouteUngrouped(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;Landroid/media/MediaRouter$RouteGroup;)V
-    .registers 5
+    .locals 1
     .parameter "router"
     .parameter "info"
     .parameter "group"
@@ -170,6 +178,7 @@
     .line 602
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$MediaRouterCallback;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mAdapter:Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$700(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
 
     move-result-object v0
@@ -181,7 +190,7 @@
 .end method
 
 .method public onRouteUnselected(Landroid/media/MediaRouter;ILandroid/media/MediaRouter$RouteInfo;)V
-    .registers 5
+    .locals 1
     .parameter "router"
     .parameter "type"
     .parameter "info"
@@ -190,6 +199,7 @@
     .line 573
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$MediaRouterCallback;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mAdapter:Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$700(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Lcom/android/internal/app/MediaRouteChooserDialogFragment$RouteAdapter;
 
     move-result-object v0
@@ -201,7 +211,7 @@
 .end method
 
 .method public onRouteVolumeChanged(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
-    .registers 4
+    .locals 1
     .parameter "router"
     .parameter "info"
 
@@ -209,11 +219,12 @@
     .line 607
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$MediaRouterCallback;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
 
+    #getter for: Lcom/android/internal/app/MediaRouteChooserDialogFragment;->mIgnoreCallbackVolumeChanges:Z
     invoke-static {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->access$800(Lcom/android/internal/app/MediaRouteChooserDialogFragment;)Z
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_0
 
     .line 608
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment$MediaRouterCallback;->this$0:Lcom/android/internal/app/MediaRouteChooserDialogFragment;
@@ -221,6 +232,6 @@
     invoke-virtual {v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->updateVolume()V
 
     .line 610
-    :cond_d
+    :cond_0
     return-void
 .end method

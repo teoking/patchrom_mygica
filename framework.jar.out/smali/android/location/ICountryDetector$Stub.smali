@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
 
     .prologue
     .line 19
@@ -51,22 +51,22 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/location/ICountryDetector;
-    .registers 3
+    .locals 2
     .parameter "obj"
 
     .prologue
     .line 28
-    if-nez p0, :cond_4
+    if-nez p0, :cond_0
 
     .line 29
     const/4 v0, 0x0
 
     .line 35
-    :goto_3
+    :goto_0
     return-object v0
 
     .line 31
-    :cond_4
+    :cond_0
     const-string v1, "android.location.ICountryDetector"
 
     invoke-interface {p0, v1}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
@@ -75,31 +75,31 @@
 
     .line 32
     .local v0, iin:Landroid/os/IInterface;
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/location/ICountryDetector;
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1
 
     .line 33
     check-cast v0, Landroid/location/ICountryDetector;
 
-    goto :goto_3
+    goto :goto_0
 
     .line 35
-    :cond_13
+    :cond_1
     new-instance v0, Landroid/location/ICountryDetector$Stub$Proxy;
 
     .end local v0           #iin:Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/location/ICountryDetector$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
-    goto :goto_3
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 1
+    .locals 0
 
     .prologue
     .line 39
@@ -107,7 +107,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .registers 9
+    .locals 4
     .parameter "code"
     .parameter "data"
     .parameter "reply"
@@ -122,26 +122,26 @@
     const/4 v2, 0x1
 
     .line 43
-    sparse-switch p1, :sswitch_data_52
+    sparse-switch p1, :sswitch_data_0
 
     .line 83
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
 
-    :goto_8
+    :goto_0
     return v2
 
     .line 47
-    :sswitch_9
+    :sswitch_0
     const-string v3, "android.location.ICountryDetector"
 
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 52
-    :sswitch_f
+    :sswitch_1
     const-string v3, "android.location.ICountryDetector"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -156,7 +156,7 @@
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     .line 55
-    if-eqz v1, :cond_24
+    if-eqz v1, :cond_0
 
     .line 56
     invoke-virtual {p3, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -164,19 +164,19 @@
     .line 57
     invoke-virtual {v1, p3, v2}, Landroid/location/Country;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 60
-    :cond_24
+    :cond_0
     const/4 v3, 0x0
 
     invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 66
     .end local v1           #_result:Landroid/location/Country;
-    :sswitch_29
+    :sswitch_2
     const-string v3, "android.location.ICountryDetector"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -197,11 +197,11 @@
     .line 70
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 75
     .end local v0           #_arg0:Landroid/location/ICountryListener;
-    :sswitch_3d
+    :sswitch_3
     const-string v3, "android.location.ICountryDetector"
 
     invoke-virtual {p2, v3}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -222,16 +222,16 @@
     .line 79
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    goto :goto_8
+    goto :goto_0
 
     .line 43
     nop
 
-    :sswitch_data_52
+    :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_f
-        0x2 -> :sswitch_29
-        0x3 -> :sswitch_3d
-        0x5f4e5446 -> :sswitch_9
+        0x1 -> :sswitch_1
+        0x2 -> :sswitch_2
+        0x3 -> :sswitch_3
+        0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

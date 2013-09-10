@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Instrumentation;Landroid/app/Activity;II)V
-    .registers 5
+    .locals 0
     .parameter
     .parameter "_activity"
     .parameter "_identifier"
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 820

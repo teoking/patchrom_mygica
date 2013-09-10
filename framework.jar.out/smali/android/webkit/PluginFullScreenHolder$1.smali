@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/PluginFullScreenHolder;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,12 +38,13 @@
 
 # virtual methods
 .method public onCustomViewHidden()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 137
     iget-object v0, p0, Landroid/webkit/PluginFullScreenHolder$1;->this$0:Landroid/webkit/PluginFullScreenHolder;
 
+    #getter for: Landroid/webkit/PluginFullScreenHolder;->mWebView:Landroid/webkit/WebViewClassic;
     invoke-static {v0}, Landroid/webkit/PluginFullScreenHolder;->access$000(Landroid/webkit/PluginFullScreenHolder;)Landroid/webkit/WebViewClassic;
 
     move-result-object v0
@@ -61,6 +62,7 @@
     .line 140
     iget-object v0, p0, Landroid/webkit/PluginFullScreenHolder$1;->this$0:Landroid/webkit/PluginFullScreenHolder;
 
+    #getter for: Landroid/webkit/PluginFullScreenHolder;->mWebView:Landroid/webkit/WebViewClassic;
     invoke-static {v0}, Landroid/webkit/PluginFullScreenHolder;->access$000(Landroid/webkit/PluginFullScreenHolder;)Landroid/webkit/WebViewClassic;
 
     move-result-object v0
@@ -73,6 +75,7 @@
 
     iget-object v2, p0, Landroid/webkit/PluginFullScreenHolder$1;->this$0:Landroid/webkit/PluginFullScreenHolder;
 
+    #getter for: Landroid/webkit/PluginFullScreenHolder;->mNpp:I
     invoke-static {v2}, Landroid/webkit/PluginFullScreenHolder;->access$100(Landroid/webkit/PluginFullScreenHolder;)I
 
     move-result v2
@@ -88,6 +91,7 @@
 
     iget-object v1, p0, Landroid/webkit/PluginFullScreenHolder$1;->this$0:Landroid/webkit/PluginFullScreenHolder;
 
+    #getter for: Landroid/webkit/PluginFullScreenHolder;->mContentView:Landroid/view/View;
     invoke-static {v1}, Landroid/webkit/PluginFullScreenHolder;->access$200(Landroid/webkit/PluginFullScreenHolder;)Landroid/view/View;
 
     move-result-object v1
@@ -102,6 +106,7 @@
     .line 147
     iget-object v0, p0, Landroid/webkit/PluginFullScreenHolder$1;->this$0:Landroid/webkit/PluginFullScreenHolder;
 
+    #getter for: Landroid/webkit/PluginFullScreenHolder;->mWebView:Landroid/webkit/WebViewClassic;
     invoke-static {v0}, Landroid/webkit/PluginFullScreenHolder;->access$000(Landroid/webkit/PluginFullScreenHolder;)Landroid/webkit/WebViewClassic;
 
     move-result-object v0

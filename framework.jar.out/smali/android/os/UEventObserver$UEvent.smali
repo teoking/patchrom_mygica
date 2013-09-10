@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .registers 9
+    .locals 7
     .parameter "message"
 
     .prologue
@@ -55,8 +55,8 @@
 
     .line 53
     .local v2, length:I
-    :goto_f
-    if-ge v3, v2, :cond_1e
+    :goto_0
+    if-ge v3, v2, :cond_0
 
     .line 54
     const/16 v4, 0x3d
@@ -75,21 +75,21 @@
 
     .line 56
     .local v0, at:I
-    if-gez v0, :cond_1f
+    if-gez v0, :cond_1
 
     .line 66
     .end local v0           #at:I
     .end local v1           #equals:I
-    :cond_1e
+    :cond_0
     return-void
 
     .line 58
     .restart local v0       #at:I
     .restart local v1       #equals:I
-    :cond_1f
-    if-le v1, v3, :cond_32
+    :cond_1
+    if-le v1, v3, :cond_2
 
-    if-ge v1, v0, :cond_32
+    if-ge v1, v0, :cond_2
 
     .line 60
     iget-object v4, p0, Landroid/os/UEventObserver$UEvent;->mMap:Ljava/util/HashMap;
@@ -107,17 +107,17 @@
     invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 64
-    :cond_32
+    :cond_2
     add-int/lit8 v3, v0, 0x1
 
     .line 65
-    goto :goto_f
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public get(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "key"
 
     .prologue
@@ -134,7 +134,7 @@
 .end method
 
 .method public get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 5
+    .locals 2
     .parameter "key"
     .parameter "defaultValue"
 
@@ -150,21 +150,21 @@
 
     .line 74
     .local v0, result:Ljava/lang/String;
-    if-nez v0, :cond_b
+    if-nez v0, :cond_0
 
     .end local p2
-    :goto_a
+    :goto_0
     return-object p2
 
     .restart local p2
-    :cond_b
+    :cond_0
     move-object p2, v0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 78

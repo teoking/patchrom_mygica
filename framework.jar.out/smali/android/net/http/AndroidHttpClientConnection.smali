@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 3
+    .locals 2
 
     .prologue
     const/4 v0, 0x0
@@ -68,13 +68,13 @@
 .end method
 
 .method private assertNotOpen()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 146
     iget-boolean v0, p0, Landroid/net/http/AndroidHttpClientConnection;->open:Z
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 147
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -86,18 +86,18 @@
     throw v0
 
     .line 149
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method private assertOpen()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 152
     iget-boolean v0, p0, Landroid/net/http/AndroidHttpClientConnection;->open:Z
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_0
 
     .line 153
     new-instance v0, Ljava/lang/IllegalStateException;
@@ -109,12 +109,12 @@
     throw v0
 
     .line 155
-    :cond_c
+    :cond_0
     return-void
 .end method
 
 .method private determineLength(Landroid/net/http/Headers;)J
-    .registers 10
+    .locals 8
     .parameter "headers"
 
     .prologue
@@ -131,16 +131,16 @@
 
     cmp-long v6, v2, v6
 
-    if-gez v6, :cond_d
+    if-gez v6, :cond_0
 
     .line 427
     .end local v2           #transferEncoding:J
-    :goto_c
+    :goto_0
     return-wide v2
 
     .line 423
     .restart local v2       #transferEncoding:J
-    :cond_d
+    :cond_0
     invoke-virtual {p1}, Landroid/net/http/Headers;->getContentLength()J
 
     move-result-wide v0
@@ -149,24 +149,24 @@
     .local v0, contentlen:J
     cmp-long v6, v0, v4
 
-    if-lez v6, :cond_17
+    if-lez v6, :cond_1
 
     move-wide v2, v0
 
     .line 425
-    goto :goto_c
+    goto :goto_0
 
-    :cond_17
+    :cond_1
     move-wide v2, v4
 
     .line 427
-    goto :goto_c
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public bind(Ljava/net/Socket;Lorg/apache/http/params/HttpParams;)V
-    .registers 9
+    .locals 6
     .parameter "socket"
     .parameter "params"
     .annotation system Ldalvik/annotation/Throws;
@@ -181,7 +181,7 @@
     const/4 v4, -0x1
 
     .line 97
-    if-nez p1, :cond_c
+    if-nez p1, :cond_0
 
     .line 98
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -193,8 +193,8 @@
     throw v2
 
     .line 100
-    :cond_c
-    if-nez p2, :cond_16
+    :cond_0
+    if-nez p2, :cond_1
 
     .line 101
     new-instance v2, Ljava/lang/IllegalArgumentException;
@@ -206,7 +206,7 @@
     throw v2
 
     .line 103
-    :cond_16
+    :cond_1
     invoke-direct {p0}, Landroid/net/http/AndroidHttpClientConnection;->assertNotOpen()V
 
     .line 104
@@ -230,18 +230,18 @@
 
     .line 108
     .local v1, linger:I
-    if-ltz v1, :cond_33
+    if-ltz v1, :cond_2
 
     .line 109
-    if-lez v1, :cond_77
+    if-lez v1, :cond_3
 
     move v2, v3
 
-    :goto_30
+    :goto_0
     invoke-virtual {p1, v2, v1}, Ljava/net/Socket;->setSoLinger(ZI)V
 
     .line 111
-    :cond_33
+    :cond_2
     iput-object p1, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
 
     .line 113
@@ -320,14 +320,14 @@
 
     .line 109
     .end local v0           #buffersize:I
-    :cond_77
+    :cond_3
     const/4 v2, 0x0
 
-    goto :goto_30
+    goto :goto_0
 .end method
 
 .method public close()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -338,14 +338,14 @@
     .line 228
     iget-boolean v0, p0, Landroid/net/http/AndroidHttpClientConnection;->open:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_0
 
     .line 246
-    :goto_4
+    :goto_0
     return-void
 
     .line 231
-    :cond_5
+    :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/net/http/AndroidHttpClientConnection;->open:Z
@@ -354,53 +354,53 @@
     invoke-virtual {p0}, Landroid/net/http/AndroidHttpClientConnection;->doFlush()V
 
     .line 235
-    :try_start_b
+    :try_start_0
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
 
     invoke-virtual {v0}, Ljava/net/Socket;->shutdownOutput()V
-    :try_end_10
-    .catch Ljava/io/IOException; {:try_start_b .. :try_end_10} :catch_1f
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_b .. :try_end_10} :catch_1b
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 239
-    :goto_10
-    :try_start_10
+    :goto_1
+    :try_start_1
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
 
     invoke-virtual {v0}, Ljava/net/Socket;->shutdownInput()V
-    :try_end_15
-    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_15} :catch_1d
-    .catch Ljava/lang/UnsupportedOperationException; {:try_start_10 .. :try_end_15} :catch_1b
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/UnsupportedOperationException; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 245
-    :goto_15
+    :goto_2
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
 
     invoke-virtual {v0}, Ljava/net/Socket;->close()V
 
-    goto :goto_4
+    goto :goto_0
 
     .line 242
-    :catch_1b
+    :catch_0
     move-exception v0
 
-    goto :goto_15
+    goto :goto_2
 
     .line 240
-    :catch_1d
+    :catch_1
     move-exception v0
 
-    goto :goto_15
+    goto :goto_2
 
     .line 236
-    :catch_1f
+    :catch_2
     move-exception v0
 
-    goto :goto_10
+    goto :goto_1
 .end method
 
 .method protected doFlush()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -418,7 +418,7 @@
 .end method
 
 .method public flush()V
-    .registers 1
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -437,13 +437,13 @@
 .end method
 
 .method public getLocalAddress()Ljava/net/InetAddress;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 163
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 164
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
@@ -453,23 +453,23 @@
     move-result-object v0
 
     .line 166
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getLocalPort()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 171
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 172
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
@@ -479,17 +479,17 @@
     move-result v0
 
     .line 174
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, -0x1
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getMetrics()Lorg/apache/http/HttpConnectionMetrics;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 462
@@ -499,13 +499,13 @@
 .end method
 
 .method public getRemoteAddress()Ljava/net/InetAddress;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 179
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 180
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
@@ -515,23 +515,23 @@
     move-result-object v0
 
     .line 182
-    :goto_a
+    :goto_0
     return-object v0
 
-    :cond_b
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getRemotePort()I
-    .registers 2
+    .locals 1
 
     .prologue
     .line 187
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_0
 
     .line 188
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
@@ -541,17 +541,17 @@
     move-result v0
 
     .line 190
-    :goto_a
+    :goto_0
     return v0
 
-    :cond_b
+    :cond_0
     const/4 v0, -0x1
 
-    goto :goto_a
+    goto :goto_0
 .end method
 
 .method public getSocketTimeout()I
-    .registers 4
+    .locals 3
 
     .prologue
     const/4 v1, -0x1
@@ -559,44 +559,44 @@
     .line 208
     iget-object v2, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_0
 
     .line 210
-    :try_start_5
+    :try_start_0
     iget-object v2, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
 
     invoke-virtual {v2}, Ljava/net/Socket;->getSoTimeout()I
-    :try_end_a
-    .catch Ljava/net/SocketException; {:try_start_5 .. :try_end_a} :catch_c
+    :try_end_0
+    .catch Ljava/net/SocketException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
 
     .line 215
-    :cond_b
-    :goto_b
+    :cond_0
+    :goto_0
     return v1
 
     .line 211
-    :catch_c
+    :catch_0
     move-exception v0
 
     .line 212
     .local v0, ignore:Ljava/net/SocketException;
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public isOpen()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 159
     iget-boolean v0, p0, Landroid/net/http/AndroidHttpClientConnection;->open:Z
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
 
@@ -604,21 +604,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 
-    :goto_11
+    :goto_0
     return v0
 
-    :cond_12
+    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_11
+    goto :goto_0
 .end method
 
 .method public isStale()Z
-    .registers 5
+    .locals 4
 
     .prologue
     const/4 v1, 0x1
@@ -627,33 +627,33 @@
     invoke-direct {p0}, Landroid/net/http/AndroidHttpClientConnection;->assertOpen()V
 
     .line 450
-    :try_start_4
+    :try_start_0
     iget-object v2, p0, Landroid/net/http/AndroidHttpClientConnection;->inbuffer:Lorg/apache/http/io/SessionInputBuffer;
 
     const/4 v3, 0x1
 
     invoke-interface {v2, v3}, Lorg/apache/http/io/SessionInputBuffer;->isDataAvailable(I)Z
-    :try_end_a
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_a} :catch_c
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 451
     const/4 v1, 0x0
 
     .line 453
-    :goto_b
+    :goto_0
     return v1
 
     .line 452
-    :catch_c
+    :catch_0
     move-exception v0
 
     .line 453
     .local v0, ex:Ljava/io/IOException;
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public parseResponseHeader(Landroid/net/http/Headers;)Lorg/apache/http/StatusLine;
-    .registers 16
+    .locals 14
     .parameter "headers"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -683,7 +683,7 @@
 
     const/4 v11, -0x1
 
-    if-ne v10, v11, :cond_1b
+    if-ne v10, v11, :cond_0
 
     .line 309
     new-instance v10, Lorg/apache/http/NoHttpResponseException;
@@ -695,7 +695,7 @@
     throw v10
 
     .line 313
-    :cond_1b
+    :cond_0
     sget-object v10, Lorg/apache/http/message/BasicLineParser;->DEFAULT:Lorg/apache/http/message/BasicLineParser;
 
     new-instance v11, Lorg/apache/http/message/ParserCursor;
@@ -728,8 +728,8 @@
 
     .line 323
     .local v3, headerNumber:I
-    :cond_31
-    if-nez v1, :cond_59
+    :cond_1
+    if-nez v1, :cond_5
 
     .line 324
     new-instance v1, Lorg/apache/http/util/CharArrayBuffer;
@@ -741,7 +741,7 @@
 
     .line 329
     .restart local v1       #current:Lorg/apache/http/util/CharArrayBuffer;
-    :goto_3a
+    :goto_0
     iget-object v10, p0, Landroid/net/http/AndroidHttpClientConnection;->inbuffer:Lorg/apache/http/io/SessionInputBuffer;
 
     invoke-interface {v10, v1}, Lorg/apache/http/io/SessionInputBuffer;->readLine(Lorg/apache/http/util/CharArrayBuffer;)I
@@ -752,7 +752,7 @@
     .local v4, l:I
     const/4 v10, -0x1
 
-    if-eq v4, v10, :cond_4a
+    if-eq v4, v10, :cond_2
 
     invoke-virtual {v1}, Lorg/apache/http/util/CharArrayBuffer;->length()I
 
@@ -760,20 +760,20 @@
 
     const/4 v11, 0x1
 
-    if-ge v10, v11, :cond_5d
+    if-ge v10, v11, :cond_6
 
     .line 370
-    :cond_4a
-    if-eqz v6, :cond_4f
+    :cond_2
+    if-eqz v6, :cond_3
 
     .line 371
     invoke-virtual {p1, v6}, Landroid/net/http/Headers;->parseHeader(Lorg/apache/http/util/CharArrayBuffer;)V
 
     .line 374
-    :cond_4f
+    :cond_3
     const/16 v10, 0xc8
 
-    if-lt v8, v10, :cond_58
+    if-lt v8, v10, :cond_4
 
     .line 375
     iget-object v10, p0, Landroid/net/http/AndroidHttpClientConnection;->metrics:Lorg/apache/http/impl/HttpConnectionMetricsImpl;
@@ -781,19 +781,19 @@
     invoke-virtual {v10}, Lorg/apache/http/impl/HttpConnectionMetricsImpl;->incrementResponseCount()V
 
     .line 377
-    :cond_58
+    :cond_4
     return-object v9
 
     .line 327
     .end local v4           #l:I
-    :cond_59
+    :cond_5
     invoke-virtual {v1}, Lorg/apache/http/util/CharArrayBuffer;->clear()V
 
-    goto :goto_3a
+    goto :goto_0
 
     .line 337
     .restart local v4       #l:I
-    :cond_5d
+    :cond_6
     const/4 v10, 0x0
 
     invoke-virtual {v1, v10}, Lorg/apache/http/util/CharArrayBuffer;->charAt(I)C
@@ -804,14 +804,14 @@
     .local v2, first:C
     const/16 v10, 0x20
 
-    if-eq v2, v10, :cond_6a
+    if-eq v2, v10, :cond_7
 
     const/16 v10, 0x9
 
-    if-ne v2, v10, :cond_bb
+    if-ne v2, v10, :cond_b
 
-    :cond_6a
-    if-eqz v6, :cond_bb
+    :cond_7
+    if-eqz v6, :cond_b
 
     .line 341
     const/4 v7, 0x0
@@ -824,8 +824,8 @@
 
     .line 343
     .local v5, length:I
-    :goto_71
-    if-ge v7, v5, :cond_7f
+    :goto_1
+    if-ge v7, v5, :cond_8
 
     .line 344
     invoke-virtual {v1, v7}, Lorg/apache/http/util/CharArrayBuffer;->charAt(I)C
@@ -836,18 +836,18 @@
     .local v0, ch:C
     const/16 v10, 0x20
 
-    if-eq v0, v10, :cond_9b
+    if-eq v0, v10, :cond_9
 
     const/16 v10, 0x9
 
-    if-eq v0, v10, :cond_9b
+    if-eq v0, v10, :cond_9
 
     .line 350
     .end local v0           #ch:C
-    :cond_7f
+    :cond_8
     iget v10, p0, Landroid/net/http/AndroidHttpClientConnection;->maxLineLength:I
 
-    if-lez v10, :cond_9e
+    if-lez v10, :cond_a
 
     invoke-virtual {v6}, Lorg/apache/http/util/CharArrayBuffer;->length()I
 
@@ -865,7 +865,7 @@
 
     iget v11, p0, Landroid/net/http/AndroidHttpClientConnection;->maxLineLength:I
 
-    if-le v10, v11, :cond_9e
+    if-le v10, v11, :cond_a
 
     .line 353
     new-instance v10, Ljava/io/IOException;
@@ -878,15 +878,15 @@
 
     .line 348
     .restart local v0       #ch:C
-    :cond_9b
+    :cond_9
     add-int/lit8 v7, v7, 0x1
 
     .line 349
-    goto :goto_71
+    goto :goto_1
 
     .line 355
     .end local v0           #ch:C
-    :cond_9e
+    :cond_a
     const/16 v10, 0x20
 
     invoke-virtual {v6, v10}, Lorg/apache/http/util/CharArrayBuffer;->append(C)V
@@ -903,14 +903,14 @@
     .line 365
     .end local v5           #length:I
     .end local v7           #start:I
-    :goto_ab
+    :goto_2
     iget v10, p0, Landroid/net/http/AndroidHttpClientConnection;->maxHeaderCount:I
 
-    if-lez v10, :cond_31
+    if-lez v10, :cond_1
 
     iget v10, p0, Landroid/net/http/AndroidHttpClientConnection;->maxHeaderCount:I
 
-    if-lt v3, v10, :cond_31
+    if-lt v3, v10, :cond_1
 
     .line 366
     new-instance v10, Ljava/io/IOException;
@@ -922,14 +922,14 @@
     throw v10
 
     .line 358
-    :cond_bb
-    if-eqz v6, :cond_c0
+    :cond_b
+    if-eqz v6, :cond_c
 
     .line 359
     invoke-virtual {p1, v6}, Landroid/net/http/Headers;->parseHeader(Lorg/apache/http/util/CharArrayBuffer;)V
 
     .line 361
-    :cond_c0
+    :cond_c
     add-int/lit8 v3, v3, 0x1
 
     .line 362
@@ -938,11 +938,11 @@
     .line 363
     const/4 v1, 0x0
 
-    goto :goto_ab
+    goto :goto_2
 .end method
 
 .method public receiveResponseEntity(Landroid/net/http/Headers;)Lorg/apache/http/HttpEntity;
-    .registers 12
+    .locals 10
     .parameter "headers"
 
     .prologue
@@ -970,7 +970,7 @@
 
     cmp-long v5, v3, v5
 
-    if-nez v5, :cond_39
+    if-nez v5, :cond_2
 
     .line 391
     const/4 v5, 0x1
@@ -990,42 +990,42 @@
     invoke-virtual {v2, v5}, Lorg/apache/http/entity/BasicHttpEntity;->setContent(Ljava/io/InputStream;)V
 
     .line 404
-    :goto_26
+    :goto_0
     invoke-virtual {p1}, Landroid/net/http/Headers;->getContentType()Ljava/lang/String;
 
     move-result-object v1
 
     .line 405
     .local v1, contentTypeHeader:Ljava/lang/String;
-    if-eqz v1, :cond_2f
+    if-eqz v1, :cond_0
 
     .line 406
     invoke-virtual {v2, v1}, Lorg/apache/http/entity/BasicHttpEntity;->setContentType(Ljava/lang/String;)V
 
     .line 408
-    :cond_2f
+    :cond_0
     invoke-virtual {p1}, Landroid/net/http/Headers;->getContentEncoding()Ljava/lang/String;
 
     move-result-object v0
 
     .line 409
     .local v0, contentEncodingHeader:Ljava/lang/String;
-    if-eqz v0, :cond_38
+    if-eqz v0, :cond_1
 
     .line 410
     invoke-virtual {v2, v0}, Lorg/apache/http/entity/BasicHttpEntity;->setContentEncoding(Ljava/lang/String;)V
 
     .line 413
-    :cond_38
+    :cond_1
     return-object v2
 
     .line 394
     .end local v0           #contentEncodingHeader:Ljava/lang/String;
     .end local v1           #contentTypeHeader:Ljava/lang/String;
-    :cond_39
+    :cond_2
     cmp-long v5, v3, v7
 
-    if-nez v5, :cond_4e
+    if-nez v5, :cond_3
 
     .line 395
     invoke-virtual {v2, v9}, Lorg/apache/http/entity/BasicHttpEntity;->setChunked(Z)V
@@ -1042,10 +1042,10 @@
 
     invoke-virtual {v2, v5}, Lorg/apache/http/entity/BasicHttpEntity;->setContent(Ljava/io/InputStream;)V
 
-    goto :goto_26
+    goto :goto_0
 
     .line 399
-    :cond_4e
+    :cond_3
     invoke-virtual {v2, v9}, Lorg/apache/http/entity/BasicHttpEntity;->setChunked(Z)V
 
     .line 400
@@ -1060,11 +1060,11 @@
 
     invoke-virtual {v2, v5}, Lorg/apache/http/entity/BasicHttpEntity;->setContent(Ljava/io/InputStream;)V
 
-    goto :goto_26
+    goto :goto_0
 .end method
 
 .method public sendRequestEntity(Lorg/apache/http/HttpEntityEnclosingRequest;)V
-    .registers 5
+    .locals 3
     .parameter "request"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1075,7 +1075,7 @@
 
     .prologue
     .line 272
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 273
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1087,7 +1087,7 @@
     throw v0
 
     .line 275
-    :cond_a
+    :cond_0
     invoke-direct {p0}, Landroid/net/http/AndroidHttpClientConnection;->assertOpen()V
 
     .line 276
@@ -1095,14 +1095,14 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_1
 
     .line 283
-    :goto_13
+    :goto_0
     return-void
 
     .line 279
-    :cond_14
+    :cond_1
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->entityserializer:Lorg/apache/http/impl/entity/EntitySerializer;
 
     iget-object v1, p0, Landroid/net/http/AndroidHttpClientConnection;->outbuffer:Lorg/apache/http/io/SessionOutputBuffer;
@@ -1113,11 +1113,11 @@
 
     invoke-virtual {v0, v1, p1, v2}, Lorg/apache/http/impl/entity/EntitySerializer;->serialize(Lorg/apache/http/io/SessionOutputBuffer;Lorg/apache/http/HttpMessage;Lorg/apache/http/HttpEntity;)V
 
-    goto :goto_13
+    goto :goto_0
 .end method
 
 .method public sendRequestHeader(Lorg/apache/http/HttpRequest;)V
-    .registers 4
+    .locals 2
     .parameter "request"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1128,7 +1128,7 @@
 
     .prologue
     .line 256
-    if-nez p1, :cond_a
+    if-nez p1, :cond_0
 
     .line 257
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1140,7 +1140,7 @@
     throw v0
 
     .line 259
-    :cond_a
+    :cond_0
     invoke-direct {p0}, Landroid/net/http/AndroidHttpClientConnection;->assertOpen()V
 
     .line 260
@@ -1158,7 +1158,7 @@
 .end method
 
 .method public setSocketTimeout(I)V
-    .registers 3
+    .locals 1
     .parameter "timeout"
 
     .prologue
@@ -1168,30 +1168,30 @@
     .line 196
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_0
 
     .line 198
-    :try_start_7
+    :try_start_0
     iget-object v0, p0, Landroid/net/http/AndroidHttpClientConnection;->socket:Ljava/net/Socket;
 
     invoke-virtual {v0, p1}, Ljava/net/Socket;->setSoTimeout(I)V
-    :try_end_c
-    .catch Ljava/net/SocketException; {:try_start_7 .. :try_end_c} :catch_d
+    :try_end_0
+    .catch Ljava/net/SocketException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 205
-    :cond_c
-    :goto_c
+    :cond_0
+    :goto_0
     return-void
 
     .line 199
-    :catch_d
+    :catch_0
     move-exception v0
 
-    goto :goto_c
+    goto :goto_0
 .end method
 
 .method public shutdown()V
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1209,18 +1209,18 @@
 
     .line 222
     .local v0, tmpsocket:Ljava/net/Socket;
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_0
 
     .line 223
     invoke-virtual {v0}, Ljava/net/Socket;->close()V
 
     .line 225
-    :cond_a
+    :cond_0
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .registers 4
+    .locals 3
 
     .prologue
     .line 133
@@ -1251,7 +1251,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2d
+    if-eqz v1, :cond_0
 
     .line 136
     invoke-virtual {p0}, Landroid/net/http/AndroidHttpClientConnection;->getRemotePort()I
@@ -1261,7 +1261,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 140
-    :goto_23
+    :goto_0
     const-string v1, "]"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1274,10 +1274,10 @@
     return-object v1
 
     .line 138
-    :cond_2d
+    :cond_0
     const-string v1, "closed"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_23
+    goto :goto_0
 .end method

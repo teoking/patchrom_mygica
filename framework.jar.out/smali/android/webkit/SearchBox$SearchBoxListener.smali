@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 98
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public onCancelComplete(Z)V
-    .registers 2
+    .locals 0
     .parameter "called"
 
     .prologue
@@ -37,7 +37,7 @@
 .end method
 
 .method public onChangeComplete(Z)V
-    .registers 2
+    .locals 0
     .parameter "called"
 
     .prologue
@@ -46,7 +46,7 @@
 .end method
 
 .method public onResizeComplete(Z)V
-    .registers 2
+    .locals 0
     .parameter "called"
 
     .prologue
@@ -55,7 +55,7 @@
 .end method
 
 .method public onSubmitComplete(Z)V
-    .registers 2
+    .locals 0
     .parameter "called"
 
     .prologue
@@ -64,7 +64,7 @@
 .end method
 
 .method public onSuggestionsReceived(Ljava/lang/String;Ljava/util/List;)V
-    .registers 3
+    .locals 0
     .parameter "query"
     .parameter
     .annotation system Ldalvik/annotation/Signature;

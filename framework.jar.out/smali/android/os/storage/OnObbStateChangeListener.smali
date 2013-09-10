@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 23
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onObbStateChange(Ljava/lang/String;I)V
-    .registers 3
+    .locals 0
     .parameter "path"
     .parameter "state"
 

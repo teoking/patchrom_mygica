@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 23
@@ -16,7 +16,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .registers 4
+    .locals 2
     .parameter "ef"
 
     .prologue
@@ -50,7 +50,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "s"
 
     .prologue

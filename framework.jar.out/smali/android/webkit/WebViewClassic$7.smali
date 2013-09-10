@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/webkit/WebViewClassic;Ljava/io/FileInputStream;Landroid/os/Bundle;)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .locals 3
 
     .prologue
     .line 2336
@@ -61,7 +61,7 @@
 
     .line 2337
     .local v0, p:Landroid/graphics/Picture;
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_0
 
     .line 2340
     iget-object v1, p0, Landroid/webkit/WebViewClassic$7;->this$0:Landroid/webkit/WebViewClassic;
@@ -73,49 +73,49 @@
     invoke-direct {v2, p0, v0}, Landroid/webkit/WebViewClassic$7$1;-><init>(Landroid/webkit/WebViewClassic$7;Landroid/graphics/Picture;)V
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-    :try_end_14
-    .catchall {:try_start_0 .. :try_end_14} :catchall_1a
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 2349
-    :cond_14
-    :try_start_14
+    :cond_0
+    :try_start_1
     iget-object v1, p0, Landroid/webkit/WebViewClassic$7;->val$in:Ljava/io/FileInputStream;
 
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
-    :try_end_19
-    .catch Ljava/lang/Exception; {:try_start_14 .. :try_end_19} :catch_21
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
     .line 2354
-    :goto_19
+    :goto_0
     return-void
 
     .line 2348
     .end local v0           #p:Landroid/graphics/Picture;
-    :catchall_1a
+    :catchall_0
     move-exception v1
 
     .line 2349
-    :try_start_1b
+    :try_start_2
     iget-object v2, p0, Landroid/webkit/WebViewClassic$7;->val$in:Ljava/io/FileInputStream;
 
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
-    :try_end_20
-    .catch Ljava/lang/Exception; {:try_start_1b .. :try_end_20} :catch_23
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
     .line 2348
-    :goto_20
+    :goto_1
     throw v1
 
     .line 2350
     .restart local v0       #p:Landroid/graphics/Picture;
-    :catch_21
+    :catch_0
     move-exception v1
 
-    goto :goto_19
+    goto :goto_0
 
     .end local v0           #p:Landroid/graphics/Picture;
-    :catch_23
+    :catch_1
     move-exception v2
 
-    goto :goto_20
+    goto :goto_1
 .end method

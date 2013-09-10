@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .registers 2
+    .locals 0
     .parameter "remote"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 78
@@ -50,7 +50,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 82
@@ -60,7 +60,7 @@
 .end method
 
 .method public onGetStatsCompleted(Landroid/content/pm/PackageStats;Z)V
-    .registers 8
+    .locals 5
     .parameter "pStats"
     .parameter "succeeded"
     .annotation system Ldalvik/annotation/Throws;
@@ -81,13 +81,13 @@
 
     .line 88
     .local v0, _data:Landroid/os/Parcel;
-    :try_start_6
+    :try_start_0
     const-string v3, "android.content.pm.IPackageStatsObserver"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
     .line 89
-    if-eqz p1, :cond_26
+    if-eqz p1, :cond_0
 
     .line 90
     const/4 v3, 0x1
@@ -100,10 +100,10 @@
     invoke-virtual {p1, v0, v3}, Landroid/content/pm/PackageStats;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 96
-    :goto_15
-    if-eqz p2, :cond_30
+    :goto_0
+    if-eqz p2, :cond_1
 
-    :goto_17
+    :goto_1
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 97
@@ -116,8 +116,8 @@
     const/4 v4, 0x1
 
     invoke-interface {v1, v2, v0, v3, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    :try_end_22
-    .catchall {:try_start_6 .. :try_end_22} :catchall_2b
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 100
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
@@ -126,27 +126,27 @@
     return-void
 
     .line 94
-    :cond_26
+    :cond_0
     const/4 v3, 0x0
 
-    :try_start_27
+    :try_start_1
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
-    :try_end_2a
-    .catchall {:try_start_27 .. :try_end_2a} :catchall_2b
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_15
+    goto :goto_0
 
     .line 100
-    :catchall_2b
+    :catchall_0
     move-exception v1
 
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
     throw v1
 
-    :cond_30
+    :cond_1
     move v1, v2
 
     .line 96
-    goto :goto_17
+    goto :goto_1
 .end method

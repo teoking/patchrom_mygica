@@ -18,7 +18,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 104
@@ -34,7 +34,7 @@
 .end method
 
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 154
@@ -44,7 +44,7 @@
 .end method
 
 .method public static getAudioEncoders()Ljava/util/List;
-    .registers 4
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -63,16 +63,16 @@
 
     .line 144
     .local v2, nEncoders:I
-    if-nez v2, :cond_8
+    if-nez v2, :cond_1
 
     const/4 v0, 0x0
 
     .line 150
-    :cond_7
+    :cond_0
     return-object v0
 
     .line 146
-    :cond_8
+    :cond_1
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -82,8 +82,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_e
-    if-ge v1, v2, :cond_7
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     .line 148
     invoke-static {v1}, Landroid/media/EncoderCapabilities;->native_get_audio_encoder_cap(I)Landroid/media/EncoderCapabilities$AudioEncoderCap;
@@ -95,11 +95,11 @@
     .line 147
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public static getOutputFileFormats()[I
-    .registers 4
+    .locals 4
 
     .prologue
     .line 113
@@ -109,16 +109,16 @@
 
     .line 114
     .local v2, nFormats:I
-    if-nez v2, :cond_8
+    if-nez v2, :cond_1
 
     const/4 v0, 0x0
 
     .line 120
-    :cond_7
+    :cond_0
     return-object v0
 
     .line 116
-    :cond_8
+    :cond_1
     new-array v0, v2, [I
 
     .line 117
@@ -126,8 +126,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_b
-    if-ge v1, v2, :cond_7
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     .line 118
     invoke-static {v1}, Landroid/media/EncoderCapabilities;->native_get_file_format(I)I
@@ -139,11 +139,11 @@
     .line 117
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_b
+    goto :goto_0
 .end method
 
 .method public static getVideoEncoders()Ljava/util/List;
-    .registers 4
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -162,16 +162,16 @@
 
     .line 129
     .local v2, nEncoders:I
-    if-nez v2, :cond_8
+    if-nez v2, :cond_1
 
     const/4 v0, 0x0
 
     .line 135
-    :cond_7
+    :cond_0
     return-object v0
 
     .line 131
-    :cond_8
+    :cond_1
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -181,8 +181,8 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_e
-    if-ge v1, v2, :cond_7
+    :goto_0
+    if-ge v1, v2, :cond_0
 
     .line 133
     invoke-static {v1}, Landroid/media/EncoderCapabilities;->native_get_video_encoder_cap(I)Landroid/media/EncoderCapabilities$VideoEncoderCap;
@@ -194,7 +194,7 @@
     .line 132
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method private static final native native_get_audio_encoder_cap(I)Landroid/media/EncoderCapabilities$AudioEncoderCap;

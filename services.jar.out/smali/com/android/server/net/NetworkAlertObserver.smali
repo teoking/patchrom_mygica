@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 24
@@ -17,7 +17,7 @@
 
 # virtual methods
 .method public interfaceAdded(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "iface"
 
     .prologue
@@ -26,7 +26,7 @@
 .end method
 
 .method public interfaceLinkStateChanged(Ljava/lang/String;Z)V
-    .registers 3
+    .locals 0
     .parameter "iface"
     .parameter "up"
 
@@ -36,7 +36,7 @@
 .end method
 
 .method public interfaceRemoved(Ljava/lang/String;)V
-    .registers 2
+    .locals 0
     .parameter "iface"
 
     .prologue
@@ -45,7 +45,7 @@
 .end method
 
 .method public interfaceStatusChanged(Ljava/lang/String;Z)V
-    .registers 3
+    .locals 0
     .parameter "iface"
     .parameter "up"
 

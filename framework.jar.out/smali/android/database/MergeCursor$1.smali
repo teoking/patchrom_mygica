@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/database/MergeCursor;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 33
@@ -50,7 +50,7 @@
 .end method
 
 .method public onInvalidated()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 38

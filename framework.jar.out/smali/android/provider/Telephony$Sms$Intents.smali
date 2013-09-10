@@ -42,7 +42,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 498
@@ -52,7 +52,7 @@
 .end method
 
 .method public static getMessagesFromIntent(Landroid/content/Intent;)[Landroid/telephony/SmsMessage;
-    .registers 9
+    .locals 8
     .parameter "intent"
 
     .prologue
@@ -88,10 +88,10 @@
     const/4 v1, 0x0
 
     .local v1, i:I
-    :goto_16
+    :goto_0
     array-length v7, v2
 
-    if-ge v1, v7, :cond_24
+    if-ge v1, v7, :cond_0
 
     .line 693
     aget-object v7, v2, v1
@@ -105,10 +105,10 @@
     .line 692
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_16
+    goto :goto_0
 
     .line 695
-    :cond_24
+    :cond_0
     array-length v7, v5
 
     new-array v6, v7, [[B
@@ -125,8 +125,8 @@
     .local v3, msgs:[Landroid/telephony/SmsMessage;
     const/4 v1, 0x0
 
-    :goto_2b
-    if-ge v1, v4, :cond_3c
+    :goto_1
+    if-ge v1, v4, :cond_1
 
     .line 699
     aget-object v7, v5, v1
@@ -145,9 +145,9 @@
     .line 698
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2b
+    goto :goto_1
 
     .line 702
-    :cond_3c
+    :cond_1
     return-object v3
 .end method

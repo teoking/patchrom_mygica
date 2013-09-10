@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 6
+    .locals 6
 
     .prologue
     const/4 v5, 0x3
@@ -115,7 +115,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .registers 4
+    .locals 0
     .parameter
     .parameter
     .parameter "nativeInt"
@@ -137,7 +137,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/graphics/Matrix$ScaleToFit;
-    .registers 2
+    .locals 1
     .parameter "name"
 
     .prologue
@@ -154,7 +154,7 @@
 .end method
 
 .method public static values()[Landroid/graphics/Matrix$ScaleToFit;
-    .registers 1
+    .locals 1
 
     .prologue
     .line 488

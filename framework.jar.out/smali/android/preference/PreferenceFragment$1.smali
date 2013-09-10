@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/preference/PreferenceFragment;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,30 +35,31 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 3
+    .locals 1
     .parameter "msg"
 
     .prologue
     .line 122
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_c
+    packed-switch v0, :pswitch_data_0
 
     .line 128
-    :goto_5
+    :goto_0
     return-void
 
     .line 125
-    :pswitch_6
+    :pswitch_0
     iget-object v0, p0, Landroid/preference/PreferenceFragment$1;->this$0:Landroid/preference/PreferenceFragment;
 
+    #calls: Landroid/preference/PreferenceFragment;->bindPreferences()V
     invoke-static {v0}, Landroid/preference/PreferenceFragment;->access$000(Landroid/preference/PreferenceFragment;)V
 
-    goto :goto_5
+    goto :goto_0
 
     .line 122
-    :pswitch_data_c
+    :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_6
+        :pswitch_0
     .end packed-switch
 .end method

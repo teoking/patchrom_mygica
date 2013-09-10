@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .registers 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/google/android/mms/InvalidHeaderValueException;
@@ -26,7 +26,7 @@
 .end method
 
 .method constructor <init>(Lcom/google/android/mms/pdu/PduHeaders;)V
-    .registers 2
+    .locals 0
     .parameter "headers"
 
     .prologue
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public getDate()J
-    .registers 3
+    .locals 2
 
     .prologue
     .line 54
@@ -56,7 +56,7 @@
 .end method
 
 .method public getMessageId()[B
-    .registers 3
+    .locals 2
 
     .prologue
     .line 72
@@ -72,7 +72,7 @@
 .end method
 
 .method public getStatus()I
-    .registers 3
+    .locals 2
 
     .prologue
     .line 91
@@ -88,7 +88,7 @@
 .end method
 
 .method public getTo()[Lcom/google/android/mms/pdu/EncodedStringValue;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 110
@@ -104,7 +104,7 @@
 .end method
 
 .method public setDate(J)V
-    .registers 5
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -120,7 +120,7 @@
 .end method
 
 .method public setMessageId([B)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue
@@ -136,7 +136,7 @@
 .end method
 
 .method public setStatus(I)V
-    .registers 4
+    .locals 2
     .parameter "value"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -157,7 +157,7 @@
 .end method
 
 .method public setTo([Lcom/google/android/mms/pdu/EncodedStringValue;)V
-    .registers 4
+    .locals 2
     .parameter "value"
 
     .prologue

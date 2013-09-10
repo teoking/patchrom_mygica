@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 96
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/os/RemoteCallback;
-    .registers 5
+    .locals 3
     .parameter "in"
 
     .prologue
@@ -52,7 +52,7 @@
 
     .line 99
     .local v0, target:Landroid/os/IBinder;
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_0
 
     new-instance v1, Landroid/os/RemoteCallback$RemoteCallbackProxy;
 
@@ -62,17 +62,17 @@
 
     invoke-direct {v1, v2}, Landroid/os/RemoteCallback$RemoteCallbackProxy;-><init>(Landroid/os/IRemoteCallback;)V
 
-    :goto_f
+    :goto_0
     return-object v1
 
-    :cond_10
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_f
+    goto :goto_0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -85,7 +85,7 @@
 .end method
 
 .method public newArray(I)[Landroid/os/RemoteCallback;
-    .registers 3
+    .locals 1
     .parameter "size"
 
     .prologue
@@ -96,7 +96,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .registers 3
+    .locals 1
     .parameter "x0"
 
     .prologue

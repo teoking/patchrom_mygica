@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/NsdService;Ljava/lang/String;)V
-    .registers 5
+    .locals 2
     .parameter
     .parameter "name"
 
@@ -86,11 +86,12 @@
     invoke-virtual {p0, v0, v1}, Lcom/android/server/NsdService$NsdStateMachine;->addState(Lcom/android/internal/util/State;Lcom/android/internal/util/State;)V
 
     .line 142
+    #calls: Lcom/android/server/NsdService;->isNsdEnabled()Z
     invoke-static {p1}, Lcom/android/server/NsdService;->access$100(Lcom/android/server/NsdService;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_41
+    if-eqz v0, :cond_0
 
     .line 143
     iget-object v0, p0, Lcom/android/server/NsdService$NsdStateMachine;->mEnabledState:Lcom/android/server/NsdService$NsdStateMachine$EnabledState;
@@ -98,7 +99,7 @@
     invoke-virtual {p0, v0}, Lcom/android/server/NsdService$NsdStateMachine;->setInitialState(Lcom/android/internal/util/State;)V
 
     .line 147
-    :goto_38
+    :goto_0
     const/16 v0, 0x19
 
     invoke-virtual {p0, v0}, Lcom/android/server/NsdService$NsdStateMachine;->setProcessedMessagesSize(I)V
@@ -110,16 +111,16 @@
     return-void
 
     .line 145
-    :cond_41
+    :cond_0
     iget-object v0, p0, Lcom/android/server/NsdService$NsdStateMachine;->mDisabledState:Lcom/android/server/NsdService$NsdStateMachine$DisabledState;
 
     invoke-virtual {p0, v0}, Lcom/android/server/NsdService$NsdStateMachine;->setInitialState(Lcom/android/internal/util/State;)V
 
-    goto :goto_38
+    goto :goto_0
 .end method
 
 .method static synthetic access$1400(Lcom/android/server/NsdService$NsdStateMachine;)Lcom/android/server/NsdService$NsdStateMachine$DisabledState;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -130,7 +131,7 @@
 .end method
 
 .method static synthetic access$1500(Lcom/android/server/NsdService$NsdStateMachine;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -142,7 +143,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/android/server/NsdService$NsdStateMachine;)Lcom/android/server/NsdService$NsdStateMachine$EnabledState;
-    .registers 2
+    .locals 1
     .parameter "x0"
 
     .prologue
@@ -153,7 +154,7 @@
 .end method
 
 .method static synthetic access$900(Lcom/android/server/NsdService$NsdStateMachine;Lcom/android/internal/util/IState;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -165,7 +166,7 @@
 .end method
 
 .method private registerForNsdSetting()V
-    .registers 5
+    .locals 4
 
     .prologue
     .line 121
@@ -181,6 +182,7 @@
     .local v0, contentObserver:Landroid/database/ContentObserver;
     iget-object v1, p0, Lcom/android/server/NsdService$NsdStateMachine;->this$0:Lcom/android/server/NsdService;
 
+    #getter for: Lcom/android/server/NsdService;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/server/NsdService;->access$300(Lcom/android/server/NsdService;)Landroid/content/Context;
 
     move-result-object v1
@@ -206,13 +208,14 @@
 
 # virtual methods
 .method protected getMessageInfo(Landroid/os/Message;)Ljava/lang/String;
-    .registers 3
+    .locals 1
     .parameter "msg"
 
     .prologue
     .line 114
     iget v0, p1, Landroid/os/Message;->what:I
 
+    #calls: Lcom/android/server/NsdService;->cmdToString(I)Ljava/lang/String;
     invoke-static {v0}, Lcom/android/server/NsdService;->access$000(I)Ljava/lang/String;
 
     move-result-object v0

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/database/SortCursor;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 46
@@ -43,6 +43,7 @@
 
     const/4 v1, -0x1
 
+    #setter for: Landroid/database/AbstractCursor;->mPos:I
     invoke-static {v0, v1}, Lcom/android/internal/database/SortCursor;->access$002(Lcom/android/internal/database/SortCursor;I)I
 
     .line 47
@@ -50,7 +51,7 @@
 .end method
 
 .method public onInvalidated()V
-    .registers 3
+    .locals 2
 
     .prologue
     .line 51
@@ -58,6 +59,7 @@
 
     const/4 v1, -0x1
 
+    #setter for: Landroid/database/AbstractCursor;->mPos:I
     invoke-static {v0, v1}, Lcom/android/internal/database/SortCursor;->access$102(Lcom/android/internal/database/SortCursor;I)I
 
     .line 52

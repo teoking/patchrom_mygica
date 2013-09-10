@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 1
+    .locals 1
 
     .prologue
     .line 871
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .registers 4
+    .locals 1
     .parameter "docid"
     .parameter "text"
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public static getPrefixedURL(ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 7
+    .locals 3
     .parameter "http"
     .parameter "prefix"
     .parameter "docid"
@@ -70,28 +70,28 @@
 
     .line 933
     .local v0, protocol:Ljava/lang/String;
-    if-eqz p0, :cond_6
+    if-eqz p0, :cond_0
 
     .line 934
     const-string v0, "http://"
 
     .line 937
-    :cond_6
-    if-nez p1, :cond_a
+    :cond_0
+    if-nez p1, :cond_1
 
     .line 938
     const-string p1, ""
 
     .line 941
-    :cond_a
-    if-nez p3, :cond_36
+    :cond_1
+    if-nez p3, :cond_3
 
     .line 942
     const-string p3, ""
 
     .line 947
-    :cond_e
-    :goto_e
+    :cond_2
+    :goto_0
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -131,12 +131,12 @@
     return-object v1
 
     .line 943
-    :cond_36
+    :cond_3
     invoke-virtual {p3}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-lez v1, :cond_e
+    if-lez v1, :cond_2
 
     .line 944
     new-instance v1, Ljava/lang/StringBuilder;
@@ -157,11 +157,11 @@
 
     move-result-object p3
 
-    goto :goto_e
+    goto :goto_0
 .end method
 
 .method public static getRssUrl(Ljava/lang/String;)Ljava/lang/String;
-    .registers 3
+    .locals 2
     .parameter "docid"
 
     .prologue
@@ -188,7 +188,7 @@
 .end method
 
 .method public static getURL(Ljava/lang/String;)Ljava/lang/String;
-    .registers 2
+    .locals 1
     .parameter "docid"
 
     .prologue
@@ -203,20 +203,20 @@
 .end method
 
 .method public static getURL(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .registers 4
+    .locals 2
     .parameter "docid"
     .parameter "extraParams"
 
     .prologue
     .line 916
-    if-nez p1, :cond_23
+    if-nez p1, :cond_1
 
     .line 917
     const-string p1, ""
 
     .line 921
-    :cond_4
-    :goto_4
+    :cond_0
+    :goto_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -248,12 +248,12 @@
     return-object v0
 
     .line 918
-    :cond_23
+    :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-lez v0, :cond_4
+    if-lez v0, :cond_0
 
     .line 919
     new-instance v0, Ljava/lang/StringBuilder;
@@ -274,11 +274,11 @@
 
     move-result-object p1
 
-    goto :goto_4
+    goto :goto_0
 .end method
 
 .method public static matchURL(Ljava/lang/String;Ljava/lang/String;)Lcom/google/android/util/AbstractMessageParser$YouTubeVideo;
-    .registers 5
+    .locals 3
     .parameter "url"
     .parameter "text"
 
@@ -296,7 +296,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_17
+    if-eqz v1, :cond_0
 
     .line 891
     new-instance v1, Lcom/google/android/util/AbstractMessageParser$YouTubeVideo;
@@ -310,19 +310,19 @@
     invoke-direct {v1, v2, p1}, Lcom/google/android/util/AbstractMessageParser$YouTubeVideo;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 893
-    :goto_16
+    :goto_0
     return-object v1
 
-    :cond_17
+    :cond_0
     const/4 v1, 0x0
 
-    goto :goto_16
+    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public getDocID()Ljava/lang/String;
-    .registers 2
+    .locals 1
 
     .prologue
     .line 882
@@ -332,7 +332,7 @@
 .end method
 
 .method public getInfo()Ljava/util/List;
-    .registers 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -373,7 +373,7 @@
 .end method
 
 .method public isHtml()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 884
@@ -383,7 +383,7 @@
 .end method
 
 .method public isMedia()Z
-    .registers 2
+    .locals 1
 
     .prologue
     .line 885

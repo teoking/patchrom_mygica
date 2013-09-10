@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/inputmethodservice/ExtractEditLayout;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .registers 5
+    .locals 3
     .parameter "clicked"
 
     .prologue
@@ -47,7 +47,7 @@
 
     iget-object v0, v0, Landroid/inputmethodservice/ExtractEditLayout;->mActionMode:Landroid/inputmethodservice/ExtractEditLayout$ExtractActionMode;
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_0
 
     .line 90
     new-instance v0, Lcom/android/internal/view/menu/MenuPopupHelper;
@@ -69,6 +69,6 @@
     invoke-virtual {v0}, Lcom/android/internal/view/menu/MenuPopupHelper;->show()V
 
     .line 92
-    :cond_1a
+    :cond_0
     return-void
 .end method

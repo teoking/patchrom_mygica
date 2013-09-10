@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .registers 1
+    .locals 0
 
     .prologue
     .line 38
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/media/AsyncPlayer$1;)V
-    .registers 2
+    .locals 0
     .parameter "x0"
 
     .prologue
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .registers 3
+    .locals 2
 
     .prologue
     .line 47

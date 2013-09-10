@@ -33,7 +33,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/widget/Editor$SuggestionsPopupWindow;)V
-    .registers 2
+    .locals 0
     .parameter
 
     .prologue
@@ -46,7 +46,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/widget/Editor$SuggestionsPopupWindow;Landroid/widget/Editor$1;)V
-    .registers 3
+    .locals 0
     .parameter "x0"
     .parameter "x1"
 
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public compare(Landroid/text/style/SuggestionSpan;Landroid/text/style/SuggestionSpan;)I
-    .registers 12
+    .locals 9
     .parameter "span1"
     .parameter "span2"
 
@@ -84,109 +84,110 @@
 
     .line 2303
     .local v3, flag2:I
-    if-eq v2, v3, :cond_38
+    if-eq v2, v3, :cond_7
 
     .line 2305
     and-int/lit8 v8, v2, 0x1
 
-    if-eqz v8, :cond_26
+    if-eqz v8, :cond_2
 
     move v0, v7
 
     .line 2306
     .local v0, easy1:Z
-    :goto_12
+    :goto_0
     and-int/lit8 v8, v3, 0x1
 
-    if-eqz v8, :cond_28
+    if-eqz v8, :cond_3
 
     move v1, v7
 
     .line 2307
     .local v1, easy2:Z
-    :goto_17
+    :goto_1
     and-int/lit8 v8, v2, 0x2
 
-    if-eqz v8, :cond_2a
+    if-eqz v8, :cond_4
 
     move v4, v7
 
     .line 2308
     .local v4, misspelled1:Z
-    :goto_1c
+    :goto_2
     and-int/lit8 v8, v3, 0x2
 
-    if-eqz v8, :cond_21
+    if-eqz v8, :cond_0
 
     move v5, v7
 
     .line 2309
     .local v5, misspelled2:Z
-    :cond_21
-    if-eqz v0, :cond_2c
+    :cond_0
+    if-eqz v0, :cond_5
 
-    if-nez v4, :cond_2c
+    if-nez v4, :cond_5
 
     .line 2315
     .end local v0           #easy1:Z
     .end local v1           #easy2:Z
     .end local v4           #misspelled1:Z
     .end local v5           #misspelled2:Z
-    :cond_25
-    :goto_25
+    :cond_1
+    :goto_3
     return v6
 
-    :cond_26
+    :cond_2
     move v0, v5
 
     .line 2305
-    goto :goto_12
+    goto :goto_0
 
     .restart local v0       #easy1:Z
-    :cond_28
+    :cond_3
     move v1, v5
 
     .line 2306
-    goto :goto_17
+    goto :goto_1
 
     .restart local v1       #easy2:Z
-    :cond_2a
+    :cond_4
     move v4, v5
 
     .line 2307
-    goto :goto_1c
+    goto :goto_2
 
     .line 2310
     .restart local v4       #misspelled1:Z
     .restart local v5       #misspelled2:Z
-    :cond_2c
-    if-eqz v1, :cond_32
+    :cond_5
+    if-eqz v1, :cond_6
 
-    if-nez v5, :cond_32
+    if-nez v5, :cond_6
 
     move v6, v7
 
-    goto :goto_25
+    goto :goto_3
 
     .line 2311
-    :cond_32
-    if-nez v4, :cond_25
+    :cond_6
+    if-nez v4, :cond_1
 
     .line 2312
-    if-eqz v5, :cond_38
+    if-eqz v5, :cond_7
 
     move v6, v7
 
-    goto :goto_25
+    goto :goto_3
 
     .line 2315
     .end local v0           #easy1:Z
     .end local v1           #easy2:Z
     .end local v4           #misspelled1:Z
     .end local v5           #misspelled2:Z
-    :cond_38
+    :cond_7
     iget-object v6, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionSpanComparator;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 
+    #getter for: Landroid/widget/Editor$SuggestionsPopupWindow;->mSpansLengths:Ljava/util/HashMap;
     invoke-static {v6}, Landroid/widget/Editor$SuggestionsPopupWindow;->access$1800(Landroid/widget/Editor$SuggestionsPopupWindow;)Ljava/util/HashMap;
 
     move-result-object v6
@@ -203,6 +204,7 @@
 
     iget-object v6, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionSpanComparator;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 
+    #getter for: Landroid/widget/Editor$SuggestionsPopupWindow;->mSpansLengths:Ljava/util/HashMap;
     invoke-static {v6}, Landroid/widget/Editor$SuggestionsPopupWindow;->access$1800(Landroid/widget/Editor$SuggestionsPopupWindow;)Ljava/util/HashMap;
 
     move-result-object v6
@@ -219,11 +221,11 @@
 
     sub-int v6, v7, v6
 
-    goto :goto_25
+    goto :goto_3
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .registers 4
+    .locals 1
     .parameter "x0"
     .parameter "x1"
 

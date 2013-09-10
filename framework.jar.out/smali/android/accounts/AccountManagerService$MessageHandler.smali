@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/accounts/AccountManagerService;Landroid/os/Looper;)V
-    .registers 3
+    .locals 0
     .parameter
     .parameter "looper"
 
@@ -38,14 +38,14 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .registers 6
+    .locals 4
     .parameter "msg"
 
     .prologue
     .line 1864
     iget v1, p1, Landroid/os/Message;->what:I
 
-    packed-switch v1, :pswitch_data_2a
+    packed-switch v1, :pswitch_data_0
 
     .line 1871
     new-instance v1, Ljava/lang/IllegalStateException;
@@ -75,7 +75,7 @@
     throw v1
 
     .line 1866
-    :pswitch_21
+    :pswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/accounts/AccountManagerService$Session;
@@ -90,8 +90,8 @@
     .line 1864
     nop
 
-    :pswitch_data_2a
+    :pswitch_data_0
     .packed-switch 0x3
-        :pswitch_21
+        :pswitch_0
     .end packed-switch
 .end method
